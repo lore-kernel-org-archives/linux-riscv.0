@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74AD1C4451B
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 15:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B068C44515
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 16:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B6uPkgItTF3K6KECDPXl5TKxftw+BHLv+sh/VFO8Ibc=; b=eC9TUK3/IjHtvmKtQALfWfZwEg
-	tZDzq19PDA0z17DZc8usqRn/iCkRLqDuUwLHK5ZS1/ctgul7gGEp/fPdN1IzaRjVt2paQoFaOArtj
-	6G+OvazPiTi7gu+mywBJihzxLNJ2JVVD22i+uKnJQemrfV4SlmVgT47xsgNugJob0hwBfSG0TKcYu
-	hNabY/7s5nHgCy5AN8aO/d+TF0ipNQAWNXIBLl+WUE06xArRYAhVgXjFcH1eJl5UMKBG5nxFP6Lue
-	wuLZ6zAfytYUy+UmOi61BICNAFafXuZzBvv8zcxOeX8EE36qnt3JntqI+iUKWkFfbK1N0jztFKSlw
-	nmC4Jc+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zZswOsElzMR0yJ78vNea4CQnwWWtCQbKp3Pr8cMlILU=; b=t8jVs8yPqJE0AS
+	eJRgXqxZC+xoMTiNvTMyDHLiQSH63JCFnmp0P4My7WL/j4uVEPl2rhKd2wmaUW+iB1QsGyGBi4P0T
+	GtNUs590NtWcpmSHnW2UNSDYB1Dks3UDwPfmbNYyPE4ZhulS/yh65TK6TKgTWbB0iFJalCqgCNZ/G
+	2EGFfwDhPvs2B44gt53ilNXnjINVOmjncF5fVU1fFbK3dJR5vsL1cuMMZzV3cHhABd7YDzl3EU3tt
+	TGWlbi7CldgLy6rUFxXE66LwwrQUmWJ34OPq1zacf3POQHVxmy+9kGa+qsrp1cquvKlRxgv6gWeWB
+	1SCz9NpmcmQmk22uTcZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkv4-00000002gG3-2Zfl;
-	Fri, 17 Jul 2026 15:56:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wklL1-00000002jT3-37CJ;
+	Fri, 17 Jul 2026 16:22:59 +0000
+Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkv1-00000002gFV-1pbf
+	id 1wklKy-00000002jSS-439a
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Jul 2026 15:56:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1784303767; x=1815839767;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZC+aybt/xs01TSo2+OGzHuUqZUn64HDjZmRVPTsj9XE=;
-  b=kb79sHzjBXAb7UZngKEAtCr+EnmcL9wp/zdLZHi3k/CSz52DwTfGJsTm
-   DXOovooo1W7mk3JObKW3LNQJH0ypYMYlFH8gx+VcIx2m11ibHPhAgzknE
-   Y1c91lo5ixo3QZDXh1wyeK8BPm1Wahguzi4QZlUPWehtLdKWAxeayG3ul
-   G/FflFBZO0uC+RERupizLusyR2v879qOU3FFf/Z5HmK7RNR56kCaKyaaQ
-   EORKha4ENKMPilWgbDq126xFBTey8inOYLRpZjlT+YCOEBMqQyZFArma3
-   auXIkHpskrXdlxmfH3bLmguXCubezQl/m+fU2ivnSv3WunIHr4N8RoJ/1
-   w==;
-X-CSE-ConnectionGUID: ZN/leDicTCiSEFrhkwE2NA==
-X-CSE-MsgGUID: g38FcU1tTXG+bOBprlDStQ==
-X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
-   d="asc'?scan'208";a="61112917"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 08:56:03 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.43; Fri, 17 Jul 2026 08:56:02 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 17 Jul 2026 08:55:57 -0700
-Date: Fri, 17 Jul 2026 16:55:00 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Yu-Chien Peter Lin <peter.lin@sifive.com>
-CC: Conor Dooley <conor@kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.fr>, <samuel.holland@sifive.com>, <dlan@kernel.org>,
-	<guodong@riscstar.com>, <dfustini@oss.tenstorrent.com>,
-	<michal.simek@amd.com>, <junhui.liu@pigmoral.tech>,
-	<darshan.prajapati@einfochips.com>, <akpm@linux-foundation.org>,
-	<zhangchunyan@iscas.ac.cn>, <luxu.kernel@bytedance.com>,
-	<pincheng.plct@isrc.iscas.ac.cn>, <nick.hu@sifive.com>, <jim.shu@sifive.com>,
-	<zong.li@sifive.com>, <greentime.hu@sifive.com>, <robin.randhawa@sifive.com>,
-	<scott@riscstar.com>, <dave.patel@riscstar.com>, <raymond.mao@riscstar.com>,
-	<pawandeep.oza@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 2/3] dt-bindings: riscv: Add Worlds per-hart
- properties
-Message-ID: <20260717-imitation-corridor-ce127d4093fd@wendy>
-References: <20260619105834.1277302-1-peter.lin@sifive.com>
- <20260619105834.1277302-3-peter.lin@sifive.com>
- <20260622-profanity-herbs-1cc1bcf6206f@spud>
- <aj5m00m4KxRAPAnB@plin-1878>
- <20260626-chitchat-purity-33af51f88380@spud>
- <akOkXpPi46LBHuIA@plin-1878>
- <20260630-frisk-excavate-7d562df75585@spud>
- <aloGd39fAlev7+4p@plin-1878>
+	Fri, 17 Jul 2026 16:22:59 +0000
+Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-6675db463b9so3890106d50.3
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Jul 2026 09:22:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1784305375; x=1784910175; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Atpe8oiFuJo0ZpVqSFjP8RyKcje4LD3ZY7D56RIa880=;
+        b=CBgpub3WmPXBg0BvYIKLYfk4sMoqs5yye6+KzCeinIcpCXE4paeyeBISMBiAcW/3SN
+         q5WZYyJQJFtDI2mvWs87T4saKMdThFFZ84iEnF0KYQoE+CicUioGkdt50tnA7253IPsj
+         wzTyGMiMANwWoSLauQgy2pxeb3qvmrgscrQWTA/Ng4375MEz6vxc2L8LDFHprMlMFFxB
+         Dl4DcElthoZseUyHvYYF3XF+d7/ALFwm70WGKkCkdoe7rPQs3DTd2DxJkW3Owglkn5tj
+         x1MmNMlDA/+3zYpwscv3IJZ6ACJ+1nJeWS9u71vexTl07rMVshpkQJxdjM/oYhhyPXxo
+         +PiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784305375; x=1784910175;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Atpe8oiFuJo0ZpVqSFjP8RyKcje4LD3ZY7D56RIa880=;
+        b=fFA+nbd0u4XAeOpbwrhkNPp/RMjJq6x2Z+RYkRLjZBy4kDHrMfH0rya8tDChxNSLJv
+         KdETpIko8tLXeDmOkCBfmTDp8ulDmoUQKkTclMuLmnQwr2PFOYgUZysYRWVte04kmExX
+         ukLEVhqqKM3NAJ66abODK06+yqB4jAeYa6Y0es/3+t2DqVBdXcMkXgrn3hk/hxP4Mw9e
+         d924PAEwlM+Sk8fPe+44gAGpEBjI+VBaBYHUPA8nBRJZ3PR0cvsiqkYi2TqLR8sQ8rtI
+         UhS3G0iyMv/NjILtXiNOkEI7M0a5qxPeKXpNHepbzkEz6AyikgRwLGJHelQfrIry8sUY
+         1A/A==
+X-Forwarded-Encrypted: i=1; AHgh+Rr62Zybvxv+IqijRX+Pj2ITiCUexcLCknEme/XrwKkg8YhiUaqWTnpdyTxlcxgXxkqAGwczOfX82XWPbg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyynVGr1Mzn86pdIZQB+87KfH6TETC+ozRwr9ZusAGuvL4TDllI
+	CDxUEcaABjSlc3gzvXh/rA2QWayZx5MVa0AoIeq71oMSg/2eGeeQGOajS0Nm/bXcnXE=
+X-Gm-Gg: AfdE7cnwhFJbREOEAJjxnPWBGQzVyqDb6vGggYRyjWX9rSmZhyt0iI/da+I9GTrEan+
+	O+0Y2UznyHG3FcRU/yIPGbkMqMTaQ2Af6TZ7HsRCHzOMO/bqeH6QGcFddMw1z8DGmnk4NWIO6yL
+	7JUhG6oK6qM7xNwhXwOb8vQ4axHdRRuBsxEXblSbjYjsr6HCJjwEqsS+YfKpAA0YoFEfB+hQHgc
+	SqlqBSbcS4pcWvRQQh1rfbY9KrbmVZz5R/XevMKTfXzB0hCzX9QivD1Ekw5rWmgacwuMPQ2kyqF
+	g3GY248Sz92fypAw3nsRkoUL4uf2knrQifo0A4HZ7JEh0t4zLJ7RdXjrFsTRYL4N9/et/pj7kSl
+	Z3vrLMQELMDQMAwdssLjj3J6/x2TYdDqoPss/s2+bNzRWLBRJyYtUWly5/gLi4aE0bAjRUbTKBY
+	A058v9rIjVq+pqcq0tOVRqvQg+KAu4AI/iNqQGPOmCgXopd3E=
+X-Received: by 2002:a05:690e:138f:b0:667:8b91:2429 with SMTP id 956f58d0204a3-6683be34e8amr896532d50.88.1784305375240;
+        Fri, 17 Jul 2026 09:22:55 -0700 (PDT)
+Received: from toolbox ([2600:1700:220:59e0:a95b:4a36:131e:330b])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6683b56fbf3sm1812291d50.8.2026.07.17.09.22.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 09:22:54 -0700 (PDT)
+Date: Fri, 17 Jul 2026 11:22:40 -0500
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+To: Klara Modin <klarasmodin@gmail.com>, Xu Lu <luxu.kernel@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	apw@canonical.com, joe@perches.com
+Subject: Re: [PATCH RESEND 1/2] riscv: mm: Apply svinval in update_mmu_cache()
+Message-ID: <yztlgx3bzablvmipbppedmemyihhvv6esg6qmu2ldwmjg53lp7@z6odepyf4hyp>
+References: <20250901114141.5438-1-luxu.kernel@bytedance.com>
+ <20250901114141.5438-2-luxu.kernel@bytedance.com>
+ <albbQtulrnpOmmBp@soda.int.kasm.eu>
 MIME-Version: 1.0
-In-Reply-To: <aloGd39fAlev7+4p@plin-1878>
+Content-Disposition: inline
+In-Reply-To: <albbQtulrnpOmmBp@soda.int.kasm.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_085607_552167_D24390BC 
-X-CRM114-Status: GOOD (  46.81  )
+X-CRM114-CacheID: sfid-20260717_092257_200828_D1C918E4 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,191 +98,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8697407890554924477=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8697407890554924477==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="7P4celFdWTWKZ/T/"
-Content-Disposition: inline
+On Wed, Jul 15, 2026 at 03:14:25AM +0200, Klara Modin wrote:
+> Hi,
+> 
+> On 2025-09-01 19:41:40 +0800, Xu Lu wrote:
+> > Only flush tlb of the specified mm, and apply svinval if available.
+> > 
+> > Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+> > ---
+> >  arch/riscv/include/asm/pgtable.h  | 16 +++++++++++++++-
+> >  arch/riscv/include/asm/tlbflush.h | 23 +++++++++++++++++++++++
+> >  arch/riscv/mm/tlbflush.c          | 23 -----------------------
+> >  3 files changed, 38 insertions(+), 24 deletions(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index 91697fbf1f901..165cd02d51629 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -495,9 +495,15 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+> >  		struct vm_area_struct *vma, unsigned long address,
+> >  		pte_t *ptep, unsigned int nr)
+> >  {
+> > +	int i;
+> > +	unsigned long asid = get_mm_asid(vma->vm_mm);
+> > +
+> >  	asm goto(ALTERNATIVE("nop", "j %l[svvptc]", 0, RISCV_ISA_EXT_SVVPTC, 1)
+> >  		 : : : : svvptc);
+> >  
+> > +	asm goto(ALTERNATIVE("nop", "j %l[svinval]", 0, RISCV_ISA_EXT_SVINVAL, 1)
+> > +		 : : : : svinval);
+> > +
+> >  	/*
+> >  	 * The kernel assumes that TLBs don't cache invalid entries, but
+> >  	 * in RISC-V, SFENCE.VMA specifies an ordering constraint, not a
+> > @@ -506,7 +512,15 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+> >  	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
+> >  	 */
+> >  	while (nr--)
+> > -		local_flush_tlb_page(address + nr * PAGE_SIZE);
+> > +		local_flush_tlb_page_asid(address + nr * PAGE_SIZE, asid);
+> > +	return;
+> > +
+> > +svinval:
+> > +	local_sfence_w_inval();
+> 
+> > +	for (i = 0; i < nr; i++)
+> > +		local_sinval_vma(address + nr * PAGE_SIZE, asid);
+> 
+> Probably should be
+> 
+>  +	for (i = 0; i < nr; i++)
+>  +		local_sinval_vma(address + i * PAGE_SIZE, asid);
+> 
+> instead. My BPI-f3 hangs when entering the initramfs with the original
+> patch. Reverting also fixes it.
 
---7P4celFdWTWKZ/T/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I'm also noticing this. linux-next is unable to enter userspace due to
+this on Spacemit K1. Hopefully we can get a fix merged in soon.
 
-On Fri, Jul 17, 2026 at 06:39:51PM +0800, Yu-Chien Peter Lin wrote:
-> Hi Conor,
->=20
-> On Tue, Jun 30, 2026 at 07:06:14PM +0100, Conor Dooley wrote:
-> > On Tue, Jun 30, 2026 at 07:11:26PM +0800, Yu-Chien Peter Lin wrote:
-> > > Hi Conor,
-> > >=20
-> > > On Fri, Jun 26, 2026 at 03:36:38PM +0100, Conor Dooley wrote:
-> > > > On Fri, Jun 26, 2026 at 07:47:31PM +0800, Yu-Chien Peter Lin wrote:
-> > > > > Hi Conor,
-> > > > >=20
-> > > > > On Mon, Jun 22, 2026 at 06:12:47PM +0100, Conor Dooley wrote:
-> > > > > > On Fri, Jun 19, 2026 at 06:58:33PM +0800, Yu-Chien Peter Lin wr=
-ote:
-> > > > > > > Add per-hart DT properties for RISC-V Worlds architecture:
-> > > > > > > riscv,pmwid, riscv,pmwidlist, and riscv,pmlwidlist. These
-> > > > > > > platform-defined values are primarily used by M-mode firmware
-> > > > > > > to configure World ID CSRs and restrict WID usage across
-> > > > > > > privilege levels.
-> > > > > > >=20
-> > > > > > > Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
-> > > > > > > ---
-> > > > > > >  .../devicetree/bindings/riscv/cpus.yaml       | 21 +++++
-> > > > > > >  .../devicetree/bindings/riscv/worlds.yaml     | 77 +++++++++=
-++++++++++
-> > > > > > >  2 files changed, 98 insertions(+)
-> > > > > > >  create mode 100644 Documentation/devicetree/bindings/riscv/w=
-orlds.yaml
-> > > > > > >=20
-> > > > > > > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yam=
-l b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > > > > > > index 5feeb2203050..4b5778b6d3e7 100644
-> > > > > > > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > > > > > > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> > > > > > > @@ -26,6 +26,7 @@ description: |
-> > > > > > >  allOf:
-> > > > > > >    - $ref: /schemas/cpu.yaml#
-> > > > > > >    - $ref: extensions.yaml
-> > > > > > > +  - $ref: worlds.yaml
-> > > > > > >    - if:
-> > > > > > >        not:
-> > > > > > >          properties:
-> > > > > > > @@ -120,11 +121,31 @@ properties:
-> > > > > > >        thead systems where the vector register length is not =
-identical on all harts, or
-> > > > > > >        the vlenb CSR is not available.
-> > > > > > > =20
-> > > > > > > +  riscv,pmwid:
-> > > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > > > > > +    description:
-> > > > > > > +      Platform-defined M-mode World ID (WID) assigned to thi=
-s hart.
-> > > > > > > +    minimum: 0
-> > > > > > > +    maximum: 63
-> > > > > > > +
-> > > > > > > +  riscv,pmwidlist:
-> > > > > > > +    $ref: /schemas/types.yaml#/definitions/uint64
-> > > > > > > +    description:
-> > > > > > > +      Platform-defined bitmap of M-mode World IDs (WIDs) tha=
-t this hart may use.
-> > > > > >=20
-> > > > > > I don't understand what the difference is between this property=
- and the
-> > > > > > one before it are.
-> > > > > > Is this one meant to be used by m-mode software to then select =
-one which
-> > > > > > will appear in riscv,pmwid?
-> > > > >=20
-> > > > > pmwid (single value) is the reset default, while pmwidlist (bitma=
-p)
-> > > > > defines the allowed set. The root-of-trust M-mode software may se=
-lect
-> > > > > an allowed value from the pmwidlist and write it to the mwid CSR.
-> > > >=20
-> > > > I don't understand the point of the property then. If it is the res=
-et
-> > > > default, just read it out of the register?
-> > > > Unless I am missing something, it's useless to s-mode because it may
-> > > > not be what m-mode chose and useless to m-mode that has access to
-> > > > the csr.
-> > >=20
-> > > Smwid is optional. In the no-Smwid case:
-> > > - M-mode's WID is fixed to pmwid (hardware-defined via fuse/pinstrap/=
-SoC
-> > >   registers, exposed to software via riscv,pmwid DT property)
-> > > - S/U-mode's WID depends on opensbi-domain configuration [1]:
-> > >   - If next-wid is specified: S/U use that WID (via mlwid CSR)
-> > >   - If next-wid is absent   : S/U fall back to pmwid (M/S/U in same
-> > >     world)
-> > >=20
-> > > So riscv,pmwid serves two purpose:
-> > > 1. Source of truth for M-mode's WID when mwid CSR doesn't exist
-> > > 2. Fallback value for OpenSBI to write to mlwid when domain config is
-> > >    absent.
-> >=20
-> > So it is not the default at reset at all then. The reset default is
-> > something else entirely and this is used to overwrite that.
-> >=20
-> > > - M-mode's WID is fixed to pmwid (hardware-defined via fuse/pinstrap/=
-SoC
-> > >   registers, exposed to software via riscv,pmwid DT property)
-> >=20
-> > In this case, it seems like pmwidlist would just contain a single entry,
-> > and there is no need for pwmid.
->=20
-> The pmwid and pmwidlist properties cannot merge because pmwidlist represe=
-nts
-> an optional hardware mask. On physically unrestricted platforms, pmwidlist
-> doesn't exist, making pmwid essential to define the hardware reset defaul=
-t.
->=20
-> >=20
-> > Quite frankly, it seems like you need to decouple these properties from
-> > being 1:1 mappings to your extension's CSRs and both name and explain
-> > how they are to be used by software.
->=20
-> These properties are actually not 1:1 CSR mappings. pmwid, pmwidlist, and
-> pmlwidlist are the exact terms used in the RISC-V specification to descri=
-be
-> these platform-defined hardware values, so I prefer to follow it.
+Regards
+Anirudh Srinivasan
 
-CSRs or terms in your extension, it matters little.
-Your properties should reflect how software will actually interact with
-the devicetree and wordguard. There's no point having a bunch of
-properties that relate to aspects of the extension if software is not
-going to actually use them.=20
-
-I fundamentally do not understand why software ever needs both both the
-singular and list properties. What does software actually do with the
-list property when both it and the singular property are provided?
-
-I expect to see something simpler and/or much better explained in the next
-revision.
-
-> > Again same point applies here, why can a single-entry riscv,pmwidlist
-> > not suffice here?
->=20
-> As explained above, a single-entry pmwidlist cannot replace pmwid because
-> it would fail to represent the exact hardware reset default for platforms
-> without physical WID restrictions.
-
-If there is one entry, use that, and if there are multiple entries, pick
-one?
-
-Thanks,
-Conor.
-
---7P4celFdWTWKZ/T/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCalpQVAAKCRB4tDGHoIJi
-0jrAAQD2HsxRZGdaMTjHcT10zblTSWUgCgqW990Vx+F307i2cwEAkCpsPtBdCPdm
-ggloawOyflqzbNxyB17YUKeQz3W86wE=
-=5mfd
------END PGP SIGNATURE-----
-
---7P4celFdWTWKZ/T/--
-
-
---===============8697407890554924477==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> 
+> > +	local_sfence_inval_ir();
+> > +	return;
+> >  
+> >  svvptc:;
+> >  	/*
+> 
+> Regards,
+> Klara Modin
+> 
+> ...
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8697407890554924477==--
-
