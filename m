@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 674D8C4451B
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jul 2026 02:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA24EC4450A
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jul 2026 03:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q7ytMypoYVUjff9PgpxXkCauAuz2rTM8K5EMGRICn5E=; b=rjDaQbGNjYMOha
-	G7pnXBORSPD4U3nDNHWrwjB5ZvoFJSA7PTIdlY13OfFTncHLoGC0qRd3OPDwEUw7D22Kp9/JkIpks
-	4ZOCZ02h24exz5q6GNfRGzeiYBZVAlnsk3NfvYeHWXdcM6Q7ZqA3MFMQsEDp8Xy3jxEL+fXCKpARD
-	1yykEjwr/PongSBk3PHtSB41tvnLoX84NMt8J4yXDZ+tS+F1ve6nE9QyBx2+oI6RvQLgsMeUk+RR0
-	AyR8aO+8hQWnJCCLRkXrkJ77cw/JY5gfEbF5t5ZK+gKnjoikr89M6czc8CWwSrSy/UYFceNS+KQDk
-	Qg4StyYn/4viXWONF2qQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6y+Jc3NUP1frmgcfuf3PetX23LjbDdqVlxhZDijGsJw=; b=rvc+O4v0NFkxqZ
+	e1EdcucrxlD+tc4RiGWThHbLydZ49b3cxgMie58bkQc+gS7cw3IZi/SjK2QnvuyFz03tFvYxaSDtO
+	NPXdiFqCiXLa628HEijTa0uuD2oqypmliN4t2FtuxgszbAmOJYtyPsusGtGggESntzD9ZKN9k+MhY
+	JBAbKiQD5ht2lRMCayU+0tkH/HQOZGKfhG1IF07wEli25mC2OIh5fMva3iGtm4AeMqV35GO0MnPAT
+	weu/sIaQfjAwCDVKYmiVY4lE3fRMDqnERAS7hZRtgOdMLzDfexHozTVFF051/L+XlX+u+X08/yV77
+	0CUDc40mp41xz1k1RR3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkuid-00000003Xxl-3PWO;
-	Sat, 18 Jul 2026 02:23:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wkw5l-00000003diX-2kV5;
+	Sat, 18 Jul 2026 03:51:57 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkuic-00000003Xxb-13vS
+	id 1wkw5h-00000003dhx-0IuX
 	for linux-riscv@lists.infradead.org;
-	Sat, 18 Jul 2026 02:23:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F93860A7F;
-	Sat, 18 Jul 2026 02:23:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F2D81F000E9;
-	Sat, 18 Jul 2026 02:23:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1784341435;
-	bh=iQ/Yf7wVnFQB+IHSZULMU8+KgGXBXMuHZZzMw8HGnT0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=qq65hb0S0liK/slomG4DFDFnkLSsN81uHm/Ra4fwu8UvpcI9Mwxck8gwrLG1l/XuI
-	 ScCKZpN3gWmZwuORrLBh/IY6L+g8Jx3/js0HYQ9ZGYgpKmFeJOOuwvwhDFeZPetdK7
-	 2hqYr/OcRIOofpgk5ZBh7PW80cAQ/Przn13h2cHI=
-Date: Fri, 17 Jul 2026 19:23:54 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, David
- Hildenbrand <david@kernel.org>, Guo Ren <guoren@kernel.org>, Mike Rapoport
- <rppt@kernel.org>, Vishal Moola <vishal.moola@gmail.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Junhui Liu
- <junhui.liu@pigmoral.tech>, Kiryl Shutsemau <kas@kernel.org>, Muchun Song
- <muchun.song@linux.dev>, Nam Cao <namcao@linutronix.de>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Vivian Wang
- <wangruikang@iscas.ac.cn>
-Subject: Re: [PATCH] riscv/mm: use physical alignment for vmemmap_start_pfn
-Message-Id: <20260717192354.045ed96b3f67e78b00a0319d@linux-foundation.org>
-In-Reply-To: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
-References: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Sat, 18 Jul 2026 03:51:55 +0000
+Received: from localhost.localdomain (unknown [111.196.245.140])
+	by APP-03 (Coremail) with SMTP id rQCowACnc0FO+FpqwtwtAA--.37348S2;
+	Sat, 18 Jul 2026 11:51:42 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Anup Patel <anup@brainfault.org>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] irqchip/riscv-imsic: Fix MMIO regset lookup loop bound
+Date: Sat, 18 Jul 2026 11:51:41 +0800
+Message-ID: <20260718033646.001.7e022554-caplitmus-rv@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
+MIME-Version: 1.0
+X-CM-TRANSID: rQCowACnc0FO+FpqwtwtAA--.37348S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Gr1DAF4kJryUAw47XrWrZrb_yoW8JryUpF
+	W5Wr9akrW7uw4jqr13Aa1vva4rGas0vrZxKFW8Jw4fu34qvFyDXFn8K34rZw4UJr42934Y
+	gFWYga48W3WUAFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r
+	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
+	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
+	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
+	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
+	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VUbGQ6JUUUUU==
+X-Originating-IP: [111.196.245.140]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_205153_494935_6BED9986 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +85,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Jul 2026 11:53:25 +0000 Jiakai Xu <xujiakai2025@iscas.ac.cn> wrote:
+nr_mmios is the number of elements in the MMIO resource arrays, while j is
+the index that advances through them. The loop currently tests the nonzero
+count on every iteration. If no region contains reloff, it reads past mmios
+before reaching the existing not-found check.
 
-> RISC-V computes vmemmap_start_pfn by rounding phys_ram_base down to
-> VMEMMAP_ADDR_ALIGN. That alignment must therefore be expressed in the
-> physical-address domain.
-> 
-> Commit 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
-> attempted to account for the maximal folio alignment by feeding
-> MAX_FOLIO_VMEMMAP_ALIGN directly into VMEMMAP_ADDR_ALIGN. However,
-> MAX_FOLIO_VMEMMAP_ALIGN is measured in bytes of struct page storage,
-> whereas VMEMMAP_ADDR_ALIGN is used to align a physical address.
-> 
-> The mask-based compound_info encoding requires pfn_to_page(0) to be
-> naturally aligned to MAX_FOLIO_VMEMMAP_ALIGN. Commit 9f94db4c7eaa
-> ("mm/sparse: check memmap alignment for compound_info_has_mask()")
-> added a check for that requirement and exposed the unit mismatch on
-> systems such as QEMU virt, where the DRAM base is not aligned to
-> MAX_FOLIO_NR_PAGES * PAGE_SIZE.
-> 
-> Convert MAX_FOLIO_VMEMMAP_ALIGN to the equivalent physical alignment
-> before using it in VMEMMAP_ADDR_ALIGN. This keeps the existing
-> round_down() logic while making the resulting vmemmap base satisfy the
-> mask-alignment requirement.
+Compare j with nr_mmios. This preserves successful lookups and lets the
+not-found path handle an offset beyond the listed regions.
 
-Thanks.
+Fixes: 21a8f8a0eb35 ("irqchip: Add RISC-V incoming MSI controller early driver")
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/irqchip/irq-riscv-imsic-state.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> Fixes: 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
-
-That's in 7.1, so I'll add a cc:stable to help ensure this gets
-backported.
-
-The changelog doesn't tell people *why* we're proposing a backport - to
-understand that we should tell them how the bug affects users.  So I'll
-paste your following boot-time warning messages into the changelog.
-
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -63,7 +63,8 @@ EXPORT_SYMBOL(phys_ram_base);
->  
->  #ifdef CONFIG_SPARSEMEM_VMEMMAP
->  #define VMEMMAP_ADDR_ALIGN	max(1ULL << SECTION_SIZE_BITS, \
-> -				    MAX_FOLIO_VMEMMAP_ALIGN)
-> +				    PFN_PHYS(MAX_FOLIO_VMEMMAP_ALIGN / \
-> +					     sizeof(struct page)))
->  
->  unsigned long vmemmap_start_pfn __ro_after_init;
->  EXPORT_SYMBOL(vmemmap_start_pfn);
-
-I'll queue this as a backportable hotfix and shall await reviewer input
-(please).
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+index b8d1bbbf42f73..008dfcf343e53 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.c
++++ b/drivers/irqchip/irq-riscv-imsic-state.c
+@@ -896,7 +896,7 @@ int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
+ 		index = nr_mmios;
+ 		reloff = i * BIT(global->guest_index_bits) *
+ 			 IMSIC_MMIO_PAGE_SZ;
+-		for (j = 0; nr_mmios; j++) {
++		for (j = 0; j < nr_mmios; j++) {
+ 			if (reloff < resource_size(&mmios[j])) {
+ 				index = j;
+ 				break;
+-- 
+2.43.0
 
 
 _______________________________________________
