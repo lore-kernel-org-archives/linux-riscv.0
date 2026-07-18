@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4562CC44516
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jul 2026 22:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 674D8C4451B
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jul 2026 02:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3MVBc6H2WRNUCMw1TfjNXq8+Y225wHUpcsduP4dHyxc=; b=wQt9xWC6o7JACB
-	TYAkTl9d34T+fG0j+e2DWq491aHkOAt7S+iPmlItbPvKrvSbeRHDJsOfluBbuak5dLPvvTF04b0zT
-	6SdbvWnRubWUFwVkZBlqf6HmCG5hnAbLWLVnpmJ9caQ7SZvPZYLOGYklyJByQ9TP7T5++An4FXTd7
-	hvA08K0uwQ+VCqmoh0bdGSQQ5uzBw794GbDWp47cXqXVqWnvLdD3La2glp6KuAY7VXy6wRpYUqyW8
-	g8xFl4wcfhG4kmkX+VWe8CDT5874pSaeShyn+x8/MwlB48qDJEJ2LsdCx51iyEHa1y2ErOhU3FM3R
-	4F5BBI7yYLwXoH15Z3Ew==;
+	List-Owner; bh=q7ytMypoYVUjff9PgpxXkCauAuz2rTM8K5EMGRICn5E=; b=rjDaQbGNjYMOha
+	G7pnXBORSPD4U3nDNHWrwjB5ZvoFJSA7PTIdlY13OfFTncHLoGC0qRd3OPDwEUw7D22Kp9/JkIpks
+	4ZOCZ02h24exz5q6GNfRGzeiYBZVAlnsk3NfvYeHWXdcM6Q7ZqA3MFMQsEDp8Xy3jxEL+fXCKpARD
+	1yykEjwr/PongSBk3PHtSB41tvnLoX84NMt8J4yXDZ+tS+F1ve6nE9QyBx2+oI6RvQLgsMeUk+RR0
+	AyR8aO+8hQWnJCCLRkXrkJ77cw/JY5gfEbF5t5ZK+gKnjoikr89M6czc8CWwSrSy/UYFceNS+KQDk
+	Qg4StyYn/4viXWONF2qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkqck-00000003JHw-2ZP1;
-	Fri, 17 Jul 2026 22:01:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkqci-00000003JHJ-0ck1;
-	Fri, 17 Jul 2026 22:01:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D51A1476;
-	Fri, 17 Jul 2026 15:01:27 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF9F83F66F;
-	Fri, 17 Jul 2026 15:01:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784325691; bh=ibP4H/kTc6QpQES5l0G9CzhAJHDJoBKAVcsqYj265Qk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=liTaZx7pXEUG/d54Fz0HF4kPrlEEhQ5Soeb/Xz0YcG0QXdu2r82YoCE3lKDkxRQd6
-	 0LZp9/3XsmIkKdbtG/VTXeMs7YQWwAL+tEEbZfcfbnJR+dQcWrBBOfRxwvoUd7nb3L
-	 L3QtznJYV6bxhepnmiy6xjDB14+QPAO3G6X5XzTs=
-Date: Fri, 17 Jul 2026 23:57:37 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Enzo Adriano <enzo.adriano.code@gmail.com>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Brian Masney
- <bmasney@redhat.com>, Michael Turquette <mturquette@baylibre.com>, Stephen
- Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp
- Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran
- <richardcochran@gmail.com>, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 3/8] clk: sunxi-ng: a733: Add PRCM CCU
-Message-ID: <20260717235737.6e69ba19@ryzen.lan>
-In-Reply-To: <20260702165944.828550-1-enzo.adriano.code@gmail.com>
-References: <20260310-a733-clk-v1-3-36b4e9b24457@pigmoral.tech>
-	<20260702165944.828550-1-enzo.adriano.code@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
-MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_150136_446284_3EA32F41 
-X-CRM114-Status: GOOD (  12.24  )
+	id 1wkuid-00000003Xxl-3PWO;
+	Sat, 18 Jul 2026 02:23:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkuic-00000003Xxb-13vS
+	for linux-riscv@lists.infradead.org;
+	Sat, 18 Jul 2026 02:23:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F93860A7F;
+	Sat, 18 Jul 2026 02:23:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F2D81F000E9;
+	Sat, 18 Jul 2026 02:23:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1784341435;
+	bh=iQ/Yf7wVnFQB+IHSZULMU8+KgGXBXMuHZZzMw8HGnT0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=qq65hb0S0liK/slomG4DFDFnkLSsN81uHm/Ra4fwu8UvpcI9Mwxck8gwrLG1l/XuI
+	 ScCKZpN3gWmZwuORrLBh/IY6L+g8Jx3/js0HYQ9ZGYgpKmFeJOOuwvwhDFeZPetdK7
+	 2hqYr/OcRIOofpgk5ZBh7PW80cAQ/Przn13h2cHI=
+Date: Fri, 17 Jul 2026 19:23:54 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, David
+ Hildenbrand <david@kernel.org>, Guo Ren <guoren@kernel.org>, Mike Rapoport
+ <rppt@kernel.org>, Vishal Moola <vishal.moola@gmail.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Junhui Liu
+ <junhui.liu@pigmoral.tech>, Kiryl Shutsemau <kas@kernel.org>, Muchun Song
+ <muchun.song@linux.dev>, Nam Cao <namcao@linutronix.de>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Vivian Wang
+ <wangruikang@iscas.ac.cn>
+Subject: Re: [PATCH] riscv/mm: use physical alignment for vmemmap_start_pfn
+Message-Id: <20260717192354.045ed96b3f67e78b00a0319d@linux-foundation.org>
+In-Reply-To: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
+References: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +72,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu,  2 Jul 2026 12:59:44 -0400
-Enzo Adriano <enzo.adriano.code@gmail.com> wrote:
+On Thu, 16 Jul 2026 11:53:25 +0000 Jiakai Xu <xujiakai2025@iscas.ac.cn> wrote:
 
-Hi Enzo,
-
-> Register check for the PRCM driver against the public A733 User Manual
-> V0.92, chapter 4.2.5: all 41 entries I could extract (13 reset-map
-> entries, 18 bus gates, 10 mod/mux clocks) match the manual's register
-> offsets and bit positions. No discrepancies found in this patch.
+> RISC-V computes vmemmap_start_pfn by rounding phys_ram_base down to
+> VMEMMAP_ADDR_ALIGN. That alignment must therefore be expressed in the
+> physical-address domain.
 > 
-> For what it's worth, we have also exercised the R-domain at runtime on a
-> Radxa Cubie A7S (r-ahb/r-apb0 rates with live consumers on r-pinctrl,
-> r-rtc and the PPU, bus-r-cpucfg via its critical flag), with no
-> misbehavior attributable to the PRCM model.
+> Commit 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
+> attempted to account for the maximal folio alignment by feeding
+> MAX_FOLIO_VMEMMAP_ALIGN directly into VMEMMAP_ADDR_ALIGN. However,
+> MAX_FOLIO_VMEMMAP_ALIGN is measured in bytes of struct page storage,
+> whereas VMEMMAP_ADDR_ALIGN is used to align a physical address.
+> 
+> The mask-based compound_info encoding requires pfn_to_page(0) to be
+> naturally aligned to MAX_FOLIO_VMEMMAP_ALIGN. Commit 9f94db4c7eaa
+> ("mm/sparse: check memmap alignment for compound_info_has_mask()")
+> added a check for that requirement and exposed the unit mismatch on
+> systems such as QEMU virt, where the DRAM base is not aligned to
+> MAX_FOLIO_NR_PAGES * PAGE_SIZE.
+> 
+> Convert MAX_FOLIO_VMEMMAP_ALIGN to the equivalent physical alignment
+> before using it in VMEMMAP_ADDR_ALIGN. This keeps the existing
+> round_down() logic while making the resulting vmemmap base satisfy the
+> mask-alignment requirement.
 
-many thanks for doing this, but please add proper tags to your replies,
-otherwise this won't be carried over to new revision, and your work
-gets lost in the cracks - as it happened this time.
+Thanks.
 
-So you now would need to redo the review on v2. I'd suggest to compare
-the patches between their RFC and v2 version, and if you agree that the
-changes don't touch anything you checked (register offsets, bit
-positions), then you can just (re-)post your review with the proper
-tags - and a brief list of what you checked, as you did in the RFC
-reply.
+> Fixes: 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
 
-Thanks,
-Andre
+That's in 7.1, so I'll add a cc:stable to help ensure this gets
+backported.
+
+The changelog doesn't tell people *why* we're proposing a backport - to
+understand that we should tell them how the bug affects users.  So I'll
+paste your following boot-time warning messages into the changelog.
+
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -63,7 +63,8 @@ EXPORT_SYMBOL(phys_ram_base);
+>  
+>  #ifdef CONFIG_SPARSEMEM_VMEMMAP
+>  #define VMEMMAP_ADDR_ALIGN	max(1ULL << SECTION_SIZE_BITS, \
+> -				    MAX_FOLIO_VMEMMAP_ALIGN)
+> +				    PFN_PHYS(MAX_FOLIO_VMEMMAP_ALIGN / \
+> +					     sizeof(struct page)))
+>  
+>  unsigned long vmemmap_start_pfn __ro_after_init;
+>  EXPORT_SYMBOL(vmemmap_start_pfn);
+
+I'll queue this as a backportable hotfix and shall await reviewer input
+(please).
+
 
 _______________________________________________
 linux-riscv mailing list
