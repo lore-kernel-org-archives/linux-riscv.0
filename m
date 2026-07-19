@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB3B2C44523
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Jul 2026 09:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12159C4450A
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Jul 2026 10:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HYdWRU4S5fMP4HERpbpwXqquoZh+TjFvZyUZjsnRzpc=; b=Fbk7BuoNVjJdHR
-	x25gl4HnLrMPT1PwS8m00b91zFJ2YWQayYT2gESGhVaf+4qhrXpEoNdIHimNy48Dp4SE+Zeh8cj+a
-	ASLhC4BtcH5ejP0eTXJO3A/j0AwA6oBMfPV1vvJDaaaDFUPDM9XAHQzwPbpNaRLqUz5DhYA4XGfty
-	YeR4if7sG16bi3yfJEZ8JPDuEiIcrgihAN0GLDpxoez4qKg+BZKIg37psU5kKjZ2XY/ZBgyIgWozB
-	1VCccbiuOtFx69g2n8uGKQS5Fq8xXXlCugt7kF4cYXdxLq2CLlSrYZeXkCRXdpSdMHf/IcnOV8Bk+
-	UdeG0UxyJjHbpZt2Zpjg==;
+	List-Owner; bh=9Or3Igpx06Xue6Htvsdn5jwXeyVSnPhkrjw+5Tw3gLk=; b=jsciEb53EGOCGa
+	zzh/GYgnwzca3FD4cL4eAXZR9+MGjjfi1u7YlNja0ToAy1rTBZFvhqx1SHAu5iqWWOBgUzb1e/Nhh
+	5GwQEPGstorKKsH5/qZePhqEi+GNFi3DTtwM8J3Y7g3hJEBl/j6ds4f8B7TA4k00mu9uzPhCveUFB
+	cvUCcTg4y8BtrZQc9ua3lMby9z4Vz/mSXve8OgrOhBZfK63XpCYJSGkxniNqrEmM5zFH87U/lPwBb
+	+0Z4NhaPHB+Qh85LRMgAHMZjhXGioS8GJSwgGb2CeGXmQY/TgA+pRPfy8X3hDKisSHkrR5Lm2nMdD
+	K1Ia1lEDA9g3zoqMrFxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlNrl-00000004sqe-1Aw9;
-	Sun, 19 Jul 2026 09:31:21 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1wlOld-00000004uw9-0DzR;
+	Sun, 19 Jul 2026 10:29:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlNri-00000004soP-0lGX
+	id 1wlOlb-00000004uvT-0wOw
 	for linux-riscv@lists.infradead.org;
-	Sun, 19 Jul 2026 09:31:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=nN
-	fRhaOga8yZmczg87holWW3UblLdJzQoSXQwr3yNc8=; b=f3GgDCUf9EkfvUeaGt
-	PcXuB7wp8MCedOedA00blt4DU7OCEH35yFfHgVRapOEkoW5UuXByA7K5MGmkWtoY
-	XTooAscENuIw8ehUNrGR5bVvBSdyEDQ+Nen1or5s+IfYP4l/DRkjbfza/6UI1Wxf
-	DiI3UROcu7l+l/XvXHav3NiRg=
-Received: from Ubuntu.. (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgCnTyswmVxqbA0SIA--.60699S4;
-	Sun, 19 Jul 2026 17:30:26 +0800 (CST)
-From: Xiaofeng Yuan <xiaofengmian@163.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Nam Cao <namcao@linutronix.de>,
-	linux-riscv@lists.infradead.org,
+	Sun, 19 Jul 2026 10:29:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 08B3C6001A;
+	Sun, 19 Jul 2026 10:29:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B5121F000E9;
+	Sun, 19 Jul 2026 10:28:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784456940;
+	bh=ETZXRx5XNfVk+Trkw1tINvb56g2yDS5JttoGN+C4/Ek=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Eq4GXvPKRSfXFRzSYFY7TwM5egRhknT5jUTz/LfLAihXSCUN5DvGsFGUv06UwvXmi
+	 RiRB4ngzWiuijrDDXZ9tAeSp4rxEv5Rmwqe5sXbrCF30AcjEI7+W0HceG6xsC2dA/c
+	 D3HlCjqNwOVyxESfkhOuMBayuoboqds/2/m/eyKmIM69AzP54snk4Rr0tR08XaRQ9u
+	 SmviFiQoFqyx5IKWoH8pZmfKzpdzYI6yaLiTS5JHlB9VUX+3EVy5ZLWgdotYfeV7hu
+	 LV8MVnRVhsD3mjFrEMcYheVowC4LDPGR/v42Hsm0ucn7dAVsd3QGsj/cQo3E3bsEmi
+	 UfII5Ou3KNE9A==
+Date: Sun, 19 Jul 2026 10:28:57 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Andrew Rembrandt <kernel@rembrandt.dev>
+Cc: E Shattow <e@freeshell.de>, Inochi Amaoto <inochiama@gmail.com>,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] riscv: patch: skip fixmap mapping when kernel text is already writable
-Date: Sun, 19 Jul 2026 09:30:24 +0000
-Message-ID: <20260719093024.33351-3-xiaofengmian@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260719093024.33351-1-xiaofengmian@163.com>
-References: <20260719093024.33351-1-xiaofengmian@163.com>
+Subject: Re: [PATCH] riscv: dts: spacemit: k3-pico-itx: Fix non-functional
+ ethernet TX timing
+Message-ID: <20260719102857-GKA8523@kernel.org>
+References: <20260608182358.170489-1-kernel@rembrandt.dev>
+ <aiemGajqcQeY9avz@inochi.infowork>
+ <aihYftGNcpUd4UUR@mcmanus>
+ <aiid4Y6x6Dbbwszf@inochi.infowork>
+ <aikmOfazxdrhpty7@mcmanus>
+ <77a48b81-7906-4e18-9229-48643a67f402@freeshell.de>
+ <20260710022551-GKA106000@kernel.org>
+ <738ce6b8-798b-4689-a0f5-791fe85addbc@freeshell.de>
+ <als2a8ra4PB6Y1t5@mcmanus>
 MIME-Version: 1.0
-X-CM-TRANSID: PygvCgCnTyswmVxqbA0SIA--.60699S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7CF1xuw4UGF43Kr17Cry5XFb_yoW8XFy5pr
-	s7GF1rZFW5JF4Fv3y2kwn5ury5Awn3trZxGF9rX34Svws8X34rXwn5W3y2qF10gr1j9w47
-	uFsIyrWS9a4UJ37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j64ENUUUUU=
-X-Originating-IP: [39.187.244.72]
-X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbDAhIkJ2pcmTIMvQAA3-
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_023118_622530_AA7FB969 
-X-CRM114-Status: GOOD (  11.00  )
+Content-Disposition: inline
+In-Reply-To: <als2a8ra4PB6Y1t5@mcmanus>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,52 +79,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently patch_map() always creates a temporary writable mapping via
-fixmap for kernel text addresses, even when CONFIG_STRICT_MODULE_RWX
-is disabled and the kernel text is already mapped with _PAGE_WRITE.
+Hi Andrew,
 
-This is unnecessary overhead at best, and on minimal configurations
-it can cause page faults.
+On 11:07 Sat 18 Jul     , Andrew Rembrandt wrote:
+> Hi E, Yixun,
+> 
+> On Fri, Jul 10, 2026 at 07:34:34 am E Shattow wrote:
+> > On the topic of this ethernet TX timing thread I don't know what
+> > this does? Is there a test situation I may try to know if it is doing
+> > anything? Thanks very much, -E
+> Apologies for the slow reply -- I've been swamped the past month.
+> 
+> Thank you for taking the time to test this; your results are what
+> prompted me to go back and re-test properly, and it turns out my
+> original premise was wrong.
+> 
+> The non-functional TX I originally saw was not fixed by this delay
+> property at all. An unrelated commit that landed between v7.1-rc1 and
+> v7.1-rc7 is what actually fixed the dead TX on my board. While
+> developing this patch I'd inadvertently picked up that change, and I
+> wrongly concluded the tx-internal-delay-ps addition was what got traffic
+> flowing.
+> 
+> To confirm, I re-ran a series of iperf3 tests without the delay patch
+> and saw no transmission problem whatsoever -- a full 1Gb/s in both
+> directions with no errors. So this matches exactly what you and perhaps
+> Yixun also observed: on a current base the property makes no measurable
+> difference, because the TX path already works without it.
+> 
+> Given that, the patch isn't the fix as described in the changelog, and
+> the property has no functional effect on this board.
+> 
+..
+> Yixun -- since you've already applied it, could you drop it from your
+> tree? A revert is fine too if it's landed somewhere non-rewindable, but
+I can drop this patch
 
-Skip the fixmap path for kernel text when CONFIG_STRICT_MODULE_RWX
-is not enabled, since the text pages are already writable in this case.
+> I don't think it should go upstream as-is: the "Fixes:" tag and the "no
+> ethernet traffic passes" rationale are both wrong. Sorry for the hassle,
+> and thanks for queuing it in good faith.
+> 
+No worry
 
-Signed-off-by: Xiaofeng Yuan <xiaofengmian@163.com>
----
-v2: add commit description (per Nam Cao's review)
+> 
+> Sorry again for the noise, and thanks E for the careful testing that
+> caught this.
 
-v3: early return when !CONFIG_STRICT_MODULE_RWX (per Nam Cao's suggestion)
-
- arch/riscv/kernel/patch.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-index 16b243376f..caef41d5ef 100644
---- a/arch/riscv/kernel/patch.c
-+++ b/arch/riscv/kernel/patch.c
-@@ -44,15 +44,16 @@ static __always_inline void *patch_map(void *addr, const unsigned int fixmap)
- 	uintptr_t uintaddr = (uintptr_t) addr;
- 	phys_addr_t phys;
- 
-+	if (!IS_ENABLED(CONFIG_STRICT_MODULE_RWX))
-+		return addr;
-+
- 	if (core_kernel_text(uintaddr) || is_kernel_exittext(uintaddr)) {
- 		phys = __pa_symbol(addr);
--	} else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX)) {
-+	} else {
- 		struct page *page = vmalloc_to_page(addr);
- 
- 		BUG_ON(!page);
- 		phys = page_to_phys(page) + offset_in_page(addr);
--	} else {
--		return addr;
- 	}
- 
- 	return (void *)set_fixmap_offset(fixmap, phys);
 -- 
-2.43.0
-
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
