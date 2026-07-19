@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29286C4452A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 12:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D4CC4452C
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 13:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dF07e+PJuQTaVywiu+dmAKgpcgI+X3nLN2wVm0livPE=; b=wcg34/e/o0L04K
-	sMEOoskk3zlPytPI+5tzWhHd7uuSRV8By+gFP7TVe+NF3ldH7a8ykZf20zQVMJcRyu0edrhsJ3YSL
-	x2C5MK/u6prCC2hxClvhbvwr/pi2y8+Y14H0FiTxMq4zmRNkdJ3DUf5MOUnFYis1Bu3zwvuR9ndc7
-	DCLJqdX9t3VI20tqZfsMtc0N1sj1fL+DHI69WhxF2XO2UnVrpPeK2iTV/rrLckVJ4KRN3IYo1ZOZh
-	IJcZQ+Qcw9RArnJuZSCvqoYk9NyX6X27kxsXwulpwmIr89xVO31wcykitjXlGzNNdGuKhrc3Z+diJ
-	bsPUHQ43ZooqMNpMseGQ==;
+	List-Owner; bh=3fbf6RbHLgVal8bLXUrNVRYUaNRLiKMcQP+F5EzPuMw=; b=nFIN26DVqc+ea8
+	LDpa4GYkX0XjRqTDvCBVJYhby5TnOmeEiMKrQoBCUssDvWzQVvBT5E/czNas1ziU8ZWYXxCGsLtoA
+	iBlj4pwCa+mNwOrPnOhhdZTWxy2tuB5+qHLMHfTekGMj/jsT506uhryB+uRuwFd+Q7X8pAb0IKi9u
+	d75ns7kxAmvR4/aQudJofgqW5uA6YdLgVlwvB/sgPfhbTAnZzoNKoqkpFAZdFs+7BapqoXoCdCy8o
+	Vv/x7SU8U/mUhgaBhKsKdZrONX+QWevQUazsdOHxUK1WCGSIe8XBM3jpIzoYCX4b2fTiDVJK/6o0w
+	WxE7DfCNyFNfaRdYV5Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnL7-00000006it2-0xqa;
-	Mon, 20 Jul 2026 12:43:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wlnui-00000006mNJ-3osA;
+	Mon, 20 Jul 2026 13:20:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnL5-00000006isj-1lcj;
-	Mon, 20 Jul 2026 12:43:19 +0000
+	id 1wlnuh-00000006mMb-0eBO
+	for linux-riscv@lists.infradead.org;
+	Mon, 20 Jul 2026 13:20:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2233F4304A;
-	Mon, 20 Jul 2026 12:43:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C02101F000E9;
-	Mon, 20 Jul 2026 12:43:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D969043E69;
+	Mon, 20 Jul 2026 13:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BC141F000E9;
+	Mon, 20 Jul 2026 13:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784551399;
-	bh=/iig1PBFdcY5HjlDuDU/ADsRJNO/Hx2Bt7lB9eeE+YM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=C2KGFoH7pJ83K2lvgvwaBViS832LyhVDhzK+gYrDm//Wacyhb8iZjL6FL/5KoOAMm
-	 gykvbdJUUb8za46mKM+vvkIg75ktBdDRFMkeQ60bebVECAM8LDq551QWsi39nubm3M
-	 f0bijeVlQZ1l1URXOCz12bRAfczsKWTk2v4FkqSsevjPw5CK0fF9tLUvxrlQtJLm9e
-	 CQm61a93+a14hp896s1BJ5I03BijR+dPV0Y++8FEUmKQwsku4NPfG9tYKkPhoZCxzE
-	 sxkqhBBJeq0tGuVKZ09aiBZId7G9P9Tll+X4kkYj9Q06IJ98xwWPngvKWL8xQV0gAD
-	 ACWxcsOpSTR6w==
-Date: Mon, 20 Jul 2026 15:43:11 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: Pnina Feder <pnina.feder@mobileye.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Dave Young <ruirui.yang@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, Alexandre Ghiti <alex@ghiti.fr>,
-	kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 0/4] vmcore-tasks: export per-task metadata to vmcoreinfo
-Message-ID: <al4X300UObXawEIJ@kernel.org>
-References: <20260622211430.4008899-1-pnina.feder@mobileye.com>
- <akybBoCAm-kJbfHL@kernel.org>
- <20260720091927.GA1736709@horms.kernel.org>
+	s=k20260515; t=1784553606;
+	bh=bB8LbbQ8ato4eUpI/pD/xOs6h3QBYChFQmgrhaxvC8s=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=iK05cXzGHHMN+9KPEzYdSfXWKYItWmCHctLtMUa31qHmsjose29IsskHQDTahKwCm
+	 yVQPLbdZJIrdzNpRhzeCuomzgjFBkFrz7MWsTGf3ndJngG9Kfh7hWGQowjdb1uXMEJ
+	 Ij6gKgGGhm7pCLpaiW4F3SqS4rBbLStmx2LdEBLf5ydy9+iS0f1hGIU1TovVBMGSSo
+	 n6MAOYF7YSdETFxFlMMJH7hL3csUE19ZjkuyPgNOW0mQAPDSmk1UwLi4PJtNQrQ7iP
+	 c4iaOsAkoeawpz6JPQW3+JZKwTyVi8VD5a6kgqy6Y4HNqnRoF8klq0AVXOlrv27b/3
+	 rGUcpiUYKws/w==
+From: Mark Brown <broonie@kernel.org>
+To: Yixun Lan <dlan@kernel.org>, Zhengyu He <hezhy472013@gmail.com>
+Cc: wefu@redhat.com, linux-spi@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Peixin Xie <peixin.xie@spacemit.com>
+In-Reply-To: <20260715-k1-spi-tx-fifo-fix-v1-for-next-v1-1-02024223b08a@gmail.com>
+References: <20260715-k1-spi-tx-fifo-fix-v1-for-next-v1-1-02024223b08a@gmail.com>
+Subject: Re: [PATCH] spi: spacemit: Correct TX FIFO slot calculation
+Message-Id: <178449558269.33801.416545162576183224.b4-ty@b4>
+Date: Sun, 19 Jul 2026 22:13:02 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260720091927.GA1736709@horms.kernel.org>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1106; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=lNDsCrr6Zr1a04BpBZ3lfOtH7qJfNJwbYY0TuEgr1a8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXiCEOyek79WHHGGiFXCeTAW8F77//b0UOazmO
+ DXeim3CFjWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal4ghAAKCRAk1otyXVSH
+ 0JB3B/sGiLFZW8tY8oSWfbgOEY5rtcyssZ6mdOCkSFUjCHdM71rqTs7M0hwMcXo8vjuE8zQFZF+
+ oq8fxc6FoG+lRnqWwim6F7ZylZS6Y83MszA+46+HXz9dSQcno+l05zzRAaeJl0wPgX0LrFPmn5l
+ F2EXDwTEu7GG4a/XOWSZ/mXX83arEsylSvh0yvRAh8BfV69LRD2SsOd2T3b81flqBRgVCKMDK/L
+ CFofHiqSTYsHC1naZuHGyQPjYaGrUTZltAlQN04ZQ1nlqfoqAfbCk8KrIa72aHOLhOW6izjebAU
+ hPx0DPv1WiL2REbIyRknW7e2yLITYb3C53w73w+gqDzy9Pmz
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,62 +81,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Simon,
+On Wed, 15 Jul 2026 20:52:15 +0800, Zhengyu He wrote:
+> spi: spacemit: Correct TX FIFO slot calculation
 
-On Mon, Jul 20, 2026 at 10:19:27AM +0100, Simon Horman wrote:
-> On Tue, Jul 07, 2026 at 09:21:58AM +0300, Mike Rapoport wrote:
-> > On Tue, Jun 23, 2026 at 12:14:26AM +0300, Pnina Feder wrote:
-> > > This series extends vmcoreinfo with struct offsets and sizes needed by
-> > > the vmcore-tasks userspace tool to extract per-task state from a vmcore
-> > > dump without requiring kernel debug symbols (DWARF/BTF).
-> > > 
-> > > The vmcore-tasks tool reads /proc/vmcore (or a saved vmcore file) and
-> > > reconstructs, for each task:
-> > >   - task name, pid, state, flags
-> > >   - VMA list (start, end, flags, backing file)
-> > >   - user register state (saved on the kernel stack at kernel entry)
-> > >   - user-space backtrace with VMA/filename mapping
-> > >   - kernel dmesg buffer
-> > > 
-> > > This provides a lightweight post-mortem crash analysis capability for
-> > > production environments where full debug info (DWARF/BTF) is not
-> > > available.
-> > > 
-> > > The companion userspace tool is submitted to kexec-tools:
-> > >   https://lore.kernel.org/all/20260622205550.1087163-1-pnina.feder@mobileye.com/
-> > 
-> > Sorry for the delay, this fell between the cracks somehow.
-> > 
-> > The kernel side looks fine overall, but to merge it there should be an
-> > agreement from the userspace side maintainers that vmcore-tasks is
-> > something they are wishing to accept.
-> 
-> Hi Mike, all,
-> 
-> Sorry for the extended delay.
-> 
-> I will send some minor feedback to the user-space tool patchset
-> but overall, yes, this is something I would be happy to accept.
-> 
-> I don't want to create a chicken-and-egg type problem here.
-> But it's probably worth mentioning that usually features
-> hit the kernel before the corresponding code is accepted
-> into kexec-tools.
+Applied to
 
-Sorry if I wasn't clear. 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.2
 
-I didn't mean that the feature should be merged into kexec-tools before
-merging the kernel bits. I just wanted to make sure there's no fundamental
-issue from kexec-tools perspective.
+Thanks!
 
-> Let me know how you would like to proceed.
+[1/1] spi: spacemit: Correct TX FIFO slot calculation
+      https://git.kernel.org/broonie/spi/c/a88df1d92fcf
 
-I'm going to wait for Baoquan's review and once that's done I'll pick up
-the kernel bits.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
--- 
-Sincerely yours,
-Mike.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
 _______________________________________________
 linux-riscv mailing list
