@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E141C4450A
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Jul 2026 09:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB3B2C44523
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Jul 2026 09:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=60882D1sQjnJ5vNOj+a3UHHgKxW7rQwbx2RBbgDrS9s=; b=2vwZr7fp2xs0e1
-	6vW0sfLjeup3aoAeKdQQHzCJHpGe19f/4cl0aMbBWP5J32wTQc4oQDs0AdYXM47bSxRfXGDEqG6IB
-	VTtnyiFqNFJELFKf0YiOjUL9XSzPDLf7VZtcm454bQWQpGeKWNT+Pce39XFNNog+9s0FRd87C0qlm
-	viXDFBkdyAJFWXKo5NYqWnvowBn1bw4D8vXuQGduMIo1Yb2t/7Iyv6WdK/Fja7cvYELsWBzoqJjZb
-	tGvf54Hh+RkUKPnE/BfeOWvgMvUn+zGqkelWNIleCJeQEdPnSYAfvAlihudNmitXBMBG3TpYA+A5t
-	na0+AAYl/mZ3peBcKQHQ==;
+	List-Owner; bh=HYdWRU4S5fMP4HERpbpwXqquoZh+TjFvZyUZjsnRzpc=; b=Fbk7BuoNVjJdHR
+	x25gl4HnLrMPT1PwS8m00b91zFJ2YWQayYT2gESGhVaf+4qhrXpEoNdIHimNy48Dp4SE+Zeh8cj+a
+	ASLhC4BtcH5ejP0eTXJO3A/j0AwA6oBMfPV1vvJDaaaDFUPDM9XAHQzwPbpNaRLqUz5DhYA4XGfty
+	YeR4if7sG16bi3yfJEZ8JPDuEiIcrgihAN0GLDpxoez4qKg+BZKIg37psU5kKjZ2XY/ZBgyIgWozB
+	1VCccbiuOtFx69g2n8uGKQS5Fq8xXXlCugt7kF4cYXdxLq2CLlSrYZeXkCRXdpSdMHf/IcnOV8Bk+
+	UdeG0UxyJjHbpZt2Zpjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlNrj-00000004spj-0ksU;
-	Sun, 19 Jul 2026 09:31:19 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1wlNrl-00000004sqe-1Aw9;
+	Sun, 19 Jul 2026 09:31:21 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlNrg-00000004soO-0KiA
+	id 1wlNri-00000004soP-0lGX
 	for linux-riscv@lists.infradead.org;
-	Sun, 19 Jul 2026 09:31:17 +0000
+	Sun, 19 Jul 2026 09:31:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=MR
-	1em4uw38DdLU279Tm9E4dNiS95LkceEmY7y3H4yaA=; b=cvNWvo2+HHlc8/5vsF
-	UFqnRKBSg6KvqdT4Apkl93UR9ddCNjqdRoTI+G7yyiXnOcwfdi9nPGTTIS3TLJeF
-	2YNJZ925PShUT3gZzKsn1rbyuAwAeoEdHum5HpjhKNqtLV16RAjQGbhwWTsuizgs
-	liRKAqr97GaDR7J09E0H+jdxE=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=nN
+	fRhaOga8yZmczg87holWW3UblLdJzQoSXQwr3yNc8=; b=f3GgDCUf9EkfvUeaGt
+	PcXuB7wp8MCedOedA00blt4DU7OCEH35yFfHgVRapOEkoW5UuXByA7K5MGmkWtoY
+	XTooAscENuIw8ehUNrGR5bVvBSdyEDQ+Nen1or5s+IfYP4l/DRkjbfza/6UI1Wxf
+	DiI3UROcu7l+l/XvXHav3NiRg=
 Received: from Ubuntu.. (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgCnTyswmVxqbA0SIA--.60699S3;
-	Sun, 19 Jul 2026 17:30:25 +0800 (CST)
+	by gzsmtp4 (Coremail) with SMTP id PygvCgCnTyswmVxqbA0SIA--.60699S4;
+	Sun, 19 Jul 2026 17:30:26 +0800 (CST)
 From: Xiaofeng Yuan <xiaofengmian@163.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -44,24 +44,23 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	Nam Cao <namcao@linutronix.de>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/2] riscv: mm: make EXECMEM_KPROBES writable without CONFIG_STRICT_MODULE_RWX
-Date: Sun, 19 Jul 2026 09:30:23 +0000
-Message-ID: <20260719093024.33351-2-xiaofengmian@163.com>
+Subject: [PATCH v3 2/2] riscv: patch: skip fixmap mapping when kernel text is already writable
+Date: Sun, 19 Jul 2026 09:30:24 +0000
+Message-ID: <20260719093024.33351-3-xiaofengmian@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260719093024.33351-1-xiaofengmian@163.com>
 References: <20260719093024.33351-1-xiaofengmian@163.com>
 MIME-Version: 1.0
-X-CM-TRANSID: PygvCgCnTyswmVxqbA0SIA--.60699S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Xw43Cw1DJF43uF15XrWrZrb_yoW8JrWxpr
-	ZrCr45uFZ3Wr4Yy39ruw48ur4DAanIya17tw1jkry3t3yjyr90qrn8Xr17Xry8WF4Uua1x
-	ZFn3uryfCayjka7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uuv35UUUUU=
+X-CM-TRANSID: PygvCgCnTyswmVxqbA0SIA--.60699S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7CF1xuw4UGF43Kr17Cry5XFb_yoW8XFy5pr
+	s7GF1rZFW5JF4Fv3y2kwn5ury5Awn3trZxGF9rX34Svws8X34rXwn5W3y2qF10gr1j9w47
+	uFsIyrWS9a4UJ37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j64ENUUUUU=
 X-Originating-IP: [39.187.244.72]
-X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbDAREkJ2pcmTH-EAAA3i
+X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbDAhIkJ2pcmTIMvQAA3-
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_023116_514174_91FBC3A1 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260719_023118_622530_AA7FB969 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +77,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When CONFIG_STRICT_MODULE_RWX is not set, execmem cannot create
-temporary writable mappings for read-only executable pages. In this
-case, the execmem ranges must already have writable permissions.
+Currently patch_map() always creates a temporary writable mapping via
+fixmap for kernel text addresses, even when CONFIG_STRICT_MODULE_RWX
+is disabled and the kernel text is already mapped with _PAGE_WRITE.
 
-Currently EXECMEM_KPROBES unconditionally uses PAGE_KERNEL_READ_EXEC,
-which causes kprobe instruction slot writes to trigger page faults
-on systems where CONFIG_STRICT_MODULE_RWX is not enabled.
+This is unnecessary overhead at best, and on minimal configurations
+it can cause page faults.
 
-Fix this by using PAGE_KERNEL_EXEC when CONFIG_STRICT_MODULE_RWX
-is not available.
+Skip the fixmap path for kernel text when CONFIG_STRICT_MODULE_RWX
+is not enabled, since the text pages are already writable in this case.
 
 Signed-off-by: Xiaofeng Yuan <xiaofengmian@163.com>
 ---
-v2: use CONFIG_STRICT_MODULE_RWX instead of CONFIG_ARCH_HAS_EXECMEM_ROX (per Nam Cao's review)
+v2: add commit description (per Nam Cao's review)
 
+v3: early return when !CONFIG_STRICT_MODULE_RWX (per Nam Cao's suggestion)
 
- arch/riscv/mm/init.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/patch.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 5b1b3c88b4..c3367ff35b 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1457,7 +1457,9 @@ struct execmem_info __init *execmem_arch_setup(void)
- 			[EXECMEM_KPROBES] = {
- 				.start	= VMALLOC_START,
- 				.end	= VMALLOC_END,
--				.pgprot	= PAGE_KERNEL_READ_EXEC,
-+				.pgprot	= IS_ENABLED(CONFIG_STRICT_MODULE_RWX) ?
-+			  PAGE_KERNEL_READ_EXEC :
-+			  PAGE_KERNEL_EXEC,
- 				.alignment = 1,
- 			},
- 			[EXECMEM_BPF] = {
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index 16b243376f..caef41d5ef 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -44,15 +44,16 @@ static __always_inline void *patch_map(void *addr, const unsigned int fixmap)
+ 	uintptr_t uintaddr = (uintptr_t) addr;
+ 	phys_addr_t phys;
+ 
++	if (!IS_ENABLED(CONFIG_STRICT_MODULE_RWX))
++		return addr;
++
+ 	if (core_kernel_text(uintaddr) || is_kernel_exittext(uintaddr)) {
+ 		phys = __pa_symbol(addr);
+-	} else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX)) {
++	} else {
+ 		struct page *page = vmalloc_to_page(addr);
+ 
+ 		BUG_ON(!page);
+ 		phys = page_to_phys(page) + offset_in_page(addr);
+-	} else {
+-		return addr;
+ 	}
+ 
+ 	return (void *)set_fixmap_offset(fixmap, phys);
 -- 
 2.43.0
 
