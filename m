@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6572AC4451B
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Jul 2026 18:00:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB98CC44512
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Jul 2026 18:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U/Na7KaUUFTbN7u0rHbUtovlkC5VGmEx/WN3aIjtPSc=; b=GVgSKgD15Bht+g
-	53nRmtndWk2pv0O6Hsh0Z1E+T402eycF0HDvKUjSWbthoQ8T1QSi7157C72vbcp4M4UM+CydumMkr
-	bAkuNaQNGLfXe/G6qqyDX9tPpnUxgFz1wHcosw4I8vn5Y5fs5nAiSvIHWkoDSUb/AYhvOQlJEk5Xz
-	Xfo0J8Hh7wOyzxvPsZslSrNsYHEZ9LFkPIwDjyt+IRCaLhLzBfB4/GhqwYliBFrIsVcma9Y7yXCdF
-	5bCfS9c+jJZdI4UTJmH376OedA1XD7vNcr4A91wx+ZGGL2wCw+qQ/s7Pody/v17sS6sH9jG+yCHdE
-	uACB4FSn21ZdHXLxZpkg==;
+	List-Owner; bh=+C88DedPtUfufqhZJmCCKwcBuFsMWIEbunC27Y7+Tdg=; b=Vzlgb+MjII2WLT
+	VKYSzwPXhuWPW2rIFzOjwnwKBvXmi20B/GJYux59n8N6sJNYIeYsvNuUPNkbiQBm5HCX6szTlVAGb
+	ZWX/snY2TXkdVT4CA92JJec/6xq2d4CrHfDTMxFMClxE4E5o+6pqX3pF3/IAOgqa/9Zg9Uz4nm1f1
+	ZFYKEu8rlED7GRvREecN8YmLtGmyGYSA+uZVUaQT02g/LEft+3KRFYBLGSU262d7e9H6H9DPw6Urv
+	TL7fU9gFbwnO8FMwv6w1cB+EwZkLaiJmq5E3sli1ZjuR0m/tkCNMX7Gz18h9i/zY2NFFxpZxJw3u3
+	aBybUarWoJvtiQr3MjnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlVo8-00000005F6F-0xTJ;
-	Sun, 19 Jul 2026 18:00:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wlWPC-00000005GyM-4BgZ;
+	Sun, 19 Jul 2026 18:38:27 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlVo7-00000005F68-1E79
+	id 1wlWPA-00000005Gxl-3DV4
 	for linux-riscv@lists.infradead.org;
-	Sun, 19 Jul 2026 18:00:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2CEA743FC9;
-	Sun, 19 Jul 2026 18:00:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 282A61F0155F;
-	Sun, 19 Jul 2026 18:00:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784484005;
-	bh=f1JbyR4ID8Wt/ntl62PGU1b/cjxrpuw/Kxg2nVCiOUw=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=SR3/PY9+86ZezDCx8oqGDETXFoegCBTIAFyoV6/mvV2+PVThbmvqYxngPV5uTknj+
-	 fWgTzJezjB0CAU4fcj9K+s1Ic64meHW4Ycyl7YcmcbZ80cAmS7CwshfUzYznS6eyfv
-	 +ouHdVCrattuYpFBOzn/rto9fYLN1Cm4Un+RNI9899xOzLZAUzXAVmtFIAToNoD4r3
-	 g1TeKxZRct+ClVblYBm+UEvG9TOhSWUbtqTFiT5YVHSMbJx0q5nNzaYR+5Vn0BwB0o
-	 Ve0RmoGDd0N5lF7X67Ch2qnzirAlcqj+M9eqUEDADE4DfhGwudxe+Gv9mJQSgvCPAx
-	 HveR08wfXlfGw==
-Date: Sun, 19 Jul 2026 11:59:58 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Nam Cao <namcao@linutronix.de>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] riscv: time: Add missing __iomem in get_cycles() and
- get_cycles_hi()
-In-Reply-To: <20260716053319.2178937-1-namcao@linutronix.de>
-Message-ID: <b003367c-7b4c-4d9e-a0e5-6ac5c9057906@kernel.org>
-References: <20260716053319.2178937-1-namcao@linutronix.de>
+	Sun, 19 Jul 2026 18:38:26 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784486300;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XQqaVwgUii20BE/G5QlW0NSEzL9GyXjS/Ic5nXbiCgE=;
+	b=SuniPVPEZv5YAGZpSR9VPVD4NKhdNuz4HCfshN+rLVWwvnmtrJSDM9kQOWd4mZ8Bqo6FFs
+	WDlHUB8ifeJoiw+JsYULj84u8QWWUp742FXh/bXtCeDWoeuk9Wjfc00GFQwRX5tM0XfJKE
+	7ZIDUTdZglWoOEfddRXOsrVrQUmI1jA9VbJhBzaBno94lxEGcmA6ih//dWAFnbHrqcb4k+
+	a7h9P55pOMjGeAWSjZXBtQbkxC8bvGgOcT6GDvoArfOBCBO3nJwDf8baSv1XDV7PH7kq4D
+	VHSmEFjWwsY/86IuFObGU5YVe6nneCoeGSrT1O+mVooJhGxuXE7nQkjJoZ/HGA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784486300;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XQqaVwgUii20BE/G5QlW0NSEzL9GyXjS/Ic5nXbiCgE=;
+	b=fB1KGBRjYoeb6/Q7Kv3pYOen+VJ+wxpCVQh1A55n2bk9FpfPKiFVdtEFtYJEInNqQqIEL4
+	qZbtX4qSdpEqzcDg==
+To: Xiaofeng Yuan <xiaofengmian@163.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] riscv: mm: make EXECMEM_KPROBES writable without
+ CONFIG_STRICT_MODULE_RWX
+In-Reply-To: <20260719093024.33351-2-xiaofengmian@163.com>
+References: <20260719093024.33351-1-xiaofengmian@163.com>
+ <20260719093024.33351-2-xiaofengmian@163.com>
+Date: Sun, 19 Jul 2026 20:38:19 +0200
+Message-ID: <87fr1ebzac.fsf@yellow.woof>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260719_113824_970524_88BD7A0B 
+X-CRM114-Status: UNSURE (   4.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,21 +79,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Jul 2026, Nam Cao wrote:
+Xiaofeng Yuan <xiaofengmian@163.com> writes:
+> @@ -1457,7 +1457,9 @@ struct execmem_info __init *execmem_arch_setup(void)
+>  			[EXECMEM_KPROBES] = {
+>  				.start	= VMALLOC_START,
+>  				.end	= VMALLOC_END,
+> -				.pgprot	= PAGE_KERNEL_READ_EXEC,
+> +				.pgprot	= IS_ENABLED(CONFIG_STRICT_MODULE_RWX) ?
+> +			  PAGE_KERNEL_READ_EXEC :
+> +			  PAGE_KERNEL_EXEC,
 
-> __iomem is missing while calling readl_relaxed() in get_cycles() and
-> get_cycles_hi() and sparse complains.
-> 
-> Add __iomem to silence the sparse warnings.
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202607160619.14G8GHp5-lkp@intel.com/
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
+The indentation is messed up. It looked fine in v2.
 
-Thanks, queued for v7.2-rc.
-
-\
-- Paul
+Nam
 
 _______________________________________________
 linux-riscv mailing list
