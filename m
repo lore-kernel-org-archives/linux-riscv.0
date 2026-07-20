@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D3DC44515
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 11:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49051C44515
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 11:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Oo47asMbSMB7xACBmnWhk+mXaGNg52Mix4uc98+UhTc=; b=lO+6r/h6TdOTsg
-	9RGdRsweKIoP7lw/viocmD2Hpjp/Q7XTX1+WVJXua9vBqmLCkYYUV8XitQcDPQNfFbNY/xlzazn3k
-	eg3YuuDDe/fadfNeUESVVxmLgSW8yaTuRhlSTDd3yLywj77ufxvnVZ21tOrZVazI6BF4jmw8QKpKk
-	ORBORyQPH7D02wQ6TOvAYu0iCXzfvl3KMQjMN4vhmcOsgrdJRX+DUuGrDIyyYFDKpx8XSE7dpPRFi
-	bcPyl4nE8nGwazSyXRtls9ecslVRIT8YwbWO71G7GQj/8uChHOzdOghI8Z7BoIefVjBs9Mfgi5KKP
-	gnKhgh6lt7/kCwLBrDzw==;
+	List-Owner; bh=KOCNLO7lpxjd4LIDg53A0W6iNo9NbJSZRZNOqlPRiUs=; b=2HGU6kd6Su7fC+
+	8ab4TMT6PmsrnXT5nzBQfNJzMctpzzFbQ661JFgWm3fSHjdRkTGsJJz6mTESieNklc6w9pfkS+lVX
+	19phrWSiTObb5WAvEbJP7licVxzQrpBoYRm8hJ11rgCZlN9RtsJYdZ8lY1QuW9JriqnME9ZzZgn/B
+	DC1ovFpXzQCCWFdHjnDHP/muabPQF4ceTV+dT/cumxMq83FtdoaVPmHEnlryO893e4sWpp8ZX7kN5
+	nCd9x5Msmn3JOXWlkCOKHLYPxdXsD+yNAkj/429cX/jnc4KgGg5IUQ9bNhZOT5EOPJRIWjL7PmJMz
+	mGlYhGIETviAY+LK0YDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlmPE-00000006cy8-0b5Z;
-	Mon, 20 Jul 2026 11:43:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wlmWM-00000006dbl-1CIB;
+	Mon, 20 Jul 2026 11:50:54 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlmPB-00000006cxc-32sd;
-	Mon, 20 Jul 2026 11:43:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2A66D60A79;
-	Mon, 20 Jul 2026 11:43:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CADF1F00ACA;
-	Mon, 20 Jul 2026 11:43:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784547808;
-	bh=jksvQuGJlzz+/4Aqk8TfN68mdO4WqGHnmBV95K91OZI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=bpOsEiDaIbN7OGiv7cjPKKtUgu3rNub1z904ya8JeruJorGiRPMGeDDKD6d7Tk+P7
-	 vJDN7t3OBmirceI+A4PIpZ3QglMM4mdNi+PGbIVBRhEksV0bh5YrqswA/P9XyEzpux
-	 ef3An1rVopb/HTeRyUd468oziyI8Thc6MyeS+pDV83j5TDVaa1YKgXIvf051b+uXyb
-	 cHMshVPtFsRjmY8UBpaefAy+vdC1ztg0oSCMdAM4xUtv3UiV8UFY7srerA1VYuGJcB
-	 DEVJmCjutGKYT6LZ4Qjz+5/FLhj3IrirnXpI5C2lOgNVyoTFrI7F3OHbX1zEjzt4fY
-	 ficoVttbv6OJQ==
-From: Vinod Koul <vkoul@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Alex Elder <elder@riscstar.com>, Ze Huang <huang.ze@linux.dev>, 
- Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
- Longbin Li <looong.bin@gmail.com>, Yixun Lan <dlan@kernel.org>
-In-Reply-To: <20260703021024.495433-1-inochiama@gmail.com>
-References: <20260703021024.495433-1-inochiama@gmail.com>
-Subject: Re: [PATCH v2 0/2] riscv: spacemit: Add K3 PCIe/USB comb phy
- support
-Message-Id: <178454780165.1388616.1849106686224680549.b4-ty@kernel.org>
-Date: Mon, 20 Jul 2026 17:13:21 +0530
+	id 1wlmWI-00000006dbH-3k1a
+	for linux-riscv@lists.infradead.org;
+	Mon, 20 Jul 2026 11:50:52 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784548248;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iP84Zwl7DElLoZZcw01N9hnyozoySmk9iqXBXJo4/so=;
+	b=jBdI2GQ+mT/faQgd7O67+Rjn/Zgqqifrl5fq0qo8oWfjraPV6fNV9giodMPntCMqnxcWPq
+	cyJmECeTb+x5EOvvTQJRCItHZvEF7QFDhJqrFfhjHHcOTu0Q4pIzoLaqszf7gsTU87aoS2
+	UrBlaiJTv5lG5AO92lGOkDu8PmU04LpWaSgEzPKTQvd9i2JKhD5CrUZfsf4HXje83GkY2S
+	kJZL61+sp699Pi0hYzr0iKAXBgHdRhO+0BaKHGMokDcriW9MmzkO6HyWfKsS2MsAZRDaSk
+	/CI1fcErFaECx+2BbJ65uunuPkq1ip3B4xg9gH4DSh+v9gPly6eRkgw8zaJomg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784548248;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iP84Zwl7DElLoZZcw01N9hnyozoySmk9iqXBXJo4/so=;
+	b=oNJsRAjHHPKKfuZ/e7cfazEW9gVugArNW+QhLyDdG86dt2sZ1VvC94q2DVroZatEfk7OAn
+	hOy175G/eLq5ezDw==
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ =?utf-8?Q?Andr=C3=A9?=
+ Almeida <andrealmeid@igalia.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Thomas Gleixner <tglx@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>
+Subject: Re: [PATCH v3 5/5] riscv: vdso: Implement
+ __vdso_futex_robust_try_unlock()
+In-Reply-To: <20260720134032-032dc788-414c-4d7e-b72b-57fa5311adc8@linutronix.de>
+References: <cover.1784274927.git.namcao@linutronix.de>
+ <b3447fdd87cdd607b685940a1801b841066337fa.1784274927.git.namcao@linutronix.de>
+ <20260717142423-c5be3c7c-d4cb-4a68-8e85-3e3754e42666@linutronix.de>
+ <87ldb5evs8.fsf@yellow.woof>
+ <20260720134032-032dc788-414c-4d7e-b72b-57fa5311adc8@linutronix.de>
+Date: Mon, 20 Jul 2026 13:50:47 +0200
+Message-ID: <87fr1dev6w.fsf@yellow.woof>
 MIME-Version: 1.0
-X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260720_045051_081293_4976EDC3 
+X-CRM114-Status: UNSURE (   5.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +84,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 03 Jul 2026 10:10:21 +0800, Inochi Amaoto wrote:
-> The PCIe/USB comb phy on K3 is a big phy that contains multiple
-> standalone phys for each PCIe and USB controllers. This phy is
-> required to configure a syscon device for mux configuration and
-> calibration.
-> 
-> Changed from v1:
-> patch 1:
-> 1. Add extra description for "#phy-cells" and "spacemit,apmu"
-> patch 2:
-> 1. Fix multiple spelling errors and copy-paste errors.
-> 2. Make some magic number as meaningful macros.
-> 3. Remove USB3 set_speed() callback as it is not needed.
-> 4. Fix the wrong land data config and mask.
-> 
-> [...]
-
-Applied, thanks!
-
-[1/2] dt-bindings: phy: Add Spacemit K3 USB3/PCIe comb phy support
-      commit: 013004374b4da621e292408112413b103dd28b03
-[2/2] phy: spacemit: Add USB3/PCIe comb PHY driver for Spacemit K3
-      commit: 7a099760ea63ced7b194852b7dbbdcd951585f15
-
-Best regards,
--- 
-~Vinod
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhvbWFzIFdlacOfc2NodWggPHRob21hcy53ZWlzc3NjaHVoQGxpbnV0cm9uaXguZGU+IHdyaXRl
+czoKPiBJIGRvbid0IHRoaW5rIHdlIHdvdWxkIGdldCBzdWNoIGFuIGVycm9yIGN1cnJlbnRseS4K
+PiBUaGUgY2Mtb3B0aW9uIGNoZWNrIGluIHRoZSBNYWtlZmlsZSB3aWxsIGZhbGwgYmFjayB0byBu
+b24temFjYXMgZm9yIHRoZQo+IGNvbXBhdCB2RFNPLCBidXQgYXJjaF9mdXRleF9yb2J1c3RfdW5s
+b2NrX2dldF9wb3AoKSB3aWxsIHRyZWF0IGl0IGFzIHphY2FzLgoKU3dpdGNoaW5nIHRvIC5vcHRp
+b24gYW5kIHRoZSBjYy1vcHRpb24gd2lsbCBiZSBnb25lLiBTZWUgYmVsb3cuCgo+IE9rLiBJIGRv
+bid0IHVuZGVyc3RhbmQgdGhlIC5vcHRpb24gc3VnZ2VzdGlvbiA6LSkKCldlIHdvdWxkbid0IHRv
+dWNoIC1tYXJjaCBjb21waWxlIG9wdGlvbiBpbiBNYWtlZmlsZXMuIEluc3RlYWQsIHdlIGRvCgou
+b3B0aW9uIHB1c2gKLm9wdGlvbiBhcmNoLCA8ZXh0ZW5zaW9uIG5hbWU+CjxpbnN0cnVjdGlvbiBy
+ZXF1aXJpbmcgZXh0ZW5zaW9uPgoub3B0aW9uIHBvcAoKV2hlbmV2ZXIgdGhlIFpBQ0FTIGluc3Ry
+dWN0aW9uIGlzIHVzZWQuCgpTZWUKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDI2MDcx
+Ny1yaXNjdi1uby16YWNhcy16YWJoYS1pbi1tYXJjaC12MS0xLTgyYjViMDc5OWZiNkBpc2Nhcy5h
+Yy5jbi8KCk5hbQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
