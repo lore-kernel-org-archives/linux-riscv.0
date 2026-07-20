@@ -4,67 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05A97C4451B
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 08:01:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AC8C44515
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 08:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/C5rvl7BFR7haOupE9vDwP/EfbkkJbK1VLDOYRQrLHs=; b=kVB4CYNSfgDb//
-	dF0btHRNSo78dFbxnGsl+gzdXOd8arvSVL+m53ojBxxmrr9mHHV/jRovbfYMakRvxOFPUoDxxT4uE
-	a7gzwmf7rqjek789Os+HZPq0wGTZHT0GJ1MTP80j6W1bRabTBdiUH83QmwfuQCHYt//lqq/rlHxz0
-	oIG0BVY2ns+GaIe8FdoXB9hhIMe/4p+sRjx2bsW6iv1RmTs5eQE0p75fhRgfkD1AwCM5lh+qYOasC
-	nWxyzF92ww3RkrAH6D5yMz/suoKihvXVRVqz/7Z/Ltxr3MUDfWBnmUQUHOS3F7OUFOukCENwF/Z8n
-	iOnt5teY4slzredl7cJA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RzZA8HUESqKJcZM1YpR8NmwSM7QfoSHri9qWa6Wux4w=; b=jUk3aUSSuGfmPo
+	ON6KeuROmoRLcvdPlK62U5N4HGxR9PklP1niSBD5NdHyelJudG/APlW+A3GukQYNvrm0rc73t0yTh
+	80nRs8C7b16nMje9/GYBePBJ9kl9eCGcnUiyUY4oMcJcFV/jQWezBX+VtnZlkkn2P4MR/hnHgdUWF
+	xaG3fMFEQmGGZfCgNfaGkIFLRE8lUmaYQEDyFfnM+afkh+nPAMk/Xbqc+iwss5GGH7lJqF+XxFKt7
+	y+NF4jcJ9KykIgx/L6FFtm7oXMmJempNfYocGgRHj+LUl6WP/489M+aH62V6V08I+nvxXy/JAvdk5
+	b4E7q8gHkTXCYVaEKsUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlivm-000000069Uj-0gVp;
-	Mon, 20 Jul 2026 08:00:54 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wljk6-00000006FB0-1L1s;
+	Mon, 20 Jul 2026 08:52:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlivi-000000069Ti-1GCp
+	id 1wljk3-00000006FAe-1cgo
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Jul 2026 08:00:53 +0000
-Received: from smtp.gmail.com (unknown [180.111.28.80])
-	by APP-01 (Coremail) with SMTP id qwCowABXLfGo1V1qO7CtAA--.8116S2;
-	Mon, 20 Jul 2026 16:00:40 +0800 (CST)
-From: daichengrong <daichengrong@iscas.ac.cn>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	daichengrong <daichengrong@iscas.ac.cn>
-Subject: [RFC PATCH] riscv: uprobe: Relax SYSTEM instruction validation
-Date: Mon, 20 Jul 2026 16:00:16 +0800
-Message-Id: <20260720080016.49842-1-daichengrong@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Mon, 20 Jul 2026 08:52:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8FC4060A7B;
+	Mon, 20 Jul 2026 08:52:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A4FF1F000E9;
+	Mon, 20 Jul 2026 08:52:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784537570;
+	bh=uMdFkJjALJ8v6eAD0PSr6qmC4sXRyvVhOCTSzcCRIe8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=RkGFS+X2F3FxBcWnYY9RMghI9AAm7tW8q7mQHZgES6WZA0cZaCEZiPDOiUkHdBjHH
+	 93i5Ca4u9iCrW4pQIcLvp5kahxFZrVU23a2d6sJF4FRrBgrJED6qRg+dkCs8cdk6GJ
+	 /9LWl1KVQVLbOAZBEViCc2LoF9/XhUr+qFLR2ftFIv0uTN4LOJREtJ/ldIA8ijcoP3
+	 8rA8BSlSwgY71IMHoFopl6MMc0oedOra2wEAKsUQV83VzaHRJDTxH3Csmi8S67dZvh
+	 nhJ463NIC6Q4gB2VagWWX616r9A1iatuPyBnEiqmLhugedWv2xvagklO+NcedvSRqE
+	 yi2PS5/eSahkg==
+Message-ID: <3c2968fb-09c3-47d0-8ff9-9def25d37526@kernel.org>
+Date: Mon, 20 Jul 2026 09:52:45 +0100
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABXLfGo1V1qO7CtAA--.8116S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJF43GF43ZF4rZFy3CFW5trb_yoW5Xry7pF
-	s8Cw1fCFZ5Wrs3CryfAr4kur4Yga1rGw43KryDZw4aqayxJry5tF95tw45tr1ktFWjqr10
-	qF4Y9r9Y9345AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkl14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	AVWUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
-	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkG
-	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4U
-	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7VUjuHq7UUUU
-	U==
-X-Originating-IP: [180.111.28.80]
-X-CM-SenderInfo: pgdluxxhqj201qj6x2xfdvhtffof0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_010050_717160_728CB3DA 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv/mm: use physical alignment for vmemmap_start_pfn
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Guo Ren <guoren@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Vishal Moola <vishal.moola@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
+ Junhui Liu <junhui.liu@pigmoral.tech>, Kiryl Shutsemau <kas@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>, Nam Cao <namcao@linutronix.de>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Vivian Wang <wangruikang@iscas.ac.cn>
+References: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,70 +120,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V uprobe currently rejects all SYSTEM instructions during
-instruction validation.
+On 7/16/26 12:53, Jiakai Xu wrote:
+> RISC-V computes vmemmap_start_pfn by rounding phys_ram_base down to
+> VMEMMAP_ADDR_ALIGN. That alignment must therefore be expressed in the
+> physical-address domain.
+> 
+> Commit 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
+> attempted to account for the maximal folio alignment by feeding
+> MAX_FOLIO_VMEMMAP_ALIGN directly into VMEMMAP_ADDR_ALIGN. However,
+> MAX_FOLIO_VMEMMAP_ALIGN is measured in bytes of struct page storage,
+> whereas VMEMMAP_ADDR_ALIGN is used to align a physical address.
 
-This policy is conservative, but it also rejects CSR instructions that
-only read architectural state, preventing uprobe from instrumenting
-user applications containing such instructions.
+So in sparse_init(), we check
 
-This RFC proposes refining the SYSTEM instruction validation by
-distinguishing read-only CSR instructions from CSR operations that may
-modify processor state. Read-only CSR instructions are allowed, while
-CSR write operations and other SYSTEM instructions continue to be
-rejected.
+VM_WARN_ON_ONCE(!IS_ALIGNED((unsigned long) pfn_to_page(0),
+		MAX_FOLIO_VMEMMAP_ALIGN));
 
-The RISC-V ISA permits implementation-defined side effects on some CSR
-reads. Feedback is welcome on whether instruction-level validation is
-sufficient, or whether additional validation based on CSR properties
-would be more appropriate.
+> 
+> The mask-based compound_info encoding requires pfn_to_page(0) to be
+> naturally aligned to MAX_FOLIO_VMEMMAP_ALIGN. Commit 9f94db4c7eaa
+> ("mm/sparse: check memmap alignment for compound_info_has_mask()")
+> added a check for that requirement and exposed the unit mismatch on
+> systems such as QEMU virt, where the DRAM base is not aligned to
+> MAX_FOLIO_NR_PAGES * PAGE_SIZE.
+> 
+> Convert MAX_FOLIO_VMEMMAP_ALIGN to the equivalent physical alignment
+> before using it in VMEMMAP_ADDR_ALIGN. This keeps the existing
+> round_down() logic while making the resulting vmemmap base satisfy the
+> mask-alignment requirement.
+> 
+> Fixes: 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
+> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+> Assisted-by: YuanSheng:DeepSeek-V4-Flash
+> ---
+>  arch/riscv/mm/init.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 3e450890be07..422efa11824b 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -63,7 +63,8 @@ EXPORT_SYMBOL(phys_ram_base);
+>  
+>  #ifdef CONFIG_SPARSEMEM_VMEMMAP
+>  #define VMEMMAP_ADDR_ALIGN	max(1ULL << SECTION_SIZE_BITS, \
+> -				    MAX_FOLIO_VMEMMAP_ALIGN)
+> +				    PFN_PHYS(MAX_FOLIO_VMEMMAP_ALIGN / \
+> +					     sizeof(struct page)))
 
-Signed-off-by: daichengrong <daichengrong@iscas.ac.cn>
----
- arch/riscv/include/asm/insn.h          | 15 +++++++++++++++
- arch/riscv/kernel/probes/decode-insn.c |  2 +-
- 2 files changed, 16 insertions(+), 1 deletion(-)
+I'm still confused, but I think it might be more elegant to make this
 
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index c3005573e8c9..08c6be4609ea 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -600,4 +600,19 @@ static inline void riscv_insn_insert_utype_itype_imm(u32 *utype_insn, u32 *itype
- 	*utype_insn |= (imm & RV_U_IMM_31_12_MASK) + ((imm & BIT(11)) << 1);
- 	*itype_insn |= ((imm & RV_I_IMM_11_0_MASK) << RV_I_IMM_11_0_OPOFF);
- }
-+
-+static __always_inline bool riscv_insn_is_csr_read(u32 code)
-+{
-+	return (code & RV_INSN_OPCODE_MASK) == RVG_OPCODE_SYSTEM &&
-+			(GET_FUNCT3(code) == GET_FUNCT3(INSN_MATCH_CSRRS)
-+				 || GET_FUNCT3(code) == GET_FUNCT3(INSN_MATCH_CSRRC)
-+				 || GET_FUNCT3(code) == GET_FUNCT3(INSN_MATCH_CSRRSI)
-+				 || GET_FUNCT3(code) == GET_FUNCT3(INSN_MATCH_CSRRCI)) &&
-+			 RV_EXTRACT_RS1_REG(code) == 0;
-+}
-+
-+static __always_inline bool riscv_insn_is_system_except_csr_read(u32 code)
-+{
-+	return riscv_insn_is_system(code) && !riscv_insn_is_csr_read(code);
-+}
- #endif /* _ASM_RISCV_INSN_H */
-diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
-index 65d9590bfb9f..4a6a33b95159 100644
---- a/arch/riscv/kernel/probes/decode-insn.c
-+++ b/arch/riscv/kernel/probes/decode-insn.c
-@@ -21,7 +21,7 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
- 	/*
- 	 * Reject instructions list:
- 	 */
--	RISCV_INSN_REJECTED(system,		insn);
-+	RISCV_INSN_REJECTED(system_except_csr_read,		insn);
- 	RISCV_INSN_REJECTED(fence,		insn);
- 
- 	/*
+#define VMEMMAP_PFN_ALIGN	max(PAGES_PER_SECTION, \
+	    			    MAX_FOLIO_VMEMMAP_ALIGN / sizeof(struct page))
+
+And then do
+
+	round_down(PHYS_PFN(phys_ram_base), VMEMMAP_PFN_ALIGN);
+
 -- 
-2.25.1
+Cheers,
 
+David
 
 _______________________________________________
 linux-riscv mailing list
