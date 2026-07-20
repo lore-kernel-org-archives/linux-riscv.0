@@ -4,73 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2CFC4452A
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 15:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43573C4452A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 15:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NZOHLXZ+IGnzhlm8QrYzu/qgI1SA6qd86rM/9o6B5Lw=; b=22PONcBeRdaVTu
-	6oaayMK5nLxAbDEEkqClqYJT7PibHQF4rhbNBUn2yPPILR2+8F78YQAKcgVrzRsYwoqG0Bon4Hguo
-	O80PjUqTrqz7JX7lMMKYF1VgEPQ2t6xN8LEQL1Qi2yXTtsDNO5f6+VoU4HdcUSdDG4Wt0R7S+vg7B
-	UEy+9TMpgM7ozwGT2bru39/J4X/nAYpEjHRBZP5KEoYoxL8OmFtyIJ4TSmFearSgt7+vrNIfUgjT1
-	Mcx+RlPqG7pDLnkTYz5knrNy2lmmZhDt5eoudTeP9XVRmiYrI2CvbVwjOldRbvrZgmude+SiVGc+n
-	haXdcMjCx+4RrtEjdhlA==;
+	List-Owner; bh=g+Do7ZFQ3Rpwh30/T1b9tIv1S7pkwI0gE3AM79xyVck=; b=b8yrGZJn7yS0R3
+	pL5Fk5I8hcwzYKcfpV+n8MuDs/cJzg6ARtjWWxdEfhSmXu1EAECr2UkuCFye8AD+sD0qWVk5GOjSt
+	9Up6OpT60b+wSS01BQ+4RB0Md7ViUzPWeHieVhfEOjrnIrzauV+OrtQjMRlZKrrsxrZy9LFXu9Gp1
+	mFNRXJnUYyHchM+UrBVDcxyAJRClqzYb8YmccGY/GboCEj7axPxuCNVaaRWvMGhnG7TdHPs6VdMGD
+	/+j3Sfy9GIIp2W2gxL89G3Qme/zIalB/HRfx0K0us3LE9U+mOFjx9PqugIfMfK8Ok6B8OjRo19vvf
+	Zx7eBr6WO4DCjXTCp1Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpbk-000000076bd-0heW;
-	Mon, 20 Jul 2026 15:08:40 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1wlpcJ-000000077bx-1gzu;
+	Mon, 20 Jul 2026 15:09:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpbT-000000075bI-2S5A;
-	Mon, 20 Jul 2026 15:08:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=VX
-	L2XKRY5F3qPW2VboJTa9SPw1RX8rEnzJV3c1g8W44=; b=PL56MJC6Mw2Dm3beJw
-	EGXf2JsTShEbMBOlljS+EgYO6qacNN2UjIkc8WYsI3Z3k7cA6sDekfjYsxzQ//WC
-	ct1DT3oLvPkTGbHh3jinH59RtwXi3SySdmeiigJq4uG8QntqeP+JmCy4vww5lACu
-	u6uUmyYQXJwiJIDj086urjZ4o=
-Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wDX5ybVOV5q0OGYJQ--.29751S2;
-	Mon, 20 Jul 2026 23:08:06 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	jingoohan1@gmail.com
-Cc: imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v3 16/16] PCI: dwc: ultrarisc: Use cached PCIe capability offset
-Date: Mon, 20 Jul 2026 23:06:19 +0800
-Message-Id: <20260720150619.24733-17-18255117159@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260720150619.24733-1-18255117159@163.com>
-References: <20260720150619.24733-1-18255117159@163.com>
+	id 1wlpcH-000000077Zc-38iN
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 20 Jul 2026 15:09:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=3Kwva7Zy1z1wrcNqc8C7vuOXZAaSl5rSUSt0nXXiyx0=; b=fBhvSoCmPZzmb06av9VCCIl2M/
+	UM7sR+ji3ZYJkv1QkgmujZOY1g8d9T3QyPWYOA1UzhrPSoM59VGXS3F2xqMlX47KIO7YAasnAx/V7
+	N73QNKh+FANJIKgsGU15ZZBU0zxqAohdeBubkf9r+5TApqLjGRqgVgSUNWDPNfHzA/3n1/FkQeBcY
+	vbFxVqXbHgSRuDxOtAk7wBLfSpXTzIFEi6TgpTpmJJiRffQy8Jl4powEafj5L2jh5IPIg4wFTiV25
+	PjMfKr8xRlFV0wivaebTUZRz0idD2PHtBe5s5W8Y2xMqaMFyopKCf6woD4JG+Ng80JdBkS4CXAGBb
+	qohvsNUw==;
+Received: from shelob.surriel.com ([96.67.55.147])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wlpcE-0000000Gi3L-1XWJ
+	for linux-riscv@lists.infradead.org;
+	Mon, 20 Jul 2026 15:09:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
+	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=3Kwva7Zy1z1wrcNqc8C7vuOXZAaSl5rSUSt0nXXiyx0=; b=fNG3pE531FrkzSi/ukWn7R+4zt
+	HJOBnGpm49FdsglRvScBkbywX83gyp8V7S5kQSTRP6WYHpX+Mp7RrZ6AkTsKYporq6eqw2avYLlyT
+	ToPD3oazGSH059mpSXDrEu86kIcooInZZqHa0hYEU0lAHKOHtGmTFFgte0T81Va5d4beLSR1BbHpt
+	04iSypL6lC08QrrdfZfDwcFQGdqmIC/2+q0ZGzkh2kJx4Bf3jClleajAkq1gNnCvSDIdAXIDaHedw
+	IPKu879tFoMATr71yu5hOKseko0K+B6XffsCTPI56E+k6uOky4rKAJW2SYpqlKAicaLh6zgfnHoE+
+	3FRSXt1Q==;
+Received: from fangorn.home.surriel.com ([10.0.13.7])
+	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.97.1)
+	(envelope-from <riel@surriel.com>)
+	id 1wlpbG-000000001Qs-0nhT;
+	Mon, 20 Jul 2026 11:08:10 -0400
+Message-ID: <13ec2603d5cbfdc493939f182b71e5133c26af54.camel@surriel.com>
+Subject: Re: [PATCH RFC v3 2/6] riscv/mm: add untagged_addr_remote_unlocked()
+From: Rik van Riel <riel@surriel.com>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ 	kernel-team@meta.com, David Hildenbrand <david@kernel.org>, Lorenzo
+ Stoakes	 <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka	 <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan	 <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ linux-mm@kvack.org, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti	
+ <alex@ghiti.fr>, linux-riscv@lists.infradead.org
+Date: Mon, 20 Jul 2026 11:08:08 -0400
+In-Reply-To: <20260720115741.239657-1-usama.arif@linux.dev>
+References: <20260720115741.239657-1-usama.arif@linux.dev>
+Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
+ keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
+ eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
+ Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
+ lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
+ dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
+ mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
+ gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
+ r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
+ WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
+ 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
+ Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
+ +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
+ g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
+ KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
+ fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
+ 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
+ G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
+ okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
+ TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
+ cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
+ omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
+ QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
+ c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
-X-CM-TRANSID: _____wDX5ybVOV5q0OGYJQ--.29751S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZFy7CF43CF1xGry8JFy7KFg_yoW8Grykpa
-	y3WryjyF1Dtr4YvFs2v3WDXF13tFnxAr9xJanrGrnIvF1akrWUJ390k34rtFn7GFWUKryY
-	kr1YyFy5Ga4rtwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi0tCwUUUUU=
-X-Originating-IP: [240e:b8f:91b3:d000:f138:f837:e143:4264]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxBa1WWpeOdYHFAAA32
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_080824_236718_539ED960 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_160911_240636_151F2595 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +120,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Inside .init we call dw_pcie_get_pcie_cap() to obtain the offset, because
-the core has not yet cached it. Hardware is already enabled by the driver
-before this point.
+On Mon, 2026-07-20 at 04:57 -0700, Usama Arif wrote:
+> On Fri, 17 Jul 2026 13:00:32 -0400 Rik van Riel <riel@surriel.com>
+> wrote:
+> 
+> 
+> > 
+> > mm->context.pmlen is set only through PR_SET_TAGGED_ADDR_CTRL and
+> > is stable
+> > afterwards, so it can be read without the mmap lock, as it already
+> > is from
+> > untagged_addr() and mm_untag_mask().
+> > 
+> 
+> I think it might not be stable? set_tagged_addr_ctrl() can change it
+> repeatedly until a CLONE_VM operation sets MM_CONTEXT_LOCK_PMLEN.
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
-In pcie-ultrarisc, the call chain is:
+You're right, ARM tagged addresses seem to work a
+little differently from x86 LAM.
 
-  static const struct dw_pcie_host_ops ultrarisc_pcie_host_ops = {
-    .init = ultrarisc_pcie_host_init,
-  };
-  ultrarisc_pcie_host_init()
-    -> dw_pcie_find_capability()
----
- drivers/pci/controller/dwc/pcie-ultrarisc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+It looks like on ARM with MTE, the top 8 bits of
+the virtual address are available as tags, meaning
+that address space cannot be used for VMAs.
 
-diff --git a/drivers/pci/controller/dwc/pcie-ultrarisc.c b/drivers/pci/controller/dwc/pcie-ultrarisc.c
-index 6ee661ceff67..3f6e3ab0aa69 100644
---- a/drivers/pci/controller/dwc/pcie-ultrarisc.c
-+++ b/drivers/pci/controller/dwc/pcie-ultrarisc.c
-@@ -49,7 +49,7 @@ static int ultrarisc_pcie_host_init(struct dw_pcie_rp *pp)
- 	FIELD_MODIFY(PORT_FLT_SF_MASK, &val, PORT_FLT_SF_VAL_64);
- 	dw_pcie_writel_dbi(pci, PCIE_TIMER_CTRL_MAX_FUNC_NUM, val);
- 
--	cap_exp = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-+	cap_exp = dw_pcie_get_pcie_cap(pci);
- 	val = dw_pcie_readl_dbi(pci, cap_exp + PCI_EXP_LNKCTL2);
- 	FIELD_MODIFY(PCI_EXP_LNKCTL2_TLS, &val, PCI_EXP_LNKCTL2_TLS_16_0GT);
- 	dw_pcie_writel_dbi(pci, cap_exp + PCI_EXP_LNKCTL2, val);
+For purposes of accessing process memory, this
+is a little more stable than LAM, because the
+number of bits we need to mask out of the address
+is always the same when MTE is in use.
+
+At least, I think so. Am I overlooking anything?
+
+I will clean up the changelog like you suggested.
+
 -- 
-2.34.1
-
+All Rights Reversed.
 
 _______________________________________________
 linux-riscv mailing list
