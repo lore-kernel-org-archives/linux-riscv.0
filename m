@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA33C44515
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 19:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669CCC44529
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 19:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kbwdb/iStf4puwydJtX/oE79plHUPAlSPIf6u2/Di38=; b=DCgt0f3uswSf8L
-	ly8bV6eUakbATTyWZI1fm8ANiEhcfNKeoBjVuUuio+S79yuHds2ZgINVEXMjHhTj7MZmALXQ9Zt1j
-	0gPz3a5JKoKH7IKM7MsxUsdvUrj1OwJK16dlxKq28BLViIYtLpDsxpJXsDTfTNrtyivTQy5J2Aw5d
-	Ju1j7qRSYWGXqW4FtS9GmUnYwN+LcznWWIZ52SA84KRnFEsrgUuWzxKBisc2MoxzNffRfJANMOqAu
-	YilJzzFBKJDWzlgRQPBlUgUf2QZbSJaXd3NmeeQq5Sb54EuvUfXWmn6On/2jQEANRdWH6q4+LKe6Z
-	muKiaQzVNnbZWNX9L+Cw==;
+	List-Owner; bh=Lfe1CXLyNkxCLyxNWxHwoCd50Kgc1eqe630++ACl04s=; b=RCYODwAS3ugZYu
+	6IESKYY8DUhJZKeu5xh6pbidYwyPHjF/5ZXNQU/Ciqh0cBPoK8XmzN4dnIQyY+BU5AKAdBUIspx+e
+	fCSn/pYg+XBSCtwbCxSHVnDW+WB83Q5OSvF61pNH+Byy2koP8LHY4kSAOQJDl2RZrT50WRZc7WJj/
+	kJ97YtZoprRgANjSYuE9jAQZOwjRCMV/1L55Toh97X9DA1gi50sc/mc8wYGFRRJ9x7ki9X5ok0uZ/
+	Zw2uHqr00WmBunkVUr3Y3AZiaVVNKaB3SRfFDr2pTng6SbWp77j9KU31xxZAtSBhbuboZY2+Kexpu
+	ZcezW0O5RqZk/V2IxJfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltY9-00000007jkr-16sJ;
-	Mon, 20 Jul 2026 19:21:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wltZF-00000007jw2-2cag;
+	Mon, 20 Jul 2026 19:22:21 +0000
+Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltY7-00000007jkY-3ETM;
-	Mon, 20 Jul 2026 19:21:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A5984433B7;
-	Mon, 20 Jul 2026 19:21:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC12B1F000E9;
-	Mon, 20 Jul 2026 19:21:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784575270;
-	bh=y4vTZRCmYUoacTgRQeb9iD10u8BLXmQ5njXvIgguyco=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=Spav0GWz3rWmeiOvTkSHmoLaFmA0dsmghrTMMUGIy7BsnbqtE0r1vEIJpGCtqeWB+
-	 BpTJQ6xzB/KOaDAAkoTPfDvyF002TmAYBtSyKK5uExFq/Cj1mLr43Z33qJ2sRMi9Nf
-	 nJuZqLg2J7TvcdvdFpFOL3PuoTONb0yf3DbORivGivTO7zCY0H72Bu+OkktKpqh03L
-	 Vksh67h0wy7gmPYEI4mwGb9sleMrzw8Jsb1sLuHLmScVy2tv/f+VR08LYTxzvzqe4C
-	 b/ZkM/7+AGeKxhezpkSh009TVoxiBEuZvcET+KD3PE+3fxGAVYAS/3R9Y8DzfgWlkp
-	 U2Lg+Wsg/dkOQ==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Magnus Lindholm <linmag7@gmail.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Michael Ellerman <mpe@ellerman.id.au>, Shrikanth
- Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org, Kees Cook
- <kees@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Sven Schnelle
- <svens@linux.ibm.com>, linux-s390@vger.kernel.org, x86@kernel.org, Mark
- Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, Andy
- Lutomirski <luto@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Richard
- Henderson <richard.henderson@linaro.org>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Guo
- Ren <guoren@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Helge Deller <deller@gmx.de>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Richard Weinberger
- <richard@nod.at>, Chris Zankel <chris@zankel.net>,
- linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-um@lists.infradead.org, Arnd Bergmann
- <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>, Will Deacon
- <will@kernel.org>, Brian Cain <bcain@kernel.org>, Michal Simek
- <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>,
- linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
- linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-arch@vger.kernel.org, Michal =?utf-8?Q?Such=C3=A1nek?=
- <msuchanek@suse.de>, Jonathan
- Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-Subject: Re: [patch 00/18] entry: Consolidate and rework syscall entry handling
-In-Reply-To: <CA+=Fv5TDNH8+JAojV9_W36kUkEE68uiA00FQ7i0vJunebqs1sA@mail.gmail.com>
-References: <20260707181957.433213175@kernel.org>
- <CA+=Fv5TDNH8+JAojV9_W36kUkEE68uiA00FQ7i0vJunebqs1sA@mail.gmail.com>
-Date: Mon, 20 Jul 2026 21:21:07 +0200
-Message-ID: <87wluplb6k.ffs@fw13>
+	id 1wltZC-00000007jv5-0sl9
+	for linux-riscv@lists.infradead.org;
+	Mon, 20 Jul 2026 19:22:20 +0000
+Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7eb64371a2aso4394727a34.0
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Jul 2026 12:22:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1784575337; x=1785180137; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bGto1WUmtU2FuWuRVZZkJWBifnkd6qv0KZ7sGmDSExQ=;
+        b=MKyx3VwK5i1pn9diIUghe0LsVzLM3PSdRm7AEmjZIAERTexTeFphc6C4AYxtXpk/6l
+         bPitSgNC3lEN4v0AiLGWfQKE7oQYKuCKe3ZtSMGNA1+tScUDx+iNfhqFxAMyvd8a0hbN
+         xWeXbwt+JgTjkj07mi40opp/VrPzmzpgFPj121XSsUQ84xZtWN5Db3SRs3e0vAWH5cRA
+         OFS60FWr0tAinW71tO5E/CznSG5UahHYhYParqZ3bXnXGcDdEeloxbbe5RMrXZOg+3i/
+         rhsUNC22gERYk1C6UAaKwDDqpj2St2XbYMr42fH1l+oE5DS+w4+BTp7n/lkwkJcYtsRr
+         FuBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784575337; x=1785180137;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bGto1WUmtU2FuWuRVZZkJWBifnkd6qv0KZ7sGmDSExQ=;
+        b=caWG6dprkgUjU14y5D5Mbt4sKFZGJQ6dILRprdmc5BLBgo2RBg/CO8bOI9KeeUOGAK
+         0x2aa+gDXyT+6m7PO3GADm8vIB99rVLa9a9O4SC4ri7dzLrzwSmXrCjNE4UtZdcZbdNZ
+         WgRaWgE8opK24B47hO1rYZXFB+3sJCkB8KBVpp/p+mmCzOISuQjQ1BCHlkRGnqaDtMU5
+         PBV+GM+YPDy9H6AVpd+v0VYmVv7+pLNIxWe7wuoTz2IHuMw2cIuaSPOi0sRj8DbsXH2w
+         6WQN/mT6MeoGHqEI9C+7JCmvmqgf7PAjtDH93jHuMcrb4VvaJL7r/QWAyfjUot1R/QCR
+         MEDg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro2oNyLy5RamvwWd9TgxCpdJfIYv6vaIVWpav7eiv4d2H0zKahWcd/Vx+Q26NVXi00f36Sxti3FwO98ng==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFzoRA3ytTDNyEH/pmhb7yv0vWIJ8gPAyUG/B8P8gwsjJYUbEy
+	pIVKiW7QVxaOB7HJ0qpQJLvPHzCdo35Bf7WQoUecyQOuBs3/vMnwngbcVn04O0chZ/0=
+X-Gm-Gg: AfdE7cltpcDWrnTtXY+G9pKhNhfachiVvEm+b/PK1yZ1eZcWWF4LQTfy4f9g+2Ylz5/
+	jyi/Oy+i0lLdWXmxhNIiwzk5R3z2kv6nGguXTlS/qk4fWxxLpxJ3I1GEeO1vsDlVH4dH7iJ/rIZ
+	/v4Lkba3QzrVYiJZq0VpW4FDW4bcmDVqlGn2CLbnReb9bGG3YJ1bd8C5vRLUekUoMiiHqaiXo2U
+	gyhw0VFbMs/sxhKqLYKZ2La4kNgOPpAFgZY/XfHAbh4EGpFIDfeXD1nLWn0XLTdbuDYql9Ql8NF
+	ORu7hx5HMLFJIjxNrE9ONJgHk0VvvIwqZUqW1PnMGNKjfPGsX/ybqAEXjJM74hl9FOU3M032toN
+	pyqTnuER4yi/0SsZUf6ddJNWQxGjIZfplKph9ZyPb0KoBkApphfwm1ZO84jX+AU5xA+sNbHf7qi
+	wrPxZBPStHjk9m/HskrajKllQ4SXQn3/mq0h+wLz5Fbw==
+X-Received: by 2002:a05:6830:81ee:b0:7e9:b4d1:78b0 with SMTP id 46e09a7af769-7eda1157b00mr8626249a34.30.1784575336932;
+        Mon, 20 Jul 2026 12:22:16 -0700 (PDT)
+Received: from toolbox ([12.55.13.134])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7edad91b8a5sm8911080a34.5.2026.07.20.12.22.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jul 2026 12:22:16 -0700 (PDT)
+Date: Mon, 20 Jul 2026 14:21:59 -0500
+From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+To: Fushuai Wang <fushuai.wang@linux.dev>
+Cc: gregkh@linuxfoundation.org, jirislaby@kernel.org, 
+	ilpo.jarvinen@linux.intel.com, osama.abdelkader@gmail.com, andy.shevchenko@gmail.com, 
+	jackzxcui1989@163.com, kees@kernel.org, sean@mess.org, alan@linux.intel.com, 
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, wangfushuai@baidu.com, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3] serial: 8250: Clear CON_PRINTBUFFER on port
+ re-registration
+Message-ID: <dnpnqx6fz4osobhi7ydt2pi6hvqb4lm5vonpfpwrl2nogpadmw@6bqiyjskjo5j>
+References: <20260522101042.21976-1-fushuai.wang@linux.dev>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260522101042.21976-1-fushuai.wang@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260720_122218_262816_EE72ACFC 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,40 +104,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Magnus!
+Hi Fushuai,
 
-On Sun, Jul 19 2026 at 13:25, Magnus Lindholm wrote:
-> One Alpha-specific wrinkle I hit while rebasing the GENERIC_ENTRY patch is
-> that Alpha cannot unconditionally pre-seed the normal -ENOSYS return state
-> before calling into the generic entry code: syscall_set_return_value() also
-> updates r19/a3, which is still syscall argument 4 on the normal entry path.
-> Doing that too early broke early userspace mmap() during boot.
+On Fri, May 22, 2026 at 06:10:42PM +0800, Fushuai Wang wrote:
+> From: Fushuai Wang <wangfushuai@baidu.com>
+> 
+> When two PnP devices map to the same physical port, the serial8250 driver
+> removes and re-registers the console structure for the same port.
+> 
+> During re-registration, the console structure still has CON_PRINTBUFFER set
+> from the initial registration, which causes console_init_seq() to set
+> console->seq to syslog_seq. This results in re-printing the entire
+> system log buffer, which may lead to RCU stall on slow serial consoles.
+> 
+> Clear CON_PRINTBUFFER when re-registering a port to prevent duplicate
+> log printing.
+> 
+> Fixes: 835d844d1a28 ("8250_pnp: do pnp probe before legacy probe")
+> Suggested-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Signed-off-by: Fushuai Wang <wangfushuai@baidu.com>
+> ---
+> V2->V3: Clear CON_PRINTBUFFER when remove the port
+> V1->V2: Add Fixes tag
+> 
+>  drivers/tty/serial/8250/8250_core.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
 
-Similar to what Peter and me suggested in the related discussion
-vs. s390 which has a similar issue, you can just have a dedicated
-syscall_return member in your pt_regs struct, which is preset to -ENOSYS
-and operate on that. You have an unused padding entry there which means
-it won't even change the size.
+Seems like this patch was added in next-20261717.
 
-> Are you planning to send a v2 with the seccomp recheck fix and any other
-> review fixups folded in? Is the intention to route this upstream
-> during the next merge window?
+I'm noticing that this patch is causing no serial output to be visible
+on riscv boards till the uart device is registered. Normally while
+booting, we expect for all the prints made before this to be
+buffered and appear post serial device initialization.
 
-You were on CC for the V2, no?
+=> booti 0x11000000 0x21000000:${initrd_size} 0x31000000
+Moving Image from 0x11000000 to 0x200000, end=1ca6000
+[ 161.301] ## Flattened Device Tree blob at 31000000
+[ 161.302]    Booting using the fdt blob at 0x31000000
+[ 161.307]    Loading Ramdisk to 7653e000, end 7dd81853 ... OK
+[ 161.366]    Loading Device Tree to 0000000076532000, end 000000007653d25d ... OK
 
-The whole pile including Jinjie's seccomp bypass fix is in
+Starting kernel ...
 
-    git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git core/entry
+[    0.235159] printk: legacy console [ttyS0] enabled
+[    0.238787] /soc/i2c@d401d800/pmic@41: Fixed dependency cycle(s) with /soc/i2c@d401d800/pmic@41/regulators/buck5
 
-and is targeted for the 7.3 merge window.
+Most devs who are debugging might be booting with the earlycon boot
+parameter. If earlycon is present, serial output is present, but
+with earlycon missing (which is what most distros use), I don't get
+any serial output till this point.
 
-If you want to base your stuff on that for 7.3, I can add a tag which
-makes it immutable so it can be pulled into the alpha tree.
+I observed this on a Milk-V Jupiter and a Hifive Premier P550. Same
+behaviour in both cases.
 
-Thanks,
+Regards
+Anirudh Srinivasan
 
-        tglx
-
+> 
+> diff --git a/drivers/tty/serial/8250/8250_core.c b/drivers/tty/serial/8250/8250_core.c
+> index a428e88938eb..5419f1d22d47 100644
+> --- a/drivers/tty/serial/8250/8250_core.c
+> +++ b/drivers/tty/serial/8250/8250_core.c
+> @@ -716,8 +716,12 @@ int serial8250_register_8250_port(const struct uart_8250_port *up)
+>  	if (uart->port.type == PORT_8250_CIR)
+>  		return -ENODEV;
+>  
+> -	if (uart->port.dev)
+> +	if (uart->port.dev) {
+> +		if (uart_console(&uart->port))
+> +			uart->port.cons->flags &= ~CON_PRINTBUFFER;
+> +
+>  		uart_remove_one_port(&serial8250_reg, &uart->port);
+> +	}
+>  
+>  	uart->port.ctrl_id	= up->port.ctrl_id;
+>  	uart->port.port_id	= up->port.port_id;
+> -- 
+> 2.36.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
