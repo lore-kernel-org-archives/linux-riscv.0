@@ -4,67 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D4CC4452C
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 13:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7CA2C44515
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 13:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3fbf6RbHLgVal8bLXUrNVRYUaNRLiKMcQP+F5EzPuMw=; b=nFIN26DVqc+ea8
-	LDpa4GYkX0XjRqTDvCBVJYhby5TnOmeEiMKrQoBCUssDvWzQVvBT5E/czNas1ziU8ZWYXxCGsLtoA
-	iBlj4pwCa+mNwOrPnOhhdZTWxy2tuB5+qHLMHfTekGMj/jsT506uhryB+uRuwFd+Q7X8pAb0IKi9u
-	d75ns7kxAmvR4/aQudJofgqW5uA6YdLgVlwvB/sgPfhbTAnZzoNKoqkpFAZdFs+7BapqoXoCdCy8o
-	Vv/x7SU8U/mUhgaBhKsKdZrONX+QWevQUazsdOHxUK1WCGSIe8XBM3jpIzoYCX4b2fTiDVJK/6o0w
-	WxE7DfCNyFNfaRdYV5Wg==;
+	List-Owner; bh=1QkoU9JgPkR2OZYXvcHfrC2eBZTTOElfhmzYQyTN1DM=; b=V7yWsibYTHNw/f
+	I7coDWUTZP4SH+2JBPDcaTY1e8Pam1dqWJRrYgR2iG7OIufDhCAhGJ/yhg7tRkKUx82IHSuczeVpD
+	80kaCjfpVLdb4ZHM7CY+x1fgJ015aXlCvsgi+zxySqtdN0/zmdcHiqR7oQMEdvAP0BQjHajzS0Rme
+	CDvcoWSHRUSIz639rSyail85MYYi/eaM6v6TDcTAPxE5sSqQ1ku7+nyMo2ovzoCxOA6ZVTviceizt
+	1qFUlq7wkYnxvMe77uWyQQd0DC+OGVFHynOW/4+KgM1PhQXzrdSJHx3Otg5eDvoP69xDk80NqnkEL
+	CKEtqjP/uVqGcEphD2iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnui-00000006mNJ-3osA;
-	Mon, 20 Jul 2026 13:20:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wlo2e-00000006oLt-0dWr;
+	Mon, 20 Jul 2026 13:28:20 +0000
+Received: from mail-westus3azon11010061.outbound.protection.outlook.com ([52.101.201.61] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnuh-00000006mMb-0eBO
+	id 1wlo2c-00000006oLB-0f2L
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Jul 2026 13:20:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D969043E69;
-	Mon, 20 Jul 2026 13:20:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BC141F000E9;
-	Mon, 20 Jul 2026 13:20:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784553606;
-	bh=bB8LbbQ8ato4eUpI/pD/xOs6h3QBYChFQmgrhaxvC8s=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=iK05cXzGHHMN+9KPEzYdSfXWKYItWmCHctLtMUa31qHmsjose29IsskHQDTahKwCm
-	 yVQPLbdZJIrdzNpRhzeCuomzgjFBkFrz7MWsTGf3ndJngG9Kfh7hWGQowjdb1uXMEJ
-	 Ij6gKgGGhm7pCLpaiW4F3SqS4rBbLStmx2LdEBLf5ydy9+iS0f1hGIU1TovVBMGSSo
-	 n6MAOYF7YSdETFxFlMMJH7hL3csUE19ZjkuyPgNOW0mQAPDSmk1UwLi4PJtNQrQ7iP
-	 c4iaOsAkoeawpz6JPQW3+JZKwTyVi8VD5a6kgqy6Y4HNqnRoF8klq0AVXOlrv27b/3
-	 rGUcpiUYKws/w==
-From: Mark Brown <broonie@kernel.org>
-To: Yixun Lan <dlan@kernel.org>, Zhengyu He <hezhy472013@gmail.com>
-Cc: wefu@redhat.com, linux-spi@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Peixin Xie <peixin.xie@spacemit.com>
-In-Reply-To: <20260715-k1-spi-tx-fifo-fix-v1-for-next-v1-1-02024223b08a@gmail.com>
-References: <20260715-k1-spi-tx-fifo-fix-v1-for-next-v1-1-02024223b08a@gmail.com>
-Subject: Re: [PATCH] spi: spacemit: Correct TX FIFO slot calculation
-Message-Id: <178449558269.33801.416545162576183224.b4-ty@b4>
-Date: Sun, 19 Jul 2026 22:13:02 +0100
+	Mon, 20 Jul 2026 13:28:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QZuEKBxYRsDDSYBwBqL70YRq8YU47mQodGDYUubOmGxvt7qiPkdlBY0p+l6Vsgg2wUJd9L7ZpwxQq5bhOQGGftYwNQNul5Rw8eRHscR0afvOAIwdIU7K1Jj0+/Sjr5fh6b8Q7kGpGfW3p1D/HENvfHNsaX3l529mVqNeToMd/BjC9uVwRzPryE31kzHh92WOSD8upSyiE0a1rM4MR2vN7eo5tXp1xLJuwl/rfDZ6ErsgNlrbnj7hmxufwPJF/oV2SNvXpOnOxCLi9ANfoqFgvoXxSHjjUAdps+XTJ5fQEg3UfbLBFHKg7kw6rVAuLVm6ek028LIyEplmaFWH3j1WVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EYElRPlwNmvVuX+ejLivtj532TKVmSuviZP6x3j0kSI=;
+ b=s2gLvJPS+ak72xDuS+a8lOeVos+lJ+QTpPRKeZhxEUilsXiMRkhDgpYRjADwmUjfku/z7Wfph8Cr+iPEXEJLXFjRnDUQwXYLcLwb6k0duKTShM/dSvsxHJDpRf+Xk09Bj8ymTc+VW2DW0scc1M/7k5tt2Vj0GxNqzdRvh0sp9jCMjdh4zbOr9qhIdc/rJO6oFG9bMghkjom6hBvvZCpbqyv9qpe7VIX8lLYdSIb7KV3+LvoX3rItn91ndSDVf2eq6HVExQS3esY+9y9DQbgfKxP2qPBySGwA515vDTqMI7G0ptRvWKnSrGZX8VVkdUYWh56oe8EEpwRXA6NprPAy8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=einfochips.com; dmarc=pass action=none
+ header.from=einfochips.com; dkim=pass header.d=einfochips.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=einfochips.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EYElRPlwNmvVuX+ejLivtj532TKVmSuviZP6x3j0kSI=;
+ b=Il3UBd63cbPyxAR4Y7gHEN/HOAGvFyDcLeT2y7IWlZWPEdC96wL3F2ynH0itDPv//LXPHBYh/QVn8dIqtwjt8Qab0NQQKATddIIkHroLmmgj88QQ6n9lULVTGxAv+nNkmbVujKTfMgSU1pWhmqGJL1rkzfb8DcffzF5x+yiWkw0=
+Received: from SJ2PR04MB8896.namprd04.prod.outlook.com (2603:10b6:a03:53e::6)
+ by CH2PR04MB6506.namprd04.prod.outlook.com (2603:10b6:610:61::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Mon, 20 Jul
+ 2026 13:28:11 +0000
+Received: from SJ2PR04MB8896.namprd04.prod.outlook.com
+ ([fe80::8292:662a:4214:95e0]) by SJ2PR04MB8896.namprd04.prod.outlook.com
+ ([fe80::8292:662a:4214:95e0%4]) with mapi id 15.21.0223.015; Mon, 20 Jul 2026
+ 13:28:11 +0000
+From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+To: Lee Jones <lee@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Andi Shyti <andi.shyti@kernel.org>, Mika Westerberg
+	<mika.westerberg@linux.intel.com>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Min Lin <linmin@eswincomputing.com>, Yulin
+ Lu <luyulin@eswincomputing.com>, Samuel Holland <samuel.holland@sifive.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>, Pritesh Patel
+	<pritesh.patel@einfochips.com>
+Subject: Re: [PATCH v2 4/8] dt-bindings: mfd: syscon: add ESWIN EIC7700
+ compatible
+Thread-Topic: [PATCH v2 4/8] dt-bindings: mfd: syscon: add ESWIN EIC7700
+ compatible
+Thread-Index: AQHdGEucUM6ccmpEpE+P/hMuVAhZgA==
+Date: Mon, 20 Jul 2026 13:28:11 +0000
+Message-ID: <SJ2PR04MB88965A802336D3FB947B736083C32@SJ2PR04MB8896.namprd04.prod.outlook.com>
+References: <20260706081055.1126275-1-pinkesh.vaghela@einfochips.com>
+ <20260706081055.1126275-5-pinkesh.vaghela@einfochips.com>
+ <20260716122833.GE1260374@google.com>
+In-Reply-To: <20260716122833.GE1260374@google.com>
+Accept-Language: en-US, en-GB
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_ActionId=74f847c5-3f1f-4fec-9757-4300a57ab007;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_ContentBits=0;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_Enabled=true;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_Method=Standard;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_Name=879e395e-e3b5-421f-8616-70a10f9451af;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_SetDate=2026-07-20T13:13:41Z;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_SiteId=0beb0c35-9cbb-4feb-99e5-589e415c7944;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=einfochips.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SJ2PR04MB8896:EE_|CH2PR04MB6506:EE_
+x-ms-office365-filtering-correlation-id: 04e2e99e-6401-4261-e7ed-08dee662bee6
+x-ms-exchange-atpmessageproperties: SA
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|3023799007|10067099003|4143699003|11063799006|56012099006|55112099003|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: xB17eYTF1N8PMi/8anLbd+EXEkbAXTeBzAjr0Gr6qGsxDwAhOJ6hibBbWNtXLupKJZVVncROSFh8F1lrvGHgyHZ/137/h09XvHPXvmfTxkYLEdDmvqKBG8rIAesdBWz77C+/8cJwE0O4M25hninMl5P0gL+d0MkIk6/Guat0Tuwi5IUIcq5CQ1rwCaN8lOgvpEnQSZ3hTp18MqftfbiW2BHgM/ZNfu/kpOGbBOkbSzsZhuP+aPaJZbLMO59/1eskoHgvVJdQtraZjlkCX/vKm64yce+vla/kWhH+igUCDz5w3EMxGa8xZx8I/ugX8qxcL5bu5sKd3KKtLAfpXCSn0JZjgJua25NyUYVayNS2FwLWJlKJS+ihK0ciM8pEaos/U/HkFZMlVPrYhG1yJZr2rUaCSU4ReSAl4nSfBBHWBgli9S76RkK3B11SMcoB9MTzkCK1NJiKj0B75QBFcOaJjD24GQf9bkqX6+vn5E5kDLUxkMLeZcMq4gmnOc+0SsAY6jcS7o5T+5stCEMeVyhhHMOB4UhvC10h2RYwa9VpNDAUaFw86rCVJShfofJoyJrBYgDGhVtOWVbi4xZzI2nK7burNsaTq4aIDZCMmZVznl2pbfQVUXRZzu9c/HhbJ1q0ElcojK6RgofDq0hFl3JqleIu8kC6hSvYqz/tCojjxCC7nHR9BD7nsHNqhKtcIOjbUwaPu6ohe1ovZS+uJ2HiTw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR04MB8896.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(3023799007)(10067099003)(4143699003)(11063799006)(56012099006)(55112099003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?1E4ZY1QI1wt9AzuQqKIINTX/i3qexkoMn9uBQptD8rQqAL7AevQYEZFX1hrZ?=
+ =?us-ascii?Q?kK8BzFZ+5w1neLRX0vwQsPPtZ/q2WAwFuvP0zFYuc1gqLeuz0I+wyrEtDjgh?=
+ =?us-ascii?Q?nxKfX0JDGesqBtNY9ynDNstBMkiGOZJyTidZrmP9OiWoJX28o1W2uUKhKcvI?=
+ =?us-ascii?Q?yf9cLQKXv7oVnI2xlVT0m7/6NRreuoLBis6j6odZf8bPALCGZ1aH1dEUAsmq?=
+ =?us-ascii?Q?pe1RiZrVfu8H7zKVTwTsn5w2zkHdcNlL5EM7ORQs4ObKsOwcAcfTE75HixFc?=
+ =?us-ascii?Q?JAPrR/5X2fByBh2rG1uUCATea1cjxjTY2vNmlXWBHxUeYIzPpo/sawk+jY2c?=
+ =?us-ascii?Q?vrWf+GeNQ8+DPfTIEMbAuIZCLL2YlMDiLZKUdhqgcu37/KcGakrNBtVgT8rP?=
+ =?us-ascii?Q?BA+OOzq0px+Q/StZwLiZMuMEeeg5hcrONaXOCnwwNl5bllGMIYkDDSYbshrb?=
+ =?us-ascii?Q?SCwqZyspiizPfnvS73pmtqDKIxwqJbrs4bMCbTZvGPQBiHFNwn9TKuH0QOrD?=
+ =?us-ascii?Q?h3QMgdhmhIR/1ovbOJ4s3k03pDjGKufBdXZJ5+1SUin35rejoT7RxUxTtgec?=
+ =?us-ascii?Q?qRNJm0vGfyPOKP886o4JXjHuynG34fsb2ly3fw/kwAS9f2IbDARUMwSDPjz6?=
+ =?us-ascii?Q?IaovBvGEK7Jaddio2gO/+c0lj9z49tIbshot5UNjr0DGFDjx95OwBTweeEmo?=
+ =?us-ascii?Q?+tdBUnr4H74ehAa1kDgjPfvEDMo+8+tqXhJd4H3c9WSjCMpPDVjBZ1/DlNm8?=
+ =?us-ascii?Q?Rw52XqHWooyPkbyPHxveY/xaxEhkXlrjs2/8yQ1MPYBQglHnmxj/byikNAD0?=
+ =?us-ascii?Q?NYp3BInDERFgU7J03ae48Ma2Odubsg+lnLDj1i7fYcnRKhwyBy+lkFXMVORU?=
+ =?us-ascii?Q?MZT6zdEZrTnEu3QC1gR8g4yNZqBx8DmtBO9yKQn7aDgw353+q/0QjdbbenBH?=
+ =?us-ascii?Q?nc6Kn0njIYKHkPNVUDhioR1hsAP2LCZBrNi6mKo4mElV6CqE7gN/0rj8cDHY?=
+ =?us-ascii?Q?wzGVPptIUdg06dDzEueyxunuvngreWy4QDF32uib0HcypPSTq+6cw8sASN8R?=
+ =?us-ascii?Q?RHlt8B8vS+uzQzmtCujfAAuhmzoqbJMDeM5jV+7ku90IisyghMce4zMsM0ZY?=
+ =?us-ascii?Q?VBJozacpf11AAWejoDznlUmdId90GNnmU3AiSAjY3oEyHhJWfy6Rwy7445dw?=
+ =?us-ascii?Q?uBBAI7cfrH46UHYxq2TEUSkea5kMTncFQgV74TdPPPrkNsDme1sqrYL4LMHY?=
+ =?us-ascii?Q?//tZNBL2ekQ6YQH5qadDraQkf0GOXS7XfxjThZ3OOtb6VFbt1nP6VGNnW8Fz?=
+ =?us-ascii?Q?0qj/qt7NgLzRJHmtdJXa9aiMrV8XlAssqp0vGyfVcHeHWomhn0YwQ6+zLs9G?=
+ =?us-ascii?Q?RCD+WUnmRXu8n+7emGR1dwGbFW87/WBhZVJIQ6QQDjpKEmJoa3kyr9IGw1nC?=
+ =?us-ascii?Q?JoXpKWkovxYDsgTgoEpGOXctXDbJHBo5kE4Y8Fbh0Paqtj2GAqvgFsqlxlZM?=
+ =?us-ascii?Q?cAiYIK5OlpprLs559OXmcOFHelO/W/Jv/rGPzDpr4aHEB8UEvV8iDPpMq2mx?=
+ =?us-ascii?Q?gNsXPXTyxZdmgWqCzoz1cUNaFCxKLcLGTcH6OYT3d4ZOssUlzUitamR35Zwd?=
+ =?us-ascii?Q?E5YcxHd7GnA5U/Zt8pKQSjP2vgkzRmsuKoEI6tEj+cBgJ2ryab9CtI1UCtrr?=
+ =?us-ascii?Q?f18ptfnqBfTYjWMHWtnpvmn+pfgDyJFrcPyzSLV30g2n6SBUhWoJUJM8CcYs?=
+ =?us-ascii?Q?anw0W9Eopw=3D=3D?=
 MIME-Version: 1.0
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1106; i=broonie@kernel.org;
- h=from:subject:message-id; bh=lNDsCrr6Zr1a04BpBZ3lfOtH7qJfNJwbYY0TuEgr1a8=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXiCEOyek79WHHGGiFXCeTAW8F77//b0UOazmO
- DXeim3CFjWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal4ghAAKCRAk1otyXVSH
- 0JB3B/sGiLFZW8tY8oSWfbgOEY5rtcyssZ6mdOCkSFUjCHdM71rqTs7M0hwMcXo8vjuE8zQFZF+
- oq8fxc6FoG+lRnqWwim6F7ZylZS6Y83MszA+46+HXz9dSQcno+l05zzRAaeJl0wPgX0LrFPmn5l
- F2EXDwTEu7GG4a/XOWSZ/mXX83arEsylSvh0yvRAh8BfV69LRD2SsOd2T3b81flqBRgVCKMDK/L
- CFofHiqSTYsHC1naZuHGyQPjYaGrUTZltAlQN04ZQ1nlqfoqAfbCk8KrIa72aHOLhOW6izjebAU
- hPx0DPv1WiL2REbIyRknW7e2yLITYb3C53w73w+gqDzy9Pmz
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-OriginatorOrg: einfochips.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR04MB8896.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04e2e99e-6401-4261-e7ed-08dee662bee6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Jul 2026 13:28:11.6778
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0beb0c35-9cbb-4feb-99e5-589e415c7944
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: iircrOBG3alUMx6LJ4BG79D07oy2037YesB3UomNJllJG2qIL0QKR94dRQgI8k4t40YbCiUUQHgy6Ol8EdJyi1Nyl72R3r3doUpXmcdnvYs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR04MB6506
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260720_062818_211743_E3013C1B 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +155,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 20:52:15 +0800, Zhengyu He wrote:
-> spi: spacemit: Correct TX FIFO slot calculation
+Hi Lee,
 
-Applied to
+On Thursday, July 16, 2026 5:59 PM, Lee Jones wrote:
+> On Mon, 06 Jul 2026, Pinkesh Vaghela wrote:
+> 
+> > Document ESWIN EIC7700 SoC compatible for syscon registers.
+> >
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+> > ---
+> >  Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+> >  1 file changed, 2 insertions(+)
+> 
+> Still doesn't apply.  What tree did you rebase on?
+> 
+> Whatever you rebase on needs to have the following commit:
+> 
+>    1d02f2a79ebe ("dt-bindings: mfd: syscon: Drop custom select for older
+> dtschema")
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.2
+We rebased the patches to v7.2-rc2 on master branch of mainline tree
+before sending v2.
+We see that the patch series you are referring to is not present in
+v7.2-rc4 as well. However, they are present in linux-next.
 
-Thanks!
+Could you please suggest on which tree should I rebase and send this patch?
 
-[1/1] spi: spacemit: Correct TX FIFO slot calculation
-      https://git.kernel.org/broonie/spi/c/a88df1d92fcf
+Regards,
+Pinkesh
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+> 
+> --
+> Lee Jones
 
 _______________________________________________
 linux-riscv mailing list
