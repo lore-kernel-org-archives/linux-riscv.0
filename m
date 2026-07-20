@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D5DC4452B
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 15:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C2B4C44515
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 15:08:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1sJJ3fMbnJUl7hyE2hAAmzVU2xUExxKWoFtwB34PcgQ=; b=xEqWj3Zdn/m0uz
-	Mbw5svxev/dmeHOK99uoqdvNF6B3PR7dGGrUFG5p0lfpMBhR0s6BZBiB62bGoP+0Sxp6M/mDSQakU
-	+HVWEZ3l078n2+IPu6WtvjJDISpu/b2aUyKSt7B8ZunpY2Hdwghp6uyFfsJuvYNWFjCuaikQ6qAq1
-	hMvi8qfewZEDWPpSB2KYCzSZd8tiPcP6OdsyLH1mL7jqVBLK3Go7dXNb+ee/WUhcYOx8Z/TURIIO7
-	PVqrb+LGxvWzReMKm4vNLGsxeJ0JMyNleopMXAJi2MHEIKIGQMT1Eiw1VofkcQ6GOpVy01awgw5Yq
-	n63Ppg8dKGXb4petFEIg==;
+	List-Owner; bh=PbL6PZn/Hvh3VHtpIzl8zfE9wn/6OlDtabWSTsrQCww=; b=cp+c6LyeNSCEGp
+	HnGXuWxf/5qlRQJn4mIKPAC3nuH34NIDKv9qB6JwetAHDG4Zbb2t8KUio5Z1o6TePdHUVY9uEBrW2
+	CYe0yjAQMJzEgylzxYULK+ICZH7sG17OPmzKnZGvjfjOfFiFxdgqd/fFliR6iGZd4BjciBkE9OOvD
+	QG+mX2Y0QmfJqiQ1nRf9Bsgxnu4/GY7aIUcut48M1+VEpHG/eDu/0EOax/S0OflaCpGBA4+GRqG44
+	JTcudtcKlbJt1IbOM6jUlRjkCX9NxfqRcRJagFCIlSIfg8m7J7elDcJiuQNI97yUK91uFseJNIfJT
+	nqvfLwmDJeQH+QDENhMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpbc-000000076Ck-1USC;
-	Mon, 20 Jul 2026 15:08:32 +0000
+	id 1wlpbg-000000076QS-3gs7;
+	Mon, 20 Jul 2026 15:08:36 +0000
 Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpbJ-000000075Jl-3uFM;
-	Mon, 20 Jul 2026 15:08:16 +0000
+	id 1wlpbM-000000075Om-03HV;
+	Mon, 20 Jul 2026 15:08:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=P5
-	dtUmSCJE7DzqsEwcI8FKsNsEzR7pCOmSoVvece9QE=; b=WHD25rbD+O3j/PT/bT
-	hZqCaT6y3aNagSE1KNUgmZzKqZzOjklu7qJiEGkfnex+zdNyzT4/sZb7/ExrlHfy
-	I4u2eHHcW3SLMybgrWivdvpxISrVGWvUVfkR7jTgf03CFB4Dr4OPWN8z/k2quiWE
-	mw5891+p7BDY6f5GDoCuVDVew=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Om
+	uI2Spp3n9kV5Al6PVnZ7ZuVvU00LmjtW0tSnMTkU8=; b=X+REq//wOe+JPBVZRf
+	iKQ/Wg1l8eNIl04rCuJGnuOUVa50cGEdGMeJCu2Yh+d9tcScIZQEApLrC9W3a70f
+	gFUMjuZVKj/ff/b7qjLQIxhMNH/WvppMBSfysyFsyVfa/P89hnK1ajV01wTpR5+r
+	8+94fpUyPI8nU9fmA6j71Lkxw=
 Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3b1rIOV5qyHOjKQ--.35310S4;
-	Mon, 20 Jul 2026 23:07:57 +0800 (CST)
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3b1rIOV5qyHOjKQ--.35310S9;
+	Mon, 20 Jul 2026 23:08:01 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
 To: bhelgaas@google.com,
 	lpieralisi@kernel.org,
@@ -53,24 +53,23 @@ Cc: imx@lists.linux.dev,
 	linux-pci@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v3 10/16] PCI: dwc: qcom-ep: Use cached PCIe capability offset
-Date: Mon, 20 Jul 2026 23:06:13 +0800
-Message-Id: <20260720150619.24733-11-18255117159@163.com>
+Subject: [PATCH v3 15/16] PCI: dwc: tegra194: Use cached PCIe capability offset
+Date: Mon, 20 Jul 2026 23:06:18 +0800
+Message-Id: <20260720150619.24733-16-18255117159@163.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260720150619.24733-1-18255117159@163.com>
 References: <20260720150619.24733-1-18255117159@163.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wD3b1rIOV5qyHOjKQ--.35310S4
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAw4kWFW3Cw4fAFy7JFy3CFg_yoW5GFy8pa
-	s0qrsIyr18Jr48XrsFka98XFnxWrn8Ary7Aa97Kw1fZa42v347Ja1jyryftFn7GFW7KryU
-	Cr4rt3yxu3WYyFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEzB-NUUUUU=
+X-CM-TRANSID: _____wD3b1rIOV5qyHOjKQ--.35310S9
+X-Coremail-Antispam: 1Uf129KBjvJXoW7trWfJrW7KFWkXFWkKFy3urg_yoW8KF18pa
+	yfXrWFkr1UJr4SqFsrAan8ZF1F93sIyrW7GanagwsIvr17C347WwsYk3y5tF17CFZFyryU
+	Cr18tFy7Gr15J37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi9a9hUUUUU=
 X-Originating-IP: [240e:b8f:91b3:d000:f138:f837:e143:4264]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCww2zV2peOc0BRQAA3u
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwxG0WGpeOdEBugAA3Z
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_080815_080954_A25B3C58 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_080816_516207_1BCC50A0 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +86,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-dw_pcie_ep_init() no longer caches the offset automatically. For qcom-ep,
-hardware (clocks, PHY) is enabled only after PERST# deassert. Therefore,
-we must call dw_pcie_get_pcie_cap() in qcom_pcie_perst_deassert() after
-the resources are enabled, before any DBI access. This ensures the cached
-offset is valid for subsequent uses in interrupt handlers and ICC updates.
+In host mode: tegra_pcie_dw_host_init() runs inside .start_link, which is
+called after dw_pcie_host_init() has cached the offset. However, the
+driver's own initialization already enables hardware, so calling
+dw_pcie_get_pcie_cap() is safe and will return the cached value.
+
+In endpoint mode: pex_ep_event_pex_rst_deassert() runs after hardware is
+enabled (PERST# deassert). Because the core no longer caches automatically,
+we call dw_pcie_get_pcie_cap() here to cache the offset for subsequent
+accesses. The helper performs the DBI read only when hardware is ready.
+
+Thus, the private pcie_cap_base is always valid and can still be used for
+register accesses.
 
 Signed-off-by: Hans Zhang <18255117159@163.com>
 ---
-In pcie-qcom-ep, dw_pcie_find_capability() appears in:
+In pcie-tegra194, dw_pcie_find_capability() appears in:
 
-  qcom_pcie_ep_probe()
-    -> dw_pcie_ep_init()
-    -> qcom_pcie_ep_enable_irq_resources()
-      -> qcom_pcie_ep_global_irq_thread()
-	-> qcom_pcie_ep_icc_update()
+  static const struct dw_pcie_ops tegra_dw_pcie_ops = {
+    .start_link = tegra_pcie_dw_start_link,
+  };
+  tegra_pcie_dw_start_link()
+    -> tegra_pcie_dw_host_init()
+      -> dw_pcie_find_capability()
+
+  tegra_pcie_dw_probe()
+    case DW_PCIE_EP_TYPE:
+      tegra_pcie_config_ep()
+        -> pex_ep_event_pex_rst_deassert()
 	  -> dw_pcie_find_capability()
-	-> qcom_pcie_ep_perst_irq_thread()
-	  -> qcom_pcie_perst_deassert()
-	    -> offset = dw_pcie_find_capability()  (called twice)
 ---
- drivers/pci/controller/dwc/pcie-qcom-ep.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+ drivers/pci/controller/dwc/pcie-tegra194.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-qcom-ep.c b/drivers/pci/controller/dwc/pcie-qcom-ep.c
-index 56184e6ca6e6..16b0891f9571 100644
---- a/drivers/pci/controller/dwc/pcie-qcom-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom-ep.c
-@@ -307,15 +307,13 @@ static void qcom_pcie_dw_write_dbi2(struct dw_pcie *pci, void __iomem *base,
- static void qcom_pcie_ep_icc_update(struct qcom_pcie_ep *pcie_ep)
- {
- 	struct dw_pcie *pci = &pcie_ep->pci;
--	u32 offset, status;
--	int speed, width;
--	int ret;
-+	int speed, width, ret;
-+	u32 status;
+diff --git a/drivers/pci/controller/dwc/pcie-tegra194.c b/drivers/pci/controller/dwc/pcie-tegra194.c
+index 795cef5a915d..bf482bc66a92 100644
+--- a/drivers/pci/controller/dwc/pcie-tegra194.c
++++ b/drivers/pci/controller/dwc/pcie-tegra194.c
+@@ -905,8 +905,7 @@ static int tegra_pcie_dw_host_init(struct dw_pcie_rp *pp)
+ 	pp->bridge->ops = &tegra_pci_ops;
  
- 	if (!pcie_ep->icc_mem)
- 		return;
+ 	if (!pcie->pcie_cap_base)
+-		pcie->pcie_cap_base = dw_pcie_find_capability(&pcie->pci,
+-							      PCI_CAP_ID_EXP);
++		pcie->pcie_cap_base = dw_pcie_get_pcie_cap(pci);
  
--	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
--	status = readw(pci->dbi_base + offset + PCI_EXP_LNKSTA);
-+	status = readw(pci->dbi_base + pci->pcie_cap + PCI_EXP_LNKSTA);
+ 	val = dw_pcie_readl_dbi(pci, PCI_IO_BASE);
+ 	val &= ~(IO_BASE_IO_DECODE | IO_BASE_IO_DECODE_BIT8);
+@@ -1889,8 +1888,7 @@ static void pex_ep_event_pex_rst_deassert(struct tegra_pcie_dw *pcie)
+ 		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
+ 	}
  
- 	speed = FIELD_GET(PCI_EXP_LNKSTA_CLS, status);
- 	width = FIELD_GET(PCI_EXP_LNKSTA_NLW, status);
-@@ -491,14 +489,15 @@ static int qcom_pcie_perst_deassert(struct dw_pcie *pci)
+-	pcie->pcie_cap_base = dw_pcie_find_capability(&pcie->pci,
+-						      PCI_CAP_ID_EXP);
++	pcie->pcie_cap_base = dw_pcie_get_pcie_cap(pci);
  
- 	dw_pcie_dbi_ro_wr_en(pci);
- 
-+	dw_pcie_get_pcie_cap(pci);
-+
- 	/* Set the L0s Exit Latency to 2us-4us = 0x6 */
--	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-+	offset = pci->pcie_cap;
- 	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
- 	FIELD_MODIFY(PCI_EXP_LNKCAP_L0SEL, &val, 0x6);
- 	dw_pcie_writel_dbi(pci, offset + PCI_EXP_LNKCAP, val);
- 
- 	/* Set the L1 Exit Latency to be 32us-64 us = 0x6 */
--	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
- 	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
- 	FIELD_MODIFY(PCI_EXP_LNKCAP_L1EL, &val, 0x6);
- 	dw_pcie_writel_dbi(pci, offset + PCI_EXP_LNKCAP, val);
+ 	/* Clear Slot Clock Configuration bit if SRNS configuration */
+ 	if (pcie->enable_srns) {
 -- 
 2.34.1
 
