@@ -4,76 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7189C44520
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 17:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC2BC44515
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 17:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cBPSEuqSX//BFKIQlZhEL2bvgMBdo8yHSlUIZ2aP4JI=; b=XrQjotgNejXZpQ
-	zqTsy23mSZwwnQLCZyq0/1GZyVmeKa0AKRVDUK0t9xIDKKBG3J8RZSAtxqTGexCNNvg+GqYB/vD6R
-	Pu/WYexEHuE3i4mvUnIRabUFqdH9xT+RoCWOMFqzIwqY/k6La7Jt1GlBwyq8CHAT8wJ502OzEwdkv
-	sMxSZhhCpkdrM7c1ekxTije0g59J/8NnLUAq2TYL2hksAbUvYua5Z4lDspiJ01tJ+g6dgda58E93t
-	dKeYicRB0Rip52jFji56QnEHXBkUPhR02CO6CBnVhMzCj+I0mKzJ22mYzKbrMM0Ib3koO5nAiJrNZ
-	G8S6awtoWmeYkosrIBmg==;
+	List-Owner; bh=btyAK4kjoWudJ/XY6uB0M4598fLnC6il6s3kYd+cMKQ=; b=xYgOPi9caBuUh4
+	/s5K276omm/+iOk6xfUL8wDZEcJ9bwUd6Vnodo2a8JCyoWN4HuEfXyQ9MLSefMdMQM9KJtTPlqpB2
+	gH7OajyPoqVD8LZFontMF7eBgoqq5E7xhxVF+YBdd1kl4Y3Lgk3DyXT+gKk8lcuEPHtLkKNgwzWg9
+	bGIrOTlDNs5DsvCZIlYuF/y0/rEHHPyN32cZ0YpEGKwQtStt7S9Ww+06IzlZAnJxKlJ5w2vN2RivR
+	9rv9BiaeTYyyeA+pvua5pfxI4d91QRziIFQ9jVHEY8UDxZ5hK+RqQ5YoT+ilJobL6ckzxoLsPhUeg
+	PBeSbTTqKjF0AUSmXhuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlrnq-00000007XQO-0B1t;
-	Mon, 20 Jul 2026 17:29:18 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1wlrtt-00000007YN9-1Z9U;
+	Mon, 20 Jul 2026 17:35:33 +0000
+Received: from shelob.surriel.com ([96.67.55.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlrnn-00000007XPa-0CW6
+	id 1wlrtq-00000007YLP-1ExD
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Jul 2026 17:29:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784568546; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=dcgkDqZzH02+3rhs8JhlEu+dt9qN+QvrOnTuPkj0evGWoyk9rKJ1nWpmYLIFbyx75bKsYJZ5FLh473qLxbAn2J63KZuAG1a7Lc4/C8EAkaLi6Rlo8ibUh6z/tKqKuPHofeUbk5K0l5QfmzRS94cvHIci55a5BPncvgB56LWpNS4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784568546; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=U30vcVgNDbL6Q7ialsGqcvS1rDzUWs+db9ulvIMrdnk=; 
-	b=LdFulXqgU/HJBxf8Z9uHkJf69EzM692RBeThzO6kHYg2bdI/ALtHirAxmbrAtR69vQsNVk1KGEqP0lutcmMiPzzM/3ZvQJeGTjwgjikXs/9Prpv3DV8jQw+aY0dTTVVFNNNyiyeZ3gTHdzd6DPV5HkZ8RjkLV3HWCYQuqFEJ/WI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784568545;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=U30vcVgNDbL6Q7ialsGqcvS1rDzUWs+db9ulvIMrdnk=;
-	b=Dykojnr+V8QoR0i6IONblIbtqKkiHIVnyMz7hEFux/YVZX1RDnTB6qxP6xvZKvWc
-	klE6Z0uz7vubwnOiiZCwjbsr2U7q7OL6nyCAcQ0uOJ+Ph9O1vBfCwAKAzeQBjkRwYhu
-	SPnXAj4GwKSIzmOCG5+z5hwhsPLzAJyHPERGG/tv9KtKkeuWMekxldG4v7oM9mVeiUt
-	7JHnxGaW3Sg/CMEhvsdnymYUtGlm6RweStkPW9lzscjW647eDr2B2TPdWEni63d1vk/
-	lAugkMF9o6Hhb7xwy1IrxMAMSy1rnoTPJRuGnmrp8nCgfu+qA7SSbqkwOfM36wZYF0h
-	VcCwYTwSjg==
-Received: by mx.zohomail.com with SMTPS id 1784568543822170.23306213464105;
-	Mon, 20 Jul 2026 10:29:03 -0700 (PDT)
-Message-ID: <cb14e077de1722d1c36cd0bd877952289dc90abb.camel@icenowy.me>
-Subject: Re: [PATCH v2 4/5] riscv: dts: thead: Add IO labels for the IO
- expansion on I2C1
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring	
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, MoeLeak <i@leak.moe>, Paul Walmsley
- <pjw@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Emil Renner
- Berthing	 <emil.renner.berthing@canonical.com>
-Date: Tue, 21 Jul 2026 01:28:58 +0800
-In-Reply-To: <al5TWhx7pLIZguAc@gen8>
-References: <20260714074515.1959352-1-zhengxingda@iscas.ac.cn>
-	 <20260714074515.1959352-5-zhengxingda@iscas.ac.cn> <allEg/A+Gt/em0Hs@x1>
-	 <1E3154C2-B5BE-46FD-BBFC-87E56FAE3AFE@icenowy.me> <al5TWhx7pLIZguAc@gen8>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.58.3 
+	Mon, 20 Jul 2026 17:35:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
+	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=VpgEGbQd7TUjFEcy4MwyOPp2fSwSzsT74h5eZuIrKNc=; b=Sp87H45crDR89XUlafK04T1y/o
+	I/b/2NpEeAeRnQBadvGb72DkxwlguQl6tUofmiDsjeo5mO/LWih1G6hnM7Z+lEARQGQ+RJPXRNdtv
+	T+qYaVKqv6P0ymHqoZJxZ2NsfuKXkSGiuEh5FnXzLK6BTcK/6+ozaV+vbG2VIbqZxjMEKEuiUPyaZ
+	qfaI2NHjMIz8HQ4xMWNT96PZUDFAGvlnX9dvR9YcBPSbitfgdzv4jTscRR53wthhZTdPUkeCxsK8O
+	pZTPHyLxLMiNK5IFk81GPB93l4sWHbvjCVXCuGG+D2uNfCmeXTYdvQ+1xluzEuJq1iZaEc+jTLi5b
+	H2ezgwrA==;
+Received: from fangorn.home.surriel.com ([10.0.13.7])
+	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.97.1)
+	(envelope-from <riel@surriel.com>)
+	id 1wlrt1-00000000359-185o;
+	Mon, 20 Jul 2026 13:34:39 -0400
+Message-ID: <51c0025d2eb885ff1f4775e4d9ffcf34f478f378.camel@surriel.com>
+Subject: Re: [PATCH RFC v3 2/6] riscv/mm: add untagged_addr_remote_unlocked()
+From: Rik van Riel <riel@surriel.com>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ 	kernel-team@meta.com, David Hildenbrand <david@kernel.org>, Lorenzo
+ Stoakes	 <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka	 <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan	 <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ linux-mm@kvack.org, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti	
+ <alex@ghiti.fr>, linux-riscv@lists.infradead.org
+Date: Mon, 20 Jul 2026 13:34:39 -0400
+In-Reply-To: <46dc1b58-f2de-492a-9da5-a5c429c19a10@linux.dev>
+References: <20260720115741.239657-1-usama.arif@linux.dev>
+	 <13ec2603d5cbfdc493939f182b71e5133c26af54.camel@surriel.com>
+	 <46dc1b58-f2de-492a-9da5-a5c429c19a10@linux.dev>
+Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
+ keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
+ eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
+ Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
+ lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
+ dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
+ mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
+ gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
+ r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
+ WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
+ 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
+ Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
+ +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
+ g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
+ KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
+ fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
+ 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
+ G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
+ okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
+ TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
+ cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
+ omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
+ QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
+ c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_102915_160296_10113401 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20260720_103530_335981_6A2B0B6E 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +102,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDctMjDkuIDnmoQgMDk6NTYgLTA3MDDvvIxEcmV3IEZ1c3RpbmnlhpnpgZPvvJoK
-PiBPbiBGcmksIEp1bCAxNywgMjAyNiBhdCAxMjoxMToyM1BNICswODAwLCBJY2Vub3d5IFpoZW5n
-IHdyb3RlOgo+ID4gCj4gPiAKPiA+IOS6jiAyMDI25bm0N+aciDE35pelIEdNVCswODowMCAwNDo1
-MjoxOe+8jERyZXcgRnVzdGluaSA8ZnVzdGluaUBrZXJuZWwub3JnPgo+ID4g5YaZ6YGT77yaCj4g
-PiA+IE9uIFR1ZSwgSnVsIDE0LCAyMDI2IGF0IDAzOjQ1OjE0UE0gKzA4MDAsIEljZW5vd3kgWmhl
-bmcgd3JvdGU6Cj4gPiA+ID4gRnJvbTogRW1pbCBSZW5uZXIgQmVydGhpbmcgPGVtaWwucmVubmVy
-LmJlcnRoaW5nQGNhbm9uaWNhbC5jb20+Cj4gPiA+ID4gCj4gPiA+ID4gQWRkIGxhYmVscyBmb3Ig
-R1BJT3Mgb24gdGhlIElPIGV4cGFuc2lvbiBjaGlwIG9uIHRoZSBJMkMxIGJ1cy4KPiA+ID4gPiAK
-PiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBFbWlsIFJlbm5lciBCZXJ0aGluZwo+ID4gPiA+IDxlbWls
-LnJlbm5lci5iZXJ0aGluZ0BjYW5vbmljYWwuY29tPgo+ID4gPiA+IFtJY2Vub3d5OiBTcGxpdHRl
-ZCBvZmYgdGhlIHBhdGNoIGFkZGluZyBhbGwgMyBJTyBleHBhbnNpb25zXQo+ID4gPiA+IFNpZ25l
-ZC1vZmYtYnk6IEljZW5vd3kgWmhlbmcgPHpoZW5neGluZ2RhQGlzY2FzLmFjLmNuPgo+ID4gPiA+
-IC0tLQo+ID4gPiA+IMKgYXJjaC9yaXNjdi9ib290L2R0cy90aGVhZC90aDE1MjAtbGljaGVlLXBp
-LTRhLmR0cyB8IDggKysrKysrKysKPiA+ID4gPiDCoDEgZmlsZSBjaGFuZ2VkLCA4IGluc2VydGlv
-bnMoKykKPiA+ID4gPiAKPiA+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy90
-aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0cwo+ID4gPiA+IGIvYXJjaC9yaXNjdi9ib290L2R0
-cy90aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0cwo+ID4gPiA+IGluZGV4IDc0YjEyMGM2YjA2
-M2EuLjc4ZjU5NzlhNTZjMTQgMTAwNjQ0Cj4gPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0
-cy90aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0cwo+ID4gPiA+ICsrKyBiL2FyY2gvcmlzY3Yv
-Ym9vdC9kdHMvdGhlYWQvdGgxNTIwLWxpY2hlZS1waS00YS5kdHMKPiA+ID4gPiBAQCAtMTI4LDYg
-KzEyOCwxNCBAQCBpb2V4cDI6IGdwaW9AMTggewo+ID4gPiA+IMKgCQlyZWcgPSA8MHgxOD47Cj4g
-PiA+ID4gwqAJCWdwaW8tY29udHJvbGxlcjsKPiA+ID4gPiDCoAkJI2dwaW8tY2VsbHMgPSA8Mj47
-Cj4gPiA+ID4gKwkJZ3Bpby1saW5lLW5hbWVzID0gIiIsCj4gPiA+ID4gKwkJCQnCoCAiY2FtMF9y
-ZXNldCIsCj4gPiA+ID4gKwkJCQnCoCAiY2FtMV9yZXNldCIsCj4gPiA+ID4gKwkJCQnCoCAiY2Ft
-Ml9yZXNldCIsCj4gPiA+ID4gKwkJCQnCoCAid2xfaG9zdF93YWtlIiwKPiA+ID4gCj4gPiA+IEkg
-YW0gbm90IHN1cmUgdGhlIGxpbmUgbmFtZSByZWFsbHkgbWF0dGVycyBhbGwgdGhhdCwgYnV0IGl0
-IHNlZW1zCj4gPiA+IHRoYXQKPiA+ID4gcGluIDQgaXMgYWxzbyB1c2VkIGFzIGEgcmVzZXQgZ3Bp
-bzoKPiA+IAo+ID4gVGhlICJob3N0IiBoZXJlIGlzIHN1YmplY3QsIHdoaWNoIG1lYW5zICJ0aGlz
-IHBpbnMgaXMgdXNlZCBieSB0aGUKPiA+IGhvc3QgdG8gd2FrZSB0aGUgd2wiLgo+ID4gCj4gPiBN
-YXliZSBJIHNob3VsZCB0YWtlIHRoZSBzY2hlbWF0aWNzIG5hbWUsICJ3bF9ob3N0X3dha2VfZGV2
-Ij8gT3IgdXNlCj4gPiBhbm90aGVyIG5hbWUgb24gdGhlIHBhZ2UgZm9yIFdpLUZpLCAid2xfcmVn
-X29uIj8KPiAKPiBJIHRobmsgIndsX2hvc3Rfd2FrZV9kZXYiIGlzIHNsaWdodGx5IGJldHRlciBp
-biB0ZXJtcyBvZiBzZWFyY2hpbmcKPiB0aGUKPiBQREYgWzFdIGFuZCBmaW5kaW5nIHRoZSAiSU8g
-RXhwYW5zaW9uIDIiIHNlY3Rpb24uIFRoaXMgaXMgbWlub3IKPiBjaGFuZ2UKPiBzbyBJIGNhbiBq
-dXN0IGZpeCB1cCB3aGVuIGFwcGx5aW5nIGlmIHlvdSBhcmUgb2theSB3aXRoIHRoYXQuCgpPZiBj
-b3Vyc2UgSSBhbSBva2F5IHdpdGggdGhpcy4KClRoYW5rcywKSWNlbm93eQoKPiAKPiBUaGFua3Ms
-Cj4gRHJldwo+IAo+IFsxXSBodHRwczovL2RsLnNpcGVlZC5jb20vc2hhcmVVUkwvTElDSEVFL2xp
-Y2hlZXBpNGEvMDJfU2NoZW1hdGljCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Mon, 2026-07-20 at 17:46 +0100, Usama Arif wrote:
+> 
+> 
+> On 20/07/2026 16:08, Rik van Riel wrote:
+> > On Mon, 2026-07-20 at 04:57 -0700, Usama Arif wrote:
+> > > On Fri, 17 Jul 2026 13:00:32 -0400 Rik van Riel
+> > > <riel@surriel.com>
+> > > wrote:
+> > > 
+> > > 
+> > > > 
+> > > > mm->context.pmlen is set only through PR_SET_TAGGED_ADDR_CTRL
+> > > > and
+> > > > is stable
+> > > > afterwards, so it can be read without the mmap lock, as it
+> > > > already
+> > > > is from
+> > > > untagged_addr() and mm_untag_mask().
+> > > > 
+> > > 
+> > > I think it might not be stable? set_tagged_addr_ctrl() can change
+> > > it
+> > > repeatedly until a CLONE_VM operation sets MM_CONTEXT_LOCK_PMLEN.
+> > 
+> > You're right, ARM tagged addresses seem to work a
+> 
+> ah do you mean RISCV here?
+
+Ugh, I looked at the wrong one.  RISCV is like
+x86, with a dynamic (though a limited number
+of options?) mask.
+
+Having said that, won't a process have all of
+its VMAs in the masked-off area, so coming in
+from a remote process to a valid memory address
+should already give us a valid address?
+
+-- 
+All Rights Reversed.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
