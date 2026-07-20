@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F8FC4452D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A10B8C4452F
 	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 15:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qdz70qdM0cYdvKKxS2QHWaoQ9L8z9/FxK0b7Q4nlN4g=; b=jJ+MbfOn8Lw2sC
-	KAj2sdgthnRB60TxqprvcD+hX+w5nPtsO0iKxrstN34vV5QkrAdbbzNdECjtZB6j5586ST574aESz
-	L/niw6yNHs2IQOHM6Py9lKKs8nFCx1dn9zz6tVzlk3Pw7HJhqh9wYb6jyJk8omKOZpolw6t4A8oPY
-	LZaOTpEtKZHxK0T7Sp2oFTrx3DcVh9IQcYyr+nE3aOX5kwtbxKiYZCy5ey91TjvlFdEam2tjGQeAx
-	7GikI0J49Ova/jWwfghzTRsDy343gEIyzsjX8TcYJekYQsU47svDLx2sxtW3T7UfmgG30tldqmAAv
-	5zvd1SLhdYZfBjttdUhA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=c5pml1ROYRCC4O+05ILCM9ZX5gjdt2oI/+yGNwUGHEw=; b=P00Ub0Cp2AwmYm
+	Mo2TJtO6PpXLc3K/Mfi/H2+pSz5IWosxWwOzhdQfVfzkF5BPZ3S3uueXgX1SfGfPCueD5EuIk7kwc
+	v4YVQQCpjzitFCsuFIAWAYO6FPraFKrxzq/tlWnHv3FfLDQ13esanqAMtWvEdyAx08RnN4tOJO2bY
+	tLrAHB9OoVa/1UAx14+eWar/DXhyFKnhLgTmPGCcoCAmSlqlim/h3i9aO3HvUk1X249viGxqky3Xx
+	mndWyY4G7D+ALiRKe9DW6wrP0177S7W1tV6lmGkj2g7Y4z4o4icMcqSui3MpRCAs6m7+i6TsBYS98
+	1ZoL+uaUn7ai3hiYo03Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpbR-000000075hr-1mLt;
-	Mon, 20 Jul 2026 15:08:21 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1wlpbN-000000075XR-3gm8;
+	Mon, 20 Jul 2026 15:08:17 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpbJ-000000075Id-09qm;
-	Mon, 20 Jul 2026 15:08:15 +0000
+	id 1wlpbF-000000075Gu-0o51;
+	Mon, 20 Jul 2026 15:08:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Jf
-	+KfPnbSlEd5Caaq1yPzPWI1nsuoetMK6a5PKvV7zk=; b=MnS4PMIWi3Fxzeesdf
-	QWICcqBmWL0CMHxDiwNrfoNeUrnS0Oo3n2gAQqdUPIesxXOLbbhTmEHOAv49JBIq
-	jOzMFK+oSqH1agmp4i6Z+RPggBYsOsj72m4qHyQ3h19cJ+LR0HCtIAalgwJutOFT
-	GqfAITMjuDKrDQDL6V6sRgmRw=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=kb
+	4jWdBr7fAMGhV7hOxhuVJo6c1gLcmiTbqibBA1sDU=; b=KVDwbKopKysaucMRs9
+	vwQ9KpV2FqhFGITqoRCFnxIIT3GIlaUaBJzVA8i3oQFykeCl1NZvYQ1ThBbUJZH6
+	LjTGBYx/tXd3O4YFTwKg3BKzcQxZM8p+JH/ucFPH0scL5NIuJtGrrCvbAaqIfmdw
+	w6QcjRo88fO7gfeCHyFzYbVtI=
 Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDX+mO9OV5q8LEOKg--.8910S2;
-	Mon, 20 Jul 2026 23:07:42 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDX+mO9OV5q8LEOKg--.8910S3;
+	Mon, 20 Jul 2026 23:07:44 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
 To: bhelgaas@google.com,
 	lpieralisi@kernel.org,
@@ -53,21 +53,24 @@ Cc: imx@lists.linux.dev,
 	linux-pci@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v3 00/16] PCI: dwc: Cache PCIe capability offset and simplify drivers
-Date: Mon, 20 Jul 2026 23:06:03 +0800
-Message-Id: <20260720150619.24733-1-18255117159@163.com>
+Subject: [PATCH v3 01/16] PCI: dwc: Add pcie_cap field and helper in designware header
+Date: Mon, 20 Jul 2026 23:06:04 +0800
+Message-Id: <20260720150619.24733-2-18255117159@163.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260720150619.24733-1-18255117159@163.com>
+References: <20260720150619.24733-1-18255117159@163.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wDX+mO9OV5q8LEOKg--.8910S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Ar4xWF43Ww15Kr4kCF18uFg_yoW7Aw4Dpa
-	9IqrWSyr1ftr4avF4xA3WUZry5Cas3CFWUJ393Ww4fZFy3ua1UJr18CrWFyFy7KrWIvr13
-	Kw4aqa4fuFykJFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zicdjtUUUUU=
+X-CM-TRANSID: _____wDX+mO9OV5q8LEOKg--.8910S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7KFWxCF4kArWUWw4fGr1fXrb_yoW8Ww45pa
+	y3JF1Skr48AFWavF43AanxZr15tF93ArW7Ga93Kw1SqFyaka4UGa10yryYyF17KrWIkrya
+	kw45t34rCFn8JFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zEv388UUUUU=
 X-Originating-IP: [240e:b8f:91b3:d000:f138:f837:e143:4264]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7B+vU2peOb91AgAA3K
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxACwVGpeOcAFAAAA3o
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_080813_540814_38ECCBB7 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260720_080809_580652_03AEF7FA 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,128 +87,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add a pcie_cap field to struct dw_pcie to store the offset of the
+PCI Express Capability structure. Provide a helper dw_pcie_get_pcie_cap()
+which performs the capability search on first call and caches the result.
 
-The DWC PCIe core and its many platform drivers repeatedly call
-dw_pcie_find_capability(pci, PCI_CAP_ID_EXP) to obtain the offset of the
-PCI Express Capability structure. This is wasteful and makes the code
-verbose. Some drivers even search for the offset in suspend/resume paths.
+This is a preparatory step for replacing repetitive capability searches
+in both core and platform drivers.
 
-Add a cached pcie_cap field in struct dw_pcie and a helper
-dw_pcie_get_pcie_cap() to initialize it once at the point when the
-hardware is ready. Then replace all explicit capability searches with
-the cached value across the entire dwc subtree.
-
-**Safety analysis: DBI access timing**
-The PCIe Capability offset is read from DBI configuration space. DBI
-registers are only accessible after the controller's clocks, resets, and
-power are enabled. The following call graph demonstrates that all
-dw_pcie_find_capability() replacements occur only after hardware is ready:
-
-- For Root Complex mode:
-  dw_pcie_host_init()
-    ...
-    if (pp->ops->init)
-      pp->ops->init   [enables clocks/resets]
-    dw_pcie_get_pcie_cap()   [caches offset]
-    ...
-    dw_pcie_link_up
-      pci->ops->link_up
-    ...
-    dw_pcie_start_link
-      pci->ops->start_link
-    ...
-    pci_host_probe
-    if (pp->ops->post_init)
-      pp->ops->post_init
-    ...
-
-- For Endpoint mode:
-  The core no longer automatically caches the offset in dw_pcie_ep_init().
-  Instead, each EP driver must ensure hardware is enabled (clocks, power,
-  PHY) before calling dw_pcie_get_pcie_cap(). Drivers like qcom-ep and
-  tegra194 perform this in the PERST# deassert handler, where DBI is
-  accessible. The helper will then cache the offset for subsequent uses.
-
-- Some platform drivers (e.g., layerscape-ep) enable hardware themselves
-  before calling dw_pcie_ep_init() and explicitly call
-  dw_pcie_get_pcie_cap() to cache the offset early. This is safe.
-
-Thus, no DBI access occurs before hardware is operational.
-
-Changes in v3:
-- Remove automatic caching from dw_pcie_ep_init() to prevent unclocked
-  DBI access on EP platforms (qcom-ep, tegra194).
-- Add explicit dw_pcie_get_pcie_cap() calls in qcom-ep and tegra194 EP
-  paths after hardware enablement.
-- Keep Host mode caching unchanged.
-- Update commit messages accordingly.
-
-Changes in v2:
-- Move dw_pcie_get_pcie_cap() from the beginning of dw_pcie_host_init()
-  and dw_pcie_ep_init() to after the hardware initialization callbacks
-  (host_init/pre_init). This can prevent the reading of DBI when the clock
-  is turned off or when the hardware is not ready.
-- Convert all platform drivers to use the cached offset via
-  dw_pcie_get_pcie_cap() or directly pci->pcie_cap where safe.
-- Fix type mismatches (u16 -> u8).
-- Properly split per-driver modifications.
-
-v1: https://patchwork.kernel.org/project/linux-pci/cover/20260509135152.2241235-1-18255117159@163.com/
-
-v2: https://patchwork.kernel.org/project/linux-pci/patch/20260530153101.695580-1-18255117159@163.com/
-
+Signed-off-by: Hans Zhang <18255117159@163.com>
 ---
-**Why splitting into per-driver patches**  
-To facilitate review and potential bisection, each platform driver is
-modified in its own patch. The core changes are in patches 1-2, and
-follow-up patches convert individual glue drivers. If maintainers prefer
-to squash them, please let me know and I will merge in v3.
+ drivers/pci/controller/dwc/pcie-designware.h | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-This splitting patch of each controller was carried out solely for
-the convenience of code review.
----
-
-Hans Zhang (16):
-  PCI: dwc: Add pcie_cap field and helper in designware header
-  PCI: dwc: Use cached PCIe capability offset in core
-  PCI: dwc: imx6: Use cached PCIe capability offset
-  PCI: dwc: layerscape-ep: Use cached PCIe capability offset
-  PCI: dwc: meson: Use cached PCIe capability offset
-  PCI: dwc: rockchip: Use cached PCIe capability offset
-  PCI: dwc: eswin: Use cached PCIe capability offset
-  PCI: dwc: fu740: Use cached PCIe capability offset
-  PCI: dwc: intel-gw: Use cached PCIe capability offset
-  PCI: dwc: qcom-ep: Use cached PCIe capability offset
-  PCI: dwc: qcom: Use cached PCIe capability offset
-  PCI: dwc: sophgo: Use cached PCIe capability offset
-  PCI: dwc: spacemit-k1: Use cached PCIe capability offset
-  PCI: dwc: spear13xx: Use cached PCIe capability offset
-  PCI: dwc: tegra194: Use cached PCIe capability offset
-  PCI: dwc: ultrarisc: Use cached PCIe capability offset
-
- drivers/pci/controller/dwc/pci-imx6.c         |  6 +++---
- .../pci/controller/dwc/pci-layerscape-ep.c    |  9 +++-----
- drivers/pci/controller/dwc/pci-meson.c        |  4 ++--
- .../pci/controller/dwc/pcie-designware-ep.c   |  2 +-
- .../pci/controller/dwc/pcie-designware-host.c |  2 ++
- drivers/pci/controller/dwc/pcie-designware.c  | 15 ++++++-------
- drivers/pci/controller/dwc/pcie-designware.h  | 17 +++++++++++++++
- drivers/pci/controller/dwc/pcie-dw-rockchip.c |  2 +-
- drivers/pci/controller/dwc/pcie-eswin.c       |  3 +--
- drivers/pci/controller/dwc/pcie-fu740.c       |  2 +-
- drivers/pci/controller/dwc/pcie-intel-gw.c    |  2 +-
- drivers/pci/controller/dwc/pcie-qcom-ep.c     | 13 ++++++------
- drivers/pci/controller/dwc/pcie-qcom.c        | 21 ++++++++-----------
- drivers/pci/controller/dwc/pcie-sophgo.c      |  5 +++--
- drivers/pci/controller/dwc/pcie-spacemit-k1.c |  2 +-
- drivers/pci/controller/dwc/pcie-spear13xx.c   |  2 +-
- drivers/pci/controller/dwc/pcie-tegra194.c    |  6 ++----
- drivers/pci/controller/dwc/pcie-ultrarisc.c   |  2 +-
- 18 files changed, 61 insertions(+), 54 deletions(-)
-
-
-base-commit: 58717b2a1365d06c8c64b72aa948541b53fe31eb
+diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+index de4b245b1758..8113efd33a24 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.h
++++ b/drivers/pci/controller/dwc/pcie-designware.h
+@@ -591,6 +591,8 @@ struct dw_pcie {
+ 	 * use_parent_dt_ranges to true to avoid this warning.
+ 	 */
+ 	bool			use_parent_dt_ranges;
++
++	u8			pcie_cap;	/* PCIe capability offset */
+ };
+ 
+ #define to_dw_pcie_from_pp(port) container_of((port), struct dw_pcie, pp)
+@@ -829,6 +831,21 @@ static inline void dw_pcie_dbi_ro_wr_dis(struct dw_pcie *pci)
+ 	dw_pcie_writel_dbi(pci, reg, val);
+ }
+ 
++/**
++ * dw_pcie_get_pcie_cap() - Return cached PCIe Capability offset
++ * @pci: DWC instance
++ *
++ * Finds and caches the offset of PCI_CAP_ID_EXP on first call.
++ * Returns 0 if the capability is not present.
++ */
++static inline u8 dw_pcie_get_pcie_cap(struct dw_pcie *pci)
++{
++	if (!pci->pcie_cap)
++		pci->pcie_cap = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++
++	return pci->pcie_cap;
++}
++
+ static inline int dw_pcie_start_link(struct dw_pcie *pci)
+ {
+ 	if (pci->ops && pci->ops->start_link)
 -- 
 2.34.1
 
