@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257F0C4452A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 079D8C4452C
 	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2026 15:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ffS+VyF5pnMv4RnWt2zRmnghoAApcCkj3nseKJdCg9A=; b=UrQG1643/QX5YC
-	bHzSpTR48s4aH7J/dIck4iwtGDDQdceS7eSJr/+3MeTv9NkdLga9/Xw9Tw1+n58KbPv2L0EDmVMkB
-	p/+OoEUPEOw1mNX1pIslhFeHw8+AqSakZdVnU5AvPQzdzqUtZ7kMNIOy4LkaSDhZtJ99touApi3kY
-	6ewGZ/E5kqfupELy2SoYhnvgrXYXY6+RQZnWnNBl7rDgn0u8nCdAuiPumhGiJu1KiYftzY6rkUZWA
-	8KHC9PwUc/raRQFIWN8Ks7VYhvik7mr88tXt/NVeic6QJRhWZnqLU8BYO48YmdVLCmn8Obxz4l4qS
-	PEulhFOOSh6jCWCIrrnA==;
+	List-Owner; bh=LDrjFAw/Ojf1M9uAxL77v97lvfln6q7/PPImashn8xw=; b=hVrKuLRGvkK7GN
+	E/jH7p3Qp4bwQiOWuwHeQmZQ4JCy886OtnikbFzexLvflWDpqrGA7j7vBYnIvZIyaKxHB3a5BzzSu
+	3O4AsH2Lkd+b7ASm0c8oyYuSf7q5IChvk33Qyf/sZGz3zUmakk/ZZk4A0fXE8E963jxGMTM2zH9vo
+	PBGlh/bikfwu1wczGBY8T+gVa7qIt4K+zDy9s59uuZKMup1ovnbxOJoeAqeop3NncOhoxJ5fj/DLr
+	TPKX+n5s+q2WYI19eEMfFfF5ETloUeDdZ3tgz7uDdlSKE1wiDHpjjn0ks8p3Z4AlpbKUWUQKw1enW
+	NpaDHuNNLCPC1EXdeFMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpbM-000000075V1-3JXv;
+	id 1wlpbM-000000075TT-0fHX;
 	Mon, 20 Jul 2026 15:08:16 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpbD-000000075HK-29JU;
+	id 1wlpbD-000000075Gk-0fi8;
 	Mon, 20 Jul 2026 15:08:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=sC
-	5IK7rcAYFVlcW/qRjCYlhzV8RYd8qBA49KkuguIVM=; b=U1xIB7cYYmtHDba2Gg
-	Aiy0ph56gAshFRwCfzdpxVDWPwdWnSX4lYYp2WwdOnuINDqBSSa5mMHpJgc97vM2
-	Gr5ydSMhFv7KNMtNYF3saeMz/EFrze2OhzMB6X8PDhdsaYJXwqaH63YV74W9Yd/t
-	aXWMFCUldUyUPgObP/gCPc78s=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=sq
+	5n5May5plZP321RlYIM0qj1KqVpHN9549zyN1aNPQ=; b=aO3MFWV9XIa4ABdZgE
+	Hlnwa0G0y0jJsfMsU+rQWsAwNfdEQSRYyiF/0lG020ZdM1GUb2xHquff0SkSItpS
+	n87eoGNP4gxWufaDI0dGAfmPZRd3iUPaWS2n7tJhD9P+/pRDRXpNGj7rHOOOhjXO
+	Cpk0uPrOoe+twSKXp/RvlYGtk=
 Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDX+mO9OV5q8LEOKg--.8910S6;
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDX+mO9OV5q8LEOKg--.8910S7;
 	Mon, 20 Jul 2026 23:07:47 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
 To: bhelgaas@google.com,
@@ -53,23 +53,24 @@ Cc: imx@lists.linux.dev,
 	linux-pci@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v3 04/16] PCI: dwc: layerscape-ep: Use cached PCIe capability offset
-Date: Mon, 20 Jul 2026 23:06:07 +0800
-Message-Id: <20260720150619.24733-5-18255117159@163.com>
+Subject: [PATCH v3 05/16] PCI: dwc: meson: Use cached PCIe capability offset
+Date: Mon, 20 Jul 2026 23:06:08 +0800
+Message-Id: <20260720150619.24733-6-18255117159@163.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260720150619.24733-1-18255117159@163.com>
 References: <20260720150619.24733-1-18255117159@163.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wDX+mO9OV5q8LEOKg--.8910S6
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZF15KF4kXF1ktr18Gry8Xwb_yoW5GF1kpF
-	WUXF4YkF18Jr4SgFsrZan8Wr13GF9akFy7J397Kr1aqry2vryUGa90yry5tFn7GFWqkFyj
-	934rtFy7u345JrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pigAw7UUUUU=
+X-CM-TRANSID: _____wDX+mO9OV5q8LEOKg--.8910S7
+X-Coremail-Antispam: 1Uf129KBjvJXoW7CFy3CFyDGrWDZw47Jw1xGrg_yoW8AFWkpF
+	WYgr4jyr18Ar4YgwnrCan8ZFy3Jas8Ar47Ja93Kw1SvFy2kFsrJ34ayFWYka4xWFW293Z8
+	CFn8tryUZwn5trUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piyxR-UUUUU=
 X-Originating-IP: [240e:b8f:91b3:d000:f138:f837:e143:4264]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxAOwVGpeOcMFQQAA3p
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxASxVWpeOcQFUAAA34
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_080808_850959_C50806BC 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260720_080808_558613_DBBFFC97 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,69 +87,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace these with dw_pcie_get_pcie_cap(). The hardware is already enabled
-by the driver before ls_pcie_ep_probe() and before the interrupt handler
-runs. dw_pcie_get_pcie_cap() will cache the offset on first call, and
-subsequent calls (including inside dw_pcie_ep_init) will use the cached
-value without re-searching.
+dw_pcie_host_init() calls pp->ops->init (meson_pcie_host_init) before
+caching the offset. Therefore, inside .init we must call
+dw_pcie_get_pcie_cap() to obtain the offset (the helper will perform the
+DBI read and cache the result). This is safe because the hardware is
+already enabled by the driver's own initialization.
 
 Signed-off-by: Hans Zhang <18255117159@163.com>
 ---
-In pci-layerscape-ep, dw_pcie_find_capability() is called in:
+In pci-meson, the call chain is:
 
-  ls_pcie_ep_probe()
-    -> offset = dw_pcie_find_capability()
-    -> pcie->lnkcap = dw_pcie_readl_dbi(offset + PCI_EXP_LNKCAP)
-    -> dw_pcie_ep_init()
-    -> ls_pcie_ep_interrupt_init()
-        -> devm_request_irq(..., ls_pcie_ep_event_handler)
-          -> ls_pcie_ep_event_handler()
-            -> dw_pcie_find_capability()
+  static const struct dw_pcie_host_ops meson_pcie_host_ops = {
+    .init = meson_pcie_host_init,
+  };
+  meson_pcie_host_init()
+    -> meson_set_max_payload()
+      -> dw_pcie_find_capability()
+    -> meson_set_max_rd_req_size()
+      -> dw_pcie_find_capability()
 ---
- drivers/pci/controller/dwc/pci-layerscape-ep.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+ drivers/pci/controller/dwc/pci-meson.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pci-layerscape-ep.c b/drivers/pci/controller/dwc/pci-layerscape-ep.c
-index 8936975ff104..b2d0b51df3c5 100644
---- a/drivers/pci/controller/dwc/pci-layerscape-ep.c
-+++ b/drivers/pci/controller/dwc/pci-layerscape-ep.c
-@@ -74,7 +74,6 @@ static irqreturn_t ls_pcie_ep_event_handler(int irq, void *dev_id)
- 	struct ls_pcie_ep *pcie = dev_id;
- 	struct dw_pcie *pci = pcie->pci;
- 	u32 val, cfg;
--	u8 offset;
+diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
+index 7a4da9fae1ea..c9d0388d262b 100644
+--- a/drivers/pci/controller/dwc/pci-meson.c
++++ b/drivers/pci/controller/dwc/pci-meson.c
+@@ -277,7 +277,7 @@ static void meson_set_max_payload(struct meson_pcie *mp, int size)
+ {
+ 	struct dw_pcie *pci = &mp->pci;
+ 	u32 val;
+-	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++	u8 offset = dw_pcie_get_pcie_cap(pci);
+ 	int max_payload_size = meson_size_to_payload(mp, size);
  
- 	val = ls_pcie_pf_lut_readl(pcie, PEX_PF0_PME_MES_DR);
- 	ls_pcie_pf_lut_writel(pcie, PEX_PF0_PME_MES_DR, val);
-@@ -83,9 +82,6 @@ static irqreturn_t ls_pcie_ep_event_handler(int irq, void *dev_id)
- 		return IRQ_NONE;
+ 	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
+@@ -293,7 +293,7 @@ static void meson_set_max_rd_req_size(struct meson_pcie *mp, int size)
+ {
+ 	struct dw_pcie *pci = &mp->pci;
+ 	u32 val;
+-	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++	u8 offset = dw_pcie_get_pcie_cap(pci);
+ 	int max_rd_req_size = meson_size_to_payload(mp, size);
  
- 	if (val & PEX_PF0_PME_MES_DR_LUD) {
--
--		offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
--
- 		/*
- 		 * The values of the Maximum Link Width and Supported Link
- 		 * Speed from the Link Capabilities Register will be lost
-@@ -93,7 +89,8 @@ static irqreturn_t ls_pcie_ep_event_handler(int irq, void *dev_id)
- 		 * that configured by the Reset Configuration Word (RCW).
- 		 */
- 		dw_pcie_dbi_ro_wr_en(pci);
--		dw_pcie_writel_dbi(pci, offset + PCI_EXP_LNKCAP, pcie->lnkcap);
-+		dw_pcie_writel_dbi(pci, pci->pcie_cap + PCI_EXP_LNKCAP,
-+				   pcie->lnkcap);
- 		dw_pcie_dbi_ro_wr_dis(pci);
- 
- 		cfg = ls_pcie_pf_lut_readl(pcie, PEX_PF0_CONFIG);
-@@ -266,7 +263,7 @@ static int __init ls_pcie_ep_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, pcie);
- 
--	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-+	offset = dw_pcie_get_pcie_cap(pci);
- 	pcie->lnkcap = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
- 
- 	ret = dw_pcie_ep_init(&pci->ep);
+ 	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
 -- 
 2.34.1
 
