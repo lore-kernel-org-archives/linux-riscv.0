@@ -4,80 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F404C44529
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 10:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C14C4451C
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 10:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FxgEj9yDxjTRXUbvhKY+V06yLdK1AXP07gQYgtL7S6Y=; b=TopOXnLRZDJkGX
-	pL1GCj7ziUCxbQEh0uLUOHr9TCnR+3E9qFb27G2T3GeQ3v8QVFfI08XyVj66JduDHolHHh83k3FqK
-	Zm72RD0fKmI7BbCH61H1eEJgnqCVUM8HUBZDI39R3H6Z5QC+nAhDpQfaMBGgGqg3rV9pAjgPTWxuk
-	ByZl5bwodCih/YK5NpED/T36lT5TK7ORdzbGeIHzOGHwj2QrbqSFCcSs1cFYzsSFuCQ6wjM2OyA6m
-	La3vvNC5KrvhrU5u1H62EYS1/a+drgCNeyZ2LAl6UeVIToB08zP2iMgcBN82uGNyt9q70uYJoHc1w
-	my1RpxJM0FQ5LqOuu9+A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2xmGk0GCFo+FB/5S6MoS6nP0ulF0maqqeTjIA9sJ8qw=; b=ZzNGAn1o69Kfps
+	dRedTpYFvPB7tM0F5zpzu3hsxGkZ8cL1Zjx5iGkx9+XJzDxgk9g8kJWQE3QEo4w53u7+jzrFTJPU2
+	weVE6GXD38wT1G/4+BsjRNokY1O/II+n+h5rmRJixm5b1ZvdcgHmMkR68cDsRtTqnGNM051yprFVA
+	JPiHYjekGEpg6EYuA1bQJ7UOg0gE0ADVFMi5+B5EnjtfrPwLJ/c1XGUu0MGKh5+fL2aYJxzISXaDJ
+	QBSwbyQVYk8PgUS7abgHcxHbPZ/bxIp0IiSVO+iz4odogjkaBzQ9G88Zx5oteadMV/o9FCHs9sbAv
+	vXZpCq/nAQzR60yJOhUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7Va-000000095Pb-1NJ5;
-	Tue, 21 Jul 2026 10:15:30 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1wm7xs-00000009Esy-3Ika;
+	Tue, 21 Jul 2026 10:44:44 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7VV-000000095NW-2ga7;
-	Tue, 21 Jul 2026 10:15:29 +0000
-X-QQ-mid: esmtpsz17t1784628857t66910cac
-X-QQ-Originating-IP: vDikGeTX9xdKaMVcbajN25qy8kQetXWq/mGgRDPtiH4=
-Received: from rsl ( [183.242.33.186])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 21 Jul 2026 18:14:14 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13123165881942951496
-EX-QQ-RecipientCnt: 14
-From: JinRui <jinrui@haiwei.tech>
-To: Anup Patel <anup@brainfault.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
+	id 1wm7xq-00000009Es3-0Qh8
+	for linux-riscv@lists.infradead.org;
+	Tue, 21 Jul 2026 10:44:43 +0000
+Received: from kunlun.suse.cz (unknown [IPv6:2a07:de40:b306:2000::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 531843E07;
+	Tue, 21 Jul 2026 10:44:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784630678; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=B0Py5B3mwQHc+JOXafe3hbEgSFjr03UEdbTua5LDYRg=;
+	b=JtQP6lged4KTQ9qwSmJWoFVAqDxIRDZ+BQwSXLtHg+hxvrs0KZqezKv7NOpLhu1e843nkg
+	JT1pK7pnMGMQMv8FU5RcH5t+x4oxP4g/E6bssli90KGK+L+lwzEkt2iJceUzwLYI/PZ++9
+	PvGiUBNZ/4KSC7Vpjng9OD92j/wQyII=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784630678;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=B0Py5B3mwQHc+JOXafe3hbEgSFjr03UEdbTua5LDYRg=;
+	b=y2frQJ8pJWgRl/gkkNhGtA7abbAg0ghd3xXR7bRLXh8+ijdsEq5T6omONmmn2klKmyD0HA
+	vXo1mY9eOZlpodCA==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=JtQP6lge;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=y2frQJ8p
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784630678; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=B0Py5B3mwQHc+JOXafe3hbEgSFjr03UEdbTua5LDYRg=;
+	b=JtQP6lged4KTQ9qwSmJWoFVAqDxIRDZ+BQwSXLtHg+hxvrs0KZqezKv7NOpLhu1e843nkg
+	JT1pK7pnMGMQMv8FU5RcH5t+x4oxP4g/E6bssli90KGK+L+lwzEkt2iJceUzwLYI/PZ++9
+	PvGiUBNZ/4KSC7Vpjng9OD92j/wQyII=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784630678;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=B0Py5B3mwQHc+JOXafe3hbEgSFjr03UEdbTua5LDYRg=;
+	b=y2frQJ8pJWgRl/gkkNhGtA7abbAg0ghd3xXR7bRLXh8+ijdsEq5T6omONmmn2klKmyD0HA
+	vXo1mY9eOZlpodCA==
+Date: Tue, 21 Jul 2026 12:44:37 +0200
+From: Michal Suchanek <msuchanek@suse.de>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Kees Cook <kees@kernel.org>, Andy Lutomirski <luto@amacapital.net>,
+	Will Drewry <wad@chromium.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Atish Patra <atish.patra@linux.dev>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	jinrui <jinrui@haiwei.tech>
-Subject: [PATCH] KVM: selftests: riscv: Add lazy V extension enablement for guests
-Date: Tue, 21 Jul 2026 10:14:06 +0000
-Message-ID: <4FAAF34C966898C0+20260721101406.305108-1-jinrui@haiwei.tech>
-X-Mailer: git-send-email 2.53.0
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Thomas Gleixner <tglx@kernel.org>,
+	Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org, Huacai Chen <chenhuacai@kernel.org>,
+	loongarch@lists.linux.dev, Sven Schnelle <svens@linux.ibm.com>,
+	linux-s390@vger.kernel.org, x86@kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	"Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>, Radu Rendec <radu@rendec.net>,
+	Renzo Davoli <renzo@cs.unibo.it>, Oleg Nesterov <oleg@redhat.com>
+Subject: [PATCH] seccomp: Fix syscall skip logic on ptrace
+Message-ID: <al9NlZi20xHMvla2@kunlun.suse.cz>
+References: <20260707181957.433213175@kernel.org>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:haiwei.tech:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: N2tpK8t46iLIj0Ito0cqf7yOPCpYliaHJ1ueKwPnwN6LayfwrxRkszpq
-	dUcRkRh0Nuc3eHGshAu7xe2TIuEb5vzJcztUEuzO9COIPXkNtaZNE4+ViFAa992AgCas8DH
-	48D9E3/07NafbSurm62yuudg+xnaTMwWkeW+tOkb5K4Bz3Xhwz01gJU70pvuo5fUnmQYMoQ
-	5DVpoPFjjA+fSh47qyrezU8HaUK9EEqFLbzOrX+eaarhWfO8HNu74dT+2YoyeB47RxsS0VC
-	CbIIxBFniVLGbqY3FkwBAG6NtKsXAtknJqAAiFSsOCWpF9/g9l2T43+5ZGBKUZ18qSHzQGe
-	IMUYtwRlDbO+lcEWL7ffdW7i2i4XSQX2xXi71t4srgKlDriWxjElpK4Ymt6QTkoyjs9gA9B
-	Xpx7UhNieurxvM9UjRRnXCIosNudz84YksMogqs4G3oX4NFwnNn/PoU1kij2kVWIISwRKKe
-	T3uVzB0lqrXIq39Kf/lhuMQloNOT9VEOA+A4FGPWh3XaOASK8SPMPCOd0MK47ut4SYpOhPV
-	bUoedPCswxrYJYeBmXbNNAgYejZvMY0+bN1/neyQCo8qbgoVGFMv+em9AEKwuEGZ7qHJwIa
-	RITdZlRsf9H5OyM15dcniLtJiXOm6KuDvbhGRIvnIAgLgLWlLCimpjCQnShTPoNIDk0OGot
-	8+iQKTQHFmTnwRI7TQG5/hFo5EVvETuq7JCvarDYbQkp1+4xJR9kiIXSMhcJeUuH5ixH7fG
-	4vpPKjwC35DIWdaxjx4Ca4Hd9lhF0fcMJhPDIZl0dJap1pXVcJsRRZv3KFrk9t7qcxPpMyU
-	L2waGbHSM++13YrY1Hpt/DHnJ35+itYvpptbWxSvgaLUwfz372UlVLnCTlFHvXXpcD+2DDc
-	4Je1ZLZnH+53uGM/9ivpzvr1v1+aNfUbePu/ZNaTvml5OHfgOYbsr3RO7ssF7v0RfvR2INJ
-	SS2AZtByh7PWecV1uJmDCis2tcBcdkoZ5/b5nK8C4s4u7m1ILWgsxjm84LU5NQxPBJbpAgQ
-	KUvBzC3+FMDwv9yy3c5aqYQGjjrCI=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
+Content-Disposition: inline
+In-Reply-To: <20260707181957.433213175@kernel.org>
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Spamd-Result: default: False [2.49 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
+	RDNS_NONE(2.00)[];
+	ONCE_RECEIVED(1.20)[];
+	HFILTER_HELO_IP_A(1.00)[kunlun.suse.cz];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	HFILTER_HELO_NORES_A_OR_MX(0.30)[kunlun.suse.cz];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b306:2000::2:from];
+	ARC_NA(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[28];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[kernel.org,amacapital.net,chromium.org,dabbelt.com,eecs.berkeley.edu,ghiti.fr,vger.kernel.org,lists.infradead.org,suse.de,ellerman.id.au,linux.ibm.com,lists.ozlabs.org,lists.linux.dev,arm.com,huawei.com,gmail.com,lwn.net,rendec.net,cs.unibo.it,redhat.com];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b306:2000::2:from];
+	MISSING_XM_UA(0.00)[];
+	RCVD_COUNT_ZERO(0.00)[0];
+	R_RATELIMIT(0.00)[to_ip_from(RLgmbm6kmdycgna1ji64zx9jke)];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:dkim,kunlun.suse.cz:helo,kunlun.suse.cz:mid]
+X-Spamd-Bar: ++
+X-Rspamd-Queue-Id: 531843E07
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_031526_055763_587C8AB3 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20260721_034442_456156_69794AA9 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,136 +148,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: jinrui <jinrui@haiwei.tech>
+seccomp takes a shortcut here. When the syscall number is re-read after
+ptrace and the sign bit is set in the syscall number the syscall is
+skipped right away.
 
-When the cross-compiler defaults to an -march that includes the V
-(vector) extension, -O2 auto-vectorization generates vector
-instructions (e.g. vsetvli, vadd.vv) in Guest binary code. If the
-Guest executes a vector instruction while sstatus.VS is Off, an
-EXC_INST_ILLEGAL (scause=2) is raised. KVM's hedeleg delegates this
-exception to the Guest, but the selftest has no way to handle it as a
-bare-metal program, causing all Guest tests to fail.
+This works fairly well on x86 where the return value of the syscall is
+preset before seccomp is processed.
 
-In contrast, a real OS kernel handles this via riscv_v_first_use_handler(),
-which detects the vector instruction, sets sstatus.VS to Initial, and
-srets to re-execute.
+However, on some architectures the syscall return value overlaps with
+the syscall number or syscall arguments, and as a result the return
+value cannot be preset in advance.
 
-Fix this with four changes in processor.c:
+For these architectures seccomp needs to exit without flagging the
+syscall as skipped. Then processing of invalid syscall number in the
+architecture code should set the return value to -ENOSYS and skip the
+syscall.
 
-1. Delete the now-unused guest_unexp_trap() handler, which is replaced
-   by the full exception vector table.
+This introduces a change: If the syscall number has the sign bit
+set, such as -1, previously the filter re-check would not be done, not
+applying the filter after trace. Now the re-check is done both for
+syscall nubers with and without sign bit set. This would only make a
+difference if the syscall number or the filter was changed by the
+tracer. Otherwise the filter would be resolved the first time around.
 
-2. In vm_arch_vcpu_add(), notify KVM that the Guest is allowed to use
-   the V extension via __vcpu_set_reg(V, 1) (best-effort, silently
-   ignores errors on hardware without V). Also replace the raw stvec
-   handler with the full exception vector table, which provides
-   save_context/restore_context for safe lazy enablement.
-
-3. In route_exception(), add a lazy V enablement check that runs
-   before any test-registered handler. When the cause is a non-IRQ
-   EXC_INST_ILLEGAL and sstatus.VS is Off, set VS to Initial and
-   return so the faulting instruction is re-executed via sret.
-
-4. Make vm_init_vector_tables() idempotent by checking vm->handlers
-   before allocation, so tests that manually call it (ebreak_test,
-   arch_timer, sbi_pmu_test) do not leak memory.
-
-The check runs before test-registered EXC_INST_ILLEGAL handlers
-(e.g. sbi_pmu_test) to ensure V enablement takes priority.
-
-Tested on a riscv64 host with KVM enabled: all 12 KVM selftest
-binaries pass.
-
-Signed-off-by: jinrui <jinrui@haiwei.tech>
+Signed-off-by: Michal Suchanek <msuchanek@suse.de>
 ---
- .../selftests/kvm/lib/riscv/processor.c       | 51 +++++++++++++++----
- 1 file changed, 41 insertions(+), 10 deletions(-)
+ kernel/seccomp.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index ded5429f3448..68577b2f48f4 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -297,14 +297,6 @@ void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, u8 indent)
- 		" T3: 0x%016lx   T4: 0x%016lx T5: 0x%016lx T6: 0x%016lx\n",
- 		core.regs.t3, core.regs.t4, core.regs.t5, core.regs.t6);
- }
--
--static void __aligned(16) guest_unexp_trap(void)
--{
--	sbi_ecall(KVM_RISCV_SELFTESTS_SBI_EXT,
--		  KVM_RISCV_SELFTESTS_SBI_UNEXP,
--		  0, 0, 0, 0, 0, 0);
--}
--
- void vcpu_arch_set_entry_point(struct kvm_vcpu *vcpu, void *guest_code)
- {
- 	vcpu_set_reg(vcpu, RISCV_CORE_REG(regs.pc), (unsigned long)guest_code);
-@@ -348,8 +340,22 @@ struct kvm_vcpu *vm_arch_vcpu_add(struct kvm_vm *vm, u32 vcpu_id)
- 	/* Setup sscratch for guest_get_vcpuid() */
- 	vcpu_set_reg(vcpu, RISCV_GENERAL_CSR_REG(sscratch), vcpu_id);
+diff --git a/kernel/seccomp.c b/kernel/seccomp.c
+index 066909393c38..9e40a38aaedf 100644
+--- a/kernel/seccomp.c
++++ b/kernel/seccomp.c
+@@ -1318,11 +1318,8 @@ static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
+ 		 */
+ 		if (fatal_signal_pending(current))
+ 			goto skip;
+-		/* Check if the tracer forced the syscall to be skipped. */
+-		this_syscall = syscall_get_nr(current, current_pt_regs());
+-		if (this_syscall < 0)
+-			goto skip;
  
--	/* Setup default exception vector of guest */
--	vcpu_set_reg(vcpu, RISCV_GENERAL_CSR_REG(stvec), (unsigned long)guest_unexp_trap);
-+	/*
-+	 * Enable the V (vector) extension in KVM so that the compiler can
-+	 * safely generate vector instructions (e.g. via -O2 auto-
-+	 * vectorization). Silently ignore errors; the test will still work
-+	 * without V.
-+	 */
-+	__vcpu_set_reg(vcpu, RISCV_ISA_EXT_REG(KVM_RISCV_ISA_EXT_V), 1);
-+
-+	/*
-+	 * Use the full exception vector table (which provides lazy V
-+	 * extension enablement for EXC_INST_ILLEGAL in route_exception)
-+	 * as the default exception handler. vm_init_vector_tables() is
-+	 * idempotent; tests that call it again will get a no-op.
-+	 */
-+	vm_init_vector_tables(vm);
-+	vcpu_init_vector_tables(vcpu);
- 
- 	return vcpu;
- }
-@@ -432,6 +438,28 @@ void route_exception(struct pt_regs *regs)
- 		ec = 0;
- 	}
- 
-+	/*
-+	 * Handle V (vector) extension lazy enablement before any
-+	 * registered handler. The compiler's default march may include
-+	 * V, and auto-vectorization generates vector instructions that
-+	 * trigger EXC_INST_ILLEGAL when VS (Vector Status) in sstatus
-+	 * is Off. Enable VS to Initial and re-execute the faulting
-+	 * instruction, mimicking what a real OS kernel does.
-+	 *
-+	 * This check runs before any test-registered handler, so tests
-+	 * that install their own EXC_INST_ILLEGAL handler (e.g.
-+	 * sbi_pmu_test) are not affected.
-+	 */
-+	if (!(regs->cause & CAUSE_IRQ_FLAG) && ec == EXC_INST_ILLEGAL) {
-+		unsigned long sstatus;
-+
-+		asm volatile("csrr %0, sstatus" : "=r" (sstatus));
-+		if (!(sstatus & SR_VS)) {
-+			regs->status |= SR_VS_INITIAL;
-+			return;
-+		}
-+	}
-+
- 	if (handlers && handlers->exception_handlers[vector][ec])
- 		return handlers->exception_handlers[vector][ec](regs);
- 
-@@ -448,6 +476,9 @@ void vcpu_init_vector_tables(struct kvm_vcpu *vcpu)
- 
- void vm_init_vector_tables(struct kvm_vm *vm)
- {
-+	if (vm->handlers)
-+		return;
-+
- 	vm->handlers = __vm_alloc(vm, sizeof(struct handlers), vm->page_size,
- 				  MEM_REGION_DATA);
- 
++		this_syscall = syscall_get_nr(current, current_pt_regs());
+ 		/*
+ 		 * Recheck the syscall, since it may have changed. This
+ 		 * intentionally uses a NULL struct seccomp_data to force
 -- 
-2.43.0
+2.51.0
 
 
 _______________________________________________
