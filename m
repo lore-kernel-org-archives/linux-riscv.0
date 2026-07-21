@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62229C4452B
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 18:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 398AEC4452B
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 18:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tJWgSuCWpcSBl4VqWIp2RpLkSe7WJRT9f4gHesng+sE=; b=s0lkR53LyqYmvY
-	C7uA0yrNsmaIowdzKJBLbDwXcJ17w8ix8vEHa49YfXL9QqC+8VZzcZDTkI1U4AbwNVDSFsYySy+ft
-	y+ljMqCseW0g+9AYbHvlLN+HvSIfI1QWV7VyH847tjWGcbrvDUo50x11wPcWPTnGwYz2udUwg2lD1
-	MratpfLIiq1Z04dI0Eztu2XG3NW8JNWNKR9xpoFBFJHUCKLiESChB0Q22+NqCIwqasOOSPzq1r7a9
-	BVFyCcDwlnJGQkzH5tIBn040+S6aJzx0UppTNB86FOh4byzInuNfCOwlUWY5gsAfD05ljVT34Fl1F
-	mW3TH+v7R+dX71qkIiKA==;
+	List-Owner; bh=iWUJVhC4R9pVniF8xuttiiH743ZOPu2fBKIFWugZmFg=; b=F0p2bfQ6fYc1Xp
+	rDHI5BN+9APl03NFl1ChY3o2UHDamymAQtb6hLAk6i2ZF8Z3xGfiKzWkkVSmVhehD2dmAftQ8jJn0
+	l2eNOnWFVbP6Laad/tK80XpMpRHsDbHAxHQuf/MbuQN4HH8dH+cEm4PvCGge4YAV+oPA22SKvb/By
+	o6IgdtbPVThuNRhrlda7amqVEIH0SWr5hapviHY0ird2+jkKnm7QDlRivMGDv4/K3rlF9Oj0YSOyl
+	xRuk6m5+MO6mslXVgpc4zacvA8PpnU7bysA01e3+3GWqWDL03HnHoLFJoI8jK23uS50DAIHwlxHxm
+	Ij6FcFe4WlsUlH7EgyFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmFDM-0000000ACmf-2dlS;
-	Tue, 21 Jul 2026 18:29:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmFEn-0000000AD9k-0lG5;
+	Tue, 21 Jul 2026 18:30:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmFDL-0000000ACmC-06F8;
-	Tue, 21 Jul 2026 18:29:11 +0000
+	id 1wmFEl-0000000AD90-3DM5;
+	Tue, 21 Jul 2026 18:30:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ADCEA42A71;
-	Tue, 21 Jul 2026 18:29:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEF4B1F00A3A;
-	Tue, 21 Jul 2026 18:29:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EBE0360103;
+	Tue, 21 Jul 2026 18:30:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E0DE1F00A3A;
+	Tue, 21 Jul 2026 18:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784658550;
-	bh=UBrZiyJnberI9b7VUjJupq60gfZ6LzSJ4B4JH6KDxtA=;
+	s=k20260515; t=1784658638;
+	bh=9zO9yiMTAazx5bwGvEvIyBcvPS46sW+B44wcbxVnE5g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gp6XbFXomuiNUL8/5g0E38L1hLDlFPRFvPMTTyCgWQBNTqqQLQuUB+s6pzz7agr14
-	 N9pISFj7Aqysz4dxYykxm6/PcBMqwymPVydn8l5doP7dGw63rtDgY3J3w7+iCd2dwn
-	 raQb1OGdk1t5E2yX8S2g00aPuPp2+6dZqqd0g44YDiwH+wxLAthEItWNbjsFl8dBHx
-	 8BI1icWsPCV3f/3kezXi7WgT58OOGLnXYtGTnzmvJRW4iXX8nBTXgUYu30RCoNS6wF
-	 fH2kWBuFqMBANpbmNVc+7cLE+ZwcY66ZqhCCT8XuyFNX3ZeC96jda4LJGcOYbRliLw
-	 lxENtlBS6t0dQ==
-Date: Tue, 21 Jul 2026 21:28:56 +0300
+	b=ByYK4o3Cka+hTsFRrAZAJRNYhFGvW7e38UptX/Hs7lUB1boZoKI/JB79A96h/sJlt
+	 YKqi6ru/0HEtyn5K1g1fKFvrrOvAs55HrxyU1PfQKIYMBQpvNRutYSbErst/xzLFT2
+	 5geUT2eCxPXWhMAI7fAevDyJeTIGeFMK22SP/rV56hOgG5rIOPcfSZnBK8/yramW/9
+	 5j646seiC6BJN7K+hbtAwOp0ZDuR1NSGUi+9LNhopPTljgCIcz8FIMem/5jmuNKlHz
+	 M1MQRG8RBAEZdihKmF6FW6rAvGtDzXs9xOhBrO2BggxJWR7HuxG3+1Sm2YW2C5sGbx
+	 a0g4ar95F9w/A==
+Date: Tue, 21 Jul 2026 21:30:26 +0300
 From: Mike Rapoport <rppt@kernel.org>
-To: Borislav Petkov <bp@alien8.de>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
 	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
+	Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
 	Brendan Jackman <jackmanb@google.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Dave Hansen <dave.hansen@linux.intel.com>,
@@ -55,8 +55,8 @@ Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
 	Ingo Molnar <mingo@redhat.com>,
 	Kevin Brodsky <kevin.brodsky@arm.com>,
 	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Michal Hocko <mhocko@suse.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	"H. Peter Anvin" <hpa@zytor.com>,
 	Suren Baghdasaryan <surenb@google.com>,
@@ -64,16 +64,16 @@ Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
 	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
-	Juergen Gross <jgross@suse.com>
-Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
- set_memory/change_page_attr core
-Message-ID: <al-6aLMJONOMfW2v@kernel.org>
+	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>
+Subject: Re: [PATCH RFC 01/18] x86/mm/pat: Don't gate cpa_lock on
+ debug_pagealloc_enabled()
+Message-ID: <al-6woCPBH5d-lwP@kernel.org>
 References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
- <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
+ <20260721-generic-set-memory-v0-1-v1-1-2c1fc62306b3@kernel.org>
+ <al-oTOKY7vkdPHr5@lucifer>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
+In-Reply-To: <al-oTOKY7vkdPHr5@lucifer>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,38 +90,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 10:19:43AM -0700, Borislav Petkov wrote:
-> On Tue, Jul 21, 2026 at 07:23:23PM +0300, Mike Rapoport (Microsoft) wrote:
-> > Currently there are 6 independent implementations for set_memory and
-> > set_direct_map APIs.
+On Tue, Jul 21, 2026 at 06:16:33PM +0100, Lorenzo Stoakes (ARM) wrote:
+> On Tue, Jul 21, 2026 at 07:23:24PM +0300, Mike Rapoport (Microsoft) wrote:
+> > The splitting and merging of kernel page table mappings between small and
+> > large is protected by cpa_lock. The merging is relatively new but the
+> > splitting is ancient.
+> >
+> > The splitting has a locking optimization: since DEBUG_PAGEALLOC forces all
+> > mappings to 4k, there are no large pages to split. So the code that *might*
+> > cause a split can just skip the locking (and a few other things).
+> >
+> > This is entertaining, but it adds complexity and makes for weird locking
+> > rules. Plus it's all for a debugging feature which makes the kernel super
+> > slow in the first place. Optimizing something which is already super slow
+> > and not used in production is not the best way to spend our complexity
+> > budget.
+> >
+> > Stop gating cpa_lock on debug_pagealloc_enabled() to simplify the code
+> > and the locking rules.
+> >
+> > [ dhansen: flesh out changelog ]
+> >
+> > Suggested-by: Dave Hansen <dave.hansen@intel.com>
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
+> > Link: https://patch.msgid.link/20260715144519.934289-1-rppt@kernel.org
+> > Link: https://lore.kernel.org/all/aab44f08-89f8-47fe-bee4-0ab6b25968c6@intel.com/
 > 
-> So with all mm/x86/CPA patches flying around, can we first agree on which tree
-> is going to collect everything?
+> Hmm this patch is already taken separately though? ([0]) (obv. commented there
+> already with review feedback).
+> 
+> Intended to be with this series as some kind of background or? Probably better
+> to separate out given it's a live patch
 
-I hope all the fixes flying around will be merged before I even get to v1 :)
+From the cover letter:
 
-In any case, I'm going to wait for the fixes to settle before posting this
-not as RFC. Obviously, the code movement will include all the merged fixes
-then.
+  Patch 1 is already applied to the tip tree and I posted patch 2
+  separately [4], but I included them both here for the completeness.
  
-> And if I want to review patches in that area, what am I applying it ontop?
-> linux-next perhaps...
-
-This set is on top of v7.2-rc1. It includes a patch Dave took to tip and one
-fix from those flying around.
- 
-> Let's sort out the workflow first so that we don't get lost on fruitless bug
-> chases and fingerpointing.
-
-I'll take it via the memblock tree? ;-)
-
-> Thx.
-> 
-> -- 
-> Regards/Gruss,
->     Boris.
-> 
-> https://people.kernel.org/tglx/notes-about-netiquette
+> Thanks, Lorenzo
 
 -- 
 Sincerely yours,
