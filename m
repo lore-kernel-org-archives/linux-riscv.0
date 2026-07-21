@@ -4,95 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E84FC4451C
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 19:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98215C4452D
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 23:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bBPnWDX6qUD8WQbzXz98bBZmcuXdhFgALG1SJEsybqU=; b=yCBbtXwMJtsAhL
-	SxusDlohzDuCdLXfns9AoXpfdRlcyi4pSLxIAWF6l3Up6ComRbZ62DdL7tqmV79JMn22yS9plWBqF
-	D+2d1clQPcJmuqCRBwUZwAEcdaQhvf2Axe+C8Dp8frnTE+/kmL2/BXuJk9gAkfZN7nwBcjDg5XeMd
-	IRqf523ArRZgMaIllmJoVXy2/KrtGQThBGmB20rB7O+GgPuS6EPA11Rn9eAU22E7LFBRqB4Z5te8X
-	DtPG4H4tXkv5YxjO/3m8M1C5EokcTPQgI541L5CvqjS9MHXKosKn7VVsP4TtdZFxedXnnBqGjSkwo
-	VWhgCErjIIalklU6GEHA==;
+	List-Owner; bh=AX0caTKikwcwaFNlNCJqvHRS1azX/GA9wlIxnUAqXAA=; b=Z9DFZuy6E8KuoR
+	kv4yrilmti/WNSRVoB2jHuRqgIfEU+mvaVkbHvbZxttBvKK0vnU7Lr7ZcWbNkIFW7fDwKbRNrZaSV
+	r5TzEJG6kKG90IFhMpLdEB1y0k5qJSM4KJNWGY31k2/+2tgjTkZrGFns+S/bQNKqVWnJbayetdXvh
+	jSPcgdr+pjFrXjTzj5iC0290YNnNH3t+SnicuVv0Cnu0JCEz3iA+ITn5c+gvfl77Bqpo1IosUkGAY
+	zur6jw1LsxXre6hZGjpkHQMi7dYyP4Ri88prtrJiEFi+H3PJDhGKHh7c2MWegOEDQtrQdabGT4jiy
+	bY/rf1kYxkpZNq3UwziQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGYz-0000000AKTW-09Lt;
-	Tue, 21 Jul 2026 19:55:37 +0000
-Received: from mail.alien8.de ([65.109.113.108])
+	id 1wmJSU-0000000AXb0-2E2k;
+	Tue, 21 Jul 2026 23:01:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGYv-0000000AKSj-3ALb;
-	Tue, 21 Jul 2026 19:55:35 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 72DC140E00E6;
-	Tue, 21 Jul 2026 19:55:30 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id BFh35W6ojD13; Tue, 21 Jul 2026 19:55:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1784663720; bh=mHZ6KR0HBY/A+4ayC9BCwjfVh3BlnXge75QXQoZQPFo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xran02uKyC5edtPpDYP3zrYWvM/wd+TuG8TczFdXanmHqJhF4EQsJramNEgpUqMwo
-	 qKjV7yxLOGcs3wwnXmjjsCK5Wsw3coj0OmWWhxSEvMj6q5BqKwChVtk+5XngQLUbCr
-	 /O1lX0OhBtGD757bPtSiNIuD8gDwKolYacrfjk729yTU/wd41XvJ+Txnbfg+WR8ucu
-	 ZpiWXmpQ5StCU0PcoZvEj867IEcdyNscwc/HZQrbWpF4lscz3jaXE7vdz8WjzoJQfL
-	 GDpLxjoBWUV0QWk2qVOLe/DigHevMVj41j2DrfnWbCar8FMZNrvwr3ceq+FvFEtLNw
-	 rekRCUCLPFqCLIs4bS3oJFRNFimbOqu5sqM4nf0pMGmLcuR9HFD3php75HDfUvDgiN
-	 G3IRK97tDDj5J+3sEGwfflva1Z+sNvEsTc+mALCDIjJ399i+n5nWTNTnzk1l1NCNT7
-	 JP0i3sSqMhy7J5xHbWKX0Ki3IvtL51oonXbpv3Xo8OESr1ABKFqZPkXBIXMKwWkrRE
-	 YxiTGeQOVesK2TUnUn9AIBV5+Z3L52z/SIJ2k0j6W0aaosNAqJwgh897ftzD+uInQh
-	 31m6kPgkYEz4Z4fslke2woWDCwHQLFhtW8IJVLJ7H12rRG/CN+c6+j3GaBs5bmc3Ng
-	 XIgXGRuajM3fuCnBC+JRBOxs=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id C109E40E016E;
-	Tue, 21 Jul 2026 19:54:48 +0000 (UTC)
-Date: Tue, 21 Jul 2026 12:54:46 -0700
-From: Borislav Petkov <bp@alien8.de>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
-	Juergen Gross <jgross@suse.com>
-Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
- set_memory/change_page_attr core
-Message-ID: <20260721195446.GHal_OhkuBCWQjmLQW@fat_crate.local>
-References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
- <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
- <al-6aLMJONOMfW2v@kernel.org>
+	id 1wmJST-0000000AXau-0E2j
+	for linux-riscv@lists.infradead.org;
+	Tue, 21 Jul 2026 23:01:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 47FD9600D8;
+	Tue, 21 Jul 2026 23:01:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71EEE1F00A3A;
+	Tue, 21 Jul 2026 23:01:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784674864;
+	bh=MGbzU3rXW1IbCyqsDLNTfiEd5EcdqQM79u5u7bcXVps=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=bC3iLC6mA7hkMPadwh0cG/Po+ri1uUxF3ZMgLDxUn83L4BBO0bgPjmptJzngzCjgU
+	 +TnJx5pYGK42zz9tCx1a+uLZjpe8JIAxfm1PSnCvbDjUhgTc2gjnFoNbBN7uLkrpwL
+	 JO8xiMttfQT0mF4dh1MbfTYHENfm1rzxr4gzURqNdW4YCPt54MlViaV8CGz+NNYWIn
+	 lgsaly7k9b3ViQ+XpObbUAx/txLbskWAvsay7kXAKTUOgx7HuFhJlIIvreVoKQJg2i
+	 9CfB5bWOchRSCDuolDw4s11Ay6VPjh4wR7+wG24My/KWLQwZWr1pIUroBtbDATUDUA
+	 wW0m/BE9m7bTg==
+Date: Tue, 21 Jul 2026 17:00:58 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Eder Zulian <ezulian@redhat.com>
+cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: mm: Move dma_contiguous_reserve() after NUMA
+ initialization
+In-Reply-To: <20260714185648.1082483-1-ezulian@redhat.com>
+Message-ID: <b446e77d-7e69-31c2-f438-555a61934198@kernel.org>
+References: <20260714185648.1082483-1-ezulian@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <al-6aLMJONOMfW2v@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_125533_975876_EC194F22 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,20 +69,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 09:28:56PM +0300, Mike Rapoport wrote:
-> I'll take it via the memblock tree? ;-)
+Hi,
 
-Definitely not.
+On Tue, 14 Jul 2026, Eder Zulian wrote:
 
-Unless you folks want to carve out the bits of set_memory.c which interact
-with core mm and mark it as maintained by someone else. I personally don't
-mind too much.
+> Move the dma_contiguous_reserve() call from setup_bootmem() to
+> misc_mem_init(), placing it after arch_numa_init(). This ensures that
+> NUMA topology is initialized when reserving contiguous memory for DMA.
+> 
+> Tested with CMA_SIZE_PERNUMA enabled and two NUMA nodes on QEMU:
+> 
+> qemu-system-riscv64 \
+> 	-machine virt \
+> 	-nographic \
+> 	-smp 2 -m 512M \
+> 	-numa node,nodeid=0,cpus=0,memdev=m0 \
+> 	-numa node,nodeid=1,cpus=1,memdev=m1 \
+> 	-object memory-backend-ram,id=m0,size=256M \
+> 	-object memory-backend-ram,id=m1,size=256M \
+> 	-kernel arch/riscv/boot/Image \
+> 	-append "console=ttyS0 earlycon loglevel=7 cma=16M"
+> 
+> Unpatched kernel's log (one global CMA pool and no per-nodepools, 16 MiB
+> cma-reserved):
+> 
+> 	[    0.000000] cma: Reserved 16 MiB at 0x000000009ee00000
+> 	...
+> 	[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x000000008fffffff]
+> 	[    0.000000] Initmem setup node 1 [mem 0x0000000090000000-0x000000009fffffff]
+> 	...
+> 	[    0.056397] smp: Brought up 2 nodes, 2 CPUs
+> 	[    0.066135] Memory: 449288K/524288K available (12279K kernel code, 5980K rwdata, 6144K rodata, 2467K init, 482K bss, 54504K reserved, 16384K cma-reserved)
+> 
+> Patched kernel's log (three CMA pools are created, 48 MiB total),
+> 
+> 	[    0.000000] cma: Reserved 16 MiB at 0x000000009ee00000
+> 	[    0.000000] cma: Reserved 16 MiB at 0x000000008ee00000
+> 	[    0.000000] cma: Reserved 16 MiB at 0x000000009de00000
+> 	...
+> 	[    0.054251] smp: Brought up 2 nodes, 2 CPUs
+> 	[    0.064082] Memory: 416520K/524288K available (12279K kernel code, 5980K rwdata, 6144K rodata, 2467K init, 482K bss, 54504K reserved, 49152K cma-reserved)
+> 
+> Signed-off-by: Eder Zulian <ezulian@redhat.com>
 
--- 
-Regards/Gruss,
-    Boris.
+Thanks, queued for v7.3.
 
-https://people.kernel.org/tglx/notes-about-netiquette
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
