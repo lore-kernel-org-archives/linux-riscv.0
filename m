@@ -4,53 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE9BC4451C
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 16:23:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7722C4452B
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 16:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4rmC/pDzgRiGcG/2s2PNFzvl/3qVj8dOTQu4QG0zn0k=; b=Gul2mp3Kt2hBHr
-	/mY3GuB43l7PVFRw8ozZqvJ1kMjKE5ROKssODH9yWju0RMMaF5W6Avdj7JGD0cgPvm6n7CXj7FHlA
-	zxNyKqSY5n1v8TRCG41/M/1qc5D4WmC9cVa3K1lCUdWGR/0UNxkljHhBToMrycm1PSS0jicRFfKwn
-	Vq7I2W6exdPNE0G18GL3O6M9BOmxSSdKzMAfXTthw/Q46yKH1rafDO9iQ2SqHuDYOJDQQxnO/MjQB
-	KkLg8NKEwE3Q6M25IH4/GwJ+9tBDirpdEM3abCOFX40wN6mpxJ+mt2+TZQDAdgIqdvaVNIhK3wYRG
-	OTmhXlhR+a6RhnYWC4bA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RGIqGSM+drJdcpPI0SDXNa0v2LAjn+VH1Pv2z7DSP5s=; b=pMYKnV45XOq9OQ
+	3rAb8SOxrGgp7weV5uVAbZ+5vObpUj4OQ0AjU7qiKYqsMe47Rc0Yxe/VmXic4qZg0xkTKXGzlhfIL
+	R2AcksrAP6n1eBnbaG76hEJz34OF4Rt9pmga8OcAd4Q8b9fOui3Wm3o7KTIaMjG/Z1RYBg64q5414
+	uMyic1FB0Jw8CthPkZbi2WFk8e0SuEFr/mOEKxsCyiPCiPwIgwg+zYGaaMxkVQlyJPS3Xn7bkuTO4
+	7rhxXUhLkEUNu0W6zZ0otwbYoBlVrlTzsDuKR25vpuAu+Nk0HzSXpqmoC5HnXOjbnEC6oBymQBZtt
+	Z5pQ+V0gBD3zn/P43Rtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDFv-00000009spN-1IFG;
-	Tue, 21 Jul 2026 16:23:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmDG2-00000009srk-22fx;
+	Tue, 21 Jul 2026 16:23:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDFt-00000009sov-3w35;
-	Tue, 21 Jul 2026 16:23:42 +0000
+	id 1wmDG1-00000009sr2-1cIg;
+	Tue, 21 Jul 2026 16:23:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 79D2241919;
+	by tor.source.kernel.org (Postfix) with ESMTP id B1129601DE;
+	Tue, 21 Jul 2026 16:23:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7C571F00A3A;
 	Tue, 21 Jul 2026 16:23:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 975F51F000E9;
-	Tue, 21 Jul 2026 16:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784651021;
-	bh=ZetBUrAfgYvJ3751E83jJC9yJJ2fFWR6KUF/uLNNtvc=;
-	h=From:Subject:Date:To:Cc;
-	b=bKjAfKsbBVu+UX/+6ubeBKSZVrtYBGGmMFCvMVo0EgOah126cGNZc1m3nf/tSJHlP
-	 1XGCJWOYnQajM7WPyDCsaEZhcVCvRFSlSe+0CDNZ8FqPEC78I8sLEs+N7zbYuEp85y
-	 0q2Usw57xoFEIg2gIxkaxj18lx1bEaKN1FOCNdwZ8P5QKnOzBJMmcot0GfbTqoR9ES
-	 vnbFiLApwhlI0xHgUEJcBwc5hLhgwyKrY40Xca8PoDiQIKx2RHR7GrupxLW/SEqtcz
-	 poesQNcWfJ5LNa47UUTwvnHdHiNTzctQV2dFkLd4maZUecG8LANBRbba17wmRvpXJg
-	 oi/xisth2VEYg==
+	s=k20260515; t=1784651028;
+	bh=XB4al3rOoBg4JSOO19Uh9eYt2qBCEAxlPfiPknctj/I=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=mKMTfTfZUJdKGwWB88q3MmHstD1zIbNqfuQyZ+BRaAhhajf7LR9JlLvHXO02AACeZ
+	 FTlA0E0QLniF/9UduU1JcK1Zt/0PJvKV+ojBQKZCr+3D8Ut/wKtGHCRw5BkHT5EPSj
+	 GQD7zZIHCIv9D7iMSQPw7l76zQxEOd5wMZ+hwVjw9NzgIyfjEJrr0pK3P8do0X2/YS
+	 z3gNy8oRMf0+fn8Cqp1vwF8N5ezh4wRzEbz8gk/+aeM2Qdnu7V800g9/NYGbN1OOIj
+	 Rwp6d5daE20K+Y5iJgr+4zLFeNl5BXFmfKqOxS7DGq5Y/CxU4aIDzlJE2qmeCE88N7
+	 pQhTF9DI3MSNA==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Subject: [PATCH RFC 00/18] arch, mm: create a generic
- set_memory/change_page_attr core
-Date: Tue, 21 Jul 2026 19:23:23 +0300
-Message-Id: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+Date: Tue, 21 Jul 2026 19:23:24 +0300
+Subject: [PATCH RFC 01/18] x86/mm/pat: Don't gate cpa_lock on
+ debug_pagealloc_enabled()
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAPycX2oC/yWMQQrCMBBFr1Jm7WAatAW3ggdwKy6SOKYjJJWZW
- JTSu5vq8j3++zMoCZPCoZlBaGLlMVdoNw2EweVIyLfKYI3tTG9bjJRrEVCpYKI0ygcngy2abr/
- rnTHeOoJaP4Xu/P49X+B8OsL1L/XlHxTK+rnOvFNCLy6HYVWjcOS8TU4LCSzLF2cn7oCgAAAA
-X-Change-ID: 20260721-generic-set-memory-v0-1-06547a00b2ae
+Message-Id: <20260721-generic-set-memory-v0-1-v1-1-2c1fc62306b3@kernel.org>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 To: linux-mm@kvack.org
 Cc: Albert Ou <aou@eecs.berkeley.edu>, 
  Andrew Morton <akpm@linux-foundation.org>, 
@@ -69,7 +67,7 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>,
  Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org, 
- Dave Hansen <dave.hansen@intel.com>, Juergen Gross <jgross@suse.com>
+ Dave Hansen <dave.hansen@intel.com>
 X-Mailer: b4 0.16-dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,154 +85,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently there are 6 independent implementations for set_memory and
-set_direct_map APIs.
+The splitting and merging of kernel page table mappings between small and
+large is protected by cpa_lock. The merging is relatively new but the
+splitting is ancient.
 
-With increasing demand for kernel page table manipulations, for example
-"Direct Map Removal Support for guest_memfd" [1] and "mm: ASI direct map
-management" [2], it makes sense to have a generic core for kernel page
-table manipulation in mm/ with helpers in the architecture specific
-code.
+The splitting has a locking optimization: since DEBUG_PAGEALLOC forces all
+mappings to 4k, there are no large pages to split. So the code that *might*
+cause a split can just skip the locking (and a few other things).
 
-Coincidentally, there was a recent fix to a UAF bug [3] that had to
-touch set memory functionality in subtly different way in different
-architectures rather than to fix the core logic in a single place.
+This is entertaining, but it adds complexity and makes for weird locking
+rules. Plus it's all for a debugging feature which makes the kernel super
+slow in the first place. Optimizing something which is already super slow
+and not used in production is not the best way to spend our complexity
+budget.
 
-x86's implementation is the most versatile and most battle tested and as
-such it is the best base for the generic implementation.
+Stop gating cpa_lock on debug_pagealloc_enabled() to simplify the code
+and the locking rules.
 
-As the first step, pull x86 implementation to core mm code and convert
-loongarch and riscv to use the new CPA core. These architectures were
-chosen because the conversion is quite straight forward and does not
-require tens of preparation patches.
+[ dhansen: flesh out changelog ]
 
-Once this settles, the next step I'm planning is to convert arm64. This
-would be much more involved than loongarch and riscv together, so I
-didn't even aspire to include arm64 in the first RFC. That said, I have
-a very ugly arm64 prototype that rewrites arch/arm64/pageattr.c to use
-the generic CPA infrastructure and replaces the existing implementation
-of page table splits for systems that support bbml2. But there's a lot
-of yak shaving there to get from a PoC to actual patches.
-
-Patch 1 is already applied to the tip tree and I posted patch 2
-separately [4], but I included them both here for the completeness. 
-
-Patches 3-10 reorganize x86 CPA implementation to make it friendlier
-for generalization.
-
-Patches 11-14 move CPA core and CPA test from x86 to mm/ and slightly
-massage the code to allow its use on other architectures.
-
-Patches 15-16 convert riscv to use the common core and adjust riscv
-implementation of _noflush APIs to actually be _noflush.
-
-Patches 17-18 convert loongarch to use the common core and adjust
-loongarch implementation of _noflush APIs to actually be _noflush.
-
-The patches are lightly tested on x86 and riscv and build tested on
-loongarch.
-
-When converting riscv and loongarch my goal was to keep the new
-implementation equivalent to the existing (except the _noflush bit), but
-I must say that they way loongarch updates permissions for the entire
-large leafs rather than splitting them seems a bit suspicious to me.
-
-Regarding AI use, I started with a two-page prompt describing what I
-want and how I want it and then it took me about 10 iterations of
-additional half-pagers to explain why I don't like what LLM produced.
-
-In the end I despaired to make it write commit messages the way I like
-and edited them manually.
-
-With that, the tool was really instrumental with conflicts resolution
-during rebases and building and testing with a single "go!" command.
-
-[1] https://lore.kernel.org/all/20260410151746.61150-1-kalyazin@amazon.com
-[2] https://lore.kernel.org/all/20250924-b4-asi-page-alloc-v1-0-2d861768041f@google.com/
-[3] https://lore.kernel.org/all/20260717-series-vmap-race-fix-v5-0-606a0ac6d3e5@kernel.org
-[4] https://lore.kernel.org/all/20260717-verify-rwx-fix-v2-1-fc23141311d6@kernel.org
-
-To: linux-mm@kvack.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Andy Lutomirski <luto@kernel.org>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Brendan Jackman <jackmanb@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: David Hildenbrand <david@kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: "Liam R. Howlett" <liam@infradead.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Michal Hocko <mhocko@suse.com>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <pjw@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Suren Baghdasaryan <surenb@google.com>
-Cc: Thomas Gleixner <tglx@kernel.org>
-Cc: Vlastimil Babka <vbabka@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org
-Cc: loongarch@lists.linux.dev
-Cc: x86@kernel.org
-
+Suggested-by: Dave Hansen <dave.hansen@intel.com>
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
+Link: https://patch.msgid.link/20260715144519.934289-1-rppt@kernel.org
+Link: https://lore.kernel.org/all/aab44f08-89f8-47fe-bee4-0ab6b25968c6@intel.com/
 ---
-Mike Rapoport (Microsoft) (18):
-      x86/mm/pat: Don't gate cpa_lock on debug_pagealloc_enabled()
-      x86/mm/pat: fix effective RW computation in lookup_address_in_pgd_attr()
-      x86/mm/pat: replace x86-speficic pg_level with generic pgtable_level
-      x86/mm/pat: use page table accessors for effective RW/NX bits
-      x86/mm/pat: use a generic helper for the large page size
-      x86/mm/pat: introduce an inline helper to check if alias needs update
-      x86/mm/pat: introduce cpa_handle_large_page()
-      x86/mm/pat: use cpa_split_data structure to pass split parameters
-      x86/mm/pat: use a single locked lookup for PTE verification
-      x86/mm/pat: move the large page size calculation to should_split_large_page
-      x86/mm/pat, mm: set_memory: pull change_page_attr() core to mm/
-      x86/pat/mm, mm/set_memory: abstract the CPA page table lock
-      mm/set_memory: read page table entries with pXdp_get()
-      x86/mm/pat, mm: move cpa-test to mm
-      riscv: convert set_memory to the generic CPA implementation
-      riscv: make set_direct_map_*_noflush actually noflush
-      loongarch: convert set_memory to the generic CPA implementation
-      loongarch: make set_direct_map_*_noflush actually noflush
+ arch/x86/mm/pat/set_memory.c | 19 +++++++------------
+ 1 file changed, 7 insertions(+), 12 deletions(-)
 
- arch/loongarch/Kconfig                  |   1 +
- arch/loongarch/include/asm/pgtable.h    |  42 +++
- arch/loongarch/include/asm/set_memory.h |   9 +
- arch/loongarch/mm/pageattr.c            | 196 ++++------
- arch/riscv/Kconfig                      |   1 +
- arch/riscv/include/asm/pgtable.h        |  36 ++
- arch/riscv/include/asm/set_memory.h     |   7 +
- arch/riscv/mm/pageattr.c                | 489 ++++++++-----------------
- arch/x86/Kconfig                        |   1 +
- arch/x86/Kconfig.debug                  |   6 -
- arch/x86/include/asm/pgtable.h          |  36 ++
- arch/x86/include/asm/set_memory.h       |  50 +++
- arch/x86/mm/pat/set_memory.c            | 611 ++++----------------------------
- include/linux/pgtable.h                 |  72 +++-
- include/linux/set_memory.h              |  97 +++++
- mm/Kconfig                              |   3 +
- mm/Kconfig.debug                        |   7 +
- mm/Makefile                             |   1 +
- {arch/x86/mm/pat => mm}/cpa-test.c      |  66 ++--
- mm/set_memory.c                         | 396 +++++++++++++++++++++
- 20 files changed, 1092 insertions(+), 1035 deletions(-)
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260721-generic-set-memory-v0-1-06547a00b2ae
+diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+index d023a40a1e03..e8316f5ffa8a 100644
+--- a/arch/x86/mm/pat/set_memory.c
++++ b/arch/x86/mm/pat/set_memory.c
+@@ -62,10 +62,9 @@ enum cpa_warn {
+ static const int cpa_warn_level = CPA_PROTECT;
+ 
+ /*
+- * Serialize cpa() (for !DEBUG_PAGEALLOC which uses large identity mappings)
+- * using cpa_lock. So that we don't allow any other cpu, with stale large tlb
+- * entries change the page attribute in parallel to some other cpu
+- * splitting a large page entry along with changing the attribute.
++ * Serialize cpa() using cpa_lock so that we don't allow any other cpu, with
++ * stale large tlb entries, to change the page attribute in parallel to some
++ * other cpu splitting a large page entry along with changing the attribute.
+  */
+ static DEFINE_SPINLOCK(cpa_lock);
+ 
+@@ -1235,11 +1234,9 @@ static int split_large_page(struct cpa_data *cpa, pte_t *kpte,
+ {
+ 	struct ptdesc *ptdesc;
+ 
+-	if (!debug_pagealloc_enabled())
+-		spin_unlock(&cpa_lock);
++	spin_unlock(&cpa_lock);
+ 	ptdesc = pagetable_alloc(GFP_KERNEL, 0);
+-	if (!debug_pagealloc_enabled())
+-		spin_lock(&cpa_lock);
++	spin_lock(&cpa_lock);
+ 	if (!ptdesc)
+ 		return -ENOMEM;
+ 
+@@ -2023,11 +2020,9 @@ static int __change_page_attr_set_clr(struct cpa_data *cpa, int primary)
+ 		if (cpa->flags & (CPA_ARRAY | CPA_PAGES_ARRAY))
+ 			cpa->numpages = 1;
+ 
+-		if (!debug_pagealloc_enabled())
+-			spin_lock(&cpa_lock);
++		spin_lock(&cpa_lock);
+ 		ret = __change_page_attr(cpa, primary);
+-		if (!debug_pagealloc_enabled())
+-			spin_unlock(&cpa_lock);
++		spin_unlock(&cpa_lock);
+ 		if (ret)
+ 			goto out;
+ 
 
---
-Sincerely yours,
-Mike.
+-- 
+2.53.0
 
 
 _______________________________________________
