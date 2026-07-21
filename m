@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E7EC4452B
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 16:25:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39EBC4451C
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 16:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3iTxSlkhSecUwoSQ0+7kPzBUIWi7mTUIbiwGUPOwRxw=; b=PiDSYEG5a90f4G
-	yg3FrbR1ff5PYJcW4nnsu3Wor2GbkVd87WMnFBYPCF0M5+fBKTKCgEY+iGvPMKPMOmj0c4g45MQjD
-	FJAvxrOvTU47YHqUyY2Fkpdw55/n/MLbFKHXVYqjgc5Ye0fJfk5GY5FXTsvnnTiUVIWm6Oqngw9nB
-	KEjq58Upsy0UI5n+dCdPGRJUaqPVgnGkQZcuMvG+5IfdAadJB4c10DSXhMJJVENKjAICAfKXm8xOD
-	EpaJicOX5LBzg1BIOxgQc4WvE+GH5ZA91tGtIoAvRQK3d3IsnRN5GjL4SBatcuPb7CvN7f45ouFQY
-	Z2zRrB5RX9/k7kh0OO+A==;
+	List-Owner; bh=poqdEilparFKbHhy/K3VXtCPDWg/3HN5sc2M4j8p3T4=; b=0V69l+IIAzuk+c
+	LSzo2l10ty6+vTZ8GBQJOvOrQ6gqJutOgTI60AHRrtu2l56Z+xqC/wqI4GZLK7B9REYs0+uNb5Oyb
+	4YQ0NjuSNXfnvURiuYCkofjVzUzNVcTZKUop9HxVF6+9nJsXD0miaaox2RlPI7ao/NwfRMLVHY2Zw
+	JYbU7Sw5yIysSh+bjno0DJN/2YjQf2sdtwHPu247V1/U0/h0YbzgDd3XmstFOVPtpotEDWSZAF64p
+	FIKOreamu+HvJgBGJBNZHZUBKn2CMPZE4DbPvi3lyGSCEHl6kiH2Ybj6GCWBpNs/iqAe7qqcjdSEu
+	piN80Z1VtFd6aQiBD+WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDHp-00000009v9h-3pgw;
-	Tue, 21 Jul 2026 16:25:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmDHv-00000009vHq-1lTt;
+	Tue, 21 Jul 2026 16:25:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDHn-00000009v5F-1fkA;
-	Tue, 21 Jul 2026 16:25:39 +0000
+	id 1wmDHt-00000009vFJ-30t7;
+	Tue, 21 Jul 2026 16:25:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C136E600D8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6EDD94065C;
+	Tue, 21 Jul 2026 16:25:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F36A81F000E9;
 	Tue, 21 Jul 2026 16:25:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24E101F00A3A;
-	Tue, 21 Jul 2026 16:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784651138;
-	bh=lKuouZUWiliqEzvX8jfxO0D9kZmdP2LG9G/fLlb9XgA=;
+	s=k20260515; t=1784651145;
+	bh=ZxhCd9eCEjBgJJhCeRA2CyrrLQ39c+yshW1zqJ57eLQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=XqqN/bFCEPGUlYCwRNRdBPSDSK0cgIhKI+bK8TfQDSaAjxE9/lHYrZMMUWfkHMSWY
-	 nG2SvVJId1EkJR1gaBcUUnSV79qPEpQBx5OpYrOns8MOcAvbUFbT2vscElhtvy892T
-	 heN+vKkj4PGk+b0JKDOtAAUNrSciSraGStWY0mP8raDsoIYw3UaGbTeqZoSk7Wx1MR
-	 Hm6CW28FnuJxWvv0gPd9Tvwr1jFBCjcOzdO1j2TeQ2G13nGQ+a4IA/iTYXG3hJNJiZ
-	 IRks7sQk8MZOlcU+L1BzkweWP/kns90bnbxZQnn5Je2jcAbfxSeKxzREtuHG1NpXR+
-	 yfGTvQlzK5VMQ==
+	b=AJK8pSoA+U81hrrPiZf3Q9Tb3HIzm92yIR8W1DG0ikMnk6uAV7OdgkMR7YjEGxSm9
+	 RD4suD1pNjUF0c2rrXBqrQy4bp/rbU1Is/oX1bl87Wn38B+UlIvf/m2n+iOiyDgXq/
+	 0kadO6UYVhOIu9t86F7A/hVRK+DaRDnRffiVsD8OnjdxiLD3hsjoSYanLb+qMvNdy9
+	 A3QQwhvFXtLf6j57ifhFoy+i9N5yaEhAIQVePJ+RqGIx2Mo7zzGHl7Bwq7COcQbxeF
+	 BHH6f6ASOrbJFvNpI8pJPhjR6qHVXi16w3VR4Ai0C0xh1jbY++Ugxpc3LtI141KJ9b
+	 GIpvlDGA1Melw==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Tue, 21 Jul 2026 19:23:40 +0300
-Subject: [PATCH RFC 17/18] loongarch: convert set_memory to the generic CPA
- implementation
+Date: Tue, 21 Jul 2026 19:23:41 +0300
+Subject: [PATCH RFC 18/18] loongarch: make set_direct_map_*_noflush
+ actually noflush
 MIME-Version: 1.0
-Message-Id: <20260721-generic-set-memory-v0-1-v1-17-2c1fc62306b3@kernel.org>
+Message-Id: <20260721-generic-set-memory-v0-1-v1-18-2c1fc62306b3@kernel.org>
 References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 To: linux-mm@kvack.org
@@ -84,384 +84,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace the pageattr_ops based page table walk in
-arch/loongarch/mm/pageattr.c with the common change_page_attr() loop,
-implement the required architecture hooks and opt-in for
-CONFIG_GENERIC_SET_MEMORY.
+loongarch versions of set_direct_memory_{default,invalid,valid}_noflush
+call core CPA API (change_page_attr_set_clr()) that actually flush TLB
+after the page table update.
 
-Instead if pre-splitting large pages with split_linear_mapping() use
-loongarch-specific implementation of arch_should_split_large_page() and
-arch_split_large_page().
+This was also the case before the conversion of loongarch to use generic
+CPA core, loongarch::__set_memory() always flushed TLBs, even when it
+was called from _noflush API variants.
+
+Switch the _noflush APIs to use __change_page_attr_set_clr() that does
+not flush TLB unless there was an error or there was a split of higher
+level page tables.
 
 Assisted-by: Copilot:claude-opus-4.8
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/loongarch/Kconfig                  |   1 +
- arch/loongarch/include/asm/pgtable.h    |  42 ++++++++
- arch/loongarch/include/asm/set_memory.h |   9 ++
- arch/loongarch/mm/pageattr.c            | 173 ++++++++++----------------------
- 4 files changed, 106 insertions(+), 119 deletions(-)
+ arch/loongarch/mm/pageattr.c | 33 +++++++++++++++++++++++----------
+ 1 file changed, 23 insertions(+), 10 deletions(-)
 
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index d8d252325017..1bfa94797b1b 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -109,6 +109,7 @@ config LOONGARCH
- 	select GENERIC_LIB_DEVMEM_IS_ALLOWED
- 	select GENERIC_PCI_IOMAP
- 	select GENERIC_SCHED_CLOCK
-+	select GENERIC_SET_MEMORY
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GPIOLIB
- 	select HAS_IOPORT
-diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
-index 223528c04d73..377bef0894d7 100644
---- a/arch/loongarch/include/asm/pgtable.h
-+++ b/arch/loongarch/include/asm/pgtable.h
-@@ -638,6 +638,48 @@ static inline long pmd_protnone(pmd_t pmd)
- #define pmd_leaf(pmd)		((pmd_val(pmd) & _PAGE_HUGE) != 0)
- #define pud_leaf(pud)		((pud_val(pud) & _PAGE_HUGE) != 0)
- 
-+#define pgd_write pgd_write
-+static inline int pgd_write(pgd_t pgd)
-+{
-+	return !!(pgd_val(pgd) & _PAGE_WRITE);
-+}
-+
-+#define p4d_write p4d_write
-+static inline int p4d_write(p4d_t p4d)
-+{
-+	return !!(p4d_val(p4d) & _PAGE_WRITE);
-+}
-+
-+#define pud_write pud_write
-+static inline int pud_write(pud_t pud)
-+{
-+	return !!(pud_val(pud) & _PAGE_WRITE);
-+}
-+
-+#define pgd_exec pgd_exec
-+static inline int pgd_exec(pgd_t pgd)
-+{
-+	return !(pgd_val(pgd) & _PAGE_NO_EXEC);
-+}
-+
-+#define p4d_exec p4d_exec
-+static inline int p4d_exec(p4d_t p4d)
-+{
-+	return !(p4d_val(p4d) & _PAGE_NO_EXEC);
-+}
-+
-+#define pud_exec pud_exec
-+static inline int pud_exec(pud_t pud)
-+{
-+	return !(pud_val(pud) & _PAGE_NO_EXEC);
-+}
-+
-+#define pmd_exec pmd_exec
-+static inline int pmd_exec(pmd_t pmd)
-+{
-+	return !(pmd_val(pmd) & _PAGE_NO_EXEC);
-+}
-+
- /*
-  * We provide our own get_unmapped area to cope with the virtual aliasing
-  * constraints placed on us by the cache architecture.
-diff --git a/arch/loongarch/include/asm/set_memory.h b/arch/loongarch/include/asm/set_memory.h
-index 55dfaefd02c8..6ffb4fe5a75b 100644
---- a/arch/loongarch/include/asm/set_memory.h
-+++ b/arch/loongarch/include/asm/set_memory.h
-@@ -19,4 +19,13 @@ int set_direct_map_default_noflush(struct page *page);
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- 
-+/*
-+ * The direct map is a fixed address window that is not backed by page tables,
-+ * so a page never has a second mapping whose protection must be synchronised.
-+ */
-+static inline bool cpa_should_update_alias(unsigned long vaddr, unsigned long pfn)
-+{
-+	return false;
-+}
-+
- #endif /* _ASM_LOONGARCH_SET_MEMORY_H */
 diff --git a/arch/loongarch/mm/pageattr.c b/arch/loongarch/mm/pageattr.c
-index 614ccc7afccb..4500769ccf6a 100644
+index 4500769ccf6a..dbbd408bd3d5 100644
 --- a/arch/loongarch/mm/pageattr.c
 +++ b/arch/loongarch/mm/pageattr.c
-@@ -4,126 +4,83 @@
-  */
- 
- #include <linux/memblock.h>
--#include <linux/pagewalk.h>
-+#include <linux/mm.h>
- #include <linux/pgtable.h>
-+#include <linux/set_memory.h>
- #include <asm/set_memory.h>
- #include <asm/tlbflush.h>
- 
--struct pageattr_masks {
--	pgprot_t set_mask;
--	pgprot_t clear_mask;
--};
--
--static unsigned long set_pageattr_masks(unsigned long val, struct mm_walk *walk)
-+static unsigned long set_pageattr_masks(struct cpa_data *cpa, unsigned long val)
+@@ -134,40 +134,53 @@ bool kernel_page_present(struct page *page)
+ int set_direct_map_default_noflush(struct page *page)
  {
--	unsigned long new_val = val;
--	struct pageattr_masks *masks = walk->private;
--
--	new_val &= ~(pgprot_val(masks->clear_mask));
--	new_val |= (pgprot_val(masks->set_mask));
-+	val &= ~pgprot_val(cpa->mask_clr);
-+	val |= pgprot_val(cpa->mask_set);
- 
--	return new_val;
-+	return val;
- }
- 
--static int pageattr_pgd_entry(pgd_t *pgd, unsigned long addr,
--			      unsigned long next, struct mm_walk *walk)
-+int arch_should_split_large_page(struct cpa_data *cpa, struct cpa_split_data *sd)
- {
--	pgd_t val = pgdp_get(pgd);
--
--	if (pgd_leaf(val)) {
--		val = __pgd(set_pageattr_masks(pgd_val(val), walk));
--		set_pgd(pgd, val);
--	}
--
--	return 0;
--}
-+	pte_t old = ptep_get(sd->kpte);
-+	unsigned long val = pte_val(old);
-+	unsigned long new_val = set_pageattr_masks(cpa, val);
- 
--static int pageattr_p4d_entry(p4d_t *p4d, unsigned long addr,
--			      unsigned long next, struct mm_walk *walk)
--{
--	p4d_t val = p4dp_get(p4d);
-+	cpa->pfn = pte_pfn(old) + ((sd->address & (sd->psize - 1)) >> PAGE_SHIFT);
- 
--	if (p4d_leaf(val)) {
--		val = __p4d(set_pageattr_masks(p4d_val(val), walk));
--		set_p4d(p4d, val);
-+	if (new_val != val) {
-+		set_pte(sd->kpte, __pte(new_val));
-+		cpa->flags |= CPA_FLUSHTLB;
- 	}
- 
- 	return 0;
- }
- 
--static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
--			      unsigned long next, struct mm_walk *walk)
-+int arch_split_large_page(struct cpa_data *cpa, struct cpa_split_data *sd)
- {
--	pud_t val = pudp_get(pud);
--
--	if (pud_leaf(val)) {
--		val = __pud(set_pageattr_masks(pud_val(val), walk));
--		set_pud(pud, val);
--	}
-+	WARN_ON_ONCE(1);
- 
--	return 0;
-+	return -EINVAL;
- }
- 
--static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
--			      unsigned long next, struct mm_walk *walk)
-+void arch_change_pte(struct cpa_data *cpa, unsigned long address,
-+		     pte_t *kpte, pte_t old_pte, bool nx, bool rw)
- {
--	pmd_t val = pmdp_get(pmd);
-+	unsigned long val = pte_val(old_pte);
-+	pte_t new_pte = __pte(set_pageattr_masks(cpa, val));
- 
--	if (pmd_leaf(val)) {
--		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
--		set_pmd(pmd, val);
--	}
-+	cpa->pfn = pte_pfn(old_pte);
- 
--	return 0;
-+	if (pte_val(old_pte) != pte_val(new_pte)) {
-+		set_pte(kpte, new_pte);
-+		cpa->flags |= CPA_FLUSHTLB;
-+	}
- }
- 
--static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
--			      unsigned long next, struct mm_walk *walk)
-+int arch_cpa_process_fault(struct cpa_data *cpa, unsigned long vaddr,
-+			   int primary)
- {
--	pte_t val = ptep_get(pte);
--
--	val = __pte(set_pageattr_masks(pte_val(val), walk));
--	set_pte(pte, val);
-+	/*
-+	 * The direct map has no page tables and vmalloc ranges may contain
-+	 * holes. Both are silently skipped.
-+	 */
-+	cpa->numpages = 1;
- 
- 	return 0;
- }
- 
--static int pageattr_pte_hole(unsigned long addr, unsigned long next,
--			     int depth, struct mm_walk *walk)
-+int arch_cpa_process_alias(struct cpa_data *cpa)
- {
- 	return 0;
- }
- 
--static const struct mm_walk_ops pageattr_ops = {
--	.pgd_entry = pageattr_pgd_entry,
--	.p4d_entry = pageattr_p4d_entry,
--	.pud_entry = pageattr_pud_entry,
--	.pmd_entry = pageattr_pmd_entry,
--	.pte_entry = pageattr_pte_entry,
--	.pte_hole = pageattr_pte_hole,
--	.walk_lock = PGWALK_RDLOCK,
--};
--
--static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask, pgprot_t clear_mask)
-+void arch_cpa_flush(struct cpa_data *cpa, int err)
- {
--	int ret;
--	unsigned long start = addr;
--	unsigned long end = start + PAGE_SIZE * numpages;
--	struct pageattr_masks masks = {
--		.set_mask = set_mask,
--		.clear_mask = clear_mask
--	};
--
--	if (!numpages)
--		return 0;
--
--	mmap_write_lock(&init_mm);
--	ret = walk_kernel_page_table_range(start, end, &pageattr_ops, NULL, &masks);
--	mmap_write_unlock(&init_mm);
--
--	flush_tlb_kernel_range(start, end);
-+	if (err || cpa->force_flush_all ||
-+	    (cpa->flags & (CPA_ARRAY | CPA_PAGES_ARRAY))) {
-+		flush_tlb_all();
-+		return;
-+	}
- 
--	return ret;
-+	flush_tlb_kernel_range(*cpa->vaddr, *cpa->vaddr + cpa->numpages * PAGE_SIZE);
- }
- 
- int set_memory_x(unsigned long addr, int numpages)
-@@ -131,7 +88,7 @@ int set_memory_x(unsigned long addr, int numpages)
- 	if (addr < vm_map_base)
- 		return 0;
- 
--	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_NO_EXEC));
-+	return change_page_attr_clear(&addr, numpages, __pgprot(_PAGE_NO_EXEC), 0);
- }
- 
- int set_memory_nx(unsigned long addr, int numpages)
-@@ -139,7 +96,7 @@ int set_memory_nx(unsigned long addr, int numpages)
- 	if (addr < vm_map_base)
- 		return 0;
- 
--	return __set_memory(addr, numpages, __pgprot(_PAGE_NO_EXEC), __pgprot(0));
-+	return change_page_attr_set(&addr, numpages, __pgprot(_PAGE_NO_EXEC), 0);
- }
- 
- int set_memory_ro(unsigned long addr, int numpages)
-@@ -147,7 +104,7 @@ int set_memory_ro(unsigned long addr, int numpages)
- 	if (addr < vm_map_base)
- 		return 0;
- 
--	return __set_memory(addr, numpages, __pgprot(0), __pgprot(_PAGE_WRITE | _PAGE_DIRTY));
-+	return change_page_attr_clear(&addr, numpages, __pgprot(_PAGE_WRITE | _PAGE_DIRTY), 0);
- }
- 
- int set_memory_rw(unsigned long addr, int numpages)
-@@ -155,46 +112,22 @@ int set_memory_rw(unsigned long addr, int numpages)
- 	if (addr < vm_map_base)
- 		return 0;
- 
--	return __set_memory(addr, numpages, __pgprot(_PAGE_WRITE | _PAGE_DIRTY), __pgprot(0));
-+	return change_page_attr_set(&addr, numpages, __pgprot(_PAGE_WRITE | _PAGE_DIRTY), 0);
- }
- 
- bool kernel_page_present(struct page *page)
- {
--	pgd_t *pgd;
--	p4d_t *p4d;
--	pud_t *pud;
--	pmd_t *pmd;
--	pte_t *pte;
-+	unsigned int level;
  	unsigned long addr = (unsigned long)page_address(page);
-+	pte_t *pte;
++	struct cpa_data cpa = { .vaddr = &addr,
++				.pgd = NULL,
++				.numpages = 1,
++				.mask_set = PAGE_KERNEL,
++				.mask_clr = __pgprot(0),
++				.flags = CPA_NO_CHECK_ALIAS };
  
- 	if (addr < vm_map_base)
- 		return memblock_is_memory(__pa(addr));
- 
--	pgd = pgd_offset_k(addr);
--	if (pgd_none(pgdp_get(pgd)))
--		return false;
--	if (pgd_leaf(pgdp_get(pgd)))
--		return true;
--
--	p4d = p4d_offset(pgd, addr);
--	if (p4d_none(p4dp_get(p4d)))
--		return false;
--	if (p4d_leaf(p4dp_get(p4d)))
--		return true;
--
--	pud = pud_offset(p4d, addr);
--	if (pud_none(pudp_get(pud)))
--		return false;
--	if (pud_leaf(pudp_get(pud)))
--		return true;
--
--	pmd = pmd_offset(pud, addr);
--	if (pmd_none(pmdp_get(pmd)))
-+	pte = lookup_address(addr, &level);
-+	if (!pte)
- 		return false;
--	if (pmd_leaf(pmdp_get(pmd)))
--		return true;
- 
--	pte = pte_offset_kernel(pmd, addr);
- 	return pte_present(ptep_get(pte));
- }
- 
-@@ -205,7 +138,8 @@ int set_direct_map_default_noflush(struct page *page)
  	if (addr < vm_map_base)
  		return 0;
  
--	return __set_memory(addr, 1, PAGE_KERNEL, __pgprot(0));
-+	return change_page_attr_set_clr(&addr, 1, PAGE_KERNEL,
-+					__pgprot(0), 0, 0, NULL);
+-	return change_page_attr_set_clr(&addr, 1, PAGE_KERNEL,
+-					__pgprot(0), 0, 0, NULL);
++	return __change_page_attr_set_clr(&cpa, 1);
  }
  
  int set_direct_map_invalid_noflush(struct page *page)
-@@ -215,7 +149,8 @@ int set_direct_map_invalid_noflush(struct page *page)
+ {
+ 	unsigned long addr = (unsigned long)page_address(page);
++	struct cpa_data cpa = { .vaddr = &addr,
++				.pgd = NULL,
++				.numpages = 1,
++				.mask_set = __pgprot(0),
++				.mask_clr = __pgprot(_PAGE_PRESENT | _PAGE_VALID),
++				.flags = CPA_NO_CHECK_ALIAS };
+ 
  	if (addr < vm_map_base)
  		return 0;
  
--	return __set_memory(addr, 1, __pgprot(0), __pgprot(_PAGE_PRESENT | _PAGE_VALID));
-+	return change_page_attr_clear(&addr, 1,
-+				      __pgprot(_PAGE_PRESENT | _PAGE_VALID), 0);
+-	return change_page_attr_clear(&addr, 1,
+-				      __pgprot(_PAGE_PRESENT | _PAGE_VALID), 0);
++	return __change_page_attr_set_clr(&cpa, 1);
  }
  
  int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-@@ -234,5 +169,5 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
- 		clear = __pgprot(_PAGE_PRESENT | _PAGE_VALID);
+ {
+ 	unsigned long addr = (unsigned long)page_address(page);
+-	pgprot_t set, clear;
++	struct cpa_data cpa = { .vaddr = &addr,
++				.pgd = NULL,
++				.numpages = nr,
++				.flags = CPA_NO_CHECK_ALIAS };
+ 
+ 	if (addr < vm_map_base)
+ 		return 0;
+ 
+ 	if (valid) {
+-		set = PAGE_KERNEL;
+-		clear = __pgprot(0);
++		cpa.mask_set = PAGE_KERNEL;
++		cpa.mask_clr = __pgprot(0);
+ 	} else {
+-		set = __pgprot(0);
+-		clear = __pgprot(_PAGE_PRESENT | _PAGE_VALID);
++		cpa.mask_set = __pgprot(0);
++		cpa.mask_clr = __pgprot(_PAGE_PRESENT | _PAGE_VALID);
  	}
  
--	return __set_memory(addr, nr, set, clear);
-+	return change_page_attr_set_clr(&addr, nr, set, clear, 0, 0, NULL);
+-	return change_page_attr_set_clr(&addr, nr, set, clear, 0, 0, NULL);
++	return __change_page_attr_set_clr(&cpa, 1);
  }
 
 -- 
