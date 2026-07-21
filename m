@@ -4,64 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2500CC4451C
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 19:31:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E84FC4451C
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 19:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Za1Y11vixN1uk0xxiaYQuXWDdjCkJgAMHfYt8XYE3As=; b=Ro6cUlzmHPLqaf
-	szWYT9+NEuBW5CLyPGXuFLo/dHQLuTel8zdBqZnymyWDHwR0RY7g61S/BjM0ON3FUVIFc7a5earjn
-	7EuWFymeQTiyAW/eS44J3JoXbAL5fUcWWwgMxPwnGfVGA1B82tac9JkSEVep4PeWZuEkb9ZbaN1On
-	l5krAImIAu5tkhP7TRj/LRb45fvzdeBZdAC2mEY65ctp6DWpwQ6AX3PXbAtkcPrKmBuGADoJ8dzGA
-	cgv9dGtuJO14rW1dva3VdhnJidW/NZZSMThhlNbOz4ZfAWuG6ifS9Zk8EV7ZlowpECmIg8jDvcV+A
-	Q+ahgyPOAUInauybj/hQ==;
+	List-Owner; bh=bBPnWDX6qUD8WQbzXz98bBZmcuXdhFgALG1SJEsybqU=; b=yCBbtXwMJtsAhL
+	SxusDlohzDuCdLXfns9AoXpfdRlcyi4pSLxIAWF6l3Up6ComRbZ62DdL7tqmV79JMn22yS9plWBqF
+	D+2d1clQPcJmuqCRBwUZwAEcdaQhvf2Axe+C8Dp8frnTE+/kmL2/BXuJk9gAkfZN7nwBcjDg5XeMd
+	IRqf523ArRZgMaIllmJoVXy2/KrtGQThBGmB20rB7O+GgPuS6EPA11Rn9eAU22E7LFBRqB4Z5te8X
+	DtPG4H4tXkv5YxjO/3m8M1C5EokcTPQgI541L5CvqjS9MHXKosKn7VVsP4TtdZFxedXnnBqGjSkwo
+	VWhgCErjIIalklU6GEHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGAu-0000000AI14-0faZ;
-	Tue, 21 Jul 2026 19:30:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmGYz-0000000AKTW-09Lt;
+	Tue, 21 Jul 2026 19:55:37 +0000
+Received: from mail.alien8.de ([65.109.113.108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGAs-0000000AI0y-32bn
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Jul 2026 19:30:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 07892417B4;
-	Tue, 21 Jul 2026 19:30:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8BD41F00A3A;
-	Tue, 21 Jul 2026 19:30:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784662241;
-	bh=YmXGibOWH8dStd4vMn1C6h1FWYZ670twuktK5zBhKAU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=KA+P+kNF8bmMB29ntagD0cuP9XACtm/X66s4YEIZXnB+6mEyjaKuq19UbvomNIVNP
-	 27XaASMm4/Ctvm6Mg6qjwoJqPo2SeHU6V/hmppM9aB9ohATzvqY4N9MNKlrkHRn/Br
-	 q8fuIGakHcHpUYTpNTfs5HNV6k/pOaponEXGQkpnq1tZnQK3vbwwmymH+ROinL+TgB
-	 O+Ge4QTHurl4bllhxw7E+qpUHB4PrBFi4PaRz3e192Ux6r4XEvNvy5HeyeMtbmIQMQ
-	 ZEOFU/dwi9jyEuA1bZ6Q1smMCpAmRP0g2D5UQDCBtlDhSCa6rrfEt7OmZe4to1DpER
-	 TEzI7uVZu9aZA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93AF339253FB;
-	Tue, 21 Jul 2026 19:30:12 +0000 (UTC)
+	id 1wmGYv-0000000AKSj-3ALb;
+	Tue, 21 Jul 2026 19:55:35 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 72DC140E00E6;
+	Tue, 21 Jul 2026 19:55:30 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id BFh35W6ojD13; Tue, 21 Jul 2026 19:55:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1784663720; bh=mHZ6KR0HBY/A+4ayC9BCwjfVh3BlnXge75QXQoZQPFo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Xran02uKyC5edtPpDYP3zrYWvM/wd+TuG8TczFdXanmHqJhF4EQsJramNEgpUqMwo
+	 qKjV7yxLOGcs3wwnXmjjsCK5Wsw3coj0OmWWhxSEvMj6q5BqKwChVtk+5XngQLUbCr
+	 /O1lX0OhBtGD757bPtSiNIuD8gDwKolYacrfjk729yTU/wd41XvJ+Txnbfg+WR8ucu
+	 ZpiWXmpQ5StCU0PcoZvEj867IEcdyNscwc/HZQrbWpF4lscz3jaXE7vdz8WjzoJQfL
+	 GDpLxjoBWUV0QWk2qVOLe/DigHevMVj41j2DrfnWbCar8FMZNrvwr3ceq+FvFEtLNw
+	 rekRCUCLPFqCLIs4bS3oJFRNFimbOqu5sqM4nf0pMGmLcuR9HFD3php75HDfUvDgiN
+	 G3IRK97tDDj5J+3sEGwfflva1Z+sNvEsTc+mALCDIjJ399i+n5nWTNTnzk1l1NCNT7
+	 JP0i3sSqMhy7J5xHbWKX0Ki3IvtL51oonXbpv3Xo8OESr1ABKFqZPkXBIXMKwWkrRE
+	 YxiTGeQOVesK2TUnUn9AIBV5+Z3L52z/SIJ2k0j6W0aaosNAqJwgh897ftzD+uInQh
+	 31m6kPgkYEz4Z4fslke2woWDCwHQLFhtW8IJVLJ7H12rRG/CN+c6+j3GaBs5bmc3Ng
+	 XIgXGRuajM3fuCnBC+JRBOxs=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id C109E40E016E;
+	Tue, 21 Jul 2026 19:54:48 +0000 (UTC)
+Date: Tue, 21 Jul 2026 12:54:46 -0700
+From: Borislav Petkov <bp@alien8.de>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
+	Juergen Gross <jgross@suse.com>
+Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
+ set_memory/change_page_attr core
+Message-ID: <20260721195446.GHal_OhkuBCWQjmLQW@fat_crate.local>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+ <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
+ <al-6aLMJONOMfW2v@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v4 0/3] riscv,
- bpf: Add support for signed operations and 32-bit atomics
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178466221139.987340.519683377902557290.git-patchwork-notify@kernel.org>
-Date: Tue, 21 Jul 2026 19:30:11 +0000
-References: <20260714002451.4091139-1-visitorckw@gmail.com>
-In-Reply-To: <20260714002451.4091139-1-visitorckw@gmail.com>
-To: Kuan-Wei Chiu <visitorckw@gmail.com>
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- eddyz87@gmail.com, memxor@gmail.com, luke.r.nels@gmail.com,
- xi.wang@gmail.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- pulehui@huawei.com, martin.lau@linux.dev, song@kernel.org,
- yonghong.song@linux.dev, jolsa@kernel.org, emil@etsalapatis.com,
- alex@ghiti.fr, jserv@ccns.ncku.edu.tw, eleanor15x@gmail.com,
- marscheng@google.com, bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <al-6aLMJONOMfW2v@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_125533_975876_EC194F22 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +109,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Tue, Jul 21, 2026 at 09:28:56PM +0300, Mike Rapoport wrote:
+> I'll take it via the memblock tree? ;-)
 
-This series was applied to bpf/bpf-next.git (master)
-by Kumar Kartikeya Dwivedi <memxor@gmail.com>:
+Definitely not.
 
-On Tue, 14 Jul 2026 00:24:48 +0000 you wrote:
-> Add support for missing signed operations and 32-bit atomics in the
-> RV32 BPF JIT compiler.
-> 
-> The current implementation lacks support for BPF_SDIV, BPF_SMOD, and
-> BPF_MOVSX, ignoring the instruction offset field and treating them as
-> unsigned or zero-extended. Introduce support for these operations by
-> checking the offset field and emitting the corresponding instructions.
-> 
-> [...]
+Unless you folks want to carve out the bits of set_memory.c which interact
+with core mm and mark it as maintained by someone else. I personally don't
+mind too much.
 
-Here is the summary with links:
-  - [bpf-next,v4,1/3] riscv, bpf: Add support for BPF_SDIV and BPF_SMOD in RV32 JIT
-    https://git.kernel.org/bpf/bpf-next/c/2e0fa2389c50
-  - [bpf-next,v4,2/3] riscv, bpf: Add support for BPF_MOVSX in RV32 JIT
-    https://git.kernel.org/bpf/bpf-next/c/c6a08afdfe3a
-  - [bpf-next,v4,3/3] riscv, bpf: Add 32 bit atomic operations to RV32 JIT
-    https://git.kernel.org/bpf/bpf-next/c/a1b37972efc0
-
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Regards/Gruss,
+    Boris.
 
-
+https://people.kernel.org/tglx/notes-about-netiquette
 
 _______________________________________________
 linux-riscv mailing list
