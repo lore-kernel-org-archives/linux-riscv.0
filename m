@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B153BC44529
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 14:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EAFC44532
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 14:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LGHerE+fCFHvoN4khH9tsxUhVeBUAstGznQAoP26mYM=; b=ShdyRjuymcQqth
-	8QWrXoxgnicHgSuGXwSgfCjNQLB0WAp5xrLgwV4xqeXF9ZbzYaELXxZgl91TzbEax0XBMk72MOHNB
-	BG/IAMgGGD8ljlE7i0IY3vsoF7LIvyVUC4hD3hzOw0OR2Xh5aMS97uuVaaO2tSqmVscOXuglr3uel
-	cpWangFlPzTGiBy/1Ww+rkbmLAzyPJ/v2NdmglIyBRUn5dL/zvjmVx3ZTYnVTwEsBRZm+QAI1ngKC
-	Wc2Ukstt59g/ufvOdmBB/4ZIc4SF27vbG+mlRLDIYFiCqo6A9YQGWRi7OGza0MF8EKnawkYPXFFqP
-	HN4d5vR89N3blFOJ/2cA==;
+	List-Owner; bh=TrViyK1TC4wyB1MwDZ0ctrNVtM4/aQU4TpbJg+Oy+RI=; b=gjhGp+kOMhMlkd
+	cIhNVzQCUuvAELcxK1qK+ClIXthGrHfLj2lf8VMc6AIkj1PJ73YRXX18ab3rT2vOyT4yB5qahPrLm
+	SBExDUWW5two/3KsxI4F6RAcWLhGJQlz6m28kmi4PCupcMtC7SN994uENRgbyqmPkX/APlNUvmEoZ
+	IwqGZDBCjywm/gaXIjjb6Df7OX3kkRGWxDtnrcdJB39zuQin69SAjxtsviOAuRaiWaBioqo/gSxyN
+	UWTdQ3D9oIZrThXCtOFejoTh6I2vxXucT3MG1jEbRXPDfDVVz8W8hKvy2WVunCP8uy0gytLeZ+zpq
+	A3bwD77+EfPcTFWX3R7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBuL-00000009iHD-1HnS;
-	Tue, 21 Jul 2026 14:57:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmBuo-00000009iPl-2n2I;
+	Tue, 21 Jul 2026 14:57:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBuI-00000009iGs-3RlJ;
-	Tue, 21 Jul 2026 14:57:18 +0000
+	id 1wmBuk-00000009iNx-1Hee;
+	Tue, 21 Jul 2026 14:57:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 29BDA41E6F;
-	Tue, 21 Jul 2026 14:57:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 629C01F000E9;
-	Tue, 21 Jul 2026 14:57:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B185842E54;
+	Tue, 21 Jul 2026 14:57:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51D9E1F000E9;
+	Tue, 21 Jul 2026 14:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784645838;
-	bh=X2h5bpBFH+7npqK5spxeWS5f6StKH/bYQuKFvgmb620=;
+	s=k20260515; t=1784645865;
+	bh=FE8BGgQW0fYMcN8NBCYcnkW6qzjkh5NcrjtCMjU8eh4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WgSfBD18nsRmmrJbieRHbTVnpndeVh/tD76HjXec6RXFgapMArMcgsdjnj3ag9o+z
-	 gRz5mmhtSTZHrmYy5ISeCHWFYOTq7G1IN/AumKXpJns+CtzdzduEIoHtuwoerwhrZ9
-	 o+cHYXj3YXpuJr8AKYsSMPqZD19eTtjcpMp2+2Cc2bAb4BA8C0oZQBcuuIci3G3RQU
-	 ifhNI6BDFoki0rZELq87NBJ4bnC/uCZ1USuEO623tHk4h8hxI+SQsbYiOmFvQARDUZ
-	 nwmxkjaQnS2o0Ipn8VUe3e09evZb5SLADluS5GaT349oximkYtUuU/T1Q9kT98BPoX
-	 VnzApXzpWL2iw==
-Message-ID: <45118388-cf5e-4407-b2a2-ec67727cc4a4@kernel.org>
-Date: Tue, 21 Jul 2026 16:57:03 +0200
+	b=CF605gLhkL6zeNadf6XOk+7+Xs2t0BTo91YzpcEjV43Dy4ytRnKlrI1fy3IfzLfr2
+	 H237T7YQRtv9qWHYksEwmMf5RE3ZYvRoJSOeXXL+2yh4D1dEUPcTyLwLec9+Zn3EgK
+	 qqCNVLPEojFqEefP3dviDr8CHO/fP2J8TwcR2ZYzx237I42d3HVsZR1VLnvfEXyRKs
+	 0SKBkLrnKLIE8EkkKJgQ+T6TW+p6uojk9GEgxOrVIp+aEpxVUV3oDZJRz7AsXfNubY
+	 ynooLXX47XDmMejrp+qJn7sUW0kyUeIx0eFx+Ch1dtyXdtQo0kiZamHTYgY5ojROd/
+	 /R4xf4Sm53OYw==
+Message-ID: <4da506a7-11e2-4cfd-9f0b-ad8635190e89@kernel.org>
+Date: Tue, 21 Jul 2026 16:57:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/22] mm: drop unused __mm_flags_set_mask_bits_word()
+Subject: Re: [PATCH 02/22] mm: move mm_flags helpers to mm_types.h
 To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
 Cc: Andrew Morton <akpm@linux-foundation.org>,
  Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
@@ -81,7 +81,7 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  "Matthew Wilcox (Oracle)" <willy@infradead.org>,
  linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
 References: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
- <20260714-remove_pgtable_cdtor-v1-1-44be8a7685d7@arm.com>
+ <20260714-remove_pgtable_cdtor-v1-2-44be8a7685d7@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -128,7 +128,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260714-remove_pgtable_cdtor-v1-1-44be8a7685d7@arm.com>
+In-Reply-To: <20260714-remove_pgtable_cdtor-v1-2-44be8a7685d7@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,15 +146,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 7/14/26 16:03, Kevin Brodsky wrote:
-> Commit 39f8049cd49f ("mm: update coredump logic to correctly
-> use bitmap mm flags") added coredump-specific helpers for the
-> remaining masked mm-flags update users.
+> Some of the mm_flags helpers are defined in <linux/mm_types.h>,
+> while others are defined in <linux/mm.h>. We will soon need to call
+> one of the latter helpers from mm_types.h.
 > 
-> That left __mm_flags_set_mask_bits_word() without any callers.
-> This is a special-purpose helper that is unlikely to be useful for
-> other purposes; best to remove it.
+> Regroup all the helpers in mm_types.h to keep things simple.
 > 
-> Assisted-by: Codex:GPT-5.5
+> Also remove #include's that were added specifically for these
+> helpers in mm.h.
+> 
 > Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 > ---
 
