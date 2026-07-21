@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226CAC4451C
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 13:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6FCC44532
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 14:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UOM6t5oM632Kzqy1eNIX2NQQdnnsslOJ01mbnW1JsuQ=; b=ioAscOAoU3nSZo
-	+17bu+WWsfAH9HY6Mzt0QeTTPjt19nLFaJHBUdH+OVRl1989Zk/GRZ0y1C3xQQXEWfwL1CqxQS0n4
-	po/5dzCRIsO5wGoQerllXJ+1UsbUAwqJy1wZ2FDatz3tn49ut6zbt2JfKpihcQ/rCjmfYX7gkuScf
-	rVS+wBmPXqmftTOiUek6vOqSPNDG7qztg5tGEmn/U0GzVcmdbt36xmnAClI5DYW+5gFPCCN0fguHp
-	qqqj1MIXdedSljcJuTOUsBoC9uZk8g0+Iv1/LDczpi2mswq4YsP4/druiSFVOVXGS7ALKxlALjvy5
-	wT92QUMFUEnBDYkUUNRw==;
+	List-Archive:List-Unsubscribe:List-Id:To:Mime-Version:Subject:From:Cc:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=Z7hLckSuSsfcprl+FhWGCCA/yp1RR1+b/J+H2tJcteo=; b=kWT
+	EPU4hIvI4A4L4K3B0UN3NMVdp1U8YbSawWGVHsA92/Pyb2Kdr9uDKmzzjwk1G5LLT4aHUhLoSpWqN
+	i2CYrBYcUdu41eLnuLKnu+p7Y8ppE7MRnpFW8XH/r0vtEb35DRpveyxE0Cbpoyv7kuwsEnL717A+c
+	TG/dlZCx64Yk+sMCuUK93My+x58E44xNMwcorLT0tr1lzwEpCzRi/Kzqq0Eh6ortn+tawC8GArn0A
+	oFIaaf2ZlSOTCAIcG55oNY/E791RolrgSIkPH1KviItZjY0J+T4h7Wm7GU3W5YLOiLi5gjGyiyI0K
+	gI9UHqzsget9lzX+I5Nbbr/7uOd003Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmACt-00000009UFr-1bUj;
-	Tue, 21 Jul 2026 13:08:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmBJG-00000009dRG-2VlT;
+	Tue, 21 Jul 2026 14:19:02 +0000
+Received: from va-2-39.ptr.blmpb.com ([209.127.231.39])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmACr-00000009UFa-2PPR;
-	Tue, 21 Jul 2026 13:08:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4BA4841AC7;
-	Tue, 21 Jul 2026 13:08:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A081F00A3A;
-	Tue, 21 Jul 2026 13:08:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784639301;
-	bh=TYa/G9Ikx6NJ1Cb3jjSRc0JJzXsBaNhe6e1UGVGm/9A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d6/V2aPEpPAB2I6Ua7LPwlcHwngi1zJi/XHIgdgpWsC+OpJGb8lJA2aRw5XgvUCSk
-	 5IZrdAIm+bmynNmQblXUQu5K3mThBRK4gT3ERximvLzMKDANxWBbmBkq/iBUG9clUc
-	 4TcfxO32nUe0BTZC9S93Hw6aq20MtO0npuydVBV4=
-Date: Tue, 21 Jul 2026 15:08:11 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
-Cc: stable@vger.kernel.org, Sasha Levin <sashal@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>
-Subject: Re: [PATCH 6.16.y 0/6] cBPF JIT spray hardening
-Message-ID: <2026072151-outsell-suburb-64ea@gregkh>
-References: <20260714-cbpf-jit-spray-hardening-6-16-y-v1-0-2fc3e16263ac@linux.intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260714-cbpf-jit-spray-hardening-6-16-y-v1-0-2fc3e16263ac@linux.intel.com>
+	id 1wmBIn-00000009dMv-1bov
+	for linux-riscv@lists.infradead.org;
+	Tue, 21 Jul 2026 14:19:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604151535; d=picoheart.com; t=1784643501; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=/cfi2/DwilvnTli9c/xc55NV9rwALUN+tdQXzBwJvGc=;
+ b=comSdEM/o/Kff7jFsMxLkz1oUdUHpyjl9jkPAJX92qGlJkHzXe+yHCyaCvFAghn4gMwxDR
+ WHRwQIoGE6o0u4dXhicnqGfmz+mYTs5Y0/3/RlAUbDQ0P7x2XhWezbXk5xGBHMWMzPXodU
+ Y4hjnkOMWTaOso5jLhojEswDGuZKYDA1Z+8DfkFtLxH9BQJCQ7KGGKA1P4YTCCIcY/gx/p
+ kMuvl2k77yPLaugrs+ldt4Y3QcVZCuL89vj/vunCU2w3QKJXcJzbyPKk2s5Itg03oDIVec
+ b4nSKJ0mxiKA+0l9LMd87jIdbKDWzt2tGQKChJmr5aB3+ZVNIprR422ZpX2Lgw==
+Date: Tue, 21 Jul 2026 22:18:15 +0800
+Message-Id: <20260721141815.80677-1-yang.yicong@picoheart.com>
+X-Lms-Return-Path: <lba+26a5f7fab+c7e067+lists.infradead.org+yang.yicong@picoheart.com>
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+Cc: <alex@ghiti.fr>, <atish.patra@linux.dev>, <geshijian@picoheart.com>, 
+	<shenyang.young@picoheart.com>, <yang.yicong@picoheart.com>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Subject: [PATCH] RISC-V: KVM: Fix the conversion between vsip and hvip
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.50.1
+To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
+	<anup@brainfault.org>, <linux-riscv@lists.infradead.org>
+Received: from G9WYR9K0VW.bytedance.net ([120.234.91.236]) by smtp.feishu.cn with ESMTPS; Tue, 21 Jul 2026 22:18:18 +0800
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_071833_620632_FA419836 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,40 +69,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 11:58:24AM -0700, Pawan Gupta wrote:
-> Hi,
-> 
-> These backports harden BPF JIT against spectre-v2 class of attacks. Without
-> a predictor flush, execution of new BPF program may use stale prediction
-> left behind by the freed one.
-> 
-> To avoid this, issue an IBPB flush on all CPUs on JIT program allocation.
-> The flush is conditional to spectre-v2 mitigation applied.
-> 
-> Patch 1-2: Adds the predictor flush hook and enables it on x86 via IBPB.
-> 
-> 	  bpf: Support for hardening against JIT spraying
-> 	  x86/bugs: Enable IBPB flush on BPF JIT allocation
-> 
-> Patch 3-6: Narrow the flush to only unprivileged JIT allocations
-> 	   to avoid redundant flushes. Also adds pack-selection changes
-> 	   that minimizes flushes.
-> 
-> 	  bpf: Restrict JIT predictor flush to cBPF
-> 	  bpf: Skip redundant IBPB in pack allocator
-> 	  bpf: Prefer packs that won't trigger an IBPB flush on allocation
-> 	  bpf: Prefer dirty packs for eBPF allocations
-> 
-> This one is mostly similar to 6.18:
-> 
->   https://lore.kernel.org/all/20260713-cbpf-jit-spray-hardening-6-18-y-v1-0-755f60c55705@linux.intel.com/
+Per AIA spec 1.0 Section 6.3.2, the interrupt numbers 13-63
+shares same bit position between related VS shadow CSRs and
+hypervisor CSRs. So there's a shift only for SSI, STI and
+SEI interrupt.
 
-There is no active 6.16.y kernel branch, so why is this being sent to
-us?
+Currently the KVM always does a shift for all the interrupts
+(include LCOFI with number 13) when doing the conversion
+between vsip and hvip. Fix this by only doing shift the SSI,
+STI and SEI. Add wrappers for doing the conversion between
+vsip and hvip.
 
-confused,
+Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
+---
+ arch/riscv/include/asm/csr.h       | 20 ++++++++++++++++----
+ arch/riscv/kvm/vcpu.c              |  3 +--
+ arch/riscv/kvm/vcpu_onereg.c       |  8 +++-----
+ tools/arch/riscv/include/asm/csr.h | 20 ++++++++++++++++----
+ 4 files changed, 36 insertions(+), 15 deletions(-)
 
-greg k-h
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index cd22b5168689..d5d309b3b570 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -183,12 +183,24 @@
+ #define HGATP_MODE_SHIFT	HGATP32_MODE_SHIFT
+ #endif
+ 
+-/* VSIP & HVIP relation */
++/*
++ * VSIP & HVIP relation
++ *
++ * The bit positions are same between VSIP and HVIP for interrupt
++ * numbers 13-63, where there's a shift for the SSI, STI and SEI.
++ */
+ #define VSIP_TO_HVIP_SHIFT	(IRQ_VS_SOFT - IRQ_S_SOFT)
+-#define VSIP_VALID_MASK		((_AC(1, UL) << IRQ_S_SOFT) | \
++#define VSIP_BIAS_MASK		((_AC(1, UL) << IRQ_S_SOFT) | \
+ 				 (_AC(1, UL) << IRQ_S_TIMER) | \
+-				 (_AC(1, UL) << IRQ_S_EXT) | \
+-				 (_AC(1, UL) << IRQ_PMU_OVF))
++				 (_AC(1, UL) << IRQ_S_EXT))
++#define VSIP_NO_BIAS_MASK	(_AC(1, UL) << IRQ_PMU_OVF)
++#define VSIP_VALID_MASK		(VSIP_BIAS_MASK | VSIP_NO_BIAS_MASK)
++#define vsip_to_hvip(_vsip)	((((_vsip) & VSIP_BIAS_MASK) << \
++				  VSIP_TO_HVIP_SHIFT) | \
++				 ((_vsip) & VSIP_NO_BIAS_MASK))
++#define hvip_to_vsip(_hvip)	((((_hvip) >> VSIP_TO_HVIP_SHIFT) & \
++				  VSIP_BIAS_MASK) | \
++				 ((_hvip) & VSIP_NO_BIAS_MASK))
+ 
+ /* AIA CSR bits */
+ #define TOPI_IID_SHIFT		16
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index cf6e231e76e2..817d3d5654d9 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -450,8 +450,7 @@ bool kvm_riscv_vcpu_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
+ {
+ 	unsigned long ie;
+ 
+-	ie = ((vcpu->arch.guest_csr.vsie & VSIP_VALID_MASK)
+-		<< VSIP_TO_HVIP_SHIFT) & (unsigned long)mask;
++	ie = vsip_to_hvip(vcpu->arch.guest_csr.vsie) & (unsigned long)mask;
+ 	ie |= vcpu->arch.guest_csr.vsie & ~IRQ_LOCAL_MASK &
+ 		(unsigned long)mask;
+ 	if (READ_ONCE(vcpu->arch.irqs_pending[0]) & ie)
+diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+index bb920e8923c9..6589f0e004ca 100644
+--- a/arch/riscv/kvm/vcpu_onereg.c
++++ b/arch/riscv/kvm/vcpu_onereg.c
+@@ -284,7 +284,7 @@ static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
+ 
+ 	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
+ 		kvm_riscv_vcpu_flush_interrupts(vcpu);
+-		*out_val = (csr->hvip >> VSIP_TO_HVIP_SHIFT) & VSIP_VALID_MASK;
++		*out_val = hvip_to_vsip(csr->hvip);
+ 		*out_val |= csr->hvip & ~IRQ_LOCAL_MASK;
+ 	} else
+ 		*out_val = ((unsigned long *)csr)[reg_num];
+@@ -304,10 +304,8 @@ static int kvm_riscv_vcpu_general_set_csr(struct kvm_vcpu *vcpu,
+ 
+ 	reg_num = array_index_nospec(reg_num, regs_max);
+ 
+-	if (reg_num == KVM_REG_RISCV_CSR_REG(sip)) {
+-		reg_val &= VSIP_VALID_MASK;
+-		reg_val <<= VSIP_TO_HVIP_SHIFT;
+-	}
++	if (reg_num == KVM_REG_RISCV_CSR_REG(sip))
++		reg_val = vsip_to_hvip(reg_val);
+ 
+ 	((unsigned long *)csr)[reg_num] = reg_val;
+ 
+diff --git a/tools/arch/riscv/include/asm/csr.h b/tools/arch/riscv/include/asm/csr.h
+index 21d8cee04638..8df64314d613 100644
+--- a/tools/arch/riscv/include/asm/csr.h
++++ b/tools/arch/riscv/include/asm/csr.h
+@@ -163,12 +163,24 @@
+ #define HGATP_MODE_SHIFT	HGATP32_MODE_SHIFT
+ #endif
+ 
+-/* VSIP & HVIP relation */
++/*
++ * VSIP & HVIP relation
++ *
++ * The bit positions are same between VSIP and HVIP for interrupt
++ * numbers 13-63, where there's a shift for the SSI, STI and SEI.
++ */
+ #define VSIP_TO_HVIP_SHIFT	(IRQ_VS_SOFT - IRQ_S_SOFT)
+-#define VSIP_VALID_MASK		((_AC(1, UL) << IRQ_S_SOFT) | \
++#define VSIP_BIAS_MASK		((_AC(1, UL) << IRQ_S_SOFT) | \
+ 				 (_AC(1, UL) << IRQ_S_TIMER) | \
+-				 (_AC(1, UL) << IRQ_S_EXT) | \
+-				 (_AC(1, UL) << IRQ_PMU_OVF))
++				 (_AC(1, UL) << IRQ_S_EXT))
++#define VSIP_NO_BIAS_MASK	(_AC(1, UL) << IRQ_PMU_OVF)
++#define VSIP_VALID_MASK		(VSIP_BIAS_MASK | VSIP_NO_BIAS_MASK)
++#define vsip_to_hvip(_vsip)	((((_vsip) & VSIP_BIAS_MASK) << \
++				  VSIP_TO_HVIP_SHIFT) | \
++				 ((_vsip) & VSIP_NO_BIAS_MASK))
++#define hvip_to_vsip(_hvip)	((((_hvip) >> VSIP_TO_HVIP_SHIFT) & \
++				  VSIP_BIAS_MASK) | \
++				 ((_hvip) & VSIP_NO_BIAS_MASK))
+ 
+ /* AIA CSR bits */
+ #define TOPI_IID_SHIFT		16
+-- 
+2.50.1 (Apple Git-155)
 
 _______________________________________________
 linux-riscv mailing list
