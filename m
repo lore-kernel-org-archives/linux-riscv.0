@@ -4,132 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF36FC44529
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 15:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63352C44532
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 15:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y5Wj7snbszWrCxBe2Hu5SkkGaQ8GJbG1eGOai8/KuE8=; b=ERVw37MXfCfq0e
-	LYjF6OxfB7tD6qcCzgwtuMMvdSzsFUGwI9nKdXibXj6Zpm7+iWQkmllHyaAug96ur1eQjhEw66K7R
-	+nc4CX6eHfeEDAbpVQuVHx/XjCqzb60G0dodDN+PoOdw1r2l7XyZhRNFges+TYUHr74DcOu4ljA3y
-	aldV1B7RvJp4lcoWSHGogiGvLhmcUldMTfzEw0yjyZNXqVlhNb8lx8TiQli26H5AqBk9VKjR3mL1b
-	qqswPKKvA8IZ5aANV04X5GJpYxLaP/FPhYXPC9bEF78N44WJVsqdwoRzp9CqeyRRX04DYy6qYZ/tT
-	5BxHqZkLTz/s9Mq0ucjw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VApq/BofkE35aAtDGuUHyUapmAxfgfFbeiWdsxJONKY=; b=uMd+TB2fK6q2R2volBoqp6mctm
+	Uk/VEUpXvh+wN1TVTnIlDQ8FDxw5uD7VDKiDMILWKNZ1V+TMOqARVjXLp4fpN/jcIdWcblHW794dS
+	2ByBLTRxQY2GGHMaOBi/5VMtx8BNJ19ul8qMv0oWheDOfSTHr4PW2CMYI5dnkCcZg5Y2vO2XTijvU
+	zWbINueFvQAQ0Bp+6p9+uYg4rscjaI+CvRSeM+j+bQw2VrtYuvRvvTE9409o1+JW+E+jYwB16jfgi
+	o1O3s2ymJ9mgWV5Mr0YsHhGk2t6EN0jCfhnEZNMBwPO3KDfZNoz6Yzrz3dMKgEMBdBGt6HvCk/jaY
+	MYa0vJRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmC90-00000009lGQ-0MFp;
-	Tue, 21 Jul 2026 15:12:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmCfm-00000009pSF-3VHO;
+	Tue, 21 Jul 2026 15:46:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmC8y-00000009lFv-37eg;
-	Tue, 21 Jul 2026 15:12:28 +0000
+	id 1wmCfl-00000009pS8-3m6E
+	for linux-riscv@lists.infradead.org;
+	Tue, 21 Jul 2026 15:46:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DBCE460204;
-	Tue, 21 Jul 2026 15:12:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A02A41F000E9;
-	Tue, 21 Jul 2026 15:12:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 26BF660204;
+	Tue, 21 Jul 2026 15:46:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90E4B1F000E9;
+	Tue, 21 Jul 2026 15:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784646747;
-	bh=dKHsQTtEuYgX66yr5l7qTAts/c0fmhleRyEHOKKYymE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=SAHldLLtU7xQLUi26xcrFkkKYS9P2o0TLlkOjzUmM1ZX+ko0k4a5qoTy1XIzPnGuR
-	 cUwpVC2pjk/AcJZnO2ck/hKhSbf0g7wXo4wDqxpuQwgnlryAB+OI4sFQmwKGpjwACd
-	 enYLSrkvYR2jeki4Otq+ltW90hWiBaTrF/JNXyF+yRPm5yNU9EjacdD6Eez4RxQWkS
-	 R/vMNpXomL7UbrNL+StWd5DkroEC3h3/ANJZihtyBxVHJDlK0GJboY1KU7BdfMJaKq
-	 VKu4K28N8WCS7Gwfe+dJ3I52jWqP8Ne73GQo4qa4GIm81yq4+MD6smuws6cHVq8Lwc
-	 157dab58h6V9g==
-Message-ID: <e95aabc0-522b-4660-958a-d648c1cfa78f@kernel.org>
-Date: Tue, 21 Jul 2026 17:12:13 +0200
+	s=k20260515; t=1784648780;
+	bh=qyvqI3FKItNNn+NSl40sfGAVdAD6Z9EAaM5p5OjFDvk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KHjrHUfkgQ3Tch0hggGta8g4ZcwSXL29bYV79h1Vuoh0MJxlZSgv+AzdKZxx6s8rd
+	 uMKKO4aLB6/S+WsS+loWRLJw2fB5/OQ9+xYvkCu+8FuBLnn2gwcHOjZhGrgJabdv14
+	 +GDesQQjDjZ/EaP+MPFLnZNzFXjmbBn4YOFRm3yfYi1HA7fbrC1FyjmQlJqSohACGM
+	 DWd1kUC4EjDA9zDOK7VM11wASduAwUMwxQG088znYu6uS2YKtrgoSouO3XJyMo4nqc
+	 f3B7Vfa9t63k9132ohQKSss7uprLUXcM41XYpNtTBrSKVG4mXnB8rP7+yyHd7REypq
+	 oXQeHUVmAC7RA==
+Date: Tue, 21 Jul 2026 16:46:15 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.dev>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 3/6] dt-bindings: hwmon: Add Sensylink CTF2301
+Message-ID: <20260721-handbook-dancing-0c6805fbc94e@spud>
+References: <20260721-ctl2301-v2-0-ef5fb342872a@linux.dev>
+ <20260721-ctl2301-v2-3-ef5fb342872a@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 15/22] mm: only initialise pt_share_count for user
- pgtables
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org,
- Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, linux-s390@vger.kernel.org,
- "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>, sparclinux@vger.kernel.org,
- Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>, linux-um@lists.infradead.org,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Ning Sun <ning.sun@intel.com>,
- x86@kernel.org, tboot-devel@lists.sourceforge.net,
- Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-efi@vger.kernel.org,
- Vishal Moola <vishal.moola@gmail.com>, Alistair Popple <apopple@nvidia.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-References: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
- <20260714-remove_pgtable_cdtor-v1-15-44be8a7685d7@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260714-remove_pgtable_cdtor-v1-15-44be8a7685d7@arm.com>
+In-Reply-To: <20260721-ctl2301-v2-3-ef5fb342872a@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,54 +72,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9131966500826661999=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/14/26 16:04, Kevin Brodsky wrote:
-> ptdesc_pmd_pts_init() initialises the pt_share_count ptdesc field.
-> That field is only used for hugetlb tracking purposes, so there is
-> no need to initialise it for kernel page tables. Skip the call for
-> kernel page tables, like pmd_ptlock_init().
-> 
-> From now on pagetable_*_ctor() and pagetable_dtor() do nothing for
-> kernel page tables.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+--===============9131966500826661999==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+s1jSkmJwwBDoYeF"
+Content-Disposition: inline
+
+--+s1jSkmJwwBDoYeF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jul 21, 2026 at 02:48:29AM -0700, Troy Mitchell wrote:
+> Add the Sensylink CTF2301 temperature sensor and fan controller to the
+> LM63 family binding. The chip follows the LM63 register model and can
+> provide a thermal cooling device when #cooling-cells is present.
+
+Commit message should explain why a fallback compatible is not suitable.
+
+pw-bot: changes-requested
+
+Thanks,
+Conor.
+
+>=20
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
 > ---
->  include/linux/mm.h | 9 ++++++---
->  1 file changed, 6 insertions(+), 3 deletions(-)
-> 
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 94f0fb1c662a..b217ccbed5a3 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -3905,9 +3905,12 @@ static inline spinlock_t *pmd_lock(struct mm_struct *mm, pmd_t *pmd)
->  static inline bool pagetable_pmd_ctor(struct mm_struct *mm,
->  				      struct ptdesc *ptdesc)
->  {
-> -	if (!mm_is_kernel(mm) && !pmd_ptlock_init(ptdesc))
-> -		return false;
-> -	ptdesc_pmd_pts_init(ptdesc);
-> +	if (!mm_is_kernel(mm)) {
-> +		if (!pmd_ptlock_init(ptdesc))
-> +			return false;
-> +		ptdesc_pmd_pts_init(ptdesc);
-> +	}
-> +
+>  Documentation/devicetree/bindings/hwmon/national,lm63.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/hwmon/national,lm63.yaml b=
+/Documentation/devicetree/bindings/hwmon/national,lm63.yaml
+> index 92b0094ff303..4a1ffebfdbef 100644
+> --- a/Documentation/devicetree/bindings/hwmon/national,lm63.yaml
+> +++ b/Documentation/devicetree/bindings/hwmon/national,lm63.yaml
+> @@ -12,7 +12,8 @@ maintainers:
+>  description: |
+>    The LM63 family provides local and remote temperature monitoring toget=
+her
+>    with fan speed monitoring and PWM fan control. Supported devices inclu=
+de
+> -  the National Semiconductor LM63, LM64 and LM96163.
+> +  the National Semiconductor LM63, LM64 and LM96163, and the Sensylink
+> +  CTF2301.
+> =20
+>  allOf:
+>    - $ref: hwmon-common.yaml#
+> @@ -23,6 +24,7 @@ properties:
+>        - national,lm63
+>        - national,lm64
+>        - national,lm96163
+> +      - sensylink,ctf2301
+> =20
+>    reg:
+>      maxItems: 1
+>=20
+> --=20
+> 2.55.0
+>=20
 
-I'd have said "the initialization is cheap, why bother", but we already do have
-the mm_is_kernel() check in place, so
+--+s1jSkmJwwBDoYeF
+Content-Type: application/pgp-signature; name=signature.asc
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Cheers,
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCal+URwAKCRB4tDGHoIJi
+0sguAP4/8GCUUUqjVudh2Yt2jdeHsUNXy8PqWvK/6mq9GnClgAEA10CrvsBJI2OD
+37FQBfZ2wKxrlsiR8AoHkpIejBLmPgc=
+=WK2c
+-----END PGP SIGNATURE-----
 
-David
+--+s1jSkmJwwBDoYeF--
+
+
+--===============9131966500826661999==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9131966500826661999==--
+
