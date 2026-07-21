@@ -4,38 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5483CC4452B
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 07:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF9ECC44529
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 07:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iqKZfvi8/DdMJexJuUlj31RjYjeJ60sq/EZnqBnWDig=; b=LuZqtDN75msef2
-	5APF6qk2n45OI4sVQaGNS8uF0oTT30MIrJdZPOlQvfmVIEdYCV0pOkUwwXmSlqctrWHCr/c8Vxwa9
-	Xqa2KQ0Q0oRucZvqeLfhLqNbi5TwatR1a+T4H/FFi2z0VK9UWs0WTSZ772J+79NhfztQvqHIXJ/wo
-	l/NsKSOkQxlz999+0N7+j9Q+6vhyCaKpnin/HYgCevpvylAbSkujRO7AEPFw6bsNCa7oN+OPcxVNS
-	g7+j9S3ngHBgXI0x3/UzKiqfVTr9AcR1dolLYVjrHlXHsPMyl+BWdBKe0l7ZOUKq9Kg1OVzgTXryE
-	CdcTrNM8ZWYjXVN/YOsg==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9Dkd/oPsJGNZzHf3VPfUBCbpOW0ysg4mPW+mRWEUh/Q=; b=dn9+H7pCduMv9F
+	5emGAL0lF53ywdlcIE3g8Ia18Ha2abW9ZHEr7GFIO6m3YWWwqyWHZAsxlj/yItXp53DEqJkFzoBNY
+	PGo9XiUve1HMWODDg/cOcBBAUba8rd1I3lnufF0+ii/szERewAQeBijdlawi3x38Sd2kYC5jgl2Wf
+	PRCJzwQZfx1b5jyvXH6OnyfEAOIXGo5n4C0PnSmXqTypYwDs3wwQMu7XUOKG/IIQjGcT2HU1RPgBs
+	WL2iCQcpVZEgMDtNvhiwJgL6DMfM6BaIj8lXmVrBql9bflTxPxOXeC4gh5QehYGQkvO9hQrar+fx7
+	3Q/sfWukanVJiPu+kHAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5N1-00000008jGb-1F4x;
-	Tue, 21 Jul 2026 07:58:31 +0000
+	id 1wm5N3-00000008jHR-1i4g;
+	Tue, 21 Jul 2026 07:58:33 +0000
 Received: from [218.76.62.146] (helo=ultrarisc.com)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5My-00000008jEY-1S2D
+	id 1wm5My-00000008jEX-1cwx
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Jul 2026 07:58:30 +0000
+	Tue, 21 Jul 2026 07:58:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=ultrarisc.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id; bh=XK/HnDp6PjMUdSQsB7EyanKLgIWEHt+IDQvqOHHSn0M=; b=l
-	0fQCjiqMKcNbFeemG9D7H+ULjeq12BBr/NS7SXrPwtZbeYVXah1uI2qZTZbOWdYG
-	FlKWgB7+UFeY7y4Q7/USgY7pXOhYPey7/1cL9LvYFQ1cweK8KZBiu1U51GKQopFm
-	xry7ce3eZHAWRXd3nrHFbff1S3IW3tmt7YE1s87ZHk=
+	Message-Id:In-Reply-To:References; bh=5mI+h6L5olk5HlVJuixucCyBnh
+	u5tdB9Nk+Ue6WSdts=; b=EegCwpcdSgL6N3ImcsauEnp2rKFUTMbgHnK0SDeQRF
+	EECbWA746nH/Sy3yqB7mjJsgqR+rHtFFcrZ78KYA3EWX/hFlo/wkodcNnOF3hmAY
+	ujG4ud9iA8vTsbatPX0X12WhYh2lDt+OmSYeiPVqqurTQ+q04e0rnZYraqoW9wA4
+	c=
 Received: from localhost.localdomain (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnEkOyJl9q4GgUAA--.17568S2;
-	Tue, 21 Jul 2026 15:58:46 +0800 (CST)
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnEkOyJl9q4GgUAA--.17568S5;
+	Tue, 21 Jul 2026 15:58:51 +0800 (CST)
 From: Xie Bo <xb@ultrarisc.com>
 To: linux-riscv@lists.infradead.org
 Cc: pjw@kernel.org,
@@ -44,31 +45,34 @@ Cc: pjw@kernel.org,
 	alex@ghiti.fr,
 	linux-kernel@vger.kernel.org,
 	Xie Bo <xb@ultrarisc.com>
-Subject: [RFC PATCH 0/3] riscv: Add supervisor pointer masking infrastructure
-Date: Tue, 21 Jul 2026 15:58:09 +0800
-Message-Id: <20260721075812.82708-1-xb@ultrarisc.com>
+Subject: [RFC PATCH 3/3] riscv: Add supervisor pointer masking control
+Date: Tue, 21 Jul 2026 15:58:12 +0800
+Message-Id: <20260721075812.82708-4-xb@ultrarisc.com>
 X-Mailer: git-send-email 2.17.1
-X-CM-TRANSID: AQAAfwAnEkOyJl9q4GgUAA--.17568S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCr1DZr4fAFy5Jry8Cr18AFb_yoW5CF1UpF
-	s5Gr1rCrs5CF92k3y3A3yDu34rXws5G3y3W3Z3Ary8AF43tFyUZws0q3ZFvF909FW8Xr10
-	9F4Yk3WFka4UAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUva14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r1j
-	6r4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	AVWUtwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2
-	IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v2
-	6r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2
-	IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv
-	67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyT
-	uYvjfUYfHjUUUUU
-X-CM-SenderInfo: l0e63zxwud2x1vfou0bp/1tbiAQAOB2pdm1EAHAAJsg
+In-Reply-To: <20260721075812.82708-1-xb@ultrarisc.com>
+References: <20260721075812.82708-1-xb@ultrarisc.com>
+X-CM-TRANSID: AQAAfwAnEkOyJl9q4GgUAA--.17568S5
+X-Coremail-Antispam: 1UD129KBjvAXoW3Kw4fur1rCFyrCry3ZryxXwb_yoW8WFW3Ao
+	WIga18WF4rtr12kF1rur17KFW2g34vgr4kZws8tan8WF17Ar10qF1vg3srta47KryfGa43
+	ua1SqrsrWa18XF97n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UjIYCTnIWjp_UUUO07AC8VAFwI0_Wr0E3s1l1xkIjI8I6I8E6xAIw20EY4v20xva
+	j40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7IE14v26r1rM28IrcIa0x
+	kI8VCY1x0267AKxVW5JVCq3wA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84AC
+	jcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM2
+	8EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r4UJwAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAVWUtw
+	CY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
+	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r
+	1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
+	7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
+	WUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU
+	Yc_TUUUUU
+X-CM-SenderInfo: l0e63zxwud2x1vfou0bp/1tbiAQAOB2pdm1EAHAAPsm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_005828_883710_3C389F14 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20260721_005828_884617_C63E82FE 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,76 +90,577 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RVA23 requires an Sspm execution environment to provide supervisor-mode
-pointer masking with at least PMLEN=0 and PMLEN=7. SBI 3.0 FWFT provides
-the standard per-hart interface for selecting that value.
+Provide internal supervisor pointer-masking lifecycle support through
+SBI FWFT independently of optional in-kernel consumer enablement. This
+lets Linux establish a known PMLEN state even when the consumer is
+disabled.
 
-This RFC adds the architecture-private lifecycle needed by a future
-in-kernel tagged-pointer consumer. It deliberately does not enable pointer
-masking at boot and adds no userspace ABI, DT binding, hwprobe key, HWCAP,
-or cpuinfo token.
+Allow enabled consumers to select PMLEN=7 transactionally. Gate
+enable until smp_cpus_done() and serialize runtime state changes
+against CPU hotplug.
 
-The consumer API performs an all-online-hart PMLEN=7 transaction. It only
-publishes success after every online hart accepts the setting, rolls back
-the complete mask before publishing failure, and rejects an incompatible
-hart before it becomes online after successful enablement.
+Preserve PMLEN in the same-kernel hibernation header and configure the
+resume hart immediately before restoring the memory image. Fail-stop
+if the fresh kernel cannot establish or recover verified PMLEN0.
 
-The lifecycle code also restores a known setting across CPU hotplug and
-hibernation, clears retained state at boot, and clears every hart at its
-final kexec handoff point so an older successor kernel cannot inherit
-PMLEN=7. Returning to normal execution with an unknown retained PMLEN is
-treated as fatal.
+Reset retained state on successor boot and secondary hart entry.
+Before kexec, reset every hart at its final offline or handoff point so
+an older kernel cannot inherit PMLEN7. Refuse a crash handoff while a
+possibly tagged hart remains stale.
 
-Patch 2 is an independent RISC-V kexec fix: KEXEC_FILE-only SMP builds
-need HOTPLUG_CPU for machine_shutdown() to offline secondary harts. It
-is placed before the Sspm lifecycle code because safe outgoing handoff
-depends on that guarantee.
+Keep consumer enablement fail-closed on firmware errors. Roll back an
+unsuccessful initial transaction, distinguish rollback failure as a
+permanent broken state, and reject harts whose required local state
+cannot be established.
 
-There is no tagged-pointer consumer in this series. I am sending this as an
-RFC to get feedback on the API, lifecycle boundaries, failure policy, and
-whether the infrastructure should instead be carried with its first
-consumer.
-
-Specifications:
-
-  Pointer Masking Extensions, version 1.0
-  https://docs.riscv.org/reference/isa/v20260120/priv/zpm.html
-
-  RISC-V SBI specification, FWFT extension
-  https://docs.riscv.org/reference/sbi/_attachments/riscv-sbi.pdf
-
-Tested on Linux v7.2-rc4 with a RISC-V cross compiler:
-
-  - W=1 builds with CONFIG_RISCV_ISA_SSPM=y and disabled
-  - KEXEC_FILE=y, KEXEC=n SMP configuration selects HOTPLUG_CPU
-  - strict checkpatch (apart from the generic new-file MAINTAINERS warning)
-  - sequential git apply --check against v7.2-rc4
-
-Runtime SBI 3.0 FWFT, CPU hotplug, hibernation, kexec, and crash-kexec
-tests have not yet been performed.
-
-Xie Bo (3):
-  riscv: sbi: Add FWFT get helper
-  riscv: kexec: Select HOTPLUG_CPU for KEXEC_FILE
-  riscv: Add supervisor pointer masking control
-
- arch/riscv/Kconfig                |  23 ++++
- arch/riscv/include/asm/sbi.h      |   1 +
+Signed-off-by: Xie Bo <xb@ultrarisc.com>
+---
+ arch/riscv/Kconfig                |  22 ++++
  arch/riscv/include/asm/sspm.h     |  78 ++++++++++++
  arch/riscv/kernel/Makefile        |   1 +
  arch/riscv/kernel/cpu-hotplug.c   |   3 +-
  arch/riscv/kernel/hibernate.c     |  12 ++
  arch/riscv/kernel/machine_kexec.c |  10 +-
- arch/riscv/kernel/sbi.c           |  29 +++++
  arch/riscv/kernel/setup.c         |   2 +
  arch/riscv/kernel/smp.c           |   2 +
  arch/riscv/kernel/smpboot.c       |  11 +-
  arch/riscv/kernel/sspm.c          | 202 ++++++++++++++++++++++++++++++
- 12 files changed, 368 insertions(+), 6 deletions(-)
+ 10 files changed, 337 insertions(+), 6 deletions(-)
  create mode 100644 arch/riscv/include/asm/sspm.h
  create mode 100644 arch/riscv/kernel/sspm.c
 
-base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 55e94e2..18b90b4 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -572,6 +572,28 @@ config RISCV_ISA_SUPM
+ 	  If this option is disabled, userspace will be unable to use
+ 	  the prctl(PR_{SET,GET}_TAGGED_ADDR_CTRL) API.
+ 
++config RISCV_SSPM
++	bool
++	depends on 64BIT && RISCV_SBI
++	default y
++	help
++	  Provide internal supervisor pointer-masking lifecycle support for
++	  hibernation and for resetting firmware state retained across kexec.
++
++config RISCV_ISA_SSPM
++	bool "Sspm extension for supervisor pointer masking"
++	depends on RISCV_SSPM
++	default y
++	help
++	  Allow an in-kernel consumer to enable
++	  supervisor-mode pointer masking with PMLEN=7 through SBI FWFT.
++
++	  Pointer masking remains disabled until a kernel consumer explicitly
++	  requests it. Internal reset and hibernation support remains available
++	  when this consumer option is disabled.
++
++	  If unsure, say Y.
++
+ config RISCV_ISA_SVNAPOT
+ 	bool "Svnapot extension support for supervisor mode NAPOT pages"
+ 	depends on 64BIT && MMU
+diff --git a/arch/riscv/include/asm/sspm.h b/arch/riscv/include/asm/sspm.h
+new file mode 100644
+index 0000000..c95626a
+--- /dev/null
++++ b/arch/riscv/include/asm/sspm.h
+@@ -0,0 +1,78 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_RISCV_SSPM_H
++#define _ASM_RISCV_SSPM_H
++
++#include <linux/errno.h>
++#include <linux/init.h>
++#include <linux/kconfig.h>
++#include <linux/types.h>
++
++#ifdef CONFIG_RISCV_SSPM
++void __init riscv_sspm_boot_reset(void);
++unsigned long riscv_sspm_hibernate_pmlen(void);
++bool riscv_sspm_hibernate_pmlen_valid(unsigned long pmlen);
++int riscv_sspm_hibernate_restore(unsigned long pmlen);
++int riscv_sspm_prepare_cpu(void);
++void __init riscv_sspm_smp_cpus_done(void);
++bool riscv_sspm_may_be_active(void);
++void riscv_sspm_reset_local_or_panic(const char *context);
++#else
++static inline void __init riscv_sspm_boot_reset(void)
++{
++}
++
++static inline unsigned long riscv_sspm_hibernate_pmlen(void)
++{
++	return 0;
++}
++
++static inline bool riscv_sspm_hibernate_pmlen_valid(unsigned long pmlen)
++{
++	return pmlen == 0 || pmlen == 7;
++}
++
++static inline int riscv_sspm_hibernate_restore(unsigned long pmlen)
++{
++	if (!riscv_sspm_hibernate_pmlen_valid(pmlen))
++		return -EINVAL;
++
++	return pmlen ? -EOPNOTSUPP : 0;
++}
++
++static inline int riscv_sspm_prepare_cpu(void)
++{
++	return 0;
++}
++
++static inline void __init riscv_sspm_smp_cpus_done(void)
++{
++}
++
++static inline bool riscv_sspm_may_be_active(void)
++{
++	return false;
++}
++
++static inline void riscv_sspm_reset_local_or_panic(const char *context)
++{
++}
++#endif
++
++#ifdef CONFIG_RISCV_ISA_SSPM
++int riscv_sspm_enable(void);
++
++/* True means the consumer contract is safe; false does not guarantee PMLEN=0. */
++bool riscv_sspm_enabled(void);
++#else
++static inline int riscv_sspm_enable(void)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline bool riscv_sspm_enabled(void)
++{
++	return false;
++}
++#endif
++
++#endif /* _ASM_RISCV_SSPM_H */
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index cabb99c..0a6464a 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -101,6 +101,7 @@ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+ obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
+ obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
+ obj-$(CONFIG_RISCV_SBI)		+= sbi.o sbi_ecall.o
++obj-$(CONFIG_RISCV_SSPM)	+= sspm.o
+ ifeq ($(CONFIG_RISCV_SBI), y)
+ obj-$(CONFIG_SMP)		+= sbi-ipi.o
+ obj-$(CONFIG_SMP) += cpu_ops_sbi.o
+diff --git a/arch/riscv/kernel/cpu-hotplug.c b/arch/riscv/kernel/cpu-hotplug.c
+index 0bc56d8..8e0b497 100644
+--- a/arch/riscv/kernel/cpu-hotplug.c
++++ b/arch/riscv/kernel/cpu-hotplug.c
+@@ -15,6 +15,7 @@
+ #include <asm/cpu_ops.h>
+ #include <asm/numa.h>
+ #include <asm/smp.h>
++#include <asm/sspm.h>
+ 
+ bool cpu_has_hotplug(unsigned int cpu)
+ {
+@@ -67,8 +68,8 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
+ void __noreturn arch_cpu_idle_dead(void)
+ {
+ 	idle_task_exit();
+-
+ 	cpuhp_ap_report_dead();
++	riscv_sspm_reset_local_or_panic("offline hart");
+ 
+ 	cpu_ops->cpu_stop();
+ 	/* It should never reach here */
+diff --git a/arch/riscv/kernel/hibernate.c b/arch/riscv/kernel/hibernate.c
+index 9828438..a82de7d 100644
+--- a/arch/riscv/kernel/hibernate.c
++++ b/arch/riscv/kernel/hibernate.c
+@@ -16,6 +16,7 @@
+ #include <asm/sections.h>
+ #include <asm/set_memory.h>
+ #include <asm/smp.h>
++#include <asm/sspm.h>
+ #include <asm/suspend.h>
+ 
+ #include <linux/cpu.h>
+@@ -53,12 +54,14 @@ struct arch_hibernate_hdr_invariants {
+  * @hartid: to make sure same boot_cpu executes the hibernate/restore code.
+  * @saved_satp: original page table used by the hibernated image.
+  * @restore_cpu_addr: the kernel's image address to restore the CPU context.
++ * @pmlen: supervisor pointer-mask length used by the hibernated image.
+  */
+ static struct arch_hibernate_hdr {
+ 	struct arch_hibernate_hdr_invariants invariants;
+ 	unsigned long	hartid;
+ 	unsigned long	saved_satp;
+ 	unsigned long	restore_cpu_addr;
++	unsigned long	pmlen;
+ } resume_hdr;
+ 
+ static void arch_hdr_invariants(struct arch_hibernate_hdr_invariants *i)
+@@ -101,6 +104,7 @@ int arch_hibernation_header_save(void *addr, unsigned int max_size)
+ 	hdr->hartid = cpuid_to_hartid_map(sleep_cpu);
+ 	hdr->saved_satp = csr_read(CSR_SATP);
+ 	hdr->restore_cpu_addr = (unsigned long)__hibernate_cpu_resume;
++	hdr->pmlen = riscv_sspm_hibernate_pmlen();
+ 
+ 	return 0;
+ }
+@@ -121,6 +125,10 @@ int arch_hibernation_header_restore(void *addr)
+ 		pr_crit("Hibernate image not generated by this kernel!\n");
+ 		return -EINVAL;
+ 	}
++	if (!riscv_sspm_hibernate_pmlen_valid(hdr->pmlen)) {
++		pr_crit("Invalid PMLEN in hibernate image: %lu\n", hdr->pmlen);
++		return -EINVAL;
++	}
+ 
+ 	sleep_cpu = riscv_hartid_to_cpuid(hdr->hartid);
+ 	if (sleep_cpu < 0) {
+@@ -395,6 +403,10 @@ int swsusp_arch_resume(void)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = riscv_sspm_hibernate_restore(resume_hdr.pmlen);
++	if (ret)
++		return ret;
++
+ 	hibernate_restore_image(resume_hdr.saved_satp, (PFN_DOWN(__pa(resume_pg_dir)) | satp_mode),
+ 				resume_hdr.restore_cpu_addr);
+ 
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 738df17..f9cb98d 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -12,6 +12,7 @@
+ #include <asm/page.h>		/* For PAGE_MASK */
+ #include <linux/libfdt.h>	/* For fdt_check_header() */
+ #include <asm/set_memory.h>	/* For set_memory_x() */
++#include <asm/sspm.h>
+ #include <linux/compiler.h>	/* For unreachable() */
+ #include <linux/cpu.h>		/* For cpu_down() */
+ #include <linux/reboot.h>
+@@ -161,8 +162,12 @@ machine_kexec(struct kimage *image)
+ 	riscv_kexec_method kexec_method = NULL;
+ 
+ #ifdef CONFIG_SMP
+-	WARN(smp_crash_stop_failed(),
+-		"Some CPUs may be stale, kdump will be unreliable.\n");
++	bool stop_failed = smp_crash_stop_failed();
++
++	WARN(stop_failed,
++	     "Some CPUs may be stale, kdump will be unreliable.\n");
++	if (stop_failed && riscv_sspm_may_be_active())
++		panic("Sspm: cannot hand off with stale PMLEN state");
+ #endif
+ 
+ 	if (image->type != KEXEC_TYPE_CRASH)
+@@ -179,6 +184,7 @@ machine_kexec(struct kimage *image)
+ 
+ 	/* Jump to the relocation code */
+ 	pr_notice("Bye...\n");
++	riscv_sspm_reset_local_or_panic("kexec boot hart");
+ 	kexec_method(first_ind_entry, jump_addr, fdt_addr,
+ 		     this_hart_id, kernel_map.va_pa_offset);
+ 	unreachable();
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 52d1d2b..3b565cb 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -34,6 +34,7 @@
+ #include <asm/set_memory.h>
+ #include <asm/sections.h>
+ #include <asm/sbi.h>
++#include <asm/sspm.h>
+ #include <asm/tlbflush.h>
+ #include <asm/thread_info.h>
+ #include <asm/kasan.h>
+@@ -315,6 +316,7 @@ void __init setup_arch(char **cmdline_p)
+ 
+ 	early_ioremap_setup();
+ 	sbi_init();
++	riscv_sspm_boot_reset();
+ 	jump_label_init();
+ 	parse_early_param();
+ 
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index fa66f9c..d87a731 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -27,6 +27,7 @@
+ #include <asm/tlbflush.h>
+ #include <asm/cacheflush.h>
+ #include <asm/cpu_ops.h>
++#include <asm/sspm.h>
+ 
+ enum ipi_message_type {
+ 	IPI_RESCHEDULE,
+@@ -92,6 +93,7 @@ static atomic_t waiting_for_crash_ipi = ATOMIC_INIT(0);
+ static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
+ {
+ 	crash_save_cpu(regs, cpu);
++	riscv_sspm_reset_local_or_panic("crash secondary hart");
+ 
+ 	atomic_dec(&waiting_for_crash_ipi);
+ 
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index f6ef579..e18cb37 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -34,6 +34,7 @@
+ #include <asm/tlbflush.h>
+ #include <asm/sections.h>
+ #include <asm/smp.h>
++#include <asm/sspm.h>
+ #include <uapi/asm/hwcap.h>
+ #include <asm/vector.h>
+ 
+@@ -210,6 +211,7 @@ int __cpu_up(unsigned int cpu, struct task_struct *tidle)
+ 
+ void __init smp_cpus_done(unsigned int max_cpus)
+ {
++	riscv_sspm_smp_cpus_done();
+ }
+ 
+ /*
+@@ -229,14 +231,17 @@ asmlinkage __visible void smp_callin(void)
+ 			return;
+ 	}
+ 
+-	/* All kernel threads share the same mm context.  */
+-	mmgrab(mm);
+-	current->active_mm = mm;
++	if (riscv_sspm_prepare_cpu())
++		return;
+ 
+ #ifdef CONFIG_HOTPLUG_PARALLEL
+ 	cpuhp_ap_sync_alive();
+ #endif
+ 
++	/* All kernel threads share the same mm context.  */
++	mmgrab(mm);
++	current->active_mm = mm;
++
+ 	store_cpu_topology(curr_cpuid);
+ 	notify_cpu_starting(curr_cpuid);
+ 
+diff --git a/arch/riscv/kernel/sspm.c b/arch/riscv/kernel/sspm.c
+new file mode 100644
+index 0000000..6198660
+--- /dev/null
++++ b/arch/riscv/kernel/sspm.c
+@@ -0,0 +1,202 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <linux/cpu.h>
++#include <linux/mutex.h>
++#include <linux/panic.h>
++#include <linux/printk.h>
++#include <linux/smp.h>
++
++#include <asm/sbi.h>
++#include <asm/sspm.h>
++
++#define RISCV_SSPM_PMLEN	7
++
++enum riscv_sspm_state {
++	RISCV_SSPM_DISABLED,
++	RISCV_SSPM_ENABLING,
++	RISCV_SSPM_ENABLED,
++	RISCV_SSPM_FAILED,
++	RISCV_SSPM_BROKEN,
++};
++
++static enum riscv_sspm_state riscv_sspm_state __read_mostly;
++static bool riscv_sspm_smp_ready __read_mostly = !IS_ENABLED(CONFIG_SMP);
++#ifdef CONFIG_RISCV_ISA_SSPM
++static DEFINE_MUTEX(riscv_sspm_lock);
++static int riscv_sspm_error __read_mostly;
++#endif
++
++static int riscv_sspm_set_local(unsigned long pmlen)
++{
++	unsigned long value;
++	int ret;
++
++	ret = sbi_fwft_set(SBI_FWFT_POINTER_MASKING_PMLEN, pmlen, 0);
++	if (ret)
++		return ret;
++
++	ret = sbi_fwft_get(SBI_FWFT_POINTER_MASKING_PMLEN, &value);
++	if (ret)
++		return ret;
++
++	return value == pmlen ? 0 : -EIO;
++}
++
++static int riscv_sspm_reset_local(void)
++{
++	int ret;
++
++	ret = riscv_sspm_set_local(0);
++	return ret == -EOPNOTSUPP ? 0 : ret;
++}
++
++void riscv_sspm_reset_local_or_panic(const char *context)
++{
++	int ret;
++
++	ret = riscv_sspm_reset_local();
++	if (ret)
++		panic("Sspm: failed to reset %s PMLEN: %d", context, ret);
++}
++
++void __init riscv_sspm_boot_reset(void)
++{
++	/*
++	 * Firmware may retain FWFT state across kexec or a crash handoff. Reset
++	 * it before the Linux successor starts relying on canonical addresses.
++	 */
++	riscv_sspm_reset_local_or_panic("boot hart");
++}
++
++unsigned long riscv_sspm_hibernate_pmlen(void)
++{
++	return riscv_sspm_enabled() ? RISCV_SSPM_PMLEN : 0;
++}
++
++bool riscv_sspm_hibernate_pmlen_valid(unsigned long pmlen)
++{
++	return pmlen == 0 || pmlen == RISCV_SSPM_PMLEN;
++}
++
++int riscv_sspm_hibernate_restore(unsigned long pmlen)
++{
++	int ret;
++
++	if (!riscv_sspm_hibernate_pmlen_valid(pmlen))
++		return -EINVAL;
++
++	if (!pmlen) {
++		riscv_sspm_reset_local_or_panic("hibernate");
++		return 0;
++	}
++
++	ret = riscv_sspm_set_local(pmlen);
++	if (ret)
++		riscv_sspm_reset_local_or_panic("hibernate cleanup");
++
++	return ret;
++}
++
++void __init riscv_sspm_smp_cpus_done(void)
++{
++	WRITE_ONCE(riscv_sspm_smp_ready, true);
++}
++
++bool riscv_sspm_may_be_active(void)
++{
++	enum riscv_sspm_state state = READ_ONCE(riscv_sspm_state);
++
++	return state == RISCV_SSPM_ENABLING || state == RISCV_SSPM_ENABLED ||
++	       state == RISCV_SSPM_BROKEN;
++}
++
++int riscv_sspm_prepare_cpu(void)
++{
++	enum riscv_sspm_state state = READ_ONCE(riscv_sspm_state);
++	unsigned int cpu = smp_processor_id();
++	int ret, cleanup_ret;
++
++	if (state == RISCV_SSPM_DISABLED || state == RISCV_SSPM_FAILED ||
++	    state == RISCV_SSPM_BROKEN) {
++		ret = riscv_sspm_reset_local();
++		if (ret)
++			pr_crit("Sspm: CPU%u failed to reset PMLEN: %d\n",
++				cpu, ret);
++
++		return ret;
++	}
++
++	if (state != RISCV_SSPM_ENABLED)
++		return 0;
++
++	ret = riscv_sspm_set_local(RISCV_SSPM_PMLEN);
++	if (ret) {
++		pr_err("Sspm: CPU%u failed to enable PMLEN=7: %d\n", cpu, ret);
++		cleanup_ret = sbi_fwft_set(SBI_FWFT_POINTER_MASKING_PMLEN, 0, 0);
++		if (cleanup_ret)
++			pr_crit("Sspm: CPU%u failed to clean up PMLEN: %d\n",
++				cpu, cleanup_ret);
++	}
++
++	return ret;
++}
++
++#ifdef CONFIG_RISCV_ISA_SSPM
++int riscv_sspm_enable(void)
++{
++	int ret, rollback_ret;
++
++	mutex_lock(&riscv_sspm_lock);
++
++	if (!READ_ONCE(riscv_sspm_smp_ready)) {
++		ret = -EAGAIN;
++		goto out_unlock;
++	}
++
++	if (riscv_sspm_state == RISCV_SSPM_ENABLED) {
++		ret = 0;
++		goto out_unlock;
++	}
++
++	if (riscv_sspm_state == RISCV_SSPM_FAILED ||
++	    riscv_sspm_state == RISCV_SSPM_BROKEN) {
++		ret = riscv_sspm_error;
++		goto out_unlock;
++	}
++
++	cpus_read_lock();
++	WRITE_ONCE(riscv_sspm_state, RISCV_SSPM_ENABLING);
++
++	ret = sbi_fwft_set_online_cpus(SBI_FWFT_POINTER_MASKING_PMLEN,
++				       RISCV_SSPM_PMLEN, 0);
++	if (!ret) {
++		WRITE_ONCE(riscv_sspm_state, RISCV_SSPM_ENABLED);
++		cpus_read_unlock();
++		goto out_unlock;
++	}
++
++	rollback_ret = sbi_fwft_set_online_cpus(SBI_FWFT_POINTER_MASKING_PMLEN,
++						0, 0);
++	pr_warn("Sspm: failed to enable PMLEN=7: %d\n", ret);
++	if (rollback_ret) {
++		pr_crit("Sspm: failed to roll back PMLEN: %d\n", rollback_ret);
++		riscv_sspm_error = rollback_ret;
++		WRITE_ONCE(riscv_sspm_state, RISCV_SSPM_BROKEN);
++		ret = rollback_ret;
++	} else {
++		riscv_sspm_error = ret;
++		WRITE_ONCE(riscv_sspm_state, RISCV_SSPM_FAILED);
++	}
++
++	cpus_read_unlock();
++
++out_unlock:
++	mutex_unlock(&riscv_sspm_lock);
++
++	return ret;
++}
++
++bool riscv_sspm_enabled(void)
++{
++	return READ_ONCE(riscv_sspm_state) == RISCV_SSPM_ENABLED;
++}
++#endif
 -- 
 2.17.1
 
