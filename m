@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50640C4451C
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 16:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC4FC4451C
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 16:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/co2TYDFcwQKD5on9bnrGDae7CO8uVBesdqKIlaanyg=; b=GOjJurWxNB83CH
-	WhYrb2ol9GHIbaycvYd4DWz/sTp3wGgB+brF0av9wUHOuBXdF/K6u8GyM8uDwu9FVEg42oLjGW7mE
-	H4hesr/H15HDfRAkPWEzM5LQPFFLXWbth85F7U8ImAsY//+k5emzh54qtocalxoyOtaB6N8GGtEq0
-	kAyvRT75mwUqt1TRYqvU+h+x3VB4vdf8yyRH+lgbmS8B7ugay7mjCzl4IXAgKrEj4DcrCGJsByICm
-	wl2DJ3Q1fhmvk6tuDjJAjHhImINXZvHSYm6agZpeu6GJvl1FMcyfSYdXV9/bSr1TIq3t5pNXQxcLw
-	DU3NAv1yLCYCP/4atmag==;
+	List-Owner; bh=9r1TX6l1wx3vRNzuBIaDiLthdifiG5mu/u5V9kpaJSo=; b=UCrSLTEtxs5skI
+	N0MBwaxyuL3gPNRL0kTp3LrAFdob0BD+gcNQ7xGnkidp6e/8iIGy8CeGYr3wyD9AX5ix+bBVrvpD7
+	GAPT6fR39Du52Lgrolr829cEYgOCZooDQ2lJCve58Ilf+huzuaSSzL7NxatrX+Ar++FiWJ5BzI4Hg
+	j9PNYazpBDdRkeu9+M9R9Sjbo3CLRe9FU+DRhiS5YsWjEG5cfqBt/5GH74/yLrUpplgnK8tBqiDxN
+	iwBNlXpkkLUYF9zTM215oOZb+jaX6JYZ+bkZ2NknnO9GSIfCaQWrhWl61/5ckxFX2OQeHA6e7uxZr
+	A/JVfLNa+JZflaxBS50A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDHH-00000009uJC-0agM;
-	Tue, 21 Jul 2026 16:25:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmDHO-00000009uUF-2bOD;
+	Tue, 21 Jul 2026 16:25:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDHE-00000009uEp-2baA;
-	Tue, 21 Jul 2026 16:25:04 +0000
+	id 1wmDHM-00000009uPF-0ELp;
+	Tue, 21 Jul 2026 16:25:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A9BE42446;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6228060A59;
+	Tue, 21 Jul 2026 16:25:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B87D31F00A3A;
 	Tue, 21 Jul 2026 16:25:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C379D1F00A3F;
-	Tue, 21 Jul 2026 16:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784651104;
-	bh=aHE9E+mQ6FecAcifXNkjcLKFQsJdzpbS6vo0hKS7MCs=;
+	s=k20260515; t=1784651111;
+	bh=Js+8Q33VygYQF2f+rI8d1hZYY9K88zAKgM98T6HPJCQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=JGIO4UJ5qxnF1hC6IdbRB7Cz7UAlenF2xGg1HDepQsa9sW3gzBG8KEjpg4eaajMqn
-	 +1z2M14sXjjxZISNdj5pwAqMHTYh+ZMsh7mBT5HDyAo4CqTgBvlVgEdpN1dFHSYHjv
-	 rUbGkkyOrsNatXd86xR+fx/PQ1t8YjkznLPlooouTIhlpQwPD4ct6gTnRbtt7ANt/y
-	 z/SocZF0FQ4ral3W7XLaZeUMwSW4tF3g82+UCiwgH8TzGWqC5EaaSGPxt1pgyfaO7r
-	 j1iXeKTnDY1apTx0ilVi+Jb/uOzHx1utq5agfbvlNdBmjxsPvPlSKQjQ7EZqcXI7ID
-	 eKsxCxxA5cFbQ==
+	b=knGmISKmG/BpTGf3mdF+taH3r3WgwshVgHqiOn1OH7w8ZYPlLuFE1bw2SEYXNLgFT
+	 ZyhqpGWWKo19TQ3MPPpXN+GZPwI0a6+0Nci6x9wHqb6uUW6JiWzba+ApDnZJf8ebDl
+	 Jl6wIGrMr3jcCsZgsR04vjHPe49jvu/tZiS3IgvaIi/vR5zFqNBHxbiHhI+58vmGN/
+	 J7a7AySwjBFN3RDHpaRdeuwiD6tZomFKQmhbp5v/q4xpv6bwFW1vKs98kH77A4iB2q
+	 v+XGDbzsk5M2bG4ybuFIGo6+igguIhVbekdTaiDHY+xnY7pWGwk9KZ9DHSXNrCfNom
+	 WPO73fe4BpyCg==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Tue, 21 Jul 2026 19:23:35 +0300
-Subject: [PATCH RFC 12/18] x86/pat/mm, mm/set_memory: abstract the CPA page
- table lock
+Date: Tue, 21 Jul 2026 19:23:36 +0300
+Subject: [PATCH RFC 13/18] mm/set_memory: read page table entries with
+ pXdp_get()
 MIME-Version: 1.0
-Message-Id: <20260721-generic-set-memory-v0-1-v1-12-2c1fc62306b3@kernel.org>
+Message-Id: <20260721-generic-set-memory-v0-1-v1-13-2c1fc62306b3@kernel.org>
 References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 To: linux-mm@kvack.org
@@ -84,72 +84,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-x86 requires taking pgd_lock to serialize large page splits against
-parallel page table operations, for instance such as
-arch_sync_kernel_mappings() and pgd allocation and freeing.
-
-Add arch_lock() and arch_unlock() static inlines that replace direct
-locking/unlocking of the pgd_lock in CPA core.
-
-Since only x86 needs such lock, keep things simple and use #ifdef
-CONFIG_X86 rather than creating an overridable infrastructure.
+As a preparation for enabling generic set_memory support in riscv,
+replace direct dereferences of the page table pointers with pXdp_get()
+accessors.
 
 No functional change intended.
 
 Assisted-by: Copilot:claude-opus-4.8
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- mm/set_memory.c | 20 +++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
+ mm/set_memory.c | 56 ++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 30 insertions(+), 26 deletions(-)
 
 diff --git a/mm/set_memory.c b/mm/set_memory.c
-index 712264de8e9b..d2846804e4e6 100644
+index d2846804e4e6..1a7e63512981 100644
 --- a/mm/set_memory.c
 +++ b/mm/set_memory.c
-@@ -14,6 +14,20 @@
+@@ -51,58 +51,62 @@ unsigned long cpa_addr(struct cpa_data *cpa, unsigned long idx)
+  * the level of the entry, and the effective NX and RW bits of all
+  * page table levels.
   */
- static DEFINE_SPINLOCK(cpa_lock);
- 
-+static inline void arch_lock(void)
-+{
-+#ifdef CONFIG_X86
-+	spin_lock(&pgd_lock);
-+#endif
-+}
-+
-+static inline void arch_unlock(void)
-+{
-+#ifdef CONFIG_X86
-+	spin_unlock(&pgd_lock);
-+#endif
-+}
-+
- unsigned long cpa_addr(struct cpa_data *cpa, unsigned long idx)
+-pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
++pte_t *lookup_address_in_pgd_attr(pgd_t *pgdp, unsigned long address,
+ 				  unsigned int *level, bool *nx, bool *rw)
  {
- 	if (cpa->flags & CPA_PAGES_ARRAY) {
-@@ -170,7 +184,7 @@ static int cpa_handle_large_page(struct cpa_data *cpa, pte_t *kpte,
- 	if (!sd.ptdesc)
- 		return -ENOMEM;
+-	p4d_t *p4d;
+-	pud_t *pud;
+-	pmd_t *pmd;
++	pgd_t pgd = pgdp_get(pgdp);
++	p4d_t *p4dp, p4d;
++	pud_t *pudp, pud;
++	pmd_t *pmdp, pmd;
  
--	spin_lock(&pgd_lock);
-+	arch_lock();
+ 	*level = PGTABLE_LEVEL_PGD;
+ 	*nx = false;
+ 	*rw = true;
  
- 	/*
- 	 * Check for races, another CPU might have split this page
-@@ -202,11 +216,11 @@ static int cpa_handle_large_page(struct cpa_data *cpa, pte_t *kpte,
- 	if (ret)
- 		goto out_free_ptdesc;
+-	if (pgd_none(*pgd))
++	if (pgd_none(pgd))
+ 		return NULL;
  
--	spin_unlock(&pgd_lock);
-+	arch_unlock();
- 	return do_split;
+ 	*level = PGTABLE_LEVEL_P4D;
+-	*nx |= !pgd_exec(*pgd);
+-	*rw &= !!(pgd_write(*pgd));
++	*nx |= !pgd_exec(pgd);
++	*rw &= !!(pgd_write(pgd));
  
- out_free_ptdesc:
--	spin_unlock(&pgd_lock);
-+	arch_unlock();
- 	pagetable_free(sd.ptdesc);
- 	return ret;
+-	p4d = p4d_offset(pgd, address);
+-	if (p4d_none(*p4d))
++	p4dp = p4d_offset(pgdp, address);
++	p4d = p4dp_get(p4dp);
++	if (p4d_none(p4d))
+ 		return NULL;
+ 
+-	if (p4d_leaf(*p4d) || !p4d_present(*p4d))
+-		return (pte_t *)p4d;
++	if (p4d_leaf(p4d) || !p4d_present(p4d))
++		return (pte_t *)p4dp;
+ 
+ 	*level = PGTABLE_LEVEL_PUD;
+-	*nx |= !p4d_exec(*p4d);
+-	*rw &= !!(p4d_write(*p4d));
++	*nx |= !p4d_exec(p4d);
++	*rw &= !!(p4d_write(p4d));
+ 
+-	pud = pud_offset(p4d, address);
+-	if (pud_none(*pud))
++	pudp = pud_offset(p4dp, address);
++	pud = pudp_get(pudp);
++	if (pud_none(pud))
+ 		return NULL;
+ 
+-	if (pud_leaf(*pud) || !pud_present(*pud))
+-		return (pte_t *)pud;
++	if (pud_leaf(pud) || !pud_present(pud))
++		return (pte_t *)pudp;
+ 
+ 	*level = PGTABLE_LEVEL_PMD;
+-	*nx |= !pud_exec(*pud);
+-	*rw &= !!(pud_write(*pud));
++	*nx |= !pud_exec(pud);
++	*rw &= !!(pud_write(pud));
+ 
+-	pmd = pmd_offset(pud, address);
+-	if (pmd_none(*pmd))
++	pmdp = pmd_offset(pudp, address);
++	pmd = pmdp_get(pmdp);
++	if (pmd_none(pmd))
+ 		return NULL;
+ 
+-	if (pmd_leaf(*pmd) || !pmd_present(*pmd))
+-		return (pte_t *)pmd;
++	if (pmd_leaf(pmd) || !pmd_present(pmd))
++		return (pte_t *)pmdp;
+ 
+ 	*level = PGTABLE_LEVEL_PTE;
+-	*nx |= !pmd_exec(*pmd);
+-	*rw &= !!(pmd_write(*pmd));
++	*nx |= !pmd_exec(pmd);
++	*rw &= !!(pmd_write(pmd));
+ 
+-	return pte_offset_kernel(pmd, address);
++	return pte_offset_kernel(pmdp, address);
  }
+ 
+ /*
 
 -- 
 2.53.0
