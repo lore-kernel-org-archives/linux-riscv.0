@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE41C44529
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 11:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D114C4451C
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 11:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cnm7GMi/ciV6VXcSUjM4+708BkL+/pNuXAsQZ//1sdM=; b=qWy8fk121JsIgk
-	BGIj/H2LSy0oxJ7qedKiPv3Syy9QjF56u2CptdOvgAuXUjHa6UIh1No4SUpu7Cx++Lizz54ye0rg7
-	yb2k0hjLLyqI8BScXVME87vOlryps95vXgyGcIuR4JPnSJIfD2Ky5IphhvrRa3eviMonHw/WwcAq+
-	o8IjOzY8QJea33wh1sWYXDrTFqd2PmDPB3w55wOd7JVhHnMdbKbntOt1VG6xkB8bDC6X9T7T2axxn
-	GXpf7tMnvlclp87jsrRp/q/qYHQLpXa/lYaH9u2UBc0jefJrNgmsIHzv2J9zsr/P6Nh0QLESQ/9V/
-	AYSRgbGo2wH/jxrZhTNQ==;
+	List-Owner; bh=4F3WQw6Kio8dDOghSzDwp1K5W/MOfZ000IQM/9lHReg=; b=RFuPjykN2gPF67
+	qC1Tim02zPMorDQYkkox/yFKdmHTSHUG/N7ad/9AX/Smiq1pY25V49HSr0LSYgqZTC0uU7QkRix7f
+	p+J6E2fEmbVAKziWDICzxPrvV+bj1MvL97YEJtGqCKDrE9urU7d/ERHUhsakh+EGzjLxQrZ4MixZc
+	cvPRYfitD3sx1r2067W/r44eKq41LZzH7O/9oA4XUA78+cuhpxHjUA+I9a/XvLv7dJRdNxxOdum2u
+	gViVExbY4ok0IIH7DtPIZNftoGILSvIYMn2C1v4yl5kuXBqgzI1hTlhVpGeZxwWsvtXWMHzESbOEJ
+	3HrfBLQ1TaRn5SPVkLLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm91j-00000009Lpn-0uhr;
-	Tue, 21 Jul 2026 11:52:47 +0000
-Received: from out-189.mta0.migadu.com ([91.218.175.189])
+	id 1wm961-00000009MQv-3EX5;
+	Tue, 21 Jul 2026 11:57:13 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm91g-00000009Loz-1QUm
-	for linux-riscv@lists.infradead.org;
-	Tue, 21 Jul 2026 11:52:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784634761;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ztkuwDQ88U1nWd7JbtRXsUpUUy9QB7MYF8hpKbkABIQ=;
-	b=qACJvlEgENvt+CPMwYacc4vTMOPS0UPeyhultL+5KrkDylnrMT/ITzMnl+JU9Ki12/bC82
-	D+5PMyJ/CedXJDSf2AwNGYA8JOPth40bScw5t5G+y6mRhenBcdJTTB4CuqrAuwueFoS7YA
-	d1/fvgoV/nkVvvlyMb9lj5UY5+2BkpA=
-Date: Tue, 21 Jul 2026 04:52:34 -0700
-Message-Id: <DK488087JL3G.2007ORR9MUHGW@linux.dev>
-Cc: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-hwmon@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v2 5/6] riscv: dts: spacemit: Add K3 I2C6 pinctrl state
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Troy Mitchell" <troy.mitchell@linux.dev>
-To: "Troy Mitchell" <troy.mitchell@linux.dev>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Guenter Roeck" <linux@roeck-us.net>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan"
- <dlan@kernel.org>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah Khan"
- <skhan@linuxfoundation.org>
-References: <20260721-ctl2301-v2-0-ef5fb342872a@linux.dev>
-	<20260721-ctl2301-v2-5-ef5fb342872a@linux.dev>
-	<20260721100039.0E6A41F00A3A@smtp.kernel.org>
-In-Reply-To: <20260721100039.0E6A41F00A3A@smtp.kernel.org>
+	id 1wm95x-00000009MQ1-1Fsw;
+	Tue, 21 Jul 2026 11:57:11 +0000
+X-QQ-mid: zesmtpsz6t1784634963t6e8a6e90
+X-QQ-Originating-IP: 7UTGWJP3KrvUOqnlyru4WDx7yxHshRvG5L4FHHW3S5o=
+Received: from rsl ( [183.242.33.186])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 21 Jul 2026 19:56:00 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 18011628127360508405
+EX-QQ-RecipientCnt: 14
+From: JinRui <jinrui@haiwei.tech>
+To: Anup Patel <anup@brainfault.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Atish Patra <atish.patra@linux.dev>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	jinrui <jinrui@haiwei.tech>
+Subject: [PATCH v4] KVM: selftests: riscv: Add lazy V extension enablement for guests
+Date: Tue, 21 Jul 2026 11:55:58 +0000
+Message-ID: <759A31C23819178D+20260721115558.341592-1-jinrui@haiwei.tech>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260721112454.330498-1-jinrui@haiwei.tech>
+References: <20260721112454.330498-1-jinrui@haiwei.tech>
 MIME-Version: 1.0
-Content-Disposition: inline
-X-Mutt-References: <20260721100039.0E6A41F00A3A@smtp.kernel.org>
-X-Mutt-Fcc: =Sent
-X-Migadu-Flow: FLOW_OUT
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:haiwei.tech:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: MWqDrZRYA17xUkBBiUuWLwKBGYHEGnwmnclZeyLeIWUaajabgXgqhpXS
+	VyGC0+zay4rO8M1CQrdDzeMKPffAW33/CDT7IFMKU09GFV+5C4eD5iAXzc4DP3tlhZiAmob
+	GTzI+QR1mYF57d/EeO50jBOKNcYi/cBKM841+/7NhC9PAcgCHVwcnW7pBGRmRiYmwUYRnbr
+	GDNjuwcw7PnlW1g/RWpE8Qe4+GuEleMriwN+1pmSuzNkr22qW8/gBWYASpOc4SJB2a6fY7m
+	zgOk8VTakWr3h6aXYZcqzMw/uRtxR4ISmtTaYY/rzTa3FK7f/aqyUkF+Yefe0FJ1oFd093Y
+	4YLNr0fVh/Lu2skBusl5wSXZExpZWSxYrn80DmyDvNG0X5zGrHAM19jMgT2HEXgIcv8lH4p
+	ToWw1D16GKbHYxaisRD8UrNv3i0TKhgj6pN6yRx5KMG0mj4tNxD2m88Na1dVI9X86HOFG0W
+	YrBElMlZqa3mpUKI8ZtaYgEUQKy0ISUXuh/FTZw4F/RUtCNyM0O1EhgOuGoCIPl8hTfoZP5
+	HL6AplEJcpCibcxfjmnQ4ztQuQTBbLfpdrIIxkqXgWuMZn4L772+nG5GwfmXpNcYakf3Lx/
+	StoN+V9S69SZ73MJIrGuHx+zP0SN6yHrLETCmC5/ohEpeetCVqKe87Dq1M1xTQRD9+17mkE
+	AwugxaLWJUTbpuyutFCJuO5i+L7u6492sjCmx4HRxq7YKC+41cOIyU6cgm2J19Cw9NTuWuK
+	jyNn8UZ5aUHzwaklJaapx4IEN1y9qgpHtBdxtutpJ16j8JjHbjdcuYbzjcmI6GPc0ywCGSj
+	Oh9h5/frYrfmDlfiSljc6eu6m3OKXOckyfPEd1YjUxdgdsF+MJWoOZo3RRjuRiJnQ3DKp5F
+	BxQnf57R+srDWaDGJCr3vXs4C8baiDKEw/zkYE0wcZNPNocvQ7+ECz3RWJBfyuYUmAuBhOS
+	I/wLd67fP8AymGbdYACDQ0J/a7PP3gQBSuIU6hvnsBcFDyCahQffbMZTct0SMogs0Tmylzq
+	GzU3UoAHIGX8P37l7b5clqtQtvvQDLvhvtjnOhe00z885BBHGAjvBAOWTnwa87zXBuRV3NV
+	BTK4LkqcCF9Gklnf4AEexo=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_045244_520950_9EA9F6A1 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260721_045709_864673_38683391 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +97,181 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 10:00:38AM +0000, sashiko-bot@kernel.org wrote:
-> [Severity: Low]
-> Is this drive-strength value supported by the binding? The value 18
-> doesn't appear to be valid according to the SpacemiT K3 pinctrl binding
-> schema (spacemit,k1-pinctrl.yaml), which triggers a dtbs_check validation
-> failure.
->
-> Since the driver's spacemit_get_ds_value() will silently fall back to the
-> next highest valid value (like 21mA or 25mA depending on voltage), could
-> this cause an unexpected mismatch between the requested devicetree state
-> and the actual hardware configuration?
+From: jinrui <jinrui@haiwei.tech>
 
-Good catch. This pin group uses the 3.3 V power domain, for which 18 mA is
-not a valid K3 drive-strength value. The driver rounds that request up to
-25 mA, so I will use 25 mA in the devicetree to describe the configuration
-that is actually programmed and to satisfy the binding.
+When the cross-compiler defaults to an -march that includes the V
+(vector) extension, -O2 auto-vectorization generates vector
+instructions (e.g. vsetvli, vadd.vv) in Guest binary code. If the
+Guest executes a vector instruction while sstatus.VS is Off, an
+EXC_INST_ILLEGAL (scause=2) is raised. KVM's hedeleg delegates this
+exception to the Guest, but the selftest has no way to handle it as a
+bare-metal program, causing all Guest tests to fail.
 
-                                            - Troy
+In contrast, a real OS kernel handles this via riscv_v_first_use_handler(),
+which detects the vector instruction, sets sstatus.VS to Initial, and
+srets to re-execute.
+
+Fix this with four changes in processor.c:
+
+1. Delete the now-unused guest_unexp_trap() handler, which is replaced
+   by the full exception vector table.
+
+2. In vm_arch_vcpu_add(), notify KVM that the Guest is allowed to use
+   the V extension via __vcpu_set_reg(V, 1) (best-effort, silently
+   ignores errors on hardware without V). Also replace the raw stvec
+   handler with the full exception vector table, which provides
+   save_context/restore_context for safe lazy enablement.
+
+3. In route_exception(), add a lazy V enablement check that runs
+   before any test-registered handler. When the cause is a non-IRQ
+   EXC_INST_ILLEGAL and sstatus.VS is Off, set VS to Initial and
+   return so the faulting instruction is re-executed via sret.
+
+4. Make vm_init_vector_tables() idempotent by checking vm->handlers
+   before allocation, so tests that manually call it (ebreak_test,
+   arch_timer, sbi_pmu_test) do not leak memory.
+
+The check runs before test-registered EXC_INST_ILLEGAL handlers
+(e.g. sbi_pmu_test) to ensure V enablement takes priority.
+
+Tested on a riscv64 host with KVM enabled: all 12 KVM selftest
+binaries pass.
+
+Signed-off-by: jinrui <jinrui@haiwei.tech>
+---
+Changes in v4:
+- Add vcpu_dump() call in assert_on_unhandled_exception() to restore
+  the register dump that was lost when guest_unexp_trap() was removed.
+Changes in v3:
+- Move v_available from a host-side static variable into struct
+  handlers (Guest memory), fixing synchronization issue between
+  host (writer) and Guest (reader).
+Changes in v2:
+- Add a v_available flag to prevent infinite exception loops on
+  hosts without the V extension.
+- Use regs->status instead of reading the live sstatus CSR.
+
+ .../selftests/kvm/lib/riscv/processor.c       | 69 ++++++++++++++++---
+ 1 file changed, 59 insertions(+), 10 deletions(-)
+
+diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+index ded5429f3448..bf0675cc86d6 100644
+--- a/tools/testing/selftests/kvm/lib/riscv/processor.c
++++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+@@ -297,14 +297,6 @@ void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, u8 indent)
+ 		" T3: 0x%016lx   T4: 0x%016lx T5: 0x%016lx T6: 0x%016lx\n",
+ 		core.regs.t3, core.regs.t4, core.regs.t5, core.regs.t6);
+ }
+-
+-static void __aligned(16) guest_unexp_trap(void)
+-{
+-	sbi_ecall(KVM_RISCV_SELFTESTS_SBI_EXT,
+-		  KVM_RISCV_SELFTESTS_SBI_UNEXP,
+-		  0, 0, 0, 0, 0, 0);
+-}
+-
+ void vcpu_arch_set_entry_point(struct kvm_vcpu *vcpu, void *guest_code)
+ {
+ 	vcpu_set_reg(vcpu, RISCV_CORE_REG(regs.pc), (unsigned long)guest_code);
+@@ -348,8 +340,33 @@ struct kvm_vcpu *vm_arch_vcpu_add(struct kvm_vm *vm, u32 vcpu_id)
+ 	/* Setup sscratch for guest_get_vcpuid() */
+ 	vcpu_set_reg(vcpu, RISCV_GENERAL_CSR_REG(sscratch), vcpu_id);
+ 
+-	/* Setup default exception vector of guest */
+-	vcpu_set_reg(vcpu, RISCV_GENERAL_CSR_REG(stvec), (unsigned long)guest_unexp_trap);
++	/*
++	 * Enable the V (vector) extension in KVM so that the compiler can
++	 * safely generate vector instructions (e.g. via -O2 auto-
++	 * vectorization). Silently ignore errors; the test will still work
++	 * without V.
++	 */
++	__vcpu_set_reg(vcpu, RISCV_ISA_EXT_REG(KVM_RISCV_ISA_EXT_V), 1);
++
++	/*
++	 * Use the full exception vector table (which provides lazy V
++	 * extension enablement for EXC_INST_ILLEGAL in route_exception)
++	 * as the default exception handler. vm_init_vector_tables() is
++	 * idempotent; tests that call it again will get a no-op.
++	 */
++	vm_init_vector_tables(vm);
++	vcpu_init_vector_tables(vcpu);
++
++	/*
++	 * Record V extension availability in the handlers struct so that
++	 * route_exception() (called from Guest context) can check it
++	 * without relying on a host-side global variable.
++	 */
++	{
++		struct handlers *h = addr_gva2hva(vm, vm->handlers);
++
++		h->v_available = __vcpu_has_isa_ext(vcpu, KVM_RISCV_ISA_EXT_V);
++	}
+ 
+ 	return vcpu;
+ }
+@@ -408,6 +425,7 @@ void assert_on_unhandled_exception(struct kvm_vcpu *vcpu)
+ 	struct ucall uc;
+ 
+ 	if (get_ucall(vcpu, &uc) == UCALL_UNHANDLED) {
++		vcpu_dump(stderr, vcpu, 2);
+ 		TEST_FAIL("Unexpected exception (vector:0x%lx, ec:0x%lx)",
+ 			uc.args[0], uc.args[1]);
+ 	}
+@@ -415,6 +433,7 @@ void assert_on_unhandled_exception(struct kvm_vcpu *vcpu)
+ 
+ struct handlers {
+ 	exception_handler_fn exception_handlers[NR_VECTORS][NR_EXCEPTIONS];
++	bool v_available;
+ };
+ 
+ void route_exception(struct pt_regs *regs)
+@@ -432,6 +451,33 @@ void route_exception(struct pt_regs *regs)
+ 		ec = 0;
+ 	}
+ 
++	/*
++	 * Handle V (vector) extension lazy enablement before any
++	 * registered handler. The compiler's default march may include
++	 * V, and auto-vectorization generates vector instructions that
++	 * trigger EXC_INST_ILLEGAL when VS (Vector Status) in sstatus
++	 * is Off. Enable VS to Initial and re-execute the faulting
++	 * instruction, mimicking what a real OS kernel does.
++	 *
++	 * This check runs before any test-registered handler, so tests
++	 * that install their own EXC_INST_ILLEGAL handler (e.g.
++	 * sbi_pmu_test) are not affected.
++	 */
++	if (!(regs->cause & CAUSE_IRQ_FLAG) && ec == EXC_INST_ILLEGAL) {
++		/*
++		 * If KVM supports the V extension for this Guest and VS
++		 * (Vector Status) is Off in the saved sstatus, set it to
++		 * Initial and sret to re-execute the faulting instruction.
++		 * Use regs->status (saved at exception entry) rather than
++		 * reading the live CSR to avoid a TOCTOU race with nested
++		 * exceptions.
++		 */
++		if (handlers && handlers->v_available && !(regs->status & SR_VS)) {
++			regs->status |= SR_VS_INITIAL;
++			return;
++		}
++	}
++
+ 	if (handlers && handlers->exception_handlers[vector][ec])
+ 		return handlers->exception_handlers[vector][ec](regs);
+ 
+@@ -448,6 +494,9 @@ void vcpu_init_vector_tables(struct kvm_vcpu *vcpu)
+ 
+ void vm_init_vector_tables(struct kvm_vm *vm)
+ {
++	if (vm->handlers)
++		return;
++
+ 	vm->handlers = __vm_alloc(vm, sizeof(struct handlers), vm->page_size,
+ 				  MEM_REGION_DATA);
+ 
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
