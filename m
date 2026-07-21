@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91367C44532
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 16:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 314EBC4451C
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 16:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v0sAtZjK4nfS6HZlDSGSwU1OouZmLQ0fGFyOb0L3teo=; b=wsjihOpRpoDvRC
-	Yz5MvCfgLx3nWVL/fmepcTQu5iUBPSI75p+wrOovWBmwJnXbTCup+05tIIq3OpAIjLQxkwxXlpu8B
-	BsP8Nzd1ITB5o4+iY58fKVOZYoHwKgu84jKkcv8KPZ8zcKbMQwm6Cs8AqbWG1Z6iE20ixUTu14D3Q
-	hwWoZKqlabzVWCh6uJCquMxQNTMik+bNQYCvYNLBaNE7WpVr3hNNEUpdlXcd0agVCXIquxO3zhNml
-	zxP58+9cMHsuS8IJWdFP6+Rkn2XVZs8b7LhxIaStC7XPNctzDAJA+m8o0MT5VIhRipYPR8tnYWp4/
-	nZQRU0SDGXzN/JtfqlBQ==;
+	List-Owner; bh=jp/AxmAJtcErDI5oGc+GlZXsPntOYc2xBl+EWC+zHjA=; b=UH4PXgbyGEKF+q
+	PqoV5ZNLlShLE3XFQ5tolSTQ1p5EJFqqm/bUHDzJwmOg50YQtY+iYEG0xJpoksVutAlLD+ystY00g
+	VfXTc0wrCVtswQbB4aW70X9wZ3udKrPtxJMg7XMfsNTGDYRRjttIp13YRyaZ6OosHBsEJ2FfLz8XQ
+	5Nt4X/sfo7TVbqMgj3JGMQOaSmKoY/jpzWrnSR/qHkzOxvHb72yxvpKPXy0YkJumh/0lXAak6fRd6
+	UvU0GunrwODXpnqme3Z8FK30RcRdCGet1oJp/c458bbTvvmBB6Jz1boVWA62VHwrvOHyQqXO7i6e7
+	GM5i3eO4+O3f9I6585YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDGM-00000009t81-1eu2;
-	Tue, 21 Jul 2026 16:24:10 +0000
+	id 1wmDGT-00000009tH2-3VII;
+	Tue, 21 Jul 2026 16:24:17 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDGL-00000009t6q-2Ez4;
-	Tue, 21 Jul 2026 16:24:09 +0000
+	id 1wmDGS-00000009tF0-1WB0;
+	Tue, 21 Jul 2026 16:24:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4AE8642446;
+	by sea.source.kernel.org (Postfix) with ESMTP id 21A0E43A0E;
+	Tue, 21 Jul 2026 16:24:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A98ED1F00A3A;
 	Tue, 21 Jul 2026 16:24:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD9301F000E9;
-	Tue, 21 Jul 2026 16:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784651049;
-	bh=0Wguk/FKFbBfgrue612K7C908fnjMdpbMIygxr4WCGE=;
+	s=k20260515; t=1784651056;
+	bh=dd8IzpXvfcf9omad/UCYPVVbU051g1TaDj1g9jolwTk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=n6oC1Y2YhkB33kl+lY/6bGcVcuCS/W837kNYiwgxRqaeUrDEn9g39wd1GM4MW8px3
-	 oNj01sZ9u1lNDGqVzzXPfNa0Ea/Of96eh0QA4sqNpYWUbnY+yJky9ikCkzQmMhSxr9
-	 6IvRG18RVe7qXyX3xCvW9Zz65lUPSfZFPe2svum1imsJKQRJfRIjxXtjMjE7tfR/Jy
-	 YWYTcZ6iEPaaL37jM9qxoRu089n2DJI97hm3OHoC2zBYISI0/0uZFBSFN6Fh4t4EJs
-	 J4dwYxv2Gk/8dIJughDCqh3Los59MNzkVdM9/sO0CdNg41rIY3YGtWzd8PgrLXK3a9
-	 J9gqKimG7Gp5A==
+	b=NBYXLOuBqmaFwezx93ecw7m/nA5exRaxX00iO4FbrUlWQTR/no4KZ7zvJ0UebT+pH
+	 KPe5t85aTvpwk9STpAYme+9I79Pc3UW9ruWYP1EPVqRbSjrGHh+VNyyuHOobxLLdbF
+	 UNPQzXpyaVX+tJ+vaqyC4EMtkXQaUrEPWevROWx6Aj2/j/RWHw2lapMfhHp4NAuRgR
+	 jzq+3jCaUaD/D0ofF88IEP/ndOsQxdCoy/3A2burc0pTIFvFtc6qIQcMlDgtf6SbH9
+	 8DLavmBbCBy4XbRI/chv2p1Ia1EMEDGC0Acowle0lUQAF4b9kJP2yJqL/P69RTgGd9
+	 N7nVeGpkBnGVw==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Tue, 21 Jul 2026 19:23:27 +0300
-Subject: [PATCH RFC 04/18] x86/mm/pat: use page table accessors for
- effective RW/NX bits
+Date: Tue, 21 Jul 2026 19:23:28 +0300
+Subject: [PATCH RFC 05/18] x86/mm/pat: use a generic helper for the large
+ page size
 MIME-Version: 1.0
-Message-Id: <20260721-generic-set-memory-v0-1-v1-4-2c1fc62306b3@kernel.org>
+Message-Id: <20260721-generic-set-memory-v0-1-v1-5-2c1fc62306b3@kernel.org>
 References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 To: linux-mm@kvack.org
@@ -84,171 +84,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+__should_split_large_page() uses x86 specific page_level_size() to
+calculate the size and mask of the large page.
+
 In preparation to moving core parts of change_page_attr() to common
-code, replace open coded checks for _PAGE_RW and _PAGE_NX bits in
-lookup_address_in_pgd_attr() with pXd_write() and pXd_exec() accessors.
-
-Add x86 implementation of pXd_write() and pXd_exec() accessors and
-provide generic stubs in include/linux/pgtable.h.
-
-The stubs follow the existing pattern and BUG() if they are called.
+code, introduce generic pgtable_level_size() and pgtable_level_mask()
+helpers and use them in __should_split_large_page().
 
 No functional change intended.
 
 Assisted-by: Copilot:claude-opus-4.8
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/include/asm/pgtable.h | 36 ++++++++++++++++++++++++++++++++++++
- arch/x86/mm/pat/set_memory.c   | 16 ++++++++--------
- include/linux/pgtable.h        | 40 ++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 84 insertions(+), 8 deletions(-)
+ arch/x86/mm/pat/set_memory.c |  4 ++--
+ include/linux/pgtable.h      | 22 ++++++++++++++++++++++
+ 2 files changed, 24 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index ac295ca6c92f..497aaf08ad36 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -227,6 +227,42 @@ static inline int pud_write(pud_t pud)
- 	return pud_flags(pud) & _PAGE_RW;
- }
- 
-+#define p4d_write p4d_write
-+static inline int p4d_write(p4d_t p4d)
-+{
-+	return p4d_flags(p4d) & _PAGE_RW;
-+}
-+
-+#define pgd_write pgd_write
-+static inline int pgd_write(pgd_t pgd)
-+{
-+	return pgd_flags(pgd) & _PAGE_RW;
-+}
-+
-+#define pmd_exec pmd_exec
-+static inline int pmd_exec(pmd_t pmd)
-+{
-+	return !(pmd_flags(pmd) & _PAGE_NX);
-+}
-+
-+#define pud_exec pud_exec
-+static inline int pud_exec(pud_t pud)
-+{
-+	return !(pud_flags(pud) & _PAGE_NX);
-+}
-+
-+#define p4d_exec p4d_exec
-+static inline int p4d_exec(p4d_t p4d)
-+{
-+	return !(p4d_flags(p4d) & _PAGE_NX);
-+}
-+
-+#define pgd_exec pgd_exec
-+static inline int pgd_exec(pgd_t pgd)
-+{
-+	return !(pgd_flags(pgd) & _PAGE_NX);
-+}
-+
- static inline int pte_huge(pte_t pte)
- {
- 	return pte_flags(pte) & _PAGE_PSE;
 diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 328805933d4d..8a1782f5de3e 100644
+index 8a1782f5de3e..ee40962d4ee9 100644
 --- a/arch/x86/mm/pat/set_memory.c
 +++ b/arch/x86/mm/pat/set_memory.c
-@@ -729,8 +729,8 @@ pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
- 		return NULL;
+@@ -956,8 +956,8 @@ static int __should_split_large_page(pte_t *kpte, unsigned long address,
+ 		return -EINVAL;
+ 	}
  
- 	*level = PGTABLE_LEVEL_P4D;
--	*nx |= pgd_flags(*pgd) & _PAGE_NX;
--	*rw &= !!(pgd_flags(*pgd) & _PAGE_RW);
-+	*nx |= !pgd_exec(*pgd);
-+	*rw &= !!(pgd_write(*pgd));
+-	psize = page_level_size(level);
+-	pmask = page_level_mask(level);
++	psize = pgtable_level_size(level);
++	pmask = pgtable_level_mask(level);
  
- 	p4d = p4d_offset(pgd, address);
- 	if (p4d_none(*p4d))
-@@ -740,8 +740,8 @@ pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
- 		return (pte_t *)p4d;
- 
- 	*level = PGTABLE_LEVEL_PUD;
--	*nx |= p4d_flags(*p4d) & _PAGE_NX;
--	*rw &= !!(p4d_flags(*p4d) & _PAGE_RW);
-+	*nx |= !p4d_exec(*p4d);
-+	*rw &= !!(p4d_write(*p4d));
- 
- 	pud = pud_offset(p4d, address);
- 	if (pud_none(*pud))
-@@ -751,8 +751,8 @@ pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
- 		return (pte_t *)pud;
- 
- 	*level = PGTABLE_LEVEL_PMD;
--	*nx |= pud_flags(*pud) & _PAGE_NX;
--	*rw &= !!(pud_flags(*pud) & _PAGE_RW);
-+	*nx |= !pud_exec(*pud);
-+	*rw &= !!(pud_write(*pud));
- 
- 	pmd = pmd_offset(pud, address);
- 	if (pmd_none(*pmd))
-@@ -762,8 +762,8 @@ pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
- 		return (pte_t *)pmd;
- 
- 	*level = PGTABLE_LEVEL_PTE;
--	*nx |= pmd_flags(*pmd) & _PAGE_NX;
--	*rw &= !!(pmd_flags(*pmd) & _PAGE_RW);
-+	*nx |= !pmd_exec(*pmd);
-+	*rw &= !!(pmd_write(*pmd));
- 
- 	return pte_offset_kernel(pmd, address);
- }
+ 	/*
+ 	 * Calculate the number of pages, which fit into this large
 diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 3889bc2a1f76..4b42ac5c27d9 100644
+index 4b42ac5c27d9..9eb00ad6d5d2 100644
 --- a/include/linux/pgtable.h
 +++ b/include/linux/pgtable.h
-@@ -2105,6 +2105,46 @@ static inline int pud_write(pud_t pud)
+@@ -2364,6 +2364,28 @@ static inline const char *pgtable_level_to_str(enum pgtable_level level)
+ 	}
  }
- #endif /* pud_write */
  
-+#ifndef p4d_write
-+static inline int p4d_write(p4d_t p4d)
++/* Size of the memory mapped by a single leaf entry at @level */
++static inline unsigned long pgtable_level_size(enum pgtable_level level)
 +{
-+	BUG();
-+	return 0;
++	switch (level) {
++	case PGTABLE_LEVEL_PTE:
++		return PAGE_SIZE;
++	case PGTABLE_LEVEL_PMD:
++		return PMD_SIZE;
++	case PGTABLE_LEVEL_PUD:
++		return PUD_SIZE;
++	case PGTABLE_LEVEL_P4D:
++		return P4D_SIZE;
++	default:
++		return PGDIR_SIZE;
++	}
 +}
-+#endif /* p4d_write */
 +
-+#ifndef pmd_exec
-+static inline int pmd_exec(pmd_t pmd)
++static inline unsigned long pgtable_level_mask(enum pgtable_level level)
 +{
-+	BUG();
-+	return 0;
++	return ~(pgtable_level_size(level) - 1);
 +}
-+#endif /* pmd_exec */
 +
-+#ifndef pud_exec
-+static inline int pud_exec(pud_t pud)
-+{
-+	BUG();
-+	return 0;
-+}
-+#endif /* pud_exec */
-+
-+#ifndef p4d_exec
-+static inline int p4d_exec(p4d_t p4d)
-+{
-+	BUG();
-+	return 0;
-+}
-+#endif /* p4d_exec */
-+
-+#ifndef pgd_exec
-+static inline int pgd_exec(pgd_t pgd)
-+{
-+	BUG();
-+	return 0;
-+}
-+#endif /* pgd_exec */
-+
- #if !defined(CONFIG_TRANSPARENT_HUGEPAGE) || \
- 	!defined(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD)
- static inline int pud_trans_huge(pud_t pud)
+ #endif /* !__ASSEMBLY__ */
+ 
+ #if !defined(MAX_POSSIBLE_PHYSMEM_BITS) && !defined(CONFIG_64BIT)
 
 -- 
 2.53.0
