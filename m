@@ -4,105 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B70B3C44539
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 14:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 640E5C44536
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 14:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7NUGfyOm5fmQQxID69nVlux4ZUI3CPj++k/F09u1G5o=; b=EYJr3dyKaO43nh
-	QpcVrGA2ky/8zEriKjSvQoPesiLTpLDhkkXk7bY1Co9dqqkAWOMQ9+xPoLZ54u/cDAocEn0uLVycV
-	ve3/vut45BUIqNydwSdNSjNsrGxcGeqP1n8a7bh44kgKWpBpMIDTbcdVkne9yQMzmJC9qMbw7JsAm
-	4RXp+MhoQssG8Pp2pEZiRkGkvyn/zgeZlzGEZ2wzkWMAzqq2vtWybWgWGIJWU6hDZb+nu/iakb/Dk
-	1A+kcATKf3ZrSjYn0AC09i97Fb4AjX6ZgXJ10IllTjioAbAsyGDFCAsWZ++Bk3tpV+9y1ynBGcfDu
-	MDF81Vwzz0TOdvlDVQZA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JJtsaQZNtNcLmCfmhiz1Cjwz8tHno+sqx6D5s/6aEqA=; b=2i8uMOTQI3Iz2G
+	jcYTQrv5NKdCYW/Ia2nWUFUQq7DeVWz+wQveMsjNQbEqR+2NSq0bN9vIa/62hBJhtnJgCQkyd90oq
+	1laRHfqTdGbuWOM2O501JUksjknJSgcOsngMu6SV/uJuBT6TI64C9YRZITUVBrLq2P7VsoYuk9NbQ
+	+XFwa2KKBpOwS91mXXB3YgOb8toEQ3A/6zcQ1v/AS0oVVfBKIJVSw0/+6WiZTGyrUaMgqITOMJn8p
+	oxqJoX6v0ByYNFUbLvXD+mx/vUJo9X12wdwieLfIMxjlphqHeopzmLATg3Ty/K9dtd7VA/a8HecBv
+	qTgWuirDBCpQFNadjECw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXWD-0000000Bycw-2ZB9;
-	Wed, 22 Jul 2026 14:01:53 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1wmXpd-0000000C12X-0sw7;
+	Wed, 22 Jul 2026 14:21:57 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXWB-0000000Byac-1KPV
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jul 2026 14:01:52 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-84e27035206so72271b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2026 07:01:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784728910; x=1785333710; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lhfzR90Z74WPj2CRcWlLERVPxsI4JJvonp11/p/J06I=;
-        b=SqzwlMrf2p9EEYoHmF2O0HQCiw5XLwoPx7IMAev4Od/1Kayjnd8OzEAM77qrKgYQfy
-         V++kOaFUl1dGrGLRuc594OobHrFf8xT5dqiQE3zVeMe9RnTMSTwi+QxhDc1ux+L9NR/v
-         iv5QufJWc7/QeohLpgKjFnDUIzSdAGCYoV7GmA22AOemZ7sfsrS8kr4SgCPd+eXELSMY
-         f981eCKaP/iu+AFUWUnCKYj5lrbF9HpKA0JxzHPM59WHOAcwyKdtXpgdBVzJ+9BRv0rX
-         Q6+tXv0XBjw7SSvnhLKrYspQ39XVSirByo524uCM9LrRYqixxZMUzVvNjSSVDNRLPSh2
-         tnKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784728910; x=1785333710;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lhfzR90Z74WPj2CRcWlLERVPxsI4JJvonp11/p/J06I=;
-        b=TwakZUozOzUAW9HtGsGMOfQX15vfeogTfCWsZ2G3uvw79O3i1bFHRjTs/p62ylz1N3
-         6Fr/HMUjzKzVFzg7Cz7s5s7ZyGhPQ19qG2CIoU/gN4ot4MdIIwtRi21aES1V58shEJo6
-         dn5PA3aebeOHRRt/k1UfEcgsqGuXb/VGUhrcS/tmFLo/H/C8M5J+mhdnWnIX9ET+wFg3
-         WEWWfz8m8P9DsY2N6DE/qFgG6DprcTMXdGC0yRdI+uzbPdXVUlwVg0BrdJglydabD3bP
-         fh8M7qNDjtwtcb8XY+USOPW/GxFVmVtKVYEHQZmAt4eMT0TkXm7SRojaWxYDT+192LTK
-         chDg==
-X-Forwarded-Encrypted: i=1; AHgh+RriSKKq3lZ95b+44EFOpLcKtYPE2vrxfceCZxBT2g97GkstReKSXpI825IR4vTHUlxhnmeNhu/7LJ8Hrw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHucQs5Y1p6F4GKxYSuhr8cbA+0pouC9zcJjj/uPFQJbO41aXA
-	jKFfvPQJcv3cD133ib7GflPBM8Zy3yuATMhc1S88ykmd8w83+NFxUjaW
-X-Gm-Gg: AR+sD11C9ahsQ/tAb6byDIlvF+4bGbvf+YFyQ5DZ7K6fP/qHWPgQ+J97Noh7CtQUzHN
-	EjqoesOHFn/slc2RS/AmRuW4imbzEiJS7TsEHYnai3/jEwB6/N9KBqGMabLQ/oYKO0mF63tEeOz
-	p+I/1uhkUf/HxxJN6FQ4DZE5NJK8/2zWhZ7F2rKsAk7KWiGEh4OD+I9VCP7T24tD612nBCm0Weo
-	LKwqm5VVb9CthzH8BVrXm6IC2b8RFADPwcbX8cBe5pS+rP9W/eaJmVJesIuAcxxc++UH5WMN/IV
-	8OCpZ8rdqgH2c1B51dqGAVZrQnmpJrk5ZjllJUP2gp35dQcFA32GRGRiY2AhHyoImvZLtXGoFVc
-	b7v2g3s/79SHG6vt6lV0F3D6Lwq/KrJuXNSrPhBuKPL5hLlEbRFAwJ+KpBAq3Hw3AXeHhonKEBw
-	HYa75w5yHd8bUDEMirFpDe3c3/oNlL5gM0IxENc7tVmeYKQfg=
-X-Received: by 2002:a05:6a21:62c4:b0:3c0:b3f7:e5e5 with SMTP id adf61e73a8af0-3c3ad65cc12mr24097620637.25.1784728910120;
-        Wed, 22 Jul 2026 07:01:50 -0700 (PDT)
-Received: from computer.goose-salary.ts.net ([2a09:bac5:40b2:277d::3ef:c9])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbb8f1a8a1fsm1242281a12.26.2026.07.22.07.01.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jul 2026 07:01:49 -0700 (PDT)
-From: Varun R Mallya <varunrmallya@gmail.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	eddyz87@gmail.com,
-	memxor@gmail.com,
-	bjorn@kernel.org,
-	pulehui@huawei.com
-Cc: alex@ghiti.fr,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	emil@etsalapatis.com,
-	puranjay@kernel.org,
-	linux-riscv@lists.infradead.org,
+	id 1wmXpX-0000000C10d-1VSA;
+	Wed, 22 Jul 2026 14:21:56 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 2F21E1A1051;
+	Wed, 22 Jul 2026 14:21:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F0DFD60388;
+	Wed, 22 Jul 2026 14:21:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD5B311BD3A22;
+	Wed, 22 Jul 2026 16:21:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784730106; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=j5WRfwe5s7CD4n1/aXk/GuB0uSEMmPxIt38DrP+sT9s=;
+	b=q9U+aIf/4yDREUm1HYpEzUsh0wIcz3rw2jHYkX5xMjcB7JLX50HQtTMbtSUvrI+VGae9vu
+	YVn7SJP2PnfWlPRMHtkm3ieV2/EjSyukXuPY/zb3qRlGRCpIZ93uyHhkEhfaMIJ2itr58P
+	m4fuxIAyPKu+js9RoCTwmMzZWdiIB/E61TY1nRJ6h2SCwjls1890/wwN/Eo++VVj9Jg7hv
+	cBSEzLVgL3MVo8OtY7lK0sul9jXiSg3JI59jlM0m+npiflq+X01XX8jTtz3s71A//I9284
+	mrnjhne27BDlfP8nEzrkqxzU4wCNDZfNqiT8QqIpKoQG8aQDG8j/BAWR9cmDJg==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Yao Zi <me@ziyao.cc>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Drew Fustini <fustini@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	varunrmallya@gmail.com
-Subject: [PATCH bpf-next v3 6/6] riscv, bpf: Remove BPF exceptions from denylist
-Date: Wed, 22 Jul 2026 19:30:13 +0530
-Message-ID: <20260722140015.1982158-7-varunrmallya@gmail.com>
+	thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-rockchip@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	s32@nxp.com
+Subject: [PATCH net] MAINTAINERS: Add myself for stmmac ethernet driver maintainance
+Date: Wed, 22 Jul 2026 16:21:24 +0200
+Message-ID: <20260722142125.1767689-1-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260722140015.1982158-1-varunrmallya@gmail.com>
-References: <20260722140015.1982158-1-varunrmallya@gmail.com>
 MIME-Version: 1.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_070151_356383_80CE1857 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_072151_537924_4CDC9AD8 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,24 +103,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch removes BPF exceptions from riscv64 denylist on
-BPF selftests since support for exceptions has been added now.
-Also, since the file is empty, delete the file.
+The stmmac driver based on Synopsys' dwmac IP is used in a very wide
+variety of SoCs and is currently very actively used and contributed to.
 
-Signed-off-by: Varun R Mallya <varunrmallya@gmail.com>
+It has been orphaned in January 2025 after the previous maintainers
+became inactive, but Russell King was providing very valuable reviews
+and fixes for the driver at that point.
+
+Now we're seeing more and more activity on the driver, but are lacking
+people to test and review contributions to both glue drivers as well as
+core stmmac code.
+
+I have access to some variety of stmmac-based platforms such as socfpga
+CycloneV, imx8mp, some Allwinner SoCs and stm32mp1xx boards that I can
+run regression tests on, and I'm offering to step-up as a maintainer for
+driver, for the time being at least.
+
+Let's hope other people will eventually join this effort.
+
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- tools/testing/selftests/bpf/DENYLIST.riscv64 | 2 --
- 1 file changed, 2 deletions(-)
- delete mode 100644 tools/testing/selftests/bpf/DENYLIST.riscv64
 
-diff --git a/tools/testing/selftests/bpf/DENYLIST.riscv64 b/tools/testing/selftests/bpf/DENYLIST.riscv64
-deleted file mode 100644
-index ca1beae7fe8f..000000000000
---- a/tools/testing/selftests/bpf/DENYLIST.riscv64
-+++ /dev/null
-@@ -1,2 +0,0 @@
--# riscv64 deny list for BPF CI and local vmtest
--exceptions					# JIT does not support exceptions
+Sorry for the huge CC list, I tried to include all stmmac glue
+maintainers and associated lists.
+
+ MAINTAINERS | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a674e36529f7..bea104a7e522 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25972,8 +25972,9 @@ F:	Documentation/devicetree/bindings/phy/st,stm32mp25-combophy.yaml
+ F:	drivers/phy/st/phy-stm32-combophy.c
+ 
+ STMMAC ETHERNET DRIVER
++M:	Maxime Chevallier <maxime.chevallier@bootlin.com>
+ L:	netdev@vger.kernel.org
+-S:	Orphan
++S:	Maintained
+ F:	Documentation/networking/device_drivers/ethernet/stmicro/
+ F:	drivers/net/ethernet/stmicro/stmmac/
+ 
 -- 
 2.55.0
 
