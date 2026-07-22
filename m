@@ -4,92 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 482A7C44539
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 12:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9006AC44539
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 12:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qu7jF3p/f6yj8famn+DOI9dVjcXl5yOC8XdLHqYHiFo=; b=pnMmDAcrHFDn45
-	//CwsPZbrc8j0KsWV8qbVLvpcvz03HRQ8bL6j0Aym7HHfxSqTawIZ2geNYj4tff1Dfk/MCT6szGPy
-	Rqj/94MY8ZntE/SwNlwsxrvIzzeExoj3bTajQc2oQ6boyNF/xtv8jew0DVkOweMY2qyWbfrjDAlCA
-	JDBTgjoQWGaEcylacY+cODjOP9un25U5dEWLdxs0lbgGaRNJV3U4lDJ7RXrcP3brNZQRMShLO7dZv
-	pngRV4fuhHAjtX6gSPKo+3tokIygB4nbOfXSh9aQnys3DeH7m4nDttKwSvv1DUsA4yc99wUcCYZSR
-	LXGx7hFSwfQ1kg4C8RSg==;
+	List-Owner; bh=Ws2id+ridox+HjhRjcGozTgZIXHIPSwjPeA/6dc7GDA=; b=rE0suhn69zrQg1
+	qBDrwj0FaT/i43RvFe6B+W+DTt+xik5Yb1bje3j1nDejS6Ks6r6v6APm+OfV+yxHQT9PnBQ5tNqtu
+	KE7Y9tJ3hoEJ9Ys2J0d1mxb2AC2fOtfhsdiQgIV+WkIOcASD3pO4RBDTTdgVT5XKm4UQD2hdewieH
+	rEArUq8vfpExaCTboDoPlgwqvnjtgPuVh0K16/qkPcr5LCw61iOOEUMNp80yVXDEb2MLrvuUcaQYt
+	yWw3yf/xzZ4c0bCD0Yhwi/RZY1+rZRCFkPCunqsb5CnU/8us4bS2J/VQL8R5W6Y5b47sUNHd8TR+q
+	/KJtwT/yncY+9zEQRrsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVvj-0000000BkBb-22PL;
-	Wed, 22 Jul 2026 12:20:07 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1wmW4o-0000000BlYJ-2g4j;
+	Wed, 22 Jul 2026 12:29:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVvg-0000000BkAM-38V6
+	id 1wmW4m-0000000BlY9-48vT
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jul 2026 12:20:06 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-92e7c6ec9dbso673156585a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2026 05:20:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1784722803; x=1785327603; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5qvzOJZC5dLwV+0rw2sHYPHDnXSJxTaB22HkTCSR960=;
-        b=0OkzFdVor5qCL76tzTOSPD0lBdHBIBtk9dprPPpaIavQ1dn5yW1MNVixYNgOIba5c3
-         s1DOEtWPIvl4/ZX+ZBNkiBDEj/Ut3AE6yNsrtKGpMW3LN0473B2RkbJx2kmojyFwWIam
-         4Vvsf3sEHTPSC0rP+tYjcqk2MOmVqrvyVC8RjnRkR7yK/E3C62S7GLEcIFNJIxPSAB6U
-         m08ywbwyOoVJxnqde7BOMhImSBrezL/T2dAE6WnSd3njUmYeOxiGm2vufANm3/Y0D2UV
-         BXXmus2IRpEJfuQUMBSnU3zfJvGKz7DuP2opu2kE9HqIaOlJs07rsbRH2uIirVMUsW8s
-         1OXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784722803; x=1785327603;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5qvzOJZC5dLwV+0rw2sHYPHDnXSJxTaB22HkTCSR960=;
-        b=WjC5U50HbtzSjunzOO0SYdXmeXM8lS5f0nYg5QYgqkr6wnZtQ6KkcfYW7kPzLmwwgp
-         DW9IResQiRCGkCyfE9U6EDHGLI01VuU6zsd4R28Q5vuknmlW1HaFEUnqTLTV/9kVw3iW
-         6qRu1ujsxlQJp4tpb/O6H1XWcCYLYRLUiMFcuLVKPcRxrRP5Z3A2U4C158IyzaWXj7o+
-         67ETFON1fWZ4VrHDcEOPxAr2Z0GRqN/yvbSKO6xNXEuByt2EXvAfkSuZdOjICU+tdMft
-         R8dFzTIREkApknBneaX0r1szZqWlEr4S4ZYhgsBTxJhNtN/Q8rUUcT5jQrt2eTQaxJk/
-         ecGA==
-X-Forwarded-Encrypted: i=1; AHgh+RqCqHSQuDyedG2Urg5lKa88nnrzQxmq3q8qbFKZel/T/7XoKY7x+olgTZ3P6RYxsb/vTHqt7f7c0cKl5Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0TM5s+w31AeIUs6gttsAPTDafVG6oH42xAXeOBnlCfANJ9oL5
-	OLD40pb6UeQtqaK2NVOw5nwrFV2Pf6cynPHPyfyUplssKShyfjdaStl4ICEC0qxOn84=
-X-Gm-Gg: AR+sD11CUTxij6jMUAe2jgbtphikfBhRbFYLGs1lPofE60+qLx8o+Wty8OwJqm2SQwD
-	UqmOwq/ov1JQsarrrOtETVw+hRJVd1JneQE1glrmFyLe9d8Uw6MsudDKT7E6bU5TycPi8frTh5l
-	W376z8J50XVkYvhTB/8NL70jO7oQSncXUGQSi3JvgEhjq+mkSLvy1BQtki+rJo2c/2vvKRrLJDD
-	1U68VhwGZG/Kuu73ChyFW4WpPHziKBwaSV+CbN8+HXZij7sNv8xB4SW6UWK1PmOE+FGdoXDO43H
-	CTh9ITPQzGXyrQcKlJvbDusGaYQ18o6zdmppz86UZBxZY03mcc3ClELzPQodeCZ0WIj4UwoVCGR
-	39gzR0i2+a2WVxePg4w5EUdSOjY6DjvQXGegNFccduX9tYwWGl/nrBZkg8f94DJwPFf3bAzK11u
-	oQTw==
-X-Received: by 2002:a05:620a:2989:b0:930:f306:8275 with SMTP id af79cd13be357-930f30682bemr389512085a.9.1784722803506;
-        Wed, 22 Jul 2026 05:20:03 -0700 (PDT)
-Received: from [172.22.22.28] ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-930f68d323asm151978385a.19.2026.07.22.05.20.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jul 2026 05:20:03 -0700 (PDT)
-Message-ID: <7d7938cd-80bb-448b-89d0-6ac6d2717e98@riscstar.com>
-Date: Wed, 22 Jul 2026 07:20:01 -0500
+	Wed, 22 Jul 2026 12:29:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D3C7429E9;
+	Wed, 22 Jul 2026 12:29:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 245C51F00A3D;
+	Wed, 22 Jul 2026 12:29:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784723368;
+	bh=papv7YXw5e9qr9TxOo/7XQD2ZbIK8UNV5R7RthYAaH8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nYnoVDpube2nUxmuXxJGH6/oVcQZCukst05/PgbOP4Gt4qTsl22I0OVMaEp80tC3u
+	 WewK4Rc1cl230aZ794/FgJfEuZpT64GQbmotN0+e3k4++xlRO6ymC4qxRQ2Wpc6k7Q
+	 26+/ZvRH6N57IzolfLnNBNbz05NXxMFWzJ842SrVx1v3VHW6hL4yLaVYxoAFbL3T+1
+	 O5pU2MpAQxD4ekUb1fbBmCgRGhKWHKNlRzcpxiGH6uneIlGNMZU+UUkxBMho7bBSrh
+	 Vibpuqs51y2kKUw0sK9iw/nziRr8evIPPMvQUUGpeiHniF4h5cLg4ursE9MMYQRrYP
+	 WFGKL2l6Sq3Rw==
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 4F445F40079;
+	Wed, 22 Jul 2026 08:29:27 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Wed, 22 Jul 2026 08:29:27 -0400
+X-ME-Sender: <xms:p7dgahjgoQwvtbrqV17q1YeAKh5wxNyjDqMvmgxjkbJ7nYLKMgWNCQ>
+    <xme:p7dgajq1AYSrCF4o-80gtdV6bOwVsMVuzBPP_g6qBxw0Rrd1y4EbSYIDv5XojbBi4
+    b9p-Geh_xUvpXp96LmzM_XxYMfu8NW3_qQbHC1Qo9EVZLTeEw21Tvg>
+X-ME-Received: <xmr:p7dgaofXPOo2Ejn-NfaE9Uq8uZ3Cve-baeZuZkmQ87W_QdklNBIto4v1NzJBTg>
+X-ME-Proxy-Cause: dmFkZTGPHf2oLZcBTXKE6VHMmNdjiu3OVwopU375jI5mGyjx5MTNfFKZDDYFAjfASgfQ9p
+    pCgV1iuV9gZ2ZJUyga/sMkP4ZQ78Oz0k6IaZYq66oKgJbir/8pHqk3Pz2yD9JOucmuuUMd
+    ACF/r8Gfs10FHRBCMoQpVHVcxX3HoZpzcOEx4geJsXQGMcUwBoK6w0nVJg54ru6LtS/VQd
+    ipW01CD8D0rICOCqx1JcMZ+DsjFfUCHsR1j7LCBeI1HuFvlPG2Pwdn6dUpDddJLkpR5a6P
+    Kr39m+yAfhUC3bm5YeqMY9gdD2Pvcu16gpQii6zdusGiVw7RbLfNcu857+dbcsKTdQiFhU
+    hrdLSV1/CK5a39CYFT4mB3ro4v5wyKGR+zmT9RTpZSbPKnG12jkuu/6DMxHoqQgfZA/a7H
+    WLbqA+RINseTq8cMxylFuByGcDNuxXEOtjzJh0r1Q/nQKxw3LH3DLczlf9kff9IGRCYgWq
+    E+Rl0gLheZN0K8v4HiAIZEYeQmgXtn0av5s/z1KdLNke7jHrN0MNy4UjMfg7Dfj5dU7Ix/
+    3rSE1G07fKdFfRYkiTLMnM3dUaV1WggeeAMLNkXXvX3Axi/l79F96meVXNiMomsL9HSbht
+    QjxZKQA3GWHrnG+lBOH9BygwUKnMZKes/vVWFk5XY6GKx6NvAf9/Cn9Tp3wQ
+X-ME-Proxy: <xmx:p7dgaufaJvr-dcmLleKtuoMWWuCZ9JQcadxQIce3OjGGeWMnCpuxzg>
+    <xmx:p7dgamd2EpRJ7lXg_tRXx01T8K4wdL9teLjtcshAAVKW7kF0NnXdzQ>
+    <xmx:p7dgasp0wP7wdwd9QMHABLn3bX1tJbyLghrsaT2uuJJbhaqRF09o1g>
+    <xmx:p7dgauyA9UGBuF8wTp5Njb3fagh_HwpVP4kFYPG1nRp4D9vAw24XaQ>
+    <xmx:p7dgaqcIQeaUd3J6VjPAL3p0h1R3tAPAtiKGqWlNNskOFqHqsgh0ZYyL>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 22 Jul 2026 08:29:26 -0400 (EDT)
+Date: Wed, 22 Jul 2026 13:29:25 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Muchun Song <muchun.song@linux.dev>
+Cc: Jiakai Xu <xujiakai2025@iscas.ac.cn>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, David Hildenbrand <david@kernel.org>, 
+	Guo Ren <guoren@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Vishal Moola <vishal.moola@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>, 
+	Junhui Liu <junhui.liu@pigmoral.tech>, Nam Cao <namcao@linutronix.de>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	Vivian Wang <wangruikang@iscas.ac.cn>
+Subject: Re: [PATCH] riscv/mm: use physical alignment for vmemmap_start_pfn
+Message-ID: <amC3cuIMjMPikf4u@thinkstation>
+References: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
+ <599C4370-89C3-4C73-8296-5723D73DDBB8@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] i2c: spacemit: request IRQ after controller
- initialization
-To: Linmao Li <lilinmao@kylinos.cn>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Andi Shyti <andi.shyti@kernel.org>
-Cc: Yixun Lan <dlan@kernel.org>, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev
-References: <20260722094302.2284191-1-lilinmao@kylinos.cn>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20260722094302.2284191-1-lilinmao@kylinos.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_052004_811207_FFA2FF70 
-X-CRM114-Status: GOOD (  16.95  )
+Content-Disposition: inline
+In-Reply-To: <599C4370-89C3-4C73-8296-5723D73DDBB8@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,59 +98,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/22/26 4:43 AM, Linmao Li wrote:
-> spacemit_i2c_probe() requests the IRQ before it enables the clocks, resets
-> the controller and runs init_completion(). If an interrupt is already
-> pending, the handler runs too early: it reads registers while the clocks
-> are still off and calls complete() on an uninitialized completion. Request
-> the IRQ after the controller and completion are initialized, but still
-> before the adapter is registered.
+On Mon, Jul 20, 2026 at 05:20:16PM +0800, Muchun Song wrote:
 > 
-> Fixes: 5ea558473fa3 ("i2c: spacemit: add support for SpacemiT K1 SoC")
-> Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
-
-This looks correct.
-
-Reviewed-by: Alex Elder <elder@riscstar.com>
-
-> ---
->   drivers/i2c/busses/i2c-k1.c | 10 +++++-----
->   1 file changed, 5 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-> index 51a0c3d80fc9..3fe716cc153d 100644
-> --- a/drivers/i2c/busses/i2c-k1.c
-> +++ b/drivers/i2c/busses/i2c-k1.c
-> @@ -723,11 +723,6 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
->   	if (i2c->irq < 0)
->   		return dev_err_probe(dev, i2c->irq, "failed to get irq resource");
->   
-> -	ret = devm_request_irq(i2c->dev, i2c->irq, spacemit_i2c_irq_handler,
-> -			       IRQF_NO_SUSPEND, dev_name(i2c->dev), i2c);
-> -	if (ret)
-> -		return dev_err_probe(dev, ret, "failed to request irq");
-> -
->   	clk = devm_clk_get_enabled(dev, "func");
->   	if (IS_ERR(clk))
->   		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable func clock");
-> @@ -755,6 +750,11 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
->   
->   	init_completion(&i2c->complete);
->   
-> +	ret = devm_request_irq(i2c->dev, i2c->irq, spacemit_i2c_irq_handler,
-> +			       IRQF_NO_SUSPEND, dev_name(i2c->dev), i2c);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to request irq");
-> +
->   	platform_set_drvdata(pdev, i2c);
->   
->   	ret = i2c_add_numbered_adapter(&i2c->adapt);
+> > On Jul 16, 2026, at 19:53, Jiakai Xu <xujiakai2025@iscas.ac.cn> wrote:
+> > 
+> > RISC-V computes vmemmap_start_pfn by rounding phys_ram_base down to
+> > VMEMMAP_ADDR_ALIGN. That alignment must therefore be expressed in the
+> > physical-address domain.
+> > 
+> > Commit 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
+> > attempted to account for the maximal folio alignment by feeding
+> > MAX_FOLIO_VMEMMAP_ALIGN directly into VMEMMAP_ADDR_ALIGN. However,
+> > MAX_FOLIO_VMEMMAP_ALIGN is measured in bytes of struct page storage,
+> > whereas VMEMMAP_ADDR_ALIGN is used to align a physical address.
+> > 
+> > The mask-based compound_info encoding requires pfn_to_page(0) to be
+> > naturally aligned to MAX_FOLIO_VMEMMAP_ALIGN. Commit 9f94db4c7eaa
+> > ("mm/sparse: check memmap alignment for compound_info_has_mask()")
+> > added a check for that requirement and exposed the unit mismatch on
+> > systems such as QEMU virt, where the DRAM base is not aligned to
+> > MAX_FOLIO_NR_PAGES * PAGE_SIZE.
+> > 
+> > Convert MAX_FOLIO_VMEMMAP_ALIGN to the equivalent physical alignment
+> > before using it in VMEMMAP_ADDR_ALIGN. This keeps the existing
+> > round_down() logic while making the resulting vmemmap base satisfy the
+> > mask-alignment requirement.
+> > 
+> > Fixes: 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
+> > Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+> > Assisted-by: YuanSheng:DeepSeek-V4-Flash
+> 
+> I've always wondered why RISC-V uses a complex logic to calculate the
+> mapping relationship between vmemmap and PFN. We could easily follow the
+> x86 approach to make it much simpler.
 
+I am not an expert in riscv mm, but the git history suggests it is
+deliberate. See a11dd49dcb93 ("riscv: Sparse-Memory/vmemmap out-of-bounds
+fix") and f754f27e98f8 ("riscv: mm: Fix the out of bound issue of vmemmap
+address").
+
+As far as I can tell, the constraint is the size of the vmemmap window:
+
+      #define VMEMMAP_SHIFT \
+              (VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
+
+On sv39 that is a 4GiB window, enough struct pages for a 256GiB span of
+physical memory. The vmemmap_start_pfn bias anchors the window at the
+DRAM base, so any base works as long as the span fits. Base vmemmap at
+pfn 0 and the window becomes absolute: physical memory above 256GiB is
+not representable and struct page addresses run past VMEMMAP_END into
+vmalloc space. Unlike x86-64, sv39 doesn't have the virtual address
+space to size the window for the whole 56-bit physical space.
+
+It boots fine on QEMU virt because DRAM sits at 2GiB there.
+
+Whether any real sv39 platform places memory above 256GiB is a question
+for the riscv folks. But if the answer is yes, the simplification is not
+available on sv39.
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
