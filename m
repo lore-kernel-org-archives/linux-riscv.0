@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E63FC44539
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 12:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 482A7C44539
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 12:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m5ANq6xCyacDe+n6uFrl+EOyLk/JftnNvBUhrRmjXBs=; b=fAWzPlDCkD7a4V
-	IZjeqgMLpuNymNzqOfhnUZkeeX6H6udPwaG7f1b2ikynRGX+LAlR/ht3fCuTpex1n905bCZUhsepo
-	CGce/HxI9Z0XMhTz6BRBjpVJudq6gcZ5ytoqQRNX/vOHNH+CJGxnSVKJzOksR34GaH8Xtd3r/L1Js
-	Ti2eufbhrNqSBp2n6X9m9jOUcEZ7x5zt1GSZ3lri6Gu7zK+GYBVL5KaXh1bFXs9rqcD6foX+kxi3u
-	xpPynXGTOCOo1sVq9yVP1+ai076hn8gFY8MTsyNpAdh3Oj7axWZ5e+Xc0D0KBShFyvkecBMjFvE5d
-	tLZroLgYtcfRnoXXGrlQ==;
+	List-Owner; bh=qu7jF3p/f6yj8famn+DOI9dVjcXl5yOC8XdLHqYHiFo=; b=pnMmDAcrHFDn45
+	//CwsPZbrc8j0KsWV8qbVLvpcvz03HRQ8bL6j0Aym7HHfxSqTawIZ2geNYj4tff1Dfk/MCT6szGPy
+	Rqj/94MY8ZntE/SwNlwsxrvIzzeExoj3bTajQc2oQ6boyNF/xtv8jew0DVkOweMY2qyWbfrjDAlCA
+	JDBTgjoQWGaEcylacY+cODjOP9un25U5dEWLdxs0lbgGaRNJV3U4lDJ7RXrcP3brNZQRMShLO7dZv
+	pngRV4fuhHAjtX6gSPKo+3tokIygB4nbOfXSh9aQnys3DeH7m4nDttKwSvv1DUsA4yc99wUcCYZSR
+	LXGx7hFSwfQ1kg4C8RSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVq7-0000000Bihw-47ln;
-	Wed, 22 Jul 2026 12:14:20 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1wmVvj-0000000BkBb-22PL;
+	Wed, 22 Jul 2026 12:20:07 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmVq5-0000000Bihb-0VZU
+	id 1wmVvg-0000000BkAM-38V6
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jul 2026 12:14:18 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-51c2808dbc3so88131511cf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2026 05:14:16 -0700 (PDT)
+	Wed, 22 Jul 2026 12:20:06 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-92e7c6ec9dbso673156585a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2026 05:20:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1784722455; x=1785327255; darn=lists.infradead.org;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1784722803; x=1785327603; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jGQC9a0lDQVYs2rzJjXKUgf6ViPQ8mWczj4aICyEJF0=;
-        b=g0IRhtGOkj4qutZWX9kjBz44wJqu9x88hN6J5AH3qV/qNxMVCnn/zMDoTDOv5iscDa
-         CJ7bxV7i+RfD8Qc2H8oDaxLeBJrXwX2iUn89+ebKoh5bx58I6siHMwLO2qZwjos6aXvb
-         frt88j2DXLYTc1HX7JfbwHLcI7X+/bcTOg9TYaV4RjZk/8GrTQiw2f6cFy2eCxVuSU29
-         mUyofm2THb7nLT17Z7GN9F36POWMikScnck4Sli//uLqR1UPxNZ9sY15UnijoLtHPRX/
-         5wtmb8PE3Hi32ZNjIq8QD7pG5PY7i5BGroLsnhyK4Azo6mozFlYrraG1k7tq+PdyHXA/
-         IHXQ==
+        bh=5qvzOJZC5dLwV+0rw2sHYPHDnXSJxTaB22HkTCSR960=;
+        b=0OkzFdVor5qCL76tzTOSPD0lBdHBIBtk9dprPPpaIavQ1dn5yW1MNVixYNgOIba5c3
+         s1DOEtWPIvl4/ZX+ZBNkiBDEj/Ut3AE6yNsrtKGpMW3LN0473B2RkbJx2kmojyFwWIam
+         4Vvsf3sEHTPSC0rP+tYjcqk2MOmVqrvyVC8RjnRkR7yK/E3C62S7GLEcIFNJIxPSAB6U
+         m08ywbwyOoVJxnqde7BOMhImSBrezL/T2dAE6WnSd3njUmYeOxiGm2vufANm3/Y0D2UV
+         BXXmus2IRpEJfuQUMBSnU3zfJvGKz7DuP2opu2kE9HqIaOlJs07rsbRH2uIirVMUsW8s
+         1OXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784722455; x=1785327255;
+        d=1e100.net; s=20251104; t=1784722803; x=1785327603;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jGQC9a0lDQVYs2rzJjXKUgf6ViPQ8mWczj4aICyEJF0=;
-        b=W3OHB+P9mFMP0d/EoQxccVhvVnBmfBHNZVllVWP3B66577fdkR5oqElnnYm7dXBBWH
-         4LIQR7y22gB/GaVT9qRgHoChuyB/iUGkJWmNhgQli0I0tzHS2n0GGQgNUtD6V+VOT0KY
-         tVQrxCiq5HlRN2/lh94AYfSusNMJQG3FqhiBPmLdDhRG2IqYYaaPEXAAZbKlKjMBDqSA
-         Waz7DQTdTtvrsaF55sxaEB68tKLZohEndLSuOiBxsRRbP5x7fWHlskLQ8ZTjreLtUEcb
-         RMLkZx5HV1horUO4JtdFNI0QAfa7ie5/YQ3ltPs2LqSfy2F4tCUq/qUfeUM3a9cXn23s
-         7D6w==
-X-Forwarded-Encrypted: i=1; AHgh+RrJqdcp2stkLc9kOsawkvm/8toFh895C3LZ9V+S1gH7LH7fViLhyZ+ueMpqEAzxqP2sZXBrz6Tq18bXWg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YybsM0Bm4eqyAVK4lsMWAS62XrPSRdbTsJaT+MJGlNRHNcU5EpF
-	+zAyqDNElDgFK5706aHm7wdhT6YxghRQ1XvscuyG6cVDP8jh6EXPI7udQ0zj65vU7CM=
-X-Gm-Gg: AR+sD10A03Jj14PFGb1RMa6enznASRo1pRr+kMTqDjvVAztVOoiaIw25A4eueuurVHk
-	9yzdTHY/+HyjbTARpCfUIJ6+7qXATabXJsf1rcb6+PWFD88IhAbHRxT6I/Dy1YpabL8jqccS9fg
-	JgjMaATWBDjrjZZW6XbtQHz+tLecOy9DG/NK06UeYorNw5nv5F6oaYyWLLTavaipHCU6wwj/rLS
-	ANNjXy+4oW5WN6YtPijcc6KUo0wkKBZuVJNIxIen2biNhbRV02fp4nnbdueltLk/t+RYiQvOSqx
-	vkhdmlTUY5xiCV3e3bjla2Su/PVcndR7rjn0twW4+MixBwUyAQfAkQEEdn53qUV18D7bNSMXPny
-	RsfdhP7ggsA5Y1zN9B901V6VIXSSYRWH16y5HrLySkna+XZKUVw9AHDCOT35fjAq2mtlV7Sq110
-	VtIQ==
-X-Received: by 2002:a05:622a:58cb:b0:51c:19af:6341 with SMTP id d75a77b69052e-5213cbd5495mr205627331cf.36.1784722455297;
-        Wed, 22 Jul 2026 05:14:15 -0700 (PDT)
+        bh=5qvzOJZC5dLwV+0rw2sHYPHDnXSJxTaB22HkTCSR960=;
+        b=WjC5U50HbtzSjunzOO0SYdXmeXM8lS5f0nYg5QYgqkr6wnZtQ6KkcfYW7kPzLmwwgp
+         DW9IResQiRCGkCyfE9U6EDHGLI01VuU6zsd4R28Q5vuknmlW1HaFEUnqTLTV/9kVw3iW
+         6qRu1ujsxlQJp4tpb/O6H1XWcCYLYRLUiMFcuLVKPcRxrRP5Z3A2U4C158IyzaWXj7o+
+         67ETFON1fWZ4VrHDcEOPxAr2Z0GRqN/yvbSKO6xNXEuByt2EXvAfkSuZdOjICU+tdMft
+         R8dFzTIREkApknBneaX0r1szZqWlEr4S4ZYhgsBTxJhNtN/Q8rUUcT5jQrt2eTQaxJk/
+         ecGA==
+X-Forwarded-Encrypted: i=1; AHgh+RqCqHSQuDyedG2Urg5lKa88nnrzQxmq3q8qbFKZel/T/7XoKY7x+olgTZ3P6RYxsb/vTHqt7f7c0cKl5Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0TM5s+w31AeIUs6gttsAPTDafVG6oH42xAXeOBnlCfANJ9oL5
+	OLD40pb6UeQtqaK2NVOw5nwrFV2Pf6cynPHPyfyUplssKShyfjdaStl4ICEC0qxOn84=
+X-Gm-Gg: AR+sD11CUTxij6jMUAe2jgbtphikfBhRbFYLGs1lPofE60+qLx8o+Wty8OwJqm2SQwD
+	UqmOwq/ov1JQsarrrOtETVw+hRJVd1JneQE1glrmFyLe9d8Uw6MsudDKT7E6bU5TycPi8frTh5l
+	W376z8J50XVkYvhTB/8NL70jO7oQSncXUGQSi3JvgEhjq+mkSLvy1BQtki+rJo2c/2vvKRrLJDD
+	1U68VhwGZG/Kuu73ChyFW4WpPHziKBwaSV+CbN8+HXZij7sNv8xB4SW6UWK1PmOE+FGdoXDO43H
+	CTh9ITPQzGXyrQcKlJvbDusGaYQ18o6zdmppz86UZBxZY03mcc3ClELzPQodeCZ0WIj4UwoVCGR
+	39gzR0i2+a2WVxePg4w5EUdSOjY6DjvQXGegNFccduX9tYwWGl/nrBZkg8f94DJwPFf3bAzK11u
+	oQTw==
+X-Received: by 2002:a05:620a:2989:b0:930:f306:8275 with SMTP id af79cd13be357-930f30682bemr389512085a.9.1784722803506;
+        Wed, 22 Jul 2026 05:20:03 -0700 (PDT)
 Received: from [172.22.22.28] ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-527d402caf9sm13896591cf.30.2026.07.22.05.14.14
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-930f68d323asm151978385a.19.2026.07.22.05.20.02
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Jul 2026 05:14:14 -0700 (PDT)
-Message-ID: <3793653d-f06e-4353-968d-ea42200899a5@riscstar.com>
-Date: Wed, 22 Jul 2026 07:14:13 -0500
+        Wed, 22 Jul 2026 05:20:03 -0700 (PDT)
+Message-ID: <7d7938cd-80bb-448b-89d0-6ac6d2717e98@riscstar.com>
+Date: Wed, 22 Jul 2026 07:20:01 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] spi: spacemit: prepare both DMA descriptors before
- submitting
-To: kr494167@gmail.com, broonie@kernel.org, dlan@kernel.org
-Cc: guodong@riscstar.com, linux-spi@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260722034103.12190-1-kr494167@gmail.com>
+Subject: Re: [PATCH] i2c: spacemit: request IRQ after controller
+ initialization
+To: Linmao Li <lilinmao@kylinos.cn>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Andi Shyti <andi.shyti@kernel.org>
+Cc: Yixun Lan <dlan@kernel.org>, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev
+References: <20260722094302.2284191-1-lilinmao@kylinos.cn>
 Content-Language: en-US
 From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20260722034103.12190-1-kr494167@gmail.com>
+In-Reply-To: <20260722094302.2284191-1-lilinmao@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_051417_307976_FA0FA902 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20260722_052004_811207_FFA2FF70 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,71 +106,53 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/21/26 10:41 PM, kr494167@gmail.com wrote:
-> From: surendra <kr494167@gmail.com>
-
-Do you have a more complete identity?
-
-> k1_spi_dma_one() currently submits the TX DMA descriptor to the DMA engine
-> before preparing the RX DMA descriptor. If preparing the RX descriptor
-> subsequently fails, the function jumps to the fallback error path without
-> canceling or aborting the already submitted TX DMA descriptor.
+On 7/22/26 4:43 AM, Linmao Li wrote:
+> spacemit_i2c_probe() requests the IRQ before it enables the clocks, resets
+> the controller and runs init_completion(). If an interrupt is already
+> pending, the handler runs too early: it reads registers while the clocks
+> are still off and calls complete() on an uninitialized completion. Request
+> the IRQ after the controller and completion are initialized, but still
+> before the adapter is registered.
 > 
-> Fix this by preparing both the TX and RX descriptors before submitting
-> either of them to the DMA engine.
-> 
-> Fixes: efcd8b9d1111 ("spi: spacemit: introduce SpacemiT K1 SPI controller driver")
-> Signed-off-by: surendra <kr494167@gmail.com>
+> Fixes: 5ea558473fa3 ("i2c: spacemit: add support for SpacemiT K1 SoC")
+> Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
 
-This looks good to me.
+This looks correct.
 
 Reviewed-by: Alex Elder <elder@riscstar.com>
 
 > ---
->   drivers/spi/spi-spacemit-k1.c | 22 +++++++++++-----------
->   1 file changed, 11 insertions(+), 11 deletions(-)
+>   drivers/i2c/busses/i2c-k1.c | 10 +++++-----
+>   1 file changed, 5 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/spi/spi-spacemit-k1.c b/drivers/spi/spi-spacemit-k1.c
-> index 215fe66d27b4..96b41b67fcbf 100644
-> --- a/drivers/spi/spi-spacemit-k1.c
-> +++ b/drivers/spi/spi-spacemit-k1.c
-> @@ -278,25 +278,25 @@ static int k1_spi_dma_one(struct spi_controller *host, struct spi_device *spi,
->   			  struct spi_transfer *transfer)
->   {
->   	struct k1_spi_driver_data *drv_data = spi_controller_get_devdata(host);
-> -	struct dma_async_tx_descriptor *desc;
-> +	struct dma_async_tx_descriptor *txdesc, *rxdesc;
->   	u32 val;
+> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+> index 51a0c3d80fc9..3fe716cc153d 100644
+> --- a/drivers/i2c/busses/i2c-k1.c
+> +++ b/drivers/i2c/busses/i2c-k1.c
+> @@ -723,11 +723,6 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
+>   	if (i2c->irq < 0)
+>   		return dev_err_probe(dev, i2c->irq, "failed to get irq resource");
 >   
-> -	/* Prepare the TX descriptor and submit it */
-> -	desc = k1_spi_dma_prep(drv_data, transfer, true);
-> -	if (!desc)
-> +	/* Prepare the TX descriptor */
-> +	txdesc = k1_spi_dma_prep(drv_data, transfer, true);
-> +	if (!txdesc)
->   		goto fallback;
-> -	dmaengine_submit(desc);
+> -	ret = devm_request_irq(i2c->dev, i2c->irq, spacemit_i2c_irq_handler,
+> -			       IRQF_NO_SUSPEND, dev_name(i2c->dev), i2c);
+> -	if (ret)
+> -		return dev_err_probe(dev, ret, "failed to request irq");
+> -
+>   	clk = devm_clk_get_enabled(dev, "func");
+>   	if (IS_ERR(clk))
+>   		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable func clock");
+> @@ -755,6 +750,11 @@ static int spacemit_i2c_probe(struct platform_device *pdev)
 >   
-> -	/* Prepare the RX descriptor and submit it */
-> -	desc = k1_spi_dma_prep(drv_data, transfer, false);
-> -	if (!desc)
-> +	/* Prepare the RX descriptor */
-> +	rxdesc = k1_spi_dma_prep(drv_data, transfer, false);
-> +	if (!rxdesc)
->   		goto fallback;
+>   	init_completion(&i2c->complete);
 >   
->   	/* When RX is complete we also know TX has completed */
-> -	desc->callback = k1_spi_dma_callback;
-> -	desc->callback_param = drv_data;
-> +	rxdesc->callback = k1_spi_dma_callback;
-> +	rxdesc->callback_param = drv_data;
+> +	ret = devm_request_irq(i2c->dev, i2c->irq, spacemit_i2c_irq_handler,
+> +			       IRQF_NO_SUSPEND, dev_name(i2c->dev), i2c);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to request irq");
+> +
+>   	platform_set_drvdata(pdev, i2c);
 >   
-> -	dmaengine_submit(desc);
-> +	dmaengine_submit(txdesc);
-> +	dmaengine_submit(rxdesc);
->   
->   	val = readl(drv_data->base + SSP_TOP_CTRL);
->   	val |= TOP_TRAIL;		/* Trailing bytes handled by DMA */
+>   	ret = i2c_add_numbered_adapter(&i2c->adapt);
 
 
 _______________________________________________
