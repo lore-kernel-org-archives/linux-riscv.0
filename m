@@ -4,55 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFB0C4453C
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 17:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F3BC4453A
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 17:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oFi51Dg3SuTfd+FukoTyOHCh+oa6xjip70/6IjwNMEE=; b=0mebCQYszZg33g
-	ArJ/HzaDO8iqDXYZAR7g3uS6eO7YWfjWzGTjFC/2of/u7jo8oMwjG2p/Mj5kLn11tV2IBUz6Lctxp
-	tYwDF+KPYjIP13NPS/fhIVdKcTHVghhfMrnd2226D99GgzLkPJAVW3HvOeIA32Ul6dcJ5veLH6e1g
-	Imizv2RGlfscq+Hc2tcVdX8/bCgYRq8ixaaa/v2ueOSk1vF2b24kjZ3zccFPEtCp2ZwO0sMt37hcQ
-	lXOeAbBIQmwoWlkcxWFZ9yYvvRniY30sk3i8p2Pyf+l5jt4x9o1o0qa+5gqOSvS2rmnGS8NOwf5wD
-	0g4XVEZ9QIJTRTBq79MQ==;
+	List-Owner; bh=JrwdahO6y5BNOKgAgPsVJarr2lU8HvNoEaNrhS4YDBM=; b=oGACVE8hVggC4T
+	hpd8WlcYMeAShM8C0wkLh3TceJHNMptILaNaZdSMr/5TeM37T8dEPbS3z5TPu0cnUmraaEq8PHXJ0
+	a4QWszTeqZ27qfqkema/SjvZ9LdmpCOHFR8Hv3DVrorBiI5MZq0XW7Oz8LLSqs/cqOQAgalj6dp5+
+	RlABgqnPOj4UU9ZwtodA+mrwuOdmC10UZnBGeTdO/XsdTDygq0xC2o34rSqjNBKeCC/+pa3RzeDTD
+	9DP8zsGwsjtQzbd4EQfcIoTZ/lqBUGLkXUtMhssNATlInaDIu910f7wGat+FGKFSGduHTsVmlXw8m
+	qf1cYUgQy8hpUOBN1T0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmajY-0000000CSwQ-3Fbl;
-	Wed, 22 Jul 2026 17:27:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmajW-0000000CSvd-2z7S;
-	Wed, 22 Jul 2026 17:27:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=M5Y7D3saet3lwRTR1iYvW2JWs6T6gFdbJ6BwZVaxCLY=; b=FKTYYtGg5KofoGE6RMzv7N3kNo
-	g4Orxixf/fuH12zcxf7FyGsKu3h2GfHB4E8uQLb570Sdl3mtnTxk7kV4R6wZ1OPbO00m+xbuJBVie
-	FDyWUyw4IhmwlXlucS0UMlNbg78jzfJnZqZNfSpIrgiMhk+bCs2/Y20M7d+8PwRXmx53fjx9KxKDQ
-	Th23xHU907nPO/JjjPOU4swqN/NP8GTXUiwsfuIFfQnnBV0A14PzpNK+pvZgZIGeyYzkNkjItQ3Ka
-	Uqsq8643tFo7OXmgigF5D+a8CgtSrUqIqxqps9lXoSsu1Ysd8/PS5nRn6Egh4I55FvHCn4hJWKC50
-	zoZ/UpJA==;
+	id 1wmamf-0000000CTFV-2KNR;
+	Wed, 22 Jul 2026 17:31:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wmajT-000000014l1-228v;
-	Wed, 22 Jul 2026 17:27:49 +0000
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmamd-0000000CTEp-0INh;
+	Wed, 22 Jul 2026 17:31:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2D7B1595;
-	Wed, 22 Jul 2026 10:27:41 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC1E21595;
+	Wed, 22 Jul 2026 10:30:57 -0700 (PDT)
 Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B55B63F66F;
-	Wed, 22 Jul 2026 10:27:38 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1CBCB3F66F;
+	Wed, 22 Jul 2026 10:30:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784741265; bh=UJJJ6gDdFfQhPAspitY0ExVcYQKJakkmR/X3IOo4bZM=;
+	t=1784741462; bh=24jF6AcUqs8OWEGAaLR69DLBQjR9hO+Rom+3K8DJQKo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SoeZpZp+wsxHy2IPoBPIESiHfIlciJelBcAUO0h9BaNgywgcLRKe59vGZr1KsfOtU
-	 zXqwnNHi8fnyFJ4Z4tV45RCq4+uQHINF4Mo8FApJ3gK1YQgEZ3tQYqJ6ysDA6eAPD+
-	 h3LKbzFF1zV5s5ibd/Q5KVSGVirnUpwJnXEtiFKM=
-Date: Wed, 22 Jul 2026 18:27:36 +0100
+	b=c73DPG7uUV5Fqsc83UkY57n5Qs0XXql23cCXWpZ2ZiqQ+ckAvgZYW4H6Qxd7IuEhg
+	 UpaREG+sGAYzR3v9TgE4TzXqEnrXG7rfKfeEIP65qzbz/5t2U9GCOzbaaUSYCknPsU
+	 WarfMW9lzNf8oKGScXg68Qq+UBElSke/y8/OuBEw=
+Date: Wed, 22 Jul 2026 18:30:52 +0100
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: Dave Hansen <dave.hansen@intel.com>
 Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
@@ -87,24 +73,22 @@ Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
 	Suren Baghdasaryan <surenb@google.com>,
 	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
 	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Stafford Horne <shorne@gmail.com>, linux-kernel@vger.kernel.org,
 	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
 	linux-openrisc@vger.kernel.org
-Subject: Re: [PATCH RFC v2 12/20] x86: mm: define pudp_set_access_flags()
- when CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD is enabled only.
-Message-ID: <amD9iD7rjmU__9b6@e129823.arm.com>
+Subject: Re: [PATCH RFC v2 00/20] mm: optimize unnecessary loads due to
+ ptep_get() and friends out
+Message-ID: <amD-TLGWGdMK2ItC@e129823.arm.com>
 References: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
- <20260722-dummy_ptxp3-v2-12-d9e4bad31e0a@arm.com>
- <188623a9-dba0-4229-a7ff-5feb2ef0c088@intel.com>
+ <0143b927-08c5-4e94-ae6e-2a0d7bfe950f@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <188623a9-dba0-4229-a7ff-5feb2ef0c088@intel.com>
+In-Reply-To: <0143b927-08c5-4e94-ae6e-2a0d7bfe950f@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_182747_802675_B587F3D7 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20260722_103103_598498_855B336C 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,58 +105,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+> One of my nits about v1 was that it didn't really frame the series
+> precisely. It talks about "optimization" instead of fundamentally
+> changing the way that the kernel deals with folded page table levels.
+> 
+> The optimization that this *wants* to talk about kinda falls out of that
+> refactoring. It's not really the core of the series, IMNHO.
+> 
+> This series effectively changes the rules about where and how folded
+> page table levels can be manipulated. In doing that, the door is opened
+> to optimizing out the unnecessary loads.
 
-> > diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
-> > index f32facdb3035..edad847a2ecd 100644
-> > --- a/arch/x86/mm/pgtable.c
-> > +++ b/arch/x86/mm/pgtable.c
-> > @@ -411,6 +411,7 @@ int pmdp_set_access_flags(struct vm_area_struct *vma,
-> >  	return changed;
-> >  }
-> >  
-> > +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-> >  int pudp_set_access_flags(struct vm_area_struct *vma, unsigned long address,
-> >  			  pud_t *pudp, pud_t entry, int dirty)
-> >  {
-> > @@ -430,6 +431,7 @@ int pudp_set_access_flags(struct vm_area_struct *vma, unsigned long address,
-> >  
-> >  	return changed;
-> >  }
-> > +#endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
-> >  #endif
-> >  
-> >  bool ptep_test_and_clear_young(struct vm_area_struct *vma,
-> 
-> #ifdefs in .c files are evil.
-> 
-> The changelog doesn't make a strong enough case for why this evil should
-> be tolerated.
-> 
-> These are also _precisely_ the kind of #ifdefs that cause compilation
-> problems. This one is:
-> 
-> #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> /// function here
-> #ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-> /// another function here
-> #endif
-> #endif
-> 
-> So there end up being a couple of dependent config options in play. If
-> there are compile problems, this makes them harder to find.
-> 
-> What is the _actual_ goal here? Saving 50 bytes of kernel text?
-
-TBH, this came from for v1's change of behavior set_pud() where
-triggered compiliation problem with v2 this change wouldn't require.
-
-However, wrappering pudp_set_access_flags() with
-CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD seems reasonable for not only
-saving a kernel text but also keeping consistency with the other pattern
-like pudp_invalidate(), pudp_establish() and etc.
-
-Am I mising something?
+I see. might the title and the cover letter should be reparsed.
+Thanks to remind it again :)
 
 -- 
 Sincerely,
