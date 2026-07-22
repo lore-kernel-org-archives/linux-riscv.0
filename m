@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F683C44538
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 06:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 334C9C44512
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 06:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AfCgxEeRnzopLIik5fTqEH8gGRoetmAKseIkW61ZMLY=; b=pJ/0qqfQrjAo97
-	7PdUib1yv2kjovd0dKzJWw+Rh3inNACqmC3RdrgPM+2dLyUaMJhsArU357F4DNl9drzr5X7hNlQx7
-	j39RpTv/QWyPt5ppFutMlBwLWz+z8Z1tgfyTOGsL8Con8Km1PAlFrM35g3JpM+LdaCbxDRRgUQpRv
-	lC+qUtYEVHbWE0JZmw4/y5Aoh5fx6peNUZHupI/xpnzIY3+aepgVXOLtcCCMAOc2SNtep6qd5aYGA
-	r76UjtYhUDkgEONYw+GypIaiyFvhJeNQ/Hy6tzjU9aw5lIiTNXxJi/U6cSvk+erA7e2RMnMlXdDln
-	tip/i3wfaoELSf5VbHYQ==;
+	List-Owner; bh=BfyVfOyw20mLvcCcJmyhVnIa4Qs73a1Enn/wUZOo49o=; b=a7xKVworICHuA0
+	YxjGYlCAk7Mhu9FhnXoBL5QidSbYttFCITZWfeGxg1VV3CgwdaAUjnz6JkeF5R1e6EF/zoD1rS0ue
+	Zgv1QPFmdo1SLp/ytoRMge2GdOlqFvvnka6zar8xlN/F+QDbOMwBnuFizNw18EtCuqvi/iA7mUbZV
+	8QuK2KAyVZqH5embXQMoBjTZXTJGIx0Z9mW/sIgHmRP2xI7X4rlHpYdxm3SYuEqFa6Z0JHr+i+3fu
+	pvWF3MhD4fzmTRU6d8kmOr/4xH1jL6oITgS69etyC+5wb/gZWx6792BPXGv320VKch3sc6wKQ9rRE
+	BRdmi2hSY8wiCoeO9E9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmQg7-0000000AzGU-3q5c;
-	Wed, 22 Jul 2026 06:43:39 +0000
-Received: from mxct.zte.com.cn ([183.62.165.209])
+	id 1wmQmk-0000000B08P-3YiA;
+	Wed, 22 Jul 2026 06:50:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmQg5-0000000AzEv-2S5E
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jul 2026 06:43:39 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4h4l8002hbz5B14y;
-	Wed, 22 Jul 2026 14:43:28 +0800 (CST)
-Received: from szxl2zmapp07.zte.com.cn ([10.1.32.52])
-	by mse-fl2.zte.com.cn with SMTP id 66M6hMBr024367;
-	Wed, 22 Jul 2026 14:43:22 +0800 (+08)
-	(envelope-from gao.rui@zte.com.cn)
-Received: from localhost.localdomain (unknown [10.234.74.162])
-	by smtp (Zmail) with SMTP;
-	Wed, 22 Jul 2026 14:43:24 +0800
-X-Zmail-TransId: 3e816a60668b00d-a0a85
-X-Zmail-LocalSMTP: 1
-X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-X-Zmail-RealSender: gao.rui@zte.com.cn
-From: Gao Rui <gao.rui@zte.com.cn>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Feng Jiang <jiangfeng@kylinos.cn>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Gao Rui <gao.rui@zte.com.cn>
-Subject: [PATCH 1/2] riscv: strnlen: fix ZBB path overflow and SIZE_MAX fallback
-Date: Wed, 22 Jul 2026 14:40:26 +0800
-Message-ID: <20260722064037.1111467-2-gao.rui@zte.com.cn>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20260722064037.1111467-1-gao.rui@zte.com.cn>
-References: <20260722064037.1111467-1-gao.rui@zte.com.cn>
+	id 1wmQmi-0000000B07c-12rE;
+	Wed, 22 Jul 2026 06:50:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BEF760A6E;
+	Wed, 22 Jul 2026 06:50:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A69921F00A3F;
+	Wed, 22 Jul 2026 06:50:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784703026;
+	bh=XnxogIQS7eoD999V7HLL1Y7l5CDp4hmKICTpMm/zYng=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=U6R84Ps3/o94s4otuUkA+xNRsB5SBqBibOFkn3ZUnHYqT68BNhN4Q6nc4CuniP19I
+	 zYEnJ1fmed/32oOwBB71rH0FjI5bExSFo+zlkkxYGw3sCWwij82ZJ8uclZpZQlVyo8
+	 ebrxOKEISusfcf7TJmWKFvFZOfZqSmurjyLJks8m+sX/YHFgL7k4zBlJwb1k5wn24E
+	 1fk9q3Vcd4xS/QdQVthkdevDIv5Suvv0pRY9ose9471KFU3cykS+x/qOOCj5ZB0GIO
+	 /+an0VbZVI55lPLsc1ki6evJDFzMwpChtRqQkvtAM7j5el32I4dCakfifpWOZP5Wpi
+	 LVRtdVoJ6XJEA==
+Date: Wed, 22 Jul 2026 09:50:09 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Borislav Petkov <bp@alien8.de>
+Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
+	Juergen Gross <jgross@suse.com>
+Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
+ set_memory/change_page_attr core
+Message-ID: <amBoIXBYKAhToIgy@kernel.org>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+ <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
+ <al-6aLMJONOMfW2v@kernel.org>
+ <20260721195446.GHal_OhkuBCWQjmLQW@fat_crate.local>
 MIME-Version: 1.0
-X-MAIL: mse-fl2.zte.com.cn 66M6hMBr024367
-X-TLS: YES
-X-ENVELOPE-SENDER: gao.rui@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Wed, 22 Jul 2026 14:43:28 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6A60668F.000/4h4l8002hbz5B14y
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_234337_787619_4C254517 
-X-CRM114-Status: GOOD (  11.48  )
+Content-Disposition: inline
+In-Reply-To: <20260721195446.GHal_OhkuBCWQjmLQW@fat_crate.local>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,115 +92,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch improves the RISC-V strnlen implementation:
+On Tue, Jul 21, 2026 at 12:54:46PM -0700, Borislav Petkov wrote:
+> On Tue, Jul 21, 2026 at 09:28:56PM +0300, Mike Rapoport wrote:
+> > I'll take it via the memblock tree? ;-)
+> 
+> Definitely not.
+> 
+> Unless you folks want to carve out the bits of set_memory.c which interact
+> with core mm and mark it as maintained by someone else. I personally don't
+> mind too much.
 
-- Add explicit fallback to generic path when count == SIZE_MAX,
-  avoiding minu instruction misbehavior.
-- Add overflow check for (s + count), ensuring safe fallback
-  when address addition wraps around.
-- Refactor aligned boundary calculation to use (s + count - 1),
-  preventing word loads beyond the valid range.
-- Add fast exit when all remaining bytes are within the first word.
-- Simplify generic path loop with clearer pointer/count handling.
+Well, in essence that's what this set is doing:
 
-These changes fix potential off-by-one, overflow, and extreme
-input bugs, while keeping ZBB optimization for normal cases.
+ arch/x86/mm/pat/set_memory.c            | 611 ++++----------------------------
+ {arch/x86/mm/pat => mm}/cpa-test.c      |  66 ++--
+ mm/set_memory.c                         | 396 +++++++++++++++++++++
 
-Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
-Signed-off-by: Gao Rui <gao.rui@zte.com.cn>
----
- arch/riscv/lib/strnlen.S | 40 +++++++++++++++++++++++++++++++---------
- 1 file changed, 31 insertions(+), 9 deletions(-)
+I just decided to postpone MAINTAINERS update that would add
+mm/set_memory.c mm/cpa-test.c to MM CORE section until non-rfc version.
+ 
+> -- 
+> Regards/Gruss,
+>     Boris.
+> 
+> https://people.kernel.org/tglx/notes-about-netiquette
 
-diff --git a/arch/riscv/lib/strnlen.S b/arch/riscv/lib/strnlen.S
-index 53afa7b5b314..fc5d578bbffe 100644
---- a/arch/riscv/lib/strnlen.S
-+++ b/arch/riscv/lib/strnlen.S
-@@ -17,6 +17,7 @@ SYM_FUNC_START(strnlen)
- 	__ALTERNATIVE_CFG("nop", "j strnlen_zbb", 0, RISCV_ISA_EXT_ZBB,
- 		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
- 
-+strnlen_generic:
- 
- 	/*
- 	 * Returns
-@@ -27,20 +28,24 @@ SYM_FUNC_START(strnlen)
- 	 *   a1 - Max length of string
- 	 *
- 	 * Clobbers
--	 *   t0, t1, t2
-+	 *   t0, t1
- 	 */
--	addi	t1, a0, -1
--	add	t2, a0, a1
-+	mv	t1, a0
-+
- 1:
--	addi	t1, t1, 1
--	beq	t1, t2, 2f
-+	beqz	a1, 2f
-+	addi	a1, a1, -1
-+
- 	lbu	t0, 0(t1)
--	bnez	t0, 1b
-+	beqz	t0, 2f
-+
-+	addi	t1, t1, 1
-+	j	1b
-+
- 2:
- 	sub	a0, t1, a0
- 	ret
- 
--
- /*
-  * Variant of strnlen using the ZBB extension if available
-  */
-@@ -73,6 +78,16 @@ strnlen_zbb:
- 	/* If maxlen is 0, return 0. */
- 	beqz	a1, 3f
- 
-+	/*
-+	 * Fallback to generic implementation when count is large enough to
-+	 * cause address overflow in the ZBB optimized path, or when count
-+	 * equals SIZE_MAX where the minu instruction misbehaves.
-+	 */
-+	li	t5, -1
-+	beq	a1, t5, strnlen_generic		/* count == SIZE_MAX */
-+	add	t4, a0, a1
-+	bltu	t4, a0, strnlen_generic		/* a0 + a1 overflow */
-+
- 	/* Number of irrelevant bytes in the first word. */
- 	andi	t2, a0, SZREG-1
- 
-@@ -83,8 +98,12 @@ strnlen_zbb:
- 	sub	t3, t3, t2
- 	slli	t2, t2, 3
- 
--	/* Aligned boundary. */
--	add	t4, a0, a1
-+	/*
-+	 * Aligned boundary.  Use the address of the last valid byte
-+	 * (s + count - 1) to avoid loading a word past the count
-+	 * boundary in the loop below.  count == 0 is handled above.
-+	 */
-+	addi	t4, t4, -1
- 	andi	t4, t4, -SZREG
- 
- 	/* Get the first word.  */
-@@ -120,6 +139,9 @@ strnlen_zbb:
- 
- 	bgtu	t3, a0, 2f
- 
-+	/* All remaining bytes are in the first word, no loop needed. */
-+	bgeu	t0, t4, 2f
-+
- 	/* Prepare for the word comparison loop. */
- 	addi	t2, t0, SZREG
- 	li	t3, -1
 -- 
-2.27.0
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
