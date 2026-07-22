@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EB0CC44533
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 08:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C00C4451C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 08:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5J3zBbPSGVF4Mzm/gM5H/UBNi7eUeekwu5UPAaxZbo0=; b=0bMLWNT4rDnKkZ
-	46GhmZ9IFQqUjYMPvletRnby5MP49Tz2gxiwydo+ohjv8LoA9HrkTeo3rXk6/zhFhaLK91wWuidIN
-	i/qROoZqBsuSXKg8WtpkX0Z4SJ4m4nNsL0b2igu46qpKCTPNxDpPwjTzi5T3aJ5Jbd3Ig8wG/65wE
-	6o+lufIQkM6ltuHtMOFlw5JvUoInqZDm2+K61pPQ9OE+ppZOr7VQxRE6oZfIThtTc32F1k7Lo/1cu
-	3EXQyr3RZcMin4hFzjkEvyUS5OHIW+SFBcxc3BrWSGEFG/WsubqGaQCU6o8qd6NFCAHGvt8DX9XhZ
-	I2sbGGjXCjVvO4Jro4KA==;
+	List-Owner; bh=rOTALKl2FPDikTeVh7he5WjkKIWeGh/4T+KPCSqgu4g=; b=hU55yGyMU5nuUR
+	5q9B8eDcNk7COCYpa8V6ckKwuTm39a3ygvy5eZnel55TZiIpDtZzo/zuMYk7vcivjUpHMQEg5NNEn
+	rCJuDBqeqXTHq8Kz/TRG0oTGaNV+/bBcBDEUuzGAFj24fYOBvECXqPcn3Ob2zFfWaAPFioc5L1qsr
+	9Gu2Op8c45LEYYjWMZ8ZQ4m6KKtSfEOyfwJwE2qV7Ps6vl6Sps2GEMuOz1xxk3Xa7g26A71oy84Pe
+	oXBUiCKvVzeV3Psy37pWsLqjqG4Xbt5404r5Y+UNGOssTq/qYKe3e6So8NvFzkGUUZjhMtTpfA6ux
+	Xp8QvEjzYPE6vzyJ5BSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmS7J-0000000BDSM-3dmR;
-	Wed, 22 Jul 2026 08:15:49 +0000
+	id 1wmSkM-0000000BJId-0oMi;
+	Wed, 22 Jul 2026 08:56:10 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmS7H-0000000BDRU-2Tyo;
-	Wed, 22 Jul 2026 08:15:47 +0000
+	id 1wmSkJ-0000000BJII-3u1F;
+	Wed, 22 Jul 2026 08:56:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6D0D60A77;
-	Wed, 22 Jul 2026 08:15:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88E0C1F00A3A;
-	Wed, 22 Jul 2026 08:15:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 098AB60A6B;
+	Wed, 22 Jul 2026 08:56:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C7D71F000E9;
+	Wed, 22 Jul 2026 08:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784708146;
-	bh=I6Ed1fhe7PW7ckJOG+hYO0SyywFktvNrPM+HhA2LjQo=;
+	s=k20260515; t=1784710566;
+	bh=aee5s1edqbgsHAo4tjJhHBYFBXZbzIQhAfflgu0Qfl0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m/UjfeqV7P0pT4AddZEvv2ntNn8VDrWWTYV3e+pKEv4pEe8sBrum5Ks/ifrw9ThMA
-	 C8uH0jwfiimwFnbcpPD4eDTCjM3UW1B4R5icrhYreoVCK7mHao5Rax7eXU0l8pjTBg
-	 YrSVusT2mFhtIiZm3ldNQgBLP4Ajt0oRkVmLBZVFtFVm0cteLUR5lFUefAo/d90boQ
-	 H+81/pEhHWuArkrKZWP5Ynbqr/EoOD/GmRQwsmlTkCbonesDF8gJ5HWmT6Dj0s2eyl
-	 43dl4lZFzlSaIdne+sYBR83G7UYQPmj7D3dvFdtr+tLq38DVBvRa2rm2+N44TcRfDm
-	 gCuSOZInsw1hw==
-Date: Wed, 22 Jul 2026 10:15:43 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>, Mao Jinlong <jinlong.mao@oss.qualcomm.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: arm: coresight-ctcu: document CTCU
- device for shikra
-Message-ID: <20260722-astonishing-loud-labradoodle-bb59ce@quoll>
-References: <20260722-add-coresight-nodes-for-shikra-v3-0-1400a3454e9f@oss.qualcomm.com>
- <20260722-add-coresight-nodes-for-shikra-v3-1-1400a3454e9f@oss.qualcomm.com>
+	b=LDc46chI52fVENs42kG9+KBWM0nMhxZUJWhF2TcA//k7EVRXGYtJIEDCNw2MhaQxf
+	 rAF7wicCMnhKVgjkDR5Va+tqdiK93/9KRL0amUDK1fkF/CYvi+4b0yXY0txmWTHBzm
+	 FN3BEIyh2bx7nj0aCMQm2RenxGNCsPp3x2xisyF711bY3BDHZJZ9cBgDQ/wkNXvhIf
+	 qeOmqal8BqfD6umsvhZ23KsidOUZWvPxo4euKNMG6AxVL0LbwZcNyrf3FjZpQ5BNd/
+	 UqsVNpLJjq1PTHsuaT0kzYYLLQVD1E7gJWUegOsyo5+fFSYuWRWanDXNRVLIlnutd/
+	 QQ65f9GU69gTg==
+Date: Wed, 22 Jul 2026 09:55:46 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>, 
+	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
+	Borislav Petkov <bp@alien8.de>, Brendan Jackman <jackmanb@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	David Hildenbrand <david@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+	Ingo Molnar <mingo@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Michal Hocko <mhocko@suse.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Thomas Gleixner <tglx@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>
+Subject: Re: [PATCH RFC 01/18] x86/mm/pat: Don't gate cpa_lock on
+ debug_pagealloc_enabled()
+Message-ID: <amCFgFTmP1Jy_uRG@lucifer>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+ <20260721-generic-set-memory-v0-1-v1-1-2c1fc62306b3@kernel.org>
+ <al-oTOKY7vkdPHr5@lucifer>
+ <al-6woCPBH5d-lwP@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260722-add-coresight-nodes-for-shikra-v3-1-1400a3454e9f@oss.qualcomm.com>
+In-Reply-To: <al-6woCPBH5d-lwP@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +84,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 09:13:47AM +0800, Jie Gan wrote:
-> The CTCU device for shikra shares the same configurations as SA8775p.
-> Add a fallback to enable the CTCU for shikra to utilize the compatible
-> of the SA8775p.
-> 
+On Tue, Jul 21, 2026 at 09:30:26PM +0300, Mike Rapoport wrote:
+> On Tue, Jul 21, 2026 at 06:16:33PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > On Tue, Jul 21, 2026 at 07:23:24PM +0300, Mike Rapoport (Microsoft) wrote:
+> > > The splitting and merging of kernel page table mappings between small and
+> > > large is protected by cpa_lock. The merging is relatively new but the
+> > > splitting is ancient.
+> > >
+> > > The splitting has a locking optimization: since DEBUG_PAGEALLOC forces all
+> > > mappings to 4k, there are no large pages to split. So the code that *might*
+> > > cause a split can just skip the locking (and a few other things).
+> > >
+> > > This is entertaining, but it adds complexity and makes for weird locking
+> > > rules. Plus it's all for a debugging feature which makes the kernel super
+> > > slow in the first place. Optimizing something which is already super slow
+> > > and not used in production is not the best way to spend our complexity
+> > > budget.
+> > >
+> > > Stop gating cpa_lock on debug_pagealloc_enabled() to simplify the code
+> > > and the locking rules.
+> > >
+> > > [ dhansen: flesh out changelog ]
+> > >
+> > > Suggested-by: Dave Hansen <dave.hansen@intel.com>
+> > > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > > Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
+> > > Link: https://patch.msgid.link/20260715144519.934289-1-rppt@kernel.org
+> > > Link: https://lore.kernel.org/all/aab44f08-89f8-47fe-bee4-0ab6b25968c6@intel.com/
+> >
+> > Hmm this patch is already taken separately though? ([0]) (obv. commented there
+> > already with review feedback).
+> >
+> > Intended to be with this series as some kind of background or? Probably better
+> > to separate out given it's a live patch
+>
+> From the cover letter:
+>
+>   Patch 1 is already applied to the tip tree and I posted patch 2
+>   separately [4], but I included them both here for the completeness.
 
-This is not arm,coresight-ctcu. This is qcom,coresight-ctcu, so the
-subject is:
-dt-bindings: arm: qcom,coresight-ctcu: add Shikra
+Well that'll teach me for skipping the cover letter ;) Fair enough!
 
-I already pointed out this problem at v2. Nothing in your subject is
-telling this is Qualcomm! Not even mentioning such trivial mistakes as
-lowercase shikra everywhere.
+>
+> > Thanks, Lorenzo
+>
+> --
+> Sincerely yours,
+> Mike.
 
-I also do not understand why you add so much redundant information to
-subject. Subject space is precious.
-
-No, at this point you should not make such mistakes.
-
-Please take this feedback to your entire team, so I will not have to
-repeat the same exactly next time.
-
-Best regards,
-Krzysztof
-
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
