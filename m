@@ -4,58 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B51C4452D
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2026 23:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B48C4452B
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 00:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EUvx6zQBk5HKZSFDCrUD3CChPpCfAJkOh6R7UuHHX9E=; b=I6i23kVBT7YLkG
-	IPVHzXGzjdZ/s7ad2JaggCUqdthmvFT8cb0Yb/QoyyBlE37a4fS53GdtahQ5+yQdAi6K+RNoZy3Hx
-	dHt/4EprLkEri+inYkdT0UYbmJgcc7A8w3JTYRC7dXUwYTgRBxW4qks4bAd3D6wIlCQUGHuwcgGQ2
-	SiYGE2GU5QD9apEb4XM2ojO4l5XSgRJ3aT4QfHTv8V5vRGX2j8E8pT9LAC1wuW6B2fD6PgcisuZNv
-	oa0126IrQb1aYStwd7ld5Q2YXiTCoApdJOYYE4vYLgM3mj9yX8pisVgONPGyEAyJVRrLu+OhMVL9i
-	DgDC3qfTrEdbnzglY8CQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=X+8hKqwKxtOcG8eQ8dimJE8AUBirzz/ui5jGQc1U2fk=; b=RHwqSYaKrsub2i
+	0dfnBNRhkzP7bgC2Nt7pXKH4zvKrSL4+OlZ60m9l1oYxQSP+tPwT3UmUHQ2X9aOJSEq3MX4c8O/AF
+	gNBO1NCu/IV3xfGQa+tg3N5DLh8InNDGGfQdEiVK/j92ZGbHlYltqd28vXGUwhKA774uItn227tmt
+	caMx7yKQdKqv0MZoIy6r7n1RHfJM0WZrcWO2ZGQa/G/apHOhi3oF4MHjX+J4O+JnPDvnasAj0Jakr
+	lfj/ju21L0d307UxAEN7b/+CRl700oq0QpvgMMnZVcqjHgnPd6/zkvkZxI3AFuDhB0PizdbmsssqP
+	jDVOEwvLm66oDgguH2qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmKER-0000000AcGv-2KzY;
-	Tue, 21 Jul 2026 23:50:39 +0000
+	id 1wmLDV-0000000AfE6-1nKv;
+	Wed, 22 Jul 2026 00:53:45 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmKER-0000000AcGo-0aeT
+	id 1wmLDU-0000000AfE0-073p
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Jul 2026 23:50:39 +0000
+	Wed, 22 Jul 2026 00:53:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 653E041666;
-	Tue, 21 Jul 2026 23:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47C641F000E9;
-	Tue, 21 Jul 2026 23:50:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5824E4142D
+	for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2026 00:53:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B88FF1F000E9
+	for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2026 00:53:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784677838;
-	bh=kLw2lxWCpAGiNj2+fQfGuNyaOZ8w1cVXAAEatOpdPL4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=j6aMpu1ECiVlxCKblxG+8u8lxP/2tgNr2b3LX3+XcTx8s857qLS5gyH6+yi1eozOu
-	 fWzM8VReFiJ6ZQIlhEie6ipXGJ0J5siw7jPOQOE03Q+8H7knyhsd/KY3wVrmuz6s0E
-	 Xx3/n5Z6ePRdMoGI+GGb/roGznNVqaKtskLLLNsaCXPcxMKAACgtl0h2ZcUWfrtQDw
-	 NVabA94Og3RoaA2inGXl0zx72snguW+zQAUgbIa6376XdtQGmcEAdwbwRmG4BR3omz
-	 MVSsJRPCn3nyjhyu8w7Ssy+ptSHGx2/NDnXZ1jVDOV5TUp6aAWr4brDUHxPaGW6nm2
-	 b4dNIeUJoydVQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0FDB380820D;
-	Tue, 21 Jul 2026 23:50:08 +0000 (UTC)
+	s=k20260515; t=1784681623;
+	bh=czGTILjPdNvnBenGx8SAYJSQ9/9/JFdl5M3AsxVU13c=;
+	h=Date:From:To:Subject;
+	b=RDVfO975FhtZOFPTLJ9kcjdbb5a/a78CyGcbTJuBtgt6+aon3/a64Dzor6kfHHLcy
+	 d5BrIOWbEaTx7CijYnTgVAMMg0QrumiDG/x6eKvVbeZ4FFsCUyZUWIHJ7J9LY/V+G7
+	 43LUhxVcno2eTKlqN8H6fBkIqVmJuWJT5d8VyNckXdhXWEuaUswxkpl5xa6vUQOUmY
+	 3+DEB8tHZW6lFhWC4p8siAKvNsjZoCPgNmdvX51t9IA568VarBmVUoTmdPw5s4X6XD
+	 c0CaaELrS6LKfsxmPukRxQze7ZM19M9bg+XZ0pR86BD1B6T+NlE5aB2FmpGVREX/MS
+	 LQR+AiS1Qtz8Q==
+Date: Tue, 21 Jul 2026 18:53:38 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: linux-riscv@lists.infradead.org
+Subject: RISC-V experimental branch updated (tag: riscv-experimental-for-v7.3-2026072101)
+Message-ID: <d7850ea9-3ef7-559e-d3e2-c5dcee7a4e0d@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: mm: Move dma_contiguous_reserve() after NUMA
- initialization
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178467780765.1167722.17403934449709324097.git-patchwork-notify@kernel.org>
-Date: Tue, 21 Jul 2026 23:50:07 +0000
-References: <20260714185648.1082483-1-ezulian@redhat.com>
-In-Reply-To: <20260714185648.1082483-1-ezulian@redhat.com>
-To: Eder Zulian <ezulian@redhat.com>
-Cc: linux-riscv@lists.infradead.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +64,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to riscv/linux.git (for-next)
-by Paul Walmsley <pjw@kernel.org>:
+Folks,
 
-On Tue, 14 Jul 2026 20:56:48 +0200 you wrote:
-> Move the dma_contiguous_reserve() call from setup_bootmem() to
-> misc_mem_init(), placing it after arch_numa_init(). This ensures that
-> NUMA topology is initialized when reserving contiguous memory for DMA.
-> 
-> Tested with CMA_SIZE_PERNUMA enabled and two NUMA nodes on QEMU:
-> 
-> qemu-system-riscv64 \
-> 	-machine virt \
-> 	-nographic \
-> 	-smp 2 -m 512M \
-> 	-numa node,nodeid=0,cpus=0,memdev=m0 \
-> 	-numa node,nodeid=1,cpus=1,memdev=m1 \
-> 	-object memory-backend-ram,id=m0,size=256M \
-> 	-object memory-backend-ram,id=m1,size=256M \
-> 	-kernel arch/riscv/boot/Image \
-> 	-append "console=ttyS0 earlycon loglevel=7 cma=16M"
-> 
-> [...]
+The riscv-experimental-for-v7.3-2026072101 has been pushed up to the 
+pjw/riscv tree:
 
-Here is the summary with links:
-  - riscv: mm: Move dma_contiguous_reserve() after NUMA initialization
-    https://git.kernel.org/riscv/c/76e885f2b89d
+  https://git.kernel.org/pub/scm/linux/kernel/git/pjw/riscv.git/tag/?h=riscv-experimental-for-v7.3-2026072101
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+and the experimental/merged branch has been updated:
 
+  https://git.kernel.org/pub/scm/linux/kernel/git/pjw/riscv.git/log/?h=experimental/merged
+
+For more background on the purpose of the experimental tags and branches, 
+see:
+
+  https://lore.kernel.org/linux-riscv/8637881e-183e-940a-27a6-c3dc27d2df20@kernel.org/
+
+The patches here are still under review and test, and they may or may not 
+make it into riscv/for-next for v7.3.   The intention here is simply to 
+increase our collective confidence level in what we're thinking about 
+pushing into riscv/for-next in the future, including any conflict 
+resolutions.
+
+Please go forth and test, especially on hardware/emulation!  Thanks to 
+anyone who can help out,
+ 
+
+- Paul
+
+
+The tag "riscv-experimental-for-v7.3-2026072101" contains patches from:
+
+- experimental/counter-delegation-v8
+- experimental/refactor-vector-context-v4
+- experimental/reliable-unwinding-livepatch-v4
+- experimental/rva23u64-v5
+- experimental/ssqosid-v4
+- experimental/vector-speed-probe-v1
+- experimental/tlb-flush-opt-v2
+- experimental/variadic-sbi-ecall-v2
+- experimental/fix-kprobes-minimal-kernel-v1
+- experimental/sbi-sse-v9
+
+on top of today's riscv/for-next.
 
 
 _______________________________________________
