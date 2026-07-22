@@ -4,54 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A084AC44536
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 15:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BA1C44539
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 15:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ZuW0MgtYjGluiQspXw40FKA0nghNLXF5GXh0bx0Zfo=; b=qe3HswFTCQ4hB3/6AVMzTaCaJN
-	SQco8i5g+VqWpByPK8BpRQ3lGRoNnJHv+J6e2vm0REqE4+r4BvcCaULNMWKSJnHWo08i34bIHpoWO
-	QV0tvC9Xsvp8/TF2pntbAXt/bL/mixan26jM9U16zRSByN1v8+TDWAhCi6H2pGA/Tq7Rq/psI47NR
-	VFZ7jZa5qBEmiJB0+8d9qTe8MPKWjKPuJxwBt+LC/XW1ixj/XeU/qhF7DrS/vaq4NvKy03ar9qNaH
-	/kIdfUge9b8nSBjFIPdANmZQukTa51QUUGP0is+VBFY24YYG6fDm1CrKeQpEI5Qb1VKGHXqm0vCdN
-	fQoFsTpw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6wmw1CMsPDUljqyTlWVRm+2wHvml8d7+NEjzdhqlzIk=; b=TestklnzQz5Eoc
+	9ep1t8572J3HcGGNo9WCsnnW1kb4x75bJhRWH2nmLMj4YLytGg+GMesomboBLKdz4Jmd96PwZQgdT
+	U9oa+S6Ah4IBjjoNY6hBcVLeEBPGP71L7+QPlw08urcPXZEklwpkhSwN3GZxGvUj2urcRhFQEJQ7Y
+	CgPcp/jTB78WqArnwYcxUven8xawNP+1Tyo2pCrwKzS5gwO5ykztNdBTFY45g/IMdHLMLOC/LkJbR
+	1FomqCXdiBXotEu8WUOjdAV38vMWjnSNetDDqzF3VggiXzyPa/W6DKnphiFyao2votV04MJzRm96q
+	A77NHowkqrIMNkJsh9KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYsC-0000000C9as-35bw;
-	Wed, 22 Jul 2026 15:28:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmYsB-0000000C9aM-37LF
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jul 2026 15:28:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5153F4175F;
-	Wed, 22 Jul 2026 15:28:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7234E1F000E9;
-	Wed, 22 Jul 2026 15:28:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784734119;
-	bh=LAPSEeqODkSr8MHh7/rXtwJjk2BELc7XRJ901+kQ/zI=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=AuW6CU/Pl8pOWp+6+XFCEhtEbQ56YsHdLLuakoq0hh9/EUVfwsFgDfepe7lSYzfd6
-	 P0QQd4qLpOfvVLE4fjnVTgRsAMvmnql9p6b8kS3wJYqDsvCBW2T47GZQbXIUBGwgRy
-	 nQ77eVZeoyvGOgaLgPsDjHleEgqLc91AzD+40HI31AjoKTGrcZhGsNd3U+wMvYXZB6
-	 ibgYVZ121LCIMDQt7drSHK3lJlxUQi++TS+zKTn9nxZ6GuItakU1oN8VLUZbsEe11b
-	 aPCbSaJI5IeGqdPwqN/ysQjy6uTpnPSYwtwJ06Zcm2+24zy+FDgm1yRs96jeTpA19g
-	 Gl4xy2XhA/ehg==
-Content-Type: multipart/mixed; boundary="===============5638868986840667114=="
+	id 1wmYuG-0000000C9pi-0TLa;
+	Wed, 22 Jul 2026 15:30:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmYuB-0000000C9oN-23HD;
+	Wed, 22 Jul 2026 15:30:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63CA51595;
+	Wed, 22 Jul 2026 08:30:36 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BCA83F66F;
+	Wed, 22 Jul 2026 08:30:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784734240; bh=y9r6C8+qmxpZN2UriTf9GnZ7z+Z5djCU/+tffpW++Gs=;
+	h=From:Subject:Date:To:Cc:From;
+	b=iMZDIMeNT8qFLRIp9mZGMzTNdCLxPs+SbFGoNqqV7NhK9FC/O1Qd9fvZM9RhF4+jK
+	 NkKYC3o+KWe4RMXbpZxziOHIvxV/17L5RnTcDfCKrGWx6MYCHNtI4kbJx4Bjx2YYT2
+	 IsqTp15KkeDZurSwN14rAFyyajBrU4DIFIv8hR0A=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH RFC v2 00/20] mm: optimize unnecessary loads due to
+ ptep_get() and friends out
+Date: Wed, 22 Jul 2026 16:30:08 +0100
+Message-Id: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
 MIME-Version: 1.0
-Message-Id: <1ad4363fcdd7bb7d9d11d831b450ef21753560486b90e90c7a9b93936677843c@mail.kernel.org>
-In-Reply-To: <20260722140015.1982158-6-varunrmallya@gmail.com>
-References: <20260722140015.1982158-6-varunrmallya@gmail.com>
-Subject: Re: [PATCH bpf-next v3 5/6] riscv, bpf: Add support for BPF exceptions
-From: bot+bpf-ci@kernel.org
-To: varunrmallya@gmail.com,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,bjorn@kernel.org,pulehui@huawei.com
-Cc: alex@ghiti.fr,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,puranjay@kernel.org,linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org,bpf@vger.kernel.org,linux-kselftest@vger.kernel.org,varunrmallya@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Wed, 22 Jul 2026 15:28:37 +0000 (UTC)
+X-B4-Tracking: v=1; b=H4sIAAHiYGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDIzMDcyMj3ZTS3NzK+IKSigJjXWNzE8MUc4vkZHODNCWgjoKi1LTMCrBp0Up
+ Bbs5KsbW1AF5jcBpiAAAA
+To: Russell King <linux@armlinux.org.uk>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>, 
+ Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, Barry Song <baohua@kernel.org>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+ David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>, 
+ Lorenzo Stoakes <ljs@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+ Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, "Liam R. Howlett" <liam@infradead.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Jonas Bonn <jonas@southpole.se>, 
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+ Stafford Horne <shorne@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-openrisc@vger.kernel.org, Yeoreum Yun <yeoreum.yun@arm.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8345; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=y9r6C8+qmxpZN2UriTf9GnZ7z+Z5djCU/+tffpW++Gs=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqYOIPXVkSrUGz6mKXI6y0yEWq3o4owe66Petn8
+ nVDY4vdlKeJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCamDiDwAKCRBt1cPRWsUx
+ M6JADADUr5G59lCYM0wOiw4e2HcD5OSYYLyafRctz8vNY6yo6bDPeo/0n6TxR2SqscwfZl0awE6
+ 8hMwJkf4/KbPw/TRaZWxT5b0H+U8Rvz+Ean8sjIqKsbxe+Wws/80SPkj4/51VEsYxHqrtYimCz0
+ s6CL89gclwhq1maxc397Bsz2j9PeL4Ai4DwWQI+MMGhDT1ibZsMGZjhTz22Mub0Bjfg7FtDp0pz
+ 1MnX3FKqxBBo7Uz1al5+cu4UruXkkf6wXd7Ksxhx5hHUSrdhMqHSfYxtFyQd4Glf3JyO1PluA5c
+ ABW8JArJI7O6GCYANLd+xOUk5TdU9NiBS9mnhvFM03eK+i8cZO6WP2fS8geXrdJBukKV0P/NBHN
+ ClsFohnF95WHZfsmcM7pusk1JlST9nms2bR3jYGHvUYYdBAYD2nZ8WjK318BqY2PQQB4jh9wZ38
+ 5KYWiZ+o3Xs1I1a0X0Os55pPGTIY9/E9pKwQPGeB2VIJZ5ELMC1Xfb0ATvuBZ78cwqAS0=
+X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
+ fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_083044_603758_F8D6D5E3 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,167 +104,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5638868986840667114==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Using ptep_get() and its counterparts in common code is suboptimal on
+kernel configurations with generic compile-time folded page tables.
+By default, ptep_get() and its friends expands to READ_ONCE(),
+forcing the compiler to emit a load even when the value is not used afterwards.
 
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index b804382075c40..e0c2f73bc646a 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
-> @@ -56,6 +56,29 @@ static const int pt_regmap[] = {
->  	[RV_REG_T0] = offsetof(struct pt_regs, t0),
->  };
->
-> +/* Full set of RISC-V callee-saved GP registers (ra, s0-s11) saved by a program
-> + * acting as an exception boundary, in the order they are stored on the stack.
-     ^^
+This issue was recently reported by Christophe Leroy [1] for ppc32
+preventing futher code conversion to ptep_get()/pmdp_get()/... helper
+and the same behavior can also be observed on arm64 when built with
+2- or 3-level page tables
 
-This isn't a bug, but Bjorn Topel requested netdev-style multi-line
-comments in v2. Should the opening /* be on the same line as the first
-text instead of on its own line?
+e.g) perf_get_page_size() in arm64 with CONFIG_PGTABLE_LEVEL=3:
 
-> + * RA and FP come first so the saved ra/fp pair forms a valid stackframe record
-> + * at [FP-8]/[FP-16] for the unwinder. The exception callback reuses the
-> + * boundary program's frame and restores this same set in its epilogue, so both
-> + * paths must agree on the contents and ordering of this list.
-> + */
-> +static const int rv_exception_csave_regs[] = {
-> +	RV_REG_RA,
-> +	RV_REG_FP,
-> +	RV_REG_S1,
-> +	RV_REG_S2,
-> +	RV_REG_S3,
-> +	RV_REG_S4,
-> +	RV_REG_S5,
-> +	RV_REG_S6,
-> +	RV_REG_S7,
-> +	RV_REG_S8,
-> +	RV_REG_S9,
-> +	RV_REG_S10,
-> +	RV_REG_S11,
-> +};
+00000000000052a0 <perf_get_page_size>:
+    ...
+    52dc: d53b4234     	mrs	x20, DAIF
+    52e0: d50343df     	msr	DAIFSet, #0x3
+    ...
+    52fc: d35e9a69     	ubfx	x9, x19, #30, #9        /* pud_offset_lockless() */
+    5300: f9403508     	ldr	x8, [x8, #0x68]
+    5304: f869790a     	ldr	x10, [x8, x9, lsl #3]   /* pudp_get() */
+    5308: f90007ea     	str	x10, [sp, #0x8]
+    530c: f8697908     	ldr	x8, [x8, x9, lsl #3]    /* pudp_get() */
+    ...
+    5360: 90000009     	adrp	x9, 0x5000 <perf_prepare_sample+0x548>
+    5364: 92746908     	and	x8, x8, #0x7ffffff000
+    5368: d3557675     	ubfx	x21, x19, #21, #9       /* pmd_offset_lockless() */
+    ...
+    5394: f8757ac8     	ldr	x8, [x22, x21, lsl #3]  /* pmdp_get() */
 
-[ ... ]
+Though PGTABLE_LEVEL=3, since the pudp_get() still remain with
+READ_ONCE(), there's redundant load for the pud which is folded.
 
-> @@ -312,11 +335,67 @@ static void emit_normal_restore(struct rv_jit_context *ctx, int stack_adjust)
->  	emit_ld(RV_REG_TCC, ctx->tcc_offset, RV_REG_SP, ctx);
->  }
->
-> +static bool is_exception_prog(const struct bpf_prog *prog)
-> +{
-> +	return prog->aux->exception_boundary || prog->aux->exception_cb;
-> +}
-> +
-> +static void emit_exception_boundary_prologue(struct rv_jit_context *ctx,
-> +					     int stack_adjust)
-> +{
-> +	int store_offset = stack_adjust - 8;
-> +	int i;
-> +
-> +	emit_addi(RV_REG_SP, RV_REG_SP, -stack_adjust, ctx);
-> +	for (i = 0; i < ARRAY_SIZE(rv_exception_csave_regs); i++) {
-> +		emit_sd(RV_REG_SP, store_offset, rv_exception_csave_regs[i], ctx);
-> +		store_offset -= 8;
-> +	}
-> +
-> +	/* store TCC from RV_REG_TCC to stack */
-> +	emit_sd(RV_REG_SP, store_offset, RV_REG_TCC, ctx);
-> +	ctx->tcc_offset = store_offset;
-> +
-> +	emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
-> +}
-> +
-> +/* reuses the boundary program's frame, whose frame pointer
-> + * is passed in a2 (since it's the third argument from bpf_throw()).
-     ^^
+To prevent generating suboptimal code, define dummy pXdp_get() and
+pXd_offset_lockless() in the pgtable-nopXd.h to handle folded page tables
+properly.
 
-Same comment style here - should this also follow netdev style?
+As the pXdp_get() can return *dummy* entry, some of code using
+the stack value where saves the pXdp_get() could be a problematic:
 
-> + * Setting SP = FP - stack_adjust lines the epilogue's loads up with
-> + * the registers the boundary saved.
-> + */
-> +static void emit_exception_cb_prologue(struct rv_jit_context *ctx,
-> +				       int stack_adjust)
-> +{
-> +	emit_mv(RV_REG_FP, RV_REG_A2, ctx);
-> +	emit_addi(RV_REG_SP, RV_REG_FP, -stack_adjust, ctx);
-> +	ctx->tcc_offset = stack_adjust - 8 - ARRAY_SIZE(rv_exception_csave_regs) * 8;
-> +}
-> +
-> +/* Used by both the boundary program and the exception callback alike, since the
-> + * callback runs on the boundary's frame.
-     ^^
+  1. Passing address of stack value where saves the pXdp_get() result
+     to pXd_offset() for example:
 
-And here as well.
+       pud_t *pudp, pud;
+       pmd_t *pmdp;
 
-> + */
-> +static void emit_exception_restore(struct rv_jit_context *ctx, int stack_adjust)
-> +{
-> +	int store_offset = stack_adjust - 8;
-> +	int i;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(rv_exception_csave_regs); i++) {
-> +		emit_ld(rv_exception_csave_regs[i], store_offset, RV_REG_SP, ctx);
-> +		store_offset -= 8;
-> +	}
-> +	/* restore TCC from stack to RV_REG_TCC */
-> +	emit_ld(RV_REG_TCC, ctx->tcc_offset, RV_REG_SP, ctx);
-> +}
-> +
->  static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
->  {
->  	int stack_adjust = ctx->stack_size;
->
-> -	emit_normal_restore(ctx, stack_adjust);
-> +	if (is_exception_prog(ctx->prog))
-> +		emit_exception_restore(ctx, stack_adjust);
-> +	else
-> +		emit_normal_restore(ctx, stack_adjust);
->
->  	emit_addi(RV_REG_SP, RV_REG_SP, stack_adjust, ctx);
->  	/* Set return value. */
+       pud = pudp_get(pudp, address);
+       pmdp = pmd_offset(&pud, pud, address);
 
-[ ... ]
+     (e.g. host_pfn_mapping_level() in loongarch).
 
-> @@ -2183,3 +2280,12 @@ bool bpf_jit_supports_subprog_tailcalls(void)
->  {
->  	return true;
->  }
-> +
-> +bool bpf_jit_supports_exceptions(void)
-> +{
-> +	/* bpf_throw() unwinds by walking the frame-pointer chain from inside
-> +	 * the kernel back into the BPF frames (see arch_bpf_stack_walk()), so
-         ^^
+  2. Using the pXdp_get() result to use as argument of pXd_val() and
+     to check prot without checking pgtable is folded.
+     for example, x86's effective_prot().
 
-And one more multi-line comment here with the same style.
+  3. Using set_pXd() with pXdp_get() will set problematic dummy entry
+     in folded page table like:
 
-> +	 * exceptions require the frame-pointer unwinder to be enabled.
-> +	 */
-> +	return IS_ENABLED(CONFIG_FRAME_POINTER);
-> +}
+       set_pXd(pxdp, pXdp_get(pxdp_k));
 
+     To prevent this, Let set_pXd() triggers the compile error
+     to catch the wrong usage with folded dummy entry of set_pXd() in
+     the generic compile-time folded pgtable.
 
+  4. Using pgd_page_vaddr() to get the first-level pgtable.
+     passing dummy pxdp_get() for pgd_page_vaddr() will return wrong
+     address. Therefore, make pgd_page_vaddr() and pXd_pgtable() to
+     trigger the error for improper usage with folded dummy entry in the
+     generic compile-time folded pgtable.
+
+Thanksfully, above cases are rare since (1) most of usage using
+pXd_offset() with result of upper pXd_offset(), (2) it's extreamely
+rare to use pXd_val() for non-leaf entry in the kernel,
+(3) is to handle the vmalloc_fault or set the first level of page table
+and (4) to setup early page table and etc.
+
+Therefore, convert this kind of problematic rare pattern properly.
+
+Furthermore, passing the ptep_get() (or its counterparts) as argument
+directly to pte_present() and related helpers can generate suboptimal code,
+in arm64 as the current macro implementation may evaluate its argument
+more than once like:
+
+  !pte_val(READ_ONCE(*pte) || pte_present_invalid(READ_ONCE(*pte))
+
+resulting in redundant loads.
+
+A typical example is pud_free_pmd_page(), where the expansion of
+pmd_present() generates:
+    ...
+    /* pmd_present() (x20 = pmdp) */
+    1b88: f9400288     ldr	x8, [x20]        // read pmdp.
+    1b8c: f9000fa8     str	x8, [x29, #0x18]
+    1b90: 3707fec8     tbnz	w8, #0x0, 0x1b68 <pud_free_pmd_page+0xd0>
+    1b94: f9400288     ldr	x8, [x20]        // redundant read of pmdp.
+    1b98: 8a170109     and	x9, x8, x23
+    1b9c: f9000fa8     str	x8, [x29, #0x18]
+    1ba0: f120013f     cmp	x9, #0x800
+    1ba4: 54fffe20     b.eq	0x1b68 <pud_free_pmd_page+0xd0>
+    1ba8: 17fffff4     b	0x1b78 <pud_free_pmd_page+0xe0>
+    ...
+
+To address this in arm64, convert pte_present() macro and its friends
+to static inline function.
+
+This patch is based on mm-unstable.
+
+Future work
+===========
+ - print_bad_page_map() and show_pte() still prints dummy values
+   instead of printing the same content for all generic compile-time
+   folded page tables. We might want to skip printing dummy values later.
+
+ - We currently catch abuse of dummy values on the stack at compile-time by
+   relying on constant propagation by the compiler. Usama's work [3] on using
+   distinct types for sw vs. hw PTEs could help here as well."
+
+Patch History
+=============
+from v1 to v2:
+  - Restore slient fallback to next pXd in set_pXd() and pXd_pgtable()
+    and add check whether they're called with dummy entry.
+
+  - Add some comment for returning first entry of pgd in arm with
+    2 pgtable-level
+
+  - https://lore.kernel.org/all/20260713135614.1618183-1-yeoreum.yun@arm.com/
+
+Link: [1] https://lore.kernel.org/all/0019d675-ce3d-4a5c-89ed-f126c45145c9@kernel.org/
+Link: [2] https://lore.kernel.org/all/20251113014656.2605447-1-samuel.holland@sifive.com/
+Link: [3] https://lore.kernel.org/r/74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+David Hildenbrand (Arm) (13):
+      ARM: mm: make nommu pgd_t a scalar
+      ARM: mm: make 2-level pgd_t a scalar
+      ARM: mm: remove custom pgdp_get()
+      LoongArch: mm: define pud_leaf() only when PUD exists
+      MIPS: mm: define pud_leaf() only when PUD exists
+      mm/pgtable: define (pgd|p4d|pud)_leaf() for folded page tables
+      mm/pgtable: define (pgd|p4d|pud)_offset_lockless() for folded page tables
+      x86: mm: carve out the generic compile-time folded pgtable case in effective_prot()
+      mm/pgtable: optimize pmdp_get() and friends for folded pagetable levels
+      mm/pgtable: catch abuse of folded dummy pgd_t/p4d_t/pud_t
+      mm/pgtable: disallow calling (pgd|p4d|pud)_page, pgd_page_vaddr() and (p4d|pud)_pgtable with dummy
+      mm/pgtable: disallow calling folded set_pgd/set_p4d/set_pud with dummy
+      openrisc/pgtable: drop __pmd_offset()
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/29929750005
---===============5638868986840667114==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Yeoreum Yun (7):
+      mm: vmscan: remove stack copy address of pud pass in wallk_pud_range()
+      loongarch: kvm: remove stack copy address of pXd in pXd_offset()
+      riscv: kvm: remove stack copy address of pXd in pXd_offset()
+      riscv: mm: use proper set_pXd() for generic compile-time folded patable in vmalloc_fault()
+      x86: mm: define pudp_set_access_flags() when CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD is enabled only.
+      x86: mm: skip pud setup when using generic compile-time folded pagetable
+      arm64: pgtable: convert pte_present() from macro to static inline
+
+ arch/arm/include/asm/page-nommu.h           |  4 +--
+ arch/arm/include/asm/pgtable-2level-types.h | 24 +++++++++++--
+ arch/arm/include/asm/pgtable.h              |  2 --
+ arch/arm64/include/asm/pgtable.h            | 35 +++++-------------
+ arch/loongarch/include/asm/pgtable.h        |  2 ++
+ arch/loongarch/kvm/mmu.c                    | 20 ++++++-----
+ arch/mips/include/asm/pgtable.h             |  2 ++
+ arch/openrisc/include/asm/pgtable.h         |  3 --
+ arch/riscv/kvm/mmu.c                        | 20 ++++++-----
+ arch/riscv/mm/fault.c                       | 52 +++++++++++++++++----------
+ arch/x86/mm/dump_pagetables.c               |  5 ++-
+ arch/x86/mm/pat/set_memory.c                |  5 +--
+ arch/x86/mm/pgtable.c                       |  2 ++
+ include/asm-generic/pgtable-nop4d.h         | 53 ++++++++++++++++++++++-----
+ include/asm-generic/pgtable-nopmd.h         | 54 ++++++++++++++++++++++------
+ include/asm-generic/pgtable-nopud.h         | 55 +++++++++++++++++++++++------
+ include/linux/ptdump.h                      |  1 +
+ mm/ptdump.c                                 | 11 ++++++
+ mm/vmscan.c                                 |  2 +-
+ 19 files changed, 246 insertions(+), 106 deletions(-)
+---
+base-commit: 7368ccdeff50c27809d3a8276c85bae7e402c96c
+change-id: 20260722-dummy_ptxp3-3741d78cc70f
+
+Best regards,
+-- 
+Sincerely,
+Yeoreum Yun
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5638868986840667114==--
-
