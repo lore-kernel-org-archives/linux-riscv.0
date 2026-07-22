@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9006AC44539
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 12:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2E7C44539
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 12:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ws2id+ridox+HjhRjcGozTgZIXHIPSwjPeA/6dc7GDA=; b=rE0suhn69zrQg1
-	qBDrwj0FaT/i43RvFe6B+W+DTt+xik5Yb1bje3j1nDejS6Ks6r6v6APm+OfV+yxHQT9PnBQ5tNqtu
-	KE7Y9tJ3hoEJ9Ys2J0d1mxb2AC2fOtfhsdiQgIV+WkIOcASD3pO4RBDTTdgVT5XKm4UQD2hdewieH
-	rEArUq8vfpExaCTboDoPlgwqvnjtgPuVh0K16/qkPcr5LCw61iOOEUMNp80yVXDEb2MLrvuUcaQYt
-	yWw3yf/xzZ4c0bCD0Yhwi/RZY1+rZRCFkPCunqsb5CnU/8us4bS2J/VQL8R5W6Y5b47sUNHd8TR+q
-	/KJtwT/yncY+9zEQRrsA==;
+	List-Owner; bh=RQXTPBPTYYvtKq7iAULj0J4mPHQwN9AvJ0+b2H9ryCg=; b=JFlIiDS6OpKmem
+	g2oxd4Ouu3q2p85HODlpZMzIKBZOUD4sEEhVRa7qMhBqoIs38D6Zt5GrYKWhQpT+MWwnfGF1qXJK/
+	NbJHvaseixscoR32CzstaDh6BPGfz4YwW1DEJdzEIJ47nzSoGH374d//uUIZOgrMnt/Ld8JaZepGS
+	rqf75yw60LYzTnsXkPCWQTGbaGVu4Bt3amIufUDJ/3NDJaa6YU8qAVP5uXC5j+Wy+0O50xb+n0XTh
+	uRj0QAeT8r1A2vhXnIPSNPVWmZhylSp/7quBsj1QmoBr/rY6F38u47M4kA/JT6a/BXxFFxDpjssoY
+	NTkpwDQRpT+QQPQpAaXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmW4o-0000000BlYJ-2g4j;
-	Wed, 22 Jul 2026 12:29:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmW7W-0000000BlpW-0BB8;
+	Wed, 22 Jul 2026 12:32:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmW4m-0000000BlY9-48vT
+	id 1wmW7U-0000000Bloo-3Qu8
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jul 2026 12:29:29 +0000
+	Wed, 22 Jul 2026 12:32:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D3C7429E9;
-	Wed, 22 Jul 2026 12:29:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 245C51F00A3D;
-	Wed, 22 Jul 2026 12:29:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D3988600DA;
+	Wed, 22 Jul 2026 12:32:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 199031F00A3E;
+	Wed, 22 Jul 2026 12:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784723368;
-	bh=papv7YXw5e9qr9TxOo/7XQD2ZbIK8UNV5R7RthYAaH8=;
+	s=k20260515; t=1784723535;
+	bh=lnxlxmPT8kUh0+TLlrEX3X7DjHb/GZYj15xXsKbQU+g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nYnoVDpube2nUxmuXxJGH6/oVcQZCukst05/PgbOP4Gt4qTsl22I0OVMaEp80tC3u
-	 WewK4Rc1cl230aZ794/FgJfEuZpT64GQbmotN0+e3k4++xlRO6ymC4qxRQ2Wpc6k7Q
-	 26+/ZvRH6N57IzolfLnNBNbz05NXxMFWzJ842SrVx1v3VHW6hL4yLaVYxoAFbL3T+1
-	 O5pU2MpAQxD4ekUb1fbBmCgRGhKWHKNlRzcpxiGH6uneIlGNMZU+UUkxBMho7bBSrh
-	 Vibpuqs51y2kKUw0sK9iw/nziRr8evIPPMvQUUGpeiHniF4h5cLg4ursE9MMYQRrYP
-	 WFGKL2l6Sq3Rw==
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 4F445F40079;
-	Wed, 22 Jul 2026 08:29:27 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Wed, 22 Jul 2026 08:29:27 -0400
-X-ME-Sender: <xms:p7dgahjgoQwvtbrqV17q1YeAKh5wxNyjDqMvmgxjkbJ7nYLKMgWNCQ>
-    <xme:p7dgajq1AYSrCF4o-80gtdV6bOwVsMVuzBPP_g6qBxw0Rrd1y4EbSYIDv5XojbBi4
-    b9p-Geh_xUvpXp96LmzM_XxYMfu8NW3_qQbHC1Qo9EVZLTeEw21Tvg>
-X-ME-Received: <xmr:p7dgaofXPOo2Ejn-NfaE9Uq8uZ3Cve-baeZuZkmQ87W_QdklNBIto4v1NzJBTg>
-X-ME-Proxy-Cause: dmFkZTGPHf2oLZcBTXKE6VHMmNdjiu3OVwopU375jI5mGyjx5MTNfFKZDDYFAjfASgfQ9p
-    pCgV1iuV9gZ2ZJUyga/sMkP4ZQ78Oz0k6IaZYq66oKgJbir/8pHqk3Pz2yD9JOucmuuUMd
-    ACF/r8Gfs10FHRBCMoQpVHVcxX3HoZpzcOEx4geJsXQGMcUwBoK6w0nVJg54ru6LtS/VQd
-    ipW01CD8D0rICOCqx1JcMZ+DsjFfUCHsR1j7LCBeI1HuFvlPG2Pwdn6dUpDddJLkpR5a6P
-    Kr39m+yAfhUC3bm5YeqMY9gdD2Pvcu16gpQii6zdusGiVw7RbLfNcu857+dbcsKTdQiFhU
-    hrdLSV1/CK5a39CYFT4mB3ro4v5wyKGR+zmT9RTpZSbPKnG12jkuu/6DMxHoqQgfZA/a7H
-    WLbqA+RINseTq8cMxylFuByGcDNuxXEOtjzJh0r1Q/nQKxw3LH3DLczlf9kff9IGRCYgWq
-    E+Rl0gLheZN0K8v4HiAIZEYeQmgXtn0av5s/z1KdLNke7jHrN0MNy4UjMfg7Dfj5dU7Ix/
-    3rSE1G07fKdFfRYkiTLMnM3dUaV1WggeeAMLNkXXvX3Axi/l79F96meVXNiMomsL9HSbht
-    QjxZKQA3GWHrnG+lBOH9BygwUKnMZKes/vVWFk5XY6GKx6NvAf9/Cn9Tp3wQ
-X-ME-Proxy: <xmx:p7dgaufaJvr-dcmLleKtuoMWWuCZ9JQcadxQIce3OjGGeWMnCpuxzg>
-    <xmx:p7dgamd2EpRJ7lXg_tRXx01T8K4wdL9teLjtcshAAVKW7kF0NnXdzQ>
-    <xmx:p7dgasp0wP7wdwd9QMHABLn3bX1tJbyLghrsaT2uuJJbhaqRF09o1g>
-    <xmx:p7dgauyA9UGBuF8wTp5Njb3fagh_HwpVP4kFYPG1nRp4D9vAw24XaQ>
-    <xmx:p7dgaqcIQeaUd3J6VjPAL3p0h1R3tAPAtiKGqWlNNskOFqHqsgh0ZYyL>
+	b=AOHz42z+4saXeEFOaiTY/undQpiA7hP3KHl3uYFTn06AE3Mhx3zoLsWvPzfpUiP61
+	 9rc6bO2gzHbfKFdStk1rrYH9PBKSf4qYTIOpwFcqn0/feFC2pEXdPu1ApMntKR7Cb+
+	 DuWq0qzjRLr7kmcZvS/sVzmLGwZDlqozAyrk8A0dV++TFZJs5/BqQruQ4PRNfCKgQg
+	 bJI9NCNrl1DjCWvflQcmrA6BekG6rGjQxF+geFHZC9I3uPPgecYFmcvrq2Dhm6/M7F
+	 070IV4EuaMmmbVkgQOAiFTQfd+fXNb5iaPT8Cl2d+WXFe/Mh90muDiYfbxUvjztGck
+	 AdkTT89TrEWxQ==
+Received: from phl-compute-08.internal (phl-compute-08.internal [10.202.2.48])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 54003F40066;
+	Wed, 22 Jul 2026 08:32:14 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-08.internal (MEProxy); Wed, 22 Jul 2026 08:32:14 -0400
+X-ME-Sender: <xms:TrhgatZNom5xPIfbnmufUuE-WODdSzQlV-JLYtwYomLKl9cZIUxmEQ>
+    <xme:TrhgaiAj8Y_Cjp87DMQAkcnJjDUkh3G3bTsD4rhV-ERR2t_uDADYW8grH4Epom7Pl
+    n3fKTAIQCjsZ4kF6F4S_wDhxlstRyklTnHlvfPaYTyqLK_Q0CuqTAM>
+X-ME-Received: <xmr:TrhganVG89-RXwQyvrpLTjXQQgkpKo-txFMsbOaP-PiCPJrrb5GooqryC-y2ZQ>
+X-ME-Proxy-Cause: dmFkZTF8TT/vDWioYkWdZrYizKr34no4dSvpXzh8N48LVZZQZqB/wSjKuB1GxsBFuHqNVQ
+    GrXfDoi/gTnPqOz9NywDHbklLV/vEBCMTlo8D23V0lP6ETNgoGfqly2ixdUB5oriFaGZo2
+    qiBnOauJoAsEkIpLse0B9lrTNjzFyVzGyIDSMUxGH9ACPTK0D4IQE+bulsr/kCy4DszbeL
+    JSXNphFwamAJHMjxaf30zIL2ghJ8cmQ7g8OJS+9m/oSB6ikxaU8BzTfXgFMgABSHA1vtSQ
+    W4NxwjELXX400Odu2xg9u9q2JVBBqmoBUicprRjUVWwhGw+yeFeCBAErAW/FOV7A2PpuMn
+    9PjWNPvSbn+/b2UnKCRuEb4nJ/5rBkwRVvURTJr08kKE5m/A7LCNIbKRilrSyOYDPWpj5Y
+    B6GKwBU9s/XY2r6oBoYuqXIPLCm76bG9o89jYu3jVE6+IDvNO1IMQpjjxSliPUy10uPaet
+    aBRFjezYyoLJ9fMPWdqBnA+orVErUEMuYSF1LPgx86KqkzFAOSHHRbnylCst0hJFTUB85W
+    b+pJzbobJsuV5itUdeBvbv9X6s9T9GxOOglUca5yJwcathV/dqYCXcWP45mdJNn7Pa2hbk
+    N4r9BFSofiz8lVpuHU8a9OjXSe7OqRhPlnWa1LzW2FzqBt4yS0wbQRuSOdDQ
+X-ME-Proxy: <xmx:Trhgaj3q5Sf-3pZyVZmdUZxTriUbd1Uwraggyq5HpgrVV91QlwTkow>
+    <xmx:TrhgagVCe21PH9DpW1S1uAFHSvbvAp9qyBhNij7GChcZR2-XZa7DAg>
+    <xmx:TrhgahAb93BVR8yjwUhPvlE4cMmZmYBi27jQcwnSjbdAF4uuPaK3EQ>
+    <xmx:TrhgarowJflwoG5gBWCe05wAKGZHyMSa7CIH8mQgQRiGtFczztdJZA>
+    <xmx:Trhgal33aXPtJDrx3w-whTOInOBtVcW1cf2rkQxaTtdlHZjjzbR26kt0>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 22 Jul 2026 08:29:26 -0400 (EDT)
-Date: Wed, 22 Jul 2026 13:29:25 +0100
+ 22 Jul 2026 08:32:13 -0400 (EDT)
+Date: Wed, 22 Jul 2026 13:32:12 +0100
 From: Kiryl Shutsemau <kas@kernel.org>
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Jiakai Xu <xujiakai2025@iscas.ac.cn>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, David Hildenbrand <david@kernel.org>, 
-	Guo Ren <guoren@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	David Hildenbrand <david@kernel.org>, Guo Ren <guoren@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
 	Vishal Moola <vishal.moola@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
 	Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>, 
-	Junhui Liu <junhui.liu@pigmoral.tech>, Nam Cao <namcao@linutronix.de>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	Vivian Wang <wangruikang@iscas.ac.cn>
+	Junhui Liu <junhui.liu@pigmoral.tech>, Muchun Song <muchun.song@linux.dev>, 
+	Nam Cao <namcao@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <pjw@kernel.org>, Vivian Wang <wangruikang@iscas.ac.cn>
 Subject: Re: [PATCH] riscv/mm: use physical alignment for vmemmap_start_pfn
-Message-ID: <amC3cuIMjMPikf4u@thinkstation>
+Message-ID: <amC4KvulXwQe-JyM@thinkstation>
 References: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
- <599C4370-89C3-4C73-8296-5723D73DDBB8@linux.dev>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <599C4370-89C3-4C73-8296-5723D73DDBB8@linux.dev>
+In-Reply-To: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +101,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 05:20:16PM +0800, Muchun Song wrote:
+On Thu, Jul 16, 2026 at 11:53:25AM +0000, Jiakai Xu wrote:
+> RISC-V computes vmemmap_start_pfn by rounding phys_ram_base down to
+> VMEMMAP_ADDR_ALIGN. That alignment must therefore be expressed in the
+> physical-address domain.
 > 
+> Commit 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
+> attempted to account for the maximal folio alignment by feeding
+> MAX_FOLIO_VMEMMAP_ALIGN directly into VMEMMAP_ADDR_ALIGN. However,
+> MAX_FOLIO_VMEMMAP_ALIGN is measured in bytes of struct page storage,
+> whereas VMEMMAP_ADDR_ALIGN is used to align a physical address.
 > 
-> > On Jul 16, 2026, at 19:53, Jiakai Xu <xujiakai2025@iscas.ac.cn> wrote:
-> > 
-> > RISC-V computes vmemmap_start_pfn by rounding phys_ram_base down to
-> > VMEMMAP_ADDR_ALIGN. That alignment must therefore be expressed in the
-> > physical-address domain.
-> > 
-> > Commit 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
-> > attempted to account for the maximal folio alignment by feeding
-> > MAX_FOLIO_VMEMMAP_ALIGN directly into VMEMMAP_ADDR_ALIGN. However,
-> > MAX_FOLIO_VMEMMAP_ALIGN is measured in bytes of struct page storage,
-> > whereas VMEMMAP_ADDR_ALIGN is used to align a physical address.
-> > 
-> > The mask-based compound_info encoding requires pfn_to_page(0) to be
-> > naturally aligned to MAX_FOLIO_VMEMMAP_ALIGN. Commit 9f94db4c7eaa
-> > ("mm/sparse: check memmap alignment for compound_info_has_mask()")
-> > added a check for that requirement and exposed the unit mismatch on
-> > systems such as QEMU virt, where the DRAM base is not aligned to
-> > MAX_FOLIO_NR_PAGES * PAGE_SIZE.
-> > 
-> > Convert MAX_FOLIO_VMEMMAP_ALIGN to the equivalent physical alignment
-> > before using it in VMEMMAP_ADDR_ALIGN. This keeps the existing
-> > round_down() logic while making the resulting vmemmap base satisfy the
-> > mask-alignment requirement.
-> > 
-> > Fixes: 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
-> > Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> > Assisted-by: YuanSheng:DeepSeek-V4-Flash
+> The mask-based compound_info encoding requires pfn_to_page(0) to be
+> naturally aligned to MAX_FOLIO_VMEMMAP_ALIGN. Commit 9f94db4c7eaa
+> ("mm/sparse: check memmap alignment for compound_info_has_mask()")
+> added a check for that requirement and exposed the unit mismatch on
+> systems such as QEMU virt, where the DRAM base is not aligned to
+> MAX_FOLIO_NR_PAGES * PAGE_SIZE.
 > 
-> I've always wondered why RISC-V uses a complex logic to calculate the
-> mapping relationship between vmemmap and PFN. We could easily follow the
-> x86 approach to make it much simpler.
+> Convert MAX_FOLIO_VMEMMAP_ALIGN to the equivalent physical alignment
+> before using it in VMEMMAP_ADDR_ALIGN. This keeps the existing
+> round_down() logic while making the resulting vmemmap base satisfy the
+> mask-alignment requirement.
+> 
+> Fixes: 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
+> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+> Assisted-by: YuanSheng:DeepSeek-V4-Flash
 
-I am not an expert in riscv mm, but the git history suggests it is
-deliberate. See a11dd49dcb93 ("riscv: Sparse-Memory/vmemmap out-of-bounds
-fix") and f754f27e98f8 ("riscv: mm: Fix the out of bound issue of vmemmap
-address").
-
-As far as I can tell, the constraint is the size of the vmemmap window:
-
-      #define VMEMMAP_SHIFT \
-              (VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
-
-On sv39 that is a 4GiB window, enough struct pages for a 256GiB span of
-physical memory. The vmemmap_start_pfn bias anchors the window at the
-DRAM base, so any base works as long as the span fits. Base vmemmap at
-pfn 0 and the window becomes absolute: physical memory above 256GiB is
-not representable and struct page addresses run past VMEMMAP_END into
-vmalloc space. Unlike x86-64, sv39 doesn't have the virtual address
-space to size the window for the whole 56-bit physical space.
-
-It boots fine on QEMU virt because DRAM sits at 2GiB there.
-
-Whether any real sv39 platform places memory above 256GiB is a question
-for the riscv folks. But if the answer is yes, the simplification is not
-available on sv39.
+Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
 
 -- 
   Kiryl Shutsemau / Kirill A. Shutemov
