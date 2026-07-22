@@ -4,99 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB2BC44536
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 01:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB18EC44532
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 01:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z9GvPe3vCFt5noRQ0ArkXKpQdZjMzgNVozH9v0NJgc8=; b=GU8UYK8AqQ2egO
-	EsahcBqs7sQffBb1L99s06VSApN4gom6eUP99t0pembeAG3oNBZYbhiZqLbYYZxwe1+bTcmZUeFaO
-	mNuGIResZ68x+BzhwOtNHIvnRhW0Ck4VDYUeEvRPbCQJmaxUGbqL7OzpiZwt3qbndTk69buBKFvaS
-	61oaRC5j9dKQGqgj1QMU5drF8D9JDVtfWAKlIOeUtoVudyvggszUvr0qCgqldBLeB7LMxlKqCKigc
-	xMp9jNwhjhB2q8t80atdzhYnHg/zQ5pd/t2NRapbu/8un5ROhZwtE/qHwjmxb9bjHD6I5prwuVM4U
-	MKxHhIj0bAEocPsXLU/Q==;
+	List-Owner; bh=o3UcWXSLkkfO2xtROD1ix7T00zldAlpl/CVo33JPQyU=; b=yCcBNcczBOxmia
+	MwzdtLz423MKLzF/CwHjMgatnHnX1Z+wlE7E8xQv73D0Q5y6Ypfmsn3UYZNNL967S29WLifFWh6M1
+	u3PqYd8b3kY9mw62ayQ3SiPfPNXK5n8o8HlPgqbdtN7W2YTfpmZ/wgqIrySEdMzdYeRWhioRoB2YY
+	WPkEgMRiozLhcgPw2RYUtGu5WaP3IINBBSfdd4lTq2ONNlpeDf0mTsa+ivGODoJzjt08lOAM02arW
+	Cg/zjW/o/jLKczvJxL89q5Px78FTKgmhSADu/CXn3x2aFokYeoUJ3T0Gol7MaelAY5Y1kfqz3FFMQ
+	tFZe87suN5DZnLLehuLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmi7c-0000000D29u-0mZK;
-	Thu, 23 Jul 2026 01:21:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wmiHo-0000000D2cu-1C6g;
+	Thu, 23 Jul 2026 01:31:44 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmi7b-0000000D29o-1A8K
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 23 Jul 2026 01:21:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=l+BcWxEYxghnenlldtXOwu+zC99qYehVhMZWM49Kkzk=; b=YtRI0MP7S/S4UBwBXBG8H7FbNM
-	lsPq+ls5oJGL5zqH74HekmX6buLRHsZ65wsk+FxRkKLxRcAgO7jxaKAYX0xbnh6NAmUUzlrG1iUeR
-	I1hXLWjhsMh65a18SVrGU7lAIl2brDaGYSAUqMSAsCjfRR8WKNRDgO0yqonRp1NmS3tEzho++Qo0+
-	fQZAYUjbhWVbm57WYp1V7QkACnetJj2y2e7DvQIYZWcWGZtjooPBdZpZhTrkbleakSrECTr6Gm/OX
-	Yo7E9vW7yu9w1YV5k/dJGA+9WcWg7r5jtB/NcQwTJfrmMOzNqCeGFkRsNtwJ5ehkivL/tl7AuqY73
-	NzLUT8Xg==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wmi7D-00000001Jr4-3pt3
+	id 1wmiHj-0000000D2cL-0hC5
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Jul 2026 01:21:09 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66N1JmFU2096485, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1784769588; bh=l+BcWxEYxghnenlldtXOwu+zC99qYehVhMZWM49Kkzk=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=HV/hg6puvpwQe9ORCUlxRgkV/B22MlLrGYspS1yYlv80QkBDjvjTBORNAWpBvckxP
-	 hcf3621kkn+yWd8jQiKIbCzljy1OpmY9yGZiGD7ZSk0rSovfktxcUKiJESd7162HCK
-	 OEZ4mmxIHg7iA9qXia99x9Rn82qU39ewR0CuGvRCJTPoAR+sa/jM026szBRPb0JQlY
-	 2R/0Ie1yW3L9pW/XMQuFefhditcPVTdUOmVH6bwcgynk17W89d9FAMBifc94kfxXPD
-	 HHi7dbOtXZ0aTBy1jlBcnoQFLk9u45FELFf4xMrlxUhxWy04AaWSv/n2T28NxMncSs
-	 I6WM2YNJz5DnA==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66N1JmFU2096485
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 23 Jul 2026 09:19:48 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Thu, 23 Jul 2026 09:19:48 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Thu, 23 Jul 2026 09:19:48 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::e6fd:5a3f:8946:92c4%10]) with mapi id
- 15.02.2562.017; Thu, 23 Jul 2026 09:19:48 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, Bjorn Helgaas
-	<bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, =?utf-8?B?S3J6eXN6dG9mIFdpbGN6ecWEc2tp?=
-	<kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, "Rob
- Herring" <robh@kernel.org>, Inochi Amaoto <inochiama@gmail.com>, "Aurelien
- Jarno" <aurelien@aurel32.net>
-CC: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"spacemit@lists.linux.dev" <spacemit@lists.linux.dev>,
-	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>
-Subject: RE: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to
- linux/pci_ids.h
-Thread-Topic: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to
- linux/pci_ids.h
-Thread-Index: AQHdFXehTbmbDPtnB0KyE0vFNWAFDLZ6Vr7g
-Date: Thu, 23 Jul 2026 01:19:47 +0000
-Message-ID: <073fbf4b41804285b2df6fbb4efce0ed@realtek.com>
-References: <20260716-rtw89-spacemit-k3-v2-0-392b577ebf75@oss.tenstorrent.com>
- <20260716-rtw89-spacemit-k3-v2-1-392b577ebf75@oss.tenstorrent.com>
-In-Reply-To: <20260716-rtw89-spacemit-k3-v2-1-392b577ebf75@oss.tenstorrent.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
-MIME-Version: 1.0
+	Thu, 23 Jul 2026 01:31:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1784770271;
+	bh=yAUgDyUzgV75t775RLHTRzDx+K4j+WGYlepCAavK6fk=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=euB0T8Bx/i9rRTN6jwE6AlDP1WWON/3T3R7ire95ch6WU67NVsFN1nhS2SRWnFBDE
+	 sUW3MdVUZRt57YJKSeGLJGiyJNcdz9tu15yhW/miX53Ez9jtRvmEZBMKgRF4W6gasu
+	 v64Ki8u2PbexVxAzQ2ZgFWGaEFt+BNpgTI50url4=
+X-QQ-mid: zesmtpgz8t1784770263t38c77256
+X-QQ-Originating-IP: bVYjHVoJ/jFoyrpIdXFPpgw76CxkbZdkCUD8fa/J0hs=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 23 Jul 2026 09:31:01 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15860423990033171300
+EX-QQ-RecipientCnt: 9
+Mime-Version: 1.0
+Date: Wed, 22 Jul 2026 05:15:29 -0700
+Message-Id: <DK53C3CZF06Q.37189IIFM8VQ3@linux.spacemit.com>
+Subject: Re: [PATCH] i2c: spacemit: request IRQ after controller
+ initialization
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Linmao Li" <lilinmao@kylinos.cn>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>, "Andi Shyti" <andi.shyti@kernel.org>
+Cc: "Yixun Lan" <dlan@kernel.org>, "Alex Elder" <elder@riscstar.com>,
+ <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260722094302.2284191-1-lilinmao@kylinos.cn>
+In-Reply-To: <20260722094302.2284191-1-lilinmao@kylinos.cn>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: N4ZILu3POr3OIwaScrzSHsGFbS/q61DUNQMJU2jFaZjB2/oKABASSbJP
+	0K+0muEUQkohCHwbrte8Ln6u0NE/P3OpSkPwBdnfs+EcXZwcR/47PboHuWJ1QgDPVz5kg3I
+	d7O+ANDZXGAQkFOjEH+Dq/0KJ0WRpztB9ooMtIyNOeOUsCBgOz287NSiQwaZrWhBddMvkRS
+	XuCaMarClzNoAJKmnnyyYVua7g4WBZ8pm7wcNwnI0CTNKrV+EMNFlAXssfwGIGS9TySscEj
+	RdFOnoeluM1cX7nCMr1oyIq6b6Xl9qI0gl1mucxOF+tIiVarDUlOpmRW5Olq7/DSb5qM8qu
+	rKqB9yp2ZGfnmdHu/+uVeFzb4W82OHLTR/T6OY6Zri9dOAfrEdbmNsVh2QuddOCpRwjvJ0B
+	HOJlzYPBqjfAF20fo2ox5PbXyt8uMKJdnUvNz42j6AOMMIrFU2vYrIOGSmseCVKWbXyb9Q3
+	A46LH/uhoRdcGiK2OABnjrE59pFTkIfwOWtusz7zCeK6kS9LcD4A1rjgfbprI2eUxOfr0n2
+	b053nRk3PEsN9I0wzbX7XscKmmadu+WnFNkFvseRSkiiNKnsrP55OPbVgyMtUkGzWw6FxwO
+	JZbT+/Vqk3UpobQQX8apVMLyo7Rx+CLgeHXrARLfn9mQwTizHou2PrVLFCZEgQZWP5/J7PH
+	64F6Fb1IHKLPECjxDAPw3W9zMTjz//SL25D6w0txmyNg0rQbEWkNaI0dGGglawPexl7KXOc
+	6QdcUVgdekVR+FIj1S4Qt2UTX6XV8U/we12hDpd40zT+nblKYAbjhPQ3VFuPoXRvI2U7GJu
+	anrN54LmqsO9ZEVfSbNq+knYpM3kUzf4QacxnfAyoErbhcMbuS6oYLth0OXlFJiIffTEv9F
+	YBb5RYq0oCsR7jUwrz9ohhVbYi97Is3yi1yhmRJ8ssAC0i/ceZTof5ebocvvD/jzfCl1NMe
+	uAuLU/tYd9hbet8BsXq2rXUHyf/Xw+V8mIHVk9TPemmAzXYr9Zpp3X9bkdqPhcE6fMQW5WB
+	GUguvK3qtZc3I6Hu26eEfmaNDzE6U8TZHlB6MqVQ==
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_022107_526450_D7F2408A 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20260722_183140_247109_80E27CE1 
+X-CRM114-Status: UNSURE (   6.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,57 +97,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi PCI maintainers,
+On Wed Jul 22, 2026 at 2:43 AM PDT, Linmao Li wrote:
+> spacemit_i2c_probe() requests the IRQ before it enables the clocks, resets
+> the controller and runs init_completion(). If an interrupt is already
+> pending, the handler runs too early: it reads registers while the clocks
+> are still off and calls complete() on an uninitialized completion. Request
+> the IRQ after the controller and completion are initialized, but still
+> before the adapter is registered.
+>
+> Fixes: 5ea558473fa3 ("i2c: spacemit: add support for SpacemiT K1 SoC")
+> Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com> wrote:
-> Move the vendor and device ID for the existing Spacemit K1 PCIe Root
-> Complex to include/linux/pci_ids.h. Also add K3's Root Complex device ID
-> to this header. This is done so that these values can be referenced in
-> the rtw89 driver to enable 36-bit DMA ability in it for WiFi to function
-> on the K3 Pico ITX board.
-> 
-> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-> ---
->  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 3 ---
->  include/linux/pci_ids.h                       | 4 ++++
->  2 files changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> index be20a520255b6..f89c6d46c7684 100644
-> --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> @@ -21,9 +21,6 @@
-> 
->  #include "pcie-designware.h"
-> 
-> -#define PCI_VENDOR_ID_SPACEMIT         0x201f
-> -#define PCI_DEVICE_ID_SPACEMIT_K1      0x0001
-> -
->  /* Offsets and field definitions for link management registers */
->  #define K1_PHY_AHB_IRQ_EN                      0x0000
->  #define PCIE_INTERRUPT_EN              BIT(0)
-> diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
-> index 1c9d40e09107d..d6f26cacc8e35 100644
-> --- a/include/linux/pci_ids.h
-> +++ b/include/linux/pci_ids.h
-> @@ -2640,6 +2640,10 @@
->  #define PCI_VENDOR_ID_SUNIX            0x1fd4
->  #define PCI_DEVICE_ID_SUNIX_1999       0x1999
-> 
-> +#define PCI_VENDOR_ID_SPACEMIT         0x201f
-> +#define PCI_DEVICE_ID_SPACEMIT_K1      0x0001
-> +#define PCI_DEVICE_ID_SPACEMIT_K3      0x0002
-> +
->  #define PCI_VENDOR_ID_HINT             0x3388
->  #define PCI_DEVICE_ID_HINT_VXPROII_IDE 0x8013
+This should also be applied to the stable trees. Please add:
+Cc: stable@vger.kernel.org # v6.15+
 
-As patch 2/2 obviously goes to wireless-next tree, can I take this 
-dependency patch to my tree? 
-
-Ping-Ke
-
+                            - Troy
 
 _______________________________________________
 linux-riscv mailing list
