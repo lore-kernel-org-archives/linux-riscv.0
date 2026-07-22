@@ -4,87 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2E7C44539
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 12:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 718F8C44539
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 12:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RQXTPBPTYYvtKq7iAULj0J4mPHQwN9AvJ0+b2H9ryCg=; b=JFlIiDS6OpKmem
-	g2oxd4Ouu3q2p85HODlpZMzIKBZOUD4sEEhVRa7qMhBqoIs38D6Zt5GrYKWhQpT+MWwnfGF1qXJK/
-	NbJHvaseixscoR32CzstaDh6BPGfz4YwW1DEJdzEIJ47nzSoGH374d//uUIZOgrMnt/Ld8JaZepGS
-	rqf75yw60LYzTnsXkPCWQTGbaGVu4Bt3amIufUDJ/3NDJaa6YU8qAVP5uXC5j+Wy+0O50xb+n0XTh
-	uRj0QAeT8r1A2vhXnIPSNPVWmZhylSp/7quBsj1QmoBr/rY6F38u47M4kA/JT6a/BXxFFxDpjssoY
-	NTkpwDQRpT+QQPQpAaXA==;
+	List-Owner; bh=in3WFu8nXTEygiNW3RhBLZuID0ezcbf1jNEwHcqOcoY=; b=lPrz4Q3HIPIk+/
+	zxj2y4ZhUKzpH+KZ1nTdi796LMcDgKwkiaYOEY8/EaLu4yECAVRkrjbhoiRzbDXvrOq0cN+ldKoFz
+	5clyOX774r1KQO8Hpi9+WLSAKwbuikEGUGp1AaOWWxHx6WiBz51LQyDvc4xDodidcDRz7Rg7TkadM
+	ezjraEJ5+2W6BlMXgjdQRxb3SfwRcStC6WNdYkIqlV4sFhf3et5zay17x7x71SO19NmJw/0xH8etz
+	L7V5t5CPmfRyfWW1uGuQeog9PWpaGYEnRVAy1E8tBxyx0bmNTJKV8GMAVoNNeVNEqvPufDBo//zHM
+	B2qCSsiz9RqUoONiVeGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmW7W-0000000BlpW-0BB8;
-	Wed, 22 Jul 2026 12:32:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wmW97-0000000Bm0q-1meZ;
+	Wed, 22 Jul 2026 12:33:57 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmW7U-0000000Bloo-3Qu8
+	id 1wmW95-0000000Bm09-1Mzy
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jul 2026 12:32:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D3988600DA;
-	Wed, 22 Jul 2026 12:32:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 199031F00A3E;
-	Wed, 22 Jul 2026 12:32:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784723535;
-	bh=lnxlxmPT8kUh0+TLlrEX3X7DjHb/GZYj15xXsKbQU+g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AOHz42z+4saXeEFOaiTY/undQpiA7hP3KHl3uYFTn06AE3Mhx3zoLsWvPzfpUiP61
-	 9rc6bO2gzHbfKFdStk1rrYH9PBKSf4qYTIOpwFcqn0/feFC2pEXdPu1ApMntKR7Cb+
-	 DuWq0qzjRLr7kmcZvS/sVzmLGwZDlqozAyrk8A0dV++TFZJs5/BqQruQ4PRNfCKgQg
-	 bJI9NCNrl1DjCWvflQcmrA6BekG6rGjQxF+geFHZC9I3uPPgecYFmcvrq2Dhm6/M7F
-	 070IV4EuaMmmbVkgQOAiFTQfd+fXNb5iaPT8Cl2d+WXFe/Mh90muDiYfbxUvjztGck
-	 AdkTT89TrEWxQ==
-Received: from phl-compute-08.internal (phl-compute-08.internal [10.202.2.48])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 54003F40066;
-	Wed, 22 Jul 2026 08:32:14 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-08.internal (MEProxy); Wed, 22 Jul 2026 08:32:14 -0400
-X-ME-Sender: <xms:TrhgatZNom5xPIfbnmufUuE-WODdSzQlV-JLYtwYomLKl9cZIUxmEQ>
-    <xme:TrhgaiAj8Y_Cjp87DMQAkcnJjDUkh3G3bTsD4rhV-ERR2t_uDADYW8grH4Epom7Pl
-    n3fKTAIQCjsZ4kF6F4S_wDhxlstRyklTnHlvfPaYTyqLK_Q0CuqTAM>
-X-ME-Received: <xmr:TrhganVG89-RXwQyvrpLTjXQQgkpKo-txFMsbOaP-PiCPJrrb5GooqryC-y2ZQ>
-X-ME-Proxy-Cause: dmFkZTF8TT/vDWioYkWdZrYizKr34no4dSvpXzh8N48LVZZQZqB/wSjKuB1GxsBFuHqNVQ
-    GrXfDoi/gTnPqOz9NywDHbklLV/vEBCMTlo8D23V0lP6ETNgoGfqly2ixdUB5oriFaGZo2
-    qiBnOauJoAsEkIpLse0B9lrTNjzFyVzGyIDSMUxGH9ACPTK0D4IQE+bulsr/kCy4DszbeL
-    JSXNphFwamAJHMjxaf30zIL2ghJ8cmQ7g8OJS+9m/oSB6ikxaU8BzTfXgFMgABSHA1vtSQ
-    W4NxwjELXX400Odu2xg9u9q2JVBBqmoBUicprRjUVWwhGw+yeFeCBAErAW/FOV7A2PpuMn
-    9PjWNPvSbn+/b2UnKCRuEb4nJ/5rBkwRVvURTJr08kKE5m/A7LCNIbKRilrSyOYDPWpj5Y
-    B6GKwBU9s/XY2r6oBoYuqXIPLCm76bG9o89jYu3jVE6+IDvNO1IMQpjjxSliPUy10uPaet
-    aBRFjezYyoLJ9fMPWdqBnA+orVErUEMuYSF1LPgx86KqkzFAOSHHRbnylCst0hJFTUB85W
-    b+pJzbobJsuV5itUdeBvbv9X6s9T9GxOOglUca5yJwcathV/dqYCXcWP45mdJNn7Pa2hbk
-    N4r9BFSofiz8lVpuHU8a9OjXSe7OqRhPlnWa1LzW2FzqBt4yS0wbQRuSOdDQ
-X-ME-Proxy: <xmx:Trhgaj3q5Sf-3pZyVZmdUZxTriUbd1Uwraggyq5HpgrVV91QlwTkow>
-    <xmx:TrhgagVCe21PH9DpW1S1uAFHSvbvAp9qyBhNij7GChcZR2-XZa7DAg>
-    <xmx:TrhgahAb93BVR8yjwUhPvlE4cMmZmYBi27jQcwnSjbdAF4uuPaK3EQ>
-    <xmx:TrhgarowJflwoG5gBWCe05wAKGZHyMSa7CIH8mQgQRiGtFczztdJZA>
-    <xmx:Trhgal33aXPtJDrx3w-whTOInOBtVcW1cf2rkQxaTtdlHZjjzbR26kt0>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 22 Jul 2026 08:32:13 -0400 (EDT)
-Date: Wed, 22 Jul 2026 13:32:12 +0100
-From: Kiryl Shutsemau <kas@kernel.org>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	David Hildenbrand <david@kernel.org>, Guo Ren <guoren@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Vishal Moola <vishal.moola@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>, 
-	Junhui Liu <junhui.liu@pigmoral.tech>, Muchun Song <muchun.song@linux.dev>, 
-	Nam Cao <namcao@linutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <pjw@kernel.org>, Vivian Wang <wangruikang@iscas.ac.cn>
-Subject: Re: [PATCH] riscv/mm: use physical alignment for vmemmap_start_pfn
-Message-ID: <amC4KvulXwQe-JyM@thinkstation>
-References: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
+	Wed, 22 Jul 2026 12:33:56 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ce87c7e3bbso139449935ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2026 05:33:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784723634; x=1785328434; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QxIfKuOVaE3EcHJclM4dn0Mc9MrDfV6Rgh6T8FHUwMI=;
+        b=syGwzo9URj9YElQSGnyw4aHHLNEzhSXumhyHrNA6+9ZJ3TgGwgHzbzMvSHTkF4UmQO
+         1S48/f4SLM2gAPqTQwScTaSXJVDj5S3zbBqwvwkUZ8468emIgDlamEacDPQ27tyQBc8x
+         4XPveKaK/tRV6t/nbxTUBdL7xxqCZ613wyZb/s9tuJUOKTLzW1sg7vZTw01jcjj4oLa+
+         JkYspO5J8O9FzuOxkSLYj//zsWo71EQf8ZOUCpRndKHtkt/XbyCp+DS1kWJ824KC7TD3
+         +CcY+nd0/vKoe15D+2Ktl/ru4IpYd/MjbOmk9K1rAsd2CPdcIanJp+29vJey9N3NlR6s
+         l2Mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784723634; x=1785328434;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QxIfKuOVaE3EcHJclM4dn0Mc9MrDfV6Rgh6T8FHUwMI=;
+        b=UnIwX/BQwDHF7ECrjADVjyO4BDTeNMMynDxvWciw/G2pJF3XvBwgIoWpC7wvYmeYem
+         eXngpSi84ViSl27sjPcIYrbg+eM8RK7cKvZQRWi+PKOfvaZA+QyyGxS856OC8rFdmj3r
+         5DEcO457aWlyX2Zrvrruq4SjOq89YCnoZnEIOKFXTEpGRqqJL4hp8zZcK4yPhsKxKqiG
+         Q5YLO5HzTrA/AT4cm3SHSgsezJUfQsiGNumkhb43bMmmbxUeha4Vrt+uhyQTItB5x3Uj
+         o0tfo8Qw1Y/Mkl6Oc6xr5pRzYMEU0MYfaJ9kCt443LmLzefSNHQ4SdC4z4CHbnKfCOFz
+         xbIw==
+X-Forwarded-Encrypted: i=1; AHgh+RqkGX2r5v8QhutnZ82fCmUkLPcB5FBic0L/dhUlPeo902CmVXyFmIx1EoGsCH+sH3TVZ+sURF1h0b2XNA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxa9IrZuds/M8FXSH6IhC/RyRcR1vFal/wtZiFxdDNStocOovl0
+	MTvukQLMG9m1CklHrfgt677F39yZ8GgaAzhoNrO8OejbDf5TpT6cN1LJ
+X-Gm-Gg: AR+sD12sDxLJu7jBwnbvJ3fGYJ4eNu7wsTvSJ+vWKegHX4C3tLi5X4o1Zy9LdMEyO6X
+	nt2MfHVbkw/oWbCzCmLbzXyqO49zhtZ3AcfBCVpkl1CO6KqSgmv1Gzuc9TkPUu9oNrlKhSKBwJ7
+	jKlHqmitRk+YfSHFeiNwqg8BKM43adVQbRPyLsd+qodTHp/eCJ6TUmJfQEF9WpreKtoXE8do4P4
+	g3R/iludpZ+DPPNoIvFr1E/KznRNXsqnGeFYkR5j8eP4jDkt23ZIJHYiOnb93c+s24L23mO1jyu
+	ezCRwq1ZN1ULN6CLCwpIO8nGfKzvg3/rXkHTz6iDMoO9D11OAlo16vnp4EMZU437FtItTEXsypf
+	/BV1vdsOQRO32KFj3if73YJ0rQjP/VSeGSDu4pH5Vuat02kTc9UTzVGXv3SFXjEIzSAKyKQ/Lli
+	iyXeq5h9Ojkv8dxe8CKmmu
+X-Received: by 2002:a17:902:e548:b0:2c8:4c29:afeb with SMTP id d9443c01a7336-2cf348213a8mr249494965ad.8.1784723633958;
+        Wed, 22 Jul 2026 05:33:53 -0700 (PDT)
+Received: from cyh-System-Product-Name.. ([129.227.183.200])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf96ac33eesm7214735ad.72.2026.07.22.05.33.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jul 2026 05:33:53 -0700 (PDT)
+From: "Yuhang.chen" <yhchen312@gmail.com>
+To: bigeasy@linutronix.de
+Cc: anup@brainfault.org,
+	atish.patra@linux.dev,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	zhouquan@iscas.ac.cn,
+	"Yuhang . chen" <yhchen312@gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Use raw_spinlock for VMID update critical section
+Date: Wed, 22 Jul 2026 20:33:50 +0800
+Message-Id: <20260722123350.3697232-1-yhchen312@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260717065137.FQ5Ax2W-@linutronix.de>
+References: <20260717065137.FQ5Ax2W-@linutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260716115326.3466926-1-xujiakai2025@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_053355_361406_8B730423 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,37 +109,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 11:53:25AM +0000, Jiakai Xu wrote:
-> RISC-V computes vmemmap_start_pfn by rounding phys_ram_base down to
-> VMEMMAP_ADDR_ALIGN. That alignment must therefore be expressed in the
-> physical-address domain.
-> 
-> Commit 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
-> attempted to account for the maximal folio alignment by feeding
-> MAX_FOLIO_VMEMMAP_ALIGN directly into VMEMMAP_ADDR_ALIGN. However,
-> MAX_FOLIO_VMEMMAP_ALIGN is measured in bytes of struct page storage,
-> whereas VMEMMAP_ADDR_ALIGN is used to align a physical address.
-> 
-> The mask-based compound_info encoding requires pfn_to_page(0) to be
-> naturally aligned to MAX_FOLIO_VMEMMAP_ALIGN. Commit 9f94db4c7eaa
-> ("mm/sparse: check memmap alignment for compound_info_has_mask()")
-> added a check for that requirement and exposed the unit mismatch on
-> systems such as QEMU virt, where the DRAM base is not aligned to
-> MAX_FOLIO_NR_PAGES * PAGE_SIZE.
-> 
-> Convert MAX_FOLIO_VMEMMAP_ALIGN to the equivalent physical alignment
-> before using it in VMEMMAP_ADDR_ALIGN. This keeps the existing
-> round_down() logic while making the resulting vmemmap base satisfy the
-> mask-alignment requirement.
-> 
-> Fixes: 476849b0fba4 ("riscv/mm: align vmemmap to maximal folio size")
-> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> Assisted-by: YuanSheng:DeepSeek-V4-Flash
+Hi Sebastian,
 
-Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+thanks for having a look.
 
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+On 2026-07-17 06:51:37 [+0000], Sebastian Andrzej Siewior wrote:
+> Here you state _why_ it must not be preempted. What would be the worst
+> that could happen.
+
+The worst case is an unbounded hold of vmid_lock that stalls guest entry
+system-wide. On rollover the section bumps vmid_version and then broadcasts
+a guest-TLB flush via on_each_cpu_mask(..., wait=1) before assigning a
+fresh VMID. Under PREEMPT_RT a plain spinlock_t is preemptible, so the
+holder could be scheduled out while still waiting for that broadcast flush
+to finish and keep vmid_lock held for an unbounded scheduling delay; every
+other vCPU reaching the VMID-(re)assignment path on its way into the guest
+would then block on the lock. The rollover is otherwise a short critical
+section (a version bump plus one IPI), so keeping it non-preemptible with
+raw_spinlock_t bounds its hold time.
+
+I'll fold that into the commit log.
+
+> That part starting with "Convert" belongs into into a new line.
+
+Will fix in v2.
+
+I'll send v2 with both changes.
+
+  Yuhang
 
 _______________________________________________
 linux-riscv mailing list
