@@ -4,41 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F3BC4453A
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 17:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D000C44536
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 17:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JrwdahO6y5BNOKgAgPsVJarr2lU8HvNoEaNrhS4YDBM=; b=oGACVE8hVggC4T
-	hpd8WlcYMeAShM8C0wkLh3TceJHNMptILaNaZdSMr/5TeM37T8dEPbS3z5TPu0cnUmraaEq8PHXJ0
-	a4QWszTeqZ27qfqkema/SjvZ9LdmpCOHFR8Hv3DVrorBiI5MZq0XW7Oz8LLSqs/cqOQAgalj6dp5+
-	RlABgqnPOj4UU9ZwtodA+mrwuOdmC10UZnBGeTdO/XsdTDygq0xC2o34rSqjNBKeCC/+pa3RzeDTD
-	9DP8zsGwsjtQzbd4EQfcIoTZ/lqBUGLkXUtMhssNATlInaDIu910f7wGat+FGKFSGduHTsVmlXw8m
-	qf1cYUgQy8hpUOBN1T0w==;
+	List-Owner; bh=yBGSHHxqzmd2ZkKQ4OTay+QYuVsNkltjE8pJDYlqd3g=; b=1BoR5NTu8eazbt
+	6l6OMqmWXqjs/Pf5yx0CHdbLiU2tNL1d8J9Br3eusWkIuOLO2SWBTyQZae2rPiHoRIH1HypoAntAl
+	xk6EIK6B2tCC2thiWCmgSQtrtXRLOFvDMOQZQT8VN+XC5W9ixtuobHFgMI5q0TiS0jf2DNlhmNoPS
+	cnt96szCVUviDTWGLSkL11p3KzFxrZ2UtaEHWN2if5vAm/dmEpA2mSWqdXULgMJXwO4KZyzPkqI1N
+	t4cjNGO5BT7L4uXqxhoqgZlfaE5mAO6itfKrxc3oyfV9T1aojwen7asuc9lxs6ieNupQ2B42acqXJ
+	ZYd6ub7O1QHSXc5i/IDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmamf-0000000CTFV-2KNR;
-	Wed, 22 Jul 2026 17:31:05 +0000
+	id 1wmatJ-0000000CUA7-3tzS;
+	Wed, 22 Jul 2026 17:37:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmatI-0000000CU9a-0gj9;
+	Wed, 22 Jul 2026 17:37:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9b0lYAChp/dlK8UrMEe9sgRuRXi4DJ+u7ef6sfSwFo8=; b=ZVU9GAXiu8QBjnuTHwYIk1zn7M
+	IHdXTcLzvPaYRamKYFIPHKGEWESPJH5XK9jfGLnAm5iN2hgVyd281OLvscWa5s6rLzYmDJuyoYsOy
+	1PlJo53L7HfOgXzscH/OVc595Nx4tZFBMLYma5TYzLaZm9Q87e5zhBw+jYDcvWA2/Fkdpwh8B3F9x
+	DVyqHWYBpyJIzEbxyEWusPs7jwvK8Wai18ASThporA9Z/ee/I0TeSFMuBt9DpwKU8vqY0i2IR0dCz
+	6iMY95iezh+AELPQXXJSwFGLC+LhbFutzWrC6hnr51DpST6dEeimHi//XFHOhbO40fvV4bXY1L+b3
+	09Af3XrA==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmamd-0000000CTEp-0INh;
-	Wed, 22 Jul 2026 17:31:04 +0000
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wmatF-000000015Cm-0Nvh;
+	Wed, 22 Jul 2026 17:37:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC1E21595;
-	Wed, 22 Jul 2026 10:30:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4C9A168F;
+	Wed, 22 Jul 2026 10:37:46 -0700 (PDT)
 Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1CBCB3F66F;
-	Wed, 22 Jul 2026 10:30:54 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 074493F66F;
+	Wed, 22 Jul 2026 10:37:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784741462; bh=24jF6AcUqs8OWEGAaLR69DLBQjR9hO+Rom+3K8DJQKo=;
+	t=1784741871; bh=JnKvBjo2fOfq9jvwV+JUrWEAgatydjsNYlPbheLKhxc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c73DPG7uUV5Fqsc83UkY57n5Qs0XXql23cCXWpZ2ZiqQ+ckAvgZYW4H6Qxd7IuEhg
-	 UpaREG+sGAYzR3v9TgE4TzXqEnrXG7rfKfeEIP65qzbz/5t2U9GCOzbaaUSYCknPsU
-	 WarfMW9lzNf8oKGScXg68Qq+UBElSke/y8/OuBEw=
-Date: Wed, 22 Jul 2026 18:30:52 +0100
+	b=QAyoeG7PKBAcoDg4Vx9aVKdN0VlATPEViq8WVRyZilegBBahIiktHRv2hfoEoCbzO
+	 UJkF9NKxVlB1ZkC22HyEA1xzj6R0ZAmD2eyyzrJ2PtRBpEmkwyyZGygxHNSHMhB+yJ
+	 cFBkNBXczoT10ntHra7/zJDISGpvjgKKjsxCrn3c=
+Date: Wed, 22 Jul 2026 18:37:42 +0100
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: Dave Hansen <dave.hansen@intel.com>
 Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
@@ -73,22 +87,25 @@ Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
 	Suren Baghdasaryan <surenb@google.com>,
 	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
 	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>, linux-kernel@vger.kernel.org,
+	Stafford Horne <shorne@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
 	linux-openrisc@vger.kernel.org
-Subject: Re: [PATCH RFC v2 00/20] mm: optimize unnecessary loads due to
- ptep_get() and friends out
-Message-ID: <amD-TLGWGdMK2ItC@e129823.arm.com>
+Subject: Re: [PATCH RFC v2 13/20] x86: mm: carve out the generic compile-time
+ folded pgtable case in effective_prot()
+Message-ID: <amD_5r04mzMoZ0-r@e129823.arm.com>
 References: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
- <0143b927-08c5-4e94-ae6e-2a0d7bfe950f@intel.com>
+ <20260722-dummy_ptxp3-v2-13-d9e4bad31e0a@arm.com>
+ <d16a8412-acee-4c21-a126-f570d6306983@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0143b927-08c5-4e94-ae6e-2a0d7bfe950f@intel.com>
+In-Reply-To: <d16a8412-acee-4c21-a126-f570d6306983@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_103103_598498_855B336C 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20260722_183753_298530_7A772C1F 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,20 +122,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> One of my nits about v1 was that it didn't really frame the series
-> precisely. It talks about "optimization" instead of fundamentally
-> changing the way that the kernel deals with folded page table levels.
+> On 7/22/26 08:30, Yeoreum Yun wrote:
+> >  struct pg_state {
+> >  	struct ptdump_state ptdump;
+> > +	int first_level;
+> >  	int level;
+> >  	pgprotval_t current_prot;
+> >  	pgprotval_t effective_prot;
 > 
-> The optimization that this *wants* to talk about kinda falls out of that
-> refactoring. It's not really the core of the series, IMNHO.
+> There is zero reason on x86 to hold this value in a data structure. It
+> is 100% determined at boot time or earlier. Pre-5-level-paging it's a
+> compile-time constant.
 > 
-> This series effectively changes the rules about where and how folded
-> page table levels can be manipulated. In doing that, the door is opened
-> to optimizing out the unnecessary loads.
+> On x86, it never varies per-mm.
 
-I see. might the title and the cover letter should be reparsed.
-Thanks to remind it again :)
+However, mm_pXd_folded() requires to mm for other architecture like
+s390. might save the mm instead of first_level and calls the
+ptdump_pt_level_first() with static inline version would make the
+constant comparison. So it requires to save *mm* structure in here.
 
+[...]
 -- 
 Sincerely,
 Yeoreum Yun
