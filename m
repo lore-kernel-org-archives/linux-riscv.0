@@ -4,90 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F1CC4453C
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 16:40:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9878CC44532
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 17:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gwzhw1vQbY92GEkd0WmROMm5ALuy8vyTKqzwMrO48N0=; b=BAK8TnhBQvaJyV
-	YefxR8EjIyJfNf0+AF7odirqVV2lx0cF3A4DJzWRtvyQ4R/vNNqK5B02A1TY5AwhriIfNPdzZihVL
-	jYEESsPpobkCbU4lSQ8U0yX5lIUBDCOpnSON/+OypeRIFn9FHOtb+jsoj3LiT+0afA6DtXHvkObTT
-	kwmg6Hm00R6p3mazc1n3Qd9m/z3pfzANrYo1TYBwL5B3TeVuFbFBQ6mYPSNiCVcc3Ec9y5WFN6d8y
-	hBXPQJMAc2FGXOtuX+wSGc+ZtD2U2YcrhjI2jfINRsik4V5p+hC8k2zozR1Nfw8N4ipwSs6NSIDzw
-	IM88ZHN6NvFjMJiw+9JA==;
+	List-Owner; bh=U8e8wYiPlxCW+YyepVgV9xZ/SSQbVSPsAqk97qmSMaM=; b=VsRKXNlLY0Wclj
+	DupuRxWDLLDrWqqGhac2PBaMc9zDY3ScprJ7EJIm4G2NTk1nB67Qd8xjt+/vxRgx8KUkpL1luB4H0
+	sjKFWj4+4mRkzdniPItVd/qvf278BOVfDUwK+EZItGcoQmtwc3AfJDO1gj4Qn4fl29mrHey8ciG1t
+	NK2Ok13MbsxpK7uwE9ZBg1r0fw0D/XW/+7ArMeXfPgl1BpgyjBFNQqIwM+17fMZL/Vrap7H7WcY+Z
+	FW1ZQhJ+en6tMLVI0pCag60I/OkMcwbE174tyvMHO8/avGqbAzYuPLblnMHPcUXO7ut6P65CnFqwP
+	GerRv0VUnYC2DPNvjgDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmZzO-0000000CN3p-12RD;
-	Wed, 22 Jul 2026 16:40:10 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1wmaLc-0000000CPfm-0jEV;
+	Wed, 22 Jul 2026 17:03:08 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmZzL-0000000CN2A-2hiS;
-	Wed, 22 Jul 2026 16:40:08 +0000
+	id 1wmaLZ-0000000CPf9-2RqU;
+	Wed, 22 Jul 2026 17:03:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784738407; x=1816274407;
+  t=1784739786; x=1816275786;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=/98dYKgaEjXUHmhDXcXS0PG8tx66UbdoKo0v/OS5kvQ=;
-  b=h1NW8+dTA2A9vd6Ksc2Z1EwUgyFm+FU0KpHVl0RkzzzYfXLmtFcdlvzr
-   ZRcY67jF84Te9VTzd0HEQOYEVq0tNDbxdfmJJJGW0xofB8oyQ2TBG0Z2B
-   yH9amgdp6eLDC8P3cAV8AcFUNMZ7tmuLxCz3eMFLYsJNob6UW4vQUhjs+
-   SyhavBHvzPDst3ibjbkPcOxFRv9aDnDMJcmq9sx/e0+fWYWG984v4NCd2
-   72rbw2K3g7hq6sjNqIxAR9Zr6ejO5ASGs4Ts4d20Pczse2Y+9fCnIOHWB
-   s/6oKDXl9v+xFpODoca8OLVd9G5cSmC3ai81HKcnun7YLM9dfeKv2P+cT
-   w==;
-X-CSE-ConnectionGUID: EF1MDbL4SQ2Eci8BQGPvQQ==
-X-CSE-MsgGUID: ig0edI6NRQScXW9ZP+SCrw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="85499627"
+  bh=CIbTX8ulngl06DGA3pmHrz2wPzRWMpkv2qZDGCPMo1Q=;
+  b=NuKdz8PHYl3mihpHcHollSUO+e4m4h87tW0ZbANhx9mO/L0h5u1mF5k5
+   aQ1U4WfxAGwPDf/8xZdIz4CoJIPfiNIpmukZSI//iKWKWtJISb2J1AkWR
+   SlPKKOKGI830zgj0WhkOeRsBeNl8VwSSxxXjNeFhU2VIK7sksvNtFYs8W
+   7QNOZA6RnwrZEDpqq0uFzaAQvzS8OWi7d9f6q8OTiJ3/rwiwqnEE2nDjo
+   C0JFzuH+TWfIrai1T2EPRzAcL5xlxtzQiR0A6HMwHeKlABGOlLywbCeyC
+   jjN0y9EG1ETHVIz3DmvmSooJnaHjZ+tIlNK9+8HQ4mUl9/42CBaNopSGa
+   g==;
+X-CSE-ConnectionGUID: ZpjsWrw0SRqZA0PnX9t1zQ==
+X-CSE-MsgGUID: r2W0YK9BTeKZqcubxr7iCw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11854"; a="108172612"
 X-IronPort-AV: E=Sophos;i="6.25,178,1779174000"; 
-   d="scan'208";a="85499627"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2026 09:40:07 -0700
-X-CSE-ConnectionGUID: QDZCp4urSb2T9DOMvZJ/wQ==
-X-CSE-MsgGUID: b4+1UeHkQWiP7OyD9JmXeg==
+   d="scan'208";a="108172612"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2026 10:03:05 -0700
+X-CSE-ConnectionGUID: afbeSCRhSV+tqhS/W9bvyg==
+X-CSE-MsgGUID: vb5o0ZCkTXmWUXF0lRl15A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,178,1779174000"; 
-   d="scan'208";a="253773856"
+   d="scan'208";a="257603458"
 Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.110.58]) ([10.125.110.58])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2026 09:40:04 -0700
-Message-ID: <0143b927-08c5-4e94-ae6e-2a0d7bfe950f@intel.com>
-Date: Wed, 22 Jul 2026 09:40:03 -0700
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2026 10:03:04 -0700
+Message-ID: <fa75382e-878a-4064-a9b1-43bd2c9dedce@intel.com>
+Date: Wed, 22 Jul 2026 10:03:03 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 00/20] mm: optimize unnecessary loads due to
- ptep_get() and friends out
-To: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>,
- Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Barry Song <baohua@kernel.org>,
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
- Wei Xu <weixugc@google.com>, Johannes Weiner <hannes@cmpxchg.org>,
- David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>
-Cc: linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-arch@vger.kernel.org, linux-mm@kvack.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-openrisc@vger.kernel.org
-References: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
+Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
+ set_memory/change_page_attr core
+To: Borislav Petkov <bp@alien8.de>,
+ "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski
+ <luto@kernel.org>, Brendan Jackman <jackmanb@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, "Liam R. Howlett"
+ <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Suren Baghdasaryan <surenb@google.com>,
+ Thomas Gleixner <tglx@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, x86@kernel.org, Juergen Gross <jgross@suse.com>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+ <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
 Content-Language: en-US
 From: Dave Hansen <dave.hansen@intel.com>
 Autocrypt: addr=dave.hansen@intel.com; keydata=
@@ -133,11 +124,10 @@ Autocrypt: addr=dave.hansen@intel.com; keydata=
  MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
  hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
  vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
+In-Reply-To: <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_094007_712294_31E8C823 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_100305_673741_5E31E8E6 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,20 +144,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-One of my nits about v1 was that it didn't really frame the series
-precisely. It talks about "optimization" instead of fundamentally
-changing the way that the kernel deals with folded page table levels.
+On 7/21/26 10:19, Borislav Petkov wrote:
+> On Tue, Jul 21, 2026 at 07:23:23PM +0300, Mike Rapoport (Microsoft) wrote:
+>> Currently there are 6 independent implementations for set_memory and
+>> set_direct_map APIs.
+> So with all mm/x86/CPA patches flying around, can we first agree on which tree
+> is going to collect everything?
+> 
+> And if I want to review patches in that area, what am I applying it ontop?
+> linux-next perhaps...
+> 
+> Let's sort out the workflow first so that we don't get lost on fruitless bug
+> chases and fingerpointing.
 
-The optimization that this *wants* to talk about kinda falls out of that
-refactoring. It's not really the core of the series, IMNHO.
+Just practically, I think this series needs to be ignored for a bit. Bug
+fixes first, features and cleanups second.
 
-This series effectively changes the rules about where and how folded
-page table levels can be manipulated. In doing that, the door is opened
-to optimizing out the unnecessary loads.
-
-Oh, and I'm pulling linux-arm-kernel@lists.infradead.org off cc. If
-anyone has the juju, please fix it so it stops spamming replies with
-"Your message to linux-arm-kernel awaits moderator approval".
+When the time is right, it probably needs to get get acks from all the
+affected architectures and go through mm. Folks can ack it now, but I
+don't think anyone should even consider merging it until ~7.3-rc1.
 
 _______________________________________________
 linux-riscv mailing list
