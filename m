@@ -4,68 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A645CC4453C
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 17:22:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFB0C4453C
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 17:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uerNdy16UTjsdxveTfXICxhzXOZdXOQ7Ifd44LHly14=; b=YKMm4zannngAXA
-	tIfg1oVnT8Jn/0q59mUB8xoeijFf0NvyXsrpEkZ7MQ4i+XexEM2uuGU49qirWAwl/y0WbF2n6G8LW
-	ybAeWUgbSwObunB3njS5JOZZkx6vRUevEubo2QmF9Zk7grrQFw13co2VcWqJ4etByGyNq567x5W48
-	+0AOu3vn3bOq1kOSK1IlZhqqO6o6urihxquz4NL78ZZWq/ldKHDt77gnLUNw8fjT0/Lo3RZhfzZLA
-	V3fJKwJvFGIZAHwDZUodfSZyH6DnnNL3keu+Suatdg6K9eEFxKIDNUaoChoH4CFmVpuwKVOf9IxJ1
-	bPsXQ+ug/e5RDWiuEG8A==;
+	List-Owner; bh=oFi51Dg3SuTfd+FukoTyOHCh+oa6xjip70/6IjwNMEE=; b=0mebCQYszZg33g
+	ArJ/HzaDO8iqDXYZAR7g3uS6eO7YWfjWzGTjFC/2of/u7jo8oMwjG2p/Mj5kLn11tV2IBUz6Lctxp
+	tYwDF+KPYjIP13NPS/fhIVdKcTHVghhfMrnd2226D99GgzLkPJAVW3HvOeIA32Ul6dcJ5veLH6e1g
+	Imizv2RGlfscq+Hc2tcVdX8/bCgYRq8ixaaa/v2ueOSk1vF2b24kjZ3zccFPEtCp2ZwO0sMt37hcQ
+	lXOeAbBIQmwoWlkcxWFZ9yYvvRniY30sk3i8p2Pyf+l5jt4x9o1o0qa+5gqOSvS2rmnGS8NOwf5wD
+	0g4XVEZ9QIJTRTBq79MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmadj-0000000CRdU-2V7z;
-	Wed, 22 Jul 2026 17:21:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmajY-0000000CSwQ-3Fbl;
+	Wed, 22 Jul 2026 17:27:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmadh-0000000CRcx-3Gvp;
-	Wed, 22 Jul 2026 17:21:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FC3960051;
-	Wed, 22 Jul 2026 17:21:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C30691F000E9;
-	Wed, 22 Jul 2026 17:21:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784740907;
-	bh=n4+qE4ZoohVYF/j3isYgupSr93BAAzyHcaf7DgfjxBs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AHXpKMkO2HaiOLjQtij21gEqEeLylpNpBFJ5KyxuzWUbJsESp3qJ+AGg5XBVCzzcS
-	 CiLE8BAwjLbx4FNVDfE8IM1EQDFTS6VUv9AZSAlBoYae6xUcLLpZX0oUGpSmSpW/BN
-	 kxLInKY8s8iYTEqmEWlZDMBiWUMgbU6TawTUpKkEHJsJ8lSR0w4uo4yD7J9N9T7O8r
-	 nqg7isqUOL3kWu8OgnEN7EW1X42MVptnquDBqHtLfa+J+zXv/8Hn+EJjIIqfw0DGE/
-	 bMzHj40KOtPobKR5ISocxtNdU6XGTwGpvQzJnFyiXit1GzhhJkjMcrrRiluIqzfyUe
-	 4+Yn7UsdVn5nw==
-Date: Wed, 22 Jul 2026 10:21:40 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Nicolas Schier <nsc@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	id 1wmajW-0000000CSvd-2z7S;
+	Wed, 22 Jul 2026 17:27:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=M5Y7D3saet3lwRTR1iYvW2JWs6T6gFdbJ6BwZVaxCLY=; b=FKTYYtGg5KofoGE6RMzv7N3kNo
+	g4Orxixf/fuH12zcxf7FyGsKu3h2GfHB4E8uQLb570Sdl3mtnTxk7kV4R6wZ1OPbO00m+xbuJBVie
+	FDyWUyw4IhmwlXlucS0UMlNbg78jzfJnZqZNfSpIrgiMhk+bCs2/Y20M7d+8PwRXmx53fjx9KxKDQ
+	Th23xHU907nPO/JjjPOU4swqN/NP8GTXUiwsfuIFfQnnBV0A14PzpNK+pvZgZIGeyYzkNkjItQ3Ka
+	Uqsq8643tFo7OXmgigF5D+a8CgtSrUqIqxqps9lXoSsu1Ysd8/PS5nRn6Egh4I55FvHCn4hJWKC50
+	zoZ/UpJA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wmajT-000000014l1-228v;
+	Wed, 22 Jul 2026 17:27:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2D7B1595;
+	Wed, 22 Jul 2026 10:27:41 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B55B63F66F;
+	Wed, 22 Jul 2026 10:27:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784741265; bh=UJJJ6gDdFfQhPAspitY0ExVcYQKJakkmR/X3IOo4bZM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SoeZpZp+wsxHy2IPoBPIESiHfIlciJelBcAUO0h9BaNgywgcLRKe59vGZr1KsfOtU
+	 zXqwnNHi8fnyFJ4Z4tV45RCq4+uQHINF4Mo8FApJ3gK1YQgEZ3tQYqJ6ysDA6eAPD+
+	 h3LKbzFF1zV5s5ibd/Q5KVSGVirnUpwJnXEtiFKM=
+Date: Wed, 22 Jul 2026 18:27:36 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
 	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH v3 1/7] kbuild: support generated asm-headers in
- subdirectories
-Message-ID: <20260722172140.GA2947455@ax162>
-References: <20260722-vdso-arch-clockmodes-v3-0-4c5753191cc4@linutronix.de>
- <20260722-vdso-arch-clockmodes-v3-1-4c5753191cc4@linutronix.de>
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	David Hildenbrand <david@kernel.org>,
+	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-openrisc@vger.kernel.org
+Subject: Re: [PATCH RFC v2 12/20] x86: mm: define pudp_set_access_flags()
+ when CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD is enabled only.
+Message-ID: <amD9iD7rjmU__9b6@e129823.arm.com>
+References: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
+ <20260722-dummy_ptxp3-v2-12-d9e4bad31e0a@arm.com>
+ <188623a9-dba0-4229-a7ff-5feb2ef0c088@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260722-vdso-arch-clockmodes-v3-1-4c5753191cc4@linutronix.de>
+In-Reply-To: <188623a9-dba0-4229-a7ff-5feb2ef0c088@intel.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260722_182747_802675_B587F3D7 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,78 +116,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 09:53:27AM +0200, Thomas Wei=DFschuh wrote:
-> Extend the asm-header stub generation to also handle subdirectories.
-> An upcoming vdso/ header refactoring requires this.
-> =
+Hi Dave,
 
-> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> ---
->  scripts/Makefile.asm-headers | 11 +++++------
->  1 file changed, 5 insertions(+), 6 deletions(-)
-> =
+> > diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
+> > index f32facdb3035..edad847a2ecd 100644
+> > --- a/arch/x86/mm/pgtable.c
+> > +++ b/arch/x86/mm/pgtable.c
+> > @@ -411,6 +411,7 @@ int pmdp_set_access_flags(struct vm_area_struct *vma,
+> >  	return changed;
+> >  }
+> >  
+> > +#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
+> >  int pudp_set_access_flags(struct vm_area_struct *vma, unsigned long address,
+> >  			  pud_t *pudp, pud_t entry, int dirty)
+> >  {
+> > @@ -430,6 +431,7 @@ int pudp_set_access_flags(struct vm_area_struct *vma, unsigned long address,
+> >  
+> >  	return changed;
+> >  }
+> > +#endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
+> >  #endif
+> >  
+> >  bool ptep_test_and_clear_young(struct vm_area_struct *vma,
+> 
+> #ifdefs in .c files are evil.
+> 
+> The changelog doesn't make a strong enough case for why this evil should
+> be tolerated.
+> 
+> These are also _precisely_ the kind of #ifdefs that cause compilation
+> problems. This one is:
+> 
+> #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+> /// function here
+> #ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
+> /// another function here
+> #endif
+> #endif
+> 
+> So there end up being a couple of dependent config options in play. If
+> there are compile problems, this makes them harder to find.
+> 
+> What is the _actual_ goal here? Saving 50 bytes of kernel text?
 
-> diff --git a/scripts/Makefile.asm-headers b/scripts/Makefile.asm-headers
-> index 8a4856e74180..772b53ffdeb4 100644
-> --- a/scripts/Makefile.asm-headers
-> +++ b/scripts/Makefile.asm-headers
-> @@ -48,14 +48,13 @@ syscall-y   :=3D $(addprefix $(obj)/, $(syscall-y))
->  generated-y :=3D $(addprefix $(obj)/, $(generated-y))
->  =
+TBH, this came from for v1's change of behavior set_pud() where
+triggered compiliation problem with v2 this change wouldn't require.
 
->  # Remove stale wrappers when the corresponding files are removed from ge=
-neric-y
-> -old-headers :=3D $(wildcard $(obj)/*.h)
-> +old-headers :=3D $(shell test -d $(obj) && find $(obj) -name *.h)
->  unwanted    :=3D $(filter-out $(generic-y) $(generated-y) $(syscall-y),$=
-(old-headers))
->  =
+However, wrappering pudp_set_access_flags() with
+CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD seems reasonable for not only
+saving a kernel text but also keeping consistency with the other pattern
+like pudp_invalidate(), pudp_establish() and etc.
 
-> -quiet_cmd_wrap =3D WRAP    $@
-> -      cmd_wrap =3D echo "\#include <asm-generic/$*.h>" > $@
-> +filechk_wrap =3D echo "\#include <asm-generic/$*.h>"
->  =
+Am I mising something?
 
->  quiet_cmd_remove =3D REMOVE  $(unwanted)
-> -      cmd_remove =3D rm -f $(unwanted)
-> +      cmd_remove =3D rm -f $(unwanted); find $(obj) -type -d -empty -del=
-ete
-
-There appears to be a stray '-' in the find command ('-type -d' instead
-of '-type d').
-
->  =
-
->  quiet_cmd_syshdr =3D SYSHDR  $@
->        cmd_syshdr =3D $(CONFIG_SHELL) $(syshdr) \
-> @@ -74,8 +73,8 @@ all: $(generic-y) $(syscall-y)
->  	$(if $(unwanted),$(call cmd,remove))
->  	@:
->  =
-
-> -$(obj)/%.h: $(srctree)/$(generic)/%.h
-> -	$(call cmd,wrap)
-> +$(obj)/%.h: $(srctree)/$(generic)/%.h FORCE
-> +	$(call filechk,wrap)
->  =
-
->  $(obj)/unistd_%.h: $(syscalltbl) $(syshdr) FORCE
->  	$(call if_changed,syshdr)
-> =
-
-> -- =
-
-> 2.55.0
-
--- =
-
-Cheers,
-Nathan
+-- 
+Sincerely,
+Yeoreum Yun
 
 _______________________________________________
 linux-riscv mailing list
