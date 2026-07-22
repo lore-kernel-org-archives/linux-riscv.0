@@ -4,89 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 640E5C44536
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 14:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F7CC44536
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 15:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JJtsaQZNtNcLmCfmhiz1Cjwz8tHno+sqx6D5s/6aEqA=; b=2i8uMOTQI3Iz2G
-	jcYTQrv5NKdCYW/Ia2nWUFUQq7DeVWz+wQveMsjNQbEqR+2NSq0bN9vIa/62hBJhtnJgCQkyd90oq
-	1laRHfqTdGbuWOM2O501JUksjknJSgcOsngMu6SV/uJuBT6TI64C9YRZITUVBrLq2P7VsoYuk9NbQ
-	+XFwa2KKBpOwS91mXXB3YgOb8toEQ3A/6zcQ1v/AS0oVVfBKIJVSw0/+6WiZTGyrUaMgqITOMJn8p
-	oxqJoX6v0ByYNFUbLvXD+mx/vUJo9X12wdwieLfIMxjlphqHeopzmLATg3Ty/K9dtd7VA/a8HecBv
-	qTgWuirDBCpQFNadjECw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r9EOFfMZGLxwE/QiGhqU8O5QbBzuBwpMPKJR6jZdRgc=; b=tCcHc8fcvddNMQmRCycqD+wnkA
+	0ef8OMgdtf6Mj8BPcPTY8SQE2mxLJxBHW5dG1jxiUCYkYBkxpP1OglC1WKOXloSDUrZmuiep56ejV
+	EwsGXML94aliJNC/+ziS2l9ZUS07feoRPwati9wR4JAvIiOXRKaz/ea4pHzVhsPQHBicVluDE9A8S
+	/GEKfAiuTAYFR8ZE+NixdDNgSZ/F6dkD+zjo2TRJyxly/Y4pdRXWuponrWfPi946dVQRhFJqPUOuX
+	+MOWscGTh7vndie2+T3+2VqkK9htwAUFOD1derTROyvMNOJq/4krnDndyabnagdtfNLlbM2he8uqA
+	1GMjKK9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXpd-0000000C12X-0sw7;
-	Wed, 22 Jul 2026 14:21:57 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wmYhM-0000000C7rD-3dEs;
+	Wed, 22 Jul 2026 15:17:28 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmXpX-0000000C10d-1VSA;
-	Wed, 22 Jul 2026 14:21:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 2F21E1A1051;
-	Wed, 22 Jul 2026 14:21:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F0DFD60388;
-	Wed, 22 Jul 2026 14:21:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD5B311BD3A22;
-	Wed, 22 Jul 2026 16:21:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1784730106; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=j5WRfwe5s7CD4n1/aXk/GuB0uSEMmPxIt38DrP+sT9s=;
-	b=q9U+aIf/4yDREUm1HYpEzUsh0wIcz3rw2jHYkX5xMjcB7JLX50HQtTMbtSUvrI+VGae9vu
-	YVn7SJP2PnfWlPRMHtkm3ieV2/EjSyukXuPY/zb3qRlGRCpIZ93uyHhkEhfaMIJ2itr58P
-	m4fuxIAyPKu+js9RoCTwmMzZWdiIB/E61TY1nRJ6h2SCwjls1890/wwN/Eo++VVj9Jg7hv
-	cBSEzLVgL3MVo8OtY7lK0sul9jXiSg3JI59jlM0m+npiflq+X01XX8jTtz3s71A//I9284
-	mrnjhne27BDlfP8nEzrkqxzU4wCNDZfNqiT8QqIpKoQG8aQDG8j/BAWR9cmDJg==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Yao Zi <me@ziyao.cc>,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Drew Fustini <fustini@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-rockchip@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	s32@nxp.com
-Subject: [PATCH net] MAINTAINERS: Add myself for stmmac ethernet driver maintainance
-Date: Wed, 22 Jul 2026 16:21:24 +0200
-Message-ID: <20260722142125.1767689-1-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
+	id 1wmYhK-0000000C7q1-35VR
+	for linux-riscv@lists.infradead.org;
+	Wed, 22 Jul 2026 15:17:28 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-c1740c36c5cso767757866b.2
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2026 08:17:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784733444; x=1785338244; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Upjmrh5JJYyxIf1oGA8lLlYd9DJQLFwgC7+8SiJQqeY=;
+        b=LSCJRIofq569MEKPW1Bthg1rqQGJUt9g49lgSqc+DSylZ9VSdSfvWhbNrvfESM8Epe
+         NDScLJ7uQAJ/me5M/cgaTbgFvpJX2rPTlPOaXO0OP6jk6h+J7WBUFmjxnd3RPYFyLWQE
+         zdoVxbyA3UcbQkIByWIM/XWEw0P6WsuZJTGWmj3nBXE6o2J6Z3kmrEnTKx5xmIc8eccy
+         rMBu+M6xOD/pXr7nZLmvgd/95pErq99SyNdQQa5SrOxHPbLe9G/fISLF8kNO6tNpJdBr
+         tNNu7x+05GN45IfM3FWxgwNCDFoO9Hlnb/xI4ERhs705lCCxgDBiiP5Q3g1+RHSi3VYS
+         dgzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784733444; x=1785338244;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Upjmrh5JJYyxIf1oGA8lLlYd9DJQLFwgC7+8SiJQqeY=;
+        b=VqupJk+yjL30uMCxksPSmSi1auaaAyNkMWMzDiKYqj/X2O/H/Jk6LDJCdOnBwkWlcF
+         N6FgV0hP27zVSlVd47nZCBUmKrQk3ioVQx6iVsntfa7QLy791+Nl67AFzVRUXvCOwuqm
+         bh7155Os8IYKLOx+XZimlV17iejclKo0sfDumtv3TU7s0M+ZVAqKUMkzvYiSHaI7sBME
+         oHH/cGLWBddL75+qOZXb5LsSVbpeCL5tQ7i7VuoEUzVlzLnE2paTcl0eGpBxaKiFyJKP
+         h005Agc2m+sf48bB+rlLiuv8lEibOwUImmbpckZwkEA8YHIaJ70Nc//D+VlmPf3Y2oCQ
+         ef+Q==
+X-Forwarded-Encrypted: i=1; AHgh+RpRZcwfWeJMyL+pwiP7wYb7UqP08C1cr3dI4ybr1IxK2zIh+rAoBJP6cgYIqLcRQGOrhtMvVFAYGX70PQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuKYaJAIeWjATBiTtABbYG61iBzo6bDu9KBh62y3QaphQdul/S
+	JxZUxIOR4lrN+cYTxbsle4iWUDh8ywNzH5TnMwj5gG2g6LncPjswd2M0dSKjujXVug==
+X-Gm-Gg: AR+sD10s8dYoxe4YKbkvZeylVAW5Sb4ygtwef5fNzdimutOfZIBynS4r4dD+bSKtcdC
+	8fdlDXcfvdZR4vpJA8YRnfggy+Wc81l3gUJVTbphcYvYwnIxJhR5rXOaxdpbLz7t4JfXGtrs47T
+	p3pYmF7oI4F+zm5+bUzWr9gZ/Wgb00abHSHvKkHKlWSLYHDw0GV3ziN/kWKRwNCeKKTfncTjxE0
+	SV5Yepb5sv+p6yzEYHGp1A0S0xLzFSSiCTh1dgO8iZVmeU9b4hZK1+fF398FuGgv4j1HE+2VUaU
+	/YRIXxLWWD1oHkzC6QkFfs4j6Ggz0ysFk63xjiq7EUmcVT6Zj/2IJPUa2RgSqfscvwyiXc1KRoo
+	ptc06hGGjfxS0dgvAD1nAGFF2siV793EkjPPIdLXrMOABTpjhVVpZSrKaYlMOsdR0kDPzHIghiP
+	tGlBB8joz7qt4PWb3Y9HG1kGbMCuJ1TjL/fcis7mgL0ahc
+X-Received: by 2002:a17:907:d5a4:b0:c16:a484:90df with SMTP id a640c23a62f3a-c16b485513emr815970066b.35.1784733443140;
+        Wed, 22 Jul 2026 08:17:23 -0700 (PDT)
+Received: from google.com (152.118.155.104.bc.googleusercontent.com. [104.155.118.152])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1c32a78229sm131383566b.1.2026.07.22.08.17.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Jul 2026 08:17:22 -0700 (PDT)
+Date: Wed, 22 Jul 2026 15:17:19 +0000
+From: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+	Brendan Jackman <jackmanb@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
+	Juergen Gross <jgross@suse.com>
+Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
+ set_memory/change_page_attr core
+Message-ID: <amDe_3KFBc9CcIbo@google.com>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Disposition: inline
+In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_072151_537924_4CDC9AD8 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20260722_081726_799075_ABD08434 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,56 +116,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The stmmac driver based on Synopsys' dwmac IP is used in a very wide
-variety of SoCs and is currently very actively used and contributed to.
+On Tue, Jul 21, 2026 at 07:23:23PM +0300, Mike Rapoport (Microsoft) wrote:
 
-It has been orphaned in January 2025 after the previous maintainers
-became inactive, but Russell King was providing very valuable reviews
-and fixes for the driver at that point.
+Hi Mike,
 
-Now we're seeing more and more activity on the driver, but are lacking
-people to test and review contributions to both glue drivers as well as
-core stmmac code.
+>Once this settles, the next step I'm planning is to convert arm64. This
+>would be much more involved than loongarch and riscv together, so I
+>didn't even aspire to include arm64 in the first RFC. That said, I have
+>a very ugly arm64 prototype that rewrites arch/arm64/pageattr.c to use
+>the generic CPA infrastructure and replaces the existing implementation
+>of page table splits for systems that support bbml2. But there's a lot
+>of yak shaving there to get from a PoC to actual patches.
 
-I have access to some variety of stmmac-based platforms such as socfpga
-CycloneV, imx8mp, some Allwinner SoCs and stm32mp1xx boards that I can
-run regression tests on, and I'm offering to step-up as a maintainer for
-driver, for the time being at least.
+Could you share your PoC for ARM64. I can help you with that and align my 
+execmem rox cache for ARM64  changes to the desired shape of this API.    
 
-Let's hope other people will eventually join this effort.
-
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-
-Sorry for the huge CC list, I tried to include all stmmac glue
-maintainers and associated lists.
-
- MAINTAINERS | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a674e36529f7..bea104a7e522 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -25972,8 +25972,9 @@ F:	Documentation/devicetree/bindings/phy/st,stm32mp25-combophy.yaml
- F:	drivers/phy/st/phy-stm32-combophy.c
- 
- STMMAC ETHERNET DRIVER
-+M:	Maxime Chevallier <maxime.chevallier@bootlin.com>
- L:	netdev@vger.kernel.org
--S:	Orphan
-+S:	Maintained
- F:	Documentation/networking/device_drivers/ethernet/stmicro/
- F:	drivers/net/ethernet/stmicro/stmmac/
- 
--- 
-2.55.0
-
+Best regards,
+Adrian
 
 _______________________________________________
 linux-riscv mailing list
