@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57819C4452D
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 07:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BE5C4452D
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 08:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Message-Id:Date:Mime-Version:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V/xgvtXjRFTLaWyxeory6w8X59JKvfp9XAGSwGmPDGg=; b=4MngzvwwPlzNQC
-	Pg+QlcUyeV0E9RQ017UpZ2VhF16Wiu6+Tfw+06h637c5RULWIoI/3DiRiFMcasgxC0ey2abYM0Twr
-	6ptmPFX+Ri48sL/PiCM8LBew3PPp5o0L9jSE2AtW7GxaYyiDEqWORgxqtE/ZOUh5sccVHlt4uGO5T
-	FSbg9fekiYVE/SrePXQERr+JvXYmmHVXR9UiO6pbBZXtTVE1YdFLXc8cPx2H59P7S/dn8UCVTN2PB
-	dspZaD/UPjtn2FS4HTr8xyGcABqFYsOlSoXWxlNP9cTfeIgZ8xaGYq3lVZP0Shs/pKVEp12+UJ5i0
-	zGLSLLf20GlWFFpabtRA==;
+	List-Owner; bh=bjMIySf4IHu14ZEwjoQ14iCMxRfnLBKA7G/pwAqb+Jk=; b=QHPH6OkiReAV4G
+	Ia+jSTJtbK0mdIsL1gq4rP7Gegwqx9Zkqkpjfo8tFBD5Chr3F/YjOv/k0ewuqLm0WSiruIhxqeVuJ
+	Bxh617TeRy7pPo6sWxhrkZpByPzDqP3n2IaP5G2sCMZEuD4vq5M3ykSQmK2jV/U/oqbOA/g4+F2PS
+	JxGbdGyo8s9vRrMrFAGrRHesXZceac8SXqaIqZ4O5EQ8yiZRiWZ1nigb/CcLLto07OSAsJTAvsxrD
+	98w2u6xZ6Fz34JHAaWKPtXibD81tmHNzAYYZxGBIscKT72A2V92Isrvp2VQo8qxXnGXk3PQH+UQ6E
+	QmTo0bQc2FxYklYo7TKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRnR-0000000BBTi-2aPi;
-	Wed, 22 Jul 2026 07:55:17 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1wmS1z-0000000BCoN-3vpu;
+	Wed, 22 Jul 2026 08:10:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmRnN-0000000BBKp-2Kd3
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jul 2026 07:55:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1784706893;
-	bh=ob3qR/e2vsX+1qjsXoG7FAFSH5W64ceTqvxJxmOmCUo=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=QKp+JNpZ85QW5ioAKzxWenfnv2R59MLgaiUEE9IzcpQRlgzWNCem8akyfTIRqvJhF
-	 yRmOH7MlrW1uyRBDAIYjGMeNy31kjruVcNsgGpvqnnA5eA0RCjLYfEhdqbYYBDs7nc
-	 VXkQQsuEcR9EToojHp1QjYwi28w5z84pjbXC6+5E=
-X-QQ-mid: zesmtpsz7t1784706885tf937dd1c
-X-QQ-Originating-IP: lTD3ycMX/Wwp32bRf60m3b1xQMLcYAzEX37sN8hX1YM=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 22 Jul 2026 15:54:42 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7589895340956616953
-EX-QQ-RecipientCnt: 10
-Mime-Version: 1.0
-Date: Wed, 22 Jul 2026 00:54:41 -0700
-Message-Id: <DK4XSEPSTY3I.O9ZFCZ9BJGNW@linux.spacemit.com>
-Subject: Re: [PATCH v2] thermal: spacemit: k1: add shutdown action and
- reorder registration order
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Pei Xiao" <xiaopei01@kylinos.cn>, <shuwei.wu@mailbox.org>,
- <troy.mitchell@linux.spacemit.com>, <rafael@kernel.org>,
- <linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
- <dlan@kernel.org>, <daniel.lezcano@kernel.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <1967d2bcc8fede6fbd25fc8eee07f2873fb41472.1784184867.git.xiaopei01@kylinos.cn>
-In-Reply-To: <1967d2bcc8fede6fbd25fc8eee07f2873fb41472.1784184867.git.xiaopei01@kylinos.cn>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: M4EB473hmYa3VkLIpdYraaUyE41H4rPeW2jcURyl1coWEmil6ER8NctQ
-	eQW6Ad+zsIIguNXv0cBLUrXDznyXKYkd3SNbnTY3zTitTywF4tV0QYw38FDWHmwV/5GF/GA
-	Q1tD+Tlr48iNKpEjS2MIBdMSvqn/w3/PdFC0XBHhKUjGnQ10qZHcGVYHLSFt8GdM6kXgSTJ
-	rwhKpcsjsaOG31ojG2aNZTwOUk3IwiKOJ1pSGns5hvYn9Iy0I6wufz/jH5iF5yTGt/hTzAB
-	PAzsil8bK94gDYUg45iHhHL3wUFp58COEqJsVbPpb/Wc61nfG1yBPD/BQ1Co8LPJ90jQrZd
-	00if9Umsq5qfDUtUk+/8yaeZzUzORFWY9tOvMnXtOHi8ESReG6REO3H3DQC6FJlvStfEpCQ
-	YMn5+5BWmMxaysPcCHzzHT+NsWhV8+mLju/1ttkRPR8yyzNp5YwliFzahUZ+nEaHTNCCb0W
-	nGvx9D9LzEygJy/1+mYWnrnTDYBqgwcgXDFe3aSHP0ZA3fOJR/N1n0faBh3TxsbEgj2ylX7
-	BSotYi2AWOBPYgQ59K+AePZw7xBiVnspvSX6W5HSkxolc8W+4x0gRIotDRBukpNLyZX5gID
-	QXLy+iMIkc5Xg1GQiy2/US2/M2bIZBEu5eODNXdCnyAsesBW2+sc3qNvM/coknyl5erKkfI
-	R0MYOv6Srr+LzInVdoqjnh1I1qZ2yw0AfCoVVjUANn47jCS5dNRQe9Ax0Pa22ffuVuNflUd
-	4i+hFxrGo36S8ytY+weu6fKPo2vFnd6pgPxcDnoFK6Jizx+wGRXRHBqIsnRLOjcdsAR2tvj
-	oI9ZWlcn7Pm3TjGsV5v/ngad50G3tDc6DJq0MZ2tLcCLySnKcQmyIn6FAmqU95KkYVims4O
-	gzBEwqvGDb8HUngJE71MJDfMEr8ueN6jMhtwCtRCuSMZOIoI/BECGin/hOzKiwHA8VoahJH
-	FBs26iyJVqXuw6BNYyiIPFrz3QjeJE0AWTrpUHgSXbckRD9nNhfm5drL03SNqGeZNeROAX8
-	z+bPDqQmTJdWOHScOsFz9nueF6ORVFDuNfn/MYuuvKyM3AE8LzyrP/0iI2nZ4=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_005514_422956_452C8782 
-X-CRM114-Status: UNSURE (   6.10  )
-X-CRM114-Notice: Please train this message.
+	id 1wmS1x-0000000BCnR-2b1O;
+	Wed, 22 Jul 2026 08:10:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0785B4372E;
+	Wed, 22 Jul 2026 08:10:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D792F1F000E9;
+	Wed, 22 Jul 2026 08:10:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784707816;
+	bh=X3aVIh2ek33UU8+B8a9XAh5AnUC2EdvEs6jei/F6K+I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=I/hq+D61HUJD22kW5yJj6gHMPC7x4qyICl+3ssZoSrVFhOLHwfYLbORGKp/SRjUdd
+	 zTQRA1mDueL92mGRW7m8Q1wsUwn/syez75jrayQkRA59d1EXPCi5+/QqAGh1IAAsJz
+	 +k37wc9Aqqp9ulWtD6NHxP2l3ZBhFizzQxnBEEU/3fk052IwuXI0xvipk48LMsrBlG
+	 XAPc6jtfri4GkAg8/s+YZutCWvTBO4v+5WedVSMb79czl801oXtVINoxNttS/Qv2aw
+	 JiftiLVJXiagErRf0tpKDhGUZna3C+uFacsTnq+5FJBbpprJbsoaFUEi0byrdaSAR8
+	 D3n80hOzvXlrA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wmS1u-00000007WjA-2blz;
+	Wed, 22 Jul 2026 08:10:14 +0000
+Date: Wed, 22 Jul 2026 09:10:14 +0100
+Message-ID: <86se5be97d.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thomas =?UTF-8?B?V2Vpw59zY2h1aA==?= <thomas.weissschuh@linutronix.de>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev
+Subject: Re: [PATCH v3 5/7] clocksource/drivers/arm_arch_timer: Remove CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
+In-Reply-To: <20260722-vdso-arch-clockmodes-v3-5-4c5753191cc4@linutronix.de>
+References: <20260722-vdso-arch-clockmodes-v3-0-4c5753191cc4@linutronix.de>
+	<20260722-vdso-arch-clockmodes-v3-5-4c5753191cc4@linutronix.de>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: thomas.weissschuh@linutronix.de, arnd@arndb.de, luto@kernel.org, tglx@kernel.org, vincenzo.frascino@arm.com, nathan@kernel.org, nsc@kernel.org, tsbogend@alpha.franken.de, daniel.lezcano@kernel.org, mark.rutland@arm.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, chenhuacai@kernel.org, kernel@xen0n.name, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,28 +96,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu Jul 16, 2026 at 12:04 AM PDT, Pei Xiao wrote:
-> Add a devm action to clean hardware interrupts, sampling, and control
-> registers on driver unbind, mirroring what k1_tsensor_init() sets up.
->
-> Reorder the registration order within probe(): register the thermal
-> zones first, then request the IRQ, and register the shutdown action
-> last.  On removal, the hardware interrupt is disabled first, then the
-> IRQ is released, and finally the thermal zones are released.  This
-> avoids the IRQ thread accessing an already unregistered thermal zone
-> during devres cleanup.
->
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-
-Thanks.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyMiBKdWwgMjAyNiAwODo1MzozMSArMDEwMCwKVGhvbWFzIFdlacOfc2NodWggPHRo
+b21hcy53ZWlzc3NjaHVoQGxpbnV0cm9uaXguZGU+IHdyb3RlOgo+IAo+IE5vdyB0aGF0IHRoZXJl
+IGlzIGEgZGVmaW5pdGlvbiBvZiBWRFNPX0NMT0NLTU9ERV9BUkNIVElNRVIKPiBldmVuIGlmIG5v
+IHZEU08gaXMgYnVpbHQsIHRoZSB1Z2x5IGlmZGVmZmVyeSBjYW4gYmUgcmVtb3ZlZC4KPiAKPiBT
+aWduZWQtb2ZmLWJ5OiBUaG9tYXMgV2Vpw59zY2h1aCA8dGhvbWFzLndlaXNzc2NodWhAbGludXRy
+b25peC5kZT4KCkFja2VkLWJ5OiBNYXJjIFp5bmdpZXIgPG1hekBrZXJuZWwub3JnPgoKCU0uCgot
+LSAKV2l0aG91dCBkZXZpYXRpb24gZnJvbSB0aGUgbm9ybSwgcHJvZ3Jlc3MgaXMgbm90IHBvc3Np
+YmxlLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
