@@ -4,94 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DA3C4453A
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2026 21:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD8FC44532
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 00:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pZKOah5v/NY77i9+fUFSu/Ufr9EgQ5wE3wp2yEG1fSA=; b=DTzHas8kHd3E/9
-	RQvQKf8KlZPZZJDW21wCJ/xeihLxVgsYrsqHrB6jykAPEHTCxw7IxLSbBKTT92Gpd5S0aXDigOmdr
-	GKgPCwWMrHK6cqLil4+Ec9NRCvrxvfeFAshMCThTCfoMpIPwOEsg7uCIukstnz0Rpsk5fSWWtYGB5
-	62HvAB76C06R4Y5AlJd5hjDgOGiTvcUrL0ZVoDrtF0+jO6UM6d2/z6Z24jtOf+kSO7lMLNl7opqxl
-	+yHWS42YnOyCrcRiBB8cZIDOCRMGRtarIwUoqkEVSeAu8RUe0uF4yWjDQe7PPAiSMlxbcBZQYCGX3
-	joeIadALktaQeeusO0dQ==;
+	List-Owner; bh=Idsxdix4XnhcfOsVidlmOakISgeOt0Yk86hEjaMwnB8=; b=2bI+T9cHlvvo4x
+	EwyVnNLl24+IbSz5TDEnov+58tAQpVyT3kYvlZ9PR0HWXWoAifrDyHjovZwwgWPYufnNThuqQX1vH
+	eOJhVXJ/dcHX9K8MbSae/AFtJFVpxbYVjtpn2cvmWaAp1FYkbcdyGLALtLHQJ64ApoWRuyBySFHvz
+	kCMs1b69YufsPv/beiKh4hK4NhqRZ3VFDY0jqgPRTzUO59Tx3edvild21lMXz0EJfrd4RDbNdmhTx
+	3Vwsbz34sRXQFeOk3U8ikt3Bz5c37e3gqxpo72pGjLtoqPltZAUgRVjL1n+I96CFWCqYrnTGSzXdR
+	hewuTjkccIEP4ovNMVnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wme3K-0000000Clz8-2jIR;
-	Wed, 22 Jul 2026 21:00:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wme3I-0000000Clyd-1VH5;
-	Wed, 22 Jul 2026 21:00:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D08F51595;
-	Wed, 22 Jul 2026 14:00:21 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 27E8B3F59E;
-	Wed, 22 Jul 2026 14:00:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784754026; bh=T2r4Egp/s+16B0hoCunOZbfeqvExxi27eFGafMCU8ps=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YWMrR1YN3bfiCwiezM9DJOx6TakLDNvhmwvKnHA5Wkhoz7J/eEz5QdDttGzppOqLI
-	 zc4F6tSsSpkQhSGeJsl+pVpGr5bnG6/UISWfFwGO6FJzqovJrkoePCsw3tVFPUswwq
-	 Upv27aJLOhDf0wbnQxdJABxfJrqgq2VT4sARSYOY=
-Date: Wed, 22 Jul 2026 22:00:17 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-openrisc@vger.kernel.org
-Subject: Re: [PATCH RFC v2 13/20] x86: mm: carve out the generic compile-time
- folded pgtable case in effective_prot()
-Message-ID: <amEvYRs7CjhQdQWT@e129823.arm.com>
-References: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
- <20260722-dummy_ptxp3-v2-13-d9e4bad31e0a@arm.com>
- <d16a8412-acee-4c21-a126-f570d6306983@intel.com>
- <amD_5r04mzMoZ0-r@e129823.arm.com>
- <33c774f6-2750-4831-8eee-e43dc471da32@intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <33c774f6-2750-4831-8eee-e43dc471da32@intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_140028_480712_FAA96221 
-X-CRM114-Status: GOOD (  26.45  )
+	id 1wmhLi-0000000D02n-47iJ;
+	Thu, 23 Jul 2026 00:31:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmhLd-0000000D02h-2y2A
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Jul 2026 00:31:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 06CBA40D5B;
+	Thu, 23 Jul 2026 00:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE0EB1F00A3A;
+	Thu, 23 Jul 2026 00:31:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784766696;
+	bh=M1FmOCddcFLRYUEHwII6l1JmdAnN/d2b9APCQ1/D8wk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=cdxhDzXPXieA/13FUHaHPEbXmK3kX5VhN1UC+vRAxoVs4nae8Yw2tf+6NPkgm9xdk
+	 WwcIqCerDkEYLxCJJbW/aTFUeGua6yLpKPxJGGqFMaxmvCyDEzdVuXMiRwlDCHbTb0
+	 wLY2WfAtmoCRHslcNay+K0FYrhBk/Xn0AvGjvZXQOW3Gz0n/BnVAq2ZASfikNFuX3d
+	 /fXyVSJzm0bvnzd8t4GbbhyG0volOiFv3GkyrWLK7IYOrEXTru1mWRNIe7aJqBmfX1
+	 vYQFQbALpxInBWNx1/4VKLs1OMgfL08JI5K0ESSINJO6Ua8Jv1pzDYZtEkX7XJ8nhG
+	 wDJbUMlKGvFjw==
+Date: Thu, 23 Jul 2026 09:31:32 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: daichengrong <daichengrong@iscas.ac.cn>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH] uprobes: Restore original return address in uretprobe
+ context
+Message-Id: <20260723093132.4f0e5b22e81aa688f86cb9de@kernel.org>
+In-Reply-To: <20260717082331.27058-1-daichengrong@iscas.ac.cn>
+References: <20260717082331.27058-1-daichengrong@iscas.ac.cn>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,97 +71,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 01:20:39PM -0700, Dave Hansen wrote:
-> On 7/22/26 10:37, Yeoreum Yun wrote:
-> >> On 7/22/26 08:30, Yeoreum Yun wrote:
-> >>>  struct pg_state {
-> >>>  	struct ptdump_state ptdump;
-> >>> +	int first_level;
-> >>>  	int level;
-> >>>  	pgprotval_t current_prot;
-> >>>  	pgprotval_t effective_prot;
-> >> There is zero reason on x86 to hold this value in a data structure. It
-> >> is 100% determined at boot time or earlier. Pre-5-level-paging it's a
-> >> compile-time constant.
-> >>
-> >> On x86, it never varies per-mm.
-> > However, mm_pXd_folded() requires to mm for other architecture like
-> > s390. might save the mm instead of first_level and calls the
-> > ptdump_pt_level_first() with static inline version would make the
-> > constant comparison. So it requires to save *mm* structure in here.
+On Fri, 17 Jul 2026 16:23:31 +0800
+daichengrong <daichengrong@iscas.ac.cn> wrote:
+
+> uretprobe replaces the original return address of a probed function with
+> a trampoline address to capture function return events.
 > 
-> I'm having a really hard time parsing that.
+> After the trampoline is entered and the uretprobe handler completes, the
+> original return address needs to be restored in the user register context
+> to keep the register state consistent with the state before probing.
 > 
-> I think you're trying to say that the effective_prot_p*() functions need
-> to know the first level but they don't (today) need the mm_struct. If
-> they don't get the (calculated) first_level passed in, they need the
-> mm_struct instead.
+> Add an architecture-specific hook for restoring the original return
+> address during uretprobe handling.
 > 
-> I think you're arguing 'pg_state' needs a ->first_level or a ->mm.
-> Having a pg_state->mm doesn't seem bad to me at all.
+> The initial implementation adds support for RISC-V. Other architectures
+> keep the default empty implementation until their corresponding restore
+> logic is implemented.
 > 
-> But, it's also a little bit silly. It would not be rocket science to
-> pass an mm_struct down to the effective_prot_p*() functions. It makes a
-> whole lot of sense to me for a page table walking function to need
-> metadata from the mm_struct to walk correctly.
+> Signed-off-by: daichengrong <daichengrong@iscas.ac.cn>
+> ---
+>  arch/riscv/kernel/probes/uprobes.c | 7 +++++++
+>  include/linux/uprobes.h            | 1 +
+>  kernel/events/uprobes.c            | 5 +++++
+>  3 files changed, 13 insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
+> index eb177d0ce8ab..0b1b94d9683e 100644
+> --- a/arch/riscv/kernel/probes/uprobes.c
+> +++ b/arch/riscv/kernel/probes/uprobes.c
+> @@ -139,6 +139,13 @@ arch_uretprobe_hijack_return_addr(unsigned long trampoline_vaddr,
+>  	return ra;
+>  }
+>  
+> +void
+> +arch_uretprobe_hijack_set_addr(unsigned long orig_ret_vaddr,
+> +				  struct pt_regs *regs)
 
-Yes. I mean to add pg_state->mm like:
+OK, but hijack may not be a good naming, what about
+"arch_uretprobe_restore_return_address()"?
 
-diff --git a/arch/x86/mm/dump_pagetables.c b/arch/x86/mm/dump_pagetables.c
-index 2afa7a23340e..aaf00f0c6624 100644
---- a/arch/x86/mm/dump_pagetables.c
-+++ b/arch/x86/mm/dump_pagetables.c
-@@ -38,6 +38,7 @@ struct pg_state {
-        bool check_wx;
-        unsigned long wx_pages;
-        struct seq_file *seq;
-+       struct mm_struct *mm;
- };
+And I need RISC-V maintainer's review.
 
- struct addr_marker {
-@@ -254,7 +255,7 @@ static void effective_prot(struct ptdump_state *pt_st, int level, u64 val)
-        pgprotval_t prot = val & PTE_FLAGS_MASK;
-        pgprotval_t effective;
+Thank you,
 
--       if (level > 0) {
-+       if (level > pgtable_first_level(st->mm)) {
-                pgprotval_t higher_prot = st->prot_levels[level - 1];
+> +{
+> +	regs->ra = orig_ret_vaddr;
+> +}
+> +
+>  int arch_uprobe_exception_notify(struct notifier_block *self,
+>  				 unsigned long val, void *data)
+>  {
+> diff --git a/include/linux/uprobes.h b/include/linux/uprobes.h
+> index f548fea2adec..2d0dc919845d 100644
+> --- a/include/linux/uprobes.h
+> +++ b/include/linux/uprobes.h
+> @@ -230,6 +230,7 @@ extern bool arch_uprobe_xol_was_trapped(struct task_struct *tsk);
+>  extern int  arch_uprobe_exception_notify(struct notifier_block *self, unsigned long val, void *data);
+>  extern void arch_uprobe_abort_xol(struct arch_uprobe *aup, struct pt_regs *regs);
+>  extern unsigned long arch_uretprobe_hijack_return_addr(unsigned long trampoline_vaddr, struct pt_regs *regs);
+> +extern void arch_uretprobe_hijack_set_addr(unsigned long orig_ret_vaddr, struct pt_regs *regs);
+>  extern bool arch_uretprobe_is_alive(struct return_instance *ret, enum rp_check ctx, struct pt_regs *regs);
+>  extern bool arch_uprobe_ignore(struct arch_uprobe *aup, struct pt_regs *regs);
+>  extern void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
+> diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
+> index 4084e926e284..deecaae01ab7 100644
+> --- a/kernel/events/uprobes.c
+> +++ b/kernel/events/uprobes.c
+> @@ -1748,6 +1748,10 @@ void * __weak arch_uretprobe_trampoline(unsigned long *psize)
+>  	return &insn;
+>  }
+>  
+> +void __weak arch_uretprobe_hijack_set_addr(unsigned long orig_ret_vaddr, struct pt_regs *regs)
+> +{
+> +}
+> +
+>  static struct xol_area *__create_xol_area(unsigned long vaddr)
+>  {
+>  	struct mm_struct *mm = current->mm;
+> @@ -2659,6 +2663,7 @@ void uprobe_handle_trampoline(struct pt_regs *regs)
+>  		valid = !next_chain || arch_uretprobe_is_alive(next_chain, RP_CHECK_RET, regs);
+>  
+>  		instruction_pointer_set(regs, ri->orig_ret_vaddr);
+> +		arch_uretprobe_hijack_set_addr(ri->orig_ret_vaddr, regs);
+>  		do {
+>  			/* pop current instance from the stack of pending return instances,
+>  			 * as it's not pending anymore: we just fixed up original
+> -- 
+> 2.25.1
+> 
+> 
 
-                effective = (higher_prot & prot & (_PAGE_USER | _PAGE_RW)) |
-@@ -452,7 +453,8 @@ bool ptdump_walk_pgd_level_core(struct seq_file *m,
-                .level = -1,
-                .to_dmesg       = dmesg,
-                .check_wx       = checkwx,
--               .seq            = m
-+               .seq            = m,
-+               .mm             = mm,
-        };
-
-        ptdump_walk_pgd(&st.ptdump, mm, pgd);
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 8c093c119e5a..6e7d0580db99 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -2490,4 +2490,15 @@ pgprot_t vm_get_page_prot(vm_flags_t vm_flags)                           \
- }                                                                      \
- EXPORT_SYMBOL(vm_get_page_prot);
-
-+static inline int pgtable_first_level(struct mm_struct *mm)
-+{
-+       if (mm_pmd_folded(mm))
-+               return 3;
-+       if (mm_pud_folded(mm))
-+               return 2;
-+       if (mm_p4d_folded(mm))
-+               return 1;
-+       return 0;
-+}
-+
- #endif /* _LINUX_PGTABLE_H */
 
 -- 
-Sincerely,
-Yeoreum Yun
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
