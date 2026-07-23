@@ -4,57 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD8FC44532
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 00:32:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB2BC44536
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 01:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Idsxdix4XnhcfOsVidlmOakISgeOt0Yk86hEjaMwnB8=; b=2bI+T9cHlvvo4x
-	EwyVnNLl24+IbSz5TDEnov+58tAQpVyT3kYvlZ9PR0HWXWoAifrDyHjovZwwgWPYufnNThuqQX1vH
-	eOJhVXJ/dcHX9K8MbSae/AFtJFVpxbYVjtpn2cvmWaAp1FYkbcdyGLALtLHQJ64ApoWRuyBySFHvz
-	kCMs1b69YufsPv/beiKh4hK4NhqRZ3VFDY0jqgPRTzUO59Tx3edvild21lMXz0EJfrd4RDbNdmhTx
-	3Vwsbz34sRXQFeOk3U8ikt3Bz5c37e3gqxpo72pGjLtoqPltZAUgRVjL1n+I96CFWCqYrnTGSzXdR
-	hewuTjkccIEP4ovNMVnw==;
+	List-Owner; bh=z9GvPe3vCFt5noRQ0ArkXKpQdZjMzgNVozH9v0NJgc8=; b=GU8UYK8AqQ2egO
+	EsahcBqs7sQffBb1L99s06VSApN4gom6eUP99t0pembeAG3oNBZYbhiZqLbYYZxwe1+bTcmZUeFaO
+	mNuGIResZ68x+BzhwOtNHIvnRhW0Ck4VDYUeEvRPbCQJmaxUGbqL7OzpiZwt3qbndTk69buBKFvaS
+	61oaRC5j9dKQGqgj1QMU5drF8D9JDVtfWAKlIOeUtoVudyvggszUvr0qCgqldBLeB7LMxlKqCKigc
+	xMp9jNwhjhB2q8t80atdzhYnHg/zQ5pd/t2NRapbu/8un5ROhZwtE/qHwjmxb9bjHD6I5prwuVM4U
+	MKxHhIj0bAEocPsXLU/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmhLi-0000000D02n-47iJ;
-	Thu, 23 Jul 2026 00:31:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmi7c-0000000D29u-0mZK;
+	Thu, 23 Jul 2026 01:21:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmhLd-0000000D02h-2y2A
+	id 1wmi7b-0000000D29o-1A8K
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 23 Jul 2026 01:21:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=l+BcWxEYxghnenlldtXOwu+zC99qYehVhMZWM49Kkzk=; b=YtRI0MP7S/S4UBwBXBG8H7FbNM
+	lsPq+ls5oJGL5zqH74HekmX6buLRHsZ65wsk+FxRkKLxRcAgO7jxaKAYX0xbnh6NAmUUzlrG1iUeR
+	I1hXLWjhsMh65a18SVrGU7lAIl2brDaGYSAUqMSAsCjfRR8WKNRDgO0yqonRp1NmS3tEzho++Qo0+
+	fQZAYUjbhWVbm57WYp1V7QkACnetJj2y2e7DvQIYZWcWGZtjooPBdZpZhTrkbleakSrECTr6Gm/OX
+	Yo7E9vW7yu9w1YV5k/dJGA+9WcWg7r5jtB/NcQwTJfrmMOzNqCeGFkRsNtwJ5ehkivL/tl7AuqY73
+	NzLUT8Xg==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wmi7D-00000001Jr4-3pt3
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Jul 2026 00:31:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 06CBA40D5B;
-	Thu, 23 Jul 2026 00:31:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE0EB1F00A3A;
-	Thu, 23 Jul 2026 00:31:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784766696;
-	bh=M1FmOCddcFLRYUEHwII6l1JmdAnN/d2b9APCQ1/D8wk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=cdxhDzXPXieA/13FUHaHPEbXmK3kX5VhN1UC+vRAxoVs4nae8Yw2tf+6NPkgm9xdk
-	 WwcIqCerDkEYLxCJJbW/aTFUeGua6yLpKPxJGGqFMaxmvCyDEzdVuXMiRwlDCHbTb0
-	 wLY2WfAtmoCRHslcNay+K0FYrhBk/Xn0AvGjvZXQOW3Gz0n/BnVAq2ZASfikNFuX3d
-	 /fXyVSJzm0bvnzd8t4GbbhyG0volOiFv3GkyrWLK7IYOrEXTru1mWRNIe7aJqBmfX1
-	 vYQFQbALpxInBWNx1/4VKLs1OMgfL08JI5K0ESSINJO6Ua8Jv1pzDYZtEkX7XJ8nhG
-	 wDJbUMlKGvFjw==
-Date: Thu, 23 Jul 2026 09:31:32 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: daichengrong <daichengrong@iscas.ac.cn>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Subject: Re: [PATCH] uprobes: Restore original return address in uretprobe
- context
-Message-Id: <20260723093132.4f0e5b22e81aa688f86cb9de@kernel.org>
-In-Reply-To: <20260717082331.27058-1-daichengrong@iscas.ac.cn>
-References: <20260717082331.27058-1-daichengrong@iscas.ac.cn>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Thu, 23 Jul 2026 01:21:09 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66N1JmFU2096485, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1784769588; bh=l+BcWxEYxghnenlldtXOwu+zC99qYehVhMZWM49Kkzk=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=HV/hg6puvpwQe9ORCUlxRgkV/B22MlLrGYspS1yYlv80QkBDjvjTBORNAWpBvckxP
+	 hcf3621kkn+yWd8jQiKIbCzljy1OpmY9yGZiGD7ZSk0rSovfktxcUKiJESd7162HCK
+	 OEZ4mmxIHg7iA9qXia99x9Rn82qU39ewR0CuGvRCJTPoAR+sa/jM026szBRPb0JQlY
+	 2R/0Ie1yW3L9pW/XMQuFefhditcPVTdUOmVH6bwcgynk17W89d9FAMBifc94kfxXPD
+	 HHi7dbOtXZ0aTBy1jlBcnoQFLk9u45FELFf4xMrlxUhxWy04AaWSv/n2T28NxMncSs
+	 I6WM2YNJz5DnA==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66N1JmFU2096485
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 23 Jul 2026 09:19:48 +0800
+Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Thu, 23 Jul 2026 09:19:48 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Thu, 23 Jul 2026 09:19:48 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::e6fd:5a3f:8946:92c4%10]) with mapi id
+ 15.02.2562.017; Thu, 23 Jul 2026 09:19:48 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, Bjorn Helgaas
+	<bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, =?utf-8?B?S3J6eXN6dG9mIFdpbGN6ecWEc2tp?=
+	<kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, Inochi Amaoto <inochiama@gmail.com>, "Aurelien
+ Jarno" <aurelien@aurel32.net>
+CC: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"spacemit@lists.linux.dev" <spacemit@lists.linux.dev>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>
+Subject: RE: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to
+ linux/pci_ids.h
+Thread-Topic: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to
+ linux/pci_ids.h
+Thread-Index: AQHdFXehTbmbDPtnB0KyE0vFNWAFDLZ6Vr7g
+Date: Thu, 23 Jul 2026 01:19:47 +0000
+Message-ID: <073fbf4b41804285b2df6fbb4efce0ed@realtek.com>
+References: <20260716-rtw89-spacemit-k3-v2-0-392b577ebf75@oss.tenstorrent.com>
+ <20260716-rtw89-spacemit-k3-v2-1-392b577ebf75@oss.tenstorrent.com>
+In-Reply-To: <20260716-rtw89-spacemit-k3-v2-1-392b577ebf75@oss.tenstorrent.com>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+x-originating-ip: [172.21.6.42]
+MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_022107_526450_D7F2408A 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,99 +113,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Jul 2026 16:23:31 +0800
-daichengrong <daichengrong@iscas.ac.cn> wrote:
+Hi PCI maintainers,
 
-> uretprobe replaces the original return address of a probed function with
-> a trampoline address to capture function return events.
+Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com> wrote:
+> Move the vendor and device ID for the existing Spacemit K1 PCIe Root
+> Complex to include/linux/pci_ids.h. Also add K3's Root Complex device ID
+> to this header. This is done so that these values can be referenced in
+> the rtw89 driver to enable 36-bit DMA ability in it for WiFi to function
+> on the K3 Pico ITX board.
 > 
-> After the trampoline is entered and the uretprobe handler completes, the
-> original return address needs to be restored in the user register context
-> to keep the register state consistent with the state before probing.
-> 
-> Add an architecture-specific hook for restoring the original return
-> address during uretprobe handling.
-> 
-> The initial implementation adds support for RISC-V. Other architectures
-> keep the default empty implementation until their corresponding restore
-> logic is implemented.
-> 
-> Signed-off-by: daichengrong <daichengrong@iscas.ac.cn>
+> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 > ---
->  arch/riscv/kernel/probes/uprobes.c | 7 +++++++
->  include/linux/uprobes.h            | 1 +
->  kernel/events/uprobes.c            | 5 +++++
->  3 files changed, 13 insertions(+)
+>  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 3 ---
+>  include/linux/pci_ids.h                       | 4 ++++
+>  2 files changed, 4 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
-> index eb177d0ce8ab..0b1b94d9683e 100644
-> --- a/arch/riscv/kernel/probes/uprobes.c
-> +++ b/arch/riscv/kernel/probes/uprobes.c
-> @@ -139,6 +139,13 @@ arch_uretprobe_hijack_return_addr(unsigned long trampoline_vaddr,
->  	return ra;
->  }
->  
-> +void
-> +arch_uretprobe_hijack_set_addr(unsigned long orig_ret_vaddr,
-> +				  struct pt_regs *regs)
-
-OK, but hijack may not be a good naming, what about
-"arch_uretprobe_restore_return_address()"?
-
-And I need RISC-V maintainer's review.
-
-Thank you,
-
-> +{
-> +	regs->ra = orig_ret_vaddr;
-> +}
+> diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> index be20a520255b6..f89c6d46c7684 100644
+> --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> @@ -21,9 +21,6 @@
+> 
+>  #include "pcie-designware.h"
+> 
+> -#define PCI_VENDOR_ID_SPACEMIT         0x201f
+> -#define PCI_DEVICE_ID_SPACEMIT_K1      0x0001
+> -
+>  /* Offsets and field definitions for link management registers */
+>  #define K1_PHY_AHB_IRQ_EN                      0x0000
+>  #define PCIE_INTERRUPT_EN              BIT(0)
+> diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
+> index 1c9d40e09107d..d6f26cacc8e35 100644
+> --- a/include/linux/pci_ids.h
+> +++ b/include/linux/pci_ids.h
+> @@ -2640,6 +2640,10 @@
+>  #define PCI_VENDOR_ID_SUNIX            0x1fd4
+>  #define PCI_DEVICE_ID_SUNIX_1999       0x1999
+> 
+> +#define PCI_VENDOR_ID_SPACEMIT         0x201f
+> +#define PCI_DEVICE_ID_SPACEMIT_K1      0x0001
+> +#define PCI_DEVICE_ID_SPACEMIT_K3      0x0002
 > +
->  int arch_uprobe_exception_notify(struct notifier_block *self,
->  				 unsigned long val, void *data)
->  {
-> diff --git a/include/linux/uprobes.h b/include/linux/uprobes.h
-> index f548fea2adec..2d0dc919845d 100644
-> --- a/include/linux/uprobes.h
-> +++ b/include/linux/uprobes.h
-> @@ -230,6 +230,7 @@ extern bool arch_uprobe_xol_was_trapped(struct task_struct *tsk);
->  extern int  arch_uprobe_exception_notify(struct notifier_block *self, unsigned long val, void *data);
->  extern void arch_uprobe_abort_xol(struct arch_uprobe *aup, struct pt_regs *regs);
->  extern unsigned long arch_uretprobe_hijack_return_addr(unsigned long trampoline_vaddr, struct pt_regs *regs);
-> +extern void arch_uretprobe_hijack_set_addr(unsigned long orig_ret_vaddr, struct pt_regs *regs);
->  extern bool arch_uretprobe_is_alive(struct return_instance *ret, enum rp_check ctx, struct pt_regs *regs);
->  extern bool arch_uprobe_ignore(struct arch_uprobe *aup, struct pt_regs *regs);
->  extern void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
-> diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
-> index 4084e926e284..deecaae01ab7 100644
-> --- a/kernel/events/uprobes.c
-> +++ b/kernel/events/uprobes.c
-> @@ -1748,6 +1748,10 @@ void * __weak arch_uretprobe_trampoline(unsigned long *psize)
->  	return &insn;
->  }
->  
-> +void __weak arch_uretprobe_hijack_set_addr(unsigned long orig_ret_vaddr, struct pt_regs *regs)
-> +{
-> +}
-> +
->  static struct xol_area *__create_xol_area(unsigned long vaddr)
->  {
->  	struct mm_struct *mm = current->mm;
-> @@ -2659,6 +2663,7 @@ void uprobe_handle_trampoline(struct pt_regs *regs)
->  		valid = !next_chain || arch_uretprobe_is_alive(next_chain, RP_CHECK_RET, regs);
->  
->  		instruction_pointer_set(regs, ri->orig_ret_vaddr);
-> +		arch_uretprobe_hijack_set_addr(ri->orig_ret_vaddr, regs);
->  		do {
->  			/* pop current instance from the stack of pending return instances,
->  			 * as it's not pending anymore: we just fixed up original
-> -- 
-> 2.25.1
-> 
-> 
+>  #define PCI_VENDOR_ID_HINT             0x3388
+>  #define PCI_DEVICE_ID_HINT_VXPROII_IDE 0x8013
 
+As patch 2/2 obviously goes to wireless-next tree, can I take this 
+dependency patch to my tree? 
 
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Ping-Ke
+
 
 _______________________________________________
 linux-riscv mailing list
