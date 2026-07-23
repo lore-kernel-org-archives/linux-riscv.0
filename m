@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAE4C531CB
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 05:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCE5C4453E
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 06:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AAcem9yHZO7TMKnGsBEkJEFbmWij5VTplcP4fzejNTA=; b=SnYRxTTlWdp/Sj
-	DuXr3gwGmw+Fb0Y4uFpowoy78ecQPFulC1OXgcmxZnAD1rZyGunf7HVLvNyB9zwEp8PRWyhwH6PWb
-	vON6Q5mGwNpjd9pXcYE2FHZTsIsNaLaQhcM+cZZZhpx2uIcStNX8XGOFXWgtdLtoWhfoJ6WNOJdJ1
-	EIlsOaVENKWZyJOE3YOJVUJhR5+qV12LIaJP6HgKem/6k29mWwrmAJlu1tE55uuj8YqlOLLSEM7WA
-	DzOthGqS0Y1c9uDkFEno5pBFcBzO3iKRvRtbO/npRRvHSTD6drRm5ESotcQOcNkiFx06E6o1qzEbr
-	kyqMz6RfOUknNNBGFkIQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lSE3qiyErVIrJmFYmB4nPmaQTYfCcEcNXzi0K35fhrI=; b=qd3cZsln/ht6mD
+	gPJTwosUXmMPJo9LCeDp85dBOoghb7KDTxq98wN8ufYCzRsU/GhD+V97O4o5HTRZbYxnOli97siSc
+	tdGgJBkJXGxtcPgk/aBUz8ONIvXieMI2kkj5SPQOQ10JLhUd/ta/4V61PE5WU7avlIzo5s++H5H1B
+	FtsIb9yQf3oKOMKy29jbc63HbuZSk1NtS453p0NbOwquDJOLbgNccYWrGv92d+kogRqQqy1N0+gG0
+	l+BU/EX+MsGaUyRCirfRJyBq9EWeP2Wm1acPMQNpk4D4TAhhhMSveaLsIuXiuelpS1RL2UkLDicBl
+	YFpsBKkWnwjBkeDg6MTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmBw-0000000DUVM-0lrb;
-	Thu, 23 Jul 2026 05:41:56 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wmn6P-0000000DYxm-1Iu5;
+	Thu, 23 Jul 2026 06:40:17 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmBr-0000000DUTJ-1YEZ
+	id 1wmn6K-0000000DYwQ-0vi5
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Jul 2026 05:41:53 +0000
-X-UUID: 2d649d58865911f1aa26b74ffac11d73-20260723
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:35998454-3bec-478b-b67b-efd9f61364b0,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:98b40a018686caac7d3782104e19b5b8,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|136|850|865|898,TC:nil,Content:0|15|
-	50,EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 2d649d58865911f1aa26b74ffac11d73-20260723
-X-User: jiangfeng@kylinos.cn
-Received: from [127.0.0.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1242378994; Thu, 23 Jul 2026 13:41:39 +0800
-From: Feng Jiang <jiangfeng@kylinos.cn>
-Subject: [PATCH bpf-next v5 0/3] bpf, riscv: add timed may_goto support
-Date: Thu, 23 Jul 2026 05:41:31 +0000
-Message-Id: <20260723-riscv-bpf-timed-may-goto-v5-0-86acb54e5642@kylinos.cn>
+	Thu, 23 Jul 2026 06:40:15 +0000
+Received: from Vostro-3710.lan (unknown [113.80.141.55])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 474627f12;
+	Thu, 23 Jul 2026 14:40:05 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: amadeus@jmu.edu.cn
+Cc: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dlan@kernel.org,
+	krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robh@kernel.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH 1/1] riscv: dts: spacemit: enable PCIe on OrangePi R2S
+Date: Thu, 23 Jul 2026 14:40:00 +0800
+Message-Id: <20260723064000.848512-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260602100000.2402784-1-amadeus@jmu.edu.cn>
+References: <20260602100000.2402784-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAIupYWoC/33NTQ6CMBAF4KuQrh1TWn5deQ/jAsoUJmpLWtJAC
- He3Ehe60OXLm/fNyjw6Qs9OycocBvJkTQz5IWFqaEyPQF3MTHBR8DLl4MirAO2oYaIHdvBoFuj
- tZIF3CvMiq6u80SzOR4ea5p2+sNe9wXli19gM5Cfrlv1nkHv/5vPffJDAQWnR1Ep2VSb1+bbcy
- Vh/VGZXQ/YhCfFHyqKEaVpiIWXZqvJL2rbtCWK5ym4VAQAA
-X-Change-ID: 20260710-riscv-bpf-timed-may-goto-0dce564985af
-To: Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- Eduard Zingerman <eddyz87@gmail.com>, 
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
- Emil Tsalapatis <emil@etsalapatis.com>, Luke Nelson <luke.r.nels@gmail.com>, 
- Xi Wang <xi.wang@gmail.com>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
- Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Shuah Khan <shuah@kernel.org>, Ihor Solodrai <ihor.solodrai@linux.dev>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Feng Jiang <jiangfeng@kylinos.cn>
-X-Mailer: b4 0.14.3
+X-HM-Tid: 0a9f8db3e5c003a2kunm85ffac06197a60
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTRlLVkIYHkkfSB1NQ0NOSFYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKSkhVQ0tVSk9KVU5OWVdZFhoPEhUdFFlBWUtVS1VLVUtZBg
+	++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_224151_730436_405C2748 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260722_234012_480204_4E0AAB07 
+X-CRM114-Status: UNSURE (   2.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +77,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds RISC-V JIT support for the timed may_goto loop bound.
+Hi,
 
-Patch 1 implements arch_bpf_timed_may_goto() and enables
-bpf_jit_supports_timed_may_goto() so the verifier uses the timed
-expansion path.
+> Enable the two RTL8125 network controllers and corresponding
+> PHYs connected via the PCIe controllers on the OrangePi R2S.
 
-Patch 2 adds a test that checks R0-R5 are preserved across
-arch_bpf_timed_may_goto() calls.
-
-Patch 3 enables the verifier_may_goto_1, stream_cond_break, and
-may_goto_interaction fastcall tests on riscv64.
-
-Tested on riscv64 QEMU (rva23s64): may_goto programs load and JIT
-correctly, and the 250ms timeout path works as expected.
-
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
----
-Changes in v5:
-- Use REG_S/REG_L/SZREG in arch_bpf_timed_may_goto assembly. (Pu Lehui)
-- Add __arch_s390x to the timed_may_goto_preserves_regs test. (Pu Lehui)
-- Switch the preserves-regs test to SEC("syscall") to fix
-  bpf_prog_test_run() EINVAL.
-- Link to v4: https://lore.kernel.org/r/20260722-riscv-bpf-timed-may-goto-v4-0-e117e6337bc7@kylinos.cn
-
-Changes in v4:
-- Add 'bpf-next' prefix to match the BPF kernel tree workflow.
-- Add a test checking that R0-R5 are preserved across
-  arch_bpf_timed_may_goto() calls. Use bpf_get_prandom_u32() to
-  prevent the verifier from removing the checks via DCE.
-- Rename may_goto_interaction_arm64() to may_goto_interaction().
-- Wrap the arch_bpf_timed_may_goto address check to a single line.
-- Link to v3: https://lore.kernel.org/r/20260715-riscv-bpf-timed-may-goto-v3-0-cf2a9c3d843f@kylinos.cn
-
-Changes in v3:
-- Set up the frame pointer in arch_bpf_timed_may_goto() so the function
-  does not break stack unwinding under CONFIG_FRAME_POINTER.
-
-Changes in v2:
-- Fix BPF_REG_0 being clobbered after arch_bpf_timed_may_goto() calls.
-- Enable the may_goto_interaction fastcall test on riscv64.
-
----
-Feng Jiang (3):
-      bpf, riscv: add support for timed may_goto
-      selftests/bpf: test timed may_goto preserves R0-R5
-      selftests/bpf: enable timed may_goto tests for riscv64
-
- arch/riscv/net/Makefile                            |  2 +-
- arch/riscv/net/bpf_jit_comp64.c                    | 12 ++++-
- arch/riscv/net/bpf_timed_may_goto.S                | 47 ++++++++++++++++
- tools/testing/selftests/bpf/progs/stream.c         |  1 +
- .../selftests/bpf/progs/verifier_bpf_fastcall.c    |  3 +-
- .../selftests/bpf/progs/verifier_may_goto_1.c      | 62 ++++++++++++++++++++++
- 6 files changed, 124 insertions(+), 3 deletions(-)
----
-base-commit: a23a71823352e2d792dcaae25f1ebb744acbfc0b
-change-id: 20260710-riscv-bpf-timed-may-goto-0dce564985af
-
-Best regards,
--- 
-Feng Jiang <jiangfeng@kylinos.cn>
-
+friendly ping
 
 _______________________________________________
 linux-riscv mailing list
