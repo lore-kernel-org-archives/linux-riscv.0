@@ -4,100 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE26C531CC
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 00:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92337C531F9
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 00:58:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4ekiHA3X3a8EMt3rUlOpGkI5PuruDYgfqgUNG8MXoN8=; b=437LCv+roHGElt
-	vzOfpJL/HsKH9X6iMCskUeBtYi/zZbdb4TCGB2DzFf8NAXXRyYOozbn0xemK/Kk4u55GIgYjG1gx6
-	7aJXESJxWtY4V09q2rE2zVKIPXeYCfN5Ht74erT/a7HHnGJR9JBZsnlCGEwD/iPQz5tgST6/G0hfQ
-	Uk92VVLCT3CQFOjOLWlsznR33/pYJOhXHCrEU0tbVMHRn1nO9VmoG/6Dj0cGV1UOybJ1BcGWk2bMt
-	+gBnRU+ebunf4S27gzP9ctzzXVlvYEJWxthDagNCy8sncYrbwvgDdHzGn8Nq9frAMKSMouYkX7FZW
-	dvsqtcMnsl39/7Lr3oIQ==;
+	List-Owner; bh=qkShjaCZRDiEDmue1ZS1H0OH9XBZ5GN80zQGWyAzelU=; b=4iIQN3H3/Cqe3r
+	CA56/LTqthNHPfWwT3EIXulIRSfBR0fJkmUvqa9Ig99FGQAjadEloM1nFDrb7GcfpK3tlOIY/ZwIj
+	M3NxS+YU7DEMokjc45hGXOcSLfjbZY21G5D6iokScO+Zh7Nd00Be0+ooA3we+5li8D8Cb8kmUNyoO
+	STlQKYEtBs1AS6MeV1J8JXkkyQAkPPlc+8qpMagbMdbG4nOChSXIPhwZ2sm6BuBWGgs6n9hobkfUi
+	T7sNhHQ+UwHiFtmj/Aq34R7vGxbsTKG8zU2eu7Y07FV5Z2zl8E45LYEFeeeTq4LLgv95mS0S+u2NZ
+	7eOwKi1i9psV7/AaXzMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn3Qw-0000000FHXC-3igX;
-	Fri, 24 Jul 2026 00:06:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wn4FD-0000000FJSk-0nYn;
+	Fri, 24 Jul 2026 00:58:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn3Qv-0000000FHX4-2kd9
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 24 Jul 2026 00:06:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2KI8AfOPOXl0f250iINHG39YRU3B5MnXfsv7pT1KX/g=; b=ApMTEXNwASiwwJfNedo/qWiIf4
-	81EwnjkRWBoxMNOScKQ35BwwdrFxZriWMEFkqdTsNg0J0Z4LtMvizjczosTBnUX37WhPxOHJPD3b8
-	8on3EglbPuE41t60Ekt/F9egXy+2kltDLOLktiwsmReGff+buhZU3Gx2PHC3lqRY3LVOUdBJThsSa
-	3OgASfonDUiGQZsb3bSEJSqzI1wOiR+C8OaK14+WvE/s77MpaQbAtvM5XV9YBsj4lQPdSRKRhRDOt
-	jDgrfGCfVy4Htw3YdhCQaTqHkLHE/iXPo30GfhKX2EUmktAXdIMqVx44fyRW206C5pCcupStRUMM1
-	n7sdybdA==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wn3Qp-00000002AGO-395f
+	id 1wn4FB-0000000FJSB-2e9s
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jul 2026 00:06:32 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66O05crZ6816527, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1784851538; bh=2KI8AfOPOXl0f250iINHG39YRU3B5MnXfsv7pT1KX/g=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=cjk4Mu1NmfnwTJBZcnMDXzJMHkenqntKCcNrpFKczgluAvUizFrKtjpifNaf3wNVj
-	 q+CSk56M5MCweQQ732WkNMGNXlKVFPnFos1Aq0PJJ8KqAYPi/9H5TjUCefRL3aVW9Q
-	 19lk8mWGBmVzXnAzIGoASQS7AVBof6gpYA3Pisi3uKfpoRiSlELSobP8yYdkSzNQKa
-	 fOZx04Woq3UTNGHpmIxKTIcNeq6sEE3BGL55iv5ghvtIQ3tuHe2eRib+905fqx/NEu
-	 vdu7B0SX9Wnx0Z39esj0Tkz1ok5P+lirO98xxOnduiLSy1BUz3atMYg9MgQ70/91XH
-	 Fb+21GvWMnWTg==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66O05crZ6816527
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 24 Jul 2026 08:05:38 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 24 Jul 2026 08:05:38 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 24 Jul 2026 08:05:38 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::e6fd:5a3f:8946:92c4%10]) with mapi id
- 15.02.2562.017; Fri, 24 Jul 2026 08:05:38 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, Bjorn Helgaas
-	<bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, =?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?=
-	<kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, "Rob
- Herring" <robh@kernel.org>, Inochi Amaoto <inochiama@gmail.com>, "Aurelien
- Jarno" <aurelien@aurel32.net>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "spacemit@lists.linux.dev"
-	<spacemit@lists.linux.dev>, "linux-wireless@vger.kernel.org"
-	<linux-wireless@vger.kernel.org>
-Subject: RE: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to
- linux/pci_ids.h
-Thread-Topic: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to
- linux/pci_ids.h
-Thread-Index: AQHdFXehTbmbDPtnB0KyE0vFNWAFDLZ6Vr7ggADV5ACAAKiGMA==
-Date: Fri, 24 Jul 2026 00:05:37 +0000
-Message-ID: <e437ff6da5ea494e83edcfd2605632cb@realtek.com>
-References: <073fbf4b41804285b2df6fbb4efce0ed@realtek.com>
- <20260723220140.GA865834@bhelgaas>
-In-Reply-To: <20260723220140.GA865834@bhelgaas>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
+	Fri, 24 Jul 2026 00:58:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B01C5600AA;
+	Fri, 24 Jul 2026 00:58:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3401D1F000E9;
+	Fri, 24 Jul 2026 00:58:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784854708;
+	bh=bcXw+uIE6W+aK5mxlbiXr2hjN6fRQj7fOTAKPEDEydk=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=ckOaAxvH6ImfAeVxHn6JpB+5j75OsgTrQXC9NZPpACvjgH/VnkuhHoC9WCh0I8f4d
+	 mcGwbbnlNNHPRRYqQnVZT0r+jcFph/AIZo4rekx7j2Locr8S6hfNkXq1Imgq2sAOT/
+	 lTxcMq59AksRdH4uboHxVVmIJAFouMbhWny/rxdlpj8s1TkTPIxADoRzev+XDPzoHA
+	 rL7SIZESSH9QCcXzUtT6KJEztHwQhyuBnM2IhQCl6us47dyvletaqpHalo1TwCxFQr
+	 NAHiA64bw2vmCqKmzu+f6nRKoUF2059A8Y6zgTZtE9ViVZSccks/w3QLqrp5Gr1pPp
+	 uIOHMHZL+RsWA==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Yixun Lan <dlan@kernel.org>, 
+ Jinmei Wei <weijinmei@linux.spacemit.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org
+In-Reply-To: <20260721-kx-i2s-dts-v1-0-d22cb6cfaab5@linux.spacemit.com>
+References: <20260721-kx-i2s-dts-v1-0-d22cb6cfaab5@linux.spacemit.com>
+Subject: Re: (subset) [PATCH 0/3] SpacemiT K3: fix I2S DT integration and
+ add controller nodes
+Message-Id: <178482894045.53486.14996255355571230454.b4-ty@b4>
+Date: Thu, 23 Jul 2026 18:49:00 +0100
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_010628_834785_4B0996BF 
-X-CRM114-Status: GOOD (  18.22  )
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1675; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Z+DZXaVMkBJvppVuH05mkoVURmyRDBb0qJxSdWYGHJY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqYriwtHQzGPiVMTAq4TXVnYB8E272P0kdF5zON
+ 4Tl55YNbL2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCamK4sAAKCRAk1otyXVSH
+ 0HOSB/4wOzhGtKviF7czKKjFRLfpx+au1bP8poyRbExsvd5h6bZJq2xNP3571T+7iiG46UQxo5T
+ dzdaugQrRvZhQMUJQZ2frnSvmqUAcoeuwvb25RzOweTxG0mSNclXE26WC/aZa8pJ0KilZx3riwg
+ ODiLabcKo2O3ZfP3uvGn0C8l/ItUne4sZXY8MMeUh4peYqogTGNA3sgrBWuF4mDDLLKnl70KMhn
+ pe+1hMKvvIuzfPG0gHoE0kEqKwX/qphYu5BklY8VIw7NF8LfYV/jqswOGjdAirndJTvJavTFyA9
+ jIT8f4prAy8zPq4yjYauRhb7URUZLc6ShG5aZO87+12KJg0C
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,62 +89,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Bjorn Helgaas <helgaas@kernel.org> wrote:
-> On Thu, Jul 23, 2026 at 01:19:47AM +0000, Ping-Ke Shih wrote:
-> > Hi PCI maintainers,
-> >
-> > Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com> wrote:
-> > > Move the vendor and device ID for the existing Spacemit K1 PCIe Root
-> > > Complex to include/linux/pci_ids.h. Also add K3's Root Complex device ID
-> > > to this header. This is done so that these values can be referenced in
-> > > the rtw89 driver to enable 36-bit DMA ability in it for WiFi to function
-> > > on the K3 Pico ITX board.
-> > >
-> > > Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-> > > Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 3 ---
-> > >  include/linux/pci_ids.h                       | 4 ++++
-> > >  2 files changed, 4 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > > b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > > index be20a520255b6..f89c6d46c7684 100644
-> > > --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > > +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
-> > > @@ -21,9 +21,6 @@
-> > >
-> > >  #include "pcie-designware.h"
-> > >
-> > > -#define PCI_VENDOR_ID_SPACEMIT         0x201f
-> > > -#define PCI_DEVICE_ID_SPACEMIT_K1      0x0001
-> > > -
-> > >  /* Offsets and field definitions for link management registers */
-> > >  #define K1_PHY_AHB_IRQ_EN                      0x0000
-> > >  #define PCIE_INTERRUPT_EN              BIT(0)
-> > > diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
-> > > index 1c9d40e09107d..d6f26cacc8e35 100644
-> > > --- a/include/linux/pci_ids.h
-> > > +++ b/include/linux/pci_ids.h
-> > > @@ -2640,6 +2640,10 @@
-> > >  #define PCI_VENDOR_ID_SUNIX            0x1fd4
-> > >  #define PCI_DEVICE_ID_SUNIX_1999       0x1999
-> > >
-> > > +#define PCI_VENDOR_ID_SPACEMIT         0x201f
-> > > +#define PCI_DEVICE_ID_SPACEMIT_K1      0x0001
-> > > +#define PCI_DEVICE_ID_SPACEMIT_K3      0x0002
-> > > +
-> > >  #define PCI_VENDOR_ID_HINT             0x3388
-> > >  #define PCI_DEVICE_ID_HINT_VXPROII_IDE 0x8013
-> >
-> > As patch 2/2 obviously goes to wireless-next tree, can I take this
-> > dependency patch to my tree?
+On Tue, 21 Jul 2026 19:35:54 -0700, Troy Mitchell wrote:
+> SpacemiT K3: fix I2S DT integration and add controller nodes
 > 
-> Yes, that's what my Acked-by at
-> https://lore.kernel.org/all/20260716164336.GA40813@bhelgaas means.
+> The SpacemiT K3 SoC has six SSPA-based I2S controllers (i2s0-i2s5).
+> This series fixes two bugs that prevented writing a correct DT for any
+> of them and adds all six nodes.
+> 
+> Patch 1 fixes the ASoC driver's clock lookup names. The driver was
+> requesting "sspa_bus" and "sspa" but the published binding specifies
+> "bus" and "func", causing probe failures on any conformant DT node.
+> 
+> [...]
 
-Thanks for the confirmation. :)
+Applied to
 
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
+
+Thanks!
+
+[1/3] ASoC: spacemit: rename clock inputs to match binding
+      https://git.kernel.org/broonie/sound/c/4c69d04958ec
+[2/3] dt-bindings: sound: spacemit,k1-i2s: allow 6 clocks for K3 i2s1
+      https://git.kernel.org/broonie/sound/c/ec926b3bcb49
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
 _______________________________________________
