@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A41AEC44524
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 05:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAE4C531CB
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 05:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9nmdM4f4E9E8mHKGxnwu2QXBZ0t/3z1B2LsfQoAFm0w=; b=jNsRkQ2JpKq86x
-	upFEfLqtlEfa0fv39IYrMMZeRByuZoqXh2St4ekjqoUE/uxoqH+tzHlA1DDLbpRuS0Sa6QW7i9PKp
-	Vmw33UZXUK+cc/C9iys4jlOFzUbMyb02WwWY2gsHdW2Yz4J1N6upTZHgvlyDfU+NEhheK64fD0G/u
-	+TOpEw0YRIvJHgKNMSfajqSrsN8m+CEmNIlBQBtBSB15DlM1fKDWHXsl/7QJL4UHIKTODd4fAeInD
-	Q2nCUENRa6tYpPmLFklbWKaO2UIGYQ29vpS6rNfgR374T20nR4H8WNlvpBci3vpBHyy0PlMXFhFIe
-	PpJUZFVEMFv8rQ/kZrGg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AAcem9yHZO7TMKnGsBEkJEFbmWij5VTplcP4fzejNTA=; b=SnYRxTTlWdp/Sj
+	DuXr3gwGmw+Fb0Y4uFpowoy78ecQPFulC1OXgcmxZnAD1rZyGunf7HVLvNyB9zwEp8PRWyhwH6PWb
+	vON6Q5mGwNpjd9pXcYE2FHZTsIsNaLaQhcM+cZZZhpx2uIcStNX8XGOFXWgtdLtoWhfoJ6WNOJdJ1
+	EIlsOaVENKWZyJOE3YOJVUJhR5+qV12LIaJP6HgKem/6k29mWwrmAJlu1tE55uuj8YqlOLLSEM7WA
+	DzOthGqS0Y1c9uDkFEno5pBFcBzO3iKRvRtbO/npRRvHSTD6drRm5ESotcQOcNkiFx06E6o1qzEbr
+	kyqMz6RfOUknNNBGFkIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmBw-0000000DUVR-1Syc;
+	id 1wmmBw-0000000DUVM-0lrb;
 	Thu, 23 Jul 2026 05:41:56 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmmBs-0000000DUTx-1L0q
+	id 1wmmBr-0000000DUTJ-1YEZ
 	for linux-riscv@lists.infradead.org;
 	Thu, 23 Jul 2026 05:41:53 +0000
-X-UUID: 2f3b94d8865911f1aa26b74ffac11d73-20260723
+X-UUID: 2d649d58865911f1aa26b74ffac11d73-20260723
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:8b73f118-e106-4292-9956-820ddf859940,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:e7bac3a,CLOUDID:98fb09498250e5c02ee766237887bfaf,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|865|898,TC:nil,Content:0|1
-	5|50,EDM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:
-	0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.12,REQID:35998454-3bec-478b-b67b-efd9f61364b0,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:98b40a018686caac7d3782104e19b5b8,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|136|850|865|898,TC:nil,Content:0|15|
+	50,EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 2f3b94d8865911f1aa26b74ffac11d73-20260723
+X-UUID: 2d649d58865911f1aa26b74ffac11d73-20260723
 X-User: jiangfeng@kylinos.cn
 Received: from [127.0.0.1] [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <jiangfeng@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 774362690; Thu, 23 Jul 2026 13:41:42 +0800
+	with ESMTP id 1242378994; Thu, 23 Jul 2026 13:41:39 +0800
 From: Feng Jiang <jiangfeng@kylinos.cn>
-Date: Thu, 23 Jul 2026 05:41:34 +0000
-Subject: [PATCH bpf-next v5 3/3] selftests/bpf: enable timed may_goto tests
- for riscv64
+Subject: [PATCH bpf-next v5 0/3] bpf, riscv: add timed may_goto support
+Date: Thu, 23 Jul 2026 05:41:31 +0000
+Message-Id: <20260723-riscv-bpf-timed-may-goto-v5-0-86acb54e5642@kylinos.cn>
 MIME-Version: 1.0
-Message-Id: <20260723-riscv-bpf-timed-may-goto-v5-3-86acb54e5642@kylinos.cn>
-References: <20260723-riscv-bpf-timed-may-goto-v5-0-86acb54e5642@kylinos.cn>
-In-Reply-To: <20260723-riscv-bpf-timed-may-goto-v5-0-86acb54e5642@kylinos.cn>
+X-B4-Tracking: v=1; b=H4sIAIupYWoC/33NTQ6CMBAF4KuQrh1TWn5deQ/jAsoUJmpLWtJAC
+ He3Ehe60OXLm/fNyjw6Qs9OycocBvJkTQz5IWFqaEyPQF3MTHBR8DLl4MirAO2oYaIHdvBoFuj
+ tZIF3CvMiq6u80SzOR4ea5p2+sNe9wXli19gM5Cfrlv1nkHv/5vPffJDAQWnR1Ep2VSb1+bbcy
+ Vh/VGZXQ/YhCfFHyqKEaVpiIWXZqvJL2rbtCWK5ym4VAQAA
+X-Change-ID: 20260710-riscv-bpf-timed-may-goto-0dce564985af
 To: Alexei Starovoitov <ast@kernel.org>, 
  Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
  Eduard Zingerman <eddyz87@gmail.com>, 
@@ -72,9 +74,8 @@ Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
  Feng Jiang <jiangfeng@kylinos.cn>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260722_224152_663730_1122D110 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260722_224151_730436_405C2748 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,90 +92,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable verifier_may_goto_1 (raw instruction tests), stream_cond_break
-(250ms timeout path), and the may_goto_interaction fastcall test on
-riscv64 now that the JIT supports timed may_goto.
+This series adds RISC-V JIT support for the timed may_goto loop bound.
 
-Reviewed-by: Pu Lehui <pulehui@huawei.com>
+Patch 1 implements arch_bpf_timed_may_goto() and enables
+bpf_jit_supports_timed_may_goto() so the verifier uses the timed
+expansion path.
+
+Patch 2 adds a test that checks R0-R5 are preserved across
+arch_bpf_timed_may_goto() calls.
+
+Patch 3 enables the verifier_may_goto_1, stream_cond_break, and
+may_goto_interaction fastcall tests on riscv64.
+
+Tested on riscv64 QEMU (rva23s64): may_goto programs load and JIT
+correctly, and the 250ms timeout path works as expected.
+
 Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
 ---
- tools/testing/selftests/bpf/progs/stream.c                | 1 +
- tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_may_goto_1.c   | 4 ++++
- 3 files changed, 7 insertions(+), 1 deletion(-)
+Changes in v5:
+- Use REG_S/REG_L/SZREG in arch_bpf_timed_may_goto assembly. (Pu Lehui)
+- Add __arch_s390x to the timed_may_goto_preserves_regs test. (Pu Lehui)
+- Switch the preserves-regs test to SEC("syscall") to fix
+  bpf_prog_test_run() EINVAL.
+- Link to v4: https://lore.kernel.org/r/20260722-riscv-bpf-timed-may-goto-v4-0-e117e6337bc7@kylinos.cn
 
-diff --git a/tools/testing/selftests/bpf/progs/stream.c b/tools/testing/selftests/bpf/progs/stream.c
-index 92ba1d72e0ec..8d8e53d37266 100644
---- a/tools/testing/selftests/bpf/progs/stream.c
-+++ b/tools/testing/selftests/bpf/progs/stream.c
-@@ -64,6 +64,7 @@ SEC("syscall")
- __arch_x86_64
- __arch_arm64
- __arch_s390x
-+__arch_riscv64
- __success __retval(0)
- __stderr("ERROR: Timeout detected for may_goto instruction")
- __stderr("CPU: {{[0-9]+}} UID: 0 PID: {{[0-9]+}} Comm: {{.*}}")
-diff --git a/tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c b/tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c
-index 8d7ff38e4c06..83707faea049 100644
---- a/tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c
-@@ -660,6 +660,7 @@ __naked void may_goto_interaction_x86_64(void)
- 
- SEC("raw_tp")
- __arch_arm64
-+__arch_riscv64
- __log_level(4) __msg("stack depth 24")
- /* may_goto counter at -24 */
- __xlated("0: *(u64 *)(r10 -24) =")
-@@ -679,7 +680,7 @@ __xlated("10: *(u64 *)(r10 -24) = r12")
- __xlated("11: *(u64 *)(r10 -8) = r1")
- __xlated("12: exit")
- __success
--__naked void may_goto_interaction_arm64(void)
-+__naked void may_goto_interaction(void)
- {
- 	asm volatile (
- 	"r1 = 1;"
-diff --git a/tools/testing/selftests/bpf/progs/verifier_may_goto_1.c b/tools/testing/selftests/bpf/progs/verifier_may_goto_1.c
-index cb1ce4d13cfc..0e211f030d0d 100644
---- a/tools/testing/selftests/bpf/progs/verifier_may_goto_1.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_may_goto_1.c
-@@ -11,6 +11,7 @@ __description("may_goto 0")
- __arch_x86_64
- __arch_s390x
- __arch_arm64
-+__arch_riscv64
- __xlated("0: r0 = 1")
- __xlated("1: exit")
- __success
-@@ -31,6 +32,7 @@ __description("batch 2 of may_goto 0")
- __arch_x86_64
- __arch_s390x
- __arch_arm64
-+__arch_riscv64
- __xlated("0: r0 = 1")
- __xlated("1: exit")
- __success
-@@ -53,6 +55,7 @@ __description("may_goto batch with offsets 2/1/0")
- __arch_x86_64
- __arch_s390x
- __arch_arm64
-+__arch_riscv64
- __xlated("0: r0 = 1")
- __xlated("1: exit")
- __success
-@@ -79,6 +82,7 @@ __description("may_goto batch with offsets 2/0")
- __arch_x86_64
- __arch_s390x
- __arch_arm64
-+__arch_riscv64
- __xlated("0: *(u64 *)(r10 -16) = 65535")
- __xlated("1: *(u64 *)(r10 -8) = 0")
- __xlated("2: r12 = *(u64 *)(r10 -16)")
+Changes in v4:
+- Add 'bpf-next' prefix to match the BPF kernel tree workflow.
+- Add a test checking that R0-R5 are preserved across
+  arch_bpf_timed_may_goto() calls. Use bpf_get_prandom_u32() to
+  prevent the verifier from removing the checks via DCE.
+- Rename may_goto_interaction_arm64() to may_goto_interaction().
+- Wrap the arch_bpf_timed_may_goto address check to a single line.
+- Link to v3: https://lore.kernel.org/r/20260715-riscv-bpf-timed-may-goto-v3-0-cf2a9c3d843f@kylinos.cn
 
+Changes in v3:
+- Set up the frame pointer in arch_bpf_timed_may_goto() so the function
+  does not break stack unwinding under CONFIG_FRAME_POINTER.
+
+Changes in v2:
+- Fix BPF_REG_0 being clobbered after arch_bpf_timed_may_goto() calls.
+- Enable the may_goto_interaction fastcall test on riscv64.
+
+---
+Feng Jiang (3):
+      bpf, riscv: add support for timed may_goto
+      selftests/bpf: test timed may_goto preserves R0-R5
+      selftests/bpf: enable timed may_goto tests for riscv64
+
+ arch/riscv/net/Makefile                            |  2 +-
+ arch/riscv/net/bpf_jit_comp64.c                    | 12 ++++-
+ arch/riscv/net/bpf_timed_may_goto.S                | 47 ++++++++++++++++
+ tools/testing/selftests/bpf/progs/stream.c         |  1 +
+ .../selftests/bpf/progs/verifier_bpf_fastcall.c    |  3 +-
+ .../selftests/bpf/progs/verifier_may_goto_1.c      | 62 ++++++++++++++++++++++
+ 6 files changed, 124 insertions(+), 3 deletions(-)
+---
+base-commit: a23a71823352e2d792dcaae25f1ebb744acbfc0b
+change-id: 20260710-riscv-bpf-timed-may-goto-0dce564985af
+
+Best regards,
 -- 
-2.53.0
+Feng Jiang <jiangfeng@kylinos.cn>
 
 
 _______________________________________________
