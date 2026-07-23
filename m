@@ -4,53 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE8AC531F7
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 16:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98797C531CC
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 22:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EK8HQulxjt2m5bPkcJW7TTgBzptuoVXxnaXKWBEFZQk=; b=mYEB1MBpuTipCH
-	BMjZmwFzajZE9aCDLlJGORoOpkRH3u5J6MkB6RAFLD4FE+GS+6bNRy7dd4mTje2OvQqdOIh4/8LJV
-	CvfvOwEMpGsapoHHo6x6FP9ZiMI/csbfCYjZsDBRXssrLNU+5lsc0HpAYGIUwSsGhPb5A3ia6AhYw
-	QLwaB8+2dMgksyKN/wiIuklTGtzIsZioR2d5EsWMJ3AodEYwc+Q1arLnS7sCRtjoWsvZyJkXwc8qP
-	alHbk38PI2uBuygTHVQQlni5+igD3GLiLdgLnoS96kHf4pcZ9BLS8izcx+tBOVEEj3TtHRwWBbOmx
-	1/SqpQGdiClTeUYGOOPw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=FWW+nI1qAWxPShz9WvU1WN3M6bheeeFCVHb+NfYxqSQ=; b=A2ntMZuw4DmBOz
+	1OsN4fcHKMiYWt+Q6o/hKAs72jEwURIVbPc8oSuJTZVjAVV9NepNUcHVAFbiRrD4PozSKzHL4MNfE
+	Qv8xvfFlYYyxLRqhRtA4Mkc2WuxkY+uky7PwxCGq+t9hKveqpya/+jlUCK4stE3DmWpsjkxYWMlYN
+	IcgTIqh8yXeN2/Kk1QMvXmtjz5gUCQj3RPa/AXJTZeL/91ECfH8SOoFdu1II2PfEnOEyddZiGGRI2
+	tj4Sv+1BVC1PmgfCc2/Ish7Gm8ESNJ2XOdyFngQbsdXwfprDCIGUhyf413qER39RPGdDtKBXQqdny
+	YSjgOCyvlr0WUjdsaIUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwaw-0000000EkKD-16Lw;
-	Thu, 23 Jul 2026 16:48:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wn1U8-0000000F97q-0v4P;
+	Thu, 23 Jul 2026 22:01:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmwau-0000000EkK2-1EmP
+	id 1wn1U7-0000000F97j-0s5e
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Jul 2026 16:48:24 +0000
+	Thu, 23 Jul 2026 22:01:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A654640E26;
-	Thu, 23 Jul 2026 16:48:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E0531F000E9;
-	Thu, 23 Jul 2026 16:48:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F2ABE60A62;
+	Thu, 23 Jul 2026 22:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 776E01F000E9;
+	Thu, 23 Jul 2026 22:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784825303;
-	bh=3P9xI+pucfFbCBzQvp5irY3d0mKfClOOD5/mrlfuM/c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nsgCI0Ab13Z/Of9oByHdIIRnbyP5zi/C7dSPzQXUokVFUGzdcIlrlKm45s1Q14isF
-	 aVu7PO08VMNDnnC6tWBGqhsJoa/wQRT4DZhzhtB7bAIE5u55zMotEmOF9fTdSjxY7Q
-	 cwRr6ca9jHke2Ir8TlsVC9k0a7IGsYsaj3YQ+119IlgZwGdc8SiN26TRY32gFxxa7U
-	 ugTtZBm9qOojhSp7PXkAlyfTxi/mdOXoV+a6+By50iAxHZTu8uDZIhS2Qv2d4W+WGM
-	 PWtwkEojYJ566qOYU9qvqaLBbdwgwM9jD0B06TfQtThFV3J6qC+7jO9yvNfykyizyc
-	 VvJehO+bNUTbw==
-Date: Thu, 23 Jul 2026 09:48:22 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH v2 0/5] Add remaining IO expansions on Lichee Pi 4A
-Message-ID: <amJF1g8sPu5RrrIQ@x1>
-References: <20260714074515.1959352-1-zhengxingda@iscas.ac.cn>
+	s=k20260515; t=1784844101;
+	bh=OW/+87f6scqS9+baO5oS3wrBMXJyQ9fPEVbIi5XahiE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=MjSCNQcVKVQv+ToMyLY8eAAyNOGdd5VUcZhTZEBbmzpXEiCMKNHyapzKUeB7ue6NA
+	 org747FcrPp40vt7dWhc/j5vWPqZCR053IQzlYSKYJ5XkJvvahiW1zNE++zdFLAxf0
+	 AaYuUGttAQzLVKNq7tsg4HyVnKqKZIa+3hTft3p6NYpcSWT/4SPnpE/rzyBlFYJHOe
+	 eo00KRTion3zzkR5b3mggyKVtjlVWd1AMg4zpPNxrj7pB/L8asp/3SReYNPRyTdvfx
+	 Vxnoj6/VA+iGK+IQKjNbTKt5vOz2z2pV9Ley4Zen/zaNFoYdgtnPtguCkZcKc+Q43J
+	 ZSgdG7WZP1LHw==
+Date: Thu, 23 Jul 2026 17:01:40 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Inochi Amaoto <inochiama@gmail.com>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"spacemit@lists.linux.dev" <spacemit@lists.linux.dev>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>
+Subject: Re: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to
+ linux/pci_ids.h
+Message-ID: <20260723220140.GA865834@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260714074515.1959352-1-zhengxingda@iscas.ac.cn>
+In-Reply-To: <073fbf4b41804285b2df6fbb4efce0ed@realtek.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,50 +74,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, MoeLeak <i@leak.moe>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 03:45:10PM +0800, Icenowy Zheng wrote:
-> This patchset is split off the "Add TH1520 USB support" patchset,
-> dedicating to enable the IO expansion chips, because the situation
-> becomes complex when one of them (but not all) was added for Wi-Fi
-> support.
+On Thu, Jul 23, 2026 at 01:19:47AM +0000, Ping-Ke Shih wrote:
+> Hi PCI maintainers,
 > 
-> I fixed a small issue of the existing I2C1 device node, and then all
-> original patches are aligned with the existing I2C1 node for
-> consistency.
+> Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com> wrote:
+> > Move the vendor and device ID for the existing Spacemit K1 PCIe Root
+> > Complex to include/linux/pci_ids.h. Also add K3's Root Complex device ID
+> > to this header. This is done so that these values can be referenced in
+> > the rtw89 driver to enable 36-bit DMA ability in it for WiFi to function
+> > on the K3 Pico ITX board.
+> > 
+> > Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+> > Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+> > ---
+> >  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 3 ---
+> >  include/linux/pci_ids.h                       | 4 ++++
+> >  2 files changed, 4 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> > b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> > index be20a520255b6..f89c6d46c7684 100644
+> > --- a/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> > +++ b/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+> > @@ -21,9 +21,6 @@
+> > 
+> >  #include "pcie-designware.h"
+> > 
+> > -#define PCI_VENDOR_ID_SPACEMIT         0x201f
+> > -#define PCI_DEVICE_ID_SPACEMIT_K1      0x0001
+> > -
+> >  /* Offsets and field definitions for link management registers */
+> >  #define K1_PHY_AHB_IRQ_EN                      0x0000
+> >  #define PCIE_INTERRUPT_EN              BIT(0)
+> > diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
+> > index 1c9d40e09107d..d6f26cacc8e35 100644
+> > --- a/include/linux/pci_ids.h
+> > +++ b/include/linux/pci_ids.h
+> > @@ -2640,6 +2640,10 @@
+> >  #define PCI_VENDOR_ID_SUNIX            0x1fd4
+> >  #define PCI_DEVICE_ID_SUNIX_1999       0x1999
+> > 
+> > +#define PCI_VENDOR_ID_SPACEMIT         0x201f
+> > +#define PCI_DEVICE_ID_SPACEMIT_K1      0x0001
+> > +#define PCI_DEVICE_ID_SPACEMIT_K3      0x0002
+> > +
+> >  #define PCI_VENDOR_ID_HINT             0x3388
+> >  #define PCI_DEVICE_ID_HINT_VXPROII_IDE 0x8013
 > 
-> Emil Renner Berthing (2):
->   riscv: dts: thead: Add IO labels for the IO expansion on I2C1
->   riscv: dts: thead: Add remaining Lichee Pi 4A IO expansions
-> 
-> Icenowy Zheng (2):
->   riscv: dts: thead: th1520: remove pclk for I2C1
->   riscv: dts: thead: lpi4a: sort nodes
-> 
-> Thomas Bonnefille (1):
->   riscv: dts: thead: Add TH1520 I2C nodes
-> 
->  .../boot/dts/thead/th1520-lichee-pi-4a.dts    | 141 +++++++++++++-----
->  arch/riscv/boot/dts/thead/th1520.dtsi         |  53 ++++++-
->  2 files changed, 157 insertions(+), 37 deletions(-)
-> 
-> -- 
-> 2.52.0
-> 
+> As patch 2/2 obviously goes to wireless-next tree, can I take this 
+> dependency patch to my tree? 
 
-I have applied all 5 patches to thead-dt-for-next and they are now in
-linux-next:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/arch/riscv/boot/dts/thead
-
-If no problems arise, then I will send thead-dt PR for 7.3 in a few days.
-
-Thanks,
-Drew
+Yes, that's what my Acked-by at
+https://lore.kernel.org/all/20260716164336.GA40813@bhelgaas means.
 
 _______________________________________________
 linux-riscv mailing list
