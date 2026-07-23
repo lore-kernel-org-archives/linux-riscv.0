@@ -4,60 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5267CC531C7
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 08:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EC6C531C7
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2026 08:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/5l8zcTgxKFfR7vWl3O8Py8LrHDFQedwNy6vLRreomU=; b=kcjhYEvlnEjvqg
-	sLQPTX4bdqfS+Q/nVkKpIhcs1cGm+tyY0/TldnlSmxF2Vr3z4cF7aBNPuLPbR3GIjYaS5AQ66YmlP
-	jhak9GF+lMZr9z1QJXNZYLt+UNrNADwkw9yieOjzjLg6kMpwNrcT3w9a5xBn9uNoAXimZ4E4a87rM
-	8ZGwdMrRfJc73kyGCNqIC9IJ8xcps50R03c/l68tMB0KhUkrDT4RY0y8CunYEw/y5yjW+JrAuAKDq
-	kyZQ2dukmYWi06dyZ8rV2Oz2TB6NfLMLhkuMvPSkd4oJy4P/yuQwpj0vO87d16bHvDp1rC3rsC6CS
-	ObOIcUz1G8wNpoDxGnvQ==;
+	List-Owner; bh=uzZJgRo9oxRFUScNV5jKbVIl4o9W3sQcjc0AN+nULTU=; b=zsU7C6AIBzO6DG
+	2UBKp9Ptmvwf9lU0FLkO72hWieZv50zU+WdNJ4t39nrBxJ3VQ8ZPs8JBEXoX+NQzeG4FhQ8bN0xF9
+	rqmN8iEsdCGDgb7hPuC0u5THHlWxY/WzoDWVjYuFARg5AzZtHcHSQ7bRDnFB2ojX00Sc4q3MXPj+Q
+	1fCSHPg09deVWlA/uPd6ENH2ntEJe0VVnNMSpBKBGMiaVdSgh/YnSBlG0BlwNBhZY4RLXypZhcKiQ
+	QlhPSNLUNLPWFX8/rT4fhSgRzSE1P8kUhiVceTWqQDTo+UsXLi9LrJewfqYZSuUBo6NJI4qe92Dy9
+	IiiA+dKSYIOscVYQUJRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmozv-0000000DlWR-3cQC;
-	Thu, 23 Jul 2026 08:41:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmozq-0000000DlVG-3aAK;
-	Thu, 23 Jul 2026 08:41:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EB931477;
-	Thu, 23 Jul 2026 01:41:33 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5BC73F86F;
-	Thu, 23 Jul 2026 01:41:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784796097; bh=tHu7RoxBrkiUeHKCDkL/iuN7wAUGu94jRhPQyIZkpMA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jyYf5dBqTJ1JCBs2GdetKtKebNTFujQgVNyM9FlYh+7WTSQ44Nzs8Y0U/Zcu3/0DZ
-	 F8o/mRcYZmN03NpFHUsVhYRsCOYeSG6tNiL+HHlZLY027DY2RfvehP4Hk242KMbom8
-	 Y5LydIRYAz0Vbe5p9VsHCQl+hb7z9+8dMD0K2N00=
-Date: Thu, 23 Jul 2026 09:41:33 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: David.Hildenbrand@arm.com, david@kernel.rog
-Cc: yeoruem.yun@arm.com, Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-openrisc@vger.kernel.org
-Subject: Re: [INTERNAL REVIEW] [RFC PATCH v3 01/20] mm: change behavior of
- pXdp_get()/pXd_page() in compile-time folded pgtable
-Message-ID: <amHTvacwPg6xljJZ@e129823.arm.com>
-References: <20260723081036.1461495-1-yeoreum.yun@arm.com>
- <20260723081036.1461495-2-yeoreum.yun@arm.com>
+	id 1wmp73-0000000DmQg-1xgg;
+	Thu, 23 Jul 2026 08:49:05 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmp71-0000000DmPC-1mDz
+	for linux-riscv@lists.infradead.org;
+	Thu, 23 Jul 2026 08:49:04 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66N7Bonb3411100
+	for <linux-riscv@lists.infradead.org>; Thu, 23 Jul 2026 08:49:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=wOcPZDRUlYj
+	BEVpd9CAl34xvqBasHL5p9oV5/4lGuw8=; b=VoyKSaPudSvNyXbR8qQ+QilLB2E
+	vOuSnqQNq+wFYHDbgkjB71KUeaouLX+T/aRY2JXgLJZfuty/nPGl2O4e6Oinfpsn
+	8yKA/7lWp0VnMJPOR9UfXjEZgQ2uBaOkTJGfN9/IGfKSG47M2z3ZnmEgHzaK/bkx
+	wrLxGlXDcJMAoX2HnMl86T7WpbCpHxJQfBCtN45WTokQ7F9jZAIri/kjvyXzo3gb
+	Xe0r1Gq9cLfmD/LC5rdtj/EDsZE9gfav92GfDGBtJMmrQxCciwxk/oGyJKmWgu/n
+	+gwBabriSMzb9inVls+mCZzhZ9XS4QOGtkaKjVdc0+ijFMnyEnRMa23jSng==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fkayh95d2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Thu, 23 Jul 2026 08:49:02 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-38eca0a80f5so238540a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Jul 2026 01:49:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784796541; x=1785401341; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wOcPZDRUlYjBEVpd9CAl34xvqBasHL5p9oV5/4lGuw8=;
+        b=h9fQ394XhGXq/YYEIfFmMuVQwuZxAOIWsaifn3ibGWtN9whWaHEJLQBc79Gau2GQno
+         S+hLHRUAqZzgnbYkDMiJpX0zS6oVYDEgRQzPyDrz5vgc8wCpJBTXhM/RzVMEl8w7zDXC
+         z48CUZVVAS767u5kkF0FHFZ1d9T54Z7Fa0+2+vymUFbOgUAF9kRmqcLQYYYAHzGY58pU
+         yeBtJxGwJhHA4yYMtw1dzbW9Hdh7TW9VOj0Y6cFLwQhhHMz+zVkV8NYn9g/ysJRbzCz8
+         d3lj9yJQFlHJQtR+GcQDoePyCJd3svJrYtHnfpTps97v4dgO/Wnfd4vquAopnCWBU0zY
+         lOQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784796541; x=1785401341;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wOcPZDRUlYjBEVpd9CAl34xvqBasHL5p9oV5/4lGuw8=;
+        b=BDcmZphfb72tO30RCMql9+9ttiteeYjTvQyyFEFgeImyGfHHr1/ak3oWfisnERsjsS
+         J525uanCyz3g6x7aTSudxWImkekgLYwiyyPPhMpHeG9yTqTSFf3m5V09ZGF1t17HFY0l
+         cyy2/MMGnDuVYz/FtBgQjKgbuQYoo0b8uoS2IJbHHxS5+t/kfJB+VfQc3UjDnIt8wIZz
+         I20O9YC3PgP5s951DFE/QBpx6v416+5rp1wbXzFtVv/mdAdrwnNFPUAWxbjwxmK3Jk29
+         5VOfI+xy5AoXD/053yFk2C5eTyiwqKMh12p8QG2SHStqHsDxnWewT6enaeNyLh+Lqs/y
+         vNUQ==
+X-Gm-Message-State: AOJu0YwYabONctAAQJp+ub8XXKcFiOhV5SdN3PNxMteT+EhvyCFwnSLc
+	0d0kjTnLlDiL+Yu1XN9sZBvSGf4whL+eIaLcGCnDw/4ZnR9S/PoALQtA6vuLaYNCrzUgADPzRrE
+	jqv6OVK5Z/w+BH2NM5DUlWdBPwWWXqU9Sxf48NcuNXRLagVvI5MfJSzIB3wq0AFZFPvH9u2CHh8
+	1bbuo=
+X-Gm-Gg: AR+sD10GHfZOmcc7yI/zIC6JlLLTzAfBTsU/DYDXNO/YcKn4BlW7T+GFmQk55JLfjpV
+	SDpZLur7902XEfNx1G7a3po82HkB0Kd0tuZ+idhBxea4tFt4P7sSytLSSvcqXkDbsjw35yULw64
+	guOxnDSw4UR4n3XH++oLZglA2xMR1N5TcSPnvp93EMcvnDO+AIL62DIRjjT50eHknUjSvL8tPJq
+	6nl3RX4+vrp4bpNS5O7Siyk5oVvps7uA/HVa3EuQ4tJaHPNjMllscVaLYaEgy0MUMk7uq5b7vZS
+	z5vFPdsNvGKtgoMdNHItv2D+GmPV2O94eWJV0R4Bx5L/IXMO6CwFrcTl3w9pQF03TlmsMbTCb6Y
+	Q/rSR3Hd69h4FaOd9z8BuTNkxfiLI8xyRPfxU+deemMe474iAf3N1RzCbRzlAuxtjtZaMqegb0Q
+	75sI1nPtZ6R7VMvSpoIDporcT9
+X-Received: by 2002:a17:90a:d88c:b0:38e:7f52:c8a9 with SMTP id 98e67ed59e1d1-38ec856cf7dmr1799193a91.15.1784796541304;
+        Thu, 23 Jul 2026 01:49:01 -0700 (PDT)
+X-Received: by 2002:a17:90a:d88c:b0:38e:7f52:c8a9 with SMTP id 98e67ed59e1d1-38ec856cf7dmr1799173a91.15.1784796540842;
+        Thu, 23 Jul 2026 01:49:00 -0700 (PDT)
+Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13d130ce035sm13852140c88.13.2026.07.23.01.48.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 01:49:00 -0700 (PDT)
+From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+To: linux-riscv@lists.infradead.org
+Cc: qingfang.deng@linux.dev, alex@ghiti.fr, aou@eecs.berkeley.edu,
+        palmer@dabbelt.com, pjw@kernel.org, shuah@kernel.org,
+        linux-kernel@vger.kernel.org,
+        Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+Subject: [PATCH v5 3/3] MAINTAINERS: Add entry for RISC-V Debugging
+Date: Thu, 23 Jul 2026 14:18:40 +0530
+Message-ID: <20260723084841.2988456-4-himanshu.chauhan@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260723084841.2988456-1-himanshu.chauhan@oss.qualcomm.com>
+References: <20260723084841.2988456-1-himanshu.chauhan@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260723081036.1461495-2-yeoreum.yun@arm.com>
+X-Authority-Analysis: v=2.4 cv=HZgkiCE8 c=1 sm=1 tr=0 ts=6a61d57e cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
+ a=JfrnYn6hAAAA:8 a=VwQbUJbxAAAA:8 a=8h6Es3YqzoBqtYBhd2sA:9
+ a=rl5im9kqc5Lf4LNbBjHf:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-ORIG-GUID: YFMIE_qIfsVhKJbHwV_xlhCmJ-XbF1HM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIzMDA4NyBTYWx0ZWRfXxAsRonvAXP+Y
+ A8D4ExZZWtpZUWBvU0LwBJbLcrtx/B+egwQxuWSj0vGn/Ng8BbKWBTBTwEwaIIHXrVhwIZT71/c
+ oeJLWvk1eDvzJVjk2PaYsqHXKrBRlz0om2KtjFwYyz12lh/3/1ptI9+ohBzDVibfP0zUBy7e18u
+ AOMkSIXDL5O5mHFREKIAZoeuGb6SZ7ZLmyCK6creBdFm3cw9Ka+fqyPI4AB6PZJ9Le2V1IPVFpe
+ FJokeLrv+rANOM/6KTOn9Bgl678IL0S5wMqmgFA3Nj4uMi0SFlKhHRmLozTZhuzGxHJ9hoPBGid
+ qC70uH9jNEIy5eSOgRrx31cJgb4KxehPCHgXwyqZFdTAvmziE+vVHktuq/mkeLp3Wf4NwMQ7eB1
+ fXMDZoMo1I1IJeBou7qc/L6XJr+7unTBpY2lf+dzZ7n6xRseJob3S5S/uWg3nc1jsPLcuwSUYqs
+ e3ipRdHTBSZIaX6zTCQ==
+X-Proofpoint-GUID: YFMIE_qIfsVhKJbHwV_xlhCmJ-XbF1HM
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIzMDA4NyBTYWx0ZWRfX6dJwA5lPXRbG
+ Gviae2k4ZQVwSZjABnOp4IK+PVR88iIw96wXJeAhzrBloHS/C/cYryFVMR3yVmD6shIOW5RSAKe
+ z0P634zJ8EfBA6+HOEzYr7xug1g0RQM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-23_02,2026-07-22_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 phishscore=0 bulkscore=0 suspectscore=0
+ priorityscore=1501 adultscore=0 spamscore=0 impostorscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607230087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_014138_996104_AA319066 
-X-CRM114-Status: GOOD (  34.40  )
+X-CRM114-CacheID: sfid-20260723_014903_580566_F56AE118 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,224 +148,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sorry for making a noise. I've posted wrongly.
+Added myself as maintainer for the RISC-V inline debugging with sdtrig extension
 
-Please, ignore this. Thanks!
+Signed-off-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+---
+ MAINTAINERS | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-
-> Using ptep_get() and its counterparts in common code is suboptimal on
-> kernel configurations with generic compile-time folded page tables.
-> By default, ptep_get() and its friends expands to READ_ONCE(),
-> forcing the compiler to emit a load even when the value is not used afterwards.
-> 
-> This issue was recently reported by Christophe Leroy [1] for ppc32
-> preventing futher code conversion to ptep_get()/pmdp_get()/... helper
-> and the same behavior can also be observed on arm64 when built with
-> 2- or 3-level page tables
-> 
-> e.g) perf_get_page_size() in arm64 with CONFIG_PGTABLE_LEVEL=3:
-> 
-> 00000000000052a0 <perf_get_page_size>:
->     ...
->     52dc: d53b4234     	mrs	x20, DAIF
->     52e0: d50343df     	msr	DAIFSet, #0x3
->     ...
->     52fc: d35e9a69     	ubfx	x9, x19, #30, #9        /* pud_offset_lockless() */
->     5300: f9403508     	ldr	x8, [x8, #0x68]
->     5304: f869790a     	ldr	x10, [x8, x9, lsl #3]   /* pudp_get() */
->     5308: f90007ea     	str	x10, [sp, #0x8]
->     530c: f8697908     	ldr	x8, [x8, x9, lsl #3]    /* pudp_get() */
->     ...
->     5360: 90000009     	adrp	x9, 0x5000 <perf_prepare_sample+0x548>
->     5364: 92746908     	and	x8, x8, #0x7ffffff000
->     5368: d3557675     	ubfx	x21, x19, #21, #9       /* pmd_offset_lockless() */
->     ...
->     5394: f8757ac8     	ldr	x8, [x22, x21, lsl #3]  /* pmdp_get() */
-> 
-> Though PGTABLE_LEVEL=3, since the pudp_get() still remain with
-> READ_ONCE(), there's redundant load for the pud which is folded.
-> 
-> To prevent generating suboptimal code, make pXdp_get() return a dummy
-> entry for compile-time folded page tables and prohibit calls to
-> pXd_page() in pgtable-nopXd.h.
-> 
-> Also make the helpers in pgtable-nopXd.h, such as pXd_offset_lockless(),
-> validate dummy entries at compile time to catch the wrong usage.
-> 
-> As the pXdp_get() can return *dummy* entry, some of code using
-> the stack value where saves the pXdp_get() could be a problematic:
-> 
->   1. Passing address of stack value where saves the pXdp_get() result
->      to pXd_offset() for example:
-> 
->        pud_t *pudp, pud;
->        pmd_t *pmdp;
-> 
->        pud = pudp_get(pudp, address);
->        pmdp = pmd_offset(&pud, pud, address);
-> 
->      (e.g. host_pfn_mapping_level() in loongarch).
-> 
->   2. Using the pXdp_get() result to use as argument of pXd_val() and
->      to check prot without checking pgtable is folded.
->      for example, x86's effective_prot().
-> 
->   3. Using set_pXd() with pXdp_get() will set problematic dummy entry
->      in folded page table like:
-> 
->        set_pXd(pxdp, pXdp_get(pxdp_k));
-> 
->   4. Using pgd_page_vaddr() to get the first-level pgtable.
->      passing dummy pxdp_get() for pgd_page_vaddr() will return wrong
->      address. Therefore, make pgd_page_vaddr() and pXd_pgtable() to
->      trigger the error for improper usage with folded dummy entry in the
->      generic compile-time folded pgtable.
-> 
-> Thanksfully, above cases are rare since (1) most of usage using
-> pXd_offset() with result of upper pXd_offset(), (2) it's extreamely
-> rare to use pXd_val() for non-leaf entry in the kernel,
-> (3) is to handle the vmalloc_fault or set the first level of page table
-> and (4) to setup early page table and etc.
-> 
-> Therefore, convert this kind of problematic rare pattern properly.
-> 
-> Furthermore, passing the ptep_get() (or its counterparts) as argument
-> directly to pte_present() and related helpers can generate suboptimal code,
-> in arm64 as the current macro implementation may evaluate its argument
-> more than once like:
-> 
->   !pte_val(READ_ONCE(*pte) || pte_present_invalid(READ_ONCE(*pte))
-> 
-> resulting in redundant loads.
-> 
-> A typical example is pud_free_pmd_page(), where the expansion of
-> pmd_present() generates:
->     ...
->     /* pmd_present() (x20 = pmdp) */
->     1b88: f9400288     ldr	x8, [x20]        // read pmdp.
->     1b8c: f9000fa8     str	x8, [x29, #0x18]
->     1b90: 3707fec8     tbnz	w8, #0x0, 0x1b68 <pud_free_pmd_page+0xd0>
->     1b94: f9400288     ldr	x8, [x20]        // redundant read of pmdp.
->     1b98: 8a170109     and	x9, x8, x23
->     1b9c: f9000fa8     str	x8, [x29, #0x18]
->     1ba0: f120013f     cmp	x9, #0x800
->     1ba4: 54fffe20     b.eq	0x1b68 <pud_free_pmd_page+0xd0>
->     1ba8: 17fffff4     b	0x1b78 <pud_free_pmd_page+0xe0>
->     ...
-> 
-> To address this in arm64, convert pte_present() macro and its friends
-> to static inline function.
-> 
-> This patch is based on mm-unstable.
-> 
-> Future work
-> ===========
->  - print_bad_page_map() and show_pte() still prints dummy values
->    instead of printing the same content for all generic compile-time
->    folded page tables. We might want to skip printing dummy values later.
-> 
->  - We currently catch abuse of dummy values on the stack at compile-time by
->    relying on constant propagation by the compiler. Usama's work [3] on using
->    distinct types for sw vs. hw PTEs could help here as well."
-> 
-> Patch History
-> =============
-> from v2 to v3:
->   - repasre commit message
->   - move ptdump_pgtable_first_level() into pgalloc.h
->   - skip the huge pud operation when CONFIG_X86_DIRECT_GBPAGES is
->     disabled
->   - https://lore.kernel.org/all/20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com/
-> 
-> from v1 to v2:
->   - Restore slient fallback to next pXd in set_pXd() and pXd_pgtable()
->     and add check whether they're called with dummy entry.
->   - Add some comment for returning first entry of pgd in arm with
->     2 pgtable-level
->   - https://lore.kernel.org/all/20260713135614.1618183-1-yeoreum.yun@arm.com/
-> 
-> To: Russell King <linux@armlinux.org.uk>
-> To: Huacai Chen <chenhuacai@kernel.org>
-> To: WANG Xuerui <kernel@xen0n.name>
-> To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> To: Catalin Marinas <catalin.marinas@arm.com>
-> To: Will Deacon <will@kernel.org>
-> To: Arnd Bergmann <arnd@arndb.de>
-> To: Andrew Morton <akpm@linux-foundation.org>
-> To: Kairui Song <kasong@tencent.com>
-> To: Qi Zheng <qi.zheng@linux.dev>
-> To: Shakeel Butt <shakeel.butt@linux.dev>
-> To: Barry Song <baohua@kernel.org>
-> To: Axel Rasmussen <axelrasmussen@google.com>
-> To: Yuanchu Xie <yuanchu@google.com>
-> To: Wei Xu <weixugc@google.com>
-> To: Johannes Weiner <hannes@cmpxchg.org>
-> To: David Hildenbrand <david@kernel.org>
-> To: Michal Hocko <mhocko@kernel.org>
-> To: Lorenzo Stoakes <ljs@kernel.org>
-> To: Tianrui Zhao <zhaotianrui@loongson.cn>
-> To: Bibo Mao <maobibo@loongson.cn>
-> To: Anup Patel <anup@brainfault.org>
-> To: Atish Patra <atish.patra@linux.dev>
-> To: Paul Walmsley <pjw@kernel.org>
-> To: Palmer Dabbelt <palmer@dabbelt.com>
-> To: Albert Ou <aou@eecs.berkeley.edu>
-> To: Alexandre Ghiti <alex@ghiti.fr>
-> To: Dave Hansen <dave.hansen@linux.intel.com>
-> To: Andy Lutomirski <luto@kernel.org>
-> To: Peter Zijlstra <peterz@infradead.org>
-> To: Thomas Gleixner <tglx@kernel.org>
-> To: Ingo Molnar <mingo@redhat.com>
-> To: Borislav Petkov <bp@alien8.de>
-> To: x86@kernel.org
-> To: H. Peter Anvin <hpa@zytor.com>
-> To: Liam R. Howlett <liam@infradead.org>
-> To: Vlastimil Babka <vbabka@kernel.org>
-> To: Mike Rapoport <rppt@kernel.org>
-> To: Suren Baghdasaryan <surenb@google.com>
-> To: Michal Hocko <mhocko@suse.com>
-> To: Jonas Bonn <jonas@southpole.se>
-> To: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-> To: Stafford Horne <shorne@gmail.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: loongarch@lists.linux.dev
-> Cc: linux-mips@vger.kernel.org
-> Cc: linux-arch@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> Cc: kvm@vger.kernel.org
-> Cc: kvm-riscv@lists.infradead.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-openrisc@vger.kernel.org
-> Link: [1] https://lore.kernel.org/all/0019d675-ce3d-4a5c-89ed-f126c45145c9@kernel.org/
-> Link: [2] https://lore.kernel.org/all/20251113014656.2605447-1-samuel.holland@sifive.com/
-> Link: [3] https://lore.kernel.org/r/74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com
-> 
-> --- b4-submit-tracking ---
-> # This section is used internally by b4 prep for tracking purposes.
-> {
->   "series": {
->     "revision": 3,
->     "change-id": "20260722-dummy_ptxp3-3741d78cc70f",
->     "prefixes": [
->       "RFC"
->     ],
->     "history": {
->       "v2": [
->         "20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com"
->       ]
->     }
->   }
-> }
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> -- 
-> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-> 
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a674e36529f7..e7f29599221e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23308,6 +23308,15 @@ F:	drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+ F:	drivers/mailbox/riscv-sbi-mpxy-mbox.c
+ F:	include/linux/mailbox/riscv-rpmi-message.h
+ 
++RISC-V DEBUGGING
++M:	Himanshu Chauhan <himanshu@thechauhan.dev>
++L:	linux-riscv@lists.infradead.org
++F:	arch/riscv/include/asm/hw_breakpoint.h
++F:	arch/riscv/include/asm/perf_event.h
++F:	arch/riscv/kernel/hw_breakpoint.c
++F:	arch/riscv/kernel/perf_*
++F:	drivers/perf/
++
+ RISC-V SPACEMIT SoC Support
+ M:	Yixun Lan <dlan@kernel.org>
+ L:	linux-riscv@lists.infradead.org
 -- 
-Sincerely,
-Yeoreum Yun
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
