@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAEDAC531C9
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 22:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A37B4C531F9
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 22:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R3N5ZFmRDTm4Q3GurfP7g7KwJ83JLyomgD6X/MhylnM=; b=OUIryA3DJE6tNT
-	5orE+CLoQc8Qx47Q0XQD677F+Lymyi7wmd2LF5+IeAL2+IPjT0E9vKA3QDYgip1DGIg4DsC6ntacY
-	VmfTBtXF1JwsEYjFhmXQq4AUWd6/Zy/US/BPs8/S3AysgphaNhYS7KcwfUdIy9VK2mfvRoccRIIE9
-	u4CYW4cieAfBhb9obtw7gEvpLSQ376LPxu4PqqszCeVYGAc1TkTOvra7eUp2rx4i6ZmksBc+lIZ2R
-	P1By7jhr6B38hGhH87db95WP7PJxHPC/tWpU6+VYc8VCfRgggMvTw15nZSQM4YEZLP1YylbcReO+G
-	mEW8+uZk0RkqdUUm7bYQ==;
+	List-Owner; bh=JmQlPjSvnJPrCONArYnlxKyz4902RQDaeUbK7Cw1GO4=; b=0WNMEbbB+938wo
+	wfPxIMqq/oH5eGZ6io30Lj+ErHaq1LEozJ6hYT4zAIODEfkYq33L7hEcoa5Be1Gx/GBsQLanjkZFT
+	R5Q9E+jeCfoMIMhEv6b3NBENn9rZYBXU7VlQD620/wB9DFAJkNUClgfwGxBxyjO+ln3thYBJ8HKPk
+	mkjGaMHR8L1ZKf7L/V1ZLZ0nqe5uAtBBwrjQyDqxdshNDJnC5vHFAV1zr5wDKAj4d3HfJ6qlT2bYw
+	CBf8ylsXxhhgAlkwKF5IEKas87F0ZBIBbOpBJVrwxaIL/wuZ3iIwlKk9TbeC0QpjzNiXQotwvk5dN
+	pTTWkoc4o2Uk51iVVitQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOex-0000000HKRj-24yP;
-	Fri, 24 Jul 2026 22:46:27 +0000
+	id 1wnOf5-0000000HKZo-0wFd;
+	Fri, 24 Jul 2026 22:46:35 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOeZ-0000000HKDb-06gD;
-	Fri, 24 Jul 2026 22:46:03 +0000
+	id 1wnOeb-0000000HKEu-1Bf2;
+	Fri, 24 Jul 2026 22:46:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E1D5438AA;
-	Fri, 24 Jul 2026 22:46:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B35881F00A3A;
-	Fri, 24 Jul 2026 22:46:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 09DEE41AB4;
+	Fri, 24 Jul 2026 22:46:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A7F21F00AC4;
+	Fri, 24 Jul 2026 22:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784933162;
-	bh=NMNOc/In+fWMgaFH9Omi735YDJBG/gXGBfILoP1ztBQ=;
+	s=k20260515; t=1784933164;
+	bh=K125TY74W87vhbOlzJ/FpCa02u74B+oM2H9sVUMeeOo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bX9Zr4D/LezvZIgMRUL1/Y6JZMzid0uz4HB42PhG9lZ+PJcEN99y4/pWQYi1vYEGG
-	 7m5MkBADwk+RPybApZ8J2wjXuNVd1nDRkdybcPI8tchX21wCu1VuExWAULiBRosMC7
-	 1dcMWc7XyYLftbkZw/D9sTa07UbX7rQR9hD0AVOyVcB2CNbdYw4DQsFF80yeqS8ZTY
-	 WhS3qzoX2on/sRmaOR/TO8jot7UJPz1fmqtxzvWbRYPcPnKCAHzFgrJ9e99DQmS7BU
-	 +0HCuf4xYtLNSlfZLry2sHbBTZcWk0h64W5cOSNw4jpzRn1IUFBJO51R0wSrUGpcHs
-	 bVg7A6UxVK9og==
+	b=DNutic3y4iV6+eyYcy4rwQNwLeQzrjFdAqTJiqrBOyOEWptY1tUjsPrZCB7a+2Rce
+	 7WKRN2fpfQ1BH4OSNlv8Ygz7piMxGyuqiTFOB8siO1bB/P+YFJYYg/dEVTSiGcUTE8
+	 vnkofqb9758AL8BRwmY7SqDav0yzD69GE//A7v8wrhXIdBukMFDnjNUXOlaQv8a7bg
+	 IIDvyg+zxVPf1kHcdIsUIza3Z+0MpbDf5Hv1uMxPb9oZ07wF+23iVfKnQBx42N2MsD
+	 63lPpGj83DQB5USxWPX/mQEXEEV6YfJSeeDPKCHeiIPK+rS8ur8iXo7sySJCthZoVE
+	 H0eTUUDBYX25Q==
 From: Jakub Kicinski <kuba@kernel.org>
 To: bartosz.golaszewski@oss.qualcomm.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -90,12 +90,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	sophgo@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	bartosz.golaszewski@linaro.org
-Subject: Re: [PATCH net-next v13 06/10] net: stmmac: qcom-ethqos: update phy_mode to the resolved interface in mac_finish()
-Date: Fri, 24 Jul 2026 15:45:59 -0700
-Message-ID: <20260724224559.1649383-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v13 09/10] net: stmmac: qcom-ethqos: factor out linux-level setup into a separate function
+Date: Fri, 24 Jul 2026 15:46:02 -0700
+Message-ID: <20260724224602.1650002-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260713-qcom-sa8255p-emac-v13-6-119f8699ef8e@oss.qualcomm.com>
-References: <20260713-qcom-sa8255p-emac-v13-6-119f8699ef8e@oss.qualcomm.com>
+In-Reply-To: <20260713-qcom-sa8255p-emac-v13-9-119f8699ef8e@oss.qualcomm.com>
+References: <20260713-qcom-sa8255p-emac-v13-9-119f8699ef8e@oss.qualcomm.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,97 +116,73 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: stmmac: qcom-ethqos: update phy_mode to the resolved interface in mac_finish()
+net: stmmac: qcom-ethqos: factor out linux-level setup into a separate function
 
-This patch updates ethqos->phy_mode from the interface argument in
-ethqos_mac_finish_serdes() so that it always reflects the last resolved
-interface, avoiding a stale value being observed by later
-serdes_powerup()/serdes_powerdown() calls when the runtime interface
-differs from the DT phy-mode.
+This refactor extends ethqos_emac_driver_data with a setup() callback,
+implements it for the existing models, and moves operations not required
+in SCMI mode into it, in preparation for firmware-controlled EMAC
+variants.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 47b70b5e706f..9d19203ae4bd 100644
+> index 43384960278b..3af1608fc21c 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -632,6 +632,12 @@ static int ethqos_mac_finish_serdes(struct net_device *ndev, void *priv,
->  	struct qcom_ethqos *ethqos = priv;
->  	int ret = 0;
->  
-> +	/* The interface mode is only known once phylink has resolved it and
-> +	 * may change at runtime, so keep it in sync for later
-> +	 * serdes_powerup()/serdes_powerdown() calls.
-> +	 */
-> +	ethqos->phy_mode = interface;
-> +
->  	qcom_ethqos_set_sgmii_loopback(ethqos, false);
+> @@ -5,6 +5,7 @@
+>  #include <linux/of.h>
+>  #include <linux/of_net.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+>  #include <linux/phy.h>
+>  #include <linux/phy/phy.h>
 
-[High]
-Is the ordering here safe with respect to qcom_ethqos_set_sgmii_loopback()?
+[Low]
+Is there a reason linux/pm_domain.h is added here?  Looking through
+this commit, no pm_domain symbols (pm_genpd_*, dev_pm_domain_*,
+PD_FLAG_*, etc.) appear to be referenced.
 
-That helper early-returns unless ethqos->phy_mode equals
-PHY_INTERFACE_MODE_2500BASEX:
+The header seems to belong with the follow-up patch that introduces
+devm_pm_domain_attach_list() and struct dev_pm_domain_list usage.
 
-    static void
-    qcom_ethqos_set_sgmii_loopback(struct qcom_ethqos *ethqos, bool enable)
-    {
-            if (!ethqos->needs_sgmii_loopback ||
-                ethqos->phy_mode != PHY_INTERFACE_MODE_2500BASEX)
-                    return;
-            ...
-    }
-
-Because ethqos->phy_mode is now overwritten with the freshly resolved
-interface before the qcom_ethqos_set_sgmii_loopback(ethqos, false) call,
-does that clear-side path still fire when the interface transitions away
-from 2500BASE-X?
-
-Consider a needs_sgmii_loopback platform (for example sa8775p) with a DT
-phy-mode of 2500BASE-X. At probe time ethqos_clks_config(true) asserts
-SGMII_PHY_CNTRL1_SGMII_TX_TO_RX_LOOPBACK_EN in the wrapper while
-ethqos->phy_mode is still the DT value 2500BASE-X. If phylink later
-resolves the interface to SGMII and calls ethqos_mac_finish_serdes():
-
-    ethqos->phy_mode = interface;                   /* now SGMII */
-    qcom_ethqos_set_sgmii_loopback(ethqos, false);  /* early-return */
-
-Does the port then enter SGMII operation with the wrapper TX-to-RX
-loopback bit still asserted, which is the exact 2500BASE-X to SGMII
-runtime-transition scenario the commit message says it wants to make
-work?
-
-Would calling qcom_ethqos_set_sgmii_loopback(ethqos, false) first,
-against the old phy_mode, and only then assigning
-ethqos->phy_mode = interface avoid this?
-
-The commit message describes the change only in terms of
-serdes_powerup()/serdes_powerdown():
-
-    ethqos->phy_mode is read by serdes_powerup() and
-    qcom_ethqos_set_sgmii_loopback() to configure the SerDes and its
-    wrapper for the correct interface.
-    ...
-    Update ethqos->phy_mode from the interface argument in
-    ethqos_mac_finish_serdes() so that it always reflects the last
-    resolved interface.
-
-Should it also mention that the assignment changes what the immediately
-following qcom_ethqos_set_sgmii_loopback(ethqos, false) observes?
-
-For reference, this appears to be addressed later in the same series by
-commit 8d1efdf990fc ("net: stmmac: qcom-ethqos: fix SGMII loopback not
-set on resume after speed change"), which extends the guard in
-qcom_ethqos_set_sgmii_loopback() to also match PHY_INTERFACE_MODE_SGMII.
-That follow-up commit message frames the fix as a set-side DMA-reset
-timeout on resume, but does the same guard change also happen to unbreak
-the clear-side path introduced here? If so, would it be worth either
-reordering the two statements in this patch or folding the guard update
-in ahead of this one to avoid a bisect window where the SGMII wrapper
-loopback stays asserted after a 2500BASE-X to SGMII transition?
-
->  
->  	if (interface == PHY_INTERFACE_MODE_SGMII ||
+Would it be preferable to move this include into the patch that
+actually needs it, so each patch remains self-contained?
 
 [ ... ]
+
+> @@ -765,21 +815,8 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>  		return dev_err_probe(dev, PTR_ERR(ethqos->serdes_phy),
+>  				     "Failed to get serdes phy\n");
+>  
+> -	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface,
+> -			       SPEED_1000);
+> -
+> -	qcom_ethqos_set_sgmii_loopback(ethqos, true);
+> -	ethqos_set_func_clk_en(ethqos);
+> -
+> -	/* The clocks are controlled by firmware, so we don't know for certain
+> -	 * what clock rate is being used. Hardware documentation mentions that
+> -	 * the AHB slave clock will be in the range of 50 to 100MHz, which
+> -	 * equates to a MDC between 1.19 and 2.38MHz.
+> -	 */
+>  	plat_dat->clk_csr = STMMAC_CSR_60_100M;
+>  	plat_dat->bsp_priv = ethqos;
+> -	plat_dat->set_clk_tx_rate = ethqos_set_clk_tx_rate;
+> -	plat_dat->dump_debug_regs = rgmii_dump;
+>  	plat_dat->ptp_clk_freq_config = ethqos_ptp_clk_freq_config;
+>  	plat_dat->core_type = DWMAC_CORE_GMAC4;
+>  	if (data->has_emac_ge_3)
+
+[Low]
+Was the comment above plat_dat->clk_csr = STMMAC_CSR_60_100M; intended
+to be dropped?
+
+The assignment itself is preserved, but the rationale for choosing
+STMMAC_CSR_60_100M (firmware-controlled AHB clock in the 50-100MHz
+range yielding an MDC between 1.19 and 2.38MHz) is now gone.
+
+The commit message describes a mechanical refactor and does not
+mention removing this rationale.  Should the comment be kept next to
+the assignment, or moved into ethqos_hlos_setup() where the
+surrounding clock setup now lives?
 
 _______________________________________________
 linux-riscv mailing list
