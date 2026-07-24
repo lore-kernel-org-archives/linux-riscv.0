@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BBE3C531C9
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 13:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7F0C531F9
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 13:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ddng9VIoTXUSlwzFtb/xPwTI2Gqu5EcZyHYJZmJAC7w=; b=MT43TIb4Q4IOdM
-	frWybJ5EzkjgmJZXxwHTwwa+y2niYvDZV7yUAIUm/IkWJMkgcJK51Sg2CB5DwcuWsOE+9Q5HwPmZ9
-	kNFCNQ1BlLXB0mBNIYmOiV8tEKRDPAyvfyCfJNsFru+6Szd7VboX4sew5vNJsxIoPRy7z3vjlaM3t
-	GzT0OpRy7Vc2FtdQok7JrFSmEUZeho6ISMDTs+2LkSm6B01tUjIOrvWCFimoqg5XFtiHZDZ0eDhDh
-	3ks6viQ4m+DJecMnihAEQE9BHUfs6NXo9A1Z0LKjYvxbIqHqGRAyTLrzpCbfqeoTIABHckPiHad9u
-	7cE2ndIjy4LBoyQ2fdzw==;
+	List-Owner; bh=D0J6SS1DqZxtTSmc5GeyKwq+EnnX8GKDna7+6H0NIrU=; b=zX/feKF8/Vt586
+	Ad3Cqhc6/d9acLDZNaExHNynBs60Uoe6yVH5qumPThLEXUICk/uie+1eMk9EnOFbWIK/QFgeQCiBH
+	gS/SRoZZ5m3KJCtNjxG6HLumoXpC+4WifkdG7sGnSD/Yql0AW5tLgoH2MaMfvFZrocNRna8Uw+5T4
+	tp94vE8763PGtAtUrk5QiPmZE5nBjyzrWz58qzZ38I+ImFrsOZN96kH+y1zQzLZoKw1fxpaqwPkoI
+	1kUbkLi4X7YDfO/lMEaPx+F24UnStiWOgChJxwfiTDzWYszSu2j1495u0jPbGFDGXIlzAVl7eE8DE
+	XUsJI1dgaGVxuX78AONg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnG0j-0000000GTpd-14JP;
-	Fri, 24 Jul 2026 13:32:21 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1wnG6S-0000000GUJ5-0qwv;
+	Fri, 24 Jul 2026 13:38:16 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnG0g-0000000GTp9-1Ck1
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jul 2026 13:32:19 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-51c15bf5000so2688071cf.3
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 06:32:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1784899936; x=1785504736; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VkOeO7FvZNYqVYKq41a3VAqmcoUNFjFQHw8ZY64/eu8=;
-        b=qo2c4hXNT3HrHhnjZJ8w/Mr9Cu8TIRXrKzoF8i31H9TTrEdf27JCkhEV6deL/znVhg
-         MqSYHkTRaxMrB5MnLwOqwBR4baPrQ16qlmaNTpAHQZfRCvr0fkIf/8+N9S8Oqwk+jabg
-         5hK4k/JfaLHXYiXXTRmm4+l+WerGz92chk2Yql4byGdgpQ1VPm6DlL4gfyIv7slAUjVt
-         HJyzZs1ByzQvhQkj4oV3E6ukJ6k914oSNnOn/5dvNh+Ft3MM+FNamvKQVJu2OXAxMO6A
-         P7I7fvN2V4mJCuYZleOIiHBEA0/0ZJcrVJjkIwPdjvVR5vjLQpJKoQ+ScbUXOjF6EQAS
-         /+iA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784899936; x=1785504736;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VkOeO7FvZNYqVYKq41a3VAqmcoUNFjFQHw8ZY64/eu8=;
-        b=sK+j2Luf2k3Otqbcru6+Swx2Y+mESN4ZYYLa7a3lho01JcRkVsqj4dvdRyoBjyQ5I5
-         mRg7uwB3UDy0g8MYEDzBw0G0uawYjOdPzKsEWb74HQFgsZ7gvnbTUFvBhT+J+9nxbwga
-         vVaSt/gFXdxDX62dWWwB5NDTb3LUc0gV71wzNWobdzGb4iqWM+LTBIwrpuR3mkP2H6Co
-         OweCBxw2v1p6kTzMU2YGSzFXZmgjLVJ3Tg3F0nr6vp1uT9j6mDf1+79A9FA5JsdpKj0b
-         vwixr86jv+Ba5d4tnBSxINDNN4wMrgz0PxGTCgbXLBDKUuZd8s5snDJXHa10OjF3You9
-         MY4w==
-X-Forwarded-Encrypted: i=1; AHgh+Rp7MrBvMrSKgXbKXxcA2kvHJuzmVnvR0jUQhpca+Yi6fF0lezYy73STB9i1vR3bmOAseNhhULNtlmJB7Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwUFKFXmDWBE1feWftqQr2fE1190LfrmoqkBtEEwIIwHR1mZAO
-	V3ND/+13B8cYdUmOmy6BwgkSHI/qrYopHXmUwUTQqf1M2VaztQ6UpqVdysf0shTK7yG6/XVm5EI
-	N8GEv2KM=
-X-Gm-Gg: AR+sD11OgkgSDATp5T0Pm/9xvhRDWNIFDM27lXjMt7PW11JpoQdZ7AvbS1niSx6O1e0
-	NMDIZvppAMzIbEV/u/pqit+QILb9TNT3tFZTe3RzwF7ijo1bl1oOvM9Ity6/aaLfAKntOk9Zk/f
-	hJ8WeHj7gIyNcxNK54L3AE9tW9OWYlmQN5eLEoe4ibJMgjQUFoLSth9P2+gQUXu/Iq9gutCYNOd
-	gCitwTlWdOp+92VH+HSeQmaVgioW+BsWNuYbYKZosOsWMlksKEmVsMpRwefqKuf5tS0qZnWX3Ji
-	AIMUl1TVH64W8F4+bpYLaxub2Sl7ca6y3NZxznAYuvIlInEKVSbBnw8VRQdHUwwjwivl67hPcdz
-	N3bSu5q87M/vwIZfUYjD93gxOOBcaO6Umng782eTkd4pQPW1mco0OXDtxUCO2WgbCC0+pfGRfc7
-	N+aQ==
-X-Received: by 2002:a05:622a:8c:b0:51c:db4:3cb2 with SMTP id d75a77b69052e-5283df63187mr68450411cf.63.1784899936358;
-        Fri, 24 Jul 2026 06:32:16 -0700 (PDT)
-Received: from [172.22.22.28] ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-527d0c4fe92sm53114091cf.11.2026.07.24.06.32.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Jul 2026 06:32:15 -0700 (PDT)
-Message-ID: <39995013-3520-4290-a791-1f5d6a25388c@riscstar.com>
-Date: Fri, 24 Jul 2026 08:32:13 -0500
+	id 1wnG6P-0000000GUGV-1E0b;
+	Fri, 24 Jul 2026 13:38:14 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784900288;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k84lHI02AeLCB93IudPhY7UADh7YGZV8FCgpA+ZF7P0=;
+	b=BrLLO1tjYhSGwyDAWasIuyNQDXJsuyGklSui5fMZONsKkP1m5sXLh5TEhyFkEwKd5+m3y2
+	fzQAc+LlO7nGtNN0ss6VDCzqr3zg0hJjr2Pb7w/keysNILWib9LWJ+eidE8UnlW9VpDnX1
+	Qlo7ri+aLG1aKgl6IngIkvzrqz5IFXwm2KRokPKWktQh8+PtJvPs9uzn9+YtK/0Ft/hZpU
+	WfOxgGgAxQ1IT4euvdi9YJl9dB4bTtaD/+Z0FkT8cWxd5I2pKlHu1+YsXYRViVO0av0TZI
+	P7XUKIxnKoTfjDHLRTJqeanyw4JJw9dunvC8WU2/02aGdPKYQwDeBBCuaV/3nw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784900288;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k84lHI02AeLCB93IudPhY7UADh7YGZV8FCgpA+ZF7P0=;
+	b=F1iGaQnCRfR4UqHuVk9ZmdTRJMF80i+Fz/zJGdx/+NAq/m/Y/2SFARDiSyIpBG4x5Ncxup
+	Uxil6gsiEIbWfyDA==
+Date: Fri, 24 Jul 2026 15:36:18 +0200
+Subject: [PATCH v4 1/7] kbuild: support generated asm-headers in
+ subdirectories
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] rtc: spacemit: handle regmap_test_bits() error return
-To: kr494167@gmail.com, alexandre.belloni@bootlin.com, dlan@kernel.org
-Cc: linux-rtc@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260724024220.10113-1-kr494167@gmail.com>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20260724024220.10113-1-kr494167@gmail.com>
+Message-Id: <20260724-vdso-arch-clockmodes-v4-1-ddbe447be860@linutronix.de>
+References: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
+In-Reply-To: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
+To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ loongarch@lists.linux.dev, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784900286; l=1603;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=Zev+SfOmyEH9fuyzl0FmsV9VVq9RYb3UzolE/5lna3k=;
+ b=7LSqC528B3expK5DAr0ccLIPXQLZl0CZ+lRD0g98zRXGLp+iYu3EIKcskmML7CJrbWN3Eagwj
+ y/hRMY88MKYAQn0vWRro12snAVO4gtR1Q/2LpUB8ZTb256tJSvFdE/x
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_063218_596485_163F26FD 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20260724_063813_499818_C9274C1A 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,71 +92,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/23/26 9:42 PM, kr494167@gmail.com wrote:
-> From: Surendra Singh Chouhan <kr494167@gmail.com>
-> 
-> p1_rtc_read_time() called if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
-> to check if the RTC was enabled.
-> 
-> regmap_test_bits() returns 1 if the bit is set, 0 if not set, and a
-> negative error code (e.g. -EIO) if reading the control register fails.
-> Using !regmap_test_bits(...) evaluates a negative error code as boolean
-> false, causing I2C/regmap read failures to be ignored and incorrectly
-> proceeding to read time registers from a failing device.
-> 
-> Fix this by capturing the return value of regmap_test_bits() and returning
-> the error code if negative, or -EINVAL if the RTC is disabled.
-> 
-> Fixes: a6de182daa2b ("rtc: spacemit: support the SpacemiT P1 RTC")
-> Signed-off-by: Surendra Singh Chouhan <kr494167@gmail.com>
-
-This is an I2C-based regmap, so yes, we do need to test
-for errors when reading or writing registers.
-
-I think this is a good fix.  I have a minor suggestion or
-two below but either way:
-
-Reviewed-by: Alex Elder <elder@riscstar.com>
-
-> ---
->   drivers/rtc/rtc-spacemit-p1.c | 5 +++--
->   1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/rtc/rtc-spacemit-p1.c b/drivers/rtc/rtc-spacemit-p1.c
-> index 43ab62494bb4..c1820c920ba3 100644
-> --- a/drivers/rtc/rtc-spacemit-p1.c
-> +++ b/drivers/rtc/rtc-spacemit-p1.c
-> @@ -57,8 +57,9 @@ static int p1_rtc_read_time(struct device *dev, struct rtc_time *t)
->   	u8 time[6];
->   	int ret;
->   
-> -	if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
-> -		return -EINVAL;		/* RTC is disabled */
-> +	ret = regmap_test_bits(regmap, RTC_CTRL, RTC_EN);
-> +	if (ret <= 0)
-> +		return ret ? ret : -EINVAL;	/* RTC is disabled or error */
-
-Since regmap_test_bits() can return -EINVAL, I wonder if a
-different error code would be better to indicate "disabled".
-It can return -EBUSY and -EIO too, as well as anything any
-regmap->reg_read() can return.  Scanning through the list of
-basic error codes I don't have a good suggestion, unfortunately.
-
-Otherwise, perhaps just:
-
-		return ret ? : -EINVAL;  /* comment if you like */
-
->   
->   	ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
->   	if (ret)
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RXh0ZW5kIHRoZSBhc20taGVhZGVyIHN0dWIgZ2VuZXJhdGlvbiB0byBhbHNvIGhhbmRsZSBzdWJk
+aXJlY3Rvcmllcy4KQW4gdXBjb21pbmcgdmRzby8gaGVhZGVyIHJlZmFjdG9yaW5nIHJlcXVpcmVz
+IHRoaXMuCgpTaWduZWQtb2ZmLWJ5OiBUaG9tYXMgV2Vpw59zY2h1aCA8dGhvbWFzLndlaXNzc2No
+dWhAbGludXRyb25peC5kZT4KLS0tCiBzY3JpcHRzL01ha2VmaWxlLmFzbS1oZWFkZXJzIHwgMTEg
+KysrKystLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDYgZGVsZXRpb25z
+KC0pCgpkaWZmIC0tZ2l0IGEvc2NyaXB0cy9NYWtlZmlsZS5hc20taGVhZGVycyBiL3NjcmlwdHMv
+TWFrZWZpbGUuYXNtLWhlYWRlcnMKaW5kZXggOGE0ODU2ZTc0MTgwLi5iMzg5MzEzMTRhZDcgMTAw
+NjQ0Ci0tLSBhL3NjcmlwdHMvTWFrZWZpbGUuYXNtLWhlYWRlcnMKKysrIGIvc2NyaXB0cy9NYWtl
+ZmlsZS5hc20taGVhZGVycwpAQCAtNDgsMTQgKzQ4LDEzIEBAIHN5c2NhbGwteSAgIDo9ICQoYWRk
+cHJlZml4ICQob2JqKS8sICQoc3lzY2FsbC15KSkKIGdlbmVyYXRlZC15IDo9ICQoYWRkcHJlZml4
+ICQob2JqKS8sICQoZ2VuZXJhdGVkLXkpKQogCiAjIFJlbW92ZSBzdGFsZSB3cmFwcGVycyB3aGVu
+IHRoZSBjb3JyZXNwb25kaW5nIGZpbGVzIGFyZSByZW1vdmVkIGZyb20gZ2VuZXJpYy15Ci1vbGQt
+aGVhZGVycyA6PSAkKHdpbGRjYXJkICQob2JqKS8qLmgpCitvbGQtaGVhZGVycyA6PSAkKHNoZWxs
+IHRlc3QgLWQgJChvYmopICYmIGZpbmQgJChvYmopIC1uYW1lICouaCkKIHVud2FudGVkICAgIDo9
+ICQoZmlsdGVyLW91dCAkKGdlbmVyaWMteSkgJChnZW5lcmF0ZWQteSkgJChzeXNjYWxsLXkpLCQo
+b2xkLWhlYWRlcnMpKQogCi1xdWlldF9jbWRfd3JhcCA9IFdSQVAgICAgJEAKLSAgICAgIGNtZF93
+cmFwID0gZWNobyAiXCNpbmNsdWRlIDxhc20tZ2VuZXJpYy8kKi5oPiIgPiAkQAorZmlsZWNoa193
+cmFwID0gZWNobyAiXCNpbmNsdWRlIDxhc20tZ2VuZXJpYy8kKi5oPiIKIAogcXVpZXRfY21kX3Jl
+bW92ZSA9IFJFTU9WRSAgJCh1bndhbnRlZCkKLSAgICAgIGNtZF9yZW1vdmUgPSBybSAtZiAkKHVu
+d2FudGVkKQorICAgICAgY21kX3JlbW92ZSA9IHJtIC1mICQodW53YW50ZWQpOyBmaW5kICQob2Jq
+KSAtdHlwZSBkIC1lbXB0eSAtZGVsZXRlCiAKIHF1aWV0X2NtZF9zeXNoZHIgPSBTWVNIRFIgICRA
+CiAgICAgICBjbWRfc3lzaGRyID0gJChDT05GSUdfU0hFTEwpICQoc3lzaGRyKSBcCkBAIC03NCw4
+ICs3Myw4IEBAIGFsbDogJChnZW5lcmljLXkpICQoc3lzY2FsbC15KQogCSQoaWYgJCh1bndhbnRl
+ZCksJChjYWxsIGNtZCxyZW1vdmUpKQogCUA6CiAKLSQob2JqKS8lLmg6ICQoc3JjdHJlZSkvJChn
+ZW5lcmljKS8lLmgKLQkkKGNhbGwgY21kLHdyYXApCiskKG9iaikvJS5oOiAkKHNyY3RyZWUpLyQo
+Z2VuZXJpYykvJS5oIEZPUkNFCisJJChjYWxsIGZpbGVjaGssd3JhcCkKIAogJChvYmopL3VuaXN0
+ZF8lLmg6ICQoc3lzY2FsbHRibCkgJChzeXNoZHIpIEZPUkNFCiAJJChjYWxsIGlmX2NoYW5nZWQs
+c3lzaGRyKQoKLS0gCjIuNTUuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
