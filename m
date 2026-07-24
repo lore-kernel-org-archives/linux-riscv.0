@@ -4,89 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75CDDC531FA
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 16:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FE2C531C9
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 16:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UFnSljvf5HXA27+5WnLBwFwt0M1GvW5R1cp7mzWLmzQ=; b=OrUbtO3iCG0aOF
-	im6odia+Bs+18O5pf414PdcIxnV/Y/vqHMuPsLlxYoi2zThP+SUFAqKnWAz9hP4+VttRDqTGn9miv
-	s9gUYebbKtPula04egXVXQeh5rjL8wjmKkCswXL8X+jTtupO+9LZ+z+wo/U8d4zDkFAxkG6r1r6LE
-	SNALrT6dfP/5MuJyNmMiEY+YUzhhpUxsi5E0CNpISxJK9fUTPhB6XBdJhJANIZnCqhqmcjs0rPuJI
-	rqJLTx2e1txYabrtofA+C6yU7IEE6Mtu0oxpYlNNIum3Sm8B+vDIDqOcONx7qFHvdXMjGsZvTK75U
-	WrN807tak6TDcZ9xD58A==;
+	List-Owner; bh=ec1ZtwHrXu6TJZecNZCFvbcKH0QEnT6jysiuVUNfEak=; b=TUQtkz8+XOv0I6
+	3cf5zUEirZmcPR4/yI/o7eVtVLl2Ipd68KdWLyKgHQZXyd+aqBZcT4whDDnvZL2E8ov0BV/4J2M0V
+	kUJk6xJ/fftZ/n+QPmK1qxDuOHiSftCx8Ci+D2tkkT0SO005IYYGU4AiEqv6v3x01YxGt3porso/a
+	kiws/L97GHHOw/8p6HsYzJL8bIwjUfG6kUlTXirvBhJzpSNIKMw54JboJJ6LGTLzG11BBpuGWHOHa
+	ck3n18EUQTi9X+2Hq3goPQgDTsTLxjH4sgI98/QbbJcrPkDnOOvQXsbNEoOPSZnFymJovmFHJ3/G1
+	CNgGP/C1p+d1mDrJUJ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIoR-0000000GqgC-2oJZ;
-	Fri, 24 Jul 2026 16:31:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnIoO-0000000GqfJ-3YZM;
-	Fri, 24 Jul 2026 16:31:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4AE7F1BB2;
-	Fri, 24 Jul 2026 09:31:43 -0700 (PDT)
-Received: from [10.57.0.90] (unknown [10.57.0.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ACA703F66F;
-	Fri, 24 Jul 2026 09:31:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784910707; bh=NEwnT35D7tuzT3xeTQQMHkJEWGepfSu0cwMv30sxXLk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rJ2DJJ7D9c7D1FVu9FvWF7Hq7v5HoLI/CdhriAp1fJ4dLBnD8EJRRWBa3d3TSeSRj
-	 y4giJ+zCCtRJVGca1Zy4119yCr4CT8kuPBEs9cPEAEswfrfTiiEZd9fOxFya5yiDAq
-	 5lH15CX22toaprtjLQyFDxQHqVRAyMvOmxdmryBU=
-Message-ID: <c17ccb0b-9f6b-4521-a992-bdc658b91597@arm.com>
-Date: Fri, 24 Jul 2026 18:31:32 +0200
+	id 1wnJ6Q-0000000Gsaz-1XoD;
+	Fri, 24 Jul 2026 16:50:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wnJ6N-0000000GsY1-1BVX
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 24 Jul 2026 16:50:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=5IUFt86dCMeouqveB0y7ovO9azpKFmoPUqPgEE244Qc=; b=g19vi65e7dkYJuXOg0lTn3fBqo
+	wFIU52lTnWXj5wjH7YGMsmVvj9B7auS0EcBUgOXcItx8qqNOF6R+gwmMR+vkGyM47QcvyYvNq/sdU
+	YSKF5h7FeBGQ61OGOvnGi3N7cPV40jPTn/oLMqDHzLoNgUUPewwxULnSQ72uHbQZgDMSfaPKRTG00
+	AfCO6gs11k2hjFnBph4UPB8jpewD5cy4XmZyk62SeDCXJrSKa1SRx5AY1h3qk1p3lMzSZb055GCIz
+	o4os/bRqpA9c9u6ZGvWuX03gFlzfy1W+yMk8WMKtXexR2bRc1CJLN3Of9wiGixNTzYAltIFW0P8uA
+	umHPOHzQ==;
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wnJ6K-00000002mVm-1Jfx
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Jul 2026 16:50:22 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-6aae11ddd13so373750eaf.3
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 09:50:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1784911818; x=1785516618; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5IUFt86dCMeouqveB0y7ovO9azpKFmoPUqPgEE244Qc=;
+        b=ACZBbQkG3uiW3w4+pk404pyrVl1N1AaSYD4CDzX7Hvrp+l+e8DNJC3c+9aqwY7T/bJ
+         DtaNP1661jA19EkNkCh/36c453of7JMr7K2/VnUvFMfXUUrG7FyBoRj6z8bGk1OGIBGJ
+         I2vKYqcCUp1zZIC3Ddf85WRYG6IgjHybgACgJv1zJ/hp0J6RplkiyLKbLPE82n67MyrE
+         6iSfNsMwkjftUFuMktj72/vW6+CZ+ABeeYbCNLOwWk2xc9h5sdQOt2ROK5PRnH/GOqq4
+         DddXz1dWFvAJkDkWu2yiXngCPdPa8VlT2svkIWmlj2iFmDvrcD4yT51TiEHwOQNbVqDM
+         6PxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784911818; x=1785516618;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5IUFt86dCMeouqveB0y7ovO9azpKFmoPUqPgEE244Qc=;
+        b=LSrbRTOnLzpcEf+U59EBGU/lMz4JCmUvALMQcAbHxC7lvFd+y5Fu3th69HdIGawaC0
+         a86tz/8+SroACjcQhHOmRMpMmGXX/jlm1H40SKUZ7/jDdXDzU4vuKffKDGJoyD1lurup
+         jXSTKPZKau/fQxaB+I0XDE0bNnz8yY985jFFCSEX6/OybE5q3EQrtSImLv1HTj7Agwa6
+         wPXlPMD+mPNjZrxaK/GZ0OHNdEgmLj4XpDq6dngrGbeGOeNNdIr69Ef3uBMP3jlMq3Ld
+         2FcdOBpWG9dWh2qIyyQt4BpgvHAji9hhl7fqj3w9DXbGr54uaoJ9HBlOrzMlhWOvcBge
+         axdg==
+X-Forwarded-Encrypted: i=1; AHgh+RrOttdhy9zkSARlCcp5l/4jt4U2ujPxhIIVqk3xS4wlYJqBbvvco1KSMj5HMrdG0Hwq56EE5A7DM7Z8fw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzr8M2Oy9urk6agmGcttJIGkqgWE3HpfiO/u5zzjXtykPX4Ir7h
+	OJA1n/eKaLr0Rywk+R1lULJ2PyNGa+XPAPsszud6WTx/cUIN9vSwk1Y3z31yJg5Pius=
+X-Gm-Gg: AR+sD10buvhc8FZN5PRtGXT1BpixDI2tZypoMlwxIOyFsfHC7vUVxxIHIvm/Kqn0U93
+	V7k40yrJBNMadAEXvK9ha4yQOVccF2SdvB3INUpAIXyWekIwK4qKphPI4pgJj37z+JIB/Y6NiBv
+	Srb4jkit7ypaKI13KSmkZCeijsweD211WlCp8O7RpjdBd1CMakghXcUiQYY/nIP1hA2kEXvXkC6
+	pdmcXI+ZkDIE2No05G8Ue6WDMiBbiZ6ys/Ce/7F+cOu5NPUid5rwlhrDMqTGJHPhaCXju4v+d8F
+	DZ10+JNN94La828PzIB6UJQiSYvqbadLGkBViXqzt4C9MCVw1SptSy4bnsV/twRKfbPOjZ5JZSU
+	ay93mlsxwjB7Tetcj1rFoDwoLVM9KL2KwYQDcZhY9YvgI1en/IAV7cPHn7S6Fs09L29znIQ/Zfu
+	P+9kyficauXhRs02hM/WUaRub1VJOSLQAfl/Q=
+X-Received: by 2002:a05:6820:4c03:b0:6a3:8cf6:fdf6 with SMTP id 006d021491bc7-6aad418cb97mr4265835eaf.48.1784911818341;
+        Fri, 24 Jul 2026 09:50:18 -0700 (PDT)
+Received: from lima-default.tail89d63.ts.net ([12.55.13.134])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6aaf96f4501sm210882eaf.12.2026.07.24.09.50.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 09:50:18 -0700 (PDT)
+From: Andy Chiu <tchiu@tenstorrent.com>
+To: anup@brainfault.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-riscv@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Cc: kvm-riscv@lists.infradead.org,
+	Andy Chiu <tchiu@tenstorrent.com>,
+	dfustini@oss.tenstorrent.com,
+	greentime.hu@sifive.com
+Subject: [PATCH v3 2/3] riscv: vector: allow non-preemptible kernel-mode vector with IRQs off
+Date: Fri, 24 Jul 2026 11:49:53 -0500
+Message-ID: <20260724165001.2317788-3-tchiu@tenstorrent.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260724165001.2317788-1-tchiu@tenstorrent.com>
+References: <20260724165001.2317788-1-tchiu@tenstorrent.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 14/22] mm: set page table page type when allocated
-To: Vishal Moola <vishal.moola@gmail.com>
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Pasha Tatashin <pasha.tatashin@soleen.com>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org,
- Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, linux-s390@vger.kernel.org,
- "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>, sparclinux@vger.kernel.org,
- Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>, linux-um@lists.infradead.org,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Ning Sun <ning.sun@intel.com>,
- x86@kernel.org, tboot-devel@lists.sourceforge.net,
- Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-efi@vger.kernel.org,
- Alistair Popple <apopple@nvidia.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-References: <20260714-remove_pgtable_cdtor-v1-0-44be8a7685d7@arm.com>
- <20260714-remove_pgtable_cdtor-v1-14-44be8a7685d7@arm.com>
- <alZSwAM4pwmMOeaD@fedora> <f3afa5df-73f3-49da-87a6-d75eb5f3610f@arm.com>
- <al5xZHiFwatn518I@fedora>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <al5xZHiFwatn518I@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_093149_025579_A14A7476 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20260724_175020_480623_414D026E 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +125,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/07/2026 21:05, Vishal Moola wrote:
-> On Thu, Jul 16, 2026 at 11:49:31AM +0200, Kevin Brodsky wrote:
->>> We should switch over from __folio_set_pgtable() to __SetPagePgtable()
->>> in this patch. Ptdescs and folios should be treated as distinctly
->>> independent of each other.
->> I sure remember the previous discussion, but my reading of your comments
->> [1] is that we cannot really change this as long as pagetable_alloc()
->> can be called with order > 0, right? Multiple archs still rely on that.
-> Kinda...
->
-> The concern was about callers accessing tail pages directly for that
-> information. Using the folio API ensures that we always look into the
-> head page.
->
-> Since we're now doing it at allocation time, we know we always have the
-> head page, so it's fine.
+Similar to commit 7137a203b251 ("arm64/fpsimd: Permit kernel mode NEON
+with IRQs off"), we are upgrading get/put_cpu_vector_context such that
+kvm_arch_vcpu_load/put can be safely called under both irq off and
+regular process context.
 
-Ah got it, that makes sense.
+Also, export both symbols so the kvm module can call into it.
 
->
-> The dtor/free should be more questionable because the underlying api
-> uses virt_to_page() which could look at a tail page... oopsie. I
-> haven't seen any reports tied to it so its probably fine (the
-> setting/clearing has been using the folio API since ptdescs).
+Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
+---
+Changelog v3:
+ - Export {get,put}_cpu_vector_context() to only kvm modules (Sebastian)
+Changelog v2:
+ - new patch since v2
+---
+ arch/riscv/include/asm/simd.h          |  8 ++------
+ arch/riscv/kernel/kernel_mode_vector.c | 18 ++++++++++++------
+ 2 files changed, 14 insertions(+), 12 deletions(-)
 
-Right, that should be fine - calling pagetable_free() on anything else
-than a ptdesc allocated by pagetable_alloc() is a bug, so if we get any
-crash because of this we should just go and fix the underlying issue.
-I'd still switch to __SetPagePgtable() in a separate commit to improve
-bisectability.
+diff --git a/arch/riscv/include/asm/simd.h b/arch/riscv/include/asm/simd.h
+index adb50f3ec205..678c8b97cd49 100644
+--- a/arch/riscv/include/asm/simd.h
++++ b/arch/riscv/include/asm/simd.h
+@@ -44,12 +44,8 @@ static __must_check inline bool may_use_simd(void)
+ 		if (!riscv_preempt_v_started(current))
+ 			return true;
+ 	}
+-	/*
+-	 * Non-preemptible kernel-mode Vector temporarily disables bh. So we
+-	 * must not return true on irq_disabled(). Otherwise we would fail the
+-	 * lockdep check calling local_bh_enable()
+-	 */
+-	return !irqs_disabled() && !(riscv_v_flags() & RISCV_KERNEL_MODE_V);
++
++	return !(riscv_v_flags() & RISCV_KERNEL_MODE_V);
+ }
+ 
+ #else /* ! CONFIG_RISCV_ISA_V */
+diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
+index 307ac369c3d4..f76e52de1117 100644
+--- a/arch/riscv/kernel/kernel_mode_vector.c
++++ b/arch/riscv/kernel/kernel_mode_vector.c
+@@ -55,13 +55,16 @@ void get_cpu_vector_context(void)
+ 	 * disable softirqs so it is impossible for softirqs to nest
+ 	 * get_cpu_vector_context() when kernel is actively using Vector.
+ 	 */
+-	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+-		local_bh_disable();
+-	else
++	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
++		if (!irqs_disabled())
++			local_bh_disable();
++	} else {
+ 		preempt_disable();
++	}
+ 
+ 	riscv_v_start(RISCV_KERNEL_MODE_V);
+ }
++EXPORT_SYMBOL_FOR_KVM(get_cpu_vector_context);
+ 
+ /*
+  * Release the CPU vector context.
+@@ -74,11 +77,14 @@ void put_cpu_vector_context(void)
+ {
+ 	riscv_v_stop(RISCV_KERNEL_MODE_V);
+ 
+-	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+-		local_bh_enable();
+-	else
++	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
++		if (!irqs_disabled())
++			local_bh_enable();
++	} else {
+ 		preempt_enable();
++	}
+ }
++EXPORT_SYMBOL_FOR_KVM(put_cpu_vector_context);
+ 
+ #ifdef CONFIG_RISCV_ISA_V_PREEMPTIVE
+ static __always_inline u32 *riscv_v_flags_ptr(void)
+-- 
+2.43.0
 
-FWIW there are definitely cases where pagetable_free() and
-pagetable_alloc() calls aren't properly matched (see my reply to the
-cover letter), this needs to be addressed for this series anyway.
-
-> We can say thats a happy accident that makes distinguishing ptdescs
-> and folios easier :)
-
-Indeed!
-
-- Kevin
 
 _______________________________________________
 linux-riscv mailing list
