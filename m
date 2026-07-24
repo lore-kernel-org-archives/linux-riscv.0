@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C277C531CC
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 00:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA34EC531CC
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 02:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zpT732UVLdNtfbuaaYHIwxwVsFn1ksNiLtfO4BSkjss=; b=DOTKofKCap9tco
-	F8kaeyXjJatuBt/B06agCLsDOc6t/dhQX7EJDGoMMjihhcHcBnICdLWRG8hqarlIfVEM9+c0dtljg
-	WyAIwxZCZ7zXxawOYEjPG/QlJhMvKH8j+pVRWbHzAbOAllYcDfmvwGQGyhVZHauuC9t+eAzCde4sG
-	4BEJpWMOoL46k/fbgaXm/sVKLh3DLM5mVLraJrU4rmI1YXZy8voNTIpddACy7e/WJ+fKQF4vmBAXl
-	FB4CKfjj5EEP0+WrV23GjnkPwiysqK/LSa6KBr2Af1z+NyrkmvgRcXpF3lhswgkqFIMXg2r7YJFiy
-	OuFyBPEi27ohULo6HGug==;
+	List-Owner; bh=0zbBn/vK3KVoCMwHCL3YwOvXLis/tC9s3sj9t+OCNaI=; b=ZqulWkPNziQ3vb
+	gf8kAp1+7LGaQUsMEiJPAQzrEzPm2jww938ZW6T0oXy9b9A1MkWXq+C0X24/35dG+vzn8AIRINAaG
+	PU45R+MYMTqeG86FLQDke6kMSCwbmlRD6IhYayP2tZhFXSALs9UT973+nvjHN6ArYYkRPN1pdJhJp
+	IFXUDcdNYfDEyAXcj2k9C4MegIqhKUC9w3AAvVJ12JxfN7P09P5sC+eu8kEzVVagDExt1wNaUv+Ut
+	d8aGatDEJk7f4ulmMGdaR8WqDqJlqGXRaLO+5PWva8U3AB8EEnndXT39VKlZexPRcxx6E28boZh5d
+	YlyJfFJffAlbBFpdjvsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn4Fw-0000000FJbQ-2bHM;
-	Fri, 24 Jul 2026 00:59:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wn5Qx-0000000FN7G-2ngP;
+	Fri, 24 Jul 2026 02:14:44 +0000
+Received: from m16.mail.126.com ([220.197.31.6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn4Fu-0000000FJat-2oP1
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jul 2026 00:59:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACDD440F11;
-	Fri, 24 Jul 2026 00:59:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D34A1F000E9;
-	Fri, 24 Jul 2026 00:59:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784854753;
-	bh=4IqQuzWa9zukp/8Xa7Vx1hseOADWYDWrtLWPKRKUA2E=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=HAgI6yWl4lzJe7ze7y3KINpyTvDzSkThi3xs2Y400VTeWIiRfjZnKE7W+5gMSSXHr
-	 eHfk4hzoVB9ciJIiT/SMOdmfatwrIZTNXK2tMo+Oioam+CU1SWGZWu0Log3M6HUGw7
-	 Mz7U1hOT6Gto7LlCfUKS4sUsm+nK2v7Sn/YaasZJGYZ3lnMiE8b6ZN9qTJZcw1tPve
-	 wOIWI25ZHmaCQCqjA6fPjNE904JIHAuuQBfo1XDTkja9D6e/JTojuIY+p1/w5JzP/E
-	 qsEe7v+NzT8glP/uVRGFb1sd45JhCRsi4xLMWBebW1Gwx6qTkiJVFzSqgTPF/9/KwB
-	 HB2skUgbZMfGQ==
-From: Mark Brown <broonie@kernel.org>
-To: dlan@kernel.org, kr494167@gmail.com
-Cc: elder@riscstar.com, linux-spi@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260722162444.11415-1-kr494167@gmail.com>
-References: <20260722162444.11415-1-kr494167@gmail.com>
-Subject: Re: [PATCH v2] spi: spacemit: prepare both DMA descriptors before
- submitting
-Message-Id: <178475444741.5645.6128130514340592590.b4-ty@b4>
-Date: Wed, 22 Jul 2026 22:07:27 +0100
+	id 1wn5Qk-0000000FMxv-34Jm;
+	Fri, 24 Jul 2026 02:14:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=L/
+	SZp0vPqZ6bgIHdMlwc9563CUsJkyQzIo7rI6wG1fs=; b=ipar9103VugBwa7uzk
+	RoqjOghrHfRoqDl2bzaHe0YPIkBrqYCLgiYNa1/ES/GRQ8WHq2GbajVuBN2uMDbr
+	+3gkFYU0bsk813V33HstJUih1FcKIA7lBelM4qVniwAowoHQCdo0vuE4VHpsY6gY
+	n6ZDAiMe/dnXvn4gK6jlV0i+Y=
+Received: from song-MS-7D48.. (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSkvCgDnr+wRymJqH7z4DA--.34972S3;
+	Fri, 24 Jul 2026 10:12:39 +0800 (CST)
+From: Song Chen <chensong_2000@126.com>
+To: arnd@arndb.de,
+	kees@kernel.org,
+	clm@fb.com,
+	dsterba@suse.com,
+	linux@armlinux.org.uk,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	guoren@kernel.org,
+	kernel@xen0n.name,
+	maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	chleroy@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	gor@linux.ibm.com,
+	borntraeger@linux.ibm.com,
+	agordeev@linux.ibm.com,
+	svens@linux.ibm.com,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	jpoimboe@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Song Chen <chensong_2000@126.com>
+Subject: [RFC PATCH v2 1/3] error-injection: Introduce EI_ETYPE_FALSE for fail_function
+Date: Fri, 24 Jul 2026 10:12:27 +0800
+Message-ID: <20260724021229.47302-2-chensong_2000@126.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260724021229.47302-1-chensong_2000@126.com>
+References: <20260724021229.47302-1-chensong_2000@126.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1142; i=broonie@kernel.org;
- h=from:subject:message-id; bh=RDjoztJQbU4GVnyRy3kaRitfm74jeRfqA+SnJn+SxY4=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqYrjfh7V8VBPJzP4T3BLa4gWuOESEqMO26JPTt
- Hkk7G4aCz2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCamK43wAKCRAk1otyXVSH
- 0KXnB/998YytmnS/jo+Qbh1QYspKr/9sSePM4fYW6xAvLWvgWL+fzCqe/MdoqHaKZitrOnvVFnt
- ukjgiisqaP1omjiNBfXujwQ3sQ/DX880xX94XxECsMob5cYBWSgq6A+3QbtHKsb6IaoYPuB7cZr
- SwZCTu7rz2c9OA+jq64yjyLa70pHNrFg4jolwIeHRujWJJB9bYW7CoFzg96oRnWKVAiKw8jA8vx
- Vh33vGkioMsnxGTYjxcV78oTST/Gm00fikDPmg0f93CAWkscZECWbeswjN3CSIyd57Gcom68HeV
- hXDo50SjJfKoY1omkCuGI0J4r2v29QTxLMXR/BDwhVgpuZQr
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CM-TRANSID: PSkvCgDnr+wRymJqH7z4DA--.34972S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWrtr4DJw4kKF1xCrWkZFW8JFb_yoW8JF1DpF
+	1q9r9rury8K348Cry8AFZ2yr1F9rsrGrZxKasxWws7Zw17tF4kt39FgrWUXrykGrW8uayj
+	va9rWFZ0yr45AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRwvttUUUUU=
+X-Originating-IP: [221.238.56.48]
+X-CM-SenderInfo: xfkh02prqjsjqqqqqiyswou0bp/xtbBsxfqampiyhdNyQAA31
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260723_191431_195162_4F2F33EF 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +107,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jul 2026 21:54:44 +0530, kr494167@gmail.com wrote:
-> spi: spacemit: prepare both DMA descriptors before submitting
+Introduce EI_ETYPE_FALSE for functions which need false as return
+value in their error-injections, like btrfs_data_csum_ok.
 
-Applied to
+EI_ETYPE_NULL can return 0 too but its readability is not good
+enough.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.2
+Signed-off-by: Song Chen <chensong_2000@126.com>
+---
+ include/asm-generic/error-injection.h | 1 +
+ kernel/fail_function.c                | 2 ++
+ 2 files changed, 3 insertions(+)
 
-Thanks!
-
-[1/1] spi: spacemit: prepare both DMA descriptors before submitting
-      https://git.kernel.org/broonie/spi/c/d3c87e71539c
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/include/asm-generic/error-injection.h b/include/asm-generic/error-injection.h
+index b05253f68eaa..6c399121ab7a 100644
+--- a/include/asm-generic/error-injection.h
++++ b/include/asm-generic/error-injection.h
+@@ -8,6 +8,7 @@ enum {
+ 	EI_ETYPE_ERRNO,		/* Return -ERRNO if failure */
+ 	EI_ETYPE_ERRNO_NULL,	/* Return -ERRNO or NULL if failure */
+ 	EI_ETYPE_TRUE,		/* Return true if failure */
++	EI_ETYPE_FALSE,		/* Return false if failure */
+ };
+ 
+ struct error_injection_entry {
+diff --git a/kernel/fail_function.c b/kernel/fail_function.c
+index 2eaf55005f49..90cdad0412cd 100644
+--- a/kernel/fail_function.c
++++ b/kernel/fail_function.c
+@@ -48,6 +48,8 @@ static unsigned long adjust_error_retval(unsigned long addr, unsigned long retv)
+ 		break;
+ 	case EI_ETYPE_TRUE:
+ 		return 1;
++	case EI_ETYPE_FALSE:
++		return 0;
+ 	}
+ 
+ 	return retv;
+-- 
+2.43.0
 
 
 _______________________________________________
