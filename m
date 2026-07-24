@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F7CC531F9
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 13:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0503C531C9
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 13:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=csJ6tX1AYyWckgHt3ooU+X79ODfx+9/RqLKD1wA8kJg=; b=ynJy5J84yH2Nec
-	sqfTedc1rU4K/m9zcix+BZ0QGB7h0Q54njfwxVgCvVdYRmLs+ou76RIRnfQtIjHckWgQutXCTS2OC
-	GMnZV0uhyeHac10y/945gv9KAxvVQCN2xAJ9ihINfnErOssjrkPcX9PAHStjsdez3sGMbYrX3kM5u
-	itn2cUIKVbibsmiCDNpxYaXpBFUfL+xXmZt2HGST7xWXhajwzhtYi+p/68goKQOznglEaAdnNo7X4
-	WdQBxgu3LBa+PqOiaUQnK/BMMJWyc0odewXsDMyP3+BmtZ2igTp3rd4qfpfURkgNaNTrDKd+X1xkr
-	n/tIa5l/j8Oa2bNtRa/A==;
+	List-Owner; bh=KNd3UabhIGMd3pD0LmaZup8kyKJlBPBR862PdykCqoM=; b=gaAkN3j7lgplTe
+	+RoS4EpzGNf+q+AzoZGr0k+hbZgpxZkP/qGOVVmLZn5i5FMw4BVcVNmK+o09ISeZNUzJ0N3dfSN//
+	mbvErIG8LKPRvumK7jJ9ZCyrac4p+3YX13tHNF82p+lGBTwYWos6DA/np4tbzp+7DuEAu2fVEQaOl
+	4usxpBlf/qPKB+VQx78EQ1Xca0OKWgZ+MLN3wH7NDTCHw5cZiZoFZDcJj92GselrOr/o44VvVPYA1
+	xjSXBw0O1ufXs20RohCaUF1pSMkrU32K3iaItTiPavcmlxjMwKsHpQI1sTolxKZIAOs6sSgr5Ixj+
+	tPlcX5Sy+ETIDQXWk9KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnG7F-0000000GUr2-4B1J;
-	Fri, 24 Jul 2026 13:39:05 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wnG7p-0000000GVHx-1HZ5;
+	Fri, 24 Jul 2026 13:39:41 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnG6S-0000000GUIV-11tP;
-	Fri, 24 Jul 2026 13:38:18 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1784900290;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cIw1nW13D3Q7KVGq3dxw/myoCljjqPSm8YvxUaQYWA0=;
-	b=P6QsKIcOM3wbtosTcti1hgVEjlSxJo1mJTRJ9rQNUu9Gh67ntWPVBWiLjkc1UQq8W86rec
-	mkoRaM7tWTvj7JlnFKEcQbBCK7Xu44s+GtpNnvPf3a5YIPhd19AKaNj2QG6cb8uJ6p2Ba0
-	k9Y+fdhWXtTaIlCaRXYwAbbdB4Eh1xbgavilH8bkOkTuzQ81PFPpfzZQkIu1mnKS1lRd+t
-	5w+FIFYIeIht/W3Bjjvpxi48l74/xDMmGY1XgDqkmMD4BI4AIjFS6J6oHbtjg/UT29GFPg
-	Ttsqa41wmt4CDOJh3yk+Im3GmR342YQRe6emKn1B91Ucdbx7Mko+uCM7MNBshQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1784900290;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cIw1nW13D3Q7KVGq3dxw/myoCljjqPSm8YvxUaQYWA0=;
-	b=X6D9RzhInEuUkkie6FUghkOkKZYRkjouvhaiCe6fHww+jTAT6fXLnus2NMw4hEdlj+5uAs
-	dGRzbp/3bgB7qFBQ==
-Date: Fri, 24 Jul 2026 15:36:24 +0200
-Subject: [PATCH v4 7/7] LoongArch: Remove CONFIG_GENERIC_GETTIMEOFDAY
- ifdeffery
+	id 1wnG7m-0000000GVDT-3NLg
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Jul 2026 13:39:40 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id E5A504E40F26;
+	Fri, 24 Jul 2026 13:39:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9B98860395;
+	Fri, 24 Jul 2026 13:39:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0F04611C12509;
+	Fri, 24 Jul 2026 15:39:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784900372; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=eyUYSsg2coHiCNrbgbB0nPMXe3+a5ilhxAZu+w9jOoY=;
+	b=YtyPMYTPCn0uNgIsxL52ARPZLPxyXw8mN05kGNuwpMf730269zH2/gVsPY0b6Z09rM3FCo
+	jmEUpusknh4Mgsuaz07HKAGuh5CbbbAZQrZoiE1edj9LVeQ+cu72GIN9pDuNTecEXJNWmA
+	9zx/r3djRQ5p/1P/yYjhVjO6lC1mWfwYNrpeiFzkFfqy62aeRoEbQVAw9AeUj8SQ9DdVzY
+	ptkMP7+vnzNYqvUG5ZTA65erfpDK0/FhGgA9Bj1JVrjd6ytTehjYd4lsBG2w7MtMW5ei53
+	bBHwicRIT6Zjrm3Q0O+dxbAwBXCBV/4OCe5zsyjWmFoFkXIgxcb/XfM+bZITtw==
+Date: Fri, 24 Jul 2026 15:39:30 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Alex Elder <elder@riscstar.com>
+Cc: kr494167@gmail.com, dlan@kernel.org, linux-rtc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] rtc: spacemit: handle regmap_test_bits() error return
+Message-ID: <20260724133930d86e7b97@mail.local>
+References: <20260724024220.10113-1-kr494167@gmail.com>
+ <39995013-3520-4290-a791-1f5d6a25388c@riscstar.com>
 MIME-Version: 1.0
-Message-Id: <20260724-vdso-arch-clockmodes-v4-7-ddbe447be860@linutronix.de>
-References: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
-In-Reply-To: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
-To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- loongarch@lists.linux.dev, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784900286; l=780;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=/YNIeu5dDcZIdRrt5u3jACXGrJAGqwCKT4gDnUxNTGQ=;
- b=ezHXJP72IsCgQjW0X5M8lHPPXidInmHgcdYjAVig8SvM52XGjn7gGTMAJGL/lETzsPys9CJZg
- FdUROq9MD9nDvwQslmoauS+BqUFEbWJPpJvpup8MM2zgYCJObAmPucI
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+Content-Disposition: inline
+In-Reply-To: <39995013-3520-4290-a791-1f5d6a25388c@riscstar.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_063816_469031_6EEC9D97 
-X-CRM114-Status: UNSURE (   7.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260724_063938_984627_749C96B6 
+X-CRM114-Status: GOOD (  27.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,25 +71,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tm93IHRoYXQgdGhlcmUgaXMgYSBkZWZpbml0aW9uIG9mIFZEU09fQ0xPQ0tNT0RFX0NQVSBldmVu
-IGlmIG5vCnZEU08gaXMgYnVpbHQsIHRoZSB1Z2x5IGlmZGVmZmVyeSBjYW4gYmUgcmVtb3ZlZC4K
-ClNpZ25lZC1vZmYtYnk6IFRob21hcyBXZWnDn3NjaHVoIDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51
-dHJvbml4LmRlPgotLS0KIGFyY2gvbG9vbmdhcmNoL2tlcm5lbC90aW1lLmMgfCAyIC0tCiAxIGZp
-bGUgY2hhbmdlZCwgMiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL2xvb25nYXJjaC9r
-ZXJuZWwvdGltZS5jIGIvYXJjaC9sb29uZ2FyY2gva2VybmVsL3RpbWUuYwppbmRleCBkYmFhYWJj
-YWY2ZjAuLjU4OTJmNmRhMDdhNSAxMDA2NDQKLS0tIGEvYXJjaC9sb29uZ2FyY2gva2VybmVsL3Rp
-bWUuYworKysgYi9hcmNoL2xvb25nYXJjaC9rZXJuZWwvdGltZS5jCkBAIC0yMTIsOSArMjEyLDcg
-QEAgc3RhdGljIHN0cnVjdCBjbG9ja3NvdXJjZSBjbG9ja3NvdXJjZV9jb25zdCA9IHsKIAkucmVh
-ZCA9IHJlYWRfY29uc3RfY291bnRlciwKIAkubWFzayA9IENMT0NLU09VUkNFX01BU0soNjQpLAog
-CS5mbGFncyA9IENMT0NLX1NPVVJDRV9JU19DT05USU5VT1VTLAotI2lmZGVmIENPTkZJR19HRU5F
-UklDX0dFVFRJTUVPRkRBWQogCS52ZHNvX2Nsb2NrX21vZGUgPSBWRFNPX0NMT0NLTU9ERV9DUFUs
-Ci0jZW5kaWYKIH07CiAKIGludCBfX2luaXQgY29uc3RhbnRfY2xvY2tzb3VyY2VfaW5pdCh2b2lk
-KQoKLS0gCjIuNTUuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On 24/07/2026 08:32:13-0500, Alex Elder wrote:
+> On 7/23/26 9:42 PM, kr494167@gmail.com wrote:
+> > From: Surendra Singh Chouhan <kr494167@gmail.com>
+> > 
+> > p1_rtc_read_time() called if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
+> > to check if the RTC was enabled.
+> > 
+> > regmap_test_bits() returns 1 if the bit is set, 0 if not set, and a
+> > negative error code (e.g. -EIO) if reading the control register fails.
+> > Using !regmap_test_bits(...) evaluates a negative error code as boolean
+> > false, causing I2C/regmap read failures to be ignored and incorrectly
+> > proceeding to read time registers from a failing device.
+> > 
+> > Fix this by capturing the return value of regmap_test_bits() and returning
+> > the error code if negative, or -EINVAL if the RTC is disabled.
+> > 
+> > Fixes: a6de182daa2b ("rtc: spacemit: support the SpacemiT P1 RTC")
+> > Signed-off-by: Surendra Singh Chouhan <kr494167@gmail.com>
+> 
+> This is an I2C-based regmap, so yes, we do need to test
+> for errors when reading or writing registers.
+> 
+> I think this is a good fix.  I have a minor suggestion or
+> two below but either way:
+> 
+> Reviewed-by: Alex Elder <elder@riscstar.com>
+> 
+> > ---
+> >   drivers/rtc/rtc-spacemit-p1.c | 5 +++--
+> >   1 file changed, 3 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/drivers/rtc/rtc-spacemit-p1.c b/drivers/rtc/rtc-spacemit-p1.c
+> > index 43ab62494bb4..c1820c920ba3 100644
+> > --- a/drivers/rtc/rtc-spacemit-p1.c
+> > +++ b/drivers/rtc/rtc-spacemit-p1.c
+> > @@ -57,8 +57,9 @@ static int p1_rtc_read_time(struct device *dev, struct rtc_time *t)
+> >   	u8 time[6];
+> >   	int ret;
+> > -	if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
+> > -		return -EINVAL;		/* RTC is disabled */
+> > +	ret = regmap_test_bits(regmap, RTC_CTRL, RTC_EN);
+> > +	if (ret <= 0)
+> > +		return ret ? ret : -EINVAL;	/* RTC is disabled or error */
+> 
+> Since regmap_test_bits() can return -EINVAL, I wonder if a
+> different error code would be better to indicate "disabled".
+> It can return -EBUSY and -EIO too, as well as anything any
+> regmap->reg_read() can return.  Scanning through the list of
+> basic error codes I don't have a good suggestion, unfortunately.
+> 
+
+No, EINVAL is standard across all the drivers. I considered changing
+this to ETIME or ENODATA but that would break userspace too much.
+
+> Otherwise, perhaps just:
+> 
+> 		return ret ? : -EINVAL;  /* comment if you like */
+> 
+> >   	ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
+> >   	if (ret)
+> 
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
