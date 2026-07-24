@@ -4,99 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A37B4C531F9
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 22:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01560C531C9
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 22:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JmQlPjSvnJPrCONArYnlxKyz4902RQDaeUbK7Cw1GO4=; b=0WNMEbbB+938wo
-	wfPxIMqq/oH5eGZ6io30Lj+ErHaq1LEozJ6hYT4zAIODEfkYq33L7hEcoa5Be1Gx/GBsQLanjkZFT
-	R5Q9E+jeCfoMIMhEv6b3NBENn9rZYBXU7VlQD620/wB9DFAJkNUClgfwGxBxyjO+ln3thYBJ8HKPk
-	mkjGaMHR8L1ZKf7L/V1ZLZ0nqe5uAtBBwrjQyDqxdshNDJnC5vHFAV1zr5wDKAj4d3HfJ6qlT2bYw
-	CBf8ylsXxhhgAlkwKF5IEKas87F0ZBIBbOpBJVrwxaIL/wuZ3iIwlKk9TbeC0QpjzNiXQotwvk5dN
-	pTTWkoc4o2Uk51iVVitQ==;
+	List-Owner; bh=5zepeJiY6MJZKiEmgAYmSgAk/CCuIxK+S8iLiqRsMpk=; b=lj6Q+R+MFa11ip
+	1v7nXePFFxKhlGynwuCuDFlE2s2a7qJE61/YCOJZ+4alhDO59hn7Zxrw6M5pvfGtdXus6muqdo3ro
+	i7SVwRwGp+keF3xvyipZQw8mpLLpPiI+Z6J9XnsnPlaNDwx0/z6TjHHMsuOHRysf94GYHGN2keP/c
+	Azmr99qy2AzMEmzpLS+s7u1x3MVanVApYvBmfwU0COtg9sIA8xkGEHvQuLgtjUj9PkldPCjFK0b0x
+	5OUMtGNIF81xXbS3gDK6JiM6BqgqHu8t7q9at8m2LwyazNsex3gL2ncYZWt1LsCYqo/+RaeoTh/jT
+	G3brquKAAzRVm5ARmptg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOf5-0000000HKZo-0wFd;
-	Fri, 24 Jul 2026 22:46:35 +0000
+	id 1wnOkX-0000000HLDj-12Ki;
+	Fri, 24 Jul 2026 22:52:13 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOeb-0000000HKEu-1Bf2;
-	Fri, 24 Jul 2026 22:46:05 +0000
+	id 1wnOkU-0000000HLDb-0txJ
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Jul 2026 22:52:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 09DEE41AB4;
-	Fri, 24 Jul 2026 22:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A7F21F00AC4;
-	Fri, 24 Jul 2026 22:46:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 235284034A;
+	Fri, 24 Jul 2026 22:52:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37C821F000E9;
+	Fri, 24 Jul 2026 22:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784933164;
-	bh=K125TY74W87vhbOlzJ/FpCa02u74B+oM2H9sVUMeeOo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DNutic3y4iV6+eyYcy4rwQNwLeQzrjFdAqTJiqrBOyOEWptY1tUjsPrZCB7a+2Rce
-	 7WKRN2fpfQ1BH4OSNlv8Ygz7piMxGyuqiTFOB8siO1bB/P+YFJYYg/dEVTSiGcUTE8
-	 vnkofqb9758AL8BRwmY7SqDav0yzD69GE//A7v8wrhXIdBukMFDnjNUXOlaQv8a7bg
-	 IIDvyg+zxVPf1kHcdIsUIza3Z+0MpbDf5Hv1uMxPb9oZ07wF+23iVfKnQBx42N2MsD
-	 63lPpGj83DQB5USxWPX/mQEXEEV6YfJSeeDPKCHeiIPK+rS8ur8iXo7sySJCthZoVE
-	 H0eTUUDBYX25Q==
-From: Jakub Kicinski <kuba@kernel.org>
-To: bartosz.golaszewski@oss.qualcomm.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	andersson@kernel.org,
-	konradybcio@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	vkoul@kernel.org,
-	peppe.cavallaro@st.com,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	shawnguo@kernel.org,
-	festevam@gmail.com,
-	jan.petrous@oss.nxp.com,
-	s32@nxp.com,
-	mohd.anwar@oss.qualcomm.com,
-	romain.gantois@bootlin.com,
-	geert+renesas@glider.be,
-	magnus.damm@gmail.com,
-	mripard@kernel.org,
-	christophe.roullier@foss.st.com,
-	brgl@kernel.org,
-	radu@rendec.net,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	dfustini@tenstorrent.com,
-	linux-sunxi@lists.linux.dev,
-	linux-amlogic@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	bartosz.golaszewski@linaro.org
-Subject: Re: [PATCH net-next v13 09/10] net: stmmac: qcom-ethqos: factor out linux-level setup into a separate function
-Date: Fri, 24 Jul 2026 15:46:02 -0700
-Message-ID: <20260724224602.1650002-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260713-qcom-sa8255p-emac-v13-9-119f8699ef8e@oss.qualcomm.com>
-References: <20260713-qcom-sa8255p-emac-v13-9-119f8699ef8e@oss.qualcomm.com>
+	s=k20260515; t=1784933529;
+	bh=j7VH+I1lcj9KOCqFU/y/KDTXauZwmnuiNnkt0ffMsyQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Vx2PrZUNdbhNA5e32im1FcrlqlzID9yIgWaOccGgWy7tnwVk696zvUlJSPHsKYlGi
+	 gKzSo5R5i92N7fE27fNPAnKJWCvj/pKBWM9eX44lq+/LkGJ4v44Gzsc0YBaBiWIvpo
+	 ffI8bb44JNyeAGjZudK3SM3U2o96mFxxyubGxfJNlTgYEsHiQ2UDq0dBD1GzwgZhm7
+	 4abwKjyOoolzDVXVsPUsfSzF+8M2w5ngb67UfNJ7kwAvpVt+v9YJO3XBBIVzXn1EyX
+	 qZKmxhumcavIvL+zLez0aTYn76FQlNqsqt7iS6zP1SSeOFk+VKFegE3oApyhwtJ02p
+	 2j3efIWm/xDHg==
+Date: Sat, 25 Jul 2026 00:52:05 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Linmao Li <lilinmao@kylinos.cn>
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+	Yixun Lan <dlan@kernel.org>, Alex Elder <elder@riscstar.com>, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] i2c: spacemit: request IRQ after controller
+ initialization
+Message-ID: <amPsP5o2wWqszbfU@zenone.zhora.eu>
+References: <20260722094302.2284191-1-lilinmao@kylinos.cn>
+ <20260723021140.2293844-1-lilinmao@kylinos.cn>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260723021140.2293844-1-lilinmao@kylinos.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,76 +73,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
----
-net: stmmac: qcom-ethqos: factor out linux-level setup into a separate function
+Hi Linmao,
 
-This refactor extends ethqos_emac_driver_data with a setup() callback,
-implements it for the existing models, and moves operations not required
-in SCMI mode into it, in preparation for firmware-controlled EMAC
-variants.
+Please, next time don't send the v2 as a reply to v1, it makes
+things confusing.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index 43384960278b..3af1608fc21c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -5,6 +5,7 @@
->  #include <linux/of.h>
->  #include <linux/of_net.h>
->  #include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
->  #include <linux/phy.h>
->  #include <linux/phy/phy.h>
+On Thu, Jul 23, 2026 at 10:11:40AM +0800, Linmao Li wrote:
+> spacemit_i2c_probe() requests the IRQ before it enables the clocks, resets
+> the controller and runs init_completion(). If an interrupt is already
+> pending, the handler runs too early: it reads registers while the clocks
+> are still off and calls complete() on an uninitialized completion. Request
+> the IRQ after the controller and completion are initialized, but still
+> before the adapter is registered.
+> 
+> Fixes: 5ea558473fa3 ("i2c: spacemit: add support for SpacemiT K1 SoC")
+> Cc: stable@vger.kernel.org # v6.15+
+> Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
+> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> Reviewed-by: Alex Elder <elder@riscstar.com>
+> ---
+> v2:
+> - add Cc: stable # v6.15+ as requested by Troy Mitchell
+> - collect Reviewed-by from Troy Mitchell and Alex Elder
 
-[Low]
-Is there a reason linux/pm_domain.h is added here?  Looking through
-this commit, no pm_domain symbols (pm_genpd_*, dev_pm_domain_*,
-PD_FLAG_*, etc.) appear to be referenced.
+No need to send a v2 just to update the tag section.
 
-The header seems to belong with the follow-up patch that introduces
-devm_pm_domain_attach_list() and struct dev_pm_domain_list usage.
+Merged to i2c/i2c-fixes.
 
-Would it be preferable to move this include into the patch that
-actually needs it, so each patch remains self-contained?
+Thanks,
+Andi
 
-[ ... ]
-
-> @@ -765,21 +815,8 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->  		return dev_err_probe(dev, PTR_ERR(ethqos->serdes_phy),
->  				     "Failed to get serdes phy\n");
->  
-> -	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface,
-> -			       SPEED_1000);
-> -
-> -	qcom_ethqos_set_sgmii_loopback(ethqos, true);
-> -	ethqos_set_func_clk_en(ethqos);
-> -
-> -	/* The clocks are controlled by firmware, so we don't know for certain
-> -	 * what clock rate is being used. Hardware documentation mentions that
-> -	 * the AHB slave clock will be in the range of 50 to 100MHz, which
-> -	 * equates to a MDC between 1.19 and 2.38MHz.
-> -	 */
->  	plat_dat->clk_csr = STMMAC_CSR_60_100M;
->  	plat_dat->bsp_priv = ethqos;
-> -	plat_dat->set_clk_tx_rate = ethqos_set_clk_tx_rate;
-> -	plat_dat->dump_debug_regs = rgmii_dump;
->  	plat_dat->ptp_clk_freq_config = ethqos_ptp_clk_freq_config;
->  	plat_dat->core_type = DWMAC_CORE_GMAC4;
->  	if (data->has_emac_ge_3)
-
-[Low]
-Was the comment above plat_dat->clk_csr = STMMAC_CSR_60_100M; intended
-to be dropped?
-
-The assignment itself is preserved, but the rationale for choosing
-STMMAC_CSR_60_100M (firmware-controlled AHB clock in the 50-100MHz
-range yielding an MDC between 1.19 and 2.38MHz) is now gone.
-
-The commit message describes a mechanical refactor and does not
-mention removing this rationale.  Should the comment be kept next to
-the assignment, or moved into ethqos_hlos_setup() where the
-surrounding clock setup now lives?
+>  drivers/i2c/busses/i2c-k1.c | 10 +++++-----
+>  1 file changed, 5 insertions(+), 5 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
