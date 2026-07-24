@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A36C53200
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 02:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D59C531D0
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 02:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:References
+	:In-Reply-To:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yphpcKbPHh5Ualwj11PaTJs44KUwaCc7re0p18JDBP8=; b=NWfR3itwdPzuNK
-	3UZRmb1jZ2H0LB84pdUktC8NrNeSKs8bwlxCyoaxnDwQ6vFXkfqxqNH8oiSl1RtZG/WsJiiClqG+5
-	Mj5zTQjUQgmLgs85esf8XZSI3cQjbQfgI2fYqLKx+7291tPG+8hrlPaHJnTTBTbJ7z3PfkAg3frhn
-	AwkrMKp3mhB3lyJwkyjWX281TP2Vw5EILeDrCCp7Q0fbCZ81+42O3Ts4i6CLld2Y35rblm02tja9/
-	PEztmIm1Wwk/OtGf3DSTvPphr7KFhOj4tUxvz55wNtMwAoaD0uFjyRaStoIl8YahNO456NtKfP2W6
-	hfaut9pmIJrR1MKlb74w==;
+	List-Owner; bh=vfMfo8ZIJpSjHsTQTwzjmoddoMG/ob2mgN1UEdEo1Jc=; b=sdkZi0EyTLEFkZ
+	F1WGhgL/PWgFB/1jaQ2haxeMpmvxVEnV1/47UVIhzvxm1+AxEsInjCF8n6W+JLaaw/Z+mewLJuKYr
+	3iYTieMTZxBI7itozlpQFi+TxsqcwjbQFkn2wFNtUQWWlGYo2T+HISXxgG+/lbQsiOFthAiELsWWC
+	ez3HNPzsuT6ioDh0hRgkXKIP0JSdUuNb6RRqjnzrb/lgRr1/T3BF7CJ29qawKkd2NNr+w3fJSWBzF
+	/z70WXkcwioTKS66aHomR5DPM8QGH4KifDdiYjzQBuRyrOoFaFg0eLW1RryN8rirarTL8tDIg0XDH
+	KnJU1hCj9i9QBwtI0g/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn5Qi-0000000FMyv-35sm;
-	Fri, 24 Jul 2026 02:14:28 +0000
-Received: from m16.mail.126.com ([117.135.210.6])
+	id 1wn5ae-0000000FO8Y-3npc;
+	Fri, 24 Jul 2026 02:24:44 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn5Qf-0000000FMxR-2Wun;
-	Fri, 24 Jul 2026 02:14:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=vK
-	m5ZaQZj0/THfOt/BL4ITNpCCG/uj8gX537c+qR0iw=; b=Ga9yHEXdoLJFjcSNzQ
-	kblZe0nP9Lq0t3mLP48fAt0rVtKqCI47c/it0BDYEvvgmYxr2oJqsUYJx39DLurs
-	0o3nGrT0xqh56ofmseQs8Dlc8H6w0vIo+waJfzbmkSOZY1dUrktpq0AEsnd6tWEw
-	tHHQG8jqLBHiIIjjTcUjI4fr4=
-Received: from song-MS-7D48.. (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id PSkvCgDnr+wRymJqH7z4DA--.34972S5;
-	Fri, 24 Jul 2026 10:12:47 +0800 (CST)
-From: Song Chen <chensong_2000@126.com>
-To: arnd@arndb.de,
-	kees@kernel.org,
-	clm@fb.com,
-	dsterba@suse.com,
-	linux@armlinux.org.uk,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	guoren@kernel.org,
-	kernel@xen0n.name,
-	maddy@linux.ibm.com,
-	mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	chleroy@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	gor@linux.ibm.com,
-	borntraeger@linux.ibm.com,
-	agordeev@linux.ibm.com,
-	svens@linux.ibm.com,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	jpoimboe@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Song Chen <chensong_2000@126.com>
-Subject: [RFC PATCH v2 3/3] error-injection: Introduce parent in fei_attr
-Date: Fri, 24 Jul 2026 10:12:29 +0800
-Message-ID: <20260724021229.47302-4-chensong_2000@126.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260724021229.47302-1-chensong_2000@126.com>
-References: <20260724021229.47302-1-chensong_2000@126.com>
+	id 1wn5ae-0000000FO8J-0sFk
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 24 Jul 2026 02:24:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Date:
+	Message-ID:References:In-Reply-To:Subject:CC:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=NxucgfmUZTTQksm+oT0kkIAMiRNz/Lw+gJQy4Q1nerQ=; b=UeJZdmlET/JJA+qN2RSCiP5/98
+	HnYxqMf1n+5KXWogj8yfoOXc/iy5ZHBXQax6RauUpvCLMcv4zqooamKSf5rd8AhT38/SRo8C2MmSp
+	Yas2gR/YH+ZqqHXMd3NpSsOdZsvM56NO0IGbC3DLii7yVWq9f9zi3/wFb8pYLPVCsjYoiiKToPqKI
+	yAqwcD5zNsQCvfkKsguKzsf7g8iUakw6ZonQ/WUu8NSc4gPyoepAYAvCBOfWYmAAxUAiI71zToSLL
+	uosziPJ/ZpHPNamb1QQr16/g5yBXzyzuxBod+Vihxvm/0iXQWjzQqLJaTUE8OGH9+lOxiL7gOl2aa
+	k3NHToog==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wn5aa-00000002RgC-0kk3
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Jul 2026 02:24:43 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66O2NhNeA920495, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1784859823; bh=NxucgfmUZTTQksm+oT0kkIAMiRNz/Lw+gJQy4Q1nerQ=;
+	h=From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
+	 MIME-Version:Content-Type;
+	b=ZjyF9+GG3k2dFJttsAYKW2+RcQKhh0TaSCg/z7srQHpWLaia3zLsaHeYPlHO9TJVp
+	 Gq2p6AikuHRGA6G/uBELsEcAh88XBWbNy28OoVXDYC47psBYN+Nq8DkR7w/6InF5yA
+	 ogC+ZVcV7Dd5cw7NCHAOWW2jZWbTT3l2me8brdLzVCrZLe4ix0ttLIxt/bN3JcNqIB
+	 bZ4xG6aBiIs853U/QE0W2J6TfJgP8M2LZ9Wf14Xl27olkNT8ZshgkCcAL/98eMXob3
+	 CdIRDLC57mYNotlcLVjdS/Ui7Zrrbq1eGtYBi/d9GfiuHajNRwuEpVGuqSihBrnVzj
+	 +6qNFBuPZYIxQ==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66O2NhNeA920495
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 24 Jul 2026 10:23:43 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Fri, 24 Jul 2026 10:23:43 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Fri, 24 Jul 2026 10:23:41 +0800
+Received: from [127.0.1.1] (172.21.40.75) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17 via Frontend
+ Transport; Fri, 24 Jul 2026 10:23:36 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, Bjorn Helgaas
+	<bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, Ping-Ke Shih
+	<pkshih@realtek.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?utf-8?q?Krzysztof_Wilczy?= =?utf-8?q?=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+	Inochi Amaoto <inochiama@gmail.com>, Aurelien Jarno <aurelien@aurel32.net>
+CC: <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+	<linux-wireless@vger.kernel.org>, Anirudh Srinivasan
+	<asrinivasan@oss.tenstorrent.com>
+Subject: Re: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to linux/pci_ids.h
+In-Reply-To: <20260716-rtw89-spacemit-k3-v2-1-392b577ebf75@oss.tenstorrent.com>
+References: <20260716-rtw89-spacemit-k3-v2-0-392b577ebf75@oss.tenstorrent.com> <20260716-rtw89-spacemit-k3-v2-1-392b577ebf75@oss.tenstorrent.com>
+Message-ID: <9659279d-224e-4029-bdc0-d7bfa627c016@RTKEXHMBS06.realtek.com.tw>
+Date: Fri, 24 Jul 2026 10:23:36 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: PSkvCgDnr+wRymJqH7z4DA--.34972S5
-X-Coremail-Antispam: 1Uf129KBjvJXoWfJF1kurW7uFWfArWkuw4UJwb_yoWDXF1fpF
-	y3A3srWrWrWw1rGrZrAa1rZw1FkrsxZFy7AFyxGa4fu39IqFyIqF1fWa4jqF4SvrWDGay7
-	XFs8trW5tF15uFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Ug0eXUUUUU=
-X-Originating-IP: [221.238.56.48]
-X-CM-SenderInfo: xfkh02prqjsjqqqqqiyswou0bp/xtbBsx-sbGpiyh9OEgAA3t
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_191426_145857_2D50FD9E 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20260724_032440_529164_6E4BCE64 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,304 +106,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a parent field to fei_attr to allow fault injection on a function
-only when called from a specific parent function. This enables more
-precise fault injection control, for example, injecting failures into
-btrfs_data_csum_ok() only when called from btrfs_check_read_bio(),
-not from btrfs_end_repair_bio().
+Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com> wrote:
 
-Introduce fei_return_address() in each architecture's error-injection.c
-(x86, arm64, riscv, loongarch) to retrieve the return address from
-pt_regs in a kprobe handler, following the same pattern as the existing
-override_function_with_return(). A new parent debugfs file is added
-under /sys/kernel/debug/fail_function/<func>/ to configure the filter.
+> Move the vendor and device ID for the existing Spacemit K1 PCIe Root
+> Complex to include/linux/pci_ids.h. Also add K3's Root Complex device ID
+> to this header. This is done so that these values can be referenced in
+> the rtw89 driver to enable 36-bit DMA ability in it for WiFi to function
+> on the K3 Pico ITX board.
+> 
+> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
 
-Usage:
-  echo "btrfs_data_csum_ok" > /sys/kernel/debug/fail_function/inject
-  echo 0   > /sys/kernel/debug/fail_function/btrfs_data_csum_ok/retval
-  echo 100 > /sys/kernel/debug/fail_function/probability
-  echo 10  > /sys/kernel/debug/fail_function/times
-  echo "btrfs_check_read_bio" > \
-      /sys/kernel/debug/fail_function/btrfs_data_csum_ok/parent
+2 patch(es) applied to rtw-next branch of rtw.git, thanks.
 
-  To clear the parent filter:
-  echo "" > /sys/kernel/debug/fail_function/btrfs_data_csum_ok/parent
+888b1934642b PCI: Move Spacemit vendor and device IDs to linux/pci_ids.h
+27a5046cc56e wifi: rtw89: pci: enable 36-bit DMA on spacemit K3
 
-Signed-off-by: Song Chen <chensong_2000@126.com>
 ---
- arch/arm/lib/error-inject.c           |  6 ++
- arch/arm64/lib/error-inject.c         |  6 ++
- arch/csky/lib/error-inject.c          |  6 ++
- arch/loongarch/lib/error-inject.c     |  6 ++
- arch/powerpc/lib/error-inject.c       |  6 ++
- arch/riscv/lib/error-inject.c         |  6 ++
- arch/s390/lib/error-inject.c          |  6 ++
- arch/x86/lib/error-inject.c           |  6 ++
- include/asm-generic/error-injection.h |  5 ++
- kernel/fail_function.c                | 96 ++++++++++++++++++++++++++-
- 10 files changed, 148 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm/lib/error-inject.c b/arch/arm/lib/error-inject.c
-index 5a5b405792ba..1f7a482555ea 100644
---- a/arch/arm/lib/error-inject.c
-+++ b/arch/arm/lib/error-inject.c
-@@ -8,3 +8,9 @@ void override_function_with_return(struct pt_regs *regs)
- 	instruction_pointer_set(regs, regs->ARM_lr);
- }
- NOKPROBE_SYMBOL(override_function_with_return);
-+
-+unsigned long fei_return_address(struct pt_regs *regs)
-+{
-+	return regs->ARM_lr;
-+}
-+NOKPROBE_SYMBOL(fei_return_address);
-diff --git a/arch/arm64/lib/error-inject.c b/arch/arm64/lib/error-inject.c
-index ed15021da3ed..ccd33c92bb37 100644
---- a/arch/arm64/lib/error-inject.c
-+++ b/arch/arm64/lib/error-inject.c
-@@ -16,3 +16,9 @@ void override_function_with_return(struct pt_regs *regs)
- 	instruction_pointer_set(regs, procedure_link_pointer(regs));
- }
- NOKPROBE_SYMBOL(override_function_with_return);
-+
-+unsigned long fei_return_address(struct pt_regs *regs)
-+{
-+	return procedure_link_pointer(regs);
-+}
-+NOKPROBE_SYMBOL(fei_return_address);
-diff --git a/arch/csky/lib/error-inject.c b/arch/csky/lib/error-inject.c
-index c15fb36fe067..c7a1b3948c76 100644
---- a/arch/csky/lib/error-inject.c
-+++ b/arch/csky/lib/error-inject.c
-@@ -8,3 +8,9 @@ void override_function_with_return(struct pt_regs *regs)
- 	instruction_pointer_set(regs, regs->lr);
- }
- NOKPROBE_SYMBOL(override_function_with_return);
-+
-+unsigned long fei_return_address(struct pt_regs *regs)
-+{
-+	return regs->lr;
-+}
-+NOKPROBE_SYMBOL(fei_return_address);
-diff --git a/arch/loongarch/lib/error-inject.c b/arch/loongarch/lib/error-inject.c
-index afc9e1c7c973..844356fef828 100644
---- a/arch/loongarch/lib/error-inject.c
-+++ b/arch/loongarch/lib/error-inject.c
-@@ -8,3 +8,9 @@ void override_function_with_return(struct pt_regs *regs)
- 	instruction_pointer_set(regs, regs->regs[1]);
- }
- NOKPROBE_SYMBOL(override_function_with_return);
-+
-+unsigned long fei_return_address(struct pt_regs *regs)
-+{
-+	return regs->regs[1];
-+}
-+NOKPROBE_SYMBOL(fei_return_address);
-diff --git a/arch/powerpc/lib/error-inject.c b/arch/powerpc/lib/error-inject.c
-index e834079d2b5c..c72abce5d19f 100644
---- a/arch/powerpc/lib/error-inject.c
-+++ b/arch/powerpc/lib/error-inject.c
-@@ -14,3 +14,9 @@ void override_function_with_return(struct pt_regs *regs)
- 	regs_set_return_ip(regs, regs->link);
- }
- NOKPROBE_SYMBOL(override_function_with_return);
-+
-+unsigned long fei_return_address(struct pt_regs *regs)
-+{
-+	return regs->link;
-+}
-+NOKPROBE_SYMBOL(fei_return_address);
-diff --git a/arch/riscv/lib/error-inject.c b/arch/riscv/lib/error-inject.c
-index d667ade2bc41..ed8b17acc379 100644
---- a/arch/riscv/lib/error-inject.c
-+++ b/arch/riscv/lib/error-inject.c
-@@ -8,3 +8,9 @@ void override_function_with_return(struct pt_regs *regs)
- 	instruction_pointer_set(regs, regs->ra);
- }
- NOKPROBE_SYMBOL(override_function_with_return);
-+
-+unsigned long fei_return_address(struct pt_regs *regs)
-+{
-+	return regs->ra;
-+}
-+NOKPROBE_SYMBOL(fei_return_address);
-diff --git a/arch/s390/lib/error-inject.c b/arch/s390/lib/error-inject.c
-index 8c9d4da87eef..15b23076ebeb 100644
---- a/arch/s390/lib/error-inject.c
-+++ b/arch/s390/lib/error-inject.c
-@@ -12,3 +12,9 @@ void override_function_with_return(struct pt_regs *regs)
- 	regs->psw.addr = regs->gprs[14];
- }
- NOKPROBE_SYMBOL(override_function_with_return);
-+
-+unsigned long fei_return_address(struct pt_regs *regs)
-+{
-+	return regs->gprs[14];
-+}
-+NOKPROBE_SYMBOL(fei_return_address);
-diff --git a/arch/x86/lib/error-inject.c b/arch/x86/lib/error-inject.c
-index 512a2538596f..85cc46e2dd7c 100644
---- a/arch/x86/lib/error-inject.c
-+++ b/arch/x86/lib/error-inject.c
-@@ -23,3 +23,9 @@ void override_function_with_return(struct pt_regs *regs)
- 	regs->ip = (unsigned long)&just_return_func;
- }
- NOKPROBE_SYMBOL(override_function_with_return);
-+
-+unsigned long fei_return_address(struct pt_regs *regs)
-+{
-+	return *(unsigned long *)regs->sp;
-+}
-+NOKPROBE_SYMBOL(fei_return_address);
-diff --git a/include/asm-generic/error-injection.h b/include/asm-generic/error-injection.h
-index 6c399121ab7a..8f526d76cdcb 100644
---- a/include/asm-generic/error-injection.h
-+++ b/include/asm-generic/error-injection.h
-@@ -34,10 +34,15 @@ static struct error_injection_entry __used				\
- 	}
- 
- void override_function_with_return(struct pt_regs *regs);
-+unsigned long fei_return_address(struct pt_regs *regs);
- #else
- #define ALLOW_ERROR_INJECTION(fname, _etype)
- 
- static inline void override_function_with_return(struct pt_regs *regs) { }
-+static inline unsigned long fei_return_address(struct pt_regs *regs)
-+{
-+	return 0UL;
-+}
- #endif
- #endif
- 
-diff --git a/kernel/fail_function.c b/kernel/fail_function.c
-index 90cdad0412cd..a336fc565dc9 100644
---- a/kernel/fail_function.c
-+++ b/kernel/fail_function.c
-@@ -27,6 +27,9 @@ struct fei_attr {
- 	struct list_head list;
- 	struct kprobe kp;
- 	unsigned long retval;
-+	char	parent[KSYM_NAME_LEN];
-+	unsigned long	parent_start;
-+	unsigned long	parent_end;
- };
- static DEFINE_MUTEX(fei_lock);
- static LIST_HEAD(fei_attr_list);
-@@ -154,13 +157,94 @@ static int fei_retval_get(void *data, u64 *val)
- DEFINE_DEBUGFS_ATTRIBUTE(fei_retval_ops, fei_retval_get, fei_retval_set,
- 			 "%llx\n");
- 
-+static ssize_t fei_parent_read(struct file *file, char __user *buf,
-+				 size_t count, loff_t *ppos)
-+{
-+	struct fei_attr *attr = file->private_data;
-+	char tmp[KSYM_NAME_LEN + 1];
-+	int len;
-+	int err = 0;
-+
-+	mutex_lock(&fei_lock);
-+	if (!fei_attr_is_valid(attr)) {
-+		err = -ENOENT;
-+		goto out;
-+	}
-+	len = scnprintf(tmp, sizeof(tmp), "%s\n", attr->parent);
-+	mutex_unlock(&fei_lock);
-+
-+	return simple_read_from_buffer(buf, count, ppos, tmp, len);
-+out:
-+	mutex_unlock(&fei_lock);
-+	return err;
-+}
-+
-+static ssize_t fei_parent_write(struct file *file, const char __user *buf,
-+				 size_t count, loff_t *ppos)
-+{
-+	struct fei_attr *attr = file->private_data;
-+	char tmp[KSYM_NAME_LEN];
-+	unsigned long start, size;
-+	ssize_t err = 0;
-+
-+	if (count == 0 || count >= sizeof(tmp))
-+		return -EINVAL;
-+
-+	if (copy_from_user(tmp, buf, count))
-+		return -EFAULT;
-+
-+	tmp[count] = '\0';
-+	strim(tmp);
-+
-+	mutex_lock(&fei_lock);
-+	if (!fei_attr_is_valid(attr)) {
-+		err = -ENOENT;
-+		goto out;
-+	}
-+
-+	if (tmp[0] == '\0') {
-+		attr->parent[0]  = '\0';
-+		attr->parent_start = 0;
-+		attr->parent_end   = 0;
-+		err = count;
-+		goto out;
-+	}
-+
-+	start = kallsyms_lookup_name(tmp);
-+	if (!start) {
-+		err = -EINVAL;
-+		goto out;
-+	}
-+
-+	if (!kallsyms_lookup_size_offset(start, &size, NULL)) {
-+		err = -EINVAL;
-+		goto out;
-+	}
-+
-+	strscpy(attr->parent, tmp, sizeof(attr->parent));
-+	attr->parent_start = start;
-+	attr->parent_end   = start + size;
-+	err = count;
-+
-+out:
-+	mutex_unlock(&fei_lock);
-+	return err;
-+}
-+
-+static const struct file_operations fei_parent_ops = {
-+	.owner = THIS_MODULE,
-+	.open  = simple_open,
-+	.read  = fei_parent_read,
-+	.write = fei_parent_write,
-+};
-+
- static void fei_debugfs_add_attr(struct fei_attr *attr)
- {
- 	struct dentry *dir;
- 
- 	dir = debugfs_create_dir(attr->kp.symbol_name, fei_debugfs_dir);
--
- 	debugfs_create_file("retval", 0600, dir, attr, &fei_retval_ops);
-+	debugfs_create_file("parent", 0600, dir, attr, &fei_parent_ops);
- }
- 
- static void fei_debugfs_remove_attr(struct fei_attr *attr)
-@@ -171,6 +255,16 @@ static void fei_debugfs_remove_attr(struct fei_attr *attr)
- static int fei_kprobe_handler(struct kprobe *kp, struct pt_regs *regs)
- {
- 	struct fei_attr *attr = container_of(kp, struct fei_attr, kp);
-+	unsigned long ret_addr = 0;
-+	bool in_parent = false;
-+
-+	ret_addr = fei_return_address(regs);
-+	if (attr->parent_start) {
-+		in_parent = (ret_addr >= attr->parent_start &&
-+					ret_addr <  attr->parent_end);
-+		if (!in_parent)
-+			return 0;
-+	}
- 
- 	if (should_fail(&fei_fault_attr, 1)) {
- 		regs_set_return_value(regs, attr->retval);
--- 
-2.43.0
+https://github.com/pkshih/rtw.git
 
 
 _______________________________________________
