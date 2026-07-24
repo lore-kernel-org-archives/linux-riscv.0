@@ -4,106 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8DDC531FC
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 18:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1AAC531C9
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 18:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6DhHt6fwGRauaIpeH/f4GaIIA75WL+eg4JicAMCVh3o=; b=r9eocubZ9NwM1L
-	0IA8gP1d0Olz4agX2d9oq+Stsst+NQvzzxyCM9wTizIqowqTguA0uIHBMVd/5SqepsDZQnkvlYgZG
-	ZbjljHSEFx0UFjL8a0rO2ntcCz1tBksZFN/H7EzjA6Ln6INlpqvOCL97TmQsSu2o55iufbqeFJDsN
-	JlM1SEO8lclQHqOetCnjiIK7PeHvjeYWpDrfVzc2nxo7/TVY4mvlK716r1FwB7jabChikdp+hALxX
-	/safAtWVPw1qy5ZMtBGbQHoSvzQQ5ljB+hqlpXmb7SQ1OQs9ZZS74wTwI8l4pvQoEhwgse1RhVDvJ
-	uv72bYNJEwLTrqZ4WKfA==;
+	List-Owner; bh=DRAvgtoeRxrisay9NBIoPDikgq0CXrmzM58PzOoYOg0=; b=HmrnWQg/gHdKt3
+	vGLMjZaAixVJE3Y0EoueVUdzNZbkE03xQg56v05wophHJtuV+J2pcK5EDu0OI8GzKt2KmuzQFgz3L
+	3jsU74d8IiieBsgZvWF0HFwu/M4btZmke2KVdsgXsfpTzePw22oObjw+kTXkgRenFlfYMNTC4e5VY
+	EIW5Cs8XMkjHMoy24LySGl3R3pkPpsUqDMZHgRZ4izQH7becj2BZgny9jMLa6S39FpLWrbVPhqwLQ
+	+xdkd1pHgL7fCL2R0gtHu3T2glyufgR/PDnL/PBvA6CSrYc/cBrcee9d1s1Vl8s41Pvx8OTg9IGgb
+	hZRO6/DrivlYQrRaAWtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKlc-0000000H4oT-3S9W;
-	Fri, 24 Jul 2026 18:37:04 +0000
-Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
+	id 1wnKlk-0000000H4qW-3sAm;
+	Fri, 24 Jul 2026 18:37:12 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnKlZ-0000000H4nx-0xIE
+	id 1wnKlh-0000000H4pu-1U95
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jul 2026 18:37:03 +0000
-Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-45133d2974fso458939fac.1
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 11:37:00 -0700 (PDT)
+	Fri, 24 Jul 2026 18:37:11 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-6aaec3ef8b2so392705eaf.2
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 11:37:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1784918220; x=1785523020; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1784918228; x=1785523028; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=a5WtDtOqfytDOFAEVKix6l6cYHk5EHuSsJD2nF6LYPo=;
-        b=f3OFo+p4PegLvGH9wKNJt6neqcXVxw8bQb1TsrzN1OBLo6Fl0C/jGuUJfrfNrTuLpl
-         shvIJASuYyiU5SU2utIHQUBSACX4HilQ5FIArzTOD+2XAZq79fDtvOQMJhcJRfIfbkzN
-         2bGQ0+6ATyKcRdg7S/2l9CXGqIzgXOTOYa/GBBVG5HIVqW+YD3ONh+4LxBnco/7KXCsr
-         3zf6n79PTMbtkzI5ZinqZJm00ojShidp1M2dlz5niuxj/rrjXHEF8cnK6FLiiLVPSRnp
-         v8mXrgjleiRIHxYbVGxXhXoWjJLzkfczV1Cfx4IcK1EhQw31IRkgpIl19Y47NiQGjyqg
-         +MJQ==
+        bh=pk4XAwmL2BJHmhVYsZYXxgDptRoYP8bPdBv4gVu4WSA=;
+        b=OWeL8szrhQvwPPLFv+xXFAvmvX0tSa47FR6mo8nCHrC9rGfbeEjmz4vYwSVU3aR4mz
+         7mzdhrBs11iHj1HELXU5IbRbwCx+e8XaZFlNL4XmUq1xx58MQrcPkWdBuTgJfqQwJR3s
+         d9tlEN2PHqqufFaKdAh/KrNSvp1TyNKbzxAjgn56D58y44aBS/n+CkU3EFqsu88MFX0C
+         K7qLg+fqHN62E5lhl85JgPrhkd7Na94MDQ6zEO+5Tr5TmD1YzGfTruFotyZNSJEKSfQs
+         VZOF5hi/aj8z/0Vm8pciASOYm9C5bvUNnnYI9Lm51rhaJWMLBhQQtqXWWEmJtum83D3J
+         Wjig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784918220; x=1785523020;
+        d=1e100.net; s=20251104; t=1784918228; x=1785523028;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=a5WtDtOqfytDOFAEVKix6l6cYHk5EHuSsJD2nF6LYPo=;
-        b=UAuqqt95p1A7GJ2oVY7GXWPn8gXHSUi9TG/24QJWCN4nxUZ+a1750J1iCr7SFdANoI
-         Sd/4cifHf2HWoGWC5a+llGya+MSi6x1HPcB4sL0eW7ddpCUqK/8XWmZjskdT5Gvoc5oh
-         Mxs1d7GWf8jVQTCpDR7l0J9l85WTqid6EKAnsLkLgibr7xwQvN46PEe7Cg+z8bKY0ZDN
-         OCT+TYxobkwCw5/3r5SgmDVGLabTughnTpdMM8GErJQ+EtA48TavTlbbezWjkrR7Eqxd
-         2R6ept8bNdtwDc9c2MFhQq0gKTUtlifk+vYuzN1Bu5drZxiGxkHPbElvdfXEcE0dO5kH
-         eglw==
-X-Forwarded-Encrypted: i=1; AHgh+Ro6jHnkJh7wxHAfEkCTANFJN+be/zDfaorFiK7eee3R7idcewx/w+TMeRMpIRu9js1deNSMxRskWfkfcw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3ppfnevAHf1vXka9hiGzGXXFnPHcBbcpG7K8uPi4nKJkcCxta
-	oLUz7iz6kfQgYjgp7B0gHR4Bnardz85kxffKWjvE4u4dZujQbDh7AzJcg7/tLu8Jbvw=
-X-Gm-Gg: AR+sD13aFlUH1cKqsck3rgGQKCmFTQ5MMdlfnsBvWldlTDKQTPN1p/eIaeObqBj6W0F
-	TMqTcyQsVJlBJ8fJBrk5sPdBtEGr40dsw+whBQQhSmLadD8aaEncmpOQLuYwU8SMz5n5I9dcjvF
-	PmraL2ASVkhqb5XGAlgvOxpP68n6hMIYKHZzOrJA6ixtJAoMVRY3M3rcBOPVrrr3YA+6qa9YOkv
-	1fmaZ6lld1XksMUW9GUDflFEnjJrf1LcnJYDEbxHAt2TbEH+ByvP8RdPzv6gWiTQ9vuj6UaEwXw
-	+THPI1c2VkytiOeH5CtYzxanFm9o+k8UfLrOeBhL5YsKYqRUpMnkKWd5jHFFVckSiqwn7+IBOMj
-	S3IdL+Q/KKjIVQP+8pxcOUIWWVwQSlqTYqycp6/TQ2M2wAWmS+Vmw4YqDTl1HhWxPxBgSHB7E8/
-	mW/6DqSyPF/izyUVpDRQUV20fVy3Osd4pTbxo=
-X-Received: by 2002:a05:6871:358e:b0:456:b12c:660d with SMTP id 586e51a60fabf-457a0fc4236mr5852247fac.24.1784918220059;
-        Fri, 24 Jul 2026 11:37:00 -0700 (PDT)
+        bh=pk4XAwmL2BJHmhVYsZYXxgDptRoYP8bPdBv4gVu4WSA=;
+        b=DJu0pPAeETM/r0pkBaQMN1rVD6wuTf/e8n1LXBEmnSfS1SuSVWbCJFbuAgaYzzLGsG
+         b/DkQ5hwJ9QnHyjmHEVobFezdggU3HUZnYBWa5x8OmSjupq2FcqCziy4GamC1g+wmxgD
+         bBbz/hh8NsCXVopMhP1E0WfGFxSU64jDKrOQnXni3Oii9BFKC0vkrxiCUDewytE2kYU7
+         1vtoQwqp6v6EetfCFAgafMQScRdEJ9+zTriLOZXU2y7CgTEDMcwf9SVZlG2q7lyjE7f/
+         +AEtbaACv7zhE3V9oO0QaRFg//gcngp4QVa3aZ63sovBSAN1+4EqotUanJSHb9HRZJ8h
+         5t8w==
+X-Forwarded-Encrypted: i=1; AHgh+RqP3q6M8IevN26hLEGS/2g8W+ycw9ziTWZI8menhDAwy2gs+wzRsyXVW59gLBSBpfzBhoB6btHWo9efyA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwshSjXigjFJt1NQ/5n4jHMUYsCk73K2ttxez0YRPlRuIGAAmA+
+	ViQrBb5Rl0pSHnwArcC5ooVo8dG63Fg82qbtdpXQX1GsDcL8WEfk3MkY9XlJ54DRtZGD2PzmmNX
+	299ROhQvxbw==
+X-Gm-Gg: AR+sD10EYB+XdQfrdc3ClfW025MJx3gP6EBY00VjnWeUmUM8cKCMLOla9ABwei8q72S
+	jO34FQZyh5yMyDXiB8ONHMvqbb2OWN0Ai83+k8bzKNakMap7CihLFkweIArduLejShmQSe+m6n5
+	9pb5+4moFANVCVfR0gvPC142Q7UoYFYDmz7maULl3fIV1bsRLxj1d2JLr3KYNURrthv/Kd6Yxy+
+	KIC+92+hiTfJjnaLXtPImAyaGzcHysBUBRIO5eT57sFtq7735FZJe+zLjWVRSzMj/bJM5TAAkhH
+	bKWPKykGbQDOrxgwwIEbRvWCNe0h7mRk81pmTsQNLgWWMfcPcfnQvxngZ/ZsYmGqsYSnVbUBFA0
+	RxbdezOeR1+HZKm5TvPZAOFdAqCrumZsrwTOMdwW61f2/rsvZHM9g/+VWoRVUTZzyZc5qz8RiT0
+	3ZOXTG7R6poUOTkobD7ycw7MZBEV0WwR8kJp8PeW/7mpWGkw==
+X-Received: by 2002:a05:6820:4c07:b0:6aa:9be1:484a with SMTP id 006d021491bc7-6aad3f72511mr5021068eaf.7.1784918228224;
+        Fri, 24 Jul 2026 11:37:08 -0700 (PDT)
 Received: from lima-default.tail89d63.ts.net ([12.55.13.134])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-45767488299sm8221863fac.16.2026.07.24.11.36.59
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-45767488299sm8221863fac.16.2026.07.24.11.37.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 11:36:59 -0700 (PDT)
+        Fri, 24 Jul 2026 11:37:07 -0700 (PDT)
 From: Andy Chiu <tchiu@tenstorrent.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
+To: Shuah Khan <shuah@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org
 Cc: bergner@tenstorrent.com,
 	kito.cheng@sifive.com,
 	Andy Chiu <tchiu@tenstorrent.com>,
 	dfustini@oss.tenstorrent.com,
 	greentime.hu@sifive.com,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Guodong Xu <docular.xu@gmail.com>,
-	Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>,
-	Aleksa Paunovic <aleksa.paunovic@htecgroup.com>,
-	Xu Lu <luxu.kernel@bytedance.com>,
-	Jingwei Wang <wangjingwei@iscas.ac.cn>,
-	Yao Zihong <zihong.plct@isrc.iscas.ac.cn>,
-	Deepak Gupta <debug@rivosinc.com>,
-	Mark Harris <mark.hsj@gmail.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
-Subject: [PATCH v2 1/2] riscv: hwprobe: export the availability of vector to user
-Date: Fri, 24 Jul 2026 13:36:27 -0500
-Message-ID: <20260724183646.2363114-2-tchiu@tenstorrent.com>
+	Zong Li <zong.li@sifive.com>
+Subject: [PATCH v2 2/2]  selftests: riscv: hwprobe: test the RISCV_HWPROBE_KEY_EXT_ENABLED modifier
+Date: Fri, 24 Jul 2026 13:36:28 -0500
+Message-ID: <20260724183646.2363114-3-tchiu@tenstorrent.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260724183646.2363114-1-tchiu@tenstorrent.com>
 References: <20260724183646.2363114-1-tchiu@tenstorrent.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_113701_324566_47C440C0 
-X-CRM114-Status: GOOD (  26.67  )
+X-CRM114-CacheID: sfid-20260724_113709_416310_9435E4C2 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,408 +110,259 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Userland IFUNC resolvers use hwprobe to decide whether to dispatch to
-vectorized routines. But RISCV_HWPROBE_KEY_IMA_EXT_0 only reports what
-is present in hardware, not what the calling process may actually use:
-when Vector is disabled for a process via
-prctl(PR_RISCV_V_SET_CONTROL, PR_RISCV_V_VSTATE_CTRL_OFF), it is still
-reported as present. A resolver that trusts this and runs a vector
-instruction crashes with SIGILL.
+Add a selftest for the RISCV_HWPROBE_KEY_EXT_ENABLED modifier key, which
+reports the extensions that are not only present in hardware but also
+enabled for the calling process.
 
-Add RISCV_HWPROBE_KEY_EXT_ENABLED, a positional modifier key that carries
-no value of its own. Within a single request, keys placed after it report
-extensions that are both present and enabled for the calling process,
-while keys before it keep reporting hardware presence. This masks out V
-and its V-dependent sub-extensions when V is disabled for the process, and
-lets userland obtain both views in one query:
+The modifier is positional within a single hwprobe request: keys placed
+before it report what is present in hardware, keys placed after it report
+what is present and enabled. A single query therefore returns both views:
 
       [ {IMA_EXT_0}, {EXT_ENABLED}, {IMA_EXT_0} ]
           present       modifier       enabled
 
-The enabled view depends on per-process state, so it cannot be served from
-the vDSO's process-independent cache; requests carrying the modifier are
-deferred to the syscall. Unknown keys are still reported as -1, so the
-feature is detectable and existing users are unaffected.
+The test uses this to check that Vector is masked out of the enabled view
+once V is disabled for the process, while remaining in the present view.
 
-Closes: https://bugzilla.kernel.org/show_bug.cgi?id=220795
-Link: https://lore.kernel.org/all/20260107000609.63892-1-andybnac@gmail.com/
+The disabled-V check depends on user space being allowed to run vector
+instructions by default (/proc/sys/abi/riscv_v_default_allow == 1). The
+checks that require the modifier or V in hardware are skipped when either
+is unavailable.
+
+Assisted-by: Claude:claude-opus-4-8
 Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
 ---
-Changelog v2:
- - rebase on top of latest for-next
- - add test_avail to sifive's vector depending extensions
----
- Documentation/arch/riscv/hwprobe.rst          | 27 ++++++++++++++
- arch/riscv/include/asm/hwprobe.h              |  2 +-
- .../asm/vendor_extensions/sifive_hwprobe.h    |  6 ++--
- .../asm/vendor_extensions/thead_hwprobe.h     |  6 ++--
- arch/riscv/include/uapi/asm/hwprobe.h         |  2 ++
- arch/riscv/kernel/sys_hwprobe.c               | 36 +++++++++++++------
- arch/riscv/kernel/vdso/hwprobe.c              | 25 +++++++++----
- .../kernel/vendor_extensions/sifive_hwprobe.c | 16 ++++++---
- .../kernel/vendor_extensions/thead_hwprobe.c  |  9 +++--
- 9 files changed, 100 insertions(+), 29 deletions(-)
+ .../selftests/riscv/hwprobe/.gitignore        |   2 +
+ .../testing/selftests/riscv/hwprobe/Makefile  |  14 ++-
+ .../selftests/riscv/hwprobe/ext-enabled.c     | 111 ++++++++++++++++++
+ .../riscv/hwprobe/ext-enabled_nolibc.c        |  58 +++++++++
+ 4 files changed, 181 insertions(+), 4 deletions(-)
+ create mode 100644 tools/testing/selftests/riscv/hwprobe/ext-enabled.c
+ create mode 100644 tools/testing/selftests/riscv/hwprobe/ext-enabled_nolibc.c
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index d9928641deb9..b9b3cf23c212 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -401,3 +401,30 @@ The following keys are defined:
-     as defined in version 1.0 of the RISC-V Control-flow Integrity (CFI)
-     extensions specification, ratified in commit 302a2d45c243
-     ("Update build-pdf.yml") of riscv-cfi.
+diff --git a/tools/testing/selftests/riscv/hwprobe/.gitignore b/tools/testing/selftests/riscv/hwprobe/.gitignore
+index 6e384e80ea1a..ceb4bf86340c 100644
+--- a/tools/testing/selftests/riscv/hwprobe/.gitignore
++++ b/tools/testing/selftests/riscv/hwprobe/.gitignore
+@@ -1,3 +1,5 @@
+ hwprobe
+ cbo
+ which-cpus
++ext-enabled
++ext-enabled_nolibc
+diff --git a/tools/testing/selftests/riscv/hwprobe/Makefile b/tools/testing/selftests/riscv/hwprobe/Makefile
+index 71e3f26c541b..55be82758830 100644
+--- a/tools/testing/selftests/riscv/hwprobe/Makefile
++++ b/tools/testing/selftests/riscv/hwprobe/Makefile
+@@ -2,9 +2,8 @@
+ # Copyright (C) 2021 ARM Limited
+ # Originally tools/testing/arm64/abi/Makefile
+ 
+-CFLAGS += -I$(top_srcdir)/tools/include
+-
+-TEST_GEN_PROGS := hwprobe cbo which-cpus
++TEST_GEN_PROGS := hwprobe cbo which-cpus ext-enabled
++TEST_GEN_PROGS_EXTENDED := ext-enabled_nolibc
+ 
+ include ../../lib.mk
+ 
+@@ -12,7 +11,14 @@ $(OUTPUT)/hwprobe: hwprobe.c sys_hwprobe.S
+ 	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
+ 
+ $(OUTPUT)/cbo: cbo.c sys_hwprobe.S
+-	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
++	$(CC) -static -o $@ $(CFLAGS) -I$(top_srcdir)/tools/include $(LDFLAGS) $^
+ 
+ $(OUTPUT)/which-cpus: which-cpus.c sys_hwprobe.S
+ 	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
 +
-+ * :c:macro:`RISCV_HWPROBE_KEY_EXT_ENABLED`: A modifier key. It reports no
-+  value of its own (its value is always 0) and instead changes how the
-+  extension-bitmask keys that follow it in the same request are reported.
-+  Keys placed before it report the extensions that are present in hardware,
-+  as usual. Keys placed after it additionally require each reported extension
-+  to be enabled for the calling process, i.e. usable without receiving a
-+  SIGILL.
++$(OUTPUT)/ext-enabled: ext-enabled.c sys_hwprobe.S
++	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
 +
-+  Currently this applies to Vector. When V has been disabled for the process
-+  with ``prctl(PR_RISCV_V_SET_CONTROL, PR_RISCV_V_VSTATE_CTRL_OFF)``,
-+  :c:macro:`RISCV_HWPROBE_IMA_V` and the V-dependent sub-extensions are
-+  cleared from any :c:macro:`RISCV_HWPROBE_KEY_IMA_EXT_0` that follows the
-+  modifier, and :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XTHEADVECTOR` is cleared
-+  from any :c:macro:`RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0` that follows it,
-+  while a preceding key still reports them as present. A single request can
-+  therefore return both the hardware-present set and the process-usable
-+  set::
++$(OUTPUT)/ext-enabled_nolibc: ext-enabled_nolibc.c
++	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
++		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
+diff --git a/tools/testing/selftests/riscv/hwprobe/ext-enabled.c b/tools/testing/selftests/riscv/hwprobe/ext-enabled.c
+new file mode 100644
+index 000000000000..887820911629
+--- /dev/null
++++ b/tools/testing/selftests/riscv/hwprobe/ext-enabled.c
+@@ -0,0 +1,111 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Test the RISCV_HWPROBE_KEY_EXT_ENABLED positional modifier.
++ *
++ * The modifier is a one-way switch within a single hwprobe request: keys
++ * before it report what is present in hardware, keys after it report what is
++ * also enabled for the calling process. A single query returns both views:
++ *
++ *	[ {IMA_EXT_0}, {EXT_ENABLED}, {IMA_EXT_0} ]
++ *	    present       modifier       enabled
++ *
++ * When V is disabled for the process it must drop out of the enabled view but
++ * stay in the present view. V cannot be turned off for a thread that already
++ * has it on (prctl returns -EPERM); the NEXT control only takes effect across
++ * execve(). So the disabled-V case runs in a forked child that sets NEXT=off
++ * and execs a nolibc worker (built without libc so no vector-optimized libc
++ * routine can SIGILL while V is off). The worker reports back via exit code.
++ */
++#include <unistd.h>
++#include <sys/prctl.h>
++#include <sys/wait.h>
++#include "hwprobe.h"
++#include "kselftest.h"
 +
-+      struct riscv_hwprobe pairs[3] = {
-+          { .key = RISCV_HWPROBE_KEY_IMA_EXT_0, },   /* present in hardware */
-+          { .key = RISCV_HWPROBE_KEY_EXT_ENABLED, }, /* modifier            */
-+          { .key = RISCV_HWPROBE_KEY_IMA_EXT_0, },   /* present and enabled */
-+      };
++#ifndef PR_RISCV_V_SET_CONTROL
++#define PR_RISCV_V_SET_CONTROL		69
++#define PR_RISCV_V_VSTATE_CTRL_OFF	1
++#endif
++#define VSTATE_CTRL_NEXT_SHIFT		2
 +
-+  The effect is positional: reordering the pairs changes which keys have the
-+  enablement filter applied.
-diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 8b9f5e1cf4cb..e8364a3eaeef 100644
---- a/arch/riscv/include/asm/hwprobe.h
-+++ b/arch/riscv/include/asm/hwprobe.h
-@@ -8,7 +8,7 @@
- 
- #include <uapi/asm/hwprobe.h>
- 
--#define RISCV_HWPROBE_MAX_KEY		16
-+#define RISCV_HWPROBE_MAX_KEY		17
- 
- static inline bool riscv_hwprobe_key_is_valid(__s64 key)
- {
-diff --git a/arch/riscv/include/asm/vendor_extensions/sifive_hwprobe.h b/arch/riscv/include/asm/vendor_extensions/sifive_hwprobe.h
-index 90a61abd033c..c961c78a7927 100644
---- a/arch/riscv/include/asm/vendor_extensions/sifive_hwprobe.h
-+++ b/arch/riscv/include/asm/vendor_extensions/sifive_hwprobe.h
-@@ -7,10 +7,12 @@
- #include <uapi/asm/hwprobe.h>
- 
- #ifdef CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE
--void hwprobe_isa_vendor_ext_sifive_0(struct riscv_hwprobe *pair, const struct cpumask *cpus);
-+void hwprobe_isa_vendor_ext_sifive_0(struct riscv_hwprobe *pair,
-+				     const struct cpumask *cpus, bool test_avail);
- #else
- static inline void hwprobe_isa_vendor_ext_sifive_0(struct riscv_hwprobe *pair,
--						   const struct cpumask *cpus)
-+						   const struct cpumask *cpus,
-+						   bool test_avail)
- {
- 	pair->value = 0;
- }
-diff --git a/arch/riscv/include/asm/vendor_extensions/thead_hwprobe.h b/arch/riscv/include/asm/vendor_extensions/thead_hwprobe.h
-index 65a9c5612466..3e1c4271383f 100644
---- a/arch/riscv/include/asm/vendor_extensions/thead_hwprobe.h
-+++ b/arch/riscv/include/asm/vendor_extensions/thead_hwprobe.h
-@@ -7,10 +7,12 @@
- #include <uapi/asm/hwprobe.h>
- 
- #ifdef CONFIG_RISCV_ISA_VENDOR_EXT_THEAD
--void hwprobe_isa_vendor_ext_thead_0(struct riscv_hwprobe *pair, const struct cpumask *cpus);
-+void hwprobe_isa_vendor_ext_thead_0(struct riscv_hwprobe *pair,
-+				    const struct cpumask *cpus, bool test_avail);
- #else
- static inline void hwprobe_isa_vendor_ext_thead_0(struct riscv_hwprobe *pair,
--						  const struct cpumask *cpus)
-+						  const struct cpumask *cpus,
-+						  bool test_avail)
- {
- 	pair->value = 0;
- }
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 9139edba0aec..561483172ce5 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -116,6 +116,8 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE	15
- #define RISCV_HWPROBE_KEY_IMA_EXT_1		16
- #define		RISCV_HWPROBE_EXT_ZICFISS	(1ULL << 0)
-+/* Modifier key working as a signal to the kernel to gather enablement status */
-+#define RISCV_HWPROBE_KEY_EXT_ENABLED	17
- 
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index caf6762427c8..c3be2253de88 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -79,8 +79,9 @@ static void hwprobe_arch_id(struct riscv_hwprobe *pair,
- }
- 
- static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
--			     const struct cpumask *cpus)
-+			     const struct cpumask *cpus, bool report_avail)
- {
-+	bool report_v;
- 	int cpu;
- 	u64 missing = 0;
- 
-@@ -91,7 +92,8 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 	if (riscv_isa_extension_available(NULL, c))
- 		pair->value |= RISCV_HWPROBE_IMA_C;
- 
--	if (has_vector() && riscv_isa_extension_available(NULL, v))
-+	report_v = report_avail ? riscv_v_vstate_ctrl_user_allowed() : true;
-+	if (has_vector() && riscv_isa_extension_available(NULL, v) && report_v)
- 		pair->value |= RISCV_HWPROBE_IMA_V;
- 
- 	/*
-@@ -146,7 +148,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 		 * All the following extensions must depend on the kernel
- 		 * support of V.
- 		 */
--		if (has_vector()) {
-+		if (has_vector() && report_v) {
- 			EXT_KEY(isainfo->isa, ZVBB, pair->value, missing);
- 			EXT_KEY(isainfo->isa, ZVBC, pair->value, missing);
- 			EXT_KEY(isainfo->isa, ZVE32F, pair->value, missing);
-@@ -215,7 +217,7 @@ static bool hwprobe_ext0_has(const struct cpumask *cpus, u64 ext)
- {
- 	struct riscv_hwprobe pair;
- 
--	hwprobe_isa_ext0(&pair, cpus);
-+	hwprobe_isa_ext0(&pair, cpus, false);
- 	return (pair.value & ext);
- }
- 
-@@ -293,7 +295,7 @@ static u64 hwprobe_vec_misaligned(const struct cpumask *cpus)
- #endif
- 
- static void hwprobe_one_pair(struct riscv_hwprobe *pair,
--			     const struct cpumask *cpus)
-+			     const struct cpumask *cpus, bool test_avail)
- {
- 	switch (pair->key) {
- 	case RISCV_HWPROBE_KEY_MVENDORID:
-@@ -312,7 +314,7 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 		break;
- 
- 	case RISCV_HWPROBE_KEY_IMA_EXT_0:
--		hwprobe_isa_ext0(pair, cpus);
-+		hwprobe_isa_ext0(pair, cpus, test_avail);
- 		break;
- 
- 	case RISCV_HWPROBE_KEY_IMA_EXT_1:
-@@ -352,11 +354,11 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 		break;
- 
- 	case RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0:
--		hwprobe_isa_vendor_ext_sifive_0(pair, cpus);
-+		hwprobe_isa_vendor_ext_sifive_0(pair, cpus, test_avail);
- 		break;
- 
- 	case RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0:
--		hwprobe_isa_vendor_ext_thead_0(pair, cpus);
-+		hwprobe_isa_vendor_ext_thead_0(pair, cpus, test_avail);
- 		break;
- 	case RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0:
- 		hwprobe_isa_vendor_ext_mips_0(pair, cpus);
-@@ -379,6 +381,7 @@ static int hwprobe_get_values(struct riscv_hwprobe __user *pairs,
- 			      unsigned long __user *cpus_user,
- 			      unsigned int flags)
- {
-+	bool test_avail = false;
- 	size_t out;
- 	int ret;
- 	cpumask_t cpus;
-@@ -419,7 +422,10 @@ static int hwprobe_get_values(struct riscv_hwprobe __user *pairs,
- 			return -EFAULT;
- 
- 		pair.value = 0;
--		hwprobe_one_pair(&pair, &cpus);
-+		if (pair.key == RISCV_HWPROBE_KEY_EXT_ENABLED)
-+			test_avail = true;
-+		else
-+			hwprobe_one_pair(&pair, &cpus, test_avail);
- 		ret = put_user(pair.key, &pairs->key);
- 		if (ret == 0)
- 			ret = put_user(pair.value, &pairs->value);
-@@ -438,6 +444,7 @@ static int hwprobe_get_cpus(struct riscv_hwprobe __user *pairs,
- {
- 	cpumask_t cpus, one_cpu;
- 	bool clear_all = false;
-+	bool test_avail = false;
- 	size_t i;
- 	int ret;
- 
-@@ -477,6 +484,10 @@ static int hwprobe_get_cpus(struct riscv_hwprobe __user *pairs,
- 			if (ret)
- 				return -EFAULT;
- 		}
-+		if (pair.key == RISCV_HWPROBE_KEY_EXT_ENABLED) {
-+			test_avail = true;
-+			continue;
-+		}
- 
- 		if (clear_all)
- 			continue;
-@@ -486,7 +497,7 @@ static int hwprobe_get_cpus(struct riscv_hwprobe __user *pairs,
- 		for_each_cpu(cpu, &cpus) {
- 			cpumask_set_cpu(cpu, &one_cpu);
- 
--			hwprobe_one_pair(&tmp, &one_cpu);
-+			hwprobe_one_pair(&tmp, &one_cpu, test_avail);
- 
- 			if (!riscv_hwprobe_pair_cmp(&tmp, &pair))
- 				cpumask_clear_cpu(cpu, &cpus);
-@@ -536,8 +547,11 @@ static int complete_hwprobe_vdso_data(void)
- 	 * save a syscall in the common case.
- 	 */
- 	for (key = 0; key <= RISCV_HWPROBE_MAX_KEY; key++) {
-+		if (key == RISCV_HWPROBE_KEY_EXT_ENABLED)
-+			continue;
++#define WORKER "./ext-enabled_nolibc"
 +
- 		pair.key = key;
--		hwprobe_one_pair(&pair, cpu_online_mask);
-+		hwprobe_one_pair(&pair, cpu_online_mask, false);
- 
- 		WARN_ON_ONCE(pair.key < 0);
- 
-diff --git a/arch/riscv/kernel/vdso/hwprobe.c b/arch/riscv/kernel/vdso/hwprobe.c
-index 8f45500d0a6e..f40c21e44ef9 100644
---- a/arch/riscv/kernel/vdso/hwprobe.c
-+++ b/arch/riscv/kernel/vdso/hwprobe.c
-@@ -14,7 +14,7 @@ extern int riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
- 
- static int riscv_vdso_get_values(struct riscv_hwprobe *pairs, size_t pair_count,
- 				 size_t cpusetsize, unsigned long *cpus,
--				 unsigned int flags)
-+				 unsigned int flags, bool avail_test)
- {
- 	const struct vdso_arch_data *avd = &vdso_u_arch_data;
- 	bool all_cpus = !cpusetsize && !cpus;
-@@ -27,7 +27,8 @@ static int riscv_vdso_get_values(struct riscv_hwprobe *pairs, size_t pair_count,
- 	 * homogeneous, then this function can handle requests for arbitrary
- 	 * masks.
- 	 */
--	if (flags != 0 || (!all_cpus && !avd->homogeneous_cpus) || unlikely(!avd->ready))
-+	if (flags != 0 || (!all_cpus && !avd->homogeneous_cpus) ||
-+	    unlikely(!avd->ready) || avail_test)
- 		return riscv_hwprobe(pairs, pair_count, cpusetsize, cpus, flags);
- 
- 	/* This is something we can handle, fill out the pairs. */
-@@ -48,7 +49,7 @@ static int riscv_vdso_get_values(struct riscv_hwprobe *pairs, size_t pair_count,
- 
- static int riscv_vdso_get_cpus(struct riscv_hwprobe *pairs, size_t pair_count,
- 			       size_t cpusetsize, unsigned long *cpus,
--			       unsigned int flags)
-+			       unsigned int flags, bool avail_test)
- {
- 	const struct vdso_arch_data *avd = &vdso_u_arch_data;
- 	struct riscv_hwprobe *p = pairs;
-@@ -68,7 +69,8 @@ static int riscv_vdso_get_cpus(struct riscv_hwprobe *pairs, size_t pair_count,
- 		}
- 	}
- 
--	if (empty_cpus || flags != RISCV_HWPROBE_WHICH_CPUS || !avd->homogeneous_cpus)
-+	if (empty_cpus || flags != RISCV_HWPROBE_WHICH_CPUS ||
-+	    !avd->homogeneous_cpus || avail_test)
- 		return riscv_hwprobe(pairs, pair_count, cpusetsize, cpus, flags);
- 
- 	while (p < end) {
-@@ -105,10 +107,21 @@ int __vdso_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
- 			 size_t cpusetsize, unsigned long *cpus,
- 			 unsigned int flags)
- {
-+	struct riscv_hwprobe *p = pairs;
-+	bool avail_test = false;
-+	size_t i;
++/* Verdicts returned by the worker. */
++#define VOFF_OK		0	/* present keeps V, enabled masks it */
++#define VOFF_BUG	1	/* enabled view still reported V */
++#define VOFF_SETUP	2	/* could not disable V / probe failed */
 +
-+	for (i = 0; i < pair_count; i++) {
-+		if (p[i].key == RISCV_HWPROBE_KEY_EXT_ENABLED) {
-+			avail_test = true;
-+			break;
-+		}
++/* Run the canonical present/enabled query; returns the raw syscall result. */
++static long query(__u64 *present, __u64 *enabled, __s64 *mod_key)
++{
++	struct riscv_hwprobe pairs[3] = {
++		{ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, },
++		{ .key = RISCV_HWPROBE_KEY_EXT_ENABLED, },
++		{ .key = RISCV_HWPROBE_KEY_IMA_EXT_0, },
++	};
++	long ret = riscv_hwprobe(pairs, 3, 0, NULL, 0);
++
++	*present = pairs[0].value;
++	*mod_key = pairs[1].key;
++	*enabled = pairs[2].value;
++	return ret;
++}
++
++/* Fork a child that disables V across execve, and return the worker verdict. */
++static int probe_with_v_disabled(void)
++{
++	char * const argv[] = { WORKER, NULL };
++	char * const envp[] = { NULL };
++	int status;
++	pid_t pid = fork();
++
++	if (pid < 0)
++		return VOFF_SETUP;
++	if (pid == 0) {
++		/* Disable V for the next execve of this child. */
++		prctl(PR_RISCV_V_SET_CONTROL,
++		      PR_RISCV_V_VSTATE_CTRL_OFF << VSTATE_CTRL_NEXT_SHIFT);
++		execve(WORKER, argv, envp);
++		_exit(VOFF_SETUP);		/* execve failed */
++	}
++	if (waitpid(pid, &status, 0) < 0 || !WIFEXITED(status))
++		return VOFF_SETUP;
++	return WEXITSTATUS(status);
++}
++
++/*
++ * This test assumes the user space allow executing vector instruction as a
++ * default behavior. Namely, /proc/sys/abi/riscv_v_default_allow is 1
++ */
++int main(void)
++{
++	__u64 present = 0, enabled = 0;
++	__s64 mod_key = 0;
++	int verdict;
++
++	ksft_print_header();
++	ksft_set_plan(2);
++
++	if (query(&present, &enabled, &mod_key))
++		ksft_exit_fail_msg("hwprobe() failed\n");
++
++	ksft_test_result(mod_key == RISCV_HWPROBE_KEY_EXT_ENABLED,
++			 "RISCV_HWPROBE_KEY_EXT_ENABLED is recognized\n");
++
++	/* The remaining checks need both the modifier and V in hardware. */
++	if (mod_key != RISCV_HWPROBE_KEY_EXT_ENABLED ||
++	    !(enabled & RISCV_HWPROBE_IMA_V)) {
++		ksft_test_result_skip("V off: present keeps V, enabled masks it\n");
++		ksft_finished();
 +	}
 +
- 	if (flags & RISCV_HWPROBE_WHICH_CPUS)
- 		return riscv_vdso_get_cpus(pairs, pair_count, cpusetsize,
--					   cpus, flags);
-+					   cpus, flags, avail_test);
- 
- 	return riscv_vdso_get_values(pairs, pair_count, cpusetsize,
--				     cpus, flags);
-+				     cpus, flags, avail_test);
- }
-diff --git a/arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c b/arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c
-index 1f77f6309763..379ea16bd89f 100644
---- a/arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c
-+++ b/arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c
-@@ -6,17 +6,23 @@
- 
- #include <linux/cpumask.h>
- #include <linux/types.h>
-+#include <asm/vector.h>
- 
- #include <uapi/asm/hwprobe.h>
- #include <uapi/asm/vendor/sifive.h>
- 
--void hwprobe_isa_vendor_ext_sifive_0(struct riscv_hwprobe *pair, const struct cpumask *cpus)
-+void hwprobe_isa_vendor_ext_sifive_0(struct riscv_hwprobe *pair, const struct cpumask *cpus,
-+				     bool test_avail)
- {
-+	bool report_v = test_avail ? riscv_v_vstate_ctrl_user_allowed() : true;
++	/* V off (only reachable across execve): enabled view masks it. */
++	verdict = probe_with_v_disabled();
++	if (verdict == VOFF_SETUP)
++		ksft_test_result_skip("V off: present keeps V, but could not disable V\n");
++	else
++		ksft_test_result(verdict == VOFF_OK,
++				 "V off: present keeps V, enabled masks it\n");
 +
- 	VENDOR_EXTENSION_SUPPORTED(pair, cpus,
- 				   riscv_isa_vendor_ext_list_sifive.per_hart_isa_bitmap, {
--		VENDOR_EXT_KEY(XSFVQMACCDOD);
--		VENDOR_EXT_KEY(XSFVQMACCQOQ);
--		VENDOR_EXT_KEY(XSFVFNRCLIPXFQF);
--		VENDOR_EXT_KEY(XSFVFWMACCQQQ);
-+		if (report_v) {
-+			VENDOR_EXT_KEY(XSFVQMACCDOD);
-+			VENDOR_EXT_KEY(XSFVQMACCQOQ);
-+			VENDOR_EXT_KEY(XSFVFNRCLIPXFQF);
-+			VENDOR_EXT_KEY(XSFVFWMACCQQQ);
-+		}
- 	});
- }
-diff --git a/arch/riscv/kernel/vendor_extensions/thead_hwprobe.c b/arch/riscv/kernel/vendor_extensions/thead_hwprobe.c
-index 2eba34011786..28c58a7123d5 100644
---- a/arch/riscv/kernel/vendor_extensions/thead_hwprobe.c
-+++ b/arch/riscv/kernel/vendor_extensions/thead_hwprobe.c
-@@ -6,14 +6,19 @@
- 
- #include <linux/cpumask.h>
- #include <linux/types.h>
-+#include <asm/vector.h>
- 
- #include <uapi/asm/hwprobe.h>
- #include <uapi/asm/vendor/thead.h>
- 
--void hwprobe_isa_vendor_ext_thead_0(struct riscv_hwprobe *pair, const struct cpumask *cpus)
-+void hwprobe_isa_vendor_ext_thead_0(struct riscv_hwprobe *pair, const struct cpumask *cpus,
-+				    bool test_avail)
- {
-+	bool report_v = test_avail ? riscv_v_vstate_ctrl_user_allowed() : true;
++	ksft_finished();
++}
+diff --git a/tools/testing/selftests/riscv/hwprobe/ext-enabled_nolibc.c b/tools/testing/selftests/riscv/hwprobe/ext-enabled_nolibc.c
+new file mode 100644
+index 000000000000..d7f0a3c8314d
+--- /dev/null
++++ b/tools/testing/selftests/riscv/hwprobe/ext-enabled_nolibc.c
+@@ -0,0 +1,58 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * nolibc worker for the RISCV_HWPROBE_KEY_EXT_ENABLED test.
++ *
++ * ext-enabled execs this program with V disabled for the process. It is built
++ * with nolibc on purpose: there is no libc here, so no vector-optimized libc
++ * routine can run and take a SIGILL while V is off. It probes the canonical
++ * [present, modifier, enabled] request and reports a verdict via exit code:
++ *
++ *	0  present keeps V, enabled masks it  (correct)
++ *	1  enabled view still reports V        (bug)
++ *	2  setup problem (V not off, or hwprobe failed)
++ */
 +
- 	VENDOR_EXTENSION_SUPPORTED(pair, cpus,
- 				   riscv_isa_vendor_ext_list_thead.per_hart_isa_bitmap, {
--		VENDOR_EXT_KEY(XTHEADVECTOR);
-+		if (report_v)
-+			VENDOR_EXT_KEY(XTHEADVECTOR);
- 	});
- }
++#ifndef __NR_riscv_hwprobe
++#define __NR_riscv_hwprobe		258
++#endif
++
++#ifndef PR_RISCV_V_GET_CONTROL
++#define PR_RISCV_V_GET_CONTROL		70
++#define PR_RISCV_V_VSTATE_CTRL_OFF	1
++#define PR_RISCV_V_VSTATE_CTRL_CUR_MASK	0x3
++#endif
++
++#define RISCV_HWPROBE_KEY_IMA_EXT_0	4
++#define RISCV_HWPROBE_KEY_EXT_ENABLED	17
++#define RISCV_HWPROBE_IMA_V		(1 << 2)
++
++struct riscv_hwprobe {
++	long long key;
++	unsigned long long value;
++};
++
++int main(void)
++{
++	struct riscv_hwprobe pairs[3] = {
++		{ .key = RISCV_HWPROBE_KEY_IMA_EXT_0 },
++		{ .key = RISCV_HWPROBE_KEY_EXT_ENABLED },
++		{ .key = RISCV_HWPROBE_KEY_IMA_EXT_0 },
++	};
++	long ctrl;
++
++	/* We must really be running with V turned off. */
++	ctrl = prctl(PR_RISCV_V_GET_CONTROL, 0, 0, 0, 0);
++	if (ctrl < 0 ||
++	    (ctrl & PR_RISCV_V_VSTATE_CTRL_CUR_MASK) != PR_RISCV_V_VSTATE_CTRL_OFF)
++		return 2;
++
++	if (syscall(__NR_riscv_hwprobe, pairs, 3, 0, 0, 0))
++		return 2;
++
++	/* Present view must still carry V (it is in hardware). */
++	if (!(pairs[0].value & RISCV_HWPROBE_IMA_V))
++		return 2;
++
++	/* Enabled view must have masked V out. */
++	return (pairs[2].value & RISCV_HWPROBE_IMA_V) ? 1 : 0;
++}
 -- 
 2.43.0
 
