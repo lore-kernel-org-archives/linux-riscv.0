@@ -4,97 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF775C531FC
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 11:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E06C531F9
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 12:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VJzoXXCCvBgIcSLnEIM2r6C1+YhYvEFfuBibSUPr+p0=; b=Mzb5K0czgQAo9o
-	VplsF9N2ONSfq7oy2sofIHE+MF0BLeODU54MqEBEoG/dlX3zkAJ36BF7n7smXasdt5XJgFtzsab2Q
-	BuAxSddiaz3GJwCC91nYXkaUhKKLmHYH0qIAkt7EhJwLwBUsFAiWUsBgBW94k9AI00nGHbQyM8ORb
-	WJn++If9SMYwKnSB12jb5bu47/nOPgf1gZI+/DkEC4BjjpiA4Xc6ZVRBxdZozK2RyI5hnhbSdHAir
-	Ku+8mRI4dxblIdYwyl2fQQQqNxp/vKkHzYoovH3B6N/6ipyOHtHAZmRq1Miz9p++lJ//s6yuAKTmZ
-	XeOIdgrW0fdeDPgRRM/w==;
+	List-Owner; bh=t7p6aO0ZQ9VbXiqVM2xl7HcnN5sZJHxbIHZvKtMIyiE=; b=VI9Ofh0uPfdVSd
+	uxSojKjFCrxamtojPKjWsY2L281HyNFjZzahFXDd0ILwpX2dhoU4WEX+/2p8ZMDj9UJlz5ewlBj62
+	CFB/Eg2hMJ06FcPKGGzT8EtI49SfzQPMujpSMdFTvwFIvs0lhqcwNMBpW40T+1Nz4S3x6CFkDKc/U
+	s043fxpkPlc1jUiSH23YJkf13xkwKJAdgEmFxe8FtXOLtokZ5t3ploDeeXL0sec6g5EakSXNrSk+8
+	g3Z0WdKrcWfjBi1eD6aekXnSPKJDgXR4lqlWGNqDHzdpxxrsmyycuN15oAhhfUNsOKJgJvXc0CpYJ
+	PtJrkcA0LF9ypVK53chA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnEPo-0000000GKDZ-3mfo;
-	Fri, 24 Jul 2026 11:50:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnEPk-0000000GKC5-32rf;
-	Fri, 24 Jul 2026 11:50:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA1941477;
-	Fri, 24 Jul 2026 04:49:55 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F2463F59E;
-	Fri, 24 Jul 2026 04:49:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784893799; bh=lSGi/T62Qz3zkTtfJoxDSfari9OyrmBQakjPywG4Wwg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=onlJqJS22YoDsKaG6SiKSkuKsNv+WmGR0K4ecfdNyqZf1u/+3JEGvSxKfGGrvm5nJ
-	 MXCh4HNavE1AO8qDTOoQLnL6W10waJKQJvwWm9dJxKiy7ypA0biilE7i0COMFUcgAZ
-	 cBx7VbhxE8imKHXZsbg7suIUPJzdyNKYFStD+n4k=
-Date: Fri, 24 Jul 2026 12:49:45 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-openrisc@vger.kernel.org
-Subject: Re: [PATCH RFC v2 14/20] x86: mm: skip pud setup when using generic
- compile-time folded pagetable
-Message-ID: <amNRWR-8BCBNU0sR@e129823.arm.com>
-References: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
- <20260722-dummy_ptxp3-v2-14-d9e4bad31e0a@arm.com>
- <0ea931f1-4801-4d32-b6ce-4787a8d3daa9@intel.com>
- <amD7ab_KuJPdBQBh@e129823.arm.com>
- <6f5060a7-0a64-49fc-81a3-ae88729ef794@intel.com>
- <amElnEbvRTjv2hyU@e129823.arm.com>
- <3620750c-54d7-45a0-b067-bc813dd3cd9b@intel.com>
+	id 1wnFPt-0000000GQpj-16XG;
+	Fri, 24 Jul 2026 12:54:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wnFPs-0000000GQpd-1Wsk
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 24 Jul 2026 12:54:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=igcirK555i4HrlIuKFrv8pMFmfvzTpNlfQp9aKvV0r0=; b=hc2p8XDmrBjMA8iopb27rtWbGx
+	SnMjXosajJ+nXhVh1TwBcOAW7AEcVkFNYWQ17W3sZR7mnKp2VGt9TNd/GsBduhGOeRsoNKVnaxN7e
+	G5ecypbdQcOtDyOOugOUk7llxyqM6K9GwZ3PPG87UF0fKVuAE9H06o4IIUCuQPc2RVDW633aCsFQX
+	OJUSGl8XMcz3qv5NJu8RvhvBbZERb9UVpKu7DkOG+3/YBkwisWwgwYhL9/7F3kyCoHB/uoGWeyuU7
+	/DzvWs+2vQ9XOdCPHYqkNJ5Jo8Ehfchy1GGF3D//ms364GZqmGJ28NzHIALGdUcqRlZds9MaNKRaz
+	NK4gSF+g==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wnFPp-00000002Yb0-1VeR
+	for linux-riscv@lists.infradead.org;
+	Fri, 24 Jul 2026 12:54:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1784897643;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=igcirK555i4HrlIuKFrv8pMFmfvzTpNlfQp9aKvV0r0=;
+	b=Fbkbjp1bt/z0LgZ+/UY3MllEYZkuDfdXnBILU1f5MaHEeaFiuIm/WlwOSm94E830+Z5DFv
+	LiZ3ZxkV1pdUNit5epRoLTwnhQO/Bv6aIUaTfML8tcAOPoiLHo19OHWqRyueQjwLNbyBEi
+	xI4Yx0niybuVHnEWaKcdIl5bEECdeYk=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1784897651;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=igcirK555i4HrlIuKFrv8pMFmfvzTpNlfQp9aKvV0r0=;
+	b=gvlrdRpFptx+OCbex0gAMbyfSVjnAPVBMDrQFDYVekXTRzCANibeIgEbhNZmJrqF6nmgzO
+	2E10rMa5nufk490n2rQD0Ro806IKSzcyvTMqrhmTjoDSh+Pf/EfkMuvf95h9q32XIC69l4
+	AwXKJFAufzq7gz8baQWAhLOTMamAfAA=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-615-eQ3RHwcuOEKExWdCda6N-w-1; Fri,
+ 24 Jul 2026 08:53:56 -0400
+X-MC-Unique: eQ3RHwcuOEKExWdCda6N-w-1
+X-Mimecast-MFC-AGG-ID: eQ3RHwcuOEKExWdCda6N-w_1784897634
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 58B6E1833481;
+	Fri, 24 Jul 2026 12:53:52 +0000 (UTC)
+Received: from oldenburg3.str.redhat.com (unknown [10.44.33.62])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A7E661956063;
+	Fri, 24 Jul 2026 12:53:41 +0000 (UTC)
+From: Florian Weimer <fweimer@redhat.com>
+To: Andy Chiu <tchiu@tenstorrent.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,  Shuah Khan
+ <skhan@linuxfoundation.org>,  Paul Walmsley <pjw@kernel.org>,  Palmer
+ Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
+  Alexandre Ghiti <alex@ghiti.fr>,  linux-doc@vger.kernel.org,
+  linux-riscv@lists.infradead.org,  bergner@tenstorrent.com,
+  kito.cheng@sifive.com,  dfustini@oss.tenstorrent.com,
+  greentime.hu@sifive.com,  Andrew Jones <andrew.jones@oss.qualcomm.com>,
+  Nutty Liu <nutty.liu@hotmail.com>,  Pincheng Wang
+ <pincheng.plct@isrc.iscas.ac.cn>,  Yao Zihong
+ <zihong.plct@isrc.iscas.ac.cn>,  Xu Lu <luxu.kernel@bytedance.com>,
+  Aleksa Paunovic <aleksa.paunovic@htecgroup.com>,  Jingwei Wang
+ <wangjingwei@iscas.ac.cn>,  Zong Li <zong.li@sifive.com>,  Deepak Gupta
+ <debug@rivosinc.com>,  =?utf-8?Q?Cl=C3=A9ment_L=C3=A9ger?=
+ <cleger@rivosinc.com>,
+ linux-api@vger.kernel.org
+Subject: Re: [PATCH 1/2] riscv: hwprobe: export the availability of vector
+ to user
+In-Reply-To: <20260723222109.2229089-2-tchiu@tenstorrent.com> (Andy Chiu's
+	message of "Thu, 23 Jul 2026 17:20:56 -0500")
+References: <20260723222109.2229089-1-tchiu@tenstorrent.com>
+	<20260723222109.2229089-2-tchiu@tenstorrent.com>
+Date: Fri, 24 Jul 2026 14:53:38 +0200
+Message-ID: <87bjbwk0q5.fsf@oldenburg.str.redhat.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3620750c-54d7-45a0-b067-bc813dd3cd9b@intel.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Mimecast-MFC-PROC-ID: K7AzgyyVL_Gucn4Gb17G9_qRgviZVAfhiLPCgLgZqww_1784897634
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_045005_046231_9DC3A692 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20260724_135413_646175_26F28783 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,30 +125,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2026 at 01:22:04PM -0700, Dave Hansen wrote:
-> On 7/22/26 13:18, Yeoreum Yun wrote:
-> > Sorry. But do you mean check with cpu_feature_enabled() not with
-> > boot_cpu_has()?
-> > IIRC, the boot_cpu_has() doesn't use the DISABLE_MASK_BIT_SET() but
-> > uses REQUIRED_MASK_BIT_SET() and I don't expect it wouldn't make
-> > an optimisation to constant check which is contrast to DISABLE_MASK_BIT_SET().
-> 
-> Ahh, yes. I forgot about that nuance! Moving to cpu_feature_enabled()
-> would be great!
+* Andy Chiu:
 
-When I see again, using cpu_feature_enabled(), this would give a chance
-to optimisation when the feature disabled and there would be no harm for
-when feature enabled since cpu_feature_enabbled() also fallback to
-boot_cpu_has().
+> Userland IFUNC resolvers use hwprobe to decide whether to dispatch to
+> vectorized routines. But RISCV_HWPROBE_KEY_IMA_EXT_0 only reports what
+> is present in hardware, not what the calling process may actually use:
+> when Vector is disabled for a process via
+> prctl(PR_RISCV_V_SET_CONTROL, PR_RISCV_V_VSTATE_CTRL_OFF), it is still
+> reported as present. A resolver that trusts this and runs a vector
+> instruction crashes with SIGILL.
+>
+> Add RISCV_HWPROBE_KEY_EXT_ENABLED, a positional modifier key that carries
+> no value of its own. Within a single request, keys placed after it report
+> extensions that are both present and enabled for the calling process,
+> while keys before it keep reporting hardware presence. This masks out V
+> and its V-dependent sub-extensions when V is disabled for the process, and
+> lets userland obtain both views in one query:
+>
+>       [ {IMA_EXT_0}, {EXT_ENABLED}, {IMA_EXT_0} ]
+>           present       modifier       enabled
+>
+> The enabled view depends on per-process state, so it cannot be served from
+> the vDSO's process-independent cache; requests carrying the modifier are
+> deferred to the syscall. Unknown keys are still reported as -1, so the
+> feature is detectable and existing users are unaffected.
 
-So, it might be good to change with cpu_feature_enabled() as we
-discussed.
+What is the expected behavior if RISCV_HWPROBE_KEY_EXT_ENABLED is not
+supported?
 
-@Dave, Should I send above change separately or include it in this patch?
+We only get a true userspace simplification over hwprobe + prctl if we
+can disable vector extension usage if the kernel does not support
+RISCV_HWPROBE_KEY_EXT_ENABLED (so a V usage regression for older
+kernels).  Otherwise we'd have to use the new approach and, as a
+fallback, the old combination of hwprobe and prctl.
 
--- 
-Sincerely,
-Yeoreum Yun
+Thanks,
+Florian
+
 
 _______________________________________________
 linux-riscv mailing list
