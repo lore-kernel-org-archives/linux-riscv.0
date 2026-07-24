@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC77C531CC
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 02:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D10C531FA
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 07:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PhREH/7O/ox1J/z6DwVz2uasrzbbr2ZbZJbKvz3+Z0Q=; b=R37v+u9xSufU3b
-	g4vCIqsdpvkWM4SrWltyqIE+Bg3mbb6Ln/uaq5GMQaPz7wy729l19ShejskzmzVFYiCiRVFh/w0Qi
-	ak0nM9b7Gxcr3ZEll8QHkgDmrRec4BNWUo/mfEPjkMg+UpLpDC3ALBcHd+tJdUUTD+Dsyyh641asi
-	uHHxtYWqFmCVDEK9qebX6upZynIpVkAtJVw4rS6ArIc0O3ko/gb2yeHjRL5DYiZvJgy0EwvAQBAUy
-	C6Eocz8DGaNy+SgibjZfU9m0Bn08n5n2Mht9PNqLqRZ68x4sR8J68/NVWzHyNgJfAm2W6FNDkbQmJ
-	DbFaDjGjOL+OWmwjY+MQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+xOv/3iB4oecMSc7V2PBhQeH380UJMD5nVm3n/Oj3gc=; b=QSguwZ+kdoUzCZ
+	I2RQqBwrxLIy3oIk/WCBiwNIBv0pfCcogpFPbcb5xUGA6cezLIkttlAoV8P/vfWmAbLP19J915JjA
+	qlsY/vWNZER3/nKCgnk9WRmQodptp2Uqu+388zncvKzg23w6uD9vq14CD2ZZG5pWi2q6kECyjNzud
+	4TuOMf9TJNofpaGCFjGlahuQqnUsDmJ2BP5t3SJLhg9Vu1wdkOQOZRFSRQyi2fqc3545Sn7gVJuG4
+	I/OHAQPNClpWxs/EhGUvjts16MkpO7ma5CcS3rZVO+fouHU3sDAsODIe7cfuDZrUQ2ZkZLDlyEo3P
+	GbJvNP+pnEfioTJmlzHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn5ru-0000000FOxm-2d9f;
-	Fri, 24 Jul 2026 02:42:34 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1wnAGz-0000000FhFn-1UEv;
+	Fri, 24 Jul 2026 07:24:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn5rr-0000000FOxP-4BAE
+	id 1wnAGy-0000000FhFR-1xKY
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jul 2026 02:42:33 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2cc97653887so15753705ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Jul 2026 19:42:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784860950; x=1785465750; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=z4bvXbXayEnCzzJXqVJPK7lahyeIFGKn1fz42KqQtbg=;
-        b=cHTJG0W57Znaj9iYfVEo3wun3w57pssdyw7CcA3WVyu1t+MCdV84eqfuqzHgyjEyu1
-         0tcNoG/uE1n9EKx8BRZDCNc/6s+fIFh63B6PBOAcOy8i3uwRa9i6Tv3DFAroAfAmHLMS
-         LR3Ul9L2xITMJGhgNRMb/6IIQK04EXx9Pm23P4bSL3zoSWBTGnXYCHynvw2tWohO4uL3
-         9Dx1Qs1Drs5cFOrjS5V4+hlVqykEhxF3SrvgaBQgyjF0AhRnpapCigOM6STyVI68VCTr
-         vSMMkGdWc0WRBZ4oOoxKMS873iOMw8/s3HuXm78ydB43v22sQC71orh9c/x/7HWnOoyV
-         XxEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784860950; x=1785465750;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=z4bvXbXayEnCzzJXqVJPK7lahyeIFGKn1fz42KqQtbg=;
-        b=fGfLsTDhALoaQdf/rdaBfckB9blB76LSW3sIdr3tGkuZekt02Ci6RFUiPgcL2J+5cW
-         qAdDFcymt28BRke+UBxfKTsJtTGlxPj+Kb7HfzdKQudOQ2Qt8hvNognmpO4bVw8epnQB
-         6PP1ziytt96XjcFRgibxW2QMKxJ79wZorWf557o6qEEHHa62+aO0JzyoWO2hmAO689Yw
-         wzhzfw362eULcomfgWIbGSleNazOZfPxDZUSekuOGrCO97GkOVoL9Xq/wM9/4ZJBWvo9
-         nOArGTOnADDk8Aj48qKuowdUsT3WOt8KSiAtzItTUn6HP+XCwkLu1sEafc8iMPDLgpj9
-         7PXw==
-X-Forwarded-Encrypted: i=1; AHgh+RpYRow3niUxQwo6lumamd9Zb9sq6w9X6GsujKA9SHiVq5T1H8ZnxBcABmw2sE1K+2B68dvfwg+xAABDoA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwufcZyL4Q2UP7douAvNKicXZZUhCm/trvAeu2XtCJKWF6ER7K/
-	xXeTVFCqr2+8D189UHCas8KwYorqxjmY3L5x1lZ8GrUhjjaIcIbM4As=
-X-Gm-Gg: AR+sD12oaKwb3ZbIsYB83oDLELcQbhXBfhyISQ00PwLwbWHR3cVpDqLUYY8JLgSwUXu
-	w2RXTZz5IM/lRTXZpNULL/MW0p0F2jwWny5KXbRMgf0pwiq/Yh0z1VvovIUEzKp3w3Q5HHSw3IO
-	YgsB6sTgL4lq65obM4nQ8bbRUpS8rHzIhCAeAxOOMSZjylJjHJ/lZDInVpxh7kh/fMn38YCh64V
-	QtE4etm/eyTwLf3B3c+lx52L8pifMY4LI7c0rqpeXthtRjKcOJ8NWhpOV9VT61Jbdb1ryEJAN3k
-	crADQ29DWvmrC4p8SWi2Y2N2i0pgFag3j9Fqx8cKqQa7YnUk8jtTwYJ4zJ5D0LNt5M+5bEhlKHe
-	R3cx9+/XZ6S/US/tEqd1QoZrdBbO5EyEiDPXpTiGQ8icQ68bafFIQoWHyqcUYwnLGnFujcIGyyq
-	Zg7tTAOXg95mvh9ntb8ldE5O5miYo=
-X-Received: by 2002:a17:903:2b0d:b0:2ca:f8ef:33e4 with SMTP id d9443c01a7336-2cfa71d9468mr61759585ad.17.1784860950411;
-        Thu, 23 Jul 2026 19:42:30 -0700 (PDT)
-Received: from t-rex ([2401:4900:7b1c:a30e:8622:dbfc:dd30:d90d])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3147e1b6a45sm24761728eec.28.2026.07.23.19.42.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jul 2026 19:42:29 -0700 (PDT)
-From: kr494167@gmail.com
-To: alexandre.belloni@bootlin.com,
-	dlan@kernel.org
-Cc: elder@riscstar.com,
-	linux-rtc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Surendra Singh Chouhan <kr494167@gmail.com>
-Subject: [PATCH] rtc: spacemit: handle regmap_test_bits() error return
-Date: Fri, 24 Jul 2026 08:12:20 +0530
-Message-ID: <20260724024220.10113-1-kr494167@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Fri, 24 Jul 2026 07:24:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BBEEB44011
+	for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 07:24:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D4791F0155D
+	for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 07:24:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784877883;
+	bh=jvCoVMrq482sRltMKIA0wngG+Be2zNs5wkXwHMhSAUg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=GHNyHY4hC7tojuzaxlZtjiFy+W2Qk8/5I2WoTb6mbQZ0xAjikAArouvFN+l07ZCvO
+	 brE8FuPIw0Aru8OuXBQhtcU7m0cz7TR4lmGhST2Kj/RY757fAlXkXssOyVT0Q2LZKM
+	 otyrVgqN0reooRcHojkIbP07aeS4c73hdiXMqtE2vvC+aeD1cPY9iuRysB3RmDitSB
+	 r7yDUqn30oQH5yrPu8nyWihTTbvAkO7GpiNVLakd7G2jxkvtwdfe60LebsJVTIhOjt
+	 ngEYp6fjbVTeuXYkUN03sB4L/YPIL704ulORfYx3eJgnygH3bJEvugSb1EwI+FNGCH
+	 b4mgnvHXPHTpw==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5aebd52488cso135792e87.2
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 00:24:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoBR6uBI3zJqaxfJ1XvZuXt+/PM3MY4CzJJ9YqgT4dOBJ0RqZdsH0y1IL+PrCL1L2e2O2eirWq1Cmu3xg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyc6R29o3497RJysICwcwK+2mB1ejnArHUjVDxqfv77mjrp16Pu
+	CUyRxxh5qiwMCGMWKfWjHN/XlGzTX2RDkuCEZrscG/V378T9aQQaDV3O8RnqhPfiybbipoU0+ta
+	uBD3JvNZ2WCap1HgZ25y7FO7emfnfvGc=
+X-Received: by 2002:a05:6512:12ca:b0:5ae:aeeb:e902 with SMTP id
+ 2adb3069b0e04-5b2b2e4a6d1mr1388989e87.13.1784877882305; Fri, 24 Jul 2026
+ 00:24:42 -0700 (PDT)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260723_194232_062322_FC2A5072 
-X-CRM114-Status: GOOD (  12.17  )
+References: <cover.1784013063.git.u.kleine-koenig@baylibre.com> <72f0871dda4d65bb2b6ff8827da6a3b2dfdffab6.1784013063.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <72f0871dda4d65bb2b6ff8827da6a3b2dfdffab6.1784013063.git.u.kleine-koenig@baylibre.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 24 Jul 2026 09:24:28 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=Cu=CKVdFTyrf7qfP--U-K==6Q-oMgerMfian_pwks=Q@mail.gmail.com>
+X-Gm-Features: AUfX_mwgzz4U49kjYn2t0Q6F2gaYlikzFa7qviMieYEmwgYwO8V-etZipo96ywY
+Message-ID: <CAD++jL=Cu=CKVdFTyrf7qfP--U-K==6Q-oMgerMfian_pwks=Q@mail.gmail.com>
+Subject: Re: [PATCH v1 07/20] gpio: Add missing OF module annotations
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Ray Jui <rjui@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Imre Kaloz <kaloz@openwrt.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
+	Robert Jarzmik <robert.jarzmik@free.fr>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,52 +83,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Surendra Singh Chouhan <kr494167@gmail.com>
-
-p1_rtc_read_time() called if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
-to check if the RTC was enabled.
-
-regmap_test_bits() returns 1 if the bit is set, 0 if not set, and a
-negative error code (e.g. -EIO) if reading the control register fails.
-Using !regmap_test_bits(...) evaluates a negative error code as boolean
-false, causing I2C/regmap read failures to be ignored and incorrectly
-proceeding to read time registers from a failing device.
-
-Fix this by capturing the return value of regmap_test_bits() and returning
-the error code if negative, or -EINVAL if the RTC is disabled.
-
-Fixes: a6de182daa2b ("rtc: spacemit: support the SpacemiT P1 RTC")
-Signed-off-by: Surendra Singh Chouhan <kr494167@gmail.com>
----
- drivers/rtc/rtc-spacemit-p1.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/rtc/rtc-spacemit-p1.c b/drivers/rtc/rtc-spacemit-p1.c
-index 43ab62494bb4..c1820c920ba3 100644
---- a/drivers/rtc/rtc-spacemit-p1.c
-+++ b/drivers/rtc/rtc-spacemit-p1.c
-@@ -57,8 +57,9 @@ static int p1_rtc_read_time(struct device *dev, struct rtc_time *t)
- 	u8 time[6];
- 	int ret;
- 
--	if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
--		return -EINVAL;		/* RTC is disabled */
-+	ret = regmap_test_bits(regmap, RTC_CTRL, RTC_EN);
-+	if (ret <= 0)
-+		return ret ? ret : -EINVAL;	/* RTC is disabled or error */
- 
- 	ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
- 	if (ret)
--- 
-2.55.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdWwgMTQsIDIwMjYgYXQgOToyNeKAr0FNIFV3ZSBLbGVpbmUtS8O2bmlnIChUaGUg
+Q2FwYWJsZSBIdWIpCjx1LmtsZWluZS1rb2VuaWdAYmF5bGlicmUuY29tPiB3cm90ZToKCj4gQSBk
+cml2ZXIgbW9kdWxlIG1hdGNoaW5nIGRldmljZXMgdXNpbmcgYW4gb2YgZGV2aWNlIGlkIHRhYmxl
+IGlzIHN1cHBvc2VkCj4gdG8gZGVjbGFyZSB0aGF0IGluIHRoZSBtb2R1bGUncyBtZXRhZGF0YS4g
+QWRkIHRoaXMgaW5mb3JtYXRpb24gZm9yCj4gc2V2ZXJhbCBkcml2ZXJzIHRoYXQgZmFpbGVkIHRv
+IGRlY2xhcmUgdGhlc2UuCj4KPiBTaWduZWQtb2ZmLWJ5OiBVd2UgS2xlaW5lLUvDtm5pZyAoVGhl
+IENhcGFibGUgSHViKSA8dS5rbGVpbmUta29lbmlnQGJheWxpYnJlLmNvbT4KClJldmlld2VkLWJ5
+OiBMaW51cyBXYWxsZWlqIDxsaW51c3dAa2VybmVsLm9yZz4KCllvdXJzLApMaW51cyBXYWxsZWlq
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
