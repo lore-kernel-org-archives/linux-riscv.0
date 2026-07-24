@@ -4,92 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D59C531D0
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 02:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC77C531CC
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 02:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:References
-	:In-Reply-To:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vfMfo8ZIJpSjHsTQTwzjmoddoMG/ob2mgN1UEdEo1Jc=; b=sdkZi0EyTLEFkZ
-	F1WGhgL/PWgFB/1jaQ2haxeMpmvxVEnV1/47UVIhzvxm1+AxEsInjCF8n6W+JLaaw/Z+mewLJuKYr
-	3iYTieMTZxBI7itozlpQFi+TxsqcwjbQFkn2wFNtUQWWlGYo2T+HISXxgG+/lbQsiOFthAiELsWWC
-	ez3HNPzsuT6ioDh0hRgkXKIP0JSdUuNb6RRqjnzrb/lgRr1/T3BF7CJ29qawKkd2NNr+w3fJSWBzF
-	/z70WXkcwioTKS66aHomR5DPM8QGH4KifDdiYjzQBuRyrOoFaFg0eLW1RryN8rirarTL8tDIg0XDH
-	KnJU1hCj9i9QBwtI0g/A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PhREH/7O/ox1J/z6DwVz2uasrzbbr2ZbZJbKvz3+Z0Q=; b=R37v+u9xSufU3b
+	g4vCIqsdpvkWM4SrWltyqIE+Bg3mbb6Ln/uaq5GMQaPz7wy729l19ShejskzmzVFYiCiRVFh/w0Qi
+	ak0nM9b7Gxcr3ZEll8QHkgDmrRec4BNWUo/mfEPjkMg+UpLpDC3ALBcHd+tJdUUTD+Dsyyh641asi
+	uHHxtYWqFmCVDEK9qebX6upZynIpVkAtJVw4rS6ArIc0O3ko/gb2yeHjRL5DYiZvJgy0EwvAQBAUy
+	C6Eocz8DGaNy+SgibjZfU9m0Bn08n5n2Mht9PNqLqRZ68x4sR8J68/NVWzHyNgJfAm2W6FNDkbQmJ
+	DbFaDjGjOL+OWmwjY+MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn5ae-0000000FO8Y-3npc;
-	Fri, 24 Jul 2026 02:24:44 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wn5ru-0000000FOxm-2d9f;
+	Fri, 24 Jul 2026 02:42:34 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn5ae-0000000FO8J-0sFk
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 24 Jul 2026 02:24:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Date:
-	Message-ID:References:In-Reply-To:Subject:CC:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=NxucgfmUZTTQksm+oT0kkIAMiRNz/Lw+gJQy4Q1nerQ=; b=UeJZdmlET/JJA+qN2RSCiP5/98
-	HnYxqMf1n+5KXWogj8yfoOXc/iy5ZHBXQax6RauUpvCLMcv4zqooamKSf5rd8AhT38/SRo8C2MmSp
-	Yas2gR/YH+ZqqHXMd3NpSsOdZsvM56NO0IGbC3DLii7yVWq9f9zi3/wFb8pYLPVCsjYoiiKToPqKI
-	yAqwcD5zNsQCvfkKsguKzsf7g8iUakw6ZonQ/WUu8NSc4gPyoepAYAvCBOfWYmAAxUAiI71zToSLL
-	uosziPJ/ZpHPNamb1QQr16/g5yBXzyzuxBod+Vihxvm/0iXQWjzQqLJaTUE8OGH9+lOxiL7gOl2aa
-	k3NHToog==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wn5aa-00000002RgC-0kk3
+	id 1wn5rr-0000000FOxP-4BAE
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jul 2026 02:24:43 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66O2NhNeA920495, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1784859823; bh=NxucgfmUZTTQksm+oT0kkIAMiRNz/Lw+gJQy4Q1nerQ=;
-	h=From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
-	 MIME-Version:Content-Type;
-	b=ZjyF9+GG3k2dFJttsAYKW2+RcQKhh0TaSCg/z7srQHpWLaia3zLsaHeYPlHO9TJVp
-	 Gq2p6AikuHRGA6G/uBELsEcAh88XBWbNy28OoVXDYC47psBYN+Nq8DkR7w/6InF5yA
-	 ogC+ZVcV7Dd5cw7NCHAOWW2jZWbTT3l2me8brdLzVCrZLe4ix0ttLIxt/bN3JcNqIB
-	 bZ4xG6aBiIs853U/QE0W2J6TfJgP8M2LZ9Wf14Xl27olkNT8ZshgkCcAL/98eMXob3
-	 CdIRDLC57mYNotlcLVjdS/Ui7Zrrbq1eGtYBi/d9GfiuHajNRwuEpVGuqSihBrnVzj
-	 +6qNFBuPZYIxQ==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66O2NhNeA920495
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 24 Jul 2026 10:23:43 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 24 Jul 2026 10:23:43 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 24 Jul 2026 10:23:41 +0800
-Received: from [127.0.1.1] (172.21.40.75) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17 via Frontend
- Transport; Fri, 24 Jul 2026 10:23:36 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, Bjorn Helgaas
-	<bhelgaas@google.com>, Yixun Lan <dlan@kernel.org>, Ping-Ke Shih
-	<pkshih@realtek.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?utf-8?q?Krzysztof_Wilczy?= =?utf-8?q?=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
-	Inochi Amaoto <inochiama@gmail.com>, Aurelien Jarno <aurelien@aurel32.net>
-CC: <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
-	<linux-wireless@vger.kernel.org>, Anirudh Srinivasan
-	<asrinivasan@oss.tenstorrent.com>
-Subject: Re: [PATCH v2 1/2] PCI: Move Spacemit vendor and device IDs to linux/pci_ids.h
-In-Reply-To: <20260716-rtw89-spacemit-k3-v2-1-392b577ebf75@oss.tenstorrent.com>
-References: <20260716-rtw89-spacemit-k3-v2-0-392b577ebf75@oss.tenstorrent.com> <20260716-rtw89-spacemit-k3-v2-1-392b577ebf75@oss.tenstorrent.com>
-Message-ID: <9659279d-224e-4029-bdc0-d7bfa627c016@RTKEXHMBS06.realtek.com.tw>
-Date: Fri, 24 Jul 2026 10:23:36 +0800
+	Fri, 24 Jul 2026 02:42:33 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2cc97653887so15753705ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Jul 2026 19:42:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784860950; x=1785465750; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=z4bvXbXayEnCzzJXqVJPK7lahyeIFGKn1fz42KqQtbg=;
+        b=cHTJG0W57Znaj9iYfVEo3wun3w57pssdyw7CcA3WVyu1t+MCdV84eqfuqzHgyjEyu1
+         0tcNoG/uE1n9EKx8BRZDCNc/6s+fIFh63B6PBOAcOy8i3uwRa9i6Tv3DFAroAfAmHLMS
+         LR3Ul9L2xITMJGhgNRMb/6IIQK04EXx9Pm23P4bSL3zoSWBTGnXYCHynvw2tWohO4uL3
+         9Dx1Qs1Drs5cFOrjS5V4+hlVqykEhxF3SrvgaBQgyjF0AhRnpapCigOM6STyVI68VCTr
+         vSMMkGdWc0WRBZ4oOoxKMS873iOMw8/s3HuXm78ydB43v22sQC71orh9c/x/7HWnOoyV
+         XxEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784860950; x=1785465750;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z4bvXbXayEnCzzJXqVJPK7lahyeIFGKn1fz42KqQtbg=;
+        b=fGfLsTDhALoaQdf/rdaBfckB9blB76LSW3sIdr3tGkuZekt02Ci6RFUiPgcL2J+5cW
+         qAdDFcymt28BRke+UBxfKTsJtTGlxPj+Kb7HfzdKQudOQ2Qt8hvNognmpO4bVw8epnQB
+         6PP1ziytt96XjcFRgibxW2QMKxJ79wZorWf557o6qEEHHa62+aO0JzyoWO2hmAO689Yw
+         wzhzfw362eULcomfgWIbGSleNazOZfPxDZUSekuOGrCO97GkOVoL9Xq/wM9/4ZJBWvo9
+         nOArGTOnADDk8Aj48qKuowdUsT3WOt8KSiAtzItTUn6HP+XCwkLu1sEafc8iMPDLgpj9
+         7PXw==
+X-Forwarded-Encrypted: i=1; AHgh+RpYRow3niUxQwo6lumamd9Zb9sq6w9X6GsujKA9SHiVq5T1H8ZnxBcABmw2sE1K+2B68dvfwg+xAABDoA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwufcZyL4Q2UP7douAvNKicXZZUhCm/trvAeu2XtCJKWF6ER7K/
+	xXeTVFCqr2+8D189UHCas8KwYorqxjmY3L5x1lZ8GrUhjjaIcIbM4As=
+X-Gm-Gg: AR+sD12oaKwb3ZbIsYB83oDLELcQbhXBfhyISQ00PwLwbWHR3cVpDqLUYY8JLgSwUXu
+	w2RXTZz5IM/lRTXZpNULL/MW0p0F2jwWny5KXbRMgf0pwiq/Yh0z1VvovIUEzKp3w3Q5HHSw3IO
+	YgsB6sTgL4lq65obM4nQ8bbRUpS8rHzIhCAeAxOOMSZjylJjHJ/lZDInVpxh7kh/fMn38YCh64V
+	QtE4etm/eyTwLf3B3c+lx52L8pifMY4LI7c0rqpeXthtRjKcOJ8NWhpOV9VT61Jbdb1ryEJAN3k
+	crADQ29DWvmrC4p8SWi2Y2N2i0pgFag3j9Fqx8cKqQa7YnUk8jtTwYJ4zJ5D0LNt5M+5bEhlKHe
+	R3cx9+/XZ6S/US/tEqd1QoZrdBbO5EyEiDPXpTiGQ8icQ68bafFIQoWHyqcUYwnLGnFujcIGyyq
+	Zg7tTAOXg95mvh9ntb8ldE5O5miYo=
+X-Received: by 2002:a17:903:2b0d:b0:2ca:f8ef:33e4 with SMTP id d9443c01a7336-2cfa71d9468mr61759585ad.17.1784860950411;
+        Thu, 23 Jul 2026 19:42:30 -0700 (PDT)
+Received: from t-rex ([2401:4900:7b1c:a30e:8622:dbfc:dd30:d90d])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3147e1b6a45sm24761728eec.28.2026.07.23.19.42.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jul 2026 19:42:29 -0700 (PDT)
+From: kr494167@gmail.com
+To: alexandre.belloni@bootlin.com,
+	dlan@kernel.org
+Cc: elder@riscstar.com,
+	linux-rtc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Surendra Singh Chouhan <kr494167@gmail.com>
+Subject: [PATCH] rtc: spacemit: handle regmap_test_bits() error return
+Date: Fri, 24 Jul 2026 08:12:20 +0530
+Message-ID: <20260724024220.10113-1-kr494167@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_032440_529164_6E4BCE64 
-X-CRM114-Status: UNSURE (   7.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260723_194232_062322_FC2A5072 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,24 +101,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com> wrote:
+From: Surendra Singh Chouhan <kr494167@gmail.com>
 
-> Move the vendor and device ID for the existing Spacemit K1 PCIe Root
-> Complex to include/linux/pci_ids.h. Also add K3's Root Complex device ID
-> to this header. This is done so that these values can be referenced in
-> the rtw89 driver to enable 36-bit DMA ability in it for WiFi to function
-> on the K3 Pico ITX board.
-> 
-> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-> Signed-off-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+p1_rtc_read_time() called if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
+to check if the RTC was enabled.
 
-2 patch(es) applied to rtw-next branch of rtw.git, thanks.
+regmap_test_bits() returns 1 if the bit is set, 0 if not set, and a
+negative error code (e.g. -EIO) if reading the control register fails.
+Using !regmap_test_bits(...) evaluates a negative error code as boolean
+false, causing I2C/regmap read failures to be ignored and incorrectly
+proceeding to read time registers from a failing device.
 
-888b1934642b PCI: Move Spacemit vendor and device IDs to linux/pci_ids.h
-27a5046cc56e wifi: rtw89: pci: enable 36-bit DMA on spacemit K3
+Fix this by capturing the return value of regmap_test_bits() and returning
+the error code if negative, or -EINVAL if the RTC is disabled.
 
+Fixes: a6de182daa2b ("rtc: spacemit: support the SpacemiT P1 RTC")
+Signed-off-by: Surendra Singh Chouhan <kr494167@gmail.com>
 ---
-https://github.com/pkshih/rtw.git
+ drivers/rtc/rtc-spacemit-p1.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/rtc/rtc-spacemit-p1.c b/drivers/rtc/rtc-spacemit-p1.c
+index 43ab62494bb4..c1820c920ba3 100644
+--- a/drivers/rtc/rtc-spacemit-p1.c
++++ b/drivers/rtc/rtc-spacemit-p1.c
+@@ -57,8 +57,9 @@ static int p1_rtc_read_time(struct device *dev, struct rtc_time *t)
+ 	u8 time[6];
+ 	int ret;
+ 
+-	if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
+-		return -EINVAL;		/* RTC is disabled */
++	ret = regmap_test_bits(regmap, RTC_CTRL, RTC_EN);
++	if (ret <= 0)
++		return ret ? ret : -EINVAL;	/* RTC is disabled or error */
+ 
+ 	ret = regmap_bulk_read(regmap, RTC_TIME, time, sizeof(time));
+ 	if (ret)
+-- 
+2.55.0
 
 
 _______________________________________________
