@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC15BC531F9
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 22:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAEDAC531C9
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 22:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DbP4ucDSzi8ink4kp9QVn3bcqSgQ3qecjFQ6GsP4EF4=; b=hDRVGB3xq0XGCI
-	tmQ1vDFpQsUbDqDRx+ZE/1DXA3zi088HwgQqGL/PJ5KeAJRTtkBV+5UzxzoQT+G8PY4Ui7oUC8y0W
-	DudS83N/QzN8XkAwWJS3Fprv2mdSF1TdciM5+Bh0yBqdL7KqiDB5zJUCYy658hwsl80sOQQvfEW5f
-	hmCgBIShXCXYjyBl7n8LfP5YMbDu757ITgEnmF9QR5k8i4b+thrjnO4wRlKJikqx0u/uJv6fJv3jF
-	O28NQ2FnOfRoG4vaC94RJEVmwNjjmMZHYItos3tmic5K915hF98ZMNS4PtT6ol6xQwLTiNOtF2/p+
-	50vXsj+KavmTvY2t9luQ==;
+	List-Owner; bh=R3N5ZFmRDTm4Q3GurfP7g7KwJ83JLyomgD6X/MhylnM=; b=OUIryA3DJE6tNT
+	5orE+CLoQc8Qx47Q0XQD677F+Lymyi7wmd2LF5+IeAL2+IPjT0E9vKA3QDYgip1DGIg4DsC6ntacY
+	VmfTBtXF1JwsEYjFhmXQq4AUWd6/Zy/US/BPs8/S3AysgphaNhYS7KcwfUdIy9VK2mfvRoccRIIE9
+	u4CYW4cieAfBhb9obtw7gEvpLSQ376LPxu4PqqszCeVYGAc1TkTOvra7eUp2rx4i6ZmksBc+lIZ2R
+	P1By7jhr6B38hGhH87db95WP7PJxHPC/tWpU6+VYc8VCfRgggMvTw15nZSQM4YEZLP1YylbcReO+G
+	mEW8+uZk0RkqdUUm7bYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOel-0000000HKIo-0mgG;
-	Fri, 24 Jul 2026 22:46:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wnOex-0000000HKRj-24yP;
+	Fri, 24 Jul 2026 22:46:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOeW-0000000HKCW-2QL0;
-	Fri, 24 Jul 2026 22:46:02 +0000
+	id 1wnOeZ-0000000HKDb-06gD;
+	Fri, 24 Jul 2026 22:46:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 060DE600AD;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7E1D5438AA;
+	Fri, 24 Jul 2026 22:46:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B35881F00A3A;
 	Fri, 24 Jul 2026 22:46:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3376F1F00A3D;
-	Fri, 24 Jul 2026 22:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784933159;
-	bh=h8hrSHao4mZDBLRUP9tN41ewPkOVLHsnaP0U7gAOeZU=;
+	s=k20260515; t=1784933162;
+	bh=NMNOc/In+fWMgaFH9Omi735YDJBG/gXGBfILoP1ztBQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=F4kinEg6VFnFYpcYlOYDgBJ13uZKg8bFJwyDYqhRrYLgEFZJkm7VYiUQtifSEDrJi
-	 k8mjpFeRCs0rUfU2vLcxiZc6e8re+xJO7nSmQTSV0O0oyAYFIPilYt1igMn0INk6U3
-	 QnJ0BrgjZMYhdYbMiT9ubFCxk98oJVCHG99lkD2NgTD9yNgbefKINogWHk143NDXWR
-	 eJKN1d6gOUbEgjCxKn7xOzQt+M4VLqmXP0t2fP8FUmU1gi7meI5uzJ7X5n5dIyQIfk
-	 TcqXv9DuPjIgHgJ2BbV8225yls7zoV93gWByvc4/WxA2jGeMBprF6q0qSq2Xt7zmV0
-	 jhqohKHwhA5DA==
+	b=bX9Zr4D/LezvZIgMRUL1/Y6JZMzid0uz4HB42PhG9lZ+PJcEN99y4/pWQYi1vYEGG
+	 7m5MkBADwk+RPybApZ8J2wjXuNVd1nDRkdybcPI8tchX21wCu1VuExWAULiBRosMC7
+	 1dcMWc7XyYLftbkZw/D9sTa07UbX7rQR9hD0AVOyVcB2CNbdYw4DQsFF80yeqS8ZTY
+	 WhS3qzoX2on/sRmaOR/TO8jot7UJPz1fmqtxzvWbRYPcPnKCAHzFgrJ9e99DQmS7BU
+	 +0HCuf4xYtLNSlfZLry2sHbBTZcWk0h64W5cOSNw4jpzRn1IUFBJO51R0wSrUGpcHs
+	 bVg7A6UxVK9og==
 From: Jakub Kicinski <kuba@kernel.org>
 To: bartosz.golaszewski@oss.qualcomm.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -90,12 +90,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	sophgo@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	bartosz.golaszewski@linaro.org
-Subject: Re: [PATCH net-next v13 03/10] phy: qcom: add the SGMII SerDes PHY driver for SCMI systems
-Date: Fri, 24 Jul 2026 15:45:55 -0700
-Message-ID: <20260724224555.1649131-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v13 06/10] net: stmmac: qcom-ethqos: update phy_mode to the resolved interface in mac_finish()
+Date: Fri, 24 Jul 2026 15:45:59 -0700
+Message-ID: <20260724224559.1649383-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260713-qcom-sa8255p-emac-v13-3-119f8699ef8e@oss.qualcomm.com>
-References: <20260713-qcom-sa8255p-emac-v13-3-119f8699ef8e@oss.qualcomm.com>
+In-Reply-To: <20260713-qcom-sa8255p-emac-v13-6-119f8699ef8e@oss.qualcomm.com>
+References: <20260713-qcom-sa8255p-emac-v13-6-119f8699ef8e@oss.qualcomm.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,155 +116,97 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-phy: qcom: add the SGMII SerDes PHY driver for SCMI systems
+net: stmmac: qcom-ethqos: update phy_mode to the resolved interface in mac_finish()
 
-This adds a firmware-managed variant of the Qualcomm DWMAC SGMII
-SerDes/PHY driver for platforms where the SerDes hardware (clocks and
-registers) is owned by the firmware and controlled via an SCMI power
-domain performance state.
+This patch updates ethqos->phy_mode from the interface argument in
+ethqos_mac_finish_serdes() so that it always reflects the last resolved
+interface, avoiding a stale value being observed by later
+serdes_powerup()/serdes_powerdown() calls when the runtime interface
+differs from the DT phy-mode.
 
-A few questions on the new driver below.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> index 47b70b5e706f..9d19203ae4bd 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> @@ -632,6 +632,12 @@ static int ethqos_mac_finish_serdes(struct net_device *ndev, void *priv,
+>  	struct qcom_ethqos *ethqos = priv;
+>  	int ret = 0;
+>  
+> +	/* The interface mode is only known once phylink has resolved it and
+> +	 * may change at runtime, so keep it in sync for later
+> +	 * serdes_powerup()/serdes_powerdown() calls.
+> +	 */
+> +	ethqos->phy_mode = interface;
+> +
+>  	qcom_ethqos_set_sgmii_loopback(ethqos, false);
 
-> diff --git a/drivers/phy/qualcomm/phy-qcom-sgmii-eth-scmi.c b/drivers/phy/qualcomm/phy-qcom-sgmii-eth-scmi.c
-> new file mode 100644
-> index 000000000000..aa7ce9393b28
-> --- /dev/null
-> +++ b/drivers/phy/qualcomm/phy-qcom-sgmii-eth-scmi.c
-> @@ -0,0 +1,165 @@
+[High]
+Is the ordering here safe with respect to qcom_ethqos_set_sgmii_loopback()?
+
+That helper early-returns unless ethqos->phy_mode equals
+PHY_INTERFACE_MODE_2500BASEX:
+
+    static void
+    qcom_ethqos_set_sgmii_loopback(struct qcom_ethqos *ethqos, bool enable)
+    {
+            if (!ethqos->needs_sgmii_loopback ||
+                ethqos->phy_mode != PHY_INTERFACE_MODE_2500BASEX)
+                    return;
+            ...
+    }
+
+Because ethqos->phy_mode is now overwritten with the freshly resolved
+interface before the qcom_ethqos_set_sgmii_loopback(ethqos, false) call,
+does that clear-side path still fire when the interface transitions away
+from 2500BASE-X?
+
+Consider a needs_sgmii_loopback platform (for example sa8775p) with a DT
+phy-mode of 2500BASE-X. At probe time ethqos_clks_config(true) asserts
+SGMII_PHY_CNTRL1_SGMII_TX_TO_RX_LOOPBACK_EN in the wrapper while
+ethqos->phy_mode is still the DT value 2500BASE-X. If phylink later
+resolves the interface to SGMII and calls ethqos_mac_finish_serdes():
+
+    ethqos->phy_mode = interface;                   /* now SGMII */
+    qcom_ethqos_set_sgmii_loopback(ethqos, false);  /* early-return */
+
+Does the port then enter SGMII operation with the wrapper TX-to-RX
+loopback bit still asserted, which is the exact 2500BASE-X to SGMII
+runtime-transition scenario the commit message says it wants to make
+work?
+
+Would calling qcom_ethqos_set_sgmii_loopback(ethqos, false) first,
+against the old phy_mode, and only then assigning
+ethqos->phy_mode = interface avoid this?
+
+The commit message describes the change only in terms of
+serdes_powerup()/serdes_powerdown():
+
+    ethqos->phy_mode is read by serdes_powerup() and
+    qcom_ethqos_set_sgmii_loopback() to configure the SerDes and its
+    wrapper for the correct interface.
+    ...
+    Update ethqos->phy_mode from the interface argument in
+    ethqos_mac_finish_serdes() so that it always reflects the last
+    resolved interface.
+
+Should it also mention that the assignment changes what the immediately
+following qcom_ethqos_set_sgmii_loopback(ethqos, false) observes?
+
+For reference, this appears to be addressed later in the same series by
+commit 8d1efdf990fc ("net: stmmac: qcom-ethqos: fix SGMII loopback not
+set on resume after speed change"), which extends the guard in
+qcom_ethqos_set_sgmii_loopback() to also match PHY_INTERFACE_MODE_SGMII.
+That follow-up commit message frames the fix as a set-side DMA-reset
+timeout on resume, but does the same guard change also happen to unbreak
+the clear-side path introduced here? If so, would it be worth either
+reordering the two statements in this patch or folding the guard update
+in ahead of this one to avoid a bisect window where the SGMII wrapper
+loopback stays asserted after a 2500BASE-X to SGMII transition?
+
+>  
+>  	if (interface == PHY_INTERFACE_MODE_SGMII ||
 
 [ ... ]
-
-> +static int qcom_dwmac_sgmii_phy_scmi_power_on(struct phy *phy)
-> +{
-> +	struct qcom_dwmac_sgmii_phy_scmi *priv = phy_get_drvdata(phy);
-> +	struct device *dev = phy->dev.parent;
-> +	int ret;
-> +
-> +	ret = pm_runtime_resume_and_get(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = dev_pm_genpd_set_performance_state(dev, priv->perf_state);
-> +	if (ret) {
-> +		pm_runtime_put(dev);
-> +		return ret;
-> +	}
-> +
-> +	usleep_range(5000, 10000);
-
-[Medium]
-What is the firmware contract that the 5-10 ms sleep is enforcing here?
-
-If firmware synchronously waits for PLL lock / PCS ready before returning
-from the SCMI perf-state call, this sleep looks unnecessary and could use
-a comment saying so.
-
-If firmware returns before the SerDes has stabilized at the requested rate,
-then the fixed 5-10 ms delay may be too short. The sibling HLOS driver
-drivers/phy/qualcomm/phy-qcom-sgmii-eth.c polls QSERDES_COM_C_READY_STATUS,
-QPHY_PCS_PCS_READY_STATUS (PCS_READY and SGMIIPHY_READY), and
-QSERDES_V5_COM_CMN_STATUS (PLL_LOCKED) with a timeout on the order of
-750 ms in qcom_dwmac_sgmii_phy_calibrate(), which suggests worst-case
-ready time can be considerably larger than 10 ms.
-
-The same concern applies below in set_mode(): when phy->power_count > 0
-the driver issues the same perf-state vote to switch between SPEED_1000
-and SPEED_2500 with no delay at all. Should the two paths agree on
-whether a settling delay is required?
-
-> +
-> +	return 0;
-> +}
-> +
-> +static int qcom_dwmac_sgmii_phy_scmi_power_off(struct phy *phy)
-> +{
-> +	struct device *dev = phy->dev.parent;
-> +
-> +	dev_pm_genpd_set_performance_state(dev, 0);
-> +	pm_runtime_put(dev);
-> +
-> +	return 0;
-> +}
-
-[Low]
-Should power_off check the return value of
-dev_pm_genpd_set_performance_state(dev, 0)?
-
-The power_on path unwinds pm_runtime on failure, but here a failing SCMI
-transport call is silently discarded and the function still returns 0.
-If the vote is not cleared, the domain retains an active performance
-state while the PHY core believes the PHY has been powered off, leaving
-firmware and driver state out of sync with no dev_warn/dev_err.
-
-> +
-> +static int qcom_dwmac_sgmii_phy_scmi_validate(struct phy *phy, enum phy_mode mode,
-> +					      int submode,
-> +					      union phy_configure_opts *opts)
-> +{
-
-[ ... ]
-
-> +}
-> +
-> +static int qcom_dwmac_sgmii_phy_scmi_set_mode(struct phy *phy, enum phy_mode mode,
-> +					      int submode)
-> +{
-> +	struct qcom_dwmac_sgmii_phy_scmi *priv = phy_get_drvdata(phy);
-> +	struct device *dev = phy->dev.parent;
-> +	int ret;
-> +
-> +	ret = qcom_dwmac_sgmii_phy_scmi_validate(phy, mode, submode, NULL);
-> +	if (ret)
-> +		return ret;
-> +
-> +	priv->perf_state = (submode == PHY_INTERFACE_MODE_2500BASEX) ?
-> +			   SPEED_2500 : SPEED_1000;
-> +
-> +	if (phy->power_count == 0)
-> +		return 0;
-> +
-> +	return dev_pm_genpd_set_performance_state(dev, priv->perf_state);
-> +}
-
-[Low]
-Would it be worth documenting the contract between these ethtool link-
-speed constants and the SCMI provider's OPP table?
-
-SPEED_1000 (=1000) and SPEED_2500 (=2500) are passed directly to
-dev_pm_genpd_set_performance_state() as opaque state tokens looked up in
-the domain's OPP table by the genpd core. Nothing in the driver, the
-binding, or the commit message states that the firmware must expose
-OPPs numbered exactly 1000 and 2500. If a future firmware indexes its
-OPPs differently (for example 0/1, or in MBd), mode changes would
-silently misconfigure the SerDes here. A short comment or a small helper
-that maps submode to a named state would make the assumption explicit.
-
-[ ... ]
-
-> +static const struct of_device_id qcom_dwmac_sgmii_phy_scmi_of_match[] = {
-> +	{ .compatible = "qcom,sa8255p-dwmac-sgmii-phy" },
-> +	{ }
-> +};
-
-[Low, Low]
-Two questions on the accompanying DT binding for
-qcom,sa8255p-dwmac-sgmii-phy for this compatible.
-
-The binding makes reg a required property with a 0xe10-byte range
-describing the SerDes, but this driver never calls
-platform_get_resource(), devm_platform_ioremap_resource(), or any
-register-access API, and the commit message explicitly states that
-firmware owns the SerDes and no register or clock access is done here.
-Should reg be dropped from required (or removed from the schema), or
-should the binding document why the OS must describe an address block
-it never touches?
-
-The binding also requires power-domain-names (const "serdes"), but the
-driver relies on the single implicit genpd attached to dev->pm_domain by
-the driver core and never looks up a domain by name (no
-dev_pm_domain_attach_by_name() or similar). Would it be reasonable to
-either make power-domain-names optional, or note in the binding what
-future consumer the named lookup is intended for?
 
 _______________________________________________
 linux-riscv mailing list
