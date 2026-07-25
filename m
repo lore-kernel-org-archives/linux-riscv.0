@@ -4,59 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01560C531C9
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2026 22:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980F2C531C9
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 00:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5zepeJiY6MJZKiEmgAYmSgAk/CCuIxK+S8iLiqRsMpk=; b=lj6Q+R+MFa11ip
-	1v7nXePFFxKhlGynwuCuDFlE2s2a7qJE61/YCOJZ+4alhDO59hn7Zxrw6M5pvfGtdXus6muqdo3ro
-	i7SVwRwGp+keF3xvyipZQw8mpLLpPiI+Z6J9XnsnPlaNDwx0/z6TjHHMsuOHRysf94GYHGN2keP/c
-	Azmr99qy2AzMEmzpLS+s7u1x3MVanVApYvBmfwU0COtg9sIA8xkGEHvQuLgtjUj9PkldPCjFK0b0x
-	5OUMtGNIF81xXbS3gDK6JiM6BqgqHu8t7q9at8m2LwyazNsex3gL2ncYZWt1LsCYqo/+RaeoTh/jT
-	G3brquKAAzRVm5ARmptg==;
+	List-Owner; bh=GLK+yaGVrlwB1BiYrqSrTB3PhKDfHBWOZ6S3JGvGivw=; b=XC+2MUUk0tRFsJ
+	WMk9vhDeTkcN4lTVLOhl7moiBs355Qv5ZDd1dRvPqM1CkQuYw1pCZLq1SeDmei4CJCSne1qLmfRjG
+	YhUWbaldJEEK6js+ZJPGi6wu/8WUjWOptAFJo8cdZk0W9v4bznFI4r+Q3dbfCTWwye0P2m8V5Nt61
+	/0Oq9FwDmG/ceqfp65KDHnqOqbgjPxDmZb/s3BcqgkeXKbFCVsf45YTKH/xqxaBSCWDEnAlDM1jFl
+	rDTkHxIE316KqmXoK03Z4hGJ0mjZH3TFJL/3o1qs8vT8jmm8oq5O/6EbWu2T3dctbavmLIepzjFuv
+	ZCTtFZwkmRKkx7gbN+dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOkX-0000000HLDj-12Ki;
-	Fri, 24 Jul 2026 22:52:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wnQ4Y-0000000HOKN-1Nd3;
+	Sat, 25 Jul 2026 00:16:58 +0000
+Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnOkU-0000000HLDb-0txJ
+	id 1wnQ4V-0000000HOIv-0QuA
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jul 2026 22:52:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 235284034A;
-	Fri, 24 Jul 2026 22:52:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37C821F000E9;
-	Fri, 24 Jul 2026 22:52:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784933529;
-	bh=j7VH+I1lcj9KOCqFU/y/KDTXauZwmnuiNnkt0ffMsyQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Vx2PrZUNdbhNA5e32im1FcrlqlzID9yIgWaOccGgWy7tnwVk696zvUlJSPHsKYlGi
-	 gKzSo5R5i92N7fE27fNPAnKJWCvj/pKBWM9eX44lq+/LkGJ4v44Gzsc0YBaBiWIvpo
-	 ffI8bb44JNyeAGjZudK3SM3U2o96mFxxyubGxfJNlTgYEsHiQ2UDq0dBD1GzwgZhm7
-	 4abwKjyOoolzDVXVsPUsfSzF+8M2w5ngb67UfNJ7kwAvpVt+v9YJO3XBBIVzXn1EyX
-	 qZKmxhumcavIvL+zLez0aTYn76FQlNqsqt7iS6zP1SSeOFk+VKFegE3oApyhwtJ02p
-	 2j3efIWm/xDHg==
-Date: Sat, 25 Jul 2026 00:52:05 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Linmao Li <lilinmao@kylinos.cn>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
-	Yixun Lan <dlan@kernel.org>, Alex Elder <elder@riscstar.com>, linux-i2c@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] i2c: spacemit: request IRQ after controller
- initialization
-Message-ID: <amPsP5o2wWqszbfU@zenone.zhora.eu>
-References: <20260722094302.2284191-1-lilinmao@kylinos.cn>
- <20260723021140.2293844-1-lilinmao@kylinos.cn>
+	Sat, 25 Jul 2026 00:16:56 +0000
+Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-6aac8a94a2bso553071eaf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 17:16:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1784938614; x=1785543414; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XQiF3eVVe6gJYJ8m70qxbI5yAOLzmDA8u0NMqlvADAY=;
+        b=CpNPUwYiQ1SFutGBDjGRlwoPSb/oJc4xGGaa3htTo+trFM4UWN0EfymksRFKR1ZXDU
+         H6F/jWdLUcpAClOBSA39JtSfzubrCNLo7hJYIpR6PLaU+Q1HOT1hWvFOxLUA4wEPG62M
+         n0rGORbBsknxDWG712jJLqu+vFCd5htxdclkwZZqe7pEyHp7Rbu0Rbxh4zegtTsT+ra1
+         nxJvJxfKbtuRtdfMsvvyVZ0q+T1TtBAvFEsRRmdY+zXadiBpEsbfc1UbBCW1SPx8UqtT
+         xzigeW2yV1uvtE1DXEt2wyPegsBPfr5hgtLMsLoFBmuhpAK1dIBHI2/uqfTrNcjUJpEv
+         cDTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784938614; x=1785543414;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XQiF3eVVe6gJYJ8m70qxbI5yAOLzmDA8u0NMqlvADAY=;
+        b=XbfdPspwnd4uwfi4f7vNTf2y0jOU5hj65ioYzU5/iGKN7MnY+J75OvuDvSlA7Xfkdm
+         ocRC1hBqSQvIxWWvVEPKu1Q1kHVlVPgYoCP+Y9iLRRKguVtYLWyuV8C7y59/07c0XqvW
+         hKPHRvhFcEisnwRt0Gp/JZWqqcazVO1cIEVqEmPfjShc2SPb+Tz4rBn8BjrpcyQEgZZv
+         t54BEF21PU9wSugHtjmFx6CAw2q+UAJNaatgi4dpIdY2U8lKg9XjaCB3TK8WdaVdA0xs
+         VJQOqXcHjI+88+JbZWEIitrroRyZzproE1J7xvlyNe7sofoweF1ahBhKIczSFBtly5Ky
+         6u7w==
+X-Forwarded-Encrypted: i=1; AHgh+RqU8bNSUST8lYNvVaIYBPfoe0yg02RZuvEuPxx4Z6vRzPQqdtn0HQjy8hiGpAPP0K+cy5X0+Xl8u31gLw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1tbXX8bkW2s57YV9cD0hJ+QsNj+shrtOeh0OcBGZXxJbq18bz
+	zW5HBT7jV8s/DUy7mhPCIVl881EeymsX+s6ueHRObZMpes8+Uew/gcIspU0lgWsmkDA=
+X-Gm-Gg: AR+sD10oizkzo4npq97AQG1rqLoMP8AEcd87g3d7Z835dI/8WN91zmZ7LOU6Z6Yqz/X
+	MAY5e5BZCl+8Qt989iGNUTtPrFmAYyuUSwbuDrJStaJbBogTzxJ19iRgOTRdNhHzmXfWV4NSndW
+	vTGhk6rkTIfXipRR1hkFEwi9VrycHzndxZkBvj5qtsbSjj8dPheYfAUPGUsyPTWUk4QYXx7A3/p
+	V5r1FTUDG/TQp7ztDkfCfH7UIBzggYML6Z+0Bex1QqjdN1JeNa/HnzaS4/oyreif0vkIPk8y0p2
+	RITdmiA5GlQcRwTQY6pZOrIZVtBFOsF11A1GbV4uvGR6ohCPvNi+Yqmm2qG0ary0Q+nkxFan//w
+	eU/HiFgZrnx7eBoTDO3j6EVhWM+88Y3ubyIGhHw3xI2HMQOvVq9CGkDhnRWkA28M/WXfDB/nOW/
+	U3NjOLpkS0w3oWTgNSzVoTu+TOowBkC70tGyo=
+X-Received: by 2002:a05:6820:198f:b0:6aa:e344:85f7 with SMTP id 006d021491bc7-6aaffa01e9emr460747eaf.40.1784938614046;
+        Fri, 24 Jul 2026 17:16:54 -0700 (PDT)
+Received: from lima-default.tail89d63.ts.net ([12.55.13.134])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6aaf9385b35sm882929eaf.7.2026.07.24.17.16.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 17:16:53 -0700 (PDT)
+From: Andy Chiu <tchiu@tenstorrent.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Evan Green <evan@rivosinc.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	linux-riscv@lists.infradead.org
+Cc: bergner@tenstorrent.com,
+	kito.cheng@sifive.com,
+	Andy Chiu <tchiu@tenstorrent.com>,
+	dfustini@oss.tenstorrent.com,
+	greentime.hu@sifive.com,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Xu Lu <luxu.kernel@bytedance.com>,
+	Yao Zihong <zihong.plct@isrc.iscas.ac.cn>,
+	Jingwei Wang <wangjingwei@iscas.ac.cn>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+Subject: [PATCH v3 1/3] riscv: hwprobe: initialize pair->value in hwprobe_one_pair()
+Date: Fri, 24 Jul 2026 19:15:50 -0500
+Message-ID: <20260725001614.2578617-2-tchiu@tenstorrent.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260725001614.2578617-1-tchiu@tenstorrent.com>
+References: <20260725001614.2578617-1-tchiu@tenstorrent.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260723021140.2293844-1-lilinmao@kylinos.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_171655_153840_2B7B0122 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,38 +114,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Linmao,
+The vendor-extension handlers reached from hwprobe_one_pair()
+(hwprobe_isa_vendor_ext_thead_0() and friends) only OR the present bits
+into pair->value via VENDOR_EXTENSION_SUPPORTED() and clear their own
+missing bits; they assume the caller has already zeroed pair->value.
 
-Please, next time don't send the v2 as a reply to v1, it makes
-things confusing.
+That holds for hwprobe_get_values() (it zeroes each pair) and
+hwprobe_get_cpus() (it re-initializes its scratch pair per key), but not
+for complete_hwprobe_vdso_data(), which reuses a single pair across all
+keys without re-zeroing. A vendor key therefore inherits stale bits from
+the previously probed key, and the wrong value is cached in the vDSO
+all_cpu_hwprobe_values[] and handed to userspace on the fast patih.
 
-On Thu, Jul 23, 2026 at 10:11:40AM +0800, Linmao Li wrote:
-> spacemit_i2c_probe() requests the IRQ before it enables the clocks, resets
-> the controller and runs init_completion(). If an interrupt is already
-> pending, the handler runs too early: it reads registers while the clocks
-> are still off and calls complete() on an uninitialized completion. Request
-> the IRQ after the controller and completion are initialized, but still
-> before the adapter is registered.
-> 
-> Fixes: 5ea558473fa3 ("i2c: spacemit: add support for SpacemiT K1 SoC")
-> Cc: stable@vger.kernel.org # v6.15+
-> Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
-> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> Reviewed-by: Alex Elder <elder@riscstar.com>
-> ---
-> v2:
-> - add Cc: stable # v6.15+ as requested by Troy Mitchell
-> - collect Reviewed-by from Troy Mitchell and Alex Elder
+Zero pair->value once at the top of hwprobe_one_pair() so every handler
+starts from a clean value regardless of the caller, and drop the now
+redundant zeroing in the *_BLOCK_SIZE cases. hwprobe_isa_ext0() keeps its
+own zeroing because hwprobe_ext0_has() calls it directly, bypassing
+hwprobe_one_pair().
 
-No need to send a v2 just to update the tag section.
+Fixes: a5ea53da65c5 ("riscv: hwprobe: Add thead vendor extension probing")
+Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
+---
+Changelog v3:
+ - new patch since v3
+---
+ arch/riscv/kernel/sys_hwprobe.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-Merged to i2c/i2c-fixes.
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index caf6762427c8..d2bb70fed8b9 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -295,6 +295,8 @@ static u64 hwprobe_vec_misaligned(const struct cpumask *cpus)
+ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 			     const struct cpumask *cpus)
+ {
++	pair->value = 0;
++
+ 	switch (pair->key) {
+ 	case RISCV_HWPROBE_KEY_MVENDORID:
+ 	case RISCV_HWPROBE_KEY_MARCHID:
+@@ -329,17 +331,14 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 		break;
+ 
+ 	case RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE:
+-		pair->value = 0;
+ 		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
+ 			pair->value = riscv_cboz_block_size;
+ 		break;
+ 	case RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE:
+-		pair->value = 0;
+ 		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOM))
+ 			pair->value = riscv_cbom_block_size;
+ 		break;
+ 	case RISCV_HWPROBE_KEY_ZICBOP_BLOCK_SIZE:
+-		pair->value = 0;
+ 		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOP))
+ 			pair->value = riscv_cbop_block_size;
+ 		break;
+-- 
+2.43.0
 
-Thanks,
-Andi
-
->  drivers/i2c/busses/i2c-k1.c | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
