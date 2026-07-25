@@ -4,53 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE12C53200
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 04:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D512C531C9
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 04:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=roIIv3cv6SvkxDvEhhDFIOfJ/1OryO4evy5oqJd87M0=; b=miCHv13k8BOe2Y
-	1piwxSifl+vtfVAaea0jxjvaT+5zDYwObhG3SZHy32l+TJEjG/SQRbZ6T8k+sCdyXZI1A0ivvC6Q1
-	g4gHwhu96ZXYPXx6kCf1tj67r933W4IUoR/9gmOLcdIiIraL0wK8Jp4N0vONdJdgOktzpTWbK1QkO
-	bRH34niGJKTuUl0izIL/CuJXCto7P84Rpb58wx/o4nbY1hmT75M+nd8jzxBT+IuYvBScz86qAxqA5
-	VCtid0bT5OwpOeRQ2QElsRtUT8vHqvb66FF4ylCj+MWEiqM6kWweOYlCWVOrhokjXcnEztEpNrXAi
-	4da5+FJ64xsz8XGcIurw==;
+	List-Owner; bh=/LyFaqqlnAXbzjEsvOHj/ulYLQ7+xh4eTzwYTqwpeBY=; b=rSgBhFWZgrpz26
+	a6t6HJ/TSn0V6gcHI3KilaaFgcBw7kwAq/Bo174SU86HQGTelBEsv4/vjBnLCMjqbtmtvKn9hItln
+	Ag77HTuy6WP13SZOOq7zr3zkj8t2hNbZQiEPXRYRgsVu/+X8PHPQjLhmrIMTDthrOs0ZFd95jibM/
+	WaMTCQOOcW22mt2te8vw3uXaeJpXFMAPgOqjiPQLv3GjnWPChDsT+kE+/egBEWCo01BZVlxbMxgmd
+	RiG+Yld/RX2n0AgH5fXUb3oe3TPQjrXinePLbicXUY6o1JZhxlH//2UCG+qTw5rgvu3/m0+bbby8S
+	Yjtit5/bjbveUByjI/ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnUMC-000000000XD-0QHX;
-	Sat, 25 Jul 2026 04:51:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wnUQo-000000002FM-0ycY;
+	Sat, 25 Jul 2026 04:56:14 +0000
+Received: from mail-qk2-x01.google.com ([2607:f8b0:4864:34::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnUM9-000000000TB-3GJm;
-	Sat, 25 Jul 2026 04:51:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C3FBD45159;
-	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 80A2CC2BCFA;
-	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784955084;
-	bh=qkGk1wlNqaNN6bkG4rJsjFh/Lw8nGvcRtQ/K1MBk0/Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=cuTPdma9dm0UBGeylVFQb5wMsRrbrBP3142oX94AEGAkHXVC/5Q8+VcabkfSBO2gQ
-	 mgRta5EAwlnSAAj/QUjbPBe3sXjuGGQfptBi6eIB8DwVCF11FcVX272kxx4G2QBJxt
-	 gXhbOJ1p6aG9nt1hJgAZ3CVDwKS7hRM5F/IHae3vtAtnDDS2+H60HaaetTqGGBpmAV
-	 C5fm/ZTWGvcD7vyDCj+b+fn1zrwhPUfDXW4Bs5sVDzSFd9WpJkwzVwEbVq5O2QedmN
-	 S7XhUl5TE17RSHeXa7MrD2/T/5wU+pmlJic5O3QdR+nn75ivWLqdGbR6vf2E0ag4GF
-	 //78c9qVzIWLg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E55BC53200;
-	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
-From: Cody Kang via B4 Relay <devnull+codykang.hk.gmail.com@kernel.org>
-Date: Sat, 25 Jul 2026 00:51:16 -0400
-Subject: [PATCH RESEND 07/17] drm/spacemit: add Saturn DPU register model
+	id 1wnUQk-000000002Ey-2CPy
+	for linux-riscv@lists.infradead.org;
+	Sat, 25 Jul 2026 04:56:12 +0000
+Received: by mail-qk2-x01.google.com with SMTP id d75a77b69052e-51c8dd6cd77so7270841cf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 21:56:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784955369; x=1785560169; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vz7HTPwmeBgSBX1j1AtqNKBA1oTNYazF3MY3bnZraEM=;
+        b=qDEVRMgsKDcrZE/EUddsFxJfAqKgOUye0VYjd6ilcQugu9AhwIC5b6xs3Cg8GNl5Hh
+         ZR4wWOuHAqLgkwl6IruH6qV8lFS3iNA0DUEfvYtTyJggNC7rvC1lrAQDL/Yea1jFhpt4
+         xmhqYieQUQ+vqGEvxfyOVDX4cG3d6EBGVRnu0fEtVNPx7WR4xKkb1HpdMxHlAMaLyQsN
+         FY+ki5FpIVFq+kzvPVZToX7+FsJ4kpNgqVhHX7uwyARiZI96Aunt19wY89audo23SbA5
+         NX1/k9rDushS3N+JzoHR/TjHjjPfNsoNIbGxf5AZQ20Np9/yjcNWcApBNZ1mjN5oukgq
+         4Kbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784955369; x=1785560169;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vz7HTPwmeBgSBX1j1AtqNKBA1oTNYazF3MY3bnZraEM=;
+        b=qLMF3MdePNhWDEpmtcKlarW7vUd/P811IkHP1kO35pAxKbbmSgNnw+k44xUhyskub6
+         Iqrg85WTGPP4d/VhY8k34amnS37YvoXP75923MU3z7K9JlSzAU2HcI347q7HpeeZ1Byc
+         vArLW9r1iqSFyG3FPVl6CIgkTS6leIX4XwAiK2hzH4pgmQvakVq/icPsDI9JydjKXUMf
+         OaRNYvMAy5ZQkgX8eoTJ8OL/bDGFS0y5YishN+WYwoV8AxkYr2JWEosqbCiRI+Jnq5VH
+         J0CGfuVoPzqhkIXzz0PTe/28Rp8TsyoUQUWAaUQbIEPkCEd95Ae9JjoPxyqe4vAeQbnE
+         xQCw==
+X-Forwarded-Encrypted: i=1; AHgh+Rpem08FWfdJAS5L2A/Tc+7LEiVy0g19UYLCmHKn1/ufFzZXJRaC2ZT7taQdBKGu4ajmJurrWOCsjdoVQg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxv2ucG6k4XU4rg8lt+22xXVBbK3pDgx6qwo+INUz+bvMZmFvpT
+	oKJRO4qjyfhC41qaUxX3uOuhKP6VXgr5g+fNPPSUJrOFBgqIabO+lXHSheANOz1m6y1I+g==
+X-Gm-Gg: AR+sD12JdYbxG3RF3L0oI+QtxP3i/8ZbH3brME17BfRl2fCeQCuzN9Imn1smxLMvLUv
+	drBsEb3+s2wv+WppIuK9kTjrNsxx6R7ks+pBUYIx4pYZVNWFHrbvGPFNXgLQMzc/IgVZA7suLQg
+	sqWLOc38a+Uolp01UXHPUFWBQ0MjV/tdqTZvpJlthcVvoS3rRVWS+TT3GJgQ6fMUNJlzXa8cpeM
+	m1CAhxsWf74tgV0M1XWK8S6W04EAqkjfpcL+Q+O3G5cnc+TWIQafSLAXXM+Z65GJjLAOPLR1oAp
+	LF9DszUsJpBtrVjoNWPhgRXuqMRm8RA3mb0VdnyZGmOFV6pB0seoiMk8WAARuTjY9eya8rfzhxI
+	BEPEKPCJbrp4pHRW//dB3Ejp0xk1XkRZazx1vsDogY7YIparHFhO6zWE=
+X-Received: by 2002:aa7:8895:0:b0:848:2f71:b659 with SMTP id d2e1a72fcca58-84e595b93d6mr693845b3a.68.1784949521897;
+        Fri, 24 Jul 2026 20:18:41 -0700 (PDT)
+Received: from [127.0.1.1] ([2a12:a305:4::403c])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e53432834sm640542b3a.50.2026.07.24.20.18.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jul 2026 20:18:40 -0700 (PDT)
+From: Cody Kang <codykang.hk@gmail.com>
+Date: Fri, 24 Jul 2026 23:16:42 -0400
+Subject: [PATCH 10/17] drm/spacemit: add Saturn DPU KMS pipeline
 MIME-Version: 1.0
-Message-Id: <20260725-k3-display-v1-7-6de34d80e86c@gmail.com>
-References: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
-In-Reply-To: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
+Message-Id: <20260724-k3-display-v1-10-f22a10a52867@gmail.com>
+References: <20260724-k3-display-v1-0-f22a10a52867@gmail.com>
+In-Reply-To: <20260724-k3-display-v1-0-f22a10a52867@gmail.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
@@ -67,16 +92,9 @@ Cc: dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
  linux-clk@vger.kernel.org, Cody Kang <codykang.hk@gmail.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784955080; l=19480;
- i=codykang.hk@gmail.com; s=codykang; h=from:subject:message-id;
- bh=aGb90Zcw0kJbWaMZg2zn95ns2mMfLtKTsOBJLIfiK9M=;
- b=vkzSUYzfoeEPpEbRxt9JXkcm0bzNeaGDVnfaQNDnDVzARTnU+CLwTzszKCYNRzUP9XIBpyLId
- GFFb1bJvOMpDHzDuIGkB4D0FCiVqr4ixMpxIy0op+xcfxLT12udXYqi
-X-Developer-Key: i=codykang.hk@gmail.com; a=ed25519;
- pk=Osn6/cs9Su/mHHw4P19cmVc3v2FMQfiWahjsN0vEkuk=
-X-Endpoint-Received: by B4 Relay for codykang.hk@gmail.com/codykang with
- auth_id=895
-X-Original-From: Cody Kang <codykang.hk@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260724_215610_687667_CD051F69 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,472 +106,1230 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: codykang.hk@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Cody Kang <codykang.hk@gmail.com>
-
-The Saturn display processing unit is programmed through a set of
-register blocks (composer, RDMA, timing generator, cmdlist engine,
-display MMU) laid out identically in both SoC instances. Add the block
-address map, the per-field word offset and mask tables consumed by the
-field accessors, the interrupt bit layout and the compositor and
-output-format ID encodings. The address map describes the whole
-IP block on purpose, including blocks the driver does not touch; the
-field tables carry the fields the driver programs, with each block's
-full word count kept as its NWORDS extent.
-
-Consumers arrive with the following patches; the driver only becomes
-buildable once the final patch adds the Kconfig and Makefile glue.
+Add the atomic KMS implementation on top of the hardware backend: one
+CRTC and one primary plane per DPU instance. atomic_check validates
+the plane rectangle 1:1 against the mode and sizes the per-channel FBC
+line buffer; atomic commit builds the cmdlist batches, maps the
+framebuffer through the DMMU and arms the cfg-ready handshake, with
+vblank events driven from the DPU interrupt.
 
 Signed-off-by: Cody Kang <codykang.hk@gmail.com>
 ---
- drivers/gpu/drm/spacemit/dpu/saturn_regs/dpu_int.h |  25 ++
- .../gpu/drm/spacemit/dpu/saturn_regs/reg_map_hee.h |  64 +++++
- .../drm/spacemit/dpu/saturn_regs/saturn_fields.h   | 298 +++++++++++++++++++++
- drivers/gpu/drm/spacemit/spacemit_dpu_ids.h        |  22 ++
- 4 files changed, 409 insertions(+)
+ drivers/gpu/drm/spacemit/spacemit_crtc.c   | 815 +++++++++++++++++++++++++++++
+ drivers/gpu/drm/spacemit/spacemit_planes.c | 376 +++++++++++++
+ 2 files changed, 1191 insertions(+)
 
-diff --git a/drivers/gpu/drm/spacemit/dpu/saturn_regs/dpu_int.h b/drivers/gpu/drm/spacemit/dpu/saturn_regs/dpu_int.h
+diff --git a/drivers/gpu/drm/spacemit/spacemit_crtc.c b/drivers/gpu/drm/spacemit/spacemit_crtc.c
 new file mode 100644
-index 000000000000..2c7fa00ba31e
+index 000000000000..b75ff6320501
 --- /dev/null
-+++ b/drivers/gpu/drm/spacemit/dpu/saturn_regs/dpu_int.h
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
++++ b/drivers/gpu/drm/spacemit/spacemit_crtc.c
+@@ -0,0 +1,815 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2025-2026 SpacemiT Co., Ltd.
 + *
 + */
 +
-+#ifndef DPU_INT_REG_H
-+#define DPU_INT_REG_H
++#include <drm/drm_print.h>
++#include <drm/drm_atomic_helper.h>
++#include <drm/drm_crtc_helper.h>
++#include <drm/drm_drv.h>
++#include <drm/drm_plane_helper.h>
++#include <drm/drm_gem_framebuffer_helper.h>
++#include <drm/drm_managed.h>
++#include <drm/clients/drm_client_setup.h>
++#include <linux/aperture.h>
++#include <linux/clk.h>
++#include <linux/clk-provider.h>
++#include <linux/component.h>
++#include <linux/interrupt.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_irq.h>
++#include <linux/pm_qos.h>
++#include <linux/property.h>
++#include <linux/mutex.h>
++#include <linux/string.h>
++#include <linux/trace_events.h>
++#include <linux/of_platform.h>
++#include <linux/regmap.h>
++#include "spacemit_dpu_ids.h"
++#include <linux/reset.h>
++#include "spacemit_cmdlist.h"
++#include "spacemit_dmmu.h"
++#include "spacemit_drm.h"
++#include "spacemit_crtc.h"
++#include "dpu/dpu_saturn.h"
++#include "dpu/dpu_trace.h"
 +
-+#include <linux/bits.h>
++static int spacemit_crtc_init(struct spacemit_crtc *a_crtc);
++static int spacemit_crtc_uninit(struct spacemit_crtc *a_crtc);
++static int dpu_pm_suspend(struct device *dev);
++static int dpu_pm_resume(struct device *dev);
++static void dpu_reset_assert(struct device *dev, const char *name,
++			     struct reset_control *rstc);
 +
-+#define DPU_INT_CMDLIST_CH_FRM_CFG_DONE_MASK	(0xff)
-+#define DPU_INT_CMDLIST_CH_FRM_CFG_DONE		(DPU_INT_CMDLIST_CH_FRM_CFG_DONE_MASK << 11)
-+#define DPU_INT_FRM_TIMING_UNFLOW		BIT(8)
-+#define DPU_INT_CFG_RDY_CLR			BIT(5)
-+#define DPU_INT_FRM_TIMING_CFG_LINE		BIT(4)
-+#define DPU_INT_FRM_TIMING_CFG_EOF		(BIT(2) | BIT(3))
-+#define DPU_INT_FRM_TIMING_EOF			BIT(1)
-+#define DPU_INT_FRM_TIMING_VSYNC		BIT(0)
-+#define DPU_REST_INT_BITS			(DPU_INT_FRM_TIMING_CFG_EOF | \
-+						 DPU_INT_FRM_TIMING_CFG_LINE | \
-+						 DPU_INT_FRM_TIMING_EOF | \
-+						 DPU_INT_CMDLIST_CH_FRM_CFG_DONE)
++static void saturn_count_rdma_use(struct drm_crtc_state *crtc_state)
++{
++	struct drm_plane *plane;
++	struct spacemit_crtc_state *spacemit_state =
++			to_spacemit_crtc_state(crtc_state);
++	struct spacemit_crtc_rdma *rdmas = spacemit_state->rdmas;
++	u32 rdma_id = 0;
++	const struct drm_plane_state *pstate;
 +
-+#endif
-diff --git a/drivers/gpu/drm/spacemit/dpu/saturn_regs/reg_map_hee.h b/drivers/gpu/drm/spacemit/dpu/saturn_regs/reg_map_hee.h
++	drm_atomic_crtc_state_for_each_plane_state(plane, pstate, crtc_state) {
++		rdma_id = to_spacemit_plane_state(pstate)->rdma_id;
++		if (rdma_id != RDMA_INVALID_ID)
++			rdmas[rdma_id].use_cnt++;
++	}
++}
++
++static int spacemit_crtc_atomic_check_fbmem(struct drm_crtc *crtc,
++					    struct drm_crtc_state *crtc_state)
++{
++	struct spacemit_crtc_rdma *rdmas =
++			to_spacemit_crtc_state(crtc_state)->rdmas;
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(crtc);
++	struct spacemit_drm_private *priv = crtc->dev->dev_private;
++	struct spacemit_hw_device *hwdev = priv->hwdev;
++	const struct drm_plane_state *pstate;
++	struct drm_plane *plane;
++
++	drm_atomic_crtc_state_for_each_plane_state(plane, pstate, crtc_state) {
++		u32 rdma_id = to_spacemit_plane_state(pstate)->rdma_id;
++		u32 layer_fbcmem_size =
++				to_spacemit_plane_state(pstate)->fbcmem_size;
++
++		if (rdma_id != RDMA_INVALID_ID)
++			rdmas[rdma_id].fbcmem.size = max(layer_fbcmem_size,
++				rdmas[rdma_id].fbcmem.size);
++	}
++
++	return a_crtc->core->adjust_rdma_fbcmem(hwdev, rdmas);
++}
++
++static void spacemit_crtc_atomic_enable(struct drm_crtc *crtc,
++					struct drm_atomic_commit *old_state)
++{
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(crtc);
++	int idx;
++
++	if (!drm_dev_enter(crtc->dev, &idx))
++		return;
++
++	trace_spacemit_crtc_atomic_enable(a_crtc->dev_id);
++
++	/*
++	 * U-Boot leaves its boot-logo pipeline running. Hard-stop it with the
++	 * resets alone; the clocks are not ours to gate until we have enabled
++	 * them.
++	 */
++	if (unlikely(a_crtc->first_modeset)) {
++		dpu_reset_assert(a_crtc->dev, "lcd", a_crtc->lcd_reset);
++		dpu_reset_assert(a_crtc->dev, "esc", a_crtc->esc_reset);
++		dpu_reset_assert(a_crtc->dev, "mclk", a_crtc->mclk_reset);
++		dpu_reset_assert(a_crtc->dev, "aclk", a_crtc->aclk_reset);
++		dpu_reset_assert(a_crtc->dev, "dsc", a_crtc->dsc_reset);
++		usleep_range(10000, 20000);
++		a_crtc->first_modeset = false;
++	}
++
++	if (!a_crtc->clocks_on) {
++		a_crtc->clocks_on = true;
++		dpu_pm_resume(a_crtc->dev);
++
++		/*
++		 * The DPU must settle after reset deassert or CFG_RDY races
++		 * the flush.
++		 */
++		usleep_range(10000, 20000);
++	}
++
++	drm_crtc_vblank_on(&a_crtc->crtc);
++
++	spacemit_crtc_init(a_crtc);
++
++	drm_dev_exit(idx);
++}
++
++static void spacemit_crtc_atomic_disable(struct drm_crtc *crtc,
++					 struct drm_atomic_commit *old_state)
++{
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(crtc);
++	struct drm_device *drm = a_crtc->crtc.dev;
++	int idx;
++
++	if (!drm_dev_enter(drm, &idx))
++		return;
++
++	trace_spacemit_crtc_atomic_disable(a_crtc->dev_id);
++
++	spacemit_crtc_uninit(a_crtc);
++
++	drm_crtc_vblank_off(&a_crtc->crtc);
++
++	/*
++	 * MMIO on a clock-gated DPU stalls the bus, so an in-flight handler
++	 * must finish its status reads before dpu_pm_suspend() gates the
++	 * clocks.
++	 */
++	if (a_crtc->irq_online > 0)
++		synchronize_irq(a_crtc->irq_online);
++
++	/*
++	 * Nothing else cancels the watchdog; it would fire against freed state.
++	 */
++	timer_delete_sync(&a_crtc->cfg_rdy_timer);
++
++	/* Close the ISR's MMIO gate before the clocks actually stop. */
++	a_crtc->clocks_on = false;
++	dpu_pm_suspend(a_crtc->dev);
++
++	spin_lock_irq(&drm->event_lock);
++	if (crtc->state->event) {
++		drm_crtc_send_vblank_event(crtc, crtc->state->event);
++		crtc->state->event = NULL;
++	}
++	spin_unlock_irq(&drm->event_lock);
++
++	drm_dev_exit(idx);
++}
++
++static int spacemit_crtc_atomic_check(struct drm_crtc *crtc,
++				      struct drm_atomic_commit *atomic_state)
++{
++	struct drm_crtc_state *state =
++			drm_atomic_get_new_crtc_state(atomic_state, crtc);
++	struct spacemit_crtc_state *cstate = to_spacemit_crtc_state(state);
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(crtc);
++	int ret = 0;
++
++	trace_spacemit_crtc_atomic_check(a_crtc->dev_id);
++
++	ret = spacemit_crtc_atomic_check_fbmem(crtc, state);
++	if (ret) {
++		drm_dbg_kms(crtc->dev,
++			    "failed to satisfy fbcmem size for all rdmas\n");
++		return ret;
++	}
++
++	saturn_count_rdma_use(state);
++
++	ret = spacemit_cmdlist_alloc(a_crtc->dev, &cstate->cl);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static void spacemit_crtc_atomic_begin(struct drm_crtc *crtc,
++				       struct drm_atomic_commit *state)
++{
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(crtc);
++
++	trace_spacemit_crtc_atomic_begin(a_crtc->dev_id);
++}
++
++static void spacemit_crtc_atomic_flush(struct drm_crtc *crtc,
++				       struct drm_atomic_commit *state)
++{
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(crtc);
++	struct drm_crtc_state *old_state = drm_atomic_get_old_crtc_state(state,
++		crtc);
++	int idx;
++
++	if (!drm_dev_enter(crtc->dev, &idx))
++		return;
++
++	trace_spacemit_crtc_atomic_flush(a_crtc->dev_id);
++
++	spacemit_crtc_run(crtc, old_state);
++
++	drm_dev_exit(idx);
++}
++
++static struct drm_crtc_state *
++spacemit_crtc_duplicate_state(struct drm_crtc *crtc)
++{
++	struct spacemit_crtc_state *state;
++	struct spacemit_drm_private *priv = crtc->dev->dev_private;
++	struct spacemit_hw_device *hwdev = priv->hwdev;
++	u8 n_rdma;
++
++	if (WARN_ON(!crtc->state))
++		return NULL;
++
++	state = kzalloc_obj(*state);
++	if (!state)
++		return NULL;
++
++	__drm_atomic_helper_crtc_duplicate_state(crtc, &state->base);
++
++	n_rdma = hwdev->rdma_nums;
++	state->rdmas = kzalloc_objs(*state->rdmas, n_rdma);
++	if (!state->rdmas) {
++		kfree(state);
++		return NULL;
++	}
++
++	state->cl.type = CMDLIST_CRTC;
++
++	return &state->base;
++}
++
++static void spacemit_crtc_destroy_state(struct drm_crtc *crtc,
++					struct drm_crtc_state *state)
++{
++	struct spacemit_crtc_state *spacemit_state = NULL;
++	struct spacemit_crtc *a_crtc = NULL;
++
++	if (state) {
++		spacemit_state = to_spacemit_crtc_state(state);
++		__drm_atomic_helper_crtc_destroy_state(state);
++		a_crtc = to_spacemit_crtc(crtc);
++		if (spacemit_state->cl.va)
++			dma_free_coherent(a_crtc->dev,
++					  spacemit_state->cl.size,
++					  spacemit_state->cl.va,
++					  spacemit_state->cl.pa);
++		kfree(spacemit_state->rdmas);
++		kfree(spacemit_state);
++	}
++}
++
++static void spacemit_crtc_reset(struct drm_crtc *crtc)
++{
++	struct spacemit_drm_private *priv = crtc->dev->dev_private;
++	struct spacemit_hw_device *hwdev = priv->hwdev;
++	struct spacemit_crtc_state *state;
++
++	if (crtc->state)
++		spacemit_crtc_destroy_state(crtc, crtc->state);
++
++	state = kzalloc_obj(*state);
++	if (!state) {
++		__drm_atomic_helper_crtc_reset(crtc, NULL);
++		return;
++	}
++
++	state->rdmas = kzalloc_objs(*state->rdmas, hwdev->rdma_nums);
++	if (!state->rdmas) {
++		kfree(state);
++		__drm_atomic_helper_crtc_reset(crtc, NULL);
++		return;
++	}
++
++	__drm_atomic_helper_crtc_reset(crtc, &state->base);
++}
++
++static int spacemit_crtc_enable_vblank(struct drm_crtc *crtc)
++{
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(crtc);
++
++	trace_spacemit_crtc_enable_vblank(a_crtc->dev_id);
++
++	if (a_crtc->core && a_crtc->core->enable_vsync)
++		a_crtc->core->enable_vsync(a_crtc);
++
++	return 0;
++}
++
++static void spacemit_crtc_disable_vblank(struct drm_crtc *crtc)
++{
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(crtc);
++
++	trace_spacemit_crtc_disable_vblank(a_crtc->dev_id);
++
++	if (a_crtc->core && a_crtc->core->disable_vsync)
++		a_crtc->core->disable_vsync(a_crtc);
++}
++
++static const struct drm_crtc_helper_funcs spacemit_crtc_helper_funcs = {
++	.atomic_check = spacemit_crtc_atomic_check,
++	.atomic_begin = spacemit_crtc_atomic_begin,
++	.atomic_flush = spacemit_crtc_atomic_flush,
++	.atomic_enable = spacemit_crtc_atomic_enable,
++	.atomic_disable = spacemit_crtc_atomic_disable,
++};
++
++static const struct drm_crtc_funcs spacemit_crtc_funcs = {
++	.destroy = drm_crtc_cleanup,
++	.set_config = drm_atomic_helper_set_config,
++	.page_flip = drm_atomic_helper_page_flip,
++	.reset = spacemit_crtc_reset,
++	.atomic_duplicate_state = spacemit_crtc_duplicate_state,
++	.atomic_destroy_state = spacemit_crtc_destroy_state,
++	.enable_vblank = spacemit_crtc_enable_vblank,
++	.disable_vblank = spacemit_crtc_disable_vblank,
++};
++
++static void spacemit_crtc_put_port(struct drm_device *drm, void *port)
++{
++	of_node_put(port);
++}
++
++static int spacemit_crtc_bind_init(struct drm_device *drm, struct drm_crtc *crtc,
++				   struct drm_plane *primary, struct device_node *port)
++{
++	int err;
++
++	/*
++	 * drm_of_find_possible_crtcs() walks crtc->port for the life of the
++	 * drm_device.
++	 */
++	crtc->port = of_node_get(port);
++	err = drmm_add_action_or_reset(drm, spacemit_crtc_put_port, port);
++	if (err)
++		return err;
++
++	err = drm_crtc_init_with_planes(drm, crtc, primary, NULL,
++					&spacemit_crtc_funcs, NULL);
++	if (err) {
++		drm_err(drm, "failed to init crtc\n");
++		return err;
++	}
++
++	drm_mode_crtc_set_gamma_size(crtc, 256);
++
++	drm_crtc_helper_add(crtc, &spacemit_crtc_helper_funcs);
++
++	return 0;
++}
++
++int spacemit_crtc_run(struct drm_crtc *crtc,
++		      struct drm_crtc_state *old_state)
++{
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(crtc);
++
++	trace_spacemit_crtc_run(a_crtc->dev_id);
++
++	if (a_crtc->core && a_crtc->core->run)
++		a_crtc->core->run(crtc, old_state);
++
++	return 0;
++}
++
++static int spacemit_crtc_init(struct spacemit_crtc *a_crtc)
++{
++	trace_spacemit_crtc_init(a_crtc->dev_id);
++
++	if (a_crtc->core && a_crtc->core->init)
++		a_crtc->core->init(a_crtc);
++
++	a_crtc->is_1st_f = true;
++
++	return 0;
++}
++
++static int spacemit_crtc_uninit(struct spacemit_crtc *a_crtc)
++{
++	trace_spacemit_crtc_uninit(a_crtc->dev_id);
++
++	if (a_crtc->core && a_crtc->core->uninit)
++		a_crtc->core->uninit(a_crtc);
++
++	return 0;
++}
++
++static irqreturn_t spacemit_dpu_isr(int irq, void *data)
++{
++	struct spacemit_drm_private *priv = data;
++	struct spacemit_crtc *a_crtc = priv->a_crtc;
++	int idx;
++
++	if (!a_crtc)
++		return IRQ_NONE;
++
++	if (!drm_dev_enter(a_crtc->crtc.dev, &idx))
++		return IRQ_NONE;
++
++	/* Reading a clock-gated DPU's status registers stalls the bus. */
++	if (unlikely(!a_crtc->clocks_on)) {
++		drm_dev_exit(idx);
++		return IRQ_NONE;
++	}
++
++	if (a_crtc->core && a_crtc->core->online_isr)
++		a_crtc->core->online_isr(a_crtc);
++
++	drm_dev_exit(idx);
++
++	return IRQ_HANDLED;
++}
++
++/*
++ * Acquire at probe, not at bind: the aggregate can rebind without this device
++ * detaching, and the exclusive resets would not be handed out a second time.
++ */
++static int spacemit_dpu_hw_resources_init(struct spacemit_drm_private *priv,
++					  struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	ret = dpu_parse_clocks(dev, &priv->clk_ctx);
++	if (ret)
++		return ret;
++
++	priv->mclk_reset = devm_reset_control_get_optional_exclusive(dev,
++								     "mclk");
++	if (IS_ERR(priv->mclk_reset))
++		return dev_err_probe(dev, PTR_ERR(priv->mclk_reset),
++				     "failed to get mclk reset\n");
++	priv->esc_reset = devm_reset_control_get_optional_exclusive(dev, "esc");
++	if (IS_ERR(priv->esc_reset))
++		return dev_err_probe(dev, PTR_ERR(priv->esc_reset),
++				     "failed to get esc reset\n");
++	priv->lcd_reset = devm_reset_control_get_optional_exclusive(dev, "lcd");
++	if (IS_ERR(priv->lcd_reset))
++		return dev_err_probe(dev, PTR_ERR(priv->lcd_reset),
++				     "failed to get lcd reset\n");
++	priv->aclk_reset = devm_reset_control_get_optional_exclusive(dev,
++								     "aclk");
++	if (IS_ERR(priv->aclk_reset))
++		return dev_err_probe(dev, PTR_ERR(priv->aclk_reset),
++				     "failed to get aclk reset\n");
++	priv->dsc_reset = devm_reset_control_get_optional_exclusive(dev, "dsc");
++	if (IS_ERR(priv->dsc_reset))
++		return dev_err_probe(dev, PTR_ERR(priv->dsc_reset),
++				     "failed to get dsc reset\n");
++
++	priv->irq_online = platform_get_irq_byname(pdev, "online");
++	if (priv->irq_online < 0)
++		return priv->irq_online;
++
++	/*
++	 * Keep the line disabled until bind: the handler needs bind-created
++	 * state, and a bootloader-left display can raise an interrupt during
++	 * probe.
++	 */
++	ret = devm_request_irq(dev, priv->irq_online, spacemit_dpu_isr,
++			       IRQF_NO_AUTOEN, "DPU_ONLINE", priv);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to request online IRQ\n");
++
++	return 0;
++}
++
++static const struct regmap_config spacemit_dpu_regmap_config = {
++	.name		= "dpu",
++	.reg_bits	= 32,
++	.val_bits	= 32,
++	.reg_stride	= 4,
++	.max_register	= 0x53ffc,	/* 0x54000-byte DPU MMIO from binding */
++};
++
++/* Bind-scope wrapper so devm_drm_dev_alloc has a struct to embed into. */
++struct spacemit_kms {
++	struct drm_device drm;
++};
++
++static int spacemit_drm_master_bind(struct device *dev)
++{
++	struct spacemit_drm_private *priv = dev_get_drvdata(dev);
++	struct device_node *np = dev->of_node;
++	struct device_node *ports = NULL, *port = NULL;
++	struct spacemit_crtc *a_crtc;
++	struct drm_plane *plane;
++	struct spacemit_kms *kms;
++	struct drm_device *drm;
++	int ret;
++
++	ret = aperture_remove_all_conflicting_devices(spacemit_drm_drv.name);
++	if (ret) {
++		dev_err(dev, "failed to remove existing framebuffers: %d\n",
++			ret);
++		return ret;
++	}
++
++	kms = devm_drm_dev_alloc(dev, &spacemit_drm_drv,
++				 struct spacemit_kms, drm);
++	if (IS_ERR(kms))
++		return PTR_ERR(kms);
++	drm = &kms->drm;
++	priv->ddev = drm;
++	drm->dev_private = priv;
++
++	ret = spacemit_drm_mode_config_init(drm);
++	if (ret)
++		return ret;
++
++	a_crtc = drmm_kzalloc(drm, sizeof(*a_crtc), GFP_KERNEL);
++	if (!a_crtc) {
++		ret = -ENOMEM;
++		goto err_dc;
++	}
++	a_crtc->dev = dev;
++	a_crtc->first_modeset = true;
++	priv->a_crtc = a_crtc;
++
++	a_crtc->clk_ctx = priv->clk_ctx;
++	a_crtc->aclk = DPU_AXICLK_DEFAULT;
++	a_crtc->mclk_reset = priv->mclk_reset;
++	a_crtc->esc_reset = priv->esc_reset;
++	a_crtc->lcd_reset = priv->lcd_reset;
++	a_crtc->aclk_reset = priv->aclk_reset;
++	a_crtc->dsc_reset = priv->dsc_reset;
++	a_crtc->irq_online = priv->irq_online;
++
++	/* Both K3 DPU instances are COMPOSER1 in the Saturn IRQ tables. */
++	a_crtc->dev_id = COMPOSER1;
++
++	/* The K3 pipeline always hands RGB888 to the DP/eDP encoder. */
++	a_crtc->out_format = OUTFMT_RGB888;
++
++	a_crtc->core = &dpu_saturn_ops;
++
++	timer_setup(&a_crtc->cfg_rdy_timer, spacemit_cfg_rdy_timer_handler, 0);
++
++	plane = spacemit_plane_init(drm, a_crtc);
++	if (IS_ERR(plane)) {
++		ret = PTR_ERR(plane);
++		goto err_dc;
++	}
++
++	ports = of_get_child_by_name(np, "ports");
++	if (!ports) {
++		dev_err(dev, "CRTC %pOF has no ports node\n", np);
++		ret = -EINVAL;
++		goto err_dc;
++	}
++
++	port = of_get_child_by_name(ports, "port");
++	if (!port) {
++		dev_err(dev, "CRTC %pOF has no port@X node\n", np);
++		ret = -EINVAL;
++		goto err_ports_put;
++	}
++
++	ret = spacemit_crtc_bind_init(drm, &a_crtc->crtc, plane, port);
++	of_node_put(port);
++	of_node_put(ports);
++	port = NULL;
++	ports = NULL;
++	if (ret)
++		goto err_dc;
++
++	/*
++	 * component_bind_all() unbinds what it bound before returning an error.
++	 */
++	ret = component_bind_all(dev, drm);
++	if (ret) {
++		dev_err(dev, "failed to bind all components\n");
++		goto err_dc;
++	}
++
++	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
++	if (ret) {
++		dev_err(dev, "failed to initialize vblank\n");
++		goto err_unbind_all;
++	}
++
++	drm_mode_config_reset(drm);
++	drmm_kms_helper_poll_init(drm);
++	drm_helper_hpd_irq_event(drm);
++
++	enable_irq(priv->irq_online);
++
++	ret = drm_dev_register(drm, 0);
++	if (ret < 0)
++		goto err_disable_irq;
++	drm_client_setup(drm, NULL);
++
++	return 0;
++
++err_disable_irq:
++	disable_irq(priv->irq_online);
++
++err_unbind_all:
++	component_unbind_all(dev, drm);
++	goto err_dc;
++err_ports_put:
++	of_node_put(port);
++	of_node_put(ports);
++err_dc:
++	/*
++	 * .shutdown tests priv->ddev; never leave it on a half-initialised
++	 * device.
++	 */
++	priv->ddev = NULL;
++	priv->a_crtc = NULL;
++	return ret;
++}
++
++static void spacemit_drm_master_unbind(struct device *dev)
++{
++	struct spacemit_drm_private *priv = dev_get_drvdata(dev);
++	struct drm_device *drm = priv->ddev;
++
++	disable_irq(priv->irq_online);
++
++	drm_dev_unregister(drm);
++	drm_atomic_helper_shutdown(drm);
++	component_unbind_all(dev, drm);
++
++	/* .shutdown and a later re-bind must not touch the stale instance. */
++	priv->ddev = NULL;
++	priv->a_crtc = NULL;
++}
++
++const struct component_master_ops spacemit_drm_master_ops = {
++	.bind = spacemit_drm_master_bind,
++	.unbind = spacemit_drm_master_unbind,
++};
++
++static int spacemit_dpu_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	const struct spacemit_hw_device *hwdev_template;
++	struct spacemit_drm_private *priv;
++	struct device_node *np = dev->of_node;
++	int ret;
++
++	if (!np) {
++		dev_err(dev, "no OF node for the DPU\n");
++		return -ENODEV;
++	}
++
++	ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(64));
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to set DMA mask\n");
++
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++	priv->dev = dev;
++	dev_set_drvdata(dev, priv);
++
++	/* The match data is shared const; the MMIO mapping is per-instance. */
++	hwdev_template = device_get_match_data(dev);
++	if (!hwdev_template)
++		return -ENODEV;
++	priv->hwdev = devm_kmemdup(dev, hwdev_template,
++				   sizeof(*hwdev_template), GFP_KERNEL);
++	if (!priv->hwdev)
++		return -ENOMEM;
++
++	priv->cmdlist_groups = devm_kcalloc(dev,
++		priv->hwdev->rdma_nums + priv->hwdev->crtc_nums,
++		sizeof(*priv->cmdlist_groups), GFP_KERNEL);
++	if (!priv->cmdlist_groups)
++		return -ENOMEM;
++
++	priv->hwdev->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(priv->hwdev->base))
++		return PTR_ERR(priv->hwdev->base);
++
++	priv->hwdev->regmap = devm_regmap_init_mmio(dev, priv->hwdev->base,
++		&spacemit_dpu_regmap_config);
++	if (IS_ERR(priv->hwdev->regmap))
++		return dev_err_probe(dev, PTR_ERR(priv->hwdev->regmap),
++				     "failed to init DPU regmap\n");
++
++	ret = spacemit_dpu_hw_resources_init(priv, pdev);
++	if (ret)
++		return ret;
++
++	return spacemit_drm_of_component_probe(dev);
++}
++
++static void spacemit_dpu_remove(struct platform_device *pdev)
++{
++	component_master_del(&pdev->dev, &spacemit_drm_master_ops);
++}
++
++static void spacemit_dpu_shutdown(struct platform_device *pdev)
++{
++	struct spacemit_drm_private *priv = dev_get_drvdata(&pdev->dev);
++	struct drm_device *drm = priv->ddev;
++
++	if (!drm) {
++		dev_warn(&pdev->dev,
++			 "drm device is not available, no shutdown\n");
++		return;
++	}
++
++	drm_atomic_helper_shutdown(drm);
++}
++
++/*
++ * The assert and deassert orders are not mirror images: the hardware wants
++ * these.
++ */
++static void dpu_reset_assert(struct device *dev, const char *name,
++			     struct reset_control *rstc)
++{
++	int ret = reset_control_assert(rstc);
++
++	if (ret)
++		dev_warn(dev, "failed to assert %s reset: %d\n", name, ret);
++}
++
++static void dpu_reset_deassert(struct device *dev, const char *name,
++			       struct reset_control *rstc)
++{
++	int ret = reset_control_deassert(rstc);
++
++	if (ret)
++		dev_warn(dev, "failed to deassert %s reset: %d\n", name, ret);
++}
++
++static int dpu_pm_suspend(struct device *dev)
++{
++	struct spacemit_drm_private *priv = dev_get_drvdata(dev);
++	struct spacemit_crtc *a_crtc = priv->a_crtc;
++
++	/*
++	 * Assert before gating: a reset asserted into an already-gated block
++	 * has no clock edges to propagate on and leaves the register file
++	 * untouched.
++	 */
++	dpu_reset_assert(dev, "lcd", a_crtc->lcd_reset);
++	dpu_reset_assert(dev, "esc", a_crtc->esc_reset);
++	dpu_reset_assert(dev, "mclk", a_crtc->mclk_reset);
++	dpu_reset_assert(dev, "aclk", a_crtc->aclk_reset);
++	dpu_reset_assert(dev, "dsc", a_crtc->dsc_reset);
++	usleep_range(10000, 20000);
++
++	if (a_crtc->core && a_crtc->core->disable_clk)
++		a_crtc->core->disable_clk(a_crtc);
++
++	return 0;
++}
++
++static int dpu_pm_resume(struct device *dev)
++{
++	struct spacemit_drm_private *priv = dev_get_drvdata(dev);
++	struct spacemit_crtc *a_crtc = priv->a_crtc;
++
++	dpu_reset_deassert(dev, "mclk", a_crtc->mclk_reset);
++	dpu_reset_deassert(dev, "esc", a_crtc->esc_reset);
++	dpu_reset_deassert(dev, "lcd", a_crtc->lcd_reset);
++	dpu_reset_deassert(dev, "aclk", a_crtc->aclk_reset);
++	dpu_reset_deassert(dev, "dsc", a_crtc->dsc_reset);
++
++	if (a_crtc->core && a_crtc->core->enable_clk)
++		a_crtc->core->enable_clk(a_crtc);
++
++	return 0;
++}
++
++static const struct of_device_id dpu_match_table[] = {
++	{
++		.compatible = "spacemit,k3-saturn-dpu",
++		.data = &k3_saturn_dpu,
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(of, dpu_match_table);
++
++static struct platform_driver spacemit_dpu_driver = {
++	.probe = spacemit_dpu_probe,
++	.remove = spacemit_dpu_remove,
++	.shutdown = spacemit_dpu_shutdown,
++	.driver = {
++		.name = "spacemit-dpu-drv",
++		.of_match_table = dpu_match_table,
++		.suppress_bind_attrs = true,
++	},
++};
++module_platform_driver(spacemit_dpu_driver);
++
++MODULE_DESCRIPTION("SpacemiT DRM KMS master driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/gpu/drm/spacemit/spacemit_planes.c b/drivers/gpu/drm/spacemit/spacemit_planes.c
 new file mode 100644
-index 000000000000..9490021cdb91
+index 000000000000..3442013b0c37
 --- /dev/null
-+++ b/drivers/gpu/drm/spacemit/dpu/saturn_regs/reg_map_hee.h
-@@ -0,0 +1,64 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
++++ b/drivers/gpu/drm/spacemit/spacemit_planes.c
+@@ -0,0 +1,376 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2025-2026 SpacemiT Co., Ltd.
 + *
 + */
 +
-+#ifndef _SATURN_REG_MAP_hee_H_
-+#define _SATURN_REG_MAP_hee_H_
++#include <drm/drm_print.h>
++#include <drm/drm_atomic.h>
++#include <drm/drm_blend.h>
++#include <drm/drm_atomic_uapi.h>
++#include <drm/drm_atomic_helper.h>
++#include <drm/drm_drv.h>
++#include <drm/drm_managed.h>
++#include <drm/drm_plane.h>
++#include <drm/drm_framebuffer.h>
++#include <drm/drm_plane_helper.h>
++#include <drm/drm_color_mgmt.h>
++#include <drm/drm_gem.h>
++#include <linux/component.h>
++#include <linux/dma-mapping.h>
++#include "spacemit_cmdlist.h"
++#include "spacemit_dmmu.h"
++#include "spacemit_drm.h"
++#include "dpu/dpu_saturn.h"
++#include "dpu/dpu_trace.h"
++#include "dpu/saturn_fbcmem.h"
 +
-+#include "dpu_int.h"
++/* The AFBC decoder exists but no modifier has been validated on hardware. */
++static const u64 supported_format_modifiers[] = {
++	DRM_FORMAT_MOD_LINEAR,
++	DRM_FORMAT_MOD_INVALID
++};
 +
-+/* Base address, then bit definitions */
++struct spacemit_plane *to_spacemit_plane(struct drm_plane *plane)
++{
++	return container_of(plane, struct spacemit_plane, plane);
++}
 +
-+#define DPU_TOP_BASE_ADDR 0x0
-+#define DPU_CTRL_BASE_ADDR 0x3c0 /* dpu_ctl_top start address */
-+#define CMDLIST_BASE_ADDR 0x500
-+#define DPU_INT_BASE_ADDR 0x700
++static int spacemit_plane_atomic_check(struct drm_plane *plane,
++				       struct drm_atomic_commit *atomic_state)
++{
++	struct drm_plane_state *state =
++			drm_atomic_get_new_plane_state(atomic_state, plane);
++	struct drm_framebuffer *fb = state->fb;
++	u32 src_w, src_h, src_x, src_y;
++	u32 crtc_w, crtc_h;
++	struct spacemit_plane_state *cur_state = to_spacemit_plane_state(state);
++	u32 cur_rdma_id = cur_state->rdma_id;
++	struct spacemit_drm_private *priv = plane->dev->dev_private;
++	struct spacemit_hw_device *hwdev = priv->hwdev;
++	struct spacemit_crtc *a_crtc = NULL;
 +
-+#define DPU_ONLINE_IRQ_MSK	(3 * 4)
-+#define DPU_ONLINE_IRQ_STS	(12 * 4)
++	struct drm_crtc_state *crtc_state = NULL;
++	int ret;
 +
-+#define DMA_TOP_BASE_ADDR (RDMA0_BASE_ADDR + 0x280)
++	if (state->crtc)
++		crtc_state = drm_atomic_get_new_crtc_state(atomic_state,
++							   state->crtc);
 +
-+#define RDMA0_BASE_ADDR (0x00001000)
-+#define RDMA1_BASE_ADDR (RDMA0_BASE_ADDR + 0x1000)
-+#define RDMA2_BASE_ADDR (RDMA0_BASE_ADDR + 0xa000)
-+#define RDMA3_BASE_ADDR (RDMA0_BASE_ADDR + 0xb000)
++	ret = drm_atomic_helper_check_plane_state(state, crtc_state,
++						  DRM_PLANE_NO_SCALING,
++						  DRM_PLANE_NO_SCALING,
++						  true, false);
++	if (ret)
++		return ret;
 +
-+#define MMU_BASE_ADDR (0x1100)
-+#define MMU_TOP_BASE_ADDR (MMU_BASE_ADDR + 0x100)
++	if (!state->visible)
++		return 0;
 +
-+#define TBU0_ADDR 0x1100
-+#define TBU1_ADDR 0x1180
-+#define TBU2_ADDR 0x2100
-+#define TBU3_ADDR 0x2180
-+#define TBU4_ADDR 0xb100
-+#define TBU5_ADDR 0xb180
-+#define TBU6_ADDR 0xc100
-+#define TBU7_ADDR 0xc180
++	a_crtc = to_spacemit_crtc(state->crtc);
++	trace_spacemit_plane_atomic_check(a_crtc->dev_id);
 +
-+#define CMP0_BASE_ADDR 0x00018000
-+#define CMP1_BASE_ADDR (CMP0_BASE_ADDR + 0x18000)
-+#define CMP2_BASE_ADDR (CMP0_BASE_ADDR + 0x30000)
++	src_x = state->src_x >> 16;
++	src_y = state->src_y >> 16;
++	src_w = state->src_w >> 16;
++	src_h = state->src_h >> 16;
++	crtc_w = state->crtc_w;
++	crtc_h = state->crtc_h;
 +
-+#define PREPIPE_SCAL0_BASE_ADDR 0x14000
-+#define PREPIPE_SCAL1_BASE_ADDR 0x14400
-+#define PREPIPE_SCAL2_BASE_ADDR 0x14800
-+#define PREPIPE_SCAL3_BASE_ADDR 0x14c00
++	/* The programming paths use the raw rectangles, so refuse to clip. */
++	if ((state->src.x1 >> 16) != src_x || (state->src.y1 >> 16) != src_y ||
++	    (drm_rect_width(&state->src) >> 16) != src_w ||
++	    (drm_rect_height(&state->src) >> 16) != src_h ||
++	    state->dst.x1 != state->crtc_x || state->dst.y1 != state->crtc_y ||
++	    drm_rect_width(&state->dst) != crtc_w ||
++	    drm_rect_height(&state->dst) != crtc_h) {
++		drm_dbg_kms(plane->dev,
++			    "clipped plane rectangles not supported\n");
++		return -EINVAL;
++	}
 +
-+#define POST_PIPE_ADDR (CMP1_BASE_ADDR + 0x300)
++	/* One-dimensional sources are invalid (only 0x0 = constant fill) */
++	if ((src_w == 0) != (src_h == 0)) {
++		drm_dbg_kms(plane->dev, "unsupported src_w %d src_h %d\n",
++			    src_w, src_h);
++		return -EINVAL;
++	}
 +
-+#define EE_ADDR (CMP1_BASE_ADDR + 0xd00)
++	if (src_w == 0 && src_h == 0)
++		cur_rdma_id = RDMA_INVALID_ID;	/* constant-fill layer, no RDMA */
++	else if (cur_rdma_id == RDMA_INVALID_ID)
++		cur_rdma_id = state->zpos;	/* first commit: bind channel by zpos */
++	cur_state->rdma_id = cur_rdma_id;
 +
-+#define DPU_SCENE_CTL_BASE_ADDR (0x300)
-+#define DPU_SCENE_CTL_SIZE 0x40
-+#define DPU_SCENE_CTL_ADDR(i) (DPU_SCENE_CTL_BASE_ADDR + (i) * DPU_SCENE_CTL_SIZE)
++	if (cur_rdma_id != RDMA_INVALID_ID) {
++		if (cur_rdma_id >= hwdev->rdma_nums) {
++			drm_dbg_kms(plane->dev, "invalid rdma id %d\n",
++				    cur_rdma_id);
++			return -EINVAL;
++		}
 +
-+#define TMG0_BASE_ADDR (0x00051000 + 0x200)
++		if (a_crtc->core->cal_layer_fbcmem_size(plane, state)) {
++			drm_dbg_kms(plane->dev,
++				    "plane %d: invalid fbcmem size\n",
++				    state->zpos);
++			return -EINVAL;
++		}
 +
-+#define CMDLIST_CH_Y                 0x188
-+#define CMDLIST_CH_START_CMPS_Y      0x90
-+#define CMDLIST_CFG_READY            0x34
++		cur_state->mmu_tbl.size =
++			((PAGE_ALIGN(fb->obj[0]->size) >> PAGE_SHIFT) +
++			 HW_ALIGN_TTB_NUM) * 4;
++		cur_state->mmu_tbl.va =
++			dma_alloc_coherent(a_crtc->dev, cur_state->mmu_tbl.size,
++					   &cur_state->mmu_tbl.pa,
++					   GFP_KERNEL | __GFP_ZERO);
++		if (!cur_state->mmu_tbl.va)
++			return -ENOMEM;
++	}
 +
-+#endif
-diff --git a/drivers/gpu/drm/spacemit/dpu/saturn_regs/saturn_fields.h b/drivers/gpu/drm/spacemit/dpu/saturn_regs/saturn_fields.h
-new file mode 100644
-index 000000000000..f745dfdaa83d
---- /dev/null
-+++ b/drivers/gpu/drm/spacemit/dpu/saturn_regs/saturn_fields.h
-@@ -0,0 +1,298 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2025-2026 SpacemiT Co., Ltd.
-+ *
-+ * Saturn DPU register field map: word offset and mask per field, consumed by
-+ * the dpu_write()/dpu_read() accessors.
-+ */
++	/*
++	 * The commit cannot fail, so take the DMA buffer while -ENOMEM is an
++	 * answer.
++	 */
++	ret = spacemit_cmdlist_alloc(a_crtc->dev, &cur_state->cl);
++	if (ret)
++		return ret;
 +
-+#ifndef SATURN_FIELDS_H
-+#define SATURN_FIELDS_H
++	cur_state->format = spacemit_plane_hw_get_format_id(fb->format->format);
++	if (cur_state->format == SPACEMIT_DPU_INVALID_FORMAT_ID) {
++		drm_dbg_kms(plane->dev, "unsupported format %p4cc\n",
++			    &fb->format->format);
++		return -EINVAL;
++	}
 +
-+#include <linux/bits.h>
++	return 0;
++}
 +
-+/* CMDLIST_REG: 128 x 32-bit registers */
-+#define CMDLIST_REG__NWORDS	128
-+#define CMDLIST_REG__cmdlist_reg_0__cmdlist_ch_start_addrl_WORD(i)	(0 + (i))
-+#define CMDLIST_REG__cmdlist_reg_0__cmdlist_ch_start_addrl_MASK	GENMASK(31, 4)
-+#define CMDLIST_REG__cmdlist_reg_16__cmdlist_ch_start_addrh_WORD(i)	(16 + (i))
-+#define CMDLIST_REG__cmdlist_reg_16__cmdlist_ch_start_addrh_MASK	GENMASK(5, 0)
-+#define CMDLIST_REG__cmdlist_reg_48__cmdlist_ch_y_first_WORD(i)	(48 + (i))
-+#define CMDLIST_REG__cmdlist_reg_48__cmdlist_ch_y_first_MASK	GENMASK(24, 12)
++static void spacemit_plane_atomic_update(struct drm_plane *plane,
++					 struct drm_atomic_commit *state)
++{
++	int ret = 0;
++	struct spacemit_crtc *a_crtc = to_spacemit_crtc(plane->state->crtc);
++	struct spacemit_plane_state *spacemit_pstate =
++			to_spacemit_plane_state(plane->state);
++	struct spacemit_drm_private *priv = plane->dev->dev_private;
++	struct spacemit_hw_device *hwdev = priv->hwdev;
++	u32 rdma_id = spacemit_pstate->rdma_id;
++	struct cmdlist *cl = NULL;
++	int idx;
 +
-+/* CMPS_X_REG: 146 x 32-bit registers */
-+#define CMPS_X_REG__NWORDS	146
-+#define CMPS_X_REG__module_enable_WORD	0
-+#define CMPS_X_REG__module_enable_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__dst_w_WORD	1
-+#define CMPS_X_REG__dst_w_MASK	GENMASK(15, 0)
-+#define CMPS_X_REG__dst_h_WORD	1
-+#define CMPS_X_REG__dst_h_MASK	GENMASK(31, 16)
-+#define CMPS_X_REG__bg_color_r_WORD	2
-+#define CMPS_X_REG__bg_color_r_MASK	GENMASK(9, 0)
-+#define CMPS_X_REG__bg_color_g_WORD	3
-+#define CMPS_X_REG__bg_color_g_MASK	GENMASK(9, 0)
-+#define CMPS_X_REG__bg_color_b_WORD	4
-+#define CMPS_X_REG__bg_color_b_MASK	GENMASK(9, 0)
-+#define CMPS_X_REG__bg_color_a_WORD	5
-+#define CMPS_X_REG__bg_color_a_MASK	GENMASK(7, 0)
-+#define CMPS_X_REG__layer00_area_left_WORD	8
-+#define CMPS_X_REG__layer00_area_left_MASK	GENMASK(15, 0)
-+#define CMPS_X_REG__layer00_area_right_WORD	8
-+#define CMPS_X_REG__layer00_area_right_MASK	GENMASK(31, 16)
-+#define CMPS_X_REG__layer00_area_top_WORD	9
-+#define CMPS_X_REG__layer00_area_top_MASK	GENMASK(15, 0)
-+#define CMPS_X_REG__layer00_area_bottom_WORD	9
-+#define CMPS_X_REG__layer00_area_bottom_MASK	GENMASK(31, 16)
-+#define CMPS_X_REG__layer00_solid_color_r_WORD	10
-+#define CMPS_X_REG__layer00_solid_color_r_MASK	GENMASK(9, 0)
-+#define CMPS_X_REG__layer00_solid_color_g_WORD	11
-+#define CMPS_X_REG__layer00_solid_color_g_MASK	GENMASK(9, 0)
-+#define CMPS_X_REG__layer00_solid_color_b_WORD	12
-+#define CMPS_X_REG__layer00_solid_color_b_MASK	GENMASK(9, 0)
-+#define CMPS_X_REG__layer00_solid_color_a_WORD	13
-+#define CMPS_X_REG__layer00_solid_color_a_MASK	GENMASK(7, 0)
-+#define CMPS_X_REG__layer00_blend_mode_WORD	13
-+#define CMPS_X_REG__layer00_blend_mode_MASK	GENMASK(15, 14)
-+#define CMPS_X_REG__layer00_colorkey_en_WORD	13
-+#define CMPS_X_REG__layer00_colorkey_en_MASK	GENMASK(18, 18)
-+#define CMPS_X_REG__layer00_en_WORD	14
-+#define CMPS_X_REG__layer00_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer00_blend_sel_WORD	14
-+#define CMPS_X_REG__layer00_blend_sel_MASK	GENMASK(2, 1)
-+#define CMPS_X_REG__layer00_solid_en_WORD	14
-+#define CMPS_X_REG__layer00_solid_en_MASK	GENMASK(3, 3)
-+#define CMPS_X_REG__layer00_dma_id_WORD	14
-+#define CMPS_X_REG__layer00_dma_id_MASK	GENMASK(7, 4)
-+#define CMPS_X_REG__layer00_layer_alpha_WORD	14
-+#define CMPS_X_REG__layer00_layer_alpha_MASK	GENMASK(15, 8)
-+#define CMPS_X_REG__layer00_alpha_ratio_WORD	14
-+#define CMPS_X_REG__layer00_alpha_ratio_MASK	GENMASK(23, 16)
-+#define CMPS_X_REG__layer01_en_WORD	21
-+#define CMPS_X_REG__layer01_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer02_en_WORD	28
-+#define CMPS_X_REG__layer02_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer03_en_WORD	35
-+#define CMPS_X_REG__layer03_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer04_en_WORD	42
-+#define CMPS_X_REG__layer04_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer05_en_WORD	49
-+#define CMPS_X_REG__layer05_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer06_en_WORD	56
-+#define CMPS_X_REG__layer06_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer07_en_WORD	63
-+#define CMPS_X_REG__layer07_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer08_en_WORD	70
-+#define CMPS_X_REG__layer08_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer09_en_WORD	77
-+#define CMPS_X_REG__layer09_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer10_en_WORD	84
-+#define CMPS_X_REG__layer10_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer11_en_WORD	91
-+#define CMPS_X_REG__layer11_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer12_en_WORD	98
-+#define CMPS_X_REG__layer12_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer13_en_WORD	105
-+#define CMPS_X_REG__layer13_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer14_en_WORD	112
-+#define CMPS_X_REG__layer14_en_MASK	GENMASK(0, 0)
-+#define CMPS_X_REG__layer15_en_WORD	119
-+#define CMPS_X_REG__layer15_en_MASK	GENMASK(0, 0)
++	if (!drm_dev_enter(plane->dev, &idx))
++		return;
 +
-+/* DMA_TOP_REG: 25 x 32-bit registers */
-+#define DMA_TOP_REG__NWORDS	25
-+#define DMA_TOP_REG__image_rr_ratio_WORD	1
-+#define DMA_TOP_REG__image_rr_ratio_MASK	GENMASK(7, 0)
-+#define DMA_TOP_REG__pixel_num_th_WORD	1
-+#define DMA_TOP_REG__pixel_num_th_MASK	GENMASK(14, 9)
-+#define DMA_TOP_REG__rdma_timeout_limit_WORD	2
-+#define DMA_TOP_REG__rdma_timeout_limit_MASK	GENMASK(15, 0)
-+#define DMA_TOP_REG__wdma_timeout_limit_WORD	2
-+#define DMA_TOP_REG__wdma_timeout_limit_MASK	GENMASK(31, 16)
++	trace_spacemit_plane_atomic_update(a_crtc->dev_id);
 +
-+/* DPU_CTL_REG: 15 x 32-bit registers */
-+#define DPU_CTL_REG__NWORDS	15
-+#define DPU_CTL_REG__nml_rch_en_WORD	0
-+#define DPU_CTL_REG__nml_rch_en_MASK	GENMASK(9, 0)
-+#define DPU_CTL_REG__nml_scl_en_WORD	0
-+#define DPU_CTL_REG__nml_scl_en_MASK	GENMASK(13, 10)
-+#define DPU_CTL_REG__nml_outctl_en_WORD	0
-+#define DPU_CTL_REG__nml_outctl_en_MASK	GENMASK(18, 18)
-+#define DPU_CTL_REG__nml_frm_timing_en_WORD	0
-+#define DPU_CTL_REG__nml_frm_timing_en_MASK	GENMASK(25, 23)
-+#define DPU_CTL_REG__both_cfg_rdy_WORD	2
-+#define DPU_CTL_REG__both_cfg_rdy_MASK	GENMASK(0, 0)
-+#define DPU_CTL_REG__video_mod_WORD	3
-+#define DPU_CTL_REG__video_mod_MASK	GENMASK(0, 0)
-+#define DPU_CTL_REG__dbg_mod_WORD	3
-+#define DPU_CTL_REG__dbg_mod_MASK	GENMASK(1, 1)
-+#define DPU_CTL_REG__timing_inter0_WORD	3
-+#define DPU_CTL_REG__timing_inter0_MASK	GENMASK(7, 2)
-+#define DPU_CTL_REG__timing_inter1_WORD	3
-+#define DPU_CTL_REG__timing_inter1_MASK	GENMASK(13, 8)
-+#define DPU_CTL_REG__sw_start_WORD	4
-+#define DPU_CTL_REG__sw_start_MASK	GENMASK(0, 0)
-+#define DPU_CTL_REG__nml_rch_vrt_reuse_WORD	7
-+#define DPU_CTL_REG__nml_rch_vrt_reuse_MASK	GENMASK(9, 0)
++	hwdev->get_cl_rdma_buf(a_crtc);
 +
-+/* DPU_CTL_TOP_REG: 53 x 32-bit registers */
-+#define DPU_CTL_TOP_REG__NWORDS	53
-+#define DPU_CTL_TOP_REG__dpu_ctl_top_reg_0__cmdlist_rch_en_WORD(i)	(0 + (i))
-+#define DPU_CTL_TOP_REG__dpu_ctl_top_reg_0__cmdlist_rch_en_MASK	GENMASK(0, 0)
-+#define DPU_CTL_TOP_REG__dpu_ctl_top_reg_10__cmdlist_cmps_other_en_WORD(i)	(10 + (i))
-+#define DPU_CTL_TOP_REG__dpu_ctl_top_reg_10__cmdlist_cmps_other_en_MASK	GENMASK(0, 0)
-+#define DPU_CTL_TOP_REG__dpu_ctl_top_reg_10__cmdlist_cmps_top_en_WORD(i)	(10 + (i))
-+#define DPU_CTL_TOP_REG__dpu_ctl_top_reg_10__cmdlist_cmps_top_en_MASK	GENMASK(1, 1)
++	hwdev->plane_update_hw_channel(plane);
 +
-+/* DPU_INTP_REG: 50 x 32-bit registers */
-+#define DPU_INTP_REG__NWORDS	50
++	/* Solid-fill layers have no RDMA and no page table */
++	if (rdma_id < hwdev->rdma_nums && spacemit_pstate->mmu_tbl.va) {
++		u8 tbu_id = rdma_id * 2;
 +
-+/* EE_REG: 51 x 32-bit registers */
-+#define EE_REG__NWORDS	51
-+#define EE_REG__m_benable_WORD	0
-+#define EE_REG__m_benable_MASK	GENMASK(0, 0)
++		ret = spacemit_dmmu_map(plane->state->fb,
++					&spacemit_pstate->mmu_tbl, tbu_id,
++					a_crtc->cl_rdma, plane);
++		if (!ret)
++			cmdlist_regs_packing(plane_to_cl(plane),
++					     CMDLIST_MOD_RDMA, a_crtc->cl_rdma);
++		else
++			drm_err(plane->dev, "failed to map plane: %d\n", ret);
++	}
 +
-+/* MMU_TBU_REG: 21 x 32-bit registers */
-+#define MMU_TBU_REG__NWORDS	21
-+#define MMU_TBU_REG__tbu_base_addr0_low_WORD	1
-+#define MMU_TBU_REG__tbu_base_addr0_low_MASK	GENMASK(31, 0)
-+#define MMU_TBU_REG__tbu_base_addr0_high_WORD	2
-+#define MMU_TBU_REG__tbu_base_addr0_high_MASK	GENMASK(11, 0)
-+#define MMU_TBU_REG__tbu_base_addr1_low_WORD	3
-+#define MMU_TBU_REG__tbu_base_addr1_low_MASK	GENMASK(31, 0)
-+#define MMU_TBU_REG__tbu_base_addr1_high_WORD	4
-+#define MMU_TBU_REG__tbu_base_addr1_high_MASK	GENMASK(11, 0)
-+#define MMU_TBU_REG__tbu_base_addr2_low_WORD	5
-+#define MMU_TBU_REG__tbu_base_addr2_low_MASK	GENMASK(31, 0)
-+#define MMU_TBU_REG__tbu_base_addr2_high_WORD	6
-+#define MMU_TBU_REG__tbu_base_addr2_high_MASK	GENMASK(11, 0)
-+#define MMU_TBU_REG__tbu_va0_WORD	7
-+#define MMU_TBU_REG__tbu_va0_MASK	GENMASK(31, 0)
-+#define MMU_TBU_REG__tbu_va1_WORD	8
-+#define MMU_TBU_REG__tbu_va1_MASK	GENMASK(31, 0)
-+#define MMU_TBU_REG__tbu_va2_WORD	9
-+#define MMU_TBU_REG__tbu_va2_MASK	GENMASK(31, 0)
-+#define MMU_TBU_REG__tbu_size0_WORD	10
-+#define MMU_TBU_REG__tbu_size0_MASK	GENMASK(15, 0)
-+#define MMU_TBU_REG__tbu_size1_WORD	11
-+#define MMU_TBU_REG__tbu_size1_MASK	GENMASK(15, 0)
-+#define MMU_TBU_REG__tbu_size2_WORD	12
-+#define MMU_TBU_REG__tbu_size2_MASK	GENMASK(15, 0)
-+#define MMU_TBU_REG__vsync_update_en_WORD	13
-+#define MMU_TBU_REG__vsync_update_en_MASK	GENMASK(1, 1)
++	cl = &spacemit_pstate->cl;
++	cl->rch_start_cmps_y = CMDLIST_SENTINEL_POISON;
++	cl->cmdlist_ch_y_other = CMDLIST_SENTINEL_POISON;
++	free_cmdlist_regs(a_crtc->cl_rdma);
 +
-+/* MMU_TOP_REG: 23 x 32-bit registers */
-+#define MMU_TOP_REG__NWORDS	23
-+#define MMU_TOP_REG__rdma_timelimit_WORD	0
-+#define MMU_TOP_REG__rdma_timelimit_MASK	GENMASK(31, 16)
-+#define MMU_TOP_REG__sram0_tlb_axi_port_sel_WORD	1
-+#define MMU_TOP_REG__sram0_tlb_axi_port_sel_MASK	GENMASK(1, 0)
-+#define MMU_TOP_REG__sram1_tlb_axi_port_sel_WORD	1
-+#define MMU_TOP_REG__sram1_tlb_axi_port_sel_MASK	GENMASK(3, 2)
-+#define MMU_TOP_REG__dmac0_rd_outs_num_WORD	2
-+#define MMU_TOP_REG__dmac0_rd_outs_num_MASK	GENMASK(7, 0)
-+#define MMU_TOP_REG__dmac1_rd_outs_num_WORD	3
-+#define MMU_TOP_REG__dmac1_rd_outs_num_MASK	GENMASK(7, 0)
++	drm_dev_exit(idx);
++}
 +
-+/* POSTPIPE_REG: 50 x 32-bit registers */
-+#define POSTPIPE_REG__NWORDS	50
-+#define POSTPIPE_REG__m_inwidth_WORD	13
-+#define POSTPIPE_REG__m_inwidth_MASK	GENMASK(15, 0)
-+#define POSTPIPE_REG__m_inheight_WORD	13
-+#define POSTPIPE_REG__m_inheight_MASK	GENMASK(31, 16)
++static void spacemit_plane_atomic_disable(struct drm_plane *plane,
++					  struct drm_atomic_commit *state)
++{
++	struct drm_plane_state *old_state =
++			drm_atomic_get_old_plane_state(state, plane);
++	struct spacemit_drm_private *priv = plane->dev->dev_private;
++	struct spacemit_hw_device *hwdev = priv->hwdev;
++	int idx;
 +
-+/* RDMA_PATH_X_REG: 60 x 32-bit registers */
-+#define RDMA_PATH_X_REG__NWORDS	60
-+#define RDMA_PATH_X_REG__layer_mode_WORD	0
-+#define RDMA_PATH_X_REG__layer_mode_MASK	GENMASK(1, 0)
-+#define RDMA_PATH_X_REG__layer_cmpsr_id_WORD	0
-+#define RDMA_PATH_X_REG__layer_cmpsr_id_MASK	GENMASK(15, 13)
-+#define RDMA_PATH_X_REG__is_two_layers_WORD	1
-+#define RDMA_PATH_X_REG__is_two_layers_MASK	GENMASK(0, 0)
-+#define RDMA_PATH_X_REG__is_offline_WORD	1
-+#define RDMA_PATH_X_REG__is_offline_MASK	GENMASK(1, 1)
-+#define RDMA_PATH_X_REG__base_addr0_low_ly0_WORD	9
-+#define RDMA_PATH_X_REG__base_addr0_low_ly0_MASK	GENMASK(31, 0)
-+#define RDMA_PATH_X_REG__base_addr0_high_ly0_WORD	10
-+#define RDMA_PATH_X_REG__base_addr0_high_ly0_MASK	GENMASK(1, 0)
-+#define RDMA_PATH_X_REG__base_addr1_low_ly0_WORD	11
-+#define RDMA_PATH_X_REG__base_addr1_low_ly0_MASK	GENMASK(31, 0)
-+#define RDMA_PATH_X_REG__base_addr1_high_ly0_WORD	12
-+#define RDMA_PATH_X_REG__base_addr1_high_ly0_MASK	GENMASK(1, 0)
-+#define RDMA_PATH_X_REG__base_addr2_low_ly0_WORD	13
-+#define RDMA_PATH_X_REG__base_addr2_low_ly0_MASK	GENMASK(31, 0)
-+#define RDMA_PATH_X_REG__base_addr2_high_ly0_WORD	14
-+#define RDMA_PATH_X_REG__base_addr2_high_ly0_MASK	GENMASK(1, 0)
-+#define RDMA_PATH_X_REG__rdma_stride0_layer0_WORD	15
-+#define RDMA_PATH_X_REG__rdma_stride0_layer0_MASK	GENMASK(15, 0)
-+#define RDMA_PATH_X_REG__rdma_stride1_layer0_WORD	15
-+#define RDMA_PATH_X_REG__rdma_stride1_layer0_MASK	GENMASK(31, 16)
-+#define RDMA_PATH_X_REG__img_width_ly0_WORD	16
-+#define RDMA_PATH_X_REG__img_width_ly0_MASK	GENMASK(15, 0)
-+#define RDMA_PATH_X_REG__img_height_ly0_WORD	16
-+#define RDMA_PATH_X_REG__img_height_ly0_MASK	GENMASK(31, 16)
-+#define RDMA_PATH_X_REG__bbox_start_x_ly0_WORD	17
-+#define RDMA_PATH_X_REG__bbox_start_x_ly0_MASK	GENMASK(15, 0)
-+#define RDMA_PATH_X_REG__bbox_start_y_ly0_WORD	17
-+#define RDMA_PATH_X_REG__bbox_start_y_ly0_MASK	GENMASK(31, 16)
-+#define RDMA_PATH_X_REG__bbox_end_x_ly0_WORD	18
-+#define RDMA_PATH_X_REG__bbox_end_x_ly0_MASK	GENMASK(15, 0)
-+#define RDMA_PATH_X_REG__bbox_end_y_ly0_WORD	18
-+#define RDMA_PATH_X_REG__bbox_end_y_ly0_MASK	GENMASK(31, 16)
-+#define RDMA_PATH_X_REG__pixel_format_WORD	29
-+#define RDMA_PATH_X_REG__pixel_format_MASK	GENMASK(5, 0)
-+#define RDMA_PATH_X_REG__uv_swap_WORD	29
-+#define RDMA_PATH_X_REG__uv_swap_MASK	GENMASK(6, 6)
-+#define RDMA_PATH_X_REG__rot_mode_ly0_WORD	29
-+#define RDMA_PATH_X_REG__rot_mode_ly0_MASK	GENMASK(10, 8)
++	if (!drm_dev_enter(plane->dev, &idx))
++		return;
 +
-+/* TMG_REG: 30 x 32-bit registers */
-+#define TMG_REG__NWORDS	30
-+#define TMG_REG__split_en_WORD	0
-+#define TMG_REG__split_en_MASK	GENMASK(0, 0)
-+#define TMG_REG__cmd_screen_WORD	0
-+#define TMG_REG__cmd_screen_MASK	GENMASK(1, 1)
-+#define TMG_REG__fm_timing_en_WORD	0
-+#define TMG_REG__fm_timing_en_MASK	GENMASK(2, 2)
-+#define TMG_REG__cmd_wait_en_WORD	0
-+#define TMG_REG__cmd_wait_en_MASK	GENMASK(3, 3)
-+#define TMG_REG__cmd_wait_te_WORD	0
-+#define TMG_REG__cmd_wait_te_MASK	GENMASK(4, 4)
-+#define TMG_REG__disp_ready_man_en_WORD	0
-+#define TMG_REG__disp_ready_man_en_MASK	GENMASK(5, 5)
-+#define TMG_REG__hsp_WORD	0
-+#define TMG_REG__hsp_MASK	GENMASK(7, 7)
-+#define TMG_REG__vsp_WORD	0
-+#define TMG_REG__vsp_MASK	GENMASK(8, 8)
-+#define TMG_REG__user_WORD	2
-+#define TMG_REG__user_MASK	GENMASK(15, 12)
-+#define TMG_REG__hfp_WORD	3
-+#define TMG_REG__hfp_MASK	GENMASK(27, 16)
-+#define TMG_REG__hsync_width_WORD	4
-+#define TMG_REG__hsync_width_MASK	GENMASK(9, 0)
-+#define TMG_REG__hbp_WORD	4
-+#define TMG_REG__hbp_MASK	GENMASK(27, 16)
-+#define TMG_REG__vfp_WORD	5
-+#define TMG_REG__vfp_MASK	GENMASK(15, 0)
-+#define TMG_REG__vsync_width_WORD	5
-+#define TMG_REG__vsync_width_MASK	GENMASK(25, 16)
-+#define TMG_REG__vbp_WORD	6
-+#define TMG_REG__vbp_MASK	GENMASK(11, 0)
-+#define TMG_REG__h_active_WORD	6
-+#define TMG_REG__h_active_MASK	GENMASK(29, 16)
-+#define TMG_REG__v_active_WORD	7
-+#define TMG_REG__v_active_MASK	GENMASK(13, 0)
-+#define TMG_REG__background_r_WORD	9
-+#define TMG_REG__background_r_MASK	GENMASK(11, 0)
-+#define TMG_REG__background_g_WORD	9
-+#define TMG_REG__background_g_MASK	GENMASK(27, 16)
-+#define TMG_REG__background_b_WORD	10
-+#define TMG_REG__background_b_MASK	GENMASK(11, 0)
-+#define TMG_REG__eof_1st_ln_dly_num_WORD	11
-+#define TMG_REG__eof_1st_ln_dly_num_MASK	GENMASK(15, 0)
-+#define TMG_REG__eof_2nd_ln_dly_num_WORD	11
-+#define TMG_REG__eof_2nd_ln_dly_num_MASK	GENMASK(31, 16)
-+#define TMG_REG__sof_pre_ln_num_WORD	14
-+#define TMG_REG__sof_pre_ln_num_MASK	GENMASK(16, 0)
++	hwdev->plane_disable_hw_channel(plane, old_state);
 +
-+#endif /* SATURN_FIELDS_H */
-diff --git a/drivers/gpu/drm/spacemit/spacemit_dpu_ids.h b/drivers/gpu/drm/spacemit/spacemit_dpu_ids.h
-new file mode 100644
-index 000000000000..41014dda927b
---- /dev/null
-+++ b/drivers/gpu/drm/spacemit/spacemit_dpu_ids.h
-@@ -0,0 +1,22 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2025-2026 SpacemiT Co., Ltd.
-+ */
++	drm_dev_exit(idx);
++}
 +
-+#ifndef _SPACEMIT_DPU_IDS_H_
-+#define _SPACEMIT_DPU_IDS_H_
++static void spacemit_plane_reset(struct drm_plane *plane)
++{
++	struct spacemit_plane_state *s;
 +
-+/* Saturn online compositor instance ids (hardware IRQ-table indices). */
-+#define COMPOSER0	0
-+#define COMPOSER1	1
-+#define COMPOSER2	2
-+#define COMPOSER3	3
++	if (plane->state) {
++		s = to_spacemit_plane_state(plane->state);
++		__drm_atomic_helper_plane_destroy_state(plane->state);
++		kfree(s);
++		plane->state = NULL;
++	}
 +
-+/* DPU output-format field encoding (dpuctrl out-format register). */
-+#define OUTFMT_RGB121212	0
-+#define OUTFMT_RGB101010	1
-+#define OUTFMT_RGB888		2
-+#define OUTFMT_RGB666		12
-+#define OUTFMT_RGB565		13
++	s = kzalloc(sizeof(*s), GFP_KERNEL);
++	if (s) {
++		__drm_atomic_helper_plane_reset(plane, &s->state);
++		s->rdma_id = RDMA_INVALID_ID;
++	}
++}
 +
-+#endif /* _SPACEMIT_DPU_IDS_H_ */
++static struct drm_plane_state *
++spacemit_plane_atomic_duplicate_state(struct drm_plane *plane)
++{
++	struct spacemit_plane_state *s;
++	struct spacemit_plane_state *old_state =
++			to_spacemit_plane_state(plane->state);
++	struct spacemit_crtc *a_crtc = NULL;
++
++	if (plane->crtc) {
++		a_crtc = to_spacemit_crtc(plane->crtc);
++		trace_spacemit_plane_atomic_duplicate_state(a_crtc->dev_id);
++	}
++
++	s = kzalloc(sizeof(*s), GFP_KERNEL);
++	if (!s)
++		return NULL;
++
++	__drm_atomic_helper_plane_duplicate_state(plane, &s->state);
++
++	WARN_ON(s->state.plane != plane);
++
++	s->cl.type = CMDLIST_PLANE;
++
++	s->rdma_id = old_state->rdma_id;
++	s->format = old_state->format;
++	s->fbcmem_size = 0;
++
++	return &s->state;
++}
++
++static void spacemit_plane_atomic_destroy_state(struct drm_plane *plane,
++						struct drm_plane_state *state)
++{
++	struct spacemit_plane_state *spacemit_pstate =
++			to_spacemit_plane_state(state);
++	struct spacemit_crtc *a_crtc = NULL;
++
++	if (state->crtc) {
++		a_crtc = to_spacemit_crtc(state->crtc);
++
++		if (spacemit_pstate->mmu_tbl.va)
++			dma_free_coherent(a_crtc->dev,
++					  spacemit_pstate->mmu_tbl.size,
++					  spacemit_pstate->mmu_tbl.va,
++					  spacemit_pstate->mmu_tbl.pa);
++
++		if (spacemit_pstate->cl.va)
++			dma_free_coherent(a_crtc->dev,
++					  spacemit_pstate->cl.size,
++					  spacemit_pstate->cl.va,
++					  spacemit_pstate->cl.pa);
++		trace_spacemit_plane_atomic_destroy_state(a_crtc->dev_id);
++	}
++	__drm_atomic_helper_plane_destroy_state(state);
++
++	kfree(to_spacemit_plane_state(state));
++}
++
++static void spacemit_plane_create_properties(struct spacemit_plane *p)
++{
++	unsigned int support_modes = BIT(DRM_MODE_BLEND_PIXEL_NONE) |
++		BIT(DRM_MODE_BLEND_PREMULTI) |
++		BIT(DRM_MODE_BLEND_COVERAGE);
++
++	drm_plane_create_alpha_property(&p->plane);
++
++	drm_plane_create_blend_mode_property(&p->plane, support_modes);
++}
++
++static const struct drm_plane_helper_funcs spacemit_plane_helper_funcs = {
++	.atomic_check = spacemit_plane_atomic_check,
++	.atomic_update = spacemit_plane_atomic_update,
++	.atomic_disable = spacemit_plane_atomic_disable,
++};
++
++static const struct drm_plane_funcs spacemit_plane_funcs = {
++	.update_plane = drm_atomic_helper_update_plane,
++	.disable_plane	= drm_atomic_helper_disable_plane,
++	.destroy = drm_plane_cleanup,
++	.reset = spacemit_plane_reset,
++	.atomic_duplicate_state = spacemit_plane_atomic_duplicate_state,
++	.atomic_destroy_state = spacemit_plane_atomic_destroy_state,
++};
++
++struct drm_plane *spacemit_plane_init(struct drm_device *drm,
++				      struct spacemit_crtc *a_crtc)
++{
++	struct spacemit_plane *p = NULL;
++	int err, j;
++	u32 *formats;
++	struct spacemit_drm_private *priv = drm->dev_private;
++	struct spacemit_hw_device *hwdev = priv->hwdev;
++	u8 n_formats = hwdev->n_formats;
++	u8 n_fbcmems = hwdev->n_fbcmems;
++	u8 n_rdmas = hwdev->rdma_nums;
++	u32 plane_crtc_mask;
++
++	trace_spacemit_plane_init(a_crtc->dev_id);
++	if (n_fbcmems * 2 != n_rdmas) {
++		drm_err(drm, "mismatched rdma/fbcmem counts: %d vs %d\n",
++			n_rdmas, n_fbcmems);
++		return ERR_PTR(-EINVAL);
++	}
++
++	for (j = 0; j < n_fbcmems; j++) {
++		if (hwdev->fbcmem_sizes[j] < FBCMEM_UNIT) {
++			drm_err(drm, "invalid fbcmem_sizes[%d] = %u\n",
++				j, hwdev->fbcmem_sizes[j]);
++			return ERR_PTR(-EINVAL);
++		}
++	}
++
++	formats = kcalloc(n_formats, sizeof(*formats), GFP_KERNEL);
++	if (!formats)
++		return ERR_PTR(-ENOMEM);
++
++	/*
++	 * The CRTC is created right after this, so its index is the current
++	 * count.
++	 */
++	plane_crtc_mask = 1 << drm->mode_config.num_crtc;
++
++	/* drmm, not devm: an open DRM fd outlives the platform unbind. */
++	p = drmm_kzalloc(drm, sizeof(*p), GFP_KERNEL);
++	if (!p) {
++		kfree(formats);
++		return ERR_PTR(-ENOMEM);
++	}
++
++	for (j = 0; j < n_formats; j++)
++		formats[j] = hwdev->formats[j].format;
++
++	err = drm_universal_plane_init(drm, &p->plane, plane_crtc_mask,
++				       &spacemit_plane_funcs, formats,
++				       n_formats, supported_format_modifiers,
++				       DRM_PLANE_TYPE_PRIMARY, NULL);
++	kfree(formats);
++	if (err) {
++		drm_err(drm, "failed to init primary plane\n");
++		return ERR_PTR(err);
++	}
++
++	drm_plane_helper_add(&p->plane, &spacemit_plane_helper_funcs);
++
++	spacemit_plane_create_properties(p);
++
++	p->hwdev = hwdev;
++
++	return &p->plane;
++}
 
 -- 
 2.43.0
-
 
 
 _______________________________________________
