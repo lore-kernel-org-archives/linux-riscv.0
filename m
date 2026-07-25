@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F92C531D0
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 05:00:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B22C531D0
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 05:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WB7s5eTkYRuLvsuAAxikd+Za8PXVbnEdgVOfz/pMl10=; b=jNTdRx79giVISf
-	bNyocD7UgUw5P+WalpFyKIwqEWq+ErcbIkyJLiVjsk02md9rGn1SpSzR2qKiP5ejvd+frmAaZYM+D
-	Kc/ri5jcnFweiuikr9G+yyVLR69DIVmSrgLM4lV3KOzewwcXy7hrCQUjJybmmSj0yxkzfX9RtwPgm
-	eSTc+FUPbJbKL9WaSXgxVCkksEDtoxWY0RN2go0cQXWbLsIjJr9ZAohZcrjZUv5UbevXA2N14VsTb
-	7J6d8Wfcpx/c3jafFuMXyx4cRWI9f+QyuVq3dS76AT0jW6s463M/TT8+GmDfUkQUzV5may3Krzwfh
-	1sfiqOVSjfehWjDNHBRQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VB3RsQ2SR/DiL/YpD7sZMbZqBMFAeyLgi/AhJDtQ584=; b=Cf0MiJK+uc5y5X
+	q5gdIoUGslXzQF5saXU5XJCgqTI4GLwF4Jz+qcf3+QmEQVg1vqFroZUVB/bQxffam8mAWCFg+TyKb
+	Z7Gg21N8xXvCYuLU+RbmJICq0UX55gi2foNxpj9IBRvVkdPmix5Wbxr0iqG3edxN5NeYsCRfVqM1S
+	25KArmh0oHaMNqkwA0oqXDgeJSPTg/FEu6EAjAWItZ01kfifpDS+p0h7TMXzonL0Jb7Wv5Mjk+JmU
+	Dcoa1D5/4xxxarPTdB2+AFyEQftQ9uzRJvJDPR1lrgi1s4EcmKHf+Zsv8kjA8puBmAweiwFB0oRv+
+	2P7cgAl8luYJvuYWxhUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnUUS-000000002aC-401T;
-	Sat, 25 Jul 2026 05:00:00 +0000
-Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
+	id 1wnUW9-000000002ff-0mhP;
+	Sat, 25 Jul 2026 05:01:45 +0000
+Received: from mail-pz2-x01.google.com ([2607:f8b0:4864:3b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnUUQ-000000002Zo-3Ev6
+	id 1wnUW5-000000002fI-2Yt4
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Jul 2026 05:00:00 +0000
-Received: by mail-pj2-x0b.google.com with SMTP id d9443c01a7336-2cf02ecb572so18321545ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 21:59:58 -0700 (PDT)
+	Sat, 25 Jul 2026 05:01:43 +0000
+Received: by mail-pz2-x01.google.com with SMTP id 41be03b00d2f7-cbb818e57c9so576148a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 22:01:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784955598; x=1785560398; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=lGkHba1dpLm3kZ77OrZxUFezmNhR7Fx9pZtETx4Zo3s=;
-        b=kyQxy3wR5SCbocCErw6u9McFGZARf9d6YBU9xqIcNQ58jcCFz78HJYTyknyQsiYPsz
-         SZWNdyYBYlH3iHlng6GaoQWQSy6CYEtFPR8meoffzeifYQEchnv4CiL1DtAl1uHN4Ej+
-         eigiqW44ZWJ9+qBOipTRRAg/58KD97Dk0S8vowy00q3391KB9eapb/EHzaFVjLjVb314
-         xgKdna0SSyzaosDWR058o6Hlre0zMU4GDzVbdyb4sNqpJJSYS+6uClFN9hbW/8rdIJ/J
-         X1BDjG8Ldh43M2JqphDlGf6SNLr+UeO57BMyI96b9j8+Y6nG04vZx397px558PxGZsGb
-         j43g==
+        d=gmail.com; s=20251104; t=1784955701; x=1785560501; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ycy+Qjco0x+8uNmV749kGmpBtIQZVaDIzcG2OSIxUnc=;
+        b=DOlAn3iKjeGsn2Av0pHF2xq9PSfIi/wCYZI3uNXXABd95OudFWcPJSz7XoRjOUueSK
+         GFi1DnSkoccbqPseJMMWbydlt9g5GDfTPYTcCGLKBcd9UYnqk7OuphcEuRxbjGpL7YiH
+         Bv8C7jJwerX/70wxB5ujWE60DhHRQZdLmypdeopWlLe2WecIKxKQpaKNXDCmzdzUt4ql
+         cYTydko1mTd2Gt1difS6Wg4nfh+56oCl9VmjnbUmMPeQyvbfxBDRM0/HE4T6fU74/3dL
+         PJwM3hfo+PzQst0bZr9O2mVc7R5a6kbhT+VOeA9R0O3TkDKBYL2ygtQvNCLXYVze7Lhh
+         kW4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784955598; x=1785560398;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=lGkHba1dpLm3kZ77OrZxUFezmNhR7Fx9pZtETx4Zo3s=;
-        b=Zb9cCZLNHRwh/eUKDxXxZuIbXrhBdG+MMcqAzPOVkCewbhvDqw6I5bIG0HqIwXIpNq
-         6Dd3NctaDV19LHVDft5LQCS8v5aKuwaGMgBTSOUExDhdr/JgN9bN/BgNzwVaXW0Db4xk
-         p97eCEfQtQ0AdzxLhbmL1WXXOQkmAImtMn4U0VW4R26ltVNgM6M1p51RiicXSZhgopZk
-         5SwfzPVyU63qvdR4ZXjAJZcCnqwqfuweEApdjdTWB4ONjlFKdd+0ynKzWDeVAz4+jsHP
-         fPulVsHfkFSh/EJMSMoZozUzyf1B6tuLr4nmBJS8VfXaNMKWM7F4uWSSFL/uyKmhxHDa
-         /CcQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rp8rINAEKlBUtdN4uWLo3+hmZ5g4fmK0uPM5gimkcB1soYrtT3MpPZrNibUx+1BbdSQwx0HVBTh2OO/yA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWtfFcRypIQSbJK64JFIhlwK2V1GP7L6/ZsxOEdps1CMqFngzd
-	B/SVluH7dY4xUEk4lyuF7YgNHRQavAe3n2+X8/Up9RiU5Y9+TLG8VmWxc0HXN93ceXQE5w==
-X-Gm-Gg: AR+sD13jWzh+czJD81uLXrBeDuZ3OKuA/CCW0FvNlZHPRtH65IlczWZxUjTGqZcSzKw
-	nxKk8cFwjIg2qizRrESeWkhOZ6jBHyA4qoy4EtsoEVZfx/ybR0XuTPLG+QfrJCzzqeBcQQfZUIe
-	xRUg7Rxvlkcr2m2RCptOGtIfnK9J2nib5M0hLH8WQJlJ063jN5gJFPse75ArT6gSXe3JupR+Xnj
-	Xwlqs6UgA4GLTJREiGWQODnk8bvvQiB9T1FBSwxPYynFvdVo1/0wJGb3xuUSwuuI0QXrCrEoiUd
-	3jK9wlnMWU+NlWGP7w6ftjMCAdh/DFQ0DuE3P615ooFCwlaqYFUNlzGgGhNXaKikNn9gucXrfIC
-	jxnAwlHKXIZSnyubWnXeyeMCbKFMPdmR2cOqMOzRFXXL/OWKwWjeNT9g=
-X-Received: by 2002:a05:6a00:4218:b0:84a:6726:62f9 with SMTP id d2e1a72fcca58-84e5942e629mr681366b3a.9.1784949429047;
-        Fri, 24 Jul 2026 20:17:09 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1784955701; x=1785560501;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ycy+Qjco0x+8uNmV749kGmpBtIQZVaDIzcG2OSIxUnc=;
+        b=IXM9N7dWlmjZe+JA2GaQLgs4Aiir2FG4TK6w2uoCx67j6dQYY8fNyxHuaVvm9pLM6Q
+         aBrGAdfigcZUGisE0lVMTnM9q7ic7DzBU8hhnFwV1x4uySdoRK5b2aKNSuZgjdlNSfp6
+         di+MIN7edFJr/TmTK1weZD2jFBs3SzqKLx427DGCvaiA9Akmz5w0+Tlq40BFaKspV+XP
+         XOIh2B40BsTef1cd/AVDluc9ZAQhJq5btnvSGXxNOBQv4C7behhxj2XtLX6QdczKKcVk
+         xlFwwNPI1KXde/eXEVPpL9ZKf1THktBFRgS/3qunHn1+jKvP7XpkF+zhYi5NcI6SECsi
+         9Gbg==
+X-Forwarded-Encrypted: i=1; AHgh+RoFwBKNQQ4neF+P8UNbwsy4cu/FA1xQZz0UdlU4teiZzNlHYd35SIAiiDsUNjTprs+NhakmYsqHcSxhpw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyz5Sp32yKimZX+ndx0ikckvAI0igtLZF7liFOh/g1TYQBGsllQ
+	kXNhRuIzx0fxT7KV/8xNjdw5Mj3MdY4Os+m0rOpgveWWWWSMbzxJUQhYgtEwUrCn70/8Aw==
+X-Gm-Gg: AR+sD13w0GtCfaPnk46Gpb/TWqvqFAq4nH0+N5Aa39J7N29H8ujCZdCBL0jAr6qiihQ
+	0MHx7p42Wk0+RouSNB1AJjw+LoIxF8q7tDQSpNLOLyrTOzuejyrzB0Z1Nxx5vSMnsEE38Z83OmO
+	cageHN4pkSi2p13RPdncEP1oCvOPqwJ5OsYSgjZp97KLy2qryMuPk8dkLmixVs3DW3eGcIMFhHe
+	mJvS9GjIUg5d3tuuubsLyiplcn3QDSHXSCdmiMMdgt2M2gJcJcya4TSaZu7upJH9TiBluKJL7/9
+	OEydOZhB74bXczghFLZO0qOcaIKO1MmirA0gOmZHff3EB1vhkdcN11HG94V+R67O0/q3H3TSUXr
+	hFmMc/yJmr4yGsR1qg8zLzVXIQx60qWi7CUsY5yHB/JxbfXMunwQfE9X5uSDTcgqygw==
+X-Received: by 2002:a05:6a00:2d9b:b0:848:2a71:a48a with SMTP id d2e1a72fcca58-84e593ff0ccmr644911b3a.13.1784949438724;
+        Fri, 24 Jul 2026 20:17:18 -0700 (PDT)
 Received: from [127.0.1.1] ([2a12:a305:4::403c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e53432834sm640542b3a.50.2026.07.24.20.17.01
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e53432834sm640542b3a.50.2026.07.24.20.17.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 20:17:08 -0700 (PDT)
+        Fri, 24 Jul 2026 20:17:18 -0700 (PDT)
 From: Cody Kang <codykang.hk@gmail.com>
-Subject: [PATCH 00/17] drm/spacemit: add SpacemiT K3 display support
-Date: Fri, 24 Jul 2026 23:16:32 -0400
-Message-Id: <20260724-k3-display-v1-0-f22a10a52867@gmail.com>
+Date: Fri, 24 Jul 2026 23:16:33 -0400
+Subject: [PATCH 01/17] dt-bindings: display: spacemit: add K3 Saturn DPU
+ controller
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAJEqZGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDc0Nj3Wxj3ZTM4oKcxErdVIu0tNQUM/NUS2MzJaCGgqLUtMwKsGHRsRB
- +cWlSVmpyCcgEpdpaAGzX92NuAAAA
-X-Change-ID: 20260713-k3-display-e8ffed67e936
+Message-Id: <20260724-k3-display-v1-1-f22a10a52867@gmail.com>
+References: <20260724-k3-display-v1-0-f22a10a52867@gmail.com>
+In-Reply-To: <20260724-k3-display-v1-0-f22a10a52867@gmail.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
@@ -94,8 +94,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
  linux-clk@vger.kernel.org, Cody Kang <codykang.hk@gmail.com>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_215958_854807_BCD34922 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20260724_220142_220835_3CC0DF53 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,139 +112,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds display support for the SpacemiT K3 [2], a RISC-V SoC:
-a new DRM driver, a new PHY driver and three new bindings.
-
-The display path is three blocks deep:
-
-  Saturn DPU -> Innosilicon DP/eDP controller -> Innosilicon DP PHY
-
-The Saturn DPU is SpacemiT's own display processing unit. It has a private
-address translation unit and a command-list composer that replays a batch
-of register writes when a flush is latched. It exposes one CRTC with one
-primary plane. The K3 instantiates two DPUs, one per display path.
-
-The DPU driver arrives as five staged patches to keep each one a
-reasonable size. The driver only becomes buildable with that last patch.
-Bisect safe.
-
-The DP/eDP controller and its PHY are Innosilicon IP, also two instances
-of each. An instance behaves as embedded DisplayPort or as external
-DisplayPort purely according to what its output port is wired to, so the
-bindings do not distinguish them. The PHY's registers are interleaved
-with the controller's inside one MMIO window, which is why it is
-described as a child node and shares the controller's regmap.
-
-The pixel clock is generated by the DP PHY's PLL, and the SoC's APMU
-pixel-clock mux takes that PLL as an input. Rather than let the display
-driver reach into PHY registers, the PHY registers its PLL as a clock
-provider and the APMU mux is parented to it through the clock framework.
-That is what patches 2, 4, 5 and 6 are for, and it is also what keeps the
-APMU and the DP/eDP controller out of a devicetree provider cycle.
-
-As a first posting of the K3 display subsystem, this patchset supports:
-a single primary plane per CRTC, linear RGB scanout (no plane scaling,
-rotation, YUV or writeback). It does not support DSI, DSC or DP audio,
-and link rates are capped at HBR2.
-
-Based on drm-misc-next at commit 5b9af25f2d0b ("accel/ivpu: Remove
-unnecessary min_t()/max_t() usage"), v7.2-rc2 based.
-
-Testing this series needs a SpacemiT u-boot carrying display support
-[1]. SpacemiT expects to add that support into an official u-boot
-release in August 2026.
-
-Tested on two K3 boards:
-
-  - Pico-ITX: an eDP panel and an external DisplayPort monitor.
-  - CoM260-IFX: DisplayPort only, no eDP.
-
-Note: The eDP panel DTS enablement is not part of this series; a separate
-      series will follow showing how eDP can be verified.
-
-What was run on both boards, with modetest from libdrm and with kmscube:
-
-  - modetest -s, looped over 1920x1080, 1280x720 and 3840x2160
-    on DisplayPort and 2560x1600 on eDP
-  - kmscube, on each head and on both at once
-  - hot-plug and sink swap on the DisplayPort connector
-
-Both built-in and modular configurations were tested, and the runs above
-were repeated in both. Patch 17 defconfig adds them as modules.
-
-[1] https://github.com/spacemit-com/uboot-for-k3-display-verify/tree/k3-br-v1.0.y
-[2] https://www.spacemit.com/community/document/info?lang=en&nodepath=hardware/key_stone/k3
+Document the Saturn display processing unit found on the SpacemiT K3 SoC.
+The K3 instantiates two of them, one per display path. They share a
+compatible: an instance differs only in which register window, interrupt,
+clock and reset lines it takes.
 
 Signed-off-by: Cody Kang <codykang.hk@gmail.com>
 ---
-Cody Kang (17):
-      dt-bindings: display: spacemit: add K3 Saturn DPU controller
-      dt-bindings: phy: add SpacemiT K3 Innosilicon DP PHY
-      dt-bindings: display: spacemit: add K3 Innosilicon DP/eDP controller
-      dt-bindings: soc: spacemit: allow eDP/DP PHY PLL pixel clocks on K3 APMU
-      phy: spacemit: add Innosilicon DP TX PHY driver
-      clk: spacemit: k3: parent eDP/DP pixel clock to the PHY PLL
-      drm/spacemit: add Saturn DPU register model
-      drm/spacemit: add Saturn DPU core types, cmdlist and display MMU
-      drm/spacemit: add Saturn DPU hardware backend
-      drm/spacemit: add Saturn DPU KMS pipeline
-      drm/spacemit: add Saturn DPU DRM device driver
-      drm/spacemit: add Innosilicon DP/eDP controller bridge driver
-      MAINTAINERS: add SpacemiT K3 display driver entry
-      riscv: dts: spacemit: k3: add display nodes
-      riscv: dts: spacemit: k3-pico-itx: enable the DisplayPort output
-      riscv: dts: spacemit: k3-com260-ifx: enable the DisplayPort output
-      riscv: defconfig: spacemit: k3: enable display driver
+ .../display/spacemit/spacemit,k3-saturn-dpu.yaml   | 132 +++++++++++++++++++++
+ 1 file changed, 132 insertions(+)
 
- .../display/spacemit/spacemit,k3-inno-dp.yaml      |  140 ++
- .../display/spacemit/spacemit,k3-saturn-dpu.yaml   |  132 ++
- .../bindings/phy/spacemit,k3-inno-dp-phy.yaml      |   48 +
- .../bindings/soc/spacemit/spacemit,k1-syscon.yaml  |   30 +-
- MAINTAINERS                                        |   10 +
- arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts     |   11 +
- arch/riscv/boot/dts/spacemit/k3-display.dtsi       |  156 ++
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts       |   11 +
- arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi       |   22 +
- arch/riscv/configs/defconfig                       |    2 +
- drivers/clk/spacemit/ccu-k3.c                      |    4 +-
- drivers/gpu/drm/Kconfig                            |    1 +
- drivers/gpu/drm/Makefile                           |    1 +
- drivers/gpu/drm/spacemit/Kconfig                   |   37 +
- drivers/gpu/drm/spacemit/Makefile                  |   15 +
- drivers/gpu/drm/spacemit/dpu/dpu_saturn.c          |  483 ++++
- drivers/gpu/drm/spacemit/dpu/dpu_saturn.h          |   35 +
- drivers/gpu/drm/spacemit/dpu/dpu_saturn_hee.c      |  896 +++++++
- drivers/gpu/drm/spacemit/dpu/dpu_trace.h           |  350 +++
- drivers/gpu/drm/spacemit/dpu/saturn_fbcmem.c       |  152 ++
- drivers/gpu/drm/spacemit/dpu/saturn_fbcmem.h       |   21 +
- drivers/gpu/drm/spacemit/dpu/saturn_regs/dpu_int.h |   25 +
- drivers/gpu/drm/spacemit/dpu/saturn_regs/ops_hee.h |   52 +
- .../gpu/drm/spacemit/dpu/saturn_regs/reg_map_hee.h |   64 +
- .../drm/spacemit/dpu/saturn_regs/saturn_fields.h   |  298 +++
- drivers/gpu/drm/spacemit/spacemit_cmdlist.c        |  304 +++
- drivers/gpu/drm/spacemit/spacemit_cmdlist.h        |  146 ++
- drivers/gpu/drm/spacemit/spacemit_crtc.c           |  815 +++++++
- drivers/gpu/drm/spacemit/spacemit_crtc.h           |  259 +++
- drivers/gpu/drm/spacemit/spacemit_dmmu.c           |  103 +
- drivers/gpu/drm/spacemit/spacemit_dmmu.h           |   40 +
- drivers/gpu/drm/spacemit/spacemit_dpu_ids.h        |   22 +
- drivers/gpu/drm/spacemit/spacemit_dpu_reg.h        |  108 +
- drivers/gpu/drm/spacemit/spacemit_drm.c            |  132 ++
- drivers/gpu/drm/spacemit/spacemit_drm.h            |   68 +
- drivers/gpu/drm/spacemit/spacemit_inno_dp.c        | 2443 ++++++++++++++++++++
- drivers/gpu/drm/spacemit/spacemit_inno_dp.h        |  328 +++
- drivers/gpu/drm/spacemit/spacemit_planes.c         |  376 +++
- drivers/phy/spacemit/Kconfig                       |   13 +
- drivers/phy/spacemit/Makefile                      |    1 +
- drivers/phy/spacemit/phy-k3-inno-dp.c              |  948 ++++++++
- 41 files changed, 9099 insertions(+), 3 deletions(-)
----
-base-commit: 5b9af25f2d0b574b4058c9f8c84486a597168116
-change-id: 20260713-k3-display-e8ffed67e936
+diff --git a/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-saturn-dpu.yaml b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-saturn-dpu.yaml
+new file mode 100644
+index 000000000000..97ea9da4b68e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-saturn-dpu.yaml
+@@ -0,0 +1,132 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/spacemit/spacemit,k3-saturn-dpu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K3 Saturn Display Processing Unit
++
++maintainers:
++  - Cody Kang <codykang.hk@gmail.com>
++
++description:
++  The Saturn DPU is the display processing unit of the SpacemiT K3 SoC. It
++  composes the display planes and drives the timing for one display path. Its
++  output goes to a DisplayPort or embedded DisplayPort controller. The K3 has
++  two instances.
++
++properties:
++  compatible:
++    const: spacemit,k3-saturn-dpu
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: Online (live display) compose path.
++      - description: Offline (writeback) compose path.
++
++  interrupt-names:
++    items:
++      - const: online
++      - const: offline
++
++  clocks:
++    items:
++      - description: Pixel clock.
++      - description: Memory clock for the compose pipeline.
++      - description: AXI bus clock.
++      - description: DSI escape clock.
++      - description: DSC clock.
++
++  clock-names:
++    items:
++      - const: pxclk
++      - const: mclk
++      - const: aclk
++      - const: escclk
++      - const: dscclk
++
++  resets:
++    items:
++      - description: Memory clock domain.
++      - description: LCD domain, shared with the downstream controller.
++      - description: DSI escape clock domain.
++      - description: AXI clock domain.
++      - description: DSC domain.
++
++  reset-names:
++    items:
++      - const: mclk
++      - const: lcd
++      - const: esc
++      - const: aclk
++      - const: dsc
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Video output to the DisplayPort or eDP controller.
++
++    required:
++      - port@0
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-names
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/spacemit,k3-clocks.h>
++    #include <dt-bindings/reset/spacemit,k3-resets.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        dpu@c0340000 {
++            compatible = "spacemit,k3-saturn-dpu";
++            reg = <0x0 0xc0340000 0x0 0x54000>;
++            interrupts = <90 IRQ_TYPE_LEVEL_HIGH>,
++                         <89 IRQ_TYPE_LEVEL_HIGH>;
++            interrupt-names = "online", "offline";
++            clocks = <&syscon_apmu CLK_APMU_LCD_PXCLK>,
++                     <&syscon_apmu CLK_APMU_LCD_MCLK>,
++                     <&syscon_apmu CLK_APMU_DPU_ACLK>,
++                     <&syscon_apmu CLK_APMU_DSI_ESC>,
++                     <&syscon_apmu CLK_APMU_LCD_DSC>;
++            clock-names = "pxclk", "mclk", "aclk", "escclk", "dscclk";
++            resets = <&syscon_apmu RESET_APMU_LCD_MCLK>,
++                     <&syscon_apmu RESET_APMU_LCD>,
++                     <&syscon_apmu RESET_APMU_DSI_ESC>,
++                     <&syscon_apmu RESET_APMU_DPU_ACLK>,
++                     <&syscon_apmu RESET_APMU_LCD_DSCCLK>;
++            reset-names = "mclk", "lcd", "esc", "aclk", "dsc";
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                port@0 {
++                    reg = <0>;
++                    endpoint {
++                        remote-endpoint = <&edp0_in>;
++                    };
++                };
++            };
++        };
++    };
 
-Best regards,
---  
-Cody Kang <codykang.hk@gmail.com>
+-- 
+2.43.0
 
 
 _______________________________________________
