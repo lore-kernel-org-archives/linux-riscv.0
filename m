@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8229C54F4C
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 04:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2A5C53219
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 04:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FwAfGHIIayBZYZ9JP2o4gpOGmGGeqrEfTMJxtDFTljc=; b=IuKeoon9aqt2s3
-	8pBXdDmZUdeH6NvOkrHPs5mc9k6hRDNeKQgOih3/oZr19we7iZvzinlJjcD2xr1EbhW1WuncPzUiC
-	lLJt+g7408Fd3rQhrlN4BJbrgXp8BITOdjejRZO0Tf2GCGpm05GRCqvvvgpQC28IY5Ou7SCXXlK5M
-	uathPRV1Xj4CYTq7eyr1ud8zF9jx+JzOGH/T6N5zfvQoofAsxzxJthEnJJ1beLh3pi1FRCiTeta6E
-	M5siHtp/hu9BgFRH4cR3HHBfBWrBnPp8ZsGFgwM7pwe9czaI7yOyb73MEUhE/eodjsRsptmT+u+hS
-	B4LUAAUmW5oxvhaS1TeQ==;
+	List-Owner; bh=1dT/xuqQLdwbd+QVIMaXYkQvsp/YWYvQNQrleoWHlks=; b=USbx15Tgoe42mj
+	Ol4SCGD5YmrN1a4/YW53y92M6qa3Te/5p51C3CsVEq0Oa1ZgexmhDV7csilfvRQP+lfV9uytMxy4h
+	SVLKrBro0c9QOHr8yVu/3NnhHK/KlbQMUgE/a6x5/+XBAJ+XJQwFSjh9kUq9x0/orXXnzi8lWFTNo
+	wh8yTioZeddTS0npjjbLkSt7mcABekHUbw5qNfmq6G1pJI6cS6nINBPOn4GB91LYgBQjPemeqa18d
+	/5NlDuq1igZ3qn1af9s4LGwsNRx2Y+LG/mCBGH3a7H1KRyBXPABBMrlHoHjv4xY+9HjxEBbOuSuUJ
+	0CnZANIZGL/0Jno6C+DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnUMB-000000000Wq-3Ra8;
-	Sat, 25 Jul 2026 04:51:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wnUMI-000000000gV-1nhi;
+	Sat, 25 Jul 2026 04:51:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnUM9-000000000St-2voZ;
-	Sat, 25 Jul 2026 04:51:25 +0000
+	id 1wnUMB-000000000U4-0hrL;
+	Sat, 25 Jul 2026 04:51:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85ABF45134;
+	by tor.source.kernel.org (Postfix) with ESMTP id D54D960A8E;
 	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 43996C4AF0B;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 710F7C2BCFB;
 	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1784955084;
-	bh=E3+IBKtBlGcUymSMyi1R9MAcoGNeNAnLaeLohFdeUtM=;
+	bh=/R+Ze7oA+NGDLhKykSAKmraPAA3sz7rWCl3VRgG3utg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=cJ0+fIQZ6DlQFatE6CKw91LlsLEzpp4GcwAJn0IYj+kqeE7YYR5F1fiseog9igxem
-	 tzwFZc8MgooPNQYXItWEnLkjokWDuD6sTr90FrPoX9lhhp6NOAMuqKtWejorVd3ZiI
-	 MrAOYtI9eh4+bmq1Ggl5Ij1lqD4phg4aqFzlOhMWxhakLKZnDG2LCXs7VSwlZLFGKw
-	 A63JbZ07Gk3QlJTVuLoVAQFNO4Ki8rXq8kyZplD2H2U9QaidXJJV3OlvXyno7jWOuN
-	 9kHzgPWqIIzGL/5MWRgBaqLv1WLFXvqjUWv/ubA+hB2qB0rUL97pbxJ6rXAUAWB5kk
-	 iQhgHsHXT0GMA==
+	b=Sjnh5Puz1BwE0K1oTDFRC0/2ZT0NX0IZzD+hjoBynLvYCFRxx/4PrGxT0Ff8ufZxU
+	 FgWzvOiBNl4cG2yUPH4E2itUL6OuCqjghxc7fIuEwRzoaCFfsLEez+azwivANACTnA
+	 lGq/AdNGpbUhvDKa9NpjOnF5OkvYNFhsJjStFpb3OUQESFy2KsSgI7IWKJgWuV2OFn
+	 LBcTIsWjTf3vnN/XZwP+Abf3B7yoj6tQ4Cv4bNhzq8WCgZG3SLYiZ49LaCdWEQDr2G
+	 lXNjqpXhI+Ejq7gdUVU5NECdHJ4H6UjkikXq+P0xb0exySFTCrmo4kxIGf8II6Htf9
+	 VVyLAo2w5Z2AQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 295A2C531C9;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CA0FC5321B;
 	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
 From: Cody Kang via B4 Relay <devnull+codykang.hk.gmail.com@kernel.org>
-Date: Sat, 25 Jul 2026 00:51:12 -0400
-Subject: [PATCH RESEND 03/17] dt-bindings: display: spacemit: add K3
- Innosilicon DP/eDP controller
+Date: Sat, 25 Jul 2026 00:51:15 -0400
+Subject: [PATCH RESEND 06/17] clk: spacemit: k3: parent eDP/DP pixel clock
+ to the PHY PLL
 MIME-Version: 1.0
-Message-Id: <20260725-k3-display-v1-3-6de34d80e86c@gmail.com>
+Message-Id: <20260725-k3-display-v1-6-6de34d80e86c@gmail.com>
 References: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
 In-Reply-To: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -68,11 +68,11 @@ Cc: dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
  linux-clk@vger.kernel.org, Cody Kang <codykang.hk@gmail.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784955080; l=4645;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784955080; l=1251;
  i=codykang.hk@gmail.com; s=codykang; h=from:subject:message-id;
- bh=yNWq543Aiagc6RVnpWivC9SHy2Deccat9Kz6CH7b1lM=;
- b=hNU8SsVIGQvtnrPi65MdtSx4Mow8CYWQmkIISxP9tzg/k50OtnES2xQV1xvCEtXhwe48rC2E+
- 0m8lXiY3aWrAkURQ1sB3+qem/H4eYcBTG3n/P1k9IFdHq7dLRkxAJOO
+ bh=qBlMtjoJcxolZr+biObNXORMiyzxuZ3oViPL72enT0k=;
+ b=v/5hMmXSPdG7RuwCFLMwvBdFD/XDdefDTpm+DpkHAFg3Lhu3i1GyF8+eKgnyAfu+UxaMRft0F
+ klJhAZ+wUlsCIa067pvDdkWtL2YIt/EzbPNHEKsCHylRD3er9MWWh3B
 X-Developer-Key: i=codykang.hk@gmail.com; a=ed25519;
  pk=Osn6/cs9Su/mHHw4P19cmVc3v2FMQfiWahjsN0vEkuk=
 X-Endpoint-Received: by B4 Relay for codykang.hk@gmail.com/codykang with
@@ -97,161 +97,36 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Cody Kang <codykang.hk@gmail.com>
 
-Both K3 instances are the same IP and share one compatible; which one
-behaves as eDP is decided by what its downstream port is wired to, not by
-which register window it sits in, so the binding does not distinguish them.
+The APMU eDP/DP pixel-clock muxes were parented to a placeholder, because
+their real parents (the DP PHY PLLs) did not exist as clocks yet. They do
+now, so point each mux at its PLL and let the pixel clock reach the
+controller through the clock framework.
 
 Signed-off-by: Cody Kang <codykang.hk@gmail.com>
 ---
- .../display/spacemit/spacemit,k3-inno-dp.yaml      | 140 +++++++++++++++++++++
- 1 file changed, 140 insertions(+)
+ drivers/clk/spacemit/ccu-k3.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml
-new file mode 100644
-index 000000000000..865ea310daaf
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml
-@@ -0,0 +1,140 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/spacemit/spacemit,k3-inno-dp.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SpacemiT K3 Innosilicon DisplayPort / embedded DisplayPort Controller
-+
-+maintainers:
-+  - Cody Kang <codykang.hk@gmail.com>
-+
-+description:
-+  Innosilicon DisplayPort transmit controller integrated in the SpacemiT K3
-+  SoC. The K3 has two instances of the same block sharing one compatible;
-+  each acts as embedded or external DisplayPort depending on whether its
-+  output port drives a panel or a connector.
-+
-+properties:
-+  compatible:
-+    const: spacemit,k3-inno-dp
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+    description: Link and hot-plug events.
-+
-+  clocks:
-+    items:
-+      - description: Pixel clock for the controller.
-+      - description:
-+          Pixel clock generated by the DP PHY PLL; the pixel clock above is
-+          parented onto it in use.
-+
-+  clock-names:
-+    items:
-+      - const: pxclk
-+      - const: pll
-+
-+  resets:
-+    maxItems: 1
-+    description: Controller-wide reset signal.
-+
-+  phys:
-+    maxItems: 1
-+    description: Phandle to the K3 Innosilicon DP PHY.
-+
-+  phy-names:
-+    items:
-+      - const: dp
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    properties:
-+      port@0:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Video input from the DPU.
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Output to the panel or to the DisplayPort connector.
-+
-+    required:
-+      - port@0
-+
-+  aux-bus:
-+    $ref: /schemas/display/dp-aux-bus.yaml#
-+    description:
-+      The DisplayPort AUX bus. Present when the output drives an embedded
-+      panel, which is described as a child of this node and identifies itself
-+      over AUX. Absent when the output is a connector.
-+
-+  phy:
-+    $ref: /schemas/phy/spacemit,k3-inno-dp-phy.yaml#
-+    description:
-+      The DisplayPort PHY. Its registers live inside this controller's
-+      register window, so it is described here as a child node.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - resets
-+  - phys
-+  - phy-names
-+  - ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/spacemit,k3-clocks.h>
-+    #include <dt-bindings/reset/spacemit,k3-resets.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        edp@cac84000 {
-+            compatible = "spacemit,k3-inno-dp";
-+            reg = <0x0 0xcac84000 0x0 0x4000>;
-+            interrupts = <132 IRQ_TYPE_LEVEL_HIGH>;
-+            clocks = <&syscon_apmu CLK_APMU_EDP0_PXCLK>, <&edp0_phy>;
-+            clock-names = "pxclk", "pll";
-+            resets = <&syscon_apmu RESET_APMU_EDP0>;
-+            phys = <&edp0_phy>;
-+            phy-names = "dp";
-+
-+            edp0_phy: phy {
-+                compatible = "spacemit,k3-inno-dp-phy";
-+                #phy-cells = <0>;
-+                #clock-cells = <0>;
-+                clock-output-names = "edp0_pll_pxclk";
-+            };
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+                    endpoint {
-+                        remote-endpoint = <&dpu0_out>;
-+                    };
-+                };
-+
-+                port@1 {
-+                    reg = <1>;
-+                    endpoint {
-+                        remote-endpoint = <&panel_in>;
-+                    };
-+                };
-+            };
-+        };
-+    };
+diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3.c
+index cb0c4277f72a..afbbbd797826 100644
+--- a/drivers/clk/spacemit/ccu-k3.c
++++ b/drivers/clk/spacemit/ccu-k3.c
+@@ -937,13 +937,13 @@ CCU_MUX_DIV_GATE_FC_DEFINE(ufs_aclk, ufs_aclk_parents, APMU_UFS_CLK_RES_CTRL, 5,
+ 
+ static const struct clk_parent_data edp0_pclk_parents[] = {
+ 	CCU_PARENT_HW(lcd_pxclk),
+-	CCU_PARENT_NAME(external_clk),
++	CCU_PARENT_NAME(edp0_pll_pxclk),
+ };
+ CCU_MUX_GATE_DEFINE(edp0_pxclk, edp0_pclk_parents, APMU_LCD_EDP_CTRL, 2, 1, BIT(1), 0);
+ 
+ static const struct clk_parent_data edp1_pclk_parents[] = {
+ 	CCU_PARENT_HW(dsi4ln2_lcd_pxclk),
+-	CCU_PARENT_NAME(external_clk),
++	CCU_PARENT_NAME(edp1_pll_pxclk),
+ };
+ CCU_MUX_GATE_DEFINE(edp1_pxclk, edp1_pclk_parents, APMU_LCD_EDP_CTRL, 18, 1, BIT(17), 0);
+ 
 
 -- 
 2.43.0
