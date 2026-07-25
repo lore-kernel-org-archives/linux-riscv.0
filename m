@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CB2C531F9
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 08:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD7FC531C9
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 09:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hoxRaOD88UsHlVjmN06LJCydsfOdAF4+9jYXUbZXiyE=; b=o0lpES8d9KeI56
-	wS/EK8q7h5PttM0DYkXdpmvDwpLI3IvZtRDQA02MTIbnJ1YH3Y9xYW/W+co4j5y7337cbWWrGSId8
-	R4Pb6WbGCoV3LQymYsi+9HJyPEgrlbVZ5u26D6u/9t0AcsXjCwo+RPhlaC6o7mnr08O304madpYrD
-	fMUjY9LAoa/yXoKmYwcxGc8ou9Hz5AxwoJp3kFo2S1hxRMBTyJL40bo0BNK+OnjkQLcdJaAnst9JU
-	ZjuSips/xGOXEFbaO3G66wCuGzarFRQoz3DgeePl/4yQqhdWu10VBNdOZy+3ekytHVj/QehA173ld
-	dm/uUD8rTK9mUOyGltcA==;
+	List-Owner; bh=nF84SNQrRP+Qn9riPvk94UsWkCATunK43uVrYIZY6Qs=; b=Ui4SLb4Y9OQM1c
+	izIo4k0uAdFzYeU2o/C9Kx+9sRDpOxxRIyKJTJWxxied7bXCzd0Oq54G4/72qgqmfsNcBXA4geoVz
+	fhmfA96RWMsFS5ELvP24hS2FjsNrzlRmwmmyIYPH5NNSuqmSTS1CyyVEiojBJiTb/Ma0uG0leUu96
+	yyRZhcmlBhMqQ51Xx5476CnB+e2AaEZ+IU7HKheZFUuC5qUF4DCGUeQvgZac0hv5m79u4+Cwos75I
+	xcvW0ukcqpVk14q3YAK3fEuUCCEj2MqaioRS7ZhiIK2lmDgizVFqsvdqLBR+2rF6TtZvek5WEjG7F
+	RcdvTod+F50mZ/6ShY9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnXW7-00000000ApB-2ftk;
-	Sat, 25 Jul 2026 08:13:55 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1wnYWd-00000000D9C-0Ur6;
+	Sat, 25 Jul 2026 09:18:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnXW4-00000000AnP-0547
+	id 1wnYWb-00000000D8s-0Xoh
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Jul 2026 08:13:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
-	s=s2025; t=1784967180;
-	bh=Q1wNwR7tIvEW59tXnUAq4uObdZlbHctBQ2RgzD/ZM+U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OnV+l0WoJv/sdyIlExO4Gq+PhEkYP7GycUj9fdFV+6B+X9lmoUo2HdVM465G4NDmp
-	 jSPSjOP0LHhtUg0wjigtySnOYMnYwSnh/qZU68PbFEQGRZ9VquOnmzubejei6WVtSm
-	 al5IOoSka+a8eFZYsL8HAyxWVHMTK6XJ4V9fRPQj76UHF0o97ia+HnXhnuSOj9GTNj
-	 IJln88Xh4R5+xdRyCtrfiz/FL1h3w3MaQ6Ab+DtLUjAjJfC4eIW0e2ASMlTztvJP/z
-	 Fmxt7yNYLbW6psc9gNctMhp7KpFzNelIWFneA4Akg/plsstQDkFrnNG6nrOAdqYiHL
-	 tJNrTkBVQl1AA==
-Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 9F302B2200E0;
-	Sat, 25 Jul 2026 10:12:55 +0200 (CEST)
-Message-ID: <9545227f-77ef-480d-bb55-6caf1124627c@freeshell.de>
-Date: Sat, 25 Jul 2026 01:12:46 -0700
+	Sat, 25 Jul 2026 09:18:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E534600AD;
+	Sat, 25 Jul 2026 09:18:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6F3D1F000E9;
+	Sat, 25 Jul 2026 09:18:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784971108;
+	bh=zXZsG0yYtOm3DPrrBAksWmNTNjdQy47MFZdmr+uh6nA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RBoBT3pQC4HZDzXPYlv465ebdNWya3PFbBQO0BhRZBjPKeigSZtYC0wpYvRvwni/T
+	 TK9LZikpL2GY9InqD5sYoaTZvU1aQqqVRtD64lHIHsEXhCQoO4/uuhXjL5yto5wkNo
+	 mjelapnSn6P5754X0AkEbKludJ6AMNo8qjK4tWp/IAi+18YfhZ5Tkxo9LqOA4z/W0q
+	 f5aDXFcz4tiw07HH4quNHafTvUzFtYrO3H+NFeWsD3962JCWj7ORjqctL1EeMYGcnN
+	 Eu9R0rj3jIb/p26ZaYcpoJ0+jXlF7VzPqxN3YZA5RfRl6RTnjb/mSZu0NtRRjSJ9q2
+	 8rd0iYUj6Rnmw==
+Date: Sat, 25 Jul 2026 09:18:24 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] scsi: ufs: spacemit: k3: Add UFS Host Controller
+ driver
+Message-ID: <20260725091824-GKA77545@kernel.org>
+References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
+ <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
+ <7x3b4sttnc4oxkuvxmpkihfi76lkapjcigo7khgcgfytvol7w2@v5ykuyrk2z3m>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] riscv: dts: spacemit: Fix phy id check for the phy on
- pico-itx board
-To: Inochi Amaoto <inochiama@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, Yixun Lan <dlan@gentoo.org>,
- Longbin Li <looong.bin@gmail.com>
-References: <20260725005804.373698-1-inochiama@gmail.com>
- <20260725005804.373698-2-inochiama@gmail.com>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20260725005804.373698-2-inochiama@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260725_011352_539563_760FE255 
-X-CRM114-Status: GOOD (  13.54  )
+Content-Disposition: inline
+In-Reply-To: <7x3b4sttnc4oxkuvxmpkihfi76lkapjcigo7khgcgfytvol7w2@v5ykuyrk2z3m>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +83,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi,
+Hi Anirudh,
 
-On 7/24/26 17:58, Inochi Amaoto wrote:
-> Current phy framework can not reinit the phy correctly, as it will
-> assert the phy reset GPIO so the phy id can not be readed. Setting
-> the phy id of board pico-itx manually so the phy id dectection can
-> be skipped.
+On 15:16 Sun 12 Jul     , Anirudh Srinivasan wrote:
+> On Thu, Jul 02, 2026 at 02:31:36AM +0000, Yixun Lan wrote:
+> > SpacemiT K3 SoC consist of UFS (Universal Flash Storage) Host Controller
+> > which has features compatible with JEDEC UFS 2.2, MIPI UniPro v1.61 and
+> > M-PHY v3.0 standard.
+> > 
+> > Signed-off-by: Yixun Lan <dlan@kernel.org>
+> > ---
+> >  drivers/ufs/host/Kconfig        |  12 +
+> >  drivers/ufs/host/Makefile       |   1 +
+> >  drivers/ufs/host/ufs-spacemit.c | 931 ++++++++++++++++++++++++++++++++++++++++
+> >  drivers/ufs/host/ufs-spacemit.h |  90 ++++
+> >  4 files changed, 1034 insertions(+)
+> > 
+> > diff --git a/drivers/ufs/host/Kconfig b/drivers/ufs/host/Kconfig
+> > index ff170c0b6da0..4f53b7f7688f 100644
+> > --- a/drivers/ufs/host/Kconfig
+> > +++ b/drivers/ufs/host/Kconfig
+> > @@ -132,6 +132,18 @@ config SCSI_UFS_VARIABLE_SG_ENTRY_SIZE
+> >  	bool
+> >  	default y if SCSI_UFS_EXYNOS && SCSI_UFS_CRYPTO
+> >  
+> > +config SCSI_UFS_SPACEMIT
+> > +	tristate "SpacemiT UFS controller driver"
+> > +	depends on SCSI_UFSHCD_PLATFORM && ARCH_SPACEMIT
 > 
-> Fixes: 74657a376960 ("riscv: dts: spacemit: Add ethernet device for K3")
-> Reported-by: E Shattow <e@freeshell.de>
-> Reported-by: Inochi Amaoto <inochiama@gmail.com>
-> Closes: https://lore.kernel.org/netdev/20260712045233.800748-1-inochiama@gmail.com
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> Tested-by: E Shattow <e@freeshell.de>
-> ---
->  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+> Can you add SCSI_UFSHCD_PLATFORM and SCSI_UFS_SPACEMIT as modules to
+> riscv defconfig (or just add the former and add a default y if
+> ARCH_SPACEMIT in this Kconfig entry). This will let defconfig kernels
+> to boot with persistant rootfs on these devices.
 > 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> index b2a7d2d0d3a8..b9d2de878f38 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> @@ -196,7 +196,8 @@ &eth0 {
->  
->  	mdio {
->  		phy0: phy@1 {
-> -			compatible = "ethernet-phy-ieee802.3-c22";
-> +			compatible = "ethernet-phy-id001c.c916",
-> +				     "ethernet-phy-ieee802.3-c22";
->  			reg = <1>;
->  			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
->  			reset-assert-us = <10000>;
+Ok, will consider adding one entry to riscv defconfig, but this should be
+handled in another separate patch, for making it as module or built-in driver,
+I'm incline to choose latter one, but would be glad to hear different opinion
 
-Looks good to me, aside from commit message spelling and grammar nits
-("re-initialize", "read", "detection"). Yixun may just fix in-flight, my
-R-by and T-by tags can stay.
-
-Thanks! -E
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
