@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38302C531D0
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 03:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B823C531D0
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 03:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DVbMNSoYywP/SfF1p4Bqx/7J9DRrDQxOO1JYGQ+VXbU=; b=agEhZlmXzEBOdL
-	i66hu8+409K85uoi03K9lEKR1nct+J3q73PVcjcmPij4mYk8bUvKJ+Qegse1zYbpgK0KjfaKOFNpp
-	N8ofOtTrEaxvy8Yoojty+GwXy5LGuoPH9HIH2OiPPKBZWHtoL9Y27OgPsZII4KXVn6tQB4hJjir5+
-	hhQxzI9g8ED8HRXqbUd00xRVsqb6YJ5xTHwfGcJ5WSnGTCmMYIidMoFImYWQTAL6UGLqyD8rs4A4A
-	JNheY7Pn3ZBLxVm8L16zilbgQysXKk/mzA7XKlaBUwhRiNxxITEHAKg5ZbckPHRfi/dp8Rju6caJK
-	nhkt5oT8HeVkYHwJIs1Q==;
+	List-Owner; bh=f/+TRzKoBd0vYKtVSdB4XpI9sqOH2/UR0u8+w+6Dtng=; b=Qh5SQMU2Ur8o5P
+	wccKuw+qEhE82qr2VChRHdhcS85buuz/eqFTJ9Aa1XTMvVKqU5VxV1oS6bAz/G9NPJ2QmMoEd53zx
+	+UCuqFOsfhbf7wLWx7qOfHybwEElNKCdQLuR9V24yb4MuPZycGTWNN0Rg88D68yIddRVgrpHFBLdw
+	wKpdBd+w9rTdqJ6bikwwNFIAX/BY8Fphz/CYYPeWq/ebffWCom1oSJH2OAmaK7Ezm0aRB4LOFCGmE
+	7Fj9bbz7gcqNIJRHw18bYZ5jqp+1RUgTKpQXduDaX2h9nqmSZECTZ0UFGY8V4dtG+uWWV4jc6fMrM
+	MI+acZvM7OCOxQ5rpTaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnSus-0000000HXoS-3Hom;
-	Sat, 25 Jul 2026 03:19:10 +0000
-Received: from mail-pj2-x00.google.com ([2607:f8b0:4864:39::])
+	id 1wnSv0-0000000HXsT-421y;
+	Sat, 25 Jul 2026 03:19:18 +0000
+Received: from mail-pz2-x01.google.com ([2607:f8b0:4864:3b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnSuq-0000000HXn1-0hfW
+	id 1wnSuy-0000000HXqa-1iBu
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Jul 2026 03:19:09 +0000
-Received: by mail-pj2-x00.google.com with SMTP id d9443c01a7336-2cc6bb7476dso2172565ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 20:19:08 -0700 (PDT)
+	Sat, 25 Jul 2026 03:19:17 +0000
+Received: by mail-pz2-x01.google.com with SMTP id 41be03b00d2f7-cab1b0bb489so1046541a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 20:19:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784949547; x=1785554347; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784949556; x=1785554356; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=R27OrBVO4c+ZRT7KJNQVX6sAFfpZUPUtgxebharHHoU=;
-        b=HG8Op+e7J8APO3ZwWZdaxcAQqQTyxJxw0SsN/2n0NvM447JvDw6twVIxXW8t9eDni/
-         k4fF5lblIWfBw6NegPI2txoWYEU0oU0IKFT4RnFAo1Q4PHnf0GIIzMWcIeG6ypBrZMDh
-         /j1zsnesiYzlaScdRYwAuHd9OGGvWiRiJsJF9783ugKJYNA9vmfwsInQ4rnlqvt2A8gN
-         IXjwHqgkkjrAFoziLwIR+6LiHF3NUOhmH6EqIXI34+pm/xYOT2BSxWlBLtpiN0fKaoX3
-         73yqh4hlikyr1odR8ZPNm3I5ciUuUMwzn0KAJ/5IudhxQ4GvZ3hy1DO6d7t2aVF+d/pG
-         co/g==
+        bh=e4C2qDdMDmFuAaCYr0SQwKrHQit4QrHO7xfMnvBhehM=;
+        b=DhUrFQsFR1MINQ4v1LLHYSOlQk6brc/FJl8j0Sh0bu+fMweuQ0RVAC4J/5I6qX0EPy
+         GGn9ZkLZFFajuAUjboYpDV3VFZSkMwgd7y7rlBwDFwUPJl0BIiY3FKXD84zQiVNOoOKA
+         UR17od2VQUYCXHIMmtBtc+NPC/ZlWrYrInkBnrRJZT9stfU2/HpL9Q1OdD+iqPIuJJgX
+         fuhj6oskmzi7hdEMaKOI6hVAKr4Dy/7+jrOU88ftgzCbJh3EmhjyF7yd/JLpQ9MOsK58
+         fMkqT+QeJ7002/CUMoCW6RFjGWuLEIAjwkayLUwAev6gtoksuVXd1iuQ44XUjTTWdPhA
+         xLYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784949547; x=1785554347;
+        d=1e100.net; s=20251104; t=1784949556; x=1785554356;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=R27OrBVO4c+ZRT7KJNQVX6sAFfpZUPUtgxebharHHoU=;
-        b=n2eQRcOttaeC3kywgSLlm1sOq41xjFB8jfjWQYSi/MkQEF9wuZdg04ivthMAkzm/95
-         8vvwIJF/K0FBhDSAOSbwoo/sM64MaXVRH0t0WywstGnLip9akpGAkzeiCbL5qSY3aQ0I
-         TiNBcv8/rOnof5Ylj01wUbu9GdY7D7jVD/f3zpv9AX6X9MzxnoY0q7lXXmKhPFaspj68
-         zBeTqGOk3hSXX02IUleQHc2DFTYczBP799DYTN2+f+cQAYdA+EvSZ+yQ7bsSGj0FbD5A
-         iYHlFOfiHwslW5V/0xsk1DfpLFE328ZuQ2sm+e7naWi4z8RxPtvt+RxjO6HB4hjz57Yt
-         wtfg==
-X-Forwarded-Encrypted: i=1; AHgh+Rpb1saOLjFyXYunFK23QtjJo+KyLWKqxHdaFm4XBln4Rw4JTDSM52y6AanMX5N1dq1La8/KmOoC4uZgiw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpjPGZM6OKImyfMa5y7HK7FJrmA0HwgW0U5m7ndlLJ6dfWO9r1
-	m+n9ho9kDE/H+ZffXp8uscw+3P4mFxDIP7puaUKvzzIRlrCwgkIOy3Fu
-X-Gm-Gg: AR+sD13+RfgCDyJKEzmWSAsva6B50XhGOqRyP6T5JFDckNRFRdnYQ1G7fnLNnfhObyy
-	q/AcIGhxc8XHA4dYe/CAyyN/lsO6z7Iyc2E3n2ZKBwJMhWq1Tb+eLX5oWErkUdlaMkIphhrrE3O
-	dZOwYL14XbH4ytm0Z8VRWYRqmbiWa16o2CzocvasZJd7e7+nzyRzskYX4PB5nGlFUOYY3Dkkx6W
-	8xcaaNWcJOSqmapIiJKpqIBLJLFUI4ZTuXbHzagjsb2HQZ6IQfkQgaz6gD+fGJpWXKY7XUjclpB
-	cGRc1+BXifaJsSuRd2iCtDy/YDhLBPSOD0NcbbfbQmyFsjXc90Oe8MdZMrSQiGlKJumzBqkbhaZ
-	O3Ziwyq4zYfpgatjUSIi1GVowg/AxJgflszG+lbhlF9pVIvcoeDhxcJw=
-X-Received: by 2002:a05:6a00:852:b0:847:9919:e772 with SMTP id d2e1a72fcca58-84e595426f1mr573194b3a.21.1784949547576;
-        Fri, 24 Jul 2026 20:19:07 -0700 (PDT)
+        bh=e4C2qDdMDmFuAaCYr0SQwKrHQit4QrHO7xfMnvBhehM=;
+        b=qhyDVB/4wedt7agaW4WVvxBKYQXy4xrY5dBWNHwFdn63hVRYsEZKOrCE60+YkKx2pM
+         hnQJi3Wbef7fwLjQSka2KOcEdrLiuHZiP6BQR65VSwIUXl6w9Fl3bNoT/A3KPo643XDJ
+         jl/krDIov3EGoUYcIRcLuFSY9GghZt3mgRaf+sg+DTkBtEfOw4tduHkr8Samc+TkJvRW
+         vYoGg9XdHXE7bvWd5V3njNyzWpLY125Afn6kqpHY3U1NLBBQPsZCcbFuuseRhaNJyQ2M
+         j6xDmFROraqXKcXz8GGPwkGdGa9J7KBBXE9mwN2rg6PVUSaTdGMS9wMVQL5HC5mOt/Q5
+         NrZA==
+X-Forwarded-Encrypted: i=1; AHgh+Rp+gA7r83ue9rgDqN1k+njN2yqiGUCVjGlmZkUIohmRjDVlUmjKcOPZ3lBD92WSmfGS9mk6XaQfP2eKXw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxow8Bb3ihY5AAfaowfLNa11+iRxJpBS663iMkkNh5Qgkd52HXz
+	z/huj/pE5mdXU6ZPoln8Eddmmp3C0mRUUnJk9mXhaOUZLVJmjUmDn0/h
+X-Gm-Gg: AR+sD12gd3arV9wocmknGKW0aUll1FDlz+Yhx3vt9z1GYNwvkOVQUtskAWqgI6H73jJ
+	ZJanTcS/HzqMptAAHiIN9TvMgLg8Ox9QMyUvd6ylFHfdm8YT5zoSqA7tIRpN4sUG/a5sjMjNwBq
+	6/Rjkr0elIMn9AnE6lEqkINEYuey+6eSB/ZS9BvyfPYe7xfv1uVQ6VUoK97EGSbLE/6wzbiBunr
+	UL2WqGVAp89rIZBCZu5k6kenU/F9zZxK+YpePpL0ZYGHT4Q7R+dYDDmXU0h7cvpZhyNBuM1WmU0
+	IF0LoJ1vL+3V40tkwk/bot0VCyDLoUGQuCz8S4Ld/vp/ViNJj7CVYCAsBnhIPPf5O13wFXPJbbZ
+	eUuy5B1u8VfCY81XHSKRK1Dk+Bx8F5vmymqq7XpGLfl6cE+vhj7dR9J1OzZ/U6UlTbg==
+X-Received: by 2002:a05:6a00:180c:b0:84e:2d5d:5e4d with SMTP id d2e1a72fcca58-84e595d6eccmr712341b3a.68.1784949555818;
+        Fri, 24 Jul 2026 20:19:15 -0700 (PDT)
 Received: from [127.0.1.1] ([2a12:a305:4::403c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e53432834sm640542b3a.50.2026.07.24.20.19.00
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e53432834sm640542b3a.50.2026.07.24.20.19.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 20:19:07 -0700 (PDT)
+        Fri, 24 Jul 2026 20:19:15 -0700 (PDT)
 From: Cody Kang <codykang.hk@gmail.com>
-Date: Fri, 24 Jul 2026 23:16:45 -0400
-Subject: [PATCH 13/17] MAINTAINERS: add SpacemiT K3 display driver entry
+Date: Fri, 24 Jul 2026 23:16:46 -0400
+Subject: [PATCH 14/17] riscv: dts: spacemit: k3: add display nodes
 MIME-Version: 1.0
-Message-Id: <20260724-k3-display-v1-13-f22a10a52867@gmail.com>
+Message-Id: <20260724-k3-display-v1-14-f22a10a52867@gmail.com>
 References: <20260724-k3-display-v1-0-f22a10a52867@gmail.com>
 In-Reply-To: <20260724-k3-display-v1-0-f22a10a52867@gmail.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -93,9 +93,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
  linux-clk@vger.kernel.org, Cody Kang <codykang.hk@gmail.com>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_201908_225201_2956B596 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260724_201916_624576_95296525 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,35 +111,179 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cover the Saturn DPU, the Innosilicon DP/eDP controller, the DP PHY and
-their bindings.
+Add the SoC-level display nodes: the two Saturn DPUs, the two DP/eDP
+controllers with their PHY children.
+
+The PHY PLLs are fed back into the APMU as pixel-clock mux parents, so
+updated the &syscon_apmu node in the display dtsi.
 
 Signed-off-by: Cody Kang <codykang.hk@gmail.com>
 ---
- MAINTAINERS | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/riscv/boot/dts/spacemit/k3-display.dtsi | 156 +++++++++++++++++++++++++++
+ 1 file changed, 156 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 6dea93a41962..9f2910a17c38 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -25436,6 +25436,16 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
- F:	drivers/i2c/busses/i2c-k1.c
- 
-+SPACEMIT K3 DISPLAY DRIVER
-+M:	Cody Kang <codykang.hk@gmail.com>
-+L:	dri-devel@lists.freedesktop.org
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/display/spacemit/
-+F:	Documentation/devicetree/bindings/phy/spacemit,k3-inno-dp-phy.yaml
-+F:	drivers/gpu/drm/spacemit/
-+F:	drivers/phy/spacemit/phy-k3-inno-dp.c
+diff --git a/arch/riscv/boot/dts/spacemit/k3-display.dtsi b/arch/riscv/boot/dts/spacemit/k3-display.dtsi
+new file mode 100644
+index 000000000000..4892ee6acda2
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/k3-display.dtsi
+@@ -0,0 +1,156 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * SpacemiT K3 display subsystem (DPU0/eDP0 + DPU1/DP1) shared
++ * device-tree definitions for inclusion alongside k3.dtsi.
++ *
++ * Copyright (C) 2026 SpacemiT Co., Ltd.
++ */
 +
- SPANISH DOCUMENTATION
- M:	Carlos Bilbao <carlos.bilbao@kernel.org>
- R:	Avadhut Naik <avadhut.naik@amd.com>
++#include <dt-bindings/clock/spacemit,k3-clocks.h>
++#include <dt-bindings/reset/spacemit,k3-resets.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++
++&soc {
++	dpu0_crtc0: dpu@c0340000 {
++		compatible = "spacemit,k3-saturn-dpu";
++		reg = <0x0 0xc0340000 0x0 0x54000>;
++		interrupts = <90 IRQ_TYPE_LEVEL_HIGH>,
++			     <89 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "online", "offline";
++		clocks = <&syscon_apmu CLK_APMU_LCD_PXCLK>,
++			 <&syscon_apmu CLK_APMU_LCD_MCLK>,
++			 <&syscon_apmu CLK_APMU_DPU_ACLK>,
++			 <&syscon_apmu CLK_APMU_DSI_ESC>,
++			 <&syscon_apmu CLK_APMU_LCD_DSC>;
++		clock-names = "pxclk", "mclk", "aclk", "escclk", "dscclk";
++		resets = <&syscon_apmu RESET_APMU_LCD_MCLK>,
++			 <&syscon_apmu RESET_APMU_LCD>,
++			 <&syscon_apmu RESET_APMU_DSI_ESC>,
++			 <&syscon_apmu RESET_APMU_DPU_ACLK>,
++			 <&syscon_apmu RESET_APMU_LCD_DSCCLK>;
++		reset-names = "mclk", "lcd", "esc",
++			      "aclk", "dsc";
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++				dpu0_out: endpoint {
++					remote-endpoint = <&edp0_in>;
++				};
++			};
++		};
++	};
++
++	edp0: edp@cac84000 {
++		compatible = "spacemit,k3-inno-dp";
++		reg = <0x0 0xcac84000 0x0 0x4000>;
++		interrupts = <132 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&syscon_apmu CLK_APMU_EDP0_PXCLK>, <&edp0_phy>;
++		clock-names = "pxclk", "pll";
++		resets = <&syscon_apmu RESET_APMU_EDP0>;
++		phys = <&edp0_phy>;
++		phy-names = "dp";
++		status = "disabled";
++
++		edp0_phy: phy {
++			compatible = "spacemit,k3-inno-dp-phy";
++			#phy-cells = <0>;
++			#clock-cells = <0>;
++			clock-output-names = "edp0_pll_pxclk";
++		};
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++				edp0_in: endpoint {
++					remote-endpoint = <&dpu0_out>;
++				};
++			};
++			/* port@1 (panel output) is added by boards fitting an eDP panel */
++		};
++	};
++
++	dpu1_crtc0: dpu@c0440000 {
++		compatible = "spacemit,k3-saturn-dpu";
++		reg = <0x0 0xc0440000 0x0 0x54000>;
++		interrupts = <139 IRQ_TYPE_LEVEL_HIGH>,
++			     <138 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "online", "offline";
++		clocks = <&syscon_apmu CLK_APMU_DSI4LN2_LCD_PXCLK>,
++			 <&syscon_apmu CLK_APMU_DSI4LN2_LCD_MCLK>,
++			 <&syscon_apmu CLK_APMU_DSI4LN2_DPU_ACLK>,
++			 <&syscon_apmu CLK_APMU_DSI4LN2_DSI_ESC>,
++			 <&syscon_apmu CLK_APMU_DSI4LN2_LCD_DSC>;
++		clock-names = "pxclk", "mclk", "aclk", "escclk", "dscclk";
++		resets = <&syscon_apmu RESET_APMU_DSI4LN2_LCD_MCLK>,
++			 <&syscon_apmu RESET_APMU_DSI4LN2_LCD_SW>,
++			 <&syscon_apmu RESET_APMU_DSI4LN2_ESCCLK>,
++			 <&syscon_apmu RESET_APMU_DSI4LN2_DPU_ACLK>,
++			 <&syscon_apmu RESET_APMU_DSI4LN2_LCD_DSCCLK>;
++		reset-names = "mclk", "lcd", "esc",
++			      "aclk", "dsc";
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++				dpu1_out: endpoint {
++					remote-endpoint = <&dp1_in>;
++				};
++			};
++		};
++	};
++
++	dp1: dp@cac88000 {
++		compatible = "spacemit,k3-inno-dp";
++		reg = <0x0 0xcac88000 0x0 0x4000>;
++		interrupts = <140 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&syscon_apmu CLK_APMU_EDP1_PXCLK>, <&dp1_phy>;
++		clock-names = "pxclk", "pll";
++		resets = <&syscon_apmu RESET_APMU_EDP1>;
++		phys = <&dp1_phy>;
++		phy-names = "dp";
++		status = "disabled";
++
++		dp1_phy: phy {
++			compatible = "spacemit,k3-inno-dp-phy";
++			#phy-cells = <0>;
++			#clock-cells = <0>;
++			clock-output-names = "edp1_pll_pxclk";
++		};
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++				dp1_in: endpoint {
++					remote-endpoint = <&dpu1_out>;
++				};
++			};
++			/* no port@1: the DP TX drives the external connector directly */
++		};
++	};
++};
++
++/*
++ * Feed the PHY PLL pixel clocks back in as the APMU mux parents. This lives
++ * here, not in k3.dtsi: the PHYs only exist where this file is included.
++ */
++&syscon_apmu {
++	clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>, <&vctcxo_24m>,
++		 <&edp0_phy>, <&dp1_phy>;
++	clock-names = "osc", "vctcxo_1m", "vctcxo_3m", "vctcxo_24m",
++		      "edp0_pll_pxclk", "edp1_pll_pxclk";
++};
 
 -- 
 2.43.0
