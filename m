@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 565ACC531D0
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 13:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843C0C531C9
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 13:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vy4eAbsx11ZL2ssVVuyoAdpuIAre8Ojt7FrMFNVEbw4=; b=iHvHakodm8ErqZ
-	fYAT+aloJkduUwVyu5ghLF+SZxApsigPydOb8SnYhHqpbF3aQiFUFrP2TyfYh19TIoh6x/JFF+FOA
-	DsTiaLEVGQDvBRRBnPQlFLGKtQEKR+4CVGw5PdHMCI3h6JrYXcCdWLwddlA8q4C2eh0Z1/uLg4wqp
-	tM4Wuaykmdgb75iv+2p5HNy+aZ7m7sUVrNke1Je7X0FOy8dd7IYXmESYo6a4lgCNi8S1h2KeegIdM
-	08rqn3lPitIR5mX99zgeMrynAeL1YXKaZvnSjRX83aI1pGfx7yKZA+Cnwm1hMHVbvGIQd+v9L4xpy
-	vwwA20s/+ZuwUOZQKgeA==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=IfRtEJDLBbcogoAxKPBkpOXzzGMkFU2XrPue1sp4FnM=; b=mmbZ564VqGBi7k99lihxQRtkt1
+	HPjUTJNIb4BK/gGE8VfM4ukQDD6O9z1AbVFvwv6veooD682BFOLyTnNAWtYVoj2TttcRUU+do9DHw
+	UdQYF7JP96xFvW+Wa0OXqLJa/+VVGE4dAYpQPx33onw8mE39hA5AwtcOsqbIaEuxiGQX9drAdn1xo
+	EkIRwjxoArNljWObVKUMob5FB/YGJXNW736Ko74RujophVOjmmPS7gAbbilQuHyZ7Mcswr/6Fr9fH
+	E3rwUC4UcKIZD1tYrjcE699zbrdT49uujT2tVM3x+EKpTZb4rV/sDZUqOwGxV2W5DwC2vKx48xkwG
+	/9FsxQNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wncET-00000000N0a-268q;
-	Sat, 25 Jul 2026 13:16:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wncPr-00000000NVL-1cHe;
+	Sat, 25 Jul 2026 13:27:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wncES-00000000N0L-0ANx
+	id 1wncPp-00000000NVD-2J2I
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Jul 2026 13:16:00 +0000
+	Sat, 25 Jul 2026 13:27:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56022600AA;
-	Sat, 25 Jul 2026 13:15:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80ADE1F000E9;
-	Sat, 25 Jul 2026 13:15:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D81E343A24;
+	Sat, 25 Jul 2026 13:27:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F3C11F000E9;
+	Sat, 25 Jul 2026 13:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784985359;
-	bh=kT5XrLFshmt7cvuC4cpsKMz5cnoF+ktfQ+kqzEfCPuQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SFJfQxef8TkdhDhuHbCYgas9g0LlIQnUIIhdbCouH/cKjxxpZbbujjdsrJpiW9nLE
-	 +yfo5ZMcHjUKhAhKGmrfJvMw7pu2Y4s424P5tM4KL2tCbDYPCYkZdhOCcmJrqOG95b
-	 2OTNB/fhFOhPyGGVryhbRfVE14Ag9lAgc2/JDvXOmi4yDcrq/55Ty4ETL0a8FADyCO
-	 OOHTTQGukDWXnARLvg3GnsHUFF2VkGCZEWmc//4FMXZJ8YQFwXb51qcIaR8gW6w8zT
-	 DvckpRVH3c4HHuRBHyRhfItKxBnhHqObNnH76AabdflG1pqb2eyfpqk0TveoLeyI1Z
-	 YXzavmMCwjQrQ==
-Date: Sat, 25 Jul 2026 13:15:55 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Zhengyu He <hezhy472013@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Mark Brown <broonie@kernel.org>, Alex Elder <elder@kernel.org>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-spi@vger.kernel.org, wefu@redhat.com,
-	liyeshan <yeshan.li@spacemit.com>,
-	Guodong Xu <docular.xu@gmail.com>
-Subject: Re: [PATCH 1/4] riscv: dts: spacemit: add K3 PDMA request numbers
-Message-ID: <20260725131555-GKF77545@kernel.org>
-References: <20260717-k3-com260-spi-v7-2-rc2-b4-preview-20260716-v1-0-969a1b0f783f@gmail.com>
- <20260717-k3-com260-spi-v7-2-rc2-b4-preview-20260716-v1-1-969a1b0f783f@gmail.com>
+	s=k20260515; t=1784986064;
+	bh=DsJhSTaLOqEFyvKvQH1QRB+ENNlkLh84i18wRSEe3Fo=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=BGThAtup56cMrZOpHQ3HrO1XCzugN8xYb+nlsrR59wMwLo95nvMiyMj1j1P1U0tMl
+	 36B7d663p9g0Mzd8SLpeThazz4+fWhykbjf2aym9VGzslsosVFXnunmLudx5s8PH63
+	 0Ix+aKMuSvIdNXr5nZl9yb7XFPn/tZwb/mAjcKQ4ERNnG+H1UMD7h93e40NOwnqINb
+	 V0di6zDAkIH9OXVcd3hw7v12RAKQlkOPvyCXtrAKrXXgyTHjjhHEAVBJ0xa/xK5sqj
+	 T9vh+GwPX318xX/JuaFlxK5GOQYpT6PvrJqyxjVUj9T8LN4xNNJBuvUX8NcLDL9REr
+	 1IqOae2wEI8Aw==
+Date: Sat, 25 Jul 2026 08:27:43 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260717-k3-com260-spi-v7-2-rc2-b4-preview-20260716-v1-1-969a1b0f783f@gmail.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Bart Van Assche <bvanassche@acm.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ spacemit@lists.linux.dev, Aurelien Jarno <aurelien@aurel32.net>, 
+ Paul Walmsley <pjw@kernel.org>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Jennifer Berringer <jberring@redhat.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, devicetree@vger.kernel.org, 
+ "Martin K. Petersen" <martin.petersen@oracle.com>, 
+ Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
+ linux-riscv@lists.infradead.org, Avri Altman <avri.altman@sandisk.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-scsi@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+In-Reply-To: <20260725-08-k3-ufs-support-v2-1-45036a2a2418@kernel.org>
+References: <20260725-08-k3-ufs-support-v2-0-45036a2a2418@kernel.org>
+ <20260725-08-k3-ufs-support-v2-1-45036a2a2418@kernel.org>
+Message-Id: <178498606385.3230542.8227126824689788827.robh@kernel.org>
+Subject: Re: [PATCH v2 1/3] scsi: ufs: spacemit: dt-bindings: Add UFS
+ controller for K3 SoC
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,122 +82,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Zhengyu,
 
-On 07:45 Fri 17 Jul     , Zhengyu He wrote:
-> From: liyeshan <yeshan.li@spacemit.com>
+On Sat, 25 Jul 2026 10:37:44 +0000, Yixun Lan wrote:
+> Document the compatible for UFS (Universal Flash Storage) Host Controller
+> which found in SpacemiT K3 SoC chip. Its features are listed below:
 > 
-> Add a local DTS header that gives symbolic names to the SpacemiT K3
-> PDMA request lines of the non-secure peripherals. Device trees can use
-> these K3_PDMA_* macros instead of hard-coded request numbers when wiring
-> a peripheral "dmas" property.
+> - Compliant with MIPI UniPro v1.61 specification.
+> - Compliant with M-PHY v3.0 specification.
+> - Compliant with UFS HCI v2.1 specification.
+> - Supports up to 2 Tx and 2 Rx lanes, up to HS-GEAR3 5.8 Gbps per lane.
+> - Supports standard low-power hibernate to reduce power consumption.
 > 
-> Signed-off-by: liyeshan <yeshan.li@spacemit.com>
-> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
-> Signed-off-by: Zhengyu He <hezhy472013@gmail.com>
-
-Reviewed-by: Yixun Lan <dlan@kernel.org>
-
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
 > ---
->  arch/riscv/boot/dts/spacemit/k3-pdma.h | 83 ++++++++++++++++++++++++++++++++++
->  1 file changed, 83 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-pdma.h b/arch/riscv/boot/dts/spacemit/k3-pdma.h
-> new file mode 100644
-> index 000000000000..a5b723ad616a
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/spacemit/k3-pdma.h
-> @@ -0,0 +1,83 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * DMA request number (DRQ) definitions for non-secure peripherals of
-> + * the SpacemiT K3 PDMA.
-> + *
-> + * Copyright (c) 2025 SpacemiT
-> + * Copyright (c) 2026 Guodong Xu <docular.xu@gmail.com>
-> + */
-> +
-> +#ifndef _DTS_SPACEMIT_K3_PDMA_H
-> +#define _DTS_SPACEMIT_K3_PDMA_H
-> +
-> +/* UART DMA request numbers */
-> +#define K3_PDMA_UART0_TX	3
-> +#define K3_PDMA_UART0_RX	4
-> +#define K3_PDMA_UART2_TX	5
-> +#define K3_PDMA_UART2_RX	6
-> +#define K3_PDMA_UART3_TX	7
-> +#define K3_PDMA_UART3_RX	8
-> +#define K3_PDMA_UART4_TX	9
-> +#define K3_PDMA_UART4_RX	10
-> +#define K3_PDMA_UART5_TX	25
-> +#define K3_PDMA_UART5_RX	26
-> +#define K3_PDMA_UART6_TX	27
-> +#define K3_PDMA_UART6_RX	28
-> +#define K3_PDMA_UART7_TX	29
-> +#define K3_PDMA_UART7_RX	30
-> +#define K3_PDMA_UART8_TX	31
-> +#define K3_PDMA_UART8_RX	32
-> +#define K3_PDMA_UART9_TX	33
-> +#define K3_PDMA_UART9_RX	34
-> +#define K3_PDMA_UART10_TX	53
-> +#define K3_PDMA_UART10_RX	54
-> +
-> +/* I2C DMA request numbers */
-> +#define K3_PDMA_I2C0_TX	11
-> +#define K3_PDMA_I2C0_RX	12
-> +#define K3_PDMA_I2C1_TX	13
-> +#define K3_PDMA_I2C1_RX	14
-> +#define K3_PDMA_I2C2_TX	15
-> +#define K3_PDMA_I2C2_RX	16
-> +#define K3_PDMA_I2C4_TX	17
-> +#define K3_PDMA_I2C4_RX	18
-> +#define K3_PDMA_I2C5_TX	35
-> +#define K3_PDMA_I2C5_RX	36
-> +#define K3_PDMA_I2C6_TX	37
-> +#define K3_PDMA_I2C6_RX	38
-> +#define K3_PDMA_I2C8_TX	41
-> +#define K3_PDMA_I2C8_RX	42
-> +
-> +/* SSP/SPI DMA request numbers */
-> +#define K3_PDMA_SSP3_TX	19
-> +#define K3_PDMA_SSP3_RX	20
-> +#define K3_PDMA_SSPA0_TX	21
-> +#define K3_PDMA_SSPA0_RX	22
-> +#define K3_PDMA_SSPA1_TX	23
-> +#define K3_PDMA_SSPA1_RX	24
-> +#define K3_PDMA_SSPA2_TX	56
-> +#define K3_PDMA_SSPA2_RX	57
-> +#define K3_PDMA_SSPA3_TX	58
-> +#define K3_PDMA_SSPA3_RX	59
-> +#define K3_PDMA_SSPA4_TX	60
-> +#define K3_PDMA_SSPA4_RX	61
-> +#define K3_PDMA_SSPA5_TX	62
-> +#define K3_PDMA_SSPA5_RX	63
-> +
-> +/* CAN DMA request numbers */
-> +#define K3_PDMA_CAN0_RX	43
-> +#define K3_PDMA_CAN1_RX	44
-> +#define K3_PDMA_CAN2_RX	51
-> +#define K3_PDMA_CAN3_RX	52
-> +
-> +/* SSP0/1 DMA request numbers */
-> +#define K3_PDMA_SSP0_TX	64
-> +#define K3_PDMA_SSP0_RX	65
-> +#define K3_PDMA_SSP1_TX	66
-> +#define K3_PDMA_SSP1_RX	67
-> +
-> +/* QSPI DMA request numbers */
-> +#define K3_PDMA_QSPI_RX	84
-> +#define K3_PDMA_QSPI_TX	85
-> +
-> +#endif /* _DTS_SPACEMIT_K3_PDMA_H */
-> 
-> -- 
-> 2.53.0
+>  .../devicetree/bindings/ufs/spacemit,k3-ufshc.yaml | 56 ++++++++++++++++++++++
+>  1 file changed, 56 insertions(+)
 > 
 
--- 
-Yixun Lan (dlan)
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Lexical error: Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.example.dts:31.27-46 Unexpected 'CLK_APMU_UFS_REFCLK'
+FATAL ERROR: Syntax error parsing input tree
+make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1669: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260725-08-k3-ufs-support-v2-1-45036a2a2418@kernel.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
 _______________________________________________
 linux-riscv mailing list
