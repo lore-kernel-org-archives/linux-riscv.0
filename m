@@ -4,79 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3ABBC531C9
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 03:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637FBC53209
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 04:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8dOvbLNPw3BLkel1W/KFQ03QrcFjI0QdlGfzMN64pyE=; b=IxAA6urQwffjje
-	nfcutmsitcn8X1Oz9bdrRmkaRLC28x5kYLb4M6nGicShVcCrPub8uTmtvvdiWW+sW4QXtqbd3YaLI
-	8t+EpYCX7ve51i1v/3eFhbd6jvUCDvKoFcbfytHsieU9Fxt7hpmiWtOwAk8w/Yye6lZ1CBB/HMdNx
-	ixjdGqzjCXIZRVrZol4rxVgdL/ObaE2+14sN7QD0tnfJKs2Vi206XuNzdFM+ormVwoKhs49ey6Ewe
-	Vw4j4eTmk1Oynedbc0ItJJiRbXaDVQ+GEz0vtwfdn3u0RYoyrCHGPdyGSZqrWTChfiJaFvI2vyQf0
-	gaz0Fa/BOtXIsXWD2yZA==;
+	List-Owner; bh=1lvzl8peAkrMYlz5+PFABes50TxvVwpiYVjTk0vuckI=; b=vuj76v4lEYzRtf
+	TqADjXE94TbK8vNXQBvIMnMn4Lbs2ASEF4ZEvdyGo7cqfsaRT9pkk2Da0seITiZKaOaYDBpePYWMM
+	x/C7YWBDzEA4D6nOAOdx+PNfssK/La5rz8wyQgek33vp6EgtGnLw953igmYhF6TZ5LrjqAWm8PDUH
+	8rl6BASEpIvOIZ7scLarkdKMet4KgH2d+5PYypQ9CwVDGKL6cvaZ1mgWZq77MlfipWGJ96Ygp50yf
+	/PmJUxfudH6YfYRHFaaJxWe3y0Yjny+aJkxrpH8bQEDWTPgmCk/O5fls2ypM/0EtXJyw5kQoDdGak
+	kdAPcG936UrdTB60fhPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnSvU-0000000HYAS-0b8r;
-	Sat, 25 Jul 2026 03:19:48 +0000
-Received: from mail-pz2-x01.google.com ([2607:f8b0:4864:3b::1])
+	id 1wnUMB-000000000Us-01in;
+	Sat, 25 Jul 2026 04:51:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnSvR-0000000HY7P-0tgN
-	for linux-riscv@lists.infradead.org;
-	Sat, 25 Jul 2026 03:19:46 +0000
-Received: by mail-pz2-x01.google.com with SMTP id 41be03b00d2f7-ca7d1dc4554so538840a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 20:19:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784949584; x=1785554384; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DPm4vAPFuqHX+tZvYjtk0Fs8fzHRPkuRBc0bjXwe1GI=;
-        b=UKICH2nOe+vNF04M2Tjat6YmUVPeh0CeQ9mk64FbKG921YThot9vkXOkB3b8ZInegj
-         ziEdildnx4rq2GH0QDo37mEgTJ/VtU0nV3n8md3ckhKXpIYLLqcsC+qTkunatMfHtwWS
-         Dqlg6O7JTbKXApYtqMTHi6nibavTZirdcemHrVDcbe/4Lwyqn4NDZ3rQjgYLbEavBF06
-         GigOCuimWZUCx1/U4T0YRaFqMXGrj89OnPePkkAzIwh7mtJW50CkSyirYcyf+YN5wo/1
-         3CasEnHULbsHGVUnzGNhR2xZbFnr5wPh615K6S5ojc4hAFejp26dFnBgO5kfQn2Oz32d
-         Q5Fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784949584; x=1785554384;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DPm4vAPFuqHX+tZvYjtk0Fs8fzHRPkuRBc0bjXwe1GI=;
-        b=IiSXEKMs5mKddUse+lNmsHzj//HoLhWrpIzBQCQZ7zP4wqrXXFPWySgKG/XM6oahTA
-         eG36tgONR3zG/4EQAtaMH9mYfP/zw4rwXC5vw0sFq+kyNjqSroY8V8/8Whl0BPdccaQs
-         1cGrz802K0e35UE6P/6AlAVnpwWvbuYaJZWk2G460SKp1Hxc96Jtu752blPMMS3yKSG4
-         PMnmQF/nURiC/zn+rfKI3lRKqxa2pQbcRjfa+YnMANXGMiH8fpDHL+fRqI+ucDu4nSl7
-         hihrEggzUjroeIdAv606tn016lBR2bFDTmn0ziqW1QP2oEe+ncbsDRVehZJnQaKIKxCI
-         bLkg==
-X-Forwarded-Encrypted: i=1; AHgh+RqDQqhAuJYtqnLvRYS1D2pA0qDAbUdE/0DnP4Bk8i3EaS0UmKoBLNAKoGlaCqAAwizcgiFKenPNU8wWjg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGL07SyI8XB0uVy8iWTj6NI8c6neYww0eCLIxO0eOGUwZ3IyO/
-	WdH/CfvlNDamqX+GbX/GXVC+Cy2+N8LBrXInNvVjZzxya8RP4xCE+ic4
-X-Gm-Gg: AR+sD13hiOBHa++Ahqgh2S/HPiKzE8bNyLfW1zoTIIDjDqoKGiyw0tg4/5dKFab2hiA
-	+mQNBWr3TktC0/sxCRXBTnu4PRWKJakg63lIW9v7MqA8QEn1GrzdjKBO+LnjKPvaGpFydSBFBg8
-	8vltTnvLsGhPem6dnK2EnKpIaisl3H6i5S5PFn6xxBreoNgfxpCaM6azVv6F5gvxb0o3KE24veV
-	/ZMUyfQ6VEuJTgeg3VCKzqHUDOr73u1a67ncVqV0o+nguF98mQXwmtgEjSvtJBGO68xhRmIIGth
-	Cky92KvdSo2haAyV5J2iZp+q9cUw3WQkWb2ZDRcm+wfGYHrt26MaG1F617TEax4lWg5kDIeguI8
-	k/ssnyMowXZ461WDvAH+4kR6ia9gqvruMb+2T6GImnX0vXwWnaGZVMy0=
-X-Received: by 2002:a05:6a00:4c11:b0:847:8b0f:2508 with SMTP id d2e1a72fcca58-84e5942eaecmr647092b3a.13.1784949584567;
-        Fri, 24 Jul 2026 20:19:44 -0700 (PDT)
-Received: from [127.0.1.1] ([2a12:a305:4::403c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e53432834sm640542b3a.50.2026.07.24.20.19.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 20:19:43 -0700 (PDT)
-From: Cody Kang <codykang.hk@gmail.com>
-Date: Fri, 24 Jul 2026 23:16:49 -0400
-Subject: [PATCH 17/17] riscv: defconfig: spacemit: k3: enable display
- driver
+	id 1wnUM9-000000000Se-0aIo;
+	Sat, 25 Jul 2026 04:51:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B123450A1;
+	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2D7E6C2BCF7;
+	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1784955084;
+	bh=+nDPYav/94cgnVW9y054XagK3zb2CxZPpMU92q/oyK8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=kxwOUpRdxtdIsBDI0ojZKm5MOMhnF1j59drxcipEIRMEUZg2kuPr5ze0l6iikA59u
+	 XDFWlz0/w9tbXQnNwYxKXIS6HyedWESMh0X4fpnAcg7ViqxKXF4YyPajLRHYs9nPXz
+	 DxwwAITcND+oZSEau8rKJCMM3N4tfXftWEAp9hKvOi7tBx/DZALlSp1O6EN1RAVAGT
+	 j/nZwjcAElD18WDXBMb0Z46P3jPyVja3VjdRDl02O9sEGC9D/o79FPa7pg7TzXMqII
+	 9B3LyKS0dJP1epwsBpOIEH1dy3Nz4EgHvZjAV0Iz1PNJSyAHGlaO1PGxitTpgRxWOY
+	 rRo7qf+93IP1Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0796BC531D0;
+	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
+From: Cody Kang via B4 Relay <devnull+codykang.hk.gmail.com@kernel.org>
+Date: Sat, 25 Jul 2026 00:51:10 -0400
+Subject: [PATCH RESEND 01/17] dt-bindings: display: spacemit: add K3 Saturn
+ DPU controller
 MIME-Version: 1.0
-Message-Id: <20260724-k3-display-v1-17-f22a10a52867@gmail.com>
-References: <20260724-k3-display-v1-0-f22a10a52867@gmail.com>
-In-Reply-To: <20260724-k3-display-v1-0-f22a10a52867@gmail.com>
+Message-Id: <20260725-k3-display-v1-1-6de34d80e86c@gmail.com>
+References: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
+In-Reply-To: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
@@ -93,10 +68,16 @@ Cc: dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
  linux-clk@vger.kernel.org, Cody Kang <codykang.hk@gmail.com>
 X-Mailer: b4 0.15.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_201945_261880_021E07D5 
-X-CRM114-Status: UNSURE (   7.36  )
-X-CRM114-Notice: Please train this message.
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784955080; l=4589;
+ i=codykang.hk@gmail.com; s=codykang; h=from:subject:message-id;
+ bh=e2HtZIpFAeEzBhd8fEr6izzVbI4e6Mu4fEJXjQ+ijhI=;
+ b=rDUDbppXFmGClymlOT79/iLKq4dlI8ONoh59JNFCmSbYfCmyd/VzYv2n7+ISDGTkglGvV6fhM
+ f8lXW8T3YG/BrE4hGAuRKiGRSwxpmZJiUTKIoN36OOlI5/JAljOykfa
+X-Developer-Key: i=codykang.hk@gmail.com; a=ed25519;
+ pk=Osn6/cs9Su/mHHw4P19cmVc3v2FMQfiWahjsN0vEkuk=
+X-Endpoint-Received: by B4 Relay for codykang.hk@gmail.com/codykang with
+ auth_id=895
+X-Original-From: Cody Kang <codykang.hk@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,36 +89,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: codykang.hk@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the Saturn DPU and the DP/eDP controller as modules, matching the
-other DRM drivers in this defconfig; the DP PHY follows through the
-controller's imply.
+From: Cody Kang <codykang.hk@gmail.com>
+
+Document the Saturn display processing unit found on the SpacemiT K3 SoC.
+The K3 instantiates two of them, one per display path. They share a
+compatible: an instance differs only in which register window, interrupt,
+clock and reset lines it takes.
 
 Signed-off-by: Cody Kang <codykang.hk@gmail.com>
 ---
- arch/riscv/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ .../display/spacemit/spacemit,k3-saturn-dpu.yaml   | 132 +++++++++++++++++++++
+ 1 file changed, 132 insertions(+)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 74ba5acc12a4..c38853d69d55 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -191,6 +191,8 @@ CONFIG_VIDEO_CADENCE_CSI2RX=m
- CONFIG_DRM=m
- CONFIG_DRM_RADEON=m
- CONFIG_DRM_NOUVEAU=m
-+CONFIG_DRM_SPACEMIT=m
-+CONFIG_SPACEMIT_INNO_DP=m
- CONFIG_DRM_SUN4I=m
- CONFIG_DRM_VIRTIO_GPU=m
- CONFIG_FB=y
+diff --git a/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-saturn-dpu.yaml b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-saturn-dpu.yaml
+new file mode 100644
+index 000000000000..97ea9da4b68e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-saturn-dpu.yaml
+@@ -0,0 +1,132 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/spacemit/spacemit,k3-saturn-dpu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K3 Saturn Display Processing Unit
++
++maintainers:
++  - Cody Kang <codykang.hk@gmail.com>
++
++description:
++  The Saturn DPU is the display processing unit of the SpacemiT K3 SoC. It
++  composes the display planes and drives the timing for one display path. Its
++  output goes to a DisplayPort or embedded DisplayPort controller. The K3 has
++  two instances.
++
++properties:
++  compatible:
++    const: spacemit,k3-saturn-dpu
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: Online (live display) compose path.
++      - description: Offline (writeback) compose path.
++
++  interrupt-names:
++    items:
++      - const: online
++      - const: offline
++
++  clocks:
++    items:
++      - description: Pixel clock.
++      - description: Memory clock for the compose pipeline.
++      - description: AXI bus clock.
++      - description: DSI escape clock.
++      - description: DSC clock.
++
++  clock-names:
++    items:
++      - const: pxclk
++      - const: mclk
++      - const: aclk
++      - const: escclk
++      - const: dscclk
++
++  resets:
++    items:
++      - description: Memory clock domain.
++      - description: LCD domain, shared with the downstream controller.
++      - description: DSI escape clock domain.
++      - description: AXI clock domain.
++      - description: DSC domain.
++
++  reset-names:
++    items:
++      - const: mclk
++      - const: lcd
++      - const: esc
++      - const: aclk
++      - const: dsc
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Video output to the DisplayPort or eDP controller.
++
++    required:
++      - port@0
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-names
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/spacemit,k3-clocks.h>
++    #include <dt-bindings/reset/spacemit,k3-resets.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        dpu@c0340000 {
++            compatible = "spacemit,k3-saturn-dpu";
++            reg = <0x0 0xc0340000 0x0 0x54000>;
++            interrupts = <90 IRQ_TYPE_LEVEL_HIGH>,
++                         <89 IRQ_TYPE_LEVEL_HIGH>;
++            interrupt-names = "online", "offline";
++            clocks = <&syscon_apmu CLK_APMU_LCD_PXCLK>,
++                     <&syscon_apmu CLK_APMU_LCD_MCLK>,
++                     <&syscon_apmu CLK_APMU_DPU_ACLK>,
++                     <&syscon_apmu CLK_APMU_DSI_ESC>,
++                     <&syscon_apmu CLK_APMU_LCD_DSC>;
++            clock-names = "pxclk", "mclk", "aclk", "escclk", "dscclk";
++            resets = <&syscon_apmu RESET_APMU_LCD_MCLK>,
++                     <&syscon_apmu RESET_APMU_LCD>,
++                     <&syscon_apmu RESET_APMU_DSI_ESC>,
++                     <&syscon_apmu RESET_APMU_DPU_ACLK>,
++                     <&syscon_apmu RESET_APMU_LCD_DSCCLK>;
++            reset-names = "mclk", "lcd", "esc", "aclk", "dsc";
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                port@0 {
++                    reg = <0>;
++                    endpoint {
++                        remote-endpoint = <&edp0_in>;
++                    };
++                };
++            };
++        };
++    };
 
 -- 
 2.43.0
+
 
 
 _______________________________________________
