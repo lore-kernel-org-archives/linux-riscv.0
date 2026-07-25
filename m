@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 584B6C53200
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5540BC531FC
 	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 00:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ll8qMJBp0vvQUdDN/K3pHmB8Egf7vDoNBw5/hPpK1tQ=; b=Bf6nD+NnvE2zn/
-	MP2JwJHhwqOUUuS993vctDy7b/oBHRMRMjm6wa7xwMeOJ137BIQZupeUCqmmJv1FzkmFE6s+maPrw
-	7t6OVD28i6LKCqQ8B+PS1Itn/s4xB4vuBB/DuVlLMOXvIY7nlmI/sSDLOkDgu5tSKzwcqPqg8vJr8
-	pITsD/CgWlW+OUUyDDlyVDvzDaN0eQgxy9fp8ZEbjPAmDt/Lq7ruoRHV6XB94QDWIzCyauXM5cLzt
-	CI7uDoCHY2leAO0it+Mm6LKsdwNI6/9jGrYr+EQqSUvfKgEW0WdMqqRTKlF8qxt6r3MSbw7ZN12sr
-	wVAmuTl5GrJEnl/El67A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QUEG/o4sc+Rlz7PsU1Oym9PZDBJCY1Yfkac3QdrfNgc=; b=ZCUPkWzoChSLy0
+	xrJUpZIyagLzKU0OR4wMXMfiQ5QPjkydj7kLveoPhMbfDJrTs3peUqrXfO2ccYTjxLOc55LYjvkMZ
+	WmVSuBs0O3PiaHHg+W1JqLOHv0fXdliQ6frpnkQlTdKu1B2Nff74B1njdUbQAKlJK7N6tW+48t7Nt
+	vwI3u2TVvXyVrbN3JPwVKSso+uq64vaVgkWYi8f6kQN/pYE36a8SBxiBXdKy7iW/11JJm1W6tL9DC
+	1hsgkSQsYbK/Zq7tYGWsM2ir8mawao6/2gopkeiOzzmj4zGz2nBaijmrjeRiJcycboZYmVt/NB2sX
+	AXa3kEvVi0MyfNgiYE9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnQiY-0000000HQTM-3Als;
-	Sat, 25 Jul 2026 00:58:20 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wnQiV-0000000HQSd-2ikf;
+	Sat, 25 Jul 2026 00:58:15 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnQiV-0000000HQSX-1jDl
+	id 1wnQiS-0000000HQSC-3QVM
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Jul 2026 00:58:17 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2cf52d15d88so10416175ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 17:58:15 -0700 (PDT)
+	Sat, 25 Jul 2026 00:58:14 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-848643382fcso1125311b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2026 17:58:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784941094; x=1785545894; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tJzCpl1A9lMuSv16O58Xsv9A30hSmOZtX21l624BoiU=;
-        b=jtfWvp3+jyXr8tGBum/P9myeLgHL3THafvRqNJy/viOtcW4gI0dyifSB2Ml/urZgTv
-         DYrRVmc7+Fvxx+bjtBTNo8d4oiaXCblVJ7WdJFEuImdPo0j9TK+HE0D5ZTx360PMP3ld
-         aZSRL5z2PyiK31mXDw4CDHxvyC65Hxw3Eh22PH5FP/BfVPZ3RK8urNMIEc59eQnAp6d4
-         8KhnEc0RVYnWgYSdVbVe97yhKOJRS8g4WyFp1IxLTHdpDpqHi6f2Oq5C7v1uxanolV3o
-         ZTo3DfJTgB6KmhTMjA1afVJtvjEEVtUefHanvK6HuVstO2RsI+QKEXTIj7+nAeijl0vH
-         sPzg==
+        d=gmail.com; s=20251104; t=1784941091; x=1785545891; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3RPSKOAGTuMe7DirYFHsiGB/35uTeF1WdVdXjVBBsZg=;
+        b=ij0sjsnfXYrViqSpaErZAAdyHtT6gEeV6/KO6HnistE6ZWM+JnjlWmfzEqgdG/0z9l
+         OUoC4B6H59Jd0i8i+9VhZQQrnNJR9MCcgJYJQoeFuh2U2Ot+4AMx0wsWFbWUbSOMxibX
+         dlWdixxxf/Lis5HoQcYM2wsIg2N6L3h3kGPQaumdmdfcslpCoZ7pIp3zqjsKlSycDemV
+         B8MUhHzDQVXJSx+egkiRyssg5WnYZzClj7qyFZkWqlywrL+nTSWfoTZOcF19Q397Uiwb
+         Znc/rvOyUgXMVDKsE4ZDZWeNodb4mEZ9QglVi5aHgGSbZNR3YWI0j5te6/Onl5egdTxB
+         mD+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784941094; x=1785545894;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tJzCpl1A9lMuSv16O58Xsv9A30hSmOZtX21l624BoiU=;
-        b=q+MbiMxJA+fmVwadBOXCOGLZyysn7qPZZybFUPt/b+26TKSeo0xgANvYAr/75Dxh7+
-         js7V/o0dH249+1wBbNH7nPubi5puPU3KN8okAYmoqFNRjrgn4YmngYANC3jiEHBeFS5h
-         ncGm0X2C+w0RyFVkZHQUFftnFcZ8AdbfSpWGdrCZzHm7HqLVE7EOg3a51WVU07QeyAdU
-         HLke6MqwLWhuyj1U+w6qBn8fznA0nog2raY9ME7NHqVPVngqnSqmicBIFjBJ4KJUHnlh
-         qLBSJe1mQsdhEDmDyUTDbeNxvGFKJQ/h6P+/EESeT0cRs9XVExiHTxLAf/NNxGSf/r8C
-         PFqg==
-X-Forwarded-Encrypted: i=1; AHgh+RrZ+9eAOKTqq4KNbzUb1ROvput6Cp/mBToMekUtvt2tQn21/u57wGuJGvqAE/H/MjChBQ/vgmAG/WViJg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRxExmkawqOGDcXkzgpQTmnFsGwISBg6GULRcvrc0JI1Xenty9
-	4xTSZ/hBx7hM7VfmWLAJJScywPKsGFQfUg+NxNYUnVGoPoxoxuM9W4Fb
-X-Gm-Gg: AR+sD12CBsNq6VPt/R5b4FH3vX6ZopTjLCQnIioq2sE/EnOr+Yn/aSf78qoX6lVLem2
-	XdJgdqRv6VkhZRAfbMQwpA7mIhkc6kFpyve+eJwbqa+iyw3G7cnrRK9oa3BmfRcsOEIt7jZb3hY
-	1RMpurJ6BGuN/OS6ieSc+zsweS5XOlEs7oRAxollPtHgTYd8lYe/MvYBYj0vQpRh7nhI6wStrU1
-	BmqKW308SyTkr8yJ5ILS/C4vc/e1m/kflC4ywDwJz4s0vj3zk7Fn1qsMEcoDgUTsWkFvwWsIkM1
-	FdWph/yqL6a4LfRYA6or52Vb7yQvX0HLuKlwV/jPcF1PxBf7DNaTbURbpFLiiP6220Ln8UPhHlv
-	Y+eVmyYtilaEpz/7IeCfdTi2yWPCZT0kU8T6xbJnkp277KeIZ0DSnZB8p2whD8Q==
-X-Received: by 2002:a05:6a21:6196:b0:3c1:d78:6457 with SMTP id adf61e73a8af0-3c67daecd72mr595029637.32.1784941094334;
-        Fri, 24 Jul 2026 17:58:14 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1784941091; x=1785545891;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3RPSKOAGTuMe7DirYFHsiGB/35uTeF1WdVdXjVBBsZg=;
+        b=eX99zA3uzKQX8SoAv+a0qrmPzp3PEwNic/63SLNpjlWtR3GbEY3TFWGc/gA7SmPbHL
+         UUTSZPAHtYZjEpMCeLrAc6wYNeF9A5jStBcE78s7HOH9LdqpXrTsq22IrlYMw9AtrPZ8
+         B/qMG6OvN9KA3EHxKmiMhCW2GKYmRlRRti28f8g8q7yQrEPsKrvAE9vq2MTPmbD0aIKm
+         Bw2lP3MUOhHrKi3ylTiZqNuvxXGjJUaESEp0fhjvvKZ56ZAHY0MPhRSciUoQc1A69Q6W
+         orP9KnDhPoDFry3l5yOfykXfX6L6CwAXGm8mAaJzNLc1bh7Na7KdWavfikS+hIV+QMB1
+         RoOw==
+X-Forwarded-Encrypted: i=1; AHgh+RqDJgWWu5yIVjQwwhyYLmFnxMyQ5K947z8x3na8yAgkcouyP8j6WNF5WqPjVbm6/W+pwNL0XttCr6Q9MA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKbz441rgvBUdC8XLiNDda+g0VBfCnCUniEpc+h7ORX/rTaTMN
+	pYStPTZf4IhYzM1PGrdmQJT5H1LDiTJ7ai6sAI409riIOTab98J84J7i
+X-Gm-Gg: AR+sD13wMJFnWoO3d/x0zzIfCgR8nItVEBX26tU9iOtHUXxpLBRNBWVUGDHUiVx/ROk
+	yPbfJRTuopgI027wfap7KTooLsFgBwucKAYBq9TTRiGMztGVp/T1kDLfPp74SrQVC25Ysd1YMek
+	lZxeEeg2HioFKIaGqF9FyJgUNfd8mZo96WTU/jXn5rN8ey6ma6EcGG3M68rQ3nbsuWeGWiox87L
+	Prm0lQ0X3QUrjQqYS6HsLpCON1VJbnyguIXF80UzQaw13rWuCWNDlj08FtevFMba0eGWqX8qKU8
+	Djqo189i3oyQAe9QBzZ4Ea5JpiWV2cKvLIgUH3jhT4Z83Mk4lOi075EDA0sIqMzOFG6pUV7sbMT
+	NIADxEA6jVljDU6RHqAYJTz/KOfIp9YnDxNp0Au1Nodz5CYgbfPnOta1C15SqBvjKav+yGqZU
+X-Received: by 2002:a05:6a00:4c07:b0:847:df4c:40c9 with SMTP id d2e1a72fcca58-84e595543b9mr406839b3a.46.1784941091167;
+        Fri, 24 Jul 2026 17:58:11 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:2000::1:5491])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbbb66dc15asm654002a12.30.2026.07.24.17.58.13
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e53254f57sm566254b3a.1.2026.07.24.17.58.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Jul 2026 17:58:14 -0700 (PDT)
+        Fri, 24 Jul 2026 17:58:10 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -91,18 +90,16 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	netdev@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>,
-	E Shattow <e@freeshell.de>
-Subject: [PATCH 1/2] riscv: dts: spacemit: Fix phy id check for the phy on pico-itx board
-Date: Sat, 25 Jul 2026 08:58:02 +0800
-Message-ID: <20260725005804.373698-2-inochiama@gmail.com>
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH 0/2] riscv: dts: spacemit: Fix phy id check for the phy
+Date: Sat, 25 Jul 2026 08:58:01 +0800
+Message-ID: <20260725005804.373698-1-inochiama@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260725005804.373698-1-inochiama@gmail.com>
-References: <20260725005804.373698-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260724_175815_488065_530842D3 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260724_175812_917396_3676F405 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,36 +116,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Current phy framework can not reinit the phy correctly, as it will
-assert the phy reset GPIO so the phy id can not be readed. Setting
-the phy id of board pico-itx manually so the phy id dectection can
-be skipped.
+As reported, the phy framework can not detected the phy id correctly
+when reiniting this. So add the phy id compatible string to the
+etherenet phy, so the phy can be reinit successfully.
 
-Fixes: 74657a376960 ("riscv: dts: spacemit: Add ethernet device for K3")
-Reported-by: E Shattow <e@freeshell.de>
-Reported-by: Inochi Amaoto <inochiama@gmail.com>
-Closes: https://lore.kernel.org/netdev/20260712045233.800748-1-inochiama@gmail.com
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Tested-by: E Shattow <e@freeshell.de>
----
+Note: separate this patchset as two patch for backport if necessary.
+
+Inochi Amaoto (2):
+  riscv: dts: spacemit: Fix phy id check for the phy on pico-itx board
+  riscv: dts: spacemit: Fix phy id check for the phy on com260 board
+
+ arch/riscv/boot/dts/spacemit/k3-com260.dtsi  | 3 ++-
  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index b2a7d2d0d3a8..b9d2de878f38 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -196,7 +196,8 @@ &eth0 {
- 
- 	mdio {
- 		phy0: phy@1 {
--			compatible = "ethernet-phy-ieee802.3-c22";
-+			compatible = "ethernet-phy-id001c.c916",
-+				     "ethernet-phy-ieee802.3-c22";
- 			reg = <1>;
- 			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <10000>;
--- 
+--
 2.55.0
 
 
