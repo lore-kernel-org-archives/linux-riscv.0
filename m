@@ -4,48 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD7FC531C9
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 09:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF92C531C9
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 09:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nF84SNQrRP+Qn9riPvk94UsWkCATunK43uVrYIZY6Qs=; b=Ui4SLb4Y9OQM1c
-	izIo4k0uAdFzYeU2o/C9Kx+9sRDpOxxRIyKJTJWxxied7bXCzd0Oq54G4/72qgqmfsNcBXA4geoVz
-	fhmfA96RWMsFS5ELvP24hS2FjsNrzlRmwmmyIYPH5NNSuqmSTS1CyyVEiojBJiTb/Ma0uG0leUu96
-	yyRZhcmlBhMqQ51Xx5476CnB+e2AaEZ+IU7HKheZFUuC5qUF4DCGUeQvgZac0hv5m79u4+Cwos75I
-	xcvW0ukcqpVk14q3YAK3fEuUCCEj2MqaioRS7ZhiIK2lmDgizVFqsvdqLBR+2rF6TtZvek5WEjG7F
-	RcdvTod+F50mZ/6ShY9A==;
+	List-Owner; bh=DmuMSknEwnNdnSXvxeFaNpaWKtrRT+VI77T+YU/REd4=; b=VFzGuISmWIOmWu
+	nQj73tkr/xbhwz1LEZF2IrKek4YcDNxaT8+UiqHZG/sOvotHk7UL7Jc4QRSv+zl3maxPRhEZICuM4
+	SAqONeWtasQ/UjdNgN0Gy/Pv8fcVtnv+GQiL8g6/1kSayAxaaezmKIDKgA2CiBFKmWaUjDJJxd+Bb
+	RiUF85/brIL+6IKrfZzDsWP39vsxXDfPAmGzRIShzvc4oMtUKDG+M6zigx9JNAIGwiuqmuHYIKdOO
+	mbTlHljoyJCtktXxMW33c5gF4vq4CqH5RLacuwnCjOe2r6puPxe87urOzN1XPURxmVbyLCi0GRwN9
+	QKWMas+zHY4qpbDBMyIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnYWd-00000000D9C-0Ur6;
-	Sat, 25 Jul 2026 09:18:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wnYYN-00000000DH1-1Qgw;
+	Sat, 25 Jul 2026 09:20:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnYWb-00000000D8s-0Xoh
+	id 1wnYYL-00000000DGh-2586
 	for linux-riscv@lists.infradead.org;
-	Sat, 25 Jul 2026 09:18:29 +0000
+	Sat, 25 Jul 2026 09:20:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E534600AD;
-	Sat, 25 Jul 2026 09:18:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6F3D1F000E9;
-	Sat, 25 Jul 2026 09:18:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B0F66600AD;
+	Sat, 25 Jul 2026 09:20:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 558F11F000E9;
+	Sat, 25 Jul 2026 09:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784971108;
-	bh=zXZsG0yYtOm3DPrrBAksWmNTNjdQy47MFZdmr+uh6nA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RBoBT3pQC4HZDzXPYlv465ebdNWya3PFbBQO0BhRZBjPKeigSZtYC0wpYvRvwni/T
-	 TK9LZikpL2GY9InqD5sYoaTZvU1aQqqVRtD64lHIHsEXhCQoO4/uuhXjL5yto5wkNo
-	 mjelapnSn6P5754X0AkEbKludJ6AMNo8qjK4tWp/IAi+18YfhZ5Tkxo9LqOA4z/W0q
-	 f5aDXFcz4tiw07HH4quNHafTvUzFtYrO3H+NFeWsD3962JCWj7ORjqctL1EeMYGcnN
-	 Eu9R0rj3jIb/p26ZaYcpoJ0+jXlF7VzPqxN3YZA5RfRl6RTnjb/mSZu0NtRRjSJ9q2
-	 8rd0iYUj6Rnmw==
-Date: Sat, 25 Jul 2026 09:18:24 +0000
+	s=k20260515; t=1784971216;
+	bh=aaDUVqB32MI4QmsAjMF9hCDK2Ml6G6nBK4sVDZs312o=;
+	h=Date:From:To:Subject:References:In-Reply-To;
+	b=at+O6F6thh9JDAut+fw+N+7gfFvcjo1gZfqTqaWsQKfxd1v2ADwP2aYaRHlwpFW0f
+	 Us4TytXumHMPea1ylzdlpEiZTHYgoyJ4pAxUQXXbtwBRw4cAnIOl/DmdA3nvgKTCqV
+	 0QYXo6RvXWQSMKZoiMsAR/2umZj39aCRlJhLfRRIa3nR+Ul5rZ1wePWSaptBm1hDxu
+	 /MgRsjjKCCdkLr8Ws9BT3vkLJ3zLg8A9AHpyV1/fDeuobJvzWv0pv6URJ10tJgJqBI
+	 O8Pd3zHczfvXtiAA8Y0xyII1givDObJuu8hTdKyTeMEbKdD8tjeQ+gdibIWn5nTrrA
+	 7jNmJ6o8Ntkpg==
+Date: Sat, 25 Jul 2026 09:20:13 +0000
 From: Yixun Lan <dlan@kernel.org>
-To: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+To: Alim Akhtar <alim.akhtar@samsung.com>,
 	Avri Altman <avri.altman@sandisk.com>,
 	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -60,13 +59,13 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH 2/3] scsi: ufs: spacemit: k3: Add UFS Host Controller
  driver
-Message-ID: <20260725091824-GKA77545@kernel.org>
+Message-ID: <20260725092013-GKB77545@kernel.org>
 References: <20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org>
  <20260702-08-k3-ufs-support-v1-2-1a64a3ab128f@kernel.org>
- <7x3b4sttnc4oxkuvxmpkihfi76lkapjcigo7khgcgfytvol7w2@v5ykuyrk2z3m>
+ <allMTB6R7eHf_UZO@aurel32.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <7x3b4sttnc4oxkuvxmpkihfi76lkapjcigo7khgcgfytvol7w2@v5ykuyrk2z3m>
+In-Reply-To: <allMTB6R7eHf_UZO@aurel32.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,10 +82,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anirudh,
+Hi Aurelien,
 
-On 15:16 Sun 12 Jul     , Anirudh Srinivasan wrote:
-> On Thu, Jul 02, 2026 at 02:31:36AM +0000, Yixun Lan wrote:
+On 23:25 Thu 16 Jul     , Aurelien Jarno wrote:
+> On 2026-07-02 02:31, Yixun Lan wrote:
 > > SpacemiT K3 SoC consist of UFS (Universal Flash Storage) Host Controller
 > > which has features compatible with JEDEC UFS 2.2, MIPI UniPro v1.61 and
 > > M-PHY v3.0 standard.
@@ -98,27 +97,11 @@ On 15:16 Sun 12 Jul     , Anirudh Srinivasan wrote:
 > >  drivers/ufs/host/ufs-spacemit.c | 931 ++++++++++++++++++++++++++++++++++++++++
 > >  drivers/ufs/host/ufs-spacemit.h |  90 ++++
 > >  4 files changed, 1034 insertions(+)
-> > 
-> > diff --git a/drivers/ufs/host/Kconfig b/drivers/ufs/host/Kconfig
-> > index ff170c0b6da0..4f53b7f7688f 100644
-> > --- a/drivers/ufs/host/Kconfig
-> > +++ b/drivers/ufs/host/Kconfig
-> > @@ -132,6 +132,18 @@ config SCSI_UFS_VARIABLE_SG_ENTRY_SIZE
-> >  	bool
-> >  	default y if SCSI_UFS_EXYNOS && SCSI_UFS_CRYPTO
-> >  
-> > +config SCSI_UFS_SPACEMIT
-> > +	tristate "SpacemiT UFS controller driver"
-> > +	depends on SCSI_UFSHCD_PLATFORM && ARCH_SPACEMIT
 > 
-> Can you add SCSI_UFSHCD_PLATFORM and SCSI_UFS_SPACEMIT as modules to
-> riscv defconfig (or just add the former and add a default y if
-> ARCH_SPACEMIT in this Kconfig entry). This will let defconfig kernels
-> to boot with persistant rootfs on these devices.
+> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
 > 
-Ok, will consider adding one entry to riscv defconfig, but this should be
-handled in another separate patch, for making it as module or built-in driver,
-I'm incline to choose latter one, but would be glad to hear different opinion
+
+Thanks for testing, but FYI, I'm not adding your T-B due to massive changes in V2..
 
 -- 
 Yixun Lan (dlan)
