@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2A5C53219
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603ECC531D0
 	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2026 04:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1dT/xuqQLdwbd+QVIMaXYkQvsp/YWYvQNQrleoWHlks=; b=USbx15Tgoe42mj
-	Ol4SCGD5YmrN1a4/YW53y92M6qa3Te/5p51C3CsVEq0Oa1ZgexmhDV7csilfvRQP+lfV9uytMxy4h
-	SVLKrBro0c9QOHr8yVu/3NnhHK/KlbQMUgE/a6x5/+XBAJ+XJQwFSjh9kUq9x0/orXXnzi8lWFTNo
-	wh8yTioZeddTS0npjjbLkSt7mcABekHUbw5qNfmq6G1pJI6cS6nINBPOn4GB91LYgBQjPemeqa18d
-	/5NlDuq1igZ3qn1af9s4LGwsNRx2Y+LG/mCBGH3a7H1KRyBXPABBMrlHoHjv4xY+9HjxEBbOuSuUJ
-	0CnZANIZGL/0Jno6C+DA==;
+	List-Owner; bh=Bryf82ZMClnDPgWux1fUVeewJFeCdSqsTRN7lRnirKU=; b=2zAej2ZT6mivO2
+	Ci9zpW7Ks54aDGodmkCev2olHqaM+9O/npqA7edugukfZZPJrNXWzxJjnhbkJl1p4bgV0rHxaL5pQ
+	QCt58zYHoTyyrmrDBILbmD8UMle7YQJmR+rKj8vXSKbY7Ih8V6hUZS6vYg0GetFSUhE28yTOw3mYc
+	Rr73jIRzdq+O7waMIAvAbZIvHmsH942ez9mwGU/+f7zTTn6NAKdVNES0816EJMcl/U2whL0oDIE0Y
+	EJiswELzy0eTO348OEA5qJWnPb5v50cuuFoA5SzSskjnYruzRuh2JP4nS1WJrWCrpn7RjkU14PApB
+	bvRqb2moXeJjPf4z0VJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnUMI-000000000gV-1nhi;
-	Sat, 25 Jul 2026 04:51:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wnUMG-000000000b3-3CTS;
+	Sat, 25 Jul 2026 04:51:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wnUMB-000000000U4-0hrL;
-	Sat, 25 Jul 2026 04:51:27 +0000
+	id 1wnUMA-000000000TB-2C9G;
+	Sat, 25 Jul 2026 04:51:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D54D960A8E;
-	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 710F7C2BCFB;
-	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 631904519F;
+	Sat, 25 Jul 2026 04:51:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 26D7DC4DDEC;
+	Sat, 25 Jul 2026 04:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784955084;
-	bh=/R+Ze7oA+NGDLhKykSAKmraPAA3sz7rWCl3VRgG3utg=;
+	s=k20201202; t=1784955085;
+	bh=q1hgaX9wPrPFwUeLicxRrAbMkY6IDsu7w9/+g5n3QoU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Sjnh5Puz1BwE0K1oTDFRC0/2ZT0NX0IZzD+hjoBynLvYCFRxx/4PrGxT0Ff8ufZxU
-	 FgWzvOiBNl4cG2yUPH4E2itUL6OuCqjghxc7fIuEwRzoaCFfsLEez+azwivANACTnA
-	 lGq/AdNGpbUhvDKa9NpjOnF5OkvYNFhsJjStFpb3OUQESFy2KsSgI7IWKJgWuV2OFn
-	 LBcTIsWjTf3vnN/XZwP+Abf3B7yoj6tQ4Cv4bNhzq8WCgZG3SLYiZ49LaCdWEQDr2G
-	 lXNjqpXhI+Ejq7gdUVU5NECdHJ4H6UjkikXq+P0xb0exySFTCrmo4kxIGf8II6Htf9
-	 VVyLAo2w5Z2AQ==
+	b=S8lOGUEe0PArVvRAkC3SnDX6jz5nZMZHsbs2KIMXvjPVeAad7XnPOrRcWrMDk1PoX
+	 y8xuGBpabQN1tZgsGPc0x4EDjw8+0YjreRGzQ5Xc0bu6g45IvfbjJesdS42iF7fOjN
+	 Li7PRlX3bD4DvlK/z4uLy7V+thXrT1kKjnK/N2iMrs2BnI+izAUcq158RqUEbuMZej
+	 1RId2OzQiSzMhoXDVoiu9+Won9axm3QdvZVOxYC8Oa8U+2qj9GDgukTyuT7TLDB1E1
+	 aTIbyV6dbiujyup3TKRiJO08zRuw9S32Avg3OEEk/6ri5jmaLqowN2Gidy7UStc2nE
+	 7mRNhLhjxElgA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CA0FC5321B;
-	Sat, 25 Jul 2026 04:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D744C53219;
+	Sat, 25 Jul 2026 04:51:25 +0000 (UTC)
 From: Cody Kang via B4 Relay <devnull+codykang.hk.gmail.com@kernel.org>
-Date: Sat, 25 Jul 2026 00:51:15 -0400
-Subject: [PATCH RESEND 06/17] clk: spacemit: k3: parent eDP/DP pixel clock
- to the PHY PLL
+Date: Sat, 25 Jul 2026 00:51:24 -0400
+Subject: [PATCH RESEND 15/17] riscv: dts: spacemit: k3-pico-itx: enable the
+ DisplayPort output
 MIME-Version: 1.0
-Message-Id: <20260725-k3-display-v1-6-6de34d80e86c@gmail.com>
+Message-Id: <20260725-k3-display-v1-15-6de34d80e86c@gmail.com>
 References: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
 In-Reply-To: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -68,11 +68,11 @@ Cc: dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
  linux-clk@vger.kernel.org, Cody Kang <codykang.hk@gmail.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784955080; l=1251;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784955080; l=1628;
  i=codykang.hk@gmail.com; s=codykang; h=from:subject:message-id;
- bh=qBlMtjoJcxolZr+biObNXORMiyzxuZ3oViPL72enT0k=;
- b=v/5hMmXSPdG7RuwCFLMwvBdFD/XDdefDTpm+DpkHAFg3Lhu3i1GyF8+eKgnyAfu+UxaMRft0F
- klJhAZ+wUlsCIa067pvDdkWtL2YIt/EzbPNHEKsCHylRD3er9MWWh3B
+ bh=itI/1VwTHA3V7ox5PXMT2Vrb2UKYmyIibaQ0egNmgMY=;
+ b=lxKsxyQ3nsiDpUUUscV82alJ6SUbnc6qGxs7f5OilGXmyaEm1t4tajmxCZ6fWzlj3twP++IH3
+ sOVsIHQ/RQ+AoQOv/aZ5YXzfJ5PmovX89KojRK+iFiaU+SLJWpbVNCv
 X-Developer-Key: i=codykang.hk@gmail.com; a=ed25519;
  pk=Osn6/cs9Su/mHHw4P19cmVc3v2FMQfiWahjsN0vEkuk=
 X-Endpoint-Received: by B4 Relay for codykang.hk@gmail.com/codykang with
@@ -97,36 +97,63 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Cody Kang <codykang.hk@gmail.com>
 
-The APMU eDP/DP pixel-clock muxes were parented to a placeholder, because
-their real parents (the DP PHY PLLs) did not exist as clocks yet. They do
-now, so point each mux at its PLL and let the pixel clock reach the
-controller through the clock framework.
+Pico-ITX brings the second DPU's output to an external DisplayPort
+connector. Enable that DPU and the DisplayPort controller it feeds.
 
 Signed-off-by: Cody Kang <codykang.hk@gmail.com>
 ---
- drivers/clk/spacemit/ccu-k3.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 11 +++++++++++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 11 +++++++++++
+ 2 files changed, 22 insertions(+)
 
-diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3.c
-index cb0c4277f72a..afbbbd797826 100644
---- a/drivers/clk/spacemit/ccu-k3.c
-+++ b/drivers/clk/spacemit/ccu-k3.c
-@@ -937,13 +937,13 @@ CCU_MUX_DIV_GATE_FC_DEFINE(ufs_aclk, ufs_aclk_parents, APMU_UFS_CLK_RES_CTRL, 5,
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index b89c1521e664..6c31460990a7 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -6,6 +6,7 @@
+ #include <dt-bindings/gpio/gpio.h>
  
- static const struct clk_parent_data edp0_pclk_parents[] = {
- 	CCU_PARENT_HW(lcd_pxclk),
--	CCU_PARENT_NAME(external_clk),
-+	CCU_PARENT_NAME(edp0_pll_pxclk),
+ #include "k3.dtsi"
++#include "k3-display.dtsi"
+ #include "k3-pinctrl.dtsi"
+ 
+ / {
+@@ -221,3 +222,13 @@ hub@1 {
+ &usb2_phy {
+ 	status = "okay";
  };
- CCU_MUX_GATE_DEFINE(edp0_pxclk, edp0_pclk_parents, APMU_LCD_EDP_CTRL, 2, 1, BIT(1), 0);
++
++&dpu1_crtc0 {
++	status = "okay";
++};
++
++&dp1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&dp1_1_cfg>;
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+index 3ee1471f3798..2f36eba20f1e 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+@@ -11,6 +11,17 @@
+ #define K3_GPIO(x)	(x / 32) (x % 32)
  
- static const struct clk_parent_data edp1_pclk_parents[] = {
- 	CCU_PARENT_HW(dsi4ln2_lcd_pxclk),
--	CCU_PARENT_NAME(external_clk),
-+	CCU_PARENT_NAME(edp1_pll_pxclk),
- };
- CCU_MUX_GATE_DEFINE(edp1_pxclk, edp1_pclk_parents, APMU_LCD_EDP_CTRL, 18, 1, BIT(17), 0);
- 
+ &pinctrl {
++	/omit-if-no-ref/
++	dp1_1_cfg: dp1-1-cfg {
++		dp1-pins {
++			pinmux = <K3_PADCONF(24, 6)>;	/* dp1 hpd */
++
++			bias-disable;
++			drive-strength = <25>;
++			power-source = <3300>;
++		};
++	};
++
+ 	gmac0_rgmii_0_cfg: gmac0-rgmii-0-cfg {
+ 		gmac0-rgmii-0-pins {
+ 			pinmux = <K3_PADCONF(0, 1)>,	/* gmac0_rxdv */
 
 -- 
 2.43.0
