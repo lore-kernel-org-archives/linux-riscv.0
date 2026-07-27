@@ -4,97 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826CFC531D0
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2026 08:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 464A6C53219
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2026 08:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tztChkmFlfLeXneNbnQnWfjOSXbZ8vd1HK2ckqHj2ks=; b=2RtUxeNu2ximV/
-	vKjYOkSvvXbeee5qm2wCBQKIthQOYOeEwxDfcRhFWhNhhlL2tRaZSCnKInK2Q2GU1oAUl841rToJ/
-	43dx5MrQC3COb6V+ehmJFLh/WdT5nJanmOzwoy3cLTDOgupb8DvrHBIVoCs17WbIDpTLXh3yP9ZL8
-	wcJPb9M5V+cXU9o9mmJ+E6FPO1rF3dEIh5r34apgC5j+qb/Mghgqwk2za6pFm7kDVayW1rpcwAxmz
-	7K9Oo9+NWEaI15g8uoT2n3uXjI28GddH2bU7zZt+kYYTm1GVdDsoZSvdDdEncsCwE0jTHxljLRePd
-	DFqTvWsV0+lW8BFVQB8g==;
+	List-Owner; bh=/tq0vUXqQ0Ib8n2TXXvK8VvNL2H2F0BLO8fe0MQmbh8=; b=oxfk4GofZiK7Ap
+	/+eLfjxmUVeZ0+hN5VxJwzPJXrFhzjv5vRpYcGR0gjeihuX5W/yyVlzLGtDmtLLA8dhuq/t6EJhe3
+	o+pKvTgT3gGbLpYpSyCBxQ3erccz40P0c90MrNWUPyx/2QSdIvECvzyyNoCblXp29Gtdtkg8jKgfC
+	kYW5TIXulSGYpn2ed8DdxYmDC6W69dA9AyNo4X7dspxB7POFwEQw0SCtKsuMKP8muOoZxpMEZ3mcy
+	LsFsz6j4LxA4P883MXDBVKKZ/sR7PZGimtHpibkdJddPOK65nyKY++oQg16driWIeuJwDDMgqk/gv
+	vrdBLyjtMd08SOcdR2yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woGgE-00000002EXi-03FU;
-	Mon, 27 Jul 2026 08:27:22 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1woGrr-00000002Fbx-2Lno;
+	Mon, 27 Jul 2026 08:39:23 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woGgA-00000002EX3-0lO7
+	id 1woGrp-00000002FbU-3mMK
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Jul 2026 08:27:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1785140796;
-	bh=YYXkTcKV3/eTCF09YjQkyMu51mTKVZop32wWW/f5xtk=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=c5EZqN/PzGgpmJYp0mZWXJvwdKL85Zpk6Be08xWVoPKAbWXC3I88pMvkzsX4324Gw
-	 ZT90OWhhes2kWQBw9G7LNT+/SGk0WZ1D7PqgV/ZgEHcbcVxicOyYR2lYnClFkrEjTs
-	 +Nmb1yehSMt5WM7PWlv1eZvGILzpgWy8BL9cpiE4=
-X-QQ-mid: zesmtpgz6t1785140786t7bebbc01
-X-QQ-Originating-IP: xYW3LPiWNtEz4e/dmDCCluOcc7KY6gzIGz8Oy6QMEWk=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 27 Jul 2026 16:26:23 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11789586640069058678
-EX-QQ-RecipientCnt: 13
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Mon, 27 Jul 2026 01:26:15 -0700
-Subject: [PATCH v2] dmaengine: mmp_pdma: fix wrong extended DRCMR base for
- SpacemiT K3
+	Mon, 27 Jul 2026 08:39:23 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66R7SOGE2532964;
+	Mon, 27 Jul 2026 08:39:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=zFxcSkYghExSjtIuaCz+4VzVSTxmLksyKQk
+	cfjg5tTY=; b=HvznNHuzAmd1AAUhN8cX0803T6qViU4itnhD+vTe/ok4FBoqJha
+	bFdbZltpbVLd2sbBFADOwZeBKtn2Qsr8YRUHsTQ7Bw7ThcIDg0qNzzTxdEiIxmvu
+	4YkwtyOPui6X9H8lDpOBFV9IG1O04IfEZWHKBjGr/5xfzcJqAQxy/8+kBbpVuFPh
+	XsLCE5RjeXNkfYxZHnzqj49UqSULlLZfJhI7gD162WqAbd1z0paMiZvtVPfUbEZx
+	81iFgVG+nNzru2Qwgl38bDTRR8wQ2E4uT+O/qUdyy3JF+0t8HqCvTODcgYe5xjQX
+	Yc0G6Wn7owG62TcgdQNN+ab/VfiKnPIWGFQ==
+Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fmpajn5dr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 27 Jul 2026 08:39:10 +0000 (GMT)
+Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 66R8d7Si009456;
+	Mon, 27 Jul 2026 08:39:07 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4fmp7j9ybd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 27 Jul 2026 08:39:07 +0000 (GMT)
+Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 66R8d6AJ009446;
+	Mon, 27 Jul 2026 08:39:07 GMT
+Received: from hu-devc-blr-u24-a.qualcomm.com (hu-anuppate-blr.qualcomm.com [10.131.36.165])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 66R8d614009444
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 27 Jul 2026 08:39:06 +0000 (GMT)
+Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 486687)
+	id 221D82295E; Mon, 27 Jul 2026 14:09:06 +0530 (+0530)
+From: Anup Patel <anup.patel@oss.qualcomm.com>
+To: Sunil V L <sunilvl@oss.qualcomm.com>,
+        "Rafael J . Wysocki" <rafael@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Alexandre Ghiti <alex@ghiti.fr>, Len Brown <lenb@kernel.org>,
+        Atish Patra <atish.patra@linux.dev>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>, linux-acpi@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Anup Patel <anup.patel@oss.qualcomm.com>
+Subject: [PATCH v6 0/1] Common csr_read_num() and csr_write_num() for RISC-V
+Date: Mon, 27 Jul 2026 14:09:00 +0530
+Message-ID: <20260727083901.1951188-1-anup.patel@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Message-Id: <20260727-k3-pdma-fix-drcmr-base-v2-1-afba55cba1f3@linux.spacemit.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0K6dghToARX3sOwKGWQUQukBYIh3
- N2CB3D5kvff34Qnx+TFNdqEo4U9D30AeYmE6XT/IOAmsJCJVInCHF4pjI3V0PIKjTPWQa09QSp
- VnqqiSDJZiDAeHQXjDN+rH/u5fpKZjtphdOynwX3O5wUP7+/JgoBAhLpFmWFZtrc39/Ma+1Ebs
- jzFZrCi2vf9CzMZlsPXAAAA
-X-Change-ID: 20260615-k3-pdma-fix-drcmr-base-326536770427
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Yixun Lan <dlan@kernel.org>, Guodong Xu <guodong@riscstar.com>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3475;
- i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
- bh=+oSqKlFKVKGmLb1zJK2OH5TMFrqKaNXk0B6a6IpQ02A=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFnpYnpB2xlbj/5IeZXdkndG5vTl3SIGCX3Xwx48TJpcs
- lNs78ndHaUsDGJcDLJiiizdD3i2FfhE2RYIFPrCzGFlAhnCwMUpABO54Mzwz6bIzv5e03mFxou+
- 5/k+BOwP6nRuvFR3+gFP1Wb+vwp9CxkZrisnHTrAtXv+7ffmnw7E1z6YuOHI9n9zvl3Z3xVhpWL
- 6hB8A
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
- fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: Of2cEohDBRJBLX9i7Ma60UghAsqdBBxFuiBgglamvZxfThXDCuzB+gkv
-	AiaxALPL85ly+m2uTKcDGnY8gMO7F6Db+rWwoQ6Rg6NLvTsxV5wmR0FKIiGKZtNqZxjblcT
-	y0QN9NG9cdvayraarpZele0xl3yNNaPHfjEj38g6eAK5t9mGSXtqgvkyzMwY6YdmYqTL+yp
-	1SDNiWJwhDyK9NJ0VT1Kn+MDj8aPEUa+Bz+ZnaY2aY5OUQiyV8fHowlpzx7lbqmnQQH4V2h
-	qUtWVrqOZ5dpjkNYejWtm4u+IOODTH58U3TL003CbE+/7F2iFa6xft1u/zmFxrdDU1RIExo
-	iL8FFKhMBQS6fP6w5VDd63y5WOY3fmm2kCQc78jCqg/n9ZoDPyVc62IDBVNI3JyTNVfrGHj
-	xNH9mWzPP4sXD9pBdLY88uXQL+jKq9bcySICquCVd2gjP0ZPw4yHs1ckl5eLeUkNLogcj0I
-	PjPfzCU/Ue2XcOGS14u7IVpn5wcJHbShfH/v/J1sG39tKLUXRI5RMS5CPzLxXJLP/Ms4WKD
-	9yFLYesSj/NOrQiD6cVtMYTsKJYNcwXook2rhXaGWjiTiOvRlRB93tXUJc+4/8jQsb0oLqp
-	nxw0JGPd6PUcB6pno0SJbzRQltsBCxmN8AD/zU7fBMgbuZ0bRW/2cof4hU9LUAytKQxeyKp
-	dNvhSRNVR1aF1/248Y1TuueDfoUJTPSh9uwIwTVEBeZvv3ndFmh12aD1SZ8VlfkiRAy2COG
-	GHIc4DU8gDmUPtGNWMX1KUnrDJOO6l685/NmzJqSRXyQ9hZkv5/cwu0S8m6GdBucuOB/RzA
-	AlmdGamhLBDffPI6HwnpUhL47K5F7Lco44zsGphpUTq8Dkz8FB4ghC0aQVkx7lGfqj0dkv/
-	TqXrpkN75FF+jhAEWxUnuM0DnvtPX2/XXNV4FIVYlzkg9pOCaM7KNEXQIBK+Tkx6V+BxhNe
-	a6hycUAbxvEwIaAZrTLuyGVhHKV+lPuZcTIEuG3iQprznPIPSUjqzq0hql7wvFjcnV2u0o+
-	DL6yH2dZIHhB6bhQrUCOMvyGl+c4lu7L4C1iSlEzj4nSVz8DQF0GMKOhY7OvUpG2kG+3l6j
-	dWnart+HG/4yzjlN1z7Jy8=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-ORIG-GUID: F2fCzZV36YiDc1hvFF33K1izfDvUJb13
+X-Authority-Analysis: v=2.4 cv=A8Bc+aWG c=1 sm=1 tr=0 ts=6a67192e cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=DJpcGTmdVt4CTyJn9g5Z:22 a=NEAV23lmAAAA:8 a=97VCTQuGHz7arqyciaAA:9
+X-Proofpoint-GUID: F2fCzZV36YiDc1hvFF33K1izfDvUJb13
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzI3MDA4NSBTYWx0ZWRfXzhpvFo6JC5Ig
+ +VKxW9rsIDzEpz0ma1M+hPK5WzcGB8EytphaLufixd09eDyGRlKPjel20tLakdkimTJ6M0/Rnn/
+ FXkTMijN3fIbjS2dVQ9SrCKNRMg9O8loaeNULxqTEtuY1BWUDETccb7Vgrq0WPb+ibAh7uU9Mrd
+ IyMi5ySpJp0E+qipI0dYDSYurqSz+PaLEq+rC40Uj0ylAjbTZl4NGfoTp7GqqxhlImkiWAEWR34
+ EEr+0jiuFD3vYPJhPBrqZRQ3igiAiU2IwVdc64dhrvsvXpSUoSY1sDZ4BzJJV/JLpf3sp/4e7q2
+ IYFDjMwfSmHufGUNnmIdfJIXXwqfJX1vtm6wNoDlsID/HRMPRV8l7oAepgU0Ib0UxOBCZAgfJYh
+ lC2kSW3vXxbKlFb58JovYkUXzuXZPVAtUtU6YSYFEfh59q8W3KtNQQzfMI44fuwqAZ51GRMgahk
+ ZysFuWL4CX3ct6/UAhQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzI3MDA4NSBTYWx0ZWRfX/n4MbmEULrSM
+ 3MxUvcow5Ad4r34JmomdV4m4Zg2k7SyJdDFfO8PwQCYYboSAdiQY6fqQ7PJRAdbKydylvkf/6Ep
+ i7cD6L14TrxQFoKP0uJWwCvfuM7HNTY=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-27_02,2026-07-24_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 suspectscore=0 bulkscore=0 malwarescore=0 priorityscore=1501
+ impostorscore=0 adultscore=0 lowpriorityscore=0 spamscore=0 clxscore=1011
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607270085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_012719_111204_42A1870A 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20260727_013921_961059_9CCCA64B 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,89 +122,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The extended DRCMR window on SpacemiT K3 starts at 0x1100. Commit
-6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support") incorrectly
-set it to 0x1000, causing DRCMR accesses for request IDs >= 64 to target
-offsets 0x100 too low.
+Some of the RISC-V drivers (such as RISC-V PMU and ACPI CPPC) need to
+access CSR based on CSR number discovered from somewhere. Add common
+RISC-V csr_read_num() and csr_write_num() functions under arch/riscv
+for such drivers.
 
-The 0x1100 base has been verified on K3 silicon using real SPI and QSPI
-DMA transactions. The K3 DMA documentation [1] was updated on June 24,
-2026, to reflect the corrected register addresses.
+These patches can be found in the riscv_csr_read_num_v6 branch at:
+https://github.com/avpatel/linux.git
 
-Drop the bogus DRCMR_EXT_BASE_K3 macro and reuse
-DRCMR_EXT_BASE_DEFAULT for the K3 ops.
+Changes since v5:
+ - Rebased on Linux-7.2-rc5
 
-Fixes: 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support")
-Link: https://www.spacemit.com/community/document/info?nodepath=hardware/key_stone/k3/k3_docs/k3_usermanual/16_peripherals/dma.md&lang=en [1]
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
-This is a minimal fix for the wrong DRCMR_EXT_BASE_K3 value introduced
-by commit 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support").
-K3 silicon uses 0x1100 as the extended DRCMR base, so the K3 ops now
-reuse DRCMR_EXT_BASE_DEFAULT.
+Changes since v4:
+ - Rebased on Linux-6.19-rc6
 
-I deliberately kept the per-ops drcmr_ext_base field and the
-DRCMR_EXT_BASE_DEFAULT macro to preserve the extensibility that was
-introduced together with the helper refactor, in case a future PDMA
-variant ends up using a different extended base. If reviewers prefer
-to drop this abstraction entirely and collapse it back to a single
-constant now that all known users share the same value, I am happy to
-send a v3 that removes the drcmr_ext_base ops field as a cleanup.
----
-Changes in v2:
-- Reword the commit message to remove the inaccurate K1 comparison.
-- Mention successful SPI and QSPI DMA tests on K3 silicon in the commit
-  message.
-- Add a link to the corrected K3 DMA documentation, updated June 24,
-  2026.
-- Link to v1: https://patch.msgid.link/20260615-k3-pdma-fix-drcmr-base-v1-1-ee1af124199f@linux.spacemit.com
+Changes since v3:
+ - Rebased on Linux-6.18-rc7
+ - Updated commit decription of PATCH1 to reflect the fact that
+   we are removing sanity checks on CSR number which are already
+   taken care by csr_read_num() and csr_write_num().
 
-To: Vinod Koul <vkoul@kernel.org>
-To: Frank Li <Frank.Li@kernel.org>
-To: Yixun Lan <dlan@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-To: Paul Walmsley <pjw@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-To: Albert Ou <aou@eecs.berkeley.edu>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: dmaengine@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org
-Cc: spacemit@lists.linux.dev
----
- drivers/dma/mmp_pdma.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Changes since v2:
+ - Rebased on Linux-6.18-rc1
+ - Added reviewed-by tags
 
-diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
-index 386e85cd4882..78e3e07e681d 100644
---- a/drivers/dma/mmp_pdma.c
-+++ b/drivers/dma/mmp_pdma.c
-@@ -52,7 +52,6 @@
- #define DCSR_EORINTR	BIT(9)	/* The end of Receive */
- 
- #define DRCMR_BASE		0x0100
--#define DRCMR_EXT_BASE_K3	0x1000
- #define DRCMR_EXT_BASE_DEFAULT	0x1100
- #define DRCMR_REQ_LIMIT		64
- #define DRCMR_MAPVLD	BIT(7)	/* Map Valid (read / write) */
-@@ -1219,7 +1218,7 @@ static const struct mmp_pdma_ops spacemit_k3_pdma_ops = {
- 	.get_desc_dst_addr = get_desc_dst_addr_64,
- 	.run_bits = (DCSR_RUN | DCSR_LPAEEN | DCSR_EORIRQEN | DCSR_EORSTOPEN),
- 	.dma_width = 64,
--	.drcmr_ext_base = DRCMR_EXT_BASE_K3,
-+	.drcmr_ext_base = DRCMR_EXT_BASE_DEFAULT,
- };
- 
- static const struct of_device_id mmp_pdma_dt_ids[] = {
+Changes since v1:
+ - Make "out_err" mandatory for csr_read_num() and csr_write_num()
+   in PATCH2 as suggested by Sunil and Drew. This also helps further
+   simplify csr_read_num() and csr_write_num().
 
----
-base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
-change-id: 20260615-k3-pdma-fix-drcmr-base-326536770427
+Anup Patel (1):
+  RISC-V: Add common csr_read_num() and csr_write_num() functions
 
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
+ arch/riscv/include/asm/csr.h |   3 +
+ arch/riscv/kernel/Makefile   |   1 +
+ arch/riscv/kernel/csr.c      | 165 +++++++++++++++++++++++++++++++++++
+ drivers/acpi/riscv/cppc.c    |  17 ++--
+ drivers/perf/riscv_pmu.c     |  54 ++----------
+ 5 files changed, 184 insertions(+), 56 deletions(-)
+ create mode 100644 arch/riscv/kernel/csr.c
+
+-- 
+2.43.0
 
 
 _______________________________________________
