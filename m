@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B767DC531D0
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2026 14:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6782C531FC
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2026 14:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xp1mwTkBKZmrIO4TSlJBk/3ApsamIDG3mxXW+yhMjVU=; b=FPFtVosuq3/YGE
-	IsoqZxv+32LxaXUCHmXdSczL2zswYaIId3IWC+XjM3jqBTwYcwQdSJRQ0jmDJ5AfbIvVm41dD7UjX
-	x9c4926q8qE75R4ucI0OaSj1AgLI2g9ds4L7rt6p3aEiaSve/GxslDJQhMvwOjNhmU5cor4LZf+7d
-	8aIVUa63ueizdYa72qYOAQ6kp4PZy0ZcibLtuI8CQCCfJHsrLgD03uDiBngi7pfeFbONJLNo0kGRR
-	dD4cJAJW/V7x2SnTj6P15xbd5Q5ieAFMQ2aYMyauZ4iRe5YRno3d21yKtkP8F3exeaPo41Ep8VWoq
-	TG3RDVBE5wy1wXwCLiFg==;
+	List-Owner; bh=fvoasSeoEx8aKPNaDDf31YUzvBvfB64/j3tqf6b0CSA=; b=gxK67PK+M6gmk0
+	xFIbXIluWpzWodWgq2BtgP03zmeGQSzI4gJ2sTOz5a2D8hZFdrqU9CKUlpot2Ebkk16g9guyRQ/6f
+	w5EKmhvau7Zy6CIDT6zK9/xqUZOPg2Ve522M7k6bekJhddP2dH5kmHidMljKYEJkmtlxtEInyeMiZ
+	G+QeLYVWnAwKK0OLUsMYxOjTBAHub8NBKcL0OeXgG12V+jVbTE2Moj1m9HA4FDKH8q+fKgkDQzS4F
+	JLMibKSubIeS7ogPnK76P2BnYTaD20BFecp459Dhr5FVznlaGTlE/vRFvbDC/aFZLh6Z1y8aR0tLK
+	mYCjB9SfwuC3nGxDoNaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woMhn-000000035iZ-1OgD;
-	Mon, 27 Jul 2026 14:53:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1woMi5-000000035op-2SWU;
+	Mon, 27 Jul 2026 14:53:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woMhl-000000035gp-1AXH;
-	Mon, 27 Jul 2026 14:53:21 +0000
+	id 1woMi3-000000035ns-0sm9;
+	Mon, 27 Jul 2026 14:53:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BCB73403AD;
-	Mon, 27 Jul 2026 14:53:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 269D91F000E9;
-	Mon, 27 Jul 2026 14:53:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A4E1601ED;
+	Mon, 27 Jul 2026 14:53:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 516591F000E9;
+	Mon, 27 Jul 2026 14:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785163999;
-	bh=KsPWWj7/VTaNMsY0Ly9AHV2InjiwaGth2AKqfNGyj+w=;
+	s=k20260515; t=1785164017;
+	bh=O0I3AbznuXO2mE0TFpsCIg9z38N+5sXNAYMvOlNx8ss=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=EoFro7FlP6DBJWBjJtDm0DgGwR0HEdBwb92smUr4Z9Hpfdye6lxhg0B0SHEdVI818
-	 cVUfjKOS4E2qpx3ZeSRB1CduYZuC80SzEGx5sVN/LoESnxN97vo9WDlJ51up0gXQxv
-	 qAUAjSod2KJ+lyoHGa0JTGuxU+LtgsgQbLOvBSUaw5/eJ15gfxgD9dEt2I9h70Pt66
-	 7o+8oRC62Vbj1WHQWht4OnK+nDKSH7zmIit5Up0mQIccfaW0OMKmFn1higp+x2gmzj
-	 lvswWjJFmL/Pr6s+GAZpy8YUNIjBSKJefvjpR4kPBzHJW947RU6K99Tz/wE0OJFHL/
-	 Zny76WM8E3voA==
-Message-ID: <f0826f69-bc21-4a96-bb71-6a616025a2a9@kernel.org>
-Date: Mon, 27 Jul 2026 16:53:03 +0200
+	b=Zgu9IHywQkl2KWenokXQBUF+jY0uFmmy17+h8GUQ5iFgZKLbCfdUzfpwqisSTfW5e
+	 p6FG3cFXLjkkFIiqLgoasU5ILijpG8E0yBJ81Dd9IcEdsEwLGkuABt+S3DUykaoGG/
+	 nw6SG+p/C0gxJjXFaUvl+h1m1/bpIGJias8e/PLtCM9J/IkAjtv0uL/p7i4zExwNYy
+	 xZOjdtcCcqfB0p8Qxmjiu8Yw9ofWtG7PrUMdNqISlK1Y+GA7wQV7yZAOeey4pohl35
+	 5MldWmxihWYvo4mcv3xTxeBkYnM4jZoy1DlD96sPOKpO12ADxz7VHiJwruDKAw1mLb
+	 WTDJPWv9rugZg==
+Message-ID: <ff769460-e6fa-43a4-8258-33abfe91c1b5@kernel.org>
+Date: Mon, 27 Jul 2026 16:53:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 09/20] loongarch: kvm: remove stack copy address of
- pXd in pXd_offset()
+Subject: Re: [PATCH RFC v2 10/20] riscv: kvm: remove stack copy address of pXd
+ in pXd_offset()
 To: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
  Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
  Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
@@ -77,7 +77,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-openrisc@vger.kernel.org
 References: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
- <20260722-dummy_ptxp3-v2-9-d9e4bad31e0a@arm.com>
+ <20260722-dummy_ptxp3-v2-10-d9e4bad31e0a@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -124,7 +124,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260722-dummy_ptxp3-v2-9-d9e4bad31e0a@arm.com>
+In-Reply-To: <20260722-dummy_ptxp3-v2-10-d9e4bad31e0a@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,12 +143,12 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On 7/22/26 17:30, Yeoreum Yun wrote:
 > The behaviour of pXdp_get() will change with generic compile-time folded
-> page tables. To prepare for that,  rework host_pfn_mapping_level() to avoid
+> page tables. To prepare for that, rework get_hva_mapping_size() to avoid
 > use of a stack copy of a pXd and pass it as argument to pXd_offset() so that
 > the folded entries value is ignored.
 > 
-> Replace direct uses of stack-based pXd values with pXd_offset_lockless().
-> And there should be no functional change.
+> Replace direct uses of stack-based pXd values with pXd_offset_lockless()
+> and there should be no functional change.
 > 
 > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
