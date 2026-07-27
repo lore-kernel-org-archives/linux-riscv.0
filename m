@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FFAC53219
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2026 10:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2FFC53219
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2026 10:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7X8uknVUKH9I2P2REbQx3kKZjYaPKiXKfAI9nE8az1s=; b=PDFOk+N8l2qULd
-	4h2jGjOp0/Mps32QmU2/9nx8HFWV6zubSIuMFRyu3sDRfLjHQi5g03xr39ARrAcjgXWOwwV0xjshN
-	PQ46nV/P94ajpUx7w2KQAGgLWETq0OFohzi8+2qadE1BCuJLpiRAbBOwiZAwNdUNeTi50HL6FGnkw
-	Xb/PdlhkdqG76VSgIeQjGBUv62Ss1XZbtKCQ4C+fUDzb7mmzd0lhL7nFJlqdA9vZKlzRx5QqNGLhl
-	z6fIfsTXaGl4ZThb7eAjLJmYEpRnJBLBnAdQb+dshLmKn/df3Bede/aHN/yATJPfwmN+r6fz8WTVp
-	AFCw2AE+dNUX+Df7hKqw==;
+	List-Owner; bh=by6hsR0j2k8yRYdunbENyXnWcSPKomNLrz7N6MLH6JM=; b=c+zKnxYrKdgEpc
+	joiJtCrIlxk9/MQylaviJ3P/BhiFweVUN8amI12Bg3KFA2HbZU1w6BdyZaqGQ084pLwK6aRpBWiWA
+	1QkSxKnBC0srnjNa/0b6D3lSM6TawbuDGhKIHMcP8+5qLBahQqQyp1zkJFnNPdSknY+WKQbKHbvtJ
+	8U5PQlXqWpcVrHn7MGGVRhFOUMd56/bO+xDY1GD+XNgyxFOvtKQmwTMIZeCXcj8Z53RmTKw0bJvqX
+	ElgDqvmhjo2mrlkF42eWKaJV25nZX8hbiul8nk4/RQQ1t2EJT8xAaCSiBoIEnqM3cVvi/I/pEzQ/K
+	dX9c7MbLd4xXn25wgdlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woITJ-00000002Ti9-1IAc;
-	Mon, 27 Jul 2026 10:22:09 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1woITZ-00000002TmP-2E73;
+	Mon, 27 Jul 2026 10:22:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woITH-00000002ThZ-14ca
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Jul 2026 10:22:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785147727; x=1816683727;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=C9HJ6eByHTY2KuMJ+CkOIFHan4gnKHBTRtyYpX5oLUg=;
-  b=aZHsMSUG0VRu/DDjfvD5yPYUtQ/k5YHFDrCjMgKu5VPRA8k3xF+i7MPP
-   wSulSMMEYqfHEb/XsgICmaHR5fPA9gaeNoRa3LnsiWfYQ3Ykbl9yZ73x/
-   WgU4wgtV3JXa+kh84/N5zagk6QbL3u0GQZM+FWfET6tvbQBHiAsq/x+BN
-   lGxBj/+8l9B1lD5aTcVNKVhN271LOVfteYZuZ2lmBCL0SNyzrc7vsPu1Q
-   YKwv7FiybTA/c5RIgtxjOUB9BsqT66JKX/iybD/i6OCVovGPZeObyzKwH
-   c4Pd3CHsf+7xwos2F5d/80ojD3F4M7XoJCfP0ppZ/Mm0L/2sHC2nm+sbZ
-   Q==;
-X-CSE-ConnectionGUID: Y3y65Lk8RF2maIv/YQZ96Q==
-X-CSE-MsgGUID: wsTMLyVaQU68S4LjPzaZZA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11857"; a="84688994"
-X-IronPort-AV: E=Sophos;i="6.25,188,1779174000"; 
-   d="scan'208";a="84688994"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2026 03:22:06 -0700
-X-CSE-ConnectionGUID: I3ZfdP2yT/6Pa21cwl7qqQ==
-X-CSE-MsgGUID: lKFaiLkqRBenZu0qW7lcmw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,188,1779174000"; 
-   d="scan'208";a="257591228"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa006.jf.intel.com with ESMTP; 27 Jul 2026 03:22:02 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 6069E99; Mon, 27 Jul 2026 12:22:01 +0200 (CEST)
-Date: Mon, 27 Jul 2026 12:22:01 +0200
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Min Lin <linmin@eswincomputing.com>,
-	Yulin Lu <luyulin@eswincomputing.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>
-Subject: Re: [PATCH v2 6/8] dt-bindings: i2c: dw: add ESWIN EIC7700 SoC I2C
- controller
-Message-ID: <20260727102201.GD2365036@black.igk.intel.com>
-References: <20260706081055.1126275-1-pinkesh.vaghela@einfochips.com>
- <20260706081055.1126275-7-pinkesh.vaghela@einfochips.com>
+	id 1woITY-00000002Tli-1oia;
+	Mon, 27 Jul 2026 10:22:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B0081601EC;
+	Mon, 27 Jul 2026 10:22:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5E151F000E9;
+	Mon, 27 Jul 2026 10:22:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785147743;
+	bh=/JnmBgXxFDtCMN2wDB2IoufqkaTKn0f8mfPW/klL5BI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gsYY3yMsnWmKGvnXvXG4cAJ9uYD/g70GCEZQyJYYALUaBP30DL0mK8UiL1pB/EbhK
+	 nc+d8D//BvpV+fsOKUHm9FDZGks+LTCZNNnpygfauGfGDeviZ7a4Gqo4kdtWxeck/h
+	 N5qCMmAK1Dz1wbvXTixVEc38OGcBuCgNrMt0sN0dX9WpHNIOzTARNfgEcid/hOxfeT
+	 3z4xkHMzT2u5IB1Guj2HJz8xjNhJ7A/m+YluYaX2fPMRcTaMbRpym80eUIvDHQmf4G
+	 ID4MUbBHhJPHP/6PWnOj7KYtY4zzJo2RU/OQ8P+F7MVjo8Q1DldhHmb47Hgfz1kxZd
+	 WoAIbmR4uVBoA==
+Date: Mon, 27 Jul 2026 13:22:09 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Borislav Petkov <bp@alien8.de>, linux-mm@kvack.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	x86@kernel.org, Juergen Gross <jgross@suse.com>
+Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
+ set_memory/change_page_attr core
+Message-ID: <amcxUS95HBsQhvWn@kernel.org>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+ <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
+ <fa75382e-878a-4064-a9b1-43bd2c9dedce@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260706081055.1126275-7-pinkesh.vaghela@einfochips.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260727_032207_303381_E0E6B1E2 
-X-CRM114-Status: UNSURE (   6.70  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <fa75382e-878a-4064-a9b1-43bd2c9dedce@intel.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,16 +91,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 01:40:53PM +0530, Pinkesh Vaghela wrote:
-> From: Pritesh Patel <pritesh.patel@einfochips.com>
+On Wed, Jul 22, 2026 at 10:03:03AM -0700, Dave Hansen wrote:
+> On 7/21/26 10:19, Borislav Petkov wrote:
+> > On Tue, Jul 21, 2026 at 07:23:23PM +0300, Mike Rapoport (Microsoft) wrote:
+> >> Currently there are 6 independent implementations for set_memory and
+> >> set_direct_map APIs.
+> > So with all mm/x86/CPA patches flying around, can we first agree on which tree
+> > is going to collect everything?
+> > 
+> > And if I want to review patches in that area, what am I applying it ontop?
+> > linux-next perhaps...
+> > 
+> > Let's sort out the workflow first so that we don't get lost on fruitless bug
+> > chases and fingerpointing.
 > 
-> Add compatible string for the DesignWare-based I2C controllers present
-> in ESWIN EIC7700 SoC.
-> 
-> Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
-> Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+> Just practically, I think this series needs to be ignored for a bit. Bug
+> fixes first, features and cleanups second.
 
-Acked-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+Ignored is a bit strong, I'd still love to get feedback on the concept.
+ 
+> When the time is right, it probably needs to get get acks from all the
+> affected architectures and go through mm. Folks can ack it now, but I
+> don't think anyone should even consider merging it until ~7.3-rc1.
+
+FWIF, I didn't plan to send non-RFC version before 7.3-rc1.
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
