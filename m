@@ -4,76 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A45C53219
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2026 10:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FFAC53219
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2026 10:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5K/pttMcpx/vqI3RkcfW6XFrNRg/+vbPNIacUUZTza8=; b=Tu7dXhUMIytv4i
-	JYB6ubxPX4HeVLDWPMA6Mm2bQhRb5ynvCu0tOP7dT1gi/Ye7IgJat2XqDpByWzmJwTF9X5rYa/jOV
-	9aDCdGvJlpWBsVqqWBcdq81fqDvRAsQY2tnx8Ryncoq8NrFtH3ma6RLCGJhVLSsQK5s7oViQcITt7
-	p5qDBAT9Yohss5YlwRR+6L147IGABM/ONgKv6n4Wu6BkBGhIk0NReF+YxUEikLWZ1mcgkOQlI42yv
-	ARA1swdK58RfFkm2Gf2B/w1C1OJNVjyRloJiwT8p7rqeQ4dw6B6Zzvvr8JOt7iEoVA5BVo+RPH8cP
-	v/ZeJET2NzA5onIaeIEQ==;
+	List-Owner; bh=7X8uknVUKH9I2P2REbQx3kKZjYaPKiXKfAI9nE8az1s=; b=PDFOk+N8l2qULd
+	4h2jGjOp0/Mps32QmU2/9nx8HFWV6zubSIuMFRyu3sDRfLjHQi5g03xr39ARrAcjgXWOwwV0xjshN
+	PQ46nV/P94ajpUx7w2KQAGgLWETq0OFohzi8+2qadE1BCuJLpiRAbBOwiZAwNdUNeTi50HL6FGnkw
+	Xb/PdlhkdqG76VSgIeQjGBUv62Ss1XZbtKCQ4C+fUDzb7mmzd0lhL7nFJlqdA9vZKlzRx5QqNGLhl
+	z6fIfsTXaGl4ZThb7eAjLJmYEpRnJBLBnAdQb+dshLmKn/df3Bede/aHN/yATJPfwmN+r6fz8WTVp
+	AFCw2AE+dNUX+Df7hKqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woINe-00000002SS1-1qB9;
-	Mon, 27 Jul 2026 10:16:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1woITJ-00000002Ti9-1IAc;
+	Mon, 27 Jul 2026 10:22:09 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woINc-00000002SRE-3eY1;
-	Mon, 27 Jul 2026 10:16:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2746F601ED;
-	Mon, 27 Jul 2026 10:16:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE0021F000E9;
-	Mon, 27 Jul 2026 10:16:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785147375;
-	bh=aPvuz+aL88c21S8YC4GLGVYZg37SgTBgz+cPgSwl5YY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aeXLGKxn+RhuEpjDFbt/ECV2BxYK5diVi7xVn6tULU7vDF7IK7Nil1nVqd/uTLs0a
-	 j54JY+fifjoQHmXB9CR+jCM4rvP6pUcAJpAIgW91yTz1VWA8cFXD1DZoURmpEUqlBo
-	 Tq8KvwKyQ4fOEXf51Jdb/5lt35sWrjNBv7X3ON5nEjg++ndjFL8fdwh7RQt7DAiufK
-	 NEu++wGQ+modaUWU4wmPBGb6eEqXBiiWFcOGq4t079CkA4z0301GVt3RVtw+hHhHy4
-	 jlT37q6tmmybvVR0a4m6cIFpSFH0potJvfTJYgzoIW0uyrUmfcVfT1diLwjHu9fMt5
-	 gbvr2kjjgFHYQ==
-Date: Mon, 27 Jul 2026 13:16:01 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
-Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Brendan Jackman <jackmanb@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
-	Juergen Gross <jgross@suse.com>
-Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
- set_memory/change_page_attr core
-Message-ID: <amcv4Q_jxriraFzU@kernel.org>
-References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
- <amDe_3KFBc9CcIbo@google.com>
+	id 1woITH-00000002ThZ-14ca
+	for linux-riscv@lists.infradead.org;
+	Mon, 27 Jul 2026 10:22:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785147727; x=1816683727;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=C9HJ6eByHTY2KuMJ+CkOIFHan4gnKHBTRtyYpX5oLUg=;
+  b=aZHsMSUG0VRu/DDjfvD5yPYUtQ/k5YHFDrCjMgKu5VPRA8k3xF+i7MPP
+   wSulSMMEYqfHEb/XsgICmaHR5fPA9gaeNoRa3LnsiWfYQ3Ykbl9yZ73x/
+   WgU4wgtV3JXa+kh84/N5zagk6QbL3u0GQZM+FWfET6tvbQBHiAsq/x+BN
+   lGxBj/+8l9B1lD5aTcVNKVhN271LOVfteYZuZ2lmBCL0SNyzrc7vsPu1Q
+   YKwv7FiybTA/c5RIgtxjOUB9BsqT66JKX/iybD/i6OCVovGPZeObyzKwH
+   c4Pd3CHsf+7xwos2F5d/80ojD3F4M7XoJCfP0ppZ/Mm0L/2sHC2nm+sbZ
+   Q==;
+X-CSE-ConnectionGUID: Y3y65Lk8RF2maIv/YQZ96Q==
+X-CSE-MsgGUID: wsTMLyVaQU68S4LjPzaZZA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11857"; a="84688994"
+X-IronPort-AV: E=Sophos;i="6.25,188,1779174000"; 
+   d="scan'208";a="84688994"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2026 03:22:06 -0700
+X-CSE-ConnectionGUID: I3ZfdP2yT/6Pa21cwl7qqQ==
+X-CSE-MsgGUID: lKFaiLkqRBenZu0qW7lcmw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,188,1779174000"; 
+   d="scan'208";a="257591228"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa006.jf.intel.com with ESMTP; 27 Jul 2026 03:22:02 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 6069E99; Mon, 27 Jul 2026 12:22:01 +0200 (CEST)
+Date: Mon, 27 Jul 2026 12:22:01 +0200
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Min Lin <linmin@eswincomputing.com>,
+	Yulin Lu <luyulin@eswincomputing.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>
+Subject: Re: [PATCH v2 6/8] dt-bindings: i2c: dw: add ESWIN EIC7700 SoC I2C
+ controller
+Message-ID: <20260727102201.GD2365036@black.igk.intel.com>
+References: <20260706081055.1126275-1-pinkesh.vaghela@einfochips.com>
+ <20260706081055.1126275-7-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <amDe_3KFBc9CcIbo@google.com>
+In-Reply-To: <20260706081055.1126275-7-pinkesh.vaghela@einfochips.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260727_032207_303381_E0E6B1E2 
+X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +95,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQWRyaWFuLAoKT24gV2VkLCBKdWwgMjIsIDIwMjYgYXQgMDM6MTc6MTlQTSArMDAwMCwgQWRy
-aWFuIEJhcm5hxZsgd3JvdGU6Cj4gT24gVHVlLCBKdWwgMjEsIDIwMjYgYXQgMDc6MjM6MjNQTSAr
-MDMwMCwgTWlrZSBSYXBvcG9ydCAoTWljcm9zb2Z0KSB3cm90ZToKPiAKPiBIaSBNaWtlLAo+IAo+
-ID4gT25jZSB0aGlzIHNldHRsZXMsIHRoZSBuZXh0IHN0ZXAgSSdtIHBsYW5uaW5nIGlzIHRvIGNv
-bnZlcnQgYXJtNjQuIFRoaXMKPiA+IHdvdWxkIGJlIG11Y2ggbW9yZSBpbnZvbHZlZCB0aGFuIGxv
-b25nYXJjaCBhbmQgcmlzY3YgdG9nZXRoZXIsIHNvIEkKPiA+IGRpZG4ndCBldmVuIGFzcGlyZSB0
-byBpbmNsdWRlIGFybTY0IGluIHRoZSBmaXJzdCBSRkMuIFRoYXQgc2FpZCwgSSBoYXZlCj4gPiBh
-IHZlcnkgdWdseSBhcm02NCBwcm90b3R5cGUgdGhhdCByZXdyaXRlcyBhcmNoL2FybTY0L3BhZ2Vh
-dHRyLmMgdG8gdXNlCj4gPiB0aGUgZ2VuZXJpYyBDUEEgaW5mcmFzdHJ1Y3R1cmUgYW5kIHJlcGxh
-Y2VzIHRoZSBleGlzdGluZyBpbXBsZW1lbnRhdGlvbgo+ID4gb2YgcGFnZSB0YWJsZSBzcGxpdHMg
-Zm9yIHN5c3RlbXMgdGhhdCBzdXBwb3J0IGJibWwyLiBCdXQgdGhlcmUncyBhIGxvdAo+ID4gb2Yg
-eWFrIHNoYXZpbmcgdGhlcmUgdG8gZ2V0IGZyb20gYSBQb0MgdG8gYWN0dWFsIHBhdGNoZXMuCj4g
-Cj4gQ291bGQgeW91IHNoYXJlIHlvdXIgUG9DIGZvciBBUk02NC4gSSBjYW4gaGVscCB5b3Ugd2l0
-aCB0aGF0IGFuZCBhbGlnbiBteQo+IGV4ZWNtZW0gcm94IGNhY2hlIGZvciBBUk02NCAgY2hhbmdl
-cyB0byB0aGUgZGVzaXJlZCBzaGFwZSBvZiB0aGlzIEFQSS4KCkl0J3MgdG9vIHVnbHkgYW5kIG1v
-cmUgaW1wb3J0YW50bHkgaXQgY3V0cyB0b28gbWFueSBlZGdlcy4gCkknbGwgdHJ5IHRvIGJyaW5n
-IGl0IGludG8gYSBiZXR0ZXIgc2hhcGUgYW5kIHdpbGwgc2hhcmUgdGhlbiBSZWFsbHkgU29vbiA6
-KQogCj4gQmVzdCByZWdhcmRzLAo+IEFkcmlhbgoKLS0gClNpbmNlcmVseSB5b3VycywKTWlrZS4K
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Jul 06, 2026 at 01:40:53PM +0530, Pinkesh Vaghela wrote:
+> From: Pritesh Patel <pritesh.patel@einfochips.com>
+> 
+> Add compatible string for the DesignWare-based I2C controllers present
+> in ESWIN EIC7700 SoC.
+> 
+> Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+> Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+
+Acked-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
