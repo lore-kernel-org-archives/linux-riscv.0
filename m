@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0AA6C54F4C
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 08:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BCFCC54F4C
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 08:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5lDfrWeJsqY6caxxH36eS36rOInHfPqgw8H3ylHjR5c=; b=ykjoiaWAVF2FC9
-	pDDzrDGw+SXhmiAdKTwxgTitxJjZUQ/SjSUVE43R945Av9pYBOBRXl0+4Wm6oYyk8U61mHN2tBIci
-	TeeRKDsZuguTLNOXL8A7fetoWVnbMWW2iIBM9uJ/nvYW1ZXV/Wmd7NNt4lHFU20q29LsovuROtL1T
-	7jYBociP+uuZH5RLNtq62zVpeuXueiOH9cM1RcPem3n7qEZShG70GNow81KtL++dqZaDrrSxwAuHy
-	W+pNmeQlRqS6G0PN32SPYXPKXRrZqDIkjGwgFJUFUfxeweGXt+C0796sEl+yyKjEMC02C5nM0o7PJ
-	WxbbW2IBc1TVWgbbYHNw==;
+	List-Owner; bh=d5p5DoZfyYJ/SCPO6cGGJ/+mw3pghsv8lMsTtTqf5i0=; b=OM/6PhVefXF1wd
+	O3OqUSWXGWtS63TBeY6mSZdhWsUQfyOyK/XU3C/okaEFbinoV+eZ4iXDzuKfNc7C2YceYnc6PJsEx
+	i4LzmEHxSOMox1aEXDylM3S/6aa52xBoeJOBuCF1Vr7jzNgiGQLBTiHo+tij7X64jjcWD7EQiddmY
+	3kyPZgcIh5vbDoJPgeIHm416Sqbif9R8MNlo9T3avtAoeY8NNtbwbu96HViDAaO+3hk22NRXgsLEz
+	ziEVONXhWI2PhRR8vKzDzjq0sbvYhclEYMTRZ1RWwRNNi11cFRbwLS8hRTHvMnnO+vEH6YJ7QPlLK
+	lLLl61gj5kEwnCrFLHAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wocqt-00000004g6Y-1iPM;
-	Tue, 28 Jul 2026 08:07:51 +0000
+	id 1wocsB-00000004gDn-2YPl;
+	Tue, 28 Jul 2026 08:09:11 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wocqs-00000004g6R-1KyX
+	id 1wocsA-00000004gDf-1IOc
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jul 2026 08:07:50 +0000
+	Tue, 28 Jul 2026 08:09:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1FF4411AB;
-	Tue, 28 Jul 2026 08:07:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D17D1F00A3A;
-	Tue, 28 Jul 2026 08:07:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C54D340F5A;
+	Tue, 28 Jul 2026 08:09:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC8921F000E9;
+	Tue, 28 Jul 2026 08:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785226069;
-	bh=5tUbDStS0GQHCB8UWlXzniMXPIvID1g2YNoMDc83vHg=;
+	s=k20260515; t=1785226149;
+	bh=kLUsG0cxbOOBudd9ddbSRV7/2qqz/2T6DEko4eZD+JA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ibKaJtCs/Qd5j69W9sTrfRdHt2aqYwhpM13lzbZurR679wG5biaM6HF6vj8PpT4Bl
-	 7cRJEMKJG77s1/T/242kV67r1MeEfhLBT/UDmNakaOid+m123sxDa+wElTdxQ/oX/j
-	 Nts9AUb2hhxPGuW7ei+eXtgeDYNf/2S2pIwL3ynlLyJN0leG4nJUzAZlZFKauXRwOJ
-	 PgABLe65zTF3lDWd3YkPxz51vZistWQxkiGExxRc9fQUOHeVQxgHhWeVSIibIhyttu
-	 fL+UZbnz9xk12CzKrPPTvQQfR/FcWAtuhcNf8nb1AHTatH2WN9pSHk6Z3jrlTi8Als
-	 z+8EsaSs6cpHA==
-Date: Tue, 28 Jul 2026 10:07:45 +0200
+	b=npDBOj5nREIEihM99fSB/33zEtJ+Yy5WSSoqibreMFXFDTZcyr7qpYw36GAUO22ec
+	 YJDJ6AgzLYiahlEMG8ZL63DYhVybsnNVX7StxXCjcm9eaY/RJfJePe6uBTgkqsyrqw
+	 CiaYpqOSCFgzP8/ly7F1FidIYDfj1W5mPIj2uXBqMuLplZ/4xqh163KAB2KkaOxk49
+	 5s90PPNgPkqsFHfImU3I5OXlpdh8jtWs8QpRiKmg05nSAJPaz0q4VqLlEE7kyCY9Px
+	 qEGiovcVvJiPiIZdP1RMC8PX4TL2b6e8Qr6mUX099rUEJJmG2n8k0rbLHQ+Ah1uHip
+	 rfHLOvqeBmPUw==
+Date: Tue, 28 Jul 2026 10:09:05 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Sterling-Ash <liangbaihui@linux.spacemit.com>
 Cc: Frank Binns <frank.binns@imgtec.com>, Rob Herring <robh@kernel.org>, 
@@ -51,7 +51,7 @@ Cc: Frank Binns <frank.binns@imgtec.com>, Rob Herring <robh@kernel.org>,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 Subject: Re: [PATCH v3 1/2] dt-bindings: gpu: img,powervr-rogue: add
  spacemit,k3-gpu
-Message-ID: <20260728-proud-coyote-of-happiness-e99c24@quoll>
+Message-ID: <20260728-chivalrous-mongrel-of-leadership-dd3bf2@quoll>
 References: <75c9382d2bda766aa459b00321153d715254d1a4.camel@imgtec.com>
  <20260728010513.1627950-1-liangbaihui@linux.spacemit.com>
  <20260728010513.1627950-2-liangbaihui@linux.spacemit.com>
@@ -88,50 +88,16 @@ On Tue, Jul 28, 2026 at 09:05:12AM +0800, Sterling-Ash wrote:
 > ti,j721s2-gpu "if" block that restricts clocks to a single entry,
 > since K3 has the same single-clock requirement. It does not match any
 > "if" block that constrains power-domains, so that property falls back
-
-I don't get this explanation. Are you explaining what the patch is doing
-or explaining WHY you did this that way?
-
 > to this schema's general constraints, where it is optional. This
 > leaves room for a power-domains provider to be added later without a
 > further binding change, should one ever be modelled in Linux for this
 > SoC.
-
-No, you need to provide constraints now. Please read carefully
-writing-bindings.
-
 > 
 > Signed-off-by: Sterling-Ash <liangbaihui@linux.spacemit.com>
-> ---
 
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
-
-> v3: also add spacemit,k3-gpu to the existing ti,am62-gpu/ti,am62p-gpu/
->     ti,j721s2-gpu "if" block restricting clocks to a single entry --
->     previously it fell back to this schema's general clocks constraint
->     (1-3 items), which would have let an invalid DT with 2 or 3 clocks
->     pass validation (found by automated review on v2).
-> 
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml          | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index a1f54dbae3f3..d29f0d163b91 100644
-> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -38,6 +38,11 @@ properties:
->                - thead,th1520-gpu
->            - const: img,img-bxm-4-64
->            - const: img,img-rogue
-> +      - items:
-> +          - enum:
-> +              - spacemit,k3-gpu
-
-Why isn't this part of other enum (and remember about the alphabetical
-order of entries)?
+Also, are you sure your Latin transliteration of your name includes a
+hyphen? Email differs and we do not take anonymous contributions, so
+this must much your name in the known identity.
 
 Best regards,
 Krzysztof
