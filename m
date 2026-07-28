@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F43C531F9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72F7C54F54
 	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 09:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Cc:To:References:
-	Mime-Version:Message-Id:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=JFK3HBGgUyosIKMqFv/IYm1oZE6x8bxRB4CIk/kUtXA=; b=1QoycjIvDvDj5xTzQCY0Kx0i23
-	s5zmpgC15V7+ZdCQQePq/M3joOLidtoxi/tCzuF+xvRQGYjbQq8QZeZZigSnbFdj1lxuQiIaTtrQF
-	bZTDrnv60CVGUcaXapY3f7NRNSJAa/oAUNYhaYXSPMyDWIj9Ra5z3aUrMT87Ug306QiqRJ9qSnDs5
-	pUmR83w8jiK1xt3t2r8+5NNmNvKQURvBbyB9/ddNZ5Fr66CQHQH+wXxVOvlZLbOB4YGkvtmQQLOBO
-	7uSgxOgG8Arq3EV3SOoB7LP+fE/LL6gRHUgYYVqwueDliGGNSp1VvaFtbia/Xy4zOQmf4Ere+jyKn
-	XabNdqfg==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Message-Id:To:In-Reply-To:
+	Subject:From:Cc:References:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=puP+VsvsLbgWqfSWOEmEdE0jbxlr2SH7uPxlqIEFQuk=; b=j0dGPZd+yBO1A1
+	U08ex5yfOivf/OBO4lhzYqlJQYAv24weU956YJyaWewc0+NqZJfSmZgiTHN27XzyjufgUWCdvC3Ea
+	etrWs9auJ/bUN8So9CDwMNWNu/jREyw7uaVsGUTHl+6dxmB3yjL4a/AWe2pPvrAwRBYmiHDKIip3P
+	g1Uf9ERNJLBTJrZ4SLWLcBdGzfftzyGCeuYLkvdTq3b4/fE/bh51LW7kyDgWFR37sxf32dIbNSJT7
+	ba/5gMDw+G6Fi4Fr0O9YXjSwOMeQUOr5EE0OdQ58Zc6sSX3LzXemtelB4/Ddu3ucvAvnNzxG5mQSk
+	aaQG7Dfn6pBm63DdPMbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeOh-00000004s48-19Rb;
+	id 1woeOh-00000004s44-0evt;
 	Tue, 28 Jul 2026 09:46:51 +0000
-Received: from va-2-30.ptr.blmpb.com ([209.127.231.30])
+Received: from va-2-27.ptr.blmpb.com ([209.127.231.27])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeOZ-00000004s06-3nex
+	id 1woeOc-00000004s14-0oiL
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jul 2026 09:46:49 +0000
+	Tue, 28 Jul 2026 09:46:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1785231999; h=from:subject:
+ s=feishu2604151535; d=picoheart.com; t=1785232001; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=7ndpDd8Fdqn6Wxv4jk2isOF3MG994mWS9xm/BxHrg2M=;
- b=HQEOMhEtwp+LKxPid4Kd+7GKHG9Lye981VeMpCS38KFXtzOocvIYsXagQYeeSXhQaZs3Qo
- SSG0cYMiRwEV7wx1nQbgEiHwC4tblPnJ2litoKLsagT3hwhAH1xyTJCXu1dvElrPdtOHJM
- r/6aY1hh3wYCDHUcnpKzGxf6lyfspLTyARdj3FiiIYrowa8e6neAsffrAFBFv9wmpZYM+5
- VvPlQBqXrNxdOON3h2hCpg6QwTY/w9Mrxvr5uLKlu4NfJrhEq2QZ7sy8KFLg+VrGWUwnal
- cELeVrJzusYvswbxXnQa/QCAR/8NsTUyLqYHeNJoCCOERW1hQ/zFtwew1mo3Kw==
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-In-Reply-To: <20260728094627.94975-1-yang.yicong@picoheart.com>
-Message-Id: <20260728094627.94975-4-yang.yicong@picoheart.com>
-Mime-Version: 1.0
-References: <20260728094627.94975-1-yang.yicong@picoheart.com>
-X-Lms-Return-Path: <lba+26a687a7d+3930a8+lists.infradead.org+yang.yicong@picoheart.com>
+ bh=hLRBZM7tc2CgwhQ8AHI6U2yjOGZ4LFB+3E24X3fezuU=;
+ b=wKL39jWMVs0NJs9QvaOj1qDxhdXXpVlb84z1EoBSksVT30pefK9dA2FvlxROBOgJW1H0p6
+ o71Y7x4gkguNRG2S+5zDyJu7rfNWud3GCkEkyRhZ3daz3gnl4pmGyz/Y8O8dngV8ekLuvx
+ jgIoAuEBKnUlYPGlqBChAnJ+7uQDL31SV3Wf8yJ8n72omCRdyjCpTa4S5bNdd8XLDBlYLY
+ xT79REgsGs65tKeJZXiKlUjVc9vMgUUtMKCladX6r8taE4jqxinkxKq4C8AwaNcwqsCqfM
+ spf0HJgGxWq9yXLdnb4fw2M0uA0o0ngNyZ1vFuAgwFX2SdVI8nC2UcpshxYODw==
+Date: Tue, 28 Jul 2026 17:46:25 +0800
 X-Mailer: git-send-email 2.50.1
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
-	<linux-riscv@lists.infradead.org>
+References: <20260728094627.94975-1-yang.yicong@picoheart.com>
+Received: from G9WYR9K0VW.bytedance.net ([58.250.106.101]) by smtp.feishu.cn with ESMTPS; Tue, 28 Jul 2026 17:46:38 +0800
 Cc: <wangruikang@iscas.ac.cn>, <ganboing@gmail.com>, 
 	<geshijian@picoheart.com>, <niehaitao@picoheart.com>, 
 	<cuiyunhui@bytedance.com>, <yang.yicong@picoheart.com>
-Subject: [PATCH v2 3/6] riscv: insn: Support decoding of CBO instructions
-Date: Tue, 28 Jul 2026 17:46:24 +0800
-Received: from G9WYR9K0VW.bytedance.net ([58.250.106.101]) by smtp.feishu.cn with ESMTPS; Tue, 28 Jul 2026 17:46:36 +0800
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Subject: [PATCH v2 4/6] riscv: errata: Add init framework for picoheart errata
+In-Reply-To: <20260728094627.94975-1-yang.yicong@picoheart.com>
 X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
+	<linux-riscv@lists.infradead.org>
+Message-Id: <20260728094627.94975-5-yang.yicong@picoheart.com>
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+26a687a7f+ca3e45+lists.infradead.org+yang.yicong@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_024644_048833_AEA3FD4D 
-X-CRM114-Status: UNSURE (   6.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_024646_326052_B2F5F829 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,60 +72,179 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add definitions for decoding CBO instructions. Rename
-RVG_OPCODE_FENCE to RVG_OPCODE_MISC_MEM as spec defines
-it as MISC-MEM and it's also used by CBO instructions.
+Add init framework for handling upcoming picoheart erratas.
 
 Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
 ---
- arch/riscv/include/asm/insn.h | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig.errata                    | 10 ++++
+ arch/riscv/errata/Makefile                   |  1 +
+ arch/riscv/errata/picoheart/Makefile         |  5 ++
+ arch/riscv/errata/picoheart/errata.c         | 57 ++++++++++++++++++++
+ arch/riscv/include/asm/alternative.h         |  3 ++
+ arch/riscv/include/asm/errata_list_vendors.h |  4 ++
+ arch/riscv/include/asm/vendorid_list.h       |  1 +
+ arch/riscv/kernel/alternative.c              |  5 ++
+ 8 files changed, 86 insertions(+)
+ create mode 100644 arch/riscv/errata/picoheart/Makefile
+ create mode 100644 arch/riscv/errata/picoheart/errata.c
 
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index c36d1dfa16c6..f6b32d8d558d 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -12,6 +12,7 @@
- #define RV_INSN_FUNCT3_OPOFF	12
- #define RV_INSN_OPCODE_MASK	GENMASK(6, 0)
- #define RV_INSN_OPCODE_OPOFF	0
-+#define RV_INSN_FUNCT12_MASK	GENMASK(31, 20)
- #define RV_INSN_FUNCT12_OPOFF	20
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index 3c945d086c7d..374d7fcf7936 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -154,4 +154,14 @@ config ERRATA_THEAD_GHOSTWRITE
  
- #define RV_ENCODE_FUNCT3(f_)	(RVG_FUNCT3_##f_ << RV_INSN_FUNCT3_OPOFF)
-@@ -135,7 +136,7 @@
- #define RVC_C2_RS1_MASK		GENMASK(4, 0)
+ 	  If you don't know what to do here, say "Y".
  
- /* parts of opcode for RVG*/
--#define RVG_OPCODE_FENCE	0x0f
-+#define RVG_OPCODE_MISC_MEM	0x0f
- #define RVG_OPCODE_AUIPC	0x17
- #define RVG_OPCODE_BRANCH	0x63
- #define RVG_OPCODE_JALR		0x67
-@@ -171,6 +172,7 @@
- #define RVG_FUNCT3_JALR		0x0
- #define RVG_FUNCT3_BEQ		0x0
- #define RVG_FUNCT3_BNE		0x1
-+#define RVG_FUNCT3_CBO		0x2
- #define RVG_FUNCT3_BLT		0x4
- #define RVG_FUNCT3_BGE		0x5
- #define RVG_FUNCT3_BLTU		0x6
-@@ -186,12 +188,14 @@
- #define RVC_FUNCT4_C_EBREAK	0x9
++config ERRATA_PICOHEART
++	bool "Picoheart errata"
++	depends on RISCV_ALTERNATIVE
++	help
++	  All Picoheart errata Kconfig depend on this Kconfig. Disabling
++	  this Kconfig will disable all Picoheart errata. Please say "Y"
++	  here if your platform uses Picoheart CPU cores.
++
++	  Otherwise, please say "N" here to avoid unnecessary overhead.
++
+ endmenu # "CPU errata selection"
+diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
+index 02a7a3335b1d..a36c5ce1ce7b 100644
+--- a/arch/riscv/errata/Makefile
++++ b/arch/riscv/errata/Makefile
+@@ -16,3 +16,4 @@ obj-$(CONFIG_ERRATA_ANDES) += andes/
+ obj-$(CONFIG_ERRATA_MIPS) += mips/
+ obj-$(CONFIG_ERRATA_SIFIVE) += sifive/
+ obj-$(CONFIG_ERRATA_THEAD) += thead/
++obj-$(CONFIG_ERRATA_PICOHEART) += picoheart/
+diff --git a/arch/riscv/errata/picoheart/Makefile b/arch/riscv/errata/picoheart/Makefile
+new file mode 100644
+index 000000000000..6278c389b801
+--- /dev/null
++++ b/arch/riscv/errata/picoheart/Makefile
+@@ -0,0 +1,5 @@
++ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
++CFLAGS_errata.o := -mcmodel=medany
++endif
++
++obj-y += errata.o
+diff --git a/arch/riscv/errata/picoheart/errata.c b/arch/riscv/errata/picoheart/errata.c
+new file mode 100644
+index 000000000000..53b690878f78
+--- /dev/null
++++ b/arch/riscv/errata/picoheart/errata.c
+@@ -0,0 +1,57 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2026 Picoheart (SG) Pte. Ltd.
++ *
++ * Author: Yicong Yang <yang.yicong@picoheart.com>
++ */
++
++#include <linux/cacheflush.h>
++#include <linux/cleanup.h>
++#include <linux/kernel.h>
++#include <linux/memory.h>
++#include <linux/string.h>
++#include <asm/alternative.h>
++#include <asm/errata_list.h>
++#include <asm/text-patching.h>
++#include <asm/vendor_extensions.h>
++#include <asm/vendorid_list.h>
++
++static u32 picoheart_errata_probe(unsigned int stage, unsigned long archid,
++				  unsigned long impid)
++{
++	return 0;
++}
++
++void picoheart_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
++				 unsigned long archid, unsigned long impid,
++				 unsigned int stage)
++{
++	u32 cpu_req_errata = picoheart_errata_probe(stage, archid, impid);
++	struct alt_entry *alt;
++	void *oldptr, *altptr;
++	u32 tmp;
++
++	BUILD_BUG_ON(ERRATA_PICOHEART_NUMBER >= RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
++
++	for (alt = begin; alt < end; alt++) {
++		if (alt->vendor_id != PICOHEART_VENDOR_ID ||
++		    alt->patch_id >= ERRATA_PICOHEART_NUMBER)
++			continue;
++
++		tmp = (1U << alt->patch_id);
++		if (cpu_req_errata & tmp) {
++			oldptr = ALT_OLD_PTR(alt);
++			altptr = ALT_ALT_PTR(alt);
++
++			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT) {
++				memcpy(oldptr, altptr, alt->alt_len);
++			} else {
++				guard(mutex)(&text_mutex);
++				patch_text_nosync(oldptr, altptr, alt->alt_len);
++			}
++		}
++	}
++
++	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++		local_flush_icache_all();
++}
+diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+index 8407d1d535b8..57298f21bb70 100644
+--- a/arch/riscv/include/asm/alternative.h
++++ b/arch/riscv/include/asm/alternative.h
+@@ -57,6 +57,9 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 			     unsigned long archid, unsigned long impid,
+ 			     unsigned int stage);
++void picoheart_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
++				 unsigned long archid, unsigned long impid,
++				 unsigned int stage);
  
- #define RVG_FUNCT12_EBREAK	0x1
-+#define RVG_FUNCT12_CBO_CLEAN	0x1
-+#define RVG_FUNCT12_CBO_FLUSH	0x2
- #define RVG_FUNCT12_SRET	0x102
+ void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
+ 				 unsigned int stage);
+diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
+index ec7eba373437..958e4f4624f7 100644
+--- a/arch/riscv/include/asm/errata_list_vendors.h
++++ b/arch/riscv/include/asm/errata_list_vendors.h
+@@ -26,4 +26,8 @@
+ #define	ERRATA_MIPS_NUMBER 1
+ #endif
  
- #define RVG_MATCH_AUIPC		(RVG_OPCODE_AUIPC)
- #define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
- #define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
--#define RVG_MATCH_FENCE		(RVG_OPCODE_FENCE)
-+#define RVG_MATCH_FENCE		(RVG_OPCODE_MISC_MEM)
- #define RVG_MATCH_BEQ		(RV_ENCODE_FUNCT3(BEQ) | RVG_OPCODE_BRANCH)
- #define RVG_MATCH_BNE		(RV_ENCODE_FUNCT3(BNE) | RVG_OPCODE_BRANCH)
- #define RVG_MATCH_BLT		(RV_ENCODE_FUNCT3(BLT) | RVG_OPCODE_BRANCH)
++#ifdef CONFIG_ERRATA_PICOHEART
++#define ERRATA_PICOHEART_NUMBER	0
++#endif
++
+ #endif /* ASM_ERRATA_LIST_VENDORS_H */
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index beaf9236dba7..dba770b8503c 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -10,6 +10,7 @@
+ #define MIPS_VENDOR_ID		0x127
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
++#define PICOHEART_VENDOR_ID     0x77d
+ 
+ #define QEMU_VIRT_VENDOR_ID		0x000
+ #define QEMU_VIRT_IMPL_ID		0x000
+diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+index 104dc0862c5c..88639918ee7d 100644
+--- a/arch/riscv/kernel/alternative.c
++++ b/arch/riscv/kernel/alternative.c
+@@ -61,6 +61,11 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info
+ 	case THEAD_VENDOR_ID:
+ 		cpu_mfr_info->patch_func = thead_errata_patch_func;
+ 		break;
++#endif
++#ifdef CONFIG_ERRATA_PICOHEART
++	case PICOHEART_VENDOR_ID:
++		cpu_mfr_info->patch_func = picoheart_errata_patch_func;
++		break;
+ #endif
+ 	default:
+ 		cpu_mfr_info->patch_func = NULL;
 -- 
 2.50.1 (Apple Git-155)
 
