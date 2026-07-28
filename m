@@ -4,94 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73526C53219
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 09:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A42C53219
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 09:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5vYIRsNcvwaUIK35N3dAWMVTXy2quw4Npg9Z1jU4HkQ=; b=Emy6HQrilmmNn/
-	vxQ2hbobPCpfFBagIuylYSGTgVo1JoGRoCzcNcGPgbxbIRwv+GafeFHbHhP6xINXm5hv88ipm5tLQ
-	Ue3I2VKQrFcyfM+1+ZMV/CkvjQRQLXIT1Xhb6ROl0z3OdvRgVrXx7hcYSayQD0rDJ/KLOnDrBjqAf
-	juKbhvQu9SXUf6vwexNAtRdwyKFM9k29T4zgG00XWEIXJvEsVogDVz3ldlbp9+W1FoGrPasFfQ/b6
-	OUJtrq1g8dqH3n0PRZFg9tnk/rLYTtylW9wRQ0tcpQ1p5Js71EGpcM4uSp/q2421Ra9BVgOjgOdhH
-	LMAdzpaOawKHxvvc0Alg==;
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Cc:To:Subject:From:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=FGd6tRUlatp2hMNabzqfL5GxnqbHnXfuYF3d5BghfQs=; b=oex
+	YOLEdshGrkJVMBmjsUY/HGC+pMTxCUqEc5KQ1Kt2tZ2399QaJxt+ks7BCdXtvRq8xz7yA3a4yUEvv
+	qGQdBJ6ewEfrtTr9jPeGCxZbSSFp7IOlbHUKMcNVIO4cgqkIL+reirfiRk//hWVOIxmNNBZD4aX5p
+	vD7+WpnPzFpiievqcP7RqHpnRoySLg87vzWuikE+Rpozy1VC7gQOe+3Pe+2DJtH22TQCbpUAjW1EL
+	X5wDXsAMzMSyTgNz9blDxg9o19qA+ps+RuVcWOltPhq4XSaz0TzMY5zm9ILekPdmIOKUOBzzBrCTf
+	WXgkYKgGps8Pik7F1JSH2whpNdJKEJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeGe-00000004qpa-3StS;
-	Tue, 28 Jul 2026 09:38:32 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1woeOa-00000004s0i-3Zls;
+	Tue, 28 Jul 2026 09:46:44 +0000
+Received: from va-2-36.ptr.blmpb.com ([209.127.231.36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woeGa-00000004qnX-1JEV
+	id 1woeOX-00000004ryo-3xFw
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jul 2026 09:38:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1785231432;
-	bh=8fCOUsx0444xOiYJjLi/BxZmA+7UPJFelel0WkroNHA=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=iybyurhYeTkkLCpxtmrXVpJNZn0Pak5WlIyEFJyOFGzTYCQ4NH/5ew58O+tZDLOvi
-	 QsM+CCAHbVC2u1wYWeJJwAbxmheGSoulExDk8MUETgz1b7Ovk3L/XeTAlEFM2Nt82/
-	 Xf6EelXmDGdnk6bAoeg0K480KVD2ri3QV9zk4IZc=
-X-QQ-mid: zesmtpsz3t1785231429tf850c34d
-X-QQ-Originating-IP: LCEw3mgx4E2Gruu0oCqUhT5bIyN/Q0xwg1kCeX7B0s4=
-Received: from [127.0.1.1] ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 28 Jul 2026 17:37:07 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3040970083133766586
-EX-QQ-RecipientCnt: 15
-From: Peixin Xie <peixin.xie@linux.spacemit.com>
-Date: Tue, 28 Jul 2026 17:36:12 +0800
-Subject: [PATCH] riscv: acpi: Handle LPI architectural context loss flags
-MIME-Version: 1.0
-Message-Id: <20260728-riscv-acpi-lpi-timer-v1-1-c722bce01e48@linux.spacemit.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CQAyF4auQrmnCDMkMeBXDYqwFShBJi8SEc
- HdHXbzFt3j/AcYqbHApDlDexeS5ZLiyABrTMjDKPRt85UMVfUQVox0TrYJz3iYPVgy9i3WbAjW
- 1g3xdlXt5/7LX7m973Sam7duC8/wAZl5243gAAAA=
-X-Change-ID: 20260727-riscv-acpi-lpi-timer-6f1739a6c831
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Yixun Lan <dlan@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
- Oza Pawandeep <quic_poza@quicinc.com>, Will Deacon <will@kernel.org>, 
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
-Cc: linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
- stable@vger.kernel.org, Peixin Xie <peixin.xie@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785231427; l=2112;
- i=peixin.xie@linux.spacemit.com; s=20260727; h=from:subject:message-id;
- bh=u7q9AsM+ki5AlsnpwWFMF+9oIaQLH+1sEJj2Rb5cdm0=;
- b=OyPyxwPg/spQvU2rXgykpOsHasu2MJGcUToy65otILXBQKyoFvo1iMbczUh077ZHsuIlpJ38e
- 7klUMbgC2lYACnaK43HFfPkezqSD+wDCxuw5Q2MlUkRFUbc2RBEgCC5
-X-Developer-Key: i=peixin.xie@linux.spacemit.com; a=ed25519;
- pk=jczO0FmEQZBoClfXslkwCsHKDmSRchQ1hQr8W7yiiXg=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: NayxjVUrh0RcWweAd6all5DRu47gE8JkDz5vriH9OEjWGQsafBEY1mfh
-	vVuNCupxPFPkl3CEYYu9bl8Cf/6kXnhOQhPkj5UW6OSJG7e8mRKVDKLsOwiL98PqvLhnjUn
-	n6Yr0y9+3lFhbycvbT2U1qv0aoNT8iTLPRvnzAEfGV/f2940zRKhv55pLbIZ8lMQOJi3hXm
-	v0wygafTyuL6QQJsJIHsVPLmErwl3w5H6f1bYb1d6LNXSHaW93taaDhqaGWytlsXbo1t/wB
-	TgOHqxdxpHS9hFuJzA3od+sIrVlYA5gZhD38jJZ3hDO7/oMu4vWoPCejbVoDsDdFhAl/1GC
-	OQqGTn3TYB3xkLylMHFzxKtKoTjm3MIsmKdlfx8HwE1eknHURA2U4o8GuVXaO7dHOjcM6ZY
-	WZLVhSv54LtDJTq8+VDbdbFiBK2Tubo5+gv/DseNofOKIgZpCJy+zn6olyg2UY/ij94YaYA
-	JZCLPzIqhgL2exiGnMSdwEhKesofPbR2nas1JKl3a1Dc2D24xtTxlVdb9GyA6k+KgmsZipf
-	X/Qbyg0WpEVI2nbFXGdTOHc6uO8OVQsOAKy+F8lU7P98q0K4JGujBK0V27GjLmAZJvqhUNn
-	EWlDDNge4mp94igqjRwHMII/M2rHQhUbHfWPbhIWClylxAINfpiI9PQRJ9GqPO8azDCB4pk
-	xYSogwJWfhQ33kxQdOoLnp9CneZKbcrg286bTD7kNY9ksLcQaqxNTW7w7ljwCTSieu4woVX
-	Cn3Nrm7qRpngIyGnAnvkNXSukz5Q/bsjHv167+YeNdjCbSaZSYyPPqbGbtezSfeIxcbNnSl
-	oi/Y6zOABwe5+e/0pdiZBvG0wAYu7PF01OJkip7urUPPhRweoaMuQFdU/FFkQpH97OuBO4D
-	xLAWeaaCf4s00FFVF4HcwfXOqBFJBUDAH+rzUruf1EspZ5ihpOZWQwMM5cHmkYFDJjKA12U
-	7lhrbDhDX0eMLzrh5KZq5O4/1JnUV8TehhEbMJFTvoMI6bxBssKOyZa7mfzYfbfXYi7Jgx5
-	3T07ErRYuYq88+v1SSmbG2jJA2ydExg5+5C2zlEsgkLhR2/ewEwHAZJSOyQb3EY2hHGctbV
-	X1SZRDH9gEjjSPfezIttlyegeC//JjsxZRhs6Tk9OCE
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+	Tue, 28 Jul 2026 09:46:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604151535; d=picoheart.com; t=1785231992; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=KXkW2kswpNmBLGg5YFI34Bp026KwgCYLjhZ26zXIDi4=;
+ b=Bw8Iqz/9sls+1443s4/bg7+RfB69qeWPMuEXUU0tlHDr/zD/O6PdMj6E/QTxuAnwvx8mXU
+ cuf4+L/GeqsczvJ3qWwau0dwG2otjb0q8b+DUpZbaU1P5o41auWztkF6OOgtosKCwTgg2t
+ WUqQtTjZEB6tLhP7o38XSMJ+0HK+uOXprciv6ypDXrlrnlEIIh4n7RujHAIBEOzO8rRvJm
+ RGiX6M9vX2Kz7flxOaGqWw3W/XuaUtR1cAGpaQjVOisvTlylrHOTfeIZzD6TXnzOJHKy3o
+ k+7RnpBv9wg4+XJJr3tvmGXGS4eqOxzcwQ08WpOIay5QjLmbH7lkSXMbUfPIKw==
+Date: Tue, 28 Jul 2026 17:46:21 +0800
+Mime-Version: 1.0
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Subject: [PATCH v2 0/6] Add workarounds for Picoheart erratas
+Received: from G9WYR9K0VW.bytedance.net ([58.250.106.101]) by smtp.feishu.cn with ESMTPS; Tue, 28 Jul 2026 17:46:29 +0800
+To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
+	<linux-riscv@lists.infradead.org>
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+X-Mailer: git-send-email 2.50.1
+Cc: <wangruikang@iscas.ac.cn>, <ganboing@gmail.com>, 
+	<geshijian@picoheart.com>, <niehaitao@picoheart.com>, 
+	<cuiyunhui@bytedance.com>, <yang.yicong@picoheart.com>
+Message-Id: <20260728094627.94975-1-yang.yicong@picoheart.com>
+X-Lms-Return-Path: <lba+26a687a76+fd1635+lists.infradead.org+yang.yicong@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_023829_477024_50231C38 
-X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-CacheID: sfid-20260728_024642_186707_3B3AF80A 
+X-CRM114-Status: UNSURE (   8.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,70 +71,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 4785aa802853 ("cpuidle, ACPI: Evaluate LPI arch_flags for
-broadcast timer") replaced the generic nonzero check for LPI
-architectural context loss flags with arch_get_idle_state_flags().
-RISC-V does not implement the helper, so it falls back to the stub
-that returns 0. Consequently, CPUIDLE_FLAG_TIMER_STOP is not set when
-an LPI state loses the hart timer context, preventing cpuidle from
-using a broadcast timer for that state.
+This series add basic errata framework for Picoheart SoCs for handling
+upcoming Picoheart erratas. And add workarounds for the first two
+erratas on our hardware. Also do some fixups and refactor in support
+of the erratas.
 
-Implement the RISC-V helper and map the hart timer context loss flag
-to CPUIDLE_FLAG_TIMER_STOP.
+Change since v1:
+- factor out a common get_insn for reading userspace instructions
+- fix the issue from reading instructions of a exec-only mapping
+- cleanups and code style refinements per comments
+Link: https://lore.kernel.org/linux-riscv/20260715084724.26578-1-yang.yicong@picoheart.com/
 
-Fixes: 4785aa802853 ("cpuidle, ACPI: Evaluate LPI arch_flags for broadcast timer")
-Cc: stable@vger.kernel.org
-Signed-off-by: Peixin Xie <peixin.xie@linux.spacemit.com>
----
- arch/riscv/include/asm/acpi.h | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+Yicong Yang (6):
+  riscv: Make get_insn public for instruction fault handling
+  riscv: insn: Set sstatus.MXR when reading userspace instruction
+  riscv: insn: Support decoding of CBO instructions
+  riscv: errata: Add init framework for picoheart errata
+  riscv: errata: picoheart: Add workaround for cbo.clean errata
+  riscv: errata: picoheart: Add workaround for AMOCASQ errata
 
-diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index 26ab37c171bc..3a3da834c340 100644
---- a/arch/riscv/include/asm/acpi.h
-+++ b/arch/riscv/include/asm/acpi.h
-@@ -12,6 +12,8 @@
- #ifndef _ASM_ACPI_H
- #define _ASM_ACPI_H
- 
-+#include <linux/cpuidle.h>
-+
- /* Basic configuration for ACPI */
- #ifdef CONFIG_ACPI
- 
-@@ -67,6 +69,23 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
- 
- void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
- 			     u32 *cboz_size, u32 *cbop_size);
-+
-+/*
-+ * RISC-V Functional Fixed Hardware Specification Version v1.0.1
-+ * Table 4: LPI Arch. Context Lost Flags
-+ */
-+#define RISCV_LPI_HART_TIMER_CTXT_LOST		BIT(0)
-+
-+static inline unsigned int arch_get_idle_state_flags(u32 arch_flags)
-+{
-+	if (arch_flags & RISCV_LPI_HART_TIMER_CTXT_LOST)
-+		return CPUIDLE_FLAG_TIMER_STOP;
-+
-+	return 0;
-+}
-+
-+#define arch_get_idle_state_flags arch_get_idle_state_flags
-+
- #else
- static inline void acpi_init_rintc_map(void) { }
- static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
+ arch/riscv/Kconfig.errata                    |  34 +++
+ arch/riscv/errata/Makefile                   |   1 +
+ arch/riscv/errata/picoheart/Makefile         |   5 +
+ arch/riscv/errata/picoheart/errata.c         | 238 +++++++++++++++++++
+ arch/riscv/include/asm/alternative.h         |   3 +
+ arch/riscv/include/asm/cmpxchg.h             |   2 +-
+ arch/riscv/include/asm/cpufeature.h          |   8 +
+ arch/riscv/include/asm/csr.h                 |   1 +
+ arch/riscv/include/asm/errata_list.h         |  25 +-
+ arch/riscv/include/asm/errata_list_vendors.h |   4 +
+ arch/riscv/include/asm/insn.h                |  63 ++++-
+ arch/riscv/include/asm/processor.h           |   2 +-
+ arch/riscv/include/asm/vendorid_list.h       |   1 +
+ arch/riscv/kernel/alternative.c              |   5 +
+ arch/riscv/kernel/asm-offsets.c              |   6 +-
+ arch/riscv/kernel/cpufeature.c               |  16 +-
+ arch/riscv/kernel/entry.S                    |  14 +-
+ arch/riscv/kernel/traps.c                    |   4 +
+ arch/riscv/kernel/traps_misaligned.c         |  52 ----
+ arch/riscv/kernel/vector.c                   |   6 +-
+ 20 files changed, 419 insertions(+), 71 deletions(-)
+ create mode 100644 arch/riscv/errata/picoheart/Makefile
+ create mode 100644 arch/riscv/errata/picoheart/errata.c
 
----
-base-commit: 1d6f0a217c662693d2307ee06851cb4bfcbf9529
-change-id: 20260727-riscv-acpi-lpi-timer-6f1739a6c831
-
-Best regards,
---  
-Peixin Xie <peixin.xie@linux.spacemit.com>
-
+-- 
+2.50.1 (Apple Git-155)
 
 _______________________________________________
 linux-riscv mailing list
