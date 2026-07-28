@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E87C53219
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 11:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC298C53219
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 11:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LIhIu0fNV/9ny80zr+KXuvg5Ye+t4quQQCZ9zjKsErk=; b=ayHXJ6i4bgmx5x
-	ryOmmUqz0ylGi/+kV/UBJ89tPuaHliq4S2hCDQgiyFZQkz8tFezkSpyAXF3HQKvEkcjha2zPQTRyB
-	efE6eVXgqJftg/aZz97159V72RTFVzDf8vJjgGyCZOsnWOlMOhh8RzKC5tOoZf4OMj9lxnusJ2Ys3
-	9IFM0T+pr4bLeU0trLOqeOm1S8RDgMmwBBcvjk+qkOqE/lrrmORhQ8vB3+sj2txaEndyios1H5Mgv
-	UIRG7jGdR0lSsukn5yWX+ix7G+zz2Lh7ofyHqCeyH5Zb8eDyfRhZi0X59ZYGNUpSzn70ZRP9vaymh
-	9bISBwoyu3TSDbmL6Npw==;
+	List-Owner; bh=maWblVofLSvdYtO//7317FIeGtDq8ok84daL4uXThig=; b=Ii/DESoXz42y4t
+	rzP/LT+AStqKnSTYalr34zQZ7OHZgN3tun+BhGNAXXWbb/vgOz7fpAZit7Dex64cKkJlaJbmT4Zvy
+	Noj2tS2PCNuJE4KkJo3VTbPM3OvsWEuj/JoJFjdLLDFpcdfbIVpnYOlKWubSNCGFAuXSBm5MclNXc
+	e0xdSJYAJS22MDNuT02BV7YvV5K3zCmXOUiiTqVnsKWpKB5aB4+TQez+zmxXjf1LseV0DhkUjxnOd
+	tE/hR08M27z6WZ1YXwLglQvUnJNTsjy9g4/UVu1DIGV6sLB5Tp8ss/b5PuQvlJsThkTwH+CK0wJLh
+	tNTOnzjAZqIzUEMzQO2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wog1r-00000005582-2Q6d;
-	Tue, 28 Jul 2026 11:31:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wog5m-000000055gY-1AeI;
+	Tue, 28 Jul 2026 11:35:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wog1q-0000000557w-2VnY
+	id 1wog5k-000000055gI-2rnk
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jul 2026 11:31:22 +0000
+	Tue, 28 Jul 2026 11:35:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F4A541E63;
-	Tue, 28 Jul 2026 11:31:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F6ED1F000E9;
-	Tue, 28 Jul 2026 11:31:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 51A5B60AA2;
+	Tue, 28 Jul 2026 11:35:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C258D1F000E9;
+	Tue, 28 Jul 2026 11:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785238280;
-	bh=/5/caRe3ZcVfEMk0Kh5LSH6IafAiN5eUy+1jfGZrCU0=;
+	s=k20260515; t=1785238522;
+	bh=axEZ2Aob5cBDcWuDLyKoSqcIBQS9SM5ZIXUN2NCp+T0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jJgQc7YeAN9KYM4G4ymJIKnpULPieJt8h9uDbLNYDlMW+eriAs3710n6Q67jOqJ44
-	 Z+KQ6T2b7TFvyb87eOpj78cVTkVg43rYn2XF4LxyvApsNoIIGsUtA4wF80sMvZ57N+
-	 SlR/J2bX19Hcfwtz7HTRRXSl83qS8xabn7AU0e4/SJeluqFO1KmXAyPwjMpbqdS/m4
-	 lVjzXNomXLfowUWiE0/murGUaU3h+gSQERbU2LYTDTAbZLLZU3dCs7aTpa6VQHQee0
-	 ZgdxkiR3Ha3jaw4zQU5S2Z3RBZXLA7Cylhsct/d+z1KLVoYyOKoAWNQK1wUnZtBISG
-	 dI2K4B2/lNjEA==
+	b=IexCSttaoO1o+rsGRngGTaMZY9Irv02It4M3XzJdclIu5U/CKjtK2RjlW5yIRVZj1
+	 N+N86u/mqZ0OovdYbsuvCkn5pmcqcPT5vhkTJ8Jcmo+ZOW1NDJAbbASqGRgX2DZqwO
+	 aeysS/iHKo03xgQyfhzJwz60vAOFFwWIdCbcO1K5RMn+BFutgrplCAq2iCYqIaJHgK
+	 TPzIcNFq1PH6Um2D2r7C4M8c+7IE75Vo3Yjd/jhCr0LegTha2ms71y5GHyDCEK0ib5
+	 KCun6JpMMakJZCM40SoMz/YWPn/quZUWUx9iSHy2X4cDquU0eOTjGN8yb+DUHEqiL7
+	 ZPm1knJ6XrXUQ==
 From: Yixun Lan <dlan@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -50,24 +50,19 @@ To: Rob Herring <robh@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Guodong Xu <guodong@riscstar.com>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Junhui Liu <junhui.liu@pigmoral.tech>
+	Inochi Amaoto <inochiama@gmail.com>
 Cc: Yixun Lan <dlan@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Subject: Re: [PATCH v3 0/3] spacemit: k1: Add support for Banana Pi BPI-CM6 IO board
-Date: Tue, 28 Jul 2026 11:31:11 +0000
-Message-ID: <178523813343.622718.11560262898938675370.b4-ty@b4>
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 1/2] riscv: dts: spacemit: Add enough deassert time for the PHY on PICO ITX
+Date: Tue, 28 Jul 2026 11:35:15 +0000
+Message-ID: <178523844266.623919.7131430665750899115.b4-ty@b4>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260712-bpi-cm6-v3-0-8d1e2045179d@pigmoral.tech>
-References: <20260712-bpi-cm6-v3-0-8d1e2045179d@pigmoral.tech>
+In-Reply-To: <20260710063314.1030249-1-inochiama@gmail.com>
+References: <20260710063314.1030249-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,30 +81,16 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 12 Jul 2026 12:00:00 +0800, Junhui Liu wrote:
-> This adds initial support for the Banana Pi BPI-CM6 IO board. The
-> BPI-CM6 is an industrial-grade RISC-V compute module powered by the
-> SpacemiT K1 SoC, featuring board-to-board connectors similar to the
-> Raspberry Pi CM4 form factor. For evaluation and development, the module
-> is paired with a companion IO carrier board.
-> 
-> During the board bring-up, GPIO45 and GPIO46 were found to be used by
-> the BPI-CM6 hardware as Ethernet PHY reset GPIOs, while the common K1
-> GMAC pinctrl groups currently mux them as optional GMAC reference clock
-> pins. Since the reference clock pins are not required on all K1 boards,
-> the second patch separates them into independent pinctrl groups so board
-> DTS files can select them only when the signal is actually wired.
-> 
-> [...]
+On Fri, 10 Jul 2026 14:33:12 +0800, Inochi Amaoto wrote:
+> RTL8211F require at least 50ms deassert to guarantee the register
+> access, 10ms is only enough for the PHY reset.
 
 Applied, thanks!
 
-[1/3] dt-bindings: riscv: spacemit: Add Banana Pi BPI-CM6 compatible
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=c5b108626dc5f21c34cf5119c6f5e0cd7561daa8
-[2/3] riscv: dts: spacemit: k1: Split gmac_clk_ref into independent pinctrl groups
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=8270311d70fdf36bc8aab1e52b554e654a8839ff
-[3/3] riscv: dts: spacemit: k1: Add Banana Pi BPI-CM6 IO board
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=46a8c01700ac21e1b83385df00aa0baa5d287b44
+[1/2] riscv: dts: spacemit: Add enough deassert time for the PHY on PICO ITX
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=a225e19a4cc4e040ca0389cf0bbe209c23f5c92d
+[2/2] riscv: dts: spacemit: Add enough deassert time for the PHY on com260 board
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=12b0d602e8642297ec369eeb99366d37c8a3a120
 
 Best regards,
 -- 
