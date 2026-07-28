@@ -4,97 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E30C53219
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 16:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F04C53219
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 16:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Dga6ziXXWh0use9E10JSgN0TCCWz3kVLH5QYc9N1AQ4=; b=bCga2GjItO4ZOy
-	LzNlQ/yB7Said+jqTzfMcFfq1Tqmy6hKiMvtAIYsrOjeUdYlKT+n/VPcrXfhgwkf7oxmsDDY3lcmn
-	2b7rvB/slNHN0qd67/+3JlrqODraJXu54nisxqhCKo2zOgpd0O8RDdKVb3ldCRuPI0wcerPJ2Sjkw
-	X8XgJNgrpl7qy046QCJErFyrFthc+Q8T9Qnwxu8XVE2peqZ4x9zY/UngwzArrfd8ZMrPHJ8OELPwQ
-	oZdiPDepM+YvW2hnaw986M9einRnglgI6ufi+c/RhAbmHgx4XLCnvCvV1HkL/G+YJ+rXLZQnE6PmB
-	VlpiBZr/CeXl2dQUXpiQ==;
+	List-Owner; bh=d5bdiiG2z6GAU60kboH5RVCWKJsGCkf1QUM+UB0GGww=; b=ERlEkYDG++Nzl2
+	mxX19vp6lLRQc+7mKqWxhQzx1z3eT8rsR6tf2i3cb2LFTid4uK+StSOKUXAOPsHwFOiY5Suhqmbvw
+	r4lY3++cCAYYMrykP3fmQx2CdPG1BaUPrsFOJJulHm0+DvsutwG3ns8aeDtZ+udZET7oCKTZ/nq+I
+	InEkdOf0BHZUvqFGK0cRdzT9B2RF67IEx0Wc/vrLhvb80EwVNbtaJX+j5CcnNAdORSUjNdezV1lU/
+	Da0aPTBHEXCmtzPybaZNnS79kdA7shHwlwqIxVFAvR1P9tmDlw0paIqhngqCW8S19DsCqDjs7QxTb
+	Pc0gwTeD2uyjlMHwPTQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokrw-00000005qvt-1jnX;
-	Tue, 28 Jul 2026 16:41:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wokt7-00000005r6D-2Wyc;
+	Tue, 28 Jul 2026 16:42:41 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokrv-00000005qvU-1SHG
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 28 Jul 2026 16:41:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=6XiCb3evbpJrCfe6+gAZAYoNBFBzKa5QdpNuV3NP9Ao=; b=hxHXjpxrAqIfj0sJvGzAWyVGjh
-	ZE7zdAqXpwANtbVDVxzhX1GFccGQ4xxUld4FhAbErc/SXXvF2YpjtTBQQHmqncDBJ6YyDuOYGOeuy
-	A5oJe/dZGrKnlZr8Rd9t9/IKqBJ3Sw+nwPk/QySgvREm4ZiHDbbtgkzx8+5MGjb+VYz3iccEBlzoy
-	29DDIUDkQgXlKlvMrFC/hIkYne1MaEF0YYwNQk4yv8TJdT4JsiNchGex+Y7t6wH5pJ2hpJm7+xhjc
-	cfV2STqRyW0dleE0CDmb/tW47Ft82RH/t0YrfLOyFnkuLTWDlFRfNdtCd72U+J/5GZXRQrXfDqUsy
-	NM1zuQig==;
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wokrr-000000057xW-2kTq
+	id 1wokt4-00000005r56-46iM
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jul 2026 16:41:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1785256875; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ODQU9J8WquXICZDIDUqri1aGzugYN1IgEo8gXefLQk2VCj3ywRKyi+H0bK18c2TJ7vd5WRPS2A0Q0WEQky/AK5TbBlFo9WeniKj+2HZAVmDdSzGv2JMdpaGAMuDR0Cn4/CtxJyVlBbN8cytBXg4h3ewLYyQR/JWy/BXrSxsycLI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1785256875; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=6XiCb3evbpJrCfe6+gAZAYoNBFBzKa5QdpNuV3NP9Ao=; 
-	b=Yl1epMAc0V9MDm9eRby5Yl/+ssAWK3xpIfGyblvSX9jAG9+SNor9/I0IPOmSwkxrCCltJOzbPNxmv6fn1drBMbxfuKzDB3CwgyaGuJpZtyQk7k0L4qVrv25TAlpbqQ6x/DJuUgcxyc71904KqF5zQrD2MNoGjw4jNyKTYJRI8Jk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785256875;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
-	bh=6XiCb3evbpJrCfe6+gAZAYoNBFBzKa5QdpNuV3NP9Ao=;
-	b=YvUN7Plmsr0Pczl17igM7no3ZSrGEVzP6U++iGaKF9lTo6z+9SUVAx9QhunNT/fq
-	IDI/On5ulNUW+x+Fc/qv4qNTXva9/U0AdopxQEyGsHyngFIRHKDECIavQNG+pJexlTl
-	G8KkvZM9SXR1Q3JO6KFu5QrDbNSuWCb4gMYipvTc=
-Received: by mx.zohomail.com with SMTPS id 1785256872287716.7797613609929;
-	Tue, 28 Jul 2026 09:41:12 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Wed, 29 Jul 2026 00:40:15 +0800
-Subject: [PATCH] riscv: dts: spacemit: k3: Drop guest properties from
- M-level IMSIC
+	Tue, 28 Jul 2026 16:42:40 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c1f758014b8so3272166b.3
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Jul 2026 09:42:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785256956; cv=none;
+        d=google.com; s=arc-20260327;
+        b=s4TDTcOGXxVEKZqnlVpp3WfUiRoc6tK4KGsDlRCpr2m1vRGKajTzGpmkm/J3ZNHzxp
+         m19B/o8dWWgE1MQ70V37qJo+2wukpxXkMEtU2qiMg9Ltf/EgMcO5q5wsRpj1uTd0p5ma
+         dm7eRvgYgfs3vENk+tnX/YxtRMusqbqAX/1eBRyPkHnuObP5k1m9hVmUwJ/QumppHKGX
+         NXsE7Au2wXNV6r+8vxl0O3OHXKuw4WN3EXV+qpvqiznhVa2sTe2zuujolGZaX9TU70MF
+         LNXJ473cmssgxbaJPP4y+ewh6dDhuhH0fD1eV8u4rWQ14QccPD5pMGn2hB2tN9Sz2o2B
+         weqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=eRawWXBOm1UVfqgMPk0g+KIpk+hFbB2MCDRZOUgVRNU=;
+        fh=DlpUWULucbtblqk1DAq3I+YjCaRGR3Vo0nd6y6O9AGw=;
+        b=Dp66bLim7HaxjZ8BJpjsReC79TKFlmRFIZkyMFYT5Xw/FtQAit0NPlNYKwNZtKoBSH
+         pp50ODaXE7BqHmT64HPnu2CLiGOBXBZ4jIcLmlumFxGAq9P+xcfVH2uS9hFC7EoL0HLb
+         nXD2UbQpSuIPKHR0LyHR2I0PM8wRp7f8iNBhrQ21Z2V2oSnwnAsIIoweYTFahIWdPUh+
+         4OWLOq/Ka3FRSmJQGi/jKRbi0AsJ2rOkubQtVEmSKWuPkrlASyAr3WtgvdYdDFg2oRNl
+         rknJtPG2G5hdNfpsS1qCpZvjZJ3WMOPj44/zEEYAFxQB5rhkxfrxsQnsrHtDlMADAp0o
+         duUw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785256956; x=1785861756; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eRawWXBOm1UVfqgMPk0g+KIpk+hFbB2MCDRZOUgVRNU=;
+        b=qHASxXhKkKAbhxngeYDQ0AeCQBd3qEmQUSQDQ4SAQfFG0yNaS/6pQ3hARYCcYPHm4E
+         9WJDi4Um7wcdgnvPb6v8LQmlBmd6A22Xv9eg5T0xq+8Z2Dp1K7RR6kMzHMQ1CvC90L+2
+         uz7uAl0kuHV0YKCWd6zS7tQFt0T8D5E7m3nYbKhUwTLs4x3AEDD/wgMilvPuXwk2Oidz
+         BE+6PVb9PZqRZ+3iYzt6wAQbqzr801BNIaKl+9yuVenv07EOmPE5AU5nG5awE2mvYiZT
+         qy3Z6TUIg3YBZPCKXU5Nhq6bd+e9vvZco5Mx9oFlTaNFzWrilGBv6cjAT9+eScCpLS5S
+         ch2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785256956; x=1785861756;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=eRawWXBOm1UVfqgMPk0g+KIpk+hFbB2MCDRZOUgVRNU=;
+        b=dATAJxrqo7wPMfJnTbPuTkKOo4/TmbGS6VJvPcWrgIlx9N15Or6F+iAwRJbqrA4t5T
+         VdpouHmac7UFHG2RN1Oz0FS3Y6Qm74SU2/q5LjaEZwxz1SEqJsfAjQPXAmIgUuVLIpPc
+         W2Ikx0oNWulVitsZW+Jp2pmSsfdedpSCF6IvPUIb1x00dj3w1rvE1wV3CQ7JKatAfYB/
+         umKHMPlH1OU+cT6YdJBHHXCMuvC7i6tgby8xvHbR/7Eg7RkirTMgVrNbiCiZsnWUnRY8
+         NkO9waYu0Nd5C1WXDQkR1WoKjEtvDnxaYctESsXARkm+BLDVx/Y9fyLxLtk/LJrnOt0f
+         NUYQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqOac6r2XtO7iVjwy6zG6UDDgHERPI0Lu38CMHxnyCEsVNmt/RIrt783l13VNEVQIBZ2UM/8wTtJP0nlQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRxTDx1wQmHRcadw+uAhkkx66nPYA+elhHLLhqa4NdnTuJH6ca
+	8Ce7IUm1xOCKcxW5YTCuSHkBVq8T4SVK9lTf58R6k+MCufqVXKoFooMY3F9hQtpcc6ktEy27Pvu
+	yFWX46lY26CJPY8ciSuWiW8oYRp1aQvij
+X-Gm-Gg: AR+sD13o+aATWufiC5PW/HVVtZrk2DsA1E/zmlmrtCe/PT6LJShBCO0SvuMnRgoY0A6
+	jiUTI3SMVTByf5rxBwWLaeKVTRqvScnpXjXNkCXOV1djZdr+6qr7liXlt2K9ijVyEmc44dGjK7Z
+	SnDiurTST9jIJUNHCF3pjQXzjtsaOZ8hy6nmGbtuYFbG3ywcMkEjYdRw4cRE0tP7WUiBJKPKpM8
+	c9hhqX+Sb08Mlyj5YM+z4JDaS3gnxMp+kGZWhAXl37h0UJ6zv53ZvjBcT3imSF4u+jsIudJwNxJ
+	OcNzWqeOzLgO4xJ/4y2ITtanL4oNi3XwiWPXBUNnMezhMsrng5PVaX1le/KVkKQAB3FfrEdKcnL
+	3OtKE0D4=
+X-Received: by 2002:a17:907:a04:b0:c16:2d90:68a7 with SMTP id
+ a640c23a62f3a-c1f71e568ffmr173688366b.26.1785256956205; Tue, 28 Jul 2026
+ 09:42:36 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20260729-k3-mimsic-fix-v1-1-368c0aec04b9@pigmoral.tech>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDcyNL3Wxj3dzM3OLMZN20zApdM0ODlCSL5MRE4+QUJaCegqJUoDDYvOh
- YCL+4NCkrNbkEZIhSbS0AYbws5HEAAAA=
-X-Change-ID: 20260729-k3-mimsic-fix-610db8caa3cd
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Guodong Xu <guodong@riscstar.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Junhui Liu <junhui.liu@pigmoral.tech>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2057;
- i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
- bh=tNg5fQbD/+z6GIaSXIU1W+5GhX2fSWegOJzAhmVQZ8U=;
- b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLIybs+78Ud+EvO72WcCphxWvSmz3D7gv3tEw2fd36vET
- h0T8buU2lHKwiDGxSArpsjC5S/+z1qH59sRgdb7MHNYmUCGMHBxCsBE7ncxMqzPXykqFnC8MkW+
- x31P9tSWdxcTVp3WEf+8Y+nC1yl+M34yMvSGnxZ4kMWXHfdI4RnzQz1vvRATlrRPi8u3OKzew/Z
- 5OicA
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
- fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
-X-ZohoMailClient: External
+From: Myeonghun Pak <mhun512@gmail.com>
+Date: Wed, 29 Jul 2026 01:42:24 +0900
+X-Gm-Features: AUfX_mzY5IhTWpi5crtF8mrU7J89TXc4_WGd_VuJLT6iuHP5tbvLAPaufRqw2FM
+Message-ID: <CAGEsz8GNHFCOZ=-_y56rK1aX+Ze7w8qVqZSQ-OuGo_dPC4bXCw@mail.gmail.com>
+Subject: [PATCH] RISC-V: KVM: Synchronize hrtimer callback during teardown
+To: anup@brainfault.org
+Cc: atish.patra@linux.dev, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, security@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_174124_118857_4975C073 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_094239_054335_2A7EC928 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,55 +113,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The mimsic node describes the machine-level IMSIC, whose MMIO region is
-0x10000 (64 KiB) for all 8 harts. However, the node also specifies
-riscv,guest-index-bits = <6>, and per the AIA specification the
-per-hart stride is 2^(guest-index-bits + 12) bytes when guest interrupt
-files exist, i.e. 2^(6 + 12) = 256 KiB per hart and 2 MiB for all 8
-harts. The described region cannot hold even a single hart's files, so
-the node contradicts itself. OpenSBI enforces exactly this constraint in
-imsic_data_check() and rejects the node with -EINVAL, preventing the
-M-level IMSIC from initializing:
+The non-Sstc hrtimer callback clears next_set before its final uses of
+the enclosing vCPU.  If teardown observes next_set as false while the
+callback is still running, kvm_riscv_vcpu_timer_cancel() skips
+hrtimer_cancel() and kvm_destroy_vcpus() can free the vCPU before the
+callback enters kvm_riscv_vcpu_set_interrupt().
 
-  fdt_driver_init_by_offset: interrupt-controller@f1000000 (riscv,imsics) init failed: -3
-  init_coldboot: irqchip init failed (error -3)
+A guest can arm the timer with SBI TIME and request shutdown with SBI
+legacy shutdown or SRST.  A VMM that honors KVM_EXIT_SYSTEM_EVENT and
+destroys the VM supplies the teardown side of the race; no post-launch
+host ioctl is needed to arm or request teardown.
 
-Moreover, guest interrupt files exist to act as the supervisor-level
-interrupt files of virtual harts; there is no machine-level counterpart.
-riscv,num-guest-ids is equally meaningless for the machine-level IMSIC.
+On upstream master 62cc90241548, generic KASAN reported:
 
-Drop both "riscv,guest-index-bits" and "riscv,num-guest-ids" properties
-from the mimsic node so the node matches the actual hardware layout.
+  BUG: KASAN: slab-use-after-free in do_raw_spin_lock
+  Write of size 4 at addr ff60000005e58898
 
-Fixes: 56f37e391a62 ("riscv: dts: spacemit: add initial support for K3 SoC")
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+  kvm_riscv_vcpu_set_interrupt
+  kvm_riscv_vcpu_hrtimer_expired
+  __hrtimer_run_queues
+  hrtimer_interrupt
+
+The object was allocated by KVM_CREATE_VCPU and freed concurrently by:
+
+  kvm_destroy_vcpus
+  kvm_arch_destroy_vm
+  kvm_destroy_vm
+  __fput
+
+For deterministic validation, I added mdelay(1000) immediately after
+the existing next_set = false assignment.  This only widens the
+existing post-clear callback window.  A no-delay trace build naturally
+reached the callback-after-teardown-start/before-deinit ordering in 12
+of 200 runs, but 1,500 stock-kernel stress iterations did not produce a
+KASAN report, so natural reproduction is timing-sensitive.
+
+Always invoke hrtimer_cancel() for an initialized timer.  Preserve the
+existing -EINVAL result when the timer is no longer set, but only after
+synchronizing with a running callback.
+
+With this patch, hrtimer_cancel() blocked for the full widened callback
+window before vCPU destruction.  KASAN reported no error in 100
+fixed-and-widened runs or 200 fix-only timing-sweep runs.
+
+Fixes: 3a9f66cb25e1 ("RISC-V: KVM: Add timer functionality")
+Cc: stable@vger.kernel.org
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 ---
- arch/riscv/boot/dts/spacemit/k3.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+ arch/riscv/kvm/vcpu_timer.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-index c3f2dce0969c..2d022e1364f1 100644
---- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-@@ -1287,9 +1287,7 @@ mimsic: interrupt-controller@f1000000 {
- 					      <&cpu4_intc 11>, <&cpu5_intc 11>,
- 					      <&cpu6_intc 11>, <&cpu7_intc 11>;
- 			msi-controller;
--			riscv,guest-index-bits = <6>;
- 			riscv,hart-index-bits = <4>;
--			riscv,num-guest-ids = <511>;
- 			riscv,num-ids = <511>;
- 			status = "reserved";
- 		};
+AI disclosure: I used AI assistance during the audit and am treating the
+issue as public as required by Documentation/process/security-bugs.rst.
+The reproducer and full KASAN trace have not been posted publicly and
+are available on request.
 
----
-base-commit: 46380e4b1534c1626cecd7f4d0abb5e0cce09af6
-change-id: 20260729-k3-mimsic-fix-610db8caa3cd
+diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
+index ae53133c7ab0..a2cd277a4059 100644
+--- a/arch/riscv/kvm/vcpu_timer.c
++++ b/arch/riscv/kvm/vcpu_timer.c
+@@ -61,10 +61,13 @@ static enum hrtimer_restart
+kvm_riscv_vcpu_hrtimer_expired(struct hrtimer *h)
 
-Best regards,
---  
-Junhui Liu <junhui.liu@pigmoral.tech>
+ static int kvm_riscv_vcpu_timer_cancel(struct kvm_vcpu_timer *t)
+ {
+-       if (!t->init_done || !t->next_set)
++       if (!t->init_done)
+                return -EINVAL;
 
+        hrtimer_cancel(&t->hrt);
++
++       if (!t->next_set)
++               return -EINVAL;
+        t->next_set = false;
+
+        return 0;
+--
+2.47.2
 
 _______________________________________________
 linux-riscv mailing list
