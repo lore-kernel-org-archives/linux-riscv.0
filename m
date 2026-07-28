@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 487FEC54F4C
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 14:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E2AC54F4D
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 14:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Date:Message-Id:To:From:Cc:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZPNoY/I8KpBv2yiv1BZpaBD0mEpDGg2Hpm8kRdVg8jY=; b=JPat5ckh6/xWjW
-	A4oYSvTFzfLSE16F7DQz78PaXDCg5Sv3bUCRfp5FAjlhUzICx+z3yFXZ2zEXGmAbWJQgABpHJqUMW
-	DUlleP5bwJLTZBrc59TRnae8cabEf9H2cTdoqev0V1IP267ldUWciQjkPSx1g5jQb7QaZ/ZF2sLIp
-	CVc7ynuVrjK+0oyUf21CE3q9x3kPXDnU9HAB/DlbcPd9akHIzv1X4dNZm7rrXFKQNlffrCkVbVOVz
-	iQWTwJfF5o67rdMh782wdx9szGL5oiPiEO/RyY6F5n9MzjG1O+GtOdXgWvfVEqo7yBL2pVrn6VHWU
-	pPWkMY3sq4JAPJyAJ0WQ==;
+	List-Owner; bh=2D9eZ3TYQtiKhI9/pxjvA0r5MPJGPr8HnAQZwx5g5eY=; b=0JLKXJzLiByKhL
+	AsxGYBfzNxdynhoDfw+5W8Qs4aHblQSH32IXKkURjkDapL/4Xa2E7sy8WC5qBop1KLPhlVRl9rab4
+	joX6L4jZhOgduRRC5Twxawyl9R+QY77ZUTt3+ac4kv3JDCQhuE6kLGPIslwbEiuaFHxnXjZ7aiDtn
+	1ENUQOghUVcneSamKsL78EVBYyRkkkqG0DxOo/Pw5/4Y425naP0b99nuxmHFOFoRFZNqhZ5NgrG3C
+	qetO2kIQaJHxOyTBQsvyMR2fDPHNI4bnc9nTlL+xxhiSzqcqmqRfZIOkBkIfrWRp+PF+hYpqKIHmT
+	+4LtuHF49v/xwgdAif2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woic0-00000005Ruy-02np;
-	Tue, 28 Jul 2026 14:16:52 +0000
-Received: from out28-123.mail.aliyun.com ([115.124.28.123])
+	id 1woiez-00000005SRn-2JyI;
+	Tue, 28 Jul 2026 14:19:57 +0000
+Received: from va-2-30.ptr.blmpb.com ([209.127.231.30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woibw-00000005Ru7-1XX0
+	id 1woiex-00000005SQi-241y
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jul 2026 14:16:50 +0000
-X-Alimail-AntiSpam: AC=CONTINUE;BC=0.0744582|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0077261-0.0014522-0.990822;FP=2580275551777208554|1|1|1|0|-1|-1|-1;HT=maildocker-contentspam033045213054;MF=mingfeng.lin@redrisc.com;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.iXVrDu6_1785248193;
-Received: from open01.kxhcluster.com(mailfrom:mingfeng.lin@redrisc.com fp:SMTPD_---.iXVrDu6_1785248193 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Tue, 28 Jul 2026 22:16:39 +0800
-From: Mingfeng Lin <mingfeng.lin@redrisc.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org
-Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	kasan-dev@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	Mingfeng Lin <mingfeng.lin@redrisc.com>
-Subject: [RFC PATCH] riscv: kasan: Flush TLB after switching to temporary page table
-Date: Tue, 28 Jul 2026 22:16:30 +0800
-Message-ID: <20260728141630.1635367-1-mingfeng.lin@redrisc.com>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
+	Tue, 28 Jul 2026 14:19:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604151535; d=picoheart.com; t=1785248383; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=2UCihU+MCaax0FeQAXnlhj+j6M+P2AospgTMIpa496A=;
+ b=BCXiUbL85ahQOBwNKEuMrGkrgQO5sUnqIFRw4B2JXiuKOwSzRRgXyDSLNBWbV2p4pRc609
+ AZgEZByjnO1eHh95BHOe1v5n3eVAzFquns4VPie4owpnFuuF96imZfR1AQff2/qKEQK/5S
+ BYqJwEoKIHvii/JtTwwPfZEiXHYKAHe58u0ndnvmlFwy3OlPNb95FCzsKdsJLo+GnU3nxg
+ eDDEG76C5O3C2U11dMzxrOEQmiitsExVqtkH9rzffQlpYedzBUOXzEg36Z7iQP/xWyvEOu
+ vSbIRJO6rMrpGroy+YCjubNYBBhgVA/G6lyhGR7ngHRX5JJsfKbX3Alqkuw3JA==
+Mime-Version: 1.0
+Received: from G9WYR9K0VW.bytedance.net ([61.141.241.117]) by smtp.feishu.cn with ESMTPS; Tue, 28 Jul 2026 22:19:41 +0800
+Cc: <geshijian@picoheart.com>, <shenyang.young@picoheart.com>, 
+	<yang.yicong@picoheart.com>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+X-Mailer: git-send-email 2.50.1
+To: <anup@brainfault.org>, <atish.patra@linux.dev>, <pjw@kernel.org>, 
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>
+Message-Id: <20260728141938.95845-1-yang.yicong@picoheart.com>
+Date: Tue, 28 Jul 2026 22:19:38 +0800
+X-Lms-Return-Path: <lba+26a68ba7d+020658+lists.infradead.org+yang.yicong@picoheart.com>
+Subject: [PATCH] RISC-V: KVM: Use try_cmpxchg for IMSIC MRIF RMW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_071648_572389_404623F3 
-X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-CacheID: sfid-20260728_071955_590185_20D67944 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,50 +71,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kasan_init() switches satp to tmp_pg_dir before clearing the early
-KASAN mappings from swapper_pg_dir. Both page-table roots use ASID 0.
+Currently the RMW for IMSIC MRIF is implemented with
+word LRSC loop. This will only cover the lower 32bit
+on a 64bit system. Instead of guard the implementation
+with CONFIG_64BIT here, use try_cmpxchg() wrapper
+which has already take care this to fix this issue.
+It can also use AMO instructions on supported system.
 
-A write to satp neither invalidates address-translation caches nor
-orders page-table updates with subsequent address translations. An
-out-of-order implementation can have speculative memory accesses and
-their page-table walks in flight when satp is written. Without an
-SFENCE.VMA after the switch, such a walk can complete later and install
-a translation derived from swapper_pg_dir while that page table is being
-cleared.
-
-This is especially problematic with KASAN. Compiler-inserted checks read
-KASAN shadow memory before ordinary accesses. If an obsolete or faulting
-translation for the shadow is installed, the shadow load raises a page
-fault. The RISC-V page-fault handler is itself KASAN-instrumented, so it
-performs another shadow access before it can handle the original fault.
-The same bad translation can therefore cause recursive page faults and
-prevent kasan_init() from reaching the final satp switch and TLB flush.
-
-Flush the local TLB after installing tmp_pg_dir and before clearing
-swapper_pg_dir. This also orders the writes that initialized tmp_pg_dir
-before subsequent implicit page-table accesses.
-
-Fixes: 96f9d4daf745 ("riscv: Rework kasan population functions")
-Signed-off-by: Mingfeng Lin <mingfeng.lin@redrisc.com>
+Fixes: db8b7e97d613 ("RISC-V: KVM: Add in-kernel virtualization of AIA IMSIC")
+Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
 ---
- arch/riscv/mm/kasan_init.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/kvm/aia_imsic.c | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
 
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index c4a2a9e5586e..a2a1051590e3 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -487,6 +487,7 @@ void __init kasan_init(void)
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index d38f5de0834c..c922c037344c 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -220,15 +220,12 @@ static unsigned long imsic_mrif_atomic_rmw(struct imsic_mrif *mrif,
+ {
+ 	unsigned long old_val = 0, tmp = 0;
  
- 	create_tmp_mapping();
- 	csr_write(CSR_SATP, PFN_DOWN(__pa(tmp_pg_dir)) | satp_mode);
-+	local_flush_tlb_all();
+-	__asm__ __volatile__ (
+-		"0:	lr.w.aq   %1, %0\n"
+-		"	and       %2, %1, %3\n"
+-		"	or        %2, %2, %4\n"
+-		"	sc.w.rl   %2, %2, %0\n"
+-		"	bnez      %2, 0b"
+-		: "+A" (*ptr), "+r" (old_val), "+r" (tmp)
+-		: "r" (~wr_mask), "r" (new_val & wr_mask)
+-		: "memory");
++	new_val &= wr_mask;
++
++	old_val = READ_ONCE(*ptr);
++	do {
++		tmp = (old_val & ~wr_mask) | new_val;
++	} while (!try_cmpxchg(ptr, &old_val, tmp));
  
- 	kasan_early_clear_pgd(pgd_offset_k(KASAN_SHADOW_START),
- 			      KASAN_SHADOW_START, KASAN_SHADOW_END);
+ 	return old_val;
+ }
 -- 
-2.53.0
-
+2.50.1 (Apple Git-155)
 
 _______________________________________________
 linux-riscv mailing list
