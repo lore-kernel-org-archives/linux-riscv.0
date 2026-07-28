@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC298C53219
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 11:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B16C531F9
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 11:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=maWblVofLSvdYtO//7317FIeGtDq8ok84daL4uXThig=; b=Ii/DESoXz42y4t
-	rzP/LT+AStqKnSTYalr34zQZ7OHZgN3tun+BhGNAXXWbb/vgOz7fpAZit7Dex64cKkJlaJbmT4Zvy
-	Noj2tS2PCNuJE4KkJo3VTbPM3OvsWEuj/JoJFjdLLDFpcdfbIVpnYOlKWubSNCGFAuXSBm5MclNXc
-	e0xdSJYAJS22MDNuT02BV7YvV5K3zCmXOUiiTqVnsKWpKB5aB4+TQez+zmxXjf1LseV0DhkUjxnOd
-	tE/hR08M27z6WZ1YXwLglQvUnJNTsjy9g4/UVu1DIGV6sLB5Tp8ss/b5PuQvlJsThkTwH+CK0wJLh
-	tNTOnzjAZqIzUEMzQO2w==;
+	List-Owner; bh=LSE3H+Vj9U5hsGKqQZWOhQ5kIF8RBxlABJQCet9zEdk=; b=nGzmyxtePW9jPH
+	MZLNnNQc2PoJFF6E1Kt+/9Z9ArREaJnKWwhkfjfhglX4UOCSs78yWwMkr+0rp1xeK+STHIXZSiK3r
+	aNINxhNnNfmIkDNmFkx4+q4cxZBSK8mQknlKlHer6/K4CDTBQw11egsF9OA8OPZidqvJMP8RTkVhd
+	rTa+dO//xoamYXkIkrpOFAlPsjgYRE87gK9VJ48dNjA1vIpRc2wJXxrb9pz6z/mX92LLhYme/svGf
+	RfQKfC3x26ncSluLgHUjxuW2tt51T1XT3p/SSRkdHj38U0GQc97x49K2RZtuQZgUSqhJsNRzTuwlz
+	KWkRL3VYBcWa/MUqz6og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wog5m-000000055gY-1AeI;
-	Tue, 28 Jul 2026 11:35:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wog6u-000000055oh-1ozo;
+	Tue, 28 Jul 2026 11:36:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wog5k-000000055gI-2rnk
+	id 1wog6s-000000055oa-3xU5
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jul 2026 11:35:24 +0000
+	Tue, 28 Jul 2026 11:36:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51A5B60AA2;
-	Tue, 28 Jul 2026 11:35:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C258D1F000E9;
-	Tue, 28 Jul 2026 11:35:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0746960051;
+	Tue, 28 Jul 2026 11:36:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 702EA1F000E9;
+	Tue, 28 Jul 2026 11:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785238522;
-	bh=axEZ2Aob5cBDcWuDLyKoSqcIBQS9SM5ZIXUN2NCp+T0=;
+	s=k20260515; t=1785238593;
+	bh=uX3pP76S/qlTRKFBZVbxoy2xc8qbjMlkLp0qhkXmDKU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IexCSttaoO1o+rsGRngGTaMZY9Irv02It4M3XzJdclIu5U/CKjtK2RjlW5yIRVZj1
-	 N+N86u/mqZ0OovdYbsuvCkn5pmcqcPT5vhkTJ8Jcmo+ZOW1NDJAbbASqGRgX2DZqwO
-	 aeysS/iHKo03xgQyfhzJwz60vAOFFwWIdCbcO1K5RMn+BFutgrplCAq2iCYqIaJHgK
-	 TPzIcNFq1PH6Um2D2r7C4M8c+7IE75Vo3Yjd/jhCr0LegTha2ms71y5GHyDCEK0ib5
-	 KCun6JpMMakJZCM40SoMz/YWPn/quZUWUx9iSHy2X4cDquU0eOTjGN8yb+DUHEqiL7
-	 ZPm1knJ6XrXUQ==
+	b=k+GSRIzMqHHcvajLyRfyxs/cTin3AHBQyjsRiAKR/iFMi2c7M5rjjZmxFoj6oS450
+	 Z8IMiGVgxh8dYNlS/ystcEW7Sr5tXoj+JuzCcOQETGaTgfbjmM+/Byj/2vkMhWA+Ie
+	 Y3WI3uoMdpmGgMfMZ2fA3Q1zoMC2e8opztjt64gs87VI0Wa2puTeLLksOR4oDpZ4l5
+	 wJXiZK0waQeWI/IexjAEAVVAyU4IwZ99E1igp1uV72tV7GMhtMmIiXvjC84ZLBtdMN
+	 RsD89T+wm4EvAOxJ4az4TyC603AKAbjROJJnitOFndsaCmVRoHOXek4OcpIyQOtWx+
+	 Yjl4V11OiWhXQ==
 From: Yixun Lan <dlan@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -50,19 +50,27 @@ To: Rob Herring <robh@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
 	Inochi Amaoto <inochiama@gmail.com>
 Cc: Yixun Lan <dlan@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 1/2] riscv: dts: spacemit: Add enough deassert time for the PHY on PICO ITX
-Date: Tue, 28 Jul 2026 11:35:15 +0000
-Message-ID: <178523844266.623919.7131430665750899115.b4-ty@b4>
+Subject: Re: [PATCH 0/2] riscv: dts: spacemit: Fix phy id check for the phy
+Date: Tue, 28 Jul 2026 11:36:23 +0000
+Message-ID: <178523830524.623317.15821976156314944479.b4-ty@b4>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260710063314.1030249-1-inochiama@gmail.com>
-References: <20260710063314.1030249-1-inochiama@gmail.com>
+In-Reply-To: <20260725005804.373698-1-inochiama@gmail.com>
+References: <20260725005804.373698-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,16 +89,25 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 10 Jul 2026 14:33:12 +0800, Inochi Amaoto wrote:
-> RTL8211F require at least 50ms deassert to guarantee the register
-> access, 10ms is only enough for the PHY reset.
+On Sat, 25 Jul 2026 08:58:01 +0800, Inochi Amaoto wrote:
+> As reported, the phy framework can not detected the phy id correctly
+> when reiniting this. So add the phy id compatible string to the
+> etherenet phy, so the phy can be reinit successfully.
+> 
+> Note: separate this patchset as two patch for backport if necessary.
+> 
+> Inochi Amaoto (2):
+>   riscv: dts: spacemit: Fix phy id check for the phy on pico-itx board
+>   riscv: dts: spacemit: Fix phy id check for the phy on com260 board
+> 
+> [...]
 
 Applied, thanks!
 
-[1/2] riscv: dts: spacemit: Add enough deassert time for the PHY on PICO ITX
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=a225e19a4cc4e040ca0389cf0bbe209c23f5c92d
-[2/2] riscv: dts: spacemit: Add enough deassert time for the PHY on com260 board
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=12b0d602e8642297ec369eeb99366d37c8a3a120
+[1/2] riscv: dts: spacemit: Fix phy id check for the phy on pico-itx board
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=6d6536c880febe2340d8d388f42660eccff5aa81
+[2/2] riscv: dts: spacemit: Fix phy id check for the phy on com260 board
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=9db839d52ccd9af67d460cb9ac893276a74b88e5
 
 Best regards,
 -- 
