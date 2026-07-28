@@ -4,99 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F04C53219
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 16:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1C9C54F54
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2026 17:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=d5bdiiG2z6GAU60kboH5RVCWKJsGCkf1QUM+UB0GGww=; b=ERlEkYDG++Nzl2
-	mxX19vp6lLRQc+7mKqWxhQzx1z3eT8rsR6tf2i3cb2LFTid4uK+StSOKUXAOPsHwFOiY5Suhqmbvw
-	r4lY3++cCAYYMrykP3fmQx2CdPG1BaUPrsFOJJulHm0+DvsutwG3ns8aeDtZ+udZET7oCKTZ/nq+I
-	InEkdOf0BHZUvqFGK0cRdzT9B2RF67IEx0Wc/vrLhvb80EwVNbtaJX+j5CcnNAdORSUjNdezV1lU/
-	Da0aPTBHEXCmtzPybaZNnS79kdA7shHwlwqIxVFAvR1P9tmDlw0paIqhngqCW8S19DsCqDjs7QxTb
-	Pc0gwTeD2uyjlMHwPTQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1lwkhDygDrw9ISUWYsxZP6rST5PT5t+FmqBYZtxuHck=; b=MDDuk7SscTEgyxECVrjnw2ZyU7
+	7vEngyZgb3y419vPODvsKJFm/M446nqcc3gXdvWD4LNel3gbYVF2WH5cXMZxnTn3LW5+tn5RG7Ewf
+	z7+VXdViNUC/pfCKdf9GVVRvatBkCpc+kGrZmQbV08+8MgN3EyYNlRnJBCFy5NIAlRMRAVgtBc5o9
+	XojolozADLQxoAndmyBys1Bii5r4lm/lv2FPlqTffIIPf0B0XMj668EHzn7dh70E6p0LAVrLtNBRq
+	gSR990u8BR/CoK1z0v3Y1XYLHM7PW/MbtYLxeg8iQ3eGhpM18fLvXiFTAuc29oelMqHYgUdQXaovl
+	9F0AIXrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokt7-00000005r6D-2Wyc;
-	Tue, 28 Jul 2026 16:42:41 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1wolhh-00000005yBj-0b39;
+	Tue, 28 Jul 2026 17:34:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wokt4-00000005r56-46iM
+	id 1wolhf-00000005yAX-3eYc
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jul 2026 16:42:40 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c1f758014b8so3272166b.3
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Jul 2026 09:42:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785256956; cv=none;
-        d=google.com; s=arc-20260327;
-        b=s4TDTcOGXxVEKZqnlVpp3WfUiRoc6tK4KGsDlRCpr2m1vRGKajTzGpmkm/J3ZNHzxp
-         m19B/o8dWWgE1MQ70V37qJo+2wukpxXkMEtU2qiMg9Ltf/EgMcO5q5wsRpj1uTd0p5ma
-         dm7eRvgYgfs3vENk+tnX/YxtRMusqbqAX/1eBRyPkHnuObP5k1m9hVmUwJ/QumppHKGX
-         NXsE7Au2wXNV6r+8vxl0O3OHXKuw4WN3EXV+qpvqiznhVa2sTe2zuujolGZaX9TU70MF
-         LNXJ473cmssgxbaJPP4y+ewh6dDhuhH0fD1eV8u4rWQ14QccPD5pMGn2hB2tN9Sz2o2B
-         weqg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=eRawWXBOm1UVfqgMPk0g+KIpk+hFbB2MCDRZOUgVRNU=;
-        fh=DlpUWULucbtblqk1DAq3I+YjCaRGR3Vo0nd6y6O9AGw=;
-        b=Dp66bLim7HaxjZ8BJpjsReC79TKFlmRFIZkyMFYT5Xw/FtQAit0NPlNYKwNZtKoBSH
-         pp50ODaXE7BqHmT64HPnu2CLiGOBXBZ4jIcLmlumFxGAq9P+xcfVH2uS9hFC7EoL0HLb
-         nXD2UbQpSuIPKHR0LyHR2I0PM8wRp7f8iNBhrQ21Z2V2oSnwnAsIIoweYTFahIWdPUh+
-         4OWLOq/Ka3FRSmJQGi/jKRbi0AsJ2rOkubQtVEmSKWuPkrlASyAr3WtgvdYdDFg2oRNl
-         rknJtPG2G5hdNfpsS1qCpZvjZJ3WMOPj44/zEEYAFxQB5rhkxfrxsQnsrHtDlMADAp0o
-         duUw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785256956; x=1785861756; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eRawWXBOm1UVfqgMPk0g+KIpk+hFbB2MCDRZOUgVRNU=;
-        b=qHASxXhKkKAbhxngeYDQ0AeCQBd3qEmQUSQDQ4SAQfFG0yNaS/6pQ3hARYCcYPHm4E
-         9WJDi4Um7wcdgnvPb6v8LQmlBmd6A22Xv9eg5T0xq+8Z2Dp1K7RR6kMzHMQ1CvC90L+2
-         uz7uAl0kuHV0YKCWd6zS7tQFt0T8D5E7m3nYbKhUwTLs4x3AEDD/wgMilvPuXwk2Oidz
-         BE+6PVb9PZqRZ+3iYzt6wAQbqzr801BNIaKl+9yuVenv07EOmPE5AU5nG5awE2mvYiZT
-         qy3Z6TUIg3YBZPCKXU5Nhq6bd+e9vvZco5Mx9oFlTaNFzWrilGBv6cjAT9+eScCpLS5S
-         ch2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785256956; x=1785861756;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=eRawWXBOm1UVfqgMPk0g+KIpk+hFbB2MCDRZOUgVRNU=;
-        b=dATAJxrqo7wPMfJnTbPuTkKOo4/TmbGS6VJvPcWrgIlx9N15Or6F+iAwRJbqrA4t5T
-         VdpouHmac7UFHG2RN1Oz0FS3Y6Qm74SU2/q5LjaEZwxz1SEqJsfAjQPXAmIgUuVLIpPc
-         W2Ikx0oNWulVitsZW+Jp2pmSsfdedpSCF6IvPUIb1x00dj3w1rvE1wV3CQ7JKatAfYB/
-         umKHMPlH1OU+cT6YdJBHHXCMuvC7i6tgby8xvHbR/7Eg7RkirTMgVrNbiCiZsnWUnRY8
-         NkO9waYu0Nd5C1WXDQkR1WoKjEtvDnxaYctESsXARkm+BLDVx/Y9fyLxLtk/LJrnOt0f
-         NUYQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqOac6r2XtO7iVjwy6zG6UDDgHERPI0Lu38CMHxnyCEsVNmt/RIrt783l13VNEVQIBZ2UM/8wTtJP0nlQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRxTDx1wQmHRcadw+uAhkkx66nPYA+elhHLLhqa4NdnTuJH6ca
-	8Ce7IUm1xOCKcxW5YTCuSHkBVq8T4SVK9lTf58R6k+MCufqVXKoFooMY3F9hQtpcc6ktEy27Pvu
-	yFWX46lY26CJPY8ciSuWiW8oYRp1aQvij
-X-Gm-Gg: AR+sD13o+aATWufiC5PW/HVVtZrk2DsA1E/zmlmrtCe/PT6LJShBCO0SvuMnRgoY0A6
-	jiUTI3SMVTByf5rxBwWLaeKVTRqvScnpXjXNkCXOV1djZdr+6qr7liXlt2K9ijVyEmc44dGjK7Z
-	SnDiurTST9jIJUNHCF3pjQXzjtsaOZ8hy6nmGbtuYFbG3ywcMkEjYdRw4cRE0tP7WUiBJKPKpM8
-	c9hhqX+Sb08Mlyj5YM+z4JDaS3gnxMp+kGZWhAXl37h0UJ6zv53ZvjBcT3imSF4u+jsIudJwNxJ
-	OcNzWqeOzLgO4xJ/4y2ITtanL4oNi3XwiWPXBUNnMezhMsrng5PVaX1le/KVkKQAB3FfrEdKcnL
-	3OtKE0D4=
-X-Received: by 2002:a17:907:a04:b0:c16:2d90:68a7 with SMTP id
- a640c23a62f3a-c1f71e568ffmr173688366b.26.1785256956205; Tue, 28 Jul 2026
- 09:42:36 -0700 (PDT)
+	Tue, 28 Jul 2026 17:34:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D75E660A97;
+	Tue, 28 Jul 2026 17:34:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4027C1F000E9;
+	Tue, 28 Jul 2026 17:34:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785260094;
+	bh=VTi0opeA44KjxdLzAuemqzMHjDouRZJAsaT2ZQQVdpc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DfvEm31dp/ZBGtLU+7SB7Vkwig2xW6nw/6gRIvspL3Qn32iXvrUBi6D3gla/zCW37
+	 cG44ZabSSruUoeSSb6URVBou0fEL3iWy9Vy2JCY3owkcj+c8I9YedHiyIE2/g0fOD1
+	 zt8uf6/02B4piY4wGinIgEBMQ1un29aV0wN7RHw/jCW9H3VLEDmCFIWaXF9xO4woH5
+	 HwC+Jv6S+KvhiR1n5TzAI1RLGHFqd+UByCkrKfccTCymPhRu7o954R4UvxsLj7a2pJ
+	 tcm9z0WoY7CiBbp6AeWUEptQ1kyJ7tHf9hdew4fSYcCLEHup5wIKX08QhAPhRrW8j0
+	 Fo/w/rc91vfyA==
+Date: Tue, 28 Jul 2026 18:34:45 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yu-Chien Peter Lin <peter.lin@sifive.com>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
+	dlan@kernel.org, guodong@riscstar.com, dfustini@oss.tenstorrent.com,
+	michal.simek@amd.com, junhui.liu@pigmoral.tech,
+	darshan.prajapati@einfochips.com, akpm@linux-foundation.org,
+	zhangchunyan@iscas.ac.cn, luxu.kernel@bytedance.com,
+	pincheng.plct@isrc.iscas.ac.cn, nick.hu@sifive.com,
+	jim.shu@sifive.com, zong.li@sifive.com, greentime.hu@sifive.com,
+	robin.randhawa@sifive.com, scott@riscstar.com,
+	dave.patel@riscstar.com, raymond.mao@riscstar.com
+Subject: Re: [RFC PATCH 3/3] dt-bindings: sifive: Add WorldGuard Checker
+Message-ID: <20260728-sash-reenter-a46eb414288d@spud>
+References: <20260619105834.1277302-1-peter.lin@sifive.com>
+ <20260619105834.1277302-4-peter.lin@sifive.com>
+ <20260622-exemplary-navigate-88985b1444f5@spud>
+ <amcOTrafvWgdT7zL@plin-1878>
 MIME-Version: 1.0
-From: Myeonghun Pak <mhun512@gmail.com>
-Date: Wed, 29 Jul 2026 01:42:24 +0900
-X-Gm-Features: AUfX_mzY5IhTWpi5crtF8mrU7J89TXc4_WGd_VuJLT6iuHP5tbvLAPaufRqw2FM
-Message-ID: <CAGEsz8GNHFCOZ=-_y56rK1aX+Ze7w8qVqZSQ-OuGo_dPC4bXCw@mail.gmail.com>
-Subject: [PATCH] RISC-V: KVM: Synchronize hrtimer callback during teardown
-To: anup@brainfault.org
-Cc: atish.patra@linux.dev, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, security@kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_094239_054335_2A7EC928 
-X-CRM114-Status: GOOD (  12.16  )
+In-Reply-To: <amcOTrafvWgdT7zL@plin-1878>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,90 +76,440 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8204771998335123047=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The non-Sstc hrtimer callback clears next_set before its final uses of
-the enclosing vCPU.  If teardown observes next_set as false while the
-callback is still running, kvm_riscv_vcpu_timer_cancel() skips
-hrtimer_cancel() and kvm_destroy_vcpus() can free the vCPU before the
-callback enters kvm_riscv_vcpu_set_interrupt().
+--===============8204771998335123047==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yYRQkNVl6fzrW+Bo"
+Content-Disposition: inline
 
-A guest can arm the timer with SBI TIME and request shutdown with SBI
-legacy shutdown or SRST.  A VMM that honors KVM_EXIT_SYSTEM_EVENT and
-destroys the VM supplies the teardown side of the race; no post-launch
-host ioctl is needed to arm or request teardown.
+--yYRQkNVl6fzrW+Bo
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On upstream master 62cc90241548, generic KASAN reported:
+On Mon, Jul 27, 2026 at 03:52:46PM +0800, Yu-Chien Peter Lin wrote:
+> Hi Conor,
+>=20
+> On Mon, Jun 22, 2026 at 06:50:28PM +0100, Conor Dooley wrote:
+> > On Fri, Jun 19, 2026 at 06:58:34PM +0800, Yu-Chien Peter Lin wrote:
+> > > Add DT binding for SiFive wgChecker2, a hardware firewall enforcing
+> > > WID-based access control in RISC-V Worlds. Provides checker slots to
+> > > program per-WID permissions for downstream resources, with optional
+> > > sub-range partitioning.
+> > >=20
+> > > Link: https://github.com/riscvarchive/security/blob/main/papers/world=
+guard%20proposal.pdf
+> > > Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
+> > > Reviewed-by: Zong Li <zong.li@sifive.com>
+> > > Reviewed-by: Jim Shu <jim.shu@sifive.com>
+> > > ---
+> > >  .../devicetree/bindings/riscv/worlds.yaml     |   9 +
+> > >  .../bindings/sifive/sifive,wgchecker2.yaml    | 237 ++++++++++++++++=
+++
+> > >  2 files changed, 246 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/sifive/sifive,w=
+gchecker2.yaml
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/riscv/worlds.yaml b/Do=
+cumentation/devicetree/bindings/riscv/worlds.yaml
+> > > index cc8b3747591e..c39a06c2dd8d 100644
+> > > --- a/Documentation/devicetree/bindings/riscv/worlds.yaml
+> > > +++ b/Documentation/devicetree/bindings/riscv/worlds.yaml
+> > > @@ -34,6 +34,14 @@ properties:
+> > >      minimum: 2
+> > >      maximum: 64
+> > > =20
+> > > +  sifive,trustedwid:
+> >=20
+> > What's sifive specific about this? Wouldn't other vendors also have
+> > trusted worlds?
+>=20
+> The property is intended to identify the trusted WID, i.e. the
+> trusted agent authorized for programming WorldGuard components
+> such as wgChecker according to the policy specified in the device
+> tree (see sifive,partition-rule below).
+>=20
+> wgChecker is a proprietary Worlds-aware firewall and is not part of
+> the RISC-V ISA specification, so the Worlds extension itself does
+> not define a corresponding concept of a trusted world for this.
 
-  BUG: KASAN: slab-use-after-free in do_raw_spin_lock
-  Write of size 4 at addr ff60000005e58898
+I'm just worried that I am going to see 15 different versions of this
+property when 14 other vendors also decide to create support for having
+a trusted world.
 
-  kvm_riscv_vcpu_set_interrupt
-  kvm_riscv_vcpu_hrtimer_expired
-  __hrtimer_run_queues
-  hrtimer_interrupt
+>=20
+> >=20
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > +    maximum: 31
+> > > +    description: |
+> > > +      The World ID (WID) designated as the trusted WID for this plat=
+form.
+> > > +      Transactions tagged with this WID are authorized to access and=
+ configure
+> > > +      WorldGuard blocks, including wgCheckers and wgMarkers.
+> > > +
+> > >  additionalProperties: true
+> > > =20
+> > >  examples:
+> > > @@ -44,6 +52,7 @@ examples:
+> > >          #size-cells =3D <0>;
+> > >          timebase-frequency =3D <1000000>;
+> > >          riscv,nworlds =3D <4>;
+> > > +        sifive,trustedwid =3D <3>;
+> > > =20
+> > >          cpu@0 {
+> > >              device_type =3D "cpu";
+> > > diff --git a/Documentation/devicetree/bindings/sifive/sifive,wgchecke=
+r2.yaml b/Documentation/devicetree/bindings/sifive/sifive,wgchecker2.yaml
+> > > new file mode 100644
+> > > index 000000000000..043c748385ed
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/sifive/sifive,wgchecker2.yaml
+> > > @@ -0,0 +1,237 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +# Copyright (C) 2026 SiFive, Inc.
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/sifive/sifive,wgchecker2.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: SiFive WorldGuard Checker
+> > > +
+> > > +maintainers:
+> > > +  - Yu-Chien Peter Lin <peter.lin@sifive.com>
+> > > +
+> > > +description: |
+> > > +  The RISC-V Worlds ISA extension defines World IDs (WIDs) as archit=
+ectural
+> > > +  identifiers that tag each system transaction with its originating =
+context.
+> > > +  System integrators assign WIDs to execution contexts such as privi=
+lege modes,
+> > > +  trusted execution environments, or other isolation boundaries.
+> > > +
+> > > +  The SiFive WorldGuard Checker is a hardware firewall positioned in=
+ the
+> > > +  system interconnect fabric. It inspects every transaction, evaluat=
+ing the
+> > > +  WID against access control policies encoded in checker slots for e=
+ach
+> > > +  protected resource. Transactions from unauthorized WIDs are blocke=
+d and
+> > > +  reported as bus errors, interrupts, or both.
+> > > +
+> > > +  This enables spatial partitioning of memory regions and memory-map=
+ped devices
+> > > +  across execution contexts. Different address ranges can enforce di=
+stinct
+> > > +  policies, allowing isolated workloads to coexist with hardware-enf=
+orced
+> > > +  protection.
+> > > +
+> > > +  The wgChecker acts as an access-controller provider as defined in =
+the
+> > > +  access-controllers framework. Protected devices are consumers that=
+ declare
+> > > +  their access policy via the access-controllers property. The hardw=
+are
+> > > +  supports up to 32 World IDs.
+> > > +
+> > > +  The World ID authorized to configure WorldGuard blocks is specifie=
+d by the
+> > > +  sifive,trustedwid property in the /cpus node.
+> > > +
+> > > +allOf:
+> > > +  - $ref: /schemas/access-controllers/access-controllers.yaml#
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    const: sifive,wgchecker2
+> >=20
+> > Missing device specific compatibles.
+>=20
+> We will test on qemu, can I add "qemu,wgchecker2" here?
 
-The object was allocated by KVM_CREATE_VCPU and freed concurrently by:
+Sure, with a fallback to the sifive,wgchecker2 compatible.
 
-  kvm_destroy_vcpus
-  kvm_arch_destroy_vm
-  kvm_destroy_vm
-  __fput
+> > > +  reg:
+> > > +    maxItems: 1
+> > > +    description:
+> > > +      Base address and size of the wgChecker memory-mapped I/O regis=
+ters.
+> > > +
+> > > +  interrupts:
+> > > +    maxItems: 1
+> > > +    description:
+> > > +      Interrupt line asserted when a WID access violation is detecte=
+d and
+> > > +      interrupt reporting is enabled in the slot configuration (IR o=
+r IW
+> > > +      bits set).
+> > > +
+> > > +  '#access-controller-cells':
+> > > +    const: 7
+> > > +    description: |
+> > > +      Specifier for one access-control rule, encoded as seven u32 ce=
+lls:
+> > > +        <addr-hi addr-lo size-hi size-lo perm-hi perm-lo config>
+> > > +
+> > > +      where:
+> > > +        - addr-hi, addr-lo: 64-bit base address of the protected reg=
+ion.
+> > > +        - size-hi, size-lo: 64-bit size of the protected region in b=
+ytes.
+> >=20
+> > These two cells effectively just duplicate the reg property.
+>=20
+> Agreed, will drop this region encoding.
+>=20
+> >=20
+> > > +        - perm-hi: Permission bitmap for WIDs 16..31. Two bits per W=
+ID:
+> > > +                     bit 2*(WID-16)   =3D Read  permission
+> > > +                     bit 2*(WID-16)+1 =3D Write permission
+> > > +                   Set bits grant access. Use 0x0 for systems with
+> > > +                   riscv,nworlds <=3D 16.
+> > > +        - perm-lo: Permission bitmap for WIDs 0..15. Two bits per WI=
+D:
+> > > +                     bit 2*WID   =3D Read  permission
+> > > +                     bit 2*WID+1 =3D Write permission
+> > > +                   Set bits grant access.
+> >=20
+> > And these two look like a layering violation to me. Why does the
+> > consumer contain its own configuration information? If firmware provides
+> > this to s-mode, it is either useless (because firmware has already done
+> > the configuration) or it makes the access control pointless because
+> > s-mode is expected to program its own access.
+>=20
+> Yes =E2=80=94 DT only describes the access rules. The wgChecker slots are=
+ programmed
+> by M-mode firmware (OpenSBI), which holds the trusted WID.
+>=20
+> riscv,pmwid =3D <3>;
+> sifive,trustedwid =3D <3>
+> M-mode  : WID3 (sets mlwid to 0)
+> S/U-mode: WID0
+>=20
+> It's fine for Linux to see the access rule, because WID0 is not the trust=
+ed
+> WID and therefore cannot program the wgChecker configuration registers.
+> For denied accesses, reads return zero data and writes are ignored.
 
-For deterministic validation, I added mdelay(1000) immediately after
-the existing next_set = false assignment.  This only widens the
-existing post-clear callback window.  A no-delay trace build naturally
-reached the callback-after-teardown-start/before-deinit ordering in 12
-of 200 runs, but 1,500 stock-kernel stress iterations did not produce a
-KASAN report, so natural reproduction is timing-sensitive.
+I think you misunderstood, I don't mind linux seeing it, I think having
+the configuration information in the consumer node is the problem.
+Your example below goes away from that, which I approve of.
 
-Always invoke hrtimer_cancel() for an initialized timer.  Preserve the
-existing -EINVAL result when the timer is no longer set, but only after
-synchronizing with a running callback.
+>=20
+> > With that in mind, the first 4 cells can probably just be transmuted to
+> > a single cell with platform-specific unique identifiers.
+>=20
+> Good point, for memory partition use case, I plan to update the
+> encoding to:
+>=20
+>   ddr: memory@80000000 {
+>       device_type =3D "memory";
+>       reg =3D <0x0 0x80000000 0x0 0x80000000>;
+>       access-controllers =3D <&wgchecker2 0>, // partition ID: 0
+>                            <&wgchecker2 1>, // partition ID: 1
+>                            <&wgchecker2 2>; // partition ID: 2
+>   };
+>  =20
+>   wgchecker2: wgchecker@40000000 {
+>       compatible =3D "sifive,wgchecker2";
+>       reg =3D <0x0 0x40000000 0x0 0x1000>;
+>       #access-controller-cells =3D <1>;
+>       #address-cells =3D <2>;
+>       #size-cells =3D <2>;
+>       interrupts =3D <82 IRQ_TYPE_LEVEL_HIGH>;
+>       interrupt-parent =3D <&aplic_m>;
+>  =20
+>       partition@0 {
+>               reg =3D <0x0 0x80000000 0x0 0x40000000>;
+>               sifive,partition-id =3D <0>;
 
-With this patch, hrtimer_cancel() blocked for the full widened callback
-window before vCPU destruction.  KASAN reported no error in 100
-fixed-and-widened runs or 200 fix-only timing-sweep runs.
+You're gonna cause issues with this because the node address matches
+your "partition id" property when it needs to match reg.
+Matching "partition id" rather than what you have as "reg" actually
+makes more sense though, so I would retain that.
+I'd be include to move sifive,partition-id to reg and then rework your
+reg property to some new name, because it doesn't describe a register
+region belonging to this device.
+Possibly I would split what's currently called reg into separate size
+and address properties and split partition-rule too.
 
-Fixes: 3a9f66cb25e1 ("RISC-V: KVM: Add timer functionality")
-Cc: stable@vger.kernel.org
-Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
----
- arch/riscv/kvm/vcpu_timer.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+Does the final "config" bit of partition-rule provide any value to
+consumers? The answer is no, right? Cos the interrupts are going to be
+reported to m-mode rather than s-mode.
 
-AI disclosure: I used AI assistance during the audit and am treating the
-issue as public as required by Documentation/process/security-bugs.rst.
-The reproducer and full KASAN trace have not been posted publicly and
-are available on request.
+>               /* (perm_hi, perm_lo, config) */
+>               sifive,partition-rule =3D <0x0 0x000000cf 0x0f>;
+>       };
+>  =20
+>       partition@1 {
+>               reg =3D <0x0 0xc0000000 0x0 0x01000000>;
+>               sifive,partition-id =3D <1>;
+>               /* (perm_hi, perm_lo, config) */
+>               sifive,partition-rule =3D <0x0 0x000000cc 0x0f>;
+>       };
+>  =20
+>       partition@2 {
+>               reg =3D <0x0 0xc1000000 0x0 0x3f000000>;
+>               sifive,partition-id =3D <2>;
+>               /* (perm_hi, perm_lo, config) */
+>               sifive,partition-rule =3D <0x0 0x000000cf 0x0f>;
+>       };
+>   };
+>=20
+> I hope this work for you.
+>=20
+> > Surely the ecall involved with actually requesting access needs
+> > something like that anyway?
+>=20
+> In this initial support, there is no such interface for S-mode
+> to request reconfiguration -- wgCheckers are programmed once at
+> boot-time.
 
-diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
-index ae53133c7ab0..a2cd277a4059 100644
---- a/arch/riscv/kvm/vcpu_timer.c
-+++ b/arch/riscv/kvm/vcpu_timer.c
-@@ -61,10 +61,13 @@ static enum hrtimer_restart
-kvm_riscv_vcpu_hrtimer_expired(struct hrtimer *h)
+Right, but we need to consider what the final support will look like
+when writing the binding!
 
- static int kvm_riscv_vcpu_timer_cancel(struct kvm_vcpu_timer *t)
- {
--       if (!t->init_done || !t->next_set)
-+       if (!t->init_done)
-                return -EINVAL;
+> > The only value I can see in this is if some worlds that a bit of
+> > software is running on can access a peripheral (or part thereof) and
+> > others can't? Though platforms like that might benefit more from being
+> > reworked to have homogeneous access! I've got no idea how a Linux driver
+> > etc would handle the only some CPUs being permitted to access a register
+> > region.
+>=20
+> One use case is APLIC, which naturally has separate root-domain
+> and child-domain regions and should be controlled by M-mode and
+> S-mode respectively. A wgChecker can protect these regions
+> with different access permissions, for example M-mode-only access
+> for the root domain and M/S-mode access for the child domain.
+>=20
+> The same mechanism can also support multiple supervisor domains
+> e.g. for a TEE. As shown in third example, a DRAM sub-region may
+> be carved out exclusively for the TEE.
+>=20
+> >=20
+> > > +        - config:  Slot configuration bits:
+> > > +                     Bit 0 (ER): Report read  violations as bus erro=
+rs
+> > > +                     Bit 1 (EW): Report write violations as bus erro=
+rs
+> > > +                     Bit 2 (IR): Report read  violations via interru=
+pt
+> > > +                     Bit 3 (IW): Report write violations via interru=
+pt
+> > > +                     Bit 4 (L):  Lock bit - prevents further modific=
+ation
+> > > +                   Bits 5..31 are reserved and must be zero.
+> >=20
+> > For the next revision of this, I really would like to see the access
+> > controller driver.
+>=20
+> Sure, the fdt driver will be added to OpenSBI. (Not in the kernel which
+> runs untrusted WID).
 
-        hrtimer_cancel(&t->hrt);
-+
-+       if (!t->next_set)
-+               return -EINVAL;
-        t->next_set = false;
+Whether or not you are trusted, does it not make sense to be able to
+request that the firmware give you access to a peripheral? Ultimately
+opensbi will be making the configuration edits, but I don't think the
+kernel being untrusted precludes it having an access controller driver,
+as that driver will just use an ecall rather than manipulate directly.
 
-        return 0;
---
-2.47.2
+That said, I will not expect you to provide that driver now, but unless
+reconfiguration at runtime is not supported by hardware this needs to
+be considered.
+
+Cheers,
+Conor.
+
+>=20
+> >=20
+> > > +
+> > > +      Multiple entries may be listed to apply different policies to
+> > > +      different address ranges, including sub-ranges within a single
+> > > +      physical resource.
+> > > +
+> > > +required:
+> > > +  - compatible
+> > > +  - reg
+> > > +  - '#access-controller-cells'
+> > > +
+> > > +additionalProperties: false
+> > > +
+> > > +examples:
+> > > +  - |
+> > > +    #include <dt-bindings/interrupt-controller/irq.h>
+> > > +
+> > > +    // Example 1: Single device protection
+> > > +    // WID 0 and WID 3 have RW access to UART; errors and IRQs repor=
+ted.
+> > > +
+> > > +    cpus {
+> > > +        #address-cells =3D <1>;
+> > > +        #size-cells =3D <0>;
+> > > +        timebase-frequency =3D <1000000>;
+> > > +        riscv,nworlds =3D <4>;
+> > > +        sifive,trustedwid =3D <3>;
+> > > +
+> > > +        cpu@0 {
+> > > +            device_type =3D "cpu";
+> > > +            reg =3D <0>;
+> > > +            compatible =3D "riscv";
+> > > +            riscv,isa =3D "rv64imac";
+> > > +        };
+> > > +    };
+> > > +
+> > > +    soc {
+> > > +        #address-cells =3D <2>;
+> > > +        #size-cells =3D <2>;
+> > > +
+> > > +        uart: uart@1c1000 {
+> > > +            compatible =3D "ns16550a";
+> > > +            reg =3D <0x0 0x001c1000 0x0 0x1000>;
+> > > +            reg-names =3D "control";
+> > > +            interrupts =3D <10 IRQ_TYPE_LEVEL_HIGH>;
+> > > +            // WID 0,3 RW; report errors+IRQs
+> > > +            access-controllers =3D <&wgchecker0
+> > > +                                  0x0 0x001c1000 0x0 0x00001000
+> > > +                                  0x0 0x000000c3 0x0f>;
+> > > +        };
+> > > +
+> > > +        wgchecker0: wgchecker@1c2000 {
+> >=20
+> > I think this should be access-controller@
+>=20
+> Will update.
+>=20
+> Thanks,
+> Peter Lin
+
+--yYRQkNVl6fzrW+Bo
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCamjoNQAKCRB4tDGHoIJi
+0tZVAQDMt+tI0KmTPFrpZq7qAfLzFFeAgfnbiXg7T1EeHMriwQD+Jin25rVPxP1U
+nTQz5UGCM/Dez/z1gpWAGYIcTK3TVQg=
+=U/fR
+-----END PGP SIGNATURE-----
+
+--yYRQkNVl6fzrW+Bo--
+
+
+--===============8204771998335123047==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8204771998335123047==--
+
