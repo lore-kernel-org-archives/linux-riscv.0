@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47839C53200
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 16:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA4CC54F51
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 16:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4gVltR4N0yhk6bMVLLKR5j6mDFc6Ro3v6HgigPgiTE0=; b=lJTfiDIpb8G16c
-	XiYsQvRGMKXffemc9IpRtAEXUilufrnvR39Hisw+mCeKmTcd2TwRrW2SuL1GhBE3xBXQC9JJsfqI6
-	M6o0iYWgC5K30/ZUNpCAKwBuT7n6AsWV7R0PykqTJ3+9Ry49m2P/UbcYW6V/t5dPI3+nRAFS2BEXx
-	ca/d5L/MVeDeKYvIraQv9mh97keGXSdCHghPEspBmAQT4/Qk4u8sEzQkja0zrwhVBjcSb3lyrsp6h
-	s6P1BSQ2BW2XKTXXHU5pKLlSgmvqW0kAAjuP48/4dI6MW0xgO6hkCjyum8i4dc4Ig7F7MdIrQ/IYM
-	qbOMKEpPYq7aIxm+4SlA==;
+	List-Owner; bh=ETOzHfvdsG7DqHD3kCYHSBk179p0Z4R3siPlheo1Dwo=; b=vC+PKTBCaxsjeH
+	Fuufa1SSzWBTsCXOOWi/jrw5gL3urBcxf+9KmdsmG14ux0a5msRnZl2wqFcXlLnagU3QGLYLmz0o3
+	KD/sqIHII4d+TNLVSYo+pd+vVrqEJFl4u1IlN4XcTGec42+BLlL5pXJfyKwuC/+UeG6mMhOSeeNmR
+	AkwefOIbsbKKhcQD8AYnva98LJYZp47LBLaUTiGVmy2bw4RkysJbzjMd0zehDxVK7g4G82kSP2Gz3
+	Qz3shful71yC0levJTlaQH7iNZU6gXdRRzWJATrKhqr5ifTnQqm/skZ0vkgFobPE88q26Pe3KE3mM
+	pctJPIdbBBERx5LekCbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6pL-00000008V7U-1Ijn;
-	Wed, 29 Jul 2026 16:08:15 +0000
+	id 1wp6pH-00000008V5H-46ty;
+	Wed, 29 Jul 2026 16:08:11 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6pH-00000008V4K-2yKq
+	id 1wp6pD-00000008V2j-0k01
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 16:08:12 +0000
+	Wed, 29 Jul 2026 16:08:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=17BWj7c/raIegYlq+CdzM9Q9pnzgudwKCzwNuvjl2S8=; b=ov6BZzt9KqNE+X933+2hNN1E4O
-	cB30qBoFcQHRGCaW8//oSU05jKZFI7BalnFrocXMuxPSaz4BiwxYFihQq57JwbbpRh46ejJA5DAua
-	Oa8kqRMegQ5PYf6QPGbLy8+lse7vHlOEOfuLi5DYU55Nl07iu/1tSLgqQGk0Rrptob7YmH/hEKHFi
-	ly+C1EPjrZQvtq6NjAR0aXm7OWKM7RWz/pqRQ7LHKyyVd+q0TBF5G7iM6/gf2euAC18nBuHQHOh7u
-	HWyAmhS39wFaJbtbDxhRT0HX9GHyF6V4UoF+EuospidmkGIgxv1RBENdSiCnGzk4I3a6WrooBPOot
-	rsY1XJ3g==;
+	bh=U9f+e3Q0NEgYlOkT0lx0sFwGGiEI6LNpaj26WR0C2kU=; b=hWN6Z/FWUPs8y4+b5d4vRKlO+l
+	9Wilu5zXj4oDUyy/vxH3zwyBC7tWqydD64Bd1JIUcoFnIoU84n9QXqixPXVvLHPGcJ3RIs9EKznvv
+	YMjBjfnP5pAdWLpJUupIQn/W6zthI8GSHoGIHe73nd4eUgxqFwX9E81nSbrdObuotpBbCdcYvb/6m
+	8heYKNWrNLQI1YzCbE5aazlajHXy46pGgyOv4szUl83NPc+rcmX0K7FJpLJFhUl0dZ8iu6fopg5Mw
+	vUHN3TdyOouzs7rpIFNECjhOKihbTbLPCfKcbW/A9YZFxgS5mz0jvPq2UsnnPwEe6cSdZ2SnTnqhV
+	qgNjSX+w==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1wp6pB-00000002hus-2tF2;
+	id 1wp6pA-00000002hup-3sDC;
 	Wed, 29 Jul 2026 18:08:05 +0200
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: linux-kernel@vger.kernel.org,
@@ -52,24 +52,21 @@ To: linux-kernel@vger.kernel.org,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>,
-	Guodong Xu <guodong@riscstar.com>,
-	Yangyu Chen <cyy@cyyself.name>
+	Yixun Lan <dlan@kernel.org>
 Cc: Aurelien Jarno <aurelien@aurel32.net>,
 	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
 	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
-Subject: [PATCH v2 3/4] dt-bindings: riscv: spacemit: add Milk-V Jupiter M1 compatible
-Date: Wed, 29 Jul 2026 18:00:30 +0200
-Message-ID: <20260729160749.1621415-4-aurelien@aurel32.net>
+Subject: [PATCH v2 2/4] riscv: dts: spacemit: Add a common board dtsi for Milk-V Jupiter boards
+Date: Wed, 29 Jul 2026 18:00:29 +0200
+Message-ID: <20260729160749.1621415-3-aurelien@aurel32.net>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260729160749.1621415-1-aurelien@aurel32.net>
 References: <20260729160749.1621415-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_090811_749165_927F6E7D 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_090807_497834_1E7BD799 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,30 +83,970 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a compatible for the M1 version of the Milk-V Jupiter board, which
-use a CPU with a different packaging with improved cooling performance.
-It enables the CPU to run at up to 1.8 GHz instead of 1.6 GHz.
+Add a common board dtsi for use by Milk V-Jupiter board variants. It
+excludes the CPU operating-points-v2 tables, which should be included in
+the board file.
 
-Note that the K1 vendor kernel doesn't provide any compatible entry for
-the boards, so use "milkv,jupiter-m1".
+It will be used for the Milk-V Jupiter M1 board.
 
 Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
 ---
- Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ .../dts/spacemit/k1-milkv-jupiter-common.dtsi | 468 ++++++++++++++++++
+ .../boot/dts/spacemit/k1-milkv-jupiter.dts    | 461 +----------------
+ 2 files changed, 470 insertions(+), 459 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/spacemit/k1-milkv-jupiter-common.dtsi
 
-diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-index 4ee9c88984b4c..aba189b91ae35 100644
---- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
-+++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
-@@ -28,6 +28,7 @@ properties:
-           - enum:
-               - bananapi,bpi-f3
-               - milkv,jupiter
-+              - milkv,jupiter-m1
-               - spacemit,musepi-pro
-               - xunlong,orangepi-r2s
-               - xunlong,orangepi-rv2
+diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter-common.dtsi b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter-common.dtsi
+new file mode 100644
+index 0000000000000..6b90a603cdf6b
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter-common.dtsi
+@@ -0,0 +1,468 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
++ * Copyright (C) 2025 Javier Martinez Canillas <javierm@redhat.com>
++ */
++
++#include "k1.dtsi"
++#include "k1-opp.dtsi"
++#include "k1-pinctrl.dtsi"
++
++/ {
++	aliases {
++		ethernet0 = &eth0;
++		ethernet1 = &eth1;
++		i2c2 = &i2c2;
++		i2c8 = &i2c8;
++		mmc0 = &emmc;
++		mmc1 = &sdhci0;
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led1 {
++			label = "pwr-led";
++			gpios = <&gpio K1_GPIO(96) GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "default-on";
++			default-state = "on";
++		};
++
++		led2 {
++			label = "hdd-led";
++			gpios = <&gpio K1_GPIO(92) GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "disk-activity";
++		};
++	};
++
++	pcie_vcc_3v3: regulator-pcie-vcc3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "pcie_vcc3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-boot-on;
++		regulator-always-on;
++		vin-supply = <&reg_dc_in>;
++	};
++
++	reg_dc_in: regulator-dc-in-12v {
++		compatible = "regulator-fixed";
++		regulator-name = "dc_in_12v";
++		regulator-min-microvolt = <12000000>;
++		regulator-max-microvolt = <12000000>;
++		regulator-boot-on;
++		regulator-always-on;
++	};
++
++	reg_vcc_4v: regulator-vcc-4v {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_4v";
++		regulator-min-microvolt = <4000000>;
++		regulator-max-microvolt = <4000000>;
++		regulator-boot-on;
++		regulator-always-on;
++		vin-supply = <&reg_dc_in>;
++	};
++
++	reg_vcc_5v: regulator-vcc-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-boot-on;
++		regulator-always-on;
++		vin-supply = <&reg_dc_in>;
++	};
++
++	regulator-usb3-vbus-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "USB30_VBUS";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++		vin-supply = <&reg_vcc_5v>;
++		gpio = <&gpio K1_GPIO(97) GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	usb3_hub_5v: regulator-usb3-hub-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "USB30_HUB";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&reg_vcc_5v>;
++		gpio = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++};
++
++&combo_phy {
++	status = "okay";
++};
++
++&cpu_0 {
++	cpu-supply = <&buck1_0v9>;
++};
++
++&cpu_1 {
++	cpu-supply = <&buck1_0v9>;
++};
++
++&cpu_2 {
++	cpu-supply = <&buck1_0v9>;
++};
++
++&cpu_3 {
++	cpu-supply = <&buck1_0v9>;
++};
++
++&cpu_4 {
++	cpu-supply = <&buck1_0v9>;
++};
++
++&cpu_5 {
++	cpu-supply = <&buck1_0v9>;
++};
++
++&cpu_6 {
++	cpu-supply = <&buck1_0v9>;
++};
++
++&cpu_7 {
++	cpu-supply = <&buck1_0v9>;
++};
++
++&emmc {
++	bus-width = <8>;
++	mmc-hs400-1_8v;
++	mmc-hs400-enhanced-strobe;
++	non-removable;
++	no-sd;
++	no-sdio;
++	status = "okay";
++};
++
++&eth0 {
++	phy-handle = <&rgmii0>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <0>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii0: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
++&eth1 {
++	phy-handle = <&rgmii1>;
++	phy-mode = "rgmii-id";
++	pinctrl-names = "default";
++	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
++	rx-internal-delay-ps = <0>;
++	tx-internal-delay-ps = <250>;
++	status = "okay";
++
++	mdio-bus {
++		#address-cells = <0x1>;
++		#size-cells = <0x0>;
++
++		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
++		reset-delay-us = <10000>;
++		reset-post-delay-us = <100000>;
++
++		rgmii1: phy@1 {
++			reg = <0x1>;
++		};
++	};
++};
++
++&pdma {
++	status = "okay";
++};
++
++&i2c2 {
++	pinctrl-0 = <&i2c2_0_cfg>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	eeprom@50 {
++		compatible = "atmel,24c04";
++		reg = <0x50>;
++		vcc-supply = <&buck3_1v8>; /* EEPROM_VCC18 */
++		pagesize = <16>;
++		read-only;
++		size = <512>;
++
++		nvmem-layout {
++			compatible = "onie,tlv-layout";
++
++			product-name {
++			};
++		};
++	};
++};
++
++&i2c8 {
++	pinctrl-0 = <&i2c8_cfg>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	pmic@41 {
++		compatible = "spacemit,p1";
++		reg = <0x41>;
++		interrupts = <64>;
++		vin1-supply = <&reg_vcc_4v>;
++		vin2-supply = <&reg_vcc_4v>;
++		vin3-supply = <&reg_vcc_4v>;
++		vin4-supply = <&reg_vcc_4v>;
++		vin5-supply = <&reg_vcc_4v>;
++		vin6-supply = <&reg_vcc_4v>;
++		aldoin-supply = <&reg_vcc_4v>;
++		dldoin1-supply = <&buck5>;
++		dldoin2-supply = <&buck5>;
++
++		regulators {
++			buck1_0v9: buck1 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <1050000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck2 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <1050000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck3_1v8: buck3 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck4_3v3: buck4 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck5: buck5 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3450000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			buck6 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3450000>;
++				regulator-ramp-delay = <5000>;
++				regulator-always-on;
++			};
++
++			aldo1: aldo1 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++			};
++
++			aldo2 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			aldo3 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			aldo4 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			dldo1 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-boot-on;
++			};
++
++			dldo2 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			dldo3 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			dldo4 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-always-on;
++			};
++
++			dldo5 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++
++			dldo6 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++				regulator-always-on;
++			};
++
++			dldo7 {
++				regulator-min-microvolt = <500000>;
++				regulator-max-microvolt = <3400000>;
++			};
++		};
++	};
++};
++
++&pcie1_phy {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie1_3_cfg>;
++	status = "okay";
++};
++
++&pcie1_port {
++	phys = <&pcie1_phy>;
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
++};
++
++&pcie1 {
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
++	status = "okay";
++};
++
++&pcie2_phy {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie2_4_cfg>;
++	status = "okay";
++};
++
++&pcie2_port {
++	phys = <&pcie2_phy>;
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
++};
++
++&pcie2 {
++	vpcie3v3-supply = <&pcie_vcc_3v3>;
++	status = "okay";
++};
++
++&qspi {
++	pinctrl-names = "default";
++	pinctrl-0 = <&qspi_cfg>;
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		spi-max-frequency = <26500000>;
++		spi-rx-bus-width = <4>;
++		spi-tx-bus-width = <4>;
++		vcc-supply = <&buck4_3v3>; /* QSPI_VCC1833 */
++		m25p,fast-read;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			bootinfo@0 {
++				reg = <0x0 0x10000>;
++			};
++			private@10000 {
++				reg = <0x10000 0x10000>;
++			};
++			fsbl@20000 {
++				reg = <0x20000 0x40000>;
++			};
++			env@60000 {
++				reg = <0x60000 0x10000>;
++			};
++			opensbi@70000 {
++				reg = <0x70000 0x30000>;
++			};
++			uboot@a0000 {
++				reg = <0xa0000 0x760000>;
++			};
++		};
++	};
++};
++
++&sdhci0 {
++	pinctrl-names = "default", "uhs";
++	pinctrl-0 = <&mmc1_cfg>;
++	pinctrl-1 = <&mmc1_uhs_cfg>;
++	bus-width = <4>;
++	cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
++	no-mmc;
++	no-sdio;
++	disable-wp;
++	cap-sd-highspeed;
++	vmmc-supply = <&buck4_3v3>;
++	vqmmc-supply = <&aldo1>;
++	sd-uhs-sdr25;
++	sd-uhs-sdr50;
++	sd-uhs-sdr104;
++	status = "okay";
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_2_cfg>;
++	status = "okay";
++};
++
++&usbphy2 {
++	status = "okay";
++};
++
++&usb_dwc3 {
++	dr_mode = "host";
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	hub_2_0: hub@1 {
++		compatible = "usb2109,2817";
++		reg = <0x1>;
++		vdd-supply = <&usb3_hub_5v>;
++		peer-hub = <&hub_3_0>;
++		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
++	};
++
++	hub_3_0: hub@2 {
++		compatible = "usb2109,817";
++		reg = <0x2>;
++		vdd-supply = <&usb3_hub_5v>;
++		peer-hub = <&hub_2_0>;
++		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
++	};
++};
+diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+index 635e95aad14a5..77969b7023f7f 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+@@ -2,470 +2,13 @@
+ /*
+  * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
+  * Copyright (C) 2025 Javier Martinez Canillas <javierm@redhat.com>
++ * Copyright (C) 2026 Aurelien Jarno <aurelien@aurel32.net>
+  */
+ 
+-#include "k1.dtsi"
++#include "k1-milkv-jupiter-common.dtsi"
+ #include "k1-opp.dtsi"
+-#include "k1-pinctrl.dtsi"
+ 
+ / {
+ 	model = "Milk-V Jupiter (K1)";
+ 	compatible = "milkv,jupiter", "spacemit,k1";
+-
+-	aliases {
+-		ethernet0 = &eth0;
+-		ethernet1 = &eth1;
+-		i2c2 = &i2c2;
+-		i2c8 = &i2c8;
+-		mmc0 = &emmc;
+-		mmc1 = &sdhci0;
+-		serial0 = &uart0;
+-	};
+-
+-	chosen {
+-		stdout-path = "serial0:115200n8";
+-	};
+-
+-	leds {
+-		compatible = "gpio-leds";
+-
+-		led1 {
+-			label = "pwr-led";
+-			gpios = <&gpio K1_GPIO(96) GPIO_ACTIVE_HIGH>;
+-			linux,default-trigger = "default-on";
+-			default-state = "on";
+-		};
+-
+-		led2 {
+-			label = "hdd-led";
+-			gpios = <&gpio K1_GPIO(92) GPIO_ACTIVE_HIGH>;
+-			linux,default-trigger = "disk-activity";
+-		};
+-	};
+-
+-	pcie_vcc_3v3: regulator-pcie-vcc3v3 {
+-		compatible = "regulator-fixed";
+-		regulator-name = "pcie_vcc3v3";
+-		regulator-min-microvolt = <3300000>;
+-		regulator-max-microvolt = <3300000>;
+-		regulator-boot-on;
+-		regulator-always-on;
+-		vin-supply = <&reg_dc_in>;
+-	};
+-
+-	reg_dc_in: regulator-dc-in-12v {
+-		compatible = "regulator-fixed";
+-		regulator-name = "dc_in_12v";
+-		regulator-min-microvolt = <12000000>;
+-		regulator-max-microvolt = <12000000>;
+-		regulator-boot-on;
+-		regulator-always-on;
+-	};
+-
+-	reg_vcc_4v: regulator-vcc-4v {
+-		compatible = "regulator-fixed";
+-		regulator-name = "vcc_4v";
+-		regulator-min-microvolt = <4000000>;
+-		regulator-max-microvolt = <4000000>;
+-		regulator-boot-on;
+-		regulator-always-on;
+-		vin-supply = <&reg_dc_in>;
+-	};
+-
+-	reg_vcc_5v: regulator-vcc-5v {
+-		compatible = "regulator-fixed";
+-		regulator-name = "vcc_5v";
+-		regulator-min-microvolt = <5000000>;
+-		regulator-max-microvolt = <5000000>;
+-		regulator-boot-on;
+-		regulator-always-on;
+-		vin-supply = <&reg_dc_in>;
+-	};
+-
+-	regulator-usb3-vbus-5v {
+-		compatible = "regulator-fixed";
+-		regulator-name = "USB30_VBUS";
+-		regulator-min-microvolt = <5000000>;
+-		regulator-max-microvolt = <5000000>;
+-		regulator-always-on;
+-		vin-supply = <&reg_vcc_5v>;
+-		gpio = <&gpio K1_GPIO(97) GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-	};
+-
+-	usb3_hub_5v: regulator-usb3-hub-5v {
+-		compatible = "regulator-fixed";
+-		regulator-name = "USB30_HUB";
+-		regulator-min-microvolt = <5000000>;
+-		regulator-max-microvolt = <5000000>;
+-		vin-supply = <&reg_vcc_5v>;
+-		gpio = <&gpio K1_GPIO(123) GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-	};
+-};
+-
+-&combo_phy {
+-	status = "okay";
+-};
+-
+-&cpu_0 {
+-	cpu-supply = <&buck1_0v9>;
+-};
+-
+-&cpu_1 {
+-	cpu-supply = <&buck1_0v9>;
+-};
+-
+-&cpu_2 {
+-	cpu-supply = <&buck1_0v9>;
+-};
+-
+-&cpu_3 {
+-	cpu-supply = <&buck1_0v9>;
+-};
+-
+-&cpu_4 {
+-	cpu-supply = <&buck1_0v9>;
+-};
+-
+-&cpu_5 {
+-	cpu-supply = <&buck1_0v9>;
+-};
+-
+-&cpu_6 {
+-	cpu-supply = <&buck1_0v9>;
+-};
+-
+-&cpu_7 {
+-	cpu-supply = <&buck1_0v9>;
+-};
+-
+-&emmc {
+-	bus-width = <8>;
+-	mmc-hs400-1_8v;
+-	mmc-hs400-enhanced-strobe;
+-	non-removable;
+-	no-sd;
+-	no-sdio;
+-	status = "okay";
+-};
+-
+-&eth0 {
+-	phy-handle = <&rgmii0>;
+-	phy-mode = "rgmii-id";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac0_cfg>, <&gmac0_clk_ref_cfg>;
+-	rx-internal-delay-ps = <0>;
+-	tx-internal-delay-ps = <0>;
+-	status = "okay";
+-
+-	mdio-bus {
+-		#address-cells = <0x1>;
+-		#size-cells = <0x0>;
+-
+-		reset-gpios = <&gpio K1_GPIO(110) GPIO_ACTIVE_LOW>;
+-		reset-delay-us = <10000>;
+-		reset-post-delay-us = <100000>;
+-
+-		rgmii0: phy@1 {
+-			reg = <0x1>;
+-		};
+-	};
+-};
+-
+-&eth1 {
+-	phy-handle = <&rgmii1>;
+-	phy-mode = "rgmii-id";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&gmac1_cfg>, <&gmac1_clk_ref_cfg>;
+-	rx-internal-delay-ps = <0>;
+-	tx-internal-delay-ps = <250>;
+-	status = "okay";
+-
+-	mdio-bus {
+-		#address-cells = <0x1>;
+-		#size-cells = <0x0>;
+-
+-		reset-gpios = <&gpio K1_GPIO(115) GPIO_ACTIVE_LOW>;
+-		reset-delay-us = <10000>;
+-		reset-post-delay-us = <100000>;
+-
+-		rgmii1: phy@1 {
+-			reg = <0x1>;
+-		};
+-	};
+-};
+-
+-&pdma {
+-	status = "okay";
+-};
+-
+-&i2c2 {
+-	pinctrl-0 = <&i2c2_0_cfg>;
+-	pinctrl-names = "default";
+-	status = "okay";
+-
+-	eeprom@50 {
+-		compatible = "atmel,24c04";
+-		reg = <0x50>;
+-		vcc-supply = <&buck3_1v8>; /* EEPROM_VCC18 */
+-		pagesize = <16>;
+-		read-only;
+-		size = <512>;
+-
+-		nvmem-layout {
+-			compatible = "onie,tlv-layout";
+-
+-			product-name {
+-			};
+-		};
+-	};
+-};
+-
+-&i2c8 {
+-	pinctrl-0 = <&i2c8_cfg>;
+-	pinctrl-names = "default";
+-	status = "okay";
+-
+-	pmic@41 {
+-		compatible = "spacemit,p1";
+-		reg = <0x41>;
+-		interrupts = <64>;
+-		vin1-supply = <&reg_vcc_4v>;
+-		vin2-supply = <&reg_vcc_4v>;
+-		vin3-supply = <&reg_vcc_4v>;
+-		vin4-supply = <&reg_vcc_4v>;
+-		vin5-supply = <&reg_vcc_4v>;
+-		vin6-supply = <&reg_vcc_4v>;
+-		aldoin-supply = <&reg_vcc_4v>;
+-		dldoin1-supply = <&buck5>;
+-		dldoin2-supply = <&buck5>;
+-
+-		regulators {
+-			buck1_0v9: buck1 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <1050000>;
+-				regulator-ramp-delay = <5000>;
+-				regulator-always-on;
+-			};
+-
+-			buck2 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <1050000>;
+-				regulator-ramp-delay = <5000>;
+-				regulator-always-on;
+-			};
+-
+-			buck3_1v8: buck3 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <1800000>;
+-				regulator-ramp-delay = <5000>;
+-				regulator-always-on;
+-			};
+-
+-			buck4_3v3: buck4 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3300000>;
+-				regulator-ramp-delay = <5000>;
+-				regulator-always-on;
+-			};
+-
+-			buck5: buck5 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3450000>;
+-				regulator-ramp-delay = <5000>;
+-				regulator-always-on;
+-			};
+-
+-			buck6 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3450000>;
+-				regulator-ramp-delay = <5000>;
+-				regulator-always-on;
+-			};
+-
+-			aldo1: aldo1 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-				regulator-boot-on;
+-			};
+-
+-			aldo2 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-			};
+-
+-			aldo3 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-			};
+-
+-			aldo4 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-			};
+-
+-			dldo1 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-				regulator-boot-on;
+-			};
+-
+-			dldo2 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-			};
+-
+-			dldo3 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-			};
+-
+-			dldo4 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-				regulator-always-on;
+-			};
+-
+-			dldo5 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-			};
+-
+-			dldo6 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-				regulator-always-on;
+-			};
+-
+-			dldo7 {
+-				regulator-min-microvolt = <500000>;
+-				regulator-max-microvolt = <3400000>;
+-			};
+-		};
+-	};
+-};
+-
+-&pcie1_phy {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie1_3_cfg>;
+-	status = "okay";
+-};
+-
+-&pcie1_port {
+-	phys = <&pcie1_phy>;
+-	vpcie3v3-supply = <&pcie_vcc_3v3>;
+-};
+-
+-&pcie1 {
+-	vpcie3v3-supply = <&pcie_vcc_3v3>;
+-	status = "okay";
+-};
+-
+-&pcie2_phy {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie2_4_cfg>;
+-	status = "okay";
+-};
+-
+-&pcie2_port {
+-	phys = <&pcie2_phy>;
+-	vpcie3v3-supply = <&pcie_vcc_3v3>;
+-};
+-
+-&pcie2 {
+-	vpcie3v3-supply = <&pcie_vcc_3v3>;
+-	status = "okay";
+-};
+-
+-&qspi {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&qspi_cfg>;
+-	status = "okay";
+-
+-	flash@0 {
+-		compatible = "jedec,spi-nor";
+-		reg = <0>;
+-		spi-max-frequency = <26500000>;
+-		spi-rx-bus-width = <4>;
+-		spi-tx-bus-width = <4>;
+-		vcc-supply = <&buck4_3v3>; /* QSPI_VCC1833 */
+-		m25p,fast-read;
+-
+-		partitions {
+-			compatible = "fixed-partitions";
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-
+-			bootinfo@0 {
+-				reg = <0x0 0x10000>;
+-			};
+-			private@10000 {
+-				reg = <0x10000 0x10000>;
+-			};
+-			fsbl@20000 {
+-				reg = <0x20000 0x40000>;
+-			};
+-			env@60000 {
+-				reg = <0x60000 0x10000>;
+-			};
+-			opensbi@70000 {
+-				reg = <0x70000 0x30000>;
+-			};
+-			uboot@a0000 {
+-				reg = <0xa0000 0x760000>;
+-			};
+-		};
+-	};
+-};
+-
+-&sdhci0 {
+-	pinctrl-names = "default", "uhs";
+-	pinctrl-0 = <&mmc1_cfg>;
+-	pinctrl-1 = <&mmc1_uhs_cfg>;
+-	bus-width = <4>;
+-	cd-gpios = <&gpio K1_GPIO(80) (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+-	no-mmc;
+-	no-sdio;
+-	disable-wp;
+-	cap-sd-highspeed;
+-	vmmc-supply = <&buck4_3v3>;
+-	vqmmc-supply = <&aldo1>;
+-	sd-uhs-sdr25;
+-	sd-uhs-sdr50;
+-	sd-uhs-sdr104;
+-	status = "okay";
+-};
+-
+-&uart0 {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&uart0_2_cfg>;
+-	status = "okay";
+-};
+-
+-&usbphy2 {
+-	status = "okay";
+-};
+-
+-&usb_dwc3 {
+-	dr_mode = "host";
+-	#address-cells = <1>;
+-	#size-cells = <0>;
+-	status = "okay";
+-
+-	hub_2_0: hub@1 {
+-		compatible = "usb2109,2817";
+-		reg = <0x1>;
+-		vdd-supply = <&usb3_hub_5v>;
+-		peer-hub = <&hub_3_0>;
+-		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
+-	};
+-
+-	hub_3_0: hub@2 {
+-		compatible = "usb2109,817";
+-		reg = <0x2>;
+-		vdd-supply = <&usb3_hub_5v>;
+-		peer-hub = <&hub_2_0>;
+-		reset-gpios = <&gpio K1_GPIO(124) GPIO_ACTIVE_LOW>;
+-	};
+ };
 -- 
 2.53.0
 
