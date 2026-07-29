@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDCCBC53200
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 09:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED67C53200
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 09:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RYqO9M8w7CqGXs8X7+uN//HPp82kiv/vU/t+CmkLvEE=; b=EGxZc1srmnGXPv
-	imrWgL+Cr2vLWMedGDVGy3CvXaVkQRgdyzxqxUMbLhvrsBCJEGb9IJ1NjRqZt7WnqfwncTTOgQjSk
-	nVT3m6KS6gJU139BXmSLHawfBkQHetzetsmCmGbA0Yf9BUVnlUohnI30AovVgXzWLXys2HpsFeNRQ
-	LiXDIbpqAI2b37vyVR7jH49pMlmrgrQnW/6+a2D5execMqMMV1Mwd45tn/2DiPirv8jDZOA5jbhxL
-	AakDbUu99iPaDVvb/T2p+ZWeMpLn97Rm7Hto1FX2yA4hv4myEY6Q7Wbjn8Ow04Aq0WaNGldv743xX
-	grPM36iySQ8eI/NPKVkQ==;
+	List-Owner; bh=RxPLhstx050hkI7zRvemq4dzIHBAFFcrped5MdN2tYA=; b=AzaZnX4n5jBv5S
+	NgkuQCZLKl+T0ph4pVb8UDD7AZ4chmQkpolQRruoJpbzoAPVViTPc6gOmPg8rhwat2rxqNWPLi6Jx
+	TyCfixmZYwKplVV0r1alvQ22AEkfF1Ee2Eywk8lplD+v5FdNAYnt9PGv5jilQnJj8MGkvEuuZ/O5Y
+	BkYCoKmGG/Ly6YLiatdLoAAhrwPv1L/L2dO4jYj8qHg6G7ZNMxhLNOBP5lNDip6ZMRh6jXnxRVWc6
+	wU5rXoP2kECvt0jH9oLGM7C8JXaxMhAvEOKITWq1hiIk3he/kXtKPoBbmodTgrWh9yeqc6iz1Ov9v
+	0oSLh/eaiTxQfkKph8Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0od-00000007Pez-2BOq;
-	Wed, 29 Jul 2026 09:43:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wp0zh-00000007RSj-0kYB;
+	Wed, 29 Jul 2026 09:54:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0ob-00000007Pet-2aZd
+	id 1wp0zg-00000007RSb-1Da6
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 09:43:05 +0000
+	Wed, 29 Jul 2026 09:54:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97CB260A5E;
-	Wed, 29 Jul 2026 09:43:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1F631F000E9;
-	Wed, 29 Jul 2026 09:43:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 106274374C;
+	Wed, 29 Jul 2026 09:54:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6094A1F00A3A;
+	Wed, 29 Jul 2026 09:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785318184;
-	bh=gAID/OGinxtFgFlPhsHRor54uCIhJClSpvnVsPSAhfg=;
+	s=k20260515; t=1785318871;
+	bh=LVcDA3xezlmTl1NajKjqRETDsHsLNfimeEju9cIQEX0=;
 	h=Date:From:To:Subject:References:In-Reply-To;
-	b=N/QafSwOO2Ah6PDwebPgumjrBc0bKjuEGD80CVu02u29/3vRbP8rofdK5/GV5A2iH
-	 tMGta/+4aErf/bvHSA3DQkV3aFercKNuxrUo5DpS+k0A9xoY4F+9hYP6S+G3bMuGyh
-	 ilySaMNVvuuey+5I1sRSLWU6N3nsTt5XGyslI+wBNOnPUDcCevda5ERjKhMx704GXX
-	 qPvbft+8KKLdTr4l2R3YG5hFmTzhrScNJ+qdxv7AUw9wWGVQsKuiLrg/bVNIwmmDvN
-	 MVIU2zeqg5OMD4WBQ04TrlbhvV1GflRFmluVDeMINRTj8/E3JBRwLTmHcve2+4aKNo
-	 4O2xAsdU7esnA==
-Date: Wed, 29 Jul 2026 09:43:01 +0000
+	b=F8PmnrTG9vWE4KhJExVOol4GWqwd64EU0COppIy71qbYl7g1r7SiwmvxCs0OMAAPT
+	 XvFiCJaB7m3vqW7xWDOyC3mGNemvbhFLA7T/i6cWeM9OFMVaDDu9VOYdvAKe3GyDEP
+	 X7QtKnQLBFlOW0BarvJv96ZtJ2D7LD58Nt95nLJCmXBJav6Sv4+CnU6/9GmBXNeIyB
+	 dzUp6n/oLycEU6As/yErwkBlN/YVgcamBKxIIZKpXEDpk5lXf5r2YFwY0oiZmRMxME
+	 3634fzXXAp2gSVaM6OZmw0KCxqg6MzLIlCdelHEg3T1DMw0Cx8Eyj5P5UVZ8v19MmR
+	 6QG7ctLhUm3gg==
+Date: Wed, 29 Jul 2026 09:54:29 +0000
 From: Yixun Lan <dlan@kernel.org>
-To: linux-kernel@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
+To: sashiko-reviews@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH 0/3] riscv: dts: spacemit: Add cpu scaling for Milk-V
+	Shuwei Wu <shuwei.wu@mailbox.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH 1/3] riscv: dts: spacemit: Add cpu scaling for Milk-V
  Jupiter
-Message-ID: <20260729094301-GKG76518@kernel.org>
+Message-ID: <20260729095429-GKH76518@kernel.org>
 References: <20260728211020.1248676-1-aurelien@aurel32.net>
- <20260729013240-GKF76518@kernel.org>
- <amnJH7rsvbtTUheL@aurel32.net>
+ <20260728211020.1248676-2-aurelien@aurel32.net>
+ <20260728211959.4174F1F000E9@smtp.kernel.org>
+ <amnJsOiWSfuBR1ps@aurel32.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <amnJH7rsvbtTUheL@aurel32.net>
+In-Reply-To: <amnJsOiWSfuBR1ps@aurel32.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,34 +82,72 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Aurelien,
 
-On 11:34 Wed 29 Jul     , Aurelien Jarno wrote:
-> Hi Yixun,
+On 11:36 Wed 29 Jul     , Aurelien Jarno wrote:
+> Hi,
 > 
-> On 2026-07-29 01:32, Yixun Lan wrote:
-> > Hi Aurelien,
+> On 2026-07-28 21:19, sashiko-bot@kernel.org wrote:
+> > Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
 > > 
-> > On 23:05 Tue 28 Jul     , Aurelien Jarno wrote:
-> > > This series adds cpu scaling support for the Milk-V Jupiter boards.
-> > > 
-> > > The first commit adds it to the existing "Milk-V Jupiter (K1)" board.
-> > > 
-> > > The two following commits add a "Milk-V Jupiter (M1)" board, by moving
-> > > the common part, i.e. everything but the model name and the operating
-> > > point tables, in a shared DTSI file. This file is then included for both
-> > > K1 and M1 variants.
-> > > 
-> > > CPU frequency scaling was verified up to 1.8 GHz on the M1 board.
-> > > 
-> > Looks good to me, will queue for v7.3, thanks
+> > Pre-existing issues:
+> > - [High] This problem wasn't introduced by this patch, but wiring it up to cpufreq makes it a serious hardware safety risk: the CPU supply regulator (`buck1_0v9`) has an overly permissive maximum voltage constraint of 3.45V, which could physically damage the CPU.
+> > --
 > > 
-> > Reviewed-by: Yixun Lan <dlan@kernel.org>
+> > --- Patch [1]: [PATCH 1/3] riscv: dts: spacemit: Add cpu scaling for Milk-V Jupiter ---
+> > commit 4e25fb96470d1ad37415e03a27de699ef1f0da26
+> > Author: Aurelien Jarno <aurelien@aurel32.net>
+> > 
+> > riscv: dts: spacemit: Add cpu scaling for Milk-V Jupiter
+> > 
+> > This commit enables CPU DVFS on the Milk-V Jupiter board by including the OPP
+> > tables and wiring the CPU nodes to the CPU regulator supply.
+> > 
+> > > diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+> > > index b61f5995ec771..3c16d0c20050e 100644
+> > > --- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+> > > +++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
+> > [ ... ]
+> > > @@ -107,6 +108,38 @@ &combo_phy {
+> > >  	status = "okay";
+> > >  };
+> > >  
+> > > +&cpu_0 {
+> > > +	cpu-supply = <&buck1_0v9>;
+> > > +};
+> > [ ... ]
+> > > @@ -209,7 +242,7 @@ pmic@41 {
+> > >  		dldoin2-supply = <&buck5>;
+> > >  
+> > >  		regulators {
+> > > -			buck1 {
+> > > +			buck1_0v9: buck1 {
+> > >  				regulator-min-microvolt = <500000>;
+> > >  				regulator-max-microvolt = <3450000>;
+> > 
+> > [Severity: High]
+> > This is a pre-existing issue, but by wiring up the CPU supply for cpufreq in 
+> > this patch, does it introduce a severe hardware safety risk?
+> > 
+> > The buck1_0v9 regulator retains a very permissive maximum voltage constraint 
+> > of 3.45V. Because the safe physical limit for the CPU is 1.05V (as defined in 
+> > k1-opp.dtsi), could this permanently damage the hardware if a kernel bug, opp 
+> > misconfiguration, or privileged userspace requests a higher voltage up to the 
+> > board-defined maximum?
+> > 
+> > Should the board-level constraint be clamped to the safe physical limits of 
+> > the CPU (e.g., 1050000 microvolts) to prevent the regulator from supplying a 
+> > destructive voltage?
 > 
-> Thanks for the review. Unfortunately Sashiko pointed out issues in those 
-> patch series, including preexisting high severity issue that also affect 
-> the BPI-F3. I'll reply to the individual patches.
+> This looks like a valid point. Yixun, I believe the commit a5d7000e1a17 
+> ("riscv: dts: spacemit: Add cpu scaling for K1 SoC") should be drop from 
+> your tree until this is fixed, or at least it should not be pushed to 
+> v7.3 if the regulator issue is not fixed.
 > 
-No problem, I can wait for your v2 series, but may postpone to next merge
-window due to time constraints..
+Instead of dropping this patch, I'd like to get it fixed in tree, I don't want
+to hold on this patch, it's generally tested
+
+> I'll try to submit a patchset fixing that.
+> 
+Yes, please, I think we still have time to get it in for v7.3
 
 -- 
 Yixun Lan (dlan)
