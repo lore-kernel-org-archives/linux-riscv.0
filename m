@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B0EC53200
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 18:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E810C53200
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 18:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ET7C6pV1PFoFq3l2jN1Y7bzxJRwjFp44Dc3WF0fECQk=; b=WvLzlRsvUgq9aW
-	NWnjb78+pLwFAWSPS1B2pbvFK/fTcnQQL5kQ2f3cZrqJfmJVRQba8rK+ryD7XpbTw+yhbmxLu0Ws0
-	hakW/PT5dd7PxtReLk7YyxmvYX6kwUUYtRJLpMCj/D8unnnR4hmNMCFXnBZbfZ2ThWMNWGiKUCT+L
-	sel8Eo4NsfSy4uiOja2hC3FyfU45ynUQJh6EYkmVl3m9gN6Rke9Do1EtRFVY+zLnMm52M/J3D9p0Q
-	r7GMZKVD25kNEDSGrCHuMy9NgEFx/YLfXIYdRsVCydshARgGKo7unzKSGlowevN4ErieDf1XD1yfu
-	gdxpriKLgkJjg6R0KBMA==;
+	List-Owner; bh=a4/wykUj4TaPKhIWya3LfHunjdDnlqc4w3jToo6ucE4=; b=T3jaVlLnnZldd/
+	FyfrAoQzCqIrdyAq07hQEpRMyFACBzXQlcwioGrKwuW67DSgnxEAPCzW4V1JIjuPeYwPBYgAmM8bi
+	LYHrtbgUQmgyQVUTixK86vziAs8F2YsgB2Xztju6czOT9VN7OEE+EHMj/senv+CztqnEn9W3MA3fd
+	OZ8H0U4kOe+HBQ84JrWOEfqnYEpBksIky1NHXEGjZcX0NZlTXL1/mLF1a5vOHq0+kq9eT3799SFRn
+	7dMljXCUZVh5EccE/TQSRK9cry9mH1dwwx+GQsAMcGefZQWtblfNumy8qnaP+wG+NH8tZFjBzUQUO
+	RRJ5m5sQjvhe9+p1xxQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp9A5-00000008pLD-2Fzk;
-	Wed, 29 Jul 2026 18:37:49 +0000
+	id 1wp9Fe-00000008q2m-1T4O;
+	Wed, 29 Jul 2026 18:43:34 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp9A3-00000008pKx-2Pfa
+	id 1wp9Fd-00000008q2W-1wny
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 18:37:47 +0000
+	Wed, 29 Jul 2026 18:43:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 36AE5600AF;
-	Wed, 29 Jul 2026 18:37:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78F541F000E9;
-	Wed, 29 Jul 2026 18:37:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 667F26001D;
+	Wed, 29 Jul 2026 18:43:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CE8B1F000E9;
+	Wed, 29 Jul 2026 18:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785350265;
-	bh=co6R1ijG2O/vouwitT1oHuiHSHx5m7N80pU5OM3V/Hw=;
+	s=k20260515; t=1785350612;
+	bh=5MZ+MEFcKu7kaYFwhvg67goeUgTheL9pRSYEfNWMhMw=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=QMyiWrqaan5TLLhPaK48QKz5do0PEAvrle94/6ROgb4hn942I1Wb8ByXNGmWKMq+D
-	 3+hEObmgs2uY1p3MgGO2cEoAzngzMw4UhwHtpxBQ5wDBfCBUFwkp10MGGykgDb8kKC
-	 8ZMz7IgjH0OiKxSQZ3jTa+6EdefSR4BgQn8Suiclx7zviiZgR8/JUf1VYbyK6L3xsb
-	 g5aTA1Bx2uWGNr+s1lX8DEfuF+6ShsE40p2WDuHVdrkQ2cUH1o/Htem+NjafxXq00r
-	 +Pr33z/jis8VrV9NTbJgcRS755sr96EdZTx0h9d3LO7Lj3ZF1A2pRBbC/Qzjsfj8e+
-	 zAyk65PMUOc7A==
-Date: Wed, 29 Jul 2026 12:37:44 -0600 (MDT)
+	b=UAsMJGVkeK5f7kgHvY60kloSZJ5ZacS/489PV/0/I8tDeMzIvJ3SWuS605NbXscee
+	 Rt8NWl0YzONWGBWMm2ZQiJAA3yLYjCGdbL/eiP0BFYTRKBiPU9/swKYlJDG7Dm5D2S
+	 HAMz/f/e+xwaRZoulQqgtBwT5EJHh10lbvSOpATwlvXOZZidgT2CxANkMzP37ciN79
+	 Wl3bApMznk942OmUtbZCoDZNHC1V4pKwo2SbNLZjF6iKcJcfA+v/jGH9D7UIskAc+d
+	 r29o+lZQSrFxA54vE5vVcWvutm90cu/r1Rq1gK/Z81qlkg/xvQsU2l29yQhlHH/wvP
+	 LVD8yL05OcP/w==
+Date: Wed, 29 Jul 2026 12:43:30 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+To: Paul Sherman <shermanpauldylan@gmail.com>
+cc: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+    hchauhan@ventanamicro.com, apatel@ventanamicro.com, 
     linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Mark default_power_off() as __noreturn
-In-Reply-To: <20260727100339.410466-2-thorsten.blum@linux.dev>
-Message-ID: <f6c94f20-759c-3d89-c136-c81e557825b5@kernel.org>
-References: <20260727100339.410466-2-thorsten.blum@linux.dev>
+Subject: Re: [PATCH] riscv: sbi: fix errno mapping for SBI_ERR_ALREADY_*
+ error codes
+In-Reply-To: <20260727221508.5179-1-shermanpauldylan@gmail.com>
+Message-ID: <8760a4fc-fde1-85be-174d-dc6dc6012265@kernel.org>
+References: <20260727221508.5179-1-shermanpauldylan@gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,14 +70,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jul 2026, Thorsten Blum wrote:
+Hi,
 
-> Since default_power_off() never returns, annotate it with the __noreturn
-> attribute to improve compiler optimizations.
+On Mon, 27 Jul 2026, Paul Sherman wrote:
+
+> SBI error codes SBI_ERR_ALREADY_AVAILABLE (-6), SBI_ERR_ALREADY_STARTED
+> (-7), and SBI_ERR_ALREADY_STOPPED (-8) have no explicit case in
+> sbi_err_map_linux_errno() and fall through to the default branch,
+> returning -ENOTSUPP (-524).
 > 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> Map these three codes to -EALREADY, which correctly reflects their
+> semantics: the requested operation was not performed because the target
+> is already in the desired state.
 
-Thanks, queued for v7.3.
+It looks like -EALREADY is defined as "connection already in progress," 
+which doesn't quite map to the meaning of these errors, here.
+
+https://en.cppreference.com/cpp/error/errno_macros
+
+Does this patch fix anything or change any behavior?
+
+> Also add a documentation comment enumerating all SBI error codes and
+> their Linux errno mappings, making the translation table self-documenting
+> and making any future omissions immediately visible.
+
+I don't think the comment is a good idea; it creates one more artifact 
+that can get out of sync with the code.  We'd just expect people to read 
+the code, I think.
 
 
 - Paul
