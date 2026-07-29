@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D9FC53219
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 01:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CFCFC53219
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 01:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kilIgGL1La2Ua6MvKW9Lakx3655j+JbQ6MyIKeZr4wc=; b=G5E0sgqOwFQqI1
-	dFUo6wpCS6AtsJi3tAk4AuhfzDK/DE01QjSJfuHsZrjqiixp0snWVIf4zvQ6rVAy+LJk49htl5i7z
-	PVA9+7QdkRFNBnfXVnvtQD+s6J/aeK4sWSBMzdRFeIb+u3VaUfhyreKDB5/Ancm1rh/oALDGW2hyF
-	sfixoyAfYXF2ckAba2JyTRU9yhPcZ64IVAuC/hL80lpaPpYBksEEXp4K3m1KRlmuhd5bKHk1I0mQx
-	Oe1C+P3mvBa6SOleGD0IhDfViVn0wHKeg6hmlAWBDNw5qzR8Fn/ER8Fu2+qC96ienjD31MJPOAKDa
-	mWNquLNhlu/GZXNulDbg==;
+	List-Owner; bh=YX9dyVzkWq8fLaSj4UdEpSbNLSkWkJ+FdWjXEfzhfhA=; b=ufBLMrNr/xUdLh
+	jHtf5vQReGPsd6Lcko6H3fQgqdajQPmblaNnvFDPRQ2mexQYWDyBS4YEDDZbrqaB+Uq/rJ9SIxiQp
+	/3Nk4FcbuPQcWnc18QJtxyFKCSy4Q/LzcYzWVnF7z2c3E+685JE4x0HgE7XNEXRWaMrjxzF68TuQ2
+	w/jG4VWCoge/USRNahzoilLhhBKbrz8EGId2D0XrZGxjwE6soubAjAEYfFjx25NHs2dDxduBT2Uym
+	Ueso8Uu5RmPLh98+PoOj360wvJnUJQVGTaRJK1HtiCXqzz1HJGGsxKLCvN3ChdMZRZY8MscFK/mCT
+	ycmqfnZiZoCdmr9sTqIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woszU-00000006ZqM-1jGY;
-	Wed, 29 Jul 2026 01:21:48 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wot28-00000006ahS-3BeX;
+	Wed, 29 Jul 2026 01:24:32 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woszR-00000006Zq2-1SNc
+	id 1wot27-00000006agp-01J6
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 01:21:46 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-47f93b2fe4cso310678f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Jul 2026 18:21:44 -0700 (PDT)
+	Wed, 29 Jul 2026 01:24:32 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-8487088510aso436711b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Jul 2026 18:24:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785288103; x=1785892903; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785288270; x=1785893070; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=X/yNUmJXbEn4d1QfM+/JRPejjSzhIBZ/Fs+rqUcpp98=;
-        b=SPpvkRk+VXBKEAXBsr+DiFtl28uf70MQcmk+SLy4BuEsxMKgfR4RfQ17yrV7MdJnxI
-         ko5Zk/oKKVLMBYGNn2ymX0+sikEUvvxOZRAZjHWtRfXyzIrZ8mGao20lrl8EROVX/QoZ
-         H/gX+9uCyDfO18osKwy+0sGK/9wqtI1LWH1H2FEy54Cfl8hB8VYa48cE0DS/S+opxp2o
-         a4dk0KdLKWrojaWxY0HuwIvrUIiTkGPKRJcdr1+ICO+I8ELYsIRECnIui6CycPiyEkt3
-         MV4Ga0Xw6x7w0c0sJmiirSs6mLbaHvPGC5Mbt6QQpZQ+6DwwEjKrJ2xm/GIAmop+oLrA
-         Xp0w==
+        bh=zTUUYZoRzWnQSYsoa3RJtC9OCCoaKFk0bW+TVIF3cnM=;
+        b=Q7N9O9Ey4FsLEl+2dr2ndpxpitmWJ1qC1vwfBiVDD28Ib4dqRQO+891dL5jwsz6QxA
+         fR8FmffGgnmy2Xs3ZLfsf/AhQp+xYPuWyMdF//HtneDHrNCbVR9NjhXJULzOQV9LkE1Y
+         4F5101zUbHgUguQ5CqyQ9QaxW1MB3NKP61ng0cq/AyXEJkF59XyrPJ+iiOlma1z0848q
+         viAkkwbUere+uuCzHF0DHF2oxNcNFOieBmukfzYXtHSO9SYJ/l2MuJsXC5P7+6vsAZat
+         WzXCsEJ8y95ytvGVdnBzJ6Z7UiKk84oUrdEMIjm35iAicPZ29N3dZhsdfwT7gDoDbpp3
+         e6iA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785288103; x=1785892903;
+        d=1e100.net; s=20251104; t=1785288270; x=1785893070;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=X/yNUmJXbEn4d1QfM+/JRPejjSzhIBZ/Fs+rqUcpp98=;
-        b=MTbn0VTVeno+eLL6mf42njbQLGMkgZN/Xs+vLHz4k3WMYSvbd2QD4DSxi9zriCJuUC
-         HwdcZSdGfxj0rfWZGPAGDGDxLlNhHEtfaZGeLXECFOsT3j6gd7CgBVvP1KbL9Q5sVzTJ
-         nvAVtinQKgMX9lL/Nacy7uvVW/3f8yoVmU/3IppaiKYQG4IyA2njthqhsUsx76SoPGa2
-         Cgap1QAPCmt8+J6ooAteQH+zJhQuvC6s2ac2hF8K70d1DK9C1EW1F3+KI2Xwa1y7XYL3
-         AVFJpu584+PKf3FyEyNE57q3vYM219557D5Etg/6c93Dr30zNbD9iMVAOMVT7mKvATyE
-         KqnQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrDLUxHlL0WZZaeWwJQ9wGHKPwQWaCL7AfBRCpEIYfWhjSQatUeVAwZlzzieSYf6IXz+lei3VwpPaEarg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMmLF4XXLsaZKb5oLmwuIKJiZ6mVDPUipBFPYBzcJ5SpLY+sWC
-	NNoNVHVtANKOgE/efIxep5DfOcbpSQ5m8CK7fuG+qjgaeYRlaZ61181e9r8sKKhP
-X-Gm-Gg: AR+sD11djl8vPA2xTfcD6HZ0RFbJnUgitF8XZq4vhek8anl/8YJi3j1uXYmEZCTS+D4
-	lhl9a+K2/orLN7f3C5G7BnU7o7iDbUbNoSVW9HKCzZlvTR18xO9pFXyo0Ezq+WOtsEQIxZlmJyr
-	fo6cnpobpTb2Uv0irdx9Ka+YtujKxSbeBNGb5ilSP31dUgPrkfi7MILosp0sDZ/4L0hYD3wNvgs
-	01wkUNkDUTALl14IMUQEJWB/2cl/a85py+0cB8loqAODDbcUK6L82m49SkLjpFdjJk2vgXV2sKo
-	LU3ci1+1iLSQr5oTLgTKBIZ+mZvdFi3AFniuQDzwU/aOHvii9LBfEx35zrfmbaPZeizf6VgZ6Kn
-	ornMexdTcXk4riiprT72GWrjrEPMRcP4FU2dW18uo7TiNu+3c4y7NjvsisTSXYw+C5QLDP72QX7
-	8jR/4IQWEOhUSA3Xca8RJVn9Q3vXxNFQ02ih+SZkqcLEAk3DEBIyb8yiCWA92EZy91HdpEbQnoM
-	g8AMOg9Xeu7xipqjqioxghP8eV2KpQ6YA2tm0E3e+P8FC0sjHU728CBB7XTf+Df8vFcYwlrwAbp
-	RfvTW/RN8B8x52SWgOd/YWM0aliK8jYvgW/9tOXo2FQpMmMD59ajGl9LdE5UOdiaM5S8
-X-Received: by 2002:a5d:5f42:0:b0:47f:aead:f81b with SMTP id ffacd0b85a97d-47fb1e9381amr4471613f8f.21.1785288103396;
-        Tue, 28 Jul 2026 18:21:43 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-b323-2b01-0d98-9fe8-a4cd-78ab.310.pool.telefonica.de. [2a02:3100:b323:2b01:d98:9fe8:a4cd:78ab])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fb6b0f039sm3507389f8f.18.2026.07.28.18.21.41
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 28 Jul 2026 18:21:42 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
+        bh=zTUUYZoRzWnQSYsoa3RJtC9OCCoaKFk0bW+TVIF3cnM=;
+        b=SObVhsR5LB/tRZ4JBXK527PCiTVXzoqy7NdmDntTu+STCc9TK44DTRmNzVR+1satgF
+         wA8w4VcqTXXinu87SWWQS9dPUkHUYIAUeV8aT+PXqKmqQ/Vx/vcr6ncilXWUiZTN5VLN
+         ZAVybZeG8tWEtFAUc5vL9wB8WHzuQQuvwsK93ikAvbK1E0+OAFNhwwoECx3HoJYAZEVY
+         LKxKXTnVbBj4no11LQ4zxRvR27xHoluGPBRcEw4F3TDfMcqU5Tp7C8OopvYVmrtzdU84
+         Ugctv1UPF23uWVcFH9+v0pNZ/tZ4h3yIXX5oO8d3rMigNrpb8mUzNF9ZLNu86MZvGdua
+         tzDg==
+X-Forwarded-Encrypted: i=1; AHgh+Rrfj09kaSjcSmdLg8pdhFZwcAZ1O7P82E869DJTvW2YSC/T7oqXHxGTdQqjZNhFIuzTmG/vo6HiFeufug==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxvi9FCrQAYW+F/sp+i3d8Z3sq/l88sJJZXWuAB2w1DMLhPUoAT
+	9uQPLd291LUK+HkFQiJ0AvBgEpIiVEw48FdjBzJQBdwnAUNkeWpyEQ54
+X-Gm-Gg: AR+sD11yOYYOnmGlbRc3kVdrWhYqD4tU1cwtu/O6Jq+8KbkaH3c4ArUaSA6tEQRcnh4
+	5VCpcJ3DjLvYXtWnRsJ+SybSfVQm4xuiKcbdOTwAEAVT+nzR0f+c20vQGQw6suqHvSrvSDnGw4q
+	6K3z3HIarmmArxIqFSBRO9qO6PuxaH83KnnynQYbjEASTAMz3bZWXEDLpcNFjuHNST3AkjFSK/Q
+	ICYhOoRCe9n9TyK/hakWQ/XI0AbidcYIJvDU8gPGzkWDRJwUw5RERjfB+K35sDzJFJ5okaek/vy
+	xPy4JGPOM/InFUH92eaLBZpp3NkqcIjXKiC0h5p87/hzU/W/pfb7CWjHfqmRZOSaTkNJ1iKumll
+	ygS1Og98ENIJeu2upYndupy+h4D8ri1B54DsZmva5wWTpRT+e6xd8cxXYkbm63vB4G2DJqncNb9
+	9kGOy6iYy3ljNdanYnuMRZZsPdIIu6QYKhGtRmEODwpP59Iu67kIpNCrjHFTU=
+X-Received: by 2002:a05:6a00:1248:b0:847:df4c:40c9 with SMTP id d2e1a72fcca58-84e9331b006mr4904021b3a.46.1785288270033;
+        Tue, 28 Jul 2026 18:24:30 -0700 (PDT)
+Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e9fe20e35sm595509b3a.1.2026.07.28.18.24.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 28 Jul 2026 18:24:29 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: mm: Fix out-of-bounds page-table walk during memory hot-remove
-Date: Wed, 29 Jul 2026 03:21:32 +0200
-Message-Id: <20260729012132.24882-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH 1/2] riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 pico-itx board
+Date: Wed, 29 Jul 2026 09:24:16 +0800
+Message-ID: <20260729012418.154652-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_182145_423435_10CF5A9D 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260728_182431_071031_7935927B 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,56 +108,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-remove_pud_mapping() and remove_p4d_mapping() obtain a child table base
-with pud_offset(p4dp, 0) and p4d_offset(pgd, 0), then add the index for
-addr.
+Since the previous commit does not change the phy node name,
+the dtschema can not recognize the type of the ethernet phy,
+so the following error is produced:
 
-RISC-V folds page-table levels at runtime. When a level is folded, its
-offset helper returns the parent entry itself, but the index can still be
-nonzero. Adding it walks past the parent table. Sv48 folds P4D, while Sv39
-folds both P4D and PUD, so memory hot-remove can descend into unrelated
-memory and pass an invalid page to __free_pages(). This can trigger:
+/arch/riscv/boot/dts/spacemit/k3-pico-itx.dtb: phy@1 (ethernet-phy-id001c.c916): $nodename:0: 'phy@1' does not match '^ethernet-phy(@[a-f0-9]+)?$'
+        from schema $id: http://devicetree.org/schemas/net/realtek,rtl82xx.yaml
+/arch/riscv/boot/dts/spacemit/k3-pico-itx.dtb: phy@1 (ethernet-phy-id001c.c916): Unevaluated properties are not allowed ('reg', 'reset-assert-us', 're
+set-deassert-us', 'reset-gpios' were unexpected)
+        from schema $id: http://devicetree.org/schemas/net/realtek,rtl82xx.yaml
 
-  kernel BUG at include/linux/mm.h:1810!
-  VM_BUG_ON_PAGE(page_ref_count(page) == 0)
-  arch_remove_memory+0x1e/0x5c
-  try_remove_memory+0x15e/0x200
-  remove_memory+0x24/0x3c
+Change the nodename to make the dtschema can recognize the right
+PHY type.
 
-Only add the index when the corresponding page-table level is enabled,
-matching p4d_offset() and pud_offset().
-
-Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
-Assisted-by: Claude:claude-fable-5
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Fixes: 6d6536c880fe ("riscv: dts: spacemit: Fix phy id check for the phy on pico-itx board")
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- arch/riscv/mm/init.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 3e450890be07..338a8cbf4b80 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1618,7 +1618,7 @@ static void __meminit remove_pud_mapping(pud_t *pud_base, unsigned long addr, un
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index d78416f3118e..e91a4712f2db 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -195,7 +195,7 @@ &eth0 {
+ 	status = "okay";
  
- 	for (; addr < end; addr = next) {
- 		next = pud_addr_end(addr, end);
--		pudp = pud_base + pud_index(addr);
-+		pudp = pgtable_l4_enabled ? pud_base + pud_index(addr) : pud_base;
- 		pud = pudp_get(pudp);
- 		if (!pud_present(pud))
- 			continue;
-@@ -1649,7 +1649,7 @@ static void __meminit remove_p4d_mapping(p4d_t *p4d_base, unsigned long addr, un
- 
- 	for (; addr < end; addr = next) {
- 		next = p4d_addr_end(addr, end);
--		p4dp = p4d_base + p4d_index(addr);
-+		p4dp = pgtable_l5_enabled ? p4d_base + p4d_index(addr) : p4d_base;
- 		p4d = p4dp_get(p4dp);
- 		if (!p4d_present(p4d))
- 			continue;
+ 	mdio {
+-		phy0: phy@1 {
++		phy0: ethernet-phy@1 {
+ 			compatible = "ethernet-phy-id001c.c916";
+ 			reg = <1>;
+ 			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
 -- 
-2.53.0
+2.55.0
 
 
 _______________________________________________
