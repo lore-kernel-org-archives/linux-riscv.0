@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387D1C53219
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 16:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1637AC54F51
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 16:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dxkjlR+DCF9lLEsb1w12PaqFu/bInqJ9FNyEinfbOeg=; b=jgL4LNmpgIiYWN
-	G9S8mMmk1BfP/Zuyewjpavoi6s+HZdHte0scG7r8U27lJI/3+0TLD5C7HdGTewnDVfiV+P/P4WmYV
-	g15yC8bBvD/l2OnMKddEObhIgb123k7CADQhWrcmdIGqObHtyYvDCLD5pcL9dEALf3mjUEUHSiOta
-	0/wPVxIi6emnYDCvtLFNNSbLiE5ioih53IyTzheIIWi2VbaOdNMWvqnWxGJg9iUJenIYoR3JrMoYQ
-	RvmQIjKujXl6mY0u22VUHhL8esdHeVlhRxQtExIN+Uc8jGGTjySdJJkSqzgarM03P8wetjsidjREi
-	NA2/QPZECJpZaq/8n0PQ==;
+	List-Owner; bh=2DI/HKtroGASJphv+XDjiM2iKUVxawTXt/KLS+BMsYo=; b=oGZJokyyad2wIt
+	KppITsxXwFc9u5Gk1K7YX7AWBZbGWYeCzKirYiaYYdIh4anpnkoeLczi9uAYPB5s92ldvvy8GMyy0
+	r9mb7HrMEZuJffD/mKpZLjypHtBo1aK7A7A0d+hR2gP3CDFt74sAHHOqWn6hq55rla4T9ePKrdQ9W
+	06b/YdgqsDBcxmQZDWKu6V8pieQFRcE21fgG1NFVfVRNeSYGSdX561eulgKXriVB74GS6pGvJPK8u
+	QkPhrYAjwrDnPRC2WqrccQh46NYw+wvhbUT1096YTfye2k2Xs4hDuDRTAJwLvbIKo06W19mTO8dLG
+	PytKSn+fW4KEhBwTfOKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6pF-00000008V3o-1mvQ;
-	Wed, 29 Jul 2026 16:08:09 +0000
+	id 1wp6pI-00000008V5S-0lFd;
+	Wed, 29 Jul 2026 16:08:12 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6pB-00000008V1w-1Pbe
+	id 1wp6pE-00000008V2y-1GVg
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 16:08:06 +0000
+	Wed, 29 Jul 2026 16:08:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=KTD3UeRnk+P13p0Gql6n+5OQ+cgl14ZnkdUkTh2tZBQ=; b=IGkIfzHalltxc5qIlICu2oHbjK
-	YhAhUV+tgO+YBSsmBASFW9MKizrvpV8OUT32eIC+gcAXhFzsb14NX7haIwDoUqwMsM9bKbigSqvbM
-	zkzLduIGm5gOyod4asniNYcIlIsk6LNuDRQkxbzvIGuUaXZWGG23ISd44KsItT1aNVphfSmMnVZNI
-	tSRaRiyQuZFXfgGxIz4ChkDv8jT6cyxgiyB0ykqcC9RIvRPjdYT3YqkVs/OhLq4ukPH2EfO2c/8iv
-	386XkAVLHS7dM8uqESfKmPorQq+zlp8eNh+OIONMHih0Dmds6exXLLFfG9lHlU/sP/D/0whTpMSV3
-	h42CV0LA==;
+	bh=cveopwzj7XfdCOBfc3Ki3QOytn7ALGYIc0d1OoDtSVo=; b=CXSzC4eibsYUnE6K+8RDgCeHHL
+	4pW3vfrkuBUvDWL63WupQ7VAbRUeNPKeFfCybPoJAIe6qbmW2Psd1r8st6o5bqn26MzN/5iwWB7EM
+	ZFJ1c49UMzaYMtlyk0tQ6SenACma78nUgzbySZI+sv97HRqw5o0tMCyjSUkRy0c5iRkZ1hi4YV6CN
+	gIuA71oCT4QjsJHD6mUC/ZtThlfsl+52csRihGuSqBNsU92AIclroWFWLhPEiOsOiYZ+wbXDMhEAJ
+	eQ6a+Mo61ct/i238at2JPsabBayBVQ8PAyAQyzAhcDbxjKTf8vdbMEWvjpcyksqfTjrzXdIgVd94x
+	2D1XjjhA==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1wp6p8-00000002huO-3eBo;
-	Wed, 29 Jul 2026 18:08:02 +0200
+	id 1wp6pC-00000002huu-1QZ2;
+	Wed, 29 Jul 2026 18:08:06 +0200
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: linux-kernel@vger.kernel.org,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>
 Cc: Aurelien Jarno <aurelien@aurel32.net>,
 	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
 	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
-Subject: [PATCH v2 1/4] riscv: dts: spacemit: Add cpu scaling for Milk-V Jupiter
-Date: Wed, 29 Jul 2026 18:00:28 +0200
-Message-ID: <20260729160749.1621415-2-aurelien@aurel32.net>
+Subject: [PATCH v2 4/4] riscv: dts: spacemit: Add Milk-V Jupiter board (M1)
+Date: Wed, 29 Jul 2026 18:00:31 +0200
+Message-ID: <20260729160749.1621415-5-aurelien@aurel32.net>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260729160749.1621415-1-aurelien@aurel32.net>
 References: <20260729160749.1621415-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_090805_403729_4E511C28 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_090808_344246_3453B788 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,75 +83,178 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable CPU DVFS on Milk-V Jupiter by including the OPP tables and wiring the
-CPU nodes to the CPU regulator supply.
+Add support for the Milk-V Jupiter board with the M1 CPU. The M1 differs
+from the K1 only by its package, which provides improved cooling
+performance and allows it to run at up to 1.8 GHz instead of 1.6 GHz.
 
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+Add m1-opp.dtsi to define the 1.8 GHz operating point and the
+corresponding core voltage, based on the upstream kernel. Include it
+from m1-milkv-jupiter.dts. Raise the maximum buck1 voltage to 1.116V to
+match the new operating point.
+
 Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
 ---
- .../boot/dts/spacemit/k1-milkv-jupiter.dts    | 35 ++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/spacemit/Makefile         |   1 +
+ .../boot/dts/spacemit/m1-milkv-jupiter.dts    |  16 +++
+ arch/riscv/boot/dts/spacemit/m1-opp.dtsi      | 117 ++++++++++++++++++
+ 3 files changed, 134 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/spacemit/m1-milkv-jupiter.dts
+ create mode 100644 arch/riscv/boot/dts/spacemit/m1-opp.dtsi
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-index c76b91ecb914d..635e95aad14a5 100644
---- a/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
-@@ -5,6 +5,7 @@
-  */
- 
- #include "k1.dtsi"
-+#include "k1-opp.dtsi"
- #include "k1-pinctrl.dtsi"
- 
- / {
-@@ -107,6 +108,38 @@ &combo_phy {
- 	status = "okay";
- };
- 
+diff --git a/arch/riscv/boot/dts/spacemit/Makefile b/arch/riscv/boot/dts/spacemit/Makefile
+index 851b701e5da48..c5c38c17b6ced 100644
+--- a/arch/riscv/boot/dts/spacemit/Makefile
++++ b/arch/riscv/boot/dts/spacemit/Makefile
+@@ -8,3 +8,4 @@ dtb-$(CONFIG_ARCH_SPACEMIT) += k1-orangepi-rv2.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k3-com260-ifx.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k3-deepcomputing-fml13v05.dtb
+ dtb-$(CONFIG_ARCH_SPACEMIT) += k3-pico-itx.dtb
++dtb-$(CONFIG_ARCH_SPACEMIT) += m1-milkv-jupiter.dtb
+diff --git a/arch/riscv/boot/dts/spacemit/m1-milkv-jupiter.dts b/arch/riscv/boot/dts/spacemit/m1-milkv-jupiter.dts
+new file mode 100644
+index 0000000000000..b0624d65a17fb
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/m1-milkv-jupiter.dts
+@@ -0,0 +1,16 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2026 Aurelien Jarno <aurelien@aurel32.net>
++ */
++
++#include "k1-milkv-jupiter-common.dtsi"
++#include "m1-opp.dtsi"
++
++/ {
++	model = "Milk-V Jupiter (M1)";
++	compatible = "milkv,jupiter-m1", "spacemit,k1";
++};
++
++&buck1_0v9 {
++	regulator-max-microvolt = <1160000>;
++};
+diff --git a/arch/riscv/boot/dts/spacemit/m1-opp.dtsi b/arch/riscv/boot/dts/spacemit/m1-opp.dtsi
+new file mode 100644
+index 0000000000000..38e0ce7765a2b
+--- /dev/null
++++ b/arch/riscv/boot/dts/spacemit/m1-opp.dtsi
+@@ -0,0 +1,117 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++
++/ {
++	cluster0_opp_table: opp-table-cluster0 {
++		compatible = "operating-points-v2";
++		opp-shared;
++
++		opp-614400000 {
++			opp-hz = /bits/ 64 <614400000>;
++			opp-microvolt = <950000 950000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-819000000 {
++			opp-hz = /bits/ 64 <819000000>;
++			opp-microvolt = <950000 950000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-1000000000 {
++			opp-hz = /bits/ 64 <1000000000>;
++			opp-microvolt = <950000 950000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-1228800000 {
++			opp-hz = /bits/ 64 <1228800000>;
++			opp-microvolt = <950000 950000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-1600000000 {
++			opp-hz = /bits/ 64 <1600000000>;
++			opp-microvolt = <1050000 1050000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-1800000000 {
++			opp-hz = /bits/ 64 <1800000000>;
++			opp-microvolt = <1160000 1160000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++	};
++
++	cluster1_opp_table: opp-table-cluster1 {
++		compatible = "operating-points-v2";
++		opp-shared;
++
++		opp-614400000 {
++			opp-hz = /bits/ 64 <614400000>;
++			opp-microvolt = <950000 950000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-819000000 {
++			opp-hz = /bits/ 64 <819000000>;
++			opp-microvolt = <950000 950000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-1000000000 {
++			opp-hz = /bits/ 64 <1000000000>;
++			opp-microvolt = <950000 950000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-1228800000 {
++			opp-hz = /bits/ 64 <1228800000>;
++			opp-microvolt = <950000 950000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-1600000000 {
++			opp-hz = /bits/ 64 <1600000000>;
++			opp-microvolt = <1050000 1050000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++
++		opp-1800000000 {
++			opp-hz = /bits/ 64 <1800000000>;
++			opp-microvolt = <1160000 1160000 1160000>;
++			clock-latency-ns = <200000>;
++		};
++	};
++};
++
 +&cpu_0 {
-+	cpu-supply = <&buck1_0v9>;
++	operating-points-v2 = <&cluster0_opp_table>;
 +};
 +
 +&cpu_1 {
-+	cpu-supply = <&buck1_0v9>;
++	operating-points-v2 = <&cluster0_opp_table>;
 +};
 +
 +&cpu_2 {
-+	cpu-supply = <&buck1_0v9>;
++	operating-points-v2 = <&cluster0_opp_table>;
 +};
 +
 +&cpu_3 {
-+	cpu-supply = <&buck1_0v9>;
++	operating-points-v2 = <&cluster0_opp_table>;
 +};
 +
 +&cpu_4 {
-+	cpu-supply = <&buck1_0v9>;
++	operating-points-v2 = <&cluster1_opp_table>;
 +};
 +
 +&cpu_5 {
-+	cpu-supply = <&buck1_0v9>;
++	operating-points-v2 = <&cluster1_opp_table>;
 +};
 +
 +&cpu_6 {
-+	cpu-supply = <&buck1_0v9>;
++	operating-points-v2 = <&cluster1_opp_table>;
 +};
 +
 +&cpu_7 {
-+	cpu-supply = <&buck1_0v9>;
++	operating-points-v2 = <&cluster1_opp_table>;
 +};
-+
- &emmc {
- 	bus-width = <8>;
- 	mmc-hs400-1_8v;
-@@ -209,7 +242,7 @@ pmic@41 {
- 		dldoin2-supply = <&buck5>;
- 
- 		regulators {
--			buck1 {
-+			buck1_0v9: buck1 {
- 				regulator-min-microvolt = <500000>;
- 				regulator-max-microvolt = <1050000>;
- 				regulator-ramp-delay = <5000>;
 -- 
 2.53.0
 
