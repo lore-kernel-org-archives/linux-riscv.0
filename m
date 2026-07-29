@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51289C54F51
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 10:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F9B2C53200
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 11:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R/t5MRc3qOVxNS5Jb1BO/RSpegist9WJ6MXhiJPZtJA=; b=KIzAz4KRNOjbiG
-	TuNi115VEmNtXwZIV1puPB9jDQox52XtfDLHedePVp995lNftpLy5KuFdSEczUswfpoExLXPPCcAN
-	45miEnv2CYWo/49KXXl0xZWaVJ/IdnpKV+qLu45jm8/L/kv1hwKpIdTx2ktfTREXe87vRhtbjWjgh
-	BPFyfDrTOYj/S4q0MAyI5ohMtnp6p4PsAK+kJ0DDWi0C4PCXx0km7fTkEOfFileh3NMPtnV/M9uJ4
-	vPEHsfuW1p3gvZpcdd8UeQb23abJs+qu1MPzbCsMi83LiieURqKBFaNKeGfNi/JpS6hvof2r3WX5y
-	EG8lEXk3cDLaNI1c2liA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yy4eclwUTCkaosteRTwSOsZJjIcFNQ8y3P2e5jerbEg=; b=fWtURAKT7KPo2il3ewXNIYbBOO
+	1AdPJUvnJJUoG40QgXTrHpTl701kD+Ke+GPD8UKp3sUIqd5TFLCXW3TxB86XEb5gn+u2IEXsiXc2N
+	QKwn6eiETuLg5eRmgVpytq3qBirHweSIeUI3xCBckXfeZ3q7n+m9/jukoSqxPTmo2In0apSxIGPfF
+	b6F61YQZuOP5noweu/w3nugpUGU2ZxaKRKFxMO+iajgG3r3rkgxZFQSzX+k5RAHRuBf4Di676MEa2
+	LnwUhqdoIwOSsKoVCpTIq8y4KabPomberyOX+em9FefM5xkiBQa0+snJEsoKEeRK4QBkhSgPuBkDa
+	K2ScDmjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1Zp-00000007YaR-1Pol;
-	Wed, 29 Jul 2026 10:31:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wp214-00000007fNZ-1YyG;
+	Wed, 29 Jul 2026 11:00:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1Zo-00000007Ya0-38XY
+	id 1wp212-00000007fLu-1hnC
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 10:31:52 +0000
+	Wed, 29 Jul 2026 11:00:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E16F4379E;
-	Wed, 29 Jul 2026 10:31:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 730A71F000E9;
-	Wed, 29 Jul 2026 10:31:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7FB7E60AA8;
+	Wed, 29 Jul 2026 10:59:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D6D01F00A3A;
+	Wed, 29 Jul 2026 10:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785321112;
-	bh=WDcll2X4mfJ1x6C91gw/T6xgZXDCk4vzi+VVaCjZA6o=;
+	s=k20260515; t=1785322799;
+	bh=TtH0mcQHRaS2iBKANm0LIeTcnxStbEZe2wl12nOsYkM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VpF2YZYdhEHuZhuA2QCSr9P6niyM6E1ULRbDaMn9FdMXI19a0H+jMitMbzMAzCRJq
-	 XyqkRdMVcScz8E+rw2moetKAqQ4pgoLgctNvXP0nLDTd78vJSnoTj4OisX75O5aFWe
-	 8zlw83xz0wFMFIHyzHH16ZsQHUd9fSNabHkE8Ca/mwWWjp5yfLfMMO71fzmINb2Mwh
-	 WdGvQcLhlbOzRA5Xae1NTCDyEZcEdftGqD7AebZXXWzix//vqo19RE4PX6vYYBKa4q
-	 ji5BmdczgRpBPe6AXJLtqqxs5GJG0lRl+zy74TESVcE3GU8kQ7MehVj2dJkshjBfOd
-	 T1aGqQhZWRn4g==
-Date: Wed, 29 Jul 2026 10:31:48 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: spacemit: validate pins in pinconf callbacks
-Message-ID: <20260729103148-GKI76518@kernel.org>
-References: <20260729-spacemit-pinconf-validation-fixes-v1-1-edeaff398fb3@linux.spacemit.com>
+	b=UX96AhQpN+Ogg3Gbn+pq/owEsWAYyUI9hcJVqyfP6FIVvbm4L4KWpDANNtnqA128f
+	 ysfDcGaAoyub7QKcYkEliuOt8etDoI8uDqYajzwUzFkJ/Pn6jIxALnqbuzFMfqJRc9
+	 HV7rFWIYBU6n9sXUV0T8hTSFUPAVrK7nhmsIHD7WX8ftht7L1/OT481b8cDsrnUSEP
+	 +SFUVP5P9x8XwWuGFV+F0wqEMso2A6FE4cdPmTcwPklrhOh5mfuaXq8w4od0xWhmoh
+	 qOsRphbwKcHM9L0j1ck55pvmfkgRmiT521aP5/OT4dkn3/nvfAL1TmBwiyZty3XBf0
+	 C1ZMYHRZquaeQ==
+Date: Wed, 29 Jul 2026 11:59:54 +0100
+From: Conor Dooley <conor@kernel.org>
+To: E Shattow <e@freeshell.de>
+Cc: devicetree@vger.kernel.org, Ilya Sorochan <k0tran@altlinux.org>,
+	Conor Dooley <mail@conchuod.ie>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	linux-riscv@lists.infradead.org, heinrich.schuchardt@canonical.com
+Subject: Re: [PATCH] riscv: dts: starfive: jh7110-common: fix jh7110 SoC boot
+ from SD-card.
+Message-ID: <20260729-electable-remake-1b8c94a452b7@spud>
+References: <20260306171939.84568-1-k0tran@altlinux.org>
+ <178526175795.1708098.11834005845749245101.b4-ty@conchuod.ie>
+ <a32646aa-446a-4f95-9293-40001aeedae5@freeshell.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260729-spacemit-pinconf-validation-fixes-v1-1-edeaff398fb3@linux.spacemit.com>
+In-Reply-To: <a32646aa-446a-4f95-9293-40001aeedae5@freeshell.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,38 +68,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8958825958020004114=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
+--===============8958825958020004114==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9GTnjuYoP5tpTkIh"
+Content-Disposition: inline
 
-On 02:26 Wed 29 Jul     , Troy Mitchell wrote:
-> Pin 0 is a valid pin ID, but spacemit_pinconf_get() rejects it by
-> testing the numeric ID rather than the result of the descriptor lookup.
-> It also fails to reject nonzero IDs absent from the SoC pin table before
-> computing their register addresses. Check the descriptor and use its pin
-> ID for the register lookup.
-> 
-> spacemit_pinconf_group_set() validates only the first group member when
-> generating the configuration. If a later member is invalid,
-> spacemit_pin_set_config() returns -EINVAL, but the callback ignores it
-> and reports success after partially updating the group.
-> 
-> Validate every group member before writing any registers so malformed
-> groups fail without being partially applied.
-> 
-> Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-The fix looks good to me, thanks
+--9GTnjuYoP5tpTkIh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+On Wed, Jul 29, 2026 at 02:39:50AM -0700, E Shattow wrote:
+>=20
+>=20
+> On 7/28/26 11:02, Conor Dooley wrote:
+> > From: Conor Dooley <mail@conchuod.ie>
+> >=20
+> > On Fri, 06 Mar 2026 20:19:39 +0300, Ilya Sorochan wrote:
+> >> Add bootph-pre-ram to mmc1_pins clk-pins.
+> >>
+> >> U-Boot pruned their overrides recently in favor of Linux which broke b=
+ooting
+> >> from sd-card for me and Heinrich Schuchardt [1]. Pruning commit:
+> >> 27f617019dd070cb61f2 ("riscv: dts: starfive: prune redundant jh7110-co=
+mmon overrides")
+> >>
+> >> [1]  https://lore.kernel.org/all/ffdfc550-559b-4c59-9873-3f040fc3bb0e@=
+canonical.com/
+> >>
+> >> [...]
+> >=20
+> > Right, I am going to try this again. I don't think there's actually a
+> > valid technical argument against it, since it just affects the stage at
+> > which configuration is applied rather than configuration itself.
+> > If the configuration is wrong, and more devices don't use this configur=
+ation
+> > than do, people need to move the node to where they think should be. Th=
+at
+> > shall be done separately.
+> >=20
+> > I don't want to hear about the politics about whether or not Starfive w=
+ant
+> > to support it or reverse engineering of binaries etc. All that I care a=
+bout
+> > is discussion of the hardware itself and which boards need this and whi=
+ch do
+> > not.
+> >=20
+> > Applied to riscv-dt-fixes, thanks!
+> >=20
+> > [1/1] riscv: dts: starfive: jh7110-common: fix jh7110 SoC boot from SD-=
+card.
+> >       https://git.kernel.org/conor/c/42c57c049054
+> >=20
+> > Thanks,
+> > Conor.
+>=20
+> Second NAK to this being applied, again, do not apply as-is.
+>=20
+> As you're not interested in the technical discussion, then you won't
+> have one.
 
--- 
-Yixun Lan (dlan)
+I am interested in technical discussion of the hardware configuration. I'm
+not interested in reverse engineering of binaries, GPL compliance or
+whether Starfive want this to work or not because I don't see how they
+relate to the correctness of the hardware description.
+
+--9GTnjuYoP5tpTkIh
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCamndKgAKCRB4tDGHoIJi
+0pEHAP4tUFMDOdPAWOVTlsM9wcVDVX5X43Awp2ZDSTlBZ8I/IgEA+x9hTRMtWp3p
+DaIrpFWoBW0ZyIlpyGLKrnA4otQPHwI=
+=gumS
+-----END PGP SIGNATURE-----
+
+--9GTnjuYoP5tpTkIh--
+
+
+--===============8958825958020004114==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8958825958020004114==--
+
