@@ -4,107 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA415C53200
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 09:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177F9C53200
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 09:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8snBjm3YhVeMNUHWSmw1PB1VEviaXZtcn9Ptby+Atjg=; b=tNkTuA7IikX3sP
-	nF83KdXOPS9kYQhrxhixMdS9x/hYYmP4PEPD7swkE7yiZiw5mfAPQrAHJ7EH3ZrFwrKG9HQqwc15F
-	bM9bVyXroz4GI/skZJthDpvjOJcGlxTPbVT9Gigkxfa5paV9wU8hbo5THXmZDKCBalTCY6+KQwZCo
-	JIf0fMv52Iwz0qmtKA6Ds00YykSYXHn81MVnDzIofPYzyjfDQULRi5XczrdrxrBv//HkSWZ55EhVb
-	sFUAsUTTzJIMLpWHEWNqaNNCGFSggz6eGMLRVrOs9BMiGpKo90XDkjDKCQ/pgtXZc3YkBRYr4zQCt
-	WpjvfdK5JgknMcWXYrMg==;
+	List-Owner; bh=NcBskUS0QuxF3AQJWVYbUmlO6O9wU1K6Ds+UVrXwF3Y=; b=AECUzNN+IrFH6A
+	I586kyexz4c7oKFNawghIUOmlapLvH0I8mMNu5hMOAvYSPeG2iDBoEagjCtDs1ChZ1z2c8gas0ZZ4
+	mP8ur9/uyHkpSkE54YZkQY8f1LtIiOqmlSKP7CoyjGarsizU93DGW3pN3+iGem8Hvaa+dTq0J14CZ
+	Bvq9pETogaNtS3+qZr+ko3tjCNakEnqbA9BogywrVwVM5q16KmoWN4vOxYGIXJEa4hd7q69DQ2KRf
+	KcI0duAyUQ4KXZzwOk/+jK/T1YdJUFsAlk00DhNEkirjxiRDVMcWBLHimbZ/CplVCQfqI5pv2uS6B
+	A/P2mzQ9U9tUfJTSz0yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0PV-00000007LEU-3trt;
-	Wed, 29 Jul 2026 09:17:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wp0VP-00000007M77-133m;
+	Wed, 29 Jul 2026 09:23:15 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0PU-00000007LEJ-2a5I
+	id 1wp0VL-00000007M49-3WzT
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 09:17:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 497B341438;
-	Wed, 29 Jul 2026 09:17:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E161F000E9;
-	Wed, 29 Jul 2026 09:17:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785316628;
-	bh=eVJxQEzXpQWTkC0PquYQGc64UxulzBTi6LZYawBPiGU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FvFPi8rLszzW2JvBTxLJOwLbPhEP70GBYLPnpq4gvBp9sQ4l8b6CbQql0lKzn3jU8
-	 O9OXXRBtHw8AH4JdcjfKimSMRpmEttJSsZwbpw3UrEvkbUgLQQcPnnS0m/IpK8OT9k
-	 B8RC+LnKcQgGbSDRO/vOysLCNk6eXNl6bNJgxfV4oJXYwYaJMkgHBOOCOmn+6mRma5
-	 lCCD2mPlhlGYRWukQaN6ZqqoRThFq3jZULJmbS4en621R564PKvVzJqa/jEJFWyy0b
-	 pzbT56zNMy3edqS2XmGZiuv5+M4iKahrMsso09q92YRHFLU9QZLJvjXluZYwdwlXw6
-	 04911Xqp1BYqQ==
-Message-ID: <39f12852-a0d4-4d90-8ea3-dbfa7e1c2059@kernel.org>
-Date: Wed, 29 Jul 2026 11:16:58 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Wed, 29 Jul 2026 09:23:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1785316953;
+	bh=Z8jgFnSsfsBCNp8MTSDgq+awuLrAuj0O13qIpQRlAas=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=A/Eu0FLnd/l5zV9WJ3K2ZGV+AHKJQYTJMGs5UkVIIxpzfg/ePGrbJJByZjmrS78Bu
+	 PmGV9TiGKZcNryCuUZDyzLMByKWQT3KUBhlBry2t2gsP8l7Tadf/Bmmu98B0BszGyc
+	 g1yQw1Gmj3hBDYX44YIZhTdJTq1q3ZejX6/0lypk=
+X-QQ-mid: zesmtpgz6t1785316944t7d5426a8
+X-QQ-Originating-IP: uiN5hJeyCk8Cgn2Kllv6CP7k2E6uuJH+qdj4J3W2DYo=
+Received: from localhost ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 29 Jul 2026 17:22:22 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3554096686797190771
+Mime-Version: 1.0
+Date: Wed, 29 Jul 2026 17:22:21 +0800
+Message-Id: <DKAY1CLOY1DD.189ONPFZX1G4O@linux.spacemit.com>
+Cc: "frank.binns" <frank.binns@imgtec.com>, "robh" <robh@kernel.org>,
+ "krzk+dt" <krzk+dt@kernel.org>, "conor+dt" <conor+dt@kernel.org>, "dlan"
+ <dlan@kernel.org>, "dri-devel" <dri-devel@lists.freedesktop.org>,
+ "devicetree" <devicetree@vger.kernel.org>, "linux-kernel"
+ <linux-kernel@vger.kernel.org>, "linux-riscv"
+ <linux-riscv@lists.infradead.org>, "spacemit" <spacemit@lists.linux.dev>
 Subject: Re: [PATCH v3 1/2] dt-bindings: gpu: img,powervr-rogue: add
  spacemit,k3-gpu
-To: Baihui Liang <liangbaihui@linux.spacemit.com>
-Cc: "frank.binns" <frank.binns@imgtec.com>, robh <robh@kernel.org>,
- krzk+dt <krzk+dt@kernel.org>, conor+dt <conor+dt@kernel.org>,
- dlan <dlan@kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>,
- devicetree <devicetree@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- spacemit <spacemit@lists.linux.dev>
-References: <tencent_79CE08BE248E9ACA2E62BF64@qq.com>
- <065a229b-e6a8-4cce-8725-9c2e19c8f463@kernel.org>
- <DKAXV3CTQ6B1.36715CJUMEB9A@linux.spacemit.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <DKAXV3CTQ6B1.36715CJUMEB9A@linux.spacemit.com>
+From: "Baihui Liang" <liangbaihui@linux.spacemit.com>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>
+X-Mailer: aerc 0.17.0
+References: <75c9382d2bda766aa459b00321153d715254d1a4.camel@imgtec.com>
+ <20260728010513.1627950-1-liangbaihui@linux.spacemit.com>
+ <20260728010513.1627950-2-liangbaihui@linux.spacemit.com>
+ <20260728-proud-coyote-of-happiness-e99c24@quoll>
+In-Reply-To: <20260728-proud-coyote-of-happiness-e99c24@quoll>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NT1GeB58nkv+mzDjZP/id+gTZoP6XTyxXhcCU83WSNEiw5+vi09e/sWr
+	zJmBGCiHvwFfUATXeI0QI2yjz353BV9HXLrvndAtMzNczWAuS6oaYTG3RPmKGg3R2pV+qU3
+	k32GeRLUrNUzkdwASKFUYLcFKSzTylueffeD62lO7I6WM0Vvp9ExkDHa/HZV48sdtfR26V/
+	pkx1BjVE6/u5/CAZU58eLp2NA2d7P9VGR+s134G6lhohcH85uaaAHSFppk/TNNHTrIYKkXb
+	qR0NFxM1bh7WaObvWDNSlhLhfU2hv/qzLm8GxI9bOWoIqE+0WcZuLC6U4O9YUk1ln4ceeEY
+	svVlekVtd2E6/zcY3G5xauAOwNYUCvNlR0oc8qscR9cri0Q+5kirgjJSdNirbuDsMjXppCt
+	HtI1WVxTGN82KPXy9ELJ/M6bjmm8hqZcl7qz9KT9M/5nPOyoQDYXuAnF8qQEhg3vBpCY7bQ
+	QFUvLNRnIDABocRVYkGpV1L/HQ3ry2Ez4ifkZ8tKs9m8EclKibb8j382DDlkm9Rwn3VqNgy
+	4Ixy2wJe90P/yk7aFcAlOJBDk/TTLZIQmhp9UaJXJ+VW+pHRaaM3tKNh3nTtQNL4MGAHCS6
+	baIZCDYpSoVzjFhcNc9LxlZMZvKmGMUCBctfQPGnF881nESu77ZZkY4txcKxyBMdLS7hSPH
+	ALtIxbBeCTZVrjcII7onljISfwNRy3rtdsZ81UbVlJQSQlwP/mlPhAHcchDxORSR4XimCkC
+	qUEGrIsOROD2ch9WlxUx4pc28aap72OsTue7IyqSy4F2p7KWRBmzO5bUvV+a3q1+BmCfiwN
+	eQRVpXO4FLxl6xTBOWgv9JmtQjTn832pCRG/pD0/s9RA7ayhINtdHgMimsacgU6Qrc6dt7G
+	e/2+JB0mimd0NGwsMcGzt5ugpR3d56biZKObrPr3IylJSDWXJy9IE/T5bc//5hoEY4LU7qs
+	JpBQvGDSuOAMxhRR2LeFrXm1P5dnpHiFLMne/U2mWKBzyt72GMG/wg3CJK5t/3dOOhSGWpz
+	Q1KSLU2INxcYQ/FMe6BwGWWbdSa2DDBTPqBzeNqKFWpDmwXONrRACxVw5zIQ4=
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_022312_256563_578C49CC 
+X-CRM114-Status: GOOD (  32.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,77 +100,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/07/2026 11:14, Baihui Liang wrote:
-> On Wed Jul 29, 2026 at 3:57 PM CST, Krzysztof Kozlowski wrote:
->> On 29/07/2026 09:46, Baihui Liang wrote:
->>> On Tue, Jul 28, 2026, Krzysztof Kozlowski wrote:
->>> &gt; &gt; [...]
->>> &gt; &gt; spacemit,k3-gpu is added to the existing ti,am62-gpu/ti,am62p-gpu/
->>> &gt; &gt; ti,j721s2-gpu "if" block that restricts clocks to a single entry,
->>> &gt; &gt; since K3 has the same single-clock requirement. It does not match any
->>> &gt; &gt; "if" block that constrains power-domains, so that property falls back
->>> &gt;
->>> &gt; I don't get this explanation. Are you explaining what the patch is doing
->>> &gt; or explaining WHY you did this that way?
->>>
->>>
->>> That paragraph was describing schema mechanics, which does not belong in
->>> a commit message. v4 will drop it and state only the hardware facts: the
->>> K3 integration of the BXM-4-64 has a single "core" clock, and it has no
->>> software-controllable GPU power domain.
->>>
->>>
->>> &gt; &gt; to this schema's general constraints, where it is optional. This
->>> &gt; &gt; leaves room for a power-domains provider to be added later without a
->>> &gt; &gt; further binding change, should one ever be modelled in Linux for this
->>> &gt; &gt; SoC.
->>> &gt;
->>> &gt; No, you need to provide constraints now. Please read carefully
->>> &gt; writing-bindings.
->>>
->>>
->>> Understood. spacemit,k3-gpu currently matches no power-domains "if"
->>> block, so it falls back to the top-level 1-2 domains with
->>> power-domain-names "a"/"b". That would let a K3 DT with two power
->>> domains pass validation, which does not describe this hardware. v4 will
->>> add an explicit "if" block:
->>>
->>>
->>> &nbsp; &nbsp; - if:
->>> &nbsp; &nbsp; &nbsp; &nbsp; properties:
->>> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; compatible:
->>> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; contains:
->>> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const: spacemit,k3-gpu
->>> &nbsp; &nbsp; &nbsp; then:
->>> &nbsp; &nbsp; &nbsp; &nbsp; properties:
->>> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; power-domains: false
->>> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; power-domain-names: false
->>
->> I understand only half of this. Please fix your email client.
->>
->> And why this reply misses reply-to header which connects it to proper
->> thread? How am I supposed to find the thread now, among 200 I received
->> yesterday?
-> 
-> Sorry -- that went out through a webmail client which sent HTML, so the
-> quoting and the YAML indentation were destroyed, and it composed a new
-> message instead of replying in place, which is why it lost the thread.
-> I have switched to git send-email over our own SMTP; this reply should
-> be plain text and properly threaded.
-> 
->> So your name is presented here as "Baihui Liang" then why do you use
->> some fake company name?
-> 
-> liangbaihui@linux.spacemit.com is my real work address at SpacemiT. It is
-> now sent through the company's own mail server.
+On Tue Jul 28, 2026 at 4:07 PM CST, Krzysztof Kozlowski wrote:
+> On Tue, Jul 28, 2026 at 09:05:12AM +0800, Sterling-Ash wrote:
+> > Add a compatible string for the IMG BXM-4-64 GPU integrated into the
+> > SpacemiT K3 SoC. It shares the same core as thead,th1520-gpu but is
+> > kept as a separate compatible entry, since the K3 integration differs
+> > from TH1520 in its clock and power-domain requirements: K3 has a
+> > single "core" clock rather than three, and its GPU power domain is
+> > enabled by the bootloader before Linux boots rather than being
+> > modelled and switched by Linux, so no power-domains property is
+> > required for this platform (unlike the other img,img-bxm-4-64 user).
+> > 
+> > spacemit,k3-gpu is added to the existing ti,am62-gpu/ti,am62p-gpu/
+> > ti,j721s2-gpu "if" block that restricts clocks to a single entry,
+> > since K3 has the same single-clock requirement. It does not match any
+> > "if" block that constrains power-domains, so that property falls back
+>
+> I don't get this explanation. Are you explaining what the patch is doing
+> or explaining WHY you did this that way?
 
-Again: then why do you use fake company name as name? Actually not a
-company name, but laminated product of some company?
+That paragraph was describing schema mechanics, which does not belong in
+a commit message. v4 will drop it and state only the hardware facts: the
+K3 integration of the BXM-4-64 has a single "core" clock, and it has no
+software-controllable GPU power domain.
 
-What is Sterling-Ash?
+> > to this schema's general constraints, where it is optional. This
+> > leaves room for a power-domains provider to be added later without a
+> > further binding change, should one ever be modelled in Linux for this
+> > SoC.
+>
+> No, you need to provide constraints now. Please read carefully
+> writing-bindings.
+
+Understood. spacemit,k3-gpu currently matches no power-domains "if"
+block, so it falls back to the top-level 1-2 domains with
+power-domain-names "a"/"b". That would let a K3 DT with two power
+domains pass validation, which does not describe this hardware. v4 will
+add an explicit "if" block:
+
+    - if:
+        properties:
+          compatible:
+            contains:
+              const: spacemit,k3-gpu
+      then:
+        properties:
+          power-domains: false
+          power-domain-names: false
+
+The K3 integration of the BXM-4-64 has no software-controllable GPU
+power domain, so both properties are disallowed rather than constrained.
+This is the one place K3 differs from the other bxm-4-64 user: on
+TH1520 the GPU sits in a single unified domain, and that block stays as
+it is.
+
+> > 
+> > Signed-off-by: Sterling-Ash <liangbaihui@linux.spacemit.com>
+> > ---
+>
+> Do not attach (thread) your patchsets to some other threads (unrelated
+> or older versions). This buries them deep in the mailbox and might
+> interfere with applying entire sets. See also:
+> https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+
+Sorry about that -- v2 and v3 were both sent in reply to the v1 review
+thread. v4 will be sent as its own top-level thread.
+
+> > v3: also add spacemit,k3-gpu to the existing ti,am62-gpu/ti,am62p-gpu/
+> >     ti,j721s2-gpu "if" block restricting clocks to a single entry --
+> >     previously it fell back to this schema's general clocks constraint
+> >     (1-3 items), which would have let an invalid DT with 2 or 3 clocks
+> >     pass validation (found by automated review on v2).
+> > 
+> >  .../devicetree/bindings/gpu/img,powervr-rogue.yaml          | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> > index a1f54dbae3f3..d29f0d163b91 100644
+> > --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> > +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> > @@ -38,6 +38,11 @@ properties:
+> >                - thead,th1520-gpu
+> >            - const: img,img-bxm-4-64
+> >            - const: img,img-rogue
+> > +      - items:
+> > +          - enum:
+> > +              - spacemit,k3-gpu
+>
+> Why isn't this part of other enum (and remember about the alphabetical
+> order of entries)?
+
+No reason -- it was simply wrong. That block is identical to the
+thead,th1520-gpu one apart from the SoC compatible, and the differing
+clock/power-domain constraints live in "allOf", not here. v4 will fold
+it in, in alphabetical order:
+
+      - items:
+          - enum:
+              - spacemit,k3-gpu
+              - thead,th1520-gpu
+          - const: img,img-bxm-4-64
+          - const: img,img-rogue
+
+The DTS user, and the drm/imagination change it depends on, will be sent
+separately once a boot issue on the K3 board is resolved.
+
+> Best regards,
+> Krzysztof
 
 Best regards,
-Krzysztof
+Baihui Liang
 
 _______________________________________________
 linux-riscv mailing list
