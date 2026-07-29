@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFFCC54F51
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 15:08:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70944C54F51
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 15:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yiSddsqsKhjeefzZgZ6JqqE2g/oxdLtRESrq86zY/HM=; b=L4PQxi+jBqm2wm
-	fZod388bkgoZqxvwCZoEWk+DpZEL1git5HEEeGmeZD3fBCpxCLDUhUKkTpNMcjVegUsSHJ6ng1t2p
-	idIM99rfKzPg9hXB+JnC66GcEH6XzbIsdr0CP4QnoB+yoI45YuHU6ALIIMZR/iiimrxITKowLKzXF
-	FecP/zPSC6G55Gq0jwu8ZKdYwfePfVHE+ZaD7ZMNx2nR/mKDhaADxZXe/rTtkRbepsVtlfHQikODx
-	8WvGIwIt3ZlP8NdfmNKjDqnzMOCdwkuM2173r7ULdE/7Df3lSqun+dpuL9SrvPUNt6s4meYr/MSQy
-	Lzyexu5AUtYtZDYyeGUg==;
+	List-Owner; bh=qK9bfqJNHtBG1H1gWZUOSKj1N4U/h/+QoXcSqVStGRU=; b=GJrWGSJWsFoFSo
+	eC2b7SqWq5JMtBNe78ZY/22EJjF073SLA/RlWxQle201cFOokP0/oqBW7/chwnHAevp5tCRcCSuh9
+	d9aMC/FUNCDaNt9xpaFbaBXAmkZsuTB0wGi209OHQZLTXmgY+dhzPgHMGTzKh8TTe0bY8dgm+OWNC
+	PzXSopcvqaFAj1hwfHZg2tNXdLOxUS3xF/krpceUvep6WHX2eUX3/xswIUsi2/PbOTwIXVb1Jixl9
+	8U+xcQNpA8G3GZMNgrQVhVJ2kuJDsL3R3VIYvQmzTMc7YA8lgeiTwGXm+ZvYji8AL2kUs4GI6VXCW
+	ZFN1ajRxlIaleipmr6sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp5sy-00000008LPz-2vk7;
-	Wed, 29 Jul 2026 15:07:56 +0000
+	id 1wp5t7-00000008LTc-3OG1;
+	Wed, 29 Jul 2026 15:08:05 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp5sw-00000008LPC-1q8z
+	id 1wp5t5-00000008LSI-1nnp
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 15:07:55 +0000
+	Wed, 29 Jul 2026 15:08:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=VombVeVEGFL3LwEWi5uWJnDV/Y88u6pNgKzx+naWxCk=; b=RRH9y1FKHlID37WPVQWnY49VZy
-	Ox8LFsOz0/7ex0L43EOH3FZOOK8UjJx6n/kV+yqPx6BQIIgIvjfrpl8CNU3pg8WJ8ugNPL9RzPM39
-	8U46L8zIHcEmVrDZ5hHBTGlAMBMhieTc2HBT7ZUsmMZv1ivBh6yhLGldFUAFshRFVlI3xRd3XoOzg
-	DZoAd+AvVOV6ZL/jprFX/8aUy2rb4LPHao9oeVcCBmVl8h1ZyD8lLNxd10u9z9KCBtV3ZXDaoj8nu
-	Ac6uNvveSJeHiJda+SX2yP5fApcuVM7EN6mqTGtFADJyXQhWfH0m5s2aqRy+hPLA3hY9h1GQs+A1J
-	A8NvgSlg==;
+	bh=9GCHA7xIhaJsYc9K/gElGpvzs0h61VGIvTXBIIzT2QY=; b=bRZ/f3dulCdpILjEGzoCG4+VTe
+	/Em5J0+JlBtudmbldAHNgxiIEPvUu10pIbGwkAaNea6V4ZmN36zoE9Gi+9OmUCMy+jVtpOXh/1ZnB
+	gdhwj5tslbjsk82fRYaoZ1nvfolc1PieR8mlb84xaSkq5bZ0+kkWcWekGeC9oa5RK1SAFOZvNvySO
+	8EhPLcVuvX72VepmP193BjG6bEwHyTSRQpZi/XCD8EF6vu0o4GaUuICkDrKJgmfZMF5meH2Dpyoeh
+	XhH3ErAZJO+b9+tCOefK6fOeF2Gk/VBbPZILawjVF0EbwVt+5XlSjaXO5IlHUGEQaXUDt9WIp4iay
+	xl6GjJQQ==;
 Received: from authenticated user
 	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1wp5su-00000002eC8-1HXQ;
+	id 1wp5su-00000002eC4-1KJw;
 	Wed, 29 Jul 2026 17:07:52 +0200
 From: Aurelien Jarno <aurelien@aurel32.net>
 To: linux-kernel@vger.kernel.org,
@@ -53,22 +53,23 @@ To: linux-kernel@vger.kernel.org,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Yixun Lan <dlan@kernel.org>,
-	Andre Heider <a.heider@gmail.com>
+	Han Gao <gaohan@iscas.ac.cn>,
+	Chukun Pan <amadeus@jmu.edu.cn>
 Cc: Aurelien Jarno <aurelien@aurel32.net>,
 	stable@vger.kernel.org,
 	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
 	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
-Subject: [PATCH 4/6] riscv: dts: spacemit: k1-musepi-pro: fix maximum CPU core voltage
-Date: Wed, 29 Jul 2026 17:02:21 +0200
-Message-ID: <20260729150722.1598630-5-aurelien@aurel32.net>
+Subject: [PATCH 3/6] riscv: dts: spacemit: k1-orangepi-rv2: fix maximum CPU core voltage
+Date: Wed, 29 Jul 2026 17:02:20 +0200
+Message-ID: <20260729150722.1598630-4-aurelien@aurel32.net>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260729150722.1598630-1-aurelien@aurel32.net>
 References: <20260729150722.1598630-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_080754_478202_D2DCE5A2 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260729_080803_479749_1C313BF4 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,7 +86,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On the MusePi Pro board, the buck1 and buck2 voltage regulators, which
+On the OrangePi RV2 board, the buck1 and buck2 voltage regulators, which
 supply the CPU core voltage, are configured with a maximum output
 voltage of 3.45V, while the highest operating point requires only
 1.050V. This means that a kernel bug, OPP misconfiguration, or
@@ -94,19 +95,19 @@ limit, causing possible permanent CPU damage.
 
 Set the maximum regulator voltage to 1.050V instead.
 
-Fixes: e2dac7c7a3a8 ("riscv: dts: spacemit: k1-musepi-pro: add PMIC and power infrastructure")
+Fixes: c02c047b925c ("riscv: dts: spacemit: Define the P1 PMIC regulators for OrangePi RV2")
 Link: https://sashiko.dev/#/message/20260728211020.1248676-2-aurelien%40aurel32.net
 Cc: stable@vger.kernel.org
 Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
 ---
- arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts | 4 ++--
+ arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-index 3078ffb5cb878..246f8f2ab62b9 100644
---- a/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts
-@@ -180,14 +180,14 @@ pmic@41 {
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+index 7c49bce427f30..b907a1396b21f 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+@@ -164,14 +164,14 @@ pmic@41 {
  		regulators {
  			buck1 {
  				regulator-min-microvolt = <500000>;
