@@ -4,108 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00A4C54F57
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 08:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD05C54F51
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 08:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WC8rmoZgvj6h1shi7kBEYTETk73ZMzlB4G8SgHtlUMs=; b=S2aXQLN5nwgOKf
-	IBH+/ITLvKCuwS3jF3lHIF5lAzFCeSUApjIKKqrgxckt/3OUcwa6o4Cbu6RefVvlU5JtiVY+jpNvg
-	C669A69wHTVR1AYwlmdk8i9zqjj9BwMktfGCH6YbCQBH7YBMswc093lNfhjIArToI900dc2bsTIq7
-	4/Iv7hoqOxPAjGj8iVG+nclsaQX/SsbnBUK9VJCCtN05wlP7JJ4qQx7rgOEchhd3frR1YDHZGfTDe
-	9YhMNlxd2BCBJaTjOZDKuEwuPi5jk73vSKp376KcT/9txcqqnfXWSHXFPo0d3O/BME13tM8k9sSAv
-	G0NxEWiI9N6eILN3/WXw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vYqrO0N5UnpyKDAHolIeGAsWnG5IDRcoxzHyqRibk5U=; b=3ezmF2up0iZ0sx
+	CeGdktEEmeZaGMLqyN6gyrwz/4p8vdnBM5DXAR+HQ9LUyc5/v0XVrXhK05Q70eqNvPzAWJvlXdPNK
+	B4x1R3lyZV66hvg68Tjg/IyfBsmzXRJbN2njfBJiKtuQ78EOpwlkCwVXeJOipUjvedWU5R9pNlThK
+	ceeg5IzNkSyCxezBUQBbenP6S3SrPMuFd4mHPpxZV0Kbcatr6g5KaWaugPrwWj92PGOvtMDLB+0FW
+	Hh8iqWR8sKqWjQc7oBgTLpF6XVqwbEbsfGMamHgMmx+vJwIkyGhUulAEzt+BLne8/tx5F4O9m172z
+	E7C895YnS/WL0LPk0xjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozIO-00000007CE7-34K3;
-	Wed, 29 Jul 2026 08:05:44 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wozkB-00000007F2C-19iv;
+	Wed, 29 Jul 2026 08:34:27 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozIM-00000007CDB-0HnN
+	id 1wozk8-00000007F1h-0XI9
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 08:05:43 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47ddf7b09aaso544701f8f.3
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Jul 2026 01:05:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785312340; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rg6ikqjCp8W7QojnMyRyKkuhhW3nbi6AOKEFfWzZAzfPcdWDSuU3ag6Hov5IhH99y4
-         okgEx3F9Vbf4nkLjxKALf57Muequ64rHSoSG6H9TUY/hoZnRFgJk/TZF+qzJvJJPn36j
-         smBEChfMSXyiX1HY46RFYIhrmO8bv494/dCA5LOigr6HC/hZWo8gIQR8n+DPTbUlzJG3
-         ifo/9trRIV76ucIbAkMcNBqVFcz1hGM+u09DGmSTI5bAfNzYJUdxMxiJ9RIyYIaSym7Q
-         kTBqY7j55xXhdk8lO6gy4EdIA9QM6gV3Hhk0PpRZbMbltctfKRo7mG14Fcpyvu8pJMHF
-         zuxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Q0Yd6Q4AnWVaWzw13DT5nV/m2mi7w3GBu7PU7kHWGEs=;
-        fh=QrsucbYHcB/KZUwc6sm7LIeb6eJa5qCMfUHLGyiaV5o=;
-        b=omkL2Ezm3f1QzCo9Zm5ok4bk3OmiWM9pk9Ps3Yo2khf7Yp43L1LL076TsfNBR1H0Ui
-         qZTqJwVOTQAPZs9G6xUJcU/VV9hmvWIwJpPA0oyukR3KKqOAqDR0iXUsCDbm6G9PWS/h
-         zVVJONzGMQJHhu55/nNVuo2zKWCkWoLajayIKuqEZbyi7kQW+qeC/wFnqkJdUXTJrji2
-         QHuZdnlD8qkK7DzU4sowoBFUF7yIF+rde0NBJjy/5eLxgPlbTx19n93pHnnq1BtuZF05
-         L1E9G02e4rtbanCLC+vx7X+aoknu4keErf4XgaLkr9djQRZJVt62KT9h3JQHUxcVQ1yd
-         GiAA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 29 Jul 2026 08:34:25 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-80c5cb9a888so8668017b3.3
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Jul 2026 01:34:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20251104.gappssmtp.com; s=20251104; t=1785312340; x=1785917140; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Q0Yd6Q4AnWVaWzw13DT5nV/m2mi7w3GBu7PU7kHWGEs=;
-        b=m9U6NaTnjcohnNbc6AsxYXJfx0b8ma1Z7a+7eUKWGtnFEegY5yVaS4m7z4O6LBkOD0
-         TFWRIyY4hPiA2sLiImp1mYP0Nmrup+G2boGjBCVAnhvQs5Cg2aVrwI/m4MLXFDsbjuTZ
-         vjKRxI3PFXazDQ2jfZ1qfaqJf6iPF4CEoVzNuBIIHrYugPtfAfFv10+GkMmoHs8fdGEY
-         NQnbHyUYjSfSMkIipitN36s4rjTqnOafRDE28oAh5yBxM5j05Xd8e06iKBrB3m6NlGRP
-         wAYJ7U1oOd+NGcAJmEdB64WMMp7kYxU20JN4uZI5I/9gDPHt3hCyxyttND914Kayh92y
-         zPrg==
+        d=gmail.com; s=20251104; t=1785314062; x=1785918862; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WCfZWs2qBzfBTMw3/b4qNRHgwpbTts4mgogpiMUra6w=;
+        b=QQFdldce2nc5odiHrVku6/pfaUvULVTskLDp3807Fb8mDhQD7jJhiXuuk/Xr4oiNnS
+         uby7v3h0fkwlqFlZXvZ09UffwDOkFv+u+R4VfnYVZlErT7H3gf7+seBiwKTgL85eJKbn
+         vD4+BI9/JOFFmGHGQIUcst6GEf62FpBs5siAlRLJ4NwMUz/EK7G0mFsGZi7Jb+goksIq
+         2i+iJJGJ7brknfzKBltXuBRhENPA6FOtajC8oiDt5uWzZSFihhUy+OhYQkiG5fIf+o+K
+         wfZHvdOd3QDvanpnzy4cL3A+jF5i8l3bhlARfpnEthXOwdE8jxDAfF/EfkxY/y/lo1z7
+         5S5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785312340; x=1785917140;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Q0Yd6Q4AnWVaWzw13DT5nV/m2mi7w3GBu7PU7kHWGEs=;
-        b=nDlCp3aFNSH9zaRWM/t9BCGQUGd2scGDZxtAdyVVRwyKh9gu9eNxIvW1+EvD/o5v1K
-         o7ZgYW0xGzUW7WPnrrXtbIyr2/RInDtJZ+3fNd6ShAj9+lgO74MFPp3Il/0PuQoUlpVP
-         VTgfbhBr6Dw9YToL529WgcVshGCq9JvAWVa6+IO5Ae5wARDhHBPzINcV3Y+/ockQCGWM
-         +7lZPyKiUWYkDN53PqHEtpO/RHaJ524J1IKIA6QXwDHYbqMf5JqBclA9L5Lqqa4BO4kj
-         WMfPhJ9bBeouBeoudpHY3ytCvhGHuE43aKjgZv+iBU5bkCBZ6e+oIR1Kvl6DXKB8itv3
-         sa+Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpPP4r7ZeP1Ry79AigBfomJbNo8/S31mCe5NwAMz45WGIiTJwaxrQp+6QxsDlVvCRuxztu4kemcRJ4fRQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZ6mKBqvqSZbR6nK+kEzTxW4HSXKAmIxrdfzhSkE1PW76D8Qn6
-	PAkT6mtx8rb90NussQ8ju6wwLvicfLk2pFfgqYx4XK+PfeHz5oX452Tp+RymGmdnjAoP+O80F45
-	yfpZxa9O9c6Lok9Ohw+b5Yqz0mMnJHiVyeZtwZfTgxw==
-X-Gm-Gg: AR+sD13SxnEVA6qyDNEwiAsC0739+0xl1AlWHXEpnr0Ln0QY6Mh3dy/xaO79acA5Hcw
-	J11I706159V+42RG/aA2oN0TKGEc09T8sRTh4fj4RKmd0NbrdY5Sn4sHjn06e46D+AP7sjpqMsz
-	3fpUBlyJOoM/pNX/3VFhEx7KT+Iu1mBu/Ea1e9oHkB+jLBiDLBYOwrw1BgonpXr64otgwk3K9Jw
-	G8DQIXaNGdFRSkEcoFxL2boCE/LHD1NKk57rL10GMhXFfyY03V1zWhOV07AqtpyBsuyx92/epN6
-	Xyg3gIqvb8gQjEXoXM46ynDtcXMNz6f9BsvRo8bFnqhq4F5sg5u5uA0zvDheOyZ+IgfSAr/ytDE
-	1OrbX1qj7s39Xb39rlzb7P8XK2vCi8O+5cGImqyT79rgny7pY4hPwew2yfSq8QEI=
-X-Received: by 2002:a05:6000:25c6:b0:47f:9760:4d25 with SMTP id
- ffacd0b85a97d-47fb1ed9878mr6651215f8f.14.1785312340000; Wed, 29 Jul 2026
- 01:05:40 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785314062; x=1785918862;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WCfZWs2qBzfBTMw3/b4qNRHgwpbTts4mgogpiMUra6w=;
+        b=CNK45wC5wo3dKC9us641O2eoB6cvEPdjggC15X0Wiiaj0xL3+OdngCtnItpQgETjcX
+         Qsjz53vRBOWtZgWNmIjaqutXG9C+EOs1VOp0LHqC5gZ5kpEGN3zWTFVhw9PODerSGJEH
+         NeEaUXSW27woHbd7pzxHIkV5rHIb360hjmxj6dJlq+EPtnSaENrbIzmqmjYuIoNaRIX6
+         R9uDhhQG47YEe5SZk2PCb8UpuEPqC9OU7AHtcj+kiCzNeQPZVq3bNV429Y2ug6vyj4L0
+         khaDLlSXOFycqjGOBOesNfxHjnIUuPA48bYaEt/NOTqC4b5zE1P9iZLLB0fASAvB3WMU
+         z2WA==
+X-Forwarded-Encrypted: i=1; AHgh+RrryIej8wwKb054g7Se9MeqWAQFL/pA5lUardx/cV/82lqJVXTnkb/Oxrx/SJTj0dIc8d2CT64lQyxcJQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/G8+SdbOfuzTulPI0BPlI8VyLbc/F7/hR+3vU9ii3SyBEYHX7
+	WD0/h8QEZUScJ0nJZNxiT7FGWMa4uSpbicYPLkMJyZHd2qu0owdvjdd/
+X-Gm-Gg: AR+sD13/MvkVwQgX++UObMTVYdhVppXI0M0biIQ0gIiPOgqAs2PY8we4pWiRZZhQmBF
+	Lqp69h/jy+l27s/UnGW+yNwX7kIFmqtFs5usgID4FFs4cDnThROf/fAMH0py27crIORPwCBu0io
+	VKJ8zWmTOFii+Bb87a/MXfA3lu2xL0wNe5S8Pkj/iiji1SofBvpva/TkPnQtsT39BxXraL65zs8
+	zuuMYtvKRIMaT+twV8HL2ZupO0wyfi+CbhIL42ef5xwIph24MTuZp1Edla8MZtxBH0D5YCOsjOH
+	56DnhS6cLThW2uGyhNvcq9tyYBK1Fqn7HKK7E8/DrzWrfvRqw18delK84o66ipW7A2WclK3txby
+	gfu8UTdYEKZAyYBa+xtnLOyV65MtHPUW3Mv3Ivsi78gxaos/bVClMYLniexF3nxbPiARIhY03ss
+	lk87GDuI5Zqf00z2siMqXpLP1aG3WmZeWCrfCGqh15Ac26Z5OsJXd0HSPgdpGI7V9HIgKqqvnQk
+	r5UU3yxqvsE/omfkIOyv2qlQBSsSn8dIkKElb0joA==
+X-Received: by 2002:a05:690c:3685:b0:81e:9f17:8050 with SMTP id 00721157ae682-81f99240917mr28751857b3.21.1785314062516;
+        Wed, 29 Jul 2026 01:34:22 -0700 (PDT)
+Received: from localhost.localdomain ([107.198.84.185])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81fa2957751sm14029097b3.35.2026.07.29.01.34.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jul 2026 01:34:21 -0700 (PDT)
+From: Paul Sherman <shermanpauldylan@gmail.com>
+To: palmer@dabbelt.com,
+	pjw@kernel.org,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Paul Sherman <shermanpauldylan@gmail.com>
+Subject: [PATCH] riscv: smp: fix non-SPINWAIT secondary hart rendezvous for fw_dynamic platforms
+Date: Wed, 29 Jul 2026 01:34:14 -0700
+Message-ID: <20260729083414.39339-1-shermanpauldylan@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <20260729070749.730218-1-shanbeeyoo@gmail.com>
-In-Reply-To: <20260729070749.730218-1-shanbeeyoo@gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 29 Jul 2026 13:35:28 +0530
-X-Gm-Features: AUfX_mxBw2XjYIsxEgfq92ls8GlDDciTpiLck9rGbZxalgVjWkGw8ru_Xn3sDe0
-Message-ID: <CAAhSdy0gaYBv3xktNsMGBA0qGNrOHdZ=Z1D7UTbVHCZuZcu1Nw@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: Fix spurious -EEXIST and clean up gstage
- fault path types
-To: "Bingyu.Xian" <shanbeeyoo@gmail.com>
-Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Quan Zhou <zhouquan@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_010542_138002_0C891C0C 
-X-CRM114-Status: GOOD (  27.28  )
+X-CRM114-CacheID: sfid-20260729_013424_214778_881C20DD 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,82 +96,214 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdWwgMjksIDIwMjYgYXQgMTI6MzfigK9QTSBCaW5neXUuWGlhbiA8c2hhbmJlZXlv
-b0BnbWFpbC5jb20+IHdyb3RlOgo+Cj4gVHdvIHNtYWxsIGZpeGVzIHRvIHRoZSBSSVNDLVYgRy1z
-dGFnZSBwYWdlIGZhdWx0IHBhdGgsIGJvdGggc3VnZ2VzdGVkCj4gZHVyaW5nIHJldmlldyBvZiB0
-aGUgaW4tcHJvZ3Jlc3MgS1ZNIFVzZXJmYXVsdCBwb3J0Lgo+Cj4gMS4gVHJlYXQgLUVFWElTVCBm
-cm9tIGt2bV9yaXNjdl9nc3RhZ2VfbWFwX3BhZ2UoKSBhcyBhIHF1aWV0IHN1Y2Nlc3MuCj4KPiAg
-ICBXaGVuIGEgY29uY3VycmVudCB2Q1BVIGluc3RhbGxzIHRoZSBzYW1lIEctc3RhZ2UgbWFwcGlu
-ZyB3aGlsZSB3ZQo+ICAgIGFyZSB3YWl0aW5nIGZvciBtbXVfbG9jaywgZ3N0YWdlX21hcF9wYWdl
-KCkgcmV0dXJucyAtRUVYSVNULiAgVGhpcwo+ICAgIGlzIG5vdCBhbiBlcnJvciAtLSB0aGUgcGFn
-ZSBpcyBjb3JyZWN0bHkgbWFwcGVkIGFuZCB0aGUgZmF1bHRpbmcKPiAgICB2Q1BVIGNhbiBzaW1w
-bHkgcmV0cnkgdGhlIGd1ZXN0IGluc3RydWN0aW9uIC0tIGJ1dCBLVk0gd2FzIHRyZWF0aW5nCj4g
-ICAgaXQgYXMgb25lOiBwcmludGluZyAiRmFpbGVkIHRvIG1hcCBpbiBHLXN0YWdlIiB0byBkbWVz
-ZyBhbmQKPiAgICBwcm9wYWdhdGluZyAtRUVYSVNUIGFsbCB0aGUgd2F5IHRvIHVzZXJzcGFjZS4K
-Pgo+ICAgIEFsaWduIFJJU0MtViB3aXRoIHg4NiBhbmQgYXJtNjQsIHdoaWNoIGFscmVhZHkgc3dh
-bGxvdyAtRUVYSVNUIGluCj4gICAgdGhlaXIgcmVzcGVjdGl2ZSBmYXVsdCBoYW5kbGVycy4gIFRo
-aXMgYWxzbyBsZXRzCj4gICAga3ZtX3JlbGVhc2VfZmF1bHRpbl9wYWdlKCkgZHJvcCBpdHMgInJl
-dCAmJiByZXQgIT0gLUVFWElTVCIgc3BlY2lhbAo+ICAgIGNhc2U6IHdpdGggcmV0IG5vcm1hbGl6
-ZWQgdG8gMCB0aGUgcmVndWxhciByZWxlYXNlIHBhdGggaXMgY29ycmVjdC4KPgo+IDIuIENsZWFu
-IHVwIGZhdWx0IHBhdGggdHlwZXMuCj4KPiAgICAtIHZtYV9wYWdlc2hpZnQ6IHNob3J0IC0+IHVu
-c2lnbmVkIGludC4gIEJpdCB3aWR0aHMgYW5kIHNoaWZ0IGNvdW50cwo+ICAgICAgY29udmVudGlv
-bmFsbHkgdXNlIHVuc2lnbmVkIGludCBpbiB0aGUga2VybmVsLgo+Cj4gICAgLSBmYXVsdF9hZGRy
-OiB1bnNpZ25lZCBsb25nIC0+IGdwYV90LiAgUlYzMiB3aXRoIFN2MzJ4NCBoYXMgMzQtYml0Cj4g
-ICAgICBndWVzdCBwaHlzaWNhbCBhZGRyZXNzZXMgdGhhdCB3b3VsZCBiZSB0cnVuY2F0ZWQgd2hl
-biBzdG9yZWQgaW4gYQo+ICAgICAgMzItYml0IHVuc2lnbmVkIGxvbmc7IGdwYV90IGlzIHU2NCBv
-biBSVjMyIGFuZCBob2xkcyB0aGUgZnVsbAo+ICAgICAgYWRkcmVzcy4gIE5vIGZ1bmN0aW9uYWwg
-Y2hhbmdlIG9uIFJWNjQuCgpEb24ndCBzcXVhc2ggbXVsdGlwbGUgY2hhbmdlcyBpbnRvIG9uZSBw
-YXRjaC4KCkNyZWF0ZSBzZXBhcmF0ZSBwYXRjaGVzIHdpdGggYXBwcm9wcmlhdGUgRml4ZXMgdGFn
-cy4KClJlZ2FyZHMsCkFudXAKCj4KPiAgICBUaGVzZSB0eXBlIGNoYW5nZXMgYXJlIGluIHByZXBh
-cmF0aW9uIGZvciBzaGFyaW5nIGEgY29tbW9uCj4gICAgc3RydWN0IGt2bV9wYWdlX2ZhdWx0IGFj
-cm9zcyBhcmNoaXRlY3R1cmVzLCBhcyByZXF1ZXN0ZWQgZHVyaW5nCj4gICAgcmV2aWV3Lgo+Cj4g
-Tm8gZnVuY3Rpb25hbCBjaGFuZ2Ugb24gUlY2NCBiZXlvbmQgc2lsZW5jaW5nIHRoZSBzcHVyaW91
-cyAtRUVYSVNULgo+Cj4gVGhlc2UgYXJlIGluZGVwZW5kZW50IGZpeGVzIHdpdGggbm8gZGVwZW5k
-ZW5jaWVzOyB0aGV5IGNhbiBiZSBtZXJnZWQKPiBvbiB0aGVpciBvd24uICBUaGUgS1ZNX01FTV9V
-U0VSRkFVTFQgcG9ydCB0aGF0IG1vdGl2YXRlZCB0aGVtIHdpbGwgYmUKPiBzZW50IHNlcGFyYXRl
-bHkgYXMgYW4gUkZDIG9uY2UgdGhlIGdlbmVyaWMgdXNlcmZhdWx0IHNlcmllcyBsYW5kcy4KPgo+
-IEZpeGVzOiA5ZDA1YzFmZWU4MzcgKCJSSVNDLVY6IEtWTTogSW1wbGVtZW50IHN0YWdlMiBwYWdl
-IHRhYmxlIHByb2dyYW1taW5nIikKPiBBc3Npc3RlZC1ieTogWXVhblNoZW5nOiBkZWVwc2Vlay12
-NC1wcm8KPiBDby1kZXZlbG9wZWQtYnk6IFF1YW4gWmhvdSA8emhvdXF1YW5AaXNjYXMuYWMuY24+
-Cj4gU2lnbmVkLW9mZi1ieTogUXVhbiBaaG91IDx6aG91cXVhbkBpc2Nhcy5hYy5jbj4KPiBTaWdu
-ZWQtb2ZmLWJ5OiBCaW5neXUgWGlhbiA8c2hhbmJlZXlvb0BnbWFpbC5jb20+Cj4gLS0tCj4gIGFy
-Y2gvcmlzY3Yva3ZtL21tdS5jICAgICAgIHwgOCArKysrKy0tLQo+ICBhcmNoL3Jpc2N2L2t2bS92
-Y3B1X2V4aXQuYyB8IDMgKystCj4gIDIgZmlsZXMgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspLCA0
-IGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL21tdS5jIGIvYXJj
-aC9yaXNjdi9rdm0vbW11LmMKPiBpbmRleCA4YTBhYTVlMGUyMTYuLmQyYTA2YTU0YmUxNyAxMDA2
-NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS9tbXUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL21t
-dS5jCj4gQEAgLTU0MSw3ICs1NDEsNyBAQCBpbnQga3ZtX3Jpc2N2X21tdV9tYXAoc3RydWN0IGt2
-bV92Y3B1ICp2Y3B1LCBzdHJ1Y3Qga3ZtX21lbW9yeV9zbG90ICptZW1zbG90LAo+ICAgICAgICAg
-a3ZtX3Bmbl90IGhmbjsKPiAgICAgICAgIGJvb2wgaXNfaHVnZXRsYjsKPiAgICAgICAgIGJvb2wg
-d3JpdGFibGU7Cj4gLSAgICAgICBzaG9ydCB2bWFfcGFnZXNoaWZ0Owo+ICsgICAgICAgdW5zaWdu
-ZWQgaW50IHZtYV9wYWdlc2hpZnQ7Cj4gICAgICAgICBnZm5fdCBnZm4gPSBncGEgPj4gUEFHRV9T
-SElGVDsKPiAgICAgICAgIHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hOwo+ICAgICAgICAgc3Ry
-dWN0IGt2bSAqa3ZtID0gdmNwdS0+a3ZtOwo+IEBAIC02NTIsMTEgKzY1MiwxMyBAQCBpbnQga3Zt
-X3Jpc2N2X21tdV9tYXAoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCBzdHJ1Y3Qga3ZtX21lbW9yeV9z
-bG90ICptZW1zbG90LAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHZtYV9wYWdlc2l6ZSwgdHJ1ZSwgdHJ1ZSwgb3V0X21hcCk7Cj4gICAgICAgICB9Cj4K
-PiAtICAgICAgIGlmIChyZXQpCj4gKyAgICAgICBpZiAocmV0ID09IC1FRVhJU1QpCj4gKyAgICAg
-ICAgICAgICAgIHJldCA9IDA7Cj4gKyAgICAgICBlbHNlIGlmIChyZXQpCj4gICAgICAgICAgICAg
-ICAgIGt2bV9lcnIoIkZhaWxlZCB0byBtYXAgaW4gRy1zdGFnZVxuIik7Cj4KPiAgb3V0X3VubG9j
-azoKPiAtICAgICAgIGt2bV9yZWxlYXNlX2ZhdWx0aW5fcGFnZShrdm0sIHBhZ2UsIHJldCAmJiBy
-ZXQgIT0gLUVFWElTVCwgd3JpdGFibGUpOwo+ICsgICAgICAga3ZtX3JlbGVhc2VfZmF1bHRpbl9w
-YWdlKGt2bSwgcGFnZSwgcmV0LCB3cml0YWJsZSk7Cj4gICAgICAgICB3cml0ZV91bmxvY2soJmt2
-bS0+bW11X2xvY2spOwo+ICAgICAgICAgcmV0dXJuIHJldDsKPiAgfQo+IGRpZmYgLS1naXQgYS9h
-cmNoL3Jpc2N2L2t2bS92Y3B1X2V4aXQuYyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfZXhpdC5jCj4g
-aW5kZXggNmM4NTMwYjlmMjllLi43NmNjZWVjZWU1YWIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNj
-di9rdm0vdmNwdV9leGl0LmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X2V4aXQuYwo+IEBA
-IC0xNyw3ICsxNyw4IEBAIHN0YXRpYyBpbnQgZ3N0YWdlX3BhZ2VfZmF1bHQoc3RydWN0IGt2bV92
-Y3B1ICp2Y3B1LCBzdHJ1Y3Qga3ZtX3J1biAqcnVuLAo+ICB7Cj4gICAgICAgICBzdHJ1Y3Qga3Zt
-X2dzdGFnZV9tYXBwaW5nIGhvc3RfbWFwOwo+ICAgICAgICAgc3RydWN0IGt2bV9tZW1vcnlfc2xv
-dCAqbWVtc2xvdDsKPiAtICAgICAgIHVuc2lnbmVkIGxvbmcgaHZhLCBmYXVsdF9hZGRyOwo+ICsg
-ICAgICAgdW5zaWduZWQgbG9uZyBodmE7Cj4gKyAgICAgICBncGFfdCBmYXVsdF9hZGRyOwo+ICAg
-ICAgICAgYm9vbCB3cml0YWJsZTsKPiAgICAgICAgIGdmbl90IGdmbjsKPiAgICAgICAgIGludCBy
-ZXQ7Cj4gLS0KPiAyLjU0LjAKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On platforms where firmware (e.g. fw_dynamic) releases all harts to the
+same Linux entry point simultaneously, the hart selected by OpenSBI as
+Domain0 Boot HART is already in SBI_HSM_STATE_STARTED when Linux later
+attempts to bring it online as a secondary CPU via SBI HART_START.
+OpenSBI correctly returns SBI_ERR_ALREADY_STARTED, but Linux has no
+recovery path: with CONFIG_RISCV_BOOT_SPINWAIT=n, there is no secondary
+wait path in _start_kernel for harts that entered Linux directly from
+firmware, and sbi_cpu_start() has no handler for SBI_ERR_ALREADY_STARTED.
+
+This causes one CPU to be permanently dropped per boot. The missing CPU
+is always the OpenSBI Domain0 Boot HART, which varies between boots on
+Sophgo SG2042 (hart 1, 2, or 3), explaining the apparent 'moving victim'.
+
+Fix with three cooperating changes:
+
+1. Initialize boot_cpu_hartid to INVALID_HARTID instead of relying on
+   BSS zero-initialization. Without this, boot_cpu_hartid aliases with
+   hart 0, causing hart 0 to always appear to win the boot CPU race
+   regardless of which hart actually stored its hartid first.
+
+2. Add a non-SPINWAIT secondary wait path in _start_kernel. When
+   firmware releases multiple harts to the same entry point, non-primary
+   harts divert into the existing spinwait rendezvous arrays (previously
+   used only by CONFIG_RISCV_BOOT_SPINWAIT) and wait for cpu_start() to
+   provide boot data before proceeding to secondary startup.
+
+3. Handle SBI_ERR_ALREADY_STARTED (-EALREADY) in sbi_cpu_start(). When
+   HART_START returns -EALREADY, the hart is already executing in Linux
+   and spinning in .Lwait_for_cpu_up_sbi. Write the spinwait rendezvous
+   arrays to release it into secondary startup, matching the approach
+   used by cpu_ops_spinwait.c.
+
+The arrays __cpu_spinwait_stack_pointer and __cpu_spinwait_task_pointer
+are defined unconditionally in cpu_ops_spinwait.c but their extern
+declarations in head.h were guarded by CONFIG_RISCV_BOOT_SPINWAIT.
+Move the declarations outside the guard since the arrays are always
+present and now used by both boot paths.
+
+Note: The NR_CPUS bound check mirrors the identical pattern in
+cpu_ops_spinwait.c:32 which guards the same arrays against out-of-range
+hartids on platforms with discontiguous hart numbering.
+
+Link: https://lore.kernel.org/linux-riscv/20260727221508.5179-1-shermanpauldylan@gmail.com/
+Tested-on: Milk-V Pioneer (Sophgo SG2042, 64-hart RISC-V, 4-NUMA nodes,
+           128GB DDR4, OpenSBI v1.5, Linux v7.2-rc5)
+Result: boot_cpu_hartid correctly reflects Domain0 Boot HART, all 64
+        CPUs online in 2.7 seconds (was 63 CPUs, boot always on hart 0)
+Signed-off-by: Paul Sherman <shermanpauldylan@gmail.com>
+---
+ arch/riscv/kernel/cpu_ops_sbi.c | 41 ++++++++++++++++++++++++++++++++-
+ arch/riscv/kernel/head.S        | 25 ++++++++++++++++++++
+ arch/riscv/kernel/head.h        |  2 --
+ arch/riscv/kernel/setup.c       |  9 +++++++-
+ 4 files changed, 73 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+index ee6e4b5cc39e9..3268fda5be35f 100644
+--- a/arch/riscv/kernel/cpu_ops_sbi.c
++++ b/arch/riscv/kernel/cpu_ops_sbi.c
+@@ -12,6 +12,7 @@
+ #include <asm/cpu_ops_sbi.h>
+ #include <asm/sbi.h>
+ #include <asm/smp.h>
++#include "head.h"
+ 
+ extern char secondary_start_sbi[];
+ const struct cpu_operations cpu_ops_sbi;
+@@ -23,6 +24,18 @@ const struct cpu_operations cpu_ops_sbi;
+  */
+ static struct sbi_hart_boot_data boot_data[NR_CPUS];
+ 
++#ifndef CONFIG_RISCV_BOOT_SPINWAIT
++/*
++ * Secondary hart rendezvous arrays, shared with head.S.
++ * These arrays are named for historical reasons after the spinwait
++ * boot protocol, but serve a generic purpose: holding per-hart boot
++ * data until a secondary hart is ready to proceed. Defined here when
++ * CONFIG_RISCV_BOOT_SPINWAIT=n; otherwise defined in cpu_ops_spinwait.c.
++ */
++void *__cpu_spinwait_stack_pointer[NR_CPUS] __section(".data");
++void *__cpu_spinwait_task_pointer[NR_CPUS] __section(".data");
++#endif
++
+ static int sbi_hsm_hart_start(unsigned long hartid, unsigned long saddr,
+ 			      unsigned long priv)
+ {
+@@ -62,6 +75,7 @@ static int sbi_cpu_start(unsigned int cpuid, struct task_struct *tidle)
+ 	unsigned long boot_addr = __pa_symbol(secondary_start_sbi);
+ 	unsigned long hartid = cpuid_to_hartid_map(cpuid);
+ 	unsigned long hsm_data;
++	int ret;
+ 	struct sbi_hart_boot_data *bdata = &boot_data[cpuid];
+ 
+ 	/* Make sure tidle is updated */
+@@ -71,7 +85,32 @@ static int sbi_cpu_start(unsigned int cpuid, struct task_struct *tidle)
+ 	/* Make sure boot data is updated */
+ 	smp_mb();
+ 	hsm_data = __pa(bdata);
+-	return sbi_hsm_hart_start(hartid, boot_addr, hsm_data);
++
++	ret = sbi_hsm_hart_start(hartid, boot_addr, hsm_data);
++
++	/*
++	 * The firmware boot hart enters Linux directly from the bootloader
++	 * and is already in SBI_HSM_STATE_STARTED when Linux attempts to
++	 * bring it online as a secondary CPU. HART_START correctly returns
++	 * SBI_ERR_ALREADY_STARTED in this case. The hart is spinning in
++	 * .Lwait_for_cpu_up_sbi waiting for boot data - write the spinwait
++	 * rendezvous arrays to release it into secondary startup.
++	 *
++	 * Guard against invalid or out-of-range hartids, matching the
++	 * same constraint enforced in cpu_ops_spinwait.c.
++	 */
++	if (ret == -EALREADY) {
++		if (hartid != INVALID_HARTID &&
++		    hartid < (unsigned long)NR_CPUS) { /* array bound */
++			/* Ensure bdata writes visible before spinwait arrays */
++			smp_wmb();
++			WRITE_ONCE(__cpu_spinwait_stack_pointer[hartid],
++				task_pt_regs(tidle));
++			WRITE_ONCE(__cpu_spinwait_task_pointer[hartid], tidle);
++		}
++		ret = 0;
++	}
++	return ret;
+ }
+ 
+ #ifdef CONFIG_HOTPLUG_CPU
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index f6a8ca49e6277..da48f5efd928b 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -281,6 +281,31 @@ SYM_CODE_START(_start_kernel)
+ 	la a2, boot_cpu_hartid
+ 	REG_S a0, (a2)
+ 
++#ifndef CONFIG_RISCV_BOOT_SPINWAIT
++	/*
++	 * On platforms where firmware releases all harts to the same
++	 * entry point (e.g. fw_dynamic), non-primary harts must divert
++	 * here before MMU setup. Wait in the spinwait rendezvous arrays
++	 * until cpu_start() provides boot data. a0 = hartid.
++	 */
++	REG_L a3, (a2)
++	beq a0, a3, .Lprimary_hart
++	slli a3, a0, LGREG
++	la a1, __cpu_spinwait_stack_pointer
++	la a2, __cpu_spinwait_task_pointer
++	add a1, a3, a1
++	add a2, a3, a2
++.Lwait_for_cpu_up_sbi:
++	fence r, r
++	REG_L sp, (a1)
++	REG_L tp, (a2)
++	beqz sp, .Lwait_for_cpu_up_sbi
++	beqz tp, .Lwait_for_cpu_up_sbi
++	fence
++	tail .Lsecondary_start_common
++.Lprimary_hart:
++#endif /* !CONFIG_RISCV_BOOT_SPINWAIT */
++
+ 	/* Initialize page tables and relocate to virtual addresses */
+ 	la tp, init_task
+ 	la sp, init_thread_union + THREAD_SIZE
+diff --git a/arch/riscv/kernel/head.h b/arch/riscv/kernel/head.h
+index 05a04bef442b1..1b34f8e655581 100644
+--- a/arch/riscv/kernel/head.h
++++ b/arch/riscv/kernel/head.h
+@@ -12,9 +12,7 @@ extern atomic_t hart_lottery;
+ 
+ asmlinkage void __init setup_vm(uintptr_t dtb_pa);
+ 
+-#ifdef CONFIG_RISCV_BOOT_SPINWAIT
+ extern void *__cpu_spinwait_stack_pointer[];
+ extern void *__cpu_spinwait_task_pointer[];
+-#endif
+ 
+ #endif /* __ASM_HEAD_H */
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 52d1d2b8f338b..d2eecb7ad4965 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -47,7 +47,14 @@
+  * BSS.
+  */
+ atomic_t hart_lottery __section(".sdata");
+-unsigned long boot_cpu_hartid;
++/*
++ * Initialize to INVALID_HARTID so that the first hart to store its
++ * hartid in head.S is unambiguously the boot CPU. Without this,
++ * boot_cpu_hartid starts as 0 (BSS), which aliases with hart 0 and
++ * causes hart 0 to always appear to win the boot CPU race regardless
++ * of which hart actually wrote first.
++ */
++unsigned long boot_cpu_hartid = INVALID_HARTID;
+ EXPORT_SYMBOL_GPL(boot_cpu_hartid);
+ 
+ /*
+-- 
+2.53.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
