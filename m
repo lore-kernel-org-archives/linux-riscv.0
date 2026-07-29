@@ -4,131 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF4EC54F51
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 06:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2B0C53219
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 07:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7WMyVQgbhnhcqEFZiqknHaVePApv2qzqIApD6GBHkEg=; b=pDBUOp4lywr9eD
-	dnyt3eo8UAUJQIAmzlKTRlGmfjcotbyIlgn6OSBypH7VRt1tZ8+37At7KpE5yFHLDkJpcf635wXOF
-	oVWw3M4pfhCkFs3MOaJDPBMdRQtmauK5iUxG9LtUPe/GVJ/1ruyApWYSsjoGAoLW1B0jTrI6g6DEZ
-	Am2qXevx7U1yoMJnERklHnxukNoqEf5+SjpgtQjN+xl8pWH6fLMvsV9G3tUCs5jkWkDjtkX4fODsW
-	yTzq9TX11oCJF7wFkLM+t3Xm06wWeJ2y7RCaeR0yfRrqqXhQDBdEOlfqQTJH3wW9cOZzxI+zvMB+9
-	ovKD0SKSlsg7/RdM9Q4Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LMuXLswJ9kgd3HoFGMVghUO4JPcuz6LC479te1nbL1M=; b=vmcffQpw9GlPHf
+	Sd6B0L+lR7aI2vFSLWx6MGJ2ZizMezGyZXjP8X6hnaWqtRbQ5G7BVp+JEW2XwDNpP8E4eqAbbnGxa
+	i8fo36DdVvj1zdypME9r1w8VaHlRJqqavB0eAS548gl6INlj6BZd7vsR8I8SAKBaQVVWNFEyfnQQg
+	KbMXk2xXtj4zDoUbW7XFRhynQkoZh5paQjmRoHUtE5OiVnWT7IQu4kyH8mHMhHRLmoyM9gjFvckI5
+	D0IezAIQrzEiH6WnAGDlFz/uS6HBmtC6MW7wxIYnsDe3hifDMvVEXHxm+QtOOhMnTKuEKxc3YFTuV
+	TRr2/nG9p2gZ4VtyPS5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woy6e-000000073xK-0ogv;
-	Wed, 29 Jul 2026 06:49:32 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1woyOV-0000000757i-1UYf;
+	Wed, 29 Jul 2026 07:07:59 +0000
+Received: from mail-pz2-x01.google.com ([2607:f8b0:4864:3b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woy6Z-000000073wI-3qTm;
-	Wed, 29 Jul 2026 06:49:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mItVBia1w3KAt+se6TllTL84ORTuIneb4VJl6hsx8x8yvrWhJQoVgeTEufg5P5S46OSy5RZu1TrC+L10PqjYDId1g4f3FhfEU2x7YYyAZCWbXl6s1uh0p1gtPsUCbNfJf03jWOeCUuzLeOihkgfLPdNU8YEkicQLe7mla2OQgW9G1E36WMsOCa01PqgUdwo9Hgjd7YxLkWEiOaCaS5Sqo8QQ0TgFS+Kus4eL6FKLOhtx3/JllzM1nKUFQuD9Xaa3VLqqjys0wtsmIUTrbhi6aaUkksAw88w8+pajQacFp7k1seJ0sKnUrGzQbTCqkCx5VT1CTw61EIaX5KVkz09lXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4uwk1C1ikhvUrPi/9dJVHUhOWvMR9EHPaiFhoWQ8IN4=;
- b=AkdWhIVYbfaMk/wEygg0wblD74UpVIIMpIwUU0KkC/uF+SakzQObewUu5G5riW4n+6KI+8Z3T3kAdsIwHJe0hRilZApwpZpQ+bXZQs1TUV/wiYGR/rhlW7BHm3LL+gCO8ff7dhe231WfrmS6Z/tPsToKJZFxDlpahTquFDEa66s6zrjxxOS5l1YaHIQDtlJCuw3/+9rcLmOvNftyabjuuCo9yGQFCSvx4bJSSPle3sX2D1ng3qZbuTu9KMuQLbCTFJQDStRx3VVwmZJrU7NUe46n80LFTGWB/cS8XvwcXsmLGbBtSsrM/krJ6jWqEicbWdXC0MYdNuEvD1eiRkCYWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=infradead.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4uwk1C1ikhvUrPi/9dJVHUhOWvMR9EHPaiFhoWQ8IN4=;
- b=YARCBOpjocDFtxNbR5eXuw/0tcYrAG0HkE9MgITBFlEZ0KqEdP19/dm/3h2+tLlxgFwksoroeLAwmlb4OeTRJyBmcrMf3wjZW2SKDV536V1vxC4tzAXGMErKv4z8z9m1r62a/ujKlbNVz7IF84h4IqqyVSqfRxn7rIj0HU9Glgg=
-Received: from SJ0PR03CA0163.namprd03.prod.outlook.com (2603:10b6:a03:338::18)
- by IA1PR12MB7685.namprd12.prod.outlook.com (2603:10b6:208:423::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
- 2026 06:49:18 +0000
-Received: from CO1PEPF000066ED.namprd05.prod.outlook.com
- (2603:10b6:a03:338:cafe::86) by SJ0PR03CA0163.outlook.office365.com
- (2603:10b6:a03:338::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Wed,
- 29 Jul 2026 06:49:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CO1PEPF000066ED.mail.protection.outlook.com (10.167.249.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 06:49:17 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 29 Jul
- 2026 01:49:16 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 28 Jul
- 2026 23:49:16 -0700
-Received: from [10.136.36.1] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Wed, 29 Jul 2026 01:49:07 -0500
-Message-ID: <217c3e5f-1027-4086-80b5-a6fb82ff1596@amd.com>
-Date: Wed, 29 Jul 2026 12:19:06 +0530
+	id 1woyOT-0000000756e-2GHv
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Jul 2026 07:07:58 +0000
+Received: by mail-pz2-x01.google.com with SMTP id 41be03b00d2f7-cab1b0bb489so459492a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Jul 2026 00:07:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785308876; x=1785913676; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D50VgXdohjCe0RlJun/XbYhvNc02+cTyZmQgaJjzY0o=;
+        b=TbY332VV/cGgAc9W0ZjmL90z+Io+6/FC+xeYyZxBLoFJp+x7iscUdYgQLBQKBag6N9
+         KxUqRUEUJG4hLr73+qEpghDfyviXHKXiw3w5IWCkqkCM0vSOEmtche+Iz4ZySwcZtsqd
+         WESubNQtJJ1SJv+aA90aLBfjWaiDn0JmGCoohIxD4iw+vieRMf+97c726cRpDqdJCUYR
+         qAoJD9z1L5FKf8ZKzT8SAbtHXi3vzuwdW++g0iDdPQ3hcSDIEzYTnhs3/bUz/LUIH6eP
+         KtrlTFBTNJxcpcgpkwpy5L8qZG6/Jm60s8Tva8EHzYCGWeReCggLeDaNLDnvU3H0Ib+s
+         m2PA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785308876; x=1785913676;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D50VgXdohjCe0RlJun/XbYhvNc02+cTyZmQgaJjzY0o=;
+        b=CLCkc33vRjWx8zsW9XEjfehkMBbfceCJq93AZ4fxPXZE6CwOBLimPhfd4hA/uBXkg1
+         9HjMqKtsJW6ziKApwWgd/zAAxEz+2MOlus/BZ4uRU6wz0ai+E01UfQFmY/wItIM+Kp/Z
+         GAzYceLoyPcamTUlPA5p7wU/nVps8dGbdvARIHXhcazQv2sJdvNcePyLNERudTnDaLWB
+         kugQ//HI5VXfDZ7fA6vhTx2lN9mRGZ5omR96aUZOL8y2URk7CpavBGi4wfzBSswK457p
+         ByaK9AuSbVnDATzuG5FWuPZ8oAsP6iOpsr16Pab1JjRVTHlkKbpuY9ki6L7ZgAfyMeWn
+         RO1w==
+X-Forwarded-Encrypted: i=1; AHgh+RruVrNTTsVdmTO0RKyRP2114opk7yHUxGlHe05g63YN7e2RPL1T7Ap/+qhTwzTC0gzBMUaLCK1FrEKVvw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzLCGpTHY49imiogV41pt90jBmaYSEn1mixYIBg2GFl/SoUydV
+	q8cFrlbaIDScchl0HBPytOqS9XVr+im+i7Hu0lF+3OV9TVx6C7FVu6M9
+X-Gm-Gg: AR+sD10dMWvxRKJStOGD2mtwCMrB9fpAB5dfNZg5HwMvvPf3df/zPD+/7PEJvcYTJYV
+	75mZTYSMUXXzle2kE0a3dRx/TacS+sj+vHC8Yk7E3fmHEwE49KLU7qitAOnTNQbxZD3dQIYNert
+	Jcve1VJYSenW8tA0rgtQ7sySZZxfAkvcFcnQjRcabY7Gg2WHbddJj6CUe0kiOzCUNj9Adf6vv03
+	ACDtw1AVxXfsi0/rBxGMcI8DEh+5BDgLVmYZXrPVTtCkYXiB05OUbqcvpCJHzIeHRHEhQwBewK2
+	tvNxS4j0Wx88WEorUmIU6kh2VUWVJl/BQFoyeW2iZHFcQze36fnf5UsQQ+lREdPvZTD8eShSiH3
+	5J2IjMjfK6NDIXdJ/c3sjNubbxPirFnwOyPWH6EQbrvPBooufTgHTu+5f8VZfN5FnySDrXBpujB
+	7mf/CWFO3l9+LDN66Fv/U3bbqIh+wjCKo1Wh7msWogOA5uNzqXHegZdzWDbLrXwyZ9sLaCg9GiG
+	hQ+V0bMDA5KsyO3PAJsTk2WOw==
+X-Received: by 2002:a05:6a00:cc6:b0:848:467d:293b with SMTP id d2e1a72fcca58-84e931b505dmr5656775b3a.11.1785308876062;
+        Wed, 29 Jul 2026 00:07:56 -0700 (PDT)
+Received: from q-System-Product-Name ([129.227.183.200])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea03d3182sm890181b3a.54.2026.07.29.00.07.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jul 2026 00:07:55 -0700 (PDT)
+From: "Bingyu.Xian" <shanbeeyoo@gmail.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Quan Zhou <zhouquan@iscas.ac.cn>,
+	Bingyu Xian <shanbeeyoo@gmail.com>
+Subject: [PATCH] RISC-V: KVM: Fix spurious -EEXIST and clean up gstage fault path types
+Date: Wed, 29 Jul 2026 15:07:49 +0800
+Message-ID: <20260729070749.730218-1-shanbeeyoo@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 8/8] futex: Use runtime constants for __futex_hash()
- hot path
-To: Peter Zijlstra <peterz@infradead.org>
-CC: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
-	<x86@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	<will@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
-	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Darren Hart
-	<dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
-	Sean Christopherson <seanjc@google.com>, Thomas Huth <thuth@redhat.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Ben Dooks <ben.dooks@codethink.co.uk>,
-	Samuel Holland <samuel.holland@sifive.com>, =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?=
-	<rkrcmar@ventanamicro.com>, Guo Ren <guoren@kernel.org>, "Christian
- Borntraeger" <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>
-References: <20260728052540.4728-1-kprateek.nayak@amd.com>
- <20260728052540.4728-9-kprateek.nayak@amd.com>
- <20260728104653.GH49951@noisy.programming.kicks-ass.net>
- <20260728110806.GJ49951@noisy.programming.kicks-ass.net>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <20260728110806.GJ49951@noisy.programming.kicks-ass.net>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066ED:EE_|IA1PR12MB7685:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0b9db61-3843-48e1-118d-08deed3d82ae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|376014|23010399003|36860700016|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: HQXf33QzHjGUZRy6NszkV/I/NifViRH3k+0QIwAJvuiChnReha4FXV9Ea/0aCyUnmlloLgrLpme9BikGWGEkXAVgTB2rA/x4FWZ9lJMIxyoM5as1qCuMKANQJ8px38hkFxoag/LcK7cc2qWxtFtiDpkOH4qyeZmHJoMgELMCmKH5Fb/bCpEBbfswrDB2d8E8hw2X2Yvkg5CHDLyikdMaHGQhlou7BR6qsnOQ9Xjqi7Mi57tar2D8JYm43c1d1pKC72CsEjQGSM+IL+1wu3z5HwKefUPanfQdUKJfbi8zs9cxDHdBzhD6gpMz1FR44E2xVT7gU3MEaY2Qciv0DKKLP9C2BUEg0YDNUObEvGS0dCzAxziQ+9ZjThlnamUi/yJTk6ikRSYV4FxTJ5ltmgKA2jcUTkNOcr01Sp43c4Rp78fyfL2EqnFVASfu73FWqRmm96Zw0rKvnNTwi6P9/V44Wf3nu+l2UTtOvHQR3Jg3Evglm1GNjF0cXpjOvovXbOSQBvvb8Jp4G/Ix31zFqpTP3yW3abHjjDGrt4pFuth8i0dJvU4cCba3b0jBP7S9iu4RNRYS+u3vjnj9a+BXLwFjX/JyQuaBAELJcRMH7DOPBV4+/pYhUTtwjgE49ieFJLi28iYenNlXitE7D8ZPp6CVtHULEhzeZpCLSCyAMLJ8/492OwkNuT9fvm9FHNGml89HfILLKrhcEe0Y/L0izy6ptA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(376014)(23010399003)(36860700016)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6zffBW3/80egRCzymoUF6dEpAwm0QYyJSkmiNx4Ig4ew+5s5CEOENT4ygmgScmJhLCns+F5rEdIH/xrbY9RMyudAJol8cOPCveUwELjrMMNSb+VqAFgyThJsNR3B2XCmy6UpVBbF0qwgyJ8+KN+3IcyICGu7hW3AdBHJbTI2rVXdFRtmAAFyxJzIW2V7uCFvVeDksTfEDDFLozObZivY89D1tEJlqgcsbSc3YPToJ9YV2+ysN32/7vgFhpAb/jGrJsLfmd+2+/L+ozFETw94sfdxMkHVM7N6UeTiNBVEPZG/5lyoaziGht2ZzpcdL9NrISVPpCiafxj4hN3EDBGNOvFzvs5mjADvCHAWJABtU1+abos0PXsWOb/xsKJ9OpVjMKo8KMdDN0I/4U6MYNH+5rc1TJZIU5iFlSLLEXLHBBadDDPT3I66caB5ddHSe8mi
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 06:49:17.3109
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0b9db61-3843-48e1-118d-08deed3d82ae
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066ED.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7685
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_234927_986715_2F95D5BD 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260729_000757_585405_FC0D21E8 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,24 +106,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Peter,
+Two small fixes to the RISC-V G-stage page fault path, both suggested
+during review of the in-progress KVM Userfault port.
 
-On 7/28/2026 4:38 PM, Peter Zijlstra wrote:
->> Right, so I also munged the Changelog in my tree to include those
->> benchmark results. I failed to actually push out those patches before
->> disappearing on holidays, but I recon I should refresh them patches and
->> re-munge the changelog?
-> 
-> With a bit of luck I didn't wreck things and this new version should now
-> be available in queue/locking/core.
+1. Treat -EEXIST from kvm_riscv_gstage_map_page() as a quiet success.
 
-Thank you for fixing the changelog and refreshing the tree! I gave it a
-spin like everything looks alright - x86 on baremetal, and others in
-QEMU.
+   When a concurrent vCPU installs the same G-stage mapping while we
+   are waiting for mmu_lock, gstage_map_page() returns -EEXIST.  This
+   is not an error -- the page is correctly mapped and the faulting
+   vCPU can simply retry the guest instruction -- but KVM was treating
+   it as one: printing "Failed to map in G-stage" to dmesg and
+   propagating -EEXIST all the way to userspace.
 
+   Align RISC-V with x86 and arm64, which already swallow -EEXIST in
+   their respective fault handlers.  This also lets
+   kvm_release_faultin_page() drop its "ret && ret != -EEXIST" special
+   case: with ret normalized to 0 the regular release path is correct.
+
+2. Clean up fault path types.
+
+   - vma_pageshift: short -> unsigned int.  Bit widths and shift counts
+     conventionally use unsigned int in the kernel.
+
+   - fault_addr: unsigned long -> gpa_t.  RV32 with Sv32x4 has 34-bit
+     guest physical addresses that would be truncated when stored in a
+     32-bit unsigned long; gpa_t is u64 on RV32 and holds the full
+     address.  No functional change on RV64.
+
+   These type changes are in preparation for sharing a common
+   struct kvm_page_fault across architectures, as requested during
+   review.
+
+No functional change on RV64 beyond silencing the spurious -EEXIST.
+
+These are independent fixes with no dependencies; they can be merged
+on their own.  The KVM_MEM_USERFAULT port that motivated them will be
+sent separately as an RFC once the generic userfault series lands.
+
+Fixes: 9d05c1fee837 ("RISC-V: KVM: Implement stage2 page table programming")
+Assisted-by: YuanSheng: deepseek-v4-pro
+Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Bingyu Xian <shanbeeyoo@gmail.com>
+---
+ arch/riscv/kvm/mmu.c       | 8 +++++---
+ arch/riscv/kvm/vcpu_exit.c | 3 ++-
+ 2 files changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 8a0aa5e0e216..d2a06a54be17 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -541,7 +541,7 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	kvm_pfn_t hfn;
+ 	bool is_hugetlb;
+ 	bool writable;
+-	short vma_pageshift;
++	unsigned int vma_pageshift;
+ 	gfn_t gfn = gpa >> PAGE_SHIFT;
+ 	struct vm_area_struct *vma;
+ 	struct kvm *kvm = vcpu->kvm;
+@@ -652,11 +652,13 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 						vma_pagesize, true, true, out_map);
+ 	}
+ 
+-	if (ret)
++	if (ret == -EEXIST)
++		ret = 0;
++	else if (ret)
+ 		kvm_err("Failed to map in G-stage\n");
+ 
+ out_unlock:
+-	kvm_release_faultin_page(kvm, page, ret && ret != -EEXIST, writable);
++	kvm_release_faultin_page(kvm, page, ret, writable);
+ 	write_unlock(&kvm->mmu_lock);
+ 	return ret;
+ }
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 6c8530b9f29e..76cceecee5ab 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -17,7 +17,8 @@ static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ {
+ 	struct kvm_gstage_mapping host_map;
+ 	struct kvm_memory_slot *memslot;
+-	unsigned long hva, fault_addr;
++	unsigned long hva;
++	gpa_t fault_addr;
+ 	bool writable;
+ 	gfn_t gfn;
+ 	int ret;
 -- 
-Thanks and Regards,
-Prateek
+2.54.0
 
 
 _______________________________________________
