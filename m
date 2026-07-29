@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9048EC53219
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 17:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B06AC53200
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 18:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/DRiK80Y46Jx6IAql3CAqgm9wXpl1NO8jlDh7We+9Nw=; b=j/cp3BgxiDFkG3
-	FpE0YrsNRfhbVFFV8sklVkevNk9gvd0G1K1OKiQ0ES998575nN3Na9Es/rSWmiD1xbdzUDVFSRVBk
-	JIoVtIziZXMOoaECawuSKbV5k7vv1kcpWKkix8wCyE+tQmJJx6SScrYVQhk7yuPjHUY4SH9OpnD6F
-	zrHGjltgIYd2pZh/JoUdTdEK3iwubGsabrTkouWWLfi5N3erR7EOXxDZF3K+0z225C3UMZ/pvVoR2
-	r8/WQ149tPoUiU8oQrTUCJga+5pv0WRXiKssXQH+9ia+J58dKfjLamP+FUXmTujUhpHTepQ7IgHLM
-	XdqRtxW4WpJj3rvxN0XQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=ySZs7Yhr17JDgi8WcGKqlCBW1y8qGWHNZXcK3J1NWmM=; b=44OkgAhKjmMhYhR+pr5M4ciDU9
+	UDRsPaaWBsF+4p4Y96TBZD5fAeKx6LDMdK5cmxrdTY7dfnkGLvJJS7UtaVbx9IIFSM3EiThfF4Ijo
+	piukfayBuduvtjZYdxcQA7a/fskR2mr5oVf/3cfBFbEZ2wjYCh0nYy6cpnXzjfGcoydPu4U6KzVFB
+	88Qu8cec+6AZAazX5vtJfM0pGnUreoMTViDtPDnpZdRGk8WuaNqAUG9Ox0Pnaq5xzkkC+zuNQaHKJ
+	Aouo9Y6aKdX4ulgId8p45ORvqelgCLegLjGqZkPxbFOqo/woalljnkfAXWTFCgUaW3yaxFy5E/iZ9
+	uIwlRrmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8M8-00000008jW8-21CJ;
-	Wed, 29 Jul 2026 17:46:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wp8gI-00000008mGa-3ORW;
+	Wed, 29 Jul 2026 18:07:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8M7-00000008jVv-1U3c
+	id 1wp8gH-00000008mGO-3Xtv
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 17:46:11 +0000
+	Wed, 29 Jul 2026 18:07:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B9F5401B1;
-	Wed, 29 Jul 2026 17:46:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70DF01F000E9;
-	Wed, 29 Jul 2026 17:46:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EDAF26001D;
+	Wed, 29 Jul 2026 18:07:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87FA11F000E9;
+	Wed, 29 Jul 2026 18:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785347169;
-	bh=j+KzCNqLy3yQ1eL2PsZviAGvITLUBt7YOwZ4tNjmMAQ=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=CfNmUtNJ3MZg0Ge/qrtlWqVG/M33BQfXPeRo4HZM7k8kgihZpG0DzTq+GJUSylxdx
-	 g2yZ4x/pcRI5tJ2EPfq1Sx8nmOoP1ZSHORa2swwi0n48ahIvsS1Xju1ih+nUoDr5EL
-	 kXVEwVrzh5Wpyrw/WOC+FRevQIkIFPNnupm123GwdeOtjGZEJoExAWIRDfLnhPhAHB
-	 cBo8MK0PWCds3qhpoduVNkareSZclZgTjZ1HvGgTXEbxjNJBYXa8MIb+GNLS2LsqRh
-	 4/GjSjqR6hTqKkcdkGHve+sir2tXpgKnGHeoP0owSKBFYUZrZ+d3qGA8kiBfDMbYjD
-	 OBTWEXfiyWypA==
-Date: Wed, 29 Jul 2026 11:46:06 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.dev>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    spacemit@lists.linux.dev, 
-    Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Subject: Re: [PATCH v3] riscv: mm: fix SWIOTLB initialization for systems
- with DRAM above 4GB
-In-Reply-To: <20260727-fix-riscv-swiotlb-v3-1-59479b23736c@linux.dev>
-Message-ID: <0189bbe2-2aab-4d1d-1424-f83f5d1fb007@kernel.org>
-References: <20260727-fix-riscv-swiotlb-v3-1-59479b23736c@linux.dev>
+	s=k20260515; t=1785348420;
+	bh=LfVo/5pspi7nSOnwGr07fdJGZ3XUZxg5tX6GJjgn0I8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=Oy3WZX3V8SgdlrdI9eD0k11Icsgg9aRKtE0lgNAZElHusC8aqnRKu3bzFh5wstaSg
+	 5qAYdcZTLLWFGcpyFjiu2hzT8yRTs/cohj6Y/xs5HT+AbplhWHrCOJ1uoXwQxOy9BX
+	 xWAqHsdYqKZeTnc8C85Fq55kEXkPiEINKcmD9bYxJ0WEqo28no+28dwdQBo053mCVG
+	 QugWGcWlkrh/PjVv2Fw+vatfxsbWvExc+HyqGYRG+1S4YPVBM4bC8mI5qxnxhpmVX1
+	 TB7qbWEHGUmBoogwWEOCxJ4D4Czwg49oLfRRdd/jFLyBkWXwpM3jl5iDHUMaAEcp8f
+	 T8GzYgbhrdvLQ==
+Date: Wed, 29 Jul 2026 13:06:59 -0500
 MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: anup@brainfault.org, guodong@riscstar.com, 
+ pincheng.plct@isrc.iscas.ac.cn, alex@ghiti.fr, aou@eecs.berkeley.edu, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ michal.simek@amd.com, dave.patel@riscstar.com, pjw@kernel.org, 
+ linux-riscv@lists.infradead.org, zhangchunyan@iscas.ac.cn, 
+ raymond.mao@riscstar.com, palmer@dabbelt.com, greentime.hu@sifive.com, 
+ dfustini@oss.tenstorrent.com, luxu.kernel@bytedance.com, 
+ conor+dt@kernel.org, akpm@linux-foundation.org, scott@riscstar.com, 
+ jim.shu@sifive.com, krzk+dt@kernel.org, robin.randhawa@sifive.com, 
+ zong.li@sifive.com, pawandeep.oza@oss.qualcomm.com, nick.hu@sifive.com, 
+ samuel.holland@sifive.com, darshan.prajapati@einfochips.com, 
+ junhui.liu@pigmoral.tech, dlan@kernel.org
+To: Yu-Chien Peter Lin <peter.lin@sifive.com>
+In-Reply-To: <20260729163908.249838-3-peter.lin@sifive.com>
+References: <20260729163908.249838-1-peter.lin@sifive.com>
+ <20260729163908.249838-3-peter.lin@sifive.com>
+Message-Id: <178534841698.3259786.10094204605740986474.robh@kernel.org>
+Subject: Re: [PATCH v2 2/3] dt-bindings: riscv: Add Worlds per-hart
+ properties
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,41 +81,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jul 2026, Troy Mitchell wrote:
 
-> On RISC-V platforms where the entire physical memory (DRAM) resides
-> above the 32-bit address space (i.e., above dma32_phys_limit), the
-> current SWIOTLB initialization logic fails.
+On Thu, 30 Jul 2026 00:39:07 +0800, Yu-Chien Peter Lin wrote:
+> Add per-hart DT properties for the RISC-V Worlds architecture:
+> riscv,pmwid, riscv,pmwidlist, and riscv,pmlwidlist. These
+> platform-defined values are primarily used by M-mode firmware
+> to configure World ID CSRs and restrict WID usage across
+> privilege levels.
 > 
-> This patch addresses two interconnected issues on such platforms:
+> Also add schema validation rules to enforce valid property
+> combinations based on the ISA extensions present.
 > 
-> 1. Incorrect 32-bit DMA bounce assumption:
-> The existing condition `max_pfn > PFN_DOWN(dma32_phys_limit)` assumes
-> that a 32-bit DMA bounce buffer is required simply because the maximum
-> PFN exceeds the 32-bit limit. However, if all DRAM starts above 4GB,
-> no memory exists below the limit to satisfy this allocation. Fix
-> this by adding a check to ensure `memblock_start_of_DRAM()` is actually
-> below the 32-bit limit before enforcing 32-bit SWIOTLB.
+> Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
+> ---
+>  .../devicetree/bindings/riscv/cpus.yaml       | 61 +++++++++++++++
+>  .../devicetree/bindings/riscv/worlds.yaml     | 77 +++++++++++++++++++
+>  2 files changed, 138 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/worlds.yaml
 > 
-> 2. kmalloc() bounce buffer allocation failure on non-coherent systems:
-> For non-coherent DMA, kmalloc() buffers whose sizes are not
-> cache-line-aligned still require bouncing, even if 32-bit DMA bouncing
-> is skipped. Without the `SWIOTLB_ANY` flag, swiotlb_init() defaults to
-> allocating from low memory, which fails completely when DRAM only exists
-> in high memory. By appending `SWIOTLB_ANY` to swiotlb_flags, the allocator
-> is permitted to allocate this bounce buffer from high memory.
-> 
-> With this patch, systems with non-coherent DMA and DRAM entirely above
-> 4GB can successfully map the software IO TLB in high memory and boot
-> normally.
-> 
-> Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
 
-Thanks, queued for v7.2-rc.
+My bot found errors running 'make dt_binding_check' on your patch:
 
+yamllint warnings/errors:
 
-- Paul
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@0 (riscv): 'riscv,pmwid' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@1 (riscv): 'riscv,pmwid' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@10 (riscv): 'riscv,pmwid' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+Documentation/devicetree/bindings/cpu/idle-states.example.dtb: cpu@11 (riscv): 'riscv,pmwid' is a required property
+	from schema $id: http://devicetree.org/schemas/riscv/cpus.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260729163908.249838-3-peter.lin@sifive.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
 _______________________________________________
 linux-riscv mailing list
