@@ -4,93 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF2DC55162
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 23:26:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F16AEC53200
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 23:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hqh2IF7uHmp+lM255wKp+uh5p/hXLPnpMZFaqyyg36s=; b=GjVKS6OEyG1jxo
-	mpHFLoWNtcGx9oHyzA1Vzva4uin+P5Tlc4kWZjcQQXFf8V67n2iJPabYVlbtXgvKV5QRt1rwdh/4q
-	ZSRXpZC6GtonMxYB+CBe1gv83gIM9sKd4ktWqs/ErcB16Y3PMC61ju4IxC0k/1hytco1Jiaetc2RL
-	3SfDKvipzmj9DpWNeFa7wyVHuwWEynlTptfLr7FeeZD6U2fEO6Cq5I/btz7+CmjUHkqUDcqc49J7p
-	Zcbsb/ijualGMYkck9ntzMF/iVLrIwjj2/uIJ7+Jeayr/g6HVBRh6Dn1zzQmbLcJrKlkkQQcG+s46
-	gHHWZu2WdXQCxaOzo+NA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=O78mherC8MqR99kOzrynD9kxqJPoBOUYz8PXFbx3pBs=; b=2345Sv41u5+e7A
+	KHfUei37uCc6wjm52DPf6CzVAUTIOAn89vHPGYUwEu46BSkwTFnU4qsqxEpV1sUsVx6Emw8gaxN4P
+	od+qHEGlYfrEaR/EmhVd8MErC7FtwSdAWi3+Ovq4NoUoxpMDyRJtmX/wywMrXYS0y19wl17lDH16J
+	xMdvPgVpGJrRP+xIERouBz1BZYv/EMDSqry2lP1lHhOl388Dsf10ghCQwui0nJcmJ4cBPKZsWVsqO
+	wAI7uh9Mmsz2PRKTLorTFPSnw4unw1s3DTcjffEFPk3rNjJpJt/STkCO8doOhByrCWDD1Bppe1z5b
+	uo3SiOrgzEdE8bQP9jVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpDeg-000000096vC-36nx;
-	Wed, 29 Jul 2026 23:25:42 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1wpDqf-000000097qP-36sa;
+	Wed, 29 Jul 2026 23:38:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpDee-000000096tu-1vwx
+	id 1wpDqe-000000097qI-1lWK
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 23:25:41 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-84e04df8c46so1761677b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Jul 2026 16:25:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785367539; x=1785972339; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=agAohdyMJ39twgA5Lt/CMvRouMD+rLJEs3qNM/Tk904=;
-        b=LoA/XNZeIow8Diigr0iEewTtCFMdjOdzWqJoFvlFK2tgOc4QqbDvb0ZeMyMNO+pguO
-         +wu2l14v/6HBaQutINghgtBJKFO3IaQD8TfqckM0WFF6DHl/K8azR3KmcH1pLcqhXiRH
-         3XZdgsf5TEVGREV6qMzoKuXlV9o1y9iVC6SxYBkgzEA7ztaroXG2VsWitQ9+Loh2aWBH
-         fjapGqhX+W1F28uPO5zA5NUYmA72xrjGRmgez1Zgg5dBM6h7pejVeRNviAwNtRTGh8Gx
-         PsZhcdLW8+gFajQ1CvhPG/009IVni1fmhd14kNBr/c01+tGOpRpcS+lpf1Qzixt6c2ij
-         ytEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785367539; x=1785972339;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=agAohdyMJ39twgA5Lt/CMvRouMD+rLJEs3qNM/Tk904=;
-        b=VM4wPTrU0dR5G8RnJYJoNxbWxvKaJf0WFVXJ2WQHHvClD1r0viasNWkDMYBjma9bq7
-         mPXsdETj70BtXVmPoiM0MudyK4O+n0OitgmX5D8X7jK9AbF5/ncpPk/xjeEsu8KMycQu
-         oh63VwCfYWAzYwcEngm4BPAvWGGVcHUhh9k7nyEyAsPaaiaoLybRfrM4VkSNctQWxQlC
-         I35uDqFL54VdgBp1GaMjH+Jnbh/wR0ihOImCBIjQuuqjM7TB6yRWs4ULZfNOCDJc/waT
-         JPfmwERpavZc0a2bONJMFxKUzHA/NtgbZE0IL8j5TyreB9YXPMNQjeSfIb1oNSBssTar
-         Io/w==
-X-Forwarded-Encrypted: i=1; AHgh+Rp27EUqreISyj/nsWyByYInnbU1/A3QO1s3FABXCTzD21AsaXSAi549m76tHpIBXxI0c35OtNrnVj5K4g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyemxOKw3JnGT0ECXIX9HRUFKSTHCSpOp6Wt92EkDacfNOZ0Wfh
-	IbN6rIimNAl5nWa37Y40aq0heNI9mZP8ZF53UoirwjePTRV7FBUTM+E7
-X-Gm-Gg: AR+sD11lo/IJFaw/JeAPLBzgqT0puYa6zPd5iVUOVpdeApFZsJeZYPQsrS7a2EkdwL5
-	R3moS7//LvBFP891mI1HYmCCSuK9gm5A/BRwzZNXwRAZjcjwdaHnIR1yaNNNYLIKXPVLIfZKU6+
-	yl9DgOZyi6dqG0/KvcMTT3f4sFpNt++tg2XR7NYc8CKnfdT+R11WHb2UJLWDLMQ9Cuctro0TrEB
-	DRDa4ABlClPbIl14HqPky9gvjqUqcDQUpqLuRKJzK29o4iJnhPVmihTuTJxPovpzY+ie6eXsXC4
-	5kxgWMty46X8Op4tC2fKOO2YKsx1CbHI5hz8IeJPpV8sDG65rUUoWLdV0Tbs8/Vv2aStDTLZqP3
-	2mUsj/3Ei2IxUtTg2NbW6Qt0dx0xMCgfmUYjbvziKsVRH4U6v1RmMQf9DJC8Qr/KTJfcu9kL8f8
-	fw3UEJe4b6npyLwMsFKerCczGJ6fLCbLD07ksnSJiVhu2o3THmOHMyV3vr0UE=
-X-Received: by 2002:a05:6a00:4b15:b0:845:e08c:a4eb with SMTP id d2e1a72fcca58-84ebc466aa7mr336322b3a.58.1785367539615;
-        Wed, 29 Jul 2026 16:25:39 -0700 (PDT)
-Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea03ccc92sm2028551b3a.58.2026.07.29.16.25.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 16:25:39 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v3 0/4] RISC-V: KVM: Cleanup SBI extension status when disable
-Date: Thu, 30 Jul 2026 07:25:21 +0800
-Message-ID: <20260729232527.139183-1-inochiama@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Wed, 29 Jul 2026 23:38:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 73690600AB;
+	Wed, 29 Jul 2026 23:38:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE6F1F000E9;
+	Wed, 29 Jul 2026 23:38:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785368283;
+	bh=u9xcOYyj5phmRJPzaEv/I8lm138Rc/A4GM8k/KGPVS8=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=in4Vov9fnMLV1zpT0G6oI9H+ZAlcLjUTRer6Cnx9eF6jXe6KjRD20mn993P+DkzWT
+	 Nnoo+16+WLw0tdA05Q1dmg/DtZQFp2jNV+2fO2ODHEnaIwHoTbosjia6iCG5465+zU
+	 +AR7NIqep2m4Ro6alkB0hUHxxi+TXd2AHbA8YoDtZy9qZYz6OKQbvQuJzEjww1gB/l
+	 DdsDYPkZYzY70/ZopVBucmKIenpCqD2PY/oR1E4NSbTwrMbcQKWbpnSu2M1dZKyqUt
+	 E9irVXFvEvYpqEo4wtKrhXwxPL141ZVKoKK7VhWLnfRohAm601xl0nkZHtdGc13uTi
+	 us/kxRvMLCU4Q==
+Date: Wed, 29 Jul 2026 17:37:59 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    =?ISO-8859-15?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: mm: Fix out-of-bounds page-table walk during
+ memory hot-remove
+In-Reply-To: <20260729012132.24882-1-kmehltretter@gmail.com>
+Message-ID: <76fb929e-6289-cb5d-7dc0-c3bb17c759d2@kernel.org>
+References: <20260729012132.24882-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_162540_509372_25385616 
-X-CRM114-Status: UNSURE (   8.21  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,42 +71,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM SBI FWFT extension has multiple internal state can be programmed
-by the userspace. However, when the FWFT feature or the FWFT extension
-is disabled, the internal state will be kept as it is, which may cause
-some side effect for the vCPU, cleanup these state when a SBI extension
-or FWFT feature is disabled.
+On Wed, 29 Jul 2026, Karl Mehltretter wrote:
 
-Change from v2:
-- https://lore.kernel.org/kvm/20260706021154.210289-1-inochiama@gmail.com
-patch 1, 2:
-1. Apply Anup's tag.
-patch 3:
-1. Remove the csr_dirty set.
-patch 4:
-1. Add a new patch that sets the csr_dirty for FWFT extension.
+> remove_pud_mapping() and remove_p4d_mapping() obtain a child table base
+> with pud_offset(p4dp, 0) and p4d_offset(pgd, 0), then add the index for
+> addr.
+> 
+> RISC-V folds page-table levels at runtime. When a level is folded, its
+> offset helper returns the parent entry itself, but the index can still be
+> nonzero. Adding it walks past the parent table. Sv48 folds P4D, while Sv39
+> folds both P4D and PUD, so memory hot-remove can descend into unrelated
+> memory and pass an invalid page to __free_pages(). This can trigger:
+> 
+>   kernel BUG at include/linux/mm.h:1810!
+>   VM_BUG_ON_PAGE(page_ref_count(page) == 0)
+>   arch_remove_memory+0x1e/0x5c
+>   try_remove_memory+0x15e/0x200
+>   remove_memory+0x24/0x3c
+> 
+> Only add the index when the corresponding page-table level is enabled,
+> matching p4d_offset() and pud_offset().
+> 
+> Fixes: c75a74f4ba19 ("riscv: mm: Add memory hotplugging support")
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 
-Change from v1:
-- https://lore.kernel.org/kvm/20260701094731.1022163-1-inochiama@gmail.com
-patch 2:
-1. Check support callback existed before using it.
+Thanks, queued for v7.2-rc.
 
-Inochi Amaoto (4):
-  RISC-V: KVM: Add SBI extension validate callback
-  RISC-V: KVM: Add SBI FWFT validation support
-  RISC-V: KVM: Reset the SBI extension when disable it
-  RISC-V: KVM: Mark the reset callback of FWFT extension always dirties
-    CSR
 
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  4 ++++
- arch/riscv/kvm/vcpu_config.c          |  2 ++
- arch/riscv/kvm/vcpu_sbi.c             | 30 +++++++++++++++++++++++++++
- arch/riscv/kvm/vcpu_sbi_fwft.c        | 27 ++++++++++++++++++++++++
- 4 files changed, 63 insertions(+)
-
---
-2.55.0
-
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
