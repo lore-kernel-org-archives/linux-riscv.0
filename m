@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD3A9C53200
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 13:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9244C53219
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 15:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jc5qV0zQKoBK8dZ1irAh+ntbwd/8areVEA9NiOkofsc=; b=zHZDiWcdI+8yC3
-	v1Bzhbi8cLgpSjB6sz09+5sj/XroTutx70W+Oayd5XsW22RTHZFRrBB2L8fs9nxzzIj6gvNjMdGK8
-	p/uYHFeVIMV7c3+3gyXKkaaPHORKYuLCJkmM4LoYrWPwlDTmRgOLk3srN+yUJ8mzW+Nsd/35LFWoT
-	DsTtGiRFYkE8M53EecxfZQNHk1YQTIfHZi//mikQDX63IuC4mcOWpmmXGXOyzqSslDw6F+iSDOnC9
-	5DNXCr9OJ2lyT/8Vc1S7BrS4FdiH18uMxBm64y6QTttWdT1zA3f6UYGQraCt0rUr6CLpAQ/zyzXex
-	ht0lv6qFftuzfLep/yXg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wtOdl8JE6hAjbawCVJ/ji5w0grWYYrTjx2K1FIkmDrs=; b=KG/8gljzdP1j+x
+	BLbDtmIqUm/ebiBUTLbvn9ciaAXlQptxA63E191QoqN7WMBD4adPKV3de4pyNzjIl0HWfnjvLi5ap
+	Wj9PfS8ZarBOkQGqhdjpKzLKhGqdECijpSUfZn3xdtjLFvp3udGldiudGVqa7ayEv5hsr0xTu1qvL
+	YI2fpM5WIFeUNzhUtPLM5ggqg6t2HQ7ADROSd1EyRluafQin69D/W6HGxk/8Bnxj03LJzt5z8v3ZB
+	GgKPiA1ZTX4MPBneE5YGpbxe9A3sfeLhwtwnaVvpDfoqoZ28myWysAWJWvrICW7ItHTRMLx6h975A
+	8WdPjaHgL3g0EShoX0PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp4ZC-00000008AG4-2f5x;
-	Wed, 29 Jul 2026 13:43:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wp5sg-00000008LL3-1Q84;
+	Wed, 29 Jul 2026 15:07:38 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp4ZA-00000008AF9-42BP
+	id 1wp5sd-00000008LKL-1ft2
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 13:43:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A94542CBD;
-	Wed, 29 Jul 2026 13:43:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2E941F00A3A;
-	Wed, 29 Jul 2026 13:43:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785332604;
-	bh=PRcOiNq2tBTTPhKJmq+v2axNzroqRGfQ2NZU0eu9iKE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZjSuoLL6lpaRqLc85ZT3LkyZzM0Zuhm/g6IAhMNxznnUHr+a6rLolhSNoCEWi/+XP
-	 +k6HCNUh4cSAi9zyCrMgJ02jlIO4nJcZUm5LakKUb3pjQbfw2JjFATqCogerkzUdKu
-	 5DtyggnyhvqVRAqVowYb9SwgJsscKYOfSP0OGJxeg/F1x0agvlho4n9YPqdCoWkemo
-	 MSUrVc5OGlX5iUIMSdxmUF1lEVhqvsf443v/uXJD/wWFWvdytJ7kBBF2MY6kC6xMH4
-	 hz2vLPNLN8qVdzpXNXCPMplDRgGhhamfwAgPHf3JuXPd6eVIuScvxjfLlZ57xhK8HX
-	 Dias68Gw4/HNw==
-Date: Wed, 29 Jul 2026 06:43:22 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>, Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Leonardo Bras <leobras@redhat.com>,
-	Raj Vishwanathan4 <rvishwanathan@mips.com>,
-	Djordje Todorovic <djordje.todorovic@htecgroup.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Han Gao <gaohan@iscas.ac.cn>, Yao Zi <me@ziyao.cc>,
-	Xiaoguang Xing <xiaoguang.xing@sophgo.com>,
-	Aleksandar Rikalo <arikalo@gmail.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, sophgo@lists.linux.dev
-Subject: Re: [PATCH V5] riscv: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
-Message-ID: <amoDeloQAro0Zcsy@x1>
-References: <20260421143154.1590156-1-guoren@kernel.org>
- <ah8N+UThw4JnOdDb@x1>
+	Wed, 29 Jul 2026 15:07:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Content-Type:From:Reply-To:Subject:Content-ID:
+	Content-Description:In-Reply-To:References:X-Debbugs-Cc;
+	bh=3nno4RIjepssL0babb4nLq1//aOFhCPGzoSYoFo6RvQ=; b=YigJJK8klIBdzXr3gct0pCuRdf
+	o//2LSjGN4pKSSG/Dc2j89NT9+8vJZXl8Gh2MXkqEW9GlRU53xFidPpkiL+1ZxzVMYdTk8GIGFP71
+	wgE7RwUD3qyc3AdCS35e4i2tUcELo080dueJuB8iq19F+kFfl15EL3jqX6eUBAXPza5cmv4vUZGwH
+	CgzolIzJlGQv8lu/nXF7jEGc/mZFkqEtrhG5nJkWmipGsZPG+3iGsRCFj2dWiBI7wb+M7tA2RloKR
+	cjC4uzbAe7RFBwmdlu4Nv0+sJpJRCcFvpbsoyicnXvv2R/+jewW40zY7D+7VJD+snlhLTUjr79RYp
+	7YGDntYQ==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1wp5sa-00000002eB1-1FM9;
+	Wed, 29 Jul 2026 17:07:32 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE:Keyword:riscv),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit)
+Subject: [PATCH 0/6] riscv: dts: spacemit: fix maximum CPU core voltage for K1 boards
+Date: Wed, 29 Jul 2026 17:02:17 +0200
+Message-ID: <20260729150722.1598630-1-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ah8N+UThw4JnOdDb@x1>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_080735_462579_51E3A854 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +78,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 02, 2026 at 10:08:09AM -0700, Drew Fustini wrote:
-> On Tue, Apr 21, 2026 at 10:31:40AM -0400, guoren@kernel.org wrote:
-> > From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
-> > 
-> > The early version of XuanTie C910 core has a store merge buffer
-> > delay problem. The store merge buffer could improve the store queue
-> > performance by merging multi-store requests, but when there are not
-> > continued store requests, the prior single store request would be
-> > waiting in the store queue for a long time. That would cause
-> > significant problems for communication between multi-cores. This
-> > problem was found on sg2042 & th1520 platforms with the qspinlock
-> > lock torture test.
-> > 
-> > So appending a fence w.o could immediately flush the store merge
-> > buffer and let other cores see the write result.
-> > 
-> > This will apply the WRITE_ONCE errata to handle the non-standard
-> > behavior via appending a fence w.o instruction for WRITE_ONCE().
-> > 
-> > This problem is only observed on the sg2042 hardware platform by
-> > running the lock_torture test program for half an hour. The problem
-> > was not found in the user space application, because interrupt can
-> > break the livelock.
-> > 
-> > Acked-by: Arnd Bergmann <arnd@arndb.de>
-> > Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > Reviewed-by: Leonardo Bras <leobras@redhat.com>
-> > Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-> > Tested-by: Han Gao <gaohan@iscas.ac.cn>
-> > Tested-by: Yao Zi <me@ziyao.cc>
-> > Cc: Chen Wang <unicorn_wang@outlook.com>
-> > Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
-> > Cc: Paul Walmsley <pjw@kernel.org>
-> > Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
-> > ---
-> > Changelog
-> > 
-> > v5:
-> >  - Add Acked-by: Arnd Bergmann <arnd@arndb.de> for asm/generic
-> >  - Add Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-> >  - Rebase on v7.0
-> 
-> Hi Paul,
-> 
-> Han Gao (revy) let me know that there is now an errata entry for 'Writes
-> might stick in C910/C920v1 store buffer for too long' [1].
-> 
-> Does that address the concern you had about documenting the errata?
-> 
-> Thanks,
-> Drew
-> 
-> [1] https://github.com/revyos/xuantie-c900-bugs#writes-might-stick-in-c910c920v1-store-buffer-for-too-long
+The SpacemiT K1 based boards use the SpacemiT P1 PMIC. The buck1 and
+buck2 voltage regulators supply the CPU core voltage. They are
+configured with a maximum output voltage of 3.45V, while the highest
+operating point requires only 1.050V. This means that a kernel bug, OPP
+misconfiguration, or privileged userspace could request a voltage above
+the safe operating limit, causing possible permanent CPU damage.
 
-Hi Paul, could this be considered for the upcoming merge window?
+This patch series set the maximum regulator voltage to 1.050V instead.
+There is one patch per board in order to ease backporting to older
+kernel versions.
 
-Thanks,
-Drew
+Aurelien Jarno (6):
+  riscv: dts: spacemit: k1-bananapi-f3: fix maximum CPU core voltage
+  riscv: dts: spacemit: k1-milkv-jupiter: fix maximum CPU core voltage
+  riscv: dts: spacemit: k1-orangepi-rv2: fix maximum CPU core voltage
+  riscv: dts: spacemit: k1-musepi-pro: fix maximum CPU core voltage
+  riscv: dts: spacemit: k1-orangepi-r2s: fix maximum CPU core voltage
+  riscv: dts: spacemit: k1-bananapi-cm6: fix maximum CPU core voltage
+
+ arch/riscv/boot/dts/spacemit/k1-bananapi-cm6.dtsi | 4 ++--
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts   | 4 ++--
+ arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts | 4 ++--
+ arch/riscv/boot/dts/spacemit/k1-musepi-pro.dts    | 4 ++--
+ arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts  | 4 ++--
+ arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts  | 4 ++--
+ 6 files changed, 12 insertions(+), 12 deletions(-)
+
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
