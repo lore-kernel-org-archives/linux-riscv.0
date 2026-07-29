@@ -4,93 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C32B5C54F52
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 01:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96983C53219
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 01:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cg69XKaFQ4gjdB5jGZTJtflDaXeW8idecw3QlHkLtAI=; b=IdkfoHgKrAQwwu
-	sdiVzyQ4ayKNPgtY68IOvTyIqb1tqY99hYrBLpXoUlIapjGBTsXXNdNW1d1uLZm9jjBFhU3+ySCFa
-	SGYEy7LojBr2ZY9QvXQ5qsuLdy1k4MQFUWiVVsAxKF3JVqZ8H1lkBZ+gtPIzqGcghHnLU1cu+cMgM
-	4kbgUItimNddNyijGefNMJl9LBHwZmOn5QvNIaI7yMD8YB+qTrsLf0qzmXfVGQCM5IIsW3Sposj99
-	7Rh+Dbyt0viw9o9yhMS+4eDwaGG+KxYwRcVzwQPCdgvOuQRuVJOPy7cIDdrLAVyOqtImUjuutEQUV
-	7eLj86LgY//oSoOJoKBg==;
+	List-Owner; bh=Ebev783sEeFk6kG/BpF6OM8kpviqu2vqgOc03QuMYPw=; b=x4Dmrq4tleCRLk
+	CzxrKiihYgc5S1cmT/hmFvPnSZetkuhcncDzFOJBobUoK/8/RWnFy9S3T0Jv/uLeStUx5jb2WHbpk
+	TmpVJu61vZ1oNB2M40Dt15c7RK2zak3GoBhEv4TSgDFeTzkBgwuU57DKIlOpxox6f9mGLAxNgpGO7
+	MhwdgVv8vjP+L8rqdpf41kSBH9GBeGXiVNM7xNjjyPtjvBYlw9V+MAdmiVxGoRS/j7t5+jxdUsG9y
+	2MOOL8kVjLKgV9k4BsuTG2oyBM9FjG3TgN3CU/Sgeq4uP7nUy9PcRl2e04g0Zeo8mLSWuYVoFM3hf
+	vDNhRsTnVQnj4WtCwj0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wotVz-00000006dx3-0v0U;
-	Wed, 29 Jul 2026 01:55:23 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1wotWO-00000006e2H-46kG;
+	Wed, 29 Jul 2026 01:55:49 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wotVu-00000006dwY-3jsi
+	id 1wotWK-00000006e0i-29Xd
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 01:55:20 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-cbb7926836eso213487a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Jul 2026 18:55:18 -0700 (PDT)
+	Wed, 29 Jul 2026 01:55:46 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38e42560ebcso335233a91.1
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Jul 2026 18:55:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785290118; x=1785894918; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785290144; x=1785894944; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=OrC+WlvYaMqsFVuQdS37eVhGU/gaCtUqZoAhWL5YwZI=;
-        b=NhdsqgdKlfChlcaPNWOT5GXDpmp+8Tx+EI96qJNB+TNHehGSvcA+c+spcovaoS6vzg
-         uVjS6tpnDcuJKMz28M0FbC9qUiRegQR73jIH26I5Md6vlDpPh3X8UfmCxddgu5+jn/4Z
-         MvHxT007qpz9EA+wyEZHgHgMPvgaU5aAxy2JeTKvesp4PANimMmu8twIYI8h3IeSmNsM
-         P6JejTz7nLdmfgF6lVPh5IsRGIofPl4qvu8TZY8Hp6T8m6f837PwMazzl5sg7Xl4xMOy
-         bB/mL+9r8ZeJHv/vHx41i6E7pZoPzKcxrh4evZFcXZ8SrQi+PjjgShGUKt9k2z8nkoch
-         Z3zw==
+        bh=WgpbITyz5r54kEwZv0NwNpMih07miMaqmNgkn1d9m1M=;
+        b=T4SfcCCHLj6p+nibKAkJJsmFY6le+dwY+wgQpXbIGzrQk1NtkU4Ta5ZagF1D2xeB1y
+         S3xjJsn02pauRutD7b5l80G3tuyKG64BM7TO14C1dTG6It2TZ6oHfl1kDEN8FH6m5wTJ
+         ceAjA1otTjiGafUd7xr/H+W90LTNVhCcn07rsyv5WMPz41YKWKwupUu/K4vgXrhxvNT0
+         EQtkYdasIE1RqaSELQsBoFJkzW6pw/K0/yBZ8tbdZlEXNvX0dTOaTuu7bZcYPm2NrXQb
+         adi69TXC/0TdHmxq2Hn3aQpPMuYI2+XJhWh6DMXAlSc+GDo4GfXKP5bpJu9nVutMSEEt
+         ed9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785290118; x=1785894918;
+        d=1e100.net; s=20251104; t=1785290144; x=1785894944;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OrC+WlvYaMqsFVuQdS37eVhGU/gaCtUqZoAhWL5YwZI=;
-        b=sGNii7XokHGMTfwqFoosb8r0bBv36xKepgbvCbMFTFb7GkDqZJeLvj61CeN0p7h7ON
-         wzJYZveeTKL81DjNP0Xmr3JB8CWCm+paRxzji6gTYWrhfum791uXBg/wgLlTjLKWUMdV
-         op8/a55CFcpA69f/G3Q4BKyl8MT6Mvf+cbBKkRsbNHwpOb0i60Pl904odlz0qWwLryEN
-         qwRMq6tVYBVOd30csQrntqqUoqvNPSGgRJHpvlLrNZ5X4mh/144X7hdC79TxgEUZ982a
-         awSAeS9/nqRFexi76qgUcdeWK120kYh/C1vkn2qyTnBN6Jj6X7YrPqiEYTCs0Ebt1L/L
-         dVvw==
-X-Forwarded-Encrypted: i=1; AHgh+Rpr1JGCM1Res3SGqXf3PQh9S3v07K5poprmBEMIfsUkFnqlxaSURV2IOniCquHccsYO80EsHOdJPgEp7w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHqINYzuYAA5l2zczjoJu2K//fAOHL5jLJVTsK/iot49mcyRod
-	WF98zMoYv23Ik8GdGCLJIlJAQDNdx62GoQPIzWCHCMCdLf/yqpta8KYk
-X-Gm-Gg: AR+sD11d+9pFWxItwhvt3pL70uvlXyxjEkK/fPEGSEc1ZZTswL1TH42zu9Rz8dIJQpd
-	UoUn3woiwG2paz0NzESgKQog2c+mEP+CPz2Xh0d6f8iVEtabqMeh/4Certr3YbC0PH6g92yCQyu
-	HzXGL9ukIzsG25na+UDZAJoKItd20ZqNKr40iyzYFVYfa1imBTjJlafimUTAcVtsp36BRlLHkAc
-	72ymQH4BW+bCm8UmfftonDxPe8lRLRJm02OfncFbZMSLyTZsNCF0TiA6kTSgtxCJ3W6t8h2f12x
-	JlYiJ6KV3LIxXmgNr46s444XiaAkD1gUqrmUvIbNPoZczuji2X2iuKwMdpbzgoNSY7V7h3LMng1
-	kVZhZaWILcmgOmajG+7Yq2dJ6VEErneFS6mJkeE55SOkzmxeet071zdS0Firb09f07D0/spG1wu
-	PwqLdyQte7ZA+kbbo/6qIbtBPHv4UvheKiGMO0o+OBS9FZ6hmGEETyg632Uho=
-X-Received: by 2002:a05:6a00:35c7:b0:848:700d:c950 with SMTP id d2e1a72fcca58-84e93330d09mr4806240b3a.37.1785290117708;
-        Tue, 28 Jul 2026 18:55:17 -0700 (PDT)
+        bh=WgpbITyz5r54kEwZv0NwNpMih07miMaqmNgkn1d9m1M=;
+        b=c2hSTRcPgAJafgBGO3vpgW7OJDpooMsG2jbnz9vJuOWhzWh0FYQmeYGFQhoQMTkB6M
+         biSgakXv+TmZnmWVziotRW/TbTCWklHqynl+jF/NUHbBtS5LplQ8jITMCiTc8uin7WMs
+         UdEYmZdItpPXiH5o0YXI82nxu6QPkXziTIPIECb45wkzX50JwzhUsXLAnFG7rbEst0Wd
+         udjIrenzPTUOfj1bfP9C8AcIltdvJvKkGsjn6li77WKX8dEyoFEZRCHGLJIEaqjeKDrn
+         +GFOQRPlb4JETFrFjGLzJs5ybaz/BF02swjOHZ57yVGA0kHLAxaM93fZHLiFJaZLNubH
+         HUAg==
+X-Forwarded-Encrypted: i=1; AHgh+Rr4a1OWn15emCtKiLsmePXgvnORvkWdfTKRiASPEtJIE2gHXFSzS2Ijte1AoxxrxFpFVC9TtnYUFZ/R2g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsbDqgyg3XP+K9LaId56hN7/BBOjt/vceClaXlQ9u1lgHgE+tk
+	k4VlYCjFKVhg1ADcNMC3KGp6BbqAer3el6s15Zu5kWIry9YAcYdik3vU
+X-Gm-Gg: AR+sD13wbuOcSmOC3sFtdkZf7cBw+5m09rWBOjLCC8i0kCh5Pnswk4rfNI5Pj/jPNbW
+	hs0jq3J7gc2APBxrRgCHjPPw5Yfb3t8G70GZvTF2pjgC0MEcnPEr0UCjhvKZNa48HML8ctgOR1H
+	X6fFoOA0EI6mzwDJguAEPsTWdpr1ZZ7KXjdFeUAzf8tF6mJlHYilPlvJb9l/QQOb9ludiarox8u
+	/0aRZLyUeLO+/6HViSHePTShDYB63dHO2gxyLFQug7zDjgTDJ6fvGJ/EG8FndW+Ge+aJRmRWXKe
+	6DoX9zXqQwJkOHEM55oEkhCQPClR3Qkp+8j6lvUeVnJ2vTiCsy6WO6vDvWWSDq5p9jS7G8f6brg
+	dB6aZYmvmkpE0ln/kU5IieHjjdIxoIMQJhCc+xSzFjc9ofylB+Cvh4TtvgvKOjVY6PFuLSpQQrD
+	EkPPR6q+q8/kP67rh9tdjWbHUyoVl6KUESBGPh5NgVri4GwsY+KidKdaaEycw=
+X-Received: by 2002:a17:90b:1644:b0:38d:adae:4866 with SMTP id 98e67ed59e1d1-38f6a3dc276mr5144331a91.21.1785290143640;
+        Tue, 28 Jul 2026 18:55:43 -0700 (PDT)
 Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea02fa4d4sm590717b3a.38.2026.07.28.18.55.16
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38f642fbf74sm2022334a91.17.2026.07.28.18.55.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 18:55:17 -0700 (PDT)
+        Tue, 28 Jul 2026 18:55:43 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
+To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Chen Wang <chen.wang@linux.dev>,
-	linux-riscv@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>,
+	Yixun Lan <dlan@kernel.org>,
+	"Anton D. Stavinskii" <stavinsky@gmail.com>,
+	Alexander Sverdlin <alex@sverdlin.org>,
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	sophgo@lists.linux.dev,
-	Chen-Yu Yeh <chenyou910331@gmail.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH v5 0/3] riscv: dts: sophgo: Add Milk-V Duo 256M board support
-Date: Wed, 29 Jul 2026 09:54:57 +0800
-Message-ID: <178529008851.164571.15038866333557612176.b4-ty@b4>
+	linux-riscv@lists.infradead.org
+Subject: Re: (subset) [PATCH v6 0/2] riscv: sophgo: allow DMA multiplexer set channel number for DMA controller
+Date: Wed, 29 Jul 2026 09:54:58 +0800
+Message-ID: <178529008848.164571.1132515193531771269.b4-ty@b4>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260725175346.139173-1-chenyou910331@gmail.com>
-References: <20260725175346.139173-1-chenyou910331@gmail.com>
+In-Reply-To: <20260511063818.463877-1-inochiama@gmail.com>
+References: <20260511063818.463877-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_185518_959799_FBCE51AE 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20260728_185544_818400_64E1C71A 
+X-CRM114-Status: UNSURE (   9.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,24 +119,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Jul 2026 01:53:42 +0800, Chen-Yu Yeh wrote:
-> The Milk-V Duo 256M is a small form factor development board based on
-> the Sophgo SG2002 SoC.
+On Mon, 11 May 2026 14:38:15 +0800, Inochi Amaoto wrote:
+> As the DMA controller on Sophgo CV1800 series SoC only has 8 channels,
+> the SoC provides a dma multiplexer to reuse the DMA channel. However,
+> the dma multiplexer also controlls the DMA interrupt multiplexer, which
+> means that the dma multiplexer needs to know the channel number.
 > 
-> This series adds the board binding, the PWR_GPIO controller node for
-> the CV180x/CV181x family, and the board device tree with support for
-> the UART console, SD/MMC, USB host and the onboard blue status LED.
+> Change the DMA phandle args parsing logic so it can use handshake
+> number as channel number if necessary.
 > 
 > [...]
 
 Applied to dt/riscv, thanks!
 
-[1/3] dt-bindings: soc: sophgo: add Milk-V Duo 256M board
-      https://github.com/sophgo/linux/commit/623a0b16bc3a822742c2793266128f59ba4f847c
-[2/3] riscv: dts: sophgo: cv180x: Add PWR_GPIO controller
-      https://github.com/sophgo/linux/commit/a625117e6c58cd77e88295e5470a3cc9578e4ad4
-[3/3] riscv: dts: sophgo: Add Milk-V Duo 256M board support
-      https://github.com/sophgo/linux/commit/11881041b745b444e4f6c87a2748f1951cf02742
+[2/2] riscv: dts: sophgo: cv180x: Allow the DMA multiplexer to set channel number for DMA controller
+      https://github.com/sophgo/linux/commit/3c698b64db0145fb5edc3f19e4170b41b4508281
 
 Thanks,
 Inochi
