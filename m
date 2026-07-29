@@ -4,103 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88FAC54F52
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 01:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF4EC54F51
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 06:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pNa6ZAKryETdECVYvGoKgY6hUJi1tKOyQe8wO2L5RPs=; b=c7bj/yTfyXoPB0
-	/cTNVQRiezLSdsUgKiwvY0AZBvWpMH3I+z44NJmZGkQ5pwyJgBPl5cRAwJdTyyyEt146OlAI7pccl
-	jSKCkxzy7NAu97jDXtfzKabzRq3yv9h+wNinh/kWkg+b4m29FOzf0TiNhjgex15L/2IJu3/8ugVQT
-	k342cyzNPY6Tf7itRtJSxdQoEypZQy3GczOZZJ7tQOUhF2kVpWueMJ0B0H51i3nBCt37fUxqoaJee
-	veHt0GHhFTOb0GVVceSmFqE9M/sqn/fWV3sV6jYUrtV+9MxsrbhBfjBXtQXx/g0sr5xJ8r0zcoRwk
-	IEIms77qeSoriev5RrmA==;
+	List-Owner; bh=7WMyVQgbhnhcqEFZiqknHaVePApv2qzqIApD6GBHkEg=; b=pDBUOp4lywr9eD
+	dnyt3eo8UAUJQIAmzlKTRlGmfjcotbyIlgn6OSBypH7VRt1tZ8+37At7KpE5yFHLDkJpcf635wXOF
+	oVWw3M4pfhCkFs3MOaJDPBMdRQtmauK5iUxG9LtUPe/GVJ/1ruyApWYSsjoGAoLW1B0jTrI6g6DEZ
+	Am2qXevx7U1yoMJnERklHnxukNoqEf5+SjpgtQjN+xl8pWH6fLMvsV9G3tUCs5jkWkDjtkX4fODsW
+	yTzq9TX11oCJF7wFkLM+t3Xm06wWeJ2y7RCaeR0yfRrqqXhQDBdEOlfqQTJH3wW9cOZzxI+zvMB+9
+	ovKD0SKSlsg7/RdM9Q4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wotWT-00000006e3o-0NaC;
-	Wed, 29 Jul 2026 01:55:53 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1woy6e-000000073xK-0ogv;
+	Wed, 29 Jul 2026 06:49:32 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wotWN-00000006e1R-1Ncf
-	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 01:55:48 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-381216921aaso400707a91.1
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Jul 2026 18:55:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785290146; x=1785894946; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7grHuSDIPRW8L8mo7e1hpwggYcsc7BeN7mOCkn3pJuU=;
-        b=laZF2tkiIHG4PHLpApxIbBc/NCyWJy8AXWyp9LjHLlzupdJ5CHZwresJyGzoJoXmp0
-         POM3K3PkcwB4TIvKhyr5kORskyNzWAxZQdFZHzmMsGtwCoky5xrcBWIHWjaAIsCjSS7t
-         m4aHQz8h79FbwpREs9LNoPxwT5eIm/huklaunVYFqKs8Q4pBtsbzVYJzVK/XUQpFZ9zd
-         wj1QiiVujjmV5BCSh1yW3fY4PrNUi9svZUMcRF0oMGLygmUY94e3CQHF/R+zfqD81s5b
-         Xi5ry5RnK+ai+GTJnHpELXVlqVuEymuE8AD7UaCh3c5I/tzVVD0bN5ErT7P0dITo85Bb
-         2z2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785290146; x=1785894946;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7grHuSDIPRW8L8mo7e1hpwggYcsc7BeN7mOCkn3pJuU=;
-        b=dNd4MW3xANlAqL51R0OY9t6knyM/WpDleOPvX+UWn7CY/pRtmnPJJ1tKTTEJ32eIE7
-         TaT65mUfmve/RNygRsVqEs4Z3Hy49gdcS6Pa19S2WnVAOlLfkXwRmZl2KgRq5VXYJRkc
-         L2RZvRDbG3tCQDZbVCHiCKDu8IKTA9ryutA/hmgCns/5h1+w+yDkFsSlhpBRfIPl82/x
-         oYdIgMAOWTMq01PPxt+Yt/2nEnREP9gtYkLcGmDVGRloWhFbNTq8jHm4LoPnA3UF86pD
-         q6nuXXbGobswBFuWKba3HAs8sRYFzwp+vqqZ09Wxv9yJu8LhCMeTjyjDFrTCb4H+0O8R
-         JOIQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqVdHOQk3ZmheJyAk5uqs6TdESLeKROnMXr0i0YvSJc8DB/kJGqY8qFVdbrMAkrVrfyhauSo+KiThvIBQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEb/zZjsfxyco9U06S7yLqfCv+QiuZx26EgZrBglPK1eFpTbcM
-	pdVKvlp9rPoPM6YMUpfKXjdfkEM2YWJ7yvuL/q/34iEl0wT1MSaxJPeVEVNLhZyg
-X-Gm-Gg: AR+sD11drgFnZvYL8Yq0TJYvztIwOAdaVqzYPMIR2bvJ32et7QmZU2Y4KzpOE0fb5oN
-	U/htMZaCoPGQTZo45UfU2xHKDrpuVpWDQ0/0BJqHQmcsSoW2qhaG1OF78lfNB5yhVFbNR61br0o
-	UxZXoAoCYkjf5fWPLCN3zkAjRH0ytngRQM4/4QwzkxrRrTvJV/J/gGQ68nHUSxK1K3YfStRue3c
-	Pr2o5CAPnntriCF4HmuKGjrVe4Y0Du8vIuyMbFIrzAI4rqY3qID+2+LPav7CkltdgSun9BR9/K+
-	eSK3UzIw2gE1qaHPVfKK9YewqH05ca1mp8uCBSnShe7hhGoDcH01WT0sXkIX3W/HFZY5BACS0Cc
-	gzWA+45eUWfDvJu67w7TXW3FwZeqrKCOTlPkxx+4ZIQGLSgD66C6Nom0yQxsMT9JKEQQubTDl1y
-	tC3qNsGH6LyYnQnm7u2jB7FQnzdYZWmYZPDmxwG8PpFWuLVDpiEQmPoeQYwpdU2w+qeO7qnw==
-X-Received: by 2002:a17:90b:3b41:b0:38e:6aa7:68ad with SMTP id 98e67ed59e1d1-38f6a30c840mr4956125a91.5.1785290146311;
-        Tue, 28 Jul 2026 18:55:46 -0700 (PDT)
-Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38f642dd6casm1984373a91.13.2026.07.28.18.55.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 18:55:46 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	pjw@kernel.org,
-	chen.wang@linux.dev,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	liujingqi@lanxincomputing.com,
-	rabenda.cn@gmail.com,
-	hanguidong02@gmail.com,
-	Alexander Sverdlin <alex@sverdlin.org>,
-	Joshua Milas <josh.milas@gmail.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	michael.opdenacker@rootcommit.com
-Subject: Re: (subset) [PATCH v6 0/3] Add initial Milk-V Duo S board support
-Date: Wed, 29 Jul 2026 09:54:59 +0800
-Message-ID: <178529008850.164571.1818758565125739771.b4-ty@b4>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260615120324.1527881-1-josh.milas@gmail.com>
-References: <20260615120324.1527881-1-josh.milas@gmail.com>
+	id 1woy6Z-000000073wI-3qTm;
+	Wed, 29 Jul 2026 06:49:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mItVBia1w3KAt+se6TllTL84ORTuIneb4VJl6hsx8x8yvrWhJQoVgeTEufg5P5S46OSy5RZu1TrC+L10PqjYDId1g4f3FhfEU2x7YYyAZCWbXl6s1uh0p1gtPsUCbNfJf03jWOeCUuzLeOihkgfLPdNU8YEkicQLe7mla2OQgW9G1E36WMsOCa01PqgUdwo9Hgjd7YxLkWEiOaCaS5Sqo8QQ0TgFS+Kus4eL6FKLOhtx3/JllzM1nKUFQuD9Xaa3VLqqjys0wtsmIUTrbhi6aaUkksAw88w8+pajQacFp7k1seJ0sKnUrGzQbTCqkCx5VT1CTw61EIaX5KVkz09lXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4uwk1C1ikhvUrPi/9dJVHUhOWvMR9EHPaiFhoWQ8IN4=;
+ b=AkdWhIVYbfaMk/wEygg0wblD74UpVIIMpIwUU0KkC/uF+SakzQObewUu5G5riW4n+6KI+8Z3T3kAdsIwHJe0hRilZApwpZpQ+bXZQs1TUV/wiYGR/rhlW7BHm3LL+gCO8ff7dhe231WfrmS6Z/tPsToKJZFxDlpahTquFDEa66s6zrjxxOS5l1YaHIQDtlJCuw3/+9rcLmOvNftyabjuuCo9yGQFCSvx4bJSSPle3sX2D1ng3qZbuTu9KMuQLbCTFJQDStRx3VVwmZJrU7NUe46n80LFTGWB/cS8XvwcXsmLGbBtSsrM/krJ6jWqEicbWdXC0MYdNuEvD1eiRkCYWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=infradead.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4uwk1C1ikhvUrPi/9dJVHUhOWvMR9EHPaiFhoWQ8IN4=;
+ b=YARCBOpjocDFtxNbR5eXuw/0tcYrAG0HkE9MgITBFlEZ0KqEdP19/dm/3h2+tLlxgFwksoroeLAwmlb4OeTRJyBmcrMf3wjZW2SKDV536V1vxC4tzAXGMErKv4z8z9m1r62a/ujKlbNVz7IF84h4IqqyVSqfRxn7rIj0HU9Glgg=
+Received: from SJ0PR03CA0163.namprd03.prod.outlook.com (2603:10b6:a03:338::18)
+ by IA1PR12MB7685.namprd12.prod.outlook.com (2603:10b6:208:423::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
+ 2026 06:49:18 +0000
+Received: from CO1PEPF000066ED.namprd05.prod.outlook.com
+ (2603:10b6:a03:338:cafe::86) by SJ0PR03CA0163.outlook.office365.com
+ (2603:10b6:a03:338::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Wed,
+ 29 Jul 2026 06:49:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CO1PEPF000066ED.mail.protection.outlook.com (10.167.249.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 06:49:17 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 29 Jul
+ 2026 01:49:16 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 28 Jul
+ 2026 23:49:16 -0700
+Received: from [10.136.36.1] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Wed, 29 Jul 2026 01:49:07 -0500
+Message-ID: <217c3e5f-1027-4086-80b5-a6fb82ff1596@amd.com>
+Date: Wed, 29 Jul 2026 12:19:06 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 8/8] futex: Use runtime constants for __futex_hash()
+ hot path
+To: Peter Zijlstra <peterz@infradead.org>
+CC: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, "Ingo
+ Molnar" <mingo@redhat.com>, Sebastian Andrzej Siewior
+	<bigeasy@linutronix.de>, Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+	<will@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, Alexandre Ghiti
+	<alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Darren Hart
+	<dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
+	Sean Christopherson <seanjc@google.com>, Thomas Huth <thuth@redhat.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Ben Dooks <ben.dooks@codethink.co.uk>,
+	Samuel Holland <samuel.holland@sifive.com>, =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?=
+	<rkrcmar@ventanamicro.com>, Guo Ren <guoren@kernel.org>, "Christian
+ Borntraeger" <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>
+References: <20260728052540.4728-1-kprateek.nayak@amd.com>
+ <20260728052540.4728-9-kprateek.nayak@amd.com>
+ <20260728104653.GH49951@noisy.programming.kicks-ass.net>
+ <20260728110806.GJ49951@noisy.programming.kicks-ass.net>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <20260728110806.GJ49951@noisy.programming.kicks-ass.net>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066ED:EE_|IA1PR12MB7685:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0b9db61-3843-48e1-118d-08deed3d82ae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|376014|23010399003|36860700016|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: HQXf33QzHjGUZRy6NszkV/I/NifViRH3k+0QIwAJvuiChnReha4FXV9Ea/0aCyUnmlloLgrLpme9BikGWGEkXAVgTB2rA/x4FWZ9lJMIxyoM5as1qCuMKANQJ8px38hkFxoag/LcK7cc2qWxtFtiDpkOH4qyeZmHJoMgELMCmKH5Fb/bCpEBbfswrDB2d8E8hw2X2Yvkg5CHDLyikdMaHGQhlou7BR6qsnOQ9Xjqi7Mi57tar2D8JYm43c1d1pKC72CsEjQGSM+IL+1wu3z5HwKefUPanfQdUKJfbi8zs9cxDHdBzhD6gpMz1FR44E2xVT7gU3MEaY2Qciv0DKKLP9C2BUEg0YDNUObEvGS0dCzAxziQ+9ZjThlnamUi/yJTk6ikRSYV4FxTJ5ltmgKA2jcUTkNOcr01Sp43c4Rp78fyfL2EqnFVASfu73FWqRmm96Zw0rKvnNTwi6P9/V44Wf3nu+l2UTtOvHQR3Jg3Evglm1GNjF0cXpjOvovXbOSQBvvb8Jp4G/Ix31zFqpTP3yW3abHjjDGrt4pFuth8i0dJvU4cCba3b0jBP7S9iu4RNRYS+u3vjnj9a+BXLwFjX/JyQuaBAELJcRMH7DOPBV4+/pYhUTtwjgE49ieFJLi28iYenNlXitE7D8ZPp6CVtHULEhzeZpCLSCyAMLJ8/492OwkNuT9fvm9FHNGml89HfILLKrhcEe0Y/L0izy6ptA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(376014)(23010399003)(36860700016)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 6zffBW3/80egRCzymoUF6dEpAwm0QYyJSkmiNx4Ig4ew+5s5CEOENT4ygmgScmJhLCns+F5rEdIH/xrbY9RMyudAJol8cOPCveUwELjrMMNSb+VqAFgyThJsNR3B2XCmy6UpVBbF0qwgyJ8+KN+3IcyICGu7hW3AdBHJbTI2rVXdFRtmAAFyxJzIW2V7uCFvVeDksTfEDDFLozObZivY89D1tEJlqgcsbSc3YPToJ9YV2+ysN32/7vgFhpAb/jGrJsLfmd+2+/L+ozFETw94sfdxMkHVM7N6UeTiNBVEPZG/5lyoaziGht2ZzpcdL9NrISVPpCiafxj4hN3EDBGNOvFzvs5mjADvCHAWJABtU1+abos0PXsWOb/xsKJ9OpVjMKo8KMdDN0I/4U6MYNH+5rc1TJZIU5iFlSLLEXLHBBadDDPT3I66caB5ddHSe8mi
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 06:49:17.3109
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0b9db61-3843-48e1-118d-08deed3d82ae
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066ED.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7685
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_185547_370009_8A12561C 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_234927_986715_2F95D5BD 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,26 +145,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Jun 2026 08:03:21 -0400, Joshua Milas wrote:
-> This adds an initial device tree for the Milk-V Duo S board
-> with support for reading from the SD card and network over
-> Ethernet. This is continued work from Michael Opdenacker's
-> v6 series [1] on the ARM64 and RISCV side. It has been tested
-> with ARM64 and RISCV64 to boot from an SD card, have networking
-> from ethernet, enumerate the wifi chip, have bluetooth, and can
-> read a I2C slave device over i2c4.
+Hello Peter,
+
+On 7/28/2026 4:38 PM, Peter Zijlstra wrote:
+>> Right, so I also munged the Changelog in my tree to include those
+>> benchmark results. I failed to actually push out those patches before
+>> disappearing on holidays, but I recon I should refresh them patches and
+>> re-munge the changelog?
 > 
-> [...]
+> With a bit of luck I didn't wreck things and this new version should now
+> be available in queue/locking/core.
 
-Applied to dt/riscv, thanks!
+Thank you for fixing the changelog and refreshing the tree! I gave it a
+spin like everything looks alright - x86 on baremetal, and others in
+QEMU.
 
-[2/3] riscv64: dts: sophgo: add SG2000 dtsi
-      https://github.com/sophgo/linux/commit/022d1bd8b08257966c4a00fc21fb72a828bca870
-[3/3] riscv64: dts: sophgo: add initial Milk-V Duo S board support
-      https://github.com/sophgo/linux/commit/0cef4f813649eb19476c98f763128561f5bdf969
-
-Thanks,
-Inochi
+-- 
+Thanks and Regards,
+Prateek
 
 
 _______________________________________________
