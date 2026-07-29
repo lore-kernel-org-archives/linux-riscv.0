@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AF8C53200
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 09:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D10C54F51
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2026 09:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JU43oRdRX4Xtecqox+t7+o7pHICp0PIaAVtTDLvkPTE=; b=ynd0+5upQTx33d
-	P73NTMeCcEKA48Wx831I8wEv/1jWnIwWdVQ/PrClK6l9M1xrzi27aPBd19pH+mYbty97hvmcfdzdd
-	QuxjAeSLHAaTvW2BhaYyXSPct3VyJfzSLtBuKNncmcn4O5YAqVvXmujpykI/VSh6yT95/SgmHiLJX
-	9Z3YgsOCQCsc+WhMl/v0Fsv8xVwTfmmRDLCiWj5+1F9sjAyBIXyuoQMjwpkhA1E6p8ftCllvV+Vd/
-	9TqQkwHOF4vSoKdwlFv3wI/CBTonUokdLPpuzUuLgOmFqCXV08muLWD7H8lAHQH+dfJZc9+pKOAn8
-	hhdmqZiDosOG6l3CzjYQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=p90isEW46b/p2ojOKP+9T4ZIcWQFPAVRAJ3sEYoesyQ=; b=E9Qx4dnzhxs4Ty
+	tdRbOhr9nDDIOA/xAVulQ7QXxWv4Q9l/QmTt79nqWzYhaDt6PktGIGo404/KMUoEBuGn3p/3Q6HoN
+	FsoXtjNMZz8rgWintfzMUe496isB9TTWPQIgCzmVU0ZLyquezw8VLDpMLV0tVmikfWJCIJNc82VIX
+	tkgo9SnOv1PqdU1ZFXrHCRRHvNmsKPPUwvKIKIEqQE3UlvMp/NUjn9WNOR4RAp44UJdFG6T+TyNCg
+	LBvSiTd2sgkU6NCdpVy3F+2MFmE6DJPXDBRbaIN6MsYZiL5D6CFNe1WBSm0ubema5S5ID4zMlD2Hz
+	JiGaTMu0d9wZ74QlB21Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0ZX-00000007Mwd-14jA;
-	Wed, 29 Jul 2026 09:27:31 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1wp0gN-00000007O0T-1sZx;
+	Wed, 29 Jul 2026 09:34:35 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp0ZT-00000007Mt6-3VRe
+	id 1wp0gK-00000007Nz2-2Vbx
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jul 2026 09:27:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1785317219;
-	bh=0czDE2Baf5VXcACHNaYCOnmgs1DwgYJgguBQX3abr7U=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=b1+wJS4wBtcvD6CFXUk7zeIlIIYkcrFKZgTl+UA5BwsSP2i/O+IlAIumhqSAOS4V7
-	 55zfJ8cP8WodPjOFyoNWB2xzPtbzy9cbvL4ZyuaoNAwW8oorZWvukpwpUg5MJAKe9d
-	 557qtGItujdrTK73+qphSsOfUp6RJDlCQPSZyFxI=
-X-QQ-mid: esmtpgz10t1785317213t4279bf81
-X-QQ-Originating-IP: /FxxjMWtEwRgOyb56xO01hIfa0l/DYeEUl5M01s6frE=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 29 Jul 2026 17:26:51 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1701228897843642483
-EX-QQ-RecipientCnt: 7
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Wed, 29 Jul 2026 02:26:42 -0700
-Subject: [PATCH] pinctrl: spacemit: validate pins in pinconf callbacks
+	Wed, 29 Jul 2026 09:34:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=ITBzCiYFggLZSp8ukd13GDp1HtfOO2NZFOp5MB2pVow=; b=kdi/JtthPnX56uF4eH+kuw5eYD
+	trqbHxfHmfj2NHpVtUVcW1YphSCep8WEl67mFZw5GgO9UpV4+W1D3EhZULM7MIsA5zWe+CPaAkAH5
+	0CmOMqf66GM0nECNm8FNlqNbe4PKMqjllXwCBnpAnfmSS8quKSz+rm9OfOiLtH/vLATqMi/6ucNyv
+	m6APXjKGTpNxUcruAr+6x8gsWY2gxtVzdpAZ/Bs5m3nsvkzorNdB0SZNnTcCXXPkOlDx6q1W55Ju2
+	RVedMHyvQGiZ9eDnyKJR3AqoARyxiWh0Tz8A2QTWWmlvd0rEVGVFkaatlzu/2S1xytayblrXXJGvS
+	knDAuHGQ==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1wp0gG-00000002JWq-0fjs;
+	Wed, 29 Jul 2026 11:34:28 +0200
+Date: Wed, 29 Jul 2026 11:34:23 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Yixun Lan <dlan@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH 0/3] riscv: dts: spacemit: Add cpu scaling for Milk-V
+ Jupiter
+Message-ID: <amnJH7rsvbtTUheL@aurel32.net>
+Mail-Followup-To: Yixun Lan <dlan@kernel.org>, linux-kernel@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"open list:RISC-V ARCHITECTURE:Keyword:riscv" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support:Keyword:spacemit" <spacemit@lists.linux.dev>
+References: <20260728211020.1248676-1-aurelien@aurel32.net>
+ <20260729013240-GKF76518@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260729-spacemit-pinconf-validation-fixes-v1-1-edeaff398fb3@linux.spacemit.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0QrCMAyF4VcZuTZQC5vTVxEvYppqRLvSdEMYe
- 3erXv4czreCSVExOHUrFFnUdEot9rsO+E7pJqihNXjnB3fwR7RMLC+tmDXxlCIu9NRAtf0w6ls
- MI/XkhMexDwM0Jxf5DY05X/5t8/UhXL8wbNsHkATQi4UAAAA=
-X-Change-ID: 20260729-spacemit-pinconf-validation-fixes-fa5a0ec885d6
-To: Linus Walleij <linusw@kernel.org>, Yixun Lan <dlan@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2296;
- i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
- bh=a8vz2kdE1B+R7GzcFtSt/0b0yQsJVgqtNXxc2x0R2BA=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFmZx6OmOR/X0Jk1WWPPJe2ZX3Y3TrjQcvm+X4X7bHc3b
- 98dj2/1dpSyMIhxMciKKbJ0P+DZVuATZVsgUOgLM4eVCWQIAxenAEwkeQLDfx+b+9OP2uw5btZd
- dmNFp/L5Zm+tWzxrBKMDr7YorFuU9pThr9ikqnO57oa1kx8pF855p7cn6dm9o+xxbxburbA4Zt0
- cwQsA
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
- fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MFdGPHhuqhNoWo7ddIDzrYNsbIr6ITpMOzrVfwiwOPW2uZUHVeX9Zr5H
-	tzk/4zkr0yNtpG5UKsxYRb242S1UABddrsg75QM7Z4voDC2KXAdOnz5NxH12LVj14C/1Dt8
-	ue/DR/bvlwNjr4fofg+rifBLNA09omnm6b8hYZgtSB6mTd6XfLbuJ6qO7P0FOBXAW32q4AC
-	0uecuHmBhQKaFiiwM5D8sEyyvQPnIwWmM4Fypbh76C2YLxBNrDX14jMV06YfL1/xBggZj9a
-	SAg+C8PZuQXwfPFIKZLvWON5gTeSDeICuc2N2p9kHf0v1Xs0Am0TMu5+Oh9JpjDcghphTHj
-	siqhs9cDYaKm5WEybc2OBOlqIaw6+c9c1xW4IEi+jYW/GDMKhv393FWf+SXw1iCDw937lDH
-	pw+GmDl5N+l5WTfoGoePPRXYXai33DNwGtJxImY4zzqgiU4JbponcoxIVktY9lToCCBaWlX
-	a54eQVCbb2Abh7f24n8UkamdEHXs4Njc7vTQ2RzlHnYJilVbotnlEJ+ISLR6d44AYmZErMo
-	okDflt3LDUJkmsHzhaThN//3VM2wCRdfGqrM7AhKEQhmkCYuzzEaAZEBfDvWgarMWcqFQ+4
-	kg4dtgz9rpbJ1w285JIBujyhTPBKVPEKpwU6MXpXe03rHaQiDjILDawY9oyRk13mD6Ll2kJ
-	KXDqy403oeSYZy+uFD4VAm1WXzBCmlnzDXItbOuqlFoFP4Etlt6nzVu8e77UMSlEiNz1j3f
-	8toSLl5wc+TGdSLm8cmD4v1t8F8Lv6W8k5MsOZ+kiK+DWvrtdP25B7o5t+hMgf2I+8BNdoi
-	/dV7q9KqUc9WiMOR1ZQYJVudHSt1D8kTOLtXQs6TCEXCGfihIx/xV9ZjDtNacFLfJnBpZey
-	mb6HwPMPfZTo16+eYIZMjE2XMIXvAhKEHFsp96AFFgJt3voeHpEVS8EQz3rd/wx9RkUlNIR
-	cx8jAptUTDuOEhacmxOkJ2vjfEfABMJ/93wFipeoOnV2PC5XVCpMULWl7qApMqZJtdQyG0+
-	lJdNQ5RgNgCZ4Jw4RT9uPzTtzkPODWiqjwozW0V/16OyAV/c+9RN5GDcrcyGs9bkABx1s4Q
-	N5E6J/3XAGRyhQMJPufRes=
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
+Content-Disposition: inline
+In-Reply-To: <20260729013240-GKF76518@kernel.org>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_022728_713210_8C8FA104 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260729_023432_637437_2251849C 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,68 +84,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pin 0 is a valid pin ID, but spacemit_pinconf_get() rejects it by
-testing the numeric ID rather than the result of the descriptor lookup.
-It also fails to reject nonzero IDs absent from the SoC pin table before
-computing their register addresses. Check the descriptor and use its pin
-ID for the register lookup.
+Hi Yixun,
 
-spacemit_pinconf_group_set() validates only the first group member when
-generating the configuration. If a later member is invalid,
-spacemit_pin_set_config() returns -EINVAL, but the callback ignores it
-and reports success after partially updating the group.
+On 2026-07-29 01:32, Yixun Lan wrote:
+> Hi Aurelien,
+> 
+> On 23:05 Tue 28 Jul     , Aurelien Jarno wrote:
+> > This series adds cpu scaling support for the Milk-V Jupiter boards.
+> > 
+> > The first commit adds it to the existing "Milk-V Jupiter (K1)" board.
+> > 
+> > The two following commits add a "Milk-V Jupiter (M1)" board, by moving
+> > the common part, i.e. everything but the model name and the operating
+> > point tables, in a shared DTSI file. This file is then included for both
+> > K1 and M1 variants.
+> > 
+> > CPU frequency scaling was verified up to 1.8 GHz on the M1 board.
+> > 
+> Looks good to me, will queue for v7.3, thanks
+> 
+> Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-Validate every group member before writing any registers so malformed
-groups fail without being partially applied.
+Thanks for the review. Unfortunately Sashiko pointed out issues in those 
+patch series, including preexisting high severity issue that also affect 
+the BPI-F3. I'll reply to the individual patches.
 
-Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
- drivers/pinctrl/spacemit/pinctrl-k1.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+Regards
+Aurelien
 
-diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
-index f0b5ebd9e223..c3a7538783b8 100644
---- a/drivers/pinctrl/spacemit/pinctrl-k1.c
-+++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
-@@ -503,13 +503,14 @@ static int spacemit_pinconf_get(struct pinctrl_dev *pctldev,
- 				unsigned int pin, unsigned long *config)
- {
- 	struct spacemit_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
-+	const struct spacemit_pin *spin = spacemit_get_pin(pctrl, pin);
- 	int param = pinconf_to_config_param(*config);
- 	u32 value, arg = 0;
- 
--	if (!pin)
-+	if (!spin)
- 		return -EINVAL;
- 
--	value = readl(spacemit_pin_to_reg(pctrl, pin));
-+	value = readl(spacemit_pin_to_reg(pctrl, spin->pin));
- 
- 	switch (param) {
- 	case PIN_CONFIG_SLEW_RATE:
-@@ -689,6 +690,11 @@ static int spacemit_pinconf_group_set(struct pinctrl_dev *pctldev,
- 	if (ret)
- 		return ret;
- 
-+	for (i = 0; i < group->grp.npins; i++) {
-+		if (!spacemit_get_pin(pctrl, group->grp.pins[i]))
-+			return -EINVAL;
-+	}
-+
- 	for (i = 0; i < group->grp.npins; i++)
- 		spacemit_pin_set_config(pctrl, group->grp.pins[i], value);
- 
-
----
-base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
-change-id: 20260729-spacemit-pinconf-validation-fixes-fa5a0ec885d6
-
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
-
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
