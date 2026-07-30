@@ -4,95 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73033C54FD2
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 09:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A65C54FDF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 09:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n7v8oEPW2cWTsAecDNq6GXp8nHTZTl1fAgAuUqkeyfE=; b=0yNKzw557+k/4T
-	38GG3zVWMnw/vFsCUYQnc4dKPF6So8DNhTL9AMOFoPqA0Hz9kZK7qC3wwAETOGf/UjDEUKRU2iwvR
-	7oaxJCHYYxOqKKDkPAw6Ox5qDl6MNxCINujQqUkEuOtvyAqBokpSQyARDZCgVXDS5+wdmFiuD4gwb
-	In6UDu6G/+ciQ6R7tnfDsW1hT1SaV8f21poW4e0ruQ8JvW5AS749EgtV1vxkctPK1wVERn9CFVQm+
-	tejEm2dzH83WzezpW8w66hlGH4JVdd8LbXoeH7sbyJv82WEt5GFw2fnMoW2OxUboVx62FZ10THyP1
-	5F88hkrn9pf1bJANYdVg==;
+	List-Owner; bh=VVKa53c0nB63rOZUcuAMvvhwd2XnQjgy1V3rmcyGwWc=; b=RfiEknH2qcmPPm
+	VoErmr6skbIVx6rtsrHN6EamyMw1vT0FQGk987guKXdwZnLflopiyij4XJH6gQg6ncj1LK2z473Xs
+	FkHpiuFmEB8Xe4C34/Zc/t3YJGpUoH9QggKdygwvtA5e9VZMqRyUd625+1gW5IggBI80jfWnZMu6y
+	EbYW26LS0pnbBowKqYn+eG+WKCDvgBwi50yvd+T6m3jMjFjQuOTGjJBTEnqDm7psUBd9L426S1sBA
+	NrefFzpMcR6aPgdePsGrZsgWOUQf8C5ZEp7Pa/IRbILuU0IvbtxCx7JlzsCsP9O/h2qhDw1+ZkyNd
+	bpivHHNS6QVe63/35H9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpMtF-00000009yck-0CyG;
-	Thu, 30 Jul 2026 09:17:21 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wpMw3-00000009yvW-27ts;
+	Thu, 30 Jul 2026 09:20:15 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpMtC-00000009ybv-1icU
+	id 1wpMw0-00000009yuA-1pAj
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Jul 2026 09:17:19 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2d032846c95so6254225ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Jul 2026 02:17:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785403037; x=1786007837; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=luAWvof38jeXPbjahnYlH8nET33JhWw2Qecg1TNtU7U=;
-        b=M42tW6PGotbSvrgSpjiYp0mklu2dFBT9+ri7ic8ztazeMbl+EzmUxNLXF/eXPaqWfg
-         yYzyyAdEfSIWly2lf0xs4p4fkY9Hd3seqR65C1MmBkwww6f/WvEElnKdLNPtUbJr5/J2
-         CAGLj3OenHoEoG6YjWK5OvDpkH3Cx+BW/mZsmo8onNGwZ1bXtECoy9FwrxaBQL0HG8DM
-         A+B5/BeOyTd/JcNzYlnZL4FdR0pxw3yW+ofsgKN/A7qfYNTScaIfIkq2yQZ6zXrh9GUN
-         lcQiyjNEGXBNNjkfDGaaKTXUXcdhWAdMQB8jctBH7PXhshaCOrIVoqkOZe8MoQS+nxLi
-         kvew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785403037; x=1786007837;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=luAWvof38jeXPbjahnYlH8nET33JhWw2Qecg1TNtU7U=;
-        b=d3Hl38Zvb1wWs+5uW74hYp7iNjcqoLSa7Boo1/VqqdG/Cgs8Q1busipgQUMxwVpShv
-         GIE9yNMqHdCK9WZrPOkUTfSsKhazUwRcOraHHghrmVFI4TvAKZeQDu2KQ18v7syo2uSV
-         SFqGFsAt0oXMDSgG3in9xBLGvJvLG/J9Yajq2xmDnne9/oI3f4jwnANBB6JZ+W/b4CqN
-         X90NriqkUeEQnsN7/giuJ3rhgoy6xvdhI64c5PQADQalm309OvAkqruEAAG/PXciO52M
-         HMuJ5eduopmg+6MiIph7I5G551lcoTee/5uiMg4RrfgdxThyKYr2zociA7N2ZW1+0xO9
-         bT8g==
-X-Forwarded-Encrypted: i=1; AHgh+RrqufEKrNEpCvAB1qXm1qw09M8mK9UFDdbfKdhjMQiTa3mfYvpvr3s1fNSFwaEH8Z3cyVI165PJtoZN7w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyK9EVSq+GFEQSeY66dvfPkJryiFK4VPO5nIx7z2MRyi/WCwjX
-	HjI8L/3D3kdtDnsroGo3EFWV6WMSfDlvx04gtmblkhhYnC5h5Jjfv811
-X-Gm-Gg: AR+sD11pAC3kV0cydF+SDyxw3/lhnEaXutCvnL9uLtK0TbJHfitaibrO/xze0Ca0guz
-	VOnY7K92CJ3SLRWaMGP+9Y1RxL5FAjK3ra+FTCizMKt8aTIq7PuefW16vbk+rcuocb+7rO9q85I
-	uxvm5l6HqQeicPQJw+ZAOfHkfzCrxP/6W2ZHao7GyOVjwGBh25wQtMdB2C75sqz+xzr2Arzo/1/
-	yBFJeC4+HgKZngNQEI8ayKnmIWgDGAUThxZkcDLOlsFNoQliymbyXxMxzbGQQrzzymssK8EPC51
-	vGG9xdhh6le6P+K4djMjto1mESKIDxk7LnyqojELQhSnJiiawfmyTuvKzDyl8KcOR+2Y9iEiZjW
-	2ExKw4VqhYNUVnY/fF+7o6PTQ0XMf25bol+j1j6WTPyrtSURpx6dV56LyZlOcayaGLbm8Lf9opP
-	XuOjG/N5YQPb4o9hhn6vC1zrBUh6eKACqb65Xpmw1pFu04OVTVjShdzsuD6eBjzpX/pHZ7Nf4QC
-	yus0A==
-X-Received: by 2002:a17:902:d4d1:b0:2cc:f43b:fa4a with SMTP id d9443c01a7336-2d035ce64fdmr16534475ad.24.1785403036908;
-        Thu, 30 Jul 2026 02:17:16 -0700 (PDT)
-Received: from 2045L.tailb1cd6d.ts.net ([36.112.122.101])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2d022bca9d7sm23779615ad.52.2026.07.30.02.17.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 02:17:16 -0700 (PDT)
-From: Guidong Han <2045gemini@gmail.com>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Naveed Khan <naveed@digiscrypt.com>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Guidong Han <2045gemini@gmail.com>
-Subject: [PATCH v2] RISC-V: KVM: Fix PMU event info array size overflow
-Date: Thu, 30 Jul 2026 17:17:10 +0800
-Message-ID: <20260730091710.1366757-1-2045gemini@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260718153620.829378-1-2045gemini@gmail.com>
-References: <20260718153620.829378-1-2045gemini@gmail.com>
+	Thu, 30 Jul 2026 09:20:14 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=/28blu1NG36zbLxIrIgwc+Efg+/pqw6U48OltEuk0aY=;
+	b=BcHBTWfVrUNK6NhhjQTKPiUOxiFOcExi/aAXvImQ9qaz5MGswsFbCylT7zCys3+D5pgtV28qm
+	Qp1YOcw0mAld6Vm+ih7Aq4sreLDcejWKv+fLUCFo99UFbNvmrbkuZQb7tmpPDg7+tlWPaFPNxg3
+	3tgRWQX10ptG8PeR1ubBf7Q=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h9k1n40F3z1prQc;
+	Thu, 30 Jul 2026 17:10:21 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3AA0F4057F;
+	Thu, 30 Jul 2026 17:19:51 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
+ (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 30 Jul
+ 2026 17:19:50 +0800
+Message-ID: <bb134352-087d-451f-948a-2c8b635047d0@huawei.com>
+Date: Thu, 30 Jul 2026 17:19:49 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v3 4/6] riscv, bpf: Split prologue and epilogue
+ into helper functions
+Content-Language: en-US
+To: Varun R Mallya <varunrmallya@gmail.com>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <ast@kernel.org>,
+	<daniel@iogearbox.net>, <andrii@kernel.org>, <eddyz87@gmail.com>,
+	<memxor@gmail.com>, <bjorn@kernel.org>
+CC: <alex@ghiti.fr>, <martin.lau@linux.dev>, <song@kernel.org>,
+	<yonghong.song@linux.dev>, <jolsa@kernel.org>, <emil@etsalapatis.com>,
+	<puranjay@kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+References: <20260722140015.1982158-1-varunrmallya@gmail.com>
+ <20260722140015.1982158-5-varunrmallya@gmail.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20260722140015.1982158-5-varunrmallya@gmail.com>
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_021718_459049_BADCFF03 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260730_022013_130245_B36DFE5F 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,119 +81,246 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SBI PMU EVENT_GET_INFO stores guest-controlled
-num_events * sizeof(*einfo) in an int. On RV64, num_events = 0x10000001
-makes 0x100000010 truncate to 16. KVM then allocates one entry but loops
-over the original num_events, causing out-of-bounds reads and writes. A
-nested guest triggered:
 
-BUG: KASAN: slab-out-of-bounds in kvm_riscv_vcpu_pmu_event_info+0xa4/0x142
-Read of size 4 at addr ff600000074d46b0 by task init/1
-Call Trace:
-[<ffffffff8006471c>] kvm_riscv_vcpu_pmu_event_info+0xa4/0x142
-[<ffffffff800690c0>] kvm_sbi_ext_pmu_handler+0xca/0x268
-[<ffffffff8006779e>] kvm_riscv_vcpu_sbi_ecall+0xec/0x1e6
-[<ffffffff8006008c>] kvm_riscv_vcpu_exit+0x48c/0x540
-[<ffffffff8005ea0a>] kvm_arch_vcpu_ioctl_run+0x37e/0xc80
-Allocated by task 1:
- __kmalloc_noprof+0x19e/0x4b0
- kvm_riscv_vcpu_pmu_event_info+0x72/0x142
- kvm_sbi_ext_pmu_handler+0xca/0x268
- kvm_riscv_vcpu_sbi_ecall+0xec/0x1e6
- kvm_riscv_vcpu_exit+0x48c/0x540
- kvm_arch_vcpu_ioctl_run+0x37e/0xc80
-The buggy address is located 0 bytes to the right of
- allocated 16-byte region [ff600000074d46a0, ff600000074d46b0)
+Hi Varun,
 
-Store the shared-memory size in size_t and reject multiplication overflow.
-Allocate the guest-driven array with GFP_KERNEL_ACCOUNT so it is charged
-to kmemcg, and use __GFP_NOWARN to suppress allocation failure warnings.
-Use kvcalloc() to allow vmalloc fallback and an unsigned long loop index
-to match num_events.
+looks good to me, but some real small nits.
 
-Reported-by: Naveed Khan <naveed@digiscrypt.com>
-Closes: https://lore.kernel.org/kvm/178345245327.72065.13249716450708539854@digiscrypt.com/
-Fixes: e309fd113b9f ("RISC-V: KVM: Implement get event info function")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guidong Han <2045gemini@gmail.com>
----
-Changes in v2:
-- Use an accounted, no-warning kvcalloc() allocation and kvfree(), as
-  suggested by Sashiko.
-- Naveed Khan reported the issue before v1. I missed his report at the
-  time, so add Reported-by and Closes tags to credit him.
+On 2026/7/22 22:00, Varun R Mallya wrote:
+> Split bpf_jit_build_prologue() and __build_epilogue() into helpers.
+> normal_stack_adjust() computes the frame size for the callee-saved
+> registers a program actually clobbers, emit_normal_prologue() allocates
+> the frame and spills those registers, and emit_normal_restore() reloads
+> them.
+> 
+> The kcfi preamble, fentry nops and tail-call-counter setup are hoisted
+> before the frame-size computation and they do not depend on it and the
+> emitted instruction sequence is unchanged.
+> 
+> No functional change.
+> 
+> Signed-off-by: Varun R Mallya <varunrmallya@gmail.com>
+> ---
+>   arch/riscv/net/bpf_jit_comp64.c | 152 ++++++++++++++++++--------------
+>   1 file changed, 87 insertions(+), 65 deletions(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index ad089a9a4ea9..b804382075c4 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -198,9 +198,84 @@ static void emit_imm(u8 rd, s64 val, struct rv_jit_context *ctx)
+>   		emit_addi(rd, rd, lower, ctx);
+>   }
+>   
 
-Link to v1: https://lore.kernel.org/kvm/20260718153620.829378-1-2045gemini@gmail.com/
----
- arch/riscv/kvm/vcpu_pmu.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+pls use the following comment format:
 
-diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-index bb46dcbfb24d..8e1f6abb84e2 100644
---- a/arch/riscv/kvm/vcpu_pmu.c
-+++ b/arch/riscv/kvm/vcpu_pmu.c
-@@ -12,7 +12,9 @@
- #include <linux/err.h>
- #include <linux/kvm_host.h>
- #include <linux/nospec.h>
-+#include <linux/overflow.h>
- #include <linux/perf/riscv_pmu.h>
-+#include <linux/slab.h>
- #include <asm/csr.h>
- #include <asm/kvm_isa.h>
- #include <asm/kvm_vcpu_sbi.h>
-@@ -479,13 +481,14 @@ int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low
- 				  unsigned long flags, struct kvm_vcpu_sbi_return *retdata)
- {
- 	struct riscv_pmu_event_info *einfo = NULL;
--	int shmem_size = num_events * sizeof(*einfo);
-+	size_t shmem_size;
- 	gpa_t shmem;
- 	u32 eidx, etype;
- 	u64 econfig;
- 	int ret;
- 
--	if (flags != 0 || (saddr_low & (SZ_16 - 1) || num_events == 0)) {
-+	if (flags != 0 || (saddr_low & (SZ_16 - 1)) || num_events == 0 ||
-+	    check_mul_overflow(num_events, sizeof(*einfo), &shmem_size)) {
- 		ret = SBI_ERR_INVALID_PARAM;
- 		goto out;
- 	}
-@@ -500,7 +503,8 @@ int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low
- 		}
- 	}
- 
--	einfo = kzalloc(shmem_size, GFP_KERNEL);
-+	einfo = kvcalloc(num_events, sizeof(*einfo),
-+			 GFP_KERNEL_ACCOUNT | __GFP_NOWARN);
- 	if (!einfo) {
- 		ret = SBI_ERR_FAILURE;
- 		goto out;
-@@ -512,7 +516,7 @@ int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low
- 		goto free_mem;
- 	}
- 
--	for (int i = 0; i < num_events; i++) {
-+	for (unsigned long i = 0; i < num_events; i++) {
- 		eidx = einfo[i].event_idx;
- 		etype = kvm_pmu_get_perf_event_type(eidx);
- 		econfig = kvm_pmu_get_perf_event_config(eidx, einfo[i].event_data);
-@@ -525,7 +529,7 @@ int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low
- 		ret = SBI_ERR_INVALID_ADDRESS;
- 
- free_mem:
--	kfree(einfo);
-+	kvfree(einfo);
- out:
- 	retdata->err_val = ret;
- 
--- 
-2.43.0
+/*
+  * xxx
+  */
+
+or
+
+/* xxx */
+
+> -static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
+> +/* Stack space for the callee-saved registers a normal program spills,
+
+how about, the registers based strictly on what is seen in the bpf prog.
+
+> + * excluding the BPF stack itself.
+> + */
+> +static int normal_stack_adjust(struct rv_jit_context *ctx)
+>   {
+> -	int stack_adjust = ctx->stack_size, store_offset = stack_adjust - 8;
+> +	int stack_adjust = 0;
+> +
+> +	if (seen_reg(RV_REG_RA, ctx))
+> +		stack_adjust += 8;
+> +	stack_adjust += 8; /* RV_REG_FP */
+> +	if (seen_reg(RV_REG_S1, ctx))
+> +		stack_adjust += 8;
+> +	if (seen_reg(RV_REG_S2, ctx))
+> +		stack_adjust += 8;
+> +	if (seen_reg(RV_REG_S3, ctx))
+> +		stack_adjust += 8;
+> +	if (seen_reg(RV_REG_S4, ctx))
+> +		stack_adjust += 8;
+> +	if (seen_reg(RV_REG_S5, ctx))
+> +		stack_adjust += 8;
+> +	if (ctx->arena_vm_start)
+> +		stack_adjust += 8;
+> +	stack_adjust += 8; /* RV_REG_TCC */
+> +
+> +	return round_up(stack_adjust, STACK_ALIGN);
+> +}
+> +
+> +/* Allocate the frame and save the callee-saved registers the program
+> + * actually clobbers, then point FP at the frame top.
+> + */
+> +static void emit_normal_prologue(struct rv_jit_context *ctx, int stack_adjust)
+
+prefer to let ctx as last param, and the following pls make a change.
+
+> +{
+> +	int store_offset = stack_adjust - 8;
+> +	/* tailcall starts here, emit insn before it must be fixed */
+
+remove this comment.
+
+> +
+> +	emit_addi(RV_REG_SP, RV_REG_SP, -stack_adjust, ctx);
+> +
+> +	if (seen_reg(RV_REG_RA, ctx)) {
+> +		emit_sd(RV_REG_SP, store_offset, RV_REG_RA, ctx);
+> +		store_offset -= 8;
+> +	}
+> +	emit_sd(RV_REG_SP, store_offset, RV_REG_FP, ctx);
+> +	store_offset -= 8;
+> +	if (seen_reg(RV_REG_S1, ctx)) {
+> +		emit_sd(RV_REG_SP, store_offset, RV_REG_S1, ctx);
+> +		store_offset -= 8;
+> +	}
+> +	if (seen_reg(RV_REG_S2, ctx)) {
+> +		emit_sd(RV_REG_SP, store_offset, RV_REG_S2, ctx);
+> +		store_offset -= 8;
+> +	}
+> +	if (seen_reg(RV_REG_S3, ctx)) {
+> +		emit_sd(RV_REG_SP, store_offset, RV_REG_S3, ctx);
+> +		store_offset -= 8;
+> +	}
+> +	if (seen_reg(RV_REG_S4, ctx)) {
+> +		emit_sd(RV_REG_SP, store_offset, RV_REG_S4, ctx);
+> +		store_offset -= 8;
+> +	}
+> +	if (seen_reg(RV_REG_S5, ctx)) {
+> +		emit_sd(RV_REG_SP, store_offset, RV_REG_S5, ctx);
+> +		store_offset -= 8;
+> +	}
+> +	if (ctx->arena_vm_start) {
+> +		emit_sd(RV_REG_SP, store_offset, RV_REG_ARENA, ctx);
+> +		store_offset -= 8;
+> +	}
+> +
+> +	/* store TCC from RV_REG_TCC to stack */
+> +	emit_sd(RV_REG_SP, store_offset, RV_REG_TCC, ctx);
+> +	ctx->tcc_offset = store_offset;
+> +
+> +	emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
+> +}
+> +
+> +static void emit_normal_restore(struct rv_jit_context *ctx, int stack_adjust) > +{
+> +	int store_offset = stack_adjust - 8;
+>   
+>   	if (seen_reg(RV_REG_RA, ctx)) {
+>   		emit_ld(RV_REG_RA, store_offset, RV_REG_SP, ctx);
+> @@ -235,6 +310,13 @@ static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
+>   
+>   	/* restore TCC from stack to RV_REG_TCC */
+>   	emit_ld(RV_REG_TCC, ctx->tcc_offset, RV_REG_SP, ctx);
+> +}
+> +
+> +static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
+> +{
+> +	int stack_adjust = ctx->stack_size;
+> +
+> +	emit_normal_restore(ctx, stack_adjust);
+>   
+>   	emit_addi(RV_REG_SP, RV_REG_SP, stack_adjust, ctx);
+>   	/* Set return value. */
+> @@ -2006,34 +2088,12 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   
+>   void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+>   {
+> -	int i, stack_adjust = 0, store_offset, bpf_stack_adjust;
+> +	int i, stack_adjust, bpf_stack_adjust;
+>   
+>   	bpf_stack_adjust = round_up(ctx->prog->aux->stack_depth, STACK_ALIGN);
+>   	if (bpf_stack_adjust)
+>   		mark_fp(ctx);
+>   
+> -	if (seen_reg(RV_REG_RA, ctx))
+> -		stack_adjust += 8;
+> -	stack_adjust += 8; /* RV_REG_FP */
+> -	if (seen_reg(RV_REG_S1, ctx))
+> -		stack_adjust += 8;
+> -	if (seen_reg(RV_REG_S2, ctx))
+> -		stack_adjust += 8;
+> -	if (seen_reg(RV_REG_S3, ctx))
+> -		stack_adjust += 8;
+> -	if (seen_reg(RV_REG_S4, ctx))
+> -		stack_adjust += 8;
+> -	if (seen_reg(RV_REG_S5, ctx))
+> -		stack_adjust += 8;
+> -	if (ctx->arena_vm_start)
+> -		stack_adjust += 8;
+> -	stack_adjust += 8; /* RV_REG_TCC */
+> -
+> -	stack_adjust = round_up(stack_adjust, STACK_ALIGN);
+> -	stack_adjust += bpf_stack_adjust;
+> -
+> -	store_offset = stack_adjust - 8;
+> -
+>   	/* emit kcfi type preamble immediately before the  first insn */
+>   	emit_kcfi(is_subprog ? cfi_bpf_subprog_hash : cfi_bpf_hash, ctx);
+>   
+> @@ -2046,46 +2106,8 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+>   	if (!is_subprog)
+>   		emit(rv_addi(RV_REG_TCC, RV_REG_ZERO, MAX_TAIL_CALL_CNT), ctx);
+>   
+> -	/* tailcall starts here, emit insn before it must be fixed */
+
+keep this comment here.
+
+> -
+> -	emit_addi(RV_REG_SP, RV_REG_SP, -stack_adjust, ctx);
+> -
+> -	if (seen_reg(RV_REG_RA, ctx)) {
+> -		emit_sd(RV_REG_SP, store_offset, RV_REG_RA, ctx);
+> -		store_offset -= 8;
+> -	}
+> -	emit_sd(RV_REG_SP, store_offset, RV_REG_FP, ctx);
+> -	store_offset -= 8;
+> -	if (seen_reg(RV_REG_S1, ctx)) {
+> -		emit_sd(RV_REG_SP, store_offset, RV_REG_S1, ctx);
+> -		store_offset -= 8;
+> -	}
+> -	if (seen_reg(RV_REG_S2, ctx)) {
+> -		emit_sd(RV_REG_SP, store_offset, RV_REG_S2, ctx);
+> -		store_offset -= 8;
+> -	}
+> -	if (seen_reg(RV_REG_S3, ctx)) {
+> -		emit_sd(RV_REG_SP, store_offset, RV_REG_S3, ctx);
+> -		store_offset -= 8;
+> -	}
+> -	if (seen_reg(RV_REG_S4, ctx)) {
+> -		emit_sd(RV_REG_SP, store_offset, RV_REG_S4, ctx);
+> -		store_offset -= 8;
+> -	}
+> -	if (seen_reg(RV_REG_S5, ctx)) {
+> -		emit_sd(RV_REG_SP, store_offset, RV_REG_S5, ctx);
+> -		store_offset -= 8;
+> -	}
+> -	if (ctx->arena_vm_start) {
+> -		emit_sd(RV_REG_SP, store_offset, RV_REG_ARENA, ctx);
+> -		store_offset -= 8;
+> -	}
+> -
+> -	/* store TCC from RV_REG_TCC to stack */
+> -	emit_sd(RV_REG_SP, store_offset, RV_REG_TCC, ctx);
+> -	ctx->tcc_offset = store_offset;
+> -
+> -	emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
+> +	stack_adjust = normal_stack_adjust(ctx) + bpf_stack_adjust;
+> +	emit_normal_prologue(ctx, stack_adjust);
+>   
+>   	if (bpf_stack_adjust)
+>   		emit_addi(RV_REG_S5, RV_REG_SP, bpf_stack_adjust, ctx);
 
 _______________________________________________
 linux-riscv mailing list
