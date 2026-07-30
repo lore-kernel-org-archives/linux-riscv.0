@@ -4,56 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E1A5C54FD2
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 09:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC3CC54FDF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 09:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:From:Subject:Mime-Version:To:Date:Cc:
-	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8JfLWJcSTyGr0/6nUTN+uOjk54u5Lq6GS9bIl3tPF5A=; b=3EfbUXJBJMmCwR
-	K5WhPWcZits5ENtneYyNY5I+Gmw8fhkdW7ABXAJhWHbbR+/9Unz893yAoyExBfl60+nSlUGnEJ6Em
-	nbVXC/9TOKzD+yHUCMdMozJbsitbajkwicB02H1/3ffbWWFlRUCRuzJgj3wssk9vbvjmtjPw+qbPX
-	snIrOf4URdzrClAr0VZpWDOw2Of5nWqW37hy23dsjslwgf3RvXbhDOmRBNH9dnReZxHjTNMt6F2+4
-	1uVQIzkCa/RSD4Vg4KeByg6HdMzrP4KCrbGy76Ql744eEpS74abYOsSvqxQ4MHA2PVCHo00xy74og
-	Td11Q7UzIeH9E7oTVcww==;
+	List-Owner; bh=4pXaQEaeg99GMuhFqHriS19oqAdPA5KmuaVSbvd1rG4=; b=yvBMHjZ8EfT1XU
+	nxvEJ8QnJFahOhTIaNQa1zPnapfjEj1eXjmUfgdWEi7V+soX0d0KaSjirf7+r1Mj2ffpdezPkkj7M
+	+AFzPEhgXkBdfTMfqJN2zLEv/kWnyLo2ixaSZyDK3gmt6qX/6Z/s+YrXiHt/r3NwcmSDzaOYQ3alk
+	99A97x7S6ED9S7IV4w5WVffyKfKiPe7ee22pfnfQIl9dobj83bdfv5ImlI5mcHAw4NBCc4YZcVuoB
+	Z/OblU08tOmACjLNECCFlgI/mD4MGTiiK/ZvYhaLNhOTg8NmkaSkKbwOQpmO4TPB1jsJLNpjTYG0o
+	xkaQW0RRAWSWEmrJ+SIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNBx-0000000A224-0dd6;
-	Thu, 30 Jul 2026 09:36:41 +0000
-Received: from va-2-42.ptr.blmpb.com ([209.127.231.42])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNBs-0000000A1yo-324M
+	id 1wpNJf-0000000A2xG-2s5Q;
+	Thu, 30 Jul 2026 09:44:39 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpNJb-0000000A2w8-1cKM
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Jul 2026 09:36:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1785404187;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=bN7RFHsa0lOlR0S7CzP3PJMMnicWDiS8G1yRtLup2oQ=;
- b=XfP99j6IYupWVtM58ve71L1Oecbs6/gteir5Z119TgLunremC/3oauWTNKnlHVEtKlQF+f
- a4RdhIGG22NFu5oWz3sN2WLPdhTHLdCflZGznIwA92ChxhmeXrPSOgdM+NvsdZlUwLNlDB
- YU/19ajL3bX4VlYGf0mLQZ6fmhA2R6XoiHPKLgaMbqxEtItf5TGm4AGcvNf0qXpu/T50Qv
- rBRf460uLu2tKJAts33mhdddOzv2Krbm+/rUVbtdSnpiBIrL92pLQTMQGCZQ1TXljUyVhp
- ea7Z1Pm33cvbH4uOnPK9tMzuy5RGikYGug9+DPIiA7LvKkPiXWGv6OVlRQjwcQ==
-Message-Id: <20260730093614.983508-1-xiangwencheng@lanxincomputing.com>
-X-Mailer: git-send-email 2.53.0
-Cc: <atish.patra@linux.dev>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <kvm@vger.kernel.org>, 
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>, 
-	<linux-kernel@vger.kernel.org>, <xiangwencheng@lanxincomputing.com>
-Date: Thu, 30 Jul 2026 17:36:14 +0800
-X-Original-From: BillXiang <xiangwencheng@lanxincomputing.com>
-To: <anup@brainfault.org>
-Mime-Version: 1.0
-Subject: [PATCH] riscv: KVM: Add hart-to-vCPU mapping for faster MSI injection
-Received: from lanxin-ThinkBook-16-G5-IRH ([123.120.5.129]) by smtp.feishu.cn with ESMTP; Thu, 30 Jul 2026 17:36:25 +0800
-X-Lms-Return-Path: <lba+26a6b1b19+a6466b+lists.infradead.org+xiangwencheng@lanxincomputing.com>
-From: "BillXiang" <xiangwencheng@lanxincomputing.com>
+	Thu, 30 Jul 2026 09:44:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ultrarisc.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id; bh=LyD5PuOBdvlgYVGtkm/lxT3DCNBq3bGWNmErnmZXph8=; b=L
+	IqC3AOXzQE7LPNg1l4iAjD9HngJZZsHGsBRneFerYmoqcL6c2JRT0waUyMUltgJP
+	8zJFERFCC+CRmXwY2hOtR1W4RLlFwaQSp2cym8HJ3Sv6PhoxvJz/BtYx/t+6d5h8
+	GdQIddIQ+YbTJzxoTdqjWujZOnbmqGqAFa/eSMdr8M=
+Received: from localhost.localdomain (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwDXEEIDHWtqVMwVAA--.18021S2;
+	Thu, 30 Jul 2026 17:44:42 +0800 (CST)
+From: Xie Bo <xb@ultrarisc.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org
+Cc: Dennis Zhou <dennis@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@gentwo.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-mm@kvack.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Xie Bo <xb@ultrarisc.com>
+Subject: [PATCH] riscv: Add native this_cpu_cmpxchg() support
+Date: Thu, 30 Jul 2026 17:44:07 +0800
+Message-Id: <20260730094407.16588-1-xb@ultrarisc.com>
+X-Mailer: git-send-email 2.17.1
+X-CM-TRANSID: AQAAfwDXEEIDHWtqVMwVAA--.18021S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCF1DCw13uFWkuryUXry5urg_yoW5KFy8pa
+	909rn5trZxZFn7t3y3tFykXr15X3ykWr4xCr18uFy8JFsrJFyDXrnIyF1kZFykua92va40
+	gF9Y9ryjkw1UAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9G14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJV
+	WxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v2
+	0xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
+	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VU13ku3UUUUU==
+X-CM-SenderInfo: l0e63zxwud2x1vfou0bp/1tbiAQATB2pkMtIAAQAisY
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_023636_826895_CBCFC939 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20260730_024436_030008_01FF73C9 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,171 +87,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace linear searches over all vCPUs in MSI injection paths with a
-direct hart_index -> vCPU lookup table. This avoids O(n) scans on
-every injected interrupt and improves performance when the number of
-vCPUs is large.
+RISC-V falls back to the generic this_cpu_cmpxchg() implementation,
+which serializes the operation by disabling local interrupts.
+Consequently, HAVE_CMPXCHG_LOCAL is unset and users such as
+percpu_counter cannot use their cmpxchg-based fast paths.
 
-Both kvm_riscv_aia_inject_msi_by_id() and kvm_riscv_aia_inject_msi()
-now use the table instead of iterating over the vCPU list.
+Implement the 4-byte this_cpu_cmpxchg() operation with cmpxchg_local(),
+and provide the 8-byte operation on RV64. Pin execution while resolving
+the current CPU pointer so the LR/SC loop operates on one per-CPU
+instance, while allowing interrupt-context updates to race through the
+atomic operation.
 
-Signed-off-by: BillXiang <xiangwencheng@lanxincomputing.com>
+Copy the old and new values to private temporaries before invoking
+cmpxchg_local(). This avoids collisions between local variable names in
+nested statement-expression macros.
+
+The 1- and 2-byte operations continue to use the generic fallback.
+
+Select HAVE_CMPXCHG_LOCAL and update the architecture feature matrix.
+
+A percpu_counter_add() benchmark using the default batch value reduced
+the median time per operation by 77.3% (10 runs of 5,000,000
+operations).
+
+In three 60-second stress-ng fork runs, median throughput increased by
+4.6%. A 120-second combined fork and VM stress test completed without
+rss-counter errors or validation failures.
+
+Signed-off-by: Xie Bo <xb@ultrarisc.com>
 ---
- arch/riscv/include/asm/kvm_aia.h |  2 +
- arch/riscv/kvm/aia_device.c      | 67 +++++++++++++++++++++-----------
- 2 files changed, 47 insertions(+), 22 deletions(-)
+ .../locking/cmpxchg-local/arch-support.txt    |  2 +-
+ arch/riscv/Kconfig                            |  1 +
+ arch/riscv/include/asm/percpu.h               | 31 +++++++++++++++++++
+ 3 files changed, 33 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/percpu.h
 
-diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-index c67ec5ac0..71240b0a2 100644
---- a/arch/riscv/include/asm/kvm_aia.h
-+++ b/arch/riscv/include/asm/kvm_aia.h
-@@ -47,6 +47,8 @@ struct kvm_aia {
- 
- 	/* Internal state of APLIC */
- 	void		*aplic_state;
+diff --git a/Documentation/features/locking/cmpxchg-local/arch-support.txt b/Documentation/features/locking/cmpxchg-local/arch-support.txt
+index 2c3a4b9..28d5fa8 100644
+--- a/Documentation/features/locking/cmpxchg-local/arch-support.txt
++++ b/Documentation/features/locking/cmpxchg-local/arch-support.txt
+@@ -20,7 +20,7 @@
+     |    openrisc: | TODO |
+     |      parisc: | TODO |
+     |     powerpc: | TODO |
+-    |       riscv: | TODO |
++    |       riscv: |  ok  |
+     |        s390: |  ok  |
+     |          sh: | TODO |
+     |       sparc: | TODO |
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index f7028ca..62e5794 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -153,6 +153,7 @@ config RISCV
+ 	select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
+ 	select HAVE_ASM_MODVERSIONS
+ 	select HAVE_BUILDTIME_MCOUNT_SORT
++	select HAVE_CMPXCHG_LOCAL
+ 	select HAVE_CONTEXT_TRACKING_USER
+ 	select HAVE_DEBUG_KMEMLEAK
+ 	select HAVE_DMA_CONTIGUOUS if MMU
+diff --git a/arch/riscv/include/asm/percpu.h b/arch/riscv/include/asm/percpu.h
+new file mode 100644
+index 0000000..d389bb1
+--- /dev/null
++++ b/arch/riscv/include/asm/percpu.h
+@@ -0,0 +1,31 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_RISCV_PERCPU_H
++#define _ASM_RISCV_PERCPU_H
 +
-+	struct kvm_vcpu **hart_to_vcpu;
- };
- 
- struct kvm_vcpu_aia_csr {
-diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
-index be83c2d5f..595553817 100644
---- a/arch/riscv/kvm/aia_device.c
-+++ b/arch/riscv/kvm/aia_device.c
-@@ -253,6 +253,14 @@ static int aia_init(struct kvm *kvm)
- 	if (ret)
- 		return ret;
- 
-+	aia->hart_to_vcpu = kcalloc(kvm->created_vcpus,
-+					sizeof(struct kvm_vcpu*),
-+					GFP_KERNEL);
-+	if (!aia->hart_to_vcpu) {
-+		ret = -ENOMEM;
-+		goto fail_cleanup_aplic;
-+	}
++#include <linux/preempt.h>
 +
- 	/* Iterate over each VCPU */
- 	kvm_for_each_vcpu(idx, vcpu, kvm) {
- 		vaia = &vcpu->arch.aia_context;
-@@ -274,6 +282,12 @@ static int aia_init(struct kvm *kvm)
- 		/* Update HART index of the IMSIC based on IMSIC base */
- 		vaia->hart_index = aia_imsic_hart_index(aia,
- 							vaia->imsic_addr);
-+		
-+		if (aia->hart_to_vcpu[vaia->hart_index]) {
-+			ret = -EINVAL;
-+			goto fail_cleanup_imsics;
-+		}
-+		aia->hart_to_vcpu[vaia->hart_index] = vcpu;
- 
- 		/* Initialize IMSIC for this VCPU */
- 		ret = kvm_riscv_vcpu_aia_imsic_init(vcpu);
-@@ -293,6 +307,9 @@ static int aia_init(struct kvm *kvm)
- 			continue;
- 		kvm_riscv_vcpu_aia_imsic_cleanup(vcpu);
- 	}
-+	kfree(aia->hart_to_vcpu);
-+	aia->hart_to_vcpu = NULL;
-+fail_cleanup_aplic:
- 	kvm_riscv_aia_aplic_cleanup(kvm);
- 	return ret;
- }
-@@ -551,30 +568,28 @@ void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu)
- int kvm_riscv_aia_inject_msi_by_id(struct kvm *kvm, u32 hart_index,
- 				   u32 guest_index, u32 iid)
- {
--	unsigned long idx;
- 	struct kvm_vcpu *vcpu;
-+	struct kvm_aia *aia = &kvm->arch.aia;
- 
- 	/* Proceed only if AIA was initialized successfully */
- 	if (!kvm_riscv_aia_initialized(kvm))
- 		return -EBUSY;
- 
--	/* Inject MSI to matching VCPU */
--	kvm_for_each_vcpu(idx, vcpu, kvm) {
--		if (vcpu->arch.aia_context.hart_index == hart_index)
--			return kvm_riscv_vcpu_aia_imsic_inject(vcpu,
--							       guest_index,
--							       0, iid);
--	}
-+	if (!aia->hart_to_vcpu || hart_index >= kvm->created_vcpus)
-+		return 0;
- 
--	return 0;
-+	vcpu = aia->hart_to_vcpu[hart_index];
-+	if (!vcpu)
-+		return 0;
-+	
-+	return kvm_riscv_vcpu_aia_imsic_inject(vcpu, guest_index, 0, iid);
- }
- 
- int kvm_riscv_aia_inject_msi(struct kvm *kvm, struct kvm_msi *msi)
- {
- 	gpa_t tppn, ippn;
--	unsigned long idx;
- 	struct kvm_vcpu *vcpu;
--	u32 g, toff, iid = msi->data;
-+	u32 g, toff, iid = msi->data, hart_index;
- 	struct kvm_aia *aia = &kvm->arch.aia;
- 	gpa_t target = (((gpa_t)msi->address_hi) << 32) | msi->address_lo;
- 
-@@ -589,18 +604,22 @@ int kvm_riscv_aia_inject_msi(struct kvm *kvm, struct kvm_msi *msi)
- 	g = tppn & (BIT(aia->nr_guest_bits) - 1);
- 	tppn &= ~((gpa_t)(BIT(aia->nr_guest_bits) - 1));
- 
--	/* Inject MSI to matching VCPU */
--	kvm_for_each_vcpu(idx, vcpu, kvm) {
--		ippn = vcpu->arch.aia_context.imsic_addr >>
--					IMSIC_MMIO_PAGE_SHIFT;
--		if (ippn == tppn) {
--			toff = target & (IMSIC_MMIO_PAGE_SZ - 1);
--			return kvm_riscv_vcpu_aia_imsic_inject(vcpu, g,
--							       toff, iid);
--		}
--	}
-+	if (!aia->hart_to_vcpu)
-+		return 0;
- 
--	return 0;
-+	hart_index = aia_imsic_hart_index(aia, target);
-+	if(hart_index >= kvm->created_vcpus)
-+		return 0;
-+	
-+	vcpu = aia->hart_to_vcpu[hart_index];
-+	if (!vcpu)
-+		return 0;
++#include <asm/cmpxchg.h>
 +
-+	ippn = vcpu->arch.aia_context.imsic_addr >> IMSIC_MMIO_PAGE_SHIFT;
-+	if (ippn != tppn)
-+		return 0;
-+	toff = target & (IMSIC_MMIO_PAGE_SZ - 1);
-+	return kvm_riscv_vcpu_aia_imsic_inject(vcpu, g,	toff, iid);
- }
- 
- int kvm_riscv_aia_inject_irq(struct kvm *kvm, unsigned int irq, bool level)
-@@ -641,10 +660,14 @@ void kvm_riscv_aia_init_vm(struct kvm *kvm)
- 
- void kvm_riscv_aia_destroy_vm(struct kvm *kvm)
- {
-+	struct kvm_aia *aia = &kvm->arch.aia;
- 	/* Proceed only if AIA was initialized successfully */
- 	if (!kvm_riscv_aia_initialized(kvm))
- 		return;
- 
-+	kfree(aia->hart_to_vcpu);
-+	aia->hart_to_vcpu = NULL;
++#define _protect_cmpxchg_local(pcp, o, n)				\
++({									\
++	typeof(pcp) *__ptr;						\
++	typeof(pcp) __pcpu_old = (o);					\
++	typeof(pcp) __pcpu_new = (n);					\
++	typeof(*raw_cpu_ptr(&(pcp))) __ret;				\
++	preempt_disable_notrace();					\
++	__ptr = raw_cpu_ptr(&(pcp));					\
++	__ret = cmpxchg_local(__ptr, __pcpu_old, __pcpu_new);		\
++	preempt_enable_notrace();					\
++	__ret;								\
++})
 +
- 	/* Cleanup APLIC context */
- 	kvm_riscv_aia_aplic_cleanup(kvm);
- }
++#define this_cpu_cmpxchg_4(pcp, o, n)	_protect_cmpxchg_local(pcp, o, n)
++
++#ifdef CONFIG_64BIT
++#define this_cpu_cmpxchg_8(pcp, o, n)	_protect_cmpxchg_local(pcp, o, n)
++#define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
++#endif
++
++#include <asm-generic/percpu.h>
++
++#endif /* _ASM_RISCV_PERCPU_H */
 -- 
-2.53.0
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
