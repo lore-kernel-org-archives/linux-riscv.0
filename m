@@ -4,64 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3687C55162
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 11:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7942C55165
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 13:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LLfi675eczlxanjCOrccZ8LSrhQWO3GZrUlwvE0QA1g=; b=qGunax3llVDv2k
-	O27a+NOYt3m36eVPMlUblqXLrHoR6WRNfjNe3duNV+vUr50GCR/8ygQXmAgVycz9F+IBM9H81hD4+
-	2q6W+A7KfLKSovfRYbaxYr4LU255Z1WjQnK4T7SQQZ2looX6VYNW7ZMbLEFVIj+090ukOBpRWjjJm
-	0uf8GzsnwQZoCTKPqm7ZuL3qYRnYH4AfQ0Iz1QeRJ0MWDzhUmxqGJu+TEKR++vCYVT5hqQG8n2rh+
-	o7fyNkjTteYFTjj+a/b9SiZ/S8Ed+LpHKaiO8/NBZ4JTPSuMuErsdjW0/LlS7zoOsprHUC3OSoflC
-	hKcB/iS5a9fWVlLc56tw==;
+	List-Owner; bh=NMejSFXC2kk404BXTD6O22lLx+8GmV0s3PRs81Hf/9s=; b=rt+hQTUy7YgA5Q
+	TVfkCq5aolo4tAmsSfYsZAmIGyMQdJ3AafTSP7EdsVWyANctawqa3H03soQHeeXJ2eA5uEQoHbmQS
+	xW/RYTsig98R60sPqXIO1ycv3+AUF/aRbgBg2yCb19zBktOy2ik2/b0Jxc40eWKVN1wPmQrIvQZSR
+	SswgzlfF3LIDCuQ9/3tW7j6BTgck9Z7xuJkLrSLhSmkQRKiTfA/3B84BKzvmRKI7HODdqu4XpfHPI
+	pPHFme2y0/AS0MJtykDN3RCuhXNV5pEfNl5ZZyaKBM8oJZ/9oLQNKzHpogQGjpV4YEpXf8RHGnvWm
+	h0lArAnDQqt8NSCxI3gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOxF-0000000ALnr-212S;
-	Thu, 30 Jul 2026 11:29:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wpQSX-0000000AXSt-1Mvl;
+	Thu, 30 Jul 2026 13:06:01 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOxE-0000000ALna-04dc
+	id 1wpQSU-0000000AXRq-1Ool
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Jul 2026 11:29:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 75D02600B0;
-	Thu, 30 Jul 2026 11:29:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 461031F000E9;
-	Thu, 30 Jul 2026 11:29:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785410975;
-	bh=ReYAwfOvi7XoAWmb+MBrm0lABIXnkQqz384e0Z3fGqk=;
-	h=Date:From:To:Subject:References:In-Reply-To;
-	b=AkfE1pesDiVbng8djmIMZ/lxp7mLUFWdjbtvznmNaqUwQ8XyLfv9oiYnb9HUrU3Xy
-	 CnT3hSiRIAWQjQxdkKgAUfaPPfeXAgAfllZJn4dwn4c3Clx5tGAGdntqLm5KJ3Ombi
-	 fCXdA9davtwmRIm9FpEmKnJLhJ0+c/pHFtdZK23E07Ka6+uAlClH6dvjRvDVp25Qhy
-	 2Naj6tWe1++8N2pZJgAerF6v2K5iir4rSuGONK5gDXdELOirqPq+1IMMgxX8XPUnRm
-	 BTLPUkMBWeTi8iQZpQna2dhexwga6pD0GvHl2SBppJawKay7PVjxWZOBNEK29RUA3o
-	 4XTHt5IMISmlw==
-Date: Thu, 30 Jul 2026 11:29:32 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v2 4/4] riscv: dts: spacemit: Add Milk-V Jupiter board
- (M1)
-Message-ID: <20260730112932-GKF77474@kernel.org>
-References: <20260729160749.1621415-1-aurelien@aurel32.net>
- <20260729160749.1621415-5-aurelien@aurel32.net>
- <20260730085424-GKK76518@kernel.org>
- <amsj0kK6LtnxRT_J@aurel32.net>
+	Thu, 30 Jul 2026 13:05:59 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UCoBxJ1009059
+	for <linux-riscv@lists.infradead.org>; Thu, 30 Jul 2026 13:05:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=NICqcAYvnXDPIDCBr1xsnUKW
+	pknOwaDQB2vFtiBvz0w=; b=ZREqpcrQ0s2EIInl3rCfi5kPp3bmNzWfnUcreBDV
+	pfEF83YkU7qLYVQZNJkYs/zynL+88iF+YtdaQgZtHoyCgknGcQXo/Ff1V2tpiYQj
+	H13Danx6CyAADaSHqRc8ObHZyuUr97CwPeE/jpu0LxTplnUgTvH6RkJZYj9KtIWH
+	7LFgGrplkFJl4Vh5PXJUsi177Uyqne9e+sMsbaqfJ9kO4PKnr1sXF/PELpqVcBqQ
+	AnXkazXvqExk8AYI+BppQdO5VZHCH8sr3rLzLjQcAt7TtqAbdw9RWESzX0LMQPfu
+	g5XqfEJkYVZz3D6e2MTCLzrY1PHlHfCmhPkTIw+rXsV4ww==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fr6yfr2a4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Thu, 30 Jul 2026 13:05:56 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-51bf321d786so24410581cf.1
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Jul 2026 06:05:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785416756; x=1786021556; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NICqcAYvnXDPIDCBr1xsnUKWpknOwaDQB2vFtiBvz0w=;
+        b=j/NXfPqE8ZZg99dDsgQzgg0C6x2HfLMWBGibQkReLjZSaTUl8g9X9giw7cMGa+MGdq
+         NFnD7EGnoVDZCOYgsQGOIBuqMupg9dc2WOVNPB5Mlf/Bqtu/TaiZ0KgQPbANbkLlg+VY
+         HottTYPlkSn3bjCEHqSybsmmRgyeO0l+F2Rs/rJk6sF2vxLyE3mHUGnAwA7q1CsMNjg1
+         ONamz47HIH/1ZJrpOvcvqZZtQJRo89b/rWU5WVG8DNBFn5A8Tp8YRNaryiR9v+t5m7u4
+         LtFnUY205YC1jBk8nI6OzSqUfRZQ3QVQr6HAWS0M14o2ZQI4kJAnmaST/WULRUGzHArS
+         5Nkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785416756; x=1786021556;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NICqcAYvnXDPIDCBr1xsnUKWpknOwaDQB2vFtiBvz0w=;
+        b=UvQ/l2cFVSqO4G2KI8VqqU0LaVesu3j2+Tv5zsM9TyGwxcC3RSIu765sMR6iuWKWHV
+         W/MroiYL/kLdOHBJyvtYc32mYll+MWt39xsicvvw/cn9EoLsGn534RxByZpTUNvjRzcN
+         0/VLmqBjuLJy+46q1qg93WJvDvtaRTR9fTbJf2ZzQCDeFLEMGMbmkzDEKJbGHJJS4KZ6
+         1I/29cXKHP1/zrDZqeU1GCptmUxU9gKwedCt/lfr8Jht3XKxNlT8RpfOkF3Bb+lubXcz
+         g4h66LHbkLfkMZIWFKI1mEFIWwuHI/AHVbesh946h5HdId+HfEQnTS4jaOrimhjamRwv
+         0QEA==
+X-Gm-Message-State: AOJu0YzWmM5LR2cyGGnrlCnM1W3O/BolcpjT9bkVM45dL2UE40cZzUYl
+	jfFGx5xuIDowQvNNEi8j9jW4tJKYaW7TZAnvopEXpUCs9CGnNKvRnWQvxQXWzP/U220Y/DK4SWm
+	0TlL3FE8DQlhE29ZB/unJRd0se/pGkUklxSlQTboXTvkHRnUY2pv04AbYhuRbyYFiey3tsr1201
+	rLXKw=
+X-Gm-Gg: AR+sD10wsULjQMwE/oz2eoh+WVdEPXmqLmRUUOoedDl3mKWaKwYLYgl7X15YFtmR9EW
+	L+E72hzNub8brc4HQHTWMHEVXvXTRrc9A6Rwn0IorqUy+1a+4/uyWiqdJlhQ4MBvhd7LIn56RiI
+	96LGQC93ebNirwrO4zR6xbx6WsgCb8dGpEMw6+EtxQpOGJvtIWxEkwG1tp8zJBzZYTH6gexsWZR
+	qTPvYqjii4zyp+UOwwZwUFnqHEuWJKf4SXHnrNGsHDnufsWybfTJ7mdRNred7hkX2k4LRIJauYG
+	qTwJY3auE1No3/uKBDmLr6oIsZZjzX9A2i981pVlROTENfq1ysfm7+0wrfnOxkH7LmGtEJ+RgFq
+	mjLe4jNw841f3dk7OgcN+3LMaxnp/gGiBW87+S+E=
+X-Received: by 2002:a05:622a:5a12:b0:51c:844f:28df with SMTP id d75a77b69052e-52b386ba398mr26868371cf.75.1785416756146;
+        Thu, 30 Jul 2026 06:05:56 -0700 (PDT)
+X-Received: by 2002:a05:622a:5a12:b0:51c:844f:28df with SMTP id d75a77b69052e-52b386ba398mr26867661cf.75.1785416755588;
+        Thu, 30 Jul 2026 06:05:55 -0700 (PDT)
+Received: from localhost (cst-prg-94-50.cust.vodafone.cz. [46.135.94.50])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a07cb79672sm655629a12.13.2026.07.30.06.05.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 06:05:54 -0700 (PDT)
+Date: Thu, 30 Jul 2026 15:05:52 +0200
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: linux-riscv@lists.infradead.org, iommu@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
+        tjeznach@rivosinc.com, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
+        will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
+        palmer@dabbelt.com, anup@brainfault.org, tglx@kernel.org,
+        kevin.tian@intel.com, fangyu.yu@linux.alibaba.com
+Subject: Re: [PATCH v2 00/14] iommu/riscv: Enable MSI remapping and IOMMU_DMA
+Message-ID: <fcshuujn27rutywntqixbmyvvxcsbz3yg7kk6ngnphxql6byyb@pvo6vaishsdz>
+References: <20260724151218.965929-1-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <amsj0kK6LtnxRT_J@aurel32.net>
+In-Reply-To: <20260724151218.965929-1-andrew.jones@oss.qualcomm.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDA5OCBTYWx0ZWRfXwpGdrGUU6BN2
+ pFQwtggrPaoqgHzpeESKvRN4KYPXq4n+iaXvVOtLi/8cB9pT2xavbnc1HKqn2BCXr+w+pbkILr7
+ V73xj2oojZdJmoCe/8bRPa+l5m4Dg6JihxpYT/ROU4LFqjOohnhre15eCrkqO89MfauG2Il9vcM
+ i/tJTJSHNf7C15/RxOSCy1TlxShp2wwfDrKdgbaU1cy11++8ONbFoAch0bc2A9G09nzqjc3HrRi
+ tCDKpn5YwRfXSWTPujldPuHlR/CRDKhLIbFktyF++5xeQT1/lO7vwgpz3w1ZSDe+kSR0YRzWcmB
+ PzCOREeBGiZP8gxhYBTNBIXnezy0TuWF+h0fZwUSwPJYvhPcTZzF84QGYu4SeQWwWMODigFrWG4
+ pt/fgz4UEnLaBkI4Hs6VNs8Eor/4pcxkn9+Lg6rzYU+b1I/mO70jekI9005K3+mBgPSHsoazIrA
+ 4eRMYPFivUNJThl7V2w==
+X-Proofpoint-GUID: fbHpC9pvkefCXI-CJ1jnDcObwGDmniUd
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDA5OCBTYWx0ZWRfX0v1iy5VFCTIQ
+ OLNUuXXfyA0NQ0M1REpw3iXA2JfFOBqGluyieNROJdbGTeWob7jssys55viV58fhuTswm3nDcyd
+ 8gRCXx2dKDJKBxRYdJaVlJB9CW9wlO8=
+X-Authority-Analysis: v=2.4 cv=Tv3WQjXh c=1 sm=1 tr=0 ts=6a6b4c34 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=K44ovq/QSKyRiRxWKRAbdQ==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=c92rfblmAAAA:8 a=EUspDBNiAAAA:8 a=vdDDTV-ePma1-M1uuSoA:9 a=CjuIK1q_8ugA:10
+ a=dawVfQjAaf238kedN5IG:22 a=GvGzcOZaWPEFPQC_NcjD:22
+X-Proofpoint-ORIG-GUID: fbHpC9pvkefCXI-CJ1jnDcObwGDmniUd
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-30_03,2026-07-29_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 adultscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0
+ spamscore=0 phishscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300098
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_060558_488810_779DA71F 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,66 +148,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aurelien,
+On Fri, Jul 24, 2026 at 05:12:04PM +0200, Andrew Jones wrote:
+> This series adds MSI remapping for IMSIC so a device's MSI target gets
+> translated the same way its DMA does, allowing RISC-V to enable IOMMU_DMA
+> and paging domains by default.
+> 
+> v1[1] used get_resv_regions() with IOMMU_RESV_DIRECT_RELAXABLE to identity
+> map IMSIC pages, but that was rejected as only a workaround, and the
+> proposal for v2 was to follow ARM's approach. ARM calls
+> iommu_dma_prepare_msi() once at IRQ-alloc time, caches the IOVA on the
+> msi_desc, and lets compose replay it via msi_msg_set_addr(). This series
+> follows that structure by introducing an IRQ domain and a new
+> iommu_dma_map_msi(). Like iommu_dma_prepare_msi(), it dispatches on the
+> same domain cookie types. Unlike iommu_dma_prepare_msi(), it returns the
+> IOVA to the caller instead of caching it on a descriptor. That allows the
+> caller to collect all IOVAs needed (since IMSIC needs one IOVA per host
+> IMSIC page). Like ARM, msi_msg_set_addr() is used at compose time to
+> direct MSIs to the appropriate IOVAs.
+> 
+> The divergence from ARM is required due to where the target address
+> actually lives. ARM's doorbell PA is fixed per ITS instance (affinity
+> changes only retarget hardware routing, never the composed address) so
+> one IOVA cached at alloc time stays valid for the descriptor's lifetime.
+> IMSIC doesn't have a fixed target, the MSI address itself changes on
+> irq_set_affinity(), and that runs in atomic context, so mapping a fresh
+> IOVA isn't an option. This series pre-maps every IMSIC page into a
+> domain-wide PA-to-IOVA table at first IRQ-alloc time, and compose does an
+> O(1) lookup to pick the right one.
+> 
+> LLM-based coding assistants were used during development for code
+> exploration ("super grep" as one of my colleagues calls it), patch review,
+> test execution, and commit-message iteration, but all resulting code and
+> commit messages were selected, reviewed, and finalized by me. Per-patch
+> Assisted-by tags are omitted in light of the ongoing discussion about
+> simplifying coding-assistant attribution[2].
+>
 
-On 12:13 Thu 30 Jul     , Aurelien Jarno wrote:
-> Hi Yixun,
-> 
-> On 2026-07-30 08:54, Yixun Lan wrote:
-> > Hi Aurelien, 
-> > 
-> > 
-> > On 18:00 Wed 29 Jul     , Aurelien Jarno wrote:
-> > > Add support for the Milk-V Jupiter board with the M1 CPU. The M1 differs
-> > > from the K1 only by its package, which provides improved cooling
-> > > performance and allows it to run at up to 1.8 GHz instead of 1.6 GHz.
-> > > 
-> > > Add m1-opp.dtsi to define the 1.8 GHz operating point and the
-> > > corresponding core voltage, based on the upstream kernel. Include it
-> > > from m1-milkv-jupiter.dts. Raise the maximum buck1 voltage to 1.116V to
-> > > match the new operating point.
-> > > 
-> > While checking the schematics, the buck1,2 provide power supply both
-> > for cpu core and AVDD09 domain - check schematics page 9/25 [1]
-> > 
-> > the R81 is NC, so buck1,2 is actually all power supply, raise voltage will
-> > result high risk to damage the chip (overvoltage of AVDD09 domain), so
-> 
-> Yes, both buck1 and buck2 supply the CPU core. I only raised buck1 here, 
-> because it's the only one controlled by the cpu scaling, but in practice 
-> I believe that configuring the PMIC as Dual-Phase Mode couple the two 
-> regulator at the hardware level and only the first one need to be set. 
-> See my analysis there:
-> https://lore.kernel.org/spacemit/178402025712.1568061.9223355686030414906.b4-ty@b4/T/#m828e80aaf454606baafbd43e3795089ba397145f
-> 
-Your anylsis is correct, and that's not the problem I'm talking about..
+I'm addressing sashiko's comments[1], making a few other changes, and
+adding a couple patches that I think belong in this series more than
+in the next series I'll be submitting (guest interrupt file support, a.k.a
+irqbypass) which is getting built on this series. So a v3 is coming soon,
+likely tomorrow.
 
-what I mean is that more than one cumsumers to buck12, where AVDD may not
-be able to tolerate high voltage, even vendor can't guarantee to run stably,
-vendor kernel enable 1.8GHz as turbo-mode which won't run for long duration.
+[1] https://sashiko.dev/#/patchset/20260724151218.965929-1-andrew.jones@oss.qualcomm.com
 
-https://github.com/spacemit-com/linux-6.6/blob/k1-bl-v2.2.y/arch/riscv/boot/dts/spacemit/k1-x_opp_table.dtsi#L20
-
- buck1,2 |--> CPU CORE
-         |--> AVDD09 (DDR, AFEAP ..)
-
-> But I can indeed raise both values for consistency.
-> 
-> > a safe strategy would to test if M1 able to run at 1.8G without voltage 
-> > change (still at 1.05v)?
-> 
-> I'll try that, but my guess is that given the vendor kernel raises the 
-> voltage to 1.116V, it is actually needed.
-> 
-> Regards
-> Aurelien
-> 
-> -- 
-> Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-> aurelien@aurel32.net                     http://aurel32.net
-
--- 
-Yixun Lan (dlan)
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
