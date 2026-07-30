@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E483DC54FD2
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 06:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A538C531D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 06:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pePjK7cE6RQLPMN3pxBHyPc5VOCbF7+n3P//F1/Zlk0=; b=P6gsDLKTEiKqYK
-	IyH0/ceoettDeE3FwIXgzbrKEI+MNNJiFA8Y3Tmd5tePF/solH/X7UcrmzCw+sS4VW+WxoHe3T8x3
-	bEfvpUOdTXwp/YW7GFcdrvSUAYnqexMHou81/QE7/QkVX4T3Qia1C0ZdBR0pC+b0Ph8jS2zhvAZfj
-	WAR1UrBetxktq+X0u7hGcF9XYKFWQB3SQsWRMlJ1j8Xw5owfqcyxqusEo6N+tVFmwAwEz6tECoAkQ
-	Jpfxnc9bWIYVuyMXJq367nssxPLsdx/jfsjzowI7mRwjUP9eU/GGFUrMovUdTcY/0nGYI0sNsPiO3
-	lt9vDMs6xnzM09C4acuQ==;
+	List-Owner; bh=dNdg8cc7/faQKE5avx22Q3nuQOu8w/oJHLQtJzD6I6E=; b=Qyootvc7M9O1BP
+	qUq9W2uQ0pyzbSVvTycPfi5qt6heTNmT9/p0KZaMfEixGEZDLyMpekuEtnjldEKPWuF+iIokrfWR6
+	lcfJi76Clt51zYpHbJOAdpww01Ey7lQGynHS3InDtVsxKek5WAPsRRppBnFO+lkmHQmlqG0jMbr2T
+	+Aza/RgqzjHt4tns6lfXeLb2Eq6Som0Tx5+mt5FhTd9gPEwOosJHCeD5fe8t3+6VU1a9j/IB7wcEZ
+	reVbd7KE8KcGiqDoNqNVsrxAHBb2xh9k+l8HVPjih0REOMHF3iD4zLo5bfW8OBcwZOh2ZNWMH86+6
+	4HVOmUz0b3q3s3BHSRow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKcH-00000009eOW-3XUu;
-	Thu, 30 Jul 2026 06:51:42 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1wpKhv-00000009es6-0n4w;
+	Thu, 30 Jul 2026 06:57:31 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKcE-00000009eMU-3cBt
+	id 1wpKhs-00000009er5-0T3l
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Jul 2026 06:51:40 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2d02b4c3601so13960495ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Jul 2026 23:51:38 -0700 (PDT)
+	Thu, 30 Jul 2026 06:57:29 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-848479c9bd5so1538449b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Jul 2026 23:57:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785394298; x=1785999098; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785394647; x=1785999447; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=icMXTnzaSJ6+MSeJ5Apat14mapNo5PQAIFNRe+YMLec=;
-        b=l0Pcl6JGw0vBDyNXKCv82lvzU/Nx2XGGljRk5bWuWMPS+Bb+L3+G+En227dCUNQmHd
-         2KeSPR67cPYWgdn9DQ6+2vz0JAhFlh3/h6O+3ZBU1M3tmpdF/aRzyw4+B1JTeZejwBTV
-         /wW98UUAQc+d+QMtN7t1owYxyF1ch5xXcOA2GNAKARdxew7ybXgcaBu6Oq8JUVSEgG9j
-         bLQF8+tTHW5dhtMdnoL5X8GCxAklwi5riKVuSJUuCEfYeUFua/yNqY16iMMk0HdQv0gb
-         s/WuNB1L9o55QSwTyPxXQhJ14NhPItzc5HbQ1hjOw08EYae8f7zVGkl1zbGAnX/toDVg
-         e35w==
+        bh=0bqHSBno1itPdYwAirS3i7PKnmNCD7Zwnd30AX+3u5s=;
+        b=rP7oDqJPPuZE3e7WKty7b5hA/WybfvrRpYTjTet3+NlOeC+44BuRJQJcdkQysV3Fnj
+         RJcmnd55ou42DLSZN2Z45i36lhe2GCQYRsnkM1s9aQJFo8RU+ZlhuwDNezB3P6GrCEcY
+         mZErFM0FCk8NWiNHTVwBTvf6RGVI4GAu7sI805BrFcFmgnPysxs870GQQs0+FzHEOIwE
+         Wf7hlzLwQ40bOEXFfyKYZSCU/ZtuW/AfF7tWldpPnmyyleiu03YzmnMfC28l3yIDWsQj
+         apF1wn6WjhFJEbUupXe/b2ZImGTfwfAQogKOAjHXcl+SCVnwcaFCPgMC81y01a4Qskii
+         67/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785394298; x=1785999098;
+        d=1e100.net; s=20251104; t=1785394647; x=1785999447;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=icMXTnzaSJ6+MSeJ5Apat14mapNo5PQAIFNRe+YMLec=;
-        b=pZnnAEXHMTkK41bReKk/aFkrCOY8woL8lShoUTHrI5+ceaVqLCKZ3crL3SBG5+nr3x
-         TXQOXCCzOHAZ055RIADEcozdBkuEOyS/m80CRhgiIl1Dv5gBcgfytyDKncWftgA/F2J6
-         GHuLoQl3VqA+LEQVgLmvBCAtYBn0/hqof1A7IK3C8bJsW8bI2hWFcXTnVyjsiOutNLB7
-         Jz++7B8kT0zRy71uiUzvUl4Hm6UIh6LZ6NemsjiPYI7GwH8TURYQDA1MT9Th49GIKGIV
-         Y6SF9M4+Xn5pKom0BsM7mtqYLWszjkKhx8SzBYHUamApUCOTgrpwxD/kxHCzbfWK+gd1
-         q2Pw==
-X-Forwarded-Encrypted: i=1; AHgh+Rqyex89BgpE66hraeGfSc2nY/kNvK3ckONUNI6DfZmlNchz+1xRn59Q9nCV3zjNi6tCtnEmrm/nhgyBIg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxdk8Qgp6AMBrG8Q2u9J4r9qQddi0zgpo93lasnriHW1Hp5cjrm
-	4SfnnSvZQCRwI3yyXA5slLmaeAkOWwGu8ByV8gLTrMxAzmEpBIfGjSI+ZeTWBRKq
-X-Gm-Gg: AR+sD125xdl1nPyBH4j28EA4SH8puISJ0ecJHMzCba9yke+KRuLnAk9zXjbUnDzSqEn
-	yyZYMgGr+5ug+5fynfQOOD4x/Yi6dvB0RUZA8xTjLgMmYbj54Yk9dCPkPqdDl5Mpimczv6ix33P
-	Rvg/C/FCvPTW1dzkYxp5FsBMhMubYk/bvb9b48a44r3+BJDK2eppbEdFsLBukUyvXaFXdP07WZ3
-	U4hBUzzh6YK/K/gMni+baH3WhiZRwsxcK1y2/GvEBfCVHiJe60PhmeH+TxWtLtuAnzjTMptKFli
-	wYyIWKLdx0TY39LZGzjatHP2wJwhfPDyPqtTsizN+garJYPZtH2FIu1B8dCxORwmdqtczPhlYTk
-	fEXICaaUP1pCyI29nCOZHqBjNQc6npdro5sKnOMMepdZwvgKwxUI3vD13QpiC/emjjf0VdIvXZs
-	mZATw2x+7+4ErdCMWBUyHC4zJXWmBal4givMa5bY1SMtJId0d0r1+1QzFpkDUs6YrfCZOmyGSHp
-	cXm1bQrdY3TqQxfYw==
-X-Received: by 2002:a17:903:1585:b0:2c9:97a7:71ab with SMTP id d9443c01a7336-2d035d0097cmr15283805ad.38.1785394297603;
-        Wed, 29 Jul 2026 23:51:37 -0700 (PDT)
+        bh=0bqHSBno1itPdYwAirS3i7PKnmNCD7Zwnd30AX+3u5s=;
+        b=Em4d7tIDjkq6MAxMd+bx3160hx8mpCiJSd7FD3AmjGsqU/4seEX1kzfhgKeJtEhaA3
+         846F2YwFpxlhT9dIrKC1RS+WJumakGEmj0Q5iSjkIb961OEGU3ShVI7j7V/R57EaHDDv
+         U1+ojqKmi5yjGYE1b3XrHgbnuuEaXXm9oTCNTLkiEF9p71yjTWQgQndN/fvxq0reHD1e
+         Mp2F3xfyvtxUwcsUvyLtFLT+8VAksSQwtPWdzgld5V4A4rf8Z0JEe2J5wouzzDZY7baU
+         oufWMgiDoNcTOwDwlUtptr1cRrmLBw3ndUOWeDNumr5ztBOSidKFxQ4+YWXJmpHMWD8a
+         Ku1A==
+X-Forwarded-Encrypted: i=1; AHgh+Rp1vKvGy3sBAWcQwmNx/Kc8+1G0bRVHEfcnP6kfu6zy1PBfQ/2zdzA/LsxG8S7uv4I1aYjb4UXZj60QbQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxbk/0YWzOwToXwsNY+4mkrGh2C8lq17TMURjM7+OjjJ6/zNb+1
+	uJ+22hoylFbwgYFWPdsg8+3XUj34vJRDFbvN56+toT7Z3joUc68TzNO/QGJlxZkc
+X-Gm-Gg: AR+sD11rILV1iX3wYB/LKxQPG5imjipU+1MLyKk6YBh/m9Tpvg0nAHtYafJP8zU3Gve
+	ICEm0NwYcJIAXBweQLQkv4QArhtYFiRECJ/UVwJDXemBKeImvDp7Sw/+dWuk4OcPKTbRSK2OUUO
+	debDuE2dqq9A6FgxJjZuw5/yKEBkG7kmE1QbXJLeXQnDvv30KbF5bAwhptTNwgkUSs2EO6u6c3B
+	xNWxFE6S8DRFad2P6VPM/NXH4j8K89dAn4Jb14OjvGIVNT8OmQ3EiXoEC3B5/ByivXYgFe64RfD
+	BKW2UGJa25y2rcaXCldfYyvU+qL9L2GFDuOCNUmsARH5dSOpjeR7SNdbuOGCwbiUUnJS0XiCd/f
+	UHpu44WORfHh950+JjtIp1jsnOky6sL6FSQRp2uaXYwOTDhRQ9wRbqaikn2DyMsVMnybvjrkMnC
+	S2cakVa9QZjaD7zb/GTIpHTHuMXAUj7lT1S+rAWvlft6cHgaBjVaOF6IpzZXWrrUvs1iJJDDOXr
+	sH4uowaXmJq5jgPzA==
+X-Received: by 2002:a05:6a00:4f94:b0:84e:223b:98c2 with SMTP id d2e1a72fcca58-84ebc4918fdmr1429162b3a.77.1785394647042;
+        Wed, 29 Jul 2026 23:57:27 -0700 (PDT)
 Received: from cyh-System-Product-Name.. ([129.227.183.200])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d022bca9d7sm21707555ad.52.2026.07.29.23.51.34
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea02fa4afsm2481712b3a.33.2026.07.29.23.57.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 23:51:37 -0700 (PDT)
+        Wed, 29 Jul 2026 23:57:26 -0700 (PDT)
 From: "Yuhang.Chen" <yhchen312@gmail.com>
 To: Anup Patel <anup@brainfault.org>,
 	Atish Patra <atish.patra@linux.dev>
@@ -82,17 +82,16 @@ Cc: Paul Walmsley <pjw@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: Re: [PATCH] RISC-V: KVM: Add arch-specific tracepoints
-Date: Thu, 30 Jul 2026 14:50:48 +0800
-Message-Id: <20260730065048.3715824-1-yhchen312@gmail.com>
+Subject: [PATCH v2] RISC-V: KVM: Add arch-specific tracepoints
+Date: Thu, 30 Jul 2026 14:57:11 +0800
+Message-Id: <20260730065711.3721489-1-yhchen312@gmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <CAAhSdy2Qa2DGFzb27MgmoH5Pf1BOrgwaZBqP__U9eejs5-5Bsw@mail.gmail.com>
-References: <20260626103619.174179-1-yhchen312@gmail.com> <CAAhSdy2Qa2DGFzb27MgmoH5Pf1BOrgwaZBqP__U9eejs5-5Bsw@mail.gmail.com>
+In-Reply-To: <20260626103619.174179-1-yhchen312@gmail.com>
+References: <20260626103619.174179-1-yhchen312@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_235138_936883_EC16D840 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_235728_166092_A9E55AD3 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +108,286 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
+Add RISC-V KVM tracepoints for events that are useful when debugging
+guest exits and in-kernel emulation paths. The existing kvm_entry and
+kvm_exit tracepoints are kept, with the kvm_entry PC format fixed to use
+zero-padded hexadecimal output.
 
-Thanks for the review.
+The newly added tracepoints cover:
 
-I've addressed your comments in v2.
+- kvm_vcpu_exit for synchronous guest traps
+- kvm_vcpu_irq for VS-mode interrupt set/clear
+- kvm_mmio_emulate for MMIO load/store emulation
 
-On Tue, Jul 28, 2026 at 09:05:39PM +0530, Anup Patel wrote:
-> Drop kvm_guest_fault, kvm_sbi_ecall, kvm_wait_riscv, and
-> kvm_csr_access tracepoints. Instead add common
-> kvm_vcpu_exit tracepoint for all vcpu exits just before the
-> switch case in kvm_riscv_vcpu_exit() function.
+kvm_vcpu_exit reports the full trap context (sepc/scause/stval/htval/
+htinst) so userspace can filter by scause, and is placed after the
+interrupt early-return so it fires only for synchronous traps.
+kvm_vcpu_irq covers every set/unset_interrupt() caller from a single
+place.
 
-Done. kvm_vcpu_exit now reports the full trap context
-(sepc/scause/stval/htval/htinst) and is placed just before the switch
-case, after the CAUSE_IRQ_FLAG early-return, so it fires only for
-synchronous traps.
+Example trace output:
 
-> Drop the kvm_irq_line and kvm_timer_update_irq tracepoints.
-> Instead add common kvm_vcpu_irq tracepoint called from
-> kvm_riscv_vcpu_set/unset_interrupt() function.
+kvm_vcpu_exit:
+VCPU: 0, SEPC: 0x80200000, SCAUSE: 0x17,
+STVAL: 0x10000000, HTVAL: 0x4000000, HTINST: 0x2023
 
-Done. kvm_vcpu_irq is called from kvm_riscv_vcpu_set_interrupt() and
-kvm_riscv_vcpu_unset_interrupt(), covering all callers.
+kvm_mmio_emulate:
+VCPU: 0, Store MMIO at 0x10000000, len 4, insn 0x2023, sepc 0x80200000
 
-> The kvm_mmio_emulate tracepoint is fine.
+kvm_vcpu_irq:
+VCPU: 0, IRQ: 10, level: 1
 
-Kept kvm_mmio_emulate unchanged.
+Testing:
 
-v2 follows in this thread, with example trace output captured from QEMU
-included in the commit message.
+A QEMU-based test program was used to exercise:
 
-Thanks,
-Yuhang
+- Guest page faults
+- MMIO emulation
+- IRQ injection
+
+Verified trace output generation for:
+
+- kvm_vcpu_exit
+- kvm_vcpu_irq
+- kvm_mmio_emulate
+
+Assisted-by: YuanSheng:deepseek-v4-pro
+Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Yuhang.Chen <yhchen312@gmail.com>
+---
+Changes in v2, per Anup Patel's review [1]:
+
+- Replace the per-cause tracepoints kvm_guest_fault, kvm_sbi_ecall,
+  kvm_wait_riscv and kvm_csr_access with a single generic kvm_vcpu_exit
+  tracepoint that reports the full trap context (sepc/scause/stval/
+  htval/htinst).
+- Replace kvm_irq_line and kvm_timer_update_irq with a single generic
+  kvm_vcpu_irq tracepoint covering all set/unset_interrupt() callers.
+- Keep kvm_mmio_emulate.
+- Drop the now-unused trace.h includes from vcpu_sbi.c, vcpu_timer.c
+  and vm.c.
+
+[1] https://lore.kernel.org/all/CAAhSdy2Qa2DGFzb27MgmoH5Pf1BOrgwaZBqP__U9eejs5-5Bsw@mail.gmail.com/
+---
+ arch/riscv/kvm/trace.h     | 81 +++++++++++++++++++++++++++++++++++++-
+ arch/riscv/kvm/vcpu.c      |  4 ++
+ arch/riscv/kvm/vcpu_exit.c |  4 ++
+ arch/riscv/kvm/vcpu_insn.c | 13 +++++-
+ 4 files changed, 98 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/kvm/trace.h b/arch/riscv/kvm/trace.h
+index 3d54175d805c..23a5fd1b686e 100644
+--- a/arch/riscv/kvm/trace.h
++++ b/arch/riscv/kvm/trace.h
+@@ -25,7 +25,7 @@ TRACE_EVENT(kvm_entry,
+ 		__entry->pc	= vcpu->arch.guest_context.sepc;
+ 	),
+ 
+-	TP_printk("PC: 0x016%lx", __entry->pc)
++	TP_printk("PC: 0x%016lx", __entry->pc)
+ );
+ 
+ TRACE_EVENT(kvm_exit,
+@@ -56,7 +56,84 @@ TRACE_EVENT(kvm_exit,
+ 		__entry->htinst)
+ );
+ 
+-#endif /* _TRACE_RSICV_KVM_H */
++TRACE_EVENT(kvm_mmio_emulate,
++	TP_PROTO(unsigned long vcpu_id, unsigned long sepc, unsigned long insn,
++		 unsigned long fault_addr, bool write, int len),
++	TP_ARGS(vcpu_id, sepc, insn, fault_addr, write, len),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, vcpu_id)
++		__field(unsigned long, sepc)
++		__field(unsigned long, insn)
++		__field(unsigned long, fault_addr)
++		__field(bool, write)
++		__field(int, len)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->sepc		= sepc;
++		__entry->insn		= insn;
++		__entry->fault_addr	= fault_addr;
++		__entry->write		= write;
++		__entry->len		= len;
++	),
++
++	TP_printk("VCPU: %lu, %s MMIO at 0x%lx, len %d, insn 0x%lx, sepc 0x%lx",
++		  __entry->vcpu_id, __entry->write ? "Store" : "Load",
++		  __entry->fault_addr, __entry->len, __entry->insn,
++		  __entry->sepc)
++);
++
++TRACE_EVENT(kvm_vcpu_exit,
++	TP_PROTO(unsigned long vcpu_id, unsigned long sepc, unsigned long scause,
++		 unsigned long stval, unsigned long htval, unsigned long htinst),
++	TP_ARGS(vcpu_id, sepc, scause, stval, htval, htinst),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, vcpu_id)
++		__field(unsigned long, sepc)
++		__field(unsigned long, scause)
++		__field(unsigned long, stval)
++		__field(unsigned long, htval)
++		__field(unsigned long, htinst)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->sepc		= sepc;
++		__entry->scause		= scause;
++		__entry->stval		= stval;
++		__entry->htval		= htval;
++		__entry->htinst		= htinst;
++	),
++
++	TP_printk("VCPU: %lu, SEPC: 0x%lx, SCAUSE: 0x%lx, STVAL: 0x%lx, HTVAL: 0x%lx, HTINST: 0x%lx",
++		  __entry->vcpu_id, __entry->sepc, __entry->scause,
++		  __entry->stval, __entry->htval, __entry->htinst)
++);
++
++TRACE_EVENT(kvm_vcpu_irq,
++	TP_PROTO(unsigned long vcpu_id, unsigned int irq, int level),
++	TP_ARGS(vcpu_id, irq, level),
++
++	TP_STRUCT__entry(
++		__field(unsigned long, vcpu_id)
++		__field(unsigned int, irq)
++		__field(int, level)
++	),
++
++	TP_fast_assign(
++		__entry->vcpu_id	= vcpu_id;
++		__entry->irq		= irq;
++		__entry->level		= level;
++	),
++
++	TP_printk("VCPU: %lu, IRQ: %u, level: %d",
++		  __entry->vcpu_id, __entry->irq, __entry->level)
++);
++
++#endif /* _TRACE_KVM_H */
+ 
+ #undef TRACE_INCLUDE_PATH
+ #define TRACE_INCLUDE_PATH .
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 977e36ab83d3..c0556cb4caa5 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -439,6 +439,8 @@ int kvm_riscv_vcpu_set_interrupt(struct kvm_vcpu *vcpu, unsigned int irq)
+ 	__set_bit(irq, vcpu->arch.irqs_pending_mask);
+ 	raw_spin_unlock_irqrestore(&vcpu->arch.irqs_pending_lock, flags);
+ 
++	trace_kvm_vcpu_irq(vcpu->vcpu_id, irq, 1);
++
+ 	kvm_vcpu_kick(vcpu);
+ 
+ 	return 0;
+@@ -465,6 +467,8 @@ int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq)
+ 	__set_bit(irq, vcpu->arch.irqs_pending_mask);
+ 	raw_spin_unlock_irqrestore(&vcpu->arch.irqs_pending_lock, flags);
+ 
++	trace_kvm_vcpu_irq(vcpu->vcpu_id, irq, 0);
++
+ 	return 0;
+ }
+ 
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 6c8530b9f29e..d03c6e82b1bc 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -11,6 +11,7 @@
+ #include <asm/insn-def.h>
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_nacl.h>
++#include "trace.h"
+ 
+ static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			     struct kvm_cpu_trap *trap)
+@@ -212,6 +213,9 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	if (trap->scause & CAUSE_IRQ_FLAG)
+ 		return 1;
+ 
++	trace_kvm_vcpu_exit(vcpu->vcpu_id, trap->sepc, trap->scause,
++			    trap->stval, trap->htval, trap->htinst);
++
+ 	/* Handle guest traps */
+ 	ret = -EFAULT;
+ 	run->exit_reason = KVM_EXIT_UNKNOWN;
+diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+index f09f9251d1f0..ef2a827811f3 100644
+--- a/arch/riscv/kvm/vcpu_insn.c
++++ b/arch/riscv/kvm/vcpu_insn.c
+@@ -9,6 +9,7 @@
+ 
+ #include <asm/cpufeature.h>
+ #include <asm/insn.h>
++#include "trace.h"
+ 
+ struct insn_func {
+ 	unsigned long mask;
+@@ -375,7 +376,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			     unsigned long htinst)
+ {
+ 	u8 data_buf[8];
+-	unsigned long insn;
++	unsigned long insn, raw_insn;
+ 	int shift = 0, len = 0, insn_len = 0;
+ 	struct kvm_cpu_trap utrap = { 0 };
+ 	struct kvm_cpu_context *ct = &vcpu->arch.guest_context;
+@@ -405,6 +406,7 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		}
+ 		insn_len = INSN_LEN(insn);
+ 	}
++	raw_insn = insn;
+ 
+ 	/* Decode length of MMIO and shift */
+ 	if ((insn & INSN_MASK_LW) == INSN_MATCH_LW) {
+@@ -453,6 +455,9 @@ int kvm_riscv_vcpu_mmio_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	if (fault_addr & (len - 1))
+ 		return -EIO;
+ 
++	trace_kvm_mmio_emulate(vcpu->vcpu_id, ct->sepc, raw_insn, fault_addr,
++			       false, len);
++
+ 	/* Save instruction decode info */
+ 	vcpu->arch.mmio_decode.insn = insn;
+ 	vcpu->arch.mmio_decode.insn_len = insn_len;
+@@ -502,7 +507,7 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	u32 data32;
+ 	u64 data64;
+ 	ulong data;
+-	unsigned long insn;
++	unsigned long insn, raw_insn;
+ 	int len = 0, insn_len = 0;
+ 	struct kvm_cpu_trap utrap = { 0 };
+ 	struct kvm_cpu_context *ct = &vcpu->arch.guest_context;
+@@ -532,6 +537,7 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		}
+ 		insn_len = INSN_LEN(insn);
+ 	}
++	raw_insn = insn;
+ 
+ 	data = GET_RS2(insn, &vcpu->arch.guest_context);
+ 	data8 = data16 = data32 = data64 = data;
+@@ -570,6 +576,9 @@ int kvm_riscv_vcpu_mmio_store(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	if (fault_addr & (len - 1))
+ 		return -EIO;
+ 
++	trace_kvm_mmio_emulate(vcpu->vcpu_id, ct->sepc, raw_insn, fault_addr,
++			       true, len);
++
+ 	/* Save instruction decode info */
+ 	vcpu->arch.mmio_decode.insn = insn;
+ 	vcpu->arch.mmio_decode.insn_len = insn_len;
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
