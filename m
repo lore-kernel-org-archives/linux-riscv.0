@@ -4,89 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86001C55160
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 01:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CAE2C54FCD
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 02:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HizaH8fPKmhz3G/HSooCz2ZVc3cPZGVXHj1DAovzx5o=; b=u3A6eolHRTDxv5
-	d7ePiZULejSSRfMD+I4WKwK8ypbEGr9Et4zMzWPffIXcjsSjkOixkAeW5xhoUhBbmpC9g8jBVak4X
-	4gsBAbORe8Nz15CFFFsupb2nmRKDlHGxfvXembewDdnPH4y0RS+PXKb+Ws/Is8g9dmoNf4ZVijwXB
-	/dOwPKafxNZPEnMFVMQggCHPuMkBWBHuTK52C9bRfawDJAFtlU6WAl1Of2h0E8fIikeumECWqvlDp
-	+BSZ1FtoJH4TIx4Y8USbCLEShc78sF2uqtEE8AnBRTB8wKJcM5KRcHOMOIG/gdOTL029WN5VnyQ1d
-	z5W+xtDmJ7LDMJBah2nQ==;
+	List-Owner; bh=pr1/ZCErWBjWLqwO8ExUzA65smnsgG0UOJLbRi6NdBo=; b=hR23yJxo+SDKWq
+	mhr16u9OE7KlIEmVMy3o4RFUO4VsiMLzJIiG2RCuuqRKSHeKiEzEKtfoVVhIiYYXHKjwIFf0ntGlv
+	4vMUP5F2JAeUvtFblisws5LdE9BuZiCQ/LSgeAJljwEQPn4lTk492+amWvsZH3crk5MdJLEh90T3L
+	7VZdS+BIsLaOyS5HnSxsbDqiQ+NLf43+w9/aDUeCZ0dqCaVdF0GLC50oQfSlSyN1vBcLrGrTzuvuC
+	tWlERR3Q25Z25hugBFwPqFgnJZ/W1UN3CKn5q/VH/U/dd2/LWHdVwYhbXzd5R3jnsmP7ZktskFCLh
+	R/ITW6jRySR7iztToq8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpFnz-00000009HeY-0B2w;
-	Thu, 30 Jul 2026 01:43:27 +0000
-Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
+	id 1wpG8t-00000009JaK-0jQB;
+	Thu, 30 Jul 2026 02:05:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpFnx-00000009Hdy-01bS
+	id 1wpG8r-00000009JZw-2EEv
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Jul 2026 01:43:26 +0000
-Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-668c1b780e5so2342491d50.2
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Jul 2026 18:43:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785375804; x=1785980604; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mZFvilolEPcJsZBCt856hM7K+hVSmGldnUoUJCZFhgI=;
-        b=GAi0ay2HLu5FAVwS1pooRsAqmWBfeJW/xpW3mPiiHdvI9ginawc3DVqUM3qSMeTfaA
-         ci9xtSowiIwEorwOugRITqfDbVmH2KQg1TCnwjKMioQ2IRO6wvoLPhQECugsqiiQ+tbT
-         OkvMT5u7FIG+o7sZgVN+nsmKDury0duHNM4Ev5jY9qLa56EPi2YS4fAySBDW5zH9UvQ5
-         BIGloYMdTopr48MrRyRkezg1cQCmuF5NPSCocJvLL/Kdv+xF15HXVGF4e+RitqZCIvQM
-         7zXE0qjA3TJYrrG+dgrXpzpWDJWEMqDoIvTmJYnuIo9PYcQeClTDwtPLthggK0G5KKWv
-         KYaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785375804; x=1785980604;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mZFvilolEPcJsZBCt856hM7K+hVSmGldnUoUJCZFhgI=;
-        b=I9YB98XCfyRpMogL5XaSB2ePYMcWJLm7K4fS//yCfnTBjH/O1mPhSe4UTfShNHTkSq
-         +Fr1YBctfIdp7CY9ABY6aTn4jWOQjzaQKOZWYRttpE4yYyT86dIECuspnrQYuLfwuBqd
-         k82JAWWWXbPPioS5GuOR+ZKcNTyDED+P4f4liW2lD2ofJr5uPnabMfaalbzQ4HDweZXs
-         g8lv1R22mY5GKPuUbJnRLbX8bP4CC02QF2p0hXD2SAqUl69wXd+55xZ++3D8o8dwV3/t
-         kaGJ4lmGgM75p/+HQl/0mXg25VKEUg5crtpMVQsbWKxWn5IbwL+ECDj9GbQR9Kb0/XYW
-         LFFw==
-X-Forwarded-Encrypted: i=1; AHgh+RrvSgeyQ0bolWRR3jx6NIiBgNwBwEvZgfcaEiCsx62CExptniuM/qiG1xVB52qp8Sc7NgJ+Mu9T9I/3ZA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxs6OcGeggHpGOxK7ZBAbAW619LU6puKgE8xjlPf1XtIvI8JrcE
-	dgPkMdSKLbZwc/MCGJBn+P+ZEyxakyjoe+9emc9hHnUrW/Q3BK4mn4ue
-X-Gm-Gg: AR+sD12lKnNi9DVD0uH8CQsDhXu9Mm0EtA72or41j3rlcmNj6AeHMnU7NILhYFI34O+
-	tCqF1JliUFGGYAndU1NH4IubmATj/AWWBkLdkX5cgoHH0W+u7rIJ8csG7uBnWQTpZYVxHIp/CAO
-	5lf7hC617w9zcdY3EshNteXeIwO9lYb8284TJUKCVmE3CChg9zYgu/2qF1Ok94sXr2oNKR2M4Mg
-	SrWH6sSdC3gAW0NXt1RRYO3U0clV8xJbuMEGQgCcq930J0wft7Y+j5K0n1W6vUq+aNsBwiVTYxc
-	xCGc3OX2vJvmJK2TnbBskYgIlSsEB0D8He2GYCBf/YIjgCzu/CoRKz77EGAhtd9hYxIy7fI21ON
-	EYHarPKNL8LeGK8sbuI9tSZ4sc988PtGrNaSRbhcIlQOtz2aVvZh1MbdXePcVR50fzJRrcnE5ZX
-	hKcExSUyI8sCGfK7zYEXc7g1dTY1e6Rdwgagu5mdKG0oWcod/vHeNMBhQXe3Ye01ZCOq2AX03Uj
-	INZr5obAYiF0JSwcS7G6KxG
-X-Received: by 2002:a53:c0ce:0:b0:668:9f36:5484 with SMTP id 956f58d0204a3-6692f76adadmr248588d50.87.1785375803719;
-        Wed, 29 Jul 2026 18:43:23 -0700 (PDT)
-Received: from got-milk ([107.198.84.185])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6692c7479c9sm386842d50.7.2026.07.29.18.43.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 18:43:23 -0700 (PDT)
-Date: Wed, 29 Jul 2026 18:43:20 -0700
-From: Paul Sherman <shermanpauldylan@gmail.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: palmer@dabbelt.com, pjw@kernel.org, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: smp: fix non-SPINWAIT secondary hart rendezvous
- for fw_dynamic platforms
-Message-ID: <amqsOI7Pdg5uH-bO@got-milk>
-References: <20260729083414.39339-1-shermanpauldylan@gmail.com>
- <51f32966-86a2-456e-9e45-c9bf8add0676@sifive.com>
+	Thu, 30 Jul 2026 02:05:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B044E600AA;
+	Thu, 30 Jul 2026 02:05:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 577981F000E9;
+	Thu, 30 Jul 2026 02:05:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785377100;
+	bh=2h/UiwhfC8NhEeNz6SwfkBcRk32SdeEgA/eWffwd11U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mVav8ruBQx3ZjBROniP7omxBRdJzUlSfjgjBGwo1Cmw5ROZ/3VTKdyCBqvXNUU0LQ
+	 gHa4a1I0vKjtimTUOskSPw+bd4U9IZow86IdwrJdI450pPLUQ3dEVTcLlYCNAKtkTC
+	 Pga5RYeiwlz4A7kV4PgEama44e/g37tpGlcPWkerYbZ5P7ZVAfVkMtxErjIXHvymyJ
+	 lP6flSNv+6KWqWyL8bVDOgT2ISJFjc1fucHeeB2Gw18bs+CmNWqt5zyLV6hEVEsKyT
+	 jF5jFzyK+UPGIeBpYVbrkYot5IccnQo5A3BkdDmptduKaefA21rCaLgsJsMN+sQ/HY
+	 l0MYRX6fvkTQQ==
+Date: Wed, 29 Jul 2026 19:04:58 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v6 3/8] riscv: Add support for srmcfg CSR from Ssqosid
+ extension
+Message-ID: <amqxSpkxWw6/zXcq@x1>
+References: <20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org>
+ <20260729-dfustini-atl-sc-cbqri-dt-v6-3-7c22b05d461b@kernel.org>
+ <20260730012227.58F5C1F000E9@smtp.kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <51f32966-86a2-456e-9e45-c9bf8add0676@sifive.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_184325_079792_BDF97538 
-X-CRM114-Status: GOOD (  16.21  )
+In-Reply-To: <20260730012227.58F5C1F000E9@smtp.kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +72,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
-
-Thank you for the explanation and the pointer to the boot protocol
-documentation.
-
-On Wed, Jul 29, 2026 at 05:13:56PM -0500, Samuel Holland wrote:
+On Thu, Jul 30, 2026 at 01:22:26AM +0000, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential issue(s) to consider:
+> - [High] The `srmcfg` CSR is not initialized during early boot or CPU hotplug bringup, leaving CPUs running with undefined QoS tags.
+> - [Medium] The architecture-specific resctrl setters `resctrl_arch_set_closid_rmid()` and `resctrl_arch_set_cpu_default_closid_rmid()` are missing.
+> --
 > 
-> There is no need to handle SBI_ERR_ALREADY_STARTED because the contract for the
-> "ordered booting" entry method (see
-> https://kernel.org/doc/html/latest/arch/riscv/boot.html#kernel-entry) requires
-> that only one hart is in the STARTED state when the kernel begins executing.
+> --- Patch [3]: [PATCH v6 3/8] riscv: Add support for srmcfg CSR from Ssqosid extension ---
+> commit a02eee11a5e49e74d1e00459d9acc1ec4a1982fa
+> Author: Drew Fustini <fustini@kernel.org>
+> 
+> riscv: Add support for srmcfg CSR from Ssqosid extension
+> 
+> Add support for the srmcfg CSR defined in the Ssqosid ISA extension.
+> The CSR contains two fields: Resource Control ID (RCID) and Monitoring
+> Counter ID (MCID) for tracking resource usage.
+> 
+> Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
+> 
+> > The context-switch path writes the field to the CSR, and
+> > resctrl_arch_set_closid_rmid() updates it when a task is assigned to a
+> > resctrl control or monitoring group.
+> > 
+> > A per-cpu cpu_srmcfg_default holds the default srmcfg for each CPU, set
+> > by resctrl_arch_set_cpu_default_closid_rmid() on CPU group assignment.
+> 
+> [Severity: Medium]
+> Neither resctrl_arch_set_closid_rmid() nor
+> resctrl_arch_set_cpu_default_closid_rmid() appear to be implemented in this
+> patch. 
+> 
+> Since they are missing, are thread_struct.srmcfg and cpu_srmcfg_default ever
+> actually modified from their initial zero values?
 
-I agree that the documented ordered booting contract requires only
-one hart to enter the kernel initially, and that HART_START should
-therefore not return SBI_ERR_ALREADY_STARTED.
+Both are added in patch 5 along with the rest of the resctrl glue. I
+already explained that this is not a problem but sashiko doesn't read
+replies.
 
-> It sounds like your firmware implements something closer to the
-> RISCV_BOOT_SPINWAIT entry method, so if you disable CONFIG_RISCV_BOOT_SPINWAIT,
-> it is unsurprising that there would be problems.
+> > diff --git a/arch/riscv/kernel/qos.c b/arch/riscv/kernel/qos.c
+> > index 0000000000000..99925c0e93dd8
+> > --- /dev/null
+> > +++ b/arch/riscv/kernel/qos.c
+> > @@ -0,0 +1,101 @@
+> 
+> [ ... ]
+> 
+> > +	/*
+> > +	 * cpuhp_setup_state() invokes the startup callback locally on every
+> > +	 * already-online CPU, so no separate seed loop is needed here.
+> > +	 */
+> > +	err = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/srmcfg:online",
+> > +				riscv_srmcfg_reset_cache, riscv_srmcfg_reset_cache);
+> 
+> [Severity: High]
+> Does this software cache correctly handle CPU hotplug and early boot?
+> 
+> When a CPU is offlined, it continues context-switching as it goes down, which
+> overwrites the U32_MAX cache sentinel with a valid tag (such as 0 for the idle
+> thread).
+> 
+> When the CPU is brought back online, its hardware srmcfg CSR is reset to an
+> implementation-defined value. If the software cache cpu_srmcfg is still 0, the
+> first context switch to a task with a 0 tag in __switch_to_srmcfg() will see
+> thread_srmcfg == cpu_srmcfg and skip the CSR write:
+> 
+> arch/riscv/include/asm/qos.h:__switch_to_srmcfg() {
+>     ...
+>     if (thread_srmcfg != __this_cpu_read(cpu_srmcfg)) {
+>         __this_cpu_write(cpu_srmcfg, thread_srmcfg);
+>         csr_write(CSR_SRMCFG, thread_srmcfg);
+>     }
+>     ...
+> }
+> 
+> This leaves the hardware CSR undefined until this CPUHP_AP_ONLINE_DYN startup
+> callback runs. Is CPUHP_AP_ONLINE_DYN too late to prevent the CPU from running
+> with undefined QoS tags?
 
-On the SG2042 platform I'm investigating, however, that is the
-behavior I'm observing on shipping hardware. My investigation so far
-has focused on making Linux recover from that situation. Based on
-your reply, I'm now wondering whether the more appropriate fix is
-in the platform firmware or OpenSBI instead.
+This is not a problem. Only the idle task and per-cpu kthreads run in
+that window, and they run with the hart's reset srmcfg value.
 
-> Why doesn't your firmware do that? Can you fix your firmware?
-
-Is your expectation that platforms exhibiting this behavior should
-be corrected to satisfy the ordered booting contract, rather than
-Linux handling SBI_ERR_ALREADY_STARTED defensively?
-
-Thanks,
-Paul
+Drew
 
 _______________________________________________
 linux-riscv mailing list
