@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC040C55162
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 17:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34EAC5516D
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 17:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wq6yn0XBnp8qAw33lengyJC41eiP4VqY2wHiusyXWlI=; b=cHv+vW0LYS8H8NGa+5Og1dBgp+
-	tOmEgvbE4bRWeuusFhRJhDDf5OR1DxCWROgNPIskrxNGKyDJn3ySjWDvGByj+/8qN4/mAzdx2EGq0
-	s+Zd9NjM+E2+Xf0r2PeCn2xEwzRDCSmF3WY4sv+VaJHMgOQOxtqw6giZXp2WURTOeNrEzomkv/FVg
-	uIPvq7w1zHpA/0WKJTTroDUxUx7PnbI0Hh/PsZAhiWFd98n5dkANnua8A1+Y8HR1dNnRRslfLTB2i
-	bkYUdBlTmIon4PSFtVZt+GEwfbFQlwa1hlcRacUDFXXuCDJYXKOmocwCxI3C8gQ58eWodZvirvCjf
-	MZf/sABA==;
+	bh=zA/kjz1G7I/zqp0NPKqu28z9uiU2zlQ4rPqId88+BUw=; b=g/SuXhoC870jxVTvV6SU33Rv4S
+	mRwLdqCSDwJqtzSv5qX/TDGwDuywCQgr0myLV4C+ULpzgswhq69Ekh5Oaj5bil2Xd9a2NBHx8vFtZ
+	mRtTx+7U3ks5pRjaHGTuAcOzO1MQzByg4aiRlT0bbHy1Rian9KrfgeKiWp51TFEs9gaauVdoyP/Vm
+	aqmJ8vG4hhwtC9bv50h4e/IqqWvBfgiZeadjhV9Q3OQ5BilLeP8xxhtFcRWhROAjD9Kxrn9U8QfFe
+	46YRCAUscj7+sgk1sj7sLqQhJC4QkCFlRuV3E0uINfLqVQWmswfsvxCj27mTbtfWwp1j/qVdarp6k
+	8oxM7ThQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpUbz-0000000B5gn-3Nmo;
-	Thu, 30 Jul 2026 17:32:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wpUgP-0000000B65N-1FgA;
+	Thu, 30 Jul 2026 17:36:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpUby-0000000B5gZ-00FF
+	id 1wpUgO-0000000B65E-1gJ4
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Jul 2026 17:32:02 +0000
+	Thu, 30 Jul 2026 17:36:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2AC3600C8;
-	Thu, 30 Jul 2026 17:32:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15B6D1F000E9;
-	Thu, 30 Jul 2026 17:31:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E5CF600C8;
+	Thu, 30 Jul 2026 17:36:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 632C61F000E9;
+	Thu, 30 Jul 2026 17:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785432720;
-	bh=2frrfW3181LKyK3fiozB/GHo+GJ+LYol3EwZKQouEv8=;
+	s=k20260515; t=1785432995;
+	bh=G5N2M9ts2TJDTBWqs3Txx171CrTwFynnWbrFmo7/RPA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UataWm6GTtPTQsvVoPmqNOKpUOtBvT3T3DJU5NuSfpMttJR1catQeq6JRc72X34FF
-	 LIV10+6QXqwZKgCkY6I1dvuwnyNtJJsH5yQtH8nKsC5By/4CNi+OmOLkhG6+S8dV9x
-	 SkSsobU5IDTzUtLCKkpKexpgQfhvaVwoyTbGaxRAnFUg5p+NwS5la+h2UikIbmSfHA
-	 1qkhMgVHrSyDQLzPsksuWRddKydOw7MdNcLTkErac0f7Xr8aWuhMsIYGxyUP5/vC6q
-	 ai2e1TIZak7hTPNOIDQV8sypF8iAk4KdpxdqvzCqwRe+6A3IiiQuzhicsw9XfftDXd
-	 O+nFIAhIVmITg==
-Date: Thu, 30 Jul 2026 18:31:56 +0100
+	b=HjYQr3EvxzJljYB64jSSrsAYZoMDOKXYlJAc5dVBGeU0I2HTlGiFu7rsNngDxI8Pq
+	 +uHMl4ZSq/stuyU8CkQLGnFo9R1Th+m/kXDcvRVfeJCAegW3UE8RY5pFHeSiAr0GCu
+	 2ho1kxh2eGmXYGrVb4QD5NkSECyNQ6Sj0KAIZCip33jYUoiRfIwcD7I5h/hdI9rwVH
+	 GH+jnxldDX08t5mH/Zf+Wk5tGuzHPVt/XqDKDJQIspU9KuqNUxik6zkqHZVf8Xe0rY
+	 YaGRU6ETpzT0xXpR22PYN7/ccGsOBgg5FYJ4iAlzVgZ57N9mq2ggMqdj00vqA4q9Qz
+	 9BcVZN7gYtKjw==
+Date: Thu, 30 Jul 2026 18:36:27 +0100
 From: Conor Dooley <conor@kernel.org>
-To: E Shattow <e@freeshell.de>
-Cc: devicetree@vger.kernel.org, Ilya Sorochan <k0tran@altlinux.org>,
-	Conor Dooley <mail@conchuod.ie>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	linux-riscv@lists.infradead.org, heinrich.schuchardt@canonical.com,
-	hal.feng@starfivetech.com
-Subject: Re: [PATCH] riscv: dts: starfive: jh7110-common: fix jh7110 SoC boot
- from SD-card.
-Message-ID: <20260730-rockslide-depict-5edb03f8efc1@spud>
-References: <20260306171939.84568-1-k0tran@altlinux.org>
- <178526175795.1708098.11834005845749245101.b4-ty@conchuod.ie>
- <a32646aa-446a-4f95-9293-40001aeedae5@freeshell.de>
- <20260729-electable-remake-1b8c94a452b7@spud>
- <b1f10fad-e5ad-40a6-b37b-6e950736c1d2@freeshell.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Yu-Chien Peter Lin <peter.lin@sifive.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, samuel.holland@sifive.com, dlan@kernel.org,
+	guodong@riscstar.com, dfustini@oss.tenstorrent.com,
+	michal.simek@amd.com, junhui.liu@pigmoral.tech,
+	darshan.prajapati@einfochips.com, akpm@linux-foundation.org,
+	zhangchunyan@iscas.ac.cn, luxu.kernel@bytedance.com,
+	pincheng.plct@isrc.iscas.ac.cn, nick.hu@sifive.com,
+	jim.shu@sifive.com, zong.li@sifive.com, greentime.hu@sifive.com,
+	robin.randhawa@sifive.com, scott@riscstar.com,
+	dave.patel@riscstar.com, raymond.mao@riscstar.com,
+	anup@brainfault.org, pawandeep.oza@oss.qualcomm.com
+Subject: Re: [PATCH v2 3/3] dt-bindings: sifive: Add WorldGuard Checker
+Message-ID: <20260730-component-wake-80840a196f8d@spud>
+References: <20260729163908.249838-1-peter.lin@sifive.com>
+ <20260729163908.249838-4-peter.lin@sifive.com>
+ <20260730-towering-modest-horse-ccbdcc@quoll>
 MIME-Version: 1.0
-In-Reply-To: <b1f10fad-e5ad-40a6-b37b-6e950736c1d2@freeshell.de>
+In-Reply-To: <20260730-towering-modest-horse-ccbdcc@quoll>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,201 +77,203 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4773391419178836754=="
+Content-Type: multipart/mixed; boundary="===============0078181414439235516=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4773391419178836754==
+--===============0078181414439235516==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XGIKtqsdaLV2K/Bw"
+	protocol="application/pgp-signature"; boundary="IWgYDhvHWKCgUhK2"
 Content-Disposition: inline
 
---XGIKtqsdaLV2K/Bw
+--IWgYDhvHWKCgUhK2
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jul 29, 2026 at 02:07:07PM -0700, E Shattow wrote:
+On Thu, Jul 30, 2026 at 09:35:02AM +0200, Krzysztof Kozlowski wrote:
+> On Thu, Jul 30, 2026 at 12:39:08AM +0800, Yu-Chien Peter Lin wrote:
+> > Add YAML binding schema for the SiFive wgChecker, a programmable
 >=20
-> On 7/29/26 03:59, Conor Dooley wrote:
-> > On Wed, Jul 29, 2026 at 02:39:50AM -0700, E Shattow wrote:
-> >>
-> >>
-> >> On 7/28/26 11:02, Conor Dooley wrote:
-> >>> From: Conor Dooley <mail@conchuod.ie>
-> >>>
-> >>> On Fri, 06 Mar 2026 20:19:39 +0300, Ilya Sorochan wrote:
-> >>>> Add bootph-pre-ram to mmc1_pins clk-pins.
-> >>>>
-> >>>> U-Boot pruned their overrides recently in favor of Linux which broke=
- booting
-> >>>> from sd-card for me and Heinrich Schuchardt [1]. Pruning commit:
-> >>>> 27f617019dd070cb61f2 ("riscv: dts: starfive: prune redundant jh7110-=
-common overrides")
-> >>>>
-> >>>> [1]  https://lore.kernel.org/all/ffdfc550-559b-4c59-9873-3f040fc3bb0=
-e@canonical.com/
-> >>>>
-> >>>> [...]
-> >>>
-> >>> Right, I am going to try this again. I don't think there's actually a
-> >>> valid technical argument against it, since it just affects the stage =
-at
-> >>> which configuration is applied rather than configuration itself.
-> >>> If the configuration is wrong, and more devices don't use this config=
-uration
-> >>> than do, people need to move the node to where they think should be. =
-That
-> >>> shall be done separately.
-> >>>
-> >>> I don't want to hear about the politics about whether or not Starfive=
- want
-> >>> to support it or reverse engineering of binaries etc. All that I care=
- about
-> >>> is discussion of the hardware itself and which boards need this and w=
-hich do
-> >>> not.
-> >>>
-> >>> Applied to riscv-dt-fixes, thanks!
-> >>>
-> >>> [1/1] riscv: dts: starfive: jh7110-common: fix jh7110 SoC boot from S=
-D-card.
-> >>>       https://git.kernel.org/conor/c/42c57c049054
-> >>>
-> >>> Thanks,
-> >>> Conor.
-> >>
-> >> Second NAK to this being applied, again, do not apply as-is.
-> >>
-> >> As you're not interested in the technical discussion, then you won't
-> >> have one.
+> There is no "YAML" binding schema.
+>=20
+> > access controller integrated in the interconnect fabric of RISC-V
+> > Worlds-capable SoCs.
 > >=20
-> > I am interested in technical discussion of the hardware configuration. =
-I'm
-> > not interested in reverse engineering of binaries, GPL compliance or
-> > whether Starfive want this to work or not because I don't see how they
-> > relate to the correctness of the hardware description.
+> > wgChecker enforces World ID (WID) based access control on downstream
+> > bus transactions. Each checker slot encodes a 2-bit permission field
+> > per WID (read/write), enabling fine-grained memory partitioning and
+> > device isolation between execution contexts. Violations are reported
+> > via bus errors, interrupts, or both, selectable and lockable per slot.
+> >=20
+> > The binding registers wgChecker as an access-controllers provider.
+> > Consumers (i.e. its protected device) reference it via the standard
+> > access-controllers phandle to declare their access requirements.
+> >=20
+> > Also document the sifive,trustedwid property for the /cpus node,
+> > identifying the privileged WID authorized to configure all checkers
+> > on the platform.
+> >=20
+> > Link: https://github.com/riscvarchive/security/blob/main/papers/worldgu=
+ard%20proposal.pdf
+> > Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
+> > Reviewed-by: Zong Li <zong.li@sifive.com>
+> > Reviewed-by: Jim Shu <jim.shu@sifive.com>
 >=20
-> The commit message suggesting "...broke booting from sd-card..." is
-> missing information or should be clearer i.e. "The bootph-pre-ram
-> hint(s) allow that following the SD Boot mode of StarFive loader in
-> MaskROM the U-Boot SPL will have all necessary devicetree nodes to
-> initialize the MMC driver and continue booting U-Boot Main from SD
-> card". It has not to do with booting Linux from SD card, and is for want
-> of a more generalized description affecting any SPL that filters on the
-> patterns of bootph-* hints but U-Boot seems to be one-of-one the only
-> consumer of this that I am aware of.
+> What exactly these reviews pointed out?
 >=20
-> Placement of this bootph-pre-ram hint in jh7110-common is (probably?)
-> not appropriate, as SD Card is not valid on all boards or even at that
-> mmc device, namely StarFive VisionFive 2 Lite eMMC, Milk-V Mars CM, and
-> requires testing to know if it breaks existing functionality on boards
-> with swapped arrangement of mmc0 and mmc1 with respect to SDIO module
-> and eMMC (i.e. OrangePi RV ? It has been awhile I may misremember this).
+> > ---
+> >  .../devicetree/bindings/riscv/worlds.yaml     |   9 +
+> >  .../bindings/sifive/sifive,wgchecker2.yaml    | 356 ++++++++++++++++++
+> >  2 files changed, 365 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/sifive/sifive,wgc=
+hecker2.yaml
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/riscv/worlds.yaml b/Docu=
+mentation/devicetree/bindings/riscv/worlds.yaml
+> > index cc8b3747591e..c39a06c2dd8d 100644
+> > --- a/Documentation/devicetree/bindings/riscv/worlds.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/worlds.yaml
+> > @@ -34,6 +34,14 @@ properties:
+> >      minimum: 2
+> >      maximum: 64
+> > =20
+> > +  sifive,trustedwid:
+>=20
+> No, for the same reasons.
 
-This kinda comes back to the point I was making about it not changing the
-configuration, just the point at which the configuration is applied. All
-boards get this configuration eventually, it just seems to be that this
-particular boot method needs it earlier?
-I'm not sure that applying it earlier would break any boards (although
-of course it could), I'd be more likely to think that having the
-configuration at all is probably harmful in the cases where it is
-harmful.
+I am not entirely sure that this is defined by the platform compatible,
+if you've got something like a FPGA with lots of configurability then it
+may be needed. Then again, yeah maybe it can just come from the platform
+compatible unlike a device shows up that actually needs it.
+This is especially true if the consumer of the property is the SBI
+firmware.
 
-The other thing I don't really get is why the clk-pins node is needed at
-the pre-ram stage but not the mmc-pins node. Surely both are needed? I
-suppose it may be the case that the latter matches the default
-configuration for the pins but not the former? If that's the case, the
-node mmc-pins should get the property too IMO. I've added Hal into the
-thread, maybe he can clear stuff up somewhat in that regard.
-
-> The functionality of adding this hint is not even possible for more than
-> half the boards, and no new boards will have it.
-
-Ignoring the rest of this for now, these are the supported boards and
-inferring sd from cd-gpios:
-
-jh7110-deepcomputing-fml13v01.dts
-
-Looks like sd on 1
-
-jh7110-milkv-marscm-emmc.dts
-jh7110-milkv-marscm-lite.dts
-
-looks like sd on 0
-
-jh7110-milkv-mars.dts
-
-looks like sd on 1
-
-jh7110-orangepi-rv.dts
-
-ditto
-
-jh7110-pine64-star64.dts
-
-ditto
-
-jh7110-starfive-visionfive-2-lite.dts
-
-looks like sd on 0
-
-jh7110-starfive-visionfive-2-lite-emmc.dts
-jh7110-starfive-visionfive-2-v1.2a.dts
-
-looks like sd on 1
-
-jh7110-starfive-visionfive-2-v1.3b.dts
-
-ditto
-
-Would you be happier if only the boards with sd on mmc1 got the
-property?
-
-I'd like to say I will read the decompliation, but I look after this
-platform as a favour and I just don't have the time to dedicate to
-understanding it. There's a reason it took me ages to even circle back
-to this.
+(that's assuming "same reason" follows on from your comment on the
+prior binding)
 
 >=20
-> Repeating myself, Hal offered a description of the boot process but I
-> find that does not exactly match the hardware based on my
-> reverse-engineering effort. More eyes should be on this to explain what
-> the hardware does in context of the patch commit message. Are we
-> correctly describing this hardware, or not?
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    maximum: 31
+> > +    description: |
+> > +      The World ID (WID) designated as the trusted WID for this platfo=
+rm.
+> > +      Transactions tagged with this WID are authorized to access and c=
+onfigure
+> > +      WorldGuard blocks, including wgCheckers and wgMarkers.
+> > +
+> >  additionalProperties: true
+> > =20
+> >  examples:
+> > @@ -44,6 +52,7 @@ examples:
+> >          #size-cells =3D <0>;
+> >          timebase-frequency =3D <1000000>;
+> >          riscv,nworlds =3D <4>;
+> > +        sifive,trustedwid =3D <3>;
+> > =20
+> >          cpu@0 {
+> >              device_type =3D "cpu";
+> > diff --git a/Documentation/devicetree/bindings/sifive/sifive,wgchecker2=
+=2Eyaml b/Documentation/devicetree/bindings/sifive/sifive,wgchecker2.yaml
+> > new file mode 100644
+> > index 000000000000..c025a4765cb3
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/sifive/sifive,wgchecker2.yaml
+>=20
+> No, you do not get per vendor directory. NAK.
+>=20
+> Do you see Qcom? Or TI? Or NXP?
+>=20
+> Place it in appropriate directory matching the hardware.
 
-> The "reverse engineering of binaries" is the StarFive loader in hardware
-> MaskROM that immediately precedes the supposed consumer of this proposed
-> bootph-pre-ram hint as stated in the patch commit message. It is the
-> hardware specifically the functionality that we are purporting to
-> describe. So there it is an excerpt and if you want an explanation of
-> what that all does to save you the trouble of reading it I am sorry to
-> disappoint as I don't I don't understand a line of it. What are we
-> describing and are there more bootph-pre-ram hints needed?
+Which would be access-controllers.
 
-In theory, the state of the hardware prior to the boot loader stage
-consuming bootph-pre-ram shouldn't even matter, any node needed by the
-stage should be marked with it even if that node matches the default
-state of the pinctrl hardware. What the prior stage is or does shouldn't
-matter, although of course people tend to only add pinctrl nodes or
-annotations when software requirements/expecations don't match the state
-it finds the hardware in.
+>=20
+>=20
+> > @@ -0,0 +1,356 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +# Copyright (C) 2026 SiFive, Inc.
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/sifive/sifive,wgchecker2.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: SiFive WorldGuard Checker
+> > +
+> > +maintainers:
+> > +  - Yu-Chien Peter Lin <peter.lin@sifive.com>
+> > +
+> > +description: |
+> > +  The RISC-V Worlds ISA extension defines World IDs (WIDs) as architec=
+tural
+> > +  identifiers that tag each system transaction with its originating co=
+ntext.
+> > +  System integrators assign WIDs to execution contexts such as privile=
+ge modes,
+> > +  trusted execution environments, or other isolation boundaries.
+> > +
+> > +  The SiFive WorldGuard Checker is a hardware firewall positioned in t=
+he
+> > +  system interconnect fabric. It inspects every transaction, evaluatin=
+g the
+> > +  WID against access control policies encoded in checker slots for each
+> > +  protected resource. Transactions from unauthorized WIDs are blocked =
+and
+> > +  reported as bus errors, interrupts, or both.
+> > +
+> > +  This enables spatial partitioning of memory regions and memory-mappe=
+d devices
+> > +  across execution contexts. Different address ranges can enforce dist=
+inct
+> > +  policies, allowing isolated workloads to coexist with hardware-enfor=
+ced
+> > +  protection.
+> > +
+> > +  The wgChecker acts as an access-controller provider as defined in the
+> > +  access-controllers framework. Protected devices are consumers that d=
+eclare
+> > +  their access policy via the access-controllers property. The hardware
+> > +  supports up to 32 World IDs.
+> > +
+> > +  The World ID authorized to configure WorldGuard blocks is specified =
+by the
+> > +  sifive,trustedwid property in the /cpus node.
+> > +
+> > +allOf:
+> > +  - $ref: /schemas/access-controllers/access-controllers.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    oneOf:
+> > +      - items:
+> > +          - const: qemu,wgchecker2
+> > +          - const: sifive,wgchecker2
+> > +      - const: sifive,wgchecker2
+>=20
+> You need soc specific compatibles.
+>=20
+> I do not believe the two review tags did any actual real review. They
+> would tell you to read writing bindings document, wouldn't they?
 
---XGIKtqsdaLV2K/Bw
+I did okay the qemu compatible FWIW, the standalone sifive one though I
+did not.
+
+
+--IWgYDhvHWKCgUhK2
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCamuKiQAKCRB4tDGHoIJi
-0pnYAP0eZc5ITM2q9B1D5VwtvQqQnzQQJW5o1r6FHHXYY88VBAD9GNRQPP2lMtlK
-v7kBYqJXlEV9sOZkwRDGGK82oiyT/gA=
-=y0/s
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCamuLmwAKCRB4tDGHoIJi
+0sbyAQDQO5jGKNXxvfcLYlj8WTRy61IS4cHNIJ0RysdjVYOA0wEA5MvlcYB3Kugh
+0Na4V6sle17yOIH2Zwdkv6HLWtyFRgI=
+=/dkV
 -----END PGP SIGNATURE-----
 
---XGIKtqsdaLV2K/Bw--
+--IWgYDhvHWKCgUhK2--
 
 
---===============4773391419178836754==
+--===============0078181414439235516==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -276,5 +284,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4773391419178836754==--
+--===============0078181414439235516==--
 
