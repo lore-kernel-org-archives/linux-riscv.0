@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36341C55166
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 01:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D10EC55164
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2026 01:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mD0EJukxchgT33m5mZHnw4q2AqW7u6koa16pxuKNZEs=; b=M6eBB5ndL0ccK+
-	Y9PN23xrHsnJu9XoUDF5FGotCbKF3yTGgjDVcLqroJqQKnTVlqDvuF7Oz5btpgxXGIR6ebXjdxBVK
-	P/Nt5WBtsDtABdJRDvLsy59XnsDcYwenE9qzx7hg2rmDkRMWqdQbk2tale3lQWj/h28bOZisq2EI6
-	ToqpQpRf4Qkx2hk9PWpJWqYVB+ZRTNBIbyFujfaFP2+ditqXAwf0ygEGWpDW+Jbd9npNHt2+PbIwg
-	uPmK+LyDWyrkv9SITFlxnLtD66PlOUQr4ihsPnDOlwIy4Fnb+PNuj4yRjrSO/jjrXOLMmdBziCaG6
-	hJwYDO4QDIfyq+qXvfrg==;
+	List-Owner; bh=LfzkIZzeCtMMGt3EQ5z9r28lsp/9YmgOzpAVQiuZP6U=; b=Wrbe/zeDsBc19p
+	Ujl2Vg8gDbMDwLq4tof59refKRPPM7BX8rvS9eakjIZLM9VmvQWwNRdZeq7L+eV+gnXqYte1RfPuD
+	E4Ozh/nT+EgQlcP0P6rHju99CpsBDm5QsFdeIyl4YWNKgHkrEBqfBrj/lUnaQzVggCbAoACicfmcB
+	C7asv5kb3JojcMVRbnpNy7ehulm+uaXJH6G3NBJf9k8Jb7fcypROnpZtsyUZ2goNErCLVdoe+LY2r
+	1G9SZqj4U7dbJ1mcA6AZlu+v4QJq+lH+ylm7+8poF9OcDOA0oYH0eWLykDKxdbYv/vhezfY1VAf4I
+	TH9TnSr0uaFI7SA1lvdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpFJS-00000009DnD-3o5I;
-	Thu, 30 Jul 2026 01:11:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wpFJT-00000009Dnk-0kq0;
+	Thu, 30 Jul 2026 01:11:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpFJM-00000009Dkx-1mI3
+	id 1wpFJN-00000009DlL-0pHZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Jul 2026 01:11:48 +0000
+	Thu, 30 Jul 2026 01:11:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB08E60A6D;
-	Thu, 30 Jul 2026 01:11:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B61A1F00ACF;
-	Thu, 30 Jul 2026 01:11:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C0B2644247;
+	Thu, 30 Jul 2026 01:11:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D4A1F00ADB;
+	Thu, 30 Jul 2026 01:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785373907;
-	bh=GLtkIKBpNVEBIXoG5AlQurT1MvToOuM6j6EGOdI8R+E=;
+	s=k20260515; t=1785373908;
+	bh=dYVj2yoTw+NhBXq7ONDbYSoeLkzxhxXkM+w/uvSkHJY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=UnorGdRXY6su3/BJcTjo6vHrDIynuonJAKHZKI0tNCWiE+rq17XJkQ5zB00ssBI2G
-	 ycWsoJsQkDdfkPQgRunu2sArcuxso62P1XnykR0LFAI0ziEES7HxFUeQlWM9gBP8T7
-	 akU8+hutRNS+UdatRxdKxQAqR9Lb4VHgL/CF98Jv2xTbJZhWqz8Ix3VoY/Ygm4KqpJ
-	 QxFnsMiT3MemOFS9EhJoXFmlPhhmWA32xDeOycUrIU9kFbNQQuZQMC1kameQKa9BpX
-	 Qwk+RUf1keKDR10vQreG639+ckmYIwpKFgqW9TDoKEuiJ143P6t9ZeEOLPA9T7yv9u
-	 qQciPNxcHI24A==
+	b=dhNHPzcbfJ3NCm4vUpDOzj3v2GYlsisEw+tlNQZfef9am7kJsb0IJasADiBBnE7/K
+	 g/+24LJ8XxTGZtKIz6qQQ9UH0alGunLQTU+Oa1y3jjVNa/g0i17JtmKVIx/89qPjfq
+	 8TMdWmcbD1Qkh5iyuY9x1VYdHgmxfuh9PB0d3ewtdCAagemd1+QOiYlfh8jpoRWOIL
+	 0z1FYqP4wypqtqztBH2pJ4FU7VHNYYGELyQ8abxn1fRVK4H7obgjwiLgM/fZbSfTq8
+	 O/gTbQViASwIOVkA9ABmokyNUtLrVbdbRZ6rGYSfCPNi/OobjGrUM80tdKCbjS2wEP
+	 bFO9bPoG1jC+A==
 From: Drew Fustini <fustini@kernel.org>
-Date: Wed, 29 Jul 2026 18:11:30 -0700
-Subject: [PATCH v6 3/8] riscv: Add support for srmcfg CSR from Ssqosid
- extension
+Date: Wed, 29 Jul 2026 18:11:32 -0700
+Subject: [PATCH v6 5/8] riscv_cbqri: resctrl: Add cache allocation via
+ capacity block mask
 MIME-Version: 1.0
-Message-Id: <20260729-dfustini-atl-sc-cbqri-dt-v6-3-7c22b05d461b@kernel.org>
+Message-Id: <20260729-dfustini-atl-sc-cbqri-dt-v6-5-7c22b05d461b@kernel.org>
 References: <20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org>
 In-Reply-To: <20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org>
 To: Adrien Ricciardi <aricciardi@baylibre.com>, 
@@ -79,12 +79,12 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12190; i=fustini@kernel.org;
- h=from:subject:message-id; bh=wysxM4PmSPWEOkeA19X6NlaLWaEjHfNTmvxfSKhGtJE=;
- b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRlLblw5m7W5BVxHfLXTp1krjviWyPcwh0tVZXZ3xlbs
- Nk3y6Cmo5SFQYyLQVZMkWXTh7wLS7xCvy6Y/2IbzBxWJpAhDFycAjCRFdEM/71tnCQncD0zl91e
- ebHI71Th0Qv8UYEpod75vY0Lfjz77cXIcM7gk87h/59u9fhn3T6fHZnNe8wxP8BcVzyoKax6hpw
- 7NwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=29305; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=s7/2foyvkImLArpPZUo9dbaZdO/urHi5yyxUxHSyD28=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRlLbngaSPe/6xc7svFdzMzL7K9UJwxfaNXr5aR+xynl
+ 7xHz8brdpSyMIhxMciKKbJs+pB3YYlX6NcF819sg5nDygQyhIGLUwAmstaMkWHp2QUz9zFLslda
+ MuiYvTQUZDONDdCv0fy7tYv1C68ujycjw92Hiwt2RC1mX9c8k8FBirnLc9mPuvigcrP4jc4lU+5
+ O4gAA
 X-Developer-Key: i=fustini@kernel.org; a=openpgp;
  fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -98,219 +98,1025 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIHN1cHBvcnQgZm9yIHRoZSBzcm1jZmcgQ1NSIGRlZmluZWQgaW4gdGhlIFNzcW9zaWQgSVNB
-IGV4dGVuc2lvbi4KVGhlIENTUiBjb250YWlucyB0d28gZmllbGRzOgoKICAtIFJlc291cmNlIENv
-bnRyb2wgSUQgKFJDSUQpIGZvciByZXNvdXJjZSBhbGxvY2F0aW9uCiAgLSBNb25pdG9yaW5nIENv
-dW50ZXIgSUQgKE1DSUQpIGZvciB0cmFja2luZyByZXNvdXJjZSB1c2FnZQoKUmVxdWVzdHMgZnJv
-bSBhIGhhcnQgdG8gc2hhcmVkIHJlc291cmNlcyBhcmUgdGFnZ2VkIHdpdGggdGhlc2UgSURzLAph
-bGxvd2luZyByZXNvdXJjZSB1c2FnZSB0byBiZSBhc3NvY2lhdGVkIHdpdGggdGhlIHJ1bm5pbmcg
-dGFzay4KCkFkZCBhIHNybWNmZyBmaWVsZCB0byB0aHJlYWRfc3RydWN0IHdpdGggdGhlIHNhbWUg
-Zm9ybWF0IGFzIHRoZSBDU1IuClRoZSBjb250ZXh0LXN3aXRjaCBwYXRoIHdyaXRlcyB0aGUgZmll
-bGQgdG8gdGhlIENTUiwgYW5kCnJlc2N0cmxfYXJjaF9zZXRfY2xvc2lkX3JtaWQoKSB1cGRhdGVz
-IGl0IHdoZW4gYSB0YXNrIGlzIGFzc2lnbmVkIHRvIGEKcmVzY3RybCBjb250cm9sIG9yIG1vbml0
-b3JpbmcgZ3JvdXAuCgpBIHBlci1jcHUgY3B1X3NybWNmZ19kZWZhdWx0IGhvbGRzIHRoZSBkZWZh
-dWx0IHNybWNmZyBmb3IgZWFjaCBDUFUsIHNldApieSByZXNjdHJsX2FyY2hfc2V0X2NwdV9kZWZh
-dWx0X2Nsb3NpZF9ybWlkKCkgb24gQ1BVIGdyb3VwIGFzc2lnbm1lbnQuCk9uIGNvbnRleHQgc3dp
-dGNoLCBSQ0lEIGFuZCBNQ0lEIGluaGVyaXQgZnJvbSB0aGUgQ1BVIGRlZmF1bHQKaW5kZXBlbmRl
-bnRseTogYSB0YXNrIHdob3NlIHRocmVhZCBSQ0lEIGZpZWxkIGlzIHplcm8gdGFrZXMgdGhlIENQ
-VQpkZWZhdWx0J3MgUkNJRCwgYW5kIGxpa2V3aXNlIGZvciBNQ0lELgoKQSBwZXItY3B1IGNwdV9z
-cm1jZmcgdmFyaWFibGUgbWlycm9ycyB0aGUgQ1NSIHN0YXRlIHRvIGF2b2lkCnJlZHVuZGFudCB3
-cml0ZXMuIEwxRC1ob3QgbWVtb3J5IGFjY2VzcyBpcyBmYXN0ZXIgdGhhbiBhIENTUiByZWFkIGFu
-ZAphdm9pZHMgdHJhcHMgdW5kZXIgdmlydHVhbGl6YXRpb24uCgpMaW5rOiBodHRwczovL2dpdGh1
-Yi5jb20vcmlzY3YvcmlzY3Ytc3Nxb3NpZC9yZWxlYXNlcy90YWcvdjEuMApBc3Npc3RlZC1ieTog
-Q2xhdWRlOmNsYXVkZS1vcHVzLTQtNwpDby1kZXZlbG9wZWQtYnk6IEtvcm5lbCBEdWzEmWJhIDxt
-aW5kYWxAc2VtaWhhbGYuY29tPgpTaWduZWQtb2ZmLWJ5OiBLb3JuZWwgRHVsxJliYSA8bWluZGFs
-QHNlbWloYWxmLmNvbT4KU2lnbmVkLW9mZi1ieTogRHJldyBGdXN0aW5pIDxmdXN0aW5pQGtlcm5l
-bC5vcmc+Ci0tLQogTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICAgICB8ICAgOCArKysK
-IGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgfCAgMTggKysrKysrKwogYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9jc3IuaCAgICAgICB8ICAgNSArKwogYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9wcm9jZXNzb3IuaCB8ICAgMyArKwogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9xb3MuaCAg
-ICAgICB8ICA3NCArKysrKysrKysrKysrKysrKysrKysrKysrKysKIGFyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vc3dpdGNoX3RvLmggfCAgIDMgKysKIGFyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlICAg
-ICAgICAgfCAgIDIgKwogYXJjaC9yaXNjdi9rZXJuZWwvcW9zLmMgICAgICAgICAgICB8IDEwMSAr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCiA4IGZpbGVzIGNoYW5nZWQsIDIx
-NCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvTUFJTlRBSU5FUlMgYi9NQUlOVEFJTkVSUwpp
-bmRleCBkY2ZmZTlmYzU0ZjYuLmEwYTRiNDFmMDJjNSAxMDA2NDQKLS0tIGEvTUFJTlRBSU5FUlMK
-KysrIGIvTUFJTlRBSU5FUlMKQEAgLTIzMzU4LDYgKzIzMzU4LDE0IEBAIEY6CWRyaXZlcnMvcGVy
-Zi9yaXNjdl9wbXUuYwogRjoJZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9sZWdhY3kuYwogRjoJZHJp
-dmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYwogCitSSVNDLVYgUU9TIFJFU0NUUkwgU1VQUE9SVAor
-TToJRHJldyBGdXN0aW5pIDxmdXN0aW5pQGtlcm5lbC5vcmc+CitSOgl5dW5odWkgY3VpIDxjdWl5
-dW5odWlAYnl0ZWRhbmNlLmNvbT4KK0w6CWxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-K1M6CVN1cHBvcnRlZAorRjoJYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9xb3MuaAorRjoJYXJjaC9y
-aXNjdi9rZXJuZWwvcW9zLmMKKwogUklTQy1WIFJQTUkgQU5EIE1QWFkgRFJJVkVSUwogTToJUmFo
-dWwgUGF0aGFrIDxyYWh1bEBzdW1tYXRpb25zLm5ldD4KIE06CUFudXAgUGF0ZWwgPGFudXBAYnJh
-aW5mYXVsdC5vcmc+CmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2
-L0tjb25maWcKaW5kZXggYTEzY2NiNjUyYjA2Li5iNGIwMzY1NDk0MWMgMTAwNjQ0Ci0tLSBhL2Fy
-Y2gvcmlzY3YvS2NvbmZpZworKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKQEAgLTU5Myw2ICs1OTMs
-MjQgQEAgY29uZmlnIFJJU0NWX0lTQV9TVk5BUE9UCiAKIAkgIElmIHlvdSBkb24ndCBrbm93IHdo
-YXQgdG8gZG8gaGVyZSwgc2F5IFkuCiAKK2NvbmZpZyBSSVNDVl9JU0FfU1NRT1NJRAorCWJvb2wg
-IlNzcW9zaWQgZXh0ZW5zaW9uIHN1cHBvcnQgZm9yIHN1cGVydmlzb3IgbW9kZSBRdWFsaXR5IG9m
-IFNlcnZpY2UgSUQiCisJZGVwZW5kcyBvbiA2NEJJVAorCWRlZmF1bHQgbgorCWhlbHAKKwkgIEFk
-ZHMgc3VwcG9ydCBmb3IgdGhlIFNzcW9zaWQgSVNBIGV4dGVuc2lvbiAoU3VwZXJ2aXNvci1tb2Rl
-CisJICBRdWFsaXR5IG9mIFNlcnZpY2UgSUQpLgorCisJICBTc3Fvc2lkIGRlZmluZXMgdGhlIHNy
-bWNmZyBDU1Igd2hpY2ggYWxsb3dzIHRoZSBzeXN0ZW0gdG8gdGFnIHRoZQorCSAgcnVubmluZyBw
-cm9jZXNzIHdpdGggYW4gUkNJRCAoUmVzb3VyY2UgQ29udHJvbCBJRCkgYW5kIE1DSUQKKwkgIChN
-b25pdG9yaW5nIENvdW50ZXIgSUQpLiBUaGUgUkNJRCBpcyB1c2VkIHRvIGRldGVybWluZSByZXNv
-dXJjZQorCSAgYWxsb2NhdGlvbi4gVGhlIE1DSUQgaXMgdXNlZCB0byB0cmFjayByZXNvdXJjZSB1
-c2FnZSBpbiBldmVudAorCSAgY291bnRlcnMuCisKKwkgIEZvciBleGFtcGxlLCBhIGNhY2hlIGNv
-bnRyb2xsZXIgbWF5IHVzZSB0aGUgUkNJRCB0byBhcHBseSBhCisJICBjYWNoZSBwYXJ0aXRpb25p
-bmcgc2NoZW1lIGFuZCB1c2UgdGhlIE1DSUQgdG8gdHJhY2sgaG93IG11Y2gKKwkgIGNhY2hlIGEg
-cHJvY2Vzcywgb3IgYSBncm91cCBvZiBwcm9jZXNzZXMsIGlzIHVzaW5nLgorCiBjb25maWcgUklT
-Q1ZfSVNBX1NWUEJNVAogCWJvb2wgIlN2cGJtdCBleHRlbnNpb24gc3VwcG9ydCBmb3Igc3VwZXJ2
-aXNvciBtb2RlIHBhZ2UtYmFzZWQgbWVtb3J5IHR5cGVzIgogCWRlcGVuZHMgb24gNjRCSVQgJiYg
-TU1VCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oIGIvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9jc3IuaAppbmRleCAzMWI4OTg4ZjQ0ODguLjdiY2U5MjhlNWRhYSAxMDA2
-NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaAorKysgYi9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2Nzci5oCkBAIC04NCw2ICs4NCwxMCBAQAogI2RlZmluZSBTQVRQX0FTSURfTUFT
-SwlfQUMoMHhGRkZGLCBVTCkKICNlbmRpZgogCisvKiBTUk1DRkcgZmllbGRzICovCisjZGVmaW5l
-IFNSTUNGR19SQ0lEX01BU0sJR0VOTUFTSygxMSwgMCkKKyNkZWZpbmUgU1JNQ0ZHX01DSURfTUFT
-SwlHRU5NQVNLKDI3LCAxNikKKwogLyogRXhjZXB0aW9uIGNhdXNlIGhpZ2ggYml0IC0gaXMgYW4g
-aW50ZXJydXB0IGlmIHNldCAqLwogI2RlZmluZSBDQVVTRV9JUlFfRkxBRwkJKF9BQygxLCBVTCkg
-PDwgKF9fcmlzY3ZfeGxlbiAtIDEpKQogCkBAIC0zMjgsNiArMzMyLDcgQEAKICNkZWZpbmUgQ1NS
-X1NUVkFMCQkweDE0MwogI2RlZmluZSBDU1JfU0lQCQkJMHgxNDQKICNkZWZpbmUgQ1NSX1NBVFAJ
-CTB4MTgwCisjZGVmaW5lIENTUl9TUk1DRkcJCTB4MTgxCiAKICNkZWZpbmUgQ1NSX1NUSU1FQ01Q
-CQkweDE0RAogI2RlZmluZSBDU1JfU1RJTUVDTVBICQkweDE1RApkaWZmIC0tZ2l0IGEvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHJv
-Y2Vzc29yLmgKaW5kZXggODEyNTE3YjJjZWMxLi40OWEzODZkNzRjZDMgMTAwNjQ0Ci0tLSBhL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9wcm9jZXNzb3IuaApAQCAtMTIzLDYgKzEyMyw5IEBAIHN0cnVjdCB0aHJlYWRfc3RydWN0
-IHsKIAkvKiBBIGZvcmNlZCBpY2FjaGUgZmx1c2ggaXMgbm90IG5lZWRlZCBpZiBtaWdyYXRpbmcg
-dG8gdGhlIHByZXZpb3VzIGNwdS4gKi8KIAl1bnNpZ25lZCBpbnQgcHJldl9jcHU7CiAjZW5kaWYK
-KyNpZmRlZiBDT05GSUdfUklTQ1ZfSVNBX1NTUU9TSUQKKwl1MzIgc3JtY2ZnOworI2VuZGlmCiB9
-OwogCiAvKiBXaGl0ZWxpc3QgdGhlIGZzdGF0ZSBmcm9tIHRoZSB0YXNrX3N0cnVjdCBmb3IgaGFy
-ZGVuZWQgdXNlcmNvcHkgKi8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcW9z
-LmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Fvcy5oCm5ldyBmaWxlIG1vZGUgMTAwNjQ0Cmlu
-ZGV4IDAwMDAwMDAwMDAwMC4uY2YxOWU4NDM4YmI5Ci0tLSAvZGV2L251bGwKKysrIGIvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9xb3MuaApAQCAtMCwwICsxLDc0IEBACisvKiBTUERYLUxpY2Vuc2Ut
-SWRlbnRpZmllcjogR1BMLTIuMCAqLworI2lmbmRlZiBfQVNNX1JJU0NWX1FPU19ICisjZGVmaW5l
-IF9BU01fUklTQ1ZfUU9TX0gKKworI2luY2x1ZGUgPGxpbnV4L3BlcmNwdS1kZWZzLmg+CisKKyNp
-ZmRlZiBDT05GSUdfUklTQ1ZfSVNBX1NTUU9TSUQKKworI2luY2x1ZGUgPGxpbnV4L2JpdGZpZWxk
-Lmg+CisjaW5jbHVkZSA8bGludXgvY3B1ZmVhdHVyZS5oPgorI2luY2x1ZGUgPGxpbnV4L3NjaGVk
-Lmg+CisKKyNpbmNsdWRlIDxhc20vY3NyLmg+CisjaW5jbHVkZSA8YXNtL2h3Y2FwLmg+CisKKy8q
-IGNhY2hlZCB2YWx1ZSBvZiBzcm1jZmcgY3NyIGZvciBlYWNoIGNwdSAqLworREVDTEFSRV9QRVJf
-Q1BVKHUzMiwgY3B1X3NybWNmZyk7CisKKy8qIGRlZmF1bHQgc3JtY2ZnIHZhbHVlIGZvciBlYWNo
-IGNwdSwgc2V0IHZpYSByZXNjdHJsIGNwdSBhc3NpZ25tZW50ICovCitERUNMQVJFX1BFUl9DUFUo
-dTMyLCBjcHVfc3JtY2ZnX2RlZmF1bHQpOworCitzdGF0aWMgaW5saW5lIHZvaWQgX19zd2l0Y2hf
-dG9fc3JtY2ZnKHN0cnVjdCB0YXNrX3N0cnVjdCAqbmV4dCkKK3sKKwl1MzIgdGhyZWFkX3NybWNm
-ZywgZGVmYXVsdF9zcm1jZmc7CisKKwl0aHJlYWRfc3JtY2ZnID0gUkVBRF9PTkNFKG5leHQtPnRo
-cmVhZC5zcm1jZmcpOworCWRlZmF1bHRfc3JtY2ZnID0gX190aGlzX2NwdV9yZWFkKGNwdV9zcm1j
-ZmdfZGVmYXVsdCk7CisKKwkvKgorCSAqIFJDSUQgYW5kIE1DSUQgaW5oZXJpdCBmcm9tIGNwdV9z
-cm1jZmdfZGVmYXVsdCBpbmRlcGVuZGVudGx5LgorCSAqIFJFU0NUUkxfUkVTRVJWRURfQ0xPU0lE
-IGFuZCBSRVNDVFJMX1JFU0VSVkVEX1JNSUQgYXJlIGJvdGggMCwgc28gYQorCSAqIHplcm8gZmll
-bGQgbWVhbnMgInVuYXNzaWduZWQiIGFuZCB0YWtlcyB0aGUgQ1BVIGRlZmF1bHQuCisJICovCisJ
-aWYgKHRocmVhZF9zcm1jZmcgPT0gMCkgeworCQl0aHJlYWRfc3JtY2ZnID0gZGVmYXVsdF9zcm1j
-Zmc7CisJfSBlbHNlIHsKKwkJdTMyIHJjaWQgPSBGSUVMRF9HRVQoU1JNQ0ZHX1JDSURfTUFTSywg
-dGhyZWFkX3NybWNmZyk7CisJCXUzMiBtY2lkID0gRklFTERfR0VUKFNSTUNGR19NQ0lEX01BU0ss
-IHRocmVhZF9zcm1jZmcpOworCisJCWlmIChyY2lkID09IDAgfHwgbWNpZCA9PSAwKSB7CisJCQlp
-ZiAocmNpZCA9PSAwKQorCQkJCXJjaWQgPSBGSUVMRF9HRVQoU1JNQ0ZHX1JDSURfTUFTSywgZGVm
-YXVsdF9zcm1jZmcpOworCQkJaWYgKG1jaWQgPT0gMCkKKwkJCQltY2lkID0gRklFTERfR0VUKFNS
-TUNGR19NQ0lEX01BU0ssIGRlZmF1bHRfc3JtY2ZnKTsKKwkJCXRocmVhZF9zcm1jZmcgPSBGSUVM
-RF9QUkVQKFNSTUNGR19SQ0lEX01BU0ssIHJjaWQpIHwKKwkJCQkJRklFTERfUFJFUChTUk1DRkdf
-TUNJRF9NQVNLLCBtY2lkKTsKKwkJfQorCX0KKworCWlmICh0aHJlYWRfc3JtY2ZnICE9IF9fdGhp
-c19jcHVfcmVhZChjcHVfc3JtY2ZnKSkgeworCQkvKgorCQkgKiBObyBmZW5jZSBhcm91bmQgdGhl
-IGNzcncuIFNzcW9zaWQgaXMgc2lsZW50IG9uIHNybWNmZworCQkgKiBvcmRlcmluZyB2ZXJzdXMg
-bWVtb3J5IGFjY2Vzc2VzLCBzbyBhIGZldyBhY2Nlc3NlcyBhdCB0aGUKKwkJICogc3dpdGNoIGJv
-dW5kYXJ5IG1heSBjYXJyeSB0aGUgcHJldmlvdXMgUkNJRC9NQ0lELiBUaGUKKwkJICogdGFnZ2lu
-ZyBpbmFjY3VyYWN5IGlzIGJvdW5kZWQgYW5kIGFjY2VwdGFibGUgZm9yIFFvUy4KKwkJICovCisJ
-CV9fdGhpc19jcHVfd3JpdGUoY3B1X3NybWNmZywgdGhyZWFkX3NybWNmZyk7CisJCWNzcl93cml0
-ZShDU1JfU1JNQ0ZHLCB0aHJlYWRfc3JtY2ZnKTsKKwl9Cit9CisKK3N0YXRpYyBfX2Fsd2F5c19p
-bmxpbmUgYm9vbCBoYXNfc3JtY2ZnKHZvaWQpCit7CisJcmV0dXJuIHJpc2N2X2hhc19leHRlbnNp
-b25fdW5saWtlbHkoUklTQ1ZfSVNBX0VYVF9TU1FPU0lEKTsKK30KKworI2Vsc2UgLyogISBDT05G
-SUdfUklTQ1ZfSVNBX1NTUU9TSUQgICovCisKK3N0cnVjdCB0YXNrX3N0cnVjdDsKK3N0YXRpYyBf
-X2Fsd2F5c19pbmxpbmUgYm9vbCBoYXNfc3JtY2ZnKHZvaWQpIHsgcmV0dXJuIGZhbHNlOyB9Citz
-dGF0aWMgaW5saW5lIHZvaWQgX19zd2l0Y2hfdG9fc3JtY2ZnKHN0cnVjdCB0YXNrX3N0cnVjdCAq
-bmV4dCkgeyB9CisKKyNlbmRpZiAvKiBDT05GSUdfUklTQ1ZfSVNBX1NTUU9TSUQgKi8KKyNlbmRp
-ZiAvKiBfQVNNX1JJU0NWX1FPU19IICovCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3N3aXRjaF90by5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaAppbmRl
-eCAwZTcxZWI4MmY5MjAuLjFjN2VhNTNlYzAxMiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9zd2l0Y2hfdG8uaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N3aXRjaF90
-by5oCkBAIC0xNCw2ICsxNCw3IEBACiAjaW5jbHVkZSA8YXNtL3Byb2Nlc3Nvci5oPgogI2luY2x1
-ZGUgPGFzbS9wdHJhY2UuaD4KICNpbmNsdWRlIDxhc20vY3NyLmg+CisjaW5jbHVkZSA8YXNtL3Fv
-cy5oPgogCiAjaWZkZWYgQ09ORklHX0ZQVQogZXh0ZXJuIHZvaWQgX19mc3RhdGVfc2F2ZShzdHJ1
-Y3QgdGFza19zdHJ1Y3QgKnNhdmVfdG8pOwpAQCAtMTE5LDYgKzEyMCw4IEBAIGRvIHsJCQkJCQkJ
-XAogCQlfX3N3aXRjaF90b19mcHUoX19wcmV2LCBfX25leHQpOwlcCiAJaWYgKGhhc192ZWN0b3Io
-KSB8fCBoYXNfeHRoZWFkdmVjdG9yKCkpCQlcCiAJCV9fc3dpdGNoX3RvX3ZlY3RvcihfX3ByZXYs
-IF9fbmV4dCk7CVwKKwlpZiAoaGFzX3NybWNmZygpKQkJCQlcCisJCV9fc3dpdGNoX3RvX3NybWNm
-ZyhfX25leHQpOwkJXAogCWlmIChzd2l0Y2hfdG9fc2hvdWxkX2ZsdXNoX2ljYWNoZShfX25leHQp
-KQlcCiAJCWxvY2FsX2ZsdXNoX2ljYWNoZV9hbGwoKTsJCVwKIAlfX3N3aXRjaF90b19lbnZjZmco
-X19uZXh0KTsJCQlcCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCmluZGV4IGNhYmI5OWNhZGZiNi4uZWJlMWMzNTg4MTc3
-IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQorKysgYi9hcmNoL3Jpc2N2
-L2tlcm5lbC9NYWtlZmlsZQpAQCAtMTI4LDMgKzEyOCw1IEBAIG9iai0kKENPTkZJR19BQ1BJX05V
-TUEpCSs9IGFjcGlfbnVtYS5vCiAKIG9iai0kKENPTkZJR19HRU5FUklDX0NQVV9WVUxORVJBQklM
-SVRJRVMpICs9IGJ1Z3Mubwogb2JqLSQoQ09ORklHX1JJU0NWX1VTRVJfQ0ZJKSArPSB1c2VyY2Zp
-Lm8KKworb2JqLSQoQ09ORklHX1JJU0NWX0lTQV9TU1FPU0lEKSArPSBxb3MubwpkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9rZXJuZWwvcW9zLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9xb3MuYwpuZXcg
-ZmlsZSBtb2RlIDEwMDY0NAppbmRleCAwMDAwMDAwMDAwMDAuLjk5OTI1YzBlOTNkZAotLS0gL2Rl
-di9udWxsCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Fvcy5jCkBAIC0wLDAgKzEsMTAxIEBACisv
-LyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5CisjaW5jbHVkZSA8bGludXgv
-Y3B1Lmg+CisjaW5jbHVkZSA8bGludXgvY3B1X3BtLmg+CisjaW5jbHVkZSA8bGludXgvY3B1aG90
-cGx1Zy5oPgorI2luY2x1ZGUgPGxpbnV4L25vdGlmaWVyLmg+CisjaW5jbHVkZSA8bGludXgvcGVy
-Y3B1LWRlZnMuaD4KKyNpbmNsdWRlIDxsaW51eC90eXBlcy5oPgorCisjaW5jbHVkZSA8YXNtL2Nw
-dWZlYXR1cmUtbWFjcm9zLmg+CisjaW5jbHVkZSA8YXNtL2h3Y2FwLmg+CisjaW5jbHVkZSA8YXNt
-L3Fvcy5oPgorCisvKgorICogQ2FjaGVkIHZhbHVlIG9mIHNybWNmZyBjc3IgZm9yIGVhY2ggY3B1
-LiBTZWVkZWQgdG8gVTMyX01BWCBzbyB0aGUgbmV4dAorICogX19zd2l0Y2hfdG9fc3JtY2ZnKCkg
-dW5jb25kaXRpb25hbGx5IHdyaXRlcyB0aGUgQ1NSLiBUaGUgZW5jb2RpbmcKKyAqIE1DSUQgPDwg
-MTYgfCBSQ0lEIHdpdGggYm90aCBmaWVsZHMgd2VsbCB1bmRlciAxNiBiaXRzIGNhbiBuZXZlcgor
-ICogcHJvZHVjZSB0aGlzIHNlbnRpbmVsLiBUaGlzIGNvdmVycyBlYXJseS1ib290IGNvbnRleHQg
-c3dpdGNoZXMgdGhhdAorICogaGFwcGVuIGJlZm9yZSByaXNjdl9zcm1jZmdfaW5pdCgpIHJ1bnMg
-YXMgYW4gYXJjaF9pbml0Y2FsbC4KKyAqLworREVGSU5FX1BFUl9DUFUodTMyLCBjcHVfc3JtY2Zn
-KSA9IFUzMl9NQVg7CisKKy8qIGRlZmF1bHQgc3JtY2ZnIHZhbHVlIGZvciBlYWNoIGNwdSwgc2V0
-IHZpYSByZXNjdHJsIGNwdSBhc3NpZ25tZW50ICovCitERUZJTkVfUEVSX0NQVSh1MzIsIGNwdV9z
-cm1jZmdfZGVmYXVsdCk7CisKKy8qCisgKiBJbnZhbGlkYXRlIHRoZSBwZXItQ1BVIHNybWNmZyBj
-YWNoZS4gVXNlZCBhcyBib3RoIHRoZSBjcHVocCBzdGFydHVwCisgKiBhbmQgdGVhcmRvd24gY2Fs
-bGJhY2suIFUzMl9NQVggaXMgbm90IGEgdmFsaWQgc3JtY2ZnIHZhbHVlCisgKiAoTUNJRCA8PCAx
-NiB8IFJDSUQsIGJvdGggZmllbGRzIHVuZGVyIDE2IGJpdHMpLCBzbyB0aGUgbmV4dAorICogX19z
-d2l0Y2hfdG9fc3JtY2ZnKCkgYWx3YXlzIHdyaXRlcyB0aGUgQ1NSLgorICoKKyAqIFNzcW9zaWQg
-bGVhdmVzIHRoZSBDU1IgaW1wbGVtZW50YXRpb24tZGVmaW5lZCBhY3Jvc3MgaGFydCBzdG9wL3N0
-YXJ0LAorICogc28gdGhlIGNhY2hlZCB2YWx1ZSBjYW5ub3QgYmUgdHJ1c3RlZCBhZnRlciBvbmxp
-bmUuIFRoZSBzdGFydHVwCisgKiBjYWxsYmFjayBydW5zIGF0IENQVUhQX0FQX09OTElORV9EWU4s
-IGJlZm9yZSBDUFVIUF9BUF9BQ1RJVkUgbWFrZXMKKyAqIHRoZSBDUFUgc2NoZWR1bGFibGUsIHNv
-IHRoZSBjYWNoZSBpcyBpbnZhbGlkYXRlZCBiZWZvcmUgYW55IG5vcm1hbAorICogdGFzayBydW5z
-IGFuZCB0aGUgQ1NSIGlzIHdyaXR0ZW4gb24gdGhhdCB0YXNrJ3MgZmlyc3Qgc3dpdGNoLgorICog
-VGhlIHRlYXJkb3duIGNhbGxiYWNrIGlzIG5vdCByZWxpZWQgb24uIElkbGUgYW5kIHBlci1DUFUg
-a3RocmVhZHMga2VlcAorICogc3dpdGNoaW5nIGFzIHRoZSBDUFUgZ29lcyBkb3duIGFuZCBvdmVy
-d3JpdGUgdGhlIHNlbnRpbmVsIHdpdGggdGhlIENQVQorICogZGVmYXVsdCwgc28gaXQgZG9lcyBu
-b3Qgc3Vydml2ZSB0aGUgb2ZmbGluZSBwZXJpb2QuCisgKi8KK3N0YXRpYyBpbnQgcmlzY3Zfc3Jt
-Y2ZnX3Jlc2V0X2NhY2hlKHVuc2lnbmVkIGludCBjcHUpCit7CisJcGVyX2NwdShjcHVfc3JtY2Zn
-LCBjcHUpID0gVTMyX01BWDsKKwlyZXR1cm4gMDsKK30KKworLyoKKyAqIENQVSBQTSBub3RpZmll
-cjogaW52YWxpZGF0ZSB0aGUgY2FjaGVkIHNybWNmZyBvbiByZXN1bWUgZnJvbSBhIGRlZXAKKyAq
-IGlkbGUgLyBzdXNwZW5kLiBTc3Fvc2lkIGxlYXZlcyBDU1JfU1JNQ0ZHIHN0YXRlIGFjcm9zcyBs
-b3ctcG93ZXIKKyAqIHRyYW5zaXRpb25zIGltcGxlbWVudGF0aW9uLWRlZmluZWQsIGFuZCB0aGUg
-Ym9vdCBDUFUgbmV2ZXIgZ29lcworICogdGhyb3VnaCB0aGUgY3B1aHAgb25saW5lIGNhbGxiYWNr
-IGR1cmluZyBzeXN0ZW0gc3VzcGVuZCwgc28gd2l0aG91dAorICogdGhpcyBob29rIF9fc3dpdGNo
-X3RvX3NybWNmZygpIHdvdWxkIHNraXAgdGhlIENTUiB3cml0ZSB3aGVuIHRoZQorICogb3V0Z29p
-bmcgdGFzayBoYXBwZW5zIHRvIHNoYXJlIGl0cyBzcm1jZmcgd2l0aCB0aGUgcHJlLXN1c3BlbmQg
-Y2FjaGUuCisgKi8KK3N0YXRpYyBpbnQgcmlzY3Zfc3JtY2ZnX3BtX25vdGlmeShzdHJ1Y3Qgbm90
-aWZpZXJfYmxvY2sgKm5iLAorCQkJCSAgdW5zaWduZWQgbG9uZyBhY3Rpb24sIHZvaWQgKnVudXNl
-ZCkKK3sKKwlzd2l0Y2ggKGFjdGlvbikgeworCWNhc2UgQ1BVX1BNX0VYSVQ6CisJY2FzZSBDUFVf
-UE1fRU5URVJfRkFJTEVEOgorCQkvKgorCQkgKiBUaGUgQ1NSIGlzIGltcGxlbWVudGF0aW9uLWRl
-ZmluZWQgYWNyb3NzIHRoZSBsb3ctcG93ZXIKKwkJICogdHJhbnNpdGlvbi4gSW52YWxpZGF0ZSB0
-aGUgY2FjaGUgYW5kIGVhZ2VybHkgcmV3cml0ZSB0aGUKKwkJICogQ1NSIGZvciB0aGUgY3VycmVu
-dCB0YXNrIHNvIGl0IGRvZXMgbm90IHJ1biBtaXMtdGFnZ2VkCisJCSAqIHVudGlsIHRoZSBuZXh0
-IGNvbnRleHQgc3dpdGNoLgorCQkgKi8KKwkJX190aGlzX2NwdV93cml0ZShjcHVfc3JtY2ZnLCBV
-MzJfTUFYKTsKKwkJX19zd2l0Y2hfdG9fc3JtY2ZnKGN1cnJlbnQpOworCQlicmVhazsKKwl9CisJ
-cmV0dXJuIE5PVElGWV9PSzsKK30KKworc3RhdGljIHN0cnVjdCBub3RpZmllcl9ibG9jayByaXNj
-dl9zcm1jZmdfcG1fbmIgPSB7CisJLm5vdGlmaWVyX2NhbGwgPSByaXNjdl9zcm1jZmdfcG1fbm90
-aWZ5LAorfTsKKworc3RhdGljIGludCBfX2luaXQgcmlzY3Zfc3JtY2ZnX2luaXQodm9pZCkKK3sK
-KwlpbnQgZXJyOworCisJaWYgKCFyaXNjdl9oYXNfZXh0ZW5zaW9uX3VubGlrZWx5KFJJU0NWX0lT
-QV9FWFRfU1NRT1NJRCkpCisJCXJldHVybiAwOworCisJLyoKKwkgKiBjcHVocF9zZXR1cF9zdGF0
-ZSgpIGludm9rZXMgdGhlIHN0YXJ0dXAgY2FsbGJhY2sgbG9jYWxseSBvbiBldmVyeQorCSAqIGFs
-cmVhZHktb25saW5lIENQVSwgc28gbm8gc2VwYXJhdGUgc2VlZCBsb29wIGlzIG5lZWRlZCBoZXJl
-LgorCSAqLworCWVyciA9IGNwdWhwX3NldHVwX3N0YXRlKENQVUhQX0FQX09OTElORV9EWU4sICJy
-aXNjdi9zcm1jZmc6b25saW5lIiwKKwkJCQlyaXNjdl9zcm1jZmdfcmVzZXRfY2FjaGUsIHJpc2N2
-X3NybWNmZ19yZXNldF9jYWNoZSk7CisJaWYgKGVyciA8IDApCisJCXByX3dhcm4oInNybWNmZzog
-Y3B1aHAgc2V0dXAgZmFpbGVkICglZCksIGNhY2hlIG5vdCBpbnZhbGlkYXRlZCBvbiBDUFUgb25s
-aW5lXG4iLAorCQkJZXJyKTsKKworCS8qCisJICogUmVnaXN0ZXIgdGhlIFBNIG5vdGlmaWVyIGV2
-ZW4gaWYgdGhlIGNwdWhwIHNldHVwIGZhaWxlZC4gSXQgaXMKKwkgKiBpbmRlcGVuZGVudCBvZiB0
-aGUgY3B1aHAgc3RhdGUgYW5kIGd1YXJkcyBzdXNwZW5kL3Jlc3VtZS4KKwkgKi8KKwljcHVfcG1f
-cmVnaXN0ZXJfbm90aWZpZXIoJnJpc2N2X3NybWNmZ19wbV9uYik7CisJcmV0dXJuIDA7Cit9Cith
-cmNoX2luaXRjYWxsKHJpc2N2X3NybWNmZ19pbml0KTsKCi0tIAoyLjQzLjAKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Wire CBQRI capacity controllers into resctrl as RDT_RESOURCE_L2 and
+RDT_RESOURCE_L3 schemata.
+
+resctrl exposes a single cap set per rid, so when more than one capacity
+controller backs a cache level they must agree on those caps. A level
+whose controllers disagree is left unexposed. Other levels are
+unaffected.
+
+Control domains are created in the cpuhp online callback and keyed on
+the onlining CPU's cache id from cacheinfo, so a CPU that is offline at
+probe time still joins its domain once it comes online. A domain is
+published on the ctrl_domains RCU list only after it is fully
+initialized and brought online, and removed from the list before it is
+taken offline, following the documented safe traversal rules.
+
+Assisted-by: Claude:claude-opus-4-8
+Co-developed-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Adrien Ricciardi <aricciardi@baylibre.com>
+Signed-off-by: Drew Fustini <fustini@kernel.org>
+---
+ MAINTAINERS                      |   2 +
+ arch/riscv/include/asm/resctrl.h | 147 ++++++++
+ drivers/resctrl/Kconfig          |   4 +
+ drivers/resctrl/Makefile         |   1 +
+ drivers/resctrl/cbqri_resctrl.c  | 785 +++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 939 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 064a6ae2823e..b9bded8d3dd6 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23364,9 +23364,11 @@ R:	yunhui cui <cuiyunhui@bytedance.com>
+ L:	linux-riscv@lists.infradead.org
+ S:	Supported
+ F:	arch/riscv/include/asm/qos.h
++F:	arch/riscv/include/asm/resctrl.h
+ F:	arch/riscv/kernel/qos.c
+ F:	drivers/resctrl/cbqri_devices.c
+ F:	drivers/resctrl/cbqri_internal.h
++F:	drivers/resctrl/cbqri_resctrl.c
+ F:	include/linux/riscv_cbqri.h
+ 
+ RISC-V RPMI AND MPXY DRIVERS
+diff --git a/arch/riscv/include/asm/resctrl.h b/arch/riscv/include/asm/resctrl.h
+new file mode 100644
+index 000000000000..b08f4e12f7aa
+--- /dev/null
++++ b/arch/riscv/include/asm/resctrl.h
+@@ -0,0 +1,147 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_RISCV_RESCTRL_H
++#define _ASM_RISCV_RESCTRL_H
++
++#include <linux/resctrl_types.h>
++#include <linux/sched.h>
++#include <linux/types.h>
++
++#include <asm/qos.h>
++
++struct rdt_resource;
++
++/*
++ * Sentinel "no CLOSID assigned" used by resctrl_arch_rmid_idx_decode().
++ * fs/resctrl treats this opaquely. CBQRI uses MCID directly as the linear
++ * rmid index, so closid is unused on decode.
++ */
++#define RISCV_RESCTRL_EMPTY_CLOSID	((u32)~0)
++
++/*
++ * Terminology mapping between x86 (Intel RDT/AMD QoS) and RISC-V:
++ *
++ *  CLOSID on x86 is RCID on RISC-V
++ *    RMID on x86 is MCID on RISC-V
++ *     CDP on x86 is AT (access type) on RISC-V
++ */
++
++/**
++ * resctrl_arch_alloc_capable() - any CBQRI controller exposes resctrl alloc
++ *
++ * Returns true once at least one CBQRI controller has successfully probed for
++ * a resctrl-exposed cache capacity allocation feature. Only meaningful after
++ * cbqri_resctrl_setup() runs at late_initcall.
++ */
++bool resctrl_arch_alloc_capable(void);
++
++/**
++ * resctrl_arch_mon_capable() - any CBQRI controller exposes resctrl monitoring
++ *
++ * The CBQRI driver implements capacity allocation only and wires up no
++ * monitoring events, so this always returns false. fs/resctrl references it
++ * unconditionally, hence the stub.
++ */
++bool resctrl_arch_mon_capable(void);
++
++/**
++ * resctrl_arch_rmid_idx_encode() - encode (RCID, MCID) into a linear index
++ * @closid: RCID (resource control id)
++ * @rmid:   MCID (monitoring counter id)
++ *
++ * RISC-V uses MCID directly as the linear index into per-RMID arrays
++ * managed by fs/resctrl, since CBQRI controllers admit any MCID for any
++ * RCID. closid is unused here. CDP is encoded via the AT field on each
++ * CBQRI op rather than via the index.
++ */
++u32  resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
++
++/**
++ * resctrl_arch_rmid_idx_decode() - inverse of resctrl_arch_rmid_idx_encode()
++ * @idx:    linear index
++ * @closid: out: always RISCV_RESCTRL_EMPTY_CLOSID
++ * @rmid:   out: the MCID that @idx encodes
++ */
++void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
++
++/**
++ * resctrl_arch_set_cpu_default_closid_rmid() - install per-CPU srmcfg default
++ * @cpu:    CPU number
++ * @closid: RCID to use when no task is matched
++ * @rmid:   MCID to use when no task is matched
++ *
++ * Sets the per-CPU cpu_srmcfg_default so __switch_to_srmcfg() can fall back
++ * to the CPU's default RCID/MCID for default-group tasks (those whose
++ * thread.srmcfg encodes to 0, i.e. closid == RESCTRL_RESERVED_CLOSID and
++ * rmid == RESCTRL_RESERVED_RMID). Implements resctrl allocation rule 2
++ * ("CPU default") on RISC-V.
++ */
++void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
++
++/**
++ * resctrl_arch_sched_in() - context-switch hook to install task RCID/MCID
++ * @tsk: the task being scheduled in
++ *
++ * Called from finish_task_switch() to write tsk->thread.srmcfg into the
++ * srmcfg CSR. Tasks tagged with RISCV_RESCTRL_EMPTY_CLOSID inherit the
++ * per-CPU default set via resctrl_arch_set_cpu_default_closid_rmid().
++ */
++void resctrl_arch_sched_in(struct task_struct *tsk);
++
++/**
++ * resctrl_arch_set_closid_rmid() - tag a task with an RCID/MCID
++ * @tsk:    task to tag
++ * @closid: RCID to install
++ * @rmid:   MCID to install
++ *
++ * Updates tsk->thread.srmcfg with the encoded (RCID, MCID) pair. The new
++ * value takes effect on the next resctrl_arch_sched_in() for this task.
++ */
++void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++
++/**
++ * resctrl_arch_match_closid() - test whether a task carries a given RCID
++ * @tsk:    task
++ * @closid: RCID
++ */
++bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
++
++/**
++ * resctrl_arch_match_rmid() - test whether a task carries a given (RCID, MCID)
++ * @tsk:    task
++ * @closid: RCID
++ * @rmid:   MCID
++ */
++bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++
++/**
++ * resctrl_arch_mon_ctx_alloc() - allocate per-monitor-event arch context
++ * @r:     resctrl resource being monitored
++ * @evtid: which monitor event needs context
++ *
++ * The CBQRI driver implements no monitoring events, so there is no per-event
++ * context to allocate and the stub returns NULL. fs/resctrl references it
++ * unconditionally before checking resctrl_arch_mon_capable().
++ */
++void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
++
++/**
++ * resctrl_arch_mon_ctx_free() - release context returned by mon_ctx_alloc()
++ * @r:            resctrl resource
++ * @evtid:        monitor event id
++ * @arch_mon_ctx: pointer returned by resctrl_arch_mon_ctx_alloc()
++ */
++void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid,
++			       void *arch_mon_ctx);
++
++static inline unsigned int resctrl_arch_round_mon_val(unsigned int val)
++{
++	return val;
++}
++
++/* Not needed for RISC-V */
++static inline void resctrl_arch_enable_mon(void) { }
++static inline void resctrl_arch_disable_mon(void) { }
++static inline void resctrl_arch_enable_alloc(void) { }
++static inline void resctrl_arch_disable_alloc(void) { }
++
++#endif /* _ASM_RISCV_RESCTRL_H */
+diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+index 1219fb29aa2e..cac23d20124b 100644
+--- a/drivers/resctrl/Kconfig
++++ b/drivers/resctrl/Kconfig
+@@ -38,3 +38,7 @@ menuconfig RISCV_CBQRI
+ 	  RISC-V cache QoS resources. CBQRI exposes cache capacity
+ 	  allocation through the resctrl filesystem at /sys/fs/resctrl when
+ 	  RESCTRL_FS is also enabled.
++
++config RISCV_CBQRI_RESCTRL_FS
++	bool
++	default y if RISCV_CBQRI && RESCTRL_FS
+diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
+index 4d8a2c4b5627..a7631712dba9 100644
+--- a/drivers/resctrl/Makefile
++++ b/drivers/resctrl/Makefile
+@@ -6,3 +6,4 @@ ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
+ 
+ obj-$(CONFIG_RISCV_CBQRI)			+= cbqri.o
+ cbqri-y						+= cbqri_devices.o
++cbqri-$(CONFIG_RISCV_CBQRI_RESCTRL_FS)		+= cbqri_resctrl.o
+diff --git a/drivers/resctrl/cbqri_resctrl.c b/drivers/resctrl/cbqri_resctrl.c
+new file mode 100644
+index 000000000000..0c4bfa2a7f43
+--- /dev/null
++++ b/drivers/resctrl/cbqri_resctrl.c
+@@ -0,0 +1,785 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
++
++#include <linux/bitfield.h>
++#include <linux/cacheinfo.h>
++#include <linux/cleanup.h>
++#include <linux/riscv_cbqri.h>
++#include <linux/cpu.h>
++#include <linux/cpufeature.h>
++#include <linux/cpuhotplug.h>
++#include <linux/err.h>
++#include <linux/init.h>
++#include <linux/rculist.h>
++#include <linux/resctrl.h>
++#include <linux/slab.h>
++#include <linux/types.h>
++
++#include <asm/csr.h>
++#include <asm/qos.h>
++
++#include "cbqri_internal.h"
++
++struct cbqri_resctrl_res {
++	struct cbqri_controller *ctrl;
++	struct rdt_resource     resctrl_res;
++	bool                    cdp_enabled;
++};
++
++struct cbqri_resctrl_dom {
++	struct rdt_ctrl_domain  resctrl_ctrl_dom;
++	struct cbqri_controller *hw_ctrl;
++};
++
++static struct cbqri_resctrl_res cbqri_resctrl_resources[RDT_NUM_RESOURCES];
++
++static bool exposed_alloc_capable;
++
++/* Protects ctrl_domain list mutations across CPU hotplug. */
++static DEFINE_MUTEX(cbqri_domain_list_lock);
++
++static struct rdt_ctrl_domain *
++cbqri_find_ctrl_domain(struct list_head *h, int id)
++{
++	struct rdt_domain_hdr *hdr = resctrl_find_domain(h, id, NULL);
++
++	return hdr ? container_of(hdr, struct rdt_ctrl_domain, hdr) : NULL;
++}
++
++/* Map a hardware cache level to its resctrl resource id, or -ENODEV. */
++static int cbqri_cache_level_to_rid(u32 cache_level)
++{
++	switch (cache_level) {
++	case 2:
++		return RDT_RESOURCE_L2;
++	case 3:
++		return RDT_RESOURCE_L3;
++	default:
++		return -ENODEV;
++	}
++}
++
++static int cbqri_apply_cache_config_dom(struct cbqri_resctrl_dom *hw_dom,
++					struct rdt_resource *r,
++					u32 closid, enum resctrl_conf_type t,
++					u64 cbm)
++{
++	struct cbqri_resctrl_res *hw_res =
++		container_of(r, struct cbqri_resctrl_res, resctrl_res);
++	struct cbqri_cc_config cfg = {
++		.cbm = cbm,
++		.at = (t == CDP_CODE) ? CBQRI_CONTROL_REGISTERS_AT_CODE :
++					CBQRI_CONTROL_REGISTERS_AT_DATA,
++		.cdp_enabled = hw_res->cdp_enabled,
++	};
++
++	return cbqri_apply_cache_config(hw_dom->hw_ctrl, closid, &cfg);
++}
++
++bool resctrl_arch_alloc_capable(void)
++{
++	return exposed_alloc_capable;
++}
++
++bool resctrl_arch_mon_capable(void)
++{
++	return false;
++}
++
++bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
++{
++	if (rid != RDT_RESOURCE_L2 && rid != RDT_RESOURCE_L3)
++		return false;
++	return cbqri_resctrl_resources[rid].cdp_enabled;
++}
++
++int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
++{
++	struct cbqri_resctrl_res *cbqri_res;
++
++	if (rid != RDT_RESOURCE_L2 && rid != RDT_RESOURCE_L3)
++		return -ENODEV;
++
++	cbqri_res = &cbqri_resctrl_resources[rid];
++	if (!cbqri_res->resctrl_res.cdp_capable)
++		return -ENODEV;
++
++	cbqri_res->cdp_enabled = enable;
++	return 0;
++}
++
++struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
++{
++	if (l >= RDT_NUM_RESOURCES)
++		return NULL;
++
++	return &cbqri_resctrl_resources[l].resctrl_res;
++}
++
++bool resctrl_arch_is_evt_configurable(enum resctrl_event_id evt)
++{
++	return false;
++}
++
++void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r,
++				 enum resctrl_event_id evtid)
++{
++	return NULL;
++}
++
++void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
++			       enum resctrl_event_id evtid, void *arch_mon_ctx)
++{
++}
++
++void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			      enum resctrl_event_id evtid, u32 rmid, u32 closid,
++			      u32 cntr_id, bool assign)
++{
++}
++
++int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			   u32 unused, u32 rmid, int cntr_id,
++			   enum resctrl_event_id eventid, u64 *val)
++{
++	return -EOPNOTSUPP;
++}
++
++bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
++{
++	return false;
++}
++
++int resctrl_arch_mbm_cntr_assign_set(struct rdt_resource *r, bool enable)
++{
++	return -EOPNOTSUPP;
++}
++
++void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			     u32 unused, u32 rmid, int cntr_id,
++			     enum resctrl_event_id eventid)
++{
++}
++
++bool resctrl_arch_get_io_alloc_enabled(struct rdt_resource *r)
++{
++	return false;
++}
++
++int resctrl_arch_io_alloc_enable(struct rdt_resource *r, bool enable)
++{
++	return -EOPNOTSUPP;
++}
++
++void resctrl_arch_mon_event_config_read(void *info)
++{
++}
++
++void resctrl_arch_mon_event_config_write(void *info)
++{
++}
++
++void resctrl_arch_reset_rmid_all(struct rdt_resource *r, struct rdt_l3_mon_domain *d)
++{
++}
++
++void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			     u32 unused, u32 rmid, enum resctrl_event_id eventid)
++{
++}
++
++int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
++			   u32 closid, u32 rmid, enum resctrl_event_id eventid,
++			   void *arch_priv, u64 *val, void *arch_mon_ctx)
++{
++	return -ENODATA;
++}
++
++/*
++ * Note about terminology between x86 (Intel RDT/AMD QoS) and RISC-V:
++ *   CLOSID on x86 is RCID on RISC-V
++ *     RMID on x86 is MCID on RISC-V
++ */
++u32 resctrl_arch_get_num_closid(struct rdt_resource *res)
++{
++	struct cbqri_resctrl_res *hw_res;
++
++	hw_res = container_of(res, struct cbqri_resctrl_res, resctrl_res);
++
++	if (!hw_res->ctrl)
++		return 0;
++
++	return hw_res->ctrl->rcid_count;
++}
++
++u32 resctrl_arch_system_num_rmid_idx(void)
++{
++	return 1;
++}
++
++u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
++{
++	return rmid;
++}
++
++void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
++{
++	*closid = RISCV_RESCTRL_EMPTY_CLOSID;
++	*rmid = idx;
++}
++
++void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid)
++{
++	u32 srmcfg = FIELD_PREP(SRMCFG_RCID_MASK, closid) |
++		     FIELD_PREP(SRMCFG_MCID_MASK, rmid);
++
++	WRITE_ONCE(per_cpu(cpu_srmcfg_default, cpu), srmcfg);
++}
++
++void resctrl_arch_sched_in(struct task_struct *tsk)
++{
++	__switch_to_srmcfg(tsk);
++}
++
++void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
++{
++	u32 srmcfg = FIELD_PREP(SRMCFG_RCID_MASK, closid) |
++		     FIELD_PREP(SRMCFG_MCID_MASK, rmid);
++
++	WRITE_ONCE(tsk->thread.srmcfg, srmcfg);
++}
++
++void resctrl_arch_sync_cpu_closid_rmid(void *info)
++{
++	struct resctrl_cpu_defaults *r = info;
++
++	lockdep_assert_preemption_disabled();
++
++	if (r) {
++		resctrl_arch_set_cpu_default_closid_rmid(smp_processor_id(),
++							 r->closid, r->rmid);
++	}
++
++	resctrl_arch_sched_in(current);
++}
++
++bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid)
++{
++	return FIELD_GET(SRMCFG_RCID_MASK, READ_ONCE(tsk->thread.srmcfg)) == closid;
++}
++
++bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
++{
++	return FIELD_GET(SRMCFG_MCID_MASK, READ_ONCE(tsk->thread.srmcfg)) == rmid;
++}
++
++void resctrl_arch_pre_mount(void)
++{
++	/* All controllers discovered at boot via late_initcall. Nothing to do. */
++}
++
++int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
++			    u32 closid, enum resctrl_conf_type t, u32 cfg_val)
++{
++	struct cbqri_resctrl_dom *dom;
++
++	dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
++
++	if (!r->alloc_capable)
++		return -EINVAL;
++
++	switch (r->rid) {
++	case RDT_RESOURCE_L2:
++	case RDT_RESOURCE_L3:
++		return cbqri_apply_cache_config_dom(dom, r, closid, t, cfg_val);
++	default:
++		return -EINVAL;
++	}
++}
++
++int resctrl_arch_update_domains(struct rdt_resource *r, u32 closid)
++{
++	struct resctrl_staged_config *cfg;
++	enum resctrl_conf_type t;
++	struct rdt_ctrl_domain *d;
++	int err = 0;
++
++	/* Walking r->ctrl_domains, ensure it can't race with cpuhp */
++	lockdep_assert_cpus_held();
++
++	list_for_each_entry(d, &r->ctrl_domains, hdr.list) {
++		for (t = 0; t < CDP_NUM_TYPES; t++) {
++			cfg = &d->staged_config[t];
++			if (!cfg->have_new_ctrl)
++				continue;
++			err = resctrl_arch_update_one(r, d, closid, t, cfg->new_ctrl);
++			if (err)
++				return err;
++		}
++	}
++	return err;
++}
++
++u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
++			    u32 closid, enum resctrl_conf_type type)
++{
++	struct cbqri_resctrl_dom *hw_dom;
++	struct cbqri_controller *ctrl;
++	u32 at;
++	u32 val;
++	int err;
++
++	hw_dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
++	ctrl = hw_dom->hw_ctrl;
++	val = resctrl_get_default_ctrl(r);
++
++	if (!r->alloc_capable)
++		return val;
++
++	switch (r->rid) {
++	case RDT_RESOURCE_L2:
++	case RDT_RESOURCE_L3:
++		at = (type == CDP_CODE) ? CBQRI_CONTROL_REGISTERS_AT_CODE :
++					  CBQRI_CONTROL_REGISTERS_AT_DATA;
++		err = cbqri_read_cache_config(ctrl, closid, at, &val);
++		if (err < 0)
++			val = resctrl_get_default_ctrl(r);
++		break;
++	default:
++		break;
++	}
++
++	return val;
++}
++
++void resctrl_arch_reset_all_ctrls(struct rdt_resource *r)
++{
++	struct cbqri_resctrl_res *hw_res;
++	struct rdt_ctrl_domain *d;
++	enum resctrl_conf_type t;
++	u32 default_ctrl;
++	int i;
++
++	lockdep_assert_cpus_held();
++
++	hw_res = container_of(r, struct cbqri_resctrl_res, resctrl_res);
++	default_ctrl = resctrl_get_default_ctrl(r);
++
++	if (!hw_res->ctrl)
++		return;
++
++	list_for_each_entry(d, &r->ctrl_domains, hdr.list) {
++		for (i = 0; i < hw_res->ctrl->rcid_count; i++) {
++			for (t = 0; t < CDP_NUM_TYPES; t++) {
++				int rerr;
++
++				rerr = resctrl_arch_update_one(r, d, i, t, default_ctrl);
++				if (rerr)
++					pr_err_ratelimited("rid=%d reset RCID %u type %u failed (%d)\n",
++							   r->rid, i, t, rerr);
++			}
++		}
++	}
++}
++
++static struct rdt_ctrl_domain *cbqri_new_domain(struct cbqri_controller *ctrl)
++{
++	struct cbqri_resctrl_dom *hw_dom;
++	struct rdt_ctrl_domain *domain;
++
++	hw_dom = kzalloc_obj(*hw_dom, GFP_KERNEL);
++	if (!hw_dom)
++		return NULL;
++
++	hw_dom->hw_ctrl = ctrl;
++	domain = &hw_dom->resctrl_ctrl_dom;
++
++	INIT_LIST_HEAD(&domain->hdr.list);
++
++	return domain;
++}
++
++static int cbqri_init_domain_ctrlval(struct rdt_resource *r, struct rdt_ctrl_domain *d)
++{
++	struct cbqri_resctrl_dom *hw_dom;
++	enum resctrl_conf_type t;
++	int err = 0;
++	int i;
++
++	hw_dom = container_of(d, struct cbqri_resctrl_dom, resctrl_ctrl_dom);
++
++	for (i = 0; i < hw_dom->hw_ctrl->rcid_count; i++) {
++		/*
++		 * Seed both DATA and CODE staged slots so a later mount
++		 * with -o cdp does not see stale CODE values.
++		 * On non-AT controllers cbqri_cc_alloc_op() masks AT to 0
++		 * so all three iterations land on the same hardware state.
++		 * The redundant writes are harmless.
++		 */
++		for (t = 0; t < CDP_NUM_TYPES; t++) {
++			err = resctrl_arch_update_one(r, d, i, t,
++						      resctrl_get_default_ctrl(r));
++			if (err)
++				return err;
++		}
++	}
++	return 0;
++}
++
++/*
++ * Two capacity controllers at the same cache level are interchangeable to
++ * resctrl only if they expose identical caps, since resctrl publishes one
++ * set of caps per rid but any of the level's controllers may service a
++ * given RCID.
++ */
++static bool cbqri_cc_caps_agree(const struct cbqri_controller *a,
++				const struct cbqri_controller *b)
++{
++	return a->rcid_count == b->rcid_count &&
++	       a->cc.ncblks == b->cc.ncblks &&
++	       a->cc.supports_alloc_at_code == b->cc.supports_alloc_at_code &&
++	       a->alloc_capable == b->alloc_capable;
++}
++
++/*
++ * Walk cbqri_controllers and pick one capacity controller (CC) per cache
++ * level (L2/L3) to back the corresponding RDT_RESOURCE_L*. When more than
++ * one CC sits at the same level (e.g. one per socket), they must agree on
++ * rcid_count / ncblks / supports_alloc_at_code / alloc_capable. A level
++ * whose controllers disagree is dropped, since resctrl exposes a single
++ * set of caps per rid, but the other level is still picked. The first
++ * matching controller wins.
++ */
++static void cbqri_resctrl_pick_caches(void)
++{
++	struct cbqri_controller *ctrl, *pick;
++	int rid;
++
++	guard(mutex)(&cbqri_controllers_lock);
++
++	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++) {
++		pick = NULL;
++
++		list_for_each_entry(ctrl, &cbqri_controllers, list) {
++			if (ctrl->type != CBQRI_CONTROLLER_TYPE_CAPACITY ||
++			    !ctrl->alloc_capable ||
++			    cbqri_cache_level_to_rid(ctrl->cache.cache_level) != rid)
++				continue;
++
++			if (!pick) {
++				pick = ctrl;
++			} else if (!cbqri_cc_caps_agree(pick, ctrl)) {
++				pr_err("L%u controllers have mismatched capabilities, skipping this level\n",
++				       ctrl->cache.cache_level);
++				pick = NULL;
++				break;
++			}
++		}
++
++		cbqri_resctrl_resources[rid].ctrl = pick;
++	}
++}
++
++/*
++ * Fill the rdt_resource fields for one picked rid. An rid with no picked
++ * controller is left untouched so it stays out of resctrl_arch_get_resource().
++ */
++static void cbqri_resctrl_control_init(struct cbqri_resctrl_res *cbqri_res)
++{
++	struct cbqri_controller *ctrl = cbqri_res->ctrl;
++	struct rdt_resource *res = &cbqri_res->resctrl_res;
++
++	if (!ctrl)
++		return;
++
++	switch (res->rid) {
++	case RDT_RESOURCE_L2:
++	case RDT_RESOURCE_L3:
++		res->name = (res->rid == RDT_RESOURCE_L2) ? "L2" : "L3";
++		res->schema_fmt = RESCTRL_SCHEMA_BITMAP;
++		res->ctrl_scope = (res->rid == RDT_RESOURCE_L2) ?
++				    RESCTRL_L2_CACHE : RESCTRL_L3_CACHE;
++		res->cache.cbm_len = ctrl->cc.ncblks;
++		res->cache.shareable_bits = 0;
++		res->cache.min_cbm_bits = 1;
++		res->cache.arch_has_sparse_bitmasks = false;
++		res->cdp_capable = ctrl->cc.supports_alloc_at_code;
++		res->alloc_capable = ctrl->alloc_capable;
++		INIT_LIST_HEAD(&res->ctrl_domains);
++		INIT_LIST_HEAD(&res->mon_domains);
++		break;
++	default:
++		break;
++	}
++}
++
++static void cbqri_resctrl_accumulate_caps(void)
++{
++	int rid;
++
++	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++) {
++		struct cbqri_resctrl_res *hw_res = &cbqri_resctrl_resources[rid];
++
++		if (!hw_res->ctrl)
++			continue;
++		if (hw_res->ctrl->alloc_capable)
++			exposed_alloc_capable = true;
++	}
++}
++
++/*
++ * Create, list-insert, and online a fresh ctrl_domain backing ctrl on
++ * resource res, seeded with cpu and identified by dom_id. Caller must
++ * hold cbqri_domain_list_lock and must have already verified that no
++ * existing ctrl_domain on res carries this id.
++ */
++static struct rdt_ctrl_domain *cbqri_create_ctrl_domain(struct cbqri_controller *ctrl,
++							struct rdt_resource *res,
++							unsigned int cpu, int dom_id)
++{
++	struct rdt_ctrl_domain *domain;
++	struct list_head *pos = NULL;
++	int err;
++
++	domain = cbqri_new_domain(ctrl);
++	if (!domain)
++		return ERR_PTR(-ENOMEM);
++
++	cpumask_set_cpu(cpu, &domain->hdr.cpu_mask);
++	domain->hdr.id = dom_id;
++	domain->hdr.type = RESCTRL_CTRL_DOMAIN;
++	domain->hdr.rid = res->rid;
++
++	err = cbqri_init_domain_ctrlval(res, domain);
++	if (err)
++		goto free;
++
++	err = resctrl_online_ctrl_domain(res, domain);
++	if (err)
++		goto free;
++
++	/*
++	 * Publish only after the domain is fully initialized and online, so a
++	 * reader walking the RCU list never sees a half-built domain.
++	 */
++	resctrl_find_domain(&res->ctrl_domains, dom_id, &pos);
++	list_add_tail_rcu(&domain->hdr.list, pos);
++
++	return domain;
++free:
++	kfree(container_of(domain, struct cbqri_resctrl_dom, resctrl_ctrl_dom));
++	return ERR_PTR(err);
++}
++
++/*
++ * Remove a CPU from the domain at each level whose cache it shares. The
++ * domain is looked up by the CPU's own cache id and the lookup returns NULL
++ * if it is already gone, so this is idempotent and undoes a partial online
++ * attach as well as a full offline. Caller holds cbqri_domain_list_lock.
++ */
++static void cbqri_detach_cpu_from_all_ctrls(unsigned int cpu)
++{
++	static const u32 levels[] = { 2, 3 };
++	struct cbqri_resctrl_res *hw_res;
++	struct rdt_ctrl_domain *d;
++	struct rdt_resource *res;
++	struct cacheinfo *ci;
++	int i, rid;
++
++	lockdep_assert_held(&cbqri_domain_list_lock);
++
++	for (i = 0; i < ARRAY_SIZE(levels); i++) {
++		ci = get_cpu_cacheinfo_level(cpu, levels[i]);
++		if (!ci)
++			continue;
++
++		rid = cbqri_cache_level_to_rid(levels[i]);
++		hw_res = &cbqri_resctrl_resources[rid];
++		if (!hw_res->ctrl)
++			continue;
++
++		res = &hw_res->resctrl_res;
++		d = cbqri_find_ctrl_domain(&res->ctrl_domains, ci->id);
++		if (!d)
++			continue;
++
++		cpumask_clear_cpu(cpu, &d->hdr.cpu_mask);
++		if (cpumask_empty(&d->hdr.cpu_mask)) {
++			list_del_rcu(&d->hdr.list);
++			synchronize_rcu();
++			resctrl_offline_ctrl_domain(res, d);
++			kfree(container_of(d, struct cbqri_resctrl_dom,
++					   resctrl_ctrl_dom));
++		}
++	}
++}
++
++/*
++ * Attach a CPU to the capacity controller at each cache level whose cache
++ * the CPU shares. On failure, detach the CPU from everything attached so
++ * far: the cpuhp core does not run this state's offline teardown when its
++ * startup fails, so a partial attach would otherwise leak into the domain
++ * cpu_masks. Caller holds cbqri_domain_list_lock.
++ */
++static int cbqri_attach_cpu_to_all_ctrls(unsigned int cpu)
++{
++	static const u32 levels[] = { 2, 3 };
++	struct cbqri_controller *ctrl, *c;
++	struct cbqri_resctrl_res *hw_res;
++	struct rdt_ctrl_domain *d;
++	struct cacheinfo *ci;
++	int i, rid;
++
++	lockdep_assert_held(&cbqri_domain_list_lock);
++
++	/*
++	 * Hold cbqri_controllers_lock across the walk so a controller
++	 * registered after boot cannot corrupt it. The register path takes
++	 * it as a leaf and never cbqri_domain_list_lock, so this nesting
++	 * cannot invert.
++	 */
++	guard(mutex)(&cbqri_controllers_lock);
++
++	for (i = 0; i < ARRAY_SIZE(levels); i++) {
++		ci = get_cpu_cacheinfo_level(cpu, levels[i]);
++		if (!ci)
++			continue;
++
++		rid = cbqri_cache_level_to_rid(levels[i]);
++		hw_res = &cbqri_resctrl_resources[rid];
++		if (!hw_res->ctrl)
++			continue;
++
++		/* The controller backing this CPU's cache at this level. */
++		ctrl = NULL;
++		list_for_each_entry(c, &cbqri_controllers, list) {
++			if (c->type == CBQRI_CONTROLLER_TYPE_CAPACITY &&
++			    c->alloc_capable &&
++			    c->cache.cache_level == levels[i] &&
++			    c->cache.cache_id == ci->id) {
++				ctrl = c;
++				break;
++			}
++		}
++		if (!ctrl)
++			continue;
++
++		d = cbqri_find_ctrl_domain(&hw_res->resctrl_res.ctrl_domains,
++					   ci->id);
++		if (d) {
++			cpumask_set_cpu(cpu, &d->hdr.cpu_mask);
++			continue;
++		}
++
++		d = cbqri_create_ctrl_domain(ctrl, &hw_res->resctrl_res, cpu,
++					     ci->id);
++		if (IS_ERR(d)) {
++			cbqri_detach_cpu_from_all_ctrls(cpu);
++			return PTR_ERR(d);
++		}
++	}
++
++	return 0;
++}
++
++static bool cbqri_resctrl_inited;
++
++static void cbqri_resctrl_teardown(void)
++{
++	int rid;
++
++	if (!cbqri_resctrl_inited)
++		return;
++
++	resctrl_exit();
++
++	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++) {
++		struct cbqri_resctrl_res *hw_res = &cbqri_resctrl_resources[rid];
++
++		hw_res->ctrl = NULL;
++		hw_res->cdp_enabled = false;
++	}
++	exposed_alloc_capable = false;
++	cbqri_resctrl_inited = false;
++}
++
++static int cbqri_resctrl_setup(void)
++{
++	int rid;
++	int err;
++
++	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++)
++		cbqri_resctrl_resources[rid].resctrl_res.rid = rid;
++
++	cbqri_resctrl_pick_caches();
++
++	for (rid = 0; rid < RDT_NUM_RESOURCES; rid++)
++		cbqri_resctrl_control_init(&cbqri_resctrl_resources[rid]);
++
++	cbqri_resctrl_accumulate_caps();
++
++	if (!exposed_alloc_capable) {
++		pr_debug("no resctrl-capable CBQRI controllers found\n");
++		return -ENODEV;
++	}
++
++	err = resctrl_init();
++	if (err)
++		return err;
++
++	cbqri_resctrl_inited = true;
++	return 0;
++}
++
++static int cbqri_resctrl_online_cpu(unsigned int cpu)
++{
++	int err;
++
++	mutex_lock(&cbqri_domain_list_lock);
++	err = cbqri_attach_cpu_to_all_ctrls(cpu);
++	mutex_unlock(&cbqri_domain_list_lock);
++	if (err)
++		return err;
++
++	/*
++	 * Seed the per-CPU default RCID/MCID to the reserved (0, 0) pair and
++	 * notify the resctrl core so it tracks this CPU in the default group.
++	 */
++	resctrl_arch_set_cpu_default_closid_rmid(cpu, 0, 0);
++	resctrl_online_cpu(cpu);
++	return 0;
++}
++
++static int cbqri_resctrl_offline_cpu(unsigned int cpu)
++{
++	resctrl_offline_cpu(cpu);
++
++	mutex_lock(&cbqri_domain_list_lock);
++	cbqri_detach_cpu_from_all_ctrls(cpu);
++	mutex_unlock(&cbqri_domain_list_lock);
++	return 0;
++}
++
++static int __init cbqri_arch_late_init(void)
++{
++	int err;
++
++	if (!riscv_isa_extension_available(NULL, SSQOSID))
++		return -ENODEV;
++
++	err = cbqri_resctrl_setup();
++	if (err)
++		return err;
++
++	err = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "cbqri:online",
++				cbqri_resctrl_online_cpu,
++				cbqri_resctrl_offline_cpu);
++	if (err < 0) {
++		cbqri_resctrl_teardown();
++		return err;
++	}
++
++	return 0;
++}
++late_initcall(cbqri_arch_late_init);
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
