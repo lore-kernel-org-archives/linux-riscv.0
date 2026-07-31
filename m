@@ -4,83 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F100EC55167
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2026 01:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DD7C55167
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2026 03:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kJKNjYaatWa1wDFztP5Q0EQw+yGqOR1aqEGlbU9CpFQ=; b=ir9IjSg/xKwhH1
-	XLr3hAIocIHQnxq9S32knnP5MQnkeL+2ZtHxGwnhy/kDDo7nnJlNfr2i9BU9Zitn+b545i7LVOLAn
-	Jwx3Poywfe3U0IQt7ZN7Cu4833/Kl157Q7aM/QCQmv4VP/vYUOiNTc1BFE7gfos4K9q3BEa4ddxF9
-	AzJa2Tu8W7GuERN6jwXIdZeu74+82MHHxz6OWA6aore8LW8zIXS7RaKIoaImrCh3fciwsDc3umdb/
-	2SPdsPyE+mnGndre32egeiosPq5D/CVlrQ0gUvAhbHHXCoIJs2edt9Phmm8QOFitEu/pAgrbAnABN
-	fIiJrNJzcLeGMBGij+Mg==;
+	List-Owner; bh=ciYxsQHqdjZdt+SVZpO7YKXbT4FrCZWfAvb9FGWLgN0=; b=cgTk1FZbXd49sF
+	95CEXaiRNDHxupCCscMGW68tYNNABxUm7Gyrth4hvUuN66xlYKmZJWwKCdKY7tYR5sYJl6vpgRdPC
+	YQjt0uwxkTWpLYlNhTTuAu8F9XnedT6vVBUhQ+auyetIaqPV5SC3+bAJu9HKZg8Ra0IOzqXrwIxh7
+	oeL8d6QuyLcPPJYWVzfYq6EHs6hxSW+YqHNDZo5fEEXTaDwzQulkSWBdugGC0zb3IiBeITyTtdTX7
+	HC5JB20q02Vcs6hCS9AQCPum8pwTG3gwuC7IhjxbZvWOuDqlkBRFGGWxHAzBwRxQy+2EpBUgwHCRO
+	U933FlZomaHhs+xClM+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpcWP-0000000BbOP-1Z0K;
-	Fri, 31 Jul 2026 01:58:49 +0000
-Received: from mailgate-4.ics.forth.gr ([139.91.1.7])
+	id 1wpdqq-0000000BgNO-2IPZ;
+	Fri, 31 Jul 2026 03:24:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpcWN-0000000BbMJ-1Hb8
-	for linux-riscv@lists.infradead.org;
-	Fri, 31 Jul 2026 01:58:49 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
-	by mailgate-4.ics.forth.gr (8.16.1/ICS-FORTH/V10-1.8-GATE) with ESMTP id 66V1uFwO314982
-	for <linux-riscv@lists.infradead.org>; Fri, 31 Jul 2026 04:56:17 +0300
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
-	q=dns/txt; i=@ics.forth.gr; t=1785462975; x=1788054975;
-	h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=TcqbGWOV3xZat/jbZ9FP58nyvNEhUv8/UEH17UX0FK0=;
-	b=jNpAcUW8PGZpRq/iekIe3wl3m8gSFy1pd4Jq+gnYIDe5DSQheZcSojyRBm4j12//
-	eYSH6FfkyNSFN9Bb/ghq2m8yA+LxOK/G5fBoJZZQJyYPWH5VsjT2kdngeBmhGlB+
-	jvgwAnKfCb6g3cvnbVYyYGE5VTK7GltbFjaQzfo5sb4+Esqo6GRnsNiyAI6z8Ihj
-	275aPj0E4+0KGaojjxcSiOFm1GkgCjbkD5fDpk51jGlWSyHRmxGgpe57BAMBBYPk
-	n8TlNv1FTIJhLcCEG+R+K7jVG/IdzbgqTyp4jW7Dw/G2Wf6DBhXxcTXOvbth595V
-	p/cR5s5obyfIieAjLNSc/w==;
-X-AuditID: 8b5b014d-2cdd76400019e05d-89-6a6c00bf1b31
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
-	by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id B8.42.57437.FB00C6A6; Fri, 31 Jul 2026 04:56:15 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user: mick at ics.forth.gr
-Message-ID: <bf39e87c-c077-4ccf-a791-42ae194b4780@ics.forth.gr>
-Date: Fri, 31 Jul 2026 04:43:56 +0300
+	id 1wpdqn-0000000BgN0-2P38;
+	Fri, 31 Jul 2026 03:23:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DFD1D4401E;
+	Fri, 31 Jul 2026 03:23:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F4FA1F00A3D;
+	Fri, 31 Jul 2026 03:23:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785468236;
+	bh=ExYIItcDEZWrDnj18MKrsQX+GnPewakLGGldn9zFVCQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=alJPz710ds45M32sC/W4EDR1+q0unwltstCOWbnGaG6ro0iMcmbnQtoip8c8VaS9x
+	 ucunAffa0RGqITe9ralEA5C8L9d13xx3fChUikErBa6niEP8a0BFzEcB05S35Q/1/2
+	 1UFyndof2hw2Kau7xmVNSRKQRuzNuN582osWVF/C+PDDv2GUXij6aDfXH6eui0f3D7
+	 cL6fOvwE4GtNUfPpna/rRL5r3qKYZUh8Ra7Ca74SqJd80LQ9HhpE4EvImKKPLv7m1r
+	 fH9bifgptxWsZVifHaG6cyE2ohO49GEnwg7hJeZoduwMm3zEAx/5fx/2COa05v/hg8
+	 b48DbmwT4DuTg==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Sean Paul <sean@poorly.run>,
+	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+	Jie Gan <jie.gan@oss.qualcomm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	freedreno@lists.freedesktop.org,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-scsi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	coresight@lists.linaro.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 0/3] Retrieve information about DDR from SMEM
+Date: Thu, 30 Jul 2026 22:23:43 -0500
+Message-ID: <178546821257.316167.5256445385425936604.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260727-topic-smem_dramc-v5-0-66188b3e338d@oss.qualcomm.com>
+References: <20260727-topic-smem_dramc-v5-0-66188b3e338d@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] dt-bindings: riscv: Add RISC-V Worlds and SiFive
- WorldGuard DT bindings
-To: Yu-Chien Peter Lin <peter.lin@sifive.com>, devicetree@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, pjw@kernel.org,
-        palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr
-References: <20260729163908.249838-1-peter.lin@sifive.com>
-Content-Language: en-US, el-en, el-GR
-From: Nick Kossifidis <mick@ics.forth.gr>
-In-Reply-To: <20260729163908.249838-1-peter.lin@sifive.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmphleLIzCtJLcpLzFFi42Lpjp6urLufISfLYNo8PYs569ewWTy785XV
-	ouXDO1aLrb9nsVus2XuOyeL4iiZ2i5XrvjNZzD9yjtVi6fZJbBar+1vZLa4ur7Y4dGcRi8Xn
-	5gYWiwOHLjBavJx1j83i8q45bBbbPrewWTR8fctisff4RVaLNf+8LF5e7mG2OL7tN6PFjAe/
-	mS0uzp3MaDH58TU2i/OTu9kt/u/ZwW4xbdcERovV566wWMyeuITd4mf/PVaLD3dnszkoeLRe
-	+svmMfX3GRaPfyfWsHm8efmSxeNwxxd2j5sL1jJ73DsxjdVj347NjB6PLjt4bFrVyeZxYsZv
-	Fo/NS+o9Drz6y+ixYspVJo8tMzeyefRdcQ4QiuKySUnNySxLLdK3S+DK2HA1tOAwX0Xv2evM
-	DYzfubsYOTgkBEwkTn617GLk4hASOMooceD9FuYuRk6guKXE5k8vWUBsXgF7iYv3J4LZLAKq
-	Egv+3GWCiAtKnJz5BCwuKiAvcf/WDHYQW1ggVaJh5UFmkKEiAhMZJa6cX88K4jAL9DNK/Ju1
-	nw1ks5CAlcSSGYwgDcxAQ+c/28QKYrMJaErMv3QQbCingLXE4nf32SBqzCS6tnZB1ctLbH87
-	h3kCo8AsJHfMQjJqFpKWWUhaFjCyrGIUSCwz1stMLtZLyy8qydBLL9rECE4ojL47GNc8bdE/
-	xMjEwXiIUYKDWUmEd9H1rCwh3pTEyqrUovz4otKc1OJDjNIcLErivHERjzKEBNITS1KzU1ML
-	UotgskwcnFINTEmsZyR8BdRLZvxb7HPi43Fxj2197G+/xk4vXmA2+flhe+890uk2qmulZzMs
-	bF0sMcNSSpvblv1BlqzwXt0K1d6yiviNQbPuFXTvO15vscxQvVdr2us3uhX8F9uCS2XnuRn+
-	Ujbslzp1mHMea0+64uJSsboTcTP1E+ozUiZcjF3edkNxitYlj18q87a+6Y83//2qZfvblYYp
-	Ttd9l5lqN9pf7Em8cePIgta2yidqrK+KlNk4TFjbey1zZHe5/H2tnH1rjeragt0yLTWr/Xsf
-	TGNVeH+D/c7P6GD7d1oi3S/EHh6XrS64vfEUe4LCrqOr5qaeblcQctMtnuX3Ik3kHfsnnlmx
-	GQmb5/M0Ti5XYivOSDQyNdNiLipOBADahCH/mQMAAA==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_185847_753033_0CF74F18 
-X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,50 +105,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Peter,
 
-On 7/29/26 19:39, Yu-Chien Peter Lin wrote:
-> Add device tree bindings for RISC-V Worlds, a standard extension that tags
-> every transaction with a World ID for fine-grained isolation. SiFive's
-> WorldGuard Checker is a hardware firewall in the system interconnect that
-> inspects transaction WIDs and enforces per-World access policies on memory
-> and MMIO devices.
+On Mon, 27 Jul 2026 11:59:26 +0200, Konrad Dybcio wrote:
+> SMEM allows the OS to retrieve information about the DDR memory.
+> Among that information, is a semi-magic value called 'HBB', or Highest
+> Bank address Bit, which multimedia drivers (for hardware like Adreno
+> and MDSS) must retrieve in order to program the IP blocks correctly.
 > 
-> wgChecker specification reference:
-> https://github.com/riscvarchive/security/blob/main/papers/worldguard%20proposal.pdf
+> This series introduces an API to retrieve that value, uses it in the
+> aforementioned programming sequences and exposes available DDR
+> frequencies in debugfs (to e.g. pass to aoss_qmp debugfs). More
+> information can be exposed in the future, as needed.
 > 
-> Yu-Chien Peter Lin (3):
->    dt-bindings: riscv: Add Worlds ISA extensions
->    dt-bindings: riscv: Add Worlds per-hart properties
->    dt-bindings: sifive: Add WorldGuard Checker
-> 
->   .../devicetree/bindings/riscv/cpus.yaml       |  61 +++
->   .../devicetree/bindings/riscv/extensions.yaml |  53 +++
->   .../devicetree/bindings/riscv/worlds.yaml     |  86 +++++
->   .../bindings/sifive/sifive,wgchecker2.yaml    | 356 ++++++++++++++++++
->   4 files changed, 556 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/riscv/worlds.yaml
->   create mode 100644 Documentation/devicetree/bindings/sifive/sifive,wgchecker2.yaml
-> 
+> [...]
 
-What's the plan for this and why do we need Linux-specific dt bindings ? 
-This looks more like a set of firmware specific bindings, like OpenSBI 
-domains for example 
-(https://github.com/riscv-software-src/opensbi/blob/master/docs/domain_support.md). 
-I understand adding the ISA extensions in the list (although the fast 
-track is still underway, it's not ratified yet), but the rest don't make 
-sense, not yet at least. How do you plan to use pmlwidlist on Linux to 
-associate processes to wids ? Do you plan on adding a driver for the wg 
-checker (and the markers that you mention) on Linux ? Do you ever expect 
-Linux to run under trustedwid ?
+Applied, thanks!
 
-Regards,
-Nick
+[1/3] soc: qcom: smem: Use 'unsigned int' instead of 'unsigned'
+      commit: 80350cdc5f7e2ddc6739987a78f04b9b7788e593
+[2/3] soc: qcom: smem: Expose DDR data from SMEM
+      commit: 1d234eeafc56af8c9af6eee857f41a4310615e78
+[3/3] soc: qcom: ubwc: Get HBB from SMEM
+      commit: 1b445022d1d0ec7431b6f8fe0054ae8ccf33d60a
+
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
