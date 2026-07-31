@@ -4,138 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60BDEC55173
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2026 20:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D06C55174
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2026 20:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
+	References:In-Reply-To:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fn2KO0jXfiZpBTgpOMM3ul6faclt/Co4j6xF5mOx/Dk=; b=AA9UKZxdMJ9yvH
-	VukUfZcToUfSTY8siO5ZX47IAVmVxSGlUjXvhhKF/5nSk1og/fjlndJ5s1eqPlPSrgcRFbGdldrWE
-	cyAt/T6EfjX7AOQQ0Yjr5kRcrJbjdMKnPxxSSCYOgCwMVt6KksAF2MyE1FRm8BchLs4wJ3O9FF1bu
-	/lhi18nKafq1jM3cEuo9YsVr0SuLHMvTh/csMSDb3jIIHs4jt3xFtjhj/bMqc3iPtRisACtyaeEkU
-	RR/783+IsU8MiLHMLULHzEdZqhXlNSbx8YiK95L0GaELXLsvuIVZMOg9chrC2AVG0J4+0PU+mNjZa
-	uJNnPM+uCE1IWzhqwHqg==;
+	List-Owner; bh=cIhbBB9bEKE8OhwURAsh/OAKiyeLpXH/pkhOIgdmOto=; b=BLc0DTXjNrDduB
+	DW4Nw6HxeOxFey9kId0YiBvH/LeYJXibMfIqdvaEECOJ4VQaPiOEoFh9jODyrJ4/CtJZDY6jDMDkE
+	5sHUSfBc17zaHApUuR6Qdy6HYYY3OP+go3Ax8wcIS9tS+1e9yKjNaF+/pRC6fJ8Qt4JSwBHUF1rdI
+	ij8Uq9DJUAZjntexMxKr/INBVNmMhP6NlRau/0gs1nCDwx5lg1b1TC0Ll2Xejfx3MSLLJRhDOm4i7
+	kMrxfswljjxBdSOi8VpPaoL1s6ZUkHNLpxh0wCZotDH49nwIxrB4NJ0DUaG1DEwBPj43AoF2ALj05
+	lM3xHrlHsKTMTrDUnxZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpuIp-0000000Da2s-1HWT;
+	id 1wpuIp-0000000Da30-2618;
 	Fri, 31 Jul 2026 20:57:59 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+Received: from mxhk.zte.com.cn ([160.30.148.35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYgO-0000000BKzq-3GAh
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jul 2026 08:40:06 +0000
-Received: from kunlun.suse.cz (unknown [IPv6:2a07:de40:b306:2000::2])
+	id 1wpgZV-0000000Bsa2-3tfW;
+	Fri, 31 Jul 2026 06:18:19 +0000
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id BFAE277D88;
-	Tue, 14 Jul 2026 08:40:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1784018403; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=w9715Yz9COQgcSHQikGgGymVBJrFS/wJDfe2eKWAzmY=;
-	b=fd90Yu/vYqin+DOmDo2grtNXGLfs/4fl+7Ivvh4GJRpGOavVQ0e0E35Sv7Ow7Aaxd/A/Q2
-	i4gB8qLldsbRqxmXPDhEacFuNqb8gaLjdP1esJ5/W4GyNh6LYdzY0m0hiJKJEu86lwsy6r
-	n8O+jsJQgHwWcMDbOVg4RL49AkwH0Bs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1784018403;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=w9715Yz9COQgcSHQikGgGymVBJrFS/wJDfe2eKWAzmY=;
-	b=ZLKthYKrCuejE3fTIMfqv83NTR83YNCQml6R8ku17Vga3LwVRNbnafLfo6b0SX47fqIJoB
-	i0VeYcs90YvokhBg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=swPFPzDc;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=yGiPbGwq
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1784018402; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=w9715Yz9COQgcSHQikGgGymVBJrFS/wJDfe2eKWAzmY=;
-	b=swPFPzDcs8ZGYwuQDuJ0V5yul8A9oQIF/esqALj1kVj0w9dIfq3r+3W7zxHry1UROiQ+80
-	oqSZbbTm7ZmLh4N0ZOb4kxQpomPOCgb+Q9XcWvFEXCapw8CQA0kITGEqapRNisjdoHdpf5
-	5zekOTzHk/+6np+AAxSb2SQ7aTKvL18=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1784018402;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=w9715Yz9COQgcSHQikGgGymVBJrFS/wJDfe2eKWAzmY=;
-	b=yGiPbGwqtW7Lt8OjX6gJRodZOTMEtzl9msgc/30cP/QVfPyq7E2RA0QfMPO3OGCKfQc4Nc
-	IWnrgidLqmHVo0Dg==
-Date: Tue, 14 Jul 2026 10:40:01 +0200
-From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	linuxppc-dev@lists.ozlabs.org, Huacai Chen <chenhuacai@kernel.org>,
-	loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
-	x86@kernel.org, Mark Rutland <mark.rutland@arm.com>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	"Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>, Radu Rendec <radu@rendec.net>
-Subject: Re: [patch 4/4] entry, treewide: Make
- syscall_enter_from_user_mode[_work]() indicate syscall execution
-Message-ID: <alX14R_pxloY_baW@kunlun.suse.cz>
-References: <20260712134433.549076055@kernel.org>
- <20260712141346.772209074@kernel.org>
- <alSlg72c8xmjaj48@kunlun.suse.cz>
- <871pd6r0ou.ffs@fw13>
- <alXlSUcT2TWOlM7r@kunlun.suse.cz>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alXlSUcT2TWOlM7r@kunlun.suse.cz>
-X-Spamd-Bar: ++++++++++++++
-X-Rspamd-Queue-Id: BFAE277D88
-X-Rspamd-Action: add header
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spamd-Result: default: False [14.86 / 50.00];
-	SPAM_FLAG(5.00)[];
-	NEURAL_SPAM_LONG(3.50)[1.000];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_SPAM_SHORT(2.67)[0.891];
-	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
-	RDNS_NONE(2.00)[];
-	ONCE_RECEIVED(1.20)[];
-	HFILTER_HELO_IP_A(1.00)[kunlun.suse.cz];
-	HFILTER_HELO_NORES_A_OR_MX(0.30)[kunlun.suse.cz];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCPT_COUNT_TWELVE(0.00)[19];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b306:2000::2:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_ZERO(0.00)[0];
-	DKIM_TRACE(0.00)[suse.de:+];
-	MISSING_XM_UA(0.00)[];
-	FREEMAIL_CC(0.00)[vger.kernel.org,ellerman.id.au,linux.ibm.com,lists.ozlabs.org,kernel.org,lists.linux.dev,dabbelt.com,lists.infradead.org,arm.com,huawei.com,gmail.com,lwn.net,rendec.net];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,kunlun.suse.cz:mid,kunlun.suse.cz:helo]
-X-Spam: Yes
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4hBG8j3Bc7z8Xrkn;
+	Fri, 31 Jul 2026 14:18:13 +0800 (CST)
+Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
+	by mse-fl2.zte.com.cn with SMTP id 66V6I0Io068098;
+	Fri, 31 Jul 2026 14:18:00 +0800 (+08)
+	(envelope-from wang.yechao255@zte.com.cn)
+Received: from mapi (szxlzmapp03[null])
+	by mapi (Zmail) with MAPI id mid12;
+	Fri, 31 Jul 2026 14:18:01 +0800 (CST)
+X-Zmail-TransId: 2b056a6c3e19e16-710d0
+X-Mailer: Zmail v1.0
+Message-ID: <20260731141801793hQfTkkNj5hVzU1qUKbRQY@zte.com.cn>
+In-Reply-To: <CAAhSdy3bBQTwj80cmBvWYfqWgO1e8_Y85x=QG46UamGEbYy+UQ@mail.gmail.com>
+References: 20260707125034.416521-1-wang.yechao255@zte.com.cn,CAAhSdy3bBQTwj80cmBvWYfqWgO1e8_Y85x=QG46UamGEbYy+UQ@mail.gmail.com
+Date: Fri, 31 Jul 2026 14:18:01 +0800 (CST)
+Mime-Version: 1.0
+From: <wang.yechao255@zte.com.cn>
+To: <anup@brainfault.org>
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <atish.patra@linux.dev>, <alex@ghiti.fr>
+Subject: =?UTF-8?B?UmU6IFtQQVRDSCB2MiAwLzJdIFJJU0MtVjogS1ZNOiBPcHRpbWl6ZSBoZmVuY2UgcmVxdWVzdCBoYW5kbGluZyBmb3IgU01QIGd1ZXN0cw==?=
+X-MAIL: mse-fl2.zte.com.cn 66V6I0Io068098
+X-TLS: YES
+X-ENVELOPE-SENDER: wang.yechao255@zte.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Fri, 31 Jul 2026 14:18:13 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6A6C3E25.000/4hBG8j3Bc7z8Xrkn
+X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_014005_260196_BD1FD6DF 
-X-CRM114-Status: GOOD (  25.61  )
+X-CRM114-CacheID: sfid-20260730_231818_127871_74261AB2 
+X-CRM114-Status: GOOD (  16.58  )
 X-Mailman-Approved-At: Fri, 31 Jul 2026 13:57:57 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -148,78 +76,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 09:29:13AM +0200, Michal Such=E1nek wrote:
-> On Tue, Jul 14, 2026 at 12:20:49AM +0200, Thomas Gleixner wrote:
-> > On Mon, Jul 13 2026 at 10:44, Michal Such=E1nek wrote:
-> > > On Sun, Jul 12, 2026 at 11:25:32PM +0200, Thomas Gleixner wrote:
-> > >> The return values of syscall_enter_from_user_mode[_work]() are
-> > >> non-intuitive. Both functions return the syscall number which should=
- be
-> > >> invoked by the architecture specific syscall entry code. The returned
-> > >> number can be:
-> > >> =
+> >
+> > This series improves the hfence request handling in RISC-V KVM,
+> > targeting scenarios where multiple VCPUs are running an SMP guest.
+> >
+> > The first patch Introduce make_xfence_request_nodata for FENCE.I
+> > requests and moves the hfence data/type validation out of the
+> > VCPU loop to avoid redundant checks on every iteration.
+> >
+> > The second patch fixes a more subtle performance issue: when one
+> > VCPU's hfence queue becomes full and triggers a fallback, the
+> > current code applies the fallback to all VCPUs indiscriminately.
+> > This unnecessarily degrades healthy VCPUs and can cause their
+> > queues to fill up prematurely due to lack of processing it.
+> >
+> > With these changes, fallback is applied only to the VCPUs that
+> > actually need it, preserving the efficiency of the normal path
+> > for others.
+> >
+> > Changes in v2:
+> >  - Fix the patch01 broken the KVM_REQ_FENCE_I request(Sashiko AI review).
+> >
+> >  - Link to v1:
+> >  https://lore.kernel.org/linux-riscv/20260707113715.413265-1-wang.yechao255@zte.com.cn/
+> >
+> > Wang Yechao (2):
+> >   RISC-V: KVM: Introduce make_xfence_request_nodata for FENCE.I requests
+> >   RISC-V: KVM: Separate req and fallback_req masks in
+> >     make_xfence_request
+> >
+> >  arch/riscv/kvm/tlb.c | 46 +++++++++++++++++++++++++++++++++-----------
+> >  1 file changed, 35 insertions(+), 11 deletions(-)
+> >
+> > --
+> > 2.43.5
+> >
+>
+> The PATCH2 is a fix independent of PATCH1 so re-order
+> and make PATCH2 as first patch which can be applied
+> independent of PATCH1
+>
+> Regards,
+> Anup
 
-> > >>   - the unmodified syscall number which was handed in by the caller
-> > >> =
+Thanks for the review.  I will reorder the patches in v3 so that PATCH2 comes first.
 
-> > >>   - a modified syscall number (ptrace, seccomp, trace/probe/bpf)
-> > >> =
-
-> > >> That has an additional twist. If the return value is -1L then the ca=
-ller is
-> > >> not allowed to modify the return value as that indicates that the mo=
-difying
-> > >> entity requests to abort the syscall and set the return value alread=
-y. That
-> > >> can obviously not be differentiated from a syscall which handed in -=
-1 as
-> > >> syscall number.
-> > >> =
-
-> > >> The most trivial way to deal with that is:
-> > >> =
-
-> > >>     set_return_value(regs, -ENOSYS);
-> > >>     nr =3D syscall_enter_from_user_mode(regs, nr);
-> > >>     if (valid(nr))
-> > >>     	handle_syscall(regs, nr);
-> > >> =
-
-> > >> That's what LOONGARCH, RISCV, and X86 do. But PowerPC and S390 do not
-> > >> preset the return value, so when user space hands in -1 and there is
-> > >> nothing setting the return value in the entry work code, then the sy=
-scall
-> > >> is skipped but the return value is whatever random data has been in =
-the
-> > >> return value register.
-> > >
-> > > The reason why PowerPC and S390 do not preset the return value is that
-> > > the return value uses the same register as the syscall number. There =
-are
-> > > apparently other architectures on which the return value overlaps with
-> > > the arguments which also do not preset the return value for that reas=
-on.
-> > > If they would use the generic entry the same problem would arise.
-> > =
-
-> > That's an implementation choice of PPC/S390 as I explained before, which
-> > could trivially be solved by having an explicit pt_regs->return_val
-> > member,
-
-Sorry, I got confused, and was looking at the previous revision of the
-patchset.
-
-In this revision I do not see any obvious problem that did not exist
-before.
-
-Thanks
-
-Michal
+Regards,
+Yechao
 
 _______________________________________________
 linux-riscv mailing list
