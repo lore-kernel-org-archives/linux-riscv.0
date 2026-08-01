@@ -4,151 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7D2C55173
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Aug 2026 14:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78933C55173
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Aug 2026 15:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J2BbHgliWGW8kpo7N6xOG1DxLDSUWjIPb/GQGA3Fiug=; b=NZtMdmEN8SO8yt
-	anAATjgH6SKRREzrj9Ww2Q1gP44mrtqHg/AvIqiY6Mj4fzJZzUt1B7StEqJ3Yz1m0V0LieJN51tym
-	t1FKi58JZxqApUk9q+ubxAMwH7LTC3W3huXbGkJJYAXV6BGyMgr6Tam+VlRpzuiS8+W8PebD0xLM9
-	ndw3daUKFtMdH19JvVWn6yxI7Eaay2KN8YRexnQB8prdsciXU9jhI4/AFYqbnoJeNJ/y9TsJgbgQd
-	0ahNFAIKDGydAO/ygsvOnmRFsCnZlmp6uGn+cc3jqVB+3Noy6sH9mZ0hAu7Cwm/R06WKUyVV3bZqZ
-	sNbIGv+BMykdoHHMJe2w==;
+	List-Owner; bh=gZgwxOkCkTXV0nCFUfGCx1Qx2O7oYXKWeGxl4qic+bM=; b=vJ0BDVtMBc4wAm
+	G8BBLa1DJVbNKCKHSg3sA35qFVupnDZ0GjJVaKBq9AtAKgBpo5+Iq2rbvTXG/4cDJS9A7lUbfZPyp
+	r6rnGDSprxdAZ99PlJFZdyu1hZZXp+BdoOmnlTUQtrI0hJ7oY3jtU20vlIl2vuaSMxM8y4Vgv2Ep4
+	rvX/P4qrzTYb7ME9fK19f540SzYDyGFc3WrRitl/o4V+dIfOpiVgPBJljBH3f5qjYkNJT3c4qUDgA
+	XRgLDVfOwox6tZ4+Rjv1jkkEcR5dN2BaF2aPVEo8mDpssdixfl89dffwgieNHL5DwKNF6inj+60p3
+	JU9mF9+Xs3GxOKcy0pzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqAmh-0000000EkIf-1Z9l;
-	Sat, 01 Aug 2026 14:33:55 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wqBDQ-0000000Elkc-26Hu;
+	Sat, 01 Aug 2026 15:01:32 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqAmd-0000000EkI7-2dVP
+	id 1wqBDM-0000000Elk4-2UC2
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Aug 2026 14:33:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qjKXbrCL1qTWKLMDetnUWXdEKFeuw54lB69wQmsnqWihuc37xDH5bgR3zGAhvg0nNQb7fk0q7kNahb67p4l8fLGVw/Li6hA0nYlYTrXl8ETQHHEaWroiweopyw9pExH0ywDrC49mM5nG/dwnIU8TFpveVIP2c7wVqbRJu52frsx0c7i4YowtYimE5vKZN8f8ifopaLTEKukoLYzfujO2FwfbeAVTV1H2co1FXVT9bDCXejjwtTNzU62tpR+3fgShOm1bkzDj5mw0E8dAs+iaW9oEi/e6ygTBel53g7rfXL/u8QppSueS+dn1A03HEoLWG5suNmgXNmYE/13Y6iJ1rw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1jiTRJyHDrVrx3fgdmuyU4wTkkwBCKJH1mYwe/FE/ZA=;
- b=yj08Fhqasc23Svq4x49rx+3WshavM+illP1U89lUULAZonuMEKPzb9aIvEhwwXMT0xDFvNlXT4+F0ePOB5XBReq5AR23HVC6emJAQ/+2jLh4liYQxB0aYRmuj1XbkBTaQu1wvS2z41pl9hVOGOipKPVgoE0p+2FQnlw8JrXOScK6vFXWBCufvQd/FZ5nJ3ERd++ZhwbygCNAvFoYDKVWNPpqzwZathHM5O8vrvvqYWyJMenxnEG4fI7JVJHeyXQCIZyfnjC0o3L0tsWkNO+A6IRtFJXZhaydfVbOGhExgNtI5nFh78i9DJOZQjFx/LIx4keCs9fc2ynr29s5Ns5UgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1jiTRJyHDrVrx3fgdmuyU4wTkkwBCKJH1mYwe/FE/ZA=;
- b=Q3nuFvMZy+w7wG49iwaKnGZmRi6fZq3DHLuf1M36/fZOiBxRnNt1umxGDix+CsB6dcFAOYrKL/KUshVrRkTOv06jJvNM31wkAFkkf2jlAgIFKdhr8E30FYAbSkFDeToK/CJmj/gisGg+7yCuTPVkqMH6g0giOjvvWHzUzEfGhLdRF6a/ftDZi/WJMql3PAqIMmnC0MwZ4ub27L1bt5WPlVdrBMvuVw8ZOPk907+wYfe9bCKnacmdyaLoP0zw+d4BQTZuacrT7/PLpDemORaF20LTH06Liz+okliTTrLHFigKtpLGqFW7f7ilfhhxrP2+6Edkna1xZStLWNPpQhaQmA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
- by SA1PR12MB6751.namprd12.prod.outlook.com (2603:10b6:806:258::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Sat, 1 Aug
- 2026 14:33:36 +0000
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989%4]) with mapi id 15.21.0270.015; Sat, 1 Aug 2026
- 14:33:36 +0000
-Date: Sat, 01 Aug 2026 23:33:30 +0900
-Message-Id: <DKDOJ7X5N45Y.3OUM7ODP8X5ZU@nvidia.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, "Viresh Kumar"
- <viresh.kumar@linaro.org>, "Danilo Krummrich" <dakr@kernel.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Drew Fustini"
- <fustini@kernel.org>, "Guo Ren" <guoren@kernel.org>, "Fu Wei"
- <wefu@redhat.com>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
- <sboyd@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>, "Gary Guo"
- <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- "Michal Wilczynski" <m.wilczynski@samsung.com>, "Boqun Feng"
- <boqun@kernel.org>, <linux-pm@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>,
- <linux-clk@vger.kernel.org>, <rust-for-linux@vger.kernel.org>, "Boris
- Brezillon" <boris.brezillon@collabora.com>, =?utf-8?q?Onur_=C3=96zkan?=
- <work@onurozkan.dev>, "Maurice" <mhi@mailbox.org>
-Subject: Re: [PATCH v5 1/4] rust: clk: use the type-state pattern
-From: "Alexandre Courbot" <acourbot@nvidia.com>
-To: "Daniel Almeida" <daniel.almeida@collabora.com>
-References: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
- <20260706-clk-type-state-v5-1-67c5f326a16c@collabora.com>
-In-Reply-To: <20260706-clk-type-state-v5-1-67c5f326a16c@collabora.com>
-X-ClientProxiedBy: TY6PR01CA0013.jpnprd01.prod.outlook.com
- (2603:1096:405:3bc::15) To CH2PR12MB3990.namprd12.prod.outlook.com
- (2603:10b6:610:28::18)
+	Sat, 01 Aug 2026 15:01:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
+	s=s2025; t=1785596458;
+	bh=GlHa8qPjAynYqkFOQRk+Tdsy9wM6D184HzODq1buprc=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=JgqICPnpJ3GLgSteLnwESfbGx8Z9bA6VDfH5s1HXZclYI/xGhy8FEmBYT12jr2srg
+	 8H0m3033gpYV1SxOF4oZhO0x/vx+cku+OxgAD7A4mwBhmBj046P6uVqfFwP1iEEA53
+	 8K4B8Osa/SkWufnlq3OvWOtxt/NVlqecjG7tyEwmxCJ/yLEl4yURq89VhMo8VQgFIb
+	 jc6alSjewjKkP1JFKyGKr0K4zJfxHDtDUi117ldxaaJmerYkz1M/ILpI9iexZCErcw
+	 kXXSWuYoL0RXGPno+ptlgscXuzHTqKjpEQexqvZjjLbwCXVbaWp6pJuDvRRszgkelp
+	 uRq7nNQrXDzUg==
+Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id 849AFB221A9D;
+	Sat,  1 Aug 2026 17:00:56 +0200 (CEST)
+Message-ID: <22cf4573-e894-401a-9023-0505c283d0af@freeshell.de>
+Date: Sat, 1 Aug 2026 08:00:47 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|SA1PR12MB6751:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79e717bb-0fc2-4e73-e29c-08deefd9de2b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|23010399003|366016|1800799024|376014|7416014|4143699003|5023799004|11063799006|56012099006|10067099003|6133799003|3023799007|18002099003|22082099003|13003099007;
-X-Microsoft-Antispam-Message-Info: do/Yb8dTqM4jn3Sg+rPENC308Sip2a4ilOdp8/xXvpYVarR/+cTS6nglpN2raijJNK/Txeqw8ObfEZpBBNvrjpcjrAmnVLwoJMdNZozFwdfGbrk9KdLq7EDnrtAleblaG0ZQyz7yMN2ifuN4K7h++XouKHzkxKLDeD5CrD7SG05MFhvjVFGKGhBFtE6k4Ll3L0SdoI+SztS2qRz9IRrQNEByNUyQZXgdAGabDpVR7cQJxCAOjmJdRWMEz4ujIdJpyWjwl1Ht85OQOG/OY6VloarzAIK1JKxyHHn2Ridh1y2MVZutaSzEFR8Cyw3pieo8VRf3DE/1aEAIaZJs14L3O7L7VfS/14iMF1p5wQZzXkMezp/IkhE82fJ0Xi9ZTlCDAC8ndBt6u4TSAUznSRJj/5zTRPVihnZwC9T5cXA/yh+pSaj8G7uWe6itrzoE3+Cm2puAOkQIWS3YD7ec6B1VQ1BSI7LzCB511Lm322cLTic9w34vD5A9XACyyp4lEbpIHUCEwbCamM8i8ShHClsfFWDeayu4293ELgKCB4YndmfJ33CRhXhU4Y0kPK6ubA++fnj4W8BCakM/UMzpLtzStMPAT7N0xa/4rURoJSvk1nsCJ8zTsBwKuL4yzvOSIFAxNFSnqAvzXVcRxMJL+1tn6a25IY0OppgLrXM9VXqCbQk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(366016)(1800799024)(376014)(7416014)(4143699003)(5023799004)(11063799006)(56012099006)(10067099003)(6133799003)(3023799007)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UzIrOTZtYnpGUzB0MzAybnVoQ3JDTVdxSE40OHlYNzZKcVE4WjRHUExaRXJN?=
- =?utf-8?B?blMxc3dJbnZ2Y3lWdU95ckUxZXFSWnoxWGttQWFlWmVWWnFVdU5vTWdQdEhn?=
- =?utf-8?B?V3doV2lORkpIeEJFV1BFVzhaNnlKOGppdC9IVGs2eVNmdE5oMi9kS1B1L2pJ?=
- =?utf-8?B?Yjdpd3QySEtjdmdyZWIxRjZFNkpYRms0QTBTTkFhNldUbHhKQXVGdng2eW56?=
- =?utf-8?B?RDFtNU9LNitydGh1bGpoOEwyM1BKWit4YkZNc2VCbHZBQndvODhzcmZPTGJh?=
- =?utf-8?B?YU00TWxrZDc1UWhjSjZsWHBxZ2RzZGZFamVkREROSlBNaWYzc2lMYUo1ZDYv?=
- =?utf-8?B?dVdvQXRqWkUvY1B1ZXllYjVnUnU0aDRiUktMNklURGlWZkExaXIyRGdDQ053?=
- =?utf-8?B?T1dhRUE4YVorNXIvV01aN2djWk5MRjc2NSswbDEwYkJmSHRoclJmaE9VK0lU?=
- =?utf-8?B?UWNRSWZJMGZmZm15NmFEOG9LaENSb050YkdnaGRHUG5SZDVSWjBaaHl6ck1j?=
- =?utf-8?B?MStYMkhzUEREbGhKanZRUGo4M2VYeHkyUXZ4WFRtYVorTlFGbzR0ZWY5a3Fz?=
- =?utf-8?B?TXZxRjlxUWxDOWN4Z2o5RVQ3dWJlWEJCWFMxTVc4Qnk3bzNqQ1NmQUF4c1dJ?=
- =?utf-8?B?YWRsa05KSXhFeEUrd2JJRFlmWG1UNlhUL3ZXRzJ3LzBvbFRzZFgrYUo5SXVW?=
- =?utf-8?B?R3ZSa1RkdDV2ZXZxZ3dQS2NOTkxzT0NZQXRLK3hxOHBJWktRaFQ5aUJDdjZu?=
- =?utf-8?B?V201dmVNM2tYeDRsRFpHWm9vemo1RTRBQXBrdlNGT3czekY1eUdRUGxnMktF?=
- =?utf-8?B?ZCswdXJZTzhrSStDSFIxbDExM2YwbVNHV3h6M3hZN0Z0djJNNVh3R1dWWEtz?=
- =?utf-8?B?V0hUaVNJd25IU2dkdTY2NUkxL2pIUTN1MFM0SDlpaVV1NlIyOUw2aGtjR3RI?=
- =?utf-8?B?OFlodWpkUXJIeDVkaGhZTTF4K2RadmoxVEVwZlhOc0orbG8xajl4dTN2alBw?=
- =?utf-8?B?aXphT1gwd3EyYUxsK0htN1p2RjdvVDBnSW1MYXArM1ZnYmthbEFBcnpEVHIw?=
- =?utf-8?B?OEQ4cmNGaDB0UTlSeEI3bTduc09WL0lmWk0zc2tKZFF4M0prYytYY2lmVEZt?=
- =?utf-8?B?SWgxTW5BN1NCUWVlaVBzbWsxZGZCNDJ4c05vZmpNVWg1WmYwWjRVR1FBeXpa?=
- =?utf-8?B?ajFSTlVZb1NMYVFFbEd5d2ZsMVN2UDhSYllJOFFkbmd0N1lpTUFuOXN1ZUJl?=
- =?utf-8?B?c25QTzFVUTl6SFYrWmh2U2VCZVVSQjFBMmlqYzdLN0IxMkt4OEtyKzVpdG1M?=
- =?utf-8?B?ekg3cWJJenZvaGVEWFYweUlyc1VtWjA1UmNFSjVkWTM5UHVVdHZQenFzdEp3?=
- =?utf-8?B?VUMvTWJ0aC9na1IyR0p4a3VpUit2c0FQbDJCZUVPSVRpTHpLWUJYclN5emcy?=
- =?utf-8?B?NHhBWGVaMzI4NUl0UWVjSU1OV1lFWkJhUlByQ1FJRmdHMjBCN1Q5NmJkbmdB?=
- =?utf-8?B?QVVwRkpwUzJJb0MyaGh4dlAvVEZwSDFxT2ZpQ2FHTkVWaGlnTXAzYnl4Z2FB?=
- =?utf-8?B?Q2FzSFlaaC9WcFFUNzVzTlZ5MlYxVXowbXNHK2doUDNJbU1acHZBbGxCLzRh?=
- =?utf-8?B?MlU1aUlVeHZ3cHlYMFhFS0FQMDNYVG8rVllhejIySFM1Wk43dFhOUVpyMGg2?=
- =?utf-8?B?M3JzVHJNa2FMcGltWU1WM0hyUHE1MWxnTDd4bHpJTW9qZFRGSmNHNTNLOVBC?=
- =?utf-8?B?UDNudmFrZEE1YW5oeW4vSWYwakVza3dMN2EvVGcyRVc0MkU1OStyclBwaFA1?=
- =?utf-8?B?QlhOelZaUFd6UFBENyt1V2UyRmtxbjlkNXJqakV3MllFa3BSZDVCeVo0Mlhs?=
- =?utf-8?B?ZXZ6dUNhS29rZEllY3hPUVRVaGlnOUlGUHZQWVVQbXVPdHpNbjRINDdYQzh6?=
- =?utf-8?B?aFBhMzBFdys2OHdDRllSbDQ2N3hER0VOOFd4ZndId1BWRWo4N3BVYnJHMTVn?=
- =?utf-8?B?NEIrK3UzdzFXNTVKUEI2MFYxK2ZLSnkrd0J1V0UvbjROVGhSL3h0aXVqSGhq?=
- =?utf-8?B?bzgrMWVRUFU3TmhUcXQ0L0ozenU3eGhFY21naEtvMmI3MVk4cjlTNWJMTWY1?=
- =?utf-8?B?WFZUVkU3ZCtLeGJPTFhrajdMOElVMFQramtLUTRMNGMwbFVNWXhCaGlhTFlt?=
- =?utf-8?B?NC9CSTdPcnc4bGdsMEQ2Z1AxSUhGTGZucFdGVnlySEtwTklPOEVBZTNZNlJL?=
- =?utf-8?B?ay8vSjJFVnFKSmV2MFNZRURULzV6WFBDZko1bnJkNVFNeTdManlubGVrY0xS?=
- =?utf-8?B?UThleW05d0hqVmxMY1RiTXU2bE51UXpRdTVUQmJtQkpWOGo2TVpmVFd1T3Fn?=
- =?utf-8?Q?BGQ0vppZwx+bmFBWi+at8L4VdkFz42WGxintJtnsSMOrv?=
-X-MS-Exchange-AntiSpam-MessageData-1: kYOyD65M8LqOhQ==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79e717bb-0fc2-4e73-e29c-08deefd9de2b
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Aug 2026 14:33:35.5089
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +RhgXBPjbHwkB9aPlOga3w7y4drjAfLTL+1zTmIGbT1HZ5OaUiPI0JqEFEWb/iHuMpKaRby1j3fk0eyTVCHOHA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6751
+User-Agent: Mozilla Thunderbird
+From: E Shattow <e@freeshell.de>
+Subject: Re: [PATCH] riscv: dts: starfive: jh7110-common: fix jh7110 SoC boot
+ from SD-card.
+To: Conor Dooley <conor@kernel.org>
+Cc: devicetree@vger.kernel.org, Ilya Sorochan <k0tran@altlinux.org>,
+ Conor Dooley <mail@conchuod.ie>, Emil Renner Berthing <kernel@esmil.dk>,
+ linux-riscv@lists.infradead.org, heinrich.schuchardt@canonical.com,
+ hal.feng@starfivetech.com
+References: <20260306171939.84568-1-k0tran@altlinux.org>
+ <178526175795.1708098.11834005845749245101.b4-ty@conchuod.ie>
+ <a32646aa-446a-4f95-9293-40001aeedae5@freeshell.de>
+ <20260729-electable-remake-1b8c94a452b7@spud>
+ <b1f10fad-e5ad-40a6-b37b-6e950736c1d2@freeshell.de>
+ <20260730-rockslide-depict-5edb03f8efc1@spud>
+Content-Language: en-US
+In-Reply-To: <20260730-rockslide-depict-5edb03f8efc1@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_073351_739956_6019E452 
-X-CRM114-Status: GOOD (  37.88  )
+X-CRM114-CacheID: sfid-20260801_080129_126874_1046D902 
+X-CRM114-Status: GOOD (  61.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,530 +80,263 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon Jul 6, 2026 at 11:37 PM JST, Daniel Almeida wrote:
-> The current Clk abstraction can still be improved on the following issues:
->
-> a) It only keeps track of a count to clk_get(), which means that users have
-> to manually call disable() and unprepare(), or a variation of those, like
-> disable_unprepare().
->
-> b) It allows repeated calls to prepare() or enable(), but it keeps no track
-> of how often these were called, i.e., it's currently legal to write the
-> following:
->
-> clk.prepare();
-> clk.prepare();
-> clk.enable();
-> clk.enable();
->
-> And nothing gets undone on drop().
->
-> c) It adds a OptionalClk type that is probably not needed. There is no
-> "struct optional_clk" in C and we should probably not add one.
->
-> d) It does not let a user express the state of the clk through the
-> type system. For example, there is currently no way to encode that a Clk is
-> enabled via the type system alone.
->
-> In light of the Regulator abstraction that was recently merged, switch this
-> abstraction to use the type-state pattern instead. It solves both a) and b)
-> by establishing a number of states and the valid ways to transition between
-> them. It also automatically undoes any call to clk_get(), clk_prepare() and
-> clk_enable() as applicable on drop(), so users do not have to do anything
-> special before Clk goes out of scope.
->
-> It solves c) by removing the OptionalClk type, which is now simply encoded
-> as a Clk whose inner pointer is NULL.
->
-> It solves d) by directly encoding the state of the Clk into the type, e.g.:
-> Clk<Enabled> is now known to be a Clk that is enabled.
->
-> The INVARIANTS section for Clk is expanded to highlight the relationship
-> between the states and the respective reference counts that are owned by
-> each of them.
->
-> The examples are expanded to highlight how a user can transition between
-> states, as well as highlight some of the shortcuts built into the API.
->
-> The current implementation is also more flexible, in the sense that it
-> allows for more states to be added in the future. This lets us implement
-> different strategies for handling clocks, including one that mimics the
-> current API, allowing for multiple calls to prepare() and enable().
->
-> The users (cpufreq.rs/ rcpufreq_dt.rs) were updated by this patch (and not
-> a separate one) to reflect the new changes. This is needed, because
-> otherwise this patch would break the build.
->
-> Link: https://crates.io/crates/sealed [1]
-> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
 
-The new API looks super nice; I really like it. A few nits/questions
-inline, but regardless:
+On 7/30/26 10:31, Conor Dooley wrote:
+> On Wed, Jul 29, 2026 at 02:07:07PM -0700, E Shattow wrote:
+>>
+>> On 7/29/26 03:59, Conor Dooley wrote:
+>>> On Wed, Jul 29, 2026 at 02:39:50AM -0700, E Shattow wrote:
+>>>>
+>>>>
+>>>> On 7/28/26 11:02, Conor Dooley wrote:
+>>>>> From: Conor Dooley <mail@conchuod.ie>
+>>>>>
+>>>>> On Fri, 06 Mar 2026 20:19:39 +0300, Ilya Sorochan wrote:
+>>>>>> Add bootph-pre-ram to mmc1_pins clk-pins.
+>>>>>>
+>>>>>> U-Boot pruned their overrides recently in favor of Linux which broke booting
+>>>>>> from sd-card for me and Heinrich Schuchardt [1]. Pruning commit:
+>>>>>> 27f617019dd070cb61f2 ("riscv: dts: starfive: prune redundant jh7110-common overrides")
+>>>>>>
+>>>>>> [1]  https://lore.kernel.org/all/ffdfc550-559b-4c59-9873-3f040fc3bb0e@canonical.com/
+>>>>>>
+>>>>>> [...]
+>>>>>
+>>>>> Right, I am going to try this again. I don't think there's actually a
+>>>>> valid technical argument against it, since it just affects the stage at
+>>>>> which configuration is applied rather than configuration itself.
+>>>>> If the configuration is wrong, and more devices don't use this configuration
+>>>>> than do, people need to move the node to where they think should be. That
+>>>>> shall be done separately.
+>>>>>
+>>>>> I don't want to hear about the politics about whether or not Starfive want
+>>>>> to support it or reverse engineering of binaries etc. All that I care about
+>>>>> is discussion of the hardware itself and which boards need this and which do
+>>>>> not.
+>>>>>
+>>>>> Applied to riscv-dt-fixes, thanks!
+>>>>>
+>>>>> [1/1] riscv: dts: starfive: jh7110-common: fix jh7110 SoC boot from SD-card.
+>>>>>       https://git.kernel.org/conor/c/42c57c049054
+>>>>>
+>>>>> Thanks,
+>>>>> Conor.
+>>>>
+>>>> Second NAK to this being applied, again, do not apply as-is.
+>>>>
+>>>> As you're not interested in the technical discussion, then you won't
+>>>> have one.
+>>>
+>>> I am interested in technical discussion of the hardware configuration. I'm
+>>> not interested in reverse engineering of binaries, GPL compliance or
+>>> whether Starfive want this to work or not because I don't see how they
+>>> relate to the correctness of the hardware description.
+>>
+>> The commit message suggesting "...broke booting from sd-card..." is
+>> missing information or should be clearer i.e. "The bootph-pre-ram
+>> hint(s) allow that following the SD Boot mode of StarFive loader in
+>> MaskROM the U-Boot SPL will have all necessary devicetree nodes to
+>> initialize the MMC driver and continue booting U-Boot Main from SD
+>> card". It has not to do with booting Linux from SD card, and is for want
+>> of a more generalized description affecting any SPL that filters on the
+>> patterns of bootph-* hints but U-Boot seems to be one-of-one the only
+>> consumer of this that I am aware of.
+>>
+>> Placement of this bootph-pre-ram hint in jh7110-common is (probably?)
+>> not appropriate, as SD Card is not valid on all boards or even at that
+>> mmc device, namely StarFive VisionFive 2 Lite eMMC, Milk-V Mars CM, and
+>> requires testing to know if it breaks existing functionality on boards
+>> with swapped arrangement of mmc0 and mmc1 with respect to SDIO module
+>> and eMMC (i.e. OrangePi RV ? It has been awhile I may misremember this).
+> 
+> This kinda comes back to the point I was making about it not changing the
+> configuration, just the point at which the configuration is applied. All
+> boards get this configuration eventually, it just seems to be that this
+> particular boot method needs it earlier?
+> 
+> I'm not sure that applying it earlier would break any boards (although
+> of course it could), I'd be more likely to think that having the
+> configuration at all is probably harmful in the cases where it is
+> harmful.
 
-Reviewed-by: Alexandre Courbot <acourbot@nvidia.com>
+Indeed the "workaround" I've suggested off-list for JH-7110 U-Boot
+builds where deprecated StarFive loader functionality is required has
+been to one-liner patch out the U-Boot build system filtering of
+devicetree for SPL build. There is excess SRAM capacity on JH-7110 SoC
+and it is not any problem of code size. There cannot be any complaint
+about missing nodes if none are missing.
 
-I will try to go through the rest of the series shortly.
+> 
+> The other thing I don't really get is why the clk-pins node is needed at
+> the pre-ram stage but not the mmc-pins node. Surely both are needed? I
+> suppose it may be the case that the latter matches the default
+> configuration for the pins but not the former? If that's the case, the
+> node mmc-pins should get the property too IMO. I've added Hal into the
+> thread, maybe he can clear stuff up somewhat in that regard.
 
-> ---
->  drivers/cpufreq/rcpufreq_dt.rs |   2 +-
->  drivers/gpu/drm/tyr/driver.rs  |  37 +--
->  drivers/pwm/pwm_th1520.rs      |  17 +-
->  rust/kernel/clk.rs             | 541 ++++++++++++++++++++++++++++++-----------
->  rust/kernel/cpufreq.rs         |   8 +-
->  5 files changed, 423 insertions(+), 182 deletions(-)
->
-> diff --git a/drivers/cpufreq/rcpufreq_dt.rs b/drivers/cpufreq/rcpufreq_dt.rs
-> index f17bf64c22e2..9d2ec7df4bac 100644
-> --- a/drivers/cpufreq/rcpufreq_dt.rs
-> +++ b/drivers/cpufreq/rcpufreq_dt.rs
-> @@ -40,7 +40,7 @@ struct CPUFreqDTDevice {
->      freq_table: opp::FreqTable,
->      _mask: CpumaskVar,
->      _token: Option<opp::ConfigToken>,
-> -    _clk: Clk,
-> +    _clk: Clk<kernel::clk::Unprepared>,
+More the reason to regard all StarFive loader affected configuration
+related nodes as likely that the SPL would need any of them at that
+phase. If you're expert enough to know to just hit specific clocks and
+GPIO and controller IP configuration without knowledge of the StarFive
+loader then I of course accept that determination on whether this is
+achieving the stated purpose of the patch to leverage the StarFive
+loader "SD boot" method and U-Boot SPL loading U-Boot Main payload and
+then from there Linux-as-usual. I do not have that expertise so the
+generalized approach is add filtering hints for anything StarFive loader.
 
-Maybe import `kernel::clk` to shorten this a bit.
+> 
+>> The functionality of adding this hint is not even possible for more than
+>> half the boards, and no new boards will have it.
+> 
+> Ignoring the rest of this for now, these are the supported boards and
+> inferring sd from cd-gpios:
+> 
+> jh7110-deepcomputing-fml13v01.dts
+> 
+> Looks like sd on 1
 
-<...>
-> +    /// An error that can occur when trying to convert a [`Clk`] between states.
-> +    pub struct Error<State: ClkState> {
-> +        /// The error that occurred.
-> +        pub error: kernel::error::Error,
-> +
-> +        /// The [`Clk`] that caused the error, so that the operation may be
-> +        /// retried.
-> +        pub clk: Clk<State>,
-> +    }
+Yes, board reference photos show the multi-select DIP switch. No
+schematic available (NDA restricted).
 
-Can this have a `Debug` implementation? It can just forward to `error`.
+> 
+> jh7110-milkv-marscm-emmc.dts
+> jh7110-milkv-marscm-lite.dts
+> 
+> looks like sd on 0
 
-> +
-> +    impl<State: ClkState> From<Error<State>> for kernel::error::Error {
-> +        /// Discards the [`Clk`] and keeps only the error code.
-> +        ///
-> +        /// This makes the fallible state transitions usable with the `?`
-> +        /// operator when the caller does not need to retry the operation on the
-> +        /// original [`Clk`], e.g.:
-> +        ///
-> +        /// ```
-> +        /// use kernel::clk::{Clk, Enabled, Unprepared};
-> +        /// use kernel::device::{Bound, Device};
-> +        /// use kernel::error::Result;
-> +        ///
-> +        /// fn get_enabled(dev: &Device<Bound>) -> Result<Clk<Enabled>> {
-> +        ///     let clk = Clk::<Unprepared>::get(dev, Some(c"apb_clk"))?
-> +        ///         .prepare()?
-> +        ///         .enable()?;
-> +        ///     Ok(clk)
-> +        /// }
-> +        /// ```
-> +        #[inline]
-> +        fn from(err: Error<State>) -> Self {
-> +            err.error
-> +        }
-> +    }
->  
->      /// A reference-counted clock.
->      ///
->      /// Rust abstraction for the C [`struct clk`].
->      ///
-> +    /// A [`Clk`] instance represents a clock that can be in one of several
-> +    /// states: [`Unprepared`], [`Prepared`], or [`Enabled`].
-> +    ///
-> +    /// No action needs to be taken when a [`Clk`] is dropped. The calls to
-> +    /// `clk_unprepare()` and `clk_disable()` will be placed as applicable.
+There's transistor logic to select 0b00 or 0b11 RGPIO state from a pin
+routed through one of the board interconnects, labeled nRPI_BOOT; not
+possible to select those 0b01 and 0b10 StarFive loader mmc modes so (to
+the best of my understanding) any MMC action in U-Boot SPL will
+originate from StarFive loader non-MMC configuring modes, and there
+would be a clean slate except maybe some of the clocks? I'm not sure of
+the details from code.
 
-s/placed/made?
+> 
+> jh7110-milkv-mars.dts
+> 
+> looks like sd on 1
 
-> +    ///
-> +    /// An optional [`Clk`] is treated just like a regular [`Clk`], but its
-> +    /// inner `struct clk` pointer is `NULL`. This interfaces correctly with the
-> +    /// C API and also exposes all the methods of a regular [`Clk`] to users.
-> +    ///
->      /// # Invariants
->      ///
->      /// A [`Clk`] instance holds either a pointer to a valid [`struct clk`] created by the C
-> @@ -99,19 +185,36 @@ mod common_clk {
->      /// Instances of this type are reference-counted. Calling [`Clk::get`] ensures that the
->      /// allocation remains valid for the lifetime of the [`Clk`].
->      ///
-> +    /// The [`Prepared`] state is associated with a single count of
-> +    /// `clk_prepare()`, and the [`Enabled`] state is associated with a single
-> +    /// count of both `clk_prepare()` and `clk_enable()`.
-> +    ///
-> +    /// All states are associated with a single count of `clk_get()`.
-> +    ///
->      /// # Examples
->      ///
->      /// The following example demonstrates how to obtain and configure a clock for a device.
->      ///
->      /// ```
-> -    /// use kernel::clk::{Clk, Hertz};
-> -    /// use kernel::device::Device;
-> +    /// use kernel::clk::{Clk, Enabled, Hertz, Unprepared, Prepared};
-> +    /// use kernel::device::{Bound, Device};
->      /// use kernel::error::Result;
->      ///
-> -    /// fn configure_clk(dev: &Device) -> Result {
-> -    ///     let clk = Clk::get(dev, Some(c"apb_clk"))?;
-> +    /// fn configure_clk(dev: &Device<Bound>) -> Result {
-> +    ///     // The fastest way is to use a version of `Clk::get` for the desired
-> +    ///     // state, i.e.:
-> +    ///     let clk: Clk<Enabled> = Clk::<Enabled>::get(dev, Some(c"apb_clk"))?;
-> +    ///
-> +    ///     // Any other state is also possible, e.g.:
-> +    ///     let clk: Clk<Prepared> = Clk::<Prepared>::get(dev, Some(c"apb_clk"))?;
+Some revisions of Milk-V Mars have the multi-select switch populated.
+Most revisions have a button with transistor logic for override of
+multi-select switch to initiate StarFive loader UART serial method. Some
+have both a button and a multi-select switch. The default in the absence
+of populated parts is StarFive loader SPI NOR method.
 
-nit: maybe use a different name as this is otherwise obtaining the same
-clock.
+Having MMC at SPL time seems appropriate for Milk-V Mars of any revision
+because the interfaces are wired up and U-Boot SPL i.e. could be
+compiled to load U-Boot Main from MMC when originated from e.g. StarFive
+loader UART mode, but the goal of this patch as-is specifically
+originates from StarFive loader "SD boot" selection.
 
->      ///
-> -    ///     clk.prepare_enable()?;
-> +    ///     // Later:
-> +    ///     //
-> +    ///     // `?` works directly thanks to `From<Error<State>>`; the failed
-> +    ///     // `Clk` is dropped on error. Match on the returned `Error<State>`
-> +    ///     // instead (its `clk` field is the original `Clk`) if you want to
-> +    ///     // retry the operation.
-> +    ///     let clk: Clk<Enabled> = clk.enable()?;
->      ///
->      ///     let expected_rate = Hertz::from_ghz(1);
->      ///
-> @@ -119,122 +222,339 @@ mod common_clk {
->      ///         clk.set_rate(expected_rate)?;
->      ///     }
->      ///
-> -    ///     clk.disable_unprepare();
-> +    ///     // Nothing is needed here. The drop implementation will undo any
-> +    ///     // operations as appropriate.
-> +    ///     Ok(())
-> +    /// }
-> +    ///
-> +    /// fn shutdown(clk: Clk<Enabled>) -> Result {
-> +    ///     // The states can be traversed "in the reverse order" as well:
-> +    ///     let clk: Clk<Prepared> = clk.disable();
-> +    ///
-> +    ///     // This is of type `Clk<Unprepared>`.
-> +    ///     let clk = clk.unprepare();
-> +    ///
->      ///     Ok(())
->      /// }
->      /// ```
->      ///
-> +    /// Drivers that need to change a clock's state at runtime (for example to
-> +    /// enable it on resume and disable it on suspend) can keep it in an enum
-> +    /// and move between the variants:
-> +    ///
-> +    /// ```
-> +    /// use kernel::clk::{Clk, Enabled, Prepared};
+> 
+> jh7110-orangepi-rv.dts
+> 
+> ditto
 
-I know patch 4 eventually fixes the imports, but a more logical ordering
-would be to fix them first, as it would avoid a bit of churn. Not a big
-deal though.
+I think these are swapped for SDIO WiFi functionality? Not exactly sure,
+I never end up with this board to test myself even though I handled the
+patch submission with schematic as reference.
 
-<...>
-> +        pub fn unprepare(self) -> Clk<Unprepared> {
-> +            // We will be transferring the ownership of our `clk_get()` count to
-> +            // `Clk<Unprepared>`.
-> +            let clk = ManuallyDrop::new(self);
-> +
-> +            // SAFETY: By the type invariants, `clk.as_raw()` is a valid argument
-> +            // for [`clk_unprepare`].
-> +            unsafe { bindings::clk_unprepare(clk.as_raw()) }
-> +
-> +            // INVARIANT: The `clk_prepare()` count was released above, so the
-> +            // returned `Clk<Unprepared>` owns only the `clk_get()` count.
-> +            Clk {
-> +                inner: clk.inner,
-> +                _phantom: PhantomData,
-> +            }
->          }
->  
-> -        /// Prepare the clock.
-> +        /// Attempts to convert the [`Clk`] to an [`Enabled`] state.
->          ///
-> -        /// Equivalent to the kernel's [`clk_prepare`] API.
-> +        /// Equivalent to the kernel's [`clk_enable`] API.
->          ///
-> -        /// [`clk_prepare`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_prepare
-> +        /// [`clk_enable`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_enable
->          #[inline]
-> -        pub fn prepare(&self) -> Result {
-> -            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> -            // [`clk_prepare`].
-> -            to_result(unsafe { bindings::clk_prepare(self.as_raw()) })
-> +        pub fn enable(self) -> Result<Clk<Enabled>, Error<Prepared>> {
+It has a UART boot button in photos and schematic, not any multi-select
+switch.
 
-Note that the `Regulator` API uses the `try_into_enabled` pattern for
-state transitions that can fail. Now that these transitions are
-consuming the clock, it might make sense to align?
+> 
+> jh7110-pine64-star64.dts
+> 
+> ditto
 
-> +            // We will be transferring the ownership of our `clk_get()` and
-> +            // `clk_prepare()` counts to `Clk<Enabled>`.
-> +            let clk = ManuallyDrop::new(self);
-> +
-> +            // SAFETY: By the type invariants, `clk.as_raw()` is a valid argument
-> +            // for [`clk_enable`].
-> +            to_result(unsafe { bindings::clk_enable(clk.as_raw()) })
-> +                // INVARIANT: `clk_enable()` succeeded, so the returned
-> +                // `Clk<Enabled>` owns a single count of it, which is released
-> +                // when it leaves the [`Enabled`] state.
-> +                .map(|()| Clk {
-> +                    inner: clk.inner,
-> +                    _phantom: PhantomData,
-> +                })
-> +                .map_err(|error| Error {
-> +                    error,
-> +                    clk: ManuallyDrop::into_inner(clk),
-> +                })
->          }
->  
-> -        /// Unprepare the clock.
-> +        /// Runs `cb` with the clock temporarily enabled.
->          ///
-> -        /// Equivalent to the kernel's [`clk_unprepare`] API.
-> +        /// The clock is enabled before `cb` runs and disabled again afterwards,
-> +        /// so the [`Enabled`] state is scoped to the closure and the [`Clk`]
-> +        /// remains [`Prepared`]. This is convenient for drivers that only need
-> +        /// the clock running for a short, well-defined section (e.g. while
-> +        /// touching registers) without giving up ownership of the prepared
-> +        /// clock or threading it through an intermediate state, e.g.:
->          ///
-> -        /// [`clk_unprepare`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_unprepare
-> +        /// ```
-> +        /// use kernel::clk::{Clk, Enabled, Hertz, Prepared};
-> +        /// use kernel::error::Result;
-> +        ///
-> +        /// fn read_rate(clk: &Clk<Prepared>) -> Result<Hertz> {
-> +        ///     clk.with_enabled(|clk: &Clk<Enabled>| clk.rate())
-> +        /// }
-> +        /// ```
-> +        ///
-> +        /// Equivalent to a balanced [`clk_enable`]/[`clk_disable`] pair around
-> +        /// `cb`.
-> +        ///
-> +        /// [`clk_enable`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_enable
-> +        /// [`clk_disable`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_disable
->          #[inline]
-> -        pub fn unprepare(&self) {
-> -            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> -            // [`clk_unprepare`].
-> -            unsafe { bindings::clk_unprepare(self.as_raw()) };
-> +        pub fn with_enabled<R>(&self, cb: impl FnOnce(&Clk<Enabled>) -> R) -> Result<R> {
-> +            // SAFETY: By the type invariants, `self.as_raw()` is a valid argument for
-> +            // [`clk_enable`].
-> +            to_result(unsafe { bindings::clk_enable(self.as_raw()) })?;
-> +
-> +            // Borrow the same clock as `Clk<Enabled>` for the duration of `cb`.
-> +            // It must not be dropped, as that would run `clk_disable`/`clk_put`
-> +            // against counts owned by `self`; the matching `clk_disable` below
-> +            // balances the `clk_enable` above instead.
-> +            //
-> +            // INVARIANT: The clock is enabled for the lifetime of `enabled`.
-> +            let enabled = ManuallyDrop::new(Clk::<Enabled> {
-> +                inner: self.inner,
-> +                _phantom: PhantomData,
-> +            });
-> +
-> +            let ret = cb(&enabled);
-> +
-> +            // SAFETY: The `clk_enable` above succeeded, so this balances it.
-> +            // `cb` only had a shared reference, so the enable count is unchanged.
-> +            unsafe { bindings::clk_disable(self.as_raw()) };
-> +
-> +            Ok(ret)
->          }
-> +    }
->  
-> -        /// Prepare and enable the clock.
-> +    impl Clk<Enabled> {
-> +        /// Gets [`Clk`] corresponding to a bound [`Device`] and a connection id
-> +        /// and then prepares and enables it.
->          ///
-> -        /// Equivalent to calling [`Clk::prepare`] followed by [`Clk::enable`].
-> +        /// Equivalent to calling [`Clk::get`], followed by [`Clk::prepare`],
-> +        /// followed by [`Clk::enable`].
->          #[inline]
-> -        pub fn prepare_enable(&self) -> Result {
-> -            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> -            // [`clk_prepare_enable`].
-> -            to_result(unsafe { bindings::clk_prepare_enable(self.as_raw()) })
-> +        pub fn get(dev: &Device<Bound>, name: Option<&CStr>) -> Result<Clk<Enabled>> {
-> +            Clk::<Prepared>::get(dev, name)?
-> +                .enable()
-> +                .map_err(|error| error.error)
-> +        }
-> +
-> +        /// Behaves the same as [`Self::get`], except when there is no clock
-> +        /// producer. In this case, instead of returning [`ENOENT`], it returns
-> +        /// a dummy [`Clk`].
-> +        #[inline]
-> +        pub fn get_optional(dev: &Device<Bound>, name: Option<&CStr>) -> Result<Clk<Enabled>> {
-> +            Clk::<Prepared>::get_optional(dev, name)?
-> +                .enable()
-> +                .map_err(|error| error.error)
->          }
->  
-> -        /// Disable and unprepare the clock.
-> +        /// Disables the [`Clk`] and converts it to the [`Prepared`] state.
->          ///
-> -        /// Equivalent to calling [`Clk::disable`] followed by [`Clk::unprepare`].
-> +        /// Equivalent to the kernel's [`clk_disable`] API.
-> +        ///
-> +        /// [`clk_disable`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_disable
->          #[inline]
-> -        pub fn disable_unprepare(&self) {
-> -            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> -            // [`clk_disable_unprepare`].
-> -            unsafe { bindings::clk_disable_unprepare(self.as_raw()) };
-> +        pub fn disable(self) -> Clk<Prepared> {
-> +            // We will be transferring the ownership of our `clk_get()` and
-> +            // `clk_prepare()` counts to `Clk<Prepared>`.
-> +            let clk = ManuallyDrop::new(self);
-> +
-> +            // SAFETY: By the type invariants, `clk.as_raw()` is a valid argument
-> +            // for [`clk_disable`].
-> +            unsafe { bindings::clk_disable(clk.as_raw()) };
-> +
-> +            // INVARIANT: The `clk_enable()` count was released above, so the
-> +            // returned `Clk<Prepared>` owns the `clk_get()` and `clk_prepare()`
-> +            // counts.
-> +            Clk {
-> +                inner: clk.inner,
-> +                _phantom: PhantomData,
-> +            }
-> +        }
-> +    }
-> +
-> +    impl<T: ClkState> Clk<T> {
-> +        /// Obtain the raw [`struct clk`] pointer.
-> +        #[inline]
-> +        pub fn as_raw(&self) -> *mut bindings::clk {
-> +            self.inner
->          }
->  
->          /// Get clock's rate.
->          ///
->          /// Equivalent to the kernel's [`clk_get_rate`] API.
->          ///
-> +        /// Note that the returned rate is only guaranteed to reflect what the
-> +        /// hardware is doing once the clock is [`Enabled`].
-> +        ///
->          /// [`clk_get_rate`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_get_rate
->          #[inline]
->          pub fn rate(&self) -> Hertz {
-> -            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> -            // [`clk_get_rate`].
-> +            // SAFETY: By the type invariants, `self.as_raw()` is a valid argument
-> +            // for [`clk_get_rate`].
+Yes, all revisions are with an multi-select switch, and sd where
+StarFive loader expects it to be.
 
-Ideally these cosmetic fixes would have been in their own patch to not
-distract from the rest, but not a big deal.
+> 
+> jh7110-starfive-visionfive-2-lite.dts
+> 
+> looks like sd on 0
 
->              Hertz(unsafe { bindings::clk_get_rate(self.as_raw()) })
->          }
->  
-> @@ -245,88 +565,29 @@ pub fn rate(&self) -> Hertz {
->          /// [`clk_set_rate`]: https://docs.kernel.org/core-api/kernel-api.html#c.clk_set_rate
->          #[inline]
->          pub fn set_rate(&self, rate: Hertz) -> Result {
-> -            // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> -            // [`clk_set_rate`].
-> +            // SAFETY: By the type invariants, `self.as_raw()` is a valid argument
-> +            // for [`clk_set_rate`].
->              to_result(unsafe { bindings::clk_set_rate(self.as_raw(), rate.as_hz()) })
->          }
->      }
->  
-> -    impl Drop for Clk {
-> +    impl<T: ClkState> Drop for Clk<T> {
->          fn drop(&mut self) {
-> -            // SAFETY: By the type invariants, self.as_raw() is a valid argument for [`clk_put`].
-> -            unsafe { bindings::clk_put(self.as_raw()) };
-> -        }
-> -    }
-> -
-> -    /// A reference-counted optional clock.
-> -    ///
-> -    /// A lightweight wrapper around an optional [`Clk`]. An [`OptionalClk`] represents a [`Clk`]
-> -    /// that a driver can function without but may improve performance or enable additional
-> -    /// features when available.
-> -    ///
-> -    /// # Invariants
-> -    ///
-> -    /// An [`OptionalClk`] instance encapsulates a [`Clk`] with either a valid [`struct clk`] or
-> -    /// `NULL` pointer.
-> -    ///
-> -    /// Instances of this type are reference-counted. Calling [`OptionalClk::get`] ensures that the
-> -    /// allocation remains valid for the lifetime of the [`OptionalClk`].
-> -    ///
-> -    /// # Examples
-> -    ///
-> -    /// The following example demonstrates how to obtain and configure an optional clock for a
-> -    /// device. The code functions correctly whether or not the clock is available.
-> -    ///
-> -    /// ```
-> -    /// use kernel::clk::{OptionalClk, Hertz};
-> -    /// use kernel::device::Device;
-> -    /// use kernel::error::Result;
-> -    ///
-> -    /// fn configure_clk(dev: &Device) -> Result {
-> -    ///     let clk = OptionalClk::get(dev, Some(c"apb_clk"))?;
-> -    ///
-> -    ///     clk.prepare_enable()?;
-> -    ///
-> -    ///     let expected_rate = Hertz::from_ghz(1);
-> -    ///
-> -    ///     if clk.rate() != expected_rate {
-> -    ///         clk.set_rate(expected_rate)?;
-> -    ///     }
-> -    ///
-> -    ///     clk.disable_unprepare();
-> -    ///     Ok(())
-> -    /// }
-> -    /// ```
-> -    ///
-> -    /// [`struct clk`]: https://docs.kernel.org/driver-api/clk.html
-> -    pub struct OptionalClk(Clk);
-> -
-> -    impl OptionalClk {
-> -        /// Gets [`OptionalClk`] corresponding to a [`Device`] and a connection id.
-> -        ///
-> -        /// Equivalent to the kernel's [`clk_get_optional`] API.
-> -        ///
-> -        /// [`clk_get_optional`]:
-> -        /// https://docs.kernel.org/core-api/kernel-api.html#c.clk_get_optional
-> -        pub fn get(dev: &Device, name: Option<&CStr>) -> Result<Self> {
-> -            let con_id = name.map_or(ptr::null(), |n| n.as_char_ptr());
-> -
-> -            // SAFETY: It is safe to call [`clk_get_optional`] for a valid device pointer.
-> -            //
-> -            // INVARIANT: The reference-count is decremented when [`OptionalClk`] goes out of
-> -            // scope.
-> -            Ok(Self(Clk(from_err_ptr(unsafe {
-> -                bindings::clk_get_optional(dev.as_raw(), con_id)
-> -            })?)))
-> -        }
-> -    }
-> -
-> -    // Make [`OptionalClk`] behave like [`Clk`].
-> -    impl Deref for OptionalClk {
-> -        type Target = Clk;
-> +            if T::DISABLE_ON_DROP {
-> +                // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> +                // [`clk_disable`].
-> +                unsafe { bindings::clk_disable(self.as_raw()) };
-> +            }
-> +
-> +            if T::UNPREPARE_ON_DROP {
-> +                // SAFETY: By the type invariants, self.as_raw() is a valid argument for
-> +                // [`clk_unprepare`].
-> +                unsafe { bindings::clk_unprepare(self.as_raw()) };
+It has a UART boot button and a fastboot jumper position which uses the
+"user LED" RGPIO3 as an input;  StarFive loader doesn't have anything
+about fastboot or RGPIO3 so that specific feature is a vendor U-Boot
+configuration.
 
-With this `Drop` can sleep, this is probably worth mentioning in the
-doccomment.
+> 
+> jh7110-starfive-visionfive-2-lite-emmc.dts
+> jh7110-starfive-visionfive-2-v1.2a.dts
+> 
+> looks like sd on 1
+> 
+> jh7110-starfive-visionfive-2-v1.3b.dts
+> 
+> ditto
+> 
+> Would you be happier if only the boards with sd on mmc1 got the
+> property?
 
+If we're focused on the "SD boot" feature yes I want that to be
+per-board, as it is unknown if the errata is a reference layout and
+component selection issue or if it is a BootROM code bug. If the former
+then that may vary between boards.
+
+I'd rather regard the StarFive loader code listing as the minimum
+baseline of adding filtering hints and we can then totally ignore
+per-board hinting and testing of StarFive loader functionality and
+external SPL behavior. It is configured in the StarFive loader? Set a
+filtering hint and get out of the way of SPL re-configuring the same.
+
+> 
+> I'd like to say I will read the decompliation, but I look after this
+> platform as a favour and I just don't have the time to dedicate to
+> understanding it. There's a reason it took me ages to even circle back
+> to this.
+> 
+>>
+>> Repeating myself, Hal offered a description of the boot process but I
+>> find that does not exactly match the hardware based on my
+>> reverse-engineering effort. More eyes should be on this to explain what
+>> the hardware does in context of the patch commit message. Are we
+>> correctly describing this hardware, or not?
+> 
+>> The "reverse engineering of binaries" is the StarFive loader in hardware
+>> MaskROM that immediately precedes the supposed consumer of this proposed
+>> bootph-pre-ram hint as stated in the patch commit message. It is the
+>> hardware specifically the functionality that we are purporting to
+>> describe. So there it is an excerpt and if you want an explanation of
+>> what that all does to save you the trouble of reading it I am sorry to
+>> disappoint as I don't I don't understand a line of it. What are we
+>> describing and are there more bootph-pre-ram hints needed?
+> 
+> In theory, the state of the hardware prior to the boot loader stage
+> consuming bootph-pre-ram shouldn't even matter, any node needed by the
+> stage should be marked with it even if that node matches the default
+> state of the pinctrl hardware. What the prior stage is or does shouldn't
+> matter, although of course people tend to only add pinctrl nodes or
+> annotations when software requirements/expecations don't match the state
+> it finds the hardware in.
+
+My initial approach to homogenize bootph-pre-ram hinting and nodes
+between U-Boot and Linux for JH-7110 SoC was simple trial-and-error only
+adding nodes if they result in getting further along in the boot
+process. The questions I had then about "SD boot" and "eMMC boot"
+StarFive loader mode errata have only really been clarified by digging
+into the code listing of the StarFive loader, and at that not
+satisfactorily as of yet. What is all this secureboot logic doing? What
+are the technical details of the "SD boot" errata? Where is the
+published source available for this GPL2.0+ derived code of StarFive loader?
+
+I agree it should not make any difference what StarFive loader does
+preceding the SPL phase for these filtering hints but we just don't know
+for sure what the "SD boot" errata is, if it's an electrical layout
+thing per-board or MMC initialization code incompatibility. I can see
+how we might test MMC functionality to U-Boot SPL with adding these
+filtering hints but the test methodology does not involve "SD boot" mode
+of StarFive loader as that clobbers the configuration and I wouldn't
+know if that's invalidating the testing methodology or not. If it is
+specific to "SD boot" mode but then splat over the whole range of boards
+untested that just does not inspire any confidence given the vendor
+response and what is verifiable.
+
+-E
+-E
 
 _______________________________________________
 linux-riscv mailing list
