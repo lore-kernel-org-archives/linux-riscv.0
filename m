@@ -4,59 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC65C55162
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 05:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DDC8C55162
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 05:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XFB2HLeq8teCkk8FYxLlRT7X2B4DqdUv6niCfSMLw7k=; b=FXmEms743pa9qy
-	qkMpuj+cH2o3kbGmPBrdIdOIi1nIMhbS+mvQmr8RTa3VXPk/T4oGLKqWCz/0hCdSt9yx051KFQ8KI
-	TBOQ5Ln2d1l9TlkGMmsMBOZQ38Z6TKxnWzN/OgTjTW4R1Jlv/G7USc/sRtHv3OaePNzBohLPA8aH3
-	RupRF5Amx90RZ9JV0sc9OfXUzkTtzVGx7ivxMzPbvn6KQuEWQge76TqlNupaQew3PS+xLlLN46MFA
-	+RjPuywtaPw+585llBtnztt7QQzXB/e5nTrEb41eb5M6Z5sGqTv/lo/ERBkUORwwe3mpaCiJLApL/
-	NQMTA2r4h+GgHFDzTEsQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	From:Subject:Cc:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8yl9VtARV9qZpxQkNvhkVKJh7vzqY7vkvuiv+bR5Mbo=; b=i9rSIMQbEWPw41
+	iRs4SxdTtTEkrkzf+E/B5aWd0fz9C5SmVZH8g+rwpqD8RIdng+WvWD9PVse4jO/EP38grBHRMVT5M
+	K0nNzUNnzKoMkUDQclHFnQ2rWiK7BNQ8TkT73I7Ln/5iHtPRWp/BRqzqELpd0pbW45k6k2Bn4K5Bz
+	Tn7INhfKeUm03jptDlhu2IsRDerHAvQ1RBNH+AAd90k0Fdf3uVxA0O/QEpOsqFcRgnOtQ9NPVPYQK
+	X2vx/sAVVpp19++bDNYlvZPKvbR8Zie2R47N+QgGPHH7k5tIb0rpZFW/kQrraxDYw1hnhnV2bn68Q
+	WqLtSAeADvlodJUdvN3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqOJw-0000000FMRP-1OgV;
-	Sun, 02 Aug 2026 05:01:08 +0000
-Received: from out28-123.mail.aliyun.com ([115.124.28.123])
+	id 1wqOgc-0000000FN94-3uT4;
+	Sun, 02 Aug 2026 05:24:34 +0000
+Received: from mail-eastus2azon11011038.outbound.protection.outlook.com ([52.101.57.38] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqOJs-0000000FMQI-0F62;
-	Sun, 02 Aug 2026 05:01:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=bosc.ac.cn; s=default;
-	t=1785646855; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=Pt73grlFBLxMuyEprmpx00JxnCh3hf5B0ZaySBUrw7M=;
-	b=BSnsmRsvEjQqU3gY5n4nFBMC034RyLlYSNOTORmGyfG3V82JQ2ZthcG9Qm3nW9Y/kc/73NZoCAb7Lo/ZgNTHSt96+QZQZNUM12aAsaccu22+B7C61GwEeuuiT9dzSWHNkB+tnhcI5N/Y6YSZ2nsvs9rzPfKLEBD/4wiMRrKQ4KUnZcchbdLsb0t3y4WHA3Schib/VFAa7g/1Ss4D3GoVE/lt8iEAU18jfQ9lfiT6kQwrvQPlqbyWGvMrVsNfB00k8cLny1ttnGQUOGFG2Phxob25fxYEKkby0TNunBvFTqJlJzHn+PRUyBIufdwrrOkV0r9XTNT2azL08xXJewbbkA==
-X-Alimail-AntiSpam: AC=CONTINUE;BC=0.07511541|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.143854-0.0024158-0.85373;FP=16572605649191133682|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033032053168;MF=guoyaxing@bosc.ac.cn;NM=1;PH=DS;RN=13;RT=13;SR=0;TI=SMTPD_---.ibc6NmS_1785646816;
-Received: from guoyaxing..(mailfrom:guoyaxing@bosc.ac.cn fp:SMTPD_---.ibc6NmS_1785646816 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Sun, 02 Aug 2026 13:00:54 +0800
-From: Yaxing Guo <guoyaxing@bosc.ac.cn>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	kvm-riscv@lists.infradead.org
-Cc: kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Hui Min Mina Chou <minachou@andestech.com>,
-	guoyaxing@bosc.ac.cn,
-	majiuyue@bosc.ac.cn,
-	linux-kernel@vger.kernel.org
-Subject: [RFC] RISC-V KVM: guest local sfence.vma may miss stale VS-stage TLB after vCPU migration
-Date: Sun,  2 Aug 2026 13:00:15 +0800
-Message-ID: <20260802050015.104795-1-guoyaxing@bosc.ac.cn>
-X-Mailer: git-send-email 2.43.0
+	id 1wqOgY-0000000FN8h-3bF9
+	for linux-riscv@lists.infradead.org;
+	Sun, 02 Aug 2026 05:24:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JKiYpGI0yFH+ltD3UGnAyfU1WhXitJZdL1glLKpKWpsDCkT/u8IBQMbULfacGiRe2fKV7tTkI/kGtTTvjzaQV/ZHO9h91NjkGvdnppCC7sbw+jtsqKPRk4ZbKRz3ak/DQuzviglkollgHtCbO9wibtzxu+UMs8rwu/vTszQDccVRTI6/eW1QWrv4iIPLsa7yMI9OXOWafyDJc+DD8AIqKHD9i3tUqRMptqP1Rxx7KzjwQzRYaetZ7Juc8wS3A4wW1AL4XEdJu4ews9DmlKISPlrQ5kHsNx+VbFgXCtWjK2u2BqKzpP1A9UiqHZd1Bxnu2Xk6wU9ivFMpxZ8Emk7XYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eczUneMTiSCYWKDMBCUnzsG9qrQPASttq2272vQbIoc=;
+ b=TusTmPA48kjadqaMbNIMtxxboU4PXc+Ce3oh8pwSVDKYtskc6RoB0jUNWFD61UU8zK50SjhkvxnRnGA9l40U1mY05PyNrxYQtfeyMkHdMPbLAQ0IePIY4ytkLsGC77xg0iLLe9U5nAvftE4Q+6Y9S9P3S/Ue7AkFFLOWPtIAI4dRc/1rnK1lTvecH0PdpaUPoqMPgCgkEF7ouBucKhWNfl6xs6aN8IJMg6OfayvQp5OO+uwGNJo3X70Ku3nCeS3eXTtmKL6wczRTTCq3Caq7xOu2PTdpVNsmrQbtLN+s2JOC+sGlKM7rqHIr3qeZ3U5Xmj8W3D7IQuYqjhif5tDGuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eczUneMTiSCYWKDMBCUnzsG9qrQPASttq2272vQbIoc=;
+ b=Wy11c1bNBWKjpRVRXZRmqpyg9EBjdpGntfKFHZlqZL0CFjK0XhB/bWH2rjqvZoRM+XUgKPUj7NvR9/ws2hqWDVVIUE5bu0bM56mK1Kc2qoX7+21y+1T1kKfSTi9iCp8yznc4T/d5BHGmFEmwPvh3aqaMyi/0qp7HMcldGo+qA5qtVSUAndP2/5EGnQ/G6ygHzSEcVdDo12xIjzfmqEhq34l2H22N9tk0WCjKenzO9FZefadw5vT3INtKy0MPj5ipD1SXwk7qRdxrQKrZYYE7hM047tCsb99MqPURaP5j+antukebA3TgPFMg1A7B9NJBN02d9ejMvZEgxo6fPYXNBg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
+ by SJ1PR12MB6026.namprd12.prod.outlook.com (2603:10b6:a03:48b::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Sun, 2 Aug
+ 2026 05:24:22 +0000
+Received: from CH2PR12MB3990.namprd12.prod.outlook.com
+ ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
+ ([fe80::7de1:4fe5:8ead:5989%4]) with mapi id 15.21.0270.015; Sun, 2 Aug 2026
+ 05:24:21 +0000
+Date: Sun, 02 Aug 2026 14:24:17 +0900
+Message-Id: <DKE7H940RYTG.2DL2793GTF3XB@nvidia.com>
+To: "Daniel Almeida" <daniel.almeida@collabora.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, "Viresh Kumar"
+ <viresh.kumar@linaro.org>, "Danilo Krummrich" <dakr@kernel.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Drew Fustini"
+ <fustini@kernel.org>, "Guo Ren" <guoren@kernel.org>, "Fu Wei"
+ <wefu@redhat.com>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
+ <sboyd@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>, "Gary Guo"
+ <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ "Michal Wilczynski" <m.wilczynski@samsung.com>, "Boqun Feng"
+ <boqun@kernel.org>, <linux-pm@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>,
+ <linux-clk@vger.kernel.org>, <rust-for-linux@vger.kernel.org>, "Boris
+ Brezillon" <boris.brezillon@collabora.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, "Maurice" <mhi@mailbox.org>
+Subject: Re: [PATCH v5 3/4] rust: clk: add devres-managed clks
+From: "Alexandre Courbot" <acourbot@nvidia.com>
+References: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
+ <20260706-clk-type-state-v5-3-67c5f326a16c@collabora.com>
+In-Reply-To: <20260706-clk-type-state-v5-3-67c5f326a16c@collabora.com>
+X-ClientProxiedBy: TY4PR01CA0005.jpnprd01.prod.outlook.com
+ (2603:1096:405:26e::8) To CH2PR12MB3990.namprd12.prod.outlook.com
+ (2603:10b6:610:28::18)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|SJ1PR12MB6026:EE_
+X-MS-Office365-Filtering-Correlation-Id: 30f5a2a2-5f88-41a9-9943-08def0564e92
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|376014|7416014|23010399003|366016|1800799024|6133799003|56012099006|10067099003|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: mZ9/aLIv+37e04hn5BbhXb0Az87cHcXgrZVX60nyS8aS9wTS4WFud3H3JfZ4NEqr9qNZypJ/NsU2KFUVnc4Hx9nYhL27YkWQHWTpPG3qNCwaWscFstZqgkXvp5B3eh6ei+GJsCUpWPk/w4gkiLNmE3oGC8dY3V9csn6s5RRwkYsaduoAs+z2lfZahIa2PwK81UaLJB3G7dSnwbAaKouNAAA6hp1oDBkRCKE0Vq4cKzkedYgzMq+rRZD8PVt6u0lTqb9GpNkuG11IBaNy5QTtgy+27klaTo+ukfgyd5OWRL9bx2F6ioWuryKSmnhmeQ6DDeRqS5Fm4WWq6r17a0TMvDUcrIf8S4yz+YDw/UlTG4VeHfQhEgsNB58lgcyr0GFaG1PQQ5CKAtrNPI37TGnkCedBJ6MY5ICbRIGKfVEanN/rYNRLkRSQi/qYXHoMh1IhIDgndKlpm/qSi67pKms+CBGcrrPTi45vFe+rNpN0wNbTfTqFHtL58OjTGIMT4q/S3wYkcpGmDsFTKRooYvEWxOZLh6gjXhSj+AMkNJixSB6+KEB9YX7QdKjBTR2UdJDf9xU210M4i1EjrGkY0mbj6QEHvSAcZC0TygNGAkSHi4HOQOzR6RYzcmqcouE806qdr9VvBcCGgaY9rglVPrqgkh6rCGLBr/MYsQMUJJrUWKs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(376014)(7416014)(23010399003)(366016)(1800799024)(6133799003)(56012099006)(10067099003)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bk5TbHExYjUyOFpZY2Q5cjlFWW1yUlhmaTlOMHZzd0RjaWtOSk16ZVZNMXV0?=
+ =?utf-8?B?Unc0aUVlVXJkalo0czdJMXRRcWpsQmE2dWRzb1FhTm5VKzlaa1NvTWk3ZGxR?=
+ =?utf-8?B?ZUVtSkZLUjE5VEJUOEV5QUxDUHpRTTVTdnZmYWhoVHdmalgxU0NBd0Y5bGtp?=
+ =?utf-8?B?UGhJU0pEYS9qbnltVEtCV1BqMXBydXZLeFJqRzRDSnRyUy9iUk9oa3Q3VlVh?=
+ =?utf-8?B?b2NHc0puNTNpZUcrdUlvT3FWeFRpcnlJYXU5VlYwY1hJQnRHUGhmNWUyblZa?=
+ =?utf-8?B?eDJCa2lUdHZ6UmhVR1N0bVcxWG9jUEVTSmY4QSt3TEtnZXdFajR5TlBMY1pQ?=
+ =?utf-8?B?SUtTY0Rrb3Y4MlBYQlpoSkNDbkE1d2tCa1ZQNjkrTlZSSEpYRHNuVFE4ZEZS?=
+ =?utf-8?B?M1JtQ2QyajhIUlFEeXhoSEtqN1dXU3FJWWs3SmgzakN6WTRIV1ZCTUNuK0pG?=
+ =?utf-8?B?U2Q2WXRyRGtDOFhGTTY3SjlacGNzNGRoTFBVVTA0cVo3QXhrc0pWeWRpMFlR?=
+ =?utf-8?B?VTEvRkViZVRFMUtFd2l0V2JpWm9kVk5BbUVINGVDM2prYmVqc0FVb2xiZk85?=
+ =?utf-8?B?ZlBoR2lHTzJqSlpKcnBDZ0haQzQyMVN0cVVySGM0SVo1WjlMSkY3OHo4cTB3?=
+ =?utf-8?B?dzkyeG5CNkdSQ2VDRlpyWlREeFkwcTZPNnRacTBhODJvWExjODhkQUZObGtl?=
+ =?utf-8?B?Y0pnVHNrb3c0UHVBNEp4Y2haMEhvNC9EL1huRkdtcFpIWUV3YUcyc1YwRWxS?=
+ =?utf-8?B?OU1LV0VsUFdYVFR5WEtheWhCWXlvb1RtYld3anJtS1FqOXVGci9XMlpRZDd2?=
+ =?utf-8?B?REdVWStkUkczOXZoSjF3Q0NsUDZuMTRiajNmMzNRZ3JQRU5UV0tIVlpjWWpv?=
+ =?utf-8?B?ejd6ZnBqQVVlNzhEbW0yVXNOUFZiN0drbkFLY2IvbldoeUp1b0dHYW5PWGcr?=
+ =?utf-8?B?OTJqY0d1R2J6bGJoUkFSMURYKzIzNzIvMXVGbk0xZTlmZS96RFo1UGZHcWI0?=
+ =?utf-8?B?UmRBY0QvdTU1enRUTFJFSlNHU0ZySlJjU2svVXZocjBMelBYRUlBRE44ZDNE?=
+ =?utf-8?B?QVhtT0taMXh1enhhN0ZrMHZ0OS9OUmU2S05jR2JKVUZEYlF1QUM5YzAzZWgx?=
+ =?utf-8?B?MGlZbWpJUVJQTW90RGt5OEpVUjF6SkNISDBuK0N6UjNGZ3BiOGxLVUk3MDNY?=
+ =?utf-8?B?TXVzMHR5VC8vV3Z4MDMvV0laTmFKVzF4SjhrR0RYWHkwelVrK3dqOHNDdDdQ?=
+ =?utf-8?B?TFB2VlF6Nm9QNy9vTGpoRlJ3ZjRaelZCTXNKU09xVFg5QmNyRU9rNTdoSVRD?=
+ =?utf-8?B?QjNHc1JHR1RROEVvT1FqVGw5ZDVBNkY3Z0Jma3NVZXE1N21IenMyZDZpaWx5?=
+ =?utf-8?B?UmVOSTdzUzBwb2JVTEdPMUFaSmh5YWJYaUpyZklDak95eVRlTW1mbVlDMEhD?=
+ =?utf-8?B?QkluNHNXS1lid29yaUZYSUgzdGdPL25DYlBuUEdzazRiQXNhWDhCN3NadldO?=
+ =?utf-8?B?aVR5ZXJyemJhdWhqMCtYYnRnY1dnQkFsTFJpZXh2VVp0REZ2S1M5enVPQzdv?=
+ =?utf-8?B?RndZVyttdk5OTjJJSU9NcWJhaGYwMXpYY2dJSzAwWCt3Y0FlbHlaU0pTTXQ0?=
+ =?utf-8?B?NUljUUNXdk1KV1dmV1pvQkUwQW1tM2E0Y01VRXBmY1o3SmlyK1doZ2E3VElz?=
+ =?utf-8?B?cUd5djV4Y3czcjlpTTVMMy80SFJDZ2g4QjNQNDMwOEs5Q0dmNWtFRWNjLzRa?=
+ =?utf-8?B?THFQcFFYbkUyUTJXR3Z2ZENQRVU2bHRoTFRQcUp1M28wQU9VRWwybFZUaHVy?=
+ =?utf-8?B?YzRZcHRKdVZzamxiNWJtbk42aVhTcXZ3RTJ4OVhhNUI5aWFsK2I4a3NyVmZ5?=
+ =?utf-8?B?M0Q5cE5DQnBPRVhKWmJTQm5HeWpOTElEaU1zYy96RUlPZFpkQ09RRkhWelBy?=
+ =?utf-8?B?SXZxeEhrOE0rQksraE5iV2NyNjcybjM3UzB5SDcrTnpWc2Y1L0xvaHZVRi9h?=
+ =?utf-8?B?UFFyZW85K1VySlQ0dWVwdU0zT0tpQ0k1aDlEdmRSMndXaHcrWWpWUXNkcVI5?=
+ =?utf-8?B?RzRGVHNaZnpFbzIyRmcyWDNCdFZQZHVEY2kxS0JGbHdJNFZTQ0dFdjlYWEhI?=
+ =?utf-8?B?Tm41Z1VvVWJvUEpBR2JYVU8xVzB3VTJnSVdOY2UzWmJORVF4d2JQcFpndnBy?=
+ =?utf-8?B?L2VjRWpkTlBFVmdRNlRCNlBHY2F0eXlvVjdXV1B1VTUvaG91anMrUUR1Y3Za?=
+ =?utf-8?B?czU0Mmt3UW1LMEE2RmhXM09LRVlTR29uVFY5b2hmbTNOOU9sRjUyRnltOEsw?=
+ =?utf-8?B?N25ybzRSeHprWjhBQjk4SURpT3dvMitZR1NxUUJjSXp3dHdnSUEzQVFpTTJq?=
+ =?utf-8?Q?0m0njlRM9oHaZNkiEnwLI1WT7hiQtfsxRHIjPNDgIGsOU?=
+X-MS-Exchange-AntiSpam-MessageData-1: dSIzGlpt4d4Zjw==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 30f5a2a2-5f88-41a9-9943-08def0564e92
+X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Aug 2026 05:24:21.2656
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JfQQxoVrUx8WXHH14qT8FeywmXPRLJwW7bMFMeFpbawdjY4GCacChpjDT6Yur3BgoZJsR2wzcqC0UzxiHz5EdQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_220104_706121_23A5EF9A 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20260801_222430_935087_6C8B3DA8 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,91 +165,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Mon Jul 6, 2026 at 11:37 PM JST, Daniel Almeida wrote:
+> The clk API allows fine-grained control, but some drivers might be
+> more interested in a "set and forget" API.
+>
+> Expand the current API to support this. The clock will automatically be
+> disabled, unprepared and freed when the device is unbound from the bus
+> without further intervention by the driver.
+>
+> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
 
-I would like to ask whether RISC-V KVM has a gap around guest sfence.vma
-and VS-stage TLB invalidation when a vCPU migrates across host CPUs.
+Reviewed-by: Alexandre Courbot <acourbot@nvidia.com>
 
-On bare metal, Linux uses mm_cpumask in __flush_tlb_range() to decide
-whether to send a local or remote sfence.vma. That works because the cpumask
-reflects physical CPUs. In a guest, however, the kernel only sees vCPUs, so
-from the guest point of view a task may never "migrate" even though the
-underlying vCPU moved to a different host CPU. In other words, guest
-mm_cpumask is effectively a vCPU mask, not a host CPU mask.
+One nit below.
 
-There is also a related switch_mm()/set_mm_asid() aspect. With the ASID
-allocator enabled, RISC-V Linux does not flush on every context switch. A
-local_flush_tlb_all() is only done when a deferred ASID rollover flush is
-pending for the current CPU. That is fine on bare metal, because previous
-shootdowns are also based on physical CPUs. In a guest, however, the earlier
-shootdown may have been only a guest-local sfence.vma and may have missed an
-old host CPU where the same vCPU ran previously.
+> ---
+>  rust/kernel/clk.rs | 46 ++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+>
+> diff --git a/rust/kernel/clk.rs b/rust/kernel/clk.rs
+> index dd5fd656271e..b9a44f83843a 100644
+> --- a/rust/kernel/clk.rs
+> +++ b/rust/kernel/clk.rs
+> @@ -96,6 +96,52 @@ impl Sealed for super::Prepared {}
+>          impl Sealed for super::Enabled {}
+>      }
+>  
+> +    /// Obtains and enables a [`devres`]-managed [`Clk`] for a bound device.
+> +    ///
+> +    /// [`devres`]: crate::devres::Devres
+> +    #[inline]
+> +    pub fn devm_enable(dev: &Device<Bound>, name: Option<&CStr>) -> Result {
+> +        let name = name.map_or(ptr::null(), |n| n.as_char_ptr());
+> +
+> +        // SAFETY: It is safe to call [`devm_clk_get_enabled`] with a valid
+> +        // device pointer.
+> +        from_err_ptr(unsafe { bindings::devm_clk_get_enabled(dev.as_raw(), name) })?;
+> +        Ok(())
+> +    }
+> +
+> +    /// Obtains and enables a [`devres`]-managed [`Clk`] for a bound device.
+> +    ///
+> +    /// This does not print any error messages if the clock is not found.
 
-A simplified sequence is:
-
-1. A guest task with mm A runs on vcpu0 while vcpu0 is scheduled on host
-   CPU1. CPU1 fills a VS-stage TLB entry for that mm/ASID.
-2. vcpu0 migrates to host CPU0. KVM's vCPU migration sanitization is local
-   to the current host CPU, so it does not invalidate the VS-stage TLB entry
-   that was left on host CPU1.
-3. The guest later updates mm A's page table from vcpu0, for example due to
-   COW. Since the guest still sees mm A as having run only on guest CPU0,
-   __flush_tlb_range() can choose a local sfence.vma. That local sfence.vma
-   only affects host CPU0, where vcpu0 is currently running, so the stale
-   VS-stage entry on host CPU1 remains.
-4. Later, the task is scheduled again while vcpu0 is running on host CPU1.
-   If the ASID is still valid and no deferred ASID rollover flush is pending,
-   set_mm_asid() may not issue any flush. The access on host CPU1 can then
-   hit the old VS-stage TLB entry.
-
-We hit this on a XiangShan RISC-V system. A bash task in the guest was
-scheduled on vcpu0 while that vCPU was running on host CPU1. A read-only
-page was prefetched and cached in CPU1's VS-stage TLB. Later the same vCPU
-migrated to host CPU0, the guest triggered COW and updated the mapping, and
-the guest still issued only a local sfence.vma. The stale VS-stage entry on
-CPU1 was not invalidated. After running for some time, the task later
-accessed that mapping while running on host CPU1 again and hit the stale
-translation. The data in that page was a pointer from the GOT, so it
-dereferenced to NULL and eventually caused a segmentation fault.
-
-I checked current upstream RISC-V KVM (v7.0.2) and I do not see HSTATUS.VTVM
-being enabled, so guest sfence.vma is not trapped. I found
-kvm_riscv_local_tlb_sanitize() on host CPU migration, which handles G-stage
-VMID entries on the current host CPU, but I do not think it generally solves
-the stale VS-stage TLB case described above.
-
-I also noticed the vendor-specific kvm_riscv_vsstage_tlb_no_gpa path in
-current upstream. It looks like a workaround for a particular implementation
-issue on Andes AX66, where the VS-stage TLB does not cache guest physical
-address and VMID, so the normal VMID/GPA-based invalidation model is
-insufficient. In that sense, it does not seem to be a generic solution for
-guest sfence.vma coherence across vCPU migration.
-
-I am wondering what the right direction should be. Enabling HSTATUS.VTVM and
-trapping guest sfence.vma would allow KVM to translate guest local sfence.vma
-into the required host-side hfence.vvma, but that may be too heavy for the
-common case. Another possible direction may be to make the current
-Andes-specific vCPU migration flush logic more generic, so implementations
-that need VS-stage TLB sanitization on vCPU migration can opt in through a
-common mechanism. A third possibility may be to define a lightweight SBI
-interface for guest local sfence.vma, so Linux could use it in
-__flush_tlb_range() for the local case when running under KVM, and KVM could
-then decide whether a local sfence.vma is sufficient or whether host-side
-hfence.vvma is also needed.
-
-My questions are:
-1. Is the behavior above expected on current RISC-V KVM?
-2. If not, what would be the preferred fix direction?
-3. Should this be handled by trapping guest sfence.vma with VTVM, by
-   generalizing the existing vCPU-migration VS-stage TLB flush logic, or by
-   adding a lighter SBI-mediated path for guest local sfence.vma?
-4. Or is there another intended mechanism to keep VS-stage TLB state coherent
-   across vCPU migration?
-
-If needed, I can send a reproducer and the exact hardware/kernel details.
-
-Thanks,
-Yaxing Guo
+This sounds like a clock not being found returns an error, but no
+message is printed.
 
 _______________________________________________
 linux-riscv mailing list
