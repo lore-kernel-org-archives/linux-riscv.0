@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0BCC55171
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 12:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C25C55162
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 17:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HwFdO4MvD1XulMEWur2OyRrnTDiL8A640XpVuKMhZuY=; b=4sFKta31TlFERZ/pHPB7Y1+TWS
-	2bRqIhvp7oN4lqvVApR8u5hnlqqKklgRvOv+GPhRxEdyISO+zawls1Ts427MU8KF7wBCHg155kdqz
-	XuJ5eK3ybMMzT7DtsVqYh+sh5l+h6F2Qk7xmxK37rK/FVAriUsLzcOGUxd1dYbWBHXpMJJY2czrrG
-	h9JlfRhXzRdSl+vwF9m43pOV4ozQfi/Uvw0skMALo8WWmCLsfqFK6gMmwTiP20AQSJVR8X3E7phnv
-	rk0V89ZjZ+CUGYSkSOT3FP4oopK8aCkzftkauQOR019rFcd3dV4YddQVZlFpaKzpiFhreWf6R7ueM
-	P2taOmAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WWvk/NLBHayU0M0UtcF4u8txzdB2HC4/5MW3rrXSuSc=; b=DIdVcCVziOPA93
+	rWCUPBTEQdOe6vVGRBmyMJhFs2Y/Jh90r8up273uozX70jaqjBLbnKlifrem/tbRfui8wk4OFEndK
+	uSiyeD7nTgKWb2Y7x8Rw4q0gUUCUEWeQt6N2oknk7AuUmP0Y0SUr7T/U9tPhH2iTiHMHzez6RByDi
+	fBg234kNhz1GEUrd22MrXIRhgWiCjB3AK1BMvSHcRnzdjYi45ItflFDU8bx6fYOADD52uIDSCosJz
+	irvJlZP/3fo/kRRttTqOkC1t4MYMk3NsXMH32uh1sIpCUCQt0iBxHusEvNLRSIL/joMKduP3TuVib
+	Dl2EPGTOkhrFLwoe/80w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqVJk-0000000FdCM-0Igt;
-	Sun, 02 Aug 2026 12:29:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wqaE2-0000000Fu3x-3u5x;
+	Sun, 02 Aug 2026 17:43:50 +0000
+Received: from mail-pl1-f179.google.com ([209.85.214.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqVJi-0000000FdBw-2Vfy;
-	Sun, 02 Aug 2026 12:29:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id BFFF043B77;
-	Sun,  2 Aug 2026 12:29:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id C46541F000E9;
-	Sun,  2 Aug 2026 12:29:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785673758;
-	bh=SHSGsM0vu6t3zdEJHGFOqvnDDQ/hs9cDuA8s50LeKfA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=H2OmZJERCYxtrOOph6nrStzZdf9Px2+Qu52EKRUMyRnmj4QfSbClOGXvOwLQl/4aA
-	 QXrUGppcGBhRWhY9tW992RTQ83AkGGQJozNyGViEgllW7DJ8ayJ1pfg/mDZfKLYM+O
-	 iaCJu9ozHHoC9OJbqbp8GE2FXVc48vGCq9wTtZKsOYsPdu40/jveDStEa4FnAS8dvh
-	 eBwmazAysE+S1N5/1Od2as8vkHZiBiRzJzW/3NReG/Vr6BQSlyRO9SCgOFK91LoO0Z
-	 4Wat2UmYU94tkzX5l86TF3Srukt7Yi+4nQ/P5F5pqFRu3Ol3LaLh9TJ1K2EelnS/lt
-	 PpuVHx/cRwcTg==
-Date: Sun, 2 Aug 2026 14:29:15 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, Damien Le Moal <dlemoal@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Andi Shyti <andi.shyti@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
-	Lee Jones <lee@kernel.org>, Johannes Berg <johannes@sipsolutions.net>, 
-	Jeff Johnson <jjohnson@kernel.org>, Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Yangbo Lu <yangbo.lu@nxp.com>, Paul Walmsley <pjw@kernel.org>, 
-	Samuel Holland <samuel.holland@sifive.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Richard Cochran <richardcochran@gmail.com>, Jens Wiklander <jenswi@kernel.org>, 
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>, YC Hung <yc.hung@mediatek.com>, 
-	Svyatoslav Ryhel <clamor95@gmail.com>, Sean Wang <sean.wang@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, linux-arm-msm@vger.kernel.org, 
-	linux-ide@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	mfd@lists.linux.dev, linux-wireless@vger.kernel.org, ath10k@lists.infradead.org, 
-	linux-pm@vger.kernel.org, netdev@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: Correct white-space style
-Message-ID: <am83ac93gyowUgSQ@monoceros>
-References: <20260801195613.235430-2-krzysztof.kozlowski@oss.qualcomm.com>
+	id 1wqaE0-0000000Fu3Z-1LY2
+	for linux-riscv@lists.infradead.org;
+	Sun, 02 Aug 2026 17:43:49 +0000
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2d004f135b1so25705215ad.3
+        for <linux-riscv@lists.infradead.org>; Sun, 02 Aug 2026 10:43:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785692627; x=1786297427;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BFKIp+dilVhwH1i5aZzLKKk+gBZw8/UsY/+UeYQbT7Y=;
+        b=eRD3yBfp01Sf8nUrlDPuJpmgyOfNNnLQ2fbwXgGDtvrcsUuK2aWQ0XUX6xlUZ9/PDL
+         owT/9twGThfZyDxLFeCzgXUiLPUck37oQFzhUWkFmbi/FaXz49IK06RrvmcYtLdevVls
+         yEBHb15FOCTGIjg6t8b1wuvHSXn9QDH97HWEcJ70TU+ogmyLxAm7nkFomOz2SK0r2K1n
+         4UuFNgNdUp77AGf0uWJDbCk5P7mcLHQM8grhj+zxu4AGNrwYmNvLtHRbJ7T4FVfqL595
+         ciN0QiggVeig4NDCTrpd0MfbW342I7tJnb31BYvGqPiOZPaW3g9k5LlSYK9sf29SVIk1
+         Xl+A==
+X-Forwarded-Encrypted: i=1; AHgh+Rp8/Xv2TGkOd1r8sfAC9gTRxZIDRmgaazjaS3k8AxERCxGOYYqQE6WcznZujejg80wjtjrIQxF9T9BHTw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxW/d0Cfolf8/zXdjwlFNC82FK9troVDETMHwoZQQhBnf6eD+d0
+	yKxLy6RCTV3RxbvDTXt68knaicEkmH8WqKCBTB5xAqyhDWyC1VVAbsFK
+X-Gm-Gg: AR+sD10wlDmlUMKov3Dy+XUbfcEdVXCE2EXhU6/dO8tB0pSpxWDf/TY28dM0BUHjfiY
+	CCVmnNntC64uhB1PiT6yE58nCAca6AjeA7w5eYsTJy1c7IHAhC2cyExEq5AoAxzTbyuofal8O3J
+	OiJJHeiHu7Tb65Hpxr+S8S3vBauoXsDSp4tb2RYInLvpI/dITBzyqMx3957310Gi4LlyB7rFtM9
+	rOkgTGMnUV/8V0doaQXaMpAeYZjk6FUoCmo06VRsPT4VrnJRbeo40FlNTJ9n1Hbn2RRC6IFVpMB
+	6vfODhAPrAWtq6NBmkWzdOb+neF7CLfgOMPO02Y3Z75HNRTLfTvr4eODl1T5H1M/Q60SfmwUDkh
+	af2EgldJItwU2oNlPviIzQGwemqrPGK07H4229HyACk00g5iynQtBzycSbcNFAH2pijzSj5RVvl
+	HipVoNp4xk8EKYxgspKNe9CByDvDwUmLat+qg6WhgOW6B3/8EBkIJbr93y7BMWr4i8JRGSKQ0yF
+	w1dF47QlAyuMCBE2/fDXlMcR1ROGyPty5wLVcu0dJ22Wkpc
+X-Received: by 2002:a17:903:390b:b0:2cf:bfbb:61e2 with SMTP id d9443c01a7336-2d0524723b8mr69480925ad.39.1785692626770;
+        Sun, 02 Aug 2026 10:43:46 -0700 (PDT)
+Received: from localhost (37-72-172-174.static.hvvc.us. [37.72.172.174])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153e06f88fsm28231366eec.20.2026.08.02.10.43.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 02 Aug 2026 10:43:46 -0700 (PDT)
+From: Fangrui Song <i@maskray.me>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: K Prateek Nayak <kprateek.nayak@amd.com>,
+	Guo Ren <guoren@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	Fangrui Song <i@maskray.me>,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH] riscv/runtime-const: Disable linker relaxation for RUNTIME_MAGIC
+Date: Sun,  2 Aug 2026 10:43:42 -0700
+Message-ID: <20260802174342.597092-1-i@maskray.me>
 MIME-Version: 1.0
-In-Reply-To: <20260801195613.235430-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260802_104348_382505_FC564395 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,84 +88,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9004576515469290260=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Commit ee10b1028129 ("riscv/runtime-const: Replace open-coded
+placeholder with RUNTIME_MAGIC") switched the lui + addi[w] placeholder
+from hand-encoded immediates to %hi()/%lo() of RUNTIME_MAGIC.
 
---===============9004576515469290260==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ynduf7ixmtnk7fvw"
-Content-Disposition: inline
+GNU Assembler folds %hi()/%lo() of an absolute expression at assembly
+time. LLVM's integrated assembler since 21.1 defers it to the linker
+instead, which range checks it: on riscv64 R_RISCV_HI20 must fit a
+signed 20-bit field, and RUNTIME_MAGIC (0x89ABCDEF) is a positive 64-bit
+value rather than a sign-extended 32-bit one, so it does not:
 
+    ld.lld: error: relocation R_RISCV_HI20 out of range: 563901 is not in
+    [-524288, 524287]
 
---ynduf7ixmtnk7fvw
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] dt-bindings: Correct white-space style
-MIME-Version: 1.0
+The sequence is patched at runtime and its instruction offsets are
+recorded via ".long 1b - .", so the linker must not touch it in the
+first place. Add ".option norelax", as is already done for
+ALTERNATIVE() and static keys; the integrated assembler then resolves
+%hi()/%lo() itself and emits no relocation, restoring the exact
+encoding the open-coded placeholder produced.
 
-On Sat, Aug 01, 2026 at 09:56:14PM +0200, Krzysztof Kozlowski wrote:
-> Correct a few white-space issues, like double space after '=3D' or before
-> bracket '{' characters, which will be flagged by dt-check-style.  No
-> functional changes.
->=20
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> [...]
-> diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml b/Docu=
-mentation/devicetree/bindings/pwm/pwm-sifive.yaml
-> index bae993128981..40397bdf2d69 100644
-> --- a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
-> +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
-> @@ -62,7 +62,7 @@ additionalProperties: false
-> =20
->  examples:
->    - |
-> -    pwm:  pwm@10020000 {
-> +    pwm@10020000 {
->        compatible =3D "sifive,fu540-c000-pwm", "sifive,pwm0";
->        reg =3D <0x10020000 0x1000>;
->        clocks =3D <&tlclk>;
+Fixes: ee10b1028129 ("riscv/runtime-const: Replace open-coded placeholder with RUNTIME_MAGIC")
+Reported-by: Nathan Chancellor <nathan@kernel.org>
+Closes: https://github.com/ClangBuiltLinux/linux/issues/2179
+Signed-off-by: Fangrui Song <i@maskray.me>
+---
+Applies to tip/locking/core; the RISC-V tree (riscv/linux.git) does not
+carry ee10b1028129.
 
-I'm ok with this change (as &pwm is unused in the example), I also don't
-care much about this not being a whitespace only change and thus not
-really matching the commit log.
+ arch/riscv/include/asm/runtime-const.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Acked-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org> # for Documentation/devi=
-cetree/bindings/pwm
+diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
+index a472ebbf0971..ce2008bb5227 100644
+--- a/arch/riscv/include/asm/runtime-const.h
++++ b/arch/riscv/include/asm/runtime-const.h
+@@ -23,6 +23,7 @@
+ 	typeof(sym) __ret;						\
+ 	asm_inline(".option push\n\t"					\
+ 		".option norvc\n\t"					\
++		".option norelax\n\t"					\
+ 		"1:\t"							\
+ 		"lui	%[__ret], %%hi(" RUNTIME_MAGIC ")\n\t"		\
+ 		"addi	%[__ret],%[__ret], %%lo(" RUNTIME_MAGIC ")\n\t"	\
+@@ -47,6 +48,7 @@
+ #define RISCV_RUNTIME_CONST_64_PREAMBLE				\
+ 	".option push\n\t"					\
+ 	".option norvc\n\t"					\
++	".option norelax\n\t"					\
+ 	"1:\t"							\
+ 	"lui	%[__ret], %%hi(" RUNTIME_MAGIC ")\n\t"		\
+ 	"lui	%[__tmp], %%hi(" RUNTIME_MAGIC ")\n\t"		\
 
-Best regards
-Uwe
+base-commit: 5e601ab3615c86be7c4068ce992f94654693a032
+-- 
+2.43.0
 
---ynduf7ixmtnk7fvw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpvOBgACgkQj4D7WH0S
-/k5+WQf8CivH89faKCp48CBlupnrahHpA3qdaBm48BnUdJduo4BaximYlTqDGSxO
-NXL529LwysgvuiHkOxrg9bUdk/Lx68V5xZboTmO5BFwMGnqiXaazc9iWfyHrau7M
-YVderOTLj5yWcB/0FkMdHb59nmaH6H3DTA7lTyzhEH2rK1e56Xe0bWxXn5wPx//K
-Fg6BzFpjoO28RLKp88OCsgzFiu3Y6yaJNenCx2MeV0T15/L721ZmHJDKsQqu5iDJ
-iXzPSntzwtR7HAs/3NUW1jSaAV2Jq41LUqlqjX4CeZDwSDaX6iquowVSJDhJvYuK
-ZtKTkgqchOdbv2qhQEqje3UkwK9pWQ==
-=9CRH
------END PGP SIGNATURE-----
-
---ynduf7ixmtnk7fvw--
-
-
---===============9004576515469290260==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9004576515469290260==--
-
