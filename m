@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB547C5516F
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 02:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8597EC5516F
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 02:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gAp38pNt2pHGGNmk/OkzMPoF2Ot8vY+DvgAGOu71dwg=; b=ziIM7786I/WpRp
-	lj4N0UEdAxAUN7k+jQOQByj1HgxuBUleXJCyx+z+pQKFathDI/cr7II7aPp9m9Ey6Z2R0mnmEOLSS
-	t6l7frT8+85g9SIwSzZv58l9EJBfTrg+trRX/wGV+HMUJikqYkXrtB1WTWAzQXD0Ud/B6qB3XySAS
-	AW5Xi9eY3xeCgXce9VYidXrh7Uziqv3DXCZ1t1EN+FvHDDfQgORF9R3AjcOVYP+PHBCjAwtYdmV4h
-	4bLEfgQec0/ibQ3/kTBs9EHYnz2Iw1myaCajepytksUnlbu2h/p4MxIpgcfO/g6UAGQ9EaOd1o+fr
-	Bye5loMMDOTnLcBv4k9g==;
+	List-Owner; bh=fKY/BJvmMPPWiDxHYTlFYO+YIxlR3PrdI3c01evlRyE=; b=PjxDl/fo1TUEy+
+	ihrcQnG93lWj6o55nFfoP+NiPgQHeoVUhPoLjC38a4ExkUCci6fg5UxHtXkvtRY6OC/AvjO5kA9jD
+	KU+yiJ/5EakaJm10+FfZXNPsU9lGSBzEZTbMzsk+KiKc6lpLNM30x4I3YVt17GQCsqgM/eA/hWF3l
+	2OcUsGlUCx5Pn8wBNlKwv0uJ9P8JlMXO1Vi1s7bCbHgUMqFDSRf5BaX6HoNm5axC1EQ/ntNLsvSFW
+	LyPqFz7gFCh00bjt+2mPDPn5vLb6jYevGUcNH0cYRr/knFc3tHQmVT+gU0+G0SpxiCGP/taGmPHE4
+	uIB7nT5hZ048BQ5Z7wwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqLlm-0000000FHF5-1whe;
-	Sun, 02 Aug 2026 02:17:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wqLmx-0000000FHPe-2iaA;
+	Sun, 02 Aug 2026 02:18:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqLll-0000000FHEz-41S9
+	id 1wqLmw-0000000FHPY-3q0E
 	for linux-riscv@lists.infradead.org;
-	Sun, 02 Aug 2026 02:17:41 +0000
+	Sun, 02 Aug 2026 02:18:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 870D040E51;
-	Sun,  2 Aug 2026 02:17:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ED5D1F00AC4;
-	Sun,  2 Aug 2026 02:17:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 896B642E9F;
+	Sun,  2 Aug 2026 02:18:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9710D1F00AC4;
+	Sun,  2 Aug 2026 02:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785637061;
-	bh=Aq/Cksr2yBrv/xNqFC5ZL66T11jbRr6+oFBbQciyapA=;
+	s=k20260515; t=1785637134;
+	bh=ha/y3iJzugwKfDfSEUohk4Wr/4wbO8BU3nBFbQbxb4U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XiUHTVjCJhM9SZInjXWPGOL7KZE8HI8DzCPtbaapWyQC92euZAkap5bZAor/LX8nu
-	 4rqEYHsm3K2YtqIM9n6wt8zdSNWd8lozbMvGZD0sC+9rl2nTKWfdQvx9Z6xMyDBqHh
-	 fkUNbcYj6iuley/FM+VuC7EW8hc7+w40twF7OenBCnj+32Xbs9Bk4C+prikQl+UcOU
-	 m1uU9IHo475Yo0XxUvDCWliGoRbonjX6hslOIL+fg5Qho50AUPhN18xHTC6C10u14Q
-	 vIIBXdxU2EIidaDhBdHViYIGzy0R44xHj4TrLNHuIKWIrbZJpPQPMbxJxOmEmMa/+3
-	 LJwoLhGW+KwdA==
+	b=nVXWPbTUEXgWkUO0Zk9bfXhP9uVCNbNV8mgtb7OTKNWdUOhf1x6CVgOAqKFMSFi0b
+	 VQaewISYmEZnK+PNaIb/LwUPkuXFQ/W+0tXLL7cc/uw7LmcUdtt7sjZcywTE3rLaIG
+	 A/dzU2nGm/v/eOj7gyJUHp9k4UJLzxuD7+ErAqYeT5yxM4ACK4fsxM/jFskATZ7866
+	 dJL8xhKb7TWVvyF06sZEOTpb1py500buhABf4+ymjWv0QXpXc3N6vGwzjNDIDXry26
+	 J7uGYjk7QL5g5BWgRtkAfI3o20mA4n/lfr5zbKd6njqhCCQCYDwZ4cVSa1NREXqVqQ
+	 cJZUXmIb2QTtw==
 From: Yixun Lan <dlan@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Jinmei Wei <weijinmei@linux.spacemit.com>,
-	Rob Herring <robh@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>
+	Inochi Amaoto <inochiama@gmail.com>
 Cc: Yixun Lan <dlan@kernel.org>,
-	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/3] SpacemiT K3: fix I2S DT integration and add controller nodes
-Date: Sun,  2 Aug 2026 02:17:34 +0000
-Message-ID: <178563700560.1616223.8425945303990754428.b4-ty@b4>
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 1/2] riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 pico-itx board
+Date: Sun,  2 Aug 2026 02:18:47 +0000
+Message-ID: <178563711049.1616541.10192420990220597678.b4-ty@b4>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260721-kx-i2s-dts-v1-0-d22cb6cfaab5@linux.spacemit.com>
-References: <20260721-kx-i2s-dts-v1-0-d22cb6cfaab5@linux.spacemit.com>
+In-Reply-To: <20260729012418.154652-1-inochiama@gmail.com>
+References: <20260729012418.154652-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,21 +81,25 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 21 Jul 2026 19:35:54 -0700, Troy Mitchell wrote:
-> The SpacemiT K3 SoC has six SSPA-based I2S controllers (i2s0-i2s5).
-> This series fixes two bugs that prevented writing a correct DT for any
-> of them and adds all six nodes.
+On Wed, 29 Jul 2026 09:24:16 +0800, Inochi Amaoto wrote:
+> Since the previous commit does not change the phy node name,
+> the dtschema can not recognize the type of the ethernet phy,
+> so the following error is produced:
 > 
-> Patch 1 fixes the ASoC driver's clock lookup names. The driver was
-> requesting "sspa_bus" and "sspa" but the published binding specifies
-> "bus" and "func", causing probe failures on any conformant DT node.
+> /arch/riscv/boot/dts/spacemit/k3-pico-itx.dtb: phy@1 (ethernet-phy-id001c.c916): $nodename:0: 'phy@1' does not match '^ethernet-phy(@[a-f0-9]+)?$'
+>         from schema $id: http://devicetree.org/schemas/net/realtek,rtl82xx.yaml
+> /arch/riscv/boot/dts/spacemit/k3-pico-itx.dtb: phy@1 (ethernet-phy-id001c.c916): Unevaluated properties are not allowed ('reg', 'reset-assert-us', 're
+> set-deassert-us', 'reset-gpios' were unexpected)
+>         from schema $id: http://devicetree.org/schemas/net/realtek,rtl82xx.yaml
 > 
 > [...]
 
 Applied, thanks!
 
-[3/3] riscv: dts: spacemit: k3: add i2s0-i2s5 nodes
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=cd01c677869affe1b01403ca2fad8fc0fe85e8bd
+[1/2] riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 pico-itx board
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=9b371a8b13fd0e8e6f3b12f4ef7e58927d6f62ee
+[2/2] riscv: dts: spacemit: Make dtschema recognize the etherent PHY correctly on K3 com260 board
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=bff5af3c934740481a316c5ae1cd4a09a43134d0
 
 Best regards,
 -- 
