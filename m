@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D3BC55172
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 02:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7646C55172
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 02:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v2cg4mqHMuHHKOPCOt5dkZreP4J+LotJOrdTlIgeSJM=; b=EMmtcrvZNCHSwU
-	GC4fgHZ+sM5ElI5RKg6xo+jRDCUZYAIaW1MgjoC/qOIe+kwBC/AAFzpjvenF4oexXU3amIBbpFINc
-	AZgwTGErpeT1FCIDbyu7V5jZDRrvBr6c9hHbmnrpTcm7Lu+LHjy8xvlTFVtOKDlI27OUsftoBLnDr
-	DP3GlbhtxY0CrnWnvD8gPxr2MMot3WgFyvCVmw8P7rNuVoUD8wDJQFKQZNAndK6bMBhIemKDEkgUX
-	lLZm6je9INgixlEyWfw+bfOkrHJJ5E15P5vibPA/L1Xit5Orf4qg3xv82GYVb1c1LZyUWZw3CMOcO
-	j3QHHAfyVv3ZRXsznIBA==;
+	List-Owner; bh=GVNgFPDFEEk7ahqFYpRBQmK1zxdp/EdkrQ0EV5M2Atw=; b=mKLadi1UZbbF+x
+	/qA6LhcKPT0fRnoQvHCxg1RCAnDt6DuKCz0GQSIh/ckoHLj4ejeoLPwi4i3NBxbelL8HpqW35alkK
+	5AMWrXgy22m+8H+6E6jjDqOzSnEWdtxARdEyfNGqLwkHCD4m/A42K0i451dLKAnSGu5o4QnnSmcn3
+	WKFhf/RbluqCYCdE6mdnSkmwV/qLUDId6IpSM7tVBiMEDK1OAqcn9S1RoJnPh2BjipCR+5gRJ4a1y
+	LZCfh+sZTmgn7ICgdye7aM2IuJDDEkVrCzBl6D7mIuWMt2h8AvLCnGasX45OsumDs9AeKXlJAS+WM
+	OwIt/wo9fzmKsmINk/Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqLoH-0000000FHXT-3WMC;
-	Sun, 02 Aug 2026 02:20:17 +0000
+	id 1wqLpj-0000000FHdG-0xYD;
+	Sun, 02 Aug 2026 02:21:47 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqLoG-0000000FHXM-3wvc
+	id 1wqLph-0000000FHd4-1B8S
 	for linux-riscv@lists.infradead.org;
-	Sun, 02 Aug 2026 02:20:16 +0000
+	Sun, 02 Aug 2026 02:21:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 639E56057A;
-	Sun,  2 Aug 2026 02:20:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F413E1F00AC4;
-	Sun,  2 Aug 2026 02:20:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 88E116057A;
+	Sun,  2 Aug 2026 02:21:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62F261F00AC4;
+	Sun,  2 Aug 2026 02:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785637216;
-	bh=Cv7kkTCkfbuNG2QrTaqkBnU6gtn4xOxKbQAsPbHIbXE=;
+	s=k20260515; t=1785637304;
+	bh=+qkDxw1M5h2ctJR13O5BI4kM8CdztxYtNjq1b+Maeoc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=aSr+r+qLvRf8sxi/tqA8YUNfbvdXGiOfcNW44AZsITdHAIqN1ck3tHKUJwjUyHJNG
-	 J9CVefIYx4ysq3/0gs0LGNDqVgCV3ykqkajinz4nBw39adWlo4Ukkv8JV2Mp/wv853
-	 KxA91NBABBVVv7Sf8bG9/2vhrjra1MIZmNsICS9ieo7gRJxTPaJwg+sBgLJXqbetRO
-	 gGI09e+UdWML0M8ixT6UXKugiXYPzse91/cg2CqxeCqgfs6KpRy20ULKVe3oK9s5rN
-	 15o2LmUoF2hVzsaqK0bVvqOLhwph8xSP9Eud1UzB5Lkc7aLSMBxBqCy1D4M2KPhrEQ
-	 DTCpJB6+7fJWQ==
+	b=KJtvdwB8UbvObstRE+x1s3YDw09r92Iwb6AKvLnEiAadYemPlB7JLQ23ojbD8omsM
+	 h9utxB9KMY1h1Jtr6QV7WSaXfBUPROkGnZUCmQJfPOcn5cUkqG8fT20i0Ey5LbB5cq
+	 z42x6ecQpJJJ0F4/6QkrDiQ3cQS40POo6sP48Yw/UqLZaPl1RG/thQIPx6vIDtk+1Y
+	 xRUhsvK5DtpyWVOX0xM5M/pPV1Dob2982fXHO9AJ8VgckNN6akgh+X4CbLs8fHEjR7
+	 7aFPFV/p6jSIutaoqreAIQx9nAVrofKZLW2IAU8uyAogsdBaeDBkCVgaiKgDDbqNgf
+	 a033t2hNM75zQ==
 From: Yixun Lan <dlan@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	Paul Walmsley <pjw@kernel.org>,
@@ -52,12 +52,12 @@ To: linux-kernel@vger.kernel.org,
 Cc: Yixun Lan <dlan@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev
-Subject: Re: [PATCH 0/6] riscv: dts: spacemit: fix maximum CPU core voltage for K1 boards
-Date: Sun,  2 Aug 2026 02:20:11 +0000
-Message-ID: <178563718457.1616805.12139797953072589045.b4-ty@b4>
+Subject: Re: (subset) [PATCH v2 0/4] riscv: dts: spacemit: Add cpu scaling for Milk-V Jupiter
+Date: Sun,  2 Aug 2026 02:21:40 +0000
+Message-ID: <178563724174.1617015.10811694726448141667.b4-ty@b4>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260729150722.1598630-1-aurelien@aurel32.net>
-References: <20260729150722.1598630-1-aurelien@aurel32.net>
+In-Reply-To: <20260729160749.1621415-1-aurelien@aurel32.net>
+References: <20260729160749.1621415-1-aurelien@aurel32.net>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,30 +76,22 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 29 Jul 2026 17:02:17 +0200, Aurelien Jarno wrote:
-> The SpacemiT K1 based boards use the SpacemiT P1 PMIC. The buck1 and
-> buck2 voltage regulators supply the CPU core voltage. They are
-> configured with a maximum output voltage of 3.45V, while the highest
-> operating point requires only 1.050V. This means that a kernel bug, OPP
-> misconfiguration, or privileged userspace could request a voltage above
-> the safe operating limit, causing possible permanent CPU damage.
+On Wed, 29 Jul 2026 18:00:27 +0200, Aurelien Jarno wrote:
+> This series adds cpu scaling support for the Milk-V Jupiter boards.
+> 
+> The first commit adds it to the existing "Milk-V Jupiter (K1)" board.
+> 
+> The two following commits add a "Milk-V Jupiter (M1)" board, by moving
+> the common part, i.e. everything but the model name and the operating
+> point tables, in a shared DTSI file. This file is then included for both
+> K1 and M1 variants.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/6] riscv: dts: spacemit: k1-bananapi-f3: fix maximum CPU core voltage
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=b496282ee4ad07311a13489e15b74fb7078d9a01
-[2/6] riscv: dts: spacemit: k1-milkv-jupiter: fix maximum CPU core voltage
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=56a77ddae794ca0516fc146f6e59bb8cdf4fd9d2
-[3/6] riscv: dts: spacemit: k1-orangepi-rv2: fix maximum CPU core voltage
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=ae0c38f0a24f95c8759b6b0eaaa5a0d36a7c6af2
-[4/6] riscv: dts: spacemit: k1-musepi-pro: fix maximum CPU core voltage
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=f045253a03589b2616332560b4120e584342a987
-[5/6] riscv: dts: spacemit: k1-orangepi-r2s: fix maximum CPU core voltage
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=d66267c35032c46c18b675601d03c80239bcd913
-[6/6] riscv: dts: spacemit: k1-bananapi-cm6: fix maximum CPU core voltage
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=a65e9b73b0f0f33078b63f039b3ff64af051a11f
+[1/4] riscv: dts: spacemit: Add cpu scaling for Milk-V Jupiter
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=e273d298b74ea63d5d586bd50240f919a9c33fb3
 
 Best regards,
 -- 
