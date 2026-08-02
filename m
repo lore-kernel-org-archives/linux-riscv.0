@@ -4,52 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947E5C55162
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 18:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A4CC55162
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2026 18:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e5Pm3xGvmtCOdpSwhXM8URjkUeh1jTHwrEWhh0/o6jA=; b=RUq75sKm4E4h2nCoyS63JFJIBX
-	/qtj1ZoNxjWMNoaw98u5jBI9oKSGGTff8kCgiOGpEN3MZtIOAIwdqQ6Zs9Bv58gchtM8D7ONGAIcZ
-	XbpiiIAleai8Y79nTKrWeOqKVzGNgRG3WGVOT1fccN7GoLSj02EENBWnuw3WQT/+dfIcDpmdo8HXN
-	oLVqehRa+zUexpDy8b2x/7cAxHMsT2Y9d/Qfk5bTDIAXdvfsAP7XrUTljo7Jawv7DJDwsKP91qlV7
-	2vtZWX17rD1+8VHfpN3poS/AB8WI3+OpJwfThXlideMgraO2AHmNpEIM8c8r5ZfN7rilGgVo7Ek0I
-	lrctiKQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eGgBfKBAafDl1DzYtVGiIzLW+EWmSBVoFd2a57ZDfnY=; b=c2kGd1Wjjdq3OZ
+	cVZlmjC5VS2uvjvpJ7e/syiAxtA+tg7kabgubOzGJJM8ijTkkf0mprN8SSGSKQmvpV2IBNLVPillh
+	iLQhkDfM9np5GzpP6INCD61S0HwnC7lhRE07BWcVVJCLtRM7Cm7Coq+tfW9U3zqqhxc9w8H0xGaEG
+	n4ErPhVK5vBSARW5D/eWzgtwR+WVI8gLpFTzO9rGZhj9RJV0Jee2RJw5/E6TTcyDuc5Y4hBzm1oLi
+	GMtQWzhAsdHOb290C4z+jc22aoNU2q43LM+TilMFOJ9+Fv7LI3kUOgS05NFlHZfbLGjo9JFDap9D7
+	9JxWneAjc2mL7hdG8DWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqae0-0000000FvIM-1gIy;
-	Sun, 02 Aug 2026 18:10:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wqaxa-0000000Fw8f-2J5z;
+	Sun, 02 Aug 2026 18:30:54 +0000
+Received: from mail-ukwestazon11021105.outbound.protection.outlook.com ([52.101.100.105] helo=CWXP265CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqady-0000000FvIG-1WLv
+	id 1wqaxX-0000000Fw8B-37Za
 	for linux-riscv@lists.infradead.org;
-	Sun, 02 Aug 2026 18:10:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77E926001A;
-	Sun,  2 Aug 2026 18:10:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAF9E1F000E9;
-	Sun,  2 Aug 2026 18:10:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785694235;
-	bh=LEv8zTr8ycTvKLlHsYiobmVdm6o4CbXpmccKK3Z8nRA=;
-	h=Date:From:To:cc:Subject;
-	b=F1ly47ke2nSiXvx7ro3RTlE5/ISr0fdUq5d2JJrU/8Wbt0SkfPwsWaOHuzx/fvMgB
-	 qKpPMOFvzq4j24uk8vB/Z1BFSD2YLTbFNlW0kybxrAyZR/VuORXMfjZffVbARwaRYc
-	 Rdb7yGV1vcAb8Acp+jhK6lkPKgJzW2wTgkTsoQ5T+J82eo3G7FpQKzU8Y2VMXSRy+s
-	 2sMdISklgdq2e5lToSHILiYQxcO5YflLYTp3awILTI0XCls9roLMXkcH//E3RazSa6
-	 vwse/FpW7wHZj2Si4gCQ6i/+f5xC3aCUE6Z3Tj5VDBDENzKEyrn/pHKqdd3kWrzcbb
-	 3wFrr12MowF1g==
-Date: Sun, 2 Aug 2026 12:10:31 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V updates for v7.2-rc6
-Message-ID: <d1ade3aa-5231-988b-b0cf-d2ebe43eeb52@kernel.org>
+	Sun, 02 Aug 2026 18:30:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YRJRxgCmfkrYlLyiUZVd856znFfUMDDbkQDciXf7L8rzmYuv0rAYuQW2Ov9gjkNuvZRS3es6FcAYEkBiTm3+OpphIrcdjVSsxudyLsTKGpHH2xCW4TczXYNGKMztX4R7SpVLk1FM3XJyV6BGzBuVihdiZb0RkzH/fT78k2CEkHsOwqqGzMUHHYMgGSV0SVEtNAPnBRsoqRUqBKmb1iODbQBQMkyhs0s7Hd6NF2U9CnIBgbVkOS0r/z57ZnNDc1lYjQh75n/V6ER7VB96AGXTJWQnBV1I6ZaMmwfKNAlDips50RXeFw+jcKAQgyObIyiimZ5ppcZXq1zFqdSot898iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wsqxuNM694/wGgOP1l6QefGOhyzON8YsY2fkD3yRw/A=;
+ b=Uy/ylENv8obaf1YFl+cdjMxJlAbd6zZP0FAV6MaS65uLkSTcamdei612KEKZl2kP4OwWRfUIkaVS1Qr8gWBbCvhhl1WiZFhQTGBlY0BfoU6RVyjkHt5FqtJptqilkkhsqL111qvNGYqQn7MDHKDjaQySQgLCK+Ifo9x5v2mWHQLF1GIXeRSivLlGWsD4pZ63SSKQQwfOgURV3wi2Wqg53EAHB3ubEBSnN22SxUg56E8AgH4lno1MxauZaAtTX09QC+YJs7hAvDYXZDIX0veqq1P2AXnQn7TanfC7Z7pE+4mUzsSLKibDDoyvmWsq88+wtOnhTRk7vJ9cY3eCR/fvDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wsqxuNM694/wGgOP1l6QefGOhyzON8YsY2fkD3yRw/A=;
+ b=cCkzKK5CTCFAiRgpgt2ClV1rYa97Sio0ttSXgaS+9IRohXFDd4xAAf7wTrGehlBbRwkUlJxNsb4WqX7K5qooyxijPV2qmkV+1oDJU0e5dROQLLWn6MW6UOVoCIFpuo7pm622qaz7t6EfgINBEFtSplJUYa7TzFk7JfVhcsAFuMo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4ab::19)
+ by LOAP265MB8981.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:492::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Sun, 2 Aug
+ 2026 18:30:44 +0000
+Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::f60b:1537:68d7:4fc1]) by LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::f60b:1537:68d7:4fc1%4]) with mapi id 15.21.0270.016; Sun, 2 Aug 2026
+ 18:30:44 +0000
+Date: Sun, 02 Aug 2026 19:30:43 +0100
+Message-Id: <DKEO7DXQ8604.1CB09QFM2EO68@garyguo.net>
+Cc: <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <linux-riscv@lists.infradead.org>,
+ <linux-pwm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+ <rust-for-linux@vger.kernel.org>, "Boris Brezillon"
+ <boris.brezillon@collabora.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, "Maurice" <mhi@mailbox.org>
+Subject: Re: [PATCH v5 1/4] rust: clk: use the type-state pattern
+From: "Gary Guo" <gary@garyguo.net>
+To: "Daniel Almeida" <daniel.almeida@collabora.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>, "Danilo
+ Krummrich" <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Drew
+ Fustini" <fustini@kernel.org>, "Guo Ren" <guoren@kernel.org>, "Fu Wei"
+ <wefu@redhat.com>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
+ <sboyd@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>, "Gary Guo"
+ <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ "Michal Wilczynski" <m.wilczynski@samsung.com>, "Boqun Feng"
+ <boqun@kernel.org>
+X-Mailer: aerc 0.21.0
+References: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
+ <20260706-clk-type-state-v5-1-67c5f326a16c@collabora.com>
+In-Reply-To: <20260706-clk-type-state-v5-1-67c5f326a16c@collabora.com>
+X-ClientProxiedBy: LO4P265CA0144.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c4::17) To LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:4ab::19)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-193420016-1785694235=:1296450"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOAP265MB8560:EE_|LOAP265MB8981:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3a848f32-b2cc-4f31-9a2f-08def0c42a2d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|10070799003|376014|7416014|23010399003|22082099003|18002099003|4143699003|5023799004|3023799007|10067099003|56012099006|921020;
+X-Microsoft-Antispam-Message-Info: SiBlaTbU1KiPBcRszrcI4p287UdWfw4xtgjH0vAdcLHkMU4Irw0qPTky9IlIcNJMRhe+meAe+qWIen9BWLO6ZmPsqjK8uERFlc1DfnyQ5bDnmxZUf+Fs5RxpU1CqPr1ZpZ/GpOkAzOXSvpq7zbT4eG1NQ32PhB2f5XxnjzXCNxPMdb+sAhqmzL7gNSYLybkfXTiDdZwUFBJESp+NW3Xp41CA2G+3rQI6Ty0ZB/ImHkT9WtoDCMcfLPxfsBiF4LcwGmmx9yfBshBeh7PDZ0RXoRSB95QKC9M9Ns+OSlqFhPPNMC/COisc37dZCF0xZL0jjpUeRdwrzSclfOEM7VfaLLUF3ssj83jlJibPMTOnvFCH9neCRh18aPg9sBrPOduutar2NcwRnz/HQFNQaiONQ6Gpc9ddt1e0fPLRA2mXKLzVo221/Hay7uAjEIF8ME/9dEWL5H05svg0hP4QgFfX2i5Jctp6kiaS6KghzGWUEa+kZnkBBn4CMT0e+klH7VjYEe93yGt070rbvLBOPe0XoDznu9FMSX9O24s1OiG8dQByppIBXWCtN773pr9Hdx3cFtZpftITMYkQwU4+bG2uhNU+zumbAp0Qfl3VmgmZhY4FnjBUg9x9v9lhCPR+v9oIQ3RMxq3gYAqGQLi6OR9Y/CRXVZTlyS4wMMSlqXetcF4aW+4Y9OZQ33MLlCf8B6yYup7wRdDnlaI43HQIYK17Sg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(10070799003)(376014)(7416014)(23010399003)(22082099003)(18002099003)(4143699003)(5023799004)(3023799007)(10067099003)(56012099006)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S1RaWXY5MnRUWks1cjdrSUxWL3o2eFJ6RWY1Q3drbm5hRGM5MkMzaEZTYWQw?=
+ =?utf-8?B?MWFMcVRMc0JYNmFtdXJnc1JWbnVGS3IvVllzdGkzcUhTL2R6RGlyNFNKRlJL?=
+ =?utf-8?B?MWNZK2pxMEFGeFFCaTJHUWNhK3J6Q1VsYWpRZnRzRWI1dEpJam4ycnU4Qkw3?=
+ =?utf-8?B?L2QxdnhQaFpyQTczajlrak9Vcy9rZmhEVmkxVko2dlcvSkJKZStrV2szSCtr?=
+ =?utf-8?B?MlRjWGhxeGd5TnMxaUFCT1pPeVE1M1ZWNUlNZUtwNm44UUhXN3BwaUhncGNk?=
+ =?utf-8?B?amk2STU5ZUtnd003MFpTYlkrSCtuSUdaeGZDbmNnWEhhNkFhaU14WmxRZ3c5?=
+ =?utf-8?B?RDhHc1IwTEZOUlhkelRndXhpQ2lsZkd6bmp5R1N5R0xqUlF4MGpxNlhRQTdn?=
+ =?utf-8?B?MlhTSysxY0ZtbjIzQlcxNVJxQWl3c2hoUWtZKytEMmgzTURMMGx2eDFsUHNz?=
+ =?utf-8?B?SjJ6amx0M3llMTVYd2JtVlJ0cUpMbCtsNVVybnB5WVRmQ1U1N3hzNm1JNm14?=
+ =?utf-8?B?cFRVcVdCZHNRRVhoRjhrRWt5TVZTVGhzbm96UEVqeDE5TUJKVlljbjNwZ3d5?=
+ =?utf-8?B?S2t5SThINFkvc2Q0TlA4RDl3WDFHMlB3eEVDYzZKVXhqN2ViOG5sYjdKRWZR?=
+ =?utf-8?B?Nnd3dEJDUDlRem1uaGdJb1VlcEhUNTlDUkdOZ3paL3k4NnNrcEtUc2k0cG5x?=
+ =?utf-8?B?RkxiM2liczYwQVdqNWFLLzVGTCtma1JGRVlYUjBwSStIOFRZWlpFRTVpdUZv?=
+ =?utf-8?B?YTM3OFNMY3FMWXBGRTN1Rzg2VUpEZHlTMFdqZ0RBQ0kvY1krYU9QczQybWVt?=
+ =?utf-8?B?V3ZVc1RYYTBPMEhIY2lNMS9wS2pnK0czSG5RN2NkaFpFMmk3R09oL2tXNDVF?=
+ =?utf-8?B?d29EV3BBN09tcGRac3V3eDZ2d3Ryc21wWGppNVFXZ2EwaTd3SFAzMUNDTCtr?=
+ =?utf-8?B?RVVIWkhtVS9CbEtyQXVhSWVjUm0yWGZSVWpWTlhJbHQ5Umx3ZWRJTmdYNlBP?=
+ =?utf-8?B?aEg1YTRqN0N3UW9sbC9sUmNqQ1l2b3AwUXZtWm5ORXFYb2F3bUF1NXE4dzdO?=
+ =?utf-8?B?WUpWTXdoZDU2eVVSRUNYbzkxMW1HbDNyRzNpa3FCejVQcFZ0eVF6RHI3S08w?=
+ =?utf-8?B?Y0Y1ZXVVR0N3SGM2ek9sRWNKeDVrMU9HMVVRSUxCbW16VndFd1owUDFZRStz?=
+ =?utf-8?B?RGMzbXdzUFArV2JYMk9TWFM4K3lsTXE2bXFzdW1OYzExMzg0dVpkWTVIWW1a?=
+ =?utf-8?B?ZzVCeG41azF5LzdUdEQvRDM2bXJMWWlnNlV0OHBpR0srYVVNZXUrbXlWSmdQ?=
+ =?utf-8?B?YkxIOC9wVVVTYUpwZ0Q0dThJalZHZjlYTnFyNnc1QjFXZURrUDZkWnNDOHdT?=
+ =?utf-8?B?NGFFbUZiSTFsR0s2RTJ1K05QRnVvSk9nSzNvQi9YbTIxTnp5WlkvUWtXUk53?=
+ =?utf-8?B?OHNHTENXVVFUY204UUczZStVd01tRW5CYTM4NDdaOGovTE1xNUhnZUIyOGNS?=
+ =?utf-8?B?cVNrUEdxVEw2RFNDcUZETldkeTZVU2plditjbVdvOFh5Rkl0ZWJNd2JzRU5w?=
+ =?utf-8?B?N0psbHVKTXFaYmJRSm9VZWpHVjNTZ1kxeWw3L21vOXNmRDZaZFMwcHRVdjMv?=
+ =?utf-8?B?OExCOW9pVGE0ODRSdUJOemROUW42cXA2M1c5R3YzcUFZdGwvNTFMb1d3SnJG?=
+ =?utf-8?B?Q0JNNVBqVFpndE52bTJVUUE0VGt1YUJKWmxnVmxZRERJRkNpRHM2a1Ayd0pv?=
+ =?utf-8?B?K21raDh4VHk5czdOOHk2dlE3ZEVaeVpCSDI1NlQ1YlY5VHlCYlN5VEpUV09Z?=
+ =?utf-8?B?MUVaVFFGektPR2tqZWVyUVV6b3BqL0lhWG5FUDl4VlUrclcycm03Q3FHMFkv?=
+ =?utf-8?B?bzhQaE1Nb0pFdGhIUitaOWd5d3cxQTMrM1QxVHcwckh5bEZGSjUzTnMweE5W?=
+ =?utf-8?B?ZGpJMDVhcVQ2aFo3Y1E3eGllY0RZemtUTlhtcHNzVHAxYi9XZlFveDFJOExa?=
+ =?utf-8?B?UmNQdE0rSTAvWDRqVHd6RDRCRlNEa0ZUM0ZRakt2ZnBXOVU1L3djbEpicUpO?=
+ =?utf-8?B?VEJzS1RsdUdrc2p2UTlIdkpoRURiQ3VyT0Z3Wm9hRlN0aGUzQWV3R1pmODZh?=
+ =?utf-8?B?djgyelJ2dEMvMzFiMXJsVlB0dnNlV1ZKRkNOOHJBSU05V2tiRUVabkNpSHBl?=
+ =?utf-8?B?TnhhY3MwU21hWXNaVGxsdlNoVjVJOWlsZ2E5RHhOcVZUR1I0V2Q2L1ZWcThF?=
+ =?utf-8?B?YnY4WDE0TzhyaFVuRng5d0hjbzkwUHc0aDREekZFK3oxdDJ3ZEs3TjN1am80?=
+ =?utf-8?B?UXkxUUJLM2NCNnh6K2VpNndvUEpTaHVzUmVCRC8wU1U0cVl1bXc0QT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3a848f32-b2cc-4f31-9a2f-08def0c42a2d
+X-MS-Exchange-CrossTenant-AuthSource: LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Aug 2026 18:30:44.6344
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qxSaeUBWXhqIdk60Ecnm93juP1VVG7+7zB/EXd5qM+siDjof9tR0Bc7ZfxUvZbJiV9XdgjYk5NUgHizY3XF0Cw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LOAP265MB8981
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260802_113051_795935_ABDE0CFE 
+X-CRM114-Status: GOOD (  26.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,150 +159,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Mon Jul 6, 2026 at 3:37 PM BST, Daniel Almeida wrote:
+> The current Clk abstraction can still be improved on the following issues:
+>
+> a) It only keeps track of a count to clk_get(), which means that users have
+> to manually call disable() and unprepare(), or a variation of those, like
+> disable_unprepare().
+>
+> b) It allows repeated calls to prepare() or enable(), but it keeps no track
+> of how often these were called, i.e., it's currently legal to write the
+> following:
+>
+> clk.prepare();
+> clk.prepare();
+> clk.enable();
+> clk.enable();
+>
+> And nothing gets undone on drop().
+>
+> c) It adds a OptionalClk type that is probably not needed. There is no
+> "struct optional_clk" in C and we should probably not add one.
+>
+> d) It does not let a user express the state of the clk through the
+> type system. For example, there is currently no way to encode that a Clk is
+> enabled via the type system alone.
+>
+> In light of the Regulator abstraction that was recently merged, switch this
+> abstraction to use the type-state pattern instead. It solves both a) and b)
+> by establishing a number of states and the valid ways to transition between
+> them. It also automatically undoes any call to clk_get(), clk_prepare() and
+> clk_enable() as applicable on drop(), so users do not have to do anything
+> special before Clk goes out of scope.
+>
+> It solves c) by removing the OptionalClk type, which is now simply encoded
+> as a Clk whose inner pointer is NULL.
 
---8323329-193420016-1785694235=:1296450
-Content-Type: text/plain; charset=ISO-8859-15
-Content-Transfer-Encoding: 8BIT
+This change could be a commit on its own?
 
-Linus,
+>
+> It solves d) by directly encoding the state of the Clk into the type, e.g.:
+> Clk<Enabled> is now known to be a Clk that is enabled.
 
-Please pull the following RISC-V updates for v7.2-rc6.  Nothing too
-notable here, I think.  Most likely we'll send one more fixes PR
-before the v7.3 merge window opens.
+The design conflate states with actions. Our existing type state for devices
+don't do this: `Device<Bound>` means that the device is currently bound, not
+that dropping it will unbind it. Yet, a `Clk<Prepared>` doesn't mean just that
+"clock is prepared" but rather "clock is prepared and needs to be unprepared on
+drop".
+
+One way around this is to mimic the "Registration" pattern: have a type to
+indicate that a `Clk` has been prepared and its `drop` will undo it, and then
+this type can `Deref` to `Clk<Prepared>` which just mean a prepared clock.
+
+>
+> The INVARIANTS section for Clk is expanded to highlight the relationship
+> between the states and the respective reference counts that are owned by
+> each of them.
+>
+> The examples are expanded to highlight how a user can transition between
+> states, as well as highlight some of the shortcuts built into the API.
+>
+> The current implementation is also more flexible, in the sense that it
+> allows for more states to be added in the future. This lets us implement
+> different strategies for handling clocks, including one that mimics the
+> current API, allowing for multiple calls to prepare() and enable().
+>
+> The users (cpufreq.rs/ rcpufreq_dt.rs) were updated by this patch (and not
+> a separate one) to reflect the new changes. This is needed, because
+> otherwise this patch would break the build.
+>
+> Link: https://crates.io/crates/sealed [1]
+
+Link that doesn't seem to be referenced?
+
+Best,
+Gary
 
 
-- Paul
+> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
 
-The following changes since commit f5098b6bae761e346ebcd9da7f95622c04733cff:
-
-  Linux 7.2-rc5 (2026-07-26 14:45:48 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.2-rc6
-
-for you to fetch changes up to c052927905710de1ab7364bf1925efbd12517ea3:
-
-  riscv: vdso: Only try to install vDSO when present (2026-07-29 17:55:17 -0600)
-
-----------------------------------------------------------------
-RISC-V updates for v7.2-rc6
-
-- Fix swiotlb initialization on systems where DRAM is located above
-  4GiB (such as the Tenstorrent Blackhole cards)
-
-- Fix an out-of-bounds access in the memory hot-remove code that can
-  occur on Sv39 and Sv48 systems
-
-- Avoid oopsing during boot if the SBI component of the unaligned
-  access performance checking code loses a race against __init
-  function freeing
-
-- Avoid attempting to install the debug-enabled vDSO when it shouldn't
-  be built due to !CONFIG_MMU
-
-- Avoid some sparse warnings by adding missing __iomem notations
-  in get_cycles{,_hi}()
-
-- Drop an unnecessary runtime warning in the SiFive errata handler
-
-----------------------------------------------------------------
-Anirudh Srinivasan (1):
-      riscv: drop __init from vec_check_unaligned_access_speed_all_cpus
-
-Karl Mehltretter (1):
-      riscv: mm: Fix out-of-bounds page-table walk during memory hot-remove
-
-Nam Cao (1):
-      riscv: time: Add missing __iomem in get_cycles() and get_cycles_hi()
-
-Thomas Weiﬂschuh (1):
-      riscv: vdso: Only try to install vDSO when present
-
-Troy Mitchell (1):
-      riscv: mm: fix SWIOTLB initialization for systems with DRAM above 4GB
-
-Yong-Xuan Wang (1):
-      riscv/sifive: remove warning in errata
-
- arch/riscv/Makefile                        |  2 +-
- arch/riscv/errata/sifive/errata.c          |  4 +---
- arch/riscv/include/asm/timex.h             |  4 ++--
- arch/riscv/kernel/unaligned_access_speed.c |  4 ++--
- arch/riscv/mm/init.c                       | 21 ++++++++++++++-------
- 5 files changed, 20 insertions(+), 15 deletions(-)
-
-vmlinux size differences in bytes (from f5098b6bae76):
- text   data   bss    dec    hex  filename                             
-  +16    -44     .    -28    -1c  vmlinux.defconfig.gcc-16             
-  +28    -12     .    +16    +10  vmlinux.nosmp_defconfig.gcc-16       
-  +16    -12     .     +4     +4  vmlinux.rv32_defconfig.gcc-16        
-    .    -12     .    -12     -c  vmlinux.rv32_nosmp_defconfig.gcc-16  
-  +24    +64     .    +88    +58  vmlinux.nommu_virt_defconfig.gcc-16  
-   -4     -4     .     -8     -8  vmlinux.defconfig.clang-20           
-  -16    +28     .    +12     +c  vmlinux.nosmp_defconfig.clang-20     
-    .      .     .      .      .  vmlinux.rv32_defconfig.clang-20      
-    .      .     .      .      .  vmlinux.rv32_nosmp_defconfig.clang-20
-  +16      .     .    +16    +10  vmlinux.nommu_virt_defconfig.clang-20
-  +20    -12     .     +8     +8  vmlinux.defconfig.gcc-15             
-  +12    -12     .      .      .  vmlinux.nosmp_defconfig.gcc-15       
-  +28    -12     .    +16    +10  vmlinux.rv32_defconfig.gcc-15        
-   +8    -12     .     -4     -4  vmlinux.rv32_nosmp_defconfig.gcc-15  
-  +16      .     .    +16    +10  vmlinux.nommu_virt_defconfig.gcc-15  
-   +4    -12     .     -8     -8  vmlinux.defconfig.gcc-14             
-  +12    -12     .      .      .  vmlinux.nosmp_defconfig.gcc-14       
-  +20    -12     .     +8     +8  vmlinux.rv32_defconfig.gcc-14        
-   +8    -12     .     -4     -4  vmlinux.rv32_nosmp_defconfig.gcc-14  
-  +24      .     .    +24    +18  vmlinux.nommu_virt_defconfig.gcc-14  
-   -8     -4     .    -12     -c  vmlinux.defconfig.clang-19           
-  -12     +4     .     -8     -8  vmlinux.nosmp_defconfig.clang-19     
-   -4     +4     .      .      .  vmlinux.rv32_defconfig.clang-19      
-    .     +4     .     +4     +4  vmlinux.rv32_nosmp_defconfig.clang-19
-  +24    +64     .    +88    +58  vmlinux.nommu_virt_defconfig.clang-19
-    .    -12     .    -12     -c  vmlinux.defconfig.gcc-13             
-   +8    -12     .     -4     -4  vmlinux.nosmp_defconfig.gcc-13       
-  +12    -12     .      .      .  vmlinux.rv32_defconfig.gcc-13        
-   +4    -12     .     -8     -8  vmlinux.rv32_nosmp_defconfig.gcc-13  
-  +28    +64     .    +92    +5c  vmlinux.nommu_virt_defconfig.gcc-13  
-   -4     -4     .     -8     -8  vmlinux.defconfig.clang-18           
-  -16     -4     .    -20    -14  vmlinux.nosmp_defconfig.clang-18     
-    .     +4     .     +4     +4  vmlinux.rv32_defconfig.clang-18      
-    .     +4     .     +4     +4  vmlinux.rv32_nosmp_defconfig.clang-18
-  +24      .     .    +24    +18  vmlinux.nommu_virt_defconfig.clang-18
-   +8    -12     .     -4     -4  vmlinux.defconfig.gcc-12             
-    .    -12     .    -12     -c  vmlinux.nosmp_defconfig.gcc-12       
-  +12    -12     .      .      .  vmlinux.rv32_defconfig.gcc-12        
-  +12    -12     .      .      .  vmlinux.rv32_nosmp_defconfig.gcc-12  
-  +28    +64     .    +92    +5c  vmlinux.nommu_virt_defconfig.gcc-12  
-   -8     -4     .    -12     -c  vmlinux.defconfig.clang-17           
-  -12     +4     .     -8     -8  vmlinux.nosmp_defconfig.clang-17     
-   -8     +4     .     -4     -4  vmlinux.rv32_defconfig.clang-17      
-    .     -4     .     -4     -4  vmlinux.rv32_nosmp_defconfig.clang-17
-  +24    +64     .    +88    +58  vmlinux.nommu_virt_defconfig.clang-17
-   -4    -12     .    -16    -10  vmlinux.defconfig.gcc-11             
-   -4    -12     .    -16    -10  vmlinux.nosmp_defconfig.gcc-11       
-  +12    -12     .      .      .  vmlinux.rv32_defconfig.gcc-11        
-  +12    -12     .      .      .  vmlinux.rv32_nosmp_defconfig.gcc-11  
-  +28      .     .    +28    +1c  vmlinux.nommu_virt_defconfig.gcc-11  
-  +26    +32     .    +58    +3a  vmlinux.allnoconfig.gcc-15           
--1136  -4272  -192  -5600  -15e0  vmlinux.allmodconfig.gcc-15          
-  +28      .     .    +28    +1c  vmlinux.allnoconfig.clang-19         
- -812    -76   +64   -824   -338  vmlinux.allmodconfig.clang-19        
---8323329-193420016-1785694235=:1296450
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-193420016-1785694235=:1296450--
-
