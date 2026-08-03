@@ -4,151 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD95C5516F
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 04:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFA5C55162
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 04:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5KPNM+5GC/7GHmo/juTfmVt7efkn/FuGCmZmogkiycM=; b=iEnpW6z9yqSnL3
-	enpUuXDaqdkEO4uc/0hxSOTRHYh8ry6kLQgocGYVio9Pggb9xzqo0FKNyQtvN04vcnOK8ncQsWDKg
-	WXw8p2RJKptUgzb5yREoVDm4liz65YqAdCm+mESaqKru8Lxgt4Q9DcxkdjeqaDAdrGz6rw/n05nZ0
-	j7n+QBye1eKGUk08eKPo/qQIXULmFU610MrMEp0krQahK1vCLa6BFoz0V5l3y70msqEMUsrSxfpP5
-	9rIcmjBiCJqJ7HROyqt8XJCOjAxzG8e/7pHVKlbINFD+uNk7n8sklIXl6wlSP596Ehh76LapeiCt/
-	cjR8Uzk6RTouKBgUrI+g==;
+	List-Owner; bh=cC09ykNoF5edTHMa1ff91ndi5VVcVdT6hg4/uxvC0D8=; b=oaC3cTxuX067ic
+	Gl1VqjqL3hoTz7oGs5BtTvtPujM5Qv41gkgaLnRMB8DR3WfnjSebgn9HaB9YJjEd4ugfjues8RmiB
+	8SsLBG1v1Si+rrvq/DkSnijS4HcLppStSefvPWQstH+TlYO9Eh6BqD3wRJg+LdV6hV35f/uMBY63o
+	Llx01H30/Cmi5oxtpz9HLlW5b2dPuLDRX+EQfF5ilbvSWb2nMbBYluexZzF/nqh2HWeNq3wcXfkTz
+	xK+WvBI6REGqUoon69zTq3kF+OvFYyHjDXNQE9EoJnwQs5Mkrj1Dn0cuM6SUR+rbUYwQ4+PVFi3ZZ
+	g3HgwpnmrXi9zf/Sc8Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjrM-0000000GGu3-2s06;
-	Mon, 03 Aug 2026 04:01:04 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wqjwC-0000000GHBm-1Tfk;
+	Mon, 03 Aug 2026 04:06:04 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjrK-0000000GGtY-2Cy7
+	id 1wqjw9-0000000GHBA-1j4a
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Aug 2026 04:01:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ja0UzfWclDGM7BZRYdfhZPzfnSLIE398rR3EEBBJDCKZAPXCkyUsPDm1qvoDL7dGUpqr+UO+l1Wxlw3Axzq18mHNM+T6C6yGlAAJygpoTN4Px4QIC5MrIxHDwyg7J+ywnmzZ4Bb0iZ6jGxZhI+FDlDj45nnjCus6N5Xrvl2GNhstZcR1Ce+D9gBNrlD4i3ZQX+dz1xwkFCEPaH8PfDSQj3+ycTnvpfURuT8C7Yn+eAw9EQmxiEjtYBB9Iu1GXtn8p1g6aTVTvcgd7olI4gLIWmMPk5EiHIml/CaGNDvcLyrr5XDCrf0xNWR5FLZxsNKH8yiN9MszYj8goDjd/Qfi4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PtVd90Gazq4Unm/j9/t8yKYWe2a5TkCQYnX/iCdNxxI=;
- b=Rz5ccnbUUPbyPBmsLj8tPbfIrokNwHxEbKqD7oSdqjEsff9m9cgwmTtCBNintyIF+OpX8zv/Jxlc1uci2PVCtU5JSYXmpmcHZq9g35/wyNOCsMng5cKMGqXHkyRf+WtWkXxOY12Vj4EcJZB1PH2SAoD5bK3eACCEkjGXIePgRcg3IfUINeN6vnrapIzxoCANSkoaQoMALGcSKW+ysetbzbLqSoxhK3KIl53hvWIsM9SNRwGW7HUDIofPBZ2bno5w0ckDvL+z2rBN9DsoqOHfD5PuK48YGWM88UHnrSKN2TcH0Ds0sBhNuqwzGltBaePtPIbRCWOacGIhKX6uXmpdzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PtVd90Gazq4Unm/j9/t8yKYWe2a5TkCQYnX/iCdNxxI=;
- b=LLOB84qH6mho1Lp7jnIhWFLfByuuRdZk6QWfZDWxG6zggHZGvowSDnj0wMBLPZrDb348OGPPQuaUuU5vpmzzC9whF7uRcycwlZTuGIFsdXhaY/DcqqAXDoRz5ANd8fNMfrDvIxBzmzNCW2LhwDnxg2C3/bz949DHNTKUJ7TN5aeZ8MgAtm1BqOXY7AprbqSfYpZaRe9sXtNSlkFfBQ0TF51YhTnXjB87cG+IfxhRXGqgTyR4IpwHRdi10gojxS809s/jgmquW7eJ5iWjWq9GAq1YAWj/4wwoMFNUuBryA5yBrnS1EEVvsH4/XXy6Kaitk2W9/umQ2BB1PbhztSGghQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
- by SN7PR12MB7022.namprd12.prod.outlook.com (2603:10b6:806:261::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Mon, 3 Aug
- 2026 04:00:49 +0000
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989%4]) with mapi id 15.21.0270.015; Mon, 3 Aug 2026
- 04:00:49 +0000
-Date: Mon, 03 Aug 2026 13:00:45 +0900
-Message-Id: <DKF0BU8N7JJX.T802R11VZ0A5@nvidia.com>
-From: "Alexandre Courbot" <acourbot@nvidia.com>
-To: "Gary Guo" <gary@garyguo.net>
-Cc: "Daniel Almeida" <daniel.almeida@collabora.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>, "Danilo
- Krummrich" <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Drew
- Fustini" <fustini@kernel.org>, "Guo Ren" <guoren@kernel.org>, "Fu Wei"
- <wefu@redhat.com>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
- <sboyd@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
- Gross" <tmgross@umich.edu>, "Michal Wilczynski" <m.wilczynski@samsung.com>,
- "Boqun Feng" <boqun@kernel.org>, <linux-pm@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>,
- <linux-clk@vger.kernel.org>, <rust-for-linux@vger.kernel.org>, "Boris
- Brezillon" <boris.brezillon@collabora.com>, =?utf-8?q?Onur_=C3=96zkan?=
- <work@onurozkan.dev>, "Maurice" <mhi@mailbox.org>
-Subject: Re: [PATCH v5 1/4] rust: clk: use the type-state pattern
-References: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
- <20260706-clk-type-state-v5-1-67c5f326a16c@collabora.com>
- <DKEO7DXQ8604.1CB09QFM2EO68@garyguo.net>
-In-Reply-To: <DKEO7DXQ8604.1CB09QFM2EO68@garyguo.net>
-X-ClientProxiedBy: TY4P301CA0041.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:405:2be::15) To CH2PR12MB3990.namprd12.prod.outlook.com
- (2603:10b6:610:28::18)
+	Mon, 03 Aug 2026 04:06:02 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2cc61541f8cso40970195ad.0
+        for <linux-riscv@lists.infradead.org>; Sun, 02 Aug 2026 21:06:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785729960; cv=none;
+        d=google.com; s=arc-20260327;
+        b=AHnX0tlhBWHY+6PTiuPkTJD00OAlOrnHvwANWjiJL+K0cETzaN/TeO3vi+5cWq98dj
+         pNMz8q4I4SQluLnbD8KlUtBipvpwRiOIH+QUnYamX8qucd0zhnUC22zRI3GuabIDzyAr
+         doguui6zPf+EulcuMEipFKyprFrrg4BXRYf7Ey601kfvOLws3oF+nMTW63XRbJeljIQY
+         Hgv18vXusE+lNOPG6IE0iuJno5U27w9JJEwH5V+l9sl8T13yaBVWWzP+god6zxddHQGq
+         B8tTAXSXtHgWHLmn+8fiA5vnhA8nOn0UeVYwehWiaBhRiX+SnZxp2f+VcxwqoIDiHOcg
+         mtVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ZkrSKBKR4XV+e30AnWADztQMFm1oiGp+NcTdBitQDeY=;
+        fh=E/zH/325FK0NAOK8Mi92GIlYccHVjlaqBHFpK4V5WXs=;
+        b=RzJBqEZ7PmCBLZklQGnm/lwQVanEg8BjAZPf+abhSoO46cL1loPH1ZhnWn3yd4WJvl
+         NFbKmK0bWetzXr6Sus1njFp9mbQeiKHUZC9bM77gCVRclJnIZP/U3ug3yiVEomqQHFAb
+         1yRLODymoc2WbOXAu6stl0Jx4hdV1X4GIF3qALPFIMHsEwa2efhJnIZijSnxwDypjLWl
+         elfNVttCpcvzei9lTfE4tNheO+qif6vofI0yALU/VFa+RgkmEoo3jnNfvo6ke3IOTKWQ
+         x/yHf8jBxTScGLeGfUQjFeFvzK8IwPoTeYMF0gkBR3cam79CXYbjp+zgyZaLht4J2Nwy
+         kbrA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785729960; x=1786334760; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZkrSKBKR4XV+e30AnWADztQMFm1oiGp+NcTdBitQDeY=;
+        b=rowGUC3nEAoFnrrus5vUmz3KjJoNmTLOfs7lWGn/lvbTnzFv56vJsM5DdtFsMDQFhO
+         Ica2B28cR1Lvoi4WXJIT2V01tWNH89f6BQ0tJ8HZ56B8admj80lTE58fuOiE9v3iTxXh
+         JYsN8kj7+zEZ6JdQDpKEajzthBvUXJFnIueURsGwahOqRTlElT5kfBVDrz7T786cLiQS
+         GfGI1GaHH9t+5m/loALeySMCBlny8PCyZMxdjeDt8AO9HFKsiucZdsxS8Enh9NJkHOkO
+         xzp3tHhpo+tkL/qDiDk5gJkiL4ik13EM0Scwc6UStU2Il4LENL46KJ00ic4KULWwx79X
+         lbfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785729960; x=1786334760;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ZkrSKBKR4XV+e30AnWADztQMFm1oiGp+NcTdBitQDeY=;
+        b=TfdDinLMBd7M0vLS+AvUez1ECN1y1j27XcOps2qjmCCqi7J4BpXs47KWxCinBGnWaM
+         DL5JVZuYlB9GBAD8j0QeGpAoLrgfJ6jFNtoNL2gWcT/648C83vckKCFdOrz/aEGWdwES
+         F3GPPoXdLHfwQ73+JHBMXfqhqyoyl395f9qL0nkYXdAJMZoK8alRSsii60hbtfMMC0Ky
+         Y4/kmHfxwYhlyyxskRcFNU7SSpwQbD/5danTyIzq894dnfvLGpyqnTjiYD9s2DCppJ6R
+         +yNqVHVRAw91jXTJ25YED/w0nfdX3Xzon7v8e8n6qlSn2BWaHWeBAhgjRgDPT1VsmpJK
+         Bv4Q==
+X-Forwarded-Encrypted: i=1; AHgh+Rqxl0v20+13bFHz/Oq1r6THN/E/c8//dh7wNUrH+NXSTsLZxmrJcNIlGxImCYJSCEkPpR2CfIM0UjvKyg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/gha56v4NCIN9ZFX+3LQFkFcIsbk7Bvar4lz92FQ3z6A+MTVT
+	K7UcLCf8NmPeGFNFnYPe209RJB5M09n82B7zRx0eQWyC1B5/xGjog8PkvIjee5LCXwKuwiSuEg7
+	EWuqHIK1PmbaqX7fClQxwOR1toWDoKgQ=
+X-Gm-Gg: AR+sD102yWbkcfjEj/sztbqnpnctjIlssRT6eIXa0a4E+Iam8RhRu/AHu5qRF7YJNXz
+	EWaf9h6LgynCTRX4CA8OLGse6wveKtg2HqYQN92yejhte3itJ8QJAfysK6Ev/ijbpJebcuueGja
+	2qOWYFYKHr4yBC8Q8Na2H7/3hSRZZi+O0PXadYuQVLfK0XxZ8gWQlFKrrwSk1ehruwpLx7q3s16
+	bkWk1YbRHnA4chhobNW4RpM5LBn3ayE/5RGZZLtUWsrqpq5VxOOTEdo9iE/k7GLvXOH05zU1PHR
+	lxg82sMNNSEzSPvRVDScnIcuOUNp9CpLYv9eEcjLk+yEFCOe2nvGJGUS5hoLO68ZFYyjmxZ8TPi
+	5QbKWEu1mG1GQw6DOVyTSxdUZJr6bRArO7/7BjVTzJSKeXPzDJ135Q96O
+X-Received: by 2002:a17:902:ebc6:b0:2c6:8d95:fd7e with SMTP id
+ d9443c01a7336-2d047d1e722mr119237785ad.6.1785729959704; Sun, 02 Aug 2026
+ 21:05:59 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|SN7PR12MB7022:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0737ca1-011a-4f4e-ba6b-08def113cd96
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|10070799003|23010399003|7416014|376014|22082099003|18002099003|5023799004|4143699003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: la5lIuKmE5whqFjroxnKBJkX6nybuADCXvSxEusMGv0qJxsDpnwu0IImpsVmmb2Br4fmabx289BSoQB5EVr/+SACAWwElNUTgv2kRyhyn0tstzJliJ7uQxkWYd14yYFwlN55UM9+KgFK+2CUbWKvQPpkRIUm528PxnE3xn5dqHyD7oi2DR9P0/iWJHBEDnlKhgsgjWEGjGRK5WsKhSdCRYm4VHxOd8GqGXDYg8g66oovrXxlrSuqWG0QHn/4GRVvifCMC2ClL3IMvkIF5TglL8IggOQQLPRlmqRRv41kYKAFyaR82vsMhZSBu+DDJq5dwfDRoAZlHagC33RCr/4FIdBc20ri3kUajU8yfYoNx8VkzvBu13AEBhxk/SvbZhgdqoJ74s5k+xoA43jKWO9//rkz0YFcoR/kRYksCgoiSIYPyPiUScKRB5R5irUmEUBuOumC/NpynV7E3lBWRnhodyYpI14yOeCsCw22XeBzZT4H/HTjhj1WP9VAChvJPG87umws+AApG61dKYhnHVzObcT4d+C3/h3/7stSoa4LU0OB/kr2EBgJQjcVohI6+Z6mHbAiCC/msT89lrvyj7+qrg0QNsiJNTxLE0U6KLGsO2Q9MmZdUEaTbiJcIrAx9PFHtQ/nJUMkaeNVYYDhBh3rMLAD3CCLB1IZR/LP/tNKMT4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(10070799003)(23010399003)(7416014)(376014)(22082099003)(18002099003)(5023799004)(4143699003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SnFDYWZlNWN4OUcyKzNxSENyVVg0T28xV3FNMjFZSDdDbkswSFFGbzdJSVdk?=
- =?utf-8?B?NUhTNEsreFFrbVZQU0ZrNHdmUjI3TW5hRThjY2p0cEcydzgxd0VSNnlxaGlP?=
- =?utf-8?B?K2JrcWx0Nm9jaTNSdVRpajZoTmZsZUlsMnFva1VEaC9Jc25CQnBzdzJTS013?=
- =?utf-8?B?ZmliTXRESE8wRUdvZ25TdHhoSWZsZkZ0WENYaFVDVEhOY2dRR3JZNUpmVTFz?=
- =?utf-8?B?a2VncDdNMDRpSGk5UzJCeWRlWHIra05jZUxVc2dNZTRWWG5GWmxseXVpcnJZ?=
- =?utf-8?B?RmY3dGZPZUtTbVJIcVcvSFhLRnlPaDdkNXdzbUhVTWNXemFDY1FlZDcyRzNH?=
- =?utf-8?B?RHVHc1BkQkM3Nk44ZkpXT0Erc2pMbFduWHN4U1pmS243bU9qY2xNYzBXejRq?=
- =?utf-8?B?RENPamc2WTQySTZyZU5DajcreWM4RVdkUFRoeWdFZXlEdkZpdHM2SzJQZnhC?=
- =?utf-8?B?TnV4ZzZlWDRPSys1VjVDa09BMHBhRnpiL2FJYUxoQ2RsSk5kQTFORUN1NGFP?=
- =?utf-8?B?djZCd1NIQlhpZGlmQ3JPcGhsUThSNE90Q2FzZUFlQUFmSkFnWHRMUitLNjZJ?=
- =?utf-8?B?YWxRNlhZUWwzNkRValZ4bXI2bTFnT2lUVVN4cFRFLzRRam9ZM2ZHVEt4Unky?=
- =?utf-8?B?bzBMYUVDRHRlZ3kxQk4wb2t0blVZbXExSGEwcFRHcmMwU1R0S01lSk90cVMy?=
- =?utf-8?B?UjRFeDFpREpNYjhTeWQwVUNHbmxxQVlrKzN3aHRuWlFtdmJVOUlMcmxNbUI4?=
- =?utf-8?B?b1FtZHNqN3ltNmlWd1ZhcWZTcnZSdnhZNjhST1p0NHE1d01TZWxLTDR4VjJO?=
- =?utf-8?B?Rm96VkZBcnF2SVFpVlEvbW0xaWNqcHIzMDJyMFVpUk1yaW12dk00aEljdzMz?=
- =?utf-8?B?VnR3aHJuZlJyK3NhYkYzZ1IzbjZKS2RvaDVHVk5Vbk8xb1kxem1LempzYVVp?=
- =?utf-8?B?RVJaSThqWHBqbEJ4UXlZVmUxaWlxMTZlK3ZOcGt6Ui93REs5dGdTZzAxcUFV?=
- =?utf-8?B?R1JYK0VUQ0hrcUp1M25tcVpRbVphU1c3UG9JRmNiYkVxdnRpYlEvTG8xcjcz?=
- =?utf-8?B?VGFqYkJvbklQSG1oWVcvNnNMb1dCMmxnVTR4R2hOUXA0R0JiM0liNDJYeENu?=
- =?utf-8?B?MEU0emZTZ3RUdVZPSlFMMDVOU0xCeldaUGltMk1iMmpJcnU4L2FpZGpFcTNQ?=
- =?utf-8?B?RFZ2eGRmZXJDYVVjUmp3ZnVFT1JsSTVGRmJ4RlpudVVURGdhcUNPNFJVMkVM?=
- =?utf-8?B?N3hZQWl2WTlScHVkUEd5UGJGcllEdkVScURBSlRaRG56aDJ1ZHQ0RWVER2I2?=
- =?utf-8?B?NjJKZW8yN3JoQktaYXF6ME52QzNwMTc5c3VLeEYxTjhGU1dMVHg0MFBuTmdh?=
- =?utf-8?B?T0NNaXp5WjcrZ0RRb3piN1Zwc3M3b0ZWQ0cyMTV5cWo3dERkN2hEdklmSEZ0?=
- =?utf-8?B?RWJJZUpWVW9NNllHYm9sNktUTyt6QmVvMW9xZUV6Y0ZEVnl6WFJJYjQ5Z1lo?=
- =?utf-8?B?TTU5Q0dLK0kxMXFvQlhPMFRlWEJObitpT0ZqOHpWNkE5THl2Z2tGQU1xTzNK?=
- =?utf-8?B?bk1NMFZmeXlvRUZsOTZmSURUTHQyMjk3RCtpYllUbE9lWUJGckY4aktFWHg2?=
- =?utf-8?B?cXMxaSs2c2NMbyszN2tTV0hKUlh6ZFpNdlI1ZlNJdWhlN3BsWXBwcWtEQm5x?=
- =?utf-8?B?Q2o0MDc3bG9DUkgvemdvK1M4N2I3azlFdUlOMU41em1lTlJJbEJGcHRyYWM0?=
- =?utf-8?B?OEpYYkJPOWtLeGo2VVhPQnpVY3ZUWURNN2d6aUJrS2FCdS9BU1l5YzQyblVn?=
- =?utf-8?B?SEJSd0E1aU1EUVhTMW8welZPSnY5bld6YUZONHBjcjY5b3d2WWNKQ1RsYWYz?=
- =?utf-8?B?aXJvNW5BTUxkMW9yOVdyRTJYc3hFdnhrTktpN21XTzgvZzRWYW5OVmxTdGlZ?=
- =?utf-8?B?bnJnWVA0dGZ2UGhDdmFCVXJMU1NkZk5CaEgyU3NUaVFvV2EweVVSM2piZHVU?=
- =?utf-8?B?c2hiM1BWblloMURyRkNnUzZRaHdmR0Q2Q21BZUlGNjdUZ0tzcVhQUllRYnVl?=
- =?utf-8?B?d0gzYmZwYmFrWXVQVlRDbUNjWkR4RUMzUWUxcFpqb0s4VU1jVVlHWWRuN0Z2?=
- =?utf-8?B?NjBFM3lXZDZ0UXd6SWhWanVYOWxJT2hBS1UvdURIN3hrRzdoN3ZyMlN5WEY2?=
- =?utf-8?B?OGFUYVdaWXZURE92TlVqY2F1WWVBZ2wvTHBTV010Zkl0SDZaOXd3cXhCZFF4?=
- =?utf-8?B?RlF5VVhtR2tPKzlZR3pCSXNjL3I0TkI3Mm82dUVsWGh0RzdpOE80cTFjejF0?=
- =?utf-8?B?Z3VVaWVuVWNESjQvWlFtdTdOTjRyYkgvcGk1SnZRejZPWlA1NVZQMlRqZEhL?=
- =?utf-8?Q?vBw7rWd7NUcrVxI/z9pZkweCpOYJiUNqUMz28++12WVDZ?=
-X-MS-Exchange-AntiSpam-MessageData-1: IXcUqmo4JzWltg==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0737ca1-011a-4f4e-ba6b-08def113cd96
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 04:00:49.2518
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p9tQfBu72J6ZyEjEzufexXb82DIPCAcjiP0UB0HJKdZ6gp4l5UzGCfkFa/SWh5lLyrMlL8gNqLf+yxD81NDfJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7022
+References: <20260731101539.36290-1-phucduc.bui@gmail.com> <20260731101539.36290-2-phucduc.bui@gmail.com>
+ <DKEYE4CK1DUW.1PQ03VOZZT9TH@linux.spacemit.com>
+In-Reply-To: <DKEYE4CK1DUW.1PQ03VOZZT9TH@linux.spacemit.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Mon, 3 Aug 2026 11:05:47 +0700
+X-Gm-Features: AUfX_mwmWkehn7fn21ZthpV8C77-8fEL16i2_UDhIMxxkiWDLccefzmHbHrgzbY
+Message-ID: <CAABR9nEqZG1Vywb2CkoLVgqoLVPKqfYt01t3dF=WTu9qJSS=bw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] ASoC: spacemit: init *dp to NULL before error paths
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Yixun Lan <dlan@kernel.org>, Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Goko Mell <goku.sonxin626@gmail.com>, Jinmei Wei <weijinmei@linux.spacemit.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_210102_569897_A25490B2 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20260802_210601_458979_839355C7 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,52 +122,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon Aug 3, 2026 at 3:30 AM JST, Gary Guo wrote:
-> On Mon Jul 6, 2026 at 3:37 PM BST, Daniel Almeida wrote:
-<...>
->> It solves d) by directly encoding the state of the Clk into the type, e.g.:
->> Clk<Enabled> is now known to be a Clk that is enabled.
+Hi Troy,
+
+Thank you for your feedback.
+
+> > The current caller does check the return value before using dp, so this
+> > isn't an active bug. Still, initialize *dp to NULL upfront as a defensive
+> > measure, consistent with how core helpers like _snd_pcm_new() handle
+> > their optional output parameters.
 >
-> The design conflate states with actions. Our existing type state for devices
-> don't do this: `Device<Bound>` means that the device is currently bound, not
-> that dropping it will unbind it. Yet, a `Clk<Prepared>` doesn't mean just that
-> "clock is prepared" but rather "clock is prepared and needs to be unprepared on
-> drop".
+> If devm_kmemdup() fails, spacemit_i2s_init_dai() returns -ENOMEM. The
+> sole caller checks the return value and returns immediately, so it never
+> accesses dai on that path. On success, dp is non-NULL and *dp is assigned
+> before the function returns.
 >
-> One way around this is to mimic the "Registration" pattern: have a type to
-> indicate that a `Clk` has been prepared and its `drop` will undo it, and then
-> this type can `Deref` to `Clk<Prepared>` which just mean a prepared clock.
+> Therefore, I do not see a path where initializing *dp to NULL has any
+> effect. Could you clarify what case this change is intended to handle?
 
-Just as the driver core hands over `&Device<Bound>` to a driver as a
-guarantee that the device is currently bound, so can the driver pass a
-`&Clk<Prepared>` to a function to assert a similar proof. Here the
-reference only means "clock is prepared", without any action implied.
 
-The typestate has real practical benefits, as unlike `Device` which has
-a well-defined life cycle entirely controlled by the driver core, clock
-handles are owned by drivers and their use can go all over the place.
+My intention was to make the API a bit more defensive. While the current
+implementation only has one failure path,  spacemit_i2s_init_dai() may
+grow additional error paths in the future. Initializing *dp to NULL ensures
+it is left in a well-defined state on any failure.
 
-Driver A might want to enable a clock in short bursts in order to
-preserve power, and keep it prepared otherwise. For this, a
-`Clk<Prepared>` with the `EnabledGuard` I mentioned in patch 2 would be
-a good fit. Driver B might need to keep a given clock enabled all the
-time and only change its rate, and thus will store a `Clk<Enabled>`.
-Driver C may have different PM states, and can encode these in an enum
-where relevant clocks are either `Prepared` or `Enabled` depending on
-the variant.
+It would also avoid leaving dai uninitialized if a future caller accidentally
+skipped checking the return value before using it.
 
-Mandating a registration-like pattern here looks a bit overkill to me
-and I am not sure what this would grant us. It would definitely
-introduce some complexity: say that you want to keep a prepared clock in
-your driver data, does it mean you need to store the `Clk` itself, and
-then its prepared guard, which references the `Clk` in the same
-structure?
-
-I guess it's fine if we enable this pattern via the storage of a
-`Clk<Unprepared>` and the relevant use of guards, as it may be the
-correct fit for a few drivers; but that's not how most drivers use
-clocks, so we should also allow them to store their resource in a more
-advanced state.
+Best regards,
+Phuc
 
 _______________________________________________
 linux-riscv mailing list
