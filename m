@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B200C55822
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 19:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D1FC55196
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 20:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rTLvxsIir5urYJfTYLgkd4T8n61kC/tJ+apxP5h7JbI=; b=AWJNd4w0o3a7vO
-	oXOyd58FPHrOxYRqSPa9O1Kc19/GqE7DWLJP9jbQmTzKbtr3gXat5gGEOSSpZ9cVKvnGqxxdqtI+2
-	YRfzMFW6Rh9MrZ5QXgm2AJC2+QjXBEZTftJsUq9/6kmT76xpZfk3ep1YwTSbZn8ibKgThCcvHqPQE
-	GENpscfbZB+6t75bI3s7UtpTRdwDBP4ljswzZnL2waXQcpxf+FMLolpgwa9KpFBDnz6Ru1q+xTFZ3
-	AY6YfPXkM8KFj1w2S7zbw9x9Gh5c0n2narvEtRrmvk/+wOz/MUnt944LqXt72IuLhnWq1NwgLiBqx
-	ZKVhVByGT276DyhJA5nA==;
+	List-Owner; bh=iXIEsbRlcKNByYf6FaRvbCe+WMqqV768ZXENdxcls7o=; b=GA8ErQN9UzVtEP
+	EqSKa8w7ZW5q/R8XR0QdJIK1ehdjRryFlZPbYpUXzsCp4FikHQvz2HI8OfnSsx1tXQdSS+yuLw6xP
+	3eudwWsEnmeOjG7bfNAxutNkJjGnYUD/iDCK3lP17RCSeM4QpIsHeoEHH80c3VHVsPG93LNECp7U/
+	wY+mvzt8F55YdBvAlrNL9w1VhW51Yy/D9/AmpcMdjtXrs1lH57XellgyWpciM0Mr/+r/0O7o/mqv/
+	Kf2Gdj4srHtv0j4z5Ih1PNDyU9F1lfc3rHNyiZwqdwMaek3NCtevpiG0AR00z8/QmXVdjMJexGWTo
+	YIBKbtdLgQv2SSvhl2FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqyeb-00000000SOk-2pB0;
-	Mon, 03 Aug 2026 19:48:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wqzf9-00000000Wcs-0xJE;
+	Mon, 03 Aug 2026 20:53:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqyea-00000000SO7-1avf
-	for linux-riscv@lists.infradead.org;
-	Mon, 03 Aug 2026 19:48:52 +0000
+	id 1wqzf7-00000000WcS-1THi;
+	Mon, 03 Aug 2026 20:53:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 93E2D60A9C;
-	Mon,  3 Aug 2026 19:48:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B291F000E9;
-	Mon,  3 Aug 2026 19:48:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 66B6160A59;
+	Mon,  3 Aug 2026 20:53:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B3681F00A3A;
+	Mon,  3 Aug 2026 20:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785786531;
-	bh=gRKD3Yms4UmL1R70kEb/16Lt+YdAmM6DsCMChqeyD+o=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Rpl0512/f7uVlPUuE9zwt2MLYmXdRZX1KjLmHF7w6wrNt747+ktKc5ZMnwSLWIL0k
-	 rVOei68WDTk69drAr7I9KlM7DMduTh0Pnb9bLBD9V5RwjL4KY4z+yhOyj+7rCopQM7
-	 5BD/cj2zIhO4RAJgYSRZfSIaFpxkZL1EWjHDvgnRp3glcyz9p8P3qy3K0kL9bSgety
-	 V+/HFoplEgMI0SvDikV/eYpWA2cYo5XKnwFrnm4jOmQ4TOC8KxYPOPwSXs6ELVAbG9
-	 dpR1UUn8+xDngp5TECnbjtLeMSO/zwhCB+D+bNtm2mBDvVrRGNeJU0qD37V4v61VSZ
-	 NQO41DE6voEHw==
-From: Mark Brown <broonie@kernel.org>
-To: Yixun Lan <dlan@kernel.org>, Takashi Iwai <tiwai@suse.com>, 
- Jaroslav Kysela <perex@perex.cz>, Liam Girdwood <lgirdwood@gmail.com>, 
- phucduc.bui@gmail.com
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
- Goko Mell <goku.sonxin626@gmail.com>, 
- Jinmei Wei <weijinmei@linux.spacemit.com>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260731101539.36290-1-phucduc.bui@gmail.com>
-References: <20260731101539.36290-1-phucduc.bui@gmail.com>
-Subject: Re: (subset) [PATCH 1/2] ASoC: spacemit: Drop redundant error
- messages
-Message-Id: <178578223883.255647.15164633437477017509.b4-ty@b4>
-Date: Mon, 03 Aug 2026 19:37:18 +0100
+	s=k20260515; t=1785790408;
+	bh=42fMjfMmyKoxIac5xGfUWe0H4Hd5p40u1U7vZae7AME=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WcECJy5zwe3it57uD+HxHZblPLjWVcBNQ4VhRCHd+jKDvO2jXi+m1kaTmRCsRRtg2
+	 QZv+SCD+KsaR3eZlvT0BW/ID679n01MbA83TiXwbEoW1L+W3NZwEyTU1zQpKDvOGCE
+	 urFSI4Joboi6Hyiq5c2YqJ6nXTowsFtdF/4P6kZgUHmg/GSO7B+hNn4Hqlen68o8R/
+	 q9bBSdE7BE92kMkNHFWafNdaz3b4KDwLwEOSwwtD5f8211u/yLgB7/tTHtKXWQzNHT
+	 MQg75JSK1wxMkLL4SVfp7mSe+XGv74BCfS570fKjbcvIODC2S4wXYzjPPjvkQ2o8Q3
+	 bLV42DdnxLicQ==
+Date: Mon, 3 Aug 2026 22:53:24 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
+	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, Damien Le Moal <dlemoal@kernel.org>, 
+	Niklas Cassel <cassel@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>, 
+	Johannes Berg <johannes@sipsolutions.net>, Jeff Johnson <jjohnson@kernel.org>, 
+	Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Yangbo Lu <yangbo.lu@nxp.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Richard Cochran <richardcochran@gmail.com>, 
+	Jens Wiklander <jenswi@kernel.org>, Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>, 
+	YC Hung <yc.hung@mediatek.com>, Svyatoslav Ryhel <clamor95@gmail.com>, 
+	Sean Wang <sean.wang@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, linux-arm-msm@vger.kernel.org, 
+	linux-ide@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
+	mfd@lists.linux.dev, linux-wireless@vger.kernel.org, ath10k@lists.infradead.org, 
+	linux-pm@vger.kernel.org, netdev@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-usb@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: Correct white-space style
+Message-ID: <anD_bci501e0J3q2@zenone.zhora.eu>
+References: <20260801195613.235430-2-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1117; i=broonie@kernel.org;
- h=from:subject:message-id; bh=BMU8m3G0CzQ7r/UHgsjtaV7XbVgRF26RkLmkRPIw7Ps=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqcPCfrOivxgmMibuM26PL4ZckDkgUboZa7X5qP
- 6ItXy4E4y2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCanDwnwAKCRAk1otyXVSH
- 0EpfB/9KYDAOOEThhQgaerB9e2bpfLq1GQLe2mXmP49OGUBL2wJvbhyA8Yrd8SUneG5qqdmk1qI
- pl1tRDu8T8z2CWPZjXfHQ/Ahc+Rk5GPFAyD8v2CRglNEGB9WfjDLgAP+85TWBGynlxEF9j9PA5H
- ZN6j66rag14ZDQz9yr2lLo/N+rm7VCAVhcYNrH0mW8htfFo0YVM8tjgV3pW27bh8vOh4r/h+VdK
- +QDYrujg2jeRvcgVzCPkmcb0l9iK8P1Fbf3GPq7DAkA2IppqHIxKsmu8nXiCXRfllzCoKOGSJyD
- nsTcFkIxPSotXtOqlbKbtBiKVSvcUReRaGVMkbpu9LaFQK1m
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Disposition: inline
+In-Reply-To: <20260801195613.235430-2-krzysztof.kozlowski@oss.qualcomm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +94,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 17:15:38 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: spacemit: Drop redundant error messages
+Hi Krzysztof,
 
-Applied to
+On Sat, Aug 01, 2026 at 09:56:14PM +0200, Krzysztof Kozlowski wrote:
+> Correct a few white-space issues, like double space after '=' or before
+> bracket '{' characters, which will be flagged by dt-check-style.  No
+> functional changes.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> ---
+> 
+> Patch applies on Rob's for-next branch.
+> ---
+>  .../arm/firmware/linaro,optee-tz.yaml         |  8 +-
+>  .../devicetree/bindings/arm/psci.yaml         | 18 ++--
+>  .../bindings/arm/qcom,coresight-tnoc.yaml     |  2 +-
+>  .../devicetree/bindings/ata/st,ahci.yaml      | 22 ++---
+>  .../bindings/display/ti/ti,am65x-dss.yaml     | 12 +--
+>  .../bindings/display/ti/ti,j721e-dss.yaml     | 96 +++++++++----------
+>  .../bindings/display/ti/ti,k2g-dss.yaml       | 36 +++----
+>  .../bindings/dsp/mediatek,mt8195-dsp.yaml     |  2 +-
+>  .../bindings/gpio/st,nomadik-gpio.yaml        |  2 +-
+>  .../devicetree/bindings/i2c/st,sti-i2c.yaml   |  2 +-
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
+Yes, I had noticed this recent white space which slipped off my
+review, but it looked too much hassle for a single patch removing
+the white space.
 
 Thanks!
 
-[1/2] ASoC: spacemit: Drop redundant error messages
-      https://git.kernel.org/broonie/sound/c/a6604d9fb216
+Acked-by: Andi Shyti <andi.shyti@kernel.org>
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Andi
 
 _______________________________________________
 linux-riscv mailing list
