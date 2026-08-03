@@ -4,97 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFA5C55162
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 04:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24543C55162
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 04:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cC09ykNoF5edTHMa1ff91ndi5VVcVdT6hg4/uxvC0D8=; b=oaC3cTxuX067ic
-	Gl1VqjqL3hoTz7oGs5BtTvtPujM5Qv41gkgaLnRMB8DR3WfnjSebgn9HaB9YJjEd4ugfjues8RmiB
-	8SsLBG1v1Si+rrvq/DkSnijS4HcLppStSefvPWQstH+TlYO9Eh6BqD3wRJg+LdV6hV35f/uMBY63o
-	Llx01H30/Cmi5oxtpz9HLlW5b2dPuLDRX+EQfF5ilbvSWb2nMbBYluexZzF/nqh2HWeNq3wcXfkTz
-	xK+WvBI6REGqUoon69zTq3kF+OvFYyHjDXNQE9EoJnwQs5Mkrj1Dn0cuM6SUR+rbUYwQ4+PVFi3ZZ
-	g3HgwpnmrXi9zf/Sc8Iw==;
+	List-Owner; bh=P78GlTfTj4JQeL/Em/dFXO8N2tapCxxOsMCu9RdxTVw=; b=oduboN6Zbf84Ui
+	YnJfRnX2oe2GuyllvMnB+NMTGCrWIRL9+1yfFTLABRXUnu8a9vhZLyqndu9Lje2RHaJxJcArpwjs4
+	VewekXzKezCdJUOXrtA82nLWHzoYqlzsb9IZjZ0VX0KKGcDuTGYRMgSOWft2ZwvLEPBZbXsjcI6ec
+	bld05McMjCBAouFA1TQr+chTPv/uFSPlCm6A+HCHz+QfLGeN1KYVGkgtA1SXhjWpSDj2PpiCkuZ6Q
+	+vCHgBV/Cju6Tkb0uJNu/F9C/N6v1MbgB7VsQ8nwbJxS+O8nPnEsoK3dSW5A2eqhYsNRsd2L/pyFL
+	8Go5YV7GfFjftP0faKtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjwC-0000000GHBm-1Tfk;
-	Mon, 03 Aug 2026 04:06:04 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wqjy1-0000000GHNf-2dS7;
+	Mon, 03 Aug 2026 04:07:57 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjw9-0000000GHBA-1j4a
+	id 1wqjxy-0000000GHNG-3ckB
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Aug 2026 04:06:02 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2cc61541f8cso40970195ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 02 Aug 2026 21:06:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785729960; cv=none;
+	Mon, 03 Aug 2026 04:07:55 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-383cb94f742so2837672a91.3
+        for <linux-riscv@lists.infradead.org>; Sun, 02 Aug 2026 21:07:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785730074; cv=none;
         d=google.com; s=arc-20260327;
-        b=AHnX0tlhBWHY+6PTiuPkTJD00OAlOrnHvwANWjiJL+K0cETzaN/TeO3vi+5cWq98dj
-         pNMz8q4I4SQluLnbD8KlUtBipvpwRiOIH+QUnYamX8qucd0zhnUC22zRI3GuabIDzyAr
-         doguui6zPf+EulcuMEipFKyprFrrg4BXRYf7Ey601kfvOLws3oF+nMTW63XRbJeljIQY
-         Hgv18vXusE+lNOPG6IE0iuJno5U27w9JJEwH5V+l9sl8T13yaBVWWzP+god6zxddHQGq
-         B8tTAXSXtHgWHLmn+8fiA5vnhA8nOn0UeVYwehWiaBhRiX+SnZxp2f+VcxwqoIDiHOcg
-         mtVA==
+        b=qe167wQm/UmwbFz7SHwpOFMwVZ5LH0XZg3k1oXNVhiwBH77Viqwb0PAIWNjcPG8hMd
+         7zEGb8egVLrnhY0xRjjl2vTGW0sZU4NKNS5EBYn04mhB7QzRayIH0n2nv3p+E8yNwvnH
+         2REUlWeiL1vXpw1JxMvuXqPLla65TWGnxaxQb/WmvJpXj5TGOTUyX5iqBCYA5eDpBIjG
+         qq4/Li8Uyy8EAHcXM61bRAcPmOn/G5P2ZXpW4wtyU7IAltesY8U4FXgkVx56jWIN7Ssx
+         7oBnmPDyknUVo5krnG1tVmUsflzH8d1Mv5DIcEDG4REFdhd/KeKR2qZMAhvBZwr2qI4F
+         po3Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=ZkrSKBKR4XV+e30AnWADztQMFm1oiGp+NcTdBitQDeY=;
-        fh=E/zH/325FK0NAOK8Mi92GIlYccHVjlaqBHFpK4V5WXs=;
-        b=RzJBqEZ7PmCBLZklQGnm/lwQVanEg8BjAZPf+abhSoO46cL1loPH1ZhnWn3yd4WJvl
-         NFbKmK0bWetzXr6Sus1njFp9mbQeiKHUZC9bM77gCVRclJnIZP/U3ug3yiVEomqQHFAb
-         1yRLODymoc2WbOXAu6stl0Jx4hdV1X4GIF3qALPFIMHsEwa2efhJnIZijSnxwDypjLWl
-         elfNVttCpcvzei9lTfE4tNheO+qif6vofI0yALU/VFa+RgkmEoo3jnNfvo6ke3IOTKWQ
-         x/yHf8jBxTScGLeGfUQjFeFvzK8IwPoTeYMF0gkBR3cam79CXYbjp+zgyZaLht4J2Nwy
-         kbrA==;
+        bh=o0bIczJYrX/P4k3ultDRs1w26VKyNpDX5L+21tUITZQ=;
+        fh=Bre0EX3ye+FdXaic4Tkf2VSRubHfYsqaG+MBvqzLY1k=;
+        b=TfFM7LaiJMelnPdM1ybQZGVCWue9jfaRZMo1/Sf9pNDJ4at6ZOem1ndwSLmVZhtkiP
+         2RJDmOVsE0BN4OJ5edY1obknx+t+ZchWRruD9EkWfpRVzIDa+Ite1TWxlrA2Txv2uH1C
+         UxcXsEUfKDw6CGeDbP1SCD+PhqxbHG9gxsYrvzEQBio3LJbz4DGJKaxxyiRs0JDkFAdT
+         /aqDaw0k6+g3gk+PQKK17Wiz7Za0lJv/XkzoRdNSQlkA++Mks/9DNgf0IJ4yZANjLxK6
+         7qCbb4SMLPXzcJ4+woXmy+Z3Zrmf93ujXNETPQYIoZQFvpyr9UNHFi8ppt5USqfscxyv
+         7sAQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785729960; x=1786334760; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785730074; x=1786334874; darn=lists.infradead.org;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZkrSKBKR4XV+e30AnWADztQMFm1oiGp+NcTdBitQDeY=;
-        b=rowGUC3nEAoFnrrus5vUmz3KjJoNmTLOfs7lWGn/lvbTnzFv56vJsM5DdtFsMDQFhO
-         Ica2B28cR1Lvoi4WXJIT2V01tWNH89f6BQ0tJ8HZ56B8admj80lTE58fuOiE9v3iTxXh
-         JYsN8kj7+zEZ6JdQDpKEajzthBvUXJFnIueURsGwahOqRTlElT5kfBVDrz7T786cLiQS
-         GfGI1GaHH9t+5m/loALeySMCBlny8PCyZMxdjeDt8AO9HFKsiucZdsxS8Enh9NJkHOkO
-         xzp3tHhpo+tkL/qDiDk5gJkiL4ik13EM0Scwc6UStU2Il4LENL46KJ00ic4KULWwx79X
-         lbfQ==
+        bh=o0bIczJYrX/P4k3ultDRs1w26VKyNpDX5L+21tUITZQ=;
+        b=YnkZACGFt3AelHTGs22/FOHKA+ilXj/sQ/nIXYF47v2tQ0uF2mjI2GFzn00ai86btZ
+         3dcN1YzxcE9E6EURNoQK7dQTUD5nWa6TxQEl+nwPcuP+UkWdCt+AhdCv0eGUeoXBHx6b
+         rA1AZjaT164vJuhzDm7Kf/8JGfF8sCVq8OV+2QvWTAV+Qg9Da/q1aslHIHMQauEyLdEK
+         7QJjWqQlz5B7+/XNegAirVhCgGSHlmwmByvSL/5xQBHnuI+m0W/7TwtvIsnmRq1jrYoh
+         bHPFPzkW+ZjmMEzalicJ/D0RwBl5HnOrdG1j5v+Ak67zKUVmG7gwK6LUkzfphTMtlYrD
+         kvfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785729960; x=1786334760;
+        d=1e100.net; s=20251104; t=1785730074; x=1786334874;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=ZkrSKBKR4XV+e30AnWADztQMFm1oiGp+NcTdBitQDeY=;
-        b=TfdDinLMBd7M0vLS+AvUez1ECN1y1j27XcOps2qjmCCqi7J4BpXs47KWxCinBGnWaM
-         DL5JVZuYlB9GBAD8j0QeGpAoLrgfJ6jFNtoNL2gWcT/648C83vckKCFdOrz/aEGWdwES
-         F3GPPoXdLHfwQ73+JHBMXfqhqyoyl395f9qL0nkYXdAJMZoK8alRSsii60hbtfMMC0Ky
-         Y4/kmHfxwYhlyyxskRcFNU7SSpwQbD/5danTyIzq894dnfvLGpyqnTjiYD9s2DCppJ6R
-         +yNqVHVRAw91jXTJ25YED/w0nfdX3Xzon7v8e8n6qlSn2BWaHWeBAhgjRgDPT1VsmpJK
-         Bv4Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rqxl0v20+13bFHz/Oq1r6THN/E/c8//dh7wNUrH+NXSTsLZxmrJcNIlGxImCYJSCEkPpR2CfIM0UjvKyg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/gha56v4NCIN9ZFX+3LQFkFcIsbk7Bvar4lz92FQ3z6A+MTVT
-	K7UcLCf8NmPeGFNFnYPe209RJB5M09n82B7zRx0eQWyC1B5/xGjog8PkvIjee5LCXwKuwiSuEg7
-	EWuqHIK1PmbaqX7fClQxwOR1toWDoKgQ=
-X-Gm-Gg: AR+sD102yWbkcfjEj/sztbqnpnctjIlssRT6eIXa0a4E+Iam8RhRu/AHu5qRF7YJNXz
-	EWaf9h6LgynCTRX4CA8OLGse6wveKtg2HqYQN92yejhte3itJ8QJAfysK6Ev/ijbpJebcuueGja
-	2qOWYFYKHr4yBC8Q8Na2H7/3hSRZZi+O0PXadYuQVLfK0XxZ8gWQlFKrrwSk1ehruwpLx7q3s16
-	bkWk1YbRHnA4chhobNW4RpM5LBn3ayE/5RGZZLtUWsrqpq5VxOOTEdo9iE/k7GLvXOH05zU1PHR
-	lxg82sMNNSEzSPvRVDScnIcuOUNp9CpLYv9eEcjLk+yEFCOe2nvGJGUS5hoLO68ZFYyjmxZ8TPi
-	5QbKWEu1mG1GQw6DOVyTSxdUZJr6bRArO7/7BjVTzJSKeXPzDJ135Q96O
-X-Received: by 2002:a17:902:ebc6:b0:2c6:8d95:fd7e with SMTP id
- d9443c01a7336-2d047d1e722mr119237785ad.6.1785729959704; Sun, 02 Aug 2026
- 21:05:59 -0700 (PDT)
+        bh=o0bIczJYrX/P4k3ultDRs1w26VKyNpDX5L+21tUITZQ=;
+        b=HjkCvE+7TAUUL3b+fzFWLlaRHoQMFGSU4NY2q2aeNaSTW9d94otGhyGQxNGUJsFPDj
+         wAKoN1lvLv+GEk0QrjAzewvaxOKEMMx1rzQntwypxCyb1JGOTxNifxDDEDs4OMFNLtPe
+         LtZ1gVfDm8vnMP1q+AJQQr+Q3+kEtTa1DgRF7ctiMMmzsjcD8KqsCGfz6sAd/663tSQY
+         rzj4vaO6hMgDNR0sSietxtU4i0EC/GmZUkGo53PpqBu9QgjSpoSqWW4xIob+bo9UJSYy
+         QI4dY16LK7iRpURQKtTkuQjg4d+o2gnvmBht14jIXFy/r/sYGpym2dxvz/ntWYV31v4m
+         aXdg==
+X-Forwarded-Encrypted: i=1; AHgh+RoJdB0SPaXOf3Cj9WwKPOBDPy0dZ4T5naNDmkauMLzaqFS17LSh8dsYODDe5p8oTJyGTtZnNLRHlGTkwQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTLV3rTLT1/ayvt8JMxZ/snDo/nSqxuzLRSfFleOR3SRUxJD6Z
+	Vo3pEbEnphmyWAOur8hq276qHH23wmAcBWtqgrj+/U7K9J1Ha5GJN2071kr+MsqfT9UptiObmDD
+	L14PUj3pXeKbHg5x/ZDUXVW8WMD4IAxA=
+X-Gm-Gg: AR+sD13iYGm++f102hzjVfDsRJ3ga6W2Z536ETNi1HtgT+IDuK16Qv76cjn4Y8fPn1J
+	61gRpNUqA5hgjdCb0TpVFq79sd/vpKFF55O9zKB5WpA+SgvGdIVi4pn92k4rzeYPKd4FLmiCmfp
+	x0TWuUYbIExYDdCvPQAgLRF+zmIJ6nZaR6So7lj9q++iiRXAXH0yxk85b7b8dc+2ys0EkNp+t5G
+	Qdm0d1SPeJFDaOd2DDK9bXJSC9VvqqvQrW5No91cLpwwsIARquw1HjZKCsDPdzSSt9vRvkPV5aH
+	vbmZRwdkxEQ3tvxgHNiBDDkFH7ouycBf9bA0bpBQStIeh6dzQ5S3l60uAmH9g5URRIMJasq3JmA
+	YsQmU6Ih0ChEZ/0sQJ+c+vFUqX/yv9pZ1XVCnGWWT9WA1pKwJW1sqzNyk
+X-Received: by 2002:a17:90b:4c0e:b0:385:393e:7124 with SMTP id
+ 98e67ed59e1d1-38fbc48e76cmr7516377a91.14.1785730073725; Sun, 02 Aug 2026
+ 21:07:53 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260731101539.36290-1-phucduc.bui@gmail.com> <20260731101539.36290-2-phucduc.bui@gmail.com>
- <DKEYE4CK1DUW.1PQ03VOZZT9TH@linux.spacemit.com>
-In-Reply-To: <DKEYE4CK1DUW.1PQ03VOZZT9TH@linux.spacemit.com>
+ <DKEYE4CK1DUW.1PQ03VOZZT9TH@linux.spacemit.com> <CAABR9nEqZG1Vywb2CkoLVgqoLVPKqfYt01t3dF=WTu9qJSS=bw@mail.gmail.com>
+In-Reply-To: <CAABR9nEqZG1Vywb2CkoLVgqoLVPKqfYt01t3dF=WTu9qJSS=bw@mail.gmail.com>
 From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Mon, 3 Aug 2026 11:05:47 +0700
-X-Gm-Features: AUfX_mwmWkehn7fn21ZthpV8C77-8fEL16i2_UDhIMxxkiWDLccefzmHbHrgzbY
-Message-ID: <CAABR9nEqZG1Vywb2CkoLVgqoLVPKqfYt01t3dF=WTu9qJSS=bw@mail.gmail.com>
+Date: Mon, 3 Aug 2026 11:07:42 +0700
+X-Gm-Features: AUfX_mxoZsbHdTwTqbI_xo8lAz5x-PfMgbH_dD_PFhYYBwi0-5mHQuUL3UsDbSE
+Message-ID: <CAABR9nG=s78=5_tGSieN7hdCQOMNzJKdzJo5cx2bMfgAvJM+aw@mail.gmail.com>
 Subject: Re: [PATCH 2/2] ASoC: spacemit: init *dp to NULL before error paths
 To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Yixun Lan <dlan@kernel.org>, Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>, 
@@ -104,8 +104,9 @@ Cc: Yixun Lan <dlan@kernel.org>, Takashi Iwai <tiwai@suse.com>, Mark Brown <broo
 	spacemit@lists.linux.dev, linux-sound@vger.kernel.org, 
 	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_210601_458979_839355C7 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20260802_210754_908876_AD026D69 
+X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,29 +125,19 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Troy,
 
-Thank you for your feedback.
+By the way, I noticed that spacemit_i2s_init_dai() is quite similar to
+rockchip_i2s_init_dai().
 
-> > The current caller does check the return value before using dp, so this
-> > isn't an active bug. Still, initialize *dp to NULL upfront as a defensive
-> > measure, consistent with how core helpers like _snd_pcm_new() handle
-> > their optional output parameters.
->
-> If devm_kmemdup() fails, spacemit_i2s_init_dai() returns -ENOMEM. The
-> sole caller checks the return value and returns immediately, so it never
-> accesses dai on that path. On success, dp is non-NULL and *dp is assigned
-> before the function returns.
->
-> Therefore, I do not see a path where initializing *dp to NULL has any
-> effect. Could you clarify what case this change is intended to handle?
+However, unlike the Rockchip driver, spacemit_i2s_dai already has most
+of the playback
+and capture capabilities initialized statically. As a result,
+spacemit_i2s_init_dai() ends up
+assigning the same values again, for example channels_min, channels_max, rates,
+and formats, which seems redundant.
 
-
-My intention was to make the API a bit more defensive. While the current
-implementation only has one failure path,  spacemit_i2s_init_dai() may
-grow additional error paths in the future. Initializing *dp to NULL ensures
-it is left in a well-defined state on any failure.
-
-It would also avoid leaving dai uninitialized if a future caller accidentally
-skipped checking the return value before using it.
+If you think that makes sense, I can either remove those redundant assignments,
+or make it follow the Rockchip approach by keeping the static spacemit_i2s_dai
+minimal and initializing those fields only in spacemit_i2s_init_dai().
 
 Best regards,
 Phuc
