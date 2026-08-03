@@ -4,85 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25CFC55162
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 02:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C84C5516F
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 03:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:Subject:Cc:To:From:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jET/UcRnJ/tBzBYjkD5N4W4EHCKTf+cd8hhvYM9EB8A=; b=JcLOPhSQq+MH2kFD1Cpg0vi38W
-	wFqESRrvwGq+l20gg6JIlByO4XCNt82plyXasq7ADMY+4LEggJULwR8eF5GipUJBowzySgVeQ+ZVL
-	N+RUPM2h3gkvMft10Iks/xkTHYtckDG4Df55vBccPpgdLZEUbFCmzQuDaCgS+P62VwdoucYt5lZyi
-	/YaHY6LQw6//gTQrtslg+idepAS75WJas05dPGb6tDo1BX8aVJG/5aY654bIEcRkXjHqIqpxjPfrl
-	xAINrCdCDDvbpfZt3gt2p6YerHjcvsQ+hA0LdF4uREpGgyjgV7eTtCddHi3kFXEcxaZVGILa2pLqs
-	mVgjk1ew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DX98O599l1kRvZLGsxEMn8SBejkOLAcI9zNZ1oGgQlw=; b=Pwei3EClRtJcGf
+	vwD1Q35HFrCS/ngnwBsVgctYyco2YVEqkvk12P3R/ws4YjoLq30Wxd2uBThWcH30e2pYm3bIiOWOX
+	pM/nq5O2LI7IuT59Wbojsr6XPPoDqPSQMFjqBWSykxikaHN7rSVp2tSKw2Z8H1bGelaTp/Jnfrj8X
+	QU3k+ZVMcyRYe/Ruh/UrMWIkI16UvBwHp2JDHXR86BQQHM3JhQXXY0OXQPfAqHUsCoFqcCaiqMgAy
+	OjISdQhenSKI5bbyvYlk3KXAhXFjxUPC3ON0yJWYUGVU7gU77wSRRv4FiEN3jFHRI+Pay50bu8wgE
+	zX7KeQZga612E3Ttx9Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqiSs-0000000GCKx-0EFe;
-	Mon, 03 Aug 2026 02:31:42 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1wqjob-0000000GGf8-1cgZ;
+	Mon, 03 Aug 2026 03:58:13 +0000
+Received: from mail-westcentralusazon11010065.outbound.protection.outlook.com ([40.93.198.65] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqiSo-0000000GCK1-2ddH
+	id 1wqjoY-0000000GGeR-3neQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Aug 2026 02:31:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1785724220;
-	bh=VHxV9t8YiiS63VYfe+5FgSlLpbL8CZ/gf+KB/A1f4zk=;
-	h=Mime-Version:Date:Message-Id:From:To:Subject;
-	b=iOTT0CoKWyM4Nxf9osJcTTHEf52BPHXLT6xdoWQspjFBkQ07iCUTYWf4HhyL2Mr2m
-	 vpUPg7g0x0Qeh6wK5ZSWmkWKkQ7Qvff0PaH44Zjdb7aYmmtqwPBs+Y0xpKTm3v+84y
-	 A6jcKaCHwxMLBdvOmqAM2eSZQwqb0MEhVJDVEWxs=
-X-QQ-mid: zesmtpgz4t1785724211tfe1ca16a
-X-QQ-Originating-IP: kZcIIQPw8yJ2Ij6Xeff5lr9tzuCK2zUjxQmqPijcBAs=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 03 Aug 2026 10:30:10 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7980296911698113881
-EX-QQ-RecipientCnt: 14
-Mime-Version: 1.0
-Date: Sun, 02 Aug 2026 19:30:08 -0700
-Message-Id: <DKEYEG48XLAC.4J8YYSOVORZ8@linux.spacemit.com>
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: <phucduc.bui@gmail.com>, "Yixun Lan" <dlan@kernel.org>, "Takashi Iwai"
- <tiwai@suse.com>, "Mark Brown" <broonie@kernel.org>, "Jaroslav Kysela"
- <perex@perex.cz>, "Liam Girdwood" <lgirdwood@gmail.com>
-Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Goko Mell"
- <goku.sonxin626@gmail.com>, "Jinmei Wei" <weijinmei@linux.spacemit.com>,
- "Kuninori Morimoto" <kuninori.morimoto.gx@renesas.com>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-sound@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/2] ASoC: spacemit: Drop redundant error messages
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260731101539.36290-1-phucduc.bui@gmail.com>
-In-Reply-To: <20260731101539.36290-1-phucduc.bui@gmail.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MOuEXcjulCr6PXSMnzY77oWzbaVMPkBJhzm2qvkh0p0H/g26r5MJJLJE
-	C9tfGpVMq8t6JH3qjmaTbNzTUR3eazxRCrh2P1/Xxwr1bafCVFN/chziVHL45218jMR4bVA
-	yN7CpULYM6cuX3Uxr/YbrBYWxPgTIP94KWhivSvZo9UIhyfp5EPW1DwvIzUpYgu6FJYMsjM
-	JwWziZfPvvpsnFwyi80kdN+FqVkUThib5ozgdSwCvTOQT4vh4nSuvT3tdXNdc7d1VPDB3F6
-	ONOWUq2RmtQOqTdejbkDQHLHd8UL33SfFRtmWM+PoXo5myMpt1r/pigqeJT3+bHslQr11sa
-	yMSUD3nLMdppKWYj/lqiV1CBIaedZJ1sZFoiZ0ZXVwSD393DBgxrnjnXC4QR2ESXW4muEku
-	TywlDK/CPYFmpsehj8Jdbx/EDp4XrQbb6GjmHURo0Wm64VqyLOikO0pnR4wrFAs6fc2f5+v
-	sufMa8Lh5Pgv1IV45sB2Ubh93ZDwF+lnIsfhRZCPVPdu1WqAObXxDPClPhatLBXunEk4cZH
-	DAj9RZeNDmZ0Hk2YxWFgmlJbRIrE9bZQDn50loe4Q2ZOYyAgjaZhbl7S0IgZW/OBRicwBjK
-	X1zJIhhJQWGgR8ocvXrSTmCyXAuZ4GtVM9/y3ExvaXZkAml0AZ1ZIUVYs9rS4iSrB7NHEXn
-	vFRf50dpLj1l8LC+oG6CECcnOGaHOgR9hl5WA6z84pQzlwA20ymBaWW1wWJRKZ3zIhGcN85
-	2EaRtOU4zZDmFu/s/HBdZ6sZgKqGtwg95SKcqAb9CCQ6ZmDvAl19DmZ9ezYREPUaHLNj6cM
-	O+CXJgVVNhHEkLv0gS0ohciR6TNQC8JaK080KX/c4ws3T90TrVx03q8/BfrGyF+acG8BM5y
-	dUJZ0SNAymEKlqi5Ud+6jek12A+qQMXnkJr291k9NyZ+xYoHGVvkjlhZAu5lFgBZT6XH11u
-	T3ppLRbxDQmrN9Fj1anAroMo2eR+nWxfac29lfPCiQucbh4A/vJQROd5KNKPL3dUDJgZuNi
-	xCUUO/ysH5OCEBnioWNPOIKDbu7jBlHxj8EtcH0X/HEXnyeSPp9lCPuS5Xxr6c6fevhP8Gy
-	jwLaci76nM3+z9iZCDvpTI=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+	Mon, 03 Aug 2026 03:58:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o9SzTtDbqbh9LvS1DuittmdQL52ru/gxtw3q/fpTRCXX15qf6E6kQGtVFVEcxkX+WY9ZO+M3vLRZM/ebcrGSWdzXpTjpNkHkiNbY9MvZIJe6XxKBMydPrNuEJCemsAMLcdz9P7i7xW9nAjsGGdIjoL8Tgy04a8v8kxN8/frGFD8t685GQ82Vh5zx/47OeqNdHpwklh7DMBIvgENOkAP1KX2Yjrd1swVS8xlbNyx2/i3Yz46EuuvmpBif+oZzUKFyoRiDGFfRsEUhR2rSTjyuR64/n37P5wgloKQMIsvc678u2OzlNwjuqap56fpu6G8zQCk0yydsS74jVIQAu+L7tA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VijIk8gxfJOJXACoG4W6YH1Kq52NtGhZ+Qj7rabFYBo=;
+ b=kLMnLaos7ZofVQ5P3JHhwpPoAjwGwPZypyTjN3m3E5B69klnQLlQOJUfN13ZGSsUaJfRvhe0kOdBhYomU5RBvzx+v/mD6PjCYLwywP3NTq3dt/dPrfjH8q6lsD/DMTkc9gFhJA0EZ5P3km5x0iWDAqZkea6cxJhy7+IZDab6dyrx2p7r86K4/T0cTccqxbSz5pRVD51ElYF25BB7aebSh0Zg4w/A2wae9i0DpEI8aYlh2iMqGm9x4/O1yQ06ayNFnImWlqNT+t9I/s18ZXLqurjRk+z98KG0S1UMzyXxrDwJgHm3DvnXtkW6YNKFeOwiVTirYN/L8nnsxz3TF2XCQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VijIk8gxfJOJXACoG4W6YH1Kq52NtGhZ+Qj7rabFYBo=;
+ b=j9DyA5br3l8VIRlAo0ttUVHbs18YujyK6KM3vqKk7Gm98/LihyxUBDm4PJObsJ1vdrQS6JXHFkb11ZfDCzNs99lWauhKylZBOBvfQ4HkUfLiUR7m0WRicYC2FjfvO158rvQUcDpr7WYYY5a5+leTkn/0UMFYuErDwKJHnfTVq/8csucvk0RsP45S1q+p0NVVCMULAXcPq509qaKr4kCofmjKViMP7c54nDy7liXjfhrnOO1jCuP9gm5HshRlJrB+pzd9zKeYwJVmiPi34KRqZ6eayrmU4vIknVxifixRDYkoz+jFaCym2HS4b+Epyqz22O0pQhz6v5E87Lg7PZ5+nw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
+ by SN7PR12MB7022.namprd12.prod.outlook.com (2603:10b6:806:261::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Mon, 3 Aug
+ 2026 03:58:01 +0000
+Received: from CH2PR12MB3990.namprd12.prod.outlook.com
+ ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
+ ([fe80::7de1:4fe5:8ead:5989%4]) with mapi id 15.21.0270.015; Mon, 3 Aug 2026
+ 03:58:01 +0000
+Date: Mon, 03 Aug 2026 12:57:57 +0900
+Message-Id: <DKF09OYPH41X.A5DBVPSRM4CD@nvidia.com>
+From: "Alexandre Courbot" <acourbot@nvidia.com>
+To: "Gary Guo" <gary@garyguo.net>
+Cc: "Daniel Almeida" <daniel.almeida@collabora.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>, "Danilo
+ Krummrich" <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Drew
+ Fustini" <fustini@kernel.org>, "Guo Ren" <guoren@kernel.org>, "Fu Wei"
+ <wefu@redhat.com>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
+ <sboyd@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
+ Gross" <tmgross@umich.edu>, "Michal Wilczynski" <m.wilczynski@samsung.com>,
+ "Boqun Feng" <boqun@kernel.org>, <linux-pm@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>,
+ <linux-clk@vger.kernel.org>, <rust-for-linux@vger.kernel.org>, "Boris
+ Brezillon" <boris.brezillon@collabora.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, "Maurice" <mhi@mailbox.org>
+Subject: Re: [PATCH v5 3/4] rust: clk: add devres-managed clks
+References: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
+ <20260706-clk-type-state-v5-3-67c5f326a16c@collabora.com>
+ <DKEO9XYE7EGU.XU9OHA368TC3@garyguo.net>
+In-Reply-To: <DKEO9XYE7EGU.XU9OHA368TC3@garyguo.net>
+X-ClientProxiedBy: TYWPR01CA0051.jpnprd01.prod.outlook.com
+ (2603:1096:400:17f::7) To CH2PR12MB3990.namprd12.prod.outlook.com
+ (2603:10b6:610:28::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|SN7PR12MB7022:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34e472be-ef53-4c16-db1c-08def113696c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|10070799003|23010399003|7416014|376014|22082099003|18002099003|4143699003|11063799006|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: BT6+Qy+CeZJsOusdjTEqWraBaDuKMcPq1RbFY1vAkF5+ljLDRA8Pk8/i4/LMzHveFn9MrVYkBlbJ9TC3z8lF3dUsv60fVxxmQAndcSYlgguqLXXeJbmRPJJQ28rrCd/7lw9wbhjkbb9NGXM9dqNt9Fv5tHdXxVgWIM/6emhkxWBwsUE40eHynC9Pl+I5j1WMBbvAiqIRGYwETJLRWc1hrl0slFFUvVi8t2HhwMo88oX/MSO1iBlRljhhd7AJRKUFT2WqTTAu7IJk5eZujznR4sN3pXQWcVzuO1SPYld/nCVinnS301+7Oe1de2OZny4eGK0gyOco2DzIUpOEKiRndk4vAbssp+N5ItiLDXNtkxztmI/YZ2HDnD9DPOcr8I5m0Oo2mOZEFDsfA8l7OF3stkoN6c258/jvhL5Gx0Z1h7AFACoue8hIHKYJ6FCZn0bOxM4psFKCBNGXCDeE7ic72NLymnom9jmrHEt8zy49sSTeBZY4BiAsCYNYA2xqaUN8C9dLoHaKP3UK6HZAnxgrAhZUJrKEPazREgHyTMrIad24hPQgb94DPDWWOQDpt6JeGHPhEYcwrsCT3Q8jVms7i8K7ooOcEQcOqwz+hLzqOqV8vBY+WOfAxAovtU7UCVR217YlM6kPmeI1Tu9UynweZXqPFvb9oHMJSNWFXdGCDZo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(10070799003)(23010399003)(7416014)(376014)(22082099003)(18002099003)(4143699003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZnN4NWw5aGV4ZTlmYTNmZ3NvNWhsOWpiVkRHZzJ5VDRFUG9aQVZuT1IrbnU0?=
+ =?utf-8?B?bjdpN1cxU2lBWExnbkhUdWFIRDRaOXRJWndaeGNXdXArMU4yVWFud1ZMeUJ1?=
+ =?utf-8?B?NllGcGw1RWhVRTlqakpZSW52STlMYlArWUJOam5KZnB4ZDRTa1grdnVKcTRV?=
+ =?utf-8?B?d05KYS8rTlhhOU0vQisxV2JkZjdRTXlld0ZLdndQSXRxeHRtVmIxeXZTRkFV?=
+ =?utf-8?B?MDB5SjFRRkZHam5Bc2U4RTQ0WGxwdDl4Z3UwUS82dEtuVGFiZnlNZEFGc0NU?=
+ =?utf-8?B?cGQ4TzVjMEkvdDB1TnZXMk1iVndyQ1FaQlp5WGI2SFI3Zjdrb1ZweGpka1oz?=
+ =?utf-8?B?d21WUVNiTkZBU2xZTEhZdVhxdForM3Npeis2YmlGb01wSTRBeG85OVRiclIr?=
+ =?utf-8?B?NnBHYjU5T2hKY0dZS2VPbGhHZEZoQk9VUjQvb2pVUHBFbER3RzlpaHNyZlV5?=
+ =?utf-8?B?b2o1QmNSRVVBWDFCNnIrbnZYMXgwS2RvZzBpT0tZNERlR0E3bXVqdDVmTHJ4?=
+ =?utf-8?B?Z05IWXhFbXd6R0M0dWJDaTd3TU53VG9NRWlMbmNnd3dXQ2toZEJ1NmZnRjZu?=
+ =?utf-8?B?cEpmbGRpNDFQeXM1YkNOT2lwOTNEV0ZaWkNHaFk3NmlEN0JaSnhQYkNDUk5t?=
+ =?utf-8?B?aVZ3OFNHejhIQUtjVjJ4cjB1NzFreHhJSktQNGl5V3paUXlWNEtzNGhubXU0?=
+ =?utf-8?B?VFBzM0hWMVpUZFNwTFJpYXZpQytmcWxHNFZwa21BaTBxOE8rSjQ0eVlITC9E?=
+ =?utf-8?B?bVBZZGUyTlZyUk11cFBPajhUbnhSdGlOQVkwQnBucU5Db0RYaUVDRmJ2d2V0?=
+ =?utf-8?B?RzR2anNRVWR3c05jd29UeXdpUzZub1ZRUHBwM1JNcTd5Z29USUpBOHFPanVs?=
+ =?utf-8?B?YitQWkR6c0FDSFdwZlpKdXBRckpwR2tPb0x4MDZ6bkdiQUlHVWxrRjAxaTZE?=
+ =?utf-8?B?T1k0YlN5T0xaMy81NUk3QWNGc2pmaHlvSEthZVN1RUtES3hlV1c1UGU3dnJ0?=
+ =?utf-8?B?dlB6aGlSNkcrakhVUzZYSmxncUdHRTMvaVNid1F1bXkyNVFNK3pncE1XdTBY?=
+ =?utf-8?B?b1gzVDBpV1B6RlNOZXNFM2c2YUVuV3laM0pWV1h4WjdlMHNxYlV1cWlrWXJr?=
+ =?utf-8?B?bWdRNXNhVFhBZHJuZkdGVkZadnQ3MFBNZ1RJMDhCWlNaVEk5R3JHVWMrd0Yx?=
+ =?utf-8?B?bWtCN1l0TUJSTHFFakE0bko5SlZyMzJTK1VqL0dlQ2FJYm80d1VvWllMQTdC?=
+ =?utf-8?B?ZlRQYWpPWUtLNkh6SDJaY3dzcHJhaVppWkVWM2I1ZHFMT3Z2OUtSMURQMkJl?=
+ =?utf-8?B?QXpTbU9FM2VwVGpGT3RXSnhPUTNNZlQxL1UvMUkyUFA4d0MrdFphamR2aTJE?=
+ =?utf-8?B?QzNEdjhGL2VINGhOQ1h5azc1TWw4ZGgvOEpnc1h6bWlZRmg2VGFzOGlZeGNU?=
+ =?utf-8?B?SEQrSFd5M3krREd3SXk5OE9qa1gvUjhKNjJEaFh2WkxRdUJFVGxvcHRYRnZU?=
+ =?utf-8?B?U3IwT0s2dThzM0JtNFM1Ykh1Tm9TYkdHWS9RRVU1S2sxdWo0ZlJQMHU3WFdj?=
+ =?utf-8?B?dldrM2ZCSmY3MjkzcS9pL0M5b3FXcU5SN0VVYmRhcjFGZ05teUxHQnRCb0lr?=
+ =?utf-8?B?cGkwVlZuTHdWZ21Nb29xL1I1YWJvekxGZmpibHFobm9yaG05VmtLWGVvRHRw?=
+ =?utf-8?B?YzlSWlZ4UmQrYUxzanVCWW0zQ1dwaGFnVmhiS0MxQklsZG5VYnowcThWV1Jr?=
+ =?utf-8?B?eWN4WllLN3pCMlAyWTVnak4yL0tuTHRueVJPZjRIeVhXRGtIYzFlcXZyaThz?=
+ =?utf-8?B?QUhSQkZoSTJWcHdUblBVclNjRWNLMWoyNSs1VStHZ3dQRVMrOWl6bVhUaUZn?=
+ =?utf-8?B?clJWYUdybTZhS1NDRU5WMVlrMk1Lc210NzdHMXJBYndMNTFIZ3F0dzN2cVFG?=
+ =?utf-8?B?a1l5RzNORldKUnVmL0lMQi9GaWVPcmwyVEhvUDBvUXR4dGM5VzNRUDlqdGY0?=
+ =?utf-8?B?VFZIejJleGswdFp0T2VNQ3JZUm5qUE85U0xpWlhBV3RSbkl6Njk1RExKelB4?=
+ =?utf-8?B?cHRJWFQ0d1hUUWhZdXhBOFFIYmtCUkFXMDdnalAxYTNzY2RQeVdjak5iNUhX?=
+ =?utf-8?B?dUlTVDM3OXhFTkhZZjFBeXZMcUpaUGlsZURBN2h6UjBPTUFMRTdkZy91WWxV?=
+ =?utf-8?B?Z200T2xON1c4ZmlMTEdORGpoSWszK0oyWXNSUGVwR0JGRmZwbWVySm1sTWlu?=
+ =?utf-8?B?VjloWTNINnNmN2tLRERzRjFid09rTGdLRVY5RitzdjdmMm9qVmtMRVZMNDlB?=
+ =?utf-8?B?cmU1b05sbGl1ZURxd1J3dzlZdnVIY1E0c3FvcUovbkJVTFZUUCtCemNHdDll?=
+ =?utf-8?Q?P1Cz1JTs87oHGZhEeNIw3ty2r+YL2/HNpmoy9rUirVYnB?=
+X-MS-Exchange-AntiSpam-MessageData-1: hOi/RihmKqSIVw==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34e472be-ef53-4c16-db1c-08def113696c
+X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 03:58:01.1921
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LEwsBapNZhw9wAjRSohxLjQzxtyZAAAqmKlJUF1Xc0Pip7gd5Fi2K4ojpeW21hdtEIAY1b0n33dchUvzt82Pag==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_193139_130374_AA94BC92 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260802_205810_957725_DEED8A45 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,87 +160,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2015112816820925233=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2015112816820925233==
-Content-Type: multipart/signed;
- boundary=bf64bd363e0e8996a0a5ca0feb58c7dceb1ae0c90bcd07b3717d13d5a465;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-
---bf64bd363e0e8996a0a5ca0feb58c7dceb1ae0c90bcd07b3717d13d5a465
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-On Fri Jul 31, 2026 at 3:15 AM PDT, phucduc.bui wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
+On Mon Aug 3, 2026 at 3:34 AM JST, Gary Guo wrote:
+> On Mon Jul 6, 2026 at 3:37 PM BST, Daniel Almeida wrote:
+>> The clk API allows fine-grained control, but some drivers might be
+>> more interested in a "set and forget" API.
+>>
+>> Expand the current API to support this. The clock will automatically be
+>> disabled, unprepared and freed when the device is unbound from the bus
+>> without further intervention by the driver.
 >
-> The called functions already log failures where appropriate. Return the
-> original error directly and avoid duplicate error messages.
+> Drivers could just put the enabled clock into their driver data.
 >
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
->  sound/soc/spacemit/k1_i2s.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/sound/soc/spacemit/k1_i2s.c b/sound/soc/spacemit/k1_i2s.c
-> index cd461f2aa756..64510c9a1a89 100644
-> --- a/sound/soc/spacemit/k1_i2s.c
-> +++ b/sound/soc/spacemit/k1_i2s.c
-> @@ -478,7 +478,7 @@ static int spacemit_i2s_probe(struct platform_device =
-*pdev)
-> =20
->  	i2s->base =3D devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->  	if (IS_ERR(i2s->base))
-> -		return dev_err_probe(i2s->dev, PTR_ERR(i2s->base), "failed to map regi=
-sters\n");
-> +		return PTR_ERR(i2s->base);
-> =20
->  	i2s->reset =3D devm_reset_control_get_exclusive(&pdev->dev, NULL);
->  	if (IS_ERR(i2s->reset))
-> @@ -495,7 +495,7 @@ static int spacemit_i2s_probe(struct platform_device =
-*pdev)
->  					      &spacemit_i2s_component,
->  					      dai, 1);
->  	if (ret)
-> -		return dev_err_probe(i2s->dev, ret, "failed to register component");
-> +		return ret;
-> =20
->  	return devm_snd_dmaengine_pcm_register(&pdev->dev, &spacemit_dmaengine_=
-pcm_config, 0);
->  }
-Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> Given the general shift from devres to lifetime-scoped device resources, do we
+> still have a need for this?
 
+This mimics what `Regulator` does; back then it was merged with quite
+some consensus [1].
 
---=20
-Troy Mitchell
+IIRC the justification for having this was that it's a nice
+fire-and-forget interface for those cases where you don't even want the
+driver to have a way to touch the resource after acquiring it, and it
+also ensures that the resource is dropped at unbind time even if the driver
+data survives it for some reason (for instance, DRM open fds?).
 
-
---bf64bd363e0e8996a0a5ca0feb58c7dceb1ae0c90bcd07b3717d13d5a465
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCam/9MA0caUB0cm95LXku
-b3JnAAoJEJgJ74D5MzQvAxQA/2DYCuc67ctUxgO1VADuU8NdphBXB5/3GDya8AM5
-p+GmAQDtiqRFSDixu2qu42rj/vId1THpHiepPIVvYmqVFAwCCg==
-=ZzYU
------END PGP SIGNATURE-----
-
---bf64bd363e0e8996a0a5ca0feb58c7dceb1ae0c90bcd07b3717d13d5a465--
-
-
---===============2015112816820925233==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+[1] https://lore.kernel.org/all/20250910-regulator-remove-dynamic-v3-2-07af4dfa97cc@collabora.com/
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2015112816820925233==--
-
