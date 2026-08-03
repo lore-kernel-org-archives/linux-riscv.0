@@ -4,98 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BE8C55162
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 01:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11753C55174
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 02:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=f2y+9XpBfWeuiTM4axF8GMQWibgsGzGPJED76crvUYc=; b=CGV2EEUzIR6RIZ
-	4othbL7zo3hrC/W6K1HUssRcrx+F4zvEVFDYhhh0GAsIT6dpQYpaJsJeS/cqpiulNeBawTydNh1ku
-	tO1XwNzGAYSQBnNgQLGMREDmfAejM6fmMXHcm/6p5rjECmuku5os2K1+bMSrP8xCNweEQwRd7O4Un
-	PIbwnl0f4YfRiLvZBamacXkCtCP4oC/DG1dvLwne8RRjfFla8hnn/PaUVpuBc4ptn6Kr5YEn62BJx
-	Xs/ckUsNioxScVsrsbOb/O8o8yFYCXj3QyWlLCy/umNPkNzehHn46NgDJaPUtAdFe+Mo8PyCVNhh3
-	KNN52OTrwPy8p1YkS0fw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lquv9uFfDt6yJodu8cTSgEWQa9OIpe/DzBCY9KphNH0=; b=CgWfvZEyv2L1LCn+8fE1oG4tBU
+	+pUzrqhb8DE/HhsBzt7KqXxUXqqfJsl4iviIDkSpwJezLha9ZXJknuGaqMIEc4x6sYqZ1BKAmPgQT
+	Gob2and5I9fByQPrExMPkxCkjZZ3RaietQXJVFhAO1xOGLZET6FbYgond6ATsJSAYzcyi0PxhdVEL
+	x7/FS316U5TkPS53Z+mO3b0v/lUtKcfpAEZNHI7Ab09dNSbKxd5fAipCIM4E/oXO097d+rsnB/XqA
+	TOYpzR1YQc/pyxe2ElGMDDIyRxTW3lbr6Qz6rZJTo9WQkMnbyq3wEed9prrxWyXv9pIERNnyCR9Z5
+	fryUyCTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqhNi-0000000G9k6-0bc8;
-	Mon, 03 Aug 2026 01:22:18 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1wqiRp-0000000GCDv-3oUL;
+	Mon, 03 Aug 2026 02:30:37 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqhNd-0000000G9jf-3kzS
+	id 1wqiRm-0000000GCBQ-1ENF
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Aug 2026 01:22:17 +0000
+	Mon, 03 Aug 2026 02:30:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1785720061;
-	bh=E/59ULRX3fcCiGaKpCuRRXWmoaL5FaPHckfKK8MWx3I=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=FFe8RCT62tPoC5H7XAOS4Nb3a6f/9e8Q4Z10AD9u+an1/hffTv83mlkyZyrFf0Abs
-	 9oFmRGfJTf3VWLPcdIkMnDonavvZJ2Bo07M5NQXArolx6RQx6LDj948YNgC2lqfRi5
-	 VibV9WAjyTPBf7KWX+WSdoN8qfQecI4FZG3U9Oj8=
-X-QQ-mid: zesmtpgz4t1785720059t895a68f2
-X-QQ-Originating-IP: 25z/h3E5qMZ+0hCnj4opg5fruy6r28swwuWlwxx6GhA=
-Received: from [127.0.1.1] ( [120.237.158.181])
+	s=mxsw2412; t=1785724196;
+	bh=XreocC4a0nsXO2Wrw1QqhlxohulSMdKlZ7zx/VQQVog=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=m1CBmizWt/4PsM/lTkZDlkV50o+kOB+1IKhfgD0/B69rAGNWZZ0SEz2GyIrEfQOSh
+	 RMlQQf32Yqrn8SNb+FwkZ2dwBLLJVYJkVRo7kK4b5yq6QIGg1ApmhSAnRFqb0rNLcY
+	 aJShoPqkwpt/j5hpbRq5ouTJ0kj2wqUblLGVUAB8=
+X-QQ-mid: esmtpgz13t1785724186td5e4bdfc
+X-QQ-Originating-IP: Rhdr5C5Udr9yd4G4Y4lT5pqjZ0A4wVk50i9uCzyoX6M=
+Received: from = ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 03 Aug 2026 09:20:57 +0800 (CST)
+	id ; Mon, 03 Aug 2026 10:29:44 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8004584693986170675
-EX-QQ-RecipientCnt: 17
-From: Peixin Xie <peixin.xie@linux.spacemit.com>
-Date: Mon, 03 Aug 2026 09:20:38 +0800
-Subject: [PATCH v3] riscv: acpi: Handle LPI architectural context loss
- flags
-MIME-Version: 1.0
-Message-Id: <20260803-riscv-acpi-lpi-timer-v3-1-520fa13732f5@linux.spacemit.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42Nyw6CMBBFf8V0bUkfSsGV/2FclHGQMbzSQoMh/
- LsF446Fi1mc5M45M/PoCD27HGbmMJCnro2gjwcGlW2fyOkRmSmhUmGU4Y48BG6hJ17HG6hBx9N
- SGp3bFDItWXztHZY0bdrb/ct+LF4Iw+paFxX5oXPvrRvkuvslsv1EkFxyMEoVgELiKbvW1I5T4
- nsL2NCQQNewtRXUPzYVbWerBQqhJEK+a1uW5QMET+MQIQEAAA==
-X-Change-ID: 20260727-riscv-acpi-lpi-timer-6f1739a6c831
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Yixun Lan <dlan@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
- Oza Pawandeep <quic_poza@quicinc.com>, Will Deacon <will@kernel.org>, 
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
-Cc: linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
- stable@vger.kernel.org, Sunil V L <sunilvl@oss.qualcomm.com>, 
- Huisong Li <lihuisong@huawei.com>, 
- Peixin Xie <peixin.xie@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785720058; l=2769;
- i=peixin.xie@linux.spacemit.com; s=20260727; h=from:subject:message-id;
- bh=IGIOiqUPBvXhRjSU/l2LErCmIBv4zjk2X496JkYviSo=;
- b=7emY4Fm+omxuUdtUfXXDuy1oWJBhRA+5HYU363aIF47ZCim7OKi8x77q7dXFpyADtPbwgrgci
- gwvKzMf/GSeA3j2FINxIoXzgrhnKcrcyiveEvbS+MXAzDLnwz4a0wvh
-X-Developer-Key: i=peixin.xie@linux.spacemit.com; a=ed25519;
- pk=jczO0FmEQZBoClfXslkwCsHKDmSRchQ1hQr8W7yiiXg=
+X-BIZMAIL-ID: 1045208562662155205
+EX-QQ-RecipientCnt: 14
+Mime-Version: 1.0
+Date: Sun, 02 Aug 2026 19:29:42 -0700
+Message-Id: <DKEYE4CK1DUW.1PQ03VOZZT9TH@linux.spacemit.com>
+Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Goko Mell"
+ <goku.sonxin626@gmail.com>, "Jinmei Wei" <weijinmei@linux.spacemit.com>,
+ "Kuninori Morimoto" <kuninori.morimoto.gx@renesas.com>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <linux-sound@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] ASoC: spacemit: init *dp to NULL before error paths
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "bui duc phuc" <phucduc.bui@gmail.com>, "Yixun Lan" <dlan@kernel.org>,
+ "Takashi Iwai" <tiwai@suse.com>, "Mark Brown" <broonie@kernel.org>,
+ "Jaroslav Kysela" <perex@perex.cz>, "Liam Girdwood" <lgirdwood@gmail.com>
+In-Reply-To: <20260731101539.36290-2-phucduc.bui@gmail.com>
+References: <20260731101539.36290-1-phucduc.bui@gmail.com>
+	<20260731101539.36290-2-phucduc.bui@gmail.com>
 X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: OWtbkH21mRLJuclXtaOSdKVduhSRA1Ck0M3fGQayjtbEHumXmysX9Y0K
-	61KgyB7mugK7GxXUC+0f1XzGftdy195o14tC8cODzNVjJwlb69TUtBmRkRJLADE/Ig4rQ1w
-	Z4M3Ffpeq3emEMKwe0kCYONS0hv+7a/ndHUyqU75vgBEzWQv1Jl/m2zDov2tmHdnkobtXPq
-	G8eDt72H2P9cKQ6fdKImkzb5rkUODhP4QLaf1EewkbAwinYvsDB+g9EYD4M0vidGF6t84sT
-	pLQo8+8+Q0VUPaSX2akD4KRZr3zkWdO7gXtCQptqlIU8XtmF60vhfMQ7gYxpuzn2z0Q+ngK
-	/bMi27+G/Zt+PUeMLmjo6dbp07jVpnYQ//gy+EBJkHD4rkFQ11tWrZ4dlqVggrQkmWxXPog
-	GfMj0ZOprB2FOCg+K5ZkRkhMkr7gZ9fMps0eIcSZ7fSBcATHemLudalQEKGVPkFXJP/0DYj
-	HQEIYPAd9RQlDuzsltiwYi1AvnIzI+307hsghpYE/EBj2VWkcRzyB7wTPb6wVpLBsdKMSeK
-	dJJlTjmhoTW9zVOzcfsgXhIdBYPeaBEMLWoTIB/Zkfwkc+QJwGNsd/TTbqQepcFBG8udDEp
-	pBbxJj5D3PToEx6pj5afKG4S2OTaj8wR76q/L1De2JFHxAxuBMTwGGdb73IVwNSexs5IJ0S
-	bA1p2KHz/Zw2xa5KYIx30b7suOuCabuk66wKGw17jyDE2iKBYFG0sExAL6gi8LTXMxYNqLx
-	+HwGjLa7hXLcnHvbDhwwHxWzwxDpNGUYGeUEMHeQzVCCFUQcQ41X5y+T7L6EG8PguVcL8kN
-	3m3QqrdkGrUi30YQLW0PbyWdOeq8+s9a6skNBS6XbCCGtpCBrGVrki2LsBK1r3qRjuV4xf+
-	TtcwnQ3/hgz47V4Bu0Xd5Vxus2Q0ZA1BNLeicXvilBjMsWTJ7HZahLjxAReVDJFu/oMHY/3
-	mCjQTMghKv9i/Rd/T+dJBPLDf7bu2IJ92QA/ixKra05tOiQtUfNwOc6QnHYbpmqnMrwavzA
-	N9OhwLXR2s92aya++2uajbPBureDWG+J5nvrxasp45l3x8tAyVLGqm5dJKa60FDvdgoMbcA
-	MJSnzqbN63IifxblGp4sf/3aD24HN2XWFXH3LIw9fVp
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MPAlP4yRn0xgfQMun6HwkIilx1fgJ3pW3bZhKHgzpHnuTUE+EzLinP03
+	i9WM8801c3yu2jwmakniSR4WJpovXcgrAGQhoVxhaiPcHHZVFbwIaxRAlfvYm8lndvbYijD
+	fpFfAplk6qziDfdVO3vYAbdEhFF8W7gY9qm7coOulUCu1osnCrx98c2eHPpD4B5fEUdQlGY
+	RjfTnhEXG4MuBxtiYrovbgnOCi9t1tDLqQYtvUD9El4fXzZmB3StFSAp9bYen03wVBkofc3
+	ypgPMBk36KiK0xz+f2fGKxq4W+HwcftG8RGn/HxrlJRf60nljAZvsCG4sw2P2QEf3apbGZx
+	4zPZ8CrLuQblk6rctFvBIid2uCtACde4jHtDWGnIR+IWjR2AtYqBsZoN5ewqh4xWkOUVsXE
+	SBPS+ccmDTw7UMBXuV1/672JIS3AEn31+U9LORU8VvsaZfQT8k7B1LJl62m84Pz1K74iOdI
+	+8tfXGmvP70hHdw8l8QfOWcWf9Fze1/QoYZkOSFpIs4GKTpymw9tXDpH/6tt7MKFtN+mRRo
+	0794dB2j3f8U4Hq/kGO+0Ixtee98uK1rkf1S+Jf9B15eKyV72rusBKiRVjBnd/sgP2yBuzA
+	RSxhcVf8UoBGedu88tsUcaCs3ex3t/XUkRS9Md24kStmr/OCQ70+AoDWCGjF53lolb9bpyn
+	j3mKAwb4RkYKwFvF/TfKEluSGTreAO++kxDwP4pGjdCOQR2XBgNzCgxLGBGqZUnJsBrHhL1
+	FzK65Tvckt4gpsALT8LYvBj1I6Qs/tvfQ/to2NVpv3M3PvDOSrx0sas3Gs4uuVtFOb48pxT
+	w+hDX226IxwkCTckevLFAX38L+ACJjMIseFoo/gTUIPnIy7ZORiTIJGUU68pfZBooN1jMlN
+	N/xVI7AdmVVla5FmEK7JOZPWqLalmyPPPb23TK+bh5WdbCMhO13YX2936DfAVbX4qk+1JYv
+	//Srs+VusR+CPdiu1r4a80oVQ7PxCJ8uyR4EQ9mQs0LWSIdD+G2kZYm4kNI02evwhrz5CAH
+	m/BT2lq+6Fr1aKQU1wsmqEnDEsSbviDhUjFLAkGVUpi5pXciprh39QvVmanQuJPEedbVCjd
+	w==
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_182215_188886_2B472A54 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20260802_193035_217714_9CA6502D 
+X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,91 +95,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2812455702337457867=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 4785aa802853 ("cpuidle, ACPI: Evaluate LPI arch_flags for
-broadcast timer") replaced the generic nonzero check for LPI
-architectural context loss flags with arch_get_idle_state_flags().
-RISC-V does not implement the helper, so it falls back to the stub
-that returns 0. Consequently, CPUIDLE_FLAG_TIMER_STOP is not set when
-an LPI state loses the hart timer context, preventing cpuidle from
-using a broadcast timer for that state.
+--===============2812455702337457867==
+Content-Type: multipart/signed;
+ boundary=b221c2993898b54412cec0db06be210fff76d164353ddb68c3a0007334fe;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
 
-Implement the RISC-V helper and map the hart timer context loss flag
-to CPUIDLE_FLAG_TIMER_STOP.
+--b221c2993898b54412cec0db06be210fff76d164353ddb68c3a0007334fe
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Fixes: 4785aa802853 ("cpuidle, ACPI: Evaluate LPI arch_flags for broadcast timer")
-Cc: stable@vger.kernel.org
-Acked-by: Sudeep Holla <sudeep.holla@kernel.org>
-Reviewed-by: Yixun Lan <dlan@kernel.org>
-Reviewed-by: Sunil V L <sunilvl@oss.qualcomm.com>
-Reviewed-by: Huisong Li <lihuisong@huawei.com>
-Signed-off-by: Peixin Xie <peixin.xie@linux.spacemit.com>
----
-Changes in v3:
-- Use the PDF specification numbering, Chapter 3.1.2 and Table 4,
-  following Sunil's clarification.
-- Link to v2: https://patch.msgid.link/20260728-riscv-acpi-lpi-timer-v2-1-5a30e0021ec9@linux.spacemit.com
+> The current caller does check the return value before using dp, so this
+> isn't an active bug. Still, initialize *dp to NULL upfront as a defensive
+> measure, consistent with how core helpers like _snd_pcm_new() handle
+> their optional output parameters.
 
-Changes in v2:
-- Correct the FFH specification reference to Chapter 2.1.1.2,
-  Table 3, as suggested by Yixun.
-- Link to v1: https://patch.msgid.link/20260728-riscv-acpi-lpi-timer-v1-1-c722bce01e48@linux.spacemit.com
----
- arch/riscv/include/asm/acpi.h | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+If devm_kmemdup() fails, spacemit_i2s_init_dai() returns -ENOMEM. The
+sole caller checks the return value and returns immediately, so it never
+accesses dai on that path. On success, dp is non-NULL and *dp is assigned
+before the function returns.
 
-diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index 26ab37c171bc..f4db04f5bbe7 100644
---- a/arch/riscv/include/asm/acpi.h
-+++ b/arch/riscv/include/asm/acpi.h
-@@ -12,6 +12,8 @@
- #ifndef _ASM_ACPI_H
- #define _ASM_ACPI_H
- 
-+#include <linux/cpuidle.h>
-+
- /* Basic configuration for ACPI */
- #ifdef CONFIG_ACPI
- 
-@@ -67,6 +69,23 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
- 
- void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
- 			     u32 *cboz_size, u32 *cbop_size);
-+
-+/*
-+ * RISC-V Functional Fixed Hardware Specification Version v1.0.1,
-+ * Chapter 3.1.2, Table 4: Arch. Context Lost Flags
-+ */
-+#define RISCV_LPI_HART_TIMER_CTXT_LOST		BIT(0)
-+
-+static inline unsigned int arch_get_idle_state_flags(u32 arch_flags)
-+{
-+	if (arch_flags & RISCV_LPI_HART_TIMER_CTXT_LOST)
-+		return CPUIDLE_FLAG_TIMER_STOP;
-+
-+	return 0;
-+}
-+
-+#define arch_get_idle_state_flags arch_get_idle_state_flags
-+
- #else
- static inline void acpi_init_rintc_map(void) { }
- static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
+Therefore, I do not see a path where initializing *dp to NULL has any
+effect. Could you clarify what case this change is intended to handle?
 
----
-base-commit: 1d6f0a217c662693d2307ee06851cb4bfcbf9529
-change-id: 20260727-riscv-acpi-lpi-timer-6f1739a6c831
+                                            - Troy
 
-Best regards,
---  
-Peixin Xie <peixin.xie@linux.spacemit.com>
+--b221c2993898b54412cec0db06be210fff76d164353ddb68c3a0007334fe
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCam/9Fg0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQvFGcA/R3CHaTVtH2RGXHY16xO3fRcol8fUVuIUUe+TR1t
+9JgJAP91jUDciFgUl5vhTEeiVakcOt9V0hoWOqKp3sSSP0aYCw==
+=VXsS
+-----END PGP SIGNATURE-----
+
+--b221c2993898b54412cec0db06be210fff76d164353ddb68c3a0007334fe--
+
+
+--===============2812455702337457867==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2812455702337457867==--
+
