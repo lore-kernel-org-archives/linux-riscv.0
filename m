@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD435C5516F
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 06:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1770AC55175
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2026 06:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:Cc:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qz4s4JG/fh1AScK6/USNICDZgNrBMhE1Y+lUNRzL1Lg=; b=Dk3T9RWU/wLfBL
-	o3Hxeh5rpOZHfLT8fkwHl6Q4leUw723aX18uFA2GSVCZOArmM8bhNVMlYpF58cvt1GMhAhXyEnhHm
-	nsDhEE2rn1/JHUe+6J3zkWAyMKWf2Av7NmUZJobiWHwGiQfPwG0MRQbpiGnYfpbsHcf3lcvlYqlxR
-	kWymHDIJvuiQCiiCXl998eUmsj9TDV12EMoHxxukhUH7UQjtbYG6qmiTBzhmwAJ/0egnXe9nM8zIN
-	0tzRwXQfKXmZw+rmnSOTs7pvsbIeH1dVlhfloUnNM7hrlyO4Sm/79AJ3iSE2sTfJCQP/lthaeZjnN
-	oATPHpCAhKEUl9GWYcUw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:From:Subject:Cc:To:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6bspjrgArx6lY2UpWfmDwKhl+ra/u252674fWxkx7w8=; b=EScQcTqbJRY+XE/wKW63qppRvF
+	3p4yKk83bNW/SLcktN2CkI4NrWzrH63itBha+/KaAuls6ERLuaIYSG5OQbeYmb52NOaA2t1SOKI0N
+	1UK6AHHEuDeJmQ4pPXKKQ3wmTupU+2vgq03ev232UNUX2Mr4iwf1f+UlhuODdthChL93rpy3vPr0C
+	7LGFFPj3A3kYWJAsF4hZTgq4epqD2+JfXKfHa5W3ogTHI/1kEA1jpFfjeb/ULBBmAYOyVEXPqOOpj
+	kXqgtQVT0hDvILxBCgOF7Goh5PGbEMi2X/CVE83PTGfMGY5siacF2wCx5gE4NlUVlErPG+NoV3aON
+	tp6S2Rxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqmCz-0000000GRs6-0qPw;
-	Mon, 03 Aug 2026 06:31:33 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wqmK0-0000000GSTo-3LiN;
+	Mon, 03 Aug 2026 06:38:48 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqmCu-0000000GRpz-44Zu;
-	Mon, 03 Aug 2026 06:31:30 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9B0DE512;
-	Mon,  3 Aug 2026 08:30:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1785738612;
-	bh=0w26mLCibxmzad5cJ4RsBqQcZLwhm5292+fwf5AEBhg=;
-	h=Date:Subject:To:References:Cc:From:In-Reply-To:From;
-	b=oer8sGJVImG3eAdX/1tDX4OfNrWm4pjhxRA/1dweeK0/QNZxTPxYqBKHqEkpRPb3+
-	 Egk1n6NaDUmYkxMzDpzoE4nw/3yETSw8cW+rrdPTRWBDGvsL/5y/zRRpTIM1V1Upa9
-	 AsybJri2Bo0Ucca/CHkw+txSHZGcz913RI4heSi4=
-Message-ID: <f428f54b-90dd-425a-b204-531df0e1d5fa@ideasonboard.com>
-Date: Mon, 3 Aug 2026 09:31:14 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: Correct white-space style
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260801195613.235430-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
- Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
- Jyri Sarha <jyri.sarha@iki.fi>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>,
- Andi Shyti <andi.shyti@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
- Lee Jones <lee@kernel.org>, Johannes Berg <johannes@sipsolutions.net>,
- Jeff Johnson <jjohnson@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
- Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>,
- Yangbo Lu <yangbo.lu@nxp.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
- <ukleinek@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Richard Cochran <richardcochran@gmail.com>,
- Jens Wiklander <jenswi@kernel.org>,
- Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
- YC Hung <yc.hung@mediatek.com>, Svyatoslav Ryhel <clamor95@gmail.com>,
- Sean Wang <sean.wang@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Peter Ujfalusi <peter.ujfalusi@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- coresight@lists.linaro.org, linux-arm-msm@vger.kernel.org,
- linux-ide@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-i2c@vger.kernel.org, mfd@lists.linux.dev,
- linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
- linux-pm@vger.kernel.org, netdev@vger.kernel.org, linux-pwm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-usb@vger.kernel.org
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-In-Reply-To: <20260801195613.235430-2-krzysztof.kozlowski@oss.qualcomm.com>
+	id 1wqmJw-0000000GSSf-1dAB
+	for linux-riscv@lists.infradead.org;
+	Mon, 03 Aug 2026 06:38:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1785739082;
+	bh=iihdqU1c6yaNLkn8c590s5INJB5zg6KyI0acQDBou80=;
+	h=Mime-Version:Date:Message-Id:To:Subject:From;
+	b=xSNW6L6Suaj22+WCF6WRfe2hM8qq+rDCye0l6RFSFXwuIcroHbFMN9y+9g8R4Jo61
+	 R1RMcJGnnhLUF3eA5dCHerAPsod3Lh2lv5Y4B3fTfTwvcHocDiv3yJenH2//po9x18
+	 0sc23PmKLDhMcHOstS7F64h6DY8XfrkS0HfN7HpQ=
+X-QQ-mid: zesmtpgz1t1785739069tc326f37f
+X-QQ-Originating-IP: I2fEBUXTYbdVIOREQA+XjLVLEyZuRzP1HgJPcBmEwRg=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 03 Aug 2026 14:37:47 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5329433773290095816
+EX-QQ-RecipientCnt: 14
+Mime-Version: 1.0
+Date: Sun, 02 Aug 2026 23:37:45 -0700
+Message-Id: <DKF3O1FTBV9M.M82B257B0WI2@linux.spacemit.com>
+To: "Bui Duc Phuc" <phucduc.bui@gmail.com>, "Yixun Lan" <dlan@kernel.org>,
+ "Takashi Iwai" <tiwai@suse.com>, "Mark Brown" <broonie@kernel.org>,
+ "Jaroslav Kysela" <perex@perex.cz>, "Liam Girdwood" <lgirdwood@gmail.com>
+Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Goko Mell"
+ <goku.sonxin626@gmail.com>, "Jinmei Wei" <weijinmei@linux.spacemit.com>,
+ "Kuninori Morimoto" <kuninori.morimoto.gx@renesas.com>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <linux-sound@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] ASoC: spacemit: init *dp to NULL before error paths
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+In-Reply-To: <CAABR9nEqZG1Vywb2CkoLVgqoLVPKqfYt01t3dF=WTu9qJSS=bw@mail.gmail.com>
+References: <20260731101539.36290-1-phucduc.bui@gmail.com>
+	<20260731101539.36290-2-phucduc.bui@gmail.com>
+	<DKEYE4CK1DUW.1PQ03VOZZT9TH@linux.spacemit.com>
+	<CAABR9nEqZG1Vywb2CkoLVgqoLVPKqfYt01t3dF=WTu9qJSS=bw@mail.gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: M5aCtjAndv5Ono9C9qt6/UT0Y7nF3V5gHIMAFk5H9DjuMelLAYlq/So+
+	891FDsvIhHbwqSe3P0whCqkWRXavNB/vCZwk9Vjs9/b9L9qPs2oGfqL7K4Oj2WuzEBaVT66
+	izy1oo31/08zCCnfbEEap4T8Idwv05BMP/fkBNnZW1iCvrtrQTIUeE7rrja1OSDvMbuAPX3
+	NFFd3bBvZ9BLzj0jTC/lpw8iSxTFUdPhqWeYy+IwXv3DFqb7OYWNnFoxSCFtV1TXiAXUuKg
+	XWJEZywE5wWgRIgmQ9ARNNUQiqj2mNQ28eJsNSO0ieD3IFuJdCQNdcNSZw9iec0QYpIB2H4
+	8i3SsA8JYEDu/fWneMlvYFc5UxEGowBQanFHyYl7WvMJN4705NSvtpuTAlWJ69R4nOb7wiF
+	GOsJmba4bfsGv4ryLVewrV+zpzSirJlViEilLpXeYiLZMoDqLmTT8pWEsaLWCmt0PpESsoA
+	OdbaG763NYDDUS/PpRkEO3ZEyzGp0gLBDCh2QD80yDbKS/DIcT+V6u6o3HV/fzpfUQQsJxF
+	7Ys9XqOCO3lsV08PK6dNstFTaAcli09qTKVZIcVoa3wkHXA1usM+FmN1NAA1CoFesTcmbF8
+	txc2L23W0pdgaW1ukwFA5f0yKeiwBswDg65VggQ1J+NoRb/q/e30W7KrzzIjsMA2pyFRakC
+	5nFeK4ya6m1dzYIB18Z6AJQCQ27o8yPNTlxtWLn1a4cGaiWLMpLG3VE3KSEaz0WA0P3U08Z
+	AuspBKwhTBStGk6WV8HoSPjOb+bxhgr2wsfjOFsLXFU2/U+0jAEbhjSQTCQC9RRqDDdjf40
+	6MCOOZqzOJytWr87hTznPwQgwnDUiub/ltN0OsWZK8/ZsFi5BsiLNa7/byAHFV7+/ZN6yp6
+	o97Fm9lJPpbY8JCtBzXlufEA8eltK65ZaorpmKTuVpnWH/dG1mhHQbyPNb7D94hiTHcOBvH
+	1CM243Q3fSeIr683z0Mzn1iFvenqQYG3bxGruPybD7YtREdzMK8BAMxW7qJpRCk/mI8Jlul
+	cooOIJtYdne812Mqg58+lGEeBA5TiBWHm9nbiudYmRzvCS5zgiOYlfbsP8i2wvgDFcTV+Ic
+	KKQ4CuzmtYrLlVpp5obR2CC+aoba3nGYQ==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_233129_175017_6B54D531 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20260802_233845_654833_9A8096C6 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,239 +96,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5558816166391051577=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+--===============5558816166391051577==
+Content-Type: multipart/signed;
+ boundary=3fac37ecf71cd8e1a4822bac721c98320c21f5c60cca0c8fb67c52ed9fc3;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
 
-On 01/08/2026 22:56, Krzysztof Kozlowski wrote:
-> Correct a few white-space issues, like double space after '=' or before
-> bracket '{' characters, which will be flagged by dt-check-style.  No
-> functional changes.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> 
-> ---
-> 
-> Patch applies on Rob's for-next branch.
-> ---
->   .../arm/firmware/linaro,optee-tz.yaml         |  8 +-
->   .../devicetree/bindings/arm/psci.yaml         | 18 ++--
->   .../bindings/arm/qcom,coresight-tnoc.yaml     |  2 +-
->   .../devicetree/bindings/ata/st,ahci.yaml      | 22 ++---
->   .../bindings/display/ti/ti,am65x-dss.yaml     | 12 +--
->   .../bindings/display/ti/ti,j721e-dss.yaml     | 96 +++++++++----------
->   .../bindings/display/ti/ti,k2g-dss.yaml       | 36 +++----
->   .../bindings/dsp/mediatek,mt8195-dsp.yaml     |  2 +-
->   .../bindings/gpio/st,nomadik-gpio.yaml        |  2 +-
->   .../devicetree/bindings/i2c/st,sti-i2c.yaml   |  2 +-
->   .../bindings/mailbox/st,sti-mailbox.yaml      |  2 +-
->   .../bindings/mfd/maxim,max77620.yaml          |  2 +-
->   .../bindings/net/wireless/qcom,ath10k.yaml    | 34 +++----
->   .../devicetree/bindings/opp/opp-v2.yaml       | 28 +++---
->   .../pinctrl/mediatek,mt7988-pinctrl.yaml      |  2 +-
->   .../devicetree/bindings/ptp/fsl,ptp.yaml      | 12 +--
->   .../devicetree/bindings/pwm/pwm-sifive.yaml   |  2 +-
->   .../bindings/usb/ti,twl4030-usb.yaml          |  2 +-
->   18 files changed, 142 insertions(+), 142 deletions(-)
+--3fac37ecf71cd8e1a4822bac721c98320c21f5c60cca0c8fb67c52ed9fc3
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+> My intention was to make the API a bit more defensive. While the current
+> implementation only has one failure path, spacemit_i2s_init_dai() may
+> grow additional error paths in the future. Initializing *dp to NULL
+> ensures it is left in a well-defined state on any failure.
+>
+> It would also avoid leaving dai uninitialized if a future caller
+> accidentally skipped checking the return value before using it.
+
+I still do not think this initialization is necessary. Currently,
+spacemit_i2s_init_dai() has exactly one failure path: devm_kmemdup() fails
+and the function returns -ENOMEM. The sole caller checks that return value
+and exits immediately.
+
+A caller that continued after ignoring the error would itself be incorrect
+and should not be accommodated. The helper is also static and has only this
+one caller, so there is no current API contract that requires the output to
+be initialized on failure.
+
+I suggest dropping this patch.
+
+                                            - Troy
+
+--3fac37ecf71cd8e1a4822bac721c98320c21f5c60cca0c8fb67c52ed9fc3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCanA3OQ0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQvuG0A/ibH2fQgOrwKfBlxv5Q59Oz+to/mVsA9rprloeG4
+B4ijAQCCE04RvnCm5R70NApx6Vd7Gs6AE46WzrT6ukatVhs2Ag==
+=0zg2
+-----END PGP SIGNATURE-----
+
+--3fac37ecf71cd8e1a4822bac721c98320c21f5c60cca0c8fb67c52ed9fc3--
 
 
-> diff --git a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-> index 49a007cbcd3a..d1e530e12604 100644
-> --- a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-> +++ b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-> @@ -261,9 +261,9 @@ examples:
->                   "ovr1", "ovr2", "vp1", "vp2", "common1";
->           ti,am65x-oldi-io-ctrl = <&dss_oldi_io_ctrl>;
->           power-domains = <&k3_pds 67 TI_SCI_PD_EXCLUSIVE>;
-> -        clocks =        <&k3_clks 67 1>,
-> -                        <&k3_clks 216 1>,
-> -                        <&k3_clks 67 2>;
-> +        clocks = <&k3_clks 67 1>,
-> +                 <&k3_clks 216 1>,
-> +                 <&k3_clks 67 2>;
->           clock-names = "fck", "vp1", "vp2";
->           interrupts = <GIC_SPI 166 IRQ_TYPE_EDGE_RISING>;
->           ports {
-> @@ -299,9 +299,9 @@ examples:
->               reg-names = "common", "vidl1", "vid",
->                           "ovr1", "ovr2", "vp1", "vp2", "common1";
->               power-domains = <&k3_pds 186 TI_SCI_PD_EXCLUSIVE>;
-> -            clocks =        <&k3_clks 186 6>,
-> -                            <&vp1_clock>,
-> -                            <&k3_clks 186 2>;
-> +            clocks = <&k3_clks 186 6>,
-> +                     <&vp1_clock>,
-> +                     <&k3_clks 186 2>;
->               clock-names = "fck", "vp1", "vp2";
->               interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
->               oldi-transmitters {
-> diff --git a/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml
-> index 65ae8a1c3998..cac5ef1743d3 100644
-> --- a/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml
-> +++ b/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml
-> @@ -154,54 +154,54 @@ examples:
->       #include <dt-bindings/soc/ti,sci_pm_domain.h>
->   
->       dss: dss@4a00000 {
-> -            compatible = "ti,j721e-dss";
-> -            reg =   <0x04a00000 0x10000>, /* common_m */
-> -                    <0x04a10000 0x10000>, /* common_s0*/
-> -                    <0x04b00000 0x10000>, /* common_s1*/
-> -                    <0x04b10000 0x10000>, /* common_s2*/
-> -                    <0x04a20000 0x10000>, /* vidl1 */
-> -                    <0x04a30000 0x10000>, /* vidl2 */
-> -                    <0x04a50000 0x10000>, /* vid1 */
-> -                    <0x04a60000 0x10000>, /* vid2 */
-> -                    <0x04a70000 0x10000>, /* ovr1 */
-> -                    <0x04a90000 0x10000>, /* ovr2 */
-> -                    <0x04ab0000 0x10000>, /* ovr3 */
-> -                    <0x04ad0000 0x10000>, /* ovr4 */
-> -                    <0x04a80000 0x10000>, /* vp1 */
-> -                    <0x04aa0000 0x10000>, /* vp2 */
-> -                    <0x04ac0000 0x10000>, /* vp3 */
-> -                    <0x04ae0000 0x10000>, /* vp4 */
-> -                    <0x04af0000 0x10000>; /* wb */
-> -            reg-names = "common_m", "common_s0",
-> -                    "common_s1", "common_s2",
-> -                    "vidl1", "vidl2","vid1","vid2",
-> -                    "ovr1", "ovr2", "ovr3", "ovr4",
-> -                    "vp1", "vp2", "vp3", "vp4",
-> -                    "wb";
-> -            clocks =        <&k3_clks 152 0>,
-> -                            <&k3_clks 152 1>,
-> -                            <&k3_clks 152 4>,
-> -                            <&k3_clks 152 9>,
-> -                            <&k3_clks 152 13>;
-> -            clock-names = "fck", "vp1", "vp2", "vp3", "vp4";
-> -            power-domains = <&k3_pds 152 TI_SCI_PD_EXCLUSIVE>;
-> -            interrupts =    <GIC_SPI 602 IRQ_TYPE_LEVEL_HIGH>,
-> -                            <GIC_SPI 603 IRQ_TYPE_LEVEL_HIGH>,
-> -                            <GIC_SPI 604 IRQ_TYPE_LEVEL_HIGH>,
-> -                            <GIC_SPI 605 IRQ_TYPE_LEVEL_HIGH>;
-> -            interrupt-names =       "common_m",
-> -                                    "common_s0",
-> -                                    "common_s1",
-> -                                    "common_s2";
-> -            ports {
-> -                    #address-cells = <1>;
-> -                    #size-cells = <0>;
-> -                    port@0 {
-> -                            reg = <0>;
-> +        compatible = "ti,j721e-dss";
-> +        reg = <0x04a00000 0x10000>, /* common_m */
-> +              <0x04a10000 0x10000>, /* common_s0*/
-> +              <0x04b00000 0x10000>, /* common_s1*/
-> +              <0x04b10000 0x10000>, /* common_s2*/
-> +              <0x04a20000 0x10000>, /* vidl1 */
-> +              <0x04a30000 0x10000>, /* vidl2 */
-> +              <0x04a50000 0x10000>, /* vid1 */
-> +              <0x04a60000 0x10000>, /* vid2 */
-> +              <0x04a70000 0x10000>, /* ovr1 */
-> +              <0x04a90000 0x10000>, /* ovr2 */
-> +              <0x04ab0000 0x10000>, /* ovr3 */
-> +              <0x04ad0000 0x10000>, /* ovr4 */
-> +              <0x04a80000 0x10000>, /* vp1 */
-> +              <0x04aa0000 0x10000>, /* vp2 */
-> +              <0x04ac0000 0x10000>, /* vp3 */
-> +              <0x04ae0000 0x10000>, /* vp4 */
-> +              <0x04af0000 0x10000>; /* wb */
-> +        reg-names = "common_m", "common_s0",
-> +                "common_s1", "common_s2",
-> +                "vidl1", "vidl2","vid1","vid2",
-> +                "ovr1", "ovr2", "ovr3", "ovr4",
-> +                "vp1", "vp2", "vp3", "vp4",
-> +                "wb";
-> +        clocks = <&k3_clks 152 0>,
-> +                 <&k3_clks 152 1>,
-> +                 <&k3_clks 152 4>,
-> +                 <&k3_clks 152 9>,
-> +                 <&k3_clks 152 13>;
-> +        clock-names = "fck", "vp1", "vp2", "vp3", "vp4";
-> +        power-domains = <&k3_pds 152 TI_SCI_PD_EXCLUSIVE>;
-> +        interrupts = <GIC_SPI 602 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 603 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 604 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 605 IRQ_TYPE_LEVEL_HIGH>;
-> +        interrupt-names = "common_m",
-> +                          "common_s0",
-> +                          "common_s1",
-> +                          "common_s2";
-> +        ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +            port@0 {
-> +                reg = <0>;
->   
-> -                            dpi_out_0: endpoint {
-> -                                    remote-endpoint = <&dp_bridge_input>;
-> -                            };
-> -                    };
-> +                dpi_out_0: endpoint {
-> +                    remote-endpoint = <&dp_bridge_input>;
-> +                };
->               };
-> +        };
->       };
-> diff --git a/Documentation/devicetree/bindings/display/ti/ti,k2g-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,k2g-dss.yaml
-> index 96b1439f88e3..87721da0a8af 100644
-> --- a/Documentation/devicetree/bindings/display/ti/ti,k2g-dss.yaml
-> +++ b/Documentation/devicetree/bindings/display/ti/ti,k2g-dss.yaml
-> @@ -80,26 +80,26 @@ examples:
->       #include <dt-bindings/interrupt-controller/arm-gic.h>
->       #include <dt-bindings/interrupt-controller/irq.h>
->   
-> -    dss: dss@2540000 {
-> -            compatible = "ti,k2g-dss";
-> -            reg =   <0x02540000 0x400>,
-> -                    <0x02550000 0x1000>,
-> -                    <0x02557000 0x1000>,
-> -                    <0x0255a800 0x100>,
-> -                    <0x0255ac00 0x100>;
-> -            reg-names = "cfg", "common", "vid1", "ovr1", "vp1";
-> -            clocks =        <&k2g_clks 0x2 0>,
-> -                            <&k2g_clks 0x2 1>;
-> -            clock-names = "fck", "vp1";
-> -            interrupts = <GIC_SPI 247 IRQ_TYPE_EDGE_RISING>;
-> +    dss@2540000 {
-> +        compatible = "ti,k2g-dss";
-> +        reg = <0x02540000 0x400>,
-> +              <0x02550000 0x1000>,
-> +              <0x02557000 0x1000>,
-> +              <0x0255a800 0x100>,
-> +              <0x0255ac00 0x100>;
-> +        reg-names = "cfg", "common", "vid1", "ovr1", "vp1";
-> +        clocks = <&k2g_clks 0x2 0>,
-> +                 <&k2g_clks 0x2 1>;
-> +        clock-names = "fck", "vp1";
-> +        interrupts = <GIC_SPI 247 IRQ_TYPE_EDGE_RISING>;
->   
-> -            power-domains = <&k2g_pds 0x2>;
-> +        power-domains = <&k2g_pds 0x2>;
->   
-> -            max-memory-bandwidth = <230000000>;
-> +        max-memory-bandwidth = <230000000>;
->   
-> -            port {
-> -                    dpi_out: endpoint {
-> -                            remote-endpoint = <&sii9022_in>;
-> -                    };
-> +        port {
-> +            dpi_out: endpoint {
-> +                remote-endpoint = <&sii9022_in>;
->               };
-> +        };
->       };
-For the TI DSS parts:
-
-Acked-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-
-  Tomi
-
+--===============5558816166391051577==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5558816166391051577==--
+
