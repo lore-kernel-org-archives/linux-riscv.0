@@ -4,107 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313B6C5518F
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2026 09:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AF0C55172
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2026 09:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i1nmMVWNaVY5jthg7hWnDLYMq8q6iPvyvvCEPmpr9DQ=; b=N2SEJwaXqJAJmq
-	4RZFJLwxPv71H1IlisxdN3SCDvrzCvxhecYHKmHOibpVb7vXmXb8NtwyTM5KXTWTIUv/koY2wYg55
-	J3wWkO1aAZ2JO/TQeYomBEiAUKKUv+y3O7aW/96ZlGLwgcaFZwq/DRANuViKgIxghJZyXzQIaHmCg
-	yybs8AhMA7ioA6/AX1gBFmtpY5u3nt5BMlfzFbD5xpO3br+1+xvvFKOriU1IEsLi9KH6d8tNs//l9
-	wAZu9qvueIVSNfz2IbaLicHbpCnIovNjAV/8tfgBpGgL1QqLG6oLyfR9xslfNO3CDuD9CtoOcTHhF
-	s34p7r8cnGQGwnjXxkhg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MxmFnJVRPLO2jIiN2gd2O5rExTBmpNUuK7c8F6i1pQw=; b=K34S72B/OC0vfwGTXjlX//K52n
+	sIV0mJ0aiE8xVdpgkTDYsBfqkWjZ3Ybe530sOqI6pcfUTj3CbTJEb1dISTcnm2L1j//LyElTfO//V
+	BcHTLoUOp3N3uWj1LeeVVepTlAapFOCnZ7Rusg7ypx8UgxYdX8MilVD5rSGO6FeCvuF3YB6s3kZ3M
+	Qjbg3STjtGMZzGD3ZUH/reCevVN/Z+0TK2i7PXsni+SzHr0BrZfTll7aMcrf8iLkLi4fHjtAyp4/G
+	xkYVittQ955RG93aZNnqUOw4k6CbSkUq16lM2EBhhnrXkJQB8LDToDuwKe37FVIZL1FnN086GJTgH
+	sfWFYn6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrBin-00000001Sdk-0zm1;
-	Tue, 04 Aug 2026 09:46:05 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1wrBvc-00000001UAi-3726;
+	Tue, 04 Aug 2026 09:59:20 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrBil-00000001SdO-1jFo
+	id 1wrBvX-00000001U7v-3hVR
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Aug 2026 09:46:04 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2cc97653887so47798475ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Aug 2026 02:46:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785836762; cv=none;
-        d=google.com; s=arc-20260327;
-        b=PS3WdP/Zxr2DBBDYiaKHouYD8bPJymOvUEri9WrrdbKpFYLUtG8wg48ZQ47hC88HEq
-         g7kDSEZQhPEhhjzEWEnzTCv+85UA7p8hVa6ItQ4AveOTuCQ+XdXMy/PRn+tLHPjboB8p
-         C7vKVCYTw1VbbAh6Nc9i0JSp9lO5jjn4e06qQFziHxLrGpV92lipXYQTWZPYBKO1aRJk
-         J995aZYJIrrCjswGZRQAshOgiWnk1MIDDSyRA6nmRyCtqiGXf/ttvoBE2bIlo0KpQ3n5
-         eAaCGMErDuy8h1suxEgEdHw1eF66jttyris8kwdPHyoVfKVsxYpFuy/qdQlx3wLQ8UV2
-         S7FQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=B+ug8BAHEGyoCAw8DucRTEAi4NpWplnsoASlAual2G0=;
-        fh=gIYHJdTMQplg7yKE84Ue62W6Y8OqKInANfnBUYVfjZc=;
-        b=IvWCY1H2bXOD+VvV2UaaUaMfOX+QAgGKwUJ8L4AHbZ21DjX98XXJp9B01Q6AtHdQbA
-         3H06qog2wEybdPb7/eJR68w2islg7FaRxubp9DG7G+2zt+jI1oH8i0V8MSkZzQrzer0n
-         61HdI6M7aEYhktSMxrF720PGSpLyC7l3O7MrhzhonaNxx4L1e4xpLKaSgCznSfiqXo9M
-         JQpxAg0jJRm/Pcr4JfAs08J5/U248slq/EqcTZMrjGovm5LqhMi5BK0Hek1cD7wwsQJ6
-         tkhtI07F+ihTw2VY8Rlw4a6EpsLpbpbYhnOy4th7di7VoAFC7DTNHVCUfKs1U4CNOUk4
-         Clfw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785836762; x=1786441562; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=B+ug8BAHEGyoCAw8DucRTEAi4NpWplnsoASlAual2G0=;
-        b=Eqqa3kr20jo7IKL4ux1Dd9GYZHT4dqKZCiAG5d79dLIURaKM+yLApxJ7d4IM/ZT+fI
-         lIisHf+2+e4K9nQEAdeSm6dvSLYzNz9JCKufmKjkcHADVyI2Ye68vkHyT2EIVELF2Qlv
-         VtfY6J82+X82vasY2g9QT4mFT1s7RPHmynNW8wfhsX441o7PMpWM0Gl9qHauajIILUYP
-         +bNQAXK0soAR2MmjVwCuAUi0lDhrWeCv+aVPyUw63ijJ0BW7lU5/7OzFHZD5Qn35NXqL
-         LEIB5wJY7rNhDMR31I6U0j08S+Tm9t3FDGdx0ZAK3xgi9vxn7fZsJDdy2Nvwj1jYatJq
-         v4Mw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785836762; x=1786441562;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=B+ug8BAHEGyoCAw8DucRTEAi4NpWplnsoASlAual2G0=;
-        b=Up+EvUy7cc30SZPQ7e+dfLBb5VW0o60mrtAb+Q0g4S8+dT5kJwYQcCUVm9jVKRLrGK
-         HxsewC/zq98k9LnGI0TKEGcG4DqT1Orq8+2XaFsK/3hFmcpBfkg36LXoNei8bpFVvh5S
-         cGh6kd81x3k3AMW7b4Oo0tqaN9tjGDm6mi5Oab/GU+3ZoEOkOzK52GepyUzV2R+Q7g5j
-         gh9+hdL/lnkNB57Jze1I0bMZnnfpKTiWA6lmejoT3vCPaIQVcnyUQmwy/RRkyOjOrkMH
-         C9ZVMZmRB0astz1057Or4e3WprPI9C5d/1j2kuslGiNu9pcAoSHV0+9L7T5eNePLcGRR
-         a6GA==
-X-Forwarded-Encrypted: i=1; AHgh+RreSD66f4RvYvmrIkSiEtYlds2S535VF9k7lxg+p4JH4lvVjYvlp8Qp2AiHJcMqO2nMAjc+Un5Qa6T6qg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzV7/NA9BuAEz5l/4ZRb3TopBGH0rGZoENeF+ON3y3AZdoJN/kS
-	4AKNMW1kP7jipKKK5klyJzGg0RvVo+hZucUNXNtdq7U4VA+y/eqeBeS8opK4+mA6lgxsxCdqCax
-	S8T+hN8wzNN9XTlKcWzIIS6A9Pn5FlO0=
-X-Gm-Gg: AR+sD13SLsc5am9WnI+sC2luTGxCUCvpjnbEZMgvJiGYHXenAk7N3heGOyl3RWc09a4
-	w6OD+lZywN4npLrLWT5yfT9P+36riEm/L7mTIbhLA9xernr7z1c8zS0TdUImq+IQ5RYqeiI8S4l
-	l3A1wfZsQ9L1LUrQc3/lddVuw48SD6u6hqEDM0IzZKe+wiN2tX3/cvMyAyQRfrXDjZKbh0cU2RA
-	QCyvJhfWuxWMH1gYyDfWYzojAgnF1vildSU5ZCnU0ttdrp+7iFWNJGKOLTA6t6MrOiu+UIVrp4E
-	Z08EyZR7nL+aPLcS32+dji6hxfSfVqpV3mjOeGZvictmSS2rxvDSJVbY5tK0gtRofvH9jJd7FAR
-	FxsQ8iMEhiqemOZQyjwUu5wb5sbr0x2TBiY4Ad/UKc9A2lORuS4zDzRDpmQ==
-X-Received: by 2002:a17:902:ea04:b0:2ca:3df2:919a with SMTP id
- d9443c01a7336-2d0524a6a14mr133306145ad.33.1785836762473; Tue, 04 Aug 2026
- 02:46:02 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260804043036.22065-1-phucduc.bui@gmail.com> <DKFYC1MGUCF0.1AQF42KLZZ0XL@linux.spacemit.com>
-In-Reply-To: <DKFYC1MGUCF0.1AQF42KLZZ0XL@linux.spacemit.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Tue, 4 Aug 2026 16:45:51 +0700
-X-Gm-Features: AUfX_mzLmpOk076Xm-y3rQ56B_xdDiTseD6kbd_RoFN_z5sig_vDzkkt73AmOmY
-Message-ID: <CAABR9nFn0XW3CzAEncVkVKd65yBUEmquxjag6ybf_-NRf6mA8A@mail.gmail.com>
-Subject: Re: [PATCH] ASoC: spacemit: Remove redundant DAI field initialization
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Yixun Lan <dlan@kernel.org>, Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Goko Mell <goku.sonxin626@gmail.com>, Jinmei Wei <weijinmei@linux.spacemit.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-sound@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+	Tue, 04 Aug 2026 09:59:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1785837523;
+	bh=eASxnIu27cM4kSePkHRjBYViS2jgTwYuVb5LZLVqwAk=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=EiJ/poHO6qCniTZ85Gs5EJwiRLSwHsmmbWzp2iu4UK8c46y6Rxa2D9ADtPx7g+Z/m
+	 J/MlxtFIlfW1kobx18u0cGsE+QsOkYgufa9+eftbYXfY+oCZjLAmcw++H7MMvRoRPC
+	 4FVcVUOtt9cqnURkp25ztxsbaeJJiQGGyNqkR8pE=
+X-QQ-mid: zesmtpgz8t1785837514tb710e2bc
+X-QQ-Originating-IP: gOdDl/GieSB+p1OcvJg/0pTe9PzCnvv0wn9y3EHVhAc=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 04 Aug 2026 17:58:32 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8218745806127972950
+EX-QQ-RecipientCnt: 13
+Mime-Version: 1.0
+Date: Tue, 04 Aug 2026 02:58:30 -0700
+Message-Id: <DKG2KAJX4WFA.O51VPZ9PSCH9@linux.spacemit.com>
+Cc: "Yixun Lan" <dlan@kernel.org>, "Takashi Iwai" <tiwai@suse.com>, "Mark
+ Brown" <broonie@kernel.org>, "Jaroslav Kysela" <perex@perex.cz>, "Liam
+ Girdwood" <lgirdwood@gmail.com>, "Goko Mell" <goku.sonxin626@gmail.com>,
+ "Jinmei Wei" <weijinmei@linux.spacemit.com>, "Kuninori Morimoto"
+ <kuninori.morimoto.gx@renesas.com>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-sound@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] ASoC: spacemit: Remove redundant DAI field
+ initialization
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Bui Duc Phuc" <phucduc.bui@gmail.com>
+References: <20260804043036.22065-1-phucduc.bui@gmail.com>
+	<DKFYC1MGUCF0.1AQF42KLZZ0XL@linux.spacemit.com>
+	<CAABR9nFn0XW3CzAEncVkVKd65yBUEmquxjag6ybf_-NRf6mA8A@mail.gmail.com>
+In-Reply-To: <CAABR9nFn0XW3CzAEncVkVKd65yBUEmquxjag6ybf_-NRf6mA8A@mail.gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NHmMC+6XyEPfAkj0je/tVTFyvOf/ZtCUWRX2t2mkE0Wowj2SidPTyOO+
+	fjpnvihZr0V1yNs7yTsMLRLqtidAphVGTKO3V69iY7V/lbixaBYq5iyMPxJvG9UNd1Q4qEB
+	w6Dp5mwApKSa9geE7DAML8eQS4ntM3AbJ759UhercaVP145lvmjW22LG7STwZvBGymiZrZX
+	G7l/YrbkkpRhw3V1oWX2FiAU1gKSTfRf0MvIHOrpvnogSuaAf/dxNPYLVgmF0VD4P7ENr1X
+	W0lApTjgvv0/urWfRp9W9lSTc791sQfwAt/mZ76ccdja8q06JUpsOEfZxoATM9+q2O2gCmN
+	8oFg9YGVzpGFnF8TTUtbFCNxA0heObRGPJXDG11vkEC2HH/Sl4xcg6afu+Mpp5Fb+TTY3MS
+	nLT6qYQx6wDXE65K7eKSE8VtP2WdwYcuDqvOF1O6hq+2kXesapcQQvb9NoyOSFR3dvp/Bkd
+	oZZmD8diasbVa3DbPl+kWGN54hfoc8nOQ8NCweoZ5FyjgNvshKBDWGUtRCtIjgjwGHfAGvb
+	TFcjhOXxDQw4W5+jPFjbO+7uY9J8SZRc2yK3n4ZQ8OsxkheTIh5cjL8Kk7CpZP5vi2c+e00
+	+yELKsE7sW3SMzB6Z4IK3vD/cBSt9Kwp+a8LQ+br+VZZInf6/+j5pD5neqd3Az3MeuNLuJr
+	aNd+b0ARaqiNZ0j3XjKdxZC+jbesAx8LzHMW68DpqbhfF372dzQGweJ4FqSwBwBEL7lI9bl
+	rgdDGeZaultp/WUZnqWY2W6KhmMQ2VH/S1gzxdtuvYuaay2AP+xeMfLv9bfDxuzJsG8Utiu
+	jJgG6s1NwZPLDaGHiovJqHXUnwkYJZ127zXH1p1jWJHnEnT5mDqeXKCDA/zPgW9ntOWpa9C
+	wgDAaK8ssztDYH8VSBujWIuyJJeTycFpcCFh2EZjtOAbARYYE8iALPiFR96ptpZTHtCIAYg
+	rImHqpy/Plc5HRBpnphRxf1Ep7vE0zcKX2M/9QwR3B0Qpcz+4zWT9PkN4D9X7ZrZpMCY83L
+	LTe+DomxeoeS1zVQSPKL9VXod7nXm6Zq9hUEBYNHH35K/qY3AG/JbFbU1W0K2mCMUtPc7na
+	5Q9e+ryYwP9M1lAs/xj25c=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_024603_455812_EB40163F 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20260804_025916_698021_04282DFD 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,48 +97,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1341040737906988449=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
+--===============1341040737906988449==
+Content-Type: multipart/signed;
+ boundary=8a808a06b4a953b5d20dec0ffee61d2775fd30a9d99a11e1a9dc7451dbff;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
 
-Thank you for your feedback.
+--8a808a06b4a953b5d20dec0ffee61d2775fd30a9d99a11e1a9dc7451dbff
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
->
-> Initializing these fields conditionally preserves the existing
-> capabilities for devices with both "tx" and "rx" DMA channels, while
-> correctly disabling directions without a corresponding DMA channel. The
-> added rate_min and rate_max assignments also preserve the existing rate
-> constraints.
->
+> I traced the probe path and confirmed that snd_soc_dai_stream_valid()
+> is called from soc_new_pcm().
+> However, I still couldn't see where a nonzero channels_min alone leads
+> to creating a capture substream
+> without an RX DMA channel.
+> To avoid confusion, I'm referring specifically to the DMA-based
+> configuration, not PIO mode.
+> Could you point me to the relevant call path?
 
-Yes, I agree. That's also the conclusion I reached after reading
-rockchip_i2s_init_dai().
+More precisely, channels_min alone is not sufficient. The codec DAI must
+also support capture (or be the dummy DAI for a dynamic link), and the link
+must not be playback_only.
 
->
-> With the current static initialization, channels_min is nonzero for both
-> directions before dma-names is examined. snd_soc_dai_stream_valid()
-> therefore considers capture valid even when the device only provides a
-> "tx" DMA channel, which is permitted by the binding. The DMAengine PCM
-> code may then create a capture substream without an RX DMA channel and
-> fail during PCM creation.
->
+Under those conditions, the path is:
 
-I traced the probe path and confirmed that snd_soc_dai_stream_valid()
-is called from soc_new_pcm().
-However, I still couldn't see where a nonzero channels_min alone leads
-to creating a capture substream
-without an RX DMA channel.
-To avoid confusion, I'm referring specifically to the DMA-based
-configuration, not PIO mode.
-Could you point me to the relevant call path?
+  soc_new_pcm()
+    -> soc_get_playback_capture()
+    -> soc_create_pcm(..., capture =3D 1)
+    -> snd_pcm_new()
+    -> snd_pcm_new_stream(CAPTURE, 1)
+    -> snd_soc_pcm_component_new()
+    -> dmaengine_pcm_new()
 
-Best regards,
-Phuc
+dmaengine_pcm_request_chan_of() tolerates a missing "rx" channel and leaves
+pcm->chan[CAPTURE] NULL. Once the capture substream exists,
+dmaengine_pcm_new() returns -EINVAL with
+"Missing dma channel for stream: 1".
+The conditional initialization prevents the CPU DAI from advertising that
+direction for a tx-only node.
+
+                                            - Troy
+
+--8a808a06b4a953b5d20dec0ffee61d2775fd30a9d99a11e1a9dc7451dbff
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCanG3xg0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQv3rsA/2enFw0bQFhdVHzqRfjGAS8XMICv20KQTtx7sWDo
+HgV6AQCJZ2ce17LUExbaXiGqo5RUP6KShzKJeeVv+oVziPH8DQ==
+=AgpX
+-----END PGP SIGNATURE-----
+
+--8a808a06b4a953b5d20dec0ffee61d2775fd30a9d99a11e1a9dc7451dbff--
+
+
+--===============1341040737906988449==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1341040737906988449==--
+
