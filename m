@@ -4,72 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6275C5518F
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2026 08:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C64C55172
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2026 08:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RnLAKtbiKRpGLHLy63B+yPweSsyuCHd9f2my/P0gz7w=; b=WyoXjhGinSuPpe
-	znmbyQUlwnP3C5+OhEs6GGsdIE9+lTNPxkY3RlOrVymWKp2/sfwIbNoB3uRjvKETcFFuyQQuQd0ZF
-	f6czZxMsu2JP930TazJ4Zx2RHG65z9mGX2BHCdvYd6LiwqpwXayjTOFe7o+/t7yPi8qrAhPT/Qx6B
-	rwpoQ08aixcxofWOECNnFAshrhgBw6+6xJRg1yxbaXFMXe+N+ZyfgZHkXyYrmBIqgw7eefTNLeUx2
-	AOwS14d2zbTyaFMw1ePS0SmSg7StXq2CsnBcELyw2hSzqfQL9l3OBq105LHYUc2hOTmxUt3AvIgAb
-	5ypQB3kbDVeMqznnrelg==;
+	List-Owner; bh=72IDl8GGFGISAV9R7l7ssoFpTcXYM+VN3BHxfQLz//M=; b=tHw+mDxZUod2yR
+	+V8OfKoxu28U5C+efWmCU1x9rx6WDfZm3a7Uf9L/xEfbbAL0DRen2cp7q2sGURQsB98yUSVVMQqWS
+	bJWq+NjKCIrlxcTNBbd9x2jx4POCPeoz/DZAj4bE4ATQJamBS9D5e16Mu/uTf9Hx7nHS5CE/7/JsE
+	J0N5kckshWBesQej7G5JwbrBymPH5CZxeqr8yvBitVpO7K8DvPnRL+CZU/wcyVNmis73rAyaqYWrz
+	S6g5ZkifeOhhtVg9SPtTyRHfO93zrkv3njupNEGshuLx/mu/2RU0vJv1dojnNN72IqWbdxvwUoZUD
+	Vm2/nXiBqa9jzNDFoNIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAEj-00000001IDr-3gir;
-	Tue, 04 Aug 2026 08:10:57 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1wrASx-00000001L1P-0CTA;
+	Tue, 04 Aug 2026 08:25:39 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAEh-00000001IDQ-3lQS
+	id 1wrASu-00000001L0p-3PrF
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Aug 2026 08:10:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1785831029; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=QLFfD1V+4nQg5tkAgOyb25zWmDiwfVkh8QfkmFdrnqGMcSwbIwPPlhAEo3ufL4bhC0xieYoX+UbpBE4xWj8Ol5hJ4T6CliKdqgWlraL3tAuylSRDfdCPfPsyi8nOXkzLvNg4tYBRDPfuKSDUkWRCJLE+6ZYxq3i2TflWI67SGUA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1785831029; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=6iE1had4Tg/gR0N8etf03PCwEV/trK2r9t6ymr9IPEg=; 
-	b=KwbX9K3oE2geWJjVPNeiMO56FgO9ztodEKLXzVYpB8HTUdTwS3bAt5iiJ7K+dROFUfGO2h4CBW3bLslrAQ7Y3OpddqDvV+ZM3SuQSr74Yukc5YUon4OyR4Un1WwQsqduui3RbblU8Bqj90ec2e8YKB9uM8kjykW8RibsEbmRtmQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785831029;
-	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=6iE1had4Tg/gR0N8etf03PCwEV/trK2r9t6ymr9IPEg=;
-	b=ak86VaXIIMkrnmk5pJ98XNGP4niTPwXb6zjaTL2AwzA38i4LpOW0EmyWXPaPOW7U
-	GsmdOEkx3f/xTNLuS21iA2fOgVHpWni1e0yeRAOouIe14Hs9TELcShb6MezcOoyvz+m
-	dTd9rpoeYXJfBUppxrEZYgFaPlOTQkJGz+3CWCXc=
-Received: by mx.zohomail.com with SMTPS id 1785831026677755.103961666094;
-	Tue, 4 Aug 2026 01:10:26 -0700 (PDT)
-Date: Tue, 4 Aug 2026 08:10:14 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Yixun Lan <dlan@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
-	Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>
-Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Yao Zi <me@ziyao.cc>
-Subject: Re: [PATCH 1/2] clk: spacemit: re-enable PLLs after init
-Message-ID: <anGeZk0-YShccqwE@pie>
-References: <20260804-k3-pll5-pll8-1800mhz-v1-0-a3a75866ce32@linux.spacemit.com>
- <20260804-k3-pll5-pll8-1800mhz-v1-1-a3a75866ce32@linux.spacemit.com>
+	Tue, 04 Aug 2026 08:25:38 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2ced3386430so43185535ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Aug 2026 01:25:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1785831936; x=1786436736; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5pIRJZIZuQtpYpVv500fQ7C7fCRBLkrhOWthKpIbWoU=;
+        b=dsv8NjnpwCJz7uNHV0uzOxte+VfrI75fAU6fE0KZ0u7t4BZpk53gK9YTJlnJZN5uiS
+         zLF2Q8gV04st+3Tvxg2zzQmykK2+F063EzLBuweTDzM9j/6Kd4/IbjqC1AbEKXuhbHA4
+         7ScWbtF8rN74Lbsus7ibMJJgE0bo/mh2kY1v/DIHKpE/IgSJnHgq8/Y8IqAEQbwHKB8O
+         UHXi7UxeACpNbzJPPCfYHqmVPMpF+vckB3hU6Il5YkvAJUXUxwEIHDK6e0Rnb9NXubm8
+         ZNiFR9Hi4V5Jmri5Ji94lUJ7aXvHiPVxDHc3mdISRY4AUcAvHoNgZcKV3HuDRysPFGAl
+         IUNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785831936; x=1786436736;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5pIRJZIZuQtpYpVv500fQ7C7fCRBLkrhOWthKpIbWoU=;
+        b=gQFcnsMXMdYyYE7/5dGCUQmW2DLxtaTl8vJ7v2g7aE8d+1bYqy9xjaMmYNqzZUiCzU
+         VFqnYVNejMv8HRC292joHr2mnOLGsfMirIMvvt7oVLt4NAAMl5xbpFEyJIy3+vMkILQE
+         ktLBk9mG14RJqWGd4GBoi9YFTxilYmPa2RDKGsNlKCCsP3WdvlGcNpRI31KMoQ0594nG
+         Zn5gmTrbd9fjANz3dp0FlXmNFzKZ5IXXUjLXG9wfe4biqVwTzQVE5BXmIB9d+96LTRGG
+         uPV/4MQuzt4iS2mrUqoMldP2N+9ltjwsJ124Ym9OK5eBVheiHrS2qyTl9KjC/wfsyCaH
+         puKw==
+X-Forwarded-Encrypted: i=1; AHgh+RrzeOFRTMWf0yIsnuFQ40IZwBXr7EJx4246aEBLLjyCNRhOW1NkIIucj1Pc/KOh4QX6tQ0LInV25cWnZA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbG3lL1WZoqr208CFytMqLVA7J4jWNTJz4/x74YxEM5wK2Wu9o
+	NZxPtHCMCweyiKS7lDs6QrRGw7Y002+ZLSBXGUe5TRWl5C6pmXgHkuie/eMfgD5Mnyo=
+X-Gm-Gg: AR+sD124/Oyp2sVY4hlonkkDbyDUojCLfi1E2BoiG+rRAwuKNwJvcrfv7bFRTAIGpbR
+	RyS0ghx3/rW/qHVC5sEPAFxX/qGqw55a2CHn+z9dTLcGZNHBnpiqyxnBM/Dos9CgUlWs/HFohsc
+	kMC4zTJ1scds4gapv5ln+il7TKk3K4L6Hhq7fIUIn+d1N8EwzZDcPYpelY2U4UqgaQJqEO47NPi
+	VT6bCPiMII+AzwGXq7k3p1Rakwt9J0EpN04kld/6mN0doxK5v5wrf+Rmkniw3TaobdHQLOgTPnp
+	sQk8fh6RzGm5Cn7eeYEADD6jHU+79lUx3ZbZDxOqa6HeeqJHJhL37A3dHVsL+3/hNU8/cVA9Vbu
+	3wisUuT6wgAyDFtT3b4mP/xhCyGG8qCMLLQWqEE/R3xSsnYBEQAotPsa2umFhwzIeFdXGGyOoyj
+	HOMM0hd2Nz4bN5bN8ufKNO5W0xlClGNh6WT4/q6zPPL1fpXFIM64jHvpM9C6k=
+X-Received: by 2002:a17:903:124c:b0:2ca:5d9a:ecc6 with SMTP id d9443c01a7336-2d0523b7dbamr119193075ad.28.1785831935707;
+        Tue, 04 Aug 2026 01:25:35 -0700 (PDT)
+Received: from plin-1878 ([136.226.240.191])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d0aa4930e1sm2426415ad.41.2026.08.04.01.25.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Aug 2026 01:25:35 -0700 (PDT)
+Date: Tue, 4 Aug 2026 16:25:29 +0800
+From: Yu-Chien Peter Lin <peter.lin@sifive.com>
+To: Nick Kossifidis <mick@ics.forth.gr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr
+Subject: Re: [PATCH v2 0/3] dt-bindings: riscv: Add RISC-V Worlds and SiFive
+ WorldGuard DT bindings
+Message-ID: <anGh+dr/5dCX/cHd@plin-1878>
+References: <20260729163908.249838-1-peter.lin@sifive.com>
+ <bf39e87c-c077-4ccf-a791-42ae194b4780@ics.forth.gr>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260804-k3-pll5-pll8-1800mhz-v1-1-a3a75866ce32@linux.spacemit.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/285.815.77
-X-ZohoMailClient: External
+In-Reply-To: <bf39e87c-c077-4ccf-a791-42ae194b4780@ics.forth.gr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_011056_220680_2BC0B393 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20260804_012536_865800_155A196C 
+X-CRM114-Status: GOOD (  23.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +104,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 12:02:55AM -0700, Troy Mitchell wrote:
-> The PLL and PLLA init callbacks gate off and reprogram a PLL when its
-> firmware configuration is absent from the rate table. However, they
-> leave the PLL gated off after updating the registers.
+Hi Nick,
 
-I don't think this patch makes sense.
+Thanks for the questions.
 
-If this PLL is essential for some components of the systems to work,
-there's no chance to re-program it safely after the kernel gets started,
-since all the PLLs in K1 and K3 are specified as CLK_SET_RATE_GATE.
+On Fri, Jul 31, 2026 at 04:43:56AM +0300, Nick Kossifidis wrote:
+> Hello Peter,
+> 
+> On 7/29/26 19:39, Yu-Chien Peter Lin wrote:
+> > Add device tree bindings for RISC-V Worlds, a standard extension that tags
+> > every transaction with a World ID for fine-grained isolation. SiFive's
+> > WorldGuard Checker is a hardware firewall in the system interconnect that
+> > inspects transaction WIDs and enforces per-World access policies on memory
+> > and MMIO devices.
+> > 
+> > wgChecker specification reference:
+> > https://github.com/riscvarchive/security/blob/main/papers/worldguard%20proposal.pdf
+> > 
+> > Yu-Chien Peter Lin (3):
+> >    dt-bindings: riscv: Add Worlds ISA extensions
+> >    dt-bindings: riscv: Add Worlds per-hart properties
+> >    dt-bindings: sifive: Add WorldGuard Checker
+> > 
+> >   .../devicetree/bindings/riscv/cpus.yaml       |  61 +++
+> >   .../devicetree/bindings/riscv/extensions.yaml |  53 +++
+> >   .../devicetree/bindings/riscv/worlds.yaml     |  86 +++++
+> >   .../bindings/sifive/sifive,wgchecker2.yaml    | 356 ++++++++++++++++++
+> >   4 files changed, 556 insertions(+)
+> >   create mode 100644 Documentation/devicetree/bindings/riscv/worlds.yaml
+> >   create mode 100644 Documentation/devicetree/bindings/sifive/sifive,wgchecker2.yaml
+> > 
+> 
+> What's the plan for this and why do we need Linux-specific dt bindings ?
+> This looks more like a set of firmware specific bindings, like OpenSBI
+> domains for example (https://github.com/riscv-software-src/opensbi/blob/master/docs/domain_support.md).
+> I understand adding the ISA extensions in the list (although the fast track
+> is still underway, it's not ratified yet), but the rest don't make sense,
+> not yet at least. How do you plan to use pmlwidlist on Linux to associate
+> processes to wids ? Do you plan on adding a driver for the wg checker (and
+> the markers that you mention) on Linux ? Do you ever expect Linux to run
+> under trustedwid ?
 
-If the essential clocks could be re-parented glitchlessly, registering
-a notifier and re-parenting it before the PLL disables might be a
-solution. In this case, we need to delay the operation in
-ccu_pll*_init() until clock registration fully completes.
+We do not currently plan to implement a wgChecker driver in
+the Linux kernel which holds the untrusted WID; wgChecker slot
+configuration is handled by OpenSBI only at boot-time.
 
-Otherwise, re-enabling the PLL seems totally extra here, they could be
-enabled on the fly when it's going to be used.
+The intention here is providing a standardized device-tree format
+for describing wgChecker hardware and protection policy, usable
+consistently across Linux ecosystem (OpenSBI and possibly OP-TEE).
 
-> Re-enable the PLL to complete the sequence and propagate any lock
-> timeout to clock registration.
+Thanks,
+Peter Lin
 
-Regards,
-Yao Zi
-
-> Fixes: 1b72c59db0ad ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
-> Fixes: 3a086236c600 ("clk: spacemit: ccu_pll: add plla type clock")
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> 
+> Regards,
+> Nick
 
 _______________________________________________
 linux-riscv mailing list
