@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA0DC5518F
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2026 10:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44EFBC5518F
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2026 10:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GcNlkyeKvN3r3WzCQBiAs6E7S+XoxWDbFetIg4dIg+s=; b=kj7M+8YHN+ORQE
-	6l8RhCC2asYMqzochXUtHROxMm1m4QiiMz310aCEv7aTP3URrz+/5m+jGTHNzHYMNC8GvcX6zqzcE
-	vBgO0pCjTZBwObBFEnPRSqbZJvdntUbWPmP38pWfkwAATNYlFSavh0R5alz9slCK1/gl40Cufovwg
-	bxnx0bAwO/GkfPOqlMzDpG0MIw+Ubznfzx0yFJj4hfSrO7xwhzxGSxgOv9b7FxOWpQW69slrNtioS
-	lOZqJhQLqsrbsdKE4+4l0TBuhoa2hWrU5bYPVYW276ZL5A3MLd3l2LzZJEFHMcdK00ATlpX53RThx
-	QJtK88vr7EhoyM+DuvVg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=d4u25dxAsDDLrnE+zUO1WuOQJxT7tOc/NG8lMfYkBpk=; b=Q0rVRsKqN5FVsR
+	+L/2wV2gVrkQEl6dVBTxRAOw6SDio3kzjYTfYZiWDICAN0pVPliYyr56wOJRcsvXZr8d52+b+gxlU
+	/loRhwh6vtDrfQEeb5P4KUA1fhEHC/qiHBHLYOeiFug0rMlKgq7rHxGjtQC8SVqMTkNoryOQDyc19
+	irZ1WXLGrhnUnhGqS9+Ce7JL2Vohw4Tn5568s6mp8nDghZP3kxleCJ5EotPV0Tl7RRCSPDyVJkXmB
+	I810YP7u7+ZsQDsqMrLWOlakLNVLgLt4kfrD/TCvrsf5/g+hTTLhqPWCxhsoiUtvYu9AK2IuIhjgI
+	oOi+ItKb4L8NLoNfETSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrCWD-00000001Yab-3RNL;
-	Tue, 04 Aug 2026 10:37:09 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1wrCdU-00000001a4b-0ezH;
+	Tue, 04 Aug 2026 10:44:40 +0000
+Received: from naesa03.arrow.com ([216.150.161.23])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrCWA-00000001YYA-3U3H
+	id 1wrCdR-00000001a2y-2cuJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Aug 2026 10:37:08 +0000
+	Tue, 04 Aug 2026 10:44:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1785839824; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=osYv4PyMOH+hGuFQLUeP+UmPCqW/DzeJKVWPMYqOR5E=;
-	b=bhwn4Hxqf2PXWP0BZTehIUi7eMtBkTqzkeUWvqErsp+ltB7WUBs3ENqGhhlqDn+MoGW2mHUUUCn1x7i3yR1hkXh/vDAlDv9eWX2jFw3+UXkuFfPTuk+x3IxDD9BbC6F3I+qvsM31rqyAw+8GQ3pg6JDU2sEfEUkgPOm/06aqn/s=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=wanghan@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0X8Nlqdc_1785839818;
-Received: from wanghan-Workstation..(mailfrom:wanghan@linux.alibaba.com fp:SMTPD_---0X8Nlqdc_1785839818 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 04 Aug 2026 18:37:01 +0800
-From: Wang Han <wanghan@linux.alibaba.com>
-To: Paul Walmsley <pjw@kernel.org>,
+  d=einfochips.com; i=@einfochips.com; l=1543; q=dns/txt;
+  s=NAESA-Selector1; t=1785840277; x=1817376277;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=huJokbZK2j0U2j9/oiCh1A2JWOyzh7r/H9gs5WHit7s=;
+  b=uNNzq5LzFTkZE3Q2tR5Z7tKVh8xwvJYlowglTM9n9frC2dHXFXnmghcR
+   vonNB4ThaAahdfM6Ni+o4B/wZPZeKI5MzE+2HqaHuOnXyDU+RtxxzhNxK
+   yNmv1Jws9CnX1xhdzpnwvTxxVserMugnOFGqa4+A3EpYi3lmXk2IjbhpC
+   5NzOaZOVyBlrslnJ81Sley/qDFrAOQHPq10Td0WTbenbb//GiqLIn2SAl
+   g7qU35cBcJp4FiCzrucpg2Pvc5PdsfKW68IG/f1Q9J2npK+92hKtCKnDE
+   nKargGpLHpx3ifhP1nq0PAdlo5w17m1kMsCd61E0pPNHKcSOzCysNaJsY
+   Q==;
+X-CSE-ConnectionGUID: gza3tIoJTumNo5Azsmt2yg==
+X-CSE-MsgGUID: 7k1iEY+kR6yG9oaBSMP1jg==
+X-IronPort-AV: E=Sophos;i="6.25,204,1779170400"; 
+   d="scan'208";a="119081801"
+Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
+  by naesa03out.arrow.com with ESMTP; 04 Aug 2026 04:44:32 -0600
+Received: from AHMCPU1888.localdomain ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.20348.1);
+	 Tue, 4 Aug 2026 16:14:31 +0530
+From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	Oleg Nesterov <oleg@redhat.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Jiri Kosina <jikos@kernel.org>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Petr Mladek <pmladek@suse.com>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	oliver.yang@linux.alibaba.com,
-	xueshuai@linux.alibaba.com,
-	zhuo.song@linux.alibaba.com,
-	jkchen@linux.alibaba.com,
-	Marcos Paulo de Souza <mpdesouza@suse.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	live-patching@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH v5 7/7] selftests/livepatch: Add RISC-V syscall wrapper prefix
-Date: Tue,  4 Aug 2026 18:36:26 +0800
-Message-ID: <20260804103626.2803112-8-wanghan@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260804103626.2803112-1-wanghan@linux.alibaba.com>
-References: <20260804103626.2803112-1-wanghan@linux.alibaba.com>
+	linux-riscv@lists.infradead.org,
+	Min Lin <linmin@eswincomputing.com>
+Cc: Yulin Lu <luyulin@eswincomputing.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>,
+	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>
+Subject: [PATCH v3 0/8] riscv: eswin: eic7700: Add support for clocks, resets, pinctrl, HSP bus, I2C and watchdog
+Date: Tue,  4 Aug 2026 16:14:23 +0530
+Message-Id: <20260804104431.1391839-1-pinkesh.vaghela@einfochips.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
+X-OriginalArrivalTime: 04 Aug 2026 10:44:31.0525 (UTC) FILETIME=[3B57AD50:01DD23FE]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_033707_028650_F2498478 
-X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-CacheID: sfid-20260804_034437_721360_3F1C5D3C 
+X-CRM114-Status: UNSURE (   8.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,36 +95,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The syscall livepatch selftest resolves and patches a syscall wrapper
-symbol. To use that test for RISC-V livepatch validation, add the
-RISC-V FN_PREFIX definition for ARCH_HAS_SYSCALL_WRAPPER.
+Changes in v3:
+- Rebased the patches to master branch of linux-next tree having
+  latest tag: next-20260803.
+- Updated dts file
+  - Changed "clock_24m" to "osc".
+  - Add the pinctrl-names and pinctrl-0 property for i2c, uart and
+    pinctrl nodes.
+- Updated eic7700.dtsi file
+  - Changed the node name from "clock-24m" to "oscillator".
+  - Changed the node name from "hsp-sp-top-csr" to "syscon".
+  - Corrected the missing space after "=" sign in watchdog node for
+    clocks property.
+- Added "Acked-by" tag of "Conor Dooley" and "Mika Westerberg" for
+  Patch 6.
+- Link to v2: https://lore.kernel.org/all/20260706081055.1126275-1-pinkesh.vaghela@einfochips.com/
 
-Without this macro, the syscall livepatch selftest cannot resolve the
-RISC-V target symbol, and the syscall-related livepatch test fails on
-RISC-V.
+Pinkesh Vaghela (2):
+  dt-bindings: mfd: syscon: add ESWIN EIC7700 compatible
+  riscv: dts: eswin: add hsp bus node
 
-Reviewed-by: Marcos Paulo de Souza <mpdesouza@suse.com>
-Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
----
- .../testing/selftests/livepatch/test_modules/test_klp_syscall.c | 2 ++
- 1 file changed, 2 insertions(+)
+Pritesh Patel (5):
+  riscv: dts: eswin: add reset generator for EIC7700 SoC
+  riscv: dts: eswin: add clock generator for EIC7700 SoC
+  dt-bindings: i2c: dw: add ESWIN EIC7700 SoC I2C controller
+  riscv: dts: eswin: add I2C controller support
+  riscv: dts: eswin: add watchdog support
 
-diff --git a/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c b/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
-index 08aacc0e14de..9baa2a5f84c9 100644
---- a/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
-+++ b/tools/testing/selftests/livepatch/test_modules/test_klp_syscall.c
-@@ -24,6 +24,8 @@
-     #define FN_PREFIX __s390x_
-   #elif defined(__aarch64__)
-     #define FN_PREFIX __arm64_
-+  #elif defined(__riscv)
-+    #define FN_PREFIX __riscv_
-   #elif defined(__powerpc__)
-     #define FN_PREFIX
-   #else
+Yulin Lu (1):
+  riscv: dts: eswin: eic7700: add pinctrl support
+
+ .../bindings/i2c/snps,designware-i2c.yaml     |   1 +
+ .../devicetree/bindings/mfd/syscon.yaml       |   1 +
+ .../dts/eswin/eic7700-hifive-premier-p550.dts | 196 ++++
+ .../riscv/boot/dts/eswin/eic7700-pinctrl.dtsi | 888 ++++++++++++++++++
+ arch/riscv/boot/dts/eswin/eic7700.dtsi        | 234 +++++
+ 5 files changed, 1320 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/eswin/eic7700-pinctrl.dtsi
+
 -- 
-2.43.0
+2.34.1
 
 
 _______________________________________________
