@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD240C55184
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2026 07:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6275C5518F
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2026 08:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bH9YZk75JE7keFs/kFsYJFpSdi3Zn7gng6r17HzEkP0=; b=Nh03PltAQ+zBKQ
-	XxtKtikbAFji3XxsxK8mtxlKP4LS087BOezHO2dWOqCmqOUpPC6yjJyqT5LImzAmFlOzshbIAhBY2
-	ea/dLo9O6Zyb+Fy6hWZkm0niA3ivLTEMz+Gb7+z5Ri8srEC+KO/Lw7kY4+DiGlnK6ko7IsPZffkFs
-	+wRX9T14PwFXdBBJVX1cw59E2idLzrs48ZHVZgw4/fOzkCHoMq/6j3uEAeNJoaWUGj1sEjEVIIDHQ
-	gMqpw40/VeA7lPI2N5B0sOALsVIQXw1gsyHk5f8q8EYBcmP2KG1N7CYqgedlseeWC79pJTkaDEAat
-	YnR6BOXVmeuqvcRqnv+g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RnLAKtbiKRpGLHLy63B+yPweSsyuCHd9f2my/P0gz7w=; b=WyoXjhGinSuPpe
+	znmbyQUlwnP3C5+OhEs6GGsdIE9+lTNPxkY3RlOrVymWKp2/sfwIbNoB3uRjvKETcFFuyQQuQd0ZF
+	f6czZxMsu2JP930TazJ4Zx2RHG65z9mGX2BHCdvYd6LiwqpwXayjTOFe7o+/t7yPi8qrAhPT/Qx6B
+	rwpoQ08aixcxofWOECNnFAshrhgBw6+6xJRg1yxbaXFMXe+N+ZyfgZHkXyYrmBIqgw7eefTNLeUx2
+	AOwS14d2zbTyaFMw1ePS0SmSg7StXq2CsnBcELyw2hSzqfQL9l3OBq105LHYUc2hOTmxUt3AvIgAb
+	5ypQB3kbDVeMqznnrelg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9C5-00000001AvK-0DVp;
-	Tue, 04 Aug 2026 07:04:09 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1wrAEj-00000001IDr-3gir;
+	Tue, 04 Aug 2026 08:10:57 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9C2-00000001Arx-0dVA
+	id 1wrAEh-00000001IDQ-3lQS
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Aug 2026 07:04:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1785826987;
-	bh=GImfhL+KrnsR6yE46cScayoU/oHI6MI5dbzBtOBfDtI=;
-	h=From:Subject:Date:Message-Id:MIME-Version:To;
-	b=XOgqIWtfiJ6OXcStDIR+LMtk2As2wIWbX5KT0WloaeYjCj3s0PifaYRakAsdeFmy0
-	 B60G1C3soQF/V+0OO5j4KggSLNCBBIGDL6+n3EhMibKZHDZs0Izm1PtKrqogRbe84H
-	 0m9YDNl4pSZ/s52c/daQV7PQOxgmqRyWwoNL8evs=
-X-QQ-mid: zesmtpsz5t1785826984te45056b7
-X-QQ-Originating-IP: 6Q8/nwFx0eDR6Ricx/U13Cqzlvs5o09g4RmQ9XhTVkg=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 04 Aug 2026 15:03:02 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11833633272755698400
-EX-QQ-RecipientCnt: 12
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: [PATCH 0/2] clk: spacemit: fix PLL init and add K3 1.8 GHz rates
-Date: Tue, 04 Aug 2026 00:02:54 -0700
-Message-Id: <20260804-k3-pll5-pll8-1800mhz-v1-0-a3a75866ce32@linux.spacemit.com>
+	Tue, 04 Aug 2026 08:10:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1785831029; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=QLFfD1V+4nQg5tkAgOyb25zWmDiwfVkh8QfkmFdrnqGMcSwbIwPPlhAEo3ufL4bhC0xieYoX+UbpBE4xWj8Ol5hJ4T6CliKdqgWlraL3tAuylSRDfdCPfPsyi8nOXkzLvNg4tYBRDPfuKSDUkWRCJLE+6ZYxq3i2TflWI67SGUA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1785831029; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=6iE1had4Tg/gR0N8etf03PCwEV/trK2r9t6ymr9IPEg=; 
+	b=KwbX9K3oE2geWJjVPNeiMO56FgO9ztodEKLXzVYpB8HTUdTwS3bAt5iiJ7K+dROFUfGO2h4CBW3bLslrAQ7Y3OpddqDvV+ZM3SuQSr74Yukc5YUon4OyR4Un1WwQsqduui3RbblU8Bqj90ec2e8YKB9uM8kjykW8RibsEbmRtmQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785831029;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=6iE1had4Tg/gR0N8etf03PCwEV/trK2r9t6ymr9IPEg=;
+	b=ak86VaXIIMkrnmk5pJ98XNGP4niTPwXb6zjaTL2AwzA38i4LpOW0EmyWXPaPOW7U
+	GsmdOEkx3f/xTNLuS21iA2fOgVHpWni1e0yeRAOouIe14Hs9TELcShb6MezcOoyvz+m
+	dTd9rpoeYXJfBUppxrEZYgFaPlOTQkJGz+3CWCXc=
+Received: by mx.zohomail.com with SMTPS id 1785831026677755.103961666094;
+	Tue, 4 Aug 2026 01:10:26 -0700 (PDT)
+Date: Tue, 4 Aug 2026 08:10:14 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+	Yixun Lan <dlan@kernel.org>, Inochi Amaoto <inochiama@outlook.com>,
+	Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>
+Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Yao Zi <me@ziyao.cc>
+Subject: Re: [PATCH 1/2] clk: spacemit: re-enable PLLs after init
+Message-ID: <anGeZk0-YShccqwE@pie>
+References: <20260804-k3-pll5-pll8-1800mhz-v1-0-a3a75866ce32@linux.spacemit.com>
+ <20260804-k3-pll5-pll8-1800mhz-v1-1-a3a75866ce32@linux.spacemit.com>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDCwMj3Wxj3YKcHFMQYaFraGFgkJtRpZtsYWhhbppokGhpYqIE1FpQlJq
- WWQE2NjoWwi8uTcpKTS4BmaVUWwsAZOdEj3gAAAA=
-X-Change-ID: 20260802-k3-pll5-pll8-1800mhz-c81875a0a944
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Yixun Lan <dlan@kernel.org>, Inochi Amaoto <inochiama@outlook.com>, 
- Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>
-Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1264;
- i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
- bh=IW6D+IWdo8RtEKyPetD9zVM5Djt1dC9dceqZ6CPr9gc=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFmFfYtkTV5o983YLS3xqe9/+2+mA3uutLnvZM3aoSb25
- pxbVu2bjlIWBjEuBlkxRZbuBzzbCnyibAsECn1h5rAygQxh4OIUgIm4H2BkWC4SbqxxxPTJtN9+
- b51m2HC1hx1yb9zj//Bv1YKayTmt8xj+F/zanH24JqrfPKey8yiHSpRIEX/wrLwSW1WHmzyfso2
- ZAA==
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
- fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: M+ZHGjti0A6oh9FAwEzDT/kiYFrs9+o7BPPgEoEV3tfHNOGihGf2QhF3
-	8YLQQRSneIWsKQwvLwGjB2PfMiU00Cr+KqHX/LHFHv9MwpIVYYdosGNTrpVv2vt26wz8AxE
-	FYYfJhL7Z1Z/bP2IYiA8IzmSkrDlJ2KDAXvzf1cNxIME+lmoO/sy6kHzqgZeUUoe/AF7DFP
-	RQw3fp/J0/XPe5XmrynbTc2+jiqKY/IhuEsjZMwmC9GXNM0mUOnTyVfAScXKcVJWApHv4Ln
-	mMTiFJFMqcaiefaDhNo8IQUGoZLutmfLBJWEOmg9X7TiqaymjZkjD3SjOk59QZlxbR4ZbzK
-	d8Zp2EnmpEbySdJeQBsoXIKtniMKDsSNJOtkGlAywv8eVjHvoqXgOlOoxxL4PcBnu0Vi6/A
-	oUwIaYv93nKTA7QnufOQFS/HNR61I3g6EJMHQAa8SPkr3LOHTakoLc/s7iecN52JuzHA2Dc
-	MjxeoFdNVJm1X0pW42iz9Ce2QnJu7QyEkg/0xcJlW8cQL26pLbrnr1qt85hQFdn7v/UqtIE
-	0zL2YbaVrgquzlMKK8D7qjIxY6haw2aTBOPLrOKVqeLQl9G86JjuL5m+CFbIAwQhSadRaE/
-	XU5RGcroDZBfBoqbUyginHGOa3491ZfStiqc3B2yCyr0+V0+yD+opR+jVFyZ3JVXmHzx9R1
-	JauLdpjWTfw5uHFSX3KOiKzBknOHevRPfeJr1iw8E8Y9o9tQXkUntFTcEX1RFHF5i6dazJH
-	hEA0uMxyDy3l4uKfVT0I+p6zzujQrAmWApfrmE5mvGEbkEYNchLF4aaFpaFqjwAGF1bP0yA
-	t226dTmuKuwgs8k5Pty1j970s5+HVIxWI0/J8+QbfVTgP5K8FGYu9FKipYLqOtDpCE21Uy+
-	YhED2fZZ8GU/iHPUf7ChfI6TZmjX43pZQvx8xtU5gxxpUtmQTS85WzUJeNxKNWDz/H44qX6
-	mS3G16BChH0NlyHJymBhohu1qqXkH2xIg8STgv7dLveUzycy+jhooPVld61v1MVRdnQfP0S
-	vhX8esSvefKSZANX4ZLKfUJnn2D1jABqEg41y3CKHsagFEA4gM9zWfq//cKJVjJ45Od+EPS
-	fI4waqVpGpEXpgFWrEVswNG6PRP3mGc9U2O0xGwW8BWWtugc5QqxjrC37BiJ2z3Xp2OPwfx
-	iFYe
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
-X-QQ-RECHKSPAM: 0
+Content-Disposition: inline
+In-Reply-To: <20260804-k3-pll5-pll8-1800mhz-v1-1-a3a75866ce32@linux.spacemit.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/285.815.77
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_000406_962083_B6A3A0F3 
-X-CRM114-Status: UNSURE (   6.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260804_011056_220680_2BC0B393 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,38 +86,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PLL and PLLA init callbacks leave a PLL gated off once they
-reprogram an unmatched firmware configuration. Re-enable the PLL to
-complete the disable-update-enable sequence and propagate any lock
-timeout to clock registration. Apply this to both the K1 PLL and K3
-PLLA implementations.
+On Tue, Aug 04, 2026 at 12:02:55AM -0700, Troy Mitchell wrote:
+> The PLL and PLLA init callbacks gate off and reprogram a PLL when its
+> firmware configuration is absent from the rate table. However, they
+> leave the PLL gated off after updating the registers.
 
-The K3 SoC may not remain stable when its A100 CPU clusters operate
-persistently at 2 GHz. Updated U-Boot firmware therefore configures
-their C2 and C3 clock domains at 1.8 GHz during early initialization.
-PLL5 feeds C2 and PLL8 feeds C3, so add 1.8 GHz as the default
-rate-table entry for both PLLs.
+I don't think this patch makes sense.
 
-The related U-Boot change is available at:
-https://github.com/spacemit-com/uboot-2022.10/commit/fb95cf3d848b771c61b5a1b3e5cbbee223faf352
+If this PLL is essential for some components of the systems to work,
+there's no chance to re-program it safely after the kernel gets started,
+since all the PLLs in K1 and K3 are specified as CLK_SET_RATE_GATE.
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
----
-Troy Mitchell (2):
-      clk: spacemit: re-enable PLLs after init
-      clk: spacemit: k3: add 1.8 GHz PLL5 and PLL8 rates
+If the essential clocks could be re-parented glitchlessly, registering
+a notifier and re-parenting it before the PLL disables might be a
+solution. In this case, we need to delay the operation in
+ccu_pll*_init() until clock registration fully completes.
 
- drivers/clk/spacemit/ccu-k3.c  | 2 ++
- drivers/clk/spacemit/ccu_pll.c | 4 ++--
- 2 files changed, 4 insertions(+), 2 deletions(-)
----
-base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
-change-id: 20260802-k3-pll5-pll8-1800mhz-c81875a0a944
+Otherwise, re-enabling the PLL seems totally extra here, they could be
+enabled on the fly when it's going to be used.
 
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> Re-enable the PLL to complete the sequence and propagate any lock
+> timeout to clock registration.
 
+Regards,
+Yao Zi
+
+> Fixes: 1b72c59db0ad ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+> Fixes: 3a086236c600 ("clk: spacemit: ccu_pll: add plla type clock")
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
 _______________________________________________
 linux-riscv mailing list
