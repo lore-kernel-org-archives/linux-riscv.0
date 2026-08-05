@@ -4,96 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9ED5C55822
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 06:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5306C55822
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 07:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:CC:To:MIME-Version:Message-ID:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2/m1eS5LGQOtva6rZT9rzkRDwUUd3pqnzh7K1Fad+Rc=; b=OFToZSW6TgtLk8
-	GVL+7XNFo/e81DMewN1hr31gSJmRdUX8FZhc3m/wCqW1IFM/NpIs52Jc2SNCNLnGcLGdrsYg9C+i5
-	SShVkdhHO6VZ2O0b7oSxAW69fbmbI+9N2mwBPbpLoxX05mOLgbjKACxnioleW1V/uTxt8BDvV/68R
-	Med71vTDOujQNNNghXaZhfzAsthGMYliZ383KndHBoY1quilgG2itTzeiubLbaxcG/l/wjw9reqSx
-	wT4/zRW14I94Lc3bk6E6r6B46Hp04TGV+92aynOQfd7XoP6JQ1sKsKqy9oPWLceuHEgA7a759XWxM
-	89mlliHsaT9euFQ7AL7Q==;
+	List-Owner; bh=SJhSzHtf3+CypvXXg60HNV9yH621YXFya9RWc7XISjc=; b=j+NMeA15ctnptI
+	D19Crec4VfKPsqZxIPXjGL1xmWZr1qx0HZFs4Ri8GYS/Bp2FHFGD7G6gMXi+ecornChKtqA/yf8M9
+	4Rgiv7XRcrAUCJa5J6XrqHtk/LTwVfSWxxD7W+jcj2JieNVw7tceKvO4rU6q8hejovDSA7hAdozHQ
+	c1BakR+6GQmXKyCPt5QKUeJHW2WvL93r4LEtCckT6BLmtJwMqf5sn8yPU8boYk5JP3RNlUSddx3zq
+	IuSpq8MiXbCBNunYC2pgak2vLNBvo/BkpJuEy2gpIjroz275kUoSG7VPsrhPx66GuzFBfjDnBCA5s
+	EPHZXNk1xcvA3o0/P9+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVTy-00000003LgM-3egQ;
-	Wed, 05 Aug 2026 06:52:06 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wrVtQ-00000003OCd-2dFn;
+	Wed, 05 Aug 2026 07:18:24 +0000
+Received: from mx0a-00128a01.pphosted.com ([148.163.135.77])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVTw-00000003Lfa-0Lyy
+	id 1wrVtO-00000003OC0-1WxI
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Aug 2026 06:52:05 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3856d6fbcb3so472685a91.2
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Aug 2026 23:52:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785912723; x=1786517523; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BZveE5TKFRvmEM6ufGP9KCDDa09D/zv/1Va+H0O6po0=;
-        b=nwHfZ/wU2QmSXbwC85M6HVFAfFUZKugG9orFh9rQv15Wn4j94TlmzFdpxwYumEQNVk
-         zGCLMVk8dlrDI9FF70uXoHuPDJTh/xX/sDiOEx57CY/AKoRxQqJSjdJzgcIKq0Btih8p
-         buOn+SdD5bwerbN9R6uJ1oXoHGi3aIoDXqWKfqfzSndPlNQ0xOflmrOWutliGZj7ozfA
-         8fz/Sa1rFbgWbM2ySTaMzQzBb2EhUXaa7B3V5g6oYNr6/Geg6R++FEQSCnHgZxmyQ8Ki
-         0nc8cRYgMJP1gD3Lv91/6yZ09eP+mIID6X0kzyaabJkBXDvw51WnwpjkrT9gqm+4RE7R
-         HSEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785912723; x=1786517523;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BZveE5TKFRvmEM6ufGP9KCDDa09D/zv/1Va+H0O6po0=;
-        b=rP8je/tAnD+j6Wrs+YBcCPrUy6QfDh75YycCudBkFkJbYkLEnYPYY6XDAoo8hLZj28
-         vUhekZEKg03t41ZvHP25CLuhHyrsEpAjWSaDcLAqsk5+XzXWotvAB50bcaCqCBR6ylEf
-         +xDumRNqwICwjVu0xsPm02HEKdb8gCZCQQy6QhMArEipuUii0HkiGkIqCSVWts4DCFZa
-         w62DyoJw8KsInfUCj4y4KsNiSo4xGUwjQdZIPXx6flPyS5JNN46OylYobGP/sKz7v7db
-         L65YYXg0iYBBHvz8ZM97x9hlMyJknsXaOK2F4HeMBq5CD+ONXvO9smCwhTtfSu8cHONn
-         7h0g==
-X-Forwarded-Encrypted: i=1; AHgh+Ro+V7xnYDeL5zpxtSDC9TefOi6JHq9DmUWnEV1ptJewIfEvCW60AwnhJzeWb6Rt60zDws8BOEswmNT0nQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yys7pE+Y62qEt1i08vnpLjvNT218ywxivCr0lxt9vQf9Q88noz5
-	ONa0cfS0XVGn9CvoqtUCIydPZLeM5ZvnUrAio6iGSTLpJuh92TTGnAbAjuJzT/Es
-X-Gm-Gg: AR+sD12/DN0QZ49pRdAdPATz+8r+q9n2ECLmQmd1IyasS6TuUF7elvhOgqD0GD7XkRz
-	anRc8EIO7mO1/CEeA5613PwbnxrnsgaOPOwEN3n77DotbFrrb3V496yiXK9Xua2/fggy9AkaQ3e
-	uVDNYeKYmAFn/3O1r5cPzKKMzPGsyX37af6CChMq4wmKzyrKht7iuqMruRQbn9/Yg1jfWr4wPgI
-	9nX01CkHFmIAX2NJIGN2im6JY9iGfUFM8eg+ff+xO2seHnb3rrIH9HJ02/iQZzzvh3fdZZ4POpL
-	tf7Gk9Q0R14vxG7fnnzx9xFcTiSNJoYVssj7EEBvdR9R9tW34RSLSb8OsZFEouK8wm+dwvKsqkH
-	1L5i5u0b4R0MQP2/BMh6sLVV0d9aS7HekLR6RWIcfCdlYHBQ5w1kgg9aB39vKIGEYC0iDfcdHmM
-	llrhl8s9WZDf0PWeE1mgoxE44ps8010kVR/blrwG2sfbtoP5LRi4KoT2kvAGThQ/t3wj4fbpyf+
-	SlwVrBayJIAMhS1uA==
-X-Received: by 2002:a17:90b:1c8e:b0:38f:1a80:d1e7 with SMTP id 98e67ed59e1d1-3903c596de7mr3372058a91.13.1785912722454;
-        Tue, 04 Aug 2026 23:52:02 -0700 (PDT)
-Received: from cyh-System-Product-Name.. ([129.227.183.200])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-390392b2b7fsm2113080a91.14.2026.08.04.23.51.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 23:52:02 -0700 (PDT)
-From: "Yuhang.Chen" <yhchen312@gmail.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Quan Zhou <zhouquan@iscas.ac.cn>,
-	kernel test robot <lkp@intel.com>,
-	linux-doc@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	oe-kbuild-all@lists.linux.dev
-Subject: [PATCH v3] RISC-V: KVM: Add kvm-riscv.wfi_trap_policy to control VS-mode WFI trapping
-Date: Wed,  5 Aug 2026 14:51:32 +0800
-Message-Id: <20260805065132.3210346-1-yhchen312@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 05 Aug 2026 07:18:23 +0000
+Received: from pps.filterd (m0167088.ppops.net [127.0.0.1])
+	by mx0a-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6755iU40065264;
+	Wed, 5 Aug 2026 03:18:09 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=DKIM; bh=bwS2sRxKhD0VwySTPgY8hah2zBN
+	g02uRh/ykLfAEaCs=; b=a0KGhxOAI0klD8SfHcw5Okq6ITqaFVcQ9uMbQb66E8e
+	AK3Z62qUQZVtY35GslCT2X6AAUPI3ILP6WO/reTmoUpgnQx+7tX/0JQ4Y2KuQh7F
+	MQqVOkFrWnqcUEd7q26pqYpzaeTZ91nDQGdm4p0Zh6/DFNK3K3b/DPZ/fhIwdWo2
+	oZZN2mymjFcoRmUAICyElh6jJluJ9G6fCT0RaQpip9xsWHepu3OVpYMGNpYvG5Gb
+	sS2APSkBOTlvYTRS9OMRzvpXEupR1NflIWRhSXqRpg03csDwLPg2DYE+7ETXvo5N
+	nj+AZaMgpflIBsJURz/83e17XHp0lQxY6YE+GBAcFIA==
+Received: from nwd2mta4.analog.com ([137.71.173.58])
+	by mx0a-00128a01.pphosted.com (PPS) with ESMTPS id 4fue6wmv8t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Aug 2026 03:18:09 -0400 (EDT)
+Received: from ASHBMBX8.ad.analog.com (ASHBMBX8.ad.analog.com [10.64.17.5])
+	by nwd2mta4.analog.com (8.14.7/8.14.7) with ESMTP id 6757I89Q052715
+	(version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 5 Aug 2026 03:18:08 -0400
+Received: from ASHBCASHYB4.ad.analog.com (10.64.17.132) by
+ ASHBMBX8.ad.analog.com (10.64.17.5) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.37; Wed, 5 Aug 2026 03:18:08 -0400
+Received: from ASHBMBX9.ad.analog.com (10.64.17.10) by
+ ASHBCASHYB4.ad.analog.com (10.64.17.132) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.37; Wed, 5 Aug 2026 03:18:08 -0400
+Received: from zeus.spd.analog.com (10.66.68.11) by ashbmbx9.ad.analog.com
+ (10.64.17.10) with Microsoft SMTP Server id 15.2.1748.37 via Frontend
+ Transport; Wed, 5 Aug 2026 03:18:07 -0400
+Received: from HYB-e1y2fvUQ3cx.ad.analog.com (HYB-e1y2fvUQ3cx.ad.analog.com [10.44.3.60])
+	by zeus.spd.analog.com (8.15.1/8.15.1) with ESMTP id 6757Hgx4021587;
+	Wed, 5 Aug 2026 03:17:44 -0400
+From: Janani Sunil <janani.sunil@analog.com>
+Subject: [PATCH v8 0/3] iio: dac: Add support for AD5529R DAC
+Date: Wed, 5 Aug 2026 09:17:40 +0200
+Message-ID: <20260805-ad5529r-driver-v8-0-b41781f5632a@analog.com>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAJTjcmoC/3XOTWrDMBCG4asErasy+puRu+o9SheyNEoErR3kY
+ lqC7145m7iIrsQ38LzoJhauhRfxcrqJymtZyjy14Z9OIl7CdGZZUttCg0ZwQDIk5/RQZapl5So
+ 94jim5NEmFg1dK+fyfQ++vbd9KcvXXH/u/VXt139Tq5IgR2sRsontza9hCh/z+TnOn2Jvrfrof
+ ed182yUs1ahd4k6bw5eDZ03zWukCGRUCOg7bx8eofd292wjaG1sUKHz7uEJVOfd/v8EngYARqs
+ 7jwevXOex+ZhT9uOQHbPpPB281p2n5om8iolsSOT++G3bfgFaUdVULQIAAA==
+X-Change-ID: 20260507-ad5529r-driver-866bbdd864de
+To: Lars-Peter Clausen <lars@metafoo.de>,
+        Michael Hennerich
+	<Michael.Hennerich@analog.com>,
+        Jonathan Cameron <jic23@kernel.org>,
+        "David
+ Lechner" <dlechner@baylibre.com>,
+        =?utf-8?q?Nuno_S=C3=A1?=
+	<nuno.sa@analog.com>,
+        Andy Shevchenko <andy@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        "Jonathan
+ Corbet" <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Mark Brown
+	<broonie@kernel.org>,
+        Marius Cristea <marius.cristea@microchip.com>,
+        "Marcus
+ Folkesson" <marcus.folkesson@gmail.com>,
+        Kent Gustavsson <kent@minoris.se>,
+        Conor Dooley <conor.dooley@microchip.com>,
+        Daire McNamara
+	<daire.mcnamara@microchip.com>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>
+CC: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        Janani Sunil
+	<jan.sun97@gmail.com>, <linux-spi@vger.kernel.org>,
+        Kent Gustavsson
+	<nedo80@gmail.com>, <linux-riscv@lists.infradead.org>,
+        Janani Sunil
+	<janani.sunil@analog.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785914262; l=8886;
+ i=janani.sunil@analog.com; s=20260507; h=from:subject:message-id;
+ bh=1Vy4XQA0KdUtMIBTJC5PqWjtX/O8kiYcVRqMVlcWXPY=;
+ b=ZLIcggrIzqy3URLbwJQtD/97PL9HivRsovwlEXJRE5np7Q/O9h0vA4eK+/w5tdmh8B2qoCn0x
+ vDSDM74lHliAItXz3dNs75DQMaZUtrrf//fzd69mtPb76XcBYRCWxsZ
+X-Developer-Key: i=janani.sunil@analog.com; a=ed25519;
+ pk=e25MyjRLPY3RWrYm/LrJ+/+t1MZJUbkgIW5CZg+g+hA=
+X-ADIRuleOP-NewSCL: Rule Triggered
+X-Authority-Analysis: v=2.4 cv=SdzHsPRu c=1 sm=1 tr=0 ts=6a72e3b1 cx=c_pps
+ a=3WNzaoukacrqR9RwcOSAdA==:117 a=3WNzaoukacrqR9RwcOSAdA==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=0sLvza09kfJOxVLZPwjg:22 a=uXIjobp8t2wMuQ0fPvqm:22 a=VwQbUJbxAAAA:8
+ a=gAnH3GRIAAAA:8 a=4XpirmV3TBTceRdBKbIA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: llrDJW1LyvpO5K1RlWKDFDpfavsIo3e9
+X-Proofpoint-GUID: llrDJW1LyvpO5K1RlWKDFDpfavsIo3e9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA1MDA1NSBTYWx0ZWRfX/kzJfQOBrDtc
+ SXs6MXw6FVW/bUOJ1ko94eqsEfVHHuh38NJxMSi8uXjXspQfQvNjeDHP04oLdc9EC+byrlCcfrF
+ bLOfnhHJ1GbF3CUf9bX/3RMsqf0VbNf42yHvkEB8qx8OHOwKuXo/jqAp4tZ9uYpPd9nwZidrJgM
+ Frfh++oKbXhsRlvsPO7GN8Lz6HaHh4T0YU+s/LxjxgL+ss77lRcWIz/X4zwjtJooswTp8QoSOCi
+ AL1WnRZTqcFeRnrM1ifHFL6VLEWoVttZSTtnBjXHqqoFoxHemhdALrOvajQtVI1hhA6IWOiEoQS
+ sTTe65of8LBHlCv/2ipXNfT63b/+b4+iERpEFKzb55U/ckSrrdJMShSmq0EFwFFs5SqnTQ5bAB6
+ QysdoQ4VwSKpQf3R2+pjS500zBfaqCFVeh5IzAAFvXCGjU8UvR0SXCwHDhiM1MVMHnnXk2/LraM
+ 9P5FJUzwWsyh+hr18KA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODA1MDA1NSBTYWx0ZWRfX7FljMASf/5aQ
+ awwgFf5xCa8ZcggVdJcrhjNThKAfLtqVNeWiQtzNjs/iXqA+mvOUTaUCGFU7egn2lWmd3uJl+1w
+ MGvVMbbRf92gA9claCjuOv5dLQyTyMOXm5GW04kfUkKV309K2pU2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-05_02,2026-08-04_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 spamscore=0 phishscore=0 suspectscore=0
+ malwarescore=0 adultscore=0 bulkscore=0 lowpriorityscore=0 clxscore=1011
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608050055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_235204_201412_903470C4 
-X-CRM114-Status: GOOD (  25.43  )
+X-CRM114-CacheID: sfid-20260805_001822_422757_806678ED 
+X-CRM114-Status: GOOD (  25.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,245 +159,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a kernel command-line option, kvm-riscv.wfi_trap_policy=trap|auto,
-that controls whether a WFI executed by a VS-mode guest traps into KVM
-(HS-mode) or executes natively.
-
-HSTATUS.VTW governs VS-mode WFI: when set, the WFI traps into KVM, which
-blocks the vCPU through kvm_vcpu_halt() and releases the CPU to other
-runnable tasks; when clear, the guest runs WFI natively. Because RISC-V
-WFI is only a hint (it may be a no-op on some implementations), the
-policy is re-evaluated before each guest entry rather than fixed once
-at reset.
-
-  trap  : always trap VS-mode WFI into KVM (HSTATUS.VTW=1). This is the
-          default and preserves the previous unconditional behavior.
-
-  auto  : clear HSTATUS.VTW so the guest runs WFI natively only when the
-          vCPU is the sole runnable task on the current CPU; otherwise
-          keep trapping. When the vCPU is alone, skipping the
-          virtual-instruction exit cannot starve another task, and on
-          hardware that honors WFI the hart blocks until a VS-mode
-          interrupt. The policy is re-evaluated before every guest entry,
-          so when another task becomes runnable the next entry traps
-          again and KVM blocks the vCPU through kvm_vcpu_halt(), yielding
-          the CPU. The vCPU therefore never monopolizes the CPU the way
-          an unconditional native WFI would: it either blocks through
-          kvm_vcpu_halt(), or runs WFI natively only when no other task
-          needs the CPU.
-
-Measured on QEMU TCG (-smp 1, -cpu max): wfi_exit_stat delta and guest
-wake count over a 3 s window. "busy" adds a CPU-bound competitor that
-shares the vCPU's CPU so that single_task_running() reports false:
-
-  policy  busy  exits  wakes   cpu%  note
-  ------  ----  -----  -----   ----  ------------------------
-  trap    off    286    285    6.5   default; no regression
-  trap    on     291    290  101.0   trap is unconditional
-  auto    off      4    287    5.0   sole task: native WFI
-  auto    on     285    284  101.5   competitor -> traps
-
-With "auto", WFI exits drop to ~0 when the vCPU is the only runnable
-task, and rise back to the trap level as soon as a competitor appears,
-which is the desired dynamic behavior. Host CPU stays low in the
-sole-task case; the ~101% in the busy cases is the forked competitor,
-not the vCPU.
-
-Assisted-by: YuanSheng:deepseek-v4-pro
-Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Yuhang.Chen <yhchen312@gmail.com>
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202608051354.KYOXP5po-lkp@intel.com/
-
----
-Changes in v3:
-
-- Guard the early_param() parser with #ifndef MODULE. RISC-V KVM is
-  tristate and may be built as a module (CONFIG_KVM=m), but
-  early_param() is only defined for built-in code, so v2 failed to
-  compile as a module. With CONFIG_KVM=m the policy now keeps its
-  default (trap) value, which is safe and regression-free; the rest of
-  the policy logic is unaffected. The kernel-parameters.txt entry now
-  documents that the option is only honored when KVM is built in.
-
-- Re-evaluate the WFI trap policy before each guest entry instead of
-  only in kvm_arch_vcpu_load(). In v2 the policy was checked once when
-  the vCPU was loaded, so between two kvm_arch_vcpu_load() calls
-  HSTATUS.VTW could go stale: if a task of lower or equal priority woke
-  on the vCPU's CPU while the guest was running, the run loop would
-  re-enter the guest without re-checking and without preempting, and a
-  native WFI could then halt the hart and delay the woken task until the
-  next timer tick. Checking before every entry closes this window,
-  because a wakeup arrives through a host interrupt that forces a VM
-  exit, and the next entry re-evaluates and traps.
-
-Changes in v2:
-
-- Drop the "notrap" mode, which cleared HSTATUS.VTW unconditionally and
-  so never trapped: the vCPU never reached kvm_vcpu_halt() and could
-  stay busy even while idle.
-- Add the "auto" mode, which clears HSTATUS.VTW only when the vCPU is
-  the sole runnable task (single_task_running()) and otherwise traps.
-  The policy is applied dynamically from kvm_arch_vcpu_load() instead of
-  once at reset, so a vCPU that stops being the sole runnable task
-  switches back to trapping.
-- Update the kernel-parameters.txt entry for trap/auto.
-
-v1: https://lore.kernel.org/all/20260709115610.287420-1-yhchen312@gmail.com/
-v2: https://lore.kernel.org/all/20260804024707.2400404-1-yhchen312@gmail.com/
----
- .../admin-guide/kernel-parameters.txt         | 20 ++++++
- arch/riscv/kvm/vcpu.c                         | 72 +++++++++++++++++++
- 2 files changed, 92 insertions(+)
-
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index b5493a7f8f22..2ab9eb335e60 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -3254,6 +3254,26 @@ Kernel parameters
- 
- 			notrap: clear WFI instruction trap
- 
-+	kvm-riscv.wfi_trap_policy=
-+			[KVM,RISCV] Control when to set the WFI instruction
-+			trap (HSTATUS.VTW) for KVM VMs. The policy is
-+			re-evaluated before each guest entry, not only at
-+			reset, since RISC-V WFI is only a hint.
-+
-+			trap: always trap VS-mode WFI into KVM (HSTATUS.VTW=1)
-+
-+			auto: trap unless the vCPU is the only runnable task on
-+				the current CPU, in which case clear the trap
-+				(HSTATUS.VTW=0) and let the guest execute WFI
-+				natively
-+
-+			Defaults to trap, preserving the previous unconditional
-+			behavior.
-+
-+			Only honored when KVM is built into the kernel
-+			(CONFIG_KVM=y); as a module (CONFIG_KVM=m) the policy
-+			stays at its default (trap).
-+
- 	kvm_cma_resv_ratio=n [PPC,EARLY]
- 			Reserves given percentage from system memory area for
- 			contiguous memory allocation for KVM hash pagetable
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index cf6e231e76e2..8efeb74699cc 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -12,8 +12,10 @@
- #include <linux/kdebug.h>
- #include <linux/module.h>
- #include <linux/percpu.h>
-+#include <linux/string.h>
- #include <linux/vmalloc.h>
- #include <linux/sched/signal.h>
-+#include <linux/sched/stat.h>
- #include <linux/fs.h>
- #include <linux/kvm_host.h>
- #include <asm/cacheflush.h>
-@@ -26,6 +28,67 @@
- 
- static DEFINE_PER_CPU(struct kvm_vcpu *, kvm_former_vcpu);
- 
-+/*
-+ * WFI trap policy for VS-mode guests, controllable through the
-+ * kvm-riscv.wfi_trap_policy= kernel command-line option.
-+ */
-+enum kvm_riscv_wfi_trap_policy {
-+	KVM_RISCV_WFI_TRAP,	/* Always trap VS-mode WFI into KVM */
-+	KVM_RISCV_WFI_AUTO,	/* Trap unless the vCPU is the only runnable task */
-+};
-+
-+static enum kvm_riscv_wfi_trap_policy kvm_riscv_wfi_trap_policy __read_mostly =
-+	KVM_RISCV_WFI_TRAP;
-+
-+/*
-+ * RISC-V KVM is tristate and may be built as a module, but early_param() is
-+ * only defined for built-in code (see <linux/init.h>). Guard the command-line
-+ * parser accordingly: when CONFIG_KVM=m the policy simply keeps its default
-+ * (trap) value, which is the safe, regression-free behavior.
-+ */
-+#ifndef MODULE
-+static int __init early_kvm_riscv_wfi_trap_policy_cfg(char *arg)
-+{
-+	if (!arg)
-+		return -EINVAL;
-+
-+	if (strcmp(arg, "trap") == 0) {
-+		kvm_riscv_wfi_trap_policy = KVM_RISCV_WFI_TRAP;
-+		return 0;
-+	}
-+
-+	if (strcmp(arg, "auto") == 0) {
-+		kvm_riscv_wfi_trap_policy = KVM_RISCV_WFI_AUTO;
-+		return 0;
-+	}
-+
-+	return -EINVAL;
-+}
-+early_param("kvm-riscv.wfi_trap_policy", early_kvm_riscv_wfi_trap_policy_cfg);
-+#endif
-+
-+static bool kvm_riscv_vcpu_wfi_should_trap(struct kvm_vcpu *vcpu)
-+{
-+	switch (kvm_riscv_wfi_trap_policy) {
-+	case KVM_RISCV_WFI_AUTO:
-+		/* Native WFI only when the vCPU is the sole runnable task. */
-+		return !single_task_running();
-+	case KVM_RISCV_WFI_TRAP:
-+	default:
-+		return true;
-+	}
-+}
-+
-+static void kvm_riscv_vcpu_update_wfi_trap(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-+
-+	if (kvm_riscv_vcpu_wfi_should_trap(vcpu))
-+		cntx->hstatus |= HSTATUS_VTW;
-+	else
-+		cntx->hstatus &= ~HSTATUS_VTW;
-+}
-+
- const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
- 	KVM_GENERIC_VCPU_STATS(),
- 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
-@@ -73,6 +136,7 @@ static void kvm_riscv_vcpu_context_reset(struct kvm_vcpu *vcpu,
- 	/* Setup reset state of shadow SSTATUS and HSTATUS CSRs */
- 	cntx->sstatus = SR_SPP | SR_SPIE;
- 
-+	/* Trap VS-mode WFI by default; the run loop reapplies the policy before each entry. */
- 	cntx->hstatus |= HSTATUS_VTW;
- 	cntx->hstatus |= HSTATUS_SPVP;
- 	cntx->hstatus |= HSTATUS_SPV;
-@@ -936,6 +1000,14 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		 */
- 		kvm_riscv_local_tlb_sanitize(vcpu);
- 
-+		/*
-+		 * Re-evaluate the WFI trap policy for this entry so that
-+		 * HSTATUS.VTW tracks the current runnable-task count and
-+		 * cannot go stale across guest entries (which would let a
-+		 * native WFI halt the CPU while another task is runnable).
-+		 */
-+		kvm_riscv_vcpu_update_wfi_trap(vcpu);
-+
- 		trace_kvm_entry(vcpu);
- 
- 		guest_timing_enter_irqoff();
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBwYXRjaCBzZXJpZXMgYWRkcyBzdXBwb3J0IGZvciBBbmFsb2cgRGV2aWNlcyBBRDU1MjlS
+LCBhIDE2IGNoYW5uZWwKMTYgYW5kIDEyIGJpdCB2b2x0YWdlIERpZ2l0YWwtdG8tQW5hbG9nIENv
+bnZlcnRlciAoREFDKSB3aXRoIGludGVncmF0ZWQKcHJlY2lzaW9uIHJlZmVyZW5jZS4gVGhlIEFE
+NTUyOVIgb3BlcmF0ZXMgZnJvbSBib3RoIHVuaXBvbGFyIGFuZApiaXBvbGFyIHN1cHBsaWVzLiBU
+aGUgZGV2aWNlIGNvbW11bmljYXRlcyB2aWEgU1BJIGludGVyZmFjZS4KCioqRGV2aWNlIE92ZXJ2
+aWV3OioqClRoZSBBRDU1MjlSIGZlYXR1cmVzIDE2IGluZGVwZW5kZW50IERBQyBjaGFubmVscywg
+d2l0aCAxNiBvciAxMiBiaXQKcmVzb2x1dGlvbiwgYWxsb3dpbmcgaW5kZXBlbmRlbnRseSBwcm9n
+cmFtbWFibGUgb3V0cHV0IHJhbmdlcy4gVGhlCmludGVybmFsIDQuMDk2ViBwcmVjaXNpb24gcmVm
+ZXJlbmNlIHNldHMgdGhlIGFjY3VyYWN5IG9mIHRoZSBvdXRwdXQKdm9sdGFnZS4KClRoZSBkZXZp
+Y2UgY2FuIGVuY29kZSBhIGhhcmR3YXJlIGFkZHJlc3MgaW4gaXRzIFNQSSBjb21tYW5kIGZyYW1l
+LAphbGxvd2luZyB1cCB0byA0IGRldmljZXMgdG8gc2hhcmUgYSBzaW5nbGUgY2hpcCBzZWxlY3Qu
+IFRoaXMgc2VyaWVzCmludHJvZHVjZXMgYSBnZW5lcmljIHNwaS1kZXZpY2UtYWRkciBwcm9wZXJ0
+eSBmb3IgZGVzY3JpYmluZyB0aGlzIHR5cGUKb2YgYWRkcmVzc2luZy4KCioqRmVhdHVyZXMgSW1w
+bGVtZW50ZWQ6KioKLSBTdXBwb3J0IGZvciBBRDU1MjlSIDEyLWJpdCBhbmQgMTYtYml0IHZhcmlh
+bnRzIHZpYSBkZXZpY2UgbWF0Y2ggZGF0YS4KLSBTdXBwb3J0IGZvciBhIHNpbmdsZSBEQUMgZGV2
+aWNlIHVzaW5nIGFueSBoYXJkd2FyZSBhZGRyZXNzIGJldHdlZW4gMAogIGFuZCAzLgotIFJlc2V0
+IHN1cHBvcnQgdmlhIHJlc2V0IGNvbnRyb2xsZXIgZnJhbWV3b3JrLgotIER1YWwgcmVnbWFwIGNv
+bmZpZ3VyYXRpb24gdG8gaGFuZGxlIDggYW5kIDE2IGJpdCByZWdpc3RlcnMuCi0gUGVyLWNoYW5u
+ZWwgb3V0cHV0IHJhbmdlIGNvbmZpZ3VyYXRpb24gZnJvbSBkZXZpY2V0cmVlLgotIE9wdGlvbmFs
+IGV4dGVybmFsIHJlZmVyZW5jZSBhbmQgYmlwb2xhciBzdXBwbHkgaGFuZGxpbmcuCgoqKlBhdGNo
+IFN1bW1hcnk6KioKMS4gQWRkIHRoZSBnZW5lcmljIHNwaS1kZXZpY2UtYWRkciBTUEkgcGVyaXBo
+ZXJhbCBwcm9wZXJ0eS4KMi4gQUQ1NTI5UiBiaW5kaW5nIGRvY3VtZW50YXRpb24gd2l0aCBjaGFu
+bmVsIGNvbmZpZ3VyYXRpb24uCjMuIEltcGxlbWVudCBBRDU1MjlSIElJTyBEQUMgRHJpdmVyIHdp
+dGggcmVnbWFwIHN1cHBvcnQuCgoqKlRlc3Rpbmc6KioKVGhlIGRyaXZlciB3YXMgY29tcGlsZWQg
+YW5kIHRlc3RlZCBvbiB0aGUgRVZBTC1BRDU1MjlSLUFSRFogdXNpbmcgYQpjb3JhWjcgd2l0aCBh
+IG1haW5saW5lIHY3LjAga2VybmVsLgoKKipEcml2ZXIgUmF0aW9uYWxlOioqCkFENTUyOVIgaW50
+cm9kdWNlczoKMS4gQSB1bmlxdWUgcmVnaXN0ZXIgbGF5b3V0CjIuIE1peGVkIDgtYml0IGFuZCAx
+Ni1iaXQgcmVnaXN0ZXIgYWNjZXNzZXMKMy4gSGFyZHdhcmUgc3BlY2lmaWMgZmVhdHVyZXMgbGlr
+ZSBmdW5jdGlvbiBnZW5lcmF0b3JzLCBtdWx0aS1kaWUKaG90cGF0aCByZWdpc3RlcnMgZXRjLgoK
+VGhlIGRldmljZSB3YXJyYW50cyBpdHMgb3duIGRyaXZlciBkdWUgdG8gdGhlc2UgZnVuZGFtZW50
+YWwKYXJjaGl0ZWN0dXJhbCBkaWZmZXJlbmNlcywgdGhhdCB3b3VsZCByZXF1aXJlIHN1YnN0YW50
+aWFsIGNoYW5nZXMgdG8KZXhpc3RpbmcgZHJpdmVycyB3aXRob3V0IHByb3ZpZGluZyByZXVzYWJs
+ZSBiZW5lZml0cy4gVGhlIHN0YW5kYWxvbmUKZHJpdmVyIGFsc28gYWxsb3dzIGZ1dHVyZSBleHRl
+bnNpb25zIGZvciByZWxhdGVkIGRldmljZXMgaW4gdGhlIHNhbWUKZmFtaWx5LgoKKipOb3QgSW1w
+bGVtZW50ZWQgaW4gdGhpcyBTZXJpZXM6KioKVGhlIGJpbmRpbmcgaW5jbHVkZXMgZ2VuZXJpYywg
+cGVyaXBoZXJhbCBsZXZlbCBkZXZpY2UgYWRkcmVzc2luZyBuZWVkZWQgZm9yCm11bHRpLWRldmlj
+ZSBzdXBwb3J0IHVzaW5nIGEgc2hhcmVkIENTLCBidXQgdGhlIGRyaXZlciBwcmVzZW50bHkKc3Vw
+cG9ydHMgb25seSBhIHNpbmdsZSBkZXZpY2UuCgpTaWduZWQtb2ZmLWJ5OiBKYW5hbmkgU3VuaWwg
+PGphbmFuaS5zdW5pbEBhbmFsb2cuY29tPgotLS0KQ2hhbmdlcyBpbiB2ODoKLSBSZW5hbWUgdGhl
+IEFENTUyOVIgc3VwcGx5IHByb3BlcnRpZXMgdG8gbWF0Y2ggdGhlIGRhdGFzaGVldCBzdXBwbHkK
+ICBuYW1lcy4KLSBEZXNjcmliZSBhbmQgZW5hYmxlIGFsbCBmb3VyIHBvc2l0aXZlIGFuZCBmb3Vy
+IG5lZ2F0aXZlIGhpZ2gtdm9sdGFnZQogIHN1cHBsaWVzLgotIFJlamVjdCBkdXBsaWNhdGUgY2hh
+bm5lbCBub2RlcyBhbmQgY29uZmlndXJhdGlvbnMgd2l0aCB0b28gbWFueQogIGNoYW5uZWxzLgot
+IEFkZCB0aGUgcmVxdWlyZWQgMjAgbnMgZGVsYXkgYmV0d2VlbiByZXNldCBhc3NlcnRpb24gYW5k
+IGRlYXNzZXJ0aW9uLgotIEFkZCBhIG1hY3JvIHRvIHJlcHJlc2VudCB0aGUgbnVtYmVyIG9mIGNo
+YW5uZWxzLgotIFJldHVybiAtRU5PREFUQSB3aGVuIGRldmljZSBjYW5ub3QgYmUgaWRlbnRpZmll
+ZC4KLSBDbGFyaWZ5IHRoYXQgc3BpLWRldmljZS1hZGRyIGNvbnRhaW5zIG9uZSBhZGRyZXNzIHBl
+ciBwaHlzaWNhbCBkZXZpY2UuCi0gRHJvcCB0aGUgTWljcm9jaGlwIGJpbmRpbmcgYW5kIGRyaXZl
+ciBjaGFuZ2VzIGZyb20gdGhlIHNlcmllcy4KLSBEcm9wIGJyYWNrZXRzIGFyb3VuZCBzY2FsYXIg
+c3BpLWRldmljZS1hZGRyIGRlZmF1bHRzLgotIFNpbXBsaWZ5IHRoZSByZWdtYXBfYXNzaWduX2Jp
+dHMoKSByZWZlcmVuY2Ugc2VsZWN0aW9uIHZhbHVlLgotIExpbmsgdG8gdjc6IGh0dHBzOi8vbG9y
+ZS5rZXJuZWwub3JnL3IvMjAyNjA3MjItYWQ1NTI5ci1kcml2ZXItdjctMC03NzgxY2Q3NGFkNzVA
+YW5hbG9nLmNvbQoKQ2hhbmdlcyBpbiB2NzoKLSBEcm9wICNpbmNsdWRlIDxsaW51eC9tb2RfZGV2
+aWNldGFibGUuaD4KLSBBZGQgY29tbWVudCBvbiBtaW5pbXVtIEhXIHJlc2V0IGxvdyB3aWR0aC4K
+LSBGbGlwIHRoZSB2cmVmIHJlZ3VsYXRvciBlcnJvciBjaGVjay4KLSBDbGFyaWZ5IHdoeSBzcGkt
+ZGV2aWNlLWFkZHIgaXMgYW4gYXJyYXksIHdpdGggb25lIGFkZHJlc3MgcGVyIHBoeXNpY2FsCiAg
+ZGV2aWNlIHNoYXJpbmcgYSBjaGlwIHNlbGVjdC4KLSBBZGQgZGVmYXVsdCBhZGRyZXNzZXMgZm9y
+IG1jcDM1NjQgYW5kIG1jcDM5MTEgYmluZGluZ3MuCi0gSW5pdGlhbGl6ZSBBRDU1MjlSIHJlZ21h
+cCBjb25maWd1cmF0aW9ucyBsb2NhbGx5IHVzaW5nIGRlc2lnbmF0ZWQKICBpbml0aWFsaXplcnMu
+Ci0gVXBkYXRlICJQYXRjaCBTdW1tYXJ5IiBzZWN0aW9uIGluIHRoZSBjb3ZlciBsZXR0ZXIuCi0g
+TGluayB0byB2NjogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI2MDcxNS1hZDU1MjlyLWRy
+aXZlci12Ni0wLWNmZGY4YjlmNWVlM0BhbmFsb2cuY29tCgpDaGFuZ2VzIGluIHY2OgotIFJlbmFt
+ZSBzcGksZGV2aWNlLWFkZHIgdG8gc3BpLWRldmljZS1hZGRyIGFuZCBkZWZpbmUgaXQgYXMgYW4g
+YXJyYXkgYXQKICBwZXJpcGhlcmFsIG5vZGUgbGV2ZWwuCi0gRml4IHRoZSBTUEkgYmluZGluZyBw
+YXRjaCBzdWJqZWN0IHByZWZpeCB0byB1c2UgInNwaTogZHQtYmluZGluZ3M6Ii4KLSBBZGQgc3Bp
+LWRldmljZS1hZGRyIHRvIHRoZSBNQ1AzNTY0IGFuZCBNQ1AzOTExIGJpbmRpbmdzLgotIERlcHJl
+Y2F0ZSB0aGUgZXhpc3RpbmcgTWljcm9jaGlwLXNwZWNpZmljIGRldmljZS1hZGRyZXNzIHByb3Bl
+cnRpZXMuCi0gUmVwbGFjZSBhZGksb3V0cHV0LXJhbmdlLW1pY3Jvdm9sdCB3aXRoIG91dHB1dC1y
+YW5nZS1taWNyb3ZvbHQuCi0gTW92ZSBBRDU1MjlSIGRldmljZSBhZGRyZXNzaW5nIGZyb20gY2hh
+bm5lbCBub2RlcyB0byB0aGUgcGVyaXBoZXJhbAogIG5vZGUuCi0gSW5jbHVkZSBsaW51eC90eXBl
+cy5oCi0gSG9ub3VyIG5vbi16ZXJvIGhhcmR3YXJlIGFkZHJlc3MgaW4gdGhlIEFENTUyOVIgZHJp
+dmVyLgotIER5bmFtaWNhbGx5IGV4cG9zZSBvbmx5IHRoZSBjaGFubmVscyBkZXNjcmliZWQgYnkg
+ZGV2aWNldHJlZSBhbmQKICByZW1vdmUgdW51c2VkIHNjYW4gdHlwZSBkZWZpbml0aW9ucy4KLSBV
+c2UgZXhwbGljaXQgcmVzZXQgYXNzZXJ0aW9uIGFuZCBkZWFzc2VydGlvbiBhcyB0aGUgR1BJTyBy
+ZXNldAogIGNvbnRyb2xsZXIgZG9lcyBub3QgaW1wbGVtZW50IHJlc2V0X2NvbnRyb2xfcmVzZXQo
+KS4KLSBVc2UgdGhlIE1JQ1JPIGFuZCBNSUxMSSB1bml0IGNvbnN0YW50cyB3aGVuIG1hdGNoaW5n
+IG91dHB1dCByYW5nZXMuCi0gIFNpbXBsaWZ5IG9wdGlvbmFsIHJlZmVyZW5jZSByZWd1bGF0b3Ig
+aGFuZGxpbmcgYW5kIHJlbW92ZSB0aGUKICAgZXh0ZXJuYWwgcmVmZXJlbmNlIGNvbW1lbnQuCi0g
+U2ltcGxpZnkgZXJyb3IgbWVzc2FnZXMgYW5kIHN0aWNrIHRvIDgwIGNvbC4KLSBMaW5rIHRvIHY1
+OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYwNzAxLWFkNTUyOXItZHJpdmVyLXY1LTAt
+ZWQwODc5MDBlNjQyQGFuYWxvZy5jb20KCkNoYW5nZXMgaW4gdjU6Ci0gTW92ZSByZWdpc3RlciBi
+aXRmaWVsZCBkZWZpbml0aW9ucyBuZXh0IHRvIHRoZWlyIHBhcmVudCByZWdpc3RlcgogIGFkZHJl
+c3Nlcy4KLSBSZW1vdmUgc3B1cmlvdXMgZXh0cmEgaW5kZW50LgotIFJlbmFtZSBhZDU1MjlyX291
+dHB1dF9yYW5nZXNfbXZbXSB0byBhZDU1MjlyX291dHB1dF9yYW5nZXNfbVZbXS4KLSBSZW1vdmUg
+ZXh0cmEgcGFyZW50aGVzZXMgaW4gcmVnbWFwX3JlZ19yYW5nZSgpIGZvciB0aGUgcmVhZGJhY2sg
+cmFuZ2UuCi0gVXNlIHJlc2V0X2NvbnRyb2xfcmVzZXQoKSBpbnN0ZWFkIG9mIHJlc2V0X2NvbnRy
+b2xfZGVhc3NlcnQoKS4KLSBVc2UgMTAgKiBVU0VDX1BFUl9NU0VDIGluc3RlYWQgb2YgYSBiYXJl
+IDEwMDAwIGluIGZzbGVlcCgpLgotIFVzZSBmd25vZGVfcHJvcGVydHlfcHJlc2VudCgpIHRvIGV4
+cGxpY2l0bHkgZ3VhcmQgdGhlIG9wdGlvbmFsIHByb3BlcnR5LgotIFJld3JpdGUgZXh0ZXJuYWxf
+dnJlZiBkZXRlY3Rpb24gdXNpbmcgZXhwbGljaXQgaWYvZWxzZS4KLSBGb2xsb3cgcmV2ZXJzZSBj
+aHJpc3RtYXMgdHJlZSB2YXJpYWJsZSBkZWNsYXJhdGlvbiBvcmRlci4KLSBJbXByb3ZlIGludmFs
+aWQgY2hhbm5lbCBlcnJvciBtZXNzYWdlIHRvIGluY2x1ZGUgdGhlIG1heGltdW0uCi0gQWRkIGEg
+bmV3IHNwaSBwcm9wZXJ0eSB0byBpbmNsdWRlIHRoZSBTUEkgZGV2aWNlIGFkZHJlc3MuCi0gVXBk
+YXRlIGFkNTUyOXIgZGV2aWNldHJlZSBiaW5kaW5nIHRvIGFsbG93IG1vcmUgdGhhbiAxNiBjaGFu
+bmVscyB0byBpbmNsdWRlIG11bHRpcGxlIERBQ3MuCi0gVXBkYXRlIGNvdmVyIGxldHRlciB0byBh
+ZGQgYSBtZW50aW9uIGFib3V0IHRoZSBtdWx0aSBkZXZpY2Ugc3VwcG9ydC4KLSBVcGRhdGUgZHJp
+dmVyIGNvbW1pdCBtZXNzYWdlIHRvIGRlc2NyaWJlIHRoZSBkZXZpY2UgZnVydGhlci4KLSBMaW5r
+IHRvIHY0OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYwNjA5LWFkNTUyOXItZHJpdmVy
+LXY0LTAtMmU0YzAyMjM0YTFhQGFuYWxvZy5jb20KCkNoYW5nZXMgaW4gdjQ6Ci0gRml4IERUIGNo
+aWxkLW5vZGUgcmVnZXggZm9yIGhleGFkZWNpbWFsIGNoYW5uZWwgYWRkcmVzc2VzLgotIFdyYXAg
+bG9uZyBEVCBiaW5kaW5nIGRlc2NyaXB0aW9uIGxpbmVzLgotIFNpbXBsaWZ5IG9wdGlvbmFsIGB2
+cmVmLXN1cHBseWAgYW5kIGBodnNzLXN1cHBseWAgaGFuZGxpbmcuCi0gVXBkYXRlIFJFRl9TRUwg
+cHJvZ3JhbW1pbmcgZm9yIG9wdGlvbmFsIGV4dGVybmFsIHJlZmVyZW5jZSB1c2UuCi0gQ2xlYW4g
+dXAgcmFuZ2UgcGFyc2luZyBhbmQgZXJyb3IgbWVzc2FnZXMuCi0gU2ltcGxpZnkgZGVidWdmcyBy
+ZWdpc3RlciBhY2Nlc3MgYnkgY2FsbGluZyByZWdtYXAgaGVscGVycyBkaXJlY3RseS4KLSBBZGQg
+Y2xhcmlmeWluZyBjb21tZW50cyBmb3IgcmVzZXQgc2V0dGxpbmcgdGltZSBhbmQgUkFXIHJlYWRz
+IGZyb20gYERBQ19JTlBVVF9BYC4KLSBSZW1vdmUgYW4gdW51c2VkIHZyZWYgcmVndWxhdG9yIHBv
+aW50ZXIgYW5kIGFuIGluY2x1ZGUuCi0gUmVuYW1lIHRoZSBSRUZfU0VMIGJpdCBkZWZpbmUgYW5k
+IGNsZWFuIHVwIHNtYWxsIGRyaXZlciBkZXRhaWxzLgotIFRvZ2dsZSBwaW5zIGRlZmluZWQgYXMg
+UFdNIHBpbnMsIGluc3RlYWQgb2YgR1BJT3MKLSBVcGRhdGUgY292ZXIgbGV0dGVyIHRvIHN5bmMg
+dXAgbGF0ZXN0IGNoYW5nZXMuCi0gTGluayB0byB2MzogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
+ci8yMDI2MDUxOS1hZDU1MjlyLWRyaXZlci12My0wLTI2N2MwNzMxYWE2OEBhbmFsb2cuY29tCgpD
+aGFuZ2VzIGluIHYzOgotIFNwbGl0IGludG8gYWRpLGFkNTUyOXItMTYgYW5kIGFkaSxhZDU1Mjly
+LTEyIGRldmljZSB0cmVlIGNvbXBhdGlibGVzCi0gQWRkIERULWJhc2VkIG91dHB1dCByYW5nZSBj
+b25maWd1cmF0aW9uIHZpYSBhZGksb3V0cHV0LXJhbmdlLW1pY3Jvdm9sdAotIEV4cGFuZCBEVCBi
+aW5kaW5nOiB2cmVmLXN1cHBseSwgY2xlYXIvdGcgR1BJT3MsIGludGVycnVwdHMsIG11eG91dAot
+IENvcnJlY3QgcG93ZXIgc3VwcGx5IHZvbHRhZ2Ugc3BlY2lmaWNhdGlvbnMgYXMgcGVyIGRhdGFz
+aGVldAotIFJlZHVjZSBTUEkgZnJlcXVlbmN5IGxpbWl0IHRvIDI1TUh6IGFzIHBlciBkYXRhc2hl
+ZXQgc3BlY3MKLSBTd2l0Y2ggdG8gYXV0b2luY3JlbWVudCBhZGRyZXNzaW5nIG1vZGUsIHJlbW92
+ZSArMSByZWdpc3RlciBvZmZzZXRzCi0gVXNlIERUIG1hdGNoIGRhdGEgaW5zdGVhZCBvZiBkZXZp
+Y2UgSUQgZGV0ZWN0aW9uIGZvciBmYWxsYmFjayBzdXBwb3J0Ci0gSW1wbGVtZW50IGR5bmFtaWMg
+c2NhbGUvb2Zmc2V0IGNhbGN1bGF0aW9uIHBlciBjb25maWd1cmVkIGNoYW5uZWwgcmFuZ2UKLSBB
+ZGRlZCBleHBsaWNpdCB2YWxfZm9ybWF0X2VuZGlhbiBhbmQgcmVnX3N0cmlkZSBmb3IgMTYtYml0
+IHJlZ21hcCBidXMKLSBDb2RlIGNsZWFudXA6IGFscGhhYmV0aWNhbCBpbmNsdWRlcywgQVJSQVlf
+U0laRSgpLCB1bnVzZWQgZGVmaW5lcwotIE1pbm9yOiAuc2lnbuKGki5mb3JtYXQgZmllbGQsIHNp
+bXBsaWZ5IHJlYWQvd3JpdGUgb3JkZXIsIG9wdGlvbmFsIGh2c3Mtc3VwcGx5Ci0gUmVtb3ZlIHJl
+ZHVuZGFudCBkcml2ZXIgZG9jdW1lbnRhdGlvbiBhZDU1MjlyLnJzdAotIExpbmsgdG8gdjI6IGh0
+dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNjA1MDgtYWQ1NTI5ci1kcml2ZXItdjItMC1lMzE1
+NDQxNjg1ZDdAYW5hbG9nLmNvbQoKQ2hhbmdlcyBpbiB2MjoKLSBGaXggSUlPIHNjYWxlIHRvIHVz
+ZSBtaWxsaXZvbHRzIHBlciBBQkkgcmVxdWlyZW1lbnQKLSBGaXggZG9jdW1lbnRhdGlvbiB2b2x0
+YWdlIGNhbGN1bGF0aW9ucyAoMi41ViBub3QgMi4wNDhWKQotIEZpeCBiaXBvbGFyIHJhbmdlcyBp
+biBkb2N1bWVudGF0aW9uICjCsTVWLCDCsTEwViwgwrExNVYsIMKxMjBWKQotIEZpeCBhbHBoYWJl
+dGljYWwgb3JkZXJpbmcgaW4gZG9jdW1lbnRhdGlvbiBpbmRleAotIEFkZCBtaXNzaW5nIG5ld2xp
+bmUgdG8gZG9jdW1lbnRhdGlvbiBmaWxlCi0gRml4IHNjYWxlIHVuaXRzIGRlc2NyaXB0aW9uICht
+aWxsaXZvbHRzIG5vdCBtaWNyb3ZvbHRzKQotIEluY2x1ZGUgYSBzZWN0aW9uIGZvciBkcml2ZXIg
+cmF0aW9uYWxlIGluIHRoZSBjb3ZlciBsZXR0ZXIKLSBSZXdvcmQgY29udGVudHMgaW4gY292ZXIg
+bGV0dGVyIDEyLzE2IGJpdCBnZW5lcmljLT52YXJpYW50Ci0gQWRkIGRlcGVuZGVuY3kgYXJyYXkg
+Zm9yIHNwaS1jcGhhIGFuZCBzcGktY3BvbCBwcm9wZXJ0aWVzCi0gTGluayB0byB2MTogaHR0cHM6
+Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI2MDUwNy1hZDU1MjlyLWRyaXZlci12MS0wLWI0NDYwZjNj
+YjQ0ZkBhbmFsb2cuY29tCgotLS0KSmFuYW5pIFN1bmlsICgzKToKICAgICAgc3BpOiBkdC1iaW5k
+aW5nczogQWRkIHNwaS1kZXZpY2UtYWRkciBwZXJpcGhlcmFsIHByb3BlcnR5CiAgICAgIGR0LWJp
+bmRpbmdzOiBpaW86IGRhYzogQWRkIEFENTUyOVIKICAgICAgaWlvOiBkYWM6IEFkZCBBRDU1MjlS
+IERBQyBkcml2ZXIgc3VwcG9ydAoKIC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL2lpby9kYWMvYWRp
+LGFkNTUyOXIueWFtbCAgIHwgMjU0ICsrKysrKysrKysKIC4uLi9iaW5kaW5ncy9zcGkvc3BpLXBl
+cmlwaGVyYWwtcHJvcHMueWFtbCAgICAgICAgIHwgICA3ICsKIE1BSU5UQUlORVJTICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA4ICsKIGRyaXZlcnMvaWlvL2RhYy9L
+Y29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDE3ICsKIGRyaXZlcnMvaWlvL2Rh
+Yy9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGRyaXZlcnMvaWlv
+L2RhYy9hZDU1MjlyLmMgICAgICAgICAgICAgICAgICAgICAgICAgIHwgNTMwICsrKysrKysrKysr
+KysrKysrKysrKwogNiBmaWxlcyBjaGFuZ2VkLCA4MTcgaW5zZXJ0aW9ucygrKQotLS0KYmFzZS1j
+b21taXQ6IDkzZGY4ODYxMjg1OWU4ZTE5ZGVjOTNjNjlkNTYzYjRiNzNlOWJkNGIKY2hhbmdlLWlk
+OiAyMDI2MDUwNy1hZDU1MjlyLWRyaXZlci04NjZiYmRkODY0ZGUKCkJlc3QgcmVnYXJkcywKLS0g
+CkphbmFuaSBTdW5pbCA8amFuYW5pLnN1bmlsQGFuYWxvZy5jb20+CgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
