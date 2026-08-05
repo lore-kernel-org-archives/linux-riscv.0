@@ -4,104 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB1CC55174
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 18:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0459C55174
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 18:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WelyZs3HSivWU3rGLuHM2E2rCZ9bJo0L/LK4woqvJI8=; b=ZPjjuMRRdvHRpl
-	U1WG8NcUsIhFNpB7cqooJPUETom9hsurF23bYqGK2xWK/D4zypLZY6e/NvQFT76JsWyJXen+cTd/k
-	BPxSfXAkOMKdGJmmnQ2hk+yICEr2mIrtR0NO2UG+EJWEgBpJRFFY03wUn++3JEKlrc2ZJ8lR29rEN
-	bIlVZQT4p7ToUsILC39ZO82Iia3tH/mtwlcLWFAUQdIoFqBPLLfXMLZ3vx3AvsqhfqWj/v4KQ4D0d
-	7cT2vG95dJtjGb+zL7evC/Nvm10sX7TGtA1VmzLnwHHBBv/7qz1nrjL4PmsjqNYe+ZkVD2a+6/aNH
-	ocGmSh5WMfjwwHsiJO9g==;
+	List-Owner; bh=hOYcOVoxseO78IAqONz0MLBfZr6/wspW4N7Hcgym3LE=; b=MaFdjOdHcYBNqS
+	ZqiC3yGq/nwpPVyrcPCjA2xwFMaRoMiC82axIogzSHQVxY1lzKnF6qDbD3cyHDp30TfPgW6Am6DjZ
+	dlFt4a063Fjhh4xLKev851mTlcGC9+3kXicGalcUykkMBOpmKS1aunV4sPLtcYt172gpSlpP/sKQS
+	Gv9teBXdIAPuogy3x5WRQtC/HtfBb+amBAJyRjc9xi/+X8kM4GZVYJz73vzrEu96JuBjKg/R79ZZD
+	kK+UAVO8DhmOKyBtS+FBORvE71oZHZExUtJc0qrRfRmOdq5ta9x/aTtfLMaoYMtYRv9NVJlI2076D
+	+piUWH982+BUhKPwG7xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrgXb-00000004PZx-0rzl;
-	Wed, 05 Aug 2026 18:40:35 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1wrglO-00000004Pzy-1wpX;
+	Wed, 05 Aug 2026 18:54:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrgXY-00000004PZ0-1I2I
+	id 1wrglN-00000004Pzq-1hyc
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Aug 2026 18:40:33 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7ec49608332so729354a34.3
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Aug 2026 11:40:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1785955231; x=1786560031; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=v2ZwIEMBkvqF+IdFhwC9OUYBf8UgY4VA+Dk6J9NvywQ=;
-        b=e+DkDM3OkO8nE56ZcQpIiVfycdQ0etIxfcTcNk1GaOOm114Uo9dZ39pUQGtH9nVXCK
-         LIRNeDRmSEbad1baeaRXGH2qLOUPlFAuK2EKMePi5vUgl9gqexh/SYZZoETe/HECkpv0
-         jGpNYc/7UqOmw/jhg6hGR7xSEMoztfzlq8LsXmrhW/B3DFXBRWZHrX6mLW/3pMzki+sj
-         a4aasxU3A9XxpvGc5nDLHtKwf8mwF6agP7JCNM0Bg+9g6HP8xSkzdxgEne1M9HMeZZAu
-         iCgRYB8/qFmby1fQYapnj2QGUhWeY++gr90jrNqdksJJb2t7e2JbG5rvhibx7kqWCN1O
-         1Y1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785955231; x=1786560031;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=v2ZwIEMBkvqF+IdFhwC9OUYBf8UgY4VA+Dk6J9NvywQ=;
-        b=WEglkvXHcdCqOcOxFaEcenbQEu72d3m0KgJfHdBwGBCoH44LKS5qT14vSTQLRetI55
-         XyyPxkfRqcZ9ARwZHsyI5YpcXy+UGsD9hKsD7+h0aV5ofyuFqPksPtxJ90ZFgEY32P91
-         9CqseqHgconLok5PiReY/HXDnhAHR0nBhNUU6mHTsn2y/VYKbVxYxCkNimNh9Q0oXS+X
-         Qi2gc5uMjV3GYm2vDDotahbB2mQFg8kNSDW50Fnw2CzqEsdfJ5S6enx2V6Hd3lLsi7H4
-         er1cgkK5RVESElO605AXBWVV+lNv5Yzm4R5gpfdRoykhsTG+2oSAbtzwh5fcJulbaqka
-         8GQw==
-X-Forwarded-Encrypted: i=1; AHgh+RpIAZMgfoNbRBRFFb090Fk4bZgP7rtGn7mY0LrjQ6OplryugSEQJ0AWz4Yjp59vfbGt/U//FHd5DbwiNQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvYMeKfLX08gAuKwucqskdyGl0f+Kkw9TyDDarVCcQpGmYvuXC
-	6B825vtvI9rWgbiYCTev5mEll+VAB/rrhwFlZPgrrn/03q97lgWi/UiHR93VF8tmuHriG6ClM8c
-	br3pNB3qGMA==
-X-Gm-Gg: AR+sD11RBEgcSX/Rvj420M3l3C5MQxypv8NMTAe10OhP2bXvp59au3cAIs7rlPaBhCx
-	6rBMhXDGFSFPobtPEPfO6sMECNqP1+5B8FsONFtQ/f71OA5V2mduDzXhHfUoHaAL7S4q2d2PCJU
-	WbXOWnk7e9TewiVZX9PiCq4C1PtBeaC87OyfJD/Pg4sSqNsvGxAm4a8VaRUFM5UJgyGNZ7OEsdy
-	MJXGDorCJOfqvUynvcxx8orxRsEFbEa2/1jrqZfulxOkDWqdQKuCJ78wQL8QYQ9xvyRgvhWw6la
-	VM/r3caGmg4n1JLsqT4RUxRFrDosmEJHsOFxKymE88A2CbUw/YaXR72e+0JIknIpbV1/ytXQ2/5
-	vUAcoNWRhwdazFEQjrjCIirn3KDGc8eN5bwFt4C0OjQXzoYo3XgR0NJ9kFYKIZLj3weD9vWybjm
-	00dLdUcchl+E/cHA72x+BvTNKcHxUBipEiZ+l1JjSu+Hkd+aFgDhFjwo+70LXfPdYg+LXOkWZsp
-	HDmr4PBnBOmfVxS
-X-Received: by 2002:a05:6820:4d0b:b0:6a1:83aa:4439 with SMTP id 006d021491bc7-6ae96ed3988mr4754367eaf.18.1785955230895;
-        Wed, 05 Aug 2026 11:40:30 -0700 (PDT)
-Received: from [192.168.86.29] ([47.232.46.70])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6ae94012334sm4073784eaf.9.2026.08.05.11.40.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 05 Aug 2026 11:40:29 -0700 (PDT)
-Message-ID: <cc671848-f954-41bf-b7a9-ba34c29593ec@oss.tenstorrent.com>
-Date: Wed, 5 Aug 2026 13:40:27 -0500
+	Wed, 05 Aug 2026 18:54:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4ED7043825;
+	Wed,  5 Aug 2026 18:54:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C259C1F000E9;
+	Wed,  5 Aug 2026 18:54:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785956087;
+	bh=LZFgktKwDepiLJ2wPxJe5QgCEqoGd2XF3OANmnNyJgI=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=C0Kz/AYmxT/OnCfSlVLghSdaaDWTgsFLSNNPkhWLjyL8GZNtXeMtxEVfnCjeSZXJy
+	 YybQzXRgTaoeNIJkZ2nVU+b3Tlj7IAnZdHs+9/ayNPYxOc6ReFkubyT09326N7OPdW
+	 mziOxpsjXk1rqwEWAskVX8sU6IDrSen8yFF5M9qRcGet9MjOwTbtVcNYSqFDr1TNA4
+	 LCt4FenzirOQVgUKEIDpimJFAJC2i0+yfJSTV57JnuHujHh1vwMytbJTaL+Sx+vu/G
+	 y/o1GXTayoPj8T0mnhTe6/CaIJXLmcgagqrRM/gj8+B99BJma7A0Bz0LK8I67rmZkB
+	 VCHNJSWclcntQ==
+Date: Wed, 5 Aug 2026 12:54:42 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Drew Fustini <fustini@kernel.org>
+cc: Adrien Ricciardi <aricciardi@baylibre.com>, 
+    Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra <atishp@rivosinc.com>, 
+    Atish Patra <atish.patra@linux.dev>, Babu Moger <babu.moger@amd.com>, 
+    Ben Horgan <ben.horgan@arm.com>, Borislav Petkov <bp@alien8.de>, 
+    Chen Pei <cp0613@linux.alibaba.com>, 
+    Conor Dooley <conor.dooley@microchip.com>, 
+    Conor Dooley <conor+dt@kernel.org>, 
+    Dave Hansen <dave.hansen@linux.intel.com>, 
+    Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>, 
+    Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai <gsh517@gmail.com>, 
+    guo.wenjia23@zte.com.cn, James Morse <james.morse@arm.com>, 
+    =?ISO-8859-2?Q?Kornel_Dul=EAba?= <mindal@semihalf.com>, 
+    Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn, 
+    Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+    Peter Newman <peternewman@google.com>, 
+    =?ISO-8859-2?Q?Radim_Kr=E8m=E1=F8?= <rkrcmar@ventanamicro.com>, 
+    Reinette Chatre <reinette.chatre@intel.com>, Rob Herring <robh@kernel.org>, 
+    Samuel Holland <samuel.holland@sifive.com>, 
+    Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+    Tony Luck <tony.luck@intel.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, 
+    Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>, 
+    yunhui cui <cuiyunhui@bytedance.com>, 
+    Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>, 
+    linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+    x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
+    linux-doc@vger.kernel.org
+Subject: Re: [PATCH v6 3/8] riscv: Add support for srmcfg CSR from Ssqosid
+ extension
+In-Reply-To: <20260729-dfustini-atl-sc-cbqri-dt-v6-3-7c22b05d461b@kernel.org>
+Message-ID: <3b6dd35e-dabb-3cb0-547f-0c8a0b035e1a@kernel.org>
+References: <20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org> <20260729-dfustini-atl-sc-cbqri-dt-v6-3-7c22b05d461b@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT] Re: [PATCH 1/2] riscv: hwprobe: export the availability of
- vector to user
-To: Florian Weimer <fweimer@redhat.com>, Andy Chiu <tchiu@tenstorrent.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
- kito.cheng@sifive.com, dfustini@oss.tenstorrent.com,
- greentime.hu@sifive.com, Andrew Jones <andrew.jones@oss.qualcomm.com>,
- Nutty Liu <nutty.liu@hotmail.com>,
- Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>,
- Yao Zihong <zihong.plct@isrc.iscas.ac.cn>, Xu Lu
- <luxu.kernel@bytedance.com>, Aleksa Paunovic
- <aleksa.paunovic@htecgroup.com>, Jingwei Wang <wangjingwei@iscas.ac.cn>,
- Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>,
- =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- linux-api@vger.kernel.org, Jeffrey Law <jeffrey.law@oss.qualcomm.com>
-References: <20260723222109.2229089-1-tchiu@tenstorrent.com>
- <20260723222109.2229089-2-tchiu@tenstorrent.com>
- <87bjbwk0q5.fsf@oldenburg.str.redhat.com>
-From: Peter Bergner <bergner@oss.tenstorrent.com>
-Content-Language: en-US
-In-Reply-To: <87bjbwk0q5.fsf@oldenburg.str.redhat.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_114032_462733_89BB7BAC 
-X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,45 +94,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Back from vacation and I don't see that Florian's question was answered, so...
-Also adding Jeff in on CC, since Jeff, Palmer and I have discussed this on the
-GCC patch review call.
+Hi,
+
+On Wed, 29 Jul 2026, Drew Fustini wrote:
+
+> Add support for the srmcfg CSR defined in the Ssqosid ISA extension.
+> The CSR contains two fields:
+> 
+>   - Resource Control ID (RCID) for resource allocation
+>   - Monitoring Counter ID (MCID) for tracking resource usage
+> 
+> Requests from a hart to shared resources are tagged with these IDs,
+> allowing resource usage to be associated with the running task.
+> 
+> Add a srmcfg field to thread_struct with the same format as the CSR.
+> The context-switch path writes the field to the CSR, and
+> resctrl_arch_set_closid_rmid() updates it when a task is assigned to a
+> resctrl control or monitoring group.
+> 
+> A per-cpu cpu_srmcfg_default holds the default srmcfg for each CPU, set
+> by resctrl_arch_set_cpu_default_closid_rmid() on CPU group assignment.
+> On context switch, RCID and MCID inherit from the CPU default
+> independently: a task whose thread RCID field is zero takes the CPU
+> default's RCID, and likewise for MCID.
+
+Thanks, queued for v7.3, but with one change (below):
+
+> diff --git a/arch/riscv/include/asm/qos.h b/arch/riscv/include/asm/qos.h
+> new file mode 100644
+> index 000000000000..cf19e8438bb9
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/qos.h
+> @@ -0,0 +1,74 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_RISCV_QOS_H
+> +#define _ASM_RISCV_QOS_H
+> +
+> +#include <linux/percpu-defs.h>
+> +
+> +#ifdef CONFIG_RISCV_ISA_SSQOSID
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/cpufeature.h>
+> +#include <linux/sched.h>
+> +
+> +#include <asm/csr.h>
+> +#include <asm/hwcap.h>
+> +
+> +/* cached value of srmcfg csr for each cpu */
+> +DECLARE_PER_CPU(u32, cpu_srmcfg);
+> +
+> +/* default srmcfg value for each cpu, set via resctrl cpu assignment */
+> +DECLARE_PER_CPU(u32, cpu_srmcfg_default);
+> +
+> +static inline void __switch_to_srmcfg(struct task_struct *next)
+> +{
+> +	u32 thread_srmcfg, default_srmcfg;
+> +
+> +	thread_srmcfg = READ_ONCE(next->thread.srmcfg);
+
+What is the intent of the READ_ONCE() here?  
+
+I've dropped it from what's been queued for now.  If it's really 
+needed, please let us know why.
 
 
-On 7/24/26 7:53 AM, Florian Weimer wrote:
-> What is the expected behavior if RISCV_HWPROBE_KEY_EXT_ENABLED is not
-> supported?
+thanks,
 
-Unknown keys are ignored by the kernel modulo that the unknown key value
-is reset to -1.  This means we can safely pass RISCV_HWPROBE_KEY_EXT_ENABLED
-to both old and new kernels.
-
-Andy did look at possibly adding a new "flag" value, rather than a new "key",
-but old kernels basically rejected the entire hwprobe call for unknown flag
-values and so doing that would not be a userspace simplification.
-
-
-> We only get a true userspace simplification over hwprobe + prctl if we
-> can disable vector extension usage if the kernel does not support
-> RISCV_HWPROBE_KEY_EXT_ENABLED (so a V usage regression for older
-> kernels).  Otherwise we'd have to use the new approach and, as a
-> fallback, the old combination of hwprobe and prctl.
-
-Since the kernel ignores unknown keys, we do get a userspace simplification
-over hwprobe + prctl.  The plan is for our GLIBC IFUNC resolvers to just have
-one hwprobe call (as they do now) with RISCV_HWPROBE_KEY_EXT_ENABLED as the
-first key and RISCV_HWPROBE_KEY_IMA_EXT_0 as the second key.
-
-We also don't need to have any configure time checks in GLIBC to see whether
-we can pass the new key to the kernel or not, we can just blindly pass it in.
-On old kernels, we'll get the "extension is present" result for the key
-RISCV_HWPROBE_KEY_IMA_EXT_0 we're currently getting now, while on new kernels,
-we'll get the better "extension is enabled" result.
-
-
-Peter
-
-
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
