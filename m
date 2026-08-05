@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CB5C55ABA
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 13:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D46C55174
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 14:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wFW9wLVw9Ax1V1bGf/m41vsvoOQcyZ0OOpMYNQD3eTc=; b=XLETaofqnFRXzg
-	iLwGuXNtVuXVX7fUS4y1/+TkKOM2RCJredqEWRnnThV7G2+VuMOWKLaNu7qGzGlDHAvvz23hJfdE4
-	duZFV5JI/mG2tXsRyM01oCKB2Mad9Z60Q+dv+er7UKv1sxdbikO/5PtTuNR2y/iL5ZiN3Lhn6a7WP
-	Y0QWDChE1qoHxjQSV/5BSTkh3SCS3qr7yr543l3o8qHof3P+d9r1di9PDo2oXZx9fD6pM7n3qKa/N
-	ORfefJEtlLwI0DCOJmmewuHM+/OaOD7TYPwL5wh2Om6AJvPF9N4cGt+LHhHhrGRU0IZ0dApcA2UX/
-	iusWOZpolJJ3PfY9c0Cg==;
+	List-Owner; bh=9JfAbQp126u9IEBwSXF/mc8XuIKw0AsCCmV2pHFC3ik=; b=i9SsYIA4V3+XDg
+	EhIuRsXdhJsVf5DgIaJYmmhlDJp5FPPJZ2IaV510bvMnINzJsr1JcIyP8IerlQ0zL5hJwoXfW0tgr
+	G7P9SlaLRbO4o7vl5tIRJDhoQeFkdNafQeKWvC9M8cpPF2hFzZGLMRzjG6M0MXQe94pY1xfD0/CjN
+	4EmHE0x+BekZU56Q9T8ofZj/kKXxOgjWH4KEx4I7QmKNlsK3GG/3h3sTORUv/0n5Z+SIP4Z+bP3DA
+	unljHV+d3F/apCeU7rU0Mb08nI3FC4M0nxS/m2bAfWbUdRqXDyLdLSFWv9cTPHqtYYxYFMkU+z8zS
+	jsW7d7wFC/Cm+nI7eINA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbs5-000000040YD-26Pp;
-	Wed, 05 Aug 2026 13:41:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wrcpR-000000046DF-0oLG;
+	Wed, 05 Aug 2026 14:42:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbs3-000000040Y6-3eIm
+	id 1wrcpQ-000000046Cu-0C2H
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Aug 2026 13:41:23 +0000
+	Wed, 05 Aug 2026 14:42:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6024F42E93;
-	Wed,  5 Aug 2026 13:41:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3F981F000E9;
-	Wed,  5 Aug 2026 13:41:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 853184360F;
+	Wed,  5 Aug 2026 14:42:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C82981F000E9;
+	Wed,  5 Aug 2026 14:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785937283;
-	bh=RYj/wJsPNPiCwZB0BrZVoozSYFvU01Oky1FUJmpEOEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=myDkPRoTj2iEmDN0EN80Dhd2MtCtolJTdeQ3rYzTWgEVxImBGxK21O/DJ/VN9BW4G
-	 KGK3uYrSjc4UYtX6ufpH3cU7ZSmW5TTPFoASV1YT7w+ZA0rKTbx4G86AHM6DP4iARW
-	 T0nNLDnApmF5gmZ4h8dnfzZKuAuTjmYxPzn+8ncGJthjZdSjRUkQfLDYpxbDN+uyav
-	 7j0eqpcRzTMEvCFmY1tnIst6DnjHaiFcqyJ1f1Yo6cc6gbilYP4EhiO1cpElCRNdg5
-	 nXmZHXgRcPoMdRQENZXcBFuN982usyC/ltA+I06QVnnukOJvwfHRu1YvHJ7GtjW9m5
-	 vhfTthGpjDfog==
-Date: Wed, 5 Aug 2026 13:41:19 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.dev>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v3 6/6] riscv: dts: spacemit: Add CTF2301 on K3 CoM260
-Message-ID: <20260805134119-GKJ77474@kernel.org>
-References: <20260805-ctl2301-v3-0-fd4b8ffb5b0d@linux.dev>
- <20260805-ctl2301-v3-6-b86c75d1c552@linux.dev>
+	s=k20260515; t=1785940963;
+	bh=PPxR34jY6D9VQ7CMGLhqEjpb1OBmeanD7WDc/7omm54=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=UeVV5QWClFvjWxB5PxrHgdGKCQJoVNalA99EYF79GCsfnLKaTa8AxKiXaypJsCBor
+	 UrZx64ETpgDXvmGae4rr6mX54oEH4JnNbCPQXFLB2bkrohG4Qimeez54hgEo4bFL1a
+	 duq3ktIjuwNbXXJHid+a6HZw8v7EzmUTwgJls9HfIRDjE2iA9VgB+mv6YMFUJxcZFD
+	 saHyei6AhqT1+T1Vgfe7cHSDGY/LsGZEZwSwf2ELUaTWMzO5VoVFWnU8ua+CcGPQbM
+	 cp+csBFESQotDQnQEA34dIDq6u47p90jLqukmAlhQB52/ToMCyDcpZ9s+dReWfyVad
+	 zAvb9nQdfNF1Q==
+Date: Wed, 5 Aug 2026 08:42:39 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Drew Fustini <fustini@kernel.org>
+cc: Paul Walmsley <pjw@kernel.org>, soc@kernel.org, 
+    Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+    Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
+    Conor Dooley <conor@kernel.org>, 
+    Marek Szyprowski <m.szyprowski@samsung.com>, linux-kernel@vger.kernel.org, 
+    linux-riscv@lists.infradead.org
+Subject: Re: [GIT PULL] RISC-V defconfig changes for v7.3
+In-Reply-To: <anKwl/5re7CMFTXF@x1>
+Message-ID: <42f428e2-8bb8-b14d-7ed3-e618bb467356@kernel.org>
+References: <al+cTw/+z7xoJXxp@x1> <55196187-178b-1f88-0947-1612410372e0@kernel.org> <anKwl/5re7CMFTXF@x1>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260805-ctl2301-v3-6-b86c75d1c552@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +72,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-hi Troy,
+On Tue, 4 Aug 2026, Drew Fustini wrote:
 
-On 02:00 Wed 05 Aug     , Troy Mitchell wrote:
-> Enable I2C6 on the K3 CoM260 module and describe the Sensylink
-> CTF2301 temperature sensor and fan controller at address 0x4c.
+> Thank you for checking but this was already pulled by Arnd:
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?id=6495ae297ceb
 > 
-> Set the I2C6 pin power source in the board-level pinctrl node
-> because the IO rail voltage is board-specific.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
-> ---
->  arch/riscv/boot/dts/spacemit/k3-com260.dtsi | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-> index a38d7b738258..95a60fbb411f 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-> @@ -26,6 +26,25 @@ reg_5v_sys: regulator-5v-sys {
->  	};
->  };
->  
-..
-> +&pinctrl {
-> +	i2c6-1-cfg {
-I'd prefer to use the reference, keep it short & close to where it's used
+> It seems the patchwork reply had a narrow scope compared to my post:
+> https://lore.kernel.org/all/178491121788.3229915.9040423834090729571.git-patchwork-notify@kernel.org/
 
- &i2c6_1_cfg
+Oh, okay, thanks.
 
-> +		i2c6-1-pins {
-> +			power-source = <3300>;
-> +		};
-> +	};
-> +};
-> +
-> +&i2c6 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c6_1_cfg>;
-> +	status = "okay";
-> +
-> +	temperature-sensor@4c {
-> +		compatible = "sensylink,ctf2301";
-> +		reg = <0x4c>;
-> +	};
-> +};
-> +
->  &i2c8 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&i2c8_cfg>;
-> 
-> -- 
-> 2.55.0
-> 
 
--- 
-Yixun Lan (dlan)
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
