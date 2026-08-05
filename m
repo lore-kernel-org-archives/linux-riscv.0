@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D050DC55838
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 00:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF174C55838
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 00:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nBK0fIY6NAN2Tn8lbzQIlf/2Eujt8+5+pknVKwcDXqQ=; b=nhG446XSnn5O2vqmOG+pSRqD8F
-	pdqTynW8xV9pulz3PdPPoIgSo4l6qS1a+RyIy/Mmv8lXk47KMQuy7bAg17Ftdcp7aOLhdFYsTggjv
-	eMm0uNsZt7x2VvvSJGs8jHjvm4YZfaYqhcXQ5SsV7cR4xOB0Lyo8hrkqizYTp7CxCIiXEEm5vHOC/
-	v96710bY1CcQ1HvYsckvHDwWMSGzll+4kWy8dhYBV/Z2hSpd7O0VkN9+pipXY/fg960QaMSd4e1Ig
-	pigv2EJfJE50vK9tmYhJaI9COXjD5cz2B+Akxm/PAkSj9anfOk1Byyqx/LvgITunO7yY3tDooErzs
-	t8YLtTgw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qki8NQXZGsp6ZyVR+9o9HaT8kU6TBVKvFrnQQvcZd2Y=; b=YrzCXmijC4VYsK
+	V384q9Ildi29dmV3LigASZcBj1Px1P9T0yXWWywDC9ynpPX9uUcH+XuRpczLaigeJlvHisxQtEy/5
+	43x5CszYm97JHg+Kq08+l+b9hPx3U4tL9z4X1CBR1JgJOS4o8rajS4Pn8jFjNNZ+5/zEvngsc+zMq
+	jZyhc+zIfU+dT8ewISzhUbsRfyTw++5T3C2+bNTl2MK7w1iIVc+hvYNdgyeERA7qSj/slJ0nXeZCE
+	bh8NUcDwAGy1/NnNIjkFMT+j8eWD2lv4pl6riz2ykxYjGbIjcfMIMmOs0z/1PG9AT1poyTVVeYGDi
+	aIMz4QvMrOsOvMwvpinw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPkJ-0000000302e-37l7;
-	Wed, 05 Aug 2026 00:44:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wrPkd-000000030Ae-3wqQ;
+	Wed, 05 Aug 2026 00:44:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPkI-0000000302I-3lmG;
-	Wed, 05 Aug 2026 00:44:34 +0000
+	id 1wrPkc-0000000309B-1FYd;
+	Wed, 05 Aug 2026 00:44:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4ADFD4098F;
-	Wed,  5 Aug 2026 00:44:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 667CB1F000E9;
-	Wed,  5 Aug 2026 00:44:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BB48360052;
+	Wed,  5 Aug 2026 00:44:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F8BD1F000E9;
+	Wed,  5 Aug 2026 00:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785890674;
-	bh=wFCTgjq/Or5ODBbk63bIcNg5rXXpjU6nYEFW2W/vpgM=;
+	s=k20260515; t=1785890693;
+	bh=2Y/GClhk5EHpUKcceQDAHdolG3lD11V+IrqaCA9JD5k=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=I6BCuT7oNHKdpzh8SNOspbcleBbAqGTe1saidqIrXWaZdnn1avMTLm1xQACJ3gxlE
-	 53zyVvDbW4Ts5xLDPQJXAANNAAkKVMRcgwYF4rij4+sFW0oHVCWgucuK8KFoi+ZcCX
-	 Vx09j/Av84C04PfSnF1f4/4YlLtn4ooGL4ZFb02MTQ1enhzlbZ2GIPJkU7exwvOJ1C
-	 hHGfEA/tUV3MS4Bc3XBqKzfwiBrjdGr5RlT0SvLwe2EsI0R1EaPP8m2jWEw8mbJXRU
-	 T3cGf/OZvQRK6uK01NUECxV3CqoDG1I8Q7ltnBoLVDPUggjAyGbf7Eua7nqP6u02aq
-	 hoZZOhobHuyHQ==
-Date: Tue, 4 Aug 2026 18:44:31 -0600 (MDT)
+	b=jU9CCpmhzzEP1GFHQ6gK4+x//Tb+0spelDugOnnD+bjbCQCRdG4IPzg87xS3QU+ob
+	 sFHmrFBGDF2+L5ojKPsrjf4GcMJMqaKRKAbxLAqu6z+aMaBrGTwzwvvHn9zCb9l4gV
+	 6Qd/081cBFxAewpTrs6vtM5eSlEkbZ156WbjMT4Z7bHP/7Kw/otNzRBB+MEM1laYjm
+	 c/G2U+wUJ/YS+EZ5pUvVE1YQtZndPGBvxUmTHSOxKkgX/T7GecH8iRdRpycocW02Sy
+	 BdLa+3tQeH2kcgPWuJyO5Lz4ByoS9hu2YjkDYzS3GvHhXOn/GhfiJbRQKvuqoYrrPo
+	 8LC54yQzLVdVQ==
+Date: Tue, 4 Aug 2026 18:44:50 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Atish Patra <atish.patra@linux.dev>
 cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -53,12 +53,12 @@ cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
     linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
     linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
     linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v8 06/22] RISC-V: Add Smcntrpmf extension parsing
-In-Reply-To: <20260701-counter_delegation-v8-6-7909f863a645@meta.com>
-Message-ID: <ef66e907-5049-57d1-d22b-0052085f8de3@kernel.org>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-6-7909f863a645@meta.com>
+Subject: Re: [PATCH v8 07/22] dt-bindings: riscv: add Smcntrpmf ISA extension
+ description
+In-Reply-To: <20260701-counter_delegation-v8-7-7909f863a645@meta.com>
+Message-ID: <a2f138eb-480a-bd74-0a10-7c699d5f6e1c@kernel.org>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-7-7909f863a645@meta.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-408665861-1785890674=:1383527"
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,44 +70,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
-
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
-
---8323329-408665861-1785890674=:1383527
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8BIT
 
 On Wed, 1 Jul 2026, Atish Patra wrote:
 
 > From: Atish Patra <atishp@rivosinc.com>
 > 
-> Smcntrpmf extension allows M-mode to enable privilege mode filtering
-> for cycle/instret counters. However, the cyclecfg/instretcfg CSRs are
-> available in Ssccfg only if Smcntrpmf is present.
+> Add the description for Smcntrpmf ISA extension
 > 
-> That's why, kernel needs to detect presence of Smcntrpmf extension and
-> enable privilege mode filtering for cycle/instret counters.
-> 
-> Reviewed-by: Clément Léger <cleger@rivosinc.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 
 Thanks, queued for v7.3.
 
 
 - Paul
---8323329-408665861-1785890674=:1383527
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-408665861-1785890674=:1383527--
-
