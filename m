@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3746C55838
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 00:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865EFC55ABA
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 00:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4Vzy2A9PJvkHoXbvvsJKr8Zl4pSqXuYUXEKH5bF3B1s=; b=s73zCOWO3OTJyJ
-	DPH5Ifpi4BTd3Kbnbr44TftAfO/dbis7uHCRgvNfvfh4wDKbkcXaH5zljLjMENVQ37mkmKG3H5i4X
-	KmqWZ9X8GFrWNyOxCayuPILZq3gLRM5J6WlShb+D5gbX4WDNUgAmE/js+13FO9I2c3XrkqkQEK4ei
-	4dVVwm3zAGLWwx0SmmXZXP6IkNXyEAiPKghFdWpfGky5maXA95riwIjsKunpleS2kDPAwGb3zAyo4
-	5Y/kk/juASvdP57jwEdwfUNWbyKH8QMpMN2nxp2rWtDgo2vcEjp9sOYV+ixiZOv2otl9T9NdHs5QC
-	IfeNhk9b34f29AHDNVNg==;
+	List-Owner; bh=PE+0sNCMoZcviFUrQwQa82OycUC41BgdDjMBybSPRBo=; b=d0xcRQ+mqlykOK
+	sgR/W0W14ItvDw2ypZv0Ou6IxE/C051kBByGEL6rPNsJyWh85+c1xUazt2QbY4BLc6oKY2rYsLdBx
+	oCkLBKnpbBaaOX4orj8bKqwWwh1kasj90YcFp2fZ5AF12dmS1d6KHW+pDs9FFRVyxbn6CHK+70rC1
+	KdBnYl5CaouW+cUSJW7XlYnDGza0XaBIc0egV9hObOOrofmsj4Z08rAdQRGIfUBpIYn8+7MOobzbD
+	Cr27QCZ8oy0gRGYCUrNLvQaOLOsXCyeriWkr2kbDDDSdoKoD8iNeC/Bbx+5qXMVZb1qx2TQNuI2W3
+	+jDmHLQdjBIN4Q5F81qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPVl-00000002yDv-1yBM;
-	Wed, 05 Aug 2026 00:29:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrPf4-00000002z3F-34dT;
+	Wed, 05 Aug 2026 00:39:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPVj-00000002yDi-3rgD;
-	Wed, 05 Aug 2026 00:29:32 +0000
+	id 1wrPf3-00000002z2X-0smD;
+	Wed, 05 Aug 2026 00:39:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C258D60052;
-	Wed,  5 Aug 2026 00:29:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65F5A1F000E9;
-	Wed,  5 Aug 2026 00:29:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A54A743700;
+	Wed,  5 Aug 2026 00:39:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 460181F000E9;
+	Wed,  5 Aug 2026 00:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785889770;
-	bh=wVEMBbEdefM7yw4jrExG2EaFI8XCUTLCLGP+UaBsQzk=;
+	s=k20260515; t=1785890348;
+	bh=po07o5l5QWKcUpTBA8x1BoyVyCQ99VWLuvatS1Gyqg4=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=MqAoRhfm1zlG8hISZxXC9aRivBnaEvPzdNFBBBHfSHKBlsKVlZzBNOrghJirMVk12
-	 aXbziJiP4Rj3/So76Q0nQh9vtGLjxySwQsx4sE6SlawSIl2tN1bo44PoBfIuXSkkZg
-	 jLCErxwpJMkC4CHj5/1cIEBCXz//t6+mRgDGCblwdqrD0Qpz0ugk4cFt8CIvcFLgdS
-	 xwMYAe7GE5JChqwqsOYMbijdN0K5M6UNI7uVG3i2TOoMjLlOColEXzQc269Ul5It9v
-	 4EoRZ5QVAJP0iU0pN9CYAoeDqh979YQGenaf/56OrjUcVnfiKOTdflbHRyqhxbTn0+
-	 p14QBWYOHauuA==
-Date: Tue, 4 Aug 2026 18:29:28 -0600 (MDT)
+	b=CHNwopjtbJpoJ+QoDPRhEa4mF8x5nHrdx4VEtFzOqDqCSTQwLUZIGI0PnQrfC6l27
+	 PzarS6jDKA5kO+K/lFdnQNd1DsaywRON8+cu+RVPFvuCkMCcz9XF7zn9Dqv56FHSw9
+	 bdQqi+uOkHZSoeI0pN1ZG59FXTUeq6A+qzammhGn7lzaUawutCRuqKsBd7iAhsPWkf
+	 1tTKLgW164I6yUXtqvgfaKoXpvkJ/s8t7E1lflGfnuUTVxVgC4PSpZMjyz1nmrqiDH
+	 cH7daKKXg/YiuiMEmOYyCFHgsXGLPqhZGnCsNB0tElpDNIsjD0GkVo+YHMpvM/cz6o
+	 heBmCeJAg7Lzg==
+Date: Tue, 4 Aug 2026 18:39:04 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Atish Patra <atish.patra@linux.dev>
 cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -53,11 +53,10 @@ cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
     linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
     linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
     linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v8 04/22] dt-bindings: riscv: add Sxcsrind ISA extension
- description
-In-Reply-To: <20260701-counter_delegation-v8-4-7909f863a645@meta.com>
-Message-ID: <66661b25-5cef-6590-b885-31cf954a16ce@kernel.org>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-4-7909f863a645@meta.com>
+Subject: Re: [PATCH v8 05/22] RISC-V: Define indirect CSR access helpers
+In-Reply-To: <20260701-counter_delegation-v8-5-7909f863a645@meta.com>
+Message-ID: <1b20aa77-0f0f-08c7-9439-972983adf709@kernel.org>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-5-7909f863a645@meta.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,68 +78,106 @@ On Wed, 1 Jul 2026, Atish Patra wrote:
 
 > From: Atish Patra <atishp@rivosinc.com>
 > 
-> Add the S[m|s]csrind ISA extension description.
+> The indirect CSR requires multiple instructions to read/write CSR.
+> Add a few helper functions for ease of usage.
 > 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 
-Along the lines of the comments on patches 2 and 3, here's what's been 
-queued for v7.3.
+Thanks.  These macros seem better implemented as static inline functions.  
+That also nicely aligns the code with what you write in the patch 
+description.
+
+Also, I renamed this file to change the abbreviation "ind" to "indirect", 
+along the lines of this feedback here:
+
+   https://lore.kernel.org/linux-riscv/CAHk-=whhSLGZAx3N5jJpb4GLFDqH_QvS07D+6BnkPWmCEzTAgw@mail.gmail.com/
+
+This case is even worse since there are already uses of "csr_index" in 
+the codebase, so it's even more unclear what "ind" is supposed to mean.
+
+Updated patch follows.  Please let me know if you have any objections,
 
 
 - Paul
 
 From: Atish Patra <atishp@rivosinc.com>
 
-dt-bindings: riscv: add Smcsrind and Sscsrind ISA extension descriptions
+RISC-V: Define indirect CSR access helpers
 
-Add the S[m|s]csrind ISA extension description.
+The indirect CSR requires multiple instructions to read/write CSR.
+Add a few helper functions for ease of usage.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
-Link: https://patch.msgid.link/20260701-counter_delegation-v8-4-7909f863a645@meta.com
-[pjw@kernel.org: use official extension names in the patch description]
+Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Link: https://patch.msgid.link/20260701-counter_delegation-v8-5-7909f863a645@meta.com
+[pjw@kernel.org: expand "ind" abbreviation; use static inline functions rather than macros]
 Signed-off-by: Paul Walmsley <pjw@kernel.org>
 ---
- .../devicetree/bindings/riscv/extensions.yaml    | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/riscv/include/asm/csr_indirect.h | 51 +++++++++++++++++++++++++++
+ 1 file changed, 51 insertions(+)
+ create mode 100644 arch/riscv/include/asm/csr_indirect.h
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 5ffc40d599c0..ccff2be1224d 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -181,6 +181,14 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
- 
-+        - const: smcsrind
-+          description: |
-+            The standard Smcsrind machine-level extension extends the
-+            indirect CSR access mechanism defined by the Smaia extension. This
-+            extension allows other ISA extensions to use indirect CSR access
-+            mechanism in M-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
+diff --git a/arch/riscv/include/asm/csr_indirect.h b/arch/riscv/include/asm/csr_indirect.h
+new file mode 100644
+index 000000000000..3cd6a9059455
+--- /dev/null
++++ b/arch/riscv/include/asm/csr_indirect.h
+@@ -0,0 +1,51 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
 +
-         - const: smmpm
-           description: |
-             The standard Smmpm extension for M-mode pointer masking as
-@@ -226,6 +234,14 @@ properties:
-             Profiles Version 1.0, with commit b1d806605f87 ("Updated to
-             ratified state.")
- 
-+        - const: sscsrind
-+          description: |
-+            The standard Sscsrind supervisor-level extension extends the
-+            indirect CSR access mechanism defined by the Ssaia extension. This
-+            extension allows other ISA extensions to use indirect CSR access
-+            mechanism in S-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
++#ifndef _ASM_RISCV_CSR_INDIRECT_H
++#define _ASM_RISCV_CSR_INDIRECT_H
 +
-         - const: ssnpm
-           description: |
-             The standard Ssnpm extension for next-mode pointer masking as
++#include <linux/types.h>
++#include <linux/irqflags.h>
++
++#include <asm/csr.h>
++
++static inline unsigned long csr_indirect_read(u16 iregcsr, u32 iselbase, u32 iseloff)
++{
++	unsigned long __value = 0;
++	unsigned long __flags;
++
++	local_irq_save(__flags);
++	csr_write(CSR_ISELECT, iselbase + iseloff);
++	__value = csr_read(iregcsr);
++	local_irq_restore(__flags);
++
++	return __value;
++}
++
++static inline void csr_indirect_write(u16 iregcsr, u32 iselbase, u32 iseloff, unsigned long value)
++{
++	unsigned long __flags;
++
++	local_irq_save(__flags);
++	csr_write(CSR_ISELECT, iselbase + iseloff);
++	csr_write(iregcsr, (value));
++	local_irq_restore(__flags);
++}
++
++static inline unsigned long csr_indirect_warl(u16 iregcsr, u32 iselbase, u32 iseloff,
++					      unsigned long warl_val)
++{
++	unsigned long __old_val = 0, __value = 0;
++	unsigned long __flags;
++
++	local_irq_save(__flags);
++	csr_write(CSR_ISELECT, iselbase + iseloff);
++	__old_val = csr_read(iregcsr);
++	csr_write(iregcsr, warl_val);
++	__value = csr_read(iregcsr);
++	csr_write(iregcsr, __old_val);
++	local_irq_restore(__flags);
++
++	return __value;
++}
++
++#endif
 -- 
 2.53.0
+
 
 
 _______________________________________________
