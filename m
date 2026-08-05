@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6954C55174
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 08:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AAD2C55174
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 08:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nhTDp/4dcBe8osknp+1zc1yWFO4YHRiNQFaI85PMkZo=; b=bUPtM8ylN3xhpd
-	rMpMeuyYXScsw3XZtuqHOXrOyqBPjqBrKqrbzNSi95edk/wQqAh3D0VnqO7kXXehdcfhrh8XNjNcR
-	AjGYCzSBwYmy7QyVYz5Cnpm2gQawqHxBUVzUE3OMdDeZwD2KuulFmc43u4+zt1mad98X4VnZrLqiC
-	+PyQgMqED0hfVuCfZ8FtmXqWpS1in/bPeaYavDuB1598dLM41ZViAYFoehsc4kqpFi85QadLz0DCN
-	oh8G8lPhkSczDq2psksLjHkEOkvu7TKIXyjB1fLpuDugQ6fNstQvUh6WFD/YsOBRy7RPrEIAnHARS
-	1CvpKcYbfiBm3dYlvKGQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MKapgehxD4O4v/bScaxMsWZT6XdKOGGZ1aO4iMCwB6A=; b=bkOJ2v0kQBDQgZ
+	uCI7FQFgTKGgJcD4SiXSjVUQR1zhdMToPyGkiZSecHZtuu2gk/KRSTdl5EatQ/bGIX/PO0SKV153e
+	OaF6iZf8QHXoUEjdNvkwsW2PHwUID7JsRf3lVDi8uzMwaH1X0pejD3JgniopEZQ9zMLLMgHNmhUuE
+	DJnMiPJrn5K2bF0I7F7lSNvvvy3hw9I1i3nfdOENEgl3a7TGreEaAY0Yww9G3Se2lwNnsmojn9dEY
+	Y89ReYvLoH7Nsl4i837BQRrykjcz/QZ2iiZ60e+yoHRMw5bKv0Go73pIaqdWvIVgoNpA7KSspqj62
+	hU3IHC+xRn72hkT+E+xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrXHL-00000003YRE-1oyw;
-	Wed, 05 Aug 2026 08:47:11 +0000
-Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
+	id 1wrXMk-00000003Yo4-0ODq;
+	Wed, 05 Aug 2026 08:52:46 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrXHJ-00000003YQW-0I8M
+	id 1wrXMf-00000003YmZ-1FgR
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Aug 2026 08:47:10 +0000
-Message-ID: <d0119c08-6aa2-414c-b23f-fe19b2a67a36@linux.dev>
+	Wed, 05 Aug 2026 08:52:44 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785919616;
+	t=1785919957;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pvh5Z3h8059ge05AXgEiEUhLVhn7A5Abx2ATdkUjgXY=;
-	b=JkSqRbnHtUlFMvUrHW4li9GmPpnibOAfNeLEm2i7bvZLwsaAq/2YnJHqQ9Mad2i3Fwg9L8
-	F8BCjU99IUjba0H/TKZvx479F1NYMrLqgK5wGwQfFkwMCyi+N7uIyszc1Ya6jx/a3H58W8
-	l+iN0Qi7FtzREwv+AMwRlspMl6arRzM=
-Date: Wed, 5 Aug 2026 01:46:35 -0700
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=tscwLloeuHeKikv6fxJbnoM9flEfp8SS4g24wd5euO8=;
+	b=GYNze0RahhxKiAKCnWOf5DUhFtL4MN1/rXEkFj4CpwYvjAtpGWHtosDWYTuhlPx0mhGmxS
+	tDrTF3vgFyJz7SDTfJl+sVy1jhQyvKOypS5i7QHbfBvf361zVDr4ZUCGXgqVtS0I2y9V06
+	stwlVOjSOnkrL4feWV2TDFW0hy0ByX4=
+From: Troy Mitchell <troy.mitchell@linux.dev>
+Subject: [PATCH v3 0/6] hwmon: (lm63) Add Sensylink CTF2301 support
+Date: Wed, 05 Aug 2026 01:52:14 -0700
+Message-Id: <20260805-ctl2301-v3-0-fd4b8ffb5b0d@linux.dev>
 MIME-Version: 1.0
-Subject: Re: [PATCH v8 12/22] RISC-V: perf: Modify the counter discovery
- mechanism
-To: Yicong Yang <yang.yicong@picoheart.com>
-Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
- Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>,
- Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
- <20260701-counter_delegation-v8-12-7909f863a645@meta.com>
- <90c1a299-617d-4b6d-8aa7-b776cb7c0c46@picoheart.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <90c1a299-617d-4b6d-8aa7-b776cb7c0c46@picoheart.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WMwQqDMBAFf0VybkqyiUZ76n+UHjRu6oKoJDZYx
+ H9vFEoLPc7jzawsoCcM7JKtzGOkQOOQQJ0yZrt6eCCnNjEDAbmoZMHt3IMSkgsti0YYZaEULL0
+ nj46Wo3S7J+4ozKN/HeEo9/W/EVOGVwaNLbUDq821p+G5nFuMbG9E+HiFMCC/HiQPXe4apaE0U
+ P9627a9ASv2mTHWAAAA
+X-Change-ID: 20250916-ctl2301-0416b073c280
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Guenter Roeck <linux@roeck-us.net>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Yixun Lan <dlan@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>
+Cc: Troy Mitchell <troy.mitchell@linux.dev>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-doc@vger.kernel.org, Jean Delvare <jdelvare@suse.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6020;
+ i=troy.mitchell@linux.dev; h=from:subject:message-id;
+ bh=ti+K/qbCna4x73H0nCznzAUBC54xgxZKhZFl+GDk1OU=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFlFPw+uYPNY+yps5fcU89ayj+5WF92dPyXN7qt+EVfTX
+ Lj+/INHHaUsDGJcDLJiiizdD3i2FfhE2RYIFPrCzGFlAhnCwMUpABOJ0mNkmBsqECB8ZVLBj74C
+ pXWH5n3ecmja8alPchfejvCeLjkhxo6RYUu2y83Cr8e3ya9danf4g5aX+hyfwIkWMzezLrytuPZ
+ jACMA
+X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
+ fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_014709_389687_3493BEB2 
-X-CRM114-Status: GOOD (  36.44  )
+X-CRM114-CacheID: sfid-20260805_015241_486681_D82B47EE 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,288 +81,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Sensylink CTF2301 is a system-level thermal management solution chip.
 
-On 7/7/26 12:45 AM, Yicong Yang wrote:
-> On 7/1/26 4:47 PM, Atish Patra wrote:
->> From: Atish Patra <atishp@rivosinc.com>
->>
->> If both counter delegation and SBI PMU is present, the counter
->> delegation will be used for hardware pmu counters while the SBI PMU
->> will be used for firmware counters. Thus, the driver has to probe
->> the counters info via SBI PMU to distinguish the firmware counters.
->>
->> The hybrid scheme also requires improvements of the informational
->> logging messages to indicate the user about underlying interface
->> used for each use case.
->>
->> Signed-off-by: Atish Patra <atishp@rivosinc.com>
->> ---
->>   drivers/perf/riscv_pmu_sbi.c | 139 ++++++++++++++++++++++++++++++++-----------
->>   1 file changed, 104 insertions(+), 35 deletions(-)
->>
->> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
->> index 74d934238821..c20f1e33c65d 100644
->> --- a/drivers/perf/riscv_pmu_sbi.c
->> +++ b/drivers/perf/riscv_pmu_sbi.c
->> @@ -67,6 +67,20 @@ static bool sbi_v3_available;
->>   static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
->>   #define sbi_pmu_snapshot_available() \
->>   	static_branch_unlikely(&sbi_pmu_snapshot_available)
->> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_sbi_available);
->> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
->> +
->> +/* Avoid unnecessary code patching in the one time booting path*/
->> +#define riscv_pmu_cdeleg_available_boot() \
->> +	static_key_enabled(&riscv_pmu_cdeleg_available)
->> +#define riscv_pmu_sbi_available_boot() \
->> +	static_key_enabled(&riscv_pmu_sbi_available)
->> +
->> +/* Perform a runtime code patching with static key */
->> +#define riscv_pmu_cdeleg_available() \
->> +	static_branch_unlikely(&riscv_pmu_cdeleg_available)
->> +#define riscv_pmu_sbi_available() \
->> +		static_branch_likely(&riscv_pmu_sbi_available)
->>   
->>   static struct attribute *riscv_arch_formats_attr[] = {
->>   	&format_attr_event.attr,
->> @@ -89,7 +103,8 @@ static int sysctl_perf_user_access __read_mostly = SYSCTL_USER_ACCESS;
->>   
->>   /*
->>    * This structure is SBI specific but counter delegation also require counter
->> - * width, csr mapping. Reuse it for now.
->> + * width, csr mapping. Reuse it for now we can have firmware counters for
->> + * platfroms with counter delegation support.
->>    * RISC-V doesn't have heterogeneous harts yet. This need to be part of
->>    * per_cpu in case of harts with different pmu counters
->>    */
->> @@ -101,6 +116,8 @@ static unsigned int riscv_pmu_irq;
->>   
->>   /* Cache the available counters in a bitmask */
->>   static unsigned long cmask;
->> +/* Cache the available firmware counters in another bitmask */
->> +static unsigned long firmware_cmask;
->>   
->>   static int sbi_pmu_event_find_cache(u64 config);
->>   struct sbi_pmu_event_data {
->> @@ -868,34 +885,38 @@ static int rvpmu_sbi_find_num_ctrs(void)
->>   		return sbi_err_map_linux_errno(ret.error);
->>   }
->>   
->> -static int rvpmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
->> +static u32 rvpmu_deleg_find_ctrs(void)
->> +{
->> +	/* TODO */
->> +	return 0;
->> +}
->> +
->> +static int rvpmu_sbi_get_ctrinfo(u32 nsbi_ctr, u32 *num_fw_ctr, u32 *num_hw_ctr)
->>   {
->>   	struct sbiret ret;
->> -	int i, num_hw_ctr = 0, num_fw_ctr = 0;
->> +	int i;
->>   	union sbi_pmu_ctr_info cinfo;
->>   
->> -	pmu_ctr_list = kzalloc_objs(*pmu_ctr_list, nctr);
->> -	if (!pmu_ctr_list)
->> -		return -ENOMEM;
->> -
->> -	for (i = 0; i < nctr; i++) {
->> +	for (i = 0; i < nsbi_ctr; i++) {
->>   		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i, 0, 0, 0, 0, 0);
->>   		if (ret.error)
->>   			/* The logical counter ids are not expected to be contiguous */
->>   			continue;
->>   
->> -		*mask |= BIT(i);
->> -
->>   		cinfo.value = ret.value;
->> -		if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
->> -			num_fw_ctr++;
->> -		else
->> -			num_hw_ctr++;
->> -		pmu_ctr_list[i].value = cinfo.value;
->> +		if (cinfo.type == SBI_PMU_CTR_TYPE_FW) {
->> +			/* Track firmware counters in a different mask */
->> +			firmware_cmask |= BIT(i);
->> +			pmu_ctr_list[i].value = cinfo.value;
-> could this override the counter info initialized by rvpmu_deleg_find_ctrs()?
-> the initialization from counter delegation performs prior to sbi, should we
-> check first here?
+The CTF2301 is an I2C/SMBus compatible device featuring:
+  - One local temperature sensor with +/-0.5 degree C accuracy and
+    0.0625 degree C resolution.
+  - One remote temperature sensor for external diode-connected
+    transistors, offering +/-1 degree C accuracy and 0.125 degree C
+    resolution (temperature range: -40 degree C to +125 degree C).
+  - An integrated PWM fan controller capable of operating in two modes:
+      1. Direct-DCY: Open-loop direct duty cycle control.
+      2. Auto-Temp: Closed-loop automatic fan speed control based on
+         measured temperature.
+  - A 1-channel fan speed monitor (TACH input) for RPM measurement.
 
-Theoretically possible because firmware counter IDs are all logical. So 
-a firmware
-implementation can make weird choices about firmware IDs and counter 
-delegation
-may trip it. Thanks for catching it. I will fix it.
+As Guenter pointed out on v1, the CTF2301 register map is a near match
+for the LM63/LM96163 family (local and remote temperature, tachometer and
+PWM fan control), so this version drops the standalone ctf2301 driver
+and instead adds CTF2301 as a new chip type in the existing lm63 driver.
+This reuses the shared temperature, limit, alarm and PWM handling instead
+of duplicating it.
 
->> +			*num_fw_ctr = *num_fw_ctr + 1;
->> +		} else if (cinfo.type == SBI_PMU_CTR_TYPE_HW &&
->> +			   !riscv_pmu_cdeleg_available_boot()) {
->> +			*num_hw_ctr = *num_hw_ctr + 1;
->> +			cmask |= BIT(i);
->> +			pmu_ctr_list[i].value = cinfo.value;
->> +		}
->>   	}
->>   
->> -	pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num_hw_ctr);
->> -
->>   	return 0;
->>   }
->>   
->> @@ -906,7 +927,7 @@ static inline void rvpmu_sbi_stop_all(struct riscv_pmu *pmu)
->>   	 * which may include counters that are not enabled yet.
->>   	 */
->>   	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
->> -		  0, pmu->cmask, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
->> +		  0, pmu->cmask | firmware_cmask, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
->>   }
->>   
->>   static inline void rvpmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
->> @@ -1159,16 +1180,48 @@ static void rvpmu_ctr_stop(struct perf_event *event, unsigned long flag)
->>   	/* TODO: Counter delegation implementation */
->>   }
->>   
->> -static int rvpmu_find_num_ctrs(void)
->> +static int rvpmu_find_ctrs(void)
->>   {
->> -	return rvpmu_sbi_find_num_ctrs();
->> -	/* TODO: Counter delegation implementation */
->> -}
->> +	int num_sbi_counters = 0;
->> +	u32 num_deleg_counters = 0;
->> +	u32 num_hw_ctr = 0, num_fw_ctr = 0, num_ctr = 0;
->> +	/*
->> +	 * We don't know how many firmware counters are available. Just allocate
->> +	 * for maximum counters the driver can support. The default is 64 anyways.
->> +	 */
->> +	pmu_ctr_list = kcalloc(RISCV_MAX_COUNTERS, sizeof(*pmu_ctr_list),
->> +			       GFP_KERNEL);
->> +	if (!pmu_ctr_list)
->> +		return -ENOMEM;
->>   
->> -static int rvpmu_get_ctrinfo(int nctr, unsigned long *mask)
->> -{
->> -	return rvpmu_sbi_get_ctrinfo(nctr, mask);
->> -	/* TODO: Counter delegation implementation */
->> +	if (riscv_pmu_cdeleg_available_boot())
->> +		num_deleg_counters = rvpmu_deleg_find_ctrs();
->> +
->> +	/* This is required for firmware counters even if the above is true */
-> does counter delegation depend on SBI PMU? may need further explanation here,
-> not sure if it's a rule from the spec or if it's the driver's policy.
-Counter delegation doesn't depend on SBI PMU. However, a platform may 
-have both
-counter delegation and firmware counters which rely on SBI PMU.
+The CTF2301-specific differences are handled on top of lm63: 12-bit local
+temperature input and high-limit values, nine conversion rates, 12
+fan-control lookup table entries, and optional 22.5 kHz high-resolution
+PWM. When no IRQ is described, the shared ALERT/TACH pin is configured as
+a tachometer input. The LM63 family can also register as a thermal cooling
+device when the device tree provides the #cooling-cells property.
 
-I will reword the comment to make it less ambiguous.
+The required SpacemiT I2C controller clock series has been merged but is
+not yet included in an rc release:
+https://lore.kernel.org/all/20260508-k1-i2c-ilcr-v7-0-8c2dde5c3ed5@linux.spacemit.com/
 
->> +	if (riscv_pmu_sbi_available_boot()) {
->> +		num_sbi_counters = rvpmu_sbi_find_num_ctrs();
->> +		if (num_sbi_counters < 0) {
->> +			kfree(pmu_ctr_list);
->> +			pmu_ctr_list = NULL;
->> +			return num_sbi_counters;
->> +		}
->> +		if (num_sbi_counters > RISCV_MAX_COUNTERS)
->> +			num_sbi_counters = RISCV_MAX_COUNTERS;
->> +	}
->> +
->> +	/* cache all the information about counters now */
->> +	if (riscv_pmu_sbi_available_boot())
->> +		rvpmu_sbi_get_ctrinfo(num_sbi_counters, &num_fw_ctr, &num_hw_ctr);
->> +
->> +	if (riscv_pmu_cdeleg_available_boot()) {
->> +		pr_info("%u firmware and %u hardware counters\n", num_fw_ctr, num_deleg_counters);
->> +		num_ctr = num_fw_ctr + num_deleg_counters;
->> +	} else {
->> +		pr_info("%u firmware and %u hardware counters\n", num_fw_ctr, num_hw_ctr);
->> +		num_ctr = num_sbi_counters;
->> +	}
->> +
->> +	return num_ctr;
->>   }
->>   
->>   static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
->> @@ -1478,12 +1531,21 @@ static int rvpmu_device_probe(struct platform_device *pdev)
->>   	int num_counters;
->>   	bool irq_requested = false;
->>   
->> -	pr_info("SBI PMU extension is available\n");
->> +	if (riscv_pmu_cdeleg_available_boot()) {
->> +		pr_info("hpmcounters will use the counter delegation ISA extension\n");
->> +		if (riscv_pmu_sbi_available_boot())
->> +			pr_info("Firmware counters will use SBI PMU extension\n");
->> +		else
->> +			pr_info("Firmware counters will not be available as SBI PMU extension is not present\n");
->> +	} else if (riscv_pmu_sbi_available_boot()) {
->> +		pr_info("Both hpmcounters and firmware counters will use SBI PMU extension\n");
->> +	}
->> +
->>   	pmu = riscv_pmu_alloc();
->>   	if (!pmu)
->>   		return -ENOMEM;
->>   
->> -	num_counters = rvpmu_find_num_ctrs();
->> +	num_counters = rvpmu_find_ctrs();
->>   	if (num_counters < 0) {
->>   		pr_err("SBI PMU extension doesn't provide any counters\n");
->>   		goto out_free;
->> @@ -1495,9 +1557,6 @@ static int rvpmu_device_probe(struct platform_device *pdev)
->>   		pr_info("SBI returned more than maximum number of counters. Limiting the number of counters to %d\n", num_counters);
->>   	}
->>   
->> -	/* cache all the information about counters now */
->> -	if (rvpmu_get_ctrinfo(num_counters, &cmask))
->> -		goto out_free;
->>   
->>   	ret = rvpmu_setup_irqs(pmu, pdev);
->>   	if (ret < 0) {
->> @@ -1599,13 +1658,23 @@ static int __init rvpmu_devinit(void)
->>   	int ret;
->>   	struct platform_device *pdev;
->>   
->> -	if (sbi_spec_version < sbi_mk_version(0, 3) ||
->> -	    !sbi_probe_extension(SBI_EXT_PMU)) {
->> -		return 0;
->> -	}
->> +	if (sbi_spec_version >= sbi_mk_version(0, 3) &&
->> +	    sbi_probe_extension(SBI_EXT_PMU))
->> +		static_branch_enable(&riscv_pmu_sbi_available);
->>   
->>   	if (sbi_spec_version >= sbi_mk_version(2, 0))
->>   		sbi_v2_available = true;
->> +	/*
->> +	 * We need all three extensions to be present to access the counters
->> +	 * in S-mode via Supervisor Counter delegation.
->> +	 */
->> +	if (riscv_isa_extension_available(NULL, SSCCFG) &&
->> +	    riscv_isa_extension_available(NULL, SMCDELEG) &&
->> +	    riscv_isa_extension_available(NULL, SSCSRIND))
->> +		static_branch_enable(&riscv_pmu_cdeleg_available);
-> Ssccfg is the necessary extension needed here, is it possible to handle the
-> dependencies in cpufeatures.c so we can only check the Ssccfg here? (I see
-> we've already made Ssccfg to depend on Smcdeleg there)
-We already do that. This is just a additional paranoia check.
+Apply that series before testing this series on K3. Without it, the I2C
+controller cannot generate an accurate 400 kHz SCL clock and CTF2301
+accesses may fail.
 
+Tested on a SpacemiT K3 CoM260 by booting an initramfs and verifying the
+CTF2301 probe. Temperature, tachometer, PWM, and conversion-rate behavior
+were checked against direct I2C register accesses and the datasheet.
 
->> +
->> +	if (!(riscv_pmu_sbi_available_boot() || riscv_pmu_cdeleg_available_boot()))
->> +		return 0;
->>   
->>   	if (sbi_spec_version >= sbi_mk_version(3, 0))
->>   		sbi_v3_available = true;
->>
-> this should stay with the SBI PMU probe block above.
+Datasheet:
+https://www.sensylink.com/upload/1/net.sensylink.portal/1689557281035.pdf
 
-Makes sense.
+Register description:
+https://github.com/TroyMitchell911/ctf2301-datasheet
 
->
-> Thanks.
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+---
+Changes in v3:
+- Add the Sensylink website link to the vendor-prefix commit.
+- Preserve the optional interrupt from the trivial-devices binding.
+- Explain in the commit message of patch 3/6 why CTF2301 cannot use
+  national,lm63 as a fallback compatible.
+- Check both bytes of CTF2301 local temperature values before caching them.
+- Use the schema-valid 25 mA drive strength for the K3 I2C6 pins.
+- Link to v2: https://patch.msgid.link/20260721-ctl2301-v2-0-ef5fb342872a@linux.dev
+
+Changes in v2:
+- Replace the standalone CTF2301 driver with a new lm63 chip type, as
+  suggested by Guenter, reusing the existing temperature, limit, alarm,
+  tachometer, PWM, and automatic fan-control paths.
+- Add the temperature thresholds, alarms, and automatic fan-control lookup
+  table support which were missing from the v1 driver.
+- Handle CTF2301-specific 12-bit local temperature values, nine conversion
+  rates, 12 lookup table entries, shared ALERT/TACH pin, and optional
+  22.5 kHz high-resolution PWM.
+- Propagate SMBus failures from lm63 initialization and write paths.
+- Add optional thermal cooling-device support for the LM63 family using
+  the existing manual PWM control path.
+- Move the National LM63-family compatibles from trivial-devices.yaml to a
+  dedicated binding which permits #cooling-cells.
+- Add CTF2301 to the LM63-family binding instead of keeping the standalone
+  schema from v1. Do not declare #cooling-cells on K3 CoM260 yet because
+  the board has no thermal consumer.
+- Fix the binding errors reported by Rob by using a plain compatible string
+  and wrapping the description.
+- Document CTF2301 support in the lm63 hwmon documentation and provide the
+  detailed register description used for review.
+- Add the K3 CoM260 I2C6 pinctrl state and CTF2301 device node for hardware
+  testing.
+- Link to v1: https://lore.kernel.org/r/20250916-ctl2301-v1-0-97e7c84f2c47@linux.dev
+
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Guenter Roeck <linux@roeck-us.net>
+To: Paul Walmsley <pjw@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Alexandre Ghiti <alex@ghiti.fr>
+To: Yixun Lan <dlan@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-hwmon@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: spacemit@lists.linux.dev
+Cc: linux-doc@vger.kernel.org
+
+---
+Troy Mitchell (6):
+      dt-bindings: vendor-prefixes: Add Sensylink
+      dt-bindings: hwmon: Move LM63 family to a dedicated binding
+      dt-bindings: hwmon: Add Sensylink CTF2301
+      hwmon: (lm63) Add Sensylink CTF2301 support
+      riscv: dts: spacemit: Add K3 I2C6 pinctrl state
+      riscv: dts: spacemit: Add CTF2301 on K3 CoM260
+
+ .../devicetree/bindings/hwmon/national,lm63.yaml   |  55 +++
+ .../devicetree/bindings/trivial-devices.yaml       |   6 -
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ Documentation/hwmon/lm63.rst                       |  22 ++
+ arch/riscv/boot/dts/spacemit/k3-com260.dtsi        |  19 +
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi       |  11 +
+ drivers/hwmon/Kconfig                              |   8 +-
+ drivers/hwmon/lm63.c                               | 414 +++++++++++++++++----
+ 8 files changed, 453 insertions(+), 84 deletions(-)
+---
+base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+change-id: 20250916-ctl2301-0416b073c280
+
+Best regards,
+--  
+Troy Mitchell <troy.mitchell@linux.dev>
+
 
 _______________________________________________
 linux-riscv mailing list
