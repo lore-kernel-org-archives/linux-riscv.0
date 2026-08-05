@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D7FAC2A09B
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 03:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A66C55174
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 03:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f31yEfvsVx09vgze2ZviZFLM3PnXB8p62QIiescjH9s=; b=kmuBgbXP6bRma/
-	/dfZp9aHdzQ3Zo0/vqUmS29ZeiUQnnWVgOW085tPlEzy8DEVapHj//DHDAoS89ULoY0Ai+mpgw7ny
-	Z0I2K76gHXlgYkGKGp69fZdjVsB9vEjT4HuoSbDLTY9OvTHSRex8EGWcoTQX54MXFx6GAKtEhABqH
-	iOKSndUPpCM2ANBgH1bguYy6rtBJrja4aiCqQkAYpsdpqlRUf/DceNSQZE76cizSVB+d7HeVl4o3Y
-	owYrRppVd9rhoI6J/8Oke8WBqUFgzHV72xN+KHqh99pbV2B4Cnfg7l8Gym8beLJUPb+SispLojwg/
-	LcQJSmoIeSfiOc3tziQw==;
+	List-Owner; bh=B9lfTAjzpca0A+Fe9cE2XWBM1HP6u1joSsP29n+aEko=; b=aAANxknPP+nYcN
+	zKok1EX3tCYABBWIMH/dewRPi+uFNFk5ZfUoqb+5MM6MTijqow69cSU671LxekN9bwLwMM1qL+2kT
+	Ovf2iSQKTRK5741w5jUwPTm+CWu71qWjI6M7BL2dhvZK8mvL/tXzVlRdtDQw539F794QdYhxQXIB4
+	hYihM1HWSf6d9E7Ojzugflyw03ObeUkA5ShB7xB8GJohTQm+nvACdlPDKKYai/upkui1Bdtt2PoFN
+	fMhEW8QyTWDEswMcXXEHNPUiVf8yQKJQywLewk2UpFAsXHDbtt487PnRT9SllNI6xa5QJ4mQ0JwEg
+	uj9Y/Z1cCV205p0jJlNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRsK-000000039bd-3BFp;
-	Wed, 05 Aug 2026 03:01:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wrSUH-00000003BD9-2C2J;
+	Wed, 05 Aug 2026 03:40:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRsJ-000000039b8-0MPw
+	id 1wrSUF-00000003BCz-1XGL
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Aug 2026 03:00:59 +0000
+	Wed, 05 Aug 2026 03:40:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 890E3432E6;
-	Wed,  5 Aug 2026 03:00:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62D421F00A3A;
-	Wed,  5 Aug 2026 03:00:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C17F600B1;
+	Wed,  5 Aug 2026 03:40:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18D2C1F000E9;
+	Wed,  5 Aug 2026 03:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785898857;
-	bh=ba+vbNnDg7KEZ5mkKJOl95vmh2w9hWrKDPbB0eCoedw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=JGIFxRCYCPlWG0G4Hk7AE2eI4xl4IO5QReLOsyMwhBg3ZNAw6oV4VymNBgNExtSLm
-	 3DC6KDj9Enb1q/O9CJ/bWmV6EmNmwNXX/SJYWBknS1nhZP88qGaYKDA+FIOeYy1shh
-	 5rBTeM65WYnVfP0edKMby7ZtpgzAg/Lde2UuXuHo3L6CvXCb3ieGbVQkPrfqgDFz+/
-	 n9YDEXhw73CrFpCsedj0vM8sCTAFvCkZNIN9ZKwGH1+ftnRySn21kOQgoQQYNP0sZp
-	 pHSwimau24LatlamoPqRRCgxjzRxt6+9idUT4WSyuhuvqNjMugpB+zYmv2IpNWV3zj
-	 xQEPf6zsSSM7g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0A97392666B;
-	Wed,  5 Aug 2026 03:00:18 +0000 (UTC)
+	s=k20260515; t=1785901209;
+	bh=II5IA1znNWITelblXFEBESXbEeNGTkmwsKzBA47i+GI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OkztZLRikLwIzwgXgxDt2A1+dfi8KgkE79jiMs+9ZiF3ZRR1wv17zHHmWsV5wk2/L
+	 9ZjbmpMvSI2lvbMUjNf5Erdl6qt5bUcrD5jef7E8CLanmy51XnB4FSY+jNldSXXZaj
+	 3SEyUNMe1l3/dy8Am07Jk4zEBfTYJGaiFqzC1721y6ZViI/n0QHE5VvtvjHyJodPun
+	 6V75mWrdcyFugO/LORwEs8PpXkDcvIg093P01uX0DrMSBAF0Szt0w26UJiNbn8wIhc
+	 K+7I81tUjvHFlwLsqbZsIHMtxqJ5/oqDAbcrwOWww9JDjG4dmiHHRsHzthKmD9RUb7
+	 slfLC51pDAczw==
+Date: Tue, 4 Aug 2026 20:40:07 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: soc@kernel.org, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [GIT PULL] RISC-V defconfig changes for v7.3
+Message-ID: <anKwl/5re7CMFTXF@x1>
+References: <al+cTw/+z7xoJXxp@x1>
+ <55196187-178b-1f88-0947-1612410372e0@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 0/8] riscv: Add Ssqosid and initial CBQRI resctrl
- support
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178589881738.3892316.15531912831365778150.git-patchwork-notify@kernel.org>
-Date: Wed, 05 Aug 2026 03:00:17 +0000
-References: <20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org>
-In-Reply-To: <20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org>
-To: Drew Fustini <fustini@kernel.org>
-Cc: linux-riscv@lists.infradead.org, aricciardi@baylibre.com, alex@ghiti.fr,
- atishp@rivosinc.com, atish.patra@linux.dev, babu.moger@amd.com,
- ben.horgan@arm.com, bp@alien8.de, cp0613@linux.alibaba.com,
- conor.dooley@microchip.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
- Dave.Martin@arm.com, fenghuay@nvidia.com, gong.shuai@sanechips.com.cn,
- gsh517@gmail.com, guo.wenjia23@zte.com.cn, james.morse@arm.com,
- mindal@semihalf.com, krzk+dt@kernel.org, liu.qingtao2@zte.com.cn,
- zhiwei_liu@linux.alibaba.com, palmer@dabbelt.com, pjw@kernel.org,
- peternewman@google.com, rkrcmar@ventanamicro.com, reinette.chatre@intel.com,
- robh@kernel.org, samuel.holland@sifive.com, bigeasy@linutronix.de,
- tony.luck@intel.com, vasu@rivosinc.com, ved@rivosinc.com,
- liwei1518@gmail.com, cuiyunhui@bytedance.com,
- zhangzhanpeng.jasper@bytedance.com, linux-kernel@vger.kernel.org,
- x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev,
- linux-doc@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <55196187-178b-1f88-0947-1612410372e0@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,46 +73,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (for-next)
-by Paul Walmsley <pjw@kernel.org>:
-
-On Wed, 29 Jul 2026 18:11:27 -0700 you wrote:
-> [NOTE: only patches 4 and 8 are different in v6]
+On Tue, Aug 04, 2026 at 08:54:21PM -0600, Paul Walmsley wrote:
+> Hi,
 > 
-> This series adds initial RISC-V QoS support: the Ssqosid extension [1]
-> (srmcfg CSR), the CBQRI controller interface [2] integrated with resctrl
-> [3], and a DT-based platform driver for cache controllers. It has been
-> tested on both the Tenstorrent Ascalon Shared Cache controller and a QEMU
-> implementation [4].
+> On Tue, 21 Jul 2026, Drew Fustini wrote:
 > 
-> [...]
+> > Hi, I created my riscv-confg branches to shepard defconfig patches
+> > related to the riscv platforms that I maintain. The branches are in
+> > linux-next. For 7.3, there is just a single patch for the WiFi driver on
+> > the TH1520-based LPi4a.
+> 
+> Looks like this one hasn't gone anywhere, so maybe I'll just take that 
+> patch into riscv for-next.  Thanks Drew
+> 
+> 
+> - Paul
 
-Here is the summary with links:
-  - [v6,1/8] dt-bindings: riscv: Add Ssqosid extension description
-    (no matching commit)
-  - [v6,2/8] riscv: Detect the Ssqosid extension
-    https://git.kernel.org/riscv/c/5f94a58f4103
-  - [v6,3/8] riscv: Add support for srmcfg CSR from Ssqosid extension
-    (no matching commit)
-  - [v6,4/8] riscv_cbqri: Add capacity controller probe and allocation device ops
-    (no matching commit)
-  - [v6,5/8] riscv_cbqri: resctrl: Add cache allocation via capacity block mask
-    (no matching commit)
-  - [v6,6/8] riscv: Enable resctrl filesystem for Ssqosid
-    (no matching commit)
-  - [v6,7/8] dt-bindings: riscv: Add binding for CBQRI controllers
-    (no matching commit)
-  - [v6,8/8] riscv_cbqri: Add CBQRI capacity allocation platform driver
-    (no matching commit)
+Thank you for checking but this was already pulled by Arnd:
+https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?id=6495ae297ceb
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+It seems the patchwork reply had a narrow scope compared to my post:
+https://lore.kernel.org/all/178491121788.3229915.9040423834090729571.git-patchwork-notify@kernel.org/
 
-
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
