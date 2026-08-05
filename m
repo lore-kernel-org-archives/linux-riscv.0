@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5ACAC55822
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 06:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9ED5C55822
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 06:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4VhMsOFlS8cCObJfQZ0K4KUt0FwQRqkg1O/6XF0N1io=; b=4uy2l5+o/96i+5
-	gxU/lrpynYOHX1o+mr39xUJZ/B1w/YDYQJmkCaBQxWwId7s352jY6Pj3YYJ1Z4CCLDEOcNyOecKFm
-	xt90AhuUI/hlZ/xlJFADGWdu3qvGDiJ0UpwW+ipECjLB8zdXlNpYpX/SZxTy7vISUTJTPTE3dgick
-	88Hkfvfm0dEyk69svGsZrpqPo/5BV3X24qCYOOow1GNtWdRW1gYnyqon+YQXG+YoFq996wOvgDCcV
-	Q9zrsMU3eH64yBjuMeASieQ9PiD+0RjxPvlrSs4pydQk7GhAYc3RYujKiLq6vr3awghBeF7wV8Iv1
-	kGMSJKkYJodOyJG5KlTQ==;
+	List-Owner; bh=2/m1eS5LGQOtva6rZT9rzkRDwUUd3pqnzh7K1Fad+Rc=; b=OFToZSW6TgtLk8
+	GVL+7XNFo/e81DMewN1hr31gSJmRdUX8FZhc3m/wCqW1IFM/NpIs52Jc2SNCNLnGcLGdrsYg9C+i5
+	SShVkdhHO6VZ2O0b7oSxAW69fbmbI+9N2mwBPbpLoxX05mOLgbjKACxnioleW1V/uTxt8BDvV/68R
+	Med71vTDOujQNNNghXaZhfzAsthGMYliZ383KndHBoY1quilgG2itTzeiubLbaxcG/l/wjw9reqSx
+	wT4/zRW14I94Lc3bk6E6r6B46Hp04TGV+92aynOQfd7XoP6JQ1sKsKqy9oPWLceuHEgA7a759XWxM
+	89mlliHsaT9euFQ7AL7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVML-00000003L4D-1vWF;
-	Wed, 05 Aug 2026 06:44:13 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1wrVTy-00000003LgM-3egQ;
+	Wed, 05 Aug 2026 06:52:06 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVMH-00000003L3f-1Cb6
+	id 1wrVTw-00000003Lfa-0Lyy
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Aug 2026 06:44:11 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2ce98cb8165so7612725ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Aug 2026 23:44:07 -0700 (PDT)
+	Wed, 05 Aug 2026 06:52:05 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3856d6fbcb3so472685a91.2
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Aug 2026 23:52:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785912247; x=1786517047; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785912723; x=1786517523; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jFfF9vOjPIRrYjKrW5dKD1o7wgpldgxBl11pAMSS8hY=;
-        b=ZbfwozJlDjw1kdzxZ6/MhqAx6DOxOcYgrxL0n0qxMdKbjEqXJj2X2TRzRjs8vG1uOe
-         iQrXw6xqtwe0MTotIZgTvtvrfu/8IYh3aan6+D7T2Gs9DTR7DU1n0xYquxYUrgux1KRM
-         eG7Cr8Pkwun87o3rOEKxbJ3MEZAt0i14D+nieo+zqRMdWwCmHpOHGojVQZeO72es8Rh/
-         FeK1Kq4dB2p1M77ZMXLBp4FYhim9uwV8YkLLUJrEp+bjb0iSXBvt11X2okXDL5R/q/Uo
-         mWKXFfRn/sdQlisFhS/2er+uCULFcHymFfHSW50mxPPlfTKNIoGkVldHMPitWmOqQWTH
-         yxRA==
+        bh=BZveE5TKFRvmEM6ufGP9KCDDa09D/zv/1Va+H0O6po0=;
+        b=nwHfZ/wU2QmSXbwC85M6HVFAfFUZKugG9orFh9rQv15Wn4j94TlmzFdpxwYumEQNVk
+         zGCLMVk8dlrDI9FF70uXoHuPDJTh/xX/sDiOEx57CY/AKoRxQqJSjdJzgcIKq0Btih8p
+         buOn+SdD5bwerbN9R6uJ1oXoHGi3aIoDXqWKfqfzSndPlNQ0xOflmrOWutliGZj7ozfA
+         8fz/Sa1rFbgWbM2ySTaMzQzBb2EhUXaa7B3V5g6oYNr6/Geg6R++FEQSCnHgZxmyQ8Ki
+         0nc8cRYgMJP1gD3Lv91/6yZ09eP+mIID6X0kzyaabJkBXDvw51WnwpjkrT9gqm+4RE7R
+         HSEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785912247; x=1786517047;
+        d=1e100.net; s=20251104; t=1785912723; x=1786517523;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jFfF9vOjPIRrYjKrW5dKD1o7wgpldgxBl11pAMSS8hY=;
-        b=qWHrwZ4yLDD41J07M0e3wF6B2hafFf8zw02x9t1hA+Uz0z6+Lg3t1Oa0W9uyP9e9//
-         FPK7+xYJ7jiAoF5a/nLFj5ndQTpo3QScPq984JghMDr9iHNc8hs3Weetqz1OZ1A10dlo
-         IUIEAQd4x8ICNUJuewga97PCiXI0qmHxjTkbjAosO+GhZbhWhsa+0RKBeMqGAXnBmRo2
-         dx1n/Ivxh9NLzVtL7XrWo8XHmeBUdqQgp01RN3gOOWJF5crUdoc/dXG8OsnDdEYzxDTs
-         ZmS0dttgUfY8QMrqsr2KFjcmjbHgzcwMQqTeiM9dKftL84bcCD32iU4ayte5gJDScQ5t
-         tX7w==
-X-Forwarded-Encrypted: i=1; AHgh+RrfwUj//apQGWVSFYoI37ENdvNHYf/D5ht/GpM2BUBYT7IUjfvVOOCpgFmS+3RchKNHs3WIDX4DgiFqmg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxduMjRNt/AVY7BxHUEzMRBnWuG9fxfz/5RMgp7qhf3gI8n3KiG
-	I2rgo2h54vLwqHex2XBtCYhzwOLvBgdY1JgCPtl6IAYo/8WF2JSe4B8E
-X-Gm-Gg: AR+sD13Gr14UxoNS9Y0h8wF607QZCcxEzT+2TfZSMH95t3UsPY6BWlU1VCqp3NuqClV
-	YKAcPlCS/qnQk44r4kkoVaoZFBt2/RlAnP3xefYZEnzCXaSrVvToii3D8m+6GukOZ6/IGXEBsMi
-	EhRmdrxYqP9qy72gRgbV4LVEaxtx72cHsUimRSG/3sankxEuO30QJSpJs0ajrlw6zj7qjQyymds
-	rxIWQsK4Gp8KydaRBR7ZLeF/ygWQ/wQHC/W4/6AcXLPXdJp8u3iTvoFZ0XTAEcQPpHe3TyIxd8u
-	W9hcVWpbtVjYf5ItZuaqBV8W/l599rNd/zZwp8tbaXDHMdVGBf/IvCSLenJcUGiLxsr/HkHgwZQ
-	FQjgYfCjV4zRisPjpbfINIuyEjgOC7Z/BzcsdDCw6++57kRK4odZDkOhDIYYZNVKKyzFcW19eoY
-	aWbOdgiBwkGU09EXuKTJyFzRSNEa6FXdvWgCiOzm78RK7iZVTv/avqioKVSBNZF7L68AxletXhp
-	BDXee9r5WP6+XZQ/cjoFysc8cJbbZDMDt1DJWmN2m8Fw3+4jV+hzmeWAcQwesHZ09WztazMgoS2
-	I1H2hg==
-X-Received: by 2002:a17:902:e551:b0:2d0:401c:2edc with SMTP id d9443c01a7336-2d08aa1c85bmr95025355ad.1.1785912247199;
-        Tue, 04 Aug 2026 23:44:07 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d0aa491747sm14094435ad.39.2026.08.04.23.44.03
+        bh=BZveE5TKFRvmEM6ufGP9KCDDa09D/zv/1Va+H0O6po0=;
+        b=rP8je/tAnD+j6Wrs+YBcCPrUy6QfDh75YycCudBkFkJbYkLEnYPYY6XDAoo8hLZj28
+         vUhekZEKg03t41ZvHP25CLuhHyrsEpAjWSaDcLAqsk5+XzXWotvAB50bcaCqCBR6ylEf
+         +xDumRNqwICwjVu0xsPm02HEKdb8gCZCQQy6QhMArEipuUii0HkiGkIqCSVWts4DCFZa
+         w62DyoJw8KsInfUCj4y4KsNiSo4xGUwjQdZIPXx6flPyS5JNN46OylYobGP/sKz7v7db
+         L65YYXg0iYBBHvz8ZM97x9hlMyJknsXaOK2F4HeMBq5CD+ONXvO9smCwhTtfSu8cHONn
+         7h0g==
+X-Forwarded-Encrypted: i=1; AHgh+Ro+V7xnYDeL5zpxtSDC9TefOi6JHq9DmUWnEV1ptJewIfEvCW60AwnhJzeWb6Rt60zDws8BOEswmNT0nQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yys7pE+Y62qEt1i08vnpLjvNT218ywxivCr0lxt9vQf9Q88noz5
+	ONa0cfS0XVGn9CvoqtUCIydPZLeM5ZvnUrAio6iGSTLpJuh92TTGnAbAjuJzT/Es
+X-Gm-Gg: AR+sD12/DN0QZ49pRdAdPATz+8r+q9n2ECLmQmd1IyasS6TuUF7elvhOgqD0GD7XkRz
+	anRc8EIO7mO1/CEeA5613PwbnxrnsgaOPOwEN3n77DotbFrrb3V496yiXK9Xua2/fggy9AkaQ3e
+	uVDNYeKYmAFn/3O1r5cPzKKMzPGsyX37af6CChMq4wmKzyrKht7iuqMruRQbn9/Yg1jfWr4wPgI
+	9nX01CkHFmIAX2NJIGN2im6JY9iGfUFM8eg+ff+xO2seHnb3rrIH9HJ02/iQZzzvh3fdZZ4POpL
+	tf7Gk9Q0R14vxG7fnnzx9xFcTiSNJoYVssj7EEBvdR9R9tW34RSLSb8OsZFEouK8wm+dwvKsqkH
+	1L5i5u0b4R0MQP2/BMh6sLVV0d9aS7HekLR6RWIcfCdlYHBQ5w1kgg9aB39vKIGEYC0iDfcdHmM
+	llrhl8s9WZDf0PWeE1mgoxE44ps8010kVR/blrwG2sfbtoP5LRi4KoT2kvAGThQ/t3wj4fbpyf+
+	SlwVrBayJIAMhS1uA==
+X-Received: by 2002:a17:90b:1c8e:b0:38f:1a80:d1e7 with SMTP id 98e67ed59e1d1-3903c596de7mr3372058a91.13.1785912722454;
+        Tue, 04 Aug 2026 23:52:02 -0700 (PDT)
+Received: from cyh-System-Product-Name.. ([129.227.183.200])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-390392b2b7fsm2113080a91.14.2026.08.04.23.51.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 23:44:06 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Yixun Lan <dlan@kernel.org>,
-	Takashi Iwai <tiwai@suse.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Liam Girdwood <lgirdwood@gmail.com>
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Goko Mell <goku.sonxin626@gmail.com>,
-	Jinmei Wei <weijinmei@linux.spacemit.com>,
+        Tue, 04 Aug 2026 23:52:02 -0700 (PDT)
+From: "Yuhang.Chen" <yhchen312@gmail.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Quan Zhou <zhouquan@iscas.ac.cn>,
+	kernel test robot <lkp@intel.com>,
+	linux-doc@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2] ASoC: spacemit: advertise only DMA-backed DAI streams
-Date: Wed,  5 Aug 2026 13:43:48 +0700
-Message-ID: <20260805064348.44283-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	oe-kbuild-all@lists.linux.dev
+Subject: [PATCH v3] RISC-V: KVM: Add kvm-riscv.wfi_trap_policy to control VS-mode WFI trapping
+Date: Wed,  5 Aug 2026 14:51:32 +0800
+Message-Id: <20260805065132.3210346-1-yhchen312@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_234409_369692_5549D7A6 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20260804_235204_201412_903470C4 
+X-CRM114-Status: GOOD (  25.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,83 +110,237 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Add a kernel command-line option, kvm-riscv.wfi_trap_policy=trap|auto,
+that controls whether a WFI executed by a VS-mode guest traps into KVM
+(HS-mode) or executes natively.
 
-The static DAI template initializes both playback and capture stream
-capabilities before dma-names is examined. As a result,
-snd_soc_dai_stream_valid() considers both directions valid even when the
-device only provides a single DMA channel.
+HSTATUS.VTW governs VS-mode WFI: when set, the WFI traps into KVM, which
+blocks the vCPU through kvm_vcpu_halt() and releases the CPU to other
+runnable tasks; when clear, the guest runs WFI natively. Because RISC-V
+WFI is only a hint (it may be a no-op on some implementations), the
+policy is re-evaluated before each guest entry rather than fixed once
+at reset.
 
-Move the playback and capture capability initialization into
-spacemit_i2s_init_dai(), where it is performed only for the stream
-directions backed by a corresponding DMA channel. This preserves the
-existing capabilities for devices with both "tx" and "rx" DMA channels,
-while preventing unsupported stream directions from being advertised.
+  trap  : always trap VS-mode WFI into KVM (HSTATUS.VTW=1). This is the
+          default and preserves the previous unconditional behavior.
 
-Initialize rate_min and rate_max together with the other stream
-capabilities to preserve the existing rate constraints.
+  auto  : clear HSTATUS.VTW so the guest runs WFI natively only when the
+          vCPU is the sole runnable task on the current CPU; otherwise
+          keep trapping. When the vCPU is alone, skipping the
+          virtual-instruction exit cannot starve another task, and on
+          hardware that honors WFI the hart blocks until a VS-mode
+          interrupt. The policy is re-evaluated before every guest entry,
+          so when another task becomes runnable the next entry traps
+          again and KVM blocks the vCPU through kvm_vcpu_halt(), yielding
+          the CPU. The vCPU therefore never monopolizes the CPU the way
+          an unconditional native WFI would: it either blocks through
+          kvm_vcpu_halt(), or runs WFI natively only when no other task
+          needs the CPU.
 
-Fixes: fce217449075 ("ASoC: spacemit: add i2s support for K1 SoC")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+Measured on QEMU TCG (-smp 1, -cpu max): wfi_exit_stat delta and guest
+wake count over a 3 s window. "busy" adds a CPU-bound competitor that
+shares the vCPU's CPU so that single_task_running() reports false:
+
+  policy  busy  exits  wakes   cpu%  note
+  ------  ----  -----  -----   ----  ------------------------
+  trap    off    286    285    6.5   default; no regression
+  trap    on     291    290  101.0   trap is unconditional
+  auto    off      4    287    5.0   sole task: native WFI
+  auto    on     285    284  101.5   competitor -> traps
+
+With "auto", WFI exits drop to ~0 when the vCPU is the only runnable
+task, and rise back to the trap level as soon as a competitor appears,
+which is the desired dynamic behavior. Host CPU stays low in the
+sole-task case; the ~101% in the busy cases is the forked competitor,
+not the vCPU.
+
+Assisted-by: YuanSheng:deepseek-v4-pro
+Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Yuhang.Chen <yhchen312@gmail.com>
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202608051354.KYOXP5po-lkp@intel.com/
+
 ---
+Changes in v3:
+
+- Guard the early_param() parser with #ifndef MODULE. RISC-V KVM is
+  tristate and may be built as a module (CONFIG_KVM=m), but
+  early_param() is only defined for built-in code, so v2 failed to
+  compile as a module. With CONFIG_KVM=m the policy now keeps its
+  default (trap) value, which is safe and regression-free; the rest of
+  the policy logic is unaffected. The kernel-parameters.txt entry now
+  documents that the option is only honored when KVM is built in.
+
+- Re-evaluate the WFI trap policy before each guest entry instead of
+  only in kvm_arch_vcpu_load(). In v2 the policy was checked once when
+  the vCPU was loaded, so between two kvm_arch_vcpu_load() calls
+  HSTATUS.VTW could go stale: if a task of lower or equal priority woke
+  on the vCPU's CPU while the guest was running, the run loop would
+  re-enter the guest without re-checking and without preempting, and a
+  native WFI could then halt the hart and delay the woken task until the
+  next timer tick. Checking before every entry closes this window,
+  because a wakeup arrives through a host interrupt that forces a VM
+  exit, and the next entry re-evaluates and traps.
 
 Changes in v2:
- - Update the commit message to describe the functional fix as 
-   suggested by Troy.
 
-Link v1 : 
-  https://lore.kernel.org/all/20260804043036.22065-1-phucduc.bui@gmail.com/
+- Drop the "notrap" mode, which cleared HSTATUS.VTW unconditionally and
+  so never trapped: the vCPU never reached kvm_vcpu_halt() and could
+  stay busy even while idle.
+- Add the "auto" mode, which clears HSTATUS.VTW only when the vCPU is
+  the sole runnable task (single_task_running()) and otherwise traps.
+  The policy is applied dynamically from kvm_arch_vcpu_load() instead of
+  once at reset, so a vCPU that stops being the sole runnable task
+  switches back to trapping.
+- Update the kernel-parameters.txt entry for trap/auto.
 
- sound/soc/spacemit/k1_i2s.c | 20 ++++----------------
- 1 file changed, 4 insertions(+), 16 deletions(-)
+v1: https://lore.kernel.org/all/20260709115610.287420-1-yhchen312@gmail.com/
+v2: https://lore.kernel.org/all/20260804024707.2400404-1-yhchen312@gmail.com/
+---
+ .../admin-guide/kernel-parameters.txt         | 20 ++++++
+ arch/riscv/kvm/vcpu.c                         | 72 +++++++++++++++++++
+ 2 files changed, 92 insertions(+)
 
-diff --git a/sound/soc/spacemit/k1_i2s.c b/sound/soc/spacemit/k1_i2s.c
-index 2d5ea1fd5d49..28a762769253 100644
---- a/sound/soc/spacemit/k1_i2s.c
-+++ b/sound/soc/spacemit/k1_i2s.c
-@@ -354,22 +354,6 @@ static const struct snd_soc_dai_ops spacemit_i2s_dai_ops = {
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index b5493a7f8f22..2ab9eb335e60 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -3254,6 +3254,26 @@ Kernel parameters
  
- static struct snd_soc_dai_driver spacemit_i2s_dai = {
- 	.ops = &spacemit_i2s_dai_ops,
--	.playback = {
--		.channels_min = 1,
--		.channels_max = 2,
--		.rates = SPACEMIT_PCM_RATES,
--		.rate_min = SNDRV_PCM_RATE_8000,
--		.rate_max = SNDRV_PCM_RATE_48000,
--		.formats = SPACEMIT_PCM_FORMATS,
--	},
--	.capture = {
--		.channels_min = 1,
--		.channels_max = 2,
--		.rates = SPACEMIT_PCM_RATES,
--		.rate_min = SNDRV_PCM_RATE_8000,
--		.rate_max = SNDRV_PCM_RATE_48000,
--		.formats = SPACEMIT_PCM_FORMATS,
--	},
- 	.symmetric_rate = 1,
- };
+ 			notrap: clear WFI instruction trap
  
-@@ -399,6 +383,8 @@ static int spacemit_i2s_init_dai(struct spacemit_i2s_dev *i2s,
- 		dai->playback.channels_min = 1;
- 		dai->playback.channels_max = 2;
- 		dai->playback.rates = SPACEMIT_PCM_RATES;
-+		dai->playback.rate_min = SNDRV_PCM_RATE_8000;
-+		dai->playback.rate_max = SNDRV_PCM_RATE_48000;
- 		dai->playback.formats = SPACEMIT_PCM_FORMATS;
++	kvm-riscv.wfi_trap_policy=
++			[KVM,RISCV] Control when to set the WFI instruction
++			trap (HSTATUS.VTW) for KVM VMs. The policy is
++			re-evaluated before each guest entry, not only at
++			reset, since RISC-V WFI is only a hint.
++
++			trap: always trap VS-mode WFI into KVM (HSTATUS.VTW=1)
++
++			auto: trap unless the vCPU is the only runnable task on
++				the current CPU, in which case clear the trap
++				(HSTATUS.VTW=0) and let the guest execute WFI
++				natively
++
++			Defaults to trap, preserving the previous unconditional
++			behavior.
++
++			Only honored when KVM is built into the kernel
++			(CONFIG_KVM=y); as a module (CONFIG_KVM=m) the policy
++			stays at its default (trap).
++
+ 	kvm_cma_resv_ratio=n [PPC,EARLY]
+ 			Reserves given percentage from system memory area for
+ 			contiguous memory allocation for KVM hash pagetable
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index cf6e231e76e2..8efeb74699cc 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -12,8 +12,10 @@
+ #include <linux/kdebug.h>
+ #include <linux/module.h>
+ #include <linux/percpu.h>
++#include <linux/string.h>
+ #include <linux/vmalloc.h>
+ #include <linux/sched/signal.h>
++#include <linux/sched/stat.h>
+ #include <linux/fs.h>
+ #include <linux/kvm_host.h>
+ #include <asm/cacheflush.h>
+@@ -26,6 +28,67 @@
  
- 		i2s->playback_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
-@@ -411,6 +397,8 @@ static int spacemit_i2s_init_dai(struct spacemit_i2s_dev *i2s,
- 		dai->capture.channels_min = 1;
- 		dai->capture.channels_max = 2;
- 		dai->capture.rates = SPACEMIT_PCM_RATES;
-+		dai->capture.rate_min = SNDRV_PCM_RATE_8000;
-+		dai->capture.rate_max = SNDRV_PCM_RATE_48000;
- 		dai->capture.formats = SPACEMIT_PCM_FORMATS;
+ static DEFINE_PER_CPU(struct kvm_vcpu *, kvm_former_vcpu);
  
- 		i2s->capture_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
++/*
++ * WFI trap policy for VS-mode guests, controllable through the
++ * kvm-riscv.wfi_trap_policy= kernel command-line option.
++ */
++enum kvm_riscv_wfi_trap_policy {
++	KVM_RISCV_WFI_TRAP,	/* Always trap VS-mode WFI into KVM */
++	KVM_RISCV_WFI_AUTO,	/* Trap unless the vCPU is the only runnable task */
++};
++
++static enum kvm_riscv_wfi_trap_policy kvm_riscv_wfi_trap_policy __read_mostly =
++	KVM_RISCV_WFI_TRAP;
++
++/*
++ * RISC-V KVM is tristate and may be built as a module, but early_param() is
++ * only defined for built-in code (see <linux/init.h>). Guard the command-line
++ * parser accordingly: when CONFIG_KVM=m the policy simply keeps its default
++ * (trap) value, which is the safe, regression-free behavior.
++ */
++#ifndef MODULE
++static int __init early_kvm_riscv_wfi_trap_policy_cfg(char *arg)
++{
++	if (!arg)
++		return -EINVAL;
++
++	if (strcmp(arg, "trap") == 0) {
++		kvm_riscv_wfi_trap_policy = KVM_RISCV_WFI_TRAP;
++		return 0;
++	}
++
++	if (strcmp(arg, "auto") == 0) {
++		kvm_riscv_wfi_trap_policy = KVM_RISCV_WFI_AUTO;
++		return 0;
++	}
++
++	return -EINVAL;
++}
++early_param("kvm-riscv.wfi_trap_policy", early_kvm_riscv_wfi_trap_policy_cfg);
++#endif
++
++static bool kvm_riscv_vcpu_wfi_should_trap(struct kvm_vcpu *vcpu)
++{
++	switch (kvm_riscv_wfi_trap_policy) {
++	case KVM_RISCV_WFI_AUTO:
++		/* Native WFI only when the vCPU is the sole runnable task. */
++		return !single_task_running();
++	case KVM_RISCV_WFI_TRAP:
++	default:
++		return true;
++	}
++}
++
++static void kvm_riscv_vcpu_update_wfi_trap(struct kvm_vcpu *vcpu)
++{
++	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
++
++	if (kvm_riscv_vcpu_wfi_should_trap(vcpu))
++		cntx->hstatus |= HSTATUS_VTW;
++	else
++		cntx->hstatus &= ~HSTATUS_VTW;
++}
++
+ const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
+ 	KVM_GENERIC_VCPU_STATS(),
+ 	STATS_DESC_COUNTER(VCPU, ecall_exit_stat),
+@@ -73,6 +136,7 @@ static void kvm_riscv_vcpu_context_reset(struct kvm_vcpu *vcpu,
+ 	/* Setup reset state of shadow SSTATUS and HSTATUS CSRs */
+ 	cntx->sstatus = SR_SPP | SR_SPIE;
+ 
++	/* Trap VS-mode WFI by default; the run loop reapplies the policy before each entry. */
+ 	cntx->hstatus |= HSTATUS_VTW;
+ 	cntx->hstatus |= HSTATUS_SPVP;
+ 	cntx->hstatus |= HSTATUS_SPV;
+@@ -936,6 +1000,14 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		 */
+ 		kvm_riscv_local_tlb_sanitize(vcpu);
+ 
++		/*
++		 * Re-evaluate the WFI trap policy for this entry so that
++		 * HSTATUS.VTW tracks the current runnable-task count and
++		 * cannot go stale across guest entries (which would let a
++		 * native WFI halt the CPU while another task is runnable).
++		 */
++		kvm_riscv_vcpu_update_wfi_trap(vcpu);
++
+ 		trace_kvm_entry(vcpu);
+ 
+ 		guest_timing_enter_irqoff();
 -- 
-2.43.0
+2.34.1
 
 
 _______________________________________________
