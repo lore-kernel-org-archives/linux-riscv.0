@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A759C55838
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 00:48:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BAFC55184
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 01:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FPR44JvEOWqH5xj/iq/mCqUVbaR8Js/GblKfezHn1GM=; b=d/w9gk+gvVoDER
-	qqgrXad//KW5Op4bZ8WX1zCL2sLeZNClLR4wmI1AKw0DKg+KTCW3NwnieOPKWojGyeG7Wu94Tr/wA
-	v+7F5xWyHPOnz/XtI5LF9UXMUGLfiK6/A/SwECgqASc9gJi2qKL+NIp4cbbzesVNAIdb3ZzSxmZzQ
-	/UYMwU8OEp37Mnv9xSUfPMiPt9csJ2my6NL72nYgJhuUOql1CPvh8B2cCYskW6zDbKFg+LP1ouuW0
-	SzTTF8aeSsN/x6DH8KgnF4Yd+73qo/o9i1Bk/P1tlMkqMvztqzb4yKZaTeqIAa3PdF7BOU2XMO4D/
-	a6ADIf0HomqRGITr7p6A==;
+	List-Owner; bh=nchLLKAQ05+atYKATwsRzGGVJHxz/lNLDuHNvIEgqVs=; b=iLw/n0VvnjazD3
+	Er6YQLcOkT+MX6cCvEpv9bzyYKsBNksO4RZu/T+MUi6FvX7ESe0T/bd4bmPj3Lef4qTg8tn854bt7
+	Jujrgp5V9VDoJJdlXXrKBzpfxDLQiu2JWcRIatohnvjPrQTUWU2dI4x9phS8mUivtpd6y0tDXcaoJ
+	KUftfm0VvJyeDRdwSdEsH+qM7Tt3QizLMpgzQ/N/7Cfgg5BjL8Hwy6+95cXNvGYO8RBH/gpMoJ/Au
+	6y3lIPvdWobh8q+L0rYgvKqfbDHzYWr4us4+7jytgV20R8JH0+5zs4Ef/LeLveuOKBOwkj29sjBcF
+	Sfd2SWEvN5iQOyr5LjZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPoD-000000030wt-0hUK;
-	Wed, 05 Aug 2026 00:48:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wrQ0A-000000031qo-49K0;
+	Wed, 05 Aug 2026 01:00:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPoB-000000030uO-0rbC;
-	Wed, 05 Aug 2026 00:48:35 +0000
+	id 1wrQ09-000000031q2-31iM;
+	Wed, 05 Aug 2026 01:00:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 363B243E3D;
-	Wed,  5 Aug 2026 00:48:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1F681F00A3A;
-	Wed,  5 Aug 2026 00:48:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F3C160052;
+	Wed,  5 Aug 2026 01:00:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DB11F00A3E;
+	Wed,  5 Aug 2026 01:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785890914;
-	bh=w9bnOh6M3Bsb/zcqLOAeb7ppFeVGT3UsgRFnzDOfzZc=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=oVTfEnvwkErL5oBz3FZvF2Z41vznZz+0orAyMZGepRhjG8wcuzjvsWQnkFaFeaNt4
-	 pRf4y4IQld7se5c4omTHlD0RRtGtzDQDu843g+xqembIm5r386ocpmLYshlXHMEplI
-	 jFa6f+hHDwkUr40qMRe71l7UCoBsakZkXPPzU4CPpnrPRv4rFah1ApAAgoDjTS3E+U
-	 fhRrreSgmbWVQcOnrShe9Ikz8a5D+BQrIQK+vsJ9R9+pGOvWzNa6EdiUhvCLCyobTF
-	 cY/XHZviG4b4r+wdQ9JxurzqF/6pDuM2zwGBeeg7l1Qzjviih/+328KD+Zjn94ApJq
-	 MzYt7kSKUD4LQ==
-Date: Tue, 4 Aug 2026 18:48:31 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Atish Patra <atish.patra@linux.dev>
-cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-    Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
-    Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>, 
-    Arnaldo Carvalho de Melo <acme@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>, 
-    Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
-    linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-    linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v8 10/22] dt-bindings: riscv: add Counter delegation ISA
- extensions description
-In-Reply-To: <20260701-counter_delegation-v8-10-7909f863a645@meta.com>
-Message-ID: <b5e736ec-1a61-95a0-970f-e9f4eb6b62a8@kernel.org>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-10-7909f863a645@meta.com>
+	s=k20260515; t=1785891656;
+	bh=o3KX9skCpKY11w+0FlGhhpohym5ngk1RFk12GUsJf1c=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=ZdiRkgYOxwCPkyMP9MXyafK1991EZ2jyJgUEjzC2UWj9+QArYQs43RDm9QZJNPw0m
+	 oy0b1mpk81lRd6mP9Kd9YkyGgkV1nRaJrd01I4S90yQpJEKYyP8gRTOLOUS81omaFE
+	 xeWYq13BjLzViMjeSeU45Ni79OpHKVfICNf85FDTslgPXrV98IaZvWvqEhmd1q2KTN
+	 fG38PHUUcJr3FF2zkt88SvL1ShkgvHtc2+0xQ/wCSJAxsL46ftyEAP0X4WbI5NP3lJ
+	 bBHYQLmu27YWWGOIGiaZkH3m31IkjoAIV1qCeQzcqpRZlOvtdE3wFNxW6emnA80SNb
+	 c/VoDu4hfMiBQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D09C53926663;
+	Wed,  5 Aug 2026 01:00:17 +0000 (UTC)
 MIME-Version: 1.0
+Subject: Re: [PATCH v8 00/22] Add Counter delegation ISA extension support
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <178589161639.3856351.5268442875805678038.git-patchwork-notify@kernel.org>
+Date: Wed, 05 Aug 2026 01:00:16 +0000
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+To: Atish Patra <atish.patra@linux.dev>
+Cc: linux-riscv@lists.infradead.org, jolsa@kernel.org, pjw@kernel.org,
+ mark.rutland@arm.com, robh@kernel.org, anup@brainfault.org,
+ namhyung@kernel.org, acme@kernel.org, krzk+dt@kernel.org, irogers@google.com,
+ will@kernel.org, james.clark@linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ conor@kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,19 +75,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 1 Jul 2026, Atish Patra wrote:
+Hello:
 
-> From: Atish Patra <atishp@rivosinc.com>
+This series was applied to riscv/linux.git (for-next)
+by Paul Walmsley <pjw@kernel.org>:
+
+On Wed, 01 Jul 2026 01:46:48 -0700 you wrote:
+> This series adds the counter delegation extension support. It is based on
+> very early PoC work done by Kevin Xue and mostly rewritten after that.
+> The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
+> on multiple ISA extensions.
 > 
-> Add description for the Smcdeleg/Ssccfg extension.
+> 1. S[m|s]csrind : The indirect CSR extension[1] which defines additional
+>    5 ([M|S|VS]IREG2-[M|S|VS]IREG6) register to address size limitation of
+>    RISC-V CSR address space.
+> 2. Smstateen: The stateen bit[60] controls the access to the registers
+>    indirectly via the above indirect registers.
+> 3. Smcdeleg/Ssccfg: The counter delegation extensions[2]
 > 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> [...]
 
-Thanks, queued for v7.3.
+Here is the summary with links:
+  - [v8,01/22] RISC-V: perf: fix resource cleanup on driver probe failure
+    https://git.kernel.org/riscv/c/bf08074d8a20
+  - [v8,02/22] RISC-V: Add Sxcsrind ISA extension CSR definitions
+    https://git.kernel.org/riscv/c/7c31031b2974
+  - [v8,03/22] RISC-V: Add Sxcsrind ISA extension definition and parsing
+    https://git.kernel.org/riscv/c/7fe9435ef9e7
+  - [v8,04/22] dt-bindings: riscv: add Sxcsrind ISA extension description
+    https://git.kernel.org/riscv/c/010e2b79bd08
+  - [v8,05/22] RISC-V: Define indirect CSR access helpers
+    https://git.kernel.org/riscv/c/6f1ece4a6691
+  - [v8,06/22] RISC-V: Add Smcntrpmf extension parsing
+    https://git.kernel.org/riscv/c/935bfae38e57
+  - [v8,07/22] dt-bindings: riscv: add Smcntrpmf ISA extension description
+    https://git.kernel.org/riscv/c/837eaefa4d63
+  - [v8,08/22] RISC-V: Add Sscfg extension CSR definition
+    https://git.kernel.org/riscv/c/db40f62b80ec
+  - [v8,09/22] RISC-V: Add Ssccfg/Smcdeleg ISA extension definition and parsing
+    https://git.kernel.org/riscv/c/2ea70441fe0f
+  - [v8,10/22] dt-bindings: riscv: add Counter delegation ISA extensions description
+    https://git.kernel.org/riscv/c/b8d69e7159cc
+  - [v8,11/22] RISC-V: perf: Restructure the SBI PMU code
+    (no matching commit)
+  - [v8,12/22] RISC-V: perf: Modify the counter discovery mechanism
+    (no matching commit)
+  - [v8,13/22] RISC-V: perf: Add a mechanism to defined legacy event encoding
+    (no matching commit)
+  - [v8,14/22] RISC-V: perf: Implement supervisor counter delegation support
+    (no matching commit)
+  - [v8,15/22] RISC-V: perf: Skip PMU SBI extension when not implemented
+    (no matching commit)
+  - [v8,16/22] RISC-V: perf: Use config2/vendor table for event to counter mapping
+    (no matching commit)
+  - [v8,17/22] RISC-V: perf: Add legacy event encodings via sysfs
+    (no matching commit)
+  - [v8,18/22] RISC-V: perf: Add Qemu virt machine events
+    (no matching commit)
+  - [v8,19/22] tools/perf: Support event code for arch standard events
+    (no matching commit)
+  - [v8,20/22] tools/perf: Add RISC-V CounterIDMask event field
+    (no matching commit)
+  - [v8,21/22] TEST(do-not-upstream): fake qemu-virt PMU events for cdeleg counter-mask testing
+    (no matching commit)
+  - [v8,22/22] TEST(do-not-upstream): fake qemu vendor JSON + mapfile entry for CounterIDMask path
+    (no matching commit)
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
