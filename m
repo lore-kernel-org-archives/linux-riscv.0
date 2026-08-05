@@ -4,61 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BAFC55184
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 01:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CAEAC55184
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 01:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nchLLKAQ05+atYKATwsRzGGVJHxz/lNLDuHNvIEgqVs=; b=iLw/n0VvnjazD3
-	Er6YQLcOkT+MX6cCvEpv9bzyYKsBNksO4RZu/T+MUi6FvX7ESe0T/bd4bmPj3Lef4qTg8tn854bt7
-	Jujrgp5V9VDoJJdlXXrKBzpfxDLQiu2JWcRIatohnvjPrQTUWU2dI4x9phS8mUivtpd6y0tDXcaoJ
-	KUftfm0VvJyeDRdwSdEsH+qM7Tt3QizLMpgzQ/N/7Cfgg5BjL8Hwy6+95cXNvGYO8RBH/gpMoJ/Au
-	6y3lIPvdWobh8q+L0rYgvKqfbDHzYWr4us4+7jytgV20R8JH0+5zs4Ef/LeLveuOKBOwkj29sjBcF
-	Sfd2SWEvN5iQOyr5LjZQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=V/sNFXE9V9CYr5/HJnP+Vle/p5hyJgModHUj9x5ixzA=; b=j2Qu6ys3Lp7xBV
+	0V2maVZ9wVCQ+hyvzqJ5Fo7h9urrmcmNzhDYT1XMSTyUDKJ+FQ5ikk4K/6/QWRQ7B6RVNbfpQ6UCH
+	3m4rzdO4UFD0060YhyR9tzOPfKsByXK5W8TpOro0GDfRuTbOynie+QHvVCvoA6jQzEZ4EEGZ98nxU
+	esNBgXZSTkGSH3Kbq73u7Sja6RlzmQHL4XtmXrosn6Es69ScdxMJyVNBmc50eAcPvfuvGEcmuX9IB
+	DzbCD/FfC2RVOlTRtKB/h86Fia+5rGk5JzyfWn1I3RjlxO96PHXU/S9IIP2Df2OWH78cfIhgkX4oq
+	ztYfzcKTPiX4YVabiNbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrQ0A-000000031qo-49K0;
-	Wed, 05 Aug 2026 01:00:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrQJ1-000000032zn-3zCu;
+	Wed, 05 Aug 2026 01:20:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrQ09-000000031q2-31iM;
-	Wed, 05 Aug 2026 01:00:57 +0000
+	id 1wrQJ0-000000032zZ-0Iuh
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Aug 2026 01:20:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9F3C160052;
-	Wed,  5 Aug 2026 01:00:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DB11F00A3E;
-	Wed,  5 Aug 2026 01:00:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A570600AA;
+	Wed,  5 Aug 2026 01:20:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 696B41F000E9;
+	Wed,  5 Aug 2026 01:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785891656;
-	bh=o3KX9skCpKY11w+0FlGhhpohym5ngk1RFk12GUsJf1c=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=ZdiRkgYOxwCPkyMP9MXyafK1991EZ2jyJgUEjzC2UWj9+QArYQs43RDm9QZJNPw0m
-	 oy0b1mpk81lRd6mP9Kd9YkyGgkV1nRaJrd01I4S90yQpJEKYyP8gRTOLOUS81omaFE
-	 xeWYq13BjLzViMjeSeU45Ni79OpHKVfICNf85FDTslgPXrV98IaZvWvqEhmd1q2KTN
-	 fG38PHUUcJr3FF2zkt88SvL1ShkgvHtc2+0xQ/wCSJAxsL46ftyEAP0X4WbI5NP3lJ
-	 bBHYQLmu27YWWGOIGiaZkH3m31IkjoAIV1qCeQzcqpRZlOvtdE3wFNxW6emnA80SNb
-	 c/VoDu4hfMiBQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D09C53926663;
-	Wed,  5 Aug 2026 01:00:17 +0000 (UTC)
+	s=k20260515; t=1785892824;
+	bh=8DJoyM9NIvkIctJ7O6ewJL238CNBlDP8MIbfk2FrjSg=;
+	h=From:To:Cc:Subject:Date;
+	b=CrcrPlNegZ0zvAShRCcYfYa5o/bINcT9sNgj7au3bRLkcv0hPj7zzpNNlOqFkEvnk
+	 2lMRyxtZgldJ7zQFCVYMsM7mspX5GwbXBfdG6eZWTxx9Tdr08sf73mXlvjbQaBL0V3
+	 WJdzPWj30w5Nh6PDhiUtCdWwhFBpFhOoXWIFKaa2TPixleTm+nSQC1GL7ibd5p4+cM
+	 DDdUPC1GBJfm5eekWJyHKklDEjz0k5JOm8iflC5RMoTGpFIGNgYDGfHDU+uSk+pmlC
+	 QBm8om7rhcSPn4BY36RQyG21UWjMpCqbBF94iFjVhCb5KIMSf61y0Zih2ozDEFGnsF
+	 Io62GALdN1BvA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: further remove XIP
+Date: Wed,  5 Aug 2026 09:00:49 +0800
+Message-ID: <20260805010049.13918-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Subject: Re: [PATCH v8 00/22] Add Counter delegation ISA extension support
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178589161639.3856351.5268442875805678038.git-patchwork-notify@kernel.org>
-Date: Wed, 05 Aug 2026 01:00:16 +0000
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
-In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
-To: Atish Patra <atish.patra@linux.dev>
-Cc: linux-riscv@lists.infradead.org, jolsa@kernel.org, pjw@kernel.org,
- mark.rutland@arm.com, robh@kernel.org, anup@brainfault.org,
- namhyung@kernel.org, acme@kernel.org, krzk+dt@kernel.org, irogers@google.com,
- will@kernel.org, james.clark@linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org,
- conor@kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,77 +70,213 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+After commit 9b3a2be84803 ("riscv: Remove support for XIP kernel"),
+something relatd with XIP are still there. Remove them to clean up the
+code.
 
-This series was applied to riscv/linux.git (for-next)
-by Paul Walmsley <pjw@kernel.org>:
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/Makefile                 |   4 +-
+ arch/riscv/boot/.gitignore          |   1 -
+ arch/riscv/boot/Makefile            |   3 +-
+ arch/riscv/kernel/vmlinux-xip.lds.S | 143 ----------------------------
+ 4 files changed, 3 insertions(+), 148 deletions(-)
+ delete mode 100644 arch/riscv/kernel/vmlinux-xip.lds.S
 
-On Wed, 01 Jul 2026 01:46:48 -0700 you wrote:
-> This series adds the counter delegation extension support. It is based on
-> very early PoC work done by Kevin Xue and mostly rewritten after that.
-> The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
-> on multiple ISA extensions.
-> 
-> 1. S[m|s]csrind : The indirect CSR extension[1] which defines additional
->    5 ([M|S|VS]IREG2-[M|S|VS]IREG6) register to address size limitation of
->    RISC-V CSR address space.
-> 2. Smstateen: The stateen bit[60] controls the access to the registers
->    indirectly via the above indirect registers.
-> 3. Smcdeleg/Ssccfg: The counter delegation extensions[2]
-> 
-> [...]
-
-Here is the summary with links:
-  - [v8,01/22] RISC-V: perf: fix resource cleanup on driver probe failure
-    https://git.kernel.org/riscv/c/bf08074d8a20
-  - [v8,02/22] RISC-V: Add Sxcsrind ISA extension CSR definitions
-    https://git.kernel.org/riscv/c/7c31031b2974
-  - [v8,03/22] RISC-V: Add Sxcsrind ISA extension definition and parsing
-    https://git.kernel.org/riscv/c/7fe9435ef9e7
-  - [v8,04/22] dt-bindings: riscv: add Sxcsrind ISA extension description
-    https://git.kernel.org/riscv/c/010e2b79bd08
-  - [v8,05/22] RISC-V: Define indirect CSR access helpers
-    https://git.kernel.org/riscv/c/6f1ece4a6691
-  - [v8,06/22] RISC-V: Add Smcntrpmf extension parsing
-    https://git.kernel.org/riscv/c/935bfae38e57
-  - [v8,07/22] dt-bindings: riscv: add Smcntrpmf ISA extension description
-    https://git.kernel.org/riscv/c/837eaefa4d63
-  - [v8,08/22] RISC-V: Add Sscfg extension CSR definition
-    https://git.kernel.org/riscv/c/db40f62b80ec
-  - [v8,09/22] RISC-V: Add Ssccfg/Smcdeleg ISA extension definition and parsing
-    https://git.kernel.org/riscv/c/2ea70441fe0f
-  - [v8,10/22] dt-bindings: riscv: add Counter delegation ISA extensions description
-    https://git.kernel.org/riscv/c/b8d69e7159cc
-  - [v8,11/22] RISC-V: perf: Restructure the SBI PMU code
-    (no matching commit)
-  - [v8,12/22] RISC-V: perf: Modify the counter discovery mechanism
-    (no matching commit)
-  - [v8,13/22] RISC-V: perf: Add a mechanism to defined legacy event encoding
-    (no matching commit)
-  - [v8,14/22] RISC-V: perf: Implement supervisor counter delegation support
-    (no matching commit)
-  - [v8,15/22] RISC-V: perf: Skip PMU SBI extension when not implemented
-    (no matching commit)
-  - [v8,16/22] RISC-V: perf: Use config2/vendor table for event to counter mapping
-    (no matching commit)
-  - [v8,17/22] RISC-V: perf: Add legacy event encodings via sysfs
-    (no matching commit)
-  - [v8,18/22] RISC-V: perf: Add Qemu virt machine events
-    (no matching commit)
-  - [v8,19/22] tools/perf: Support event code for arch standard events
-    (no matching commit)
-  - [v8,20/22] tools/perf: Add RISC-V CounterIDMask event field
-    (no matching commit)
-  - [v8,21/22] TEST(do-not-upstream): fake qemu-virt PMU events for cdeleg counter-mask testing
-    (no matching commit)
-  - [v8,22/22] TEST(do-not-upstream): fake qemu vendor JSON + mapfile entry for CounterIDMask path
-    (no matching commit)
-
-You are awesome, thank you!
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index ce0cc737f870..5ea0f7bccaef 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -172,12 +172,12 @@ vdso-install-y			+= arch/riscv/kernel/vdso/vdso.so.dbg
+ vdso-install-$(CONFIG_RISCV_USER_CFI)	+= arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg
+ vdso-install-$(CONFIG_COMPAT)	+= arch/riscv/kernel/compat_vdso/compat_vdso.so.dbg
+ 
+-BOOT_TARGETS := Image Image.gz Image.bz2 Image.lz4 Image.lzma Image.lzo Image.zst Image.xz loader loader.bin xipImage vmlinuz.efi
++BOOT_TARGETS := Image Image.gz Image.bz2 Image.lz4 Image.lzma Image.lzo Image.zst Image.xz loader loader.bin vmlinuz.efi
+ 
+ all:	$(notdir $(KBUILD_IMAGE))
+ 
+ loader.bin: loader
+-Image.gz Image.bz2 Image.lz4 Image.lzma Image.lzo Image.zst Image.xz loader xipImage vmlinuz.efi: Image
++Image.gz Image.bz2 Image.lz4 Image.lzma Image.lzo Image.zst Image.xz loader vmlinuz.efi: Image
+ 
+ $(BOOT_TARGETS): vmlinux
+ 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
+diff --git a/arch/riscv/boot/.gitignore b/arch/riscv/boot/.gitignore
+index e1bc507e8cb2..5d123ceaa012 100644
+--- a/arch/riscv/boot/.gitignore
++++ b/arch/riscv/boot/.gitignore
+@@ -5,4 +5,3 @@ loader
+ loader.lds
+ loader.bin
+ vmlinuz*
+-xipImage
+diff --git a/arch/riscv/boot/Makefile b/arch/riscv/boot/Makefile
+index fcfbe3f814d6..4a2d75b7e42d 100644
+--- a/arch/riscv/boot/Makefile
++++ b/arch/riscv/boot/Makefile
+@@ -16,9 +16,8 @@
+ 
+ OBJCOPYFLAGS_Image :=-O binary -R .note -R .note.gnu.build-id -R .comment -S
+ OBJCOPYFLAGS_loader.bin :=-O binary
+-OBJCOPYFLAGS_xipImage :=-O binary -R .note -R .note.gnu.build-id -R .comment -S
+ 
+-targets := Image Image.* loader loader.o loader.lds loader.bin xipImage
++targets := Image Image.* loader loader.o loader.lds loader.bin
+ 
+ $(obj)/Image: vmlinux FORCE
+ 	$(call if_changed,objcopy)
+diff --git a/arch/riscv/kernel/vmlinux-xip.lds.S b/arch/riscv/kernel/vmlinux-xip.lds.S
+deleted file mode 100644
+index a7611789bad5..000000000000
+--- a/arch/riscv/kernel/vmlinux-xip.lds.S
++++ /dev/null
+@@ -1,143 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright (C) 2012 Regents of the University of California
+- * Copyright (C) 2017 SiFive
+- * Copyright (C) 2020 Vitaly Wool, Konsulko AB
+- */
+-
+-#include <asm/pgtable.h>
+-#define LOAD_OFFSET KERNEL_LINK_ADDR
+-/* No __ro_after_init data in the .rodata section - which will always be ro */
+-#define RO_AFTER_INIT_DATA
+-
+-#include <asm/vmlinux.lds.h>
+-#include <asm/page.h>
+-#include <asm/cache.h>
+-#include <asm/thread_info.h>
+-#include <asm/set_memory.h>
+-
+-OUTPUT_ARCH(riscv)
+-ENTRY(_start)
+-
+-jiffies = jiffies_64;
+-
+-SECTIONS
+-{
+-	/* Beginning of code and text segment */
+-	. = LOAD_OFFSET;
+-	_xiprom = .;
+-	_start = .;
+-	HEAD_TEXT_SECTION
+-	INIT_TEXT_SECTION(PAGE_SIZE)
+-	/* we have to discard exit text and such at runtime, not link time */
+-	__exittext_begin = .;
+-	.exit.text :
+-	{
+-		EXIT_TEXT
+-	}
+-	__exittext_end = .;
+-
+-	.text : {
+-		_text = .;
+-		_stext = .;
+-		TEXT_TEXT
+-		SCHED_TEXT
+-		LOCK_TEXT
+-		KPROBES_TEXT
+-		ENTRY_TEXT
+-		IRQENTRY_TEXT
+-		SOFTIRQENTRY_TEXT
+-		_etext = .;
+-	}
+-	RO_DATA(L1_CACHE_BYTES)
+-	.srodata : {
+-		*(.srodata*)
+-	}
+-	.init.rodata : {
+-		INIT_SETUP(16)
+-		INIT_CALLS
+-		CON_INITCALL
+-		INIT_RAM_FS
+-	}
+-	_exiprom = .;			/* End of XIP ROM area */
+-
+-
+-/*
+- * From this point, stuff is considered writable and will be copied to RAM
+- */
+-	__data_loc = ALIGN(PAGE_SIZE);		/* location in file */
+-	. = ALIGN(SECTION_ALIGN);		/* location in memory */
+-
+-#undef LOAD_OFFSET
+-#define LOAD_OFFSET (KERNEL_LINK_ADDR + _sdata - __data_loc)
+-
+-	_sdata = .;			/* Start of data section */
+-	_data = .;
+-	RW_DATA(L1_CACHE_BYTES, PAGE_SIZE, THREAD_SIZE)
+-	_edata = .;
+-	__start_ro_after_init = .;
+-	.data.ro_after_init : AT(ADDR(.data.ro_after_init) - LOAD_OFFSET) {
+-		*(.data..ro_after_init)
+-	}
+-	__end_ro_after_init = .;
+-
+-	. = ALIGN(PAGE_SIZE);
+-	__init_begin = .;
+-	.init.data : {
+-		INIT_DATA
+-	}
+-	.exit.data : {
+-		EXIT_DATA
+-	}
+-	. = ALIGN(8);
+-	__soc_early_init_table : {
+-		__soc_early_init_table_start = .;
+-		KEEP(*(__soc_early_init_table))
+-		__soc_early_init_table_end = .;
+-	}
+-	__soc_builtin_dtb_table : {
+-		__soc_builtin_dtb_table_start = .;
+-		KEEP(*(__soc_builtin_dtb_table))
+-		__soc_builtin_dtb_table_end = .;
+-	}
+-
+-	__init_end = .;
+-
+-	. = ALIGN(16);
+-	.xip.traps : {
+-		__xip_traps_start = .;
+-		*(.xip.traps)
+-		__xip_traps_end = .;
+-	}
+-
+-	. = ALIGN(PAGE_SIZE);
+-	.sdata : {
+-		__global_pointer$ = . + 0x800;
+-		*(.sdata*)
+-		*(.sbss*)
+-	}
+-
+-	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
+-
+-	PERCPU_SECTION(L1_CACHE_BYTES)
+-
+-	.rel.dyn : AT(ADDR(.rel.dyn) - LOAD_OFFSET) {
+-		*(.rel.dyn*)
+-	}
+-
+-	/*
+-	 * End of copied data. We need a dummy section to get its LMA.
+-	 * Also located before final ALIGN() as trailing padding is not stored
+-	 * in the resulting binary file and useless to copy.
+-	 */
+-	.data.endmark : AT(ADDR(.data.endmark) - LOAD_OFFSET) { }
+-	_edata_loc = LOADADDR(.data.endmark);
+-
+-	. = ALIGN(PAGE_SIZE);
+-	_end = .;
+-
+-	STABS_DEBUG
+-	DWARF_DEBUG
+-
+-	DISCARDS
+-}
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.53.0
 
 
 _______________________________________________
