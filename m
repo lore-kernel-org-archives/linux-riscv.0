@@ -4,55 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E792C55184
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 01:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B2FC55838
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 02:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cHIiinRAWpgA7BMI+GhO6x6h8xWcHOaClrdglWqtPoY=; b=eXEbx62ZGqLZwA
-	Pw28pHHhJeaKuOeg6saP4ZRCS16plsCBx7aMjzu9p2lxQgazz8RqR7hWofQ+SEJfPrqHItj5feX7X
-	hLriTEdZsanpTpY6k41FBPPVZ0c2UH4t1QVWplCeiJBRQUde12DfYoZsvxPUXJz4Zveena7UQoHwb
-	oroHWpE17nQqcI458rVEzxfleuuwh5DZTDrLBGQjyZ/FhPDsBk5Y0VprHehruByJO3PQtEVJtrxuG
-	bhRqXeZW0r6/MZeb4FwP5KRgHsocvUaxfrNC0/7UFtqlYeQtq5sDVCx5nJRelVrPFhVWLwuZkubHv
-	lsCdMHw0MibNK0CFGjLQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8RV/IV7frWxj+fcR3q5gR1AR8UGtANR+7xdhMtqzTRk=; b=atVg4onOhVYUFx
+	j/DjEWJx8koSdbj0+G3Z0eqsda9wiQWXf3Q/bNxH+5M57rTK6J6ux7/yRUFePJT+nH6z94srKiWbm
+	5RrbIWbg+ah206fAI3vM2UQ62A2abBlHOHXJ2ubhfxq/W94k6N47Lt38kfRtPWkYYcRw/Z7qwmsRj
+	tDVOZFBK89224x2Z7Ee/Pz61P43hXzVVB+IzJBYdbqqX1egki/Rmq01S6Mrn9wlAfYyqH9rGuN5Ll
+	8++3mD6EGPLf4O5qfLrs8yU+vWLsqmARZ2T6xNd0Yk4VU9gOkb6/kTZdhaV+Z2VScx208Y4aSTEuK
+	uK270tqnS6W7Vdy+LULA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrQJI-0000000332r-0OPn;
-	Wed, 05 Aug 2026 01:20:44 +0000
+	id 1wrR9d-000000036Go-2M1V;
+	Wed, 05 Aug 2026 02:14:49 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrQJF-0000000332Q-0fRk
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Aug 2026 01:20:42 +0000
+	id 1wrR9b-000000036GG-1roB;
+	Wed, 05 Aug 2026 02:14:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2CFD40558;
-	Wed,  5 Aug 2026 01:20:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 560311F000E9;
-	Wed,  5 Aug 2026 01:20:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A689842AAC;
+	Wed,  5 Aug 2026 02:14:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72A3C1F000E9;
+	Wed,  5 Aug 2026 02:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785892839;
-	bh=Sm9+MeVjKgoXfw3OUvNP9GFUgc2NU4I4+UIJFYjr2Zk=;
-	h=From:To:Cc:Subject:Date;
-	b=KgHsB0RUoTVGW0su/n/WDUk7dUFZ+OrD6VVTIUfOei+gL63pCEfH9EkOYEPLAh+W/
-	 8NUzA7tWBNz7lKEsTK2nkjp4FaLNsxpt5Xkv1kSYnmApAymbvlgZAjxSOcMDhIo5V6
-	 LOBAhV8GQjxqDJcjZAhT/1uYzpd7PvbEWj1c/0xG9+uTDu+IEs2GSVICfnszks5Q7y
-	 WkzdkbWbbbdSMdq1DT/H01ELS4CEKzWKBnPwSTxJE7jB3ignbZZ6Yz175Gxz5Ocfds
-	 6PEfqAiuAmH0D+W/UxtivdVEFekOXJccBiLalFsbEAfE69JSrtJ71XukJxyHvIK6Ii
-	 vhOFOnxKNrepA==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: mm: unexport satp_mode
-Date: Wed,  5 Aug 2026 09:01:05 +0800
-Message-ID: <20260805010105.13934-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	s=k20260515; t=1785896082;
+	bh=+4me6HB/Ie1xpzJpoqjIi4/tsiZ2xqlMSo5EH8f0pa4=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=bkCDbivQZAn4erV38EslX808WXOkN+F6hiOGZwrcTOSZ3FGEkM8VxlKzLjwwnRTSn
+	 IOKeaMYBl8jiJss7NrJcnTsmgJZvtk+L/xPUNND5N3k3Mvg+LarvaJMniM4UFqxP5C
+	 4PDYp9TcasmF1uXzGDDslkmWwo9NM+IBE2ZaBRdsRdA1gjqORMNFWb8Lk0uKgZ6xdw
+	 YNS39TRhvb+la1WaOmNtHe340JzwB79vI50FBGsefvguy6EPdCa+W8q+apNpyazl5A
+	 1o+gyKrEh8h7H+BDWgDjUO91vfVDVbnKdJjWdHxTKQ0I2t6/DHKdNRpdJVkIyzbAj7
+	 YfFPdgMStoSGw==
+Date: Tue, 4 Aug 2026 20:14:40 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Atish Patra <atish.patra@linux.dev>
+cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+    Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
+    Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>, 
+    Arnaldo Carvalho de Melo <acme@kernel.org>, 
+    Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>, 
+    Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
+    linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+    linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v8 00/22] Add Counter delegation ISA extension support
+In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+Message-ID: <09a2dde3-788b-555e-22ba-2f2582a89524@kernel.org>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,29 +74,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since satp_mode introduction, it is only utilized by built-in kernel
-code.
+Hi Atish,
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/mm/init.c | 1 -
- 1 file changed, 1 deletion(-)
+On Wed, 1 Jul 2026, Atish Patra wrote:
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 3e450890be07..727083d046b9 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -49,7 +49,6 @@ u64 satp_mode __ro_after_init = SATP_MODE_57;
- #else
- u64 satp_mode __ro_after_init = SATP_MODE_32;
- #endif
--EXPORT_SYMBOL(satp_mode);
- 
- #ifdef CONFIG_64BIT
- bool pgtable_l4_enabled __ro_after_init = true;
--- 
-2.53.0
+> This series adds the counter delegation extension support. It is based on
+> very early PoC work done by Kevin Xue and mostly rewritten after that.
+> The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
+> on multiple ISA extensions.
 
+So as you've probably seen, I've started adding some of the prerequisite 
+ISA support patches from your series to the RISC-V for-next branch.  
+Looks like you're planning to repost the series at least one more time; 
+you can either include those patches again, or base it on RISC-V for-next 
+as you wish, but if you include those patches again, please note in your 
+cover letter if you've changed anything.
+
+
+thanks,
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
