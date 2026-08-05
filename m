@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9EDC2A09B
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 02:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A57C55838
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 02:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uCEIxVEDjBSiP1iewYQ5+04CSGGh4NCtEHLORGTB/zo=; b=mgq1siDpsiei5X
-	iuju/IqkjWkFYPIccoDdoSU5TP8GWlXlLlc7wK9Pg+R9t+K/zjtfSc7Bc8MyPxFRfuRiV1QxJSr+b
-	5gRnJWNtvubWZzSWtXlFdzm2Iv9nIUtcEqUpKrDkX/ZUsulo0qzWkFHMHpt20ehGTDXUH7/lRtjMJ
-	1c9yD7HagrIEOflvpJkraaKyF3fAoC/TI0NhT1Z9B83KTPgm26Q61NcNrXrC0vPYDBPEjl9iZkB4L
-	iXfSsEIJsk4vy2O3hXin+D1mdZ+k1awA73FByRK5Xn6CBIE/snLl3hC+6K15xxbrkZiJHYirxE/V4
-	nr3cR/XuSjthhC0bW2NQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m1Z6rjK7Z7V+8mxnma9cUYWexWhHd3pYwDd9KFGk8FM=; b=Zt+eA5alZVhnh24+vFsrOuK9or
+	S/ULq5+OyTmKBZnSpaBGj0WgwD0TPIsyk2JG14ILdEV5ozJcxZqdK2Ps9z1ZD3Y7/WHdc/iLo1LyH
+	RwXQMaqCfb2PxR6Qje1vRuQ/2JlAYRPdE5JxvFCRSMEHJOCr0F7Y6+j3feaRvm1zb6d1M+a7KS+rm
+	/1Iz1TV/w/xScwnEqtV0jfmQjJilmyjl/lWWRKe2NBwpXFvqwhZx0Mttxn0tq1gmwKxCYM+L0BxD8
+	yDt9WK6dKwtJSVWTLlqBOhbJ9B2/TnxHzHRT+R7HHMNP2lXu3rDWfi4cw93jh8dvv6azkPWE6ciO8
+	0EKwE6pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRef-0000000398r-0tNX;
-	Wed, 05 Aug 2026 02:46:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrRf0-000000039AJ-1LYe;
+	Wed, 05 Aug 2026 02:47:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRee-0000000398h-0LGC
+	id 1wrRey-000000039AD-37D3
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Aug 2026 02:46:52 +0000
+	Wed, 05 Aug 2026 02:47:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AFE01408F1;
-	Wed,  5 Aug 2026 02:46:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 295501F000E9;
-	Wed,  5 Aug 2026 02:46:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8432B600AA;
+	Wed,  5 Aug 2026 02:47:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 800EB1F000E9;
+	Wed,  5 Aug 2026 02:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785898009;
-	bh=anDmmYmDCw85dJdG5F1r05td0cG0ll5ir6h6ibLQk5Y=;
+	s=k20260515; t=1785898031;
+	bh=EuQ7UkVWTzna9OyzZ2ItQq8zDFnsDKDcsmb9afVZaB4=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=md2voIh7SHArpmBf3q4HUy7wT+dp8MyfuKgWe70PZGwm9zg8GTsSISge1OGz0Dvay
-	 Cyy6QcZ7bKEV8MBUYudZskpMWyDjQYiQUkOfW3gmfVuI+zp4wJepzFaN9yUrN7cZiV
-	 06a8WwYxF/QIhHnuiDDhWRl0+onya9B3hwfV03aSwa8Nc10zLIHk9UVExrWZcbiFES
-	 0LoCfxM9GHxx3M5ma2l5gpaz8o3Kq9qfRrRb6ouF2KJ3bCOspfPFFW2NlR5QXzusKB
-	 BdBPsv/u4Db42cNl3bppRMo1EvkfYRfTMncaYGoLAoBfX4Bo3VzG9uWPvsajpyIFEU
-	 cZiDtUj1q4NJQ==
-Date: Tue, 4 Aug 2026 20:46:39 -0600 (MDT)
+	b=HWUowoZQFzrsIHAH0KZZfdJetuB3H5S3IdPe4wGbSObpEkSTySeqMLPXmLN7ESTJw
+	 ygoMtuoAwrNtHH9czbbMYAFHPqvKW6kz4C+FQZVtGqNhS0uK2j3FrVqlDzzmjc3PVA
+	 BJX6jJa4SsrSvSxWdXZBqBq1F2CTNI5wlAUebtlWB9hXndYtiEb37ay2eccWaD1JRu
+	 BBJxaas1Pkb0ZY+NL3sTpNVr7Q8UCHWL76k/UxokaLiFzqyOStxvZrrR4wAaiQrvM+
+	 YvQv3RH0Sjq2R92jUgTgftFOykKVriS41eBe5MZOj8fabwJ/Kr4oXp5TJ/CY0Sh7S3
+	 n8QHnF6+Fr/BA==
+Date: Tue, 4 Aug 2026 20:47:04 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Drew Fustini <fustini@kernel.org>
 cc: Adrien Ricciardi <aricciardi@baylibre.com>, 
@@ -72,12 +72,12 @@ cc: Adrien Ricciardi <aricciardi@baylibre.com>,
     linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
     x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
     linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 1/8] dt-bindings: riscv: Add Ssqosid extension
- description
-In-Reply-To: <20260729-dfustini-atl-sc-cbqri-dt-v6-1-7c22b05d461b@kernel.org>
-Message-ID: <8d9a90e2-37c5-f1d6-edc4-9531942aaa35@kernel.org>
-References: <20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org> <20260729-dfustini-atl-sc-cbqri-dt-v6-1-7c22b05d461b@kernel.org>
+Subject: Re: [PATCH v6 2/8] riscv: Detect the Ssqosid extension
+In-Reply-To: <20260729-dfustini-atl-sc-cbqri-dt-v6-2-7c22b05d461b@kernel.org>
+Message-ID: <c38f0bfa-54fc-d141-c166-7355901d8ad1@kernel.org>
+References: <20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org> <20260729-dfustini-atl-sc-cbqri-dt-v6-2-7c22b05d461b@kernel.org>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="8323329-908076126-1785898031=:1429015"
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,22 +89,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
+
+--8323329-908076126-1785898031=:1429015
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8BIT
+
 On Wed, 29 Jul 2026, Drew Fustini wrote:
 
-> Document the ratified Supervisor-mode Quality of Service ID (Ssqosid)
-> extension v1.0.
+> Ssqosid is the RISC-V Quality-of-Service (QoS) Identifiers specification
+> which defines the Supervisor Resource Management Configuration (srmcfg)
+> register.
+> 
+> Link: https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
+> Co-developed-by: Kornel Dulęba <mindal@semihalf.com>
+> Signed-off-by: Kornel Dulęba <mindal@semihalf.com>
+> Signed-off-by: Drew Fustini <fustini@kernel.org>
 
 Thanks, queued for v7.3.
 
 
 - Paul
+--8323329-908076126-1785898031=:1429015
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-908076126-1785898031=:1429015--
+
