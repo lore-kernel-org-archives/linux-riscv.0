@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9125C55ABA
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 12:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CDC5C55ABA
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2026 13:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MUHlbpgEBpQSgpxNyl1CbO1z8i2ZwS1ifKfnXFqmdvU=; b=LexGJBxp+Wh/ni
-	BZnmJW25u+Tnnq/bE2+GEa5YyyK7ZAjpGHaWcu9O1O2XUpxeJLSgRGi+Ku97XJYxYV8w/CHItVWLy
-	i69/RlL3oAKJAd3w+eiayaKZJI+gXcOJzQ+7NgDAfndkTmFiZ9zJed6taVbWdIKVZw3v3+l8KfMev
-	uwEtqE/GoZPRUFPsKNufOvQyf7sl9oGKsa/Md6CeVLT1hJGPRSQRf0/z3uAeqtwIf8c2zYbu28iXP
-	fpgaG/dJr+vxClRdeHstlpaDVGrd/Vg2Vbbwz4eF71FVLS1BZwQ3PunWNNoLAiWSJot9ahWKo5Gtt
-	wnxW8mbPyKQzmu9VJsPw==;
+	List-Owner; bh=DMfKo8jgtClrzpJFl5FKc6vTaw9YgdRDG0NlynLphjg=; b=FUdHc6/OZUJWCi
+	jvyQgZq4jZoz9byA2eoVJ9VUpmEMsKwrD6FhM8Z8f9FjVOkJxH8KxPO+us2vS0itAuldFIh83+BDR
+	QnTQf9CB0cKaOi1a6H+hOkOkkOJ2JQwRDB9Ul4fOKM6mpvDW9hcYb5RGZ0ckrFUxIBhJ9GPc5pjrA
+	OwiIkdsTS2PUB5ZiRVkzX8FeUc/1ERVvqC+XcQfK/Ly4AG5EjrVgsZzEpXP9ilKL1MAR9zJ89/Cvt
+	fJI9RUW+y0XO6YCS7eu2ofO+VD5fOT3cXynLcsNIx4kZFa8/v1N3tDxUdOwkBDLnqowhU+8F0lvEO
+	G3nZzuVWWbW5feERjv+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wraea-00000003tp8-3HeI;
-	Wed, 05 Aug 2026 12:23:24 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	id 1wrbYc-00000003zFQ-3Pp5;
+	Wed, 05 Aug 2026 13:21:18 +0000
+Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wraeX-00000003tno-34Lw
+	id 1wrbYY-00000003zEZ-3qdO
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Aug 2026 12:23:23 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785932597;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vQmUlerGIfmDflb91fg4O+jH4m7vxFQJPaUYGL93Kk0=;
-	b=xS7J7OwZJD+fopQAeje3U74tdRqgJB0AsWNpoHGJEkzgWqKwf9qFkIygHIlawMkK3VMtQs
-	u5f18HsMO9MK2G+Q6OxF+tF9DI2si68Cux79IGL0Xwpl0YmQ171WSmn8jQMDJu47YhzGmJ
-	YtcXsWB+HpdtuBGNPUqdPQlxviLuYWs=
-From: Ye Liu <ye.liu@linux.dev>
-To: Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Ye Liu <liuye@kylinos.cn>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
+	Wed, 05 Aug 2026 13:21:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1785936064; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=vVvxj/WW/DMjYIOr6TBPnL4uKTl0YgWQXR0OuDSiAtI=;
+	b=DC36NyaRw4qHzkF7SzUsZDagA8SrRH7BktTBZE1bf5XHRUuYkRzUKGbEOXQkHs6kwPVEDzXPVX1yvD3LHJZPcij3VMmNyJA9DuVMl68tz/C01E18PNo+2NQp2/2No1kkp/o3vopytbQFfoJ1yiu/zWe6oBK6M/4bZabtKm9yU1s=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=11;SR=0;TI=SMTPD_---0X8RIxcf_1785936059;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X8RIxcf_1785936059 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 05 Aug 2026 21:21:03 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH] mm/page_table_check: add explicit pmd_none check in pte_clear_range
-Date: Wed,  5 Aug 2026 20:22:24 +0800
-Message-Id: <20260805122224.2512983-2-ye.liu@linux.dev>
-In-Reply-To: <20260805122224.2512983-1-ye.liu@linux.dev>
-References: <20260805122224.2512983-1-ye.liu@linux.dev>
+Cc: qingfang.deng@linux.dev,
+	alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	shuah@kernel.org,
+	linux-kernel@vger.kernel.org,
+	thecharlesjenkins@gmail.com,
+	jtaubepe@redhat.com
+Subject: Re: [PATCH v6 1/5] riscv: Introduce support for hardware break/watchpoints
+Date: Wed,  5 Aug 2026 21:20:54 +0800
+Message-ID: <20260805132058.884-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260803134913.2013674-2-himanshu.chauhan@oss.qualcomm.com>
+References: <20260803134913.2013674-1-himanshu.chauhan@oss.qualcomm.com> <20260803134913.2013674-2-himanshu.chauhan@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_052321_915257_3E6AA49C 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260805_062115_483369_485013AD 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +74,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ye Liu <liuye@kylinos.cn>
+Hi Himanshu,
 
-In __page_table_check_pte_clear_range(), the condition to determine
-whether to iterate over PTEs only checked pmd_bad() and pmd_leaf().
-This relies on the implicit assumption that pmd_none() is always a
-subset of pmd_bad() on all architectures supporting PAGE_TABLE_CHECK.
+Thanks for the series. Two small observations on the tdata1.hit
+handling, based on my reading of the Sdtrig spec.
 
-While this assumption currently holds for x86_64, arm64, s390, riscv,
-and powerpc, it is an architecture-dependent behavior that may not
-hold for future architectures. Add an explicit pmd_none() check to
-make the intent clear and avoid calling pte_offset_map() on an empty
-PMD, which could lead to undefined behavior.
+> +			/*
+> +			 * Prefer tdata1.hit from SBI trigger readout whenever
+> +			 * possible. Fall back to address-based matching if HIT
+> +			 * isn't observed/supported.
+> +			 */
+> +			raw_spin_lock_irqsave(this_cpu_ptr(&ecall_lock),
+> +					      *this_cpu_ptr(&ecall_lock_flags));
+> +			shmem = this_cpu_ptr(sbi_dbtr_shmem);
+> +			sret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIG_READ,
+> +					 i, 1, 0, 0, 0, 0);
+> +			if (!sret.error) {
+> +				tdata1 = le_to_cpu(shmem->data.tdata1);
+> +
+> +				if (dbtr_type == RISCV_DBTR_TRIG_MCONTROL)
+> +					hit = !!(tdata1 & RISCV_DBTR_MC_HIT_BIT_MASK);
+> +				else if (dbtr_type == RISCV_DBTR_TRIG_MCONTROL6)
+> +					hit = !!(tdata1 & RISCV_DBTR_MC6_HIT_BIT_MASK);
+> +			}
 
-Signed-off-by: Ye Liu <liuye@kylinos.cn>
----
- mm/page_table_check.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+It looks like the hit bit is read here but not cleared afterwards.
+The debug spec describes mcontrol.hit as:
 
-diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-index 6ffc536359cd..ed3e1a76f266 100644
---- a/mm/page_table_check.c
-+++ b/mm/page_table_check.c
-@@ -278,7 +278,7 @@ void __page_table_check_pte_clear_range(struct mm_struct *mm,
- 	if (&init_mm == mm)
- 		return;
- 
--	if (!pmd_bad(pmd) && !pmd_leaf(pmd)) {
-+	if (!pmd_none(pmd) && !pmd_bad(pmd) && !pmd_leaf(pmd)) {
- 		pte_t *ptep = pte_offset_map(&pmd, addr);
- 		unsigned long i;
- 
+  "If this bit is implemented then it must become set when this
+   trigger fires and may become set when this trigger matches.
+   The trigger's user can set or clear it at any time."
+
+and for mcontrol6 hit0/hit1:
+
+  "The TM updates this field when the trigger fires. After the
+   debugger has seen the update, it will normally write 0 to this
+   field so it can see future changes."
+
+So the hardware only sets hit, and clearing seems to be left to the
+trigger's user. Without a clear, a trigger that fired once would keep
+hit=1 and might be reported as matching on later unrelated traps on
+the same hart. Would it make sense to write tdata1 back with the hit
+bit(s) cleared (e.g. via TRIG_UPDATE) once a hit has been observed?
+
+A related minor point: for mcontrol6 with tinfo.version > 0, hit1 and
+hit0 combine into a 2-bit field (0=false, 1=before, 2=after). If only
+hit0 is tested, the "after" encoding (hit1=1, hit0=0) might be missed
+and would then rely on the address-based fallback. Checking (and
+clearing) both bits could make the hit detection a bit more robust.
+
+Best regards,
+Pei
+
 -- 
-2.25.1
-
+Chen Pei <cp0613@linux.alibaba.com>
 
 _______________________________________________
 linux-riscv mailing list
