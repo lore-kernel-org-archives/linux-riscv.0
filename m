@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A628C55ABA
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 02:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324F7C55ABA
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 02:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JINZEGqY9xWj2HHAjyZLm+kJHmpCI9lT52/jC/EBhRA=; b=z4Agce4nsGfTFO
-	GpLVrqf2qeRo2TWQR8Ryc/JcxvEWklS1MUeovdkufdM+t4O9tqvG99/s04WrPZqDbQYEqPnEfrzg5
-	p/SwEKXq4kWTEjzUMiZAjJ0mE/5zClbodaExrPb8qKa70fUyHWnRMUeKvgUYiAPbX+PQFFFY+Yxfc
-	4agJS8Mv+YSKjOEVvLnl47Qek92pnlELE2DtFVEmj09hpqzLKHuWSlhQbi7PWc/goXKKK0HVgUisa
-	amZ0gob0Nq7cZY1iK9SmzDjLbexzejKvQ+j4/58aRH+4d5gSlmWgsVq9sINnC7OEJUr1OWiIoDN3h
-	RAXdTSU5QhU1q+Vp+Vcg==;
+	List-Owner; bh=WBGMkV9DCTP4U47tNF3D91oAiELniHBhQvRfGMmGw8A=; b=zuaf1PHDWkU5tU
+	5C6+T4OcnUyO4uGjWVElOwj++xs560yEHBw5ilo5XBgbm6XS1GxCMeYKbrfoRit3APhTT3WGR7mGC
+	XI4d0/6sGQNVBTmQWMEmL95hkQBCSeZ/3TjM8BXAkogmCD4hcpOvZ8EM6rDzdSlSsOx8LG8ApPsL2
+	evhPeHjXr7ROJLU0htXNaPdy8Yl8pu3e3DoPLspuUeAUp4gD4H39cM5sbLNbo3iaTwWYF+guwUbWb
+	Kpl/9vXvCsSfGyO3ZdHsRnAmsJzV5Z7w/4YbsQMInIixQiAcWOH77CdZZ0F5EBBQIUrXxgYE+FcZp
+	H+B4jPdnpfQ4fqSdQkpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wro5q-00000004pcc-1y8O;
-	Thu, 06 Aug 2026 02:44:26 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wro6E-00000004pen-2OAm;
+	Thu, 06 Aug 2026 02:44:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wro5l-00000004pcH-46DV
+	id 1wro6D-00000004peT-1PZ6
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 02:44:25 +0000
-X-UUID: b2eed532914011f1aa26b74ffac11d73-20260806
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:c371c1ee-ebea-4b17-b729-418e0d974607,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:b944984e5793b53cccfeaf2f5f05f109,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|136|865|898,TC:nil,Conte
-	nt:0|15|52,EDM:-3|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:ni
-	l,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: b2eed532914011f1aa26b74ffac11d73-20260806
-X-User: xiaopei01@kylinos.cn
-Received: from [10.42.12.251] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <xiaopei01@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1300538191; Thu, 06 Aug 2026 10:44:09 +0800
-Message-ID: <89380ae2-0777-4518-9393-171aeae613a7@kylinos.cn>
-Date: Thu, 6 Aug 2026 10:44:06 +0800
+	Thu, 06 Aug 2026 02:44:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F9E640826;
+	Thu,  6 Aug 2026 02:44:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6671C1F000E9;
+	Thu,  6 Aug 2026 02:44:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785984288;
+	bh=CiA7EOsZf1u31c7ZK2OS7J7IWSJm/ecqwp0+2UUVfkM=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=XqiB5cciERKd1+gcdfpX74rbCDBckILJJE9lwPZPccRKQgjift/VpL1v0JTXaGGzu
+	 6KAM29U4nZ7sjk7OrvdBVIlxikf/Wabx12MbVUWNxvEXZBduyl98FTw4aGEew376kf
+	 JV6qfQ0Gdf5jmBqw6OyUfoDj8BmjP7Mb2C5E1Ucprv8XsMG6hfq0zp9GOqmLgY+Qwq
+	 Dlhkkc/+ByT4ikQtiBKDFS4XQwWzHM9r5ASJJIGAHFpcMZo89bbQP+WmKmdbCfl+Ch
+	 89Ynv1386dJqJPTrM+y5+RMX7Mbbg1f1vwYjAF9JpyADCvNaLfY5oyGFIsvtasN2OW
+	 5fzeDubkwkeUw==
+Date: Wed, 5 Aug 2026 20:44:46 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Peixin Xie <peixin.xie@linux.spacemit.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Yixun Lan <dlan@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
+    Oza Pawandeep <quic_poza@quicinc.com>, Will Deacon <will@kernel.org>, 
+    "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+    linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
+    stable@vger.kernel.org, Sunil V L <sunilvl@oss.qualcomm.com>, 
+    Huisong Li <lihuisong@huawei.com>
+Subject: Re: [PATCH v3] riscv: acpi: Handle LPI architectural context loss
+ flags
+In-Reply-To: <20260803-riscv-acpi-lpi-timer-v3-1-520fa13732f5@linux.spacemit.com>
+Message-ID: <e9ccdf60-481a-39a3-f0fa-428f47d838b9@kernel.org>
+References: <20260803-riscv-acpi-lpi-timer-v3-1-520fa13732f5@linux.spacemit.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] thermal: spacemit: k1: add shutdown action and reorder
- registration order
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, shuwei.wu@mailbox.org,
- rafael@kernel.org, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, dlan@kernel.org, daniel.lezcano@kernel.org
-References: <1967d2bcc8fede6fbd25fc8eee07f2873fb41472.1784184867.git.xiaopei01@kylinos.cn>
- <DK4XSEPSTY3I.O9ZFCZ9BJGNW@linux.spacemit.com>
-From: Pei Xiao <xiaopei01@kylinos.cn>
-In-Reply-To: <DK4XSEPSTY3I.O9ZFCZ9BJGNW@linux.spacemit.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_194422_310229_000CA217 
-X-CRM114-Status: UNSURE (   4.74  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +71,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyNi83LzIyIDE1OjU0LCBUcm95IE1pdGNoZWxsIOWGmemBkzoKPiBPbiBUaHUgSnVs
-IDE2LCAyMDI2IGF0IDEyOjA0IEFNIFBEVCwgUGVpIFhpYW8gd3JvdGU6Cj4+IEFkZCBhIGRldm0g
-YWN0aW9uIHRvIGNsZWFuIGhhcmR3YXJlIGludGVycnVwdHMsIHNhbXBsaW5nLCBhbmQgY29udHJv
-bAo+PiByZWdpc3RlcnMgb24gZHJpdmVyIHVuYmluZCwgbWlycm9yaW5nIHdoYXQgazFfdHNlbnNv
-cl9pbml0KCkgc2V0cyB1cC4KPj4KPj4gUmVvcmRlciB0aGUgcmVnaXN0cmF0aW9uIG9yZGVyIHdp
-dGhpbiBwcm9iZSgpOiByZWdpc3RlciB0aGUgdGhlcm1hbAo+PiB6b25lcyBmaXJzdCwgdGhlbiBy
-ZXF1ZXN0IHRoZSBJUlEsIGFuZCByZWdpc3RlciB0aGUgc2h1dGRvd24gYWN0aW9uCj4+IGxhc3Qu
-ICBPbiByZW1vdmFsLCB0aGUgaGFyZHdhcmUgaW50ZXJydXB0IGlzIGRpc2FibGVkIGZpcnN0LCB0
-aGVuIHRoZQo+PiBJUlEgaXMgcmVsZWFzZWQsIGFuZCBmaW5hbGx5IHRoZSB0aGVybWFsIHpvbmVz
-IGFyZSByZWxlYXNlZC4gIFRoaXMKPj4gYXZvaWRzIHRoZSBJUlEgdGhyZWFkIGFjY2Vzc2luZyBh
-biBhbHJlYWR5IHVucmVnaXN0ZXJlZCB0aGVybWFsIHpvbmUKPj4gZHVyaW5nIGRldnJlcyBjbGVh
-bnVwLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBQZWkgWGlhbyA8eGlhb3BlaTAxQGt5bGlub3MuY24+
-Cj4gUmV2aWV3ZWQtYnk6IFRyb3kgTWl0Y2hlbGwgPHRyb3kubWl0Y2hlbGxAbGludXguc3BhY2Vt
-aXQuY29tPgpmcmllbmRseSBwaW5nLgpwcmV2ZW50IGJlaW5nIGZvcmdvdHRlbi4KClBlaS4KVGhh
-bmtzIQo+IAo+IFRoYW5rcy4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On Mon, 3 Aug 2026, Peixin Xie wrote:
+
+> Commit 4785aa802853 ("cpuidle, ACPI: Evaluate LPI arch_flags for
+> broadcast timer") replaced the generic nonzero check for LPI
+> architectural context loss flags with arch_get_idle_state_flags().
+> RISC-V does not implement the helper, so it falls back to the stub
+> that returns 0. Consequently, CPUIDLE_FLAG_TIMER_STOP is not set when
+> an LPI state loses the hart timer context, preventing cpuidle from
+> using a broadcast timer for that state.
+> 
+> Implement the RISC-V helper and map the hart timer context loss flag
+> to CPUIDLE_FLAG_TIMER_STOP.
+> 
+> Fixes: 4785aa802853 ("cpuidle, ACPI: Evaluate LPI arch_flags for broadcast timer")
+> Cc: stable@vger.kernel.org
+> Acked-by: Sudeep Holla <sudeep.holla@kernel.org>
+> Reviewed-by: Yixun Lan <dlan@kernel.org>
+> Reviewed-by: Sunil V L <sunilvl@oss.qualcomm.com>
+> Reviewed-by: Huisong Li <lihuisong@huawei.com>
+> Signed-off-by: Peixin Xie <peixin.xie@linux.spacemit.com>
+
+Thanks, queued for v7.3.
+
+
+- Paul
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
