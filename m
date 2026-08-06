@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD14C5AC7C
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 22:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39558C5AC7A
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 22:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
 	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UHIXnqIzdedtHzgMMmfo7dBIh+WieN8wAFz/X9krqJc=; b=1l0FtXpyH2CRTC
-	SA7RC8dCInddyjD0IE+Z0S7DZhLb0KcHEEvJa/OLqUaIGsuXB7frQ3rHRdMKpAW9701Mz8vlq95iI
-	sGozizqUKTwL2wLNx7qBmzY5pRDv8UDqZ6001SjHnCHl9NRQod6JNZA4ZmrVfP5KFQbLHB0LfZYce
-	HDcaHpP7RCIV1zI3hXAzxu3d2bry+4xunKWFdL8ztkiTtgE4TYDusYVbSZ7WVdAIR2ea2Kxz3hOD3
-	s8MhjuA5GJQfgISMKuGup38SUXgvUVXwBigpDt3L8yXe9g0f1N3coTWEPHex5eGkXSZqjzZf2AL4F
-	Z8hasL9937m9zXXEBb7A==;
+	List-Owner; bh=u466BrMMeEq9lWCB8UeA0gcAsheA3SCuAOM0UI3JgCA=; b=W+n271WW6ddTF7
+	i0v6XVinfr6Ln5+VH34DHIpqnwbCmvdGEtboId3yHKHaL3FUqvjWOlI3WVC02WPoPzYvQ+Ivhs899
+	A3JABXhIw/blroj9fp3f+l9ZnxgY4WwwESzlVU10iSbMQVQUk81qIMDAKKytipIcML6MEFXIJepLa
+	5jChnkp+2dELpd0en5VFY6CGZkaPwpLHkHj2EbyYlqnAEHmrdMH4ZeGQBOtSpZpJIx6ayMXWPu/8S
+	+UiuyCamuLVs4C9npg2zHbiz02xwOxw9hKR6kJC7yOABBFL9FYPml/ZIA8gKpZIJF3yK5RSXYu4hJ
+	V97lrqn+toLV7j98u4jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws6tK-00000006p01-3pCG;
-	Thu, 06 Aug 2026 22:48:46 +0000
+	id 1ws725-00000006pJ5-2tbC;
+	Thu, 06 Aug 2026 22:57:49 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws6tJ-00000006oza-1tKm;
-	Thu, 06 Aug 2026 22:48:45 +0000
+	id 1ws724-00000006pIO-3uVl
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Aug 2026 22:57:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5325A600B0;
-	Thu,  6 Aug 2026 22:48:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61CFC1F000E9;
-	Thu,  6 Aug 2026 22:48:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C6BF60A6A;
+	Thu,  6 Aug 2026 22:57:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9473F1F000E9;
+	Thu,  6 Aug 2026 22:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1786056524;
-	bh=aKWps21C2vpIWj/xL3lTP3KBe8XdUi+jDN1FX8vkfyI=;
+	d=linux-foundation.org; s=korg; t=1786057067;
+	bh=BI+X85dq4LlNRPfEIbWIwO8lispM8mVV7OtTMSzPm4I=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Y/hkOxsiIyXqvny+I6euy/SH9J9Y7PfvaVvzz4ktCdEuX4pKj6zPoGgBWZ5XftV5k
-	 TJfDirsMpGdI8gmczhDD0jw9OYPO5/iIRZkpzwjANRXqfSxsf443+QOpy/gnslQp/t
-	 soLmaACg6qvULyVpdT1asWMzpnJCBRCNU+SfzJlM=
-Date: Thu, 6 Aug 2026 15:48:42 -0700
+	b=ikNoYIR4mHOhB1ta+N2cWs//xXsTyXml9LnV/JFysMCvTFr9m8nkw0aNpq5qWrr9p
+	 vO+ell6psXcgESEDakVye+kSM6tTz9diOZkE0smIINh5tZXDb8HsUbN8JwMEdsJl2o
+	 4EaPfQNxMbKoCCQv0wh0UYMVorMEAsgMZi5T3GVc=
+Date: Thu, 6 Aug 2026 15:57:46 -0700
 From: Andrew Morton <akpm@linux-foundation.org>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
- <dakr@kernel.org>, David Hildenbrand <david@kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Liam R. Howlett" <liam@infradead.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Suren Baghdasaryan
- <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>, Will Deacon
- <will@kernel.org>, driver-core@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] drivers/base, mm: move arch_numa.c to mm/
-Message-Id: <20260806154842.9faab19cdfb7cf09799d8f79@linux-foundation.org>
-In-Reply-To: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
-References: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+To: Wilson Felipe Pereira <wfelipe@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+ <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
+ Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, linux-arch@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH 0/3] init/Kconfig: generalize config COMMAND_LINE_SIZE
+Message-Id: <20260806155746.0c3590dc2f3228e7d65e986c@linux-foundation.org>
+In-Reply-To: <20260806061429.474992-1-wfelipe@google.com>
+References: <20260806061429.474992-1-wfelipe@google.com>
 X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -69,47 +66,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 06 Aug 2026 09:58:38 +0300 "Mike Rapoport (Microsoft)" <rppt@kernel.org> wrote:
-
-> arch_numa.c implements boot time discovery and initialization of NUMA
-> topology on architectures that select GENERIC_ARCH_NUMA (currently arm64
-> and riscv).
-> 
-> Since this is step in the initialization of the memory management
-> subsystem, it's logical to have arch_numa.c in mm/ alongside numa.c,
-> numa_memblks.c and numa_emulation.c.
-> 
-> Move arch_numa.c to mm/ and add its F: entry to "MEMBLOCK AND MEMORY
-> MANAGEMENT INITIALIZATION" in MAINTAINERS.
-
-Unclear what tree this is targeted at.  I grabbed it.
-
-
-mm-stable does have this change:
-
---- linux-7.2-rc5/drivers/base/arch_numa.c	2026-07-27 04:44:55.000000000 -0700
-+++ 25/drivers/base/arch_numa.c	2026-08-06 15:47:59.019918702 -0700
-@@ -231,10 +231,6 @@ static int __init numa_init(int (*init_f
- {
- 	int ret;
- 
--	nodes_clear(numa_nodes_parsed);
--	nodes_clear(node_possible_map);
--	nodes_clear(node_online_map);
--
- 	ret = numa_memblks_init(init_func, /* memblock_force_top_down */ false);
- 	if (ret < 0)
- 		goto out_free_distance;
-
-
-which is easily handled either way.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAgNiBBdWcgMjAyNiAwNjoxNDoxMyArMDAwMCBXaWxzb24gRmVsaXBlIFBlcmVpcmEg
+PHdmZWxpcGVAZ29vZ2xlLmNvbT4gd3JvdGU6Cgo+IFRoaXMgcGF0Y2ggc2VyaWVzIHByb21vdGVz
+IENPTU1BTkRfTElORV9TSVpFIGZyb20gYXJjaC9zMzkwL0tjb25maWcgdG8KPiBpbml0L0tjb25m
+aWcgdG8gYmUgZ2VuZXJhbGx5IGF2YWlsYWJsZSB0byBvdGhlciBhcmNoaXRlY3R1cmVzLgo+IAo+
+IEluIHNvbWUgdXNlIGNhc2VzLCBzdWNoIGFzIG5ldGJvb3Qga2VybmVscywgcm9vdGZzIGNvbmZp
+Z3VyYXRpb25zLCBsYXJnZXIKPiBpbml0cmFtZnMgc2V0dXBzLCByZXF1aXJlIGxhcmdlciBzaXpl
+cy4gV2hpbGUgZm9yIGVtYmVkZGVkIHdvcmtsb2FkcywgaXQKPiBjYW4gYmUgcmVkdWNlZCB0byBz
+YXZlIG1lbW9yeS4KPiAKPiBTaW5jZSBDT01NQU5EX0xJTkVfU0laRSBjYW4gYmUgbGFyZ2VyLCBp
+dCBhbHNvIG1ha2VzIHNlbnNlIHRvIGFsbG93Cj4gSU5JVF9FTlZfQVJHX0xJTUlUIHRvIGJlIGNv
+bmZpZ3VyZWQuCgpUaGFua3MuCgpBSSByZXZpZXcgcG9pbnRlZCBhdCBhIGZldyBwb3NzaWJsZSBp
+c3N1ZXMgLSBJIGV5ZWJhbGxlZCBhIGNvdXBsZSBhbmQKdGhleSBhcHBlYXIgc2lnbmlmaWNhbnQu
+CglodHRwczovL3Nhc2hpa28uZGV2LyMvcGF0Y2hzZXQvMjAyNjA4MDYwNjE0MjkuNDc0OTkyLTEt
+d2ZlbGlwZUBnb29nbGUuY29tCgoKPiBPcmlnaW5hbGx5LWJ5OiBNYWNpZWogxbtlbmN6eWtvd3Nr
+aSA8bWF6ZUBnb29nbGUuY29tPgoKZnlpLCBpdCdzIG1pbm9yLCBidXQgT3JpZ2luYWxseS1ieTog
+aXNuJ3QgYWN0dWFsbHkgYSB0aGluZy4gIEl0J3MKbWVudGlvbmVkIGluIHRoZSAtdGlwIGRvY3Vt
+ZW50YXRpb24sIG5vdGhpbmcgZWxzZSBlbmRvcnNlcyBpdC4KCkkgaGF2ZSBubyBpc3N1ZSB3aXRo
+IGl0IGJ1dCBmb3JtYWxseSB0aGVzZSBwYXRjaGVzIHNob3VsZCBhbHNvIGhhdmUKTWFjaWVqJ3Mg
+U2lnbmVkLW9mZi1ieTogCgoKUGxlYXNlIGxldCdzIHRhcmdldCA3LjMtcmMxIGZvciB0aGVzZSBj
+aGFuZ2VzIC0gSSdtIGRlZXAgaW50bwpzdGVtLXRoZS1mbG9vZCBtb2RlIGZvciB0aGlzIC1yYyBj
+eWNsZS4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
