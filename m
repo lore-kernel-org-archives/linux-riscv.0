@@ -4,93 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBD3C5AC67
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 19:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6EDFC5AC67
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 19:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=F+2bqb92yXyaaGDA6e5wUqISrkDLzpCDGhGGIe7k6IQ=; b=vLHjqZvMvfrClN
-	dgsAgsf276YkkjKTeerO9mYgo4pqQ7nu1Tg3IRlSBKZDPZ5UIhqFPP25CdOooaK6u6FVJvsQEAZxl
-	euaccpwYKa7acSwzurh1iczbPm2OGL334hOoSMgN4aGODNc9S10Gj4BlrLNx+u0Qa+XAsJzCinLeC
-	j+3rqBBvKYzp29kqTKWTmbEJGt3vyVQED8Co89sJY+QCjZmmaOFPXOp9CN4qlbH1qetIGcvkE4lxV
-	KueYoF45plAHhw3hj49kKwPsiUDOnwt4uZ8BIHnpG8fzaTsyy2PSJUJlfwvLqy//zSDQO3RpNHHnq
-	4T5+WeqfvJJYKjHVhZHw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QIKkYx44ZxSbm7aUPavWdGC+cQkHOOp3sWzrwOJMyFw=; b=NnrYNu+qxAFaU/
+	kQgMPCjH3XLc6/m9PepHsBwhnISQeg+L2lt8ncSqoo2gpbqvDW/anX7XbKMR329Qlo3N9uMylHGgK
+	T775N5J6Okgw1AU+Bs0hUnrei5H48/tQnd+q+33O0sUOKmnG/zbJjItmqoR7iPsFFQ541gCtHb1gq
+	T4tKWLkB7IXRPj+y4hWGmEAmU5jwcXfg8TvTUrqHcDu+sUvvqzoISjeKgneNDKWRVsJVCLKY3Rnul
+	581OmbtzUNtee8aoDBLG7puIFPhjqJIhWmsULFsXhzkjQTn+wCxK77dAK+PgHhTUHu4SypNPQ58Gt
+	P2YMPftF/QR9nsW+29yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws3pj-00000006ZZR-2Ut0;
-	Thu, 06 Aug 2026 19:32:51 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1ws4Bq-00000006b6y-2Gyx;
+	Thu, 06 Aug 2026 19:55:42 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws3ph-00000006ZZ0-1YGI
+	id 1ws4Bm-00000006b2M-0YnY
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 19:32:50 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-47f71156e1aso1187228f8f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Aug 2026 12:32:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786044767; x=1786649567; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4TlLU3iudfDSh37R1MgKEhJzdbfc94lN89q/rnC4V6M=;
-        b=Xkiepl395TlWF+Pl0hSUdVL0coieIGGXe0ubq2HubmWK9kdiSLG463tE/Y8rKNxsVn
-         JclXXtW+tLs6Jw1kKKHAs7zl+F4b38ZfA/o1xmFWnZz+yZTa6hlmochQy6NY7+EWM9OJ
-         HljB5xQrPbjrgcYrCiXcy+JnHhtkanVHE3WetwN3co98GmaVYjA/JUbm+BM6WXQo1oIR
-         wBnO3pXzovKGyFJ1UGc8TOjJq9a5C+xRd4eS0hcOIwD7SV/jR0QCS+6OkikUG4y2vNVm
-         GYCj+beIqMDaoJrKZeKt+n4CPePlPHreGy4Sra7o6YFwA7qkuTKFWuOL4q0yH5+qXA/k
-         IbLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786044767; x=1786649567;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4TlLU3iudfDSh37R1MgKEhJzdbfc94lN89q/rnC4V6M=;
-        b=nPzvP8VqpP/jxD3Q6BE7sijyOMVRgas3AfGPU/Wv1rDcJUEffbcUzP+c/a5ijKxJ6v
-         Uwxzq5J9mc7K0cda9ib23w4P0oUSSWK8xPXSh+0lM+AaiR2MwkvR2pcW+MXflOAFhjZA
-         mgjSW16qL3GNSF9uz2d4Vfs+cLlggTcrnuJp2skp1mKZ8Fz5lMr66Tkq8MvI1cIORbgH
-         fljSsUqr6R6UwyzUZdgFqCTO0Hq9hwDraJkk+p2miB6YwaZ2dmXGgRSz6c8RFUGx0FSK
-         63jrrjbRnitVOATlFF6KcDKYf09q/CovAvGXaR9QOqHCVfPZJh8TMV76B7/RZeJ1/kBI
-         kOWA==
-X-Forwarded-Encrypted: i=1; AHgh+RrOltIvrnG9qqBuTkDrX2tYR9B2cFYoA7imHpVIx8dBRCjLddJU8gR2KkRw/RiI4bVXo7Azcgz3YB5ehg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxn6cUsLYwhPsJGUCKCaueRVli/seHTiQhkveadrvkRSoJX0D5c
-	X0NQ3ePnKywqyKcPe4z9p1SjtIh6b9e/eS2wC2JO3EDS7kUkR2NmgA0s
-X-Gm-Gg: AR+sD135eL8X9saekY8Sq/dJGgxn6TQd3iZ0KKlvyRPIjaHJ6raT0QbOS3gzoerJhj8
-	DctQdfe5GVvFjpXi1BpMPV6h6MyChiIdRw9upk3R2TpmQhlRYeNWEcDRd2HC5kZe98GwPMI58mi
-	AOiBR/aJ/q2hm1r6u9bpQO9yO80rz4qQmcBaiiBI8uOkG+DnHWcphjNrcXm89kSjsEjTu7oz+3T
-	bJUJpxArPznBD0ItpM3g8w8MLqFLagHNc9fhRf/iix5FxG4/Iw3SUnHGjm/qFBpEB4lt8tQ0Bgz
-	uDmZjUJGrRfgO1EkxsIZfrOTTxch4UabUt56stMuf0dJULCLmjejNXhNlLZwLfp08/kIxcqK2zW
-	j9tnsZ3q8bY+GTarSaNPRBYyczJsvhbA3+gf9Hqo8eMd0vMawLtyuhqyuMZYVlreTxoXSLatTF6
-	yfAsz61XG666K970BWMs1uMlxSZLh2RnQuRmow+tBKWT7HWehxJmzq8Djovl5Dp1Q38LWcX8Sp2
-	bbSv9YyQXe0MJdCtcgEi9z/OSkbC4jqYEwuEe/jajpZEDwrEWbjbwvZIljEypgLkRGqs82Cm8+a
-	1hHFslhULF1y9+DUGytY0RZ0UTie2duvqJDGxk0Kvjc6kEZyxY1oQMdQHw070NYdnRibLwKalg=
-	=
-X-Received: by 2002:a5d:67cc:0:b0:47f:6dcb:3737 with SMTP id ffacd0b85a97d-47fec64be03mr19894812f8f.29.1786044766987;
-        Thu, 06 Aug 2026 12:32:46 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-adf9-2301-8c14-6be6-a9e6-a2d4.310.pool.telefonica.de. [2a02:3100:adf9:2301:8c14:6be6:a9e6:a2d4])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47ff7b250cfsm8782322f8f.28.2026.08.06.12.32.46
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 06 Aug 2026 12:32:46 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
+	Thu, 06 Aug 2026 19:55:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Tl4YnH/x01yu5vDeTYsNoKr3C1HMhXoN5zD3ipA/8joXzrLBC7oxLfZTUoeANhP31/5At1zpKZ5eZllLvU0HlKRW0GpAOFiZqYjrghgOiAlynxJr5uidaebcWHh7say1Lk43KZgigzByhbKrCZX6M1RVfL+29dDvHzvk4cVQvNwCdJfDYHTu08bhG92ebe8Wlp5W6XVAeOO307iaP8TFzsGWIL5jdaPvetwtxiLdAwpMj2DaNaWqSUU/CD1VYv10GG7iQ+nXZuZj2tDx5+JpkCxMKDAdn64siYvRZyecF0xxANi2ShsohCTUSx4dDCgyv68SPdAgk5Gx/q87aGcTMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bjO/NHtTBty0hfd9lbJTuZ8iZuxLCHqQSdz9YT9kwZI=;
+ b=w5faXL23ljXwXodGT8bHIE6doFriWfdWXo0SckmF1YqnEbcRkOr3HYakWcDvOhaG5Yd2cwM6osnlxmPYLmWZs1tjTuhmAOxdOeqYSxFseIV8tOClyb5geDYIDdoH2nJYz//Aseg9UbdHfyONtPUi+xgmKr4QR2X7fk1hT7x+OwZwu3HxQyTBf9tG5BFmiYBJ7kbcanP681XbVkXlxAI+cOaeyfXaKVvApBDS+jhHVvx46U8R9evPyvgzTjTPJG6Fk7lBTdF09O9LxfJ+bNNZu06nm75uM/VcdCHyI1rOxMua+v5GslcN/zK3DMfuARdGphNJphkNaQeLsDJFefxYSg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 192.86.86.210) smtp.rcpttodomain=cryptography.com smtp.mailfrom=rambus.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=rambus.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bjO/NHtTBty0hfd9lbJTuZ8iZuxLCHqQSdz9YT9kwZI=;
+ b=p9a3G7IAfanJ2wP36ghltzw/iiw624JbyTnqMMW6rnuRblTjxSVrIUASvoSlQothF7iD8u1BcfnQHJtUyCrpBFMrj4LUHlpBseYUmnIza3cYRL80gX91NOeNWwVCVJphnMAyTVPGq9CuWABGviLXbEYsZ94o42HBuTNojEXmh9Sc834KWuBbKKHA/30Z2B0DZhT4iDlSMUNjzRYeBL+NC5OsLeOIoV9UxHjkFFn5Ssr5U1mzdlbVCtaYAzTElh0qClqjBEoWxfdpoY0+BBTS7cA3w66MMgfzNP75sNzkDzaZo4tKnTxuIZRhaez5oxuw3TfVpQCoGxmsm/2PQXUf8Q==
+Received: from CY8PR12CA0041.namprd12.prod.outlook.com (2603:10b6:930:49::18)
+ by PH8PR04MB9930.namprd04.prod.outlook.com (2603:10b6:510:3a9::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.21; Thu, 6 Aug
+ 2026 19:55:28 +0000
+Received: from CY4PEPF0000EE30.namprd05.prod.outlook.com
+ (2603:10b6:930:49:cafe::22) by CY8PR12CA0041.outlook.office365.com
+ (2603:10b6:930:49::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.21 via Frontend Transport; Thu, 6
+ Aug 2026 19:55:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 192.86.86.210)
+ smtp.mailfrom=rambus.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=rambus.com;
+Received-SPF: Pass (protection.outlook.com: domain of rambus.com designates
+ 192.86.86.210 as permitted sender) receiver=protection.outlook.com;
+ client-ip=192.86.86.210; helo=hqxsv-psmtppxy02.rambus.com; pr=C
+Received: from hqxsv-psmtppxy02.rambus.com (192.86.86.210) by
+ CY4PEPF0000EE30.mail.protection.outlook.com (10.167.242.36) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
+ via Frontend Transport; Thu, 6 Aug 2026 19:55:27 +0000
+Received: from hqxsv-cmdev3-skrishnamoorthy.rambus.com (hqn-lb-int-float.rambus.com [10.12.20.20])
+	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTPS id 263CC1801748;
+	Thu,  6 Aug 2026 19:55:27 +0000 (UTC)
+From: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+To: Albert Ou <aou@eecs.berkeley.edu>,
+	Alex Ousherovitch <aousherovitch@rambus.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andy Chiu <tchiu@tenstorrent.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	linux-riscv@lists.infradead.org,
+	Paul Walmsley <pjw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>,
+	Shuah Khan <shuah@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org,
+	Joel Wittenauer <Joel.Wittenauer@cryptography.com>,
+	linux-api@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] riscv: vector: preserve state when scheduling at nonzero depth
-Date: Thu,  6 Aug 2026 21:32:41 +0200
-Message-Id: <20260806193241.10552-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Thi Nguyen <thin@rambus.com>
+Subject: [PATCH v3 01/19] dt-bindings: crypto: add Rambus CryptoManager Hub
+Date: Thu,  6 Aug 2026 12:55:00 -0700
+Message-ID: <20260806195519.2703224-2-skrishnamoorthy@rambus.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20260806195519.2703224-1-skrishnamoorthy@rambus.com>
+References: <20260806195519.2703224-1-skrishnamoorthy@rambus.com>
 MIME-Version: 1.0
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE30:EE_|PH8PR04MB9930:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4708c3d0-0fe0-4127-0f65-08def3f4a9ab
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|82310400026|376014|1800799024|36860700016|10067099003|56012099006|11063799006|6133799003|3023799007|921020|18002099003|22082099003|13003099007;
+X-Microsoft-Antispam-Message-Info: Tv9K8tO8GIXsm9B/t44rnU4xS1B5c/pqVqd0Gkr0mOZG/WfTYBcdkgNw0kif7u+VaDfgywMFZa9Blz1B+Wmw6pALewlrXHR93sUHepflLliwOslNaNNv9f4MzeaJJMOBb6Zbbe2Hq6kaD0oMCdejvJQ88KLKFPwH1mYhShrNRjbc9jxZOVUllz+p8+G4AT1IZrHE6lpGf8wui/CiceU27xkytnJJFKUQz88MVBUUQV2DxKmqKvuoUKw7wV8skyaGHvWoo6KouMr41sUwei5ocEZc/Jc0fBKwx62FQF3mhnlYgbgdT7iemgnmuXDpvKc3SK8ekg8YFKBresRDsu9U1lBB3UI1IZVLpOYYRX+csoS4/4uclIKA2RCnPl7sRiTmDjAXK5Ucss1R8+BJSCMdpm0ItC5PgLzgHwSqhYeHLugw44054DIimqiBf2XyYyO8tFrjSy9mil3b9SoHhxjmUYTu6aF8UdWnQfTWXLZQhyx+jzh7uB+C6Xs0SzhW4855H9PsgPUu2ITgb3xtbv4L3H+XNaKQqsXrqSSk48gZegUbWjBD/pIjISjo7aqUFXO+xj9H0uSPS6APUlg7gz9YZrJTlhN0Romgff0b4FulVQlY1cs8Qy+DV4gnI6tr2XeNoPLf1kvr8chp0/yL37uB/EeRGg3PNkWmUPuqZszOkWdJvGKw/3bpY/cfrpQYNhStap8MbZUvyEDBlCVZlUZPIQdDpoH1mHHdUYpf4i1gMqAARvehKGLmFNkxuf4fFTxN
+X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(82310400026)(376014)(1800799024)(36860700016)(10067099003)(56012099006)(11063799006)(6133799003)(3023799007)(921020)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: tmKtLv0SjJkwr9K3O7XyqkP1GdLAhqq+Q5x1DyTIMwEhZZoQ9Mu+GiMIWgqHvkGhX+Du+p3K7BE2CMdDJ8Knwidrf7DxQPo+oISN79CtmLStUwfRbSbixo1tCkCpGlZ/veMFIOBEZYSFHfxgLFAd6yLvC03ZAMF9GaNDn0wLxagOY9gmMkfMDIWqtjYzz8I4vB5orpLdwzkI8gH+2s84l82FmeQvoBcw36vHAtLKuyEiZCYyhhtcaeXcRpcH6EtTwv2n553NsL+21QgrNw8SB2HoZxfne22l2qCmDrZz7RkqV6rysuGWC7LegIHYRE53w4acW0cm5ZSxDNhsoXB1MvDW08odj+L7fEYanD2XzA9s8bD2oWHlmuEj9jVKo9fqInvh5/uqbGrJyM35melCF2fb/TPAsGx6c5j8IpIS5ogSWmvsHCW85eaCT1TMxkzg
+X-OriginatorOrg: rambus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 19:55:27.6040
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4708c3d0-0fe0-4127-0f65-08def3f4a9ab
+X-MS-Exchange-CrossTenant-Id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bd0ba799-c2b9-413c-9c56-5d1731c4827c;Ip=[192.86.86.210];Helo=[hqxsv-psmtppxy02.rambus.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE30.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR04MB9930
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_123249_451145_F949ED5A 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20260806_125538_196408_CB62ACE0 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,249 +137,259 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The IN_SCHEDULE shortcut lets __switch_to_vector() discard Vector state at
-a voluntary schedule point, where Vector registers are caller-saved.
-Switch-in can then enable Vector without restoring state.
+From: Alex Ousherovitch <aousherovitch@rambus.com>
 
-An interrupt or fault can also schedule at nonzero Vector nesting depth.
-This triggers:
+Add device tree binding schema for the Rambus CryptoManager Hub (CMH)
+hardware crypto accelerator.  The binding describes the parent
+SoC-level node with its SIC register region and one mailbox@N child
+node per mailbox the host owns, each carrying a reg (mailbox instance
+index), an optional interrupt, VCQ ring geometry (rambus,slots-log2 /
+rambus,strides-log2) and a rambus,cores affinity list.  Which crypto cores
+are present is discovered from the SIC CORE_ENABLE register at probe,
+not described in the device tree.
 
-  WARNING: arch/riscv/include/asm/vector.h:376 at __schedule+0xfbc/0x10b4
+Register the 'rambus' vendor prefix for Rambus Inc.
 
-The shortcut is then also taken on switch-in, so it skips NEED_RESTORE and
-riscv_v_context_nesting_end() resumes with stale Vector registers. In the
-vector usercopy loop, an interrupt between vsetvli and vle8.v/vse8.v can
-therefore resume with another task's vl, vtype and vector registers. The
-scalar loop state survives, so the copy can use the wrong vector length and
-silently corrupt user data. A sleeping page fault in vectorized usercopy
-can reach the same switch without CONFIG_PREEMPTION.
-
-Use the shortcut only at depth zero. Nonzero-depth switches retain the
-existing save and NEED_RESTORE protocol.
-
-Fixes: d1049fc0de81 ("riscv: vector: Support calling schedule() for preemptible Vector")
-Cc: stable@vger.kernel.org
-Assisted-by: Codex:gpt-5.6-luna
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
+Reviewed-by: Joel Wittenauer <Joel.Wittenauer@cryptography.com>
+Reviewed-by: Thi Nguyen <thin@rambus.com>
 ---
-Reproducer:
+ .../bindings/crypto/rambus,cmh.yaml           | 207 ++++++++++++++++++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ 2 files changed, 209 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/crypto/rambus,cmh.yaml
 
-Originally caught by syzkaller fuzzing:
-
-  [   75.067010] ------------[ cut here ]------------
-  [   75.069361] WARNING: arch/riscv/include/asm/vector.h:376 at __schedule+0xfbc/0x10b4, CPU#1: syz.4.788/3533
-  [   75.072830] CPU: 1 UID: 0 PID: 3533 Comm: syz.4.788 Not tainted 7.2.0-rc5-g11f985de3fef #3 PREEMPTLAZY
-  [   75.075177] [<ffffffff810cb124>] __schedule+0xfbc/0x10b4
-  [   75.075572] [<ffffffff810cb41c>] preempt_schedule_irq+0x2a/0x76
-  [   75.075753] [<ffffffff810c6a06>] irqentry_exit+0x260/0xd48
-  [   75.075911] [<ffffffff810c666a>] do_irq+0x34/0x48
-  [   75.076076] [<ffffffff810d4f82>] handle_exception+0x146/0x174
-  [   75.076380] [<ffffffff810c5654>] loop+0x4/0x26
-  [   75.076505] [<ffffffff80749838>] copy_folio_from_iter_atomic+0x2d4/0xd64
-  [   75.078599] ---[ end trace 0000000000000000 ]---
-
-The following standalone workload exercises the same vectorized usercopy
-path. Build vector-stress.c into the initramfs and mount debugfs before
-running it. The kernel used CONFIG_PREEMPT_LAZY=y,
-CONFIG_RISCV_ISA_V_PREEMPTIVE=y and CONFIG_KCOV=y. Run it under QEMU TCG
-with:
-
-  qemu-system-riscv64 -machine virt -cpu max -smp 1 -nographic \
-    -kernel arch/riscv/boot/Image -initrd vector-diag-small-memcheck.cpio.gz \
-    -append 'console=ttyS0 earlycon=sbi rdinit=/init'
-
-The stress program checks every byte read back from the pipe. With this
-patch, the workload completed with failures=0 and no Vector warning.
-
-Testing:
-  checkpatch.pl --strict, git diff --check, Image builds with
-  CONFIG_RISCV_ISA_V_PREEMPTIVE=y and CONFIG_RISCV_ISA_V_PREEMPTIVE=n, and
-  QEMU TCG one-vCPU stress runs. The patched workload completed with
-  failures=0 and no warning.
-
-No conflict with Andy Chiu's pending "riscv: optimize Vector context restore
-on syscall" series; both apply independently.
-
-vector-stress.c:
-
-#define _GNU_SOURCE
-
-#include <errno.h>
-#include <fcntl.h>
-#include <linux/kcov.h>
-#include <pthread.h>
-#include <sched.h>
-#include <stdatomic.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/ioctl.h>
-#include <sys/mman.h>
-#include <sys/types.h>
-#include <unistd.h>
-
-#define WORKERS 4
-#define ITERATIONS 2000
-#define CHUNK (16 * 1024)
-#define KCOV_ENTRIES (1 << 16)
-#define KCOV_BYTES (KCOV_ENTRIES * sizeof(unsigned long))
-
-static pthread_barrier_t start_barrier;
-static atomic_int failures;
-
-static int kcov_start(unsigned long **area, int *fd, int id)
-{
-	unsigned long *map;
-	int kfd, saved_errno;
-
-	kfd = open("/sys/kernel/debug/kcov", O_RDWR);
-	if (kfd < 0) {
-		dprintf(STDERR_FILENO, "worker %d: KCOV open: %s\n", id,
-			strerror(errno));
-		return -1;
-	}
-	if (ioctl(kfd, KCOV_INIT_TRACE, KCOV_ENTRIES) < 0) {
-		dprintf(STDERR_FILENO, "worker %d: KCOV init: %s\n", id,
-			strerror(errno));
-		goto fail_close;
-	}
-	map = mmap(NULL, KCOV_BYTES,
-			PROT_READ | PROT_WRITE, MAP_SHARED, kfd, 0);
-	if (map == MAP_FAILED) {
-		dprintf(STDERR_FILENO, "worker %d: KCOV mmap: %s\n", id,
-			strerror(errno));
-		goto fail_close;
-	}
-	if (ioctl(kfd, KCOV_ENABLE, KCOV_TRACE_PC) < 0) {
-		dprintf(STDERR_FILENO, "worker %d: KCOV enable: %s\n", id,
-			strerror(errno));
-		saved_errno = errno;
-		munmap(map, KCOV_BYTES);
-		errno = saved_errno;
-		goto fail_close;
-	}
-	*area = map;
-	*fd = kfd;
-	return 0;
-
-fail_close:
-	saved_errno = errno;
-	close(kfd);
-	errno = saved_errno;
-	return -1;
-}
-
-static void *worker(void *arg)
-{
-	unsigned long *area;
-	unsigned char *buffer;
-	int pipefd[2], kfd, id = (int)(uintptr_t)arg;
-
-	if (kcov_start(&area, &kfd, id) < 0) {
-		atomic_fetch_add(&failures, 1);
-		return NULL;
-	}
-	if (pipe2(pipefd, O_CLOEXEC) < 0) {
-		dprintf(STDERR_FILENO, "worker %d: pipe failed: %s\n", id,
-			strerror(errno));
-		atomic_fetch_add(&failures, 1);
-		goto out_kcov;
-	}
-	buffer = aligned_alloc(64, CHUNK);
-	if (!buffer) {
-		dprintf(STDERR_FILENO, "worker %d: allocation failed: %s\n", id,
-			strerror(errno));
-		atomic_fetch_add(&failures, 1);
-		goto out_pipe;
-	}
-	memset(buffer, 0x30 + id, CHUNK);
-	pthread_barrier_wait(&start_barrier);
-
-	for (int i = 0; i < ITERATIONS; i++) {
-		size_t done = 0;
-
-		while (done < CHUNK) {
-			ssize_t n = write(pipefd[1], buffer + done, CHUNK - done);
-			if (n < 0 && errno == EINTR)
-				continue;
-			if (n <= 0) {
-				atomic_fetch_add(&failures, 1);
-				goto out_buffer;
-			}
-			done += n;
-		}
-		done = 0;
-		while (done < CHUNK) {
-			ssize_t n = read(pipefd[0], buffer + done, CHUNK - done);
-			if (n < 0 && errno == EINTR)
-				continue;
-			if (n <= 0) {
-				atomic_fetch_add(&failures, 1);
-				goto out_buffer;
-			}
-			done += n;
-		}
-		for (size_t j = 0; j < CHUNK; j++) {
-			if (buffer[j] != (unsigned char)(0x30 + id)) {
-				dprintf(STDERR_FILENO,
-					"worker %d: data mismatch at %zu\n", id, j);
-				atomic_fetch_add(&failures, 1);
-				goto out_buffer;
-			}
-		}
-		if ((i & 7) == 0)
-			sched_yield();
-	}
-
-out_buffer:
-	free(buffer);
-out_pipe:
-	close(pipefd[0]);
-	close(pipefd[1]);
-out_kcov:
-	ioctl(kfd, KCOV_DISABLE, 0);
-	munmap(area, KCOV_BYTES);
-	close(kfd);
-	return NULL;
-}
-
-int main(void)
-{
-	pthread_t threads[WORKERS];
-
-	pthread_barrier_init(&start_barrier, NULL, WORKERS);
-	for (int i = 0; i < WORKERS; i++)
-		if (pthread_create(&threads[i], NULL, worker, (void *)(uintptr_t)i))
-			atomic_fetch_add(&failures, 1);
-	for (int i = 0; i < WORKERS; i++)
-		pthread_join(threads[i], NULL);
-	pthread_barrier_destroy(&start_barrier);
-
-	printf("vector-stress complete failures=%d\n", atomic_load(&failures));
-	return atomic_load(&failures) ? 1 : 0;
-}
-
- arch/riscv/include/asm/vector.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index 00cb9c0982b1a..1766bb7494d3b 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -372,8 +372,8 @@ static inline void __switch_to_vector(struct task_struct *prev,
- 	struct pt_regs *regs;
- 
- 	if (riscv_preempt_v_started(prev)) {
--		if (riscv_v_is_on()) {
--			WARN_ON(prev->thread.riscv_v_flags & RISCV_V_CTX_DEPTH_MASK);
-+		if (riscv_v_is_on() &&
-+		    !(prev->thread.riscv_v_flags & RISCV_V_CTX_DEPTH_MASK)) {
- 			riscv_v_disable();
- 			prev->thread.riscv_v_flags |= RISCV_PREEMPT_V_IN_SCHEDULE;
- 		}
+diff --git a/Documentation/devicetree/bindings/crypto/rambus,cmh.yaml b/Documentation/devicetree/bindings/crypto/rambus,cmh.yaml
+new file mode 100644
+index 000000000000..2709e20fb76f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/crypto/rambus,cmh.yaml
+@@ -0,0 +1,207 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/crypto/rambus,cmh.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rambus CryptoManager Hub (CMH) Hardware Crypto Accelerator
++
++maintainers:
++  - Alex Ousherovitch <aousherovitch@rambus.com>
++  - Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
++  - Joel Wittenauer <Joel.Wittenauer@cryptography.com>
++
++description: |
++  The Rambus CryptoManager Hub (CMH) is a hardware cryptographic accelerator
++  accessed via a mailbox-based VCQ (Virtual Command Queue) interface.  The
++  host writes VCQ command sequences into per-mailbox DMA queue buffers and
++  rings a doorbell; the CMH eSW processes them and signals completion via
++  interrupt.
++
++  The management host statically partitions the hardware mailboxes across
++  the SoC's host interfaces at integration time; the set of mailboxes a
++  given host owns is therefore fixed and not runtime-discoverable (a
++  mailbox locked to a host reads as unavailable in the SIC availability
++  register).  Each owned mailbox is described by a child node.  Which
++  crypto cores are present, by contrast, is a fixed silicon-build property
++  the driver reads from the hardware at probe (the SIC CORE_ENABLE
++  register), so cores are not described in the device tree.
++
++  CMH identifies the host that owns a mailbox by a hardware HOST ID
++  presented on the bus with every access, and permits only that HOST ID
++  to access a mailbox while it is locked.  An integration must therefore
++  present a single, stable HOST ID for all accesses to a given mailbox,
++  independent of which CPU issues them.  On SMP hosts whose interconnect
++  encodes the issuing CPU in the HOST ID, the integration must provide a
++  single consistent HOST ID for the set of CPUs that share a mailbox; the
++  driver neither selects nor can override the HOST ID presented by the
++  hardware.
++
++  Supported algorithm families: SHA-2, SHA-3, SM3, AES, SM4,
++  ChaCha20-Poly1305, RSA, ECDSA, EdDSA, ECDH, SM2, ML-KEM, ML-DSA,
++  SLH-DSA, LMS, XMSS, DRBG.
++
++properties:
++  compatible:
++    const: rambus,cmh-v1030
++    description:
++      Identifies the CryptoManager Hub v1.030 IP revision (register map and
++      command ABI).  A specific SoC integration should list its own
++      "<vendor>,<soc>-cmh" compatible first with "rambus,cmh-v1030" as a
++      fallback; that extended form will be added when such a platform is
++      upstreamed.
++
++  reg:
++    maxItems: 1
++    description:
++      SIC (System Interface Controller) MMIO region.  The registers of
++      mailbox instance N are at offset N * 0x1000 within this region.
++
++  clocks:
++    minItems: 1
++    maxItems: 3
++    description:
++      Functional clocks driving the CryptoManager Hub.  The block gates its
++      clocks internally (integrated clock-gating cell); the host does not
++      gate them, so these describe the input pins only.  The names, in
++      order, are "core" (the main functional clock), "core-div2" (a
++      half-rate clock present only on configurations with
++      side-channel-protected cores) and "rt" (the real-time tick clock
++      for the internal timer).  Absent on integrations where a separate
++      management/power controller owns the clocks and Linux has no clock
++      handle.
++
++  clock-names:
++    minItems: 1
++    items:
++      - const: core
++      - const: core-div2
++      - const: rt
++
++  reset-gpios:
++    maxItems: 1
++    description:
++      Optional host-driven reset for the CryptoManager Hub.  The hub has
++      two external, active-low reset inputs -- a power-on reset and a hard
++      reset; where a board routes one of them to a host-controlled GPIO,
++      that line is described here.  Present only on integrations where the
++      Linux host is the management host; where a separate management
++      controller owns reset (the usual case) it is absent and Linux does
++      not drive reset.
++
++  "#address-cells":
++    const: 1
++
++  "#size-cells":
++    const: 0
++
++patternProperties:
++  "^mailbox@[0-9a-f]+$":
++    type: object
++    description:
++      One node per hardware mailbox owned by this host.  The mailboxes a
++      host owns are assigned by the management host at integration time
++      and cannot be probed, so they are enumerated here.
++    properties:
++      reg:
++        maxItems: 1
++        description:
++          0-based mailbox instance index.  The instance's registers are
++          at reg * 0x1000 within the SIC region.
++
++      interrupts:
++        maxItems: 1
++        description:
++          Completion/error interrupt for this mailbox.  Optional; when no
++          mailbox has an interrupt the driver falls back to polling.
++
++      rambus,slots-log2:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        minimum: 1
++        maximum: 15
++        description:
++          log2 of the number of VCQ ring slots the driver provisions for
++          this mailbox in host DMA memory.  This is a per-board,
++          per-mailbox host-memory layout choice programmed into the
++          mailbox QUEUE/SLOTS registers, not a silicon constant --
++          boards built around the same SoC (hence the same compatible)
++          may provision different ring geometry, so it is described per
++          mailbox here rather than derived from the compatible.  The
++          upper bound is imposed by the hardware.  Optional; defaults to
++          6 (64 slots).
++
++      rambus,strides-log2:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        minimum: 7
++        maximum: 10
++        description:
++          log2 of the per-slot stride in bytes for this mailbox's VCQ
++          ring.  Like rambus,slots-log2 this is a per-board layout
++          choice, not derived from the compatible.  The range is imposed
++          by the hardware.  Optional; defaults to 9 (512 bytes per slot).
++
++      rambus,cores:
++        $ref: /schemas/types.yaml#/definitions/uint32-array
++        items:
++          enum: [0x02, 0x03, 0x04, 0x05, 0x08, 0x09, 0x0a, 0x18]
++        description: |
++          Core-affinity list: the hardware core IDs whose work is
++          dispatched to this mailbox.  A core ID may appear on at most one
++          mailbox.  Cores not listed on any mailbox are load-balanced
++          across all mailboxes.  Optional (default: none -- the mailbox
++          only serves the load-balanced pool).
++
++          Because each core instance has a distinct ID, separate
++          instances of the same core type can be pinned to different
++          mailboxes.
++
++          Core IDs:
++            0x02 HC, 0x03 AES, 0x04 SM4, 0x05 SM3,
++            0x08 HCQ, 0x09 QSE, 0x0a PKE, 0x18 CCP.
++
++    required:
++      - reg
++
++    additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - "#address-cells"
++  - "#size-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        crypto@a4800000 {
++            compatible = "rambus,cmh-v1030";
++            reg = <0x0 0xa4800000 0x0 0x41000>;
++            clocks = <&cmh_core_clk>;
++            clock-names = "core";
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            /* Fast symmetric cores dedicated to mailbox 0:
++             * HC 0x02, AES 0x03, SM4 0x04, SM3 0x05, CCP 0x18 */
++            mailbox@0 {
++                reg = <0>;
++                interrupts = <1>;
++                rambus,cores = <0x02 0x03 0x04 0x05 0x18>;
++            };
++
++            /* Slow asymmetric/PQC cores dedicated to mailbox 1:
++             * HCQ 0x08, QSE 0x09, PKE 0x0a */
++            mailbox@1 {
++                reg = <1>;
++                interrupts = <2>;
++                rambus,cores = <0x08 0x09 0x0a>;
++                rambus,slots-log2 = <6>;
++                rambus,strides-log2 = <9>;
++            };
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 396044f368e7..8b1a8f0a673d 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1371,6 +1371,8 @@ patternProperties:
+     description: RaidSonic Technology GmbH
+   "^ralink,.*":
+     description: Mediatek/Ralink Technology Corp.
++  "^rambus,.*":
++    description: Rambus Inc.
+   "^ramtron,.*":
+     description: Ramtron International
+   "^raspberrypi,.*":
 -- 
-2.53.0
+2.43.7
+
 
 _______________________________________________
 linux-riscv mailing list
