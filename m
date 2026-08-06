@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01314C55838
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:05:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 879E7C55ABF
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X5fWr8iP+lDNW7esu09C9/84kyjBRj38RkdrVuV9Hgs=; b=oC1j42ZVMr84ai
-	WlRXFRjlMjljGHjwjjUKaXlPJxpoN/I2IibnakTBrQQpU5uEYTPFIfCfOz8vcDh5xoo/zbPR/JY0L
-	2SE6n5RUiujP+DiLZBcZdGpZo3PpEy8j5eI76WnWWhd4v092rRbSJaiEdPleNGD6o8VvttSmGeLK3
-	M1I30Q6CbgojgsQeUi2h4HdPCxxUQpVzEhj2D0I7Zzu9A8UP+oOUqUP7m5Kjr9dDzJW0axO36lvvW
-	pmCtq9JUy07x3P4cnSTC3KBkxyo2Fh/+LJ9vaCvQ6rneSAviu7qx+5z/fAEzGbexAs03iEPkv5Y6U
-	mrcEq6KK9rVjfaxoKAww==;
+	List-Owner; bh=YXarO7d01rBMjVZiNOHN3SqWwbuqKQsLQ5Tblc++8DU=; b=zQvS/tMWdCIH3S
+	RompL/FI9TS5d7KV+ep7n1Q9swaK6qgzgENBWsEyYjyABdMAFrbx5QfWCJbQkS2paXHt0IweJ4m/0
+	FL6+6TVnGHQuayka/UxAOt5EDXiod5n2YjfIKzrcI679WXP7+VpB+lEyKrtPfkSMVnUthT4zFihaw
+	gTuwsZe4uQnLxCu1LVzlGcLStUWWjA00STi/Gl9R9Xr6IX4Ai03s0124QS2uJV4jl5OIciKrgB3xf
+	TRrCXno0zKDvrOwGLaCFX6FyZSF51cDiAKxnIPsqcJoIvdZ3BZnpa+wkHTenohCT6EpwEi9hFBdQI
+	1142ZG7XKhVvXNGCQiGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsAG-000000056kp-1sYu;
-	Thu, 06 Aug 2026 07:05:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrsBW-000000056qV-2xyv;
+	Thu, 06 Aug 2026 07:06:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsAF-000000056kh-2tJv
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 07:05:15 +0000
+	id 1wrsBV-000000056qI-3NGF;
+	Thu, 06 Aug 2026 07:06:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 587DC40141;
-	Thu,  6 Aug 2026 07:05:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB13E1F000E9;
-	Thu,  6 Aug 2026 07:05:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F4F060A64;
+	Thu,  6 Aug 2026 07:06:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBE731F000E9;
+	Thu,  6 Aug 2026 07:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785999915;
-	bh=StZpRC4UdL40+r01FvxYkBdHfrGKIGU+ZlSJfqgqV44=;
+	s=k20260515; t=1785999993;
+	bh=XcPioRNMll3r5OmjiUG/O8aq5a3hSQJFiegnJyFSvIo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XQ0SIge7vmOKhfMTQ96S4l4/xyFk1qsdoMOXSAYiBjGbADyJjhz/K/ZPF3JJYVKQy
-	 6q0ZEcavV2qg1wQMF5DSYV4wjqg2wPPk+CuSRy5bC3ySdrY5XYxLddtw7vvDtjU4ht
-	 7d5VXADLioMlWkrxw+clOsGJvZz0RNxBI7Ls/fGhluA/QGvu5Y1wWKyuZS8EYhM4IM
-	 8TVno8yEs0qaGhPEODm/ycDVEKbV0v5ciaD05FQyveIoZhLjYRvErgW2WOUk3RPxBC
-	 a+Brh2v6FFzMG8Lp9v1zpJAs6MofEhon1+tuxI4gjtBcOcHdi+mHbIrxpo1t4RFb3S
-	 y5OJOEQFFh7+A==
-Date: Thu, 6 Aug 2026 09:05:10 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, 
-	Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	b=TwW+Ap/66ZcREdQqckrwX9vkc4Z93jN+7IIPxPYOiPbMC7JQJLgHtNmGACiqreIOl
+	 6VtKD+H1WXaB8vi7L7DUqflVCLVDxKlXaQOa27Y1xlE94I5MQBOCxaLpGxu8w95yxa
+	 nLR7i2qRWqCJjI04VZ4iK2rOwaTxETtqALN8uBB0LDAJipUR20/MLuflvSH4jZOaTt
+	 FA29yzKuOloFl8WVrOPL8Sah+FiTPLMEt4IBdUmubGhXtw99looSINmmGHL01wl69L
+	 MBjZU/REIsuooI/qb4X3q+UnhFlXJ4tn0gO4xtQOKfODXHmcQcBGGM/SzMw2jWtOmc
+	 oc1hySP12bYdg==
+Date: Thu, 6 Aug 2026 08:06:12 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, Aurelien Jarno <aurelien@aurel32.net>, 
-	Jennifer Berringer <jberring@redhat.com>, linux-scsi@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] scsi: ufs: spacemit: dt-bindings: Add UFS
- controller for K3 SoC
-Message-ID: <20260806-prudent-vole-from-valhalla-3eae39@quoll>
-References: <20260806-08-k3-ufs-support-v3-0-037fb322acdb@kernel.org>
- <20260806-08-k3-ufs-support-v3-1-037fb322acdb@kernel.org>
+	Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich <dakr@kernel.org>, 
+	David Hildenbrand <david@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Michal Hocko <mhocko@suse.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>, driver-core@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] drivers/base, mm: move arch_numa.c to mm/
+Message-ID: <anQyFuRVekkN8Z5a@lucifer>
+References: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260806-08-k3-ufs-support-v3-1-037fb322acdb@kernel.org>
+In-Reply-To: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,26 +76,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 02:56:18AM +0000, Yixun Lan wrote:
-> Document the compatible for UFS (Universal Flash Storage) Host Controller
-> which found in SpacemiT K3 SoC chip. Its features are listed below:
-> 
-> - Compliant with MIPI UniPro v1.61 specification.
-> - Compliant with M-PHY v3.0 specification.
-> - Compliant with UFS HCI v2.1 specification.
-> - Supports up to 2 Tx and 2 Rx lanes, up to HS-GEAR3 5.8 Gbps per lane.
-> - Supports standard low-power hibernate to reduce power consumption.
-> 
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
+On Thu, Aug 06, 2026 at 09:58:38AM +0300, Mike Rapoport (Microsoft) wrote:
+> arch_numa.c implements boot time discovery and initialization of NUMA
+> topology on architectures that select GENERIC_ARCH_NUMA (currently arm64
+> and riscv).
+>
+> Since this is step in the initialization of the memory management
+> subsystem, it's logical to have arch_numa.c in mm/ alongside numa.c,
+> numa_memblks.c and numa_emulation.c.
+>
+> Move arch_numa.c to mm/ and add its F: entry to "MEMBLOCK AND MEMORY
+> MANAGEMENT INITIALIZATION" in MAINTAINERS.
+>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+
+Everything is proceeding as I have foreseen... soon we shall have control
+of all of the kernel! ;)
+
+Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
 > ---
+>  MAINTAINERS                      | 1 +
+>  drivers/base/Kconfig             | 7 -------
+>  drivers/base/Makefile            | 1 -
+>  mm/Kconfig                       | 7 +++++++
+>  mm/Makefile                      | 1 +
+>  {drivers/base => mm}/arch_numa.c | 0
+>  6 files changed, 9 insertions(+), 8 deletions(-)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 5114e6db7307..465b64f8e93c 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -16880,6 +16880,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git fixes
+>  F:	Documentation/core-api/boot-time-mm.rst
+>  F:	include/linux/kho/abi/memblock.h
+>  F:	include/linux/memblock.h
+> +F:	mm/arch_numa.c
+>  F:	mm/bootmem_info.c
+>  F:	mm/memblock.c
+>  F:	mm/memtest.c
+> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
+> index f7d385cbd3ba..1d93bfc34490 100644
+> --- a/drivers/base/Kconfig
+> +++ b/drivers/base/Kconfig
+> @@ -239,13 +239,6 @@ config GENERIC_ARCH_TOPOLOGY
+>  	  appropriate scaling, sysfs interface for reading capacity values at
+>  	  runtime.
+>
+> -config GENERIC_ARCH_NUMA
+> -	bool
+> -	select NUMA_MEMBLKS
+> -	help
+> -	  Enable support for generic NUMA implementation. Currently, RISC-V
+> -	  and ARM64 use it.
+> -
+>  config FW_DEVLINK_SYNC_STATE_TIMEOUT
+>  	bool "sync_state() behavior defaults to timeout instead of strict"
+>  	help
+> diff --git a/drivers/base/Makefile b/drivers/base/Makefile
+> index 8074a10183dc..435710f643a5 100644
+> --- a/drivers/base/Makefile
+> +++ b/drivers/base/Makefile
+> @@ -25,7 +25,6 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
+>  obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
+>  obj-$(CONFIG_GENERIC_MSI_IRQ) += platform-msi.o
+>  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
+> -obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
+>  obj-$(CONFIG_ACPI) += physical_location.o
+>
+>  obj-y			+= test/
+> diff --git a/mm/Kconfig b/mm/Kconfig
+> index 9e0ca4824905..410b8a0a92b9 100644
+> --- a/mm/Kconfig
+> +++ b/mm/Kconfig
+> @@ -1469,6 +1469,13 @@ config NUMA_EMU
+>  	  into virtual nodes when booted with "numa=fake=N", where N is the
+>  	  number of nodes. This is only useful for debugging.
+>
+> +config GENERIC_ARCH_NUMA
+> +	bool
+> +	select NUMA_MEMBLKS
+> +	help
+> +	  Enable support for generic NUMA implementation. Currently, RISC-V
+> +	  and ARM64 use it.
+> +
+>  config ARCH_HAS_USER_SHADOW_STACK
+>  	bool
+>  	help
+> diff --git a/mm/Makefile b/mm/Makefile
+> index eff9f9e7e061..fd29be716fa8 100644
+> --- a/mm/Makefile
+> +++ b/mm/Makefile
+> @@ -122,6 +122,7 @@ obj-$(CONFIG_CMA)	+= cma.o
+>  obj-$(CONFIG_NUMA) += numa.o
+>  obj-$(CONFIG_NUMA_MEMBLKS) += numa_memblks.o
+>  obj-$(CONFIG_NUMA_EMU) += numa_emulation.o
+> +obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
+>  obj-$(CONFIG_BALLOON) += balloon.o
+>  obj-$(CONFIG_PAGE_EXTENSION) += page_ext.o
+>  obj-$(CONFIG_PAGE_TABLE_CHECK) += page_table_check.o
+> diff --git a/drivers/base/arch_numa.c b/mm/arch_numa.c
+> similarity index 100%
+> rename from drivers/base/arch_numa.c
+> rename to mm/arch_numa.c
+>
+> ---
+> base-commit: 075b74841bd0065a3bda3440873c747938e69b68
+> change-id: 20260806-arch-numa-444bb4806114
+>
+> --
+> Sincerely yours,
+> Mike.
+>
 
-You keep having the same failure for every version, no? Never responded to it...
-
-I'll drop from Patchwork.
-
-Best regards,
-Krzysztof
-
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
