@@ -4,55 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FB7C55174
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 02:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A628C55ABA
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 02:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k85SgaeUyVO33KqmQUgan6sGVmyWfCMPW1ZyW4wsN8Y=; b=T5MFgatp+KV1GN
-	zZRVJsBF9h07TJrELjkRVbCOegyd8X6YgpRX0NujS25MoEn17RKSSKneG5WVGhGdcrA04yg0jNGar
-	7Rh6Lh60+P8xStOtf2UslJSF6ZsTodWjcPW6LDUN/dJBeCTU5esw/r/jx/C3M4Y0huC2pxPU+HJq2
-	CYxkR11OPIy5Ug5OQ+deKNbxjeDk+A8UMNV45MiNYvueXPal9p2KJa6DSNxvsHFeMhefaGEFnNH2X
-	eBSD/+PQGAI3VO2kfiuuEEos2ozgvr5z89IssdA8h5kNqpdvowL1P3FMBHkT0ADIcwnPTpXeLpu/W
-	USA99UzujGpb+O04ys+A==;
+	List-Owner; bh=JINZEGqY9xWj2HHAjyZLm+kJHmpCI9lT52/jC/EBhRA=; b=z4Agce4nsGfTFO
+	GpLVrqf2qeRo2TWQR8Ryc/JcxvEWklS1MUeovdkufdM+t4O9tqvG99/s04WrPZqDbQYEqPnEfrzg5
+	p/SwEKXq4kWTEjzUMiZAjJ0mE/5zClbodaExrPb8qKa70fUyHWnRMUeKvgUYiAPbX+PQFFFY+Yxfc
+	4agJS8Mv+YSKjOEVvLnl47Qek92pnlELE2DtFVEmj09hpqzLKHuWSlhQbi7PWc/goXKKK0HVgUisa
+	amZ0gob0Nq7cZY1iK9SmzDjLbexzejKvQ+j4/58aRH+4d5gSlmWgsVq9sINnC7OEJUr1OWiIoDN3h
+	RAXdTSU5QhU1q+Vp+Vcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wro0u-00000004p8T-2C9i;
-	Thu, 06 Aug 2026 02:39:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wro5q-00000004pcc-1y8O;
+	Thu, 06 Aug 2026 02:44:26 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wro0t-00000004p8N-1Xmt
+	id 1wro5l-00000004pcH-46DV
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 02:39:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6DFF41E47;
-	Thu,  6 Aug 2026 02:39:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C42E01F00A3A;
-	Thu,  6 Aug 2026 02:39:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785983958;
-	bh=S/QiMh2kHhbT+/ZKm4Ypt1WxW6Md3vkhtCnWfKIXwNw=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=FWjQT4ZQNfgus6ELRu/QFUNrLHmvXknNmljachKtlfjFkydBiiFPzdIAAxuhrnhc3
-	 h8fwpNDLd8HARua5lofceJ9DEKYTIdF0kXg5BRAOeXX4SO8zbMTYFL3jEOSuLdUGvT
-	 djJxNk/GJ5V21OlXzow3sgtZe7opQIaXalMIAPSKxhR9URB/FK8CTsCv6iH+Y0cWTl
-	 BReXUxern0+rLU3OyC7hT6n2/oGYam53HI/biTUjL1WvPIkOpAegcKfKfyVcRuHVMv
-	 YHxWR7Me0GIRCw8cqq9jkAQaBoizjw4w4Sd42+l7LXGcSVvFZuCkn7jWX46NcsfIAL
-	 21fhSlAgV9J5Q==
-Date: Wed, 5 Aug 2026 20:39:16 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: further remove XIP
-In-Reply-To: <20260805010049.13918-1-jszhang@kernel.org>
-Message-ID: <cdd02448-777b-3bd9-5bd5-c19f9f4d95a9@kernel.org>
-References: <20260805010049.13918-1-jszhang@kernel.org>
+	Thu, 06 Aug 2026 02:44:25 +0000
+X-UUID: b2eed532914011f1aa26b74ffac11d73-20260806
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:c371c1ee-ebea-4b17-b729-418e0d974607,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:b944984e5793b53cccfeaf2f5f05f109,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|136|865|898,TC:nil,Conte
+	nt:0|15|52,EDM:-3|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:ni
+	l,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: b2eed532914011f1aa26b74ffac11d73-20260806
+X-User: xiaopei01@kylinos.cn
+Received: from [10.42.12.251] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 1300538191; Thu, 06 Aug 2026 10:44:09 +0800
+Message-ID: <89380ae2-0777-4518-9393-171aeae613a7@kylinos.cn>
+Date: Thu, 6 Aug 2026 10:44:06 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] thermal: spacemit: k1: add shutdown action and reorder
+ registration order
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, shuwei.wu@mailbox.org,
+ rafael@kernel.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, dlan@kernel.org, daniel.lezcano@kernel.org
+References: <1967d2bcc8fede6fbd25fc8eee07f2873fb41472.1784184867.git.xiaopei01@kylinos.cn>
+ <DK4XSEPSTY3I.O9ZFCZ9BJGNW@linux.spacemit.com>
+From: Pei Xiao <xiaopei01@kylinos.cn>
+In-Reply-To: <DK4XSEPSTY3I.O9ZFCZ9BJGNW@linux.spacemit.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260805_194422_310229_000CA217 
+X-CRM114-Status: UNSURE (   4.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,25 +75,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 5 Aug 2026, Jisheng Zhang wrote:
-
-> After commit 9b3a2be84803 ("riscv: Remove support for XIP kernel"),
-> something relatd with XIP are still there. Remove them to clean up the
-> code.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-
-Thanks, queued for v7.3.
-
-
-- Paul
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgrlnKggMjAyNi83LzIyIDE1OjU0LCBUcm95IE1pdGNoZWxsIOWGmemBkzoKPiBPbiBUaHUgSnVs
+IDE2LCAyMDI2IGF0IDEyOjA0IEFNIFBEVCwgUGVpIFhpYW8gd3JvdGU6Cj4+IEFkZCBhIGRldm0g
+YWN0aW9uIHRvIGNsZWFuIGhhcmR3YXJlIGludGVycnVwdHMsIHNhbXBsaW5nLCBhbmQgY29udHJv
+bAo+PiByZWdpc3RlcnMgb24gZHJpdmVyIHVuYmluZCwgbWlycm9yaW5nIHdoYXQgazFfdHNlbnNv
+cl9pbml0KCkgc2V0cyB1cC4KPj4KPj4gUmVvcmRlciB0aGUgcmVnaXN0cmF0aW9uIG9yZGVyIHdp
+dGhpbiBwcm9iZSgpOiByZWdpc3RlciB0aGUgdGhlcm1hbAo+PiB6b25lcyBmaXJzdCwgdGhlbiBy
+ZXF1ZXN0IHRoZSBJUlEsIGFuZCByZWdpc3RlciB0aGUgc2h1dGRvd24gYWN0aW9uCj4+IGxhc3Qu
+ICBPbiByZW1vdmFsLCB0aGUgaGFyZHdhcmUgaW50ZXJydXB0IGlzIGRpc2FibGVkIGZpcnN0LCB0
+aGVuIHRoZQo+PiBJUlEgaXMgcmVsZWFzZWQsIGFuZCBmaW5hbGx5IHRoZSB0aGVybWFsIHpvbmVz
+IGFyZSByZWxlYXNlZC4gIFRoaXMKPj4gYXZvaWRzIHRoZSBJUlEgdGhyZWFkIGFjY2Vzc2luZyBh
+biBhbHJlYWR5IHVucmVnaXN0ZXJlZCB0aGVybWFsIHpvbmUKPj4gZHVyaW5nIGRldnJlcyBjbGVh
+bnVwLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBQZWkgWGlhbyA8eGlhb3BlaTAxQGt5bGlub3MuY24+
+Cj4gUmV2aWV3ZWQtYnk6IFRyb3kgTWl0Y2hlbGwgPHRyb3kubWl0Y2hlbGxAbGludXguc3BhY2Vt
+aXQuY29tPgpmcmllbmRseSBwaW5nLgpwcmV2ZW50IGJlaW5nIGZvcmdvdHRlbi4KClBlaS4KVGhh
+bmtzIQo+IAo+IFRoYW5rcy4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
