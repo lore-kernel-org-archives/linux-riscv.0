@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D8DEC55ABF
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 08:39:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 933C7C55ABF
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 08:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kaJ4EfgD3fh+twIZUoRMkP0aOeavXxJruutPN+YROjA=; b=graemWwdDZvaUg
-	oxrbjx1FPFAsXXBZ4bTswP0f2Xzssatxd9KsdIj8iHnJiVceDQ3ZS41+mwwsr4YaMe5EMjaH4ssbY
-	Q0ePLWsCZI1VaGJueQ5hazYc4oc8oh5OjVxWTpM8Av59oXdIbKvffgYHcDrbR9vWkPz50p460n9vl
-	x7rGVdtg9wHakJLIBVEIq57oPO6oH/Vjnrb1UM8vkSKcpHjF8/geBu11lcbpgBlNEnn9helt7VuTS
-	kn6kFv0IgQeMPjCdpQCLZaobaZDlqWrdAPDCwnw9sq0zCgLkMeS70PaVwb2aFR1j1j2nW1wakuDrP
-	v3ZSn+VYFV/lFnDPpk3g==;
+	List-Owner; bh=RIxyCL5x2JjrhvwctAjra1uf6PTuo7FLRy7NyEp49A0=; b=41lb/c8bZVV1Ma
+	YLnLgW+USLjlEbc4OxGBjNfovWz1BjCQIv2Y38DSRyNT9mDWfvfaNy3PDzivAWUEeYGNEMuf0n2LX
+	G257v8uz9p9wcFtJHR+oXDM8tuHds6jVWW2Jx8QwgJwd8n7pPuzxokgmtnJ9t8Hu8DdVWCohlQ3Wq
+	l7uTeb0hjVYQ2/S1nbkRBiJZT0VqkGhiPECKjBiIlD+YuKbJ1NB5RydPGf4Z+zzwEdswGehvDuRcj
+	z57r7SiMt3pzZVF24PkTzbl6S71mi4lDK+j2a1dELhAOgehfRoPOX73L3iVt50CVaAoUXRVmxpFTK
+	JUHrgB7R7m+0hrLPV4Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtcu-00000005GFp-1rPt;
-	Thu, 06 Aug 2026 08:38:56 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtcs-00000005GFO-1Jbp;
-	Thu, 06 Aug 2026 08:38:55 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1786005532;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9nIA4g8t7lcsSLy8SKolUFQCcXI9D58a3Po16VlQMr8=;
-	b=FHTUUJudzFS9p3kUWAKr1SALxyX8dITqDTYMVXAx1huMmCgpVLP16nMVY4hcklrJVWcPqR
-	w7xImKjr/LQ01tnIrxqVA3UoQHb5TfPHrNmNcr3eIZeGHvSLPuf82pFFMpcMWyY10ggoMy
-	6M8g3cUMahaQwRseVEhEYmG1lOJoXFKPwkOVGeUp7vlqmw1KZIqDuCmYf7BySxV4CtRqbn
-	x0cePGBoIA0fRtAPfgYtQhpjZh0okiLhwau7Yp6CYyhdXK8F3j98Gh1gIGB9q4/54UFNG6
-	MO9amqq1MPvisx9UdAuDyFTvTnWiUYEHsIlwEykL7w0mVNt9CkDznC0ZIY1VFA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1786005532;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9nIA4g8t7lcsSLy8SKolUFQCcXI9D58a3Po16VlQMr8=;
-	b=ZTgQaNPBgxMk/DdAp7Z2FCXvOe+jMg5wVDgIbdDAwvGdPZW+a8kUN6/Kjq+YrXGTVD/0FE
-	PyrDu/wCuK5cK8BQ==
-To: Charlie Jenkins <thecharlesjenkins@gmail.com>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti
- <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Atish Patra
- <atish.patra@linux.dev>, Conor Dooley <conor@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, Shuah
- Khan <shuah@kernel.org>, Radim =?utf-8?B?S3LEjW3DocWZ?=
- <radim.krcmar@oss.qualcomm.com>,
- Jesse Taube <jtaubepe@redhat.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-kselftest@vger.kernel.org, Charlie Jenkins
- <thecharlesjenkins@gmail.com>, Damien Le Moal <damien.lemoal@wdc.com>
-Subject: Re: [PATCH v3 07/17] riscv: Maintain epc on misaligned emulation error
-In-Reply-To: <20260707-riscv_insn_table-v3-7-3f8e5f75ba97@gmail.com>
-References: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
- <20260707-riscv_insn_table-v3-7-3f8e5f75ba97@gmail.com>
-Date: Thu, 06 Aug 2026 10:38:51 +0200
-Message-ID: <87cxvvd4o4.fsf@yellow.woof>
+	id 1wrtgK-00000005GaP-3jVJ;
+	Thu, 06 Aug 2026 08:42:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrtgI-00000005Ga1-03IF
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Aug 2026 08:42:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8811153B;
+	Thu,  6 Aug 2026 01:42:18 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81F433F632;
+	Thu,  6 Aug 2026 01:42:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786005742; bh=1XZ52c7N7R/7ik+1Q56O2gFc7n1LYmIvcHRd9KWsOdo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Vk3YFbseN1J/KkpXJV6XxeMhp8z09cM7QKEaGOWthnB2rK15LrGgVvARUQKfSIB3A
+	 q+/JfafIf6kUrbpn/GxsrT0SfxqyDag4S4foyW9/Kksq3ryx9lyhrhSqMaGBY5RWAa
+	 Z36t681xIH1xquFeoaBivxQxzxvg4wMqdvfwdNBs=
+Message-ID: <7cf591e8-e182-447f-9808-d8e328d28f79@arm.com>
+Date: Thu, 6 Aug 2026 09:42:11 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/7] riscv: iommu: Add QoS ID support for resctrl
+ device assignment
+To: Drew Fustini <fustini@kernel.org>,
+ Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Cc: xiaqinxin@huawei.com, zengheng4@huawei.com, palmer@dabbelt.com,
+ tony.luck@intel.com, reinette.chatre@intel.com, tomasz.jeznach@linux.dev,
+ will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, Dave.Martin@arm.com,
+ james.morse@arm.com, babu.moger@amd.com, corbet@lwn.net, shuah@kernel.org,
+ jgg@ziepe.ca, kevin.tian@intel.com, cuiyunhui@bytedance.com,
+ yuanzhu@bytedance.com, iommu@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, x86@kernel.org
+References: <20260714130657.46963-1-zhangzhanpeng.jasper@bytedance.com>
+ <anQaaQvpEXFTRYvS@x1>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <anQaaQvpEXFTRYvS@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_013854_495890_2E49FAF8 
-X-CRM114-Status: UNSURE (   6.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_014226_447685_923EE554 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,22 +80,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Charlie Jenkins <thecharlesjenkins@gmail.com> writes:
-> Currently the epc is set to zero when there is a misaligned emulation
-> error. This will print a misleading error message with the current epc
-> value of zero instead of the epc value that triggered the emulation.
-> Avoid setting epc to zero to maintain the state of epc.
->
-> Signed-off-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Hi Drew,
 
-I see no reason why epc must be set to zero, so:
-Reviewed-by: Nam Cao <namcao@linutronix.de>
+On 06/08/2026 06:23, Drew Fustini wrote:
+> On Tue, Jul 14, 2026 at 09:06:50PM +0800, Zhanpeng Zhang wrote:
+>> This RFC extends RISC-V CBQRI/resctrl support to external requesters
+>> behind a RISC-V IOMMU.
+> [..]
+>> Open questions for this RFC:
+>>
+>>   * whether a common resctrl "devices" file is the right ABI for
+>>     associating external requesters with a resource group;
+> 
+> I think a separate file is the right approach to avoid confusing iommu
+> groups with pids. 
+> 
+> I should note that James Morse had an ARM MPAM "extras" tree [1] which
+> carried an iommu_group assignment interface, using the same
+> iommu_group:<id> format, but writing it to the tasks file. However, Ben
+> Horgan clarified back in March [2] in a reply to Qinxin Xia that it is
+> no longer maintained. Ben also wrote that the interface would likely
+> change upstream. I've added Ben Horgan and Qinxin Xia to the CC list so
+> hopefully they can chime in.
 
-But to be sure, I add to CC: Damien Le Moal <damien.lemoal@wdc.com>
+I haven't thought about the interface much but Reinette let me know here [1], with good reasons,
+that we should consider the format of the tasks file fixed.
 
-Damien, any reason that epc must be cleared?
+Thanks,
 
-Nam
+Ben
+
+[1] https://lore.kernel.org/all/f9b08563-4958-4f3c-ad6c-1e7fa3047896@intel.com/
+
+> 
+> I plan to review the patches in this series further but I didn't want to
+> delay any further in pointing out the above.
+> 
+> Thanks,
+> Drew
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/log/?h=mpam/snapshot%2Bextras/v6.18-rc1
+> [2] https://lore.kernel.org/lkml/d13fdc75-b647-44f3-9657-d592353e8a1a@huawei.com/
+
 
 _______________________________________________
 linux-riscv mailing list
