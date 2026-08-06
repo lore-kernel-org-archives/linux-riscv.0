@@ -4,153 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C11A0C56208
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 13:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6637C56208
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 14:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	From:Subject:Cc:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z+tRvnJP8MB6Z7KC3UiwpwqUhNxnuM00giqQNt94YTA=; b=GZHhHWMOIAfQAW
-	SYd8U97vCDPw5RZIcbRaYQ/Qt2u4mKxjkd5CnkQhMZEs/eORcOFEBflFL5sUbXpMfBWKMShOYd16y
-	gIoZwyBiD94kUETCHPPIX0TnqK/ehaEzTUqULAz+pg+/5YnRsXR45a7/70+ZXBC0paHoQELGQ1O3d
-	Fjo/mFFdremhVgB79WNx/COtX474c48VTW9LIhUj9C4w/bMvoU4LpdnWft2MtAxNNsanc4Wd2kq0+
-	PW/iUIz3WO5tcb8sXt8T+e9JCKcrbc7rBVSJPLz3syJ+oTWMuU8EERyWBbBNR43QpS5cOcd9/JV20
-	8SG2Oi2zIjtrAwujf7zA==;
+	List-Owner; bh=Q5JAb3FBVa1Ieq6tQ4ZKLlkSjFsOSZdyzyH6RN1O3OM=; b=gwQ4dtTB2wQNFB
+	cNPrgm8sito2RJ56ihttbO5jRm31CpsHmO91rM1CwbSgJ1V//nwt8fyUwdtdyhu5uNXrO+PfjLY4U
+	hjPqreoHuaEeh7HVJy2o3oDjST1xdYNNYbFTF4vECF0a99UymbG32jFiSdZA4WFAC09usWu3OoRwA
+	ZHdI3Za8OXWTwtVH+7Pk5I3sLW+UkhAVcmCsbIzf5NDQ9jss3tXS/bsaYqMH4F8poRmNLZmARDugh
+	PjXqeY5rTZAHJQ5r9fKLG2ZJgogm+iBQx6oP9WJq6EjONfsaue31Q8V26IibvvywSMyFRR2WLToKp
+	jJBY7sDAiPM9Bxy0RROA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryYd-00000005wqK-30Zx;
-	Thu, 06 Aug 2026 13:54:51 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wrzLb-000000061KK-22Rc;
+	Thu, 06 Aug 2026 14:45:27 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryYb-00000005wpE-1lKK
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 13:54:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tSzE+TYbpGC0CWP+FWYcHrAy2ydE3Ai0Ki0wRvw7tx73WvFEh2+KFRIrGSe3eatuvRVUcvrggFIzNyF3sSsuFf79WTvPlXUEEA4MoancBV/0G52ShjaZGeEI/HoiWXjMJORgXCzKPFICbbBk7ceGQ4/PPtEZ/qgaPNLrtxc5Bg3HyVhtLTlUfDTOOSZLZClkGLwob+YF0nzoGgvU+vYdjSx8QgNftSzWlOcfjzfqx09hOSTE+clMqKsCSE47svcCPyzHy5es7lIuIMKZ7jHVk4xfTX29npEZjfhF2ISRvDPf+FSLaxIW7o4zJJMldBeGffCjCvq11wH4pjHgWPE3KA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hrwsktyehp58cJh2GuG6hWiGFdKRr1tUbLCM0SjkXsA=;
- b=TI4QX5Dritqw68s/7PHQP2dVXx137RavN+pxOPqu4MT/NYFumKuds7dFtEVnK1bGLv5y98EB7IXVhxfylIkI+zwr3b7w9aJZ7Jqh86HtaBcyj9CqaxHWFaYO5oyG2gvmRT6XkDfjutBiNIr5TUmEWlzbpXaSYhqgc5QpWP6AObuy7fXkaTctGjsA6xyha3iqb8NrPyAaSutzjXxk15Q2W0RxRbXg1tw35OAus7KcGzdmuJ1HaLR14hBkCiMCe6reXA/DEpoIQFy6w8JkvKIPiX3h0uYLuTFc1Suy0+fxlTqGftEbPS3oZk56tZ2NdW+NDFJHJaVN2LGpwq/Szzdv9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hrwsktyehp58cJh2GuG6hWiGFdKRr1tUbLCM0SjkXsA=;
- b=H8XOuHkeu+snTkU/XNg1NTegV+A7NlKjvtTuhZ0uwIbVx47iHRujwY0cRe1bMOaqYeR+4V72X4ILw81g7zKaiMDtebfWqIKUkt+h48j885AjpH9K7Q4J7O4gXc2uz0zbb9h0bWyLN7XYNRNUBRFMO2oauhlcmL8lCCsx4OrQ+3htCoETjhuyZPwubF5ClhpL2ijLMs7bmNAXQt4nWITUUdk8p/5BMSfa2KPIwVr57+xVKJ9C0OSWjafMBLOs+aOV7BEKg0t5TRONZzIZ/bJ5lugJqnT/ToHSGPdgcMWeks/P2zHfgtDjVqv9O45U/S7+iB8aKfvn9Mad2thKNhSB3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com (2603:10b6:610:28::18)
- by LV2PR12MB5847.namprd12.prod.outlook.com (2603:10b6:408:174::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Thu, 6 Aug
- 2026 13:54:31 +0000
-Received: from CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989]) by CH2PR12MB3990.namprd12.prod.outlook.com
- ([fe80::7de1:4fe5:8ead:5989%4]) with mapi id 15.21.0292.018; Thu, 6 Aug 2026
- 13:54:28 +0000
-Date: Thu, 06 Aug 2026 22:54:23 +0900
-Message-Id: <DKHWTZRKI3NV.39TYNLA5HA4HS@nvidia.com>
-To: "Gary Guo" <gary@garyguo.net>
-Cc: "Daniel Almeida" <daniel.almeida@collabora.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>, "Danilo
- Krummrich" <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Drew
- Fustini" <fustini@kernel.org>, "Guo Ren" <guoren@kernel.org>, "Fu Wei"
- <wefu@redhat.com>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
- <sboyd@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
- Gross" <tmgross@umich.edu>, "Michal Wilczynski" <m.wilczynski@samsung.com>,
- "Boqun Feng" <boqun@kernel.org>, <linux-pm@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <linux-riscv@lists.infradead.org>, <linux-pwm@vger.kernel.org>,
- <linux-clk@vger.kernel.org>, <rust-for-linux@vger.kernel.org>, "Boris
- Brezillon" <boris.brezillon@collabora.com>, =?utf-8?q?Onur_=C3=96zkan?=
- <work@onurozkan.dev>, "Maurice" <mhi@mailbox.org>
-Subject: Re: [PATCH v5 1/4] rust: clk: use the type-state pattern
-From: "Alexandre Courbot" <acourbot@nvidia.com>
-References: <20260706-clk-type-state-v5-0-67c5f326a16c@collabora.com>
- <20260706-clk-type-state-v5-1-67c5f326a16c@collabora.com>
- <DKEO7DXQ8604.1CB09QFM2EO68@garyguo.net>
- <DKF0BU8N7JJX.T802R11VZ0A5@nvidia.com>
- <DKFB5CL2I1FO.7ULPVEF0VG5Z@garyguo.net>
-In-Reply-To: <DKFB5CL2I1FO.7ULPVEF0VG5Z@garyguo.net>
-X-ClientProxiedBy: TYCP301CA0018.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:400:381::19) To CH2PR12MB3990.namprd12.prod.outlook.com
- (2603:10b6:610:28::18)
+	id 1wrzLW-000000061IV-0ukY;
+	Thu, 06 Aug 2026 14:45:23 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1786027515;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V4IJ9dPDD7ujYacDqxd6wmTgSCWh3iQS9y0EGvh2GbM=;
+	b=vvnHQqf3CT+6tyZkkqRjo305rMXFVOTYizwgBBjon871om9RhAeTKor7f16ybGiZ+IBB18
+	j//jk43lis2FapI6XrbVQiTUneINt+CSUdeWA79iRIx7nohBHfl0oXGS3ZeUfF/fBET5t5
+	ZV0pNtHwdGa1yUKt0p8occEA4Z7lrFoMVGCCLYUfm8/U+etH/UX6LdIjuPxAaBG5iN4PZi
+	/vlQO6/szB68C/PhNXoOkmXve5oReOzuCWNWQYRKKmqkasuj7sSwsOZBt5QYya8PclYhCE
+	FGQwlwqC07R0oO8lnDGKRlmnui8EKc7pws+AfZvngZTeRkUuKYTH1QM7pFLcYg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1786027515;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V4IJ9dPDD7ujYacDqxd6wmTgSCWh3iQS9y0EGvh2GbM=;
+	b=AcpzuNgtrbHDTMJgMUKgJzmAcIDRwIgOVNK+kvTRFlFG7yIbIfSnNmqR4eeucGYkSFmgKw
+	05ykDSXTKOFICLBQ==
+To: Charlie Jenkins <thecharlesjenkins@gmail.com>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti
+ <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Atish Patra
+ <atish.patra@linux.dev>, Conor Dooley <conor@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, Shuah
+ Khan <shuah@kernel.org>, Radim =?utf-8?B?S3LEjW3DocWZ?=
+ <radim.krcmar@oss.qualcomm.com>,
+ Jesse Taube <jtaubepe@redhat.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, Charlie Jenkins
+ <thecharlesjenkins@gmail.com>
+Subject: Re: [PATCH v3 08/17] riscv: Use generated instruction headers for
+ misaligned loads/stores
+In-Reply-To: <20260707-riscv_insn_table-v3-8-3f8e5f75ba97@gmail.com>
+References: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
+ <20260707-riscv_insn_table-v3-8-3f8e5f75ba97@gmail.com>
+Date: Thu, 06 Aug 2026 16:45:14 +0200
+Message-ID: <87a4qzcnph.fsf@yellow.woof>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB3990:EE_|LV2PR12MB5847:EE_
-X-MS-Office365-Filtering-Correlation-Id: afd3b8dd-3ebc-49c1-5eb0-08def3c23b45
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|10070799003|366016|1800799024|10067099003|56012099006|11063799006|5023799004|4143699003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: 1LmhdrGKy7joZdqOuKP5j0dya0y93eTcxQstzreVuQUCeZTHMvRomX5xsnbyOBRPrMLgNbGooXaFOF9lDNrUCycD59O9W6eBC8Y2veAR2vwwBW3YfEy9cC+WdMGDTGyoOEkFapNNFxyjAhm0xyjau0uH/zw2gmOFzi+0B0f4+f4FMxNo3oVgReLH2BfGxrylBdMVGfqcmNS4Oa3sdYuI9RrSR1AlKe1yTr5trQz6ln0diDo2SLP48DN7lgjrHSjDoMypLzQ+ymeSAGyePZgCtDmCc5YhrvpAVFpKku6AiFJYCaSAYEN1aZvOy50/ysPU9V3zb0h0PoZjsIm/ierm0eiI2b3eGh0jLmFrYGraaSpZIWhZgwCgBPBsJ107U0PY617JGZWM+zk+aKZy2/BQU/MJRsUfOZEPXvVnhB5bhVwArpryPAqIBU+8oJp2i+I9I3iPGTB+EwH40RcUsuJaWe5FV1cKW2JJCdGAn9o9TaENIPMeoRyZVOHgfEsZfLDpXLZUDk/BduZ8uZJjx7mDk6/hv7URnBcmFB+MsT+jLpYrZ4eMUKnC+GavOgmbScSpRWEZiYyLHS6jp1kAL3z40O8rHOg9P2psT03xVGKobGjKNrIhNQt8Z5MVcU0CBA8fdDVXZfAo8g8TH5yeX973AhAmKT/90KsjXOlRWZLZ8pw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB3990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(10070799003)(366016)(1800799024)(10067099003)(56012099006)(11063799006)(5023799004)(4143699003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MTRqYml0eTRpTElQbW5lazVOcUQ4emtYc1R2Q0ZyU3NmMG11b0RNQ3VNWENN?=
- =?utf-8?B?U2t6ZGlCUU9mT1FVZk5uQ0V5ODZaamlUdVlNclFQY1EyUE9IZmFtV2lra2hB?=
- =?utf-8?B?azVqUC9xSkhtczE2VHdDUGhrUnMxNjFmYWpDTVZHQ1hNakVvL3NhTlZsTHY1?=
- =?utf-8?B?V0dNMUY3UWwwenNhd25YblRjbXBIc05adUNBa1R2SU5CYXpTemVEREdzeXAr?=
- =?utf-8?B?UE5SV1h1UlVJQzluMUgwOGsxTGEzU2s3VXMrWkgxcWR2SmlPQmpRSTBCMXhl?=
- =?utf-8?B?SnBZNUNDaXZDVVZDYlFUTlFyd3VqRzJOWC9DV3JxQXBuT2VGMlB2emdKdXRx?=
- =?utf-8?B?WGtaVCt6NjBoUHZ0VE1vZ3JpMC9CcE9nSVdJaGp4WFgySXlWeUVvYndKRTFU?=
- =?utf-8?B?Qm9qRVBPSXM1TEJYWkI4T2M5L0dCbjRZdEZFWTlWbHBJSzNwWGk0aFFTZjJq?=
- =?utf-8?B?Ri9wVDl5WEs4L2JZNTl1bjFFVlk4VlVUU2Zack9ZZ29rRkljRFU1MzB6NFZT?=
- =?utf-8?B?RkE4VXFpb3hNcjVrazhwOFd4eFNiWFkwc0JzYmtMWUpaYlBMOExMdUgyTG9n?=
- =?utf-8?B?QUFQdVhtVTZyNzVpdy9tZ3hUYUJKaGh5TDFpN2NsWmV4T1pqZTdmZ3ZlZWor?=
- =?utf-8?B?ZitOZFVWSTEybTg0RjVidmI4OHZ3MW5BWnBnVzFlVkJWVEI4TnNuWkNmeFRs?=
- =?utf-8?B?OUpnckI2Vys3alJqdmlhTUNFUlUyOG00Vy9kUWdGSk1mR09wSVBnemFmYkVZ?=
- =?utf-8?B?c0ozYVljcEZ0VnloMDY1SlJFUTVuL01lWDNBK2NqbktLUkxKUzgwK2lKRFN1?=
- =?utf-8?B?VVVMWmRCWVV3akN4bSt0Zkh4ZDN4UVZyNHpwMDZtb1VRUkkxejJOY2JrZlc3?=
- =?utf-8?B?M0NQTVMwdG9xbjcyOXRKdGU5QTg0S2tOUUV4UXJuQUcydXh2WmJMSGczMzJo?=
- =?utf-8?B?aGplQ1VZUUxMeXAyb1N1RmVneTdhVGYwdjQ5dU5aZDJwZWcxbmp4blVvOTN0?=
- =?utf-8?B?aXU3aWFnaEZJaTc0MVBVWjl4V3p6ZTBwb3Fxc0U2clFLREQzQmlWdkVIUFhW?=
- =?utf-8?B?aXNxdGJPYkRhY1Y4cmRCZXRIcy9BTFAwNjF2SHFZOS9iZ2xRNnZycDUwMHRX?=
- =?utf-8?B?cnhGK0RwQm13S2dOaG9wUGVVd29wbGtqbFVxaC9wTFV2NkxsVDRPNThxKzdP?=
- =?utf-8?B?STlsTVZyclBlUVQ4NGRtUHI5VTJsMDhRWW92TlR1NnZPb2hnQ1hGTlRxZ2JM?=
- =?utf-8?B?QkNWV1pQZ0xtS3crL2JRcVVVKy9OTU56ZHVoeWZiaVJPNlF2blA0T1NWWG1C?=
- =?utf-8?B?VW4zZ0tWMzR5a3VWNHI5TXBJRW1WdXhNUXRMK2RWaStlRHJZclpPeVl2c1pj?=
- =?utf-8?B?V0JMNk9HdmJRV2xCVGo0Znh2WnVRUzdTSnV2eDM2TnpxYmxvRmNqNlhqK015?=
- =?utf-8?B?bnJJTjFuMmp5NGhINm9kNVpzWm5HdjY3c1paMm91S1U2a2VIcXh2azVkSTFo?=
- =?utf-8?B?dEFqRHMrUlJ4QWRaTkFPNTM5OThlT2FJejJ1NUkwazBRQWUxTWwxWHBGYVk4?=
- =?utf-8?B?SGRLa0RncTVhYng0NU9YZnZEZlFsODE5Zm04UmRZZTJPcVBOU2U1ZEFkSTJK?=
- =?utf-8?B?T1BQQjJxd2phM1RxcHF0YkZzTThyME1xQVdWVjY5eXpQOHpoMWZzR1d1TVdh?=
- =?utf-8?B?VUJ2VTJVcmx2YmlaQ0VkVmJ5T0VCaFdnN3dCNG4zSmxQWW16UWI0cyttMnFq?=
- =?utf-8?B?YUVWUjd6MjQ4dUZsVktsOVgvY0xybUZVRkFIS3Q5bmhlSVdqVnpXQ0tsQWZE?=
- =?utf-8?B?Sjl5YnNrVUhmeFNKbnFEZXp2ZWR5bk1jSkRaU040WFlNZ2p3ZWdEa1FDaUY0?=
- =?utf-8?B?dXArL3Y2eHBUZ3FFS1RIUHFKSCtJUzFvaFExbzhpVnQxSXg5TS95dmkrY2sy?=
- =?utf-8?B?ak81UlNvYnZTbVJaUk9uSlJDWkUxb2FtZVRTZjJRZWNmMS9UajBKaDZwNVlD?=
- =?utf-8?B?Q1Q1ZDdRNEp2WllQWHJEZTZ5SXFXQUpJMWJvNzh2QjNJR2wxTVlPYlA3ZUpo?=
- =?utf-8?B?U3JjN1JnRENWcEQxVU1DTWNyWDFXK0ovSFFWZkxRSHAwWUNrOE5paXNuSzVM?=
- =?utf-8?B?TFdRTEYxcVlrR09jL214WVZtTzNQQ291NHRFaDYyZWZlR2p1aFEyb2JDYmdU?=
- =?utf-8?B?ODVNSE9udExVMUEvendsT2JFc1BPUktLQkJWUjdlWVRKRnRxcTBndjZLQkov?=
- =?utf-8?B?Vm5rM3FxVkNBRXFkRmRkeEFYTitWd1hlcm5zUVFiNVQ1TUlhNzUxeG1FdkRQ?=
- =?utf-8?B?dWtyZU5TK0c5d00rcGU0M2daMGMxdDZqUjNFUmZsM3IzQmFGYm1tQS96WXoz?=
- =?utf-8?Q?9CCViQv66hogwfx91K2AGZ8AtPef9Bim1JXyP2eraeqaZ?=
-X-MS-Exchange-AntiSpam-MessageData-1: 9AwZV/dT3LeRng==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: afd3b8dd-3ebc-49c1-5eb0-08def3c23b45
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB3990.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 13:54:27.9772
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7n7xzSyHig7BYX45PVju3HxUP7lN1pIh2WzFS9uZ0L4dKT3HDOHGW62ZIW5nvKEIiPFle2yofjzcs42PkJFsvA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5847
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_065449_552722_BDA739DE 
-X-CRM114-Status: GOOD (  22.89  )
+X-CRM114-CacheID: sfid-20260806_074522_403178_9C8C2CDE 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,80 +86,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon Aug 3, 2026 at 9:29 PM JST, Gary Guo wrote:
-> On Mon Aug 3, 2026 at 5:00 AM BST, Alexandre Courbot wrote:
->> On Mon Aug 3, 2026 at 3:30 AM JST, Gary Guo wrote:
->>> On Mon Jul 6, 2026 at 3:37 PM BST, Daniel Almeida wrote:
->> <...>
->>>> It solves d) by directly encoding the state of the Clk into the type, e.g.:
->>>> Clk<Enabled> is now known to be a Clk that is enabled.
->>>
->>> The design conflate states with actions. Our existing type state for devices
->>> don't do this: `Device<Bound>` means that the device is currently bound, not
->>> that dropping it will unbind it. Yet, a `Clk<Prepared>` doesn't mean just that
->>> "clock is prepared" but rather "clock is prepared and needs to be unprepared on
->>> drop".
->>>
->>> One way around this is to mimic the "Registration" pattern: have a type to
->>> indicate that a `Clk` has been prepared and its `drop` will undo it, and then
->>> this type can `Deref` to `Clk<Prepared>` which just mean a prepared clock.
->>
->> Just as the driver core hands over `&Device<Bound>` to a driver as a
->> guarantee that the device is currently bound, so can the driver pass a
->> `&Clk<Prepared>` to a function to assert a similar proof. Here the
->> reference only means "clock is prepared", without any action implied.
->>
->> The typestate has real practical benefits, as unlike `Device` which has
->> a well-defined life cycle entirely controlled by the driver core, clock
->> handles are owned by drivers and their use can go all over the place.
->>
->> Driver A might want to enable a clock in short bursts in order to
->> preserve power, and keep it prepared otherwise. For this, a
->> `Clk<Prepared>` with the `EnabledGuard` I mentioned in patch 2 would be
->> a good fit. Driver B might need to keep a given clock enabled all the
->> time and only change its rate, and thus will store a `Clk<Enabled>`.
->> Driver C may have different PM states, and can encode these in an enum
->> where relevant clocks are either `Prepared` or `Enabled` depending on
->> the variant.
->>
->> Mandating a registration-like pattern here looks a bit overkill to me
->> and I am not sure what this would grant us. It would definitely
->> introduce some complexity: say that you want to keep a prepared clock in
->> your driver data, does it mean you need to store the `Clk` itself, and
->> then its prepared guard, which references the `Clk` in the same
->> structure?
->
-> You could have the `PreparedGuard` takes a reference to the clock, no need to
-> store `Clk` separately. We can have a method that gives out `Clk<Prepared<'_>>`.
+Charlie Jenkins <thecharlesjenkins@gmail.com> writes:
+> -static int handle_scalar_misaligned_load(struct pt_regs *regs)
+> +static noinline int handle_scalar_misaligned_load(struct pt_regs *regs)
 
-The tricky part is "take a reference to the clock". `struct clk` does
-not have its own get/put counter, so in order for the guard to not be
-constrained by lifetimes, we would need to add our own sharing
-mechanism, which is basically what patch 2 of this series does.
+Why noinline? I heard that compilers are usually better than human at
+deciding which functions to inline.
 
-My main problem with patch 2 is that it adds additional constraints
-(heap allocation) for a Rust driver to keep several references to the
-same clock handle. A C driver doesn't need to do that; a Rust driver
-shouldn't need to either.
+> +	if (rd) {
+> +		if (!fp)
+> +			*(unsigned long *)((unsigned long *)regs + rd) = (val.data_ulong << shift) >> shift;
+> +		else if (len == 8)
+> +			set_f64_rd(rd, regs, val.data_u64);
+> +		else
+> +			set_f32_rd(rd, regs, val.data_ulong);
 
-The typestate pattern of patch 1 is nice and simple, but it also adds
-constraints of its own to the C API, in that a clock handle can
-contribute at most a single prepare and a single enable count to the
-clock. Patch 2 tries to work around that limitation by adding the
-reference count we wish `struct clk` had; but at the end of the day what
-it really does is create another indirection for clock handles, and each
-of these indirections can still only contribute a single prepare/enable
-count to the clock.
+Why if (rd) condition? What if the instruction is loading to f0?
 
-Adding guards alleviates that limitation, with the caveat that the `Clk`
-that provided these guards cannot transition into another state while
-any guard exists, as the transition methods consume it. And these guards
-cannot easily be stored long-term - not without unsafe code anyway.
+> +		rd = (8 + riscv_insn_c_sh_extract_xs2(insn));
 
-So after sleeping twice on it, I still cannot think of a design that
-would solve it all. But I sense that providing both the typestate and
-guards would largely cover most use-cases until we converge towards the
-perfect fit for the C API.
+Having to remember when to +8 is error-prone. Does it make more sense to
+do the +8 inside riscv_insn_c_sh_extract_xs2() and the likes?
+
+> +	if (rd) {
+> +		if (!fp)
+> +			val.data_ulong = *(unsigned long *)((unsigned long *)regs + rd);
+> +		else if (len == 8)
+> +			val.data_u64 = get_f64_rs(rd, regs);
+> +		else
+> +			val.data_ulong = get_f32_rs(rd, regs);
+> +
+> +		if (user_mode(regs)) {
+> +			if (copy_to_user((u8 __user *)addr, &val, len))
+> +				return -1;
+> +		} else {
+> +			memcpy((u8 *)addr, &val, len);
+> +		}
+>  	}
+
+Again, why the if (rd) condition? What if it is f0?
+
+Nam
 
 _______________________________________________
 linux-riscv mailing list
