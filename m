@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF09FC56205
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 17:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E12EFC56205
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 17:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HAlIYVooVRzJTqhY1PCWa5qOK/LcepnLhODl5PMfVbA=; b=VmBgoM7J44Attw
-	AX9lri2qAqUfviZPwTsoQESqSxXEbZrUQUSYjAZkwsQQzG9+tzGstUuGvaxan9pUtbadvmo1apAXo
-	yrHODoKYW1HrzONPDPjJUgFZCV/NYO7/vfH9sAeRLJ2AF4FmqEWqx9hIn+rjrGR9KCNAqfVtoFIAw
-	9wLReXSnP+hdwgn1goOV5c482hqJnpQB/QVvzPpKGwDfZeT0aOB/86xSUJQm7d6XOBtxbRnFsE+s2
-	D6uqk+PDiv064tbdiSapoMuwIp17yn5ITGrwAAuB0tFfGHzAzdB+AmGPSjlysYQc+yPForm5vw2Ze
-	2mq6Jv7KdDhevVJI+eRQ==;
+	List-Owner; bh=Qqzux5Cact8gGgRQnfoY5I2syban5KR81lFdAwjDOxE=; b=B52RgOv/W4DGRz
+	athsTlshuuiku0yj7NNVS+0jZCHhaTIw2gUNguGl7iE8mdc42M7jls1VAs0tu3zRjUWZaIj2deBNj
+	X7e1AgHUqlC85W5V0ck0QddbgYF+QArn/8sX2rSH2Zr6Gi15JYBEshDDhB/AGAkfjvVMyTmRHVIFi
+	SMXzcuVXr0qo2/SKF7AU4pxkNaAIHUQx9dPjITqv2k3hovb/gmI1mGQxCZfjf+N9RTqA815beAL2w
+	q9lGJfg0MSrShJoRJQUZCoAzm5IQ2zec6POKyf9BXzavKV3OxQlVQBAWHoidfg4hlWEZ7rLvqIaeV
+	l0UQXZkVo/aR37gTNa0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws2Gw-00000006PSL-2Nsg;
-	Thu, 06 Aug 2026 17:52:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ws2KH-00000006PkU-46BD;
+	Thu, 06 Aug 2026 17:56:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws2Gv-00000006PSF-3Oc8
+	id 1ws2KG-00000006PkJ-2nGn
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 17:52:49 +0000
+	Thu, 06 Aug 2026 17:56:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 10E0560AB5;
-	Thu,  6 Aug 2026 17:52:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 109761F000E9;
-	Thu,  6 Aug 2026 17:52:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E61DA60AB0;
+	Thu,  6 Aug 2026 17:56:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E34B21F000E9;
+	Thu,  6 Aug 2026 17:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786038768;
-	bh=amu0jMXpH/msysld31tqkZsT5du+PiFJPn/DYBO7gZI=;
+	s=k20260515; t=1786038975;
+	bh=pP8/+IPjApPrhg92srmtesvabW4LFYQXAJXR3pd5Fbw=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=n87K100vrR0/fb4HD2jydkBkg7Ou2tZfdMM+IOEW5jy211ESoPjvEmPAgyxBVzMx5
-	 DWP/9e+URFvvRzJvjY9b88GyeMfDAs60De5lTrGVnVcCgOsfZgCVPHl0KM2le0aDYE
-	 VXB2MemoKRQMw35Vo0oyTEMvhat2PankAAuL3Keck9O85xsrqjMFMSSqBOyPXL707A
-	 ddGLPmgNjSX8MLO7fCCNWBs4D7DS2VuA4l2IkUF1IiY+UC4Eqmsof14XiaAI5A8AlH
-	 qtUSAf23XHbYH2B99REt+iZd+4kwV2Q/Bh4sC8RHG+MPf5mIbEER3lev/cLTxNjRzt
-	 oEqO3gpyZFGkg==
-Date: Thu, 6 Aug 2026 11:52:47 -0600 (MDT)
+	b=EI0vijPY5rBvJdiBHvxF5mK9Tlgu4Gjn/wB6Mn/YEegWUoCgEorGfIPIfvu3yps1P
+	 xWLpq6a8hcqiQYB61qQDCIwvQWtUNbXgXL7ZJA8PO3B/q7iaQ3HRmSsQmeNtkg5WFk
+	 qWQYvlMtvwLsWh2IJ+I3HcrnSku+5WAaX1uEM6zQXZ9z50dYxCMRKkchVFjMVbEs6B
+	 VkpiRlTKtoX+Ndy1tzHCPfMVXYfXC9o2lU3xSeDJiMhER+Ytey+SYiQdkOM91WNvrq
+	 rP7DBJcdNLuNovQLLMEP9lE2lhiSTLxOB2VR2URDOeOX86kobIHy5W5QRcg3bcgHTF
+	 jrQ9ueHPseWAg==
+Date: Thu, 6 Aug 2026 11:56:14 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Milan Tripkovic <milant2002@gmail.com>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <kees@kernel.org>, 
-    Alexandre Ghiti <alex@ghiti.fr>, Andy Shevchenko <andy@kernel.org>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    linux-hardening@vger.kernel.org, 
-    Dusan Stojkovic <Dusan.Stojkovic@rt-rk.com>, 
-    Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
-Subject: Re: [PATCH 2/2] lib/string_kunit: extend benchmarks and unit test
- to memchr()
-In-Reply-To: <20260520155532.1139471-3-milant2002@gmail.com>
-Message-ID: <81c7c1b0-2906-96f6-6f7e-c859a7578c8c@kernel.org>
-References: <20260520155532.1139471-1-milant2002@gmail.com> <20260520155532.1139471-3-milant2002@gmail.com>
+cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, kees@kernel.org, 
+    alex@ghiti.fr, andy@kernel.org, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+    Dusan.Stojkovic@rt-rk.com, Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
+Subject: Re: [PATCH v6 2/2] lib/string_kunit: extend benchmarks and unit test
+ to memcmp()
+In-Reply-To: <20260520123954.379630-3-milant2002@gmail.com>
+Message-ID: <94d47e77-3cec-158f-c214-248d00e41529@kernel.org>
+References: <20260520123954.379630-1-milant2002@gmail.com> <20260520123954.379630-3-milant2002@gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,22 +71,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
 On Wed, 20 May 2026, Milan Tripkovic wrote:
 
 > From: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
 > 
-> Extend the string benchmarking suite to include memchr().
-> Extend the string unit test to include memchr()
+> Extend the string benchmarking suite to include memcmp().
+> Extend the string unit test to include memcmp().
 > 
 > Signed-off-by: Milan Tripkovic <Milan.Tripkovic@rt-rk.com>
 
-This one either needs an ack from the appropriate maintainers of 
-lib/tests/string_kunit.c, or should be posted separately so those 
-maintainers can take it upstream.
+Same comments on this patch as were posted here:
 
-thanks
+  https://lore.kernel.org/linux-riscv/81c7c1b0-2906-96f6-6f7e-c859a7578c8c@kernel.org/T/#u
+
 
 - Paul
 
