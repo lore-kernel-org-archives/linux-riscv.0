@@ -4,130 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E698CC55838
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 06:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B68C55838
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 06:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LCypKLPalIqWkJUBCDgGS+aYdoMfvdSWwaY3iD0IuN8=; b=L6KLda9yzgmTUR
-	Jpfj+l9wVOVPl4sjgcmPbTMb0/HEZ3xpItlnU5XoFadpy3YF/wPb8tbSw0zI4aRkZC+Q8/F3pXoFE
-	U9upiNAb1v2nLRMXEbLSAKF8k3uX4Z32zpysFPMovC+H7mSl7GzG6ApN4GhkaAOqisI/f8f0bRakc
-	LHRunjmstHrAsg7mpBuAuYzCDdEK8jDVsekuM8Zk8w0oChe0qjWufy/Xg9EuM1+KJVlSM8wUXXlpR
-	93jag692psCxQ2Rd857Wxo5A5g6uccBpbSDiHVCKsa4mqdoGNL5WhNpwXoB4qjfU4JRPXpQeaBfBW
-	sF8rX8GQDJuB4F2VTIdQ==;
+	List-Owner; bh=XhQTa8bTOTvsgb/i95SFQZsroA7CPS6y0eXvTeqzZu8=; b=Dc+uXgknrHZcxe
+	FIgNLPh6Vux7VagmPdPzj1u6Ea7I7B6Ci8NcNJwx4jUOJ+vh3DVyBCc+6TS2WnK5pmsdzGFa7AZ+O
+	M9l+CwRFZZqjBam2ha+vt/kDbjNlBKoDaoYP+Fc4waicuFIE4THX9P4gsMTnjxp6xSPzq3tj/gkiz
+	9I7V96/GeHQ0JfyE6JSlG9yTsj48SJc3LsZW2xpwOrgUtDvOCYR6pCI+AUhp6SsNitIilpPBy60c6
+	tWhfiuujE0QZYhz2Z6l7vDHtB8+SQQ3xj+geBRxXtQ3jHGwNI2HxbK9tOiQD9eHaGoVvgu3HxJ90B
+	wk3QxHYeWVLMaO9hmSrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrraB-000000052Jn-0c41;
-	Thu, 06 Aug 2026 06:27:59 +0000
-Received: from mail-sh0chn02on2102.outbound.protection.partner.outlook.cn ([139.219.146.102] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wrreT-000000052tN-3le9;
+	Thu, 06 Aug 2026 06:32:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrra5-000000052Iz-3QxJ
+	id 1wrreS-000000052tD-3d4v
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 06 Aug 2026 06:32:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=4E5y/AkNbZJxw0IkAsjY/ZvET0ucQGZj9LI++HPuzv4=; b=pX1Qp6ZhOV2j+HkpHdwWC8oDiB
+	JOzTcw+UGiryQoZXSoq0oVQVWYrl4geDmE4DlJhVfgKQdP4eUPhOQo8sgGsQghsg7VgRQuJh37dy9
+	MOPBGEuMeAhg05nhcoymBI9SeDisBNCsO7P049Vju4XVESVqGmF32dPrV8voffDQ0mnlxSqbXCEYd
+	mDwG0NLNxYBR92Y0kXu8V09Ec5J7N34eC3k2RWb5HAM7g/LGVpXDsK0Pcx0Vfy4ZfD53T+Qwl4E5p
+	LtgRZHH/vmuoe+MebsODsNnmhoKkeW1cza2Rgcq9t5GQTl4RWtrZB7Gepr2XGSRPNagfJg4Ddjjlp
+	JsF/4U/w==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wrreO-0000000BGPE-3UFf
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 06:27:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Ywgav4KXb7y7V25MX5PgTcsxpd41EkhvT+xcQP+tcRXUkDVaPMfzHHrsGx5NbcbpXPd+vol8OODh39IHIGtTr/+ECYmcoqXNPYsksXPgCDGRhKVWKAkn3qX9oQTWR4pPtBybwgaMxr7/O2Vb7JpCufLQ0586UGtN7j502dPNB75STzG1bhHyIcY03HJOKELi5LAOGnbdCELo7pU+YVFpeYhJQv/omxk/SITw5hA5PUd/wh88AmyIwPtH7HOBNt8W5ujhcqAkRfgP5t11Fmegy2AAh/ZAcoq23S6az+/Bo68D7I32Avc94I6Ce3ROPDbkMf4YVJLZ+xike+buluZw9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HgwUl43APcibYB4vnR5inaqRV0MpLVjeWDE15UWxkCk=;
- b=ejrkJSbw4j65xMUskRIjMnCeXhNgRZW97udnHO4SiDWiZl6g2Fapso5zbiLjaBEV6gQKB/83pUgfhlR9dN6RTgMHUazRy5h8vjP8LGPHt8prT5O48FHqvYZWlbhiLtMONnBvb4SkW28jHLvhj3vG2ZAseWqBc/GyB6s0Da4FklqyHQu0ds5E08yEzf8CbzCnCf/aFzfI1GRKZvZntj1CK0E7EcZUMNLAZFdLmkXIFGfEqmidaT6BSUkMwJEKosgrCtswkM7MHz3jvaapUt3zZzkzCu55lAiSbELn+MMLB7OCc/Hg74fnFrXt5gDYEBGGDf8QLsd6Uh7949LLfbIdyQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1252.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:16::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Thu, 6 Aug
- 2026 06:27:07 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0292.018; Thu, 6 Aug 2026 06:27:07 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Rob Herring <robh@kernel.org>
-CC: Linus Walleij <linusw@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Paul Walmsley <pjw@kernel.org>, Albert Ou
-	<aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti
-	<alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, Bartosz Golaszewski
-	<brgl@kernel.org>, "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Lianfeng
- Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v4 05/21] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0h-pinctrl
-Thread-Topic: [PATCH v4 05/21] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0h-pinctrl
-Thread-Index: AQHdIYczlwja70qKk0yuMGzbQI4QT7aQAEkAgACV3HA=
-Date: Thu, 6 Aug 2026 06:27:07 +0000
-Message-ID: <ZQ4PR01MB1202D65340093ABCD709D94EF2D22@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260801072711.153217-1-changhuang.liang@starfivetech.com>
- <20260801072711.153217-6-changhuang.liang@starfivetech.com>
- <20260805213044.GA1808833-robh@kernel.org>
-In-Reply-To: <20260805213044.GA1808833-robh@kernel.org>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1252:EE_
-x-ms-office365-filtering-correlation-id: b501b162-749f-4c52-54bc-08def383bd65
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|18002099003|22082099003|38070700021|3023799007|56012099006|10067099003|4143699003;
-x-microsoft-antispam-message-info: gn+yvBx62GolzzhHii/hldVcBbasvO0aeKUCX0vAc7GKfj0yDACXl2PNbxO7T90bvTvCJ5Wlc0rY2pvdpASg614rNbc8gCdQib96xdSh7aj4Edh/Bmj+mVm6LcWhMqHMIw16rSYxdnWEKAfdfr5smbOi7g8zSaqXPvF4YyLRMVnbycSZgNMRWEiXEJqVQCn/jUwgdVYd3SlZE2cOBffPn0AzbF0LE6i2D81ZW0AOc4j2n/MwSDfjPP/fgpTHF55/Hd06GuzGIMoGF7lA1OCmAsjW7IvZV+FNL8PCeRbMJCPVZg3fbzFxav33lqUbuMQ+GM171weegecprTte3OOyJGChPThWUAD3bQhRvFhXHCZdsKygQGJJyXjBsshV52h2MUD8J1AwMW2CjZ1yEVamRfRKRjFJDIizp2DEFP7t3RTBfD/ddtX81xbhgPnpSFv8riM2CSnYElhFiJ2eMcjkh/XjVxvHdzL7zgIQ93pa5yA3TgVzwUqc/k6KHZMRdgKN9DJcVeAEzKYkEY1aUwRxmomyXcSQHoT6G7vh+jtCp5Vn11UDD0WknU/wSbEsos0h
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(18002099003)(22082099003)(38070700021)(3023799007)(56012099006)(10067099003)(4143699003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?xzQy349EL69ORaOuj+WpKYLNMNn+FuIH8w9xrtsFug+pBagJOa0ntmjuM3bR?=
- =?us-ascii?Q?BLU3UhmQv++Kd+9QjsAoHXNRC31eqLu9bxcVOTwH3CqeHpb7iSboFhcvS+zx?=
- =?us-ascii?Q?iHsmDhyrK6WlK2WtFf24yJfo4umWvsrtt6S0wkiA0G08gPBPbJ0WevprTJsu?=
- =?us-ascii?Q?AiuByvxh7irTPEUlVQt+bGtiGiZB5KgERc5lx0deyPD7RluLiNqFwfAazxXr?=
- =?us-ascii?Q?ygXIBA+iOpokuHpq7lnER4q51FU+aS7mqAast4h0dr2VOvdqgzi5hX4FlvdL?=
- =?us-ascii?Q?IgpfDw6ZCTVAvt92obcrM6v8ZiZrG2IiDBghg/ZZreeLj9VEjZWmDCqmUUhm?=
- =?us-ascii?Q?ygyMvFWTkxW2jifs2+vMKRaPs589C29bxl45hG2tiOgpAU2uOf8e1cBlyyVD?=
- =?us-ascii?Q?lpiOfS5kttPVWmVWQhjJroy9FTnP00oZJHSmGeTzVk/spGzTlwBYVNXcwuJo?=
- =?us-ascii?Q?APjHgG9rnjrMBav7ZJrGJ4G8hlo83urNbwOdZTJV50nl2Z+FV5+TfISZLjq0?=
- =?us-ascii?Q?PHeFXjMhqTo31LdwFxDA3jbM3X4YBrryj/TME9CSpZr/x8Bw4hcu4+Pq7qA0?=
- =?us-ascii?Q?iu75Wv9SlX5ISn9jvCVoXTCOidBZBQ8RPCQ3If1Ctonl1haoSIKMBIG1cIoB?=
- =?us-ascii?Q?5vhkjBYTgMpRwKQLCl0lwRLcEcKUOW62Qd0WGfjVhPbdx0cvBOcFzBzRg5H4?=
- =?us-ascii?Q?EKQZrjc/hMAkO4v2Y9EahaoB+Imj3AehI4vf9yztFqUTbNfOMFx8OBdzVTfJ?=
- =?us-ascii?Q?8xIi4Sjvue7lWFGAgJMT/pZViCLbb7bQhEb8hINByYW/gngmNA/GkYW9cj+i?=
- =?us-ascii?Q?g9e8pJerCFiCQKsvrwWeO87jz26XxR6LvXlgYJVUBxa1DVs8ix9a+2RSgk/W?=
- =?us-ascii?Q?zCIxrYpcA2Q2dcDwLnVnBpqUCRMCwMNOfJ23PCG7OcoIx0X7P84v3zJCJHiS?=
- =?us-ascii?Q?uSgiXhsj5s53tYrj/lrybIetN3RBW4djnWU9d1Lkdl5Ge7oMHxGf4/c1k+SY?=
- =?us-ascii?Q?ci+J5JQIlIdPfGz9qv4cH7dxkPIGaxeLjrqPGzA1szGl8PxAAGiX0AxD0zJJ?=
- =?us-ascii?Q?Zy5oTcSlwZxTqPq+8AGw//x0gBeFdRcjQMTPE8djTCboeAVLTlUMk3Za9HWd?=
- =?us-ascii?Q?oDJFeWROrJKF+Hxn7/DL66INQpyeEMFNL3OoutpUkbazHDlDGhcjKnQNmTUM?=
- =?us-ascii?Q?yJDx9+2RLyX8TkiuJdvjXyEMsud3RI18wP3JdIIM5h8u/TXvsxllPnpNWr+4?=
- =?us-ascii?Q?ePF1AkTrzgtz5AUDsx3ru+1DvF1FdbKaRgIMt1CIXxL4L8Jde0501kW2h7Lx?=
- =?us-ascii?Q?KjXsdL+PgEBPT0CEgo+/psZ4S9f78oaMwTfZfrFxlUSKAVz0L1nhEsN6B3U+?=
- =?us-ascii?Q?86yx1e3rbRpfJjiUXusEutpKVqYr5w8do6SxusCB8hCzsPWFayd4MyTKtkUu?=
- =?us-ascii?Q?fv4Lhrv0NWUU6aoFtKHjGZp0HGD68W5ydEktFyhSS2rrVjM3kiU5bIfmI//D?=
- =?us-ascii?Q?gL6ntWS2MQyY/DdSjtigc1VyA2yQiPl+X7RPpd3P/38RBSuNQWYqYA/FXe2+?=
- =?us-ascii?Q?b4qpfRtBR8WOFRnEqdEL+Oly84Be7q9CslBUwSltMrTnPVcn90ccXRPjv+15?=
- =?us-ascii?Q?GGcotcETB/2Q+P+oOJ/hBGjRshTsxuIysRxG6jgU9Mzc6Doig1d03CGyhlY3?=
- =?us-ascii?Q?MbGbafgy4+NeZ/n9hv0bfc3Q7hqZSBUrbiUFKbC7kXWOjpSYJywT8F4JIZ4i?=
- =?us-ascii?Q?bbxAUAYLTeh1r3l5oSEme8HLP4V2qT8=3D?=
+	Thu, 06 Aug 2026 06:32:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785997929;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4E5y/AkNbZJxw0IkAsjY/ZvET0ucQGZj9LI++HPuzv4=;
+	b=JYtmtNSHXWqNyrXS8KGcW39Sgt+eX/ST8IfZNkHzqNLUqOLIzc9ZHmptB0FA+8juSIK5qM
+	9eqdN98Mm/Mb42w/vJDT7qlQAbAG8M2xLI0Qyk4c7jiprgBnCmIwMhqBLv/Hidt8sZYGnN
+	T6r+j9UCbdpE5o6QZ2u2hNXIG3yQqUY=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785997937;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4E5y/AkNbZJxw0IkAsjY/ZvET0ucQGZj9LI++HPuzv4=;
+	b=D9Ul8HJeJtT8FIDr6RAMlghr/kJLnduiECZe6wjNZ82s2B5ky7C/n/XW8OdwnV5M4awmm8
+	vgutld4ikt/8lQiSd70nCECzXwuxq9Uf5g1oTuw223A/mR0pXfWx4x+ae711UIs5/IoRZ0
+	CBrsPhfSwolgvft+YpDB3M6RH0QzH0I=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-10-AReQfHRvOQSizv01XUWLeg-1; Thu,
+ 06 Aug 2026 02:32:05 -0400
+X-MC-Unique: AReQfHRvOQSizv01XUWLeg-1
+X-Mimecast-MFC-AGG-ID: AReQfHRvOQSizv01XUWLeg_1785997921
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 44BEA18000A3;
+	Thu,  6 Aug 2026 06:31:59 +0000 (UTC)
+Received: from fweimer-oldenburg.csb.redhat.com (headnet05.pony-001.prod.iad2.dc.redhat.com [10.2.32.117])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E85001956049;
+	Thu,  6 Aug 2026 06:31:50 +0000 (UTC)
+From: Florian Weimer <fweimer@redhat.com>
+To: Peter Bergner <bergner@oss.tenstorrent.com>
+Cc: Andy Chiu <tchiu@tenstorrent.com>,  Jonathan Corbet <corbet@lwn.net>,
+  Shuah Khan <skhan@linuxfoundation.org>,  Paul Walmsley <pjw@kernel.org>,
+  Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
+  Alexandre Ghiti <alex@ghiti.fr>,  linux-doc@vger.kernel.org,
+  linux-riscv@lists.infradead.org,  kito.cheng@sifive.com,
+  dfustini@oss.tenstorrent.com,  greentime.hu@sifive.com,  Andrew Jones
+ <andrew.jones@oss.qualcomm.com>,  Nutty Liu <nutty.liu@hotmail.com>,
+  Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>,  Yao Zihong
+ <zihong.plct@isrc.iscas.ac.cn>,  Xu Lu <luxu.kernel@bytedance.com>,
+  Aleksa Paunovic <aleksa.paunovic@htecgroup.com>,  Jingwei Wang
+ <wangjingwei@iscas.ac.cn>,  Zong Li <zong.li@sifive.com>,  Deepak Gupta
+ <debug@rivosinc.com>,  =?utf-8?Q?Cl=C3=A9ment_L=C3=A9ger?=
+ <cleger@rivosinc.com>,
+  linux-api@vger.kernel.org,  Jeffrey Law <jeffrey.law@oss.qualcomm.com>
+Subject: Re: [EXT] Re: [PATCH 1/2] riscv: hwprobe: export the availability
+ of vector to user
+In-Reply-To: <cc671848-f954-41bf-b7a9-ba34c29593ec@oss.tenstorrent.com> (Peter
+	Bergner's message of "Wed, 5 Aug 2026 13:40:27 -0500")
+References: <20260723222109.2229089-1-tchiu@tenstorrent.com>
+	<20260723222109.2229089-2-tchiu@tenstorrent.com>
+	<87bjbwk0q5.fsf@oldenburg.str.redhat.com>
+	<cc671848-f954-41bf-b7a9-ba34c29593ec@oss.tenstorrent.com>
+Date: Thu, 06 Aug 2026 08:31:48 +0200
+Message-ID: <lhuik5n4v57.fsf@oldenburg.str.redhat.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: b501b162-749f-4c52-54bc-08def383bd65
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Aug 2026 06:27:07.6717
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: n5c/LkpDwEmF2sMpIwAqLi/1SXGgeVaKsrO4ibD1+U6JUnj/r2B4g8mmpSDYdiKN+BdRf0YfcZGqDtsNFpZ1EwhvgCKrVPTxyWYWWQ9lJ38MX+FLOfQdj7EJDzKOm5Mm
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1252
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-MFC-PROC-ID: 28zduI8tfE3yEJQJTASdkJkh2gAC8AqLp9gGNhRwY9E_1785997921
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_232753_861783_3F9618B1 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260806_073221_091273_D323D173 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,87 +126,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Rob
+* Peter Bergner:
 
-Thanks for the review.
+>> We only get a true userspace simplification over hwprobe + prctl if we
+>> can disable vector extension usage if the kernel does not support
+>> RISCV_HWPROBE_KEY_EXT_ENABLED (so a V usage regression for older
+>> kernels).  Otherwise we'd have to use the new approach and, as a
+>> fallback, the old combination of hwprobe and prctl.
+>
+> Since the kernel ignores unknown keys, we do get a userspace simplification
+> over hwprobe + prctl.  The plan is for our GLIBC IFUNC resolvers to just have
+> one hwprobe call (as they do now) with RISCV_HWPROBE_KEY_EXT_ENABLED as the
+> first key and RISCV_HWPROBE_KEY_IMA_EXT_0 as the second key.
 
-> On Sat, Aug 01, 2026 at 12:26:55AM -0700, Changhuang Liang wrote:
-> > Add pinctrl bindings for StarFive JHB100 SoC System-0 host(sys0h)
-> > pinctrl controller.
-> >
-> > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
-> > ---
-> >  .../starfive,jhb100-sys0h-pinctrl.yaml        | 162
-> ++++++++++++++++++
-> >  .../pinctrl/starfive,jhb100-pinctrl.h         |  14 ++
-> >  2 files changed, 176 insertions(+)
-> >  create mode 100644
-> > Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0h-pinctr
-> > l.yaml
-> >
-> > diff --git
-> > a/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0h-pinc
-> > trl.yaml
-> > b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0h-pinc
-> > trl.yaml
-> > new file mode 100644
-> > index 000000000000..80acc64834df
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0h-
-> > +++ pinctrl.yaml
-> > @@ -0,0 +1,162 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause %YAML 1.2
-> > +---
-> > +$id:
-> > +http://devicetree.org/schemas/pinctrl/starfive,jhb100-sys0h-pinctrl.y
-> > +aml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: StarFive JHB100 System-0 Host Pin Controller
-> > +
-> > +description: |
-> > +  Pinctrl bindings for JHB100 RISC-V SoC from StarFive Technology Ltd.
-> > +
-> > +  The JHB100 SoC has 13 pinctrl domains - sys0, sys0h, sys1, sys2,
-> > + per0, per1,  per2, per2pok, per3, adc0, adc1, emmc, and vga.
-> 
-> These all look about the same other than 'function' values. I don't think it's
-> worth splitting just for that. I just put all the function values in and just
-> document which ones go with which compatible.
-> 
-> If there are more differences I missed, then perhaps the split makes sense.
-> Maybe it's 2 or 3 different ones?
+And if RISCV_HWPROBE_KEY_IMA_EXT_0 comes back at -1, we'd turn on V
+unconditionally?  That still leaves the existing bug on old kernels, but
+at least the bug goes away with a kernel upgrade.  This isn't too bad.
 
-I've organized the differences based on the current series:
-
-1. 'function' values
-
-2. bias-pull-up
-   - per0, per1: support two types
-     - type: boolean
-     - enum: [600, 900, 1200, 2000]
-
-   - Other domains: support only one type
-     - type: boolean
-
-3. power-source:
-   - sys2, per0, per1:
-     - enum: [1800, 3300]
-   - per2, per3:
-     - enum: [1800, 2500, 3300]
-   - Other domains: not supported
-
-4. drive-open-drain and drive-push-pull
-   - Supported only on per0 and per1
-
-After re-checking, I noticed that I mistakenly added these two properties under sys2 as well. I'll remove them in the next version.
-
-Based on these differences, do you have any further suggestions?
-
-Also, if we later introduce ADC0, ADC1, eMMC, and VGA domains, there will be additional differences to consider.
-
-Best Regards,
-Changhuang
+Thanks,
+Florian
 
 
 _______________________________________________
