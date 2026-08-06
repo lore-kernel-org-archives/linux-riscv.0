@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C581C56205
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 18:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B261CC5AC7C
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 18:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f5uGM8zufcjAqIWGqCz2ZyStVC4RycF+Kk6qzHlWYmU=; b=CqzzoC6rbc+j3X
-	aZ9RU2zW7hxZWTD/Brkvbb6wjfKF4LR7D1y8drl8K5Fdt2U+E0KhR9byVpnxHeGd1YPJGSEziC0qX
-	0uyGz7cMHk7HjRAsyvPd88pDX3Vr0AMFjtOi80Cjsd4/Hptr+jJRi6FvK9xP8rYvDRkhnW9dBPkm1
-	7WMhPd5C+IftlrvL93X8+5q2zyiS1PBr2G4VOgAJXCi2Nt+SnY++ixrt5YayeKzPbwc101Zy9CWUI
-	/LdS1gPsj1m4DUMdMKJiRY/E7SuCW+Hlex4qqDRvuatYbGhEVvsiSEALiWrX50fr/ozKHZHId1U/S
-	jXSePp/+oi3RzIb8ca7Q==;
+	List-Owner; bh=HGK84ZytZg0cLOaC3kPMzzYSTI/WQCAGttclxLkd+sU=; b=WHF2HiseDH/AfL
+	YugghGoU1wM8QwdnIssOttqpSJ5QOk967CxY1Qe0/JPkelz/H4iQUKiGxoG0rTPcMlDu6Z+ofQP5g
+	/q4Dn+GEYuPRPKbkScYQcUqUnHLUrZ0wzy4PWQzEakqS+QfJbv0olj0FIivRE3B+VIdscPlXMQ34D
+	bdn189eGNf/gDgpcD9KzZWU4jI0jfP5oRSeB+j2eWMgFYZmh+7P2dP8QVghx8OyMy4h8Qltv/txwc
+	whcihAUI67LETgumPv3nK5y8bCm9D168fgETb87uQzpseObApvDXmCak6feajUClqTt7cRp1GIQL4
+	NU5EwvTz2S1l88eIrs4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws2Yh-00000006REb-2YE8;
-	Thu, 06 Aug 2026 18:11:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ws2sP-00000006UEp-1896;
+	Thu, 06 Aug 2026 18:31:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws2Yf-00000006REB-2BWX
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 18:11:09 +0000
+	id 1ws2sO-00000006UE3-1mI5;
+	Thu, 06 Aug 2026 18:31:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F1CF340686;
-	Thu,  6 Aug 2026 18:11:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEFFE1F000E9;
-	Thu,  6 Aug 2026 18:11:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A244C60A74;
+	Thu,  6 Aug 2026 18:31:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 470951F000E9;
+	Thu,  6 Aug 2026 18:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786039868;
-	bh=0T0nm59oEOzhQ7dZZBbQ7PwPF0an5VEFwwAuzNi0ip4=;
+	s=k20260515; t=1786041091;
+	bh=44M6jU/Kh8m/G1eDNu1JXoHIPfmG7QRrcFJA1Q9PNY0=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=enYE6clmiaUpvvaQM+VLpeXDgO8G0Nbintt3yoWk3/YYzIfBnbjwYjT0V0Nn85JS4
-	 AnkZcc9Ws+sLYtZSQSSJr4NIWETT5//xBNIVjIERYPPfT65QWAP5L990tzsGNvlibo
-	 oB23613SXvZPrw4+zLSwaMrsQ2OZDJI5UBS2D3hRn033D+oUfmO0I3jSF8vB4HGrcK
-	 6R2e9iqPEs/JHZMb7Lp2ThXvBokvL3TP2s0/j9fNFK/L3PVL7wrYp3RSvHcPHur580
-	 J8FyMtBI5DoR1WqMZnBHm5oQJZaXJd8Ll9nHQzyDRQLlU32lZxBGcJ8O+WpmWWtpHE
-	 B/VpV14u4Bm1w==
-Date: Thu, 6 Aug 2026 12:11:07 -0600 (MDT)
+	b=Dtv22uXuK+7t8r3nCF4xtLj9ZE0N6JSnTz8DbzNOxgEwNM5aQeq+cMVN1sxrQ57ag
+	 xtYg1nxiom1fw/NBSWSXcijfhwmbkjDnI4BZsi4d1Bd4ca6hQciNOu/HO02Joy68ED
+	 C/MLPgoUtUoAKm9LvILDbulTamZGlhKRrOq2hZQfltwviigCURwFWSPkpa2p9A1aOh
+	 Eadr1J/UnRjIIA8Zpa0xjhS4TNuHNiOHMEC08Az7rkZoQmnTgPejxSuefiMC77oG4n
+	 P+LGJio5+Qu6DYiunq/Y7+9q8n24rg0AV5eU77Yqja2WXzvT3bT7x58ZO6KAIpnWtZ
+	 vNT0nxgWGwmoA==
+Date: Thu, 6 Aug 2026 12:31:28 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, 
-    Samuel Holland <samuel.holland@sifive.com>, 
-    Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+To: Guodong Xu <docular.xu@gmail.com>
+cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
     Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
     Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Evan Green <evan@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>, 
-    Conor Dooley <conor.dooley@microchip.com>, 
+    Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>, 
+    Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+    Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+    Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+    Chen Wang <chen.wang@linux.dev>, linux-doc@vger.kernel.org, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
     Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, 
-    devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] riscv: cpufeature: Clarify ISA spec version for
- canonical order
-In-Reply-To: <20260125-supm-ext-id-v2-3-1e3b9714c860@riscstar.com>
-Message-ID: <fa0c32d5-292a-d502-bdda-dd876192d1cc@kernel.org>
-References: <20260125-supm-ext-id-v2-0-1e3b9714c860@riscstar.com> <20260125-supm-ext-id-v2-3-1e3b9714c860@riscstar.com>
+    Jesse Taube <jtaubepe@redhat.com>, 
+    Charlie Jenkins <thecharlesjenkins@gmail.com>, 
+    Andrew Jones <andrew.jones@oss.qualcomm.com>, devicetree@vger.kernel.org, 
+    spacemit@lists.linux.dev, sophgo@lists.linux.dev, 
+    linux-kselftest@vger.kernel.org, Jesse Taube <jesse@rivosinc.com>, 
+    Conor Dooley <conor.dooley@microchip.com>, 
+    Charlie Jenkins <charlie@rivosinc.com>, Andy Chiu <andybnac@gmail.com>
+Subject: Re: [PATCH v5 05/17] riscv: Add Zicclsm to cpufeature and hwprobe
+In-Reply-To: <20260701-rva23u64-hwprobe-v2-v5-5-2c61f94a695a@gmail.com>
+Message-ID: <3cb41566-deea-689b-c445-2226d7f3f25a@kernel.org>
+References: <20260701-rva23u64-hwprobe-v2-v5-0-2c61f94a695a@gmail.com> <20260701-rva23u64-hwprobe-v2-v5-5-2c61f94a695a@gmail.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,19 +84,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 25 Jan 2026, Guodong Xu wrote:
+On Wed, 1 Jul 2026, Guodong Xu wrote:
 
-> Specify that chapter 27 refers to version 20191213 of the RISC-V ISA
-> Unprivileged Architecture. The chapter numbering differs across
-> specification versions - for example, in version 20250508, the ISA
-> Extension Naming Conventions is chapter 36, not chapter 27.
+> From: Jesse Taube <jesse@rivosinc.com>
 > 
-> Historical versions of the RISC-V specification can be found via Link [1].
+> Zicclsm requires misaligned support for all regular load and store
+> instructions, both scalar and vector, but not AMOs or other
+> specialized forms of memory access, to main memory regions with both
+> the cacheability and coherence PMAs, as defined in the profiles spec.
+> Even though mandated, misaligned loads and stores might execute
+> extremely slowly. Standard software distributions should assume their
+> existence only for correctness, not for performance.
 > 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Link: https://riscv.org/specifications/ratified/ [1]
-> Fixes: 99e2266f2460 ("RISC-V: clarify ISA string ordering rules in cpu.c")
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Andy Chiu <andy.chiu@sifive.com>
+> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+> Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+> [Rebased, rewrote doc text, minor commit message revisions]
+> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
 
 Thanks, queued for v7.3.
 
