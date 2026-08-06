@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 879E7C55ABF
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DC7C55ABF
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YXarO7d01rBMjVZiNOHN3SqWwbuqKQsLQ5Tblc++8DU=; b=zQvS/tMWdCIH3S
-	RompL/FI9TS5d7KV+ep7n1Q9swaK6qgzgENBWsEyYjyABdMAFrbx5QfWCJbQkS2paXHt0IweJ4m/0
-	FL6+6TVnGHQuayka/UxAOt5EDXiod5n2YjfIKzrcI679WXP7+VpB+lEyKrtPfkSMVnUthT4zFihaw
-	gTuwsZe4uQnLxCu1LVzlGcLStUWWjA00STi/Gl9R9Xr6IX4Ai03s0124QS2uJV4jl5OIciKrgB3xf
-	TRrCXno0zKDvrOwGLaCFX6FyZSF51cDiAKxnIPsqcJoIvdZ3BZnpa+wkHTenohCT6EpwEi9hFBdQI
-	1142ZG7XKhVvXNGCQiGg==;
+	List-Owner; bh=AZTWqHOwYvXhj+fRZC7LgHC36OxgEjsbikzS3VyaD7A=; b=dk5+T5x0NZd9mc
+	x6VA6oqxlJRmNh1TspXVJELqIFvwYUrWT3IpNiX8krfr2km0GtAXP4uNoynjTwzYNkScWiNSVKEQn
+	AAMCkKQ4twxDxasVMHREgqQewQ0sYq0RSPdFgMJM1j8bUjYyHFXXYShW5Tf7FqDqhmxFxxNv6g3qj
+	I8GOUcy8ftCHNWjXAUWF0bhSTjKv0v02uvNyefSfqNZ/XHnIEn3Zvqaf7NWFj7P3kEVVDGz72XkOn
+	Fd8LOtdMMCW5PJmiq5LHELKkHy2xlp98XH/Bww3pFHi5jm2cyZgnNmIBHU7m8Cb+4RYzmnCVW5A6c
+	LEGWB3QhEZhKct67dxug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsBW-000000056qV-2xyv;
-	Thu, 06 Aug 2026 07:06:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wrsEn-000000057BS-18z2;
+	Thu, 06 Aug 2026 07:09:57 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsBV-000000056qI-3NGF;
-	Thu, 06 Aug 2026 07:06:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F4F060A64;
-	Thu,  6 Aug 2026 07:06:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBE731F000E9;
-	Thu,  6 Aug 2026 07:06:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785999993;
-	bh=XcPioRNMll3r5OmjiUG/O8aq5a3hSQJFiegnJyFSvIo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TwW+Ap/66ZcREdQqckrwX9vkc4Z93jN+7IIPxPYOiPbMC7JQJLgHtNmGACiqreIOl
-	 6VtKD+H1WXaB8vi7L7DUqflVCLVDxKlXaQOa27Y1xlE94I5MQBOCxaLpGxu8w95yxa
-	 nLR7i2qRWqCJjI04VZ4iK2rOwaTxETtqALN8uBB0LDAJipUR20/MLuflvSH4jZOaTt
-	 FA29yzKuOloFl8WVrOPL8Sah+FiTPLMEt4IBdUmubGhXtw99looSINmmGHL01wl69L
-	 MBjZU/REIsuooI/qb4X3q+UnhFlXJ4tn0gO4xtQOKfODXHmcQcBGGM/SzMw2jWtOmc
-	 oc1hySP12bYdg==
-Date: Thu, 6 Aug 2026 08:06:12 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich <dakr@kernel.org>, 
-	David Hildenbrand <david@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Michal Hocko <mhocko@suse.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>, driver-core@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] drivers/base, mm: move arch_numa.c to mm/
-Message-ID: <anQyFuRVekkN8Z5a@lucifer>
-References: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+	id 1wrsEj-000000057A8-3E9p;
+	Thu, 06 Aug 2026 07:09:55 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1786000190;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eMT4S1LkWt8Ik0+XZRVYI9d+h5TnrJVOqIGCgTgfYIs=;
+	b=oy/uxERExhL2WaAwWd/K4RgtnvN0AEg7Hn6/85XUvPfoyLwYN+HaaO4X4und2xDRys+BBU
+	MpBH0BaoZFoyEbNcnHB189Mh8a2kPnIWAq30qF/8Ie9HBs+EGNLZWlzk+vEVMoNR8m+kAa
+	6IsNmonvA0YcReWDC+MwoXW6UqZFGq38AbM5YvUEoAgYZDQqIoMkhf8OkVUSq9Kj6Tfxyg
+	zBMcceT5pUQcKbaOdb7XxAdm3Fp+3/K99p5MSm0VqvkGW+2O3YevJLnrIwH77x4wYceT9S
+	Han6Wz9QBij6Fwpb5P/HGP2E3FqjgBJwlUBlyViDqC5XvJdAMDXEzQYsw2wFaw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1786000190;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eMT4S1LkWt8Ik0+XZRVYI9d+h5TnrJVOqIGCgTgfYIs=;
+	b=bwtbJhpx1H17PQArbXdA2T8ILJ7epNL6NyKp17SWMYNcd47jKpDMPD0hISSHG0iOqz1J9X
+	uuvpwRmzWve4/8AQ==
+To: Charlie Jenkins <thecharlesjenkins@gmail.com>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti
+ <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Atish Patra
+ <atish.patra@linux.dev>, Conor Dooley <conor@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, Shuah
+ Khan <shuah@kernel.org>, Radim =?utf-8?B?S3LEjW3DocWZ?=
+ <radim.krcmar@oss.qualcomm.com>,
+ Jesse Taube <jtaubepe@redhat.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, Charlie Jenkins
+ <thecharlesjenkins@gmail.com>
+Subject: Re: [PATCH v3 03/17] riscv: kgdb: Use generated instruction headers
+In-Reply-To: <20260707-riscv_insn_table-v3-3-3f8e5f75ba97@gmail.com>
+References: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
+ <20260707-riscv_insn_table-v3-3-3f8e5f75ba97@gmail.com>
+Date: Thu, 06 Aug 2026 09:09:50 +0200
+Message-ID: <87o6ffd8sh.fsf@yellow.woof>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_000953_960899_87D71819 
+X-CRM114-Status: UNSURE (   6.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,122 +85,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 09:58:38AM +0300, Mike Rapoport (Microsoft) wrote:
-> arch_numa.c implements boot time discovery and initialization of NUMA
-> topology on architectures that select GENERIC_ARCH_NUMA (currently arm64
-> and riscv).
->
-> Since this is step in the initialization of the memory management
-> subsystem, it's logical to have arch_numa.c in mm/ alongside numa.c,
-> numa_memblks.c and numa_emulation.c.
->
-> Move arch_numa.c to mm/ and add its F: entry to "MEMBLOCK AND MEMORY
-> MANAGEMENT INITIALIZATION" in MAINTAINERS.
->
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Charlie Jenkins <thecharlesjenkins@gmail.com> writes:
+> +#define riscv_insn_branch(_insn, regs_ptr, _opcode, _pc, _comparison, type)     \
+> +	({                                                                      \
+> +		unsigned long _ret;                                             \
+> +		if ((type)riscv_insn_reg_get_val(                               \
+> +			    regs_ptr,                                           \
+> +			    riscv_insn_##_insn##_extract_xs1(_opcode))          \
+> +			    _comparison(type) riscv_insn_reg_get_val(           \
 
-Everything is proceeding as I have foreseen... soon we shall have control
-of all of the kernel! ;)
+That _comparison(type) looks like _comparison is a function and type is
+its argument.
 
-Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Can we change to
+    _comparison (type)riscv_insn_reg_get_val(
+to make it clearer?
 
-> ---
->  MAINTAINERS                      | 1 +
->  drivers/base/Kconfig             | 7 -------
->  drivers/base/Makefile            | 1 -
->  mm/Kconfig                       | 7 +++++++
->  mm/Makefile                      | 1 +
->  {drivers/base => mm}/arch_numa.c | 0
->  6 files changed, 9 insertions(+), 8 deletions(-)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 5114e6db7307..465b64f8e93c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -16880,6 +16880,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git fixes
->  F:	Documentation/core-api/boot-time-mm.rst
->  F:	include/linux/kho/abi/memblock.h
->  F:	include/linux/memblock.h
-> +F:	mm/arch_numa.c
->  F:	mm/bootmem_info.c
->  F:	mm/memblock.c
->  F:	mm/memtest.c
-> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
-> index f7d385cbd3ba..1d93bfc34490 100644
-> --- a/drivers/base/Kconfig
-> +++ b/drivers/base/Kconfig
-> @@ -239,13 +239,6 @@ config GENERIC_ARCH_TOPOLOGY
->  	  appropriate scaling, sysfs interface for reading capacity values at
->  	  runtime.
->
-> -config GENERIC_ARCH_NUMA
-> -	bool
-> -	select NUMA_MEMBLKS
-> -	help
-> -	  Enable support for generic NUMA implementation. Currently, RISC-V
-> -	  and ARM64 use it.
-> -
->  config FW_DEVLINK_SYNC_STATE_TIMEOUT
->  	bool "sync_state() behavior defaults to timeout instead of strict"
->  	help
-> diff --git a/drivers/base/Makefile b/drivers/base/Makefile
-> index 8074a10183dc..435710f643a5 100644
-> --- a/drivers/base/Makefile
-> +++ b/drivers/base/Makefile
-> @@ -25,7 +25,6 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
->  obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
->  obj-$(CONFIG_GENERIC_MSI_IRQ) += platform-msi.o
->  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
-> -obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
->  obj-$(CONFIG_ACPI) += physical_location.o
->
->  obj-y			+= test/
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index 9e0ca4824905..410b8a0a92b9 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -1469,6 +1469,13 @@ config NUMA_EMU
->  	  into virtual nodes when booted with "numa=fake=N", where N is the
->  	  number of nodes. This is only useful for debugging.
->
-> +config GENERIC_ARCH_NUMA
-> +	bool
-> +	select NUMA_MEMBLKS
-> +	help
-> +	  Enable support for generic NUMA implementation. Currently, RISC-V
-> +	  and ARM64 use it.
-> +
->  config ARCH_HAS_USER_SHADOW_STACK
->  	bool
->  	help
-> diff --git a/mm/Makefile b/mm/Makefile
-> index eff9f9e7e061..fd29be716fa8 100644
-> --- a/mm/Makefile
-> +++ b/mm/Makefile
-> @@ -122,6 +122,7 @@ obj-$(CONFIG_CMA)	+= cma.o
->  obj-$(CONFIG_NUMA) += numa.o
->  obj-$(CONFIG_NUMA_MEMBLKS) += numa_memblks.o
->  obj-$(CONFIG_NUMA_EMU) += numa_emulation.o
-> +obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
->  obj-$(CONFIG_BALLOON) += balloon.o
->  obj-$(CONFIG_PAGE_EXTENSION) += page_ext.o
->  obj-$(CONFIG_PAGE_TABLE_CHECK) += page_table_check.o
-> diff --git a/drivers/base/arch_numa.c b/mm/arch_numa.c
-> similarity index 100%
-> rename from drivers/base/arch_numa.c
-> rename to mm/arch_numa.c
->
-> ---
-> base-commit: 075b74841bd0065a3bda3440873c747938e69b68
-> change-id: 20260806-arch-numa-444bb4806114
->
-> --
-> Sincerely yours,
-> Mike.
->
+>  		} else if (riscv_insn_is_c_beqz(op_code)) {
+> -			rs1_num = decode_register_index_short(op_code,
+> -							      RVC_C1_RS1_OPOFF);
+> -			if (!rs1_num || regs_ptr[rs1_num] == 0)
+> -				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
+> +			rs1_num = riscv_insn_c_beqz_extract_xs1(op_code);
+> +			if (regs_ptr[8 + rs1_num] == 0)
+> +				*next_addr = riscv_insn_c_beqz_extract_imm(op_code) + pc;
 
---
-Cheers, Lorenzo
+Would it make sense to include the +8 part in riscv_insn_c_beqz_extract_xs1()?
+
+Nam
 
 _______________________________________________
 linux-riscv mailing list
