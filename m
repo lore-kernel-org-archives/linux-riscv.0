@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DC7C55ABF
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0AB9C55ABF
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AZTWqHOwYvXhj+fRZC7LgHC36OxgEjsbikzS3VyaD7A=; b=dk5+T5x0NZd9mc
-	x6VA6oqxlJRmNh1TspXVJELqIFvwYUrWT3IpNiX8krfr2km0GtAXP4uNoynjTwzYNkScWiNSVKEQn
-	AAMCkKQ4twxDxasVMHREgqQewQ0sYq0RSPdFgMJM1j8bUjYyHFXXYShW5Tf7FqDqhmxFxxNv6g3qj
-	I8GOUcy8ftCHNWjXAUWF0bhSTjKv0v02uvNyefSfqNZ/XHnIEn3Zvqaf7NWFj7P3kEVVDGz72XkOn
-	Fd8LOtdMMCW5PJmiq5LHELKkHy2xlp98XH/Bww3pFHi5jm2cyZgnNmIBHU7m8Cb+4RYzmnCVW5A6c
-	LEGWB3QhEZhKct67dxug==;
+	List-Owner; bh=tk8ld01kjFDZZtwzkXA45UZbsjwYyEHCnYV2gdww/is=; b=CeS7rv+ostNxtP
+	LleTkFH5nCKY8S3xYjQDZqXKb6T3mxdoJXOYBYZy41Yqw9I6HfD3rk3N+BqvAerIbIkpfsXC7Ufvo
+	xzEXUxL0b+A5oOarkh68pkkTLJQdelquSIFGZVGyxlPZn0206jIQ06tU96QzvHi0qEe4RcQ8Ic4hj
+	DSRdtQKbWTbfVfqEmUsa6NNFH3tJtlnTDNvEkBNir7xLIaVaU/Wslp4q3R4GqbW/CXEj7mEbWis/d
+	ykM/p1CInGEHJcPozC5hFi2qFCGnDZexx9P1voys36KTOZ/BwV2ji7a5a1l/lS/mLDA3D1AcWOSzF
+	y/MCchl73ZdOLL0JpjMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsEn-000000057BS-18z2;
-	Thu, 06 Aug 2026 07:09:57 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wrsLd-000000057fI-0VMk;
+	Thu, 06 Aug 2026 07:17:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsEj-000000057A8-3E9p;
-	Thu, 06 Aug 2026 07:09:55 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1786000190;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eMT4S1LkWt8Ik0+XZRVYI9d+h5TnrJVOqIGCgTgfYIs=;
-	b=oy/uxERExhL2WaAwWd/K4RgtnvN0AEg7Hn6/85XUvPfoyLwYN+HaaO4X4und2xDRys+BBU
-	MpBH0BaoZFoyEbNcnHB189Mh8a2kPnIWAq30qF/8Ie9HBs+EGNLZWlzk+vEVMoNR8m+kAa
-	6IsNmonvA0YcReWDC+MwoXW6UqZFGq38AbM5YvUEoAgYZDQqIoMkhf8OkVUSq9Kj6Tfxyg
-	zBMcceT5pUQcKbaOdb7XxAdm3Fp+3/K99p5MSm0VqvkGW+2O3YevJLnrIwH77x4wYceT9S
-	Han6Wz9QBij6Fwpb5P/HGP2E3FqjgBJwlUBlyViDqC5XvJdAMDXEzQYsw2wFaw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1786000190;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eMT4S1LkWt8Ik0+XZRVYI9d+h5TnrJVOqIGCgTgfYIs=;
-	b=bwtbJhpx1H17PQArbXdA2T8ILJ7epNL6NyKp17SWMYNcd47jKpDMPD0hISSHG0iOqz1J9X
-	uuvpwRmzWve4/8AQ==
-To: Charlie Jenkins <thecharlesjenkins@gmail.com>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti
- <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Atish Patra
- <atish.patra@linux.dev>, Conor Dooley <conor@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, Shuah
- Khan <shuah@kernel.org>, Radim =?utf-8?B?S3LEjW3DocWZ?=
- <radim.krcmar@oss.qualcomm.com>,
- Jesse Taube <jtaubepe@redhat.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-kselftest@vger.kernel.org, Charlie Jenkins
- <thecharlesjenkins@gmail.com>
-Subject: Re: [PATCH v3 03/17] riscv: kgdb: Use generated instruction headers
-In-Reply-To: <20260707-riscv_insn_table-v3-3-3f8e5f75ba97@gmail.com>
-References: <20260707-riscv_insn_table-v3-0-3f8e5f75ba97@gmail.com>
- <20260707-riscv_insn_table-v3-3-3f8e5f75ba97@gmail.com>
-Date: Thu, 06 Aug 2026 09:09:50 +0200
-Message-ID: <87o6ffd8sh.fsf@yellow.woof>
+	id 1wrsLb-000000057f0-3zVa;
+	Thu, 06 Aug 2026 07:17:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 515A360A64;
+	Thu,  6 Aug 2026 07:16:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36CEE1F000E9;
+	Thu,  6 Aug 2026 07:16:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786000619;
+	bh=NXENzFGewvbVKEIJwXHYAIoiYNIgGa+Cz5Fo0Nhu2JQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=P2eClChD/AaOKwmAmAyPQS1DUnipFlxmEzB/eMjNEPjEZ5aqwC0SmjO6Gyf/gc9Mf
+	 Y8TZpzplAPvWlbF9BNnJxxPUlusi9jGsZkeCvUZIhmRdYmNFXoQarDX1ytS+V60mGE
+	 vMzHPk+Q4aZKzwILGzfSNWjeY/XsFH+sOUJJPSMii1RG1HdF8/za5vnD1S/ynoDBKM
+	 nnZMlXWiW2gRlqlxwvxMwBlaEaoQegPOoN+OtOvVaF+G3COJg+PqcpJ0htnn+2mAM5
+	 H/nKGQ08QO9jgCFDwzl6sJmNYiICc/IQW2zsN/jzKgslc5XdoBHmPvJB3FTZMZl6Fn
+	 EHwjv/NOpoFlg==
+Date: Thu, 6 Aug 2026 10:16:48 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Michal Hocko <mhocko@suse.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	driver-core@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] drivers/base, mm: move arch_numa.c to mm/
+Message-ID: <anQ04CpxDjqktbbB@kernel.org>
+References: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+ <anQyFuRVekkN8Z5a@lucifer>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_000953_960899_87D71819 
-X-CRM114-Status: UNSURE (   6.67  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <anQyFuRVekkN8Z5a@lucifer>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +82,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Charlie Jenkins <thecharlesjenkins@gmail.com> writes:
-> +#define riscv_insn_branch(_insn, regs_ptr, _opcode, _pc, _comparison, type)     \
-> +	({                                                                      \
-> +		unsigned long _ret;                                             \
-> +		if ((type)riscv_insn_reg_get_val(                               \
-> +			    regs_ptr,                                           \
-> +			    riscv_insn_##_insn##_extract_xs1(_opcode))          \
-> +			    _comparison(type) riscv_insn_reg_get_val(           \
+On Thu, Aug 06, 2026 at 08:06:12AM +0100, Lorenzo Stoakes (ARM) wrote:
+> On Thu, Aug 06, 2026 at 09:58:38AM +0300, Mike Rapoport (Microsoft) wrote:
+> > arch_numa.c implements boot time discovery and initialization of NUMA
+> > topology on architectures that select GENERIC_ARCH_NUMA (currently arm64
+> > and riscv).
+> >
+> > Since this is step in the initialization of the memory management
+> > subsystem, it's logical to have arch_numa.c in mm/ alongside numa.c,
+> > numa_memblks.c and numa_emulation.c.
+> >
+> > Move arch_numa.c to mm/ and add its F: entry to "MEMBLOCK AND MEMORY
+> > MANAGEMENT INITIALIZATION" in MAINTAINERS.
+> >
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> 
+> Everything is proceeding as I have foreseen... soon we shall have control
+> of all of the kernel! ;)
 
-That _comparison(type) looks like _comparison is a function and type is
-its argument.
+I'm also eyeing drivers/base/memory.c, but that one is more involved :)
+ 
+> Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+ 
+Thanks!
 
-Can we change to
-    _comparison (type)riscv_insn_reg_get_val(
-to make it clearer?
-
->  		} else if (riscv_insn_is_c_beqz(op_code)) {
-> -			rs1_num = decode_register_index_short(op_code,
-> -							      RVC_C1_RS1_OPOFF);
-> -			if (!rs1_num || regs_ptr[rs1_num] == 0)
-> -				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
-> +			rs1_num = riscv_insn_c_beqz_extract_xs1(op_code);
-> +			if (regs_ptr[8 + rs1_num] == 0)
-> +				*next_addr = riscv_insn_c_beqz_extract_imm(op_code) + pc;
-
-Would it make sense to include the +8 part in riscv_insn_c_beqz_extract_xs1()?
-
-Nam
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
