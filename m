@@ -4,105 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A7AC5AC7C
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 17:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E84C56205
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 17:46:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZoI2ztDRpxgY53YZRyrlGo24C5B3JDjJ35N7MJ4MAvk=; b=k6QRiXYz6TUxnz
-	Nx9g0wIRjl+2qjYNBFudqeKCrAMzDEB0hLRxhUoT2w88zfX9jt0iJd5zl+kZRbw3G/k3wfgoEOUdk
-	/UvYVk75zTSuBhAINO21wGDI0ecahAuaLWV0F1+qeYz1C+PHBcSZv7rKPG7HIsD+f+qXT6f9Is06G
-	gSDN1zZLjewN8BPijxDyBtGWN2EbM3cDYvNq0GyCsQ25xMoIws2AKXjDM9lp12ouWsMxul4aKQIXU
-	QvfwnRCD0GeelM/7woGRJIZpKRYL1ojVNIGazX2DSiNzWbKIm9h85arGfNUfwMpbhL8qCmDHEfiYp
-	MbpFdIJh5QKoPVgTXogQ==;
+	List-Owner; bh=qHbqJZd/5AB/mJbp71XnomoK8aGW/jT1NcAyqrSsLiQ=; b=h2RbDH3HWCdcY8
+	JiF+QZ2A99Pm3E0uV7fqjCyRANJmucQd8ki0CCeBQbW9eAFgohn/zqFM7zXyOD8gj4ZPzr7TROz+E
+	btT5LhJlAXpAdDxWnBQWQmIc2RkSuy+ZCHJDR5r3Kr6a2x4oJg2qGYJofoAshght/AwjiwDY2EwR9
+	BK/tb2V95mVgWcKaZwqqWAorKR45geL3Rxgo6tLTRgVUXqEYHckJStuBlGJhqnxk0t2XSS7VupZLD
+	XoUD0B0cF95q+lE/6Io5lslaNQhtLGjHJGBKqspl6PxQ2yTK51XsmI91V3T8gAqLE4ngaN5lW9JPc
+	E9M0PBClxwyMeCDYERqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1e7-00000006L6W-3bQw;
-	Thu, 06 Aug 2026 17:12:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ws2Al-00000006PB8-3ZA6;
+	Thu, 06 Aug 2026 17:46:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1e5-00000006L3p-3Vvv;
-	Thu, 06 Aug 2026 17:12:41 +0000
+	id 1ws2Ak-00000006PB0-3Jy1
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Aug 2026 17:46:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4556760AB1;
-	Thu,  6 Aug 2026 17:12:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14BA71F000E9;
-	Thu,  6 Aug 2026 17:12:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CBAC415AB;
+	Thu,  6 Aug 2026 17:46:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBD931F000E9;
+	Thu,  6 Aug 2026 17:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786036361;
-	bh=i2yjrrVc+H/dOZF8X/JCAszDBzatuRJpY6enVbVkXDU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=c8OYpXn/lbymZWYNNGPbBk8+3HfighE8u/aLjR6Id3SpcMlVswuIxuoFT6i8+sJVG
-	 33bgpDZK07lgJdRnLMQQM5x5OHdfGvrUlwrg07n1Vrb5Uhrfcf7XF85qEDFGTpmbzJ
-	 qifqGwAx2bDkh0NXTIgleM+IkLM3PHw2BFHX6yZMbeRqljFQbSRqJcqKkhvmOKwx4y
-	 8hBZqfwDXrrUJpo3Surfw1/jC6G5IUWLTS95IreVfJCJJxrzmp1dOhdDQ+kcloC6rE
-	 eCHWu6iyOrudRbovBNdMtzXkfpZdjrLsc4CWBTA/u9nkgylUVc+I/jIl/BOLL8csMs
-	 892czlr7RY3TA==
-From: Will Deacon <will@kernel.org>
-To: Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Kairui Song <kasong@tencent.com>,
-	Qi Zheng <qi.zheng@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>,
-	Wei Xu <weixugc@google.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-openrisc@vger.kernel.org
-Subject: Re: [PATCH RFC v2 00/20] mm: optimize unnecessary loads due to ptep_get() and friends out
-Date: Thu,  6 Aug 2026 18:11:50 +0100
-Message-ID: <178601690203.388302.5785771709606318463.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
-References: <20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com>
+	s=k20260515; t=1786038385;
+	bh=L9xxqnV9eTLoJ5I5u7yPUVEyyjn3FLmulSGTaZ2s0Uc=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=aMLfcp5h0KABXIruZMK3FqMnCsAUbNe9eJyWFTNhuRJTLXRcNb6GyyvKxaXDfg4yj
+	 tKVDmd8OX+UCgDnrYl4rdmXRR2mEhZaYYTNJDnoKZELBxTN8o5DXzdJJFV5vntR22C
+	 iF52TYcsvS3MCwB5Jw1O3BD0No+i/CSfhYGsHwDhS+xBKqrTtD5QDUFLgYUIgka8Zt
+	 Ml7BHiWrV4NCjd6z2nQHBZ12NRVhRpgvp6yX7SA7eBX7huCdSmGnEAEWAFHo3tji1O
+	 nFxwbFqKxmc93v7NNcOg6q4GbluPyEj3oHuTxzapa3sSiul0Xyb816uG64XLkQOUBS
+	 aUxYC3DoFUt/A==
+Date: Thu, 6 Aug 2026 11:46:24 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: mm: unexport satp_mode
+In-Reply-To: <20260805010105.13934-1-jszhang@kernel.org>
+Message-ID: <a527fac1-ba1c-68a7-b86b-2501058041bc@kernel.org>
+References: <20260805010105.13934-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,31 +69,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jul 2026 16:30:08 +0100, Yeoreum Yun wrote:
-> Using ptep_get() and its counterparts in common code is suboptimal on
-> kernel configurations with generic compile-time folded page tables.
-> By default, ptep_get() and its friends expands to READ_ONCE(),
-> forcing the compiler to emit a load even when the value is not used afterwards.
+On Wed, 5 Aug 2026, Jisheng Zhang wrote:
+
+> Since satp_mode introduction, it is only utilized by built-in kernel
+> code.
 > 
-> This issue was recently reported by Christophe Leroy [1] for ppc32
-> preventing futher code conversion to ptep_get()/pmdp_get()/... helper
-> and the same behavior can also be observed on arm64 when built with
-> 2- or 3-level page tables
-> 
-> [...]
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
-Applied the arm64 patch on the end to arm64 (for-next/mm), thanks!
+As Sashiko points out, this breaks the build when CONFIG_KVM=m.
 
-[20/20] arm64: pgtable: convert pte_present() from macro to static inline
-        https://git.kernel.org/arm64/c/3b56ebafecc4
 
-Cheers,
--- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
