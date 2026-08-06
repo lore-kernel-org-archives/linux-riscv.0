@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1131EC55ABA
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 04:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D9CC55838
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 05:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=lKR5BPZuwweWGQMB5Wt3hEEM7UcIAXWx316J19tIeRU=; b=YEhlI4E4dwyOzAX9+wmJF/9Iks
-	VBxe+yMi8RVZjut89y0aGMQN5sJ1nuQmUQy82UYJ4rtPc7fqLbp62jF7+QSpajP/JfESAdpaWwqA+
-	UKLydcA1b44vZ1Z/1Qfk4LVacgPJTa4w0Dh6fEuu0ybXMkiDid10bXZ+mRgwxmyRUExXPFGUmt5Be
-	+n9fPdxMWveij6mlLrdKQhUYP03Ceq82yJdd+ufZmUO+o3rNymGwOGjOdVVgXE6D0pBZUcOeoSCL+
-	WF0SO1grFlzZYPBKm40FIbJXoAgj5LsSQXuTxe9vZwuZTqSXaQ0kmPJWcgAGq7Rh4X/MP9atxQtSd
-	oIu5PNBg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W+BuGwCsrMSTxDkesII3PMABeERzQAIH6XUFdMHxeqA=; b=Bwp8R3SmvTeyJB
+	BkqCdC4F4U+QlHBTb7MZMejUKCQsY6VAWOf2QW+IQm1pr7MmtmPDAvqH6uvB4AyxQzljy3nHxfiqN
+	R8lqiYTAmoC2E/6JLeQ0UKBxc/kEipO3SzXr54etIUD2ri2a1Z3rr2+jdoLV8O99Q5w8GYIHrYUTI
+	s9Z4gBUaPCyr/HGe1UyDRdRjV6chZkh++YWEQo1YO+Xyk17G8wDyx1KwDrmBafEeq/3pUY8PMpEj0
+	GY2eVb/iyHZ1yxTVyykCzp9n8U7PoKipVbDm4e1yIrk06ebrqmN+S/0cA5hTvNClufILH4N5U2awb
+	EISaKA06Vd3vHZNHlQOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrpsu-00000004uy0-1b8b;
-	Thu, 06 Aug 2026 04:39:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wrqaD-00000004ydD-2hkZ;
+	Thu, 06 Aug 2026 05:23:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrpst-00000004uxm-1udm
+	id 1wrqaB-00000004yca-38kE
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 04:39:11 +0000
+	Thu, 06 Aug 2026 05:23:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D1E860A64;
-	Thu,  6 Aug 2026 04:39:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1E041F000E9;
-	Thu,  6 Aug 2026 04:39:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 347CD40C01;
+	Thu,  6 Aug 2026 05:23:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B17B71F000E9;
+	Thu,  6 Aug 2026 05:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785991150;
-	bh=85i0AXt6sCXn1q2thPdJFckEuCv/5TVwacAUp/k4SQk=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=ELIcMt+iX8oyqWp+t39x854MB2hi65pUKoR+arELehyykuMEkum1EfaSUFjYebixB
-	 RN8ohC0Bhi2umkm/8xFyXWEZfD707UaguyTpqM7OKfM5FayVRasqI2bevwcYHDS/MM
-	 dQ14jur+wDUDlcxYhkSnCeINh+Y1buspDbPQ9Pd040NzH1U0yVeOzgKC2IkT+W3/v8
-	 HWMuzO1/Uir63zS6C5qgd6FhA9kzFsG3Jk3M4utXPLouK1wR/yOleXRW+LA7oAmt7L
-	 gNB5qf9x2yFbtGTR++WQuYECHYyE+CoBfhuAIU4BCRoAHHiUTUJcdzTvnTsm3ToqhG
-	 aPVz2LYdUmTNA==
-Date: Wed, 05 Aug 2026 23:39:09 -0500
+	s=k20260515; t=1785993835;
+	bh=nGUsqZ9RJANQTX4cFkBlQkPsf7GNKP6d1ba13+NtzNY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kxx1fg/O5f0UuVL1DBWUTFwB6czE67TjponNaQJ6hDBbO7K3J20+B+gtnpGtE2EHp
+	 rAYyji6NuNaTUGeqF46kTwC2M7YbgXsjwKLvmeWuFfrx6RJwW8ThPiF9e3AlBewIdu
+	 Yt58roYQMaKAnSMS6u4ntZnpmNXP5ntAEepXmcWQvZGKEvePNd8juzw+UHlNuwjUhc
+	 +eg931sMy/6/d1swtuJORhOO74AZxy6WXG5pgjO/NGSCggG2H4xNnuYHqv/Ajilgby
+	 dadyrRTqc3LSA0sWym7qXm1iqql6EANUinvBX3hPHY2ZA7RyixT1QTefSp8DKu0eCh
+	 EkFhBAW/82RLQ==
+Date: Wed, 5 Aug 2026 22:23:53 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Cc: ben.horgan@arm.com, xiaqinxin@huawei.com, zengheng4@huawei.com,
+	palmer@dabbelt.com, tony.luck@intel.com, reinette.chatre@intel.com,
+	tomasz.jeznach@linux.dev, will@kernel.org, robin.murphy@arm.com,
+	pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	Dave.Martin@arm.com, james.morse@arm.com, babu.moger@amd.com,
+	corbet@lwn.net, shuah@kernel.org, jgg@ziepe.ca,
+	kevin.tian@intel.com, cuiyunhui@bytedance.com,
+	yuanzhu@bytedance.com, iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [RFC PATCH 0/7] riscv: iommu: Add QoS ID support for resctrl
+ device assignment
+Message-ID: <anQaaQvpEXFTRYvS@x1>
+References: <20260714130657.46963-1-zhangzhanpeng.jasper@bytedance.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, 
- "Martin K. Petersen" <martin.petersen@oracle.com>, 
- Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, 
- linux-scsi@vger.kernel.org, Avri Altman <avri.altman@sandisk.com>, 
- spacemit@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Paul Walmsley <pjw@kernel.org>, Aurelien Jarno <aurelien@aurel32.net>, 
- Albert Ou <aou@eecs.berkeley.edu>, Bart Van Assche <bvanassche@acm.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Jennifer Berringer <jberring@redhat.com>, devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-To: Yixun Lan <dlan@kernel.org>
-In-Reply-To: <20260806-08-k3-ufs-support-v3-1-037fb322acdb@kernel.org>
-References: <20260806-08-k3-ufs-support-v3-0-037fb322acdb@kernel.org>
- <20260806-08-k3-ufs-support-v3-1-037fb322acdb@kernel.org>
-Message-Id: <178599114910.179339.15914924366340132471.robh@kernel.org>
-Subject: Re: [PATCH v3 1/3] scsi: ufs: spacemit: dt-bindings: Add UFS
- controller for K3 SoC
+Content-Disposition: inline
+In-Reply-To: <20260714130657.46963-1-zhangzhanpeng.jasper@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,52 +79,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 06 Aug 2026 02:56:18 +0000, Yixun Lan wrote:
-> Document the compatible for UFS (Universal Flash Storage) Host Controller
-> which found in SpacemiT K3 SoC chip. Its features are listed below:
+On Tue, Jul 14, 2026 at 09:06:50PM +0800, Zhanpeng Zhang wrote:
+> This RFC extends RISC-V CBQRI/resctrl support to external requesters
+> behind a RISC-V IOMMU.
+[..]
+> Open questions for this RFC:
 > 
-> - Compliant with MIPI UniPro v1.61 specification.
-> - Compliant with M-PHY v3.0 specification.
-> - Compliant with UFS HCI v2.1 specification.
-> - Supports up to 2 Tx and 2 Rx lanes, up to HS-GEAR3 5.8 Gbps per lane.
-> - Supports standard low-power hibernate to reduce power consumption.
-> 
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  .../devicetree/bindings/ufs/spacemit,k3-ufshc.yaml | 56 ++++++++++++++++++++++
->  1 file changed, 56 insertions(+)
-> 
+>   * whether a common resctrl "devices" file is the right ABI for
+>     associating external requesters with a resource group;
 
-My bot found errors running 'make dt_binding_check' on your patch:
+I think a separate file is the right approach to avoid confusing iommu
+groups with pids. 
 
-yamllint warnings/errors:
+I should note that James Morse had an ARM MPAM "extras" tree [1] which
+carried an iommu_group assignment interface, using the same
+iommu_group:<id> format, but writing it to the tasks file. However, Ben
+Horgan clarified back in March [2] in a reply to Qinxin Xia that it is
+no longer maintained. Ben also wrote that the interface would likely
+change upstream. I've added Ben Horgan and Qinxin Xia to the CC list so
+hopefully they can chime in.
 
-dtschema/dtc warnings/errors:
-Lexical error: Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.example.dts:31.36-55 Unexpected 'CLK_APMU_UFS_REFCLK'
-FATAL ERROR: Syntax error parsing input tree
-make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1669: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+I plan to review the patches in this series further but I didn't want to
+delay any further in pointing out the above.
 
-doc reference errors (make refcheckdocs):
+Thanks,
+Drew
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260806-08-k3-ufs-support-v3-1-037fb322acdb@kernel.org
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/log/?h=mpam/snapshot%2Bextras/v6.18-rc1
+[2] https://lore.kernel.org/lkml/d13fdc75-b647-44f3-9657-d592353e8a1a@huawei.com/
 
 _______________________________________________
 linux-riscv mailing list
