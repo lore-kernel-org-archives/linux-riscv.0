@@ -4,72 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D39BC55838
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF78C55838
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P5g7Cs2YIiUxTEMf83f4p+KMH7X/abVk5YWG6OFjjwA=; b=pfCoS8vByMYNKH
-	oCp5W81B58MNiIHDMnVsAMMA0b5bfWJlZRgACU++QjGjJ4QSgVRUqHZNuImHnsIqXm/9ZzRLM4mXV
-	BSZ0TzZqmCKmSlRWhuo1mmY04VfE3D4E5Oxn0U6J0OLa19fzgMfDDGOL3+JLJRGZ+g7kWIQDO53fn
-	+6Be1JrKBxHKtGcqCMIhjCsVxg/jv+O04bVS9VM7S1lihLNmIICKVJtWwHc9rv3WHirokn8IVmbow
-	9jwYUu/lI3votaOoTwEy/PQNehAbzj5hi6+59gvedHLVHp9xwDeMrDt3g73QWCvKpVt9+BTlgtGpP
-	mUxvJi2ASnrN3gCDnbyA==;
+	List-Owner; bh=STmCMdk70FjR7skyJj63xgzYvrtnRfnKmpNJ+3oioP8=; b=u2C030q8Lw7K2d
+	6lwHYq36NkiXNAZV5+iYQicqbwgS+hn/PmlUHdGCxrAKVuYTxhNtbrdJ5TncfIdgtM8vg2IjiQ5rA
+	yjbeCtzemOtit6psH8LfIxJUBNMHnTjbljS7HJGzSg0t6EPyA4MAK8LEQM8piPcB5rf3v0PPOQIST
+	rAvxcP2MPYQk0nj4/WX3gls9jlqrfQ6uHFacdSr8tWdWrmBRU/4cHhMWGeqNsEXUuDzFF6HjyKMET
+	3I3UJreqfcKGIgG7GzdfGUzaQraban/I1++hlseumEddxTy8YRiCbbLRjdHfwTVjjlgo4O4rLyYiU
+	QC4EaPk4XPTQcYtKlIkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsoh-00000005AYA-3UOD;
-	Thu, 06 Aug 2026 07:47:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrsuM-00000005Asa-0Qy5;
+	Thu, 06 Aug 2026 07:52:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsog-00000005AXn-1yRI
+	id 1wrsuL-00000005AsH-1eB2
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 07:47:02 +0000
+	Thu, 06 Aug 2026 07:52:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DF3F43389;
-	Thu,  6 Aug 2026 07:47:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6EF61F000E9;
-	Thu,  6 Aug 2026 07:46:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C6F6E60A64;
+	Thu,  6 Aug 2026 07:52:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E27FF1F000E9;
+	Thu,  6 Aug 2026 07:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786002421;
-	bh=wMtX1g4kQRvpe1oyjMd1Y98xwvIKo8+2Xvfan9kHoZw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=G9k7hpxsq8xdO4+APUQWizUbYHmbvUum1id7Upke5bpFAZdY7TJ29WvAlemc2yWs6
-	 kiu6B4db3jetW628b90l0cwlX3dyAPIUkYcDCcDFEFVA7Ws0oPN1SN9XO/7gSPAWxp
-	 BQhjmWjWkvwWS+6JPfCT0prmpcT4tcNtY42m0sGP6VxkE7vIkdGrU5mO1bT2NOGjes
-	 a/HFUlN4mQKPIoJWY8DT258ZFy2EgcicmK2dbsjvJYSnfOUJGay2tR017BQlVfPElT
-	 4g9L3nRApPNnZ8RxEIzBVr8ALqE2DoL9tqsAz2oD/Lt90AsJnh5kU2QH94nE3qVBq6
-	 4vJZUKcB6G69Q==
-Date: Thu, 6 Aug 2026 07:46:57 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Jennifer Berringer <jberring@redhat.com>,
-	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] scsi: ufs: spacemit: dt-bindings: Add UFS
- controller for K3 SoC
-Message-ID: <20260806074657-GKA229492@kernel.org>
-References: <20260806-08-k3-ufs-support-v3-0-037fb322acdb@kernel.org>
- <20260806-08-k3-ufs-support-v3-1-037fb322acdb@kernel.org>
- <20260806-prudent-vole-from-valhalla-3eae39@quoll>
+	s=k20260515; t=1786002771;
+	bh=qsbNIsfooWaTOUVhREzAJgoVbAqyOXtlhAVMb9RLOUk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=dcxfFCSVmNmsaZIK66SjPGuU0jQCy91uGIHJfHDsOZrpnVKOexrLpIqQGWVRDV7Ec
+	 HmAN0rUoFzjKV4Pnp7bJvIweM4Qh6ubF4wX+Rd/95ORmZ2CUPFQd6RXXFhpfDnawJq
+	 OiGTfCtdyR/uSrP30CUnYlZMZ+Vq9XuNFAy+CuFD4mRZ1V+jNx6uodXVL/D4IjecO+
+	 H5wmguGkEKr1ShByFyRnKuiS/Qe5fkl5ZB/B5lHg5ebVtt23Ai6nRNxZb6jCja1X+i
+	 MNPIazKHRmXPRMu2Cp3l8DOCBOMgFuZz3NdKLB0kxMnlNYVQg/UU348tIFutqpXFlO
+	 u4fPQ+07Lu8Ew==
+Message-ID: <4c02c96c-d831-4107-a0b7-8019236be393@kernel.org>
+Date: Thu, 6 Aug 2026 09:52:44 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260806-prudent-vole-from-valhalla-3eae39@quoll>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drivers/base, mm: move arch_numa.c to mm/
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
+ <dakr@kernel.org>, David Hildenbrand <david@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Will Deacon <will@kernel.org>,
+ driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org
+References: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=vbabka@kernel.org; keydata=
+ xsFNBFZdmxYBEADsw/SiUSjB0dM+vSh95UkgcHjzEVBlby/Fg+g42O7LAEkCYXi/vvq31JTB
+ KxRWDHX0R2tgpFDXHnzZcQywawu8eSq0LxzxFNYMvtB7sV1pxYwej2qx9B75qW2plBs+7+YB
+ 87tMFA+u+L4Z5xAzIimfLD5EKC56kJ1CsXlM8S/LHcmdD9Ctkn3trYDNnat0eoAcfPIP2OZ+
+ 9oe9IF/R28zmh0ifLXyJQQz5ofdj4bPf8ecEW0rhcqHfTD8k4yK0xxt3xW+6Exqp9n9bydiy
+ tcSAw/TahjW6yrA+6JhSBv1v2tIm+itQc073zjSX8OFL51qQVzRFr7H2UQG33lw2QrvHRXqD
+ Ot7ViKam7v0Ho9wEWiQOOZlHItOOXFphWb2yq3nzrKe45oWoSgkxKb97MVsQ+q2SYjJRBBH4
+ 8qKhphADYxkIP6yut/eaj9ImvRUZZRi0DTc8xfnvHGTjKbJzC2xpFcY0DQbZzuwsIZ8OPJCc
+ LM4S7mT25NE5kUTG/TKQCk922vRdGVMoLA7dIQrgXnRXtyT61sg8PG4wcfOnuWf8577aXP1x
+ 6mzw3/jh3F+oSBHb/GcLC7mvWreJifUL2gEdssGfXhGWBo6zLS3qhgtwjay0Jl+kza1lo+Cv
+ BB2T79D4WGdDuVa4eOrQ02TxqGN7G0Biz5ZLRSFzQSQwLn8fbwARAQABzSNWbGFzdGltaWwg
+ QmFia2EgPHZiYWJrYUBrZXJuZWwub3JnPsLBsAQTAQoAWhYhBKlA1DSZLC6OmRA9UCJPp+fM
+ gqZkBQJqFFy6GxSAAAAAAAQADm1hbnUyLDIuNSsxLjEyLDIsMgIbAwUJGtCBUAULCQgHAwUV
+ CgkICwUWAgMBAAIeBQIXgAAKCRAiT6fnzIKmZJIUEADFx/tREzUImHrEwVHeSvDFmA7tJysI
+ UVrlvrM09E7GIuzphzv7jYmo8n3ANpCczLEVr4G0syYQdTigaZgv3+FQDIIzhKih1IHhu1Ei
+ XHlywNWKnQxxQEUNi5Mwx43wQz5XVw9F1A7gtKBKNtfogO511hAbrzagrYajyQacEJ/+sfhZ
+ 9Da8ltHIXD8pcYaHUfQgEusCgmEd9+KrUwrTbckFKmYq5chuE6yJ4J0EmWknL096jIE6CnzF
+ FRslQ3B1UKDjxVsm1ZHfir5NeWszLkTvGFsddFaWTgh8UycESG6VQzKXjjewXu2pG7YQYRpj
+ QKm1W5X2TkwWkXRBZTmfmbhxIUMh3+zf5wQ463rSmDN/8v81tdqBtAW6rH/kzg1GvkaTHXn0
+ 507yEHFzBksk2viAuIxxr7km8+/KARYLIdGtx30EG8cKzAUZOK6WqxtNCsXUJNrVE8CWrCaD
+ icoNu7Fs1c5hmPHdSTnU48ce67449DdnO4neLSNhRiGlMHJgfJUmgrxu/hcYeOZ3haWmEQ2w
+ uW1Mh01OHi8QZHCEyAbABrPs9GUgccc/4eYXX9hIgxfSkYzn8f+8NuIFPWl/0uTvjgqU29FQ
+ SbzOLxHq9439Ox40G5mS5eZXRGxITYR+6TXvRGI6P/264jvflnr/pDGUttaikU+0W+1uxgKH
+ cmYbEc7ATQRbGTU1AQgAn0H6UrFiWcovkh6EXVcl+SeqyO6JHOPm+e9Wu0Vw+VIUvXZVUVVQ
+ La1PQDUi6j00ChlcR66g9/V0sPIcSutacPKfdKYOBvzd4rlhL8rfrdEsQw5ApZxrA8kYZVMh
+ FmBRKAa6wos25moTlMKpCWzTH84+WO5+ziCTsTUZASAToz3RdunTD+vQcHj0GqNTPAHK63sf
+ bAB2I0BslZkXkY1RLb/YhuA6E7JyEd2pilZOrIuBGl/5q2qSakgnAVFWFBR/DO27JuAksYnq
+ +aH8vI0xGvwn75KqSk4UzAkDzWSmO4ZHuahKtQgZNsMYV+PGayRBX9b9zbldzopoLBdqHc4n
+ jQARAQABwsF8BBgBCgAmAhsMFiEEqUDUNJksLo6ZED1QIk+n58yCpmQFAmfIHFQFCRYU6J8A
+ CgkQIk+n58yCpmS2PA//bqN1LfcotmArgElsa+0EGZSQlYgK48pm8WAeTXTngudP9IJ4SuKY
+ HR5RNjHcBeqN+Me0zxRqYzRb8nGanHEkDyf4Im8DQM8d6vbyU+FcPmG4skud4kgS1zMHnlVd
+ SXfSIwKC/hKgdHG8aBV7545Lz9X6Iohea+94wneD0aw/hqF+QWewGZhWJriWAZtvEkzNjQOi
+ 4U9F/trLten/x7bpphDSnDMKJtITbtzATT1Dq7o7VpIUK1nCTQALMuMjKCdi8OdU/+V+R3O4
+ 0PXWvX8qrvqYapVbZ+9KqT74FsuB0Ya9uXwgBF2Q6cRuETZk5vqaqKxzqoQZCO8AOz/58j6O
+ 2RHNy/mZEN+7tJ5Tsq42zVJ4jxsT8b9YplavCMsnBgDeRWhcbYhCyttoL7nYISyWg4kQYZ/P
+ wIV3OuNv2f8iKYsxNsRuClOAF82+gvqOy1/1pprFjy8uo2pkoOrb63aOP3vO5VHnRKgra6dq
+ NcaZ+c6J4H+nEJGi2SkHAUJz5oBzuThvPudLvPA/SK8sKoM01IRxSihev/S/5WLazXB1PGem
+ OCbvzC1IjWJJraxiDJ5IygokapUa2RP7+WBR22skQ3SSl6G107QgWKSyTOGWEaRmV53vxQLV
+ jXuCmzSSasTL60zq5yGrT4/DYQVSNEUiUbG4pYekxJujNeEDkUlky0Y=
+In-Reply-To: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,33 +118,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 09:05 Thu 06 Aug     , Krzysztof Kozlowski wrote:
-> On Thu, Aug 06, 2026 at 02:56:18AM +0000, Yixun Lan wrote:
-> > Document the compatible for UFS (Universal Flash Storage) Host Controller
-> > which found in SpacemiT K3 SoC chip. Its features are listed below:
-> > 
-> > - Compliant with MIPI UniPro v1.61 specification.
-> > - Compliant with M-PHY v3.0 specification.
-> > - Compliant with UFS HCI v2.1 specification.
-> > - Supports up to 2 Tx and 2 Rx lanes, up to HS-GEAR3 5.8 Gbps per lane.
-> > - Supports standard low-power hibernate to reduce power consumption.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@kernel.org>
-> > ---
+On 8/6/26 08:58, Mike Rapoport (Microsoft) wrote:
+> arch_numa.c implements boot time discovery and initialization of NUMA
+> topology on architectures that select GENERIC_ARCH_NUMA (currently arm64
+> and riscv).
 > 
-> You keep having the same failure for every version, no? Never responded to it...
+> Since this is step in the initialization of the memory management
+> subsystem, it's logical to have arch_numa.c in mm/ alongside numa.c,
+> numa_memblks.c and numa_emulation.c.
 > 
-sorry, I should respond in previous series
+> Move arch_numa.c to mm/ and add its F: entry to "MEMBLOCK AND MEMORY
+> MANAGEMENT INITIALIZATION" in MAINTAINERS.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-for the Unexpected 'CLK_APMU_UFS_REFCLK' error, it depend on UFS clock patch[1],
-also I've sent a PR to clock maintainer for inclusion to v7.3 [2], It should be
-solved after v7.3-rc1 if all things goes well
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-Link: https://lore.kernel.org/all/20260630-06-clk-ufs-support-v1-2-cf7521d1d0fe@kernel.org/ [1] 
-Link: https://lore.kernel.org/all/20260802014217-KYC2734409@kernel.org [2]
--- 
-Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
