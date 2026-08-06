@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18715C561E6
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0DCEC55838
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 07:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Mime-Version:Date:Message-Id:To:From:Cc:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=TjkmoU1mBxu/5JUjrWVYqbaMUePCVS9G/c969C5SAQQ=; b=fuAFXB6stnCdEf6frzjQXRlC30
-	Ya4eXM0AZGwS40OwjjN7n8SEOf77Bg1HSKtjsJFxQf4Tj3hyDx+7Xl0GNHioTMli1qyyeRagWgiug
-	oC/M+3niG4c9RQPgn6e3gM7aP1B2iMBxaHCVAiBrdakkLSggacBJsLwLHPm1qphq5LhgUxnyvsVaG
-	BZoPSNcWAgdPujmkDflnNY8u1uBSg4yfrz/wAgUAk6rkSBNU1czI7MndcocQu3jkpmhl8Mhb/rh96
-	+5oHgSE+mCzVPEIzL7aSMPfHpTKGO+9EUbwQ8vhWkk4Mq47y7Wa209ztPLDR0vOs2pTAt8dzbuR/Y
-	uXFidbwg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sSB2DBeItM86ks0AeNDMvjqAvrDS+aF1GcQ5HJFJj5k=; b=AZe9AOFUG7tL4t
+	7is8J4BQOPnLao4yGjvm/NwWAvvXuMf8roIoF8GR/3tPWXT2zBbwDUDqpE6AcCcOCARKE+HjKOz7i
+	ck2o4lsC5d1wwXpkODIQd54EByvY8kuFv6pGq2SkQwovqov9jfT05EssgQwmN4b3KViLzMyvs9ugV
+	kMkMaiXJTOW1Zt11UIserwlP7jy3xxdIbZQy3MDIWY6FTW0gAYvbYGaxYY6Prvze9EX+n4Epk9Nq+
+	52ERvxx3EEkKt8a39BFbtDYOMpIsHeTxKaMzgZCJYMsGRu7xk32ax2EzPnMu7LFRi9DWRJAfzIsSb
+	IH1Z95XF5+7LendMe3xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsRi-000000058EY-41iJ;
-	Thu, 06 Aug 2026 07:23:18 +0000
-Received: from va-2-57.ptr.blmpb.com ([209.127.231.57])
+	id 1wrsco-000000059Fo-1tEC;
+	Thu, 06 Aug 2026 07:34:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrsRd-000000058CI-0lGD
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 07:23:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1786000988; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=lfe3yVyViIS9QqUrO1FybHOjTXn3fmtNC6AuZnCPPzk=;
- b=rpAkQMvUwoUfftdVQ7ktaq5jIlSVTrenXqF16AIE0FLPj+uBPY5t2yJZWC9ms9366aQ/RF
- chDH7bnq14SCTTjVE1DHfXz4q3DWte06gKMx6iKeqHIbwb+D4TwfLHjQuFTnfUgLKUGOEm
- 6gcPIpIE1gKEKmgrQbcy5rnVQurQJrfWV3cuZd48njKw1KkTgoVZuIIpnP4LZzW34lu7sk
- woMDDyJqaXIBX0xQaQJJLaLuv1afltF8VkPHfFC8mLwJOpnZfPWhedDnvNXft8Zqif5Nh3
- m5BvbTl5K8kV+Wpyr7I5lY1VBFB+5iTKiLytD3IDroVX1MjdJryvYQQfYj2hAg==
-Cc: <alex@ghiti.fr>, <leitao@debian.org>, <akpm@linux-foundation.org>, 
-	<ajones@ventanamicro.com>, <lizhengyu3@huawei.com>, 
-	<liaochang1@huawei.com>, <songshuaishuai@tinylab.org>, 
-	<bjorn@rivosinc.com>, <gaohan@iscas.ac.cn>, <douyufan@picoheart.com>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
-	<yang.yicong@picoheart.com>, <weidong.wd@picoheart.com>, 
-	<geshijian@picoheart.com>
-From: "Yufan Dou" <douyufan@picoheart.com>
-X-Mailer: git-send-email 2.53.0
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-Message-Id: <20260806072256.1813-4-douyufan@picoheart.com>
-Received: from 5CG30262N9-QAP.localdomain ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Thu, 06 Aug 2026 15:23:06 +0800
-Date: Thu,  6 Aug 2026 15:22:56 +0800
-Mime-Version: 1.0
-In-Reply-To: <20260806072256.1813-1-douyufan@picoheart.com>
-References: <20260806072256.1813-1-douyufan@picoheart.com>
-Subject: [PATCH 3/3] riscv: kexec: reserve the PMD-aligned kernel image range
-X-Original-From: Yufan Dou <douyufan@picoheart.com>
-X-Lms-Return-Path: <lba+26a74365b+4f44a6+lists.infradead.org+douyufan@picoheart.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_002313_287284_DB22F8E4 
-X-CRM114-Status: GOOD (  15.44  )
+	id 1wrscl-000000059En-3enf;
+	Thu, 06 Aug 2026 07:34:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A43C60A9D;
+	Thu,  6 Aug 2026 07:34:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EA9D1F000E9;
+	Thu,  6 Aug 2026 07:34:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786001682;
+	bh=y3wUW9A5onn8mXoBrGXcecd/b5GN4A+lRTgjr2p0JTI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gRtWObilZ/zqY2xNJFCFGkSOxfW+x1vY1mLHvaVfFn3nCz/YO+ctLWfNTTs4szgnu
+	 yTVCVopxmFl5NcnYpG991e8Bt2Ezz8pE1lZATTWxE8x5kpf0Cga4wRPeWCS7E5HqWv
+	 XYFKlbUMhZXVnLOpWi/i+ZQVJSvS2hDlXe0DDN6dURjWleKZWV49tMZzt2Af3x0wCx
+	 girzSHfnN2fGQM3POEWVr+brhoQK6GI2hxA4PAd23gY3P1IVF+HqesJZch2/8pByI2
+	 /EHEMqZTbBwqX/8U8p+wI2vggLbJGqS41xPiSDTkTcAYl1PUWUd+oug/OamioWoiLi
+	 FVdw8NszJIKKQ==
+Date: Thu, 6 Aug 2026 08:34:22 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, kasan-dev@googlegroups.com, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>
+Subject: Re: [PATCH v2 10/15] mm/gup: add fast-GUP specific lockless PTE
+ helpers
+Message-ID: <anQ2bW3JxraT6PFY@lucifer>
+References: <cover.1784201104.git.cuiyunhui@bytedance.com>
+ <138d74aa9863ae8ff445e16a2798d062895b75bc.1784201104.git.cuiyunhui@bytedance.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <138d74aa9863ae8ff445e16a2798d062895b75bc.1784201104.git.cuiyunhui@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,103 +77,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When strict kernel permissions are enabled, the next kernel extends
-its image reservation from _start to the PMD-aligned address following
-_end. If kexec only reserves the exact image range, a later segment can
-be placed in this aligned tail and overlap the next kernel's
-reservation.
++cc literally everybody you failed to contact...!
 
-For a flat Image, extend the decoded image size to the next PMD
-boundary.
+Why on earth are you doing sending a series like this which changes core mm,
+non-RFC and at v2 to boot, without bothering to Cc relevant people?
 
-An ELF image contains multiple PT_LOAD segments. Extending every
-segment can make an intermediate segment overlap the following one.
-Find the PT_LOAD segment with the highest physical end address and
-extend only that segment to the next PMD boundary. Align the extent
-searched by elf_find_pbase() as well, so that the expanded tail stays
-within the range validated against the available memory.
+I am also very confused as to why you are sending an ostensible RISC-V series
+then changing how core mm works to fit it, that's not how that works.
 
-This reserves the range expected by the next kernel without changing
-the layout of intermediate ELF segments.
+And if you're seeking to change core mm send it as an RFC!
 
-Fixes: 6261586e0c91 ("RISC-V: Add kexec_file support")
-Fixes: 809a11eea8e8 ("riscv: kexec_file: Support loading Image binary file")
-Cc: stable@vger.kernel.org
-Co-developed-by: Yicong Yang <yang.yicong@picoheart.com>
-Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
-Signed-off-by: Yufan Dou <douyufan@picoheart.com>
----
- arch/riscv/kernel/kexec_elf.c   | 21 +++++++++++++++++++--
- arch/riscv/kernel/kexec_image.c |  7 ++++++-
- 2 files changed, 25 insertions(+), 3 deletions(-)
+On Thu, Jul 16, 2026 at 08:41:45PM +0800, Yunhui Cui wrote:
+> fast-GUP snapshots a PTE without holding the PTL, pins the page, and
+> then revalidates that the PTE did not change. Keep both reads under the
+> same lockless PTE semantics by defaulting the fast-GUP revalidation to
+> ptep_get_lockless().
 
-diff --git a/arch/riscv/kernel/kexec_elf.c b/arch/riscv/kernel/kexec_elf.c
-index d84548f9d289..da5679bf1d0c 100644
---- a/arch/riscv/kernel/kexec_elf.c
-+++ b/arch/riscv/kernel/kexec_elf.c
-@@ -28,6 +28,15 @@ static int riscv_kexec_elf_load(struct kimage *image, struct elfhdr *ehdr,
- 	int ret = 0;
- 	struct kexec_buf kbuf = {};
- 	const struct elf_phdr *phdr;
-+	unsigned long highest_paddr = 0;
-+
-+	/* Find the highest physical end address of the kernel image. */
-+	for (i = 0; i < ehdr->e_phnum; i++) {
-+		phdr = &elf_info->proghdrs[i];
-+		if (phdr->p_type == PT_LOAD)
-+			highest_paddr = max(highest_paddr,
-+					    (unsigned long)(phdr->p_paddr + phdr->p_memsz));
-+	}
- 
- 	kbuf.image = image;
- 
-@@ -41,6 +50,13 @@ static int riscv_kexec_elf_load(struct kimage *image, struct elfhdr *ehdr,
- 		kbuf.buf_align = phdr->p_align;
- 		kbuf.mem = phdr->p_paddr - old_pbase + new_pbase;
- 		kbuf.memsz = phdr->p_memsz;
-+		/*
-+		 * The next kernel aligns its image reservation on PMD_SIZE, as
-+		 * explained by a comment in setup_bootmem(). Reserve that tail
-+		 * so subsequent segments do not overlap it.
-+		 */
-+		if (phdr->p_paddr + phdr->p_memsz == highest_paddr)
-+			kbuf.memsz = ALIGN(kbuf.mem + phdr->p_memsz, PMD_SIZE) - kbuf.mem;
- 		kbuf.top_down = false;
- 		ret = kexec_add_buffer(&kbuf);
- 		if (ret)
-@@ -95,9 +111,10 @@ static int elf_find_pbase(struct kimage *image, struct elfhdr *ehdr,
- 	/*
- 	 * The segments are added at fixed addresses later on, which makes
- 	 * kexec_add_buffer() skip the memory hole check, so the range searched
--	 * here has to cover the whole extent the image occupies in memory.
-+	 * here has to cover the whole extent the image occupies in memory,
-+	 * including the PMD-aligned tail of the last segment.
- 	 */
--	kbuf.memsz = ALIGN(highest_paddr - lowest_paddr, PAGE_SIZE);
-+	kbuf.memsz = ALIGN(highest_paddr - lowest_paddr, PMD_SIZE);
- 	kbuf.cma = NULL;
- 	kbuf.top_down = false;
- 	ret = arch_kexec_locate_mem_hole(&kbuf);
-diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
-index 51dc89259f16..52678b3044fd 100644
---- a/arch/riscv/kernel/kexec_image.c
-+++ b/arch/riscv/kernel/kexec_image.c
-@@ -69,7 +69,12 @@ static void *image_load(struct kimage *image,
- 	kbuf.buffer = kernel;
- 	kbuf.bufsz = kernel_len;
- 	kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
--	kbuf.memsz = le64_to_cpu(h->image_size);
-+	/*
-+	 * The next kernel aligns its image reservation on PMD_SIZE, as
-+	 * explained by a comment in setup_bootmem(). Reserve that tail so
-+	 * subsequent segments do not overlap it.
-+	 */
-+	kbuf.memsz = ALIGN(le64_to_cpu(h->image_size), PMD_SIZE);
- 	kbuf.buf_align = le64_to_cpu(h->text_offset);
- 
- 	ret = kexec_add_buffer(&kbuf);
--- 
-2.34.1
+Why?...
+
+>
+> Introduce fast-GUP specific PTE snapshot and revalidation helpers. The
+> default implementation preserves the existing ptep_get_lockless()
+> semantics, while allowing architectures to override the helpers when the
+> public lockless getter provides extra semantics that fast-GUP does not
+> consume.
+>
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> ---
+>  include/linux/pgtable.h | 18 ++++++++++++++++++
+>  mm/gup.c                |  6 ++++--
+>  2 files changed, 22 insertions(+), 2 deletions(-)
+>
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index da14328093a86..62943fcbf7046 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -813,6 +813,24 @@ static inline pte_t ptep_get_lockless(pte_t *ptep)
+>  }
+>  #endif
+>
+
+Of course, no comments, helpful!
+
+> +#ifndef gup_ptep_get_lockless
+> +static inline pte_t gup_ptep_get_lockless(pte_t *ptep, pte_t *rawp)
+
+rawp? This is terrible naming.
+
+And 'gup_ptep_get_lockless()' is worse. What on earth is this function meant to
+do? And why is 'gup lockless' considered different from lockless?
+
+And you return the value twice, because of course you do. Why? Who knows.
+
+> +{
+> +	pte_t pte = ptep_get_lockless(ptep);
+> +
+> +	*rawp = pte;
+> +
+> +	return pte;
+> +}
+> +#endif
+> +
+> +#ifndef gup_ptep_revalidate
+> +static inline bool gup_ptep_revalidate(pte_t *ptep, pte_t raw_pte)
+> +{
+> +	return pte_val(raw_pte) == pte_val(ptep_get_lockless(ptep));
+> +}
+
+Again this naming is utterly terrible and I'm at a loss as to why on earth
+you're doing this?
+
+We don't need to abstract equality checks?
+
+> +#endif
+> +
+>  #ifndef pmdp_get_lockless
+>  static inline pmd_t pmdp_get_lockless(pmd_t *pmdp)
+>  {
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 99902c15703b0..72fb147193e55 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -2842,10 +2842,12 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
+>  	if (!ptep)
+>  		return 0;
+>  	do {
+> -		pte_t pte = ptep_get_lockless(ptep);
+> +		pte_t raw_pte, pte;
+
+What on earth is a 'raw' PTE?
+
+>  		struct page *page;
+>  		struct folio *folio;
+>
+> +		pte = gup_ptep_get_lockless(ptep, &raw_pte);
+> +
+>  		/*
+>  		 * Always fallback to ordinary GUP on PROT_NONE-mapped pages:
+>  		 * pte_access_permitted() better should reject these pages
+> @@ -2871,7 +2873,7 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *pmdp, unsigned long addr,
+>  			goto pte_unmap;
+>
+>  		if (unlikely(pmd_val(pmd) != pmd_val(pmdp_get_lockless(pmdp))) ||
+> -		    unlikely(pte_val(pte) != pte_val(ptep_get_lockless(ptep)))) {
+> +		    unlikely(!gup_ptep_revalidate(ptep, raw_pte))) {
+
+Why do we need to refadctor a comparison between a local variable and a lockless
+get?
+
+I'm just so confused by what on earth this patch is meant to be or why it's here...
+
+>  			gup_put_folio(folio, 1, flags);
+>  			goto pte_unmap;
+>  		}
+> --
+> 2.39.5
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
