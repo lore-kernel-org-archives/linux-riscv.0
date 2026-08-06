@@ -4,54 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476A5C56205
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 16:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B0B8C5AC7C
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 17:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qJgsxJ1sh9W6EXmmO+mUU9BVCwr21l3SLF5amOASldc=; b=q6g3XQ0op1X7gOr7yTX0sEUZ/W
-	/yuJeCAyjv/gCLJRYHAaFwxoynfXI8UlJbTd5xZ9JnADAZM+idhOuEft3wNGgyMpkt3L4pX9zZ4/i
-	IZNTJTlqDARaMVDOxln9BO8YkaaZ1Va0/gQHBoBcmW06jr6hiFOghWP7Z2vtH+zAqYjHPRzXcU1Pn
-	bFx+1Jrknjr5h7H0cm/npV0wzYUUTt0FtOOxz1O+fes/YxDrPJx+AJK1Y/9xCs00EZYR+yAfA5D6j
-	QNsV765vbCad73lJ/kLeQaPOcdDcDM5RPec2VeB1ZIjVxlQ7cf85AODVm3KHQCrtSmT/xv62ly3fa
-	NhnQgzXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=koeg2kfOfk+mDwahq85v31sWxL43GN/je+zBW9gVDfY=; b=X3GbsjXsNzz/nw
+	CLDhASZ9IGb4p0FLzBTG8EXxzZtj7UA9ipFU1z8jZILcrM5v525q6CbNqmYX6/q3ZLXLRGg9FEMka
+	m32KBLFgcj91T/sTLpQv4i5utwrs8jitpcnHjwUzEssnOBv5mwTyjdtcdeGfkiXSb/pY8NARwDLoF
+	u54VsS6pPzPBYL2yfxUSlszUssW+fi5T6VvB7tc4pUC/8lfvbsUBuexS6UMXzHE28vytw6t8W7PSM
+	XkxGf+pNm3vVIJ2gCgoAPsqvC7duS5x4fdwLgOAGiIGAJqYBOLe2RiSYxftKG53R/E22cSN14imy9
+	RDrIsIYieyuOLE+p18Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1IK-00000006FpM-21Kw;
-	Thu, 06 Aug 2026 16:50:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ws1U5-00000006HJU-2Fox;
+	Thu, 06 Aug 2026 17:02:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1II-00000006Fp8-3Uzj
+	id 1ws1U4-00000006HJN-1353
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 16:50:10 +0000
+	Thu, 06 Aug 2026 17:02:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 61A1D4193B;
-	Thu,  6 Aug 2026 16:50:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DEC51F00A3A;
-	Thu,  6 Aug 2026 16:50:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5DEA460AB0;
+	Thu,  6 Aug 2026 17:02:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FA031F000E9;
+	Thu,  6 Aug 2026 17:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786035010;
-	bh=aPuc2zrAltbKZ+fdJlnFtsRY+93S9N5SzridiGPT78Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OyGnuFWe/TkpxloNsc16W5dSNtg4znh+eh21NtKS/AObZgnftJ01Qitp3p7IAW2TU
-	 vGWp+VGsAaEw1G3iNwYnkdjX0VKy0OXtp2rEqJ9VZE/XjnxRS5mQWmb2Wk9ht8nPyu
-	 GdiaywnCBX7KYRH14hZupfjw395iK4gvTpL+yNvVtab4DaCFP1eEaF2MHv6H3mZENq
-	 gDapFG6DbrdGlB/CznFnM357PU9hzNo3wOEM8x6143mcRzVFzPeeZD4EN3tXvTJyme
-	 ULP4Fu/flvODpF+4SxJfsXMwMxfowJX2zQH+e5z0AMkCztGxHtOlPcuaihTH7aqZu6
-	 inG7Nrx621A7Q==
-Date: Thu, 6 Aug 2026 17:50:03 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: Re: [PATCH v3 4/5] dt-bindings: serial: snps-dw-apb-uart: Add
- StarFive JHB100 UART compatible
-Message-ID: <20260806-submitter-retrace-ba05dcf14938@spud>
-References: <20260806122553.182449-1-changhuang.liang@starfivetech.com>
- <20260806122553.182449-5-changhuang.liang@starfivetech.com>
+	s=k20260515; t=1786035739;
+	bh=OXAQKFIVVBbXnWv8484Zj8obP/yiaKmVTqPj7jB+Q/Y=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=gNO5ZwQ0z1emNmNw7dGtvsia/4vsFxCFFwfLJOdUtuda28fIvY0ldMPjcZ16rf8Kt
+	 dG+1Axcl0PALGVZ9AXKWLGIPAO2E9FoNqfMyHeahTieqVDJndWEga8PLPtdLYov93n
+	 4jldhNWnDtVooT+W6XKTnzRxiAovXHBBToB+py4jEzHDFI0XiGNmW/myXJ7laq2zjF
+	 YOJoYLI6R7t0HL7sIshOMECX3+J4L7DwLXN8H6g7r5c26O7io7riPCxO4F8PhOUvhP
+	 ktJbKzPyo1ZnpxPZkKmNf33NRCrB+x6oLl3RYd6Kspg3AjeQgpEt6nbm0EFVs0wcXt
+	 VB59zQlflqvBg==
+Date: Thu, 6 Aug 2026 11:02:15 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Rui Qi <qirui.001@bytedance.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Nam Cao <namcao@linutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
+    Zong Li <zong.li@sifive.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+    Deepak Gupta <debug@rivosinc.com>, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: kprobes: Prevent probes in breakpoint
+ handlers
+In-Reply-To: <20260806043807.2583001-1-qirui.001@bytedance.com>
+Message-ID: <5b07524c-1b93-22a7-ed9b-037d499a5b3f@kernel.org>
+References: <20260806043807.2583001-1-qirui.001@bytedance.com>
 MIME-Version: 1.0
-In-Reply-To: <20260806122553.182449-5-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,47 +68,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Joel Stanley <jms@oss.tenstorrent.com>, Drew Fustini <dfustini@oss.tenstorrent.com>, Darshan Prajapati <darshan.prajapati@einfochips.com>, linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Guodong Xu <guodong@riscstar.com>, Yixun Lan <dlan@kernel.org>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, E Shattow <e@freeshell.de>, Junhui Liu <junhui.liu@pigmoral.tech>, Daniel Lezcano <daniel.lezcano@kernel.org>, Michal Simek <michal.simek@amd.com>, Paul Walmsley <pjw@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: multipart/mixed; boundary="===============5527859999645304020=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5527859999645304020==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gTvjWTvn0oJlfixR"
-Content-Disposition: inline
+On Thu, 6 Aug 2026, Rui Qi wrote:
 
---gTvjWTvn0oJlfixR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> The ftrace selftest multiple_kprobes.tc registers kprobe events on
+> the first 256 text symbols from /proc/kallsyms. If handle_break() is
+> selected as a probe target on RISC-V, the breakpoint exception path
+> can trap again before it reaches the kprobe breakpoint handler. That
+> recursively enters do_trap_break() and can make the system
+> unresponsive.
+> 
+> Mark handle_break() and its local probe dispatch helpers as nokprobe
+> symbols so they are added to the kprobe blacklist, matching other
+> low-level breakpoint exception paths.
+> 
+> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+> Reviewed-by: Nam Cao <namcao@linutronix.de>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-
---gTvjWTvn0oJlfixR
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCanS7OwAKCRB4tDGHoIJi
-0qIvAQD60eZJPBahWlIn01C8IQAuZOIIppV7zo0c41CY/TyZCwEA5+TJNoLvB0BT
-7JvXHXIbDZmbJI8yHggizIQFJJz0IgY=
-=BpJA
------END PGP SIGNATURE-----
-
---gTvjWTvn0oJlfixR--
+Thanks, queued for v7.3.
 
 
---===============5527859999645304020==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5527859999645304020==--
-
