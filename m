@@ -4,68 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E60DC5AC67
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 18:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC95CC5AC67
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 18:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aC0/Uwec4bVkTGQ1h+jiHExkJXHg1aTwG2cHG+y92hs=; b=dzDVTREVDAfyie
-	vGYCzW25ePHasf54/dvUGbo/LtxDrBeOUd4mju5swxce9sNoVN2XmjTIZRxlCpEkXBwTFLM5ZvnEJ
-	mXJzlhMzDWNwGoRyrfhOhd3acEuG4ryRAxzbKeK0quzHNs+IYPmlmd+xJr0h7nNc/fNUYegzD24OJ
-	lQYJJtx8VMA+XKyitqp++sU3TMRCReSyPc6ZAzCUEQ0qkRXhUaDzhGr8M+5+hxqkXcdMSHj4U4l1/
-	YZmgrL4hg5IgL7qOj/3W2UmauP4P2Gbmv2UOTsZ8aagnn0tbIeELgYG+r6mx6jsze1Ynl5Tqv3PZQ
-	ZN1gaA4jSMG3/DIcYl+Q==;
+	List-Owner; bh=PFLPBveS6KsGJYfEbcEKFArG+xepuJr7RFl8UOuN+3I=; b=gOC9JSaw71okPI
+	sE8syq3Zd0ksr+/bRF6QHksoy1hoReg3ljBFdCmWrGuCdayBq6ECdUQp+f/NkP0K8dr69WFOlv0LS
+	huI79Cd56hHSNe6QLslU3gMZ56w73LVULdGjoyH1xDXdttrr3UUzXAM6LVFHBwwyh4oZjWr9Vw4Hl
+	aT1lge7ysYRjaqe8GOtRtKLB6T3/JGAi5TdvfoqV3k/APSq1rxVNJbx11q9suS/GDfzCM0LcNMet4
+	RdBPgIUHmfhxdBsb+oqrC+gLcoOHP0DJPsnDuRpN2j0K2w5JyZQvNjd4QSWfdXZ6R2OFh4fgNm2u9
+	NiQwroOFTHCMcCA856KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws2sv-00000006UQG-2Gz8;
-	Thu, 06 Aug 2026 18:32:05 +0000
+	id 1ws3AU-00000006Wp3-3KDp;
+	Thu, 06 Aug 2026 18:50:14 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws2su-00000006UPV-0e2a;
-	Thu, 06 Aug 2026 18:32:04 +0000
+	id 1ws3AT-00000006Wog-20xt
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Aug 2026 18:50:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9E4A406EA;
-	Thu,  6 Aug 2026 18:32:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8BF01F000E9;
-	Thu,  6 Aug 2026 18:32:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BBBDA41968;
+	Thu,  6 Aug 2026 18:50:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9081F000E9;
+	Thu,  6 Aug 2026 18:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786041123;
-	bh=ATZjqoQT7LRR3mM3kyDT1fKkCMOmzavajpIqeRssK7I=;
+	s=k20260515; t=1786042212;
+	bh=RJJW14A/nX6VrjipjthjIHHraIYxFJQivG437GtHCGs=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=FhWh+1csbKU8E7LYyPtQAIeeCjJQV4o3pExGfcwAYoc7RwkLgkbCRhm8RAis1QhGk
-	 YLoBQPAPMjphW1ckP/4jGIDOMx7so2dWoZmYLT+ElGkHARvbBAkKwg/wYfAg5hS1JS
-	 dnET2u/vp9YaRinByFs4I2pqwv6Fmn2nboDdhiyjbcp6xmb4CWXFq79k/OsSG0uI0B
-	 A1uT1E/S/uJSYSm2kMKFghc9BNK2FCzsNCS4zLh8mC/8mpvt26q/Yc94wdcJWtt/1l
-	 ezir/73O14+oh0Gw4gf1ie31BiM/M4BrsWQ+X7SqjG8xmejgXFe5fSRAnDaZfs3DqR
-	 qOD8cZSptcaoA==
-Date: Thu, 6 Aug 2026 12:32:01 -0600 (MDT)
+	b=TrAnScLwiSiregMmTEqnckhD7zWRhYsvskLI1UDtohWU2LlWDN9A2GS7WPXvp3Ea2
+	 6HYloAK24/c7IngZoukOfW0xotteDRNh5eVURCLWUiGaH8ro/Ga1OuQhrDLgAcbmmN
+	 Y5WrFB54xOr2kqC/f3BvD9P/3WFIazIjsPQuadXGy8NphCqgus6sNCAyZdFWS2DIhZ
+	 FSkV4CCYNxBpa/Dyn0LZFgQCW431JG+1UfwcB099P2qPka5KivQAUuzgpapt2uvvQY
+	 dGq9xt9bbA9suJ7/dOfZdjceVm11b6KAgd51eeae/fdnzyZHgV4JDT6S7VAv+7ZwQ2
+	 R5fbARGkfcE1Q==
+Date: Thu, 6 Aug 2026 12:50:11 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Guodong Xu <docular.xu@gmail.com>
-cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>, 
-    Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
-    Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-    Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-    Chen Wang <chen.wang@linux.dev>, linux-doc@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-    Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor@kernel.org>, 
-    Jesse Taube <jtaubepe@redhat.com>, 
-    Charlie Jenkins <thecharlesjenkins@gmail.com>, 
-    Andrew Jones <andrew.jones@oss.qualcomm.com>, devicetree@vger.kernel.org, 
-    spacemit@lists.linux.dev, sophgo@lists.linux.dev, 
-    linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v5 06/17] riscv: Add Ziccamoa, Ziccif, Ziccrse, and Za64rs
- to cpufeature and hwprobe
-In-Reply-To: <20260701-rva23u64-hwprobe-v2-v5-6-2c61f94a695a@gmail.com>
-Message-ID: <6aa9b348-931b-e358-6005-7e38f97092ef@kernel.org>
-References: <20260701-rva23u64-hwprobe-v2-v5-0-2c61f94a695a@gmail.com> <20260701-rva23u64-hwprobe-v2-v5-6-2c61f94a695a@gmail.com>
+To: Rui Qi <qirui.001@bytedance.com>
+cc: linux-riscv@lists.infradead.org, Paul Walmsley <pjw@kernel.org>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    Alexandre Ghiti <alex@ghiti.fr>, Nam Cao <namcao@linutronix.de>, 
+    Kees Cook <kees@kernel.org>, Jingwei Wang <wangjingwei@iscas.ac.cn>, 
+    open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: hwprobe: Register unaligned probes before
+ usermode
+In-Reply-To: <20260721150511.1607105-1-qirui.001@bytedance.com>
+Message-ID: <8884ef1b-9fd2-7300-d7f1-38d061cabf0c@kernel.org>
+References: <20260721150511.1607105-1-qirui.001@bytedance.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,24 +72,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 1 Jul 2026, Guodong Xu wrote:
+Hi, 
 
-> From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-> 
-> Add Ziccamoa, Ziccif, and Za64rs to riscv_isa_ext[] so they can be
-> parsed from devicetree/ACPI ISA strings. Ziccrse is already present
-> in cpufeature; this patch only adds its hwprobe exposure.
-> 
-> Expose all four extensions via hwprobe through new bits in
-> RISCV_HWPROBE_KEY_IMA_EXT_1 (RISCV_HWPROBE_EXT_ZICCAMOA, _ZICCIF,
-> _ZICCRSE, _ZA64RS), so userspace can probe each of these
-> RVA23U64-mandatory extensions individually.
-> 
-> Reviewed-by: Jesse Taube <jtaubepe@redhat.com>
-> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-> Signed-off-by: Guodong Xu <docular.xu@gmail.com>
+On Tue, 21 Jul 2026, Rui Qi wrote:
 
-Thanks, queued for v7.3.
+> The hwprobe vDSO data is populated by the first riscv_hwprobe syscall.
+> Some values, such as MISALIGNED_VECTOR_PERF, may depend on the async
+> vector unaligned access speed probe registered by
+> check_unaligned_access_all_cpus().
+> 
+> That initcall currently runs at late_initcall level. However,
+> rootfs_initcall enables usermode helpers before late initcalls run, so an
+> early helper can execute userspace and call riscv_hwprobe first.
+> 
+> In that case complete_hwprobe_vdso_data() consumes the initial
+> pending_boot_probes reference, populates the vDSO cache, and marks it
+> ready before the later async probe is registered. The eventual probe
+> result then cannot update the already-ready cache.
+> 
+> Move check_unaligned_access_all_cpus() to fs_initcall_sync. This still
+> runs after clocksource_done_booting(), so the ktime_get_mono_fast_ns()
+> benchmark uses a stable clocksource, but it runs before rootfs_initcall
+> enables usermode helpers.
+> 
+> Any async hwprobe probe is therefore registered before userspace can
+> trigger the one-time vDSO cache population.
+> 
+> Fixes: 6455c6c11827 ("riscv: Clean up & optimize unaligned scalar access probe")
+> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+
+Now that we've queued a patch to get rid of the async hwprobe 
+infrastructure, is this patch still needed?
 
 
 - Paul
