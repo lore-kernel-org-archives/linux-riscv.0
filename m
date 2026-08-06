@@ -4,62 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC95C55838
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 08:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B542C55ABF
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2026 08:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zRNMlRdXWLJeeVYuL9gWFlkMXM4kPWnrE8hK7mY1J5M=; b=i0/5GyAftSAqkd
-	tuNJqh28MtlCy9zAYZOwY6XZ7kMArpXKQn1vDjt1Rb1oSpZ5ZhD34JKkw3XXcudkgw3iANaC+R4RZ
-	SBDXPFYKmRyd11L4g0/AraQgn9Q6uZKi9fsmewGJvwroUUpJXIwPfAAlgNmrm0bA4oqDvpyOlA2fQ
-	upYmVjAAwd6ducgbewWjIT6nDgeARbZSYOLCU1ptFJjF65sZEPW2WO9OhGuC8Q8U3x3uIODEIGoGr
-	jBH7SwzGwEVFzrZfglwRd7nmFhaom82JXbxCFIDRvACPXjk7UEsxiPp+ZmXmp8ub0YdcI4wBli0LQ
-	p/b1QkuYr3fN9l0iRIrg==;
+	List-Owner; bh=d4asWuChK+eM1kiGapmMNoGD29ma1Jk76XtKSCRyl+4=; b=Re23+0J2SpYkeV
+	3gAhxv5y8pcbV1RUoOoaxCf82adz9YphyC73ihfMWaIISymZF2CaMuHAe0LoOzkk/hPDzUAbZzCcz
+	Rt6igUnGf+HWcI6Qyo10VD2rFdfOSfZJWiCAJdV9cQpJOhzo/hWwg9cElZnO13zcl1R22q7O7paHV
+	/T87LMs5k8O1owlc2zBNHKiZSjWuVILuZK+Eg4WrmQoil/+TMGsNcw1tJFGX/+CTM3G4qoh/6J+en
+	XFjqoI/0YA67RrqO0CpK/EamlOT+7oVxq8A/EyhUkkhXFnBuC0dEFJ0huAiy8nWrYGbrwfkPHHzAh
+	RPAITmdqKJ+LujwvKZjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrt1l-00000005BPm-1Wuw;
-	Thu, 06 Aug 2026 08:00:33 +0000
+	id 1wrt09-00000005BEq-06V7;
+	Thu, 06 Aug 2026 07:58:53 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrt1j-00000005BPf-1dPv
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Aug 2026 08:00:31 +0000
+	id 1wrt07-00000005BES-2MVh;
+	Thu, 06 Aug 2026 07:58:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D203C60A8C;
-	Thu,  6 Aug 2026 08:00:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91D631F00A3A;
-	Thu,  6 Aug 2026 08:00:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B7C0A60A8C;
+	Thu,  6 Aug 2026 07:58:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C0881F000E9;
+	Thu,  6 Aug 2026 07:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786003230;
-	bh=wCsDbqJXdF2IQW6rHcMJA+Tn4gj7AL4ZApX0eWn5Liw=;
+	s=k20260515; t=1786003130;
+	bh=6Qdw3rPKOE/bqfzieoBLsN+JJCKDj8Yo0JXPMaKeuak=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jiyFEnBWGE8JqbmRSBDoPS5pELh0vKTSSkfC2e2wnxazZojEw1MCf1nMmKzEIMdAt
-	 UVzEudlRArvxEZ4+xwtwaucEERn2DI30ghSta7qwlaCtH3LgXms2+BnZavhWWo/qge
-	 m+CzdzLpV21LL4tKwgQPs7D0G4h9ELzYNQfdo8ox07b40LnoWc+qL4Y7tIkk2+lzRb
-	 jIBowazZL1qq/CwfbHqDFauftUnjmfqpx6z0PXPZKUxKFrmrMKrN4uIlzxymgxkac4
-	 6xB9gyMTWcbQEZucjTPaYf6Ahp5XKZ82FdNPP3aTbSc6OMJWja/ibcOVUeudR3QuxU
-	 aKNjfnGTGUctA==
-Date: Thu, 6 Aug 2026 10:00:26 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.dev>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-hwmon@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v3 1/6] dt-bindings: vendor-prefixes: Add Sensylink
-Message-ID: <20260806-futuristic-outgoing-gecko-5cd90b@quoll>
-References: <20260805-ctl2301-v3-0-fd4b8ffb5b0d@linux.dev>
- <20260805-ctl2301-v3-1-b86c75d1c552@linux.dev>
+	b=J8YD+KrbFok+1fwrI0iVh4vH26ewld4lv4yE4DFBk81pY0lZdIVyTtOduja1KQ1L3
+	 BV958JiLuPY/ayW+tVLF8iavvaLcHpcaNd+5HKEnzG/wxP5fw0xcGz5ZrCF96Ga3rQ
+	 ckARtxPyCWzm/OG4zer/hsYuw61JO3TxKyA3pb1bv+sVmLiolZQc9VE6T8be16/0Lj
+	 pxPY2tkmJr0KqCi8N0/leBGXsiRewNbRPX/Jt8LHaJlHqqSX8Ocp0sZRGKAA/snYwu
+	 kWb5phclr88l1FQHh0l1AcAt9lBb+HtlHoWI3czYHgwuZFMhavmOxmga44ZQ7ZyAHq
+	 m/0hJeUVeZY+Q==
+Date: Thu, 6 Aug 2026 08:58:32 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, kasan-dev@googlegroups.com, David Hildenbrand <david@kernel.org>
+Subject: Re: [PATCH v2 00/15] riscv: add Svnapot PTE folding support
+Message-ID: <anQ-GfzFl-thu3q8@lucifer>
+References: <cover.1784201104.git.cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260805-ctl2301-v3-1-b86c75d1c552@linux.dev>
+In-Reply-To: <cover.1784201104.git.cuiyunhui@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,20 +70,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 02:00:51AM -0700, Troy Mitchell wrote:
-> Add the vendor prefix for Sensylink Microelectronics.
-> 
-> Link: https://en.sensylink.com/
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+I already commented on you failing to cc- anybody here (!)
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+I am guessing you did the core bits in response to David's request ([0]), but in
+general - if you're changing core mm to suit an arch change, you really need to
+send it as an RFC and then it'd make sense to send the core mm changes
+separately as an RFC with an explanation as to why you need them.
 
-Best regards,
-Krzysztof
+[0]:https://lore.kernel.org/all/62c418bc-082b-4ae2-a889-f63dd2b7f503@kernel.org/
 
+Thanks, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
