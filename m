@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E8EC2A09B
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 03:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D07C5AC7A
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 03:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Z1in1RFAwC/cbF1NreNVgQP2weOswFg1NhVxCK31fsE=; b=Jhn9qvqsxOl4jU
-	keRlM3NPF5H858RZDZwDp2V2ov5JYi37R3csO6axHmtUaCkQt4IoxmgFcw+MRRiE/DvEQcicOECfR
-	6V0CFRZ5xh+CkSrSjP6AhDlt8p04shxgbFl+PYQMbMB0pcIPiSNbO1gMqvy31RUr5Xzc92O2yzq/N
-	BiIzJB1rFsHl0TE41YfDKfrv36GgAhif5CyRFxkzfriEAw5ZRue9awAO5PpS6GvyXqikTAo4taRjl
-	vzVZEpTrlLqawcDHPpJDLg1tYx54SUZ8QdPsnRC6Fw9OkCqYDqOjwJlzpuYGHQgXmx1dZFZzVX//S
-	5q/0Bv4c9xqHTe/vPAMQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xcuGAxexOhet5M8udC61loej5QtP6N2Yk3AUpUksRII=; b=CmimTbYgIhdfgK
+	qcGL6TIfVUEs07WCX3adE2RE/9OgUc1lzSTvAVsh9YYs4qhtynu0/EClgHRK2cMbS0WO9Fx+bKXzi
+	MDDDttwn4CsE3CokUgsQRoIYoRSCka3zi3jX4Y4fsVf47XUXFL6GX/V2HuKX2qGzPP0z4Dt5L2/jk
+	VEskCITJMBYYiGNJwXldDYNi3fFCHSarLIctt32oQOJ12b/0ZEQ1w3m5Wju6fC/plIjMPbBs1ev9p
+	4tMJ6JcWTyN9jGlxNXFdBkWypeCHtQzVrJhJEFmXIaewDnd+Kp4l4Lx8ojKJOAItG/SWnkEC1AMYd
+	yfFzLaeBSttOI7oumSNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsBbs-000000073GE-0lJH;
-	Fri, 07 Aug 2026 03:51:04 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1wsBcD-000000073KX-1QUz;
+	Fri, 07 Aug 2026 03:51:25 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsBbp-000000073FW-0QTn
+	id 1wsBcA-000000073J9-1eKh
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Aug 2026 03:51:03 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84847482584so1229119b3a.0
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Aug 2026 20:51:00 -0700 (PDT)
+	Fri, 07 Aug 2026 03:51:23 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-84a2dcede83so4146612b3a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Aug 2026 20:51:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786074660; x=1786679460; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SDjiRmYitCVi6Po+hNUTG0dnEo7TwlYi6LDldiPSa4E=;
-        b=OHFSeKirINVER3lR5TZ7EdJtI6LHRaLB58DbcWIAWGCo+YUepm9IC3MBhIFeK7HXVQ
-         5yT2Gt7bUANZ5p3gkrJwAf2fHN2jYrwlOwpyb/6Lb/c3e5YhhtPkR1WrFZ9v6/rN52HX
-         NNv6zHGnN3eFsOOO71+oCy3aioDgdexlpwIZRv/7cr7B9pTj6xKqnyNuDhIOWRG0CKzz
-         D/VNEeVZ8cEPOQM74TiwD4RjITNJCTaSINj2rDm9PoDG3QJ2khh2xmrlHmpdJ4H5SVcW
-         wybt3JrhuBdxPTBDqgcxIUa5NfnBBdOGLayerya0t7a/Uv4qjx2xxHlU6ZiVLdNivGIj
-         M/6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786074660; x=1786679460;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1786074681; x=1786679481; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=SDjiRmYitCVi6Po+hNUTG0dnEo7TwlYi6LDldiPSa4E=;
-        b=kjO9KLVrXvs6Lf1AvuoynHbfTO5vHhRED0FBeku3tnY7nxBItcVgE/2JLcnOcVI96o
-         kiUD09+fh3TFZr/SROxrYiRJJRNXz6FmF1fcTbaRQYn7RC+dkTQThF/McyXcYEBFyfKz
-         zCFCJHzKXsjliUGiozTDpicSLr7yT/sB1z1nYl85EP8ivZKgUqIFoh42dEufAOyMgUqI
-         JgxNajilTKCmh6EHCU/weVxTZQGyIJ22iD/JPae2IKxWLOIPdlyqpvuhOG+YWbF2yQUr
-         MYctAMnDJbqK3xO7MaLtPYY5aq6OR04V/IWR6elgn+rzFwpFpBxftAlW9/Anja8HW5Hb
-         pRrQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rqds/lXtNV46CCLY1NHGNDv8S49C0k3tdQLjObNtXLX8JNRbQt0eU3OkQZWyb390O005leXXi53NtYdoA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDXC4EHWP2qmdVdFGi+4cFvqTGM7Vi94guuLYtl8TxJe67ffHy
-	5+qAIQWRwR7FZiRYXNnX76Si5QYptmoLXAvSmGdBZDXF3oXjlApvWN9m
-X-Gm-Gg: AR+sD13weMjKm7PQulVcg6pf3S/JRqYW6xaPuWeFTFNXv/dzMU8x5+moFd36Cvsac2A
-	iivbseNxWFhgTTorFKBbT66A2zbGO8bJ+xWzMdem1fIYJptA2HeD9zx5Odz7bqkv+hdu9GMA49g
-	OxbVl+yyvgu0tHp717aqDooSJuvD8qOOJ5hkZ/ZJBhmArrjdhwwb0XvFZWm/c7mHtAVYKszOvXX
-	t+KmMbMG7LGeHlwZ++oBrwHT7t2b05HNwndIsw7VqSSmj+gaP09nVXn6sD2JpffA+EOgM2qHW40
-	BWuL8AbqjMXqCNa+EUMwv0Vha+YCw8D6QgGlwvDvDt0bPlqxc6v4BISyBLHbsfTUKdhVp/m2ScB
-	wg5NJDzdUhB7qc1lFFdZhtRPpciYC+UU8xEEScFYvZX1BSY5NOwGKUDabbfVfFu2kvIX+3NcyQo
-	+o7cmYJ8Yx0nF7tG/Rod+hsCF5BpDvXBTvAYsjiHcxLBDCrCbSNv79CeS/+8MFQj4HNNNV7p+nF
-	Mp8sUQ=
-X-Received: by 2002:a05:6a00:a117:b0:837:f111:b70 with SMTP id d2e1a72fcca58-84f41ba5757mr14013802b3a.4.1786074659915;
-        Thu, 06 Aug 2026 20:50:59 -0700 (PDT)
+        bh=c/3ISunVfIRnbCDBwOOCuYiYx2dMKx7N5JMFDQezhpM=;
+        b=QQYGToYuGUGMoXlW23dcU6W54noEU5tUc/e8AV06jfvu3UGueKaM3Lae0+mjiJQk4z
+         bf8GWY9E0ePlHLYdETTVMpLtrmdopaFTpqK18wo0AdYXntG7DU90fdK1LLxl9UJW4K5k
+         J0pTmfUYaq1IkL2LpTfgL7R3fUnLYgvHMKdbv3H9xoPpGK4X1Ktnv3mCgsKOFmfd8obi
+         LoFL6zRcAon7z31IwJCb0HJoFW3jSWfe6G+dwhqJYtao+IlnKlm5Z5KvTbULo4vXikC6
+         Kf/azGRDmLyzemMGnUuZzgc+C3pjcY2p+lYhEF7nDApXxbPX44ru2DAgvqKlMb4ywss9
+         t/OQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786074681; x=1786679481;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=c/3ISunVfIRnbCDBwOOCuYiYx2dMKx7N5JMFDQezhpM=;
+        b=cgr6AavRUbnJB5EdbB7co+StEsA4hOvRL58CNLXkmYN9ItnX6lxW6z9KXchoGE2DkI
+         nY+sQ1ssezZFwJdV1w++T/UOLN7fTzUGO+oEdJCr8cnchk/fiUu8XgWwnzvVR6RIn5or
+         FhG02S3PcUoO/2S5tBzIv0ZZEFk6mEvXAZWFh/ruGdbhtt48aVcRVgKe1JJW8SufyVBi
+         LAeV00G6S8M1x3+6CzF7EXTm26yo6XltAGP31ed5oMNTH6kdT8ZaYtJe2zyS1hpvX5F7
+         i5nkzEfIh85bjQs4AnJSmHtpQvN116cNp9kDhJ6jCoVU4onLa/s1KIfTxxb78IoJJ3ii
+         h2FQ==
+X-Forwarded-Encrypted: i=1; AHgh+RryCAJ4Mo9NaueZYaTvxTHT3JAn+PtgPFmtn/m6j6b4tuvgZ3zG81mIWb5MdefI2CvmNngOkDuaxNNZLA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+m6eSDwlOxPOaGk+qoaNb/BGWAB+aFXqlR3tozpttsid2Q67F
+	gaER7P3w6ZIQPlafzAxd7py0VgsPvVb/yjLuoEReaRsG4voFJ2KLgsed
+X-Gm-Gg: AR+sD11KeUfwJw4g3TPzzl4n2fZqdL3V3erX5d5c2reUd3Wuhbvu3NWlkxeZv8SlkOL
+	OIFd5U26tCXZyV4cpwL8lnIcW/7/G2CRn0vmhJQJ3PqlK5ReLaFI9T9BlaKdF/lEJ28NvLeFYOX
+	1xR0SC/h+oIybO+G6MNSdceitgMUWz6guzUSagtFVN6fpsadgfrZ27eh6XtL4/O/XxcdwKF0D7p
+	eeHX1meMEXYyf1Wz3JJLJEnfYpGaVHJqFns1hHkho2bIa0pWUrTptL/gG3c8ZxWIsy+rJKXIsWa
+	s4vc3xPVWZ+h9OiEtWoWku4WywJ6q9hTZrmwrns6ByJ9SVQZQcerPyVLFGzC9Qm0IRhPmRwSQhq
+	kjvgyCiCS085LiWolaZgtTy1RJMMJxCYz5RlgPNpqLDa6697ByTaSIM7E7KWN498tsvdowHCQe9
+	Wqy27EpwCJwa+jVCQZutpe8o+Ub6KeQ7E/iohvI71WwGnpHJ41o3p7Hd6HDFxCSC+1sVKU9OXg1
+	3lXUy0=
+X-Received: by 2002:a05:6a00:170b:b0:82f:50cd:e586 with SMTP id d2e1a72fcca58-84f5df8e917mr782211b3a.13.1786074681506;
+        Thu, 06 Aug 2026 20:51:21 -0700 (PDT)
 Received: from cyh-System-Product-Name.. ([129.227.183.200])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a3d0d96sm287586b3a.18.2026.08.06.20.50.56
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a3d0d96sm287586b3a.18.2026.08.06.20.51.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Aug 2026 20:50:59 -0700 (PDT)
+        Thu, 06 Aug 2026 20:51:21 -0700 (PDT)
 From: "Yuhang.chen" <yhchen312@gmail.com>
 To: anup@brainfault.org
 Cc: atish.patra@linux.dev,
@@ -85,15 +86,16 @@ Cc: atish.patra@linux.dev,
 	linux-kselftest@vger.kernel.org,
 	zhouquan@iscas.ac.cn,
 	"Yuhang.chen" <yhchen312@gmail.com>
-Subject: [PATCH 0/2] RISC-V: KVM: Add PMU event filter support
-Date: Fri,  7 Aug 2026 11:50:37 +0800
-Message-Id: <20260807035039.294998-1-yhchen312@gmail.com>
+Subject: [PATCH 1/2] RISC-V: KVM: Add PMU event filter support
+Date: Fri,  7 Aug 2026 11:50:38 +0800
+Message-Id: <20260807035039.294998-2-yhchen312@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260807035039.294998-1-yhchen312@gmail.com>
+References: <20260807035039.294998-1-yhchen312@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_205101_145738_A5C9CE09 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_205122_435759_951D47DD 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,50 +112,221 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds PMU event filter support to RISC-V KVM, allowing a
-userspace VMM to restrict which SBI PMU events a guest is permitted to
-program.
+Allow userspace to restrict which SBI PMU events a guest is permitted
+to program via the new VM ioctl KVM_SET_PMU_EVENT_FILTER.  It takes a
+struct kvm_pmu_event_filter whose events[] array holds SBI PMU event
+indices encoded as (type << 16) | code.  The action field selects ALLOW
+(only listed events may be programmed) or DENY (listed events are
+rejected); nevents == 0 clears any active filter.
 
-The KVM_SET_PMU_EVENT_FILTER ioctl and KVM_CAP_PMU_EVENT_FILTER already
-exist as generic KVM uAPI (include/uapi/linux/kvm.h); RISC-V KVM does
-not yet implement them.  Wiring them up lets a VMM limit a guest's PMU
-event access, which is useful for sandboxing and for withholding host
-PMU events the host does not intend to expose.
+The filter is enforced in kvm_riscv_vcpu_pmu_ctr_cfg_match(), where a
+disallowed event fails configuration with SBI_ERR_NOT_SUPPORTED.  It
+governs new counter configuration only and is not retroactive.  The
+filter lives in struct kvm_arch, read via SRCU on the vCPU run path and
+replaced under kvm->lock with synchronize_srcu_expedited().
 
-Patch 1 implements the kernel side: the uapi struct, the ioctl handler
-with an SRCU-protected filter, enforcement in
-kvm_riscv_vcpu_pmu_ctr_cfg_match() (a disallowed event fails with
-SBI_ERR_NOT_SUPPORTED), and advertisement of KVM_CAP_PMU_EVENT_FILTER.
-
-Patch 2 adds a selftest that covers the ALLOW/DENY semantics with the
-event in and out of the list, filter clearing, and ioctl argument
-rejection (EINVAL/E2BIG).
-
-Testing: built and run under QEMU TCG with nested KVM (an L1 KVM host
-running an L2 guest).  The selftest (patch 2) passes - all ALLOW/DENY
-and argument-validation cases behave as expected - and dmesg stays
-clean throughout the run.
-
-Based on v7.2-rc2 (a635d6748234).
+Advertise the feature with KVM_CAP_PMU_EVENT_FILTER.
 
 Assisted-by: YuanSheng:deepseek-v4-pro
 Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
 Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 Signed-off-by: Yuhang.chen <yhchen312@gmail.com>
+---
+ arch/riscv/include/asm/kvm_host.h |  3 ++
+ arch/riscv/include/uapi/asm/kvm.h | 20 ++++++++++
+ arch/riscv/kvm/vcpu_pmu.c         | 28 +++++++++++++
+ arch/riscv/kvm/vm.c               | 66 ++++++++++++++++++++++++++++++-
+ 4 files changed, 116 insertions(+), 1 deletion(-)
 
-Yuhang.chen (2):
-  RISC-V: KVM: Add PMU event filter support
-  RISC-V: KVM: selftests: Add PMU event filter test
-
- arch/riscv/include/asm/kvm_host.h             |   3 +
- arch/riscv/include/uapi/asm/kvm.h             |  20 ++
- arch/riscv/kvm/vcpu_pmu.c                     |  28 +++
- arch/riscv/kvm/vm.c                           |  66 +++++-
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../kvm/riscv/pmu_event_filter_test.c         | 199 ++++++++++++++++++
- 6 files changed, 316 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/kvm/riscv/pmu_event_filter_test.c
-
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 60017ceec9d2..1cd3d6a11057 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -95,6 +95,9 @@ struct kvm_arch {
+ 
+ 	/* KVM_CAP_RISCV_MP_STATE_RESET */
+ 	bool mp_state_reset;
++
++	/* KVM_SET_PMU_EVENT_FILTER */
++	struct kvm_pmu_event_filter __rcu *pmu_event_filter;
+ };
+ 
+ struct kvm_cpu_trap {
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index 504e73305343..da4f639fa89f 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -12,6 +12,7 @@
+ #ifndef __ASSEMBLER__
+ 
+ #include <linux/types.h>
++#include <linux/stddef.h>
+ #include <asm/bitsperlong.h>
+ #include <asm/ptrace.h>
+ 
+@@ -396,6 +397,25 @@ struct kvm_riscv_sbi_fwft {
+ /* One single KVM irqchip, ie. the AIA */
+ #define KVM_NR_IRQCHIPS			1
+ 
++/* for KVM_CAP_PMU_EVENT_FILTER */
++#define KVM_PMU_EVENT_ALLOW	0
++#define KVM_PMU_EVENT_DENY	1
++
++/*
++ * For KVM_SET_PMU_EVENT_FILTER: restrict which SBI PMU events a guest may
++ * configure.  Each @events entry is a SBI PMU event index (type in bits
++ * 19:16, code in bits 15:0).  %KVM_PMU_EVENT_ALLOW permits only listed
++ * events; %KVM_PMU_EVENT_DENY rejects them.  Enforced at counter
++ * configuration (SBI PMU COUNTER_CFG_MATCH), not retroactively.
++ */
++struct kvm_pmu_event_filter {
++	__u32 action;
++	__u32 nevents;
++	__u32 flags;
++	__u32 pad;
++	__DECLARE_FLEX_ARRAY(__u64, events);
++};
++
+ #endif
+ 
+ #endif /* __LINUX_KVM_RISCV_H */
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index bb46dcbfb24d..bc7d297a63ce 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -733,6 +733,29 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 	return 0;
+ }
+ 
++static bool kvm_riscv_pmu_event_allowed(struct kvm *kvm, unsigned long eidx)
++{
++	struct kvm_pmu_event_filter *filter;
++	bool in_list = false;
++	unsigned int i;
++
++	filter = srcu_dereference(kvm->arch.pmu_event_filter, &kvm->srcu);
++	if (!filter)
++		return true;
++
++	for (i = 0; i < filter->nevents; i++) {
++		if ((unsigned long)filter->events[i] == eidx) {
++			in_list = true;
++			break;
++		}
++	}
++
++	/* ALLOW: permit only listed events; DENY: reject them. */
++	if (filter->action == KVM_PMU_EVENT_ALLOW)
++		return in_list;
++	return !in_list;
++}
++
+ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 				     unsigned long ctr_mask, unsigned long flags,
+ 				     unsigned long eidx, u64 evtdata,
+@@ -773,6 +796,11 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
+ 		goto out;
+ 	}
+ 
++	if (!kvm_riscv_pmu_event_allowed(vcpu->kvm, eidx)) {
++		sbiret = SBI_ERR_NOT_SUPPORTED;
++		goto out;
++	}
++
+ 	/*
+ 	 * SKIP_MATCH flag indicates the caller is aware of the assigned counter
+ 	 * for this event. Just do a sanity check if it already marked used.
+diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+index a9f083feeb76..6f822c43f156 100644
+--- a/arch/riscv/kvm/vm.c
++++ b/arch/riscv/kvm/vm.c
+@@ -53,6 +53,8 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+ {
+ 	kvm_destroy_vcpus(kvm);
+ 
++	kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
++
+ 	kvm_riscv_aia_destroy_vm(kvm);
+ }
+ 
+@@ -187,6 +189,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 	case KVM_CAP_MP_STATE:
+ 	case KVM_CAP_IMMEDIATE_EXIT:
+ 	case KVM_CAP_SET_GUEST_DEBUG:
++	case KVM_CAP_PMU_EVENT_FILTER:
+ 		r = 1;
+ 		break;
+ 	case KVM_CAP_NR_VCPUS:
+@@ -265,7 +268,68 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
+ 	}
+ }
+ 
++#define KVM_PMU_EVENT_FILTER_MAX_EVENTS	256
++
++static int kvm_riscv_vm_ioctl_set_pmu_event_filter(struct kvm *kvm,
++						   void __user *argp)
++{
++	struct kvm_pmu_event_filter __user *user_filter = argp;
++	struct kvm_pmu_event_filter *filter, tmp;
++	size_t size;
++	int r = 0;
++
++	if (copy_from_user(&tmp, user_filter, sizeof(tmp)))
++		return -EFAULT;
++
++	if (tmp.action != KVM_PMU_EVENT_ALLOW &&
++	    tmp.action != KVM_PMU_EVENT_DENY)
++		return -EINVAL;
++
++	if (tmp.flags)
++		return -EINVAL;
++
++	if (tmp.nevents > KVM_PMU_EVENT_FILTER_MAX_EVENTS)
++		return -E2BIG;
++
++	size = struct_size(filter, events, tmp.nevents);
++	filter = kzalloc(size, GFP_KERNEL_ACCOUNT);
++	if (!filter)
++		return -ENOMEM;
++
++	filter->action = tmp.action;
++	filter->nevents = tmp.nevents;
++	filter->flags = tmp.flags;
++
++	if (copy_from_user(filter->events, user_filter->events,
++			   flex_array_size(filter, events, filter->nevents))) {
++		r = -EFAULT;
++		goto cleanup;
++	}
++
++	mutex_lock(&kvm->lock);
++	filter = rcu_replace_pointer(kvm->arch.pmu_event_filter, filter,
++				     mutex_is_locked(&kvm->lock));
++	mutex_unlock(&kvm->lock);
++	synchronize_srcu_expedited(&kvm->srcu);
++
++cleanup:
++	kfree(filter);
++	return r;
++}
++
+ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ {
+-	return -EINVAL;
++	struct kvm *kvm = filp->private_data;
++	void __user *argp = (void __user *)arg;
++	int r;
++
++	switch (ioctl) {
++	case KVM_SET_PMU_EVENT_FILTER:
++		r = kvm_riscv_vm_ioctl_set_pmu_event_filter(kvm, argp);
++		break;
++	default:
++		r = -EINVAL;
++	}
++
++	return r;
+ }
 -- 
 2.34.1
 
