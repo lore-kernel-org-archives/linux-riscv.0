@@ -4,118 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0679C5AC67
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 01:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B191C5AC67
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 01:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=naWxe532BBAqbc23Fl1mW2a2UUSXq3jZfn19bs40bIE=; b=IoQVhRTYtFcdpb
-	/3KcYILujM/ip6pLp71RmY8Z2+FOD8az+b81odQnGZEEf/80a9DYK76fZp5DPScfwIyBzsSeOIX77
-	bj+miT7PcfoddBX5RIpyNMJdWtmeau96Mg9clLnXTYITVBrFFQ0XtKTh7TDoMFIt1nB/Ll7YXcfgW
-	ND1jzMey0KmkTEdjynvr/UjBBwKllUNcUqtj3ynGPuWI8td3DhCOl/e/CZ2xWUKFAxmRRZXvPEUfM
-	Hr0DMBX5ijwwYuPZjph8tAXB8/tzizAds9/3BG+r/oB1UTC47Z+5grYPd+BkhFaTp7n1V26yAEAvm
-	wDLJlbCWByPQ9MxVmq4w==;
+	List-Owner; bh=YooGSbnPa3xWiPk5MzfA3y/8sdWrQKtDl3+M9B8VXhc=; b=us9Xct224Gk8rd
+	6Gff/6Dta1JXj0s29Ho2a9WogOIasJ8gR/ENDbLaXYqdmCGyoQGJD1dcfNoFU8Pz3ZViQGp9OUYAf
+	i525ok3rgXwEMcm8j/lZsLBMhBygrUuOY4ZRAF+oz6NmIOOHx9Dn9qBjXSUtiU2PCz7OV0xtgJ/lU
+	8GI1Zc4ElhuUS/wPttKGmvIXZ+zhbqE+X652peBiLZk/4KWZwWYmzcIFOULfjCqB7krtsavj+v8/Q
+	8ZEYrXY2y6T/rzTvsgUjdFcasqiZ8p5PwzYj2V/4E2exqt5JZQlOTVc6CULSI+VlzD4kJnebHLQD+
+	MMYoe16KEoVnIerDYsQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws8zr-00000006unp-3I5S;
-	Fri, 07 Aug 2026 01:03:39 +0000
-Received: from mail-bjschn02on2070a.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::70a] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1ws9Ar-00000006vVX-3lVr;
+	Fri, 07 Aug 2026 01:15:01 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws8zo-00000006unM-0HJu
+	id 1ws9Ao-00000006vTu-2NfQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Aug 2026 01:03:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=jFaVp6NrXCVBmhFc3VRkwkYufC2eGkLOo/1Gh14g8L5T6CqF4UbKMABLxlKvwLYSeJ/iW7XnxPqHTJCPPssh3tFO4MLWF/bRjHByk6jtbUe6rmm838USTZ7pYOjejHoZb1taXZkAuQ7mOc9fc/uzuZ44aUVB3SYlPeGebfwRlOur8mRSSPZts6ghYh1/xULw2DJ4ZlgDTML3qzBvVkO1qOU0GkEOMNm42comVPTO3XuuMh5D98DUUJPKkEExcntSmjthUp6JsTabwX/mjXKroj7oFwX3exIlih1AWzAzSKy8WpLHnXIrrmm8XnOOEiAdYhPoklD00/LYYoP1d39XUQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eRMF0BbWhUrNThEQ8uP57+Mtr679VKsd0P7E5QNSrcw=;
- b=AgbfR7cFZgAkSk0UMPpiuLIcY+GUint3/+ETnS8N4I7ZfZfJVr4nju3LOmt9Ov/Osd8SkXTk5Ptgf0NnKf1BWAXn3hnDssBtkw1Jb/leQWErzTQJM2m+0/8qBjIkWYoCAXKHoDkWeol/ie+EnjI52L0u+s/77FxHbwtl5LymJayTFNxTq4HlaXBKpvM/yLCwPah8UWBPx5vbmAu4A4rynGQaaCnyBExK3Mfgr84NDyOqHJGxRuzhiSg5VOULZiplwJ9hfKN9GDe0XFlXB3I3vJKb9WI/Jfy+iWbq3O8HCfRPsjFxuQKv/+q/AorXMDd9QdVtxvKGpBB6g/J/rLXj6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1330.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:16::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.21; Fri, 7 Aug
- 2026 01:03:25 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0292.019; Fri, 7 Aug 2026 01:03:25 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v3 5/5] riscv: dts: starfive: jhb100: Add JHB100 base DT
-Thread-Topic: [PATCH v3 5/5] riscv: dts: starfive: jhb100: Add JHB100 base DT
-Thread-Index: AQHdJZ7DZysAjEZsykGGi40Ax+Mjr7aRO+wAgACJ7tA=
-Date: Fri, 7 Aug 2026 01:03:25 +0000
-Message-ID: <ZQ4PR01MB120236B6E1D64A057616E09BF2D12@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260806122553.182449-1-changhuang.liang@starfivetech.com>
- <20260806122553.182449-6-changhuang.liang@starfivetech.com>
- <20260806-staining-delay-2e2de73acf04@spud>
-In-Reply-To: <20260806-staining-delay-2e2de73acf04@spud>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1330:EE_
-x-ms-office365-filtering-correlation-id: 56f2a70f-8aad-45ac-4325-08def41faf41
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|23010399003|18002099003|22082099003|38070700021|4143699003|10067099003|56012099006;
-x-microsoft-antispam-message-info: +ELcFa6VPBI4Q0cZYIkBvWuOU3fWYZtIcUfso4agU+2PTt45Sl3jSCDs3ZTklPQ4i/g9O/10lY+EggElaFnpEBKl2/zkK7IpcJpK5M39YqnWBAcOjS/qGf8JlAJU7e+R13QUjjew6OhXLDDAh/s3NGwE/el7oIsrrB6oOWlm1bLlkBAPy/8JXLWzJKg9HuVLD6NrziaWNG5K8CR8GDkQcL2wjSy12i2kP1Jkvo4mkIu5WVachobAzswI01GzC7ZUD8zW63GcTF3bPiX3OY6/2PkWrEMXBhVzO0de8sKwB1qquJFwFPJIEXk5QOh0P1MKTOWjs5p2kGiIPMrSvTpGiyM+T8/crKM3BR1m3PDpFViPN6gXWN+BweGy+9k7uSxK34Dm+fPXZtYgqJEZLf/ka9fvngcbjzzn6z17U0Cnf9t1S/dRaPp4LNrGT5bbniKC3rOw0pZEmIqU6g2UiYmHmNh1mul9TottbpmI8wwTqfAHLhnXBudh+qLQFDw2rtfaOvf0DUloKY0MgSdVdSJxR6DsGWAAWSNEcyF0nNJMiMPgoxlUIuGLbkZJ9P1kfM74
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(23010399003)(18002099003)(22082099003)(38070700021)(4143699003)(10067099003)(56012099006);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?C/0Sod4Uyufl+QRrE1b7/SkhYLKY7XydY8Ew0VHKw523EUchjv6+hca5Q/Kp?=
- =?us-ascii?Q?Ai2oF9bBrlu7zyaiXTYfXDetiwUOVJDUJuid+G5FKeGVR47QMcA8j/61Mz5U?=
- =?us-ascii?Q?gXxx4y3SfKMObnM9Q2hVScquJtfPM+O7ixzrvrRxP5MjRn3s1TNZBdPwqKW+?=
- =?us-ascii?Q?0V59yWvBYl7uNr2H7D0Q/BwxtSa7h8RqVvpD7yWosqXYCdirL0IBOtYKHcNF?=
- =?us-ascii?Q?xgm5//yt+U10f/AslODHsxZsnqvTrgzy5QKHHq63Zjc9HKogSx1zX52zrxY1?=
- =?us-ascii?Q?GAd3cAlHoIlAwlS3rBmdbtqThjLapZQyILu+ItAfIYm/VuhDLZnJQBEMQjms?=
- =?us-ascii?Q?Oy0eL8pyGCyYUKB/04WCZnoyl1PikXekfxL9RERP/Ahs9euKrshXP5/YqUjq?=
- =?us-ascii?Q?8dzi0VKmeL36cPTmLRieiaaBL8mwOu4oDSGPZXPXZd0HBBJ6i/8SLHzmqnEg?=
- =?us-ascii?Q?3S+tAJY3s2uxCG87gNKeOBYYV5JZGD+3lrhk+dAbUq43nyESMlM1YaZKEMde?=
- =?us-ascii?Q?Qdb4uERi51mWu+QzhmrUfhopQK0IZFvgc8uXxxsxD3D6qmzHNl0iSgTqnPqy?=
- =?us-ascii?Q?A2Ry8QQ5QADZnbIXcTQMuLDFzQHCpbFsHa86FbfNqWoDU9+H3ZnOHLeyLuxa?=
- =?us-ascii?Q?2/zhimVdmjlfSeLY3xL2za2GTGsedGPrZ/jLnA9P0nt8do9ZgGEPUYTZ98hP?=
- =?us-ascii?Q?0+DCBZaNevbRaRhWiHPAnbjJF5KdNphH7hczmcB98Ug04MqW4/DkdGey36bI?=
- =?us-ascii?Q?+BK535PtJDg4Km1GkpaMSocPl7kW4Z2qY96bdhP+V9SSNvwpmA6BZYJf/jlL?=
- =?us-ascii?Q?YMa4AY9QY4h/Qw0VxjbpbCnUWFwNv5BItY1X8SOFRF1cKvDW4nl6xAVax9cH?=
- =?us-ascii?Q?FspcytEkHBwJ0wyd7QaFpIS2ibxhnAwT/mqpTHXs1oECJxEPTsQVXFnEDU3c?=
- =?us-ascii?Q?X0CNQqWflE8YA8RXtoAoqSebNgi/ZQ6qtYhLsB+G/vZF5Vx3D9Y7at72K/8e?=
- =?us-ascii?Q?3JQ/M6vl4WrVWY3aptQQ3MzY9x0kF9SI7G7qbfqf+UqG+V7In2ZfY5QP0s6z?=
- =?us-ascii?Q?h7MiZ6O+rVWyOR17jOuehMG7ikYKrT2N/M4QXrz5+cB60ywaJLQHK6zIpHsD?=
- =?us-ascii?Q?lbfWWz+H/BJUin1Htc9i7US7+B3FwB90NBgwDW62e95Yg0Y1tk9WPcXH/PlZ?=
- =?us-ascii?Q?yFGA00Wf3FgmIcdzukhzcj11QlAEVv5eWrBdOqRS/BgMqNOufJFoJalGLygh?=
- =?us-ascii?Q?7lEYqqx2MVUNoT2+ZV3r1lHe0Uw0OihbavKwRTM77bajIqsXQLZMUdzS0ApV?=
- =?us-ascii?Q?+ME0vp+UMDQ74G8poezxYZj7ZHs1FjWltXyjQ7WOGNcvzt5BeepwMbZR6luu?=
- =?us-ascii?Q?moJSkJeNGJalNPQ8RzoJ4mm+8Uxx0kN4eTWHzMIvp5SdKmV3HqM6hV9+tZjV?=
- =?us-ascii?Q?T6VI1ZHHDJE5P4xLdTWUBAa/1Vw2aJlHCEXCjgBt5WeyJygLEgGGdDfG2Xnd?=
- =?us-ascii?Q?J43zg7Cvv37s5gVGOJvyjh8aQssPgHgSlhdNCOZ0ATvNcXn32AyJlIiVt/tn?=
- =?us-ascii?Q?7/LMhnLoFYhZMaANVkVSVY9wNFIRW7KboEm9j6IIzp0VGNYLlTPhqxJ+CK+N?=
- =?us-ascii?Q?bEsMCuc7IaE6njv/V9+NNog+G412YmJpmLGS4LmYky/c/dXYzSNBkPnz+mEt?=
- =?us-ascii?Q?Ndkr67AAccvzBgCpgwXjZkPHnDdNovLkjxC3YZlM/trvT++FYjc61/dpztwl?=
- =?us-ascii?Q?vSPr+Mm5ZXdOJgyfz0cav46YtB0ZX+k=3D?=
+	Fri, 07 Aug 2026 01:15:00 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=bCi+eyrfOafLkWxzoWjEhXktdsApkRYiw013NIAHLPc=;
+	b=PSczosM91C3apx3C6/XugiUh86f3tKytvd7DaeE5ubnTWaRB4OU7ZsABk/Xxea/ChmI0OZvAb
+	BCo3cFk86D5+6x7pNugXDhZ2sMhD/h/Ce0iwlvC9I28Rpvm2c09QWJqLOzQcYqt1WxuPGusHad3
+	MAvEpld7LYCt3+M5yJehuy8=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hGQsB4YDqz1cyPY;
+	Fri,  7 Aug 2026 09:04:14 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id 813204058A;
+	Fri,  7 Aug 2026 09:14:47 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
+ (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Fri, 7 Aug
+ 2026 09:14:46 +0800
+Message-ID: <10c318aa-5158-4c12-9607-4a8a1aee84d7@huawei.com>
+Date: Fri, 7 Aug 2026 09:14:46 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: 56f2a70f-8aad-45ac-4325-08def41faf41
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Aug 2026 01:03:25.4230
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: yQHcRWXZFPfLTbmmBoNceFTe+UssISBHYiZEg+9HQEb9nOW9iuXxS+XxSj+6IPNPlTIjkiqAltbNlGyQDOk9W9Mz8OKJwNYZotOOgJnO76NkDBeMj6eMwV4faS0ewqL1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1330
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: ftrace: Fix ftrace_modify_call failure on kprobed
+ functions
+Content-Language: en-US
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Andy Chiu <andybnac@gmail.com>,
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Steven Rostedt
+	<rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<bpf@vger.kernel.org>, Pu Lehui <pulehui@huaweicloud.com>
+References: <20260802094929.3978390-1-pulehui@huaweicloud.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20260802094929.3978390-1-pulehui@huaweicloud.com>
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_180336_130778_C497DECA 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260806_181459_265099_6373216A 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,39 +77,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Joel Stanley <jms@oss.tenstorrent.com>, Drew Fustini <dfustini@oss.tenstorrent.com>, Darshan Prajapati <darshan.prajapati@einfochips.com>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, Guodong Xu <guodong@riscstar.com>, Yixun Lan <dlan@kernel.org>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, E Shattow <e@freeshell.de>, Junhui Liu <junhui.liu@pigmoral.tech>, Daniel Lezcano <daniel.lezcano@kernel.org>, Michal Simek <michal.simek@amd.com>, Paul Walmsley <pjw@kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Conor
+Gentle ping~
 
-Thanks for the review.
+Hi all, Is this commit looks proper?
 
-> On Thu, Aug 06, 2026 at 05:25:53AM -0700, Changhuang Liang wrote:
-> > +
-> > +	clk_uart: clock-uart {
-> > +		compatible = "fixed-clock"; /* Initial clock handler for UART */
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <25000000>;
-> > +	};
+On 2026/8/2 17:49, Pu Lehui wrote:
+> From: Pu Lehui <pulehui@huawei.com>
 > 
-> I can pick this series up on a provisional basis for you to work on top of, but I
-> won't be sending a PR for anything that contains temporary fixed clocks.
-
-That's great.
-
-Once my other two series are also ready:
-
-Add basic clocks and resets for JHB100 SoC
-Add StarFive JHB100 syscon modules
-
-I can squash these three device tree into a single patch and send it out, so there won't be 
-any temporarily used clk_uart and PLL nodes.
-
-Best Regards,
-Changhuang
+> We are frequently hitting the following splat during the riscv bpf
+> selftests:
+> 
+> 00000000026dc75a: expected (7c3ff297) but got (00100073)
+> ------------[ ftrace bug ]------------
+> ftrace failed to modify
+> [<ffffffff03c44c1c>] bpf_kfunc_common_test+0x4/0x20 [bpf_testmod]
+>   actual:   e7:82:c2:ce
+> Updating ftrace call site to call a different ftrace function
+> ftrace record flags: 80100002
+>   (2)
+>   expected tramp: ffffffff80043904
+> ------------[ cut here ]------------
+> WARNING: kernel/trace/ftrace.c:2278 at ftrace_bug+0x46e/0x4b0, CPU#1: test_progs/98
+> ...
+> [<ffffffff80008f4e>] ftrace_bug+0x46e/0x4b0
+> [<ffffffff803d3e86>] ftrace_replace_code+0x16e/0x170
+> [<ffffffff803d42b6>] ftrace_modify_all_code+0x12e/0x1b8
+> [<ffffffff800430f4>] arch_ftrace_update_code+0x14/0x28
+> [<ffffffff803e0324>] ftrace_startup+0x14c/0x2a0
+> [<ffffffff803e133c>] ftrace_startup_subops+0x584/0x1050
+> [<ffffffff804500e6>] register_ftrace_graph+0x4e6/0x1018
+> [<ffffffff804cf9f6>] register_fprobe_ips+0xc66/0x12f8
+> [<ffffffff8049abe8>] bpf_kprobe_multi_link_attach+0x5d8/0xe68
+> [<ffffffff8050fcaa>] __sys_bpf+0x3d5a/0x47f0
+> [<ffffffff805107ee>] __riscv_sys_bpf+0xae/0x168
+> [<ffffffff80034d78>] syscall_handler+0x60/0x100
+> [<ffffffff8228b4f4>] do_trap_ecall_u+0x174/0x208
+> [<ffffffff822b69c4>] handle_exception+0x16c/0x178
+> 
+> After debugging, it can be triggered by similar commands below:
+> ```
+> echo do_nanosleep > set_ftrace_filter
+> echo function > current_tracer
+> echo 'p do_nanosleep' > kprobe_events
+> echo 1 > events/kprobes/enable
+> echo 'f do_nanosleep' > dynamic_events
+> echo 1 > events/fprobes/enable
+> ```
+> 
+> The reason is that attaching a kprobe to an ftrace-traced function entry
+> replaces its initial auipc insn with ebreak. When ftrace_modify_call
+> later runs, it expects auipc insn, so verification fails and triggers
+> ftrace_bug.
+> 
+> The expected auipc logic remains conceptually unchanged, and kprobe
+> single-stepping ensures normal execution. Therefore, if the first insn
+> is ebreak, bypassing the check to continue patching the jalr insn is
+> safe and avoids ftrace failures.
+> 
+> Fixes: b2137c3b6d7a ("riscv: ftrace: prepare ftrace for atomic code patching")
+> Signed-off-by: Pu Lehui <pulehui@huawei.com>
+> ---
+>   arch/riscv/kernel/ftrace.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> index b430edfb83f4..be8b68514417 100644
+> --- a/arch/riscv/kernel/ftrace.c
+> +++ b/arch/riscv/kernel/ftrace.c
+> @@ -12,6 +12,7 @@
+>   #include <linux/stop_machine.h>
+>   #include <asm/cacheflush.h>
+>   #include <asm/text-patching.h>
+> +#include <asm/insn.h>
+>   
+>   #ifdef CONFIG_DYNAMIC_FTRACE
+>   void ftrace_arch_code_modify_prepare(void)
+> @@ -63,7 +64,9 @@ static int __ftrace_modify_call(unsigned long source, unsigned long target, bool
+>   		if (copy_from_kernel_nofault(replaced, (void *)source, 2 * MCOUNT_INSN_SIZE))
+>   			return -EFAULT;
+>   
+> -		if (replaced[0] != call[0]) {
+> +		/* Bypass the check if the auipc insn is a kprobe breakpoint */
+> +		if (replaced[0] != call[0] &&
+> +		    !(riscv_insn_is_ebreak(replaced[0]) || riscv_insn_is_c_ebreak(replaced[0]))) {
+>   			pr_err("%p: expected (%08x) but got (%08x)\n",
+>   			       (void *)source, call[0], replaced[0]);
+>   			return -EINVAL;
 
 _______________________________________________
 linux-riscv mailing list
