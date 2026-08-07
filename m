@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F28CC5AD2B
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 23:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2087DC5AD2B
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 23:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KhngCPdEmkcmE6H+qi2hzxKtO7K+R+xWSw8walciwQU=; b=c6/NUnLsnbQEcg
-	ucntTeDJy+BKygm8p4EoSA5gqbZscnRa5iykZCLochV7SlxDZz3iY4CKfJFMfhoiL5paLpsxKQA4R
-	HqHsoQbXLN/CCH2pYlfDsp9dn3E8DSkPhxPwPN8f+MYiyM0CTuqqPsQjvsRvoTDJA8kIHJ09cfd1D
-	HuAS+uguTT496BOzqIpostK54X9UUBBqhDvjhu5vBg+3Y/wcFedOlyNDRSzC/aSyRUGxlq8wO4bqG
-	XOLaMcOxSQxVCxf2w42p/fbGkmkczm55rYrero9CabavsxGoBjs911cJ1aUV8O6DL3Za78BXPZR0H
-	dKoGOagtVQWcCse3jZOg==;
+	List-Owner; bh=gB3+gn6nfBaZEcnElU+CqtseCxskPDXF1eiStWKSBhs=; b=3S5slkWDzC0EBh
+	bVKZNBJZDrEVksemYivLt0XfKuaS8AbSktfkGLIjHmpBB5EnMf1KUriXJhjH3r0AaXLASses2XfDL
+	9JFBGA4egjSG815jeeJDdw3pzSPcSRRrLKFfquaMg3Pz7E2aP4jtfNQCcL1pXigKZ7Bn7EQ5NUX99
+	2mZK+wdrksFbwAGNb1FFi6gZqeKDpz5lcxQLiuxTASPFMpkSzkRbixOOepQTL0h8/u5V7a3RTVE1q
+	W7HALIlP14PXlswh68hgVkc5mUA0pwqGtmwikaIPM9OKDeA+QzTOVy7jWhmk894DpnSjQPvEsMOJK
+	EptvWeQaLKCAHsCOmUwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTbj-00000008qof-3EQQ;
-	Fri, 07 Aug 2026 23:04:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wsTfw-00000008r44-1fvL;
+	Fri, 07 Aug 2026 23:08:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTbi-00000008qoO-2PlU;
-	Fri, 07 Aug 2026 23:04:06 +0000
+	id 1wsTfu-00000008r3k-1aUn;
+	Fri, 07 Aug 2026 23:08:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 063B543A3F;
-	Fri,  7 Aug 2026 23:04:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FBB81F000E9;
-	Fri,  7 Aug 2026 23:04:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A1D386001A;
+	Fri,  7 Aug 2026 23:08:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 238321F000E9;
+	Fri,  7 Aug 2026 23:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786143845;
-	bh=kx1UpXBKBEnflfmlkyqXJx2dZdKyL+1i3Yt8CewuoiI=;
+	s=k20260515; t=1786144105;
+	bh=wQ0JD0AB/ZMckaLhyMCcytJcM09nVahiftP8BN/zRr4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VV/XUYcMh8D0sqYrzb6w4ag/Zg3apwKvX86mZCbG+yJ4BrEBzd6D/uVp6XAcfGVu9
-	 xK0K3U1X6w18XuHNER8n2eiovHx2ki/yt8i7e4rVnNMVLrSy45/NhT9manywxGtTq+
-	 OZpQGjBAa3EQOa05D0effL3x/zpXVwtZua2RfujaYDYnlAUiPoewfrtjKTwjxGbwhN
-	 /QeJxfZT28juQPDOxN1mkQjQ4ccmqdX5aYPAPzJfb53i6n9RqrBwGrOEp3VB8xm3XH
-	 80ccLuP5Q0vc1dAUkxDhwNkCnOjAuuInRU6AqpF9LSU3hKFCSwFnDBfzNJPOqrLHuZ
-	 HHSyV1z1pS3cw==
-Date: Fri, 7 Aug 2026 18:04:04 -0500
+	b=fnEINRfI/WLStiFHgYr/N4vDshm6MANIZ293vGjTgkzrxM9QK3Hpe/ipWqLpB8Nk2
+	 bW/kjk4FPdSBkuQtNkbkj8Uf5GqBo+ZqHzgzukevc1IOlnVdLNonX9i+Awx2kyBK75
+	 Vn7VDhMxtF6+1jS4/eDR1xCcJYmCSs66odGLe5emtBWSvtnEGuyUVI1xHc5L4Cz9pU
+	 MHEKjmP5IXncmal1qT1VdKixTr5Cyb9rX7KU4yLnlhFCjENjewgVIlftfdWVXHB3OG
+	 b3SV5BorbrpdPGg0xi/N2HjaSUa7bkr2IQ6WepaCNehV9qPEvLtkYCk0VGjZ2p/Ia8
+	 8FhMav+rBrC3A==
+Date: Fri, 7 Aug 2026 18:08:24 -0500
 From: Rob Herring <robh@kernel.org>
 To: Cody Kang <codykang.hk@gmail.com>
 Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
@@ -62,14 +62,14 @@ Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
 	devicetree@vger.kernel.org, spacemit@lists.linux.dev,
 	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: Re: [PATCH RESEND 03/17] dt-bindings: display: spacemit: add K3
- Innosilicon DP/eDP controller
-Message-ID: <20260807230404.GA2211679-robh@kernel.org>
+Subject: Re: [PATCH RESEND 04/17] dt-bindings: soc: spacemit: allow eDP/DP
+ PHY PLL pixel clocks on K3 APMU
+Message-ID: <20260807230824.GA2220945-robh@kernel.org>
 References: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
- <20260725-k3-display-v1-3-6de34d80e86c@gmail.com>
+ <20260725-k3-display-v1-4-6de34d80e86c@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260725-k3-display-v1-3-6de34d80e86c@gmail.com>
+In-Reply-To: <20260725-k3-display-v1-4-6de34d80e86c@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,94 +86,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 25, 2026 at 12:51:12AM -0400, Cody Kang wrote:
-> Both K3 instances are the same IP and share one compatible; which one
-> behaves as eDP is decided by what its downstream port is wired to, not by
-> which register window it sits in, so the binding does not distinguish them.
+On Sat, Jul 25, 2026 at 12:51:13AM -0400, Cody Kang wrote:
+> The APMU's eDP pixel-clock muxes select the DP PHY PLLs as parents, so the
+> K3 syscon takes two clock inputs the other variants do not have.
+> 
+> Gate them behind the K3 compatible instead of widening the shared clock
+> list, so a non-K3 syscon cannot silently accept clocks it has no mux for.
 > 
 > Signed-off-by: Cody Kang <codykang.hk@gmail.com>
 > ---
->  .../display/spacemit/spacemit,k3-inno-dp.yaml      | 140 +++++++++++++++++++++
->  1 file changed, 140 insertions(+)
+>  .../bindings/soc/spacemit/spacemit,k1-syscon.yaml  | 30 +++++++++++++++++++++-
+>  1 file changed, 29 insertions(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml
-> new file mode 100644
-> index 000000000000..865ea310daaf
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml
-> @@ -0,0 +1,140 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/spacemit/spacemit,k3-inno-dp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SpacemiT K3 Innosilicon DisplayPort / embedded DisplayPort Controller
-> +
-> +maintainers:
-> +  - Cody Kang <codykang.hk@gmail.com>
-> +
-> +description:
-> +  Innosilicon DisplayPort transmit controller integrated in the SpacemiT K3
-> +  SoC. The K3 has two instances of the same block sharing one compatible;
-> +  each acts as embedded or external DisplayPort depending on whether its
-> +  output port drives a panel or a connector.
-> +
-> +properties:
-> +  compatible:
-> +    const: spacemit,k3-inno-dp
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +    description: Link and hot-plug events.
-> +
-> +  clocks:
-> +    items:
-> +      - description: Pixel clock for the controller.
-> +      - description:
-> +          Pixel clock generated by the DP PHY PLL; the pixel clock above is
-> +          parented onto it in use.
-> +
-> +  clock-names:
-> +    items:
-> +      - const: pxclk
-> +      - const: pll
-> +
-> +  resets:
-> +    maxItems: 1
-> +    description: Controller-wide reset signal.
-> +
-> +  phys:
-> +    maxItems: 1
-> +    description: Phandle to the K3 Innosilicon DP PHY.
-> +
-> +  phy-names:
-> +    items:
-> +      - const: dp
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Video input from the DPU.
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Output to the panel or to the DisplayPort connector.
-> +
-> +    required:
-> +      - port@0
+> diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> index d3a7c93c3c54..b8fc6632a392 100644
+> --- a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> +++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> @@ -31,14 +31,18 @@ properties:
+>      maxItems: 1
+>  
+>    clocks:
+> -    maxItems: 4
+> +    minItems: 4
+> +    maxItems: 6
+>  
+>    clock-names:
+> +    minItems: 4
+>      items:
+>        - const: osc
+>        - const: vctcxo_1m
+>        - const: vctcxo_3m
+>        - const: vctcxo_24m
+> +      - const: edp0_pll_pxclk
+> +      - const: edp1_pll_pxclk
+>  
+>    "#clock-cells":
+>      const: 1
+> @@ -95,6 +99,30 @@ allOf:
+>          - clocks
+>          - clock-names
+>          - "#clock-cells"
+> +  # Only the K3 APMU exposes the two eDP/DP PHY PLL pixel clocks as extra
+> +  # inputs (parents of its eDP pixel-clock muxes); every other variant has
+> +  # the four base oscillator inputs only.
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: spacemit,k3-syscon-apmu
+> +    then:
+> +      properties:
 
-Shouldn't port@1 be required too?
+> +        clocks:
+> +          minItems: 4
+> +          maxItems: 6
+> +        clock-names:
+> +          minItems: 4
+> +          maxItems: 6
+> +    else:
+> +      properties:
+> +        clocks:
+> +          minItems: 4
+> +          maxItems: 4
+> +        clock-names:
+> +          minItems: 4
+> +          maxItems: 4
 
-Otherwise,
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+4 is already the minimum, so it can be dropped on all of these.
 
 Rob
 
