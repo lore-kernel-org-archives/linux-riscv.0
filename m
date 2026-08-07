@@ -4,136 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F783C5AC67
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 02:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6A0C5AC67
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 03:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvJglmVL91dbkDuzN4wrDpCewZ9T029hWhMBNmih9gU=; b=qF6+5QfyWH9pBGB/fLOOF/yo8v
-	Td8IB4SiK5hjoQyAEImoLapznhAL2yMMrN3hXdb0qWV1CM1taQDCQ0KO2JoBKvGvEqZosyrVmgaX3
-	FSoIkA8IjC0VOlBsV8S7F32N6BO88FrU6i3qINJBBoPVoWt6jNq8/1LUeOnz3zuBI0SImwI0zRawK
-	RMJrGGyI59IDTn5IxX0hiYegdoixlBZ9kneSomsxd0jl+ME2ZaTb5MbepVFEReGsEaEqYg0QToToZ
-	pk4MmYFaPDqm769G2CY/qb13kvpTGzg78YtyA00yEaK/IfG1Yx96fWOkF1F/RWJtAEdGo7MyiUitn
-	zVoHEIQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8W+Xa2vf0RJMSLm/2uYGqWeEK/7mrihTXENyiqLZHkE=; b=fjhBnMvJkkWMVH
+	XA0td6MBUWRRbpoM6qChhSc7s9XW6RJ9fFAABP2yS2BGPdo1C7NXsk2Iwggl7zZoavs8LZtRnP/Rf
+	S9Nmjkxxe7YKuyLf9uqJ14tbFJpHXAOvo+uFvGkRfVfy2o8jrYGeszeGV3hNfY0Yt0WRS+DMGeM2I
+	WBg66gwbPpIHsfEEA2BQI0YMKMP+a6VTrrJdJgrtvJbCPlhm6GaEcDL5D1r8ysbFfkEtpgicMAXhs
+	MzCLIlW8TAKdWnIs0dOybdnbfUiZJ/bHqXiuH+ew3m7L+S7mnoWfELtXwBK3u8v2YRDxB421KrZjJ
+	tvrYeNsuH5A4V5TgBVMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsAGq-00000006yki-3Yu5;
-	Fri, 07 Aug 2026 02:25:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wsApQ-000000070zq-1HDX;
+	Fri, 07 Aug 2026 03:01:00 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsAGo-00000006ykD-1sFs
+	id 1wsApN-000000070z7-2TR1
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Aug 2026 02:25:15 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6770GfHg3533322
-	for <linux-riscv@lists.infradead.org>; Fri, 7 Aug 2026 02:25:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	sME6dxu+lP6XRSMrnAXeehDIBxuMJDmF4YYzKVgdqY8=; b=GeNbwbjO1fbnzb5t
-	aR2/MyUqbNyATdthNed42sBhG2Tjl5Ie8RzmWkY5rKqcw+7O2hoo7zJjiIpscMEF
-	w7Eej5wjbVLP6QHh4MiYOPDX2RrIeyuz4dznxS4OWBtOYeOwi6DwZJkObJK2NE62
-	8PogpSC2dRM+2SJp13jUINMPPHCWw7UtB+gz9ndEzy/PLF3VtiqjNagm291VA6gL
-	VccoHR2TlXOxZBRsvJmGBEAxtB1kpstoZo9tfOBRXpsCibRi3hdx7J6GJzwEGijm
-	nqiXoCABnCWoKYgVfDsjgBb3Pe3Nd5gLjmcZVXe/vV8OKZQYlZ+llynFxTgcs8gx
-	cPmmCg==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fvy6fsvfn-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Fri, 07 Aug 2026 02:25:12 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-52769fc3f2eso35277951cf.0
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Aug 2026 19:25:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786069512; x=1786674312; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sME6dxu+lP6XRSMrnAXeehDIBxuMJDmF4YYzKVgdqY8=;
-        b=Ed4R/fF9g3dBAo1L1I74eCzCzIuYznDkPjMR1Kk1HWotdM64a9R3et5EkMvi/nK1JN
-         uPuOIDeR/3eLzAJb9pnfwJaO/kLpe3oXagXl4z99MB6rWhOYEINO1wYfkgNSKhVD8CYC
-         KjvtvZ+VD6kuLmkFi7ToSEhGwz+6HEedq01wu03ykxqjTg5BZjn32iLwzj21rF5Kkhv8
-         O/sghjJgy/tqJJbm+Mm050bJ2FPTM+fg9SPwqGy099gUp2R1N58DUP/tu0rKgCJdwKin
-         qDq/6fhrVarwvnrwru45t5yZMfQSwBLYlhtFN3gBSZhYY0u10fwCWPFxUwcP97hMXAnS
-         hEiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786069512; x=1786674312;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sME6dxu+lP6XRSMrnAXeehDIBxuMJDmF4YYzKVgdqY8=;
-        b=QVmlSGyCpr2pq6lcR6NPss3hQBzs+b28MNv/fsKJxlHfNiFCIPCl9LEJDVS/yzm6+y
-         N1lHxQXN1m1prA6XVSIdi7UqmIGw2+hxqncaFnkjUOYWedeGuVgAng10uKJVMjuk8pcF
-         eL5SS7DB7VrxbbqT5FY3E6ZC21NttZd3FARQx25709+YajZ5Xq2qKfoKYYUcJnaZWFcr
-         Go8ULeIitqqvs59zM64er23/ETd31+PWtGl1RGRgtgMO0baa5pb0P8K5ugAZRvvPBtr+
-         jOkK7x5kKzaGY+2Q0kPJ6RzetmY2h7Bx4+lk6Mh9clBqfHBTRST+H8kfHr/c214+ngmC
-         q+OA==
-X-Forwarded-Encrypted: i=1; AHgh+RrMBgHWKskMJN5lFcxTaroG3j6SDWVPG//9lI1TO/lXS6Jms6A6bc3mK/daC+rNobD2ggbo3c+O6dqlIA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXur6SqweqeQvbJfFRxJDTIYEYzSsbEFKK6y4S2PTle3QGPQD/
-	wsjzuycqpe25CDsBEVlZwLEHuwjs6c8DdM9NJi/7xMoEtxfiD9n3RIinyCSE7wTiG/zOLtdLp7f
-	tIPvgJRTXlhzfsIuoHVG7beh7JsEmW4Xw1I0xSySBnd0IiExUbIFC8AJvQNZqabm7UmFkDwE=
-X-Gm-Gg: AR+sD10Hj5D3whA4Ka+wn1DVE5tVnv5e8bme/FbMD8tdQuOFs9v12DuY7cGuye27Rbq
-	STbNfy0qr3yqQUmDlNvnHimqWRcDgHzwFx1Qnk/8KEiYot6hn8DDq3LQK2CysnE8m40bClopj5i
-	qUn9RuucxNIn286CV0qT33Pp0QiOQ6D3JQVi6muMqxodBApK1PbEBZ8K3AOS1gWPVeP7PbogTqa
-	fNDbjPAKaW/rmwra4XRL4DMpanWdBmd3QLe+Z1X9HzHE2Bccb2mBhVtRM39+ZEnIHuzcq392lAa
-	6AuOWcMkfOzkQ4j64GC3k3W+p2MDkFzLs1Zxtp9hJYgPxTDLhfVA/pCJgBCWapSpQ2Lej5ReOlo
-	O3bxy7eg562TF3yljSWj5yhX+UZhFSwRvVDtfiWg/Ipuwyw==
-X-Received: by 2002:ac8:7f85:0:b0:51c:1967:5091 with SMTP id d75a77b69052e-52ce6200bcbmr210648481cf.41.1786069511691;
-        Thu, 06 Aug 2026 19:25:11 -0700 (PDT)
-X-Received: by 2002:ac8:7f85:0:b0:51c:1967:5091 with SMTP id d75a77b69052e-52ce6200bcbmr210648191cf.41.1786069511316;
-        Thu, 06 Aug 2026 19:25:11 -0700 (PDT)
-Received: from [192.168.2.1] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995420bd1csm108881935e9.3.2026.08.06.19.25.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Aug 2026 19:25:10 -0700 (PDT)
-Message-ID: <0f8f7fb1-1138-42fd-b949-19e32e61917a@oss.qualcomm.com>
-Date: Fri, 7 Aug 2026 04:25:04 +0200
+	Fri, 07 Aug 2026 03:00:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786071658; x=1817607658;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=wpnOaTb/Zk3sbbuyAu9RmVVdY+hdC7fMYGvf620Qp/g=;
+  b=naixGhumSoYXBFKhuaEYYyy0g2HLd2WvSHuGG3F6BS2ghySQ4oOZeHe9
+   3QFDqU+49iUgxrH5pFRRhtt+RlxTgrVyLqUTt5yIpxEOzuCBKzM9Rvzyi
+   vsSAdBW8fcdLQ+ZkiEFPLMM/EGex2vPrTTtCWxJiabz8pHOJnPvcqxSXR
+   63VLk5wGCo/WZUZTa6uO/4i5+9XXspS3+L3o916T3rr1rWKG7rILXEvMY
+   ZP2sQAkN2dkpq0XqNQvE7oj8bQ7CzpnBu21Y6hCNubULiXtlxq2UE15nL
+   tQrjS+o9c0zvVYJHpDYEyahNn7j/2O+GoegsGALrO/PPxPMstbqvFQsHj
+   w==;
+X-CSE-ConnectionGUID: dlDRcaTXS4OfxGHNT1HE1Q==
+X-CSE-MsgGUID: Aayj270XRRC5CB/Oh2O7ow==
+X-IronPort-AV: E=McAfee;i="6800,10657,11867"; a="86789476"
+X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
+   d="scan'208";a="86789476"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 20:00:55 -0700
+X-CSE-ConnectionGUID: lDCREu0kTt6V5L44sSZRfQ==
+X-CSE-MsgGUID: grI9Q3fuTVyRh3ZUHPFxdw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
+   d="scan'208";a="258426188"
+Received: from sdp-s2600wc.sh.intel.com (HELO [127.0.1.1]) ([10.112.229.16])
+  by fmviesa010.fm.intel.com with ESMTP; 06 Aug 2026 20:00:52 -0700
+From: Guobin Zhang <guobin.zhang@intel.com>
+Date: Fri, 07 Aug 2026 11:00:50 +0800
+Subject: [PATCH] riscv: signal: protect regs->status RMW from concurrent
+ preemption
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] thermal: spacemit: k1: add shutdown action and reorder
- registration order
-To: Pei Xiao <xiaopei01@kylinos.cn>, shuwei.wu@mailbox.org,
-        troy.mitchell@linux.spacemit.com, rafael@kernel.org,
-        linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org,
-        spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-        dlan@kernel.org, daniel.lezcano@kernel.org
-References: <1967d2bcc8fede6fbd25fc8eee07f2873fb41472.1784184867.git.xiaopei01@kylinos.cn>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <1967d2bcc8fede6fbd25fc8eee07f2873fb41472.1784184867.git.xiaopei01@kylinos.cn>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA3MDAxNCBTYWx0ZWRfX4UUYlMGGwwSC
- wySs/i+3VzbCNBGFwGiCcBLCEYZt+/Iab0JGHG6kOG+HwUDTn37zQlc7Y9cifvMsGlHLvDOdAzt
- unT8onOe3FWDpl7uv37NO3cqfb1rjecNObNE8rwm4RosPDY7B80hX6u/aT4RWM4/gUa0XMftSJX
- npWYFf+fyFmhx42GMqtmfTHppdYOPx0cL6jSU5cO8wHwGCv+9Gt1x4AEiidSgiBUvyBdO5l7toN
- H80oNXfYZ7roylA608hGYENTctOw8OvITGmin9mz+cUQrnNB6K7z6QWdheQkcT3Zhgxl+Qyh29X
- j3DuYibKBsmnXqwmDJFSVVyjw8jCWKuv9MKyEhz2QoXRKNZKiVXYD3apRQwNxXFKIOBrthPlInc
- jt505qKsJn2n+xnqzzpWkmlgAJaVptosRKiYFyyMp+KQm/cJ/ezoS/MsicvdfSgas1wRf0d+rxl
- mL1OMYV1VP0lAeBeTQw==
-X-Authority-Analysis: v=2.4 cv=DvhmPm/+ c=1 sm=1 tr=0 ts=6a754208 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=uw/3876vWhRnNVL35W6mqQ==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=c8bhSAXnGUngXy6NwXgA:9 a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-ORIG-GUID: PRvIAmzykv-Gcd9qBj6WkYQKYOtz8COp
-X-Proofpoint-GUID: PRvIAmzykv-Gcd9qBj6WkYQKYOtz8COp
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODA3MDAxNCBTYWx0ZWRfXy45858s9r3X7
- ar+9Ys9ihG2jkOC46qme6lwj5hlEUroe3zi4M4rlUv3pcpmXrzihU0YXg6yQjO0K2nd0lEbh9z/
- SJVV/cInyc3A0JxD8DDScoV+rjOa4kw=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-07_01,2026-08-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 clxscore=1011 spamscore=0 malwarescore=0
- suspectscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608070014
+Message-Id: <20260807-vector_fpu_regs_status_rmw_fix-v1-1-0c16848b60db@intel.com>
+X-B4-Tracking: v=1; b=H4sIAGJKdWoC/yXNQQ6CQAyF4auQrp1kQFDiVYxpBuhgTQTSzqAJ4
+ e5WXX5v8b8NlIRJ4VJsILSy8jwZykMB/T1MIzkezFD56uRbf3Yr9WkWjEtGoVFRU0hZUZ4vjPx
+ 2XVPGUIe6OQ4tWGQRsvl3cL39rbl7WORbhX3/AHapZbyCAAAA
+X-Change-ID: 20260807-vector_fpu_regs_status_rmw_fix-b51fa4a453d8
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Guobin Zhang <guobin.zhang@intel.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_192514_607926_D30B2415 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_200057_675610_6AEDF354 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,26 +83,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/16/26 09:04, Pei Xiao wrote:
-> Add a devm action to clean hardware interrupts, sampling, and control
-> registers on driver unbind, mirroring what k1_tsensor_init() sets up.
-> 
-> Reorder the registration order within probe(): register the thermal
-> zones first, then request the IRQ, and register the shutdown action
-> last.  On removal, the hardware interrupt is disabled first, then the
-> IRQ is released, and finally the thermal zones are released.  This
-> avoids the IRQ thread accessing an already unregistered thermal zone
-> during devres cleanup.
-> 
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
-> ---
+__fstate_clean() performs a non-atomic read-modify-write (RMW) on
+task_pt_regs(current)->status to clear the FS bits. This RMW is
+unprotected - it runs with preemption enabled and IRQs on during
+signal delivery (setup_rt_frame -> fstate_save) and sigreturn
+(restore_fp_state -> fstate_restore).
 
-Applied, thanks
+If a reschedule IPI or timer interrupt triggers preemption between
+the load and store of this RMW, __switch_to_vector() calls
+riscv_v_vstate_set_restore() which modifies the VS bits of the
+same regs->status. When the preempted task resumes, it stores back
+the stale value captured before preemption, overwriting the VS
+update and restoring VS=DIRTY while TIF_RISCV_V_DEFER_RESTORE
+remains set - a combination that should never occur and leads to
+vector state corruption.
+
+The race window:
+
+  __fstate_clean (signal path)      set_restore (schedule path)
+  -----------------------------     -----------------------------
+  ld  a0, regs->status  // VS=DIRTY, FS=DIRTY
+                                     <- preempted (reschedule IPI)
+                                     regs->status VS = INITIAL
+                                     set TIF_RISCV_V_DEFER_RESTORE
+                                     <- resumed
+  andi a0, ~FS
+  ori  a0, FS_CLEAN     // stale a0 still has VS=DIRTY
+  sd   a0, regs->status // overwrites VS=INITIAL with VS=DIRTY
+  -> result: VS=DIRTY + DEFER -> ANOMALY
+
+Fix by adding preempt_disable/enable around the RMW in
+__fstate_clean() and fstate_off(). riscv_v_vstate_set_restore()
+has the identical hazard: it is called from __restore_v_state()
+(sigreturn path) with preemption enabled, and it can race the same
+way against the scheduler's own call to riscv_v_vstate_set_restore()
+for the same task in __switch_to_vector(). Wrap that call site with
+preempt_disable/enable as well.
+
+Add WARN_ON_ONCE(preemptible()) to riscv_v_vstate_restore()
+to catch any future unprotected callers at development time.
+
+Signed-off-by: Guobin Zhang <guobin.zhang@intel.com>
+---
+Race: regs->status is shared between the FPU (SR_FS) and vector
+(SR_VS) state machines. Three call sites do a non-atomic RMW on it
+while preemptible: __fstate_clean()/fstate_off() in switch_to.h, and
+riscv_v_vstate_set_restore() as called from signal.c's
+__restore_v_state() (sigreturn path).
+
+Cause: if the task is preempted between the load and the store, the
+scheduler's own switch_to() writes the other half of the same
+register word when switching this task back in. The task then
+resumes and stores its stale value, clobbering that write.
+
+Fix: wrap each RMW with preempt_disable()/preempt_enable(). This is
+sufficient because the conflicting writer only runs via an actual
+context switch of this task, which preempt_disable() prevents.
+local_irq_disable() is not needed: no IRQ handler touches
+regs->status, so masking IRQs would add latency without closing any
+extra race.
+
+Reproduced on Spacemit K1 hardware; not reproducible under QEMU/TCG
+(see commit message for the full race-window trace).
+---
+ arch/riscv/include/asm/switch_to.h | 4 ++++
+ arch/riscv/include/asm/vector.h    | 2 ++
+ arch/riscv/kernel/signal.c         | 2 ++
+ 3 files changed, 8 insertions(+)
+
+diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+index 0e71eb82f920..fd0ceebd1c23 100644
+--- a/arch/riscv/include/asm/switch_to.h
++++ b/arch/riscv/include/asm/switch_to.h
+@@ -21,13 +21,17 @@ extern void __fstate_restore(struct task_struct *restore_from);
+ 
+ static inline void __fstate_clean(struct pt_regs *regs)
+ {
++	preempt_disable();
+ 	regs->status = (regs->status & ~SR_FS) | SR_FS_CLEAN;
++	preempt_enable();
+ }
+ 
+ static inline void fstate_off(struct task_struct *task,
+ 			      struct pt_regs *regs)
+ {
++	preempt_disable();
+ 	regs->status = (regs->status & ~SR_FS) | SR_FS_OFF;
++	preempt_enable();
+ }
+ 
+ static inline void fstate_save(struct task_struct *task,
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index 00cb9c0982b1..da1559bcee36 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -315,6 +315,8 @@ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
+ static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
+ 					  struct pt_regs *regs)
+ {
++	WARN_ON_ONCE(preemptible());
++
+ 	if (riscv_v_vstate_query(regs)) {
+ 		__riscv_v_vstate_restore(vstate, vstate->datap);
+ 		__riscv_v_vstate_clean(regs);
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index 59784dc117e4..6f6f3315bc09 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -123,7 +123,9 @@ static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
+ 	 * to avoid getting the vstate incorrectly clobbered by the
+ 	 *  discarded vector state.
+ 	 */
++	preempt_disable();
+ 	riscv_v_vstate_set_restore(current, regs);
++	preempt_enable();
+ 
+ 	/* Copy everything of __sc_riscv_v_state except datap. */
+ 	err = __copy_from_user(&current->thread.vstate, &state->v_state,
+
+---
+base-commit: 075b74841bd0065a3bda3440873c747938e69b68
+change-id: 20260807-vector_fpu_regs_status_rmw_fix-b51fa4a453d8
+
+Best regards,
+--  
+Guobin Zhang <guobin.zhang@intel.com>
 
 
 _______________________________________________
