@@ -4,77 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F92C2A09B
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 03:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E8EC2A09B
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 03:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ycpEKfNPJ4LrXEWmTxJGdKXDXnMHjvsUhUqk1DBgMgU=; b=BE4r4GfQPzagbm
-	7UqsyvzpdZTqsClewB+9GEmDJmVzb1bZtbSLQZ2k6ZW8zjr7RBMCEeb0j0Bmj8OXLAC+UewyDWbYT
-	eTsyy+yq9/CfZ0e1yyECYj5yExr845dDsamUK44jUM8yLzNZWy0a7HfS35vAKT+QoPcEMQxelsMFM
-	Z0M9e2sPPOOm+iOuujU5kCdzlHPihD6B+eShNw3+iXqxUJsD1scwpSRArCcvxq5yk+rFHGhGwrPl3
-	CwRiN7UHIqQx/sSCUQOMfowImfIhWmCWlUBcjtje5Kbu6/o5fbk1R7xn8Ct3bf5n+u5mO3Ncr0+OP
-	/F4VYN65UqNEDwbp17dA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z1in1RFAwC/cbF1NreNVgQP2weOswFg1NhVxCK31fsE=; b=Jhn9qvqsxOl4jU
+	keRlM3NPF5H858RZDZwDp2V2ov5JYi37R3csO6axHmtUaCkQt4IoxmgFcw+MRRiE/DvEQcicOECfR
+	6V0CFRZ5xh+CkSrSjP6AhDlt8p04shxgbFl+PYQMbMB0pcIPiSNbO1gMqvy31RUr5Xzc92O2yzq/N
+	BiIzJB1rFsHl0TE41YfDKfrv36GgAhif5CyRFxkzfriEAw5ZRue9awAO5PpS6GvyXqikTAo4taRjl
+	vzVZEpTrlLqawcDHPpJDLg1tYx54SUZ8QdPsnRC6Fw9OkCqYDqOjwJlzpuYGHQgXmx1dZFZzVX//S
+	5q/0Bv4c9xqHTe/vPAMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsBT0-000000072mH-163Q;
-	Fri, 07 Aug 2026 03:41:54 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1wsBbs-000000073GE-0lJH;
+	Fri, 07 Aug 2026 03:51:04 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsBSw-000000072lN-3yJi
+	id 1wsBbp-000000073FW-0QTn
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Aug 2026 03:41:53 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hGVKj4LjczYQtLG
-	for <linux-riscv@lists.infradead.org>; Fri,  7 Aug 2026 11:40:41 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id 706F24056E
-	for <linux-riscv@lists.infradead.org>; Fri,  7 Aug 2026 11:41:37 +0800 (CST)
-Received: from [10.67.110.68] (unknown [10.67.110.68])
-	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgB3s0LwU3VqnLadBQ--.6311S2;
-	Fri, 07 Aug 2026 11:41:37 +0800 (CST)
-Message-ID: <f8359409-4450-4bad-934e-b7f880d2101b@huaweicloud.com>
-Date: Fri, 7 Aug 2026 11:41:35 +0800
+	Fri, 07 Aug 2026 03:51:03 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84847482584so1229119b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Aug 2026 20:51:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786074660; x=1786679460; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SDjiRmYitCVi6Po+hNUTG0dnEo7TwlYi6LDldiPSa4E=;
+        b=OHFSeKirINVER3lR5TZ7EdJtI6LHRaLB58DbcWIAWGCo+YUepm9IC3MBhIFeK7HXVQ
+         5yT2Gt7bUANZ5p3gkrJwAf2fHN2jYrwlOwpyb/6Lb/c3e5YhhtPkR1WrFZ9v6/rN52HX
+         NNv6zHGnN3eFsOOO71+oCy3aioDgdexlpwIZRv/7cr7B9pTj6xKqnyNuDhIOWRG0CKzz
+         D/VNEeVZ8cEPOQM74TiwD4RjITNJCTaSINj2rDm9PoDG3QJ2khh2xmrlHmpdJ4H5SVcW
+         wybt3JrhuBdxPTBDqgcxIUa5NfnBBdOGLayerya0t7a/Uv4qjx2xxHlU6ZiVLdNivGIj
+         M/6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786074660; x=1786679460;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SDjiRmYitCVi6Po+hNUTG0dnEo7TwlYi6LDldiPSa4E=;
+        b=kjO9KLVrXvs6Lf1AvuoynHbfTO5vHhRED0FBeku3tnY7nxBItcVgE/2JLcnOcVI96o
+         kiUD09+fh3TFZr/SROxrYiRJJRNXz6FmF1fcTbaRQYn7RC+dkTQThF/McyXcYEBFyfKz
+         zCFCJHzKXsjliUGiozTDpicSLr7yT/sB1z1nYl85EP8ivZKgUqIFoh42dEufAOyMgUqI
+         JgxNajilTKCmh6EHCU/weVxTZQGyIJ22iD/JPae2IKxWLOIPdlyqpvuhOG+YWbF2yQUr
+         MYctAMnDJbqK3xO7MaLtPYY5aq6OR04V/IWR6elgn+rzFwpFpBxftAlW9/Anja8HW5Hb
+         pRrQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rqds/lXtNV46CCLY1NHGNDv8S49C0k3tdQLjObNtXLX8JNRbQt0eU3OkQZWyb390O005leXXi53NtYdoA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDXC4EHWP2qmdVdFGi+4cFvqTGM7Vi94guuLYtl8TxJe67ffHy
+	5+qAIQWRwR7FZiRYXNnX76Si5QYptmoLXAvSmGdBZDXF3oXjlApvWN9m
+X-Gm-Gg: AR+sD13weMjKm7PQulVcg6pf3S/JRqYW6xaPuWeFTFNXv/dzMU8x5+moFd36Cvsac2A
+	iivbseNxWFhgTTorFKBbT66A2zbGO8bJ+xWzMdem1fIYJptA2HeD9zx5Odz7bqkv+hdu9GMA49g
+	OxbVl+yyvgu0tHp717aqDooSJuvD8qOOJ5hkZ/ZJBhmArrjdhwwb0XvFZWm/c7mHtAVYKszOvXX
+	t+KmMbMG7LGeHlwZ++oBrwHT7t2b05HNwndIsw7VqSSmj+gaP09nVXn6sD2JpffA+EOgM2qHW40
+	BWuL8AbqjMXqCNa+EUMwv0Vha+YCw8D6QgGlwvDvDt0bPlqxc6v4BISyBLHbsfTUKdhVp/m2ScB
+	wg5NJDzdUhB7qc1lFFdZhtRPpciYC+UU8xEEScFYvZX1BSY5NOwGKUDabbfVfFu2kvIX+3NcyQo
+	+o7cmYJ8Yx0nF7tG/Rod+hsCF5BpDvXBTvAYsjiHcxLBDCrCbSNv79CeS/+8MFQj4HNNNV7p+nF
+	Mp8sUQ=
+X-Received: by 2002:a05:6a00:a117:b0:837:f111:b70 with SMTP id d2e1a72fcca58-84f41ba5757mr14013802b3a.4.1786074659915;
+        Thu, 06 Aug 2026 20:50:59 -0700 (PDT)
+Received: from cyh-System-Product-Name.. ([129.227.183.200])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a3d0d96sm287586b3a.18.2026.08.06.20.50.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2026 20:50:59 -0700 (PDT)
+From: "Yuhang.chen" <yhchen312@gmail.com>
+To: anup@brainfault.org
+Cc: atish.patra@linux.dev,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	pbonzini@redhat.com,
+	shuah@kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	zhouquan@iscas.ac.cn,
+	"Yuhang.chen" <yhchen312@gmail.com>
+Subject: [PATCH 0/2] RISC-V: KVM: Add PMU event filter support
+Date: Fri,  7 Aug 2026 11:50:37 +0800
+Message-Id: <20260807035039.294998-1-yhchen312@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: ftrace: Fix ftrace_modify_call failure on kprobed
- functions
-Content-Language: en-US
-To: Paul Walmsley <pjw@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Andy Chiu <andybnac@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- Masami Hiramatsu <mhiramat@kernel.org>, bpf@vger.kernel.org,
- Pu Lehui <pulehui@huawei.com>
-References: <20260802094929.3978390-1-pulehui@huaweicloud.com>
- <4a7ed7d1-9eda-3082-81cb-5375b7839f29@kernel.org>
-From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <4a7ed7d1-9eda-3082-81cb-5375b7839f29@kernel.org>
-X-CM-TRANSID: _Ch0CgB3s0LwU3VqnLadBQ--.6311S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXFyUtryUurW5Xw45Ww15urg_yoW5WF1Dpr
-	yfKanI9F4FyanFqay2gr15Cr18tayDAa4UAr1xGw1fAa4qkr18tw1xtr48J3s8JrZ8Aryf
-	Z3Wqyr4DWryUAr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
-	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUF1
-	v3UUUUU
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_204151_364663_A6BD95F9 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20260806_205101_145738_A5C9CE09 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,87 +105,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series adds PMU event filter support to RISC-V KVM, allowing a
+userspace VMM to restrict which SBI PMU events a guest is permitted to
+program.
 
-On 2026/8/7 11:12, Paul Walmsley wrote:
-> Hi,
-> 
-> On Sun, 2 Aug 2026, Pu Lehui wrote:
-> 
->> From: Pu Lehui <pulehui@huawei.com>
->>
->> We are frequently hitting the following splat during the riscv bpf
->> selftests:
->>
->> 00000000026dc75a: expected (7c3ff297) but got (00100073)
->> ------------[ ftrace bug ]------------
->> ftrace failed to modify
->> [<ffffffff03c44c1c>] bpf_kfunc_common_test+0x4/0x20 [bpf_testmod]
->>   actual:   e7:82:c2:ce
->> Updating ftrace call site to call a different ftrace function
->> ftrace record flags: 80100002
->>   (2)
->>   expected tramp: ffffffff80043904
->> ------------[ cut here ]------------
->> WARNING: kernel/trace/ftrace.c:2278 at ftrace_bug+0x46e/0x4b0, CPU#1: test_progs/98
->> ...
->> [<ffffffff80008f4e>] ftrace_bug+0x46e/0x4b0
->> [<ffffffff803d3e86>] ftrace_replace_code+0x16e/0x170
->> [<ffffffff803d42b6>] ftrace_modify_all_code+0x12e/0x1b8
->> [<ffffffff800430f4>] arch_ftrace_update_code+0x14/0x28
->> [<ffffffff803e0324>] ftrace_startup+0x14c/0x2a0
->> [<ffffffff803e133c>] ftrace_startup_subops+0x584/0x1050
->> [<ffffffff804500e6>] register_ftrace_graph+0x4e6/0x1018
->> [<ffffffff804cf9f6>] register_fprobe_ips+0xc66/0x12f8
->> [<ffffffff8049abe8>] bpf_kprobe_multi_link_attach+0x5d8/0xe68
->> [<ffffffff8050fcaa>] __sys_bpf+0x3d5a/0x47f0
->> [<ffffffff805107ee>] __riscv_sys_bpf+0xae/0x168
->> [<ffffffff80034d78>] syscall_handler+0x60/0x100
->> [<ffffffff8228b4f4>] do_trap_ecall_u+0x174/0x208
->> [<ffffffff822b69c4>] handle_exception+0x16c/0x178
->>
->> After debugging, it can be triggered by similar commands below:
->> ```
->> echo do_nanosleep > set_ftrace_filter
->> echo function > current_tracer
->> echo 'p do_nanosleep' > kprobe_events
->> echo 1 > events/kprobes/enable
->> echo 'f do_nanosleep' > dynamic_events
-> 
-> I guess you meant
-> 
-> echo 'f do_nanosleep' >> dynamic_events
-> 
-> instead?
-> 
->> echo 1 > events/fprobes/enable
->> ```
->>
->> The reason is that attaching a kprobe to an ftrace-traced function entry
->> replaces its initial auipc insn with ebreak. When ftrace_modify_call
->> later runs, it expects auipc insn, so verification fails and triggers
->> ftrace_bug.
->>
->> The expected auipc logic remains conceptually unchanged, and kprobe
->> single-stepping ensures normal execution. Therefore, if the first insn
->> is ebreak, bypassing the check to continue patching the jalr insn is
->> safe and avoids ftrace failures.
->>
->> Fixes: b2137c3b6d7a ("riscv: ftrace: prepare ftrace for atomic code patching")
->> Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> 
-> I queued the patch with the reproduction sequence updated as mentioned
-> above for v7.2-rc.  Please let me know ASAP if you don't agree -
+The KVM_SET_PMU_EVENT_FILTER ioctl and KVM_CAP_PMU_EVENT_FILTER already
+exist as generic KVM uAPI (include/uapi/linux/kvm.h); RISC-V KVM does
+not yet implement them.  Wiring them up lets a VMM limit a guest's PMU
+event access, which is useful for sandboxing and for withholding host
+PMU events the host does not intend to expose.
 
-Thanks Paul, total agree to update.
+Patch 1 implements the kernel side: the uapi struct, the ioctl handler
+with an SRCU-protected filter, enforcement in
+kvm_riscv_vcpu_pmu_ctr_cfg_match() (a disallowed event fails with
+SBI_ERR_NOT_SUPPORTED), and advertisement of KVM_CAP_PMU_EVENT_FILTER.
 
-> 
-> 
-> - Paul
+Patch 2 adds a selftest that covers the ALLOW/DENY semantics with the
+event in and out of the list, filter clearing, and ioctl argument
+rejection (EINVAL/E2BIG).
+
+Testing: built and run under QEMU TCG with nested KVM (an L1 KVM host
+running an L2 guest).  The selftest (patch 2) passes - all ALLOW/DENY
+and argument-validation cases behave as expected - and dmesg stays
+clean throughout the run.
+
+Based on v7.2-rc2 (a635d6748234).
+
+Assisted-by: YuanSheng:deepseek-v4-pro
+Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Yuhang.chen <yhchen312@gmail.com>
+
+Yuhang.chen (2):
+  RISC-V: KVM: Add PMU event filter support
+  RISC-V: KVM: selftests: Add PMU event filter test
+
+ arch/riscv/include/asm/kvm_host.h             |   3 +
+ arch/riscv/include/uapi/asm/kvm.h             |  20 ++
+ arch/riscv/kvm/vcpu_pmu.c                     |  28 +++
+ arch/riscv/kvm/vm.c                           |  66 +++++-
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../kvm/riscv/pmu_event_filter_test.c         | 199 ++++++++++++++++++
+ 6 files changed, 316 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/kvm/riscv/pmu_event_filter_test.c
+
+-- 
+2.34.1
 
 
 _______________________________________________
