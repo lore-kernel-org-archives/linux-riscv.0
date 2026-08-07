@@ -4,74 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E5CC5AC7C
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 08:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868EEC5AC80
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Aug 2026 11:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=unWJdxdyi9MTfgHIGri9GQXBOGIzSPfHbDJ0rb+lL3U=; b=L9N2UdldzInNss
-	jRdLmfewP1WPQLRHxB1XmdlZz3RLzXpFlBHseEtB6TURScqHuD7Gu55smFZZDDVDgEd/BD1DgzoBi
-	zoFkTrQI1nD0A8csyCfjzid5p/kOYLrovK6p2wBPnMFojBP+LUB2AqJTKaNG1qKYgEduKqdDAlGzT
-	SxiQnr5Lv6XD6PXWLvmI/iwtZPWtXQ5JsDOCE+REls3xenTROkTjcurEVXECNTa9qdHp7VbCkCS/y
-	NaPyXI6ALdNNoVSStzgNBDvQs6CmSgnYRx5Mr6rojmwqKSVN96vRSsfPQp6ByHAazcnU9+FopBKmc
-	zKq7DYIHwhC1FMfXhWtg==;
+	List-Owner; bh=JImvQvDJhARMuctVqDUUO/XhQBJ9DuMRWentrTiOr/8=; b=3MkLGsCMUtIA77
+	p/WvtWf2UN0FHs14o9noxH9SVoA8oYC6Isu20uFM5UNB5+aZ8I/U0EZ1sqmtDd95Uv4REnM7ILYdU
+	yw35T+nBNes3mM78/xLBRTGC8d9OX4QxAgvQy8Wy2FTxrDHG+dJk6wp+PfkWs75l+QL6bWP/pSE6R
+	OAyU95UYjoZ44ODQ2HkwlPkVF+DvYAyRMPrUpTQTFwTUg4gCh82gFTFzLrU+ayzM4YEhisPxxf+Km
+	pj1AD6wGCuJxz1CACgwHefHDfysKrNRYT0vn7xX8v2H6Inhbc4gdovUV7SoH9p+v5ADaW0dGBYA8z
+	U4jYNaKALnxxLYneGHaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsGOU-00000007TIe-3zp0;
-	Fri, 07 Aug 2026 08:57:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wsIm5-00000007tEW-1Xtx;
+	Fri, 07 Aug 2026 11:30:05 +0000
+Received: from [2406:e500:4420:2::722] (helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsGOS-00000007TH9-3Vqp;
-	Fri, 07 Aug 2026 08:57:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xH6eLul/YhpJKKXYAPe1QjJEiXAaUod9+uNqxj4KWLg=; b=re0BDsFAkfEolpm3YmxrlJLcNG
-	ft20VuUPSIv7rriv86cR4KifPomLiRZJcsE97UlE/l78dudaSaqSYfhQVb/rSqUj3YuUoXAaDpISp
-	NuSYS94V9rWaJP1zKAu/hJe/chLVCZLTWZhi36XAR8DdT7i5XSNZ1inLRXvN2hWEh3P2zhDIq6hAG
-	ACzScEWE+cTTLZIGhQCJGh6KVVl3x7UhYwcJVhq1o/+TobkiQvFGQvZlpR1agC++HEYCY5AGuNUwI
-	9m9Eebao8WQdfa214NA01+GADN1C+yVFvWAQMMyx6KP16mw8QaQ0Nh63AfrlFgCqb5m6ic9qQNqTH
-	AbO8zfVA==;
-Received: from mailgw.kylinos.cn ([124.126.103.232])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsGOM-0000000CDnw-3imp;
-	Fri, 07 Aug 2026 08:57:31 +0000
-X-UUID: ee63d038923d11f1aa26b74ffac11d73-20260807
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:b4704914-fd26-4b0c-b5cb-91c272e333fb,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:f1a8bc65811c2fe3f19bea9bbe9be33c,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|865|898,TC:nil,Content:0|15|50
-	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: ee63d038923d11f1aa26b74ffac11d73-20260807
-X-User: liuxixin@kylinos.cn
-Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <liuxixin@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 404231109; Fri, 07 Aug 2026 16:56:51 +0800
-From: Xixin Liu <liuxixin@kylinos.cn>
-To: linux-riscv@lists.infradead.org
-Cc: atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
-Subject: [PATCH v1 2/2] perf: RISC-V: store available counter mask as bitmap
-Date: Fri, 07 Aug 2026 16:50:00 +0800
-Message-ID: <prpmask02cmap.1786092600.git.liuxixin@kylinos.cn>
-In-Reply-To: <cover.1786092600.git.liuxixin@kylinos.cn>
-References: <cover.1786092600.git.liuxixin@kylinos.cn>
+	id 1wsIm2-00000007t9K-3NYE
+	for linux-riscv@lists.infradead.org;
+	Fri, 07 Aug 2026 11:30:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ivqrZVOZAT2HUQrXPNWfIaWsj4yxpP3ZCHjBbsrZyLLqN0TUR2sN4TcmjNCTxswE+MIqq1iVfqyMcmarPuPMdj+1IVgVBhCgryNiOsC9Q/suuuFOO7+pna0sU985QEJLqNGPpWQGjSNvDgw9MQmfpbjkw323PniWb42ND3JIHsSDk3vIN2Ii4hpGbBhGRo3GfPKV0IHgQEjxOV0wqud7eI/z8WrbNyWc/mlBci1guxW78jLz6PPQ0AulXVVs/qSBPJlmuQKbF1Od1vi8HbUm8ORasyONCRkTkf5NwcvzPU9xZAHEGEIgqCCoDOQuWV1DJkoBJpjZ3ViGCCVJxV2JRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=43tX8xlN4ln6jA6AqCWImBv00xjVAiSXHe0yjCmIQxk=;
+ b=IdTQxX9zT+FOvGW5WWVw9Y+gDfl+I1O/8WkSFSShmIljH8MpLKpl/93guCBzisETiaw9nhKoA+vCxSLRxm2/bLiFFRe3q8ArK4gvLTJsVBZwk2M1khxXAe2boC6qmUJtsG9Vk24Q5ni/fiXKyVH08YuMn7d6ObXm/rrwufHffVFpq5zEULje+/r4Kn0j4pDzsrcsDi5NLX9SDlBKRUG0EgeSMfqhtYPXVNZWPp8KvsEKSZt2cTeBW8Wk026t5jj4AgxO/THyvbNckKqPa6Qtccqc01xjt94nk4bRy2LE40ZsypSq9EMOZKyCgNhzc0dmkzowGLAtmnCjzFlM9NwuvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1315.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:15::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.23; Fri, 7 Aug
+ 2026 11:29:40 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0292.022; Fri, 7 Aug 2026 11:29:40 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-hardening@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: [PATCH v3 05/22] dt-bindings: clock: Add StarFive JHB100 System-0 clock and reset generator
+Date: Fri,  7 Aug 2026 04:29:06 -0700
+Message-Id: <20260807112923.191627-6-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260807112923.191627-1-changhuang.liang@starfivetech.com>
+References: <20260807112923.191627-1-changhuang.liang@starfivetech.com>
+X-ClientProxiedBy: NT0PR01CA0009.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c510::19) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6)
 MIME-Version: 1.0
-X-Mailer: patches/scripts/send-local.py
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1315:EE_
+X-MS-Office365-Filtering-Correlation-Id: ec01f2d4-1927-4f62-fc10-08def4772b65
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|52116014|7416014|376014|1800799024|921020|38350700014|56012099006|10067099003|18002099003|3023799007|22082099003;
+X-Microsoft-Antispam-Message-Info: XrA4+QJBOZH4DUqAFK5X1Pu/8IiG+TpIevg2UBY7ZCaID6dMfDT+wJF9sRE4SNlY43b+qfGHnps40C91QAbp64A13nYD/4q3qgcdX3/QT8naYFGgcvg3dGWQnycjAPlUBQQo+vxI++I/IJJX0kYNOZZ/l6n1XfGsSKC3vePTyH8H/iNn6A9Tm3cZ04uk1EHOM2X/mntm/C5JbsJohpnFvL6qyNOJ5Hucp0QR12UxH6j41sViuL9S/CMbUOCyXYD4LttvZlgD4q1ncoTTZuVcslmV7P1TViLgOCfWZD1J3mkz+G1VP9F4VRrBSKeiLoYD4bkiUOOcalP/Xbx2OPCZJaD5Kk05TpF1ytwOkZP16fTWvnkJygszylySenhFTSulEFEMy5oTFEY9j0i8NrIMams7bnbdLgjaqDli7NGmzd3/IijcByoz7z7Tj0UZ3dCv43deywiHM6AG460GJnKjQMq33w6J9rxQe2mr8BYhT86Qr7z9clVc/0Drfe6th+KWD8yS8LQLvPpPmhrvAvA8EU57JbsmDAUyjBd7lFsXVSCXrEJXdIK52uZcbl3LKUNKcv4mySG/rvyQHDy0FUmBwg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(52116014)(7416014)(376014)(1800799024)(921020)(38350700014)(56012099006)(10067099003)(18002099003)(3023799007)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XVAvh4wYQuTCXNECyteDU8hlRzkoFtn+4dVRLz7hRrcPd9RkUmZ0oPnJdxgD?=
+ =?us-ascii?Q?ALzcxM844gz3ujedaTtWkrUV2/hLT9vraRecE/myUXfAl06ydBW1/c7yO362?=
+ =?us-ascii?Q?N7Xw/hQid1UGBiYm7GZqisOYdF/qW6YtdYmnk8ABcC3W1Kr87BX0F0A99/M9?=
+ =?us-ascii?Q?xc/I4HibpIjj94lGLsItFugz7QI5GPUXIHG7GK2mo8639x9bBL/m/SVcSVVf?=
+ =?us-ascii?Q?9cWuKArL6MSYVQawzpqHYyzB3uUzEVeVTKfLlNRzUo8Sw+IVg3O0JUVSss3P?=
+ =?us-ascii?Q?tGiBGXdbZ0MfxEArJaafkWdzpF8Ti5JEeriae84RkIqVirZrv/e/Z6Jw2/mN?=
+ =?us-ascii?Q?ZM6IFIjNGveUL8yeohzrM6RlPECz+OdU6CEdJ8TYcTfFBY5+s3aZ7eTu8ZCj?=
+ =?us-ascii?Q?usvfRabBSMXQ/6RPcKUmqKpYIyWhzZQHDjRHQ+V0Y5Jhy3jDyKouJgIu1tYK?=
+ =?us-ascii?Q?wf3HmLTEgNUXAQjEsmoMhD+l8I2DzhMTlNAA/tO7SIMhBxs0T5ekkUIF9STI?=
+ =?us-ascii?Q?UunUIvHhughdMdKvDQ8J4om8XDV5rV1pT0l5y6Z++SqI8vikGOTJX93zzM89?=
+ =?us-ascii?Q?EIHa56gPbjb2V+yFBCXOSUYn2LDbSno2BpgjCCS/85f7DZRw1nyG3XtvMPEZ?=
+ =?us-ascii?Q?EZ7wk2wAyzmbQnuRqFIyKJ75/j6U6c4z4O8gvpSs9yfgwBrJtLXUOyBVTcZD?=
+ =?us-ascii?Q?WqngDOHy76TeA42BJgDDC5peQFO5Hf7P53d2Vu69cN61YBZEpXOlmqbc08fG?=
+ =?us-ascii?Q?LVtbecXMS3oat2Rh85r3poj5DUlT62MGXLbYImlK8Tf5W15I+FeKkvTvQFJf?=
+ =?us-ascii?Q?KNR1ZZPdjQvIhekfRM/x+NlevoAKSVhEAgDQX8XknUR/niiMfS7DdWDpGe5k?=
+ =?us-ascii?Q?p6nwWvw7bUxmcmOq6yv9qLsgJgiZ1DWBoFZxVN6XDrobKC38JUwGVwMYCl2U?=
+ =?us-ascii?Q?tKUuGLahmcD4po3o5Pd0SamDu1pT62rdeWvEeG/EohtxPwR9t3viRyVHrIDe?=
+ =?us-ascii?Q?TmvsoWidjf9G9OGHERWTJHc65R5cp5FV8GWhzb8uq4zkt2suzKwGBkZi9ohS?=
+ =?us-ascii?Q?Vuyo/7p5XUFgRIQ0Mse7jpSYm2ejTPjEmQEyPlsdrp7JmlDUfUs1tbz0QFpU?=
+ =?us-ascii?Q?brkz+3igZfN0lqPucZNfUYqsUaMW4xhSWLPS1zgyDeYhIpPQib1jv+SQ8/6Q?=
+ =?us-ascii?Q?jblfXkxNkfrvvua8WfapV6mtUgd3MjbOK01qBybC8K9X8A4fEMGSNKxgBdcI?=
+ =?us-ascii?Q?m1pcY1H/NKtk6CDWlyf54KHB0wQLH7Flu/QFj9O39NcHN2yOpC0tshfvpDwp?=
+ =?us-ascii?Q?3vIokKzQlS0rRiLGxAZEmB7bGVvU5owlZ/922o1tRlt44gIRF2MbBVGKMvG6?=
+ =?us-ascii?Q?9g6yOAU9gHGXM1zoAPRrQtfiLiLAp0Wu6WCThs14lW8nelsP/HXSIV0HIK5A?=
+ =?us-ascii?Q?IC7Fx84sSo0Semr7K0djaaHBE5QDNrjz9PvvOCBEIrjfuloADmluXlfF98Ix?=
+ =?us-ascii?Q?r3tb9lUnNpMrwJ5Xiy19TDb6zrWgJUELAm/m+xFd1xu0K3oazBcl7MQ4p/Ku?=
+ =?us-ascii?Q?3rRA4yJrzmxT3PEgc3dyk5t7XB7FfXDofShE+7qM5gWIGPSepOEg86zBi6Su?=
+ =?us-ascii?Q?ad/C/97hCqJiGumv9u8w0b7o16/P//0EkXZEPRxag6YPhpvksy1HctSFLNP8?=
+ =?us-ascii?Q?G1+rF70jsD9/AbBdJLoOyyBdPnkoM5Tz4kkz2lP8ueu6isz8xPPacghQNjJ8?=
+ =?us-ascii?Q?mdRvbXYiqACfN+WXmV6p5FE+Vdt9BDIJl0LxiJ8EsjFE3Yrj9Yly?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ec01f2d4-1927-4f62-fc10-08def4772b65
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 11:29:40.0902
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YLaPSXV9b/ZHq39NAaTWwQvqldOmrRPwtAZUf4E1kxOo1Af4BQrLEEE2EUMBxZtYxi3cPtAtO1D1EMIW+2QxRZjBEenHB8Rmp+gggXuHXBOCiI7gkZH0UVIdPKGfwKM/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1315
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_095729_753925_31624417 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20260807_043002_852027_A8166DF2 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,151 +149,187 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The available-counter mask was a single unsigned long, but iteration
-uses RISCV_MAX_COUNTERS (64). On RV32 that reads past the object. Filling
-with BIT(i) is also wrong for i >= 32.
+Add bindings for the System-0 clocks and reset generator (SYS0CRG) on
+JHB100 SoC.
 
-Use DECLARE_BITMAP, set_bit/bitmap helpers, and stop counters one word
-at a time.
-
-Signed-off-by: Xixin Liu <liuxixin@kylinos.cn>
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/perf/riscv_pmu_legacy.c |  5 +++--
- drivers/perf/riscv_pmu_sbi.c    | 29 ++++++++++++++++++-----------
- include/linux/perf/riscv_pmu.h  |  2 +-
- 3 files changed, 22 insertions(+), 14 deletions(-)
+ .../clock/starfive,jhb100-sys0crg.yaml        | 63 +++++++++++++++++++
+ .../dt-bindings/clock/starfive,jhb100-crg.h   | 56 +++++++++++++++++
+ .../dt-bindings/reset/starfive,jhb100-crg.h   | 28 +++++++++
+ 3 files changed, 147 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jhb100-sys0crg.yaml
+ create mode 100644 include/dt-bindings/clock/starfive,jhb100-crg.h
+ create mode 100644 include/dt-bindings/reset/starfive,jhb100-crg.h
 
-diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
-index 4d6461d6a..1b8e4789c 100644
---- a/drivers/perf/riscv_pmu_legacy.c
-+++ b/drivers/perf/riscv_pmu_legacy.c
-@@ -110,8 +110,9 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
- {
- 	pr_info("Legacy PMU implementation is available\n");
- 
--	pmu->cmask = BIT(RISCV_PMU_LEGACY_CYCLE) |
--		BIT(RISCV_PMU_LEGACY_INSTRET);
-+	bitmap_zero(pmu->cmask, RISCV_MAX_COUNTERS);
-+	set_bit(RISCV_PMU_LEGACY_CYCLE, pmu->cmask);
-+	set_bit(RISCV_PMU_LEGACY_INSTRET, pmu->cmask);
- 	pmu->ctr_start = pmu_legacy_ctr_start;
- 	pmu->ctr_stop = NULL;
- 	pmu->event_map = pmu_legacy_event_map;
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index d6c66e375..c913d73f8 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -97,7 +97,7 @@ static unsigned int riscv_pmu_irq_mask;
- static unsigned int riscv_pmu_irq;
- 
- /* Cache the available counters in a bitmask */
--static unsigned long cmask;
-+static DECLARE_BITMAP(cmask, RISCV_MAX_COUNTERS);
- 
- static int pmu_event_find_cache(u64 config);
- struct sbi_pmu_event_data {
-@@ -364,7 +364,7 @@ static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
- 	struct sbiret ret;
- 
- 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH,
--			0, cmask, 0, edata->event_idx, 0, 0);
-+			0, cmask[0], 0, edata->event_idx, 0, 0);
- 	if (!ret.error) {
- 		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
- 			  ret.value, 0x1, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
-@@ -488,10 +488,10 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
- 	union sbi_pmu_ctr_info *info;
- 	u32 hpm_width = 0, hpm_count = 0;
- 
--	if (!cmask)
-+	if (bitmap_empty(cmask, RISCV_MAX_COUNTERS))
- 		return -EINVAL;
- 
--	for_each_set_bit(i, &cmask, RISCV_MAX_COUNTERS) {
-+	for_each_set_bit(i, cmask, RISCV_MAX_COUNTERS) {
- 		info = &pmu_ctr_list[i];
- 		if (!info)
- 			continue;
-@@ -541,7 +541,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
- 	struct sbiret ret;
- 	int idx;
--	uint64_t cbase = 0, cmask = rvpmu->cmask;
-+	uint64_t cbase = 0, cmask = rvpmu->cmask[0];
- 	unsigned long cflags = 0;
- 
- 	cflags = pmu_sbi_get_filter_flags(event);
-@@ -577,7 +577,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
- 	}
- 
- 	idx = ret.value;
--	if (!test_bit(idx, &rvpmu->cmask) || !pmu_ctr_list[idx].value)
-+	if (!test_bit(idx, rvpmu->cmask) || !pmu_ctr_list[idx].value)
- 		return -ENOENT;
- 
- 	/* Additional sanity check for the counter id */
-@@ -881,7 +881,7 @@ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
- 			/* The logical counter ids are not expected to be contiguous */
- 			continue;
- 
--		*mask |= BIT(i);
-+		set_bit(i, mask);
- 
- 		cinfo.value = ret.value;
- 		if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
-@@ -898,12 +898,19 @@ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
- 
- static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
- {
-+	int i;
+diff --git a/Documentation/devicetree/bindings/clock/starfive,jhb100-sys0crg.yaml b/Documentation/devicetree/bindings/clock/starfive,jhb100-sys0crg.yaml
+new file mode 100644
+index 000000000000..cf1b0175b158
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/starfive,jhb100-sys0crg.yaml
+@@ -0,0 +1,63 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/starfive,jhb100-sys0crg.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	/*
- 	 * No need to check the error because we are disabling all the counters
- 	 * which may include counters that are not enabled yet.
- 	 */
--	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
--		  0, pmu->cmask, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
-+	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
-+		if (!pmu->cmask[i])
-+			continue;
-+		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
-+			  i * BITS_PER_LONG, pmu->cmask[i],
-+			  SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
-+	}
- }
- 
- static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
-@@ -1442,7 +1449,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	}
- 
- 	/* cache all the information about counters now */
--	if (pmu_sbi_get_ctrinfo(num_counters, &cmask))
-+	if (pmu_sbi_get_ctrinfo(num_counters, cmask))
- 		goto out_free;
- 
- 	ret = pmu_sbi_setup_irqs(pmu, pdev);
-@@ -1454,7 +1461,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 
- 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
- 	pmu->pmu.parent = &pdev->dev;
--	pmu->cmask = cmask;
-+	bitmap_copy(pmu->cmask, cmask, RISCV_MAX_COUNTERS);
- 	pmu->ctr_start = pmu_sbi_ctr_start;
- 	pmu->ctr_stop = pmu_sbi_ctr_stop;
- 	pmu->event_map = pmu_sbi_event_map;
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index f82a28040..ecaa40370 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -55,7 +55,7 @@ struct riscv_pmu {
- 
- 	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
- 
--	unsigned long	cmask;
-+	DECLARE_BITMAP(cmask, RISCV_MAX_COUNTERS);
- 	u64		(*ctr_read)(struct perf_event *event);
- 	int		(*ctr_get_idx)(struct perf_event *event);
- 	int		(*ctr_get_width)(int idx);
++title: StarFive JHB100 System-0 Clock and Reset Generator
++
++maintainers:
++  - Changhuang Liang <changhuang.liang@starfivetech.com>
++
++properties:
++  compatible:
++    const: starfive,jhb100-sys0crg
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Main Oscillator (25 MHz)
++      - description: PLL0
++      - description: PLL1
++      - description: PLL2
++
++  clock-names:
++    items:
++      - const: osc
++      - const: pll0
++      - const: pll1
++      - const: pll2
++
++  '#clock-cells':
++    const: 1
++    description:
++      See <dt-bindings/clock/starfive,jhb100-crg.h> for valid indices.
++
++  '#reset-cells':
++    const: 1
++    description:
++      See <dt-bindings/reset/starfive,jhb100-crg.h> for valid indices.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - '#clock-cells'
++  - '#reset-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@13000000 {
++      compatible = "starfive,jhb100-sys0crg";
++      reg = <0x13000000 0x4000>;
++      clocks = <&osc>, <&pll0>, <&pll1>,
++               <&syspll 0>;
++      clock-names = "osc", "pll0", "pll1", "pll2";
++      #clock-cells = <1>;
++      #reset-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/starfive,jhb100-crg.h b/include/dt-bindings/clock/starfive,jhb100-crg.h
+new file mode 100644
+index 000000000000..24ef2663f05a
+--- /dev/null
++++ b/include/dt-bindings/clock/starfive,jhb100-crg.h
+@@ -0,0 +1,56 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
++/*
++ * Copyright (C) 2024 StarFive Technology Co., Ltd.
++ * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
++ *
++ */
++
++#ifndef __DT_BINDINGS_CLOCK_STARFIVE_JHB100_H__
++#define __DT_BINDINGS_CLOCK_STARFIVE_JHB100_H__
++
++/* SYS0CRG clocks */
++#define JHB100_SYS0CLK_BMCPCIERP_NCNOC_MAIN		17
++#define JHB100_SYS0CLK_BMCPCIERP_NCNOC_CFG		18
++
++#define JHB100_SYS0CLK_PCIE_REF_CML			20
++#define JHB100_SYS0CLK_BMCPCIERP_NCNOC_DATA_INIT	21
++#define JHB100_SYS0CLK_BMCPCIERP_NCNOC_CFG_INIT		22
++#define JHB100_SYS0CLK_BMCPCIERP_NCNOC_TARG		23
++
++#define JHB100_SYS0CLK_BMCPCIERP_PCU			26
++#define JHB100_SYS0CLK_HOSTSS0_NCNOC_CFG		27
++#define JHB100_SYS0CLK_HOSTSS0_NCNOC_DATA		28
++#define JHB100_SYS0CLK_HOSTSS0_PHY_SCAN_400		29
++#define JHB100_SYS0CLK_GPIO_ESPI0_EXT			30
++
++#define JHB100_SYS0CLK_BMCUSB_NCNOC_INIT		34
++#define JHB100_SYS0CLK_BMCUSB_NCNOC_TARG		35
++#define JHB100_SYS0CLK_BMCUSB_SCANCLK			36
++#define JHB100_SYS0CLK_BMCUSB_480M_SCANCLK		37
++
++#define JHB100_SYS0CLK_VCE_NCNOC_INIT			50
++#define JHB100_SYS0CLK_VCE_NCNOC_TARG			51
++#define JHB100_SYS0CLK_BMCPER2_NCNOC_INIT		52
++#define JHB100_SYS0CLK_BMCPER2_NCNOC_TARG		53
++#define JHB100_SYS0CLK_BMCPER2_CFG_400			54
++#define JHB100_SYS0CLK_BMCPER2_CFG_125			55
++
++#define JHB100_SYS0CLK_HOSTSS1_NCNOC_DATA		58
++#define JHB100_SYS0CLK_HOSTSS1_PHY_SCAN_400		59
++#define JHB100_SYS0CLK_HOSTSS1_PHY_SCAN_400_ICG_BUF	60
++#define JHB100_SYS0CLK_NPU_NCNOC_INIT			61
++#define JHB100_SYS0CLK_VOUT_NCNOC_INIT			62
++#define JHB100_SYS0CLK_VOUT_AUX				63
++
++#define JHB100_SYS0CLK_BMCPER3_NCNOC_INIT		65
++#define JHB100_SYS0CLK_HOSTUSB_NCNOC_INIT		66
++#define JHB100_SYS0CLK_HOSTUSBCMN_CFG_480		67
++#define JHB100_SYS0CLK_BMCPER1_NCNOC_INIT		68
++#define JHB100_SYS0CLK_BMCPER1_CFG_800			69
++#define JHB100_SYS0CLK_BMCPER0_NCNOC_INIT		70
++#define JHB100_SYS0CLK_BMCPER0_CFG_400			71
++#define JHB100_SYS0CLK_BMCPER0_CFG_800			72
++#define JHB100_SYS0CLK_GPU0_NCNOC_INIT			73
++#define JHB100_SYS0CLK_GPU1_NCNOC_INIT			74
++
++#endif /* __DT_BINDINGS_CLOCK_STARFIVE_JHB100_H__ */
+diff --git a/include/dt-bindings/reset/starfive,jhb100-crg.h b/include/dt-bindings/reset/starfive,jhb100-crg.h
+new file mode 100644
+index 000000000000..5c7b00afda73
+--- /dev/null
++++ b/include/dt-bindings/reset/starfive,jhb100-crg.h
+@@ -0,0 +1,28 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
++/*
++ * Copyright (C) 2024 StarFive Technology Co., Ltd.
++ * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
++ *
++ */
++
++#ifndef __DT_BINDINGS_RESET_STARFIVE_JHB100_CRG_H__
++#define __DT_BINDINGS_RESET_STARFIVE_JHB100_CRG_H__
++
++/* SYS0CRG resets */
++#define JHB100_SYS0RST_RESOURCE_ARB					0
++#define JHB100_SYS0RST_SYS0_IOMUX_PRESETN				1
++#define JHB100_SYS0RST_SYS0H_IOMUX_PRESETN				2
++#define JHB100_SYS0RST_RST_ADAPTOR_TIMEOUT_RSTN				3
++#define JHB100_SYS0RST_BMCPCIERP_RSTN_BUS				4
++#define JHB100_SYS0RST_BMCPCIERP_RSTN_CRG				5
++#define JHB100_SYS0RST_HOSTSS0_RSTN_BUS_ESPI				6
++#define JHB100_SYS0RST_HOSTSS0_RSTN_BUS_PCIE				7
++#define JHB100_SYS0RST_HOSTSS0_RSTN_CRG					8
++#define JHB100_SYS0RST_BMCPERIPH2_RSTN_CRG				9
++#define JHB100_SYS0RST_BMCPERIPH2_RSTN_BUS				10
++#define JHB100_SYS0RST_VCE_RSTN_CRG					11
++#define JHB100_SYS0RST_VCE_RSTN_BUS					12
++#define JHB100_SYS0RST_BMCUSB_RSTN_BUS					13
++#define JHB100_SYS0RST_BMCUSB_RSTN_CRG					14
++
++#endif /* __DT_BINDINGS_RESET_STARFIVE_JHB100_CRG_H__ */
+-- 
+2.25.1
 
 
 _______________________________________________
