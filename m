@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8BD5C55174
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 06:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C41DC55174
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 06:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gIRotMNJkOH3RTrt9S9v09/E+7hjOtKdUOTB1TSqSUc=; b=i7pQ2FHgl818aK
-	w5aTDLVRyzheROiVR617DN2fWU5Reh8FlzTYJ5o9MPnnuWT1k9WLI0cODZ2sUanXt1jHJKylcLR0f
-	W92FkSAZ10Qlv3TEQyhFtLUbQ5mxRBPCIjKILl1coo/otKgw71eGZdvJWLRaXJCxjsU7nF9qZkofv
-	XW4vYtIR0RnHxHYtqvOfycnuKdVujeqAKfvmLQQpt8wc+4UvW2pipOxd18otEoLacUaA/l3Ap7iyN
-	9iY/tl+0ZqUV9V80pwSRGiciius6qHB552aZX+8rXAhj6kcwwQXz20bxa3qJxgLtT1kfglUW2+Tdi
-	ARqZt21qzRwiJajUc7RA==;
+	List-Owner; bh=hP+1jjhCBAQ/mx8OyTsKSwWM51d90aQMOqhrvDOcmUQ=; b=4VHqg7XHsobuZM
+	2IhKUe2bxRYIDRBIWxD18N24dttyCFxzTcVyT1aOmG5obFOGH3T1FOO7FzpHxO7u/LsU3gdnlH1v5
+	z9MqQShzOSTefI0lNg1X2LewcLj9qXZ7lju6x4cxzLWNh0IyXAfx5QK68Uk3wi4ss0Mbpm077LAS+
+	Wdwfk2mCgDXmbWSdrVTmpkdndLz7IX4hjuplypZFkZDz3Pw4Ue7WGfvH87i9PmeJ74OILuPnReaps
+	yPwrXKl6t69U9fi/X3BrOIwyyE4y66HkYAW1mvhSUBxvcBalmdxSQLUMgIJi6hXWJaN+qad14adPQ
+	QAxMOi7C1tG/6OazeZ3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsaJu-000000095MC-0qXq;
-	Sat, 08 Aug 2026 06:14:10 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1wsaca-000000096Af-3Tsm;
+	Sat, 08 Aug 2026 06:33:28 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsaJr-000000095Lc-1W7F
+	id 1wsacY-000000096AK-06GE
 	for linux-riscv@lists.infradead.org;
-	Sat, 08 Aug 2026 06:14:08 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-38e58034d05so207450a91.2
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Aug 2026 23:14:07 -0700 (PDT)
+	Sat, 08 Aug 2026 06:33:27 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2cea3004256so3594605ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Aug 2026 23:33:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1786169646; x=1786774446; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1786170805; x=1786775605; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OaXRgwcka4GcNFXOY3lpT85fV7dEeq31y3K0KIM6hIA=;
-        b=GB9d6tnmZG94dNapP+TJwqKKLTGuBL6TWMfsMAJGPg572nDlbxO0MAvpJ8CrJlTn72
-         3daaKnUCzIiRgvpUszhnvXilYkmxVuU0Pv5sKFbYh60cXojoGxEN7Wqw/p5zFqNsrz9s
-         yHOEhI2dLPilPySwz5GkYpDHSces/1TM6XZmB4QX1ub1HpKg+4bRD//fS7EvRvOv22AR
-         ug02RKCfAgIOxiP8qoIyJsIQc1y4CWfVfx2xF04BJLnk+Lr/EG4z2G+VitNh5HILk3dM
-         bDBgon4yzKO8e0EmfrkuraK9vJTbEWfI8v1VSYExd9Pl1cDUvYqtccN9XudA64YfeUS6
-         wwCg==
+        bh=EVfLKOBoXlsoQX+adLzXxBoyONh9CYzhxwPG0dbz6v8=;
+        b=bc95ZDu46bwzg9jDN/cMSXo87mytkzFhe/cXclSe+uyPkbGqju+oQKuYi09a67bhqP
+         mUP7LgrySAr07snhXCw6rHMdUkcCG7veIIbwadJOeIaVOSuZUaYlqvEMkJdJ0aMAihiQ
+         ZMgnZ66Y1QcfH85/VPpAEBHmZYxw8GRhA956J2bAseadwuVIV+dD1TnUVZLQoDxo76SX
+         cCndNftq6OkskTRXRbuazoDsQjERHI6NZUucWqSQNc6U/UMqRh42f05rE3pKR/oMAvfe
+         6wow5rWI8G1pLfIUYQSu2FBIrKIEtZ9aUfss7btELwCqrK+zAb38shbERGGL/ujMBRL9
+         ws5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786169646; x=1786774446;
+        d=1e100.net; s=20251104; t=1786170805; x=1786775605;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OaXRgwcka4GcNFXOY3lpT85fV7dEeq31y3K0KIM6hIA=;
-        b=ijSGbZZe87vUNRfwOe6Guc0q/KoCKbw0Y0FItpTVaD9rBoFoONLLohbNtzso9bNjh2
-         eGnz7JMXEfShMBW1Fc1Qk0FF9mBnaR6JTZGlVk5W5LttYt1PEKUAUa86KAtegbNTvcUi
-         2AaD0ZdmpCoQPgTVATcbjGqYQ0qJPzccuNl2UvmiPs2kh/WT3p6/lRI+3texVg2msA3s
-         krnBMw9hAHY1sTVT5rLCwK7JDEefhPtjuS7yg+xtKfL6Rg26Bsc97CZ2XB1enMDOGOGC
-         T+H+n+vktmZNg37KhAeDCISWOfRsF1k+2IYHm04mOFmUMGtUr7+pE8Cu0SS8nVQnfTgx
-         E0cA==
-X-Forwarded-Encrypted: i=1; AHgh+RoEszKNW776W6Scmz8aEhmfTpnt06aOlBitkplfQiQyzqdXOeVJ+OS/WqUuK2DOIURkWYryyt4Cbe1Nng==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwDnAkH5f3zeYyS1WZZ76wW9pWVfT+m8szcsIrNn5npO3etxvT
-	i5M0AHvk3oP1whz4KOYjylbqfp6XFRhPxr57jPVRDQQvWCgK+KzuHn5ztUQjarod7F9zQ0HEShS
-	oeURFpmC0rm50
-X-Gm-Gg: AR+sD11QYbYxQCQLNnGQMldXkP3p83O3D/Nz3ZQFwTRbAgKY4V8TnJCDBvmS5J2Ax0u
-	D9NGR+T1GB2+UigZ30Ld1MVA6bgO4dgI3KOn/clQ3uFmHmiJT3/KuNHWyoxtDngXNWmfIrmIFSX
-	qB6tAYdlXHPoh3HWvOLISWpiigg1iww5NE1kVPQTvGUxCW9/eCex3gdOvdCQYn/BSrfj53RmvQf
-	uSGEBuiJBrOActoOPwslZEUneASJoUunXq2qTzwMpmkDti4NERqsbid950PqhE/jOq0aELeZkZG
-	S0r70m3LEEPY1egzD0pKXkbxXWTxIA1pUypeFere98HFcaNaC2Quame5LS5iaUF2t4t7G3tQZDQ
-	p9B1AUZqfffP6ZMkJkSCYtw1D8RTeC3ByLAkfS400Eb8bXnL1gVwGdhWAZ9/9rXDjz1B+ngdFRr
-	R/ZBUGxPtgzY5mfxiq92onXFlCgWSAHwrCDbMQ2ePU93UXu8Y+OjrKG+WXSgyGJQOUr76NjPbYC
-	rpsrY0X3NE=
-X-Received: by 2002:a17:90a:da83:b0:38e:2c8f:a01a with SMTP id 98e67ed59e1d1-3903c5d2f8bmr28251405a91.11.1786169646463;
-        Fri, 07 Aug 2026 23:14:06 -0700 (PDT)
+        bh=EVfLKOBoXlsoQX+adLzXxBoyONh9CYzhxwPG0dbz6v8=;
+        b=bVBH7IcSCazsvgn3yPw5Q1Y63DYPKsPyQTSeu593DRqWkN9Jw7WlswnY7TiKsIQsl7
+         uP8PRdXHbj2+Cc9JU78e7wca/aGBEh1QE+fKcOcWuXyfBMdnsQ0donHHiKQ7qjjgRmq6
+         rHLg7G+YvZaVTmFb+9SIl+xioFDWVycwe73/Kb9rCFuGGeQB2UTFgza+fLUEJLxbQlf8
+         X0U8osRaVe5QDHgcZXmSe98UnKJ6MAPnD/OWBDAtJw3IPt65bzFHOt/F7tuB9pXtyDsO
+         29vma54E6LeU4LlICjVMTc25Jervh9zGSs3oFkXjtDS6Vv/FPk4ZvIoC9TR91v2TB9vP
+         KkVA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro8Hnlat2GOBwIIcqR1nyg2EafhorNi7+crSmLS/v41NO+xfk6u/ljv5A30Q6+519lNEBgm6MNJwsCtEQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQvgnvBRPMdItpjItcVMSnAAsjLj5psWZqqh6+aJm1AUFBctyE
+	trA7Ljyp86izM6QrsdqEQs6i+da7kRVBEBwAnsIeGHkD+V9wIIAhp01owGqvr2T4ESM=
+X-Gm-Gg: AR+sD11FzCoZlrMBA+qaBouPfOl7vw3wUN3HI+GnWkzNSJ53cd9Q3SEnXwDK/3hwGa7
+	cXWghbxIlz5BB1rsj3+d7LDsli3+1CthxI37u+c0pa7/mAiROqyBjtCPy/+rWgdrH6e766HNzhh
+	HVQJqji4+AmoVfLobVyY43R8he46o839mdKVI5K0T7CHUQ1Un2LHBh+In5S9B4wQg1Dj9byV3zb
+	1GISQnXJ6PMfNl3jfMDxk56ef9fnCkdeDc4uWDRz2BMqBbvMDNi8cZaO/LjRPyVizJ2lkHzzBHF
+	QvwjSMfhbXpzyPPImqkXyafhehOFgARfOzVhREnWuFvG9JOEnS9+18LF3sIe4I9ro0/rL+5XIx3
+	r4z5wNrz3At4lfVz6O1+OWJm61wFYzg195mWt+2iTLvAzAYmJWaHmPQ94EE/GBAEpvAi09UJfJr
+	u2fCKERhDg2cQ7TS1jfomTt5/JGR6LBVgfqYQ7aXgLP5oMO7HHR1Dyah1x4lfNOQHLmRb4/N/Ie
+	n05e/a+lec=
+X-Received: by 2002:a17:903:1746:b0:2cf:afe8:b722 with SMTP id d9443c01a7336-2d0ca761e0amr323978905ad.11.1786170804803;
+        Fri, 07 Aug 2026 23:33:24 -0700 (PDT)
 Received: from hsinchu01.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3925fd957cesm4998395a91.6.2026.08.07.23.14.04
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d16c4a35c0sm15983645ad.63.2026.08.07.23.33.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 23:14:06 -0700 (PDT)
+        Fri, 07 Aug 2026 23:33:24 -0700 (PDT)
 From: Jimmy Ho <jimmy.ho@sifive.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
 Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
+	Hui Wang <hui.wang@canonical.com>,
+	Ben Dooks <ben.dooks@codethink.co.uk>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jimmy Ho <jimmy.ho@sifive.com>
-Subject: [PATCH] riscv: pass system-failure to restart SBI call on emergency restart
-Date: Sat,  8 Aug 2026 14:14:00 +0800
-Message-ID: <20260808061400.14652-1-jimmy.ho@sifive.com>
+	Jimmy Ho <jimmy.ho@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH] riscv: cpu_ops_sbi: retry checking if CPU is stopped
+Date: Sat,  8 Aug 2026 14:32:41 +0800
+Message-ID: <20260808063242.20178-1-jimmy.ho@sifive.com>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_231407_415974_A1C7D090 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20260807_233326_089331_B09231CF 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,78 +104,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Let the restart SBI call pass the restart reason as system-failure
-when an emergency restart occurs.
+Introduce a retry loop with a timeout to wait for the HSM state
+of the core being hotplugged down to properly transition to
+HSM_STATE_STOPPED.
 
+Suggested-by: Samuel Holland <samuel.holland@sifive.com>
 Signed-off-by: Jimmy Ho <jimmy.ho@sifive.com>
 ---
- arch/riscv/include/asm/emergency-restart.h | 13 +++++++++++++
- arch/riscv/include/asm/sbi.h               |  2 ++
- arch/riscv/kernel/sbi.c                    |  8 +++++++-
- 3 files changed, 22 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/emergency-restart.h
+ arch/riscv/kernel/cpu_ops_sbi.c | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/emergency-restart.h b/arch/riscv/include/asm/emergency-restart.h
-new file mode 100644
-index 000000000000..14c8da0f7ea2
---- /dev/null
-+++ b/arch/riscv/include/asm/emergency-restart.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _ASM_RISCV_EMERGENCY_RESTART_H
-+#define _ASM_RISCV_EMERGENCY_RESTART_H
-+
-+#include <asm/sbi.h>
-+
-+static inline void machine_emergency_restart(void)
-+{
-+	machine_restart(RISCV_EMERGENCY_RESTART_REASON);
-+}
-+
-+#endif /* _ASM_RISCV_EMERGENCY_RESTART_H */
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 5725e0ca4dda..c8dceefa677d 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -121,6 +121,8 @@ enum sbi_srst_reset_reason {
- 	SBI_SRST_RESET_REASON_SYS_FAILURE,
- };
+diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+index ee6e4b5cc39e..41e577400591 100644
+--- a/arch/riscv/kernel/cpu_ops_sbi.c
++++ b/arch/riscv/kernel/cpu_ops_sbi.c
+@@ -5,6 +5,7 @@
+  * Copyright (c) 2020 Western Digital Corporation or its affiliates.
+  */
  
-+#define RISCV_EMERGENCY_RESTART_REASON "system-failure"
-+
- enum sbi_ext_susp_fid {
- 	SBI_EXT_SUSP_SYSTEM_SUSPEND = 0,
- };
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index c443337056ab..dae147420f1a 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -10,6 +10,7 @@
++#include <linux/delay.h>
+ #include <linux/init.h>
  #include <linux/mm.h>
- #include <linux/pm.h>
- #include <linux/reboot.h>
-+#include <linux/string.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
- #include <asm/tlbflush.h>
-@@ -519,10 +520,15 @@ static void sbi_srst_reset(unsigned long type, unsigned long reason)
- static int sbi_srst_reboot(struct notifier_block *this,
- 			   unsigned long mode, void *cmd)
+ #include <linux/sched/task_stack.h>
+@@ -87,8 +88,23 @@ static bool sbi_cpu_is_stopped(unsigned int cpuid)
  {
-+	unsigned long reason = SBI_SRST_RESET_REASON_NONE;
+ 	int rc;
+ 	unsigned long hartid = cpuid_to_hartid_map(cpuid);
+-
+-	rc = sbi_hsm_hart_get_status(hartid);
++	unsigned long start, end;
 +
-+	if (cmd && !strcmp(cmd, RISCV_EMERGENCY_RESTART_REASON))
-+		reason = SBI_SRST_RESET_REASON_SYS_FAILURE;
++	/*
++	 * The core that is being hotplugged down might still
++	 * be processing SBI ecall hotplug down.
++	 * So, try again a few times.
++	 */
 +
- 	sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
- 		       SBI_SRST_RESET_TYPE_WARM_REBOOT :
- 		       SBI_SRST_RESET_TYPE_COLD_REBOOT,
--		       SBI_SRST_RESET_REASON_NONE);
-+		       reason);
- 	return NOTIFY_DONE;
- }
++	start = jiffies;
++	end = start + msecs_to_jiffies(100);
++	do {
++		rc = sbi_hsm_hart_get_status(hartid);
++		if (rc == SBI_HSM_STATE_STOPPED)
++			break;
++
++		usleep_range(100, 1000);
++	} while (time_before(jiffies, end));
  
+ 	if (rc != SBI_HSM_STATE_STOPPED) {
+ 		pr_warn("HART%lu isn't stopped; status %d\n", hartid, rc);
 -- 
 2.43.7
 
