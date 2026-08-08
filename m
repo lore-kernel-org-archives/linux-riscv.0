@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C41DC55174
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 06:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67BB3C5AD2C
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 07:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hP+1jjhCBAQ/mx8OyTsKSwWM51d90aQMOqhrvDOcmUQ=; b=4VHqg7XHsobuZM
-	2IhKUe2bxRYIDRBIWxD18N24dttyCFxzTcVyT1aOmG5obFOGH3T1FOO7FzpHxO7u/LsU3gdnlH1v5
-	z9MqQShzOSTefI0lNg1X2LewcLj9qXZ7lju6x4cxzLWNh0IyXAfx5QK68Uk3wi4ss0Mbpm077LAS+
-	Wdwfk2mCgDXmbWSdrVTmpkdndLz7IX4hjuplypZFkZDz3Pw4Ue7WGfvH87i9PmeJ74OILuPnReaps
-	yPwrXKl6t69U9fi/X3BrOIwyyE4y66HkYAW1mvhSUBxvcBalmdxSQLUMgIJi6hXWJaN+qad14adPQ
-	QAxMOi7C1tG/6OazeZ3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rTyClAZ+myjhMG88gb5VEMEnkNN+8KUyg8m/85JV9zk=; b=ZXfrt/XCK2CezV
+	zf1YdpZPwi402XGZcVar+BUy5NqJ/CqzR0m7cnJbChONOHM7nwzfID2qViI5XL5Kb4XMeLSv9ikd9
+	LMXW11qk73Tw2viEF8LPE+OsL2ttHjs5YFY11/BOpiYRncTBU+00zYaLidYiB7qRO0pxmViyRXi6r
+	bS5ECOxGl0aUr+jxDFTU8ixNe63zLOUwxk53p7L9vVDd7daeuTwQS0/dP4Yg8ldRuAaPcCOmOLIfL
+	fNfcg1cOrGk5Mm9N7rz5jHgXjs9r0NRbd+zYmYTUyr7KuAZbfdXi0euC4rh21mivIzZBkqGzTQKnZ
+	osqWHz2DYnT7x3oGYFQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsaca-000000096Af-3Tsm;
-	Sat, 08 Aug 2026 06:33:28 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wsbYQ-000000098Ak-3Ych;
+	Sat, 08 Aug 2026 07:33:14 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsacY-000000096AK-06GE
+	id 1wsbYN-0000000989e-02pI
 	for linux-riscv@lists.infradead.org;
-	Sat, 08 Aug 2026 06:33:27 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2cea3004256so3594605ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Aug 2026 23:33:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1786170805; x=1786775605; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EVfLKOBoXlsoQX+adLzXxBoyONh9CYzhxwPG0dbz6v8=;
-        b=bc95ZDu46bwzg9jDN/cMSXo87mytkzFhe/cXclSe+uyPkbGqju+oQKuYi09a67bhqP
-         mUP7LgrySAr07snhXCw6rHMdUkcCG7veIIbwadJOeIaVOSuZUaYlqvEMkJdJ0aMAihiQ
-         ZMgnZ66Y1QcfH85/VPpAEBHmZYxw8GRhA956J2bAseadwuVIV+dD1TnUVZLQoDxo76SX
-         cCndNftq6OkskTRXRbuazoDsQjERHI6NZUucWqSQNc6U/UMqRh42f05rE3pKR/oMAvfe
-         6wow5rWI8G1pLfIUYQSu2FBIrKIEtZ9aUfss7btELwCqrK+zAb38shbERGGL/ujMBRL9
-         ws5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786170805; x=1786775605;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EVfLKOBoXlsoQX+adLzXxBoyONh9CYzhxwPG0dbz6v8=;
-        b=bVBH7IcSCazsvgn3yPw5Q1Y63DYPKsPyQTSeu593DRqWkN9Jw7WlswnY7TiKsIQsl7
-         uP8PRdXHbj2+Cc9JU78e7wca/aGBEh1QE+fKcOcWuXyfBMdnsQ0donHHiKQ7qjjgRmq6
-         rHLg7G+YvZaVTmFb+9SIl+xioFDWVycwe73/Kb9rCFuGGeQB2UTFgza+fLUEJLxbQlf8
-         X0U8osRaVe5QDHgcZXmSe98UnKJ6MAPnD/OWBDAtJw3IPt65bzFHOt/F7tuB9pXtyDsO
-         29vma54E6LeU4LlICjVMTc25Jervh9zGSs3oFkXjtDS6Vv/FPk4ZvIoC9TR91v2TB9vP
-         KkVA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro8Hnlat2GOBwIIcqR1nyg2EafhorNi7+crSmLS/v41NO+xfk6u/ljv5A30Q6+519lNEBgm6MNJwsCtEQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQvgnvBRPMdItpjItcVMSnAAsjLj5psWZqqh6+aJm1AUFBctyE
-	trA7Ljyp86izM6QrsdqEQs6i+da7kRVBEBwAnsIeGHkD+V9wIIAhp01owGqvr2T4ESM=
-X-Gm-Gg: AR+sD11FzCoZlrMBA+qaBouPfOl7vw3wUN3HI+GnWkzNSJ53cd9Q3SEnXwDK/3hwGa7
-	cXWghbxIlz5BB1rsj3+d7LDsli3+1CthxI37u+c0pa7/mAiROqyBjtCPy/+rWgdrH6e766HNzhh
-	HVQJqji4+AmoVfLobVyY43R8he46o839mdKVI5K0T7CHUQ1Un2LHBh+In5S9B4wQg1Dj9byV3zb
-	1GISQnXJ6PMfNl3jfMDxk56ef9fnCkdeDc4uWDRz2BMqBbvMDNi8cZaO/LjRPyVizJ2lkHzzBHF
-	QvwjSMfhbXpzyPPImqkXyafhehOFgARfOzVhREnWuFvG9JOEnS9+18LF3sIe4I9ro0/rL+5XIx3
-	r4z5wNrz3At4lfVz6O1+OWJm61wFYzg195mWt+2iTLvAzAYmJWaHmPQ94EE/GBAEpvAi09UJfJr
-	u2fCKERhDg2cQ7TS1jfomTt5/JGR6LBVgfqYQ7aXgLP5oMO7HHR1Dyah1x4lfNOQHLmRb4/N/Ie
-	n05e/a+lec=
-X-Received: by 2002:a17:903:1746:b0:2cf:afe8:b722 with SMTP id d9443c01a7336-2d0ca761e0amr323978905ad.11.1786170804803;
-        Fri, 07 Aug 2026 23:33:24 -0700 (PDT)
-Received: from hsinchu01.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d16c4a35c0sm15983645ad.63.2026.08.07.23.33.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 23:33:24 -0700 (PDT)
-From: Jimmy Ho <jimmy.ho@sifive.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Hui Wang <hui.wang@canonical.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jimmy Ho <jimmy.ho@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH] riscv: cpu_ops_sbi: retry checking if CPU is stopped
-Date: Sat,  8 Aug 2026 14:32:41 +0800
-Message-ID: <20260808063242.20178-1-jimmy.ho@sifive.com>
-X-Mailer: git-send-email 2.50.1
+	Sat, 08 Aug 2026 07:33:13 +0000
+Message-ID: <f29e9ffc-80bd-4bd0-91a5-22feb081ac60@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1786174378;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rCzgX6JVLx9Ko3n6wKYEJsdgvY6Ca+XBEhJnvXYRW5o=;
+	b=iovclzJpjR+LMVlQGMDC1PXGZcwCK7PEsPVXonLV3I6GYXXstpcVN2tQErwnvJQubWeZkW
+	SeShr/mMhxwjUHw1ENdLhSGDivCiBRGJQ/ejL80ujQs1mOQN9teOlOUsNYf1YkdNDn/vij
+	ctovi6HgvbyGlh6y6/v+IOE/V1+36d8=
+Date: Sat, 8 Aug 2026 00:32:49 -0700
 MIME-Version: 1.0
+Subject: Re: [PATCH v8 05/22] RISC-V: Define indirect CSR access helpers
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Jiri Olsa <jolsa@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>,
+ Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+ <20260701-counter_delegation-v8-5-7909f863a645@meta.com>
+ <1b20aa77-0f0f-08c7-9439-972983adf709@kernel.org>
+ <920aee80-5297-4d70-a1ea-616976db7f70@linux.dev>
+ <09a1260b-aa91-f993-e81e-0c636cfd7942@kernel.org>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <09a1260b-aa91-f993-e81e-0c636cfd7942@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_233326_089331_B09231CF 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260808_003311_623000_B4530573 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,62 +75,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a retry loop with a timeout to wait for the HSM state
-of the core being hotplugged down to properly transition to
-HSM_STATE_STOPPED.
 
-Suggested-by: Samuel Holland <samuel.holland@sifive.com>
-Signed-off-by: Jimmy Ho <jimmy.ho@sifive.com>
----
- arch/riscv/kernel/cpu_ops_sbi.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
-index ee6e4b5cc39e..41e577400591 100644
---- a/arch/riscv/kernel/cpu_ops_sbi.c
-+++ b/arch/riscv/kernel/cpu_ops_sbi.c
-@@ -5,6 +5,7 @@
-  * Copyright (c) 2020 Western Digital Corporation or its affiliates.
-  */
- 
-+#include <linux/delay.h>
- #include <linux/init.h>
- #include <linux/mm.h>
- #include <linux/sched/task_stack.h>
-@@ -87,8 +88,23 @@ static bool sbi_cpu_is_stopped(unsigned int cpuid)
- {
- 	int rc;
- 	unsigned long hartid = cpuid_to_hartid_map(cpuid);
--
--	rc = sbi_hsm_hart_get_status(hartid);
-+	unsigned long start, end;
-+
-+	/*
-+	 * The core that is being hotplugged down might still
-+	 * be processing SBI ecall hotplug down.
-+	 * So, try again a few times.
-+	 */
-+
-+	start = jiffies;
-+	end = start + msecs_to_jiffies(100);
-+	do {
-+		rc = sbi_hsm_hart_get_status(hartid);
-+		if (rc == SBI_HSM_STATE_STOPPED)
-+			break;
-+
-+		usleep_range(100, 1000);
-+	} while (time_before(jiffies, end));
- 
- 	if (rc != SBI_HSM_STATE_STOPPED) {
- 		pr_warn("HART%lu isn't stopped; status %d\n", hartid, rc);
--- 
-2.43.7
-
+On 8/7/26 6:04 PM, Paul Walmsley wrote:
+> On Wed, 5 Aug 2026, Atish Patra wrote:
+>
+>> On 8/4/26 5:39 PM, Paul Walmsley wrote:
+>>> On Wed, 1 Jul 2026, Atish Patra wrote:
+>>>
+>>>> From: Atish Patra <atishp@rivosinc.com>
+>>>>
+>>>> The indirect CSR requires multiple instructions to read/write CSR.
+>>>> Add a few helper functions for ease of usage.
+>>>>
+>>>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+>>> Thanks.  These macros seem better implemented as static inline functions.
+>>> That also nicely aligns the code with what you write in the patch
+>>> description.
+>> I don't think inlining these macros in the following way will work because of
+>> the following reason. It won't build once anything calls it.
+>>
+>> csr_read()/csr_write() stringify the CSR argument straight into the inline asm
+>> template:
+> Yes, you're right; I should have caught that.  Too bad, there are multiple
+> keyhole CSR index registers in use, otherwise it would have been a
+> reasonable thing to do.
+>
+> What's up with the subsequent followup message?  Looks like a
+> cut-and-paste from an LLM.
+Oops. Ha ha. LLM agent was parsing the lore and preparing a draft response.
+It produced so much garbage that I replied manually. I have no idea what 
+prompted
+it to send it after I sent the response! Sorry for the spam.
+>
+> - Paul
 
 _______________________________________________
 linux-riscv mailing list
