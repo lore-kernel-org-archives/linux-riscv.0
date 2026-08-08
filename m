@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51AC9C55174
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 17:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDD1C5AC67
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 17:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rx75gbML3BcENdPz9+856dupXlvZM1edkWLekc8Qmkk=; b=d/RD/ulFk/nEl1
-	V7b45q6A8afdfM2+IU25iTJBnvWtng0azKFaQu2FH7E46WntlhNqiACU57jkWegPA5FtfUDx2fvTO
-	vUSD4EJHSM4bujCjNzM0z4oGHFAMRFrrzObPHVuYzjno+c5Tkg1H8+mNKAIIxEjSf2RY+CGsGADvO
-	FaIHI8qSOdUgjlba6P5dpwhCDCtVwayrMnfdbZWkfgAWMRyFE7kD+B7N0JiuDitA3mFwpcqnRC5B6
-	CVuK+t1/NwFV+HxIC1aTZQcIVpeGFOhnAqlH+zZXSgSe8JFIv/4w42WX7GjfJZHYurj1EQqKZe04n
-	D9ymhVyrbYydJgqHQjLA==;
+	List-Owner; bh=rEaTbX9173avVjim1ZQQAFN8nj8hFZlpj8H2IneEk3g=; b=rW7by8YWdrM9su
+	wl4BXeXyInq+zgd5ynC5pUEDM7Xnav9jKWjb22msoSMCMQrKLYPh+HXp8ghBR14TWopjDu9HwFcj6
+	oOG5WQIyTUrWbWS8Fk7FOsdpjNv+0mfiyT8V8wQKHK2lwiZcMCCocN4NC9UrxiZCH3+SgBXALW9Yu
+	0mSaoPw31uNuP4RP6hO/w4kTAUY6vJN06kC+Xpzu3t64VWaVLGvbyXMd29ozr4zgzvlY3wJBAoRsZ
+	v4CPEMUnSHNkCcwsJoqH6zxzZ/a4snJHesIwoBbd8iifiPf5LrfwXa4MNXgvqWs9xH9yjsVE1F+Xw
+	5dvwJCMqMQsa3IiRLDoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wskXs-00000009XiV-44Pt;
-	Sat, 08 Aug 2026 17:09:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wskyZ-00000009YXu-1suY;
+	Sat, 08 Aug 2026 17:36:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wskXr-00000009XiN-2Rh1
-	for linux-riscv@lists.infradead.org;
-	Sat, 08 Aug 2026 17:09:15 +0000
+	id 1wskyX-00000009YXV-0QXk;
+	Sat, 08 Aug 2026 17:36:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0B94D6001A;
-	Sat,  8 Aug 2026 17:09:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67A461F000E9;
-	Sat,  8 Aug 2026 17:09:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D8E1242A57;
+	Sat,  8 Aug 2026 17:36:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9D1F1F000E9;
+	Sat,  8 Aug 2026 17:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786208954;
-	bh=3t2FU5QAhOESQfdCB5hI+9szIiZ8abQ+zdqjjWFA9FE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LPB8Woob7raC0tlwHTe2yEiGhF1JQCEbzsn7BjsYhQ/28Pnh9rAmfXM3c58q7AZzU
-	 CiUTsdZa/IsA6BZGIXs3P0JMQ6w1OymlmbmU2pvzu5+0RdrwJxlNacCUG8o2HvNbwQ
-	 FxKxMt78u6UVXKYrEzVtPSOMoXeJpHAwkaHeVghjWnd6r6W9AQcxYwLFsNvtOrhQu7
-	 ut0uEP7nJk+osZdxed9zvq0z05XtUCxcjsuc7pdeVjt+MRiZqBM/WJ9jBwooFivfW7
-	 swyQy2gbeQNjiFz3ENfbPkA3cd0+431CyOR+wXcUXLecvUCXgFZKEKNIfnhdFM0IqJ
-	 L4mtvthCHrL3Q==
-Date: Sat, 8 Aug 2026 10:09:13 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Cc: joro@8bytes.org, palmer@dabbelt.com, tony.luck@intel.com,
-	reinette.chatre@intel.com, tomasz.jeznach@linux.dev,
-	will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, Dave.Martin@arm.com,
-	james.morse@arm.com, babu.moger@amd.com, corbet@lwn.net,
-	shuah@kernel.org, jgg@ziepe.ca, kevin.tian@intel.com,
-	cuiyunhui@bytedance.com, yuanzhu@bytedance.com,
-	iommu@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, x86@kernel.org
-Subject: Re: [RFC PATCH 5/7] iommu/riscv: Expose global QoS IDs in sysfs
-Message-ID: <andiub47zsUsL4qh@x1>
-References: <20260714130657.46963-1-zhangzhanpeng.jasper@bytedance.com>
- <20260714130657.46963-6-zhangzhanpeng.jasper@bytedance.com>
+	s=k20260515; t=1786210607;
+	bh=3Rp3p9+KzYQ9Znhhoh1ycYs7eQjez3sPulHcLx1j/3c=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=NTO45Tr40cyUy5n+37USC3LS8AwFa0hTN2h+XTtPQkMsuhtKbfVEGYxPrhY4t2qIH
+	 ZrY+kewpmQdkZMqnSyVZ8B4ppKebGfFgUacecJiTJxGPxLuosOIBI6DJVynR7aiCic
+	 +iROFZhlPFW0rttORDANMlbMbaq4qhwXJ+VYsEEtcCZ/ezXHfceCCxn2p7M803K9iB
+	 dNesTABHyw0mE1/Ody4EvWtOeTFYgjD0Fhnfz8U7A80RQc1cnOcsglMq4Xi3x8MbrV
+	 pAfFFewa7/Wvtv5SgCCqpjcTDO29tNcDqFoESv3mHFdHGoe3H/faI/97LqM4+Pmr1m
+	 h1RH7peTuBXsA==
+Date: Sat, 8 Aug 2026 11:36:46 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Atish Patra <atish.patra@linux.dev>
+cc: Will Deacon <will@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+    Anup Patel <anup@brainfault.org>, Ian Rogers <irogers@google.com>, 
+    Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+    Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, 
+    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+    James Clark <james.clark@linaro.org>, Namhyung Kim <namhyung@kernel.org>, 
+    linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+    Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org, 
+    linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v9 00/20] Add Counter delegation ISA extension support
+In-Reply-To: <20260807-counter_delegation-v9-0-58658104e487@meta.com>
+Message-ID: <42cea3ec-5f9d-7f47-bb8c-ab2789246918@kernel.org>
+References: <20260807-counter_delegation-v9-0-58658104e487@meta.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260714130657.46963-6-zhangzhanpeng.jasper@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,66 +74,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 09:06:55PM +0800, Zhanpeng Zhang wrote:
-> The RISC-V IOMMU QoS extension provides iommu_qosid as a per-IOMMU
-> global default tag. It is used for IOMMU-originated DDT, CQ, FQ, PQ, and
-> MSI accesses, and for device-originated requests when DDTP is in BARE
-> mode.
-> 
-> Initialize iommu_qosid to RCID 0 and MCID 0 when the hardware advertises
-> QOSID support. Preserve reserved and WPRI bits with read-modify-write,
-> and use register readback to reject values which the WARL fields do not
-> retain.
-> 
-> Add a qosid attribute to the RISC-V IOMMU class device. Reading returns
-> the current RCID and MCID values. Writing the documented
-> 'rcid=<rcid> mcid=<mcid>' form updates both fields while preserving the
-> other register bits.
-> 
-> Keep this interface separate from resctrl group QoS. The sysfs attribute
-> controls the IOMMU-wide default, while resctrl device assignment programs
-> per-device DC.ta in translated modes.
-> 
-> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-> ---
->  .../ABI/testing/sysfs-class-iommu-riscv-iommu |  27 +++
->  MAINTAINERS                                   |  10 ++
->  drivers/iommu/riscv/iommu.c                   | 159 +++++++++++++++++-
->  drivers/iommu/riscv/iommu.h                   |   9 +-
->  4 files changed, 202 insertions(+), 3 deletions(-)
->  create mode 100644 Documentation/ABI/testing/sysfs-class-iommu-riscv-iommu
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-class-iommu-riscv-iommu b/Documentation/ABI/testing/sysfs-class-iommu-riscv-iommu
-> new file mode 100644
-> index 000000000000..b0cd68997f17
-> --- /dev/null
-> +++ b/Documentation/ABI/testing/sysfs-class-iommu-riscv-iommu
-> @@ -0,0 +1,27 @@
-> +What:		/sys/class/iommu/<iommu>/qosid
-> +Date:		June 2026
-> +KernelVersion:	6.18
-> +Contact:	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-> +Description:
-> +		The RISC-V IOMMU global default QoS IDs for this IOMMU.
-> +		The file is present only when the IOMMU reports the QOSID
-> +		capability.
-> +
-> +		Reading the file returns the RCID and MCID fields from the
-> +		iommu_qosid register:
-> +
-> +		  rcid=<rcid> mcid=<mcid>
-> +
-> +		Writing the file updates the RCID and MCID fields while
-> +		preserving reserved/WPRI bits:
-> +
-> +		  rcid=<rcid> mcid=<mcid>
+On Fri, 7 Aug 2026, Atish Patra wrote:
 
-I think it might fit sysfs better if the rcid and mcid are separate
-files in that directory. Is there a reason you combine them into one
-file?
+> This series adds the counter delegation extension support. It is based on
+> very early PoC work done by Kevin Xue and mostly rewritten after that.
+> The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
+> on multiple ISA extensions.
 
-Thanks,
-Drew
+I'll put the first ten patches in riscv/for-next, replacing the ones I 
+queued up earlier.  Let's take a look at the remaining patches in the v7.4 
+time period, due to the other recent updates.
+
+
+thanks
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
