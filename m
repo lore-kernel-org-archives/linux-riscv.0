@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDD1C5AC67
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 17:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E003C5AC67
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 18:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rEaTbX9173avVjim1ZQQAFN8nj8hFZlpj8H2IneEk3g=; b=rW7by8YWdrM9su
-	wl4BXeXyInq+zgd5ynC5pUEDM7Xnav9jKWjb22msoSMCMQrKLYPh+HXp8ghBR14TWopjDu9HwFcj6
-	oOG5WQIyTUrWbWS8Fk7FOsdpjNv+0mfiyT8V8wQKHK2lwiZcMCCocN4NC9UrxiZCH3+SgBXALW9Yu
-	0mSaoPw31uNuP4RP6hO/w4kTAUY6vJN06kC+Xpzu3t64VWaVLGvbyXMd29ozr4zgzvlY3wJBAoRsZ
-	v4CPEMUnSHNkCcwsJoqH6zxzZ/a4snJHesIwoBbd8iifiPf5LrfwXa4MNXgvqWs9xH9yjsVE1F+Xw
-	5dvwJCMqMQsa3IiRLDoA==;
+	List-Owner; bh=JabePfhCSiYXE65nq1MEUs3TnGdhulqVLFanCPU/0Rk=; b=Tdc+gfqVlAZnYp
+	aaXLfX8Cv3b3e7GGVWmuX+hJHm1XHDnYP56KqLnq1ZHrv8yPSXB3tRQN8YBLmMw/IU5WzTkgfJ7ti
+	JwvDzzXO1B4dCWqdIdmvMnZDw3x9haDw3RVMhhl65VjxDVsRwYwKB2uipNOwD/e3qJhonm1HUocmK
+	OkaRZC2o+P/+FB9+pRB+Blj+NsPKSwU91a5rfyktFt9j3+jsOnCPzOfDiimTWUcJqX67cg8vSOuGN
+	Exn8UU6OG6CLBffIf3qjsqBiHOnmI+zJ8Jvsk7+uJrLV3zvzqdFQeO/za+51G4UZS+sYCGI9QGJFe
+	w5JUwkps6CHyUaTtJ+Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wskyZ-00000009YXu-1suY;
-	Sat, 08 Aug 2026 17:36:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wslLm-00000009Z87-1tkD;
+	Sat, 08 Aug 2026 18:00:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wskyX-00000009YXV-0QXk;
-	Sat, 08 Aug 2026 17:36:49 +0000
+	id 1wslLk-00000009Z7X-3gZn
+	for linux-riscv@lists.infradead.org;
+	Sat, 08 Aug 2026 18:00:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D8E1242A57;
-	Sat,  8 Aug 2026 17:36:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9D1F1F000E9;
-	Sat,  8 Aug 2026 17:36:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E21D643DF7;
+	Sat,  8 Aug 2026 18:00:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C468F1F000E9;
+	Sat,  8 Aug 2026 18:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786210607;
-	bh=3Rp3p9+KzYQ9Znhhoh1ycYs7eQjez3sPulHcLx1j/3c=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=NTO45Tr40cyUy5n+37USC3LS8AwFa0hTN2h+XTtPQkMsuhtKbfVEGYxPrhY4t2qIH
-	 ZrY+kewpmQdkZMqnSyVZ8B4ppKebGfFgUacecJiTJxGPxLuosOIBI6DJVynR7aiCic
-	 +iROFZhlPFW0rttORDANMlbMbaq4qhwXJ+VYsEEtcCZ/ezXHfceCCxn2p7M803K9iB
-	 dNesTABHyw0mE1/Ody4EvWtOeTFYgjD0Fhnfz8U7A80RQc1cnOcsglMq4Xi3x8MbrV
-	 pAfFFewa7/Wvtv5SgCCqpjcTDO29tNcDqFoESv3mHFdHGoe3H/faI/97LqM4+Pmr1m
-	 h1RH7peTuBXsA==
-Date: Sat, 8 Aug 2026 11:36:46 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Atish Patra <atish.patra@linux.dev>
-cc: Will Deacon <will@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-    Anup Patel <anup@brainfault.org>, Ian Rogers <irogers@google.com>, 
-    Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-    Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    James Clark <james.clark@linaro.org>, Namhyung Kim <namhyung@kernel.org>, 
-    linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-    Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org, 
-    linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v9 00/20] Add Counter delegation ISA extension support
-In-Reply-To: <20260807-counter_delegation-v9-0-58658104e487@meta.com>
-Message-ID: <42cea3ec-5f9d-7f47-bb8c-ab2789246918@kernel.org>
-References: <20260807-counter_delegation-v9-0-58658104e487@meta.com>
+	s=k20260515; t=1786212047;
+	bh=3MJCt1He2zsbLqVXjy//wJhJ0zIZ6C/TWcTiFL8fPqs=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=NHsAD4FfXOVHgtDzk5cAkofVCypGgSqK8qfLH0e8ux5ExweNX2976EIdVwIEWymRC
+	 hr/4W6hdC6Uz4ahITNZt6MSiDrVmSM8lPAKStVDBQvtdXrTjlIfv2W5cI+zgcf3HgU
+	 uFGv0rfyycU0zMegSlizQC7PnMG/WsovTvg0ID50YIdjSAGZR3PaaFOGFO857XQ+zU
+	 RJR06xVOMh//82hjVMTT2rHI1vBldJJcow0leCEXjBzPLH+1DwEGBI2KRgXtGR2oCG
+	 Q1vEFmPrmIfF0eIHWCPcJwQPGIOKRxGUVGjT0NkuFbIw1nqerOKtNauv4O17RgY6Pl
+	 1PUdx0bv2uuFg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 03C10380CFEE;
+	Sat,  8 Aug 2026 18:00:07 +0000 (UTC)
 MIME-Version: 1.0
+Subject: Re: [PATCH] riscv: lib: Fix ZBB strnlen reading past count boundary
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <178621200564.2716124.18450500018830260.git-patchwork-notify@kernel.org>
+Date: Sat, 08 Aug 2026 18:00:05 +0000
+References: <20260413010738.1622423-1-mikey@neuling.org>
+In-Reply-To: <20260413010738.1622423-1-mikey@neuling.org>
+To: Michael Neuling <mikey@neuling.org>
+Cc: linux-riscv@lists.infradead.org, jiangfeng@kylinos.cn, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +72,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Aug 2026, Atish Patra wrote:
+Hello:
 
-> This series adds the counter delegation extension support. It is based on
-> very early PoC work done by Kevin Xue and mostly rewritten after that.
-> The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
-> on multiple ISA extensions.
+This patch was applied to riscv/linux.git (fixes)
+by Paul Walmsley <pjw@kernel.org>:
 
-I'll put the first ten patches in riscv/for-next, replacing the ones I 
-queued up earlier.  Let's take a look at the remaining patches in the v7.4 
-time period, due to the other recent updates.
+On Mon, 13 Apr 2026 01:07:38 +0000 you wrote:
+> The ZBB-optimized strnlen loop loads one word ahead before checking the
+> aligned boundary:
+> 
+>     REG_L   t1, SZREG(t0)       // load next word
+>     addi    t0, t0, SZREG       // advance
+>     orc.b   t1, t1
+>     bgeu    t0, t4, 4f          // boundary check AFTER load
+> 
+> [...]
+
+Here is the summary with links:
+  - riscv: lib: Fix ZBB strnlen reading past count boundary
+    https://git.kernel.org/riscv/c/5d588c684833
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-thanks
-
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
