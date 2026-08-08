@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1876AC55174
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 14:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF5E1C5AC67
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 14:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aS3zNVPeeRULW1NgF/vDlvl8GPCBfObVxBjOM3ph9bA=; b=oo6l9KFaXQU2ak
-	zZqau0BiuxlAQDAKciwJ4YKH2dtCG6Jtm5cVF4Lp5RC6dWo2bSA18qQ8jI9EN5xyffQAZiByWLGmJ
-	yGSSCkL+XEDQn6AZiHiaU6SP3I3QpNvUeZfes1pByL7I3LzhBEX9Y9Z8vMFhtXjmGEz6I8nd4K74Q
-	vtPH0rSIe1gAUGUA1k8Vy79qJVNdE2HoRDHY/pNttF8u2mgMh0BB+PA9ZtmXkTm6MgawrrNmpOO2b
-	XGVJ4qh/mFvR7poPv/dshlchMTCE/FJwJogastuUpKiqMhe+LWTN2bVMCQCqguuN9fblaSERl33Gv
-	37S8mNMu+V9Sd8cQu2Ig==;
+	List-Owner; bh=LYglee6Js4paxlw4cNsDt1Ztpw/OVLs89zkW2cxG4sU=; b=E6zCI1fUFGl7jh
+	I5j93DvxALsmaWJgr+J3SZ+LOErrAB4ig9I3/i65IDMzbNMYu3pwJ++GHtbgHiGPQbFJQ5AkdYPvn
+	sXHNSZSRKxpqIyAuXkAjUhwyy4++LVYgF0ErILsllVzcqxcTqqe0kpAz3b6IOz3aMyqBymcGcFq6w
+	4ffyeyoCFF5zNEOpWmTuMYoaG8k4zEVG2IVJRYUVz8JOez3Ht8uzL1iklcAanXJReVbkhZ4HK0DLC
+	qgeBY+q3qrUhlka+E1cY7Ej8ibus4HE3kCDksGjb0KOyVxODciLX991VJSN4kBnuin5bwVO5JjWjL
+	CNwNoOx6aE6YsrBtMUBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsi3I-00000009S5a-38Rx;
-	Sat, 08 Aug 2026 14:29:32 +0000
-Received: from mail-pz2-x00.google.com ([2607:f8b0:4864:3b::])
+	id 1wsiCp-00000009SYY-3w9v;
+	Sat, 08 Aug 2026 14:39:23 +0000
+Received: from mail-pj2-x09.google.com ([2607:f8b0:4864:39::9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsi3F-00000009S4m-4AYT
+	id 1wsiCm-00000009SXk-3Y4V
 	for linux-riscv@lists.infradead.org;
-	Sat, 08 Aug 2026 14:29:31 +0000
-Received: by mail-pz2-x00.google.com with SMTP id 41be03b00d2f7-c96739a46acso246391a12.1
-        for <linux-riscv@lists.infradead.org>; Sat, 08 Aug 2026 07:29:29 -0700 (PDT)
+	Sat, 08 Aug 2026 14:39:22 +0000
+Received: by mail-pj2-x09.google.com with SMTP id 98e67ed59e1d1-38f0f8ab050so595763a91.0
+        for <linux-riscv@lists.infradead.org>; Sat, 08 Aug 2026 07:39:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786199369; x=1786804169; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786199960; x=1786804760; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=7CZYGhkXjoLPOZDdCP+ZBeQkJbqW9Nm3A99Ju9rkXbI=;
-        b=iFdfmy3Hv5a1iGrOwZ0N3sqqOZojeHaW+HI/OTgZQ8Y9IPeILYRm1njJmuxFgIsJVq
-         rBEEXTzQosCPftHdPu89k9ZywHAOfjc/nDGy+gQbK2ZXgEyh6R7rO9pfGLoosRX4Oc2T
-         ONxPu4Jg2WTbca42jEUwzByF1DQE98+N1fT8s8AbkPBUAnroTFz00jS81p20MTo1AHga
-         Y79CkoC7gX1RyQipMctoa5CKeK0Ym0wxvG60zSmNXpSaHNhceM4EHak2Sn72POLZ8gq0
-         gBvYHp4clm2F0KCFi+eMDPzky7Ixi2B+nQOs2xwlqpnMCqY0sAUmVW633OhinJyI68LS
-         aNAA==
+        bh=gLPlagPSnxq9fTONnyyz/3ddba5KQ5Gz9V5u0Vh5tVQ=;
+        b=Idw1GdxC3g34OI9Fq+b24Oqrhrb1zEpulo42qIbYCLQVr518EzbLl0muj59DogpK1T
+         3/ZNxG4jJnF9cHg9ezwedpCtvrMgToiAjZC8XRdHQgwwwA1gEnk67hYnDWIxrgFbx3t6
+         1EJEiLYNTcmR2scRfgDl437nWaiW8bVXZ248TfAh9aYtuY8Eu1196yRFy0iH0vLBOgfA
+         Z00wZhgKYrltOK0pRJA/yah+Z/63E4vhtqfE+5Oj2lCQMLe6qs/9GYaRF1BrYSEmQLvO
+         7GYS7Xk8Lhp+zy3Hbj4o4ZWnBEZ6C2DnCma/qJI9c/+jwkIts0ZoDshbMgkHEx3Pxp+I
+         Zj4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786199369; x=1786804169;
+        d=1e100.net; s=20251104; t=1786199960; x=1786804760;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7CZYGhkXjoLPOZDdCP+ZBeQkJbqW9Nm3A99Ju9rkXbI=;
-        b=pKFV90gJsg3/dSYxoZAQquSRPqFgyZME1I9VAWX2SI10ee+6V4IG7x5V4PLDYcdRyu
-         IgKEIG9pmRW/n2KqyJICrOXcibbbFPUv/3maMaRkrfl/QVI7GpzwOcJSjmNK3xBC0pit
-         ILBWVOhA2CfruL66LXeJktXiqYYdcPZQXAfRJDLU1UoqUq1nrwl7/8kKs+AGfleSB+R3
-         CNsfjcibv8ceev65K/koKPe8H5ZHsufONPWjowWrnxRpPDia7mJUTnoCokx5W2F/4KDH
-         ku/PnxW6pIidcnv7UpXHx+dxEYHp3dk6p9S2uTu5KJ7achk3ZPvqyn+9Oobx6iMKOdNS
-         BIiQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr727sAd1vBw/4uJBQuL27iahuWmlZegOAjIUb7Ge24IPHOt9Of+q0b9KZp1WirgUbgO6vo6d0xPsbPbw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGfxsTadSNydpIUMl/2oBo295CBCYRNxzKxbRVGRE+3FK178C6
-	twRQuUkU6zao7X3HuTTmZrPtAQ0A/bW0e0G3UtXTXZqalpsqKLsuXyvs
-X-Gm-Gg: AR+sD132RgSR5pNey1G/5c34SwJGQcDTMdTdHPA8//lBK0r/d6FktmMyRPr6yrLUUGz
-	NwF2hhKJK266t2QJr0yXN16c5rkCGBOBl9BnrvYse4NPuAi/4i6xW7i98M2PH3iL+MgJM7ZFtXC
-	Vlt5ZJP3SlnAwhni77cB8EeuKdLVz6NyNlmjbLS5QALBxC8YYE2WZsPircm+r8H63t55KDJ9siv
-	nvCZCH9+lPIoBMIgKn92Im7EyaSgKKnX2MgVJGDajEDgLgcLMdJAh0jF8qJl8T3wd09/s+BFiIZ
-	+1rRO+BgYfsw++Mr/Syp75LTgXEJ8DKgY2BjPuF7GSyXdr6opkvODZYqa0UDn9zTU1J/LLnIIeo
-	oYcZl3Y55MtPedtmZ5vqm4L/MKsgW4GwaLuVuXqOZaArGYHTukQRc3fKIWz2urP2fPeHtTaiLFN
-	VFWXEoZt7fkphAF2QAUHC6HSiMwLNYsFz4MxJFWWU=
-X-Received: by 2002:a05:6a00:278b:b0:848:7b92:8e74 with SMTP id d2e1a72fcca58-84f2e0dc994mr36524222b3a.39.1786199369200;
-        Sat, 08 Aug 2026 07:29:29 -0700 (PDT)
+        bh=gLPlagPSnxq9fTONnyyz/3ddba5KQ5Gz9V5u0Vh5tVQ=;
+        b=N74zmo/Mz265UekDmXIiJaCzXCl2mnqBlrX8doPpcZCj7iYvhCQRHRQ4B68FFTnukm
+         iIUkuXJjcj3HFnAgM9RoOoeafFO2HZLabYUOBxq5YaOD9jT3eZuh+GQDyKx0gFA1Otjp
+         R9uzq4RCu2WuUMm+jl9PVmv7/+KaHuq2yfdKq9t6rZF9MXXlt1rDhi8HXCVWmwzJVt1X
+         p0tfoyCNVtukckGakyRbENdJDacjr8t9LhDXwdWL2TVSLc1PO1BkdvpXmuNb1pcFimD5
+         HzO8UtKrmwGI3lDvjJtw4urlWBt7ei9+2xlxKt0rqeft+0V6jp4HXdPeArSlBynE5DDJ
+         n3aw==
+X-Forwarded-Encrypted: i=1; AHgh+Ro8cVsbl15sX2lh+MLclULEyb+kW4FuFAmul9ajDYQZKIoC3vDiadTvoK0YFb75e4u1DAYSVz/8TyeUpg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3os1aGw9r9+3x4khVCYPQGEHaqVyLNBljctQY6FB2IJ9wymlH
+	wZW0yhXL+WIV0aRSG0KBq9Qhhe23Mac2ZM3IUcYEApFl26E2X2HjJaDW
+X-Gm-Gg: AR+sD13o7qPQjzWv9ewJwA6WcsrBvL1/GTukOEcq93e2soTbwpb3ZeY87JPDRw3mGOg
+	lQAD6RcAQxzVQ27YXa6iFo9sRSQ7LqBNKuPBA1WlGFCO92ZnoGPEQrlEGVmILwYbGZtRFoaHvxB
+	vgPQ7tEsEEmHcL/0LVqAnno1UYDeCsKJtAKCP6fqMmZc1BFjKhVB18nC04QmsDWNBuL6ipyyQvu
+	iVJrGnHUZgkBrmefopxX0jI6KOSAtPWBbmTcgwg11MdmZUFR5IPQ5QzDzasgleOzFFAgadcq0Pv
+	H58iBay3ygorPtwDwsUZkAO92qygQx+lFE3i68d3oZpsDp2cdzKZwnT6EtXpgsFAFFM2TkNQXqF
+	ICoqVIYokrMUTA8YIQb7OFGTjRCRdq3O967IUbZ4OnLD86cgNnP2wcz2Mcjloz6lSVzC6oanMRb
+	ScgBM+nsfLMC9T8V0y5tE1Mln1+cAv8EJxEkNV88s=
+X-Received: by 2002:a17:90b:2585:b0:38e:bbf1:de34 with SMTP id 98e67ed59e1d1-39261fdab5amr13832835a91.7.1786199959787;
+        Sat, 08 Aug 2026 07:39:19 -0700 (PDT)
 Received: from localhost ([2403:2c80:17:1e::20db])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a3cad9dsm2140077b3a.23.2026.08.08.07.29.28
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3925fd95794sm6424491a91.7.2026.08.08.07.39.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Aug 2026 07:29:28 -0700 (PDT)
-Date: Sat, 08 Aug 2026 22:29:25 +0800
-Message-ID: <2b3c661bf7e1d437f81e4b7da13be25d.codykang.hk@gmail.com>
+        Sat, 08 Aug 2026 07:39:19 -0700 (PDT)
+Date: Sat, 08 Aug 2026 22:39:16 +0800
+Message-ID: <ec84e2ba71be5e82a3afcf257129bf58.codykang.hk@gmail.com>
 From: Cody Kang <codykang.hk@gmail.com>
 To: Rob Herring <robh@kernel.org>
 Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
@@ -88,16 +88,16 @@ Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  devicetree@vger.kernel.org, spacemit@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-clk@vger.kernel.org
-Subject: Re: [PATCH RESEND 04/17] dt-bindings: soc: spacemit: allow eDP/DP PHY
- PLL pixel clocks on K3 APMU
-In-Reply-To: <20260807230824.GA2220945-robh@kernel.org>
+Subject: Re: [PATCH RESEND 03/17] dt-bindings: display: spacemit: add K3
+ Innosilicon DP/eDP controller
+In-Reply-To: <20260807230404.GA2211679-robh@kernel.org>
 References: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
- <20260725-k3-display-v1-4-6de34d80e86c@gmail.com>
- <20260807230824.GA2220945-robh@kernel.org>
+ <20260725-k3-display-v1-3-6de34d80e86c@gmail.com>
+ <20260807230404.GA2211679-robh@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_072930_032701_DD9CA1F4 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260808_073920_890547_F7FA4C1D 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,76 +116,101 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Rob,
 
-On Fri, 07 Aug 2026 18:08:24 -0500, Rob Herring wrote:
-> On Sat, Jul 25, 2026 at 12:51:13AM -0400, Cody Kang wrote:
-> > The APMU's eDP pixel-clock muxes select the DP PHY PLLs as parents, so the
-> > K3 syscon takes two clock inputs the other variants do not have.
-> >
-> > Gate them behind the K3 compatible instead of widening the shared clock
-> > list, so a non-K3 syscon cannot silently accept clocks it has no mux for.
+On Fri, 07 Aug 2026 18:04:04 -0500, Rob Herring wrote:
+> On Sat, Jul 25, 2026 at 12:51:12AM -0400, Cody Kang wrote:
+> > Both K3 instances are the same IP and share one compatible; which one
+> > behaves as eDP is decided by what its downstream port is wired to, not by
+> > which register window it sits in, so the binding does not distinguish them.
 > >
 > > Signed-off-by: Cody Kang <codykang.hk@gmail.com>
 > > ---
-> >  .../bindings/soc/spacemit/spacemit,k1-syscon.yaml  | 30 +++++++++++++++++++++-
-> >  1 file changed, 29 insertions(+), 1 deletion(-)
+> >  .../display/spacemit/spacemit,k3-inno-dp.yaml      | 140 +++++++++++++++++++++
+> >  1 file changed, 140 insertions(+)
 > >
-> > diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> > index d3a7c93c3c54..b8fc6632a392 100644
-> > --- a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> > +++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> > @@ -31,14 +31,18 @@ properties:
-> >      maxItems: 1
-> >
-> >    clocks:
-> > -    maxItems: 4
-> > +    minItems: 4
-> > +    maxItems: 6
-> >
-> >    clock-names:
-> > +    minItems: 4
-> >      items:
-> >        - const: osc
-> >        - const: vctcxo_1m
-> >        - const: vctcxo_3m
-> >        - const: vctcxo_24m
-> > +      - const: edp0_pll_pxclk
-> > +      - const: edp1_pll_pxclk
-> >
-> >    "#clock-cells":
-> >      const: 1
-> > @@ -95,6 +99,30 @@ allOf:
-> >          - clocks
-> >          - clock-names
-> >          - "#clock-cells"
-> > +  # Only the K3 APMU exposes the two eDP/DP PHY PLL pixel clocks as extra
-> > +  # inputs (parents of its eDP pixel-clock muxes); every other variant has
-> > +  # the four base oscillator inputs only.
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: spacemit,k3-syscon-apmu
-> > +    then:
-> > +      properties:
+> > diff --git a/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml
+> > new file mode 100644
+> > index 000000000000..865ea310daaf
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml
+> > @@ -0,0 +1,140 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/display/spacemit/spacemit,k3-inno-dp.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: SpacemiT K3 Innosilicon DisplayPort / embedded DisplayPort Controller
+> > +
+> > +maintainers:
+> > +  - Cody Kang <codykang.hk@gmail.com>
+> > +
+> > +description:
+> > +  Innosilicon DisplayPort transmit controller integrated in the SpacemiT K3
+> > +  SoC. The K3 has two instances of the same block sharing one compatible;
+> > +  each acts as embedded or external DisplayPort depending on whether its
+> > +  output port drives a panel or a connector.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: spacemit,k3-inno-dp
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    maxItems: 1
+> > +    description: Link and hot-plug events.
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: Pixel clock for the controller.
+> > +      - description:
+> > +          Pixel clock generated by the DP PHY PLL; the pixel clock above is
+> > +          parented onto it in use.
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: pxclk
+> > +      - const: pll
+> > +
+> > +  resets:
+> > +    maxItems: 1
+> > +    description: Controller-wide reset signal.
+> > +
+> > +  phys:
+> > +    maxItems: 1
+> > +    description: Phandle to the K3 Innosilicon DP PHY.
+> > +
+> > +  phy-names:
+> > +    items:
+> > +      - const: dp
+> > +
+> > +  ports:
+> > +    $ref: /schemas/graph.yaml#/properties/ports
+> > +
+> > +    properties:
+> > +      port@0:
+> > +        $ref: /schemas/graph.yaml#/properties/port
+> > +        description: Video input from the DPU.
+> > +
+> > +      port@1:
+> > +        $ref: /schemas/graph.yaml#/properties/port
+> > +        description: Output to the panel or to the DisplayPort connector.
+> > +
+> > +    required:
+> > +      - port@0
 >
-> > +        clocks:
-> > +          minItems: 4
-> > +          maxItems: 6
-> > +        clock-names:
-> > +          minItems: 4
-> > +          maxItems: 6
-> > +    else:
-> > +      properties:
-> > +        clocks:
-> > +          minItems: 4
-> > +          maxItems: 4
-> > +        clock-names:
-> > +          minItems: 4
-> > +          maxItems: 4
->
-> 4 is already the minimum, so it can be dropped on all of these.
+> Shouldn't port@1 be required too?
 
-Thanks for the review. Will drop them in v2.
+Thanks for the review. Yes, will make port@1 required in v2 and
+describe the DP connector on the board side (dp-connector) so the
+graph is complete.
+
+> Otherwise,
+>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+Thanks! Will pick up your Reviewed-by with that change in v2.
 
 Cody
 
