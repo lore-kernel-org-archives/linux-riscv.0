@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9237EC55174
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 05:04:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8BD5C55174
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 06:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d8FGaLQnubbTeqvn3P89/9vD5BsQAaMrhldWJ8mxyKA=; b=hrbemJmhETdQoBY6Ke52ODBgEh
-	Yl5esWIDU02/VZfWOziQbLRsBsBvHM2+6Fi3QHqj0u0eTlQsTltjP3j7StYqFi91fIw1QhmAcH8Ff
-	ijHCUEsvoo5m1OMxKFoS/9kS1bJgs0szL0oeNrhKzzzKhnMVV+yE6y+hQWubSj7oOWNYAgaqJNYyT
-	qQgrJa6aR0wDrij1R46lO015hKIqLpXH5OPSSGvHXRYo//wNibhMySNnxbjSWrmei44VAkA8iLOc1
-	hUsQVCt7aoF6zTjhqsAVA3gdy9Y5borWkYWMRz7H2UJAD98rIhJeSPxUOaev3WBDSw/p6ftqEOTi1
-	AGFoOiRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gIRotMNJkOH3RTrt9S9v09/E+7hjOtKdUOTB1TSqSUc=; b=i7pQ2FHgl818aK
+	w5aTDLVRyzheROiVR617DN2fWU5Reh8FlzTYJ5o9MPnnuWT1k9WLI0cODZ2sUanXt1jHJKylcLR0f
+	W92FkSAZ10Qlv3TEQyhFtLUbQ5mxRBPCIjKILl1coo/otKgw71eGZdvJWLRaXJCxjsU7nF9qZkofv
+	XW4vYtIR0RnHxHYtqvOfycnuKdVujeqAKfvmLQQpt8wc+4UvW2pipOxd18otEoLacUaA/l3Ap7iyN
+	9iY/tl+0ZqUV9V80pwSRGiciius6qHB552aZX+8rXAhj6kcwwQXz20bxa3qJxgLtT1kfglUW2+Tdi
+	ARqZt21qzRwiJajUc7RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsZEG-000000093dB-39Wl;
-	Sat, 08 Aug 2026 05:04:16 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wsaJu-000000095MC-0qXq;
+	Sat, 08 Aug 2026 06:14:10 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsZEE-000000093cQ-1QUW
+	id 1wsaJr-000000095Lc-1W7F
 	for linux-riscv@lists.infradead.org;
-	Sat, 08 Aug 2026 05:04:16 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2caed617615so3022115ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Aug 2026 22:04:13 -0700 (PDT)
+	Sat, 08 Aug 2026 06:14:08 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-38e58034d05so207450a91.2
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Aug 2026 23:14:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786165453; x=1786770253; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8uD24huWZm6XpJh9wT7WOr3BJsSLtwFgAarL6fJ9kQ4=;
-        b=VIrSnP6UWm76BnKBNDY0J3wdUZJ45wL1N1018jVOX5iTNavYup0EACJVc5oCDRbMO3
-         WZlOjSqRbwyK2/L4Yhkw/TDYrUiVvovJzBMJ/O9pnEAdkpY4OO7T7yz3KyBWnbFZTaZH
-         mhzPsDOH3/2gba4/jNiUFosj2xwNhR6fjw7LeUSlAVSzdZoJZblF8lSn2CpKJHNv8+qX
-         F0HoXvtdt7Zg/FfZ/RTAGLYLl+okG1h8Uc4aXFO7/+PTHDj6er0pQLUFrc0WuTHh9HcC
-         8T6TDSyi1FJNQFuuqj7OIt3VjIMPhkqxtZowu/TBXfz83XZeWpr68icMRnQRVBpP5lrU
-         ZwsQ==
+        d=sifive.com; s=google; t=1786169646; x=1786774446; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OaXRgwcka4GcNFXOY3lpT85fV7dEeq31y3K0KIM6hIA=;
+        b=GB9d6tnmZG94dNapP+TJwqKKLTGuBL6TWMfsMAJGPg572nDlbxO0MAvpJ8CrJlTn72
+         3daaKnUCzIiRgvpUszhnvXilYkmxVuU0Pv5sKFbYh60cXojoGxEN7Wqw/p5zFqNsrz9s
+         yHOEhI2dLPilPySwz5GkYpDHSces/1TM6XZmB4QX1ub1HpKg+4bRD//fS7EvRvOv22AR
+         ug02RKCfAgIOxiP8qoIyJsIQc1y4CWfVfx2xF04BJLnk+Lr/EG4z2G+VitNh5HILk3dM
+         bDBgon4yzKO8e0EmfrkuraK9vJTbEWfI8v1VSYExd9Pl1cDUvYqtccN9XudA64YfeUS6
+         wwCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786165453; x=1786770253;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8uD24huWZm6XpJh9wT7WOr3BJsSLtwFgAarL6fJ9kQ4=;
-        b=X18whHpHzcjz1dd1kV6sP5XNGJGd/GG6docWMCFbkeOUw9TqOKgDS0aWAR44w1aQzq
-         W6NLZiYqjnFnOuIPWVJ8xGcGpKNAGAPWhR1OfOFzXTFqZ9XuXngbb3cQ1znWsE3Gjo6C
-         ECEYHzdNjINqOMdN8FenJpBlH1W12cszIFN9prxN1BnHnN/sF6vkU1wKdUt6170SKtgN
-         kAGjS7+8HvZ5d/JXxfd87Vwqtv8TGZoNS8TFqKaN1JN6zukbjxvTSbyjyx2szrGMeayO
-         WnlnfRUgoyqImTJwIyUKNe9f5zyhhcrrBhAT29BicI5p4BsBDte427e/HmyG2o1j4nNW
-         yIJg==
-X-Forwarded-Encrypted: i=1; AHgh+RrlhFOs6it3CrtfTgoIJgKqAUE8x7DwC5tf1ItsxQvU7ZyDu89NaDMOXqbColBeEicHaghatO+zTWsgXg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0WA27+MZyq5aOMAH2zrVqWHE+jL2dgX7OAqA8kjbBrI6jEt37
-	4tO7fLMVzHgb/yuJv9edxvjIboHSBiAhqErs9mP7nWaVs0dw+wU0WJXo
-X-Gm-Gg: AR+sD10EWfLR5IyXgloZWNTPoM6X1HlS/9Bt781tXR55RXs+PNyperx//U+xZ/JdKAP
-	XfAINuEGUS8tR9tzgTx14eAHL6sdHa4rD6QFzhcGzpU5bP8dOKXuFwMtcH79rYJFXAvLZTwRrCh
-	OQoEmvw4So6QYW4KkYGSPutrLNRimilOYkgrKVxygnmmQF+A6Ro2l82o9bjLZw0sySq4qnHWL8b
-	dHMnjOCN6YcAZ6y+HkVaseNqDqz1XRoGZHLb4a1i1LgVQa2KjCN/7jlxPf4hCp+NeIOhuI278jM
-	of4blnA1RGpUkXz8wdMXdTeOaqRt/C8bTu/LMj18RzFe1ZpLZbIye6kgMbfWV1QH0/gykRB++iV
-	BDtM5cew2fv+RdOctJcXt6Nxw/oOs6SIMwqWABxUHBP9H7y5CTiafzHfGH2qrEs4KCUpM79EwVM
-	T8BqnLOHFtk4jX4ku1ZUstWfe17lteKeRrJQ==
-X-Received: by 2002:a17:903:fa5:b0:2c9:d8c6:1dc3 with SMTP id d9443c01a7336-2d0ca1611famr339026475ad.0.1786165453023;
-        Fri, 07 Aug 2026 22:04:13 -0700 (PDT)
-Received: from localhost ([2a12:a305:4::40fb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d14cce7830sm15452855ad.29.2026.08.07.22.04.12
+        d=1e100.net; s=20251104; t=1786169646; x=1786774446;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OaXRgwcka4GcNFXOY3lpT85fV7dEeq31y3K0KIM6hIA=;
+        b=ijSGbZZe87vUNRfwOe6Guc0q/KoCKbw0Y0FItpTVaD9rBoFoONLLohbNtzso9bNjh2
+         eGnz7JMXEfShMBW1Fc1Qk0FF9mBnaR6JTZGlVk5W5LttYt1PEKUAUa86KAtegbNTvcUi
+         2AaD0ZdmpCoQPgTVATcbjGqYQ0qJPzccuNl2UvmiPs2kh/WT3p6/lRI+3texVg2msA3s
+         krnBMw9hAHY1sTVT5rLCwK7JDEefhPtjuS7yg+xtKfL6Rg26Bsc97CZ2XB1enMDOGOGC
+         T+H+n+vktmZNg37KhAeDCISWOfRsF1k+2IYHm04mOFmUMGtUr7+pE8Cu0SS8nVQnfTgx
+         E0cA==
+X-Forwarded-Encrypted: i=1; AHgh+RoEszKNW776W6Scmz8aEhmfTpnt06aOlBitkplfQiQyzqdXOeVJ+OS/WqUuK2DOIURkWYryyt4Cbe1Nng==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwDnAkH5f3zeYyS1WZZ76wW9pWVfT+m8szcsIrNn5npO3etxvT
+	i5M0AHvk3oP1whz4KOYjylbqfp6XFRhPxr57jPVRDQQvWCgK+KzuHn5ztUQjarod7F9zQ0HEShS
+	oeURFpmC0rm50
+X-Gm-Gg: AR+sD11QYbYxQCQLNnGQMldXkP3p83O3D/Nz3ZQFwTRbAgKY4V8TnJCDBvmS5J2Ax0u
+	D9NGR+T1GB2+UigZ30Ld1MVA6bgO4dgI3KOn/clQ3uFmHmiJT3/KuNHWyoxtDngXNWmfIrmIFSX
+	qB6tAYdlXHPoh3HWvOLISWpiigg1iww5NE1kVPQTvGUxCW9/eCex3gdOvdCQYn/BSrfj53RmvQf
+	uSGEBuiJBrOActoOPwslZEUneASJoUunXq2qTzwMpmkDti4NERqsbid950PqhE/jOq0aELeZkZG
+	S0r70m3LEEPY1egzD0pKXkbxXWTxIA1pUypeFere98HFcaNaC2Quame5LS5iaUF2t4t7G3tQZDQ
+	p9B1AUZqfffP6ZMkJkSCYtw1D8RTeC3ByLAkfS400Eb8bXnL1gVwGdhWAZ9/9rXDjz1B+ngdFRr
+	R/ZBUGxPtgzY5mfxiq92onXFlCgWSAHwrCDbMQ2ePU93UXu8Y+OjrKG+WXSgyGJQOUr76NjPbYC
+	rpsrY0X3NE=
+X-Received: by 2002:a17:90a:da83:b0:38e:2c8f:a01a with SMTP id 98e67ed59e1d1-3903c5d2f8bmr28251405a91.11.1786169646463;
+        Fri, 07 Aug 2026 23:14:06 -0700 (PDT)
+Received: from hsinchu01.internal.sifive.com ([210.176.154.34])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3925fd957cesm4998395a91.6.2026.08.07.23.14.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 22:04:12 -0700 (PDT)
-Date: Sat, 8 Aug 2026 01:03:52 -0400
-From: Guodong Xu <docular.xu@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: codykang.hk@gmail.com, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Haylen Chu <heylenay@4d2.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH RESEND 10/17] drm/spacemit: add Saturn DPU KMS pipeline
-Message-ID: <wr3264hzlya6zep433nr3u2acukizilkrqpkj444kfqeyaeorj@2rc4zo2cqcer>
-References: <20260725-k3-display-v1-0-6de34d80e86c@gmail.com>
- <20260725-k3-display-v1-10-6de34d80e86c@gmail.com>
- <084a860a77f18aaafcda4b223eec4fdcd96e75c9.camel@pengutronix.de>
+        Fri, 07 Aug 2026 23:14:06 -0700 (PDT)
+From: Jimmy Ho <jimmy.ho@sifive.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jimmy Ho <jimmy.ho@sifive.com>
+Subject: [PATCH] riscv: pass system-failure to restart SBI call on emergency restart
+Date: Sat,  8 Aug 2026 14:14:00 +0800
+Message-ID: <20260808061400.14652-1-jimmy.ho@sifive.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <084a860a77f18aaafcda4b223eec4fdcd96e75c9.camel@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_220414_422195_D0D85411 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20260807_231407_415974_A1C7D090 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,113 +99,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-27 09:35, Philipp Zabel wrote:
->On Sa, 2026-07-25 at 00:51 -0400, Cody Kang via B4 Relay wrote:
->> From: Cody Kang <codykang.hk@gmail.com>
->>
->> Add the atomic KMS implementation on top of the hardware backend: one
->> CRTC and one primary plane per DPU instance. atomic_check validates
->> the plane rectangle 1:1 against the mode and sizes the per-channel FBC
->> line buffer; atomic commit builds the cmdlist batches, maps the
->> framebuffer through the DMMU and arms the cfg-ready handshake, with
->> vblank events driven from the DPU interrupt.
->>
->> Signed-off-by: Cody Kang <codykang.hk@gmail.com>
->> ---
->>  drivers/gpu/drm/spacemit/spacemit_crtc.c   | 815 +++++++++++++++++++++++++++++
->>  drivers/gpu/drm/spacemit/spacemit_planes.c | 376 +++++++++++++
->>  2 files changed, 1191 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/spacemit/spacemit_crtc.c b/drivers/gpu/drm/spacemit/spacemit_crtc.c
->> new file mode 100644
->> index 000000000000..b75ff6320501
->> --- /dev/null
->> +++ b/drivers/gpu/drm/spacemit/spacemit_crtc.c
->> @@ -0,0 +1,815 @@
->[...]
->> +/*
->> + * The assert and deassert orders are not mirror images: the hardware wants
->> + * these.
->> + */
->> +static void dpu_reset_assert(struct device *dev, const char *name,
->> +			     struct reset_control *rstc)
->> +{
->> +	int ret = reset_control_assert(rstc);
->> +
->> +	if (ret)
->> +		dev_warn(dev, "failed to assert %s reset: %d\n", name, ret);
->> +}
->> +
->> +static void dpu_reset_deassert(struct device *dev, const char *name,
->> +			       struct reset_control *rstc)
->> +{
->> +	int ret = reset_control_deassert(rstc);
->> +
->> +	if (ret)
->> +		dev_warn(dev, "failed to deassert %s reset: %d\n", name, ret);
->> +}
->> +
->> +static int dpu_pm_suspend(struct device *dev)
->> +{
->> +	struct spacemit_drm_private *priv = dev_get_drvdata(dev);
->> +	struct spacemit_crtc *a_crtc = priv->a_crtc;
->> +
->> +	/*
->> +	 * Assert before gating: a reset asserted into an already-gated block
->> +	 * has no clock edges to propagate on and leaves the register file
->> +	 * untouched.
->> +	 */
->> +	dpu_reset_assert(dev, "lcd", a_crtc->lcd_reset);
->> +	dpu_reset_assert(dev, "esc", a_crtc->esc_reset);
->> +	dpu_reset_assert(dev, "mclk", a_crtc->mclk_reset);
->
->It looks like these three are mirrored, and could be handled by
->reset_control_bulk_assert/deassert().
->
->> +	dpu_reset_assert(dev, "aclk", a_crtc->aclk_reset);
->> +	dpu_reset_assert(dev, "dsc", a_crtc->dsc_reset);
+Let the restart SBI call pass the restart reason as system-failure
+when an emergency restart occurs.
 
-Is there a reason these two cannot be mirrored in order? Please double
-check. As I checked the vendor tree, the suspend/resume side appear to be
-copy/paste rather than a deliberate ordering.
+Signed-off-by: Jimmy Ho <jimmy.ho@sifive.com>
+---
+ arch/riscv/include/asm/emergency-restart.h | 13 +++++++++++++
+ arch/riscv/include/asm/sbi.h               |  2 ++
+ arch/riscv/kernel/sbi.c                    |  8 +++++++-
+ 3 files changed, 22 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/emergency-restart.h
 
-Please double-check. Unless I'm missing something, I suggest to bulk them.
+diff --git a/arch/riscv/include/asm/emergency-restart.h b/arch/riscv/include/asm/emergency-restart.h
+new file mode 100644
+index 000000000000..14c8da0f7ea2
+--- /dev/null
++++ b/arch/riscv/include/asm/emergency-restart.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef _ASM_RISCV_EMERGENCY_RESTART_H
++#define _ASM_RISCV_EMERGENCY_RESTART_H
++
++#include <asm/sbi.h>
++
++static inline void machine_emergency_restart(void)
++{
++	machine_restart(RISCV_EMERGENCY_RESTART_REASON);
++}
++
++#endif /* _ASM_RISCV_EMERGENCY_RESTART_H */
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 5725e0ca4dda..c8dceefa677d 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -121,6 +121,8 @@ enum sbi_srst_reset_reason {
+ 	SBI_SRST_RESET_REASON_SYS_FAILURE,
+ };
+ 
++#define RISCV_EMERGENCY_RESTART_REASON "system-failure"
++
+ enum sbi_ext_susp_fid {
+ 	SBI_EXT_SUSP_SYSTEM_SUSPEND = 0,
+ };
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index c443337056ab..dae147420f1a 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -10,6 +10,7 @@
+ #include <linux/mm.h>
+ #include <linux/pm.h>
+ #include <linux/reboot.h>
++#include <linux/string.h>
+ #include <asm/sbi.h>
+ #include <asm/smp.h>
+ #include <asm/tlbflush.h>
+@@ -519,10 +520,15 @@ static void sbi_srst_reset(unsigned long type, unsigned long reason)
+ static int sbi_srst_reboot(struct notifier_block *this,
+ 			   unsigned long mode, void *cmd)
+ {
++	unsigned long reason = SBI_SRST_RESET_REASON_NONE;
++
++	if (cmd && !strcmp(cmd, RISCV_EMERGENCY_RESTART_REASON))
++		reason = SBI_SRST_RESET_REASON_SYS_FAILURE;
++
+ 	sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
+ 		       SBI_SRST_RESET_TYPE_WARM_REBOOT :
+ 		       SBI_SRST_RESET_TYPE_COLD_REBOOT,
+-		       SBI_SRST_RESET_REASON_NONE);
++		       reason);
+ 	return NOTIFY_DONE;
+ }
+ 
+-- 
+2.43.7
 
-Thanks,
-Guodong
-
->> +	usleep_range(10000, 20000);
->> +
->> +	if (a_crtc->core && a_crtc->core->disable_clk)
->> +		a_crtc->core->disable_clk(a_crtc);
->> +
->> +	return 0;
->> +}
->> +
->> +static int dpu_pm_resume(struct device *dev)
->> +{
->> +	struct spacemit_drm_private *priv = dev_get_drvdata(dev);
->> +	struct spacemit_crtc *a_crtc = priv->a_crtc;
->> +
->> +	dpu_reset_deassert(dev, "mclk", a_crtc->mclk_reset);
->> +	dpu_reset_deassert(dev, "esc", a_crtc->esc_reset);
->> +	dpu_reset_deassert(dev, "lcd", a_crtc->lcd_reset);
->> +	dpu_reset_deassert(dev, "aclk", a_crtc->aclk_reset);
->> +	dpu_reset_deassert(dev, "dsc", a_crtc->dsc_reset);
->> +
->> +	if (a_crtc->core && a_crtc->core->enable_clk)
->> +		a_crtc->core->enable_clk(a_crtc);
->> +
->> +	return 0;
->> +}
->
->regards
->Philipp
 
 _______________________________________________
 linux-riscv mailing list
