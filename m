@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9A3C5AD05
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 00:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235AAC5AD2B
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Aug 2026 00:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BeOQ7MbmL9r7q/pwQyXIo9Zuv+11bnKpwyfjA5O14e0=; b=lu7N4D+t2B1mxl
-	16fzzsR7U2e/wVRjLEyTol5/gauNGWLqQwdkWmy3vgHXtTLjnT2BOCdyu53LJbcifvU4molU5X9Pm
-	W/g/2RHCRE/tfQR521TFSOwbc4KqJ3bnoJsiX3cinzQatinXBUzCOC+h6U40Ngyrw27fVD/NjdWjp
-	HSdk7DjJSUqz6pmESAtdnVJsJIOwU9Ouc7mXumfGncsTxFsl0rHPsTbsIUzIt6rHkFH3wB/obSwhL
-	xW3lWArlh1EET3cT7Jp2Pt8VpRcFdQI6xGP5ug7PK3OppbZNq1eckcBEQe8f3p/SZVFbHvPshovB8
-	i/f3e2SoavfCk/iLQs/Q==;
+	List-Owner; bh=FL0lLCKuYVbTxBtoiiQtTAEPJ4ntw9zHM54aEGNH0Yk=; b=T264Xj/XPOlaCj
+	64X48tXzgrEwNwZZB/AUDl3Himoqh3Mf0Rg4D/fRhJpyRgjb2c/0q+n9XmjYjpowQV9YnUsTRvQR5
+	QVHvV0AKlVxpTM7OAuxhMLv4IutFkPtBhnoHCKAEq0RpgUjHPTLpkUObr/UxHGFhMFIncADJZmy25
+	rjdouGUBdvpQQZzXsSgU1YGa/sXB693+rfsbEyduvu5wGJ4bXKIwZnpFnZ8/EEy9yYT8Gl32Whi1J
+	krlMeh/75IjFoCI/HyHw+3/lLhG3GJ4GU/aJXSYBY4CQaGknbXRXALOSu5ttN3vQCUGzdpadfTmW6
+	CnAvcF0dDP28pYE32Smw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsUzO-00000008upC-1l6d;
-	Sat, 08 Aug 2026 00:32:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wsVBR-00000008vrU-15TY;
+	Sat, 08 Aug 2026 00:45:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsUzM-00000008uoW-1rkF;
-	Sat, 08 Aug 2026 00:32:36 +0000
+	id 1wsVBP-00000008vr2-1QSU;
+	Sat, 08 Aug 2026 00:45:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24F7343B7F;
-	Sat,  8 Aug 2026 00:32:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 488111F000E9;
-	Sat,  8 Aug 2026 00:32:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D22CD42B32;
+	Sat,  8 Aug 2026 00:45:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8E0D1F000E9;
+	Sat,  8 Aug 2026 00:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786149155;
-	bh=dmc3Sr56uC/xFBzOAHwswW+8EC/Y4FNYJBinKHwg+a4=;
+	s=k20260515; t=1786149902;
+	bh=o6rc0mXWsY6/K1ldDEszmUHwAu1WzPiAqosXbNFO1Fs=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=VazOFjkvaOFHy83xSYbjGqgdaUthYOr5MtKzcB3yK8A8ZS+jvB/e34IjhXHZ+TK2P
-	 Es/ZNvFiJ4H+5zPlprKlcYVCvlS7RkCX5fWndtR6zGgAXfFkPUnKPVdkFDlaVXe1Az
-	 VKH+7g7CmbNsBDAFEzYn3vazM0oM7qgg2+MDqIp21q05AUm2SY9qgDovLj63IgNKky
-	 T65hrSpEmR8Ob4MD5uGA9lAxasp2NBrh3WL31IT/2MapHM9+BbXbkzErx16wXG0k4P
-	 VJCjBGP9ZilU9Eb2O9ODfz6bH/XCA4VbgXahLrrD8Z94AHysRY0zv/WUyTkP4NhuVy
-	 RZSGcG+NwTlNg==
-Date: Fri, 7 Aug 2026 18:32:33 -0600 (MDT)
+	b=mEZR9FYhPVQi9OEoX82qZV8WuvXELMbvymWxy/n4z094hX48TbK/9pRaUAX41rFjL
+	 YXyGrOSL0Ss+HPoMrdfgMn8b0IGCA86TMRJxD4d4eZJKETEqPPPnqHYDyHUdPoE7xu
+	 WN0Tn7y0rwWU6A2uD0fNsIwWMsSuf581JpdvshKrakQuPGOP1GQDd1/D2rmMZxPn18
+	 LZb5X/ZBJ0IFt9sT5A2UDs0s+CvhPHRROR209EAu18bjeg/NhqCTC3FsoBAYGN4q8N
+	 GNhZiEB3cZJSBpCwu80ZxYhSfOCtLZkVt8y+IXnZ3M8en8lfGCRTjVcRWoCMNhPt18
+	 x/H6ZltPEUUwg==
+Date: Fri, 7 Aug 2026 18:45:00 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Xixin Liu <liuxixin@kylinos.cn>
 cc: linux-riscv@lists.infradead.org, atish.patra@linux.dev, 
@@ -49,11 +49,11 @@ cc: linux-riscv@lists.infradead.org, atish.patra@linux.dev,
     palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
     linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
     linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] perf: RISC-V: store available counter mask as
- bitmap
-In-Reply-To: <prpmask02cmap.1786092600.git.liuxixin@kylinos.cn>
-Message-ID: <93cab992-f808-8f3e-03a6-19d84baf38f3@kernel.org>
-References: <cover.1786092600.git.liuxixin@kylinos.cn> <prpmask02cmap.1786092600.git.liuxixin@kylinos.cn>
+Subject: Re: [PATCH] perf: RISC-V: check cpu_hw_evt before dereference in
+ overflow IRQ
+In-Reply-To: <prp0001riscv.1786064390.git.liuxixin@kylinos.cn>
+Message-ID: <9109b689-1145-c714-ebe0-ec368f242a78@kernel.org>
+References: <prp0001riscv.1786064390.git.liuxixin@kylinos.cn>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,18 +75,16 @@ Hi,
 
 On Fri, 7 Aug 2026, Xixin Liu wrote:
 
-> The available-counter mask was a single unsigned long, but iteration
-> uses RISCV_MAX_COUNTERS (64). On RV32 that reads past the object. Filling
-> with BIT(i) is also wrong for i >= 32.
-> 
-> Use DECLARE_BITMAP, set_bit/bitmap helpers, and stop counters one word
-> at a time.
+> The overflow IRQ handler dereferences cpu_hw_evt before the null check.
+> Move the check first. Defensive only; the cookie is valid on the normal
+> path today.
 > 
 > Signed-off-by: Xixin Liu <liuxixin@kylinos.cn>
 
-This patch contains several array indexes to element 0 of the cmask 
-bitmap, but that element is going to be XLEN bits wide.   Does that 
-actually work on RV32 systems?
+Could you please add a Fixes: tag?  Also, if it was written with LLM 
+assistance, please add the appropriate Assisted-by: tag.
+
+thanks 
 
 
 - Paul
