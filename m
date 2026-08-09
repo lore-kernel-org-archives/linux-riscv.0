@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D196C5AD68
-	for <linux-riscv@archiver.kernel.org>; Sun,  9 Aug 2026 01:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74002C5AD56
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Aug 2026 01:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=onw2d5hYXVgTq2qLKxzIiZ23RGvQ3wkXbwbahaohwFA=; b=igop0NMQmzjCPG
-	4lZr+F5JGif45ZLgQvMrc452i80GdkpEuYg68wh9yRr4/ZTX1FAJGBOknGqHD8oQOOG/KGlKccbTx
-	JVjpHQaiCpHaus1nScYr/pkL7Z/e18jxKWVnlfL4i6LZWzCGFeaWJDaXQJaScbzrxtSs8KyEfBU0D
-	hC3rnSKyZn7sHRA9BoD3/O0J1m41QtKlVHVnwrtQts8W5fjdPwkpZodFADxxnxqOUaSiimzwfh7JM
-	Gg1eazUq3GP5wh9wwpjriT73ds825GuG2znOgnSA6G4nQjCwzWbh6laGCBRyIw/CUB9QOS7C1pTRX
-	8QAKOhnyrtbTyXIK9VWA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FvLeKGMvnC/QRwS89oSXZTQl320Q8blRD6gI36+w4aw=; b=W0nVzqwqh9WQed
+	rla2OeBZnts31oV3mc4EyVwpoiGHXWMmjG8wRc5nt3eHrtNcTmmnjAm3Tn5A0clRt1tQO3r0e0Tsw
+	YCdRO+/M+jexjVVh+2hKgBGS/N9edc3GdA5pEcPuchRWleOWD65T9TIuh99P1+rdFjlvqs6PGN8O2
+	e4YFBwC8sbxxOO0wSsL9QG5Vg9LG4aRG1+sEa2NWJGOWn8DDlIUTGEHaPliK/RrOtnz7ptRpJUR0F
+	dFItdnX7KPw3y/xlH3+7H/fHJvVWACJ+rEm7GxsCu46vJPgB8EV8/ja02PLzmfil1TfuG5N7ILaDe
+	DzqYlQj4DtZ1lX4hr22w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsshN-00000009tGV-0Ibr;
-	Sun, 09 Aug 2026 01:51:37 +0000
-Received: from mail-sh0chn02on2071a.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::71a] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wsshG-00000009tED-3muF;
+	Sun, 09 Aug 2026 01:51:31 +0000
+Received: from mail-sh0chn02on20727.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::727] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsshI-00000009tD0-0zd1
+	id 1wsshD-00000009tD1-085Q
 	for linux-riscv@lists.infradead.org;
-	Sun, 09 Aug 2026 01:51:34 +0000
+	Sun, 09 Aug 2026 01:51:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=g7QPoNXMZ8YHvDCCCMgy57xm3/Afk7g90VrBLkDcR94Zd6tWaQKae4JUCjKP9tE5AeMSM7V+g6eYmLNkRUJRZj5PT9lKIaz0AwPh4QuCWeexvSQW2CgO6hVgjMtBS/sj3ccgPSxndWBULEShNZ8YmuKsIUFfsTn0QzUo6qREFAa0aPdnU4CclnW+2EmFrPj950gykDHOqB0BKL+yj7mVjqeN/XwWQrN77W6uE6ut3t8k33yIhPbMd0TVF3BOBh9LKep8r5B6mRB5YoFAiWnA5EuhKq+P9ANB2f4bUxuWacTHNxOx+Q7y+tt7ZLsesvwqAHltPmS7IffEbo3OpwcbKA==
+ b=aITJ4LCYN0XKQm0Am+egEBZ5rOoFUyy9d7ohdkYTUkHkQO5me9oaVP5j1jibLxxiIybfE+1pl9QJmps7Bf3FyB1ngGvnYvTVnLAqUyXSpqwoWnixIN86MOBiEKLKN0jtON87W4CkzWFZWBxYN8je/Aw49cr1Zt3HAPDYB58FzhvVHITzZi4Qs9ODXp86f6ypXqRcyoLl4NeBnr9BjoYKjDnIQooESeCudt5tPsKg1vRtx5K7rAQp1uFHD3VeyJDh/vaBQKc5ewPKQZe0wBO7Nz3F8/liwXTs5rbQ+w4q/ez2518o6pfaL69TNLc8sCgUwY4uKpVWT5BbEytxrgAbdA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ak97mMsm5zVvi9rr7ZL8RvZur96iFxmWabLHjSQvUcc=;
- b=IfiCSNHYPGUAI8Xk2h7GsOwq+Z4/NGri2c+3h/QcDz9UGn6mqJMVNkj2XBr/Icny6kfQElC2PkrbxGs2UHc9NcpokvCm2XbESYEmKXmdfbW9m1yvnHmFIy48nNbbidXTQif+lwjcQAdrup/73fGeAYHF2K1h+bZFy8ZXHaSlMfqD2geEwqR6qCfGnWj/cXRSkHhxR9l0PV7jwfmv1rj4gOnP/d0JcE9je/C3FaPnaZI8ao+Dz+cq+SlOYVdldxC5fHpGn31qkM64wNy3qWGfXighOK/yDAW3eo3r5Hzxr5IGnsfU1KpJogiH/37unOazDP036iKdfMn/m4jLSqUshw==
+ bh=FzMF4gIDq6/g55vXny7c+DD0Qg+c59cAQhVB0g7hQk8=;
+ b=OAm1s+3SoALMKPJPC/iUXQiUJ+8DwaJoN7QKTtgnxPrm2QYx1NZUkikR0FDtr4WM1f+Z8/B0rbXRCzV1FvxZekmpOZC1rBrFx3zAJUY/RwIw+lfhA5OVwMrjOOrG8hIkichOioKBApFRW+y/CW2OJL7rCMFH2o0oKVWoi6l/RrBUMQiJ/WfTuOHLg+SMq0pyWdJong7YY7TYEtO/3D94M8RPi4TGgDxvvNR8FYbTIO+fEJhDt/1gk0KsHLuO8H7KxYnTtS6qkLx6RZ+otuepmZ1eX1T06HcUUpNZ/udkEbgsbkq6s8PfhVjKUqoqeshO/3UKFIUuGB3DbXBpAFkGAg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::6) by ZQ4PR01MB1265.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:16::9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Sun, 9 Aug
- 2026 01:51:12 +0000
+ 2026 01:51:03 +0000
 Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  ([fe80::e7d4:256c:b066:850d]) by
  ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0292.024; Sun, 9 Aug 2026 01:51:12 +0000
+ with mapi id 15.21.0292.024; Sun, 9 Aug 2026 01:51:03 +0000
 From: Changhuang Liang <changhuang.liang@starfivetech.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
@@ -71,68 +71,66 @@ Cc: Chen Wang <unicorn_wang@outlook.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v4 5/8] reset: starfive: Introduce active_low
-Date: Sat,  8 Aug 2026 18:50:51 -0700
-Message-Id: <20260809015054.210577-6-changhuang.liang@starfivetech.com>
+Subject: [PATCH v4 0/8] Add StarFive JHB100 syscon modules
+Date: Sat,  8 Aug 2026 18:50:46 -0700
+Message-Id: <20260809015054.210577-1-changhuang.liang@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260809015054.210577-1-changhuang.liang@starfivetech.com>
-References: <20260809015054.210577-1-changhuang.liang@starfivetech.com>
 X-ClientProxiedBy: NT0PR01CA0016.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c510::18) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c550:17::6)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1265:EE_
-X-MS-Office365-Filtering-Correlation-Id: dce619a1-7125-4553-339f-08def5b8b089
+X-MS-Office365-Filtering-Correlation-Id: 65b8d372-cbfb-42be-e07b-08def5b8ab7c
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|23010399003|366016|921020|38350700014|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: YMNL5M+oPxhRQlWGVafD2O5fKvKWkZPmJj6fGAa3/B/9w1HeCwd/3ZhZq/pLkiE+/zuLnwKdZ7oAYox/KK+ZLw7OfmV7VyOtBjCeo+86liDu4mj0KRibMAxb7E9p7zhEA72CDBAq5djpRCrIGJqQEDL+Oj0GybB1W075H5+TgnbZSLn1cRkvlw+XFGUVa9w4GUlnOI8xpW1z5Ww/7fBQUHfbpXOhvoXRoZPXOJdLorIVkGIsi7BffPUfpKTaDieHddpwZVzK75WicW1xhe3chczn9YdFkLkci08QeGEk0oHtJbuVGIMJAG5oAq8rKcYzcUkyAptTB6IE0WZRPlEDpkyfJ0kRkU9hhsupOkhACNpmHIk8tW/EFXXBFjurnSu0o/uJTbs6KRA8Tk0rGUotu+WgzfRUnX5Xco5qqnBPzaWPOxdPbwNe4gmNDvfnJ1xcGvSOyFoQ2npLZ1HtPnp8nhldntyg/BMLfNfUlB9Ls/g6fg8bCmNt9z2pKJreG5wz00/pqWJl/2g7SyJYZFE/o0akA5GY6n9qWs1kPLUQ+WBmardjoxuHp3beeANcChXWI26FhJwxZhJ+pdLOoGT2wg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(23010399003)(366016)(921020)(38350700014)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|23010399003|366016|921020|38350700014|56012099006|10067099003|3023799007|18002099003;
+X-Microsoft-Antispam-Message-Info: MU9ebY0RAVD00AT/Pe/Payyme7N10//M5DeXgNRRRe4Wl4AFOWZPnNl+3OErowxGwbEE4+6nxhJaT33I+6ZkadAlmlDEhdQGs8S932DEPVYywVjyeq6IhHRrSuAFMkJTEkSZPd6M+D5KOJCfkjfgtdF41Drd4rwQnBl/wI8bUmwdruBVLnNXt3xx6IbdK78E7VcaAZWp+p/psHW/y8zpjiuAWCWTRrcHOr5IPGXM/l4UudOjqrL42HPP0A8fORNYgpNA4WJ92Xuqow3ICjvXMYvlbXQXlYN5WwMxjbCP8dq4EVsGrw7ptBTdSo2RnVyV7oO7wrn2sV1/eoPiCk6fCi449e5nnv7465TWlQdGO/pyTkP6UD+HGRcK7SF0rSOpLE3hNOceWT1AtIhpE8ILOIoL8Bo2thoL5xxMJx7n1Lm4vRlXZDxqVlB4BUMFDSjHCiFh9dabj+jEA/VIHSqY6VCjzWvQS+fzKFx8NsbBpvYQOGmr01iySy79e6G2z8JIBTQrlAF79Owr7XMpgxdHUhdISh2L3IWV5cdfIg2iYyOrXgqlP0u7pLyh3nCcO2hKsVstzFDEmQxymciqvH89yw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(23010399003)(366016)(921020)(38350700014)(56012099006)(10067099003)(3023799007)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cjHkG5+QO+ik/ni0CmoiH1/EGR1OIB3WCrC6bXPUpevJ8chNRNGT7j40Y1gY?=
- =?us-ascii?Q?BYKe5eC5QZ+nHPAr4UMRhr+s6YNLZlBCRrif9ZwIMr5jpzxZj4AFHPSoglux?=
- =?us-ascii?Q?KTJJw+ZCbnlsXAysSaip8z9QbLJds6EeQkZP97rBTWTv+WnxTTPC2BQ9treb?=
- =?us-ascii?Q?T0CX/iZmw8+XK3RH8A76GNAhUXq9wfBvkCHI2V13o5rcFAQTx22XMpDI2LZ3?=
- =?us-ascii?Q?6mrfa5Z/i5WLPSXCrF0kIDY2HzQnb29T9Yo4N7QKyEbATTUIZYy0yMVCVxZA?=
- =?us-ascii?Q?ZGme+gSW0X0i/ok4M030uT5D6As9tif/rqgQfDhSWUbeOlZpkYwWkkrqVVa4?=
- =?us-ascii?Q?qx9XhPkNioGNmZ+3xSfkLHZpeCStnmk7Mc1Tz/P2GajvDCbAV7Jt7i9ItQIf?=
- =?us-ascii?Q?su3i5M5WNV7YREtt+YjqOnD0D7VSfO4hSIXorBdZhOotnQrVvSi24sGdji46?=
- =?us-ascii?Q?1HL35fit+EWfG1nez0t16hvbRoS/wRbYoybR5cXj0B5em10Mka6R8spQHfqX?=
- =?us-ascii?Q?pjBLOfxdhitRQHBIoRds2Q8/hASkosDOT2YXIWjF+NFv3ENwzVK7HhfkEhb6?=
- =?us-ascii?Q?WqJfDtqUxQ+4j+5y3DzqV9ylIyn4gKCJhFFNffBjXEiNRKlicE2rq9CupCsb?=
- =?us-ascii?Q?i2S1rVW18xJp+oZYCT7e2g5TxjfROt/aADvk1pSUxg9Apdul0r/hXR7uhCZM?=
- =?us-ascii?Q?ithaM1KstUlQnyZMfMIxw7gObsO7QdLyRfbPBvS+hh7nq7FGXYYyWfPbFYwL?=
- =?us-ascii?Q?3tp7O3XE4PoDrZzR4HULYFOrp6NNekP7cnevLsvIjlr99elCjIwdCeJ7Lb1X?=
- =?us-ascii?Q?8XRkbMe9TUahcOZ5onMo2j9pNVvtqsPIh3Mq9K0ocesKTZdcxCzngpTTE4pu?=
- =?us-ascii?Q?lsu0i5D/P5iP3p2OKY2lgFUQaxpdKdTY1eZDATwcWaLe89VVgKAhImUm1IV1?=
- =?us-ascii?Q?zY9DhonkotO4IpRBXsm82PCuoQJk6+YaYB8V8txoonzYibM2INXxMX4SQbby?=
- =?us-ascii?Q?UFzGqqB09XyIHEeCEVcS77JKoLhdpAimWMfDIew8lNr80PqwIhf+nx2VqruP?=
- =?us-ascii?Q?4XrpUzEA0JfCaQuUCYo5pgYKV3lpo5ZuwW62yrhGFKrTOSGVVoKC9C7iSg56?=
- =?us-ascii?Q?K0AOaw0DRZ3Z4dRSOTdtYFC5FGgXw77YOOZwtL7wGHz+sHU7OiEdC8lmcXle?=
- =?us-ascii?Q?Hhua23rnDfxmKgzMPoL9VwD/RHBxM+U18Y8fAqe6JM46BpLhg2l58Y2Rdq6r?=
- =?us-ascii?Q?9XnXyFpPWf4o9nhQziqwxpdY2YoMAFOeVnX8LpqZOMCxDhkVBBVC+gL4RCwm?=
- =?us-ascii?Q?Od6URhnoJi+oXEiDtMzyoTht4ZJ4t3STZvDliJt0r0QEfwBBI/EmbxWuRyTK?=
- =?us-ascii?Q?dqBi6NJHWxs6+dM7eAMlVha/9AEksYIyUb1Mry27itmEP2GF6RmAW+Jqs426?=
- =?us-ascii?Q?vH+DixnlFChxyHDiSxl9tclCCvswiBsYft64EL2jONLVoXH+MYt2H8Go/pMA?=
- =?us-ascii?Q?WyNWAlY+YIunIjrIClJDph5s7inbS6BQVnn1EDPwN2cUzvzOb7o7JzRVRLSN?=
- =?us-ascii?Q?hk3uWUenfLlSc8xDMpCibyWQSH06vtIyVlddYijxMjVQeGoPo+JLFboMWvd8?=
- =?us-ascii?Q?AzpGGwBTAkU/zCM8mnMAW7pWMHnB/wJYOVUt4Z2MyDpdmsK4Dplt1RQSjI1j?=
- =?us-ascii?Q?hqjhei7ZwtAuHd/2RjsjDiaFj/VmHCSNgPCDFDMvp8C562JfCMqRqslUtbom?=
- =?us-ascii?Q?259uP7qdBcRhz9APpdVqmGb/7BwRZHAW5xBjaQtMp0oiZh7jfyvE?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XtXZHokDfdhaN4JvdegZK1/o9D9WxspPgpX/cywjByUUF8Q5yP6DdfXAk9yk?=
+ =?us-ascii?Q?0WlZTVaXKzzHnZ0MXdIlH+P9p25kJb4SlHuBCAaB5z1H+IBSxdKFW3zwstIt?=
+ =?us-ascii?Q?7eD2x+egj7F50SDSr3gu8ffk8zR98V4acmvRlsZNlK1PWh9HIw4olIECb1OW?=
+ =?us-ascii?Q?V2ja6Nu9uBPAnKjgEMXzWIA+fUMsWOneTjRzIwK/NXwbysY1bw7sKSWfEGWy?=
+ =?us-ascii?Q?MIcfASugMFJvENHcjCPuCoWN9T4Csd1CPjpBOFr3tGH4CtA6aFyP+gq2fa65?=
+ =?us-ascii?Q?VZEy1z+0TsB4zeKE9xKlQmxMsjiF0UW1U6Pf6f2iG+hZMW/XiERfvDicQs9P?=
+ =?us-ascii?Q?0Xm7o2WuucgKqjqDyqoElfvZ/aaQmSu2m4kK7ibgeL5moIITPxs3529yJQRA?=
+ =?us-ascii?Q?zhWvrb+MefQRJTauFWpMJdMO97U7pt/qtDbbCcbdUMsCiwI5c0/iNicdEqPY?=
+ =?us-ascii?Q?JfEXtdgp89Y90YqZfQMsAfF56Du1swb17dndGdWI8wBSne+ZXMlQmQvGVFOx?=
+ =?us-ascii?Q?DQ9AnqWkRWQE1Ftib5HrcwoUTkiN2Tjh2AwsX/pdsy5kHhZvSb+RO927wrNy?=
+ =?us-ascii?Q?uATWANlNdHZTe+fpBfUdhj3LGWGxIQSaR9VblWTrHWalAkBU1gPSpuzkqOhY?=
+ =?us-ascii?Q?xNbLSRYuuwaPa4eGw2+2ECHKrDY19ixl6tF+GakNbznISYPxXQUvyza5pGj2?=
+ =?us-ascii?Q?pkkvbViaK/ym6kme0WZMbNG9glfvu9I8Jd4nIGDJmM+8lN68f4tsynnlfw+K?=
+ =?us-ascii?Q?4X5WvzU+vtdhUT/Wpb4bhAzQcXCbe442FiN5h0B3do4LbGqxx75O68i7wm9B?=
+ =?us-ascii?Q?typlHRk3aFyFIDgzg/69GG7QYWccSfXnSRxYovZOBE/XPyz41YHWXCLPwwDB?=
+ =?us-ascii?Q?X6HMAkzp0fLJD/roJiiKeD6Xerp0OKKSHpMKMfBK4fMRWQyqvBUAhIOoBtAE?=
+ =?us-ascii?Q?DvFIKaz/sbwp+P2J6Q2f9d6dJteY68lzvVBclgrfT7erMouL4PwhUXYaC4nw?=
+ =?us-ascii?Q?p/LbJnd8C18fBd3BQIfw8zq7CqvnbJu90OYza42hVIY6HUr8IARgHRX3VMyE?=
+ =?us-ascii?Q?MjubcYrAfjtbe6jB8iDSDXkgNu9tmOiOrnQcKvFHEYyRYhOIP/5LMaVtwiV7?=
+ =?us-ascii?Q?9VexcQebWt1bh6gtwhdmZkwlLV1xC5Oc4IxGmxsskaAiPbAHe6/T/8GNVl9B?=
+ =?us-ascii?Q?zclzejKqwqpAk8XN960g9saVMQ4Mgi/pi+EZR0zHS5rypcl2i3IyTLM4f2V7?=
+ =?us-ascii?Q?Weph63vx+XWpcH0AxdCb/RZBga4Yol6l088S/0zkv0CjYZ7SnQFMXkrGDLt9?=
+ =?us-ascii?Q?Z9SWogp/2JAN+lJztN0svuOKE2cF5Cud51BljBb8+fYuKTUXVC9VDu34rHj7?=
+ =?us-ascii?Q?xvI0EcmrP6hfitMV8AzB0+GISAD2vxilUOyKyDybPOwbGOHZqxi25MpLAah+?=
+ =?us-ascii?Q?Axh8fWYF3IqxT+O4W//Ka5ce/apoit5FasPXmXCYxSNP8g27dsyQ63TsIo6E?=
+ =?us-ascii?Q?ZxuvB0/Oz34x9Gx26E5WodAX1Wbtmt3wAweJ5hHzY/NvFdOYHpRK1jBc4sec?=
+ =?us-ascii?Q?eSOp6M136+mPRHfBH27vxqmqwrl5QnEjXlv3AsK1qIYhwg6zXpEWt4ajjQ4o?=
+ =?us-ascii?Q?3AJ7uYj/zENDfxMFZeKhqfG1sfDRTP95ZBrklHbkBf7Eo2vYLt2Mp9Pptkug?=
+ =?us-ascii?Q?e353VNwYFGLSQkEFHWQuOMWFY9v2zYggHQ9C9UsP1TH9DgDtzbN6xe1s57xO?=
+ =?us-ascii?Q?44cAHcS3UaYNNkjBk9ove7tXtQMGt1J7nAvCx5pkaSzz0iHBkFjj?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dce619a1-7125-4553-339f-08def5b8b089
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65b8d372-cbfb-42be-e07b-08def5b8ab7c
 X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Aug 2026 01:51:11.9017
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Aug 2026 01:51:03.5512
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RtvAL80uRad5gufdw8xjYgEPZPXA2CHT1lCxgS8ENK4oHKjN4urpLz4yVkBV3vGHqa12ChU+yk67CQBSAcmtw63q09em5CPGamm/3dPy4Ao90L4W4NRpAOm+Ne1n0xKu
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2smTDJ8ph6TZjbfjvQIaz9EHWuDkAR0BI5nTOgQIRONAuByd3lSiGdn2IsnNUarBPo416DgyIHVMs7jAspoioaGViUHtyZU+3j5MKzqSAQkK3jC6L3TIJ2VkcYXm0OrZ
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1265
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_185132_285107_C7D714AD 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20260808_185127_070893_53F1FFE4 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,66 +147,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The JHB100 SoC supports inverted operations for reset
-assertion/deassertion, introducing an active_low field to distinguish
-between different operation logics.
+StarFive JHB100 has many syscon modules, as listed below:
+- pcieep0_ecsr_syscon	(PCIe endpoint 0 externel syscon)
+- pcieep1_ecsr_syscon
+- host0_syscon		(Host0 syscon)
+- host1_syscon
+- husb0_syscon		(Host USB 0 syscon)
+- husb1_syscon
+- husbd0_syscon		(Host USB device 0 syscon)
+- husbd1_syscon
+- husbcmn_syscon	(Host USB common syscon)
+- gpu0_syscon		(GPU0 syscon)
+- gpu1_syscon
+- b2h_syscon		(BMC to Host syscon)
+- h2b_syscon		(Host to BMC syscon)
+- vout_syscon		(Video output syscon)
+- pcierp_ecsr_syscon	(PCIe root port externel syscon)
+- pcierp_syscon		(PCIe root port syscon)
+- usb_syscon
+- npu_syscon
+- per0_syscon		(Peripheral 0 syscon)
+- per1_syscon
+- per2_syscon
+- per3_syscon
+- sys0_syscon		(System 0 syscon)
+- sys1_syscon
+- sys2_syscon
+- strap_syscon
+- sfc0_filter_syscon	(SFC0 filter syscon)
+- sfc1_filter_syscon
+- sfc2_filter_syscon
 
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
----
- drivers/reset/starfive/reset-starfive-common.c | 6 +++++-
- drivers/reset/starfive/reset-starfive-common.h | 6 ++++++
- 2 files changed, 11 insertions(+), 1 deletion(-)
+Some syscon modules contain PLL, reset, and socinfo nodes
+This series will add these syscon modules, as well as the
+nodes under them.
 
-diff --git a/drivers/reset/starfive/reset-starfive-common.c b/drivers/reset/starfive/reset-starfive-common.c
-index 86dbb33bb216..7723520637ca 100644
---- a/drivers/reset/starfive/reset-starfive-common.c
-+++ b/drivers/reset/starfive/reset-starfive-common.c
-@@ -52,12 +52,16 @@ static int starfive_reset_update(struct reset_controller_dev *rcdev,
- 				 unsigned long id, bool assert)
- {
- 	struct starfive_reset *data = starfive_reset_from(rcdev);
-+	bool active_low = data->info && data->info->active_low;
- 	unsigned long offset, flags;
- 	void __iomem *reg_assert;
- 	void __iomem *reg_status;
- 	u32 mask, done, value;
- 	int ret;
- 
-+	if (active_low)
-+		assert = !assert;
-+
- 	if (data->info && data->info->discontiguous) {
- 		id = starfive_reset_id_to_hw_id(data->info->map, data->info->nr_resets, id);
- 		if (id == STARFIVE_RESET_ID_INVALID)
-@@ -70,7 +74,7 @@ static int starfive_reset_update(struct reset_controller_dev *rcdev,
- 	reg_status = data->status + offset * sizeof(u32);
- 	done = data->asserted ? data->asserted[offset] & mask : 0;
- 
--	if (!assert)
-+	if (active_low == assert)
- 		done ^= mask;
- 
- 	spin_lock_irqsave(&data->lock, flags);
-diff --git a/drivers/reset/starfive/reset-starfive-common.h b/drivers/reset/starfive/reset-starfive-common.h
-index 0d4e634de58e..c7f80e744700 100644
---- a/drivers/reset/starfive/reset-starfive-common.h
-+++ b/drivers/reset/starfive/reset-starfive-common.h
-@@ -15,6 +15,12 @@ struct starfive_reset_info {
- 	unsigned int nr_resets;
- 	unsigned int assert_offset;
- 	unsigned int status_offset;
-+
-+	/* If active_low is false, setting the bit to 1 asserts
-+	 * the signal while clearing it to 0 deasserts it, and vice
-+	 * versa.
-+	 */
-+	bool active_low;
- 	bool discontiguous;
- 	const struct starfive_reset_map *map;
- };
--- 
+-PATCH 1:	syscon binging
+-PATCH 2/3/4:	syscon sys0/per0/per1 PLL driver
+-PATCH 5/6:	syscon PCIe RP reset driver
+-PATCH 7:	syscon socinfo driver
+-PATCH 8:	syscon device tree
+
+This series depends on the series:
+https://lore.kernel.org/all/20260807112923.191627-1-changhuang.liang@starfivetech.com/
+
+changes since v3:
+
+PATCH 1:
+- Add a new "starfive,jhb100-sfc-filter-syscon" use for JHB100 SFC
+
+PATCH 2:
+- clk use regmap_read_poll_timeout() instead of the _atomic() variant.
+- clk switch PLL ops from .enable.disable to .prepare.unprepare so the
+  sleeping syscon regmap is no longer accessed under the Common Clock
+  Framework spinlock.
+- clk use 64-bit math and div64_ul() in jhb100_pll_rate_to_preset()
+- clk use mul_u32_u32 and div64_ul() in jhb100_pll_recalc_rate()
+- Replace builtin_platform_driver_probe with builtin_platform_driver
+  to support deferred probing.
+
+PATCH 5:
+- Add bool active_low = data->info && data->info->active_low;
+  to simplify the code
+
+PATCH 6:
+- Fix typo: discontigous ==> discontiguous
+- Fix typo: JHB110 ==> JHB100
+- Allow RESET_STARFIVE_JHB100_SYSCON to be compiled as a module
+
+PATCH 7:
+- check kasprintf() failure in the socinfo probe path.
+- Add #define pr_fmt(fmt) "jhb100-socinfo: " fmt
+- include the <linux/slab.h> and <linux/string.h> headers
+
+PATCH 8:
+- Fix sys2_syscon reg length (0x4000 - 0x2000); it overlapped
+  strap_syscon.
+- Add sfc0/1/2_filter_syscon nodes.
+
+v3: https://lore.kernel.org/all/20260521012932.24163-1-changhuang.liang@starfivetech.com/
+v2: https://lore.kernel.org/all/20260512083521.3448-1-changhuang.liang@starfivetech.com/
+V1: https://lore.kernel.org/all/20260403054945.467700-1-changhuang.liang@starfivetech.com/
+
+
+Changhuang Liang (8):
+  dt-bindings: soc: starfive: Add StarFive JHB100 syscon modules
+  clk: starfive: Add system-0 domain PLL clock driver
+  clk: starfive: Add peripheral-0 domain PLL clock driver
+  clk: starfive: Add Peripheral-1 domain PLL clock driver
+  reset: starfive: Introduce active_low
+  reset: starfive: Add syscon reset driver support
+  soc: starfive: Add socinfo driver for JHB100 SoC
+  riscv: dts: starfive: jhb100: Add syscon nodes
+
+ .../soc/starfive/starfive,jhb100-syscon.yaml  | 115 ++++
+ MAINTAINERS                                   |  11 +
+ arch/riscv/boot/dts/starfive/jhb100.dtsi      | 193 +++++-
+ drivers/clk/starfive/Kconfig                  |   8 +
+ drivers/clk/starfive/Makefile                 |   1 +
+ .../clk/starfive/clk-starfive-jhb100-pll.c    | 593 ++++++++++++++++++
+ drivers/reset/starfive/Kconfig                |   9 +
+ drivers/reset/starfive/Makefile               |   1 +
+ .../reset/starfive/reset-starfive-common.c    |   6 +-
+ .../reset/starfive/reset-starfive-common.h    |   6 +
+ .../starfive/reset-starfive-jhb100-syscon.c   |  62 ++
+ drivers/soc/Kconfig                           |   1 +
+ drivers/soc/Makefile                          |   1 +
+ drivers/soc/starfive/Kconfig                  |   6 +
+ drivers/soc/starfive/Makefile                 |   2 +
+ drivers/soc/starfive/socinfo/Kconfig          |  11 +
+ drivers/soc/starfive/socinfo/Makefile         |   2 +
+ drivers/soc/starfive/socinfo/jhb100-socinfo.c |  90 +++
+ .../dt-bindings/clock/starfive,jhb100-crg.h   |  12 +
+ .../dt-bindings/reset/starfive,jhb100-crg.h   |   3 +
+ 20 files changed, 1098 insertions(+), 35 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jhb100-syscon.yaml
+ create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-pll.c
+ create mode 100644 drivers/reset/starfive/reset-starfive-jhb100-syscon.c
+ create mode 100644 drivers/soc/starfive/Kconfig
+ create mode 100644 drivers/soc/starfive/Makefile
+ create mode 100644 drivers/soc/starfive/socinfo/Kconfig
+ create mode 100644 drivers/soc/starfive/socinfo/Makefile
+ create mode 100644 drivers/soc/starfive/socinfo/jhb100-socinfo.c
+
+--
 2.25.1
-
 
 _______________________________________________
 linux-riscv mailing list
