@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA268C5AD2C
-	for <linux-riscv@archiver.kernel.org>; Sun,  9 Aug 2026 05:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DDBC5AC80
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Aug 2026 13:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UUAHzT+ILHDR+GYu0qiAH9Mn0m+JaPdomkAZEcjGGAI=; b=tF8szwscdIrESp
-	5Ov1W+I9BG6TWQHmLpQbs/UMgFpDN8etcRQ/wvQCHcw1Tdg7Tf7YApTtCNSKUSfFL0Y+0oxpWP3aL
-	FFuEuZtNBNZqCD4BMUEjDh3dX2cS/lFIh/MuuXgcOkrUskEL8b9KRBGKcYoHQQ5mzQTR9ChVCoRS2
-	VrVrf8/GJl68SF26V4H9OQN4D4WW7W3o9tNN14VmyC8eiCkUIZr3j1m//9cIuXThFj80XLHBeeU62
-	UioX+XuFIqSAC2LogcS9BKipJH2jiQu0Mu1ja6W9PEl6oP/B/HfhF0tYA0Q6XRLJdF/lspTGsTnOs
-	c00c4Aqmnc/Mbcg/qQgw==;
+	List-Owner; bh=7r6M4F2uG/dMkgCccbuyIbPRL08ffdchK7ROaESteYs=; b=x0EJ2yA7n2IZ+z
+	/ab58Ywu3QopXWkYim5Yk3CbIWodmva+0d3Fw6P/+XFLlcmjTgEgKhyyi4EJPZ6upsI++CBN8zEh4
+	Rjo5E3/RjVbXab2fvYx5i7e/ZgSTd3gz/AMqmLlYwyj4zu2/NqLgCEhHHVYwUWd+RpNT8eSwO2DM9
+	awwnLFTWx/4QIod6dvXJ1wn5vK0JmL1QshE9giFcZWR17YjvrJySzPbdzf4KcBjpGFnwtxtI/Ag4i
+	VlkH3Xph9OuoE89724ek0pLYkKqhqXiZee+I9H//fmcsNL+bsS7oVcydzwjz6YtFTqD4TqMZ78v6F
+	JDmPBrBE3uWaLo/RHWmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wswRi-0000000A1Ta-2dKS;
-	Sun, 09 Aug 2026 05:51:42 +0000
+	id 1wt3N7-0000000AJgv-0gYp;
+	Sun, 09 Aug 2026 13:15:25 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wswRh-0000000A1TF-1DuE;
-	Sun, 09 Aug 2026 05:51:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38A4E42A4C;
-	Sun,  9 Aug 2026 05:51:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BD7B1F000E9;
-	Sun,  9 Aug 2026 05:51:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786254698;
-	bh=T3FGOkCsyAkRq/PlWdyqKgGv29697plosgcUL2pIKfU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ixEmCWHm7ue2f00kzDVoGx2sOV1FXDu+EXAaI2iOwLz+GBiH4XdAsliF60VuH08RA
-	 jkOi0P473ENk5+CmpbrxxClJp4qkn2H4Nyb2FfdYB8v5l8CkaCzShWTOZSPZSQRzoV
-	 QOjH/ievlWfMSifDniCKcMkYCY0sLwmwzFxfd5LmZ13luZgo46vjrYdrXDIOmD3nWC
-	 83ntAy9WSZ2tld1oz2tTUcvfRBnAuIt1DaUTfisZTNnClBNMtKESdsqoBYifeflv8p
-	 MP4u3PP5BkcolJtsL9gGsB4bkhZ+7fCEPtMOxmXLP9AMMdrkxNsL6NRMWevPj3Q6Q1
-	 PAmFJQztTL81g==
-Date: Sun, 9 Aug 2026 08:51:29 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	driver-core@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] drivers/base, mm: move arch_numa.c to mm/
-Message-ID: <angVYX5owaXkZ3sG@kernel.org>
-References: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
- <20260806154842.9faab19cdfb7cf09799d8f79@linux-foundation.org>
+	id 1wt3N3-0000000AJcp-3sXu;
+	Sun, 09 Aug 2026 13:15:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B58844EA1;
+	Sun,  9 Aug 2026 13:15:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4E136C2BCF6;
+	Sun,  9 Aug 2026 13:15:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1786281320;
+	bh=GaC5ILihit460FZxqqZmeMPb77gx2K+GWLRT410+nv4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=GcIXoyPpYACOoXPXTmVO8AjW4kZ9Tx1khHigfSWz9aGhg45hz3wmTHdkcr/Ni7r6W
+	 arwA0XWL2A0//RJn18w6dXRp5w5nPAPEaZG5aOHqymcCvDVGQ0F+t6cFkjSGmy+Rro
+	 Qp+zuZDHR+YgvvUb0rbp3ov7VffdJzaHNYQbL52fe3ZX8zBnjkujrDlObsGRhXnLRY
+	 sjB/2BXSpJWX+aM1qGuFH3fNw1GVRO2/2WK++jzLheeKX+acmzzC0NPZO7zX4ZF/K5
+	 UY3DccriQ1PVu5Ksp6YHHYIEH91DJ9YoOaWuPfedk2tQH7AVIxSMBx36T4G1k3yvnV
+	 crGTh7HWz5x6w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B793C5AD68;
+	Sun,  9 Aug 2026 13:15:20 +0000 (UTC)
+From: Cody Kang via B4 Relay <devnull+codykang.hk.gmail.com@kernel.org>
+Date: Sun, 09 Aug 2026 21:14:11 +0800
+Subject: [PATCH v2 02/17] dt-bindings: phy: add SpacemiT K3 Innosilicon DP
+ PHY
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260806154842.9faab19cdfb7cf09799d8f79@linux-foundation.org>
+Message-Id: <20260809-k3-display-v2-2-327d7910bf71@gmail.com>
+References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
+In-Reply-To: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Haylen Chu <heylenay@4d2.org>, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Guodong Xu <docular.xu@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+ linux-clk@vger.kernel.org, Cody Kang <codykang.hk@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786281298; l=2433;
+ i=codykang.hk@gmail.com; s=codykang; h=from:subject:message-id;
+ bh=XomvK7OQWB2BpQ6NfJVtgaEE/SQQ/w/1buDPgY2JWZE=;
+ b=OS0Mdz446kIKQUNz8sGws3u9JiiUbHKzMIA2ZX5KN9NECBOZFp2U87rcrgLZkoSyxKZTxfjVD
+ I2sF9J1v23OD9WYP68abUdwsWu2fYWGq5R4NAtsNt0jx212CFwm5Kkx
+X-Developer-Key: i=codykang.hk@gmail.com; a=ed25519;
+ pk=Osn6/cs9Su/mHHw4P19cmVc3v2FMQfiWahjsN0vEkuk=
+X-Endpoint-Received: by B4 Relay for codykang.hk@gmail.com/codykang with
+ auth_id=895
+X-Original-From: Cody Kang <codykang.hk@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +91,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: codykang.hk@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 03:48:42PM -0700, Andrew Morton wrote:
-> On Thu, 06 Aug 2026 09:58:38 +0300 "Mike Rapoport (Microsoft)" <rppt@kernel.org> wrote:
-> 
-> > arch_numa.c implements boot time discovery and initialization of NUMA
-> > topology on architectures that select GENERIC_ARCH_NUMA (currently arm64
-> > and riscv).
-> > 
-> > Since this is step in the initialization of the memory management
-> > subsystem, it's logical to have arch_numa.c in mm/ alongside numa.c,
-> > numa_memblks.c and numa_emulation.c.
-> > 
-> > Move arch_numa.c to mm/ and add its F: entry to "MEMBLOCK AND MEMORY
-> > MANAGEMENT INITIALIZATION" in MAINTAINERS.
-> 
-> Unclear what tree this is targeted at.  I grabbed it.
- 
-Heh, it's muscle memory to send such patches to you :)
-Let's keep this in your tree, thanks!
- 
-> mm-stable does have this change:
-> 
-> --- linux-7.2-rc5/drivers/base/arch_numa.c	2026-07-27 04:44:55.000000000 -0700
-> +++ 25/drivers/base/arch_numa.c	2026-08-06 15:47:59.019918702 -0700
-> @@ -231,10 +231,6 @@ static int __init numa_init(int (*init_f
->  {
->  	int ret;
->  
-> -	nodes_clear(numa_nodes_parsed);
-> -	nodes_clear(node_possible_map);
-> -	nodes_clear(node_online_map);
-> -
->  	ret = numa_memblks_init(init_func, /* memblock_force_top_down */ false);
->  	if (ret < 0)
->  		goto out_free_distance;
-> 
-> 
-> which is easily handled either way.
+From: Cody Kang <codykang.hk@gmail.com>
+
+The SpacemiT K3 DisplayPort controller drives its four transmit lanes
+through an integrated Innosilicon DP PHY, one PHY per controller. Add a
+binding so the controller can reference its transmit PHY and the pixel
+clock the PHY's PLL sources.
+
+The PHY's registers are interleaved with its parent controller's inside
+one MMIO window, so it owns neither a reg nor a reset and is modelled as
+a child of the controller.
+
+It exposes its PLL-generated pixel clock through #clock-cells, so the
+APMU pixel-clock mux can select it as a parent through the clock
+framework.
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Cody Kang <codykang.hk@gmail.com>
+
+---
+v2:
+- add Reviewed-by: Rob Herring (Arm)
+---
+ .../bindings/phy/spacemit,k3-inno-dp-phy.yaml      | 48 ++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/phy/spacemit,k3-inno-dp-phy.yaml b/Documentation/devicetree/bindings/phy/spacemit,k3-inno-dp-phy.yaml
+new file mode 100644
+index 0000000000000..f8f1ef3729511
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/spacemit,k3-inno-dp-phy.yaml
+@@ -0,0 +1,48 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/spacemit,k3-inno-dp-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K3 Innosilicon DisplayPort PHY
++
++maintainers:
++  - Cody Kang <codykang.hk@gmail.com>
++
++description:
++  Innosilicon four-lane DisplayPort transmit PHY integrated in the SpacemiT
++  K3 SoC, one per DisplayPort controller. Its registers are interleaved with
++  the controller's own inside a single register window, so it is described as
++  a child of the controller and owns neither a reg nor a reset.
++
++  The PHY provides the pixel clock its PLL generates, which the APMU
++  pixel-clock mux takes as one of its inputs.
++
++properties:
++  compatible:
++    const: spacemit,k3-inno-dp-phy
++
++  "#phy-cells":
++    const: 0
++
++  "#clock-cells":
++    const: 0
++
++  clock-output-names:
++    maxItems: 1
++
++required:
++  - compatible
++  - "#phy-cells"
++  - "#clock-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    phy {
++        compatible = "spacemit,k3-inno-dp-phy";
++        #phy-cells = <0>;
++        #clock-cells = <0>;
++        clock-output-names = "edp0_pll_pxclk";
++    };
 
 -- 
-Sincerely yours,
-Mike.
+2.43.0
+
+
 
 _______________________________________________
 linux-riscv mailing list
