@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5369FC5AC80
-	for <linux-riscv@archiver.kernel.org>; Sun,  9 Aug 2026 13:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBD9C5AE49
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Aug 2026 13:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=in7IslioXTrCVA+be5xltkPULGGLmIrtrDr29idfl60=; b=VbQAlxtNh2LZZZ
-	uFmX+DQ8RW2u06Buu5odh+HKHyCRTCTJ/vKZcL3wnpBb76mYZWlgXAdV4+04J4/OXFYUwAhFQp0ir
-	kaXvW0INCESFEO2eZnKBGSPkUQUnEk+asAFaDjHBX8+V1pMUm5GtyYBvaQNmK38eEv/bREvRGAg6u
-	4N9HW/mDd7FeUdxrGvDHG9aXOE1ltaMdDmcacTPSCVSzFNRep5syJiaZoQYGB2PXvP6z+OFVDXvQF
-	xjPPQsa/ZKKaaU66wPpP9tFvYNcWJBiNsjRtasEj1I4hGGvNvdhVbDXAniPSTtvH2+7dtgNAmGHya
-	xFlPPSXGmpgyXPp11cdw==;
+	List-Owner; bh=MUDyLaALPACRou/Qv8e8mw3GcT2hcXMrbi5LQIXz8Mg=; b=fvP3eJl6j26PaQ
+	FpRcjbLqRMRchJFDctSSS5bAM47kwXD97P+IMLAzX97uDwTJfBc2PHAPXxE/PBvgaoyb554OxNsFz
+	o8SxQLGCi9gV7vmhD7ianRUI5bef0McttDOOh1TVMIAtgkwY6Yy6H7I6jlNJykQKbWwKJjxzQSfdH
+	puentSaVqGv8wQldZnbq5hxP/EJ1200I6Cu1icbkoeVVOcaJB63nNYJ6cLRy6Z/r1F1MGFVVQmkUI
+	eTgqt0XB/7sAsrVBWD4a8XWDeXIOm9xna4qWq5V7lqG3SGKnvaZt0WOIpxs1zUblCuQgt6jGFstG8
+	XRSUMDbGdFPxPxfsxMTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt3N7-0000000AJgd-07Qg;
-	Sun, 09 Aug 2026 13:15:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wt3N5-0000000AJed-1Y30;
+	Sun, 09 Aug 2026 13:15:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt3N3-0000000AJcq-3sbg;
+	id 1wt3N3-0000000AJcl-2cB4;
 	Sun, 09 Aug 2026 13:15:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A59E44EE8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6BBE943EB6;
 	Sun,  9 Aug 2026 13:15:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 62849C2BD05;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 38042C2BCF5;
 	Sun,  9 Aug 2026 13:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786281320;
-	bh=9peFgrnHqlLJn8Ue7sGrY5PiSn7KpFqxvAykcmftCp8=;
+	bh=uWHJNFEDwNhxfzEsQVN+MYBNDHqcBjEugM8Y0dLDGg0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=VaDtLmzBLiMCHaK7iB/0prE+fswjBrAjperEeS8++CktfySTSqr1icijjETkqoUd+
-	 e8qWZiF60I32xao/6FPEhKpubjodK5H4nCbone3/+HnfNquDIyH2T+kdHPJSyyWBS1
-	 Og66F/uEoP7t9rBnChSfL1UR+Gk878Hl6Wxiwz82/i5AmENeW1eZYOtvAkIYoRmZ/t
-	 srsWcj/V/kepMtegRPxRI5I2lJHEWiyD9NSLzD2vr0Uf9aEqCyQzrt7jyXjWZQOSNA
-	 jSi2c4Q0kU0JwmICxOGB/NdOynyLrjnxVv0+dh7+OuwEMh118TxZ1fj9BM32B0Dt20
-	 yqgM1+jN6bmDA==
+	b=schp2qo4nsd55MUrHUMuKXxyW9TuDXBWJ1LlwS/L8Mz5q3jwRR7E//FwIdaXZs6dx
+	 o2Lmom99rm6bGVNbMt3HWnU8TFPTHfeVxKC5XAWXfx9bEhvco9eUKIswjho9II1VEf
+	 skt/Z1H3xEln5aZNyNbnIHIDI/A8iIPRIFoHWJD69rzd4dhlGExDLqlkx6/Wf/3rv4
+	 lW/5MK768/ZyHhu20W7G0hx3lu9ZRppRiTgmJEjhcSZa9zKeIDx/AOWB3TOS9khmVR
+	 Qz4tqmB+GbbrUz0zTvdc/stOZQr4zqWkvSmK4TivHi1tTVSOB2bDjfhfVcYM5AR60D
+	 GmlKAGYGJUS3Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 43741C5AD2C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 171CCC5AC80;
 	Sun,  9 Aug 2026 13:15:20 +0000 (UTC)
 From: Cody Kang via B4 Relay <devnull+codykang.hk.gmail.com@kernel.org>
-Date: Sun, 09 Aug 2026 21:14:12 +0800
-Subject: [PATCH v2 03/17] dt-bindings: display: spacemit: add K3
- Innosilicon DP/eDP controller
+Date: Sun, 09 Aug 2026 21:14:10 +0800
+Subject: [PATCH v2 01/17] dt-bindings: display: spacemit: add K3 Saturn DPU
+ controller
 MIME-Version: 1.0
-Message-Id: <20260809-k3-display-v2-3-327d7910bf71@gmail.com>
+Message-Id: <20260809-k3-display-v2-1-327d7910bf71@gmail.com>
 References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
 In-Reply-To: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -70,11 +70,11 @@ Cc: dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
  linux-clk@vger.kernel.org, Cody Kang <codykang.hk@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786281298; l=4802;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786281298; l=4691;
  i=codykang.hk@gmail.com; s=codykang; h=from:subject:message-id;
- bh=VkHwjITfjJFDv2SvE3j5UStndtyWrAWLVP3FHNwGNeE=;
- b=llT07l7DIsiM1lHB9+w0LQewfBUC5/hb1VcZ0hJjSrb8Ow6g31WJRK2i5vaKmSyMD124koK0Q
- K6KHDPcB+R9D74X0khdGbM21yXzK69ex/5hgwdfO70l2URTSLWsPGkr
+ bh=BmFVX9AQPaf/054idrgE6KVKK1IoNznGkA+GRXEpG9M=;
+ b=/yT1v9ef3dtpOxKhsnKQ6uDojXxRxTguGnrCGEHMzwSEdtLmy/6hQaxRTrGavkrSIIhV91ENi
+ Keu/o38CU+fDXhx68dbKaDqN0e5YjIYpM1GaAE80y4Kp71TuxHmZXYS
 X-Developer-Key: i=codykang.hk@gmail.com; a=ed25519;
  pk=Osn6/cs9Su/mHHw4P19cmVc3v2FMQfiWahjsN0vEkuk=
 X-Endpoint-Received: by B4 Relay for codykang.hk@gmail.com/codykang with
@@ -99,78 +99,92 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Cody Kang <codykang.hk@gmail.com>
 
-Both K3 instances are the same IP and share one compatible; which one
-behaves as eDP is decided by what its downstream port is wired to, not by
-which register window it sits in, so the binding does not distinguish them.
+Document the Saturn display processing unit found on the SpacemiT K3 SoC.
+The K3 instantiates two of them, one per display path. They share a
+compatible: an instance differs only in which register window, interrupt,
+clock and reset lines it takes.
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Cody Kang <codykang.hk@gmail.com>
 
 ---
 v2:
-- make port@1 required (Rob Herring)
 - add Reviewed-by: Rob Herring (Arm)
 ---
- .../display/spacemit/spacemit,k3-inno-dp.yaml      | 141 +++++++++++++++++++++
- 1 file changed, 141 insertions(+)
+ .../display/spacemit/spacemit,k3-saturn-dpu.yaml   | 132 +++++++++++++++++++++
+ 1 file changed, 132 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml
+diff --git a/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-saturn-dpu.yaml b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-saturn-dpu.yaml
 new file mode 100644
-index 0000000000000..491d25730da9f
+index 0000000000000..97ea9da4b68e4
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-inno-dp.yaml
-@@ -0,0 +1,141 @@
++++ b/Documentation/devicetree/bindings/display/spacemit/spacemit,k3-saturn-dpu.yaml
+@@ -0,0 +1,132 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/display/spacemit/spacemit,k3-inno-dp.yaml#
++$id: http://devicetree.org/schemas/display/spacemit/spacemit,k3-saturn-dpu.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: SpacemiT K3 Innosilicon DisplayPort / embedded DisplayPort Controller
++title: SpacemiT K3 Saturn Display Processing Unit
 +
 +maintainers:
 +  - Cody Kang <codykang.hk@gmail.com>
 +
 +description:
-+  Innosilicon DisplayPort transmit controller integrated in the SpacemiT K3
-+  SoC. The K3 has two instances of the same block sharing one compatible;
-+  each acts as embedded or external DisplayPort depending on whether its
-+  output port drives a panel or a connector.
++  The Saturn DPU is the display processing unit of the SpacemiT K3 SoC. It
++  composes the display planes and drives the timing for one display path. Its
++  output goes to a DisplayPort or embedded DisplayPort controller. The K3 has
++  two instances.
 +
 +properties:
 +  compatible:
-+    const: spacemit,k3-inno-dp
++    const: spacemit,k3-saturn-dpu
 +
 +  reg:
 +    maxItems: 1
 +
 +  interrupts:
-+    maxItems: 1
-+    description: Link and hot-plug events.
++    items:
++      - description: Online (live display) compose path.
++      - description: Offline (writeback) compose path.
++
++  interrupt-names:
++    items:
++      - const: online
++      - const: offline
 +
 +  clocks:
 +    items:
-+      - description: Pixel clock for the controller.
-+      - description:
-+          Pixel clock generated by the DP PHY PLL; the pixel clock above is
-+          parented onto it in use.
++      - description: Pixel clock.
++      - description: Memory clock for the compose pipeline.
++      - description: AXI bus clock.
++      - description: DSI escape clock.
++      - description: DSC clock.
 +
 +  clock-names:
 +    items:
 +      - const: pxclk
-+      - const: pll
++      - const: mclk
++      - const: aclk
++      - const: escclk
++      - const: dscclk
 +
 +  resets:
-+    maxItems: 1
-+    description: Controller-wide reset signal.
-+
-+  phys:
-+    maxItems: 1
-+    description: Phandle to the K3 Innosilicon DP PHY.
-+
-+  phy-names:
 +    items:
-+      - const: dp
++      - description: Memory clock domain.
++      - description: LCD domain, shared with the downstream controller.
++      - description: DSI escape clock domain.
++      - description: AXI clock domain.
++      - description: DSC domain.
++
++  reset-names:
++    items:
++      - const: mclk
++      - const: lcd
++      - const: esc
++      - const: aclk
++      - const: dsc
 +
 +  ports:
 +    $ref: /schemas/graph.yaml#/properties/ports
@@ -178,38 +192,20 @@ index 0000000000000..491d25730da9f
 +    properties:
 +      port@0:
 +        $ref: /schemas/graph.yaml#/properties/port
-+        description: Video input from the DPU.
-+
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Output to the panel or to the DisplayPort connector.
++        description: Video output to the DisplayPort or eDP controller.
 +
 +    required:
 +      - port@0
-+      - port@1
-+
-+  aux-bus:
-+    $ref: /schemas/display/dp-aux-bus.yaml#
-+    description:
-+      The DisplayPort AUX bus. Present when the output drives an embedded
-+      panel, which is described as a child of this node and identifies itself
-+      over AUX. Absent when the output is a connector.
-+
-+  phy:
-+    $ref: /schemas/phy/spacemit,k3-inno-dp-phy.yaml#
-+    description:
-+      The DisplayPort PHY. Its registers live inside this controller's
-+      register window, so it is described here as a child node.
 +
 +required:
 +  - compatible
 +  - reg
 +  - interrupts
++  - interrupt-names
 +  - clocks
 +  - clock-names
 +  - resets
-+  - phys
-+  - phy-names
++  - reset-names
 +  - ports
 +
 +additionalProperties: false
@@ -224,22 +220,24 @@ index 0000000000000..491d25730da9f
 +        #address-cells = <2>;
 +        #size-cells = <2>;
 +
-+        edp@cac84000 {
-+            compatible = "spacemit,k3-inno-dp";
-+            reg = <0x0 0xcac84000 0x0 0x4000>;
-+            interrupts = <132 IRQ_TYPE_LEVEL_HIGH>;
-+            clocks = <&syscon_apmu CLK_APMU_EDP0_PXCLK>, <&edp0_phy>;
-+            clock-names = "pxclk", "pll";
-+            resets = <&syscon_apmu RESET_APMU_EDP0>;
-+            phys = <&edp0_phy>;
-+            phy-names = "dp";
-+
-+            edp0_phy: phy {
-+                compatible = "spacemit,k3-inno-dp-phy";
-+                #phy-cells = <0>;
-+                #clock-cells = <0>;
-+                clock-output-names = "edp0_pll_pxclk";
-+            };
++        dpu@c0340000 {
++            compatible = "spacemit,k3-saturn-dpu";
++            reg = <0x0 0xc0340000 0x0 0x54000>;
++            interrupts = <90 IRQ_TYPE_LEVEL_HIGH>,
++                         <89 IRQ_TYPE_LEVEL_HIGH>;
++            interrupt-names = "online", "offline";
++            clocks = <&syscon_apmu CLK_APMU_LCD_PXCLK>,
++                     <&syscon_apmu CLK_APMU_LCD_MCLK>,
++                     <&syscon_apmu CLK_APMU_DPU_ACLK>,
++                     <&syscon_apmu CLK_APMU_DSI_ESC>,
++                     <&syscon_apmu CLK_APMU_LCD_DSC>;
++            clock-names = "pxclk", "mclk", "aclk", "escclk", "dscclk";
++            resets = <&syscon_apmu RESET_APMU_LCD_MCLK>,
++                     <&syscon_apmu RESET_APMU_LCD>,
++                     <&syscon_apmu RESET_APMU_DSI_ESC>,
++                     <&syscon_apmu RESET_APMU_DPU_ACLK>,
++                     <&syscon_apmu RESET_APMU_LCD_DSCCLK>;
++            reset-names = "mclk", "lcd", "esc", "aclk", "dsc";
 +
 +            ports {
 +                #address-cells = <1>;
@@ -248,14 +246,7 @@ index 0000000000000..491d25730da9f
 +                port@0 {
 +                    reg = <0>;
 +                    endpoint {
-+                        remote-endpoint = <&dpu0_out>;
-+                    };
-+                };
-+
-+                port@1 {
-+                    reg = <1>;
-+                    endpoint {
-+                        remote-endpoint = <&panel_in>;
++                        remote-endpoint = <&edp0_in>;
 +                    };
 +                };
 +            };
