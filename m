@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2772C5AD4E
-	for <linux-riscv@archiver.kernel.org>; Sun,  9 Aug 2026 20:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD5DC5AD5A
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 01:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=TzjTIF7Q82oPnFLGAOekwGiPEjf96YWJTqRSi/1f/g0=; b=uX+9whs/zqlwm0PVtmKPI1VenY
-	c000V7lmRAXYJUuhkjrXlEs22c0CUmNnU9GROS0DEUkwhl5mZYEz+060SKn8bwrOsctLpvDXv6z4k
-	tEvOMZpeEUI8GUU2ToSZ9h05FBJzlNvt52ATohZCxkfOSGr5zJptYmolJRBgRb3V0EOEf7g3o/6Yy
-	aSrGksJ/HFWDAH4euR12FmNw7UAuGnmJObDCKJCFvwLSALFBxWka3rM1C2X3zfn+j9mkuDSyUgFgM
-	EKdNUPlNJaCb4Dqj4TGvR1oncpd5PqH7IPbDzvzTM1R2UuSZibjMHdsfWV+UWkbApPdRBn9Zelyf2
-	qSg+Hpjw==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:References:In-Reply-To:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uvawPs8sFIpg4A3Ft4dZXz51rv3rclAEnPaZdO5POEo=; b=cx4SitV4kO2EgU
+	vSBnG0jFAY2m3BeTWysKGxeq+YX2FBeRV8dNsCA3Ld00E2rF3r6Igm9jDA11MJMhloI2hG9xLFhfS
+	Bb6g8MM1E8yecZmeCWmnI8+h9Z3U5uC0nr3JcfeEqHb4SP+/cfH259h4qJEhm+LK6Q3Y8jRyliGhd
+	E25llt/NR28Xq0Y4fgTcr/93AqdxFx832uy3qmdhbTM6qz4Ui7yyHv2LB8gPB4B/Fr6tOxev7mKsU
+	aFam+tc+On4UMUl27mOXAigllqJ3muqAf09JyO3+xN98onhOG4LDNfSLA5YX7RVJF6g9ozIzdGBji
+	GlGFHtqxzEFKfPiEW80g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtAZw-0000000AiH5-1ofM;
-	Sun, 09 Aug 2026 20:57:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtEhn-0000000AsZ0-0Mwz;
+	Mon, 10 Aug 2026 01:21:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtAZu-0000000AiGr-2gV2;
-	Sun, 09 Aug 2026 20:57:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40DF441690;
-	Sun,  9 Aug 2026 20:57:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9D361F000E9;
-	Sun,  9 Aug 2026 20:57:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786309025;
-	bh=pLkF0NLj/A2HQEEfAGqywzigLmQcK/vmjIC7mVIkzLU=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=W2+hdrxFZpt/F+NpzQmltXR2BqtphG4Dncu82E2b1GGtO+lodA9D7+NQFryuMccr8
-	 yXZYeNKBYWSWRRtzR1HqC4aRekSzkdl5rULOuBS8qOjrZ+zVb0wmTyXRLWHBn7JPaf
-	 tzQ/+hUO4Wm2CkNWiz/bat58nFDm6SgZbEbc8OQ4mue0lmxRgpfuSDviDk7hNJHPPm
-	 Z0vUnB+st4s71/ZMT7AK9xR3grfqrZwZtyQKrr5V/Rf85kCtcVgRwcc3ERIPYpPLsp
-	 vZ3kzsjhRM+IFIhhJWjYHLT9mL3OsKISwz6mPX7/iLyQlSc8zhiJO+lZBtqm+R7MCG
-	 hEFgNjNBwavwA==
-Date: Sun, 09 Aug 2026 15:57:04 -0500
+	id 1wtEhl-0000000AsYl-3r9O;
+	Mon, 10 Aug 2026 01:21:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 04009600AB;
+	Mon, 10 Aug 2026 01:21:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A2F6EC2BCB9;
+	Mon, 10 Aug 2026 01:21:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1786324888;
+	bh=wtmq7XEHRea751PL39TRlvgDocVMtRKCug5O3oxwNMY=;
+	h=From:Date:Subject:In-Reply-To:References:To:Cc:Reply-To:From;
+	b=jOIyANRjChkfhnf1TDDEp/25gy56crXsNumbU5wcaE2xTv66tOov7+p7/1xps12xs
+	 /hpsHXPrGs0dFHe8ACIH398ZnUbHR5OtEgl7kSMTBVPluPfLNPtl6UxQihbNx9tzg7
+	 kpRet4p4abikc64Q7fA7zcUjcvF5HlIbi7Tk70j0wNejWfn8LBoX8OqHAvEi+ldbW0
+	 PFnskIr/3JKYxDBhF1GyzwvfAO6Nmc6pusrttL/SlMIlUTxvRufmCTFH/+Ys8JC/qY
+	 c1P45RyWDQRECqGU9xBF9ibxUAnUewOvQazThPPsLNk4lh0GrcD+eQD4wJ63nkExRX
+	 /tQmQhq7YuUwg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8DDFFC5AD55;
+	Mon, 10 Aug 2026 01:21:28 +0000 (UTC)
+From: Xie Bo via B4 Relay <devnull+xb.ultrarisc.com@kernel.org>
+Date: Mon, 10 Aug 2026 09:21:15 +0800
+Subject: [PATCH v2] RISC-V: KVM: Serialize IMSIC attributes with vCPU
+ migration
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- linux-kernel@vger.kernel.org, Haylen Chu <heylenay@4d2.org>, 
- devicetree@vger.kernel.org, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, 
- David Airlie <airlied@gmail.com>, Guodong Xu <docular.xu@gmail.com>, 
- linux-clk@vger.kernel.org, Yixun Lan <dlan@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org, 
- Stephen Boyd <sboyd@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- linux-phy@lists.infradead.org, Maxime Ripard <mripard@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, Vinod Koul <vkoul@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, spacemit@lists.linux.dev, 
- Yao Zi <me@ziyao.cc>, Brian Masney <bmasney@redhat.com>, 
- dri-devel@lists.freedesktop.org, Simona Vetter <simona@ffwll.ch>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>
-To: Cody Kang <codykang.hk@gmail.com>
-In-Reply-To: <20260809-k3-display-v2-4-327d7910bf71@gmail.com>
-References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
- <20260809-k3-display-v2-4-327d7910bf71@gmail.com>
-Message-Id: <178630902417.4734.745604981187853023.robh@kernel.org>
-Subject: Re: [PATCH v2 04/17] dt-bindings: soc: spacemit: allow eDP/DP PHY
- PLL pixel clocks on K3 APMU
+Message-Id: <20260810-imsic-attr-race-v2-1-00ed95ad321e@ultrarisc.com>
+X-B4-Tracking: v=1; b=H4sIAIoneWoC/43Oyw6CMBCF4VchXTukLZeqK9/DsKh1kEmEmmklG
+ NJ3t7Bx6/JfnC9nFQGZMIhzsQrGmQL5KYc+FMINdnog0D230FK38qgk0BjIgY2Rga1DkK0x2sq
+ 6biSKvHox9rTs4rXL3bMfIQ6M9ucYraSpWqVLVRndnEDBcru8n5EtU3Cl8+NGDRSi58/+bVYb+
+ P+8Syl9AfhrvaPdAAAA
+In-Reply-To: <20260721073612.137259-1-xb@ultrarisc.com>
+References: <20260721073612.137259-1-xb@ultrarisc.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Xie Bo <xb@ultrarisc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786324887; l=2118;
+ i=xb@ultrarisc.com; s=20260810; h=from:subject:message-id;
+ bh=FN+s+dZU8x/9zYsAqO7dZdJ8/YEPF8j1I2LUPLYxSPg=;
+ b=At33xJ3dHR0j9wXFxdIzEYGU5MBM29ywdU+QrQSNgCvRQNCU4eMc6niylLaA2OdmR+6z77Yzu
+ 7ObKeiaeOz/CkmbCVfPYMdMk6cLpWur30kpe8VcTE2Kd5XihS+Wycvq
+X-Developer-Key: i=xb@ultrarisc.com; a=ed25519;
+ pk=Yb4TfiqO0TRwfKy3wvnt0+tbk0/QQQ42+O1jBrVaWq0=
+X-Endpoint-Received: by B4 Relay for xb@ultrarisc.com/20260810 with
+ auth_id=933
+X-Original-From: Xie Bo <xb@ultrarisc.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,54 +85,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: xb@ultrarisc.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Xie Bo <xb@ultrarisc.com>
 
-On Sun, 09 Aug 2026 21:14:13 +0800, Cody Kang wrote:
-> The APMU's eDP pixel-clock muxes select the DP PHY PLLs as parents, so the
-> K3 syscon takes two clock inputs the other variants do not have.
-> 
-> Gate them behind the K3 compatible instead of widening the shared clock
-> list, so a non-K3 syscon cannot silently accept clocks it has no mux for.
-> 
-> Signed-off-by: Cody Kang <codykang.hk@gmail.com>
-> 
-> ---
-> v2:
-> - drop the redundant minItems: 4; four is already the minimum
->   (Rob Herring)
-> ---
->  .../bindings/soc/spacemit/spacemit,k1-syscon.yaml   | 21 ++++++++++++++++++++-
->  1 file changed, 20 insertions(+), 1 deletion(-)
-> 
+KVM device ioctls are not serialized against KVM_RUN. As a result,
+kvm_riscv_aia_imsic_rw_attr() can snapshot the physical CPU and HGEI of
+an IMSIC VS-file before a concurrent vCPU migration releases it.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+The HGEI can then be allocated to another vCPU before imsic_vsfile_rw()
+uses the stale tuple. A GET or SET attribute may consequently access the
+new owner's interrupt file.
 
-yamllint warnings/errors:
+Serialize the entire IMSIC attribute operation with the target vCPU
+mutex. This prevents the VS-file from being migrated and recycled until
+the attribute access completes. Acquire the mutex killably so that the
+device ioctl remains interruptible while waiting for KVM_RUN to finish.
 
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/display/imx/fsl,imx-lcdc.example.dtb: display0: fsl,pcr: b'\xf0\xc8\x80\x80' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml
+Fixes: db8b7e97d613 ("RISC-V: KVM: Add in-kernel virtualization of AIA IMSIC")
+Cc: stable@vger.kernel.org
+Signed-off-by: Xie Bo <xb@ultrarisc.com>
+---
+Changes in v2:
+- Use mutex_lock_killable() and return -EINTR when interrupted.
 
-doc reference errors (make refcheckdocs):
+Link: https://lore.kernel.org/r/20260721073612.137259-1-xb@ultrarisc.com
+---
+ arch/riscv/kvm/aia_imsic.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260809-k3-display-v2-4-327d7910bf71@gmail.com
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index d38f5de08..74f520e57 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -969,9 +969,14 @@ int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
+ 	if (!vcpu)
+ 		return -ENODEV;
+ 
++	if (mutex_lock_killable(&vcpu->mutex))
++		return -EINTR;
++
+ 	imsic = vcpu->arch.aia_context.imsic_state;
+-	if (!imsic)
+-		return -ENODEV;
++	if (!imsic) {
++		rc = -ENODEV;
++		goto out_unlock;
++	}
+ 	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
+ 
+ 	read_lock_irqsave(&imsic->vsfile_lock, flags);
+@@ -995,6 +1000,8 @@ int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
+ 		rc = imsic_vsfile_rw(vsfile_hgei, vsfile_cpu, imsic->nr_eix,
+ 				     isel, write, val);
+ 
++out_unlock:
++	mutex_unlock(&vcpu->mutex);
+ 	return rc;
+ }
+ 
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+---
+base-commit: b95f03f04d475aa6719d15a636ddf32222d55657
+change-id: 20260810-imsic-attr-race-06772a04450e
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+Best regards,
+-- 
+Xie Bo <xb@ultrarisc.com>
 
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
 
 
 _______________________________________________
