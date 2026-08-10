@@ -4,125 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5B3C5AD5A
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 03:08:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91BF3C5AD55
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 03:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zp9U1QjodK3aSVmF1TPmsuaoZfZX9Ko4rj0YLg2vMVM=; b=D2WFhm8wPUYeCU
-	e6YMDmJIjcIzOOXrfXitYBzJjtG3ktW01qqObWWUbrqf7L+pzW6VidRQflbTyxw4QIdSnV07usUYa
-	CjJLJ5AgMBonDrC9sW3miw5YImag0ckQN9CZt3CNc1AT89DFzFpOSAlqNqLwIcefjWoEH8y98iFKA
-	F7I8sROsEBv4myqS6aAnZSrKvEc2EKXIRaMAGLvLQ1IaicMxPV4bvIBL/oEK6AoF5wbVovh5ZzZvD
-	hxGP++E8P3/orSzo9Vpr4EXWJUzuRW24hHGuWzrDZ5nVQ7q1hk2FH6pOhCUV0NTkF39dFoUn9H6Mb
-	g/1UbTqPHaZbhOvwFb7w==;
+	List-Owner; bh=KyutAhshDexDxuwKmbaUJEj13I95FBMKv0IgzfavKcU=; b=VtXMvPwcldSOPJ
+	IHVVQ2NNlSP430qKERAijtyVqVUpVrawWiifNQrB5AxKHK0JiFolCt8DsbevRMXfcKmT/u2LGewu6
+	n1SFxvGIKolwpyNxzpbTVsYyeSvGsNr6WLcqLyeLKxZ+vkuMY7izRbydavAHegE4OeSIKdexa3VgU
+	FjoBT8PY2GTlD8p+9wahAvxOmVLw2XffgKFTT/xidnSGFJpbigMjFJPJwkIcBL1f+2MB/hHwmaoZP
+	H/4YqGOK5pCrdTUKACw3px77fFBAjNbOcaw9qUZ4sw+6sxEImtEvQLSCu+qzVbEAdol+xg7fZ6xeO
+	PnpzOhx3Cj4+AhnhyiHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtGND-0000000AwEB-1m7e;
-	Mon, 10 Aug 2026 03:08:23 +0000
-Received: from mail-sh0chn02on2121.outbound.protection.partner.outlook.cn ([139.219.146.121] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wtGTT-0000000Awwt-2coD;
+	Mon, 10 Aug 2026 03:14:51 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtGN8-0000000AwCg-3zKa
+	id 1wtGTQ-0000000Awwb-3Mwe
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Aug 2026 03:08:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=J0AJ9S+OdB2QuYQO/d3RNOsgRTwHKGlSlSuRhu9QKi+ZffLCACJV4IQ4fjVOQZAIRxwXdAFvKq4s7yanf+cNtSkQMLqm0V7KrNYyPAxsOdg+UyMmB9ZFG9TwgOG6W+yJeLKbfp4vez761NUYjElGwadRumlMjrjI5PtMkvBBahtj0smz25Z0l7fxY61cPISUueiM3Z0OQIlBPPayl1C8VPsJ8TutvPwyc9nQtPp5opKLEBdAOW3xmZuCDM4Cb/+b9dqwTJpyKj3LPS7WCpLU34fhGCKCnlWZzRciy0yRKh+FzuWzy7kpG4YM0AMjMO6QuOzb2+VGMtrH84G4FGquTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x7iYPUjw+wSCmBtfpYu/nvTETiXpeXZIeqMXvbcIG0k=;
- b=jKslvHKwS8Lj8h8sj0KJZ+3rLSfQyPVgBQGOiWlZNZUSV32I8XFIUJFdoJ/xxdkO5YYdnwmWa0gqLaLREuuN1qVJOgzm1veKfEUYp/6zqrLHk45yaWAF/D5sqENeYhwFDj/waYfve/KL0kNvhuqHuk53pw2EFibeUH6RaxQXsBYR/6JXEOKvNp8I/QtUI7EsGsfLS5D6sm71EG2HN5bHJL5zNGbrGPZY6cQLI4so4z/beJlKRyac2OTXCsarvnJ4rbfHQruHh6kZnGy6VY5cI8Dw008qYPIYtptXZOdIKvAwGqJiJUoqkUkU5ZrIlX3JmACcmc2aabj0RNlVX+wfTw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:7::14) by ZQ2PR01MB1178.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:11::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
- 2026 03:07:22 +0000
-Received: from ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- ([fe80::4386:5cc4:3bc4:4795]) by
- ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn ([fe80::4386:5cc4:3bc4:4795%3])
- with mapi id 15.21.0292.024; Mon, 10 Aug 2026 03:07:21 +0000
-From: Hal Feng <hal.feng@starfivetech.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Hal Feng <hal.feng@starfivetech.com>,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Mon, 10 Aug 2026 03:14:49 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c9fe3c9bd5fso2533140a12.0
+        for <linux-riscv@lists.infradead.org>; Sun, 09 Aug 2026 20:14:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786331687; x=1786936487; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=P2U/NertvaThR7gO4CsqMLm8+RSS4kDRYQ7JnB/WYh4=;
+        b=qPWfNqEtO155twy6LZSNbP0yy1qBGntBJXb+EpPZyh4TrOfNDFbuwSo+b53ujXs0PU
+         fzOL87NulfyR+eS6QGpFQCtMLdSXejVKsADt2aWaZ/T4hOq7a8ltki9mgDeIC45k3sKq
+         6yFk2+4GxMDsEPtxhN4gsKDEyT6WmXFEX2ZyP7Wz6nTT6CZut5HE14TbJJ7a0eabr51S
+         gr7lEiF7gxnItdvjMibQLn9axFQvFnlsItIVu/+6aWibFjE7gdiPp0++yzjzYIIt1hl6
+         h4i8c0R2yoxf7QRWcOyB8mE3ZlVAi8kWHG/Uf4dWMUACaoho5iar7ppnRguvfukZSYBD
+         T9ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786331687; x=1786936487;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=P2U/NertvaThR7gO4CsqMLm8+RSS4kDRYQ7JnB/WYh4=;
+        b=Gf2f+y9YHY1YRKXwHRUG4A6OvUbAbppqtqeKK3gz2/e+w9vF8HLHfe0BsVnhavMINZ
+         CcRj/mpZDMukDluxetQnR0yJ769KAN9gZwMCGywO8cOUlHzITxgnI2243OgqqDH4OucT
+         vA0mLKtdsE9LJXF/p45dktZEQ+7Pga3XP9O0bFEUZu40Cm2Ba1l19wJjuuHjYdanetNy
+         aiRGxnBza2ovd5IELqVcQjPFRifK/OIZZWj0uZAwot+Mseep+XCOFsKE9+w71+2aVuw7
+         Ba9SWyWb92eXRFLY7U/U8ztSB3WLsHLTj7Fcn4jB4HVNtNCR8T8e8AEXKxH9VZUniZ3I
+         bj8Q==
+X-Forwarded-Encrypted: i=1; AHgh+RrgN4G533qCVISfWRe417qa8iA/Uc8ffltfE4nYTWGdUDoT52uj/eZVi736r+UasVm01oAIRFq/JFBsOQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvABrGOnhpBmuKGpoATD4+jKSpEvBtKmgreHso/hwQuLV7oQSa
+	gIdV0e6M7djbOmloI/ZAmV5BUYb8tee/ENm175OGpQdTmlovRNm+zUxy
+X-Gm-Gg: AR+sD10/NKtCd5JskeUveHDyTqIrPsE2mqN4Z5E2uYjEX4teGPmRcFdvdKUnd3k+vpN
+	GqVfbeTtji91qqxJUE8oCYimkA2IScqTKXej4pJLbZBrDN2ohVxUknsPUUuNlJI07r1SuQN594U
+	xji+RlsWfJbe6sECPcI+IXH//zXQn8cxv0ejaVM3ODWioPnqBsDStVvkVEVe2e1y4sCNOcIfp3S
+	50Ls8DttpdTXJYqRReDzWViXU/5QU/l+ZaZzFpnAI5Xp81kKdQIZJJJk8LE2GZlcssOGWFYNEbu
+	5W2hdY8qC8Mkli+MYtDhdVLDyuj+ZCkIHOZkCuqA+++Y+aH5f0AEx6T+kM5GnC4yZIw9hqs/yi0
+	+r+9eaZ+wGCcC3neeboCDRniIx1hmdbxymSPIWRU49eUt8u9Ck8XUZ7dwE3Uw1x4YuCV4Hmhtyh
+	3tC3qTScFIPEdXz7iV+QtQLcVYwb5bIhsjlxXakyV+EulCO6C7jscMWgx7DMlw
+X-Received: by 2002:a05:6a21:9d48:b0:3a2:c9a1:2c26 with SMTP id adf61e73a8af0-3cbd38d82e2mr16885494637.7.1786331687533;
+        Sun, 09 Aug 2026 20:14:47 -0700 (PDT)
+Received: from HP-Note-Host.. ([1.240.172.25])
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-cbe8f37469esm3093843a12.23.2026.08.09.20.14.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Aug 2026 20:14:47 -0700 (PDT)
+From: JaeJoon Jung <rgbi3307@gmail.com>
+To: bjorn.topel@gmail.com
+Cc: JaeJoon Jung <rgbi3307@gmail.com>,
+	rgbi3307@nate.com,
+	luke.r.nels@gmail.com,
+	xi.wang@gmail.com,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [RESEND v22 0/3] Add OpenCores PTC PWM support
-Date: Mon, 10 Aug 2026 11:07:11 +0800
-Message-ID: <20260810030714.48100-1-hal.feng@starfivetech.com>
-X-Mailer: git-send-email 2.43.2
-X-ClientProxiedBy: ZQ0PR01CA0014.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:5::19) To ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:7::14)
+Subject: [PATCH] riscv: net: bpf: add bpf_jit_supports_private_stack()
+Date: Mon, 10 Aug 2026 12:14:11 +0900
+Message-ID: <20260810031418.95364-1-rgbi3307@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ2PR01MB1307:EE_|ZQ2PR01MB1178:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ccc0b59-d686-4e28-022b-08def68c7ece
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|23010399003|366016|1800799024|38350700014|18002099003|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info: SKhpnZ/KnAfl1U21qN34sTW8UUwLOjOZakWYst8NeTuo5lI0rmPcy30mkOv1bkGqLC+1uyxJ/uMrjLGZbTqY8VYA9WGYQaU7b1vav25wH/0aSSde8bIxhjTJUj9EBZJAlDqlLxxOdPwWkC2PoVEXylWz/AYq0n973+n0+uLXG6509r39aXzeWv4MH9UEHrAtEwiIy+MHiw2WHwNR+VAsYhA7LVuKCfzPiT8cdX1jrcfxDnG1EjV+/83VR8Zfagdxg/yutI6dk7VfRpaGeFPqEYpOdvfOOaVCiskuynjIiGUSXt8yP+V3DJdluIwn0iti5b1U13ETsXg2UDjxko9gyokU64YOFOcHmxyYkeyxrQx/LtVbw0rcBnHyFmUodecsFKt9omfRkFn9OtU7eCvPQ4Ip4fkuQxQNyAfXfM6GVyzrMfBIAb8UPQirlyVdrCi8sojajqOmhoLYbW/vpEKPiM6KryBtVl0RppFUHlON/LRzInWS/kBUNxX9LiuDiQCBEVbI262wPdpMSE57Ya1oY7R9Qzq8Movjk1Q4psEzAz2bH/wUftvGGHXrcdpTWeJ7
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(23010399003)(366016)(1800799024)(38350700014)(18002099003)(56012099006)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AAgbnCbYc5qi8tvi+zMblTE+zZpA5kfTP9RLHSfiuGJJHE3mZ1Q3KIpp+U53?=
- =?us-ascii?Q?L3Qk7B75fEr4UNU8tkYBRi6eg7ZYtWgC/OFsoshVpIXzCj8xIWVp7zFoxGN4?=
- =?us-ascii?Q?UnoVH7yzPn2lPQggsTQGwlTCVsW9t2zzwNq+r+P7GvkoUKNCnCMBOr7Z7i0h?=
- =?us-ascii?Q?5ABZpNzVEsfZAe9IpJljyJVp81hpNP4du17aarhTO0rw2RI32c393wrEU/de?=
- =?us-ascii?Q?Ab33bGWjXs11gGOp8GbRhKPsZQ3tRqmhw/5c2/fSJssqSkEpKvKY8XKR10n4?=
- =?us-ascii?Q?dszvgntjv8DdcvC6V3CdHe3vyuQnjFX+iReOFckIs/xr8SguTHJ0UI2kEOqd?=
- =?us-ascii?Q?b5nqfzEJVwtSta8XvoaulYM5fFWstwKUzc6TPAh1o1jHj3HbofjE0Ass8Hjk?=
- =?us-ascii?Q?3wx/q96+BTgnZ8TUbv9rl5XxJo6v6Rb28prknfE2+FhQvNjFXm9jIG1EdPDr?=
- =?us-ascii?Q?UmAXV2lU/X96/wmlZZbMA+80eWy2y5T0MZdbcFBMeQb5U+gz0aIRfxSyi6+i?=
- =?us-ascii?Q?8DdINDCspm95O+iRqBwmiu4MaEs4G4ljZc+vqbj9Ov95zl3WzAuVB6E3Vz5G?=
- =?us-ascii?Q?ZxrWJoGvYn3IlzTUbj7sTxEGePVTxPgfcTrjvgfmJvXOT8YEqbMHQX3OPksW?=
- =?us-ascii?Q?V947/F7FqhgH7hEUeXQNdC8i632AKbREwiyPVY+nw0hzsWArv7Fb/n/mi+ax?=
- =?us-ascii?Q?yyKNmcZH5ylYMylwFIwo9XziCgEtWMZkq7mO8qKumoPrHOTlzDrbwtI939zG?=
- =?us-ascii?Q?4325y4+/lg24UdC/rT6YeNTMiiF7ic0pXe9Yd/GsdCtZ85cezKMmuEZV9Thv?=
- =?us-ascii?Q?b5+zwsgc5xMboBSVVYsy/AsOLlW3oYMQrXACZSGLViomng82/1eZf3NACoTv?=
- =?us-ascii?Q?6DSsUJoO4vsDWsAtDg8M2xRWcLaa6nF9GgyFM0Ga7bS55UfPtZlZwytorh1G?=
- =?us-ascii?Q?nS63NZ33KFqloRVmLEXZ17YE2xdt1HYb7IFnamKuj4gh1TMlkO2mgXji3R3z?=
- =?us-ascii?Q?rtMbunED3a203Yu8Hhe4qhYDwO9erDhkZk++9hE6D/I4v3BrRb+7uI0gDDjV?=
- =?us-ascii?Q?lo5FkUrBo9uSFL8hD0cRyhP2ze7FAwbDD9V/oSQg5AvxM04rhIfa1IrMX4oH?=
- =?us-ascii?Q?WTKevXah9KVX+Ox0u84dyk4crc0BnlJBCLxR83CJU1U7pOONM4WAuRyP9OOz?=
- =?us-ascii?Q?lPU4gWMdQqsyArSgpHf1zVPhWSis7rVU2CUU1oO79QaejEJ11IGwJNZmxXft?=
- =?us-ascii?Q?ZW3gzB4XmRRM/wQjLeRKv6A2AjYCcVqKR5I6qUeGN/1JkjboifQfHRYsLeWT?=
- =?us-ascii?Q?JRW4lSexLw/Wl7R/lcfdiZ5aNBGfyT7LTPOf4+t3jdoRwOQoP1YHa9+tSHAu?=
- =?us-ascii?Q?9hMsvVPddhFjeTuzT6DWJ8HEvA7+3Z/wTt6ItI/SeiLtasOQv2QVI9h75drJ?=
- =?us-ascii?Q?0kq9JQ2MulH4jBOe4ZHrztgmtEOPg8ZEX32e42mTRRAmteUlV7LIncDnTUf9?=
- =?us-ascii?Q?RTbb388KBdKak40rmgVaC1lCp+BmD0XWVfcGGPzZAf6cWFtQevNDD0FRWdTK?=
- =?us-ascii?Q?CduFH8COwpztSRgXHKfcrbKHM8H39MX4Ibt6Hau8jKDYwlQu5cqbSNNne8ho?=
- =?us-ascii?Q?7gvD9JPBbJpwXNGrLb1PhiuqLt7HNgjvkGIlrXzJ+5pPYLwF/dgkF6IlZlKO?=
- =?us-ascii?Q?h+bqKSuSGd+E5rl3tPrf7JzYxcXo8dp/rMAUvt49axmQ2rR53j6UluuPF7/w?=
- =?us-ascii?Q?lwZ90Rm+/QplSve+MQQLYKZe2U+anso=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ccc0b59-d686-4e28-022b-08def68c7ece
-X-MS-Exchange-CrossTenant-AuthSource: ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 03:07:21.7593
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yh8SuxzXeBzn0Wo9Rp6BcDQPkv4E9kdUMtI+KHw/d08C30ntuEmtH8tjLBSXi5f2rojF7fqHP3rWjrR0RJJiGYmYwoJEHFM4e7QKhFgwz04=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ2PR01MB1178
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_200818_994867_293E821A 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260809_201448_862829_05B7B69C 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,85 +101,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add OpenCores PTC PWM driver which is used in StarFive
-JH7100/JH7110/JHB100 SoC.
+The bpf_jit_supports_private_stack() function is defined with the __weak
+attribute in kernel/bpf/core.c as shown below, and returns false.
 
-I will maintain this pwm module in place of William.
+include/linux/filter.h:1191:bool bpf_jit_supports_private_stack(void);
+kernel/bpf/core.c:3381:bool __weak bpf_jit_supports_private_stack(void)
 
-Changes since v21:
-- Allow non-zero duty cycles shorter than one clock tick to round down to
-  zero.
-- Drop the .free() callback to preserve the PWM hardware state after
-  pwm_put().
-- Update the comment.
+However, if this function is not defined in the corresponding architecture to
+return true, an error occurs when loading BPF as follows, and it is not loaded.
 
-Changes since v20:
-- Fix 0% duty cycle support.
+$ cd tools/sched_ext
+$ make
+$ sudo ./build/bin/scx_simple
 
-Changes since v19:
-- Drop the oneOf construct in dt-bindings.
-- Address Sashiko AI review comments for the OpenCores PWM driver.
-  In ocores_pwm_apply(), handling disable requests first, then calculating
-  and validating period/duty for enable requests before taking a runtime
-  PM reference or touching the hardware registers.
+libbpf: prog 'simple_dispatch': BPF program load failed: -EACCES
+libbpf: prog 'simple_dispatch': -- BEGIN PROG LOAD LOG --
+Private stack not supported by jit
 
-Changes since v18:
-- Address Sashiko AI review comments for the OpenCores PWM driver.
-- Fix runtime PM usage count handling on probe, error paths, PWM release
-  and driver teardown.
-- Reject period or duty cycle values below the hardware minimum.
-- Restore PWM registers across system sleep resume.
-- Return the real error from devm_pwmchip_alloc().
-- Preserve bootloader-configured PWM state during probe and keep runtime
-  PM active if the PWM is already enabled.
-- Use synchronous runtime PM put before possible teardown.
+arm64, powerpc, and x86 are defined as follows and return true.
 
-Changes since v17:
-- Simplify the code. Make it more readable.
-- Restructure the driver to register the pwm chip for one pwm channel,
-  because each OpenCores PTC IP core only supports one PWM channel.
-  Drop starfive compatibles.
-  Add patches to fix the dt-bindings and device tree.
-- Support runtime pm and system sleep pm.
-- Disable the pwm module and reset the pwm counter before updating the
-  period and duty cycle.
-- Improve the descriptions.
-- Update the dt-bindings maintainer to Hal Feng.
+arch/arm64/net/bpf_jit_comp.c:2318:bool bpf_jit_supports_private_stack(void)
+arch/powerpc/net/bpf_jit_comp.c:530:bool bpf_jit_supports_private_stack(void)
+arch/x86/net/bpf_jit_comp.c:4111:bool bpf_jit_supports_private_stack(void)
 
-History:
-v21: https://lore.kernel.org/all/20260701074442.7714-1-hal.feng@starfivetech.com/
-v20: https://lore.kernel.org/all/20260629063601.63917-1-hal.feng@starfivetech.com/
-v19: https://lore.kernel.org/all/20260615155759.129210-1-hal.feng@starfivetech.com/
-v18: https://lore.kernel.org/all/20260515054723.25024-1-hal.feng@starfivetech.com/
-v17: https://lore.kernel.org/all/20250106103540.10079-1-william.qiu@starfivetech.com/
+It seems that it should be defined in the same way in RISCV as well.
 
-Hal Feng (3):
-  dt-bindings: pwm: opencores: Update compatibles, examples and
-    maintainers
-  riscv: dts: starfive: Correct pwm nodes
-  pwm: Add OpenCores PTC PWM driver
+Signed-off-by: JaeJoon Jung <rgbi3307@gmail.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- .../bindings/pwm/opencores,pwm.yaml           |   6 +-
- MAINTAINERS                                   |   6 +
- .../boot/dts/starfive/jh7100-common.dtsi      |  28 +-
- arch/riscv/boot/dts/starfive/jh7100.dtsi      |  67 +++-
- .../boot/dts/starfive/jh7110-common.dtsi      |  27 +-
- .../boot/dts/starfive/jh7110-milkv-mars.dts   |   6 +-
- .../dts/starfive/jh7110-milkv-marscm.dtsi     |   6 +-
- .../dts/starfive/jh7110-pine64-star64.dts     |   6 +-
- .../jh7110-starfive-visionfive-2-lite.dtsi    |   6 +-
- .../jh7110-starfive-visionfive-2.dtsi         |   6 +-
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |  67 +++-
- drivers/pwm/Kconfig                           |  12 +
- drivers/pwm/Makefile                          |   1 +
- drivers/pwm/pwm-ocores.c                      | 298 ++++++++++++++++++
- 14 files changed, 518 insertions(+), 24 deletions(-)
- create mode 100644 drivers/pwm/pwm-ocores.c
-
-
-base-commit: db2ddb87143519e20a95aa36c60b36107b736a58
--- 
-2.43.2
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 8fe8969fb8a0..c3e8d91836f1 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -2171,3 +2171,8 @@ bool bpf_jit_supports_timed_may_goto(void)
+ {
+ 	return true;
+ }
++
++bool bpf_jit_supports_private_stack(void)
++{
++        return true;
++}
+--
+2.43.0
 
 
 _______________________________________________
