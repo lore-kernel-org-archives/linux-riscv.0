@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8E4C5AD4E
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 09:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BDF5C5AC82
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 09:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xjo4JTrgIZl2kEu3TwGcM3Y8womoFIlGqzIA810sulg=; b=JlOWeNPXDKFJTx
-	WtmrqytOV+LwHyUeUak7x8qDlasc1JnDJZNUPct0C9rQwf3oTmfIK2YFW0WYXcjoN70xKw9nQRdOa
-	mfdhZCjKBdCyHt7GKdl9u7TQILOvkYbgklI0zeW0aP7f2ZYHjRxJAM8Fll1yBFKNGh95hxKmKNKU4
-	KCI69wHYrq73ySuAfAC+KPyEbmQUFOgsgKdswHi+unyXjtPwsv9xje7LjPy5raT779FHHGk9PBjLz
-	UOhBJS2Nv5EVaq2Uaoz5b17xRBo7qavbKOwmV55wIqZZVQb06Y+iDG/5qXRUtwVKCRLp+ZycrKtgE
-	NNNmWp60b2BvWCU5l7LA==;
+	List-Owner; bh=pI4IFd8zrrDXF2EmcyOYEWb7VP8wCQgn6Q28GJOHKQo=; b=f6SYAf2pdCZxXJ
+	HnrABw7H/dC8g3M71x+MhLl+wm7I6oPlNwI7XTumnIS0Eyps+MoDIcDR63qpQOnlGFDm1cG/X8bfu
+	iGzpSjBLoIBFBRrzPcz9DxKwJizO0QuQYk2HVnCSlBORx20vkSJRN6Z0E27SRehX4jf7JNQmWOAp/
+	l0vXpiXfgFRtGGdR2MYxIOINpK6CvTIo0cnQ8mu1JNtaLpHY60ppshZMFiqIh0tE63fnayyMmb2Y0
+	MzRUN7gkR7S+t4w7sFlSjFGOzC9YizHgD6k8KX5Atmxoo2Pw6IPd7q4XWL+ujLTUq58dux/AG0tqj
+	Dw/mu3/lcIsq8i6rKkDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtMQZ-0000000BPup-19DB;
-	Mon, 10 Aug 2026 09:36:15 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wtMWB-0000000BQL4-1vNC;
+	Mon, 10 Aug 2026 09:42:03 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtMQW-0000000BPuC-0jod
+	id 1wtMW7-0000000BQKV-3RfB
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Aug 2026 09:36:14 +0000
-Received: from [198.18.0.1] (unknown [121.237.244.183])
-	by APP-03 (Coremail) with SMTP id rQCowAAXGzmFm3lqvWlyBA--.59127S2;
-	Mon, 10 Aug 2026 17:36:06 +0800 (CST)
-Message-ID: <e0335440-3746-43e2-829d-54164a667a75@iscas.ac.cn>
-Date: Mon, 10 Aug 2026 17:36:05 +0800
+	Mon, 10 Aug 2026 09:42:02 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260810094154euoutp01f7d7ba3c13f27604320a18c0ac6060fd~KaFSXeIpJ1876218762euoutp01F
+	for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 09:41:54 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260810094154euoutp01f7d7ba3c13f27604320a18c0ac6060fd~KaFSXeIpJ1876218762euoutp01F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1786354914;
+	bh=AmOptGmSSwb48Q3nQS4iFyaNRaAar+3mAWyPKqr/PZc=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=ble4axPczDpJRsTJenkxPmIfVecz+JLi0iHpAR4YcF2TnitaLf9xU89sxJ2AwaBgZ
+	 /JMG0I5RUxNOgAqqlbGedKylHLO58WWFx6CUtasFjhL8YGvVKF90lp9KTw8buQj1wm
+	 QuYm6V7Vke4seybUzDddIxlxx2jCaqqmquQ/kQvs=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260810094154eucas1p14114a0cb677a4b4da96242f50cae88c0~KaFR42qow0110201102eucas1p1u;
+	Mon, 10 Aug 2026 09:41:54 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260810094153eusmtip22c92126836a048d2e2c83409f520ae1c~KaFQzzhe_0770707707eusmtip2n;
+	Mon, 10 Aug 2026 09:41:53 +0000 (GMT)
+Message-ID: <7418f71a-cf53-4641-bdf3-e967e776b0a8@samsung.com>
+Date: Mon, 10 Aug 2026 11:41:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] riscv: uprobe: Relax SYSTEM instruction validation
+Subject: Re: [PATCH v2] pwm: th1520: use vertical import style
+To: Guru Das Srinagesh <linux@gurudas.dev>, Link Mauve
+	<linkmauve@linkmauve.fr>, Drew Fustini <fustini@kernel.org>, Guo Ren
+	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Miguel Ojeda
+	<ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo
+	<gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
+	<bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
+	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, Trevor
+	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Daniel
+	Almeida <daniel.almeida@collabora.com>, Tamir Duberstein
+	<tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, Nathan Chancellor
+	<nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: linux-riscv@lists.infradead.org, linux-pwm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	llvm@lists.linux.dev
 Content-Language: en-US
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260720080016.49842-1-daichengrong@iscas.ac.cn>
-From: daichengrong <daichengrong@iscas.ac.cn>
-In-Reply-To: <20260720080016.49842-1-daichengrong@iscas.ac.cn>
-X-CM-TRANSID: rQCowAAXGzmFm3lqvWlyBA--.59127S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJF43Xr1xJw4UCFWkXw18Krg_yoWrWFWrpF
-	Z8Cwn3CF4kWrs3Ca4fAw48ur4YgayrGw43Gr90vw47Ka98tr98tFn7t3y5tr1kJrWjqr1j
-	qr129r95Za47A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv0b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1lc2xS
-	Y4AK67AK6r4fMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWU
-	twCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IUY
-	enQ5UUUUU==
-X-Originating-IP: [121.237.244.183]
-X-CM-SenderInfo: pgdluxxhqj201qj6x2xfdvhtffof0/
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20260721-pwm-rust-vert-imp-v2-1-9f91547f5e07@gurudas.dev>
+X-CMS-MailID: 20260810094154eucas1p14114a0cb677a4b4da96242f50cae88c0
+X-Msg-Generator: CA
+X-RootMTR: 20260721074943eucas1p20eaf6768a8a3db90d29a9d45746554ab
+X-EPHeader: CA
+X-CMS-RootMailID: 20260721074943eucas1p20eaf6768a8a3db90d29a9d45746554ab
+References: <CGME20260721074943eucas1p20eaf6768a8a3db90d29a9d45746554ab@eucas1p2.samsung.com>
+	<20260721-pwm-rust-vert-imp-v2-1-9f91547f5e07@gurudas.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_023612_590745_75C4AB8B 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20260810_024200_326967_F0B93E11 
+X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,99 +98,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On 7/20/26 16:00, daichengrong wrote:
-> RISC-V uprobe currently rejects all SYSTEM instructions during
-> instruction validation.
+On 7/21/26 09:49, Guru Das Srinagesh wrote:
+> Convert `use` imports to vertical layout for better readability and
+> maintainability.
 > 
-> This policy is conservative, but it also rejects CSR instructions that
-> only read architectural state, preventing uprobe from instrumenting
-> user applications containing such instructions.
-> 
-> This RFC proposes refining the SYSTEM instruction validation by
-> distinguishing read-only CSR instructions from CSR operations that may
-> modify processor state. Read-only CSR instructions are allowed, while
-> CSR write operations and other SYSTEM instructions continue to be
-> rejected.
-> 
-> The RISC-V ISA permits implementation-defined side effects on some CSR
-> reads. Feedback is welcome on whether instruction-level validation is
-> sufficient, or whether additional validation based on CSR properties
-> would be more appropriate.
-> 
-> Signed-off-by: daichengrong <daichengrong@iscas.ac.cn>
+> Signed-off-by: Guru Das Srinagesh <linux@gurudas.dev>
 > ---
->  arch/riscv/include/asm/insn.h          | 15 +++++++++++++++
->  arch/riscv/kernel/probes/decode-insn.c |  2 +-
->  2 files changed, 16 insertions(+), 1 deletion(-)
+> Came across a recent commit bc58905eb07 ("samples: rust_misc_device: use
+> vertical import style") and found a few more locations that could
+> benefit from this cleanup. No functional changes.
 > 
-> diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-> index c3005573e8c9..08c6be4609ea 100644
-> --- a/arch/riscv/include/asm/insn.h
-> +++ b/arch/riscv/include/asm/insn.h
-> @@ -600,4 +600,19 @@ static inline void riscv_insn_insert_utype_itype_imm(u32 *utype_insn, u32 *itype
->  	*utype_insn |= (imm & RV_U_IMM_31_12_MASK) + ((imm & BIT(11)) << 1);
->  	*itype_insn |= ((imm & RV_I_IMM_11_0_MASK) << RV_I_IMM_11_0_OPOFF);
->  }
-> +
-> +static __always_inline bool riscv_insn_is_csr_read(u32 code)
-> +{
-> +	return (code & RV_INSN_OPCODE_MASK) == RVG_OPCODE_SYSTEM &&
-> +			(GET_FUNCT3(code) == GET_FUNCT3(INSN_MATCH_CSRRS)
-> +				 || GET_FUNCT3(code) == GET_FUNCT3(INSN_MATCH_CSRRC)
-> +				 || GET_FUNCT3(code) == GET_FUNCT3(INSN_MATCH_CSRRSI)
-> +				 || GET_FUNCT3(code) == GET_FUNCT3(INSN_MATCH_CSRRCI)) &&
-> +			 RV_EXTRACT_RS1_REG(code) == 0;
-> +}
-> +
-> +static __always_inline bool riscv_insn_is_system_except_csr_read(u32 code)
-> +{
-> +	return riscv_insn_is_system(code) && !riscv_insn_is_csr_read(code);
-> +}
->  #endif /* _ASM_RISCV_INSN_H */
-> diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
-> index 65d9590bfb9f..4a6a33b95159 100644
-> --- a/arch/riscv/kernel/probes/decode-insn.c
-> +++ b/arch/riscv/kernel/probes/decode-insn.c
-> @@ -21,7 +21,7 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
->  	/*
->  	 * Reject instructions list:
->  	 */
-> -	RISCV_INSN_REJECTED(system,		insn);
-> +	RISCV_INSN_REJECTED(system_except_csr_read,		insn);
->  	RISCV_INSN_REJECTED(fence,		insn);
->  
->  	/*
+> Separating out patches per-subsystem as per the review feedback in [0].
+> 
+> Tested via:
+> 
+>     $ make LLVM=1 rustfmtcheck || echo "fail"
+>     $
+> 
+> [0]: https://lore.kernel.org/lkml/20260628-b4-rust-vertical-imports-v1-0-98bc71d4810b@gurudas.dev/
+> ---
 
-PING.
+Looks good to me,
 
-I'd like to add some motivation for this change.
-
-Direct CSR accesses have traditionally been relatively uncommon in ordinary
-userspace applications. However, as more RISC-V architectural extensions are
-used by userspace software, reading architectural state through CSRs is
-becoming more relevant.
-
-The Vector extension is one example. Vector-enabled applications, runtime
-libraries, and compiler-generated code may contain CSR reads as part of
-querying or managing architectural state. Similar cases may also appear with
-other extensions that expose useful state to userspace.
-
-Therefore, rejecting all CSR instructions in uprobe validation can prevent
-instrumentation of otherwise valid userspace code even when the instruction
-only observes architectural state and does not modify it.
-
-The intent of this RFC is to distinguish such read-only CSR accesses from
-operations that modify processor state. CSR writes and other SYSTEM
-instructions would remain rejected.
-
-There is still the question of CSR read side effects permitted by the ISA.
-Feedback would be appreciated on whether checking the instruction semantics
-is sufficient here, or whether we should additionally restrict the set of
-CSRs that uprobes may accept.
-
-Thanks,
-Chengrong
+Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
 
 
 _______________________________________________
