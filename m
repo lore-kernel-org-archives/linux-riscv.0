@@ -4,98 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96FE0C5AC82
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 11:26:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01CEC5AD55
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 12:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	References:MIME-Version:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=T4+w1MxI9Q+pLdwkfQHyUBh1KFAxzy2OSr0zf5qnc4M=; b=aXUTZIYDpI7adhtrQwFQMrIpBF
-	1/Q3ot3XJqCvjQLGUr7KsIlEa6JpZ87Roez49Aq/ZByYJUFPozzRGkxynZu3Y+CH2ETAgY7ofj6/a
-	3qw55MZQl+WZInD4YUm888pJME8ROhePgNmF4tXpRz/C/iIQVc1h0KJeHqIO5ooB69R8UnlhWXQY7
-	8G/0hRmrW1T+52TXSPSLmnAviDOBdlIJTbEqPj8RcUPky9DXENLKH+6uUHhv0LyUhiCEaLtP2Lep3
-	Rj5kllC6Zh2kbpxnY7uPfYJFp4X696RN+u8UXBNFnjH+CIFDKZYuoUZ9J1spxENY8EpF7eECuElEv
-	e+mPm3iw==;
+	List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=651Ftug2ETIRdLI5gq9hN8/mcqUbpKr533MeXKbrPsk=; b=W2floCS+nqyQoB
+	KKwZ9WPEX+4IOoTmot/XBiRLpTjA7YzP+IrrfPBHfcF9kHsTjyTLM0OO2m+b9aFso2Td1Ex+1mY/Z
+	Jisw1hJIKxNayjpX/yk5unqY3MgEueQRwnMWz/3+E2spOFZtTZwFrN56oDX9xveF972eG3yI4ChWT
+	jn5fzzmySmUD8l5mYGim6d/K9YEiRg30UOprb14iuqGgtumQzkyZDhi9apq07Cxjl8VWzfspfo66G
+	Pt8sFAtCfIeyfeYaGMXEXcLYAqEle1GF7TNbwYlc2cq/4/zbfrL0UiiqH0qmsxAkWgqKWpDV6k7ad
+	acji2OqhBvuOKW8cyBEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO8y-0000000BcLK-0eER;
-	Mon, 10 Aug 2026 11:26:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtPC0-0000000Bmf3-2EWw;
+	Mon, 10 Aug 2026 12:33:24 +0000
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO8w-0000000BcKh-2Iq1
+	id 1wtPBx-0000000BmdH-303E
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Aug 2026 11:26:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 062A340A09
-	for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 11:26:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE0E71F00A3D
-	for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 11:26:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786361169;
-	bh=wZoyj/bcYqq2WaFoOPNolBM0q0on9gdK76aAsSvObhU=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=TMYGiQiVyWdja3666tnZyi5AUbCLb4zbspLWjOIyDSld4bkZaB32jXvzVJ7y80nGE
-	 bVdpTc4xyAyY5YkfK5HDTntoQwjnWA4qQQWhDeEqkzZZX5CROFNQ49SD0wQMAqpEcS
-	 9DJKJ++Z8zhB9f1Wjs2x6/baRiIxyHJu9d++5Qv3KHKdIxWLIJ2mvLNfBRoiQntJ89
-	 QgVzjtB2wMbEMcbgaAM1oDDDJWeHAFSRjxDNO+rMpBWAf6ZX5hHObx4k3el+FYth8s
-	 NJe07b67fdpivNIpoH/OOSuxYErtLXYeg4QE/sCkYlILbJmWzAVROEJnKyim6UydhL
-	 Oc0Tvomcx/orQ==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5b015b2d792so1644034e87.3
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 04:26:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RofPRzVf/IHZWeXY3AKcSg2Enc4BQZDVIErK6+lOgaCa51ujd4F2zntezS3+OEAiTEDDIZ+hcvph+G76Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGwvKc+60avfKjmWiHOwK4AChd9GCNZYUD86DYOqdCAr8k7Kg8
-	qty/IQ6Ya+qfKkx/88GhRSp0RCfCqj+j5m5z7HzkOLLZBuaiXA6qL6ggH51HA1KOae36Y8MB3jm
-	dEZoSgVCcaHyLyKp3SOd/4PG8FdBxkOMvG/3QCbIWOw==
-X-Received: by 2002:ac2:4d18:0:b0:5b0:1b0f:7a60 with SMTP id
- 2adb3069b0e04-5b2f4cc8da0mr3704106e87.32.1786361168649; Mon, 10 Aug 2026
- 04:26:08 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 10 Aug 2026 06:26:07 -0500
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 10 Aug 2026 06:26:07 -0500
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260801195613.235430-2-krzysztof.kozlowski@oss.qualcomm.com>
+	Mon, 10 Aug 2026 12:33:23 +0000
+Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
+	by mx07-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67A9RiM72030388;
+	Mon, 10 Aug 2026 13:33:03 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=dk201812; bh=oUZvCmtOXPOypLF3e3z6uVU
+	HjYcLuXvafk1VGuEVzNM=; b=RPJbl+ZepfTr4cqSLKCch9xffsNyRkQic1rllEw
+	m3mZwisvWTDLIxS9HQkahrYsfhBINvy1oy/NjAPIKoWbqPWlRIInhdBePJS2NLQt
+	o6gDTyrp34XaoHYhZtEjwOa8tWBtSWMcs29DJQRP1JE08pH4kl6vvPVvNW4sgJSg
+	pgag2xOmoftUoZ0y+oZP31BzL6Odny4CUBar3D6zN+2I0g0osbTsQfvw97s3cE1m
+	yqjCGJ3LAiYBfUpcBBgDTBW4ynwqNFmCl6/abv6aWrdZiK5beotNCUvX4aueMvsA
+	D923IxTn+3AMMqurGGaZYR2s2AxE8MqsR+ZY5ez1K42ZCBg==
+Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 4fwvhtsp6q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Aug 2026 13:33:03 +0100 (BST)
+Received: from [127.0.1.1] (172.25.10.25) by HHMAIL01.hh.imgtec.org
+ (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 10 Aug
+ 2026 13:31:42 +0100
+From: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Date: Mon, 10 Aug 2026 15:31:26 +0300
+Subject: [PATCH] drm/imagination: Manage FW VM context from its init and
+ fini callbacks
 MIME-Version: 1.0
-References: <20260801195613.235430-2-krzysztof.kozlowski@oss.qualcomm.com>
-Date: Mon, 10 Aug 2026 06:26:07 -0500
-X-Gmail-Original-Message-ID: <CAMRc=MeiXHL-1i31q-+wuibK5qM1=xV+4qn0z+CWFXjt3CdrCQ@mail.gmail.com>
-X-Gm-Features: AUfX_myd-9E67e5jDYYEWIDd_Fhka4yTI8ar0CZ3ucq5EUGNAu2R2AhAZ0we-FI
-Message-ID: <CAMRc=MeiXHL-1i31q-+wuibK5qM1=xV+4qn0z+CWFXjt3CdrCQ@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: Correct white-space style
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Andi Shyti <andi.shyti@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
-	Lee Jones <lee@kernel.org>, Johannes Berg <johannes@sipsolutions.net>, 
-	Jeff Johnson <jjohnson@kernel.org>, Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Yangbo Lu <yangbo.lu@nxp.com>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Richard Cochran <richardcochran@gmail.com>, 
-	Jens Wiklander <jenswi@kernel.org>, Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>, 
-	YC Hung <yc.hung@mediatek.com>, Svyatoslav Ryhel <clamor95@gmail.com>, 
-	Sean Wang <sean.wang@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	coresight@lists.linaro.org, linux-arm-msm@vger.kernel.org, 
-	linux-ide@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-i2c@vger.kernel.org, mfd@lists.linux.dev, 
-	linux-wireless@vger.kernel.org, ath10k@lists.infradead.org, 
-	linux-pm@vger.kernel.org, netdev@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-usb@vger.kernel.org
+Message-ID: <20260810-b4-upstream-manage-fw-vm-context-from-init-and-fini-v1-1-2c6229e36e5e@imgtec.com>
+X-B4-Tracking: v=1; b=H4sIAJ7EeWoC/yWNQQrCMBBFr1Jm7UBStKhXERfpZKIjZFKStBZK7
+ 27U3X/weW+Dwlm4wLXbIPMiRZI2sIcO6On0wSi+MfSmH8zZGhyPOE+lZnYRo1PXHuGNS0RKWnm
+ tGHKKKCoVnXoMbaG9nMh7Y4kGA808ZQ6y/qq3+5/LPL6Y6jcF+/4BmMNSvpcAAAA=
+X-Change-ID: 20260810-b4-upstream-manage-fw-vm-context-from-init-and-fini-195cdd01cc60
+To: Alessio Belle <alessio.belle@imgtec.com>,
+        Luigi Santivetti
+	<luigi.santivetti@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>
+CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        "Alexandru
+ Dadu" <alexandru.dadu@imgtec.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786365102; l=5570;
+ i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
+ bh=C2e+L340zP0q8i9wzAJkeQrcy6Gd0cpDPGEkKEQ+voQ=;
+ b=Ga+hVoe749netVN9cG8oN2rN8vAlMn+1bt33qc6fPJ1aqIDvju5uzQ2PcdczaI/otM02LC5av
+ 5um01RVox6tAJ8wV0+VD0Giv0L4b9wYOZmpCtAOP5YToNphweDY5mVM
+X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
+ pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
+X-Originating-IP: [172.25.10.25]
+X-Proofpoint-GUID: lxQVhyrlLz8IxJG28pus3U--AZAQT0Ar
+X-Proofpoint-ORIG-GUID: lxQVhyrlLz8IxJG28pus3U--AZAQT0Ar
+X-Authority-Analysis: v=2.4 cv=Xt7K/1F9 c=1 sm=1 tr=0 ts=6a79c4ff cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=1spURiKJc90A:10 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=7RYWX5rxfSByPNLylY2M:22
+ a=r_1tXGB3AAAA:8 a=Ubvqm-L7-7mULy6RTAoA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDEwNyBTYWx0ZWRfX1nJxi8ctN4+s
+ RuRTFaJAcYuVJj/ktsIpIoRwl6ODAK+ZoYKqaqHR1EQ+iujxqHpb7x/1JGS0zggTsxptSga3Nlr
+ PbQz/jYk8qh6xOHkOsi8WhIc25/F0H2pjRmwV0X6TAHoX6rWrgxCGmESDHbCVcEaXmtdRjqpBpQ
+ JfAjcyrjq8S2gdtuYfOWlSzcA0Dilyao5QaUKeYQ5GMjag0kG4TC053NGee3nBn0yn27uiq7MHE
+ ekufE+lh8LBmhlpVz4GQgqOIUwqwgAEHsX2KWKBJoAo2EH9AuQjG+8dokhd9BIrBxXkTedZ0zQo
+ +8eloZlrrWEXkDm1UgQZByBSt7LfirxHyqtuDrCqpZwCqKya886yh4tofCPyzZf5OXEcrpCKLy2
+ UD5SpowjXYUtKbe8wULumt2OSwevcJcPqDUqCGNd4NaCdMyOyQnnKYmVqc7pXTS01LQAQvm7aJu
+ gUSc1btwjWoWnh3ePRA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDEwNyBTYWx0ZWRfXztPIyC+fMSOw
+ 76xapPmqGKbfmbFl80Ir1xXwztDuKwjaYI0oSMcwgGYfNm/b2aQzb51coSz0XNduOOlq2M4xcJA
+ e4Vilkai+rbVvyvoYc+wJyph90FR3VU=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_053322_068826_1456D722 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,42 +120,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 1 Aug 2026 21:56:14 +0200, Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> said:
-> Correct a few white-space issues, like double space after '=' or before
-> bracket '{' characters, which will be flagged by dt-check-style.  No
-> functional changes.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->
-> ---
->
-> Patch applies on Rob's for-next branch.
-> ---
->  .../arm/firmware/linaro,optee-tz.yaml         |  8 +-
->  .../devicetree/bindings/arm/psci.yaml         | 18 ++--
->  .../bindings/arm/qcom,coresight-tnoc.yaml     |  2 +-
->  .../devicetree/bindings/ata/st,ahci.yaml      | 22 ++---
->  .../bindings/display/ti/ti,am65x-dss.yaml     | 12 +--
->  .../bindings/display/ti/ti,j721e-dss.yaml     | 96 +++++++++----------
->  .../bindings/display/ti/ti,k2g-dss.yaml       | 36 +++----
->  .../bindings/dsp/mediatek,mt8195-dsp.yaml     |  2 +-
->  .../bindings/gpio/st,nomadik-gpio.yaml        |  2 +-
->  .../devicetree/bindings/i2c/st,sti-i2c.yaml   |  2 +-
->  .../bindings/mailbox/st,sti-mailbox.yaml      |  2 +-
->  .../bindings/mfd/maxim,max77620.yaml          |  2 +-
->  .../bindings/net/wireless/qcom,ath10k.yaml    | 34 +++----
->  .../devicetree/bindings/opp/opp-v2.yaml       | 28 +++---
->  .../pinctrl/mediatek,mt7988-pinctrl.yaml      |  2 +-
->  .../devicetree/bindings/ptp/fsl,ptp.yaml      | 12 +--
->  .../devicetree/bindings/pwm/pwm-sifive.yaml   |  2 +-
->  .../bindings/usb/ti,twl4030-usb.yaml          |  2 +-
->  18 files changed, 142 insertions(+), 142 deletions(-)
->
+From: Alessio Belle <alessio.belle@imgtec.com>
 
-For GPIO:
+While the MIPS firmware virtual memory context is created and destroyed
+from within the MIPS firmware init and fini callbacks, the META and
+RISC-V firmware contexts are created and destroyed from within blocks
+right before or after those callbacks.
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Match the logic for all firmware processors by moving those blocks to
+the META and RISC-V init and fini callbacks.
+
+Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
+---
+Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
+---
+ drivers/gpu/drm/imagination/pvr_device.c   | 25 +------------------------
+ drivers/gpu/drm/imagination/pvr_fw.c       |  6 ++----
+ drivers/gpu/drm/imagination/pvr_fw.h       |  2 +-
+ drivers/gpu/drm/imagination/pvr_fw_meta.c  | 12 ++++++++++++
+ drivers/gpu/drm/imagination/pvr_fw_riscv.c | 12 ++++++++++++
+ 5 files changed, 28 insertions(+), 29 deletions(-)
+
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index 54fe4180c73c..35eaa54f75ed 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -697,25 +697,7 @@ pvr_device_gpu_init(struct pvr_device *pvr_dev)
+ 	if (err)
+ 		return err;
+ 
+-	if (pvr_dev->fw_dev.processor_type != PVR_FW_PROCESSOR_TYPE_MIPS) {
+-		pvr_dev->kernel_vm_ctx = pvr_vm_create_context(pvr_dev, false);
+-		if (IS_ERR(pvr_dev->kernel_vm_ctx))
+-			return PTR_ERR(pvr_dev->kernel_vm_ctx);
+-	}
+-
+-	err = pvr_fw_init(pvr_dev);
+-	if (err)
+-		goto err_vm_ctx_put;
+-
+-	return 0;
+-
+-err_vm_ctx_put:
+-	if (pvr_dev->fw_dev.processor_type != PVR_FW_PROCESSOR_TYPE_MIPS) {
+-		pvr_vm_context_put(pvr_dev->kernel_vm_ctx);
+-		pvr_dev->kernel_vm_ctx = NULL;
+-	}
+-
+-	return err;
++	return pvr_fw_init(pvr_dev);
+ }
+ 
+ /**
+@@ -726,11 +708,6 @@ static void
+ pvr_device_gpu_fini(struct pvr_device *pvr_dev)
+ {
+ 	pvr_fw_fini(pvr_dev);
+-
+-	if (pvr_dev->fw_dev.processor_type != PVR_FW_PROCESSOR_TYPE_MIPS) {
+-		WARN_ON(!pvr_vm_context_put(pvr_dev->kernel_vm_ctx));
+-		pvr_dev->kernel_vm_ctx = NULL;
+-	}
+ }
+ 
+ /**
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
+index 850a3ec8e775..58ee51cd65df 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.c
++++ b/drivers/gpu/drm/imagination/pvr_fw.c
+@@ -1029,8 +1029,7 @@ pvr_fw_init(struct pvr_device *pvr_dev)
+ err_mm_takedown:
+ 	drm_mm_takedown(&fw_dev->fw_mm);
+ 
+-	if (fw_dev->defs->fini)
+-		fw_dev->defs->fini(pvr_dev);
++	fw_dev->defs->fini(pvr_dev);
+ 
+ 	return err;
+ }
+@@ -1063,8 +1062,7 @@ pvr_fw_fini(struct pvr_device *pvr_dev)
+ 
+ 	drm_mm_takedown(&fw_dev->fw_mm);
+ 
+-	if (fw_dev->defs->fini)
+-		fw_dev->defs->fini(pvr_dev);
++	fw_dev->defs->fini(pvr_dev);
+ }
+ 
+ /**
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
+index 3390c84e4fd3..4b25291135b6 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.h
++++ b/drivers/gpu/drm/imagination/pvr_fw.h
+@@ -86,7 +86,7 @@ struct pvr_fw_defs {
+ 	 * FW processor specific finalisation.
+ 	 * @pvr_dev: Target PowerVR device.
+ 	 *
+-	 * This function is optional.
++	 * This function is mandatory.
+ 	 */
+ 	void (*fini)(struct pvr_device *pvr_dev);
+ 
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+index 9ff03bc60a08..6c5dc711e81e 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+@@ -500,9 +500,20 @@ pvr_meta_init(struct pvr_device *pvr_dev)
+ {
+ 	pvr_fw_heap_info_init(pvr_dev, ROGUE_FW_HEAP_META_SHIFT, 0);
+ 
++	pvr_dev->kernel_vm_ctx = pvr_vm_create_context(pvr_dev, false);
++	if (IS_ERR(pvr_dev->kernel_vm_ctx))
++		return PTR_ERR(pvr_dev->kernel_vm_ctx);
++
+ 	return 0;
+ }
+ 
++static void
++pvr_meta_fini(struct pvr_device *pvr_dev)
++{
++	WARN_ON(!pvr_vm_context_put(pvr_dev->kernel_vm_ctx));
++	pvr_dev->kernel_vm_ctx = NULL;
++}
++
+ static u32
+ pvr_meta_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
+ {
+@@ -550,6 +561,7 @@ pvr_meta_irq_clear(struct pvr_device *pvr_dev)
+ 
+ const struct pvr_fw_defs pvr_fw_defs_meta = {
+ 	.init = pvr_meta_init,
++	.fini = pvr_meta_fini,
+ 	.fw_process = pvr_meta_fw_process,
+ 	.vm_map = pvr_meta_vm_map,
+ 	.vm_unmap = pvr_meta_vm_unmap,
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_riscv.c b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+index fc13d483be9a..58bacc522e72 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_riscv.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+@@ -103,9 +103,20 @@ pvr_riscv_init(struct pvr_device *pvr_dev)
+ {
+ 	pvr_fw_heap_info_init(pvr_dev, ROGUE_FW_HEAP_RISCV_SHIFT, 0);
+ 
++	pvr_dev->kernel_vm_ctx = pvr_vm_create_context(pvr_dev, false);
++	if (IS_ERR(pvr_dev->kernel_vm_ctx))
++		return PTR_ERR(pvr_dev->kernel_vm_ctx);
++
+ 	return 0;
+ }
+ 
++static void
++pvr_riscv_fini(struct pvr_device *pvr_dev)
++{
++	WARN_ON(!pvr_vm_context_put(pvr_dev->kernel_vm_ctx));
++	pvr_dev->kernel_vm_ctx = NULL;
++}
++
+ static u32
+ pvr_riscv_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
+ {
+@@ -154,6 +165,7 @@ pvr_riscv_irq_clear(struct pvr_device *pvr_dev)
+ 
+ const struct pvr_fw_defs pvr_fw_defs_riscv = {
+ 	.init = pvr_riscv_init,
++	.fini = pvr_riscv_fini,
+ 	.fw_process = pvr_riscv_fw_process,
+ 	.vm_map = pvr_riscv_vm_map,
+ 	.vm_unmap = pvr_riscv_vm_unmap,
+
+---
+base-commit: e55fead22ff9ee047ab9f1903860c4b43043514e
+change-id: 20260810-b4-upstream-manage-fw-vm-context-from-init-and-fini-195cdd01cc60
+
+Best regards,
+--  
+Alexandru Dadu <alexandru.dadu@imgtec.com>
+
 
 _______________________________________________
 linux-riscv mailing list
