@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68FCC5AD7B
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 15:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A44AC5AD7B
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 15:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ykUsIsL4R1z/X56XQk5e64Cded3uu9hCA/EHeQm9UXw=; b=oq0pNQMNz6KGm8
-	PMMem3d/dVkjADK0CBSRbPqAAJr2Qk+kMuNWYy81SnevFt6BX7TvheO6837wOnv/ju3OFtALMFOBD
-	WJRTOKX1Li+kAODZmZOalkFuPN25DIq7RN3/2kMRozYb3aGoUs5NtEMtDF2rWw9QQZoAMsJx1Gj6d
-	YGaoQIEgkAVVH+Tyr67D8u7aeCsgpURXcleEsqgXvyQZBxnDcV0T1FMSnE4ZzljRGlWxQFOPRbJrJ
-	9Orzos92tv+kyr4Nz1XruLeN5Hwc3Upektmx5z8QMZJK3NW4ivYSRCPhLHcp8VU/H+ITlnkg5Rf0i
-	5pfgyK4eqFr4gPp5sL+A==;
+	List-Owner; bh=ADv9frTEyH0llkM9kzRMMcAPPXqtUl4M+qs3+TiQHg8=; b=bnuG1HnxOOrHlG
+	tOle5r+pViMfAfs6tKShEHD9/7n6P6zli/4u/HYjGRS7nrOQtJ/gG1l8OFegtJ49ONX8WHO0ZyVvS
+	aqFcvav5p5dHJcEzXLqgFA5LV0zNn6gYyTqVWqXSiHZLDY9ZSM990CrqsZavNxzacAd+85jYgUufE
+	Xs14e2nGBE03nL2kTlmGjbM73zja68SRJ/qoWJQwbLbg4kaYy16LaIRjcs9xpUhJoh1XmFCsj5GG0
+	ZqitThkmBo1O0WTGCWpol0pDQoVzh/lI8lTEX/oeGnCalpre1fUpX9H7Yc+OqwzvoNPjUaG1VMN4G
+	G5sv752M3f09aOAbfoVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRrY-0000000CEvA-0Zyi;
-	Mon, 10 Aug 2026 15:24:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wtRrc-0000000CEy2-18tI;
+	Mon, 10 Aug 2026 15:24:32 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRrU-0000000CEsN-21Yb
+	id 1wtRra-0000000CEwm-2xpv
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Aug 2026 15:24:25 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67ACjHTH1959732
-	for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 15:24:23 GMT
+	Mon, 10 Aug 2026 15:24:31 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67ACj6pn2816489
+	for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 15:24:30 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=SXSG2wb2TZi
-	XtJzB1T1a7hCG1Hby4CtDQXZZTgX0OkM=; b=pFd32wVpll8LxNuLEM3A6bKTvq8
-	IdnWlw/vm5muYzIg/eHeCWVdmBaig1y6KaGS10dx18FVuJEncjd/G3xk5tueB1Ao
-	ce8c+Zfz5Fnwotkii1MBgibPz/vv9GILwmoM2V/igu+p//LtC5sxx06+rQVg27mc
-	Zhtb1cyjKEabNie3/l/2EqvGlebsdeAvS5Xg0tSluHDMLmiMBKVNr/Xb6F970YCh
-	8GP04comFwhrrdv6Qlj5tKGJ9EW30xyGBROpi5/dzh7OEbI4zoXooi5OSO+occeA
-	yk/9IWA6DCVF3kK/vCFdb4XUCnrNocZLkO/lkH3GtL/c1GaIdro4jvj6V9g==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fy18xu9ff-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=vmqn2TDyzfw
+	u0fkZONzvlv8i/iDMucucBNwgndeXY1c=; b=JwBHuqx1ezeASHdBGbjA3CZVxEF
+	HdGE8BTeAZKYsZbgiaYxiPL9ywBLbMknPbYF9pUEhQKENnGyZ5Y4HZu+HKwC9VLQ
+	sRW0lvLLMeJRgzkoSSvI5WbRN1k8tv0wy+b96kug4l6EHSY5TVmVOhBU6zohAgNg
+	GJSUhiiFIgZla0MrUxSj3U4LukviPwAVEu8tVzXO+HfpkqdNe6WhF807yzVxAgU9
+	JCtoTrRSBPprLBWZ3BIXfZB/GtxAMyqXVTFoOqFf9B/Q/pvIM/1OlvSqYUrsjTTP
+	5CLWcf9T0rAA+Lb/QAfnAXZop8AQWoS6a4mdnl5H1r312mcN+d85eIBgmyw==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fy19kk9c1-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 15:24:23 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cab3e9cd922so1382196a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 08:24:23 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 15:24:30 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-84e4ef486c7so1807842b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 08:24:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786375462; x=1786980262; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1786375469; x=1786980269; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=SXSG2wb2TZiXtJzB1T1a7hCG1Hby4CtDQXZZTgX0OkM=;
-        b=COHQAOczphxdFJ8PO/wOulg8kkAuX4YyAcqUCX0cBGvxyiAytWZcyKf3Zh4Ak6wLWP
-         LPreh8Rq86NEwPaiy7oZ0yZeDCzPrHnIqVPNRQIcUqvoEI48bMjctgfv335Af//ct59I
-         mKDNbO4pAlfLIyM8O/tgdFMnxCjBSpR3ADVURzDAlU/I0yI8dRIjSLEvRdO/IYP+gZvv
-         ysZam+8blnkm1NdHxEpb/oqJgxHXKeEX0sxrfy2AfC0rdqCrQm+9CqxNXbqvHGfX/xcz
-         jmsDaZbplX/UcVb5d0GaBqU+RoIsBHmtv6cTQFzewA+0H65yyIJEkJll10f2LoVooKIi
-         fCzg==
+        bh=vmqn2TDyzfwu0fkZONzvlv8i/iDMucucBNwgndeXY1c=;
+        b=LC4G+3d0jCZ1BftsAsSt/VH/YNgQbm208XMplQXeNVL3SAXevdPKUrP6tE8dwI+/FO
+         68hNhYBMnnrk8KQgZCiKTqbjCbbaDuWc51vwNuhykj4Ze++oWoXMq659h+Kv8LAu8Tmo
+         dScRcdgMO7c+AJkwapFfHnqwfVqPjsGwojQYQ6o+hSMjVih0liio/7tgDclPanw8BqQZ
+         W5JGs9+Gjbzb7mmUzyv1NpC28An0fodNRrGBhZQnX2IgRKzu/YgFF3AZi2VU0qdMhmkU
+         LRIwdte083LKp1XmheLlDwFMlZnPWAcxzRWX+9RyKndmHnJ+ImabV7ADhplCS7zgf6s+
+         wv2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786375462; x=1786980262;
+        d=1e100.net; s=20251104; t=1786375469; x=1786980269;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SXSG2wb2TZiXtJzB1T1a7hCG1Hby4CtDQXZZTgX0OkM=;
-        b=f7dNYoFeoIIPfwsPRFvhIsoQCBAtSP7TLkPSSNw35v3c9jPOipkAz5mz/Rh+4Om/+m
-         MnDgJzL5ONW/10vL1hG5xa9GbYp8g3m0spbOmAVOcE12uRrQU3S4a+fLb9H0a5YagFQ3
-         54MK5FCVNcveGjFozAducBld6nhXm5gHC9Mmqpi0KfETYdSk7H7SmIRk+FoSeiCr6vRo
-         2zC57I+t0b4W5SSzkSKoAtscJkgwNR4lUbo1A1MgD66WMZqXuiNDWBpq9FfzD/juTqQ2
-         udtygzLzkhT8ZQiWrbwgMyE4TWTzMsRUkgV6vVc5MIMox88X2fpYp8jcih+NP2vmHIIp
-         hDig==
-X-Forwarded-Encrypted: i=1; AHgh+RpHCCK3xZmOiuK0VGv2zldmmI2z+MDJ1Xu0rN/7T2cdnyi3WDMoj13yTj4thHcYiW3tBi8sGHGrkXhbxQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaF4v6aQl89W6NLQw/NT8iDy1uxgWJjh7UZvH53GKP5TFOjDqG
-	Z1a+32vArqJwHoyo7wbzPTNuTZoIWh/V6nVup9n6r1eVa5iHHKo5Idf1IevXUrwbbMVR2NImn/T
-	sCLx8VryU4PD8JyJTv/iUtE3BJ56N5i9h/mLcKEnPPduTng5+bb6YQDAHavpbp+o2lo7NkHo=
-X-Gm-Gg: AR+sD11Z9OxzapKViUC+Ut84P2Pzb6qdXqVAx7w+a6bM8a7+BUL3J1tEMMD8F92xRVH
-	SL6qqxgrm06dLeymqj1fEWDIs71KEI4ZULrOl/IFi+Q9KxFnMbFbWyKqHIbhHjKCLZz/K7Lctx4
-	DK2q7FVq2IHLZ1WgQbZtARiJCYD5gJ3celRp/hLZjxKEJnQlkeIsOzOpdLZzS3ottnvlo+psqkN
-	nB2jgNpsagoj4rZbGZua90rdVSws+sffK36ZvoIhzIKb62Ae/2Wdw/RTYekXn4PXJ+u6+sTOYkc
-	mTkHCfEtT5bBD2PaUwkyAwXmXUd0E1Jlr66BUNO+VNNLoRvWcADXqLHyZpZ3QA2T8g7bFSZwtZq
-	l6RTN3fwsIzbyQV7XNYkeo8JrYdqRKOBsmxqlxQzG2Xs08By+DanbbC6Y5VYwn8fxR19zWurXmE
-	hZyFqIY0xsJe3WrncbBKpubK89cg==
-X-Received: by 2002:a05:6a20:7fa0:b0:3c3:76a8:c0f with SMTP id adf61e73a8af0-3cbce6f17b9mr20866811637.4.1786375462251;
-        Mon, 10 Aug 2026 08:24:22 -0700 (PDT)
-X-Received: by 2002:a05:6a20:7fa0:b0:3c3:76a8:c0f with SMTP id adf61e73a8af0-3cbce6f17b9mr20866754637.4.1786375461670;
-        Mon, 10 Aug 2026 08:24:21 -0700 (PDT)
+        bh=vmqn2TDyzfwu0fkZONzvlv8i/iDMucucBNwgndeXY1c=;
+        b=Qj21XZ7pjWc27is5ldirpIUWE9Bqa1HjfQHlPtR2/oQBwOIv86KOZ9Q68znj45x4f/
+         DxsJGL9yXhWoSjSsXbWCacn6p70xOfZBkPiC+hTWIvLqYymMkwoyVTZca+ELxuN9m2oh
+         O9yMjIRNvv7+myGaDX2MbuCy/0623cvw0R1neKEz6nr8uGdI8iv/UbYrUdYeD+5KPdnM
+         g8HGwpq930hmw7e9QucX7SJownP0LfcEPMsxpgEE4LsVXxk2HmzvAQnVl4Cy/ONQykIB
+         35IFqHw1gL97+HtqFF3gnMy9Isu7OkIG74f5R1O9dnmzZeDdgp96z+S8H7+cQcc0QQBb
+         qnXA==
+X-Forwarded-Encrypted: i=1; AHgh+RpZOgcrfY3HSit6/oiOfxkujU/4R73dG3gOJBVsfAb4TmPVqmngxCY24XDxWct2zDjhjeXxyfQR7aHKgg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGRjHjc6HjgMx5/viKHO+qMLhs36trt7tI33HTlsy/Ukw1q9ZE
+	EhXd29ZVPzkkQ06hNeuKdbxf28WBHMhrKIqQShLdgxyWmFUK8QqqlF72jubd/czdCJefPVuakKk
+	DXG5xDeOKWevPUkWmLvX46g6Ck+duE3+oA0K68km2mjVSW9nyIyGux252thJe1BISNGKMG3s=
+X-Gm-Gg: AR+sD12uk5a20kF3cTxG1x868H8nARMqjCVQVWa8a/BUUs2N8BD46jAzeshW8kvDne+
+	o8wm1TOmsbb9Fi2KNtn8HYCjBJJZzKalAd2y6BspnpPwXhrR9gKLbCZF6o+44Ju38OEX/A26EWR
+	XNmbLqw2R/YSo0ZAAtv9KFlVGIT34To7CnXrv9P1WBRPuahmvTVNLFVZQ99vN2jQ2g7mu5pcwM1
+	XgRgKU/yXOl1re1Sen6uut1PPKnp6OMxEovSL5bbbAVqmVrxmK122incyDJEzNYOmWJ+u+g1vU6
+	ClFjfJ057Rze6OWiGWVeD7D32u4gXbIvWMP9NGvw1FKS5SmNX7GC7vaA0R42HB7U/9biYVo4JzI
+	Or7WoD0ogD8HuWUog18kApvYs4JImz+LGq/VufhJ7j7h/yxroUiQ1DlLbk/B92tBywskqgnjnHb
+	GCOR7jICKOHASzyc/S9lLdeihy0g==
+X-Received: by 2002:a05:6a00:1a89:b0:848:52bf:4296 with SMTP id d2e1a72fcca58-84f6b9aae50mr19277142b3a.15.1786375469448;
+        Mon, 10 Aug 2026 08:24:29 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1a89:b0:848:52bf:4296 with SMTP id d2e1a72fcca58-84f6b9aae50mr19277094b3a.15.1786375468952;
+        Mon, 10 Aug 2026 08:24:28 -0700 (PDT)
 Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-cbe8f1af985sm4282634a12.11.2026.08.10.08.24.14
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-cbe8f1af985sm4282634a12.11.2026.08.10.08.24.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 08:24:21 -0700 (PDT)
+        Mon, 10 Aug 2026 08:24:28 -0700 (PDT)
 From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
@@ -95,53 +95,52 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Greg KH <gregkh@linuxfoundation.org>,
         Alexander Shishkin <alexander.shishkin@linux.intel.com>,
         Ian Rogers <irogers@google.com>
-Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Alexandre Ghiti <alex@ghiti.fr>,
-        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-        Namhyung Kim <namhyung@kernel.org>,
+Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+        Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
+        Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
         Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
         Adrian Hunter <adrian.hunter@intel.com>,
         Mayuresh Chitale <mchitale@gmail.com>,
         Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
         Andrew Jones <andrew.jones@oss.qualcomm.com>,
         Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-Subject: [PATCH v5 07/14] gtrace: Add function to copy into perf AUX buffer
-Date: Mon, 10 Aug 2026 20:52:09 +0530
-Message-ID: <20260810152223.3946743-8-mayuresh.chitale@oss.qualcomm.com>
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v5 08/14] perf: Add gtrace AUX buffer trace format type
+Date: Mon, 10 Aug 2026 20:52:10 +0530
+Message-ID: <20260810152223.3946743-9-mayuresh.chitale@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260810152223.3946743-1-mayuresh.chitale@oss.qualcomm.com>
 References: <20260810152223.3946743-1-mayuresh.chitale@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDEzMiBTYWx0ZWRfX+hxrmb4FfJTq
- 3HLwudGfoIJasXQvhAqhW2m1ug/3JEa4i3THtVosWm4AlJkksRQDp4wVmBEMvEieois+zR8L1kD
- tqUDzfHQE7r7qMSGeqSivw3PAqT+nBI=
-X-Proofpoint-ORIG-GUID: n0jkLB_eV2wyBx488Vu19AMRLOF5gd8T
-X-Proofpoint-GUID: n0jkLB_eV2wyBx488Vu19AMRLOF5gd8T
-X-Authority-Analysis: v=2.4 cv=bfZbluPB c=1 sm=1 tr=0 ts=6a79ed27 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Proofpoint-ORIG-GUID: tgjnh0NBt2TgTCFwz_8WNaLjbYn0pN8p
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDEzMiBTYWx0ZWRfX+Pbwfj5o87hl
+ 8T/2Pz6tgyGk02uHvzxg51JlERQszBUrfK0xPxX0ubnC6Uvfs4fkV3Fb41OxVRiOSyXpIxvvGEZ
+ rljK7u/w/6Nx7su0QRU57h2c609ud+6CU1uvfKrb+RtQF19XBFIBpAwmSnOgeFyIIAymF6VNEqs
+ 2ac3ZA8QAWziXiBaAhd50qwUiowvE6kwG8Ma8xyQYRnemCjdK239PzGN1BxHcVm88ACPjznQJzx
+ AWmyN8hk0ZeNCQ6kU/d9ApOFVEEPEx9hfHXZW8ioir2fdiuB5FXNZE1G3ebKnLQnX9wwZa6dVis
+ dFqRsXD2cFaYi/t3OblmGg96M9LA4PmFSofiflJdO3iglK/tB/fpVqKeKOjv6MifR3bMWi6ab5s
+ dtFkkXZaGlOS/Qk5qaPPwmxN4I/E6kFZpbWLtRkzu/AUkIPghE3d16em3cAqB1hhyUPOCvZ5RFp
+ nWmR0LW3+o/6+MH+2PA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDEzMiBTYWx0ZWRfX1DiC7IqdmESd
+ 5dJHN3FAMmmJP6syKbjETUFYInoztdh1HfD6S06M1irPNY9xh/vrOLFJnesZlhdhCpWk2L0qglr
+ QW5WlS/grEjz9B2nJrgOrW7Wrdv0OZQ=
+X-Proofpoint-GUID: tgjnh0NBt2TgTCFwz_8WNaLjbYn0pN8p
+X-Authority-Analysis: v=2.4 cv=abxRWxot c=1 sm=1 tr=0 ts=6a79ed2e cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
- a=MNQjnuzN1gR2RwVUj5UA:9 a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDEzMiBTYWx0ZWRfX1BuNX2PqaYf6
- 4Mw5W61WqFe+juL4uw59nQF5KuwSMrUWHTzX8l2S7gS2dDuItrf9mz7h639dHBPaGVZ5LL121YZ
- w30zGueHNS7x/4dIvUPNyVhjpztpwc4RRMb8QbE95EC9pVI+H+So/b9t7DvdrUw8jD4CLHTH7NI
- gD/yEoSrb24W83lwjR1P079yPusiRGptJMZv4pJaZU4uRHTUBsZ+/XIBEP6JX/ipcVY/Ro1cWTr
- TjhNnliM3BTTnRMhIwgMG5jsDJDxb4xUaknb2tme5sONaVy3/U6A8Q76yv6LNYF/B2LL6iAmCj8
- BxL/kLuQVkNypDYmV6NcMXNAhoIMC2uCyMpeypm+uufqs9EWZNgF9trDL0z5KnaphFXtoOPKTI2
- u5ytE2/wQBuYmfg8TrhwbD74z0ocbgLuySOP0uz9Z98rP/auv3T1zl7VhyyvZ84AEz47jxMV6mD
- g9hp4ULYgvf72kJHKIA==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
+ a=6jy1HB2Bu3O3gCBx7RsA:9 a=IoOABgeZipijB_acs4fv:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-10_03,2026-08-07_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 lowpriorityscore=0 malwarescore=0 clxscore=1015
- priorityscore=1501 phishscore=0 bulkscore=0 suspectscore=0 adultscore=0
+ adultscore=0 lowpriorityscore=0 malwarescore=0 suspectscore=0 impostorscore=0
+ priorityscore=1501 spamscore=0 phishscore=0 clxscore=1015 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608100132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_082424_655426_820C67AF 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20260810_082430_807321_DC9935B7 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,99 +157,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anup Patel <anup.patel@oss.qualcomm.com>
+The gtrace PMU can host trace components of different architectures and
+trace protocols, so the recorded AUX data needs to carry its format as
+well. Define PERF_AUX_FLAG_GTRACE_FORMAT_ETRACE for the RISC-V E-trace
+format which the perf tool can use to decode the payload.
 
-The RISC-V trace ramsink will need a mechanism to copy trace data
-into the perf AUX buffer. Add gtrace_path_copyto_auxbuf() function
-and corresponding trace driver callback copyto_auxbuf() for this
-purpose.
-
-Co-developed-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
 ---
- drivers/hwtracing/gtrace/gtrace-core.c | 22 ++++++++++++++++++++++
- include/linux/gtrace.h                 | 24 ++++++++++++++++++++++++
- 2 files changed, 46 insertions(+)
+ include/uapi/linux/perf_event.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
-index 6ff1b3087947..53a3679ba69f 100644
---- a/drivers/hwtracing/gtrace/gtrace-core.c
-+++ b/drivers/hwtracing/gtrace/gtrace-core.c
-@@ -626,6 +626,28 @@ int gtrace_path_stop(struct gtrace_path *path)
- }
- EXPORT_SYMBOL_GPL(gtrace_path_stop);
+diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+index fd10aa8d697f..ca2d8614a780 100644
+--- a/include/uapi/linux/perf_event.h
++++ b/include/uapi/linux/perf_event.h
+@@ -1311,6 +1311,10 @@ enum perf_callchain_context {
+ #define PERF_AUX_FLAG_CORESIGHT_FORMAT_CORESIGHT 0x0000 /* Default for backward compatibility */
+ #define PERF_AUX_FLAG_CORESIGHT_FORMAT_RAW	 0x0100 /* Raw format of the source */
  
-+int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
-+			      struct gtrace_perf_auxbuf *buf,
-+			      size_t *bytes_copied, u64 *format)
-+{
-+	const struct gtrace_driver *gtdrv;
-+	struct gtrace_component *comp;
-+	struct gtrace_path_node *node;
++/* gtrace PMU AUX buffer formats */
++#define PERF_AUX_FLAG_GTRACE_FORMAT_UNKNOWN	 0x0000
++#define PERF_AUX_FLAG_GTRACE_FORMAT_ETRACE	 0x0100 /* RISC-V E-trace format */
 +
-+	list_for_each_entry(node, &path->comp_list, head) {
-+		comp = node->comp;
-+		gtdrv = to_gtrace_driver(comp->dev.driver);
-+		if (!gtdrv->copyto_auxbuf)
-+			continue;
-+
-+		*bytes_copied = gtdrv->copyto_auxbuf(comp, buf, format);
-+		return 0;
-+	}
-+
-+	return -EOPNOTSUPP;
-+}
-+EXPORT_SYMBOL_GPL(gtrace_path_copyto_auxbuf);
-+
- struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
- 				       struct gtrace_component *sink,
- 				       enum gtrace_component_mode mode)
-diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
-index 78e2ead3db8e..bc82814e2738 100644
---- a/include/linux/gtrace.h
-+++ b/include/linux/gtrace.h
-@@ -257,9 +257,30 @@ void gtrace_destroy_path(struct gtrace_path *path);
- int gtrace_path_start(struct gtrace_path *path);
- int gtrace_path_stop(struct gtrace_path *path);
- 
-+/**
-+ * struct gtrace_perf_auxbuf - Representation of the perf AUX buffer.
-+ * @length:   Size of the AUX buffer.
-+ * @nr_pages: Number of pages of the AUX buffer.
-+ * @base:     Start address of AUX buffer.
-+ * @pos:      Position in the AUX buffer to commit traced data.
-+ */
-+struct gtrace_perf_auxbuf {
-+	size_t length;
-+	int nr_pages;
-+	void *base;
-+	long pos;
-+};
-+
-+int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
-+			      struct gtrace_perf_auxbuf *buf,
-+			      size_t *bytes_copied, u64 *format);
-+
- /**
-  * struct gtrace_driver - Representation of a trace driver.
-  * @id_table:      Table to match components handled by the driver.
-+ * @copyto_auxbuf: Callback to copy data into perf AUX buffer. The driver
-+ *                 reports the PMU specific trace format of the copied data
-+ *                 via @format (see PERF_AUX_FLAG_PMU_FORMAT_TYPE_MASK).
-  * @start:         Callback to start tracing.
-  * @stop:          Callback to stop tracing.
-  * @probe:         Driver probe() function.
-@@ -270,6 +291,9 @@ int gtrace_path_stop(struct gtrace_path *path);
-  */
- struct gtrace_driver {
- 	const struct gtrace_component_id *id_table;
-+	size_t			(*copyto_auxbuf)(struct gtrace_component *comp,
-+						 struct gtrace_perf_auxbuf *buf,
-+						 u64 *format);
- 	int			(*start)(struct gtrace_component *comp);
- 	int			(*stop)(struct gtrace_component *comp);
- 	int			(*probe)(struct gtrace_component *comp);
+ #define PERF_FLAG_FD_NO_GROUP			(1UL << 0)
+ #define PERF_FLAG_FD_OUTPUT			(1UL << 1)
+ #define PERF_FLAG_PID_CGROUP			(1UL << 2) /* pid=cgroup ID, per-CPU mode only */
 -- 
 2.43.0
 
