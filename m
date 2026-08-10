@@ -4,106 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01CEC5AD55
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 12:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A8AC5B569
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 12:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=651Ftug2ETIRdLI5gq9hN8/mcqUbpKr533MeXKbrPsk=; b=W2floCS+nqyQoB
-	KKwZ9WPEX+4IOoTmot/XBiRLpTjA7YzP+IrrfPBHfcF9kHsTjyTLM0OO2m+b9aFso2Td1Ex+1mY/Z
-	Jisw1hJIKxNayjpX/yk5unqY3MgEueQRwnMWz/3+E2spOFZtTZwFrN56oDX9xveF972eG3yI4ChWT
-	jn5fzzmySmUD8l5mYGim6d/K9YEiRg30UOprb14iuqGgtumQzkyZDhi9apq07Cxjl8VWzfspfo66G
-	Pt8sFAtCfIeyfeYaGMXEXcLYAqEle1GF7TNbwYlc2cq/4/zbfrL0UiiqH0qmsxAkWgqKWpDV6k7ad
-	acji2OqhBvuOKW8cyBEA==;
+	List-Owner; bh=VBWbJQe580iarZBO58APjm+MrvqmKerlHBc2eyLoAN8=; b=kJk+kEF601JVPX
+	Lak4ynFHNvX/tFBTnwpSSBkaeQoHfNcLzh3yx28HHWZqo+NaZ+YJx4tOEHL7C/BTVDtAgN9r2GS8C
+	FfcUVeylItx4i8vCNk5zdxLW8Nu781yos7BGPX+/YQZbwnrtJSdGyECSS/FqjlWnpG78C1AfHq1nj
+	5+68P+VBF7itOdMstscnW9nboM8uiLVfVfbYNjIBnalyADa6/uhnKeE5OtE2YTLgiiKV4GWAZ/2nQ
+	cjybocFcvkvvOW5AAWavO/LiKpZ2+byBBVp93vhMylt+/5rVyhUkBEjE9e6kBMrmHH3MUUV01Ot89
+	BloALesVDN+tD5EzBF+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPC0-0000000Bmf3-2EWw;
-	Mon, 10 Aug 2026 12:33:24 +0000
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	id 1wtPLs-0000000Bnn3-1Iqh;
+	Mon, 10 Aug 2026 12:43:36 +0000
+Received: from mail-westeuropeazon11013009.outbound.protection.outlook.com ([52.101.72.9] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPBx-0000000BmdH-303E
-	for linux-riscv@lists.infradead.org;
-	Mon, 10 Aug 2026 12:33:23 +0000
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67A9RiM72030388;
-	Mon, 10 Aug 2026 13:33:03 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=dk201812; bh=oUZvCmtOXPOypLF3e3z6uVU
-	HjYcLuXvafk1VGuEVzNM=; b=RPJbl+ZepfTr4cqSLKCch9xffsNyRkQic1rllEw
-	m3mZwisvWTDLIxS9HQkahrYsfhBINvy1oy/NjAPIKoWbqPWlRIInhdBePJS2NLQt
-	o6gDTyrp34XaoHYhZtEjwOa8tWBtSWMcs29DJQRP1JE08pH4kl6vvPVvNW4sgJSg
-	pgag2xOmoftUoZ0y+oZP31BzL6Odny4CUBar3D6zN+2I0g0osbTsQfvw97s3cE1m
-	yqjCGJ3LAiYBfUpcBBgDTBW4ynwqNFmCl6/abv6aWrdZiK5beotNCUvX4aueMvsA
-	D923IxTn+3AMMqurGGaZYR2s2AxE8MqsR+ZY5ez1K42ZCBg==
-Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 4fwvhtsp6q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Aug 2026 13:33:03 +0100 (BST)
-Received: from [127.0.1.1] (172.25.10.25) by HHMAIL01.hh.imgtec.org
- (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 10 Aug
- 2026 13:31:42 +0100
-From: Alexandru Dadu <alexandru.dadu@imgtec.com>
-Date: Mon, 10 Aug 2026 15:31:26 +0300
-Subject: [PATCH] drm/imagination: Manage FW VM context from its init and
- fini callbacks
+	id 1wtPLo-0000000BnlL-451k;
+	Mon, 10 Aug 2026 12:43:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yf0Kv0BjkIL7cIkEXx8gEUlJRbYwDBwaN+VenvGSi2RIVk5J6l82ATINxX3mdtCU2oHkXapf9XhiQmbYV0X6skGJB8n9RhkwUNNJWeQMX5hjEx3ScV7s3RmjzEduvxZqPzTPJvl20Luxkxo29DYxrrmHaKxNKISfD8sZkEjflI1GkpsCL8U/rsj+M+C4LCcPv6LfinBJ5WQ3BmBuxECR6UZtMpfs+7YyeYtDDJSEt2z19nqgLF9scOwfrSUBHeL/Kc/7Ksc60HAGO6zMMcqEldX/sBx9FtarszmB3QPv5pbbNvc/aqs+aZ9RaKRwQQHrJDErzdGA2jxuT/v6epwaJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NwRLMYT7rDUlyQ7u/Q9XF8UzXMRdbbqCYUGUbXGyhhE=;
+ b=ROv5FgkEjQHqWaRDFPY25c7infaHpHVE4Oud3pI/p3xOawsnyW3zaGmUCMq3j2xlfksFKmR+uQd9uPMPNdNI198eZ5pdaz97E16OI4/aA2dYU1ruMSpZmgl2c9SbZkctuanWVkPewlsscInPGvRdzqR32MVBEp8Gds/WJ2x07hFtjNuSvSiEOvexOyxcwSXn0oZwrBaYzKfq9bhm2BK/5auZGJoyRR2LpCiPyJ1EfrxIKRx5WWliZNTFMlLM6scbfkFxjUcOsKx4hj7VidEI89DaF394Pk08co3QtEp0UvmdJpUJT3AIVPome+NrohguVk+LJJLFnMEczDUDzRcUdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NwRLMYT7rDUlyQ7u/Q9XF8UzXMRdbbqCYUGUbXGyhhE=;
+ b=JR1pk7vy1DMYOfbYGWlmO2r19rJLpov1YSHGyWNMEW9P0WGH1AGHzdAJzETLglp8Aur6MqfOpcom1ljVajGmxP80DqBf9AoPVREwW1/0zwg8EYAQmZvZzGxS149esyirzxsAPhMAL7D4rg3hihHWBpmaZUlQxEZxuwG627pzffdM8fD5VXWmF4DHCkcM4KDhj0YBCEbxklxNtj831/5KumIfByRhWZEge1Q7e2geKwUlNJitUQ7w1Dek86KW8htuk49dHUPT6woAu/onMNHONQS5DvN2KL0khFtTzPygd9P2VT9Kc1ifljnScD0bebpywN9BK5e6qwYABzPs1gRfFQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
+ by VI1PR04MB6861.eurprd04.prod.outlook.com (2603:10a6:803:13c::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 12:43:25 +0000
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
+ 12:43:25 +0000
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: linux-pci@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-tegra@vger.kernel.org
+Subject: [PATCH v9 0/3] PCI prerequisites for PHY consumer/provider split
+Date: Mon, 10 Aug 2026 15:43:12 +0300
+Message-Id: <20260810124315.433448-1-vladimir.oltean@nxp.com>
+X-Mailer: git-send-email 2.34.1
+X-ClientProxiedBy: AS4P191CA0029.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d9::12) To AM0PR04MB6900.eurprd04.prod.outlook.com
+ (2603:10a6:208:17d::10)
 MIME-Version: 1.0
-Message-ID: <20260810-b4-upstream-manage-fw-vm-context-from-init-and-fini-v1-1-2c6229e36e5e@imgtec.com>
-X-B4-Tracking: v=1; b=H4sIAJ7EeWoC/yWNQQrCMBBFr1Jm7UBStKhXERfpZKIjZFKStBZK7
- 27U3X/weW+Dwlm4wLXbIPMiRZI2sIcO6On0wSi+MfSmH8zZGhyPOE+lZnYRo1PXHuGNS0RKWnm
- tGHKKKCoVnXoMbaG9nMh7Y4kGA808ZQ6y/qq3+5/LPL6Y6jcF+/4BmMNSvpcAAAA=
-X-Change-ID: 20260810-b4-upstream-manage-fw-vm-context-from-init-and-fini-195cdd01cc60
-To: Alessio Belle <alessio.belle@imgtec.com>,
-        Luigi Santivetti
-	<luigi.santivetti@imgtec.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>
-CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        "Alexandru
- Dadu" <alexandru.dadu@imgtec.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786365102; l=5570;
- i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
- bh=C2e+L340zP0q8i9wzAJkeQrcy6Gd0cpDPGEkKEQ+voQ=;
- b=Ga+hVoe749netVN9cG8oN2rN8vAlMn+1bt33qc6fPJ1aqIDvju5uzQ2PcdczaI/otM02LC5av
- 5um01RVox6tAJ8wV0+VD0Giv0L4b9wYOZmpCtAOP5YToNphweDY5mVM
-X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
- pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
-X-Originating-IP: [172.25.10.25]
-X-Proofpoint-GUID: lxQVhyrlLz8IxJG28pus3U--AZAQT0Ar
-X-Proofpoint-ORIG-GUID: lxQVhyrlLz8IxJG28pus3U--AZAQT0Ar
-X-Authority-Analysis: v=2.4 cv=Xt7K/1F9 c=1 sm=1 tr=0 ts=6a79c4ff cx=c_pps
- a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
- a=1spURiKJc90A:10 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=7RYWX5rxfSByPNLylY2M:22
- a=r_1tXGB3AAAA:8 a=Ubvqm-L7-7mULy6RTAoA:9 a=QEXdDO2ut3YA:10
- a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDEwNyBTYWx0ZWRfX1nJxi8ctN4+s
- RuRTFaJAcYuVJj/ktsIpIoRwl6ODAK+ZoYKqaqHR1EQ+iujxqHpb7x/1JGS0zggTsxptSga3Nlr
- PbQz/jYk8qh6xOHkOsi8WhIc25/F0H2pjRmwV0X6TAHoX6rWrgxCGmESDHbCVcEaXmtdRjqpBpQ
- JfAjcyrjq8S2gdtuYfOWlSzcA0Dilyao5QaUKeYQ5GMjag0kG4TC053NGee3nBn0yn27uiq7MHE
- ekufE+lh8LBmhlpVz4GQgqOIUwqwgAEHsX2KWKBJoAo2EH9AuQjG+8dokhd9BIrBxXkTedZ0zQo
- +8eloZlrrWEXkDm1UgQZByBSt7LfirxHyqtuDrCqpZwCqKya886yh4tofCPyzZf5OXEcrpCKLy2
- UD5SpowjXYUtKbe8wULumt2OSwevcJcPqDUqCGNd4NaCdMyOyQnnKYmVqc7pXTS01LQAQvm7aJu
- gUSc1btwjWoWnh3ePRA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDEwNyBTYWx0ZWRfXztPIyC+fMSOw
- 76xapPmqGKbfmbFl80Ir1xXwztDuKwjaYI0oSMcwgGYfNm/b2aQzb51coSz0XNduOOlq2M4xcJA
- e4Vilkai+rbVvyvoYc+wJyph90FR3VU=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|VI1PR04MB6861:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5c6f2fdc-5270-4c0d-101f-08def6dcf83f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|19092799006|6133799003|56012099006|10067099003|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: i7rfEV4AFaYKci9Hi0m9z4d+8TIurCKXerD12KbO4z28NQZv5Z9VgZAudmhWEVmtcPZtJYsv5M+ufhGoWH0MiVePZC08ASKYLW7pOZR9bNeVJiCmW5+VZUuvkbbX1wSvtDYFhozD8v4jVZLYVnyHybajBF6DFKeVSkRGA9jeqbesvF9XkbVvcaJeLLzR/OCjwoAIERzKnQPz6RCtiCSfjLiZa/qMSTxF6EyguoVNP+h40rt+OTAzNqF5ykCoABx2bxUIU5ODy/rz3E7Uu+bm9bdxIx3YrZQ/tJ7krlyIX/AmUosVGSL2qndbMvh0dqambaq85TLNMayuMfigxQJZ2WM4d/RAdfdNf/EUcngtyvfl45+H3Incbui/Zbaq0wIGYSYrBQmLQo3OwwlwYo/HTBeyTJGTQIbmByZUHZPuwGYHculd4a5jPPB041VfWWATFqslC7ZtJ10T5wBxnSek357bXXUsNmmnxyHDA6TAxroPeHxUp9liNO3q1cTB7tyqsTDvZ24t18ho+e40iSTZwtRo81g3XCMgqE5VRjnvLgNOiRf3qqdeHQHedyvMJUch8jR5HuVpDFWHN9KRzDJAAb86Ab7B6E3G/pilJvpynjJfG53Q/YiV32KHPI04K+v44VHe3YRaAaD6O5ogKxH7rYjR3B978iv23dJYxwTmZQU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(19092799006)(6133799003)(56012099006)(10067099003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T3Z3L3BmenY1VHhrZVhyV1o3SjYzMUNoSG5pNXlFWlM3RkdzL1pWdXRmdUVP?=
+ =?utf-8?B?ZjBQNG9USm4xRUR5ckJUUzNDWGt0MkxPcWdFVWo5SDk2WDVDUWhhT21uREtG?=
+ =?utf-8?B?Y0lCOGs1anh3MUZ4VkdpMWozL21mYlIzTXRseW1KSjQ4akJMNWRlNGNKaXBD?=
+ =?utf-8?B?T0JRdVIwWFBGbk1oaHU3bzA5ZVE4c3RkRXpjUTl5dS9IbTczYnZrUXZYM1ZF?=
+ =?utf-8?B?VGxzQm1qZXJnTml1ZHFxcFFVeEJtUUQ0OVN4MVFHSXc5cC9yeFNaQVpHNHND?=
+ =?utf-8?B?Zk1PTUhaYm5JSVgvNnlhVVVtZ0ViQmtnbndtU2tsZE9RSHBWZGNhQThBUkxj?=
+ =?utf-8?B?MlpCdWNCRndUcXBjaUo2OWFLZ2V6cGczUVcyYS9aUTJWNHJEejN2YmtldVdl?=
+ =?utf-8?B?c1lTZ3NUT0F0QXplOU9Dc2Z0cGZ0cHZZcXlraHJqeTA0eVJneDZVTUM2YlZF?=
+ =?utf-8?B?M2V5TFZ0REd5clU1VVc3TDFFZGMvWGR2RDhJVyt5WEdlUkJad3dWWTZmSGhw?=
+ =?utf-8?B?QkxKUWdNcVRld0NvSWxsTGhRUGNCQ2J6S2F4dGRWTk1EQmszbHh5dE5tRnc5?=
+ =?utf-8?B?dXk3ZmVMSGROSTQ0UFpkUk1zaHE1ZERqL1dISDlRdlJkZm5JWDhlZ3ZxSUdL?=
+ =?utf-8?B?Y2YvcHVZL3JTVXNaM21XSVAvZ2NOSG5jT2J3T2ZTeDlUM29ESithTkVIN0Fa?=
+ =?utf-8?B?Mk1JNWorRzFDdU8wMGYwSFNvV3FSdU1IRTNXSzBMY0tjZktPRFdtblRkdllp?=
+ =?utf-8?B?RTI5ZlhsY0JRM1h1U0U1Tzc0YUlCeXlEcVIvUDFiZ0ZKL1lyaWlQRzVaalMw?=
+ =?utf-8?B?ZFZEbjkzUVJ2Mmo4TGFZcWtMWUJaTlRRMGN5UWxMdDRnNStyV29TR1ZxWlpV?=
+ =?utf-8?B?MVU0VmlkdG81dC9Zd0pxaDRRQ3loeEdnVzU1TFVHeXZ5WWFKbk1lTUlySjFt?=
+ =?utf-8?B?bGVCOHdBTkYrWUdXNjlLT2d2WGhrMU9VSmdsclR4QnIrUGdyV1ZkWGcvVThq?=
+ =?utf-8?B?ZEJGNlc0VHBUUk5PREVHYmkzZkNZZi8xZHZPUXVnNi9ydkhJVjFmS2J6SHJJ?=
+ =?utf-8?B?RUZMOGVJUnRBcWxKdmFqSCtFbHRCaWhNS1p5TC9oQStjMUtjSHNjNGI5SzUv?=
+ =?utf-8?B?cUZXTVA1MG8zUGFQVEN3NGk3RWtsbk9VOE9CcmpYRXV5bTRmZnRQNUh0d3U4?=
+ =?utf-8?B?VEVUa09KYU1xcDU3VUJ2MnA3OTR2OXVIRFlldjl6YkpmbjlxekpFa1M0N2hu?=
+ =?utf-8?B?ZFRQelJvMFFra3VmOHdDbGpUTlJtSWt1aFlUMi92RnBxVjhmK2hBeW5OZTVT?=
+ =?utf-8?B?OUxDdzYyc09keXErZGplTC9IRThOa0l0RkY1QTZsNEg0MXI3TWxBUEthSExm?=
+ =?utf-8?B?czVZdDR1RkQzczgvQ29UUFc0SStiM1p0dHdxc29Ud0JDd0tnQzlWSmhmSlh6?=
+ =?utf-8?B?SXRPMnRibTZIY3pKZEpYSEdkb0lMc0tSeVc0SlpCeDMrTXJPMlQzY3R1a25V?=
+ =?utf-8?B?NjVMNTZVeTBURytTdmdXU3NZb2xSbWIxNFVoS3puc1V3eUE5K3BseXRzajk3?=
+ =?utf-8?B?cmp4ZVZYbHdITXBGdUhNYlBBTHFXS1VyN1owWU1MMDdPUFl3ZmRIRE5zRTlW?=
+ =?utf-8?B?V0M3bGFwTkpsMVJGbkU3TFBYdmpjNzd0NWVRQnN0dzdxRWIyb0hGcjRqcHUv?=
+ =?utf-8?B?L3lnM3FjZFlqNWFQM2hRRlovY1pCNTV4dU9oMklqNUU2U0FHR2paWGZEWkFB?=
+ =?utf-8?B?ajdaQm9hdXpQSm1YOWZKSk0yc0hZVnVpYjM0Zm1uY1VTYVcrRGt1UmFvR3pO?=
+ =?utf-8?B?aFJKUW0waHdub1Vka2VKdm5yOTdJT0ZiWHFJYmpldnBYVUFTOVpmRS9nRHFP?=
+ =?utf-8?B?ZlgvckhTaHA2UzJNTzlZY3ZFbnhsY0lwbTZwb3E1bXlqZUkzN3MwdHgvdURL?=
+ =?utf-8?B?T1F0SWlHRnVMbldJT2V0SWt2aVpYNVZYem5NWlRWMEdrM0N2K1NoN0RwbldF?=
+ =?utf-8?B?SFc5S3RZZlFra3pyMElYdVhrWkYwaWVmSXRrZzBMRGNSbU9GWHBSWlJsZ2ZO?=
+ =?utf-8?B?SXVLcHNMcE05WFJOSktzdVB3QWR4ODhXT1QwSWpEWGhMcEM4V2tLd1YvaGFu?=
+ =?utf-8?B?TUxNNTc0NngwWU53WGJBdHV2QS9jOFhLYTVCeWdnb2xZMlpQQUV4cEZWWGgv?=
+ =?utf-8?B?WmUzNmJBdlFFVDZIVVJqdHJnandIL1gxZ3QzZEpqdU82a0lsdlRGVHR2OXc4?=
+ =?utf-8?B?MnBkVUxsQThZQlZNNSs4WWwwQXBZVXhLenBaaHF5WXh0UEMzbTRXdnZ0aEo0?=
+ =?utf-8?B?NVBMSVZncGJZbWtHUm05bURZMmZkUjhuSGgybnlTcldOMXh5WUxOQT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5c6f2fdc-5270-4c0d-101f-08def6dcf83f
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 12:43:25.3390
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qnkvNs/KNsWoKPRga0C09HJJ9asp0uKPisxW7x6fvnAjNLFVLkgxOzgSUl2yt+M/k+oAi3EtoHsr7eeQZSmmPw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6861
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_053322_068826_1456D722 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260810_054333_029849_EC9C4529 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,181 +148,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Alessio Belle <alessio.belle@imgtec.com>
+"[PATCH v8 phy-next 00/31] Split Generic PHY consumer and provider API"
+https://lore.kernel.org/linux-phy/20260505100523.1922388-1-vladimir.oltean@nxp.com/
+became unmanageably large for a single patch series and needs to be
+split per subsystem.
 
-While the MIPS firmware virtual memory context is created and destroyed
-from within the MIPS firmware init and fini callbacks, the META and
-RISC-V firmware contexts are created and destroyed from within blocks
-right before or after those callbacks.
+Here are the patches pertaining to PCI extracted out of the larger
+series.
 
-Match the logic for all firmware processors by moving those blocks to
-the META and RISC-V init and fini callbacks.
+Change log in individual patches.
 
-Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
----
-Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
----
- drivers/gpu/drm/imagination/pvr_device.c   | 25 +------------------------
- drivers/gpu/drm/imagination/pvr_fw.c       |  6 ++----
- drivers/gpu/drm/imagination/pvr_fw.h       |  2 +-
- drivers/gpu/drm/imagination/pvr_fw_meta.c  | 12 ++++++++++++
- drivers/gpu/drm/imagination/pvr_fw_riscv.c | 12 ++++++++++++
- 5 files changed, 28 insertions(+), 29 deletions(-)
+Vladimir Oltean (3):
+  PCI: cadence: Preserve all error codes in cdns_plat_pcie_probe()
+  PCI: Add missing headers transitively included by <linux/phy/phy.h>
+  PCI: Remove device links to PHY
 
-diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
-index 54fe4180c73c..35eaa54f75ed 100644
---- a/drivers/gpu/drm/imagination/pvr_device.c
-+++ b/drivers/gpu/drm/imagination/pvr_device.c
-@@ -697,25 +697,7 @@ pvr_device_gpu_init(struct pvr_device *pvr_dev)
- 	if (err)
- 		return err;
- 
--	if (pvr_dev->fw_dev.processor_type != PVR_FW_PROCESSOR_TYPE_MIPS) {
--		pvr_dev->kernel_vm_ctx = pvr_vm_create_context(pvr_dev, false);
--		if (IS_ERR(pvr_dev->kernel_vm_ctx))
--			return PTR_ERR(pvr_dev->kernel_vm_ctx);
--	}
--
--	err = pvr_fw_init(pvr_dev);
--	if (err)
--		goto err_vm_ctx_put;
--
--	return 0;
--
--err_vm_ctx_put:
--	if (pvr_dev->fw_dev.processor_type != PVR_FW_PROCESSOR_TYPE_MIPS) {
--		pvr_vm_context_put(pvr_dev->kernel_vm_ctx);
--		pvr_dev->kernel_vm_ctx = NULL;
--	}
--
--	return err;
-+	return pvr_fw_init(pvr_dev);
- }
- 
- /**
-@@ -726,11 +708,6 @@ static void
- pvr_device_gpu_fini(struct pvr_device *pvr_dev)
- {
- 	pvr_fw_fini(pvr_dev);
--
--	if (pvr_dev->fw_dev.processor_type != PVR_FW_PROCESSOR_TYPE_MIPS) {
--		WARN_ON(!pvr_vm_context_put(pvr_dev->kernel_vm_ctx));
--		pvr_dev->kernel_vm_ctx = NULL;
--	}
- }
- 
- /**
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
-index 850a3ec8e775..58ee51cd65df 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw.c
-@@ -1029,8 +1029,7 @@ pvr_fw_init(struct pvr_device *pvr_dev)
- err_mm_takedown:
- 	drm_mm_takedown(&fw_dev->fw_mm);
- 
--	if (fw_dev->defs->fini)
--		fw_dev->defs->fini(pvr_dev);
-+	fw_dev->defs->fini(pvr_dev);
- 
- 	return err;
- }
-@@ -1063,8 +1062,7 @@ pvr_fw_fini(struct pvr_device *pvr_dev)
- 
- 	drm_mm_takedown(&fw_dev->fw_mm);
- 
--	if (fw_dev->defs->fini)
--		fw_dev->defs->fini(pvr_dev);
-+	fw_dev->defs->fini(pvr_dev);
- }
- 
- /**
-diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
-index 3390c84e4fd3..4b25291135b6 100644
---- a/drivers/gpu/drm/imagination/pvr_fw.h
-+++ b/drivers/gpu/drm/imagination/pvr_fw.h
-@@ -86,7 +86,7 @@ struct pvr_fw_defs {
- 	 * FW processor specific finalisation.
- 	 * @pvr_dev: Target PowerVR device.
- 	 *
--	 * This function is optional.
-+	 * This function is mandatory.
- 	 */
- 	void (*fini)(struct pvr_device *pvr_dev);
- 
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-index 9ff03bc60a08..6c5dc711e81e 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
-@@ -500,9 +500,20 @@ pvr_meta_init(struct pvr_device *pvr_dev)
- {
- 	pvr_fw_heap_info_init(pvr_dev, ROGUE_FW_HEAP_META_SHIFT, 0);
- 
-+	pvr_dev->kernel_vm_ctx = pvr_vm_create_context(pvr_dev, false);
-+	if (IS_ERR(pvr_dev->kernel_vm_ctx))
-+		return PTR_ERR(pvr_dev->kernel_vm_ctx);
-+
- 	return 0;
- }
- 
-+static void
-+pvr_meta_fini(struct pvr_device *pvr_dev)
-+{
-+	WARN_ON(!pvr_vm_context_put(pvr_dev->kernel_vm_ctx));
-+	pvr_dev->kernel_vm_ctx = NULL;
-+}
-+
- static u32
- pvr_meta_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
- {
-@@ -550,6 +561,7 @@ pvr_meta_irq_clear(struct pvr_device *pvr_dev)
- 
- const struct pvr_fw_defs pvr_fw_defs_meta = {
- 	.init = pvr_meta_init,
-+	.fini = pvr_meta_fini,
- 	.fw_process = pvr_meta_fw_process,
- 	.vm_map = pvr_meta_vm_map,
- 	.vm_unmap = pvr_meta_vm_unmap,
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_riscv.c b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-index fc13d483be9a..58bacc522e72 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-+++ b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
-@@ -103,9 +103,20 @@ pvr_riscv_init(struct pvr_device *pvr_dev)
- {
- 	pvr_fw_heap_info_init(pvr_dev, ROGUE_FW_HEAP_RISCV_SHIFT, 0);
- 
-+	pvr_dev->kernel_vm_ctx = pvr_vm_create_context(pvr_dev, false);
-+	if (IS_ERR(pvr_dev->kernel_vm_ctx))
-+		return PTR_ERR(pvr_dev->kernel_vm_ctx);
-+
- 	return 0;
- }
- 
-+static void
-+pvr_riscv_fini(struct pvr_device *pvr_dev)
-+{
-+	WARN_ON(!pvr_vm_context_put(pvr_dev->kernel_vm_ctx));
-+	pvr_dev->kernel_vm_ctx = NULL;
-+}
-+
- static u32
- pvr_riscv_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
- {
-@@ -154,6 +165,7 @@ pvr_riscv_irq_clear(struct pvr_device *pvr_dev)
- 
- const struct pvr_fw_defs pvr_fw_defs_riscv = {
- 	.init = pvr_riscv_init,
-+	.fini = pvr_riscv_fini,
- 	.fw_process = pvr_riscv_fw_process,
- 	.vm_map = pvr_riscv_vm_map,
- 	.vm_unmap = pvr_riscv_vm_unmap,
+ .../controller/cadence/pcie-cadence-plat.c    |  6 +---
+ drivers/pci/controller/cadence/pcie-cadence.c | 16 +---------
+ drivers/pci/controller/cadence/pcie-cadence.h |  2 --
+ drivers/pci/controller/dwc/pci-dra7xx.c       | 16 ----------
+ drivers/pci/controller/dwc/pci-keystone.c     | 32 +++----------------
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c |  1 +
+ drivers/pci/controller/dwc/pcie-histb.c       |  1 +
+ drivers/pci/controller/dwc/pcie-qcom-ep.c     |  1 +
+ drivers/pci/controller/dwc/pcie-spacemit-k1.c |  3 ++
+ drivers/pci/controller/dwc/pcie-tegra194.c    |  1 +
+ drivers/pci/controller/pci-tegra.c            |  1 +
+ drivers/pci/controller/pcie-rockchip-host.c   |  1 +
+ drivers/pci/controller/plda/pcie-starfive.c   |  1 +
+ 13 files changed, 17 insertions(+), 65 deletions(-)
 
----
-base-commit: e55fead22ff9ee047ab9f1903860c4b43043514e
-change-id: 20260810-b4-upstream-manage-fw-vm-context-from-init-and-fini-195cdd01cc60
-
-Best regards,
---  
-Alexandru Dadu <alexandru.dadu@imgtec.com>
+-- 
+2.34.1
 
 
 _______________________________________________
