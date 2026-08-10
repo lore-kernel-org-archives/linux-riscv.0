@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF5C8C5B56A
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 17:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6214C5B56D
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 17:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IdBso0T9hXwaXwJJ/0jYYv9WfZn4YaNcZNVBvWb4ppk=; b=UqvN1l/zwm/sNL
-	HVES0GKCOA60nCGacD3rfFbS8RNVPRcC/Aldnq/e5xg4p3L79eazsjPtxNietJUiJLYn/vXRseCJd
-	1R+9vMhl5lf4XD8E/CS4gEEKiTT3V2JQnEjmyKR19Pt9G5dRepZ49JhLRpmSDBUfJv+W/E52Gjplv
-	PZXJkqP8GJ6yo/slmjhV+TwITpjGSFvJzfybvwEuD5TLyfQ/kvjDEqlJ+Qj3JZoYW6ctkEI2Wfvx7
-	56vfdK7Q+7USH2Leb9rgcveOr0f0AMKLfpEyZNp25nN0bkg3zswiwbeYKPYkl/r2RFLVPRP2SM8ws
-	n1IU8OOydaVAgYV7RvCw==;
+	List-Owner; bh=/Ty/Nap+iDJPelre87WenJVq1f1oukqH9vWfBPUHvDY=; b=3anxn3x3b0l+u1
+	9RcCt86MekAXt4XCorRLYyI991ncbCyl7QVvuxGXUMbsTrZY0JxnPz0ocrUL8pSoMcXchY2AjH6C2
+	AQVBKNxwRQwBywz7YELzHwsiXAdL6kOK5xHJ13pAF0BA849nq+M8n+WTROWv0yI/0UFPWL96LbPJN
+	ghLOaT+vZY5zYVoAmMeWAW8sTOpFo+bXqSepP/8pH3cfqemNTFPowwfeXY+EwgjIIonYJhPb4pE8M
+	a490HcqeaAI2xAXlVo0xqu42jOSt1kcUXT/JM7YFwlwVrEYro9qsq0VY09lP5egG6sHhWbQ8xqb9g
+	7HoRnocmvbh2J6jJinrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtTkl-0000000CW4p-1iNn;
-	Mon, 10 Aug 2026 17:25:35 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wtTkt-0000000CWAG-2J9n;
+	Mon, 10 Aug 2026 17:25:43 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtTkg-0000000CW1a-2hqg
+	id 1wtTko-0000000CW6r-1vgO
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Aug 2026 17:25:32 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-84e84a6c4bfso129539b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 10:25:30 -0700 (PDT)
+	Mon, 10 Aug 2026 17:25:42 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84e507b079dso1285523b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 10:25:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1786382730; x=1786987530; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1786382737; x=1786987537; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=iXifpYbsIH5Hzlm+q7BDwAVxN2XRZKSdd6s2RfEIrss=;
-        b=Ng39XWjGhgTDKQ7XwVUbyOx0JlQ3p/+QmxixZIbF+SaDID1mx5K0oAPoRxsFyOEZXK
-         t9fbQedrdluGsgGm8Oce+Yq6CIS6XRlSOqeArk9IQu1GE+7AtHFbpKe3xMWDfZJvrpqQ
-         b+WW1GBPzGgvuaIox1fTDS9rF58ZiXQOqNW7F+bcFD8GG+XX1k652lvIs32oZRuoIvLM
-         gLD6bjHh3/81d9Zdz11ypRsrRArlI4nNPlJpImjspkDHQ+zCyAsTrTdMxLKz+dpBzbxi
-         LwjQwy6HVI3bSYUEhTEIRXP158EOa/ea7yTds7nQHUXN9hCCMfIVw026Lxa8BIS7vD2z
-         unxA==
+        bh=0CCar7U9xY/cuLeWShGMRY6FLa2CcPakhHg+oZkKygo=;
+        b=bNF/r1VR5Gr3rcmAo6yWrzIAlWUHXOorlviYDcabp32KfAwGC9D4AY65pQhQS6cFWW
+         ebhbbW0sQLBLWfIqygNF4Ii+jDY4D1Wov9l7m9EAygpE56SsMI8YymJ6moP1OIazyApy
+         VEXNdHeW2V+Un3q6AxLTHVPwKVYN4RPvVOPIf/OYhPyGX3SHBfXazkvSqUmKT8Ukxags
+         EGfvDDksdT3/BfE2XJCfWx4ljA4eIw4WDq90CWisG0R19aDksQGeg2kyyF8Rv+CC4eK0
+         X68csIsHOKSo3PPw0xesZB7yDi+VxCgfZSJzKDV5e17JerBadd/VZogplhDgotR1P4Gr
+         iqxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786382730; x=1786987530;
+        d=1e100.net; s=20251104; t=1786382737; x=1786987537;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iXifpYbsIH5Hzlm+q7BDwAVxN2XRZKSdd6s2RfEIrss=;
-        b=VmwKg7J3GKDluoCk2MPKWCdOxfOBimXdA9q58G3Rt4qq0uAeAE6QSwO0HYotqo24v7
-         fqrf2g5HqmQec7hUKFk7VCXxw+zDRIw//HRhH6EOlHJBcu8QxajiUEJYwtvA8YTcRSri
-         VbLmaNEP7HoDefF+TRofNVTb6kwEAMC6XvdkL0c33UMqDHONBG5txgIU+IL0JFv2Wl6+
-         1fDUzExH+PM260OpweKWYmeNcC4Z3xbr7DG+X1rqJoAkgxDCwHvPZWi51JiwJKVKE8Z+
-         uHQ5L6D42xZQ13nyYZS5c0PrwibO+uSnZ7EZBDCin02X/Zd8sR+HB4bG7m48ekBSQUJZ
-         vFCQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoQyFHa9NCR4+DjyQOQkUQQd6436KGyDxE6+KIR/CJsso2d2TeihaAujq8FS/rGzIDoSInPk9IJU5nO4A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxjr93ny20N8dbM/jESp9lPiEnc7ld6sJDEF2crhkZnRyAS79eK
-	azJe4rwOB1kCU9FHCvgQO3wU4ICTQJlrH5CGgVAVwcn9R9xSIxN4YXwMnrElcDDCgko=
-X-Gm-Gg: AR+sD100vFc0VlX6AZY0eILSiZ8nqHAuCh3MaFHxWkMhmTjAyVN3ymYOXe7A+v9T/z3
-	GqC/PY40qNCJJnyC2isb59+d+RocqmTQ2a01iDmfbotQdJAxJa7pnRx7lbYHqUtagODuTZadtKl
-	rXMxCVt0+xLt0jWF36IZcJ/DdbF6QG0b2AyvDXrgPqTkhQuPy6PiGkwN84B+5c38l0Xx+kxDWgC
-	60VkzRU+rMzfwM5rANL/jGN1WfS52kuT6jde7nKdvWPHUmPkjUbyFCgOAMxVVVRKfd/VfyFc1+K
-	0S5W6vKfvG6ERWdtos/I1GRXm6MZOQD3hXeFATfQxRb718Wx6nzwx5b0b5q7FayKC7wtqawFmW3
-	VFush44WjIopoFZDrfZoQIso4xxHMrGRnuQ66A1aNrbUR1gWP7FPbxdI/ziSuywkVHCDB5W+Ic9
-	RDIuhzLbsNQco2kxOdaIUlkhx48H5FT86NBGPezhiHKJJo2MXayVLu3Xmgqa73J2ZlvG3ykBwS6
-	ge/TirmD9wkJzmoED9Gb5fTcIyRrcr+nHAZsfXJve4zU5nNCMW+vuIENZj/pmE9Vw==
-X-Received: by 2002:a05:6a00:23c5:b0:848:2a69:97be with SMTP id d2e1a72fcca58-84fa186ba38mr19668b3a.10.1786382729490;
-        Mon, 10 Aug 2026 10:25:29 -0700 (PDT)
+        bh=0CCar7U9xY/cuLeWShGMRY6FLa2CcPakhHg+oZkKygo=;
+        b=kg/obQjxuAioa5Vm26Bkpm1R/C8Mdlrq/f2sRXI8oH5mkgfGBDB0wRTC1RrdLJfG+O
+         Jzaw08pLjMcIdx1h0nuB8oLeVwBVstPs0sZCZBsefB2bVdm046eKYtsTt9dem115xFc5
+         cKxg3/9lNWZSVsCJbaj1KzpTmUd5kRKwLEfDjSgvfwEPfUPzHK+U4OMH8c5+wHI5Hi0l
+         UFfRvg5AjiXw7xcF0jSXlH9vxaOv8BTDyKa9D7JLWpnIf5kHfv2wzT65afNYaP7MyWMN
+         /lVHQgmGA4uzGqAjX8EkXh8veIWua8RkwlVwSXQZ8y13wfyjxIsfxA+yAinc4gHocBt2
+         bjSQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp55crPNJ8hXTUfX/NwDdF1dYRLGxVBH1Agc7ZxtXcb4Tx4KVO7kSx96N5PtLlO+0e1hcN+Fe0TBy2Dqg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7lxGRSfMUIww5w9PCZHomzN/XDTjpuyIhseT0rHt92umLebz3
+	9ULDzqPA/mp7RUV+wO6An4sWYx35EwtJxZtJRnO+u6vgv6xmOvhkBhGbkvMbyjAAsRw=
+X-Gm-Gg: AR+sD13m04HhB2rSHeIY71LMQSPw1YFuFTZA1QW1LWelYAQQ1ipVypdyZFcRE7WUE9B
+	N7m3Sxf+A2tNqCdgpsIyD/HRnpBuXwaddtuoZ7u+Ze0E5lWCb15WcIa6Vebog+3NODfbq/ulq4l
+	csYdKRCGoC5dR0V6wTO178Y2ogBQzZ01ONY2oRW+wg+Q4JJdOKWJs97f71BM3Eu6JWNPXW1xqtH
+	8Lb3m+JPHQEwL8pd3pKMh5JWcUC6NVAzatPE4OkAVG6W9zo+CvWRd4TcIvuXSlG95N9c2vXd4A7
+	YzhYw0ay3kVnNkhcQi0dTS7siGB+5lssepvQtlTIAyG0lIWxtKi0Jb/+wFNfFKUv+X/DisldcFr
+	CrTM4vhlLsQcXagCPB8Wnvv30L+4+zYUuvDjSsdybVBpUumNe4LLsy+nZ+D6YsW39HTbLyrNZIf
+	0I9E2c9gXh714SWWsnHLHCDXNd3Zjl47//+zsiEDDYzUMHRMFgdDifLD9UnYEh8MLEAmeqJyGOs
+	dpeT+23/r8AbtaAdWwuXRm0jcueIAkGhDswH5MOHI2ykCI6xbsgLNV1gns+JysHaQ==
+X-Received: by 2002:a05:6a00:430c:b0:847:9315:fb8b with SMTP id d2e1a72fcca58-84f694168bamr23837020b3a.6.1786382737502;
+        Mon, 10 Aug 2026 10:25:37 -0700 (PDT)
 Received: from lima-default.tail89d63.ts.net (61-222-153-199.hinet-ip.hinet.net. [61.222.153.199])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a5898f8sm4149949b3a.52.2026.08.10.10.25.26
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a5898f8sm4149949b3a.52.2026.08.10.10.25.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 10:25:29 -0700 (PDT)
+        Mon, 10 Aug 2026 10:25:37 -0700 (PDT)
 From: Andy Chiu <tchiu@tenstorrent.com>
-To: Paul Walmsley <pjw@kernel.org>,
+To: Shuah Khan <shuah@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Oleg Nesterov <oleg@redhat.com>,
+	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org
 Cc: andybnac@gmail.com,
 	Andy Chiu <tchiu@tenstorrent.com>,
-	Sergey Matyukevich <geomatsi@gmail.com>,
-	gdb@sourceware.org,
 	dfustini@oss.tenstorrent.com,
 	greentime.hu@sifive.com,
-	daichengrong <daichengrong@iscas.ac.cn>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Deepak Gupta <debug@rivosinc.com>
-Subject: [PATCH v5 5/7] riscv: vector: adjust ptrace and signal behavior for INITIAL state
-Date: Mon, 10 Aug 2026 12:22:32 -0500
-Message-ID: <20260810172255.1532787-6-tchiu@tenstorrent.com>
+	Andrew Morton <akpm@linux-foundation.org>,
+	Wei Yang <richard.weiyang@gmail.com>,
+	Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Subject: [PATCH v5 6/7] selftests: riscv: Extend vector tests for sigreturn and ptrace
+Date: Mon, 10 Aug 2026 12:22:33 -0500
+Message-ID: <20260810172255.1532787-7-tchiu@tenstorrent.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260810172255.1532787-1-tchiu@tenstorrent.com>
 References: <20260810172255.1532787-1-tchiu@tenstorrent.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_102530_695754_3AE07665 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20260810_102538_528792_1AE7A72F 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,178 +112,268 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The last patch introduced the INITIAL vector state to avoid saving and
-restoring vector registers across syscall boundaries. However, this
-optimization did not fully account for the ptrace and signal handling
-interfaces.
+Add new test cases to verify the vector state restorations at syscall
+stops for ptrace and signal interfaces. Specifically:
+1. Signal handler should read all ones at syscall stop and modifying
+   context should success.
+2. Ptrace should read all ones but any modification to NT_RISCV_VECTOR
+   is silently dropped.
 
-As a result, two issues emerged:
-1. Ptrace reads at syscall stop could observe stale, non-nulled
-   registers.
-2. Modifications to the ucontext through signal interface during a
-   syscall stop would be overwritten by the vector discaring macro.
-
-This patch introduces riscv_v_ucontext_save() to synchronize these
-paths with the INITIAL state:
-
-- Ptrace reads during a syscall stop now explicitly execute the hardware
-  discard macro and return the discarded state to prevent data leaks.
-- Ptrace writes (PTRACE_SETREGSET) during a syscall stop are silently
-  dropped (returning 0). Returning an error like EINVAL would break
-  debbugers like GDB, which disables the optional regset on receiving
-  such error.
-- Signal handling (rt_sigreturn) now honor user-space modifications to
-  the vector context (for user-space thread schedulers).
-
-CC: Sergey Matyukevich <geomatsi@gmail.com>
-CC: gdb@sourceware.org
 Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
 ---
+Changelog v4:
+ - remove timer dependency from the signal delivery (Sashiko)
+ - solve 2 memory leaks in ptrace (Sashiko)
 Changelog v3:
  - new patch since v3
 ---
- arch/riscv/include/asm/vector.h |  2 ++
- arch/riscv/kernel/ptrace.c      | 13 ++++++------
- arch/riscv/kernel/signal.c      | 11 ++++++----
- arch/riscv/kernel/vector.c      | 37 +++++++++++++++++++++++++++++++++
- 4 files changed, 53 insertions(+), 10 deletions(-)
+ .../selftests/riscv/sigreturn/sigreturn.c     |  71 +++++++++++
+ .../selftests/riscv/vector/vstate_ptrace.c    | 111 +++++++++++++++++-
+ 2 files changed, 178 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index 355104336c70..2e6b88e35664 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -61,6 +61,7 @@ void riscv_v_thread_free(struct task_struct *tsk);
- void __init riscv_v_setup_ctx_cache(void);
- void riscv_v_thread_alloc(struct task_struct *tsk);
- void __init update_regset_vector_info(unsigned long size);
-+void riscv_v_ucontext_save(struct task_struct *tsk);
+diff --git a/tools/testing/selftests/riscv/sigreturn/sigreturn.c b/tools/testing/selftests/riscv/sigreturn/sigreturn.c
+index e10873d95fed..647249dbd7e6 100644
+--- a/tools/testing/selftests/riscv/sigreturn/sigreturn.c
++++ b/tools/testing/selftests/riscv/sigreturn/sigreturn.c
+@@ -7,6 +7,7 @@
+ #include "kselftest_harness.h"
  
- static inline u32 riscv_v_flags(void)
- {
-@@ -437,6 +438,7 @@ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
- #define riscv_v_thread_alloc(tsk)		do {} while (0)
- #define get_cpu_vector_context()		do {} while (0)
- #define put_cpu_vector_context()		do {} while (0)
-+#define riscv_v_ucontext_save(tsk)		do {} while (0)
- #define riscv_v_vstate_set_restore(task, regs)	do {} while (0)
+ #define RISCV_V_MAGIC		0x53465457
++#define END_MAGIC		0
+ #define DEFAULT_VALUE		2
+ #define SIGNAL_HANDLER_OVERRIDE	3
  
- #endif /* CONFIG_RISCV_ISA_V */
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index f336a183667e..9276485b6cac 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -109,11 +109,7 @@ static int riscv_vr_get(struct task_struct *target,
- 	 * Ensure the vector registers have been saved to the memory before
- 	 * copying them to membuf.
- 	 */
--	if (target == current) {
--		get_cpu_vector_context();
--		riscv_v_vstate_save(&current->thread.vstate, task_pt_regs(current));
--		put_cpu_vector_context();
--	}
-+	riscv_v_ucontext_save(target);
+@@ -61,6 +62,76 @@ static int vector_sigreturn(int data, void (*handler)(int, siginfo_t *, void *))
+ 	return after_sigreturn;
+ }
  
- 	ptrace_vstate.vstart = vstate->vstart;
- 	ptrace_vstate.vl = vstate->vl;
-@@ -222,13 +218,18 @@ static int riscv_vr_set(struct task_struct *target,
- 	int ret;
- 	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
- 	struct __riscv_v_regset_state ptrace_vstate;
-+	struct pt_regs *regs = task_pt_regs(target);
- 
- 	if (!(has_vector() || has_xtheadvector()))
- 		return -EINVAL;
- 
--	if (!riscv_v_vstate_query(task_pt_regs(target)))
-+	if (!riscv_v_vstate_query(regs))
- 		return -ENODATA;
- 
-+	/* Silently drop the modification to tracee as no vreg lives across a syscall */
-+	if (__riscv_v_vstate_check(regs->status, INITIAL))
-+		return 0;
-+
- 	/* Copy rest of the vstate except datap */
- 	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &ptrace_vstate, 0,
- 				 sizeof(struct __riscv_v_regset_state));
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 59784dc117e4..0da352310b84 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -89,9 +89,7 @@ static long save_v_state(struct pt_regs *regs, void __user *sc_vec)
- 	/* datap is designed to be 16 byte aligned for better performance */
- 	WARN_ON(!IS_ALIGNED((unsigned long)datap, 16));
- 
--	get_cpu_vector_context();
--	riscv_v_vstate_save(&current->thread.vstate, regs);
--	put_cpu_vector_context();
-+	riscv_v_ucontext_save(current);
- 
- 	/* Copy everything of vstate but datap. */
- 	err = __copy_to_user(&state->v_state, &current->thread.vstate,
-@@ -121,9 +119,14 @@ static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
- 	/*
- 	 * Mark the vstate as clean prior performing the actual copy,
- 	 * to avoid getting the vstate incorrectly clobbered by the
--	 *  discarded vector state.
-+	 * discarded vector state.
-+	 *
-+	 * This also allows user to modify vregs through the signal
-+	 * interface at a syscall stop. e.g. to support user space
-+	 * context switching.
- 	 */
- 	riscv_v_vstate_set_restore(current, regs);
-+	__riscv_v_vstate_clean(regs);
- 
- 	/* Copy everything of __sc_riscv_v_state except datap. */
- 	err = __copy_from_user(&current->thread.vstate, &state->v_state,
-diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-index 4eef51f6d432..6fd541f5d5cb 100644
---- a/arch/riscv/kernel/vector.c
-+++ b/arch/riscv/kernel/vector.c
-@@ -29,6 +29,43 @@ static struct kmem_cache *riscv_v_kernel_cachep;
- unsigned long riscv_v_vsize __read_mostly;
- EXPORT_SYMBOL_GPL(riscv_v_vsize);
- 
-+/*
-+ * Context memory is not coherent to register when sstatus.vs is set to INITIAL. This function
-+ * take the INITIAL state into consideration and reflect the nulled state into context memory.
-+ * Assume the target task is not actively running when tsk != current
-+ */
-+void riscv_v_ucontext_save(struct task_struct *tsk)
++#define V_TEST_PATTERN_SIGNAL 0x98
++int nulled_val;
++static void sigalrm_handler(int sig, siginfo_t *info, void *vcontext)
 +{
-+	struct __riscv_v_ext_state *vstate = &tsk->thread.vstate;
-+	struct pt_regs *regs = task_pt_regs(tsk);
++	ucontext_t *context = vcontext;
++	struct __riscv_extra_ext_header *ext;
++	struct __riscv_ctx_hdr *hdr;
++	uint8_t *ext_ptr;
 +
-+	/*
-+	 * Do not set vstate as clean when it is INITIAL, otherwise we lose track of the nulled
-+	 * state in ptrace.
-+	 */
-+	if (tsk == current) {
-+		get_cpu_vector_context();
-+		if (__riscv_v_vstate_check(regs->status, INITIAL)) {
-+			riscv_v_enable();
-+			__riscv_v_vstate_discard();
-+			__riscv_v_vstate_save(vstate, vstate->datap);
-+			riscv_v_disable();
-+		} else {
-+			riscv_v_vstate_save(vstate, regs);
++	/* Find the vector context */
++	ext = (void *)(&context->uc_mcontext.__fpregs);
++	ext_ptr = (uint8_t *)ext;
++	hdr = &ext->hdr;
++
++	while (hdr->magic != END_MAGIC) {
++		if (hdr->magic == RISCV_V_MAGIC) {
++			struct __riscv_v_ext_state *v_state = (struct __riscv_v_ext_state *)(hdr + 1);
++			/* Assume a valid datap */
++			nulled_val = *(int *)v_state->datap;
++			/* Fill all vector registers with magic pattern */
++			memset(v_state->datap, V_TEST_PATTERN_SIGNAL, v_state->vlenb * 32);
++			/*
++			 * We must also set the vector configuration so that when
++			 * userspace reads v0, it uses a valid element width (e8).
++			 */
++			v_state->vl = v_state->vlenb;
++			v_state->vtype = 0; /* e8, m1, tu, mu */
++			break;
 +		}
-+		put_cpu_vector_context();
-+	} else if (__riscv_v_vstate_check(regs->status, INITIAL)) {
-+		/*
-+		 * If we are not current and VS == INITIAL, null out the context memory for tsk
-+		 * using kernel mode vector.
-+		 */
-+		kernel_vector_begin();
-+		__riscv_v_vstate_discard();
-+		__riscv_v_vstate_save(vstate, vstate->datap);
-+		kernel_vector_end();
++		/* Move to the next extension header */
++		ext_ptr += hdr->size;
++		hdr = (struct __riscv_ctx_hdr *)ext_ptr;
 +	}
 +}
 +
- int riscv_v_setup_vsize(void)
++TEST(test_signal_syscall_ucontext) {
++	struct sigaction sa;
++
++	/* Make sure we get V in ucontext by executing vsetvli */
++	asm volatile (
++	    ".option push\n\t"
++	    ".option		arch, +v\n\t"
++	    "vsetivli	x0, 1, e32, m1, ta, ma\n\t"
++	    ".option pop\n\t" : : :);
++
++	sa.sa_flags = SA_SIGINFO;
++	sa.sa_sigaction = sigalrm_handler;
++	sigemptyset(&sa.sa_mask);
++	if (sigaction(SIGALRM, &sa, NULL) == -1)
++		ksft_exit_fail_msg("Failed to register signal handler\n");
++
++	raise(SIGALRM);
++	/*
++	 * If the kernel successfully parsed and restored our modified ucontext,
++	 * v0 will contain V_TEST_PATTERN_SIGNAL.
++	 */
++	unsigned char v0_val;
++
++	asm volatile(
++			".option push\n\t"
++			".option arch, +zve32x\n\t"
++			"vmv.x.s %0, v0\n\t"
++			".option pop\n\t"
++			: "=r" (v0_val)
++		    );
++
++	EXPECT_EQ(v0_val, V_TEST_PATTERN_SIGNAL);
++	EXPECT_EQ(nulled_val, -1);
++}
++
+ TEST(vector_restore)
  {
- 	unsigned long this_vsize;
+ 	int result;
+diff --git a/tools/testing/selftests/riscv/vector/vstate_ptrace.c b/tools/testing/selftests/riscv/vector/vstate_ptrace.c
+index 1479abc0c9cb..863a16f6e1a3 100644
+--- a/tools/testing/selftests/riscv/vector/vstate_ptrace.c
++++ b/tools/testing/selftests/riscv/vector/vstate_ptrace.c
+@@ -21,6 +21,41 @@ static long do_ptrace(enum __ptrace_request op, pid_t pid, long type, size_t siz
+ 	return ptrace(op, pid, type, &v_iovec);
+ }
+ 
++static int do_child_syscall_stop(void)
++{
++	int out;
++
++	if (ptrace(PTRACE_TRACEME, -1, NULL, NULL)) {
++		ksft_perror("PTRACE_TRACEME failed\n");
++		return EXIT_FAILURE;
++	}
++
++	raise(SIGSTOP);
++
++	asm volatile (".option push\n\t"
++		".option	arch, +v\n\t"
++		"vsetivli	x0, 1, e32, m1, ta, ma\n\t"
++		"vmv.s.x	v31, %[in]\n\t"
++		".option pop\n\t"
++		:
++		: [in] "r" (child_set_val));
++
++	getpid();
++
++	asm volatile (".option push\n\t"
++		".option	arch, +v\n\t"
++		"vsetivli	x0, 1, e32, m1, ta, ma\n\t"
++		"vmv.x.s	%[out], v31\n\t"
++		".option pop\n\t"
++		: [out] "=r" (out)
++		:);
++
++	if (out != -1)
++		return EXIT_FAILURE;
++
++	return EXIT_SUCCESS;
++}
++
+ static int do_child(void)
+ {
+ 	int out;
+@@ -59,7 +94,7 @@ static void do_parent(pid_t child)
+ 			goto out;
+ 		} else if (WIFSTOPPED(status) && (WSTOPSIG(status) == SIGTRAP)) {
+ 			size_t size;
+-			void *data, *v31;
++			void *vctx, *v31;
+ 			struct __riscv_v_regset_state *v_regset_hdr;
+ 			struct user_regs_struct *gpreg;
+ 
+@@ -73,9 +108,11 @@ static void do_parent(pid_t child)
+ 				goto out;
+ 
+ 			ksft_print_msg("vlenb %ld\n", v_regset_hdr->vlenb);
+-			data = realloc(data, size + v_regset_hdr->vlenb * 32);
+-			if (!data)
++			vctx = realloc(data, size + v_regset_hdr->vlenb * 32);
++			if (!vctx)
+ 				goto out;
++			data = vctx;
++
+ 			v_regset_hdr = (struct __riscv_v_regset_state *)data;
+ 			v31 = (void *)(data + size + v_regset_hdr->vlenb * 31);
+ 			size += v_regset_hdr->vlenb * 32;
+@@ -109,11 +146,65 @@ static void do_parent(pid_t child)
+ 	free(data);
+ }
+ 
++static void do_parent_syscall_stop(pid_t child)
++{
++	int status;
++	void *data = NULL;
++
++	while (waitpid(child, &status, 0)) {
++		if (WIFEXITED(status)) {
++			ksft_test_result(WEXITSTATUS(status) == 0,
++					 "SETREGSET vector at syscall stop\n");
++			goto out;
++		} else if (WIFSTOPPED(status) && (WSTOPSIG(status) == SIGSTOP)) {
++			/* Attach to the child at syscall stop */
++			ptrace(PTRACE_SYSCALL, child, NULL, NULL);
++			continue;
++		} else if (WIFSTOPPED(status) && (WSTOPSIG(status) == SIGTRAP)) {
++			size_t size;
++			void *vctx, *v31;
++			struct __riscv_v_regset_state *v_regset_hdr;
++
++			size = sizeof(*v_regset_hdr);
++			data = malloc(size);
++			if (!data)
++				goto out;
++			v_regset_hdr = (struct __riscv_v_regset_state *)data;
++
++			if (do_ptrace(PTRACE_GETREGSET, child, NT_RISCV_VECTOR, size, data))
++				goto out;
++
++			ksft_print_msg("vlenb %ld\n", v_regset_hdr->vlenb);
++			vctx = realloc(data, size + v_regset_hdr->vlenb * 32);
++			if (!vctx)
++				goto out;
++			data = vctx;
++
++			v_regset_hdr = (struct __riscv_v_regset_state *)data;
++			v31 = (void *)(data + size + v_regset_hdr->vlenb * 31);
++			size += v_regset_hdr->vlenb * 32;
++
++			if (do_ptrace(PTRACE_GETREGSET, child, NT_RISCV_VECTOR, size, data))
++				goto out;
++
++			ksft_test_result(*(int *)v31 == -1, "GETREGSET vector at syscall stop\n");
++
++			*(int *)v31 = parent_set_val;
++			if (do_ptrace(PTRACE_SETREGSET, child, NT_RISCV_VECTOR, size, data))
++				goto out;
++		}
++		ptrace(PTRACE_CONT, child, NULL, NULL);
++	}
++
++out:
++	free(data);
++}
++
+ int main(void)
+ {
+ 	pid_t child;
+ 
+-	ksft_set_plan(2);
++	ksft_set_plan(4);
+ 	if (!is_vector_supported() && !is_xtheadvector_supported())
+ 		ksft_exit_skip("Vector not supported\n");
+ 
+@@ -130,5 +221,17 @@ int main(void)
+ 
+ 	do_parent(child);
+ 
++	parent_set_val = 0x53355457;
++	child_set_val = 0x49504F21;
++
++	child = fork();
++	if (child < 0)
++		ksft_exit_fail_msg("Fork failed %d\n", child);
++
++	if (!child)
++		return do_child_syscall_stop();
++
++	do_parent_syscall_stop(child);
++
+ 	ksft_finished();
+ }
 -- 
 2.43.0
 
