@@ -4,87 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91BF3C5AD55
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 03:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A1AC5AD4E
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Aug 2026 05:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KyutAhshDexDxuwKmbaUJEj13I95FBMKv0IgzfavKcU=; b=VtXMvPwcldSOPJ
-	IHVVQ2NNlSP430qKERAijtyVqVUpVrawWiifNQrB5AxKHK0JiFolCt8DsbevRMXfcKmT/u2LGewu6
-	n1SFxvGIKolwpyNxzpbTVsYyeSvGsNr6WLcqLyeLKxZ+vkuMY7izRbydavAHegE4OeSIKdexa3VgU
-	FjoBT8PY2GTlD8p+9wahAvxOmVLw2XffgKFTT/xidnSGFJpbigMjFJPJwkIcBL1f+2MB/hHwmaoZP
-	H/4YqGOK5pCrdTUKACw3px77fFBAjNbOcaw9qUZ4sw+6sxEImtEvQLSCu+qzVbEAdol+xg7fZ6xeO
-	PnpzOhx3Cj4+AhnhyiHw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ph/wGkeO7uuAKX853Rgge7e5SPBeN1t/OkmNf1kAoSw=; b=qmUDi0kSrkyU2U
+	QHE/93D0r9ZOxWWLgCwvXo9ygbtSFwd1W2LeN0zA816d5CNpcMcgykXjF99DJWqmRmyrChu0vK+X1
+	6lKwlOLq7j/XeeWStlu51p4WVlQcYF8wxMlp0WBj0oECoDxnxhManfECJr9MuVXMZVUeCTUViMwpd
+	KyJxxnVRn5SBljmZuDKbZW6eS+y7v1y4NbRjzEnwhnyYYQdzq1BdsPSocsJOEqHlgDl0Cl9Wrzflk
+	RSGGheE4FL62nKyqQMRjT4payafVW8eIMxVe12yojL7Q39JlZDRDqXqn8RKPAzYtKzOnD5YoAovwI
+	FexCskH5LRLi+hhVKIGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtGTT-0000000Awwt-2coD;
-	Mon, 10 Aug 2026 03:14:51 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtGTQ-0000000Awwb-3Mwe
+	id 1wtIMt-0000000B20E-3jrO;
+	Mon, 10 Aug 2026 05:16:12 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtIMq-0000000B1ym-0X5i
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Aug 2026 03:14:49 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c9fe3c9bd5fso2533140a12.0
-        for <linux-riscv@lists.infradead.org>; Sun, 09 Aug 2026 20:14:48 -0700 (PDT)
+	Mon, 10 Aug 2026 05:16:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786331687; x=1786936487; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=P2U/NertvaThR7gO4CsqMLm8+RSS4kDRYQ7JnB/WYh4=;
-        b=qPWfNqEtO155twy6LZSNbP0yy1qBGntBJXb+EpPZyh4TrOfNDFbuwSo+b53ujXs0PU
-         fzOL87NulfyR+eS6QGpFQCtMLdSXejVKsADt2aWaZ/T4hOq7a8ltki9mgDeIC45k3sKq
-         6yFk2+4GxMDsEPtxhN4gsKDEyT6WmXFEX2ZyP7Wz6nTT6CZut5HE14TbJJ7a0eabr51S
-         gr7lEiF7gxnItdvjMibQLn9axFQvFnlsItIVu/+6aWibFjE7gdiPp0++yzjzYIIt1hl6
-         h4i8c0R2yoxf7QRWcOyB8mE3ZlVAi8kWHG/Uf4dWMUACaoho5iar7ppnRguvfukZSYBD
-         T9ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786331687; x=1786936487;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=P2U/NertvaThR7gO4CsqMLm8+RSS4kDRYQ7JnB/WYh4=;
-        b=Gf2f+y9YHY1YRKXwHRUG4A6OvUbAbppqtqeKK3gz2/e+w9vF8HLHfe0BsVnhavMINZ
-         CcRj/mpZDMukDluxetQnR0yJ769KAN9gZwMCGywO8cOUlHzITxgnI2243OgqqDH4OucT
-         vA0mLKtdsE9LJXF/p45dktZEQ+7Pga3XP9O0bFEUZu40Cm2Ba1l19wJjuuHjYdanetNy
-         aiRGxnBza2ovd5IELqVcQjPFRifK/OIZZWj0uZAwot+Mseep+XCOFsKE9+w71+2aVuw7
-         Ba9SWyWb92eXRFLY7U/U8ztSB3WLsHLTj7Fcn4jB4HVNtNCR8T8e8AEXKxH9VZUniZ3I
-         bj8Q==
-X-Forwarded-Encrypted: i=1; AHgh+RrgN4G533qCVISfWRe417qa8iA/Uc8ffltfE4nYTWGdUDoT52uj/eZVi736r+UasVm01oAIRFq/JFBsOQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvABrGOnhpBmuKGpoATD4+jKSpEvBtKmgreHso/hwQuLV7oQSa
-	gIdV0e6M7djbOmloI/ZAmV5BUYb8tee/ENm175OGpQdTmlovRNm+zUxy
-X-Gm-Gg: AR+sD10/NKtCd5JskeUveHDyTqIrPsE2mqN4Z5E2uYjEX4teGPmRcFdvdKUnd3k+vpN
-	GqVfbeTtji91qqxJUE8oCYimkA2IScqTKXej4pJLbZBrDN2ohVxUknsPUUuNlJI07r1SuQN594U
-	xji+RlsWfJbe6sECPcI+IXH//zXQn8cxv0ejaVM3ODWioPnqBsDStVvkVEVe2e1y4sCNOcIfp3S
-	50Ls8DttpdTXJYqRReDzWViXU/5QU/l+ZaZzFpnAI5Xp81kKdQIZJJJk8LE2GZlcssOGWFYNEbu
-	5W2hdY8qC8Mkli+MYtDhdVLDyuj+ZCkIHOZkCuqA+++Y+aH5f0AEx6T+kM5GnC4yZIw9hqs/yi0
-	+r+9eaZ+wGCcC3neeboCDRniIx1hmdbxymSPIWRU49eUt8u9Ck8XUZ7dwE3Uw1x4YuCV4Hmhtyh
-	3tC3qTScFIPEdXz7iV+QtQLcVYwb5bIhsjlxXakyV+EulCO6C7jscMWgx7DMlw
-X-Received: by 2002:a05:6a21:9d48:b0:3a2:c9a1:2c26 with SMTP id adf61e73a8af0-3cbd38d82e2mr16885494637.7.1786331687533;
-        Sun, 09 Aug 2026 20:14:47 -0700 (PDT)
-Received: from HP-Note-Host.. ([1.240.172.25])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-cbe8f37469esm3093843a12.23.2026.08.09.20.14.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 20:14:47 -0700 (PDT)
-From: JaeJoon Jung <rgbi3307@gmail.com>
-To: bjorn.topel@gmail.com
-Cc: JaeJoon Jung <rgbi3307@gmail.com>,
-	rgbi3307@nate.com,
-	luke.r.nels@gmail.com,
-	xi.wang@gmail.com,
+	d=ultrarisc.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=g95oLQ7SjtKtG4RhAvYdPm09Nh5QYF1WOB
+	P8Wpo/53k=; b=ZUyjzbZs9TcsgeyNyOg41AbkvXkCbKveLm1pTtKb8lR/PPsvgb
+	OWd5jpLvAL4t4VW7effhrJD3kqcFvt8lwjgIjqpvB8kgcJHPyAlrGMpJUhKGQwOk
+	p4ZYkqKFpXZIa3Ld3pq53BbGFdnZ9RoRbJ/HoMszXbytWJC6DNBd6cou8=
+Received: from ultrarisc.com (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwAnEkOZXnlq2JYWAA--.18693S4;
+	Mon, 10 Aug 2026 13:16:23 +0800 (CST)
+From: Xie Bo <xb@ultrarisc.com>
+To: Anup Patel <anup@brainfault.org>,
+	kvm-riscv@lists.infradead.org
+Cc: Atish Patra <atish.patra@linux.dev>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	kvm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: net: bpf: add bpf_jit_supports_private_stack()
-Date: Mon, 10 Aug 2026 12:14:11 +0900
-Message-ID: <20260810031418.95364-1-rgbi3307@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-kernel@vger.kernel.org,
+	Xie Bo <xb@ultrarisc.com>,
+	stable@vger.kernel.org
+Subject: [RESEND PATCH 2/2] RISC-V: KVM: Propagate interrupted G-stage faults
+Date: Mon, 10 Aug 2026 13:15:44 +0800
+Message-Id: <20260810051544.3953925-3-xb@ultrarisc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260810051544.3953925-1-xb@ultrarisc.com>
+References: <20260810051544.3953925-1-xb@ultrarisc.com>
 MIME-Version: 1.0
+X-CM-TRANSID: AQAAfwAnEkOZXnlq2JYWAA--.18693S4
+X-Coremail-Antispam: 1UD129KBjvJXoW7CFyDZFWUAF15GFyDur47XFb_yoW8XFyfpF
+	W7Cwn5Z3yFgr17K347tw4kur4Y9an0grnxurs8Zay5Xr45tFyj9wn5W347ZF15Gr1rXayS
+	gryruFy5uwn5A3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
+	ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AI
+	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
+	vE14v26r126r1DMcIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
+	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
+	v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVCm-wCF04k20xvY0x0EwIxGrwCFx2IqxVCF
+	s4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
+	1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
+	JVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r
+	1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1U
+	YxBIdaVFxhVjvjDU0xZFpf9x0JUqYL9UUUUU=
+X-CM-SenderInfo: l0e63zxwud2x1vfou0bp/1tbiAQAMB2p1VlUAFAAQsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_201448_862829_05B7B69C 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260809_221608_868496_ABAB10B5 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,51 +96,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The bpf_jit_supports_private_stack() function is defined with the __weak
-attribute in kernel/bpf/core.c as shown below, and returns false.
+__kvm_faultin_pfn() reports an interrupted host page fault with
+KVM_PFN_ERR_SIGPENDING. RISC-V currently handles it as a generic error PFN
+and returns -EFAULT.
 
-include/linux/filter.h:1191:bool bpf_jit_supports_private_stack(void);
-kernel/bpf/core.c:3381:bool __weak bpf_jit_supports_private_stack(void)
+Return -EINTR for the signal-pending sentinel so callers can distinguish
+an interrupted fault from an invalid userspace mapping. Do not log the
+expected interruption as a vCPU exit error.
 
-However, if this function is not defined in the corresponding architecture to
-return true, an error occurs when loading BPF as follows, and it is not loaded.
-
-$ cd tools/sched_ext
-$ make
-$ sudo ./build/bin/scx_simple
-
-libbpf: prog 'simple_dispatch': BPF program load failed: -EACCES
-libbpf: prog 'simple_dispatch': -- BEGIN PROG LOAD LOG --
-Private stack not supported by jit
-
-arm64, powerpc, and x86 are defined as follows and return true.
-
-arch/arm64/net/bpf_jit_comp.c:2318:bool bpf_jit_supports_private_stack(void)
-arch/powerpc/net/bpf_jit_comp.c:530:bool bpf_jit_supports_private_stack(void)
-arch/x86/net/bpf_jit_comp.c:4111:bool bpf_jit_supports_private_stack(void)
-
-It seems that it should be defined in the same way in RISCV as well.
-
-Signed-off-by: JaeJoon Jung <rgbi3307@gmail.com>
+Fixes: 9d05c1fee837 ("RISC-V: KVM: Implement stage2 page table programming")
+Cc: stable@vger.kernel.org
+Signed-off-by: Xie Bo <xb@ultrarisc.com>
 ---
- arch/riscv/net/bpf_jit_comp64.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/riscv/kvm/mmu.c       | 2 ++
+ arch/riscv/kvm/vcpu_exit.c | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 8fe8969fb8a0..c3e8d91836f1 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -2171,3 +2171,8 @@ bool bpf_jit_supports_timed_may_goto(void)
- {
- 	return true;
- }
-+
-+bool bpf_jit_supports_private_stack(void)
-+{
-+        return true;
-+}
---
-2.43.0
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index d189fd5..3e955d8 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -708,6 +708,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 				vma_pageshift, current);
+ 		return 0;
+ 	}
++	if (is_sigpending_pfn(hfn))
++		return -EINTR;
+ 	if (is_error_noslot_pfn(hfn))
+ 		return -EFAULT;
+ 
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 88e0c36..8d36eb8 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -283,7 +283,7 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	}
+ 
+ 	/* Print details in-case of error */
+-	if (ret < 0) {
++	if (ret < 0 && ret != -EINTR) {
+ 		kvm_err("VCPU exit error %d\n", ret);
+ 		kvm_err("SEPC=0x%lx SSTATUS=0x%lx HSTATUS=0x%lx\n",
+ 			vcpu->arch.guest_context.sepc,
 
 
 _______________________________________________
