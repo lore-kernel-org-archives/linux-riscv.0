@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0179C5AC67
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 06:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC6DC5AC67
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 06:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TmIChx9kygnuiJL3Zugh3DKKuhbxTc+arA/mMv708fo=; b=vDWx1TNBfNWFpo
-	B5GpPMPLp7mBQ32UgBrCSrIhb4aEAvtEY/wCwDqxVwPWYSQVuoEozWQYc+I/bty6AJ0RihQemkOOk
-	QialfnHEHk7JYHBc4Q7PoElH0Bi/U3UOK8EiZC832EE/3Hduliu733xYfASaBZLGKUWK6ZMhIyA5d
-	XeSTscVrQ5FJ7yMMlzuSDx6Mxbc2qp9p3Fb9GAhRjApWQLbpTNnISBIuGh/hOkTkR9L1oE+H8OSEO
-	nXKw8X6kxaxEn7qqdFOks54odoZAhDEP4UzVG5lINz9id++00Ef4QN3ULvXPc+yDora2byuE3GInk
-	gnSC4WGRmFFHmzxqCP1g==;
+	List-Owner; bh=oKIXs6j7AHM7pNJc4RItJDCQtp+oAThb4lEXrx0UTSc=; b=zfwxkVSl3pPpSO
+	/wCde2OeCbQc/eiJrUrR/VOXh7ORwcYHsNsjkMSE7S7NNiTNq0SCBMYfGX/tC/Fv1acrd6cJnEd51
+	zn5ONWwcaJb4RGm332uB9Q5V27l6Gb0LOF9MvCaLGTbdQLxWreQtfWHEhfCJS3r3qaBYuPFpX2nng
+	cE03uw2ZjQcDWDJlAZZDP7VA/KbfAIdMQB5i+XB8E9SasXlTwxfqU0TuNuS4AHFl+BaZEhM0ySI33
+	/8InGey1EeXLwlYj3GWwhuK75KRJiOIX3ZrvluLCNqVcEBWukP0mvQcV8igcXSJTPc3GzarPdZ3g5
+	mVxIEaLoGS76mcWg2Aug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgGR-0000000DRtD-1JQw;
-	Tue, 11 Aug 2026 06:47:07 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wtgO6-0000000DSpg-1oYA;
+	Tue, 11 Aug 2026 06:55:02 +0000
+Received: from mail-pl1-f177.google.com ([209.85.214.177])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgGN-0000000DRpt-3KVk;
-	Tue, 11 Aug 2026 06:47:05 +0000
-X-UUID: 6c1ffac8955011f1aa26b74ffac11d73-20260811
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:9a85338c-678d-400a-9cd4-bfdf04068745,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:a1e2bc4faf5dd41e4fe73d5d993c1801,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|865|898,TC:nil,Content:0|15|50
-	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 6c1ffac8955011f1aa26b74ffac11d73-20260811
-X-User: liuxixin@kylinos.cn
-Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <liuxixin@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1551363430; Tue, 11 Aug 2026 14:46:46 +0800
-From: Xixin Liu <liuxixin@kylinos.cn>
-To: linux-riscv@lists.infradead.org
-Cc: atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
-Subject: [PATCH v2 1/1] perf: RISC-V: check cpu_hw_evt before dereference in overflow IRQ
-Date: Tue, 11 Aug 2026 11:51:00 +0800
-Message-ID: <fdd42c791752.v2.1786420235.git.liuxixin@kylinos.cn>
-In-Reply-To: <cover.v2.1786420235.git.liuxixin@kylinos.cn>
-References: <prp0001riscv.1786064390.git.liuxixin@kylinos.cn> <cover.v2.1786420235.git.liuxixin@kylinos.cn>
+	id 1wtgO3-0000000DSp2-3pvn
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Aug 2026 06:55:00 +0000
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2ced3386430so30684995ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 23:54:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786431299; x=1787036099;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=0iZRfAdzYvTsaTTh/J3ab87cNtJMKi7JiQC3Jqumorg=;
+        b=lcHfMvbkkj9gXpBj8guydYR5+LzyTHX/+BkdyZmJIsNeD/cn4Sql1Wr77bLng3R+9/
+         hjmaANJLGdRJHykWolPxOMHmorNEPNzA8KFhKBEms5zlt5huecAjtxFUpURZKRHa1zbc
+         I0gRLXAFY9bBHinKMp+fm5NOpSaysprhHNW/X8rSI91dfPQAs9jjey6aOzQlqQ6S8Xzc
+         CFSYz6CgnYiyy94YUBIfMe63ekuZrA3Vms2QlkN2cQnGOXlJUlJCiHdA3Z+DmoJnz/Sr
+         e4UX3BhCoZlHJkXTK5iA/B/kSuhYrgjTC7WrVIaWK48FzZIHyH+bGeARNskuSqamF3GB
+         XopQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rr1F8+cOkyzy6bqTT6aQsCMNOA+ikp8Oabofsvi9rFKR1dih1Si1Tn9HtMX5e1WVO83o7oj3JG5z0nCrA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0aOEXAiJn2GtatQ011CaKyf22L3V8Dks0A5dU1RYk29hf3iyH
+	NPc4YGHKB3NNaj/ktNnFk4uOKnwbpqlL9430h8XJCX4unq9dYD41Z9c1ETwCM4HQ
+X-Gm-Gg: AR+sD10yw3cYsWNoGWoNJHptf5g7Dlr9x87BYYxucVGBlEcqNd7VgM2U/BQSn/Bhi+7
+	H8JnWYyt/XB963HEBXZO0de2qXETBf2w6EGFeguxSgmA0ZskDyNSxKIZJv8hTamonjLOi2M1kv9
+	v2GJ77CBnNfIvSXoFzXkJhyRvp5t6iaa0bzHjlEG8zGWdxcd2Y6g+Rgb/wALPK7G0mrEhLv1coD
+	x8pG1r2BJ/hyAqMjol53BQlrZBdX7/5qGr9PiLIHc4F75U56o6R+U35OCDU1H24wq6wj4BvqXV0
+	0T6bUGPKm/r8NaAH8OsDLpp39EwTggfjoQ6HlwxRNww6dmfNFBbCcIaZY+Um7Ws6C1+BQJVjA2m
+	TdnKOZBFk3muBWLxR2jumbuumkjFoFeFUQAZ537ss0LqKBqKWL1vpFstfwmG7E1GJs/+eDLk9Um
+	FisFfiTSJeMRW7NEP6IzWRwcK9ThgJ/e6BKjtREsDdfPZBGaxfO0FE2Z1qjKHf8wv9HwXLr29Zj
+	dyNCiCbSRykWL2TATm1zpf97w4tBg==
+X-Received: by 2002:a17:902:f64a:b0:2ca:6d87:cda0 with SMTP id d9443c01a7336-2d3177c40c7mr16187635ad.6.1786431298688;
+        Mon, 10 Aug 2026 23:54:58 -0700 (PDT)
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com. [209.85.214.170])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d315f458casm2711375ad.33.2026.08.10.23.54.58
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Aug 2026 23:54:58 -0700 (PDT)
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2ce7d2adef4so36279545ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 23:54:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RozPmG5qeAUILnJEmRlcVErlTo2wqgywD+YAh8oz9ua3xOqaLj23L3BafIXWX/Rnt9DgKDGWBIE3e1XQw==@lists.infradead.org
+X-Received: by 2002:a05:6102:c4a:b0:738:ecd7:1984 with SMTP id
+ ada2fe7eead31-76b54a7a17fmr283026137.3.1786430995503; Mon, 10 Aug 2026
+ 23:49:55 -0700 (PDT)
 MIME-Version: 1.0
-X-Mailer: patches/scripts/send-local.py
+References: <20260811042119.3652929-1-anshuman.khandual@arm.com> <20260811042119.3652929-7-anshuman.khandual@arm.com>
+In-Reply-To: <20260811042119.3652929-7-anshuman.khandual@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 11 Aug 2026 08:49:43 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXfpkpYzZWGVb0fQrdn3uYHU3pyCkyAX9o2ux_Jj=2ByA@mail.gmail.com>
+X-Gm-Features: AUfX_mwgji-OqM2d70As4nCfmG84npBMa5IuhuEcV5XEKzcXYS3fe_Pqx16lD20
+Message-ID: <CAMuHMdXfpkpYzZWGVb0fQrdn3uYHU3pyCkyAX9o2ux_Jj=2ByA@mail.gmail.com>
+Subject: Re: [RFC V2 6/6] mm: Drop pxd_ERROR()
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-mm@kvack.org, akpm@linux-foundation.org, david@kernel.org, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_234704_163719_861831FC 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20260810_235459_954015_F601BAC0 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +108,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The overflow IRQ handler dereferences cpu_hw_evt before the null check.
-Move the check first. Defensive only; the cookie is valid on the normal
-path today.
+Hi Anshuman,
 
-Fixes: a8625217a054 ("drivers/perf: riscv: Implement SBI PMU snapshot function")
-Assisted-by: DeepSeek:deepseek-v3
-Signed-off-by: Xixin Liu <liuxixin@kylinos.cn>
----
- drivers/perf/riscv_pmu_sbi.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Thanks for your patch!
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index dfc886dee5ad..f0dd9d2645b4 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -1050,11 +1050,13 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 	u64 overflowed_ctrs = 0;
- 	struct cpu_hw_events *cpu_hw_evt = dev;
- 	u64 start_clock = sched_clock();
--	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
-+	struct riscv_pmu_snapshot_data *sdata;
- 
- 	if (WARN_ON_ONCE(!cpu_hw_evt))
- 		return IRQ_NONE;
- 
-+	sdata = cpu_hw_evt->snapshot_addr;
-+
- 	/* Firmware counter don't support overflow yet */
- 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
- 	if (fidx == RISCV_MAX_COUNTERS) {
+On Tue, 11 Aug 2026 at 06:22, Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+> pxd_ERROR() has been used in generic mm just to print the page table entry
+> in pxd_clear_bad() before clearing those out with pxd_clear() later. These
+> pxd_ERROR() macros have been provided by all platforms which basically did
+> the same thing.
+>
+> Make pxd_clear_bad() use recently added ptval_to_str() instead for printing
+> page table entries thus completely dropping dependency on platform provided
+> pxd_ERROR() macros which can then be dropped off. First move all required
+> helpers in core MM into a header file which could then be used else where.
+
+Oh, the "x" in "pxd" is a wildcard?
+Except that is not, as it does not match "pte" ;-)
+
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+
+>  arch/m68k/include/asm/mcf_pgtable.h           |  6 ---
+>  arch/m68k/include/asm/motorola_pgtable.h      |  8 ----
+>  arch/m68k/include/asm/sun3_pgtable.h          |  7 ----
+
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.43.0
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
