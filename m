@@ -4,92 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D137C5AD55
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 05:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF77CC5AD55
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 05:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dbrATiJH4C2yOJJ6StuM2MnWtQXPg93Y6pcdL3J8lKU=; b=HIvk+wgdRhCRfP
-	N3PTu4FJ2dBjXdINvKb0p9xJDvLIfM3R5jsbpnkN3kZs4wiN2PY0Fn9Qm+B0HvLGTco//B60++eL9
-	a3LLZIWNZ7E02PRQVc2LtBTPYCAKhxXvUqsncsANxxli7+xktgmQOiLcqUVtXgQpYZAo76siek03v
-	n9YGrblErdikRqSNN8tWPurqbB7ucqyLYHb+mOmtSsnve9BtdSnO45b0eV1eqJHBf+q3NjXl8CBgM
-	yUvWDZ8R1OTTfwPG6pBIgIYMow2m4aVxWLMWDcR0HMaIVGVKS4N0QUN0neAmcDyIU5zBCUimox9SM
-	LStWffCQ/1yRTBlRAvTg==;
+	List-Owner; bh=N7+Ufry71lw41SlrE/DH6XwImKYWOZHp2N/SfXqGOHo=; b=ntJ6t0YUgMB9Ly
+	uycHoU3BOEK/cAjBqAb0fdPnj27XZNGAeeWfjKbipyQh4Rsdj2JjfmwvVc7+IBVT07GqQRWwRjm4m
+	3WIs6EL22Q5FUcQBIjP07zSDUcrO8+1O7zEZqhV/acGRTy6aZ5jCUGy5LHP1exQ75jfkILlCN6sNk
+	iTsLJ5c+E9qiLIvU42Gyib67PmMD8HP9/PKtPHifY2rHtHe//2f33AsYgBOGnHKkRekb0mezBqIW/
+	uGPp/+Tf3Tu0Y2i3XtONmLZmkXZl5mYUtOnFe/BDmm7fJwR8bC/z1x9gE1M5D3RoQ7WNrwbz6I9jx
+	uswhKHGLSMMTYbCgos1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtepX-0000000DJNv-0OVs;
-	Tue, 11 Aug 2026 05:15:16 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wtfPQ-0000000DLWj-1aT5;
+	Tue, 11 Aug 2026 05:52:20 +0000
+Received: from mail-bjschn02on2116.outbound.protection.partner.outlook.cn ([139.219.17.116] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtepR-0000000DJN7-1aiV
+	id 1wtfPN-0000000DLW7-1muH
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 05:15:13 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38dcbade417so451799a91.1
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 22:15:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1786425308; x=1787030108; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Nar3QBFMYGSVoBNp9egqiLjtAELBZbK1vM45Zqgvhzc=;
-        b=OgktepdGtFGhflrLF8QOFyYuMqK4jFcf5qqOFFivdhossTAA5HpO1pIBwTZCXS6ZaC
-         SuT3h+BiaDhuo5mnyevbANLpVLo85OymKO0maYNK+O351ddE6P5HCUC06B9H8jVdjjyC
-         fnH3O3NhkUKfjJupdIqiyFaITFSI6ht+onngBEUyYhf3ckmWmdeb0yRW6LZeKOCg+Gck
-         qpe4OHcFK/A6oDVrvMkzPVWqyKlg2yKLAkG50+bgNwynVm7s2PUYKlvdG2T5iDeJ9QiT
-         geZZ9Qr2xkoK9BvUJuscGNHM1U43iTZFQB0YuR0HF820xKnt/BfwRLj+IytKLjgZEldG
-         Vvew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786425308; x=1787030108;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Nar3QBFMYGSVoBNp9egqiLjtAELBZbK1vM45Zqgvhzc=;
-        b=Qk5br8xVlMqN4GM+Jd+C9XBwIKPifKVTCZpvgxOVjrc0rRpmuDKnW4MrHvWeL71RWd
-         gOOHTZtcsyTIXZt9gF2Mx1mrdtX1Mff9MoXTog8GHLKkPg6i19BOb/XxrtZ9VlHP7CBt
-         be2atGwXWKp514HtzxgalqY0f5dpWjSYVG13RUCGTSUBz/ceOMKlZXXB+ze/uW/oVBH3
-         o7VpppVzrO2abbeZ0MOm00U77V3ddivaRZft+1M6GnV7shlWOxvxYxFy+sDwRihP5kHk
-         Sn55LveFvu021ZqfNgiYHjObXqXsYzqQz2JRVwhqy8lz/DXR7/ApPhVexAcqYymWcbSo
-         fZQA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp8rq0V3/HecMtpk5vDZlGYaMvo+7CY5aYgZhaKpP5K3LI/EGtKzzuHIa2J/C922/IOwgL4eckGjrryqw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3DMUUrt75R/XredMatjX23+0ww2GFgR5Lv+FCUts6Q0lY6xqP
-	sDEoLrH+bd82FvXRVdOMJZHXQpoAiOqvuGxvRZlrBSwepr3MI5KRjZ6whz3PEZuldUo=
-X-Gm-Gg: AR+sD12HGSorBlZkRfjx9I1IZ7d4yq5aBtdxnAGCsOqzSZcKWh/cqXxxeU00zN+jtys
-	srSYA1njhgYeT6x5sBRbBm0cZ/8K4bF2lfdXyNhpNEwu/Ozv+aqtHniEeiaF0vOkoOpPkLHrwsW
-	xXde7OteXykfq3HXt+hop9Cu8140JRK6rRGW2q/wPncO/xg4IPrpgb/f0oHr4P7eSl3XjEP63ob
-	zpnJK5cVyInBOPn3TTIzblwyD+q1rxYUFWM6+IzLw801Uw8Sx6dbIW2cpMVt339UCX9kBS7Clvx
-	XspBK/VvAeHau8+T8B/svgaloTATi7jturFF6azLX6rzuXZH2pGf0Ks8+hNyssdH8qlSPSuvFDE
-	2Pm6hRCIh2x/4TvBbNW6VreBnj6pAo7zfvl3OClZjlLUtvNpF02CKBiG5HlmMtKzNA2bPfx4nWi
-	2nUG5nvsPd6cZtn2wU0EVFCsw0zonnGpTL1CXivA2/Fjn77OZqLUxsH3jd6/nKSI2ixhrxYVFqJ
-	q/utUOypEWihpHggKEDOLP/XNTbbLpxsIoPHH8=
-X-Received: by 2002:a17:90b:274b:b0:380:83fc:4315 with SMTP id 98e67ed59e1d1-392ec71cae0mr737686a91.21.1786425308534;
-        Mon, 10 Aug 2026 22:15:08 -0700 (PDT)
-Received: from localhost (61-222-153-199.hinet-ip.hinet.net. [61.222.153.199])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392d537d905sm1950413a91.14.2026.08.10.22.15.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 22:15:07 -0700 (PDT)
-Date: Tue, 11 Aug 2026 13:15:05 +0800
-From: Andy Chiu <tchiu@tenstorrent.com>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] riscv: vector: preserve state when scheduling at nonzero
- depth
-Message-ID: <anqv2bWIvgIyhGxe@Tao-Chiu's-Mac>
-References: <20260806193241.10552-1-kmehltretter@gmail.com>
+	Tue, 11 Aug 2026 05:52:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=nwNHjl3SSBbOlaHs/IijuV+Ie51nqqC/KtIh7SQ5ndWJ0VMDC1eIudQnGomaVs00UARUV/r+tcEaQKN9J0HIrW4/ux29puilO+DyytKowrDs06vcl7AV4VIpQAfrv+0WveWTG2ZF8tXJSqL4pcsn97a8nl2qGILlracncT6NYYhK0H3Q08vmBGBHu4xHIy4wTjCr3KCA96CKfaVP7oNoKHbmxI+jT1TxtafzgEoNWofe+Aqb96K7K8/lrqQcUUKi5eSyo3qwNlBflu9lVSpQf3sDKyt3ZcIGHqgFe1PBfIcdwuRnWJ6maLY1HIEd1wpZOkuObPHnRSkIeP/F1jGJng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UtfH2KBQe/N6vJ5BppW2aWG7DmaZB8dDPCLawfcBzjo=;
+ b=dKunCBs4zhmnyUEJbBCgOn7XrZrVrK3cblVLU8OjWEcvol5GH/pt96uCu3o8RN5Nah798OJ2kAYRipAJ2NaqALlU8Y14OU6yiuXNbBf64bNUcqcX/tJj9eiLHy+Ph9u4FjaeCCdt04eAjnm4twv0FXJELIkPs8r+OUX+qVYA5d9F5ineB1rLEIjLcKBc0cvQ/FGnNe03IQNYWAIU/1arTJnfh0D/IK6mVbdKK+Rr0JUtxPo6fqHusixXpc7MHIvxzXb1MLNCFSrr7cWn3QrGyOaXlww6UTsOfWrEAReTT6OsOxp29WhNPI8UJRmou2kBDEMmQgJOyiBfxG4MDig9BQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1329.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:16::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Tue, 11 Aug
+ 2026 05:36:19 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0292.024; Tue, 11 Aug 2026 05:36:19 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Michael Turquette <mturquette@baylibre.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
+	<bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+	<alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing
+	<kernel@esmil.dk>, Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
+	<inochiama@gmail.com>, Alexey Charkov <alchark@gmail.com>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Keguang Zhang
+	<keguang.zhang@gmail.com>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v4 7/8] soc: starfive: Add socinfo driver for JHB100 SoC
+Thread-Topic: [PATCH v4 7/8] soc: starfive: Add socinfo driver for JHB100 SoC
+Thread-Index: AQHdJ6GQ5ts+ksAe6k+ENksiQTa0y7aXdLuAgADirHA=
+Date: Tue, 11 Aug 2026 05:36:19 +0000
+Message-ID: <ZQ4PR01MB120276A1DA91FAC19C852F14F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260809015054.210577-1-changhuang.liang@starfivetech.com>
+ <20260809015054.210577-8-changhuang.liang@starfivetech.com>
+ <20260810-caress-rack-45615c8d9747@spud>
+In-Reply-To: <20260810-caress-rack-45615c8d9747@spud>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1329:EE_
+x-ms-office365-filtering-correlation-id: ed83ee85-b85a-445b-ca19-08def76a7877
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|22082099003|18002099003|56012099006|38070700021|4143699003|10067099003;
+x-microsoft-antispam-message-info: yA1KJl9+saGAev1GOzVvG+orrdBmfIt+uvG6BVzm41nxvYxcNGAtPk9Dmh1wflqI0zbIhAqh3WQm+nJRghDdDTdx25t00sY7V3r7BIccG9SV8tEOB6po1q2lHbrcqRLurpzEcKXYnvwW5z8zguaK2wtTIhC1ZZ141M7tWTTnE58hK0eojmBh9fz73TF6fld/80GrvuKK7zgEuuAOUV1NKMfZwCu6ktzonr0E9lvR7P11CanUMAvsNcd7032YQQtxcbBal/PS2Dys8c9tsUWFOSVngFEeKNbHRYZYcophxIYZwTNzX1hjRUxD8+7Ae+ctlSrAUMFlIOxPW2T+rywcXTXH6PTjdzXTNLNWuqicmTiU3ELn4XSUcbWWEvL8Ti5fovh+SPXQCzmDJMRwnVaX6sxWedn0DjjixS6OATZJn39yUIHCbdBeWcTu0BM1cPsHkmkcLA9qSJMTeSdOkF9tUcsyINu8XeHNKduKNDFFLLyjUpuBB2q8vUBa7ZQU1aNTiP4tTtxYRcVE3eg2v0pNjG2GOT5UWJGZS8LkvDYsCs3WiAS4h+/UnnMU8us5j/vQ
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(22082099003)(18002099003)(56012099006)(38070700021)(4143699003)(10067099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?w0XWyZaeWPPz0SaEfeEd6a+jn72EIW57UUJkyuVIM6omn+r6sp3eYmCu4cIo?=
+ =?us-ascii?Q?7/iFvThp3Jj033V3Lk9nTBAhmRdTa20oQ6vvHwJGsEWHqLSs/pllXSK0aJQM?=
+ =?us-ascii?Q?j9Y0RZ7gg+xPQyQUHzayIzhMouW+/QIDY60BK8TCQ3DY4zThUIpOWmr7EjS/?=
+ =?us-ascii?Q?AatEvqrQMU9en3GZBguJwv08O6jx337Fll0W0wbT0pikelgC5n+KkT6ZZG6X?=
+ =?us-ascii?Q?plM0qhRDwnCeb7Dm1ABaSz0zvIMoXIzBppPcagme6zdnq7G81rWNTV9TWJCL?=
+ =?us-ascii?Q?DKbAoLuGpuSdFkDP9NaNkRn0n/0qdEjgdpPbH0kKGaIGHWaEwKFKR4/Ma617?=
+ =?us-ascii?Q?Jg4XeEY4YpdL3gchqSOAF+uE5YsxqzJQCcBcK9hGemqd2CVUs9aMSt6qZDS1?=
+ =?us-ascii?Q?c82VyL8lYGPJ/3kQ9HV64K8otZ36pOnRDpoRq8ZVykf4FqPhIQAe8Sa0IVlp?=
+ =?us-ascii?Q?Ed5ANFxcote1s9AQootkInwNCjgW/d+AbpxPZIOgLwaOUYjsw8kNF++uBDWj?=
+ =?us-ascii?Q?7w/c1vvl+B4ipnk7dr9L3gq0h+GjxEZhdifxWgqPXfDpz/lQp5aOcZ/UqdeV?=
+ =?us-ascii?Q?mhLJGbYFVvpEWH4kiCzAmWssqi4xD0FCsCaySmqLo3ypXhfPjcrzb+reN/N2?=
+ =?us-ascii?Q?aiEnmu21rdPPA4lc0f+nf0R/38Hz4rkFEge/RssjuuVsPM4+jIE7WrzPZmeY?=
+ =?us-ascii?Q?v1mQeA+HqhdTQZ5sNNzElTBx9s+SttUJs9phfP5U/u+Vrea1MeqiTYVURiA6?=
+ =?us-ascii?Q?J9J0E5YE8EvkJTSNinol9O0aNpz/sn7hUa0QAMaiTmTrfCELq+IBZZYhImIy?=
+ =?us-ascii?Q?Cj9WQCfMeFim/GjaXG8KUVTxQUnbMlOjtU0CE6liWWcuSnT/YOhDfW3qvuCa?=
+ =?us-ascii?Q?PbIx0O8QO/w420YNTspTjtgVQ43jsllxPLeor60ZYdqNtvZ2L0joGKuZJyHe?=
+ =?us-ascii?Q?tjeBhQhOs98bjiL1yTW7cB/bHT9yif9GA2AQ1ZOZR5rZNfSBKR70ShRj1GiJ?=
+ =?us-ascii?Q?mG2ffn11xn5hi3Hjgi4bRzM9Q+/FF2OJOGId6LSDCxsp7OhHC/41lT5ekKqf?=
+ =?us-ascii?Q?ZVMbIo1r70ST6VxBNgV/jbY3Ndfgx+oRqoorbKezU//SFP1XMwrsC/fXzXgz?=
+ =?us-ascii?Q?m47gQJyLLhyn8Vm6QMH2PwWemIcKxI/duZuv6VbjiUbAxR+Cfkp86PMbfCN/?=
+ =?us-ascii?Q?U7Cai+fNh8FjQHyc1GZcNirvr4lqd3ZYwTs7WW87+pHyZZX0ELQib3NWTbS6?=
+ =?us-ascii?Q?yq6Rb5lPPhVeaaWy9vU4LVLzUlGBk2MOkOJoOg8w34X/eKosvWBtGkIQRQAK?=
+ =?us-ascii?Q?n6Ne7q3J97QVn3wNJKoscFGFTgGGHRfHaT5M2d/6CZXiqIfWlU1rS2Pzp6Tf?=
+ =?us-ascii?Q?g1jaZdxsTJXFReVRfXGUnSPYrc8DJpBbNVOCGWdpQyoP6ob/26s6mbdFt7eF?=
+ =?us-ascii?Q?+2hopCC6XD7meHHBMDddYqlybDG+anAYkRPuJ/neBMCoWpdwdn1DEL3436kU?=
+ =?us-ascii?Q?o5FzndedSq1ni3DNUuduXWRH7E/KbsVdNXfcIQ1RN+zIUoteJDujxYYc1gPF?=
+ =?us-ascii?Q?ndH8KXC3Gz0bU5Wwn95AfdFvpHMq4qHONcuzAy8AaS9ZxPFAHeyKhWiD/dUw?=
+ =?us-ascii?Q?yrIQHkFAuD5gHWjMCKGeEdOLrEolaFlTxGNxazjPxtyrpnQGCEOYWjA/Es/F?=
+ =?us-ascii?Q?cRsgTWBmdSbMRPydZz66TeD2uyppu3E+H8d874yO9iIC5yqZnT1qxa6cFwgY?=
+ =?us-ascii?Q?PQRQcFk1E0xN5FWzMM3Yndy1vOnu5xo=3D?=
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260806193241.10552-1-kmehltretter@gmail.com>
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed83ee85-b85a-445b-ca19-08def76a7877
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Aug 2026 05:36:19.2714
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qkS+MQ8kQ+y5NS3EOKwOGiWECkTMCRk9+6ErTow4k6erovnD4JKqoLeXDMH0E8NbjHu7ulWRxPG1bNaceC7VyaSwp2vcgjvPLKz1CDvXnFzbRGky+jT3fKo5Ovx3HgJO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1329
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_221509_743881_4DE07569 
-X-CRM114-Status: GOOD (  35.11  )
+X-CRM114-CacheID: sfid-20260810_225217_637479_8142E2B7 
+X-CRM114-Status: GOOD (  27.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,275 +146,245 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Karl,
+Hi, Conor
 
-On Thu, Aug 06, 2026 at 09:32:41PM +0200, Karl Mehltretter wrote:
-> The IN_SCHEDULE shortcut lets __switch_to_vector() discard Vector state at
-> a voluntary schedule point, where Vector registers are caller-saved.
-> Switch-in can then enable Vector without restoring state.
-> 
-> An interrupt or fault can also schedule at nonzero Vector nesting depth.
-> This triggers:
-> 
->   WARNING: arch/riscv/include/asm/vector.h:376 at __schedule+0xfbc/0x10b4
-> 
-> The shortcut is then also taken on switch-in, so it skips NEED_RESTORE and
-> riscv_v_context_nesting_end() resumes with stale Vector registers. In the
-> vector usercopy loop, an interrupt between vsetvli and vle8.v/vse8.v can
-> therefore resume with another task's vl, vtype and vector registers. The
-> scalar loop state survives, so the copy can use the wrong vector length and
-> silently corrupt user data. A sleeping page fault in vectorized usercopy
-> can reach the same switch without CONFIG_PREEMPTION.
-> 
-> Use the shortcut only at depth zero. Nonzero-depth switches retain the
-> existing save and NEED_RESTORE protocol.
-> 
-> Fixes: d1049fc0de81 ("riscv: vector: Support calling schedule() for preemptible Vector")
-> Cc: stable@vger.kernel.org
-> Assisted-by: Codex:gpt-5.6-luna
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
-> Reproducer:
-> 
-> Originally caught by syzkaller fuzzing:
-> 
->   [   75.067010] ------------[ cut here ]------------
->   [   75.069361] WARNING: arch/riscv/include/asm/vector.h:376 at __schedule+0xfbc/0x10b4, CPU#1: syz.4.788/3533
->   [   75.072830] CPU: 1 UID: 0 PID: 3533 Comm: syz.4.788 Not tainted 7.2.0-rc5-g11f985de3fef #3 PREEMPTLAZY
->   [   75.075177] [<ffffffff810cb124>] __schedule+0xfbc/0x10b4
->   [   75.075572] [<ffffffff810cb41c>] preempt_schedule_irq+0x2a/0x76
->   [   75.075753] [<ffffffff810c6a06>] irqentry_exit+0x260/0xd48
->   [   75.075911] [<ffffffff810c666a>] do_irq+0x34/0x48
->   [   75.076076] [<ffffffff810d4f82>] handle_exception+0x146/0x174
->   [   75.076380] [<ffffffff810c5654>] loop+0x4/0x26
->   [   75.076505] [<ffffffff80749838>] copy_folio_from_iter_atomic+0x2d4/0xd64
->   [   75.078599] ---[ end trace 0000000000000000 ]---
-> 
-> The following standalone workload exercises the same vectorized usercopy
-> path. Build vector-stress.c into the initramfs and mount debugfs before
-> running it. The kernel used CONFIG_PREEMPT_LAZY=y,
-> CONFIG_RISCV_ISA_V_PREEMPTIVE=y and CONFIG_KCOV=y. Run it under QEMU TCG
-> with:
-> 
->   qemu-system-riscv64 -machine virt -cpu max -smp 1 -nographic \
->     -kernel arch/riscv/boot/Image -initrd vector-diag-small-memcheck.cpio.gz \
->     -append 'console=ttyS0 earlycon=sbi rdinit=/init'
-> 
-> The stress program checks every byte read back from the pipe. With this
-> patch, the workload completed with failures=0 and no Vector warning.
-> 
-> Testing:
->   checkpatch.pl --strict, git diff --check, Image builds with
->   CONFIG_RISCV_ISA_V_PREEMPTIVE=y and CONFIG_RISCV_ISA_V_PREEMPTIVE=n, and
->   QEMU TCG one-vCPU stress runs. The patched workload completed with
->   failures=0 and no warning.
-> 
-> No conflict with Andy Chiu's pending "riscv: optimize Vector context restore
-> on syscall" series; both apply independently.
-> 
-> vector-stress.c:
-> 
-> #define _GNU_SOURCE
-> 
-> #include <errno.h>
-> #include <fcntl.h>
-> #include <linux/kcov.h>
-> #include <pthread.h>
-> #include <sched.h>
-> #include <stdatomic.h>
-> #include <stdint.h>
-> #include <stdio.h>
-> #include <stdlib.h>
-> #include <string.h>
-> #include <sys/ioctl.h>
-> #include <sys/mman.h>
-> #include <sys/types.h>
-> #include <unistd.h>
-> 
-> #define WORKERS 4
-> #define ITERATIONS 2000
-> #define CHUNK (16 * 1024)
-> #define KCOV_ENTRIES (1 << 16)
-> #define KCOV_BYTES (KCOV_ENTRIES * sizeof(unsigned long))
-> 
-> static pthread_barrier_t start_barrier;
-> static atomic_int failures;
-> 
-> static int kcov_start(unsigned long **area, int *fd, int id)
-> {
-> 	unsigned long *map;
-> 	int kfd, saved_errno;
-> 
-> 	kfd = open("/sys/kernel/debug/kcov", O_RDWR);
-> 	if (kfd < 0) {
-> 		dprintf(STDERR_FILENO, "worker %d: KCOV open: %s\n", id,
-> 			strerror(errno));
-> 		return -1;
-> 	}
-> 	if (ioctl(kfd, KCOV_INIT_TRACE, KCOV_ENTRIES) < 0) {
-> 		dprintf(STDERR_FILENO, "worker %d: KCOV init: %s\n", id,
-> 			strerror(errno));
-> 		goto fail_close;
-> 	}
-> 	map = mmap(NULL, KCOV_BYTES,
-> 			PROT_READ | PROT_WRITE, MAP_SHARED, kfd, 0);
-> 	if (map == MAP_FAILED) {
-> 		dprintf(STDERR_FILENO, "worker %d: KCOV mmap: %s\n", id,
-> 			strerror(errno));
-> 		goto fail_close;
-> 	}
-> 	if (ioctl(kfd, KCOV_ENABLE, KCOV_TRACE_PC) < 0) {
-> 		dprintf(STDERR_FILENO, "worker %d: KCOV enable: %s\n", id,
-> 			strerror(errno));
-> 		saved_errno = errno;
-> 		munmap(map, KCOV_BYTES);
-> 		errno = saved_errno;
-> 		goto fail_close;
-> 	}
-> 	*area = map;
-> 	*fd = kfd;
-> 	return 0;
-> 
-> fail_close:
-> 	saved_errno = errno;
-> 	close(kfd);
-> 	errno = saved_errno;
-> 	return -1;
-> }
-> 
-> static void *worker(void *arg)
-> {
-> 	unsigned long *area;
-> 	unsigned char *buffer;
-> 	int pipefd[2], kfd, id = (int)(uintptr_t)arg;
-> 
-> 	if (kcov_start(&area, &kfd, id) < 0) {
-> 		atomic_fetch_add(&failures, 1);
-> 		return NULL;
-> 	}
-> 	if (pipe2(pipefd, O_CLOEXEC) < 0) {
-> 		dprintf(STDERR_FILENO, "worker %d: pipe failed: %s\n", id,
-> 			strerror(errno));
-> 		atomic_fetch_add(&failures, 1);
-> 		goto out_kcov;
-> 	}
-> 	buffer = aligned_alloc(64, CHUNK);
-> 	if (!buffer) {
-> 		dprintf(STDERR_FILENO, "worker %d: allocation failed: %s\n", id,
-> 			strerror(errno));
-> 		atomic_fetch_add(&failures, 1);
-> 		goto out_pipe;
-> 	}
-> 	memset(buffer, 0x30 + id, CHUNK);
-> 	pthread_barrier_wait(&start_barrier);
-> 
-> 	for (int i = 0; i < ITERATIONS; i++) {
-> 		size_t done = 0;
-> 
-> 		while (done < CHUNK) {
-> 			ssize_t n = write(pipefd[1], buffer + done, CHUNK - done);
-> 			if (n < 0 && errno == EINTR)
-> 				continue;
-> 			if (n <= 0) {
-> 				atomic_fetch_add(&failures, 1);
-> 				goto out_buffer;
-> 			}
-> 			done += n;
-> 		}
-> 		done = 0;
-> 		while (done < CHUNK) {
-> 			ssize_t n = read(pipefd[0], buffer + done, CHUNK - done);
-> 			if (n < 0 && errno == EINTR)
-> 				continue;
-> 			if (n <= 0) {
-> 				atomic_fetch_add(&failures, 1);
-> 				goto out_buffer;
-> 			}
-> 			done += n;
-> 		}
-> 		for (size_t j = 0; j < CHUNK; j++) {
-> 			if (buffer[j] != (unsigned char)(0x30 + id)) {
-> 				dprintf(STDERR_FILENO,
-> 					"worker %d: data mismatch at %zu\n", id, j);
-> 				atomic_fetch_add(&failures, 1);
-> 				goto out_buffer;
-> 			}
-> 		}
-> 		if ((i & 7) == 0)
-> 			sched_yield();
-> 	}
-> 
-> out_buffer:
-> 	free(buffer);
-> out_pipe:
-> 	close(pipefd[0]);
-> 	close(pipefd[1]);
-> out_kcov:
-> 	ioctl(kfd, KCOV_DISABLE, 0);
-> 	munmap(area, KCOV_BYTES);
-> 	close(kfd);
-> 	return NULL;
-> }
-> 
-> int main(void)
-> {
-> 	pthread_t threads[WORKERS];
-> 
-> 	pthread_barrier_init(&start_barrier, NULL, WORKERS);
-> 	for (int i = 0; i < WORKERS; i++)
-> 		if (pthread_create(&threads[i], NULL, worker, (void *)(uintptr_t)i))
-> 			atomic_fetch_add(&failures, 1);
-> 	for (int i = 0; i < WORKERS; i++)
-> 		pthread_join(threads[i], NULL);
-> 	pthread_barrier_destroy(&start_barrier);
-> 
-> 	printf("vector-stress complete failures=%d\n", atomic_load(&failures));
-> 	return atomic_load(&failures) ? 1 : 0;
-> }
+Thanks for the review.
 
-I cannot reproduce the WARN fail using the program here on a clean
-7.2-rc1. Could you provide the following information to help us track
-down the exact failure?
- - The original reproducer that syzkaller gives.
- - The upstream commit hash including applied series on your test branch,
-   preferably a link to your git tree.
+> On Sat, Aug 08, 2026 at 06:50:53PM -0700, Changhuang Liang wrote:
+> > Add socinfo driver for JHB100 SoC. Currently available for
+> > distinguishing between the two reversions, A0 and A1.
+> >
+> > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > ---
+> >  MAINTAINERS                                   |  6 ++
+> >  drivers/soc/Kconfig                           |  1 +
+> >  drivers/soc/Makefile                          |  1 +
+> >  drivers/soc/starfive/Kconfig                  |  6 ++
+> >  drivers/soc/starfive/Makefile                 |  2 +
+> >  drivers/soc/starfive/socinfo/Kconfig          | 11 +++
+> >  drivers/soc/starfive/socinfo/Makefile         |  2 +
+> >  drivers/soc/starfive/socinfo/jhb100-socinfo.c | 90
+> > +++++++++++++++++++
+> >  8 files changed, 119 insertions(+)
+> >  create mode 100644 drivers/soc/starfive/Kconfig  create mode 100644
+> > drivers/soc/starfive/Makefile  create mode 100644
+> > drivers/soc/starfive/socinfo/Kconfig
+> >  create mode 100644 drivers/soc/starfive/socinfo/Makefile
+> >  create mode 100644 drivers/soc/starfive/socinfo/jhb100-socinfo.c
+> >
+> > diff --git a/MAINTAINERS b/MAINTAINERS index
+> > cecb4f279160..90919c672d4d 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -26040,6 +26040,7 @@ M:	Conor Dooley <conor@kernel.org>
+> >  S:	Maintained
+> >  T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
+> >  F:	Documentation/devicetree/bindings/soc/starfive/
+> > +F:	drivers/soc/starfive/
+> >
+> >  STARFIVE STARLINK PMU DRIVER
+> >  M:	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>
+> > @@ -26094,6 +26095,11 @@ S:	Maintained
+> >  F:	drivers/reset/starfive/reset-starfive-jhb1*
+> >  F:	include/dt-bindings/reset/starfive,jhb1*.h
+> >
+> > +STARFIVE JHB100 SOCINFO DRIVER
+> > +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
+> > +S:	Maintained
+> > +F:	drivers/soc/starfive/socinfo/jhb100-socinfo.c
+> > +
+> >  STARFIVE JHB100 SYSCON
+> >  M:	Changhuang Liang <changhuang.liang@starfivetech.com>
+> >  S:	Maintained
+> > diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig index
+> > a2d65adffb80..b3b01fc38139 100644
+> > --- a/drivers/soc/Kconfig
+> > +++ b/drivers/soc/Kconfig
+> > @@ -24,6 +24,7 @@ source "drivers/soc/renesas/Kconfig"
+> >  source "drivers/soc/rockchip/Kconfig"
+> >  source "drivers/soc/samsung/Kconfig"
+> >  source "drivers/soc/sophgo/Kconfig"
+> > +source "drivers/soc/starfive/Kconfig"
+> >  source "drivers/soc/sunxi/Kconfig"
+> >  source "drivers/soc/tegra/Kconfig"
+> >  source "drivers/soc/ti/Kconfig"
+> > diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile index
+> > c9e689080ceb..009f85ff891a 100644
+> > --- a/drivers/soc/Makefile
+> > +++ b/drivers/soc/Makefile
+> > @@ -30,6 +30,7 @@ obj-y				+= renesas/
+> >  obj-y				+= rockchip/
+> >  obj-$(CONFIG_SOC_SAMSUNG)	+= samsung/
+> >  obj-y				+= sophgo/
+> > +obj-y				+= starfive/
+> >  obj-y				+= sunxi/
+> >  obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
+> >  obj-y				+= ti/
+> > diff --git a/drivers/soc/starfive/Kconfig
+> > b/drivers/soc/starfive/Kconfig new file mode 100644 index
+> > 000000000000..04b020083d3e
+> > --- /dev/null
+> > +++ b/drivers/soc/starfive/Kconfig
+> > @@ -0,0 +1,6 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only menu "StarFive SoC (System On
+> > +Chip) specific Drivers"
+> > +
+> > +source "drivers/soc/starfive/socinfo/Kconfig"
+> > +
+> > +endmenu
+> > diff --git a/drivers/soc/starfive/Makefile
+> > b/drivers/soc/starfive/Makefile new file mode 100644 index
+> > 000000000000..ca1e609b8104
+> > --- /dev/null
+> > +++ b/drivers/soc/starfive/Makefile
+> > @@ -0,0 +1,2 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only obj-y += socinfo/
+> > diff --git a/drivers/soc/starfive/socinfo/Kconfig
+> > b/drivers/soc/starfive/socinfo/Kconfig
+> > new file mode 100644
+> > index 000000000000..92bbab62895b
+> > --- /dev/null
+> > +++ b/drivers/soc/starfive/socinfo/Kconfig
+> > @@ -0,0 +1,11 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only
+> > +
+> > +config STARFIVE_JHB100_SOCINFO
+> > +	bool "StarFive JHB100 SoC Information"
+> > +	depends on ARCH_STARFIVE || COMPILE_TEST
+> > +	select SOC_BUS
+> > +	default y
+> > +	help
+> > +	  Include support for the SoC bus socinfo for the StarFive JHB100 SoC
+> > +	  platforms to provide information about the SoC family and variant
+> > +	  to user space.
+> > diff --git a/drivers/soc/starfive/socinfo/Makefile
+> > b/drivers/soc/starfive/socinfo/Makefile
+> > new file mode 100644
+> > index 000000000000..26c2bdf1de3b
+> > --- /dev/null
+> > +++ b/drivers/soc/starfive/socinfo/Makefile
+> > @@ -0,0 +1,2 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only
+> > +obj-$(CONFIG_STARFIVE_JHB100_SOCINFO)	+= jhb100-socinfo.o
+> > diff --git a/drivers/soc/starfive/socinfo/jhb100-socinfo.c
+> > b/drivers/soc/starfive/socinfo/jhb100-socinfo.c
+> > new file mode 100644
+> > index 000000000000..638f81ef174c
+> > --- /dev/null
+> > +++ b/drivers/soc/starfive/socinfo/jhb100-socinfo.c
+> > @@ -0,0 +1,90 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Copyright (C) 2025 StarFive Technology Co., Ltd.
+> > + *
+> > + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> > + */
+> > +
+> > +#define pr_fmt(fmt) "jhb100-socinfo: " fmt
+> > +
+> > +#include <linux/bitfield.h>
+> > +#include <linux/init.h>
+> > +#include <linux/mfd/syscon.h>
+> > +#include <linux/of.h>
+> > +#include <linux/regmap.h>
+> > +#include <linux/slab.h>
+> > +#include <linux/string.h>
+> > +#include <linux/sys_soc.h>
+> > +
+> > +#define JHB100_REV_ID			0x38
+> > +#define JHB100_REV_ID_CHAR		GENMASK(3, 2)
+> > +#define JHB100_REV_ID_NUM		GENMASK(1, 0)
+> > +
+> > +static int __init starfive_socinfo_init(void) {
+> > +	struct soc_device_attribute *attrs;
+> > +	struct soc_device *soc_dev;
+> > +	const char *machine = NULL;
+> > +	struct device_node *np;
+> > +	struct regmap *regmap;
+> > +	char rev_char;
+> > +	u32 rev_id;
+> > +	int ret;
+> > +
+> > +	np = of_find_compatible_node(NULL, NULL,
+> > +"starfive,jhb100-sys0-syscon");
+> 
+> Remind me again why this is not just probed as an mfd cell from the syscon
+> driver?
+> 
+> (Hint: please put this info in the commit message).
+
+The discussion result with Krzysztof at that time is recorded here: 
+https://lore.kernel.org/all/20260405-strong-watchful-marmot-fdfad6@quoll/
+
+One register should not be treated as a separate device node.
 
 > 
->  arch/riscv/include/asm/vector.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> Cheers
+> Conor.
 > 
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-> index 00cb9c0982b1a..1766bb7494d3b 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -372,8 +372,8 @@ static inline void __switch_to_vector(struct task_struct *prev,
->  	struct pt_regs *regs;
->  
->  	if (riscv_preempt_v_started(prev)) {
-> -		if (riscv_v_is_on()) {
-> -			WARN_ON(prev->thread.riscv_v_flags & RISCV_V_CTX_DEPTH_MASK);
-> +		if (riscv_v_is_on() &&
-> +		    !(prev->thread.riscv_v_flags & RISCV_V_CTX_DEPTH_MASK)) {
->  			riscv_v_disable();
->  			prev->thread.riscv_v_flags |= RISCV_PREEMPT_V_IN_SCHEDULE;
->  		}
+> > +	if (!of_device_is_available(np)) {
+> > +		of_node_put(np);
+> > +		return -ENODEV;
+> > +	}
+> > +
+> > +	regmap = syscon_node_to_regmap(np);
+> > +	if (IS_ERR(regmap)) {
+> > +		of_node_put(np);
+> > +		return PTR_ERR(regmap);
+> > +	}
+> > +
+> > +	ret = regmap_read(regmap, JHB100_REV_ID, &rev_id);
+> > +	if (ret) {
+> > +		of_node_put(np);
+> > +		return ret;
+> > +	}
+> > +
+> > +	of_node_put(np);
+> > +
+> > +	rev_char = (char)FIELD_GET(JHB100_REV_ID_CHAR, rev_id) + 'A';
+> > +	rev_id = (u32)FIELD_GET(JHB100_REV_ID_NUM, rev_id);
+> > +
+> > +	attrs = kzalloc_obj(*attrs);
+> > +	if (!attrs)
+> > +		return -ENOMEM;
+> > +
+> > +	np = of_find_node_by_path("/");
+> > +	of_property_read_string(np, "model", &machine);
+> > +	if (machine)
+> > +		attrs->machine = kstrdup(machine, GFP_KERNEL);
+> > +	of_node_put(np);
+> > +
+> > +	attrs->revision = kasprintf(GFP_KERNEL, "%c%u", rev_char, rev_id);
+> > +	if (!attrs->revision) {
+> > +		kfree(attrs->machine);
+> > +		kfree(attrs);
+> > +		return -ENOMEM;
+> > +	}
+> > +
+> > +	attrs->family = "JH";
+> > +	attrs->soc_id = "JHB100";
+> > +
+> > +	soc_dev = soc_device_register(attrs);
+> > +	if (IS_ERR(soc_dev)) {
+> > +		kfree(attrs->revision);
+> > +		kfree(attrs->machine);
+> > +		kfree(attrs);
+> > +		return PTR_ERR(soc_dev);
+> > +	}
+> > +
+> > +	pr_info("StarFive %s SoC rev(%s)\n", attrs->soc_id,
+> > +attrs->revision);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +subsys_initcall(starfive_socinfo_init);
+> > --
+> > 2.25.1
+> >
 
-In fact we don't need to check riscv_v_is_on() here, voluntary switch
-always happens at level 0. This change is included in the v5 series of
-optimizing vector syscall latency[1], which closes the usercopy
-corruption on v4 of a kvm fix from the other end. The v5 series
-provides a direct fix and have the behavior documented here [2].
-
-Since the problem only appears in the v4 series of the kvm fix,
-triggering this bug on the current upstream may indicate that there are
-some unclosed path that leads to the error. So it would be valuable if
-you could provide the exact reproducer and base for us to investagate.
-
-[1]: https://lore.kernel.org/all/20260810172255.1532787-2-tchiu@tenstorrent.com/
-[2]: https://lore.kernel.org/all/20260803215250.824417-4-tchiu@tenstorrent.com/
-
-Thanks,
-Andy
+Best Regards,
+Changhuang
 
 _______________________________________________
 linux-riscv mailing list
