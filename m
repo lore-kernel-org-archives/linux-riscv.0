@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18182C5CFC1
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 23:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53AF8C5AC67
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 23:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=G0ypWvscQGR2tne7796Jgw30ZPH2Mubj2H26TzhhGaU=; b=jkxrcdbEyAzLNe
-	ozR8n3lYzXdZznXnk2trIz7+Z6WWiYl1VOpSoQVNNGd+E5hpxaN1ZwpgvMv96jEnxcEM8vZNDbOJY
-	nQslBO8TebrUZBn0G1tYts3oluHGF6DKXMIi/vzBtTENBVu1CJ2mpcLqglT+lR6H3y94Iukm9GKtK
-	NYYfrXZ6t3ViY5gaYxeg7w4T/5OUzLAut3CNc/Q6iuOhC9RJyY1cbnuBoHUL0rEMPEpqZE4mmFdik
-	dMjJMJet3QlZ3P7CSf6zyseENj3K7DWV3aZV0ssFHQUFBB//yTOdJcUVMyAxB/ASOkIwD9Y1LeU3a
-	e61/Zu/jmS5FwC5ld+9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=A8lC7Ys0Eb5gfwPiGPMjp0IyEZInr+20LXl1Lx3anOA=; b=OOe5VNgLVRAtkv
+	CAAVaqeAXUe426p42T2yvqWvBNt4clv/o4UmVa5C0b52tX37zSMF6TMuC7wxAwc180WEklzSPfSj5
+	3pVUXaNvctGrIDeCGM6k5cB8pzgpISQtX81zGC8fSu1/wVQulmilQmrD+6Wd/J0u6MUah6E1NFX0Z
+	I13nnhnZtFvTqp7wetOz3F/XzNr7e3SDuSlj3l+VTFWn/zFCCSmmKWugXRqqxbgM2EIGm4NAUCGh5
+	w/NgfedOHeAblZGW3hxo1JvdnRqxZ4fir3EY17bdNT8oNmzGYSeWGNscdcLsKsShA6QKp1gEqF4Y9
+	yRqEcGtOKtWE2A7KWluQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtvVX-0000000F3dn-0pmv;
-	Tue, 11 Aug 2026 23:03:43 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1wtvVj-0000000F3iV-2JTS;
+	Tue, 11 Aug 2026 23:03:55 +0000
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtvVV-0000000F3cN-2Y5L
+	id 1wtvVh-0000000F3gm-2nKD
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 23:03:42 +0000
+	Tue, 11 Aug 2026 23:03:54 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1786489409;
+	t=1786489431;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=8UvpAj+F5vT5g4mqj62S8++wLHXXvTKlCPt/B/F/wRA=;
-	b=uhqDK676wfkne/SJg/zrMRXEuKOCSYL5QtpyKgvrDo0pT2IcJKOScNB6Dmfx/xf3WPo8SH
-	6f18T8GkU74//HaIFjg30nYvgx2HUPxgBLLYF9sln+zlLRBujxWy4Toy7aYHmFxjMqCaQC
-	z0RcgOXAHRHzBL7Qxh87wLjLX496R2I=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=B0gsK+RPMVbPdBplt1NaL9W65DIA5uhK1UuwwNS0HXY=;
+	b=vDgshGKEX7vyYjP47jciW6pM4KsjZCFm51w72WbPmdjHLIiUKn89xuTA16ycJkruA63PVN
+	4gnHxVCXbPHRVql09oH4kJJHXfWEvrejfOF2Yd/pC+Ki6SDPq1soSy/g5Hlj5pO8mVUQ0l
+	b0Wluk3xk6jhpIuxsmKwF3wgTHDQTTM=
 From: Jinyu Tang <jinyu.tang@linux.dev>
 To: Anup Patel <anup@brainfault.org>,
 	Anup Patel <apatel@ventanamicro.com>,
@@ -59,14 +60,16 @@ Cc: kvm@vger.kernel.org,
 	Nutty Liu <nutty.liu@hotmail.com>,
 	Jinyu Tang <tjytimi@163.com>,
 	Jinyu Tang <jinyu.tang@linux.dev>
-Subject: [PATCH v2 0/3] KVM: riscv: Add KVM_PRE_FAULT_MEMORY support
-Date: Wed, 12 Aug 2026 07:03:13 +0800
-Message-ID: <20260811230316.218770-1-jinyu.tang@linux.dev>
+Subject: [PATCH v2 3/3] KVM: selftests: Enable pre_fault_memory_test for RISC-V
+Date: Wed, 12 Aug 2026 07:03:16 +0800
+Message-ID: <20260811230316.218770-4-jinyu.tang@linux.dev>
+In-Reply-To: <20260811230316.218770-1-jinyu.tang@linux.dev>
+References: <20260811230316.218770-1-jinyu.tang@linux.dev>
 MIME-Version: 1.0
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_160341_777583_5F61A897 
-X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-CacheID: sfid-20260811_160353_837201_F7AFCCC2 
+X-CRM114-Status: UNSURE (   7.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,41 +87,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds RISC-V support for the generic KVM_PRE_FAULT_MEMORY
-vcpu ioctl and enables the existing generic KVM selftest for RISC-V.
+RISC-V now supports KVM_PRE_FAULT_MEMORY, so include the generic
+pre_fault_memory_test in the RISC-V KVM selftest build.
 
-KVM_PRE_FAULT_MEMORY lets userspace ask KVM to populate stage-2 mappings
-for a GPA range before running a vCPU that is expected to access that
-range.  x86 already supports the ioctl; RISC-V currently falls back to
-normal first-touch G-stage faults.
+The test uses PAGE_SIZE from the architecture processor header. Define
+the normal 4K RISC-V selftest page size so the generic test can build
+for RISC-V.
 
-Patch 1 implements the RISC-V arch hook using the existing G-stage map
-path.  Patch 2 fixes the RISC-V selftest page-table walker for Sv57,
-which can be selected as the default guest mode.  Patch 3 enables
-pre_fault_memory_test for RISC-V.
-
-Tested with pre_fault_memory_test on a RISC-V KVM host.
-
-Changes in v2:
+Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
+---
+v1 -> v2:
 - Drop the per-test guest_modes_append_default() call from
   pre_fault_memory_test.c.  RISC-V already initializes supported and
   default guest modes from kvm_selftest_arch_init(), which is called by
   the common kvm_selftest_init() constructor, as suggested by Sean.
 
-Jinyu Tang (3):
-  KVM: riscv: Implement KVM_PRE_FAULT_MEMORY
-  KVM: selftests: Add RISC-V Sv57 page table indexing
-  KVM: selftests: Enable pre_fault_memory_test for RISC-V
+ tools/testing/selftests/kvm/Makefile.kvm              | 1 +
+ tools/testing/selftests/kvm/include/riscv/processor.h | 3 +++
+ 2 files changed, 4 insertions(+)
 
- arch/riscv/kvm/Kconfig                        |  1 +
- arch/riscv/kvm/gstage.c                       |  3 ++
- arch/riscv/kvm/mmu.c                          | 33 +++++++++++++++++++
- arch/riscv/kvm/vm.c                           |  1 +
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- .../selftests/kvm/include/riscv/processor.h   |  6 ++++
- .../selftests/kvm/lib/riscv/processor.c       |  2 ++
- 7 files changed, 47 insertions(+)
-
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 6fc34e9bf8e1..ac64ac92fd4b 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -225,6 +225,7 @@ TEST_GEN_PROGS_riscv += coalesced_io_test
+ TEST_GEN_PROGS_riscv += dirty_log_perf_test
+ TEST_GEN_PROGS_riscv += get-reg-list
+ TEST_GEN_PROGS_riscv += mmu_stress_test
++TEST_GEN_PROGS_riscv += pre_fault_memory_test
+ TEST_GEN_PROGS_riscv += rseq_test
+ TEST_GEN_PROGS_riscv += steal_time
+ 
+diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
+index abde3c71c891..70487c8ed155 100644
+--- a/tools/testing/selftests/kvm/include/riscv/processor.h
++++ b/tools/testing/selftests/kvm/include/riscv/processor.h
+@@ -12,6 +12,9 @@
+ #include <asm/vdso/processor.h>
+ #include "kvm_util.h"
+ 
++#define PAGE_SHIFT		12
++#define PAGE_SIZE		BIT_ULL(PAGE_SHIFT)
++
+ #define INSN_OPCODE_MASK	0x007c
+ #define INSN_OPCODE_SHIFT	2
+ #define INSN_OPCODE_SYSTEM	28
 -- 
 2.43.0
 
