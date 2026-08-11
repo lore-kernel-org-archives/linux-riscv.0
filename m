@@ -4,92 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E730BC5B570
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 06:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D17C5AC67
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 07:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uwTY/+zvF6Ob/fjKxf4HWnazbXAEoXCQ5f7pkdLtxLA=; b=MnF0oRjcN8lmMR
-	VU3cy4d1LkauK3cWngqX64tTEBxH/AYH/iVj9eq/634AZyX/ID5yIG3RC+f9WlYgVWkz6CW7vUTNC
-	KmzEL3ANpei7mM7wo6cK1gYBT7HVKm/njFoi2HXUqvKzysxTpKJBAavQNhHx5wVgIIaEDly77S8KU
-	YtMM6cww42+Qc8JDXwHJAnc/VRDismcMhhYSyEubt0mAKcyW2UCWeChLNMgBmn2iVmAA8+MA9FGe0
-	U0tQJ7qbK1XmrMNlaMa1QscDzpbvC0oon097GheoXiqrdJ5QMBzzXgrOF0pgLq2LtPNCAoB7zCRBb
-	wat/AtqrAIc53LRN6OKw==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=a96IJxdMhLxt6s5ceqQnIf6aNO0y4DBwcKzZY9AreUM=; b=QCSm3U536M0wTpIm2I9cVrgPWt
+	/49nukBF2WQS690eWE+cNoM3/m0dIqYHIYXtTYOqUKk2dFjMjPIlWOvKOMQQN2GltUOycs6/0pLnO
+	0/S7/xZi8l6QR2Y4dx1XbjPlCYj/QW7Fy9BoRZY8cqs2DWRKPgop1CMx3O2ED8Jaf4otXKntDuSfy
+	XM5CBniCbUh1SFFTLhXvHYdGNZpdYCPFXR6PjpYDCGzfH0DbNDaPtGKmxrvla2Or6aploCjHDs60S
+	0G0Nn/AWhf6zKSE6pdA0tiW7x6Ax8CggqzpdE+rxa5Z1aEdHN+RyVGyBISZS/C3FEm/DA/+Ap/QQe
+	+//ps6EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgSY-0000000DTMs-0nF5;
-	Tue, 11 Aug 2026 06:59:38 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wtgpl-0000000DW16-0dol;
+	Tue, 11 Aug 2026 07:23:37 +0000
+Received: from fout-b6-smtp.messagingengine.com ([202.12.124.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgSV-0000000DTML-15IZ
+	id 1wtgpd-0000000DVxS-3W7o
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 06:59:36 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-480033bdcf4so1531896f8f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 23:59:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786431573; x=1787036373; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7CGZZWuF5gk+XdnSsb1yoIVgT0uOaJBdpMM5wtHERfw=;
-        b=a7OBF/rOVrMlPSDvJlZqZAbnG8SDoBgv1sc1Qjwk0HIn5aQwUaYe+feeYiuE9orOJT
-         5Z6RXUprtqGFg0aPJ/uzKGQeOkDdNvyY5iPhoNFEw983iSZax/J+V2Q8xDnuvRZznLSy
-         aDZofVRj33BRoVB/Zaa0HOsM57FB6Ifst2kGHPghKrgrNrTz4VG+wZ1t/sbSRMoopQDk
-         RncHaJeG7ryv2ufF1BKAYHa/RWu5NWSV9W+PWxsGTVFUn/D3I3FNrmxq6GDPdeqiqbuC
-         g1tBY0zMLbs6Qo2F6vjQQU7kXk6TwsNXIIG9iGu6+3TSzU0/hSOU385HdEae9vbqlDz0
-         Aenw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786431573; x=1787036373;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7CGZZWuF5gk+XdnSsb1yoIVgT0uOaJBdpMM5wtHERfw=;
-        b=goXP5Bdj0nKKNv7C0i4ioLJ9jKpPrd6lVnLxGKaJ0uuaoKuFrHZl858m7YmNYAapgh
-         hm5A57HLmQHbPCetvfaAGOj2drtFnWhwnNq8CA2qPwaoxI9MwYCYvMDZUVPPyH0dmg2m
-         Zic54SygAzLLvjOrNBP1cfJMog0jD65dtA3rFTLFpVreI8JKApDmdP24vaO83whJ9x48
-         IS6tMnX6YmQL8xhv/OJmKjd3HH3z03Pb/nO1p7UN+ifG3q+0qcGrcGpCefz2R4CRxS8v
-         VN35z5jwBTobJNxbSsCovn0XxObc7ek6QptcKNZg4LfOk23XoqpFSyz4sW84lvCrVbbA
-         Buvw==
-X-Forwarded-Encrypted: i=1; AHgh+RqViXffwLjyQ3LSxGV28JqlKxMhI+KVAi5FDVN/u4kj/bMvnP9XhVWELQELGzE7p14tKYYelr1unsTwZA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/oOJCwrxvjDa440BD31JBBbHj1sNudnjZJ+qYLUYPeGWU/C8M
-	DX6jheYgXyYjKUmqG9dXkyWehExnpogo9fR1QgJ25mX4KvljLaXyqnvh
-X-Gm-Gg: AR+sD11iJN+FAf4Fo90yHTfFmDS/IKvztO1XaTwkXUAV26hsD+rN47obkoBkTXleSP6
-	JAPva0BlesIhE4BfOA0kGTMwvLRPGI0v8aFhD6oL7N3zHm2ef6bpzYv/zIrcpJSKr2ZEOA8uYtY
-	EJu96F2x9lEEGB9f3kvMv3TPGEc1oc8wl7szCKyn+p/xNSOkMuMSL6OU2ey1pcGhcI9zOc2b2bL
-	SR5PCP/M21/B+Z1E6w5x1ePShxzddIn4vHi7KY8oCm9SQwv3KKsHqS2SgTPHlgpZ0hzB67rIvm3
-	9BbtD5ow+7JELD18EH1e2MM4fJ3wvzXT3EKM+/gMj8JcScDlbnaGiF15Obj3sk5tcqSblM3SzNT
-	/8kqQ0wELnJRQ47s2R9uv4nbcyjcE8H8ArEIUfijHtudywNy2RUCRgZVCsA0QNnufSqLzVHTsXB
-	ZkYTHvprnhzvsOai0g5IdjdnbMZRWwrHiiG64LpGAbU30J1ZBLpjLkcPDo7zTA0EAjiBUWgSTZo
-	pO9Zi1Y6h7HvuZtKVhrzurXC9rQuTO/j7WDWexuD4vY1WTqcxDrBfCH4WKI7kXInQdznpxxJvvO
-	dmODB2C6yA3Ofe+agO0ofmAy3Nyx7iCkDJ+ZD+9As86inwC/RMYCNjtFtykRLsBPXP0wTJs=
-X-Received: by 2002:a05:6000:25e8:b0:47f:91e3:3cbf with SMTP id ffacd0b85a97d-4814adb1f0dmr1920243f8f.19.1786431572901;
-        Mon, 10 Aug 2026 23:59:32 -0700 (PDT)
-Received: from unknown748F3CBA5068 (dynamic-2a02-3100-a133-e401-bc8e-d36c-2d08-c5e0.310.pool.telefonica.de. [2a02:3100:a133:e401:bc8e:d36c:2d08:c5e0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4814a72cdb8sm1789573f8f.35.2026.08.10.23.59.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 23:59:32 -0700 (PDT)
-Date: Tue, 11 Aug 2026 08:59:30 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Andy Chiu <tchiu@tenstorrent.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] riscv: vector: preserve state when scheduling at nonzero
- depth
-Message-ID: <anrGG3id1adQLGED@gmail.com>
-References: <20260806193241.10552-1-kmehltretter@gmail.com>
- <anqv2bWIvgIyhGxe@Tao-Chiu's-Mac>
+	Tue, 11 Aug 2026 07:23:36 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.stl.internal (Postfix) with ESMTP id A9FBA1D000D8;
+	Tue, 11 Aug 2026 03:23:25 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 11 Aug 2026 03:23:26 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1786433004;
+	 x=1786519404; bh=mjk1ikTnqhWU2IVb1PB06tteN87IAutrfgdViA1dE/4=; b=
+	TWpq0SfabNoIxXy1lRgnDnPwqKSjN6ciYcKdNAzbHxKOOuhzH7C9py8zMpMqLjHC
+	rZCghu7XFkus9YFVhoijJ/LzN5VSg8/DynFzH/PaBKNcJ9EjGZz5g2E+r2HzGFj/
+	aUHCrQT70Ze/os6j9vlefETUKQSDrUq5BIInxtYXUg4AMvhJc48+uXFGGEhkYHYL
+	CUMDc09GsN7kN5qNknzjWjU7cwMX0m+pkwiTv8L2guHLXSmmLMRt6BrHwnWGoqVH
+	3M2JOflvWn0VerYpMeU+6Xm/O4xO35y6K7VjJxliXHsWeiUiziUCGKqQ19EpRIWl
+	s+OOuqipaFWERf8xHSzCAA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1786433004; x=
+	1786519404; bh=mjk1ikTnqhWU2IVb1PB06tteN87IAutrfgdViA1dE/4=; b=b
+	sDJSeqgtmOScBjCb8XTffJzBY74HjJPa63yaxvrDM/SDl004hARLyMImuj9gGgMk
+	mp79fRl973A6MQMxCWvNaKIJlqeyl06ZnKTVm87lb7DvEH/GG5W5RCv+tJrCzYoe
+	YlJ+DauWp2xif6U/kuhPHZhls+qkPRhAq2znTtdPDgmg5tMj5TSdwk440Qk9stBG
+	gL31tVVn7FNwHSTr38E0hKC/mNLLjFyFmh7cRiFd0gpancOhWpLuuMJblVT3b30W
+	1V1o0Dv02dfjTbdBMUS5NnMdW4zm1Sidl+E9gGQ//gfXneYX3nZYi6Kh4FP7Ie63
+	W2iakqr69TWimHsb13ctw==
+X-ME-Sender: <xms:5816amKkDndRAz58JUrGwu7g4_Qjy6e42E7XVNHWQ09qyzM8VJeetw>
+    <xme:5816ao_d0jp1m-XAFrPQPpkItrlboInUtsXi6BsGWZp5IUqSq4XQVdahJ3-m51jZ4
+    YVYfei1IRf5BsiyRsp8O9G3NILc3tnWZIoVc9qMqOQhfcGfsaARSJwN>
+X-ME-Proxy-Cause: dmFkZTGMr3IWyAVGu6yOYpUPK0kwBRhlEsSmLXG3AuksyBgrFESHsMjP2aED5rtj92h7az
+    Cr3RHlGmVxk5BagZwbxXAP+1CRh9ahw+zTGc/OZJir6gP4AFiQK9l64ifkCKAP68hS6KkA
+    LggdUjwk+/iTMC3n5Cf+8qk/Lcbwkh6pRHJnWEWro+th0J8gS0+K34ZBKzLQHbwhzDRtSX
+    HIYJAqAcpfVPc1XjOksFo1LplybPGLIaq3+bciz8uOIPH52SW4pOHqUsAJeoeB52xtICqa
+    piO38LAQVQu+4pflBs39mYzt5qVDSwCxyiQqc+AgrUiTFo3y0od7jD+1cZsNLbg8EJ0Edc
+    5d/DpDHbIWqaCMouchUeFBWmTq52SBEc/D7fP3ln5JBhMb/LImxMY1ZfCK9Bxo3kOyhM0i
+    URDskWmBz7yCBk/mH5OraLJk1BGXlpkrMTbzk5JpoGZA+kRD0Bbmz8vMDwXYvMHeEATl09
+    h4a2nVUzg6zOTX8Qq9jlqQW3wpDOju8+06azVi8W5A4W/LSPtTCDblndgqZls9uF5DWSHU
+    kUM0W0c89jZesKg1laszHtUAx5FZJKIDU6agUcFRlARy951nW61rYL+MjR0py9vxFkjEuZ
+    oiEvWVfhcTUstoxKZoav78NbSUTn+fdpx829q/QOTR12UtjOtjvt3j3enShA
+X-ME-Proxy: <xmx:6c16aqLKUz-OofDzAsboJ34rn9l0jCffYIftqbzwqEWhjwBpeoDQCw>
+    <xmx:6c16auLQymhYyXu7M0VioLSrj_Vp1PGJCsvskmnmK0SPrOYZzKP5FQ>
+    <xmx:6c16as5MIeUAuca1hfmGzL5cVAsTnGlRuWCVDaOMpc_SNd_Y_XJPAA>
+    <xmx:6c16ageoyh6KkGBNoUb4kKru7C9945kMbZNAhKXGMMNCxYRR67LItQ>
+    <xmx:7M16asKRK4dCcURaDshitfwZwoTuP7YBMQlt_LFrowlP32G5eDjHsz45>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 548F232A0066; Tue, 11 Aug 2026 03:23:19 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <anqv2bWIvgIyhGxe@Tao-Chiu's-Mac>
+X-ThreadId: APVFqOvuG48w
+Date: Tue, 11 Aug 2026 09:22:58 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
+ "Yixun Lan" <dlan@kernel.org>, soc@kernel.org
+Cc: spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <cec87950-f0e1-49f8-9a2c-f8b87b460da2@app.fastmail.com>
+In-Reply-To: <DKLRT9TOCY0W.1ZZ35K3S4Y5E7@linux.spacemit.com>
+References: <20260802024052-KYC1424545@kernel.org>
+ <93faefb2-5cd4-439c-a4a5-842ca5407975@app.fastmail.com>
+ <DKLRT9TOCY0W.1ZZ35K3S4Y5E7@linux.spacemit.com>
+Subject: Re: [GIT PULL] RISC-V SpacemiT Devicetrees for v7.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_235935_347997_FCA29B57 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20260811_002332_644322_7B06EB12 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,58 +112,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 01:15:05PM +0100, Andy Chiu wrote:
-> 
-> Since the problem only appears in the v4 series of the kvm fix,
-> triggering this bug on the current upstream may indicate that there are
-> some unclosed path that leads to the error. So it would be valuable if
-> you could provide the exact reproducer and base for us to investagate.
+On Tue, Aug 11, 2026, at 04:49, Troy Mitchell wrote:
+> On Tue Aug 11, 2026 at 12:45 AM +08, Arnd Bergmann wrote:
+>> On Sun, Aug 2, 2026, at 04:42, Yixun Lan wrote:
+>>
+>>> Troy Mitchell (1):
+>>>       riscv: dts: spacemit: k3: add i2s0-i2s5 nodes
+>>
+>> This commit caused a build failure, so I reverted it for the 7.3
+>> merge window:
+>>
+>>     Lexical error: ../arch/riscv/boot/dts/spacemit/k3.dtsi:1181.20-39 Unexpected 'CLK_MPMU_I2S_SYSCLK'
+>>
+>> Please make sure that each pull request you send is free of
+>> build failures and warnings and works on its own.
+>>
+>
+> The missing macro has been merged here [1].
+>
+> Link: 
+> https://lore.kernel.org/all/20260717-k3-clk-fix-i2s-v1-1-e95001a692ee@linux.spacemit.com/ 
+> [1]
 
-Hi Andy,
+Right, the problem was that your patch to use the macro was
+applied on a different branch that caused the build to
+fail. Yixun Lan should have caught this problem and rejected
+your patch before sending the pull request when doing
+a 'make dtbs_check'.
 
-I first saw the warning during a syzkaller run while testing my KCOV
-series [1]. The exact test branch is:
+This is a common problem with unstructured SoC devices:
+If you can't just use the number from a datasheet, you
+have to wait until the binding has been agreed and merged.
 
-  https://github.com/kmehltretter82/linux/tree/kcov-pause-v2
+Earlier in the cycle this could have been resolved by
+ensuring the binding change is used as the base for both
+the clk driver and the dts branch, but now you'll have
+to wait until after -rc1 is out to resend.
 
-The following branch is based on clean v7.2-rc6. It has the stress source,
-syzkaller config/log, and warning report:
-
-  https://github.com/kmehltretter82/linux/tree/riscv-vector-warning-repro
-
-The warning also happens on clean v7.2-rc6, so KCOV is not needed. I don't
-know if KCOV changes how often it happens.
-
-The syzkaller job had reproduce=false, so it did not save a minimized
-program or C reproducer. It got the warning after about 110k executions
-(116236 at the end of that cycle), with QEMU 2 CPUs and procs=4.
-
-On clean v7.2-rc6 (b9b3e33b70b7), the standalone stress test got 18
-warnings with -smp 1 -icount shift=7. At normal TCG timing it got none. I
-did not see data corruption; all byte tests completed without mismatches.
-
-Your v5 patch 1 looks better for the switch-out change. Please consider my
-posted patch withdrawn. I am testing v5 with the same stress and syzkaller
-setups now.
-
-I also tried this possible switch-in guard. It got zero warnings in two
-stress runs, I am still testing it:
-
-@@ -392,6 +392,7 @@ static inline void __switch_to_vector(struct task_struct *prev,
-			next->thread.riscv_v_flags &= ~RISCV_PREEMPT_V_IN_SCHEDULE;
-			riscv_v_enable();
-		} else {
-+			riscv_v_disable();
-			riscv_preempt_v_set_restore(next);
-		}
-	} else {
-
-
-[1] The KCOV pause series is five patches on v7.2-rc5:
-    https://lore.kernel.org/r/20260724192122.73080-1-kmehltretter@gmail.com/
-
-Thanks,
-Karl
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
