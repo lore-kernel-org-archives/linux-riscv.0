@@ -4,99 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27EEC5AD7B
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 02:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F35BC5AD55
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 02:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pdHQttt2CfY5fQn55CRkh65EhgODVxvEI/wEN15RWgw=; b=eGtcN3mCD8w2dV
-	+l3HWf7pFE3c0s8+aPEbcjEknxOFeE/A/V3RNArmF/SP79b9bxUx8BHyAXci0zF4e6o6cxDxra+7l
-	nt72iu864zih/cxcLNNsryPc+BMuukgS33zFGBw5+i5LtPYCS945ffVAi/1ejylMbwzG50NIhY5FH
-	rfVG6ayCXdHuIs6F7SwXdm3uweZjdKF9UJ/vGwAIxwsxAZcy80fWg6If4Idx9IWgclhW1HPPNRfj6
-	EnF5H46cXqtC2QlcEH33Df+rU8Ua713nLyxw/zVGq0EBnwmpBe93afEQeCoDTkyVi5niF6UrdFPcZ
-	gop4q8Um3oITyY8CX8TA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c2fuhUzTtN032vG3ZaEZmMFb4Mw4KXMJcDgjVqVkb4E=; b=SZ8fnguh95KVzNpDCU73Rax334
+	+olwurOIzqNJgjo+qvpfnGJ3YkjShkZwVRIWniSm58YGj1n0hv5a4KjnoYEPDHUQ+dOANdTVtLbv6
+	SOl2cwFCzNa0nNYdm9wk5zr8GNlkpWkoL1Xx868N6guA5tdAmEXe7nuafzj17ZUgqCq4djbxCBGML
+	jWlkDmg12RBST3pY+qT8XQEQx1QYL0aKo4rMW9xH3Wyq1UL+2dU9kbmTgPzn4L1Jgl4vTKBJBbw43
+	cVH8EObeNrUmg7pmCMIKd8YP5X00yLPmBt9LLRQRxNjlk1OKRTd/uuLnPBA71g+QhLuWPIEQ9ZdBZ
+	b9x5JdkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtc9y-0000000DA1j-2n1F;
-	Tue, 11 Aug 2026 02:24:10 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1wtcYq-0000000DBXT-1T1b;
+	Tue, 11 Aug 2026 02:49:52 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtc9w-0000000DA1P-0Vg6
+	id 1wtcYl-0000000DBWf-3J7B
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 02:24:09 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2d0407aedd6so27614255ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 19:24:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1786415047; x=1787019847; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=viXXO3YBsu1Fz8lBiMsjk2TVrG0h/+p2a3sGOEyRNlQ=;
-        b=CswGKUQ5gaiXqnULCeyVlmaL1uij10yAZthTIqsiHS6Ve6xI+eBQKP9xSZ22wHYV/Q
-         XzrWiXL3wMoxspS+V1gkuc5MKmookEXSgJhCJ+WAt27NyMcvK2kNZI3mtqQjJBbAO9gL
-         4A2NDbSE65jaopSW3MHH+YHX+YdBGeBQZW+a7pJHepYUmrf8AE4U8JOsZloPmIJa6AlD
-         pgKE0U5MadnXhW+S2oNWFyE+vHm0BsFjJtJEOh74qFQRzsf1FFoh2z4gMeCsQmwGlY6L
-         glcPMhSSssNvOow2cD1Wt69w7FdQ0ErKnXRqyRBgh0q7C8prc9sTmWZ5OhYC5iEtNozn
-         +Y4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786415047; x=1787019847;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=viXXO3YBsu1Fz8lBiMsjk2TVrG0h/+p2a3sGOEyRNlQ=;
-        b=pA+s9ZTZVDGv9L0YwyXV4b6rSxi8v8phH1IeU90OHan2Py6LzgoiMWGtHaWHuA/ib+
-         EZIRGFZ91KdB6l+IqryDeY8os5NC9acwO9JphyAzKq4SPY0/gn4XpsmLNh5M3Syby2Ea
-         qU+b5PTCAJboOzUrZX13j1bP3vlfgR3lX6kJ1K+osLsEuDmrkFo5Eg6UDw6ReM+XzsU2
-         h1rsQdZUgBGAkhEPwkXWuZgO/GwqicCetD8PK5h1XnGfsb6srs6ccmB2942k0CDqpueT
-         koqR6rF35m3HIpNC2/iZnFBWXPelF99SDmHqQL1iizkfHOIHa1wJt4uGPtDi+hmysao+
-         qo6A==
-X-Forwarded-Encrypted: i=1; AHgh+Rr5oq4OE2nRuCxE2F8+D/9RPCB10l4bKMx8Xk0/2gKHB99/PsIR5gHVzzx89ByDFvs+7tHiwVraLYKwnA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YziQS5laRFVVx3wej39zfpXVV7XriXYbaahTxswBQN5ffBLw7QI
-	CT4WEMiNR6hDukIpplKRO+Clonnbd2xP8u3P8L0gTiFxUQkZfHoK1xGljv0iM2zcays=
-X-Gm-Gg: AR+sD12jXSRF7EiQpYJFfKvZZ9ldRrx/Rb5PcIXSq3bTKuoNFtqBbw7tSlk3cuY64mF
-	HL4AD4iTxmGuXA7U4mgWdAze/u/Si4rIAlKVM17HJJqiPWqrZ6YCfLvuwFZNQcefV2sOdVRW6iY
-	GwE9D8Ue71+kguuuJVqFVdu7rTSH38pZFpqktTiKRUy7GuA+kAAiIJQ0NYMcnIZWrsibIT6r3lS
-	62cWns1nmUdhrx7r353hb8pq5O2CfnuPBMxYYb8Z6Zj5EydSmAAqUxixX+PF/+WILIF/FUmBcY6
-	896P/8Gts1uSW9n8CzayVVE0tpKhEEJlYUUrHP1Z8F7uEq8COycqNL6XpIczKJvKf6tuwllZ2IE
-	Q8NTk1QN/TEXKhapvH5b7OzZs6DyLAfc4XGLHfFS0oFHZw1fiQwBmK8I8nmfkLeMpV0HJhVP2r3
-	RfYTMu/yvUi8B+r+X1pBQxrGTngh35eidkLjz9Pm8wFzoW7t2A5rZa3yHneeU=
-X-Received: by 2002:a17:90b:2649:b0:38f:5869:387b with SMTP id 98e67ed59e1d1-392cc937909mr6926858a91.9.1786415046953;
-        Mon, 10 Aug 2026 19:24:06 -0700 (PDT)
-Received: from plin-1878 ([136.226.240.195])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392d4051b98sm1572918a91.1.2026.08.10.19.23.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 19:24:06 -0700 (PDT)
-Date: Tue, 11 Aug 2026 10:23:56 +0800
-From: Yu-Chien Peter Lin <peter.lin@sifive.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
-	dlan@kernel.org, guodong@riscstar.com, dfustini@oss.tenstorrent.com,
-	michal.simek@amd.com, junhui.liu@pigmoral.tech,
-	darshan.prajapati@einfochips.com, akpm@linux-foundation.org,
-	zhangchunyan@iscas.ac.cn, luxu.kernel@bytedance.com,
-	pincheng.plct@isrc.iscas.ac.cn, nick.hu@sifive.com,
-	jim.shu@sifive.com, zong.li@sifive.com, greentime.hu@sifive.com,
-	robin.randhawa@sifive.com, scott@riscstar.com,
-	dave.patel@riscstar.com, raymond.mao@riscstar.com,
-	anup@brainfault.org, pawandeep.oza@oss.qualcomm.com
-Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: Add Worlds ISA extensions
-Message-ID: <anqHvJrZQZmAj+ul@plin-1878>
-References: <20260729163908.249838-1-peter.lin@sifive.com>
- <20260729163908.249838-2-peter.lin@sifive.com>
- <20260810-penpal-aluminum-772319e5fc10@spud>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260810-penpal-aluminum-772319e5fc10@spud>
+	Tue, 11 Aug 2026 02:49:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1786416552;
+	bh=23z7k+eAUinRpc8zLgMJ/t0gpWvJdmcP1Li0BPBYWwU=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=xdxLf8+FH3LkSba6mwVuHMNjFhX8dSd4xAvsEOSQHBLUmNdSz0PU+w6hUNeyC1/zC
+	 NltFsudWmp0QHDKYT6oN1uKJRbdB4wM3yq8KSzoFu1VbP++R0D37BFLPMMCcfYNDlb
+	 DFf+2A0d+l2cN8Ool1cX2fxEPJak3SbCvp/uwHkg=
+X-QQ-mid: esmtpgz16t1786416545t61b05b13
+X-QQ-Originating-IP: 1Lvpn6o7ckoe/5uiobgyDQiiPwV4BQM3WsBUfeRYaQM=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 11 Aug 2026 10:49:04 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 14630553172662809268
+EX-QQ-RecipientCnt: 8
+Mime-Version: 1.0
+Date: Tue, 11 Aug 2026 10:49:01 +0800
+Message-Id: <DKLRT9TOCY0W.1ZZ35K3S4Y5E7@linux.spacemit.com>
+Cc: <spacemit@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Troy
+ Mitchell" <troy.mitchell@linux.spacemit.com>
+Subject: Re: [GIT PULL] RISC-V SpacemiT Devicetrees for v7.3
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Arnd Bergmann" <arnd@arndb.de>, "Yixun Lan" <dlan@kernel.org>,
+ <soc@kernel.org>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260802024052-KYC1424545@kernel.org>
+ <93faefb2-5cd4-439c-a4a5-842ca5407975@app.fastmail.com>
+In-Reply-To: <93faefb2-5cd4-439c-a4a5-842ca5407975@app.fastmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MeDrt9suTKKHaftXhxn9pWBwQ7tX3M8gVT9Cv7+4JEFaArB3V8SYl+ep
+	bMxUvvzdHG2yUy9M0cCK3rM87e4dLAquwOL/V+G1WQUXyQLK6fGE2knW3yAh0gXb9zxl/AY
+	pzJp7DVkqJn1jgyLlLP+cF7I51Dw2pEScu8GS+HZKlwy8G8oAxvdNImzi/HGB41qZX+2r2j
+	fQPV7YY53dCyTRQWokD80gteQ31mIfLX5JJkOEv0eILtY+SGh5e20JNcEUzDNRp4K5cd41M
+	W07zeDp1PdK0Jniz2yBfJCNb6JcxrVqqSgwGJrL18yGmlBLQ2l/utuEnOE/kpI2aOWeLR+I
+	Yws76Mrm7lvLXKVj1ee+jR+nxPcoROa+hh49L17hc00neud8wYjvU2LNnUHa6hONZ8neSMY
+	vMokIM+SM9X8X5W+tx0SBPew/vXcMEy7xnXcOZvv5POmmAGgonHO1n/deKCKFNr91eD1noL
+	3tq4/82e6EY5dlyN87uAAvU2j+TNP2gEm8G3VOnCu0T8GgyTmvNF9SH5TDv74NVn2i3P7N9
+	v2j62dc7xYMrHWDf2/LmUYldR7ttr9TA+3ljv5YGS3RUj9YNo85yjZTPlqpc+DYsSLaIqM8
+	ZK62ilGmADzUUrHKyhMjZf7rLD2//4Jda1rljSuZgE7UGfzH3u8eqJZKqkRSEINJRB+sWwf
+	wmEP1bnVXc2naakS0o8BJ+DUbmij3mpYne0+t8UWImVqbCCQuuN3f3y05UaUvpM0lZEVC1j
+	JZ/dynlGfV59YIodzYErv6lN0e7Sj+fRcJ5v6ZVjueDT2I66/FO8mwRWvLL8uI/aUzAzP1Z
+	DrlUqqR4ljfrrUg50VO21G4a/kCwBPHZvCzmWOG+97/kYDNhhXE+h7ndNz5eq0sVcWztQ0F
+	e20RzoS9uAf6vkpM3ch82oCHr7ARIkJk2GSGTQ8RvdxPqFQnkA4Kls8QjcQQ5YlacwUKWHH
+	8josAc/0fBmq9yeEWI43pEc0vvTIo+byvyuN5GvCu3y4pRwhs/sta+uPWiMn/OCulSt8E1F
+	KJelt2ti1nI5fsXnvNkTFMJv7b/NYPK+xTzZr0KvbRyC06rZxo7C1OHdq3f7cEet/aMP45b
+	bbtkNFUTDFLsuNw6lFvSJWpaolyKeHE1SHH3J2LC1N4PDr3Xb+dOoY=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_192408_176891_46763C9B 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20260810_194949_168520_E81A821F 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,53 +93,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1895438710373699022=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 05:25:08PM +0100, Conor Dooley wrote:
-> On Thu, Jul 30, 2026 at 12:39:06AM +0800, Yu-Chien Peter Lin wrote:
-> > Add DT bindings for five RISC-V Worlds ISA extensions
-> > that implement World ID tagging for hardware-enforced
-> > context isolation. Also, add checks for extension
-> > dependency requirements.
-> > 
-> > Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
-> > ---
-> >  .../devicetree/bindings/riscv/extensions.yaml | 53 +++++++++++++++++++
-> >  1 file changed, 53 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > index 2b0a8a93bb21..7a57191a0293 100644
-> > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> > @@ -193,12 +193,35 @@ properties:
-> >              ratified at commit d70011dde6c2 ("Update to ratified state")
-> >              of riscv-j-extension.
-> >  
-> > +        - const: smlwid
-> > +          description: |
-> > +            The standard Smlwid extension for M-mode control of lower
-> > +            privilege World ID via the mlwid CSR as ratified at commit
-> > +            TBD ("TBD") of riscv-worlds.
-> 
-> 
-> btw, when you send a v3 of this please mark it RFC, since you're using
-> placeholders here for the commit hashes of the extension being frozen.
+--===============1895438710373699022==
+Content-Type: multipart/signed;
+ boundary=99dedeb8f6cddb1a793b7e4b254114face358367fe82cecc5177778fdd56;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
 
-Sure, will do.
+--99dedeb8f6cddb1a793b7e4b254114face358367fe82cecc5177778fdd56
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Thanks,
-Peter Lin
+On Tue Aug 11, 2026 at 12:45 AM +08, Arnd Bergmann wrote:
+> On Sun, Aug 2, 2026, at 04:42, Yixun Lan wrote:
+>
+>> Troy Mitchell (1):
+>>       riscv: dts: spacemit: k3: add i2s0-i2s5 nodes
+>
+> This commit caused a build failure, so I reverted it for the 7.3
+> merge window:
+>
+>     Lexical error: ../arch/riscv/boot/dts/spacemit/k3.dtsi:1181.20-39 Une=
+xpected 'CLK_MPMU_I2S_SYSCLK'
+>
+> Please make sure that each pull request you send is free of
+> build failures and warnings and works on its own.
+>
+>      Arnd
+The missing macro has been merged here [1].
 
-> 
-> Cheers,
-> Conor.
+Link: https://lore.kernel.org/all/20260717-k3-clk-fix-i2s-v1-1-e95001a692ee=
+@linux.spacemit.com/ [1]
 
 
+--=20
+Troy Mitchell
+
+
+--99dedeb8f6cddb1a793b7e4b254114face358367fe82cecc5177778fdd56
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCanqNnQ0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQvShcBAInWAqeYwOl9xiKq8oMW7NOqHZFkbqohC6XK69oo
+j4B9AQCdV5AqZTECQxaBbRClQbUxQQC8iWgBu7Jjg/HpAqnWBQ==
+=1L3B
+-----END PGP SIGNATURE-----
+
+--99dedeb8f6cddb1a793b7e4b254114face358367fe82cecc5177778fdd56--
+
+
+--===============1895438710373699022==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1895438710373699022==--
+
