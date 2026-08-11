@@ -4,99 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6508C5CFC1
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 09:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4D2C5CFC1
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 09:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6FFOJLYz4iyC0RHoJBQu+LmmfnL/qtYZaCMOpFd4Bqg=; b=znQ4nkjt1kIJFV
-	8fgdQaIGU4ZB+JliR4OtkjoeBt1iqNh0Qfc+0tpIkAz/UsB12mdoMdUrKidgVfaV9HL9RWoaz+NQF
-	n1VmFyAAD4OGk3750OCpGZUsFvfYtd6ZGpaSL5wSeN5uHCzFR7/KdaUSmDFczsIFZLEHJNXOlv7fJ
-	nXkXLATtWFetcsrtv1C7ohQslUAvOSELTQB07fgCxZIzR1D/+FOMHpd+3/bEmX9mJkmt9J/kRzfLV
-	xDWGESeX/nPfDwuL5hfGMpWePBZnyLQIyISv8mBBD1zLpGtW/OdonLqS/ErQ9exfCoEtJ3Ud/VBzv
-	Bj1SPmXCxKudxWTnZLiQ==;
+	List-Owner; bh=0ZFl/c9M5lhCLAg7yNI8tmdylfOGOb75MO4KRgUJNoo=; b=3z1cdzX3B5G+XF
+	7gz11mB+Dd6iV8FR4hu4B4P4Rgd2+7liH4qW5zkGfWcHs6hJFKFCARO4MzScwCXhmMwlJz0wj/DIi
+	LBA/sTAzLvTQXQ7d4UihGGPaLFQhoQQbnNh+dDOf0SHKohp85hUrnh1+OegwqMR4HBj90sqXfo8jS
+	KRaL5k1cRVIvD8S6ubc6yS5487HBvt5UPX/ojnrhyTISr3Vc5mOE4BKfAK8OeMbyRFSAR9XOvgPLR
+	EThafHCUXesLSsGVV/ZjC3nn/mtqEOkgSiqJFYUPzYahutNcwlkOQd2WViptwaj0L6/L7gp0m2A2Q
+	4ZGtCZjmYsG9mV//8iYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiqA-0000000Dkla-2Zz0;
-	Tue, 11 Aug 2026 09:32:10 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wtiuK-0000000DlDD-0iuI;
+	Tue, 11 Aug 2026 09:36:28 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiq8-0000000DklC-0miG
+	id 1wtiuG-0000000DlCQ-47Mk
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 09:32:09 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2caced6038eso9404715ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Aug 2026 02:32:07 -0700 (PDT)
+	Tue, 11 Aug 2026 09:36:26 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-38dfe7eb825so2388341a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Aug 2026 02:36:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1786440727; x=1787045527; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1786440984; x=1787045784; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=ap29SzIYC2SRhT7+1cYIYqMqPmmcLkWivyt8GCYG80w=;
-        b=fFoF+6IzMMj0NSH6gsf02SO0CePX/Q9mTWEsg6mL1w9Tlu3EpyfbD/LxjiiDg4Q83p
-         aNPUrcwTz5fn0dBv77pzrHq3BTiIfQNr/OXcIx0H3QmcXT+OVyHM5cfDKdklkGoOI8uy
-         vGiWXF/N+gJ1L+jLNHfcrVbLzxPNgE8Y/KhWbe//1+UtNUNxup0ZCfzE/5Z9WtNMq/15
-         jF3m56ZqnrksOXYppcx9fMMrRae0Oz7BnzG14S7aLbkAvXVks0/3y+cDQ6nBJwrdzoxu
-         pF1yHJW746R7U5EJbbpUsMKUzMDCpnv3KUCmg+DwtJBPTnoQ5lCBf08n7AiUh+UBAUh8
-         wkhg==
+        bh=VcbzXbSdyoexmhki4K88F749nCD4aY9ew05QBhC5eME=;
+        b=l5h4RGTAxQ4F9HbrqjCO7pMZWb0muHJFqnWw3YyNufZGmCCHPjfqBoykp/vvWaokfb
+         8aWIgHTBYjxvKeLoDNCt0VRTAxfQ9XkhH5yXA8UXdGPW8sHkvIm5SrcCfXz81PJob//l
+         iE9Fj8up18fBFLZ/zkqhJBhnYVA3Wt7hvd5uAQ3Quax38Ik1EjS5EqZfZXyZ4jKpheYU
+         H7v9ohCY3LfjuIJ2nzGTNN+exBzp/kHFCZCPZSleaNvELIKRsdzMcqDhY9p0p9wADMvA
+         jHSONQCCwYgT7nKJO0T5UEi9qhtkMT+yqoV7jyBdAuMIUNinvbKAJ7SEw+YV0PKQGlXf
+         Br6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786440727; x=1787045527;
+        d=1e100.net; s=20251104; t=1786440984; x=1787045784;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ap29SzIYC2SRhT7+1cYIYqMqPmmcLkWivyt8GCYG80w=;
-        b=rD/VpEuoY1FouJGADwyTFWW5XWf2FmF992qlf/4eDSkzg9cK2CuFdX+l1gd6oONBX4
-         7uJ8DwHvRMG/FsREt1WVmgO1rFeK/YduJdLfxnoeLu5D+kqJMJj4faqk7mk2j47lvInJ
-         HPkUI+NRXSN+EVb6O4h9PP0HNTRJ9J3XfTj5d+oR9omzSHo8fdJWLeij/T902C6B/6dK
-         fIM19Uv/+c9pGuX95O7OVkHVkUaYRJbjbTCXAL1pxMONtyfUQM4Iz/ghipi2k51b2opN
-         HplpTkArvfF7Oln0hBI037RdZJtAPv+oAqH7gLwLNmj2MQAgZyNyKiSuAbcDAdU5oxVY
-         gbaw==
-X-Forwarded-Encrypted: i=1; AHgh+RpYp00x0+o9m9rbHx+iadf1g9CsE7GdKzMgWPkqt8sHTw/Prel8KqHdDnPEZQmudA9GxVjiJYYUAbIrSw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxt8kKRmv1AcUBrVwDTgnesDXhLt74lUbS1k0ZKCZk70NQSfuEm
-	+6eDZjHUPJwa7xZ/Cfc4zppnN+J8yYMfaH894QdBM+w6wAHphO1oC/5JDoCEsjj7vdE=
-X-Gm-Gg: AR+sD12Qm5PD5bMtfn9GHqOvUMG0Ic60MbJHlAoEC+jEM4Nr5RwSapo4mMYTkx1xgCV
-	3NtMHrPoxdQN15zq4MAizzkCbQ6pxAJXBFr4xOvVovfU13bR+iYUEFLDuXOnMfw36DxOsu5fPlM
-	RlBdMovZau//gqC5JmO4OSCZ7Z3BYOO2p5/jFdQ3QYiikE1i3wqFJXIGco1BH1BgH+tH3Anl8WZ
-	F/YowTcylBN0mWg3pWubJK3bNrSiUhexsSm2IH4W0c9+5uJUC4oqbWrSpt0TGx1xs20dgcJuazq
-	4LW+gVuhRkIPAixAPiwUzi+KNLzSRbP0nmTf36n2r4bZqQhIW/CFfvvF6MXmGURp+JFL0Di9h7W
-	6oeTQKNNcTQyGi+i6yhVObo6K832seFzb3w9geG3TPJKW404wJJI05LivHShT81U1+9OU8bR+IY
-	4vkCzX/t385bNxaSCvDPbpItaJN3UjFRCeX9MpXHN6pHkRmtTlY3tNv8VuYw8=
-X-Received: by 2002:a17:903:2410:b0:2c6:8d95:fd7e with SMTP id d9443c01a7336-2d3187acb9emr19605805ad.6.1786440727293;
-        Tue, 11 Aug 2026 02:32:07 -0700 (PDT)
+        bh=VcbzXbSdyoexmhki4K88F749nCD4aY9ew05QBhC5eME=;
+        b=fy/Q/3xNE0R3pyvvXCTdhtPr2A4/HV850kAhgZa+obdit+WfDKZgGSuYGlrmHLKFAb
+         MJzXf7GII2orhDeubmiBtIHASv71uy+Yud7b2captED3e7Rr/Auu9s1rjOnd1EJ00w0W
+         9SGX0luoNvjtAhMupR/HSqOjUf8oNFCKkwHvVtJfIiGUUHSNMFIUxKbzUO7Vhl/X6FzD
+         c1ErqKZvabZJ81f03gE9hy6fYdpK0YvVQ0R06BdRkGsCJKyRSgz5OwNjFSfuXsvpHsj6
+         25VD5uMpnIgT8fGtF5PFZi5Cn2i9xrN3pE5uKi5FlirBiH1uU3jvd7Xy3qCFNoSpIxCZ
+         pgzQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrPUpBJLry2sEqcniZr421xLPTnRNDN8qpIRtFQM71mH/XPRhqS4tvKZpoKU5VfqWj1Jjd++VwCNxYHOQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHUQnlK/3nNh7rEOYYzKIb7r4mFQF7fRgRC4/d8NiptIebGPHr
+	0z658lfDUl8fhBb1BJVur/gx+traIXuj4lBci6wKH1IDHVS/XhjKJSa6IvlYKT/v8mGnV+SEbSZ
+	2CBoMuhjEmxn1
+X-Gm-Gg: AR+sD1209d5CxL9aPrOidxWk7MJEOP6Gf6g++R3j4lHVKjLDqex6/a4hjherb+zqnE1
+	Lp3XHV6N2otGTeueBbzMdCCIaN0Be+wTh5CEUZbQFXeQM993k04ixbo7lSKeprwPIsDbPatHYfi
+	urK9tX3bfz/5sh4+e7gJmNzxrf2CZWQoyRHXQiRtDxGK3Iq1FKUddRTN1tGIoTcYdUsovgP5dao
+	mtjRDEID3uT9pSCs7P3uZj8sV2PiCgT7ohHtVHyuf27ufOUWnXrv34J8HORM/HCEvqBA5l0i4cx
+	y63CKhBNQ/+ZnXYWeFERDJQiEZ0+4q8I3k9RRI5FGHrLAxm8gZUY95Y1PyBwSY6SP1Ue+SXNvUA
+	ES3dDgFXrWIoERh7iYR8sZBH57CeHdfEk62LUpzIJzLtn3u21RjJW3xJGE5sdx4Qn6zEbpB8B6/
+	YztBD6eiypldaP1q2VT1Ze8St88q/lhxsU9wcPMtZXdh20XK34pmQfn9wKjQxb
+X-Received: by 2002:a17:90b:2689:b0:380:f85c:94b4 with SMTP id 98e67ed59e1d1-392ec4e4a34mr2095732a91.7.1786440984022;
+        Tue, 11 Aug 2026 02:36:24 -0700 (PDT)
 Received: from plin-1878 ([136.226.240.195])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d315f29afdsm4693525ad.19.2026.08.11.02.31.59
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392d5190ce9sm3040036a91.1.2026.08.11.02.36.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 02:32:06 -0700 (PDT)
-Date: Tue, 11 Aug 2026 17:31:56 +0800
+        Tue, 11 Aug 2026 02:36:23 -0700 (PDT)
+Date: Tue, 11 Aug 2026 17:36:13 +0800
 From: Yu-Chien Peter Lin <peter.lin@sifive.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
-	dlan@kernel.org, dfustini@oss.tenstorrent.com, michal.simek@amd.com,
-	junhui.liu@pigmoral.tech, darshan.prajapati@einfochips.com,
-	akpm@linux-foundation.org, zhangchunyan@iscas.ac.cn,
-	luxu.kernel@bytedance.com, pincheng.plct@isrc.iscas.ac.cn,
-	nick.hu@sifive.com, jim.shu@sifive.com, zong.li@sifive.com,
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: pjw@kernel.org, zhangchunyan@iscas.ac.cn, conor+dt@kernel.org,
 	greentime.hu@sifive.com, robin.randhawa@sifive.com,
-	scott@riscstar.com, dave.patel@riscstar.com,
-	raymond.mao@riscstar.com, anup@brainfault.org,
-	pawandeep.oza@oss.qualcomm.com
-Subject: Re: [PATCH v2 2/3] dt-bindings: riscv: Add Worlds per-hart properties
-Message-ID: <anrsDDkkOKmnkzAa@plin-1878>
+	dfustini@oss.tenstorrent.com, raymond.mao@riscstar.com,
+	dave.patel@riscstar.com, pincheng.plct@isrc.iscas.ac.cn,
+	linux-kernel@vger.kernel.org, darshan.prajapati@einfochips.com,
+	linux-riscv@lists.infradead.org, junhui.liu@pigmoral.tech,
+	akpm@linux-foundation.org, dlan@kernel.org, jim.shu@sifive.com,
+	devicetree@vger.kernel.org, luxu.kernel@bytedance.com,
+	krzk+dt@kernel.org, zong.li@sifive.com, anup@brainfault.org,
+	michal.simek@amd.com, scott@riscstar.com, alex@ghiti.fr,
+	samuel.holland@sifive.com, aou@eecs.berkeley.edu,
+	pawandeep.oza@oss.qualcomm.com, palmer@dabbelt.com,
+	nick.hu@sifive.com
+Subject: Re: [PATCH v2 3/3] dt-bindings: sifive: Add WorldGuard Checker
+Message-ID: <anrtDcL+iAKDuAO/@plin-1878>
 References: <20260729163908.249838-1-peter.lin@sifive.com>
- <20260729163908.249838-3-peter.lin@sifive.com>
- <20260730-glossy-pompous-quokka-c05c60@quoll>
+ <20260729163908.249838-4-peter.lin@sifive.com>
+ <178534841831.3259884.2854898669055783798.robh@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260730-glossy-pompous-quokka-c05c60@quoll>
+In-Reply-To: <178534841831.3259884.2854898669055783798.robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_023208_242692_E4F249D0 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20260811_023625_022572_1ED37DB3 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,38 +114,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Rob,
 
-On Thu, Jul 30, 2026 at 09:30:24AM +0200, Krzysztof Kozlowski wrote:
-> On Thu, Jul 30, 2026 at 12:39:07AM +0800, Yu-Chien Peter Lin wrote:
-> > +  riscv,pmlwidlist:
-> > +    $ref: /schemas/types.yaml#/definitions/uint64
-> > +    description:
-> > +      Optional bitmask of WIDs available for S-mode and U-mode use on this hart; each
-> > +      set bit N indicates WID N is available. Firmware may read this to select platform
-> > +      authorized WIDs for lower-privilege modes.
-> >    # RISC-V has multiple properties for cache op block sizes as the sizes
-> >    # differ between individual CBO extensions
-> >    cache-op-block-size: false
-> > diff --git a/Documentation/devicetree/bindings/riscv/worlds.yaml b/Documentation/devicetree/bindings/riscv/worlds.yaml
-> > new file mode 100644
-> > index 000000000000..cc8b3747591e
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/riscv/worlds.yaml
+On Wed, Jul 29, 2026 at 01:07:00PM -0500, Rob Herring (Arm) wrote:
 > 
-> Please run scripts/checkpatch.pl on the patches and fix reported
-> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-> patches and (probably) fix more warnings. Some warnings can be ignored,
-> especially from --strict run, but the code here looks like it needs a
-> fix. Feel free to get in touch if the warning is not clear.
+> On Thu, 30 Jul 2026 00:39:08 +0800, Yu-Chien Peter Lin wrote:
+> > Add YAML binding schema for the SiFive wgChecker, a programmable
+> > access controller integrated in the interconnect fabric of RISC-V
+> > Worlds-capable SoCs.
+> > 
+> > wgChecker enforces World ID (WID) based access control on downstream
+> > bus transactions. Each checker slot encodes a 2-bit permission field
+> > per WID (read/write), enabling fine-grained memory partitioning and
+> > device isolation between execution contexts. Violations are reported
+> > via bus errors, interrupts, or both, selectable and lockable per slot.
+> > 
+> > The binding registers wgChecker as an access-controllers provider.
+> > Consumers (i.e. its protected device) reference it via the standard
+> > access-controllers phandle to declare their access requirements.
+> > 
+> > Also document the sifive,trustedwid property for the /cpus node,
+> > identifying the privileged WID authorized to configure all checkers
+> > on the platform.
+> > 
+> > Link: https://github.com/riscvarchive/security/blob/main/papers/worldguard%20proposal.pdf
+> > Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
+> > Reviewed-by: Zong Li <zong.li@sifive.com>
+> > Reviewed-by: Jim Shu <jim.shu@sifive.com>
+> > ---
+> >  .../devicetree/bindings/riscv/worlds.yaml     |   9 +
+> >  .../bindings/sifive/sifive,wgchecker2.yaml    | 356 ++++++++++++++++++
+> >  2 files changed, 365 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/sifive/sifive,wgchecker2.yaml
+> > 
+> 
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> Documentation/devicetree/bindings/sifive/sifive,wgchecker2.example.dtb: uart@1c1000 (ns16550a): $nodename:0: 'uart@1c1000' does not match '^serial(@.*)?$'
+> 	from schema $id: http://devicetree.org/schemas/serial/8250.yaml
+> Documentation/devicetree/bindings/sifive/sifive,wgchecker2.example.dtb: uart@1c1000 (ns16550a): Unevaluated properties are not allowed ('access-controllers', 'reg-names' were unexpected)
+> 	from schema $id: http://devicetree.org/schemas/serial/8250.yaml
 
-The only issue I got is:
-
-WARNING: DT binding documents should be licensed (GPL-2.0-only OR BSD-2-Clause)
-#114: FILE: Documentation/devicetree/bindings/riscv/worlds.yaml:1:
-+# SPDX-License-Identifier: (GPL-2.0 OR MIT)
-
-Hope I am not missing other warnings or errors.
+Will fix.
 
 Thanks,
 Peter Lin
