@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7881C5CFEB
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 17:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33EDC5B56A
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 17:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8/lZFNc8eJyIDiXn+K2p9AJ+mx8gkNEoFhheVVRavsk=; b=heh3Tz5/dICPdVVvY9VVTofFgy
-	QTadybx0DDmR0Ihch7S1eZY5GmPosnjZ0DM1XdbzJKv3ENR5DZMLj+xxlP79IycEgxF+eGREzFKeB
-	Lp9uvo4FjxTt2Ucd8dM1Emt69hBwV6bp6WwHFRJ0hZ30bMwSJgetUo/qsVQTKoSYBqK/LxXFS3GgR
-	ty6vjeRwbNY6uW4ULPkqacFwOpo+I8FanY1hTvHvYtO4nvFLM6nQwp81IE5x6868v3rIsf+y8jiMh
-	tYHbGrS8xrmAdkljKaxvnheB1ex6sVFyX1gFEiiFPiGfJjz/GAEEVwVxbbUC7sZbWGK3Q92NTcSJX
-	mb4n61Vw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=da56AHuXtnSYJ9BRCmtSLb7XC8fUHnCOxi1CJAuBYzw=; b=cVvC09ctQpa2jO3F/QKyhWyAxM
+	KkZ22VtZQirYQgS9QXv87msY9bVaPioHVJZqYMFoc27R8z/8oqkKXuYTTrrot4SJBcGhcBM0DreMo
+	h1/k/+pVb8cvkSrnHZEmMHJPX+Uj7C/vVpDZ7hD9btTYviwr1ykkr9FmRRCJIysz2epwblpQbU2AC
+	CLTcYBJ2EImPLeRVP4sYS2/KnW/pPcuEk+pjnBlihg0D8XPM2VoNDFdgQhzfJC1NEoKTOISz2Sh9M
+	F4tRwNSoUYjkLoCd61XWOkNNqj5wvL8Ohj0g7IGL1X0EFqGNPSTAx560i1y/D+PpBcbDLNRZzyp31
+	v7/MH/dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtppn-0000000EZqi-2Smt;
-	Tue, 11 Aug 2026 17:00:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wtq7i-0000000EceC-2gsq;
+	Tue, 11 Aug 2026 17:18:46 +0000
+Received: from mail-pf1-x448.google.com ([2607:f8b0:4864:20::448])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtppl-0000000EZqH-35m8
+	id 1wtq7h-0000000EcdE-0I66
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 17:00:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DCF6F600AD;
-	Tue, 11 Aug 2026 17:00:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D1D11F000E9;
-	Tue, 11 Aug 2026 17:00:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786467612;
-	bh=uW8hLwKwvgMfYIPD0vwwNI5aDIVNxy/Ai/c+z6t5lHQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FESLREwKFLBlegXCXYT/pv+Nb0HnRmaCuEj+Iw9y85ATS6bMesQ6zx44iH1sWzaFn
-	 ncYjvjiPDc+AxYqM39dtCSjfL8JMfWR59F2TkPiSz5F4ydRp2CPSV/DYQOxlAL1nvk
-	 18H9IsmnLhIiRU7nc4l8r68q2XSPct3og4r6Jo4P8CKtI94p315/Mobm/yb5XrTkUH
-	 IQSbOmYsgWMStAba4L/mCnnUGHlMx6nW9hh9GCSDJLPTwxTdFwYPFUHj7SrOlU+Od/
-	 cT27FtbUiJ6G3l7AHdr1hF0fzrQu/axY6A0JA7wOeSc2f38VcjtyJvTujRktQBX4p9
-	 V31UL7S6dKSzA==
-Date: Tue, 11 Aug 2026 18:00:06 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v4 7/8] soc: starfive: Add socinfo driver for JHB100 SoC
-Message-ID: <20260811-populace-afflicted-40a40e0f484c@spud>
-References: <20260809015054.210577-1-changhuang.liang@starfivetech.com>
- <20260809015054.210577-8-changhuang.liang@starfivetech.com>
- <20260810-caress-rack-45615c8d9747@spud>
- <ZQ4PR01MB120276A1DA91FAC19C852F14F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-MIME-Version: 1.0
-In-Reply-To: <ZQ4PR01MB120276A1DA91FAC19C852F14F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+	Tue, 11 Aug 2026 17:18:46 +0000
+Received: by mail-pf1-x448.google.com with SMTP id d2e1a72fcca58-84e01a62d99so138462b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Aug 2026 10:18:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786468722; x=1787073522; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AtIGM2NHe8OV4DKgN1nHk9aAoS7uuH7cfv4s5R8wW14=;
+        b=GyKiNV/6Z9VLj2VWRry3RV3h44JAZKvh3OKuDznWF0x5iPEIc0hUiATuFxF45vB/xb
+         ZYXmEjgcFtZCAiptUP9AVZZhch3Ktfmew6e6BJjVdj9n2me2oCcJsqqJwS7klr5t19nc
+         11HivgIxtzBzLucIAnbdFqfXB+PNIpSMQNY/dXYffjfp2Mu3eqVKTisxKYTLjcrg0bdB
+         xmdsS6TSQLPJ5wFLqm0ChNfECkSc1kDuxKxyvqw1le3h3myTRyzRayHD1vde6l6d0NLP
+         5Q072IKGVuPiLHftLy8lA93x0elecXy4DJd1IGj7uhv86HfP3nH82xyV63qVHuA5kD6x
+         /2ZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786468722; x=1787073522;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AtIGM2NHe8OV4DKgN1nHk9aAoS7uuH7cfv4s5R8wW14=;
+        b=Szqdtwp2zliwvk/YE4mHLbhIiXBJ6i8Mk2ehY3U0szy8fksvWFxfPGIOjpMwCwAJJV
+         p5le8P6d41hMJaH1foLKnO5ndVDyjNg4QezUlczK0L3TUGx6mLDaGKpy7e60b+AKWpiw
+         v7zbWnJh4Xh1gplgNdTcLDr52VYi46rH0EnvzieYvqkVqdES488yEHL1fXedl50Qz3b9
+         4yYA1/8KxSiWFD2DiV4kLfTJGYgUR2KvszuiYEtmayGTloYauEPoNsO3ohow/fM3fXLX
+         pvS/fbGA45JUTUAJiDw5qScyh5GvTbdPWEVQbSP5FEZcOvgTn8p82Qoy/ibYd8T5aIrd
+         YvRg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp5hWtKqFgHulmjg64cdbLT2cv1sp4QOLOtQxO5eP+g2GYeMHGE9ZGAYawq313rsSShxoO6C/Ithf93Pg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/mPcrHJOK2UNtFubERARfpx5c5K5DfRj7lYzR5hpc8ag3mw1L
+	V3McITn7rqfZY9e0k61bvMisL8+QvqR3bH0ftLVv3iT8TqRrhRK1c6JZKG1auPGykcinLoPPNem
+	bRo+Jyg==
+X-Received: from pfbds7.prod.google.com ([2002:a05:6a00:4ac7:b0:848:2a35:eb83])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:139e:b0:848:5ed6:9d27
+ with SMTP id d2e1a72fcca58-84fafa6094dmr1722392b3a.36.1786468722299; Tue, 11
+ Aug 2026 10:18:42 -0700 (PDT)
+Date: Tue, 11 Aug 2026 10:18:41 -0700
+In-Reply-To: <20260811060134.106973-4-jinyu.tang@linux.dev>
+Mime-Version: 1.0
+References: <20260811060134.106973-1-jinyu.tang@linux.dev> <20260811060134.106973-4-jinyu.tang@linux.dev>
+Message-ID: <antZcYiOR0WKi5Kv@google.com>
+Subject: Re: [PATCH 3/3] KVM: selftests: Enable pre_fault_memory_test for RISC-V
+From: Sean Christopherson <seanjc@google.com>
+To: Jinyu Tang <jinyu.tang@linux.dev>
+Cc: Anup Patel <anup@brainfault.org>, Anup Patel <apatel@ventanamicro.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Shuah Khan <shuah@kernel.org>, 
+	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <andrew.jones@oss.qualcomm.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Yong-Xuan Wang <yongxuan.wang@sifive.com>, 
+	Nutty Liu <nutty.liu@hotmail.com>, Jinyu Tang <tjytimi@163.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_101845_120525_1DEDB5E3 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,76 +93,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5879191203843708447=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5879191203843708447==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="CtK5EKNoAsQivl3f"
-Content-Disposition: inline
+On Tue, Aug 11, 2026, Jinyu Tang wrote:
+> RISC-V now supports KVM_PRE_FAULT_MEMORY, so include the generic
+> pre_fault_memory_test in the RISC-V KVM selftest build.
+> 
+> The test uses PAGE_SIZE from the architecture processor header. Define
+> the normal 4K RISC-V selftest page size so the generic test can build
+> for RISC-V.
+> 
+> RISC-V selects VM_MODE_DEFAULT at runtime. Initialize the supported
+> guest modes before creating the VM so the generic test can run on
+> RISC-V hosts where the default mode is discovered from KVM
+> capabilities.
+> 
+> Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
+> ---
 
---CtK5EKNoAsQivl3f
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+...
 
-On Tue, Aug 11, 2026 at 05:36:19AM +0000, Changhuang Liang wrote:
+> diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
+> index a0fcae3cb7a8..6eebf0524673 100644
+> --- a/tools/testing/selftests/kvm/pre_fault_memory_test.c
+> +++ b/tools/testing/selftests/kvm/pre_fault_memory_test.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/sizes.h>
+>  
+>  #include <test_util.h>
+> +#include <guest_modes.h>
+>  #include <kvm_util.h>
+>  #include <processor.h>
+>  #include <pthread.h>
+> @@ -219,6 +220,8 @@ static void test_pre_fault_memory(unsigned long vm_type, bool private)
+>  
+>  int main(int argc, char *argv[])
+>  {
+> +	guest_modes_append_default();
 
-> > On Sat, Aug 08, 2026 at 06:50:53PM -0700, Changhuang Liang wrote:
+Can we do this for all selftests in kvm_selftest_init()?  Or perhaps even better,
+handle it in kvm_selftest_arch_init() to avoid the gnarly #ifdefs?
 
-> > > +static int __init starfive_socinfo_init(void) {
-> > > +	struct soc_device_attribute *attrs;
-> > > +	struct soc_device *soc_dev;
-> > > +	const char *machine =3D NULL;
-> > > +	struct device_node *np;
-> > > +	struct regmap *regmap;
-> > > +	char rev_char;
-> > > +	u32 rev_id;
-> > > +	int ret;
-> > > +
-> > > +	np =3D of_find_compatible_node(NULL, NULL,
-> > > +"starfive,jhb100-sys0-syscon");
-> >=20
-> > Remind me again why this is not just probed as an mfd cell from the sys=
-con
-> > driver?
-> >=20
-> > (Hint: please put this info in the commit message).
->=20
-> The discussion result with Krzysztof at that time is recorded here:=20
-> https://lore.kernel.org/all/20260405-strong-watchful-marmot-fdfad6@quoll/
->=20
-> One register should not be treated as a separate device node.
+Unless there's a meaningful downside to configuring the supported and default
+modes, I don't see any reason to force tests to manually do this work.
 
-That's a different question. In the case of an mfd cell probed from the
-syscon driver there would be no devicetree modifications required
-compared to what you have now. e.g. sg2044-topsys.c
-
---CtK5EKNoAsQivl3f
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCantVFgAKCRB4tDGHoIJi
-0lFUAQDQvErhGWh1GPKjl5npBVRgz0mxYgiMDD3N+RV5dXnjfQEA2tMdSc2XqHx8
-20d6W/Qs1vDPymVXp1wbnroZbe4nog8=
-=lAVE
------END PGP SIGNATURE-----
-
---CtK5EKNoAsQivl3f--
-
-
---===============5879191203843708447==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +
+>  	TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
+>  
+>  	test_pre_fault_memory(0, false);
+> -- 
+> 2.43.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5879191203843708447==--
-
