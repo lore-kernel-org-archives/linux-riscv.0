@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670FFC5B56A
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 21:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89405C5AC67
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 23:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MlYE7lkeiUoBHntIYBzda2LpezB/Isuhr+Y4c9rUPos=; b=mnkUea5JS13Jpl
-	k0dLz+R8u7UGSEnDv9eaDGtJfhZKtMNjnptmL9VHenHXTlDdE+PHEpeqlmbTIq8rnNch/64iUI8RH
-	vDtnwLzBGZ+/mzpUHIK7w77OuDqTMP3El8UbPeCZrXl156cCwY1CqsR50fYFSwI7gs0JfuBQGqMtu
-	alr2XPg0gKVIaHHJ+DILJIe8HmCjFCr2r29irPazAjO+8hhgdGrOaFGyqBMBvMp4F/1XfPB3ttwrG
-	WdxGCW7Eqg/fhLCxW18EYP1DaE4nrGqKWFKs4dW8C9KPKmCGVFoP0srWUoL4kA4jd5iWOksGxptTs
-	pVsXDXML5TS0BgYzKTiw==;
+	List-Owner; bh=3DVH0LNR26U0X7q6vqyo/ds+t82qEyv+RhsbBkZ/ECY=; b=VvSWCXwYnpTfTU
+	wqksj4Z9KpixYqYZ5d+4B3+AzeQu+fkqgxPcP9Rz9NuDxa3v56zBhpSXYIexWFRD9f86xDxyXePb4
+	9E6lNTfVPN9tA81pAEodwxcQFlvLdzSwjiZF/w7hT4rybVJwt3+ZNKmSpG2/cxxUs8ikk6eF1V3Xc
+	1g4lLmosy7Z8WjKcj8iUm4t5yS1KD9TutdMYHzLi8ki9MxDP/rPkWLrGB2VzAU83PTeZ8G+Sk9ssx
+	42t6qdwepQtgQrgRzykaV7KJvhu/WMdm+fS/UzWP1rhSAIlwLPuepjo330+H8wAvqaU6gSjzI0SND
+	PhyYRY3vBBfgpkJ3XSDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wttv8-0000000EymA-10qF;
-	Tue, 11 Aug 2026 21:22:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wtvVd-0000000F3fk-1bhQ;
+	Tue, 11 Aug 2026 23:03:49 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wttv6-0000000Eyly-2MfA
+	id 1wtvVb-0000000F3eU-2oJf
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 21:22:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C1B060A7E;
-	Tue, 11 Aug 2026 21:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFB7E1F000E9;
-	Tue, 11 Aug 2026 21:21:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786483318;
-	bh=zIlAl7RJ8yMOdVKvygcDu2T8idi0tcM0JETLZGdlNSQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bEJbRNHQnCMabxHAnFfiywgX2vqVBKBCg++fbDMzkOVMLpuF47eS3paHExQT8MMef
-	 XBGYbGIglHf2k2pEcKBuXX6Mf/bTcnh9B7SHkDeQHTTOWi4WI5ugx0snplra0PtAgu
-	 D+xwpxfbQjddS69xB+p6N+WoH4gx/l17B1gvyUc41qcT8YFGwFjsLMbFrpo0NytOpK
-	 4wH2urQ+fSpSli7Y4GpCaHrpXYfrqZREHb55eRmV/Fkyi6x9ioJDbikUcqAeDR48Gs
-	 juzWXdOw7xrZ/C65qEtkOCFA8QxoFJVyxj78n7txmR18DHeQ4t7ObhqbVOVed1cHs4
-	 Htf1/tV+S7UQA==
-Date: Tue, 11 Aug 2026 14:21:56 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Cc: joro@8bytes.org, palmer@dabbelt.com, tony.luck@intel.com,
-	reinette.chatre@intel.com, tomasz.jeznach@linux.dev,
-	will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, Dave.Martin@arm.com,
-	james.morse@arm.com, babu.moger@amd.com, corbet@lwn.net,
-	shuah@kernel.org, jgg@ziepe.ca, kevin.tian@intel.com,
-	cuiyunhui@bytedance.com, yuanzhu@bytedance.com,
-	iommu@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, x86@kernel.org
-Subject: Re: [RFC PATCH 5/7] iommu/riscv: Expose global QoS IDs in sysfs
-Message-ID: <anuSdFS4Enajdqff@x1>
-References: <20260714130657.46963-1-zhangzhanpeng.jasper@bytedance.com>
- <20260714130657.46963-6-zhangzhanpeng.jasper@bytedance.com>
+	Tue, 11 Aug 2026 23:03:48 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1786489425;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nhSfHP9g04wYalHk7dBUvUUOdewrP/fVDAB8KJOgRKY=;
+	b=sduuRLgqmPiCXoUyn5OGRz/tfB+r5Ky7gmSA3mHy31fSS+Yz7xfPDALsM/uOOm0gzOLpnO
+	7F6n8yUdNsxs4Spu+FBmdV3W3nERR/tzpWUSA7Pcz5KtG6S87GocABKRYVL8ngSaFmpcKB
+	VuGClGWJE+uzk0+csXlizPPaisOp5l8=
+From: Jinyu Tang <jinyu.tang@linux.dev>
+To: Anup Patel <anup@brainfault.org>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Atish Patra <atish.patra@linux.dev>,
+	Paul Walmsley <pjw@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Nutty Liu <nutty.liu@hotmail.com>,
+	Jinyu Tang <tjytimi@163.com>,
+	Jinyu Tang <jinyu.tang@linux.dev>
+Subject: [PATCH v2 2/3] KVM: selftests: Add RISC-V Sv57 page table indexing
+Date: Wed, 12 Aug 2026 07:03:15 +0800
+Message-ID: <20260811230316.218770-3-jinyu.tang@linux.dev>
+In-Reply-To: <20260811230316.218770-1-jinyu.tang@linux.dev>
+References: <20260811230316.218770-1-jinyu.tang@linux.dev>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260714130657.46963-6-zhangzhanpeng.jasper@bytedance.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_160347_844046_77D200EC 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +87,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 09:06:55PM +0800, Zhanpeng Zhang wrote:
-> The RISC-V IOMMU QoS extension provides iommu_qosid as a per-IOMMU
-> global default tag. It is used for IOMMU-originated DDT, CQ, FQ, PQ, and
-> MSI accesses, and for device-originated requests when DDTP is in BARE
-> mode.
-> 
-> Initialize iommu_qosid to RCID 0 and MCID 0 when the hardware advertises
-> QOSID support. Preserve reserved and WPRI bits with read-modify-write,
-> and use register readback to reject values which the WARL fields do not
-> retain.
-> 
-> Add a qosid attribute to the RISC-V IOMMU class device. Reading returns
-> the current RCID and MCID values. Writing the documented
-> 'rcid=<rcid> mcid=<mcid>' form updates both fields while preserving the
-> other register bits.
-> 
-> Keep this interface separate from resctrl group QoS. The sysfs attribute
-> controls the IOMMU-wide default, while resctrl device assignment programs
-> per-device DC.ta in translated modes.
-> 
-> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-> ---
->  .../ABI/testing/sysfs-class-iommu-riscv-iommu |  27 +++
->  MAINTAINERS                                   |  10 ++
->  drivers/iommu/riscv/iommu.c                   | 159 +++++++++++++++++-
->  drivers/iommu/riscv/iommu.h                   |   9 +-
->  4 files changed, 202 insertions(+), 3 deletions(-)
->  create mode 100644 Documentation/ABI/testing/sysfs-class-iommu-riscv-iommu
-[..]
-> diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
-> index 2c57625637bf..13ea67b7e42d 100644
-> --- a/drivers/iommu/riscv/iommu.h
-> +++ b/drivers/iommu/riscv/iommu.h
-> @@ -12,8 +12,12 @@
->  #define _RISCV_IOMMU_H_
->  
->  #include <linux/iommu.h>
-> -#include <linux/types.h>
->  #include <linux/iopoll.h>
-> +#include <linux/mutex.h>
-> +#include <linux/types.h>
-> +#ifdef CONFIG_RISCV_IOMMU_32BIT
-> +#include <linux/spinlock.h>
-> +#endif
+RISC-V selftests can create guests with five page-table levels, for
+example when the selected guest mode is Sv57. The RISC-V page-table
+walker only had index arrays for levels 0 through 3, so
+virt_arch_pg_map() indexed past the end of the arrays when level 4 was
+used.
 
-RISCV_IOMMU_32BIT does not seem to exist upstream and these lines 
-to just be deleted later in patch 6.
+Add the missing L4 index mask and shift so selftests can build guest
+page tables for Sv57 VMs.
 
+Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
+---
+ tools/testing/selftests/kvm/include/riscv/processor.h | 3 +++
+ tools/testing/selftests/kvm/lib/riscv/processor.c     | 2 ++
+ 2 files changed, 5 insertions(+)
 
-Drew
+diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
+index e3acf2ae9881..abde3c71c891 100644
+--- a/tools/testing/selftests/kvm/include/riscv/processor.h
++++ b/tools/testing/selftests/kvm/include/riscv/processor.h
+@@ -127,6 +127,9 @@ void vm_install_exception_handler(struct kvm_vm *vm, int vector, exception_handl
+ 
+ void vm_install_interrupt_handler(struct kvm_vm *vm, exception_handler_fn handler);
+ 
++/* L4 index Bit[56:48] */
++#define PGTBL_L4_INDEX_MASK			0x01FF000000000000ULL
++#define PGTBL_L4_INDEX_SHIFT			48
+ /* L3 index Bit[47:39] */
+ #define PGTBL_L3_INDEX_MASK			0x0000FF8000000000ULL
+ #define PGTBL_L3_INDEX_SHIFT			39
+diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+index ded5429f3448..b4d41a407553 100644
+--- a/tools/testing/selftests/kvm/lib/riscv/processor.c
++++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+@@ -43,6 +43,7 @@ static u64 pte_index_mask[] = {
+ 	PGTBL_L1_INDEX_MASK,
+ 	PGTBL_L2_INDEX_MASK,
+ 	PGTBL_L3_INDEX_MASK,
++	PGTBL_L4_INDEX_MASK,
+ };
+ 
+ static u32 pte_index_shift[] = {
+@@ -50,6 +51,7 @@ static u32 pte_index_shift[] = {
+ 	PGTBL_L1_INDEX_SHIFT,
+ 	PGTBL_L2_INDEX_SHIFT,
+ 	PGTBL_L3_INDEX_SHIFT,
++	PGTBL_L4_INDEX_SHIFT,
+ };
+ 
+ static u64 pte_index(struct kvm_vm *vm, gva_t gva, int level)
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
