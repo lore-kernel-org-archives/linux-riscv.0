@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88F9FC5B569
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 06:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85D7C5AC67
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 06:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9FcZRrAP700x/1gUCpglSXio0SVEcp9R0qJjZaBxC5I=; b=KHQpkJJxX7EW2f
-	nPVkibyzgSKfQu+RPkA2SM/PUynE89XzGJXSq1kYcDjXXq+TnkmS/fRkrIDuASAIAW8UR31IYIi6o
-	gFoZHp3AmjloVQu3Z4xJfxMR/+leGegfWlktRyEVNb1uxoviI1sX7yV0Cjm3HIO7Mwlx1lkejNcCe
-	dm758maAa721PZgaJ4DmQkcg1X5lAaFlGQGt8lq80uMsAjBlMyGffyGSOUpyLYozEMKRsjXaYUQzq
-	6nNnEyA1Cr+crn92oRCR9TIWQFx27fwS1oW08PhVOGHQpvGEtRDK8c3+737gn4DFKWEcPnzgikwg2
-	ZX88mmvp0yVsAaJGJKqg==;
+	List-Owner; bh=kXiIWprZAD5uhDGPW7fdIGOwfVB+sIaN1nR88J7HIP8=; b=1ZQ/54owsaiaRN
+	SbKpnq83tzP4ep98xlcmAKg0Lhwmb9Hwx9i0gSl112qIWetDyTIW+FZwaRgrVc8gKaZXedtD4qbm7
+	Z8S9cqm++QDt/fqmYqQlJ1Iy0taPFuN9VbWzQC919y1+PI5pkonk1/CN3QB6r+2vZjy1twZm8Hptk
+	ipREw7B03/pSfveXTvoOjVtb4D9/ZyjJ+bKifqBf/tiaTY3Jhr3rtHv9bcp4wUam+GU9uZQi6Nh8K
+	/wlC5JMjbU9A6bwXQ/wh/qaXdn16XU54o7AySWXpqRp1UAVCmdGQdoS/jSzLNKOy14P5DPDZaDrph
+	7ONWYNFy3hqvT3Fnxuuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtfb7-0000000DNRF-3AwD;
-	Tue, 11 Aug 2026 06:04:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wtfkv-0000000DOqa-3aD6;
+	Tue, 11 Aug 2026 06:14:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtfb6-0000000DNQi-38Yv
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 11 Aug 2026 06:04:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=OUZulxlEFenT7RvZakt+p4GE/qxIk5ggsq3u1CDIY8o=; b=CJUJG43sDDkI4jDKC98uh+GOJN
-	aMb8wNqzoRBucPP2i6DZNQtvCHNLQlh0f8HXwZ7VQ9uW7vQFU3uj00WaSLX6TUzOhvtBOct8GAIFN
-	LUITxDmN3xcElb2vU0a99NU31uM1c/KA9DidT1uRIN7EH4Zlo1mELARoqgIkIK0w3ZBdFBb9XeCr/
-	Dh3FY9J6CKRFyk0OXzA0DgC037dbztMSe6rbhcRXGWhMpWPRihSFnwYGcHCJIQh385HyZL/210x+i
-	mdfCVNzQdM6brtWv7tWx+ydYmauO4P9GaAnfJ6Cil0s1HVYfxzvTYF9uaR/r7MmkQcziRAAIplUC6
-	0CoZmiqg==;
-Received: from mta1.migadu.com ([37.59.57.117] helo=out-181.mta1.migadu.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wtfZd-0000000EL4H-0zvy
+	id 1wtfku-0000000DOqJ-3FiX
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 06:04:23 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1786428170;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OUZulxlEFenT7RvZakt+p4GE/qxIk5ggsq3u1CDIY8o=;
-	b=pltt4ir9SgvTNXLl3RctP7iMfp9rqSS4CsqaZtRka/0EOFVWPuoI2fzM9gEMBH6tQS8k1u
-	O8eQxdOau6l3dPoYFv8qOcQZhnSuZ1Jz8FJwZ2GCKsrNWJuJZcJM8tFvPVfZBKwPOoiA45
-	1LA85MbcZIBFjtxHbTScXVrvOeb8Cbw=
-From: Jinyu Tang <jinyu.tang@linux.dev>
-To: Anup Patel <anup@brainfault.org>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Shuah Khan <shuah@kernel.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Nutty Liu <nutty.liu@hotmail.com>,
-	Jinyu Tang <tjytimi@163.com>,
-	Jinyu Tang <jinyu.tang@linux.dev>
-Subject: [PATCH 1/3] KVM: riscv: Implement KVM_PRE_FAULT_MEMORY
-Date: Tue, 11 Aug 2026 14:01:32 +0800
-Message-ID: <20260811060134.106973-2-jinyu.tang@linux.dev>
-In-Reply-To: <20260811060134.106973-1-jinyu.tang@linux.dev>
-References: <20260811060134.106973-1-jinyu.tang@linux.dev>
+	Tue, 11 Aug 2026 06:14:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E497B600AA
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Aug 2026 06:14:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DC0A1F00A3D
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Aug 2026 06:14:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786428871;
+	bh=+wNOqVDGEN5i8weJznBIp+8lqP1f4HnqpPBBjIKEJrc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Kh+d8lyjifRDpe1x2Pdx3lwtO+AF7HtDv7wBtHe3PAkWOhbWBiaAEkbjldzrRhA/f
+	 YD/LV+8H5uY0RI13e4B4vWwLY0FSwgMNLQRaA77hlqculBL/pxU2arJlrHIPUfIRaE
+	 /ngqogip4CpdTrVc4LDSqqE9Fbrxmw9T0TRsyWXvP4N/Zu7dFlrqhHFKjdVRn5ogYl
+	 veQKsY4o1UIFgCvwmeRXMVOtmFt0Iv2npsQ2RfvRkiLcvhObIqs/J4CqgKwpS0WCzh
+	 yim8IqHpXO7wu8b47sp3jochDrExMj63SIVobJ/dOln4y9+2YEZKdIbOm5BCG1DJ/w
+	 5NyHEc9/SAPAQ==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5b00d083818so563446e87.1
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Aug 2026 23:14:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RruiZpANOADRSmR19L8hepnmRBXTgjCy1+VHPNW6A1GFJgjFB31xxZsgn1e4AZFjgV0Wc3UdfreMiGH0w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywp77+7fLornhXE1Qwbwf2+thP5kufv+SyykZT6O9PiX2kcTxQa
+	neWqlrllaBo2eftCxx3s6KDsggjutfdGELV/4jVCEYwBhlnA8ZP4Gv/+Fnf+sN36u1+Ubt82WOV
+	iNGlA713azUMyNB8zhdALCBYg3o/BgFE=
+X-Received: by 2002:a05:6512:1383:b0:5b0:1e26:7751 with SMTP id
+ 2adb3069b0e04-5b44881c2bcmr127826e87.8.1786428870446; Mon, 10 Aug 2026
+ 23:14:30 -0700 (PDT)
 MIME-Version: 1.0
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_070256_578164_C7CCBD2C 
-X-CRM114-Status: GOOD (  12.02  )
+References: <20260810063650.239303-1-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260810063650.239303-1-changhuang.liang@starfivetech.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 11 Aug 2026 08:14:18 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkHYsx3FNcdiPdL_9UcEUGDGs2u8RwfTjotm7f+xiwnvQ@mail.gmail.com>
+X-Gm-Features: AUfX_mzgGug6-5qsnEpmIEwyeblG76ijsb9r5KbO018SdfVmGfJDslC9BjekBp0
+Message-ID: <CAD++jLkHYsx3FNcdiPdL_9UcEUGDGs2u8RwfTjotm7f+xiwnvQ@mail.gmail.com>
+Subject: Re: [PATCH v5 00/21] Add basic pinctrl drivers for JHB100 SoC
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <pjw@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,120 +79,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The generic KVM_PRE_FAULT_MEMORY ioctl lets userspace populate KVM page
-tables before running a vCPU over a GPA range. x86 already supports the
-ioctl, but RISC-V does not expose the capability and has no arch hook.
-
-Add the RISC-V arch hook and reuse the existing G-stage fault mapping
-path with a read access. Report progress using the G-stage mapping
-returned by the map path, so the ioctl can advance by the actual leaf
-size that covers the requested GPA.
-
-Unlike x86, RISC-V's G-stage fault path does not return a detailed
-result such as RET_PF_FIXED or RET_PF_RETRY. Treat a successful call
-that does not return a visible G-stage mapping as no progress, instead
-of reporting that a page was prefaulted.
-
-Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
----
- arch/riscv/kvm/Kconfig  |  1 +
- arch/riscv/kvm/gstage.c |  3 +++
- arch/riscv/kvm/mmu.c    | 33 +++++++++++++++++++++++++++++++++
- arch/riscv/kvm/vm.c     |  1 +
- 4 files changed, 38 insertions(+)
-
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index ec2cee0a39e0..8ac209e8ac87 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -28,6 +28,7 @@ config KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
-+	select KVM_GENERIC_PRE_FAULT_MEMORY
- 	select KVM_MMIO
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index e5002cb9cbef..6bd8b8fd6ceb 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -280,6 +280,9 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
- 						    out_map->level, true);
- 		} else if (ALIGN_DOWN(PFN_PHYS(pte_pfn(ptep_get(ptep))), page_size) == hpa) {
- 			kvm_riscv_gstage_update_pte_prot(gstage, ptep_level, gpa, ptep, prot);
-+			out_map->addr = ALIGN_DOWN(gpa, page_size);
-+			out_map->level = ptep_level;
-+			out_map->pte = ptep_get(ptep);
- 			return 0;
- 		}
- 	}
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 6035b5ec9503..c96e21740c91 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -748,6 +748,39 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	return ret;
- }
- 
-+long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-+				    struct kvm_pre_fault_memory *range)
-+{
-+	struct kvm_gstage_mapping out_map = { 0 };
-+	struct kvm_memory_slot *memslot;
-+	unsigned long map_size;
-+	unsigned long hva;
-+	gpa_t end;
-+	gfn_t gfn;
-+	int ret;
-+
-+	gfn = gpa_to_gfn(range->gpa);
-+	memslot = kvm_vcpu_gfn_to_memslot(vcpu, gfn);
-+	if (!memslot)
-+		return -ENOENT;
-+
-+	hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
-+	if (kvm_is_error_hva(hva))
-+		return -ENOENT;
-+
-+	ret = kvm_riscv_mmu_map(vcpu, memslot, range->gpa, hva, false, &out_map);
-+	if (ret)
-+		return ret;
-+
-+	if (!pte_val(out_map.pte))
-+		return -EAGAIN;
-+
-+	map_size = PAGE_SIZE << (out_map.level * kvm_riscv_gstage_index_bits);
-+	end = ALIGN_DOWN(range->gpa, map_size) + map_size;
-+
-+	return min_t(u64, range->size, end - range->gpa);
-+}
-+
- int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- {
- 	struct page *pgd_page;
-diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-index a9f083feeb76..58500a19b33b 100644
---- a/arch/riscv/kvm/vm.c
-+++ b/arch/riscv/kvm/vm.c
-@@ -187,6 +187,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 	case KVM_CAP_MP_STATE:
- 	case KVM_CAP_IMMEDIATE_EXIT:
- 	case KVM_CAP_SET_GUEST_DEBUG:
-+	case KVM_CAP_PRE_FAULT_MEMORY:
- 		r = 1;
- 		break;
- 	case KVM_CAP_NR_VCPUS:
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ2hhbmdodWFuZywKCk9uIE1vbiwgQXVnIDEwLCAyMDI2IGF0IDg6MzfigK9BTSBDaGFuZ2h1
+YW5nIExpYW5nCjxjaGFuZ2h1YW5nLmxpYW5nQHN0YXJmaXZldGVjaC5jb20+IHdyb3RlOgoKPiBU
+aGUgSkhCMTAwIFNvQyBoYXMgMTMgcGluY3RybCBkb21haW5zIC0gc3lzMCwgc3lzMGgsIHN5czEs
+IHN5czIsIHBlcjAsIHBlcjEsCj4gcGVyMiwgcGVyMnBvaywgcGVyMywgYWRjMCwgYWRjMSwgZW1t
+YywgYW5kIHZnYS4KPgo+IEluIHRoZSBjdXJyZW50IHNlcmllcywgd2Ugd2lsbCBvbmx5IGFkZCB0
+aGUgZm9sbG93aW5nIHBpbmN0cmw6Cj4gIC0gc3lzMCwgc3lzMGgsIHN5czEsIHN5czIKPiAgLSBw
+ZXIwLCBwZXIxLCBwZXIyLCBwZXIycG9rLCBwZXIzCj4KPiBUaGUgcmVtYWluaW5nIHBpbmN0cmwg
+d2lsbCBiZSBpbXBsZW1lbnRlZCBpbiBmdXR1cmUgc2VyaWVzLgoKVGhlc2UgZHJpdmVycyBsb29r
+IGdvb2QsIGFzIHNvb24gYXMgdGhlIERUIGJpbmRpbmdzIGFyZSByZXZpZXdlZCBJIGNhbgpwcm9i
+YWJseSBtZXJnZSB0aGUgc2VyaWVzLgoKWW91cnMsCkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
