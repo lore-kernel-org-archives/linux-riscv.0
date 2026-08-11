@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A719C5B574
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 04:21:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A2CEC5B572
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 04:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cTflS0UL+aRqC9szROqiIjlCzkte9atMr99g5Bxc+4g=; b=sywgrM8kBlftby
-	t8wpBQywLbmzep0trd7dcE6tReJQTEOOFGEFUH5zklUlxxu/4fiawjlckdXpbZ8EVWWyBbqIN45zJ
-	qsEqd0b+2gFHnX9IlQUld2gjcgWPhT5i+nrPl8+ftEZ3m5NiyEqRbPmQ4HcrMWq+irooGr0eVzD3j
-	28pva7h1QVQBxr/qOfHULjRKl0UJZ1O6z/7H5AaAqqbguMS6jDDhq2FOtgVPe20Dx3e2It86qQxz6
-	0+OtSPjM07LdYA8eHbBAwtAeNPfzn+fXAeo61dK1kw2HmzxHsa39hHUJIf0d9Fdtm/gwirzDgmDzN
-	aNtXwpKI5XhNiY7lWf5w==;
+	List-Owner; bh=UeD7ZPve6FerWiSR5RoUwQdjZJDW4EOjuW4XXssfj8k=; b=M8Fe/XMgXgOlZa
+	UVnv+yCPPM3ZQYXcGT56RlRI97vmGhL6UXgLQQ3tzA/uDuu6tGvvyLcYWaAhKkgBqcC+g0QfmbhtC
+	0vGqN9vAMTl40WsVq2RiutF5cSVPU/kN8ifh/C6wnmeaRJVMYL8lbUgss5SV56tagk1/qZtZM/yt6
+	o7VXYjtkHav2P4AlOuyGU9UlGgx/RVl59y6JmVgxWJU6DKfWKW41jJNhe3e0kntdhxf6bgnvQJNPF
+	7AdRWMGvc4OGw5cj0tJwQprZiIyLU2h9MS+cS33c1wBTUu9AOwJAFvDcqfwB4xVWTyKcNjptFBZl+
+	Z83LiX3HbeFj97rlr5Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtdzc-0000000DFnA-0tKj;
-	Tue, 11 Aug 2026 04:21:36 +0000
+	id 1wtdzg-0000000DFtD-1MQH;
+	Tue, 11 Aug 2026 04:21:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtdzX-0000000DFlH-0LVd;
-	Tue, 11 Aug 2026 04:21:35 +0000
+	id 1wtdza-0000000DFm9-3qgV;
+	Tue, 11 Aug 2026 04:21:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB1921682;
-	Mon, 10 Aug 2026 21:21:24 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D93B3F673;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68B031684;
 	Mon, 10 Aug 2026 21:21:28 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E5FB3F673;
+	Mon, 10 Aug 2026 21:21:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786422088; bh=seDKsmiMOMrdwfylVhhzaffw4o0OcF7YTjTN6FBF/F4=;
+	t=1786422092; bh=BqsfSrzSwruH65sXJBGnXmlXFGRnhcX2ugUIjxcj/Fc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KC7mBJJ7KWVH6Grb7zUC3NdpCyV/h1uPp7PTSBIuRmm8PBZZS6xTMV8rQbmBcb0+k
-	 CrFwokBxCYlG/gET0eDkNie78MI7Otgx+fDNF63nC3bpTuLMTOYV0FYW/FoKzOsWXt
-	 +rPreTXul9plA9OwBjRX3iIHmzyFZ4yyGIp2Yfrw=
+	b=rHvZEaZBVcSMFwn2Onro3gwOPS804AfXvPTDUi0l9z4MNgF38FHJ0V4gLq9fsXUSL
+	 WfVE47DkPbbJE3P5/E+A+2R4PCyV3fLZiJAJK2b95urh3keCsYz/2cZq+G8o/mmaVN
+	 /7RC88lRZ6+0rSSPRsdZY5lZqPbYLSHvlWv2aby0=
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-mm@kvack.org,
 	akpm@linux-foundation.org,
@@ -68,16 +68,16 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	linux-um@lists.infradead.org,
 	linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC V2 1/6] loongarch/mm: Stop using pte_ERROR()
-Date: Tue, 11 Aug 2026 09:51:14 +0530
-Message-ID: <20260811042119.3652929-2-anshuman.khandual@arm.com>
+Subject: [RFC V2 2/6] parisc/mm: Directly use generic [pmd|pgd]_clear_bad()
+Date: Tue, 11 Aug 2026 09:51:15 +0530
+Message-ID: <20260811042119.3652929-3-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260811042119.3652929-1-anshuman.khandual@arm.com>
 References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_212131_172268_0DA4A699 
-X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-CacheID: sfid-20260810_212135_029850_589C16BD 
+X-CRM114-Status: UNSURE (   7.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,47 +95,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Directly use pr_err() in __set_fixmap() and drop pte_ERROR() which helps in
-eventually dropping pte_ERROR() macro across the tree. In this new printing
-__FILE__ and __LINE__ has been dropped because they are always the same and
-don't really add any value.
+Drop [pmd|pgd]_ERROR() followed by [pmd|pgd]_clear() instances. But instead
+directly use semantically equivalent generic helpers [pmd|pgd]_clear_bad()
+in unmap_uncached_[pte|pmd]() which helps in dropping their corresponding
+[pmd|pgd]_ERROR() macros across the tree.
 
-Cc: Huacai Chen <chenhuacai@kernel.org>
-Cc: WANG Xuerui <kernel@xen0n.name>
-Cc: loongarch@lists.linux.dev
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: linux-parisc@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/loongarch/include/asm/pgtable.h | 2 --
- arch/loongarch/mm/init.c             | 2 +-
- 2 files changed, 1 insertion(+), 3 deletions(-)
+ arch/parisc/kernel/pci-dma.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
-index 223528c04d73..a32a8fff70c1 100644
---- a/arch/loongarch/include/asm/pgtable.h
-+++ b/arch/loongarch/include/asm/pgtable.h
-@@ -128,8 +128,6 @@ struct vm_area_struct;
- #define ptep_get(ptep) READ_ONCE(*(ptep))
- #define pmdp_get(pmdp) READ_ONCE(*(pmdp))
- 
--#define pte_ERROR(e) \
--	pr_err("%s:%d: bad pte %016lx.\n", __FILE__, __LINE__, pte_val(e))
- #ifndef __PAGETABLE_PMD_FOLDED
- #define pmd_ERROR(e) \
- 	pr_err("%s:%d: bad pmd %016lx.\n", __FILE__, __LINE__, pmd_val(e))
-diff --git a/arch/loongarch/mm/init.c b/arch/loongarch/mm/init.c
-index 3407030f3e7a..be9b127daef2 100644
---- a/arch/loongarch/mm/init.c
-+++ b/arch/loongarch/mm/init.c
-@@ -203,7 +203,7 @@ void __init __set_fixmap(enum fixed_addresses idx,
- 
- 	ptep = populate_kernel_pte(addr);
- 	if (!pte_none(ptep_get(ptep))) {
--		pte_ERROR(*ptep);
-+		pr_err("bad pte %016lx\n", pte_val(*ptep));
+diff --git a/arch/parisc/kernel/pci-dma.c b/arch/parisc/kernel/pci-dma.c
+index bf9f192c826e..84e7309a8266 100644
+--- a/arch/parisc/kernel/pci-dma.c
++++ b/arch/parisc/kernel/pci-dma.c
+@@ -160,8 +160,7 @@ static inline void unmap_uncached_pte(pmd_t * pmd, unsigned long vaddr,
+ 	if (pmd_none(*pmd))
+ 		return;
+ 	if (pmd_bad(*pmd)) {
+-		pmd_ERROR(*pmd);
+-		pmd_clear(pmd);
++		pmd_clear_bad(pmd);
  		return;
  	}
- 
+ 	pte = pte_offset_kernel(pmd, vaddr);
+@@ -196,8 +195,7 @@ static inline void unmap_uncached_pmd(pgd_t * dir, unsigned long vaddr,
+ 	if (pgd_none(*dir))
+ 		return;
+ 	if (pgd_bad(*dir)) {
+-		pgd_ERROR(*dir);
+-		pgd_clear(dir);
++		pgd_clear_bad(dir);
+ 		return;
+ 	}
+ 	pmd = pmd_offset(pud_offset(p4d_offset(dir, vaddr), vaddr), vaddr);
 -- 
 2.43.0
 
