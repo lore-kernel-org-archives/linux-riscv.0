@@ -4,62 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCF2C5AC67
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 09:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6508C5CFC1
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 09:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/XDb/f3JAOgn9H6nqrucVWF3addcQ6nqeu9BC4zI6q8=; b=uPJNO3vYja2RFT
-	vTqr5GDHuLq4f+e5FYEHISt1NwO36tAY3ysIrguzk7A2wU+B19xRLgDZtPRSU5pQnFI/1Rdh9x97E
-	AECSp2KRqcGFi3ybK/qWunJsh0fGa/b01t0JrXiAJuvafpWVyO6D5xt87GV44B6ckITZuGtN3H3MJ
-	bz/zV9nUxJx8Ola9a1Lz2xpMreFrqUGiVwzurL0uHddkte/X4/Yt99zrGK1HGY9fiNZBB35vyUf4l
-	za09I/EfNXVsjvmi3fVc87GQJR1htnSJ3hsMND1yMQKSBCnFM7O0lojvNBAOHmzfOo9ehIyvO+3bf
-	AW67rAfAnAYnlq3UT3ew==;
+	List-Owner; bh=6FFOJLYz4iyC0RHoJBQu+LmmfnL/qtYZaCMOpFd4Bqg=; b=znQ4nkjt1kIJFV
+	8fgdQaIGU4ZB+JliR4OtkjoeBt1iqNh0Qfc+0tpIkAz/UsB12mdoMdUrKidgVfaV9HL9RWoaz+NQF
+	n1VmFyAAD4OGk3750OCpGZUsFvfYtd6ZGpaSL5wSeN5uHCzFR7/KdaUSmDFczsIFZLEHJNXOlv7fJ
+	nXkXLATtWFetcsrtv1C7ohQslUAvOSELTQB07fgCxZIzR1D/+FOMHpd+3/bEmX9mJkmt9J/kRzfLV
+	xDWGESeX/nPfDwuL5hfGMpWePBZnyLQIyISv8mBBD1zLpGtW/OdonLqS/ErQ9exfCoEtJ3Ud/VBzv
+	Bj1SPmXCxKudxWTnZLiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiny-0000000Dk2t-2tfQ;
-	Tue, 11 Aug 2026 09:29:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtiqA-0000000Dkla-2Zz0;
+	Tue, 11 Aug 2026 09:32:10 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtinn-0000000Djnd-2ZU7;
-	Tue, 11 Aug 2026 09:29:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ECE244391F;
-	Tue, 11 Aug 2026 09:29:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCA521F01566;
-	Tue, 11 Aug 2026 09:29:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786440582;
-	bh=Yw9famE/cdD1oKyq0RADQbeI52kOsmystMlqLu/eKYo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mLHMCmgkIiSnRZJ6x6zmy5eJpjxP/wYnjduhbgS7UpQFXsqqtRdW+sAOWRlM/6SWo
-	 rl0xVyvjATCKz7U0W8FtZQV1TCaxjiSzJIHwGa6DJ35TvnDbXmfJNkpjjDNexvx2gY
-	 AmkW6DA8dAXbevgQDfpsxXJffqWB3iEx0v5mT3n22QNsZSP8wdDG397wipLf1csmuT
-	 wr01WFy98Sqh0cj8pEUETHOmaVpLycUso1NrYKVl+6zGkuRsLxwqXcs6zuQWg/FVWS
-	 qxm0LK/jQSi6EeGveT11xgo2P9h0+8Y5FFP86s57Vq6+zfrC/EnJAF2tcHKN/9E4l7
-	 gcpXlSnrQi/bA==
-Date: Tue, 11 Aug 2026 10:29:35 +0100
-From: Will Deacon <will@kernel.org>
-To: =?iso-8859-1?Q?Jo=E3o?= Peixoto <jpeixoto@osyx.tech>
-Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, jose@osyx.tech, davidmcerdeira@osyx.tech,
-	corbet@lwn.net, skhan@linuxfoundation.org, catalin.marinas@arm.com,
-	linux@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, andrew.jones@oss.qualcomm.com,
-	rdunlap@infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH v3 4/6] virt: bao: add I/O dispatcher driver
-Message-ID: <anrrf0J9C9zSrAgF@willie-the-truck>
-References: <cover.1786010512.git.jpeixoto@osyx.tech>
- <2190b6e083a2f2e0485b27e5e203647189bb1d1d.1786010512.git.jpeixoto@osyx.tech>
+	id 1wtiq8-0000000DklC-0miG
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Aug 2026 09:32:09 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2caced6038eso9404715ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Aug 2026 02:32:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1786440727; x=1787045527; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ap29SzIYC2SRhT7+1cYIYqMqPmmcLkWivyt8GCYG80w=;
+        b=fFoF+6IzMMj0NSH6gsf02SO0CePX/Q9mTWEsg6mL1w9Tlu3EpyfbD/LxjiiDg4Q83p
+         aNPUrcwTz5fn0dBv77pzrHq3BTiIfQNr/OXcIx0H3QmcXT+OVyHM5cfDKdklkGoOI8uy
+         vGiWXF/N+gJ1L+jLNHfcrVbLzxPNgE8Y/KhWbe//1+UtNUNxup0ZCfzE/5Z9WtNMq/15
+         jF3m56ZqnrksOXYppcx9fMMrRae0Oz7BnzG14S7aLbkAvXVks0/3y+cDQ6nBJwrdzoxu
+         pF1yHJW746R7U5EJbbpUsMKUzMDCpnv3KUCmg+DwtJBPTnoQ5lCBf08n7AiUh+UBAUh8
+         wkhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786440727; x=1787045527;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ap29SzIYC2SRhT7+1cYIYqMqPmmcLkWivyt8GCYG80w=;
+        b=rD/VpEuoY1FouJGADwyTFWW5XWf2FmF992qlf/4eDSkzg9cK2CuFdX+l1gd6oONBX4
+         7uJ8DwHvRMG/FsREt1WVmgO1rFeK/YduJdLfxnoeLu5D+kqJMJj4faqk7mk2j47lvInJ
+         HPkUI+NRXSN+EVb6O4h9PP0HNTRJ9J3XfTj5d+oR9omzSHo8fdJWLeij/T902C6B/6dK
+         fIM19Uv/+c9pGuX95O7OVkHVkUaYRJbjbTCXAL1pxMONtyfUQM4Iz/ghipi2k51b2opN
+         HplpTkArvfF7Oln0hBI037RdZJtAPv+oAqH7gLwLNmj2MQAgZyNyKiSuAbcDAdU5oxVY
+         gbaw==
+X-Forwarded-Encrypted: i=1; AHgh+RpYp00x0+o9m9rbHx+iadf1g9CsE7GdKzMgWPkqt8sHTw/Prel8KqHdDnPEZQmudA9GxVjiJYYUAbIrSw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt8kKRmv1AcUBrVwDTgnesDXhLt74lUbS1k0ZKCZk70NQSfuEm
+	+6eDZjHUPJwa7xZ/Cfc4zppnN+J8yYMfaH894QdBM+w6wAHphO1oC/5JDoCEsjj7vdE=
+X-Gm-Gg: AR+sD12Qm5PD5bMtfn9GHqOvUMG0Ic60MbJHlAoEC+jEM4Nr5RwSapo4mMYTkx1xgCV
+	3NtMHrPoxdQN15zq4MAizzkCbQ6pxAJXBFr4xOvVovfU13bR+iYUEFLDuXOnMfw36DxOsu5fPlM
+	RlBdMovZau//gqC5JmO4OSCZ7Z3BYOO2p5/jFdQ3QYiikE1i3wqFJXIGco1BH1BgH+tH3Anl8WZ
+	F/YowTcylBN0mWg3pWubJK3bNrSiUhexsSm2IH4W0c9+5uJUC4oqbWrSpt0TGx1xs20dgcJuazq
+	4LW+gVuhRkIPAixAPiwUzi+KNLzSRbP0nmTf36n2r4bZqQhIW/CFfvvF6MXmGURp+JFL0Di9h7W
+	6oeTQKNNcTQyGi+i6yhVObo6K832seFzb3w9geG3TPJKW404wJJI05LivHShT81U1+9OU8bR+IY
+	4vkCzX/t385bNxaSCvDPbpItaJN3UjFRCeX9MpXHN6pHkRmtTlY3tNv8VuYw8=
+X-Received: by 2002:a17:903:2410:b0:2c6:8d95:fd7e with SMTP id d9443c01a7336-2d3187acb9emr19605805ad.6.1786440727293;
+        Tue, 11 Aug 2026 02:32:07 -0700 (PDT)
+Received: from plin-1878 ([136.226.240.195])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d315f29afdsm4693525ad.19.2026.08.11.02.31.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Aug 2026 02:32:06 -0700 (PDT)
+Date: Tue, 11 Aug 2026 17:31:56 +0800
+From: Yu-Chien Peter Lin <peter.lin@sifive.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, samuel.holland@sifive.com,
+	dlan@kernel.org, dfustini@oss.tenstorrent.com, michal.simek@amd.com,
+	junhui.liu@pigmoral.tech, darshan.prajapati@einfochips.com,
+	akpm@linux-foundation.org, zhangchunyan@iscas.ac.cn,
+	luxu.kernel@bytedance.com, pincheng.plct@isrc.iscas.ac.cn,
+	nick.hu@sifive.com, jim.shu@sifive.com, zong.li@sifive.com,
+	greentime.hu@sifive.com, robin.randhawa@sifive.com,
+	scott@riscstar.com, dave.patel@riscstar.com,
+	raymond.mao@riscstar.com, anup@brainfault.org,
+	pawandeep.oza@oss.qualcomm.com
+Subject: Re: [PATCH v2 2/3] dt-bindings: riscv: Add Worlds per-hart properties
+Message-ID: <anrsDDkkOKmnkzAa@plin-1878>
+References: <20260729163908.249838-1-peter.lin@sifive.com>
+ <20260729163908.249838-3-peter.lin@sifive.com>
+ <20260730-glossy-pompous-quokka-c05c60@quoll>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <2190b6e083a2f2e0485b27e5e203647189bb1d1d.1786010512.git.jpeixoto@osyx.tech>
+In-Reply-To: <20260730-glossy-pompous-quokka-c05c60@quoll>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_023208_242692_E4F249D0 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,84 +108,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 08:39:31AM +0100, Jo=E3o Peixoto wrote:
-> Add the Bao I/O dispatcher, used by backend VMs to service I/O on behalf
-> of frontend guests. It bridges Bao's Remote I/O mechanism to userspace
-> VirtIO backend device models.
-> =
+Hi Krzysztof,
 
-> Each backend device has a contiguous shared-memory region for exchanging
-> I/O buffers with its frontend and an interrupt the hypervisor uses to
-> signal pending requests. Userspace drives the dispatcher through a set of
-> ioctls on a misc character device.
-> =
+On Thu, Jul 30, 2026 at 09:30:24AM +0200, Krzysztof Kozlowski wrote:
+> On Thu, Jul 30, 2026 at 12:39:07AM +0800, Yu-Chien Peter Lin wrote:
+> > +  riscv,pmlwidlist:
+> > +    $ref: /schemas/types.yaml#/definitions/uint64
+> > +    description:
+> > +      Optional bitmask of WIDs available for S-mode and U-mode use on this hart; each
+> > +      set bit N indicates WID N is available. Firmware may read this to select platform
+> > +      authorized WIDs for lower-privilege modes.
+> >    # RISC-V has multiple properties for cache op block sizes as the sizes
+> >    # differ between individual CBO extensions
+> >    cache-op-block-size: false
+> > diff --git a/Documentation/devicetree/bindings/riscv/worlds.yaml b/Documentation/devicetree/bindings/riscv/worlds.yaml
+> > new file mode 100644
+> > index 000000000000..cc8b3747591e
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/riscv/worlds.yaml
+> 
+> Please run scripts/checkpatch.pl on the patches and fix reported
+> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+> patches and (probably) fix more warnings. Some warnings can be ignored,
+> especially from --strict run, but the code here looks like it needs a
+> fix. Feel free to get in touch if the warning is not clear.
 
-> Co-developed-by: Jos=E9 Martins <jose@osyx.tech>
-> Signed-off-by: Jos=E9 Martins <jose@osyx.tech>
-> Co-developed-by: David Cerdeira <davidmcerdeira@osyx.tech>
-> Signed-off-by: David Cerdeira <davidmcerdeira@osyx.tech>
-> Signed-off-by: Jo=E3o Peixoto <jpeixoto@osyx.tech>
-> ---
-> diff --git a/arch/arm64/include/asm/bao.h b/arch/arm64/include/asm/bao.h
-> index ab9b283168e3..1dc09a2c261b 100644
-> --- a/arch/arm64/include/asm/bao.h
-> +++ b/arch/arm64/include/asm/bao.h
-> @@ -14,6 +14,7 @@
->  #define __ASM_ARM64_BAO_H
->  =
+The only issue I got is:
 
->  #include <linux/arm-smccc.h>
-> +#include <linux/bao.h>
->  =
+WARNING: DT binding documents should be licensed (GPL-2.0-only OR BSD-2-Clause)
+#114: FILE: Documentation/devicetree/bindings/riscv/worlds.yaml:1:
++# SPDX-License-Identifier: (GPL-2.0 OR MIT)
 
->  static inline unsigned long bao_ipcshmem_hypercall(unsigned long hyperca=
-ll_id,
->  						   unsigned long ipcshmem_id)
-> @@ -28,4 +29,33 @@ static inline unsigned long bao_ipcshmem_hypercall(uns=
-igned long hypercall_id,
->  	return res.a0;
->  }
->  =
+Hope I am not missing other warnings or errors.
 
-> +static inline unsigned long
-> +bao_remio_hypercall(struct bao_remio_hypercall_ctx *ctx)
-> +{
-> +	register int x0 asm("x0") =3D
-> +		ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL, ARM_SMCCC_SMC_64,
-> +				   ARM_SMCCC_OWNER_VENDOR_HYP, BAO_REMIO_HYPERCALL_ID);
-> +	register u64 x1 asm("x1") =3D ctx->dm_id;
-> +	register u64 x2 asm("x2") =3D ctx->addr;
-> +	register u64 x3 asm("x3") =3D ctx->op;
-> +	register u64 x4 asm("x4") =3D ctx->value;
-> +	register u64 x5 asm("x5") =3D ctx->request_id;
-> +	register u64 x6 asm("x6") =3D 0;
-> +
-> +	asm volatile("hvc 0\n\t"
-> +		     : "=3Dr"(x0), "=3Dr"(x1), "=3Dr"(x2), "=3Dr"(x3), "=3Dr"(x4),
-> +		       "=3Dr"(x5), "=3Dr"(x6)
-> +		     : "r"(x0), "r"(x1), "r"(x2), "r"(x3), "r"(x4), "r"(x5)
-> +		     : "memory");
-> +
-> +	ctx->addr =3D x1;
-> +	ctx->op =3D x2;
-> +	ctx->value =3D x3;
-> +	ctx->access_width =3D x4;
-> +	ctx->request_id =3D x5;
-> +	ctx->npend_req =3D x6;
-> +
-> +	return x0;
-> +}
-
-Why aren't you using SMCCC for this? You should be able to use that (like
-you did for bao_ipcshmem_hypercall()) and then there would be no need to
-add any code to arch/arm64/.
-
-Will
+Thanks,
+Peter Lin
 
 _______________________________________________
 linux-riscv mailing list
