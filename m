@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6247C5AD7B
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 06:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CD8C5B569
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 06:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aoWD8FugTmpooZkQKiuLZs9Mqdr7wwRCutp0ocI8GIc=; b=aaUyVOgCWF5eF6
-	K20Q9VdOY8YgeBJNSkyv5YlXz6GQKl3dP2RW+mKksv8XIZVY0KZhu3kQjNtluKHTK7CYjCuBTdBF9
-	ck9FBf2K2VHG456VqkOinh3Xr3rd6bBkRViAMqs8EZUkIsuXiV5NXYMUMARXbHQBG0HaP2cZcMdIh
-	hp7/hEcByZRJhlAqNjIs8kPy8LgOx03xt6cKTyGnxzT5d78sopJ6Bj/ZNVLqVczarJdbs6CgZeIiL
-	B1HkBVOUKLu6iGrAzOdQmDrezkGqa5ToYfrHbX9uCxH/4A/hN+AIKvAN1n+WmHcHpXohzOapXOELN
-	5x33Yqvp1f+5ENu7tTfA==;
+	List-Owner; bh=810Kr44F+9r6X1aaiU0k1isEzgkN8hyy9Yn9bJgIDeM=; b=vzNZFZsjUx3Tsk
+	xwdIKv6LvzWC8GzBzOgCuvBLOIxk4fVu8NTZuOtf9OWBI/dD1W5evx0uvXKhTsP5t7zb0hTElwXLr
+	mWzCq5gxFWh97qLtelLrhmkJsBWJcH6FGUBWVSr+RZa1yxEiiPhXrDaI9wjiPHK5cGDLdm4hZ77NC
+	+Pk0gr0EAST5EU8ZkECyItuzoPfIiwDU52XtQM89BYVTZPv3ML6vgxWTReYx+RgSHK/aNFTYEqUbU
+	js6atfYDpqPJEMzR8n22hyeK9F6aWNwV+sZ4FIW8dGmkLNZZK1HFiQMEd4h2F1SIjTV3BhK1mQL6e
+	7ZnhTt6nJp7Cgm1oWiqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtfzm-0000000DPrw-2Fqw;
-	Tue, 11 Aug 2026 06:29:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wtgGN-0000000DRqk-0H6s;
+	Tue, 11 Aug 2026 06:47:03 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtfzj-0000000DPqC-1xgL
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 06:29:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9090B600BB;
-	Tue, 11 Aug 2026 06:29:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 352E9C2BCF7;
-	Tue, 11 Aug 2026 06:29:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1786429790;
-	bh=rxbnkO5Bo9eMuXTx/7aC8GXRAwV4Vgxstp+S/wWtRJ4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Ff/NyR1FN50F4B2rrNlK4y4oUH9BwfVNRofg73n4e+xOIv+g8dgEpVg+dKoJFlwDg
-	 MGcYb5QEJvfZ8L7rW4IcYEgVjlKcnil6enhhbCRxyfl9Dm9FzKL8YQa2L4WRenuT4x
-	 ZLRc4rJLIhm8D6lE6S0Cnm1h6TiQpaKb6IMz9vD6NJ1T4YDDLVNAoiSF6AqBOy4A/K
-	 3OiO+XxQVJk3ggn4KK7n1njwS0DSuBIyogTKIpFYZzZTG4Yw5aiXj8evHkckgyqoR/
-	 5IP/leX2PNpLK4sqqDrjocHSZU6k19gZ5uI6yAsX9H9ynELJBA5/wh4iSPUmnKuUaz
-	 AnUY7SZlPLmqQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 22BBAC5AD7B;
-	Tue, 11 Aug 2026 06:29:50 +0000 (UTC)
-From: Ben Zong-You Xie via B4 Relay <devnull+ben717.andestech.com@kernel.org>
-Date: Tue, 11 Aug 2026 14:29:48 +0800
-Subject: [PATCH v5 1/4] dt-bindings: i2c: add support for AE350 I2C
- controller
+	id 1wtgGI-0000000DRpo-3l4S;
+	Tue, 11 Aug 2026 06:47:01 +0000
+X-UUID: 6ac332b2955011f1aa26b74ffac11d73-20260811
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:a73af0d5-b5ef-4b25-adfa-b9cacb7e3291,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:e7bac3a,CLOUDID:fa7966228d4a12c53e14123b7712b27c,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|865|898,TC:nil,Content:0|15|50
+	,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
+	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 6ac332b2955011f1aa26b74ffac11d73-20260811
+X-User: liuxixin@kylinos.cn
+Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <liuxixin@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 249032367; Tue, 11 Aug 2026 14:46:44 +0800
+From: Xixin Liu <liuxixin@kylinos.cn>
+To: linux-riscv@lists.infradead.org
+Cc: atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
+Subject: [PATCH v2 0/1] perf: RISC-V: check cpu_hw_evt before dereference in overflow IRQ
+Date: Tue, 11 Aug 2026 11:51:00 +0800
+Message-ID: <cover.v2.1786420235.git.liuxixin@kylinos.cn>
+In-Reply-To: <prp0001riscv.1786064390.git.liuxixin@kylinos.cn>
+References: <prp0001riscv.1786064390.git.liuxixin@kylinos.cn>
 MIME-Version: 1.0
-Message-Id: <20260811-atciic100-v5-1-1d306c21dba3@andestech.com>
-References: <20260811-atciic100-v5-0-1d306c21dba3@andestech.com>
-In-Reply-To: <20260811-atciic100-v5-0-1d306c21dba3@andestech.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Ben Zong-You Xie <ben717@andestech.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.15-dev-09770
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786429789; l=2147;
- i=ben717@andestech.com; s=20260120; h=from:subject:message-id;
- bh=bq3xzDJ/OIuUwfBkMViZX6pvpmLXUhLZ07QGmtn5ZDY=;
- b=jLQ0aV2x15w7MTRX/V+ERzbSHB3sC2BMYjnGoGn5kladTHrDAZW/eeYb/kKShILU4286x9sVH
- CWF2HlU6y4FAD3ercY0Q8wV70E6dKPeNlqeQjQI4vFtub8gJpQgiIcv
-X-Developer-Key: i=ben717@andestech.com; a=ed25519;
- pk=nb8L7zQKGJpYk0yvrYKjViOZ34A36g1ZIsCmCsP518s=
-X-Endpoint-Received: by B4 Relay for ben717@andestech.com/20260120 with
- auth_id=610
-X-Original-From: Ben Zong-You Xie <ben717@andestech.com>
+X-Mailer: patches/scripts/send-local.py
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_234659_585467_A8E1DD91 
+X-CRM114-Status: UNSURE (   6.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,89 +70,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: ben717@andestech.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ben Zong-You Xie <ben717@andestech.com>
+Hi,
 
-Document device tree bindings for the I2C controller on Andes AE350
-platform.
+Thanks for the review, Paul.
 
-The ATCIIC100 is a dedicated I2C controller IP developed by
-Andes Technology. This IP block is a core component of the Andes
-AE350 platform, which serves as a reference architecture for SoC
-designs. The QiLai SoC also integrates this I2C controller.
+v2 adds Fixes for the snapshot commit that introduced the early load,
+and Assisted-by for DeepSeek v3 help. Code change is unchanged from v1.
 
-The binding introduces the following compatible strings:
-- "andestech,qilai-i2c": For the implementation integrated into the
-  Andes QiLai SoC.
-- "andestech,ae350-i2c": As a fallback compatible string representing
-  the base IP design used across the AE350 platform architecture.
+Thanks,
+Xixin Liu
 
-Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/i2c/andestech,ae350-i2c.yaml          | 45 ++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/i2c/andestech,ae350-i2c.yaml b/Documentation/devicetree/bindings/i2c/andestech,ae350-i2c.yaml
-new file mode 100644
-index 000000000000..59a521fb249b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/i2c/andestech,ae350-i2c.yaml
-@@ -0,0 +1,45 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/i2c/andestech,ae350-i2c.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Andes I2C controller on AE350 platform
-+
-+maintainers:
-+  - Ben Zong-You Xie <ben717@andestech.com>
-+
-+allOf:
-+  - $ref: /schemas/i2c/i2c-controller.yaml#
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - andestech,qilai-i2c
-+          - const: andestech,ae350-i2c
-+      - const: andestech,ae350-i2c
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    i2c@f0a00000 {
-+        compatible = "andestech,ae350-i2c";
-+        reg = <0xf0a00000 0x100000>;
-+        interrupts = <6 IRQ_TYPE_LEVEL_HIGH>;
-+    };
+Xixin Liu (1):
+  perf: RISC-V: check cpu_hw_evt before dereference in overflow IRQ
+
+ drivers/perf/riscv_pmu_sbi.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 -- 
-2.34.1
-
+2.43.0
 
 
 _______________________________________________
