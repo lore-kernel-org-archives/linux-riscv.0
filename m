@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79535C5B574
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 08:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9467CC5CFC1
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Aug 2026 08:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d1pGPygZvFymjQcjAjrT/oXitQ6rHSERd5+EJHKPr/0=; b=xgmVJAEwtZxQrs
-	d91gHO0hXH551xDwm6RrCjcUCluo7tJGdMg0jvA2J2XVTFlN3a0bwoYhh2c3+cZ1Al/jBB1RXtLo6
-	VDJg8pdAQql6Iaf3PN0djig6UinYbDz/DYMbcFAdVGXYIWeYzJRUngjErmdlU5xorkPYQmCC5oZhv
-	z7a69b2lo0kaYiCh0b86K2yIXTf+vwZ8dDxm6141eoTYL7Pr3IX9BzdX3/hYmdC0OdEGFqoZql0Yf
-	8X61QjoNX8pg55im+gSj4TQYYmiWMTOKII+4i1VYpWdfVwAF465zA5NJSf6gBNmHQAFHon53vDtlC
-	1bIH4SRdkFqz5AupIHww==;
+	List-Owner; bh=/yQLnTonmpz6CpDtFUOlRcCL3fKJRtQ+rbUUlV0DIWk=; b=fXKgABFvqHxV4r
+	VTvX8REq0zAAd7qs/pEqk/Xf/jGEond4ivjr+d5WrLqsig36xVflJ2XAGIJmmPm62cNArtV8a5hEd
+	6cmdjH/oFkW8vHKddf34AZe+gfX3g2EVcGqsHci49GSgFSl5sF14BOUQhb6yWlUa3ELnvpfSY/e7p
+	kmmgBMftcLL5fi4lqmn2dGAnKhJOY8rOEPviSHMgo8+KkxrZMOJmdYg5WxtqRB/YkWKD6aI9LaRuG
+	Tkf2k8kcOEHmtg+Nw7BAgg8qjOo70jQYkTYE6HNAfKKmX8BZJwdULXS6b9/nlcqBBUorX7D9WXQMl
+	6B4Fr4/KsfCcdT/fQ2qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wthvu-0000000DcAC-1uxL;
-	Tue, 11 Aug 2026 08:34:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wthvs-0000000Dc9v-3Mxg
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Aug 2026 08:34:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42854600AD;
-	Tue, 11 Aug 2026 08:34:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E61F41F000E9;
-	Tue, 11 Aug 2026 08:33:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786437239;
-	bh=lrDqlEwSMhcC4vXVXzfkcEzvcaD78VvoCFKvgZhCaEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ebFJcjIbwbQxRzIlNCTZvrO3L9nPoxtPiS3N1n9jF1x29aWnv9VykxjQG33XxLHAM
-	 1vY5/FBM0MR5r53YYNKpqnQReZbi1FDD0Offnb3ADgm0jVH1Ykp3x1fATlCl9bzM5a
-	 Hzb1AdJDdHC3ivKZl0uId+tXyYnh7lcvD2HHpNs2jNniQifD1NDfICsb54Pj2Lw6mj
-	 COVX93oZwlhzbqy9I/jSsDm44+JHxFKsx82YjvPo0oA6vx3gZvj/YHJTHpTFGzHvS6
-	 LDNVoG5+WQsGpVjSlbNLYncR1LraAT6jsUrSOsaPp9o1sgzum0XOKXOVX6PPW7nuFJ
-	 dz1cxah/rNmzQ==
-Date: Tue, 11 Aug 2026 10:33:56 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, 
-	Alex Ousherovitch <aousherovitch@rambus.com>, Conor Dooley <conor+dt@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	Jonathan Corbet <corbet@lwn.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Shuah Khan <shuah@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, 
-	Joel Wittenauer <Joel.Wittenauer@cryptography.com>, linux-api@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Shuah Khan <skhan@linuxfoundation.org>, 
-	Thi Nguyen <thin@rambus.com>
-Subject: Re: [PATCH v3 03/19] crypto: cmh - add key provisioning and
- management
-Message-ID: <20260811-belligerent-analytic-sheep-3fce16@quoll>
-References: <20260806195519.2703224-1-skrishnamoorthy@rambus.com>
- <20260806195519.2703224-4-skrishnamoorthy@rambus.com>
+	id 1wthwX-0000000DcGf-2oUd;
+	Tue, 11 Aug 2026 08:34:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wthwT-0000000DcEz-2qRo;
+	Tue, 11 Aug 2026 08:34:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B295E1516;
+	Tue, 11 Aug 2026 01:34:31 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA58F3F673;
+	Tue, 11 Aug 2026 01:34:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786437275; bh=ZT08f1GiOgKpD31g66zZnUhmuNu7zNORWfMHkMNA+MM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ILvmNn+1uP0GCjTeWxHAARq3POjelk/zkkggHRqr669N5vBlnXQv9Yg8uShAHAWPV
+	 r+uFJpIr4Ahch5mMzxC2ouczYWRZPMGrkwVkFNIVMPn+HCacIXd33isOumG+cExtcS
+	 egAiyy/T4cf+1AQQkz3B427/hIS4SjOBaBYGwt8M=
+Date: Tue, 11 Aug 2026 14:04:32 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-mm@kvack.org, akpm@linux-foundation.org, david@kernel.org, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC V2 6/6] mm: Drop pxd_ERROR()
+Message-ID: <ijjadks7zjpwqlw4nbcawr3tva2r4y6gn3weuc73vbec46petn@ovlf52m2kugw>
+References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
+ <20260811042119.3652929-7-anshuman.khandual@arm.com>
+ <CAMuHMdXfpkpYzZWGVb0fQrdn3uYHU3pyCkyAX9o2ux_Jj=2ByA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260806195519.2703224-4-skrishnamoorthy@rambus.com>
+In-Reply-To: <CAMuHMdXfpkpYzZWGVb0fQrdn3uYHU3pyCkyAX9o2ux_Jj=2ByA@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_013438_850904_CA0F1E06 
+X-CRM114-Status: GOOD (  23.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +79,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 12:55:02PM -0700, Saravanakrishnan Krishnamoorthy wrote:
-> From: Alex Ousherovitch <aousherovitch@rambus.com>
+On Tue, Aug 11, 2026 at 08:49:43AM +0200, Geert Uytterhoeven wrote:
+> Hi Anshuman,
 > 
-> Add the CMH key management subsystem:
+> Thanks for your patch!
 > 
-> - Key provisioning: create, import, derive, and destroy hardware keys
->   stored in the CMH datastore
-> - System object management: allocate and free CMH system objects
-> - Management ioctl interface (/dev/cmh_mgmt): ioctl commands
->   covering key lifecycle, KIC key derivation, PKE operations (RSA,
->   ECDSA, ECDH, EdDSA), PQC operations (ML-KEM, ML-DSA, SLH-DSA),
->   SM2, EAC, and DRBG reseeding
-> - SM2 ioctl handlers: SM2 encrypt, decrypt, sign, and key exchange
->   -- operations that require multi-step protocol flows not
->   expressible through the standard crypto API sig interface
-> - UAPI header: cmh_mgmt_ioctl.h (ioctl definitions and structures)
+> On Tue, 11 Aug 2026 at 06:22, Anshuman Khandual
+> <anshuman.khandual@arm.com> wrote:
+> > pxd_ERROR() has been used in generic mm just to print the page table entry
+> > in pxd_clear_bad() before clearing those out with pxd_clear() later. These
+> > pxd_ERROR() macros have been provided by all platforms which basically did
+> > the same thing.
+> >
+> > Make pxd_clear_bad() use recently added ptval_to_str() instead for printing
+> > page table entries thus completely dropping dependency on platform provided
+> > pxd_ERROR() macros which can then be dropped off. First move all required
+> > helpers in core MM into a header file which could then be used else where.
+> 
+> Oh, the "x" in "pxd" is a wildcard?
+> Except that is not, as it does not match "pte" ;-)
 
-And we need custom IOCTL interface because existing kernel interfaces are ... ?
+Unfortunately that's the odd one but "pxd" was the closest possible :)
 
-Say something useful in commit msg, e.g. WHY you are doing this, not
-what you are doing.
+> 
+> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> 
+> >  arch/m68k/include/asm/mcf_pgtable.h           |  6 ---
+> >  arch/m68k/include/asm/motorola_pgtable.h      |  8 ----
+> >  arch/m68k/include/asm/sun3_pgtable.h          |  7 ----
+> 
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
 
-Best regards,
-Krzysztof
+Thanks !
 
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> -- 
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
