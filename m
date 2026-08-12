@@ -4,82 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE1BC5B56A
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 06:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 553ACC5B56A
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 06:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6AAXloA1d7sBVMxPqihBhJx/8dFxGxDIGNekUw1SzZo=; b=dtigX1TRek1AFm
-	RbVM7LjMSmJWM2wP7ND+YNsVYKcE9APJZ3z+3VADB+nVN8V81HuoCvvku1GSYk0TilxGDY53uedLt
-	2y1Cwqr849GfTJOdE2GSycWk4fHoWGuEEnAMA3l1QkBAywYBNAumlDT75BPz742dGjF0mu5RO0IcP
-	2ClzlVdBlHIkSmnVLw+JUUZ80Qu/TSZxiCww+juE/5FpZcBWbjCU8JolluWEOJlpVTfaTgV0clkC4
-	U2FLgZNHgOB1xS5nGvOPlyhCt1p6smge0GyQgJFHMMuoRnPpU7Xfiq0BemiCBMueu4xWzfRALbP4a
-	JeOlCDz0wIpW9U9MFtVw==;
+	List-Owner; bh=qlp3Uw64wPLwYTNm05iIIX9OqHrdadlU0CgWeMWLWT8=; b=FNFXRPT5QUbcRR
+	I5dTOXxTCt3rqjrm9mj+y3B3abBPVOeRlYiaE5SrzE8yXTkmP2pY9PuY/gIYyEOrgVy0z7VhATMcD
+	sxC1sNEv0QG+RbNX4IhZHIk7pp4PNt3Y76zR1IxLso58rxTzrHkrZgus45OSR3qIIxu6hBayfL/cY
+	O+IjzJnIg0J/LigfbnVAhHpkWgLyFXw8nyCZ9pJ8/DEFukj9qsS+eu8zkWVOtxXCJF5R5aCC/BpRs
+	+P7KyKVO0NI96cMJ2TnghB9x8rkcc3K2cl/xz6C0ucefM3VcFBmCc6Ok2JKciC6QZ6NxGj9RZNcb6
+	Ea3b5DlGV2/AbstqlMiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu2Fn-0000000FUzd-33qD;
-	Wed, 12 Aug 2026 06:15:55 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wu2Mx-0000000FVoj-2TXy;
+	Wed, 12 Aug 2026 06:23:19 +0000
+Received: from out28-77.mail.aliyun.com ([115.124.28.77])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu2Fi-0000000FUwh-2WR5
+	id 1wu2Mu-0000000FVmZ-2myz
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Aug 2026 06:15:54 +0000
-X-UUID: 3b19a6b6961511f1aa26b74ffac11d73-20260812
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:cc0e9d0c-cbe1-4a00-ae79-da92e2574f2b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:e0b1da1e1504cbe08f4fc76ed1ab7f4e,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|136|850|865|898,TC:nil,Content:0|15|
-	50,EDM:-3|-100,IP:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 3b19a6b6961511f1aa26b74ffac11d73-20260812
-X-User: jiangfeng@kylinos.cn
-Received: from [127.0.0.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 338694543; Wed, 12 Aug 2026 14:15:35 +0800
-From: Feng Jiang <jiangfeng@kylinos.cn>
-Subject: [bpf-next PATCH 0/2] bpf, riscv: Add BPF stack arguments support
- for RV64 JIT
-Date: Wed, 12 Aug 2026 06:15:31 +0000
-Message-Id: <20260812-bpf-riscv-stack-args-v1-0-67b246806e59@kylinos.cn>
+	Wed, 12 Aug 2026 06:23:18 +0000
+X-Alimail-AntiSpam: AC=CONTINUE;BC=0.07452478|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.00740962-0.00245956-0.990131;FP=12855025378607845755|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037026024;MF=shaoqing.qin@redrisc.com;NM=1;PH=DS;RN=9;RT=9;SR=0;TI=SMTPD_---.ik.PRue_1786515773;
+Received: from thinkpadx1.localdomain(mailfrom:shaoqing.qin@redrisc.com fp:SMTPD_---.ik.PRue_1786515773 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Wed, 12 Aug 2026 14:23:08 +0800
+From: Shaoqing Qin <shaoqing.qin@redrisc.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Shaoqing Qin <shaoqing.qin@redrisc.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] riscv: mm: mark KASAN vmalloc shadow mappings as valid
+Date: Wed, 12 Aug 2026 14:22:50 +0800
+Message-ID: <20260812062250.181-1-shaoqing.qin@redrisc.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAIMPfGoC/x3MSwqFMAxA0a1IxgZqH9bPVuQNao0ahCqJiCDu3
- erwDs69QEmYFNrsAqGDldeYosgzCLOPEyEPqcEa60xla+y3EYU1HKi7Dwt6mRTdrzSDcc4X1EC
- im9DI57ft4BWRzh3+9/0ApXbOk3AAAAA=
-X-Change-ID: 20260728-bpf-riscv-stack-args-6350d066a1e9
-To: Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- Eduard Zingerman <eddyz87@gmail.com>, 
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
- Emil Tsalapatis <emil@etsalapatis.com>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, 
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
- Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Shuah Khan <shuah@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- llvm@lists.linux.dev, Feng Jiang <jiangfeng@kylinos.cn>
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_231551_560010_2FA22BDA 
-X-CRM114-Status: UNSURE (   5.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260811_232316_887120_D1CDCACD 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,43 +65,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Port the BPF stack argument feature (BPF_REG_PARAMS / r11) to the
-RV64 JIT, matching what x86 and arm64 already do.
+With CONFIG_KASAN_VMALLOC, KASAN allocates shadow memory for vmalloc
+mappings on demand. After installing new shadow PTEs, KASAN calls
+flush_cache_vmap() for the shadow address range.
 
-BPF-to-BPF calls keep all extra arguments on the stack.  For kfunc
-calls, the JIT loads arguments 6-8 into A5-A7 at the call site to
-satisfy the RISC-V C calling convention.
+RISC-V uses flush_cache_vmap() to mark newly valid kernel mappings. If
+an access subsequently faults, the early exception handler checks this
+mark, executes sfence.vma when required, and retries the faulting
+instruction.
 
-Tested on riscv64 QEMU with LLVM main [1]; BPF-to-BPF and kfunc
-selftests pass.
+However, flush_cache_vmap() currently recognizes only vmalloc, module,
+and vmemmap addresses. KASAN shadow addresses are outside these ranges,
+so creating a KASAN vmalloc shadow mapping does not mark it as newly
+valid.
 
-[1] https://github.com/llvm/llvm-project/pull/189060
+On implementations without Svvptc, an invalid PTE may remain cached
+after the PTE has been made valid in memory. This caused a store page
+fault in __memset() while KASAN was unpoisoning shadow memory for a DMA
+atomic pool vmap mapping. The page table dump showed that the PTE in
+memory was already valid and writable.
 
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+Recognize the KASAN shadow range and mark these mappings as newly valid,
+allowing the existing fault-time sfence.vma and retry mechanism to
+handle the stale invalid PTE.
+
+Tested on a single-core RISC-V FPGA without Svvptc using Sv48 and
+CONFIG_KASAN_VMALLOC=y. The kernel boots successfully through DMA
+atomic pool initialization after this change.
+
+Fixes: 503638e0babf ("riscv: Stop emitting preventive sfence.vma for new vmalloc mappings")
+Cc: stable@vger.kernel.org
+Assisted-by: Codex:GPT-5
+Signed-off-by: Shaoqing Qin <shaoqing.qin@redrisc.com>
 ---
-Feng Jiang (2):
-      bpf, riscv: Add BPF stack arguments support for RV64 JIT
-      selftests/bpf: Enable stack argument tests for riscv
+ arch/riscv/include/asm/cacheflush.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
- arch/riscv/net/bpf_jit.h                           |  1 +
- arch/riscv/net/bpf_jit_comp64.c                    | 75 +++++++++++++++++++++-
- arch/riscv/net/bpf_jit_core.c                      |  4 ++
- .../selftests/bpf/progs/btf__stack_arg_precision.c |  2 +-
- .../bpf/progs/btf__verifier_stack_arg_order.c      |  2 +-
- tools/testing/selftests/bpf/progs/exceptions.c     |  2 +-
- tools/testing/selftests/bpf/progs/stack_arg.c      |  2 +-
- .../testing/selftests/bpf/progs/stack_arg_kfunc.c  |  2 +-
- .../selftests/bpf/progs/stack_arg_precision.c      |  2 +-
- .../selftests/bpf/progs/verifier_stack_arg.c       |  2 +-
- .../selftests/bpf/progs/verifier_stack_arg_order.c |  2 +-
- 11 files changed, 85 insertions(+), 11 deletions(-)
----
-base-commit: d114bb98936770c501c958bf2bc5fb6b7c0bad7b
-change-id: 20260728-bpf-riscv-stack-args-6350d066a1e9
-
-Best regards,
+diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+index c2b0a2928f06..056aaf894644 100644
+--- a/arch/riscv/include/asm/cacheflush.h
++++ b/arch/riscv/include/asm/cacheflush.h
+@@ -7,6 +7,7 @@
+ #define _ASM_RISCV_CACHEFLUSH_H
+ 
+ #include <linux/mm.h>
++#include <asm/kasan.h>
+ 
+ static inline void local_flush_icache_all(void)
+ {
+@@ -57,7 +58,9 @@ static inline void mark_new_valid_map(void)
+ static inline void flush_cache_vmap(unsigned long start, unsigned long end)
+ {
+ 	if (is_vmalloc_or_module_addr((void *)start) ||
+-	    (start >= VMEMMAP_START && end <= VMEMMAP_END))
++	    (start >= VMEMMAP_START && end <= VMEMMAP_END) ||
++	    (IS_ENABLED(CONFIG_KASAN_VMALLOC) &&
++	     start >= KASAN_SHADOW_START && end <= KASAN_SHADOW_END))
+ 		mark_new_valid_map();
+ }
+ #define flush_cache_vmap_early(start, end)	local_flush_tlb_kernel_range(start, end)
 -- 
-Feng Jiang <jiangfeng@kylinos.cn>
+2.53.0
 
 
 _______________________________________________
