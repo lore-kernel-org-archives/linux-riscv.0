@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16912C5AD5A
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 12:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B783DC5B572
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 12:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XTzG1krwMRHFBfiO6dThSVERkTUFdqZZk3Q+sf+u8bc=; b=jZFjae5NdoLvqW
-	PvWjsA8QGmp9GAK6BoeAynWNyJH826yqdSRuLjh3oexwFn+zHnnQTcMkShJKII6RrrNAx/4CjlcHb
-	VvFae3wtCwo6ZAIl/NCeUz4BWpKkrhbCda1B88yCgObQLS3pSyEPfd05FC57CllvnobX8QvfiB5qn
-	xqx4F5ZKLsIrdRKiC2RgcbMbV1mPJUBW6PRqf2wa9sfDNRT16C9mxLYtbixNBRQnnTRF7XFPf5rFJ
-	gOejW99f7Ipa9562sFe2WeOPRmT/LtuJkqCG1yy6x53/V1vLtWLhL9so1UBhxX57opc6xkhvIegVC
-	+cJ4+aNT1SBQgOeUSqeQ==;
+	List-Owner; bh=SdeWUa/suOKaJYD4W0BDBxzcIbnYc7/2jxKPTTXb6tE=; b=s9DlE0VOlEmrIM
+	slaQoW3ijoUn/fMM9RcNQ8T+agoZ0YTARg2QeKoTTTKDr0E4bou18AMkCtsGIQMPVKBl8LVXqfh/J
+	wFFyTnJoJSA02fCfdq5iA8ptFNNYHCF7v2sUUc1hs2Vjz+z2jp+uk7ibxkYNrH3sud+UeLv0DQG2c
+	G6HyPjAJQLmSBCS2+ZG0jd1XwVzg282sWvjQk8Mt4qbRuWxCu6JOTyrNK7zB6mbdsOyd/IQ57Py1u
+	r65m6LD/JkKbn8kJLJ9/A91zXI2v2q0IzhkICeKt4mk+HZhM+n4zhRxC+//4B4K07RNH24ZnQIw24
+	JSctJcmW9bBJOBNa6emg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7y4-0000000GAyK-1CFY;
-	Wed, 12 Aug 2026 12:22:00 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wu7yI-0000000GB1v-1lUs;
+	Wed, 12 Aug 2026 12:22:14 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7y2-0000000GAxX-389z
+	id 1wu7yG-0000000GB15-2g28
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Aug 2026 12:21:59 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-495590dde14so10926255e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Aug 2026 05:21:58 -0700 (PDT)
+	Wed, 12 Aug 2026 12:22:13 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4954f5e8020so4152585e9.2
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Aug 2026 05:22:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1786537317; x=1787142117; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1786537331; x=1787142131; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=LCdL4VbOsSqHHyMYXFoVto3PKZeUgpsQP3ESoT9xVbU=;
-        b=R/vPOBho07i1Js7SWJ1Q61F+/BHB7qKVK72/LNLljLhJ/ZcJVLJkw59zX1+IWUQp9O
-         kLNd/9N4dZllqZGKpda0oO/C8+MrhvvGC8MZGmbUcL0S9piZy+UorD//ez6CrLtUXyEF
-         Ge4G7afQVcOBW7O0H1ZpVZcByMXpeoY+o29U0L+1IunF98LUAclP7j7dB7bS0fqEiLub
-         Rw0rNXqT+LAbVPR8vymmuGndOpcv6yZDdl+V9Gh2AgBUM+UEbypKUgHYt30tp6/otTMc
-         2CxdIfFeR4Et/1kQx4yqV3YcEbxmAq5FPBbRVptcObhKoPUoaRFdiUjboQsh1nAeFVCM
-         Re8Q==
+        bh=EYskKRXMT/E1v5UdRHS7zk2d1epkZSuiJ8hCmRGEFMA=;
+        b=JJlZsQhNYW1UAgN1aFNtfQFJpVQwl4HhKf/xcAyjd9uR/FMG6DwSASmJh9mtkVT/B0
+         6+AuZnNC3YGeL2faOnatlzLqDYCwjpEqQz5zehllWt7KQiL4InhnyoUWHPPpiYK1nGZO
+         8d1oC0fvPBKf2PY290XfEh36WF22iZVAlVizDEpXCgUIekUzGFGmBGRO5SccgWQFQlmt
+         3FJEnj9dtd7Tbf4NF/CM5vRRvz1eZ+NsX5ulwr4d+CcLr5Jg/b6RR/d7EYUtuezVxQLE
+         MqxxOoKQlqUYJIZH3ziUBe+mXH4ulQQ5Eh9UU9UvM+FE0TMJU++3kpTNmmN3qHJDuYYt
+         29sQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786537317; x=1787142117;
+        d=1e100.net; s=20251104; t=1786537331; x=1787142131;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LCdL4VbOsSqHHyMYXFoVto3PKZeUgpsQP3ESoT9xVbU=;
-        b=LYqRjrr31KqyrBVDhLQVYL98SVK0JjmJF/Rwr4jaPGZ6qi8w9XBKYug2QottbRkKnj
-         /nPGx6aOvaLTuTk6Lt8Dh81G6jGjUw0RXlJ0lhq2X7RzCovaa1vGh3BQ2n+HDhkOXpj2
-         DA+oJXdAgxFcOIhV6dPcNNybkc9RSJyo3wLFi+bqPncubvDAGWbVSPSLLRhdWaN3K32a
-         39t0rkM7huEMcwBU4KxZUAW058ocNNbOuWqe1VyStpt4b41ym7sXK/mvayrEbon9wTah
-         un4L4N+YaMMMb/4JzSEOz4HUVuJFqOWbBy0OhzV45ePCErXYe71D2ueKjC57VkidjXRP
-         7vbg==
-X-Forwarded-Encrypted: i=1; AHgh+RoBjbU6iHd065Ez80J91jeWMDc6KpRXwAUzt+hUY94ygggNDNJBEXQVxUuEZAcVfDAp0EhCqdRsUX+jkg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YziYlCMsgHLGQcW0R8YJkwZr6bBqAM/Wyw5d2wu1Znkv/uLCylz
-	SOkWtayTezvJmY8+DPL8dpxBpa8F2fXZNZJJc4dlJeLFPqdj4EH2C6ZQotjl8/e2+IU=
-X-Gm-Gg: AR+sD12bXH9wnBrbZZm1qlum0fObFavJ06P9Ao5R5Aa9QNy9Q2RJgAgrrHCvlGftlB7
-	kRwezYSzYLSzNyOmeebw9Nbrg9o4BXiYuDy+1kzRJ0rSv1lQavssgLiwyJO3gD2tdLRPbKLSioJ
-	6+a6TUdexcdea355QDzJW9AkqSSTRQ4GgPwV/zIZOzNVwSo5U+Nch7jzLLJeSfYX+Dttpozo/k4
-	jg3wXmRpn1jUijqiz5+MU4X09kczV4/Jv5/zMIJMCabLnftVPWLUTklzFGmtvoxtnN2zMi138F/
-	J7Hb/hR7qgrvypIzbzmqvN0112eL49Y1UExVRisZhJFqkj8eRwMkLKSFwVXN8mVvyhNteThZkyz
-	YqhpjVuXwDFQBiik55Vvt7f+/5nobCp8EjfJOwXCOPsGEiPB/erQ8Pn8xgFnvzDQ2tpsUmrcHEd
-	7B3M07JVDP3kUzrwQfUvSwt+p1HVPmWsWGQQcyTuyr9BK0AxHGTUq3uIPdhwJyeinzaFTrpye1X
-	LpacQD0RTT4
-X-Received: by 2002:a05:600c:8b52:b0:493:e365:7630 with SMTP id 5b1f17b1804b1-4997c147d7emr72358545e9.14.1786537316768;
-        Wed, 12 Aug 2026 05:21:56 -0700 (PDT)
+        bh=EYskKRXMT/E1v5UdRHS7zk2d1epkZSuiJ8hCmRGEFMA=;
+        b=ZgzJxZ7MI634SKW1A2wMMeO2vUUJf5Kpxd/yv21NMILZMVhDFEmKaQ4WNDQroVlCy+
+         pPWDEiPFUI4KZGzT+3UYm//HdijZKxH2ROyym0dEr2RRYuZo4UCHGZlOk9Ged25hn0EP
+         XbeJlODg7cX/3+0Gb2oJANeHKDsPTGs0IBwYJHbRp8/LNelmGLSJz3+OOGRe8LTubhIC
+         0389JHgBFy7ZGnS440bUHDjZunqVwssoIDoLjxHJ8tp5qr3RzXXuonwGxJmsJQwXbf4q
+         Ds/9xqq/QaQ/Lu6xVkKO+DaKt5REzv7RAxQ+j7y1Z/rRJfoinZLzsObu2rPxSVzXUJQn
+         9IXA==
+X-Forwarded-Encrypted: i=1; AHgh+RoyQKhqV4YpG7m6urL8mbBhChoKDjmZBneoMtMTyRr6PtAZYsEGqgKpSSVB1NlvctbVCFzl8PhlSzXkJQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7m4XqPBvyNNHKQ48Sd4w8wvrO/f4oBJP/44xhNGRcJy2vK9Bo
+	U/sRqWBKJQQx31A2PY3oWdTcyoEq7VxYsHQX0N5D+85dx4mj9+y2PxeJUi+4OkQhZS8=
+X-Gm-Gg: AR+sD11rIYxMv3yD9M6AvT8VZyJrBmc/2LLU37L7kb+dq7LQw6V4L0AAXveGVnpfc2s
+	3L7Hb42wKsEoZS21HBw5QMzWS/2kVb+dL1JCauZuaViNci8c36MuYxuuhy0PnhpgBuFoIvj8/Oe
+	b5ZoULTHfR+UdYsKX61cQb/EI8dIkuT2GiF62l9G4TjMz9htweX3TzbKZ+OtZymbx5WvZ5Kkoj+
+	HOwnGwMx8EgMCPIiuvooDSnNgIGvANMyDOfXQs95HyYey7yMYmVF6aiJOUksEcnjUEviKv0QIgP
+	BZJ2rvDpCJTSICF9sKcrGrMk4EgA+Qx1O/nhY78Gg+ZTnngOXrBQjUb6CwJRgoniFuRXFfzdw7s
+	8YJUq906uD464nn7jyI/FwPL0H15S5DId1vBbJlTJ+2y7Jy+L1iPlypmPZ/KEeQRj+8qJwuf3I9
+	oiZ4phazhV2zAHfjO/l7L+AVX17jXJJpL4g2M/ZrTYQV47MzfYKqA2i77Yiik4bTkPEgWkHIqvQ
+	tr+BK1f59/2
+X-Received: by 2002:a05:600c:1f8f:b0:495:5fdf:2075 with SMTP id 5b1f17b1804b1-4997bf83d13mr43895935e9.0.1786537326046;
+        Wed, 12 Aug 2026 05:22:06 -0700 (PDT)
 Received: from hsinchu16.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997aaa5d04sm65858905e9.2.2026.08.12.05.21.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997aaa5d04sm65858905e9.2.2026.08.12.05.21.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 05:21:56 -0700 (PDT)
+        Wed, 12 Aug 2026 05:22:05 -0700 (PDT)
 From: Yu-Chien Peter Lin <peter.lin@sifive.com>
 To: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
@@ -102,17 +102,16 @@ Cc: robh@kernel.org,
 	anup@brainfault.org,
 	pawandeep.oza@oss.qualcomm.com,
 	Yu-Chien Peter Lin <peter.lin@sifive.com>
-Subject: [RFC PATCH v3 1/3] dt-bindings: riscv: Add Worlds ISA extensions
-Date: Wed, 12 Aug 2026 20:21:29 +0800
-Message-ID: <20260812122131.1534906-2-peter.lin@sifive.com>
+Subject: [RFC PATCH v3 2/3] dt-bindings: riscv: Add Worlds per-hart properties
+Date: Wed, 12 Aug 2026 20:21:30 +0800
+Message-ID: <20260812122131.1534906-3-peter.lin@sifive.com>
 X-Mailer: git-send-email 2.48.0
 In-Reply-To: <20260812122131.1534906-1-peter.lin@sifive.com>
 References: <20260812122131.1534906-1-peter.lin@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_052158_816344_BBFF0F53 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260812_052212_715872_35A0D825 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,105 +128,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add DT bindings for RISC-V Worlds ISA extensions
-(Smwid, Smlwidlist, Smlwid, Smwiddeleg, Sswid) and
-enforce their architectural dependency rules in the
-schema.
+Add per-hart DT properties for the RISC-V Worlds architecture:
+riscv,pmwid, riscv,pmwidlist, and riscv,pmlwidlist. These
+platform-defined values are primarily used by M-mode firmware
+to configure World ID CSRs and restrict WID usage across
+privilege levels.
+
+Also add schema validation rules to enforce valid property
+combinations based on the ISA extensions present.
 
 Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
 ---
 Changes v2->v3:
-- Add extension dependency rules
-- Fix alphabetical order
+- Drop riscv,nworlds property
+- Drop 'required' check for riscv,pmwid
 ---
- .../devicetree/bindings/riscv/extensions.yaml | 53 +++++++++++++++++++
- 1 file changed, 53 insertions(+)
+ .../devicetree/bindings/riscv/cpus.yaml       | 44 +++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 5ffc40d599c0..0408d1116527 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -181,6 +181,18 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 5feeb2203050..326b68398b90 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -39,6 +39,26 @@ allOf:
+       properties:
+         thead,vlenb: false
  
-+        - const: smlwid
-+          description: |
-+            The standard Smlwid extension for M-mode control of lower
-+            privilege World ID via the mlwid CSR as ratified at commit
-+            TBD ("TBD") of riscv-worlds.
++  - if:
++      properties:
++        riscv,isa-extensions:
++          not:
++            contains:
++              const: smwid
++    then:
++      properties:
++        riscv,pmwidlist: false
 +
-+        - const: smlwidlist
-+          description: |
-+            The standard Smlwidlist extension for M-mode control of lower
-+            privilege World IDs via the mlwidlist CSR as ratified at commit
-+            TBD ("TBD") of riscv-worlds.
++  - if:
++      properties:
++        riscv,isa-extensions:
++          not:
++            contains:
++              const: smlwid
++    then:
++      properties:
++        riscv,pmlwidlist: false
 +
-         - const: smmpm
-           description: |
-             The standard Smmpm extension for M-mode pointer masking as
-@@ -199,6 +211,17 @@ properties:
-             added by other RISC-V extensions in H/S/VS/U/VU modes and as
-             ratified at commit a28bfae (Ratified (#7)) of riscv-state-enable.
+ properties:
+   compatible:
+     oneOf:
+@@ -113,6 +133,30 @@ properties:
+     description:
+       The blocksize in bytes for the Zicboz cache operations.
  
-+        - const: smwid
-+          description: |
-+            The standard Smwid extension for M-mode World ID control via the
-+            mwid CSR as ratified at commit TBD ("TBD") of riscv-worlds.
++  riscv,pmlwidlist:
++    $ref: /schemas/types.yaml#/definitions/uint64
++    description:
++      Optional bitmask of WIDs available for S-mode and U-mode use on this
++      hart; each set bit N indicates WID N is available. Firmware may read
++      this to select platform authorized WIDs for lower-privilege modes.
 +
-+        - const: smwiddeleg
-+          description: |
-+            The standard Smwiddeleg extension for M-mode delegation of lower
-+            privilege World ID control to S-mode via the mwiddeleg CSR, as
-+            ratified at commit TBD ("TBD") of riscv-worlds.
++  riscv,pmwid:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      M-mode World ID (WID) for this hart, M-mode firmware may read this
++      property to identify the WID for M-mode. For a Worlds-aware platform
++      without any Worlds ISA implemented, this is the WID for all privilege
++      modes.
++    minimum: 0
++    maximum: 63
 +
-         - const: ssaia
-           description: |
-             The standard Ssaia supervisor-level extension for the advanced
-@@ -262,6 +285,12 @@ properties:
-             ratified in RISC-V Profiles Version 1.0, with commit b1d806605f87
-             ("Updated to ratified state.")
- 
-+        - const: sswid
-+          description: |
-+            The standard Sswid extension for S-mode control of lower
-+            privilege World IDs via the slwid CSR as ratified at commit
-+            TBD ("TBD") of riscv-worlds.
++  riscv,pmwidlist:
++    $ref: /schemas/types.yaml#/definitions/uint64
++    description:
++      Optional bitmask of WIDs available for M-mode use on this hart; each
++      set bit N indicates WID N is available. Firmware may read this to
++      select a platform authorized WID.
 +
-         - const: supm
-           description: |
-             The standard Supm extension for pointer masking support in user
-@@ -924,6 +953,30 @@ properties:
-         then:
-           contains:
-             const: b
-+      # Smlwidlist depends on Smwid and Smlwid
-+      - if:
-+          contains:
-+            const: smlwidlist
-+        then:
-+          allOf:
-+            - contains:
-+                const: smwid
-+            - contains:
-+                const: smlwid
-+      # Smwiddeleg depends on Smlwid
-+      - if:
-+          contains:
-+            const: smwiddeleg
-+        then:
-+          contains:
-+            const: smlwid
-+      # Sswid depends on Smwiddeleg
-+      - if:
-+          contains:
-+            const: sswid
-+        then:
-+          contains:
-+            const: smwiddeleg
-       # Supm depends on Smnpm or Ssnpm
-       - if:
-           contains:
+   thead,vlenb:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     description:
 -- 
 2.43.7
 
