@@ -4,82 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D4DC5B572
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 18:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9372C5AD5A
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 19:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KrhHnVQmTnPPIZcHEWXLtR3UTRlDhFWCA6vZdZznYzQ=; b=Ky8iM28c8boTQe
-	2XmGLgmDgH/FkQTAgdSkYpa/cV5YoOD+Qm9oIHmFoeoLFzIlSC0QLkcXitYGY6teWadvl+4p8B+Zd
-	VDAUzo50RkWDbvSpDkPaCPDoSuto8/PgXSneM4aiWTibfgA1ciAZl3AinTFSmXALiY6G6k/Ig7QxQ
-	tCywpUtCtxA7G/XgBQrCXnK8CkuBE0AlVr7tfeqRenE+VHnoFDWUzSEwa9mHSDppitYlCY2fbuOzQ
-	shVNywtLodrMbxdpkdtAkC/3HsYX6tv/ZfdHM01PahUKuHzWlSzStsucUzq3UNhcpO2m57wz4O6wW
-	vag9aoOuE7oEBSROfYAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eJ312iOVtxVeLx1DBJS2UM/reQ4MslAOvaqnpCdWo4g=; b=usgEj6xlLBFcy1QdXJR/OTHOoG
+	ah65O3VMMH7NwKBdQ60PM6exeEjFvj2Y3be+hkJI2Fp9mgM9gOEh2rTHLwe314jCzH/wJ8eNptzd+
+	+HgZsnHm2Mgl4YYgP0k+0EFv2LAs4OqfW0ZIAbgBXHVkS2buoHTEZOPYWEEw0WWwcQ208PKxOTazM
+	Xv0AtMDxkZO1G14U/Vtbk3nPMBSnrrk4xOxdVVWHFdbgzuwUZVQDzyOhNdkBwCNm1uCHVAw4v/T2+
+	RIieYc0E006MbuWAoqakJC+q1JCm2TDDDVQL+2inBbBdaknFXZMabJkJdueak+/SeRS6GyBumeIMv
+	FX7DcqIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuDyc-0000000Gp3S-1TLo;
-	Wed, 12 Aug 2026 18:46:58 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1wuEey-0000000GtfR-18hw;
+	Wed, 12 Aug 2026 19:30:44 +0000
+Received: from mail-northeuropeazon11011056.outbound.protection.outlook.com ([52.101.65.56] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuDyZ-0000000Gp36-21yX
+	id 1wuEeu-0000000Gtf3-2fO4
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Aug 2026 18:46:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786560415; x=1818096415;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=MMyN5JRSQgHL5W1iemPm+So/JlTUBFWHXpeIq4x4TMo=;
-  b=MwnuEoOeEGCWQrdMYhdiPGQdCpFewBNDZKkCB1ZA4dxj8rEuv+WjSTci
-   vHOoJSh/RwW36yiWo0qNta/l5W8jMn24vIhBoo7aqlxB1NmtRtIUESKz2
-   casHFSTxftqD4r+fAZfNu+K6tUq6dzQw1YygZe1ovA+1ZuG5IOC/AVOeS
-   +AC1jpteOppCu83SI/9QJ8xAJa7Qt+uH4N2Y9QlG74XpyTgcTBjhdnGxV
-   mN1GvQ1tFGGT7RCeeCau4gaLAYMvUIAX1Qkix48vHouCP39AvBh/jFo6k
-   gh074gIO7b4vi/Z+3UhAucK6rk2UQ8AR2ll0UrcqBXG7ZnbiRRFt/gfCz
-   w==;
-X-CSE-ConnectionGUID: 36fbgF6HSCSSkqB9KqS65g==
-X-CSE-MsgGUID: 7nRqMtDGRiaIMLNECnxCAg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11873"; a="74666035"
-X-IronPort-AV: E=Sophos;i="6.25,219,1779174000"; 
-   d="scan'208";a="74666035"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Aug 2026 11:46:55 -0700
-X-CSE-ConnectionGUID: TRCT1wNwTB2Ehei9cwh0Jw==
-X-CSE-MsgGUID: I0zgriQVQ52nn4o+D2I3uw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,219,1779174000"; 
-   d="scan'208";a="265712412"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 12 Aug 2026 11:46:52 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wuDyS-00000000RNC-45uo;
-	Wed, 12 Aug 2026 18:46:48 +0000
-Date: Thu, 13 Aug 2026 02:46:33 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jiakai Xu <xujiakai2025@iscas.ac.cn>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
-	Jiakai Xu <xujiakai2025@iscas.ac.cn>,
-	Matthew Bystrin <dev.mbstr@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Rui Qi <qirui.001@bytedance.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v3] riscv: stacktrace: fix stack-out-of-bounds in
- walk_stackframe()
-Message-ID: <202608130244.qnFMlaYc-lkp@intel.com>
-References: <20260625123906.211981-1-xujiakai2025@iscas.ac.cn>
+	Wed, 12 Aug 2026 19:30:42 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=GQAm73bB/iY+2UNNBI5r+1asn8zRa2FzOd9zoUqMLs7fnwwjOS38LbKZok9Gh7+f9QXXHBQAs3Pdlm6KPRNnn2OEbJwddKgS++/kA6YuJUs+igrsviJQBGSTu5IUsqh0EQ49alvR1OVPjeYkDQq1h2uSDwpAt54JZZtDhlcReh1ku786KPD8jwdwR8aGJi3A5fv+ucxWnhv0zFAjH9HqY6RrzGvMbFVa3cUPbKJhKCPC1XEdB+RhRh9MfSq2ApgX7Tn4Dv+TU6L399/nuWQPzUBp9XJfXkyJfMKgQ8nkLF36y83uiF6GnkJsTnx4oUB+YLi+MWCgzQzs4WW8ODUG0Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wBeP66ozKSvmorSl0FZyztO29Pozt39bOLmckur6lI4=;
+ b=Rs014/esHd/vd29jLMrB1O3sQ5Qvn24NUmr54g+4U19Or6jH0ntYy99Psy8j5z76DzpFlRWBzCHd3E2i/vB8aR1DYs4YBxOsZiXRywmj2zm72R9W12xvdaC5SAeDFdSykncwqJhCY31fCm/vXKE5C2ExgvKGWCF3O3dX0pIBzUPpRno+zdc/OP9V+UNJ00d0AlG8mEXpR/C1D1lBsrwSaT76syywQFV+v92mygiCo47XHIrEdF7W4VC6OYUCJMbQsQiaVIPUfSWHAaGISZRV6p8A/u5YBGnOdIt6LT9MAvyf1K9EEICgpt2MnS8Ekbw7B1yZoRP4J+p3BObcqeGdZw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=intel.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wBeP66ozKSvmorSl0FZyztO29Pozt39bOLmckur6lI4=;
+ b=M7aGLOsW+Z45eRUnRuUl00u/GU4OL5h147NmDWSYDECUhdl54NxUUDvfve7S1b+BegTYcdfr3p7sj4wJ15NH6pIHTmHsiOoNcR+e1rBH+WsBhvPqiLH/fYOwkV4WGnTZdJCiKauS/OWqqbDAVPnraMqug2iOy4BXToRaTeiuMFE=
+Received: from DU2PR04CA0156.eurprd04.prod.outlook.com (2603:10a6:10:2b0::11)
+ by DB9PR08MB11377.eurprd08.prod.outlook.com (2603:10a6:10:60b::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.11; Wed, 12 Aug
+ 2026 19:30:35 +0000
+Received: from DU2PEPF00028D0E.eurprd03.prod.outlook.com
+ (2603:10a6:10:2b0:cafe::2c) by DU2PR04CA0156.outlook.office365.com
+ (2603:10a6:10:2b0::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.13 via Frontend Transport; Wed,
+ 12 Aug 2026 19:30:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF00028D0E.mail.protection.outlook.com (10.167.242.22) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
+ via Frontend Transport; Wed, 12 Aug 2026 19:30:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zGRwkgP+zA3MDlwg5ZzdpBvSZurUmCTM4VtNka8COAZbTXJD1Vl+hrNpqQTKNj1ELYMkSczisYfRzKwhfgs5Y+Eb75vejF2ENVTDN2qnc31vQuSZpgR54luW5Ue9bzfANDCoccgyMJT2KRCDZVogsIrew7UqAbX7Cv7GLa7I+FXdUtIJ7L5DkxOGM/JqY81BLvSungiidtFhncUH9bDMpoMG2b6Kwo/1ZgbIkPEULT0TZHyiUrVgw20zuzZDpQ4k+hE4fVL6sww6ruBFbUcR+welJrRLgRMkVUD/xnz7MgPN/tnvfzM6SeR8kkwqStCj55xIZBxNa6UUhZNFStW+eA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wBeP66ozKSvmorSl0FZyztO29Pozt39bOLmckur6lI4=;
+ b=vMKg37IDTHtAY1KQmtJbo/cpnAi+9LOZ/pC7EQ0MW1gn3If4i23Ro1mpNSFQqvmgxiqUel7bdXjUSGc/m83zKBxiag3PvC8LQggHKTZ9f1R0xj0ziS8lFO9ekp8Xad+2kV0HixPDqZAqURsKwyVzZAbTE+gxWq2NZayAobk4jGht5TbPPm+hUOY8uMG2G/cY4p1meRoA5i9WoKlMlUArjDdjM4+g1rtTTnznPCv2HqdHf5COUWsNfjg+9sf52g2cCuzXn1TUk8tB3QbA0Hl6yqdybY/tEAaNezBGixg3tMk0Fe6Nvu6Ob+SDhquzwY7iKCx4pJBWsGdDsDeQa5Kh2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wBeP66ozKSvmorSl0FZyztO29Pozt39bOLmckur6lI4=;
+ b=M7aGLOsW+Z45eRUnRuUl00u/GU4OL5h147NmDWSYDECUhdl54NxUUDvfve7S1b+BegTYcdfr3p7sj4wJ15NH6pIHTmHsiOoNcR+e1rBH+WsBhvPqiLH/fYOwkV4WGnTZdJCiKauS/OWqqbDAVPnraMqug2iOy4BXToRaTeiuMFE=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAWPR08MB9829.eurprd08.prod.outlook.com (2603:10a6:102:2e6::10)
+ by GV2PR08MB11371.eurprd08.prod.outlook.com (2603:10a6:150:2a5::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Wed, 12 Aug
+ 2026 19:30:02 +0000
+Received: from PAWPR08MB9829.eurprd08.prod.outlook.com
+ ([fe80::5cca:dab9:827e:c7bc]) by PAWPR08MB9829.eurprd08.prod.outlook.com
+ ([fe80::5cca:dab9:827e:c7bc%5]) with mapi id 15.21.0315.008; Wed, 12 Aug 2026
+ 19:30:01 +0000
+Message-ID: <b8c6b70c-4718-45d9-bd08-a837599868d4@arm.com>
+Date: Wed, 12 Aug 2026 14:29:55 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] selftests/x86: add generic prctl shadow stack test
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "pjw@kernel.org" <pjw@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "mingo@redhat.com" <mingo@redhat.com>, "alex@ghiti.fr" <alex@ghiti.fr>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "shuah@kernel.org" <shuah@kernel.org>, "tglx@kernel.org" <tglx@kernel.org>
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+ "bpf@vger.kernel.org" <bpf@vger.kernel.org>
+References: <20260812171940.1046116-1-bill.roberts@arm.com>
+ <20260812171940.1046116-2-bill.roberts@arm.com>
+ <c5d5c26c-eaa3-4fd3-891b-808b6efe3c25@arm.com>
+ <ca8465e2e006d31a4fc728707cb679f25a3fa7f2.camel@intel.com>
+Content-Language: en-US
+From: Bill Roberts <bill.roberts@arm.com>
+In-Reply-To: <ca8465e2e006d31a4fc728707cb679f25a3fa7f2.camel@intel.com>
+X-ClientProxiedBy: SA0PR11CA0112.namprd11.prod.outlook.com
+ (2603:10b6:806:d1::27) To PAWPR08MB9829.eurprd08.prod.outlook.com
+ (2603:10a6:102:2e6::10)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260625123906.211981-1-xujiakai2025@iscas.ac.cn>
+X-MS-TrafficTypeDiagnostic: PAWPR08MB9829:EE_|GV2PR08MB11371:EE_|DU2PEPF00028D0E:EE_|DB9PR08MB11377:EE_
+X-MS-Office365-Filtering-Correlation-Id: 568efa4b-9ff5-4e9d-1650-08def8a82e57
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|11063799006|56012099006|4143699003|18002099003|22082099003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info-Original: 3j8Rhy03cQa2+12N/y7dZ7i634fGwM5o+TVWUi/Ze9bqsxrfpwXLa4QSJIQ/n1tPx1B/KEyxVATASLStcCUp4qP8YLnl59m1zR1kA/2uGKiCFneY4NGYIccv8//ShOhyathfr6hZGzq/9we/v+S1GTt7UxbGbQR92eg1Py9LH9x0cqnjC22LT/Rsj2e1ByY41NHyBKIntk2qMm4+YfFBApxa64idPLSm1spgMMY+I0j3lqpIs1modLpV3qV68GL/cDzmZ2NF1eRRQET3J2ORxU9b40JeZGGGeZTXKqZLg8Tk6kkrQ1vKEDss1epNxQPAcyIbPvN/Qo/gzasj/4vxybCsNVB2/vFJ5RTmNp1Xyjg1k2Tplhlxva4/xcSJDxN10Ky1suD4JSslREy0wR8BEqSZZUPd73IsFVg5+8iAy4oPUpM6b10ZXxrGF+j0soWsdWRn9U3CoS9y6sEx9d3ID5ATz6bg44rE0QorCMatTaSr1ltL0LwYuUs2CFhksEMn8f/avdxoSG4pWPdfnQF05/yf+sIur/jaZJWgcAH0YsIAvuzH82yuOBaKDb3CEfVqnbU6aGJN3n6UBxr1vP68gLPKhz0vMBbgPm0ngm025lztIgg3iNnnEXBi5sKhaGDpFnRDNfM+Iq/lj+nzRU/dUUY1BMfU0sPo+R3sTvNH/0E82hcMe7qJ9jJGxYTq+X878rhb1be2YXJ3dT6aF9p/2w==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB9829.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(11063799006)(56012099006)(4143699003)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: fetRtjB+9hPerobkUv4vfigS9LFw4cxS4RJjg1QtUf/deEA0pVcoZqP5fJwOHuSbumxkF3QPzleyc9hNaQllyOL7+0hOdFxDOStLja373+5k0jIaVsWBEj5ZN5MUXGWsiqNluZ5tGD49QsNrvhKaA8Oq6cj07fFIr6GLgvAzsuRougUuyBBssd9QU73JkYzxWuB3Avtko7t7Mbcbm5ENudWdQnX0UGZctOBKW0ydLFu6Ss/XIO3GqEDeETtBIiVlOev4S4Ed0xQC/3y/ws0wmRqFvkAzsOLx5nbbe/R2e/kXWoLERMBOru/oa6qlRC7FesAcMpKsKfNABudcyPWpHw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11371
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D0E.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 17064bde-2367-481e-28a2-08def8a81a7e
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|35042699022|82310400026|14060799003|7416014|376014|56012099006|10067099003|22082099003|18002099003|11063799006|4143699003|921020;
+X-Microsoft-Antispam-Message-Info: oKEY0uk42SMSxKvzhrTuhJVb30pToLTrhk8fT657AQHr0Q5e8bmWEkYLczhjZg2UCzxinKJ7m8JpsDqNcenT7Ba5RcAxZWGRPulT4aBek0mOvvI1eiM4Q117tu97qACyN0JL9wKZ58bQgIddEmwOFCeGACFyneLmsdsx17OW8hFmvwiCF89Ad/83Hdh6C75jGHBA3hKMxQHfnp+1HS9c/Z6hD/EI9o6hYC+D1dT0A6AcqO0K6RZzUXR90OO0ErD+EVCMWxC+aYzzp5VMIbsyvXjcCJgoT06CLMFrqdabZeqYn2hOfJGJLFRapyW8qWq8+gR3VkUByXa62OPcJ5vXk+JUssoHtexQlEDBpMgvO2vmuAWcZXTK+uVi5ayPpJuO+m1FY1iNGbIljiuQ9x2PitTtvAG81BmCUAQDGb4EK5HV6kEFyr/ZnFDg/wVC5alNgYwwjfchCvLih+AQijWrsJvEbeQiOSQlBKek11SI1PJv05xb+Wh7o/0h/M/zF+kIR2eTBlIdZnNFLs6W1YF9NIF+21ydKm4JW+QA5Q9mHRZduzOK2gvjJg91Dma/c/xQO3e9WIrhhRx4mZpT9onNm5J9rp5w6nfDdd6t7gnVSoz31ALStQiM+s1KhijCYhvHNtubOwUCDaUmDPHTdmN7RSmXVSu4KMS77wshFy8yBu8+55iapJEIxten18wVQrFZL+TqnRL6weEmPK8Dwqdx8jeLn3AkpLIIyjo2lhI3OHuA4ZjjL0tLhdh16SZpiMA0
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(35042699022)(82310400026)(14060799003)(7416014)(376014)(56012099006)(10067099003)(22082099003)(18002099003)(11063799006)(4143699003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: SfPzftmw4qVBuipktha5BeSBuB1u7cCDjSHsOs9TYkWkNAg6100dLZGgF7ct/hiqGI8PBb0aTaAxYzPXuZ9lTB5lNaIOTLXh/K2XYzZYrhW1ZvXhjMRSiAmijFPyQd+ecVRhGNpSmT5tMADHvxqlmcU/mZXEL/CQj1DseB2wkPo8nfc2h/O3e5YxHlCWbLGivwg+H3BDNVCBROXOo9EXq7+flj8WFEmFZY3u3VbBF44PgrgKvhL/g9bAd8TzvMQFCXbeUGbqg/ccguv0rG5ZUieAWTwEm5K4E3Nx5Ml1uhtX8LWaA3vNm4EVtwESu6pyHmDWwf2Jgsbo/HvjssbA8C8q8zyHEELdmU8623yt975ssH8Y8XV1LkLb3t1PQsvc4aOOz9BnMlC0bqoGk6P3vr2REaZiRRoApRcBvo+QArDAlNP5JJfcsACkF9KKNH8O
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2026 19:30:34.7819
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 568efa4b-9ff5-4e9d-1650-08def8a82e57
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0E.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB11377
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_114655_563179_4FFA79CC 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260812_123040_862391_E140BE7C 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,186 +161,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jiakai,
+> On Wed, 2026-08-12 at 13:03 -0500, Bill Roberts wrote:
+>>> +}
+>>>
+>>>
+>>> Nack'ing my own patch, Sashiko found a few useful things to fix.
+> Please trim the mails. That was a lot of quote to search through.
+>
+Sorry each of the many communities across my world want it differently...
 
-kernel test robot noticed the following build errors:
+But, I would take a review while I re-spin patch v3. I am going to add 
+get status and lock tests
+to cover those cases as well as fix the spelling mistake in patch 2's 
+commit message, "consisteny".
+As well as fix the fork bug where -1 can be used in kill and send the 
+signal to everything.
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v7.2-rc7 next-20260811]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Shashiko FTW
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jiakai-Xu/riscv-stacktrace-fix-stack-out-of-bounds-in-walk_stackframe/20260812-091247
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20260625123906.211981-1-xujiakai2025%40iscas.ac.cn
-patch subject: [PATCH v3] riscv: stacktrace: fix stack-out-of-bounds in walk_stackframe()
-config: riscv-randconfig-002-20260812 (https://download.01.org/0day-ci/archive/20260813/202608130244.qnFMlaYc-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260813/202608130244.qnFMlaYc-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608130244.qnFMlaYc-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/export.h:5,
-                    from arch/riscv/kernel/stacktrace.c:7:
-   arch/riscv/kernel/stacktrace.c: In function 'walk_stackframe':
->> arch/riscv/kernel/stacktrace.c:82:39: error: 'irq_stack_ptr' undeclared (first use in this function); did you mean 'irq_stat'?
-      high = (unsigned long)this_cpu_read(irq_stack_ptr) +
-                                          ^~~~~~~~~~~~~
-   include/linux/compiler.h:239:40: note: in definition of macro 'TYPEOF_UNQUAL'
-    # define TYPEOF_UNQUAL(exp) __typeof__(exp)
-                                           ^~~
-   include/linux/percpu-defs.h:499:29: note: in expansion of macro '__pcpu_size_call_return'
-    #define this_cpu_read(pcp)  __pcpu_size_call_return(this_cpu_read_, pcp)
-                                ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/kernel/stacktrace.c:82:25: note: in expansion of macro 'this_cpu_read'
-      high = (unsigned long)this_cpu_read(irq_stack_ptr) +
-                            ^~~~~~~~~~~~~
-   arch/riscv/kernel/stacktrace.c:82:39: note: each undeclared identifier is reported only once for each function it appears in
-      high = (unsigned long)this_cpu_read(irq_stack_ptr) +
-                                          ^~~~~~~~~~~~~
-   include/linux/compiler.h:239:40: note: in definition of macro 'TYPEOF_UNQUAL'
-    # define TYPEOF_UNQUAL(exp) __typeof__(exp)
-                                           ^~~
-   include/linux/percpu-defs.h:499:29: note: in expansion of macro '__pcpu_size_call_return'
-    #define this_cpu_read(pcp)  __pcpu_size_call_return(this_cpu_read_, pcp)
-                                ^~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/kernel/stacktrace.c:82:25: note: in expansion of macro 'this_cpu_read'
-      high = (unsigned long)this_cpu_read(irq_stack_ptr) +
-                            ^~~~~~~~~~~~~
-
-
-vim +82 arch/riscv/kernel/stacktrace.c
-
-   > 7	#include <linux/export.h>
-     8	#include <linux/kallsyms.h>
-     9	#include <linux/sched.h>
-    10	#include <linux/sched/debug.h>
-    11	#include <linux/sched/task_stack.h>
-    12	#include <linux/stacktrace.h>
-    13	#include <linux/ftrace.h>
-    14	
-    15	#include <asm/stacktrace.h>
-    16	
-    17	#ifdef CONFIG_FRAME_POINTER
-    18	
-    19	/*
-    20	 * This disables KASAN checking when reading a value from another task's stack,
-    21	 * since the other task could be running on another CPU and could have poisoned
-    22	 * the stack in the meantime.
-    23	 */
-    24	#define READ_ONCE_TASK_STACK(task, x)			\
-    25	({							\
-    26		unsigned long val;				\
-    27		unsigned long addr = x;				\
-    28		if ((task) == current)				\
-    29			val = READ_ONCE(addr);			\
-    30		else						\
-    31			val = READ_ONCE_NOCHECK(addr);		\
-    32		val;						\
-    33	})
-    34	
-    35	extern asmlinkage void handle_exception(void);
-    36	extern unsigned long ret_from_exception_end;
-    37	
-    38	#ifdef CONFIG_IRQ_STACKS
-    39	DECLARE_PER_CPU(ulong *, irq_stack_ptr);
-    40	#endif
-    41	
-    42	static inline int fp_is_valid(unsigned long fp, unsigned long sp,
-    43				      unsigned long high)
-    44	{
-    45		unsigned long low;
-    46	
-    47		low = sp + sizeof(struct stackframe);
-    48	
-    49		return !(fp < low || fp > high || fp & 0x07);
-    50	}
-    51	
-    52	void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
-    53				     bool (*fn)(void *, unsigned long), void *arg)
-    54	{
-    55		unsigned long fp, sp, pc, high;
-    56		int graph_idx = 0;
-    57		int level = 0;
-    58	
-    59		if (regs) {
-    60			fp = frame_pointer(regs);
-    61			sp = user_stack_pointer(regs);
-    62			pc = instruction_pointer(regs);
-    63		} else if (task == NULL || task == current) {
-    64			fp = (unsigned long)__builtin_frame_address(0);
-    65			sp = current_stack_pointer;
-    66			pc = (unsigned long)walk_stackframe;
-    67			level = -1;
-    68		} else {
-    69			/* task blocked in __switch_to */
-    70			fp = task->thread.s[0];
-    71			sp = task->thread.sp;
-    72			pc = task->thread.ra;
-    73		}
-    74	
-    75		if (!task)
-    76			task = current;
-    77	
-    78		if (sp >= (unsigned long)task_stack_page(task) &&
-    79		    sp < (unsigned long)task_stack_page(task) + THREAD_SIZE) {
-    80			high = (unsigned long)task_pt_regs(task);
-    81		} else if (IS_ENABLED(CONFIG_IRQ_STACKS)) {
-  > 82			high = (unsigned long)this_cpu_read(irq_stack_ptr) +
-    83			       IRQ_STACK_SIZE;
-    84		} else {
-    85			high = (unsigned long)task_pt_regs(task);
-    86		}
-    87	
-    88		for (;;) {
-    89			struct stackframe *frame;
-    90	
-    91			if (unlikely(!__kernel_text_address(pc) || (level++ >= 0 && !fn(arg, pc))))
-    92				break;
-    93	
-    94			if (unlikely(!fp_is_valid(fp, sp, high)))
-    95				break;
-    96	
-    97			/* Unwind stack frame */
-    98			frame = (struct stackframe *)fp - 1;
-    99			sp = fp;
-   100			if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp, high)) {
-   101				/* We hit function where ra is not saved on the stack */
-   102				fp = frame->ra;
-   103				pc = regs->ra;
-   104			} else {
-   105				fp = READ_ONCE_TASK_STACK(task, frame->fp);
-   106				pc = READ_ONCE_TASK_STACK(task, frame->ra);
-   107				pc = ftrace_graph_ret_addr(task, &graph_idx, pc,
-   108							   &frame->ra);
-   109				if (pc >= (unsigned long)handle_exception &&
-   110				    pc < (unsigned long)&ret_from_exception_end) {
-   111					if (unlikely(!fn(arg, pc)))
-   112						break;
-   113	
-   114					pc = ((struct pt_regs *)sp)->epc;
-   115					fp = ((struct pt_regs *)sp)->s0;
-   116				}
-   117			}
-   118	
-   119		}
-   120	}
-   121	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
