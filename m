@@ -4,114 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8570DC5AD5A
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 12:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8189FC5B56A
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 12:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GZ+nGhid973Zx/7jGVcM3c8Rd9rcNgN1PrQn9e1lT7k=; b=Ly+1neVWlVmI4F
-	4oWhOqRwHn7KbAK7pm+YdaQr/Iz0a2p7UifwsTZh0qVWptS3GoUF19gA0WQg0moN6tFJbosRJR36H
-	JUdoTLJaWLkHfF47WlK+K30avprpEpUjhpSTCRH1vmFSIzYSfD/bWbLzjeAPnytuDrfVBRooFdp5p
-	tUwfiaH0prDnT8OAunioC7NawU7VoWkP86a6dajDwmsfVcJ09IP82ESKfViKuvcb4YxyJXO3xlGG6
-	4X5JYqvo6ae34W3z32XgM5WaBnTMU1ChS8mu1rydVPmNhfLMx3P0c4jCSJnoGMlrAhhrm0uWCkTbV
-	P3Jb1fCmuAZs9f/bSVjw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CJigf1wlV3V7Bf9OasF6ktyJf2SaXGpjMYJOPJ+0uFY=; b=oJnsvWHj/joUcUYfoIKMOO+3dx
+	V8zlKKlMpP31UBLS5C7CPMj2OV40siu6So+VQwBKjx3yA9hx02ZtdRZrsBqr5SPKUVvg2tkZXEKw1
+	ekHKVWcGCsQ8yynUv5BL4yGWhSuBpDhAK0LyCL7PGN8AgDCTHb/L87iCX42uCEMjGbRkPZiUHcQs2
+	L/8szos3yX+k3Zi2q7eD9jZxIfEQXbtv/3t0jbkEmEpJzOSKne851VMOxr+VkITGjWi3Rz74OpAjc
+	z3mCcpy2VfbyrmNx2S293X8ik2+lP19vR8yRxNK4JJu43eXX1uDvGVTaK9/gGzsnOydToOBvnpmAC
+	cBPzH07Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7yO-0000000GB4v-2NCd;
-	Wed, 12 Aug 2026 12:22:20 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wu7zB-0000000GBKM-45gp;
+	Wed, 12 Aug 2026 12:23:10 +0000
+Received: from mail-japaneastazolkn190130003.outbound.protection.outlook.com ([2a01:111:f403:d405::3] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7yL-0000000GB2t-2i7B
-	for linux-riscv@lists.infradead.org;
-	Wed, 12 Aug 2026 12:22:19 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-495437bb891so8043895e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Aug 2026 05:22:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1786537336; x=1787142136; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5DUOnFgT4BM2v4pDSlAoo93/0oVmKBpbPEKyoUyGdXE=;
-        b=Vy56FYf4URrPQpf2YcLlFin5CsdQZhrbsRszY6lxJfZ2KGdrRUPZk0jd9Pont/AC/k
-         vLOt4muwWf0FCkZDHqXFBlWhG1OIsfR/8NVNVCiEAKLWsJypSHQd8DW+xmyCaoImhin7
-         ip9mPTDGCx30jCVKny2zmbEyUsX4i8bABwd+AcEAFbhm2deSaKHr3ZR9QCLoMAjyl4g0
-         /Lbjkx5VzeTL/jS1e1D597maFER5CCsplugYvVxlVdGnXDU+V04h8sZS6NcRFdzBUQIx
-         AZE/pSD32VJ4wtfUVeo77HqnMdIXWfdVlTUq0Km8F251aIKg3ncWi4Vt859wONtScacf
-         RMhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786537336; x=1787142136;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5DUOnFgT4BM2v4pDSlAoo93/0oVmKBpbPEKyoUyGdXE=;
-        b=Pmt3lnvkfYr3kdtTS77IN3c3I0OBV2muPhPldzfF858TOQUX9C/xFyvbjqUnyyxhz7
-         f9oy/3hvKJ54usCZ12kJaKFra+5IVd7NQo+zrC5u7DgJc8JWZkJrbnHkBSHeq+jUDMej
-         yKJEfQF8UdU+WIL53jAEE5G9xVXASIy4u1daiv+XkUAeBNwdIGcF8CtT4aBvIvOKqw7W
-         WFuZofoFg1y/LmAKrcEBvzLC5siKH5htTD/OaaVL2KnQ86VTL5ql3yKolS5k140E8FyC
-         JCm90Sb5peNNelfV/6SMEYU+T0hhVIeXpDuyzgbhelb/9kmLDb4exGrEUcdaKedDnrzx
-         +mRw==
-X-Forwarded-Encrypted: i=1; AHgh+Ro0o4Xi34y8GxjTYu19C0wLFUaI3qGrSmf8dfeX44vkl7rAWWHpHYMn92msVvE8Yn7N3aFYq3lKr3yhlg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhcUvtlnMpTy+pTvBD2iHnxXUTcHtUGO3TNJA9hO/pBeIM/SVg
-	t2ymat8O1XO7TX5I2ggE1vREww0Hs2B/HC7tz+bGKTkxtJbVgiDI+GCThnGTShnbQ0M=
-X-Gm-Gg: AR+sD13Tv8DNdID+QvnFYOSgX90OKdNe7GdCTn9LJAXZHpuvZVkSIG9SaW8RB0jPqIQ
-	6VkKXGsJmfW6b2j8ksX2+vZU6aqC82hXLrnb8MIePBwS4uLG5AWerqCbb/mcf4279hFRRz+D+El
-	nbFTskRELmjx6YiRiTvWWgDKRE7L7T2B/aS4KyeOsFdwWju6Eofgp7bzXRYEDRwD7AC5dAWKClf
-	/z+X1dXzNnHzZAx31mj+qy3MC1hDqbsz7fq1mVhYIyjVyYhZcK8nGlBXt0d6QA5D9UDzFhSk9fT
-	Wkcq2IxfS0a7lh+mdroRwgWLZNq4nLnRWs4gcIWfKbzp8myfEfQo9FZzXXkoeipp/voYSt+HgUr
-	7J6v1cVERu3r+0f+HnPxzJLqdHs4yaneXb6BxtFVrZiIW51q0orO+rPgkPoA7nIFJ9zOEbbtkA9
-	QVySmwsHY2jH04jTySeI/LMqnQzM+ulSbWat5KHg2WZ9PdkWFMw5qx2nvYwxgF+6LlbSgmHWVTG
-	bBh9+Pq1h7Z
-X-Received: by 2002:a05:600c:3544:b0:499:5f80:83ac with SMTP id 5b1f17b1804b1-4997c51d13cmr52410645e9.7.1786537335594;
-        Wed, 12 Aug 2026 05:22:15 -0700 (PDT)
-Received: from hsinchu16.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997aaa5d04sm65858905e9.2.2026.08.12.05.22.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 05:22:14 -0700 (PDT)
-From: Yu-Chien Peter Lin <peter.lin@sifive.com>
-To: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	samuel.holland@sifive.com,
-	dlan@kernel.org,
-	dfustini@oss.tenstorrent.com,
-	michal.simek@amd.com,
-	junhui.liu@pigmoral.tech,
-	darshan.prajapati@einfochips.com,
-	akpm@linux-foundation.org,
-	zhangchunyan@iscas.ac.cn,
-	luxu.kernel@bytedance.com,
-	pincheng.plct@isrc.iscas.ac.cn,
-	nick.hu@sifive.com,
-	jim.shu@sifive.com,
-	zong.li@sifive.com,
-	greentime.hu@sifive.com,
-	robin.randhawa@sifive.com,
-	scott@riscstar.com,
-	dave.patel@riscstar.com,
-	raymond.mao@riscstar.com,
-	anup@brainfault.org,
-	pawandeep.oza@oss.qualcomm.com,
-	Yu-Chien Peter Lin <peter.lin@sifive.com>
-Subject: [RFC PATCH v3 3/3] dt-bindings: access-controllers: Add SiFive WorldGuard Checker
-Date: Wed, 12 Aug 2026 20:21:31 +0800
-Message-ID: <20260812122131.1534906-4-peter.lin@sifive.com>
-X-Mailer: git-send-email 2.48.0
-In-Reply-To: <20260812122131.1534906-1-peter.lin@sifive.com>
-References: <20260812122131.1534906-1-peter.lin@sifive.com>
+	id 1wu7z9-0000000GBIR-0zIV;
+	Wed, 12 Aug 2026 12:23:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lHGZdngpGU9fxPwiPKDIexg4fcCDBgHXAE637wvnu0MOHdFxVEzMp6nK7xYjxPYvXv7jZBEjr5+AakXy0EKb6LwlLNsIxGCxgqno5537JrNXCTQi6QA03P2bm06IoVrcQCf1GdDpTZ5JMF+UcgiWDamt9M/6JVsybZQ4uWYodBGwaFiEJUV+iIr6bq5NdEUlP10It0TaPlSluMmlb16OBKH8ggrAYoyBynqbz+UEjaM6GDmTAsazw7PAVGPjo1dlP8AoJD+rrsHSdUfPaKG/S3pdQGZdH7uuJvQFhk/nCeOkX0OBtmMVI9GJTo11XLmnlRODeJlDfO1BaT7A5wu7tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i86GRI0411of84NhW3F7VKaGZyhtrF/Opm61EJR3bQY=;
+ b=SXviTxQzH1CJgmokHZJoopfXCr7ZnpuQhrjmG9IUtGZ3qyiGTpUZY6jiaDmQAJXbnlGc1a7E7P8sk2b8zzHPRqRUQePHvSM0l9ZRh7SvmFwN6FPJgS7nqcGyjCfzz4hXRW6b8lTzpdvFKF2uOomgl71vOxaTk7wrmNckyHx548qjL5J2/K/E42b0Av5Z9ja5F4pLOCmTIKxJqQWEqhXBZ+usgcwtpJT+vOGk5xR+UfeblrTNpTFtffR0ed0gtUINKQPLszJuzO/seYDiZ1VwN6lPZj35a37ACbz2iAwuQyUYMFaCYWdHpvm8iDVkDBGUGIvX7RkB0S7GKCXsiqWs4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i86GRI0411of84NhW3F7VKaGZyhtrF/Opm61EJR3bQY=;
+ b=JH20ttMqPtclF/w9apdnt3riFY1DiKGJYDeJ05o0Net2vYsIlP8Pk2NnnmB82RVN7Fb/gN7pVdfOUBEaHghmKoNUZ3pky+3YlnV0RiT2sD4gLQfUJv2osxCwixJ/sJkX2rdmIKCoInNIZStbHVRsg4uURodroBg5n4U+oZJQm7JvE82LQuVaBsWMsCsBTB9USFYckfml8eWY8A6Bi9neZP2ie+Uup15+DhXhB/c4RFJjl7Hnja54FxvN6ufswCNX2fLB1FkGMjTLmOygCjPN9XXBzbh2/mfhJBtqO6z4rti2dw5r6Y1gPw/95KOPZ0occG6nKJnTOUSwS0xNuos3jA==
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com (2603:1096:101:2e9::7)
+ by SEZPR04MB6477.apcprd04.prod.outlook.com (2603:1096:101:9d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Wed, 12 Aug
+ 2026 12:22:58 +0000
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58]) by SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58%5]) with mapi id 15.21.0315.011; Wed, 12 Aug 2026
+ 12:22:58 +0000
+Message-ID: <SE3PR04MB8922A641FF933A0BF913E343F3DC2@SE3PR04MB8922.apcprd04.prod.outlook.com>
+Date: Wed, 12 Aug 2026 20:22:49 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] KVM: selftests: Add RISC-V Sv57 page table
+ indexing
+To: Jinyu Tang <jinyu.tang@linux.dev>, Anup Patel <anup@brainfault.org>,
+ Anup Patel <apatel@ventanamicro.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, Atish Patra <atish.patra@linux.dev>,
+ Paul Walmsley <pjw@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones
+ <andrew.jones@oss.qualcomm.com>, Conor Dooley <conor.dooley@microchip.com>,
+ Yong-Xuan Wang <yongxuan.wang@sifive.com>, Jinyu Tang <tjytimi@163.com>
+References: <20260811230316.218770-1-jinyu.tang@linux.dev>
+ <20260811230316.218770-3-jinyu.tang@linux.dev>
+Content-Language: en-US
+From: "Nutty.Liu" <nutty.liu@hotmail.com>
+In-Reply-To: <20260811230316.218770-3-jinyu.tang@linux.dev>
+X-ClientProxiedBy: TPYP295CA0041.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:7::19) To SE3PR04MB8922.apcprd04.prod.outlook.com
+ (2603:1096:101:2e9::7)
+X-Microsoft-Original-Message-ID: <9c5a5dd0-ab15-4532-8bca-194392f60e75@hotmail.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SE3PR04MB8922:EE_|SEZPR04MB6477:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6721c541-1f47-46d8-8b33-08def86c714d
+X-Microsoft-Antispam: BCL:0;ARA:14566002|24121999003|22091999003|5072599009|55001999006|25010399006|15080799012|6090799003|23021999003|4140399003|16041099003|19101099003|19110799012|8060799015|440099028|3412199025|41105399003|40105399003|53005399003|2607281247196008|26121999007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?d3VuWU8yc1JPZCtBYmhxUXFCd2pnWWhsMzdrUHlzdzBSZDhGNW5OVFNXSXky?=
+ =?utf-8?B?MzBqWHl3YjloaWRjTjFXM3ZiWThFZGZGcWRRSVJlQmFvN1hIdGlRTmZOY0sz?=
+ =?utf-8?B?djByTWRESHNid2JqZ1BZaWc4dGFjL1h3ekxrbkV3a1BwRmFpM2EzSG9JYkZ0?=
+ =?utf-8?B?U1NiL1Z4eTNOTWFtUFJOcGxpWkdtd0YyQ0JuMGZUSmtHcjVwYyt5elRMNGQ3?=
+ =?utf-8?B?b0JOanYwbWhrVXJsZnpBVWxlNHJJeGZpRkhxaWdoQXZkdkVMZVg0NHlZSnFC?=
+ =?utf-8?B?cUlGTkh1ZEdRN2cxLzh4MEM5T3ZvNkNkU0NpMWhYYkxEcjJNYUtVcC8wQ0dZ?=
+ =?utf-8?B?Wm15OXlUNDNUM2V3YUc5ay9iS0N4bk44Z2J1RkxXajlsclBrbGd3ZndHZ2JU?=
+ =?utf-8?B?cDNmOXdEajBOcFVIYnNFczQ3SVQxbXg1SnpOUWpnYW1FbUlQOU1mVDlEa21E?=
+ =?utf-8?B?TGhSU243NHRram9reGJnN243OHEzeXlWZWJpZnlKeUxzQVdjZGF3dW9oL3h4?=
+ =?utf-8?B?dlhieUVpN0ZVR3U5RktGYkxRNjRyZ2lVWmlaZlozdlJxbEEvVThUa1hZUko0?=
+ =?utf-8?B?UnpuRUVtM0w0ekI4ZmtOQWc4MVVuWTVNRXMwSTJKeFRSMTJMRTh5REM0UXph?=
+ =?utf-8?B?MGhzSnBjVkN5enh1WXVTR3RjM0R5RWxaemZITUg3TlJDVDNVM1FpSGlLNGQx?=
+ =?utf-8?B?OW5uaSt1UmE1UXR6dkhiSG9hN25FdTNqVTJPNWticVFpOUV3MWlXUDY5MGVW?=
+ =?utf-8?B?bnlnUUtsQ05lUk5KSVJlQlBUVDRkQ1MxMVZLTzhGNGFFS3BrTFE1SkNNbXpT?=
+ =?utf-8?B?ZEJYamwxYWt3VkxXUDIwNE0vTXFLaDNaakQzaytuemVkbEhvQlFIVWg5ampS?=
+ =?utf-8?B?d3VSZHFoajB5WFhlNVh6ZVo4MEZOWnNGSHFaRlR5QjVQVi9VL0VnY20zM0dE?=
+ =?utf-8?B?d01ndHdmT29ZbDkvT3QvU3crMzZFOWlXdnBlOGc3STU2SmhmU3RBSWpmdEtU?=
+ =?utf-8?B?T1ZpWk9ob0VOcUc5WkZCeTFQT240YkluMVM3ZUpSMTIvV2xvUVV4TWNuTmhY?=
+ =?utf-8?B?bTBUS0xEa2RSWHVhRmN1ZlpuRmVvR0Ira2NtalVSVVJBRGVWN0dISWhhaXVw?=
+ =?utf-8?B?S0kvQTltVjZCSm9UZDZOR1VUNVJrUmQzUUVVSWpESEtiUjU3NDA0Z1VwWWRm?=
+ =?utf-8?B?dUZrdGpZNEhtUHJPY29yOXNoV0llVlNQVWhFcG1TNnRWKzlkSXkrcFlKTm1Z?=
+ =?utf-8?B?cjhOV2JJZjJXVThyNFpSeHA5L1AvN0RKVE4wUE50NmM2cDluS0JrdzY4L3pi?=
+ =?utf-8?B?blBFeDRtWlVhc3ZVZ3NxRmhLTjVCaXlOdklnRG9RSXlueXlGb0xUclljT2Ry?=
+ =?utf-8?B?REpDTWtSbkdZOFRWQ1N6SVI2UUEyMFlaMFYwU1piMGRnR0JqYUJTRTJLNDkw?=
+ =?utf-8?B?TEpOWkhESEVZeGN4SWZERFJMNWUzb2xBOG04YWxXVWtqV3VjZGVSTnNEelVR?=
+ =?utf-8?B?dWY1SmZXemhJKys1dHpnN3loV0ZyTktyMnRGMVJjTFNURlhFMTBMWGxIWG5M?=
+ =?utf-8?B?ckVBZz09?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YlRxMzJlczVQcno4MHdxZUdKaW9RSjc1SkFTL3NMZ2JoRUhheDBxQ0hubFpw?=
+ =?utf-8?B?YmJNNDN0TzlScXhES1hLWmpub29sNnZjc1JlSHdDZmUvc1FkRk9oSzNYR2Vi?=
+ =?utf-8?B?NVlwNVVncWNrQTIyNjQ4ZEkxSGt4aU52T0lka0JjVkZxaTNvcDI4K1VBZlJn?=
+ =?utf-8?B?cHFkZU9Ld2RuUVUrNnd6cGR4SkhmUlJwbVBzSHNURjU3M1BiTlgxamhMQS9L?=
+ =?utf-8?B?djFzMTZobEVIaFAvbGRsOFo4WmNsa3F2aWpOdS8rdDg4a0JlYnFlaVRIdkRO?=
+ =?utf-8?B?Sng3VDhlOGhlVllPZk5ic3l1SjE2RCtTd2g4N3RmYnVOWjkxbUZLUEJuekNr?=
+ =?utf-8?B?YTZtMmF6aGppWDFNOHpoaExMcjhuRWhvL1pPUVRyK2ZiWHdQY0FqeWVIZGhR?=
+ =?utf-8?B?K201SDIzcWkybXZrNHZzc2RvN2hnZjNuNDZkZXVvbUI0ZGxaZ2Y0MGYrNHQ2?=
+ =?utf-8?B?R0RxMVV1RzMwSDVkYWFKdmtSWnBWOTNiUERjNEFQMUZZRXg2OTluenRVNDhK?=
+ =?utf-8?B?N0p4MXhwNFI2Vmc3a05XUW9Qby94a2hBejNnUHFwVGxSWnN2VXJjNHk4VlR5?=
+ =?utf-8?B?MGRaRlNidFpQRnUzUG9rY3dQM3F5d0pVN01WZnZnZFB6a3piVHBGMlNKM1lZ?=
+ =?utf-8?B?UElxcnpHZUZiTEJRcUJVT0RrYkJwQkRnZ3RTbVhuYVFZY2tQYXlqTVhMZ0h2?=
+ =?utf-8?B?OXN4UzJjM3hmNXFPc1R2OGlvY2JabzltYjJxV1dzZUZVS3BBa2JaUFJ3OWxF?=
+ =?utf-8?B?MC9WTTIwV3RTUEtrVW9CRDdpTVVxWGRHem9iZGp1bkFVR1VCZDI5SVJUM3Ba?=
+ =?utf-8?B?cnhuVlRWNVh2R0hETU1CQkhlL1Y2ampzbVBOamVnYU5qNlo1M1YvOFRBb1JE?=
+ =?utf-8?B?Qk9GZ1l4WGF0OXh5N3dQUTB0b2JncGw2VTQwK2hsaWpkQXFLelRXTStycm03?=
+ =?utf-8?B?TXhhVVNPYmpGaDZIanIrU2NDcUlWeHpHNUxpb2JoS2dJaUFuT1c5aks1QlpW?=
+ =?utf-8?B?VDVLVm9kRllrckNFU1o0NmdSVEdhZDNCWVRkTG1lUHp0QnFCTVRyZXpsOEVS?=
+ =?utf-8?B?QlJkaGFnUmFCbFgyaXV5RVl6WDU5VXlmSy9RNEMxRlk0a1YyZEkyemNmMko0?=
+ =?utf-8?B?NkdLTC9IWTlIZWt2VHk0Q2c2K3BNa0trRzZOMFBRc3prdkV1dWF5VFFkQysy?=
+ =?utf-8?B?VDZnNTMzRWNVUmlZdldkRWZYYUtlL1p0eHFaM29hKzlMZkRYSXdEQm1WbGVQ?=
+ =?utf-8?B?eFp3ZUgxL2hVSTZ3WTM5d2ZnRDYrY2FaZXJzM0NXNUdlVkxDVHphcEdEZXVo?=
+ =?utf-8?B?MmdRTzI1dytXOTB5NC9tdDEyNVptVU5KTTZvM2xKTHZFL29wUW1YVmdicnF0?=
+ =?utf-8?B?KzRtT0lHOWpxa0VHZDJENmx3NkdqVXYvcE5BdDFnZEsrNXl5T2FnbHZaWStP?=
+ =?utf-8?B?MlBaVmxTSnhSSVpzNVJoZS8wQ2txK09MM3hXMG1OV21vWURYSmkzWXNoWmp4?=
+ =?utf-8?B?enZWQWpCTTByTzBNQ243U0JrcW1sM25oWXB3Zmh4Mjhoc3hDTGZDNjJjeFNp?=
+ =?utf-8?B?S0l4b3FnT01pV004OElGZGdlY1J1QWU2emtVbDBTemxsZXJhNmFkWU9teFVV?=
+ =?utf-8?B?WEtqUnIyUTlmZHphNlJIRWR3TjBKMGF4YjJGa1l5Q0d1ZGtzWCtIazh4bXUw?=
+ =?utf-8?B?aGxURDZ3Q2Y4eThpdGlFUGRQUlhzRC9VQWh1Ry8rNXNCaDg5SGJEUVVPbGcz?=
+ =?utf-8?B?SnkzRmhmRlkyT3BxRW1KK09ZNk9rYVZJUmloaXozU1lqbjJoL2U2Zy8vRk81?=
+ =?utf-8?B?R3pQS05PSnp1R1pSdGl4eXFVWklLbW9FblJkNGlIckZ6VmhqOGpoRDJHQzhr?=
+ =?utf-8?Q?pFXyautRGlpUS?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-c3e7a.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6721c541-1f47-46d8-8b33-08def86c714d
+X-MS-Exchange-CrossTenant-AuthSource: SE3PR04MB8922.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2026 12:22:57.9898
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR04MB6477
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_052217_795144_41345A7A 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20260812_052307_286426_2FB73DE7 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,228 +164,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add binding for the SiFive wgChecker, a programmable access controller
-integrated in the interconnect fabric of RISC-V Worlds-capable SoCs.
 
-At this initial stage, the binding is designed for M-mode firmware
-to configure wgChecker partitions during platform initialization.
-Linux typically runs as an untrusted World and does not require a
-wgChecker driver; instead, it operates within the constraints enforced
-by firmware-configured partitions.
+On 8/12/2026 7:03 AM, Jinyu Tang wrote:
+> RISC-V selftests can create guests with five page-table levels, for
+> example when the selected guest mode is Sv57. The RISC-V page-table
+> walker only had index arrays for levels 0 through 3, so
+> virt_arch_pg_map() indexed past the end of the arrays when level 4 was
+> used.
+>
+> Add the missing L4 index mask and shift so selftests can build guest
+> page tables for Sv57 VMs.
+>
+> Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 
-wgChecker acts as an access-controllers provider, with consumers
-(protected devices) referencing it via the standard access-controllers
-phandle to declare their access requirements.
-
-Link: https://github.com/riscvarchive/security/blob/main/papers/worldguard%20proposal.pdf
-Signed-off-by: Yu-Chien Peter Lin <peter.lin@sifive.com>
----
-Changes v2->v3:
-- Drop sifive,trustedwid property
-- Reposition YAML file to bindings/access-controllers (Krzysztof)
-- Fix compatible string (Krzysztof and Conor)
-- Drop unneed description from stardard property (Krzysztof)
-- Use consistent quotes (Krzysztof)
-- Keep access controller provider node only (Krzysztof)
-- Fix node name (Conor)
-- Rename sifive,protected-region to sifive,wg-region
----
- .../access-controllers/sifive,wgchecker2.yaml | 178 ++++++++++++++++++
- 1 file changed, 178 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/access-controllers/sifive,wgchecker2.yaml
-
-diff --git a/Documentation/devicetree/bindings/access-controllers/sifive,wgchecker2.yaml b/Documentation/devicetree/bindings/access-controllers/sifive,wgchecker2.yaml
-new file mode 100644
-index 000000000000..23ff7d6ef08e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/access-controllers/sifive,wgchecker2.yaml
-@@ -0,0 +1,178 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2026 SiFive, Inc.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/access-controllers/sifive,wgchecker2.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SiFive WorldGuard Checker
-+
-+maintainers:
-+  - Yu-Chien Peter Lin <peter.lin@sifive.com>
-+
-+description: |
-+  The RISC-V Worlds ISA extension defines World IDs (WIDs) as architectural
-+  identifiers that tag each system transaction with its originating context.
-+  System integrators assign WIDs to execution contexts such as privilege
-+  modes, trusted execution environments, or other isolation boundaries.
-+
-+  The SiFive WorldGuard Checker is a hardware firewall positioned in the
-+  system interconnect fabric. It supports up to 32 WIDs and inspects every
-+  transaction, evaluating the WID against access control policies encoded
-+  in checker slots for each protected resource. Transactions from
-+  unauthorized WIDs are blocked and reported as bus errors, interrupts, or
-+  both.
-+
-+  This enables spatial partitioning of memory regions and memory-mapped
-+  devices across execution contexts. Different address ranges can enforce
-+  distinct policies, allowing isolated workloads to coexist with
-+  hardware-enforced protection.
-+
-+  The wgChecker acts as an access-controller provider as defined in the
-+  access-controllers framework. Protected devices are consumers that
-+  declare their access policy via the access-controllers property.
-+
-+allOf:
-+  - $ref: /schemas/access-controllers/access-controllers.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - qemu,wgchecker2
-+      - const: sifive,wgchecker2
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+    description:
-+      Interrupt line asserted when a WID access violation is detected and
-+      interrupt reporting is enabled in the slot configuration (IR or IW
-+      bits set).
-+
-+  "#access-controller-cells":
-+    const: 1
-+    description: |
-+      Specifies the partition identifier to reference a partition child
-+      node that defines the access control region, WID permissions, and
-+      access failure configuration. The special ID 0xFFFFFFFF indicates
-+      unprotected mode, granting unrestricted access to the device.
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-+patternProperties:
-+  "^partition@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: false
-+
-+    properties:
-+      reg:
-+        maximum: 0xFFFFFFFE
-+        description:
-+          Partition identifier. Must be unique within the wgChecker node.
-+          The value 0xFFFFFFFF is reserved for unprotected mode and must
-+          not be used.
-+
-+      sifive,wg-region:
-+        $ref: /schemas/types.yaml#/definitions/uint32-array
-+        description:
-+          Protected memory region encoded as a base address and size.
-+        items:
-+          - description: Upper 32 bits of the base address
-+          - description: Lower 32 bits of the base address
-+          - description: Upper 32 bits of the region size
-+          - description: Lower 32 bits of the region size
-+
-+      sifive,slot-permissions:
-+        $ref: /schemas/types.yaml#/definitions/uint64
-+        description: |
-+          64-bit WID permission bitmap. Each WID N uses two consecutive bits:
-+            - bit[2*N]  : Read  permission for WID N
-+            - bit[2*N+1]: Write permission for WID N
-+          Set bits grant access.
-+
-+      sifive,slot-config:
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        maximum: 0x1F
-+        description: |
-+          Access failure configuration flags for this slot:
-+            bit[0] (ER): report read  violations as bus errors
-+            bit[1] (EW): report write violations as bus errors
-+            bit[2] (IR): report read  violations via interrupt
-+            bit[3] (IW): report write violations via interrupt
-+            bit[4] (L) : lock this slot against further modification
-+          Bits[5:31] are reserved and must be zero.
-+
-+    required:
-+      - reg
-+      - sifive,wg-region
-+      - sifive,slot-permissions
-+      - sifive,slot-config
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#address-cells"
-+  - "#size-cells"
-+  - "#access-controller-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    // Example 1: Peripheral device protection
-+
-+    access-controller@c1000 {
-+        compatible = "qemu,wgchecker2", "sifive,wgchecker2";
-+        reg = <0xc1000 0x1000>;
-+        #access-controller-cells = <1>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        interrupts = <80 4>;
-+
-+        partition@0 {
-+            reg = <0>;
-+            sifive,wg-region = <0x0 0x000c0000 0x0 0x00001000>;
-+            sifive,slot-permissions = <0x0 0x000000c3>;
-+            sifive,slot-config = <0x0f>;
-+        };
-+    };
-+
-+  - |
-+    // Example 2: DRAM partitioning with multiple regions
-+
-+    access-controller@40000000 {
-+        compatible = "qemu,wgchecker2", "sifive,wgchecker2";
-+        reg = <0x40000000 0x1000>;
-+        #access-controller-cells = <1>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        interrupts = <82 4>;
-+
-+        partition@0 {
-+            reg = <0>;
-+            sifive,wg-region = <0x0 0x80000000 0x0 0x40000000>;
-+            sifive,slot-permissions = <0x0 0x000000cf>;
-+            sifive,slot-config = <0x0f>;
-+        };
-+
-+        partition@1 {
-+            reg = <1>;
-+            sifive,wg-region = <0x0 0xc0000000 0x0 0x01000000>;
-+            sifive,slot-permissions = <0x0 0x000000cc>;
-+            sifive,slot-config = <0x0f>;
-+        };
-+
-+        partition@2 {
-+            reg = <2>;
-+            sifive,wg-region = <0x0 0xc1000000 0x0 0x3f000000>;
-+            sifive,slot-permissions = <0x0 0x000000cf>;
-+            sifive,slot-config = <0x0f>;
-+        };
-+    };
--- 
-2.43.7
-
+Thanks,
+Nutty
+> ---
+>   tools/testing/selftests/kvm/include/riscv/processor.h | 3 +++
+>   tools/testing/selftests/kvm/lib/riscv/processor.c     | 2 ++
+>   2 files changed, 5 insertions(+)
+>
+> diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
+> index e3acf2ae9881..abde3c71c891 100644
+> --- a/tools/testing/selftests/kvm/include/riscv/processor.h
+> +++ b/tools/testing/selftests/kvm/include/riscv/processor.h
+> @@ -127,6 +127,9 @@ void vm_install_exception_handler(struct kvm_vm *vm, int vector, exception_handl
+>   
+>   void vm_install_interrupt_handler(struct kvm_vm *vm, exception_handler_fn handler);
+>   
+> +/* L4 index Bit[56:48] */
+> +#define PGTBL_L4_INDEX_MASK			0x01FF000000000000ULL
+> +#define PGTBL_L4_INDEX_SHIFT			48
+>   /* L3 index Bit[47:39] */
+>   #define PGTBL_L3_INDEX_MASK			0x0000FF8000000000ULL
+>   #define PGTBL_L3_INDEX_SHIFT			39
+> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> index ded5429f3448..b4d41a407553 100644
+> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> @@ -43,6 +43,7 @@ static u64 pte_index_mask[] = {
+>   	PGTBL_L1_INDEX_MASK,
+>   	PGTBL_L2_INDEX_MASK,
+>   	PGTBL_L3_INDEX_MASK,
+> +	PGTBL_L4_INDEX_MASK,
+>   };
+>   
+>   static u32 pte_index_shift[] = {
+> @@ -50,6 +51,7 @@ static u32 pte_index_shift[] = {
+>   	PGTBL_L1_INDEX_SHIFT,
+>   	PGTBL_L2_INDEX_SHIFT,
+>   	PGTBL_L3_INDEX_SHIFT,
+> +	PGTBL_L4_INDEX_SHIFT,
+>   };
+>   
+>   static u64 pte_index(struct kvm_vm *vm, gva_t gva, int level)
 
 _______________________________________________
 linux-riscv mailing list
