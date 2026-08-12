@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F71C5B572
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 12:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8081C5B572
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 12:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=wYLpTZD7/PhwnbvjYXkmZkyllqZkKpED40s/tG2njr4=; b=lrsRaFjiIT53pUblSTXwHZCgr8
-	f29Lb7K2QIA3Zf3irtOSlbaKM7l24XRIr26Ptut8hXGAP+ikKEu+NCFTzVvkJT49/mL4md4rKkm30
-	RP0jyn/pjRvT3tuVgT4Kybiv7baOrnShcMqiaaBSRZ1v5PlWGo3xLbBgfyvfQdqpXsD9oWpaODvIH
-	ey2EBVzO1MYo6CgfaBKe/9s6KuGdukAPyT6qoLzjZvepb064wjo/0QcA9Vw9msAQ1bx9iUaH1OQ40
-	Exm3P0ZFteCRi4F/X79aE/7IYBcrQQOzXwRN0Dx4StzLLnmcXKu2we41lWG5L/Z4COVyZbCSBDpO8
-	3cRNZSkw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PumlTqDuG/9B4vHDlTeu7iSUde6slm/wZHCpxwBhB5M=; b=IcDWhd7UvlVt/i
+	Lo5RXQda+b2hFtp0J513GRgXdVEnOS1r7Qnzbsbpc9/VMgF1oK2QeG2VGo0c2JUFTwQ6W0Rylp90z
+	YBcnoBWbrZtXp2z8YNloZnkoMEt03uHHrlOAo8D3rQii/I9jWxDm1WjSxeOAa/W8P/4lu0ciod9/N
+	dcKXHCUP3yQVmZUoLm//juXWIyKnMtz7ZMwNFDvXFav5+C+9+rX/+6aJJN5nkEaiL7xS3cyRhSdsJ
+	JscCCOJMaBdvJukBy7zKancJv3HrCr7LML3Mpk/FeHMJZ1fYGp5o+bTIBq/scppeJlRKyGV//J3Cc
+	vM4Wa3jMknPKvLYNp7PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuUEU-00000000csn-1bEw;
-	Thu, 13 Aug 2026 12:08:26 +0000
-Received: from [113.46.200.217] (helo=canpmsgout02.his.huawei.com)
+	id 1wuUQB-00000000e9j-2Gcf;
+	Thu, 13 Aug 2026 12:20:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuUEQ-00000000crc-3Urv
+	id 1wuUQA-00000000e9b-2BXK
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 12:08:25 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=p1IaZrga3tw+zONAd1nRt5CILnuvdDUAsSC4l66metY=;
-	b=Y6nFriUl7iEGi1LAFfjTAi2eUReE2M7/qodq2/k1YBqphUx+JMJ4DlhFiM9BMn+6WJfx6rX7N
-	Bep3szryKzEhE9r6v83MExjQxeWQs3CXa/ne1tYK+hvudbwT5DZFTseB8vDVdLqPhJRktZhYV/b
-	6j3BiGtSIxOmFRlbX83fSzc=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hLP4Y5tqbzcb0T;
-	Thu, 13 Aug 2026 19:57:49 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1830340561;
-	Thu, 13 Aug 2026 20:07:59 +0800 (CST)
-Received: from kwepemq500010.china.huawei.com (7.202.194.235) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 13 Aug 2026 20:07:58 +0800
-Received: from [10.173.124.160] (10.173.124.160) by
- kwepemq500010.china.huawei.com (7.202.194.235) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 13 Aug 2026 20:07:57 +0800
-Subject: Re: [PATCH v3] tools/mm: add hwpoison-panic tool
-To: Breno Leitao <leitao@debian.org>
-CC: SJ Park <sj@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
-	<kernel-team@meta.com>, Andrew Morton <akpm@linux-foundation.org>, "Naoya
- Horiguchi" <nao.horiguchi@gmail.com>, Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, <david@kernel.org>
-References: <20260813-memory_failure_rewrite_test-v3-1-f9fb6542cbff@debian.org>
-From: Miaohe Lin <linmiaohe@huawei.com>
-Message-ID: <2641f4d4-c08b-e9b2-1e8a-c91ce1f41d58@huawei.com>
-Date: Thu, 13 Aug 2026 20:07:57 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.6.0
+	Thu, 13 Aug 2026 12:20:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BF60E40551;
+	Thu, 13 Aug 2026 12:20:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B7581F000E9;
+	Thu, 13 Aug 2026 12:20:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786623629;
+	bh=j79Qv2kin7snMq51u+mksCtLNTIh6v/403FJtOsIOxY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=LliF5Im7g4i0LBPkEuB0ArAle1L3Wvcr3GtKvLVyY4iHgSJYmF6nF/wKfNZqGS/KF
+	 VgkzFypGexMUbm7twuHFfxkeENfqUF8VB0OMo1yDP88AAJpjeH38X1IqkB/G/9aNj4
+	 4FULUnknnAedjA/5gud1Iv4qTlv3A+H1/Vx1ExB9RXlU21I3An0Mu37mFmtrukYB3s
+	 EK5qLKi1xc31OeLuBxrDX+PKZC7+K3pvD8evoCY4IKtztUxffbaozekI7pDG/Ugsfa
+	 T2xhVpM8sOniC3et1kUMaF1UjYZwdRozu9EmbqanEC4YvOn8LdX2M5Yq9m7AjyVMV/
+	 A7Gt7pckzpdvQ==
+From: Mark Brown <broonie@kernel.org>
+To: Yixun Lan <dlan@kernel.org>, Takashi Iwai <tiwai@suse.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Liam Girdwood <lgirdwood@gmail.com>, 
+ phucduc.bui@gmail.com
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Goko Mell <goku.sonxin626@gmail.com>, 
+ Jinmei Wei <weijinmei@linux.spacemit.com>, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260805064348.44283-1-phucduc.bui@gmail.com>
+References: <20260805064348.44283-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH v2] ASoC: spacemit: advertise only DMA-backed DAI
+ streams
+Message-Id: <178656041255.521321.7252255564384020860.b4-ty@b4>
+Date: Wed, 12 Aug 2026 19:46:52 +0100
 MIME-Version: 1.0
-In-Reply-To: <20260813-memory_failure_rewrite_test-v3-1-f9fb6542cbff@debian.org>
-Content-Language: en-US
-X-Originating-IP: [10.173.124.160]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemq500010.china.huawei.com (7.202.194.235)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_050823_354125_F3D851D1 
-X-CRM114-Status: GOOD (  10.96  )
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1133; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=WMCbSYBvbFSAqJCoiPswlpF/qTICQkeiWenI/Fv71Cg=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqfbaJ4xXTgaAU8344lNnzLHvdYVkrGGb5f1eyH
+ s5VgiGWywqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCan22iQAKCRAk1otyXVSH
+ 0HqpB/44WA3YXP8HUVRPmnUU+CaKSAAsNSpCeGaKrWokoYw14GfslOin9QfaxnVtK2nvQGb8hEe
+ BgVlCQcdGLimIF370fcNVOBnoe/zyrX5mfwTkIe9kXCe2BnmkYQa07Q+nlzGK30knIoYvaX/59r
+ 8m8q/BX1DvkY6l1J9OrglwNOwfiR2oJTfULl/m2mirlq34G3WT9/bSdJni9TJLyxnsjntGFwTiC
+ XUsHYmIAQRS5XB4A2MPjazuNyqibaDiFHAwbX9Pm21HviIfswR5142VE2Xy43R+J6HC+Ci6G99+
+ xHTZeysYX5BilSm+3r1IeZ425sl0E9nxc+EhrJXYYFjl+s2S
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,38 +86,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026/8/13 19:45, Breno Leitao wrote:
-> Add a tool that enables the vm.panic_on_unrecoverable_memory_failure
-> sysctl, picks a kernel-owned PFN and writes its physical address to
-> hard_offline_page.  Three page kinds are selectable with -k: rodata
-> (default), slab or pgtable. In all cases the host should panic.
-> 
-> Example:
-> 
->         # ./hwpoison-panic -k slab --yes-panic-my-kernel
->         injecting hwpoison at phys 0x100032000 (pfn 0x100032, kind=slab)
->         expecting kernel panic: 'Memory failure: <pfn>: unrecoverable page'
-> 
-> In dmesg, you will see:
-> 
->         Memory failure: 0x100032: unhandlable page.
->         Memory failure: 0x100032: recovery action for reserved kernel page: Ignored
->         Kernel panic - not syncing: Memory failure: 0x100032: unrecoverable page
-> 
-> This lives in tools/mm rather than selftests/mm because every successful
-> run crashes the machine, which is not something to run from CI.
-> 
-> The --yes-panic-my-kernel argument is required so an accidental
-> invocation does not take the box down.
-> 
-> Signed-off-by: Breno Leitao <leitao@debian.org>
+On Wed, 05 Aug 2026 13:43:48 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: spacemit: advertise only DMA-backed DAI streams
 
-Thanks for your update. LGTM.
+Applied to
 
-Reviewed-by: Miaohe Lin <linmiaohe@huawei.com>
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
 
-Thanks.
-.
+Thanks!
+
+[1/1] ASoC: spacemit: advertise only DMA-backed DAI streams
+      https://git.kernel.org/broonie/sound/c/0a91bb72980e
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
 _______________________________________________
 linux-riscv mailing list
