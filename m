@@ -4,71 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B2CC5B567
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 03:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F88C5AD5A
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 05:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:Subject:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x/5+5noyLdvQg6jiYHWpKnURLS+CDhjqPL7c+J+/ASY=; b=FZR0yvxhY4h7AD
-	8wh6kcOGyR6hTUuuBI+KLziu1bE952O4ifaZj2GuiD7A/joZdZg3hNLkL8OHtk+7NYjwColnOmSUK
-	/hkoXv6J2EJ4+cCErG2apCpoOH8WQpFK22C9+uO8/9ypUV9Lc6O8VZ+oxSXAjKo3tWR++qsPhUd81
-	Yk+iL/KCnKaa10caBDVn+j/AKUKr9oNVzXIwz1rFrLJUlIp+8UHThnx6r4DVVi+WmU9U7kJJ808ZM
-	xNghRFVDaIiwzerf1War1v8UACdsnri5K/gmkz+sRIV3WzFXPZwnC4DI+CbKkNc3uEr9xqSeupEiS
-	1TW3LNnfPBo0d/uYU2kw==;
+	List-Owner; bh=naYFzaASN9absLMb6cA9Q85kUzwcB+ZMycNmk306/Jc=; b=3n0LEQYNO17O+0
+	Y2YXnHXaQ1JeUHIZw4vwRNkepww2+e0LclrRUo51LDc24pN1+2UfP0nrT2/2sxqx0CvvFikmMi4WW
+	5350/PTyLe+3RF91VFu0oVoLNuVUQpyU+hGHt09G+lD6BSVLxxOEMY2Ov3g+QTP/ql0Pf3d2Rw7KP
+	PY6TFYA8+2WBDTCTNCYyTs3rmuVR03bzRqOwnodIxMBJfAVtN8+Xc28aEqNnyxtkZbOWb6IkDYIjR
+	FMcLSVRcW8xHG+ejchF62z4UAwsM9QAB66PClAOzlPE3yoIsdHDyMjDol7QYYj1SbOQcsaTSGK+QQ
+	us/IerBJvHqw6tkW/7dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtzhh-0000000FMJU-0ycd;
-	Wed, 12 Aug 2026 03:32:34 +0000
-Received: from 220-128-198-181.hinet-ip.hinet.net ([220.128.198.181] helo=Atcsqr.andestech.com)
+	id 1wu1QD-0000000FQgf-02N7;
+	Wed, 12 Aug 2026 05:22:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtzhc-0000000FMHP-36H7
+	id 1wu1QB-0000000FQgK-2lIL
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Aug 2026 03:32:31 +0000
-Received: from mail.andestech.com (atcpcs54.andestech.com [10.0.1.154])
-	by Atcsqr.andestech.com with ESMTPS id 67C3VclI039026
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Aug 2026 11:31:38 +0800 (+08)
-	(envelope-from ben717@andestech.com)
-Received: from ATCPCS34.andestech.com (10.0.1.134) by atcpcs54.andestech.com
- (10.0.1.154) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.43; Wed, 12 Aug
- 2026 11:31:38 +0800
-Received: from swlinux02 (10.0.15.183) by ATCPCS34.andestech.com (10.0.1.134)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 12 Aug
- 2026 11:31:38 +0800
-Date: Wed, 12 Aug 2026 11:31:37 +0800
-From: Ben Zong-You Xie <ben717@andestech.com>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-CC: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        "Albert
- Ou" <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v5 2/4] i2c: add Andes I2C driver support
-Message-ID: <anvpGTqOnwlbERgR@swlinux02>
-References: <20260811-atciic100-v5-0-1d306c21dba3@andestech.com>
- <20260811-atciic100-v5-2-1d306c21dba3@andestech.com>
- <361b7fa5-0e4c-429a-ad66-c81fbee86c45@wanadoo.fr>
+	Wed, 12 Aug 2026 05:22:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A2E29601E0;
+	Wed, 12 Aug 2026 05:22:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48B1E1F000E9;
+	Wed, 12 Aug 2026 05:22:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786512154;
+	bh=ZPBb4cAV5MPrzvf4K070sFW5PaFLurQzUak2P3Vdyz8=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date;
+	b=QPveumX/9BAkYMdtgUZyMe0989p35NJ/zMIOCea5t/w+G7+lZExnI/ehRI03M4gVW
+	 yLvHNzpxMKU5WWJQKJXkqYwgJBKlm9fNNVtm/m/GiQImqJN84qAdvnaG1Z36uHeFjI
+	 0wJ0bJMOhxtC/HfTdWSedxjAu64DjdOWxh66P2dL58iylcrBTxSB/Mg1MJJV0mUEIV
+	 69at9EczkRFgnU0LnQzMkFT5sRxprN9+MBUauxK3FRo6oN3WntIZR5TCHVx7ccCV/R
+	 hTF4lDo0TwbzKI5tXy0OWPt8nrqYEzTnepYJLfSrciaWH2PBkStpzmvLFYn+wI5Ta5
+	 SazDDbmTaOKwQ==
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <361b7fa5-0e4c-429a-ad66-c81fbee86c45@wanadoo.fr>
-User-Agent: Mutt/2.3.0 (2026-01-25)
-X-Originating-IP: [10.0.15.183]
-X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
- ATCPCS34.andestech.com (10.0.1.134)
-X-DKIM-Results: atcpcs54.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 67C3VclI039026
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_203229_192134_AF079E89 
-X-CRM114-Status: GOOD (  12.56  )
+In-Reply-To: <20260802014217-KYC2734409@kernel.org>
+References: <20260802014217-KYC2734409@kernel.org>
+Subject: Re: [GIT PULL] clk: spacemit: Updates for v7.3
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Yixun Lan <dlan@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Brian Masney <bmasney@redhat.com>, Troy Mitchell <troy.mitchell@linux.spacemit.com>, linux-clk@vger.kernel.org, spacemit@lists.linux.dev, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Yixun Lan <dlan@kernel.org>
+Date: Tue, 11 Aug 2026 22:22:32 -0700
+Message-ID: <178651215252.5862.4480686966770442690@lazor>
+User-Agent: alot/0.12
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,23 +63,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBdWcgMTEsIDIwMjYgYXQgMDk6Mzc6MTJBTSArMDIwMCwgQ2hyaXN0b3BoZSBKQUlM
-TEVUIHdyb3RlOgo+Cj4gTGUgMTEvMDgvMjAyNiDDoCAwODoyOSwgQmVuIFpvbmctWW91IFhpZSB2
-aWEgQjQgUmVsYXkgYSDDqWNyaXQgOgo+ID4gRnJvbTogQmVuIFpvbmctWW91IFhpZSA8YmVuNzE3
-QGFuZGVzdGVjaC5jb20+Cj4gPgo+ID4gQWRkIHN1cHBvcnQgZm9yIEFuZGVzIEkyQyBkcml2ZXIu
-IEFuZGVzIEkyQyBjYW4gYWN0IGFzIGVpdGhlciBhCj4gPiBjb250cm9sbGVyIG9yIGEgdGFyZ2V0
-LCBkZXBlbmRpbmcgb24gdGhlIGNvbnRyb2wgcmVnaXN0ZXIgc2V0dGluZ3MuIE5vdywKPiA+IHdl
-IG9ubHkgc3VwcG9ydCBjb250cm9sbGVyIG1vZGUuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogQmVu
-IFpvbmctWW91IFhpZSA8YmVuNzE3QGFuZGVzdGVjaC5jb20+Cj4KCkhpIENKLAoKPiAuLi4KPgo+
-ID4gK3N0YXRpYyBzdHJ1Y3QgaTJjX2FsZ29yaXRobSBhbmRlc19pMmNfYWxnbyA9IHsKPgo+IENv
-dWxkIHRoaXMgYmUgY29uc3Q/CgpZZXMsIEkgd2lsbCBhZGQgY29uc3QgaW4gdjYuCgo+ID4gKyAg
-ICAgLnhmZXIgPSBhbmRlc19pMmNfeGZlciwKPiA+ICsgICAgIC5mdW5jdGlvbmFsaXR5ID0gYW5k
-ZXNfaTJjX2Z1bmMsCj4gPiArfTsKPiBDSgoKVGhhbmtzLApCZW4KCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Quoting Yixun Lan (2026-08-01 18:42:52)
+> Hi Stephen,
+> 
+>    Please pull SpacemiT's clock changes for v7.3
+> 
+> Yixun Lan
+> 
+> The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+> 
+>   Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+> 
+> are available in the Git repository at:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/ tags/spacemit-clk-for-7.3-1
+> 
+> for you to fetch changes up to 8a7d4b1924d2a424b1a6fe69de4f9464ee1fb485:
+> 
+>   clk: spacemit: k3: fix missing /2 factor in i2s sysclk dividers (2026-07-29 02:42:06 +0000)
+> 
+> ----------------------------------------------------------------
+
+Thanks. Pulled into clk-next
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
