@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D0BC5B567
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 06:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D3AC5B56A
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2026 08:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jklp/kqgddzYTyVFJj/4zxapUZpLyBELzpDhjIxNjTs=; b=4bglGW3GjqdCqn
-	bmtEUMlV/nvs094Al6WcfozzthE6jkXnKXMu1Bbc0FO1hPZR8RqEbVe6YRjZ/mT0y/iJScwNh1ogy
-	tOa/veOoalfOa+jD3h0sLkOY7DMgO060htdGLNUjX7yimwJLV576mJ+p4GU2ZAJPjAXG1x4y9aFgQ
-	6NvSDBUoIYLEdiPa/NSJoj0ijoKryBTJMgcIOV17a8L8KFIW/+R0XmghzgeNL8hNAFDzw5BOC8Lam
-	9bv9QrdT5qtpFnQ2ykvcOO32/tO+vWOn32pJtN/SphZZ3016ynf7Rx4XzpJmOroN2JjZI3saVYPVY
-	S1av0OhYR5F+77ZVOFFw==;
+	List-Owner; bh=rF5KxKaxRPbxQUrkMfuI7Ji9Ih9sH843HfTdhfMftqc=; b=kgKXEjiOeUgs3t
+	230ArmSjV7Ehff0JAl5hwd+gVc8AyoVUMDEBZvbLpu5y/Ozff8cMIAtkowgb03Pr3KQPUiFq6nrMq
+	UtS6Q6ijWhkkmUTPceitkmirw1GdK/1wRpZlJ1GsaLQ8YSa45Tx8chmrzlJBkRYxsNyPfApsde46L
+	tNJ528FMWqVJG6kVi7VNNdl/Kw/W4Ou4zK8iK5G6iF2/ocJ5z0QnPF5OIbsk9/PTir3l76KNor1uw
+	xhEVPZbgQE+DVAzjdvBnplUXirTC3w1KPcADEwABmmzlS1rgtBpWipAqXzx5JVED6AQ3iOLYcOaW2
+	scuBUWwAv1ePg5VjotzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu2i3-0000000FX3H-3pqu;
-	Wed, 12 Aug 2026 06:45:07 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wu46N-0000000Fd5g-0Ne9;
+	Wed, 12 Aug 2026 08:14:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu2i1-0000000FX27-0j8t
+	id 1wu46K-0000000Fd53-32YX
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Aug 2026 06:45:06 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1786517101;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZuhyDaWlGvcetYwCH9EDrtcAe5tbIiQASwnE/E1NDFA=;
-	b=3VYuFYz/2/CHhn2uULcRv0jtfUQbC4ezJoSglvq4LKM+EUFOZ2k82ZgYWz+9MHQZHY9QEL
-	7QcPb5hiymRcCd8Z8lXbQnGyCOEHAtpDfvw9r5G9W93lOQFGZYhnRAg2/VD+ErFqEE7MBH
-	oF/l6pewzupa1rZS0IUHRQOP+y5Q5WXiijKVZ96NODHps8MPKT8FGXg2KmFJsDYAmQ3s6Y
-	T3/cDQpdllXLRYoUmNKX4A8tNwwJXOloU+k0p5FyGcyLcGOXfeVoyotqQWVUVd+NeVyL9C
-	B7/lupUDm5NET3ZiRAPg97IIzRFTFN4uAyEhVrklShFXkUnqG4YV1dHP6F7EnA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1786517101;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZuhyDaWlGvcetYwCH9EDrtcAe5tbIiQASwnE/E1NDFA=;
-	b=O4SjxrVUGX1VIEynvg69MWy9D84Hi4nKd38aexRWpazfhiNd3c+z1Oepw8LFzhwilmHsDK
-	nAFak4tAiF9J89Cg==
-To: Klara Modin <klara@kasm.eu>, Xiaofeng Yuan <xiaofengmian@163.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] riscv: patch: skip fixmap mapping when kernel
- text is already writable
-In-Reply-To: <ant_8TaBbov_GS4i@soda.int.kasm.eu>
-References: <20260720032258.5188-1-xiaofengmian@163.com>
- <20260720032258.5188-3-xiaofengmian@163.com>
- <ant_8TaBbov_GS4i@soda.int.kasm.eu>
-Date: Wed, 12 Aug 2026 08:45:00 +0200
-Message-ID: <8733wjzvkj.fsf@yellow.woof>
+	Wed, 12 Aug 2026 08:14:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9686761878;
+	Wed, 12 Aug 2026 08:14:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BFCF1F000E9;
+	Wed, 12 Aug 2026 08:14:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786522455;
+	bh=CfRowpTKWivqNOVD0wmF3ZNKzhjEZpNIgeQTNYVCSLs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=n4H4xvsbIqPb+e35D6mMMVzNZkzuE1LgSmtDq+xcLOgbUu6Mp2iZkRx0jRcQckcqu
+	 pEk79ElOzV0MnLBbgqG76IIAIB2ulx3RRqc2zAvIxWuNuxpRH+g5xHyN+jYrCHKJIU
+	 qE66rv2o+kcLqcT8UIAD6Mmsjun2+twXamDLlOPwtzcPnNAcQtk9ULMo2Feb2RiJi5
+	 G4cisuXsT1VfXBjj29VBD2vGPQuMV+nsZPsxtdjmp0KHAq57iiGiPQP/NRvQBu0CZT
+	 Axjl0XLxTC+M0FTTT33SHJMwzSHy3pIdPVD9/vuWRPIlb4/wO0e2vt24q4UBoS99GI
+	 okI5fRp2ToOYw==
+From: Lee Jones <lee@kernel.org>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Andi Shyti <andi.shyti@kernel.org>, 
+ Mika Westerberg <mika.westerberg@linux.intel.com>, 
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Min Lin <linmin@eswincomputing.com>, 
+ Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Cc: Yulin Lu <luyulin@eswincomputing.com>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Darshan Prajapati <darshan.prajapati@einfochips.com>, 
+ Pritesh Patel <pritesh.patel@einfochips.com>
+In-Reply-To: <20260804104431.1391839-5-pinkesh.vaghela@einfochips.com>
+References: <20260804104431.1391839-5-pinkesh.vaghela@einfochips.com>
+Subject: Re: (subset) [PATCH v3 4/8] dt-bindings: mfd: syscon: add ESWIN
+ EIC7700 compatible
+Message-Id: <178652245137.1296549.3383858473929288179.b4-ty@b4>
+Date: Wed, 12 Aug 2026 09:14:11 +0100
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_234505_361125_952FD6C0 
-X-CRM114-Status: UNSURE (   4.86  )
-X-CRM114-Notice: Please train this message.
+X-Mailer: b4 0.16-dev-ad80c
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,25 +76,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Klara Modin <klara@kasm.eu> writes:
-> I have MODULES disabled and thus also STRICT_MODULE_RWX disabled, but
-> still STRICT_KERNEL_RWX enabled. I saw that an earlier version of this
-> patch[1] instead gated the first branch behind STRICT_KERNEL_RWX. That
-> version works fine for me.
-
-Urgh, I got confused between STRICT_MODULE_RWX and STRICT_KERNEL_RWX, I
-suggested the final version.
-
-Xiaofeng, can you send a patch?
-
-Nam
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAwNCBBdWcgMjAyNiAxNjoxNDoyNyArMDUzMCwgUGlua2VzaCBWYWdoZWxhIHdyb3Rl
+Ogo+IERvY3VtZW50IEVTV0lOIEVJQzc3MDAgU29DIGNvbXBhdGlibGUgZm9yIHN5c2NvbiByZWdp
+c3RlcnMuCgpBcHBsaWVkLCB0aGFua3MhCgpbNC84XSBkdC1iaW5kaW5nczogbWZkOiBzeXNjb246
+IGFkZCBFU1dJTiBFSUM3NzAwIGNvbXBhdGlibGUKICAgICAgY29tbWl0OiBkODZkYWRjNmZlZWFh
+ODZiNmEyOWRiNTUwOWJmZThjNjViNjZjN2IyCgotLQpMZWUgSm9uZXMgW+adjueQvOaWr10KCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
