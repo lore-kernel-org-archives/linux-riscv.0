@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BBAC5CFDB
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 09:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B022C5CFDB
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 09:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fbp9sKwVcu9sLDYMcSsGzg0JtcBZk3q/SfRjjh+CjoE=; b=u35/NTTuwSfak2
-	/N0sY+y5K7kwUSFpGt73c/nALOSTWcQH19s3aycG3a9ij13K56ba+xYhiEvCBpdd9dkRzfGx5Wvqy
-	zn7llY7OPN9aYXhs2TbDytpek718UcdcdxrPFsiMcQWpYJDwkkNcWIyjhDRUcIyFsTdNPgJuGzkZl
-	lV8tYC/BEA8jEPM8ABDcUh4Rs57s7thEF/TMaS4S/9Ob0ScQgxb0TYSq+yBUQqetseXdFRQ/VSf+o
-	yPlzX231ZUAFg5FwpbJKH1YUi2vuYBdFbFi186/VMDRSiD3gJaege2zmSc+TKBCxaGwFvA1IVi/6g
-	J4F8w4CaMxkR8hsfXMrg==;
+	List-Owner; bh=Wg0rZe1sILrhjejI6/eMaZ49PswpPboEM1smnX9uj7Y=; b=VIsdzQD8VHzC3e
+	dXHzMCGb6ohkVBXkDfjExrspqAvMzqOCYUMknBiesFf1LgZ2VwVFzgTIQTf077yYrZauve3FdOccZ
+	L+tbW4r1wyTqbIA6mk185N26uyq2z6fKRqa5SLkN+o56lGimbNDxwKKx4DRloNQ2RT7fPxwNJrUkw
+	TKO2w8U234BNxG+qlMkfvU2oy9Yxf7BDv4BGHkWaYbL8ZRrYazUkADxW4oOsYCugkQPI/epI4Rkj3
+	TClDaLGqbcWRJUa2ULuVcBJgXeziC8fUWJdv+bjesP7jw+9tXqZE+tLOMjtUF9wPMGIbY/BOWwRkJ
+	JZXRXsHiIYBUcbjIfdjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuS4D-00000000N17-2UUU;
-	Thu, 13 Aug 2026 09:49:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wuS9d-00000000O0m-3i9H;
+	Thu, 13 Aug 2026 09:55:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuS4C-00000000N0h-0HCv
+	id 1wuS9c-00000000O0B-38Yl
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 09:49:40 +0000
+	Thu, 13 Aug 2026 09:55:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A373600AF;
-	Thu, 13 Aug 2026 09:49:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 523CF1F000E9;
-	Thu, 13 Aug 2026 09:49:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 41EB243698;
+	Thu, 13 Aug 2026 09:55:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 658801F000E9;
+	Thu, 13 Aug 2026 09:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786614578;
-	bh=TTABNkzRnvKcALm2Uzahbsigca8Jvi3+YV2m2C/7ack=;
+	s=k20260515; t=1786614916;
+	bh=wpohbZ9rJj7yOAt868aIiXK/QrTmD5B7lw42yERMmg4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BIwrsoCl7tY9BhRCIm744CBabclvQfR64hEKjewDzXcajooO63rgrJfG5dth5CubV
-	 OIdixsawiVZ++RlKe/uNmNNa1kjrVUwYT+haQHzm6bIb/8tLatLLQO4+AT+/EIzu3b
-	 e8PaxrIgkBw7cbEXLu2YvjTqU99J2lG6vBQT7UIy5QkBdpKcAhjY93KuZG5FfdFfp9
-	 j0yh9cdU/BMBhWwrTPdAND2ddmLNJO4J/sA59JdPAJdko4MmzjsA5jKZJVGYN0qG4Y
-	 nTfS3IZKSMLNgbxJkCfndpCJHpkc3+pWfMssBe3YWrn+t9QieEOah1UAovhXnJ58zG
-	 g84ay/MA0xIfA==
-Date: Thu, 13 Aug 2026 02:49:37 -0700
+	b=QUMUsH6RD6OK9BEQ3uXYmS2OGApGrPSn1oDOu/T6hPnWKa5nH7BKz9ZcUr0eVEbaO
+	 z6w9/qXy3LON7vp+tdnYkMckWCuqb2lR204xkpiKE8i6+BC3Cgt/QjAx7VxQ5/uCpc
+	 7BaPu4Pcdw1g7zFrwYrzXQeV/IQ3k7v8RBO8TdYx13pkRkBMDEdB8h5omny2OAuO3s
+	 7CCJEB7YQhAFhy7XOdjQLfswUoPDurr6zgLiJrRi0lQjkwoXWy4rt11SF29WnjLzZR
+	 If10W4rSKPL3uXyOQV0QoEfqEXtWqWUcY1tlnNHPWh4gMI5T71S7FL0VEZhSrlYh5e
+	 rGWogProO6p2w==
+Date: Thu, 13 Aug 2026 02:55:13 -0700
 From: Peter Chen <peter.chen@kernel.org>
 To: Junzhong Pan <panjunzhong@linux.spacemit.com>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -57,13 +57,13 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH 3/6] usb: chipidea: usb2: add SpacemiT K1 support
-Message-ID: <an2TMSqHTVh-XYdX@hu-petche-lv.qualcomm.com>
+Subject: Re: [PATCH 2/6] usb: chipidea: usb2: add optional reset support
+Message-ID: <an2UgcS8cHDGwzsO@hu-petche-lv.qualcomm.com>
 References: <20260812-b4-spacemit-k1-usb2-v1-0-f28cf29e522b@linux.spacemit.com>
- <20260812-b4-spacemit-k1-usb2-v1-3-f28cf29e522b@linux.spacemit.com>
+ <20260812-b4-spacemit-k1-usb2-v1-2-f28cf29e522b@linux.spacemit.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260812-b4-spacemit-k1-usb2-v1-3-f28cf29e522b@linux.spacemit.com>
+In-Reply-To: <20260812-b4-spacemit-k1-usb2-v1-2-f28cf29e522b@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +80,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26-08-12 17:26:14, Junzhong Pan wrote:
-> Add a compatible for SpacemiT K1, and add platform data with correct
-> flag since the hardware doesn't have internal otg register support.
+On 26-08-12 17:26:13, Junzhong Pan wrote:
+> The USB2 controller of SpacemiT K1 SoC requires reset support, to keep
+> compatibility, add optional reset support.
 > 
 > Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
-
-Acked-by: Peter Chen <peter.chen@kernel.org>
-
-Peter
 > ---
 >  drivers/usb/chipidea/ci_hdrc_usb2.c | 8 ++++++++
 >  1 file changed, 8 insertions(+)
 > 
 > diff --git a/drivers/usb/chipidea/ci_hdrc_usb2.c b/drivers/usb/chipidea/ci_hdrc_usb2.c
-> index 00d575cd2955..70c5ce750519 100644
+> index 8ffa1e95d8e8..00d575cd2955 100644
 > --- a/drivers/usb/chipidea/ci_hdrc_usb2.c
 > +++ b/drivers/usb/chipidea/ci_hdrc_usb2.c
-> @@ -40,10 +40,18 @@ static const struct ci_hdrc_platform_data ci_zevio_pdata = {
->  	.flags		= CI_HDRC_REGS_SHARED | CI_HDRC_FORCE_FULLSPEED,
+> @@ -12,6 +12,7 @@
+>  #include <linux/phy/phy.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/property.h>
+> +#include <linux/reset.h>
+>  #include <linux/usb/chipidea.h>
+>  #include <linux/usb/hcd.h>
+>  #include <linux/usb/ulpi.h>
+> @@ -21,6 +22,7 @@
+>  struct ci_hdrc_usb2_priv {
+>  	struct platform_device	*ci_pdev;
+>  	struct clk		*clk;
+> +	struct reset_control	*reset;
 >  };
 >  
-> +static const struct ci_hdrc_platform_data ci_k1_pdata = {
-> +	.capoffset	= DEF_CAPOFFSET,
-> +	.flags		= CI_HDRC_DISABLE_STREAMING |
-> +			  CI_HDRC_FORCE_VBUS_ACTIVE_ALWAYS |
-> +			  CI_HDRC_DUAL_ROLE_NOT_OTG,
-> +};
+>  static const struct ci_hdrc_platform_data ci_default_pdata = {
+> @@ -80,6 +82,12 @@ static int ci_hdrc_usb2_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>  
+> +	priv->reset = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
+> +	if (IS_ERR(priv->reset)) {
+> +		ret = PTR_ERR(priv->reset);
+> +		goto clk_err;
+> +	}
 > +
->  static const struct of_device_id ci_hdrc_usb2_of_match[] = {
->  	{ .compatible = "chipidea,usb2" },
->  	{ .compatible = "xlnx,zynq-usb-2.20a", .data = &ci_zynq_pdata },
->  	{ .compatible = "lsi,zevio-usb", .data = &ci_zevio_pdata },
-> +	{ .compatible = "spacemit,k1-usb2", .data = &ci_k1_pdata },
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(of, ci_hdrc_usb2_of_match);
+
+You may update binding doc?
+
+Acked-by: Peter Chen <peter.chen@kernel.com>
+
+Peter
+>  	ci_pdata->name = dev_name(dev);
+>  
+>  	priv->ci_pdev = ci_hdrc_add_device(dev, pdev->resource,
 > 
 > -- 
 > 2.34.1
