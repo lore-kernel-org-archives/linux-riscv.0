@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13AD4C5B572
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72011C5DF65
 	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 07:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bupTRmZ9HB2lYXUMZk/X1WB/95JUNUOw0ByPtdaui84=; b=vS69S+1+zLxRHB
-	otp3JKpAjLiTWjNdzcqJouhtV9tmXI1Nv9ZmZX8j5a2wFRSNUgp3TTrEpQx/VciI9VTvCQ2Rc7Z7a
-	pJZX5HoHtsvs61CWSpV2Zb9TyXrZ3Xnd4YADgP8ZkeQcHfPjpIVEp6SR0kzNikzeAvK2O2gH8XmHO
-	GT9e/GRba8Qp+Y6Mp86dkd6teDkbFNM7P8fL92avgBB9J3b+dmTeW5cPUIWN0xP21GZcUL+5+snNc
-	/XPW58VeW2vY1p+zHHYTnQJMD8ChbEgtRiwMlq2UgQissBGcBJJhOrbODfJB8xfc/ChTn2I86/lEL
-	YYHiM0GeJNfBtyl3672g==;
+	List-Owner; bh=5VDK7Nakl0BFKeoEvbVVUt5b9qzkNNnvfbKIEECy6aw=; b=24upVshWxWy8Sm
+	S+DThiuGGkYPBIyjpkyJQ3vDoq3JaFI6U2yNIbVS6r+g9uqPrIiFd/zMC3g1zVrUTh0HIYJqgaph0
+	BNwkLA3hfLugirRiXgfxLdii+v+RmKwdyrN69+0hCJgxoZiNu+6uhYyQFNbBY9B3lGIUgDcgfpgSO
+	NB0inwBhfMPJWJ7vMfm1JKZvnU/xywN7fzEw7Jwnu10lEnwwR0oMHtBT5pPkadWyVlgD6/IDxjYwI
+	viUg+yaQBs01BROZYNr5YAhihPrpAISvALuT3/JFDyTE0aLqa+5G5RzTb5d49c80W691IBbg/bKC0
+	ysfO/atVuXuo7gUfGFHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPie-0000000HaEI-0itr;
-	Thu, 13 Aug 2026 07:19:16 +0000
+	id 1wuPii-0000000HaHc-2Dyq;
+	Thu, 13 Aug 2026 07:19:20 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPia-0000000HaAP-2fNe
+	id 1wuPie-0000000Ha8X-21Yl
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 07:19:14 +0000
-X-UUID: 447f0eb296e711f1aa26b74ffac11d73-20260813
+	Thu, 13 Aug 2026 07:19:17 +0000
+X-UUID: 43d09f8096e711f1aa26b74ffac11d73-20260813
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:95322ea6-7878-4845-8c38-0209cc6e8cdb,IP:0,U
+X-CID-O-INFO: VERSION:1.3.12,REQID:bfa4271e-d950-4b3f-b761-8033f5158399,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:59b30b4614b8c76a0be7e304c058fcd7,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850|865|898,TC:nil,Content:0|1
-	5|50,EDM:-3,IP:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:104495b2bb17de7876dcd231f2122c1a,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|136|850|865|898,TC:nil,Content
+	:0|15|50,EDM:-3|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,
+	COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 447f0eb296e711f1aa26b74ffac11d73-20260813
+X-UUID: 43d09f8096e711f1aa26b74ffac11d73-20260813
 X-User: jiangfeng@kylinos.cn
 Received: from [127.0.0.1] [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <jiangfeng@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1220298982; Thu, 13 Aug 2026 15:19:05 +0800
+	with ESMTP id 1018791147; Thu, 13 Aug 2026 15:19:04 +0800
 From: Feng Jiang <jiangfeng@kylinos.cn>
-Date: Thu, 13 Aug 2026 07:18:43 +0000
-Subject: [PATCH bpf-next v2 2/2] selftests/bpf: Enable stack argument tests
- for RV64
+Date: Thu, 13 Aug 2026 07:18:42 +0000
+Subject: [PATCH bpf-next v2 1/2] bpf, riscv: Add BPF stack arguments
+ support for RV64 JIT
 MIME-Version: 1.0
-Message-Id: <20260813-bpf-riscv-stack-args-v2-2-efea8f9b3fe1@kylinos.cn>
+Message-Id: <20260813-bpf-riscv-stack-args-v2-1-efea8f9b3fe1@kylinos.cn>
 References: <20260813-bpf-riscv-stack-args-v2-0-efea8f9b3fe1@kylinos.cn>
 In-Reply-To: <20260813-bpf-riscv-stack-args-v2-0-efea8f9b3fe1@kylinos.cn>
 To: Alexei Starovoitov <ast@kernel.org>, 
@@ -75,9 +75,8 @@ Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
  llvm@lists.linux.dev, Feng Jiang <jiangfeng@kylinos.cn>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_001913_493675_D394F69B 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260813_001916_842656_A6D047D5 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,141 +93,201 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable the stack argument selftests for RV64. The riscv guard is
-restricted to __riscv_xlen == 64 since stack arguments are only
-supported by the RV64 JIT.
+Add bpf_jit_supports_stack_args() for the RV64 JIT so BPF subprograms
+and kfuncs can receive more than 5 arguments via the stack
+(BPF_REG_PARAMS / r11).
 
-Keep the __BPF_FEATURE_STACK_ARGUMENT gate, defined by clang with
-BPF stack argument support [1].
+For BPF-to-BPF calls the caller writes outgoing arguments at the
+bottom of its frame (SP-relative). The callee reads them with
+FP-relative loads. Its FP is set to the caller SP in the prologue,
+so the offsets match.
 
-[1] https://github.com/llvm/llvm-project/pull/189060
+The RISC-V ABI puts arguments 6-8 in A5-A7 and arguments 9+ at
+SP+0. Before each kfunc call, load arguments 6-8 from the outgoing
+area into A5-A7 and copy any remaining arguments down so argument 9
+lands at SP+0.
+
+A5 (BPF_REG_0), A6 (TCC) and A7 are safe to clobber here: R0 is not
+live before a call, TCC is backed up on the stack, and A7 is unused
+by the JIT.
+
+Limit the existing kfunc sign-extension loop to MAX_BPF_FUNC_REG_ARGS
+iterations; otherwise idx >= 5 resolves to S1-S5 (BPF_R6-FP) and
+corrupts callee-saved registers.
 
 Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
 ---
- tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c      | 3 ++-
- tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c | 3 ++-
- tools/testing/selftests/bpf/progs/exceptions.c                    | 5 +++--
- tools/testing/selftests/bpf/progs/stack_arg.c                     | 3 ++-
- tools/testing/selftests/bpf/progs/stack_arg_kfunc.c               | 3 ++-
- tools/testing/selftests/bpf/progs/stack_arg_precision.c           | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_stack_arg.c            | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c      | 3 ++-
- 8 files changed, 17 insertions(+), 9 deletions(-)
+ arch/riscv/net/bpf_jit.h        |  1 +
+ arch/riscv/net/bpf_jit_comp64.c | 79 +++++++++++++++++++++++++++++++++++++++--
+ arch/riscv/net/bpf_jit_core.c   |  4 +++
+ 3 files changed, 81 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c b/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c
-index 8d38aafe66a2..ab12397a9b52 100644
---- a/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c
-+++ b/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c
-@@ -4,7 +4,8 @@
- #include <bpf/bpf_helpers.h>
- #include "../test_kmods/bpf_testmod_kfunc.h"
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index 419b9d795f2a..9eb4e149505d 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -82,6 +82,7 @@ struct rv_jit_context {
+ 	unsigned long flags;
+ 	int stack_size;
+ 	int tcc_offset;
++	u16 stack_arg_size;
+ 	u64 arena_vm_start;
+ 	u64 user_vm_start;
+ };
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 6b9972b07c1b..58cb3e5ff6b4 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -1815,18 +1815,43 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
  
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
+ 		if (insn->src_reg == BPF_PSEUDO_KFUNC_CALL) {
+ 			const struct btf_func_model *fm;
+-			int idx;
++			int idx, nargs;
  
- long subprog_call_mem_kfunc(long a, long b, long c, long d, long e, long size)
-diff --git a/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c b/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c
-index 99bc115f8380..a980a3a399d3 100644
---- a/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c
-+++ b/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c
-@@ -3,7 +3,8 @@
- #include <vmlinux.h>
- #include <bpf/bpf_helpers.h>
+ 			fm = bpf_jit_find_kfunc_model(ctx->prog, insn);
+ 			if (!fm)
+ 				return -EINVAL;
  
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
+-			for (idx = 0; idx < fm->nr_args; idx++) {
++			nargs = min_t(int, fm->nr_args, MAX_BPF_FUNC_REG_ARGS);
++			for (idx = 0; idx < nargs; idx++) {
+ 				u8 reg = bpf_to_rv_reg(BPF_REG_1 + idx, ctx);
  
- int subprog_bad_order_6args(int a, int b, int c, int d, int e, int f)
-diff --git a/tools/testing/selftests/bpf/progs/exceptions.c b/tools/testing/selftests/bpf/progs/exceptions.c
-index c8d716fbd419..bae20f0f247e 100644
---- a/tools/testing/selftests/bpf/progs/exceptions.c
-+++ b/tools/testing/selftests/bpf/progs/exceptions.c
-@@ -379,8 +379,9 @@ int exception_bad_assert_range_with(struct __sk_buff *ctx)
- 	return 1;
+ 				if (fm->arg_size[idx] == sizeof(int))
+ 					emit_sextw(reg, reg, ctx);
+ 			}
++
++			/* BPF stack args -> RISC-V ABI: args 6-8 in A5-A7, 9+ at SP+0 */
++			if (fm->nr_args > MAX_BPF_FUNC_REG_ARGS) {
++				int n_stack = fm->nr_args - MAX_BPF_FUNC_REG_ARGS;
++				int n_reg = min_t(int, n_stack,
++						  RV_MAX_REG_ARGS - MAX_BPF_FUNC_REG_ARGS);
++
++				for (idx = 0; idx < n_reg; idx++) {
++					int sz = fm->arg_size[MAX_BPF_FUNC_REG_ARGS + idx];
++
++					emit_ld(RV_REG_A5 + idx, idx * 8, RV_REG_SP, ctx);
++					if (sz == sizeof(int))
++						emit_sextw(RV_REG_A5 + idx, RV_REG_A5 + idx, ctx);
++				}
++
++				for (idx = n_reg; idx < n_stack; idx++) {
++					int sz = fm->arg_size[MAX_BPF_FUNC_REG_ARGS + idx];
++
++					emit_ld(RV_REG_T1, idx * 8, RV_REG_SP, ctx);
++					if (sz == sizeof(int))
++						emit_sextw(RV_REG_T1, RV_REG_T1, ctx);
++					emit_sd(RV_REG_SP, (idx - n_reg) * 8, RV_REG_T1, ctx);
++				}
++			}
+ 		}
+ 
+ 		/* restore TCC to RV_REG_TCC before bpf2bpf call */
+@@ -1891,6 +1916,21 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 	case BPF_LDX | BPF_MEM | BPF_H:
+ 	case BPF_LDX | BPF_MEM | BPF_W:
+ 	case BPF_LDX | BPF_MEM | BPF_DW:
++		if (insn->src_reg == BPF_REG_PARAMS) {
++			int idx = off / 8 - 1;
++
++			if (is_12b_int(idx * 8)) {
++				emit_ldx_insn(rd, idx * 8, RV_REG_FP, BPF_SIZE(code), false, ctx);
++			} else {
++				emit_imm(RV_REG_T1, idx * 8, ctx);
++				emit_add(RV_REG_T1, RV_REG_T1, RV_REG_FP, ctx);
++				emit_ldx_insn(rd, 0, RV_REG_T1, BPF_SIZE(code), false, ctx);
++			}
++			if (BPF_SIZE(code) != BPF_DW && insn_is_zext(&insn[1]))
++				return 1;
++			break;
++		}
++		fallthrough;
+ 	case BPF_LDX | BPF_PROBE_MEM | BPF_B:
+ 	case BPF_LDX | BPF_PROBE_MEM | BPF_H:
+ 	case BPF_LDX | BPF_PROBE_MEM | BPF_W:
+@@ -1938,6 +1978,20 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 	case BPF_ST | BPF_MEM | BPF_H:
+ 	case BPF_ST | BPF_MEM | BPF_W:
+ 	case BPF_ST | BPF_MEM | BPF_DW:
++		if (insn->dst_reg == BPF_REG_PARAMS) {
++			int idx = -off / 8 - 1;
++
++			emit_imm(RV_REG_T1, imm, ctx);
++			if (is_12b_int(idx * 8)) {
++				emit_stx_insn(RV_REG_SP, idx * 8, RV_REG_T1, BPF_SIZE(code), ctx);
++			} else {
++				emit_imm(RV_REG_T2, idx * 8, ctx);
++				emit_add(RV_REG_T2, RV_REG_SP, RV_REG_T2, ctx);
++				emit_stx_insn(RV_REG_T2, 0, RV_REG_T1, BPF_SIZE(code), ctx);
++			}
++			break;
++		}
++		fallthrough;
+ 	/* ST | PROBE_MEM32: *(size *)(dst + RV_REG_ARENA + off) = imm */
+ 	case BPF_ST | BPF_PROBE_MEM32 | BPF_B:
+ 	case BPF_ST | BPF_PROBE_MEM32 | BPF_H:
+@@ -1960,6 +2014,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 	case BPF_STX | BPF_MEM | BPF_H:
+ 	case BPF_STX | BPF_MEM | BPF_W:
+ 	case BPF_STX | BPF_MEM | BPF_DW:
++		if (insn->dst_reg == BPF_REG_PARAMS) {
++			int idx = -off / 8 - 1;
++
++			if (is_12b_int(idx * 8)) {
++				emit_stx_insn(RV_REG_SP, idx * 8, rs, BPF_SIZE(code), ctx);
++			} else {
++				emit_imm(RV_REG_T1, idx * 8, ctx);
++				emit_add(RV_REG_T1, RV_REG_SP, RV_REG_T1, ctx);
++				emit_stx_insn(RV_REG_T1, 0, rs, BPF_SIZE(code), ctx);
++			}
++			break;
++		}
++		fallthrough;
+ 	/* STX | PROBE_MEM32: *(size *)(dst + RV_REG_ARENA + off) = src */
+ 	case BPF_STX | BPF_PROBE_MEM32 | BPF_B:
+ 	case BPF_STX | BPF_PROBE_MEM32 | BPF_H:
+@@ -2036,6 +2103,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+ 
+ 	stack_adjust = round_up(stack_adjust, STACK_ALIGN);
+ 	stack_adjust += bpf_stack_adjust;
++	stack_adjust += ctx->stack_arg_size;
+ 
+ 	store_offset = stack_adjust - 8;
+ 
+@@ -2093,7 +2161,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+ 	emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
+ 
+ 	if (bpf_stack_adjust)
+-		emit_addi(RV_REG_S5, RV_REG_SP, bpf_stack_adjust, ctx);
++		emit_addi(RV_REG_S5, RV_REG_SP, ctx->stack_arg_size + bpf_stack_adjust, ctx);
+ 
+ 	ctx->stack_size = stack_adjust;
+ 
+@@ -2171,3 +2239,8 @@ bool bpf_jit_supports_timed_may_goto(void)
+ {
+ 	return true;
  }
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) \
--	&& defined(__BPF_FEATURE_STACK_ARGUMENT)
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
-+	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- const volatile bool has_stack_arg = true;
- 
-diff --git a/tools/testing/selftests/bpf/progs/stack_arg.c b/tools/testing/selftests/bpf/progs/stack_arg.c
-index 944e3bb603e7..3e9ed37c57bb 100644
---- a/tools/testing/selftests/bpf/progs/stack_arg.c
-+++ b/tools/testing/selftests/bpf/progs/stack_arg.c
-@@ -21,7 +21,8 @@ struct {
- 
- int timer_result;
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- const volatile bool has_stack_arg = true;
-diff --git a/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c b/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
-index 345f2da2e361..b6b1a8aa7f44 100644
---- a/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
-+++ b/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
-@@ -6,7 +6,8 @@
- #include "bpf_kfuncs.h"
- #include "../test_kmods/bpf_testmod_kfunc.h"
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- const volatile bool has_stack_arg = true;
-diff --git a/tools/testing/selftests/bpf/progs/stack_arg_precision.c b/tools/testing/selftests/bpf/progs/stack_arg_precision.c
-index bee2eeec021d..6eebafe7f2f8 100644
---- a/tools/testing/selftests/bpf/progs/stack_arg_precision.c
-+++ b/tools/testing/selftests/bpf/progs/stack_arg_precision.c
-@@ -6,7 +6,8 @@
- #include "../test_kmods/bpf_testmod_kfunc.h"
- #include "bpf_misc.h"
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- /* Force kfunc extern BTF generation for inline asm call below.
-diff --git a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-index 7e0ce5db28a0..e8cd296fe763 100644
---- a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-@@ -12,7 +12,8 @@ struct {
- 	__type(value, long long);
- } map_hash_8b SEC(".maps");
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- __noinline __used
-diff --git a/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c b/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c
-index c9fe4857da3f..562e8319ffc2 100644
---- a/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c
-@@ -5,7 +5,8 @@
- #include <bpf/bpf_helpers.h>
- #include "bpf_misc.h"
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- __noinline __used __naked
++
++bool bpf_jit_supports_stack_args(void)
++{
++	return true;
++}
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index cbfcd287ea16..844a0f3e0fa9 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -72,6 +72,10 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	ctx->arena_vm_start = bpf_arena_get_kern_vm_start(prog->aux->arena);
+ 	ctx->user_vm_start = bpf_arena_get_user_vm_start(prog->aux->arena);
+ 	ctx->prog = prog;
++
++	ctx->stack_arg_size = round_up(bpf_out_stack_arg_cnt(env, prog) *
++				       sizeof(u64), STACK_ALIGN);
++
+ 	ctx->offset = kvzalloc_objs(int, prog->len);
+ 	if (!ctx->offset)
+ 		goto out_offset;
 
 -- 
 2.53.0
