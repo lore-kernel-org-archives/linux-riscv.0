@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D889AC5DF67
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 16:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D4CCC5CFCF
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 16:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pTlgStGABazFw1TYw7HhWNWDUcYBP9tXjT+io+AD3Ak=; b=u6kFWZ1SfHpDQR
-	NTbkbCD8I22dydD0GT5P1UZguT/kOPsjxekt+cVdKy/kEIxTl8UQy4i5ArlrLjCVpM6R4Cz/El22s
-	RWI9Pl8tNGA7/P9c6AkxuMOn9omtrbr1jw6NFI4+5sLVcASxMThS61KUQdozeVlgJIYDDl3ONaTDZ
-	QI7cKyYKs1vl83pPz5Nx6QAm6CGIsU6OeFs4zTBVctrwh5o4JuzYwLxYiT7oDyWDBYEckAVvm46iL
-	Yl2e24gPmlvmtS2Taqb1gyGhd5+rVgGPZ/oQ1/SefyL8XjhjUE1YuiaMI8Rk3Q1JXGxntMB1IZfg3
-	2fl4fp+v8mf8IQ1BCR5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UYuH/SXulhRp16tWbKO5ryNcDkgpq7SoTItPsC3EoNY=; b=GOXno/LbuQNlokhIUurPPW51Xs
+	WKRujcC4cBMghKbEXEWj4RRhOkAaBqFUuXSLuHfOqX9PzYIc5nqvHhUhReOXxgj3ih+2OMLsaHu0x
+	MPpqQrO+aJOcUYVK0wBU9EO63uNQQb5quzI82G0sdvWzKIEViutcSUkhM5ESHP4ZQYtxg6IfPAzYG
+	dA5j1M63BIFeGEDU3taal8q4gym2NVcifMsk2ueoDeB76egjBwRzvFb9OFBpgDuGfMoLSKDc4m43q
+	RWL3cZqFcrOGeM2n4ZLZb5gdhEMWNJyMZlkCB2XnYxRSOg+XPy0hBRThL6YxXQKsV7U3o5d1LnhVU
+	mBZ/F5AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXqT-0000000161H-44t6;
-	Thu, 13 Aug 2026 15:59:53 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wuYZk-00000001CA2-1jJ1;
+	Thu, 13 Aug 2026 16:46:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXqQ-000000015z0-3tcD
+	id 1wuYZi-00000001C9l-2v9p
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 15:59:52 +0000
-Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-01 (Coremail) with SMTP id qwCowAAX6+7w6X1qLAt7BQ--.64323S2;
-	Thu, 13 Aug 2026 23:59:44 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Sunil V L <sunilvl@ventanamicro.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Len Brown <lenb@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
+	Thu, 13 Aug 2026 16:46:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EA82C600AF;
+	Thu, 13 Aug 2026 16:46:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B70081F000E9;
+	Thu, 13 Aug 2026 16:46:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786639597;
+	bh=FB6WjC6V8WgzoH3BfkjMLBjleZvuxw4y6S8vLrv6/4Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WZbAJXrZ49ltFgfZmedw3FJLqQOd0m1gHTqClg+czOxMht/OwnCGxxXDig4rfRrgI
+	 oW4bQh6iVRyV4YTV4/j5CXTHpPLjw7xqzWMXnawdrK1MG/YfblPmu57x+YBzeueaV8
+	 L+XWEVqUXLgL8fI8yWJ7KKoYT8m1J1YeBNT3nx8sI9h6l75Ic9VBG/AI6979REKHVO
+	 Xm6cv2OAVQOnWrVLREMWzG+TZJ2Beqsr1KQuJ5jJ/mT2TSXXfbV8n7w2kbDxyIlQJx
+	 dIhEDU5Xn1Cnfw9Ny+MkpO7+l7wNsQn4pT3odXqDFwni5bEjtVrdIX4Mx0/+a9gKSs
+	 f+k4bOSItLdrw==
+Date: Thu, 13 Aug 2026 17:46:31 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-acpi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH v2 3/3] ACPI: RHCT: validate ISA and CMO node payloads
-Date: Thu, 13 Aug 2026 23:59:44 +0800
-Message-ID: <20260813155944.68729-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260813154600.58861-1-pengpeng@iscas.ac.cn>
-References: <20260813154600.58861-1-pengpeng@iscas.ac.cn>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v4 7/8] soc: starfive: Add socinfo driver for JHB100 SoC
+Message-ID: <20260813-presoak-scarily-b6cdecfcb7cc@spud>
+References: <20260809015054.210577-1-changhuang.liang@starfivetech.com>
+ <20260809015054.210577-8-changhuang.liang@starfivetech.com>
+ <20260810-caress-rack-45615c8d9747@spud>
+ <ZQ4PR01MB120276A1DA91FAC19C852F14F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <20260811-populace-afflicted-40a40e0f484c@spud>
+ <ZQ4PR01MB1202DDE6C255441E1FC4F916F2DC2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <20260812-snowplow-punctured-28d19616f707@spud>
+ <ZQ4PR01MB1202F016AD1F1E699429DDC0F2DB2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAX6+7w6X1qLAt7BQ--.64323S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXr1UWr4rJFW5Cw1fJr4rGrg_yoWrtF1UpF
-	1a9a4rAa4UJw43Wr10q3y5uay3X34Syr4jqrWfGas8tw4kKr4UJF42kFy7uFyrZF4kWw4x
-	Zw4DtFyFkFs5Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfU5dgADUUUU
-X-Originating-IP: [111.196.241.250]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_085951_345912_7ADB484E 
-X-CRM114-Status: GOOD (  13.14  )
+In-Reply-To: <ZQ4PR01MB1202F016AD1F1E699429DDC0F2DB2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,148 +86,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1189626676720773234=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hart-info references can select ISA-string and cache-management-operation
-nodes.  The consumers read those type-specific payloads without first
-proving that they fit, and return ISA bytes as a C string without enforcing
-the RHCT requirement that isa_length include a terminating NUL.
+--===============1189626676720773234==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="u3IBUAeGtjz87z4y"
+Content-Disposition: inline
 
-Require the CMO payload to be present and the final advertised ISA byte to
-be NUL.  Accumulate CMO values locally and publish them only after the
-complete table walk succeeds, so a malformed later node cannot leave
-partial output.
+--u3IBUAeGtjz87z4y
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fixes: e6b9d8eddb17 ("drivers/acpi: RISC-V: Add RHCT related code")
-Fixes: 9ca87564190c ("RISC-V: ACPI: RHCT: Add function to get CBO block sizes")
-Assisted-by: Codex:gpt-5
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/acpi/riscv/rhct.c | 57 +++++++++++++++++++++++++++++++--------
- 1 file changed, 46 insertions(+), 11 deletions(-)
+On Thu, Aug 13, 2026 at 08:10:12AM +0000, Changhuang Liang wrote:
+> Hi ,Conor
+>=20
+> Thanks for the review.
+>=20
+> > On Wed, Aug 12, 2026 at 10:37:16AM +0000, Changhuang Liang wrote:
+> > > Hi, Conor
+> > >
+> > > Thanks for the review.
+> > >
+> > > > On Tue, Aug 11, 2026 at 05:36:19AM +0000, Changhuang Liang wrote:
+> > > >
+> > > > > > On Sat, Aug 08, 2026 at 06:50:53PM -0700, Changhuang Liang wrot=
+e:
+> > > >
+> > > > > > > +static int __init starfive_socinfo_init(void) {
+> > > > > > > +	struct soc_device_attribute *attrs;
+> > > > > > > +	struct soc_device *soc_dev;
+> > > > > > > +	const char *machine =3D NULL;
+> > > > > > > +	struct device_node *np;
+> > > > > > > +	struct regmap *regmap;
+> > > > > > > +	char rev_char;
+> > > > > > > +	u32 rev_id;
+> > > > > > > +	int ret;
+> > > > > > > +
+> > > > > > > +	np =3D of_find_compatible_node(NULL, NULL,
+> > > > > > > +"starfive,jhb100-sys0-syscon");
+> > > > > >
+> > > > > > Remind me again why this is not just probed as an mfd cell from
+> > > > > > the syscon driver?
+> > > > > >
+> > > > > > (Hint: please put this info in the commit message).
+> > > > >
+> > > > > The discussion result with Krzysztof at that time is recorded her=
+e:
+> > > > > https://lore.kernel.org/all/20260405-strong-watchful-marmot-fdfad6
+> > > > > @quo
+> > > > > ll/
+> > > > >
+> > > > > One register should not be treated as a separate device node.
+> > > >
+> > > > That's a different question. In the case of an mfd cell probed from
+> > > > the syscon driver there would be no devicetree modifications
+> > > > required compared to what you have now. e.g. sg2044-topsys.c
+> > >
+> > > This seems feasible, and I can introduce this modification in the next
+> > version.
+> >=20
+> >=20
+> > In fact, you don't even need the mfd cell, because your driver is going=
+ to be in
+> > drivers/soc/starfive anyway? You can just bind directly to the
+> > sys0 syscon I think.
+>=20
+> I suddenly realized that I missed one issue: starfive,jhb100-sys0-syscon =
+is already=20
+> bound to the PLL driver by default, I can't use it to bind another device=
+ anymore.=20
+>=20
+> which is why I used=20
+>=20
+> np =3D of_find_compatible_node(NULL, NULL, "starfive,jhb100-sys0-syscon")=
+;=20
+>=20
+> in jhb100-socinfo.c.
+>=20
+> So it seems the MFD cell approach isn't really feasible either?
 
-diff --git a/drivers/acpi/riscv/rhct.c b/drivers/acpi/riscv/rhct.c
-index b1b850d58efd..03f84a433072 100644
---- a/drivers/acpi/riscv/rhct.c
-+++ b/drivers/acpi/riscv/rhct.c
-@@ -109,6 +109,26 @@ static bool rhct_hart_info_valid(struct acpi_rhct_node_header *node)
- 	return true;
- }
- 
-+static bool rhct_isa_string_valid(struct acpi_rhct_node_header *node)
-+{
-+	struct acpi_rhct_isa_string *isa_node;
-+	size_t remaining;
-+
-+	if (!rhct_node_has_data(node, sizeof(*isa_node)))
-+		return false;
-+
-+	isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string, node,
-+				sizeof(*node));
-+	remaining = node->length - sizeof(*node) - sizeof(*isa_node);
-+	if (!isa_node->isa_length || isa_node->isa_length > remaining ||
-+	    isa_node->isa[isa_node->isa_length - 1] != '\0') {
-+		pr_err(FW_BUG "Invalid RHCT ISA string\n");
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
- static struct acpi_table_rhct *acpi_get_rhct(void)
- {
- 	static struct acpi_table_header *rhct;
-@@ -137,7 +157,6 @@ static struct acpi_table_rhct *acpi_get_rhct(void)
- int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const char **isa)
- {
- 	struct acpi_rhct_node_header *node, *ref_node, *end;
--	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
- 	struct acpi_rhct_hart_info *hart_info;
- 	struct acpi_rhct_isa_string *isa_node;
- 	struct acpi_table_rhct *rhct;
-@@ -190,12 +209,16 @@ int acpi_get_riscv_isa(struct acpi_table_header *table, unsigned int cpu, const
- 					    ref_node->type == ACPI_RHCT_NODE_TYPE_HART_INFO)
- 						return -EINVAL;
- 
--					if (ref_node->type == ACPI_RHCT_NODE_TYPE_ISA_STRING) {
--						isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string,
--									ref_node, size_hdr);
--						*isa = isa_node->isa;
--						return 0;
--					}
-+					if (ref_node->type != ACPI_RHCT_NODE_TYPE_ISA_STRING)
-+						continue;
-+					if (!rhct_isa_string_valid(ref_node))
-+						return -EINVAL;
-+
-+					isa_node = ACPI_ADD_PTR(struct acpi_rhct_isa_string,
-+								ref_node,
-+								sizeof(*ref_node));
-+					*isa = isa_node->isa;
-+					return 0;
- 				}
- 			}
- 		}
-@@ -212,7 +235,6 @@ static bool acpi_parse_hart_info_cmo_node(struct acpi_table_rhct *rhct,
- 					  u32 *cbom_size, u32 *cboz_size,
- 					  u32 *cbop_size)
- {
--	u32 size_hdr = sizeof(struct acpi_rhct_node_header);
- 	struct acpi_rhct_node_header *ref_node;
- 	struct acpi_rhct_hart_info *hart_info;
- 	struct acpi_rhct_cmo_node *cmo_node;
-@@ -232,8 +254,11 @@ static bool acpi_parse_hart_info_cmo_node(struct acpi_table_rhct *rhct,
- 			return false;
- 
- 		if (ref_node->type == ACPI_RHCT_NODE_TYPE_CMO) {
-+			if (!rhct_node_has_data(ref_node, sizeof(*cmo_node)))
-+				return false;
-+
- 			cmo_node = ACPI_ADD_PTR(struct acpi_rhct_cmo_node,
--						ref_node, size_hdr);
-+						ref_node, sizeof(*ref_node));
- 			if (cbom_size && cmo_node->cbom_size <= 30) {
- 				if (!*cbom_size)
- 					*cbom_size = BIT(cmo_node->cbom_size);
-@@ -270,6 +295,7 @@ void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
- {
- 	struct acpi_rhct_node_header *node, *end;
- 	struct acpi_table_rhct *rhct;
-+	u32 cbom = 0, cboz = 0, cbop = 0;
- 	unsigned int i;
- 
- 	if (acpi_disabled)
-@@ -305,11 +331,20 @@ void acpi_get_cbo_block_size(struct acpi_table_header *table, u32 *cbom_size,
- 			return;
- 
- 		if (node->type == ACPI_RHCT_NODE_TYPE_HART_INFO &&
--		    !acpi_parse_hart_info_cmo_node(rhct, node, cbom_size,
--						   cboz_size, cbop_size))
-+		    !acpi_parse_hart_info_cmo_node(rhct, node,
-+						   cbom_size ? &cbom : NULL,
-+						   cboz_size ? &cboz : NULL,
-+						   cbop_size ? &cbop : NULL))
- 			return;
- 
- 		node = ACPI_ADD_PTR(struct acpi_rhct_node_header, node,
- 				    node->length);
- 	}
-+
-+	if (cbom_size)
-+		*cbom_size = cbom;
-+	if (cboz_size)
-+		*cboz_size = cboz;
-+	if (cbop_size)
-+		*cbop_size = cbop;
- }
--- 
-2.50.1 (Apple Git-155)
+You could, in that case, probe the clock driver using the mfd_cell like
+sg2044-topsys. What else other than the pll controls and the soc info
+register is in this register region?
 
+--u3IBUAeGtjz87z4y
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCan305wAKCRB4tDGHoIJi
+0tqCAQDnOCdXow5y4UEH9HN1Ayp7UyioUDwiF4QVHavs/q1R7gD+K6A9t/cRtwyI
+EoWcCEIq5L8aEecNUZlO9dJJ0Tt8PQ8=
+=jzed
+-----END PGP SIGNATURE-----
+
+--u3IBUAeGtjz87z4y--
+
+
+--===============1189626676720773234==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1189626676720773234==--
+
