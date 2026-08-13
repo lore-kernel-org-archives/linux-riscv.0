@@ -4,106 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4943DC5B572
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 07:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB84C5DF64
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 07:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jBNCwuHzuwZpNceRlOO/TNCCuHpdzCpzB3Wls+iD7W0=; b=ibVVOQY6HWhXPa
-	WuRIAjMIBx1eGkv5/nKGJVmBht+Qr6DZFdYNcBVg8kiZVdh2H4eh70QPAOKqhEffoSofnd2t/ylqc
-	AznVWJ/lxZ+b/9KzdcUqF/C24c1ekx+AfHzXEiW5tvozvidiDfsiLraTY27GRYoz4a9q76TjrogZo
-	qcZ5sr+0Kg1QIq9+fPH2d+btqkJTYSYlwV6XVzwVsg8whKM4VQ2aPdLCsArU9gtJjZccdnD8cdCi3
-	N2eaV0K4LN2Yx9/kOxuuU7dritECMoZA0XcQ+3p0QsR6qBk+GYvdflUHoGIHePAKESHOAkhXK1/2a
-	8s02EoT8JGvx7RuHZ+bg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ItMj/tSNNBKYvfQ78X1KP8i/i5GVF4DfzG2cUKEZs10=; b=yhXD1woxOSjRsJ
+	+10THtU0MWCIyE3WD9dHdFeXLBW0rztxCgmsXrcLJZT8ApTTncFLnV1DrSHihFidXGZTckvieLH41
+	L+/pV8avus8ZsJ0jazLluqAyP7zPu6ETh7KsD+KQFwyjpbvNdN1fnu3LWDIoyuyvlrJIhVyUFWl/K
+	z/asEjoEjkZPvDYfaIvs2daATKjESTC1h3BWHZh01FNvqbOX3pUFIlvyVyvkpLWwv2jlTHBgl3y4h
+	mOzawNMbgjz0wBenI2AQarzqX/Th8kISu32PXGXOXyuRFczvS+5u0iyjgHYTUV1SpEqEDcMP/QTMt
+	BN6dUBnhEr1C4k7JwNhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPX3-0000000HYyR-2FAf;
-	Thu, 13 Aug 2026 07:07:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wuPhx-0000000HZrR-1F2f;
+	Thu, 13 Aug 2026 07:18:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPX1-0000000HYxH-0062
-	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 07:07:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786604834;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=JiBEcYiE+KLh8+0hM55F9Ni/cU6OIiWXkgr39dKJ+1Q=;
-	b=bhJWiv5b2OiYz/8uSuB5CaJt7aWevi44YRNKeewIWse+IlQOtp6RZoGEYAhSOrg4wBzY1B
-	pncU7C1gukfYJFNJbzF/5Za47zSUhzDjgi6uXRLupNiZSrsz+Jhx3yLGgAV/mSdC9CVVL1
-	zsSOFOPLNn5GidbbJ4Ul2PNoPr0uWNc=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-633-9LWnPRYkNwm3w4so9PzSXA-1; Thu, 13 Aug 2026 03:07:07 -0400
-X-MC-Unique: 9LWnPRYkNwm3w4so9PzSXA-1
-X-Mimecast-MFC-AGG-ID: 9LWnPRYkNwm3w4so9PzSXA_1786604827
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2cd01a14e81so8483335ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Aug 2026 00:07:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786604826; x=1787209626;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=JiBEcYiE+KLh8+0hM55F9Ni/cU6OIiWXkgr39dKJ+1Q=;
-        b=GdxQNyyu3zDIEwpcgZYSMv37KUzfOpWsFqAJ3M5SGA37FVwjjlxOFX8bWBOd7qDub8
-         /oUM/ycHkxOZX+A0/YzgflXXuINXrCfTLMbvGnMBNfVLtRqvMFSsmltRwVPhBfeMn5RV
-         lLBd6okK6W/Cvlbl6HYNVAW1GAbUO63TBiVMoGHpdFCa7fCME6o0/Gice4DhGW6mayn4
-         BifWR4EbYbQoXe5tOXRYwgjozuQqxFbtLGnu7d1flfVTqitAnxJ1HTh4NGC/8DIXkGV2
-         VbIL5Y2Me18OSmOi5SfoggN2BdXvOgRTi6CLYngHcEj76wFVU3NI26tKUUnwD6c0knoj
-         ei8A==
-X-Forwarded-Encrypted: i=1; AHgh+RqNGKf+ms25hh6Xdve0mi+ESexjESUQYZIEpMRPKvAbsM6zBrOC2NSdSc1xXIDy6NhgLrh9nFMX+pz3jw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywl3lbNRriMvT/LgKZOMaYTz2FliMpyl5X3vvGo0TC+Z3ayO2gm
-	TPB0h1kkr/DP07fv7X2RDeAVYsORZhNkmT9HU/wCBKq0JxKui1NY7eIScQ3oB41fDST35bZ5U/4
-	AdAkTdxo0/Dbq5BJNWBOm85ELtPppiMu348oQvoG0vIEq5HGXstpDgnIpEFK7RT/mf5C7Zg==
-X-Gm-Gg: AR+sD11ujoXHHA6bQ/lZfPXS+BImbwrgk0UWfF4rutOhta4wEYD9W/XC3jiJpMPToF+
-	vvrJgDlthxx/mbz8LN4gJ+jk5KQHTrU7M+vQwTJ7LBfMmQVovm/1CHBzGJGbqE/xlD6CnIhZUh4
-	tDl09vviGzR0k1cxHYiM5dnl0Kk1rbw8ZStDA/Hk0rtDqNNaP50SQNBamFibpzUvVYgcW4ZmqXt
-	+kylTaIj9VD90l2hXwThP/x++NcF6djaXPMdD8CKArA10cmxekqQRRNNBf/xbJyg2N/hLkG7SfO
-	g8ncj84nAwfNrdtaopn7SxZ03x30EBgltr9ivtZntQYF6US5z+C8XM1Ki1cCa3qoDXVjaqmcO/p
-	Y0ebIMjKkJw8cE4uG
-X-Received: by 2002:a17:903:234a:b0:2ca:d975:5bbd with SMTP id d9443c01a7336-2d37e8a4f49mr38123845ad.20.1786604826429;
-        Thu, 13 Aug 2026 00:07:06 -0700 (PDT)
-X-Received: by 2002:a17:903:234a:b0:2ca:d975:5bbd with SMTP id d9443c01a7336-2d37e8a4f49mr38123275ad.20.1786604825987;
-        Thu, 13 Aug 2026 00:07:05 -0700 (PDT)
-Received: from [127.0.0.1] ([115.110.157.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d37c48e438sm4877315ad.60.2026.08.13.00.06.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 00:07:05 -0700 (PDT)
-From: Mukesh Pilaniya <mpilaniy@redhat.com>
-Date: Thu, 13 Aug 2026 12:36:29 +0530
-Subject: [PATCH] kexec: return -ENOEXEC from image probe functions on
- mismatch
+	id 1wuPhv-0000000HZr2-0w0w;
+	Thu, 13 Aug 2026 07:18:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A2D4D4028A;
+	Thu, 13 Aug 2026 07:18:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F73D1F000E9;
+	Thu, 13 Aug 2026 07:18:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786605510;
+	bh=+4Nk4hpoXdyCDEpgTJCUYHz6STV5yXnczBbKNxqEd8Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=KgSkwoV4K9o4VV6DTaBaMzd+EAKo55SPDBufVOr4jtdF8WGVJY9qVnPnAbI3I1B6j
+	 az8C/XSSDoXlk0EnunE7ZJ3R+6xP4/fSUta8T06VGRr3L26bEyCyEgUeHEmKkJvqJY
+	 QCn79g40aTQGCvCX4G87yiNCG8qTX/j27xasTOQDI3+ltHDG/v7cKPSGXGJ3zoNGhV
+	 2ifXr49y6ir3V6cAgvVl2jn8gM7jiebI63mAiexihe0CvGpwlzwxaRgcb8I+biJir5
+	 0d8v2Pn2zDhY20qsum4OrGqCQozh6WLpH9QUdJrmSftjGLHT2NAkoCBRW1fV21zxfN
+	 HX/j0k9hiLyeg==
+Message-ID: <f7bab5a5-76c9-4856-b314-49f19f54e229@kernel.org>
+Date: Thu, 13 Aug 2026 09:18:22 +0200
 MIME-Version: 1.0
-Message-Id: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDC0Nj3dyCzJzEvMxK3bS0JIPkZEujZGNDYyWg8oKi1LTMCrBR0bEQfnF
- pUlZqcglIv1JtLQC+l4AzbAAAAA==
-X-Change-ID: 20260813-mpilaniy-ffb0cc92c313
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>, 
- Pasha Tatashin <pasha.tatashin@soleen.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>, 
- Philipp Rudo <prudo@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
- kexec@lists.infradead.org, Mukesh Pilaniya <mpilaniy@redhat.com>
-X-Mailer: b4 0.15.2
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 6ZXgPH_8aLW895b6QZz7xiIpbZvkI_Ak98Vk29aNKvM_1786604827
-X-Mimecast-Originator: redhat.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_000715_125417_136D1466 
-X-CRM114-Status: GOOD (  13.22  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V2 3/6] sh/mm: Stop using pte_ERROR()
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-mm@kvack.org, akpm@linux-foundation.org,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
+ <20260811042119.3652929-4-anshuman.khandual@arm.com>
+ <28c24991-590f-4980-a92e-26c89288cae7@kernel.org>
+ <azo46amarknescr2uotz77khpt6zakwex7sb52krsvakrzfdlq@qu2t3ahd4m5t>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
+ ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
+ AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
+ 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
+ g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
+ ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
+ 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
+ /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
+ jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
+ DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
+ HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
+ 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
+ LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <azo46amarknescr2uotz77khpt6zakwex7sb52krsvakrzfdlq@qu2t3ahd4m5t>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,121 +129,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Several kexec_file_load() image probe functions return -EINVAL when
-they do not recognize the image format.  A probe function that rejects
-an image should return -ENOEXEC to indicate that the image is not a
-recognized executable format.  -EINVAL implies a problem with the
-syscall parameters, not with image recognition.
 
-kexec_image_probe_default() iterates through registered loaders and
-returns the last probe's error code to the caller.  That error
-propagates as the kexec_file_load() return value to userspace.
-Returning -EINVAL from a probe when no loader matches is semantically
-incorrect and misleads userspace about the nature of the failure.
+>>> +}
+>>> +
+>>>  static void set_pte_phys(unsigned long addr, unsigned long phys, pgprot_t prot)
+>>>  {
+>>>  	pte_t *pte;
+>>>  
+>>>  	pte = __get_pte_phys(addr);
+>>>  	if (!pte_none(*pte)) {
+>>> -		pte_ERROR(*pte);
+>>> +		print_bad_pte(*pte);
+>>
+>> Maybe similar to my reply to patch #1, actually print something more useful than
+>> just "bad pte" ? And possibly also just use ptval_to_str().
+> 
+> Probably #ifdef could be dropped here as ptval_to_str() should be able to
+> handle pte with two unsiged long elements in there i.e pte_high, pte_low
+> along with standard single unsiged long pte_low format.
 
-Return -ENOEXEC from all probe functions and their helpers when the
-image format is not recognized.
+Yes, that should just work and clean this up!
 
-Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
----
-branch: next-20260812
-base commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
----
- arch/arm64/kernel/kexec_image.c   | 4 ++--
- arch/loongarch/kernel/kexec_efi.c | 4 ++--
- arch/riscv/kernel/kexec_image.c   | 4 ++--
- kernel/kexec_elf.c                | 4 ++--
- 4 files changed, 8 insertions(+), 8 deletions(-)
+-- 
+Cheers,
 
-diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
-index b70f4df15a1a..101259874d44 100644
---- a/arch/arm64/kernel/kexec_image.c
-+++ b/arch/arm64/kernel/kexec_image.c
-@@ -25,10 +25,10 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
- 		(const struct arm64_image_header *)(kernel_buf);
- 
- 	if (!h || (kernel_len < sizeof(*h)))
--		return -EINVAL;
-+		return -ENOEXEC;
- 
- 	if (memcmp(&h->magic, ARM64_IMAGE_MAGIC, sizeof(h->magic)))
--		return -EINVAL;
-+		return -ENOEXEC;
- 
- 	return 0;
- }
-diff --git a/arch/loongarch/kernel/kexec_efi.c b/arch/loongarch/kernel/kexec_efi.c
-index 5ee78ebb1546..28a1d0420ba3 100644
---- a/arch/loongarch/kernel/kexec_efi.c
-+++ b/arch/loongarch/kernel/kexec_efi.c
-@@ -24,12 +24,12 @@ static int efi_kexec_probe(const char *kernel_buf, unsigned long kernel_len)
- 
- 	if (!h || (kernel_len < sizeof(*h))) {
- 		kexec_dprintk("No LoongArch image header.\n");
--		return -EINVAL;
-+		return -ENOEXEC;
- 	}
- 
- 	if (!loongarch_header_check_dos_sig(h)) {
- 		kexec_dprintk("No LoongArch PE image header.\n");
--		return -EINVAL;
-+		return -ENOEXEC;
- 	}
- 
- 	return 0;
-diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
-index 51dc89259f16..963a25f5b55b 100644
---- a/arch/riscv/kernel/kexec_image.c
-+++ b/arch/riscv/kernel/kexec_image.c
-@@ -20,7 +20,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
- 	const struct riscv_image_header *h = (const struct riscv_image_header *)kernel_buf;
- 
- 	if (!h || kernel_len < sizeof(*h))
--		return -EINVAL;
-+		return -ENOEXEC;
- 
- 	/* According to Documentation/arch/riscv/boot-image-header.rst,
- 	 * use "magic2" field to check when version >= 0.2.
-@@ -28,7 +28,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
- 
- 	if (h->version >= RISCV_HEADER_VERSION &&
- 	    memcmp(&h->magic2, RISCV_IMAGE_MAGIC2, sizeof(h->magic2)))
--		return -EINVAL;
-+		return -ENOEXEC;
- 
- 	return 0;
- }
-diff --git a/kernel/kexec_elf.c b/kernel/kexec_elf.c
-index 3a5c25b2adc9..89a444a00693 100644
---- a/kernel/kexec_elf.c
-+++ b/kernel/kexec_elf.c
-@@ -172,7 +172,7 @@ static int elf_read_ehdr(const char *buf, size_t len, struct elfhdr *ehdr)
- 
- 	default:
- 		pr_debug("Unknown ELF class.\n");
--		return -EINVAL;
-+		return -ENOEXEC;
- 	}
- 
- 	return elf_is_ehdr_sane(ehdr, len) ? 0 : -ENOEXEC;
-@@ -236,7 +236,7 @@ static int elf_read_phdr(const char *buf, size_t len,
- 
- 	default:
- 		pr_debug("Unknown ELF class.\n");
--		return -EINVAL;
-+		return -ENOEXEC;
- 	}
- 
- 	return elf_is_phdr_sane(phdr, len) ? 0 : -ENOEXEC;
-
----
-base-commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
-change-id: 20260813-mpilaniy-ffb0cc92c313
-
-Best regards,
---  
-Mukesh Pilaniya <mpilaniy@redhat.com>
-
+David
 
 _______________________________________________
 linux-riscv mailing list
