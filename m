@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE99C5B572
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 06:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11272C5CFEB
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 06:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=90osmgVwhle7lKRotKabQ72qAKlPoTyjzjMdqYqSUjk=; b=usyRi3WeKYnrOd
-	4tXIaF+t4ZmnpFD0cALGHVaX+0ouB02OwX4dHa9EHRbg8endP5Uz+gHgJHVSnVvjzLUnVsw5lq0GS
-	gr+CvMnBSnW6AikjlUH3EOC/SzwuSBcyYHc907tNgqFdJ54cWHz4o/3H6IscvpmY+YAyD9O1+5DZo
-	JnRiNshmpVMeqXjGEaIegHvcrhX7yDDIS8diJRImhf9ZnfZlloch7UYPlC9Wu35obJvByQ+iFdOyP
-	ReelAkxO/iSx1Z+cwEwDk87zCcNHHZxwk5/7kWEBL3ELy8j3QqYHQ81OSwkh4rN2KNdvzot1uvwTM
-	6pYzbo41n/tUKrPKzJcw==;
+	List-Owner; bh=/3TrOYKwpi6AAw4le6jugsLQAtuoq7LtBreNE5y3MOg=; b=aERZs6BxBDIKXh
+	xtc3orvYRZ2k09Xph7lQR3+TDo4ywR9xxGtbAT5IoKlhm5iVS7K60htk5mKMxLtqs7aFPuG1j829Y
+	auKeXeSTnqVKzdH8mfEbZkHcFtLVH0/IqKmYIVbA0kXlciSgMgf/pFS2gzNvYOLk0QkPN6cLXimAg
+	+VwsTl/BKKCmcjjJ6MJHWIi8fkk1yp4aNa+8rh2AeR3FekWhe8a9Ur1RIqg2VGyuIIeqMN6x0iSkc
+	icfNHBGN+TAbVe8pRdARt/e3BrJuok7yYbFJgwQH753gJOPfrxdHVFKFBN2eREsWUG4LzCsSQk/C5
+	mIpp1J7NjFlf0hjfFtFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuOXM-0000000HSMg-0jI8;
-	Thu, 13 Aug 2026 06:03:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuOXI-0000000HSLn-0yta;
-	Thu, 13 Aug 2026 06:03:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27767153B;
-	Wed, 12 Aug 2026 23:03:23 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B05F3F632;
-	Wed, 12 Aug 2026 23:03:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786601007; bh=urvzQP14xjouAFJaMxm1KkmF2FK+YkPxtlg+0tmM3dk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FCmrH71a8GibDaT/4TzLpR5i+19TJkV8Y7yUEveP9J/tnpZ41lNWsq0jvpmBepdWh
-	 3M9emmtusN3STsiD2oIUPfk8jrriw7cyAgWrBFzUsYOHmzUnSzzBNBDES9ShVkwlc0
-	 +Kv5zwJCzOVfLHIcWwsl8hCWFk4UC3OStKBDaUuE=
-Date: Thu, 13 Aug 2026 11:33:23 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-mm@kvack.org, akpm@linux-foundation.org, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
+	id 1wuOaR-0000000HSfp-3V08;
+	Thu, 13 Aug 2026 06:06:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuOaQ-0000000HSfZ-1wAv;
+	Thu, 13 Aug 2026 06:06:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2042F41649;
+	Thu, 13 Aug 2026 06:06:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E2EA1F000E9;
+	Thu, 13 Aug 2026 06:06:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786601201;
+	bh=2bRU4db2xtFcGOhDIJOKkQ4ShBGU9e2BMEUZzod3loM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WepnVrP8FwDHztG5a+pL5+vdR+Cg8T4y90PcZBh/rlnZNWLRLfnDWWRxVJvS0+crZ
+	 lh7fpDVlbqh/6qvpmhacKyRBEAArsqvbDDRNZsTZ84+InSYC+LQE/2ApqTgrggsNhH
+	 YhxB5J0+AVZSQsk4LoO4+RjU9GDi4VJ7LjJUaYY3sLwr0c5vz/7/bRPur4asCQDR1r
+	 cNVYLKjWL4z4LWF+Z0JghcCDVi9WN26c7VGLvxJXgFSrnHhF5fGl1dbGiWnRcm8sU1
+	 SI1/W2qha+159VhpFETiKxPs27GXkyYyN7ajSyXNSy7VOA36iIT+UpNy1PI2kQZa1m
+	 WhxFEX5ERcXyQ==
+Date: Thu, 13 Aug 2026 08:06:31 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	jingoohan1@gmail.com, imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-tegra@vger.kernel.org, linux-pci@vger.kernel.org, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC V2 6/6] mm: Drop pxd_ERROR()
-Message-ID: <2ys7apbnfuj3ugfoqgbptgej3jjcyfpmdgbv6qbxupmwg6mefc@h5p33ua2nzlu>
-References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
- <20260811042119.3652929-7-anshuman.khandual@arm.com>
- <1fb9ed88-67d0-4ac1-878d-0dc8e1135d19@kernel.org>
+Subject: Re: [PATCH v3 02/16] PCI: dwc: Use cached PCIe capability offset in
+ core
+Message-ID: <ps2qzgcb5lixkoqz2xbofdurkgmsiojg7e5ueqfdhyissqvzf2@tuderrjgzg6b>
+References: <20260720150619.24733-1-18255117159@163.com>
+ <20260720150619.24733-3-18255117159@163.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1fb9ed88-67d0-4ac1-878d-0dc8e1135d19@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_230328_346729_A58E2C1B 
-X-CRM114-Status: GOOD (  18.47  )
+In-Reply-To: <20260720150619.24733-3-18255117159@163.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,79 +69,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 01:33:14PM +0200, David Hildenbrand (Arm) wrote:
-> On 8/11/26 06:21, Anshuman Khandual wrote:
-> > pxd_ERROR() has been used in generic mm just to print the page table entry
-> > in pxd_clear_bad() before clearing those out with pxd_clear() later. These
-> > pxd_ERROR() macros have been provided by all platforms which basically did
-> > the same thing.
-> > 
-> > Make pxd_clear_bad() use recently added ptval_to_str() instead for printing
-> > page table entries thus completely dropping dependency on platform provided
-> > pxd_ERROR() macros which can then be dropped off. First move all required
-> > helpers in core MM into a header file which could then be used else where.
-> > 
-> 
-> It might make sense to split this patch further up to ease review:
-> 
-> Patch 1) provide ptval_to_str() a header.
-> 
-> Patch 2) Stop using pxd_ERROR() and friends in common code, converting to
-> pteval_to_str()
-> 
-> Patch 3) Remove now unused pxd_ERROR() and friends from arch code.
-
-Sure but the intiial platform changes which now use ptval_to_str() as well
-will probably come after the Patch (2) but before the Patch (3).
-
-> 
-> ...
-> > +static inline void
-> > +ptval_bytes_to_hex_str(char *buf, size_t buf_size, const void *entry, size_t entry_size)
-> > +{
-> > +	if (WARN_ON_ONCE(buf_size < entry_size * 2 + 1)) {
-> > +		snprintf(buf, buf_size, "overflow");
-> > +		return;
-> > +	}
-> > +
-> > +	switch (entry_size) {
-> > +	case sizeof(u32):
-> > +		snprintf(buf, buf_size, "%08x", *(const u32 *)entry);
-> > +		break;
-> > +	case sizeof(u64):
-> > +		snprintf(buf, buf_size, "%016llx", *(const u64 *)entry);
-> > +		break;
-> > +#if defined(__SIZEOF_INT128__)
-> > +	case sizeof(u128):
-> > +		snprintf(buf, buf_size, "%016llx%016llx",
-> > +			 (unsigned long long)(*(const u128 *)entry >> 64),
-> > +			 (unsigned long long)*(const u128 *)entry);
-> > +		break;
-> > +#endif
-> > +	default:
-> > +		snprintf(buf, buf_size, "unsupported");
-> > +		break;
-> > +	}
-> > +}
-> 
-> Why not leave ptval_bytes_to_hex_str() in the C file for less churn for now?
-
-Agreed - will change.
-
-> 
-> -- 
-> Cheers,
-> 
-> David
-
-Thanks for the review.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdWwgMjAsIDIwMjYgYXQgMTE6MDY6MDVQTSArMDgwMCwgSGFucyBaaGFuZyB3cm90
+ZToKPiBNb2RpZnkgdGhlIERXQyBjb3JlIGZ1bmN0aW9ucyB0byB1c2UgdGhlIGNhY2hlZCBwY2ll
+X2NhcCBvZmZzZXQgaW5zdGVhZAo+IG9mIGNhbGxpbmcgZHdfcGNpZV9maW5kX2NhcGFiaWxpdHko
+KSBlYWNoIHRpbWUuCj4gCj4gSW4gdGhlIERXQyBjb3JlLCBkd19wY2llX2ZpbmRfY2FwYWJpbGl0
+eSgpIGlzIGNhbGxlZCBhdCBzZXZlcmFsIGxvY2F0aW9uczoKPiAtIGR3X3BjaWVfZXBfaW5pdF9u
+b25fc3RpY2t5X3JlZ2lzdGVycygpCj4gLSBkd19wY2llX3dhaXRfZm9yX2xpbmsoKQo+IC0gZHdf
+cGNpZV9saW5rX3NldF9tYXhfc3BlZWQoKQo+IC0gZHdfcGNpZV9saW5rX2dldF9tYXhfbGlua193
+aWR0aCgpCj4gLSBkd19wY2llX2xpbmtfc2V0X21heF9saW5rX3dpZHRoKCkKPiAKPiBUaGUgY2Fj
+aGVkIG9mZnNldCBpcyBpbml0aWFsaXplZCBhZnRlciBoYXJkd2FyZSBpcyByZWFkeToKPiAtIElu
+IGhvc3QgbW9kZTogZHdfcGNpZV9ob3N0X2luaXQoKSBjYWxscyBwcC0+b3BzLT5ob3N0X2luaXQo
+KSAoZW5hYmxlcwo+ICAgY2xvY2tzL3Jlc2V0cyksIHRoZW4gZHdfcGNpZV9nZXRfcGNpZV9jYXAo
+KSBjYWNoZXMgdGhlIG9mZnNldC4KPiAtIEluIGVuZHBvaW50IG1vZGU6IHRoZSBjb3JlIG5vIGxv
+bmdlciBjYWNoZXMgYXV0b21hdGljYWxseS4gSW5zdGVhZCwKPiAgIGRyaXZlcnMgbXVzdCBjYWxs
+IGR3X3BjaWVfZ2V0X3BjaWVfY2FwKCkgYWZ0ZXIgaGFyZHdhcmUgaXMgZW5hYmxlZAo+ICAgKGUu
+Zy4sIGFmdGVyIFBFUlNUIyBkZWFzc2VydCkuCgpCdXQgeW91IGRpZG4ndCBtb2RpZnkgYWxsIERX
+QyBFUCBkcml2ZXJzIHRvIGNhbGwgZHdfcGNpZV9nZXRfcGNpZV9jYXAoKS4gVGhpcwpjYW4gbGVh
+ZCB0byBwY2llX2NhcCBiZWluZyAwLgoKPiBkd19wY2llX2VwX2luaXRfbm9uX3N0aWNreV9yZWdp
+c3RlcnMoKQo+ICAgaXMgY2FsbGVkIGFmdGVyIHRoYXQgcG9pbnQsIHNvIGl0IGNhbiBzYWZlbHkg
+dXNlIHBjaS0+cGNpZV9jYXAuCj4gCj4gZHdfcGNpZV9lcF9pbml0X25vbl9zdGlja3lfcmVnaXN0
+ZXJzKCkgbm93IGFzc3VtZXMgcGNpLT5wY2llX2NhcCBpcwo+IHZhbGlkLiBpZiBub3QsIGl0IHBy
+aW50cyBhIHdhcm5pbmcgYW5kIHNraXBzIHRoZSBvcGVyYXRpb24uCgpXaGVyZSBpcyB0aGlzIHdh
+cm5pbmcgcHJpbnRlZD8KClRoZXNlIGFyZSBhbHJlYWR5IHBvaW50ZWQgb3V0IGJ5IFNhc2hpa28u
+IFlvdSBzaG91bGQgZ28gcmVhbGx5IGdvIHRocm91Z2ggYWxsIG9mCnRoZW0gKG5vdCB0aGUgcHJl
+LWV4aXN0aW5nIGlzc3VlcykgYW5kIGNvbW1lbnQgd2hldGhlciB0aGUgaXNzdWVzIGFyZSB2YWxp
+ZCBvcgpmYWxzZSBwb3NpdGl2ZS4gRm9yIGEgc2VyaWVzIHRvdWNoaW5nIG1hbnkgY29udHJvbGxl
+ciBkcml2ZXJzLCB0aGlzIGlzIG5lY2Vzc2FyeQp0byBhdm9pZCBpbnRyb2R1Y2luZyByZWdyZXNz
+aW9ucy4KCkknbSBub3QgZ29pbmcgdG8gbWVyZ2UgdGhpcyBzZXJpZXMgdW50aWwgeW91IGZpeCB0
+aGUgcmVhbCBpc3N1ZXMgU2FzaGlrbwpyZXBvcnRlZCBvciBtYXJrIHRoZW0gYXMgZmFsc2UgcG9z
+aXRpdmUgaWYgbm90IHZhbGlkLgoKLSBNYW5pCgotLSAK4K6u4K6j4K6/4K614K6j4K+N4K6j4K6p
+4K+NIOCumuCupOCuvuCumuCuv+CuteCuruCvjQoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
