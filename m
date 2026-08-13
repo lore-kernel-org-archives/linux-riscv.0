@@ -4,82 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806E3C5B572
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 13:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B69C5B572
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 13:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zik114lW2h86Qs9LhM+ZaIaVCkVUqF0QFUrdFR2pK7Y=; b=xBKRDgLdUM9L0H
-	wJyAyh3Dm32PN1n7LGpDLWyIFgznff0H7ZpS9h/7nb7OQZKSUg2FqIjPXZILrF4mQ6593kuwxQMY7
-	jJ7wGql+beJ9K+wIH4vF5PdPSVOKS4HkCd7QqPrpXSxW5dYpZ2C4GMTro4Ei3IFdfk/tlvQ9qzyop
-	Mmf6hYiPXPvuIBJoF27ovA6TjbSc1rffhgBRGnFSkvLWSJmJ78XvhAzC7ZoO0kPjcWK6PQc/YFc+Y
-	Ew3zBT3Es7WMB8fMo8CcHIwz+VRvRLgQX5RXzvLaGds4NvzccLGKZ4jHjx0AXk5A8+YhckFJY4Z7F
-	fjMzuGCFNF4HOBhePIOw==;
+	List-Owner; bh=zyqFvYhTd8iasXKt6R0bOv1kcxtQuYF2NlNFQz8avPQ=; b=Kwm4WHzIfestMY
+	knuea2suOgaI+TVcg0S2pOBNL08swnna44jaWFavS5bwMBKWfPd9pEWwnw5otQg7ZI6ccDL2/1LAh
+	Tl6OPcHRLCbaQ1VOU7fvWO4tE5OVLmZU4a78MDzL267fTPPshRg5Fm50j2XFZosU4c3TV+YsgVemJ
+	4CCS4bLBwuSqrKv6eEb+xy0AcnnCf3iw1nUKwzHE+TBJszwv11TBbYoLHAL0C/5kMEHUAOfGe67HC
+	Yfa6YO9thUfIHIrkHJJt9buJBn8V71z8YBdd4zoJJtQqBauRBST8fy+eZaLi3QJccXr9YHDTBBb1m
+	v3FZ+xXa8TzJu0NfpkxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuVHd-00000000iqA-3lVR;
-	Thu, 13 Aug 2026 13:15:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wuVfE-00000000ldm-3PjC;
+	Thu, 13 Aug 2026 13:40:08 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuVHb-00000000ipW-3RoM
+	id 1wuVfA-00000000lbm-33I6
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 13:15:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786626943;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DOuw/x5y8phWuHZmwxpOm62fWFsgmbUws0VrhfcWz1w=;
-	b=JWvQEdgXalqIWdMdUt6l6tAJuQS2ALwqJe7o+wHdgu3elp57/pMqKfj8wEJ5NSLhHN4Ww7
-	tAxgmICNxVjlT9g/lqXMIrEBE+bnPZsoNNdfXYbll7GCy5VTH3/5QtRkAGUWD3CIOHAWk2
-	l8cnqXfbMnJZ/xX8W5UDnjc7qAALCt8=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-76-wVZqRQZXOBq7fw6lCFkMXQ-1; Thu,
- 13 Aug 2026 09:14:09 -0400
-X-MC-Unique: wVZqRQZXOBq7fw6lCFkMXQ-1
-X-Mimecast-MFC-AGG-ID: wVZqRQZXOBq7fw6lCFkMXQ_1786626847
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AA3AF195609E;
-	Thu, 13 Aug 2026 13:14:05 +0000 (UTC)
-Received: from rotkaeppchen (unknown [10.44.48.151])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 90FD11800348;
-	Thu, 13 Aug 2026 13:13:57 +0000 (UTC)
-Date: Thu, 13 Aug 2026 15:13:50 +0200
-From: Philipp Rudo <prudo@redhat.com>
-To: Mukesh Pilaniya <mpilaniy@redhat.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton
- <akpm@linux-foundation.org>, Baoquan He <baoquan.he@linux.dev>, Mike
- Rapoport <rppt@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- kexec@lists.infradead.org
-Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
- mismatch
-Message-ID: <20260813151350.6b511155@rotkaeppchen>
-In-Reply-To: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
-References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
-Organization: Red Hat inc.
+	Thu, 13 Aug 2026 13:40:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1786628382;
+	bh=g0sOZCBcZ2Jrw2TFICRpxT9bPvkWg5mDU3MLmvx9Nrg=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=yKR98d1sBuhMaO1QCtKqv0vlG1m64pb/+BRw59DG1p43nyFTMf67/HWIIaojw+1KX
+	 kyq4wdMq4A62tYBMSSBbWXUJ5ysz9Q57QoyquiNudG0hCPWQX3B8RWHmubcTTcr+rq
+	 i9TSFRY3FyDeTjduI3JXhc/r6bbvtnwdu6UxR7IU=
+X-QQ-mid: esmtpgz11t1786628375t10281695
+X-QQ-Originating-IP: uzsjwFlxrWyHR9ePQt3/tWbNYhbV0LoN42pEOIxKeZE=
+Received: from [192.168.1.100] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 13 Aug 2026 21:39:32 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3186414962884766525
+EX-QQ-RecipientCnt: 19
+Message-ID: <870CB1C672C91040+8a75565f-344c-4f1e-aa69-33585a88c8e5@linux.spacemit.com>
+Date: Thu, 13 Aug 2026 21:39:32 +0800
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-X-Mimecast-MFC-PROC-ID: yZMHFh3Ro7Smv66Aiz1AFPjUSlq5Y3COT2VuF36UFoo_1786626847
-X-Mimecast-Originator: redhat.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/6] usb: chipidea: usb2: add optional reset support
+To: Peter Chen <peter.chen@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+ Xu Yang <xu.yang_2@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+References: <20260812-b4-spacemit-k1-usb2-v1-0-f28cf29e522b@linux.spacemit.com>
+ <20260812-b4-spacemit-k1-usb2-v1-2-f28cf29e522b@linux.spacemit.com>
+ <an2UgcS8cHDGwzsO@hu-petche-lv.qualcomm.com>
+Content-Language: en-US
+From: Junzhong Pan <panjunzhong@linux.spacemit.com>
+In-Reply-To: <an2UgcS8cHDGwzsO@hu-petche-lv.qualcomm.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: MhTS1zoHQzhUjTHRHxfWbMuupghBYH8SH6pucJxT0SQixF+Adgp1vR2A
+	dU+cBN/rUaTdqfkbb/Dpotk8DrFaH4z2LFocYpNTQbvNq0xP2kHVeSsSyF2UG4eBbgrKTZz
+	T38JoNxy0BCCDj2Ctx/OdgWHx2JLKvIAeVEykQ8/RA4ZJazVVsX+jBVnzP9lNFMOLH9KBeq
+	U5V+HmwDdhj3v1lZRE46nCdw6QFiinO8wsuk1Lp5J2j/Bzn915dLEJgfpmXWZQkHqmMA9xY
+	q6f4WeUYVL8m1UGgD8TGEpYxlGhaKyVuhXpUL9gRjXSRbCAQzwHQ6Tk5HUXppYyC31+r5rp
+	hITGIIvbAqihuOXrjvty2fvbiMGQYTaW0DMHa6yUcUaP71yjN5iB+aiAK+NLpTuicrvaUKo
+	ZaO9UBUwEg2z8iCZ9/5ke7qDNdM8cOB4W/LIJ2Gg2RMHRurKKsFn49zsmnFy6FMjN57CnZw
+	uPAPehPsrZWuLuAZ2LG0TnH8A5h970Pd9h/47DW+h0iOA5ow9w7rfHTbZqhIhVU8Zwzj115
+	pWL8Ej19O+WQiCkxiZW8S34BUxwfVHztq0dutdDTXSKugHJT9TwmqXxfzaHwoDqYq3Lgpuh
+	YzURde1TeRijXUkopTC6lsiSOr49+air7iz4KPeLVyBRAVTbf+vBY7nY+UjZ/Lsq17pFJ8x
+	/ItGkTfUGKfl0RtHPCLEyLyCp0bC/S7Qo8vkld0iI6GCi1nVKPpuOMLbnA6jA930VapMNuE
+	gr9hL0E30TIqPoV7jwq4G+nI3gEnNDPCz4XAePcRpB0YBFBkCQq+4RWomuVD0Cu5k+1JwZD
+	+2EJQMNkfYTuiCqlSDez9oIWaGjZEK1LE0FvNA/X6DIqRA1hdwh1iISb5zqOTjnJ46eeTD9
+	v6X+icyrvcY6rHDxWS78lm01axrKcYOl7nmS105/zY/xwLk3bwX+4eX2haxTeaY0Wuk2d/q
+	ox75wdv5kaHI3MJ3kQA+2gQYvBDcmGUB/3sDY4uGWJ19k7JkNluzkmrtzCVD20CzjDm4Lux
+	B9sTEUBfwzYDUW89vjHnstxVnU0EYGN/rMewoiBeKXS34o0y8ilL1NEZqR2JWjDmEsc63m8
+	Tp8t5P0IWqYsGB5nHIjYHnqvz6o++KPow==
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_061543_926202_280D4581 
-X-CRM114-Status: GOOD (  24.37  )
+X-CRM114-CacheID: sfid-20260813_064005_588088_AEC3B88D 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,135 +105,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Mukesh,
-
-the patch looks good to me.
-
-There is also a corresponding kexec-tools patch, which was accidentally
-opened as a Github PR (https://github.com/horms/kexec-tools/pull/12).
-It will be sent to kexec@lists.infradead.org shortly.
-
-Thanks
-
-Reviewed-by: Philipp Rudo <prudo@redhat.com>
-
-On Thu, 13 Aug 2026 12:36:29 +0530
-Mukesh Pilaniya <mpilaniy@redhat.com> wrote:
-
-> Several kexec_file_load() image probe functions return -EINVAL when
-> they do not recognize the image format.  A probe function that rejects
-> an image should return -ENOEXEC to indicate that the image is not a
-> recognized executable format.  -EINVAL implies a problem with the
-> syscall parameters, not with image recognition.
+On 8/13/2026 5:55 PM, Peter Chen wrote:
+> On 26-08-12 17:26:13, Junzhong Pan wrote:
+>> The USB2 controller of SpacemiT K1 SoC requires reset support, to keep
+>> compatibility, add optional reset support.
+>>
+>> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+>> ---
+>>  drivers/usb/chipidea/ci_hdrc_usb2.c | 8 ++++++++
+>>  1 file changed, 8 insertions(+)
+>>
+>> diff --git a/drivers/usb/chipidea/ci_hdrc_usb2.c b/drivers/usb/chipidea/ci_hdrc_usb2.c
+>> index 8ffa1e95d8e8..00d575cd2955 100644
+>> --- a/drivers/usb/chipidea/ci_hdrc_usb2.c
+>> +++ b/drivers/usb/chipidea/ci_hdrc_usb2.c
+>> @@ -12,6 +12,7 @@
+>>  #include <linux/phy/phy.h>
+>>  #include <linux/platform_device.h>
+>>  #include <linux/property.h>
+>> +#include <linux/reset.h>
+>>  #include <linux/usb/chipidea.h>
+>>  #include <linux/usb/hcd.h>
+>>  #include <linux/usb/ulpi.h>
+>> @@ -21,6 +22,7 @@
+>>  struct ci_hdrc_usb2_priv {
+>>  	struct platform_device	*ci_pdev;
+>>  	struct clk		*clk;
+>> +	struct reset_control	*reset;
+>>  };
+>>  
+>>  static const struct ci_hdrc_platform_data ci_default_pdata = {
+>> @@ -80,6 +82,12 @@ static int ci_hdrc_usb2_probe(struct platform_device *pdev)
+>>  		return ret;
+>>  	}
+>>  
+>> +	priv->reset = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
+>> +	if (IS_ERR(priv->reset)) {
+>> +		ret = PTR_ERR(priv->reset);
+>> +		goto clk_err;
+>> +	}
+>> +
 > 
-> kexec_image_probe_default() iterates through registered loaders and
-> returns the last probe's error code to the caller.  That error
-> propagates as the kexec_file_load() return value to userspace.
-> Returning -EINVAL from a probe when no loader matches is semantically
-> incorrect and misleads userspace about the nature of the failure.
+> You may update binding doc?
 > 
-> Return -ENOEXEC from all probe functions and their helpers when the
-> image format is not recognized.
+
+Sure, I forgot it, will do in v2.
+
+Thanks.
+
+> Acked-by: Peter Chen <peter.chen@kernel.com>
 > 
-> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
-> ---
-> branch: next-20260812
-> base commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
-> ---
->  arch/arm64/kernel/kexec_image.c   | 4 ++--
->  arch/loongarch/kernel/kexec_efi.c | 4 ++--
->  arch/riscv/kernel/kexec_image.c   | 4 ++--
->  kernel/kexec_elf.c                | 4 ++--
->  4 files changed, 8 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
-> index b70f4df15a1a..101259874d44 100644
-> --- a/arch/arm64/kernel/kexec_image.c
-> +++ b/arch/arm64/kernel/kexec_image.c
-> @@ -25,10 +25,10 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
->  		(const struct arm64_image_header *)(kernel_buf);
->  
->  	if (!h || (kernel_len < sizeof(*h)))
-> -		return -EINVAL;
-> +		return -ENOEXEC;
->  
->  	if (memcmp(&h->magic, ARM64_IMAGE_MAGIC, sizeof(h->magic)))
-> -		return -EINVAL;
-> +		return -ENOEXEC;
->  
->  	return 0;
->  }
-> diff --git a/arch/loongarch/kernel/kexec_efi.c b/arch/loongarch/kernel/kexec_efi.c
-> index 5ee78ebb1546..28a1d0420ba3 100644
-> --- a/arch/loongarch/kernel/kexec_efi.c
-> +++ b/arch/loongarch/kernel/kexec_efi.c
-> @@ -24,12 +24,12 @@ static int efi_kexec_probe(const char *kernel_buf, unsigned long kernel_len)
->  
->  	if (!h || (kernel_len < sizeof(*h))) {
->  		kexec_dprintk("No LoongArch image header.\n");
-> -		return -EINVAL;
-> +		return -ENOEXEC;
->  	}
->  
->  	if (!loongarch_header_check_dos_sig(h)) {
->  		kexec_dprintk("No LoongArch PE image header.\n");
-> -		return -EINVAL;
-> +		return -ENOEXEC;
->  	}
->  
->  	return 0;
-> diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
-> index 51dc89259f16..963a25f5b55b 100644
-> --- a/arch/riscv/kernel/kexec_image.c
-> +++ b/arch/riscv/kernel/kexec_image.c
-> @@ -20,7 +20,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
->  	const struct riscv_image_header *h = (const struct riscv_image_header *)kernel_buf;
->  
->  	if (!h || kernel_len < sizeof(*h))
-> -		return -EINVAL;
-> +		return -ENOEXEC;
->  
->  	/* According to Documentation/arch/riscv/boot-image-header.rst,
->  	 * use "magic2" field to check when version >= 0.2.
-> @@ -28,7 +28,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
->  
->  	if (h->version >= RISCV_HEADER_VERSION &&
->  	    memcmp(&h->magic2, RISCV_IMAGE_MAGIC2, sizeof(h->magic2)))
-> -		return -EINVAL;
-> +		return -ENOEXEC;
->  
->  	return 0;
->  }
-> diff --git a/kernel/kexec_elf.c b/kernel/kexec_elf.c
-> index 3a5c25b2adc9..89a444a00693 100644
-> --- a/kernel/kexec_elf.c
-> +++ b/kernel/kexec_elf.c
-> @@ -172,7 +172,7 @@ static int elf_read_ehdr(const char *buf, size_t len, struct elfhdr *ehdr)
->  
->  	default:
->  		pr_debug("Unknown ELF class.\n");
-> -		return -EINVAL;
-> +		return -ENOEXEC;
->  	}
->  
->  	return elf_is_ehdr_sane(ehdr, len) ? 0 : -ENOEXEC;
-> @@ -236,7 +236,7 @@ static int elf_read_phdr(const char *buf, size_t len,
->  
->  	default:
->  		pr_debug("Unknown ELF class.\n");
-> -		return -EINVAL;
-> +		return -ENOEXEC;
->  	}
->  
->  	return elf_is_phdr_sane(phdr, len) ? 0 : -ENOEXEC;
-> 
-> ---
-> base-commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
-> change-id: 20260813-mpilaniy-ffb0cc92c313
-> 
-> Best regards,
-> --  
-> Mukesh Pilaniya <mpilaniy@redhat.com>
+> Peter
+>>  	ci_pdata->name = dev_name(dev);
+>>  
+>>  	priv->ci_pdev = ci_hdrc_add_device(dev, pdev->resource,
+>>
+>> -- 
+>> 2.34.1
+>>
 > 
 
 
