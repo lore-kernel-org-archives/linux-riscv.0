@@ -4,57 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B0BC5B572
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 13:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806E3C5B572
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 13:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Date:
-	Mime-Version:Message-Id:Cc:From:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=JXF4TAsHmAMDXk6TmkLOem8BC4Ul64yfLyR0I/POBSc=; b=WtDPpqfkBkW3KedvaNDFhdszFM
-	YkQ09waACkEiO3cMXygSRIShqy1CscUus+3Bk/qkMGMUmafn48KALfkkNzYAnI+rR0EPPxavwGIC7
-	w2UtQJ4rbtk/+SQoMWOB16kfHHNeOmiqjaKgBaurPIKn33lNifjLMWr2+xDgyMpgUCPUCWMYtzJmy
-	MmbVN7qnVuXpnu6MTJ+5EEGOBhq8KYByVIb492Wb2lYAoiHrAeb2+gjQijSFpUQDdkIWOuVN9MyNp
-	3VhASOrffq1pk8aPJTznU9FSDgLPUGtc7ovNeU3wrZNkrKunIyKvVvELhH1wSNraXINLpiY1CNs7T
-	8lDWn5OQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zik114lW2h86Qs9LhM+ZaIaVCkVUqF0QFUrdFR2pK7Y=; b=xBKRDgLdUM9L0H
+	wJyAyh3Dm32PN1n7LGpDLWyIFgznff0H7ZpS9h/7nb7OQZKSUg2FqIjPXZILrF4mQ6593kuwxQMY7
+	jJ7wGql+beJ9K+wIH4vF5PdPSVOKS4HkCd7QqPrpXSxW5dYpZ2C4GMTro4Ei3IFdfk/tlvQ9qzyop
+	Mmf6hYiPXPvuIBJoF27ovA6TjbSc1rffhgBRGnFSkvLWSJmJ78XvhAzC7ZoO0kPjcWK6PQc/YFc+Y
+	Ew3zBT3Es7WMB8fMo8CcHIwz+VRvRLgQX5RXzvLaGds4NvzccLGKZ4jHjx0AXk5A8+YhckFJY4Z7F
+	fjMzuGCFNF4HOBhePIOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuV6u-00000000hWn-1gjz;
-	Thu, 13 Aug 2026 13:04:40 +0000
-Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
+	id 1wuVHd-00000000iqA-3lVR;
+	Thu, 13 Aug 2026 13:15:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuV6r-00000000hVe-2jZk
+	id 1wuVHb-00000000ipW-3RoM
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 13:04:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1786626272; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=g4QWpVDt+BGsuhwdwrmcwuQnEyaPLYAMiaqo4m0h4wk=;
- b=NG/h1ubRG0Qu4QTaIQx8a5jNTwPNOD4M5l6griB9ewDWhC5DqnePBTeCbLRR6iWcBJr1Mj
- GCDlxkcKKVglQgNnRLVpnoc5GZcLwZV7CzUfxyYrYSH/iEw5wnoXkooWoS+qZd+KhlNM+H
- ClfQvyWbsN6LvE2g1oWXyGkU3iQ3hdOcE2OlYlbkA+7AyJFPSuIu/SLxTVPhrlGyasNtX1
- KtZgn18RuxiEuXwVUOK2FV4i5I56SvrPjU9ynsgtoPdzLjedFVvtMxSdo9IDXzATCxvzHh
- G818eD/7kMTknwyItxOLhN8QbwkXvMEACCsKxfw4ZGN89q+sIMRe2nTlFPFY5Q==
-Subject: [PATCH 2/2] riscv: Poll for SBI_HSM_STATE_STOPPED in sbi_cpu_is_stopped()
-X-Mailer: git-send-email 2.20.1
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
-X-Lms-Return-Path: <lba+26a7dc0de+3b1269+lists.infradead.org+qirui.001@bytedance.com>
-To: <palmer@dabbelt.com>
-From: "Rui Qi" <qirui.001@bytedance.com>
-Cc: <pjw@kernel.org>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
-	"Rui Qi" <qirui.001@bytedance.com>
-Message-Id: <20260813130357.1144775-3-qirui.001@bytedance.com>
-Mime-Version: 1.0
-Date: Thu, 13 Aug 2026 21:03:57 +0800
-In-Reply-To: <20260813130357.1144775-1-qirui.001@bytedance.com>
-References: <20260813130357.1144775-1-qirui.001@bytedance.com>
+	Thu, 13 Aug 2026 13:15:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1786626943;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DOuw/x5y8phWuHZmwxpOm62fWFsgmbUws0VrhfcWz1w=;
+	b=JWvQEdgXalqIWdMdUt6l6tAJuQS2ALwqJe7o+wHdgu3elp57/pMqKfj8wEJ5NSLhHN4Ww7
+	tAxgmICNxVjlT9g/lqXMIrEBE+bnPZsoNNdfXYbll7GCy5VTH3/5QtRkAGUWD3CIOHAWk2
+	l8cnqXfbMnJZ/xX8W5UDnjc7qAALCt8=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-76-wVZqRQZXOBq7fw6lCFkMXQ-1; Thu,
+ 13 Aug 2026 09:14:09 -0400
+X-MC-Unique: wVZqRQZXOBq7fw6lCFkMXQ-1
+X-Mimecast-MFC-AGG-ID: wVZqRQZXOBq7fw6lCFkMXQ_1786626847
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AA3AF195609E;
+	Thu, 13 Aug 2026 13:14:05 +0000 (UTC)
+Received: from rotkaeppchen (unknown [10.44.48.151])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 90FD11800348;
+	Thu, 13 Aug 2026 13:13:57 +0000 (UTC)
+Date: Thu, 13 Aug 2026 15:13:50 +0200
+From: Philipp Rudo <prudo@redhat.com>
+To: Mukesh Pilaniya <mpilaniy@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton
+ <akpm@linux-foundation.org>, Baoquan He <baoquan.he@linux.dev>, Mike
+ Rapoport <rppt@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ kexec@lists.infradead.org
+Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
+ mismatch
+Message-ID: <20260813151350.6b511155@rotkaeppchen>
+In-Reply-To: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
+References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
+Organization: Red Hat inc.
+MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Mimecast-MFC-PROC-ID: yZMHFh3Ro7Smv66Aiz1AFPjUSlq5Y3COT2VuF36UFoo_1786626847
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_060437_761638_42E58D0E 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260813_061543_926202_280D4581 
+X-CRM114-Status: GOOD (  24.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,81 +96,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When offlining a CPU, the dying CPU (AP) and the controlling CPU (BP)
-have a race:
+Hi Mukesh,
 
-  AP: cpuhp_ap_report_dead() -> cpu_ops->cpu_stop()
-                                    ^^^
-  BP: sees DEAD -> cpu_is_stopped() -> sbi_hsm_hart_get_status()
+the patch looks good to me.
 
-The AP reports itself dead before it actually invokes cpu_stop(), so
-the BP can read the SBI HSM state while the AP is still in
-STARTED state, not yet STOPPED.
+There is also a corresponding kexec-tools patch, which was accidentally
+opened as a Github PR (https://github.com/horms/kexec-tools/pull/12).
+It will be sent to kexec@lists.infradead.org shortly.
 
-This race was previously masked: the old sbi_cpu_is_stopped() returned
-the raw SBI status code, and SBI_HSM_STATE_STARTED happens to be 0,
-which the caller treated as success. The recent bool conversion made
-the check strict (rc != STOPPED is failure), exposing the race as a
-spurious warning.
+Thanks
 
-Fix by replacing the single sbi_hsm_hart_get_status() call with
-read_poll_timeout(), giving the AP time to complete the transition to
-STOPPED. This follows the same approach as arm64's cpu_psci_cpu_kill(),
-which polls psci_ops.affinity_info() for the same reason.
+Reviewed-by: Philipp Rudo <prudo@redhat.com>
 
-The first SBI query is issued immediately (sleep_before_read=false),
-so the common case where the CPU has already stopped incurs no extra
-delay. If the state is not yet STOPPED, the code retries every 100us
-with usleep_range() for up to 100ms.
+On Thu, 13 Aug 2026 12:36:29 +0530
+Mukesh Pilaniya <mpilaniy@redhat.com> wrote:
 
-Signed-off-by: Rui Qi <qirui.001@bytedance.com>
----
- arch/riscv/kernel/cpu_ops_sbi.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+> Several kexec_file_load() image probe functions return -EINVAL when
+> they do not recognize the image format.  A probe function that rejects
+> an image should return -ENOEXEC to indicate that the image is not a
+> recognized executable format.  -EINVAL implies a problem with the
+> syscall parameters, not with image recognition.
+> 
+> kexec_image_probe_default() iterates through registered loaders and
+> returns the last probe's error code to the caller.  That error
+> propagates as the kexec_file_load() return value to userspace.
+> Returning -EINVAL from a probe when no loader matches is semantically
+> incorrect and misleads userspace about the nature of the failure.
+> 
+> Return -ENOEXEC from all probe functions and their helpers when the
+> image format is not recognized.
+> 
+> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
+> ---
+> branch: next-20260812
+> base commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
+> ---
+>  arch/arm64/kernel/kexec_image.c   | 4 ++--
+>  arch/loongarch/kernel/kexec_efi.c | 4 ++--
+>  arch/riscv/kernel/kexec_image.c   | 4 ++--
+>  kernel/kexec_elf.c                | 4 ++--
+>  4 files changed, 8 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
+> index b70f4df15a1a..101259874d44 100644
+> --- a/arch/arm64/kernel/kexec_image.c
+> +++ b/arch/arm64/kernel/kexec_image.c
+> @@ -25,10 +25,10 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
+>  		(const struct arm64_image_header *)(kernel_buf);
+>  
+>  	if (!h || (kernel_len < sizeof(*h)))
+> -		return -EINVAL;
+> +		return -ENOEXEC;
+>  
+>  	if (memcmp(&h->magic, ARM64_IMAGE_MAGIC, sizeof(h->magic)))
+> -		return -EINVAL;
+> +		return -ENOEXEC;
+>  
+>  	return 0;
+>  }
+> diff --git a/arch/loongarch/kernel/kexec_efi.c b/arch/loongarch/kernel/kexec_efi.c
+> index 5ee78ebb1546..28a1d0420ba3 100644
+> --- a/arch/loongarch/kernel/kexec_efi.c
+> +++ b/arch/loongarch/kernel/kexec_efi.c
+> @@ -24,12 +24,12 @@ static int efi_kexec_probe(const char *kernel_buf, unsigned long kernel_len)
+>  
+>  	if (!h || (kernel_len < sizeof(*h))) {
+>  		kexec_dprintk("No LoongArch image header.\n");
+> -		return -EINVAL;
+> +		return -ENOEXEC;
+>  	}
+>  
+>  	if (!loongarch_header_check_dos_sig(h)) {
+>  		kexec_dprintk("No LoongArch PE image header.\n");
+> -		return -EINVAL;
+> +		return -ENOEXEC;
+>  	}
+>  
+>  	return 0;
+> diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
+> index 51dc89259f16..963a25f5b55b 100644
+> --- a/arch/riscv/kernel/kexec_image.c
+> +++ b/arch/riscv/kernel/kexec_image.c
+> @@ -20,7 +20,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
+>  	const struct riscv_image_header *h = (const struct riscv_image_header *)kernel_buf;
+>  
+>  	if (!h || kernel_len < sizeof(*h))
+> -		return -EINVAL;
+> +		return -ENOEXEC;
+>  
+>  	/* According to Documentation/arch/riscv/boot-image-header.rst,
+>  	 * use "magic2" field to check when version >= 0.2.
+> @@ -28,7 +28,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
+>  
+>  	if (h->version >= RISCV_HEADER_VERSION &&
+>  	    memcmp(&h->magic2, RISCV_IMAGE_MAGIC2, sizeof(h->magic2)))
+> -		return -EINVAL;
+> +		return -ENOEXEC;
+>  
+>  	return 0;
+>  }
+> diff --git a/kernel/kexec_elf.c b/kernel/kexec_elf.c
+> index 3a5c25b2adc9..89a444a00693 100644
+> --- a/kernel/kexec_elf.c
+> +++ b/kernel/kexec_elf.c
+> @@ -172,7 +172,7 @@ static int elf_read_ehdr(const char *buf, size_t len, struct elfhdr *ehdr)
+>  
+>  	default:
+>  		pr_debug("Unknown ELF class.\n");
+> -		return -EINVAL;
+> +		return -ENOEXEC;
+>  	}
+>  
+>  	return elf_is_ehdr_sane(ehdr, len) ? 0 : -ENOEXEC;
+> @@ -236,7 +236,7 @@ static int elf_read_phdr(const char *buf, size_t len,
+>  
+>  	default:
+>  		pr_debug("Unknown ELF class.\n");
+> -		return -EINVAL;
+> +		return -ENOEXEC;
+>  	}
+>  
+>  	return elf_is_phdr_sane(phdr, len) ? 0 : -ENOEXEC;
+> 
+> ---
+> base-commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
+> change-id: 20260813-mpilaniy-ffb0cc92c313
+> 
+> Best regards,
+> --  
+> Mukesh Pilaniya <mpilaniy@redhat.com>
+> 
 
-diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
-index ee6e4b5cc39e..607d386db5f7 100644
---- a/arch/riscv/kernel/cpu_ops_sbi.c
-+++ b/arch/riscv/kernel/cpu_ops_sbi.c
-@@ -6,6 +6,7 @@
-  */
- 
- #include <linux/init.h>
-+#include <linux/iopoll.h>
- #include <linux/mm.h>
- #include <linux/sched/task_stack.h>
- #include <asm/cpu_ops.h>
-@@ -13,6 +14,9 @@
- #include <asm/sbi.h>
- #include <asm/smp.h>
- 
-+#define SBI_HSM_STOP_POLL_US		100
-+#define SBI_HSM_STOP_TIMEOUT_US		(100 * USEC_PER_MSEC)
-+
- extern char secondary_start_sbi[];
- const struct cpu_operations cpu_ops_sbi;
- 
-@@ -85,12 +89,15 @@ static void sbi_cpu_stop(void)
- 
- static bool sbi_cpu_is_stopped(unsigned int cpuid)
- {
--	int rc;
-+	int rc, ret;
- 	unsigned long hartid = cpuid_to_hartid_map(cpuid);
- 
--	rc = sbi_hsm_hart_get_status(hartid);
-+	ret = read_poll_timeout(sbi_hsm_hart_get_status, rc,
-+				rc < 0 || rc == SBI_HSM_STATE_STOPPED,
-+				SBI_HSM_STOP_POLL_US, SBI_HSM_STOP_TIMEOUT_US,
-+				false, hartid);
- 
--	if (rc != SBI_HSM_STATE_STOPPED) {
-+	if (ret || rc != SBI_HSM_STATE_STOPPED) {
- 		pr_warn("HART%lu isn't stopped; status %d\n", hartid, rc);
- 		return false;
- 	}
--- 
-2.20.1
 
 _______________________________________________
 linux-riscv mailing list
