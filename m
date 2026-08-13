@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB84C5DF64
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 07:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D504BC5DF64
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 07:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ItMj/tSNNBKYvfQ78X1KP8i/i5GVF4DfzG2cUKEZs10=; b=yhXD1woxOSjRsJ
-	+10THtU0MWCIyE3WD9dHdFeXLBW0rztxCgmsXrcLJZT8ApTTncFLnV1DrSHihFidXGZTckvieLH41
-	L+/pV8avus8ZsJ0jazLluqAyP7zPu6ETh7KsD+KQFwyjpbvNdN1fnu3LWDIoyuyvlrJIhVyUFWl/K
-	z/asEjoEjkZPvDYfaIvs2daATKjESTC1h3BWHZh01FNvqbOX3pUFIlvyVyvkpLWwv2jlTHBgl3y4h
-	mOzawNMbgjz0wBenI2AQarzqX/Th8kISu32PXGXOXyuRFczvS+5u0iyjgHYTUV1SpEqEDcMP/QTMt
-	BN6dUBnhEr1C4k7JwNhQ==;
+	List-Owner; bh=EdpyS1N+7uwWDYJBvdF1OiJ7I+bl0QUzuh9316Kk/M8=; b=Lao83HEPs7K287
+	ZteaW+Bha0FBfTRRqOVt6+QGvM7vtLzBGu4fUiXOzvv62hwtKJ0AwYO8OeA96cPbDw/26AV4IyfeY
+	70Ltup6T0Cmgb1QaL21Cy3P4vNxFHa9t2AkfI1iyQLJPOuHG42SKM9lOTxIBPaM4/gkEAQlG7At8P
+	TdGznlwqsZlYhyR24RpoU9CUAnSCZAu2a0gaZwDPV/f9ZYQznIJr3jxk9el4w4CTGL1gvFW9eY2G5
+	OtMnN4xhmUI55iO2GHwtzFXfL7wOIePzLSyxQ2nWeStJ3AhyBbnIRsAxL252fQxaS3fPg/GrRQ325
+	z/VU4UC6jikUd4SoI+WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPhx-0000000HZrR-1F2f;
-	Thu, 13 Aug 2026 07:18:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuPiI-0000000HZyr-2dzs;
+	Thu, 13 Aug 2026 07:18:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPhv-0000000HZr2-0w0w;
-	Thu, 13 Aug 2026 07:18:31 +0000
+	id 1wuPiH-0000000HZxg-0Sbq;
+	Thu, 13 Aug 2026 07:18:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2D4D4028A;
-	Thu, 13 Aug 2026 07:18:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F73D1F000E9;
-	Thu, 13 Aug 2026 07:18:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A282600AD;
+	Thu, 13 Aug 2026 07:18:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF6D91F00A3D;
+	Thu, 13 Aug 2026 07:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786605510;
-	bh=+4Nk4hpoXdyCDEpgTJCUYHz6STV5yXnczBbKNxqEd8Y=;
+	s=k20260515; t=1786605532;
+	bh=FRu9n4mjHkdLoh1auc0+F0uq9mi4uQgSH6ITAa/iuvU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=KgSkwoV4K9o4VV6DTaBaMzd+EAKo55SPDBufVOr4jtdF8WGVJY9qVnPnAbI3I1B6j
-	 az8C/XSSDoXlk0EnunE7ZJ3R+6xP4/fSUta8T06VGRr3L26bEyCyEgUeHEmKkJvqJY
-	 QCn79g40aTQGCvCX4G87yiNCG8qTX/j27xasTOQDI3+ltHDG/v7cKPSGXGJ3zoNGhV
-	 2ifXr49y6ir3V6cAgvVl2jn8gM7jiebI63mAiexihe0CvGpwlzwxaRgcb8I+biJir5
-	 0d8v2Pn2zDhY20qsum4OrGqCQozh6WLpH9QUdJrmSftjGLHT2NAkoCBRW1fV21zxfN
-	 HX/j0k9hiLyeg==
-Message-ID: <f7bab5a5-76c9-4856-b314-49f19f54e229@kernel.org>
-Date: Thu, 13 Aug 2026 09:18:22 +0200
+	b=LQoW8GUUyQqsjsyMSCymikLCl0K/PpYaTCtOqE8smOcqa2DMyAwkHJlcjWeM1J3S+
+	 p7F7YTHDWjjGCL63HV5xpWRhAdsFHo0ku3RZp+dd7ECs9spcYVoBm+vyaaylpUF+PD
+	 H22qTcfvj4D5oNy89mJR0hbJjegsfONgrwhHmtzF+bBi+aGhDM9oGd0P2xzEDI2kou
+	 1E0HF2+DNVjJvv6cBBocYB1eb2SJm99VpExDuZUltvNNZREs8uFacDqc0tyd8Vhkzr
+	 RtyNl40a3quN8bMMpCL9V3232v/KWwZovejB57bX78GVNpy/nQciclUW97AqYJJX/W
+	 0jrUTV5cHJu/Q==
+Message-ID: <fc404670-7194-4ae9-8646-b543869738f3@kernel.org>
+Date: Thu, 13 Aug 2026 09:18:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V2 3/6] sh/mm: Stop using pte_ERROR()
+Subject: Re: [RFC V2 6/6] mm: Drop pxd_ERROR()
 To: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: linux-mm@kvack.org, akpm@linux-foundation.org,
  Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
@@ -63,9 +63,9 @@ Cc: linux-mm@kvack.org, akpm@linux-foundation.org,
  linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
- <20260811042119.3652929-4-anshuman.khandual@arm.com>
- <28c24991-590f-4980-a92e-26c89288cae7@kernel.org>
- <azo46amarknescr2uotz77khpt6zakwex7sb52krsvakrzfdlq@qu2t3ahd4m5t>
+ <20260811042119.3652929-7-anshuman.khandual@arm.com>
+ <1fb9ed88-67d0-4ac1-878d-0dc8e1135d19@kernel.org>
+ <2ys7apbnfuj3ugfoqgbptgej3jjcyfpmdgbv6qbxupmwg6mefc@h5p33ua2nzlu>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -112,7 +112,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <azo46amarknescr2uotz77khpt6zakwex7sb52krsvakrzfdlq@qu2t3ahd4m5t>
+In-Reply-To: <2ys7apbnfuj3ugfoqgbptgej3jjcyfpmdgbv6qbxupmwg6mefc@h5p33ua2nzlu>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,26 +129,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
->>> +}
->>> +
->>>  static void set_pte_phys(unsigned long addr, unsigned long phys, pgprot_t prot)
->>>  {
->>>  	pte_t *pte;
->>>  
->>>  	pte = __get_pte_phys(addr);
->>>  	if (!pte_none(*pte)) {
->>> -		pte_ERROR(*pte);
->>> +		print_bad_pte(*pte);
+On 8/13/26 08:03, Anshuman Khandual wrote:
+> On Wed, Aug 12, 2026 at 01:33:14PM +0200, David Hildenbrand (Arm) wrote:
+>> On 8/11/26 06:21, Anshuman Khandual wrote:
+>>> pxd_ERROR() has been used in generic mm just to print the page table entry
+>>> in pxd_clear_bad() before clearing those out with pxd_clear() later. These
+>>> pxd_ERROR() macros have been provided by all platforms which basically did
+>>> the same thing.
+>>>
+>>> Make pxd_clear_bad() use recently added ptval_to_str() instead for printing
+>>> page table entries thus completely dropping dependency on platform provided
+>>> pxd_ERROR() macros which can then be dropped off. First move all required
+>>> helpers in core MM into a header file which could then be used else where.
+>>>
 >>
->> Maybe similar to my reply to patch #1, actually print something more useful than
->> just "bad pte" ? And possibly also just use ptval_to_str().
+>> It might make sense to split this patch further up to ease review:
+>>
+>> Patch 1) provide ptval_to_str() a header.
+>>
+>> Patch 2) Stop using pxd_ERROR() and friends in common code, converting to
+>> pteval_to_str()
+>>
+>> Patch 3) Remove now unused pxd_ERROR() and friends from arch code.
 > 
-> Probably #ifdef could be dropped here as ptval_to_str() should be able to
-> handle pte with two unsiged long elements in there i.e pte_high, pte_low
-> along with standard single unsiged long pte_low format.
+> Sure but the intiial platform changes which now use ptval_to_str() as well
+> will probably come after the Patch (2) but before the Patch (3).
 
-Yes, that should just work and clean this up!
+Exactly :)
 
 -- 
 Cheers,
