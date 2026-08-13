@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72011C5DF65
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 07:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00A3C5B572
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 07:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5VDK7Nakl0BFKeoEvbVVUt5b9qzkNNnvfbKIEECy6aw=; b=24upVshWxWy8Sm
-	S+DThiuGGkYPBIyjpkyJQ3vDoq3JaFI6U2yNIbVS6r+g9uqPrIiFd/zMC3g1zVrUTh0HIYJqgaph0
-	BNwkLA3hfLugirRiXgfxLdii+v+RmKwdyrN69+0hCJgxoZiNu+6uhYyQFNbBY9B3lGIUgDcgfpgSO
-	NB0inwBhfMPJWJ7vMfm1JKZvnU/xywN7fzEw7Jwnu10lEnwwR0oMHtBT5pPkadWyVlgD6/IDxjYwI
-	viUg+yaQBs01BROZYNr5YAhihPrpAISvALuT3/JFDyTE0aLqa+5G5RzTb5d49c80W691IBbg/bKC0
-	ysfO/atVuXuo7gUfGFHw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=VU/0TVsdMUlMW7lDLd6FYYtxjqEuQKCDYKcmmZMD9xg=; b=3fWkanU1XHTZ+3NmjNg64a4gs6
+	Tdvbqczl7zwzQMYwXFztjZted3cy7T34xX+KkJc0RSIaIMC++bRxTzVOI89AibCaK2mbol4C1H17/
+	fOglWoWqMNofSP4VtCiZuoKdOX5IYGUgFJWgpnHsTh/kYHBlKpLa29jZX2I45m2ltg99PjsASJJyE
+	K2gTjlqFdAZ9xb8aohwBqdczrHaPLwveINSr4H3yQ33EP27cJ5FEHf0NxqPSDblBv+oqb5Y3qMEjC
+	/oQMrp/gnqlfg+jVa361YAVj4mwiurx9p45yKeyKAVw60conVRL22sSRBUJLJdZV8NPx0ZxjFbnYo
+	Te39x6FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPii-0000000HaHc-2Dyq;
-	Thu, 13 Aug 2026 07:19:20 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wuPxw-000000001B9-0p0P;
+	Thu, 13 Aug 2026 07:35:04 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPie-0000000Ha8X-21Yl
+	id 1wuPxs-00000000100-0ySA
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 07:19:17 +0000
-X-UUID: 43d09f8096e711f1aa26b74ffac11d73-20260813
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:bfa4271e-d950-4b3f-b761-8033f5158399,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:104495b2bb17de7876dcd231f2122c1a,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|136|850|865|898,TC:nil,Content
-	:0|15|50,EDM:-3|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,
-	COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 43d09f8096e711f1aa26b74ffac11d73-20260813
-X-User: jiangfeng@kylinos.cn
-Received: from [127.0.0.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1018791147; Thu, 13 Aug 2026 15:19:04 +0800
-From: Feng Jiang <jiangfeng@kylinos.cn>
-Date: Thu, 13 Aug 2026 07:18:42 +0000
-Subject: [PATCH bpf-next v2 1/2] bpf, riscv: Add BPF stack arguments
- support for RV64 JIT
+	Thu, 13 Aug 2026 07:35:02 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=zoQ5TKlhdKb/TFvHz+bAuP7Jqfz8RbpAKs8Q7ChZ5Mc=;
+	b=11K6OQ/l6CX9yOZpy3sCXPQi38J0UeXCQl4f0o5jcxxCljMjDLy0aDX0PBmhRWYoAl5yFwruA
+	D8CXHmEyy2TCEVn9azg+QMlAfPJekl+cOYs6qt/xgsevf8jYOi3tt7CNK+VT6s4xPoHBRO9ivcE
+	4A0W3OUB1toinvjMeZoBDAs=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hLGz80LMwz1T4JN;
+	Thu, 13 Aug 2026 15:22:44 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id BFF734057F;
+	Thu, 13 Aug 2026 15:32:35 +0800 (CST)
+Received: from kwepemq500010.china.huawei.com (7.202.194.235) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 13 Aug 2026 15:32:35 +0800
+Received: from [10.173.124.160] (10.173.124.160) by
+ kwepemq500010.china.huawei.com (7.202.194.235) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 13 Aug 2026 15:32:34 +0800
+Subject: Re: [PATCH v2] tools/mm: add hwpoison-panic tool
+To: Breno Leitao <leitao@debian.org>
+CC: SJ Park <sj@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
+	<kernel-team@meta.com>, Andrew Morton <akpm@linux-foundation.org>, "Naoya
+ Horiguchi" <nao.horiguchi@gmail.com>, Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, <david@kernel.org>
+References: <20260803-memory_failure_rewrite_test-v2-1-ed020ce42129@debian.org>
+From: Miaohe Lin <linmiaohe@huawei.com>
+Message-ID: <be68a841-a326-4826-8e02-5148736dd356@huawei.com>
+Date: Thu, 13 Aug 2026 15:32:34 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
 MIME-Version: 1.0
-Message-Id: <20260813-bpf-riscv-stack-args-v2-1-efea8f9b3fe1@kylinos.cn>
-References: <20260813-bpf-riscv-stack-args-v2-0-efea8f9b3fe1@kylinos.cn>
-In-Reply-To: <20260813-bpf-riscv-stack-args-v2-0-efea8f9b3fe1@kylinos.cn>
-To: Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- Eduard Zingerman <eddyz87@gmail.com>, 
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
- Emil Tsalapatis <emil@etsalapatis.com>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, 
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
- Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Shuah Khan <shuah@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- llvm@lists.linux.dev, Feng Jiang <jiangfeng@kylinos.cn>
-X-Mailer: b4 0.14.3
+In-Reply-To: <20260803-memory_failure_rewrite_test-v2-1-ed020ce42129@debian.org>
+Content-Language: en-US
+X-Originating-IP: [10.173.124.160]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemq500010.china.huawei.com (7.202.194.235)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_001916_842656_A6D047D5 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20260813_003500_915622_3E190FDE 
+X-CRM114-Status: GOOD (  22.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,205 +88,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bpf_jit_supports_stack_args() for the RV64 JIT so BPF subprograms
-and kfuncs can receive more than 5 arguments via the stack
-(BPF_REG_PARAMS / r11).
+On 2026/8/3 19:31, Breno Leitao wrote:
+> Add a tool that enables the vm.panic_on_unrecoverable_memory_failure
+> sysctl, picks a kernel-owned PFN and writes its physical address to
+> hard_offline_page.  Three page kinds are selectable with -k: rodata
+> (default), slab or pgtable. In all cases the host should panic.
+> 
+> Example:
+> 
+>         # ./hwpoison-panic -k slab --yes-panic-my-kernel
+>         injecting hwpoison at phys 0x100032000 (pfn 0x100032, kind=slab)
+>         expecting kernel panic: 'Memory failure: <pfn>: unrecoverable page'
+> 
+> In dmesg, you will see:
+> 
+>         Memory failure: 0x100032: unhandlable page.
+>         Memory failure: 0x100032: recovery action for reserved kernel page: Ignored
+>         Kernel panic - not syncing: Memory failure: 0x100032: unrecoverable page
+> 
+> This lives in tools/mm rather than selftests/mm because every successful
+> run crashes the machine, which is not something to run from CI.
+> 
+> The --yes-panic-my-kernel argument is required so an accidental
+> invocation does not take the box down.
+> 
+> Signed-off-by: Breno Leitao <leitao@debian.org>
 
-For BPF-to-BPF calls the caller writes outgoing arguments at the
-bottom of its frame (SP-relative). The callee reads them with
-FP-relative loads. Its FP is set to the caller SP in the prologue,
-so the offsets match.
+This patch looks good to me with some nits below.
 
-The RISC-V ABI puts arguments 6-8 in A5-A7 and arguments 9+ at
-SP+0. Before each kfunc call, load arguments 6-8 from the outgoing
-area into A5-A7 and copy any remaining arguments down so argument 9
-lands at SP+0.
+> ---
+> Changes in v2:
+> - Reword the file header, the tool triggers a panic rather than
+>   confirming one (SJ Park)
+> - Rename -f to --yes-panic-my-kernel and say in usage() what it costs
+>   (SJ Park)
+> - Call check_prereqs() before getpagesize() (SJ Park)
+> - Use 64-bit types for physical addresses and PFNs.  On a 32-bit build
+>   the old long/unsigned long pair truncated addresses above 4G, and the
+>   negative error sentinel was indistinguishable from a valid address at
+>   or above 2G
+> - Link to v1: https://patch.msgid.link/20260731-memory_failure_rewrite_test-v1-1-6aa8c6435693@debian.org
+...
+> +
+> +static int pick_kpageflags_phys_addr(uint64_t want, uint64_t *phys_addr)
+> +{
+> +	uint64_t pfn = (16UL << 20) / page_size;
 
-A5 (BPF_REG_0), A6 (TCC) and A7 are safe to clobber here: R0 is not
-live before a call, TCC is backed up on the stack, and A7 is unused
-by the JIT.
+Could we use SZ_16M macro here?
 
-Limit the existing kfunc sign-extension loop to MAX_BPF_FUNC_REG_ARGS
-iterations; otherwise idx >= 5 resolves to S1-S5 (BPF_R6-FP) and
-corrupts callee-saved registers.
+> +	uint64_t flags;
+> +	int ret = -1;
+> +	int fd;
+> +
+> +	fd = open(PROC_KPAGEFLAGS, O_RDONLY);
+> +	if (fd < 0)
+> +		return -1;
+> +
+> +	for (; kpageflags_read(fd, pfn, &flags) == 0; pfn++) {
+> +		if ((flags & want) && !(flags & BIT(HWPOISON)) &&
+> +		    !(flags & BIT(NOPAGE)) && !(flags & BIT(COMPOUND_TAIL))) {
+> +			*phys_addr = pfn * page_size;
+> +			ret = 0;
+> +			break;
+> +		}
+> +	}
+> +
+> +	close(fd);
+> +	return ret;
+> +}
+> +
+> +static int read_sysctl(unsigned long *val)
+> +{
+> +	FILE *f = fopen(SYSCTL_PATH, "r");
+> +	int ret;
+> +
+> +	if (!f)
+> +		return -1;
+> +	ret = fscanf(f, "%lu", val) == 1 ? 0 : -1;
+> +	fclose(f);
+> +
+> +	return ret;
+> +}
+> +
+> +static int write_sysctl(unsigned long val)
+> +{
+> +	FILE *f = fopen(SYSCTL_PATH, "w");
+> +	int ret;
+> +
+> +	if (!f)
+> +		return -1;
+> +	ret = fprintf(f, "%lu", val) < 0 ? -1 : 0;
+> +	fclose(f);
+> +
+> +	return ret;
+> +}
+> +
+> +/* hard_offline_page() injects with MF_SW_SIMULATED, so unpoison is allowed. */
+> +static void unpoison_pfn(uint64_t pfn)
+> +{
+> +	char path[PATH_MAX], buf[32];
+> +	const char *debugfs;
+> +	int fd, len;
+> +
+> +	debugfs = debugfs__mount();
 
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
----
- arch/riscv/net/bpf_jit.h        |  1 +
- arch/riscv/net/bpf_jit_comp64.c | 79 +++++++++++++++++++++++++++++++++++++++--
- arch/riscv/net/bpf_jit_core.c   |  4 +++
- 3 files changed, 81 insertions(+), 3 deletions(-)
+I might be miss something but I can't find the implementation of debugfs__mount.
 
-diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-index 419b9d795f2a..9eb4e149505d 100644
---- a/arch/riscv/net/bpf_jit.h
-+++ b/arch/riscv/net/bpf_jit.h
-@@ -82,6 +82,7 @@ struct rv_jit_context {
- 	unsigned long flags;
- 	int stack_size;
- 	int tcc_offset;
-+	u16 stack_arg_size;
- 	u64 arena_vm_start;
- 	u64 user_vm_start;
- };
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index 6b9972b07c1b..58cb3e5ff6b4 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -1815,18 +1815,43 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 
- 		if (insn->src_reg == BPF_PSEUDO_KFUNC_CALL) {
- 			const struct btf_func_model *fm;
--			int idx;
-+			int idx, nargs;
- 
- 			fm = bpf_jit_find_kfunc_model(ctx->prog, insn);
- 			if (!fm)
- 				return -EINVAL;
- 
--			for (idx = 0; idx < fm->nr_args; idx++) {
-+			nargs = min_t(int, fm->nr_args, MAX_BPF_FUNC_REG_ARGS);
-+			for (idx = 0; idx < nargs; idx++) {
- 				u8 reg = bpf_to_rv_reg(BPF_REG_1 + idx, ctx);
- 
- 				if (fm->arg_size[idx] == sizeof(int))
- 					emit_sextw(reg, reg, ctx);
- 			}
-+
-+			/* BPF stack args -> RISC-V ABI: args 6-8 in A5-A7, 9+ at SP+0 */
-+			if (fm->nr_args > MAX_BPF_FUNC_REG_ARGS) {
-+				int n_stack = fm->nr_args - MAX_BPF_FUNC_REG_ARGS;
-+				int n_reg = min_t(int, n_stack,
-+						  RV_MAX_REG_ARGS - MAX_BPF_FUNC_REG_ARGS);
-+
-+				for (idx = 0; idx < n_reg; idx++) {
-+					int sz = fm->arg_size[MAX_BPF_FUNC_REG_ARGS + idx];
-+
-+					emit_ld(RV_REG_A5 + idx, idx * 8, RV_REG_SP, ctx);
-+					if (sz == sizeof(int))
-+						emit_sextw(RV_REG_A5 + idx, RV_REG_A5 + idx, ctx);
-+				}
-+
-+				for (idx = n_reg; idx < n_stack; idx++) {
-+					int sz = fm->arg_size[MAX_BPF_FUNC_REG_ARGS + idx];
-+
-+					emit_ld(RV_REG_T1, idx * 8, RV_REG_SP, ctx);
-+					if (sz == sizeof(int))
-+						emit_sextw(RV_REG_T1, RV_REG_T1, ctx);
-+					emit_sd(RV_REG_SP, (idx - n_reg) * 8, RV_REG_T1, ctx);
-+				}
-+			}
- 		}
- 
- 		/* restore TCC to RV_REG_TCC before bpf2bpf call */
-@@ -1891,6 +1916,21 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	case BPF_LDX | BPF_MEM | BPF_H:
- 	case BPF_LDX | BPF_MEM | BPF_W:
- 	case BPF_LDX | BPF_MEM | BPF_DW:
-+		if (insn->src_reg == BPF_REG_PARAMS) {
-+			int idx = off / 8 - 1;
-+
-+			if (is_12b_int(idx * 8)) {
-+				emit_ldx_insn(rd, idx * 8, RV_REG_FP, BPF_SIZE(code), false, ctx);
-+			} else {
-+				emit_imm(RV_REG_T1, idx * 8, ctx);
-+				emit_add(RV_REG_T1, RV_REG_T1, RV_REG_FP, ctx);
-+				emit_ldx_insn(rd, 0, RV_REG_T1, BPF_SIZE(code), false, ctx);
-+			}
-+			if (BPF_SIZE(code) != BPF_DW && insn_is_zext(&insn[1]))
-+				return 1;
-+			break;
-+		}
-+		fallthrough;
- 	case BPF_LDX | BPF_PROBE_MEM | BPF_B:
- 	case BPF_LDX | BPF_PROBE_MEM | BPF_H:
- 	case BPF_LDX | BPF_PROBE_MEM | BPF_W:
-@@ -1938,6 +1978,20 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	case BPF_ST | BPF_MEM | BPF_H:
- 	case BPF_ST | BPF_MEM | BPF_W:
- 	case BPF_ST | BPF_MEM | BPF_DW:
-+		if (insn->dst_reg == BPF_REG_PARAMS) {
-+			int idx = -off / 8 - 1;
-+
-+			emit_imm(RV_REG_T1, imm, ctx);
-+			if (is_12b_int(idx * 8)) {
-+				emit_stx_insn(RV_REG_SP, idx * 8, RV_REG_T1, BPF_SIZE(code), ctx);
-+			} else {
-+				emit_imm(RV_REG_T2, idx * 8, ctx);
-+				emit_add(RV_REG_T2, RV_REG_SP, RV_REG_T2, ctx);
-+				emit_stx_insn(RV_REG_T2, 0, RV_REG_T1, BPF_SIZE(code), ctx);
-+			}
-+			break;
-+		}
-+		fallthrough;
- 	/* ST | PROBE_MEM32: *(size *)(dst + RV_REG_ARENA + off) = imm */
- 	case BPF_ST | BPF_PROBE_MEM32 | BPF_B:
- 	case BPF_ST | BPF_PROBE_MEM32 | BPF_H:
-@@ -1960,6 +2014,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	case BPF_STX | BPF_MEM | BPF_H:
- 	case BPF_STX | BPF_MEM | BPF_W:
- 	case BPF_STX | BPF_MEM | BPF_DW:
-+		if (insn->dst_reg == BPF_REG_PARAMS) {
-+			int idx = -off / 8 - 1;
-+
-+			if (is_12b_int(idx * 8)) {
-+				emit_stx_insn(RV_REG_SP, idx * 8, rs, BPF_SIZE(code), ctx);
-+			} else {
-+				emit_imm(RV_REG_T1, idx * 8, ctx);
-+				emit_add(RV_REG_T1, RV_REG_SP, RV_REG_T1, ctx);
-+				emit_stx_insn(RV_REG_T1, 0, rs, BPF_SIZE(code), ctx);
-+			}
-+			break;
-+		}
-+		fallthrough;
- 	/* STX | PROBE_MEM32: *(size *)(dst + RV_REG_ARENA + off) = src */
- 	case BPF_STX | BPF_PROBE_MEM32 | BPF_B:
- 	case BPF_STX | BPF_PROBE_MEM32 | BPF_H:
-@@ -2036,6 +2103,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
- 
- 	stack_adjust = round_up(stack_adjust, STACK_ALIGN);
- 	stack_adjust += bpf_stack_adjust;
-+	stack_adjust += ctx->stack_arg_size;
- 
- 	store_offset = stack_adjust - 8;
- 
-@@ -2093,7 +2161,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
- 	emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
- 
- 	if (bpf_stack_adjust)
--		emit_addi(RV_REG_S5, RV_REG_SP, bpf_stack_adjust, ctx);
-+		emit_addi(RV_REG_S5, RV_REG_SP, ctx->stack_arg_size + bpf_stack_adjust, ctx);
- 
- 	ctx->stack_size = stack_adjust;
- 
-@@ -2171,3 +2239,8 @@ bool bpf_jit_supports_timed_may_goto(void)
- {
- 	return true;
- }
-+
-+bool bpf_jit_supports_stack_args(void)
-+{
-+	return true;
-+}
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index cbfcd287ea16..844a0f3e0fa9 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -72,6 +72,10 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 	ctx->arena_vm_start = bpf_arena_get_kern_vm_start(prog->aux->arena);
- 	ctx->user_vm_start = bpf_arena_get_user_vm_start(prog->aux->arena);
- 	ctx->prog = prog;
-+
-+	ctx->stack_arg_size = round_up(bpf_out_stack_arg_cnt(env, prog) *
-+				       sizeof(u64), STACK_ALIGN);
-+
- 	ctx->offset = kvzalloc_objs(int, prog->len);
- 	if (!ctx->offset)
- 		goto out_offset;
+> +	if (!debugfs)
+> +		return;
+> +
+> +	snprintf(path, sizeof(path), "%s/hwpoison/unpoison-pfn", debugfs);
+> +	fd = open(path, O_WRONLY);
+> +	if (fd < 0)
+> +		return;
+> +
+> +	len = snprintf(buf, sizeof(buf), "0x%llx\n", (unsigned long long)pfn);
+> +	if (write(fd, buf, len) < 0)
+> +		perror("unpoison-pfn");
+> +	close(fd);
+> +}
+> +
+...
+> +
+> +static void check_prereqs(int armed)
+> +{
+> +	if (geteuid())
+> +		fatal("must run as root\n");
+> +	if (access(SYSCTL_PATH, W_OK))
+> +		fatal("%s not present (kernel without the sysctl?)\n",
+> +		      SYSCTL_PATH);
+> +	if (access(INJECT_PATH, W_OK))
+> +		fatal("%s not present (no MEMORY_HOTPLUG?)\n", INJECT_PATH);
 
--- 
-2.53.0
+MEMORY_HOTPLUG?
 
+Thanks.
+.
 
 _______________________________________________
 linux-riscv mailing list
