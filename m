@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72ACEC5CFCF
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 15:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03094C5B572
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 15:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=42VcSEr+sTv5RuchxkitA6WeeVbGeojWDKHLY06GzNI=; b=4sOqqOH23uSVl9
-	fUpErign0yecHoJaeLkn/qtrhz3PP+OT/WC7YcKKyXdffAxDf/uF2UCXKinGHuu6FsGAKN4G9fjnz
-	KHLxEwIWrd7LWgldG0eUbj6wRonduCKxzoaXLRrn+Tr8hTPOPoOPLxjgb+w7fCWyzrjPUWzCFhOnG
-	Dc+z6EH4NDH2pR7HJTGdxB+Zqe5Vv0sAXn0iotEaH8Ustigc1dm96xBq84/QL50rcCaaovMTy27Ve
-	LV0PER1dCJq8/A/oIN0+uglP8fI66lBfNC/pKNU8traXI567O6GJcRPXCvtx8sx1+yUX5KkLEdvl6
-	jBSiGSoK8O5yVy9r3rgg==;
+	List-Owner; bh=zYNQJ47/9hwWpXquLbJT98PI7NE2vS1WiEdic16hUBo=; b=c16A3l+hp1szIR
+	I9ZWbQE/BbGvuHVkQR4o+c1mAD6syr3q1VbZeMWgE9+TN/CweE5HdiFOEVJE34y7ZfNPSnhZI5Zat
+	j8JMGJDZzOC3mTCyDqDznzaGIXVgUazJ8ntd76fVdb63Z94CjYaN9XHQYGoXr958w5zsvkSJv0SIG
+	pMqL6V1dfbh+kQIiFQGmxzMvMhxLXtdLN8FPjDhyqWiNvAIX/Cg1n6X58pFDDMioDoTbWtQx021xe
+	MgvmGcyXLZ0afeYn8KMge03uGcECNCaBbJnnkMdKw4ysu5YcVXYMvXy0x7QpLyImG9QeKHBcOVQjW
+	K2mWPUjeHSwWWSLunDxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXYi-000000013gf-0Hyj;
-	Thu, 13 Aug 2026 15:41:32 +0000
+	id 1wuXaL-000000013se-1cjp;
+	Thu, 13 Aug 2026 15:43:13 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXYf-000000013g2-0pvL
+	id 1wuXaI-000000013rz-1cem
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 15:41:30 +0000
+	Thu, 13 Aug 2026 15:43:11 +0000
 Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-01 (Coremail) with SMTP id qwCowABXK++j5X1q6EV6BQ--.55604S2;
-	Thu, 13 Aug 2026 23:41:23 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowAAX7O8I5n1qKVx6BQ--.56368S2;
+	Thu, 13 Aug 2026 23:43:04 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
 To: Sunil V L <sunilvl@ventanamicro.com>,
 	"Rafael J. Wysocki" <rafael@kernel.org>
@@ -42,17 +42,17 @@ Cc: Len Brown <lenb@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH v2 1/3] ACPI: RIMT: validate table and node extents before traversal
-Date: Thu, 13 Aug 2026 23:41:23 +0800
-Message-ID: <20260813154123.51566-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH v2 2/3] ACPI: RIMT: validate node payload and array extents
+Date: Thu, 13 Aug 2026 23:43:03 +0800
+Message-ID: <20260813154303.53923-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260813153851.47947-1-pengpeng@iscas.ac.cn>
 References: <20260813153851.47947-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABXK++j5X1q6EV6BQ--.55604S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxZF18tF1xGF4UAF48tF1UJrb_yoW5CF45pa
-	13K3s0vrn5JrnrWa1xtF1rAFy3AF4xtrW7JryYka1Ygws8K3y8KF42yryavFn8GF93Ww42
-	yrs8tFn8CF4qyF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: qwCowAAX7O8I5n1qKVx6BQ--.56368S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxtw15GryfGw45ur4fJryxXwb_yoW7WFykpa
+	y2gay5ArZrJr1xW3WIvF4rAayYqw10qrW7ta909a1qvr1kKrWxGF4jkry3uw15JFZ7Ww47
+	JFs8tFs8ur4qvFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
@@ -69,8 +69,8 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxZF18tF1xGF4UAF48tF1UJrb_yoW5CF45pa
 X-Originating-IP: [111.196.241.250]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_084129_606550_6FFEC07A 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20260813_084310_803136_3D1C8D98 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,107 +87,177 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RIMT walkers construct the first node from a firmware-provided offset and
-advance by each node length.  Checking only whether the current pointer
-reached the table end still permits a bad root offset, a truncated node
-header, or a zero or oversized node length to be read.
+RIMT node lengths bound type-specific payloads, but the parser casts
+node_data and follows interrupt-wire and ID-mapping offsets without proving
+their extents.  Platform-device matching also treats the firmware name as
+an unbounded C string.
 
-Validate the root node area before constructing the first pointer.  Bound
-traversal by num_nodes and require every complete node to fit in the table.
+Require each supported fixed payload and non-empty array to fit in its
+node, and require a platform device name to terminate before the mapping
+array or node end.
 
 Fixes: 8f7729552582 ("ACPI: RISC-V: Add support for RIMT")
 Assisted-by: Codex:gpt-5
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/acpi/riscv/rimt.c | 53 ++++++++++++++++++++++++++++++++++++---
- 1 file changed, 50 insertions(+), 3 deletions(-)
+ drivers/acpi/riscv/rimt.c | 107 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 107 insertions(+)
 
 diff --git a/drivers/acpi/riscv/rimt.c b/drivers/acpi/riscv/rimt.c
-index e4538fa6c2c8..533e9aba6e97 100644
+index 533e9aba6e97..e8075f79b552 100644
 --- a/drivers/acpi/riscv/rimt.c
 +++ b/drivers/acpi/riscv/rimt.c
-@@ -31,6 +31,45 @@ static DEFINE_SPINLOCK(rimt_fwnode_lock);
- /* Root pointer to the mapped RIMT table */
- static struct acpi_table_header *rimt_table;
+@@ -12,8 +12,10 @@
+ #include <linux/device/driver.h>
+ #include <linux/iommu.h>
+ #include <linux/list.h>
++#include <linux/overflow.h>
+ #include <linux/pci.h>
+ #include <linux/platform_device.h>
++#include <linux/string.h>
+ #include "init.h"
  
-+static bool rimt_table_valid(void)
+ struct rimt_fwnode {
+@@ -70,6 +72,99 @@ static bool rimt_node_valid(struct acpi_rimt_node *node,
+ 	return true;
+ }
+ 
++static bool rimt_node_has_data(struct acpi_rimt_node *node, size_t data_size)
 +{
-+	struct acpi_table_rimt *rimt = (struct acpi_table_rimt *)rimt_table;
-+	size_t node_bytes;
-+
-+	if (!rimt || rimt->header.length < sizeof(*rimt))
-+		return false;
-+
-+	if (!rimt->num_nodes)
-+		return true;
-+
-+	if (rimt->node_offset < sizeof(*rimt) ||
-+	    rimt->node_offset > rimt->header.length -
-+				 sizeof(struct acpi_rimt_node))
-+		return false;
-+
-+	node_bytes = rimt->header.length - rimt->node_offset;
-+	return rimt->num_nodes <=
-+		node_bytes / sizeof(struct acpi_rimt_node);
-+}
-+
-+static bool rimt_node_valid(struct acpi_rimt_node *node,
-+			    struct acpi_rimt_node *end)
-+{
-+	size_t remaining;
-+
-+	if ((u8 *)node >= (u8 *)end)
-+		return false;
-+
-+	remaining = (u8 *)end - (u8 *)node;
-+	if (remaining < sizeof(*node) || node->length < sizeof(*node) ||
-+	    node->length > remaining) {
-+		pr_err(FW_BUG "Invalid RIMT node length\n");
++	if (node->length < sizeof(*node) ||
++	    data_size > node->length - sizeof(*node)) {
++		pr_err(FW_BUG "Truncated RIMT node type %u\n", node->type);
 +		return false;
 +	}
 +
 +	return true;
 +}
 +
++static bool rimt_node_array_valid(struct acpi_rimt_node *node, u32 offset,
++				  u32 count, size_t elem_size,
++				  size_t min_offset, const char *name)
++{
++	size_t bytes;
++
++	if (!count)
++		return true;
++
++	if (offset < min_offset || offset > node->length ||
++	    check_mul_overflow(count, elem_size, &bytes) ||
++	    bytes > node->length - offset) {
++		pr_err(FW_BUG "Invalid %s in RIMT node type %u\n", name,
++		       node->type);
++		return false;
++	}
++
++	return true;
++}
++
++static bool rimt_node_data_valid(struct acpi_rimt_node *node)
++{
++	size_t data_offset = sizeof(*node);
++
++	switch (node->type) {
++	case ACPI_RIMT_NODE_TYPE_IOMMU: {
++		struct acpi_rimt_iommu *iommu;
++
++		if (!rimt_node_has_data(node, sizeof(*iommu)))
++			return false;
++
++		iommu = (struct acpi_rimt_iommu *)node->node_data;
++		return rimt_node_array_valid(node, iommu->interrupt_wire_offset,
++					     iommu->num_interrupt_wires,
++					     sizeof(struct acpi_rimt_iommu_wire_gsi),
++					     data_offset + sizeof(*iommu),
++					     "interrupt wire array");
++	}
++	case ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX: {
++		struct acpi_rimt_pcie_rc *pci_rc;
++
++		if (!rimt_node_has_data(node, sizeof(*pci_rc)))
++			return false;
++
++		pci_rc = (struct acpi_rimt_pcie_rc *)node->node_data;
++		return rimt_node_array_valid(node, pci_rc->id_mapping_offset,
++					     pci_rc->num_id_mappings,
++					     sizeof(struct acpi_rimt_id_mapping),
++					     data_offset + sizeof(*pci_rc),
++					     "ID mapping array");
++	}
++	case ACPI_RIMT_NODE_TYPE_PLAT_DEVICE: {
++		struct acpi_rimt_platform_device *plat;
++		size_t name_end;
++
++		if (!rimt_node_has_data(node, sizeof(*plat)))
++			return false;
++
++		plat = (struct acpi_rimt_platform_device *)node->node_data;
++		if (!rimt_node_array_valid(node, plat->id_mapping_offset,
++					   plat->num_id_mappings,
++					   sizeof(struct acpi_rimt_id_mapping),
++					   data_offset + sizeof(*plat),
++					   "ID mapping array"))
++			return false;
++
++		name_end = plat->num_id_mappings ? plat->id_mapping_offset :
++						     node->length;
++		if (name_end <= data_offset + sizeof(*plat) ||
++		    !memchr(plat->device_name, '\0',
++			    name_end - data_offset - sizeof(*plat))) {
++			pr_err(FW_BUG "Invalid device name in RIMT node\n");
++			return false;
++		}
++
++		return true;
++	}
++	default:
++		return false;
++	}
++}
++
  /**
   * rimt_set_fwnode() - Create rimt_fwnode and use it to register
   *		       iommu data in the rimt_fwnode_list
-@@ -153,19 +192,21 @@ static struct acpi_rimt_node *rimt_scan_node(enum acpi_rimt_node_type type,
- 	struct acpi_table_rimt *rimt;
- 	int i;
+@@ -107,6 +202,9 @@ static acpi_status rimt_match_node_callback(struct acpi_rimt_node *node,
+ 	acpi_status status = AE_NOT_FOUND;
+ 	struct device *dev = context;
  
--	if (!rimt_table)
-+	if (!rimt_table_valid())
- 		return NULL;
++	if (!rimt_node_data_valid(node))
++		return status;
++
+ 	if (node->type == ACPI_RIMT_NODE_TYPE_IOMMU) {
+ 		struct acpi_rimt_iommu *iommu_node = (struct acpi_rimt_iommu *)&node->node_data;
  
- 	/* Get the first RIMT node */
- 	rimt = (struct acpi_table_rimt *)rimt_table;
-+	if (!rimt->num_nodes)
+@@ -285,6 +383,9 @@ static bool rimt_pcie_rc_supports_ats(struct acpi_rimt_node *node)
+ {
+ 	struct acpi_rimt_pcie_rc *pci_rc;
+ 
++	if (!rimt_node_data_valid(node))
++		return false;
++
+ 	pci_rc = (struct acpi_rimt_pcie_rc *)node->node_data;
+ 	return pci_rc->flags & ACPI_RIMT_PCIE_ATS_SUPPORTED;
+ }
+@@ -340,6 +441,9 @@ static struct acpi_rimt_node *rimt_node_get_id(struct acpi_rimt_node *node,
+ 	struct acpi_rimt_id_mapping *map;
+ 	struct acpi_rimt_node *parent;
+ 
++	if (index < 0 || !rimt_node_data_valid(node))
 +		return NULL;
 +
- 	rimt_node = ACPI_ADD_PTR(struct acpi_rimt_node, rimt,
- 				 rimt->node_offset);
- 	rimt_end = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table,
- 				rimt_table->length);
+ 	if (node->type == ACPI_RIMT_NODE_TYPE_PCIE_ROOT_COMPLEX) {
+ 		pci_node = (struct acpi_rimt_pcie_rc *)&node->node_data;
+ 		id_mapping_offset = pci_node->id_mapping_offset;
+@@ -391,6 +495,9 @@ static struct acpi_rimt_node *rimt_node_map_id(struct acpi_rimt_node *node,
+ 		int i, rc = 0;
+ 		u32 map_id = id;
  
- 	for (i = 0; i < rimt->num_nodes; i++) {
--		if (WARN_TAINT(rimt_node >= rimt_end, TAINT_FIRMWARE_WORKAROUND,
--			       "RIMT node pointer overflows, bad table!\n"))
-+		if (!rimt_node_valid(rimt_node, rimt_end))
- 			return NULL;
- 
- 		if (rimt_node->type == type &&
-@@ -525,4 +566,10 @@ void __init riscv_acpi_rimt_init(void)
- 
- 		return;
- 	}
++		if (!rimt_node_data_valid(node))
++			goto fail_map;
 +
-+	if (!rimt_table_valid()) {
-+		pr_err(FW_BUG "Invalid RIMT table layout\n");
-+		acpi_put_table(rimt_table);
-+		rimt_table = NULL;
-+	}
- }
+ 		if (RIMT_TYPE_MASK(node->type) & type_mask) {
+ 			if (id_out)
+ 				*id_out = id;
 -- 
 2.50.1 (Apple Git-155)
 
