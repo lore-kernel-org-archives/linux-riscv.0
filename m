@@ -4,128 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF17C5B572
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 18:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFE2C5B572
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 23:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aj936BAo/vn6kTzcuTJMJI2nuppUcKE04lucWIgwnas=; b=5DSsXzEXMoQKFU
-	YhAFi7ykQ9QCdjqlM6C1nASoKC2XeU59QjOo+3bUF0PK7Z3ykioZd6Cym7XjnxYzQgduiE4fJPv7Q
-	pBKDCzbx8q6Wi3Gl/wmU2oS2AJflh818aWAfMTHaq1z77UyU4X2tHfO5XGIyMevjAgUALC1WUu9Rz
-	4l58nMQbMwETEiHZosuGQ7nqe/7O9hxMgZdOFK3kOBgLTnoiSq2UG1rtu26SY3k5WtEjjiUnga9mH
-	Vg3Wz6vAIH4oEbB+0tPpU1/nVcHWjUVlNfLO+WEcdam+0Sk+MPfKsvtKYxGiD0L6qJDNLBdhbxQ2m
-	UUO2mJaiYHDPKYNm3mFQ==;
+	List-Owner; bh=aFngwU0tZws1IC0BRMULaL2J+Na3oA7ebq8uzsaOSA8=; b=i3lH1K5uRngYYa
+	v6iou82nwiShEkxOQs76WRTPDfddlKvPoR2S/tyqZ5FmmEmVwlT6HMHuPHXbYC6ZZ+Wvug1EqBMRo
+	wBUIOddLHnPbKgDItVBcpF+Ulm0Gkp7CVtfyRSjJw0QKjq9ZkxRKbZ5i5FcLVovFPU3adIYOCjIfN
+	xZ/4kvRc7f8+owvoUWcEy5HzO5qOhRMqGbEIbWLEnJQjHKgYkscfzFJ32FJ3snaOsHpuMLUN1JuxR
+	3w1cYnwOT8jyFoHaDNV7KJ1IZAHhumxoTO+C3UV6cTjJmT3XEfMR0dndLuIg+2XeL8rnJ6bqrCV/v
+	6feqsFGlhS5Szr4ix83Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuaUd-00000001P86-0NHg;
-	Thu, 13 Aug 2026 18:49:31 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wuf3X-00000001kWH-2We1;
+	Thu, 13 Aug 2026 23:41:51 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuaUa-00000001P7e-1OSI;
-	Thu, 13 Aug 2026 18:49:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gLJ0A65DXq/5P6NrA2jFyC+9SyRMOprNid9JfHJXGjh+qoM+4llT+RVk9j4kME4ki3cUpCD/XwD+QX6SSRB3yPIkufuvmXZM0ZYtXL3Xnj7P0zElu5yFMz0TTRwzsebEA1+yyMIGCZkNnz4JACd8ixikSc59Gm16qsToK0/XgeVIhhBdPq4MAyzvwvA/ovBHTjH3Kj7k9Ghy9rWwZXSmcFn8E25K0UJMWJfg5pEKWd6mQ4c1k1pJUtnmE92BGVaJFIPd0KcdeIo9tVqNEEsllluH4JQyhNEppGOKlM4R8o3KQRMfcnyjlW2EeADBXueu2YaI5uTPNti1HluEC8kAKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RJoXzZLaV9CrWqVMRDQ7ngwc3lK41lX6j2Op+4khpZY=;
- b=fs/NFYvw0qSzx8hIopeYKGNXzGCAiFRb9EaKU/ozLrLMX7NYpmU/K2Synrxv+eewA+fw0nbSgsbBeufIHRz+2mLH/3n3IDEgbUAXOCxPF0H2RpuOOnE0Mf00BEi30DRyIEeIZiW7eTgP1i2I+smAujyU+CxiJFb+QmNDSITd/VBRXO6Ylx3LF5o67zo/lg2AxHtyb3q4Rbo3j774qg11p92Ka65mV3cYlqpeL6c+KsABsGnTTaZ/XPcKz/vSorcbTljVo9/EVMHg5MOBrAJJDueh6DUlXt9wB4ZZEOghNPtAWod5FN3n2orywTwNkzWo9Q/agFKFWa+FdOVLuGzERg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RJoXzZLaV9CrWqVMRDQ7ngwc3lK41lX6j2Op+4khpZY=;
- b=WZ7XnN647b/6QPYLJVQxEYx+syzOkffBeUBB6dz2oQbKTri0GjCdEb3vn1ZwK3arm6QrSY0WORIfPHo/1DaFCgokhjm4sQ1dKBJqCTGld3tRE2eD9F6+8dyP44nzhzlhgQosXwQKUzcBcS35NQZo7/r2eWv5CRrY4EiKZxVqJuXRWbFLBux6kJMPIjj8hk3jvdB/DgL85/yW0iCKpR+w6SQddFDrMQljyXoCJ83gzK4lH5CTLjKt89+deOy9j6snKsS5hHq767wCQcQ56FIMvKfnRToe8UMvh8YEY7JBfnkBxV5uphFQaHCYu7F/Po0ks5zH2AKS22cl2EUUxyb03A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS5PR04MB10060.eurprd04.prod.outlook.com (2603:10a6:20b:676::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.15; Thu, 13 Aug
- 2026 18:49:24 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Thu, 13 Aug 2026
- 18:49:24 +0000
-Date: Thu, 13 Aug 2026 13:49:16 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Hans Zhang <18255117159@163.com>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, jingoohan1@gmail.com, imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-tegra@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 04/16] PCI: dwc: layerscape-ep: Use cached PCIe
- capability offset
-Message-ID: <an4RrIcV2Q6NtQ1X@SMW015318>
-References: <20260720150619.24733-1-18255117159@163.com>
- <20260720150619.24733-5-18255117159@163.com>
-Content-Disposition: inline
-In-Reply-To: <20260720150619.24733-5-18255117159@163.com>
-X-ClientProxiedBy: SA9PR13CA0174.namprd13.prod.outlook.com
- (2603:10b6:806:28::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wuf3V-00000001kVt-4BHh
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Aug 2026 23:41:51 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3811f512167so448934a91.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Aug 2026 16:41:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786664508; x=1787269308; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iwC65MbtAmU0iZDgsw6jaeB5r1edUFdIvrYzSi6Yk6E=;
+        b=HEbr8KMyrIhwrTw5x6AUouVWnjP9EQ9a5MvQDs4blZ/BImvlLmhBBbSACUnUPePqYK
+         RjCPhaJgs4854MZJF3//5yaF5dLUgaBSkCnxcVQY1Ac2zpS1HqonTevpA7N0BJKRFfEV
+         +A8cz6qL+jxt3yVQvEHzYtjtoBCIbvxKjUacGdKk6++ynudrAO44QnCe6mR8uMzVtBcw
+         Gwb7JGCd0vA29usPlC0y/1NOwbsCZaSgd1jIisFpPO9tkwpN9lXj85MsyrYvs6YYSVC5
+         LEGmdcwdOksjN0PGKRqExeYfSpyLS08IyvHWMyKknrgTPtbo9ZeDSbS8oaFH9+0zM1MQ
+         mzPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786664508; x=1787269308;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iwC65MbtAmU0iZDgsw6jaeB5r1edUFdIvrYzSi6Yk6E=;
+        b=SXAilcRnUHd193Dfdbaa9l/4Rx5UFO1+W1iJMKWFTDrbjOv0kbOiIGiXTF/An1jVDj
+         jLA8AHlgU9HXowqnBaao93mzb8oiKsz4h9l3H9cEUQpljmjrLazISyjEL4qGkiNqi8cN
+         e4lFacwwk21aHPjhRwK9upHL+kodFIbHhcWUTpFNPWfi+izTRosYrIyC0xt/pK2OGGPD
+         QGY799RZfU+kfLIHBhL8mNfLPwaWwVkP1gUU5jZb/9tjzIwJ3w10xx5CxEDS6yOu95dH
+         ag6yeaaTElavEZASOcXOxEUlzo26/VrNQRdjXGevm/AgAaShe3IcXdL6ZsRCXH3uxK2s
+         tgog==
+X-Forwarded-Encrypted: i=1; AHgh+Rq8nNsecIXCHl51vStmKwsjD4Vg22LnSCfD10+W9poBGjcyPaoUwVvuf4j9ssMM/K2Xh9OWn6ELM2QmZg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8w5liQck7MUbZpK7xe1+tCvB1JX5YcmuGUgvJNXQurjfXftn2
+	RVeFlreMjzOWCwruTGYnaoJAUu+QCRScXfoS/tCdXoI8zozi60DaKQn4
+X-Gm-Gg: AR+sD13f821vn3bIeRloPwnMakXaINwdW64SkApiNpA3Do3cv/fOhfHC0W3+C4Pajm9
+	+ntTt5M5ZidL5ndFa0LeKAUovFGcgFOK9A8huCX1AJ8CpwMayRSyToUIpQpixuVtPWNbIjrrBpS
+	ykUzqEvlhZPQfmhZeian/3SmmglS05yMIRtt0q5SuJBOJM64nY/BHU0Aw7fV+9FgB/Hi8o3UkQZ
+	eyMIUihzkwcV37q9Dq7VNY1GH8Cug63uirzaw/q3/1EfuahVcrD/QDRk5oRTsH4a9snIy92WOii
+	IQOPNGFf0PoS16VPwgyrLgOMFvb/mOvp2K69LXZQOxm22V21qdbZkxkhdbdrmVkugh3E5bHiU+8
+	Uodb9D6GLofIOlCrgrW35CiTHRo532CtYXG/XxMwNCyD9KZaSGA8Tz07zHq2LNkEO7MU6fWzZqF
+	l+GpMRorlYjGfVd5Lnop8JBRN+GrfJrRA0V9Uhm9O5b9brAZatLIzs3UOC+FljqwNJN0v4vh6Gq
+	lAT3Q8=
+X-Received: by 2002:a17:90b:2891:b0:381:152b:d596 with SMTP id 98e67ed59e1d1-3933b8e1ec2mr1667028a91.11.1786664508220;
+        Thu, 13 Aug 2026 16:41:48 -0700 (PDT)
+Received: from kira.gmail.com ([2601:646:9e01:94:1485:6f2e:d5d8:e3ac])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141387af4adsm2357778c88.1.2026.08.13.16.41.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Aug 2026 16:41:47 -0700 (PDT)
+From: Mark Harris <mark.hsj@gmail.com>
+To: tchiu@tenstorrent.com
+Cc: Mark Harris <mark.hsj@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	bergner@tenstorrent.com,
+	kito.cheng@sifive.com,
+	dfustini@oss.tenstorrent.com,
+	greentime.hu@sifive.com,
+	"Andrew Jones" <andrew.jones@oss.qualcomm.com>,
+	"Guodong Xu" <guodong.xu@oss.qualcomm.com>,
+	"Aleksa Paunovic" <aleksa.paunovic@htecgroup.com>,
+	"Pincheng Wang" <pincheng.plct@isrc.iscas.ac.cn>,
+	"Xu Lu" <luxu.kernel@bytedance.com>,
+	"Yao Zihong" <zihong.plct@isrc.iscas.ac.cn>,
+	"Jingwei Wang" <wangjingwei@iscas.ac.cn>,
+	"Deepak Gupta" <debug@rivosinc.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 2/3] riscv: hwprobe: export the availability of vector to user
+Date: Thu, 13 Aug 2026 16:38:54 -0700
+Message-ID: <20260813233854.86799-1-mark.hsj@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260725001614.2578617-3-tchiu@tenstorrent.com>
+References: <20260725001614.2578617-3-tchiu@tenstorrent.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB10060:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ca7d326-1ca7-4cff-d591-08def96b97bf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|19092799006|6133799003|56012099006|10067099003|11063799006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: wcJvH7zpJFzrE1i9zqbBU1P9ATnBOB39jgkZ+Mr48gdLyySS2SJLyRG08czl17pOfAmA7OhGo7ydbjCbXfAoQcdceJyD7NfAMqon9BJxpKtsovALGpaFvedDyGu18QhIz0DR7fR6z/MCJ8bKxAF55zoFb9qBfigdq6+Zkm/wfcW8Pd+LZVDRCj8H9JjhpK/IV9KjzKRdfwuygcf09u8DbVfsaOScdZDpdTXnOWoFl7Ort5knb0AiZEA/OyZeCi0g3Z56+2UmxvhzEHLDxkehNPi+2+zoj2q2dRIHZL47FZ7wqDhgYgE24jZZq9kV+cMU7wYenJ5Bncr+RNlbKfinGRUk70IX7at6zA3qcehEw0Wl9/vTycDuMzhg7J8Wz7F3yle8JF5VFHRw+foVmhtmt6hFTD7MlBrkbda1X5mKfpdij7B/6EDzfkNH7tyJV2dr3JqxGIEZJU4WXQVn2FVj54VZv8c3thiLh4+mMQS/aGyNAHAxpycroT48e/fUNzzZ32B+Drj/BMV6kBqu49ViRCvAHQm3whetErPvOZloXbZiwTTdwYyxARtNA/uIb4cEObYa+wfNVdIlLkVsof6lrnraXxtJ8oC6jKM0K4jddJ2Nc4WCvEeXRmmXJoaIWqsw/WoLFWX2JKcyoEOXBe/5fHUr90cDigyhER3NOrriTvk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(19092799006)(6133799003)(56012099006)(10067099003)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7S4KOFeu+bq1Jsj4N5leCG2q6tO9QWExUi0FsFauCSp47qD4ysbWzNbnD5Al?=
- =?us-ascii?Q?Iw0Aq5DX2tB4yOh6aRWbbzojrBAHGTO/gXpMF9lZzkpgssMgwGQfJS/HmCgN?=
- =?us-ascii?Q?KDbHrFPvDVh8ctAtOF8Fho+ATaPrWRIRnycx0FnDtZwaKkm7acjdai+wYmRo?=
- =?us-ascii?Q?41I7+xw6l7gFDNTGaiZjmgGUVCIG9Y18NknjkcO0q7iKI1+/hsuni7KvbMW8?=
- =?us-ascii?Q?If/E465RcuSDlir5Lu8ZNa9oT8OSRuV+PUxUlIQ5kz1SMNmjDcDPU5wwm+uK?=
- =?us-ascii?Q?B29xKf/QnwasvL3IZfZhfqIQc2hfJkLS2phRmUyupK7RuXnmqQPP/IAXVlvB?=
- =?us-ascii?Q?83ifPQScCAk9Ftvl1O4/U32DKrlmsjpwVTl/vjguOouXbwcqxUq/gakc4xTf?=
- =?us-ascii?Q?gwDlV1NgI3YzZEkzjJJpQeSQcjUTV8cxHosO16yL+RMFgen3sS4HpAqitQOd?=
- =?us-ascii?Q?h9efQ+Ti7Kz/aJ5J+WvHmlvQvx1nrHqfdIb/8PgKh2pai9c2ylEwHF3+nOJI?=
- =?us-ascii?Q?xI/meyt9dAmwCyEVQ/9JTyYCxMomhCKCSa6eGuDeE/Dj64/d2azQnV4nAC3u?=
- =?us-ascii?Q?50A39Sn7MuuenwFa+ZjLj56Rzs36kDhb9RrD6IPSCFpundSvE0KI8PNwr3Ov?=
- =?us-ascii?Q?ipkaDVtyL8xeJda4Fq6xLuWiKtJ0A68WTu3A3HhK9G7lzE6Zl+gWjJPG2t2+?=
- =?us-ascii?Q?TG+i81LSdh7NisGWHQtriSC1M445e2fP5QDPdPs7YvFhV0a+qXDCbRMOZWvW?=
- =?us-ascii?Q?WtS3szbRveenCh2kChSChz4HEQM36qdjaMLfpZlZjX4i0vOqYHQicKfvfluc?=
- =?us-ascii?Q?fMwalbVbPZloKPwnE6PyetYIjYk58tXPQwNwBewaaFhcuOvlAPs5bJU4GV5b?=
- =?us-ascii?Q?EOC9omX1W4KyGVsZOqVIbaKeLSQMZk/OgbWGsnAZMUzGl6iQAGCY9FJ8CcNK?=
- =?us-ascii?Q?KpR6+0zTWNgpd3bcbVaiVqoiEaqENV/BSFr2Fs00fYI96c970utVDDz0v1bR?=
- =?us-ascii?Q?e7O4F1sFrBY/XI3aoCLn6+i9UUXeJRHVdnSShELDtkxm0MBGLEtyJIKhsVBY?=
- =?us-ascii?Q?25zKXSVWbC1ZZqsQN4WOTtHYMAByJpD1EhkqtL5kxQqrHuBf1+es38U0wB6K?=
- =?us-ascii?Q?/+KdHcZfcR3EFkamXOjqbOy7hP/nV5++hqWtNreXBr8lXogvDvIgfY3ZlxxX?=
- =?us-ascii?Q?ni2gul0jTB6Uoa0rSBMCjnSfkupxXRPJyVH5mmPAZ4OoVr0MGatmvHwSqwX1?=
- =?us-ascii?Q?Z4PASfk/0avQPCDBwtk7OMQMyDZD4puqkTWcn7Dz8dlIWLpX50SjqDkBxjN+?=
- =?us-ascii?Q?Wnr5Qo/726p9B+8HR+2NjK3ss4aVHK+mPhb8NFmtP9QYnWrKblphPA6+HN7m?=
- =?us-ascii?Q?EEdcwvmEXrxSnfBk2DjPXpFJKKktG9cL4GGdbUkup7j9HaPwLLeXn6WqUKN7?=
- =?us-ascii?Q?omKcrmoAjaaQpnajalYz0bBztGxoK1BAXssan+55NLRvxp3zNXhSVVgMVFh1?=
- =?us-ascii?Q?fgY/DRgw0i8Ug+rqUYyjE6/7gSMrf+HTpQyF9XtY8SkJoq1DwEBPfcbq1XAS?=
- =?us-ascii?Q?MRkFpmcpfOui4QIykejWUwnQ2+2TsBMrXkzlFmkxHmPHXVMXB5CmSSk2RnsU?=
- =?us-ascii?Q?rBRIK9j8dIJYhroGPEifiz6CpiijiyAYSIvNfClVbsNCsTCgW117oqb4H7js?=
- =?us-ascii?Q?8QkERrzJ7AdLQNc4lZ1oQjwjStPcsF0LYPExCyj+BH6xIA9inD0ov5L96FS6?=
- =?us-ascii?Q?9pcK30ldnmFQjwyIia42eGv+Nql5G3hsiZ4iEBBNZAxk7p312Urs?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ca7d326-1ca7-4cff-d591-08def96b97bf
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 18:49:23.9809
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: u9Dv8/Lv1MQBrrKRUB3oxVsDeFhkGqNyt0J2YNDwcPjbhzccbl5p8PwwNhxPXF0gmhcVP+HJpqvcCEkVB6cEsmUhWD1smqXV06myv5Z3AkOY34rfrDH+C2cRWryOsdaI
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB10060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_114928_375725_494AF2E4 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20260813_164150_045364_966A2ED1 
+X-CRM114-Status: GOOD (  30.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,79 +122,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 11:06:07PM +0800, Hans Zhang wrote:
-> [You don't often get email from 18255117159@163.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> Replace these with dw_pcie_get_pcie_cap(). The hardware is already enabled
-> by the driver before ls_pcie_ep_probe() and before the interrupt handler
-> runs. dw_pcie_get_pcie_cap() will cache the offset on first call, and
-> subsequent calls (including inside dw_pcie_ep_init) will use the cached
-> value without re-searching.
->
-> Signed-off-by: Hans Zhang <18255117159@163.com>
-> ---
+Andy Chiu wrote:
+> Userland IFUNC resolvers use hwprobe to decide whether to dispatch to
+> vectorized routines. But RISCV_HWPROBE_KEY_IMA_EXT_0 only reports what
+> is present in hardware, not what the calling process may actually use:
+> when Vector is disabled for a process via
+> prctl(PR_RISCV_V_SET_CONTROL, PR_RISCV_V_VSTATE_CTRL_OFF), it is still
+> reported as present. A resolver that trusts this and runs a vector
+> instruction crashes with SIGILL.
+> 
+> Add RISCV_HWPROBE_KEY_EXT_ENABLED, a positional modifier key that carries
+> no value of its own. Within a single request, keys placed after it report
+> extensions that are both present and enabled for the calling process,
+> while keys before it keep reporting hardware presence. This masks out V
+> and its V-dependent sub-extensions when V is disabled for the process, and
+> lets userland obtain both views in one query:
+> 
+>       [ {IMA_EXT_0}, {EXT_ENABLED}, {IMA_EXT_0} ]
+>           present       modifier       enabled
+> 
+> The enabled view depends on per-process state, so it cannot be served from
+> the vDSO's process-independent cache; requests carrying the modifier are
+> deferred to the syscall. Unknown keys are still reported as -1, so the
+> feature is detectable and existing users are unaffected.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Currently, each key has a value and the order of the keys does not
+matter.  If the interface needed to be extended to support
+process-specific values, or thread-specific values (the prctl() is
+thread-specific), I would expect either new keys to retrieve those
+process-specific or thread-specific values, or a new flag bit to
+indicate that existing keys should be reinterpreted in a new manner.
+Using a key as a modifier with no value and changing the keys to
+be order-dependent seems like an unnecessarily confusing ugly hack
+that we would have to live with for decades to come, just to slightly
+simplify code needed in the short term to handle older kernels.
 
-> In pci-layerscape-ep, dw_pcie_find_capability() is called in:
->
->   ls_pcie_ep_probe()
->     -> offset = dw_pcie_find_capability()
->     -> pcie->lnkcap = dw_pcie_readl_dbi(offset + PCI_EXP_LNKCAP)
->     -> dw_pcie_ep_init()
->     -> ls_pcie_ep_interrupt_init()
->         -> devm_request_irq(..., ls_pcie_ep_event_handler)
->           -> ls_pcie_ep_event_handler()
->             -> dw_pcie_find_capability()
-> ---
->  drivers/pci/controller/dwc/pci-layerscape-ep.c | 9 +++------
->  1 file changed, 3 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/pci-layerscape-ep.c b/drivers/pci/controller/dwc/pci-layerscape-ep.c
-> index 8936975ff104..b2d0b51df3c5 100644
-> --- a/drivers/pci/controller/dwc/pci-layerscape-ep.c
-> +++ b/drivers/pci/controller/dwc/pci-layerscape-ep.c
-> @@ -74,7 +74,6 @@ static irqreturn_t ls_pcie_ep_event_handler(int irq, void *dev_id)
->         struct ls_pcie_ep *pcie = dev_id;
->         struct dw_pcie *pci = pcie->pci;
->         u32 val, cfg;
-> -       u8 offset;
->
->         val = ls_pcie_pf_lut_readl(pcie, PEX_PF0_PME_MES_DR);
->         ls_pcie_pf_lut_writel(pcie, PEX_PF0_PME_MES_DR, val);
-> @@ -83,9 +82,6 @@ static irqreturn_t ls_pcie_ep_event_handler(int irq, void *dev_id)
->                 return IRQ_NONE;
->
->         if (val & PEX_PF0_PME_MES_DR_LUD) {
-> -
-> -               offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> -
->                 /*
->                  * The values of the Maximum Link Width and Supported Link
->                  * Speed from the Link Capabilities Register will be lost
-> @@ -93,7 +89,8 @@ static irqreturn_t ls_pcie_ep_event_handler(int irq, void *dev_id)
->                  * that configured by the Reset Configuration Word (RCW).
->                  */
->                 dw_pcie_dbi_ro_wr_en(pci);
-> -               dw_pcie_writel_dbi(pci, offset + PCI_EXP_LNKCAP, pcie->lnkcap);
-> +               dw_pcie_writel_dbi(pci, pci->pcie_cap + PCI_EXP_LNKCAP,
-> +                                  pcie->lnkcap);
->                 dw_pcie_dbi_ro_wr_dis(pci);
->
->                 cfg = ls_pcie_pf_lut_readl(pcie, PEX_PF0_CONFIG);
-> @@ -266,7 +263,7 @@ static int __init ls_pcie_ep_probe(struct platform_device *pdev)
->
->         platform_set_drvdata(pdev, pcie);
->
-> -       offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> +       offset = dw_pcie_get_pcie_cap(pci);
->         pcie->lnkcap = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
->
->         ret = dw_pcie_ep_init(&pci->ep);
-> --
-> 2.34.1
->
->
+Additionally, the approach of falling back to the syscall whenever
+the modifier key is used could lead to each check for the vector
+extension, in an ifunc resolver or almost anywhere else, having to
+perform a syscall.  Callers wanting to use other extensions may
+even use this modifier when checking for them, because given the
+choice of knowing whether the extension is potentially available
+or is available, the latter sounds like what they should be using
+to be future-proof, even if there is not currently a way to disable
+the extension.  That could lead to a syscall for every extension
+check, defeating the vDSO cache.
+
+On some non-RISC-V platforms glibc allows its own use of specific
+CPU capabilities to be disabled through tunables (e.g.,
+GLIBC_TUNABLES=glibc.cpu.hwcaps=-AVX2 ./my_x86_64_program), and as
+of glibc 2.44 tunables can also be set in /etc/tunables.conf and
+applied system-wide, even to specific programs.  This is more
+convenient than a prctl and it would be nice if RISC-V extensions
+could also be disabled for specific programs through tunables, for
+any use where its availability is checked beforehand (in an ifunc
+resolver or elsewhere), without the need to go to the kernel for
+each check.
+
+Because ifunc resolvers may not have access to external symbols
+beyond __riscv_hwprobe(), it is really attractive to be able to
+obtain extension availability information using the same function.
+But that doesn't mean that the kernel has to be involved.  The
+function is in libc, so it could call the vDSO function and then
+optionally modify the resulting values according to its own
+process-specific information about enabled or disabled extensions.
+This extra information would ideally come from the initial hwcaps
+(which reflect the vector prctl) and any tunables, so it is
+process-wide, can support arbitrary extensions, and can be checked
+without any kernel syscalls and without callers having to know or
+care whether a particular extension can be disabled.  If the prctl
+was used to re-enable vector in some thread that may not affect it,
+but that seems like the desired behavior, at least for ifunc
+resolvers, since they are assumed to produce the same result in any
+thread and at any point during the process lifetime.
+
+If implemented using a new flag, the libc __riscv_hwprobe() function
+could just call the existing vDSO function but with the new flag
+masked out, and then if the flag is set, modify the resulting values.
+That would probably be the simplest and easiest to understand API
+and would not require kernel syscalls.
+
+ - Mark
 
 _______________________________________________
 linux-riscv mailing list
