@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A865C5B572
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 11:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A35C5B572
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 11:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TURU/fRam8tT8e6dT1JTalTtD+gtwJcPJlTZg77rQa0=; b=Hc8MTRgBqTax29
-	Ctyl/jztPNnEjw7dedZH6ou+Az/XPpUNfrpOx36whe7G/YXY9m3YztM+pTJqw6JV1dxm1uOYSo4cZ
-	5Jw/GqO78/4aeMLjZOMoEgd0ntVaG5M2I90ouE8pc4LRCH+KEDdPKGbRzmWaiNz7XqkFS/7Y3w4xQ
-	mexVgQ+Iumg+Gx/O3b0WBzAGGEeq5VQOkimD7Fz38zHPzwMDBFDWaapNf09gKtWg2YrX48ZhMuZ5j
-	zL5NBo2A80J33jWsaT+D36iw8KmTc/czzAqaDp8pK718ISGXwuQXN7WdIsQ+WpQf5tG3mmhIXbUNJ
-	Htop4EH1F7pKhCM/TJdg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CibjarTMKsR3c6pEDCwnq+71kIxX934woMq7/lB+Dbk=; b=KIp6BumHLwDST5
+	BsemPuElfazHKRH77I399Jr1hf5uxgOKPxAxIiWsTljlw+pAyrK23wVCkwFQa6WynfaT+lN0A4vkz
+	0ah4M91rHxl+Glpmr3fcQDX+kvf056VuIvsTyiEf9w1gdO0jXpmeSZq+XtM0dn7GNQVJw/7czxoLB
+	edIgBmEpZ6am7zH44LznlIR/MhiKXa36umXBmeN67E2wnbPopW9WI9JsEssVBSBSNPEmEU/PD7HWQ
+	p3vpf1HpJgXMym48DrkZvsiOG+kuE7hILlt3CMpIxKhHVd5OaWa7gz7OKJK0sUjaGrmhKsRUoc9hU
+	bxT02es9FavkeKJTbvWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTit-00000000ZJ1-1TUL;
-	Thu, 13 Aug 2026 11:35:47 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wuTsj-00000000a3S-2ug9;
+	Thu, 13 Aug 2026 11:45:57 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTip-00000000ZIB-0Xub
+	id 1wuTsg-00000000a32-1dgF
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 11:35:45 +0000
-X-UUID: 1a63a56a970b11f1aa26b74ffac11d73-20260813
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:34152572-762d-4210-a9b3-dafca5525e8a,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:13b49416b906cdcebb694eea30640219,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|136|865|898,TC:nil,Conte
-	nt:0|15|50,EDM:-3|-100,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC
-	:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 1a63a56a970b11f1aa26b74ffac11d73-20260813
-X-User: jiangfeng@kylinos.cn
-Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 193053877; Thu, 13 Aug 2026 19:35:36 +0800
-Message-ID: <8e9a0272-b503-4ac6-9af3-8e5683f6b8b5@kylinos.cn>
-Date: Thu, 13 Aug 2026 19:35:33 +0800
+	Thu, 13 Aug 2026 11:45:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=7REaBd+iVbcbYZ8mO59hJsQfrciHsxUm/5TkdSNt6Fw=; b=Z8/PfId0KRD/6PruLtn0hbt1Ap
+	obPkBXQHtb1bnbVP0JNVMP5slSCFuzZzFpDfeivIYvH+DcfafESx9GtrIE0MgFQIkprmD4VeAzWhO
+	RyTAqU5qF6rfy/2uvrTZgn3spCF+9WwjmlWRDUu4/HwB3YIgvrZQIYu68jYG2KnioT63EMEhJbN1Q
+	Gt4pm+DLxk/CT2KysGYOtMSDvyD1Wov9FtfWvqBtrCUMNw/FjesvZeTWXSfpmDL5ReqdZseexIMdx
+	+s1MNza8C/tGhpftYjfp0FKMTUUk1/00q1484EAoYk3DK1wVWf/oYP9EOWgMUiUrT4X7F1lTTGXf+
+	p89Fhd7w==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wuTsF-0055R1-0T;
+	Thu, 13 Aug 2026 11:45:28 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Thu, 13 Aug 2026 04:45:15 -0700
+Subject: [PATCH v3] tools/mm: add hwpoison-panic tool
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 1/2] bpf, riscv: Add BPF stack arguments
- support for RV64 JIT
-To: bot+bpf-ci@kernel.org, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
- martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
- jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
- luke.r.nels@gmail.com, xi.wang@gmail.com, bjorn@kernel.org,
- pulehui@huawei.com, puranjay@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, shuah@kernel.org, nathan@kernel.org,
- ndesaulniers@google.com, morbo@google.com, justinstitt@google.com
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- llvm@lists.linux.dev, martin.lau@kernel.org, clm@meta.com
-References: <20260813-bpf-riscv-stack-args-v2-1-efea8f9b3fe1@kylinos.cn>
- <b9781ebbc70ad4c748f4c08d94bbe6994b4e0fde867a8bf252b5d0f08a985dee@mail.kernel.org>
-Content-Language: en-US
-From: Feng Jiang <jiangfeng@kylinos.cn>
-In-Reply-To: <b9781ebbc70ad4c748f4c08d94bbe6994b4e0fde867a8bf252b5d0f08a985dee@mail.kernel.org>
+Message-Id: <20260813-memory_failure_rewrite_test-v3-1-f9fb6542cbff@debian.org>
+X-B4-Tracking: v=1; b=H4sIAEqufWoC/33NywqCQBSA4VcZztqJudh4WfUeETLpUQ+UxhmzR
+ Hz3UIJo4/ZffP8MAZkwQC5mYBwpUN9BLmwkoGx916CkCnIBRhmnEpPKO957nora0+3JWDC+mAY
+ sBgyDTLxVmXdKe4cQCXgw1vTe9PMlEtBSGHqettmo1/p1rd51Ry21dN6npYvt0WX2VOGVfHfou
+ YEVHs0PS5Xdx4zUEitlVImx0Sb7w5Zl+QCowEScFAEAAA==
+X-Change-ID: 20260728-memory_failure_rewrite_test-7a309a601a6e
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ Miaohe Lin <linmiaohe@huawei.com>, 
+ Naoya Horiguchi <nao.horiguchi@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, david@kernel.org
+Cc: SJ Park <sj@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, sj@kernel.org, 
+ kernel-team@meta.com, Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.16-dev-f8e9d
+X-Developer-Signature: v=1; a=openpgp-sha256; l=14007; i=leitao@debian.org;
+ h=from:subject:message-id; bh=pLS8XmENf2qhypCRvhzat005WzlSNjjOjK9Li1LTCXU=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBqfa5Sa8cUGHANYJtF92SpLn14AsyPzrdntQM/P
+ gGEyITuPeWJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCan2uUgAKCRA1o5Of/Hh3
+ beizD/sHarVxpPPdOkyh7d4ew+xd9atouwRMoR0ic2yZG6nqWQWz3tBWwHDihI7KIb3ToQFsinL
+ fgtY/76Mq563pNlkMPtXJwQRSoQrbhy/FGJSFNnMDHCkJEuQsZmHBHeb7kz4e1ohA2rsnOGzLuJ
+ uFl3InTaAtpLcrfnmTFHD/rywIpNFnuGjYNVkYf3t6JV1K1WRUc+8dBJ6BmEy5VCPtHsDcdUnMj
+ gh/2/UC2o3JZSTZsqqAnRqgKGooVATB14ow3aSBFGqp+to54eLJbY2d1KceM3GSVFBZgp4nSGWT
+ iUOFbcgWXrf+sBuH+uuXbd0qrpY731tErghnGC1M0DJ2/jYGiQtEMaR0TSRr69kvgvp3NV8/osP
+ q0P6RU//1sxivgsktQhVQUpG2Cx/IrGx1Zx3yQmU7stEZxLLWT5MdBBgnm+mS8hiR2mM1typFEz
+ gphNPgndfu49lZ6gP7Gc7NyYeRoJ6sijdRf4UdNBSQThiFIGsfid40MvoyGjwXak7PdF2ZaCUAN
+ bkL6HpCHHDEIsgTFIpFpW0OkwKN45DZBjE0VB03/CLaJI3cOcoxXmO9nfBFepM7XYglgH8b9t/J
+ 388MBTxyBuoQTPRrnQxLZgk8Si8zdhg+TnWJBwRWxmACyD5m4yAVljZ5DfqXJCeTcPK94owz4UX
+ reoMbZNlyEgr0wA==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_043544_022035_4FCA161E 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20260813_044554_650469_888F1803 
+X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,60 +98,479 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026/8/13 16:25, bot+bpf-ci@kernel.org wrote:
->>     bpf, riscv: Add BPF stack arguments support for RV64 JIT
->>
->>     Add bpf_jit_supports_stack_args() for the RV64 JIT so BPF subprograms
->>     and kfuncs can receive more than 5 arguments via the stack
->>     (BPF_REG_PARAMS / r11).
->>
->>     For BPF-to-BPF calls the caller writes outgoing arguments at the
->>     bottom of its frame (SP-relative). The callee reads them with
->>     FP-relative loads. Its FP is set to the caller SP in the prologue,
->>     so the offsets match.
->>
->>     The RISC-V ABI puts arguments 6-8 in A5-A7 and arguments 9+ at
->>     SP+0. Before each kfunc call, load arguments 6-8 from the outgoing
->>     area into A5-A7 and copy any remaining arguments down so argument 9
->>     lands at SP+0.
->>
->>     A5 (BPF_REG_0), A6 (TCC) and A7 are safe to clobber here: R0 is not
->>     live before a call, TCC is backed up on the stack, and A7 is unused
->>     by the JIT.
->>
->>     Limit the existing kfunc sign-extension loop to MAX_BPF_FUNC_REG_ARGS
->>     iterations; otherwise idx >= 5 resolves to S1-S5 (BPF_R6-FP) and
->>     corrupts callee-saved registers.
->>
->>     Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
-> 
-> This looks like a bug fix for stack argument support. The commit message
-> describes how the sign-extension loop was limited to prevent corruption
-> of callee-saved registers S1-S5 when idx >= 5. This fixes an issue
-> introduced by commit 443574b03387 ("riscv, bpf: Fix kfunc parameters
-> incompatibility between bpf and riscv abi"), which added the
-> sign-extension loop without limiting it to MAX_BPF_FUNC_REG_ARGS.
-> 
-> Should this include:
-> 
->   Fixes: 443574b03387 ("riscv, bpf: Fix kfunc parameters incompatibility between bpf and riscv abi")
-> 
+Add a tool that enables the vm.panic_on_unrecoverable_memory_failure
+sysctl, picks a kernel-owned PFN and writes its physical address to
+hard_offline_page.  Three page kinds are selectable with -k: rodata
+(default), slab or pgtable. In all cases the host should panic.
 
-No Fixes: tag. When 443574b03387 added the loop, the verifier still
-unconditionally rejected kfuncs with more than 5 args, so fm->nr_args
-was always <= 5 and the loop never touched S1-S5. The corruption is
-only reachable once this series enables stack arguments, so bounding
-the loop is part of the feature, not a fix for a triggerable bug.
+Example:
 
-> 
-> ---
-> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-> 
-> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/3167782391
--- 
-With Best Regards,
-Feng Jiang
+        # ./hwpoison-panic -k slab --yes-panic-my-kernel
+        injecting hwpoison at phys 0x100032000 (pfn 0x100032, kind=slab)
+        expecting kernel panic: 'Memory failure: <pfn>: unrecoverable page'
+
+In dmesg, you will see:
+
+        Memory failure: 0x100032: unhandlable page.
+        Memory failure: 0x100032: recovery action for reserved kernel page: Ignored
+        Kernel panic - not syncing: Memory failure: 0x100032: unrecoverable page
+
+This lives in tools/mm rather than selftests/mm because every successful
+run crashes the machine, which is not something to run from CI.
+
+The --yes-panic-my-kernel argument is required so an accidental
+invocation does not take the box down.
+
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+Changes in v3:
+- s/(16UL << 20)/SZ_16M/ and including ../../include/linux/sizes.h
+- s/MEMORY_HOTPLUG/MEMORY_FAILURE/
+- Link to v2: https://patch.msgid.link/20260803-memory_failure_rewrite_test-v2-1-ed020ce42129@debian.org
+
+Changes in v2:
+- Reword the file header, the tool triggers a panic rather than
+  confirming one (SJ Park)
+- Rename -f to --yes-panic-my-kernel and say in usage() what it costs
+  (SJ Park)
+- Call check_prereqs() before getpagesize() (SJ Park)
+- Use 64-bit types for physical addresses and PFNs.  On a 32-bit build
+  the old long/unsigned long pair truncated addresses above 4G, and the
+  negative error sentinel was indistinguishable from a valid address at
+  or above 2G
+- Link to v1: https://patch.msgid.link/20260731-memory_failure_rewrite_test-v1-1-6aa8c6435693@debian.org
+
+To: Andrew Morton <akpm@linux-foundation.org>
+To: Miaohe Lin <linmiaohe@huawei.com>
+To: Naoya Horiguchi <nao.horiguchi@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-riscv@lists.infradead.org
+---
+ MAINTAINERS                              |   1 +
+ tools/mm/.gitignore                      |   1 +
+ tools/mm/Makefile                        |   2 +
+ tools/mm/memory-failure/hwpoison-panic.c | 359 +++++++++++++++++++++++++++++++
+ 4 files changed, 363 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 56b337a064478..799c4883d5b0b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -12094,6 +12094,7 @@ F:	include/linux/memory-failure.h
+ F:	include/trace/events/memory-failure.h
+ F:	mm/hwpoison-inject.c
+ F:	mm/memory-failure.c
++F:	tools/mm/memory-failure/
+ F:	tools/testing/selftests/mm/memory-failure.c
+ 
+ HYCON HY46XX TOUCHSCREEN SUPPORT
+diff --git a/tools/mm/.gitignore b/tools/mm/.gitignore
+index 1446a659e5408..b9b80d909db4a 100644
+--- a/tools/mm/.gitignore
++++ b/tools/mm/.gitignore
+@@ -3,3 +3,4 @@ slabinfo
+ page-types
+ page_owner_sort
+ thp_swap_allocator_test
++memory-failure/hwpoison-panic
+diff --git a/tools/mm/Makefile b/tools/mm/Makefile
+index 858186a6eefdb..9f6de957a95a0 100644
+--- a/tools/mm/Makefile
++++ b/tools/mm/Makefile
+@@ -4,6 +4,7 @@
+ include ../scripts/Makefile.include
+ 
+ BUILD_TARGETS=page-types slabinfo page_owner_sort page_owner_filter thp_swap_allocator_test
++BUILD_TARGETS+=memory-failure/hwpoison-panic
+ INSTALL_TARGETS = $(BUILD_TARGETS) thpmaps
+ 
+ LIB_DIR = ../lib/api
+@@ -24,6 +25,7 @@ $(LIBS):
+ 
+ clean:
+ 	$(RM) page-types slabinfo page_owner_sort page_owner_filter thp_swap_allocator_test
++	$(RM) memory-failure/hwpoison-panic
+ 	make -C $(LIB_DIR) clean
+ 
+ sbindir ?= /usr/sbin
+diff --git a/tools/mm/memory-failure/hwpoison-panic.c b/tools/mm/memory-failure/hwpoison-panic.c
+new file mode 100644
+index 0000000000000..7772c5548adaf
+--- /dev/null
++++ b/tools/mm/memory-failure/hwpoison-panic.c
+@@ -0,0 +1,359 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * hwpoison-panic: trigger an intentional kernel panic by injecting a
++ * hwpoison error on a kernel-owned page, to check that
++ * vm.panic_on_unrecoverable_memory_failure fires.
++ *
++ * Three kinds of kernel-owned page can be targeted, selected with -k
++ * (default: rodata):
++ *
++ *   rodata  - a PG_reserved page in the kernel rodata range, from
++ *             /proc/iomem "Kernel rodata".  x86 and riscv only.
++ *   slab    - a slab page found via /proc/kpageflags (KPF_SLAB).
++ *   pgtable - a page-table page found via /proc/kpageflags (KPF_PGTABLE).
++ *
++ * slab and pgtable work everywhere; rodata needs an architecture that
++ * publishes the rodata resource in /proc/iomem.
++ *
++ * The slab and pgtable variants exercise memory_failure() -> get_any_page()
++ * on a non PG_reserved kernel-owned page, catching regressions where
++ * get_any_page() collapses such pages into a transient -EIO instead of
++ * -ENOTRECOVERABLE.
++ *
++ * A successful run crashes the kernel, so --yes-panic-my-kernel is required
++ * and the tool is meant for a disposable VM (e.g. virtme-ng) with the serial
++ * console captured.  The result is observed externally: the kernel panics with
++ *   "Memory failure: <pfn>: unrecoverable page"
++ * Returning at all means no panic fired, so every exit status is non-zero:
++ * either a failure, or an inconclusive run where the target PFN raced to
++ * another page type before injection.
++ *
++ * Author: Breno Leitao <leitao@debian.org>
++ */
++#define _GNU_SOURCE
++#define _FILE_OFFSET_BITS 64
++#include <fcntl.h>
++#include <getopt.h>
++#include <limits.h>
++#include <stdarg.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++
++#include "../../../include/uapi/linux/kernel-page-flags.h"
++#include "../../include/linux/sizes.h"
++#include <api/fs/fs.h>
++
++#define SYSCTL_PATH	"/proc/sys/vm/panic_on_unrecoverable_memory_failure"
++#define INJECT_PATH	"/sys/devices/system/memory/hard_offline_page"
++#define PROC_KPAGEFLAGS	"/proc/kpageflags"
++
++/* Not exported by the uapi header, see tools/mm/page-types.c. */
++#define KPF_RESERVED	32
++
++#define BIT(name)	(1ULL << KPF_##name)
++#define ARRAY_SIZE(x)	(sizeof(x) / sizeof((x)[0]))
++
++/* The kpageflags bit identifying each kernel-owned page kind we target. */
++static const struct page_kind {
++	const char *name;
++	uint64_t bit;
++} page_kinds[] = {
++	{ "rodata",  BIT(RESERVED) },
++	{ "slab",    BIT(SLAB)     },
++	{ "pgtable", BIT(PGTABLE)  },
++};
++
++static unsigned long page_size;
++
++static void fatal(const char *x, ...)
++{
++	va_list ap;
++
++	va_start(ap, x);
++	vfprintf(stderr, x, ap);
++	va_end(ap);
++	exit(EXIT_FAILURE);
++}
++
++static int kpageflags_read(int fd, uint64_t pfn, uint64_t *flags)
++{
++	ssize_t bytes;
++
++	bytes = pread(fd, flags, sizeof(*flags), (off_t)pfn * sizeof(*flags));
++
++	return bytes == sizeof(*flags) ? 0 : -1;
++}
++
++static int pick_rodata_phys_addr(uint64_t *phys_addr)
++{
++	unsigned long long start, end;
++	char line[256], label[64];
++	int ret = -1;
++	FILE *f;
++
++	f = fopen("/proc/iomem", "r");
++	if (!f)
++		return -1;
++
++	/* Sub-resources are indented: "  02500000-02ffffff : Kernel rodata" */
++	while (fgets(line, sizeof(line), f)) {
++		if (sscanf(line, " %llx-%llx : %63[^\n]", &start, &end,
++			   label) != 3)
++			continue;
++		if (strcmp(label, "Kernel rodata") || end <= start)
++			continue;
++		/* Page-align up and return the first byte of that page. */
++		*phys_addr = ((start + page_size - 1) / page_size) * page_size;
++		ret = 0;
++		break;
++	}
++
++	fclose(f);
++	return ret;
++}
++
++static int pick_kpageflags_phys_addr(uint64_t want, uint64_t *phys_addr)
++{
++	uint64_t pfn = SZ_16M / page_size;
++	uint64_t flags;
++	int ret = -1;
++	int fd;
++
++	fd = open(PROC_KPAGEFLAGS, O_RDONLY);
++	if (fd < 0)
++		return -1;
++
++	for (; kpageflags_read(fd, pfn, &flags) == 0; pfn++) {
++		if ((flags & want) && !(flags & BIT(HWPOISON)) &&
++		    !(flags & BIT(NOPAGE)) && !(flags & BIT(COMPOUND_TAIL))) {
++			*phys_addr = pfn * page_size;
++			ret = 0;
++			break;
++		}
++	}
++
++	close(fd);
++	return ret;
++}
++
++static int read_sysctl(unsigned long *val)
++{
++	FILE *f = fopen(SYSCTL_PATH, "r");
++	int ret;
++
++	if (!f)
++		return -1;
++	ret = fscanf(f, "%lu", val) == 1 ? 0 : -1;
++	fclose(f);
++
++	return ret;
++}
++
++static int write_sysctl(unsigned long val)
++{
++	FILE *f = fopen(SYSCTL_PATH, "w");
++	int ret;
++
++	if (!f)
++		return -1;
++	ret = fprintf(f, "%lu", val) < 0 ? -1 : 0;
++	fclose(f);
++
++	return ret;
++}
++
++/* hard_offline_page() injects with MF_SW_SIMULATED, so unpoison is allowed. */
++static void unpoison_pfn(uint64_t pfn)
++{
++	char path[PATH_MAX], buf[32];
++	const char *debugfs;
++	int fd, len;
++
++	debugfs = debugfs__mount();
++	if (!debugfs)
++		return;
++
++	snprintf(path, sizeof(path), "%s/hwpoison/unpoison-pfn", debugfs);
++	fd = open(path, O_WRONLY);
++	if (fd < 0)
++		return;
++
++	len = snprintf(buf, sizeof(buf), "0x%llx\n", (unsigned long long)pfn);
++	if (write(fd, buf, len) < 0)
++		perror("unpoison-pfn");
++	close(fd);
++}
++
++static const char *inject_hwpoison(const struct page_kind *kind,
++				   uint64_t phys_addr, uint64_t pfn)
++{
++	char buf[32];
++	int fd, len;
++	ssize_t ret;
++
++	printf("injecting hwpoison at phys 0x%llx (pfn 0x%llx, kind=%s)\n",
++	       (unsigned long long)phys_addr, (unsigned long long)pfn,
++	       kind->name);
++	printf("expecting kernel panic: 'Memory failure: <pfn>: unrecoverable page'\n");
++	fflush(stdout);
++
++	fd = open(INJECT_PATH, O_WRONLY);
++	if (fd < 0)
++		return "cannot open " INJECT_PATH;
++
++	len = snprintf(buf, sizeof(buf), "0x%llx", (unsigned long long)phys_addr);
++	ret = write(fd, buf, len);
++	close(fd);
++
++	if (ret != len)
++		return "inject failed before reaching the panic path";
++
++	return "inject returned without panic; sysctl ineffective";
++}
++
++static const struct page_kind *lookup_kind(const char *name)
++{
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(page_kinds); i++)
++		if (!strcmp(page_kinds[i].name, name))
++			return &page_kinds[i];
++
++	return NULL;
++}
++
++static void usage(void)
++{
++	printf("hwpoison-panic [options]\n"
++	       "            -k|--kind <kind>       rodata (default, x86 and riscv only),\n"
++	       "                                   slab or pgtable\n"
++	       "            --yes-panic-my-kernel  really run it: the machine panics\n"
++	       "                                   and every unsaved write is lost\n"
++	       "            -h|--help              show this\n");
++}
++
++static const struct option opts[] = {
++	{ "kind",                 1, NULL, 'k' },
++	{ "yes-panic-my-kernel",  0, NULL, 'y' },
++	{ "help",                 0, NULL, 'h' },
++	{ NULL,                   0, NULL, 0 },
++};
++
++static const struct page_kind *parse_args(int argc, char **argv, int *armed)
++{
++	const struct page_kind *kind;
++	const char *name = "rodata";
++	int c;
++
++	while ((c = getopt_long(argc, argv, "k:h", opts, NULL)) != -1) {
++		switch (c) {
++		case 'k':
++			name = optarg;
++			break;
++		case 'y':
++			*armed = 1;
++			break;
++		case 'h':
++			usage();
++			exit(EXIT_SUCCESS);
++		default:
++			usage();
++			exit(EXIT_FAILURE);
++		}
++	}
++
++	kind = lookup_kind(name);
++	if (!kind)
++		fatal("unknown kind '%s' (expected: rodata|slab|pgtable)\n",
++		      name);
++
++	return kind;
++}
++
++static void check_prereqs(int armed)
++{
++	if (geteuid())
++		fatal("must run as root\n");
++	if (access(SYSCTL_PATH, W_OK))
++		fatal("%s not present (kernel without the sysctl?)\n",
++		      SYSCTL_PATH);
++	if (access(INJECT_PATH, W_OK))
++		fatal("%s not present (no MEMORY_FAILURE?)\n", INJECT_PATH);
++	if (!armed)
++		fatal("this panics the kernel; pass --yes-panic-my-kernel\n");
++}
++
++static uint64_t pick_phys_addr(const struct page_kind *kind)
++{
++	uint64_t addr;
++
++	if (kind->bit == BIT(RESERVED)) {
++		if (pick_rodata_phys_addr(&addr))
++			fatal("no \"Kernel rodata\" in /proc/iomem; try -k slab or -k pgtable\n");
++	} else {
++		if (pick_kpageflags_phys_addr(kind->bit, &addr))
++			fatal("no usable %s PFN in %s\n", kind->name,
++			      PROC_KPAGEFLAGS);
++	}
++
++	return addr;
++}
++
++static void arm_sysctl(unsigned long *prior)
++{
++	if (read_sysctl(prior))
++		fatal("failed to read %s\n", SYSCTL_PATH);
++	if (write_sysctl(1))
++		fatal("failed to enable %s\n", SYSCTL_PATH);
++}
++
++static void recheck_kind(const struct page_kind *kind, uint64_t pfn,
++			 const char *verdict)
++{
++	uint64_t flags;
++	int fd, ret;
++
++	fd = open(PROC_KPAGEFLAGS, O_RDONLY);
++	if (fd < 0)
++		fatal("%s (could not open %s)\n", verdict, PROC_KPAGEFLAGS);
++	ret = kpageflags_read(fd, pfn, &flags);
++	close(fd);
++
++	if (ret)
++		fatal("%s (could not reconfirm page type via %s)\n", verdict,
++		      PROC_KPAGEFLAGS);
++	if (flags & kind->bit)
++		fatal("%s (page still %s)\n", verdict, kind->name);
++
++	fprintf(stderr, "target PFN no longer %s; raced before inject, inconclusive\n",
++		kind->name);
++}
++
++int main(int argc, char **argv)
++{
++	uint64_t phys_addr, pfn;
++	const struct page_kind *kind;
++	const char *verdict;
++	unsigned long prior;
++	int armed = 0;
++
++	kind = parse_args(argc, argv, &armed);
++	check_prereqs(armed);
++	page_size = getpagesize();
++
++	phys_addr = pick_phys_addr(kind);
++	pfn = phys_addr / page_size;
++	arm_sysctl(&prior);
++
++	verdict = inject_hwpoison(kind, phys_addr, pfn);
++
++	/* No panic fired.  Put the machine back, then report. */
++	write_sysctl(prior);
++	unpoison_pfn(pfn);
++	recheck_kind(kind, pfn, verdict);
++
++	return EXIT_FAILURE;
++}
+
+---
+base-commit: 95d6a9ccef99117115e41e9adb271243bd5e985b
+change-id: 20260728-memory_failure_rewrite_test-7a309a601a6e
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
 
 
 _______________________________________________
