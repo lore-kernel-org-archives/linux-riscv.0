@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4E1C5B572
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 10:31:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A865C5B572
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 11:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=isGanIx9uMkMiIAcyDazVftPCPzmVE8ptpRevDGFVuA=; b=HJdq6oDNhcHhgS
-	frBLNATWPIF36lw/Ed0TaX9rMerX3/107kbUZl/d1qwAufDzAM3QlWuemaQN1XbJn5tRm5Fo32CIk
-	zCfDaJ896rHFeu6oF/aRtyd5X+T3/fzyDXm3jt3x0Q1ZBqUxJTjfb0as8H2JiA7j4anC6XNJc4KDr
-	rgpwPgzRX4+Y+y+JQoUegywSxn/6gqE6f/Fk1mbsPxzmBpi1tChGrSHFtg2ImjD6JSJXrgkRqOG+G
-	RUeKsTnD8TnIEkvUHjC7WOow+OLWnPy7lS5ZM7rajWHQ0BOnyqaOw5KeKWL9+7FC+ozwWyNUszpOP
-	+NcnNCmtQwvqCxYKkodA==;
+	List-Owner; bh=TURU/fRam8tT8e6dT1JTalTtD+gtwJcPJlTZg77rQa0=; b=Hc8MTRgBqTax29
+	Ctyl/jztPNnEjw7dedZH6ou+Az/XPpUNfrpOx36whe7G/YXY9m3YztM+pTJqw6JV1dxm1uOYSo4cZ
+	5Jw/GqO78/4aeMLjZOMoEgd0ntVaG5M2I90ouE8pc4LRCH+KEDdPKGbRzmWaiNz7XqkFS/7Y3w4xQ
+	mexVgQ+Iumg+Gx/O3b0WBzAGGEeq5VQOkimD7Fz38zHPzwMDBFDWaapNf09gKtWg2YrX48ZhMuZ5j
+	zL5NBo2A80J33jWsaT+D36iw8KmTc/czzAqaDp8pK718ISGXwuQXN7WdIsQ+WpQf5tG3mmhIXbUNJ
+	Htop4EH1F7pKhCM/TJdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSi7-00000000UMt-1IQl;
-	Thu, 13 Aug 2026 10:30:55 +0000
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	id 1wuTit-00000000ZJ1-1TUL;
+	Thu, 13 Aug 2026 11:35:47 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSi0-00000000UJy-2XXR;
-	Thu, 13 Aug 2026 10:30:53 +0000
-X-QQ-mid: esmtpgz15t1786616975tae215c51
-X-QQ-Originating-IP: OZchcY0gz9zI06/R1UDHEGCx1nSeqfz4hgfoniqGDtE=
-Received: from rsl ( [183.242.33.186])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 13 Aug 2026 18:29:32 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11012683482226331164
-EX-QQ-RecipientCnt: 15
-From: JinRui <jinrui@haiwei.tech>
-To: anup@brainfault.org,
-	pbonzini@redhat.com,
-	shuah@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: atish.patra@linux.dev,
-	alex@ghiti.fr,
-	sashiko-bot@kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	jinrui@haiwei.tech
-Subject: [PATCH v13] KVM: selftests: riscv: Add lazy V extension enablement for guests
-Date: Thu, 13 Aug 2026 10:29:30 +0000
-Message-ID: <20EA6EE00884FB87+20260813102930.3892251-1-jinrui@haiwei.tech>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <7C0512E558D1614D+20260813095615.3843757-1-jinrui@haiwei.tech>
-References: <7C0512E558D1614D+20260813095615.3843757-1-jinrui@haiwei.tech>
+	id 1wuTip-00000000ZIB-0Xub
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Aug 2026 11:35:45 +0000
+X-UUID: 1a63a56a970b11f1aa26b74ffac11d73-20260813
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:34152572-762d-4210-a9b3-dafca5525e8a,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:13b49416b906cdcebb694eea30640219,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|136|865|898,TC:nil,Conte
+	nt:0|15|50,EDM:-3|-100,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC
+	:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1a63a56a970b11f1aa26b74ffac11d73-20260813
+X-User: jiangfeng@kylinos.cn
+Received: from [10.42.12.56] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <jiangfeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 193053877; Thu, 13 Aug 2026 19:35:36 +0800
+Message-ID: <8e9a0272-b503-4ac6-9af3-8e5683f6b8b5@kylinos.cn>
+Date: Thu, 13 Aug 2026 19:35:33 +0800
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:haiwei.tech:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NkbnXpgg1H1R7JDsws/6SRO4bUgh7Ma1apX3OcdxzCmCrcpQAF5gDBVd
-	u8/v2w5oLC4ZWGn59bbfjFnDPYoUlXQ3br3Lh2DHg0ggwhGkde9cndQPlg+0MyGM/dwk8sK
-	GREFcqeQ9n5xdfZGxyTxRaks+Vbm/2QHqRRizeSshOCukVtas7rKuVZYr4KWR6ImBWhVltq
-	t0S8caJNdjKE2nq0PNOyKwQa/op5Z4kGoOCB07ZNW9rMO5mHtH4+QeScYPtL29oDrNc/Cqi
-	5JoQQIUHkDBkPVGDJ0QWEfvDi/jqxSTFLjvFn+G2ff7kOGVV+hjE3gPE8wWB791asRJgNYa
-	uC4kIGTC/88plwKHwqv2SGwZMTw7TcRaOf7/mdCe6FBCu9IJxi+oQjezQ5DruRfvxC+TIqP
-	VkX8I2MjSdQl/eM2I4jDT7mydhQVnSnkWOlotoo19yebAXQAqSaU6moCq1jXDgbJGbYWok3
-	3FGdw3HpICX2L3RRuwkMASy6y0rT0p0KCnr/w9pFLe+YAD878Ecx6pawEYYoXZ/R5vzC3Mp
-	qZqKUyEun/Bkewa5M/WZepuwCAnj1X6nusHAONpzUJ3PqZIx9epXGKfgQceqXr6pmvF+x4t
-	Jt9er7MHBOtuZCgi45/BuQpqwnYx5mHz1wAgHY3d67az8zehdopaYkee7mLnqTIPhGYfPmk
-	Fzg/zwfLRnglHbq+3RkPJNQU1RERQml2nqtSjusmdJ/mgn7W6ssCxE5YsSSZHSpPoiCwtw0
-	3KQoWUwHnfjDEUN0gPVJbU1ecU+O9LQSCLPT8WKjH7r7dsUDs3uEl0zFB5ySG1iq2b5y1Il
-	ffJV+b1VO5U2D4NjHkODZpYtBg3F5hOZj5Ly627sNNE5Rr//WtzKujyjVJ5mL0/rxEYbGOr
-	qacu90LN8ZJrKlG/2hAQzKbTfOs7uyYb3qhp5gh+VJjTUWZYaPoJGCBvgV9tl5N4Qv/YmbZ
-	zMDlkz0OipQRSv++9uewXL4XCxuFchkemuq4lZ3sgdTW7lPujLJiMxa21i2jRXeIL8uxHO6
-	09d4ElBlMCvbI4/VqzPkDhZtB6I1JPwK9gk2eeRx6NiNIuVGcFekZLHCxgOmOyrzt6YKLHg
-	lxtXQeE/An+yKHD2izz4+Mrqnp5kDOfwlmOGuH57x8M
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v2 1/2] bpf, riscv: Add BPF stack arguments
+ support for RV64 JIT
+To: bot+bpf-ci@kernel.org, ast@kernel.org, daniel@iogearbox.net,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ luke.r.nels@gmail.com, xi.wang@gmail.com, bjorn@kernel.org,
+ pulehui@huawei.com, puranjay@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, shuah@kernel.org, nathan@kernel.org,
+ ndesaulniers@google.com, morbo@google.com, justinstitt@google.com
+Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ llvm@lists.linux.dev, martin.lau@kernel.org, clm@meta.com
+References: <20260813-bpf-riscv-stack-args-v2-1-efea8f9b3fe1@kylinos.cn>
+ <b9781ebbc70ad4c748f4c08d94bbe6994b4e0fde867a8bf252b5d0f08a985dee@mail.kernel.org>
+Content-Language: en-US
+From: Feng Jiang <jiangfeng@kylinos.cn>
+In-Reply-To: <b9781ebbc70ad4c748f4c08d94bbe6994b4e0fde867a8bf252b5d0f08a985dee@mail.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_033049_124068_1091DBCF 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20260813_043544_022035_4FCA161E 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,229 +87,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: jinrui <jinrui@haiwei.tech>
+On 2026/8/13 16:25, bot+bpf-ci@kernel.org wrote:
+>>     bpf, riscv: Add BPF stack arguments support for RV64 JIT
+>>
+>>     Add bpf_jit_supports_stack_args() for the RV64 JIT so BPF subprograms
+>>     and kfuncs can receive more than 5 arguments via the stack
+>>     (BPF_REG_PARAMS / r11).
+>>
+>>     For BPF-to-BPF calls the caller writes outgoing arguments at the
+>>     bottom of its frame (SP-relative). The callee reads them with
+>>     FP-relative loads. Its FP is set to the caller SP in the prologue,
+>>     so the offsets match.
+>>
+>>     The RISC-V ABI puts arguments 6-8 in A5-A7 and arguments 9+ at
+>>     SP+0. Before each kfunc call, load arguments 6-8 from the outgoing
+>>     area into A5-A7 and copy any remaining arguments down so argument 9
+>>     lands at SP+0.
+>>
+>>     A5 (BPF_REG_0), A6 (TCC) and A7 are safe to clobber here: R0 is not
+>>     live before a call, TCC is backed up on the stack, and A7 is unused
+>>     by the JIT.
+>>
+>>     Limit the existing kfunc sign-extension loop to MAX_BPF_FUNC_REG_ARGS
+>>     iterations; otherwise idx >= 5 resolves to S1-S5 (BPF_R6-FP) and
+>>     corrupts callee-saved registers.
+>>
+>>     Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+> 
+> This looks like a bug fix for stack argument support. The commit message
+> describes how the sign-extension loop was limited to prevent corruption
+> of callee-saved registers S1-S5 when idx >= 5. This fixes an issue
+> introduced by commit 443574b03387 ("riscv, bpf: Fix kfunc parameters
+> incompatibility between bpf and riscv abi"), which added the
+> sign-extension loop without limiting it to MAX_BPF_FUNC_REG_ARGS.
+> 
+> Should this include:
+> 
+>   Fixes: 443574b03387 ("riscv, bpf: Fix kfunc parameters incompatibility between bpf and riscv abi")
+> 
 
-When the cross-compiler defaults to an -march that includes the V
-(vector) extension, -O2 auto-vectorization generates vector instructions
-(e.g. vsetvli, vadd.vv) in guest code. Executing such an instruction with
-sstatus.VS Off raises EXC_INST_ILLEGAL (scause=2); KVM's hedeleg forwards
-it to the guest, but the bare-metal selftest cannot handle it, so all
-guest tests fail. A real kernel handles this via
-riscv_v_first_use_handler(), which enables V and re-executes the
-instruction.
+No Fixes: tag. When 443574b03387 added the loop, the verifier still
+unconditionally rejected kfuncs with more than 5 args, so fm->nr_args
+was always <= 5 and the loop never touched S1-S5. The corruption is
+only reachable once this series enables stack arguments, so bounding
+the loop is part of the feature, not a fix for a triggerable bug.
 
-Fix it in processor.c:
-
-1. Delete the now-unused guest_unexp_trap() handler, replaced by the full
-   exception vector table.
-
-2. In vm_arch_vcpu_add(), advertise V to KVM via __vcpu_set_reg(V, 1)
-   (best-effort, errors ignored on hardware without V) and install the
-   full exception vector table instead of a raw stvec handler.
-
-3. In route_exception(), decode the faulting instruction (stval) with
-   insn_is_vector() and, when it is a vector instruction while sstatus.VS
-   is Off, set VS to Initial and sret to re-execute it, before any
-   test-registered handler. Genuinely illegal instructions still reach
-   the unexpected-exception path.
-
-4. Make vm_init_vector_tables() idempotent by checking vm->handlers
-   before allocating, so tests that call it directly (ebreak_test,
-   arch_timer, sbi_pmu_test) do not leak memory.
-
-Tested on a riscv64 host with KVM enabled.
-
-Signed-off-by: jinrui <jinrui@haiwei.tech>
----
-Changes in v13:
-- Assemble the 32-bit instruction from two 16-bit halfword reads instead
-  of a single 32-bit load, since with IALIGN=16 a 32-bit instruction can
-  start on a 2-byte boundary (Sashiko review).
-
- .../selftests/kvm/include/riscv/processor.h   | 13 +++
- .../selftests/kvm/lib/riscv/processor.c       | 99 ++++++++++++++++---
- 2 files changed, 99 insertions(+), 13 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-index e3acf2ae9881..685baefebdb1 100644
---- a/tools/testing/selftests/kvm/include/riscv/processor.h
-+++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-@@ -25,6 +25,19 @@
- #define GET_RM(insn)            (((insn) & INSN_MASK_FUNCT3) >> INSN_SHIFT_FUNCT3)
- #define GET_CSR_NUM(insn)       (((insn) & INSN_CSR_MASK) >> INSN_CSR_SHIFT)
- 
-+/* Vector (V) instruction decoding, matching arch/riscv/include/asm/insn.h */
-+#define RV_INSN_OPCODE_MASK	0x7f
-+#define RVG_OPCODE_SYSTEM	0x73
-+#define RVV_OPCODE_VECTOR	0x57
-+#define RVV_OPCODE_VL		0x07
-+#define RVV_OPCODE_VS		0x27
-+#define RVV_VL_VS_WIDTH_8	0
-+#define RVV_VL_VS_WIDTH_16	5
-+#define RVV_VL_VS_WIDTH_32	6
-+#define RVV_VL_VS_WIDTH_64	7
-+#define RVV_EXTRACT_VL_VS_WIDTH(insn)	(((insn) >> 12) & 0x7)
-+#define RVG_EXTRACT_SYSTEM_CSR(insn)	(((insn) >> 20) & 0xfff)
-+
- static inline u64 __kvm_reg_id(u64 type, u64 subtype, u64 idx, u64 size)
- {
- 	return KVM_REG_RISCV | type | subtype | idx | size;
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index ded5429f3448..d00ac997291c 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -17,6 +17,11 @@
- 
- static gva_t exception_handlers;
- 
-+struct handlers {
-+	exception_handler_fn exception_handlers[NR_VECTORS][NR_EXCEPTIONS];
-+	bool v_available;
-+};
-+
- bool __vcpu_has_ext(struct kvm_vcpu *vcpu, u64 ext)
- {
- 	unsigned long value = 0;
-@@ -298,13 +303,6 @@ void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, u8 indent)
- 		core.regs.t3, core.regs.t4, core.regs.t5, core.regs.t6);
- }
- 
--static void __aligned(16) guest_unexp_trap(void)
--{
--	sbi_ecall(KVM_RISCV_SELFTESTS_SBI_EXT,
--		  KVM_RISCV_SELFTESTS_SBI_UNEXP,
--		  0, 0, 0, 0, 0, 0);
--}
--
- void vcpu_arch_set_entry_point(struct kvm_vcpu *vcpu, void *guest_code)
- {
- 	vcpu_set_reg(vcpu, RISCV_CORE_REG(regs.pc), (unsigned long)guest_code);
-@@ -348,8 +346,26 @@ struct kvm_vcpu *vm_arch_vcpu_add(struct kvm_vm *vm, u32 vcpu_id)
- 	/* Setup sscratch for guest_get_vcpuid() */
- 	vcpu_set_reg(vcpu, RISCV_GENERAL_CSR_REG(sscratch), vcpu_id);
- 
--	/* Setup default exception vector of guest */
--	vcpu_set_reg(vcpu, RISCV_GENERAL_CSR_REG(stvec), (unsigned long)guest_unexp_trap);
-+	/*
-+	 * Advertise V to KVM so -O2 auto-vectorization in guest code is valid;
-+	 * ignore errors since the tests work without V too. Use the full
-+	 * exception vector table (which lazily enables V in route_exception())
-+	 * as the default handler; vm_init_vector_tables() is idempotent.
-+	 */
-+	__vcpu_set_reg(vcpu, RISCV_ISA_EXT_REG(KVM_RISCV_ISA_EXT_V), 1);
-+	vm_init_vector_tables(vm);
-+	vcpu_init_vector_tables(vcpu);
-+
-+	/*
-+	 * Record V availability for route_exception(), which runs in guest
-+	 * context. V is enabled uniformly for every vCPU, so this is a
-+	 * VM-wide property.
-+	 */
-+	{
-+		struct handlers *h = addr_gva2hva(vm, vm->handlers);
-+
-+		h->v_available = __vcpu_has_isa_ext(vcpu, KVM_RISCV_ISA_EXT_V);
-+	}
- 
- 	return vcpu;
- }
-@@ -408,19 +424,43 @@ void assert_on_unhandled_exception(struct kvm_vcpu *vcpu)
- 	struct ucall uc;
- 
- 	if (get_ucall(vcpu, &uc) == UCALL_UNHANDLED) {
-+		vcpu_dump(stderr, vcpu, 2);
- 		TEST_FAIL("Unexpected exception (vector:0x%lx, ec:0x%lx)",
- 			uc.args[0], uc.args[1]);
- 	}
- }
- 
--struct handlers {
--	exception_handler_fn exception_handlers[NR_VECTORS][NR_EXCEPTIONS];
--};
-+static bool insn_is_vector(u32 insn)
-+{
-+	u32 opcode = insn & RV_INSN_OPCODE_MASK;
-+	u32 width, csr;
-+
-+	/* All V-related instructions are 4-byte, i.e. not compressed. */
-+	if ((insn & 0x3) != 0x3)
-+		return false;
-+
-+	switch (opcode) {
-+	case RVV_OPCODE_VECTOR:
-+		return true;
-+	case RVV_OPCODE_VL:
-+	case RVV_OPCODE_VS:
-+		width = RVV_EXTRACT_VL_VS_WIDTH(insn);
-+		return width == RVV_VL_VS_WIDTH_8 || width == RVV_VL_VS_WIDTH_16 ||
-+		       width == RVV_VL_VS_WIDTH_32 || width == RVV_VL_VS_WIDTH_64;
-+	case RVG_OPCODE_SYSTEM:
-+		csr = RVG_EXTRACT_SYSTEM_CSR(insn);
-+		return (csr >= CSR_VSTART && csr <= CSR_VCSR) ||
-+		       (csr >= CSR_VL && csr <= CSR_VLENB);
-+	}
-+
-+	return false;
-+}
- 
- void route_exception(struct pt_regs *regs)
- {
- 	struct handlers *handlers = (struct handlers *)exception_handlers;
--	int vector = 0, ec;
-+	int vector = 0;
-+	unsigned long ec;
- 
- 	ec = regs->cause & ~CAUSE_IRQ_FLAG;
- 	if (ec >= NR_EXCEPTIONS)
-@@ -432,6 +472,36 @@ void route_exception(struct pt_regs *regs)
- 		ec = 0;
- 	}
- 
-+	/*
-+	 * Lazily enable V on the first vector instruction: if the faulting
-+	 * instruction decodes as vector while VS is off, set VS to Initial
-+	 * and re-execute it, like the kernel's riscv_v_first_use_handler().
-+	 * Genuinely illegal instructions continue to the unexpected-exception
-+	 * path.
-+	 */
-+	if (!(regs->cause & CAUSE_IRQ_FLAG) && ec == EXC_INST_ILLEGAL &&
-+	    handlers && handlers->v_available && !(regs->status & SR_VS)) {
-+		u32 insn = (u32)regs->badaddr;
-+
-+		/*
-+		 * stval is not guaranteed to hold the faulting instruction.
-+		 * Vector instructions are always 32-bit, so check the first
-+		 * 16-bit halfword and, for a 32-bit instruction, assemble it
-+		 * from two halfwords to avoid an unaligned 32-bit access.
-+		 */
-+		if (!insn) {
-+			u16 half = *(u16 *)regs->epc;
-+
-+			if ((half & 0x3) == 0x3)
-+				insn = (u32)half | ((u32)*(u16 *)(regs->epc + 2) << 16);
-+		}
-+
-+		if (insn_is_vector(insn)) {
-+			regs->status |= SR_VS_INITIAL;
-+			return;
-+		}
-+	}
-+
- 	if (handlers && handlers->exception_handlers[vector][ec])
- 		return handlers->exception_handlers[vector][ec](regs);
- 
-@@ -448,6 +518,9 @@ void vcpu_init_vector_tables(struct kvm_vcpu *vcpu)
- 
- void vm_init_vector_tables(struct kvm_vm *vm)
- {
-+	if (vm->handlers)
-+		return;
-+
- 	vm->handlers = __vm_alloc(vm, sizeof(struct handlers), vm->page_size,
- 				  MEM_REGION_DATA);
- 
+> 
+> ---
+> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+> 
+> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/3167782391
 -- 
-2.53.0
+With Best Regards,
+Feng Jiang
+
 
 _______________________________________________
 linux-riscv mailing list
