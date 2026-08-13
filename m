@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E670C5CFCF
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 15:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72ACEC5CFCF
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2026 15:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FzJiXWSnT2mQMYjmaxjoht14+ZolX2CM34TEWGCP2ng=; b=GxVrdz0FCNnite
-	nvYki6tFzj7MZwvhWxyE3YG1uF1NxjOuL8EYdfiBv8GVm1V/Ye/LMldUc8/BjhGxJ1OoCnbOaUq5u
-	TQJUCEVAtzo2aooRCYX80Xpc3Vn7mcTpA0C0uV9QI8yx/YfXOWhTrK0CoRcjf4AU6wNcA9PGqeh6e
-	cp1zue7jCcJ69cpxkFBTlfKlA/9BZ9CvQYZUt/QRdxWPEaqtWHodK3pEYQkhpuC2HbOUF9Kx9RQ6V
-	egk4cqztw4+iZdlZCK8U8V+vHqFwE9Dul58CRXuby12HrvpV9dYlEQ1ZKV1WygsbzhhKANDAAmd85
-	Ns8BSpS5Ymjl0yj8Y0mQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=42VcSEr+sTv5RuchxkitA6WeeVbGeojWDKHLY06GzNI=; b=4sOqqOH23uSVl9
+	fUpErign0yecHoJaeLkn/qtrhz3PP+OT/WC7YcKKyXdffAxDf/uF2UCXKinGHuu6FsGAKN4G9fjnz
+	KHLxEwIWrd7LWgldG0eUbj6wRonduCKxzoaXLRrn+Tr8hTPOPoOPLxjgb+w7fCWyzrjPUWzCFhOnG
+	Dc+z6EH4NDH2pR7HJTGdxB+Zqe5Vv0sAXn0iotEaH8Ustigc1dm96xBq84/QL50rcCaaovMTy27Ve
+	LV0PER1dCJq8/A/oIN0+uglP8fI66lBfNC/pKNU8traXI567O6GJcRPXCvtx8sx1+yUX5KkLEdvl6
+	jBSiGSoK8O5yVy9r3rgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXWL-000000013MI-32og;
-	Thu, 13 Aug 2026 15:39:05 +0000
+	id 1wuXYi-000000013gf-0Hyj;
+	Thu, 13 Aug 2026 15:41:32 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXWH-000000013Ld-22nI
+	id 1wuXYf-000000013g2-0pvL
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Aug 2026 15:39:04 +0000
+	Thu, 13 Aug 2026 15:41:30 +0000
 Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-01 (Coremail) with SMTP id qwCowADnvPAL5X1q+Sh6BQ--.15943S2;
-	Thu, 13 Aug 2026 23:38:51 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowABXK++j5X1q6EV6BQ--.55604S2;
+	Thu, 13 Aug 2026 23:41:23 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
 To: Sunil V L <sunilvl@ventanamicro.com>,
 	"Rafael J. Wysocki" <rafael@kernel.org>
@@ -42,15 +42,17 @@ Cc: Len Brown <lenb@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH v2 0/3] ACPI: RIMT: validate nested firmware extents
-Date: Thu, 13 Aug 2026 23:38:51 +0800
-Message-ID: <20260813153851.47947-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH v2 1/3] ACPI: RIMT: validate table and node extents before traversal
+Date: Thu, 13 Aug 2026 23:41:23 +0800
+Message-ID: <20260813154123.51566-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260813153851.47947-1-pengpeng@iscas.ac.cn>
+References: <20260813153851.47947-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADnvPAL5X1q+Sh6BQ--.15943S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cr17XF1xKrWUCw4kWFWUXFb_yoW8Cw4kpr
-	WfWFW5try8Jw4fK3yftw4jkF15urn3Jr47AF9xtwn7ZFn0qF4jkrWIk34IqanxGrn3Gw13
-	Zr4FqFsruFy3CaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: qwCowABXK++j5X1q6EV6BQ--.55604S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZF18tF1xGF4UAF48tF1UJrb_yoW5CF45pa
+	13K3s0vrn5JrnrWa1xtF1rAFy3AF4xtrW7JryYka1Ygws8K3y8KF42yryavFn8GF93Ww42
+	yrs8tFn8CF4qyF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
@@ -67,9 +69,8 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7Cr17XF1xKrWUCw4kWFWUXFb_yoW8Cw4kpr
 X-Originating-IP: [111.196.241.250]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_083901_902168_FB57D65C 
-X-CRM114-Status: UNSURE (   5.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260813_084129_606550_6FFEC07A 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +87,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RIMT consumers trust three separate layers of firmware data: the root
-node area, the payload and arrays contained in each node, and cross-node
-ID mappings.  Validating only the outer table does not establish the
-bounds of either nested layer.
+RIMT walkers construct the first node from a firmware-provided offset and
+advance by each node length.  Checking only whether the current pointer
+reached the table end still permits a bad root offset, a truncated node
+header, or a zero or oversized node length to be read.
 
-Split the validation by contract.  Patch 1 validates the root and node
-envelopes while preserving unknown-node traversal.  Patch 2 validates
-supported node payloads, arrays and the platform-device string.  Patch 3
-validates exact destination-node references, mapping depth and ID
-arithmetic.
+Validate the root node area before constructing the first pointer.  Bound
+traversal by num_nodes and require every complete node to fit in the table.
 
-Changes since v1:
-https://lore.kernel.org/all/20260706094414.82794-1-pengpeng@iscas.ac.cn/
-- split root, node-data and mapping-reference validation
-- preserve unknown-node traversal compatibility
-- require destination offsets to match exact node boundaries
-- treat num_ids as a count, as specified by the RIMT definition
-- keep the existing unchanged-ID result on mapping failure
+Fixes: 8f7729552582 ("ACPI: RISC-V: Add support for RIMT")
+Assisted-by: Codex:gpt-5
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/acpi/riscv/rimt.c | 53 ++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 50 insertions(+), 3 deletions(-)
 
-Testing used Linux 3d6d817622b0 plus this series, GCC 13.3 and QEMU
-8.2.2 for riscv64.  A temporary KUnit harness in rimt.c called the
-actual static validation helpers; the harness is not part of this
-series.  The acpi_rimt_bounds suite passed all three tests, covering
-truncated table and node extents, invalid payload and array extents,
-unterminated device names, interior node references, ID range and
-addition errors, and a cyclic mapping chain.
-
-This did not exercise a platform-provided RIMT table through the complete
-boot-time discovery path.
-
-Pengpeng Hou (3):
-  ACPI: RIMT: validate table and node extents before traversal
-  ACPI: RIMT: validate node payload and array extents
-  ACPI: RIMT: validate mapping references and ID arithmetic
-
- drivers/acpi/riscv/rimt.c | 239 ++++++++++++++++++++++++++++++++++----
- 1 file changed, 219 insertions(+), 20 deletions(-)
-
-
-base-commit: 3d6d817622b0a9721e3cc404df3469171582be13
+diff --git a/drivers/acpi/riscv/rimt.c b/drivers/acpi/riscv/rimt.c
+index e4538fa6c2c8..533e9aba6e97 100644
+--- a/drivers/acpi/riscv/rimt.c
++++ b/drivers/acpi/riscv/rimt.c
+@@ -31,6 +31,45 @@ static DEFINE_SPINLOCK(rimt_fwnode_lock);
+ /* Root pointer to the mapped RIMT table */
+ static struct acpi_table_header *rimt_table;
+ 
++static bool rimt_table_valid(void)
++{
++	struct acpi_table_rimt *rimt = (struct acpi_table_rimt *)rimt_table;
++	size_t node_bytes;
++
++	if (!rimt || rimt->header.length < sizeof(*rimt))
++		return false;
++
++	if (!rimt->num_nodes)
++		return true;
++
++	if (rimt->node_offset < sizeof(*rimt) ||
++	    rimt->node_offset > rimt->header.length -
++				 sizeof(struct acpi_rimt_node))
++		return false;
++
++	node_bytes = rimt->header.length - rimt->node_offset;
++	return rimt->num_nodes <=
++		node_bytes / sizeof(struct acpi_rimt_node);
++}
++
++static bool rimt_node_valid(struct acpi_rimt_node *node,
++			    struct acpi_rimt_node *end)
++{
++	size_t remaining;
++
++	if ((u8 *)node >= (u8 *)end)
++		return false;
++
++	remaining = (u8 *)end - (u8 *)node;
++	if (remaining < sizeof(*node) || node->length < sizeof(*node) ||
++	    node->length > remaining) {
++		pr_err(FW_BUG "Invalid RIMT node length\n");
++		return false;
++	}
++
++	return true;
++}
++
+ /**
+  * rimt_set_fwnode() - Create rimt_fwnode and use it to register
+  *		       iommu data in the rimt_fwnode_list
+@@ -153,19 +192,21 @@ static struct acpi_rimt_node *rimt_scan_node(enum acpi_rimt_node_type type,
+ 	struct acpi_table_rimt *rimt;
+ 	int i;
+ 
+-	if (!rimt_table)
++	if (!rimt_table_valid())
+ 		return NULL;
+ 
+ 	/* Get the first RIMT node */
+ 	rimt = (struct acpi_table_rimt *)rimt_table;
++	if (!rimt->num_nodes)
++		return NULL;
++
+ 	rimt_node = ACPI_ADD_PTR(struct acpi_rimt_node, rimt,
+ 				 rimt->node_offset);
+ 	rimt_end = ACPI_ADD_PTR(struct acpi_rimt_node, rimt_table,
+ 				rimt_table->length);
+ 
+ 	for (i = 0; i < rimt->num_nodes; i++) {
+-		if (WARN_TAINT(rimt_node >= rimt_end, TAINT_FIRMWARE_WORKAROUND,
+-			       "RIMT node pointer overflows, bad table!\n"))
++		if (!rimt_node_valid(rimt_node, rimt_end))
+ 			return NULL;
+ 
+ 		if (rimt_node->type == type &&
+@@ -525,4 +566,10 @@ void __init riscv_acpi_rimt_init(void)
+ 
+ 		return;
+ 	}
++
++	if (!rimt_table_valid()) {
++		pr_err(FW_BUG "Invalid RIMT table layout\n");
++		acpi_put_table(rimt_table);
++		rimt_table = NULL;
++	}
+ }
 -- 
 2.50.1 (Apple Git-155)
 
