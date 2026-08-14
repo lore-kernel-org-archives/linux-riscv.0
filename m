@@ -4,57 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F30C5CFCF
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 05:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02452C5B572
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 06:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a7AjayeWYHkTEy3dYnMakruI+ksHLX72fxdMoeRLNy4=; b=MsE2MMziiJzXI6
-	eUgxLZr6HiT+AnM88sYG+vVS5V75EXxvFpEckSE/WKHNkU2iDBm/nCQhgbyLEHLv9+y0oyuMOsBkh
-	vYAPXwDR1Kx3sE0FYJB+BeiD/I7eWDkSAncmAV9wuMdk/nZKkqfdUocapfBGFaSZK8u5jWKbdx4G8
-	8Unka46wqIwIAZ2zVVrcZ7q3rV8AGSwCEnxNzPhRIxzAliztLrQUz38d+EqVO4ohBii0l0zEmWChY
-	yY0OSzMrIFEktHd8wDvJe9xnDAUigWwDFZyYv3xXulxw2rAzwVr6JLTIDF2J9xWJ12vgKPZh/pgWE
-	WWknbhTRHEwTH63e5ijg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XWqN2enABKvNIhY7NsqD/RthKHZl8iajNVQTTw6p2Po=; b=Qgv2p49ZLvAQQL
+	Ooqqjjfg0Jfmo2UfFhVq7ptJH/WAYd2BKuH12Z5EQofCvD7A1oXabacGRletB8cLZnyD/edWFslv3
+	uI9dH8nDZiESU4x9n2+7oZAwVQt1Uuqe/AWMPqvJGVfRQCcE23mR2OZRTh1onj5eqnTD3acBqm2Rn
+	3+uy+hZebok+gRp25aooRvcXHhKZDdDXShC1YKJfODJD4QtJhQnNRguT6uXzJ+b3G6dYC2CFi3hTg
+	qbc87YK6lEiuwA7EDGzVzzegUgAAOhKLp9NRoMpTLwpzmBLMOy8BAv30c4VUtPGFjG/RHeozSjRHw
+	FluPj9O2ggGS8ypGcEqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuktI-00000001znf-2eaU;
-	Fri, 14 Aug 2026 05:55:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wuld1-000000023Ju-0OG8;
+	Fri, 14 Aug 2026 06:42:55 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuktG-00000001znY-3Z0C
+	id 1wulcx-000000023JC-4Axt
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 05:55:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 321EA43964;
-	Fri, 14 Aug 2026 05:55:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 791631F000E9;
-	Fri, 14 Aug 2026 05:55:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786686938;
-	bh=l49uZpMY8QahNeQU4c0J9viiUOI5hPpb8Zv/YIAf+IU=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=AmESKaJyfbpLSaZx2SenXHP5hpIHTa6v0eDk/KVdPrCRbAbJnW3MpH2+Mk88RHJe1
-	 H0Nz7eYGdD3CrKbTHf56GP8OjdMejbl6+Zwt6k95DkA+vTuYB3oPKgwdZ+cKV/lnUr
-	 8DuVngRQ7CcuwebAGryr4U/z+XnLYV4iSBjwduHQsv8dw9EcyXF15i+M2XE3AP7L7/
-	 Cu68EQ8+ZXzdRkTRF1VEwPCBQA4evDuKXJ2sN8CG74HdYQTIcCIGplVDAtwrxeMWtT
-	 RjEWf4Iaso1boGZ6ogG6cU5n7aCwWkc+ehLIM19ow0hAM4vlkn7pLsoPPmWGLw9iG+
-	 hPAPpY5xKJ9XQ==
-Date: Thu, 13 Aug 2026 23:55:35 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Xiaofeng Yuan <xiaofengmian@163.com>, Nam Cao <namcao@linutronix.de>
-cc: Klara Modin <klara@kasm.eu>, prabhakar.csengg@gmail.com, 
-    Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] riscv: patch: skip fixmap mapping when kernel
- text is already writable
-In-Reply-To: <8733wjzvkj.fsf@yellow.woof>
-Message-ID: <d8d4f892-ab9f-3baf-52aa-f269efc08ffd@kernel.org>
-References: <20260720032258.5188-1-xiaofengmian@163.com> <20260720032258.5188-3-xiaofengmian@163.com> <ant_8TaBbov_GS4i@soda.int.kasm.eu> <8733wjzvkj.fsf@yellow.woof>
+	Fri, 14 Aug 2026 06:42:54 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hLt2F09TSzYQv9S
+	for <linux-riscv@lists.infradead.org>; Fri, 14 Aug 2026 14:42:29 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id 0D6CB40BA4
+	for <linux-riscv@lists.infradead.org>; Fri, 14 Aug 2026 14:42:37 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP2 (Coremail) with UTF8SMTPA id Syh0CgCH8YjbuH5qmzgVCQ--.6441S2;
+	Fri, 14 Aug 2026 14:42:36 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Pu Lehui <pulehui@huawei.com>
+Subject: [PATCH bpf-next] riscv, bpf: Fix missing sign-ext for signed 1-byte and 2-byte kfunc args
+Date: Fri, 14 Aug 2026 06:47:26 +0000
+Message-Id: <20260814064726.3607615-1-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-CM-TRANSID: Syh0CgCH8YjbuH5qmzgVCQ--.6441S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KF48Wry5ury3JFWUXFWfGrg_yoW8WF15pF
+	15C34akF9Yqw1IvFy8AF48Wr15Gr4vva17uFWj9a45JFW2qFWrWr4rKw4Yvay5urZ5u3WF
+	kryqgwn7u3yku3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv2b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0E
+	n4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I
+	0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8
+	ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcV
+	CY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAF
+	wI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa
+	7IU0s2-5UUUUU==
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_234252_397710_B09A7D31 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,26 +100,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Aug 2026, Nam Cao wrote:
+From: Pu Lehui <pulehui@huawei.com>
 
-> Klara Modin <klara@kasm.eu> writes:
-> > I have MODULES disabled and thus also STRICT_MODULE_RWX disabled, but
-> > still STRICT_KERNEL_RWX enabled. I saw that an earlier version of this
-> > patch[1] instead gated the first branch behind STRICT_KERNEL_RWX. That
-> > version works fine for me.
-> 
-> Urgh, I got confused between STRICT_MODULE_RWX and STRICT_KERNEL_RWX, I
-> suggested the final version.
-> 
-> Xiaofeng, can you send a patch?
+On RV64, the ABI requires sign-extension for signed 1-byte and 2-byte
+kfunc args. However, the RV64 JIT currently does not perform
+sign-extension for such kfunc args.
 
-Just dropped it from riscv/for-next, so, no need to send a revert.  
-Xiaofeng, could you send an updated patch?
+Before commit 7ce090afbf72 ("bpf: Infer zext_dst based on static
+register liveness analysis"), state pruning could potentially omit
+zero-extension of 32-bit subregisters, which inadvertently masked the
+above issue by making the args appear as if they had been properly
+sign-extended. After that commit, the problem is exposed, causing the
+kfunc_call/kfunc_call_test4 selftest to fail.
 
-Thanks to Klara and Prabhakar for reporting the failures promptly!
+Fix this by extending the existing sign-extension logic to handle signed
+1-byte and 2-byte kfunc args as well.
 
+Fixes: 443574b03387 ("riscv, bpf: Fix kfunc parameters incompatibility between bpf and riscv abi")
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-- Paul
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 2504df1fa111..74efe4b138d2 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -1823,9 +1823,10 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 
+ 			for (idx = 0; idx < fm->nr_args; idx++) {
+ 				u8 reg = bpf_to_rv_reg(BPF_REG_1 + idx, ctx);
++				bool sign = fm->arg_flags[idx] & BTF_FMODEL_SIGNED_ARG;
+ 
+-				if (fm->arg_size[idx] == sizeof(int))
+-					emit_sextw(reg, reg, ctx);
++				if (sign_extend(reg, reg, fm->arg_size[idx], sign, ctx))
++					return -EINVAL;
+ 			}
+ 		}
+ 
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
