@@ -4,107 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBF5C5B572
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 07:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5725BC5B572
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 08:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0WRJzLTrgT8L8ukU9PEs4WoOjrvsCvOmgUoIizamxGI=; b=HncQmOkC+K7OCw
-	v/S/I2uuYfl6Z0WJUchlhsIFWpp1sVX008o/pHF6dLXQAqaF08G7Ql1NTF7pJvrNynV4vVLRntaN9
-	kVl/1SyKFxLZ64gs8sB7/7EV//t/WWk3huqklx/wfCPFeEAsvhemF3mCm+lHfh5IxJbDu4cGkxoUv
-	qA1hw1EFJQK7jQlHysnYfIElTE0zANFAYoMBcDwStf6E1K84jW5j/+XWisW3iRb2rcu12DQYE9t3U
-	flfhWK5DGkVIyqvxq2bbc9m/Gx+UsNnoPm8nxVgII513hd2Crq4OE/WyztMG0m8Y2rWiuHhPleYu1
-	N5Zh4VvsjBOF1YHQ0Nmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yDxubXiv7iEsw9BQqGxecCuaosVjepYhmc8z0BOPkq8=; b=xmx8UOVllKZMMK
+	hkG6HPq4WuECcI6NtpPvlVHLSKSmNvn3hrdEeqa75+NrxHY673aLcrkkx6/LktT+ZWyvnnFGkftXu
+	JiRwQObEn9KFGZF/J7htpzDNtuLG+jd3wSayKWLNqAgFJVQCkfFHxYU6N4HqH2InV0uDvOCM9RKxU
+	wnmhlOQn+PYeRVF/YWPYRMwGRpWPzOxpVKVz6+cKxzVnNSl//chpCndj+ZToO1P//EK9UloQ2jakL
+	6J7GiOmT4cdOtvvor0yYbTAHS/GT1wS73+Jx0ZiztjDobiGiPQqtXiCEp8XHsCo6TA71x5OudS4dR
+	lIGEt/hXKuRKAw4ZFHKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wump7-00000002EZn-3DWo;
-	Fri, 14 Aug 2026 07:59:29 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wums0-00000002ExW-1T8K;
+	Fri, 14 Aug 2026 08:02:29 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wump5-00000002EZH-13AN
+	id 1wumrx-00000002Ex3-0o2W
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 07:59:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786694365;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=F8O34Xc16ur4O9EtunTdCdf0boIbkU6LPLycJBfuzuA=;
-	b=G3jotJYdazNeGimrTGOXprIwT0bdpCwrzQ+n/TP39NgKitpSKIkECHy3s+v2Z/ml/aXdZL
-	qjyeVa0kEd/x5zYkFV73oKUAPWR22B4Knkn2MX8jJhVA7K8dI8owGLpzND7LnCJupGJhVM
-	mNJ1kefJni/l0BjuIm9FL11r41v9F7k=
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
- [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-177-zRidDRz3ONWsPOzb6Ln3JA-1; Fri, 14 Aug 2026 03:59:24 -0400
-X-MC-Unique: zRidDRz3ONWsPOzb6Ln3JA-1
-X-Mimecast-MFC-AGG-ID: zRidDRz3ONWsPOzb6Ln3JA_1786694363
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-84a67b16217so884256b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Aug 2026 00:59:24 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786694363; x=1787299163;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F8O34Xc16ur4O9EtunTdCdf0boIbkU6LPLycJBfuzuA=;
-        b=PFJc4cqFx82O0vJxWAVuqrHxVKaYuKvZLE9FxUnEOmNPeYahcCCO2LaN3YCys/HLbs
-         GjifFrJWQT0wTDKsknXwCRXDTPp9/sUeJaAnW6BM2lUepKnuaMOrIhWgLhMxc1w1Hkcw
-         orWilPSE73h1JiMvkEvKWT9DUV1wmSNG5cSrILqQ7ksO0+0YwmBXj5WTLkLVVYGwVoQq
-         rVbHAQf6EbbRR2kyEFJY10Z0m+MauVLRZZ0hh7muXQJE5YduH8L9hlT9A5bmxDXystX0
-         cmmXZ8BLRu6dciAo/t6bPuyOD2yVQfa3WfAEjt9WPgXfnlQKlVDwWhSkxgWLiD2MzJs9
-         7G+Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rr9CWAtlkCuwu7TSTWcRIJQSdpHzpIYok6Mn5w9s33+c5GhHaGeKZjFXxllq6BGyMFpEkjDFZNCZMjY/Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyG6khX6J2nISPn/RP/aCUTNv5RMuIAJrB7oP47g+g6CPfQ8HZm
-	BbITfRX9aL0IaGpAcCCDzFLsCcGPjkYhg3E3qxk3KZBn295Kni7TkP06kOD/DyyVEJZ9w0TmEuW
-	8q3fdSk+VtB3p3sxcRTAACJNbaBrJZ7D9C4Cox9V9k7G1dUosjtn6HUGL6dnFeK3fVYuHkw==
-X-Gm-Gg: AR+sD12+eBaUI2bopRUhGAkB/V+NrH+Y6qs8fmMkD1JeL49jAAvyhVnG+nWAsPUjiAc
-	kfgN3WWPYWV94P/yQcZVzbjoNP5AGoQnP8rIVVLQZTg3dRYpCEq9m1OzSSwyGqpkFUsd8vJeU+K
-	cGNO++OL9vCSk0oJPW1xw4cfPQHpKPFxqUZKjpFjHwMGf9lWWOA4VLDOoiDVTSrRHzWOiXKY28P
-	Z1RxhIGVbeBSE9XFxxdKNVuMZQ8mW4f70+lu3qap6S91rG79U/699KJWqzGfjX+6ZXf3BmeexQ0
-	/dr2uxXMNAOYq0iuHaF4dDlu2eqzwnvBnB/3w2g/4VxX8ev456GJvOxxY9vRxyDS7T36h44b+UW
-	UXspOGd/yXpd9tf3FAA==
-X-Received: by 2002:a05:6a00:2d98:b0:84a:646f:193 with SMTP id d2e1a72fcca58-84fdde42b9bmr3951017b3a.0.1786694363304;
-        Fri, 14 Aug 2026 00:59:23 -0700 (PDT)
-X-Received: by 2002:a05:6a00:2d98:b0:84a:646f:193 with SMTP id d2e1a72fcca58-84fdde42b9bmr3950974b3a.0.1786694362810;
-        Fri, 14 Aug 2026 00:59:22 -0700 (PDT)
-Received: from [192.168.1.2] ([122.171.16.134])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8517d249b26sm121142b3a.43.2026.08.14.00.59.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Aug 2026 00:59:22 -0700 (PDT)
-Message-ID: <81cb568c-e65f-4359-9c6f-f994f910f2f1@redhat.com>
-Date: Fri, 14 Aug 2026 13:29:15 +0530
+	Fri, 14 Aug 2026 08:02:27 +0000
+Received: from localhost.localdomain (unknown [111.196.241.250])
+	by APP-01 (Coremail) with SMTP id qwCowACnffGIy35qW7eeBQ--.48856S2;
+	Fri, 14 Aug 2026 16:02:17 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Rahul Pathak <rahul@summations.net>,
+	Anup Patel <anup@brainfault.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>
+Subject: [PATCH v2] mailbox: riscv-sbi-mpxy: validate RPMI notification lengths
+Date: Fri, 14 Aug 2026 16:02:15 +0800
+Message-ID: <20260814080215.21753-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
- mismatch
-To: Philipp Rudo <prudo@redhat.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
- Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- kexec@lists.infradead.org
-References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
- <20260813151350.6b511155@rotkaeppchen>
-From: Mukesh Pilaniya <mpilaniy@redhat.com>
-In-Reply-To: <20260813151350.6b511155@rotkaeppchen>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: t8zsVS1Ipe3VUb1diHOMUMM0y6COFyN0PSXqYkVtuEE_1786694363
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+X-CM-TRANSID: qwCowACnffGIy35qW7eeBQ--.48856S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZFyktr43Kw4fJrWfCr13CFg_yoW5GF4rpF
+	W7Ka4FyrWUtrnrZ3sxX3WkZayUW3s3JF9rKa4qy34FvFsxWr1UJFWDta4jq3WFyFW7Jryx
+	twsYqFs8Z34DZa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26r
+	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r1q6rW5McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
+	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
+	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
+	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r4j6r
+	yUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJb
+	IYCTnIWIevJa73UjIFyTuYvjfU5byZUUUUU
+X-Originating-IP: [111.196.241.250]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_005927_370887_ED38A2B6 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20260814_010225_601701_E8719346 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,150 +79,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The SBI return value controls how many bytes are copied from shared
+memory into the RPMI notification buffer. It is not validated against
+the negotiated shared-memory size before that copy. The event walker
+also uses a reversed loop condition and can inspect a short event record.
 
-Hi Philipp,
+Validate the complete notification length before copying it, iterate only
+while a full event header remains, and stop when a declared event payload
+extends beyond the copied notification data.
 
-On 13/08/26 6:43 pm, Philipp Rudo wrote:
-> Hi Mukesh,
-> 
-> the patch looks good to me.
-> 
-> There is also a corresponding kexec-tools patch, which was accidentally
-> opened as a Github PR (https://github.com/horms/kexec-tools/pull/12).
-> It will be sent to kexec@lists.infradead.org shortly.
-> 
-> Thanks
-> 
-> Reviewed-by: Philipp Rudo <prudo@redhat.com>
-> 
-The kexec-tools patch has now been posted to the mailing list.
-It can be found here:
-https://lore.kernel.org/all/20260814075329.30203-1-mpilaniy@redhat.com/
+Fixes: bf3022a4eb11 ("mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver")
+Assisted-by: Codex:gpt-5
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+Changes since v1: https://lore.kernel.org/all/20260706092108.78340-1-pengpeng@iscas.ac.cn/
+- validate the SBI-reported total before copying shared memory
+- fix the inverted full-event-header loop condition
+- validate each event payload extent before dispatch
 
-> On Thu, 13 Aug 2026 12:36:29 +0530
-> Mukesh Pilaniya <mpilaniy@redhat.com> wrote:
-> 
->> Several kexec_file_load() image probe functions return -EINVAL when
->> they do not recognize the image format.  A probe function that rejects
->> an image should return -ENOEXEC to indicate that the image is not a
->> recognized executable format.  -EINVAL implies a problem with the
->> syscall parameters, not with image recognition.
->>
->> kexec_image_probe_default() iterates through registered loaders and
->> returns the last probe's error code to the caller.  That error
->> propagates as the kexec_file_load() return value to userspace.
->> Returning -EINVAL from a probe when no loader matches is semantically
->> incorrect and misleads userspace about the nature of the failure.
->>
->> Return -ENOEXEC from all probe functions and their helpers when the
->> image format is not recognized.
->>
->> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
->> ---
->> branch: next-20260812
->> base commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
->> ---
->>   arch/arm64/kernel/kexec_image.c   | 4 ++--
->>   arch/loongarch/kernel/kexec_efi.c | 4 ++--
->>   arch/riscv/kernel/kexec_image.c   | 4 ++--
->>   kernel/kexec_elf.c                | 4 ++--
->>   4 files changed, 8 insertions(+), 8 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
->> index b70f4df15a1a..101259874d44 100644
->> --- a/arch/arm64/kernel/kexec_image.c
->> +++ b/arch/arm64/kernel/kexec_image.c
->> @@ -25,10 +25,10 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
->>   		(const struct arm64_image_header *)(kernel_buf);
->>   
->>   	if (!h || (kernel_len < sizeof(*h)))
->> -		return -EINVAL;
->> +		return -ENOEXEC;
->>   
->>   	if (memcmp(&h->magic, ARM64_IMAGE_MAGIC, sizeof(h->magic)))
->> -		return -EINVAL;
->> +		return -ENOEXEC;
->>   
->>   	return 0;
->>   }
->> diff --git a/arch/loongarch/kernel/kexec_efi.c b/arch/loongarch/kernel/kexec_efi.c
->> index 5ee78ebb1546..28a1d0420ba3 100644
->> --- a/arch/loongarch/kernel/kexec_efi.c
->> +++ b/arch/loongarch/kernel/kexec_efi.c
->> @@ -24,12 +24,12 @@ static int efi_kexec_probe(const char *kernel_buf, unsigned long kernel_len)
->>   
->>   	if (!h || (kernel_len < sizeof(*h))) {
->>   		kexec_dprintk("No LoongArch image header.\n");
->> -		return -EINVAL;
->> +		return -ENOEXEC;
->>   	}
->>   
->>   	if (!loongarch_header_check_dos_sig(h)) {
->>   		kexec_dprintk("No LoongArch PE image header.\n");
->> -		return -EINVAL;
->> +		return -ENOEXEC;
->>   	}
->>   
->>   	return 0;
->> diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
->> index 51dc89259f16..963a25f5b55b 100644
->> --- a/arch/riscv/kernel/kexec_image.c
->> +++ b/arch/riscv/kernel/kexec_image.c
->> @@ -20,7 +20,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
->>   	const struct riscv_image_header *h = (const struct riscv_image_header *)kernel_buf;
->>   
->>   	if (!h || kernel_len < sizeof(*h))
->> -		return -EINVAL;
->> +		return -ENOEXEC;
->>   
->>   	/* According to Documentation/arch/riscv/boot-image-header.rst,
->>   	 * use "magic2" field to check when version >= 0.2.
->> @@ -28,7 +28,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
->>   
->>   	if (h->version >= RISCV_HEADER_VERSION &&
->>   	    memcmp(&h->magic2, RISCV_IMAGE_MAGIC2, sizeof(h->magic2)))
->> -		return -EINVAL;
->> +		return -ENOEXEC;
->>   
->>   	return 0;
->>   }
->> diff --git a/kernel/kexec_elf.c b/kernel/kexec_elf.c
->> index 3a5c25b2adc9..89a444a00693 100644
->> --- a/kernel/kexec_elf.c
->> +++ b/kernel/kexec_elf.c
->> @@ -172,7 +172,7 @@ static int elf_read_ehdr(const char *buf, size_t len, struct elfhdr *ehdr)
->>   
->>   	default:
->>   		pr_debug("Unknown ELF class.\n");
->> -		return -EINVAL;
->> +		return -ENOEXEC;
->>   	}
->>   
->>   	return elf_is_ehdr_sane(ehdr, len) ? 0 : -ENOEXEC;
->> @@ -236,7 +236,7 @@ static int elf_read_phdr(const char *buf, size_t len,
->>   
->>   	default:
->>   		pr_debug("Unknown ELF class.\n");
->> -		return -EINVAL;
->> +		return -ENOEXEC;
->>   	}
->>   
->>   	return elf_is_phdr_sane(phdr, len) ? 0 : -ENOEXEC;
->>
->> ---
->> base-commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
->> change-id: 20260813-mpilaniy-ffb0cc92c313
->>
->> Best regards,
->> --
->> Mukesh Pilaniya <mpilaniy@redhat.com>
->>
-> 
+The shared-memory and event extents were reviewed statically; malformed
+RPMI firmware data was not injected.
+
+ drivers/mailbox/riscv-sbi-mpxy-mbox.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/mailbox/riscv-sbi-mpxy-mbox.c b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+index 7c9c006b7244..714f7fb97a2f 100644
+--- a/drivers/mailbox/riscv-sbi-mpxy-mbox.c
++++ b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+@@ -314,8 +314,13 @@ static int mpxy_get_notifications(u32 channel_id,
+ 			 channel_id, 0, 0, 0, 0, 0);
+ 	if (sret.error)
+ 		goto err_put_cpu;
++	if (sret.value < 0 || mpxy_shmem_size < sizeof(*notif_data) ||
++	    sret.value > mpxy_shmem_size - sizeof(*notif_data)) {
++		put_cpu();
++		return -EOVERFLOW;
++	}
+ 
+-	memcpy(notif_data, mpxy->shmem, sret.value + 16);
++	memcpy(notif_data, mpxy->shmem, sret.value + sizeof(*notif_data));
+ 	*events_data_len = sret.value;
+ 
+ err_put_cpu:
+@@ -480,11 +485,14 @@ static void mpxy_mbox_peek_rpmi_data(struct mbox_chan *chan,
+ 	struct rpmi_mbox_message msg;
+ 	unsigned long pos = 0;
+ 
+-	while (pos < events_data_len && (events_data_len - pos) <= sizeof(*event)) {
++	while (events_data_len - pos >= sizeof(*event)) {
+ 		event = (struct rpmi_notification_event *)(notif->events_data + pos);
+ 
+ 		msg.type = RPMI_MBOX_MSG_TYPE_NOTIFICATION_EVENT;
+ 		msg.notif.event_datalen = le16_to_cpu(event->event_datalen);
++		if (msg.notif.event_datalen >
++		    events_data_len - pos - sizeof(*event))
++			break;
+ 		msg.notif.event_id = event->event_id;
+ 		msg.notif.event_data = event->event_data;
+ 		msg.error = 0;
+-- 
+2.50.1 (Apple Git-155)
 
 
 _______________________________________________
