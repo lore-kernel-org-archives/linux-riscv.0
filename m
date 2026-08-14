@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1610EC5DF66
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 03:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F94CC5DF69
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 03:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+WOp5Wcww/sY+UyvREk7K0VTFR6hZ0RKX9UjsayIZyE=; b=bmBYNfhE+dphS4
-	gw288HFagAnRMMAb/3MDFhBgs6xgDFgdooZDZiaQrUGbzArKlMAVsEPy9ag1JA7kMlROCp5AvB8o8
-	AHNFsJFo6pGGvtZ1+BJDyoJIJQImXrxk+6TxYHuJWVEngnzMaSQrQm9aNPDxYfsxamDqrBhbHQctA
-	i5s+w1FcHQQo53k5S+eOljWiJDPc0vYOVMQm87AUuet/l3SN7dMDM6oPsSPhKUpv5mmiFCXE0Rq4H
-	8TCGxjsFtBuGHYGvYYAx8wDb+Q2uHbDHYhWAC3C1j5LpqHsJtvN1gNc3pjkGldzdWAlTohP0q/bGw
-	8k0h4gzN8TFwBXYH6dwA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q8ed1kY3f0RdYaLcOlJmsJWals9l/qPvtAlEZgjJTgk=; b=yFcT67EjjiRb/U
+	cfEVJQezJkCeiHr+5YFsNnYHcdGX2L/ceZZGD0rI00F1SIcN3m6C+MA+gzjQakGXtXKQeVx5bYM/t
+	JlJAumBh4ffSndezHFba5KB+uoKnovDfeSBnY9ctApqOysWIld/CZqc94LEJvvNS3aIXrzd78Tjqo
+	0OK14vKBxDH/yXbaslafpDa3bgHXLHV9i5Y0TxGYAQYzXH8DUiGDnGD0QKxwOrBuUP+9oWeMNLqVA
+	PBBKOhhxkBjCI9yOMFvUwl/BRNnn4v6Wz4FpDcMfxbc+aFujQXXXn0KBwXQO2NBUfUlu28n+cWRfW
+	HAg+zzT2x5WK1IM9brJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuiGB-00000001t3Y-3zCx;
-	Fri, 14 Aug 2026 03:07:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuiQz-00000001tbC-3oc4;
+	Fri, 14 Aug 2026 03:18:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuiGB-00000001t3S-2dTt
+	id 1wuiQx-00000001tav-3WSx
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 03:07:07 +0000
+	Fri, 14 Aug 2026 03:18:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BD6543A06;
-	Fri, 14 Aug 2026 03:07:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 202881F000E9;
-	Fri, 14 Aug 2026 03:07:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BE3F8600AD;
+	Fri, 14 Aug 2026 03:18:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6C261F000E9;
+	Fri, 14 Aug 2026 03:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786676825;
-	bh=NkkfLt8OHm6pJp/CZhetwIwLGaYtIaMcMgjZaFs1E+s=;
-	h=Date:From:To:cc:Subject;
-	b=AgLoAHSfxalGjLNrLJ9BknAxtZD1PPzzpYIvpXbr7x7G2XuqHYqFa+Oq1FclmvgiV
-	 SuRBSel7Jn2u1yIATOZNzHwZY6mYAPatrJvG6wQ2ohan1xWjvG2bJcrxce1fSKk78J
-	 YK4JnJoBKvfNMj3CrwqxcD/SDjOuK7MB3erlGAznzw1znYBBgOoeuCKr8zXt3TrTIu
-	 BIkTNi0ERAVE/vpa5HKGQT8PHx66+McF7kSkhagYExEwcyUAwCPE5S6s39f5NW1Dq+
-	 VAbEsnEDCVB7eS6QUyZt0S72xVl8qvxMJ76M+WbkyQDizYl1U5AS9BB+LAyq1vm4W8
-	 HQWmmSIF8kl0w==
-Date: Thu, 13 Aug 2026 21:07:01 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V updates for late v7.2-rc
-Message-ID: <b2ab28e2-de86-29b5-691c-2ba47af7f9e6@kernel.org>
+	s=k20260515; t=1786677494;
+	bh=LsgWn8sG7KwPcJHSK2CgogemlhdZd4bBu7Jx3POkoZA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=TJz9evUqTStazAS2hs+GEFRo2dO95zacLioKESOh/64Gdo1mZOppeX26Vfv9cBonO
+	 UrB99vNLxkWx2+On3R8N/AL3lsEZq16lOoF+N/JJL4okKtYbmrQ0QsVpDh+wCWdWFt
+	 1Q5CSmAwU1Ebq180oD0vSnTH5Q3hnQ5/jEYmZY89pF+PRiAfkXRw5B81IAo7XkT3HX
+	 S40aWVevme9sUAlMQ8D5KJtAOGRdFr7TONuUt/URwsnA8VnjjKMn3KNOU7Fc1PNghw
+	 GYt72oh7Kr+c1QikCWm8I6JsO8pRU11XHtRITb5MkIYPTGfJ79sYZwoglCJGL7rNnw
+	 MCM3mIEl6zLyA==
+From: SJ Park <sj@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: SJ Park <sj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Miaohe Lin <linmiaohe@huawei.com>,
+	Naoya Horiguchi <nao.horiguchi@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	david@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	kernel-team@meta.com
+Subject: Re: [PATCH v3] tools/mm: add hwpoison-panic tool
+Date: Thu, 13 Aug 2026 20:18:10 -0700
+Message-ID: <20260814031810.88417-1-sj@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260813-memory_failure_rewrite_test-v3-1-f9fb6542cbff@debian.org>
+References: 
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -65,118 +80,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linus,
+On Thu, 13 Aug 2026 04:45:15 -0700 Breno Leitao <leitao@debian.org> wrote:
 
-Please pull these RISC-V updates for late v7.2-rc.  Nothing too
-notable here; all of these fix significant issues that would be
-good to resolve before v7.2 is tagged.
+> Add a tool that enables the vm.panic_on_unrecoverable_memory_failure
+> sysctl, picks a kernel-owned PFN and writes its physical address to
+> hard_offline_page.  Three page kinds are selectable with -k: rodata
+> (default), slab or pgtable. In all cases the host should panic.
+> 
+> Example:
+> 
+>         # ./hwpoison-panic -k slab --yes-panic-my-kernel
+>         injecting hwpoison at phys 0x100032000 (pfn 0x100032, kind=slab)
+>         expecting kernel panic: 'Memory failure: <pfn>: unrecoverable page'
 
-thanks,
+Too trivial nit, but I couldn't resist.  Why print '<pfn>' instead of the real
+pfn value, while we know it?
+
+> 
+> In dmesg, you will see:
+> 
+>         Memory failure: 0x100032: unhandlable page.
+>         Memory failure: 0x100032: recovery action for reserved kernel page: Ignored
+>         Kernel panic - not syncing: Memory failure: 0x100032: unrecoverable page
+> 
+> This lives in tools/mm rather than selftests/mm because every successful
+> run crashes the machine, which is not something to run from CI.
+> 
+> The --yes-panic-my-kernel argument is required so an accidental
+> invocation does not take the box down.
+
+Looks useful to me, thank you!
+
+> 
+> Signed-off-by: Breno Leitao <leitao@debian.org>
+
+Reviewed-by: SJ Park <sj@kernel.org>
+
+[...]
+> +static const char *inject_hwpoison(const struct page_kind *kind,
+> +				   uint64_t phys_addr, uint64_t pfn)
+> +{
+> +	char buf[32];
+> +	int fd, len;
+> +	ssize_t ret;
+> +
+> +	printf("injecting hwpoison at phys 0x%llx (pfn 0x%llx, kind=%s)\n",
+> +	       (unsigned long long)phys_addr, (unsigned long long)pfn,
+> +	       kind->name);
+> +	printf("expecting kernel panic: 'Memory failure: <pfn>: unrecoverable page'\n");
+> +	fflush(stdout);
+> +
+> +	fd = open(INJECT_PATH, O_WRONLY);
+> +	if (fd < 0)
+> +		return "cannot open " INJECT_PATH;
+> +
+> +	len = snprintf(buf, sizeof(buf), "0x%llx", (unsigned long long)phys_addr);
+
+Yet another trivial comment.  I'm not a big fan of >80 columns lines, but I
+understand there are various tastes :)
 
 
-- Paul
+Thanks,
+SJ
 
-
-The following changes since commit 075b74841bd0065a3bda3440873c747938e69b68:
-
-  Linux 7.2-rc6 (2026-08-02 16:24:24 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-v7.2-rc8
-
-for you to fetch changes up to 5d588c684833e678a0008eb69c33190f01a65f4b:
-
-  riscv: lib: Fix ZBB strnlen reading past count boundary (2026-08-08 11:45:33 -0600)
-
-----------------------------------------------------------------
-RISC-V updates for late v7.2-rc
-
-- Fix a fault caused when the RISC-V Zbb-enabled strlen() is executed
-  on a string that ends right before a page boundary, when the next
-  page is unmapped
-
-- Fix a race with the misaligned vector performance testing code that
-  can prevent the outcome of the test from being stored into the vDSO
-  cache
-
-- Fix a kernel warning generated by the ftrace code when
-  ftrace_modify_call_code() runs against a ftrace-traced function
-  where a kprobe has already been attached.  This shows up in the bpf
-  kselftests
-
-----------------------------------------------------------------
-Michael Neuling (1):
-      riscv: lib: Fix ZBB strnlen reading past count boundary
-
-Pu Lehui (1):
-      riscv: ftrace: Fix ftrace_modify_call failure on kprobed functions
-
-Rui Qi (1):
-      riscv: hwprobe: Register unaligned probes before usermode
-
- arch/riscv/kernel/ftrace.c                 |  5 ++++-
- arch/riscv/kernel/unaligned_access_speed.c |  8 +++++++-
- arch/riscv/lib/strnlen.S                   | 10 +++++++++-
- 3 files changed, 20 insertions(+), 3 deletions(-)
-
-vmlinux size differences in bytes (from 075b74841bd0):
-  text  data   bss     dec    hex  filename                             
-   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-16             
-   +12   +96     .    +108    +6c  vmlinux.nosmp_defconfig.gcc-16       
-   +12   +64     .     +76    +4c  vmlinux.rv32_defconfig.gcc-16        
-   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-16  
-   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-16  
-    +8   +96     .    +104    +68  vmlinux.defconfig.clang-20           
-    +8   +96     .    +104    +68  vmlinux.nosmp_defconfig.clang-20     
-    +8   +64     .     +72    +48  vmlinux.rv32_defconfig.clang-20      
-    +8   +64     .     +72    +48  vmlinux.rv32_nosmp_defconfig.clang-20
-    +8   +64     .     +72    +48  vmlinux.nommu_virt_defconfig.clang-20
-   +12   +64     .     +76    +4c  vmlinux.defconfig.gcc-15             
-   +12   +64     .     +76    +4c  vmlinux.nosmp_defconfig.gcc-15       
-   +12   +64     .     +76    +4c  vmlinux.rv32_defconfig.gcc-15        
-   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-15  
-   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-15  
-   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-14             
-   +12   +64     .     +76    +4c  vmlinux.nosmp_defconfig.gcc-14       
-   +12   +96     .    +108    +6c  vmlinux.rv32_defconfig.gcc-14        
-   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-14  
-   +12     .     .     +12     +c  vmlinux.nommu_virt_defconfig.gcc-14  
-    +8   +64     .     +72    +48  vmlinux.defconfig.clang-19           
-    +8   +64     .     +72    +48  vmlinux.nosmp_defconfig.clang-19     
-    +8   +64     .     +72    +48  vmlinux.rv32_defconfig.clang-19      
-    +8   +96     .    +104    +68  vmlinux.rv32_nosmp_defconfig.clang-19
-    +8   +64     .     +72    +48  vmlinux.nommu_virt_defconfig.clang-19
-   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-13             
-   +12   +96     .    +108    +6c  vmlinux.nosmp_defconfig.gcc-13       
-   +12   +96     .    +108    +6c  vmlinux.rv32_defconfig.gcc-13        
-   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-13  
-   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-13  
-    +8   +64     .     +72    +48  vmlinux.defconfig.clang-18           
-    +8   +64     .     +72    +48  vmlinux.nosmp_defconfig.clang-18     
-    +8   +96     .    +104    +68  vmlinux.rv32_defconfig.clang-18      
-    +8   +64     .     +72    +48  vmlinux.rv32_nosmp_defconfig.clang-18
-    +8     .     .      +8     +8  vmlinux.nommu_virt_defconfig.clang-18
-   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-12             
-   +12   +96     .    +108    +6c  vmlinux.nosmp_defconfig.gcc-12       
-   +12   +64     .     +76    +4c  vmlinux.rv32_defconfig.gcc-12        
-   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-12  
-   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-12  
-    +8   +64     .     +72    +48  vmlinux.defconfig.clang-17           
-    +8   +96     .    +104    +68  vmlinux.nosmp_defconfig.clang-17     
-    +8   +64     .     +72    +48  vmlinux.rv32_defconfig.clang-17      
-    +8   +64     .     +72    +48  vmlinux.rv32_nosmp_defconfig.clang-17
-    +8   +64     .     +72    +48  vmlinux.nommu_virt_defconfig.clang-17
-   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-11             
-   +12   +96     .    +108    +6c  vmlinux.nosmp_defconfig.gcc-11       
-   +12   +64     .     +76    +4c  vmlinux.rv32_defconfig.gcc-11        
-   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-11  
-   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-11  
-     .   +32     .     +32    +20  vmlinux.allnoconfig.gcc-15           
-+57664  +172  -128  +57708  +e16c  vmlinux.allmodconfig.gcc-15          
-     .     .     .       .      .  vmlinux.allnoconfig.clang-19         
-+19812  -128   +64  +19748  +4d24  vmlinux.allmodconfig.clang-19        
-
+[...]
 
 _______________________________________________
 linux-riscv mailing list
