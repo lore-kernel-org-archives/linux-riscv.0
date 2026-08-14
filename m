@@ -4,127 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3945CC5CFC1
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 20:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8941C5CFC1
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 20:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MZaOUB0nb4EQbY3BbXWZxGc6B4VaZc5VJrzhA3dInKg=; b=UYHB8iGNDQBWTs
-	T46XjLA6aa6HEmxW4wEFyUbBSgP/B1aPxfSzP+ae6AKYoPs30po+ZbD0q/bX/iB80ibKyI2SROgZE
-	t1v7IqLxCAk0h+AV8HKeasa7KUA+p4lIaYgc9xKr16baRDmB/HHxZ61UoQfz3IiAUQr0SFKHGDdAD
-	vfaS8W/5B1gjiOHUDurDUfh/X/53jjfNeMjaxtATmipNyl6vKgRfr0QfZMAgQyh9wc7s4Wub445d4
-	CP7OiU3tlAX28aNsidUhWb/ae1418Yk/kyYGlK8c8rFbO70JWAUh15pXDw2Ktl/0sfUwqocWURGGV
-	bEjngelAmAc9yQNjvM/A==;
+	List-Owner; bh=lZ82sqPSmYRmERMqPL40Xfh4og2FSHTEU3EqyatDjic=; b=fBg6OjnSPjIdTp
+	V0qqUyInHsFtsbJzvb2Hy96n6AlILfevOW5XTA+C6eGtzmOhp9G2lCSJ+aHyCXioD9AO/bQQwsv0f
+	5Zfg5kp3BeFVk3f6j3cZ6Z3sXDwb4f/m7JPSoT+wgawzGAgNdbEmyF7xCF5YWXj0CcRsR+CsNZIjs
+	nc0tfPiXlrdvOuC8SjGo1NyqlKAyt6s6NNSlhq996pRfaLAbtVzv9ks6N+Cg0juzfXiPcmHEEwKv1
+	2ZX0NAwjQUCqoBl/1O8+MMmfh03zJ1eXbOYfiL2G7iNldN1EX0WJMGj0VWCyFiElHXLVH1yNhN3gl
+	+wFt6EnF2X6B5gv+f0cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuyM1-000000038cM-15rO;
-	Fri, 14 Aug 2026 20:18:13 +0000
-Received: from mail-norwayeastazon11013042.outbound.protection.outlook.com ([40.107.159.42] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuyLw-000000038bG-1zOb
-	for linux-riscv@lists.infradead.org;
+	id 1wuyLy-000000038by-2FTL;
 	Fri, 14 Aug 2026 20:18:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hcplm5F4nS1dA3XjYCbvT2xe27rfgYqeLhkZcxbNrPM0kQpm+/djGD/P71TyVPuxSWCgVhpQh9OTfSjuIkvnAchWi/NGNWT1vHdjfRI16eZ3ITSYbHUDNS7HUp6ec+v4jeKRIFSde4Kay9DuZs71KelWJIk/AWfHyllYmqi1gzt5BqnNZEXsJfFhC9FKW6sl5pA0QfhvcGINsS8KQqhykWMF9Uoe65QywR4ny9e0/gYJ0M9EvZlLztwwjqdca5xgHu2EuALdm7J5RzfAs1eKo3IeIavz9dR4tqlqwsrcbAz8gxxvQZPE7wsKrsuumI96mQIdNE9GnWWpW0oRTk/bVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+70hAGVzvAAsTrUAoH9tPw43XI9ZpohG+2guBG/g39Q=;
- b=YuHZDR01lx7DSmBa9vfmG3Y+R4NFpmjsypSXFGAgwE+BkiY9oU2lyVQ+cTlELyvM2gjXKLz4aJm0dmd2spKT1P4aoRaB3ubMtaClfby+2gzaTYC297clf2kkyLYPt7niNfL5zT4w3/52NEiH3msIS/f84rDkWx1lDQmeIjICrgCOW/g0MJWIR6OmR5eHGG/qn7Rni29WRJ98guqEj1SjHfTUSsSXYRmQ3QIBa0y7pahUYdvjYZACs5XK6YoK8GggqHzjE7V7GloSqoRpr5V1tn1BLP5MQ9JBrSDQY9YxS+Fs/dcVe9/m3kHe5o/JbhEtHj9zCF8Q4F/byB1y5aGwxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+70hAGVzvAAsTrUAoH9tPw43XI9ZpohG+2guBG/g39Q=;
- b=c3PsAh1wI13p4/8XkSWYmEhTFWA29KH/z0kCsWbBAVupjbE+YDXAk+F9hgw7GDgp9hPZhudKKxBCG7K7z75+I2NsixeL/+YYkAopk1o7M3DrGGzDSqM873pB0nRL7nBu7Cx/lAyJ/eC0UJXKI8DUuGXco9WzqGraEQ0QvD73aPuyZKLxqorXctuNLqdG2+uFsHjhxWeJepE8HmqF4jecs2Eds8js+lzd+oqS7Hljy1GE4S9phQk8wCMug6ycFD5SD4CAfySehFKT82QXxJkw1k/8O5gtkNUjMOZLflUmvU6DrIzQ7OvSuyT57six7gu6ipGkeDawSkfRMVtvX2gpFQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB12268.eurprd04.prod.outlook.com (2603:10a6:150:2c7::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
- 2026 20:18:02 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
- 20:18:02 +0000
-Date: Fri, 14 Aug 2026 16:17:54 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Yixun Lan <dlan@kernel.org>, Guodong Xu <guodong@riscstar.com>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v2] dmaengine: mmp_pdma: fix wrong extended DRCMR base
- for SpacemiT K3
-Message-ID: <an938oW_b_W-AYeE@lizhi-Precision-Tower-5810>
-References: <20260727-k3-pdma-fix-drcmr-base-v2-1-afba55cba1f3@linux.spacemit.com>
-Content-Disposition: inline
-In-Reply-To: <20260727-k3-pdma-fix-drcmr-base-v2-1-afba55cba1f3@linux.spacemit.com>
-X-ClientProxiedBy: SA1PR04CA0017.namprd04.prod.outlook.com
- (2603:10b6:806:2ce::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuyLw-000000038bK-0meZ
+	for linux-riscv@lists.infradead.org;
+	Fri, 14 Aug 2026 20:18:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D05144335E;
+	Fri, 14 Aug 2026 20:18:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251B91F00A3D;
+	Fri, 14 Aug 2026 20:18:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786738687;
+	bh=pveHsKdz8gG8JBaNaiMBJjqdWpme2EapoXdhRL06JAo=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=CPNwwRaU4usMAhjJGFQi1xSqpKOi00H22jbPhK8odmefHDMZtFXVPIWIg9b0WGund
+	 1LA0M5D3tN7bg9nEV6iFmQwKeDt0CfcBV1dbhuunIKiCps0S63BLH3FjT8OoVsloiQ
+	 FvVyXK3Pzhql/7dlBpoqXn8zrE84KBzNPP8UIEw5XH5iYcqM9fEuyzo6t3SW0qPJnR
+	 ooS9lSh/9uEUkn51ivmCwy1v3BKgrzGZm0+DeO18pNKQ7GK1n+AyGxwMDk30Z/61jN
+	 YRrBmR45mBVm9P3cpBZ4vgP3mbAtl81INMe3hPH3PceanrjSLSoFgYWDhNKxEzV/+F
+	 vJ5xN/uu4Vu2A==
+Date: Fri, 14 Aug 2026 14:18:04 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Xiaofeng Yuan <xiaofengmian@163.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Nam Cao <namcao@linutronix.de>, Klara Modin <klara@kasm.eu>, 
+    prabhakar.csengg@gmail.com, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/2] riscv: fix text patching on minimal kernel
+ configs
+In-Reply-To: <20260814082742.148403-1-xiaofengmian@163.com>
+Message-ID: <df715feb-c3ba-e277-56ad-6c24efd534f3@kernel.org>
+References: <20260814082742.148403-1-xiaofengmian@163.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB12268:EE_
-X-MS-Office365-Filtering-Correlation-Id: bda2f911-cc09-4fb0-4c80-08defa41241e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024|23010399003|10067099003|56012099006|6133799003|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info: VoC/PKMp3kwZemy1SurbsrVlR5XQKhjDFtAtKYreRPiLqH5j3iRKgf6mB08g/+F8Jjlt5/Pwya9TbVG1yxB0TzOPHvAa1J/+DVDpPd6JkWvXzEZLN+v9OX9lHQibz1Njpc9GDM0ndxktlHFFaaQhV7+AIzZhPQo70g8XdyC/nOhOuODQnzYLMED5H5kRJg0yV1XxYDSu+xiXP5hbYK4ScK5aWukQB/wN/uh6pK9yy2k8WSGt1gNqzVBai7CnRkkl07sozVUnEfP0WiLQj3yZfzbHAXOAZKKBrGhnZ059H/UIwKGoGdZ/PlxSK44gv7khGm9CKi1mEWsEZTeXvvr8Qq4gqdKpFOph/sT7twAjqu5uBXRCEEwLccnfb2exNB1/fhpM3nc2Hsbc92Yss3+4F6Hz4CdMV/ZC28UjHeQPQRbBKLRKUdv0pbj3s29ZKB8lzeyq9H9H8oeFkHwz5REsqXXd5h5cp3TTJGwlFV66DkBr+p5351AG1s9RA4MJALcyooraoCL8z1Sb6uaZKxi9C3h4QUFHAUMjEOdrvFHgweVZ1piQDlpIk4i0RujHm1aR21xIDdKg83B5jCT8RIDdkr4P3mAZRTdQZaHwoHqABxmgHVQ6i2KU6uR9hxR6r/HjMmIZ/6t+dzRey1UI488PctLGHboX7iIt+oJl3C0TjSo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024)(23010399003)(10067099003)(56012099006)(6133799003)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GxVC/DSel7ccdGWfwPtIQFGExdp/OkzKUSDyYGdLuWq9+QgemtRzSSYiAoGX?=
- =?us-ascii?Q?JPWo2lvtFY6agU+bJJZaTRNcAaP+jv2o3TIUk2Gxn/VbaQTU9wMOxhcj66yJ?=
- =?us-ascii?Q?3bABkJc3i4QOETyht5K+h+Yhaiv6rWpIHg+NopOivE23ucurON1xPw4QoP81?=
- =?us-ascii?Q?4D1PZg6q/N8RYP8ByEEo4LW9Pv9yM/KNkKTpMRRk0UqUt7m0RYrf8Nm2AU2+?=
- =?us-ascii?Q?NW1vi80pEsC8MHmFRrgsf8udjBA3NV5CQ3D3v2T7BPdqA+rg/0kqequxUMKb?=
- =?us-ascii?Q?4TIndEgTX8H2jCgHrU96qoswL4UtXNihZDbftTP/uZgpoi9yOj9eRduUJNNd?=
- =?us-ascii?Q?FQJ0aH6ruJRCkT46SGSGUZ0+YbXpkua3mogO/6oar9efY8AO+jUTD2iHM1Zt?=
- =?us-ascii?Q?miM1/Nu+/bY4shEUQ7kJIyGpauojQtxvD6fUgfjcOHj0imC4XpK3ZhsuH0SF?=
- =?us-ascii?Q?ryRdZZOUWvvGFdx/RwmpBiR7YIey8Qfyg+z7jzcvt6T/z+30mpjZVtT9j2An?=
- =?us-ascii?Q?TEB/4qSo1ZC9sa9A9NuWVUMO7YtDgzn+td8+yowYwh3o7IrVEop2rD4q43Za?=
- =?us-ascii?Q?N3hX+5MDt5o1DSEsvRoT8DKHlKsibo2IQ71lADSdOHB1lcdh42V1cT9usyWr?=
- =?us-ascii?Q?B19eg6T7LSeSNsSNNxAq7NtN/grTYbgwOi+/wDXSICpn+jhM6xjYxtX08VWW?=
- =?us-ascii?Q?NnR4QBnk+OWvabR47K9bqfEYeP2W7mujChOCzEHt7102IScF/M9Bbf1353p4?=
- =?us-ascii?Q?VXDVUfQltMC0BXHlYscV91OPcbNwF49sKUgphwvG+YUoEes50BaUs6M0fGOM?=
- =?us-ascii?Q?HqENWyxa6wK8yIU82+FKb4q91Mx+d/shqjPDzexWX7/i5RQeY+jLH5GMFNJj?=
- =?us-ascii?Q?g++z7t/3SM6NcoXQlpkq1widI+Fcg6ouRXhWf3VmJ98VsXDIkGroNsg2Xbrp?=
- =?us-ascii?Q?ablUrNxK+KglpVySXoAPQg0fyLMkSYjJBpCpOpfKWMakcne91p9tP6ZPNXwY?=
- =?us-ascii?Q?eOVIHKt7pvDRFRYE6LGDrvHAqbpUxgLsdwi7ZoEuC1tftGQyoEpK/1ITYwuw?=
- =?us-ascii?Q?q61Db6F5dOLHYUIhNTfkW6H7nORwVLqMN0cRROUyijfg3Vp0nnIfT7ikr6n3?=
- =?us-ascii?Q?fEiOIXDKTiH3mwrynKueWNB9HvCRVg7jq9VU1RBPt3pefUHvkMFRRWWCcutu?=
- =?us-ascii?Q?jNcYSRVehd4iehOYz8BgHSoG3jLDgStOFARPsVhnfsQIaI3JKwkjoAKRFLLr?=
- =?us-ascii?Q?pG/TDSu/h5yLivF/Ewc+Pk5JESeLw+RynPLGfzN+WeLqo2tXp30YWXh9awtN?=
- =?us-ascii?Q?Ku8ILbRgUPRxdFDzfrDU1fJs2sIi2kHT2t+NZ3ihq2DmdrDCqt4cY/Mt6f8G?=
- =?us-ascii?Q?VRtMgofCF9JRxZLra41MMkQqFNNJtf2NQaf8UPGK3ZfyaWfVzHG40+PqOQcT?=
- =?us-ascii?Q?lA6TpIGPeSN6GWNpVf3amjzNkOtekmvJi49RVLiu5ayxiR/fXO5zZi2MsX5F?=
- =?us-ascii?Q?zxDyFX1678IZZkEOqx+pI5IhYnBnSVtSt5t0tH6dlnlsxM2V5LWC0C740trR?=
- =?us-ascii?Q?6cgyYrgsnmm/qBm6xq42HHdV38WJVajWaK5AHO5Y2gZbWt57gZOuwEr8jbGa?=
- =?us-ascii?Q?//aiehddOfxzrMASO5O72DMC3AJTfqMIghHw7zeA6PNziSBBpjJW2bFgvMvd?=
- =?us-ascii?Q?u7i2x5Ekg/i2LvNLNqC4w9IAkcJ/dCRn8cxC4QykJjo3XX9CyBWdjUnbFddw?=
- =?us-ascii?Q?7yGgMhmt8UKBDL+2o5zSAKMW/I3VLAf1ZOq8H/1NaiMLjypWsyqD?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bda2f911-cc09-4fb0-4c80-08defa41241e
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 20:18:02.1121
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tST6H0z4HD8CSFghaWtS2kgrptgymboUDO5zVlAKMasKq0/zOwPt+Xg22hkOBfLpSoT2i7wKbC5VsFypUvMSjPv800p7ALyUIzzLX/kw+ieLQo4VNdTERS2g94d4mNWe
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12268
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_131809_000620_815E176C 
-X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,94 +72,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 01:26:15AM -0700, Troy Mitchell wrote:
-> The extended DRCMR window on SpacemiT K3 starts at 0x1100. Commit
-> 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support") incorrectly
-> set it to 0x1000, causing DRCMR accesses for request IDs >= 64 to target
-> offsets 0x100 too low.
->
-> The 0x1100 base has been verified on K3 silicon using real SPI and QSPI
-> DMA transactions. The K3 DMA documentation [1] was updated on June 24,
-> 2026, to reflect the corrected register addresses.
->
-> Drop the bogus DRCMR_EXT_BASE_K3 macro and reuse
-> DRCMR_EXT_BASE_DEFAULT for the K3 ops.
->
-> Fixes: 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support")
-> Link: https://www.spacemit.com/community/document/info?nodepath=hardware/key_stone/k3/k3_docs/k3_usermanual/16_peripherals/dma.md&lang=en [1]
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> ---
+On Fri, 14 Aug 2026, Xiaofeng Yuan wrote:
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> This series fixes two related issues that break kprobes and kernel text
+> patching on RISC-V configurations where CONFIG_STRICT_MODULE_RWX is not
+> available (e.g. CONFIG_MODULES=n).
+> 
+> Patch 1 makes the EXECMEM_KPROBES range writable when
+> CONFIG_STRICT_MODULE_RWX is disabled, so kprobe instruction slot writes
+> do not fault on read-only executable pages.
+> 
+> Patch 2 makes patch_map() skip the temporary fixmap mapping when the
+> kernel text is already writable, i.e. when CONFIG_STRICT_KERNEL_RWX is
+> disabled. The module text path is still gated on CONFIG_STRICT_MODULE_RWX.
 
-> This is a minimal fix for the wrong DRCMR_EXT_BASE_K3 value introduced
-> by commit 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support").
-> K3 silicon uses 0x1100 as the extended DRCMR base, so the K3 ops now
-> reuse DRCMR_EXT_BASE_DEFAULT.
->
-> I deliberately kept the per-ops drcmr_ext_base field and the
-> DRCMR_EXT_BASE_DEFAULT macro to preserve the extensibility that was
-> introduced together with the helper refactor, in case a future PDMA
-> variant ends up using a different extended base. If reviewers prefer
-> to drop this abstraction entirely and collapse it back to a single
-> constant now that all known users share the same value, I am happy to
-> send a v3 that removes the drcmr_ext_base ops field as a cleanup.
-> ---
-> Changes in v2:
-> - Reword the commit message to remove the inaccurate K1 comparison.
-> - Mention successful SPI and QSPI DMA tests on K3 silicon in the commit
->   message.
-> - Add a link to the corrected K3 DMA documentation, updated June 24,
->   2026.
-> - Link to v1: https://patch.msgid.link/20260615-k3-pdma-fix-drcmr-base-v1-1-ee1af124199f@linux.spacemit.com
->
-> To: Vinod Koul <vkoul@kernel.org>
-> To: Frank Li <Frank.Li@kernel.org>
-> To: Yixun Lan <dlan@kernel.org>
-> To: Guodong Xu <guodong@riscstar.com>
-> To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> To: Paul Walmsley <pjw@kernel.org>
-> To: Palmer Dabbelt <palmer@dabbelt.com>
-> To: Albert Ou <aou@eecs.berkeley.edu>
-> To: Alexandre Ghiti <alex@ghiti.fr>
-> Cc: dmaengine@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: spacemit@lists.linux.dev
-> ---
->  drivers/dma/mmp_pdma.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
-> index 386e85cd4882..78e3e07e681d 100644
-> --- a/drivers/dma/mmp_pdma.c
-> +++ b/drivers/dma/mmp_pdma.c
-> @@ -52,7 +52,6 @@
->  #define DCSR_EORINTR	BIT(9)	/* The end of Receive */
->
->  #define DRCMR_BASE		0x0100
-> -#define DRCMR_EXT_BASE_K3	0x1000
->  #define DRCMR_EXT_BASE_DEFAULT	0x1100
->  #define DRCMR_REQ_LIMIT		64
->  #define DRCMR_MAPVLD	BIT(7)	/* Map Valid (read / write) */
-> @@ -1219,7 +1218,7 @@ static const struct mmp_pdma_ops spacemit_k3_pdma_ops = {
->  	.get_desc_dst_addr = get_desc_dst_addr_64,
->  	.run_bits = (DCSR_RUN | DCSR_LPAEEN | DCSR_EORIRQEN | DCSR_EORSTOPEN),
->  	.dma_width = 64,
-> -	.drcmr_ext_base = DRCMR_EXT_BASE_K3,
-> +	.drcmr_ext_base = DRCMR_EXT_BASE_DEFAULT,
->  };
->
->  static const struct of_device_id mmp_pdma_dt_ids[] = {
->
-> ---
-> base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
-> change-id: 20260615-k3-pdma-fix-drcmr-base-326536770427
->
-> Best regards,
-> --
-> Troy Mitchell <troy.mitchell@linux.spacemit.com>
->
+Thanks, queued for v7.3-rc.
+
+
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
