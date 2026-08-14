@@ -4,106 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A4BFC5CFDB
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 17:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3945CC5CFC1
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 20:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pUPViWgk5zrqDEUEI+ankY9s0Sg0vsLZGD/tR6l+wBI=; b=fEt59AHp58f+RP
-	pwrDE17716Y0AtqsWyVuM+xCcG0ANrq5uyxKUn6Q3InFx1gls8wfkzsI4Ri/6caKdtdEtccyf7zo3
-	HvMVBOdwsdASaySAG/o+UCpshKdmdz/Gk7f2khNPbH6JbqlpJ5P8WNin2ogVy6HDZ/SrCP78l2giN
-	dPeLkZqfTAh2OYd+7X7a5nwJHZR9W+honL6932xktBpTbPwv/sPMb5wQ+4lO21DznEdFaOiaRM4Nx
-	3D4jyLab4gcP/c1RrQ0BfVwExtINkeMBNLHMa70b3v7JPWrbmVIUtvzDvbgKI55TENUhn6j16inur
-	UxVRleRZCvc7GQwKWxoQ==;
+	List-Owner; bh=MZaOUB0nb4EQbY3BbXWZxGc6B4VaZc5VJrzhA3dInKg=; b=UYHB8iGNDQBWTs
+	T46XjLA6aa6HEmxW4wEFyUbBSgP/B1aPxfSzP+ae6AKYoPs30po+ZbD0q/bX/iB80ibKyI2SROgZE
+	t1v7IqLxCAk0h+AV8HKeasa7KUA+p4lIaYgc9xKr16baRDmB/HHxZ61UoQfz3IiAUQr0SFKHGDdAD
+	vfaS8W/5B1gjiOHUDurDUfh/X/53jjfNeMjaxtATmipNyl6vKgRfr0QfZMAgQyh9wc7s4Wub445d4
+	CP7OiU3tlAX28aNsidUhWb/ae1418Yk/kyYGlK8c8rFbO70JWAUh15pXDw2Ktl/0sfUwqocWURGGV
+	bEjngelAmAc9yQNjvM/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvh9-00000002zMx-3HeU;
-	Fri, 14 Aug 2026 17:27:51 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wuyM1-000000038cM-15rO;
+	Fri, 14 Aug 2026 20:18:13 +0000
+Received: from mail-norwayeastazon11013042.outbound.protection.outlook.com ([40.107.159.42] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvh7-00000002zLy-0GyV
+	id 1wuyLw-000000038bG-1zOb
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 17:27:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786728468;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ALhGJdbaDFJ0vhwNsd55hO+rgDN52tftmXEPKqTi+XU=;
-	b=d63/mjcCFMCUvqyyTHQFn8d3xtxmwBhamOV7XngxK1yLwO48rLq6C8CTPzNbd83l90ICAJ
-	c1FNqeQizB6KTMOK3dBWwr+zwCcmJ9jIBbMpFzvO9nuzZ+YjqNSYrQrj43srseIs03aSUL
-	qAolxwdLInxUgwQ94v5ZWqNtUGOqVFs=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-244-6souAP74MgCLeAPfQYwBWw-1; Fri, 14 Aug 2026 13:27:46 -0400
-X-MC-Unique: 6souAP74MgCLeAPfQYwBWw-1
-X-Mimecast-MFC-AGG-ID: 6souAP74MgCLeAPfQYwBWw_1786728465
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38dbf293831so2800159a91.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Aug 2026 10:27:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786728465; x=1787333265;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ALhGJdbaDFJ0vhwNsd55hO+rgDN52tftmXEPKqTi+XU=;
-        b=WH8OKXTxTfDjY4oAKY7wzh5dUIqYSN2v0TWt+8MMOvfMuqRvcKc4fVcx4k0haxmt2G
-         unWtO/rweq2L42w1MHPLoEtxDXPoCqPsiRYPrIefbmEmWAeEnY4HxKwfnjgswc+H+8kc
-         Xc912X//329CuwIZUNMKW1aqjbVkagjNXcn1SWzIV2P14dUoeEIMJxD+IBfSY/6Ipt7u
-         ts+FrH5u9QtYy4ACQ1NPAzDSR6T2yBIY50NJx4RlMIm6sHbyBqkHWjgWXlwLWXvX6Ahn
-         vmRQ1IdcK9vjsNkn7+45IH24wzjby55eMPVMe3cqxrbiYk0qhnNbSt44gTRT9Sr21vJV
-         TsbQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rqa6Vp46Zw4HdCebS2nkhHC1tM9CJpJtlZwehqsGuLKr39sGHA5MzAIcP/iSc1F9aX9NoupmTPA7t2cvA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3X935aV2NUcbM23iDJI6xkKQCDbEa+mi0rF0TyoYR2fGF71rY
-	ApwNCCNqIiDOI2UnlttkpgapA7Wlg39LoLKl5fVjyDk+Ghpn7+5Eaos7bHGESuhYZ8J7rmZEOT6
-	+BnejTSF2fwPdflB6Ou5RkPKdhIhlIF0uOx0Ex1YwvG4g35lxJJ3UCgS6IbGftFjd0z1NFg==
-X-Gm-Gg: AR+sD11ZjEnNNCRRKBWklcWwWQHntr2a5x55onJlBolMd14pCfdlNPpnSdHNnR89Uop
-	yi6CTFuQE7LNFvQ3TJ1iWv4n33JOda6lY5uuxNmMheYeI4WCLC3e0RfWxua80VAhio82NMIIhzg
-	JvaMaqggy6k00CN53jzpQNZJ4ZxKczxvWaCpdVAmerlGRwl63cKAyHvEU6MdpWFCWdD21HV3G5I
-	bi4qrN9pd+8AvEBYEqBN0SSO38M2k0u6hvez7o0lB86jovUL2dsUu1jOG2O4zTJXqamHYxlafp5
-	DAnSPYZlELaKOLVtzIy/UBPSOwAfRf/twGS2AY4gIlRhc3tnLWdGZzo3G3YVqCtDma2EucKMCfK
-	7KwwpDM7PE2DKrxFVIw==
-X-Received: by 2002:a17:90b:48ce:b0:390:b41a:b92b with SMTP id 98e67ed59e1d1-3933b6d05c3mr9535974a91.4.1786728465037;
-        Fri, 14 Aug 2026 10:27:45 -0700 (PDT)
-X-Received: by 2002:a17:90b:48ce:b0:390:b41a:b92b with SMTP id 98e67ed59e1d1-3933b6d05c3mr9535821a91.4.1786728463979;
-        Fri, 14 Aug 2026 10:27:43 -0700 (PDT)
-Received: from [192.168.1.2] ([122.171.16.134])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-394ebbcbb78sm3512184a91.13.2026.08.14.10.27.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Aug 2026 10:27:43 -0700 (PDT)
-Message-ID: <9cbe111c-ff63-4f24-b518-094ddd7cea30@redhat.com>
-Date: Fri, 14 Aug 2026 22:57:36 +0530
+	Fri, 14 Aug 2026 20:18:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hcplm5F4nS1dA3XjYCbvT2xe27rfgYqeLhkZcxbNrPM0kQpm+/djGD/P71TyVPuxSWCgVhpQh9OTfSjuIkvnAchWi/NGNWT1vHdjfRI16eZ3ITSYbHUDNS7HUp6ec+v4jeKRIFSde4Kay9DuZs71KelWJIk/AWfHyllYmqi1gzt5BqnNZEXsJfFhC9FKW6sl5pA0QfhvcGINsS8KQqhykWMF9Uoe65QywR4ny9e0/gYJ0M9EvZlLztwwjqdca5xgHu2EuALdm7J5RzfAs1eKo3IeIavz9dR4tqlqwsrcbAz8gxxvQZPE7wsKrsuumI96mQIdNE9GnWWpW0oRTk/bVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+70hAGVzvAAsTrUAoH9tPw43XI9ZpohG+2guBG/g39Q=;
+ b=YuHZDR01lx7DSmBa9vfmG3Y+R4NFpmjsypSXFGAgwE+BkiY9oU2lyVQ+cTlELyvM2gjXKLz4aJm0dmd2spKT1P4aoRaB3ubMtaClfby+2gzaTYC297clf2kkyLYPt7niNfL5zT4w3/52NEiH3msIS/f84rDkWx1lDQmeIjICrgCOW/g0MJWIR6OmR5eHGG/qn7Rni29WRJ98guqEj1SjHfTUSsSXYRmQ3QIBa0y7pahUYdvjYZACs5XK6YoK8GggqHzjE7V7GloSqoRpr5V1tn1BLP5MQ9JBrSDQY9YxS+Fs/dcVe9/m3kHe5o/JbhEtHj9zCF8Q4F/byB1y5aGwxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+70hAGVzvAAsTrUAoH9tPw43XI9ZpohG+2guBG/g39Q=;
+ b=c3PsAh1wI13p4/8XkSWYmEhTFWA29KH/z0kCsWbBAVupjbE+YDXAk+F9hgw7GDgp9hPZhudKKxBCG7K7z75+I2NsixeL/+YYkAopk1o7M3DrGGzDSqM873pB0nRL7nBu7Cx/lAyJ/eC0UJXKI8DUuGXco9WzqGraEQ0QvD73aPuyZKLxqorXctuNLqdG2+uFsHjhxWeJepE8HmqF4jecs2Eds8js+lzd+oqS7Hljy1GE4S9phQk8wCMug6ycFD5SD4CAfySehFKT82QXxJkw1k/8O5gtkNUjMOZLflUmvU6DrIzQ7OvSuyT57six7gu6ipGkeDawSkfRMVtvX2gpFQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GVXPR04MB12268.eurprd04.prod.outlook.com (2603:10a6:150:2c7::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
+ 2026 20:18:02 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
+ 20:18:02 +0000
+Date: Fri, 14 Aug 2026 16:17:54 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Yixun Lan <dlan@kernel.org>, Guodong Xu <guodong@riscstar.com>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH v2] dmaengine: mmp_pdma: fix wrong extended DRCMR base
+ for SpacemiT K3
+Message-ID: <an938oW_b_W-AYeE@lizhi-Precision-Tower-5810>
+References: <20260727-k3-pdma-fix-drcmr-base-v2-1-afba55cba1f3@linux.spacemit.com>
+Content-Disposition: inline
+In-Reply-To: <20260727-k3-pdma-fix-drcmr-base-v2-1-afba55cba1f3@linux.spacemit.com>
+X-ClientProxiedBy: SA1PR04CA0017.namprd04.prod.outlook.com
+ (2603:10b6:806:2ce::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
- mismatch
-To: Pratyush Yadav <pratyush@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
- Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, Tao Liu <ltao@redhat.com>,
- Philipp Rudo <prudo@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, kexec@lists.infradead.org
-References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
- <2vxzv79c23j6.fsf@kernel.org>
-From: Mukesh Pilaniya <mpilaniy@redhat.com>
-In-Reply-To: <2vxzv79c23j6.fsf@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: uyPhlU3G5uVscJm2VJryI69UFhEfQpUwxtonnAjNg4c_1786728465
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB12268:EE_
+X-MS-Office365-Filtering-Correlation-Id: bda2f911-cc09-4fb0-4c80-08defa41241e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024|23010399003|10067099003|56012099006|6133799003|18002099003|22082099003|11063799006;
+X-Microsoft-Antispam-Message-Info: VoC/PKMp3kwZemy1SurbsrVlR5XQKhjDFtAtKYreRPiLqH5j3iRKgf6mB08g/+F8Jjlt5/Pwya9TbVG1yxB0TzOPHvAa1J/+DVDpPd6JkWvXzEZLN+v9OX9lHQibz1Njpc9GDM0ndxktlHFFaaQhV7+AIzZhPQo70g8XdyC/nOhOuODQnzYLMED5H5kRJg0yV1XxYDSu+xiXP5hbYK4ScK5aWukQB/wN/uh6pK9yy2k8WSGt1gNqzVBai7CnRkkl07sozVUnEfP0WiLQj3yZfzbHAXOAZKKBrGhnZ059H/UIwKGoGdZ/PlxSK44gv7khGm9CKi1mEWsEZTeXvvr8Qq4gqdKpFOph/sT7twAjqu5uBXRCEEwLccnfb2exNB1/fhpM3nc2Hsbc92Yss3+4F6Hz4CdMV/ZC28UjHeQPQRbBKLRKUdv0pbj3s29ZKB8lzeyq9H9H8oeFkHwz5REsqXXd5h5cp3TTJGwlFV66DkBr+p5351AG1s9RA4MJALcyooraoCL8z1Sb6uaZKxi9C3h4QUFHAUMjEOdrvFHgweVZ1piQDlpIk4i0RujHm1aR21xIDdKg83B5jCT8RIDdkr4P3mAZRTdQZaHwoHqABxmgHVQ6i2KU6uR9hxR6r/HjMmIZ/6t+dzRey1UI488PctLGHboX7iIt+oJl3C0TjSo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024)(23010399003)(10067099003)(56012099006)(6133799003)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GxVC/DSel7ccdGWfwPtIQFGExdp/OkzKUSDyYGdLuWq9+QgemtRzSSYiAoGX?=
+ =?us-ascii?Q?JPWo2lvtFY6agU+bJJZaTRNcAaP+jv2o3TIUk2Gxn/VbaQTU9wMOxhcj66yJ?=
+ =?us-ascii?Q?3bABkJc3i4QOETyht5K+h+Yhaiv6rWpIHg+NopOivE23ucurON1xPw4QoP81?=
+ =?us-ascii?Q?4D1PZg6q/N8RYP8ByEEo4LW9Pv9yM/KNkKTpMRRk0UqUt7m0RYrf8Nm2AU2+?=
+ =?us-ascii?Q?NW1vi80pEsC8MHmFRrgsf8udjBA3NV5CQ3D3v2T7BPdqA+rg/0kqequxUMKb?=
+ =?us-ascii?Q?4TIndEgTX8H2jCgHrU96qoswL4UtXNihZDbftTP/uZgpoi9yOj9eRduUJNNd?=
+ =?us-ascii?Q?FQJ0aH6ruJRCkT46SGSGUZ0+YbXpkua3mogO/6oar9efY8AO+jUTD2iHM1Zt?=
+ =?us-ascii?Q?miM1/Nu+/bY4shEUQ7kJIyGpauojQtxvD6fUgfjcOHj0imC4XpK3ZhsuH0SF?=
+ =?us-ascii?Q?ryRdZZOUWvvGFdx/RwmpBiR7YIey8Qfyg+z7jzcvt6T/z+30mpjZVtT9j2An?=
+ =?us-ascii?Q?TEB/4qSo1ZC9sa9A9NuWVUMO7YtDgzn+td8+yowYwh3o7IrVEop2rD4q43Za?=
+ =?us-ascii?Q?N3hX+5MDt5o1DSEsvRoT8DKHlKsibo2IQ71lADSdOHB1lcdh42V1cT9usyWr?=
+ =?us-ascii?Q?B19eg6T7LSeSNsSNNxAq7NtN/grTYbgwOi+/wDXSICpn+jhM6xjYxtX08VWW?=
+ =?us-ascii?Q?NnR4QBnk+OWvabR47K9bqfEYeP2W7mujChOCzEHt7102IScF/M9Bbf1353p4?=
+ =?us-ascii?Q?VXDVUfQltMC0BXHlYscV91OPcbNwF49sKUgphwvG+YUoEes50BaUs6M0fGOM?=
+ =?us-ascii?Q?HqENWyxa6wK8yIU82+FKb4q91Mx+d/shqjPDzexWX7/i5RQeY+jLH5GMFNJj?=
+ =?us-ascii?Q?g++z7t/3SM6NcoXQlpkq1widI+Fcg6ouRXhWf3VmJ98VsXDIkGroNsg2Xbrp?=
+ =?us-ascii?Q?ablUrNxK+KglpVySXoAPQg0fyLMkSYjJBpCpOpfKWMakcne91p9tP6ZPNXwY?=
+ =?us-ascii?Q?eOVIHKt7pvDRFRYE6LGDrvHAqbpUxgLsdwi7ZoEuC1tftGQyoEpK/1ITYwuw?=
+ =?us-ascii?Q?q61Db6F5dOLHYUIhNTfkW6H7nORwVLqMN0cRROUyijfg3Vp0nnIfT7ikr6n3?=
+ =?us-ascii?Q?fEiOIXDKTiH3mwrynKueWNB9HvCRVg7jq9VU1RBPt3pefUHvkMFRRWWCcutu?=
+ =?us-ascii?Q?jNcYSRVehd4iehOYz8BgHSoG3jLDgStOFARPsVhnfsQIaI3JKwkjoAKRFLLr?=
+ =?us-ascii?Q?pG/TDSu/h5yLivF/Ewc+Pk5JESeLw+RynPLGfzN+WeLqo2tXp30YWXh9awtN?=
+ =?us-ascii?Q?Ku8ILbRgUPRxdFDzfrDU1fJs2sIi2kHT2t+NZ3ihq2DmdrDCqt4cY/Mt6f8G?=
+ =?us-ascii?Q?VRtMgofCF9JRxZLra41MMkQqFNNJtf2NQaf8UPGK3ZfyaWfVzHG40+PqOQcT?=
+ =?us-ascii?Q?lA6TpIGPeSN6GWNpVf3amjzNkOtekmvJi49RVLiu5ayxiR/fXO5zZi2MsX5F?=
+ =?us-ascii?Q?zxDyFX1678IZZkEOqx+pI5IhYnBnSVtSt5t0tH6dlnlsxM2V5LWC0C740trR?=
+ =?us-ascii?Q?6cgyYrgsnmm/qBm6xq42HHdV38WJVajWaK5AHO5Y2gZbWt57gZOuwEr8jbGa?=
+ =?us-ascii?Q?//aiehddOfxzrMASO5O72DMC3AJTfqMIghHw7zeA6PNziSBBpjJW2bFgvMvd?=
+ =?us-ascii?Q?u7i2x5Ekg/i2LvNLNqC4w9IAkcJ/dCRn8cxC4QykJjo3XX9CyBWdjUnbFddw?=
+ =?us-ascii?Q?7yGgMhmt8UKBDL+2o5zSAKMW/I3VLAf1ZOq8H/1NaiMLjypWsyqD?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bda2f911-cc09-4fb0-4c80-08defa41241e
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 20:18:02.1121
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tST6H0z4HD8CSFghaWtS2kgrptgymboUDO5zVlAKMasKq0/zOwPt+Xg22hkOBfLpSoT2i7wKbC5VsFypUvMSjPv800p7ALyUIzzLX/kw+ieLQo4VNdTERS2g94d4mNWe
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12268
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_102749_177545_06DA82AC 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20260814_131809_000620_815E176C 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,72 +141,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 27, 2026 at 01:26:15AM -0700, Troy Mitchell wrote:
+> The extended DRCMR window on SpacemiT K3 starts at 0x1100. Commit
+> 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support") incorrectly
+> set it to 0x1000, causing DRCMR accesses for request IDs >= 64 to target
+> offsets 0x100 too low.
+>
+> The 0x1100 base has been verified on K3 silicon using real SPI and QSPI
+> DMA transactions. The K3 DMA documentation [1] was updated on June 24,
+> 2026, to reflect the corrected register addresses.
+>
+> Drop the bogus DRCMR_EXT_BASE_K3 macro and reuse
+> DRCMR_EXT_BASE_DEFAULT for the K3 ops.
+>
+> Fixes: 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support")
+> Link: https://www.spacemit.com/community/document/info?nodepath=hardware/key_stone/k3/k3_docs/k3_usermanual/16_peripherals/dma.md&lang=en [1]
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> ---
 
-Hi Pratyush,
-On 14/08/26 7:43 pm, Pratyush Yadav wrote:
-> On Thu, Aug 13 2026, Mukesh Pilaniya wrote:
-> 
->> Several kexec_file_load() image probe functions return -EINVAL when
->> they do not recognize the image format.  A probe function that rejects
->> an image should return -ENOEXEC to indicate that the image is not a
->> recognized executable format.  -EINVAL implies a problem with the
->> syscall parameters, not with image recognition.
->>
->> kexec_image_probe_default() iterates through registered loaders and
->> returns the last probe's error code to the caller.  That error
->> propagates as the kexec_file_load() return value to userspace.
->> Returning -EINVAL from a probe when no loader matches is semantically
->> incorrect and misleads userspace about the nature of the failure.
->>
->> Return -ENOEXEC from all probe functions and their helpers when the
->> image format is not recognized.
-> 
-> Sounds fine in principle but can you please also share what the real
-> problem you face is and how changing these return codes helps? These
-> error codes are uAPI and while we _can_ change them as long as we don't
-> break something, there should be a clear motivation for doing so.
-> 
-> [...]
-> 
-While debugging a misleading error on s390x where kexec -s reported
-"syscall kexec_file_load not available" instead of the actual EINVAL
-from a kernel command line that exceeded the architecture limit, we
-traced the problem to the kexec-tools userspace utility treating
-EINVAL the same as ENOSYS and ENOEXEC -- as a signal to silently fall
-back to kexec_load().
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-kexec-tools supports two syscalls: kexec_file_load() and the older
-kexec_load(). With -a (the default), it tries kexec_file_load()
-first and falls back to kexec_load() when the syscall is not
-implemented (ENOSYS) or the kernel does not have a loader for the
-image format. With -s, it uses kexec_file_load() only with no
-fallback.
-
-When the kernel returns -EINVAL it means something went wrong while
-loading the image, not that the syscall is missing or the image
-format is unrecognized. kexec-tools should not fall back to the
-older syscall in that case. However, some kernel probe functions
-currently return -EINVAL when the image header does not match,
-instead of returning -ENOEXEC. Keeping EINVAL in the fallback set
-to accommodate these probes has the side effect of also hiding
-genuine loading errors like an oversized command line.
-
-kexec-tools should only fall back when kexec_file_load() is not
-implemented or does not have a matching loader -- not when something
-goes wrong during load.
-
-The fix on the kexec-tools side is to remove EINVAL from the fallback
-set, but that requires the kernel to be clean first -- probe functions
-must return -ENOEXEC when they do not recognize an image format, not -EINVAL.
-
-kexec-tools patch:
-https://lore.kernel.org/all/20260814075329.30203-1-mpilaniy@redhat.com/
-
-A review of all kexec_file_ops.probe implementations found that arm64
-image_probe(), riscv image_probe(), and loongarch efi_kexec_probe()
-return -EINVAL where they should return -ENOEXEC. x86 bzImage64_probe()
-and s390 s390_elf_probe() already use -ENOEXEC correctly.
-
+> This is a minimal fix for the wrong DRCMR_EXT_BASE_K3 value introduced
+> by commit 6587b8661a0b ("dmaengine: mmp_pdma: add SpacemiT K3 support").
+> K3 silicon uses 0x1100 as the extended DRCMR base, so the K3 ops now
+> reuse DRCMR_EXT_BASE_DEFAULT.
+>
+> I deliberately kept the per-ops drcmr_ext_base field and the
+> DRCMR_EXT_BASE_DEFAULT macro to preserve the extensibility that was
+> introduced together with the helper refactor, in case a future PDMA
+> variant ends up using a different extended base. If reviewers prefer
+> to drop this abstraction entirely and collapse it back to a single
+> constant now that all known users share the same value, I am happy to
+> send a v3 that removes the drcmr_ext_base ops field as a cleanup.
+> ---
+> Changes in v2:
+> - Reword the commit message to remove the inaccurate K1 comparison.
+> - Mention successful SPI and QSPI DMA tests on K3 silicon in the commit
+>   message.
+> - Add a link to the corrected K3 DMA documentation, updated June 24,
+>   2026.
+> - Link to v1: https://patch.msgid.link/20260615-k3-pdma-fix-drcmr-base-v1-1-ee1af124199f@linux.spacemit.com
+>
+> To: Vinod Koul <vkoul@kernel.org>
+> To: Frank Li <Frank.Li@kernel.org>
+> To: Yixun Lan <dlan@kernel.org>
+> To: Guodong Xu <guodong@riscstar.com>
+> To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> To: Paul Walmsley <pjw@kernel.org>
+> To: Palmer Dabbelt <palmer@dabbelt.com>
+> To: Albert Ou <aou@eecs.berkeley.edu>
+> To: Alexandre Ghiti <alex@ghiti.fr>
+> Cc: dmaengine@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: spacemit@lists.linux.dev
+> ---
+>  drivers/dma/mmp_pdma.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/mmp_pdma.c b/drivers/dma/mmp_pdma.c
+> index 386e85cd4882..78e3e07e681d 100644
+> --- a/drivers/dma/mmp_pdma.c
+> +++ b/drivers/dma/mmp_pdma.c
+> @@ -52,7 +52,6 @@
+>  #define DCSR_EORINTR	BIT(9)	/* The end of Receive */
+>
+>  #define DRCMR_BASE		0x0100
+> -#define DRCMR_EXT_BASE_K3	0x1000
+>  #define DRCMR_EXT_BASE_DEFAULT	0x1100
+>  #define DRCMR_REQ_LIMIT		64
+>  #define DRCMR_MAPVLD	BIT(7)	/* Map Valid (read / write) */
+> @@ -1219,7 +1218,7 @@ static const struct mmp_pdma_ops spacemit_k3_pdma_ops = {
+>  	.get_desc_dst_addr = get_desc_dst_addr_64,
+>  	.run_bits = (DCSR_RUN | DCSR_LPAEEN | DCSR_EORIRQEN | DCSR_EORSTOPEN),
+>  	.dma_width = 64,
+> -	.drcmr_ext_base = DRCMR_EXT_BASE_K3,
+> +	.drcmr_ext_base = DRCMR_EXT_BASE_DEFAULT,
+>  };
+>
+>  static const struct of_device_id mmp_pdma_dt_ids[] = {
+>
+> ---
+> base-commit: c425609d6ac4012c8bbf01ec2e10e801b1923a7b
+> change-id: 20260615-k3-pdma-fix-drcmr-base-326536770427
+>
+> Best regards,
+> --
+> Troy Mitchell <troy.mitchell@linux.spacemit.com>
+>
 
 _______________________________________________
 linux-riscv mailing list
