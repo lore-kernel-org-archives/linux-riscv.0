@@ -4,54 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDAEC5CFCF
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 02:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1610EC5DF66
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 03:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F8GqJfy1aDyuqWcM5aoYAVzk2dXdt06AkK3Mo9vkuVo=; b=0uXRkcZ1yD61g2GV26chdZAQIT
-	UeWTxdc/kdIcW21WCug5VEiHV99gzHCPGFMGt6rKW36czXpCpQjEag/v/ant1r8d89h94uPe3QEU2
-	ykS9fuzaCM5+KepEgMdM8XsNkl1OadLNp01k99e+xxHVUO6qPItbc4kCRNYomVH5GtvI3eKqBhMD+
-	2kUtLfzv6MXPqY0Ch6hMShlXv0WRhlLcWTB5qLU9c+FUc+ZiGZkigSQLjjT9EEjHDLUtXhMsUT4Sn
-	FgO4kuOY/en2HZo58hIM1UNue2oLL8TbysdVALh0AJ0NE4/KYAvadPzpOhmlKD5kHNWReO7Ira1V1
-	6l02w4Rg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+WOp5Wcww/sY+UyvREk7K0VTFR6hZ0RKX9UjsayIZyE=; b=bmBYNfhE+dphS4
+	gw288HFagAnRMMAb/3MDFhBgs6xgDFgdooZDZiaQrUGbzArKlMAVsEPy9ag1JA7kMlROCp5AvB8o8
+	AHNFsJFo6pGGvtZ1+BJDyoJIJQImXrxk+6TxYHuJWVEngnzMaSQrQm9aNPDxYfsxamDqrBhbHQctA
+	i5s+w1FcHQQo53k5S+eOljWiJDPc0vYOVMQm87AUuet/l3SN7dMDM6oPsSPhKUpv5mmiFCXE0Rq4H
+	8TCGxjsFtBuGHYGvYYAx8wDb+Q2uHbDHYhWAC3C1j5LpqHsJtvN1gNc3pjkGldzdWAlTohP0q/bGw
+	8k0h4gzN8TFwBXYH6dwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuhkV-00000001rwg-08Ve;
-	Fri, 14 Aug 2026 02:34:23 +0000
+	id 1wuiGB-00000001t3Y-3zCx;
+	Fri, 14 Aug 2026 03:07:07 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuhkT-00000001rwY-1DiV
+	id 1wuiGB-00000001t3S-2dTt
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 02:34:21 +0000
+	Fri, 14 Aug 2026 03:07:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2DAE4054A;
-	Fri, 14 Aug 2026 02:34:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5729A1F000E9;
-	Fri, 14 Aug 2026 02:34:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9BD6543A06;
+	Fri, 14 Aug 2026 03:07:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 202881F000E9;
+	Fri, 14 Aug 2026 03:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786674860;
-	bh=vMOiCT3HOrxIzG/6rTdRGr6YHezqxK5beLhO4yCStvU=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=UYwBlC7ZGCznZ0vejJ6oE4YU0fGLzkzopHWflJRVXjHRmM59ie1AFxnszUw23hEJ1
-	 dBN1XxMGraOOclBiqOxzGPsTXmlcp6x3AI6skO4FvdbSBQwEbrneHV0QVIAfP+kUOj
-	 +e9Osj+eefT0mJlorbrKbXOPsJAXdHlz1Afq6CgY4MrKIEo2y2ofstCakyVWKrQPjx
-	 P5BJRTDT/YNrcgZL9iOsM88QsPDt3Kp4optS8ToSXt3evl7P1c1Pi2GIkrvZUJFb41
-	 +05wCNL5bnNwmk2VEIYr6pZLsWh24LAx/QzLcjEDNGus4fgfXGDhg8+I8g8JPDAX9L
-	 UQJwcBGwsydaQ==
-Content-Type: multipart/mixed; boundary="===============3453139535058796135=="
+	s=k20260515; t=1786676825;
+	bh=NkkfLt8OHm6pJp/CZhetwIwLGaYtIaMcMgjZaFs1E+s=;
+	h=Date:From:To:cc:Subject;
+	b=AgLoAHSfxalGjLNrLJ9BknAxtZD1PPzzpYIvpXbr7x7G2XuqHYqFa+Oq1FclmvgiV
+	 SuRBSel7Jn2u1yIATOZNzHwZY6mYAPatrJvG6wQ2ohan1xWjvG2bJcrxce1fSKk78J
+	 YK4JnJoBKvfNMj3CrwqxcD/SDjOuK7MB3erlGAznzw1znYBBgOoeuCKr8zXt3TrTIu
+	 BIkTNi0ERAVE/vpa5HKGQT8PHx66+McF7kSkhagYExEwcyUAwCPE5S6s39f5NW1Dq+
+	 VAbEsnEDCVB7eS6QUyZt0S72xVl8qvxMJ76M+WbkyQDizYl1U5AS9BB+LAyq1vm4W8
+	 HQWmmSIF8kl0w==
+Date: Thu, 13 Aug 2026 21:07:01 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: torvalds@linux-foundation.org
+cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V updates for late v7.2-rc
+Message-ID: <b2ab28e2-de86-29b5-691c-2ba47af7f9e6@kernel.org>
 MIME-Version: 1.0
-Message-Id: <a6a17714be50f30fda2b3dee849bbc7e72cd7b2322de92b6986a1626537b89ab@mail.kernel.org>
-In-Reply-To: <20260814-bpf-riscv-stack-args-v3-1-2160de56fea3@kylinos.cn>
-References: <20260814-bpf-riscv-stack-args-v3-1-2160de56fea3@kylinos.cn>
-Subject: Re: [PATCH bpf-next v3 1/2] bpf, riscv: Add BPF stack arguments support for RV64 JIT
-From: bot+bpf-ci@kernel.org
-To: jiangfeng@kylinos.cn,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,puranjay@kernel.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,shuah@kernel.org,nathan@kernel.org,ndesaulniers@google.com,morbo@google.com,justinstitt@google.com
-Cc: bpf@vger.kernel.org,linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org,linux-kselftest@vger.kernel.org,llvm@lists.linux.dev,jiangfeng@kylinos.cn,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Fri, 14 Aug 2026 02:34:19 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,89 +60,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3453139535058796135==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Linus,
 
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index 2504df1fa1118..62c84de22163f 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
+Please pull these RISC-V updates for late v7.2-rc.  Nothing too
+notable here; all of these fix significant issues that would be
+good to resolve before v7.2 is tagged.
 
-[ ... ]
-
-> @@ -1891,6 +1916,21 @@ int bpf_jit_emit_insn
->  	case BPF_LDX | BPF_MEM | BPF_H:
->  	case BPF_LDX | BPF_MEM | BPF_W:
->  	case BPF_LDX | BPF_MEM | BPF_DW:
-> +		if (insn->src_reg == BPF_REG_PARAMS) {
-> +			int idx = off / 8 - 1;
-> +
-> +			if (is_12b_int(idx * 8)) {
-> +				emit_ldx_insn(rd, idx * 8, RV_REG_FP, BPF_SIZE(code), false, ctx);
-> +			} else {
-> +				emit_imm(RV_REG_T1, idx * 8, ctx);
-> +				emit_add(RV_REG_T1, RV_REG_T1, RV_REG_FP, ctx);
-> +				emit_ldx_insn(rd, 0, RV_REG_T1, BPF_SIZE(code), false, ctx);
-> +			}
-> +			if (BPF_SIZE(code) != BPF_DW && insn_is_zext(&insn[1]))
-> +				return 1;
-> +			break;
-> +		}
-> +		fallthrough;
-
-Does this new BPF-to-BPF stack argument convention work correctly with
-the existing RV64 trampoline code?
-
-The convention here reads incoming stack arguments from FP+0, FP+8, etc
-(callee FP == caller SP). But looking at store_args() in this same file,
-the trampoline appears to use the native RISC-V ABI instead:
-
-arch/riscv/net/bpf_jit_comp64.c:store_args() {
-    for (i = 0; i < nr_arg_slots; i++) {
-        if (i < RV_MAX_REG_ARGS)
-            emit_sd(RV_REG_FP, -args_off, RV_REG_A0 + i, ctx);
-        else
-            emit_ld(RV_REG_T1, 16 + (i - RV_MAX_REG_ARGS) * 8, RV_REG_FP, ctx);
-
-where RV_MAX_REG_ARGS is 8, so it expects arguments 6, 7, 8 in a5, a6, a7
-and arguments 9+ at FP+16.
-
-For a BPF subprogram using this new convention, arguments 6+ arrive in
-memory, not in a5-a7. When an fentry or fexit program attaches to such a
-subprogram, wouldn't it read unrelated register values instead of the real
-arguments?
-
-Both arm64 and x86-64 appear to avoid this by keeping their BPF stack
-argument convention identical to their native ABIs. arm64 uses
-`stack_arg_reg[] = { A64_R(5), A64_R(6), A64_R(7) }` and x86-64 keeps arg6
-in r9, so their trampolines work without changes.
-
-Can fentry/fexit attach to static BPF subprograms with more than 5
-arguments, or is there a verifier check that prevents this?
-
-[ ... ]
+thanks,
 
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+- Paul
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/31761418445
---===============3453139535058796135==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+
+The following changes since commit 075b74841bd0065a3bda3440873c747938e69b68:
+
+  Linux 7.2-rc6 (2026-08-02 16:24:24 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-v7.2-rc8
+
+for you to fetch changes up to 5d588c684833e678a0008eb69c33190f01a65f4b:
+
+  riscv: lib: Fix ZBB strnlen reading past count boundary (2026-08-08 11:45:33 -0600)
+
+----------------------------------------------------------------
+RISC-V updates for late v7.2-rc
+
+- Fix a fault caused when the RISC-V Zbb-enabled strlen() is executed
+  on a string that ends right before a page boundary, when the next
+  page is unmapped
+
+- Fix a race with the misaligned vector performance testing code that
+  can prevent the outcome of the test from being stored into the vDSO
+  cache
+
+- Fix a kernel warning generated by the ftrace code when
+  ftrace_modify_call_code() runs against a ftrace-traced function
+  where a kprobe has already been attached.  This shows up in the bpf
+  kselftests
+
+----------------------------------------------------------------
+Michael Neuling (1):
+      riscv: lib: Fix ZBB strnlen reading past count boundary
+
+Pu Lehui (1):
+      riscv: ftrace: Fix ftrace_modify_call failure on kprobed functions
+
+Rui Qi (1):
+      riscv: hwprobe: Register unaligned probes before usermode
+
+ arch/riscv/kernel/ftrace.c                 |  5 ++++-
+ arch/riscv/kernel/unaligned_access_speed.c |  8 +++++++-
+ arch/riscv/lib/strnlen.S                   | 10 +++++++++-
+ 3 files changed, 20 insertions(+), 3 deletions(-)
+
+vmlinux size differences in bytes (from 075b74841bd0):
+  text  data   bss     dec    hex  filename                             
+   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-16             
+   +12   +96     .    +108    +6c  vmlinux.nosmp_defconfig.gcc-16       
+   +12   +64     .     +76    +4c  vmlinux.rv32_defconfig.gcc-16        
+   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-16  
+   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-16  
+    +8   +96     .    +104    +68  vmlinux.defconfig.clang-20           
+    +8   +96     .    +104    +68  vmlinux.nosmp_defconfig.clang-20     
+    +8   +64     .     +72    +48  vmlinux.rv32_defconfig.clang-20      
+    +8   +64     .     +72    +48  vmlinux.rv32_nosmp_defconfig.clang-20
+    +8   +64     .     +72    +48  vmlinux.nommu_virt_defconfig.clang-20
+   +12   +64     .     +76    +4c  vmlinux.defconfig.gcc-15             
+   +12   +64     .     +76    +4c  vmlinux.nosmp_defconfig.gcc-15       
+   +12   +64     .     +76    +4c  vmlinux.rv32_defconfig.gcc-15        
+   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-15  
+   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-15  
+   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-14             
+   +12   +64     .     +76    +4c  vmlinux.nosmp_defconfig.gcc-14       
+   +12   +96     .    +108    +6c  vmlinux.rv32_defconfig.gcc-14        
+   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-14  
+   +12     .     .     +12     +c  vmlinux.nommu_virt_defconfig.gcc-14  
+    +8   +64     .     +72    +48  vmlinux.defconfig.clang-19           
+    +8   +64     .     +72    +48  vmlinux.nosmp_defconfig.clang-19     
+    +8   +64     .     +72    +48  vmlinux.rv32_defconfig.clang-19      
+    +8   +96     .    +104    +68  vmlinux.rv32_nosmp_defconfig.clang-19
+    +8   +64     .     +72    +48  vmlinux.nommu_virt_defconfig.clang-19
+   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-13             
+   +12   +96     .    +108    +6c  vmlinux.nosmp_defconfig.gcc-13       
+   +12   +96     .    +108    +6c  vmlinux.rv32_defconfig.gcc-13        
+   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-13  
+   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-13  
+    +8   +64     .     +72    +48  vmlinux.defconfig.clang-18           
+    +8   +64     .     +72    +48  vmlinux.nosmp_defconfig.clang-18     
+    +8   +96     .    +104    +68  vmlinux.rv32_defconfig.clang-18      
+    +8   +64     .     +72    +48  vmlinux.rv32_nosmp_defconfig.clang-18
+    +8     .     .      +8     +8  vmlinux.nommu_virt_defconfig.clang-18
+   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-12             
+   +12   +96     .    +108    +6c  vmlinux.nosmp_defconfig.gcc-12       
+   +12   +64     .     +76    +4c  vmlinux.rv32_defconfig.gcc-12        
+   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-12  
+   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-12  
+    +8   +64     .     +72    +48  vmlinux.defconfig.clang-17           
+    +8   +96     .    +104    +68  vmlinux.nosmp_defconfig.clang-17     
+    +8   +64     .     +72    +48  vmlinux.rv32_defconfig.clang-17      
+    +8   +64     .     +72    +48  vmlinux.rv32_nosmp_defconfig.clang-17
+    +8   +64     .     +72    +48  vmlinux.nommu_virt_defconfig.clang-17
+   +12   +96     .    +108    +6c  vmlinux.defconfig.gcc-11             
+   +12   +96     .    +108    +6c  vmlinux.nosmp_defconfig.gcc-11       
+   +12   +64     .     +76    +4c  vmlinux.rv32_defconfig.gcc-11        
+   +12   +96     .    +108    +6c  vmlinux.rv32_nosmp_defconfig.gcc-11  
+   +12   +64     .     +76    +4c  vmlinux.nommu_virt_defconfig.gcc-11  
+     .   +32     .     +32    +20  vmlinux.allnoconfig.gcc-15           
++57664  +172  -128  +57708  +e16c  vmlinux.allmodconfig.gcc-15          
+     .     .     .       .      .  vmlinux.allnoconfig.clang-19         
++19812  -128   +64  +19748  +4d24  vmlinux.allmodconfig.clang-19        
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3453139535058796135==--
-
