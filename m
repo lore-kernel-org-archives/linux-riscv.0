@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90FD1C5B572
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 08:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B30C5B572
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 08:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9t4JlH1LRlgT/PNhtRTSyj4vZrFshVRLVluRau/Bg6s=; b=v/+XIakBL4FwAV
-	DDYnetWoqDPfhSVJY/w8ObULKjMmqRE01uIjzF/ejZ5yf9fQ1Yqih3+XrdOZAZ/n2GWOjoeYwdmNm
-	AL/scMHFpdyoYhJm2o7+1M/oQ6QDbAcdNjbMF1Morqmg+xS4rMsuQaGvURHy8aLdCdUp0FbgEwIwT
-	vqdIhFPr7YfV4c3on7LE8YnXlq51INsA4Q0KIadmljGe/BH5FPQe8cjN8vK5MGSrFLsTHBEDXkBmW
-	YwzaeUM06ZPI13W5LhSuHDDT3PNAQ06dej+wrHiGejY7fQR2vWcqgvGdmQ4c+84G1TGSm1jM/v7x2
-	lH2VgWMQVyOx99WvpU0w==;
+	List-Owner; bh=0hT//yz5aKRFqdMoROW2znCSonUyiQZG9Ml76lH8PYE=; b=TYi3quVkVFeB+m
+	0P5ptyt+MS9yk3C7kqoIrNDRwb0TS5HRSmvkRzyzw6xaS7VbufsCvwDeWJnvX+wS4HVBlF76X7pG4
+	KB3BlCgcbZhYV/kAMLgyo0pEvazmXUVJOsNEJn6V1txZYFfmoFBkdZ6pNbfB6dlWHPgboe7bfG3AB
+	0G4gnso2TWMxjav6xeAgYki0hUPOcoALIb+rqm2X3C5LGt41TYp/gseFD9In+d7+Noskjc5ZKTaoa
+	IQ7BMmimQL6MCSTxePu2RugOUmAL5orhUJmckMhvBjsMUvRbrHMGCRXMmqx65F6GfOKEFJSoELBFd
+	44ZTBNv9Nz9qEVaTGVjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wun2v-00000002FvU-0vUF;
-	Fri, 14 Aug 2026 08:13:45 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wunHV-00000002HMG-0PA9;
+	Fri, 14 Aug 2026 08:28:49 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wun2s-00000002FuQ-1JTH
+	id 1wunHS-00000002HKl-0b2l
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 08:13:44 +0000
-Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-01 (Coremail) with SMTP id qwCowABnPfEvzn5qbC+fBQ--.31470S2;
-	Fri, 14 Aug 2026 16:13:36 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Conor Dooley <conor@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
+	Fri, 14 Aug 2026 08:28:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=aU
+	p4toCDNHUBUim2j2yZWOkOE7XI6BPSPqqJrZpDCbE=; b=QUr94w0ex09qcRTXMg
+	chJN5PWzESDZdfSPfrqX2B3UBXEzha5X00rJAB5ovZ4XvnUeDrcnQ4bwk0Liozun
+	xw37ycomZx8v0EHKnWyW+LOz9hxR0FyAC/HMYPvvN3NQFBPIZqrOgquCS/OxKA0r
+	vU/KH4Byt1fSkMJS6N91VDTGA=
+Received: from Ubuntu.. (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3dIl_0X5qdVL2Pg--.57693S2;
+	Fri, 14 Aug 2026 16:27:44 +0800 (CST)
+From: Xiaofeng Yuan <xiaofengmian@163.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Nam Cao <namcao@linutronix.de>,
+	Klara Modin <klara@kasm.eu>,
+	prabhakar.csengg@gmail.com,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH v3] cache: sifive_ccache: remove debugfs on driver register failure
-Date: Fri, 14 Aug 2026 16:13:34 +0800
-Message-ID: <20260814081334.25771-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	xiaofengmian@163.com
+Subject: [PATCH v5 0/2] riscv: fix text patching on minimal kernel configs
+Date: Fri, 14 Aug 2026 08:27:40 +0000
+Message-ID: <20260814082742.148403-1-xiaofengmian@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABnPfEvzn5qbC+fBQ--.31470S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Aw4DCF48AFW3Zr4UGFWrAFb_yoW8XF48pF
-	W7ua4agr48uw429347A3WDZFyrCa9IqFy2934Uuw13Z398Ar1DXw18JFWYvF17ZF48Jw42
-	yr1ak3Z8AFW5CaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1q6rW5McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r4j6r
-	yUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJb
-	IYCTnIWIevJa73UjIFyTuYvjfU5byZUUUUU
-X-Originating-IP: [111.196.241.250]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+X-CM-TRANSID: _____wD3dIl_0X5qdVL2Pg--.57693S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7KryfZw18JF1UJr1xKw1ftFb_yoW8Jw4kpr
+	WkAw4Yy3y8Xrnay39rCw1qkryYyws7CrWxGF18Jry3Xws5CayUXrn2gw1avF1kG3WY9w47
+	uFWSyr93u348t37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piHa0PUUUUU=
+X-Originating-IP: [39.144.122.80]
+X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbC5gDO0Wp+0YAYTwAA3r
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_011342_714357_46BB4BF9 
-X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-CacheID: sfid-20260814_012846_536262_99027601 
+X-CRM114-Status: UNSURE (   9.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,54 +79,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-sifive_ccache_init() creates its debugfs entries before registering the
-platform driver. If platform_driver_register() fails, the current error
-path unmaps ccache_base but leaves the debugfs file and its write
-callback reachable.
+This series fixes two related issues that break kprobes and kernel text
+patching on RISC-V configurations where CONFIG_STRICT_MODULE_RWX is not
+available (e.g. CONFIG_MODULES=n).
 
-Remove the debugfs directory on that failure path before unmapping the
-controller registers.
+Patch 1 makes the EXECMEM_KPROBES range writable when
+CONFIG_STRICT_MODULE_RWX is disabled, so kprobe instruction slot writes
+do not fault on read-only executable pages.
 
-Fixes: c90847bcbfb6 ("cache: sifive_ccache: Partially convert to a platform driver")
+Patch 2 makes patch_map() skip the temporary fixmap mapping when the
+kernel text is already writable, i.e. when CONFIG_STRICT_KERNEL_RWX is
+disabled. The module text path is still gated on CONFIG_STRICT_MODULE_RWX.
 
-Assisted-by: Codex:gpt-5
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
-Changes since v2: https://lore.kernel.org/all/20260623015527.32846-1-pengpeng@iscas.ac.cn/
-- no source-code changes
-- rebase on current RISC-V sources
-- add the coding-assistant disclosure
+Changes since v4:
+- 2/2: gate the kernel text fixmap on CONFIG_STRICT_KERNEL_RWX instead of
+  returning early on !CONFIG_STRICT_MODULE_RWX. The v4 early return broke
+  configs with CONFIG_MODULES=n, where CONFIG_STRICT_MODULE_RWX is
+  unavailable but CONFIG_STRICT_KERNEL_RWX is still enabled and the kernel
+  text is read-only, causing a boot-time kernel panic on BPI-F3 and RZ/Five
+  (reported by Klara Modin and Lad Prabhakar).
 
-The error path was reviewed statically. It was not exercised on SiFive
-hardware.
+Xiaofeng Yuan (2):
+  riscv: mm: make EXECMEM_KPROBES writable without
+    CONFIG_STRICT_MODULE_RWX
+  riscv: patch: skip fixmap mapping when kernel text is already writable
 
- drivers/cache/sifive_ccache.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/patch.c | 2 ++
+ arch/riscv/mm/init.c      | 4 +++-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
-index 2acb8bdf06d5..3b7a78fc7feb 100644
---- a/drivers/cache/sifive_ccache.c
-+++ b/drivers/cache/sifive_ccache.c
-@@ -338,12 +338,16 @@ static int __init sifive_ccache_init(void)
- 
- 	rc = platform_driver_register(&sifive_ccache_driver);
- 	if (rc)
--		goto err_unmap;
-+		goto err_remove_debugfs;
- 
- 	of_node_put(np);
- 
- 	return 0;
- 
-+err_remove_debugfs:
-+#ifdef CONFIG_DEBUG_FS
-+	debugfs_remove_recursive(sifive_test);
-+#endif
- err_unmap:
- 	iounmap(ccache_base);
- err_node_put:
 -- 
-2.50.1 (Apple Git-155)
+2.43.0
 
 
 _______________________________________________
