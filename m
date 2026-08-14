@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2097C5CFC1
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 08:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E65C5DF67
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 08:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KillvBgiiOUXxrcUdbMHpk9aR+iMSVr/qRbLPNKe5l0=; b=L1HFOMCmnRD5TL
-	/VcENNd8yoL+IH8ysscYvhW4N7jnDDD8nKTE5bTDUNKMGhcgs1CBqZ5c1uhlsJvHCNT3k/3hrDmIF
-	bBLotIN3WbWeLHMFpJuU3qZNGF2oaTwRhN3Qnorgjc0IucVDZeTkteGYdKIHNHuYfXPvqPopsHp36
-	KvTf5o2rDphNWRGbqHDd2Q5SsMedXjpZd0Xo13ekogtYVZ8/QnND28io280ngsDdcZgId5vPizFEG
-	p4RYPhONm17Ka0jYkJ/greUb2TrDLzed36ko2Nv42cCLzv9zgFTdT2HbismzS21ritDbKF0jt/rWR
-	pMBLhUkPiaQNRT20WlEA==;
+	List-Owner; bh=NGr6SQtcVHQ1ORsRaNjEloDZ2ZE8rLIO7bh82BK4oaA=; b=BLlElT325PkGEx
+	ynJmeJE0HS7ogkpr+tkFrfSMbcE77ZrB1cNnmm4zSMdujlBuT14lkPhZ/xcB9luCJcF6cuuey9uoo
+	ltHEqKzdzEjCZFbS/Wnnp6SY8Pxuwqdq7g0Hige/ODIAAyCyKgFMGQYGt4gecsmRkdOQxpcz4DxMC
+	YTW0eZ2cDmRkHiXzowoQX1g+yz0dNhqlo2TgdpXLYWZVceWL5TxCTODybFmT135VsEx0e0hL5gG64
+	0SMTA2nYnrj+emdDfRU876G6FGB71YQZI3q1/EknLLMmAaSWLTPblBZI2Oo/e9EYR4m77GCAtIVpF
+	NHpfXh4jonpw6dgODJiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wunHX-00000002HNY-22FJ;
-	Fri, 14 Aug 2026 08:28:51 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wunHS-00000002HKn-3W5z
-	for linux-riscv@lists.infradead.org;
+	id 1wunHV-00000002HMO-0u1v;
 	Fri, 14 Aug 2026 08:28:49 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wunHR-00000002HKm-3z3s
+	for linux-riscv@lists.infradead.org;
+	Fri, 14 Aug 2026 08:28:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Jg
-	6xZqu7dbxREDlYqdaqjxUcNWuSqpTI5jZPGX3Lx8I=; b=SaQx4KCzFknWRUU+My
-	qqDlz/PrYEpMsn+nWztHiOH5UBYrr4ltMFp0szrvDGoAiTA/8RqtKSHIiAx61JIT
-	SzPs0316P0KV8xugsfGFQonDVzH9tVQj0jov4yCkWj1wdb1QDlKz7AxwXfOXdCKN
-	lNuiHmXN1OlSkSb2GyQe9P4zM=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=f/
+	Rp3afxHVt11GiYQfwg2x9WpjUQqy7bLvcIUQuUuck=; b=fpoL/1Ij9tgRXPWPC3
+	vdC/wCBSxoz/FtDHyEL12e8DvvEgykmcL9lfbI4T6T2ZFDUpOnTf8TVVzo0cWa9w
+	lTmLXTpFD1E+QkodmslckytwaZvpS02Beg4NG6ZxeE1xTWOf9mu9Kw2e5a6AvyaT
+	hlXq88bYs3qD8gWoFanJ4JAv4=
 Received: from Ubuntu.. (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3dIl_0X5qdVL2Pg--.57693S3;
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3dIl_0X5qdVL2Pg--.57693S4;
 	Fri, 14 Aug 2026 16:27:45 +0800 (CST)
 From: Xiaofeng Yuan <xiaofengmian@163.com>
 To: Paul Walmsley <pjw@kernel.org>,
@@ -47,24 +47,23 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	xiaofengmian@163.com
-Subject: [PATCH v5 1/2] riscv: mm: make EXECMEM_KPROBES writable without CONFIG_STRICT_MODULE_RWX
-Date: Fri, 14 Aug 2026 08:27:41 +0000
-Message-ID: <20260814082742.148403-2-xiaofengmian@163.com>
+Subject: [PATCH v5 2/2] riscv: patch: skip fixmap mapping when kernel text is already writable
+Date: Fri, 14 Aug 2026 08:27:42 +0000
+Message-ID: <20260814082742.148403-3-xiaofengmian@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260814082742.148403-1-xiaofengmian@163.com>
 References: <20260814082742.148403-1-xiaofengmian@163.com>
 MIME-Version: 1.0
-X-CM-TRANSID: _____wD3dIl_0X5qdVL2Pg--.57693S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Xw43Cw1DJF43uF15XrWrZrb_yoWkCrb_G3
-	WxWryfuayrW39Fg3WfKr4fC3W2kas7CF1UGrn7XFyqgrnrZ3s8X343XF15Xw45Cr1SgF4f
-	Aa9xXayI9rn2vjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sR_rb1UUUUUU==
+X-CM-TRANSID: _____wD3dIl_0X5qdVL2Pg--.57693S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7CF17CrW7WryxXw17XrW8Zwb_yoW8ZF48p3
+	ykAr45AFWrGF1Sy39Fk34DuryYvwn5trW3WF9xG34Svw4DZ3y5Awn2gw17XF1kXr1j9r4S
+	yFsayrsIva4UK37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0z_5l1DUUUUU=
 X-Originating-IP: [39.144.122.80]
-X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbC5gHO0Wp+0YEYYwAA3H
+X-CM-SenderInfo: p0ld0w5hqjzxldq6il2tof0z/xtbC5gLO0Wp+0YIYfwAA3b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_012847_266576_502048F5 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260814_012846_336038_34DBF5A5 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +80,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When CONFIG_STRICT_MODULE_RWX is not set, execmem cannot create
-temporary writable mappings for read-only executable pages. In this
-case, the execmem ranges must already have writable permissions.
+patch_map() always creates a temporary writable mapping via fixmap for
+kernel text addresses, even when CONFIG_STRICT_KERNEL_RWX is disabled
+and the kernel text is already mapped with _PAGE_WRITE.
 
-Currently EXECMEM_KPROBES unconditionally uses PAGE_KERNEL_READ_EXEC,
-which causes kprobe instruction slot writes to trigger page faults
-on systems where CONFIG_STRICT_MODULE_RWX is not enabled.
+This is unnecessary overhead at best, and on minimal configurations
+it can cause page faults.
 
-Fix this by using PAGE_KERNEL_EXEC when CONFIG_STRICT_MODULE_RWX
-is not available.
+Skip the fixmap path for kernel text when CONFIG_STRICT_KERNEL_RWX
+is not enabled, since the text pages are already writable in that case.
+The module text path is already gated on CONFIG_STRICT_MODULE_RWX and
+is kept unchanged.
+
+Reported-by: Klara Modin <klara@kasm.eu>
+Closes: https://lore.kernel.org/all/ant_8TaBbov_GS4i@soda.int.kasm.eu/
+Reported-by: Lad Prabhakar <prabhakar.csengg@gmail.com>
+Closes: https://lore.kernel.org/all/CA+V-a8tQK8rih9SGGTyqrEBGpNkx4H0eX2YccCRrgkVAPr+EBg@mail.gmail.com/
+---
+v5: fix the fixmap gating for kernel text. The v4 early return on
+    CONFIG_STRICT_MODULE_RWX wrongly skipped the fixmap for kernel text
+    too, which panics on configs with CONFIG_MODULES=n where
+    CONFIG_STRICT_MODULE_RWX is unavailable but CONFIG_STRICT_KERNEL_RWX
+    is still enabled and kernel text is read-only.
+v3: early return when !CONFIG_STRICT_MODULE_RWX (per Nam Cao's suggestion)
+v2: add commit description
 
 Signed-off-by: Xiaofeng Yuan <xiaofengmian@163.com>
 ---
- arch/riscv/mm/init.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/patch.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 85bdcce63a..b084a72e5d 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1462,7 +1462,9 @@ struct execmem_info __init *execmem_arch_setup(void)
- 			[EXECMEM_KPROBES] = {
- 				.start	= VMALLOC_START,
- 				.end	= VMALLOC_END,
--				.pgprot	= PAGE_KERNEL_READ_EXEC,
-+				.pgprot	= IS_ENABLED(CONFIG_STRICT_MODULE_RWX) ?
-+					  PAGE_KERNEL_READ_EXEC :
-+					  PAGE_KERNEL_EXEC,
- 				.alignment = 1,
- 			},
- 			[EXECMEM_BPF] = {
+diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+index 16b243376f..2239c28981 100644
+--- a/arch/riscv/kernel/patch.c
++++ b/arch/riscv/kernel/patch.c
+@@ -45,6 +45,8 @@ static __always_inline void *patch_map(void *addr, const unsigned int fixmap)
+ 	phys_addr_t phys;
+ 
+ 	if (core_kernel_text(uintaddr) || is_kernel_exittext(uintaddr)) {
++		if (!IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
++			return addr;
+ 		phys = __pa_symbol(addr);
+ 	} else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX)) {
+ 		struct page *page = vmalloc_to_page(addr);
 -- 
 2.43.0
 
