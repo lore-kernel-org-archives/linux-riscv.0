@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD4E8C5CFDB
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 11:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E196CC5CFC1
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 11:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mf7wle6412PQ70kbq1kibArMX6meqwb8AbF+HoKk514=; b=sHFehc+cfuZmNB
-	pXBoiptT5LPeNy1NLQC+H6Lf2L2noDWtDs4Z2ppZIOeB/MZ3JaON4oMOV5HzPqr4CweokEsy+8jkB
-	kY8Wpj845zqlKvw3S5y3Zglg5GhIo/+K+69mPG0kAGiFNUIMJ0NzUKWLjS4Sg5JTZOAFG46/gFGhL
-	P7S9tKNRiiEUoHAiajXZ3WrdQhgS2CfR8f/L2cxHCoNycDIB72Xe7hM6hO7lhYS/oKjVgZEfuFpGH
-	TUM5gs7j+G4CeLeAjga2rbZCc82uPF7Q6aFV7GFhrXUAsPiL3WchrUBpGcOfVb3VNSKpkSGSQGsAp
-	NHtZivusHlo1dWBCDtxw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=49J00Cd80AQmSUt8Jips/zEy+8MAW+E4Ne1YbyKZl8U=; b=072Q6T4r1cgHD5
+	O23e3t5Fa9PeiYWYliW/O/q9nftLvWhyHsU5ykHRz/x+HA8OK/CtGU86UFVNtnoymktN2zHKT6G+e
+	F62uG3gYetg0G6u1jmau+2Cfzd7nYIepqxCBHL1UW5FJQROVzCSRx2H1lQ7o+5FkX/K1yUh56AVm4
+	gjK/ssAObEqFU7VpinMotlO7zHoFb5O/m2GEtMz99NqXeKR6PKi2qqBYatv/rBsvqmOoFbPLG6UrT
+	kTBet+vQQHy7RC+S4seVxtvzmLPmWAkIWdW6La/u64vk7ch2mVQiKxLU4+MIB5KZd3R3ZWWd7VLvV
+	rI8isRxH+MIsDQvM7bxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuqM3-00000002bkR-47Kj;
-	Fri, 14 Aug 2026 11:45:43 +0000
-Received: from out-200.mta0.migadu.com ([2001:41d0:1004:224b::c8] helo=mta0.migadu.com)
+	id 1wuqM8-00000002bly-0K5o;
+	Fri, 14 Aug 2026 11:45:48 +0000
+Received: from out-215.mta0.migadu.com ([2001:41d0:1004:224b::d7] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuqLy-00000002bjH-1m2I
+	id 1wuqM5-00000002bkQ-2SXr
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 11:45:42 +0000
+	Fri, 14 Aug 2026 11:45:47 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=GOT8taQt6/EQFiPSFOU6QPaJFvivwjZtCf7FY3zWtvw=;
+DKIM-Signature: a=rsa-sha256; bh=NElRwhKXJKskKs7L0lwTCSgGuGKP1HD6hmKGJ40v/N0=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1786707936; v=1; x=1787312736;
- b=nPm8xAF+WTQpYyA0k/lZYgqJfHnipWNibvmJrmicCrJtEf+9TD5D8V1mwEpFsLK4fCO/Ab91
- +W7lIrAd/LJ7SIz8fZF03PB2Aj5o1LE4nD6zWrR4uJDL67D790QrBtgbDp7ag66Oes1jPJtQppx
- xDisOHlIAwZ+XOSUagnh+m08=
+ t=1786707943; v=1; x=1787312743;
+ b=Bzo//H+07bX3bVJcSd88NG0NM+adp8DgmOJWUQdeMy0g+BY1XKq+sd9kXyBNstfensU/wumy
+ 400WxefPNSzYx0XES16SGKzyU14QAHF7kKhPRsXlogxDgw3JbXHt7dA8qD66VBOXRTQS2nTDL2g
+ +Oe7M5fv/AvhuhKLI9XFVBdM=
 X-Envelope-To: linux-riscv@lists.infradead.org
 Received: from localhost.localdomain (2408:823d:2011:2c0:e810:54f9:f0a3:99d)
-	by smtp.migadu.com with ESMTPS id 7e7cb55356a33f08;
-	Fri, 14 Aug 2026 11:45:26 +0000
+	by smtp.migadu.com with ESMTPS id 7749c2dafb5b1cfd;
+	Fri, 14 Aug 2026 11:45:43 +0000
 X-Migadu-Flow: FLOW_OUT
 From: Jinyu Tang <jinyu.tang@linux.dev>
 To: Anup Patel <anup@brainfault.org>,
@@ -61,15 +61,16 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Nutty Liu <nutty.liu@hotmail.com>,
 	Jinyu Tang <tjytimi@163.com>,
 	Jinyu Tang <jinyu.tang@linux.dev>
-Subject: [PATCH v3 0/3] KVM: riscv: Add KVM_PRE_FAULT_MEMORY support
-Date: Fri, 14 Aug 2026 07:45:04 -0400
-Message-ID: <20260814114507.583424-1-jinyu.tang@linux.dev>
+Subject: [PATCH v3 1/3] KVM: riscv: Implement KVM_PRE_FAULT_MEMORY
+Date: Fri, 14 Aug 2026 07:45:05 -0400
+Message-ID: <20260814114507.583424-2-jinyu.tang@linux.dev>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260814114507.583424-1-jinyu.tang@linux.dev>
+References: <20260814114507.583424-1-jinyu.tang@linux.dev>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_044538_598739_66ECA363 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260814_044545_768973_D64CCD9F 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +87,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds RISC-V support for the generic KVM_PRE_FAULT_MEMORY
-vcpu ioctl and enables the existing generic KVM selftest for RISC-V.
+The generic KVM_PRE_FAULT_MEMORY ioctl lets userspace populate KVM page
+tables before running a vCPU over a GPA range. x86 already supports the
+ioctl, but RISC-V does not expose the capability and has no arch hook.
 
-KVM_PRE_FAULT_MEMORY lets userspace ask KVM to populate stage-2 mappings
-for a GPA range before running a vCPU that is expected to access that
-range.  x86 already supports the ioctl; RISC-V currently falls back to
-normal first-touch G-stage faults.
+Add the RISC-V arch hook and reuse the existing G-stage fault mapping
+path with a read access. Report progress using the G-stage mapping
+returned by the map path, so the ioctl can advance by the actual leaf
+size that covers the requested GPA. Retry until a mapping is installed
+or a signal, VM-dead request, or real error is observed.
 
-Patch 1 implements the RISC-V arch hook using the existing G-stage map
-path.  Patch 2 fixes the RISC-V selftest page-table walker for Sv57,
-which can be selected as the default guest mode.  Patch 3 enables
-pre_fault_memory_test for RISC-V.
-
-Changes in v3:
+Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
+---
+v2 -> v3:
 - Retry internally when the map path returns success without a visible
   G-stage mapping, instead of exposing -EAGAIN.  (Sashiko)
 
-Changes in v2:
-- Drop the per-test guest_modes_append_default() call from
-  pre_fault_memory_test.c.  RISC-V already initializes supported and
-  default guest modes from kvm_selftest_arch_init(), which is called by
-  the common kvm_selftest_init() constructor, as suggested by Sean.
+ arch/riscv/kvm/Kconfig  |  1 +
+ arch/riscv/kvm/gstage.c |  3 +++
+ arch/riscv/kvm/mmu.c    | 42 +++++++++++++++++++++++++++++++++++++++++
+ arch/riscv/kvm/vm.c     |  1 +
+ 4 files changed, 47 insertions(+)
 
-Jinyu Tang (3):
-  KVM: riscv: Implement KVM_PRE_FAULT_MEMORY
-  KVM: selftests: Add RISC-V Sv57 page table indexing
-  KVM: selftests: Enable pre_fault_memory_test for RISC-V
-
- arch/riscv/kvm/Kconfig                        |  1 +
- arch/riscv/kvm/gstage.c                       |  3 ++
- arch/riscv/kvm/mmu.c                          | 42 +++++++++++++++++++
- arch/riscv/kvm/vm.c                           |  1 +
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- .../selftests/kvm/include/riscv/processor.h   |  6 +++
- .../selftests/kvm/lib/riscv/processor.c       |  2 +
- 7 files changed, 56 insertions(+)
-
+diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+index ec2cee0a39e0..8ac209e8ac87 100644
+--- a/arch/riscv/kvm/Kconfig
++++ b/arch/riscv/kvm/Kconfig
+@@ -28,6 +28,7 @@ config KVM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select KVM_GENERIC_HARDWARE_ENABLING
++	select KVM_GENERIC_PRE_FAULT_MEMORY
+ 	select KVM_MMIO
+ 	select VIRT_XFER_TO_GUEST_WORK
+ 	select SCHED_INFO
+diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+index e5002cb9cbef..6bd8b8fd6ceb 100644
+--- a/arch/riscv/kvm/gstage.c
++++ b/arch/riscv/kvm/gstage.c
+@@ -280,6 +280,9 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+ 						    out_map->level, true);
+ 		} else if (ALIGN_DOWN(PFN_PHYS(pte_pfn(ptep_get(ptep))), page_size) == hpa) {
+ 			kvm_riscv_gstage_update_pte_prot(gstage, ptep_level, gpa, ptep, prot);
++			out_map->addr = ALIGN_DOWN(gpa, page_size);
++			out_map->level = ptep_level;
++			out_map->pte = ptep_get(ptep);
+ 			return 0;
+ 		}
+ 	}
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 6035b5ec9503..33d4ba406b0d 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -748,6 +748,48 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	return ret;
+ }
+ 
++long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
++				    struct kvm_pre_fault_memory *range)
++{
++	struct kvm_gstage_mapping out_map = { 0 };
++	struct kvm_memory_slot *memslot;
++	unsigned long map_size;
++	unsigned long hva;
++	gpa_t end;
++	gfn_t gfn;
++	int ret;
++
++	gfn = gpa_to_gfn(range->gpa);
++	memslot = kvm_vcpu_gfn_to_memslot(vcpu, gfn);
++	if (!memslot)
++		return -ENOENT;
++
++	hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
++	if (kvm_is_error_hva(hva))
++		return -ENOENT;
++
++	for (;;) {
++		if (signal_pending(current))
++			return -EINTR;
++
++		if (kvm_check_request(KVM_REQ_VM_DEAD, vcpu))
++			return -EIO;
++
++		cond_resched();
++		ret = kvm_riscv_mmu_map(vcpu, memslot, range->gpa, hva, false, &out_map);
++		if (ret)
++			return ret;
++
++		if (pte_val(out_map.pte))
++			break;
++	}
++
++	map_size = PAGE_SIZE << (out_map.level * kvm_riscv_gstage_index_bits);
++	end = ALIGN_DOWN(range->gpa, map_size) + map_size;
++
++	return min_t(u64, range->size, end - range->gpa);
++}
++
+ int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
+ {
+ 	struct page *pgd_page;
+diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+index a9f083feeb76..58500a19b33b 100644
+--- a/arch/riscv/kvm/vm.c
++++ b/arch/riscv/kvm/vm.c
+@@ -187,6 +187,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 	case KVM_CAP_MP_STATE:
+ 	case KVM_CAP_IMMEDIATE_EXIT:
+ 	case KVM_CAP_SET_GUEST_DEBUG:
++	case KVM_CAP_PRE_FAULT_MEMORY:
+ 		r = 1;
+ 		break;
+ 	case KVM_CAP_NR_VCPUS:
 -- 
 2.43.0
 
