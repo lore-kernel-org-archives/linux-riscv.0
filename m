@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AA8C5CFC1
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 06:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD0FC5B572
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 06:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dk3FIiV67qIrGg2paVANFRfTHKANwnZDQF2f5sA92AE=; b=a/Mxby94OAulmQ
-	VkfwC7gQmTqsVJbZU6hIxtYX3FeJK3grynWNdxW9c4/fksX3IwY7PR7i8x8PtSTdrcRwZcGo4g8A+
-	WR2FOnTp6GihSNWGfXln7Jloiny1AieX1ERkqss9/Dswi8iLlx71AWed67UWKFmE+4kpfCHc/tBRK
-	sTOpQy0o3UVuP6oQp9l0RPAIUlBjBCL4Qc1ikJtIXfjBAaF74kTuJWkzsnNaAdqTWNsdvVORvT4s6
-	zVXSPb53ouwl4X6jEDIi6L3dThTiBCJTv9rdU5ZqZ4gP0oqagP+aEf+tQACstJPPbnTht9DpAhORR
-	pbA8leqa3j0ZrnsD1nxA==;
+	List-Owner; bh=lCF/Dy6NeKNwqhLI+SPq7bKv+itmgvLslpjstJu6gxY=; b=AO8v2X2Q91fuDf
+	NFWOzjriTm7JrkZamfgKIorelqEbiswEL5gVz+GNXFmpq/+f5JP4whu2qEvxua7PJH4y1AOAU7V8Z
+	6DpLqS+GJm87vmD2ZRUG/S5yw8KdOZOGiF3vrzdGO1hjbXE4GFEHXUFaUdP0CK4Ml0VytAT+BLJqk
+	EWNyAr5iBN6udP7+zCYwMR7CTR+yfaLRUNnqlrk47DDkqQmvMt6U3fexHRuIpnUs1M0YYy/q0XVP+
+	NP0cJCsM0ykKAM9lTebg5en7ej1UBT8+bR/Sl6ZxWZuMGjD3BG96OGKY/JpfN4+JsnYcYNl6eulQN
+	Khtw+8aZRadlxlglyw1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wulhU-000000023aI-2bnF;
-	Fri, 14 Aug 2026 06:47:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wuljs-000000023mw-0gQY;
+	Fri, 14 Aug 2026 06:50:00 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wulhT-000000023a9-3oxu
+	id 1wuljp-000000023kr-0CnL
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 06:47:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B6E5600AD;
-	Fri, 14 Aug 2026 06:47:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00AC01F000E9;
-	Fri, 14 Aug 2026 06:47:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786690050;
-	bh=e660rBWN+6D6cgSDGlpQuKSob4piABKKiJyOTAYdW0k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NhuKPC1whUbjpagYtEIuWb9fTvl5K8C+u9aJZP0TrxAIlgaEkL6rFec5/KvDbBzPR
-	 VpuwRetC92VUNQ8PfAFClQntRxO5hFstzeKUNKJoArEkj2Q7m4/13PU/qBn+ENc6pb
-	 wBT8uIf8oagIJOIJzbFtYZO1atBEvjQuqqh5jaySwJKmIszpqWcNZOePcfzvi/BCDU
-	 CsNVdFWDMcaclUFcmS/PUUL4o7Ns4IoUEGlNskvcltGaeca+t9sC8R7OKApmbPh1L7
-	 YvaDu1Dsw75lRMgN0oz7wiHfza1/A7oSbUlteGwyflX3Ap3OvNy5Hu06VVh+H+sxzX
-	 UYjgOWb9T5arg==
-Date: Fri, 14 Aug 2026 08:47:19 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Rob Herring <robh@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Bartosz Golaszewski <brgl@kernel.org>
-Subject: Re: [PATCH v5 03/21] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0-pinctrl
-Message-ID: <20260814-shapeless-onyx-pronghorn-d423a9@quoll>
-References: <20260810063650.239303-1-changhuang.liang@starfivetech.com>
- <20260810063650.239303-4-changhuang.liang@starfivetech.com>
- <178634991918.1014951.7989635238440361454.robh@kernel.org>
- <ZQ4PR01MB120202070B9006984B8677EAF2DE2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260810144012.GA1574021-robh@kernel.org>
- <ZQ4PR01MB12020D2031C400FF805791B7F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <ZQ4PR01MB120275B9C0CF6BCE8C88261CF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+	Fri, 14 Aug 2026 06:49:59 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=3sgyg4KvKSWq3DcPbMXyWixGh8SwL3fHtjef15Jgink=;
+	b=CWJXdXsGWeDFdm0L1hwwA+U9mR3w0lZ/u2gnSNO0EwSMTwPeKRLqfrm8oYNLRojA0vMZ2dywZ
+	W0JWyiI11vXU1kZTMUmlVqvBYNEuT3pWz+XOauP1LK86fDrxAMON9TRRsL4T+k013CAA5aOlu1F
+	9Cp1k1e5dYjkLNs2sRPPdAQ=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4hLsyM2VM3zRhVJ;
+	Fri, 14 Aug 2026 14:39:07 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id B712040537;
+	Fri, 14 Aug 2026 14:49:43 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
+ (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Fri, 14 Aug
+ 2026 14:49:42 +0800
+Message-ID: <25b9821d-113c-405f-93e9-585fb745a2d6@huawei.com>
+Date: Fri, 14 Aug 2026 14:49:42 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZQ4PR01MB120275B9C0CF6BCE8C88261CF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v3 1/2] bpf, riscv: Add BPF stack arguments
+ support for RV64 JIT
+Content-Language: en-US
+To: Feng Jiang <jiangfeng@kylinos.cn>, Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
+	<memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
+	<song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
+	<jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai
+	<ihor.solodrai@linux.dev>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang
+	<xi.wang@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Shuah Khan <shuah@kernel.org>, Nathan Chancellor
+	<nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Bill
+ Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+CC: <bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<llvm@lists.linux.dev>
+References: <20260814-bpf-riscv-stack-args-v3-0-2160de56fea3@kylinos.cn>
+ <20260814-bpf-riscv-stack-args-v3-1-2160de56fea3@kylinos.cn>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20260814-bpf-riscv-stack-args-v3-1-2160de56fea3@kylinos.cn>
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_234957_418125_EF0878D8 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,114 +88,221 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBBdWcgMTQsIDIwMjYgYXQgMDE6NDY6MDNBTSArMDAwMCwgQ2hhbmdodWFuZyBMaWFu
-ZyB3cm90ZToKPiBIaSwgUm9iLCBDb25vciwgTGludXMKPiAKPiA+IEhJLCBSb2IKPiA+IAo+ID4g
-VGhhbmtzIGZvciB0aGUgcmV2aWV3Lgo+ID4gCj4gPiA+IE9uIE1vbiwgQXVnIDEwLCAyMDI2IGF0
-IDA5OjUxOjA3QU0gKzAwMDAsIENoYW5naHVhbmcgTGlhbmcgd3JvdGU6Cj4gPiA+ID4gSGksIFJv
-Ygo+ID4gPiA+Cj4gPiA+ID4gPiBPbiBTdW4sIDA5IEF1ZyAyMDI2IDIzOjM2OjMyIC0wNzAwLCBD
-aGFuZ2h1YW5nIExpYW5nIHdyb3RlOgo+ID4gPiA+ID4gPiBBZGQgcGluY3RybCBiaW5kaW5ncyBm
-b3IgU3RhckZpdmUgSkhCMTAwIFNvQyBTeXN0ZW0tMChzeXMwKQo+ID4gPiA+ID4gPiBwaW5jdHJs
-IGNvbnRyb2xsZXIuCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IENoYW5n
-aHVhbmcgTGlhbmcKPiA+ID4gPiA+ID4gPGNoYW5naHVhbmcubGlhbmdAc3RhcmZpdmV0ZWNoLmNv
-bT4KPiA+ID4gPiA+ID4gLS0tCj4gPiA+ID4gPiA+ICAuLi4vcGluY3RybC9zdGFyZml2ZSxqaGIx
-MDAtc3lzMC1waW5jdHJsLnlhbWwgfCAxNjQKPiA+ID4gKysrKysrKysrKysrKysrKysrCj4gPiA+
-ID4gPiA+ICAuLi4vcGluY3RybC9zdGFyZml2ZSxqaGIxMDAtcGluY3RybC5oICAgICAgICAgfCAg
-MTcgKysKPiA+ID4gPiA+ID4gIDIgZmlsZXMgY2hhbmdlZCwgMTgxIGluc2VydGlvbnMoKykgIGNy
-ZWF0ZSBtb2RlIDEwMDY0NAo+ID4gPiA+ID4gPiBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmlu
-ZGluZ3MvcGluY3RybC9zdGFyZml2ZSxqaGIxMDAtc3lzMC1wCj4gPiA+ID4gPiA+IGluCj4gPiA+
-ID4gPiA+IGN0cmwKPiA+ID4gPiA+ID4gLnlhbWwgIGNyZWF0ZSBtb2RlIDEwMDY0NAo+ID4gPiA+
-ID4gPiBpbmNsdWRlL2R0LWJpbmRpbmdzL3BpbmN0cmwvc3RhcmZpdmUsamhiMTAwLXBpbmN0cmwu
-aAo+ID4gPiA+ID4gPgo+ID4gPiA+ID4KPiA+ID4gPiA+IE15IGJvdCBmb3VuZCBlcnJvcnMgcnVu
-bmluZyAnbWFrZSBkdF9iaW5kaW5nX2NoZWNrJyBvbiB5b3VyIHBhdGNoOgo+ID4gPiA+ID4KPiA+
-ID4gPiA+IHlhbWxsaW50IHdhcm5pbmdzL2Vycm9yczoKPiA+ID4gPiA+Cj4gPiA+ID4gPiBkdHNj
-aGVtYS9kdGMgd2FybmluZ3MvZXJyb3JzOgo+ID4gPiA+ID4gRG9jdW1lbnRhdGlvbi9kZXZpY2V0
-cmVlL2JpbmRpbmdzL3BpbmN0cmwvc3RhcmZpdmUsamhiMTAwLXN5czAtcGluCj4gPiA+ID4gPiBj
-dAo+ID4gPiA+ID4gcmwuZXhhCj4gPiA+ID4gPiBtcGxlLmR0YjogcGluY3RybEAxMzA4MDAwMCAo
-c3RhcmZpdmUsamhiMTAwLXN5czAtcGluY3RybCk6Cj4gPiA+ID4gPiBncGlvLXJhbmdlczoxOiBb
-NF0gaXMgdG9vIHNob3J0Cj4gPiA+ID4gPiAJZnJvbSBzY2hlbWEgJGlkOiBodHRwOi8vZGV2aWNl
-dHJlZS5vcmcvc2NoZW1hcy9ncGlvL2dwaW8ueWFtbAo+ID4gPiA+ID4KPiA+ID4gPiA+IGRvYyBy
-ZWZlcmVuY2UgZXJyb3JzIChtYWtlIHJlZmNoZWNrZG9jcyk6Cj4gPiA+ID4gPgo+ID4gPiA+ID4g
-U2VlCj4gPiA+ID4gPiBodHRwczovL3BhdGNod29yay5rZXJuZWwub3JnL3Byb2plY3QvZGV2aWNl
-dHJlZS9wYXRjaC8yMDI2MDgxMDA2MzYKPiA+ID4gPiA+IDUwCj4gPiA+ID4gPiAuMjMgOTMwMy00
-LWNoYW5naHVhbmcubGlhbmdAc3RhcmZpdmV0ZWNoLmNvbQo+ID4gPiA+ID4KPiA+ID4gPiA+IFRo
-ZSBiYXNlIGZvciB0aGUgc2VyaWVzIGlzIGdlbmVyYWxseSB0aGUgbGF0ZXN0IHJjMS4gQSBkaWZm
-ZXJlbnQKPiA+ID4gPiA+IGRlcGVuZGVuY3kgc2hvdWxkIGJlIG5vdGVkIGluICp0aGlzKiBwYXRj
-aC4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBJZiB5b3UgYWxyZWFkeSByYW4gJ21ha2UgZHRfYmluZGlu
-Z19jaGVjaycgYW5kIGRpZG4ndCBzZWUgdGhlCj4gPiA+ID4gPiBhYm92ZSBlcnJvcihzKSwgdGhl
-biBtYWtlIHN1cmUgJ3lhbWxsaW50JyBpcyBpbnN0YWxsZWQgYW5kCj4gPiA+ID4gPiBkdC1zY2hl
-bWEgaXMgdXAgdG8KPiA+ID4gPiA+IGRhdGU6Cj4gPiA+ID4gPgo+ID4gPiA+ID4gcGlwMyBpbnN0
-YWxsIGR0c2NoZW1hIC0tdXBncmFkZQo+ID4gPiA+ID4KPiA+ID4gPiA+IFBsZWFzZSBjaGVjayBh
-bmQgcmUtc3VibWl0IGFmdGVyIHJ1bm5pbmcgdGhlIGFib3ZlIGNvbW1hbmQgeW91cnNlbGYuCj4g
-PiA+ID4gPiBOb3RlIHRoYXQgRFRfU0NIRU1BX0ZJTEVTIGNhbiBiZSBzZXQgdG8geW91ciBzY2hl
-bWEgZmlsZSB0byBzcGVlZAo+ID4gPiA+ID4gdXAgY2hlY2tpbmcgeW91ciBzY2hlbWEuIEhvd2V2
-ZXIsIGl0IG11c3QgYmUgdW5zZXQgdG8gdGVzdCBhbGwKPiA+ID4gPiA+IGV4YW1wbGVzIHdpdGgg
-eW91ciBzY2hlbWEuCj4gPiA+ID4KPiA+ID4gPiBIaSBSb2IsCj4gPiA+ID4KPiA+ID4gPiBSZWdh
-cmRpbmcgdGhpcyBsaW5rOgo+ID4gPiA+Cj4gPiA+Cj4gPiBodHRwczovL2dpdGh1Yi5jb20vZGV2
-aWNldHJlZS1vcmcvZHQtc2NoZW1hL2Jsb2IvbWFpbi9kdHNjaGVtYS9zY2hlbWEKPiA+ID4gcwo+
-ID4gPiA+IC9ncGlvL2dwaW8ueWFtbCNMNzEKPiA+ID4gPgo+ID4gPiA+IEl0IHNlZW1zIHRoYXQg
-dGhlIGNvbmZpZ3VyYXRpb24gdG8gc3VwcG9ydCAjZ3Bpby1jZWxscyA9IDwzPjsgaGFzCj4gPiA+
-ID4gbm90IGJlZW4KPiA+ID4gYWRkZWQgaGVyZSB5ZXQsIGlzIHRoYXQgY29ycmVjdD8KPiA+ID4K
-PiA+ID4gU2hydWcuIEJhc2VkIG9uIHRoZSBkZXNjcmlwdGlvbiwgZ3Bpby1yYW5nZXMgZG9lc24n
-dCBkZXBlbmQgdGhlICMgb2YgY2VsbHMuCj4gPiA+Cj4gPiA+IFdoeSBkbyB5b3UgbmVlZCAzIGNl
-bGxzPyBZb3UgaGF2ZW4ndCBkZXNjcmliZWQgdGhlIGNlbGwgY29udGVudC4KPiA+IAo+ID4gRm9y
-IHRoZSBwaW5jdHJsIG9mIEpIQjEwMCwgZXZlcnkgMzIgR1BJT3MgY29ycmVzcG9uZCB0byBvbmUg
-cmVnaXN0ZXIsIHNvIGl0IHVzZXMKPiA+IDMtY2VsbCAjZ3Bpby1jZWxscyBhbmQgNC1jZWxsIGdw
-aW8tcmFuZ2VzLCB3aGljaCBoZWxwcyBzaW1wbGlmeSB0aGUgZHJpdmVyIGNvZGUuCj4gPiAKPiA+
-IEkgcmVmZXJyZWQgdG8gdGhpcyBnZW5lcmljIGltcGxlbWVudGF0aW9uOgo+ID4gaHR0cHM6Ly9l
-bGl4aXIuYm9vdGxpbi5jb20vbGludXgvdjcuMi1yYzYvc291cmNlL2RyaXZlcnMvZ3Bpby9ncGlv
-bGliLW9mLmMjTDkzCj4gPiA2Cj4gPiAKPiA+IFNvIHRoZSBjb250ZW50IG9mIGdwaW8gY2VsbHMg
-YW5kIGdwaW8tcmFuZ2VzIGlzIGFzIGZvbGxvd3M6Cj4gPiBncGlvcyA9IDwmZ3BpbyBbaW5zdGFu
-Y2VdIG9mZnNldCBmbGFncz47IGdwaW8tcmFuZ2VzID0gPCZwaW5jdHJsIFtncGlvX2luc3RhbmNl
-XQo+ID4gZ3Bpb19vZmZzZXQgcGluX29mZnNldCBjb3VudD47Cj4gPiAKPiA+IEknbSBub3Qgc3Vy
-ZSB3aGV0aGVyIHRoaXMgZXJyb3IgaXMgY2F1c2VkIGJ5IGEgbWlzbWF0Y2ggd2l0aCB0aGUgZGVm
-aW5pdGlvbiBpbgo+ID4gc2NoZW1hcy9ncGlvL2dwaW8ueWFtbDoKPiA+IAo+ID4gZ3Bpby1yYW5n
-ZXM6Cj4gPiAgICRyZWY6IC9zY2hlbWFzL3R5cGVzLnlhbWwjL2RlZmluaXRpb25zL3BoYW5kbGUt
-YXJyYXkKPiA+ICAgaXRlbXM6Cj4gPiAgICAgaXRlbXM6Cj4gPiAgICAgICAtIGRlc2NyaXB0aW9u
-OiBwaW4gY29udHJvbGxlciBwaGFuZGxlCj4gPiAgICAgICAtIGRlc2NyaXB0aW9uOiBHUElPIGNv
-bnRyb2xsZXIgb2Zmc2V0Cj4gPiAgICAgICAtIGRlc2NyaXB0aW9uOiBwaW4gY29udHJvbGxlciBv
-ZmZzZXQKPiA+ICAgICAgIC0gZGVzY3JpcHRpb246IG51bWJlciBvZiBwaW5zCj4gPiAKPiA+IERv
-IHlvdSBoYXZlIGFueSBzdWdnZXN0aW9ucyBmb3IgZml4aW5nIHRoaXM/IFRoYW5rIHlvdSB2ZXJ5
-IG11Y2guCj4gPiAKPiA+IEJlc3QgUmVnYXJkcywKPiA+IENoYW5naHVhbmcKPiAKPiBGb3IgdGhl
-c2UgY29uZmlndXJhdGlvbnM6Cj4gZ3Bpb3MgPSA8JmdwaW8gW2luc3RhbmNlXSBvZmZzZXQgZmxh
-Z3M+OyAKPiBncGlvLXJhbmdlcyA9IDwmcGluY3RybCBbZ3Bpb19pbnN0YW5jZV0gZ3Bpb19vZmZz
-ZXQgcGluX29mZnNldCBjb3VudD47Cj4gCj4gSSB0cmllZCB1c2luZyBzcGFjZW1pdCxrMS1ncGlv
-IGZvciBjb21wYXJpc29uLiBDdXJyZW50bHksIHRoZSBncGlvLXJhbmdlcyBjb25maWd1cmF0aW9u
-IHVuZGVyIEsxIGlzIGFzIGZvbGxvd3MsIGFuZCBpdCBkb2VzIG5vdCByZXBvcnQgYW55IGVycm9y
-czoKPiAKPiBncGlvOiBncGlvQGQ0MDE5MDAwIHsKPiAgICAgY29tcGF0aWJsZSA9ICJzcGFjZW1p
-dCxrMS1ncGlvIjsKPiAgICAgZ3Bpby1yYW5nZXMgPSA8JnBpbmN0cmwgMCAwIDAgMzI+LAo+ICAg
-ICAgICAgICAgICAgICAgIDwmcGluY3RybCAxIDAgMzIgMzI+LAo+ICAgICAgICAgICAgICAgICAg
-IDwmcGluY3RybCAyIDAgNjQgMzI+LAo+ICAgICAgICAgICAgICAgICAgIDwmcGluY3RybCAzIDAg
-OTYgMzI+Owo+IH07Cj4gCj4gVGhlbiBJIHJlZHVjZWQgaXQgYnkgcmVtb3Zpbmcgb25lIHNldCBv
-ZiBlbnRyaWVzLCBjaGFuZ2luZyBpdCB0bzoKPiAKPiBncGlvOiBncGlvQGQ0MDE5MDAwIHsKPiAg
-ICAgY29tcGF0aWJsZSA9ICJzcGFjZW1pdCxrMS1ncGlvIjsKPiAgICAgZ3Bpby1yYW5nZXMgPSA8
-JnBpbmN0cmwgMCAwIDAgMzI+LAo+ICAgICAgICAgICAgICAgICAgIDwmcGluY3RybCAxIDAgMzIg
-MzI+LAo+ICAgICAgICAgICAgICAgICAgIDwmcGluY3RybCAyIDAgNjQgMzI+Owo+IH07Cj4gCj4g
-QXQgdGhpcyBwb2ludCwgSSBzZWUgYSBzaW1pbGFyIGVycm9yOgo+IAo+IC9saW51eC9hcmNoL3Jp
-c2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLWJhbmFuYXBpLWYzLmR0YjogZ3Bpb0BkNDAxOTAwMCAo
-c3BhY2VtaXQsazEtZ3Bpbyk6IGdwaW8tcmFuZ2VzOjM6IFswLCA2NCwgMzJdIGlzIHRvbyBzaG9y
-dAo+ICAgICAgICAgZnJvbSBzY2hlbWEgJGlkOiBodHRwOi8vZGV2aWNldHJlZS5vcmcvc2NoZW1h
-cy9ncGlvL2dwaW8ueWFtbAo+ICAgRFRDIFtDXSBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0
-L2sxLW1pbGt2LWp1cGl0ZXIuZHRiCj4gCj4gTXkgdW5kZXJzdGFuZGluZyBpcyB0aGF0IHRoZSBm
-aXJzdCBjb25maWd1cmF0aW9uIGhhcyA1w5c0IGVsZW1lbnRzLCBidXQgdGhlIGR0LXNjaGVtYSBz
-ZWVtcyB0byB0cmVhdCBpdCBhcyA0w5c1IGVsZW1lbnRzLiAKPiBJbiB0aGF0IGNhc2UsIGl0IHN0
-aWxsIGFsaWducyB3aXRoIDQgZWxlbWVudHMgcGVyIGdyb3VwLCBzbyBubyBlcnJvciBpcyByZXBv
-cnRlZC4gSG93ZXZlciwgd2hlbiBJIGNoYW5nZWQgaXQgdG8gNcOXMyBlbGVtZW50cywgCj4gaXQg
-bm8gbG9uZ2VyIGFsaWducyB3aXRoIDQgZWxlbWVudHMgcGVyIGdyb3VwLCB3aGljaCBpcyB3aHkg
-dGhlIGVycm9yIGFwcGVhcnMuCj4gCj4gSSdtIG5vdCBzdXJlIGlmIG15IHVuZGVyc3RhbmRpbmcg
-aXMgY29ycmVjdC4gRG9lcyBhbnlvbmUgaGF2ZSBhbnkgZ29vZCBzdWdnZXN0aW9ucyAKPiBvbiBo
-b3cgdG8gZml4IHRoaXMgZXJyb3I/IEknbSBjdXJyZW50bHkgdW5zdXJlIGFib3V0IHdoYXQgdGhl
-IG5leHQgc3RlcHMgc2hvdWxkIGJlLiIKCllvdSBzdGlsbCBkaWQgbm90IGV4cGxhaW4gdGhlIGNl
-bGxzIC0gbmVpdGhlciBpbiByZXBseSBub3IgaW4gY29tbWl0IC0KdGh1cyBzdGFydCB3aXRoIHRo
-YXQuIFdoeSBkbyB5b3UgbmVlZCBpdD8gTXVsdGlwbGUgY29udHJvbGxlcnMgaGF2ZQpncm91cHBl
-ZCBwaW5zIG9yIEdQSU9zIGluIHJlZ2lzdGVycywgc28gZXhwbGFuYXRpb24gImV2ZXJ5IDMyIEdQ
-SU9zCmNvcnJlc3BvbmQgdG8gb25lIHJlZ2lzdGVyIiB0ZWxscyBtZSBub3RoaW5nLiBXaHkgd291
-bGQgdGhhdCBtYXR0ZXIgaG93Cm1hbnkgR1BJT3MgaXMgaW4gb25lIHJlZ2lzdGVyPwoKQmVzdCBy
-ZWdhcmRzLApLcnp5c3p0b2YKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+
+On 2026/8/14 9:29, Feng Jiang wrote:
+> Add bpf_jit_supports_stack_args() for the RV64 JIT so BPF subprograms
+> and kfuncs can receive more than 5 arguments via the stack
+> (BPF_REG_PARAMS / r11).
+> 
+> For BPF-to-BPF calls the caller writes outgoing arguments at the
+> bottom of its frame (SP-relative). The callee reads them with
+> FP-relative loads. Its FP is set to the caller SP in the prologue,
+> so the offsets match.
+> 
+> The RISC-V ABI puts arguments 6-8 in A5-A7 and arguments 9+ at
+> SP+0. Before each kfunc call, load arguments 6-8 from the outgoing
+> area into A5-A7 and copy any remaining arguments down so argument 9
+> lands at SP+0.
+> 
+> A5 (BPF_REG_0), A6 (TCC) and A7 are safe to clobber here: R0 is not
+> live before a call, TCC is backed up on the stack, and A7 is unused
+> by the JIT.
+> 
+> Limit the existing kfunc sign-extension loop to MAX_BPF_FUNC_REG_ARGS
+> iterations; otherwise idx >= 5 resolves to S1-S5 (BPF_R6-FP) and
+> corrupts callee-saved registers.
+> 
+> Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
+> ---
+>   arch/riscv/net/bpf_jit.h        |  1 +
+>   arch/riscv/net/bpf_jit_comp64.c | 79 +++++++++++++++++++++++++++++++++++++++--
+>   arch/riscv/net/bpf_jit_core.c   |  4 +++
+>   3 files changed, 81 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+> index 419b9d795f2a..9eb4e149505d 100644
+> --- a/arch/riscv/net/bpf_jit.h
+> +++ b/arch/riscv/net/bpf_jit.h
+> @@ -82,6 +82,7 @@ struct rv_jit_context {
+>   	unsigned long flags;
+>   	int stack_size;
+>   	int tcc_offset;
+> +	u16 stack_arg_size;
+>   	u64 arena_vm_start;
+>   	u64 user_vm_start;
+>   };
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index 6b9972b07c1b..58cb3e5ff6b4 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -1815,18 +1815,43 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   
+>   		if (insn->src_reg == BPF_PSEUDO_KFUNC_CALL) {
+>   			const struct btf_func_model *fm;
+> -			int idx;
+> +			int idx, nargs;
+>   
+>   			fm = bpf_jit_find_kfunc_model(ctx->prog, insn);
+>   			if (!fm)
+>   				return -EINVAL;
+>   
+> -			for (idx = 0; idx < fm->nr_args; idx++) {
+> +			nargs = min_t(int, fm->nr_args, MAX_BPF_FUNC_REG_ARGS);
+> +			for (idx = 0; idx < nargs; idx++) {
+>   				u8 reg = bpf_to_rv_reg(BPF_REG_1 + idx, ctx);
+>   
+>   				if (fm->arg_size[idx] == sizeof(int))
+>   					emit_sextw(reg, reg, ctx);
+>   			}
+> +
+> +			/* BPF stack args -> RISC-V ABI: args 6-8 in A5-A7, 9+ at SP+0 */
+> +			if (fm->nr_args > MAX_BPF_FUNC_REG_ARGS) {
+> +				int n_stack = fm->nr_args - MAX_BPF_FUNC_REG_ARGS;
+> +				int n_reg = min_t(int, n_stack,
+> +						  RV_MAX_REG_ARGS - MAX_BPF_FUNC_REG_ARGS);
+> +
+> +				for (idx = 0; idx < n_reg; idx++) {
+> +					int sz = fm->arg_size[MAX_BPF_FUNC_REG_ARGS + idx];
+> +
+> +					emit_ld(RV_REG_A5 + idx, idx * 8, RV_REG_SP, ctx);
+> +					if (sz == sizeof(int))
+> +						emit_sextw(RV_REG_A5 + idx, RV_REG_A5 + idx, ctx);
+
+Hi Feng Jiang,
+
+Thanks for doing this. I'll squeeze the time to review this patchset, 
+but there is currently an issue with RV64 kfunc [0]. Let's hold off for 
+a moment.:)
+
+[0] 
+https://lore.kernel.org/bpf/20260814064726.3607615-1-pulehui@huaweicloud.com
+
+> +				}
+> +
+> +				for (idx = n_reg; idx < n_stack; idx++) {
+> +					int sz = fm->arg_size[MAX_BPF_FUNC_REG_ARGS + idx];
+> +
+> +					emit_ld(RV_REG_T1, idx * 8, RV_REG_SP, ctx);
+> +					if (sz == sizeof(int))
+> +						emit_sextw(RV_REG_T1, RV_REG_T1, ctx);
+> +					emit_sd(RV_REG_SP, (idx - n_reg) * 8, RV_REG_T1, ctx);
+> +				}
+> +			}
+>   		}
+>   
+>   		/* restore TCC to RV_REG_TCC before bpf2bpf call */
+> @@ -1891,6 +1916,21 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   	case BPF_LDX | BPF_MEM | BPF_H:
+>   	case BPF_LDX | BPF_MEM | BPF_W:
+>   	case BPF_LDX | BPF_MEM | BPF_DW:
+> +		if (insn->src_reg == BPF_REG_PARAMS) {
+> +			int idx = off / 8 - 1;
+> +
+> +			if (is_12b_int(idx * 8)) {
+> +				emit_ldx_insn(rd, idx * 8, RV_REG_FP, BPF_SIZE(code), false, ctx);
+> +			} else {
+> +				emit_imm(RV_REG_T1, idx * 8, ctx);
+> +				emit_add(RV_REG_T1, RV_REG_T1, RV_REG_FP, ctx);
+> +				emit_ldx_insn(rd, 0, RV_REG_T1, BPF_SIZE(code), false, ctx);
+> +			}
+> +			if (BPF_SIZE(code) != BPF_DW && insn_is_zext(&insn[1]))
+> +				return 1;
+> +			break;
+> +		}
+> +		fallthrough;
+>   	case BPF_LDX | BPF_PROBE_MEM | BPF_B:
+>   	case BPF_LDX | BPF_PROBE_MEM | BPF_H:
+>   	case BPF_LDX | BPF_PROBE_MEM | BPF_W:
+> @@ -1938,6 +1978,20 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   	case BPF_ST | BPF_MEM | BPF_H:
+>   	case BPF_ST | BPF_MEM | BPF_W:
+>   	case BPF_ST | BPF_MEM | BPF_DW:
+> +		if (insn->dst_reg == BPF_REG_PARAMS) {
+> +			int idx = -off / 8 - 1;
+> +
+> +			emit_imm(RV_REG_T1, imm, ctx);
+> +			if (is_12b_int(idx * 8)) {
+> +				emit_stx_insn(RV_REG_SP, idx * 8, RV_REG_T1, BPF_SIZE(code), ctx);
+> +			} else {
+> +				emit_imm(RV_REG_T2, idx * 8, ctx);
+> +				emit_add(RV_REG_T2, RV_REG_SP, RV_REG_T2, ctx);
+> +				emit_stx_insn(RV_REG_T2, 0, RV_REG_T1, BPF_SIZE(code), ctx);
+> +			}
+> +			break;
+> +		}
+> +		fallthrough;
+>   	/* ST | PROBE_MEM32: *(size *)(dst + RV_REG_ARENA + off) = imm */
+>   	case BPF_ST | BPF_PROBE_MEM32 | BPF_B:
+>   	case BPF_ST | BPF_PROBE_MEM32 | BPF_H:
+> @@ -1960,6 +2014,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   	case BPF_STX | BPF_MEM | BPF_H:
+>   	case BPF_STX | BPF_MEM | BPF_W:
+>   	case BPF_STX | BPF_MEM | BPF_DW:
+> +		if (insn->dst_reg == BPF_REG_PARAMS) {
+> +			int idx = -off / 8 - 1;
+> +
+> +			if (is_12b_int(idx * 8)) {
+> +				emit_stx_insn(RV_REG_SP, idx * 8, rs, BPF_SIZE(code), ctx);
+> +			} else {
+> +				emit_imm(RV_REG_T1, idx * 8, ctx);
+> +				emit_add(RV_REG_T1, RV_REG_SP, RV_REG_T1, ctx);
+> +				emit_stx_insn(RV_REG_T1, 0, rs, BPF_SIZE(code), ctx);
+> +			}
+> +			break;
+> +		}
+> +		fallthrough;
+>   	/* STX | PROBE_MEM32: *(size *)(dst + RV_REG_ARENA + off) = src */
+>   	case BPF_STX | BPF_PROBE_MEM32 | BPF_B:
+>   	case BPF_STX | BPF_PROBE_MEM32 | BPF_H:
+> @@ -2036,6 +2103,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+>   
+>   	stack_adjust = round_up(stack_adjust, STACK_ALIGN);
+>   	stack_adjust += bpf_stack_adjust;
+> +	stack_adjust += ctx->stack_arg_size;
+>   
+>   	store_offset = stack_adjust - 8;
+>   
+> @@ -2093,7 +2161,7 @@ void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+>   	emit_addi(RV_REG_FP, RV_REG_SP, stack_adjust, ctx);
+>   
+>   	if (bpf_stack_adjust)
+> -		emit_addi(RV_REG_S5, RV_REG_SP, bpf_stack_adjust, ctx);
+> +		emit_addi(RV_REG_S5, RV_REG_SP, ctx->stack_arg_size + bpf_stack_adjust, ctx);
+>   
+>   	ctx->stack_size = stack_adjust;
+>   
+> @@ -2171,3 +2239,8 @@ bool bpf_jit_supports_timed_may_goto(void)
+>   {
+>   	return true;
+>   }
+> +
+> +bool bpf_jit_supports_stack_args(void)
+> +{
+> +	return true;
+> +}
+> diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+> index cbfcd287ea16..844a0f3e0fa9 100644
+> --- a/arch/riscv/net/bpf_jit_core.c
+> +++ b/arch/riscv/net/bpf_jit_core.c
+> @@ -72,6 +72,10 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+>   	ctx->arena_vm_start = bpf_arena_get_kern_vm_start(prog->aux->arena);
+>   	ctx->user_vm_start = bpf_arena_get_user_vm_start(prog->aux->arena);
+>   	ctx->prog = prog;
+> +
+> +	ctx->stack_arg_size = round_up(bpf_out_stack_arg_cnt(env, prog) *
+> +				       sizeof(u64), STACK_ALIGN);
+> +
+>   	ctx->offset = kvzalloc_objs(int, prog->len);
+>   	if (!ctx->offset)
+>   		goto out_offset;
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
