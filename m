@@ -4,83 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D022EC5DF6A
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 01:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9DCC5DF66
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 01:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qziXRnwU/MfUszGWqCeCDZBpWQmPDk6rAyh3lJ2Byos=; b=4kBX9WoJmyznPX
-	YTcyN2Se27uqpbgmHkSNDNx8gkSzvFaIz8XRJlJYC6xM1GCIS2mBboeEf2dNwL7zhZDny2FELcdR0
-	n+oBZ2UUX9P2qUQwpt1Y0Za0eKxnCdTJqSZdOJbJ2e4UaSYkRcb15veYJIjhANoJDEArde6JEPdIe
-	JlPiFH63BFGjCvEwHl9fnXowXMhplYZNsOTIXQVMslF7emlH3VFhiMaRldNvmf1TRLjNu9Rnh8F9t
-	5VvNrcNvhPeG2ii2jCB10wsutzI4e8qS8CpN/XoE6ClvhCED14rq3APKEtu2yyaCSNb2AxUzkmnFw
-	OUgj1q8+0RoA57mpNKxA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TUBqaSg0hQd6m7i0Ai7BfYfRcv3ND53p2MTz2v5StY8=; b=rj1QzvkRLwOQJb
+	HQujt85VAT6esm+WLDhcHUI4jET1pygkdwdbOgU28NnMr9EMx1K2f6aHDgq9tcJo/dbiXyT4GUFmI
+	C1R2Lv26O/hr5B/59f89vkQcYjVuF7N2Uw1gJr+s0pkHVTOi4prlBDGGKPry75avY80YHgnZY+bFE
+	gRQ8bvwYFMRQiONWrXjJqgkJtjSaOfchlvF0yoJTLzzpR7HdZYJiKIyWQuQibLa67JHX2d3/WIrk0
+	PrG80RDiLkuY8VgPTIX09d0c0gQQjmKj8yYEAt5SV/DGEAbjyYoM2ucOwOA3+m3Gf/sHdGPQdYoJI
+	J5eSLw6IsWfMe1XobStg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wugjl-00000001nws-3cxi;
-	Fri, 14 Aug 2026 01:29:33 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wuh02-00000001omO-16WM;
+	Fri, 14 Aug 2026 01:46:22 +0000
+Received: from mail-sh0chn02on2093.outbound.protection.partner.outlook.cn ([139.219.146.93] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wugji-00000001nvP-0b7L
+	id 1wugzx-00000001olo-2yqs
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 01:29:32 +0000
-X-UUID: 9586912a977f11f1aa26b74ffac11d73-20260814
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:3ebe20aa-3b6e-4e24-9a03-eb0659e72c16,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:7cd0f55f152b39015d90a1aa5b7ec287,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|136|850|865|898,TC:nil,Content:0|15|
-	50,EDM:-3|-100,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL
-	:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 9586912a977f11f1aa26b74ffac11d73-20260814
-X-User: jiangfeng@kylinos.cn
-Received: from [127.0.0.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <jiangfeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1959050617; Fri, 14 Aug 2026 09:29:25 +0800
-From: Feng Jiang <jiangfeng@kylinos.cn>
-Subject: [PATCH bpf-next v3 0/2] bpf, riscv: Add BPF stack arguments
- support for RV64 JIT
-Date: Fri, 14 Aug 2026 01:29:02 +0000
-Message-Id: <20260814-bpf-riscv-stack-args-v3-0-2160de56fea3@kylinos.cn>
+	Fri, 14 Aug 2026 01:46:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=MYhxGm6h+4NR4+FhOcLeBKR5SrdYXWFrSOUOae953h19J68ObKjcEIiiwOgKvIvG84PfDqbLtUWQtkjh58voJ0I/5nFpjfHDxc2ohsPbg5z0p8WnSZWK9YOPlhJF+3tbUvVrncvIst0BvaDcDFUfGFmBmZM+2CU5bCbHNMrEbI+TymTBzmKb5WUca7EeQ/+kVjRnjJJmuLOlqhzScdo+ZkDv+g3hvujras9XXsBUJZjjkcnaz2cQXDK7mAAfe7kLtq5kOYuJ2U5svPRfQjdRijaHnY2Xb1a0vc6QwbW60Gj8ExlID42BX6vlDMVlWnxa2kIGRdTvAyBIMT7O+D1cEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JiIeXVw9KifjB9BeN0YvcuUW0q+9Sj4a8iz0/eva5HU=;
+ b=fjMZFFJHXTtNXBHbWHYJPYXKU2NYuR4SVMRAs1aa+v6za5ZLqTRImY+U6vIdlgfsO0q3UcxDK3I/at8upWn11/yU3LJThvS7GlmhSKMT4STOebPOgC7rQVwzkNDEKdWN0AYPQIVgXBK7RaNbmS2rPOYT6bAikFJ2qD6Y8NDHtunrKo29AgavbpyEZ5+zmOiDJxA6/94tIzaQRo+1pjrR14k2/qgX9X6Ugmst75Z2RIw9t1WXj3O16Dh8ZsNcdqjnG/+uxYeos+iKxF4FtM7gpc2bXNNyqLfkr9QeisZNVlVnw7Nj1Z+eYmdBN9w5LY9VNs6jNbZmG6NxgQxRFw3Rgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1313.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:13::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Fri, 14 Aug
+ 2026 01:46:03 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0315.011; Fri, 14 Aug 2026 01:46:03 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Rob Herring <robh@kernel.org>
+CC: Linus Walleij <linusw@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Emil
+ Renner Berthing <kernel@esmil.dk>, Alexandre Ghiti <alex@ghiti.fr>, Lianfeng
+ Ouyang <lianfeng.ouyang@starfivetech.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Subject: Re: [PATCH v5 03/21] dt-bindings: pinctrl: Add
+ starfive,jhb100-sys0-pinctrl
+Thread-Topic: [PATCH v5 03/21] dt-bindings: pinctrl: Add
+ starfive,jhb100-sys0-pinctrl
+Thread-Index: AQHdKJKmmncLFStLcUOAd2EEccdBl7aW8JiAgAAZydCAAFDGAIAA0XrAgASfjJA=
+Date: Fri, 14 Aug 2026 01:46:03 +0000
+Message-ID: <ZQ4PR01MB120275B9C0CF6BCE8C88261CF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260810063650.239303-1-changhuang.liang@starfivetech.com>
+ <20260810063650.239303-4-changhuang.liang@starfivetech.com>
+ <178634991918.1014951.7989635238440361454.robh@kernel.org>
+ <ZQ4PR01MB120202070B9006984B8677EAF2DE2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <20260810144012.GA1574021-robh@kernel.org>
+ <ZQ4PR01MB12020D2031C400FF805791B7F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+In-Reply-To: <ZQ4PR01MB12020D2031C400FF805791B7F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1313:EE_
+x-ms-office365-filtering-correlation-id: 7f06680b-0c77-4e03-1fe8-08def9a5ccb2
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|7416014|13003099007|38070700021|4143699003|6133799003|56012099006|10067099003|3023799007|18002099003|22082099003;
+x-microsoft-antispam-message-info: 8X7/4zMSSmlmd7KMqqnHCA2F6UwbGwDJXgmK0+/RfNAaqW2BK1h1tAPfGfDnhGofJloU/GTHn/OhVblL75QZK8Oqrbx1j6gE/iOtP5MkztO9jz9FGSMrH4PCTuI/LLvt1YGwWAicHt9t1D3Lmc4fpFObl9h4rlBywggYdjOhl33TLB++GTCWrwoaqTTIh5dGCVrcffZzvJFX4u0Fmxfk6KI7LQrcplGxYcTkxhkEBMpdVayx7lY1ZUh8vyEXe1Ksq4wlsXezZlIrCwrGBBaCMMZOQ/RanoktsqQyJw/6VpR2sB2LQb4Xtq9Lp5PwuDUvm4Zaepvnmxm8KfWFCM4ujvWtEbAwH/0J53JuSOgBZWUHIVquuYLWx9gIiOQT+LTu+fLdwiyg9AblMPUUPIYb4kipWuWG8ukOiGFpOK11whKDVFA/qb039RVC/Iy6oo9zpiHiJLMkJ1kxX3pa88kzE4MVpU4PO7zTzExDtly8tnNqO4vTiC5A0NwOOzv3GCZPLhrnL+fnOyg0WVEb//yiwrJmP9thD0ogeatcqAt10znMmO3Hw/TgWq7kuGg63ld1
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(7416014)(13003099007)(38070700021)(4143699003)(6133799003)(56012099006)(10067099003)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?c2R1zI60lUxAqwsbV7gzO2tcgporaDpfW1zyzYeqXVqZymA22F5jtxHr8m?=
+ =?iso-8859-1?Q?rZplOXdnvDAxR3tIP519bAyio3UGJkG7lTxlmRphfidvvG74/itxgUZNay?=
+ =?iso-8859-1?Q?NdmsdVFK78OGuKA/TOoKeLI40LgrLATb7tKmhs56UFwUaArSnhU+8QADDk?=
+ =?iso-8859-1?Q?cR4R+jSBuMvPlnjgrBKoe/hyz72+Aih6IPfCo/sIrA0/e40gxI+bEX6Y3o?=
+ =?iso-8859-1?Q?3AZiz7lbyJGhZePZgEOOd2xo4HX/4TAKbBxT0duFjp61ZfFUIKqZGfcjQo?=
+ =?iso-8859-1?Q?u5ErOON/ibc0h697RtxGYOEqPhCbfCgLeVIU/ciL1JjVDpjk3OtKqHUhlp?=
+ =?iso-8859-1?Q?MZl9iwC2CdV24lJ6SQq9C20DJTm3dK0WT9++FWsYE+oHCVC69humtDLQck?=
+ =?iso-8859-1?Q?4zGhNGz+mAp9wsyeFvriuyYeBBV9LFEHLxVstX8qTmoBOB+WaUfYPbOqVj?=
+ =?iso-8859-1?Q?ClvsMM0yyipyAbrSmUZZTLX6FPLjWYaV0wcYbU1pIsrUtbFged1rFp/TGr?=
+ =?iso-8859-1?Q?dmjj1f0KfpPJNwPmrBwLGHtyFDJgyTgu1RVA/GPUaU3dhCGq5DOjP4KkJy?=
+ =?iso-8859-1?Q?IEaMzXH5rI886yypZQkOrV2hKiMRLbnERXalB+X8m1odtidHBMLWnm0twq?=
+ =?iso-8859-1?Q?GRoKCxem16iEr7aWIcaN7rbOUta3decN1bOtmV49nuexHbViVSeHnivSHx?=
+ =?iso-8859-1?Q?uhYWLvcfCKVHE2FZn07sSi+n/Dg9nZycjRtUy/6fFEQlgqgefiWRQ1hZkK?=
+ =?iso-8859-1?Q?NB5CaiTk+eA8SC6BLOo8Cs/eAwAMhvicSeY58NvWAlBeZPq9JlrT6ZqY7u?=
+ =?iso-8859-1?Q?0M+TkOdVIoAgvvpc478fvZOGR3rcclljrJwreDeFuKxVo0VTORk1zs9ZYo?=
+ =?iso-8859-1?Q?D44yA9iHMtxrF6yAPVj3djmL942adkFyPiqJ7snzcTWL36SgkY/c5E53KG?=
+ =?iso-8859-1?Q?jxetqCKkpMRTDwateTPg/jdLWO1fs1P2TTLSZoV5fOQVQ068u+Ft06T0X0?=
+ =?iso-8859-1?Q?EZHhoEv4lj/CveWfZhWNaES+ooLECrASw6drnSHpB8DBQwb0JU0w/kEQ+K?=
+ =?iso-8859-1?Q?oiQamPn/xlSL+L5S+c+NzAS6sK4bcqGAF1keQNdMWz36PeJHkMvSVS1Wum?=
+ =?iso-8859-1?Q?aN9C2SKp1bPxFDxtc9N5tRD293kAgGe2JPQ9OlZ3Qx3TBIQUk4/7UPDxVb?=
+ =?iso-8859-1?Q?6blE+z9v9Ly5CYY75lhU2gQn/8vYamrRZ/J5aK8eClfI00BkEvs8gilN+N?=
+ =?iso-8859-1?Q?dxy5hMhME9yeSspkTZ6kUkIWhMGEK0U3dx2wmt/luNDiUhHJNXrmuM9a0Q?=
+ =?iso-8859-1?Q?Eou3DChqZyzVVF1c7C1YMHrZ8hBzGD5PHZLVu6TeK+hPT1uz0/R++LzIDD?=
+ =?iso-8859-1?Q?y85pjX8CU4FM4OKSZumGtl2S/7sdJsQKnGZ6gV1nXmdHo/heUbjvIbuW05?=
+ =?iso-8859-1?Q?QiGMHtRmI0Iwu7OmeICz9YWBY/5GSCpp+uThelh3as43ZhxdiHPFe50POi?=
+ =?iso-8859-1?Q?wtkdp5EwEyXCFMKjiqDHt2X8djXAanv+uGxob+/r8jTwhQGhIqPIaZMW3D?=
+ =?iso-8859-1?Q?2RdTq33L7z1+YTURiyWFZLoLLFBJfTqfCIB5DPbfhaC9PTVaNdniUt5WQv?=
+ =?iso-8859-1?Q?pkg8L04choWmiPKPo/kakF+QBPKH0cq2Y8l1hS+oRG7KYg5FeNdAPMLO+X?=
+ =?iso-8859-1?Q?b/E5+QL2C3jX8KplN/tZsmKrglpSHMzW1RECFotYHWYvVXXN7gmdHsY7B8?=
+ =?iso-8859-1?Q?0akyWDmz5ubEP6JR/BO9JskI6SG17wc5ORUedOgRWChadaCGKwxMcqCIOY?=
+ =?iso-8859-1?Q?p2pD6k5/TJ2baa7t+5Lmxybso2OuT/M=3D?=
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAF5vfmoC/3XNTQ6CMBQE4KuQrq3pjxRw5T2Mi1Je4QVTSEsaC
- OHu1q400eVkMt/sJIBHCORa7MRDxICTS0GeCmIG7Xqg2KVMBBOKVaKm7Wypx2AiDYs2I9W+D1T
- JknVMKc2hIWk6e7C4ZvZO3gsH60IeqRkwLJPf8l/kuc90zcVvOnLKqKpacVE1U1A2t3F7opvC2
- bgsRvGpyD+KSApY0LVtWmmBfynHcbwAhyLSegkBAAA=
-X-Change-ID: 20260728-bpf-riscv-stack-args-6350d066a1e9
-To: Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- Eduard Zingerman <eddyz87@gmail.com>, 
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
- Emil Tsalapatis <emil@etsalapatis.com>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, 
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
- Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Shuah Khan <shuah@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: bpf@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- llvm@lists.linux.dev, Feng Jiang <jiangfeng@kylinos.cn>
-X-Mailer: b4 0.14.3
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f06680b-0c77-4e03-1fe8-08def9a5ccb2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Aug 2026 01:46:03.2196
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: CVI7ExrQQHX0muC2OxDULDBt+Wblmjythx1695I5LzjXtGd2f9b87bxjKhbsSQFZmT34y8JVziwIzlDa9WYNpvnO8uTGAxUDtE8MQn1c/Ia10qchCgTs8RpLUaoMOZNU
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1313
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_182930_510072_8B9EDDA9 
-X-CRM114-Status: UNSURE (   6.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260813_184617_874525_25E2270D 
+X-CRM114-Status: GOOD (  37.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,62 +143,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Port the BPF stack argument feature (BPF_REG_PARAMS / r11) to the
-RV64 JIT, matching what x86 and arm64 already do.
+Hi, Rob, Conor, Linus
 
-BPF-to-BPF calls keep all extra arguments on the stack.  For kfunc
-calls, the JIT loads arguments 6-8 into A5-A7 at the call site to
-satisfy the RISC-V C calling convention.
+> HI, Rob
+> =
 
-Tested on riscv64 QEMU with LLVM main [1]; BPF-to-BPF and kfunc
-selftests pass.
+> Thanks for the review.
+> =
 
-[1] https://github.com/llvm/llvm-project/pull/189060
+> > On Mon, Aug 10, 2026 at 09:51:07AM +0000, Changhuang Liang wrote:
+> > > Hi, Rob
+> > >
+> > > > On Sun, 09 Aug 2026 23:36:32 -0700, Changhuang Liang wrote:
+> > > > > Add pinctrl bindings for StarFive JHB100 SoC System-0(sys0)
+> > > > > pinctrl controller.
+> > > > >
+> > > > > Signed-off-by: Changhuang Liang
+> > > > > <changhuang.liang@starfivetech.com>
+> > > > > ---
+> > > > >  .../pinctrl/starfive,jhb100-sys0-pinctrl.yaml | 164
+> > ++++++++++++++++++
+> > > > >  .../pinctrl/starfive,jhb100-pinctrl.h         |  17 ++
+> > > > >  2 files changed, 181 insertions(+)  create mode 100644
+> > > > > Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-p
+> > > > > in
+> > > > > ctrl
+> > > > > .yaml  create mode 100644
+> > > > > include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> > > > >
+> > > >
+> > > > My bot found errors running 'make dt_binding_check' on your patch:
+> > > >
+> > > > yamllint warnings/errors:
+> > > >
+> > > > dtschema/dtc warnings/errors:
+> > > > Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-pin
+> > > > ct
+> > > > rl.exa
+> > > > mple.dtb: pinctrl@13080000 (starfive,jhb100-sys0-pinctrl):
+> > > > gpio-ranges:1: [4] is too short
+> > > > 	from schema $id: http://devicetree.org/schemas/gpio/gpio.yaml
+> > > >
+> > > > doc reference errors (make refcheckdocs):
+> > > >
+> > > > See
+> > > > https://patchwork.kernel.org/project/devicetree/patch/202608100636
+> > > > 50
+> > > > .23 9303-4-changhuang.liang@starfivetech.com
+> > > >
+> > > > The base for the series is generally the latest rc1. A different
+> > > > dependency should be noted in *this* patch.
+> > > >
+> > > > If you already ran 'make dt_binding_check' and didn't see the
+> > > > above error(s), then make sure 'yamllint' is installed and
+> > > > dt-schema is up to
+> > > > date:
+> > > >
+> > > > pip3 install dtschema --upgrade
+> > > >
+> > > > Please check and re-submit after running the above command yourself.
+> > > > Note that DT_SCHEMA_FILES can be set to your schema file to speed
+> > > > up checking your schema. However, it must be unset to test all
+> > > > examples with your schema.
+> > >
+> > > Hi Rob,
+> > >
+> > > Regarding this link:
+> > >
+> >
+> https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schema
+> > s
+> > > /gpio/gpio.yaml#L71
+> > >
+> > > It seems that the configuration to support #gpio-cells =3D <3>; has
+> > > not been
+> > added here yet, is that correct?
+> >
+> > Shrug. Based on the description, gpio-ranges doesn't depend the # of ce=
+lls.
+> >
+> > Why do you need 3 cells? You haven't described the cell content.
+> =
 
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
----
-Changes in v3:
-- Drop the exceptions.c guard change: the guarded programs use
-  bpf_throw(), unsupported by the RV64 JIT, so the test is denylisted
-  on riscv64 and the guard has no effect. (BPF CI)
-- Link to v2: https://lore.kernel.org/r/20260813-bpf-riscv-stack-args-v2-0-efea8f9b3fe1@kylinos.cn
+> For the pinctrl of JHB100, every 32 GPIOs correspond to one register, so =
+it uses
+> 3-cell #gpio-cells and 4-cell gpio-ranges, which helps simplify the drive=
+r code.
+> =
 
-Changes in v2:
-- Sign-extend 32-bit kfunc arguments passed on the stack (args 9+),
-  matching the register path and the RISC-V psABI. (Sashiko)
-- Restrict the riscv selftest guard to __riscv_xlen == 64 so the
-  tests are not enabled on RV32. (Sashiko)
-- Link to v1: https://lore.kernel.org/r/20260812-bpf-riscv-stack-args-v1-0-67b246806e59@kylinos.cn
+> I referred to this generic implementation:
+> https://elixir.bootlin.com/linux/v7.2-rc6/source/drivers/gpio/gpiolib-of.=
+c#L93
+> 6
+> =
 
----
-Feng Jiang (2):
-      bpf, riscv: Add BPF stack arguments support for RV64 JIT
-      selftests/bpf: Enable stack argument tests for RV64
+> So the content of gpio cells and gpio-ranges is as follows:
+> gpios =3D <&gpio [instance] offset flags>; gpio-ranges =3D <&pinctrl [gpi=
+o_instance]
+> gpio_offset pin_offset count>;
+> =
 
- arch/riscv/net/bpf_jit.h                           |  1 +
- arch/riscv/net/bpf_jit_comp64.c                    | 79 +++++++++++++++++++++-
- arch/riscv/net/bpf_jit_core.c                      |  4 ++
- .../selftests/bpf/progs/btf__stack_arg_precision.c |  3 +-
- .../bpf/progs/btf__verifier_stack_arg_order.c      |  3 +-
- tools/testing/selftests/bpf/progs/stack_arg.c      |  3 +-
- .../testing/selftests/bpf/progs/stack_arg_kfunc.c  |  3 +-
- .../selftests/bpf/progs/stack_arg_precision.c      |  3 +-
- .../selftests/bpf/progs/verifier_stack_arg.c       |  3 +-
- .../selftests/bpf/progs/verifier_stack_arg_order.c |  3 +-
- 10 files changed, 95 insertions(+), 10 deletions(-)
----
-base-commit: d114bb98936770c501c958bf2bc5fb6b7c0bad7b
-change-id: 20260728-bpf-riscv-stack-args-6350d066a1e9
+> I'm not sure whether this error is caused by a mismatch with the definiti=
+on in
+> schemas/gpio/gpio.yaml:
+> =
 
-Best regards,
--- 
-Feng Jiang <jiangfeng@kylinos.cn>
+> gpio-ranges:
+>   $ref: /schemas/types.yaml#/definitions/phandle-array
+>   items:
+>     items:
+>       - description: pin controller phandle
+>       - description: GPIO controller offset
+>       - description: pin controller offset
+>       - description: number of pins
+> =
 
+> Do you have any suggestions for fixing this? Thank you very much.
+> =
+
+> Best Regards,
+> Changhuang
+
+For these configurations:
+gpios =3D <&gpio [instance] offset flags>; =
+
+gpio-ranges =3D <&pinctrl [gpio_instance] gpio_offset pin_offset count>;
+
+I tried using spacemit,k1-gpio for comparison. Currently, the gpio-ranges c=
+onfiguration under K1 is as follows, and it does not report any errors:
+
+gpio: gpio@d4019000 {
+    compatible =3D "spacemit,k1-gpio";
+    gpio-ranges =3D <&pinctrl 0 0 0 32>,
+                  <&pinctrl 1 0 32 32>,
+                  <&pinctrl 2 0 64 32>,
+                  <&pinctrl 3 0 96 32>;
+};
+
+Then I reduced it by removing one set of entries, changing it to:
+
+gpio: gpio@d4019000 {
+    compatible =3D "spacemit,k1-gpio";
+    gpio-ranges =3D <&pinctrl 0 0 0 32>,
+                  <&pinctrl 1 0 32 32>,
+                  <&pinctrl 2 0 64 32>;
+};
+
+At this point, I see a similar error:
+
+/linux/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dtb: gpio@d4019000 (spac=
+emit,k1-gpio): gpio-ranges:3: [0, 64, 32] is too short
+        from schema $id: http://devicetree.org/schemas/gpio/gpio.yaml
+  DTC [C] arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dtb
+
+My understanding is that the first configuration has 5=D74 elements, but th=
+e dt-schema seems to treat it as 4=D75 elements. =
+
+In that case, it still aligns with 4 elements per group, so no error is rep=
+orted. However, when I changed it to 5=D73 elements, =
+
+it no longer aligns with 4 elements per group, which is why the error appea=
+rs.
+
+I'm not sure if my understanding is correct. Does anyone have any good sugg=
+estions =
+
+on how to fix this error? I'm currently unsure about what the next steps sh=
+ould be."
+
+Best Regards,
+Changhuang
 
 _______________________________________________
 linux-riscv mailing list
