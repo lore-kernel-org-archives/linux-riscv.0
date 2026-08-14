@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307E2C5CFC1
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 09:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8B4C5CFC1
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2026 10:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DDoJ4ovcAzbHH+gtmuIe6aVRyxD8lp0i68S1Pd2GyGs=; b=0YUiAvumK/2Q37
-	HxcKH4UAkZIF1Jf5qzqA1BWYpm5l0Ttw8G577cetTcTO0HfZ6HGtATL8dMSflBMvvrU6plnGZF6F6
-	V4X0xnl2X4Yuvy1qtdgIMzwpMbdEJKUEBzzQZbgpU9iQh6bY29+d3z1e3H4qe/qVjBfP++RwB6U3F
-	QnXyxaBF70vwnbRa9Q/1UVHa9pa9JiRoVoGCkmhek6WRgUAX094rN9C+cGzUGNetSvx3bp7SYTs8U
-	gyUvGK0he1mciUcDLKGXJP2nZEUumV+o+uZNP7V5QE7sLBCNe4R1sp15aVp+E5omC12xbNrnXwgLA
-	ALizwNCO+vKPNigQXptg==;
+	List-Owner; bh=YIsK7ziL7qyAxJ3z9MIPpaV6uLQw/J9QIpSTO5AX+qk=; b=mNSF/INYMR8WqA
+	NGq2o9z8OnkMRhkLt3TbFePJDHxbfP7O3OjddJXTk6Nn64pKd4u0mCsCGWZ5VD2TnBxgywlpQ1CUO
+	y8wOQ77h65iDhTQS3XCwfwxu5jek2LfyfC6bdpYy/2xWaJw8FZQqP2md2M5rwYuPsRJ8W02ahfWW1
+	hItqZxDFjRAYOlT9wr7EDly8tEamf3tjfTwT3AZHzxeD7M+o5CqMMU1KILJBEO8MJUS7tqUTAEw41
+	xDAsmrusN+1BxtDBy7cmpEpM8/Mt/aMjDjUgznIpb1yofXhuPAmAbGF/u9jftKAaOin3gjvn/C8LA
+	LtSh2+vQifQKjlgRsPuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuo99-00000002MzP-0k7E;
-	Fri, 14 Aug 2026 09:24:15 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1wupc8-00000002YVH-14ej;
+	Fri, 14 Aug 2026 10:58:16 +0000
+Received: from out-230.mta1.migadu.com ([2001:41d0:203:375::e6] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuo95-00000002MyC-36Na
+	id 1wupc2-00000002YUR-2QaS
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Aug 2026 09:24:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1786699455; x=1818235455;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=t4H4NDsVqvtOh1B8bIPxsZW4VdsUsKMmQ3HmPurbO7c=;
-  b=CNRku1Ybak9aYNVO1RUUAylA9Cet58xCtiihn14naO9KD26Y3Iki3rvV
-   Reqt3qIU37AmCxjula8+6xvGIZyYX9acQLYqLkPw/wmCqdplrkiKeZR0I
-   mFMHJpgktHxDExpZQuYwy1WhaWwVuFBOBKoEt1FyIsGAzEaF+G7RIFIqP
-   f+OZW5Zuet3dM6J6HTK7fApWBWEQuG3YyFFnqpUmmrOAk6zkd/jcwCwmt
-   aNBMzQFkCV4tteM9orkbdvp8i8N+bL321RRKL2icEeu3Ct2byuCTCyUFk
-   zpjig0jaHlXpo9T9w+h0dz8pgBWZO3kxun2AMZ2Wo7N7kdu7dyKt+2W8l
-   Q==;
-X-CSE-ConnectionGUID: aH9GwClsR3igNfp7TJnB4w==
-X-CSE-MsgGUID: BYlb580uRUGqR0UKjiA5+A==
-X-IronPort-AV: E=Sophos;i="6.25,222,1779174000"; 
-   d="scan'208";a="62140907"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Aug 2026 02:24:14 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 14 Aug 2026 02:24:10 -0700
-Received: from localhost (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Fri, 14 Aug 2026 02:24:10 -0700
-From: Pedro Kopper <pedro.kopper@microchip.com>
-To: <linux-kernel@vger.kernel.org>
-CC: <linux-riscv@lists.infradead.org>, <linux-clk@vger.kernel.org>,
-	<daire.mcnamara@microchip.com>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <bmasney@redhat.com>,
-	<valentina.fernandezalanis@microchip.com>, <conor.dooley@microchip.com>,
-	<pedro.kopper@microchip.com>
-Subject: [PATCH] clk: microchip: mpfs: fix regmap_update_bits() mask/val order
-Date: Fri, 14 Aug 2026 10:22:13 +0100
-Message-ID: <20260814092211.2158337-3-pedro.kopper@microchip.com>
+	Fri, 14 Aug 2026 10:58:14 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=BN80hJUPahMuBoWkUclOUZnV69Dkfc+SFkZgjZJXao0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1786705085; v=1; x=1787309885;
+ b=ifNmiy6Q3Bv6W8Sy3llrNgWtYfS9IFotfXylgutWgBBeRPB28+JBYoLw24rRURDc1ed+o/d3
+ 1IuTtfBmD5ruma5YmlrMte9Pv/+ERChHQLbKbCVrUtMXs8plPkOOudz+HP2NPBNAOeOwwpp2z+0
+ zzeIaslwLzG7NU4gkJkqlZVY=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: from localhost.localdomain (2408:823d:2011:2c0:e810:54f9:f0a3:99d)
+	by smtp.migadu.com with ESMTPS id 50b76cf9531200b1;
+	Fri, 14 Aug 2026 10:58:05 +0000
+X-Migadu-Flow: FLOW_OUT
+From: Jinyu Tang <jinyu.tang@linux.dev>
+To: Anup Patel <anup@brainfault.org>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atish.patra@linux.dev>
+Cc: kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
+	Nutty Liu <nutty.liu@hotmail.com>,
+	Jinyu Tang <tjytimi@163.com>,
+	Jinyu Tang <jinyu.tang@linux.dev>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH] KVM: riscv: Avoid overwriting existing G-stage tables with huge leaves
+Date: Fri, 14 Aug 2026 06:57:52 -0400
+Message-ID: <20260814105752.565325-1-jinyu.tang@linux.dev>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_022412_079046_FF44666A 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20260814_035810_752290_53904944 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,33 +86,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-mpfs_cfg_clk_set_rate() passes the mask and value arguments to
-regmap_update_bits() in the wrong order. The resulting write becomes
-reg = orig_reg | val, causing bits to not be cleared if the clock
-divider changes.
+RISC-V KVM can overwrite an existing G-stage table entry when installing
+a huge leaf mapping. If the target huge range already has a lower-level
+page table, kvm_riscv_gstage_set_pte() can replace the non-leaf entry
+with a leaf PTE. This disconnects the lower-level page table and can
+change guest-visible mappings or leak the page-table page.
 
-Pass the arguments in the correct order so the divider field is updated
-as intended.
+Reject replacing a valid non-leaf PTE with a leaf PTE. If huge-page
+installation hits such a conflict, fall back to a 4K mapping for the
+faulting GPA and leave the existing page-table structure intact.
 
-Fixes: c6f2dddfa7f9 ("clk: microchip: mpfs: use regmap for clocks")
-Signed-off-by: Pedro Kopper <pedro.kopper@microchip.com>
+Suggested-by: Sashiko <sashiko-bot@kernel.org>
+Fixes: 9d05c1fee837 ("RISC-V: KVM: Implement stage2 page table programming")
+Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
 ---
- drivers/clk/microchip/clk-mpfs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/kvm/gstage.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
-index ee58304913ef..7f044775aea8 100644
---- a/drivers/clk/microchip/clk-mpfs.c
-+++ b/drivers/clk/microchip/clk-mpfs.c
-@@ -285,7 +285,7 @@ static int mpfs_cfg_clk_set_rate(struct clk_hw *hw, unsigned long rate, unsigned
+diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+index e5002cb9cbef..23cb35e36073 100644
+--- a/arch/riscv/kvm/gstage.c
++++ b/arch/riscv/kvm/gstage.c
+@@ -174,6 +174,12 @@ int kvm_riscv_gstage_set_pte(struct kvm_gstage *gstage,
  
- 	mask = clk_div_mask(cfg->width) << cfg->shift;
- 	val = divider_setting << cfg->shift;
--	regmap_update_bits(cfg->map, cfg->map_offset, val, mask);
-+	regmap_update_bits(cfg->map, cfg->map_offset, mask, val);
+ 	if (pte_val(*ptep) != pte_val(map->pte)) {
+ 		bool was_invalid = !pte_val(*ptep);
++
++		/* Avoid replacing an existing lower-level table with a leaf mapping. */
++		if (!gstage_pte_leaf(ptep) && !was_invalid &&
++		    gstage_pte_leaf(&map->pte))
++			return -EEXIST;
++
+ 		set_pte(ptep, map->pte);
+ 		if (gstage_pte_leaf(ptep) &&
+ 		    !(was_invalid && riscv_has_extension_unlikely(RISCV_ISA_EXT_SVVPTC)))
+@@ -211,12 +217,13 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+ 			      struct kvm_gstage_mapping *out_map)
+ {
+ 	bool found_leaf;
++	phys_addr_t huge_page_offset;
+ 	u32 ptep_level;
+ 	pgprot_t prot;
+ 	pte_t *ptep;
+ 	int ret;
  
- 	return 0;
+-	out_map->addr = gpa;
++	out_map->addr = gpa & PAGE_MASK;
+ 	out_map->level = 0;
+ 
+ 	ret = gstage_page_size_to_level(gstage, page_size, &out_map->level);
+@@ -287,7 +294,18 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
+ 	out_map->pte = pfn_pte(PFN_DOWN(hpa), prot);
+ 	out_map->pte = pte_mkdirty(out_map->pte);
+ 
+-	return kvm_riscv_gstage_set_pte(gstage, pcache, out_map);
++	ret = kvm_riscv_gstage_set_pte(gstage, pcache, out_map);
++	if (ret == -EEXIST) {
++		huge_page_offset = out_map->addr & (page_size - 1);
++		hpa += huge_page_offset;
++		out_map->level = 0;
++		out_map->pte = pfn_pte(PFN_DOWN(hpa), prot);
++		out_map->pte = pte_mkdirty(out_map->pte);
++
++		ret = kvm_riscv_gstage_set_pte(gstage, pcache, out_map);
++	}
++
++	return ret;
  }
+ 
+ static inline unsigned long make_child_pte(unsigned long huge_pte, int index,
 -- 
 2.43.0
 
