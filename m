@@ -4,54 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B43CC5CFC1
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Aug 2026 00:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC807C5B572
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Aug 2026 01:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XnrvWMj2JOFi0uIjy0FQFvYSIpU9h/2t0YJPg+IuEYU=; b=jQkEc51YO4ARSA
-	8eMV0rY5hcHFgXwvb/UgCmCvY4QC8945cefXAhEuOtC6CWbsINRsFdCeMKfdpMSmzoAMrBXTPnOK/
-	DPZrh0PZtElseOWFhuR4/n9vA8AEThaUJRNxEooG0b6Krlz3SDqlg0m4LN0QZDvvVEdZTB9KDklnz
-	zB5sz1rr1v/CGo5jUKaMgBRC2EVUn2FnOeVVUYV94DhDQJe939jYjm1Q2QE0dzogyzO6WrvWozCZo
-	KN73tjJSamg0WfUfTQtC4o3R78rb+lfacl9QlkmDpm5x8zBBMHpbHVY9YKmU8/7R7QdQtZKz44Pb/
-	xlRrae46/Y7KEUIPyS7A==;
+	List-Owner; bh=zNzc9x3MzeSrYgJvnJ/Q7gaChrgrcLPwkMZf6jUwLIM=; b=T7UYkzV81cS8AF
+	+h7FMNvAfgcdUm8/g8aBKjHofIlj9B/BCKAvqv92AIaQZLIOpPDMqTAbFKBSmbxxs7gele6O3/+uC
+	BniIvlqOOIVkoT24CTjcEyj0bahi0odM9pdaaG44F/buuT+f9MiggtmincInPR0yfauqoA6jgaP2Z
+	bRLgCQYXL2ngB3iYfBUu0ObKvJOtmPeX3bQ0vqa0YWSkaBhF8gdpu+kvxpxEKi0xAO+I7V9dTWt0C
+	BJIFcY13MdTIMlORHq8zd76pk05clETl2BPU0QUi99lfjhEAtEmq1PiitZBsWgpJlWWOrT7wxsAoL
+	YVGNe0lDpLXxyHxWGkUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv1wF-00000003KS0-2nRx;
-	Sat, 15 Aug 2026 00:07:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wv2qj-00000003M6O-1Jrg;
+	Sat, 15 Aug 2026 01:06:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv1wE-00000003KRq-0sWX
+	id 1wv2qh-00000003M6G-3N1c
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Aug 2026 00:07:50 +0000
+	Sat, 15 Aug 2026 01:06:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 245D4600E2;
-	Sat, 15 Aug 2026 00:07:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 952DD1F000E9;
-	Sat, 15 Aug 2026 00:07:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3529843855;
+	Sat, 15 Aug 2026 01:06:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E65311F000E9;
+	Sat, 15 Aug 2026 01:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786752468;
-	bh=kWSRKvTjWjrBmE8RB5NmAV+Uzzr1c6KdIJcOaEpeRHg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=W41gzK+nj7D0R6J81tfBjV1umrlbXlj1j1cLCsLybgPX11Ycnp6gGJ8uEmW9Ci8JB
-	 tbix5PBHSoY6tUwrRumGl/x1uOLAO1wAQI+n9yJ+SoOqy8BtX47aCCWCpG+19Ed5HB
-	 ckId7+AkwOLpkSoCsbDA7xwdzoQejsVTIIM0xnRCJ2jiiIhwAipS9QQTo56dk2XChp
-	 +nJnYLEjnHAc/lanj7i8yea7AlbOfq6oMa6gte2v14qVEvzUjvB1W74bdnRzAMKPNK
-	 2QTmeEcl8APPdzE45T4XNL/KYYioFLv+ljzCUqDNn6q2Pz/402LckPQhaiJvdIa48I
-	 cUG4/lMfrx/2g==
-Date: Fri, 14 Aug 2026 17:07:47 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: Re: [PATCH v2 0/5] Add remaining IO expansions on Lichee Pi 4A
-Message-ID: <an-t0_Gd7zar_raC@thelio>
-References: <20260714074515.1959352-1-zhengxingda@iscas.ac.cn>
- <amJF1g8sPu5RrrIQ@x1>
+	s=k20260515; t=1786755971;
+	bh=s3SBIDYZYqVz8IpQT0BUtfXzl58Q73xKJzr9I/vhl/0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ZihN1M63NuX81H09rkVxzzxN5JJr86Vm5tp/gmeINFEg9xVRXYw8RbltJrAeaj4vx
+	 32+3ID+3bUnvzlJXx640+0k9bmStX4GJkfgFzo3vTqjBzCFveaOW3/GZCJ70JNExaZ
+	 ZaYouRwnHh9BH7tNwgfdZ9AmtYdxIyB3mYxwMLiAzDG/bfSRb5ffhS5dCoLhgnVb5P
+	 YVgr74Dsbz0MGfXNs5fvYPL8AQMJ+X4qzNl1GJHR2TVkF52GE6AqghGLnXzltIhAQ2
+	 NnwjIi01n3nm3c77tNfCMVnCYQ8sJoufSbyj+Gv760cuTkUeQ1WRwTWjfFb46C+ApV
+	 befRvykwnsP2g==
+Date: Sat, 15 Aug 2026 02:05:58 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Paul
+ Walmsley <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] cache: sifive_ccache: remove debugfs on driver
+ register failure
+Message-ID: <20260815020558.2b4adbd9@jic23-huawei>
+In-Reply-To: <20260814081334.25771-1-pengpeng@iscas.ac.cn>
+References: <20260814081334.25771-1-pengpeng@iscas.ac.cn>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <amJF1g8sPu5RrrIQ@x1>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,57 +67,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, MoeLeak <i@leak.moe>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, Fu Wei <wefu@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2026 at 09:48:22AM -0700, Drew Fustini wrote:
-> On Tue, Jul 14, 2026 at 03:45:10PM +0800, Icenowy Zheng wrote:
-> > This patchset is split off the "Add TH1520 USB support" patchset,
-> > dedicating to enable the IO expansion chips, because the situation
-> > becomes complex when one of them (but not all) was added for Wi-Fi
-> > support.
-> > 
-> > I fixed a small issue of the existing I2C1 device node, and then all
-> > original patches are aligned with the existing I2C1 node for
-> > consistency.
-> > 
-> > Emil Renner Berthing (2):
-> >   riscv: dts: thead: Add IO labels for the IO expansion on I2C1
-> >   riscv: dts: thead: Add remaining Lichee Pi 4A IO expansions
-> > 
-> > Icenowy Zheng (2):
-> >   riscv: dts: thead: th1520: remove pclk for I2C1
-> >   riscv: dts: thead: lpi4a: sort nodes
-> > 
-> > Thomas Bonnefille (1):
-> >   riscv: dts: thead: Add TH1520 I2C nodes
-> > 
-> >  .../boot/dts/thead/th1520-lichee-pi-4a.dts    | 141 +++++++++++++-----
-> >  arch/riscv/boot/dts/thead/th1520.dtsi         |  53 ++++++-
-> >  2 files changed, 157 insertions(+), 37 deletions(-)
-> > 
-> > -- 
-> > 2.52.0
-> > 
-> 
-> I have applied all 5 patches to thead-dt-for-next and they are now in
-> linux-next:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/arch/riscv/boot/dts/thead
-> 
-> If no problems arise, then I will send thead-dt PR for 7.3 in a few days.
-> 
-> Thanks,
-> Drew
+On Fri, 14 Aug 2026 16:13:34 +0800
+Pengpeng Hou <pengpeng@iscas.ac.cn> wrote:
 
-This series should be in 7.3-rc1 once the merge window closes:
-https://lore.kernel.org/all/178534081274.3143403.4697156662576834176.git-patchwork-notify@kernel.org/
+> sifive_ccache_init() creates its debugfs entries before registering the
+> platform driver. If platform_driver_register() fails, the current error
+> path unmaps ccache_base but leaves the debugfs file and its write
+> callback reachable.
+> 
+> Remove the debugfs directory on that failure path before unmapping the
+> controller registers.
+> 
+> Fixes: c90847bcbfb6 ("cache: sifive_ccache: Partially convert to a platform driver")
+> 
 
-Thanks,
-Drew
+No blank lines in tag blocks.  That breaks a bunch of tooling that 
+runs on the kernel + tends to get you a message from one 
+of the bots that is there to prevent this getting merged.
+
+> Assisted-by: Codex:gpt-5
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> ---
+> Changes since v2: https://lore.kernel.org/all/20260623015527.32846-1-pengpeng@iscas.ac.cn/
+> - no source-code changes
+> - rebase on current RISC-V sources
+> - add the coding-assistant disclosure
+> 
+> The error path was reviewed statically. It was not exercised on SiFive
+> hardware.
+> 
+>  drivers/cache/sifive_ccache.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/cache/sifive_ccache.c b/drivers/cache/sifive_ccache.c
+> index 2acb8bdf06d5..3b7a78fc7feb 100644
+> --- a/drivers/cache/sifive_ccache.c
+> +++ b/drivers/cache/sifive_ccache.c
+> @@ -338,12 +338,16 @@ static int __init sifive_ccache_init(void)
+>  
+>  	rc = platform_driver_register(&sifive_ccache_driver);
+>  	if (rc)
+> -		goto err_unmap;
+> +		goto err_remove_debugfs;
+>  
+>  	of_node_put(np);
+>  
+>  	return 0;
+>  
+> +err_remove_debugfs:
+> +#ifdef CONFIG_DEBUG_FS
+
+It is stubbed out in debugfs.h so no need for guards here.
+
+So for that matter are the creation functions used in here.
+Ideally follow this patch with one removing ifdef CONFIG_DEBUG_FS
+from the driver.  Both calls will return errors but that is
+fine as they aren't checked anyway (common for debugfs
+as a driver is almost never expected to fail probe just because
+debugfs isn't there).  Note removing those guards should (feel
+free to check) result in no overhead as they dead code should get
+removed.
+
+Jonathan
+
+
+
+> +	debugfs_remove_recursive(sifive_test);
+> +#endif
+>  err_unmap:
+>  	iounmap(ccache_base);
+>  err_node_put:
+
 
 _______________________________________________
 linux-riscv mailing list
