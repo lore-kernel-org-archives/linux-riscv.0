@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525FDC5CFC1
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Aug 2026 21:49:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F78C5DF67
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Aug 2026 21:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AhmtbihY9FGt+lxe3aYgfAP79jr/LGF0HS0ofDdwU1M=; b=NKJfZWpK+fBsfo
-	dz1HUGCY3rbAMEPqWG8fXyy8tsFnPASmXjmv14ogH/WUdJ8COSV6D8V9PzKDlVTzI73vZ2Xuq7+H8
-	YquEslIPCR3A2BBh8flhPvddZlmepYVUbuDSp1ySmJv3z+aqEOD/PYEKpVQoMhPks43GLoUezkOI+
-	1oN9Cz7SOaANbvShwqaR0I49Wd1vR7YdaJhhlF+Wbu1/dya1rHRHXFKdp81/YafrHOFRJGsdBKcLh
-	h2oLdikEPdjsaV6qEVKDVcvh2rR98CifMeOhtoc+KrCvXsbfBSexXOoZuIVMFNehEt0YA1HJeTsIC
-	qPsj/ZABy9oOWhUZV53Q==;
+	List-Owner; bh=fd+2LoOzVuy+DgFXqMCpLK6bgWSnrAdFe329AykEdmM=; b=JYTa0lWsFOjFdk
+	yw+wnPGIYMsJqdsj9VJq44p4URkMmDmFlkZjW2Sdr7fDzWwZQ361KPT5DqZTGFGHkFLlgy30/JWNX
+	70Dsaggebm08nJHhjnazTUcnkUsBr3HNHScgb0SsKFuueqr924dxdeQ1KvY07emocCFDqb/LVi+b4
+	fMde8FY+rLXwJifYMooZ/AI9GgxpBT4RVrbd974JgPSmJsvvIA7ItS2EosSOaqAz0sZwtSpnYwje9
+	MEaIBvKbdSXLqHiSHz8ePpu+D/CtAvA7e5EodBs89BpEa1IZ0uSBjMhm41WxODS05pChJNmnETovF
+	RfjFwm+FSN7PrpLti/ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvMFE-00000004DDj-45xa;
-	Sat, 15 Aug 2026 21:48:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wvMKE-00000004Dhz-0nEQ;
+	Sat, 15 Aug 2026 21:53:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvMFC-00000004DDa-3ryu
+	id 1wvMKC-00000004Dhj-3OnM
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Aug 2026 21:48:47 +0000
+	Sat, 15 Aug 2026 21:53:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D536C600E2;
-	Sat, 15 Aug 2026 21:48:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EB351F000E9;
-	Sat, 15 Aug 2026 21:48:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 26B56407AA;
+	Sat, 15 Aug 2026 21:53:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CCFD1F000E9;
+	Sat, 15 Aug 2026 21:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786830525;
-	bh=K622mBfxNoMEQ0Rnt0bsFc4J2+42BrZq9uR3gxYzrjM=;
+	s=k20260515; t=1786830836;
+	bh=Mng5BWniPeM9reYy1Ta8r3Rg3KlW7xeXbQGcgXUrO34=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=cvju8Hyq3jsfX1UUhzQ55EfLwK5OtQsBZUbms7lYNLMxiQisgSQy3gurK5BqGVzar
-	 3wnbKEkDdFBL/GKdR9Bnowe1TQz5KOQQD6JIsvdJ4RVrlYUcujPSqulTD3ooKn/zee
-	 m3Ish+QZgJ410UNuNlUv541GGtPhSxAy/YJKkobQ14zXw1bY870jy3Vq1b3nxpGBdy
-	 AuHxgHbeZWnOVzWbJLA8wo6yzGA1ZC0HI8KOLabeMYuHCsQw3dTPMqOFMwmimF7EU/
-	 ZPAWJYrp4l5DjTI32HuK0qbCenA51PjsBP+l7zTRQFAp13mlXkW+5Lto8XThvpG5Xe
-	 P5nlWixd8nfxQ==
-Date: Sat, 15 Aug 2026 22:48:38 +0100
+	b=P2YM3pUORIKpEYq4xfYIc2GwhcWeDZbxxcP4lsSSZX/EuKfkGIWFksrUm593hpj2V
+	 QQPywa1gnaeYt6zSlInPsAX27cRe8s3RcSoAyIxeR6w8UaWMRtczvz/33lIgHFTDkV
+	 CZWbqITuvZ9Z20aWtrPOtTot/pwF5WNkbuR7C5IPRM1mACFS+UKhF04YIcaSEpkFaj
+	 AsBRHxRNvFa14B/+nZEevp/yHgMvu7ZdmFwijPehZABB8DJ4Ozke5BAzm8GXCwkphl
+	 Ao0gYq+evbHOqdOXx9cBoRRFKCyhJcfkOx4HrsAH7Wmi5hrAY8u2p68T84DqkrKYJ1
+	 F2EvcDDE3s9rw==
+Date: Sat, 15 Aug 2026 22:53:48 +0100
 From: Jonathan Cameron <jic23@kernel.org>
 To: Janani Sunil <janani.sunil@analog.com>
 Cc: Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich
- <Michael.Hennerich@analog.com>, "David Lechner" <dlechner@baylibre.com>,
- Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, "Jonathan Corbet" <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Mark Brown <broonie@kernel.org>, Marius
- Cristea <marius.cristea@microchip.com>, "Marcus Folkesson"
+ <Michael.Hennerich@analog.com>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Mark Brown <broonie@kernel.org>, Marius Cristea
+ <marius.cristea@microchip.com>, Marcus Folkesson
  <marcus.folkesson@gmail.com>, Kent Gustavsson <kent@minoris.se>, Conor
  Dooley <conor.dooley@microchip.com>, Daire McNamara
- <daire.mcnamara@microchip.com>, Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, <linux-iio@vger.kernel.org>,
+ <daire.mcnamara@microchip.com>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, <linux-iio@vger.kernel.org>,
  <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
  <linux-doc@vger.kernel.org>, Janani Sunil <jan.sun97@gmail.com>,
  <linux-spi@vger.kernel.org>, Kent Gustavsson <nedo80@gmail.com>,
  <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v8 0/3] iio: dac: Add support for AD5529R DAC
-Message-ID: <20260815224838.2bf9fdde@jic23-huawei>
-In-Reply-To: <20260805-ad5529r-driver-v8-0-b41781f5632a@analog.com>
+Subject: Re: [PATCH v8 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <20260815225348.7a3bef4d@jic23-huawei>
+In-Reply-To: <20260805-ad5529r-driver-v8-3-b41781f5632a@analog.com>
 References: <20260805-ad5529r-driver-v8-0-b41781f5632a@analog.com>
+	<20260805-ad5529r-driver-v8-3-b41781f5632a@analog.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -79,187 +80,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCA1IEF1ZyAyMDI2IDA5OjE3OjQwICswMjAwCkphbmFuaSBTdW5pbCA8amFuYW5pLnN1
-bmlsQGFuYWxvZy5jb20+IHdyb3RlOgoKPiBUaGlzIHBhdGNoIHNlcmllcyBhZGRzIHN1cHBvcnQg
-Zm9yIEFuYWxvZyBEZXZpY2VzIEFENTUyOVIsIGEgMTYgY2hhbm5lbAo+IDE2IGFuZCAxMiBiaXQg
-dm9sdGFnZSBEaWdpdGFsLXRvLUFuYWxvZyBDb252ZXJ0ZXIgKERBQykgd2l0aCBpbnRlZ3JhdGVk
-Cj4gcHJlY2lzaW9uIHJlZmVyZW5jZS4gVGhlIEFENTUyOVIgb3BlcmF0ZXMgZnJvbSBib3RoIHVu
-aXBvbGFyIGFuZAo+IGJpcG9sYXIgc3VwcGxpZXMuIFRoZSBkZXZpY2UgY29tbXVuaWNhdGVzIHZp
-YSBTUEkgaW50ZXJmYWNlLgoKaHR0cHM6Ly9zYXNoaWtvLmRldi8jL3BhdGNoc2V0LzIwMjYwODA1
-LWFkNTUyOXItZHJpdmVyLXY4LTAtYjQxNzgxZjU2MzJhJTQwYW5hbG9nLmNvbQpoYXMgc29tZSBj
-b21tZW50cy4KCkkgdGhpbmsgdGhlIGR0IG9uZXMgYXJlIGZpbmUgYXMgd2UgZG8gd2FudCB0byBl
-eHBsaWNpdGx5IGxpc3QgYWxsCnRoZSBkYWMueWFtbCBwcm9wZXJ0aWVzIGluIGhlcmUgdG8gY29u
-c3RyYWluIHRoZW0gZnVydGhlci4KClRoZSBvbmUgYWJvdXQgc2xlZXBpbmcgYWZ0ZXIgZW5hYmxp
-bmcgcmVndWxhdG9ycyBsb29rcyBjb3JyZWN0IHRob3VnaC4KSSdkIGFkZCBhbiBmc2xlZXAoKSB0
-byBlbnN1cmUgbm90aGluZyBlbHNlIGhhcHBlbnMgaW1tZWRpYXRlbHkgYWZ0ZXIKc3dpdGNoaW5n
-IHRoZSBwb3dlciBvbi4KClRoZSBvdGhlciBzbGVlcCByZWxhdGVkIHRoaW5nIGFib3V0IGFsbG93
-aW5nIGV4dHJhIHRpbWUuIERvbid0IGJvdGhlcgp1bmxlc3Mgd2UgZ2V0IGEgcmVwb3J0IG9mIHBy
-b2JsZW1zIGFzIHRoZXJlIHdpbGwgYmUgZXh0cmEgZGVsYXkgYW55d2F5CmR1ZSB0byB0aGUgY2Fs
-bCBvdmVyaGVhZCBldGMgYW5kIGRhdGFzaGVldCB2YWx1ZXMgdGVuZCB0byBiZSBjb25zZXJ2YXRp
-dmUuCgpGb3IgdGhlIHNjYWxlIHJlbGF0ZWQgb25lLCBwZXJoYXBzIGFkZCBhIGNvbW1lbnQgdGhl
-cmUgcmVmZXJyaW5nCnRvIGRhdGFzaGVldCBzcGVjaWZ5aW5nIHRoZSByZWZlcmVuY2Ugdm9sdGFn
-ZSBpZiBhbiBleHRlcm5hbCByZWZlcmVuY2UKaXMgdXNlZCBzaG91bGQgYmUgc2FtZSBhcyBvdXRw
-dXQgb2YgaW50ZXJuYWwgcmVmZXJlbmNlLgoKR2l2ZW4geW91ciByZWdtYXAgaXMgd29ya2luZyBJ
-J2xsIGFzc3VtZSB0aGUgb25lIGFib3V0IG1peGVkCmVuZGlhbiBpcyBhIGZhbHNlIHBvc2l0aXZl
-LgoKSm9uYXRoYW4KCj4gCj4gKipEZXZpY2UgT3ZlcnZpZXc6KioKPiBUaGUgQUQ1NTI5UiBmZWF0
-dXJlcyAxNiBpbmRlcGVuZGVudCBEQUMgY2hhbm5lbHMsIHdpdGggMTYgb3IgMTIgYml0Cj4gcmVz
-b2x1dGlvbiwgYWxsb3dpbmcgaW5kZXBlbmRlbnRseSBwcm9ncmFtbWFibGUgb3V0cHV0IHJhbmdl
-cy4gVGhlCj4gaW50ZXJuYWwgNC4wOTZWIHByZWNpc2lvbiByZWZlcmVuY2Ugc2V0cyB0aGUgYWNj
-dXJhY3kgb2YgdGhlIG91dHB1dAo+IHZvbHRhZ2UuCj4gCj4gVGhlIGRldmljZSBjYW4gZW5jb2Rl
-IGEgaGFyZHdhcmUgYWRkcmVzcyBpbiBpdHMgU1BJIGNvbW1hbmQgZnJhbWUsCj4gYWxsb3dpbmcg
-dXAgdG8gNCBkZXZpY2VzIHRvIHNoYXJlIGEgc2luZ2xlIGNoaXAgc2VsZWN0LiBUaGlzIHNlcmll
-cwo+IGludHJvZHVjZXMgYSBnZW5lcmljIHNwaS1kZXZpY2UtYWRkciBwcm9wZXJ0eSBmb3IgZGVz
-Y3JpYmluZyB0aGlzIHR5cGUKPiBvZiBhZGRyZXNzaW5nLgo+IAo+ICoqRmVhdHVyZXMgSW1wbGVt
-ZW50ZWQ6KioKPiAtIFN1cHBvcnQgZm9yIEFENTUyOVIgMTItYml0IGFuZCAxNi1iaXQgdmFyaWFu
-dHMgdmlhIGRldmljZSBtYXRjaCBkYXRhLgo+IC0gU3VwcG9ydCBmb3IgYSBzaW5nbGUgREFDIGRl
-dmljZSB1c2luZyBhbnkgaGFyZHdhcmUgYWRkcmVzcyBiZXR3ZWVuIDAKPiAgIGFuZCAzLgo+IC0g
-UmVzZXQgc3VwcG9ydCB2aWEgcmVzZXQgY29udHJvbGxlciBmcmFtZXdvcmsuCj4gLSBEdWFsIHJl
-Z21hcCBjb25maWd1cmF0aW9uIHRvIGhhbmRsZSA4IGFuZCAxNiBiaXQgcmVnaXN0ZXJzLgo+IC0g
-UGVyLWNoYW5uZWwgb3V0cHV0IHJhbmdlIGNvbmZpZ3VyYXRpb24gZnJvbSBkZXZpY2V0cmVlLgo+
-IC0gT3B0aW9uYWwgZXh0ZXJuYWwgcmVmZXJlbmNlIGFuZCBiaXBvbGFyIHN1cHBseSBoYW5kbGlu
-Zy4KPiAKPiAqKlBhdGNoIFN1bW1hcnk6KioKPiAxLiBBZGQgdGhlIGdlbmVyaWMgc3BpLWRldmlj
-ZS1hZGRyIFNQSSBwZXJpcGhlcmFsIHByb3BlcnR5Lgo+IDIuIEFENTUyOVIgYmluZGluZyBkb2N1
-bWVudGF0aW9uIHdpdGggY2hhbm5lbCBjb25maWd1cmF0aW9uLgo+IDMuIEltcGxlbWVudCBBRDU1
-MjlSIElJTyBEQUMgRHJpdmVyIHdpdGggcmVnbWFwIHN1cHBvcnQuCj4gCj4gKipUZXN0aW5nOioq
-Cj4gVGhlIGRyaXZlciB3YXMgY29tcGlsZWQgYW5kIHRlc3RlZCBvbiB0aGUgRVZBTC1BRDU1MjlS
-LUFSRFogdXNpbmcgYQo+IGNvcmFaNyB3aXRoIGEgbWFpbmxpbmUgdjcuMCBrZXJuZWwuCj4gCj4g
-KipEcml2ZXIgUmF0aW9uYWxlOioqCj4gQUQ1NTI5UiBpbnRyb2R1Y2VzOgo+IDEuIEEgdW5pcXVl
-IHJlZ2lzdGVyIGxheW91dAo+IDIuIE1peGVkIDgtYml0IGFuZCAxNi1iaXQgcmVnaXN0ZXIgYWNj
-ZXNzZXMKPiAzLiBIYXJkd2FyZSBzcGVjaWZpYyBmZWF0dXJlcyBsaWtlIGZ1bmN0aW9uIGdlbmVy
-YXRvcnMsIG11bHRpLWRpZQo+IGhvdHBhdGggcmVnaXN0ZXJzIGV0Yy4KPiAKPiBUaGUgZGV2aWNl
-IHdhcnJhbnRzIGl0cyBvd24gZHJpdmVyIGR1ZSB0byB0aGVzZSBmdW5kYW1lbnRhbAo+IGFyY2hp
-dGVjdHVyYWwgZGlmZmVyZW5jZXMsIHRoYXQgd291bGQgcmVxdWlyZSBzdWJzdGFudGlhbCBjaGFu
-Z2VzIHRvCj4gZXhpc3RpbmcgZHJpdmVycyB3aXRob3V0IHByb3ZpZGluZyByZXVzYWJsZSBiZW5l
-Zml0cy4gVGhlIHN0YW5kYWxvbmUKPiBkcml2ZXIgYWxzbyBhbGxvd3MgZnV0dXJlIGV4dGVuc2lv
-bnMgZm9yIHJlbGF0ZWQgZGV2aWNlcyBpbiB0aGUgc2FtZQo+IGZhbWlseS4KPiAKPiAqKk5vdCBJ
-bXBsZW1lbnRlZCBpbiB0aGlzIFNlcmllczoqKgo+IFRoZSBiaW5kaW5nIGluY2x1ZGVzIGdlbmVy
-aWMsIHBlcmlwaGVyYWwgbGV2ZWwgZGV2aWNlIGFkZHJlc3NpbmcgbmVlZGVkIGZvcgo+IG11bHRp
-LWRldmljZSBzdXBwb3J0IHVzaW5nIGEgc2hhcmVkIENTLCBidXQgdGhlIGRyaXZlciBwcmVzZW50
-bHkKPiBzdXBwb3J0cyBvbmx5IGEgc2luZ2xlIGRldmljZS4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBK
-YW5hbmkgU3VuaWwgPGphbmFuaS5zdW5pbEBhbmFsb2cuY29tPgo+IC0tLQo+IENoYW5nZXMgaW4g
-djg6Cj4gLSBSZW5hbWUgdGhlIEFENTUyOVIgc3VwcGx5IHByb3BlcnRpZXMgdG8gbWF0Y2ggdGhl
-IGRhdGFzaGVldCBzdXBwbHkKPiAgIG5hbWVzLgo+IC0gRGVzY3JpYmUgYW5kIGVuYWJsZSBhbGwg
-Zm91ciBwb3NpdGl2ZSBhbmQgZm91ciBuZWdhdGl2ZSBoaWdoLXZvbHRhZ2UKPiAgIHN1cHBsaWVz
-Lgo+IC0gUmVqZWN0IGR1cGxpY2F0ZSBjaGFubmVsIG5vZGVzIGFuZCBjb25maWd1cmF0aW9ucyB3
-aXRoIHRvbyBtYW55Cj4gICBjaGFubmVscy4KPiAtIEFkZCB0aGUgcmVxdWlyZWQgMjAgbnMgZGVs
-YXkgYmV0d2VlbiByZXNldCBhc3NlcnRpb24gYW5kIGRlYXNzZXJ0aW9uLgo+IC0gQWRkIGEgbWFj
-cm8gdG8gcmVwcmVzZW50IHRoZSBudW1iZXIgb2YgY2hhbm5lbHMuCj4gLSBSZXR1cm4gLUVOT0RB
-VEEgd2hlbiBkZXZpY2UgY2Fubm90IGJlIGlkZW50aWZpZWQuCj4gLSBDbGFyaWZ5IHRoYXQgc3Bp
-LWRldmljZS1hZGRyIGNvbnRhaW5zIG9uZSBhZGRyZXNzIHBlciBwaHlzaWNhbCBkZXZpY2UuCj4g
-LSBEcm9wIHRoZSBNaWNyb2NoaXAgYmluZGluZyBhbmQgZHJpdmVyIGNoYW5nZXMgZnJvbSB0aGUg
-c2VyaWVzLgo+IC0gRHJvcCBicmFja2V0cyBhcm91bmQgc2NhbGFyIHNwaS1kZXZpY2UtYWRkciBk
-ZWZhdWx0cy4KPiAtIFNpbXBsaWZ5IHRoZSByZWdtYXBfYXNzaWduX2JpdHMoKSByZWZlcmVuY2Ug
-c2VsZWN0aW9uIHZhbHVlLgo+IC0gTGluayB0byB2NzogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
-ci8yMDI2MDcyMi1hZDU1MjlyLWRyaXZlci12Ny0wLTc3ODFjZDc0YWQ3NUBhbmFsb2cuY29tCj4g
-Cj4gQ2hhbmdlcyBpbiB2NzoKPiAtIERyb3AgI2luY2x1ZGUgPGxpbnV4L21vZF9kZXZpY2V0YWJs
-ZS5oPgo+IC0gQWRkIGNvbW1lbnQgb24gbWluaW11bSBIVyByZXNldCBsb3cgd2lkdGguCj4gLSBG
-bGlwIHRoZSB2cmVmIHJlZ3VsYXRvciBlcnJvciBjaGVjay4KPiAtIENsYXJpZnkgd2h5IHNwaS1k
-ZXZpY2UtYWRkciBpcyBhbiBhcnJheSwgd2l0aCBvbmUgYWRkcmVzcyBwZXIgcGh5c2ljYWwKPiAg
-IGRldmljZSBzaGFyaW5nIGEgY2hpcCBzZWxlY3QuCj4gLSBBZGQgZGVmYXVsdCBhZGRyZXNzZXMg
-Zm9yIG1jcDM1NjQgYW5kIG1jcDM5MTEgYmluZGluZ3MuCj4gLSBJbml0aWFsaXplIEFENTUyOVIg
-cmVnbWFwIGNvbmZpZ3VyYXRpb25zIGxvY2FsbHkgdXNpbmcgZGVzaWduYXRlZAo+ICAgaW5pdGlh
-bGl6ZXJzLgo+IC0gVXBkYXRlICJQYXRjaCBTdW1tYXJ5IiBzZWN0aW9uIGluIHRoZSBjb3ZlciBs
-ZXR0ZXIuCj4gLSBMaW5rIHRvIHY2OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYwNzE1
-LWFkNTUyOXItZHJpdmVyLXY2LTAtY2ZkZjhiOWY1ZWUzQGFuYWxvZy5jb20KPiAKPiBDaGFuZ2Vz
-IGluIHY2Ogo+IC0gUmVuYW1lIHNwaSxkZXZpY2UtYWRkciB0byBzcGktZGV2aWNlLWFkZHIgYW5k
-IGRlZmluZSBpdCBhcyBhbiBhcnJheSBhdAo+ICAgcGVyaXBoZXJhbCBub2RlIGxldmVsLgo+IC0g
-Rml4IHRoZSBTUEkgYmluZGluZyBwYXRjaCBzdWJqZWN0IHByZWZpeCB0byB1c2UgInNwaTogZHQt
-YmluZGluZ3M6Ii4KPiAtIEFkZCBzcGktZGV2aWNlLWFkZHIgdG8gdGhlIE1DUDM1NjQgYW5kIE1D
-UDM5MTEgYmluZGluZ3MuCj4gLSBEZXByZWNhdGUgdGhlIGV4aXN0aW5nIE1pY3JvY2hpcC1zcGVj
-aWZpYyBkZXZpY2UtYWRkcmVzcyBwcm9wZXJ0aWVzLgo+IC0gUmVwbGFjZSBhZGksb3V0cHV0LXJh
-bmdlLW1pY3Jvdm9sdCB3aXRoIG91dHB1dC1yYW5nZS1taWNyb3ZvbHQuCj4gLSBNb3ZlIEFENTUy
-OVIgZGV2aWNlIGFkZHJlc3NpbmcgZnJvbSBjaGFubmVsIG5vZGVzIHRvIHRoZSBwZXJpcGhlcmFs
-Cj4gICBub2RlLgo+IC0gSW5jbHVkZSBsaW51eC90eXBlcy5oCj4gLSBIb25vdXIgbm9uLXplcm8g
-aGFyZHdhcmUgYWRkcmVzcyBpbiB0aGUgQUQ1NTI5UiBkcml2ZXIuCj4gLSBEeW5hbWljYWxseSBl
-eHBvc2Ugb25seSB0aGUgY2hhbm5lbHMgZGVzY3JpYmVkIGJ5IGRldmljZXRyZWUgYW5kCj4gICBy
-ZW1vdmUgdW51c2VkIHNjYW4gdHlwZSBkZWZpbml0aW9ucy4KPiAtIFVzZSBleHBsaWNpdCByZXNl
-dCBhc3NlcnRpb24gYW5kIGRlYXNzZXJ0aW9uIGFzIHRoZSBHUElPIHJlc2V0Cj4gICBjb250cm9s
-bGVyIGRvZXMgbm90IGltcGxlbWVudCByZXNldF9jb250cm9sX3Jlc2V0KCkuCj4gLSBVc2UgdGhl
-IE1JQ1JPIGFuZCBNSUxMSSB1bml0IGNvbnN0YW50cyB3aGVuIG1hdGNoaW5nIG91dHB1dCByYW5n
-ZXMuCj4gLSAgU2ltcGxpZnkgb3B0aW9uYWwgcmVmZXJlbmNlIHJlZ3VsYXRvciBoYW5kbGluZyBh
-bmQgcmVtb3ZlIHRoZQo+ICAgIGV4dGVybmFsIHJlZmVyZW5jZSBjb21tZW50Lgo+IC0gU2ltcGxp
-ZnkgZXJyb3IgbWVzc2FnZXMgYW5kIHN0aWNrIHRvIDgwIGNvbC4KPiAtIExpbmsgdG8gdjU6IGh0
-dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNjA3MDEtYWQ1NTI5ci1kcml2ZXItdjUtMC1lZDA4
-NzkwMGU2NDJAYW5hbG9nLmNvbQo+IAo+IENoYW5nZXMgaW4gdjU6Cj4gLSBNb3ZlIHJlZ2lzdGVy
-IGJpdGZpZWxkIGRlZmluaXRpb25zIG5leHQgdG8gdGhlaXIgcGFyZW50IHJlZ2lzdGVyCj4gICBh
-ZGRyZXNzZXMuCj4gLSBSZW1vdmUgc3B1cmlvdXMgZXh0cmEgaW5kZW50Lgo+IC0gUmVuYW1lIGFk
-NTUyOXJfb3V0cHV0X3Jhbmdlc19tdltdIHRvIGFkNTUyOXJfb3V0cHV0X3Jhbmdlc19tVltdLgo+
-IC0gUmVtb3ZlIGV4dHJhIHBhcmVudGhlc2VzIGluIHJlZ21hcF9yZWdfcmFuZ2UoKSBmb3IgdGhl
-IHJlYWRiYWNrIHJhbmdlLgo+IC0gVXNlIHJlc2V0X2NvbnRyb2xfcmVzZXQoKSBpbnN0ZWFkIG9m
-IHJlc2V0X2NvbnRyb2xfZGVhc3NlcnQoKS4KPiAtIFVzZSAxMCAqIFVTRUNfUEVSX01TRUMgaW5z
-dGVhZCBvZiBhIGJhcmUgMTAwMDAgaW4gZnNsZWVwKCkuCj4gLSBVc2UgZndub2RlX3Byb3BlcnR5
-X3ByZXNlbnQoKSB0byBleHBsaWNpdGx5IGd1YXJkIHRoZSBvcHRpb25hbCBwcm9wZXJ0eS4KPiAt
-IFJld3JpdGUgZXh0ZXJuYWxfdnJlZiBkZXRlY3Rpb24gdXNpbmcgZXhwbGljaXQgaWYvZWxzZS4K
-PiAtIEZvbGxvdyByZXZlcnNlIGNocmlzdG1hcyB0cmVlIHZhcmlhYmxlIGRlY2xhcmF0aW9uIG9y
-ZGVyLgo+IC0gSW1wcm92ZSBpbnZhbGlkIGNoYW5uZWwgZXJyb3IgbWVzc2FnZSB0byBpbmNsdWRl
-IHRoZSBtYXhpbXVtLgo+IC0gQWRkIGEgbmV3IHNwaSBwcm9wZXJ0eSB0byBpbmNsdWRlIHRoZSBT
-UEkgZGV2aWNlIGFkZHJlc3MuCj4gLSBVcGRhdGUgYWQ1NTI5ciBkZXZpY2V0cmVlIGJpbmRpbmcg
-dG8gYWxsb3cgbW9yZSB0aGFuIDE2IGNoYW5uZWxzIHRvIGluY2x1ZGUgbXVsdGlwbGUgREFDcy4K
-PiAtIFVwZGF0ZSBjb3ZlciBsZXR0ZXIgdG8gYWRkIGEgbWVudGlvbiBhYm91dCB0aGUgbXVsdGkg
-ZGV2aWNlIHN1cHBvcnQuCj4gLSBVcGRhdGUgZHJpdmVyIGNvbW1pdCBtZXNzYWdlIHRvIGRlc2Ny
-aWJlIHRoZSBkZXZpY2UgZnVydGhlci4KPiAtIExpbmsgdG8gdjQ6IGh0dHBzOi8vbG9yZS5rZXJu
-ZWwub3JnL3IvMjAyNjA2MDktYWQ1NTI5ci1kcml2ZXItdjQtMC0yZTRjMDIyMzRhMWFAYW5hbG9n
-LmNvbQo+IAo+IENoYW5nZXMgaW4gdjQ6Cj4gLSBGaXggRFQgY2hpbGQtbm9kZSByZWdleCBmb3Ig
-aGV4YWRlY2ltYWwgY2hhbm5lbCBhZGRyZXNzZXMuCj4gLSBXcmFwIGxvbmcgRFQgYmluZGluZyBk
-ZXNjcmlwdGlvbiBsaW5lcy4KPiAtIFNpbXBsaWZ5IG9wdGlvbmFsIGB2cmVmLXN1cHBseWAgYW5k
-IGBodnNzLXN1cHBseWAgaGFuZGxpbmcuCj4gLSBVcGRhdGUgUkVGX1NFTCBwcm9ncmFtbWluZyBm
-b3Igb3B0aW9uYWwgZXh0ZXJuYWwgcmVmZXJlbmNlIHVzZS4KPiAtIENsZWFuIHVwIHJhbmdlIHBh
-cnNpbmcgYW5kIGVycm9yIG1lc3NhZ2VzLgo+IC0gU2ltcGxpZnkgZGVidWdmcyByZWdpc3RlciBh
-Y2Nlc3MgYnkgY2FsbGluZyByZWdtYXAgaGVscGVycyBkaXJlY3RseS4KPiAtIEFkZCBjbGFyaWZ5
-aW5nIGNvbW1lbnRzIGZvciByZXNldCBzZXR0bGluZyB0aW1lIGFuZCBSQVcgcmVhZHMgZnJvbSBg
-REFDX0lOUFVUX0FgLgo+IC0gUmVtb3ZlIGFuIHVudXNlZCB2cmVmIHJlZ3VsYXRvciBwb2ludGVy
-IGFuZCBhbiBpbmNsdWRlLgo+IC0gUmVuYW1lIHRoZSBSRUZfU0VMIGJpdCBkZWZpbmUgYW5kIGNs
-ZWFuIHVwIHNtYWxsIGRyaXZlciBkZXRhaWxzLgo+IC0gVG9nZ2xlIHBpbnMgZGVmaW5lZCBhcyBQ
-V00gcGlucywgaW5zdGVhZCBvZiBHUElPcwo+IC0gVXBkYXRlIGNvdmVyIGxldHRlciB0byBzeW5j
-IHVwIGxhdGVzdCBjaGFuZ2VzLgo+IC0gTGluayB0byB2MzogaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
-cmcvci8yMDI2MDUxOS1hZDU1MjlyLWRyaXZlci12My0wLTI2N2MwNzMxYWE2OEBhbmFsb2cuY29t
-Cj4gCj4gQ2hhbmdlcyBpbiB2MzoKPiAtIFNwbGl0IGludG8gYWRpLGFkNTUyOXItMTYgYW5kIGFk
-aSxhZDU1MjlyLTEyIGRldmljZSB0cmVlIGNvbXBhdGlibGVzCj4gLSBBZGQgRFQtYmFzZWQgb3V0
-cHV0IHJhbmdlIGNvbmZpZ3VyYXRpb24gdmlhIGFkaSxvdXRwdXQtcmFuZ2UtbWljcm92b2x0Cj4g
-LSBFeHBhbmQgRFQgYmluZGluZzogdnJlZi1zdXBwbHksIGNsZWFyL3RnIEdQSU9zLCBpbnRlcnJ1
-cHRzLCBtdXhvdXQKPiAtIENvcnJlY3QgcG93ZXIgc3VwcGx5IHZvbHRhZ2Ugc3BlY2lmaWNhdGlv
-bnMgYXMgcGVyIGRhdGFzaGVldAo+IC0gUmVkdWNlIFNQSSBmcmVxdWVuY3kgbGltaXQgdG8gMjVN
-SHogYXMgcGVyIGRhdGFzaGVldCBzcGVjcwo+IC0gU3dpdGNoIHRvIGF1dG9pbmNyZW1lbnQgYWRk
-cmVzc2luZyBtb2RlLCByZW1vdmUgKzEgcmVnaXN0ZXIgb2Zmc2V0cwo+IC0gVXNlIERUIG1hdGNo
-IGRhdGEgaW5zdGVhZCBvZiBkZXZpY2UgSUQgZGV0ZWN0aW9uIGZvciBmYWxsYmFjayBzdXBwb3J0
-Cj4gLSBJbXBsZW1lbnQgZHluYW1pYyBzY2FsZS9vZmZzZXQgY2FsY3VsYXRpb24gcGVyIGNvbmZp
-Z3VyZWQgY2hhbm5lbCByYW5nZQo+IC0gQWRkZWQgZXhwbGljaXQgdmFsX2Zvcm1hdF9lbmRpYW4g
-YW5kIHJlZ19zdHJpZGUgZm9yIDE2LWJpdCByZWdtYXAgYnVzCj4gLSBDb2RlIGNsZWFudXA6IGFs
-cGhhYmV0aWNhbCBpbmNsdWRlcywgQVJSQVlfU0laRSgpLCB1bnVzZWQgZGVmaW5lcwo+IC0gTWlu
-b3I6IC5zaWdu4oaSLmZvcm1hdCBmaWVsZCwgc2ltcGxpZnkgcmVhZC93cml0ZSBvcmRlciwgb3B0
-aW9uYWwgaHZzcy1zdXBwbHkKPiAtIFJlbW92ZSByZWR1bmRhbnQgZHJpdmVyIGRvY3VtZW50YXRp
-b24gYWQ1NTI5ci5yc3QKPiAtIExpbmsgdG8gdjI6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3Iv
-MjAyNjA1MDgtYWQ1NTI5ci1kcml2ZXItdjItMC1lMzE1NDQxNjg1ZDdAYW5hbG9nLmNvbQo+IAo+
-IENoYW5nZXMgaW4gdjI6Cj4gLSBGaXggSUlPIHNjYWxlIHRvIHVzZSBtaWxsaXZvbHRzIHBlciBB
-QkkgcmVxdWlyZW1lbnQKPiAtIEZpeCBkb2N1bWVudGF0aW9uIHZvbHRhZ2UgY2FsY3VsYXRpb25z
-ICgyLjVWIG5vdCAyLjA0OFYpCj4gLSBGaXggYmlwb2xhciByYW5nZXMgaW4gZG9jdW1lbnRhdGlv
-biAowrE1ViwgwrExMFYsIMKxMTVWLCDCsTIwVikKPiAtIEZpeCBhbHBoYWJldGljYWwgb3JkZXJp
-bmcgaW4gZG9jdW1lbnRhdGlvbiBpbmRleAo+IC0gQWRkIG1pc3NpbmcgbmV3bGluZSB0byBkb2N1
-bWVudGF0aW9uIGZpbGUKPiAtIEZpeCBzY2FsZSB1bml0cyBkZXNjcmlwdGlvbiAobWlsbGl2b2x0
-cyBub3QgbWljcm92b2x0cykKPiAtIEluY2x1ZGUgYSBzZWN0aW9uIGZvciBkcml2ZXIgcmF0aW9u
-YWxlIGluIHRoZSBjb3ZlciBsZXR0ZXIKPiAtIFJld29yZCBjb250ZW50cyBpbiBjb3ZlciBsZXR0
-ZXIgMTIvMTYgYml0IGdlbmVyaWMtPnZhcmlhbnQKPiAtIEFkZCBkZXBlbmRlbmN5IGFycmF5IGZv
-ciBzcGktY3BoYSBhbmQgc3BpLWNwb2wgcHJvcGVydGllcwo+IC0gTGluayB0byB2MTogaHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI2MDUwNy1hZDU1MjlyLWRyaXZlci12MS0wLWI0NDYwZjNj
-YjQ0ZkBhbmFsb2cuY29tCj4gCj4gLS0tCj4gSmFuYW5pIFN1bmlsICgzKToKPiAgICAgICBzcGk6
-IGR0LWJpbmRpbmdzOiBBZGQgc3BpLWRldmljZS1hZGRyIHBlcmlwaGVyYWwgcHJvcGVydHkKPiAg
-ICAgICBkdC1iaW5kaW5nczogaWlvOiBkYWM6IEFkZCBBRDU1MjlSCj4gICAgICAgaWlvOiBkYWM6
-IEFkZCBBRDU1MjlSIERBQyBkcml2ZXIgc3VwcG9ydAo+IAo+ICAuLi4vZGV2aWNldHJlZS9iaW5k
-aW5ncy9paW8vZGFjL2FkaSxhZDU1MjlyLnlhbWwgICB8IDI1NCArKysrKysrKysrCj4gIC4uLi9i
-aW5kaW5ncy9zcGkvc3BpLXBlcmlwaGVyYWwtcHJvcHMueWFtbCAgICAgICAgIHwgICA3ICsKPiAg
-TUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDgg
-Kwo+ICBkcml2ZXJzL2lpby9kYWMvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
-ICAxNyArCj4gIGRyaXZlcnMvaWlvL2RhYy9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIHwgICAxICsKPiAgZHJpdmVycy9paW8vZGFjL2FkNTUyOXIuYyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCA1MzAgKysrKysrKysrKysrKysrKysrKysrCj4gIDYgZmlsZXMgY2hhbmdlZCwg
-ODE3IGluc2VydGlvbnMoKykKPiAtLS0KPiBiYXNlLWNvbW1pdDogOTNkZjg4NjEyODU5ZThlMTlk
-ZWM5M2M2OWQ1NjNiNGI3M2U5YmQ0Ygo+IGNoYW5nZS1pZDogMjAyNjA1MDctYWQ1NTI5ci1kcml2
-ZXItODY2YmJkZDg2NGRlCj4gCj4gQmVzdCByZWdhcmRzLAoKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, 5 Aug 2026 09:17:43 +0200
+Janani Sunil <janani.sunil@analog.com> wrote:
+
+> Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
+> from Analog Devices.
+> 
+> The device communicates over SPI and supports per-channel output range
+> configuration. An optional external 4.096V reference can be used in
+> place of the internal reference.
+> 
+> Signed-off-by: Janani Sunil <janani.sunil@analog.com>
+> ---
+>  MAINTAINERS               |   1 +
+>  drivers/iio/dac/Kconfig   |  17 ++
+>  drivers/iio/dac/Makefile  |   1 +
+>  drivers/iio/dac/ad5529r.c | 530 ++++++++++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 549 insertions(+)
+> 
+>
+
+...
+
+> diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
+> index 657c68e75542..bb1d59889a2a 100644
+> --- a/drivers/iio/dac/Kconfig
+> +++ b/drivers/iio/dac/Kconfig
+> @@ -134,6 +134,23 @@ config AD5449
+>  	  To compile this driver as a module, choose M here: the
+>  	  module will be called ad5449.
+>  
+> +config AD5529R
+> +	tristate "Analog Devices AD5529R High Voltage DAC driver"
+> +	depends on SPI_MASTER
+> +	select REGMAP_SPI
+> +	help
+> +	  Say yes here to build support for Analog Devices AD5529R
+> +	  16-Channel, 12-Bit/16-Bit, 40V High Voltage Precision Digital to Analog
+
+Trivial but this wrap is rather random. Please tidy it up to a consistent 80 chars
+
+> +	  Converter.
+> +
+> +	  The device features multiple output voltage ranges from -20V to +20V,
+> +	  built-in 4.096V voltage reference, and digital functions including
+> +	  toggle, dither, and ramp modes. Supports both 12-bit and 16-bit
+> +	  resolution variants.
+> +
+> +	  To compile this driver as a module, choose M here: the
+> +	  module will be called ad5529r.
+> +
+>  config AD5592R_BASE
+>  	tristate
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
