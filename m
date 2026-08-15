@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C7B0C5AD5A
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Aug 2026 10:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6B6C5CFC1
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Aug 2026 10:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ecsin1AIhrdS5JBFSjhitVSgyttqyQch7DoIfDiTYt8=; b=vyNtZJuyWXUgpn
-	LClL+fouktJuG2luDrVXi7iovBvmaCqn5M1wHl5hjE70Ic4q0d3inNoOBM20iEP18BisqzEyiIDI9
-	ZPrDoBtQ2cfZR3wyHComFbCLyPKLkKiacOMhAYKX0gaA2lsQUnsv0WDt5dBianrsnun3Vnvv77fUy
-	b73R2+Z5wuLwv7DAbDM2oaN23QKcGdiKcSwf88yTZX6x3DAYKnS3dcuDbKAQs/ItXtkcoCGKNk+Pn
-	rDOahEqRJEay8sJzpiGiJRHwmWM7nYBbEFRQcmt9k3W5+/G7Eetl8eLKWWjCYCU+JyEezzpFc7qWg
-	qf2B7sXiYhu6N36RlkGA==;
+	List-Owner; bh=GO6treB/MGKWoPFuWZRbLBACoka2MYDP/VW1N5Dd4Hg=; b=nf9yde7Lhgh90P
+	oyPoSgQ8vhj5Fp5MrZ+xtVB+PouQvqnM+6Z8i0ZonVv39X26g6JVpNhyD6zmGCrTl3DpdyqGqvLlq
+	n1hrHJgTivrpBUSdFhChyAM6DyvAjDv3wsaoOXW8ML058ejT0BgBQevaIVntkpRGzzqZs/8MvKy/6
+	ZC+Iu1TkNKmlx9W4Lyxj4JIYA2ZkqkU+3ta8je3jgxuZbHODIyhG5ifZubfIhZCYzh118RzX2I3OJ
+	uBszo40B47S3KoBBGTjqhcwE0wbLQXJb2UtJYOGyC9VtDNRlcfNVaX+zsJdUOGsm0mXMW6mRnw4B8
+	xXfRyj2b9/QZhRqh85Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvBi3-00000003kMU-3ZH2;
-	Sat, 15 Aug 2026 10:33:51 +0000
-Received: from out-230.mta0.migadu.com ([2001:41d0:1004:224b::e6] helo=mta0.migadu.com)
+	id 1wvBj5-00000003kUZ-0bcD;
+	Sat, 15 Aug 2026 10:34:55 +0000
+Received: from out-1.mta0.migadu.com ([2001:41d0:1004:224b::1] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvBi1-00000003kLs-36by
+	id 1wvBj3-00000003kTr-0Exn
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Aug 2026 10:33:50 +0000
+	Sat, 15 Aug 2026 10:34:54 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=V5XVfLEQRMIUdVa1VN5yR7RiRSe4x0lsprp3ClMwZ+c=;
+DKIM-Signature: a=rsa-sha256; bh=pBGNsphtwvKUMT19aojQRvWbbD9gZSFI8gT/RJcmfQM=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1786790027; v=1; x=1787394827;
- b=pmhqp9Yau6CQ4YLSuW9Rc8MRUe/bwHW4VljwplgH5ciKrsD/xHe+WzkCB1Qk8vLgixylOtyb
- cXMZnGY00QomzoioyapM7kSJoISqQQ/1dSY0uIgwkoSMC7r3Uj03oHt/m/TCpoDWHSktxzsUKA5
- FhFqZwSp9kheMpX9smGf538k=
+ t=1786790091; v=1; x=1787394891;
+ b=wzKMFc+zIYpGkZFMV7uprkN6uskeVSt0lbNpSpP8LC+HMdX7FXqu1wbcLnoqg+4wdzNHK6ma
+ SCYG0hAQZXJmo7CfyFwLDrF0BxgjZpFLwhCGtF5X6QyDuG9aA1fbQe8VdrVvO0WQKLvIHckPjFG
+ UzVHcw809gbzHrvtzCXkEya0=
 X-Envelope-To: linux-riscv@lists.infradead.org
 Received: from localhost.localdomain (2408:823d:2011:2c0:e810:54f9:f0a3:99d)
-	by smtp.migadu.com with ESMTPS id 817f575780072dfb;
-	Sat, 15 Aug 2026 10:33:47 +0000
+	by smtp.migadu.com with ESMTPS id ee0bac32ec84a1c6;
+	Sat, 15 Aug 2026 10:34:51 +0000
 X-Migadu-Flow: FLOW_OUT
 From: Jinyu Tang <jinyu.tang@linux.dev>
 To: Anup Patel <anup@brainfault.org>,
@@ -61,16 +61,17 @@ Cc: kvm@vger.kernel.org,
 	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
 	Nutty Liu <nutty.liu@hotmail.com>,
 	Jinyu Tang <tjytimi@163.com>
-Subject: [PATCH v4 RESEND 3/5] KVM: riscv: Implement KVM_PRE_FAULT_MEMORY
-Date: Sat, 15 Aug 2026 06:33:41 -0400
-Message-ID: <20260815103341.865013-1-jinyu.tang@linux.dev>
+Subject: [PATCH v4 RESEND 5/5] KVM: selftests: Enable pre_fault_memory_test for RISC-V
+Date: Sat, 15 Aug 2026 06:34:41 -0400
+Message-ID: <20260815103441.865076-1-jinyu.tang@linux.dev>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260815102833.864330-1-jinyu.tang@linux.dev>
 References: <20260815102833.864330-1-jinyu.tang@linux.dev>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_033349_909970_1EA60042 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20260815_033453_232975_1F6D4490 
+X-CRM114-Status: UNSURE (   7.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,125 +88,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The generic KVM_PRE_FAULT_MEMORY ioctl lets userspace populate KVM page
-tables before running a vCPU over a GPA range. x86 already supports the
-ioctl, but RISC-V does not expose the capability and has no arch hook.
+RISC-V now supports KVM_PRE_FAULT_MEMORY, so include the generic
+pre_fault_memory_test in the RISC-V KVM selftest build.
 
-Add the RISC-V arch hook and reuse the existing G-stage fault mapping
-path with a read access. Report progress using the G-stage mapping
-returned by the map path, so the ioctl can advance by the actual leaf
-size that covers the requested GPA. Retry until a mapping is installed
-or a signal, VM-dead request, or real error is observed.
+The test uses PAGE_SIZE from the architecture processor header. Define
+the normal 4K RISC-V selftest page size so the generic test can build
+for RISC-V.
 
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
 ---
- arch/riscv/kvm/Kconfig  |  1 +
- arch/riscv/kvm/gstage.c |  3 +++
- arch/riscv/kvm/mmu.c    | 45 ++++++++++++++++++++++++++++++++++++++++-
- arch/riscv/kvm/vm.c     |  1 +
- 4 files changed, 49 insertions(+), 1 deletion(-)
+ tools/testing/selftests/kvm/Makefile.kvm              | 1 +
+ tools/testing/selftests/kvm/include/riscv/processor.h | 3 +++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index ec2cee0a39e0..8ac209e8ac87 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -28,6 +28,7 @@ config KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
-+	select KVM_GENERIC_PRE_FAULT_MEMORY
- 	select KVM_MMIO
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index 54d45addf18f..dff315dfd24e 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -286,6 +286,9 @@ int kvm_riscv_gstage_map_page(struct kvm_gstage *gstage,
- 						    out_map->level, true);
- 		} else if (ALIGN_DOWN(PFN_PHYS(pte_pfn(ptep_get(ptep))), page_size) == hpa) {
- 			kvm_riscv_gstage_update_pte_prot(gstage, ptep_level, gpa, ptep, prot);
-+			out_map->addr = ALIGN_DOWN(gpa, page_size);
-+			out_map->level = ptep_level;
-+			out_map->pte = ptep_get(ptep);
- 			return 0;
- 		}
- 	}
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 2fabcd409991..f6ca86da53eb 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -717,7 +717,7 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	if (hfn == KVM_PFN_ERR_HWPOISON) {
- 		send_sig_mceerr(BUS_MCEERR_AR, (void __user *)hva,
- 				vma_pageshift, current);
--		return 0;
-+		return -EFAULT;
- 	}
- 	if (is_error_noslot_pfn(hfn))
- 		return -EFAULT;
-@@ -782,6 +782,49 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	return ret;
- }
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 6fc34e9bf8e1..ac64ac92fd4b 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -225,6 +225,7 @@ TEST_GEN_PROGS_riscv += coalesced_io_test
+ TEST_GEN_PROGS_riscv += dirty_log_perf_test
+ TEST_GEN_PROGS_riscv += get-reg-list
+ TEST_GEN_PROGS_riscv += mmu_stress_test
++TEST_GEN_PROGS_riscv += pre_fault_memory_test
+ TEST_GEN_PROGS_riscv += rseq_test
+ TEST_GEN_PROGS_riscv += steal_time
  
-+long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-+				    struct kvm_pre_fault_memory *range)
-+{
-+	struct kvm_gstage_mapping out_map = { 0 };
-+	struct kvm_memory_slot *memslot;
-+	unsigned long map_size;
-+	unsigned long hva;
-+	gpa_t end;
-+	gfn_t gfn;
-+	int ret;
+diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
+index abde3c71c891..70487c8ed155 100644
+--- a/tools/testing/selftests/kvm/include/riscv/processor.h
++++ b/tools/testing/selftests/kvm/include/riscv/processor.h
+@@ -12,6 +12,9 @@
+ #include <asm/vdso/processor.h>
+ #include "kvm_util.h"
+ 
++#define PAGE_SHIFT		12
++#define PAGE_SIZE		BIT_ULL(PAGE_SHIFT)
 +
-+	gfn = gpa_to_gfn(range->gpa);
-+	memslot = kvm_vcpu_gfn_to_memslot(vcpu, gfn);
-+	if (!memslot)
-+		return -ENOENT;
-+
-+	hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
-+	if (kvm_is_error_hva(hva))
-+		return -ENOENT;
-+
-+	for (;;) {
-+		if (signal_pending(current))
-+			return -EINTR;
-+
-+		if (kvm_check_request(KVM_REQ_VM_DEAD, vcpu))
-+			return -EIO;
-+
-+		cond_resched();
-+		ret = kvm_riscv_mmu_map(vcpu, memslot, range->gpa, hva, false, &out_map);
-+		if (ret)
-+			return ret;
-+
-+		if (!pte_val(out_map.pte))
-+			continue;
-+
-+		map_size = PAGE_SIZE << (out_map.level * kvm_riscv_gstage_index_bits);
-+		end = out_map.addr + map_size;
-+		break;
-+	}
-+
-+	return min_t(u64, range->size, end - range->gpa);
-+}
-+
- int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- {
- 	struct page *pgd_page;
-diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-index a9f083feeb76..58500a19b33b 100644
---- a/arch/riscv/kvm/vm.c
-+++ b/arch/riscv/kvm/vm.c
-@@ -187,6 +187,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 	case KVM_CAP_MP_STATE:
- 	case KVM_CAP_IMMEDIATE_EXIT:
- 	case KVM_CAP_SET_GUEST_DEBUG:
-+	case KVM_CAP_PRE_FAULT_MEMORY:
- 		r = 1;
- 		break;
- 	case KVM_CAP_NR_VCPUS:
+ #define INSN_OPCODE_MASK	0x007c
+ #define INSN_OPCODE_SHIFT	2
+ #define INSN_OPCODE_SYSTEM	28
 -- 
 2.43.0
 
