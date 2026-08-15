@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F2FC5AD5A
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Aug 2026 10:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 906A8C5AD5A
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Aug 2026 10:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gnpEejjzVCnuA/NggrVMczf6bdcV0Kw55i07vftcUFo=; b=UvQv+ECdKqGXmW
-	c+oj6yYPqkh/eBgNLgGD1QiL7Ll18lYkjrde3v8FPV3/AqdqvsUTUtAJp4Oysm821tGqmtfFTWzaT
-	SBsh/15gxKuURGcRKOKKb+60t6tybnJqG5kYB3T6vb/nWIe+asMbhn+8xgO5MUJFREnYU0wE5mGEq
-	4ckQb2Z3TFULtn6KsKocRDDRIRTv0Oemk5jWZwbcZcrhNLzhoU0cr/LClrBdrlCfrflbRGcpyJpNn
-	npImlphcE2oY29tNS1Hd315E2iy27rw81beVE1VN+IgSdS+ibS8n2at4kA9DSSm1ukOL9ur9s9MNg
-	sT+bRfxuNKklqxhGYDiA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QikliT4V9iPKhHmZ6EQiZYw2hliqqTn2qZTdmlfmIGI=; b=TkorpC+U8nLqj+
+	sGLDSS1nhVUwZix5+K/Uq5bzcItCSladG0cuJiHxxh80hDa9WSvaUdefocjdZDM9gXSJ6mEnK15C1
+	Z3mPb4YmKeGk/edsNWtyEQEIWztN1CAN6Iehq5/AXX1ZXJRS2R2ZWZr4zLl61Ek4kGecvEujc99SY
+	Vj6b+5rLC3GmEqk0tyAdm6wIEFtC1003Y1NVamDeyOBGcuQJRS7rZfkkx/qBnYqm18SuPbd5oR7Sh
+	vY2cHl8KCTJlk+iNtOxZOh6VVT4/NlOwFhZFm2kkROlJT7D4H2CYFU/UKs6r7yhCaJprdNEpDrZ+M
+	wr1flViK3icgjIQwSObw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvBdB-00000003jyV-0OFv;
-	Sat, 15 Aug 2026 10:28:49 +0000
-Received: from out-148.mta0.migadu.com ([2001:41d0:1004:224b::94] helo=mta0.migadu.com)
+	id 1wvBh9-00000003kEJ-2OKN;
+	Sat, 15 Aug 2026 10:32:55 +0000
+Received: from out-210.mta0.migadu.com ([2001:41d0:1004:224b::d2] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvBd7-00000003jxr-44AU
+	id 1wvBh6-00000003kDt-3EUr
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Aug 2026 10:28:47 +0000
+	Sat, 15 Aug 2026 10:32:54 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=0xdUqTsvy+qUrlfku4ZIUWyJOcx0knAT5Kmtq4e0nOA=;
+DKIM-Signature: a=rsa-sha256; bh=Ibq8FmFzfS79pa12j1e6KYtVVh8objCmcS0oBVDNFx4=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1786789723; v=1; x=1787394523;
- b=YOZ4afsKxPNe1ujmq2/i6/adGvcyUtsaGstg3n8JaOrrb78iACU7oo1ti8IfQhhAT9tyaWXo
- 6VKYs380HDYMKd2qQBW0ozRcEBlV9PglYBuxM4/keVo5fxDN4yyJumn4yv2i8c2SwkIpxXwq3Z/
- A0EDz74MA9CF5y519RWqDY+8=
+ t=1786789970; v=1; x=1787394770;
+ b=g8ivNWyO3v3Dij2KONxAnpatucSpKfXzw+XfxpIKqN/3zbljg4ePgHMhbnVnUICOELUn8LCR
+ 7njT5k+rmYDbRwV/jz1nHX3jxONhCApLOrYFPRDjsAev7oGN5GalgKCiyUek38M4JDNEunBsaP/
+ 2i6foFGgIP8ywmnaHIgtntiQ=
 X-Envelope-To: linux-riscv@lists.infradead.org
 Received: from localhost.localdomain (2408:823d:2011:2c0:e810:54f9:f0a3:99d)
-	by smtp.migadu.com with ESMTPS id 18de2c252fa19764;
-	Sat, 15 Aug 2026 10:28:43 +0000
+	by smtp.migadu.com with ESMTPS id 970a23246370098d;
+	Sat, 15 Aug 2026 10:32:50 +0000
 X-Migadu-Flow: FLOW_OUT
 From: Jinyu Tang <jinyu.tang@linux.dev>
 To: Anup Patel <anup@brainfault.org>,
@@ -60,17 +60,17 @@ Cc: kvm@vger.kernel.org,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
 	Nutty Liu <nutty.liu@hotmail.com>,
-	Jinyu Tang <tjytimi@163.com>,
-	Jinyu Tang <jinyu.tang@linux.dev>
-Subject: [PATCH v4 RESEND 0/5] KVM: riscv: Add KVM_PRE_FAULT_MEMORY support
-Date: Sat, 15 Aug 2026 06:28:28 -0400
-Message-ID: <20260815102833.864330-1-jinyu.tang@linux.dev>
+	Jinyu Tang <tjytimi@163.com>
+Subject: [PATCH v4 RESEND 2/5] KVM: riscv: Avoid THP adjustment for existing 4K G-stage leaves
+Date: Sat, 15 Aug 2026 06:32:45 -0400
+Message-ID: <20260815103245.864925-1-jinyu.tang@linux.dev>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260815102833.864330-1-jinyu.tang@linux.dev>
+References: <20260815102833.864330-1-jinyu.tang@linux.dev>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_032846_138268_3EB11CF0 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260815_033252_950422_37E205F8 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,59 +87,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add RISC-V support for the generic KVM_PRE_FAULT_MEMORY ioctl.
+When dirty logging is disabled after a G-stage PMD mapping has been
+split, the fault path may see a 4K G-stage leaf while the backing host
+page is still THP-backed. The existing kvm_riscv_gstage_map_page()
+comment says that this path should update the small leaf and leave huge
+mapping recovery to a later ioctl path.
 
-Patch 1 and patch 2 fix existing G-stage huge-page corner cases. They
-are included first because the prefault hook relies on the map path
-reporting the mapping that actually covers the requested GPA.
+However, transparent_hugepage_adjust() runs before that G-stage lookup
+and rewrites the fault GPA to the PMD base. If the original fault is not
+at the PMD base, the lookup can find and update the wrong 4K leaf.
 
-Patch 3 adds the RISC-V arch hook for KVM_PRE_FAULT_MEMORY. Patch 4 adds
-Sv57 indexing support to the RISC-V KVM selftest helpers, and patch 5
-enables the generic pre_fault_memory_test for RISC-V.
+Check the original fault GPA in transparent_hugepage_adjust(). If it
+already has a 4K G-stage leaf, skip THP adjustment and keep handling the
+fault at PAGE_SIZE granularity.
 
-Patch 1 folds the previously posted standalone G-stage table overwrite
-fix into this series:
+Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
+---
+ arch/riscv/kvm/mmu.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-  https://lore.kernel.org/kvm-riscv/20260814105752.565325-1-jinyu.tang@linux.dev/T/#u
-
-Changes in v4 resend:
-- Resend the full series because the previous v4 send was interrupted
-  and the kvm-riscv list archive did not show a complete thread. No
-  code changes.
-
-Changes in v4:
-- Fold the standalone G-stage non-leaf overwrite fix into this series.
-- Avoid THP adjustment when the original faulting GPA already has an
-  existing 4K G-stage leaf.
-- Return an error for HWPOISON instead of reporting success without a
-  visible G-stage mapping. (Sashiko)
-
-Changes in v3:
-- Retry internally when the map path returns success without a visible
-  G-stage mapping, instead of exposing -EAGAIN. (Sashiko)
-
-Changes in v2:
-- Drop the per-test guest_modes_append_default() call from
-  pre_fault_memory_test.c. (Sean)
-
-Jinyu Tang (5):
-  KVM: riscv: Avoid overwriting G-stage tables with huge leaves
-  KVM: riscv: Avoid THP adjustment for existing 4K G-stage leaves
-  KVM: riscv: Implement KVM_PRE_FAULT_MEMORY
-  KVM: selftests: Add RISC-V Sv57 page table indexing
-  KVM: selftests: Enable pre_fault_memory_test for RISC-V
-
- arch/riscv/kvm/Kconfig                        |  1 +
- arch/riscv/kvm/gstage.c                       |  9 ++
- arch/riscv/kvm/mmu.c                          | 83 ++++++++++++++++++-
- arch/riscv/kvm/vm.c                           |  1 +
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- .../selftests/kvm/include/riscv/processor.h   |  6 ++
- .../selftests/kvm/lib/riscv/processor.c       |  2 +
- 7 files changed, 100 insertions(+), 3 deletions(-)
-
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index bfd6168ebe30..2fabcd409991 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -500,10 +500,21 @@ static int get_hva_mapping_size(struct kvm *kvm,
+ 
+ static unsigned long transparent_hugepage_adjust(struct kvm *kvm,
+ 						 struct kvm_memory_slot *memslot,
++						 struct kvm_gstage *gstage,
+ 						 unsigned long hva,
+ 						 kvm_pfn_t *hfnp, gpa_t *gpa)
+ {
+ 	kvm_pfn_t hfn = *hfnp;
++	u32 ptep_level;
++	pte_t *ptep;
++
++	/*
++	 * Keep the existing split G-stage leaf and update the original
++	 * faulting 4K page in the vCPU fault path.
++	 */
++	if (kvm_riscv_gstage_get_leaf(gstage, *gpa, &ptep, &ptep_level) &&
++	    !ptep_level)
++		return PAGE_SIZE;
+ 
+ 	/*
+ 	 * Make sure the adjustment is done only for THP pages. Also make
+@@ -730,7 +741,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
+ 	 * so do not promote them through the THP helper.
+ 	 */
+ 	if (!logging && !is_hugetlb && vma_pagesize == PAGE_SIZE)
+-		vma_pagesize = transparent_hugepage_adjust(kvm, memslot, hva, &hfn, &gpa);
++		vma_pagesize = transparent_hugepage_adjust(kvm, memslot, &gstage,
++							   hva, &hfn, &gpa);
+ 
+ 	if (writable) {
+ 		mark_page_dirty_in_slot(kvm, memslot, gfn);
 -- 
 2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
