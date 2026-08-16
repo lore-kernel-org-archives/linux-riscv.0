@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0715EC5DF66
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Aug 2026 11:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD8FC5B572
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Aug 2026 15:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nIKfPWdh3MTTAc0p1YBN4fynMoyrzD7Zo+GUd4NXXNg=; b=SM1CBrfw0N+d64
-	U2JFevKsBvZkfZx3C5dnoyj8j5ZjYO+zWih15wixO6b4B8wl1MELjDG+WuyiHuLydLIgFit0dutTD
-	erccty8rdM7lwkxWNYhIrXYjcl5jweJsRYKCnBTlj9pniI/juPI505SBjzmnWcZ3soetVGEku/XH+
-	vZ2Z26Bvm3UkpGRyFko3JQej3CaCcPZGpe4TrRw17/AEPfrSp1L9w1UmIFtA/ADn0q+0ssodk5kuQ
-	Jm82mb/zOTtomLQtNKpFrn0PRoBx7OBCST56OsseDdExtAxwNguOroNbkMSo1luRNLsa3Zf3cHg1S
-	mAPf+Gm+oINCsO3w+DfQ==;
+	List-Owner; bh=EKZ8n/imR/py8/tHCvoC235Q2NDualLq7xKHhvPvgAg=; b=A4LPGb/uPA8eeF
+	XnciwaHMortkrd9naNKhtTmhLkFhOHXJiQSj7yOCWfLYU3gv0POCvt7kzckHX4F6hpPtBadxm8bXc
+	s6zKxNPq+PmC9nPRGyVlWkbm9oNxxLC26Uj+QO0EjVNALoVBBAo2BMUmyaEIVz2+81IaMfc0jXMBK
+	s+3iUstPooapmxnpf+R9i8X1KFKgt0en0ALgh2aLUykS9fRpKNGh1UV5PhDvgLOt+YQ+RjyY4iAgG
+	wk1NhwDntLvy8CGh4WhC9Fo2GrC+5dubqxjhRJjx3FV58NhqAtQPmMu0FCvjJXtFmBQ/9jKoVIPeA
+	epU9jlSBYzH7CsPl59kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvYbU-00000004g8a-0D9C;
-	Sun, 16 Aug 2026 11:00:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wvchO-00000004rRd-17cM;
+	Sun, 16 Aug 2026 15:22:58 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvYbS-00000004g7I-3gzV;
-	Sun, 16 Aug 2026 11:00:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51F45600BC;
-	Sun, 16 Aug 2026 11:00:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E4551F00A3D;
-	Sun, 16 Aug 2026 11:00:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786878034;
-	bh=1IKL46JfxrcOqE7Q7MesTGEIIR01Ean6sDupkVMBBfo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=P9+LCIokkZwCxlCXxUfmKZtBV+2ZFYeAUSRtldsh+4ZQEIUC27Nsf54Liq5GxaM39
-	 YfPY+8QsJ7oU1AkJ98+FaB1liInriqrdmg6QGU8AR80VSGfFnkXvRwRAfZZDI/Jomu
-	 kIwM1dSZLvEQt5yrvnxc+jGnvV4ktJCRFXK5ZYNpGsarsXvQygnusynQSHHUvXQuvr
-	 u2HkLuP3TYOjS8eUNjbzEQoagVGwjjUt1C3gymqNh2BABKqw/jb0fWEDz2ZC6l8jCO
-	 V5y4YFqIBqtBOeZJhmgcCc4QKD+EqboPW166BiKASPMgifH3tNoZdWwW83tBvwr6c8
-	 hnja77sN6qqDA==
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Sun, 16 Aug 2026 13:59:29 +0300
-Subject: [PATCH 6/6] Revert "arch: introduce
- set_direct_map_valid_noflush()"
+	id 1wvchL-00000004rR9-1H9Q
+	for linux-riscv@lists.infradead.org;
+	Sun, 16 Aug 2026 15:22:57 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id F2731CC584;
+	Sun, 16 Aug 2026 18:22:44 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro F2731CC584
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1786893766;
+	bh=SA2K+pNLJJgTDGVGtIENx8Hsm7HrJO7svJmOZIHbdTw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=dWemIRkKKSY7l1cYXHVoC3wgPsLg86aFVpEqc1b7VFmEACWlIV65RV7Vb03nqUS9j
+	 X5/tnEzKXwVTON19NdQB8fFK0gsyHZpc/Gs/T6xv9NIzHXn1WpDquFLxi5If/6YQWL
+	 SR4rXbIQMr6A3R3GeBhd8qqRz6pkziQjvA0ORj5g+MtEEDEa1Aaoa5HeZOJ3G2puiP
+	 kyNNOWRygMY65sPmUx4JrheyOG7z7X4JpSBjIUzcdcCZbjQxGUObInIr32iIBFrNtV
+	 BeBN8JQ9lb36PEWUGyyTcTsYksTv6XiHlCG9JYb4NeGRp9slwiCv99TY6iWBDBH7f7
+	 /Mo7lkg6yuWCg==
+Message-ID: <f54332aa3683bfb5e3eb340c9a7d94cc1f5ffe4c.camel@rendec.net>
+Subject: Re: [PATCH 4/5] irqchip/aclint-sswi: Use IPI_MAX for IPI muxing
+From: Radu Rendec <radu@rendec.net>
+To: Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, 	tglx@kernel.org, daniel.lezcano@kernel.org,
+ anup@brainfault.org, 	hui.wang@canonical.com, samuel.holland@sifive.com
+Date: Sun, 16 Aug 2026 11:22:42 -0400
+In-Reply-To: <20260816070049.2097442-5-guoren@kernel.org>
+References: <20260816070049.2097442-1-guoren@kernel.org>
+	 <20260816070049.2097442-5-guoren@kernel.org>
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Message-Id: <20260816-execmem-set-vm-perms-v0-2-v1-6-90944a3ad43f@kernel.org>
-References: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org>
-In-Reply-To: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>, 
- Brendan Jackman <brendan.jackman@linux.dev>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- David Hildenbrand <david@kernel.org>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Pavel Machek <pavel@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>, 
- Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, 
- Will Deacon <will@kernel.org>, x86@kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mm@kvack.org, linux-pm@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- loongarch@lists.linux.dev
-X-Mailer: b4 0.17-dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260816_082255_889595_4C8C1C4B 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,257 +69,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 0c6378a71574 ("arch: introduce set_direct_map_valid_noflush()")
-added set_direct_map_valid_noflush() to allow updating the direct map
-for a physically contiguous range in execmem.
-
-As Brendan recently pointed out [1], this API is confusing because on
-arm64 it means that is sets VALID bit in ptes, while on other
-architectures it is an analog of set_direct_map_default_noflush().
-
-The only user of set_direct_map_valid_noflush() was execmem's ROX cache
-freeing path and it was switched to utilize VM_FLUSH_RESET_PERMS for
-resetting permissions of the direct map alias.
-
-With the last user gone and with set_direct_map_{invalid,default}_noflush()
-accepting number of pages as a parameter, set_direct_map_valid_noflush()
-become a copy of set_memory_valid() on arm64 and a duplicate of
-set_direct_map_{invalid,default}_noflush() on other architecture, it is
-safe to remove set_direct_map_valid_noflush().
-
-Also drop a stale comment in arm64::__kernel_map_pages() that Linus
-bothered to add when merging changes containing set_direct_map_valid_noflush()
-to his tree.
-
-This reverts commit 0c6378a71574daa6cd1534ad42a956e3262756c7.
-
-[1] https://lore.kernel.org/all/DJ69RCVRBO0Y.3JCYSW50IC4RC@linux.dev
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/arm64/include/asm/set_memory.h     |  1 -
- arch/arm64/mm/pageattr.c                | 16 ----------------
- arch/loongarch/include/asm/set_memory.h |  1 -
- arch/loongarch/mm/pageattr.c            | 19 -------------------
- arch/riscv/include/asm/set_memory.h     |  1 -
- arch/riscv/mm/pageattr.c                | 15 ---------------
- arch/s390/include/asm/set_memory.h      |  1 -
- arch/s390/mm/pageattr.c                 | 12 ------------
- arch/x86/include/asm/set_memory.h       |  1 -
- arch/x86/mm/pat/set_memory.c            |  8 --------
- include/linux/set_memory.h              |  6 ------
- 11 files changed, 81 deletions(-)
-
-diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
-index b07fd4e026ea..0091ba12200e 100644
---- a/arch/arm64/include/asm/set_memory.h
-+++ b/arch/arm64/include/asm/set_memory.h
-@@ -13,7 +13,6 @@ int set_memory_valid(unsigned long addr, int numpages, int enable);
- 
- int set_direct_map_invalid_noflush(struct page *page, unsigned int numpages);
- int set_direct_map_default_noflush(struct page *page, unsigned int numpages);
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- bool kernel_page_present(struct page *page);
- 
- int set_memory_encrypted(unsigned long addr, int numpages);
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index db8d60a84d14..132938b32eb1 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -355,23 +355,7 @@ int realm_register_memory_enc_ops(void)
- 	return arm64_mem_crypt_ops_register(&realm_crypt_ops);
- }
- 
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
--{
--	unsigned long addr = (unsigned long)page_address(page);
--
--	if (!can_set_direct_map())
--		return 0;
--
--	return set_memory_valid(addr, nr, valid);
--}
--
- #ifdef CONFIG_DEBUG_PAGEALLOC
--/*
-- * This is - apart from the return value - doing the same
-- * thing as the new set_direct_map_valid_noflush() function.
-- *
-- * Unify? Explain the conceptual differences?
-- */
- void __kernel_map_pages(struct page *page, int numpages, int enable)
- {
- 	if (!can_set_direct_map())
-diff --git a/arch/loongarch/include/asm/set_memory.h b/arch/loongarch/include/asm/set_memory.h
-index 563aab92896e..4bb01172fbc2 100644
---- a/arch/loongarch/include/asm/set_memory.h
-+++ b/arch/loongarch/include/asm/set_memory.h
-@@ -17,6 +17,5 @@ int set_memory_rw(unsigned long addr, int numpages);
- bool kernel_page_present(struct page *page);
- int set_direct_map_default_noflush(struct page *page, unsigned int nr);
- int set_direct_map_invalid_noflush(struct page *page, unsigned int nr);
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- 
- #endif /* _ASM_LOONGARCH_SET_MEMORY_H */
-diff --git a/arch/loongarch/mm/pageattr.c b/arch/loongarch/mm/pageattr.c
-index 43ad2a104f19..a7dcff40f759 100644
---- a/arch/loongarch/mm/pageattr.c
-+++ b/arch/loongarch/mm/pageattr.c
-@@ -217,22 +217,3 @@ int set_direct_map_invalid_noflush(struct page *page, unsigned int nr)
- 
- 	return __set_memory(addr, nr, __pgprot(0), __pgprot(_PAGE_PRESENT | _PAGE_VALID));
- }
--
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
--{
--	unsigned long addr = (unsigned long)page_address(page);
--	pgprot_t set, clear;
--
--	if (addr < vm_map_base)
--		return 0;
--
--	if (valid) {
--		set = PAGE_KERNEL;
--		clear = __pgprot(0);
--	} else {
--		set = __pgprot(0);
--		clear = __pgprot(_PAGE_PRESENT | _PAGE_VALID);
--	}
--
--	return __set_memory(addr, nr, set, clear);
--}
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index db1d0ed82b69..e9f9960c1947 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -42,7 +42,6 @@ static inline int set_kernel_memory(char *startp, char *endp,
- 
- int set_direct_map_invalid_noflush(struct page *page, unsigned int nr);
- int set_direct_map_default_noflush(struct page *page, unsigned int nr);
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- bool kernel_page_present(struct page *page);
- 
- #endif /* __ASSEMBLER__ */
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 20ef95b1d0c3..5b3cf326455d 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -386,21 +386,6 @@ int set_direct_map_default_noflush(struct page *page, unsigned int nr)
- 			    PAGE_KERNEL, __pgprot(_PAGE_EXEC));
- }
- 
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
--{
--	pgprot_t set, clear;
--
--	if (valid) {
--		set = PAGE_KERNEL;
--		clear = __pgprot(_PAGE_EXEC);
--	} else {
--		set = __pgprot(0);
--		clear = __pgprot(_PAGE_PRESENT);
--	}
--
--	return __set_memory((unsigned long)page_address(page), nr, set, clear);
--}
--
- #ifdef CONFIG_DEBUG_PAGEALLOC
- static int debug_pagealloc_set_page(pte_t *pte, unsigned long addr, void *data)
- {
-diff --git a/arch/s390/include/asm/set_memory.h b/arch/s390/include/asm/set_memory.h
-index 6b0aa9147ed8..e3562bf0c1aa 100644
---- a/arch/s390/include/asm/set_memory.h
-+++ b/arch/s390/include/asm/set_memory.h
-@@ -62,7 +62,6 @@ __SET_MEMORY_FUNC(set_memory_4k, SET_MEMORY_4K)
- 
- int set_direct_map_invalid_noflush(struct page *page, unsigned int nr);
- int set_direct_map_default_noflush(struct page *page, unsigned int nr);
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- bool kernel_page_present(struct page *page);
- 
- #endif
-diff --git a/arch/s390/mm/pageattr.c b/arch/s390/mm/pageattr.c
-index 02d992b251cb..f46a666bc5c7 100644
---- a/arch/s390/mm/pageattr.c
-+++ b/arch/s390/mm/pageattr.c
-@@ -397,18 +397,6 @@ int set_direct_map_default_noflush(struct page *page, unsigned int nr)
- 	return __set_memory((unsigned long)page_to_virt(page), nr, SET_MEMORY_DEF);
- }
- 
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
--{
--	unsigned long flags;
--
--	if (valid)
--		flags = SET_MEMORY_DEF;
--	else
--		flags = SET_MEMORY_INV;
--
--	return __set_memory((unsigned long)page_to_virt(page), nr, flags);
--}
--
- bool kernel_page_present(struct page *page)
- {
- 	unsigned long addr;
-diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
-index 0c4235d159f4..39271a5ea925 100644
---- a/arch/x86/include/asm/set_memory.h
-+++ b/arch/x86/include/asm/set_memory.h
-@@ -88,7 +88,6 @@ int set_pages_rw(struct page *page, int numpages);
- 
- int set_direct_map_invalid_noflush(struct page *page, unsigned int nr);
- int set_direct_map_default_noflush(struct page *page, unsigned int nr);
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- bool kernel_page_present(struct page *page);
- 
- extern int kernel_set_to_readonly;
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 9022354e26e9..a6b2912a4837 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -2683,14 +2683,6 @@ int set_direct_map_default_noflush(struct page *page, unsigned int nr)
- 	return __set_pages_p(page, nr);
- }
- 
--int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
--{
--	if (valid)
--		return __set_pages_p(page, nr);
--
--	return __set_pages_np(page, nr);
--}
--
- #ifdef CONFIG_DEBUG_PAGEALLOC
- void __kernel_map_pages(struct page *page, int numpages, int enable)
- {
-diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-index 0b77f1d7d8b9..3fe293cfed8c 100644
---- a/include/linux/set_memory.h
-+++ b/include/linux/set_memory.h
-@@ -36,12 +36,6 @@ static inline int set_direct_map_default_noflush(struct page *page,
- 	return 0;
- }
- 
--static inline int set_direct_map_valid_noflush(struct page *page,
--					       unsigned nr, bool valid)
--{
--	return 0;
--}
--
- static inline bool kernel_page_present(struct page *page)
- {
- 	return true;
-
--- 
-2.53.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCAyMDI2LTA4LTE2IGF0IDA3OjAwICswMDAwLCBHdW8gUmVuIHdyb3RlOgo+IEZyb206
+ICJHVU8gUmVuIChYdWFuVGllKSIgPGd1b3JlbkBrZXJuZWwub3JnPgo+IAo+IFJlcGxhY2UgdGhl
+IGhhcmQtY29kZWQgQklUU19QRVJfQllURSB3aXRoIElQSV9NQVggbm93IHRoYXQgdGhlIGNvbnN0
+YW50Cj4gaXMgZXhwb3J0ZWQgZnJvbSByaXNjdiBhc20vc21wLmguCj4gCj4gU2lnbmVkLW9mZi1i
+eTogR1VPIFJlbiAoWHVhblRpZSkgPGd1b3JlbkBrZXJuZWwub3JnPgo+IC0tLQo+IMKgZHJpdmVy
+cy9pcnFjaGlwL2lycS1hY2xpbnQtc3N3aS5jIHwgNCArKy0tCj4gwqAxIGZpbGUgY2hhbmdlZCwg
+MiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJz
+L2lycWNoaXAvaXJxLWFjbGludC1zc3dpLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLWFjbGludC1z
+c3dpLmMKPiBpbmRleCBjYTA2ZWZkODZmYTEuLjVlMDEwZmM0MDFmNyAxMDA2NDQKPiAtLS0gYS9k
+cml2ZXJzL2lycWNoaXAvaXJxLWFjbGludC1zc3dpLmMKPiArKysgYi9kcml2ZXJzL2lycWNoaXAv
+aXJxLWFjbGludC1zc3dpLmMKPiBAQCAtMTM4LDcgKzEzOCw3IEBAIHN0YXRpYyBpbnQgX19pbml0
+IGFjbGludF9zc3dpX3Byb2JlKHN0cnVjdCBmd25vZGVfaGFuZGxlICpmd25vZGUpCj4gwqAJfQo+
+IMKgCj4gwqAJLyogUmVnaXN0ZXIgU1NXSSBpcnEgYW5kIGhhbmRsZXIgKi8KPiAtCXZpcnEgPSBp
+cGlfbXV4X2NyZWF0ZShCSVRTX1BFUl9CWVRFLCBhY2xpbnRfc3N3aV9pcGlfc2VuZCk7Cj4gKwl2
+aXJxID0gaXBpX211eF9jcmVhdGUoSVBJX01BWCwgYWNsaW50X3Nzd2lfaXBpX3NlbmQpOwo+IMKg
+CWlmICh2aXJxIDw9IDApIHsKPiDCoAkJcHJfZXJyKCJ1bmFibGUgdG8gY3JlYXRlIG11eGVkIElQ
+SXNcbiIpOwo+IMKgCQlpcnFfZGlzcG9zZV9tYXBwaW5nKHNzd2lfaXBpX3ZpcnEpOwo+IEBAIC0x
+NTIsNyArMTUyLDcgQEAgc3RhdGljIGludCBfX2luaXQgYWNsaW50X3Nzd2lfcHJvYmUoc3RydWN0
+IGZ3bm9kZV9oYW5kbGUgKmZ3bm9kZSkKPiDCoAkJCcKgIGFjbGludF9zc3dpX3N0YXJ0aW5nX2Nw
+dSwKPiDCoAkJCcKgIGFjbGludF9zc3dpX2R5aW5nX2NwdSk7Cj4gwqAKPiAtCXJpc2N2X2lwaV9z
+ZXRfdmlycV9yYW5nZSh2aXJxLCBCSVRTX1BFUl9CWVRFKTsKPiArCXJpc2N2X2lwaV9zZXRfdmly
+cV9yYW5nZSh2aXJxLCBJUElfTUFYKTsKPiDCoAo+IMKgCXJldHVybiAwOwo+IMKgfQoKUmV2aWV3
+ZWQtYnk6IFJhZHUgUmVuZGVjIDxyYWR1QHJlbmRlYy5uZXQ+CgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
