@@ -4,71 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F78C5DF67
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Aug 2026 21:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1750C5CFC1
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Aug 2026 00:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fd+2LoOzVuy+DgFXqMCpLK6bgWSnrAdFe329AykEdmM=; b=JYTa0lWsFOjFdk
-	yw+wnPGIYMsJqdsj9VJq44p4URkMmDmFlkZjW2Sdr7fDzWwZQ361KPT5DqZTGFGHkFLlgy30/JWNX
-	70Dsaggebm08nJHhjnazTUcnkUsBr3HNHScgb0SsKFuueqr924dxdeQ1KvY07emocCFDqb/LVi+b4
-	fMde8FY+rLXwJifYMooZ/AI9GgxpBT4RVrbd974JgPSmJsvvIA7ItS2EosSOaqAz0sZwtSpnYwje9
-	MEaIBvKbdSXLqHiSHz8ePpu+D/CtAvA7e5EodBs89BpEa1IZ0uSBjMhm41WxODS05pChJNmnETovF
-	RfjFwm+FSN7PrpLti/ZA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OUVcOwM82/IAF39xyYRJYeLPBQaYbwrIXq8kGxvgJPA=; b=gZap0e6AFLaMtV
+	5A7rp1+pWm9jBKdVisfMYCNJJQVeyldAz0k0iHVUhTG9j1KBkm/QfVSZWVDnqHwkru2JIoohFzO0r
+	L0S+9iiJiLjOEqQonlC1TQuW296Ph0pjFzpanVM7yXBz+jrOnDPi9LO9peZJwIGW3WSRn0LtsCXvI
+	saaj5Loo+ogqvSjPxWst96zJS1A9gLafupGYWgA8Blrz/SqorpEMd5Lm6X5I88YKfQaEmeNY+6/rU
+	+2vyvLlqFgxdhUYU6edUZfpGKpRVG0CrVYRHW1fFhzEsyJEd0FGlskIb1PECc9nc/iR5m9ogXSI49
+	38m7lZdpA8XJT+bDrbkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvMKE-00000004Dhz-0nEQ;
-	Sat, 15 Aug 2026 21:53:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wvOnf-00000004LWF-1c9Z;
+	Sun, 16 Aug 2026 00:32:31 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvMKC-00000004Dhj-3OnM
+	id 1wvOnc-00000004LVp-0idc
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Aug 2026 21:53:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26B56407AA;
-	Sat, 15 Aug 2026 21:53:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CCFD1F000E9;
-	Sat, 15 Aug 2026 21:53:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786830836;
-	bh=Mng5BWniPeM9reYy1Ta8r3Rg3KlW7xeXbQGcgXUrO34=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=P2YM3pUORIKpEYq4xfYIc2GwhcWeDZbxxcP4lsSSZX/EuKfkGIWFksrUm593hpj2V
-	 QQPywa1gnaeYt6zSlInPsAX27cRe8s3RcSoAyIxeR6w8UaWMRtczvz/33lIgHFTDkV
-	 CZWbqITuvZ9Z20aWtrPOtTot/pwF5WNkbuR7C5IPRM1mACFS+UKhF04YIcaSEpkFaj
-	 AsBRHxRNvFa14B/+nZEevp/yHgMvu7ZdmFwijPehZABB8DJ4Ozke5BAzm8GXCwkphl
-	 Ao0gYq+evbHOqdOXx9cBoRRFKCyhJcfkOx4HrsAH7Wmi5hrAY8u2p68T84DqkrKYJ1
-	 F2EvcDDE3s9rw==
-Date: Sat, 15 Aug 2026 22:53:48 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Janani Sunil <janani.sunil@analog.com>
-Cc: Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich
- <Michael.Hennerich@analog.com>, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Mark Brown <broonie@kernel.org>, Marius Cristea
- <marius.cristea@microchip.com>, Marcus Folkesson
- <marcus.folkesson@gmail.com>, Kent Gustavsson <kent@minoris.se>, Conor
- Dooley <conor.dooley@microchip.com>, Daire McNamara
- <daire.mcnamara@microchip.com>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, <linux-iio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-doc@vger.kernel.org>, Janani Sunil <jan.sun97@gmail.com>,
- <linux-spi@vger.kernel.org>, Kent Gustavsson <nedo80@gmail.com>,
- <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v8 3/3] iio: dac: Add AD5529R DAC driver support
-Message-ID: <20260815225348.7a3bef4d@jic23-huawei>
-In-Reply-To: <20260805-ad5529r-driver-v8-3-b41781f5632a@analog.com>
-References: <20260805-ad5529r-driver-v8-0-b41781f5632a@analog.com>
-	<20260805-ad5529r-driver-v8-3-b41781f5632a@analog.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Sun, 16 Aug 2026 00:32:29 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ceab75934dso27441625ad.2
+        for <linux-riscv@lists.infradead.org>; Sat, 15 Aug 2026 17:32:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786840346; x=1787445146; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4aTo747A3vPvNvBBIWrbnSMChhvNabo3pgn5MllQM0w=;
+        b=HqRvZnViybqRg9WkdzBSaOKYPD8uQsKJwfPOEkrxvHft6cPiL3ViUCdfeR/KFS2ilS
+         vftaT80sDHwFRvLYk/6/tpC4EqQ2creO2+uMGmIPol13r2b2Og+mFtfx5TDjF8VDkExa
+         z2xryW2YdAZylrZ8iKro5WrN+EMiAJjsW2YuAnavBH5WzyEISsIoVU6dEp0q7ly9ZgKd
+         3esfMfxKzbq5Fh5pp1XZ9R0UZHKUCCnT52eiu3umyXfhSD9q0czbstJqFhH6TG2zQrSs
+         8L2ogkRoNvydC2nYWrdPOiG/m97rBU+rkawkNhOa0nZexttrY3zj+1fUwSu9MJTHjEbl
+         6ltQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786840346; x=1787445146;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4aTo747A3vPvNvBBIWrbnSMChhvNabo3pgn5MllQM0w=;
+        b=r7u3eRz8mMJowfwGKAREV1H9IC++/qFyR1rVHiqQcEJbgq8Ni93t1k0NRNkzcFqses
+         joLvuotvFM0EaQy2R7CNDCcgB8la658V5Qt+UPcpogwl2VgE3rFKL4fwHbireiq9+kl+
+         ysz72OKpH+wWwaGQMX8TpTChKnoWG8TJ62nSUC02wg2Xce1jfYW0UTAR/lbaK7mvjiyQ
+         N67h6u5Tv0rc3juRi61cJIMmcvnr3zaMWyxEmpoiwPK3my1usEu7VpRaMk3S1u8xXYuN
+         7iwslDyga4TDnce3F4DFWht/4mp2vXq0txUb66JTsYomICTPIJyM6uAZ0xcWAXzZMd9w
+         BP8Q==
+X-Forwarded-Encrypted: i=1; AHgh+RqoR48Spb+FVQ4XvUaztUekFID7/iD8vhUSUd+1WygKoA01V7CZrKj9XhtgtPDZ7Wvgr3AAnI09J/1+QQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRzZ/hfuM9JPdQhBubu+rmYyMX6zYP8A3RG26HNINkGsj/N7Mr
+	ijXXkccPu6rgfINMuHlFE4H9leY/02U7+nzFeNdhkdwECOYdZVvJ74h8
+X-Gm-Gg: AR+sD13V06vq/PVzQ/sP/uU56NsswpHrE1z/OWJjkFvsGPc/L41yLoruaxn836QJeQE
+	dbHtXUJWy/JnXqEwR3p3mrqnXEmJiIuoJo6heYNim7pvjk3hyoQTnOlVWhptDQJxZk8JEva7zFh
+	HWkS+ugHIWY3sKPeVYLn0SleQ3OliS0ty0wOV95KulEP0yqnMjNEGel4kbX1UbJxxS7sRiG+5FY
+	ogjhYjIk7E0RmQBCVq/7R1UM873AY94wjxQMaxNgFNV7vnUFLLSRL1UmQFuMcuy+8EkGN8AkX9A
+	Bz5M2PkDE0X7EL54CG5ohJwlKMSTERFZJryjWJJD8jWx5KwaJBXsjSBXSS6t4K87XMLekaLcNt0
+	F0L5tx1K+wA7ZGc/5K0nrvo4Zt4OfNGdKPpo4Gchdzjr97aYaFSy+iutD9/Yu+kL/Kp2EF4oKQs
+	Vfde6lp+xFV3ogQB0WLAFG7fIjyNnX30ZBKhpVYJcEbvgO9on+xJ2gRWwVsTrkLoL5
+X-Received: by 2002:a17:90b:524b:b0:37f:bfa2:1887 with SMTP id 98e67ed59e1d1-3933cb3f7d3mr17652017a91.8.1786840346163;
+        Sat, 15 Aug 2026 17:32:26 -0700 (PDT)
+Received: from bloom.localdomain ([2604:3d09:178e:e100::6868])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-394eb78d512sm7545429a91.16.2026.08.15.17.32.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Aug 2026 17:32:25 -0700 (PDT)
+From: Ivy Lopez <skunkolee@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ivy Lopez <skunkolee@gmail.com>
+Subject: [PATCH] riscv: hwprobe: require both F and D extensions for RISCV_HWPROBE_IMA_FD
+Date: Sat, 15 Aug 2026 18:32:16 -0600
+Message-ID: <20260816003216.22534-1-skunkolee@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260815_173228_246157_B310D1CA 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +101,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 5 Aug 2026 09:17:43 +0200
-Janani Sunil <janani.sunil@analog.com> wrote:
+Documentation/arch/riscv/hwprobe.rst states that RISCV_HWPROBE_IMA_FD
+means both the F and D extensions are supported. However, the
+implementation uses has_fpu(), which returns true if either extension
+is present, since that's sufficient to determine whether FPU state
+needs to be saved/restored. Reusing it here silently weakens the
+hwprobe semantics from "F and D" to "F or D", giving userspace no way
+to know which extension is actually present when only one is.
 
-> Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
-> from Analog Devices.
-> 
-> The device communicates over SPI and supports per-channel output range
-> configuration. An optional external 4.096V reference can be used in
-> place of the internal reference.
-> 
-> Signed-off-by: Janani Sunil <janani.sunil@analog.com>
-> ---
->  MAINTAINERS               |   1 +
->  drivers/iio/dac/Kconfig   |  17 ++
->  drivers/iio/dac/Makefile  |   1 +
->  drivers/iio/dac/ad5529r.c | 530 ++++++++++++++++++++++++++++++++++++++++++++++
->  4 files changed, 549 insertions(+)
-> 
->
+Check both extensions explicitly with riscv_isa_extension_available(),
+matching the pattern already used for the neighboring C and V checks.
 
-...
+Link: https://bugzilla.kernel.org/show_bug.cgi?id=221874
+Signed-off-by: Ivy Lopez <skunkolee@gmail.com>
+---
+ arch/riscv/kernel/sys_hwprobe.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
-> index 657c68e75542..bb1d59889a2a 100644
-> --- a/drivers/iio/dac/Kconfig
-> +++ b/drivers/iio/dac/Kconfig
-> @@ -134,6 +134,23 @@ config AD5449
->  	  To compile this driver as a module, choose M here: the
->  	  module will be called ad5449.
->  
-> +config AD5529R
-> +	tristate "Analog Devices AD5529R High Voltage DAC driver"
-> +	depends on SPI_MASTER
-> +	select REGMAP_SPI
-> +	help
-> +	  Say yes here to build support for Analog Devices AD5529R
-> +	  16-Channel, 12-Bit/16-Bit, 40V High Voltage Precision Digital to Analog
-
-Trivial but this wrap is rather random. Please tidy it up to a consistent 80 chars
-
-> +	  Converter.
-> +
-> +	  The device features multiple output voltage ranges from -20V to +20V,
-> +	  built-in 4.096V voltage reference, and digital functions including
-> +	  toggle, dither, and ramp modes. Supports both 12-bit and 16-bit
-> +	  resolution variants.
-> +
-> +	  To compile this driver as a module, choose M here: the
-> +	  module will be called ad5529r.
-> +
->  config AD5592R_BASE
->  	tristate
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index 1659d31fd288..7f91beb82a1c 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -85,7 +85,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
+ 	u64 missing = 0;
+ 
+ 	pair->value = 0;
+-	if (has_fpu())
++	if (riscv_isa_extension_available(NULL, f) && riscv_isa_extension_available(NULL, d))
+ 		pair->value |= RISCV_HWPROBE_IMA_FD;
+ 
+ 	if (riscv_isa_extension_available(NULL, c))
+-- 
+2.55.0
 
 
 _______________________________________________
