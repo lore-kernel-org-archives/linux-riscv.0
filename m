@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FB2C5DF6D
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Aug 2026 07:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2004C5B572
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Aug 2026 07:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0X9875KWRnaNpIzGIyHH0dE2qOweaRY1YpIm/W7tPYA=; b=MfOKAZOtdEJIeW
-	7LH+YyTaVU5/e7tkPI8gQwpE15KKtlF51ug6BGjoIR2YjXFy/+xR5QPuqYBcjQwe6bcpHEe/2/jGJ
-	jQN3hR5/K652o9alGI1FSOxRYFeI7kKp7O6SgAMmLd4kRPBLPuhutd+hJy2eSqlk778TutUlOnz5I
-	xeiDqavv8XqPcVBpGHqx9KWRvYizgUc38POmTv/BVi7e/ktLS6WWkg7L1LzpYxqEToseom5xtMi1J
-	BSXg1F9ji5pdpTfLHKmrHmj2TDzNE47ijCxKMCxSMxpDiqIVOBq2WcgeJ2Gz2kS+9fDUFzsasjAFP
-	nDUZuE/sVrQob9PHFmjg==;
+	List-Owner; bh=1JidCgyR7N2AHwIeO1qPh5+ip6Ao0Z2QOQgWjvU0WhE=; b=OeaX5/NdV/96Mg
+	nhNw8Vbih8rr34utehk5FYZsTRe5gYy49kvgoC38rAbbBKEw5YBzVzQSaRlr19G4CI/loi5q4gwFz
+	xkcjaWmvMimvWutsC95egfWASPfgarkckpiaWn+jlpqrqTS0dQlovanrtZBj7tab4wsMuAipO2eav
+	/U+LOOy2RCUmaVufSBrCGQDiXyLcZh/hC/E4QCM3sF8S21DH7UyvAa4S8NdVs73rLA9NHP6QNpCN8
+	phJGfP2oy6yktD+vnPUfgwJG7dQkqa9f7/rw5qjnWD8YJ9sZfKAi3TaMiy+Q3UxTPS5q2dd8AFDXk
+	agm6y/JVpCiH1B8AwQxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvUrl-00000004XcM-0YJK;
-	Sun, 16 Aug 2026 07:01:09 +0000
+	id 1wvUs3-00000004Xgo-3UJy;
+	Sun, 16 Aug 2026 07:01:27 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvUrj-00000004Xbw-40Cz
+	id 1wvUs2-00000004Xg7-2K5h
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Aug 2026 07:01:08 +0000
+	Sun, 16 Aug 2026 07:01:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6748160120;
-	Sun, 16 Aug 2026 07:01:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26DF81F00A3A;
-	Sun, 16 Aug 2026 07:01:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0562860A58;
+	Sun, 16 Aug 2026 07:01:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E01FF1F00A3A;
+	Sun, 16 Aug 2026 07:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786863667;
-	bh=4UTcja3qkQaBcJbDA3wKGz+X1tVOnwXVEanKk8tH76s=;
+	s=k20260515; t=1786863685;
+	bh=dB/jeR1Y8CYCi+kLcLnNsF3XST9sa8hY/+IQpCFYcjI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=a/qZzLek3LA2KYN8J3cNK4mfzniQaCkmnd5sixczVuK9lNKuWCgJYvjIQzmJ3pHCn
-	 RCqiohQiDp2YnD4dcoTN9mwTwzcSE+0M78CvexNM4BR4Y+ZA6oLTULXCAt4oJzyCv6
-	 10ETy9jt3X5HCgG8l5UJlb3zYqmDe4fUhR3PfxFX/QsuWLdJk6LSWuJ7E+bmTXO1E0
-	 dTO9SA/k6xpTggKkMQG9FJXLPoN2bF6eYbp1nkhcGMQpiQITpyeZV8Kz8vNGEDPozQ
-	 GVrGklR/XnkrwNBJV/J75W6LUKojY3Fhtq2oI80swPuFmHObp00uObUlkXGOIkRBqp
-	 wXlEJvPYcQTGQ==
+	b=jxHMRhEpDraNs5qWgyF8Y0u6HTAgxoXCL4aYX6a+rBNvZ31DGd9MOxFD48eNOMs5u
+	 RPVv4DCD1qgI4dM4tEpsJzKNOuuD2BTqyS2kLyDbx27cg2JtMcI4roWo3cboYI2W6y
+	 OMxq4/0SNEsk93/nbixuaP4FOJZvLrXnsb8NwlKfQM94EtI3P46YYB01BaUVBWrOdq
+	 z1/elxmirB5edLLFD4S+AjnmMsVtq+TsI1cH3OW6kUVD0y5ytorJz4+X3B7VQTKvym
+	 IH3TCekLNnbS8yUE05SVqLq+7MvpQZMeLcE24CxUyFgVcswiOVR3RytcDxrazPLS+O
+	 uIAHZf3r+PkOw==
 From: Guo Ren <guoren@kernel.org>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -55,9 +55,9 @@ Cc: palmer@dabbelt.com,
 	hui.wang@canonical.com,
 	samuel.holland@sifive.com,
 	"GUO Ren (XuanTie)" <guoren@kernel.org>
-Subject: [PATCH 1/5] riscv: smp: Move enum ipi_message_type to asm/smp.h
-Date: Sun, 16 Aug 2026 07:00:45 +0000
-Message-ID: <20260816070049.2097442-2-guoren@kernel.org>
+Subject: [PATCH 5/5] irqchip/imsic: Use IPI_MAX instead of IMSIC_NR_IPI
+Date: Sun, 16 Aug 2026 07:00:49 +0000
+Message-ID: <20260816070049.2097442-6-guoren@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260816070049.2097442-1-guoren@kernel.org>
 References: <20260816070049.2097442-1-guoren@kernel.org>
@@ -80,65 +80,50 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "GUO Ren (XuanTie)" <guoren@kernel.org>
 
-The IPI message type enumeration (and therefore IPI_MAX) is currently
-private to arch/riscv/kernel/smp.c.  Several IPI providers need to know
-the exact number of IPIs that the architecture requires, so move the
-enum into the public header.
+IMSIC was defining its own IMSIC_NR_IPI (= 8) which happened to match
+the architecture's IPI_MAX. Now that IPI_MAX is exported from riscv
+asm/smp.h, use the architecture constant and drop the private define.
 
-This is a pure code movement with no functional change.
+This keeps the number of multiplexed IPIs in sync with the rest of the
+RISC-V IPI infrastructure.
 
 Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
 ---
- arch/riscv/include/asm/smp.h | 12 ++++++++++++
- arch/riscv/kernel/smp.c      | 12 ------------
- 2 files changed, 12 insertions(+), 12 deletions(-)
+ drivers/irqchip/irq-riscv-imsic-early.c | 4 ++--
+ drivers/irqchip/irq-riscv-imsic-state.h | 1 -
+ 2 files changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 0ecc67641b09..bed39fff1f8a 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -15,6 +15,18 @@
- struct seq_file;
- extern unsigned long boot_cpu_hartid;
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index 12efd241ce88..823f5f2ecb3d 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -67,12 +67,12 @@ static int __init imsic_ipi_domain_init(void)
+ 		return 0;
  
-+enum ipi_message_type {
-+	IPI_RESCHEDULE,
-+	IPI_CALL_FUNC,
-+	IPI_CPU_STOP,
-+	IPI_CPU_CRASH_STOP,
-+	IPI_IRQ_WORK,
-+	IPI_TIMER,
-+	IPI_CPU_BACKTRACE,
-+	IPI_KGDB_ROUNDUP,
-+	IPI_MAX
-+};
-+
- #ifdef CONFIG_SMP
+ 	/* Create IMSIC IPI multiplexing */
+-	virq = ipi_mux_create(IMSIC_NR_IPI, imsic_ipi_send);
++	virq = ipi_mux_create(IPI_MAX, imsic_ipi_send);
+ 	if (virq <= 0)
+ 		return virq < 0 ? virq : -ENOMEM;
  
- #include <linux/jump_label.h>
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index fa66f9c97d74..8930b62b15e7 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -28,18 +28,6 @@
- #include <asm/cacheflush.h>
- #include <asm/cpu_ops.h>
+ 	/* Set vIRQ range */
+-	riscv_ipi_set_virq_range(virq, IMSIC_NR_IPI);
++	riscv_ipi_set_virq_range(virq, IPI_MAX);
  
--enum ipi_message_type {
--	IPI_RESCHEDULE,
--	IPI_CALL_FUNC,
--	IPI_CPU_STOP,
--	IPI_CPU_CRASH_STOP,
--	IPI_IRQ_WORK,
--	IPI_TIMER,
--	IPI_CPU_BACKTRACE,
--	IPI_KGDB_ROUNDUP,
--	IPI_MAX
--};
--
- static const char * const ipi_names[] = {
- 	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
- 	[IPI_CALL_FUNC]		= "Function call interrupts",
+ 	/* Announce that IMSIC is providing IPIs */
+ 	pr_info("%pfwP: providing IPIs using interrupt %d\n", imsic->fwnode, IMSIC_IPI_ID);
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
+index c42ee180b305..878cc192ccec 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.h
++++ b/drivers/irqchip/irq-riscv-imsic-state.h
+@@ -13,7 +13,6 @@
+ #include <linux/timer.h>
+ 
+ #define IMSIC_IPI_ID				1
+-#define IMSIC_NR_IPI				8
+ 
+ struct imsic_vector {
+ 	/* Fixed details of the vector */
 -- 
 2.43.0
 
