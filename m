@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2EAC5B572
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 14:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED952C5DF66
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 14:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5KjU6QqyFacm38rkKvZgcnlsHt91S7OmvBefLyyEC3M=; b=lb95AZFEPCqLZj
-	7wP9khT8JeCgqEjPs1d3E4rp4VC5cwEnJZ4Fmw/OxMivfi/qOk4v6iOyhi8CuJfhcuzDXVqC7lDbo
-	bpS3EuuoivN6jRkdadyfkciuCVRWT4Yji7RNstO0qK9ec9ynsVwqEL4m44gMk77XMibG5G7zrkzyv
-	s+2s9kdJ+nCWbdA6ASSnyaERZkG78Rea7Hxgs0A6ouiifc2BWuLvnQnMzhRFISMwMs9YN5TpzAvQz
-	NAqLy8gxmz8XsigEr27vUForOYNWLVxMX6IEFyPnv0NBJepJF3w4ECP2hrDAnq8++EcFZDed/zSnK
-	nlty30J2qc8z8f1t2kBA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gjxmdsEC67EyzG1NCE1RXL3z+v96OBdk9m8D7F1E7lc=; b=Bje+NV5WoTbhzu
+	diJdYi00ZkEpj2j7vSNHHwU4W3FAcqymlf0PidH6x2lavz+sfJlONsqsXJ2mLKwS1XtwzdkwfkDg3
+	PiHbcxMWw+GYyOf9E6oOJ4vV/z534CAPHlr1yHArwsWImyIjt2wXW+jb/JjdtNDtakRO4SYCR1lLs
+	0co1P3VSIuxIEF6ow5gSzSw0Kr+OqvF8fb/hNlB2U3PmoetfWCuxnRu0aXidkXXol24N4hdzZ3yRQ
+	4CyUPxiklh7Uq0l4GWkL5PUVke1E2m7YXOMVzdCvPG/cxqooeG/HcTIJ4lg3PioslOB84WIhMU+H2
+	H1BOpR2kP8WRo+beScug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvyHO-00000006IEV-3Gst;
-	Mon, 17 Aug 2026 14:25:34 +0000
-Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
+	id 1wvyKG-00000006IZ2-1SAz;
+	Mon, 17 Aug 2026 14:28:32 +0000
+Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvyHM-00000006IE9-1MI3
+	id 1wvyKC-00000006IXd-2Pzz
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 14:25:33 +0000
-Received: from bat.kanata.rendec.net (unknown [72.143.213.121])
-	by mail.mindbit.ro (Postfix) with ESMTPSA id 18153C2DC3;
-	Mon, 17 Aug 2026 17:25:24 +0300 (EEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 18153C2DC3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
-	s=default; t=1786976730;
-	bh=roywxzjwoDpRPpkuvJQWLXoKTdkrckRY7+MlEfFx5fw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=HXYXSPXWdmUZu4Pue0ZKV6rZF2xLFPPHgLzx8gwJdilmCq6Tp+ba+iL91HpZbzsSO
-	 Uugtv6b6i37mHhwFp0pO0d+1wdyW/1I+Dp4AUvQYuyH1Ho4NKBvYbm6S1B/oHOsAno
-	 xjV7XLJduVv/cj4qpe+wYUli1z2MuF90D8fCFxtTozHvTk5P5/D8OFmK3t/8SksBCF
-	 YUa/+L5do1LbPE60fXDZ1t6TOVL5Sagd5Hnqfb8q6CBL7AbL6hwxMoQr5dMpBC2qoY
-	 Ax2FI2hPRu97+zp7E2igfoa+KTqSq6OmoA0ulTNy0pu5AQ+x2JpzT38wKzdW6KegvM
-	 Kdo+gwH/bjGsA==
-Message-ID: <a4e7d860dc82bc68945446277f2653ac9ad343f1.camel@rendec.net>
-Subject: Re: [PATCH 5/5] irqchip/imsic: Use IPI_MAX instead of IMSIC_NR_IPI
-From: Radu Rendec <radu@rendec.net>
-To: Guo Ren <guoren@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	tglx@kernel.org, daniel.lezcano@kernel.org, anup@brainfault.org, 
-	hui.wang@canonical.com, samuel.holland@sifive.com
-Date: Mon, 17 Aug 2026 10:25:20 -0400
-In-Reply-To: <CAJF2gTTeZohiUrn83d-XrxDdMP-LA2eyjpxyqn_-XOk0ko0qbA@mail.gmail.com>
-References: <20260816070049.2097442-1-guoren@kernel.org>
-	 <20260816070049.2097442-6-guoren@kernel.org>
-	 <e70e9fd19e9ebaec823a8abc518bf935e36938b9.camel@rendec.net>
-	 <CAJF2gTTeZohiUrn83d-XrxDdMP-LA2eyjpxyqn_-XOk0ko0qbA@mail.gmail.com>
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	Mon, 17 Aug 2026 14:28:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1786976903; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=AAVyRRiB6YJw8T+BYBbylAg5P5XU3rF1oitwGGOwwUc=;
+	b=mus8SQrSmtp9D2TVL/OuTIABwT2EP7wJkpPdq9FHD5tso4vHR2PYtz02IrEjoZHFzPCsp8E+tDMiDxW+MPLK7psHwjEnSi+AhRtkDdHHQn+3hl/QzVYo8a+Av1m9A1t21wtt+hUCnDwLSh+EzpcXczFZj3Z63ydMZPMWu2SsILo=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0X9A9H-E_1786976900;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X9A9H-E_1786976900 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 17 Aug 2026 22:28:21 +0800
+From: fangyu.yu@linux.alibaba.com
+To: tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	baolu.lu@linux.intel.com,
+	jroedel@suse.de,
+	zong.li@sifive.com
+Cc: fangyu.yu@linux.alibaba.com,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 0/3] iommu/riscv: Fix command queue publishing races
+Date: Mon, 17 Aug 2026 22:27:25 +0800
+Message-Id: <20260817142728.61783-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_072532_561368_3087EBCD 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20260817_072829_310103_69A0D950 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,59 +72,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI2LTA4LTE3IGF0IDIxOjA1ICswODAwLCBHdW8gUmVuIHdyb3RlOgo+IE9uIFN1
-biwgQXVnIDE2LCAyMDI2IGF0IDExOjI44oCvUE0gUmFkdSBSZW5kZWMgPHJhZHVAcmVuZGVjLm5l
-dD4gd3JvdGU6Cj4gPiAKPiA+IE9uIFN1biwgMjAyNi0wOC0xNiBhdCAwNzowMCArMDAwMCwgR3Vv
-IFJlbiB3cm90ZToKPiA+ID4gRnJvbTogIkdVTyBSZW4gKFh1YW5UaWUpIiA8Z3VvcmVuQGtlcm5l
-bC5vcmc+Cj4gPiA+IAo+ID4gPiBJTVNJQyB3YXMgZGVmaW5pbmcgaXRzIG93biBJTVNJQ19OUl9J
-UEkgKD0gOCkgd2hpY2ggaGFwcGVuZWQgdG8gbWF0Y2gKPiA+ID4gdGhlIGFyY2hpdGVjdHVyZSdz
-IElQSV9NQVguIE5vdyB0aGF0IElQSV9NQVggaXMgZXhwb3J0ZWQgZnJvbSByaXNjdgo+ID4gPiBh
-c20vc21wLmgsIHVzZSB0aGUgYXJjaGl0ZWN0dXJlIGNvbnN0YW50IGFuZCBkcm9wIHRoZSBwcml2
-YXRlIGRlZmluZS4KPiA+ID4gCj4gPiA+IFRoaXMga2VlcHMgdGhlIG51bWJlciBvZiBtdWx0aXBs
-ZXhlZCBJUElzIGluIHN5bmMgd2l0aCB0aGUgcmVzdCBvZiB0aGUKPiA+ID4gUklTQy1WIElQSSBp
-bmZyYXN0cnVjdHVyZS4KPiA+ID4gCj4gPiA+IFNpZ25lZC1vZmYtYnk6IEdVTyBSZW4gKFh1YW5U
-aWUpIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+ID4gLS0tCj4gPiA+IMKgZHJpdmVycy9pcnFjaGlw
-L2lycS1yaXNjdi1pbXNpYy1lYXJseS5jIHwgNCArKy0tCj4gPiA+IMKgZHJpdmVycy9pcnFjaGlw
-L2lycS1yaXNjdi1pbXNpYy1zdGF0ZS5oIHwgMSAtCj4gPiA+IMKgMiBmaWxlcyBjaGFuZ2VkLCAy
-IGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4gPiA+IAo+ID4gPiBkaWZmIC0tZ2l0IGEv
-ZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1lYXJseS5jIGIvZHJpdmVycy9pcnFjaGlw
-L2lycS1yaXNjdi1pbXNpYy1lYXJseS5jCj4gPiA+IGluZGV4IDEyZWZkMjQxY2U4OC4uODIzZjVm
-MmVjYjNkIDEwMDY0NAo+ID4gPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2lj
-LWVhcmx5LmMKPiA+ID4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1lYXJs
-eS5jCj4gPiA+IEBAIC02NywxMiArNjcsMTIgQEAgc3RhdGljIGludCBfX2luaXQgaW1zaWNfaXBp
-X2RvbWFpbl9pbml0KHZvaWQpCj4gPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVy
-biAwOwo+ID4gPiAKPiA+ID4gwqDCoMKgwqDCoCAvKiBDcmVhdGUgSU1TSUMgSVBJIG11bHRpcGxl
-eGluZyAqLwo+ID4gPiAtwqDCoMKgwqAgdmlycSA9IGlwaV9tdXhfY3JlYXRlKElNU0lDX05SX0lQ
-SSwgaW1zaWNfaXBpX3NlbmQpOwo+ID4gPiArwqDCoMKgwqAgdmlycSA9IGlwaV9tdXhfY3JlYXRl
-KElQSV9NQVgsIGltc2ljX2lwaV9zZW5kKTsKPiA+ID4gwqDCoMKgwqDCoCBpZiAodmlycSA8PSAw
-KQo+ID4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gdmlycSA8IDAgPyB2aXJx
-IDogLUVOT01FTTsKPiA+ID4gCj4gPiA+IMKgwqDCoMKgwqAgLyogU2V0IHZJUlEgcmFuZ2UgKi8K
-PiA+ID4gLcKgwqDCoMKgIHJpc2N2X2lwaV9zZXRfdmlycV9yYW5nZSh2aXJxLCBJTVNJQ19OUl9J
-UEkpOwo+ID4gPiArwqDCoMKgwqAgcmlzY3ZfaXBpX3NldF92aXJxX3JhbmdlKHZpcnEsIElQSV9N
-QVgpOwo+ID4gPiAKPiA+ID4gwqDCoMKgwqDCoCAvKiBBbm5vdW5jZSB0aGF0IElNU0lDIGlzIHBy
-b3ZpZGluZyBJUElzICovCj4gPiA+IMKgwqDCoMKgwqAgcHJfaW5mbygiJXBmd1A6IHByb3ZpZGlu
-ZyBJUElzIHVzaW5nIGludGVycnVwdCAlZFxuIiwgaW1zaWMtPmZ3bm9kZSwgSU1TSUNfSVBJX0lE
-KTsKPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtc3Rh
-dGUuaCBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtc3RhdGUuaAo+ID4gPiBpbmRl
-eCBjNDJlZTE4MGIzMDUuLjg3OGNjMTkyY2NlYyAxMDA2NDQKPiA+ID4gLS0tIGEvZHJpdmVycy9p
-cnFjaGlwL2lycS1yaXNjdi1pbXNpYy1zdGF0ZS5oCj4gPiA+ICsrKyBiL2RyaXZlcnMvaXJxY2hp
-cC9pcnEtcmlzY3YtaW1zaWMtc3RhdGUuaAo+ID4gPiBAQCAtMTMsNyArMTMsNiBAQAo+ID4gPiDC
-oCNpbmNsdWRlIDxsaW51eC90aW1lci5oPgo+ID4gPiAKPiA+ID4gwqAjZGVmaW5lIElNU0lDX0lQ
-SV9JRMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAxCj4g
-PiA+IC0jZGVmaW5lIElNU0lDX05SX0lQScKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCA4Cj4gPiA+IAo+ID4gPiDCoHN0cnVjdCBpbXNpY192ZWN0b3Igewo+
-ID4gPiDCoMKgwqDCoMKgIC8qIEZpeGVkIGRldGFpbHMgb2YgdGhlIHZlY3RvciAqLwo+ID4gCj4g
-PiBSZXZpZXdlZC1ieTogUmFkdSBSZW5kZWMgPHJhZHVAcmVuZGVjLm5ldD4KPiAKPiBUaGFua3Mg
-Zm9yIHRoZSByZXZpZXcsIFJhZHUuIEhvd2V2ZXIsIHRoaXMgcGF0Y2ggZGVwZW5kcyBvbiBbMV0u
-IFdvdWxkCj4geW91IG1pbmQgYWxzbyByZXZpZXdpbmcgWzFdPwo+IAo+IFsxXTogaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyNjA4MTYwNzAwNDkuMjA5NzQ0Mi0yLWd1b3Jl
-bkBrZXJuZWwub3JnLwoKWW91J3JlIHdlbGNvbWUhIFN1cmUsIHRoYXQgbWFrZXMgc2Vuc2UsIEkg
-cmV2aWV3ZWQgWzFdIGFzIHdlbGwuCgotLSAKQmVzdCByZWdhcmRzLApSYWR1CgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+
+This series fixes races in the RISC-V IOMMU command queue submission
+path.
+
+The current command queue code reserves a producer index before the
+command is written and before the hardware tail is updated. Multiple CPUs
+can therefore reserve different producer indexes concurrently and then
+wait for the software tail to reach their index before publishing their
+own command.
+
+That model is fragile when a command submission fails after reserving an
+index. The failed producer index is never published, so later submitters
+can wait behind a hole in the software producer stream. This can also
+lead to misleading IOFENCE.C completion timeouts, because the sync path
+may wait for a producer index whose command was never actually enqueued.
+
+Fix this by serializing command queue publishing with a raw spinlock.
+Instead of reserving producer indexes ahead of time, the submission path
+uses the current software tail as the next command index, writes the
+command, publishes the hardware tail, and then advances the software tail
+while holding the lock. When the command queue is full, the code drops
+the lock and waits for hardware consumption before retrying, so other CPUs
+are not blocked behind a long hardware poll.
+
+The final patch changes the queue submission helper to return an error 
+when enqueue fails. The IOFENCE.C sync path then avoids waiting for a
+command that was never published to hardware.
+
+This series does not attempt to add full RAS/error recovery for command 
+queue failures. It keeps the existing local error reporting behavior and
+only fixes the software queue state and wait semantics.
+
+Fangyu Yu (3):
+  iommu/riscv: Add command queue lock
+  iommu/riscv: Serialize command queue publishing
+  iommu/riscv: Avoid waiting on failed command enqueue
+
+ drivers/iommu/riscv/iommu.c | 121 ++++++++++++++++++++++--------------
+ drivers/iommu/riscv/iommu.h |   2 +
+ 2 files changed, 76 insertions(+), 47 deletions(-)
+
+-- 
+2.50.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
