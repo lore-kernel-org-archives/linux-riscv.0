@@ -4,96 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FFBC5B572
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 15:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E85C5DF66
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 16:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CQ6UMo1dtjKWoqeQ24sCGCaYhlpohWvWxDuXnVRQy+k=; b=3Pd4gAjQFBUvnE
-	15I6PKWhCHf6liyzoMBHx+exY4xh73OpKOaZWQRLURosH4WJrLV414p9mbv5eQ+RlUAyRZDZGZWMq
-	04MTsFVbfSDz0rTnpBKQAgyqiqQfmLiksD5lCRrQXxg8LGeQL4M8JCllKcAZF+8KcCODC++YbsTdT
-	2p8pAKHjRobrUkzbWSG3JK8L4aI0mwKjP1LWNoF91e7twD+FbZbXDkysatx/wRGslPD2pbjtJTLRx
-	gneKxvZJ9Y3jVwxDmn6Yh/EyDZK/R1azXmReB/XBZwVPyIdbFDIi/NXedWKxGWEhjFlZieS2QB+Aa
-	jIy3JchWg3bLR3yMO7GQ==;
+	List-Owner; bh=wExqRLATGCFujd1Dq8EL7MyCeIChTTuhi8xJxkcH7Yk=; b=Y3wFCO4Th4SElq
+	PFqghCRF6JWaLRTjxV4mGXI+nCneMu7NjrULQaxZK9cIoS7go5Bmc7kzDozucI60dW0ru0HHmInpd
+	2kFAAZ6p3xSBCKAonJXb7L6aJoReiUxPdH1ZR/xoV8ZjxcI3lzayL9NocOVJbJKGAOCDCd+Od2bCK
+	KbMM2un5gPAIR0e0BfH501RzEHJrYE0KF3yLDwS3AqCFe85mZfI9o887TwyQNSW2kKL2a4i5RnvM8
+	buKHXEnCtZWnFqj7wklQh8pkmLX6RDS/GAhroB0UG7/nEpBkhCAiQxv1p5eIiZ8D99UvmimA0FyPQ
+	VPwHSQs9epXAgbFFRyyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvzfk-00000006SIC-0FMp;
-	Mon, 17 Aug 2026 15:54:48 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wvznR-00000006TGR-06Pu;
+	Mon, 17 Aug 2026 16:02:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvzfh-00000006SHf-16tM
+	id 1wvznN-00000006TFG-20CW
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 15:54:46 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4996f1ee4a4so29441995e9.2
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 08:54:44 -0700 (PDT)
+	Mon, 17 Aug 2026 16:02:43 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HFYvn43082358
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 16:02:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=F1ydbwCOJHJXHm4fbFBs3uDl9Dggh/0McdK
+	z5MjuJng=; b=PosSKHKv5Wk14m5PM6r3+D+7nUkYhx8jJ8e9DVlT6gx8JSle5Mk
+	LGVFcaraXw4j/vw8ezxa4tFzbdA8gxMczUe8gqGTt/D1Dmf+d+eEzd4JfGSgJA9d
+	cA+gIMqf/XbtebnBfHODSLV2XS7zsaSFKGemeQuSBEAiFEoWGj/Ww7g2ZIw87VKv
+	E9LMKF9lPg8Vd46HHHaw31rpt6mT7ats6te6hFV7CcdDOqiMv1AcJwESaBvVA2My
+	iFbp8wt3aF8B8CmMYws57xwSAGd5xtWbrokw4xLi5TDvrSRAp8VlUvoygFGeIB7Y
+	yU1g6aV4nVt8+MBtUtiClIwN3gJV+jiGLWw==
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g3y779pst-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 16:02:40 +0000 (GMT)
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-84857446424so6189950b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 09:02:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786982083; x=1787586883; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=CYoVZjftpouSJ7GJkuPaD9Nbny+lb8Qv46HwHPYwG5E=;
-        b=kvnmUmiQjrvn5RuhwewfRqcwURlRcz/Lg2wHevsPzpyZhcWNfAKO8Vc265F68aJ8Ea
-         /6wXS9/ouz4AlRmbCHK/CDivaNXFYnSLYoBwMUkJVDjKEvvFqJes9W4asO1Fn09jSJCB
-         QEcZoRin1xCZ7fhIlz7A1bao33zA0PxyeGg98+KzcosRkv911NFdVDFmRkESFyIXQ74L
-         4kwcqjyUbvRBGAKSaO347/mtNRN6DfhTc5rjAFbh/kYKxcamp+NNkKjNE3lKHQRbUBYj
-         LWWNq6ZN0Uu3eM6b04siWDNeKH/adqOO8SI5rpFbArVc4mpPj3tkkPQnHvgc4DOgGqS7
-         v6Ig==
+        d=oss.qualcomm.com; s=google; t=1786982559; x=1787587359; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=F1ydbwCOJHJXHm4fbFBs3uDl9Dggh/0McdKz5MjuJng=;
+        b=CkUmMe6IFDnu7RPdt0B38wUtq8uIoxbhkWNYJXc4oSocPPlZQBh5r8FcfEX+jAT5vb
+         tHrrLltZiLMMQ5vgNsOTw3Gd8+ablW3NNlIIO5ppTHNkufSHp00/1lLc2oB6wsNWwxcc
+         7OKzDYtjX6jwJ1WcHqR9SL/Hw0WD8ZnWBCtdr3k6gUSC0PP2xl0kJZ/++3wcooyIxb2A
+         Fg1Dhnwr+BH0v1WyeyAmhUn5am+NBefB/5LLvx/7FxiIt+esmEmqXTkb9IXzzB4IQ1LZ
+         XT6wHRep6Mm0lVE7gBPrynxpl4Je4DMXGlLmFr55vre6JjDc9Zq4c6VLE2xQoSDEIkyB
+         Nhtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786982083; x=1787586883;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=CYoVZjftpouSJ7GJkuPaD9Nbny+lb8Qv46HwHPYwG5E=;
-        b=oxi938YTxTKyWxx/VqwqbaMQ3ASECjQ3nOMw+GpwCqB2xZNmZ21J9zMElERhUNn7tb
-         bugs7aBEBeiWXbEzmmZRIoBwLiwvgDx9h/NsPllY0ttBr2uPtfoXY6fNiQ4tPExTMZF0
-         ZrBnP8BTa9z7Oi7RCTzghvOGDUvuzJ31tanJXzabMWxHCtFbX9s4MZslqYE0tkn5LiZe
-         cJ92xPaQqtytIH4oj3Ojyft8g5Eu5t/eyIaNUtGZGvAQsgaP8x3iFEQuHwTrCaawCGAi
-         OXFXTrPIGw5F+w+k4Q15Vf9xMVkVvoe86i+ChY48JTmosG3qKmt4xLM3NszFAdeCZJ35
-         7K5A==
-X-Forwarded-Encrypted: i=1; AHgh+RqKF/g1Pb/o/hGqI5BICnx2N3D2Fwe60mwIfR/s3Mvpg5O8qCuDHigOAv2Cm3xtYHQ9v9wmVF7DRoJDZg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNJWZamhERmEuJniq8HZMY0Q1lfVnoJFIcDqWtiC6Eqic56H9P
-	7dU0CHndLGohlKQ9WHUniMVCLJlgp5ped3/pj46RQM+qyqLdifnstzs9j3BR5GRbMlk=
-X-Gm-Gg: AR+sD13d7HhrcFeyV9qwD8npZu4SqaHuGzvpfT0Z5mF2xSwcJLBHHZjfF3DX86IMDYi
-	b4uxkT0aJBb9w0x56U5AIg7MAdKHEd8vWFFh/ZpVNqxekO7ZcOkazWvVdc2laoq8/Dlu1s/ygyT
-	lsgecFBt3icvlhA2l5cQ6S30VGaUy5TYfi5tuVylkQxujH9pKhQ5up3IT/9i5EclUXnjMqYFfL1
-	S6ynMA9iilKCPx8+TK6Kt+cMnAKx3Tin/0NHrOIRckiy4oyYw1PvWhSfd2LiSDpMhQfdstLimDS
-	sFFersGu4BTlltz2LYuNtcq6fvsGYC4O11UwGtkAWLLt0nur8hQcETLNG9Wyz4sth+WfWKqABjU
-	JrrwLmeE8sKqhULtWMhrTCLWBMfCG8aJzdmQ3HT4OWT78idppxpxQlTVrLyozKiP0+EHeCDDg9P
-	WTK2iVJxKOeIWOO5RH8O7IGPstM9lljabz6awk6LlW62X80fL2RuMef4vN+2TtEEJ6
-X-Received: by 2002:a05:600c:1908:b0:499:841c:2016 with SMTP id 5b1f17b1804b1-4999fa6a973mr16566425e9.0.1786982082744;
-        Mon, 17 Aug 2026 08:54:42 -0700 (PDT)
-Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4999610ecf4sm129358815e9.7.2026.08.17.08.54.41
+        d=1e100.net; s=20251104; t=1786982559; x=1787587359;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F1ydbwCOJHJXHm4fbFBs3uDl9Dggh/0McdKz5MjuJng=;
+        b=OvI9kgXhxZT+9q9/PElO8CviTEYbDumqUVZMurKYHSliu24ofBoFZgoM1Y/M1seGvt
+         rGnSk8C4GIkURe6ghdaQKq9vDhYGzZuLhxAHRy3FP8UC4q4P3rmcCajQE71xiG1NGc6b
+         BYJZue7BeWNkLuFbIT3al5EqErmYcffaBqTMEd7D7B49lGoRLjaGZqKdE48Z3wVhb1aS
+         Aq3esEzgqiFDQdkQRDwhoCMGipO2/ceIjYOJH6yzZYFS8a4GLb/i48ka6Az9w4IcjVAy
+         VzeRr0tnTg3OcVsYUPujHVN9oQm+PxHADiXtg1VIW6MkPr8hkUigr5gIMjy0STb7NeM0
+         a7xA==
+X-Forwarded-Encrypted: i=1; AHgh+RrsdW8n7aLk5Oi9YvK42DHL0ZAi7wAKLYilrHB17SFVsL770ahSnOvIdIBtM/RF3k3c2dHBrTXWoYiC7w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKlUmqJ/yT6SNtmV8Kn5hbzNfOOn/MEzAmnjmPJKQPbyWG470y
+	81G59SpKyDV8y5Np4vY6bSDke0nMcp5ySdvln+9+hXkcQpdPWMhK8Y96hbXdKHa+m3PbUllK1RX
+	cRPt2T6tj7vboNCd3gbUhgrdpnl2D5Vv6f0oLRpPxS78rhTbVRWJAQNxBSFMB49Fs0UykFT4=
+X-Gm-Gg: AR+sD10SaDl/QDtAU0NjETFzBHrmG7ofbMD6fEuV8Wp3ImNG39EgoYcbTNKSVAikhcH
+	OU+K0PUaCyc8lrZJ2/5u57AqVpWI4vhnN8sf5QwOPnBOjqJg4P9COAQxywopCkAYYqzacHvr8/9
+	wk/HN8y7d+ZY1IHtqRYAZ6r2t6JuKFIjBSumk40akiJD8iQE/afntQ3di5cV5Z3Cd5BGkJW2UYI
+	yzYmamtYyU1mFzFjTuawy+F8s//xdFUQCLakNVZGGeLXEhIjbwSbPcZ7Ki2L4N6uQv54E2cEOhe
+	+EC0VWW41iIajGWRolyQv+AzK28htKgYXr98kgZtAh/oH7IzE+rHhAIItwSXzqhUnA6lD09SrgE
+	dqvWaUdtlZleB7B/JI/826vAogWPedn4xW1Fu0IkXqu3skiQ22fdmB5nObyfCb7CFRNOip227Em
+	TtgtVhrRGubOBbZ+9dM/qWetsytw==
+X-Received: by 2002:a05:6a00:a219:b0:848:4c0c:9482 with SMTP id d2e1a72fcca58-84fde2bb2camr25464891b3a.35.1786982559217;
+        Mon, 17 Aug 2026 09:02:39 -0700 (PDT)
+X-Received: by 2002:a05:6a00:a219:b0:848:4c0c:9482 with SMTP id d2e1a72fcca58-84fde2bb2camr25464810b3a.35.1786982558539;
+        Mon, 17 Aug 2026 09:02:38 -0700 (PDT)
+Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-851b6f8b189sm562883b3a.34.2026.08.17.09.02.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 08:54:42 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Mon, 17 Aug 2026 16:54:13 +0100
-Subject: [PATCH v4] perf tests: mmap-basic: fix user rdpmc detection logic
+        Mon, 17 Aug 2026 09:02:37 -0700 (PDT)
+From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+To: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Andrew Jones <ajones@ventanamicro.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Andy Chiu <andybnac@gmail.com>, Anup Patel <anup@brainfault.org>,
+        Atish Patra <atish.patra@linux.dev>,
+        Charlie Jenkins <charlie@rivosinc.com>,
+        Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
+        =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+        Conor Dooley <conor+dt@kernel.org>, Deepak Gupta <debug@rivosinc.com>,
+        Guodong Xu <docular.xu@gmail.com>, Guodong Xu <guodong@riscstar.com>,
+        Hui Wang <hui.wang@canonical.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>,
+        Rob Herring <robh@kernel.org>, Sergey Matyukevich <geomatsi@gmail.com>,
+        Thomas Huth <thuth@redhat.com>, Will Deacon <will@kernel.org>,
+        Xu Lu <luxu.kernel@bytedance.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+        linux-riscv@lists.infradead.org
+Subject: [RFC PATCH 0/3] RISC-V Sspesa: Linux perf precise sample attribution
+Date: Mon, 17 Aug 2026 21:32:16 +0530
+Message-ID: <20260817160222.3313295-1-mayuresh.chitale@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Message-Id: <20260817-rdpmc-detection-logic-v4-1-c22074578f6a@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAKQug2oC/0XMQQ6CMBCF4auQWTtkoKUIK+9hXNR2SpsIxdIYI
- +HuNm5cfsl7/w4bp8AbjNUOiV9hC3EpkKcKjNfLxBhsMbTUKjo3PSa7zgYtZza5bPERp1AsXK/
- lYNxdKijfNbEL71/3eit2Kc6YfWL9rwlBNBCRqFWnOknY4PPjdbwktl7n2sQZjuML1UtK2aIAA
- AA=
-X-Change-ID: 20260817-rdpmc-detection-logic-d3f7a49cfb46
-To: Ian Rogers <irogers@google.com>, Michael Petlan <mpetlan@redhat.com>, 
- Qiao Zhao <qzhao@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>
-Cc: Leo Yan <leo.yan@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.15.2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDEyMyBTYWx0ZWRfXzJbQCTqJzGjL
+ zaz+4ZrmpseAwjzbGLEKvN3gpdneJ/aKv5X6crL5I8N+/OpIZaBqHFDgVC5FSGbe1Y6/zSJmyAL
+ BHu97XkZH6lsc0ybSHxfLWeKRhM8p62bweo7SzX05GfN91br0319IdL8JuaqjOYUXZZ04v0UjAC
+ lEG01wpzihFzR0kXtNWmbsxL2kQ9ZfL471bG2CKpcDG1PyscA9sy1XfKSLCSusSGf0cKbMz7Qnk
+ Gk4qocpZsAKtRnmxaQ6pdWAcA1wfUR+dMXsaHBVSqpYLWufOwkZYlVetgpDn+G2nCJaVcSbtRRv
+ QzD1D+o3sTW4fVrl6B7i+jZokbF2txBuRtWYWf/nmD91HYipez2TG3+ESKatF8TkB2ljJJ7bzJq
+ skJyaP7K4rkyQrSZa26oM9Sl0k8L8d5UtDBwr+G6GgUiR/dMPms1RLoK5TDddcFUa0oXRV4exHB
+ zB4oycPe6DEJlFvho9A==
+X-Proofpoint-ORIG-GUID: Xvz8--CWkq5n806EPmSb2wF4QY9BkjbU
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDEyMyBTYWx0ZWRfX3TZtVXbAXvDC
+ izfn0SDdgY8QKHweIzn2lzJAahLei0D4QBbgprSJ7kJfjPBEDj/TMv719+TP1veqqF0Rr7Wy2ij
+ rdMKvyHf8FymrS/acpSaG/s+sTQMUhs=
+X-Proofpoint-GUID: Xvz8--CWkq5n806EPmSb2wF4QY9BkjbU
+X-Authority-Analysis: v=2.4 cv=WNhPmHsR c=1 sm=1 tr=0 ts=6a8330a0 cx=c_pps
+ a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=NEAV23lmAAAA:8
+ a=8ilw5EQWc8m46JC1U7oA:9 a=2VI0MkxyNR6bbpdq8BZq:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-17_02,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 spamscore=0 phishscore=0 impostorscore=0 adultscore=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 bulkscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608170123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_085445_375528_B2E95769 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20260817_090241_632479_3DF6FB3F 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,264 +160,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Qiao Zhao <qzhao@redhat.com>
+This Linux series adds kernel support for the RISC-V Performance Event
+Sampling extensions Sspesa (Precise Event Sample Attribution) and
+Ssplcofi (Precise Local Counter Overflow Interrupt).
 
-RISC-V and Arm control userspace counter access through
-/proc/sys/kernel/perf_user_access. Add that as a fallback to
-set_user_read() so the test can test both the enabled and disabled
-states on those platforms. RISC-V also uses a '2' value rather than just
-0 or 1 so add support for restoring arbitrary values.
+The first two patches add the DT binding and ISA-extension detection
+(Ssplcofi depends on Sspesa). The third patch uses shpmspc to report the
+sample PC via PERF_SAMPLE_IP in the SBI PMU overflow handler, and
+exports shpmsdata as PERF_SAMPLE_RAW.
 
-On Arm, cap_user_rdpmc will always be set when requested, even if the
-global setting is disabled. This is so that the feature can be enabled
-or revoked while events are live. Skip checking it on Arm for the
-"expected disabled" case, otherwise the test will fail.
+Reproducing the full setup:
 
-Add comments, more meaningful variable names and improve the error
-messages so that it's clearer what this part of the test is doing.
+Sspesa support requires three projects: OpenSBI, Linux and QEMU. The
+matching branches are:
 
-Signed-off-by: Qiao Zhao <qzhao@redhat.com>
-[Test pc->index, fix bugs in set_user_read(), and simplify commit msg]
-Assisted-by: Codex:GPT-5.6
-Signed-off-by: James Clark <james.clark@linaro.org>
----
-I'm sending this to fix the comments that I left on the "V3 resend"
-because I don't think Qiao sent a V4 and it's been quite a while.
+  OpenSBI: https://github.com/mdchitale/opensbi/tree/riscv_sspesa_rfc_v1
+  Linux:   https://github.com/mdchitale/linux/tree/riscv_sspesa_rfc_v1
+  QEMU:    https://github.com/mdchitale/qemu/tree/riscv_sspesa_rfc_v1
 
-There were also some unreported bugs that I found during testing.
+To test Sspesa, build OpenSBI, Linux and QEMU from the branches above,
+then boot Linux with:
 
-Changes in V4:
- - Don't remove pc->index check. Without it Perf can silently fall back
-   to the read() syscall and the test is useless.
- - Test the 'expected disabled' case for Arm in an ifdef to workaround
-   platform differences.
- - lseek() before writing to perf_user_access otherwise it's ignored.
- - Support restoring arbitrary values to perf_user_access because RISC-V
-   uses '2' for legacy mode.
- - Rename rdpmc_supported to rdpmc_expected as this is what the test
-   expects, not what the system does.
- - Label pc->index as rdpmc_event_active for clarity.
- - Add comments and simplify the commit message.
----
- tools/perf/tests/mmap-basic.c | 137 ++++++++++++++++++++++++++++++------------
- 1 file changed, 98 insertions(+), 39 deletions(-)
+  qemu-system-riscv64 -nographic -machine virt -smp 2 -m 2G \
+    -cpu rv64,sscofpmf=on,sspesa=on \
+    -bios /path/to/fw_dynamic.bin -kernel /path/to/Image \
+    -drive file=/path/to/rootfs.img,id=hd0,format=raw,if=none \
+    -device virtio-blk-device,drive=hd0 \
+    -append "root=/dev/vda rw console=ttyS0 earlycon=sbi"
 
-diff --git a/tools/perf/tests/mmap-basic.c b/tools/perf/tests/mmap-basic.c
-index 5cec7644952c..4433a5df3d77 100644
---- a/tools/perf/tests/mmap-basic.c
-+++ b/tools/perf/tests/mmap-basic.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <errno.h>
- #include <inttypes.h>
-+#include <limits.h>
- #include <stdlib.h>
- 
- #include <fcntl.h>
-@@ -182,47 +183,77 @@ static int test__basic_mmap(struct test_suite *test __maybe_unused, int subtest
- }
- 
- enum user_read_state {
--	USER_READ_ENABLED,
--	USER_READ_DISABLED,
--	USER_READ_UNKNOWN,
-+	USER_READ_UNKNOWN = -1,
-+	USER_READ_DISABLED = 0,
-+	USER_READ_ENABLED = 1,
- };
- 
--static enum user_read_state set_user_read(struct perf_pmu *pmu, enum user_read_state enabled)
-+static int set_user_read_fd(int fd, int enabled)
- {
--	char buf[2] = {0, '\n'};
-+	char buf[32], *endptr;
-+	long value;
- 	ssize_t len;
--	int events_fd, rdpmc_fd;
--	enum user_read_state old_user_read = USER_READ_UNKNOWN;
-+	int old_user_read;
- 
--	if (enabled == USER_READ_UNKNOWN)
-+	len = read(fd, buf, sizeof(buf) - 1);
-+	if (len <= 0) {
-+		pr_debug("%s read failed\n", __func__);
- 		return USER_READ_UNKNOWN;
-+	}
-+	buf[len] = '\0';
- 
--	events_fd = perf_pmu__event_source_devices_fd();
--	if (events_fd < 0)
-+	errno = 0;
-+	value = strtol(buf, &endptr, 10);
-+	if (errno || endptr == buf || value < 0 || value > INT_MAX) {
-+		pr_debug("%s invalid value: %s\n", __func__, buf);
- 		return USER_READ_UNKNOWN;
-+	}
-+	old_user_read = value;
- 
--	rdpmc_fd = perf_pmu__pathname_fd(events_fd, pmu->name, "rdpmc", O_RDWR);
--	if (rdpmc_fd < 0) {
--		close(events_fd);
--		return USER_READ_UNKNOWN;
-+	if (enabled == old_user_read)
-+		return old_user_read;
-+
-+	len = scnprintf(buf, sizeof(buf), "%d\n", enabled);
-+	if (lseek(fd, 0, SEEK_SET) < 0) {
-+		pr_debug("%s seek failed\n", __func__);
-+		return old_user_read;
- 	}
-+	if (write(fd, buf, len) != len)
-+		pr_debug("%s write failed\n", __func__);
- 
--	len = read(rdpmc_fd, buf, sizeof(buf));
--	if (len != sizeof(buf))
--		pr_debug("%s read failed\n", __func__);
-+	return old_user_read;
-+}
-+
-+static int set_user_read(struct perf_pmu *pmu, int enabled)
-+{
-+	int events_fd, fd, old_user_read;
- 
--	// Note, on Intel hybrid disabling on 1 PMU will implicitly disable on
--	// all the core PMUs.
--	old_user_read = (buf[0] == '1') ? USER_READ_ENABLED : USER_READ_DISABLED;
-+	if (enabled == USER_READ_UNKNOWN)
-+		return USER_READ_UNKNOWN;
- 
--	if (enabled != old_user_read) {
--		buf[0] = (enabled == USER_READ_ENABLED) ? '1' : '0';
--		len = write(rdpmc_fd, buf, sizeof(buf));
--		if (len != sizeof(buf))
--			pr_debug("%s write failed\n", __func__);
-+	events_fd = perf_pmu__event_source_devices_fd();
-+	if (events_fd >= 0) {
-+		fd = perf_pmu__pathname_fd(events_fd, pmu->name, "rdpmc", O_RDWR);
-+		if (fd >= 0) {
-+			/*
-+			 * Note, on Intel hybrid disabling on 1 PMU will
-+			 * implicitly disable on all the core PMUs.
-+			 */
-+			old_user_read = set_user_read_fd(fd, enabled);
-+			close(fd);
-+			close(events_fd);
-+			return old_user_read;
-+		}
-+		close(events_fd);
- 	}
--	close(rdpmc_fd);
--	close(events_fd);
-+
-+	/* Fallback: perf_user_access interface (arm64, riscv, or similar) */
-+	fd = open("/proc/sys/kernel/perf_user_access", O_RDWR);
-+	if (fd < 0)
-+		return USER_READ_UNKNOWN;
-+
-+	old_user_read = set_user_read_fd(fd, enabled);
-+	close(fd);
- 	return old_user_read;
- }
- 
-@@ -240,7 +271,7 @@ static int test_stat_user_read(u64 event, enum user_read_state enabled)
- 	perf_thread_map__set_pid(threads, 0, 0);
- 
- 	while ((pmu = perf_pmus__scan_core(pmu)) != NULL) {
--		enum user_read_state saved_user_read_state = set_user_read(pmu, enabled);
-+		int saved_user_read_state = set_user_read(pmu, enabled);
- 		struct perf_event_attr attr = {
- 			.type	= PERF_TYPE_HARDWARE,
- 			.config	= perf_pmus__supports_extended_type()
-@@ -253,7 +284,8 @@ static int test_stat_user_read(u64 event, enum user_read_state enabled)
- 		struct perf_evsel *evsel = NULL;
- 		int err;
- 		struct perf_event_mmap_page *pc;
--		bool mapped = false, opened = false, rdpmc_supported;
-+		bool mapped = false, opened = false, rdpmc_expected;
-+		bool rdpmc_event_active;
- 		struct perf_counts_values counts = { .val = 0 };
- 
- 
-@@ -301,26 +333,53 @@ static int test_stat_user_read(u64 event, enum user_read_state enabled)
- 			goto cleanup;
- 		}
- 
-+		/*
-+		 * When pc->index == 0, userspace access is disabled and Perf
-+		 * will silently use the read() syscall instead. Test this to
-+		 * make sure we're not doing that.
-+		 */
-+		rdpmc_event_active = pc->index;
-+
-+		/*
-+		 * If we couldn't set the state, test that whatever state we're
-+		 * already in is the expected one.
-+		 */
- 		if (saved_user_read_state == USER_READ_UNKNOWN)
--			rdpmc_supported = pc->cap_user_rdpmc && pc->index;
-+			rdpmc_expected = pc->cap_user_rdpmc && rdpmc_event_active;
- 		else
--			rdpmc_supported = (enabled == USER_READ_ENABLED);
-+			rdpmc_expected = (enabled == USER_READ_ENABLED);
- 
--		if (rdpmc_supported && (!pc->cap_user_rdpmc || !pc->index)) {
--			pr_err("User space counter reading for PMU %s [Failed unexpected supported counter access %d %d]\n",
--				pmu->name, pc->cap_user_rdpmc, pc->index);
-+		if (rdpmc_expected && (!pc->cap_user_rdpmc || !rdpmc_event_active)) {
-+			pr_err("User space counter reading for PMU %s [Failed. rdpmc event should be both enabled and active %d %d]\n",
-+				pmu->name, pc->cap_user_rdpmc, rdpmc_event_active);
- 			ret = TEST_FAIL;
- 			goto cleanup;
- 		}
- 
--		if (!rdpmc_supported && pc->cap_user_rdpmc) {
--			pr_err("User space counter reading for PMU %s [Failed unexpected unsupported counter access %d]\n",
--				pmu->name, pc->cap_user_rdpmc);
-+#ifdef __aarch64__
-+		/*
-+		 * On Arm, pc->cap_user_rdpmc is set when the event is opened
-+		 * with userspace counter access, regardless of whether rdpmc is
-+		 * enabled or not via sysfs. The event is always opened with it
-+		 * in this test, so don't check it in the expected disabled
-+		 * case.
-+		 */
-+		if (!rdpmc_expected && rdpmc_event_active) {
-+			pr_err("User space counter reading for PMU %s [Failed. rdpmc event should be inactive %d]\n",
-+				pmu->name, rdpmc_event_active);
-+			ret = TEST_FAIL;
-+			goto cleanup;
-+		}
-+#else
-+		if (!rdpmc_expected && pc->cap_user_rdpmc) {
-+			pr_err("User space counter reading for PMU %s [Failed. rdpmc event should be disabled and inactive %d %d]\n",
-+				pmu->name, pc->cap_user_rdpmc, rdpmc_event_active);
- 			ret = TEST_FAIL;
- 			goto cleanup;
- 		}
-+#endif
- 
--		if (rdpmc_supported && pc->pmc_width < 32) {
-+		if (rdpmc_expected && pc->pmc_width < 32) {
- 			pr_err("User space counter reading for PMU %s [Failed width not set %d]\n",
- 				pmu->name, pc->pmc_width);
- 			ret = TEST_FAIL;
-@@ -328,7 +387,7 @@ static int test_stat_user_read(u64 event, enum user_read_state enabled)
- 		}
- 
- 		perf_evsel__read(evsel, 0, 0, &counts);
--		if (rdpmc_supported && counts.val == 0) {
-+		if (rdpmc_expected && counts.val == 0) {
- 			pr_err("User space counter reading for PMU %s [Failed read]\n", pmu->name);
- 			ret = TEST_FAIL;
- 			goto cleanup;
+With all three in place, a counter overflow (e.g. 'perf record -e
+cycles -c 1000000 -- <workload>') is attributed using the
+hardware-provided sample PC (shpmspc) and counter ID (shpmsdata)
+instead of falling back to epc.
 
----
-base-commit: 6ae6fb96ccd48032b00a38d5f8e0e0a2cce4972b
-change-id: 20260817-rdpmc-detection-logic-d3f7a49cfb46
+Mayuresh Chitale (3):
+  dt-bindings: riscv: Add Sspesa and Ssplcofi extensions
+  riscv: Add detection for Sspesa and Ssplcofi extensions
+  perf/riscv: Use Sspesa for precise sample attribution
 
-Best regards,
---  
-James Clark <james.clark@linaro.org>
+ .../devicetree/bindings/riscv/extensions.yaml | 19 ++++++++++++
+ arch/riscv/include/asm/csr.h                  |  7 +++++
+ arch/riscv/include/asm/hwcap.h                |  2 ++
+ arch/riscv/kernel/cpufeature.c                | 12 ++++++++
+ drivers/perf/riscv_pmu_sbi.c                  | 29 +++++++++++++++++++
+ 5 files changed, 69 insertions(+)
+
+-- 
+2.43.0
 
 
 _______________________________________________
