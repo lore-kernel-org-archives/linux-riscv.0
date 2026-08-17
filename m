@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8585BC5CFC1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF78DC5DF70
 	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 07:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jPaa4wkW0lLk28iiLl/oGWTHi/+m9/X2kWX8DBt0EvE=; b=SfI/lOa7GzUZJx
-	O1usET8X3YCuYFPIfwfpUIvki2Rle/C7z7l4a1k7IldD5K2UzmoWgDM2MR46sTkNasPc+WxX73+b4
-	4jnc5pcmFg91re7CEAgkVnWBMa0oBCzZYam8xPZuUuVmJrdl1DlRNIBXJwOHKD4MWt6k0mOybvhqY
-	Vp2o17H6hOOFvhyOFD6XKLNqkYQEtceKbhx91O5M4TPXriq8geCKTLKE5ZblSgjSobOKQzu4fagIc
-	hU8YOeYHo1kMY7KheMLnmlOmjMYVE4edp6sIRQKgGipvic+2QWzcG4La5mzu+DcQtPowE/4Wa/hEb
-	sfHJoakCa9XlW7jzkZSA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FpeYuliTHk5QlY95i38p2VMvu2wLsFLBtrEcYDBc+XE=; b=BASu6b4gN0J9cq
+	0b5tuH1TQA6Xzjg3mO2AClMNiCVAN5LwySg9aOoP3A1Yg7Y5MZFJPYYxpRnEeVO6nNHDHf3H0wJaB
+	FCs0thS7M+BNiRz08c5li6qKv5d35Fs7nY8pkDqCg3QoGKUZvnwJAl8MHXJGvwrg9gBhdG918KP0d
+	js+zhV4TxjdGkB8VgPnlOGmHJO1irr5rG6GObqne3+4q+KEsUist7A5VAykjdsvIeRelRfOa6aa9X
+	uoYosbOYCaiIqCopa7wKhrbvmcGzWCdWZI1cfu5zvRY33fRh8UMzawpfbxi+ujawB8rfZTvlwXHbO
+	PX4jZ36IaYrswVp+OZbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvriL-00000005XWv-45qA;
-	Mon, 17 Aug 2026 07:24:57 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvriH-00000005XV9-0UyY
-	for linux-riscv@lists.infradead.org;
+	id 1wvriJ-00000005XWZ-2qlQ;
 	Mon, 17 Aug 2026 07:24:55 +0000
+Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wvriG-00000005XVA-47dH
+	for linux-riscv@lists.infradead.org;
+	Mon, 17 Aug 2026 07:24:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1786951486; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=kwE4cF+d5LagXyZRJGwhqf3uEfWaLKloLMjaXC2pVoA=;
-	b=JvdyeBG+QXF8DDweF7dS4K37ofe2n+5lf1nOTJZyqs6j7//DrIr35SMLNlyTJnj8O5E8y+046oM7hwFDtKNfpafB/hn2147GOMVp33UP5BDfxKaGg/P1Na+3Sa4pmWKQS57ZrBqtigCFtunpWmSOm87Ec97RLTgqvO24zrhACDs=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0X946s0G_1786951473;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X946s0G_1786951473 cluster:ay36)
+	t=1786951487; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=QiDMtzylae+qC9+4Ug6NQ9raR1nP9TUQubbhKCJf3IM=;
+	b=SuOgOgfFtwDdNqjhm/vtYi+VOXVhM3euQsgUS8KeuolB1X4HIARWHyQKXERSGe5gVt+QjaX1B2+r7gqJuJ+cDtS34PP3ny6U9hqnFlX0Yx1WdDXjbr01lAU4exPHbTOw8iOzHBJuA5iIEeqV6pYViwm1AHjWImCg9t194FPHNpM=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0X946s4R_1786951486;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X946s4R_1786951486 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 17 Aug 2026 15:24:44 +0800
+          Mon, 17 Aug 2026 15:24:46 +0800
 From: Chen Pei <cp0613@linux.alibaba.com>
 To: ast@kernel.org,
 	daniel@iogearbox.net,
@@ -58,14 +58,17 @@ Cc: eddyz87@gmail.com,
 	linux-riscv@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next 0/2] bpf, riscv: Add support for signed arena loads
-Date: Mon, 17 Aug 2026 15:24:31 +0800
-Message-ID: <cover.1786708960.git.cp0613@linux.alibaba.com>
+Subject: [PATCH bpf-next 2/2] selftests/bpf: Enable arena LDSX tests for riscv64
+Date: Mon, 17 Aug 2026 15:24:33 +0800
+Message-ID: <913f4fd8b3d0b7470428d9e6f0ed64f3a89e8a98.1786708960.git.cp0613@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1786708960.git.cp0613@linux.alibaba.com>
+References: <cover.1786708960.git.cp0613@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_002453_293958_F90FE202 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20260817_002453_193769_7DC2A022 
+X-CRM114-Status: UNSURE (   5.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +85,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Now that the riscv64 JIT supports signed arena loads
+(BPF_PROBE_MEM32SX), enable the arena LDSX tests on riscv64:
+add JIT disassembly assertions for arena_ldsx_disasm (arena base in
+s7, add into t2, sign-extending lw/lh/lb loads) and run
+arena_ldsx_exception and arena_ldsx_s8/s16/s32 on riscv64.
 
-Signed loads from arena memory are currently unsupported on riscv64:
-bpf_jit_supports_insn() rejects BPF_MEMSX loads when in_arena is set,
-so the verifier fails such programs with "sign extending loads from
-arena are not supported yet". The x86 and arm64 JITs gained support
-for them in v6.18 (a91ae3c89311, eab2a71f3a6a). Since compilers are
-free to generate signed loads into arena memory (e.g. GCC-14 was
-reported to do so), otherwise valid BPF programs fail to load on
-riscv64.
-
-This series adds BPF_PROBE_MEM32SX support to the RV64 JIT and
-enables the corresponding selftests on riscv64:
-
-1 implements signed arena loads in the RV64 JIT. The verifier
-  already converts MEMSX loads from PTR_TO_ARENA to
-  BPF_PROBE_MEM32SX once bpf_jit_supports_insn() allows them, so
-  the JIT reuses the existing arena handling: the arena base
-  (RV_REG_ARENA) is added to the source register and the load is
-  emitted with sign extension (lb/lh/lw). BPF_PROBE_MEM32SX is also
-  added to the add_exception_handler() mode gate so faulting loads
-  register an exception table entry that clears the destination
-  register and resumes execution.
-
-2 enables the arena LDSX tests on riscv64: JIT disassembly
-  assertions are added to arena_ldsx_disasm, and
-  arena_ldsx_exception/s8/s16/s32 are now run on riscv64.
-
-The series was verified on riscv64 with QEMU (-M virt -cpu max): all
-five arena_ldsx tests pass, including the exception path (load from
-unallocated arena memory returns 0) and the sign-extension values
-(s8/s16/s32 tests return -1 as expected).
-
-Note: the __jited assertions in patch 2 were derived from the JIT
-register allocation (R0->a5, R1->a0, R8->s3, R9->s4, arena base in
-s7) and the emit_ldx() code paths; happy to adjust them if a
-disassembler output detail differs.
-
-Thanks,
-Pei
-
-Chen Pei (2):
-  bpf, riscv: Add support for signed arena loads
-  selftests/bpf: Enable arena LDSX tests for riscv64
-
- arch/riscv/net/bpf_jit_comp64.c                 | 15 +++++++++------
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+---
  .../testing/selftests/bpf/progs/verifier_ldsx.c | 17 +++++++++++++++++
- 2 files changed, 26 insertions(+), 6 deletions(-)
+ 1 file changed, 17 insertions(+)
 
+diff --git a/tools/testing/selftests/bpf/progs/verifier_ldsx.c b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
+index 41340877dc9d..ed0a0f159bc1 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_ldsx.c
++++ b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
+@@ -286,6 +286,19 @@ __jited("add	x11, x0, x28")
+ __jited("ldrsh	x22, [x11, #0x18]")
+ __jited("add	x11, x0, x28")
+ __jited("ldrsb	x22, [x11, #0x20]")
++__arch_riscv64
++__jited("add	t2, a5, s7")
++__jited("lw	s3, 0x10(t2)")
++__jited("add	t2, a5, s7")
++__jited("lh	s3, 0x18(t2)")
++__jited("add	t2, a5, s7")
++__jited("lb	s3, 0x20(t2)")
++__jited("add	t2, a0, s7")
++__jited("lw	s4, 0x10(t2)")
++__jited("add	t2, a0, s7")
++__jited("lh	s4, 0x18(t2)")
++__jited("add	t2, a0, s7")
++__jited("lb	s4, 0x20(t2)")
+ __naked void arena_ldsx_disasm(void *ctx)
+ {
+ 	asm volatile (
+@@ -317,6 +330,7 @@ __description("Arena LDSX Exception")
+ __success __retval(0)
+ __arch_x86_64
+ __arch_arm64
++__arch_riscv64
+ __naked void arena_ldsx_exception(void *ctx)
+ {
+ 	asm volatile (
+@@ -338,6 +352,7 @@ __description("Arena LDSX, S8")
+ __success __retval(-1)
+ __arch_x86_64
+ __arch_arm64
++__arch_riscv64
+ __naked void arena_ldsx_s8(void *ctx)
+ {
+ 	asm volatile (
+@@ -369,6 +384,7 @@ __description("Arena LDSX, S16")
+ __success __retval(-1)
+ __arch_x86_64
+ __arch_arm64
++__arch_riscv64
+ __naked void arena_ldsx_s16(void *ctx)
+ {
+ 	asm volatile (
+@@ -400,6 +416,7 @@ __description("Arena LDSX, S32")
+ __success __retval(-1)
+ __arch_x86_64
+ __arch_arm64
++__arch_riscv64
+ __naked void arena_ldsx_s32(void *ctx)
+ {
+ 	asm volatile (
 -- 
 2.50.1
 
