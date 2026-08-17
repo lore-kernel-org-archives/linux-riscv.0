@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1FBC5B572
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 13:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76900C5DF7A
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 14:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eG2WtuFOzi/aVlh0710Lr8JQUgZpN6OiNFLaynie7F8=; b=p+TxnBBZvYwmFa
-	dGvv3kDjDVKONuhJis39vnSgs0Dlf2V3wMIO4B1wVM5j9gzSp+/tCNrKEtM7NRTHso+kYRhmbToFn
-	KVUUSmr/p6yvSJ6u12QUBYEsKiuYK5+fx4MnfUDmRwFuLNT+6v0IdF8qtfVfekGfFZhi3k5KDNlU2
-	wwmpkMmIj9a55eAkGS4SZFo1noTvrfVn076UN47Tt0Png7YllBl3xKDvIeqB+DphB+L64+nPG3R70
-	WkxFlzi0D6x4qTYMFaeepXKawVuRvXALirSPVlxaZTaglqr2bxrsO7w8YnqMzi5qXcxo0VW4Jwi9q
-	Lh/DjJT4K3BkZSF23MNg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k/SPK1G6SwOxNUNgMWtolNRsmcbsuv1RA7K8Xv+xPrU=; b=NOruDw9rP3GWsDhCV+urmIdZun
+	nKTNnQHmtCAv10CFe6cnVVKgjTG4vChlx0icJCl0VC5taGu+4f6Zkqsp0WQuGk0DVSuE8jwRV6frG
+	+4SrSOZQrAHSlyf26z5zf4T4VWpHGAxoqWLl6iXEwBdlUMjdWhd9687hBVxmWNmaMgvAhoBpMTfJ/
+	CJUTT5/PAfG1/9e8eGQWMS/jg8V3GkUT5Ux+LAb175zYn0xKGgMJ9Yxdm20r/VKlCq2d9qLspJQON
+	+wfYg1J8S8r0I0r55pdHcny9RTlp3HgFib3jnI5UTcUWUOTsSUkEWEv4YCllKXCc0hCVZYOcAh/K7
+	wLp7/lpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxgM-00000006EzB-3Mk9;
-	Mon, 17 Aug 2026 13:47:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wvy80-00000006HQB-0Aew;
+	Mon, 17 Aug 2026 14:15:52 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxgL-00000006Eyv-2hrh
+	id 1wvy7w-00000006HPQ-3FeI
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 13:47:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B1A19601FB;
-	Mon, 17 Aug 2026 13:47:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43F9F1F00A3E;
-	Mon, 17 Aug 2026 13:47:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786974436;
-	bh=k1VQX/8T6qmRuZ70T/Bkc+hmL8lJxIvhiMcXNK7f0Wo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PWP+K52JNw7DpfYOStdKQ13D7jDg2yHZka6RQR4sVeVo0dlnOEtbo2pmcEnywnu/P
-	 y73eS+NGv9M3qLuRCRrfszkFSdkK4yOcXRYMXw4FtE+L1XISeHkfYZIuJnzqbcpjkH
-	 vlDOhnnKmAq/0S0QHZmRnUdjz4APXxt452ayoMJp5DftMZSR5dHmN1vQaa6Hk32VDy
-	 7v8EqdgoAFWA+sS6z2doecA7erhDUGpkZPAYL+laASsqFrbwYwk98S4gm3T4wUm/hu
-	 1jebrM5m0TkulYnXjlJYLI7A1SY4Hz1CPKunuxQbQBdWt0uBKi0BfT3oBhavOC9Cb1
-	 ZvaqGNj76LwbQ==
-Date: Mon, 17 Aug 2026 08:47:15 -0500
-From: Rob Herring <robh@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Changhuang Liang <changhuang.liang@starfivetech.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Subject: Re: [PATCH v5 03/21] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0-pinctrl
-Message-ID: <20260817134715.GA18207-robh@kernel.org>
-References: <20260810063650.239303-1-changhuang.liang@starfivetech.com>
- <20260810063650.239303-4-changhuang.liang@starfivetech.com>
- <178634991918.1014951.7989635238440361454.robh@kernel.org>
- <ZQ4PR01MB120202070B9006984B8677EAF2DE2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260810144012.GA1574021-robh@kernel.org>
- <ZQ4PR01MB12020D2031C400FF805791B7F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <ZQ4PR01MB120275B9C0CF6BCE8C88261CF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260814-shapeless-onyx-pronghorn-d423a9@quoll>
- <ZQ4PR01MB12022F6D6F71542033CF857BF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <CAD++jL=Q38HwraN1NEOxLf_hE+k=3Q6JP+DUgQsThfYve0t0RA@mail.gmail.com>
+	Mon, 17 Aug 2026 14:15:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1786976148; x=1818512148;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=SUNRs3ekH9d7tIDCE+FLtqvCJk4MOw0Hpq23FcS6BcM=;
+  b=Z/WZtkyzMVkSYx5yGQ9nOdoOeMgZCjReLDQ6uRkJEB/bYLNftvaIHHjg
+   VsHsTjhYRDEohGrM2me82brmpkcG8EEMaJHQ9Lfs6arHk0NNfGBGgccw1
+   dJrAa7z7WdcOx3HE8oSJC3RLYTq3Z1/gN0ZzBcoeVwYSI5hg6uwnbrmsS
+   Wj/9RUsg2B4bLIWdod+sMQ1AvjZuVNHhriyofkioLJciEjcho2NnyZDMA
+   LWEioUEEFrkKODW96yRnj4MIR5sMRZI4zeEaNxzDztte7HJ7A/XC244pk
+   xJBLn7BDYv4JczQ3YeSoirPuG9bHhKi78LhvIJeYXGKrV+GuTALGhEbR4
+   Q==;
+X-CSE-ConnectionGUID: XzMd5B7sTriYVChL9cryQg==
+X-CSE-MsgGUID: Cfx/b3YCQ+GVPhdxeXEX2g==
+X-IronPort-AV: E=Sophos;i="6.25,229,1779174000"; 
+   d="asc'?scan'208";a="62555110"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2026 07:15:45 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Mon, 17 Aug 2026 07:15:45 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Mon, 17 Aug 2026 07:15:43 -0700
+Date: Mon, 17 Aug 2026 15:14:36 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Ivy Lopez <skunkolee@gmail.com>
+CC: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Andrew
+ Jones <andrew.jones@oss.qualcomm.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: hwprobe: require both F and D extensions for
+ RISCV_HWPROBE_IMA_FD
+Message-ID: <20260817-unmade-dyslexic-4bb4acf535af@wendy>
+References: <20260816003216.22534-1-skunkolee@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAD++jL=Q38HwraN1NEOxLf_hE+k=3Q6JP+DUgQsThfYve0t0RA@mail.gmail.com>
+In-Reply-To: <20260816003216.22534-1-skunkolee@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260817_071549_244560_FC222369 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +83,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3869451153507812737=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBBdWcgMTcsIDIwMjYgYXQgMDI6NDU6MjJQTSArMDIwMCwgTGludXMgV2FsbGVpaiB3
-cm90ZToKPiBPbiBGcmksIEF1ZyAxNCwgMjAyNiBhdCAxOjIy4oCvUE0gQ2hhbmdodWFuZyBMaWFu
-Zwo+IDxjaGFuZ2h1YW5nLmxpYW5nQHN0YXJmaXZldGVjaC5jb20+IHdyb3RlOgo+IAo+ID4gPiBZ
-b3Ugc3RpbGwgZGlkIG5vdCBleHBsYWluIHRoZSBjZWxscyAtIG5laXRoZXIgaW4gcmVwbHkgbm9y
-IGluIGNvbW1pdCAtIHRodXMgc3RhcnQKPiA+ID4gd2l0aCB0aGF0LiBXaHkgZG8geW91IG5lZWQg
-aXQ/IE11bHRpcGxlIGNvbnRyb2xsZXJzIGhhdmUgZ3JvdXBwZWQgcGlucyBvcgo+ID4gPiBHUElP
-cyBpbiByZWdpc3RlcnMsIHNvIGV4cGxhbmF0aW9uICJldmVyeSAzMiBHUElPcyBjb3JyZXNwb25k
-IHRvIG9uZSByZWdpc3RlciIKPiA+ID4gdGVsbHMgbWUgbm90aGluZy4gV2h5IHdvdWxkIHRoYXQg
-bWF0dGVyIGhvdyBtYW55IEdQSU9zIGlzIGluIG9uZSByZWdpc3Rlcj8KPiA+Cj4gPiBTaW5jZSBl
-dmVyeSAzMiBHUElPcyBjb3JyZXNwb25kIHRvIG9uZSByZWdpc3RlciwgTGludXMgc3VnZ2VzdGVk
-IGF0IHRoZSB0aW1lIHRoYXQgSSBjb3VsZCB0cnkgdXNpbmc6Cj4gPiBncGlvcyA9IDwmZ3BpbyBb
-aW5zdGFuY2VdIG9mZnNldCBmbGFncz47Cj4gPiBncGlvLXJhbmdlcyA9IDwmcGluY3RybCBbZ3Bp
-b19pbnN0YW5jZV0gZ3Bpb19vZmZzZXQgcGluX29mZnNldCBjb3VudD47Cj4gPgo+ID4gVGhlIGFk
-dmFudGFnZSBvZiB1c2luZyB0aGlzIGlzIHRoYXQgaW4gYSBHUElPIGNvbnRyb2xsZXIgd2l0aCBt
-b3JlIHRoYW4gMzIgR1BJT3MsIGV2ZXJ5IDMyIEdQSU9zCj4gPiBjYW4gYmUgdHJlYXRlZCBhcyBv
-bmUgR1BJTyBiYW5rLiBUaGlzIHdheSwgaW4gdGhlIGRyaXZlciwgY29udmVydGluZyBwaW5fb2Zm
-c2V0IHRvIGdwaW9fb2Zmc2V0IGRvZXMKPiA+IG5vdCByZXF1aXJlIGEgbGFyZ2UgbnVtYmVyIG9m
-IC8zMiBhbmQgJTMyIG9wZXJhdGlvbnMuCj4gPgo+ID4gdGhlIGZvbGxvd2luZyBpcyBMaW51cydz
-IG9yaWdpbmFsIHN1Z2dlc3Rpb24gYXQgdGhlIHRpbWUKPiA+IGh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL2FsbC9DQUQrK2pMPXR2REJXSkhSR0dKdzRubm94X2tjSktuNWh3dnd6OXp4YWRNUmVkeXZS
-aHdAbWFpbC5nbWFpbC5jb20vCj4gCj4gSnVzdCBjb3B5IHRoaXMgZXhwbGFuYXRpb24gaW50byB0
-aGUgY29tbWl0IHNvIGl0IGlzIGNsZWFyIHdoeSB5b3UKPiBuZWVkIHRocmVlIGNlbGxzIGZvciB0
-aGlzLgoKIkNhbiB1c2UgZ3Bpb2xpYiIgaXMgbm90IHJlYWxseSBqdXN0aWZpY2F0aW9uLiBOZWl0
-aGVyIGlzIGF2b2lkaW5nIGEgCnNoaWZ0IGFuZC9vciBtYXNrLiBJIHN1cHBvc2UgdGhlcmUncyBz
-b21lIGgvdyBhdHRyaWJ1dGUgaGVyZSB0byBqdXN0aWZ5IAppdD8gCgpSb2IKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============3869451153507812737==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="n7SigRToBKy0m259"
+Content-Disposition: inline
+
+--n7SigRToBKy0m259
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, Aug 15, 2026 at 06:32:16PM -0600, Ivy Lopez wrote:
+> Documentation/arch/riscv/hwprobe.rst states that RISCV_HWPROBE_IMA_FD
+> means both the F and D extensions are supported. However, the
+> implementation uses has_fpu(), which returns true if either extension
+> is present, since that's sufficient to determine whether FPU state
+> needs to be saved/restored. Reusing it here silently weakens the
+> hwprobe semantics from "F and D" to "F or D", giving userspace no way
+> to know which extension is actually present when only one is.
+
+The kernel never supports F without D, so this cannot occur.
+riscv_isa_extension_available(NULL, f) always returns false if D is not
+also present.
+
+If anything, the code in has_fpu() should be changed to only check D and
+not F to match expectations elsewhere, or F and D for the same reason.
+
+>=20
+> Check both extensions explicitly with riscv_isa_extension_available(),
+> matching the pattern already used for the neighboring C and V checks.
+>=20
+> Link: https://bugzilla.kernel.org/show_bug.cgi?id=3D221874
+> Signed-off-by: Ivy Lopez <skunkolee@gmail.com>
+> ---
+>  arch/riscv/kernel/sys_hwprobe.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwpr=
+obe.c
+> index 1659d31fd288..7f91beb82a1c 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -85,7 +85,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
+>  	u64 missing =3D 0;
+> =20
+>  	pair->value =3D 0;
+> -	if (has_fpu())
+> +	if (riscv_isa_extension_available(NULL, f) && riscv_isa_extension_avail=
+able(NULL, d))
+>  		pair->value |=3D RISCV_HWPROBE_IMA_FD;
+> =20
+>  	if (riscv_isa_extension_available(NULL, c))
+> --=20
+> 2.55.0
+>=20
+
+--n7SigRToBKy0m259
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaoMXSAAKCRB4tDGHoIJi
+0r33AP9xvTpVhoNyjAY90W4COwASd1mqNfOe9G3m5dpok0xXnAEAvta/WYrgdiJS
+ph9ufnFx3dNQEarmIui3TUPaJMjtEgs=
+=JOkw
+-----END PGP SIGNATURE-----
+
+--n7SigRToBKy0m259--
+
+
+--===============3869451153507812737==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3869451153507812737==--
+
