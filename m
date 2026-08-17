@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C243C5B572
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 14:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F89C5B572
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 14:30:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:Cc:To:
+	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V7K2TeCSPRq6Jb3BoPAi4BjVTCmbk0zqrR4OvFYXPy4=; b=l2JY7kkLHHHitZ
-	ZVmZ5MJhjba+QktXsDg1TtSunrOipnetusf5w88KZhWgaeB/rllZodKOwByZbAjIc9/RJP3QVn9JQ
-	aXkK+uwDaBoXDfsYUVDRv3fDTCNdDT7wSu3I/OOibut0ajUa577uTMJzVDq01abQU7nGpZXX6Fl+D
-	ITq9oUDHeaL8z1sXeghn9gr1sVoACTiPZ72GqQxucGa0Oz+Gsa2PP9eVh1Pq8q6qqb5DrvQiX713H
-	dNP5lsO5R9Kl0MybDlDE3uY2aPKVPDoD3Kz81CHGBDboyiVtfaFGqcpNJ/7ouzVPpKGXRJkQmrkKD
-	W3RtLI9vmrgwpguMHpYw==;
+	List-Owner; bh=ti9zSWeJMyL2R0uJEQbITQQ6WcGAyxl5FjYq/D926Sw=; b=WIVsxxbcj3ntIZ
+	SKYs1/7WYssVmQT7YBnRMYlTN+g6Ay4bqMUazS2oc8DuquYiyDhxQ6B6ESHZo36TkdsnsAGYNaVid
+	nAkJSlA9skBjjqLZuYsWbTp6XDEbWIYA3ZgKa/gTntD1tBC09McaE4lQGoaEZIqDtjBiGLmv69/wb
+	oDn/n0q3cHFbG/N3Nh7xjz0D87Woc2p3Lj8JX3EGQDeMXBvEes3FsM32Zhno6KsmaMUXCqjy/ns50
+	N+/f+qaGpiipss4icOQ7+lIGlcdcp3WiYS2X3SzZ79K6DduhmDV44DXYLbHiO7WIEJ9qWQfVSl4L6
+	tweHDP8SJlGeeargqB1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvyKH-00000006IZd-2daf;
-	Mon, 17 Aug 2026 14:28:33 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+	id 1wvyLf-00000006Iu4-3Sas;
+	Mon, 17 Aug 2026 14:29:59 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvyKE-00000006IXe-0rUF
+	id 1wvyLb-00000006ItQ-1iJe
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 14:28:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1786976904; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=Zhv3H2+2w0gZKGeUibRr/8VGF24nes4VuRka42uR/+4=;
-	b=KF1g1Lxa+hfU51rJXttz2hh2LzK0mSj/p8eZZesztngKCnh843owqZ6XlbVVpQ1RboUBX0l9Bxlkdy08zXG3DhWUDD3YIeeUG3NdI1l+K2xfMEaYLNQTUUUYRSeJ/GoFOgBpHAKFX8sbwvYhXOH3RgiTQuWuzTKl4GDFPzhjZkE=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0X9A9H-f_1786976902;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X9A9H-f_1786976902 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 17 Aug 2026 22:28:23 +0800
-From: fangyu.yu@linux.alibaba.com
-To: tomasz.jeznach@linux.dev,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	baolu.lu@linux.intel.com,
-	jroedel@suse.de,
-	zong.li@sifive.com
-Cc: fangyu.yu@linux.alibaba.com,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 1/3] iommu/riscv: Add command queue lock
-Date: Mon, 17 Aug 2026 22:27:26 +0800
-Message-Id: <20260817142728.61783-2-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20260817142728.61783-1-fangyu.yu@linux.alibaba.com>
-References: <20260817142728.61783-1-fangyu.yu@linux.alibaba.com>
-MIME-Version: 1.0
+	Mon, 17 Aug 2026 14:29:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1786976993; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=U6cymWYYO7LXndn2y17LP9o0JEgyHfqvJ3ux/NfjYTSOMXA9NrrNa//Xf7fyJ8ApU7ucrKRdUE4kmzwLAl78KpOuw37h+MkKa8nrOwmwJXH4dcu5dsm1RC7SUqq/BKRiqi7zHMEsLCbErYtiijAwSbTvxw3iCrat5LOa+xe/A8w=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1786976993; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=erKOPNhhAS8hOf6hp4YHEJXpYsPwwHn/G7aMOMRsfvs=; 
+	b=b326afBRjI2Y2P9eyVJy7LReoDzFCGZHtShx4tTaWtLpjCsChBYMza7hOQelkfPYvuN6Yd72/I5e2Xhexti7QIYYAo4tk27hhIXv1lZDDfZsHUzrkZ2Bj+QLOuYKWllS5Paympsu2puZAdBuMMbLEpm3BQA2EmTIHbILlOky+Xk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786976993;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:From:From:To:To:Cc:Cc:Subject:Subject:In-Reply-To:Reply-To;
+	bh=erKOPNhhAS8hOf6hp4YHEJXpYsPwwHn/G7aMOMRsfvs=;
+	b=fdMCEkNRdXEkVujOyg8J8DBhqyPel9M9ywdjX7MUINuL94DuQuqnU6jasT85TsAL
+	DwTqgFiE/h30SKmb+U+HnuwSRiGOIWC62ZttM228rEOIUmfnXYAlNibwHxramTW0aFv
+	n//g1ukf93JAeIfmaGsp7kktWythK4+yjb2FbICU=
+Received: by mx.zohomail.com with SMTPS id 1786976991076117.6855924745521;
+	Mon, 17 Aug 2026 07:29:51 -0700 (PDT)
+Mime-Version: 1.0
+Date: Mon, 17 Aug 2026 22:29:42 +0800
+Message-Id: <DKRAH0LTEIJ8.IFPZCP0258SM@pigmoral.tech>
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Guo Ren" <guoren@kernel.org>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Cc: <dlan@kernel.org>, <devicetree@vger.kernel.org>,
+ <spacemit@lists.linux.dev>, <junhui.liu@pigmoral.tech>,
+ <stable@vger.kernel.org>, "Guodong Xu" <docular.xu@gmail.com>
+Subject: Re: [PATCH V2] riscv: dts: spacemit: k3: fix IMSIC num-guest-ids
+X-Mailer: aerc 0.21.0
+References: <20260817033038.2286436-1-guoren@kernel.org>
+In-Reply-To: <20260817033038.2286436-1-guoren@kernel.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_072830_561396_F71B2F3F 
-X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-CacheID: sfid-20260817_072955_854067_C1916357 
+X-CRM114-Status: UNSURE (   6.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,53 +81,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Hi Guo,
 
-Add a raw spinlock to the RISC-V IOMMU queue state so command queue
-publishing can be serialized by a later change.
+On Mon Aug 17, 2026 at 11:30 AM CST, Guo Ren wrote:
+> From: "GUO Ren (XuanTie)" <guoren@kernel.org>
+>
+> The initial K3 device tree used generic/placeholder values for the
+> IMSIC guest configuration:
+>
+>   riscv,num-guest-ids    = <511>;
+>
+> According to the SpacemiT K3 User Manual this values is incorrect
+> for the X100 cores:
+>
+>  - Advanced Interrupt Architecture (AIA):
+>     - M-mode MSI: 512
+>     - S-mode MSI: 512
+>     - VS-mode MSI: 64
+>
+> Therefore, S-mode IMSIC (simsic) needs num-guest-ids = 63.
+>
+> Fixes: 56f37e391a62 ("riscv: dts: spacemit: add initial support for K3 SoC")
+> Cc: stable@vger.kernel.org
+> Cc: Guodong Xu <docular.xu@gmail.com>
+> Cc: Yixun Lan <dlan@kernel.org>
+> Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
 
-Fixes: 856c0cfe5c5f ("iommu/riscv: Command and fault queue support")
-Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
----
- drivers/iommu/riscv/iommu.c | 1 +
- drivers/iommu/riscv/iommu.h | 2 ++
- 2 files changed, 3 insertions(+)
+Reviewed-by: Junhui Liu <junhui.liu@pigmoral.tech>
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index cec3ddd7ab10..2c0dcc90cf85 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1560,6 +1560,7 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
- 	int rc;
- 
- 	RISCV_IOMMU_QUEUE_INIT(&iommu->cmdq, CQ);
-+	raw_spin_lock_init(&iommu->cmdq.lock);
- 	RISCV_IOMMU_QUEUE_INIT(&iommu->fltq, FQ);
- 
- 	rc = riscv_iommu_init_check(iommu);
-diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
-index 46df79dd5495..5676001548cc 100644
---- a/drivers/iommu/riscv/iommu.h
-+++ b/drivers/iommu/riscv/iommu.h
-@@ -12,6 +12,7 @@
- #define _RISCV_IOMMU_H_
- 
- #include <linux/iommu.h>
-+#include <linux/spinlock.h>
- #include <linux/types.h>
- #include <linux/iopoll.h>
- 
-@@ -23,6 +24,7 @@ struct riscv_iommu_queue {
- 	atomic_t prod;				/* unbounded producer allocation index */
- 	atomic_t head;				/* unbounded shadow ring buffer consumer index */
- 	atomic_t tail;				/* unbounded shadow ring buffer producer index */
-+	raw_spinlock_t lock;			/* serialize queue publishing */
- 	unsigned int mask;			/* index mask, queue length - 1 */
- 	unsigned int irq;			/* allocated interrupt number */
- 	struct riscv_iommu_device *iommu;	/* iommu device handling the queue when active */
 -- 
-2.50.1
-
+Best regards,
+Junhui Liu
 
 _______________________________________________
 linux-riscv mailing list
