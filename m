@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76900C5DF7A
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 14:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC750C5DF66
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 14:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/SPK1G6SwOxNUNgMWtolNRsmcbsuv1RA7K8Xv+xPrU=; b=NOruDw9rP3GWsDhCV+urmIdZun
-	nKTNnQHmtCAv10CFe6cnVVKgjTG4vChlx0icJCl0VC5taGu+4f6Zkqsp0WQuGk0DVSuE8jwRV6frG
-	+4SrSOZQrAHSlyf26z5zf4T4VWpHGAxoqWLl6iXEwBdlUMjdWhd9687hBVxmWNmaMgvAhoBpMTfJ/
-	CJUTT5/PAfG1/9e8eGQWMS/jg8V3GkUT5Ux+LAb175zYn0xKGgMJ9Yxdm20r/VKlCq2d9qLspJQON
-	+wfYg1J8S8r0I0r55pdHcny9RTlp3HgFib3jnI5UTcUWUOTsSUkEWEv4YCllKXCc0hCVZYOcAh/K7
-	wLp7/lpg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QV+2nLGnC79Z4A3cK99DsLncsJuOYkvBuHVnkIWVSTM=; b=wwDVyi3soY/L9I
+	0UHAdcAeyy+KoOhEUqtuC/vxW7JZNix9+Zs0EQZ96chsOKdnYfcDO4ZrrT/w8wurRNaHX0Oo07Hcy
+	ViuFY9aQWoff9ICFDT6x6Wy/OEnb9UiaI3NDDqxFP0Er9FLZqJCuF08J8ffwLfWNm4ekxwhwAacfx
+	XfMOpCA2JZEAvVsI2EwwHpJJnQzRbtW9zCiWdikVVSs2YI1mMXstAhDPu1k42ECSlBQm49UGq2wHf
+	wNGj+RXMQubyVLcTzF+fsZ5ObYjjiod8rYNcA076n1kmiHn59cE1m0QmY/Afm55O1+It9uA1pVkuj
+	nhKPeqwn1FnCs90Fdfsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvy80-00000006HQB-0Aew;
-	Mon, 17 Aug 2026 14:15:52 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wvyEZ-00000006HyK-1oKC;
+	Mon, 17 Aug 2026 14:22:39 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvy7w-00000006HPQ-3FeI
+	id 1wvyEX-00000006Hx9-0qqW
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 14:15:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1786976148; x=1818512148;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SUNRs3ekH9d7tIDCE+FLtqvCJk4MOw0Hpq23FcS6BcM=;
-  b=Z/WZtkyzMVkSYx5yGQ9nOdoOeMgZCjReLDQ6uRkJEB/bYLNftvaIHHjg
-   VsHsTjhYRDEohGrM2me82brmpkcG8EEMaJHQ9Lfs6arHk0NNfGBGgccw1
-   dJrAa7z7WdcOx3HE8oSJC3RLYTq3Z1/gN0ZzBcoeVwYSI5hg6uwnbrmsS
-   Wj/9RUsg2B4bLIWdod+sMQ1AvjZuVNHhriyofkioLJciEjcho2NnyZDMA
-   LWEioUEEFrkKODW96yRnj4MIR5sMRZI4zeEaNxzDztte7HJ7A/XC244pk
-   xJBLn7BDYv4JczQ3YeSoirPuG9bHhKi78LhvIJeYXGKrV+GuTALGhEbR4
-   Q==;
-X-CSE-ConnectionGUID: XzMd5B7sTriYVChL9cryQg==
-X-CSE-MsgGUID: Cfx/b3YCQ+GVPhdxeXEX2g==
-X-IronPort-AV: E=Sophos;i="6.25,229,1779174000"; 
-   d="asc'?scan'208";a="62555110"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2026 07:15:45 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.45; Mon, 17 Aug 2026 07:15:45 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex02.mchp-main.com (10.10.85.144)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Mon, 17 Aug 2026 07:15:43 -0700
-Date: Mon, 17 Aug 2026 15:14:36 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Ivy Lopez <skunkolee@gmail.com>
-CC: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Andrew
- Jones <andrew.jones@oss.qualcomm.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: hwprobe: require both F and D extensions for
- RISCV_HWPROBE_IMA_FD
-Message-ID: <20260817-unmade-dyslexic-4bb4acf535af@wendy>
-References: <20260816003216.22534-1-skunkolee@gmail.com>
+	Mon, 17 Aug 2026 14:22:38 +0000
+Received: from bat.kanata.rendec.net (unknown [72.143.213.121])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id A6D7DC2DC3;
+	Mon, 17 Aug 2026 17:22:26 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro A6D7DC2DC3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1786976552;
+	bh=x870GT5Ttl54hOQSXtF0U2TrjP06S5Unm7xPT+iv8sY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=NHP3Hkzv3KLtoD51h0fVopqZjUy59iLvZIfmxkLYllog3zGe5FM5xP4nTkwMCWEAt
+	 D38MpEPfKKMY/ButVIL6fjF2wT4ywuwjicSebga6jWW6rr89mXxk6lYsINCLGMHEcR
+	 ZSmrNRJAiBGrd+G8ytcerFwKiZQk5bv8KVQn7W1AKcHCE4b1iGtOnTLxeOpufifV/b
+	 w5AFd5RSQ4FTZp0bZeh1exz3sd/RCDg1sP0PmjOTkoGebzhJ0ZgtNhyMWf+zx5v+1d
+	 c/Vlw8l5/Gl0kKP1bUEKL2VhI7kz3xi/pN4iBVMKJmy9E1nZEiN4Sie4Kswh9tvBkw
+	 GfQkWOg+NV6JQ==
+Message-ID: <e93252804d854c1fd8bf5ef616fb06110da94e34.camel@rendec.net>
+Subject: Re: [PATCH 1/5] riscv: smp: Move enum ipi_message_type to asm/smp.h
+From: Radu Rendec <radu@rendec.net>
+To: Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, 	tglx@kernel.org, daniel.lezcano@kernel.org,
+ anup@brainfault.org, 	hui.wang@canonical.com, samuel.holland@sifive.com
+Date: Mon, 17 Aug 2026 10:22:20 -0400
+In-Reply-To: <20260816070049.2097442-2-guoren@kernel.org>
+References: <20260816070049.2097442-1-guoren@kernel.org>
+	 <20260816070049.2097442-2-guoren@kernel.org>
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-In-Reply-To: <20260816003216.22534-1-skunkolee@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_071549_244560_FC222369 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20260817_072237_413011_8B8BE0FD 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,89 +69,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3869451153507812737=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3869451153507812737==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="n7SigRToBKy0m259"
-Content-Disposition: inline
-
---n7SigRToBKy0m259
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Aug 15, 2026 at 06:32:16PM -0600, Ivy Lopez wrote:
-> Documentation/arch/riscv/hwprobe.rst states that RISCV_HWPROBE_IMA_FD
-> means both the F and D extensions are supported. However, the
-> implementation uses has_fpu(), which returns true if either extension
-> is present, since that's sufficient to determine whether FPU state
-> needs to be saved/restored. Reusing it here silently weakens the
-> hwprobe semantics from "F and D" to "F or D", giving userspace no way
-> to know which extension is actually present when only one is.
-
-The kernel never supports F without D, so this cannot occur.
-riscv_isa_extension_available(NULL, f) always returns false if D is not
-also present.
-
-If anything, the code in has_fpu() should be changed to only check D and
-not F to match expectations elsewhere, or F and D for the same reason.
-
->=20
-> Check both extensions explicitly with riscv_isa_extension_available(),
-> matching the pattern already used for the neighboring C and V checks.
->=20
-> Link: https://bugzilla.kernel.org/show_bug.cgi?id=3D221874
-> Signed-off-by: Ivy Lopez <skunkolee@gmail.com>
-> ---
->  arch/riscv/kernel/sys_hwprobe.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwpr=
-obe.c
-> index 1659d31fd288..7f91beb82a1c 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -85,7 +85,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
->  	u64 missing =3D 0;
-> =20
->  	pair->value =3D 0;
-> -	if (has_fpu())
-> +	if (riscv_isa_extension_available(NULL, f) && riscv_isa_extension_avail=
-able(NULL, d))
->  		pair->value |=3D RISCV_HWPROBE_IMA_FD;
-> =20
->  	if (riscv_isa_extension_available(NULL, c))
-> --=20
-> 2.55.0
->=20
-
---n7SigRToBKy0m259
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaoMXSAAKCRB4tDGHoIJi
-0r33AP9xvTpVhoNyjAY90W4COwASd1mqNfOe9G3m5dpok0xXnAEAvta/WYrgdiJS
-ph9ufnFx3dNQEarmIui3TUPaJMjtEgs=
-=JOkw
------END PGP SIGNATURE-----
-
---n7SigRToBKy0m259--
-
-
---===============3869451153507812737==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3869451153507812737==--
-
+T24gU3VuLCAyMDI2LTA4LTE2IGF0IDA3OjAwICswMDAwLCBHdW8gUmVuIHdyb3RlOgo+IEZyb206
+ICJHVU8gUmVuIChYdWFuVGllKSIgPGd1b3JlbkBrZXJuZWwub3JnPgo+IAo+IFRoZSBJUEkgbWVz
+c2FnZSB0eXBlIGVudW1lcmF0aW9uIChhbmQgdGhlcmVmb3JlIElQSV9NQVgpIGlzIGN1cnJlbnRs
+eQo+IHByaXZhdGUgdG8gYXJjaC9yaXNjdi9rZXJuZWwvc21wLmMuwqAgU2V2ZXJhbCBJUEkgcHJv
+dmlkZXJzIG5lZWQgdG8ga25vdwo+IHRoZSBleGFjdCBudW1iZXIgb2YgSVBJcyB0aGF0IHRoZSBh
+cmNoaXRlY3R1cmUgcmVxdWlyZXMsIHNvIG1vdmUgdGhlCj4gZW51bSBpbnRvIHRoZSBwdWJsaWMg
+aGVhZGVyLgo+IAo+IFRoaXMgaXMgYSBwdXJlIGNvZGUgbW92ZW1lbnQgd2l0aCBubyBmdW5jdGlv
+bmFsIGNoYW5nZS4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBHVU8gUmVuIChYdWFuVGllKSA8Z3VvcmVu
+QGtlcm5lbC5vcmc+Cj4gLS0tCj4gwqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NtcC5oIHwgMTIg
+KysrKysrKysrKysrCj4gwqBhcmNoL3Jpc2N2L2tlcm5lbC9zbXAuY8KgwqDCoMKgwqAgfCAxMiAt
+LS0tLS0tLS0tLS0KPiDCoDIgZmlsZXMgY2hhbmdlZCwgMTIgaW5zZXJ0aW9ucygrKSwgMTIgZGVs
+ZXRpb25zKC0pCj4gCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc21wLmgg
+Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NtcC5oCj4gaW5kZXggMGVjYzY3NjQxYjA5Li5iZWQz
+OWZmZjFmOGEgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zbXAuaAo+ICsr
+KyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc21wLmgKPiBAQCAtMTUsNiArMTUsMTggQEAKPiDC
+oHN0cnVjdCBzZXFfZmlsZTsKPiDCoGV4dGVybiB1bnNpZ25lZCBsb25nIGJvb3RfY3B1X2hhcnRp
+ZDsKPiDCoAo+ICtlbnVtIGlwaV9tZXNzYWdlX3R5cGUgewo+ICsJSVBJX1JFU0NIRURVTEUsCj4g
+KwlJUElfQ0FMTF9GVU5DLAo+ICsJSVBJX0NQVV9TVE9QLAo+ICsJSVBJX0NQVV9DUkFTSF9TVE9Q
+LAo+ICsJSVBJX0lSUV9XT1JLLAo+ICsJSVBJX1RJTUVSLAo+ICsJSVBJX0NQVV9CQUNLVFJBQ0Us
+Cj4gKwlJUElfS0dEQl9ST1VORFVQLAo+ICsJSVBJX01BWAo+ICt9Owo+ICsKPiDCoCNpZmRlZiBD
+T05GSUdfU01QCj4gwqAKPiDCoCNpbmNsdWRlIDxsaW51eC9qdW1wX2xhYmVsLmg+Cj4gZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3NtcC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc21wLmMK
+PiBpbmRleCBmYTY2ZjljOTdkNzQuLjg5MzBiNjJiMTVlNyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
+c2N2L2tlcm5lbC9zbXAuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3NtcC5jCj4gQEAgLTI4
+LDE4ICsyOCw2IEBACj4gwqAjaW5jbHVkZSA8YXNtL2NhY2hlZmx1c2guaD4KPiDCoCNpbmNsdWRl
+IDxhc20vY3B1X29wcy5oPgo+IMKgCj4gLWVudW0gaXBpX21lc3NhZ2VfdHlwZSB7Cj4gLQlJUElf
+UkVTQ0hFRFVMRSwKPiAtCUlQSV9DQUxMX0ZVTkMsCj4gLQlJUElfQ1BVX1NUT1AsCj4gLQlJUElf
+Q1BVX0NSQVNIX1NUT1AsCj4gLQlJUElfSVJRX1dPUkssCj4gLQlJUElfVElNRVIsCj4gLQlJUElf
+Q1BVX0JBQ0tUUkFDRSwKPiAtCUlQSV9LR0RCX1JPVU5EVVAsCj4gLQlJUElfTUFYCj4gLX07Cj4g
+LQo+IMKgc3RhdGljIGNvbnN0IGNoYXIgKiBjb25zdCBpcGlfbmFtZXNbXSA9IHsKPiDCoAlbSVBJ
+X1JFU0NIRURVTEVdCT0gIlJlc2NoZWR1bGluZyBpbnRlcnJ1cHRzIiwKPiDCoAlbSVBJX0NBTExf
+RlVOQ10JCT0gIkZ1bmN0aW9uIGNhbGwgaW50ZXJydXB0cyIsCgpSZXZpZXdlZC1ieTogUmFkdSBS
+ZW5kZWMgPHJhZHVAcmVuZGVjLm5ldD4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
