@@ -4,70 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF78DC5DF70
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 07:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C47C5CFC1
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 07:33:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FpeYuliTHk5QlY95i38p2VMvu2wLsFLBtrEcYDBc+XE=; b=BASu6b4gN0J9cq
-	0b5tuH1TQA6Xzjg3mO2AClMNiCVAN5LwySg9aOoP3A1Yg7Y5MZFJPYYxpRnEeVO6nNHDHf3H0wJaB
-	FCs0thS7M+BNiRz08c5li6qKv5d35Fs7nY8pkDqCg3QoGKUZvnwJAl8MHXJGvwrg9gBhdG918KP0d
-	js+zhV4TxjdGkB8VgPnlOGmHJO1irr5rG6GObqne3+4q+KEsUist7A5VAykjdsvIeRelRfOa6aa9X
-	uoYosbOYCaiIqCopa7wKhrbvmcGzWCdWZI1cfu5zvRY33fRh8UMzawpfbxi+ujawB8rfZTvlwXHbO
-	PX4jZ36IaYrswVp+OZbg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kWCg1wkakEe+OB5jxPpYvwkxtoxMRqUoiZyvfClC38I=; b=jCFfWu1g+DLv7k
+	QDgGlHiau007DAMK+K6A0/nFxGrTwUd2hjlvZfKdEniOhMmB0h8BBUqC+1D4qtrC8+dmnmDTRav0Y
+	dIWZpgfXm6Ao+ZqMnO+seMiL7ohTUnXWp/zn8dKROVGCiKQ2Upjx+fjTNQd6DGLgs/sdZcD0UGgpV
+	4sdbCsq/Fse195SWdsQJyBkdBM3LL9ZpknW5+J9c9/abosij5Cl3aauYay/gU5cZ06MbOUTjQSVsZ
+	okmC83KY9dWY1j4jIdEN8u2G6TG5KWOiySQc2rX8RJXWvGcaprb06UmkuCPHeHP7Sy2JzkQZdhYMY
+	ZxPvKTDdkvJhbKqMTh7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvriJ-00000005XWZ-2qlQ;
-	Mon, 17 Aug 2026 07:24:55 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1wvrqd-00000005YzD-45zL;
+	Mon, 17 Aug 2026 07:33:31 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvriG-00000005XVA-47dH
+	id 1wvrqa-00000005YyX-409M
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 07:24:54 +0000
+	Mon, 17 Aug 2026 07:33:30 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-cbee3777e1cso1655007a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 00:33:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1786951487; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=QiDMtzylae+qC9+4Ug6NQ9raR1nP9TUQubbhKCJf3IM=;
-	b=SuOgOgfFtwDdNqjhm/vtYi+VOXVhM3euQsgUS8KeuolB1X4HIARWHyQKXERSGe5gVt+QjaX1B2+r7gqJuJ+cDtS34PP3ny6U9hqnFlX0Yx1WdDXjbr01lAU4exPHbTOw8iOzHBJuA5iIEeqV6pYViwm1AHjWImCg9t194FPHNpM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0X946s4R_1786951486;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X946s4R_1786951486 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 17 Aug 2026 15:24:46 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	memxor@gmail.com,
-	bjorn@kernel.org,
-	puranjay@kernel.org
-Cc: eddyz87@gmail.com,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	emil@etsalapatis.com,
-	pulehui@huawei.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	shuah@kernel.org,
-	guoren@kernel.org,
-	bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next 2/2] selftests/bpf: Enable arena LDSX tests for riscv64
-Date: Mon, 17 Aug 2026 15:24:33 +0800
-Message-ID: <913f4fd8b3d0b7470428d9e6f0ed64f3a89e8a98.1786708960.git.cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1786708960.git.cp0613@linux.alibaba.com>
-References: <cover.1786708960.git.cp0613@linux.alibaba.com>
+        d=sifive.com; s=google; t=1786952007; x=1787556807; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ctO/918wY9I8dgMN/rNhQAZPgaBP/6EBpuY/G7CkCVE=;
+        b=Czlf1kLXtP627RCBYQdmTFAYRit6NDSSmhILmIoa7VYSV2TlrDli7Mdjxyo+USRWtm
+         DHr6JjAjh8G6qgnHcMAcQZUzs4UReztrPKWHzwaSDTwERCqZgzZ9FKLdjkyJIoGP4xZf
+         ssnsRs4liWzcdAgP6gcAIlHVRQ4RuU2JNHmDkkbrqSpSr8VeDhHuR6CVx3NpMJISDFuH
+         aodDA5miXQeTKoCrL/G8YRDUiQN2ByGaH5kg3I+dElx212Yde/NvTeKfNOejytEqVGxN
+         pdlcU3jWLbboFjQlIRvjfE94RJS60x74i7C5KRGSA2NM8QOMhZxjK/H+/I8iPYqU7tIr
+         IgKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786952007; x=1787556807;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=ctO/918wY9I8dgMN/rNhQAZPgaBP/6EBpuY/G7CkCVE=;
+        b=c3y/mMb10nMg0QaHoPwIn9pdnY9CavcW/8Rl9FNhnQgQvL6jiH7icbq+EG4dE/4AE3
+         tc//VML4eBhA25DUlfj/v9w810pJQvRWivrmJZbDPVBYvQloBmOjuMecjglUrZ15ZdmZ
+         xuFitAyI0v7w0xSXfUQlYiYEwbaulrx9g9V/uygmUnYOfzbxMk6ZXLDi9d7VN0sPjXdd
+         tLw8TFwryEdGOoqgRAdmnHicBeEEkjmJ1zS57MFpWs9n+tqVA4VjJmTjcsOq7VB+B3Xq
+         Nj4NnNLimdqrWEfewIxTcWEKVBsauYrJwn/x2CQHoyWfJzXS6YtLCmgJhyrCJ/W1/LMw
+         PucA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr1FNWJW4k1s1blp//+iu4pjiqiAXYs44NvYJuuBIV5isQrnJ+N0tEhEk99mJgb3UndFjs99IZJAyvQRA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnV2iYl50W7xDwsBf7hNjFFukntjO8L3V71spuyQVawxeVLMVS
+	jEI8GrUtfENpbLMXG8d3lSU6pQGV6b+ZvHYCurUkeFhUcSp9mZocsoBDLkOkIzQjAyA=
+X-Gm-Gg: AR+sD13oshumi2q9C76qMuQBH+zugI5hJ76hhIQbj+uYmA3o7ZeEGbNgSvU529/IT/G
+	tzzqj4LVpRV1Pr13ptko2Cq5TEHuejorQjXkvBTeJrUF1lQYYhp3/Yb9k7ami2LAIShWledc1f8
+	2tKhr/T5vv7KcwEJs2s1HQWQmGzkO2iftFekiDz5CDmrAqBbobXkEFUhvZgvTyKOE/r9AayPrTZ
+	K0gCpzBJZcSAeRf8XIkEYeHo5gdUUyeidRfyqHZiwmRAXnTnJpp6WrjDCQkSFrMJsH40ta/Oe8+
+	bqmf5itRToJmCUctFE8MrRRJWqd9Yk+U83vw2LF6qrm/is4zBIVZQiTImPQKZLlsZh5g5g+v4Gf
+	AtpIHb8QaKr4MBXgO2WElquTBiLajKPtVCJv2i9IfMuHZdH5e+B+VPRQ9iaOebUWocOqaPKtHXe
+	PupJY7KRAMtMGCzzjM06ikoyeW/GUs9DGQtVRhD3lOgc1nw0VFl1VbabOumNCeEblMu5Oo6YlmK
+	osBZUDN
+X-Received: by 2002:a05:6a21:7702:b0:3b3:d0f:7883 with SMTP id adf61e73a8af0-3cc7196eda5mr27885097637.7.1786952007506;
+        Mon, 17 Aug 2026 00:33:27 -0700 (PDT)
+Received: from sw07.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-326796d646bsm3575972eec.10.2026.08.17.00.33.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 00:33:26 -0700 (PDT)
+From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Date: Mon, 17 Aug 2026 00:32:59 -0700
+Subject: [PATCH] KVM: RISC-V: Clear HSTATUS.HU on hypervisor initialization
 MIME-Version: 1.0
+Message-Id: <20260817-hstatus_hu-v1-1-28c53cdfb408@sifive.com>
+X-B4-Tracking: v=1; b=H4sIACq5gmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDC0Nz3YziksSS0uL4jFLdRMNEC4tEI/Nk8yRDJaCGgqLUtMwKsGHRsRB
+ +cWlSVmpyCcgEpdpaANvzj4duAAAA
+X-Change-ID: 20260817-hstatus_hu-a1a88a27c7b1
+To: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Yong-Xuan Wang <yongxuan.wang@sifive.com>, 
+ Samuel Holland <samuel.holland@sifive.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786952006; l=1212;
+ i=yongxuan.wang@sifive.com; s=20260424; h=from:subject:message-id;
+ bh=tM0pTha1/9nfcltCgNGuo/8gpha3J9wIDaj3gZsBSBo=;
+ b=xzAemguTvxKYZkrL488xqh1xU5+sYfHiXmghrUUa42oEqlIaC+MMhYmzECXbY6IRHF230q1PA
+ xRvrYY3gIRDCL/W3d8Js+WjMQhGkDGoZJqmExKFef81IWvX/6NJVnCE
+X-Developer-Key: i=yongxuan.wang@sifive.com; a=ed25519;
+ pk=+8NCHB1ZJvZthQAmZspOAaqjo+/snaW8mFSiDx45HxY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_002453_193769_7DC2A022 
-X-CRM114-Status: UNSURE (   5.15  )
+X-CRM114-CacheID: sfid-20260817_003329_024130_8536A5D7 
+X-CRM114-Status: UNSURE (   8.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,75 +115,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the riscv64 JIT supports signed arena loads
-(BPF_PROBE_MEM32SX), enable the arena LDSX tests on riscv64:
-add JIT disassembly assertions for arena_ldsx_disasm (arena base in
-s7, add into t2, sign-extending lw/lh/lb loads) and run
-arena_ldsx_exception and arena_ldsx_s8/s16/s32 on riscv64.
+The RISC-V privileged specification does not mandate HSTATUS reset
+values, leaving the HU bit potentially set after hardware reset.
+When HU=1, hypervisor instructions (HLV/HLVX/HSV) can execute in
+U-mode to access guest memory, which may cause unintended behavior
+if not explicitly controlled.
 
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+Clear HSTATUS.HU during KVM initialization to ensure hypervisor
+instructions are only available in HS-mode, preventing unexpected
+guest memory access from U-mode code.
+
+Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
 ---
- .../testing/selftests/bpf/progs/verifier_ldsx.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ arch/riscv/kvm/main.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/tools/testing/selftests/bpf/progs/verifier_ldsx.c b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
-index 41340877dc9d..ed0a0f159bc1 100644
---- a/tools/testing/selftests/bpf/progs/verifier_ldsx.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
-@@ -286,6 +286,19 @@ __jited("add	x11, x0, x28")
- __jited("ldrsh	x22, [x11, #0x18]")
- __jited("add	x11, x0, x28")
- __jited("ldrsb	x22, [x11, #0x20]")
-+__arch_riscv64
-+__jited("add	t2, a5, s7")
-+__jited("lw	s3, 0x10(t2)")
-+__jited("add	t2, a5, s7")
-+__jited("lh	s3, 0x18(t2)")
-+__jited("add	t2, a5, s7")
-+__jited("lb	s3, 0x20(t2)")
-+__jited("add	t2, a0, s7")
-+__jited("lw	s4, 0x10(t2)")
-+__jited("add	t2, a0, s7")
-+__jited("lh	s4, 0x18(t2)")
-+__jited("add	t2, a0, s7")
-+__jited("lb	s4, 0x20(t2)")
- __naked void arena_ldsx_disasm(void *ctx)
- {
- 	asm volatile (
-@@ -317,6 +330,7 @@ __description("Arena LDSX Exception")
- __success __retval(0)
- __arch_x86_64
- __arch_arm64
-+__arch_riscv64
- __naked void arena_ldsx_exception(void *ctx)
- {
- 	asm volatile (
-@@ -338,6 +352,7 @@ __description("Arena LDSX, S8")
- __success __retval(-1)
- __arch_x86_64
- __arch_arm64
-+__arch_riscv64
- __naked void arena_ldsx_s8(void *ctx)
- {
- 	asm volatile (
-@@ -369,6 +384,7 @@ __description("Arena LDSX, S16")
- __success __retval(-1)
- __arch_x86_64
- __arch_arm64
-+__arch_riscv64
- __naked void arena_ldsx_s16(void *ctx)
- {
- 	asm volatile (
-@@ -400,6 +416,7 @@ __description("Arena LDSX, S32")
- __success __retval(-1)
- __arch_x86_64
- __arch_arm64
-+__arch_riscv64
- __naked void arena_ldsx_s32(void *ctx)
- {
- 	asm volatile (
--- 
-2.50.1
+diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+index 85e772588fad..e80a99e93d56 100644
+--- a/arch/riscv/kvm/main.c
++++ b/arch/riscv/kvm/main.c
+@@ -47,6 +47,9 @@ static void kvm_riscv_csr_init(void)
+ 	csr_write(CSR_HCOUNTEREN, 0x02);
+ 
+ 	csr_write(CSR_HVIP, 0);
++
++	/* clear HSTATUS.HU */
++	csr_clear(CSR_HSTATUS, HSTATUS_HU);
+ }
+ 
+ /* Clear hypervisor CSRs - called during CPU offline and non-retention idle entry */
+
+---
+base-commit: b5060a4aa33d7d78a8c1837ab08ef0c81ea96650
+change-id: 20260817-hstatus_hu-a1a88a27c7b1
 
 
 _______________________________________________
