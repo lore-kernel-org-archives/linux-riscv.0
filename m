@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13B7C5B572
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 06:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C6FC5B572
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 06:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y2xvgfqO5oUBKzrPYdClmCfSrvxFPJEdar1T7dL30so=; b=bWT69xIlR4PR9Y
-	fsoxhjaULgymhNk3x3kW/SYWfpDFw+wNU23Xcrbr0VL5oscKc8Uaaw/gBxIXXemdS5mGmRZiQ6yuh
-	biWdUkz6ge9MV/qCUy/DXnJ5mvrHm6urTAlewuqftRCeKO8lBKS4EdbNNhDYuyDMezqM4M+f54DJ3
-	S6Yn5AVQD7bkRpRl3yrmQUuuskMhkQVrJV+yFlx5dCyNT+8qV7eAJf0xdiv6HJeO73cDSkQpNiq9V
-	YmggEPNmruijGj/XRdO0E2lfF9zQrjZAY5wgg5oGhBxdWFN7X06eqnHUjKK1kFoOQTDG54ZfSjBuw
-	e+fFhd8vgSWct+euqUXg==;
+	List-Owner; bh=1LKLKidIqb89QVC/tUTpZvZvoamikRQ6TUw/onGQYRg=; b=KTzMRMcBkUvtd7
+	887mwcR9fU351XtX5jhXVGmX7Ym/cEqKGOjuoYUCKpg9BD/K7Jk8rxuWYHJw/c36Sa5dpCXEgFylw
+	L6RIUQhQ5iBs5Hb9SRL9spj1v3TqEgBAKDfe3eCIS0ulgHm3BbpbdyxV9FgRcCq/P2aHdxojbJXa+
+	1sYqq61Z6TkoolRz6HPL7D6xSiXY5fZoICIFdR5HbBlSkK9I7WpjqW8trZjhHeY20RmhxoByE6UhN
+	nlWpJKXiaigt/U4Ls+n1nl4kbVQMyb2A5iWuAY6lUfT43SOf/y8daICCUmOtM8MNDeLN6HIvtFNkV
+	KRxABvnY/jH77AGrTGwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvqWq-00000005SSe-0GYB;
-	Mon, 17 Aug 2026 06:09:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wvqYn-00000005SeC-2IOT;
+	Mon, 17 Aug 2026 06:11:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvqWo-00000005SSX-2ZAX
+	id 1wvqYm-00000005Sdy-2hBg
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 06:08:58 +0000
+	Mon, 17 Aug 2026 06:11:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B0F4600AE;
-	Mon, 17 Aug 2026 06:08:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A29FA1F000E9;
-	Mon, 17 Aug 2026 06:08:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 111FA4027A;
+	Mon, 17 Aug 2026 06:11:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE6461F00A3A;
+	Mon, 17 Aug 2026 06:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786946937;
-	bh=Gxft2l7fzgvRx1LOhAcyXqbCbWCB11R6wYb/afGa5FI=;
+	s=k20260515; t=1786947060;
+	bh=ctWJ07w53y3JNOCN27ZJ+Le3b+u4cruyFyzNSPXv3sQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WkSzmH5YT9gxWwVcl/CwWfX4vN4SBlu+tvbuPCNef6MAj1VYoaFjZj2FItE+rRYsh
-	 xTuTga01PMyX4qujuVUXxJAvHzfmkCncv/cEP3/DlpCW2WL/oIapB0aPB99d93bQBI
-	 oqBO3DLPQEVQUxi2hV8jptw0yXianY+zcYtn2/xzHbYKIjJuv0U21TIRroBm/fkQu8
-	 DCy6+V14rfhVFkP6BIBYO4GgOfRoWbOLAe5xzqNTOlsxFcLmWBdmHKHxUxkyiHKwN5
-	 i1aL1Y2au3z4r1FI54BnC3HqFWE+hzfX0njMFO5y97F7Y/+xD1rYEpTj8i3mAUR2pp
-	 LGLRg3p0GMxaw==
-Message-ID: <bf81034d-7768-40f3-b078-e17ea3a2e665@kernel.org>
-Date: Mon, 17 Aug 2026 08:08:52 +0200
+	b=SNFAvQzrTTvrPeqiu4d8ebmjG5dlDEF2qAiWfX/Uc0SQa0dxpp4dZUI37bZucXYD6
+	 H1th0ll7pCmTk+QMiWhxSMIe3JAjsL8cq57TpyquF338ZMFhP/oz5T/WsJZi0jT7tk
+	 Se4nWdTu3/0LGwsOoBQqo+4ZTbyrmrspcgrsh+rSbZtp6Cyf48ufNrsO1KGIorb3bF
+	 zDy5gkCAaDo9a0HFXvnMiSQZkCDzvq2xZSXflLZQE8+CUZH5c4OKc1AHuEn1E0mzr3
+	 cxpoapAf8oQrp0GAjmT1g8FBJhcFHNC98kskR78KzN3mRt7kXOOJ+wijyXzcGw2Rmt
+	 uVbh+bNrQJC2Q==
+Message-ID: <39a28db9-5ed3-427f-aae4-a08ee41c32c9@kernel.org>
+Date: Mon, 17 Aug 2026 08:10:56 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: vendor-prefixes: Add Xuantie
- Semiconductor
+Subject: Re: [PATCH 2/2] dt-bindings: riscv: Add Xuantie C906/C908/C910/C920
+ compatibles
 To: Guo Ren <guoren@kernel.org>, robh@kernel.org
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, robh+dt@kernel.org,
  conor.dooley@microchip.com
 References: <20260815015722.1736831-1-guoren@kernel.org>
- <20260815015722.1736831-2-guoren@kernel.org>
+ <20260815015722.1736831-3-guoren@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,7 +99,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260815015722.1736831-2-guoren@kernel.org>
+In-Reply-To: <20260815015722.1736831-3-guoren@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,47 +119,19 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 15/08/2026 03:57, Guo Ren wrote:
 > From: "GUO Ren (XuanTie)" <guoren@kernel.org>
 > 
-> Add the xuantie vendor prefix for Shanghai Xuantie Semiconductor
-> Technology Co., Ltd., which provides the XuanTie processor IP.
+> The RISC-V CPU bindings currently use the historical thead vendor
+> prefix for the XuanTie C906, C908, C910 and C920 processors.
 > 
-> The vendor information is available from the Xuantie declaration
-> pagei [1].
-> 
-> [1]: https://www.xrvm.com/declaration
-> 
-> Cc: Rob Herring <robh+dt@kernel.org>
-> Cc: devicetree <devicetree@vger.kernel.org>
+> Add equivalent compatibles using the newly defined xuantie vendor
+> prefix. Keep the existing thead compatibles to preserve compatibility
+> with existing device trees.
 
-Please drop the autogenerated scripts/get_maintainer.pl CC-entries from
-commit msg. There is no single need to store automated output of
-get_maintainers.pl in the git log. It can be easily re-created at any
-given time, thus its presence in the git history is redundant and
-obfuscates the log.
+No, you already received feedback - you were on Cc, you replied, you got
+answers.
 
-If you need it for your own patch management purposes, keep it under the
---- separator.
+https://lore.kernel.org/all/20251121-able-terrestrial-spaniel-90c3cf@kuoka/
 
-
-> Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
-
-Anyway odd cc-list.
-
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC (and consider --no-git-fallback argument, so you will
-not CC people just because they made one commit years ago). It might
-happen, that command when run on an older kernel, gives you outdated
-entries. Therefore please be sure you base your patches on recent Linux
-kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
+NAK
 
 Best regards,
 Krzysztof
