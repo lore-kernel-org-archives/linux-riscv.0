@@ -4,128 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DF7C5DF66
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 16:03:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39462C5B572
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 16:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ffRUl8XlxDwuN7Z2QG/xEwWcmvP9IhHDwdQh1sy37qQ=; b=zcsSNTmoiX3lWQ
-	KtEFnoyPObvkAWf1qV6O8VKfLrm+u1crgbN48ZwMPt3xfNworl0Y1lT3rzudh6AvYt9WaRi6a1By9
-	1YPJkoW/+Xv7XMpKvda7We18966tAWpiYjsSXRFE1yUBGGFDJGKokYLgCq23aOLFf8rbbrOPOfLeB
-	9RwugjIOsIlQmoqCwPb4lzwf3S9A1wzX0WdoJLCqhG4zliIWf0gR+TFqSGH/dsE4wM2aCDS1nIVu4
-	wwArexvtjIK1Rxcys2BZYSGIyFXNkSPwQ1Z40Olk4tIwYVxMjQqjYmiFr5Fn5KsqrnmBDuMdQn9WR
-	hfyx5dmdO7/oxras3oKA==;
+	List-Owner; bh=kPb4GUGWOiaWiPK1V/PPnLl4jLclc4UFUSFiCGirEjo=; b=jkBG3Xrd0yUKmQ
+	8r37XKHvwJK/qPS0ZpBw0S6SJZggDqdVxYXI+irSloWfbzj6rsP9oKtGeKv5BX4LvKRPALluzCA5l
+	hiQUc4hvJZjSIANpxR0d/86f99TRcr1RkbVrHl0+oiQ2YXAv47A/5Bf8GK9Gk5AbRWrbGhNAnJrTJ
+	v+snxY8FPN+VYDtGG+EgetM70nPmTfqUgkk0jQBrEM+WdObPo58d9ayWhJN5CXFL8Gql6H1SEMGiu
+	W7xJfuMtP8je+Bl3Yxkgd6YANdOWccDJ5rlxGCBxQfbllHZmdLsklNg0IBYEStizW0+GYtYyU0YUJ
+	D1AbO+OBlt5QX/OTSAeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvzna-00000006TKo-12uM;
-	Mon, 17 Aug 2026 16:02:54 +0000
+	id 1wvzng-00000006TOW-1dJG;
+	Mon, 17 Aug 2026 16:03:00 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvznY-00000006TJW-2eZv
+	id 1wvznd-00000006TMT-2nBY
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 16:02:53 +0000
+	Mon, 17 Aug 2026 16:02:59 +0000
 Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HFYs8M2767905
-	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 16:02:51 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HFYi1s2766967
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 16:02:56 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=8RiPQfwx0pL
-	oLXHhtNA18dRwBbwALk5r5Jdr0ruDCL4=; b=dY+W6B/ZvAjsEv7MMvIr76Joway
-	9aVIm7i0f0IjcyHigafb8URiY+Ur8ftIsgEV8U1bbUIMkzXWpveH6qYKS3DZ+HVS
-	29GAgCkewLwfFCNn/Ox/jiu8g5zDhEcO8t0YhFcvhnXeo873gLhVzMv1tyza3bGC
-	HRcT7XlnPnp/FHtlRwCswAzZIrJDxILt3FBF3xB3gidBqlf9PtB5gs2civstG7cj
-	Z9nsWg6BYUjm0ff9MF0n0J+1O+iuNduBSzvsQ9hSLld4xY2Irg6GptdhrdarMPMd
-	5RjF3hfsqgFV1t56DOuPJgE9EOgf0kAVH1muZ4PbItrksuj9oi72da/PCUQ==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g3wrej3m6-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=ng3FijRp7I1
+	2WAwMSQi0FE70hZNC0tRMMCgODOQaLkM=; b=nPT/5c0uXgYWQ9t8JF3j0jpaaTf
+	Eb7og9Oga/oxdL6IfdKfPu5yciI7otrPoHl1xd6otFTPyGSp+aACdQtnvSDv+GCt
+	TeD4ha2YxLM2WB7DwpRG6Vl1nwNONGRPgruSbnx3iChie3TKnKLeLp12a8DVhXLf
+	9X3XL0cbTuHwqNDVRdh6THPvSr7b1uelRWd4hqGnC40fbB3+8sRPQpbCbMpRIuGY
+	jW0pfH5us1PnmGsVpr9GsGWvNjhk7ISAlHe5e+09WCavuC8jmsixEjDdH6yJzcan
+	wDyUq1F1dMpDoVatDSp1h6W9oVJ4u2aYCRpHvTX0ViU5QJftYBfgCq3guTg==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g3wrej3mj-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 16:02:51 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-84e13b57b2cso4241167b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 09:02:51 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 16:02:56 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-84e4ef486c7so34356b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 09:02:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786982570; x=1787587370; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1786982576; x=1787587376; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8RiPQfwx0pLoLXHhtNA18dRwBbwALk5r5Jdr0ruDCL4=;
-        b=GFkYSnQugoTPE2c/DbiLwekHGIgTbIkNFSFe7jUH2CllPJ7UE9Fdk0dozTGw6T78E5
-         Rs6Xe88tpryqrAplRg4VXUOpzVuJ6mpYQ1TrKlcHN5v6xSvyS5kzWbh+enzMvMgXH65e
-         1/wQXUVdcKxZD1szUN7UyUcFfNcpK2sNZnXrkHxdA6EsDKXkCFXMCtFDzMekncH8zcJO
-         b1tJBmUEMYRs7O52+2/yP/gMXayN0mavjJzgIEg870COKkK0unsj7TOgiGZD0EyYft3p
-         wpjEyToTh2297SKQwxlONJQ3Z3G9ZZnFyfQJ3uXR7/RsfpRj04DpAd3x3UPpDtYyOUeY
-         nZAA==
+        bh=ng3FijRp7I12WAwMSQi0FE70hZNC0tRMMCgODOQaLkM=;
+        b=GlKlH/AKWtcJLSubax1XKyvMR79A8u9gwEVSyIpg23zecy+6Mq60D82/bkuBc+G6Ii
+         1C8AAbExNer3QsrmIMrV9nhwG2NWBzEo/wrQuW5xIVlgjZBZ1niPTZw3E4SMsB/6/JlJ
+         to15/oXvWypK9U6YKyTL81ji6dzmDQd5k6kh6jLQPejLxPhA6wGWnNJX7hHupiTDrL0/
+         GkVmNG97UfbwinJ1s+bVz/j2lpj/zDS4TQjYSmA8f8RI38JAbIAbH+B5AUpaxMzuqySE
+         R/TeXs5xxG5bd5OVbEM8saYJ7ZcLCcfI7KtsecqfAuSZTQHi64kfSf2ipj55EYu2WMdb
+         mqrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786982570; x=1787587370;
+        d=1e100.net; s=20251104; t=1786982576; x=1787587376;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8RiPQfwx0pLoLXHhtNA18dRwBbwALk5r5Jdr0ruDCL4=;
-        b=l/WCRCsVa9Zg5bQva7f57HSY7bRYcWhH76NH+Xkk0I0s0ehd6TyiGhRIkBzlDsSg95
-         Tu5xlOqWM8G2+a7wS9s1FNpDmYtFmoVKBdSNSmq+qwNqikDzKT50TG8ZeMQFa7xOnvvP
-         2DpFl2WIQZGGoRxIoNlEZHEtB0Jjx/8/WLBDvznOZ23xfhOyT5BowoZEnbX86eOKYHJn
-         Y4z2gRP+xnifr/QbwFogG141rc3oDY+CODiV5mGJNCQbdAGW5d8KOgTyyjyiyPVupjk9
-         Q+aZqRQUCReddw2qIhZOu9xwKnweuPlpARs/zdTV+8LVcgzd9yB3diW3xlsLptVfDtKA
-         5nQw==
-X-Gm-Message-State: AOJu0Yz73EEQ11O+cv4kQ5s1VyHW7Z++kinN6pIKnQ853T9FqcHFid5D
-	DQtJ8L6y9xWDtoXfMMcRIEFt6HGIn867Dehit8TmgKjtbrj6w49FsEX/hIVJR6Pfg8+zF+ktqMs
-	WuoDWFAq1qsJ+UGm4c/Ik6n3vs7KjYp7/jt61v+KrAK3R2qplQ9jd3U9u7epOUmVVEFPW2pY=
-X-Gm-Gg: AR+sD13Qox1u6NeF3ntJVZKd4/3k4sx2BJ/cYXDHhk5h/LOWoAhfofnpSdjoPkUWrEi
-	VTZGSIIRnV2QHQ7ATHUaCsqpJknJ6gAGDminMxyvUboOKNLQS5vVwQzkAnMTZkfObBCZbyAQIGE
-	ox+RQYJk5AXp5pLEDKPnFd6xcd7KhhjM5Zc4fRj49eQ9OEf9Twa+HqdcT0lzjceO/Bx100m03E9
-	6IumVtDWyXDiOxvJH+DW1PMODvIEoq0kpy+4vCzqf7Mrmr8CxvVI1/Xro6QV2YctAdk7EJa8HTH
-	xvrMG2g8Ir/1dooOyIRZo/Cr0ylOfQjja8KrukRopCjoRszvryYdAO7GSsdh8P4Ldorm4tmORQy
-	cvIeQM8Ze4OYEYUqWTfyCNewDTB7ymNyLfjbK1/GOUNF9RSSTy/7fCqNoDQAtn0uqVWHnpScgqL
-	6BMSwx9wP2MUqQd/sMjDm0wZmQaA==
-X-Received: by 2002:a05:6a00:4c19:b0:84f:dfa8:57c5 with SMTP id d2e1a72fcca58-851b8814c56mr1673012b3a.13.1786982570461;
-        Mon, 17 Aug 2026 09:02:50 -0700 (PDT)
-X-Received: by 2002:a05:6a00:4c19:b0:84f:dfa8:57c5 with SMTP id d2e1a72fcca58-851b8814c56mr1672923b3a.13.1786982569849;
-        Mon, 17 Aug 2026 09:02:49 -0700 (PDT)
+        bh=ng3FijRp7I12WAwMSQi0FE70hZNC0tRMMCgODOQaLkM=;
+        b=j8H3PljlUCku90C6mACwLrVyg6ZC+OQfvHL3r9f3dgLnjodd6YfmjfUfAfNwOTH+8V
+         Ja3Eso7iyZTmAmu8Zdj8to2boNhvJLic4VDBn6O5Wx3cjoxDEvVqip9jfWqYDfadXDlO
+         mQg7TVBdM1bZda2yj9w2GjpuIqOTnSEXgCFiO7A1pNcN5kB5ECtzVKY+89zciUj/GXiK
+         yWI3EwDjf3kSDkzRilq4pgTcAPK3/E94XSrYc7KU8BK4rY1vx70OeRUk7a8DYmwbbqbC
+         83lukq92nCtCscNuFjgER1fBd4Tda9DpenZ7ZegQrSoihJ7yYW6QhAg4uZx1WjueLNgi
+         /Caw==
+X-Forwarded-Encrypted: i=1; AHgh+RrmFephCQlU7B4MmDNdIMVFYfsrO2G1vOIr7pYbsnWwCfZzk5oTsU6cZs81KqFc2bPhxWdz0+jShBuqEA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiGCGRbShB6KFcM6JNs2OJNJD/znsPnY2/wPjNLHtMdgZlyxJl
+	FE6X/ascGdrNLKU5CGHi4iE2V8tkwYMF5iAaA78PPVAtnCEdrsVDmtGs9bP/M//iCtasdxWO01D
+	oFlVbbdeRRBoTBi08IXqQOnSj0Helel/XUNJnWcrxtlK2Nu8z4UfxeK4ruXHSt5/6CMOPKXo=
+X-Gm-Gg: AR+sD12BtZbHIfDR7zdB3s28dk0fwKA3hYAiitPYqmZgAdPNQKgr1ctwsD7Qih2Wz4M
+	gj/KlPEzDGjVLmf2onzyEGrhaPp/ejwhKJIzTBz/Jd4A7JZyKqehPDGHEEl1upvAywele/1w6/g
+	USTkkbTDcQdwsUkRV3lL9pAem8ckq3VpeEmvxN6zvy50lCIpOa0D/mgDV8t63DXXI6hY+RdHGpv
+	uFdaxtRG9hFkfCH0JBii2I6gVSqGu6tCIjv5NdSzPKIlQVJ7LBe1tTRgtd85d0OLZ97ceXh30QZ
+	LPmvD4p691QfqOJ2RvuEbmWW3f/Ve1ILfgykGd/RtRZa1Lijxhtu0Gv/lGBQdEcJV02xeGIfPXi
+	EsWjKUj0Qbcum/nRjpzHOX9Pkx8I4VJOfKYP+ldrvGYeR3y4jveJGnRaBqOaBHd8DkG8DBjDddc
+	XMlSTxSl8IaEm35S6nQ2ic8cfPpQ==
+X-Received: by 2002:a05:6a00:330f:b0:842:63f5:d097 with SMTP id d2e1a72fcca58-851bc233c3amr156021b3a.3.1786982575514;
+        Mon, 17 Aug 2026 09:02:55 -0700 (PDT)
+X-Received: by 2002:a05:6a00:330f:b0:842:63f5:d097 with SMTP id d2e1a72fcca58-851bc233c3amr155973b3a.3.1786982574962;
+        Mon, 17 Aug 2026 09:02:54 -0700 (PDT)
 Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-851b6f8b189sm562883b3a.34.2026.08.17.09.02.44
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-851b6f8b189sm562883b3a.34.2026.08.17.09.02.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 09:02:49 -0700 (PDT)
+        Mon, 17 Aug 2026 09:02:53 -0700 (PDT)
 From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Charlie Jenkins <charlie@rivosinc.com>, Andy Chiu <andybnac@gmail.com>,
-        Deepak Gupta <debug@rivosinc.com>, Thomas Huth <thuth@redhat.com>,
-        Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
-        Sergey Matyukevich <geomatsi@gmail.com>,
-        Pincheng Wang <pincheng.plct@isrc.iscas.ac.cn>,
-        Andrew Jones <ajones@ventanamicro.com>,
-        Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
-        Xu Lu <luxu.kernel@bytedance.com>,
-        =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-        Hui Wang <hui.wang@canonical.com>, Guodong Xu <guodong@riscstar.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 2/3] riscv: Add detection for Sspesa and Ssplcofi extensions
-Date: Mon, 17 Aug 2026 21:32:18 +0530
-Message-ID: <20260817160222.3313295-3-mayuresh.chitale@oss.qualcomm.com>
+To: Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
+        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [RFC PATCH 3/3] perf/riscv: Use Sspesa for precise sample attribution
+Date: Mon, 17 Aug 2026 21:32:19 +0530
+Message-ID: <20260817160222.3313295-4-mayuresh.chitale@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260817160222.3313295-1-mayuresh.chitale@oss.qualcomm.com>
 References: <20260817160222.3313295-1-mayuresh.chitale@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Authority-Analysis: v=2.4 cv=FqI1OWrq c=1 sm=1 tr=0 ts=6a8330ab cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Authority-Analysis: v=2.4 cv=FqI1OWrq c=1 sm=1 tr=0 ts=6a8330b0 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
- a=gAUTCzGNcO5YByAtzVUA:9 a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-ORIG-GUID: Y7-xL1_4M53W2lwzyFdwyT6nj07_d_zU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDEyMyBTYWx0ZWRfX0vz2rvz9bPBD
- 64yINHXVzszgb2Kymd8r5iKShqSftwNMGTjSbmg7zD7kHEPXFH/NDTBcIBLp66eishnrk0UTNBB
- 0E5tG5UjULHJOXQ5Fbeo9/NjuXZqDT2yaOmifh13afG1DlLod/uFvZFq/aGA+shk9s5am3udSwX
- U4e91yycnrtpC4IUV0nh6a+y81ag5jBsEu88V5IzmsofB/Vf7QXd9mHW2vEQuDN+MpODbJO2hFI
- 5xwziQChTSvzsEQVNM88L3261oisCZ4HiH07lpIMFQHnA4JTwuusNyyCoAiW8aiOzh4QDHABWcz
- VATA9bJZjHdQuisao5wphnOB/NpvDyolsTgYTrGGRbCjPJN4Bt1S4nR8WQVf0ta/GIWeScEbFkM
- T3A1P8koq2yzeybi0j+MynyzgqCudwBN0NEzeeEPw8U7b9DrgmGp7qIT3CVFowIz1uEQyO/Lm18
- GY7h9NUSt1khPYV9qrA==
-X-Proofpoint-GUID: Y7-xL1_4M53W2lwzyFdwyT6nj07_d_zU
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDEyMyBTYWx0ZWRfX5ZBq1/1bN8sM
- PeSx4yGzHVlWfVqu34ko+GBEi/bNEFaebvSSGayXTiIICeQY17ChSSWghT1gBHc2HTQ5KqlkI2F
- QBqheBIEEmEwCMgP8o6Kty8oeMwxcNE=
+ a=7H5guYdma6xEYB3B6BcA:9 a=IoOABgeZipijB_acs4fv:22
+X-Proofpoint-ORIG-GUID: c8qzQuIbxEjOfavpgBYFu3DQ5e9CyzDx
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDEyMyBTYWx0ZWRfX8eX9uIMD2C3A
+ 6Mcmls+K28bk4eKHN1ZztMInFn4YbFYolxGwWgl1+jykjoIL2jHFUdCWF2qNXyszFcc1R3TW9zt
+ iGL7DBCZKw26MXqOeOTDAvCPKQFDNYYCoQgYwFz3240aLTM4K8q8vaNioINUSPmx7tKNlygp+gr
+ OlgtLhvK3hnROgMt3IY9PNJbk5xAcyx/kPnVtREmxYzxztPlgfvtk/u4W7GiV6Hjr2VZDfyakkf
+ CaekdVtf7N2k2duJKHNXlloiTfbTyADZ/ZtGP05fPABbnQ56PNeaqjwfeZRLN+LeJleW4t1Qytw
+ r5mbccWVhYzWSs8HBzPtlAZ6M/BrrXMnd3ZFFhKbFqFAHau6xm7NIOB9czYA4vvTji5+6nYAbDC
+ Ef83tW1xsfiwOpn9F6xG+hmOaBbvFsCxsc97JgyNkR9Q2/L1mcsPVcgAXk+C40SSAjwvdybW/aG
+ RPt+36EqrZJs8Q4IvuQ==
+X-Proofpoint-GUID: c8qzQuIbxEjOfavpgBYFu3DQ5e9CyzDx
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDEyMyBTYWx0ZWRfXy/Z73Cb5rUnZ
+ b6mxk4dikDhbBAmiYunK4m0oSo7VHeCv8rYpf2hbKE1JekxwdDPtcg1USa5jl01dibk6uCMA9ZV
+ 58jwEzsUmdZkV9Qmk8MWrVlYSCwUQVY=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-17_02,2026-08-12_01,2025-10-01_01
@@ -135,8 +130,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608170123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_090252_793747_C870DB74 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20260817_090257_825234_B71C19F7 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,81 +148,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ISA extension detection for the RISC-V Performance Event Sampling
-extensions Sspesa (Precise Event Sample Attribution) and Ssplcofi
-(Precise Local Counter Overflow Interrupt).
+When the Sspesa (Precise Event Sample Attribution) extension is
+available and a counter overflows, the hardware records a sample PC in
+shpmspc register and the counter ID and additional implementation-defined
+data in shpmsdata register.
 
-Ssplcofi requires Sspesa, so validate that Sspesa is present before
-enabling Ssplcofi.
+In the SBI PMU overflow handler, use shpmspc to report sample PC via
+PERF_SAMPLE_IP for the counter that caused the overflow. Shpmsdata is
+exported as raw data to userspace when events request PERF_SAMPLE_RAW
+sample type and it assists in deriving the sample PC from shpmspc if
+precise attribution is not supported for the event.
+
+If sspesa is not available or for counters that don't match
+shpmsdata.CNTRID, fallback to epc for PERF_SAMPLE_IP.
 
 Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
 ---
- arch/riscv/include/asm/csr.h   |  7 +++++++
- arch/riscv/include/asm/hwcap.h |  2 ++
- arch/riscv/kernel/cpufeature.c | 12 ++++++++++++
- 3 files changed, 21 insertions(+)
+ drivers/perf/riscv_pmu_sbi.c | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 31b8988f4488..a5f38ff35336 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -316,6 +316,13 @@
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index dfc886dee5ad..1b0b1cc612de 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -63,6 +63,8 @@ PMU_FORMAT_ATTR(firmware, "config:62-63");
  
- #define CSR_SCOUNTOVF		0xda0
- 
-+/* Temporary addresses for Sspesa (Precise Event Sample Attribution) CSRs. */
-+#define CSR_SHPMSPC		0x5d0
-+#define CSR_SHPMSDATA		0x5d1
+ static bool sbi_v2_available;
+ static bool sbi_v3_available;
++static bool sspesa_available;
 +
-+/* shpmsdata fields */
-+#define SHPMSDATA_CNTRID	GENMASK(4, 0)
-+
- #define CSR_SSTATUS		0x100
- #define CSR_SIE			0x104
- #define CSR_STVEC		0x105
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 7ef8e5f55c8d..68f8632bc751 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -112,6 +112,8 @@
- #define RISCV_ISA_EXT_ZCLSD		103
- #define RISCV_ISA_EXT_ZICFILP		104
- #define RISCV_ISA_EXT_ZICFISS		105
-+#define RISCV_ISA_EXT_SSPESA		106
-+#define RISCV_ISA_EXT_SSPLCOFI		107
+ static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
+ #define sbi_pmu_snapshot_available() \
+ 	static_branch_unlikely(&sbi_pmu_snapshot_available)
+@@ -1051,6 +1053,11 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	struct cpu_hw_events *cpu_hw_evt = dev;
+ 	u64 start_clock = sched_clock();
+ 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
++	unsigned long sample_pc = 0;
++	unsigned long sample_data = 0;
++	int sample_cntrid = -1;
++	u64 raw_sample;
++	struct perf_raw_record raw = { 0 };
  
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 	if (WARN_ON_ONCE(!cpu_hw_evt))
+ 		return IRQ_NONE;
+@@ -1088,6 +1095,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 		return IRQ_NONE;
  
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index f46aa5602d74..ab415704e317 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -287,6 +287,15 @@ static int riscv_ext_zvfbfwma_validate(const struct riscv_isa_ext_data *data,
- 	return -EPROBE_DEFER;
- }
+ 	regs = get_irq_regs();
++	/*
++	 * Sspesa records the PC and metadata of the overflowing counter in
++	 * hardware. The PC is precise only for events that support precise
++	 * attribution; otherwise it is best-effort.
++	 */
++	if (sspesa_available) {
++		sample_pc = csr_read(CSR_SHPMSPC);
++		sample_data = csr_read(CSR_SHPMSDATA);
++		sample_cntrid = sample_data & SHPMSDATA_CNTRID;
++	}
  
-+static int riscv_ext_ssplcofi_validate(const struct riscv_isa_ext_data *data,
-+				       const unsigned long *isa_bitmap)
-+{
-+	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SSPESA))
-+		return 0;
+ 	for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
+ 		struct perf_event *event = cpu_hw_evt->events[lidx];
+@@ -1123,6 +1140,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 		riscv_pmu_event_update(event);
+ 		hw_evt->state |= PERF_HES_UPTODATE;
+ 		perf_sample_data_init(&data, 0, hw_evt->last_period);
++		if (sspesa_available && hidx == sample_cntrid) {
++			data.ip = sample_pc;
++			data.sample_flags |= PERF_SAMPLE_IP;
 +
-+	return -EINVAL;
-+}
++			raw_sample = sample_data;
++			raw.frag.size = sizeof(raw_sample);
++			raw.frag.data = &raw_sample;
++			perf_sample_save_raw_data(&data, event, &raw);
++		}
+ 		if (riscv_pmu_event_set_period(event)) {
+ 			/*
+ 			 * Unlike other ISAs, RISC-V don't have to disable interrupts
+@@ -1194,6 +1220,9 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
+ 	struct irq_domain *domain = NULL;
+ 
++	if (riscv_isa_extension_available(NULL, SSPESA))
++		sspesa_available = true;
 +
- static int riscv_ext_svadu_validate(const struct riscv_isa_ext_data *data,
- 				    const unsigned long *isa_bitmap)
- {
-@@ -582,6 +591,9 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
- 	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
-+	__RISCV_ISA_EXT_DATA(sspesa, RISCV_ISA_EXT_SSPESA),
-+	__RISCV_ISA_EXT_DATA_VALIDATE(ssplcofi, RISCV_ISA_EXT_SSPLCOFI,
-+				      riscv_ext_ssplcofi_validate),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
- 	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
- 	__RISCV_ISA_EXT_DATA_VALIDATE(svadu, RISCV_ISA_EXT_SVADU, riscv_ext_svadu_validate),
+ 	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+ 		riscv_pmu_irq_num = RV_IRQ_PMU;
+ 		riscv_pmu_use_irq = true;
 -- 
 2.43.0
 
