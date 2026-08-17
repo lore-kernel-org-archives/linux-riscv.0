@@ -4,134 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39462C5B572
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 16:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F062CC5B572
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 17:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kPb4GUGWOiaWiPK1V/PPnLl4jLclc4UFUSFiCGirEjo=; b=jkBG3Xrd0yUKmQ
-	8r37XKHvwJK/qPS0ZpBw0S6SJZggDqdVxYXI+irSloWfbzj6rsP9oKtGeKv5BX4LvKRPALluzCA5l
-	hiQUc4hvJZjSIANpxR0d/86f99TRcr1RkbVrHl0+oiQ2YXAv47A/5Bf8GK9Gk5AbRWrbGhNAnJrTJ
-	v+snxY8FPN+VYDtGG+EgetM70nPmTfqUgkk0jQBrEM+WdObPo58d9ayWhJN5CXFL8Gql6H1SEMGiu
-	W7xJfuMtP8je+Bl3Yxkgd6YANdOWccDJ5rlxGCBxQfbllHZmdLsklNg0IBYEStizW0+GYtYyU0YUJ
-	D1AbO+OBlt5QX/OTSAeA==;
+	List-Owner; bh=HXHUoe2XOfiuA7/X5vdA9JssZQ7RIU3a0R6948LufY8=; b=MqWY1WIsQ6RzCj
+	JgDF8f+Uy17sKBEmu8o+PdXPPA7eApWvoUXionZOk0oE7U6Tu8QUZnbj8kYkvTMHWY4m773SfMRkP
+	48MsayMnQN8QUVJg47C58YbXxNjWDEF4pEr8ns6/lNp+blcI7+P+/qwTeMW+IWs1ILsDuK4VO6KD/
+	jte4AZySh+7+3mb3EXTcOQ1MIN8m4bwipIy58NX6CiZjMewD5xMarfaBPXOhBMe21Q+T/1eNkOgaH
+	oeRgZzwHOPGnjLWMGuVdsUVdHplZhmuNXKqbguJuh0Jd4ch8zFruFQK2poj4Xn/H3qYrqJqjX1Fry
+	nJ8BnxwtnUuckebhAt2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvzng-00000006TOW-1dJG;
-	Mon, 17 Aug 2026 16:03:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ww1BH-00000006b2P-11cH;
+	Mon, 17 Aug 2026 17:31:27 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvznd-00000006TMT-2nBY
+	id 1ww1BD-00000006b10-0ezu
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 16:02:59 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HFYi1s2766967
-	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 16:02:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=ng3FijRp7I1
-	2WAwMSQi0FE70hZNC0tRMMCgODOQaLkM=; b=nPT/5c0uXgYWQ9t8JF3j0jpaaTf
-	Eb7og9Oga/oxdL6IfdKfPu5yciI7otrPoHl1xd6otFTPyGSp+aACdQtnvSDv+GCt
-	TeD4ha2YxLM2WB7DwpRG6Vl1nwNONGRPgruSbnx3iChie3TKnKLeLp12a8DVhXLf
-	9X3XL0cbTuHwqNDVRdh6THPvSr7b1uelRWd4hqGnC40fbB3+8sRPQpbCbMpRIuGY
-	jW0pfH5us1PnmGsVpr9GsGWvNjhk7ISAlHe5e+09WCavuC8jmsixEjDdH6yJzcan
-	wDyUq1F1dMpDoVatDSp1h6W9oVJ4u2aYCRpHvTX0ViU5QJftYBfgCq3guTg==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g3wrej3mj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 16:02:56 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-84e4ef486c7so34356b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 09:02:56 -0700 (PDT)
+	Mon, 17 Aug 2026 17:31:25 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5aeb59d54b1so3725009e87.1
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 10:31:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786982576; x=1787587376; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ng3FijRp7I12WAwMSQi0FE70hZNC0tRMMCgODOQaLkM=;
-        b=GlKlH/AKWtcJLSubax1XKyvMR79A8u9gwEVSyIpg23zecy+6Mq60D82/bkuBc+G6Ii
-         1C8AAbExNer3QsrmIMrV9nhwG2NWBzEo/wrQuW5xIVlgjZBZ1niPTZw3E4SMsB/6/JlJ
-         to15/oXvWypK9U6YKyTL81ji6dzmDQd5k6kh6jLQPejLxPhA6wGWnNJX7hHupiTDrL0/
-         GkVmNG97UfbwinJ1s+bVz/j2lpj/zDS4TQjYSmA8f8RI38JAbIAbH+B5AUpaxMzuqySE
-         R/TeXs5xxG5bd5OVbEM8saYJ7ZcLCcfI7KtsecqfAuSZTQHi64kfSf2ipj55EYu2WMdb
-         mqrg==
+        d=gmail.com; s=20251104; t=1786987880; x=1787592680; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gdAST+PW7bd2DD1v0YjadB8+zi0iamo4AznH2c9tOUI=;
+        b=U1Y617RourvNlnBiQgzMPmhFZE4bkxTwWNpo6xh0BLAnadZFBIkCaH2T4JQmHqfvdf
+         ++dwOn/6SXY6RaO7ShDoTKWErNUTjumEAz9T9feDWaGQmC6eTBsYahwI0MzmidWRTbm6
+         a+fkmFHYDo16PxZkDI+UbWlTBJBlyg9jpedbx1e2lFzqFVB4dWQVuzFikQI9SjbpKOXK
+         ficnA4hR13NSpQR1Gs4zCANUK7Tr8fWw+N2v8wXvEo0A7vv2wGX16VHkxxpNBeaUh5O8
+         iOlEExu2j8ssUmsEkvFkfmZrFgy0j2zOfehewkexgeKb60CaV1EohD1JJnV9XptlEutu
+         Wqqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786982576; x=1787587376;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ng3FijRp7I12WAwMSQi0FE70hZNC0tRMMCgODOQaLkM=;
-        b=j8H3PljlUCku90C6mACwLrVyg6ZC+OQfvHL3r9f3dgLnjodd6YfmjfUfAfNwOTH+8V
-         Ja3Eso7iyZTmAmu8Zdj8to2boNhvJLic4VDBn6O5Wx3cjoxDEvVqip9jfWqYDfadXDlO
-         mQg7TVBdM1bZda2yj9w2GjpuIqOTnSEXgCFiO7A1pNcN5kB5ECtzVKY+89zciUj/GXiK
-         yWI3EwDjf3kSDkzRilq4pgTcAPK3/E94XSrYc7KU8BK4rY1vx70OeRUk7a8DYmwbbqbC
-         83lukq92nCtCscNuFjgER1fBd4Tda9DpenZ7ZegQrSoihJ7yYW6QhAg4uZx1WjueLNgi
-         /Caw==
-X-Forwarded-Encrypted: i=1; AHgh+RrmFephCQlU7B4MmDNdIMVFYfsrO2G1vOIr7pYbsnWwCfZzk5oTsU6cZs81KqFc2bPhxWdz0+jShBuqEA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiGCGRbShB6KFcM6JNs2OJNJD/znsPnY2/wPjNLHtMdgZlyxJl
-	FE6X/ascGdrNLKU5CGHi4iE2V8tkwYMF5iAaA78PPVAtnCEdrsVDmtGs9bP/M//iCtasdxWO01D
-	oFlVbbdeRRBoTBi08IXqQOnSj0Helel/XUNJnWcrxtlK2Nu8z4UfxeK4ruXHSt5/6CMOPKXo=
-X-Gm-Gg: AR+sD12BtZbHIfDR7zdB3s28dk0fwKA3hYAiitPYqmZgAdPNQKgr1ctwsD7Qih2Wz4M
-	gj/KlPEzDGjVLmf2onzyEGrhaPp/ejwhKJIzTBz/Jd4A7JZyKqehPDGHEEl1upvAywele/1w6/g
-	USTkkbTDcQdwsUkRV3lL9pAem8ckq3VpeEmvxN6zvy50lCIpOa0D/mgDV8t63DXXI6hY+RdHGpv
-	uFdaxtRG9hFkfCH0JBii2I6gVSqGu6tCIjv5NdSzPKIlQVJ7LBe1tTRgtd85d0OLZ97ceXh30QZ
-	LPmvD4p691QfqOJ2RvuEbmWW3f/Ve1ILfgykGd/RtRZa1Lijxhtu0Gv/lGBQdEcJV02xeGIfPXi
-	EsWjKUj0Qbcum/nRjpzHOX9Pkx8I4VJOfKYP+ldrvGYeR3y4jveJGnRaBqOaBHd8DkG8DBjDddc
-	XMlSTxSl8IaEm35S6nQ2ic8cfPpQ==
-X-Received: by 2002:a05:6a00:330f:b0:842:63f5:d097 with SMTP id d2e1a72fcca58-851bc233c3amr156021b3a.3.1786982575514;
-        Mon, 17 Aug 2026 09:02:55 -0700 (PDT)
-X-Received: by 2002:a05:6a00:330f:b0:842:63f5:d097 with SMTP id d2e1a72fcca58-851bc233c3amr155973b3a.3.1786982574962;
-        Mon, 17 Aug 2026 09:02:54 -0700 (PDT)
-Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-851b6f8b189sm562883b3a.34.2026.08.17.09.02.50
+        d=1e100.net; s=20251104; t=1786987880; x=1787592680;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gdAST+PW7bd2DD1v0YjadB8+zi0iamo4AznH2c9tOUI=;
+        b=YwRIRYApOY26meTnGqa1Ob7NDGZgYBXdXB9axBuBbmrVJnveBxCeEKN7L0iEhaesFX
+         hUS63KshgI8W0eDIkYnbkgJZkjnvPC0llc/gzckPn+jucyfHOTAhy/X4NbmScrn3aKRx
+         iB49HrHvzcOBytMljVpMD3C0uOhAk8qid39wwDfaOC6o43Gf5zG53YpwGxQX04wzWv6K
+         kW/FF0r9dIozYGlEaczIkb/su111+yUbUKEmUnDumeuk8LdiMDGBCkBayzZZ0z8EmbsJ
+         +xhHjRjKaPQqF8vZ6gRBpcuND2gwjdmvSGgAEZwxHUlZUMgmhjteohgdH1TSjJ+XUq7S
+         MDmQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpGoCaMzlY+uXudE+JcjbUn4tZi3yz13FIcSLnLEt4TG1GD6r4Kmnow84VrFiP+dG9mQymJPLKCCT2okQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywuhq8QOEeuiySYWonUaNTQbCddDazSyDAUxZUgXXRQH7ZcthJG
+	ZVuDxj6gNHepO67ZU//6znB2ky1mDKBhjZUf8imBY54IzMzdofv5uDoq
+X-Gm-Gg: AR+sD12iXMDa1OQTBeqZpReBAwnyBUvIUPKU7OXtY2/ZE2eoofLUhq7kHqws168vkrc
+	Ts1UG5jjCLFHbbmiiXKIiOC6b1vciMJbIDXYYoYB2JRWvF1a7XgPIu3KfmaYgKz4mvNYlbSod/G
+	N8pe0BxT8PrQyYdc640CgTWyPlyzkdl3lFNXbXoSLiA5QkJ1ma7hOpOadgZTlMSXMEV+yAY7MYq
+	z2brmdXrTOjdfMNdj028UZn9TeIwldXsaDvcwoE79ABr6RKTiAw0rfCJDfQlugQatwiLyHVlXhg
+	umOZsUtr8qPlIOQO7XVDFII3X5ngzcN/7NzbDMvOqKELgV3PDgrHP2Lg5RQjYy9/FetfkWHdp9G
+	ZvsnFlg9G0/bcut/S87iNQdfb+q+i+DI70QmjLtUcA3VZi4b4uWBpldfGsjdDSxPpStDtjRqewk
+	/srMgp9uCeTzf8W3V+lgOqN9cjtQ==
+X-Received: by 2002:a05:6512:1284:b0:5b2:9358:b854 with SMTP id 2adb3069b0e04-5b459142afbmr3869031e87.42.1786987880080;
+        Mon, 17 Aug 2026 10:31:20 -0700 (PDT)
+Received: from milan ([2001:9b1:d5a0:a500::24b])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a16b1f1852sm5885691fa.38.2026.08.17.10.31.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 09:02:53 -0700 (PDT)
-From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-To: Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
-        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 3/3] perf/riscv: Use Sspesa for precise sample attribution
-Date: Mon, 17 Aug 2026 21:32:19 +0530
-Message-ID: <20260817160222.3313295-4-mayuresh.chitale@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260817160222.3313295-1-mayuresh.chitale@oss.qualcomm.com>
-References: <20260817160222.3313295-1-mayuresh.chitale@oss.qualcomm.com>
+        Mon, 17 Aug 2026 10:31:19 -0700 (PDT)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@milan>
+Date: Mon, 17 Aug 2026 19:31:17 +0200
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Len Brown <lenb@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Pavel Machek <pavel@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-pm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	loongarch@lists.linux.dev
+Subject: Re: [PATCH 2/6] mm/vmalloc: set area's page_order after allocation
+ succeeds
+Message-ID: <aoNFZU_QzghDBgbZ@milan>
+References: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org>
+ <20260816-execmem-set-vm-perms-v0-2-v1-2-90944a3ad43f@kernel.org>
 MIME-Version: 1.0
-X-Authority-Analysis: v=2.4 cv=FqI1OWrq c=1 sm=1 tr=0 ts=6a8330b0 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
- a=7H5guYdma6xEYB3B6BcA:9 a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-ORIG-GUID: c8qzQuIbxEjOfavpgBYFu3DQ5e9CyzDx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDEyMyBTYWx0ZWRfX8eX9uIMD2C3A
- 6Mcmls+K28bk4eKHN1ZztMInFn4YbFYolxGwWgl1+jykjoIL2jHFUdCWF2qNXyszFcc1R3TW9zt
- iGL7DBCZKw26MXqOeOTDAvCPKQFDNYYCoQgYwFz3240aLTM4K8q8vaNioINUSPmx7tKNlygp+gr
- OlgtLhvK3hnROgMt3IY9PNJbk5xAcyx/kPnVtREmxYzxztPlgfvtk/u4W7GiV6Hjr2VZDfyakkf
- CaekdVtf7N2k2duJKHNXlloiTfbTyADZ/ZtGP05fPABbnQ56PNeaqjwfeZRLN+LeJleW4t1Qytw
- r5mbccWVhYzWSs8HBzPtlAZ6M/BrrXMnd3ZFFhKbFqFAHau6xm7NIOB9czYA4vvTji5+6nYAbDC
- Ef83tW1xsfiwOpn9F6xG+hmOaBbvFsCxsc97JgyNkR9Q2/L1mcsPVcgAXk+C40SSAjwvdybW/aG
- RPt+36EqrZJs8Q4IvuQ==
-X-Proofpoint-GUID: c8qzQuIbxEjOfavpgBYFu3DQ5e9CyzDx
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDEyMyBTYWx0ZWRfXy/Z73Cb5rUnZ
- b6mxk4dikDhbBAmiYunK4m0oSo7VHeCv8rYpf2hbKE1JekxwdDPtcg1USa5jl01dibk6uCMA9ZV
- 58jwEzsUmdZkV9Qmk8MWrVlYSCwUQVY=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-17_02,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 adultscore=0 priorityscore=1501 bulkscore=0
- suspectscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608170123
+Content-Disposition: inline
+In-Reply-To: <20260816-execmem-set-vm-perms-v0-2-v1-2-90944a3ad43f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_090257_825234_B71C19F7 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20260817_103123_223121_47650BD9 
+X-CRM114-Status: GOOD (  24.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,96 +130,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the Sspesa (Precise Event Sample Attribution) extension is
-available and a counter overflows, the hardware records a sample PC in
-shpmspc register and the counter ID and additional implementation-defined
-data in shpmsdata register.
+On Sun, Aug 16, 2026 at 01:59:25PM +0300, Mike Rapoport (Microsoft) wrote:
+> __vmalloc_area_node() calls set_vm_area_page_order() to set area's
+> page_order before actually allocating pages to populate the area.
+> 
+> If allocation of large pages in HUGE_VMAP case fails midway, this leaves
+> the area with elevated page_order throughout the cleanup path.
+> 
+> There is no actual issue with this because the only place that currently
+> relies on area->page_order on the cleanup path is the loop calculating
+> the direct map alias range in vm_reset_perms() and it anyway skips
+> unpopulated pages.
+> 
+> But having set_vm_area_page_order() in the middle of __vmalloc_area_node()
+> makes things very obscure, hard to reason about and error prone against
+> future changes of the cleanup path.
+> 
+> Move the call to set_vm_area_page_order() after __vmalloc_area_node()
+> succeeded where page order is guaranteed.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+>  mm/vmalloc.c | 11 +++++++++--
+>  1 file changed, 9 insertions(+), 2 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 22566e0b6e38..6822f0fe9583 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -3901,8 +3901,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
+>  		goto fail;
+>  	}
+>  
+> -	set_vm_area_page_order(area, page_shift - PAGE_SHIFT);
+> -	page_order = vm_area_page_order(area);
+> +	page_order = page_shift - PAGE_SHIFT;
+>  
+>  	/*
+>  	 * High-order nofail allocations are really expensive and
+> @@ -4106,6 +4105,14 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
+>  	if (!ret)
+>  		goto fail;
+>  
+> +	/*
+> +	 * Set area->page_order once it's known exactly that the order of the
+> +	 * pages the area contains.
+> +	 * Even if we succeeded to partially populate the area with large pages,
+> +	 * still treat the area as populated with order-0 pages.
+> +	 */
+> +	set_vm_area_page_order(area, shift - PAGE_SHIFT);
+> +
+>  	/*
+>  	 * Mark the pages as accessible, now that they are mapped.
+>  	 * The condition for setting KASAN_VMALLOC_INIT should complement the
+> 
+> -- 
+> 2.53.0
+> 
+OK, can we just set it right after the:
 
-In the SBI PMU overflow handler, use shpmspc to report sample PC via
-PERF_SAMPLE_IP for the counter that caused the overflow. Shpmsdata is
-exported as raw data to userspace when events request PERF_SAMPLE_RAW
-sample type and it assists in deriving the sample PC from shpmspc if
-precise attribution is not supported for the event.
+	area->nr_pages = vm_area_alloc_pages(
+			vmalloc_gfp_adjust(gfp_mask, page_order), node,
+			page_order, nr_small_pages, area->pages);
 
-If sspesa is not available or for counters that don't match
-shpmsdata.CNTRID, fallback to epc for PERF_SAMPLE_IP.
 
-Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
----
- drivers/perf/riscv_pmu_sbi.c | 29 +++++++++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
+succeeds?
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index dfc886dee5ad..1b0b1cc612de 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -63,6 +63,8 @@ PMU_FORMAT_ATTR(firmware, "config:62-63");
- 
- static bool sbi_v2_available;
- static bool sbi_v3_available;
-+static bool sspesa_available;
-+
- static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
- #define sbi_pmu_snapshot_available() \
- 	static_branch_unlikely(&sbi_pmu_snapshot_available)
-@@ -1051,6 +1053,11 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 	struct cpu_hw_events *cpu_hw_evt = dev;
- 	u64 start_clock = sched_clock();
- 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
-+	unsigned long sample_pc = 0;
-+	unsigned long sample_data = 0;
-+	int sample_cntrid = -1;
-+	u64 raw_sample;
-+	struct perf_raw_record raw = { 0 };
- 
- 	if (WARN_ON_ONCE(!cpu_hw_evt))
- 		return IRQ_NONE;
-@@ -1088,6 +1095,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 		return IRQ_NONE;
- 
- 	regs = get_irq_regs();
-+	/*
-+	 * Sspesa records the PC and metadata of the overflowing counter in
-+	 * hardware. The PC is precise only for events that support precise
-+	 * attribution; otherwise it is best-effort.
-+	 */
-+	if (sspesa_available) {
-+		sample_pc = csr_read(CSR_SHPMSPC);
-+		sample_data = csr_read(CSR_SHPMSDATA);
-+		sample_cntrid = sample_data & SHPMSDATA_CNTRID;
-+	}
- 
- 	for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
- 		struct perf_event *event = cpu_hw_evt->events[lidx];
-@@ -1123,6 +1140,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 		riscv_pmu_event_update(event);
- 		hw_evt->state |= PERF_HES_UPTODATE;
- 		perf_sample_data_init(&data, 0, hw_evt->last_period);
-+		if (sspesa_available && hidx == sample_cntrid) {
-+			data.ip = sample_pc;
-+			data.sample_flags |= PERF_SAMPLE_IP;
-+
-+			raw_sample = sample_data;
-+			raw.frag.size = sizeof(raw_sample);
-+			raw.frag.data = &raw_sample;
-+			perf_sample_save_raw_data(&data, event, &raw);
-+		}
- 		if (riscv_pmu_event_set_period(event)) {
- 			/*
- 			 * Unlike other ISAs, RISC-V don't have to disable interrupts
-@@ -1194,6 +1220,9 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
- 	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
- 	struct irq_domain *domain = NULL;
- 
-+	if (riscv_isa_extension_available(NULL, SSPESA))
-+		sspesa_available = true;
-+
- 	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
- 		riscv_pmu_irq_num = RV_IRQ_PMU;
- 		riscv_pmu_use_irq = true;
--- 
-2.43.0
+I am not sure there is a good reason to move it out of the
+__vmalloc_area_node().
 
+--
+Uladzislau Rezki
 
 _______________________________________________
 linux-riscv mailing list
