@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 861E9C5B572
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 12:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96183C5DF7A
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 12:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2btSWsqyYDhu9ZuftHuOqSm4+JcpibXr3VOYP79kcTM=; b=GsBehBvfP/dNIp
-	9b0t72U5UF/3NWtOvED9PsTGQb7j41pMs3gb2YNlswosbkoVrsk/hI0f2l3AF5pb4Dj8V1NR9etKc
-	/737dmUrRiTbzcLlZ7P4G9uMz6P3178Ym+MGiSgywkZ8YBgjlPf8dwE8yKWfM838vf8uNzLa4I1vc
-	7hl5bt/OB6Sr4eNJLxl/xTgKYLWMDEPmlrQAiD7P5qHKWOpjKV7YweHQuhqo4eOI0EM+3TnCdFFSS
-	ipLh1aKZWKcEggjvs0AHYgV5QjEAWXK4ULHmO0xjsUZVFHQJij5fjz1seblZUUfRNKGTBdzxPEbv9
-	dJQqljcw23JmpJEamEQg==;
+	List-Owner; bh=evXdgnI9uX66FCmLTnI7vTVT/4YRwxZc7ddlEURaQSY=; b=I86Dvb+XSKQj0e
+	nuVx2rRvr+vcCtAjndAOyOWI+wBLZZOF4qD8is3a87w4tjj5zPMGhKLv0Nm9+geeNr2QFdSWMhNMt
+	3/rIpvFwfYFDkuxRpJWGXSHzqFxUr//+hVQA/CMrZIhGL6NgqfW1ddK9/1p4ORVMrwIiQvicyYkhJ
+	niCzrgdLykR5iVZsR5fzK+XY+943ZnVRnxr+OPKeaUhDHr9FBTCXGz8fFDtraK+Dtc5gbutxgcizR
+	MZ2D7xnJvbxavi3F2uiH6uUnVzjAZNl5SzpyKxzst+wo6BbMRv0nSx1RtkB0j38HDeBglvx28ISsc
+	Pj45XNbRGGVqmDNxKvEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvwLu-000000067Md-2LNm;
-	Mon, 17 Aug 2026 12:22:06 +0000
-Received: from out-73.mta0.migadu.com ([2001:41d0:1004:224b::49] helo=mta0.migadu.com)
+	id 1wvwih-000000069HO-0NJj;
+	Mon, 17 Aug 2026 12:45:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvwLs-000000067LY-1dwH
+	id 1wvwif-000000069Gv-2Sho
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Aug 2026 12:22:06 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=XUz20HjX88HKc3zhTmA9XIj0WBNTBdnuMyd7s0rygf4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1786969322; v=1; x=1787574122;
- b=XkldS3CHg9hCBivEOhkQQzkmUhdPITkRmMuNYQi3cCkftCjtJWWLDRiDP/+pw18b1esq4lNP
- slbcZxty0whFStgDGAoQnHGUK2wfA2IpllM//lyHcu35MfQ6dkOPY6w42V/iiNp8rSh+jXtT66Q
- Gkbjx9DvRnQfiagSi2bv5dsQ=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: from localhost (185.201.63.253)
-	by smtp.migadu.com with ESMTPS id ac101bf52cfc1249;
-	Mon, 17 Aug 2026 12:22:02 +0000
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
-Date: Mon, 17 Aug 2026 14:21:41 +0200
-Message-Id: <DKR7R0BECQXX.2FCNF36EFETS8@linux.dev>
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, "Albert Ou"
- <aou@eecs.berkeley.edu>, "Alexander Gordeev" <agordeev@linux.ibm.com>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Andy Lutomirski" <luto@kernel.org>,
- "Borislav Petkov" <bp@alien8.de>, "Brendan Jackman"
- <brendan.jackman@linux.dev>, "Catalin Marinas" <catalin.marinas@arm.com>,
- "Christian Borntraeger" <borntraeger@linux.ibm.com>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, "David Hildenbrand" <david@kernel.org>,
- "Gerald Schaefer" <gerald.schaefer@linux.ibm.com>, "Heiko Carstens"
- <hca@linux.ibm.com>, "Huacai Chen" <chenhuacai@kernel.org>, "Ingo Molnar"
- <mingo@redhat.com>, "Len Brown" <lenb@kernel.org>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Paul Walmsley" <pjw@kernel.org>, "Pavel Machek"
- <pavel@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>, "H. Peter
- Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>, "Ryan
- Roberts" <ryan.roberts@arm.com>, "Sven Schnelle" <svens@linux.ibm.com>,
- "Thomas Gleixner" <tglx@kernel.org>, "Uladzislau Rezki" <urezki@gmail.com>,
- "Vasily Gorbik" <gor@linux.ibm.com>, "WANG Xuerui" <kernel@xen0n.name>,
- "Will Deacon" <will@kernel.org>, <x86@kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <linux-mm@kvack.org>, <linux-pm@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
- <loongarch@lists.linux.dev>
-Subject: Re: [PATCH 4/6] mm/vmalloc: make set_area_direct_map HUGE_VMAP
- friendly
-From: "Brendan Jackman" <brendan.jackman@linux.dev>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>, "Andrew Morton"
- <akpm@linux-foundation.org>
-X-Mailer: aerc 0.21.0
-References: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org> <20260816-execmem-set-vm-perms-v0-2-v1-4-90944a3ad43f@kernel.org>
-In-Reply-To: <20260816-execmem-set-vm-perms-v0-2-v1-4-90944a3ad43f@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_052204_759634_725853CC 
-X-CRM114-Status: GOOD (  19.53  )
+	Mon, 17 Aug 2026 12:45:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC5AA42DC4
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 12:45:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1B391F00A3A
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 12:45:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786970736;
+	bh=gRi3Hl6kL53OCVaT6AtkoZdIORGc+PqsHeHnyxChSbI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=NX8pzzZ6WYCsuaSCNmOBg6Ii5Ep1KStDBG3auZPy1zuzzU9n3S7JQOi2NmQFANO8G
+	 ksSZrVoKGpqvx6KsikmqziEmYfwhtGdJnfSAxqGpzOL+4Ynlq0oWJtcXH14mOKspZt
+	 dODfQZ/X0JHRa6MlxvnxjciBO9CAzIC7lWsSNseKI6u6WKv7hy2wYEbg/e0HaXJ5ce
+	 +fHiTRHfQDbZMvFpPBZJCmmUSuE9IvZSp0bsYHFCDBFy4gLmIcxJH5/tgxBHklaJa5
+	 VzcZpMOykl7xoEM0RoZpTBa4cJl4NDJc6FnwtBj07/fUBxUl66EZRVV7WJUnNoSpxT
+	 iLJSCURbo55zQ==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5b15dcaca31so2942261e87.0
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Aug 2026 05:45:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrGo8yow8nzD+fmPtriT55eqrIUZ+MAxCwdqHeXCMb9GmT+0ZjAOBSsGnNqkY+95e6Fb4Q/7ae+SjXWiw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxRUa1yfe8GB5uZZ97nvfKrMK2zDz3F9iYhG0U3mAriC2byu/H
+	L6XtLqYlTHAYbtkYHg/qo/dgIqVfM276V1WZLl4SBrC+eXyl1xuK2DwPY1YgFPMLWuf7VwR8rY9
+	Ehqt6PitieEgRgNnEWZEYaOzpvCF2kNY=
+X-Received: by 2002:a05:6512:3d9f:b0:5b2:e6a6:af72 with SMTP id
+ 2adb3069b0e04-5b47069f791mr41452e87.28.1786970735583; Mon, 17 Aug 2026
+ 05:45:35 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260810063650.239303-1-changhuang.liang@starfivetech.com>
+ <20260810063650.239303-4-changhuang.liang@starfivetech.com>
+ <178634991918.1014951.7989635238440361454.robh@kernel.org>
+ <ZQ4PR01MB120202070B9006984B8677EAF2DE2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <20260810144012.GA1574021-robh@kernel.org> <ZQ4PR01MB12020D2031C400FF805791B7F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <ZQ4PR01MB120275B9C0CF6BCE8C88261CF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <20260814-shapeless-onyx-pronghorn-d423a9@quoll> <ZQ4PR01MB12022F6D6F71542033CF857BF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+In-Reply-To: <ZQ4PR01MB12022F6D6F71542033CF857BF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 17 Aug 2026 14:45:22 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=Q38HwraN1NEOxLf_hE+k=3Q6JP+DUgQsThfYve0t0RA@mail.gmail.com>
+X-Gm-Features: AcwNN1V6zplB90pHlStjSOoEPiNttfHYnU2qXaCxmbT30t1V6M1l1ZLtNygTX0E
+Message-ID: <CAD++jL=Q38HwraN1NEOxLf_hE+k=3Q6JP+DUgQsThfYve0t0RA@mail.gmail.com>
+Subject: Re: [PATCH v5 03/21] dt-bindings: pinctrl: Add starfive,jhb100-sys0-pinctrl
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Bartosz Golaszewski <brgl@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +87,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun Aug 16, 2026 at 12:59 PM CEST, Mike Rapoport (Microsoft) wrote:
-> set_area_direct_map() always updates direct map alias permissions in
-> single page increments.
->
-> For HUGE_VMAP areas it's suboptimal. Not only the loop in
-> set_area_direct_map() needlessly has more iterations (e.g times 512 on
-> x86), but it also causes fragmentation of the direct map that could be
-> avoided for the HUGE_VMAP areas populated with large pages.
->
-> All pages in an area are always of the same order: either same-order
-> large pages when VM_ALLOW_HUGE_VMAP is set and all huge pages were
-> successfully allocated, or order-0 page when VM_ALLOW_HUGE_VMAP is
-> cleared or when huge pages allocation fails and fallback path is taken.
->
-> Instead of updating the direct map permissions for every order-0 page in
-> an area, use the area's page_order as the loop increment and update the
-> large pages in one call to set_direct_map_{invalid,default}_noflush().
->
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
->  mm/vmalloc.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
->
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index fc7993db4152..11170d1ee5be 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3361,12 +3361,15 @@ static inline void set_area_direct_map(const struct vm_struct *area,
->  				       int (*set_direct_map)(struct page *page,
->  							     unsigned int nr))
->  {
-> -	unsigned long i;
-> +	unsigned int nr = (1U << vm_area_page_order(area));
-> +
-> +	for (unsigned long i = 0; i < area->nr_pages; i += nr) {
-> +		if (page_address(area->pages[i])) {
-> +			int err = set_direct_map(area->pages[i], nr);
->  
-> -	/* HUGE_VMALLOC passes small pages to set_direct_map */
-> -	for (i = 0; i < area->nr_pages; i++)
-> -		if (page_address(area->pages[i]))
-> -			set_direct_map(area->pages[i], 1);
-> +			WARN_ON_ONCE(err);
-
-Nit: Maybe worth a comment on why this is expected to always succeed?
-I.e. I think we are assuming the only failure mode is allocation but 
-because we know vm_area_page_order() there shouldn't be any allocation?
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBBdWcgMTQsIDIwMjYgYXQgMToyMuKAr1BNIENoYW5naHVhbmcgTGlhbmcKPGNoYW5n
+aHVhbmcubGlhbmdAc3RhcmZpdmV0ZWNoLmNvbT4gd3JvdGU6Cgo+ID4gWW91IHN0aWxsIGRpZCBu
+b3QgZXhwbGFpbiB0aGUgY2VsbHMgLSBuZWl0aGVyIGluIHJlcGx5IG5vciBpbiBjb21taXQgLSB0
+aHVzIHN0YXJ0Cj4gPiB3aXRoIHRoYXQuIFdoeSBkbyB5b3UgbmVlZCBpdD8gTXVsdGlwbGUgY29u
+dHJvbGxlcnMgaGF2ZSBncm91cHBlZCBwaW5zIG9yCj4gPiBHUElPcyBpbiByZWdpc3RlcnMsIHNv
+IGV4cGxhbmF0aW9uICJldmVyeSAzMiBHUElPcyBjb3JyZXNwb25kIHRvIG9uZSByZWdpc3RlciIK
+PiA+IHRlbGxzIG1lIG5vdGhpbmcuIFdoeSB3b3VsZCB0aGF0IG1hdHRlciBob3cgbWFueSBHUElP
+cyBpcyBpbiBvbmUgcmVnaXN0ZXI/Cj4KPiBTaW5jZSBldmVyeSAzMiBHUElPcyBjb3JyZXNwb25k
+IHRvIG9uZSByZWdpc3RlciwgTGludXMgc3VnZ2VzdGVkIGF0IHRoZSB0aW1lIHRoYXQgSSBjb3Vs
+ZCB0cnkgdXNpbmc6Cj4gZ3Bpb3MgPSA8JmdwaW8gW2luc3RhbmNlXSBvZmZzZXQgZmxhZ3M+Owo+
+IGdwaW8tcmFuZ2VzID0gPCZwaW5jdHJsIFtncGlvX2luc3RhbmNlXSBncGlvX29mZnNldCBwaW5f
+b2Zmc2V0IGNvdW50PjsKPgo+IFRoZSBhZHZhbnRhZ2Ugb2YgdXNpbmcgdGhpcyBpcyB0aGF0IGlu
+IGEgR1BJTyBjb250cm9sbGVyIHdpdGggbW9yZSB0aGFuIDMyIEdQSU9zLCBldmVyeSAzMiBHUElP
+cwo+IGNhbiBiZSB0cmVhdGVkIGFzIG9uZSBHUElPIGJhbmsuIFRoaXMgd2F5LCBpbiB0aGUgZHJp
+dmVyLCBjb252ZXJ0aW5nIHBpbl9vZmZzZXQgdG8gZ3Bpb19vZmZzZXQgZG9lcwo+IG5vdCByZXF1
+aXJlIGEgbGFyZ2UgbnVtYmVyIG9mIC8zMiBhbmQgJTMyIG9wZXJhdGlvbnMuCj4KPiB0aGUgZm9s
+bG93aW5nIGlzIExpbnVzJ3Mgb3JpZ2luYWwgc3VnZ2VzdGlvbiBhdCB0aGUgdGltZQo+IGh0dHBz
+Oi8vbG9yZS5rZXJuZWwub3JnL2FsbC9DQUQrK2pMPXR2REJXSkhSR0dKdzRubm94X2tjSktuNWh3
+dnd6OXp4YWRNUmVkeXZSaHdAbWFpbC5nbWFpbC5jb20vCgpKdXN0IGNvcHkgdGhpcyBleHBsYW5h
+dGlvbiBpbnRvIHRoZSBjb21taXQgc28gaXQgaXMgY2xlYXIgd2h5IHlvdQpuZWVkIHRocmVlIGNl
+bGxzIGZvciB0aGlzLgoKWW91cnMsCkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
