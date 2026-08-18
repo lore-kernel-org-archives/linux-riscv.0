@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A86BC5B572
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Aug 2026 23:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82318C5DF74
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Aug 2026 03:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zr69hTY+UrWcNaAf7kURDOQNEJtBYC48be/qYL0tRVY=; b=Ro4NVrqXjOdSS1
-	vhr28ydrdcK+hvTle0NoKNOv7gysV7BfcSI6GnVBINzoOtkzK9NM9vhPXrqLJSf4gmPdiz4m2XpbJ
-	G8Xkwa2VRCqTJyTOLFI4P3ah7syRTRGY/UxwhxOT+kNoBGgEYdvWf5w0YYSWNyOw1dVax/8d+wNl6
-	l2EIhyNOqMVj1ULc5HqjBEq8d2tO8iDZh2Qmol3wj00Wo1cotimkFPuvBH/Zo/T3X+45pu8J7yTRa
-	bprxWrrEL3f95vglhBVoYvdKvdw6mbApnZ2Y373y9cne+aI49MGj05PEsHUi19MpF84Grog9VW8JN
-	JIrSzYU4UVa+6Jpzht8A==;
+	List-Owner; bh=zQEi8yiE0PTXAhizrR6QxbUd3qY+9lmkxLJseIGqS6Q=; b=bEeg/yZVaEIDSV
+	8KcIhjDlFIWFF86baoPQp3bLoUSh1QkvHbX9UBprkd8CPaFpJ4Q/YAKwCVkTj5KAwslhWNVIecD95
+	zc6XNTljwKvbw3QmDvGPR7JpMQwuNGdL3oqkFu7/a7tGgel9MtQM8GUMqZ/I9MIj6K3Wit2f2B06G
+	eXwzekRXtL8btKjq0y/4Sp79boj6aLkxyWpOEIpUQJlSd2w4GExwoinPdXilhhe+7BwcncXSg9mK9
+	jpbfS3IcRrkGcD9+PGef/5ViIkTskWNlS6XQH8EVW6uas1vCNFY2gEwA/O+QRTtNCIS3LKlYdxeTS
+	U+gMM645LttTLife8ApA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww78A-00000006zj3-3Jzl;
-	Mon, 17 Aug 2026 23:52:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwAhz-00000007Czc-1Xzf;
+	Tue, 18 Aug 2026 03:41:51 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww789-00000006zin-0IBr;
-	Mon, 17 Aug 2026 23:52:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 819514061B;
-	Mon, 17 Aug 2026 23:52:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FF5D1F000E9;
-	Mon, 17 Aug 2026 23:52:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787010756;
-	bh=koWf55vaeY/YK5s2sXLfuXSB87tJXPWVCUmNqitRZhA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=V+hk+LycGEcXLRgSUp/flcYt0TOp/+5nxDJSpjbCXKVph6Y0rL4yhAwebZhCRcbjc
-	 XQgcNqYrGmOp9ZXyY7mN+58t17njbPXI29hVNP5O6mNWvR/ODCTjkqY15Wg6N61DGt
-	 8tQFTaKg/ZJ27xleGoqhaczD3VcAYDCrUyzfVHDSsx/zdzWn1hdP8SlilEuqUdj6Be
-	 NCzOqG0Msb/3GqAlpsJkiwbgymrR0B8qzBG+I+gkB6KZDzKbVl5QP51Un3gHUyQgMX
-	 klOxX9iyqfyFxSglHVTEIL+dUHGLGWQnktVu8sGC/gWiu3jmiiC2sgrvK0ApX1uJcT
-	 /aZAG5R8VkYGA==
-Date: Mon, 17 Aug 2026 16:52:34 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-phy@lists.infradead.org,
-	linux-usb@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>,
-	Yao Zi <ziyao@disroot.org>
-Subject: Re: [PATCH 02/12] clk: thead: th1520-ap: add support for MISC subsys
- clocks
-Message-ID: <aoOewlbMfey0DLwp@thelio>
-References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
- <20260507081710.4090814-3-zhengxingda@iscas.ac.cn>
- <aier9XppLeCkJydw@thelio>
- <93b867c1b7f5526cc25cb04f838432cd752f5981.camel@icenowy.me>
- <aievi0s-3SO8hV6a@thelio>
- <aijpEqzJ7fM7rGMH@thelio>
- <aoH9cvTC8vD4NYpB@x1>
- <3f0268a19aab46d602dffc9e14fc6683af7a20cd.camel@icenowy.me>
+	id 1wwAht-00000007Cyk-0T0h
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Aug 2026 03:41:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1787024479;
+	bh=M51RcODKtDrycnFlhGskAMNyMf/YOS5ysox2HrmCLG4=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=WVKGl7QPvSkOtgB9FnehwV273QauwKCUej0i5tKnE2d9v+/7fE5M3HupLPsFUwxfJ
+	 gUQHf8UTF/HK/PibiDFgKNJVLRY+FVPz7Md14fhnrrMTOv/aGfscM+11O7vybPhrzV
+	 6H/SyiyOu4CpYSgoYbj5XsZtV/78YKkHjiEncaf0=
+X-QQ-mid: zesmtpsz7t1787024472t8d8f57af
+X-QQ-Originating-IP: 8dt28FF39zpny7zVreDpqqEynBidAVsbYm5wAxeAed4=
+Received: from SW-U22IC-015.dc.com ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 18 Aug 2026 11:41:10 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5519135494922037937
+EX-QQ-RecipientCnt: 8
+From: Peixin Xie <peixin.xie@linux.spacemit.com>
+To: rafael@kernel.org
+Cc: dlan@kernel.org,
+	lenb@kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	peixin.xie@linux.spacemit.com,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH] ACPI: scan: Drop power resource references for deferred devices
+Date: Tue, 18 Aug 2026 11:41:10 +0800
+Message-Id: <20260818034110.1067658-1-peixin.xie@linux.spacemit.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <CAJZ5v0g3pVxLgXBAHho5B+kfAiQQkQHGoO-1uBxp0OyXiGGcRQ@mail.gmail.com>
+References: <CAJZ5v0g3pVxLgXBAHho5B+kfAiQQkQHGoO-1uBxp0OyXiGGcRQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3f0268a19aab46d602dffc9e14fc6683af7a20cd.camel@icenowy.me>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: MDN2VRNR2P4wfc1YnJSBHR339Xf5anZIzNaUsa/6XTxSaFIIPN8ib/wK
+	SNL+AWZbWRW3avH2mUPiYKwvd4h90L4rxI9nEV+Mbxh15U2hZmI1FHB22N+Kdwv4iI38GdE
+	w7tt7WNKR4BdwRwAMpGWj8iDsF59427O4nZqjW/nd0z3s/vzL1z8RJOKPnIWDsUGmEH5khi
+	A43lYm9m6xBTDkHb1WbbHIpvZ/eCLmB/whrJJ+MMB0lP4+LLQnCEFu6G8fGU3zs104PZFnF
+	HXUEqMaIIGJQCEQvd4KCYMklZm5Fnv8scVnXsEBnhXAITfN/jFWm2JpLGWa3Vg5J/c+HhlN
+	Fbqbel3kFjhYXqNYMFvQtHEHJk73TdUEibbIYOE7xCJ/4rNw1J51o10jxuCYBEwN4Zv/qYi
+	GwJQfAK7qjUecj7QPgTU/U6LuvWhGcnO8qayhQDFAow3EfAGHTb3Kb99IAY+EumrKBLpS0N
+	aPhTTi3geWyxZ8yJYoGtUXmHP5/xalpN6UZPqa/YQcIRCk/MC9jGO1Hj9G5gVs6ZeDuAF7d
+	01dyo3P0yHRArOfcEdXWSvyPdmXxZYm/8zH5p696EpujQTftCyeT8xdLFZzGbWxyCYqPfM3
+	hQxd5ebgdHXVcbKpeIFQswHwCqVIUU3Jg7z56PMpTNflhQL+mDjdb/crdthBrUS+Zz2VvNO
+	Qo9NBeS8bRd1QDmtBH5JNrmv1pU18FjtzyXIwXxKvl3PkO1MDFurwVmpq0kQjHEvWB5nmHV
+	vLGauk3gZ66t92peCznI8bbm5FodbOY87Uep6XyBxYT1gAm0xFYFIx3oXt7SJz8W59fEKAh
+	v6A4eOD3CroVzy534KW0xMa4KD2k79Z4D2y3MNVjyHLmr+DQfo8EJPTDvgko2hr9G3xG14P
+	rkmDwKbUQBVcAFEzInaqimcGl6RmMZ/+JymudJmqK99hoD+DOmkWAdkfkUZc/09zYfuKW0/
+	hrfa5UXxuRT9KAsgbNHVgzA09sHqp+gd/I8E08A9F9OwXqpLAVq73Y8JFiHPOLiWyTz9Is6
+	jN//0bf8XwspvRjo6YLljehXl4wc0=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260817_204145_970616_F88B58CE 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +94,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBBdWcgMTcsIDIwMjYgYXQgMTI6MjQ6MjZQTSArMDgwMCwgSWNlbm93eSBaaGVuZyB3
-cm90ZToKPiDlnKggMjAyNi0wOC0xNuaXpeeahCAxMToxMiAtMDcwMO+8jERyZXcgRnVzdGluaeWG
-memBk++8mgo+ID4gT24gVHVlLCBKdW4gMDksIDIwMjYgYXQgMDk6MzM6MjJQTSAtMDcwMCwgRHJl
-dyBGdXN0aW5pIHdyb3RlOgo+ID4gPiBPbiBNb24sIEp1biAwOCwgMjAyNiBhdCAxMToxNTozOVBN
-IC0wNzAwLCBEcmV3IEZ1c3Rpbmkgd3JvdGU6Cj4gPiA+ID4gT24gVHVlLCBKdW4gMDksIDIwMjYg
-YXQgMDI6MDE6NDNQTSArMDgwMCwgSWNlbm93eSBaaGVuZyB3cm90ZToKPiA+ID4gPiA+IOWcqCAy
-MDI2LTA2LTA45LiA55qEIDIzOjAwIC0wNzAw77yMRHJldyBGdXN0aW5p5YaZ6YGT77yaCj4gPiA+
-ID4gPiA+IE9uIFRodSwgTWF5IDA3LCAyMDI2IGF0IDA0OjE3OjAwUE0gKzA4MDAsIEljZW5vd3kg
-WmhlbmcKPiA+ID4gPiA+ID4gd3JvdGU6Cj4gPiA+ID4gPiA+ID4gVGhlIFRIMTUyMCBTb0MgY29u
-dGFpbnMgYSBNSVNDX1NVQlNZUyBjbG9jayBjb250cm9sbGVyLAo+ID4gPiA+ID4gPiA+IHdoaWNo
-Cj4gPiA+ID4gPiA+ID4gYWxsb3dzCj4gPiA+ID4gPiA+ID4gY29udHJvbGxpbmcgb2YgVVNCIHJl
-bGF0ZWQgY2xvY2tzIGFuZCBNTUMvU0QgY29udHJvbGxlciBBSEIKPiA+ID4gPiA+ID4gPiBidXMK
-PiA+ID4gPiA+ID4gPiBjbG9ja3MuCj4gPiA+ID4gPiA+ID4gCj4gPiA+ID4gPiA+ID4gQWRkIHN1
-cHBvcnQgZm9yIHRoaXMgY2xvY2sgY29udHJvbGxlciwgaW4gb3JkZXIgdG8gZW5hYmxlCj4gPiA+
-ID4gPiA+ID4gVVNCCj4gPiA+ID4gPiA+ID4gc3VwcG9ydC4KPiA+ID4gPiA+ID4gPiAKPiA+ID4g
-PiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBJY2Vub3d5IFpoZW5nIDx6aGVuZ3hpbmdkYUBpc2Nhcy5h
-Yy5jbj4KPiA+ID4gPiA+ID4gPiAtLS0KPiA+ID4gPiA+ID4gPiDCoGRyaXZlcnMvY2xrL3RoZWFk
-L2Nsay10aDE1MjAtYXAuYyB8IDY0Cj4gPiA+ID4gPiA+ID4gKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKwo+ID4gPiA+ID4gPiA+IMKgMSBmaWxlIGNoYW5nZWQsIDY0IGluc2VydGlvbnMo
-KykKPiA+ID4gPiA+ID4gPiAKPiA+ID4gPiA+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsv
-dGhlYWQvY2xrLXRoMTUyMC1hcC5jCj4gPiA+ID4gPiA+ID4gYi9kcml2ZXJzL2Nsay90aGVhZC9j
-bGstdGgxNTIwLWFwLmMKPiA+ID4gPiA+ID4gPiBpbmRleCAzYTY4NDdmMWM5NTBmLi4yNGY3ODVm
-MGIzMjlhIDEwMDY0NAo+ID4gPiA+ID4gPiA+IC0tLSBhL2RyaXZlcnMvY2xrL3RoZWFkL2Nsay10
-aDE1MjAtYXAuYwo+ID4gPiA+ID4gPiA+ICsrKyBiL2RyaXZlcnMvY2xrL3RoZWFkL2Nsay10aDE1
-MjAtYXAuYwo+ID4gPiA+ID4gPiBbLi4uXQo+ID4gPiA+ID4gPiA+IEBAIC0xNjA5LDYgKzE2NjMs
-MTIgQEAgc3RhdGljIGludCB0aDE1MjBfY2xrX3Byb2JlKHN0cnVjdAo+ID4gPiA+ID4gPiA+IHBs
-YXRmb3JtX2RldmljZSAqcGRldikKPiA+ID4gPiA+ID4gPiDCoAkJCXJldHVybiByZXQ7Cj4gPiA+
-ID4gPiA+ID4gwqAJfQo+ID4gPiA+ID4gPiA+IMKgCj4gPiA+ID4gPiA+ID4gKwlpZiAocGxhdF9k
-YXRhID09ICZ0aDE1MjBfYXBfcGxhdGRhdGEpIHsKPiA+ID4gPiA+ID4gPiArCQlyZXQgPSBkZXZt
-X2Nsa19od19yZWdpc3RlcihkZXYsCj4gPiA+ID4gPiA+ID4gJnVzYl9zdXNwZW5kX2Rpdl9jbGsu
-aHcpOwo+ID4gPiA+ID4gPiA+ICsJCWlmIChyZXQpCj4gPiA+ID4gPiA+ID4gKwkJCXJldHVybiBy
-ZXQ7Cj4gPiA+ID4gPiA+ID4gKwl9Cj4gPiA+ID4gPiA+IAo+ID4gPiA+ID4gPiBTaG91bGQgdXNi
-X3N1c3BlbmRfZGl2X2Nsay5odyBpbnN0ZWFkIGJlIHJlZ2lzdGVyZWQgdW5kZXIKPiA+ID4gPiA+
-ID4gJ2lmIChwbGF0X2RhdGEgPT0gJnRoMTUyMF9hcF9wbGF0ZGF0YSknPwo+ID4gPiA+ID4gCj4g
-PiA+ID4gPiBEbyB5b3UgbWVhbiBtaXNjX3BsYXRkYXRhPwo+ID4gPiA+ID4gCj4gPiA+ID4gPiBZ
-ZXMsIHRoaXMgaXMgYW4gY29weS1uLXBhc3RlIGVycm9yIHRoYXQgZGVzZXJ2ZXMgYSBmaXguCj4g
-PiA+ID4gCj4gPiA+ID4gSGFoLCB5ZXMsIEkgYWxzbyBoYWQgYSB0eXBvIDopCj4gPiA+IAo+ID4g
-PiBBc3N1bWluZyB0aGF0IGdldHMgZml4ZWQgaW4gdGhlIG5leHQgcmV2Ogo+ID4gPiAKPiA+ID4g
-UmV2aWV3ZWQtYnk6IERyZXcgRnVzaW5pIDxmdXN0aW5pQGtlcm5lbC5vcmc+Cj4gPiAKPiA+IEkg
-d2lsbCBmaXh1cCB0aGUgdHlwbyBhbmQgYXBwbHkgdG8gdGhlYWQtY2xrLWZvci1uZXh0IG9uY2Ug
-Ny4zLXJjMSBpcwo+ID4gcmVsZWFzZWQuCj4gCj4gQlRXIEkgdGhpbmsgdGhlIGJpbmRpbmcgcGF0
-Y2ggc2hvdWxkIGdvIHRocm91Z2ggeW91ciB0cmVlIHRvby4KClllcywgSSB3aWxsIHBsYW4gdG8g
-dGFrZSBwYXRjaCAxIGFuZCAyIHRocm91Z2ggdGhlYWQtY2xrLWZvci1uZXh0IGFuZApwYXRjaCAz
-IHRocm91Z2ggdGhlYWQtZHQtZm9yLW5leHQuCgpUaGFua3MsCkRyZXcKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Aug 12, 2026 at 03:15:27PM +0200, Rafael J. Wysocki wrote:
+> Have you considered dropping the acpi_bus_init_power() call from
+> acpi_bus_get_power_flags() and doing it only once when the device gets
+> ready for enumeration?
+
+Thank you for the suggestion. I tested this approach on the SpacemiT K3
+platform and it works as expected.
+
+In addition to removing the acpi_bus_init_power() call, I set
+device->flags.initialized to false at the end of acpi_bus_get_power_flags()
+to mark the device power state as not yet initialized. This causes the
+existing path in acpi_bus_attach() to call acpi_bus_init_power() once the
+device is ready for enumeration.
+
+The power resource references are now balanced and runtime suspend and
+resume continue to work correctly. I will send a v2 in next couple days.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
