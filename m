@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AB8C5DF70
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Aug 2026 09:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF8CC5DF70
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Aug 2026 09:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qGMlXBcK5R031KO1koIP2cJKWAv0XqondEcdgGZ/HtE=; b=0ItLnX9lJEUX2C
-	KNZO/8AqQpgvJ3jyv7C9HoXRT70cAIsY7kuaPaAvvqc7Cq4e7L3E5LYEvrhAbrxqxS8tc+mb7K98i
-	2xznh+m6bzIf0CFyL6JyhHpBeWOf2dxyFVPHrndOiKa6rXFlMQMniznf5Afbqv/T9qMlW0Ntv7k1v
-	wd0vs8D4R0H/3JLuSRrjTN6wlr51CzzODYk0NKQ4RE+W54KBf4KzWyKGaQpVwMLa0IY1CY2jns2iH
-	GmMRYFlOCdnT7DHrkgW2fgsyCspn4yO1XZk1YkO2G/t6fmdwQv/sdO+mm8z9aL0flTT2nzwAp6ZeJ
-	nWfAHYF81iWWqlhKr+Bw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0pv6mvNB04GXeQdHAyp1jN7elhEQ6ughza7DwLhZJyw=; b=cyr8iKbS9BuuNmS6raUiPu7AjD
+	T/fq/xLhiND2Mwn4Q4GdLD4LWnEyPxXURoWHXphI/Tbo+O1oXOBmosKtQUgJYt/ErLPTpYQ+NqZdJ
+	yBr2cwM8U3cXMo53jKTI1GpZcx21T6eyZGEig7IE8evzCSaqetwxbCay0t1t7xuxnkd9HDHR/3fye
+	h88y053P5xQTHCzM40NEVuCb0NJCPwvFKap278K/4wWyOiU+Zt5qcb02wsYJdDnL3+T6aq4q9eL7V
+	+CeXhSkByIXuFNs45jPVEg+bjnpMkFS0ECniBqqtc2Lz19OuQh/CO76wjPhCCp+idZXeblnkq5c+Q
+	yeJ51CaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGNJ-00000007ejp-3fXt;
-	Tue, 18 Aug 2026 09:44:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wwGO4-00000007fC6-1sFe;
+	Tue, 18 Aug 2026 09:45:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGN2-00000007eXZ-2Ewb;
-	Tue, 18 Aug 2026 09:44:36 +0000
+	id 1wwGO3-00000007fC0-2YkV
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Aug 2026 09:45:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81C7E601E0;
-	Tue, 18 Aug 2026 09:44:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E791F000E9;
-	Tue, 18 Aug 2026 09:44:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DAF6860A59;
+	Tue, 18 Aug 2026 09:45:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5CF21F00A3D;
+	Tue, 18 Aug 2026 09:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787046275;
-	bh=+go879+lhtz6kjxYEfCYEUcFeNEXpMv/Ou7ia8zyV34=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=K//PAmYi6FmyIoB1+cGsrleQfa6mHr3F/LzlNWNkFMMpAsD+2U5Xr47D+YJr9ApqM
-	 3hOtr22TLx8Q/syRCMtIuz/SGWwOiOZdPbQme4kIxxPj8GoFBFBNsy+n1x5j3wcrE1
-	 rtGItxvsvNnmFTfH4ZBC5rdEJhy+wAURFYM5IgSjilq8RJKJZzYLST5QoYsq7loMcN
-	 lWHE4lUGhC+qcoet9tRSDwgzgnNzqwofXtXMs2gfVkeFXjYM8ndYHYx6gHFMpudiQV
-	 z/fjmBER/G7YvT8D3Wusziy4fJ6G8JWO1Yr3vouso/fofoKH4gyScZsbsmJtE4j/iU
-	 LYSGQKiZUiZUQ==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Mukesh Pilaniya <mpilaniy@redhat.com>
-Cc: Pratyush Yadav <pratyush@kernel.org>,  Catalin Marinas
- <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Mark Rutland
- <mark.rutland@arm.com>,  Huacai Chen <chenhuacai@kernel.org>,  WANG Xuerui
- <kernel@xen0n.name>,  Paul Walmsley <pjw@kernel.org>,  Palmer Dabbelt
- <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti
- <alex@ghiti.fr>,  Andrew Morton <akpm@linux-foundation.org>,  Baoquan He
- <baoquan.he@linux.dev>,  Mike Rapoport <rppt@kernel.org>,  Pasha Tatashin
- <pasha.tatashin@soleen.com>,  Tao Liu <ltao@redhat.com>,  Philipp Rudo
- <prudo@redhat.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  loongarch@lists.linux.dev,
-  linux-riscv@lists.infradead.org,  kexec@lists.infradead.org
-Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
- mismatch
-In-Reply-To: <9cbe111c-ff63-4f24-b518-094ddd7cea30@redhat.com> (Mukesh
-	Pilaniya's message of "Fri, 14 Aug 2026 22:57:36 +0530")
-References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
-	<2vxzv79c23j6.fsf@kernel.org>
-	<9cbe111c-ff63-4f24-b518-094ddd7cea30@redhat.com>
-Date: Tue, 18 Aug 2026 11:44:30 +0200
-Message-ID: <2vxzbjaz2269.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	s=k20260515; t=1787046338;
+	bh=lxh47bE0eJzEi3uLLxOK0tSzMFY3vWxKYVwvwmXkahI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QA/kUcVl1gBFWaEcZbEEmA4ftKlCm6wMEV58ryRTFN1iyW1KOCl/ZkhdkHu64Am7C
+	 CoPkXKml4NuWlOW0WTS7BF0R2kRJLsBcHmAwf5NK2L2nzw9yVL/vYGSvl7IPTZGvs5
+	 ui82O9Vp2FujHe+YpBLiDqelqa2rk6DRPDcV86FkGUzOfPyOe64jxPCLoShfVQWIl6
+	 87B7eQQRzyGPjW9Pr6BFzJmx1Br1wi0cXsboiPU9Pwvkb1fIccKFcb8TGLLjhnCCw8
+	 2KNMEkCICtM9bo0hTmLC3NVeFk+pJT4POdyN4LKvA0sen4mLS6qs9FWIGExbf+kakq
+	 e0S6aJuCLRppQ==
+Date: Tue, 18 Aug 2026 10:45:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Ivy Lopez <skunkolee@gmail.com>
+Cc: conor.dooley@microchip.com, alex@ghiti.fr,
+	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, pjw@kernel.org
+Subject: Re: [PATCH] riscv: hwprobe: require both F and D extensions for
+ RISCV_HWPROBE_IMA_FD
+Message-ID: <20260818-uninstall-opposite-b713ce801f5c@spud>
+References: <20260817-unmade-dyslexic-4bb4acf535af@wendy>
+ <20260817211507.28685-1-skunkolee@gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <20260817211507.28685-1-skunkolee@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,138 +67,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0747898617019025514=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14 2026, Mukesh Pilaniya wrote:
+--===============0747898617019025514==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="UR2iiSoY9sceda38"
+Content-Disposition: inline
 
-> Hi Pratyush,
-> On 14/08/26 7:43 pm, Pratyush Yadav wrote:
->> On Thu, Aug 13 2026, Mukesh Pilaniya wrote:
->> 
->>> Several kexec_file_load() image probe functions return -EINVAL when
->>> they do not recognize the image format.  A probe function that rejects
->>> an image should return -ENOEXEC to indicate that the image is not a
->>> recognized executable format.  -EINVAL implies a problem with the
->>> syscall parameters, not with image recognition.
->>>
->>> kexec_image_probe_default() iterates through registered loaders and
->>> returns the last probe's error code to the caller.  That error
->>> propagates as the kexec_file_load() return value to userspace.
->>> Returning -EINVAL from a probe when no loader matches is semantically
->>> incorrect and misleads userspace about the nature of the failure.
->>>
->>> Return -ENOEXEC from all probe functions and their helpers when the
->>> image format is not recognized.
->> 
->> Sounds fine in principle but can you please also share what the real
->> problem you face is and how changing these return codes helps? These
->> error codes are uAPI and while we _can_ change them as long as we don't
->> break something, there should be a clear motivation for doing so.
->> 
->> [...]
->> 
-> While debugging a misleading error on s390x where kexec -s reported
-> "syscall kexec_file_load not available" instead of the actual EINVAL
-> from a kernel command line that exceeded the architecture limit, we
-> traced the problem to the kexec-tools userspace utility treating
-> EINVAL the same as ENOSYS and ENOEXEC -- as a signal to silently fall
-> back to kexec_load().
->
-> kexec-tools supports two syscalls: kexec_file_load() and the older
-> kexec_load(). With -a (the default), it tries kexec_file_load()
-> first and falls back to kexec_load() when the syscall is not
-> implemented (ENOSYS) or the kernel does not have a loader for the
-> image format. With -s, it uses kexec_file_load() only with no
-> fallback.
->
-> When the kernel returns -EINVAL it means something went wrong while
-> loading the image, not that the syscall is missing or the image
-> format is unrecognized. kexec-tools should not fall back to the
-> older syscall in that case. However, some kernel probe functions
-> currently return -EINVAL when the image header does not match,
-> instead of returning -ENOEXEC. Keeping EINVAL in the fallback set
-> to accommodate these probes has the side effect of also hiding
-> genuine loading errors like an oversized command line.
->
-> kexec-tools should only fall back when kexec_file_load() is not
-> implemented or does not have a matching loader -- not when something
-> goes wrong during load.
->
-> The fix on the kexec-tools side is to remove EINVAL from the fallback
-> set, but that requires the kernel to be clean first -- probe functions
-> must return -ENOEXEC when they do not recognize an image format, not -EINVAL.
+--UR2iiSoY9sceda38
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Okay, the idea makes sense. Though I am curious if in practice there are
-images that kexec_file_load() can't load but kexec-tools can.
+On Mon, Aug 17, 2026 at 03:15:07PM -0600, Ivy Lopez wrote:
+> On Mon, Aug 17, 2026 at 03:14:36PM +0100, Conor Dooley wrote:
+> > The kernel never supports F without D, so this cannot occur.
+> > riscv_isa_extension_available(NULL, f) always returns false if D is not
+> > also present.
+> >
+> > If anything, the code in has_fpu() should be changed to only check D and
+> > not F to match expectations elsewhere, or F and D for the same reason.
+>=20
+> Ah ok, thanks for the clarification.. I hadn't realized F-without-D is
+> already structurally impossible here, so this patch doesn't change
+> actual behavior.
+>=20
+> Would you prefer a v2 that fixes has_fpu() instead (checking D only,
+> or F && D, whichever matches the intended semantics elsewhere), or
+> would you rather I just drop this patch since RISCV_HWPROBE_IMA_FD already
+> behaves correctly in practice?
+>=20
+> Happy to send whichever you'd find useful!
 
-But then I went and looked at the code. The only caller of the probe
-functions I can see is kexec_image_probe_default(). Looking at its code:
+I think I would rather see has_fpu() get changed. I think checking
+either D only (ideally with a comment explaining why that's correct to
+do) or checking both are equally valid, which to do is up to you.
 
-  int kexec_image_probe_default(struct kimage *image, void *buf,
-  			      unsigned long buf_len)
-  {
-  	const struct kexec_file_ops * const *fops;
-  	int ret = -ENOEXEC;
-  
-  	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
-  		ret = (*fops)->probe(buf, buf_len);
-  		if (!ret) {
-  			image->fops = *fops;
-  			return ret;
-  		}
-  	}
-  
-  	return ret;
-  }
+I don't think there's really any other equivalents to this has_fpu()
+code because anything that would do it just calls has_fpu() instead!
+The closest thing to it that I found is code in cpufeature.c that only
+checks D (with comments), but that code is part of the wider extension
+parsing logic that where the block on F without D happens in the first
+place, so it may not be the best example.
 
-It defaults ret to -ENOEXEC, which makes sense, but then lets it be
-over-written by each loader. So in practice, it returns what the _last_
-loader returned. _This_ makes no sense. Why should the last loader be
-any special?
+In the future, when replying, please try to keep more than just one mail
+of context, to make it easier for people to follow the conversation if
+this is the only mail they read or if they forgot exactly what was going
+on in the previous ones.
 
-From reading the code, I think what the author of this wanted to do is
-to try all loaders, and return -ENOEXEC if none succeeded. But the code
-of course strays from that and ends up returning the last loader's
-value.
+Cheers,
+Conor.
 
-So how about the below diff instead? (** only compile tested **)
 
---- 8< ---
-diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-index 2bfbb2d144e6..cfb2b8cd5679 100644
---- a/kernel/kexec_file.c
-+++ b/kernel/kexec_file.c
-@@ -67,17 +67,16 @@ int kexec_image_probe_default(struct kimage *image, void *buf,
- 			      unsigned long buf_len)
- {
- 	const struct kexec_file_ops * const *fops;
--	int ret = -ENOEXEC;
- 
- 	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
--		ret = (*fops)->probe(buf, buf_len);
--		if (!ret) {
-+		if (!(*fops)->probe(buf, buf_len)) {
- 			image->fops = *fops;
--			return ret;
-+			return 0;
- 		}
- 	}
- 
--	return ret;
-+	/* No loader found. */
-+	return -ENOEXEC;
- }
- 
- static void *kexec_image_load_default(struct kimage *image)
 
--- 
-Regards,
-Pratyush Yadav
+--UR2iiSoY9sceda38
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaoQpvgAKCRB4tDGHoIJi
+0p8XAP90QgkBM+N2QT+XtDm/msMcyWeJrpYVPoOLdAxGPL3dpQEAkNSaf9PWQMhQ
+BWvah9YbgBwis1ciOb639ZyaGQSu4wU=
+=Ftnu
+-----END PGP SIGNATURE-----
+
+--UR2iiSoY9sceda38--
+
+
+--===============0747898617019025514==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0747898617019025514==--
+
