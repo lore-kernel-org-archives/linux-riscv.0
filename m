@@ -4,79 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397ADC5DF81
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Aug 2026 16:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCE0C5DF7D
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Aug 2026 17:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gjp8NY2ZVDARuJPVt/sej2WhR5mS8RXKwztMW+Pxau4=; b=38Vhtsv51LQRJgVMrqJadzSGGv
-	UkwFq8fIysdzfcJUWIMiNpVJcoGKT+GUgimRadiiWZyVcOSHYKC52MQBlWeoLoKQEI47gWbwi+1Xp
-	HFMhFs45pihO3rjnR+8xlmj8VsSis0AYh4Pqfj3ro5x7tbfvWvjcgVFgjShQoYbXm17gZO8JZl+0M
-	XgWYnFJeBEDP8WSqKEtQI/wO+FVOGSV9eqrELOd4B1unWRnKmBvnPSXWYKkmUXSQ5h7827RWJoyDa
-	hkpF4en9EuygE3a9MBrCrj9lSGiUnd5Z+I23KZ6pSkboOqqgtC2wf1ufPj1eNUmiNb4uinhA2wOmo
-	7jSqqI8w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1FM7tXG0Fcc/m3l/6SOA6eAK6e+u2CzVeQlukqQC4ec=; b=ZTIM8mybQcqA5F
+	DlJXf9dnxS9sAm9vbxc45kfBfRBR1qlrXPC/SIbNj5OSZyyXPJDq1zL0ugAVO8U4XD8ac+Bv35cMU
+	nNeESe01bbvtUModUwtR2G9FfpBWZjBWKCZat0bI1JD5Dkbp6Rxu5lSg9rt5NHbSJL9g9vZgBjZ5o
+	BatkO21xCmY2GqGNIMvOw4IFEmLn7hjIUoDEtSloLwajkAIXk7Q3nN6UxJkWgfY5P5l50/xmmlfYn
+	Gro2VvtIA5WjpseltHalTjKfRvUQHj3gywAboZq1evTd5E8DTGiO5a8qf2F6UkOVJDqJq+K2fXBGN
+	gu6wIM6g+lhUPDYknuQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwN6K-00000008OEm-28dn;
-	Tue, 18 Aug 2026 16:55:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwNYt-00000008Q5u-1IRV;
+	Tue, 18 Aug 2026 17:25:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwN6I-00000008OEg-2YgQ
-	for linux-riscv@lists.infradead.org;
-	Tue, 18 Aug 2026 16:55:46 +0000
+	id 1wwNYr-00000008Q5P-49xk;
+	Tue, 18 Aug 2026 17:25:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9535C601DE;
-	Tue, 18 Aug 2026 16:55:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 455E71F000E9;
-	Tue, 18 Aug 2026 16:55:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C14943F63;
+	Tue, 18 Aug 2026 17:25:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A28E1F00A3A;
+	Tue, 18 Aug 2026 17:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787072145;
-	bh=mbannRAkdN1p03r8biMHhQzdxtdlRnNoGSybtXi73Us=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=g5MZn43osZ1EQML0Np29vJraekXMi3vuSrYiQ9DxKMBwPSyHbPNkwoqMOygXI/ITu
-	 +t9/tSfmizYcm4Puf8PpKFSMMPDgNqMO2icV2jEUmsA8RjzyqDwb5vqUUOXVsQ+mJu
-	 Bztfc+j/ZXw96cJg+lqdmUvpPT+GwljBll5EnJtwRW43bqg5qv9MI7l2+jGst4aYoi
-	 yp7SyLN9SWe8RbriJA8byuTKBsYSZkkUrr0kwVvxX7KlMGOi4nelIo6gtgKnAWBzmP
-	 E6ivx4rm+zwySTrXlQom5/zwSfxfaq1A0GIQ8FN5lSwc6Gz9a56AXNUZ6Z4gtqoe7U
-	 s8xutEewfAUzA==
-Date: Tue, 18 Aug 2026 17:55:39 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v4 7/8] soc: starfive: Add socinfo driver for JHB100 SoC
-Message-ID: <20260818-recall-onion-3279fe070ccd@spud>
-References: <20260810-caress-rack-45615c8d9747@spud>
- <ZQ4PR01MB120276A1DA91FAC19C852F14F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260811-populace-afflicted-40a40e0f484c@spud>
- <ZQ4PR01MB1202DDE6C255441E1FC4F916F2DC2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260812-snowplow-punctured-28d19616f707@spud>
- <ZQ4PR01MB1202F016AD1F1E699429DDC0F2DB2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260813-presoak-scarily-b6cdecfcb7cc@spud>
- <ZQ4PR01MB1202CD24FCDA9039EDF2C7A0F2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260814-reverb-mourner-283116bcc014@spud>
- <ZQ4PR01MB1202BE1034795F1FBCF18076F2A72@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+	s=k20260515; t=1787073917;
+	bh=AShWrs852J7IkStssEoEst3JiywPYlSikQUVe7RTkRk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=HHYuHZuq5zMXG+8OeZcsNEd1kunHyn8X+QRRdpazCD+PrQnY2MD+Ve9C7MoKwru4x
+	 dbBzkW2cGWbBN3m3D8evXSCxOc8q2AyH3nSXNiWo+xrK2TdFxAIivDqioG1XAtwxtF
+	 aMCegUXmfY55bD/l0MdwxRF/+47ynTjAj26vHT4KSJZRH0qcQ7HSLgqNnkGJ4K3+/W
+	 crGr6GNfZ3DAGAYgRt1N7RBfRYxh3dfuxofB0XlSNCLCsppsmpUwmMlxXD5gurFGnn
+	 9/OAXbxSo02M2icN//fOoDQwicorrXfhbp04ZPJhViHl6uwc6nkSncuJyuWweMLpgg
+	 uyhaHGoSxMwtA==
+Message-ID: <55d92b3e-ad3f-464f-b2db-a2552353223e@kernel.org>
+Date: Tue, 18 Aug 2026 19:25:07 +0200
 MIME-Version: 1.0
-In-Reply-To: <ZQ4PR01MB1202BE1034795F1FBCF18076F2A72@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V3 1/8] mm: Make ptrval_to_str() generally available
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org,
+ akpm@linux-foundation.org
+Cc: Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker
+ <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Lorenzo Stoakes <ljs@kernel.org>
+References: <20260818040041.1891769-1-anshuman.khandual@arm.com>
+ <20260818040041.1891769-2-anshuman.khandual@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260818040041.1891769-2-anshuman.khandual@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,211 +122,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4771033483540683019=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4771033483540683019==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="idcukJczKVSVGVjs"
-Content-Disposition: inline
+On 8/18/26 06:00, Anshuman Khandual wrote:
+> Move ptrval_to_str() inside a header thus making the helper more generally
+> available for new users which are being added later. While here, also move
+> another related string size macro PTVAL_STR_MAX inside the header as well.
+> 
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: David Hildenbrand <david@kernel.org>
+> Cc: Lorenzo Stoakes <ljs@kernel.org>
+> Cc: linux-mm@kvack.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
 
---idcukJczKVSVGVjs
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I would have placed that into include/linux/pgtable.h. Any particular reason for
+mm_types?
 
-On Mon, Aug 17, 2026 at 01:27:08AM +0000, Changhuang Liang wrote:
-> Hi, Conor
->=20
-> Thanks for the review.
->=20
-> > On Fri, Aug 14, 2026 at 01:13:38AM +0000, Changhuang Liang wrote:
-> > > Hi,Conor
-> > >
-> > > Thanks for the review.
-> > >
-> > > > On Thu, Aug 13, 2026 at 08:10:12AM +0000, Changhuang Liang wrote:
-> > > > > Hi ,Conor
-> > > > >
-> > > > > Thanks for the review.
-> > > > >
-> > > > > > On Wed, Aug 12, 2026 at 10:37:16AM +0000, Changhuang Liang
-> > wrote:
-> > > > > > > Hi, Conor
-> > > > > > >
-> > > > > > > Thanks for the review.
-> > > > > > >
-> > > > > > > > On Tue, Aug 11, 2026 at 05:36:19AM +0000, Changhuang Liang
-> > wrote:
-> > > > > > > >
-> > > > > > > > > > On Sat, Aug 08, 2026 at 06:50:53PM -0700, Changhuang
-> > > > > > > > > > Liang
-> > > > wrote:
-> > > > > > > >
-> > > > > > > > > > > +static int __init starfive_socinfo_init(void) {
-> > > > > > > > > > > +	struct soc_device_attribute *attrs;
-> > > > > > > > > > > +	struct soc_device *soc_dev;
-> > > > > > > > > > > +	const char *machine =3D NULL;
-> > > > > > > > > > > +	struct device_node *np;
-> > > > > > > > > > > +	struct regmap *regmap;
-> > > > > > > > > > > +	char rev_char;
-> > > > > > > > > > > +	u32 rev_id;
-> > > > > > > > > > > +	int ret;
-> > > > > > > > > > > +
-> > > > > > > > > > > +	np =3D of_find_compatible_node(NULL, NULL,
-> > > > > > > > > > > +"starfive,jhb100-sys0-syscon");
-> > > > > > > > > >
-> > > > > > > > > > Remind me again why this is not just probed as an mfd
-> > > > > > > > > > cell from the syscon driver?
-> > > > > > > > > >
-> > > > > > > > > > (Hint: please put this info in the commit message).
-> > > > > > > > >
-> > > > > > > > > The discussion result with Krzysztof at that time is reco=
-rded here:
-> > > > > > > > > https://lore.kernel.org/all/20260405-strong-watchful-marmo
-> > > > > > > > > t-fd
-> > > > > > > > > fad6
-> > > > > > > > > @quo
-> > > > > > > > > ll/
-> > > > > > > > >
-> > > > > > > > > One register should not be treated as a separate device n=
-ode.
-> > > > > > > >
-> > > > > > > > That's a different question. In the case of an mfd cell
-> > > > > > > > probed from the syscon driver there would be no devicetree
-> > > > > > > > modifications required compared to what you have now. e.g.
-> > > > > > > > sg2044-topsys.c
-> > > > > > >
-> > > > > > > This seems feasible, and I can introduce this modification in
-> > > > > > > the next
-> > > > > > version.
-> > > > > >
-> > > > > >
-> > > > > > In fact, you don't even need the mfd cell, because your driver
-> > > > > > is going to be in drivers/soc/starfive anyway? You can just bind
-> > > > > > directly to the
-> > > > > > sys0 syscon I think.
-> > > > >
-> > > > > I suddenly realized that I missed one issue:
-> > > > > starfive,jhb100-sys0-syscon is already bound to the PLL driver by
-> > > > > default, I
-> > > > can't use it to bind another device anymore.
-> > > > >
-> > > > > which is why I used
-> > > > >
-> > > > > np =3D of_find_compatible_node(NULL, NULL,
-> > > > > "starfive,jhb100-sys0-syscon");
-> > > > >
-> > > > > in jhb100-socinfo.c.
-> > > > >
-> > > > > So it seems the MFD cell approach isn't really feasible either?
-> > > >
-> > > > You could, in that case, probe the clock driver using the mfd_cell
-> > > > like sg2044-topsys. What else other than the pll controls and the
-> > > > soc info register is in this register region?
-> > >
-> > > We don't have any other drivers right now in this register region.
-> >=20
-> > I'm not asking about what's got a driver right now though, I am wonderi=
-ng
-> > what else the registers in this region are for.
->=20
-> Here are some registers related to debug functionality.
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
-So probably nothing else that linux will ever need?
+-- 
+Cheers,
 
-> > > So does that mean I can revise it to the format below:
-> > >
-> > > static const struct mfd_cell jhb100_sys0_subdev[] =3D {
-> > > 	{
-> > > 		.name =3D "jhb100-sys0-pll",
-> > > 	},
-> >=20
-> > > 	{
-> > > 		.name =3D "jhb100-socinfo",
-> >=20
-> > Why would this be needed? The driver with the mfd_cell would be the same
-> > one that provides the soc info, no?
->=20
-> My understanding is that one driver can only bind to one device, so the P=
-LL driver=20
-> and the socinfo driver need these two devices respectively, and thus cann=
-ot share
-> one?
-
-Correct, but I am talking about the socinfo driver being the one that
-calls devm_mfd_add_devices() to create a device for the pll so that in
-the end there are a total of two drivers, rather than create something
-identical to sg2044-topsys.c that does nothing other than initialise two
-mfd cells.
-May as well consolidate the mfd_cell definition and call to
-devm_mfd_add_devices() in one file, since it would be in the same
-directory as the socinfo driver anyway.
-
->=20
-> >=20
-> > > 	},
-> > > };
-> > >
-> > > static const struct mfd_cell jhb100_per0_subdev[] =3D {
-> > > 	{
-> > > 		.name =3D "jhb100-per0-pll",
-> >=20
-> > Why do these other ones need to be modified?
->=20
-> I was thinking, since sys0-pll has been adjusted, would it be better to a=
-lso adjust per0-pll and per1-pll together in a unified way?
-
-I wouldn't complicate them with things that they don't need, so it
-depends on if these other syscon regions contain more than just PLLs
-and if there'll ever be drivers for the other stuff in those regions.
-
->=20
-> >=20
-> > > 	},
-> > > };
-> > >
-> > > static const struct mfd_cell jhb100_per1_subdev[] =3D {
-> > > 	{
-> > > 		.name =3D "jhb100-per1-pll",
-> > > 	},
-> > > };
-> > >
-> > > static const struct mfd_cell jhb100_ pcierp _subdev[] =3D {
-> > > 	{
-> > > 		.name =3D "jhb100-pcierp-reset",
-> > > 	},
-> > > };
->=20
-> Best Regards,
-> Changhuang
->=20
-
---idcukJczKVSVGVjs
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaoSOhwAKCRB4tDGHoIJi
-0grZAQDaoZbJ5vI20RP1E84JX+AlFbV6zbVtAJDFnBgJVwX0mwEAjFbmbKuMouEe
-CEd9tCDl1hSU50+qcFRFUi6ra6yqpQ8=
-=IdIB
------END PGP SIGNATURE-----
-
---idcukJczKVSVGVjs--
-
-
---===============4771033483540683019==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+David
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4771033483540683019==--
-
