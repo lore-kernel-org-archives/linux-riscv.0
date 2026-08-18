@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E0F6C5DF89
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 15:32:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A213BC5DF8B
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 15:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z0BJhpR+aXi1ckke/3kfeujMQvUdxMvmAyPotXKSfLg=; b=4Op+v+6sfnYwU0
-	evtPQqWM1i4y0oaRkF+x9K7BayvQNxXQIW1/KUZS3XttGkhIkkARkduWZ+0XrrtkvodKRodi+36jx
-	YGfiO6uyTGs7M9EFQuXhDZSiwUHaRwqDwvY/WdFQQJdltT0xHkbYpEh+XI5K0SjQ9LBN4rRH3Cns/
-	MaqOZxAcQHPtNklPPbSa1EDdyep3ynwQeYJUmZXPyQy0qnxkLQxFwfr4GzheKUJZFM2QBY4hEhx5E
-	xLRqcJpva4ZHapnItSIc4zHKySb0qUuHLH3MWeb4pNqOvtznEtZNJ09B4aeTb/m6J39nUFTM1qxNq
-	Y2K/HJQjHXu1hoOJpHZw==;
+	List-Owner; bh=2RWMkLp/1r8KQxhLgyUR/I0EEGBNRS5bZ7YzXDoudHo=; b=nx0kYn5rU0RF5o
+	l5MGhXNUaTzGibPtgGl7XFaXHaU8xrlp1o9BChA8IdISRFzsWygSvthydy5w4GxDA7LPmkLTYhbSB
+	GTucr5pkEFm6jXAkAvJg2fzGIgijzezOsLuAodKxMfEi3lrTIW/KdwMB5aYbfonsRvNH+OxDr7csR
+	iLx02AbftRe72CdZb91fejB2K2uh7gKj3McpwTBuHUfG5pNNEb2aUe6rG6qkUeJnEUfczvwLcTNZf
+	FhrWRf7l1/4RKSdg86oSpHpYwJSe4UdhjgO/IZ7EdfWNuWFXilMueHTSeij4dfxxGRkfl85TmVupT
+	/MvJSCSOvOh8IRZNPqMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4kJ-0000000Bo4W-1KSO;
-	Thu, 20 Aug 2026 15:31:59 +0000
+	id 1wx4kF-0000000Bo3E-3FJR;
+	Thu, 20 Aug 2026 15:31:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4kD-0000000Bo2R-1ZiM
+	id 1wx4kC-0000000Bo1W-0iX0
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 15:31:55 +0000
+	Thu, 20 Aug 2026 15:31:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AA361D6F;
-	Thu, 20 Aug 2026 08:31:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5D041691;
+	Thu, 20 Aug 2026 08:31:45 -0700 (PDT)
 Received: from fedora (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 807433FA21;
-	Thu, 20 Aug 2026 08:31:51 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF05A3F763;
+	Thu, 20 Aug 2026 08:31:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787239912; bh=crCYSSYpl48F2u7NOxJhg9Z//OSNsCqQ+HpgSMuElyk=;
+	t=1787239909; bh=i3IVg9/IsAijQfkogrB4lEzc6L9iguV8iX0Bfx9OVtQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MrQg33LHiarXzep16uPzThOOQNAZTdMpCJl9zpvlzJAw3LbKR+BVGkJ8OlW50L3eS
-	 rm/DkAiHq6AEKFZHx3eWpO/8Qc1IdNRR3iKaw9IabChBMkdRctzHybyVmJCtkMw5c0
-	 hOu3wDC1qXqp9+DyKy8lh5fOpgPegn/F13jZ+kk4=
+	b=t3pY1HjtOuX6eDBKXjOuIvX6DHW5c/WnM7RMPGswlzJy5qaaKh6Mo1WzjqDMM9tD6
+	 SBJV8u9muytpDmDygBqYqVAG3lXz8hVKn4pFr3rGu6uDSz8kG8hAHKS0Ij2Lb45XFW
+	 fQbe0F6v9VYDaDcCaaz/etrm1sVPQh4mabaY776Y=
 From: Bill Roberts <bill.roberts@arm.com>
 To: "H. Peter Anvin" <hpa@zytor.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -57,16 +57,17 @@ Cc: bpf@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Bill Roberts <bill.roberts@arm.com>
-Subject: [PATCH v3 4/5] x86/shstk: support via prctl
-Date: Tue, 18 Aug 2026 17:54:27 -0500
-Message-ID: <20260818225428.1983328-5-bill.roberts@arm.com>
+Subject: [PATCH v3 1/5] selftests/x86: fix Makefile dependencies
+Date: Tue, 18 Aug 2026 17:54:24 -0500
+Message-ID: <20260818225428.1983328-2-bill.roberts@arm.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260818225428.1983328-1-bill.roberts@arm.com>
 References: <20260818225428.1983328-1-bill.roberts@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_083153_482647_50CD2C99 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20260820_083152_347531_4650D3C5 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,99 +84,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Historically, managing the user-space shadow stack state on x86 has
-been handled exclusively through the arch_prctl() interface via the
-ARCH_SHSTK_* operations. However, other architectures (such as arm64 and
-riscv) do not implement arch_prctl() and instead utilize the newer,
-arch-agnostic, prctl() interface (i.e. PR_GET_SHADOW_STACK_STATUS and
-PR_SET_SHADOW_STACK_STATUS).
-
-To provide language runtimes, toolchains, and libc implementations with a
-consistent, cross-architecture interface for managing control-flow
-integrity, wire up the generic shadow stack prctl handlers for x86.
-
-Map the generic PR_SHADOW_STACK_ENABLE, PR_SHADOW_STACK_DISABLE, and
-PR_SHADOW_STACK_LOCK operations onto the underlying x86 internal CET helper
-routines. This allows portable userspace applications to toggle or query
-shadow stack states without relying on architecture-specific system calls,
-while maintaining backward compatibility with existing arch_prctl() calls.
+The Makefile has a macro called "extra-files" that sets up the
+dependency on the target. Right now, for some targets that need
+EXTRA_FILES added to the compilation, the dependency is left untracked.
+Thus, to fix this, use the aforementioned macro.
 
 Signed-off-by: Bill Roberts <bill.roberts@arm.com>
 ---
- arch/x86/kernel/shstk.c | 56 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+ tools/testing/selftests/x86/Makefile | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/x86/kernel/shstk.c b/arch/x86/kernel/shstk.c
-index 0ca64900192f..2c2a96b2d936 100644
---- a/arch/x86/kernel/shstk.c
-+++ b/arch/x86/kernel/shstk.c
-@@ -18,6 +18,7 @@
- #include <linux/sizes.h>
- #include <linux/user.h>
- #include <linux/syscalls.h>
-+#include <linux/prctl.h>
- #include <asm/msr.h>
- #include <asm/fpu/xstate.h>
- #include <asm/fpu/types.h>
-@@ -630,3 +631,58 @@ bool shstk_is_enabled(void)
- {
- 	return features_enabled(ARCH_SHSTK_SHSTK);
- }
-+
-+#define PR_SHADOW_STACK_SUPPORTED_STATUS_MASK \
-+		(PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE)
-+
-+/* Handles the generic prctl interface for PR_SET_SHADOW_STACK_STATUS and its feature bits */
-+int arch_set_shadow_stack_status(struct task_struct *t, unsigned long status)
-+{
-+	int rc;
-+	int tmp_rc;
-+
-+	if (status & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
-+		return -EINVAL;
-+
-+	/*
-+	 * x86 arch_prctl is single bit at a time, so handle these one at time
-+	 * If anything fails, rollback state.
-+	 */
-+	if (!(status & PR_SHADOW_STACK_ENABLE))
-+		return shstk_prctl(t, ARCH_SHSTK_DISABLE, ARCH_SHSTK_SHSTK);
-+
-+	rc = shstk_prctl(t, ARCH_SHSTK_ENABLE, ARCH_SHSTK_SHSTK);
-+	if (rc)
-+		return rc;
-+
-+	if (status & PR_SHADOW_STACK_WRITE) {
-+		rc = shstk_prctl(t, ARCH_SHSTK_ENABLE, ARCH_SHSTK_WRSS);
-+		/* rollback, best attempt, if we actually enabled shadow stack in feature bits */
-+		if (rc && (status & PR_SHADOW_STACK_ENABLE)) {
-+			tmp_rc = shstk_prctl(t, ARCH_SHSTK_DISABLE, ARCH_SHSTK_SHSTK);
-+			WARN(tmp_rc, "Could not rollback shadow stack enabled: %d\n", tmp_rc);
-+		}
-+
-+		return rc;
-+
-+	}
-+
-+	return shstk_prctl(t, ARCH_SHSTK_DISABLE, ARCH_SHSTK_WRSS);
-+}
-+
-+/* Handles the generic prctl interface for PR_LOCK_SHADOW_STACK_STATUS and its feature bits */
-+int arch_lock_shadow_stack_status(struct task_struct *t, unsigned long status)
-+{
-+	return shstk_prctl(t, ARCH_SHSTK_LOCK, status);
-+}
-+
-+/*
-+ * We assume the prctl() feature bits line up with the arch_prctl() specific ones. If not,
-+ * the flags returned via arch_get_shadow_stack_status will be mapped wrong.
-+ */
-+static_assert(PR_SHADOW_STACK_ENABLE == ARCH_SHSTK_SHSTK);
-+static_assert(PR_SHADOW_STACK_WRITE  == ARCH_SHSTK_WRSS);
-+int arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	return shstk_prctl(t, ARCH_SHSTK_STATUS, (unsigned long)status);
-+}
+diff --git a/tools/testing/selftests/x86/Makefile b/tools/testing/selftests/x86/Makefile
+index 434065215d12..a9a229f83b77 100644
+--- a/tools/testing/selftests/x86/Makefile
++++ b/tools/testing/selftests/x86/Makefile
+@@ -124,6 +124,10 @@ $(eval $(call extra-files,test_syscall_vdso_32,thunks_32.S))
+ $(eval $(call extra-files,fsgsbase_restore_64,clang_helpers_64.S))
+ $(eval $(call extra-files,fsgsbase_restore_32,clang_helpers_32.S))
+ $(eval $(call extra-files,sysret_rip_64,clang_helpers_64.S))
++$(eval $(call extra-files,amx_64,xstate.c))
++$(eval $(call extra-files,avx_64,xstate.c))
++$(eval $(call extra-files,avx_64,xstate.c))
++$(eval $(call extra-files,apx_64,xstate.c))
+ 
+ # check_initial_reg_state is special: it needs a custom entry, and it
+ # needs to be static so that its interpreter doesn't destroy its initial
+@@ -135,6 +139,3 @@ $(OUTPUT)/nx_stack_32: CFLAGS += -Wl,-z,noexecstack
+ $(OUTPUT)/nx_stack_64: CFLAGS += -Wl,-z,noexecstack
+ 
+ $(OUTPUT)/avx_64: CFLAGS += -mno-avx -mno-avx512f
+-$(OUTPUT)/amx_64: EXTRA_FILES += xstate.c
+-$(OUTPUT)/avx_64: EXTRA_FILES += xstate.c
+-$(OUTPUT)/apx_64: EXTRA_FILES += xstate.c
 -- 
 2.55.0
 
