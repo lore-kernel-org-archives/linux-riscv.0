@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEE55C5DF85
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 18:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB19AC5DF88
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 18:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sknySqRErkj3oGZAkjmhQUYpAI+yQmx6eGxbXJS/4NA=; b=v4LN8H7wsOdCph
-	pHmX96kl+mMsDsELEGobjeviFFGFZGfE1pZn75e8BhD9uGD3eTad+YlO7ibz5pAxWxi5d2uIcSfwp
-	2546oUnCMa7QQzvrhayxpoMxu9s40iNYdomIxVVy0xWZr8nz8Q6ed9m19Hxl5q5dFXf7z9K3u3uK5
-	8DWvGHAZD4TJSLTyhnonMKMurJ4sIphsNlbiqGlH0CJtiIftA3O3uVuTHAAcDd9QrFv38jmDhOsra
-	srai16bWzg5BkoRv0/gc1KwuAb5ARx04uWb9LPEdcBbqr/PG7z3XPE+q9smDx77BsVxZ+7Br3Ic1x
-	o6gMBhotbBF6F+P2JzsQ==;
+	List-Owner; bh=25CA/1f367qe2RUlHlqh3xuBUZkIL02usdTBV+jjDLA=; b=UwVYqXok6ljOhV
+	8GU8AkSIGp/mDmRz0DKvFPfbWM5LO+VaD6kIjc+LEp1IKAxaMlr2HvaOVaX8gkOp1PGgOUVeljrKT
+	yBSDTId9JiYCX9QceclADMUvipH8ghNxg+iL1TS2Flp+kMM7wG7ozsYEQ9JWX4PRizeMD2H37IREZ
+	TLyNjzjbxhdByklo7bgfJdhN2Zw6NCzSjDrrnc0qpXyOwv3laR93daXYZJgUZ8OEW0DsIr+z653Wm
+	ddJzAJP+Xack7XXoWnpSiimn2XsdXsCH9b2VH7jbvRUM9LphaYSgZQdQStCtVDQZhlmIBRqUxtWe1
+	ssEDYG1iRbTymds+Opiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkqw-0000000ALp6-0Ah5;
-	Wed, 19 Aug 2026 18:17:30 +0000
+	id 1wwkr4-0000000ALuh-0gQj;
+	Wed, 19 Aug 2026 18:17:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkqu-0000000ALnO-36Mp
+	id 1wwkr2-0000000ALtr-3b8M
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Aug 2026 18:17:28 +0000
+	Wed, 19 Aug 2026 18:17:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=bnDCW7/LrZXWETxlVsz0e02k5adMYu/+BGoT1rCaICg=; b=bbF80l37I5r7miTYrc/87oVx+k
-	eEPFvHvcew26HFN1tY0+udMS6WhDEZK+LQm5aQunILsuPHXirwLgueDz5Zhd9S4dc7cRPmKd3tVkI
-	psIqJNbfRoJyVF/sBNU93ZrSM76JHnaUUL36GEC4yorSPqu1/yfbMscVeU7GP2SNJnCQ/w89DsdO9
-	n9ihWWaNxakUH6oC/XY2azXdUK/x3veo7FjWeXUS8BYtbfy0DXk0CZOTnKNeVi3keBND5b8hguP6T
-	f886KZ3MKeZ+ol6UE5aBivQXwtgIo7Bj0XptL/zulnkrGWJFhen5M7pfWIOtaCebfh0RChViVXowj
-	awE9nPrg==;
+	bh=jKOtxlRf7QwQPlRJp8elszSh59Tvs6EEuFjMe2Gw8W0=; b=ek4YKmcMDX2Z3AlWRdM7CWkQc+
+	kZirlTicv+113N5KBldIAeZKgXvRaajbeBt1eRK0B9S21BfN2ljEmlIr2bCBSW1oSdp7yA0Y99e2D
+	Naa3J37GiMwIcB4etbfZfcMw745Dxt6n1xiQFMVM5I91D6o0my3kAfqeT8T/ablgwg/cEC1MaD+W2
+	rqhz0bcb65Hd2bEqmR7hTr76h9xcR4kifgy6go0Go/WXdH9dgF9w+YgEt0RGKMnYIC1oAy6E/zO2o
+	nXQrtStopZhmlKNSfteCCmZXMeVX1q5uXp5TBV83dg0q6pyTub5+9oJDQGvUV94F8isYyeEmAntRx
+	XNsRE/ng==;
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wwkqr-00000002bZ0-3RJZ
+	id 1wwkqz-00000002baI-2O83
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 18:17:27 +0000
+	Wed, 19 Aug 2026 18:17:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=bnDCW7/LrZXWETxlVsz0e02k5adMYu/+BGoT1rCaICg=; b=oBGbw0t3FHxrW1LvQvHvsKnuz2
-	M97XEKa1cu10N3eaVs1S7lPRFzvNZeCzlqwpN7OgC9P7IeRF1TJIcf6JguJgXUKV2OIOgoEM/kf8q
-	T1LXmcoiKqfkgF2uC5AuBHbOFW6w5ooKcgiO/IhKyp/GGKMPwfHjUwAvLOtER5GZ8AyO41RbdGdsw
-	U5ftvELHATXaV012sqP5g3dfsnZPVBWxjJBH0fT3LkYNB90kB2D8imhdpIUYYbl3sgG0ji2ZLqdiw
-	aZ903J8GL8ZhBhdO9dZJxBvky5op5p1YXFU8Nw51cg+60PgWnZ5vCVkqFe7EJ1Pxi0D6E5qf26Eb0
-	lXq+FUTA==;
+	bh=jKOtxlRf7QwQPlRJp8elszSh59Tvs6EEuFjMe2Gw8W0=; b=rIAa4iWOu300Mt0xJf/kHgsZxB
+	wwc8d4w2ZzpPAguxJYkf9Efsz9XPxW+CrpDnxK9np0s+2sFX667qE7+008RASjD9kCLI89C3oIugG
+	ap2k9horEn1ErTZvHVp2nrd07Rd82KEhzag3VltGdsJWKrfP05PE/Gp7aPk26ALy4oKAEzh8gB5DC
+	v4vzgUNX3jwzoT7r2ZJZfCFHZXC52qU6Bduieb8vVP6u/QyeStQ0KRg26BppZsbtRf1wLLg1uczJA
+	czhwMwL3kaRxR5H6o5NaxdnScHzifbt9bVHqKiupBXdW9Hcj3weQrrIHAquk/TbMzSRrYz94sB1KE
+	RP5a0xkQ==;
 Received: from 186-249-147-181.shared.desktop.com.br ([186.249.147.181] helo=[127.0.1.1])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wwkqg-006ENH-14; Wed, 19 Aug 2026 20:17:14 +0200
+	id 1wwkqn-006ENH-88; Wed, 19 Aug 2026 20:17:21 +0200
 From: Mauricio Faria de Oliveira <mfo@igalia.com>
-Date: Wed, 19 Aug 2026 15:16:25 -0300
-Subject: [PATCH RFC v3 12/13] modpost: move addend_*_rel() calls into
- addend_rel()
+Date: Wed, 19 Aug 2026 15:16:26 -0300
+Subject: [PATCH RFC v3 13/13] modpost: handle MODULE_SYSCTL_TABLE symbols
 MIME-Version: 1.0
-Message-Id: <20260819-sysctl-module-aliases-v3-12-aab90569365d@igalia.com>
+Message-Id: <20260819-sysctl-module-aliases-v3-13-aab90569365d@igalia.com>
 References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
 In-Reply-To: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
 To: Kees Cook <kees@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
@@ -80,9 +79,8 @@ Cc: kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
  virtualization@lists.linux.dev, Mauricio Faria de Oliveira <mfo@igalia.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_191726_150626_44CA6F88 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260819_191734_169099_245CF0C2 
+X-CRM114-Status: GOOD (  26.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,82 +97,359 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the arch-based addend_*_rel() calls into addend_rel() to be reused.
+Update file2alias.c to handle 'mod_devicetable' symbols with type 'sysctl'.
 
+The key operation is to iterate over relocation entries, so add the helper
+for_each_reloc() with a function callback, and the functions to:
+
+1) Find the sysctl path and table in the 'sysctl' module symbol.
+
+2) Find the sysctl table's entries and their '.procname' field,
+   adding a module alias 'sysctl:*/<path>/<procname>' for each.
+
+Originally-by: Mauricio Faria de Oliveira <mfo@canonical.com>
 Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
 ---
- scripts/mod/modpost.c | 35 +++++++++++++++++++----------------
- scripts/mod/modpost.h |  2 ++
- 2 files changed, 21 insertions(+), 16 deletions(-)
+ scripts/mod/file2alias.c | 237 +++++++++++++++++++++++++++++++++++++++++++++++
+ scripts/mod/modpost.c    |  11 ++-
+ scripts/mod/modpost.h    |  23 +++++
+ 3 files changed, 269 insertions(+), 2 deletions(-)
 
-diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-index 75374c64b8cc78bb4d01fa4c64254c7d7cd80e8f..d18a87b882a67f06d5f75ee92f4c26dc713d83b8 100644
---- a/scripts/mod/modpost.c
-+++ b/scripts/mod/modpost.c
-@@ -1296,6 +1296,24 @@ static Elf_Addr addend_mips_rel(uint32_t *location, unsigned int r_type)
- 	return (Elf_Addr)(-1);
- }
+diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+index 8d36c74dec2d55840de60b3f8ec22b646d16ff8b..abf6ce69831e2ed80a72e38df1353e44d886562c 100644
+--- a/scripts/mod/file2alias.c
++++ b/scripts/mod/file2alias.c
+@@ -1531,6 +1531,238 @@ static const struct devtable devtable[] = {
+ 	{"pnp_card", SIZE_pnp_card_device_id, do_pnp_card_entry},
+ };
  
-+Elf_Addr addend_rel(struct elf_info *elf, unsigned int secndx,
-+		    unsigned int r_type, Elf_Addr r_offset, Elf_Sym *tsym)
++// Looks like: sysctl:*/path/procname
++static void do_sysctl_entry(const char *procname, const char *path,
++			    struct module *mod)
 +{
-+	void *loc = sym_get_data_by_offset(elf, secndx, r_offset);
++	const char *src, *end_src = path + strlen(path);
++	char *dst, buf[256], *end_dst = buf + sizeof(buf) - 1; /* -1 for NUL. */
 +
-+	switch (elf->hdr->e_machine) {
-+	case EM_386:
-+		return addend_386_rel(loc, r_type);
-+	case EM_ARM:
-+		return addend_arm_rel(loc, tsym, r_type);
-+	case EM_MIPS:
-+		return addend_mips_rel(loc, r_type);
-+	}
++	/* Replace '%s' from path template with '*' for wildcard in modprobe. */
++	for (src = path, dst = buf; src < end_src && *src && dst < end_dst; src++, dst++)
++		*dst = (*src == '%') ? (src++, '*') : *src;
++	*dst = '\0';
 +
-+	fatal("Please add code to calculate addend for this architecture\n");
-+	return (Elf_Addr)(-1);
++	module_alias_printf(mod, false, "sysctl:*/%s/%s", buf, procname);
 +}
 +
- #ifndef EM_RISCV
- #define EM_RISCV		243
++/*
++ * Execute a callback function for each relocation entry in relocation section.
++ * The caller must ensure sechdr->sh_type is SHT_RELA or SHT_REL.
++ */
++static void for_each_reloc(struct elf_info *elf, unsigned int shndx,
++			   bool (*fn)(struct elf_info *elf, Elf_Shdr *sechdr,
++				      Elf_Sym *sym, Elf_Addr r_offset,
++				      Elf_Addr r_addend, void *data),
++			   void *data)
++{
++	Elf_Shdr *sechdr = &elf->sechdrs[shndx];
++	const Elf_Rela *rela; /* used as Elf_Rel[a] on SHT_REL[A] */
++	const Elf_Rela *start = (void *) elf->hdr + sechdr->sh_offset;
++	const Elf_Rela *stop = (void *) start + sechdr->sh_size;
++	size_t size = (sechdr->sh_type == SHT_RELA) ? sizeof(Elf_Rela)
++						    : sizeof(Elf_Rel);
++
++	for (rela = start; rela < stop; rela = (Elf_Rela *)((void *) rela + size)) {
++		Elf_Sym *sym;
++		Elf_Addr r_offset, r_addend;
++		unsigned int r_type, r_sym;
++
++		r_offset = TO_NATIVE(rela->r_offset);
++		get_rel_type_and_sym(elf, rela->r_info, &r_type, &r_sym);
++
++		sym = elf->symtab_start + r_sym;
++		r_addend = (sechdr->sh_type == SHT_RELA)
++					? TO_NATIVE(rela->r_addend)
++					: addend_rel(elf, sechdr->sh_info,
++						     r_type, r_offset, sym);
++
++		if (fn(elf, sechdr, sym, r_offset, r_addend, data))
++			break;
++	}
++}
++
++/*
++ * Callback parameters and function to loop over the sysctl entries in struct
++ * module_sysctl_table's .table symbol (found below) in its reloction section.
++ */
++struct sysctl_entries {
++	Elf_Addr table_offset;
++	ssize_t table_size;
++	ssize_t entry_size;
++	const char *path;
++	const char *modsymname;
++	struct module *mod;
++};
++
++static bool do_sysctl_entries(struct elf_info *elf, Elf_Shdr *sechdr, Elf_Sym *sym,
++			      Elf_Addr r_offset, Elf_Addr r_addend, void *data)
++{
++	struct sysctl_entries *sysctl_entries = (struct sysctl_entries *) data;
++
++	/* Skip until .table starts */
++	if (r_offset < sysctl_entries->table_offset)
++		return false;
++
++	/* Stop after .table ends */
++	if (r_offset >= sysctl_entries->table_offset + sysctl_entries->table_size)
++		return true;
++
++	/* Check for alignment with an array entry (.procname at offset zero) */
++	if ((r_offset - sysctl_entries->table_offset) % sysctl_entries->entry_size == 0) {
++
++		/* The symbol for .procname points to a string */
++		const char *procname = (const char *)
++				       sym_get_data_addend(elf, sym, r_addend);
++
++		if (!procname) {
++			warn("%s [%s] found entry with NULL .procname (skip)\n",
++			     sysctl_entries->modsymname, sysctl_entries->mod->name);
++			return false;
++		}
++
++		do_sysctl_entry(procname, sysctl_entries->path, sysctl_entries->mod);
++	}
++
++	/* Continue at next entry */
++	return false;
++}
++
++/*
++ * Callback parameters and function to search for struct module_sysctl_table's
++ * pointers (.path and .table) in relocation entries of a relocation section.
++ */
++struct sysctl_pointers {
++	/* Input: offsets */
++	Elf_Addr path_offset;
++	Elf_Addr table_offset;
++
++	/* Output: symbols and relocation addends */
++	Elf_Sym *path_sym;
++	Elf_Sym *table_sym;
++	Elf_Addr path_r_addend;
++	Elf_Addr table_r_addend;
++};
++
++static bool do_sysctl_pointers(struct elf_info *elf, Elf_Shdr *sechdr, Elf_Sym *sym,
++			       Elf_Addr r_offset, Elf_Addr r_addend, void *data)
++{
++	struct sysctl_pointers *sysctl_pointers = (struct sysctl_pointers *) data;
++
++	/* Check for relocation entry's offset matching .path or .table */
++	if (!sysctl_pointers->path_sym &&
++	     sysctl_pointers->path_offset == r_offset) {
++		sysctl_pointers->path_sym = sym;
++		sysctl_pointers->path_r_addend = r_addend;
++	} else if (!sysctl_pointers->table_sym &&
++		    sysctl_pointers->table_offset == r_offset) {
++		sysctl_pointers->table_sym = sym;
++		sysctl_pointers->table_r_addend = r_addend;
++	}
++
++	/* Stop once both .path and .table are found */
++	return (sysctl_pointers->path_sym && sysctl_pointers->table_sym);
++}
++
++static void do_sysctl_table(const char *modsymname, void *modsymval,
++			    Elf_Sym *modsym, struct module *mod,
++			    struct elf_info *info)
++{
++	/*
++	 * The struct module_sysctl_table symbol contains 4 fields:
++	 *  .path: pointer to string with the dirname in /proc/sys
++	 *  .table: pointer to struct ctl_table array with filenames (.procname)
++	 *  .table_size: size of struct ctl_table array
++	 *  .entry_size: size of struct ctl_table entry in the array
++	 */
++
++	/* The size values can be read directly. */
++	DEF_FIELD(modsymval, module_sysctl_table, table_size);
++	DEF_FIELD(modsymval, module_sysctl_table, entry_size);
++
++	struct sysctl_entries sysctl_entries = {
++		.table_size = table_size,
++		.entry_size = entry_size,
++		.modsymname = modsymname,
++		.mod = mod,
++	};
++
++	/*
++	 * Step 1:
++	 *
++	 * Each pointer has a relocation entry in a relocation section,
++	 * that links the pointer with the symbol it points to.
++	 *
++	 * In order to access the symbols pointed to by .path and .table pointers:
++	 * 1) find the relocation section of the struct module_sysctl_table symbol;
++	 * 2) find the relocation entries for these pointers by their field offset;
++	 * 3) then use the symbols found in these relocation entries.
++	 */
++
++	struct sysctl_pointers sysctl_pointers = {
++		.path_offset = modsym->st_value + OFF_module_sysctl_table_path,
++		.path_sym = NULL,
++		.table_offset = modsym->st_value + OFF_module_sysctl_table_table,
++		.table_sym = NULL,
++	};
++
++	unsigned int shndx;
++
++	/* Find the relocation section for struct module_sysctl_table symbol. */
++	shndx = get_reloc_secindex(info, modsym);
++	if (shndx == SHN_UNDEF) {
++		error("%s [%s.ko] cannot find relocation section for symbol\n",
++		      modsymname, mod->name);
++		return;
++	}
++
++	/* Find the relocation entries for the .path and .table pointers. */
++	for_each_reloc(info, shndx, do_sysctl_pointers, &sysctl_pointers);
++	if (!sysctl_pointers.path_sym || !sysctl_pointers.table_sym) {
++		error("%s [%s.ko] cannot find relocation entry for path/table\n",
++		      modsymname, mod->name);
++		return;
++	}
++
++	/*
++	 * Step 2:
++	 *
++	 * The .table symbol is the struct ctl_table array where each entry has
++	 * a .procname pointer with a relocation entry for the filename string.
++	 *
++	 * In order to access the strings pointed to by .procname pointers:
++	 * 1) Find the relocation section of the struct ctl_table array symbol;
++	 * 2) Find the relocation entries for these pointers by their field offset;
++	 * 3) Then use the symbols found in these relocation entries.
++	 */
++
++	/* Find the relocation section for the struct ctl_table array. */
++	shndx = get_reloc_secindex(info, sysctl_pointers.table_sym);
++	if (shndx == SHN_UNDEF) {
++		/* Edge case: empty .table: no relocation section. */
++		return;
++	}
++
++	/* The .path symbol can be read directly. */
++	sysctl_entries.path = (const char *)
++			   sym_get_data_addend(info, sysctl_pointers.path_sym,
++						sysctl_pointers.path_r_addend);
++
++	/* The .table symbol is the struct ctl_table array. */
++	sysctl_entries.table_offset = sysctl_pointers.table_sym->st_value +
++				   sysctl_pointers.table_r_addend;
++
++	/* The .entry_size value must not be zero. */
++	if (sysctl_entries.entry_size == 0) {
++		error("%s [%s.ko] invalid entry size (zero)\n",
++		      modsymname, mod->name);
++		return;
++	}
++
++	/* Add module aliases for entries in the struct ctl_table array. */
++	for_each_reloc(info, shndx, do_sysctl_entries, &sysctl_entries);
++}
++
+ /* Create MODULE_ALIAS() statements.
+  * At this time, we cannot write the actual output C source yet,
+  * so we write into the mod->dev_table_buf buffer. */
+@@ -1542,6 +1774,7 @@ void handle_moddevtable(struct module *mod, struct elf_info *info,
+ 	const char *type, *name, *modname;
+ 	size_t typelen, modnamelen;
+ 	static const char *prefix = "__mod_device_table__";
++	bool sym_is_devtable = false;
+ 
+ 	/* We're looking for a section relative symbol */
+ 	if (!sym->st_shndx || get_secindex(info, sym) >= info->num_sections)
+@@ -1586,10 +1819,14 @@ void handle_moddevtable(struct module *mod, struct elf_info *info,
+ 		if (sym_is(type, typelen, p->device_id)) {
+ 			do_table(name, symval, sym->st_size, p->id_size,
+ 				 p->device_id, p->do_entry, mod);
++			sym_is_devtable = true;
+ 			break;
+ 		}
+ 	}
+ 
++	if (!sym_is_devtable && sym_is(type, typelen, "sysctl"))
++		do_sysctl_table(name, symval, sym, mod, info);
++
+ 	if (mod->is_vmlinux) {
+ 		struct module_alias *alias;
+ 
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index d18a87b882a67f06d5f75ee92f4c26dc713d83b8..10eb7273cdd817da788fa3bce87d695661dd1b93 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -340,6 +340,13 @@ void *sym_get_data(const struct elf_info *info, const Elf_Sym *sym)
+ 				      sym->st_value);
+ }
+ 
++void *sym_get_data_addend(const struct elf_info *info, const Elf_Sym *sym,
++			  Elf_Addr r_addend)
++{
++	return sym_get_data_by_offset(info, get_secindex(info, sym),
++				      sym->st_value + r_addend);
++}
++
+ static const char *sech_name(const struct elf_info *info, Elf_Shdr *sechdr)
+ {
+ 	return sym_get_data_by_offset(info, info->secindex_strings,
+@@ -1338,8 +1345,8 @@ Elf_Addr addend_rel(struct elf_info *elf, unsigned int secndx,
+ #define R_LARCH_ALIGN		102
  #endif
-@@ -1402,27 +1420,12 @@ static void section_rel(struct module *mod, struct elf_info *elf,
- 		Elf_Sym *tsym;
- 		Elf_Addr taddr, r_offset;
- 		unsigned int r_type, r_sym;
--		void *loc;
  
- 		r_offset = TO_NATIVE(rel->r_offset);
- 		get_rel_type_and_sym(elf, rel->r_info, &r_type, &r_sym);
- 
--		loc = sym_get_data_by_offset(elf, fsecndx, r_offset);
- 		tsym = elf->symtab_start + r_sym;
--
--		switch (elf->hdr->e_machine) {
--		case EM_386:
--			taddr = addend_386_rel(loc, r_type);
--			break;
--		case EM_ARM:
--			taddr = addend_arm_rel(loc, tsym, r_type);
--			break;
--		case EM_MIPS:
--			taddr = addend_mips_rel(loc, r_type);
--			break;
--		default:
--			fatal("Please add code to calculate addend for this architecture\n");
--		}
-+		taddr = addend_rel(elf, fsecndx, r_type, r_offset, tsym);
- 
- 		check_section_mismatch(mod, elf, tsym,
- 				       fsecndx, fromsec, r_offset, taddr);
+-static void get_rel_type_and_sym(struct elf_info *elf, uint64_t r_info,
+-				 unsigned int *r_type, unsigned int *r_sym)
++void get_rel_type_and_sym(struct elf_info *elf, uint64_t r_info,
++			  unsigned int *r_type, unsigned int *r_sym)
+ {
+ 	typedef struct {
+ 		Elf64_Word    r_sym;	/* Symbol index */
 diff --git a/scripts/mod/modpost.h b/scripts/mod/modpost.h
-index d5f6d82837d5b4fbd671ff9dab9bbe353442f6cf..a98811552bd2996c31cf73fd3619e6c58bac8a6d 100644
+index a98811552bd2996c31cf73fd3619e6c58bac8a6d..409fdfc844c4bfcea30fd6ae758f4042384e3e56 100644
 --- a/scripts/mod/modpost.h
 +++ b/scripts/mod/modpost.h
-@@ -222,6 +222,8 @@ const char *get_basename(const char *path);
+@@ -186,6 +186,25 @@ static inline unsigned int get_secindex(const struct elf_info *info,
+ 	return index;
+ }
+ 
++/* Find the relocation section for the section of a symbol */
++static inline unsigned int get_reloc_secindex(const struct elf_info *info,
++					      const Elf_Sym *sym)
++{
++	unsigned int sym_secindex = get_secindex(info, sym);
++	unsigned int secindex;
++
++	for (secindex = 0; secindex < info->num_sections; secindex++) {
++		Elf_Shdr *shdr = &info->sechdrs[secindex];
++
++		if ((shdr->sh_type == SHT_RELA || shdr->sh_type == SHT_REL) &&
++		    (shdr->sh_flags & SHF_INFO_LINK) &&
++		    shdr->sh_info == sym_secindex)
++			return secindex;
++	}
++
++	return SHN_UNDEF;
++}
++
+ /*
+  * If there's no name there, ignore it; likewise, ignore it if it's
+  * one of the magic symbols emitted used by current tools.
+@@ -222,8 +241,12 @@ const char *get_basename(const char *path);
  char *read_text_file(const char *filename);
  char *get_line(char **stringp);
  void *sym_get_data(const struct elf_info *info, const Elf_Sym *sym);
-+Elf_Addr addend_rel(struct elf_info *elf, unsigned int secndx,
-+		    unsigned int r_type, Elf_Addr r_offset, Elf_Sym *tsym);
++void *sym_get_data_addend(const struct elf_info *info, const Elf_Sym *sym,
++			  Elf_Addr r_addend);
+ Elf_Addr addend_rel(struct elf_info *elf, unsigned int secndx,
+ 		    unsigned int r_type, Elf_Addr r_offset, Elf_Sym *tsym);
++void get_rel_type_and_sym(struct elf_info *elf, uint64_t r_info,
++			  unsigned int *r_type, unsigned int *r_sym);
  
  void __attribute__((format(printf, 3, 4)))
  modpost_log(bool is_error, struct module *mod, const char *fmt, ...);
