@@ -4,52 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84793C5DF81
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 18:16:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF136C5DF85
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 18:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lT3+rWN1AbI7iyoj85/vIymYNj+PTIX6KYgaIIfqOXI=; b=WJRktatOqTLkRP
-	abt7iyHVSpFq0XhfJWxLSL27A/Mt22BSxsYFLJcGjqIYIjMQgDzlTwUx8GWqx0VO4HrNa4FtAQkAW
-	Vqn7CTo1MQrsXFbVxlVRuVdJtiO/A3UEw411Qb9rdHbENXRnJ9baJ5Q8mQCZ6qUARC0TUAvCxqTSp
-	aWPzSkVJ8irrEBPgUPaaK1XS56zn+jwv/c6OjBslbWEgqonS866Bq4K9gLrUiFQ41fLVOu7KTv8cY
-	lxS/e7CPj8aW3OnXvOOTwnLG8F4S3MKCH97pvg7lUO0Y9OjxM6D3rhoOeqcMdehuTtMgG0Cwo772q
-	ICHGQ1fnLxCBqk4zRyFw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iKsv0kjJP8fn+6RF43gOwGjWBOANBKwTMT1ulJfnCV0=; b=LrokiLBv87yhrs
+	PnZk/698P4CzYVX47g1pYdKVwTjnLqWYv9t/aD1AOT6Rawbkx0ITx/coA+Mj/vXnS7Crh9TpmvLmx
+	m/KbQ1qYIwyBsUu2u1aTl3uPWf1KOpk6Vyz7MjBy2DZFzgqSX+RdmNYVaLjW9UlUyzUAnU10ApXpL
+	eTSwtdSD3U99avfFsMk8i0HoxbObyis4ZMWfg+DtbNSa/4qKPlMU1C9v3sKGj/b+0FeFmlXYmmc5H
+	o43msF4YpKGcPYUXXQmrtEfx7TP2zqtyxKXoC8PMRw9lNOdpXsg6NMKW6T3lzfwMNqsnMEruqrWiA
+	dyQ31h3m+wFXXQkLEK9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkpq-0000000AKsQ-0gtS;
-	Wed, 19 Aug 2026 18:16:22 +0000
+	id 1wwkpp-0000000AKsI-0IHW;
+	Wed, 19 Aug 2026 18:16:21 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkph-0000000AKpg-0xLq
+	id 1wwkpj-0000000AKq5-1kY9
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 18:16:18 +0000
+	Wed, 19 Aug 2026 18:16:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Message-Id:Date:Subject:From:From:Reply-To;
-	bh=fdQkiyp3Qsqh2GCyFxM5saepTDceNMzdb1x19L1bJys=; b=j6B0Jy5s0l1rIqoAIFUFYRNw0A
-	O8zrKTcRNqYe8rdyon/tzyD/f+r40qZQ7xbPPGamCanY/2lKECgUFlsAbWuIiWsKJ1uNL7wtKRWk+
-	cPXGDEGxS3HvolMLPzNOY28Kvn6oRBQCJdkcQsttJeBjiMHhNAR5TCc275oy7UBPYFoxzvLCb2dsT
-	s+0Bni82WNohP8aBWozbNZO3ullR3nDwaNzrKvoTnob3s/xCOxd7ENU0zSyAh33ApHNg5CrkT0jyW
-	tx4C8qWCUjFsSc/ZqPM+8Cf3aly39EwR7qsWIcA1xwW4acnjRr5lLTbFLnksh8HBG1pzPaVoHK1Nr
-	wEee9tBw==;
+	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Subject:Date:From:From:Reply-To;
+	bh=gXUB1QrnxsrjbOi4xhXBQHCEC2KmzTwW0NuAmy9Ikto=; b=p76lPryssuRkpTwSeXIKI/EndK
+	P7rVMyteRtpS/Hvs5QrpVSay0RpXX1SKfAOzvEPCEdB+2xm3b8XgYEbsm7Yy+zXzV5KHxqq2HFpTV
+	Oce43cOvr2kd824oS0q+QLhyBKQo+6qviKodT08xWnBnQ2z09YsvkdjLEEP3QeaO+ksmI8jvhJsVA
+	ehO/QVfPUQsMc+dpzW6Y30TFrwGcjSJqAmsmHAhDtEGHbwUxTOu7eDp8puClffGIE9SqS9793Ha9g
+	YGIiZw6ZFmgQDgmzn4vZ3o2bs92g2qbHRDlxvTOG3NpFoZflKm0mBIYHZYUrPar9qdtcTdVmYPdKt
+	c/mRZGfw==;
 Received: from 186-249-147-181.shared.desktop.com.br ([186.249.147.181] helo=[127.0.1.1])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wwkpH-006ENH-4M; Wed, 19 Aug 2026 20:15:47 +0200
+	id 1wwkpO-006ENH-PG; Wed, 19 Aug 2026 20:15:55 +0200
 From: Mauricio Faria de Oliveira <mfo@igalia.com>
-Subject: [PATCH RFC v3 00/13] sysctl: add module aliases
-Date: Wed, 19 Aug 2026 15:16:13 -0300
-Message-Id: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
+Date: Wed, 19 Aug 2026 15:16:14 -0300
+Subject: [PATCH RFC v3 01/13] keys, pidns, fs/verity, riscv/vector: reorder
+ '#include <linux/sysctl.h>'
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAO3yhWoC/4WNQQqDMBBFryKzbkqSosauhEIP0G1xEc2oA2pKx
- kpFvHtTL9Dl/4///gaMgZDhmmwQcCEmP8VwOSXQ9HbqUJCLGbTUmTTKCF65mQcxevceUNiBLCM
- L3aZGqlphnSuI21fAlj6H9wmP+w2qWPbEsw/r8bXoA/3RLlpI4VKbFc5imhempO7Hzo0fodr3/
- QtVQJ5iwAAAAA==
-X-Change-ID: 20260818-sysctl-module-aliases-2f5801b1eb71
+Message-Id: <20260819-sysctl-module-aliases-v3-1-aab90569365d@igalia.com>
+References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
+In-Reply-To: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
 To: Kees Cook <kees@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
  Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
@@ -67,8 +65,8 @@ Cc: kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
  virtualization@lists.linux.dev, Mauricio Faria de Oliveira <mfo@igalia.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_111615_328013_57D8AFE6 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20260819_111615_449370_9F16C9F0 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,269 +78,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds 'sysctl:' aliases to modules that register sysctl tables; e.g.:
-
-        $ modinfo ./mpls_router.ko  | grep sysctl:
-        alias:          sysctl:*/net/mpls/conf/*/input
-        alias:          sysctl:*/net/mpls/default_ttl
-        alias:          sysctl:*/net/mpls/ip_ttl_propagate
-        alias:          sysctl:*/net/mpls/platform_labels
-
-It provides a trivial way to map /proc/sys files to modules (not trivial today),
-and for userspace to handle nonexistent /proc/sys files (e.g., procps's sysctl
-and systemd-sysctl applying tunables) with "modprobe sysctl:<...>" and a retry.
-
-This is done almost automatically with register_sysctl(), register_net_sysctl()
-and friends as wrappers of MODULE_SYSCTL_TABLE (similar to MODULE_DEVICE_TABLE),
-which emits symbols for file2alias/modpost to find and parse the sysctl tables.
-
-The big exception to 'almost' are sysctl tables and paths allocated or defined
-at runtime (e.g., per-namespace or per-device), as all information is required
-at build-time. Fortunately, such tables and paths are often based on 'templates'
-which are static and can be used.
-
-This is done by plumbing the template table/path as optional arguments (macros
-with default values as default_gfp()), so not to create functions for all cases:
-
-        register_sysctl(path, table [, table_tmpl [, path_tmpl]]);
-        register_net_sysctl(net, path, table [, table_tmpl[, path_tmpl]]);
-        register_net_sysctl_sz(net, path, table, size [, table_tmpl[, path_tmpl]]);
-
-In this series:
-- Patch 1 prevents a build error later.
-- Patch 2 adds CONFIG_SYSCTL_MODULE_ALIASES.
-- Patch 3 adds MODULE_SYSCTL_TABLE().
-- Patches 4-5 add register_sysctl() wrapper and update some callers.
-- Patches 6-10 add register_net_sysctl[_sz]() wrappers and update some callers.
-- Patches 11-13 add file2alias support.
-
-Not all maintainers/reviewers (specially for the many changes in net/) are
-in To/Cc in respect of their time, as this RFC probably needs more general
-and earlier feedback before settling on specific changes for their review.
-All lists are included for visibility, though.
-
-Example
-=======
-
-To put it all together, 'mpls_router.ko' (used above) from 'net/mpls/af_mpls.c':
-        
-- Tables:
-
-        static const struct ctl_table mpls_table[] = {
-                {
-                        .procname       = "platform_labels",
-                ...
-                        .procname       = "ip_ttl_propagate",
-                ...
-                        .procname       = "default_ttl",
-                },
-        };
-        
-        static const struct ctl_table mpls_dev_table[] = {
-                {
-                        .procname       = "input",
-                ...
-                },
-        };
-
-- Registration:
-
-        net->mpls.ctl = register_net_sysctl_sz(net, "net/mpls", table,
-                                               table_size, mpls_table);
-
-        #define path_template "net/mpls/conf/%s"
-        ...
-        mdev->sysctl = register_net_sysctl_sz(net, path, table, table_size,
-                                              mpls_dev_table, path_template);
-
-- Symbols:
-
-        $ objdump -t net/mpls/mpls_router.ko \
-          | grep '__mod_device_table__.*__sysctl__'
-        0000000000000900 l     O .data  0000000000000018
-                __mod_device_table__kmod_mpls_router__sysctl__mpls_table.177
-        0000000000000940 l     O .data  0000000000000018
-                __mod_device_table__kmod_mpls_router__sysctl__mpls_dev_table.174
-
-- file2alias:
-
-        $ grep '^MODULE_ALIAS("sysctl:' net/mpls/mpls_router.mod.c
-        MODULE_ALIAS("sysctl:*/net/mpls/platform_labels");
-        MODULE_ALIAS("sysctl:*/net/mpls/ip_ttl_propagate");
-        MODULE_ALIAS("sysctl:*/net/mpls/default_ttl");
-        MODULE_ALIAS("sysctl:*/net/mpls/conf/*/input");
-
-- modinfo:
-
-        $ modinfo ./mpls_router.ko  | grep sysctl:
-        alias:          sysctl:*/net/mpls/conf/*/input
-        alias:          sysctl:*/net/mpls/default_ttl
-        alias:          sysctl:*/net/mpls/ip_ttl_propagate
-        alias:          sysctl:*/net/mpls/platform_labels
-
-Testing
-=======
-
-Configurations:
-- allmodconfig with the option enabled (check for 'MODULE_ALIAS("sysctl:' lines)
-- allmodconfig with the option disabled (check for code errors)
-- allyesconfig with the option enabled (check for include errors)
-
-Architectures (test different bitness, endianness, and ELF handling)
-- x86_64, i386
-- arm, arm64
-- arc
-- alpha
-- loongarch
-- m68k
-- mips(64)(el)
-- parisc(64)
-- powerpc(64(le))
-- riscv
-- sparc64
-- s390
-
-The resulting '.mod.c' files of allmodconfig with the option enabled was checked
-for consistency across all architectures, and that the new aliases lines are the
-difference to allmodconfig with the option disabled.
-
-Disabling
-=========
-
-- Per-call:
-
-  Use 'register_sysctl_sz()' or '__register_net_sysctl_sz()' directly.
-
-- Per-file:
-
-  Use '#define SYSCTL_MODULE_ALIASES_DISABLE'.
-
-- System-wide:
-
-  Maybe something along these lines:
-
-        # cat /etc/modprobe.d/no-sysctl.conf
-        alias sysctl:* no-sysctl
-        install no-sysctl /bin/false
-
-        # modinfo -F name sysctl:/proc/net/mpls/default_ttl
-        mpls_router
-
-        # modprobe sysctl:/proc/net/mpls/default_ttl
-        modprobe: ERROR: Error running install command '/bin/false' for module no_sysctl: retcode 1
-        modprobe: ERROR: could not insert 'no_sysctl': Invalid argument
-
-P.S.
-====
-
-I wrote proof-of-concept patches for procps sysctl and systemd-sysctl some time
-ago, which worked as expected, i.e., successfully set sysctl tunables which did
-not exist in /proc/sys, by running 'modprobe sysctl:/proc/sys/...' and retrying.
-
-Should this series eventually be merged, the patches will be submitted upstream
-as well, for userspace to start consuming it.
-
-Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
-
-Changes in v3:
-- All issues were reported by sashiko-bot@kernel.org.
-- Tested allmodconfig with option enabled on x86_64.
-- Patch 2:
-  - Fix typo ('s/options/option/').
-- Patch 3:
-  - Fix usage of __UNIQUE_ID().
-  - Add __must_be_array() in MODULE_SYSCTL_TABLE().
-- Patch 4:
-  - Remove trailing backslash in register_sysctl().
-- Patch 6:
-  - Fix missing __register_net_sysctl_sz() in !CONFIG_SYSCTL.
-- Patch 13:
-  - Fix potential out-of-bounds read in do_sysctl_entry().
-  - Add check for entry size of zero.
-- Link to v2: https://lore.kernel.org/r/20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com
-
-Changes in v2:
-- This is based on the series submitted 4 years ago,
-  with Originally-by: tags added in related patches.
-- Link to v1: https://lore.kernel.org/linux-fsdevel/20220722022416.137548-1-mfo@canonical.com/
-
----
-Mauricio Faria de Oliveira (13):
-      keys, pidns, fs/verity, riscv/vector: reorder '#include <linux/sysctl.h>'
-      proc: add config option SYSCTL_MODULE_ALIASES
-      sysctl, mod_devicetable: add macro MODULE_SYSCTL_TABLE
-      sysctl: add register_sysctl() wrapper for MODULE_SYSCTL_TABLE
-      sysctl, parport: update register_sysctl() callers with template arguments
-      sysctl, net: add register_net_sysctl{_sz}() wrappers for MODULE_SYSCTL_TABLE
-      sysctl, net: update register_net_sysctl{_sz}() callers with template arguments
-      sysctl, net: update register_net_sysctl_sz(ARRAY_SIZE(table_tmpl)) with template arguments
-      sysctl, ipv6: update register_net_sysctl{_sz}() callers with template arguments
-      sysctl, net: update register_net_sysctl_sz() edge case
-      sysctl: unrandomize struct ctl_table.procname
-      modpost: move addend_*_rel() calls into addend_rel()
-      modpost: handle MODULE_SYSCTL_TABLE symbols
-
- arch/riscv/kernel/vector.c              |   1 +
- drivers/net/vrf.c                       |   3 +-
- drivers/parport/procfs.c                |  26 +++-
- fs/proc/Kconfig                         |  13 ++
- fs/verity/init.c                        |   1 +
- include/linux/key.h                     |   1 -
- include/linux/mod_devicetable.h         |   7 +
- include/linux/pid_namespace.h           |   1 +
- include/linux/sysctl.h                  | 110 ++++++++++++++-
- include/net/ipv6.h                      |   6 +-
- include/net/net_namespace.h             |  47 ++++++-
- net/bridge/br_netfilter_hooks.c         |   3 +-
- net/core/neighbour.c                    |  11 +-
- net/core/sysctl_net_core.c              |   3 +-
- net/ieee802154/6lowpan/reassembly.c     |   2 +-
- net/ipv4/devinet.c                      |  12 +-
- net/ipv4/ip_fragment.c                  |   3 +-
- net/ipv4/route.c                        |   3 +-
- net/ipv4/sysctl_net_ipv4.c              |   2 +-
- net/ipv4/xfrm4_policy.c                 |   3 +-
- net/ipv6/addrconf.c                     |   7 +-
- net/ipv6/icmp.c                         |   6 +-
- net/ipv6/netfilter/nf_conntrack_reasm.c |   4 +-
- net/ipv6/reassembly.c                   |   3 +-
- net/ipv6/route.c                        |  10 +-
- net/ipv6/sysctl_net_ipv6.c              |  13 +-
- net/ipv6/xfrm6_policy.c                 |   3 +-
- net/mpls/af_mpls.c                      |   9 +-
- net/mptcp/ctrl.c                        |   3 +-
- net/netfilter/ipvs/ip_vs_ctl.c          |   4 +-
- net/netfilter/ipvs/ip_vs_lblc.c         |   3 +-
- net/netfilter/ipvs/ip_vs_lblcr.c        |   3 +-
- net/netfilter/nf_conntrack_standalone.c |   5 +-
- net/netfilter/nf_log.c                  |   9 +-
- net/rds/tcp.c                           |   4 +-
- net/sctp/sysctl.c                       |   3 +-
- net/smc/smc_sysctl.c                    |   2 +-
- net/sysctl_net.c                        |  10 +-
- net/unix/sysctl_net_unix.c              |   3 +-
- net/vmw_vsock/af_vsock.c                |   4 +-
- net/xfrm/xfrm_sysctl.c                  |   2 +-
- scripts/mod/devicetable-offsets.c       |   6 +
- scripts/mod/file2alias.c                | 237 ++++++++++++++++++++++++++++++++
- scripts/mod/modpost.c                   |  46 ++++---
- scripts/mod/modpost.h                   |  25 ++++
- 45 files changed, 575 insertions(+), 107 deletions(-)
----
-base-commit: 2697ef8943c9985c14708a6429e21812693857b2
-change-id: 20260818-sysctl-module-aliases-2f5801b1eb71
-
-Best regards,
--- 
-Mauricio Faria de Oliveira <mfo@igalia.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Rml4IGFuIGluY2x1ZGUgbG9vcCBlcnJvciBpbiBwcmVwYXJhdGlvbiBmb3Igc3lzY3RsLmggdG8g
+aW5jbHVkZSBtb2R1bGUuaDoKCiAgICBDQyBbTV0gIGFyY2gveDg2L2V2ZW50cy9hbWQvdW5jb3Jl
+Lm8KICBJbiBmaWxlIGluY2x1ZGVkIGZyb20gLi4uL2luY2x1ZGUvbGludXgvZnMuaDo0NCwgICAg
+ICAgICA8PDwKICAgICAgICAgICAgICAgICAgIGZyb20gLi4uL2luY2x1ZGUvbGludXgvY29tcGF0
+Lmg6MTcsCiAgICAgICAgICAgICAgICAgICBmcm9tIC4uLi9hcmNoL3g4Ni9pbmNsdWRlL2FzbS9p
+YTMyLmg6NywKICAgICAgICAgICAgICAgICAgIGZyb20gLi4uL2FyY2gveDg2L2luY2x1ZGUvYXNt
+L2VsZi5oOjEwLAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51eC9lbGYu
+aDo2LAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51eC9tb2R1bGUuaDoy
+MCwgICAgIDw8PAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51eC9zeXNj
+dGwuaDoyNDUsICAgIDw8PAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51
+eC9rZXkuaDoxNywgICAgICAgIDw8PAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVk
+ZS9saW51eC9jcmVkLmg6MTMsICAgICAgIDw8PAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4v
+aW5jbHVkZS9saW51eC9zY2hlZC9zaWduYWwuaDoxMCwKICAgICAgICAgICAgICAgICAgIGZyb20g
+Li4uL2luY2x1ZGUvbGludXgvcHRyYWNlLmg6NywKICAgICAgICAgICAgICAgICAgIGZyb20gLi4u
+L2luY2x1ZGUvdWFwaS9hc20tZ2VuZXJpYy9icGZfcGVyZl9ldmVudC5oOjQsCiAgICAgICAgICAg
+ICAgICAgICBmcm9tIC4vYXJjaC94ODYvaW5jbHVkZS9nZW5lcmF0ZWQvdWFwaS9hc20vCiAgICAg
+ICAgICAgICAgICAgICAgICAgIGJwZl9wZXJmX2V2ZW50Lmg6MSwKICAgICAgICAgICAgICAgICAg
+IGZyb20gLi4uL2luY2x1ZGUvdWFwaS9saW51eC9icGZfcGVyZl9ldmVudC5oOjExLAogICAgICAg
+ICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51eC9wZXJmX2V2ZW50Lmg6MTgsCiAgICAg
+ICAgICAgICAgICAgICBmcm9tIC4uLi9hcmNoL3g4Ni9ldmVudHMvYW1kL3VuY29yZS5jOjg6CiAg
+Li4uL2luY2x1ZGUvbGludXgvbW50X2lkbWFwcGluZy5oOiBJbiBmdW5jdGlvbiDigJhtYXBwZWRf
+ZnN1aWTigJk6CiAgLi4uL2luY2x1ZGUvbGludXgvbW50X2lkbWFwcGluZy5oOjIzMTo1OTogZXJy
+b3I6IGltcGxpY2l0IGRlY2xhcmF0aW9uCiAgICBvZiBmdW5jdGlvbiDigJhjdXJyZW50X2ZzdWlk
+4oCZIFstV2ltcGxpY2l0LWZ1bmN0aW9uLWRlY2xhcmF0aW9uXQoKUmVhc29uOgogLSBjcmVkLmgg
+aW5jbHVkZXMga2V5LmggKmJlZm9yZSogZGVmaW5pbmcgY3VycmVudF9mc3VpZCgpOwogLSBrZXku
+aCBpbmNsdWRlcyBzeXNjdGwuaDsKIC0gc3lzY3RsLmggaW5jbHVkZXMgbW9kdWxlLmg7CiAtIG1v
+ZHVsZS5oIGluY2x1ZGVzIGZzLmggdmlhIGVsZi5oID4gYXNtL2VsZi5oID4gYXNtL2lhMzIuaCA+
+IGNvbXBhdC5oOwogLSBmcy5oIGluY2x1ZGVzIG1udF9pZG1hcHBpbmcuaCwgd2hpY2ggdXNlcyAq
+dW5kZWZpbmVkKiBjdXJyZW50X2ZzdWlkKCkuCgpOb3RlIHRoYXQgZnMuaCBkb2VzIGluY2x1ZGUg
+Y3JlZC5oICh3aGljaCBkZWZpbmVzIGN1cnJlbnRfZnN1aWQoKSkgcmlnaHQKYmVmb3JlIG1udF9p
+ZG1hcHBpbmcuaCAod2hpY2ggdXNlcyBpdCksIGJ1dCBpdCBpcyBub3QgcGFyc2VkIGJlY2F1c2Ug
+dGhlCmluY2x1ZGUgZ3VhcmQgb2YgY3JlZC5oIGlzIGRlZmluZWQgZWFybGllci4KCkFkZHJlc3Mg
+dGhpcyBieSByZW1vdmluZyBzeXNjdGwuaCBmcm9tIGtleS5oLCB3aGljaCBkb2VzIG5vdCBuZWVk
+IGl0LAphbmQgYWRkaW5nIGl0IHRvIGZpbGVzIHRoYXQgYWN0dWFsbHkgbmVlZCBpdC4KClNpZ25l
+ZC1vZmYtYnk6IE1hdXJpY2lvIEZhcmlhIGRlIE9saXZlaXJhIDxtZm9AaWdhbGlhLmNvbT4KLS0t
+CiBhcmNoL3Jpc2N2L2tlcm5lbC92ZWN0b3IuYyAgICB8IDEgKwogZnMvdmVyaXR5L2luaXQuYyAg
+ICAgICAgICAgICAgfCAxICsKIGluY2x1ZGUvbGludXgva2V5LmggICAgICAgICAgIHwgMSAtCiBp
+bmNsdWRlL2xpbnV4L3BpZF9uYW1lc3BhY2UuaCB8IDEgKwogNCBmaWxlcyBjaGFuZ2VkLCAzIGlu
+c2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
+bC92ZWN0b3IuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZlY3Rvci5jCmluZGV4IGIxMTIxNjZkNTFl
+OWY1ODRmODRjNTJkMGY4NGZlYjkyY2NkNjBkZjEuLjllYWM0N2M5OWYxMTQzMDQ1MjFmZGM1Mzkw
+MThmM2Y4NDUwN2U3NWYgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3ZlY3Rvci5jCisr
+KyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZlY3Rvci5jCkBAIC0xMCw2ICsxMCw3IEBACiAjaW5jbHVk
+ZSA8bGludXgvc2NoZWQuaD4KICNpbmNsdWRlIDxsaW51eC91YWNjZXNzLmg+CiAjaW5jbHVkZSA8
+bGludXgvcHJjdGwuaD4KKyNpbmNsdWRlIDxsaW51eC9zeXNjdGwuaD4KIAogI2luY2x1ZGUgPGFz
+bS90aHJlYWRfaW5mby5oPgogI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3IuaD4KZGlmZiAtLWdpdCBh
+L2ZzL3Zlcml0eS9pbml0LmMgYi9mcy92ZXJpdHkvaW5pdC5jCmluZGV4IDNhYTU1ZGVjODhmYzkx
+OTc5MmEyY2I0YmU0NzZmODQ4MWVmNzhhOWUuLmQ0NjBlZWY3NGZjZmU0OWY2Y2Y2OTk3NGE4MTk0
+YTY1ZGU0ODY4MTkgMTAwNjQ0Ci0tLSBhL2ZzL3Zlcml0eS9pbml0LmMKKysrIGIvZnMvdmVyaXR5
+L2luaXQuYwpAQCAtOSw2ICs5LDcgQEAKICNpbmNsdWRlICJmc3Zlcml0eV9wcml2YXRlLmgiCiAK
+ICNpbmNsdWRlIDxsaW51eC9yYXRlbGltaXQuaD4KKyNpbmNsdWRlIDxsaW51eC9zeXNjdGwuaD4K
+IAogI2lmZGVmIENPTkZJR19TWVNDVEwKIHN0YXRpYyBjb25zdCBzdHJ1Y3QgY3RsX3RhYmxlIGZz
+dmVyaXR5X3N5c2N0bF90YWJsZVtdID0gewpkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9rZXku
+aCBiL2luY2x1ZGUvbGludXgva2V5LmgKaW5kZXggODFiOGYwNWM2ODk4NWM2ZjBhNWM1YmJlMGYx
+ZmQ2NjYxOTEyYzYxOC4uYTc0ZjhmMWI3OTM2ZDZlZGU1ODRjMGE4Y2Q1MjBmODU4ZjZhOTc1OCAx
+MDA2NDQKLS0tIGEvaW5jbHVkZS9saW51eC9rZXkuaAorKysgYi9pbmNsdWRlL2xpbnV4L2tleS5o
+CkBAIC0xNCw3ICsxNCw2IEBACiAjaW5jbHVkZSA8bGludXgvbGlzdC5oPgogI2luY2x1ZGUgPGxp
+bnV4L3JidHJlZS5oPgogI2luY2x1ZGUgPGxpbnV4L3JjdXBkYXRlLmg+Ci0jaW5jbHVkZSA8bGlu
+dXgvc3lzY3RsLmg+CiAjaW5jbHVkZSA8bGludXgvcndzZW0uaD4KICNpbmNsdWRlIDxsaW51eC9h
+dG9taWMuaD4KICNpbmNsdWRlIDxsaW51eC9hc3NvY19hcnJheS5oPgpkaWZmIC0tZ2l0IGEvaW5j
+bHVkZS9saW51eC9waWRfbmFtZXNwYWNlLmggYi9pbmNsdWRlL2xpbnV4L3BpZF9uYW1lc3BhY2Uu
+aAppbmRleCBiMjBiYWFhN2U2MmI3NTVlN2U1NjFmY2Q4MDE4ZTJiNjEyMTM1MDNlLi45NGIyMzQ3
+MWM3ZGVjMTM1ZTI0YzRjMGMxZmRiZjg0MWNlYTJlNWRlIDEwMDY0NAotLS0gYS9pbmNsdWRlL2xp
+bnV4L3BpZF9uYW1lc3BhY2UuaAorKysgYi9pbmNsdWRlL2xpbnV4L3BpZF9uYW1lc3BhY2UuaApA
+QCAtMTAsNiArMTAsNyBAQAogI2luY2x1ZGUgPGxpbnV4L25zcHJveHkuaD4KICNpbmNsdWRlIDxs
+aW51eC9uc19jb21tb24uaD4KICNpbmNsdWRlIDxsaW51eC9pZHIuaD4KKyNpbmNsdWRlIDxsaW51
+eC9zeXNjdGwuaD4KIAogLyogTUFYX1BJRF9OU19MRVZFTCBpcyBuZWVkZWQgZm9yIGxpbWl0aW5n
+IHNpemUgb2YgJ3N0cnVjdCBwaWQnICovCiAjZGVmaW5lIE1BWF9QSURfTlNfTEVWRUwgMzIKCi0t
+IAoyLjQ3LjMKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
