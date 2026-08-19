@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34473C5DF86
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 12:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A56C5B572
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 16:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oxPpmuVs0psDDLxfuRcA0Ex8hvXLecO42FKTSJwmQ4Q=; b=RyQXJCgZ1ucPMn
-	FD3zvoS1H4p0HH4cDiDAR6Ioe1VWlZgH5oBSh4OK7Rq7Dkr08kh1RpzsmLI7Y1+uoNvhL9rjHjyah
-	/MuojpkSNuVO2zD3MHIfLCCBV75gvjP8woLaUDmhKoHUW7hgIT3t4oru5XvSAFm0Is7lpktXoCCje
-	URteHS/M3a8XTcuEY88FKSClGPKU1Jxb18GA6707lBxTEG6LuxWvi7SQoMFy2L1xqlxrMsxYJALHP
-	ZtewJotmM97fB35dfVaiZCmgU0FILp+QAr60yF2wDT09+GD6urdc9+8x9m+ZL5BDnVa8lyCtDjMFx
-	5VcvLEsNcVQ34Mta6vww==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=g4muqUgsU00adwUhGNeLESEe2Fi9IRdq4Dfifu9L+0g=; b=Zw+jM1+u37ob/3
+	IX+WO23sTBVSPtjQaEMRxdcWrj6aTBe3UHJQZ71fvGGZ9NsNTjEQeat15WM3iWET9hhCbvctf8oyF
+	Ddskbt7AOtWteuZs1hmI4GboGmkwxmg/XkH6YQqF1CQYwYCMabSzHwUpKsoWgkJatHot+aSww6+Od
+	nCteUXmwiTzeRXAAqkY4UXH0ojahW/G0+zDH70u6AHwEyg1WxzAU1LB6CrGP42oJO+0npgcjGusiw
+	wViLH7/B93MNB7shZ+emGY3XnIsVNXMTH1ByjnNItnF5ZK8jR9hs2j0rKxmASHpTFP+rngZQH4L4Q
+	g+ufN5Yvw2GqeD9XsqwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwfUW-00000009kiL-1tsI;
-	Wed, 19 Aug 2026 12:34:00 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wwioR-0000000A99e-28sG;
+	Wed, 19 Aug 2026 16:06:47 +0000
+Received: from forward103b.mail.yandex.net ([178.154.239.150])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwfUT-00000009kgq-2WlV
+	id 1wwioL-0000000A947-3ouW
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 12:33:58 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1787142835;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GUmvpv/qhdwns6mT62MT5RE9RITs56cprUq89W6UKxM=;
-	b=007vOlfsJ+ZARvErkPXbN5s7th0P6PbVX6fXMQOneWk3mrTrvVtdbJPelvhU0cqJaBYEHs
-	NoP/g1dvlyEYDjX74SeyYhwieIxWTistB8ujlPFunohDnmYoei5VlJruP5MSfBpb3fXy/6
-	bc95O2RP2IROYzHYEVYcHSrZeJGMIBRsb05lUesomprYP7UUFAlheWmDDsSlt+wPJq+avX
-	z7CdhdbtZhWO4qW/1C/DFpJBpNOoZXmg2nit7MG7+hlj17rzAoVYExJ3AoUeNJqYgli/rh
-	U+gKsa2BLUDfRF6NMkDMugTrqGFyRDnO1581QZRthgoLV51d151EXOrczl2oFA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1787142835;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GUmvpv/qhdwns6mT62MT5RE9RITs56cprUq89W6UKxM=;
-	b=MppqYGa2QrwMSLNnWRKZsjPmuex86ragutfUN2PO8y2TjuTBVM1USSunmkR1dl/4qFyutH
-	MVRLEx7ggiLDmxBw==
-To: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- yuanxiaofeng@eswincomputing.com
-Subject: Re: [PATCH] riscv: probes: reject kprobes inside LR/SC sequences
-In-Reply-To: <20260819102922.1747-1-yuanxiaofeng@eswincomputing.com>
-References: <20260819102922.1747-1-yuanxiaofeng@eswincomputing.com>
-Date: Wed, 19 Aug 2026 14:33:55 +0200
-Message-ID: <87tsoql26k.fsf@yellow.woof>
+	Wed, 19 Aug 2026 16:06:46 +0000
+Received: from mail-nwsmtp-smtp-production-main-70.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-70.sas.yp-c.yandex.net [IPv6:2a02:6b8:c11:69d:0:640:32f2:0])
+	by forward103b.mail.yandex.net (postfix) with ESMTPS id 71E6FC0061;
+	Wed, 19 Aug 2026 19:06:32 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-70.sas.yp-c.yandex.net (smtp) with ESMTPSA id U6Zpsm0f6Gk0-hkZapgoD;
+	Wed, 19 Aug 2026 19:06:31 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
+	t=1787155591; bh=BY1MDzH4R6UmAqJ8LxjKOmy081SaWDy1zdaFzWSk3Cg=;
+	h=Message-ID:Date:Cc:Subject:To:From;
+	b=rBaArKiA+q9PnfidxQznCl+G7vSAF1R6JMXkGT5q55s1yWX9UqPhitvwR5xYaxiVb
+	 nd3TX3mU8ia/8rCbWVOoE7tEepDGK8tsDxtAtrMD2zabv/dKMzs4+NLUldImntT/mT
+	 wg70z0AeM4A8bOowYvFVDrnj3JVWcslHm4TJOOAU=
+Authentication-Results: mail-nwsmtp-smtp-production-main-70.sas.yp-c.yandex.net; dkim=pass header.i=@yandex.ru
+From: Dmitry Antipov <dmantipov@yandex.ru>
+To: linux-riscv@lists.infradead.org
+Cc: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	lbert Ou <aou@eecs.berkeley.edu>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Dmitry Antipov <dmantipov@yandex.ru>
+Subject: [PATCH] riscv: use string helper in setup_global_riscv_enable()
+Date: Wed, 19 Aug 2026 19:05:46 +0300
+Message-ID: <20260819160546.3219942-1-dmantipov@yandex.ru>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_053357_783314_1BBB2E0A 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20260819_090642_488203_77B14B55 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +72,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com> writes:
-> +/*
-> + * A trap taken in the middle of an LR/SC sequence clears the load
-> + * reservation, so an SC following the probed instruction would always
-> + * fail and the enclosing retry loop would re-enter the breakpoint.
-> + * Reject probes inside such a sequence.
-> + *
-> + * A constrained LR/SC loop (Zalrsc) is limited to 16 instructions placed
-> + * sequentially in memory (64 bytes in the base ISA), so scanning back
-> + * that far covers every possible enclosing sequence.
-> + */
-> +#define MAX_ATOMIC_CONTEXT_SIZE	64
+Prefer the convenient string choice 'str_disabled_enabled()'
+helper over hardcoded strings in 'setup_global_riscv_enable()'.
 
-What about C extension? Does this 64 still work?
+Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
+---
+ arch/riscv/kernel/usercfi.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-> +
-> +static bool __kprobes riscv_probe_insn_in_atomic(unsigned long addr)
-> +{
-> +	unsigned long tmp, offset, scan_start;
-> +	bool in_atomic = false;
-> +
-> +	if (!kallsyms_lookup_size_offset(addr, NULL, &offset))
-> +		return false;
-> +
-> +	tmp = addr - offset;				/* function entry */
-> +
-> +	if (offset > MAX_ATOMIC_CONTEXT_SIZE)
-> +		scan_start = addr - MAX_ATOMIC_CONTEXT_SIZE;
+diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
+index 5a7113d69bad..91eef6218d85 100644
+--- a/arch/riscv/kernel/usercfi.c
++++ b/arch/riscv/kernel/usercfi.c
+@@ -525,9 +525,8 @@ static int __init setup_global_riscv_enable(char *str)
+ 
+ 	if (riscv_nousercfi)
+ 		pr_info("RISC-V user CFI disabled via cmdline - shadow stack status : %s, landing pad status : %s\n",
+-			(riscv_nousercfi & CMDLINE_DISABLE_RISCV_USERCFI_BCFI) ? "disabled" :
+-			"enabled", (riscv_nousercfi & CMDLINE_DISABLE_RISCV_USERCFI_FCFI) ?
+-			"disabled" : "enabled");
++			str_disabled_enabled(riscv_nousercfi & CMDLINE_DISABLE_RISCV_USERCFI_BCFI),
++			str_disabled_enabled(riscv_nousercfi & CMDLINE_DISABLE_RISCV_USERCFI_FCFI));
+ 
+ 	return 1;
+ }
+-- 
+2.55.0
 
-What guarantees that 'scan_start' points to the beginning of an instruction?
-
-> +	else
-> +		scan_start = tmp;
-> +
-> +	/* advance to the scan window, keeping instruction alignment */
-> +	while (tmp < scan_start)
-> +		tmp += GET_INSN_LENGTH(*(u16 *)tmp);
-> +
-> +	/* scan the window, tracking whether an LR is still outstanding */
-> +	while (tmp < addr) {
-> +		if (GET_INSN_LENGTH(*(u16 *)tmp) == 4) {
-
-Why is tmp casted to (u16 *)? An instruction can be 32 bits.
-
-It still works, I think, but looks confusing.
-
-> +			u32 insn = *(u32 *)tmp;
-
-Reuse this insn for the GET_INSN_LENGTH() above?
-
-Nam
 
 _______________________________________________
 linux-riscv mailing list
