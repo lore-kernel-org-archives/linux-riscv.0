@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA293C5DF81
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 01:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56630C5DF7D
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 02:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iGXR5hBK5pKCsnkUOplKDASlBBkiNRNVOPU3/RLmxu8=; b=jFCtqYFkyXp1UU
-	NkNzFILUfad4KMA1woxK+NG3zmOP143S5JLuIobqnX9azq8JqybYRGsI6b+WuxyD9rr/FhYq4eXg3
-	jSrlJcNo2PV7q5RVbPlaVorQ/Tzr+ksIWwFwI5No9d9bNkhwZg8Dggo+uAoq4ks4Q+yvEqzVikchD
-	CPIkSqRY8vSWimNMnD9oli9Kr/85D2sT5unS10hhlSBE//KfOTiNNwqYxPT7xAXOsaBqgd1dRuu4Y
-	24BpthEKayD/xOFJtV/ZGvPQx1fM0RLO4EFMZRszE/KbYw398h7ogTunacvPyy42RbV/ioBgB4hTE
-	2B1hrE4oeZszppC3xKlA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vd4fkXubAZqESJVjh+QQJglK/ohLtkkk/icbuwx6oH8=; b=yNOloHopE5rJYF
+	w1hPrNvCkYmis3AGvBjdPeLoboKBatO7S4i5W4G18n+D0mqYDOdwHSJLdWxrUr3oTUU1LRZSiIpF0
+	/mEoFcVfAqUQXWdWbjA3skBdnNlJx11gti8PjvanP73QfLIf2La0dPgATLZsK4z+HrX93H9kSqYe9
+	yMcrHEFRTDT3usVwbzXSWy6vgfYonGX8YMwjmWXwpeDQUbYVT6aPUObWzXIuwbJIhom16rXYLnGyA
+	GtgPEfG65hgddq+yFGa9sNlpZQDZ7SdeODLWuKZWtXbwyEy7OkZslcARvbdiaiB0skm59cCzHpyNq
+	LmoYanC/tU3zsp+MR/eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwUoI-00000008ouR-2Jn1;
-	Wed, 19 Aug 2026 01:09:42 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
+	id 1wwW3P-00000008s2z-3nlk;
+	Wed, 19 Aug 2026 02:29:23 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwUoF-00000008ou2-0D1P;
-	Wed, 19 Aug 2026 01:09:41 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 19 Aug
- 2026 09:09:29 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 19 Aug 2026 09:09:29 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Wed, 19 Aug 2026 09:09:19 +0800
-Subject: [PATCH] irqchip/ast2700-intc: Avoid allocating in the irq_domain
- activate callback
+	id 1wwW3L-00000008s1U-36qL
+	for linux-riscv@lists.infradead.org;
+	Wed, 19 Aug 2026 02:29:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Subject:Date:From:From:Reply-To;
+	bh=rX/5Ncw6TkYVmkpNCpB1GzMuhqdAFux3EzHGz3ko38I=; b=mGygRzJMb4At3JlLUZ2Tw5P/gh
+	o5C97RTeg2b/Rt6Q2d8QZ0eJhQSVhJiOv7v3hVBfNQMJ7Cu88OKJxSaWb/AclxAoh5QSctb5l51VP
+	Oxp9QFhBLJ/Ac5uZMDWXW8emG8zspfpKKZadDzAsu9WynmP72ivYHVsHyJKb6c7jIOccteHDDSaQb
+	8KT+ClPTJdD96fhNbSapoj1mRBnfGUIuOiHM56R6+hkoLIY781acUFmjVAKjlos6AOw/A6X7BoK6p
+	/OBJnCBmnZGAYtPdChJBsxclxsMqBF8xHR+ARRw8ASvt8LYTqbgSfFvfV8F6qE3+LxwkN6hR7hn97
+	XCDLWwRw==;
+Received: from 186-249-144-28.shared.desktop.com.br ([186.249.144.28] helo=[127.0.1.1])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1wwW3G-005tfG-5O; Wed, 19 Aug 2026 04:29:14 +0200
+From: Mauricio Faria de Oliveira <mfo@igalia.com>
+Date: Tue, 18 Aug 2026 23:28:01 -0300
+Subject: [PATCH RFC v2 02/13] proc: add config option SYSCTL_MODULE_ALIASES
 MIME-Version: 1.0
-Message-ID: <20260819-fix-ast2700-intc-atomic-alloc-v1-1-d92a02e2a239@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIAD4ChWoC/x2M0QrCMAwAf2Xk2UAaxa3+ivgQatwCWyttEWHs3
- w0+Hfdwt0PTatrgNuxQ9WPNSnYJpwHSInlWtKc7MPGVphDxZV+U1nkkQss9ofSymWNdS8J45ss
- kHCUkAn+8q3rw/98fx/EDtmZR2m8AAAA=
-X-Change-ID: 20260819-fix-ast2700-intc-atomic-alloc-93248a29a1c0
-To: Thomas Gleixner <tglx@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>
-CC: Radu Rendec <radu@rendec.net>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Ryan Chen <ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787101769; l=3189;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=ZRBbxvpAQxQ9WSWrReHJgmHc7WwhW/QkN01mfSF5T+A=;
- b=y1Ml1E/xkjDXkFmU+iV4p/nM5dpGUJaEb88IKzFFXQ5J4lWuwqKhEp/CQFMZOJ9+32v9B/0yF
- 5nN0wH0Wn49BXicFlAqMoXXI50tdDMwxm2iC2qh6n8B5Wh9l0n/EUvQ
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+Message-Id: <20260818-sysctl-module-aliases-v2-2-d5a69dae5798@igalia.com>
+References: <20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com>
+In-Reply-To: <20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com>
+To: Kees Cook <kees@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>
+Cc: kernel-dev@igalia.com, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, fsverity@lists.linux.dev, 
+ keyrings@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-wpan@vger.kernel.org, 
+ lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org, 
+ coreteam@netfilter.org, linux-sctp@vger.kernel.org, 
+ linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org, 
+ bridge@lists.linux.dev, mptcp@lists.linux.dev, rds-devel@oss.oracle.com, 
+ virtualization@lists.linux.dev, Mauricio Faria de Oliveira <mfo@igalia.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_180939_125340_83BFF171 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260818_192919_808544_443E99E5 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,80 +83,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The IRQ core calls the irq_domain .activate callback from __setup_irq()
-with desc->lock held and interrupts disabled. Both
-aspeed_intc1_irq_domain_activate() and the aspeed_intc0_resolve_route()
-it invokes test a compatible string with fwnode_device_is_compatible(),
-which wraps fwnode_property_match_string() and allocates with GFP_KERNEL.
+Add a config option for the 'sysctl:' module aliases feature.
 
-Besides sleeping in atomic context, that makes the irq_desc lock depend
-on fs_reclaim, which lockdep reports as an inversion because
-irq_desc_lock_class is also taken in hardirq context:
-
-  WARNING: possible irq lock inversion dependency detected
-  swapper/0/0 just changed the state of lock:
-  (&irq_desc_lock_class){-...}-{2:2}, at: handle_level_irq+0x28/0x168
-  but this lock took another, HARDIRQ-unsafe lock in the past:
-   (fs_reclaim){+.+.}-{0:0}
-  ...
-    fs_reclaim_acquire
-    __kmalloc_noprof
-    fwnode_property_match_string
-    aspeed_intc0_resolve_route
-    aspeed_intc1_irq_domain_activate
-
-Both call sites are only ever handed OF nodes, so use
-of_device_is_compatible() instead: it walks the property in place and
-does not allocate.
-
-Fixes: 07825e41519a ("irqchip/ast2700-intc: Add AST2700-A2 support")
-Reported-by: Andrew Jeffery <andrew@codeconstruct.com.au>
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-Tested-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
 ---
-Tested on an AST2700 EVB with CONFIG_PROVE_LOCKING=y: the irq lock
-inversion splat quoted in the patch is gone, and the ast2700-intc0 KUnit
-suite still passes 9/9.
----
- drivers/irqchip/irq-ast2700-intc0.c | 2 +-
- drivers/irqchip/irq-ast2700-intc1.c | 3 ++-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ fs/proc/Kconfig | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/drivers/irqchip/irq-ast2700-intc0.c b/drivers/irqchip/irq-ast2700-intc0.c
-index 14b8b88f1179..c85b98a19bd4 100644
---- a/drivers/irqchip/irq-ast2700-intc0.c
-+++ b/drivers/irqchip/irq-ast2700-intc0.c
-@@ -312,7 +312,7 @@ int aspeed_intc0_resolve_route(const struct irq_domain *c0domain, size_t nc1outs
- 		return -ENOENT;
+diff --git a/fs/proc/Kconfig b/fs/proc/Kconfig
+index 24f5a36f45df8b1d6831a0f4011c1f6b1987cb52..e6591ec4bcf0ab2ad96ca7dc90b831b2f9873ac2 100644
+--- a/fs/proc/Kconfig
++++ b/fs/proc/Kconfig
+@@ -98,6 +98,19 @@ config SYSCTL
+ 	  building a kernel for install/rescue disks or your system is very
+ 	  limited in memory.
  
- 	if (!IS_ENABLED(CONFIG_ASPEED_AST2700_INTC_TEST) &&
--	    !fwnode_device_is_compatible(c0domain->fwnode, "aspeed,ast2700-intc0"))
-+	    !of_device_is_compatible(to_of_node(c0domain->fwnode), "aspeed,ast2700-intc0"))
- 		return -ENODEV;
- 
- 	intc0 = c0domain->host_data;
-diff --git a/drivers/irqchip/irq-ast2700-intc1.c b/drivers/irqchip/irq-ast2700-intc1.c
-index 59e8f0d5ddcd..df6acbafce2d 100644
---- a/drivers/irqchip/irq-ast2700-intc1.c
-+++ b/drivers/irqchip/irq-ast2700-intc1.c
-@@ -157,7 +157,8 @@ static int aspeed_intc1_irq_domain_activate(struct irq_domain *domain,
- 					intc1->ranges.nranges,
- 					intc1->ranges.ranges, &resolved);
- 	if (rc < 0) {
--		if (!fwnode_device_is_compatible(intc1->upstream->fwnode, "riscv,aplic")) {
-+		if (!of_device_is_compatible(to_of_node(intc1->upstream->fwnode),
-+					     "riscv,aplic")) {
- 			dev_warn(intc1->dev,
- 				 "Failed to resolve interrupt route for hwirq %lu in domain %s\n",
- 				 data->hwirq, domain->name);
++config SYSCTL_MODULE_ALIASES
++	bool "'sysctl:' module aliases (EXPERIMENTAL)"
++	depends on SYSCTL && MODULES
++	default n
++	help
++	  The /proc/sys files registered by a module do not exist until the
++	  module is loaded; meanwhile, userspace cannot find or access them.
++
++	  This options adds 'sysctl:*/<path>/<file>' module aliases for the
++	  /proc/sys files registered by modules, so modules for nonexistent
++	  files can be loaded with 'modprobe sysctl:/proc/sys/<path>/<file>'
++	  by userspace when needed.
++
+ config PROC_PAGE_MONITOR
+  	default y
+ 	depends on PROC_FS && MMU
 
----
-base-commit: 4477a78374a57c3809b172ad30cceabda48c47c6
-change-id: 20260819-fix-ast2700-intc-atomic-alloc-93248a29a1c0
-
-Best regards,
 -- 
-Ryan Chen <ryan_chen@aspeedtech.com>
+2.47.3
 
 
 _______________________________________________
