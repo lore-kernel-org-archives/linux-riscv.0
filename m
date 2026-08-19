@@ -4,48 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDF6C5DF81
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 02:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEDA8C5DF81
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 02:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w6G6EUwTOuRcOGTdkedA7CKVgg3ukw36HRZCYEOeVwk=; b=rel6AcV1Wk1weZ
-	QhDHqMDW4pAgs+4rKZztlaK2uZ48HVq1ltRubUaLd6Tx7Xk4Y741ffXlqtsvAAmT0dRpWrLrv9xul
-	bGEfFe6LZDKEMSgT40rPC/MhOA5UBDCjKo4JnXmdHYqQPbgUma8bbfeWBXwbOC84HnrAY9+UJ3PyM
-	a3T1u/lrrWPSMkxGEIKjFtGJoUnb+wS+2R0FSruXLzVFXvc4BzJUfC0dN60sM6997F1CO7uJiyEWI
-	VXjOwU089BUbCQXhXEb8IMNMngVl6A62SmUmOQiXbmPzlG3hNtKNb/64631YfJWUYYAGOegPaLdFD
-	m68TKWDQYodgntxgJX3A==;
+	List-Owner; bh=5lkfNjLup5jNPT2mKKfq7ki8tadBxZ07RD8o0Oh2y7A=; b=O2N5MSvLpfcApJ
+	HyzFS/gXvUHpVEdDf6rt0yWmvQ9rN72YwIK2saz1k3nRmfERB8CRVv2Z1oBy7vvur9qEUumV/JgoP
+	mUwwqivsU68o3yGQi64dwTI+cmuWoTCWQjgCFE+ddI+uNT14GBSq4eI8WMk+AkSuikd2lkf88pGEK
+	NOaG/tJ28Qg+o3/2Ioh25SQGDpNnXWyH5tGDFpyCr6lBMghUj66+QjBFnG/5/sweFk3BIDsqLsgPf
+	ODBsFtrL6R15kjA8ch7QfjYITrEG4rY3Jg7k/Ek6At4YQuG/CHrqwDpRryTrNiBAWeXTkdzXMf/jS
+	uYZG8OSZAYWv6nTIZ8AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwW4U-00000008sa5-0vST;
-	Wed, 19 Aug 2026 02:30:30 +0000
+	id 1wwW4X-00000008scd-1u5t;
+	Wed, 19 Aug 2026 02:30:33 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwW4J-00000008sRN-1Qix
+	id 1wwW4Q-00000008sVy-1UH5
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 02:30:28 +0000
+	Wed, 19 Aug 2026 02:30:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=IuE38fL6h7PEmzt/UNWdPfgVu72Lk4CiXzTD+qO+pWo=; b=GNwOgvD1AZmUImC0F5BHb4J4CH
-	J4W97Eo0NkLvb5hoXYMflby0Bjo1H2wBsJFdmKWDTh869qriEPgapAimR58yHbMEIt8eAU8WIdMFD
-	Beq0RuAkALqd6jSDkwAmeC9JafZ037OIGKKfczG4HnQqy0lP8dLDffdZ9n7Ooc+wmWeKZF7rdicud
-	keGSVF7hEkO2GLVq7tToxxmSj/Aq6vkBYY4UvPxBmpZTbjlyekrRFJC5axfOKE3VLoF40QnFI31Aq
-	nvlFuRiaeB/SLm0R1MVCeEVWlvSFEW6CkHiRr7MqI+ah6buGMEfc6jhXXFHXKHmiWazlZai3FLQ77
-	Pr1VBPQg==;
+	bh=jcWdQbXP/kHWb1xcpo26FcJ2qHm9uH6N5DjjZNrZnS8=; b=BEOtuYvkZx34qtwPCbyxsdAsY6
+	wt1vEcZkneUIRDRvOjlvxWGKMLwGz4LB5AulnRi+hi2VF/YgQJMigWj0G6OcRTrnRRPIc+u6lHxVh
+	99019UvHalg7deeX6cY5LcGi0gXIBYrLkTjmdTrJYnpVZT9fHkcr9vwcCQC2P5RHnhEyleMv/iMRE
+	0b5a0cSslBLc+6mj05KF9pvvh0jLjS6JdJY9ktYVFg09l74rRgKv9MJ3cLq153lIfP3dnq0tPLyfe
+	T/8v3hIBd+X+5ToJ4s7UaHrOB4QhkU3y7ZFvMM++E59w9yj7Vl+gJa2tbVAEv9aYQeGp+IdxQEzSj
+	5vaLg+wQ==;
 Received: from 186-249-144-28.shared.desktop.com.br ([186.249.144.28] helo=[127.0.1.1])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wwW4B-005tfG-0q; Wed, 19 Aug 2026 04:30:11 +0200
+	id 1wwW4I-005tfG-44; Wed, 19 Aug 2026 04:30:18 +0200
 From: Mauricio Faria de Oliveira <mfo@igalia.com>
-Date: Tue, 18 Aug 2026 23:28:09 -0300
-Subject: [PATCH RFC v2 10/13] sysctl, net: update register_net_sysctl_sz()
- edge case
+Date: Tue, 18 Aug 2026 23:28:10 -0300
+Subject: [PATCH RFC v2 11/13] sysctl: unrandomize struct ctl_table.procname
 MIME-Version: 1.0
-Message-Id: <20260818-sysctl-module-aliases-v2-10-d5a69dae5798@igalia.com>
+Message-Id: <20260818-sysctl-module-aliases-v2-11-d5a69dae5798@igalia.com>
 References: <20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com>
 In-Reply-To: <20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com>
 To: Kees Cook <kees@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
@@ -65,9 +64,8 @@ Cc: kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
  virtualization@lists.linux.dev, Mauricio Faria de Oliveira <mfo@igalia.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_193019_432080_2FF7C7E7 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260818_193027_036835_E0CEF7F9 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +82,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Handle the last (edge) case:
-- nf_log.c: ignore sysctl table with template set at run-time.
+The 'struct ctl_table.procname' field (sysctl filename) cannot be accessed
+by scripts since it is defined in kernel headers (see "don't include kernel
+headers into userspace" in file2alias.c) and its offset may be randomized.
 
-And re-enable the macro.
+Unrandomize '.procname' as the first field so its offset is always zero and
+match the 'struct ctl_table' symbol address, which can be found by scripts.
 
+Originally-by: Mauricio Faria de Oliveira <mfo@canonical.com>
 Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
 ---
- include/linux/sysctl.h | 3 ---
- net/netfilter/nf_log.c | 9 +++++----
- 2 files changed, 5 insertions(+), 7 deletions(-)
+ include/linux/sysctl.h | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
 diff --git a/include/linux/sysctl.h b/include/linux/sysctl.h
-index 9e00a086ff1d47ab18021b3d79b0e8a93037cb2d..7e05fafd5544e1c4a3283dc13b0692f39515d01e 100644
+index 7e05fafd5544e1c4a3283dc13b0692f39515d01e..120c0f05bd083e08d8104ff05136138f2e8cdb07 100644
 --- a/include/linux/sysctl.h
 +++ b/include/linux/sysctl.h
-@@ -309,9 +309,6 @@ struct ctl_table_root {
-  *
-  * Define the macro SYSCTL_MODULE_ALIASES_DISABLE to disable this.
-  */
--
--#define SYSCTL_MODULE_ALIASES_DISABLE
--
- #if defined(CONFIG_SYSCTL_MODULE_ALIASES) && defined(MODULE) &&			\
-     !defined(SYSCTL_MODULE_ALIASES_DISABLE)
+@@ -220,7 +220,14 @@ static inline void *proc_sys_poll_event(struct ctl_table_poll *poll)
  
-diff --git a/net/netfilter/nf_log.c b/net/netfilter/nf_log.c
-index f4d80654dfe6ab6abd886e224f400e4444bcd29b..ed4a5a6b8d95b82676397f6747ef5d988c9060ea 100644
---- a/net/netfilter/nf_log.c
-+++ b/net/netfilter/nf_log.c
-@@ -518,10 +518,11 @@ static int netfilter_log_sysctl_init(struct net *net)
- 	for (i = NFPROTO_UNSPEC; i < NFPROTO_NUMPROTO; i++)
- 		table[i].extra2 = net;
+ /* A sysctl table is an array of struct ctl_table: */
+ struct ctl_table {
++
++	/* This must be the first field for module aliases (file2alias.c) */
+ 	const char *procname;		/* Text ID for /proc/sys */
++
++#ifdef CONFIG_SYSCTL_MODULE_ALIASES
++	/* This begins the randomizable portion of the struct. */
++	randomized_struct_fields_start
++#endif
+ 	void *data;
+ 	int maxlen;
+ 	umode_t mode;
+@@ -228,7 +235,14 @@ struct ctl_table {
+ 	struct ctl_table_poll *poll;
+ 	void *extra1;
+ 	void *extra2;
++#ifdef CONFIG_SYSCTL_MODULE_ALIASES
++	/* New fields go above here, so they are in the randomized portion. */
++	randomized_struct_fields_end
++};
++static_assert(offsetof(const struct ctl_table, procname) == 0);
++#else
+ } __randomize_layout;
++#endif
  
--	net->nf.nf_log_dir_header = register_net_sysctl_sz(net,
--							   "net/netfilter/nf_log",
--							   table,
--							   ARRAY_SIZE(nf_log_sysctl_table));
-+	/* MODULE_SYSCTL_TABLE(): template table's .procname set at run-time. */
-+	net->nf.nf_log_dir_header = __register_net_sysctl_sz(net,
-+							     "net/netfilter/nf_log",
-+							     table,
-+							     ARRAY_SIZE(nf_log_sysctl_table));
- 	if (!net->nf.nf_log_dir_header)
- 		goto err_reg;
- 
+ struct ctl_node {
+ 	struct rb_node node;
 
 -- 
 2.47.3
