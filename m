@@ -4,140 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB13C5DF6D
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 09:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BE2C5DF85
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 09:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jZK0sA38TIjVzj8+GSDwpqO8oVJofHs3zpxfQfZdNqE=; b=ECsRrVp/F1PTq5
-	njMGELCyVAF7p5IQTrCmNBu0Tmk9MQTui/xArooEyZ+UOgn44FtO8Ns9ij/1i3QvW20epIgWVxagC
-	ifZ/UJA1MAS+GO1Y1eFnR1LCkcX3ZV43e44r1Ie2rBNfB6puwNZwS+eZuC22T31MJ5pFGydUBeuaB
-	ONpHgUGqn/vTidVpMP9r3lH98KNJN8NqyKsMo9oLRtOuZrCZrvJdKPTd186SS8rEyQ9d9ac9DjmxU
-	6QIolp0I3YcOAFbJxoGqKzl4AufNEbsA9Z5uvGE9XWg/RS07wPklGOYU4gah8aYXiiDLSOTe/Kq5K
-	FFDREPzuCr5Ysc/aGZhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7lIrk7imKDc128mlTESNNSWKqciXHjUqKq0iEBJ9YIE=; b=U55Y/8ZPvfB5FdLyWBaZNpW40D
+	YI7uM+FMzhxiJvMcr6qH9NAeeXb7SjiZTWQgy/sM5Ef8l/7wag7YEos4YeJrvCAwMV0b51aN8+ljt
+	r+XYup13MK9P/63UncvQKW8lCGGp8XtehbXyJy2d+hW9PIoX0VKqmLsRpMKNGVHC3dP2ikIrReOOV
+	oBEQe/4F+7PZ0t/hViS7d8FNfEWRFC9dPv3KXToFFxNRVzgc2pSVN75xTYB1MP216UYpkuNyAKYYZ
+	WoQQL/BoIUkiNWk0XYzWYdB1X7G+x88UUG72yzyZ0o8w0/8FUvyS6J3q4NgH0lL6oqkOpJIgr0nNt
+	9ExQo/lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcbp-00000009PwV-0GNU;
-	Wed, 19 Aug 2026 09:29:21 +0000
-Received: from mail-sh0chn02on2096.outbound.protection.partner.outlook.cn ([139.219.146.96] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1wwcjW-00000009QZ6-3EHs;
+	Wed, 19 Aug 2026 09:37:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcbm-00000009Pvk-184a
+	id 1wwcjV-00000009QYT-0RZ0
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 09:29:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=mKEs1kdnY2r7pyOM8Vd2BQCMOwI4qO340GGsVFqWzgPo3uG4kxJNAXJI/yHiY1T0vAGho1k3WuHa0JY1cBK58nfxTNYfgPhNooprQVTAhkk5QR/0mFyiuJ8KzQn/ri9DcxWVdgESZevu6h6hgXdfauYQ0zNGO4ZDRPf/y4VRsFbpR6nx4PaNfezNdZjS6B+2kMl1wFWBELcwU5gnRRmd0oAU/7Um0fPsKMsyTRLCdBqIM7lFTiAH23MJnNOaukBRJwycfUbEe3xDKSW7CNm2+MXZ5ci9nqz7yCI52JsR0bRRAW2YSsFh255zqgdFJIyb9u0Fjl2AxWrHZgf5wmOiqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bJhYZaeLBAI6r1UOORQB53hA3cfXohGeiYBc89d/EZE=;
- b=JqyXOjGddw/vdubKMlVKymSS9e2LIhn9zGlYiGTQx4mArjXAd2/ibCJVtpwcr++PzHTzbPfHPrJZgiG7Xtvt7vOBP5fDZsRR7PLzg6f9MgoUi4mPUODPRln8m/+wgs9SWsHaG223nxAhYfpMYW6qo99PAwwOWUZZKUPo/t01VL6/iCtdh/UAJMlLRbvQAcMU4Zxj60q241tX2N3pK1QEaBFxe3PLH3WqkKqOdxvngp3WXm3ydQMKxpx8cZsAYtq9dqOc4A28UMWqNJqCLo3Iklr2m+/oENhrBmZtDS000agKpXSwCgKilebRimLI3cw0xCynCtt6zsriP7ffLkqMbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1154.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Wed, 19 Aug
- 2026 09:29:00 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0315.011; Wed, 19 Aug 2026 09:29:00 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Michael Turquette <mturquette@baylibre.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
-	<bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing
-	<kernel@esmil.dk>, Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
-	<inochiama@gmail.com>, Alexey Charkov <alchark@gmail.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Keguang Zhang
-	<keguang.zhang@gmail.com>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v4 7/8] soc: starfive: Add socinfo driver for JHB100 SoC
-Thread-Topic: [PATCH v4 7/8] soc: starfive: Add socinfo driver for JHB100 SoC
-Thread-Index: AQHdJ6GQ5ts+ksAe6k+ENksiQTa0y7aXdLuAgADirHCAAL8NAIABJ12QgABaIICAAQ8eIIAAkEOAgACNr/CAAM//AIAD6sTAgAKVxICAARWHMA==
-Date: Wed, 19 Aug 2026 09:29:00 +0000
-Message-ID: <ZQ4PR01MB12027CF8ADC7A2B39F7FB32CF2A52@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260810-caress-rack-45615c8d9747@spud>
- <ZQ4PR01MB120276A1DA91FAC19C852F14F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260811-populace-afflicted-40a40e0f484c@spud>
- <ZQ4PR01MB1202DDE6C255441E1FC4F916F2DC2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260812-snowplow-punctured-28d19616f707@spud>
- <ZQ4PR01MB1202F016AD1F1E699429DDC0F2DB2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260813-presoak-scarily-b6cdecfcb7cc@spud>
- <ZQ4PR01MB1202CD24FCDA9039EDF2C7A0F2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260814-reverb-mourner-283116bcc014@spud>
- <ZQ4PR01MB1202BE1034795F1FBCF18076F2A72@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260818-recall-onion-3279fe070ccd@spud>
-In-Reply-To: <20260818-recall-onion-3279fe070ccd@spud>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1154:EE_
-x-ms-office365-filtering-correlation-id: 52971ebc-9ab0-44c8-8943-08defdd44d17
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|23010399003|1800799024|376014|366016|38070700021|22082099003|10067099003|56012099006|4143699003|5023799004|18002099003;
-x-microsoft-antispam-message-info: P3fYZYL6vATGSCHfsIF0YuX/34incF+0Y0UlYyW4OMwr3hZarMesX8zeJThE+jI3rQ9jg85kskxqsZZ19vOqG96kfxgfECxSyIgK3PXT2gqq9tFIzOkSB7dVZAQgf4xW/P0nCNYTLb4OGbCZuqwufqUIe1CJvJUqgaH1bb2m8kNy8pddAKqAeaO5mixZWBSYft2Fz3OcYio5rN4BExui4/rsGNb42BGzTIAcEPJUlZye/Y4aeZW3E0GEK/FfYKgcopO1IkswK765Otl1gIROaz0I7EfUDhSe84D2BFwJPrkajYvgOUCGJpp9AMEozZbJ8As+B3Q/i8ZfpMrQghIcrV8BH5yCk9LD6nW3OjYYlZYmOhlubG9Q3aZ0RwWrsyLdjraD/mJDBQ8rkanI7hKimN0iKuCz0t7ekZPpJX4ftpbZOmGS4rzNORYSpmAyneQni9zrY9NLLNyibPsgs1gffQ9j5GCTyESPrc0+eIl4V6Btp6C4S1RcXyGKJ/EiphRAMN6ycaHqUiR/uKIj2Dy/yCiW3vWqSNrZmZbHpbk3cwt6D9a1v1SCZftWIcMV6eU7
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(1800799024)(376014)(366016)(38070700021)(22082099003)(10067099003)(56012099006)(4143699003)(5023799004)(18002099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?r/sEuCKp+fP540ozPdmJKkk+8I399mPBCNG8mjZWNEfXYKX0ecGhgzoiSqgt?=
- =?us-ascii?Q?4TVH0u75c0ynnNfzfxiPwsiNTFoJCrr/wM5xf2OPx1uQJaaDDNw6xbXXq1hK?=
- =?us-ascii?Q?DhF3v7sNAQz/DCN4QPm/aq97TlqwvJ6f+/zdV5wxVICNH2vAih28Dzw/zg7i?=
- =?us-ascii?Q?JdAne2CmF3AZz37URJRBFmlUSINm4U6sHWf4SSWZuojUhdwnqaQ2ltj56U6h?=
- =?us-ascii?Q?kBOBFWbMQl8bgixqX6t4asldXnKHpOhTjXoAmqPGtELU5Kg2cVL5HazX+n4s?=
- =?us-ascii?Q?sCUW/KtPdBZMxcXgcqp4vz/34CWw5QHj2uAOeCDANkv4N4SBAyOtkfjDmpgS?=
- =?us-ascii?Q?J5jP1kJmCLhNnG+TVFEnmUG2b4E9wdS0b4lovdGz7xBmw3FLqqboEFfGVJnF?=
- =?us-ascii?Q?9dEr1KuZD0p5UeY3imEz1/40vq7xvJXENO7RdK9b2HKeJ6Pym5kXwpOuBVbf?=
- =?us-ascii?Q?9tI+HIyjONcqdjLPMrAXZ2wMhEJTDDoUh8h/XnFSomipRwXB+v1+oYfpTtNq?=
- =?us-ascii?Q?4+3A56QNZct1e98/wa5ZjCNGUWR+bkjjcsm+LQ3j1rtI4TGSsaki9EDQQeNt?=
- =?us-ascii?Q?3iC0RlY1y/oIci2fBQzk+zvz78yiZm01iYlZFw1FFQweW3dl+LY1IfghGKoq?=
- =?us-ascii?Q?f4Zc0WMfybilAYHAskPRWf4PXC0ojZGD1GsHTdiwF50Oasxjvk4FY1CYWQwK?=
- =?us-ascii?Q?HvOUHzoJhJ+LtBt8WjGw2iEF42d0MM+iZ1JICJH91fR19zuog7zuk86R/UDo?=
- =?us-ascii?Q?f7ghkCPt9KRZWzcO/wYmLKi9wJfAHAahSqOYhPde+ehwf/LnWECsYw9LveO1?=
- =?us-ascii?Q?gGie5bZ8OdSefqJqMBpAM0G8sQpVmTPQlmuCwT1emGURgb8HEtj1hoNL5Jzd?=
- =?us-ascii?Q?prL8sOgGoYaC7QrnMpOGaaHluZC48mn69RMLXOBno7ud2yaz1s9uqPybwk3k?=
- =?us-ascii?Q?SZXPlHwtZ+JOmfQU/adWsoweE3a9adi5yhEqv6vpfuKwD9pASqJELyqens3q?=
- =?us-ascii?Q?ZpXf9Ft2tlsORaMwwGWSamuVXlF39lWfZhLiwwhFBBD3RROfRkoWQItvaJ+W?=
- =?us-ascii?Q?oRNNYYbBmVL8WNHaLh8yF5aYlF9y4Pe9ytXH4Kh5v2rwnvz3I2bwvfvq1Aqb?=
- =?us-ascii?Q?9IYXuMmRzSkX4AVu2N2rxWztyyQJiFS3h5+/12N1e9t4PVyy1Jmebbh0HSbr?=
- =?us-ascii?Q?FNWQggHlh2UUdq+PGqiMhBCul8FgJ+s93kpYjoUnbcugwRVix8hnJpR237zF?=
- =?us-ascii?Q?7Xt2JiQYkgjO+RYBgup1ZTi3jUgI2+wYO9pvWDIwQsuPpDq0IhmfvA7HzbkD?=
- =?us-ascii?Q?hNSIskoeEOW8Gj1raQIHYYlmEIexK59t+lvNDYBX/lhcLkP+dfSD9onp7Flq?=
- =?us-ascii?Q?zsOhpo0EIvMUsuTElcQqCZijX0WjULzCE+rf36/sWdQIvCuNALwEzrDjPwuh?=
- =?us-ascii?Q?NHoDFfqaIocqnb7QYmIJQrW8qwlPNy1vnoEsFmSIXK12Ffro9P1fPcA/qFqp?=
- =?us-ascii?Q?OSqAGYIF4+qq39qieE1y9ZfAInGQwlOV5UKZN1phzY+AcV3pl9jX329jCjP5?=
- =?us-ascii?Q?Jg53gaW9F5YEiveL8+U1dPktqntp1gq+k6os7PDUzRGp43+ho2U06VkJe6HE?=
- =?us-ascii?Q?YKag1pRjOEuLOGMTk+komcvZuc+2mhpw5kR8Tp22ul5QT0tbd9g4ImL+RK3H?=
- =?us-ascii?Q?O3AkUip6FXsoVxJz5sv7J+Ad8wGD1HV8YjLrP+RWky8/MqfKxXJw2XLMuoNb?=
- =?us-ascii?Q?lnYbR5hhPzQkMtcOUVNME1ftgeYPlEs=3D?=
+	Wed, 19 Aug 2026 09:37:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 19F614096E;
+	Wed, 19 Aug 2026 09:37:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 801D21F000E9;
+	Wed, 19 Aug 2026 09:37:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787132236;
+	bh=fJyoGP3XrQkM2JSSX+2B6BjxD7+I7azMU6AfMEN4XO8=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=mZf4dKXt+JxLXKKzkZzp7KFmsjX4X0lXTiZ8DJZp9K5kxGopcmYfkd2ACAlqn29Yv
+	 +Vm2WPhmpPrpqpBUT+YPULtrzu4/NfiCX7AdpRjGsBpr1CFHQWhOSSb4GF4X2WVaZI
+	 XfYKDlojX8jExZ/v/QGLJF34VrrqbHiS7dDTCykg+JHkauna9rk1slBzOgpdj8xpfH
+	 0n3hnpVy9l/TtndPBpOLBBNALw0C9IQUN6tssFnvD5OVQ4Wqs2K8qkexDP3gLiMFdo
+	 npLytyEKw9mScsbXewMidpeZF8cguRilxIk4kC0RtobkSnzshHpUH6F+ciypCAoa9i
+	 9sGNIIpd9rFNg==
+Content-Type: multipart/mixed; boundary="===============7477287384193181481=="
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52971ebc-9ab0-44c8-8943-08defdd44d17
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Aug 2026 09:29:00.1288
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: I2TavCtXVnTRc01tAcbODwIuH29A1ygpTUuBYS9ROQy1H3rRED8//KKPkBKN9rsyjhTJ6hq1RO15SMaQsNvUpy+7K65m6IiWR1PVhC7CfgqbphxEUFTvo18e/T/wKOV2
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1154
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_022918_335196_025B0701 
-X-CRM114-Status: GOOD (  51.55  )
+Message-Id: <f6d031ece454ad8a2a3e09bbdf48d9030c74cb6741f76aabf58bf7af1931abfd@mail.kernel.org>
+In-Reply-To: <a78cd29b238aa1aba87efeb2fc09d25a56c22f69.1787128322.git.cp0613@linux.alibaba.com>
+References: <a78cd29b238aa1aba87efeb2fc09d25a56c22f69.1787128322.git.cp0613@linux.alibaba.com>
+Subject: Re: [PATCH bpf-next v2 1/2] bpf, riscv: Add support for signed arena loads
+From: bot+bpf-ci@kernel.org
+To: cp0613@linux.alibaba.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,memxor@gmail.com,bjorn@kernel.org,puranjay@kernel.org
+Cc: ihor.solodrai@linux.dev,eddyz87@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,pulehui@huawei.com,pjw@kernel.org,palmer@dabbelt.com,shuah@kernel.org,guoren@kernel.org,bpf@vger.kernel.org,linux-riscv@lists.infradead.org,linux-kselftest@vger.kernel.org,linux-kernel@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Wed, 19 Aug 2026 09:37:15 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,188 +63,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Conor
+--===============7477287384193181481==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-Thanks for the review.
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index 74efe4b138d2..56196b001286 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
 
-> On Mon, Aug 17, 2026 at 01:27:08AM +0000, Changhuang Liang wrote:
-> > Hi, Conor
-> >
-> > Thanks for the review.
-> >
-> > > On Fri, Aug 14, 2026 at 01:13:38AM +0000, Changhuang Liang wrote:
-> > > > Hi,Conor
-> > > >
-> > > > Thanks for the review.
-> > > >
-> > > > > On Thu, Aug 13, 2026 at 08:10:12AM +0000, Changhuang Liang wrote:
-> > > > > > Hi ,Conor
-> > > > > >
-> > > > > > Thanks for the review.
-> > > > > >
-> > > > > > > On Wed, Aug 12, 2026 at 10:37:16AM +0000, Changhuang Liang
-> > > wrote:
-> > > > > > > > Hi, Conor
-> > > > > > > >
-> > > > > > > > Thanks for the review.
-> > > > > > > >
-> > > > > > > > > On Tue, Aug 11, 2026 at 05:36:19AM +0000, Changhuang
-> > > > > > > > > Liang
-> > > wrote:
-> > > > > > > > >
-> > > > > > > > > > > On Sat, Aug 08, 2026 at 06:50:53PM -0700, Changhuang
-> > > > > > > > > > > Liang
-> > > > > wrote:
-> > > > > > > > >
-> > > > > > > > > > > > +static int __init starfive_socinfo_init(void) {
-> > > > > > > > > > > > +	struct soc_device_attribute *attrs;
-> > > > > > > > > > > > +	struct soc_device *soc_dev;
-> > > > > > > > > > > > +	const char *machine = NULL;
-> > > > > > > > > > > > +	struct device_node *np;
-> > > > > > > > > > > > +	struct regmap *regmap;
-> > > > > > > > > > > > +	char rev_char;
-> > > > > > > > > > > > +	u32 rev_id;
-> > > > > > > > > > > > +	int ret;
-> > > > > > > > > > > > +
-> > > > > > > > > > > > +	np = of_find_compatible_node(NULL, NULL,
-> > > > > > > > > > > > +"starfive,jhb100-sys0-syscon");
-> > > > > > > > > > >
-> > > > > > > > > > > Remind me again why this is not just probed as an
-> > > > > > > > > > > mfd cell from the syscon driver?
-> > > > > > > > > > >
-> > > > > > > > > > > (Hint: please put this info in the commit message).
-> > > > > > > > > >
-> > > > > > > > > > The discussion result with Krzysztof at that time is recorded
-> here:
-> > > > > > > > > > https://lore.kernel.org/all/20260405-strong-watchful-m
-> > > > > > > > > > armo
-> > > > > > > > > > t-fd
-> > > > > > > > > > fad6
-> > > > > > > > > > @quo
-> > > > > > > > > > ll/
-> > > > > > > > > >
-> > > > > > > > > > One register should not be treated as a separate device node.
-> > > > > > > > >
-> > > > > > > > > That's a different question. In the case of an mfd cell
-> > > > > > > > > probed from the syscon driver there would be no
-> > > > > > > > > devicetree modifications required compared to what you have
-> now. e.g.
-> > > > > > > > > sg2044-topsys.c
-> > > > > > > >
-> > > > > > > > This seems feasible, and I can introduce this modification
-> > > > > > > > in the next
-> > > > > > > version.
-> > > > > > >
-> > > > > > >
-> > > > > > > In fact, you don't even need the mfd cell, because your
-> > > > > > > driver is going to be in drivers/soc/starfive anyway? You
-> > > > > > > can just bind directly to the
-> > > > > > > sys0 syscon I think.
-> > > > > >
-> > > > > > I suddenly realized that I missed one issue:
-> > > > > > starfive,jhb100-sys0-syscon is already bound to the PLL driver
-> > > > > > by default, I
-> > > > > can't use it to bind another device anymore.
-> > > > > >
-> > > > > > which is why I used
-> > > > > >
-> > > > > > np = of_find_compatible_node(NULL, NULL,
-> > > > > > "starfive,jhb100-sys0-syscon");
-> > > > > >
-> > > > > > in jhb100-socinfo.c.
-> > > > > >
-> > > > > > So it seems the MFD cell approach isn't really feasible either?
-> > > > >
-> > > > > You could, in that case, probe the clock driver using the
-> > > > > mfd_cell like sg2044-topsys. What else other than the pll
-> > > > > controls and the soc info register is in this register region?
-> > > >
-> > > > We don't have any other drivers right now in this register region.
-> > >
-> > > I'm not asking about what's got a driver right now though, I am
-> > > wondering what else the registers in this region are for.
-> >
-> > Here are some registers related to debug functionality.
-> 
-> So probably nothing else that linux will ever need?
+[ ... ]
 
-Yes.
+> @@ -1908,13 +1910,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>  	case BPF_LDX | BPF_PROBE_MEM32 | BPF_H:
+>  	case BPF_LDX | BPF_PROBE_MEM32 | BPF_W:
+>  	case BPF_LDX | BPF_PROBE_MEM32 | BPF_DW:
+> +	/* LDX | PROBE_MEM32SX: sign-extending arena load */
+> +	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_B:
+> +	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_H:
+> +	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_W:
+>  	{
+>  		bool sign_ext;
+>
+>  		sign_ext = BPF_MODE(insn->code) == BPF_MEMSX ||
+> -			   BPF_MODE(insn->code) == BPF_PROBE_MEMSX;
+> +			   BPF_MODE(insn->code) == BPF_PROBE_MEMSX ||
+> +			   BPF_MODE(insn->code) == BPF_PROBE_MEM32SX;
+>
+> -		if (BPF_MODE(insn->code) == BPF_PROBE_MEM32) {
+> +		if (BPF_MODE(insn->code) == BPF_PROBE_MEM32 ||
+> +		    BPF_MODE(insn->code) == BPF_PROBE_MEM32SX) {
+>  			emit_add(RV_REG_T2, rs, RV_REG_ARENA, ctx);
+>  			rs = RV_REG_T2;
+>  		}
 
-> 
-> > > > So does that mean I can revise it to the format below:
-> > > >
-> > > > static const struct mfd_cell jhb100_sys0_subdev[] = {
-> > > > 	{
-> > > > 		.name = "jhb100-sys0-pll",
-> > > > 	},
-> > >
-> > > > 	{
-> > > > 		.name = "jhb100-socinfo",
-> > >
-> > > Why would this be needed? The driver with the mfd_cell would be the
-> > > same one that provides the soc info, no?
-> >
-> > My understanding is that one driver can only bind to one device, so
-> > the PLL driver and the socinfo driver need these two devices
-> > respectively, and thus cannot share one?
-> 
-> Correct, but I am talking about the socinfo driver being the one that calls
-> devm_mfd_add_devices() to create a device for the pll so that in the end
-> there are a total of two drivers, rather than create something identical to
-> sg2044-topsys.c that does nothing other than initialise two mfd cells.
-> May as well consolidate the mfd_cell definition and call to
-> devm_mfd_add_devices() in one file, since it would be in the same directory
-> as the socinfo driver anyway.
+This isn't a bug, but would the comment fit the surrounding style better as
+an expression? The neighbouring case-group comments all spell the access
+out in pseudo-code form:
 
-Okay, I will use this method.
+    /* LDX: dst = *(unsigned size *)(src + off) */
+    /* LDSX: dst = *(signed size *)(src + off) */
+    /* LDX | PROBE_MEM32: dst = *(unsigned size *)(src + RV_REG_ARENA + off) */
+    /* ST | PROBE_MEM32: *(size *)(dst + RV_REG_ARENA + off) = imm */
+    /* STX | PROBE_MEM32: *(size *)(dst + RV_REG_ARENA + off) = src */
 
-> 
-> >
-> > >
-> > > > 	},
-> > > > };
-> > > >
-> > > > static const struct mfd_cell jhb100_per0_subdev[] = {
-> > > > 	{
-> > > > 		.name = "jhb100-per0-pll",
-> > >
-> > > Why do these other ones need to be modified?
-> >
-> > I was thinking, since sys0-pll has been adjusted, would it be better to also
-> adjust per0-pll and per1-pll together in a unified way?
-> 
-> I wouldn't complicate them with things that they don't need, so it depends on
-> if these other syscon regions contain more than just PLLs and if there'll ever
-> be drivers for the other stuff in those regions.
-> 
-> >
-> > >
-> > > > 	},
-> > > > };
-> > > >
-> > > > static const struct mfd_cell jhb100_per1_subdev[] = {
-> > > > 	{
-> > > > 		.name = "jhb100-per1-pll",
-> > > > 	},
-> > > > };
-> > > >
-> > > > static const struct mfd_cell jhb100_ pcierp _subdev[] = {
-> > > > 	{
-> > > > 		.name = "jhb100-pcierp-reset",
-> > > > 	},
-> > > > };
-> >
+Something like this would match the pattern:
 
-Best Regards,
-Changhuang
+    /* LDX | PROBE_MEM32SX: dst = *(signed size *)(src + RV_REG_ARENA + off) */
 
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/32235574103
+--===============7477287384193181481==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7477287384193181481==--
+
