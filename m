@@ -4,146 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F006C5DF85
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 03:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D907C5B572
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 04:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YHpdI17oZyj6vvs/D0buyi6X7079IBBkzXERYXea6IE=; b=B8sS6mlBflC3cBblNoOhae2rKB
-	WmLGWI/9pnsCKqwcTae35w5ns2woIWnE1jhHpaDMMG6VwJWBaYG5ZL+VmvVrXM480Tmz5LY7la0wP
-	RVktoOptJOLcC+SL85F4AOh5XAG/9Vjj1v3nmUiC90FT8eIFp6d2+/eamx42mJnKIohNcy6USdtLa
-	wQIrMdhWn28T5NGa/5KKlumPSDa/K072w/6nyw51nkJ/UXU/OA7u0LFuviU9vHimy5AHNvUyZJZ/B
-	Gp5UbSbG4OxnlrajpsfcqBlisrWkIU/EstKD5z75AguJ8DFMaYtCEpwVBeHinUZo0EsgBLjnuwGhm
-	/4U8Ckmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M5jiMOwRYlvcRbv/NQX+DvYvG9rVkBN9sveUv6YE3A8=; b=pa8I5ItiLoFalD
+	H9b1zOhw3kJ4O2gKColw3NXfg/DhIQgGGyJZQ+VijPoQ/pMtxieXFLZsXNCPXi5Bk+Qs/YpwI2HWm
+	NGs7e+W5n6/aeSZC1RtQebWGCDPJPgBva7ZZF87Q0Mk2IGmxpFA+M4UxxCBlvuZ0YeitFjMI+Wx/p
+	/mJbT0j5IH+jg8DwkXsSFvcXbPRyV/ynaMVEGrpSyQmHlYAzNzGPTGUE2mzbD4a9mRxVtlA7KpoZj
+	X5g8/bN7nMT7coIUuvYLt3CLhCTXlWJNBQb6ULyPk5Z+2OAWIMzp9n13ne3Th5JlStFrrYTOpj5t0
+	9IAF0luPh3qMtPkc/tJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwXP2-00000008xUi-0lCQ;
-	Wed, 19 Aug 2026 03:55:48 +0000
-Received: from mail-japanwestazolkn19012050.outbound.protection.outlook.com ([52.103.66.50] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wwYEx-00000008zTg-1RYD;
+	Wed, 19 Aug 2026 04:49:27 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwXOz-00000008xU6-496W
+	id 1wwYEt-00000008zT1-1Dkm
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 03:55:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=En6GEgy9qyG06sPT9c92EwG7CehZJ2bA8eUbR1h+HB6cCH1HHZnSoHR7Rf6m2PGbxTXGz3P9fgDGawee/kKR/RjLvNy1Y2NkvPsUWUVSSkSMPykK51TnHoIhDc8JKzoTIKs+/tmvy0G4SqUJ1Pwha4VEunR/h5KRLuppGU6ZS0YsRpn9a6nhvnZZoTKDNdZjFeeOnbbBVfHVotQT7nUF72pMmyY89LZqSZQyn/5X78Ex8aWTcJyDOrb3eT2b9YZ4pk4L6xEm0W5p4MhbHh9q/5jbc4wUyEK0e9I4/Xqf4oLlUhhEF59aqTpZvVdHPxcFcOuGg394nHGUN6Te7/JDpQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h6zwmfejj1IcYvveBTkOMMEYTj57hz1mQcyQczB4I0I=;
- b=cezA0fslBHRvbiyxfJufJra0DE8GiBmD6FGJMRTPKLHltTTF9VSKBbm/sG8x6m7ZUMj2WDncX7WZBlv7azT/ROY1hSOcI1R49jRtu0n6QauXRrVN8vi8Lda1bqkGee1drlovWAlJKCwf6Gx19rMYss33mpjM+aGlit7u8mK8ciB7WUfgzt1TdcUfAQBXz2p7/ZwcYsnbBEZkv8C6r3jKPxRFTCL2Wa9VqyFuxMsHr1p8D7mI/t0fwvSbsweJnBMy9veI2FoD5+w8BRYLno1TRJaZ9juiRE89MtDL6isLcVvuTtpr0U6DSeOKRNlhFUbnlPNGdq3BjD4jr16fmpSirA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h6zwmfejj1IcYvveBTkOMMEYTj57hz1mQcyQczB4I0I=;
- b=HGE2+/LatTNeygyv0hWm6jaPDIN6BYE4M2jMzWfSzP7UJeXUFwWAsjTceFE0a7pdzKoKWOYyUlbtGjQMybxofdq8ZtBTpyj3qY46DLYb9iHhu2ywkuX3Jq7V9HBjdZSoYs2smi4eEMpKs8zjRxiKRKNY1PjAG8lnJLPvvlcLyyyIJr1XP1IzdIs15t8ne3TfwYwssNd4lMrwLFVWUDeaKt5dww0JBTzpdBqqwkzmnAn5rbIRKE7VvOLka33owCoF7jYbKP6lvqT+3HAvqiyJk8VACQ0ZFHkYNd7RRgJLewLgRhC+7Czz6stIlb3zjRedSGSWv0nPOIibW/xRMvEhgw==
-Received: from SE3PR04MB8922.apcprd04.prod.outlook.com (2603:1096:101:2e9::7)
- by TYZPR04MB6425.apcprd04.prod.outlook.com (2603:1096:400:28b::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
- 2026 03:55:33 +0000
-Received: from SE3PR04MB8922.apcprd04.prod.outlook.com
- ([fe80::3450:f139:5238:8f58]) by SE3PR04MB8922.apcprd04.prod.outlook.com
- ([fe80::3450:f139:5238:8f58%5]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
- 03:55:33 +0000
-Message-ID: <SE3PR04MB892225C3EBCB09734BD2FD16F3A52@SE3PR04MB8922.apcprd04.prod.outlook.com>
-Date: Wed, 19 Aug 2026 11:55:27 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/generic_pt: Fix the RISC-V supported feature mask
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>, iommu@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: fangyu.yu@linux.alibaba.com, tomasz.jeznach@linux.dev, jgg@ziepe.ca,
- oro@8bytes.org, will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
- palmer@dabbelt.com
-References: <20260818092444.42755-1-andrew.jones@oss.qualcomm.com>
-Content-Language: en-US
-From: "Nutty.Liu" <nutty.liu@hotmail.com>
-In-Reply-To: <20260818092444.42755-1-andrew.jones@oss.qualcomm.com>
-X-ClientProxiedBy: SG2PR02CA0131.apcprd02.prod.outlook.com
- (2603:1096:4:188::6) To SE3PR04MB8922.apcprd04.prod.outlook.com
- (2603:1096:101:2e9::7)
-X-Microsoft-Original-Message-ID: <9d3ab431-62d0-4935-b576-745421daeb68@hotmail.com>
+	Wed, 19 Aug 2026 04:49:25 +0000
+Received: from [10.213.6.193] (unknown [36.110.52.2])
+	by APP-01 (Coremail) with SMTP id qwCowACXa+_INYVqAIkLBg--.49317S2;
+	Wed, 19 Aug 2026 12:49:12 +0800 (CST)
+Message-ID: <c5934119-5fac-49b6-9edc-3ee43446e3bb@iscas.ac.cn>
+Date: Wed, 19 Aug 2026 12:49:12 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SE3PR04MB8922:EE_|TYZPR04MB6425:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9011bed6-7479-4f8a-8fb7-08defda5b7d5
-X-Microsoft-Antispam: BCL:0;ARA:14566002|19101099003|15080799012|6090799003|23021999003|8060799015|19110799012|5072599009|22091999003|24121999003|25010399006|4140399003|40105399003|52005399003|26121999007|2607281247196008|440099028|3412199025;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MUNrUE1PSkJoYlowbnVnNXpqdnR4WDcveWtoYUVDbkw2NHhuMDF0TnAxb001?=
- =?utf-8?B?YU5ETGoyTXFUWVN5Vkd3VUlmcE9idkNCNGNMdHM2cWNjMjMrUmlFMHgwSWZr?=
- =?utf-8?B?NVR0YWpMWEdIcjAxVlF1dzYycWpDbFZpcEI0TW1aakhlRHhQSHkyOTRVSmYz?=
- =?utf-8?B?clByOERKNCt3eU5QNHJrQmcvVHhUcjluOGUrZWpBc2VqVWxENmZ3MW8vUXQ3?=
- =?utf-8?B?UGJZRUVyUFZIZk5sVHdTU0NqeStNWGpxRWtpSlVQZVd2RW5mM2VzbVVlL1BK?=
- =?utf-8?B?OWtDZWxDamxKY04yRTRlL21pVVZVQy9PMmlpTVVaMTd6MmZNQ1Q4Uk9WQWFU?=
- =?utf-8?B?MkszcVljR09NaVVCdmlXQ1FOM0k0ekl1c1M5aE8wY3l2S3VOb1QvZWt2MDMw?=
- =?utf-8?B?NFlKSHZMcStNNmFEZ1FraHlQVUtrWFBVc0lFNzIvWmV4bXR0V2Q0UzNXK2F2?=
- =?utf-8?B?Z094RHRHSGJnRE02ckhscGxLQnRWVmE3RE5GYlZCOWhGam9CdHJsV0YyUGhs?=
- =?utf-8?B?alFqREVNNXA2N2JGWTVndnA3dU4yM2lBYzc1LzErYis5cDlXV0NGMkp3U2h3?=
- =?utf-8?B?STdCcGFOTUZ0TmhaeHVqQVROVEZZRVZQMGlKTTdaU0ZCZzFoYlVOM29nSDM5?=
- =?utf-8?B?T2t1KzFrdFdpR1lOd21kMVdQWXdMNitIcGdCLy9Kb3lscUdIOHRDMHVNbXgw?=
- =?utf-8?B?S0o4VGVCQjgzM2JpaDBHYzJYWXV5RCtwV0FnMDI4OWhPUm11bkhCWHgxL0NX?=
- =?utf-8?B?N1JJRXVEYmM1RFRkeWUyeHNJaG5ENzd3UTRUZUMxSis4T3RFclJPaG5qQURr?=
- =?utf-8?B?RzFDV0pYaENIMWhtS3NOcjd6dzBKNG82UmpqYkdlWGNYNW5FNkQ3Q0pQT2Z3?=
- =?utf-8?B?K0E3WDNaTGtpYnJKdmZUWjhZWXA4NGpHOERDTWNqeG5idFRCMmtYcGIzbEV0?=
- =?utf-8?B?SUw3cDNDQnB4NU5IbmtJMi9sOFRVeVpHQkhEazU2OVIxZXFsajVQQVA3dnQz?=
- =?utf-8?B?SnJycWtyVFFmTzlZMWJWUU5abTMvdEtJTEFNMlplK2s2a2orMmtCanpxTUZy?=
- =?utf-8?B?WFJUakI2YjFtT3pKUkxMaVFBQVFnYTBKSWQzUFN6aGMvN3MxRm9IT1BNL3ky?=
- =?utf-8?B?aC9WeWRZSG1NMzdjUEhBUUswQWVjMnVlNE9ud2sxMmwrNE1DMjJaY3cwek9F?=
- =?utf-8?B?ZDNWTlpuL21TUlEyczUxd0tqTzJEV3NLRTlmRE9GNjVkZ29rZmJWRlBlKzF6?=
- =?utf-8?B?SkVhUjkwL2JIbnp0aXFXVGg2eWJ3M1ByYXQvbUFsOGZKVG4zTDMreW42WC8r?=
- =?utf-8?B?Vm5uYWhYeExVODZva2xtWUNDdmZJd2gzNVhoRTdaTkpDTEpmdUVLMEkrbmp1?=
- =?utf-8?B?aVBaZENQdkdyZGhWQllnQ0FjejBRNjJGVkVLWDN5SW5hU2xjN2ZaTDJCbTZU?=
- =?utf-8?Q?x8WgLcED?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YWlmTkNucU5CaWtZQVd4RlRVaXNLSldJaXZnUnJ5RkdGUWQ5c0NlYTlJRXFO?=
- =?utf-8?B?TlF1TWxSd0c2V3FkbTN4NzNpMFp1aVBHeTdqUmtQREdzM2tWSXdRWkIyUVIz?=
- =?utf-8?B?VXpkV1VsaERIci9xQ2FEcW1WWU9PUTR2NW1ZSVFsRk9DNlVjRURkSkVFTWNo?=
- =?utf-8?B?ZGxNUUJGMGJvbVgzZzdzVDNSUkZ6LzRoUm1zYTNYdEZIV0kzUCtSNE94Syta?=
- =?utf-8?B?OURhY2VFbjlwbHNRUHMyUU43OHFZR1Z4bFFETXd3ZjVKeloySW42UndHTzl1?=
- =?utf-8?B?SFNia21Db2hkUG9VRmcxam9hOExjYkRkT1FKYkUwZXQyc0prcFNkZmlldXdj?=
- =?utf-8?B?SUh5ZWZ6UGp4aHU0U2RhSkxBTGZvNC8wMjdQYW9McThJV2RhZzhXbXBvUTRC?=
- =?utf-8?B?dCswbmplbEswQXNSMTk5TWI0bElncUlXT1BLalVlREhPcHhHMnlEcWxBeFBo?=
- =?utf-8?B?dU80eVZBdEZzQUx3ZkU4dlVYcS9vcWVXT2Z5UDdXRGo2cEUzMDIzVVh2L3V3?=
- =?utf-8?B?ZHVvdTdCNjNkVEtacG9vSU1qQVRQNVdmNjEydWtiQ0tkK1dsaGR3anQ1RHA0?=
- =?utf-8?B?K0tkTEd1Zzc2VlZxelMyc0RSa2x4d1h2dktGSFR5Rm1WQitpeUxFK2RaeVRs?=
- =?utf-8?B?T1pDN3E3Ti84alVkN2hFaFQraHhEOHBWZ1MyRU55L1VGWHBJa2VWdVpScWxs?=
- =?utf-8?B?RGh5MXlKUzNwVzVOR2VRdncxWTUyZ3E2VUVCYlB4K1ZLWThSTkpLeXBxTDMz?=
- =?utf-8?B?ZFM4aU5vNytpMGM0bHdtVmh5REpDM2dyNU9WazNLckF4OHdYM3hDbm50eFNK?=
- =?utf-8?B?UzJkZGQrbVNUQXkrVTVBUFZDWUFsOG0wVmlrZi9aMTRyWDNLcUIwTDNXTnFM?=
- =?utf-8?B?UnpyMDFseUVpYmVCdHhSZWFCRWVDNW5mR2x4dEc2MklRR25GVmM2SHlqMUlE?=
- =?utf-8?B?WUVISHpSTHdwL3RIR2d3Vk42d0srcTVJSVJwMHpvTHd0d2VQWERURW44MDA1?=
- =?utf-8?B?YUFseU9yQTd0L09CeUR0cldnRnNTaDk2VWJ1S09MSTcvVW9DenNMWFJqaWdw?=
- =?utf-8?B?SktiSm1MOEJBaDdubUFpL0t5ODJKMWFKd0NKTU5ISHlEWk04OHY5QXdJd1Nh?=
- =?utf-8?B?R051bGZENkpSR1hSSDVDNHYxVEZQbllXMkJieDZoTkVwNlhDcDBVUDl6UXF3?=
- =?utf-8?B?M0x5VjIrNFV2R1UvemdMaFA1aEc4TUM1d25vMU5Fa3Z5cjlQRTVDWEo4dUlV?=
- =?utf-8?B?TzRNS2FrOUw0WDEwWmpZS2ZkZko5NlFMSlFkVDRWRitKRTZCZmhoZFpURmNH?=
- =?utf-8?B?UDRhcW9oTUwwVFBTZENRUHU0bWZJaDY1RUREVlMxZUtGNm9aTXloTTlRL0s4?=
- =?utf-8?B?bUtrakk0TmpVSjRYTGl6NmFFeGhnN0J2ZmVJcFpZRjlLay9vVFpDODlUOG81?=
- =?utf-8?B?ZkxlbTlKTjRYaTFyUTIvc1JwcWRiTFRZZG1pVm5RLytuUjJHS1NOVlpMTVRN?=
- =?utf-8?B?VUNkQlR1NEJ4K0xvbFc3NnJEaVlGZU9JSXB6Sm5PRG1FZWxmQVlvNDE5RkN6?=
- =?utf-8?B?SVdqNGRGMmJpYklMbCtvNE8ydVpISmNXR2plWjJmWEhFdk1NLzlwMEJjYUJE?=
- =?utf-8?B?ei93cll0RHpCYmZ5b2JKVkllN2dhWFhFZklZQngyNS93SFFuZ3ZvVmpwbGFx?=
- =?utf-8?B?THZFdWdJZlZySmt3MzhzTXZkd09DVTNrWDZteVdhVXJXelAzbWo1bGFWSXVM?=
- =?utf-8?B?alU4WjFHbUZiNXhFZkR0V2gyVDZVTmdPTXNvNUJJTFBKSXBGQThBRy80UVB1?=
- =?utf-8?B?SmFhZWNVczlPekp0cjlrbk81WHNDZEhIajdJWmt4Z2VxWjlwbjBOVTNnMGl5?=
- =?utf-8?Q?gw6s2fy+8eWwN?=
-X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-c3e7a.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9011bed6-7479-4f8a-8fb7-08defda5b7d5
-X-MS-Exchange-CrossTenant-AuthSource: SE3PR04MB8922.apcprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 03:55:33.7305
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR04MB6425
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: mm: Fix concurrency in mark_new_valid_map()
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Yaxing Guo <guoyaxing@bosc.ac.cn>, "David Hildenbrand (Arm)"
+ <david@kernel.org>
+References: <20260629-riscv-mm-new-valid-map-ordering-v1-1-60d8c10c6292@iscas.ac.cn>
+ <38dad5db-e298-fe26-2189-3a67ed156a4a@kernel.org>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <38dad5db-e298-fe26-2189-3a67ed156a4a@kernel.org>
+X-CM-TRANSID: qwCowACXa+_INYVqAIkLBg--.49317S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxZw1UJry7ur1UZF47ZFyDtrb_yoW5uFyDpF
+	W3K3WxKFn7tr43ZrnrZ3WruF1F9a1ktF4rCr95tw18uwn8Gw4Iqr47KFWYva4xurn7WF1j
+	vr4Ivwn5ZFyDZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkab7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr1j6F
+	4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7CjxVAaw2AFwI0_JF0_Jw1l
+	42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
+	WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAK
+	I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r
+	4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY
+	6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07bnbytUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_205546_123402_2DB6149C 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260818_214923_707723_14672421 
+X-CRM114-Status: GOOD (  29.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,41 +77,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 8/18/2026 5:24 PM, Andrew Jones wrote:
-> The RISC-V format advertises Svpbmt to its users, but omits the feature
-> from PT_SUPPORTED_FEATURES. Add it there so configurations which enable
-> Svpbmt pass generic page-table feature validation.
+On 7/10/26 08:59, Paul Walmsley wrote:
+> Hi Vivian,
 >
-> Fixes: f196a8668797 ("iommu/riscv: Advertise Svpbmt support to generic page table")
-> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
-
-Thanks,
-Nutty
-> ---
->   drivers/iommu/generic_pt/fmt/iommu_riscv64.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
+> On Mon, 29 Jun 2026, Vivian Wang wrote:
 >
-> diff --git a/drivers/iommu/generic_pt/fmt/iommu_riscv64.c b/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
-> index b18fc4d109f5..1bb74114fb02 100644
-> --- a/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
-> +++ b/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
-> @@ -7,7 +7,8 @@
->   #define PT_SUPPORTED_FEATURES                                  \
->   	(BIT(PT_FEAT_SIGN_EXTEND) | BIT(PT_FEAT_FLUSH_RANGE) | \
->   	 BIT(PT_FEAT_RISCV_SVNAPOT_64K) |                      \
-> -	 BIT(PT_FEAT_DETAILED_GATHER))
-> +	 BIT(PT_FEAT_DETAILED_GATHER) |                        \
-> +	 BIT(PT_FEAT_RISCV_SVPBMT))
->   #define PT_FORCE_ENABLED_FEATURES BIT(PT_FEAT_DETAILED_GATHER)
+>> Turns out, the concurrency concerns [1] were justified - BOSC reported a
+>> spurious fault in KFENCE that still triggers despite previous fixes,
+>> which KFENCE reports as a false-positive.
+>>
+>> Fix the concurrency problems in mark_new_valid_map():
+>>
+>> - Add smp_wmb() before filling the bitmap, to make sure page table
+>>   writes are "received".
+> Probably this expression should be clarified.  I guess the intent here is 
+> to ensure that the page table write is visible by other cores either 
+> before or simultaneously with the bitmap fill?  And the purpose of that is 
+> to avoid a situation where another core could execute an sfence.vma before 
+> the PTE write is observable by the other core?  If so, we should probably 
+> write something like this out in the commit message.
+
+Apologies for the mega delay. I had been focused on the other stuff.
+
+Yes, This is the intention. I agree that this would probably need a
+better wording.
+
+> I wonder if there's still a window where spurious faults could be observed 
+> by kfence.  If another core "B" faults (due to its local TLB caching an 
+> invalid PTE) after the PTE write is observable by B, but before the bitmap 
+> write is observable by B, core B won't sfence.vma.  If this possibility 
+> still exists, we should probably document it.  It might be possible to 
+> narrow that window further with a smp_mb() after the bitmap fill, but 
+> unclear that it's worth trying unless more spurious faults are seen.
 >   
->   #include "iommu_template.h"
+
+Having thought about this more, I'm not sure how this should be handled.
+The expected use case of this is some "allocation" function, at which
+point the allocated pointer would be passed on to some other thread.
+
+Here's the iffy part, *in general*, I *expect* that before the allocated
+pointer or whatever becomes accessible in another thread, there's a
+smp_wmb(), or an unlock-then-lock, or something like that. Otherwise,
+none of the data being "sent through" this pointer wouldn't make much
+sense, right. But this would have to be handled by every allocating
+function, or similar, right? And I don't know if I'm able to practically
+understand all the mm stuff to see if it is *actually* how it works.
+
+> ...
+>
+> Also, now that we're adding an smp_wmb(), we should probably expand the 
+> preemption-disabled section in kfence_protect_page() to cover the entire 
+> function, to eliminate any risk that the PTE writes execute on a separate 
+> CPU from the smp_wmb().
+
+I'm not sure that this is a problem if the previous point wasn't. If the
+thread is preempted, then migrated to a different CPU, then the thread
+migration should have done the equivalent of a smp_mb(), right?
+Something like:
+
+        CPU a                    |      CPU b
+                                 |
+... thread 1 ...                 |
+                                 |
+[ Preemption starts here         |
+                                 |
+smp_mb()                         |
+                                 |
+Some store release in sched      |
+to send the task to CPU b        |
+                                 |      Some load acquire in sched to
+                                 |      grab the task
+                                 |
+                                 |      smp_mb()
+                                 |
+                                 |      preemption finishes ]
+                                 |
+                                 |      ... thread 1 continues ...
+
+Otherwise, even single-threaded program-order behavior wouldn't be
+preserved. Therefore I believe it would still be safe even if the thread
+was migrated after the smp_wmb().
+
+As such, I do think preemption shouldn't be a problem, or should be
+rolled into the other problem, namely, "wmb before sending a pointer to
+another thread".
+
+At my wit's end, again,
+Vivian "dramforever" Wang
+
 
 _______________________________________________
 linux-riscv mailing list
