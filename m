@@ -4,92 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19DE0C5DF6D
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 08:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A76C5DF6D
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 08:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=40NUHbfa2IteNwfSzSPIsy43Z0KF424NssPqK91Ha38=; b=N+pYLZgL3zOeZb
-	zt6KHKRvonmOolt916ZA6hh6rusJBrFP6nwCuw+QV6Pg12a7xH49p4ZqSLrk1yqBfu50dt2rH3m8X
-	7OXOD+sQ7MtUJddlnh3dYCooEeTWoSlB81ERdusc/83heRluY7lRUN84BzkG1+Kl1zKg6AViHggMs
-	mAHUhQex7HqZxH32UVSIoX9I4EaXju9KK3Q8RornG8EgWyiukBDhRX3lljpUoiWs01fO6XfOAzsv6
-	/FR406tqU3bMHSBobkVXQ9c2kVcf0ihO9D1BdlbIEfRgeUElGhEDxJTVCZqg4Z7AOPOH4OVk+cK45
-	jIo1RmT2GgTPD185as6Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=didfoDpw57KhHmJxUkHbPMx1LubDbDYKWA/fLqkg2pc=; b=w03/+N/SNRDmvI
+	PCgx5Z4hKkq2IeEmOlZKBFlGDn8QZEMyr+hYV3Jd3vrqUIIbFYrs/8hOLm7/P6gEI4jR1lsKkhPx5
+	CU2BmSQ4COH/5MCqDCgPyYjTOpNPbhMHPcuryaqJsklzCoGDm60gYqweAQsq6qwRwG3FntQyxgJwT
+	HFo1J+BjFp2ElCDskhDUTw7zDiPmLSnJECMr19HUoemswVlZykOB0tc8AI1dWnkV+HHxQ+T4H2RVX
+	xL9e3f1JMnScavN1suEBVs1NTK40yf5atZSkTjCAfoyNNjJr8Y+dA9aT5V9mqqmqZiBF/yymF/KTF
+	YEZjmRG83YrxQob0SHog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwbmz-00000009Jye-1oAR;
-	Wed, 19 Aug 2026 08:36:49 +0000
-Received: from mail-pz2-x00.google.com ([2607:f8b0:4864:3b::])
+	id 1wwbyY-00000009Kyz-0lOD;
+	Wed, 19 Aug 2026 08:48:46 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwbmw-00000009JxU-0Osw
+	id 1wwbyV-00000009Kya-0ckv
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 08:36:47 +0000
-Received: by mail-pz2-x00.google.com with SMTP id 41be03b00d2f7-ca92f36c4acso183521a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Aug 2026 01:36:45 -0700 (PDT)
+	Wed, 19 Aug 2026 08:48:45 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso967969a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Aug 2026 01:48:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787128605; x=1787733405; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=c/nqPj16def9ZnxDQwFpTtIBuj8LfIQAUc8OONxlNco=;
-        b=EF6peuGuSw58agYyPHZK/WS8aemJgbVP6w/z9SIzm4UFdAje6lYOR3gGyp9HQJjhRB
-         DL5IFSDqa7lcOv/lJG84q3ZS8IGmZk3x8uCZLUluL9YaN/0tSU88z1pn0PSBC6ieW8fM
-         asBFCEFXKsyrvO4LmTpEIVd4bvsxkTNIp6LTWMFxXGDF2d+Fm9oHk8eGR+8JoOuhjwqq
-         WBKY1R0k4sh96NBrgVUJKSGTal1oHfiiU+sH9D3hTw4+2ElQ2HY5eGarwmsBhwbOhwN0
-         xNclbVumFXymN/JO8+WKE32cWdA6V9qxaAtV1qWdXNMIt60ZFx8EFaHgq1wEEUBGR+Oh
-         7bzQ==
+        d=gmail.com; s=20251104; t=1787129321; x=1787734121; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KQ7keLJ8medHWvNAYhKdIsoM73FCKMrfDS9RRH+9RkI=;
+        b=S1640e0qC/8ZMV8UHyVhQ2MMnTJrQ+lmUBdrKqXQsdlJ3x3pTSzt65smoFl8Vt0adQ
+         optbW00ONM/yz7TgAPXFTVG1JZpCzuA+mJgUzu3Fb3BgZRp+utpnFCC1HWviDL1EWCqT
+         fL+zTb8dLvqDCToC50MNmnbaA1jfCB0AY3Qmnw2vr2vCVykZlWet6ZGzK+/XHdYjrcta
+         alegLI//8YbxiKF3Iuq/eth8+nicoep2yGDUjSfGZAtoPNeQZ7+Detnh4L/c/WlvNmJo
+         JMmZHjN5mmQKgqOD+CBF5ck27mwqDIGfazcRri3vH16gTDW9HZVejPrZDEYq9dN91o5z
+         0o+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787128605; x=1787733405;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=c/nqPj16def9ZnxDQwFpTtIBuj8LfIQAUc8OONxlNco=;
-        b=nEHZU+mctzZg9/feZyS3k8VrQrt4rOKaAzgKD+I8XCmWUXP9RFS7smEEQ7O+RdvRKj
-         KGimPSWy7gmdiO7Jm00GsfsY3fMbG8yTlvpDwiVSBIH5CStXVUQFUTkT5SbqESVgjNAo
-         tDh1MCl6UzGm4Wvm/b7eLGIUT1LEfqSnO6eTQgMFRFjrHc+cDSCkCD7jIng9gYiyubTg
-         SUf+t+EJSxbTapHihtmw9O2NdOjStvNUhJ0k7Y3c/r0b4ITYL2LbT3rnIH6tHsqmOpoa
-         +cLRKPcDwAoy4tfpo+g96i2JkwUcyUs64cVaggElN/jtkrQ+R3pUWUEKHTWT6ELGyc0w
-         e1Xg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq52BwgkqCcMvr7G3L6EYKrNCdFWqO0knHbQsEQY5J3gJHDsUW5AWKWgBDvTHcdv2kQEk1ZIA0JoBN6OA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz88f6x6GZwfrnzfr+QcMxWAzo1rheU++7sX+K8SBGvKk8ShVws
-	7uqyvFtHA9VJg3H1CTEYTiqEauQ8SmoAY9axwg9zO+X4AXCsATdkPXzX
-X-Gm-Gg: AR+sD12XjpxXooKEbLfxLEsdUhev7WIkuaS425MFMCCEudapD0b0QmUcgEeuzjQkPBX
-	5DTQ7GyY7+A94JSDxoFZcUmzKvcNhKker9Q06Qb9A1fsGrhYpLc9Rktqk27Jwk8u99Isiq+RrvV
-	ZnTKH2kmBoL27k3ktwHMYrVwFwDwHwsT6z29FN1beXP0epCDHuLmwBsN8X8W89/p1rx2bmN5jWC
-	DmImoyNdmCmCjw+bbdqJkh2Ptj4dzrVpaZ1L64ebqxDb2oMVGwRA5ehUv8ArI3DsKMlrGdGa0t2
-	/Z1h88OlQuNGnUJnMqJZQsyGpg3QhcULo9ebGl2IrTP36Lhdeea7BD/ril2d3iX6HWSdRNy/YNf
-	+qRXobLuHxdaU0rJUy9tU0BL1LCruTVWfx3ShUv6wQ678hgNBZCTLFdRp/yLA72ZbL5Q7KOoOyp
-	Sztux86ioNt2DZ5adkIECuyat5gJR2IlLBgWemgbfxOeIudTW7x48DXtDtemwajzE=
-X-Received: by 2002:a05:6300:2284:b0:3b4:5ff3:45cb with SMTP id adf61e73a8af0-3cd00e24fb6mr6745037637.8.1787128605149;
-        Wed, 19 Aug 2026 01:36:45 -0700 (PDT)
-Received: from ubuntu24.. ([85.149.220.152])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc155464a0asm332268a12.14.2026.08.19.01.36.40
+        d=1e100.net; s=20251104; t=1787129321; x=1787734121;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KQ7keLJ8medHWvNAYhKdIsoM73FCKMrfDS9RRH+9RkI=;
+        b=KAlGJOCNWTTW4Nf9zF0boiT3cYpJk6BI13j7TBg6udtUlsGUdpCFSkExplexLwgpme
+         dumBZjnj79GzzylzCjcsmCqBkj/6pAjJiDKPPAuBmxGGO6rkmcx+QXc/PMEuuBRSAmjb
+         JIe+hRmQDHEoJwt5jvE98M0ZZEcn0N/+Sd6HOFzhhDVGrXud0HBhth+mwfZg2PlEGMWi
+         aMS77jaNw/fGItO4Vgx4av+REs6DnBe/cTgP2uQuz3Dty/AthMOgxMRZefPTjDtheN/R
+         VRuDiwxqAJVTDrSp2zyCVTS8ZxV2qhVhjKuKRJ1/pIvNJpStG99DlLeLKaRhlgI1yvc4
+         IRoQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqtXM4oUr5PoABiPWoITAjOWZG3ArQlv53pwaDYtjAI9YRRD45M3Y3CoKohSeYsXUeoItUJaxAVXwdeYg==@lists.infradead.org
+X-Gm-Message-State: AFuF++layf19F4IsrW9rxjXFaoWR2RGE+vBr97KCYs2JjeJFB6KFBT/P
+	9D0lHduANBBjXIFGfQDBB0opGw+Nhz06hewmeVTihRRaRLqUm3LSzACD
+X-Gm-Gg: AR+sD134XwxhTNGT+Cc+e09RUsuewYaEQix4K/S/FN3E9YHRSV5pLvTnW0ivk/89QNB
+	u80aR3PnoakbI0cEiM0ttD2xtE826Z+CCnMHojH7YfT5YnU69oiLA+LoRlTxeZuuUXiZtrR+Rwa
+	1Wm3+X+Y2chVX1NpKDuQEiKk85XWpWyATth/Uytl1tKhC6X/p9DPBE2VIzZznRStiOB6DKThmp7
+	rQFJI/kYIzXftgpTdqvMDhX0Zsq0nYrDhVwG65DImfiWdwLWO035RtWpnL9Epe8rRv8nznhpmw1
+	zw/oIXLc8yXxvIRwgu+vh0uzYaBthNqDfV/tafaeeFu+aLj+dansrC25jTCQ6PyHqjxxdZKKM+A
+	Li/9bc4k5zzkTKczTSUjpULtC+SJlHfku3e9i6LFakXka6qeWU84/arO+zNvcCP2I5iqE5PNKty
+	yXcUifvwzBcFSYFDMp3xp+nEpDc7Guyx1kPXIDEgmy/gHnE0/8hgkYHlTNisT7lrkQg3zMX9XER
+	GBO1/uX8EbGvo3py2divD6CLwYz7pHZYx7TV+oyWw==
+X-Received: by 2002:a17:90b:4cc5:b0:37c:6130:7a5b with SMTP id 98e67ed59e1d1-39580ed0a57mr6214530a91.8.1787129320646;
+        Wed, 19 Aug 2026 01:48:40 -0700 (PDT)
+Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.bl1-in.ibm.com ([129.41.58.4])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-327bf13f4bdsm5154174eec.20.2026.08.19.01.48.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Aug 2026 01:36:43 -0700 (PDT)
-From: Xing Loong <xing.xl.loong@gmail.com>
-To: Jens Wiklander <jenswi@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	op-tee@lists.trustedfirmware.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
+        Wed, 19 Aug 2026 01:48:40 -0700 (PDT)
+From: "Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>
+To: maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	chleroy@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	ojeda@kernel.org,
+	boqun@kernel.org,
+	gary@garyguo.net,
+	bjorn3_gh@protonmail.com,
+	lossin@kernel.org,
+	a.hindborg@kernel.org,
+	aliceryhl@google.com,
+	tmgross@umich.edu,
+	dakr@kernel.org,
+	daniel.almeida@collabora.com,
+	tamird@kernel.org,
+	acourbot@nvidia.com,
+	work@onurozkan.dev,
+	thuth@redhat.com,
+	mkchauras@gmail.com,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
-	Xing Loong <xing.xl.loong@gmail.com>
-Subject: [PATCH v4 2/3] dt-bindings: firmware: add mbedtee,tee binding
-Date: Wed, 19 Aug 2026 16:35:58 +0800
-Message-ID: <20260819083559.1303348-3-xing.xl.loong@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260819083559.1303348-1-xing.xl.loong@gmail.com>
-References: <20260819083559.1303348-1-xing.xl.loong@gmail.com>
+	linux-riscv@lists.infradead.org,
+	rust-for-linux@vger.kernel.org
+Cc: FUJITA Tomonori <tomo@flapping.org>
+Subject: [PATCH] powerpc/bug: Add ARCH_WARN_ASM and refactor _EMIT_BUG_ENTRY for Rust support
+Date: Wed, 19 Aug 2026 14:18:25 +0530
+Message-ID: <20260819084825.969116-1-mkchauras@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_013646_145082_BF44453D 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20260819_014843_197207_7A84B54E 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,159 +122,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-MbedTEE is a Trusted Execution Environment for embedded
-systems (https://github.com/mbedtee). It communicates with
-the REE via shared-memory ring buffers using a fixed RPC
-protocol. Two platform configurations are supported:
+The Rust kernel infrastructure generates inline asm for WARN() via
+ARCH_WARN_ASM(file, line, flags, size), expanding it through a C
+preprocessor pass (generated_arch_warn_asm.rs.S) to produce an
+arch-specific asm template string for use in Rust's core::arch macros.
 
-  - ARM/AArch64 (TrustZone, SMC): two reserved-memory
-    regions (t2r-ring and t2r-shm) plus a GIC SPI edge
-    interrupt for TEE-to-REE notifications.
-  - RISC-V (IMSIC): three reserved-memory regions, adding
-    r2t-ring for REE-to-TEE command submissions; no
-    interrupts property (T2R notifications use IMSIC MSI
-    allocated at runtime).
+powerpc currently lacks ARCH_WARN_ASM and ARCH_WARN_REACHABLE, causing
+Rust builds to fail on powerpc.
 
-Signed-off-by: Xing Loong <xing.xl.loong@gmail.com>
+Refactor _EMIT_BUG_ENTRY to accept explicit (file, line, flags) string
+arguments rather than relying on positional asm operand references
+(%0, %1, %2, %3). This allows the macro to be composed as a plain
+string concatenation, which is required for ARCH_WARN_ASM where no asm
+operand context exists.
+
+Move the .org and .previous directives out of _EMIT_BUG_ENTRY and into
+the BUG_ENTRY() call site to preserve existing behaviour while enabling
+ARCH_WARN_ASM to supply its own size operand independently.
+
+Add ARCH_WARN_REACHABLE as an empty define, matching the arm64
+convention, indicating that no additional reachability annotation is
+needed after a WARN on powerpc.
+
+This brings powerpc into line with x86, arm64, s390, and riscv, all of
+which already define ARCH_WARN_ASM and ARCH_WARN_REACHABLE.
+
+Suggested-by: FUJITA Tomonori <tomo@flapping.org>
+Signed-off-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
 ---
-Changes in v4:
-- Move reserved-memory region descriptions into memory-region-names
-  property (Rob)
-- Define memory-region-names item order at top level; keep per-branch
-  name count constraints (maxItems: 2 / minItems: 3) (Rob)
+ arch/powerpc/include/asm/bug.h | 28 ++++++++++++++++------------
+ 1 file changed, 16 insertions(+), 12 deletions(-)
 
-Changes in v3:
-- Drop all phandle stub nodes from examples.
-- Remove redundant required: - interrupts from then branch.
-- Simplify title and description.
-
-Changes in v2:
-- Fix DT binding review comments from Krzysztof Kozlowski:
-  - Drop $nodename, "YAML devicetree binding" wording, property descriptions
-  - Rename compatible string to mbedtee,tee
-  - Rename memory regions: rpc-t2r-ring -> t2r-ring, rpc-t2r-shm -> t2r-shm,
-    rpc-r2t-ring -> r2t-ring
-  - Add memory-region / memory-region-names to required
-  - Simplify allOf constraints (drop redundant else-branch items)
-  - Rewrite description to describe hardware/firmware, not the binding or driver
-  - Drop all irrelevant platform nodes (gic, cpus, reserved-memory)
-  - Add maxItems: 1 constraint to interrupts property (Sashiko AI review)
-
----
- .../bindings/firmware/mbedtee,tee.yaml        | 102 ++++++++++++++++++
- 1 file changed, 102 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/firmware/mbedtee,tee.yaml
-
-diff --git a/Documentation/devicetree/bindings/firmware/mbedtee,tee.yaml b/Documentation/devicetree/bindings/firmware/mbedtee,tee.yaml
-new file mode 100644
-index 0000000..a67ac43
---- /dev/null
-+++ b/Documentation/devicetree/bindings/firmware/mbedtee,tee.yaml
-@@ -0,0 +1,102 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/firmware/mbedtee,tee.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/powerpc/include/asm/bug.h b/arch/powerpc/include/asm/bug.h
+index 0db48977c70c..8aba39e0cf26 100644
+--- a/arch/powerpc/include/asm/bug.h
++++ b/arch/powerpc/include/asm/bug.h
+@@ -32,34 +32,38 @@
+ #endif /* verbose */
+ 
+ #else /* !__ASSEMBLER__ */
+-/* _EMIT_BUG_ENTRY expects args %0,%1,%2,%3 to be FILE, LINE, flags and
+-   sizeof(struct bug_entry), respectively */
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+-#define _EMIT_BUG_ENTRY				\
++#define _EMIT_BUG_ENTRY(file, line, flags)	\
+ 	".section __bug_table,\"aw\"\n"		\
+ 	"2:	.4byte 1b - .\n"		\
+-	"	.4byte %0 - .\n"		\
+-	"	.short %1, %2\n"		\
+-	".org 2b+%3\n"				\
+-	".previous\n"
++	"	.4byte " file " - .\n"		\
++	"	.short " line ", " flags "\n"
+ #else
+-#define _EMIT_BUG_ENTRY				\
++#define _EMIT_BUG_ENTRY(file, line, flags)	\
+ 	".section __bug_table,\"aw\"\n"		\
+ 	"2:	.4byte 1b - .\n"		\
+-	"	.short %2\n"			\
+-	".org 2b+%3\n"				\
+-	".previous\n"
++	"	.short " flags "\n"
+ #endif
+ 
+ #define BUG_ENTRY(cond_str, insn, flags, ...)		\
+ 	__asm__ __volatile__(				\
+ 		"1:	" insn "\n"			\
+-		_EMIT_BUG_ENTRY				\
++		_EMIT_BUG_ENTRY("%0", "%1", "%2")	\
++		".org 2b+%3\n"				\
++		".previous\n"				\
+ 		: : "i" (WARN_CONDITION_STR(cond_str) __FILE__), "i" (__LINE__),	\
+ 		  "i" (flags),				\
+ 		  "i" (sizeof(struct bug_entry)),	\
+ 		  ##__VA_ARGS__)
+ 
++#define ARCH_WARN_ASM(file, line, flags, size)		\
++		"1:	twi 31, 0, 0\n"			\
++		_EMIT_BUG_ENTRY(file, line, flags)	\
++		".org 2b+" size "\n"			\
++		".previous\n"
 +
-+title: MbedTEE
++#define ARCH_WARN_REACHABLE
 +
-+maintainers:
-+  - Xing Loong <xing.xl.loong@gmail.com>
-+
-+description: |
-+  MbedTEE is a Trusted Execution Environment for embedded systems.
-+  It communicates with the REE (Linux) via shared-memory ring
-+  buffers using a fixed RPC protocol.
-+
-+  We're using "mbedtee" as the vendor prefix for the open-source TEE
-+  project at https://github.com/mbedtee.
-+
-+  The REE and TEE CPUs sharing the RPC memory must be in a
-+  hardware-coherent domain.
-+
-+  Two or three reserved-memory regions are required. On ARM the
-+  transport uses SMC and a GIC SPI interrupt. On RISC-V the
-+  transport uses shared-memory rings and IMSIC MSI; the TEE polls
-+  r2t-ring for commands from the REE.
-+
-+properties:
-+  compatible:
-+    const: mbedtee,tee
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  msi-parent:
-+    maxItems: 1
-+
-+  memory-region:
-+    minItems: 2
-+    maxItems: 3
-+
-+  memory-region-names:
-+    description: |
-+      t2r-ring: ring buffer for TEE-to-REE notifications
-+      t2r-shm:  shared memory for TEE-to-REE RPC payloads
-+      r2t-ring: ring buffer for REE-to-TEE command submissions (RISC-V)
-+    minItems: 2
-+    items:
-+      - const: t2r-ring
-+      - const: t2r-shm
-+      - const: r2t-ring
-+
-+required:
-+  - compatible
-+  - memory-region
-+  - memory-region-names
-+
-+allOf:
-+  - if:
-+      required:
-+        - interrupts
-+    then:
-+      properties:
-+        msi-parent: false
-+        memory-region:
-+          maxItems: 2
-+        memory-region-names:
-+          maxItems: 2
-+    else:
-+      required:
-+        - msi-parent
-+      properties:
-+        interrupts: false
-+        memory-region:
-+          minItems: 3
-+        memory-region-names:
-+          minItems: 3
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    firmware {
-+        mbedtee {
-+            compatible = "mbedtee,tee";
-+            interrupts = <GIC_SPI 72 IRQ_TYPE_EDGE_RISING>;
-+            memory-region = <&t2r_ring>, <&t2r_shm>;
-+            memory-region-names = "t2r-ring", "t2r-shm";
-+        };
-+    };
-+
-+  - |
-+    firmware {
-+        mbedtee {
-+            compatible = "mbedtee,tee";
-+            msi-parent = <&imsic>;
-+            memory-region = <&t2r_ring>, <&t2r_shm>, <&r2t_ring>;
-+            memory-region-names = "t2r-ring", "t2r-shm", "r2t-ring";
-+        };
-+    };
+ /*
+  * BUG_ON() and WARN_ON() do their best to cooperate with compile-time
+  * optimisations. However depending on the complexity of the condition
 -- 
-2.43.0
+2.55.0
 
 
 _______________________________________________
