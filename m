@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF136C5DF85
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA52FC5DF89
 	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 18:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,40 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iKsv0kjJP8fn+6RF43gOwGjWBOANBKwTMT1ulJfnCV0=; b=LrokiLBv87yhrs
-	PnZk/698P4CzYVX47g1pYdKVwTjnLqWYv9t/aD1AOT6Rawbkx0ITx/coA+Mj/vXnS7Crh9TpmvLmx
-	m/KbQ1qYIwyBsUu2u1aTl3uPWf1KOpk6Vyz7MjBy2DZFzgqSX+RdmNYVaLjW9UlUyzUAnU10ApXpL
-	eTSwtdSD3U99avfFsMk8i0HoxbObyis4ZMWfg+DtbNSa/4qKPlMU1C9v3sKGj/b+0FeFmlXYmmc5H
-	o43msF4YpKGcPYUXXQmrtEfx7TP2zqtyxKXoC8PMRw9lNOdpXsg6NMKW6T3lzfwMNqsnMEruqrWiA
-	dyQ31h3m+wFXXQkLEK9g==;
+	List-Owner; bh=xPK55rL7jqokrIzIrZ2kVMM+Y1XixijfDgipYMVL4oE=; b=Uik4hxJlNfekhm
+	za9VlflI1sEjwUXtWZ9txL/FRBPuB3v+YeHpncloWAvJRztX7eentberTBhALchWZTG8diO4+b5TL
+	BNmZgzFq02kVDa1BzwKZRumy5tQMzVZCBCxZ4UvuIHLOIEru91VkausEIkYyAtOt7hKCoNLbP6mJc
+	3MqKcefVfbK/Udg8mZFPNOHF7qRZZZ5R7MDmr+u3HkQ1So/nLXjSd0qOuvZZ9hNGHM4X6VuzkEihz
+	rwTdLRQ7MeRb8vCuxFZtIxO4Xvc/GbUjgGf6XHEzsNnTKl12Gd+Z2guSUUZOwnLGsuz5pTugMCBNb
+	zslpdnejyVNUCbaygN6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkpp-0000000AKsI-0IHW;
-	Wed, 19 Aug 2026 18:16:21 +0000
+	id 1wwkpy-0000000AKwO-2B5J;
+	Wed, 19 Aug 2026 18:16:30 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkpj-0000000AKq5-1kY9
+	id 1wwkpw-0000000AKuF-0hWC
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 18:16:17 +0000
+	Wed, 19 Aug 2026 18:16:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=gXUB1QrnxsrjbOi4xhXBQHCEC2KmzTwW0NuAmy9Ikto=; b=p76lPryssuRkpTwSeXIKI/EndK
-	P7rVMyteRtpS/Hvs5QrpVSay0RpXX1SKfAOzvEPCEdB+2xm3b8XgYEbsm7Yy+zXzV5KHxqq2HFpTV
-	Oce43cOvr2kd824oS0q+QLhyBKQo+6qviKodT08xWnBnQ2z09YsvkdjLEEP3QeaO+ksmI8jvhJsVA
-	ehO/QVfPUQsMc+dpzW6Y30TFrwGcjSJqAmsmHAhDtEGHbwUxTOu7eDp8puClffGIE9SqS9793Ha9g
-	YGIiZw6ZFmgQDgmzn4vZ3o2bs92g2qbHRDlxvTOG3NpFoZflKm0mBIYHZYUrPar9qdtcTdVmYPdKt
-	c/mRZGfw==;
+	bh=QKxY/gFZnQu4jxWnpEu3gzJTE7ZyPsLaoqObnd0OYGg=; b=Mzi3TkBeeBV8mL+FYrlmLuIT/U
+	FZdRFy43Lt23SSkImSMa2y2bkcjKvPT3+yR7t+VjX+C4kzlPNY1ZcvcTmNs1cJZ60UNDoZGfc1KGx
+	wkFHFbtsOLHgvp80D40Deet11YpPlm+5H0KuRAW49v1FDUdaRJMbuyYDWntZx91jRATLiHbXAdC8l
+	lZzZgWaVfwvbuKk30WQha2Yn4+8LOLU2OYUW5HTAEneASF/hSGN79hN5es4+gYpX9/AhAXsK9rAkx
+	EJ64/DHGVkb6+zUsR4q+oViVus0+CCUiTHV3HZfA0J/JSKx7Krd+Q7NN5V94pGh06RB4Hz89x3faQ
+	P1xSt6LQ==;
 Received: from 186-249-147-181.shared.desktop.com.br ([186.249.147.181] helo=[127.0.1.1])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wwkpO-006ENH-PG; Wed, 19 Aug 2026 20:15:55 +0200
+	id 1wwkpk-006ENH-CO; Wed, 19 Aug 2026 20:16:16 +0200
 From: Mauricio Faria de Oliveira <mfo@igalia.com>
-Date: Wed, 19 Aug 2026 15:16:14 -0300
-Subject: [PATCH RFC v3 01/13] keys, pidns, fs/verity, riscv/vector: reorder
- '#include <linux/sysctl.h>'
+Date: Wed, 19 Aug 2026 15:16:17 -0300
+Subject: [PATCH RFC v3 04/13] sysctl: add register_sysctl() wrapper for
+ MODULE_SYSCTL_TABLE
 MIME-Version: 1.0
-Message-Id: <20260819-sysctl-module-aliases-v3-1-aab90569365d@igalia.com>
+Message-Id: <20260819-sysctl-module-aliases-v3-4-aab90569365d@igalia.com>
 References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
 In-Reply-To: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
 To: Kees Cook <kees@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
@@ -65,8 +65,8 @@ Cc: kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
  virtualization@lists.linux.dev, Mauricio Faria de Oliveira <mfo@igalia.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_111615_449370_9F16C9F0 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260819_111628_230118_3356DE1C 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,80 +78,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rml4IGFuIGluY2x1ZGUgbG9vcCBlcnJvciBpbiBwcmVwYXJhdGlvbiBmb3Igc3lzY3RsLmggdG8g
-aW5jbHVkZSBtb2R1bGUuaDoKCiAgICBDQyBbTV0gIGFyY2gveDg2L2V2ZW50cy9hbWQvdW5jb3Jl
-Lm8KICBJbiBmaWxlIGluY2x1ZGVkIGZyb20gLi4uL2luY2x1ZGUvbGludXgvZnMuaDo0NCwgICAg
-ICAgICA8PDwKICAgICAgICAgICAgICAgICAgIGZyb20gLi4uL2luY2x1ZGUvbGludXgvY29tcGF0
-Lmg6MTcsCiAgICAgICAgICAgICAgICAgICBmcm9tIC4uLi9hcmNoL3g4Ni9pbmNsdWRlL2FzbS9p
-YTMyLmg6NywKICAgICAgICAgICAgICAgICAgIGZyb20gLi4uL2FyY2gveDg2L2luY2x1ZGUvYXNt
-L2VsZi5oOjEwLAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51eC9lbGYu
-aDo2LAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51eC9tb2R1bGUuaDoy
-MCwgICAgIDw8PAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51eC9zeXNj
-dGwuaDoyNDUsICAgIDw8PAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51
-eC9rZXkuaDoxNywgICAgICAgIDw8PAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVk
-ZS9saW51eC9jcmVkLmg6MTMsICAgICAgIDw8PAogICAgICAgICAgICAgICAgICAgZnJvbSAuLi4v
-aW5jbHVkZS9saW51eC9zY2hlZC9zaWduYWwuaDoxMCwKICAgICAgICAgICAgICAgICAgIGZyb20g
-Li4uL2luY2x1ZGUvbGludXgvcHRyYWNlLmg6NywKICAgICAgICAgICAgICAgICAgIGZyb20gLi4u
-L2luY2x1ZGUvdWFwaS9hc20tZ2VuZXJpYy9icGZfcGVyZl9ldmVudC5oOjQsCiAgICAgICAgICAg
-ICAgICAgICBmcm9tIC4vYXJjaC94ODYvaW5jbHVkZS9nZW5lcmF0ZWQvdWFwaS9hc20vCiAgICAg
-ICAgICAgICAgICAgICAgICAgIGJwZl9wZXJmX2V2ZW50Lmg6MSwKICAgICAgICAgICAgICAgICAg
-IGZyb20gLi4uL2luY2x1ZGUvdWFwaS9saW51eC9icGZfcGVyZl9ldmVudC5oOjExLAogICAgICAg
-ICAgICAgICAgICAgZnJvbSAuLi4vaW5jbHVkZS9saW51eC9wZXJmX2V2ZW50Lmg6MTgsCiAgICAg
-ICAgICAgICAgICAgICBmcm9tIC4uLi9hcmNoL3g4Ni9ldmVudHMvYW1kL3VuY29yZS5jOjg6CiAg
-Li4uL2luY2x1ZGUvbGludXgvbW50X2lkbWFwcGluZy5oOiBJbiBmdW5jdGlvbiDigJhtYXBwZWRf
-ZnN1aWTigJk6CiAgLi4uL2luY2x1ZGUvbGludXgvbW50X2lkbWFwcGluZy5oOjIzMTo1OTogZXJy
-b3I6IGltcGxpY2l0IGRlY2xhcmF0aW9uCiAgICBvZiBmdW5jdGlvbiDigJhjdXJyZW50X2ZzdWlk
-4oCZIFstV2ltcGxpY2l0LWZ1bmN0aW9uLWRlY2xhcmF0aW9uXQoKUmVhc29uOgogLSBjcmVkLmgg
-aW5jbHVkZXMga2V5LmggKmJlZm9yZSogZGVmaW5pbmcgY3VycmVudF9mc3VpZCgpOwogLSBrZXku
-aCBpbmNsdWRlcyBzeXNjdGwuaDsKIC0gc3lzY3RsLmggaW5jbHVkZXMgbW9kdWxlLmg7CiAtIG1v
-ZHVsZS5oIGluY2x1ZGVzIGZzLmggdmlhIGVsZi5oID4gYXNtL2VsZi5oID4gYXNtL2lhMzIuaCA+
-IGNvbXBhdC5oOwogLSBmcy5oIGluY2x1ZGVzIG1udF9pZG1hcHBpbmcuaCwgd2hpY2ggdXNlcyAq
-dW5kZWZpbmVkKiBjdXJyZW50X2ZzdWlkKCkuCgpOb3RlIHRoYXQgZnMuaCBkb2VzIGluY2x1ZGUg
-Y3JlZC5oICh3aGljaCBkZWZpbmVzIGN1cnJlbnRfZnN1aWQoKSkgcmlnaHQKYmVmb3JlIG1udF9p
-ZG1hcHBpbmcuaCAod2hpY2ggdXNlcyBpdCksIGJ1dCBpdCBpcyBub3QgcGFyc2VkIGJlY2F1c2Ug
-dGhlCmluY2x1ZGUgZ3VhcmQgb2YgY3JlZC5oIGlzIGRlZmluZWQgZWFybGllci4KCkFkZHJlc3Mg
-dGhpcyBieSByZW1vdmluZyBzeXNjdGwuaCBmcm9tIGtleS5oLCB3aGljaCBkb2VzIG5vdCBuZWVk
-IGl0LAphbmQgYWRkaW5nIGl0IHRvIGZpbGVzIHRoYXQgYWN0dWFsbHkgbmVlZCBpdC4KClNpZ25l
-ZC1vZmYtYnk6IE1hdXJpY2lvIEZhcmlhIGRlIE9saXZlaXJhIDxtZm9AaWdhbGlhLmNvbT4KLS0t
-CiBhcmNoL3Jpc2N2L2tlcm5lbC92ZWN0b3IuYyAgICB8IDEgKwogZnMvdmVyaXR5L2luaXQuYyAg
-ICAgICAgICAgICAgfCAxICsKIGluY2x1ZGUvbGludXgva2V5LmggICAgICAgICAgIHwgMSAtCiBp
-bmNsdWRlL2xpbnV4L3BpZF9uYW1lc3BhY2UuaCB8IDEgKwogNCBmaWxlcyBjaGFuZ2VkLCAzIGlu
-c2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
-bC92ZWN0b3IuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZlY3Rvci5jCmluZGV4IGIxMTIxNjZkNTFl
-OWY1ODRmODRjNTJkMGY4NGZlYjkyY2NkNjBkZjEuLjllYWM0N2M5OWYxMTQzMDQ1MjFmZGM1Mzkw
-MThmM2Y4NDUwN2U3NWYgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3ZlY3Rvci5jCisr
-KyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZlY3Rvci5jCkBAIC0xMCw2ICsxMCw3IEBACiAjaW5jbHVk
-ZSA8bGludXgvc2NoZWQuaD4KICNpbmNsdWRlIDxsaW51eC91YWNjZXNzLmg+CiAjaW5jbHVkZSA8
-bGludXgvcHJjdGwuaD4KKyNpbmNsdWRlIDxsaW51eC9zeXNjdGwuaD4KIAogI2luY2x1ZGUgPGFz
-bS90aHJlYWRfaW5mby5oPgogI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3IuaD4KZGlmZiAtLWdpdCBh
-L2ZzL3Zlcml0eS9pbml0LmMgYi9mcy92ZXJpdHkvaW5pdC5jCmluZGV4IDNhYTU1ZGVjODhmYzkx
-OTc5MmEyY2I0YmU0NzZmODQ4MWVmNzhhOWUuLmQ0NjBlZWY3NGZjZmU0OWY2Y2Y2OTk3NGE4MTk0
-YTY1ZGU0ODY4MTkgMTAwNjQ0Ci0tLSBhL2ZzL3Zlcml0eS9pbml0LmMKKysrIGIvZnMvdmVyaXR5
-L2luaXQuYwpAQCAtOSw2ICs5LDcgQEAKICNpbmNsdWRlICJmc3Zlcml0eV9wcml2YXRlLmgiCiAK
-ICNpbmNsdWRlIDxsaW51eC9yYXRlbGltaXQuaD4KKyNpbmNsdWRlIDxsaW51eC9zeXNjdGwuaD4K
-IAogI2lmZGVmIENPTkZJR19TWVNDVEwKIHN0YXRpYyBjb25zdCBzdHJ1Y3QgY3RsX3RhYmxlIGZz
-dmVyaXR5X3N5c2N0bF90YWJsZVtdID0gewpkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9rZXku
-aCBiL2luY2x1ZGUvbGludXgva2V5LmgKaW5kZXggODFiOGYwNWM2ODk4NWM2ZjBhNWM1YmJlMGYx
-ZmQ2NjYxOTEyYzYxOC4uYTc0ZjhmMWI3OTM2ZDZlZGU1ODRjMGE4Y2Q1MjBmODU4ZjZhOTc1OCAx
-MDA2NDQKLS0tIGEvaW5jbHVkZS9saW51eC9rZXkuaAorKysgYi9pbmNsdWRlL2xpbnV4L2tleS5o
-CkBAIC0xNCw3ICsxNCw2IEBACiAjaW5jbHVkZSA8bGludXgvbGlzdC5oPgogI2luY2x1ZGUgPGxp
-bnV4L3JidHJlZS5oPgogI2luY2x1ZGUgPGxpbnV4L3JjdXBkYXRlLmg+Ci0jaW5jbHVkZSA8bGlu
-dXgvc3lzY3RsLmg+CiAjaW5jbHVkZSA8bGludXgvcndzZW0uaD4KICNpbmNsdWRlIDxsaW51eC9h
-dG9taWMuaD4KICNpbmNsdWRlIDxsaW51eC9hc3NvY19hcnJheS5oPgpkaWZmIC0tZ2l0IGEvaW5j
-bHVkZS9saW51eC9waWRfbmFtZXNwYWNlLmggYi9pbmNsdWRlL2xpbnV4L3BpZF9uYW1lc3BhY2Uu
-aAppbmRleCBiMjBiYWFhN2U2MmI3NTVlN2U1NjFmY2Q4MDE4ZTJiNjEyMTM1MDNlLi45NGIyMzQ3
-MWM3ZGVjMTM1ZTI0YzRjMGMxZmRiZjg0MWNlYTJlNWRlIDEwMDY0NAotLS0gYS9pbmNsdWRlL2xp
-bnV4L3BpZF9uYW1lc3BhY2UuaAorKysgYi9pbmNsdWRlL2xpbnV4L3BpZF9uYW1lc3BhY2UuaApA
-QCAtMTAsNiArMTAsNyBAQAogI2luY2x1ZGUgPGxpbnV4L25zcHJveHkuaD4KICNpbmNsdWRlIDxs
-aW51eC9uc19jb21tb24uaD4KICNpbmNsdWRlIDxsaW51eC9pZHIuaD4KKyNpbmNsdWRlIDxsaW51
-eC9zeXNjdGwuaD4KIAogLyogTUFYX1BJRF9OU19MRVZFTCBpcyBuZWVkZWQgZm9yIGxpbWl0aW5n
-IHNpemUgb2YgJ3N0cnVjdCBwaWQnICovCiAjZGVmaW5lIE1BWF9QSURfTlNfTEVWRUwgMzIKCi0t
-IAoyLjQ3LjMKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+Add a MODULE_SYSCTL_TABLE call into register_sysctl() for existing callers
+to automatically use it.
+
+Add optional 'template arguments' to support a dynamic table/path defined
+at run-time based on a 'template' table/path available at build-time.
+
+Split the update of callers with template arguments into another commit for
+clarity, disabling them for now.
+
+Note: there is no register_sysctl_sz() wrapper, as it is used in even more
+dynamic cases (e.g., table generated at run-time not based on a template).
+
+Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
+---
+ drivers/parport/procfs.c |  2 ++
+ include/linux/sysctl.h   | 54 ++++++++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 54 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/parport/procfs.c b/drivers/parport/procfs.c
+index 3880460e67f25a7d8708a734c6f4d9e6c363c726..cda3221e386ed7a4afc898b3d0313081dee5b49b 100644
+--- a/drivers/parport/procfs.c
++++ b/drivers/parport/procfs.c
+@@ -13,6 +13,8 @@
+  * Cleaned up include files - Russell King <linux@arm.uk.linux.org>
+  */
+ 
++#define SYSCTL_MODULE_ALIASES_DISABLE
++
+ #include <linux/string.h>
+ #include <linux/init.h>
+ #include <linux/module.h>
+diff --git a/include/linux/sysctl.h b/include/linux/sysctl.h
+index 0adc056ff54d895500c376361fe966bfa5126a3e..b808fbc1d964f453db8e354825fd8800db1eecd3 100644
+--- a/include/linux/sysctl.h
++++ b/include/linux/sysctl.h
+@@ -335,8 +335,58 @@ struct ctl_table_root {
+ #define MODULE_SYSCTL_TABLE(path, table)
+ #endif
+ 
+-#define register_sysctl(path, table)	\
+-	register_sysctl_sz(path, table, ARRAY_SIZE(table))
++/*
++ * The register_sysctl() wrapper for the MODULE_SYSCTL_TABLE macro
++ * automatically creates symbols in sysctl table registration sites.
++ *
++ * Usage:
++ * - register_sysctl(path, table);
++ * - register_sysctl(path, table, table_tmpl);
++ * - register_sysctl(path, table, table_tmpl, path_tmpl);
++ *
++ * The optional 'template arguments' ('table_tmpl' and 'path_tmpl')
++ * can support callers with non-static variables: dynamic table/path
++ * defined at run-time based on a 'template' available at build-time.
++ *
++ * For example, a sysctl table, or table and path, which is/are:
++ *
++ * - per-namespace: different tables based on a template table
++ *   (i.e., same files in each namespace) with identical path
++ *   (i.e., same path in each namespace).
++ *
++ * - per-device: different tables based on a template table
++ *   (i.e., same files for each device) with different paths
++ *   (i.e., diff paths for each device) based on a template path.
++ *
++ * The wrapper passes the build-time parameters (templates) to the macro
++ * and the dynamic/run-time parameters (instances) to the wrapped function.
++ *
++ * The wrapper reduces to the wrapped function when either the macro or the
++ * config option is disabled.
++ */
++#define _register_sysctl(path, table, table_tmpl, path_tmpl)			\
++({										\
++	MODULE_SYSCTL_TABLE(path_tmpl, table_tmpl);				\
++	register_sysctl_sz(path, table, ARRAY_SIZE(table));			\
++})
++
++#define register_sysctl(path, table, tmpl_args...)				\
++	_register_sysctl(path, table,						\
++			 __sysctl_table_tmpl_or_default(table, ## tmpl_args),	\
++			 __sysctl_path_tmpl_or_default(path, ## tmpl_args))
++
++/* Helper macros for optional template arguments */
++#define __sysctl_table_tmpl(skip, table_tmpl, ...)				\
++	table_tmpl
++
++#define __sysctl_path_tmpl(skip, table_tmpl, path_tmpl, ...)			\
++	path_tmpl
++
++#define __sysctl_table_tmpl_or_default(default, tmpl_args...)			\
++	__sysctl_table_tmpl(, ## tmpl_args, default)
++
++#define __sysctl_path_tmpl_or_default(default, tmpl_args...)			\
++	__sysctl_path_tmpl(, ## tmpl_args, default, default)
+ 
+ #ifdef CONFIG_SYSCTL
+ 
+
+-- 
+2.47.3
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
