@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E38DC5DF81
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 02:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C4F6C5DF81
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 02:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G2OEbIXjefVWL3g3vS2994oi/tP/zvQLPF25ho1uDYU=; b=BxVCRLJgV4JBsl
-	/L4W/96zZ0EGfS5+yJUCi4Stz+UyGX4E31vkrYwsuzjbnMKWl4SbeeeGoYdOymfo1dE5o7N78ynLs
-	fjskkEAYMUkCC+0DGxkwftR4V6fya6F3/xN8uBmf6ykoKHP1A+8xsbr+m7pIoyym12eQ8qYHHAY8X
-	M7LWP8ZwsuY8TD/enyc4QRiOIfOj2stADhMLUvkWw/f2QvMthTEXCVJrHT64NVhXyFt680VqoRuc/
-	RiTQRJkGp4O2f9u+X7V/bQt07flXly9DROTq3p2R/ODlG+PWUYcPG1x9//sj4GMeym/3VIIyD2n6O
-	WzsDlOMGkuzUFjLSayEA==;
+	List-Owner; bh=LMY6JJfRjSg5IILszpTPVep93dkAV7EGfbQ7OUCnp/A=; b=ReGHFFg8EHkNg5
+	EpPyPCsOAwjE8Hh4SYsV7HlKxfMzqRQtz2Io8MaCjvUEyX1N2BZwjOgNyJSL726AFxz816+b2pF/V
+	Wpkn8j5x5x104whAyMUdyl0fiBjshb/lZw5CHbX08GWtEEABoWbb7Uqvz9gBNrtheD3Jzxr9wFJGD
+	/gHso7pjjPX3Z5RHqg8W7ZO4Tr01qeWhfcKXySa8JRbdBLH/A3/5zHM2Lyj3F5hbv+sxhQub1SOd8
+	DBnrOKJ2yE19Z2YqBLn4ZHGwXXTuX1jMlMl5mj+fOL0j3WkLzhfBR7kRQH3HeElwYN43CWJScQ/3v
+	zXg3ftn65SSwuZf57ehA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwW3W-00000008s3w-0oX5;
-	Wed, 19 Aug 2026 02:29:30 +0000
+	id 1wwW44-00000008sKL-3rt5;
+	Wed, 19 Aug 2026 02:30:04 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwW3S-00000008s34-3o3b
+	id 1wwW42-00000008sHl-3ycY
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 02:29:28 +0000
+	Wed, 19 Aug 2026 02:30:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=8XMspiCxPbUWbTpllZf41awQJ3Mw3QpbFvI9c9w68D0=; b=EKMiL6l7i2vFzePfEAO2CVD3yU
-	N5i1CBib93YzvaDJHmxq0gemL24W2uj12toRiMqyc9JJChOu12oQ6Ty7PI/oPX/daTEy8Iaf9T/8Q
-	ToCUf6C1AgDw0dGJOjDc6nL5IYxWSzP4xzU8sOHtsikCmd7X41894g+TRrYNsQfEUNu7VwZHIKbAC
-	Pr3P8xsP7s+CzDiIkAhAgyORkVvz/zISNVHLTuTiDUASBUSjMx4fGgXakXkUwAMtNx1bj3iLK6QDO
-	vQdfFgCnKO1foUeBsHs8zgopdtuT7uG+qgJKhOusTeeYrDdkS8EwFnJKJ/+zMLzFG1xrg991fOvEd
-	YZtfVE2g==;
+	bh=/zj38NG0Jtad2NvlMhx+0HTiUM61a7Li0ehqHM7SWK0=; b=XPk4rLYYea+UjJ3gc10vX9S0V0
+	7vACMIblrAKfnZtCbh/Qp1UmLOJf7Lz8Pzu9HsmWEY3RxGpRxfn5VWSCih7uA7my0XFnrEILGCHjg
+	XgpAJrKDuCPQMfsNqqHwwrVN5LCKtjwNqLroEeu2R6Z4f3VnzuQtTthCtjbFYtQ/VtxN1N00CKdyB
+	heVH+v3DcYYNnl5tt8fBmK/784dmDAxk+Q4COfOQM9+a8riijWTFT3IElPHkjba3cJmwfviTbJnAn
+	gyVDPWk9YnCbMZZogfMQP/PkqSZQzYzFFWZ6aU4ztxOGeX6A1n79N9F1P9aX6/1XS+/wTC+UdaLwB
+	R4m/0GCQ==;
 Received: from 186-249-144-28.shared.desktop.com.br ([186.249.144.28] helo=[127.0.1.1])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wwW3N-005tfG-99; Wed, 19 Aug 2026 04:29:21 +0200
+	id 1wwW3w-005tfG-Pt; Wed, 19 Aug 2026 04:29:57 +0200
 From: Mauricio Faria de Oliveira <mfo@igalia.com>
-Date: Tue, 18 Aug 2026 23:28:02 -0300
-Subject: [PATCH RFC v2 03/13] sysctl, mod_devicetable: add macro
- MODULE_SYSCTL_TABLE
+Date: Tue, 18 Aug 2026 23:28:07 -0300
+Subject: [PATCH RFC v2 08/13] sysctl, net: update
+ register_net_sysctl_sz(ARRAY_SIZE(table_tmpl)) with template arguments
 MIME-Version: 1.0
-Message-Id: <20260818-sysctl-module-aliases-v2-3-d5a69dae5798@igalia.com>
+Message-Id: <20260818-sysctl-module-aliases-v2-8-d5a69dae5798@igalia.com>
 References: <20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com>
 In-Reply-To: <20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com>
 To: Kees Cook <kees@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
@@ -65,8 +65,8 @@ Cc: kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
  virtualization@lists.linux.dev, Mauricio Faria de Oliveira <mfo@igalia.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_192927_633399_17BC74F6 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20260818_193003_194869_25F206D1 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,107 +83,236 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The MODULE_SYSCTL_TABLE macro emits a struct module_sysctl_table variable
-with pointers to a sysctl table's path and entries, and table/entry sizes.
-
-That symbol will be handled by file2alias.c (modpost) with the changes in
-mod_devicetable.h and devicetable-offsets.c.
-
-The option macros MODULE_SYSCTL_TABLE_{DISABLE,UNIQUE_ID} can be used on
-a per-file basis to disable the macro and change the symbol name pattern.
+Reduce register_net_sysctl_sz(net, path, table, ARRAY_SIZE(table_tmpl)) to
+register_net_sysctl(net, path, table, table_tmpl) which does it internally.
 
 Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
 ---
- include/linux/mod_devicetable.h   |  7 +++++++
- include/linux/sysctl.h            | 42 +++++++++++++++++++++++++++++++++++++++
- scripts/mod/devicetable-offsets.c |  6 ++++++
- 3 files changed, 55 insertions(+)
+ drivers/net/vrf.c                       | 3 +--
+ net/bridge/br_netfilter_hooks.c         | 3 +--
+ net/ipv4/devinet.c                      | 3 +--
+ net/ipv4/ip_fragment.c                  | 3 +--
+ net/ipv4/xfrm4_policy.c                 | 3 +--
+ net/ipv6/netfilter/nf_conntrack_reasm.c | 4 ++--
+ net/ipv6/reassembly.c                   | 3 +--
+ net/ipv6/xfrm6_policy.c                 | 3 +--
+ net/mptcp/ctrl.c                        | 3 +--
+ net/netfilter/ipvs/ip_vs_ctl.c          | 4 +---
+ net/netfilter/nf_conntrack_standalone.c | 5 ++---
+ net/rds/tcp.c                           | 4 ++--
+ net/unix/sysctl_net_unix.c              | 3 +--
+ net/vmw_vsock/af_vsock.c                | 4 ++--
+ 14 files changed, 18 insertions(+), 30 deletions(-)
 
-diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-index a397213bedace6e81ac600691b3b50ae0f88356b..818a4a53448dba2088e3dbd1ef2c2d4dbb190fcc 100644
---- a/include/linux/mod_devicetable.h
-+++ b/include/linux/mod_devicetable.h
-@@ -78,4 +78,11 @@ struct cpu_feature {
- 	__u16	feature;
- };
+diff --git a/drivers/net/vrf.c b/drivers/net/vrf.c
+index a0557a3a70260a404b2c2c6262e8466aec5be391..19dacbe69d6de81e2cf5cd2b6e750a25f9cef092 100644
+--- a/drivers/net/vrf.c
++++ b/drivers/net/vrf.c
+@@ -1875,8 +1875,7 @@ static int vrf_netns_init_sysctl(struct net *net, struct netns_vrf *nn_vrf)
+ 	/* init the extra1 parameter with the reference to current netns */
+ 	table[0].extra1 = net;
  
-+struct module_sysctl_table {
-+	kernel_ulong_t path;
-+	kernel_ulong_t table;
-+	__u16 table_size;
-+	__u16 entry_size;
-+};
-+
- #endif /* LINUX_MOD_DEVICETABLE_H */
-diff --git a/include/linux/sysctl.h b/include/linux/sysctl.h
-index e5d7226ab6f5af34a33829883ad5d1b405e19c86..6960fe22c50bfd8a9acc79870e494c2775fa040a 100644
---- a/include/linux/sysctl.h
-+++ b/include/linux/sysctl.h
-@@ -293,6 +293,48 @@ struct ctl_table_root {
- 	int (*permissions)(struct ctl_table_header *head, const struct ctl_table *table);
- };
+-	nn_vrf->ctl_hdr = register_net_sysctl_sz(net, "net/vrf", table,
+-						 ARRAY_SIZE(vrf_table));
++	nn_vrf->ctl_hdr = register_net_sysctl(net, "net/vrf", table, vrf_table);
+ 	if (!nn_vrf->ctl_hdr) {
+ 		kfree(table);
+ 		return -ENOMEM;
+diff --git a/net/bridge/br_netfilter_hooks.c b/net/bridge/br_netfilter_hooks.c
+index 0a394e5f439168fc32f3beb08721bee063ca5f17..ce5deb724608cf01103581f7f3e57210ffb85657 100644
+--- a/net/bridge/br_netfilter_hooks.c
++++ b/net/bridge/br_netfilter_hooks.c
+@@ -1251,8 +1251,7 @@ static int br_netfilter_sysctl_init_net(struct net *net)
  
-+/*
-+ * Creates a symbol so file2alias.c can find the sysctl table.
-+ *
-+ * MODULE_SYSCTL_TABLE() is the sysctl equivalent of MODULE_DEVICE_TABLE(),
-+ * with pointers to a sysctl table's path and entries, and table/entry sizes.
-+ *
-+ * The parameters 'path' and 'table' must be static (e.g., string literal or
-+ * static char[]; static struct ctl_table[]) as both are used as initializer
-+ * elements for a static struct variable.
-+ *
-+ * The generated symbol name contains 'table' by default. However, if 'table'
-+ * is a struct field (contains '.' or '->'), in order to avoid syntax errors,
-+ * define the macro SYSCTL_MODULE_ALIASES_UNIQUE_ID.
-+ *
-+ * Define the macro SYSCTL_MODULE_ALIASES_DISABLE to disable this.
-+ */
-+#if defined(CONFIG_SYSCTL_MODULE_ALIASES) && defined(MODULE) &&			\
-+    !defined(SYSCTL_MODULE_ALIASES_DISABLE)
-+
-+#include <linux/module.h>
-+#include <linux/mod_devicetable.h>
-+
-+#if defined(SYSCTL_MODULE_ALIASES_UNIQUE_ID)
-+#define __MODULE_SYSCTL_TABLE_NAME(table)					\
-+	__mod_device_table(sysctl, __UNIQUE_ID)
-+#else
-+#define __MODULE_SYSCTL_TABLE_NAME(table)					\
-+	__mod_device_table(sysctl, table)
-+#endif
-+
-+#define MODULE_SYSCTL_TABLE(path, table)					\
-+	static struct module_sysctl_table __used				\
-+		__MODULE_SYSCTL_TABLE_NAME(table) = {				\
-+			(kernel_ulong_t) path,					\
-+			(kernel_ulong_t) table,					\
-+			(u16) sizeof(table),					\
-+			(u16) sizeof(const struct ctl_table)			\
-+		}
-+#else
-+#define MODULE_SYSCTL_TABLE(path, table)
-+#endif
-+
- #define register_sysctl(path, table)	\
- 	register_sysctl_sz(path, table, ARRAY_SIZE(table))
+ 	br_netfilter_sysctl_default(brnet);
  
-diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
-index b4178c42d08f50dfaba4d50d5c1d48b8aff88db4..e3b8855e6ebcf8d16f486f71d62900584ee884b1 100644
---- a/scripts/mod/devicetable-offsets.c
-+++ b/scripts/mod/devicetable-offsets.c
-@@ -284,5 +284,11 @@ int main(void)
- 	DEVID(coreboot_device_id);
- 	DEVID_FIELD(coreboot_device_id, tag);
+-	brnet->ctl_hdr = register_net_sysctl_sz(net, "net/bridge", table,
+-						ARRAY_SIZE(brnf_table));
++	brnet->ctl_hdr = register_net_sysctl(net, "net/bridge", table, brnf_table);
+ 	if (!brnet->ctl_hdr) {
+ 		if (!net_eq(net, &init_net))
+ 			kfree(table);
+diff --git a/net/ipv4/devinet.c b/net/ipv4/devinet.c
+index a466163dad7fe7f8b5b1c2897dd5fe548c288442..fad5483287c29f75a0c09aa833af389e51f36cfb 100644
+--- a/net/ipv4/devinet.c
++++ b/net/ipv4/devinet.c
+@@ -2884,8 +2884,7 @@ static __net_init int devinet_init_net(struct net *net)
+ 		goto err_reg_dflt;
  
-+	DEVID(module_sysctl_table);
-+	DEVID_FIELD(module_sysctl_table, path);
-+	DEVID_FIELD(module_sysctl_table, table);
-+	DEVID_FIELD(module_sysctl_table, table_size);
-+	DEVID_FIELD(module_sysctl_table, entry_size);
-+
- 	return 0;
- }
+ 	err = -ENOMEM;
+-	forw_hdr = register_net_sysctl_sz(net, "net/ipv4", tbl,
+-					  ARRAY_SIZE(ctl_forward_entry));
++	forw_hdr = register_net_sysctl(net, "net/ipv4", tbl, ctl_forward_entry);
+ 	if (!forw_hdr)
+ 		goto err_reg_ctl;
+ 	net->ipv4.forw_hdr = forw_hdr;
+diff --git a/net/ipv4/ip_fragment.c b/net/ipv4/ip_fragment.c
+index c790d2f494870e1debd7e73b2d67df017a29f8a8..122aae5b4a384c12db5786bc34314107b4794b63 100644
+--- a/net/ipv4/ip_fragment.c
++++ b/net/ipv4/ip_fragment.c
+@@ -604,8 +604,7 @@ static int __net_init ip4_frags_ns_ctl_register(struct net *net)
+ 	table[2].data	= &net->ipv4.fqdir->timeout;
+ 	table[3].data	= &net->ipv4.fqdir->max_dist;
+ 
+-	hdr = register_net_sysctl_sz(net, "net/ipv4", table,
+-				     ARRAY_SIZE(ip4_frags_ns_ctl_table));
++	hdr = register_net_sysctl(net, "net/ipv4", table, ip4_frags_ns_ctl_table);
+ 	if (!hdr)
+ 		goto err_reg;
+ 
+diff --git a/net/ipv4/xfrm4_policy.c b/net/ipv4/xfrm4_policy.c
+index ab7a01029d490416d36482f7a3189f83d6670f42..cdd69d31a2757b0a23d65fb4b7d6d7de97c08706 100644
+--- a/net/ipv4/xfrm4_policy.c
++++ b/net/ipv4/xfrm4_policy.c
+@@ -177,8 +177,7 @@ static __net_init int xfrm4_net_sysctl_init(struct net *net)
+ 			goto err_alloc;
+ 	}
+ 
+-	hdr = register_net_sysctl_sz(net, "net/ipv4", table,
+-				     ARRAY_SIZE(xfrm4_policy_table));
++	hdr = register_net_sysctl(net, "net/ipv4", table, xfrm4_policy_table);
+ 	if (!hdr)
+ 		goto err_reg;
+ 
+diff --git a/net/ipv6/netfilter/nf_conntrack_reasm.c b/net/ipv6/netfilter/nf_conntrack_reasm.c
+index 599c49bf0a0afd5054e926a5f2b1f0677bcd8b4d..09c98f2b9c3a04f622b232987dbc6a72f41238b4 100644
+--- a/net/ipv6/netfilter/nf_conntrack_reasm.c
++++ b/net/ipv6/netfilter/nf_conntrack_reasm.c
+@@ -86,8 +86,8 @@ static int nf_ct_frag6_sysctl_register(struct net *net)
+ 	table[2].data	= &nf_frag->fqdir->high_thresh;
+ 	table[2].extra1	= &nf_frag->fqdir->low_thresh;
+ 
+-	hdr = register_net_sysctl_sz(net, "net/netfilter", table,
+-				     ARRAY_SIZE(nf_ct_frag6_sysctl_table));
++	hdr = register_net_sysctl(net, "net/netfilter", table,
++				  nf_ct_frag6_sysctl_table);
+ 	if (hdr == NULL)
+ 		goto err_reg;
+ 
+diff --git a/net/ipv6/reassembly.c b/net/ipv6/reassembly.c
+index 05c51f669754a1a10e944bb7c4433565bcaacb40..372c85b253fa1c2fe1f54765e2dea02f8ba047f9 100644
+--- a/net/ipv6/reassembly.c
++++ b/net/ipv6/reassembly.c
+@@ -471,8 +471,7 @@ static int __net_init ip6_frags_ns_sysctl_register(struct net *net)
+ 	table[1].extra2	= &net->ipv6.fqdir->high_thresh;
+ 	table[2].data	= &net->ipv6.fqdir->timeout;
+ 
+-	hdr = register_net_sysctl_sz(net, "net/ipv6", table,
+-				     ARRAY_SIZE(ip6_frags_ns_ctl_table));
++	hdr = register_net_sysctl(net, "net/ipv6", table, ip6_frags_ns_ctl_table);
+ 	if (!hdr)
+ 		goto err_reg;
+ 
+diff --git a/net/ipv6/xfrm6_policy.c b/net/ipv6/xfrm6_policy.c
+index 5ec063cb4aa4378e70fff002dd03abf2029b247f..1c5a0ba14a7d03542d0691ea4c0f6a60443c20f6 100644
+--- a/net/ipv6/xfrm6_policy.c
++++ b/net/ipv6/xfrm6_policy.c
+@@ -223,8 +223,7 @@ static int __net_init xfrm6_net_sysctl_init(struct net *net)
+ 			goto err_alloc;
+ 	}
+ 
+-	hdr = register_net_sysctl_sz(net, "net/ipv6", table,
+-				     ARRAY_SIZE(xfrm6_policy_table));
++	hdr = register_net_sysctl(net, "net/ipv6", table, xfrm6_policy_table);
+ 	if (!hdr)
+ 		goto err_reg;
+ 
+diff --git a/net/mptcp/ctrl.c b/net/mptcp/ctrl.c
+index 63c5747f0f63cf75e516f68ac6cdde5ba5522278..df87f20f72ab86506b69ea40b403002ebf828348 100644
+--- a/net/mptcp/ctrl.c
++++ b/net/mptcp/ctrl.c
+@@ -406,8 +406,7 @@ static int mptcp_pernet_new_table(struct net *net, struct mptcp_pernet *pernet)
+ 	/* table[12] is for available_path_managers which is read-only info */
+ 	table[13].data = &pernet->add_addr_v6_port_drop_ts;
+ 
+-	hdr = register_net_sysctl_sz(net, MPTCP_SYSCTL_PATH, table,
+-				     ARRAY_SIZE(mptcp_sysctl_table));
++	hdr = register_net_sysctl(net, MPTCP_SYSCTL_PATH, table, mptcp_sysctl_table);
+ 	if (!hdr)
+ 		goto err_reg;
+ 
+diff --git a/net/netfilter/ipvs/ip_vs_ctl.c b/net/netfilter/ipvs/ip_vs_ctl.c
+index 4c1c739446b76ea455dab2958a844d05e31a46a7..c65ccdebc285926ed993aeddc21d17b0e2cbef40 100644
+--- a/net/netfilter/ipvs/ip_vs_ctl.c
++++ b/net/netfilter/ipvs/ip_vs_ctl.c
+@@ -5048,7 +5048,6 @@ static int __net_init ip_vs_control_net_init_sysctl(struct netns_ipvs *ipvs)
+ 	struct net *net = ipvs->net;
+ 	struct ctl_table *tbl;
+ 	int idx, ret;
+-	size_t ctl_table_size = ARRAY_SIZE(vs_vars);
+ 	bool unpriv = net->user_ns != &init_user_ns;
+ 
+ 	atomic_set(&ipvs->dropentry, 0);
+@@ -5166,8 +5165,7 @@ static int __net_init ip_vs_control_net_init_sysctl(struct netns_ipvs *ipvs)
+ #endif
+ 
+ 	ret = -ENOMEM;
+-	ipvs->sysctl_hdr = register_net_sysctl_sz(net, "net/ipv4/vs", tbl,
+-						  ctl_table_size);
++	ipvs->sysctl_hdr = register_net_sysctl(net, "net/ipv4/vs", tbl, vs_vars);
+ 	if (!ipvs->sysctl_hdr)
+ 		goto err;
+ 	ipvs->sysctl_tbl = tbl;
+diff --git a/net/netfilter/nf_conntrack_standalone.c b/net/netfilter/nf_conntrack_standalone.c
+index f4f2d82192d54ed9831b9677743f1139820e5a2e..a2f70cf4cd665e55f8e182bdf45da89b39434e11 100644
+--- a/net/netfilter/nf_conntrack_standalone.c
++++ b/net/netfilter/nf_conntrack_standalone.c
+@@ -1043,9 +1043,8 @@ static int nf_conntrack_standalone_init_sysctl(struct net *net)
+ 		table[NF_SYSCTL_CT_BUCKETS].mode = 0444;
+ 	}
+ 
+-	cnet->sysctl_header = register_net_sysctl_sz(net, "net/netfilter",
+-						     table,
+-						     ARRAY_SIZE(nf_ct_sysctl_table));
++	cnet->sysctl_header = register_net_sysctl(net, "net/netfilter", table,
++						  nf_ct_sysctl_table);
+ 	if (!cnet->sysctl_header)
+ 		goto out_unregister_netfilter;
+ 
+diff --git a/net/rds/tcp.c b/net/rds/tcp.c
+index b263634ac750d204a0d5726db6abe04023aa9c17..37fadb675faddf8e21f0aac04b96985ce3709bff 100644
+--- a/net/rds/tcp.c
++++ b/net/rds/tcp.c
+@@ -588,8 +588,8 @@ static __net_init int rds_tcp_init_net(struct net *net)
+ 	}
+ 	tbl[RDS_TCP_SNDBUF].data = &rtn->sndbuf_size;
+ 	tbl[RDS_TCP_RCVBUF].data = &rtn->rcvbuf_size;
+-	rtn->rds_tcp_sysctl = register_net_sysctl_sz(net, "net/rds/tcp", tbl,
+-						     ARRAY_SIZE(rds_tcp_sysctl_table));
++	rtn->rds_tcp_sysctl = register_net_sysctl(net, "net/rds/tcp", tbl,
++						  rds_tcp_sysctl_table);
+ 	if (!rtn->rds_tcp_sysctl) {
+ 		pr_warn("could not register sysctl\n");
+ 		err = -ENOMEM;
+diff --git a/net/unix/sysctl_net_unix.c b/net/unix/sysctl_net_unix.c
+index 47660d5726bbd7d812762f4feffa9a0a42499d7d..6d3d8d6905ace1c1b022951fab9b3f26c4a87c0a 100644
+--- a/net/unix/sysctl_net_unix.c
++++ b/net/unix/sysctl_net_unix.c
+@@ -48,8 +48,7 @@ int __net_init unix_sysctl_register(struct net *net)
+ 			goto err_alloc;
+ 	}
+ 
+-	net->unx.ctl = register_net_sysctl_sz(net, "net/unix", table,
+-					      ARRAY_SIZE(unix_table));
++	net->unx.ctl = register_net_sysctl(net, "net/unix", table, unix_table);
+ 	if (net->unx.ctl == NULL)
+ 		goto err_reg;
+ 
+diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
+index caebef73ea58d2b6043ca3fe3b6872f92fbe9fa6..b1fe08249050e95d4c945a8b670f21d5c444ebf4 100644
+--- a/net/vmw_vsock/af_vsock.c
++++ b/net/vmw_vsock/af_vsock.c
+@@ -2952,8 +2952,8 @@ static int __net_init vsock_sysctl_register(struct net *net)
+ 			goto err_alloc;
+ 	}
+ 
+-	net->vsock.sysctl_hdr = register_net_sysctl_sz(net, "net/vsock", table,
+-						       ARRAY_SIZE(vsock_table));
++	net->vsock.sysctl_hdr = register_net_sysctl(net, "net/vsock", table,
++						    vsock_table);
+ 	if (!net->vsock.sysctl_hdr)
+ 		goto err_reg;
+ 
 
 -- 
 2.47.3
