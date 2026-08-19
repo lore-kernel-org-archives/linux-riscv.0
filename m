@@ -4,50 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14303C5DF88
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 18:16:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84793C5DF81
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 18:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z5GTKoNJrwBQxWihmxoz/iV5f7mLnKupJByrW1wALOg=; b=D66qo9tn0ZzaFW
-	IbeqbizNUNswlqp/D9Itl1OWjOV44gIHngGfvANK4I3Ly8BgD9OHorNPPsWvmB/gMSSRsKj7eH46s
-	P1xznC10KC1D6XKEpkE6KZL+pisOMBpDjFF9dTkYrINuAQCcPaKgAjvyJoNK6mUimctAo9yIHeepH
-	JVcE0JuPah6IKFeb9I/Vio8mHAu1dpx5IO3xzSCj+0K8V0GRtiPX+ujJaNUS4OdcmdLwhi26zL7R3
-	1+BGVz7UofzAgV7/oEZmB6S/T04Pi3A+/w/jaAivQbF8Z6EwM5EQSf3qn2M4333/Mopv6JvdiBj2j
-	KLRASPxnytjRTedhBV/g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lT3+rWN1AbI7iyoj85/vIymYNj+PTIX6KYgaIIfqOXI=; b=WJRktatOqTLkRP
+	abt7iyHVSpFq0XhfJWxLSL27A/Mt22BSxsYFLJcGjqIYIjMQgDzlTwUx8GWqx0VO4HrNa4FtAQkAW
+	Vqn7CTo1MQrsXFbVxlVRuVdJtiO/A3UEw411Qb9rdHbENXRnJ9baJ5Q8mQCZ6qUARC0TUAvCxqTSp
+	aWPzSkVJ8irrEBPgUPaaK1XS56zn+jwv/c6OjBslbWEgqonS866Bq4K9gLrUiFQ41fLVOu7KTv8cY
+	lxS/e7CPj8aW3OnXvOOTwnLG8F4S3MKCH97pvg7lUO0Y9OjxM6D3rhoOeqcMdehuTtMgG0Cwo772q
+	ICHGQ1fnLxCBqk4zRyFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkpv-0000000AKuW-1j7I;
-	Wed, 19 Aug 2026 18:16:27 +0000
+	id 1wwkpq-0000000AKsQ-0gtS;
+	Wed, 19 Aug 2026 18:16:22 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkps-0000000AKsZ-0sr3
+	id 1wwkph-0000000AKpg-0xLq
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 18:16:26 +0000
+	Wed, 19 Aug 2026 18:16:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=AtbmO4sa1oP/x2/XURayQU2LL3evZi0sG28P1WYB6lk=; b=GHUD+eSqTJFBG8gtCXuG49kvMx
-	4GJsACyzrHb3fWzJJY7y/D/5eq6nn/U3ZNu1Tka3B1PBHsDGsI2GaD0szzqcJ6iMMGqF8i5AgbjNj
-	tHleJ9w365Klk2yMAkuKzctw3WNTGzFMmCq0lvQNIURqsg8QEVE/j+wxXw7peByZjQX0Sblp8Dr1R
-	FmC/5GyNzCe7I6ZyPBx0xJeUmQjYZa/F3e6Zfn1mzVtaxLkonUNTYkDedCjGdhzQwZMUBVasfL2c7
-	C+prvWhkaEltCrnJ71Wo9H/CDjBVL047v+PgaYl29id1EUcy6Cb4GFfF1gvK0oqXI7Jctx49iqChA
-	3RpNymkg==;
+	s=20170329; h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Message-Id:Date:Subject:From:From:Reply-To;
+	bh=fdQkiyp3Qsqh2GCyFxM5saepTDceNMzdb1x19L1bJys=; b=j6B0Jy5s0l1rIqoAIFUFYRNw0A
+	O8zrKTcRNqYe8rdyon/tzyD/f+r40qZQ7xbPPGamCanY/2lKECgUFlsAbWuIiWsKJ1uNL7wtKRWk+
+	cPXGDEGxS3HvolMLPzNOY28Kvn6oRBQCJdkcQsttJeBjiMHhNAR5TCc275oy7UBPYFoxzvLCb2dsT
+	s+0Bni82WNohP8aBWozbNZO3ullR3nDwaNzrKvoTnob3s/xCOxd7ENU0zSyAh33ApHNg5CrkT0jyW
+	tx4C8qWCUjFsSc/ZqPM+8Cf3aly39EwR7qsWIcA1xwW4acnjRr5lLTbFLnksh8HBG1pzPaVoHK1Nr
+	wEee9tBw==;
 Received: from 186-249-147-181.shared.desktop.com.br ([186.249.147.181] helo=[127.0.1.1])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wwkpd-006ENH-64; Wed, 19 Aug 2026 20:16:09 +0200
+	id 1wwkpH-006ENH-4M; Wed, 19 Aug 2026 20:15:47 +0200
 From: Mauricio Faria de Oliveira <mfo@igalia.com>
-Date: Wed, 19 Aug 2026 15:16:16 -0300
-Subject: [PATCH RFC v3 03/13] sysctl, mod_devicetable: add macro
- MODULE_SYSCTL_TABLE
+Subject: [PATCH RFC v3 00/13] sysctl: add module aliases
+Date: Wed, 19 Aug 2026 15:16:13 -0300
+Message-Id: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
 MIME-Version: 1.0
-Message-Id: <20260819-sysctl-module-aliases-v3-3-aab90569365d@igalia.com>
-References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
-In-Reply-To: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
+X-B4-Tracking: v=1; b=H4sIAO3yhWoC/4WNQQqDMBBFryKzbkqSosauhEIP0G1xEc2oA2pKx
+ kpFvHtTL9Dl/4///gaMgZDhmmwQcCEmP8VwOSXQ9HbqUJCLGbTUmTTKCF65mQcxevceUNiBLCM
+ L3aZGqlphnSuI21fAlj6H9wmP+w2qWPbEsw/r8bXoA/3RLlpI4VKbFc5imhempO7Hzo0fodr3/
+ QtVQJ5iwAAAAA==
+X-Change-ID: 20260818-sysctl-module-aliases-2f5801b1eb71
 To: Kees Cook <kees@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
  Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
@@ -65,8 +67,8 @@ Cc: kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
  virtualization@lists.linux.dev, Mauricio Faria de Oliveira <mfo@igalia.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_111624_266847_6D22DBEA 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260819_111615_328013_57D8AFE6 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,110 +85,261 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The MODULE_SYSCTL_TABLE macro emits a struct module_sysctl_table variable
-with pointers to a sysctl table's path and entries, and table/entry sizes.
+This series adds 'sysctl:' aliases to modules that register sysctl tables; e.g.:
 
-That symbol will be handled by file2alias.c (modpost) with the changes in
-mod_devicetable.h and devicetable-offsets.c.
+        $ modinfo ./mpls_router.ko  | grep sysctl:
+        alias:          sysctl:*/net/mpls/conf/*/input
+        alias:          sysctl:*/net/mpls/default_ttl
+        alias:          sysctl:*/net/mpls/ip_ttl_propagate
+        alias:          sysctl:*/net/mpls/platform_labels
 
-The option macros MODULE_SYSCTL_TABLE_{DISABLE,UNIQUE_ID} can be used on
-a per-file basis to disable the macro and change the symbol name pattern.
+It provides a trivial way to map /proc/sys files to modules (not trivial today),
+and for userspace to handle nonexistent /proc/sys files (e.g., procps's sysctl
+and systemd-sysctl applying tunables) with "modprobe sysctl:<...>" and a retry.
+
+This is done almost automatically with register_sysctl(), register_net_sysctl()
+and friends as wrappers of MODULE_SYSCTL_TABLE (similar to MODULE_DEVICE_TABLE),
+which emits symbols for file2alias/modpost to find and parse the sysctl tables.
+
+The big exception to 'almost' are sysctl tables and paths allocated or defined
+at runtime (e.g., per-namespace or per-device), as all information is required
+at build-time. Fortunately, such tables and paths are often based on 'templates'
+which are static and can be used.
+
+This is done by plumbing the template table/path as optional arguments (macros
+with default values as default_gfp()), so not to create functions for all cases:
+
+        register_sysctl(path, table [, table_tmpl [, path_tmpl]]);
+        register_net_sysctl(net, path, table [, table_tmpl[, path_tmpl]]);
+        register_net_sysctl_sz(net, path, table, size [, table_tmpl[, path_tmpl]]);
+
+In this series:
+- Patch 1 prevents a build error later.
+- Patch 2 adds CONFIG_SYSCTL_MODULE_ALIASES.
+- Patch 3 adds MODULE_SYSCTL_TABLE().
+- Patches 4-5 add register_sysctl() wrapper and update some callers.
+- Patches 6-10 add register_net_sysctl[_sz]() wrappers and update some callers.
+- Patches 11-13 add file2alias support.
+
+Not all maintainers/reviewers (specially for the many changes in net/) are
+in To/Cc in respect of their time, as this RFC probably needs more general
+and earlier feedback before settling on specific changes for their review.
+All lists are included for visibility, though.
+
+Example
+=======
+
+To put it all together, 'mpls_router.ko' (used above) from 'net/mpls/af_mpls.c':
+        
+- Tables:
+
+        static const struct ctl_table mpls_table[] = {
+                {
+                        .procname       = "platform_labels",
+                ...
+                        .procname       = "ip_ttl_propagate",
+                ...
+                        .procname       = "default_ttl",
+                },
+        };
+        
+        static const struct ctl_table mpls_dev_table[] = {
+                {
+                        .procname       = "input",
+                ...
+                },
+        };
+
+- Registration:
+
+        net->mpls.ctl = register_net_sysctl_sz(net, "net/mpls", table,
+                                               table_size, mpls_table);
+
+        #define path_template "net/mpls/conf/%s"
+        ...
+        mdev->sysctl = register_net_sysctl_sz(net, path, table, table_size,
+                                              mpls_dev_table, path_template);
+
+- Symbols:
+
+        $ objdump -t net/mpls/mpls_router.ko \
+          | grep '__mod_device_table__.*__sysctl__'
+        0000000000000900 l     O .data  0000000000000018
+                __mod_device_table__kmod_mpls_router__sysctl__mpls_table.177
+        0000000000000940 l     O .data  0000000000000018
+                __mod_device_table__kmod_mpls_router__sysctl__mpls_dev_table.174
+
+- file2alias:
+
+        $ grep '^MODULE_ALIAS("sysctl:' net/mpls/mpls_router.mod.c
+        MODULE_ALIAS("sysctl:*/net/mpls/platform_labels");
+        MODULE_ALIAS("sysctl:*/net/mpls/ip_ttl_propagate");
+        MODULE_ALIAS("sysctl:*/net/mpls/default_ttl");
+        MODULE_ALIAS("sysctl:*/net/mpls/conf/*/input");
+
+- modinfo:
+
+        $ modinfo ./mpls_router.ko  | grep sysctl:
+        alias:          sysctl:*/net/mpls/conf/*/input
+        alias:          sysctl:*/net/mpls/default_ttl
+        alias:          sysctl:*/net/mpls/ip_ttl_propagate
+        alias:          sysctl:*/net/mpls/platform_labels
+
+Testing
+=======
+
+Configurations:
+- allmodconfig with the option enabled (check for 'MODULE_ALIAS("sysctl:' lines)
+- allmodconfig with the option disabled (check for code errors)
+- allyesconfig with the option enabled (check for include errors)
+
+Architectures (test different bitness, endianness, and ELF handling)
+- x86_64, i386
+- arm, arm64
+- arc
+- alpha
+- loongarch
+- m68k
+- mips(64)(el)
+- parisc(64)
+- powerpc(64(le))
+- riscv
+- sparc64
+- s390
+
+The resulting '.mod.c' files of allmodconfig with the option enabled was checked
+for consistency across all architectures, and that the new aliases lines are the
+difference to allmodconfig with the option disabled.
+
+Disabling
+=========
+
+- Per-call:
+
+  Use 'register_sysctl_sz()' or '__register_net_sysctl_sz()' directly.
+
+- Per-file:
+
+  Use '#define SYSCTL_MODULE_ALIASES_DISABLE'.
+
+- System-wide:
+
+  Maybe something along these lines:
+
+        # cat /etc/modprobe.d/no-sysctl.conf
+        alias sysctl:* no-sysctl
+        install no-sysctl /bin/false
+
+        # modinfo -F name sysctl:/proc/net/mpls/default_ttl
+        mpls_router
+
+        # modprobe sysctl:/proc/net/mpls/default_ttl
+        modprobe: ERROR: Error running install command '/bin/false' for module no_sysctl: retcode 1
+        modprobe: ERROR: could not insert 'no_sysctl': Invalid argument
+
+P.S.
+====
+
+I wrote proof-of-concept patches for procps sysctl and systemd-sysctl some time
+ago, which worked as expected, i.e., successfully set sysctl tunables which did
+not exist in /proc/sys, by running 'modprobe sysctl:/proc/sys/...' and retrying.
+
+Should this series eventually be merged, the patches will be submitted upstream
+as well, for userspace to start consuming it.
 
 Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
+
+Changes in v3:
+- All issues were reported by sashiko-bot@kernel.org.
+- Tested allmodconfig with option enabled on x86_64.
+- Patch 2:
+  - Fix typo ('s/options/option/').
+- Patch 3:
+  - Fix usage of __UNIQUE_ID().
+  - Add __must_be_array() in MODULE_SYSCTL_TABLE().
+- Patch 4:
+  - Remove trailing backslash in register_sysctl().
+- Patch 6:
+  - Fix missing __register_net_sysctl_sz() in !CONFIG_SYSCTL.
+- Patch 13:
+  - Fix potential out-of-bounds read in do_sysctl_entry().
+  - Add check for entry size of zero.
+- Link to v2: https://lore.kernel.org/r/20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com
+
+Changes in v2:
+- This is based on the series submitted 4 years ago,
+  with Originally-by: tags added in related patches.
+- Link to v1: https://lore.kernel.org/linux-fsdevel/20220722022416.137548-1-mfo@canonical.com/
+
 ---
- include/linux/mod_devicetable.h   |  7 +++++++
- include/linux/sysctl.h            | 42 +++++++++++++++++++++++++++++++++++++++
- scripts/mod/devicetable-offsets.c |  6 ++++++
- 3 files changed, 55 insertions(+)
+Mauricio Faria de Oliveira (13):
+      keys, pidns, fs/verity, riscv/vector: reorder '#include <linux/sysctl.h>'
+      proc: add config option SYSCTL_MODULE_ALIASES
+      sysctl, mod_devicetable: add macro MODULE_SYSCTL_TABLE
+      sysctl: add register_sysctl() wrapper for MODULE_SYSCTL_TABLE
+      sysctl, parport: update register_sysctl() callers with template arguments
+      sysctl, net: add register_net_sysctl{_sz}() wrappers for MODULE_SYSCTL_TABLE
+      sysctl, net: update register_net_sysctl{_sz}() callers with template arguments
+      sysctl, net: update register_net_sysctl_sz(ARRAY_SIZE(table_tmpl)) with template arguments
+      sysctl, ipv6: update register_net_sysctl{_sz}() callers with template arguments
+      sysctl, net: update register_net_sysctl_sz() edge case
+      sysctl: unrandomize struct ctl_table.procname
+      modpost: move addend_*_rel() calls into addend_rel()
+      modpost: handle MODULE_SYSCTL_TABLE symbols
 
-diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-index a397213bedace6e81ac600691b3b50ae0f88356b..818a4a53448dba2088e3dbd1ef2c2d4dbb190fcc 100644
---- a/include/linux/mod_devicetable.h
-+++ b/include/linux/mod_devicetable.h
-@@ -78,4 +78,11 @@ struct cpu_feature {
- 	__u16	feature;
- };
- 
-+struct module_sysctl_table {
-+	kernel_ulong_t path;
-+	kernel_ulong_t table;
-+	__u16 table_size;
-+	__u16 entry_size;
-+};
-+
- #endif /* LINUX_MOD_DEVICETABLE_H */
-diff --git a/include/linux/sysctl.h b/include/linux/sysctl.h
-index e5d7226ab6f5af34a33829883ad5d1b405e19c86..0adc056ff54d895500c376361fe966bfa5126a3e 100644
---- a/include/linux/sysctl.h
-+++ b/include/linux/sysctl.h
-@@ -293,6 +293,48 @@ struct ctl_table_root {
- 	int (*permissions)(struct ctl_table_header *head, const struct ctl_table *table);
- };
- 
-+/*
-+ * Creates a symbol so file2alias.c can find the sysctl table.
-+ *
-+ * MODULE_SYSCTL_TABLE() is the sysctl equivalent of MODULE_DEVICE_TABLE(),
-+ * with pointers to a sysctl table's path and entries, and table/entry sizes.
-+ *
-+ * The parameters 'path' and 'table' must be static (e.g., string literal or
-+ * static char[]; static struct ctl_table[]) as both are used as initializer
-+ * elements for a static struct variable.
-+ *
-+ * The generated symbol name contains 'table' by default. However, if 'table'
-+ * is a struct field (contains '.' or '->'), in order to avoid syntax errors,
-+ * define the macro SYSCTL_MODULE_ALIASES_UNIQUE_ID.
-+ *
-+ * Define the macro SYSCTL_MODULE_ALIASES_DISABLE to disable this.
-+ */
-+#if defined(CONFIG_SYSCTL_MODULE_ALIASES) && defined(MODULE) &&			\
-+    !defined(SYSCTL_MODULE_ALIASES_DISABLE)
-+
-+#include <linux/module.h>
-+#include <linux/mod_devicetable.h>
-+
-+#if defined(SYSCTL_MODULE_ALIASES_UNIQUE_ID)
-+#define __MODULE_SYSCTL_TABLE_NAME(table)					\
-+	__mod_device_table(sysctl, __UNIQUE_ID(sysctl))
-+#else
-+#define __MODULE_SYSCTL_TABLE_NAME(table)					\
-+	__mod_device_table(sysctl, table)
-+#endif
-+
-+#define MODULE_SYSCTL_TABLE(path, table)					\
-+	static struct module_sysctl_table __used				\
-+		__MODULE_SYSCTL_TABLE_NAME(table) = {				\
-+			(kernel_ulong_t) path,					\
-+			(kernel_ulong_t) table,					\
-+			(u16) sizeof(table) + __must_be_array(table),		\
-+			(u16) sizeof(const struct ctl_table)			\
-+		}
-+#else
-+#define MODULE_SYSCTL_TABLE(path, table)
-+#endif
-+
- #define register_sysctl(path, table)	\
- 	register_sysctl_sz(path, table, ARRAY_SIZE(table))
- 
-diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
-index b4178c42d08f50dfaba4d50d5c1d48b8aff88db4..e3b8855e6ebcf8d16f486f71d62900584ee884b1 100644
---- a/scripts/mod/devicetable-offsets.c
-+++ b/scripts/mod/devicetable-offsets.c
-@@ -284,5 +284,11 @@ int main(void)
- 	DEVID(coreboot_device_id);
- 	DEVID_FIELD(coreboot_device_id, tag);
- 
-+	DEVID(module_sysctl_table);
-+	DEVID_FIELD(module_sysctl_table, path);
-+	DEVID_FIELD(module_sysctl_table, table);
-+	DEVID_FIELD(module_sysctl_table, table_size);
-+	DEVID_FIELD(module_sysctl_table, entry_size);
-+
- 	return 0;
- }
+ arch/riscv/kernel/vector.c              |   1 +
+ drivers/net/vrf.c                       |   3 +-
+ drivers/parport/procfs.c                |  26 +++-
+ fs/proc/Kconfig                         |  13 ++
+ fs/verity/init.c                        |   1 +
+ include/linux/key.h                     |   1 -
+ include/linux/mod_devicetable.h         |   7 +
+ include/linux/pid_namespace.h           |   1 +
+ include/linux/sysctl.h                  | 110 ++++++++++++++-
+ include/net/ipv6.h                      |   6 +-
+ include/net/net_namespace.h             |  47 ++++++-
+ net/bridge/br_netfilter_hooks.c         |   3 +-
+ net/core/neighbour.c                    |  11 +-
+ net/core/sysctl_net_core.c              |   3 +-
+ net/ieee802154/6lowpan/reassembly.c     |   2 +-
+ net/ipv4/devinet.c                      |  12 +-
+ net/ipv4/ip_fragment.c                  |   3 +-
+ net/ipv4/route.c                        |   3 +-
+ net/ipv4/sysctl_net_ipv4.c              |   2 +-
+ net/ipv4/xfrm4_policy.c                 |   3 +-
+ net/ipv6/addrconf.c                     |   7 +-
+ net/ipv6/icmp.c                         |   6 +-
+ net/ipv6/netfilter/nf_conntrack_reasm.c |   4 +-
+ net/ipv6/reassembly.c                   |   3 +-
+ net/ipv6/route.c                        |  10 +-
+ net/ipv6/sysctl_net_ipv6.c              |  13 +-
+ net/ipv6/xfrm6_policy.c                 |   3 +-
+ net/mpls/af_mpls.c                      |   9 +-
+ net/mptcp/ctrl.c                        |   3 +-
+ net/netfilter/ipvs/ip_vs_ctl.c          |   4 +-
+ net/netfilter/ipvs/ip_vs_lblc.c         |   3 +-
+ net/netfilter/ipvs/ip_vs_lblcr.c        |   3 +-
+ net/netfilter/nf_conntrack_standalone.c |   5 +-
+ net/netfilter/nf_log.c                  |   9 +-
+ net/rds/tcp.c                           |   4 +-
+ net/sctp/sysctl.c                       |   3 +-
+ net/smc/smc_sysctl.c                    |   2 +-
+ net/sysctl_net.c                        |  10 +-
+ net/unix/sysctl_net_unix.c              |   3 +-
+ net/vmw_vsock/af_vsock.c                |   4 +-
+ net/xfrm/xfrm_sysctl.c                  |   2 +-
+ scripts/mod/devicetable-offsets.c       |   6 +
+ scripts/mod/file2alias.c                | 237 ++++++++++++++++++++++++++++++++
+ scripts/mod/modpost.c                   |  46 ++++---
+ scripts/mod/modpost.h                   |  25 ++++
+ 45 files changed, 575 insertions(+), 107 deletions(-)
+---
+base-commit: 2697ef8943c9985c14708a6429e21812693857b2
+change-id: 20260818-sysctl-module-aliases-2f5801b1eb71
 
+Best regards,
 -- 
-2.47.3
+Mauricio Faria de Oliveira <mfo@igalia.com>
 
 
 _______________________________________________
