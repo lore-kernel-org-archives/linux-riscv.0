@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FDCDC5DF7D
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 02:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDF6C5DF81
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 02:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lkoDvtdhUwid/X3+iaDZKvhoF+ioHUWp+YKDoj35xQQ=; b=W9Khw03MEwEdl4
-	7fenZAMFILnZNII7XFLRcKfArpjqVEKTLzm83KWSNYBRoI36UTNSwt9Pb7c2xMLbg8CDYrRnsEeLy
-	esm6yiNRCovqsRmHMX1EN5HRX/dfzw2lJp6qSjp1jaPvnOXjNS+HL5nE1B9cOn/79ukILy/Gw5hjZ
-	dAJjHH2m2VzfAzEwRxzZ8hzSjXn4pmQbztCGEKQZLhdhsGbbaSzD9ZiAh3xONPb4+JoHVQJA0i/57
-	vEAqU99upopOpyjHfvWtm1wOqGKCmfqJREBWszlQVnSrJa+bG64Trbnkk5/aY8U7HwPAnsRxC1Ekr
-	x6nHIbTqtWdkN4RQ3N/g==;
+	List-Owner; bh=w6G6EUwTOuRcOGTdkedA7CKVgg3ukw36HRZCYEOeVwk=; b=rel6AcV1Wk1weZ
+	QhDHqMDW4pAgs+4rKZztlaK2uZ48HVq1ltRubUaLd6Tx7Xk4Y741ffXlqtsvAAmT0dRpWrLrv9xul
+	bGEfFe6LZDKEMSgT40rPC/MhOA5UBDCjKo4JnXmdHYqQPbgUma8bbfeWBXwbOC84HnrAY9+UJ3PyM
+	a3T1u/lrrWPSMkxGEIKjFtGJoUnb+wS+2R0FSruXLzVFXvc4BzJUfC0dN60sM6997F1CO7uJiyEWI
+	VXjOwU089BUbCQXhXEb8IMNMngVl6A62SmUmOQiXbmPzlG3hNtKNb/64631YfJWUYYAGOegPaLdFD
+	m68TKWDQYodgntxgJX3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwW4G-00000008sRJ-0DhH;
-	Wed, 19 Aug 2026 02:30:18 +0000
+	id 1wwW4U-00000008sa5-0vST;
+	Wed, 19 Aug 2026 02:30:30 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwW4C-00000008sOE-1COQ
+	id 1wwW4J-00000008sRN-1Qix
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 02:30:14 +0000
+	Wed, 19 Aug 2026 02:30:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=JxjRhJ2z8K0GvxyVrmaAYfCElgRxeZGrAv21+ElqaE4=; b=KCSNnzlH7WW2uHebELEkI9D3mx
-	wmFxgNFJZaGBJMPOJonDX3s8XGQCgmdDpBs3uNMTurfuP8O0TY6cyF5jHYPfJm5mcwDHJeyY+hi0s
-	ikJ07LGeBqEPE85gz4EDS/ffIRUssPl1h5WP+ReKkx+XWTSSOBtTcS8Edc92vzF4zp6LEIgu2+OPW
-	QmXnydsWCWxKtBzAxiGD7xDhU6Pb6J57WDSlLMdD6Z8avCevz2f1qbu1CtT5i9Z5pDgwumD9gVmfu
-	xlgdUvKkMqozthYYuugheU5F42FKImsBBcwSJ5teKqAY0qaPtNWolcu0bFXJwUCepaFAc5dJERxfC
-	Aerc4tdw==;
+	bh=IuE38fL6h7PEmzt/UNWdPfgVu72Lk4CiXzTD+qO+pWo=; b=GNwOgvD1AZmUImC0F5BHb4J4CH
+	J4W97Eo0NkLvb5hoXYMflby0Bjo1H2wBsJFdmKWDTh869qriEPgapAimR58yHbMEIt8eAU8WIdMFD
+	Beq0RuAkALqd6jSDkwAmeC9JafZ037OIGKKfczG4HnQqy0lP8dLDffdZ9n7Ooc+wmWeKZF7rdicud
+	keGSVF7hEkO2GLVq7tToxxmSj/Aq6vkBYY4UvPxBmpZTbjlyekrRFJC5axfOKE3VLoF40QnFI31Aq
+	nvlFuRiaeB/SLm0R1MVCeEVWlvSFEW6CkHiRr7MqI+ah6buGMEfc6jhXXFHXKHmiWazlZai3FLQ77
+	Pr1VBPQg==;
 Received: from 186-249-144-28.shared.desktop.com.br ([186.249.144.28] helo=[127.0.1.1])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wwW43-005tfG-Ti; Wed, 19 Aug 2026 04:30:04 +0200
+	id 1wwW4B-005tfG-0q; Wed, 19 Aug 2026 04:30:11 +0200
 From: Mauricio Faria de Oliveira <mfo@igalia.com>
-Date: Tue, 18 Aug 2026 23:28:08 -0300
-Subject: [PATCH RFC v2 09/13] sysctl, ipv6: update
- register_net_sysctl{_sz}() callers with template arguments
+Date: Tue, 18 Aug 2026 23:28:09 -0300
+Subject: [PATCH RFC v2 10/13] sysctl, net: update register_net_sysctl_sz()
+ edge case
 MIME-Version: 1.0
-Message-Id: <20260818-sysctl-module-aliases-v2-9-d5a69dae5798@igalia.com>
+Message-Id: <20260818-sysctl-module-aliases-v2-10-d5a69dae5798@igalia.com>
 References: <20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com>
 In-Reply-To: <20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com>
 To: Kees Cook <kees@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
@@ -65,8 +65,9 @@ Cc: kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
  virtualization@lists.linux.dev, Mauricio Faria de Oliveira <mfo@igalia.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_193013_497566_B3307088 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260818_193019_432080_2FF7C7E7 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,103 +84,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The sysctl table definition and registration must be in the same file,
-in order for the macro to work.
+Handle the last (edge) case:
+- nf_log.c: ignore sysctl table with template set at run-time.
 
-Add plumbing to register ipv6_{route,icmp}_table in their own files.
-With this, ipv6_{route,icmp}_sysctl_table_size() can be removed.
+And re-enable the macro.
 
 Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
 ---
- include/net/ipv6.h         |  6 ++++--
- net/ipv6/icmp.c            |  6 ++++--
- net/ipv6/route.c           | 10 +++++++---
- net/ipv6/sysctl_net_ipv6.c | 10 ++--------
- 4 files changed, 17 insertions(+), 15 deletions(-)
+ include/linux/sysctl.h | 3 ---
+ net/netfilter/nf_log.c | 9 +++++----
+ 2 files changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/include/net/ipv6.h b/include/net/ipv6.h
-index 3de07e738538f783e0fb4628c92ce50a7e36f9f5..29a095798abe8f5730ab0a046931ebf78f481bdf 100644
---- a/include/net/ipv6.h
-+++ b/include/net/ipv6.h
-@@ -1220,9 +1220,11 @@ static inline int snmp6_unregister_dev(struct inet6_dev *idev) { return 0; }
+diff --git a/include/linux/sysctl.h b/include/linux/sysctl.h
+index 9e00a086ff1d47ab18021b3d79b0e8a93037cb2d..7e05fafd5544e1c4a3283dc13b0692f39515d01e 100644
+--- a/include/linux/sysctl.h
++++ b/include/linux/sysctl.h
+@@ -309,9 +309,6 @@ struct ctl_table_root {
+  *
+  * Define the macro SYSCTL_MODULE_ALIASES_DISABLE to disable this.
+  */
+-
+-#define SYSCTL_MODULE_ALIASES_DISABLE
+-
+ #if defined(CONFIG_SYSCTL_MODULE_ALIASES) && defined(MODULE) &&			\
+     !defined(SYSCTL_MODULE_ALIASES_DISABLE)
  
- #ifdef CONFIG_SYSCTL
- struct ctl_table *ipv6_icmp_sysctl_init(struct net *net);
--size_t ipv6_icmp_sysctl_table_size(void);
-+struct ctl_table_header *ipv6_icmp_sysctl_register(struct net *net,
-+						   const struct ctl_table *table);
- struct ctl_table *ipv6_route_sysctl_init(struct net *net);
--size_t ipv6_route_sysctl_table_size(struct net *net);
-+struct ctl_table_header *ipv6_route_sysctl_register(struct net *net,
-+						    const struct ctl_table *table);
- int ipv6_sysctl_register(void);
- void ipv6_sysctl_unregister(void);
- #endif
-diff --git a/net/ipv6/icmp.c b/net/ipv6/icmp.c
-index a95b0351824f3237815e43bf8448110070955884..bb170b8c867c3c6eaccc41aab8ab1c65eb0aa24b 100644
---- a/net/ipv6/icmp.c
-+++ b/net/ipv6/icmp.c
-@@ -1450,8 +1450,10 @@ struct ctl_table * __net_init ipv6_icmp_sysctl_init(struct net *net)
- 	return table;
- }
+diff --git a/net/netfilter/nf_log.c b/net/netfilter/nf_log.c
+index f4d80654dfe6ab6abd886e224f400e4444bcd29b..ed4a5a6b8d95b82676397f6747ef5d988c9060ea 100644
+--- a/net/netfilter/nf_log.c
++++ b/net/netfilter/nf_log.c
+@@ -518,10 +518,11 @@ static int netfilter_log_sysctl_init(struct net *net)
+ 	for (i = NFPROTO_UNSPEC; i < NFPROTO_NUMPROTO; i++)
+ 		table[i].extra2 = net;
  
--size_t ipv6_icmp_sysctl_table_size(void)
-+struct ctl_table_header *ipv6_icmp_sysctl_register(struct net *net,
-+						   const struct ctl_table *table)
- {
--	return ARRAY_SIZE(ipv6_icmp_table_template);
-+	return register_net_sysctl(net, "net/ipv6/icmp", table,
-+				   ipv6_icmp_table_template);
- }
- #endif
-diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 16dfac54a259a11410ba736535f0462070979276..9e3f849d3564f4312d7b64157471f50c8168aafd 100644
---- a/net/ipv6/route.c
-+++ b/net/ipv6/route.c
-@@ -6698,13 +6698,17 @@ struct ctl_table * __net_init ipv6_route_sysctl_init(struct net *net)
- 	return table;
- }
- 
--size_t ipv6_route_sysctl_table_size(struct net *net)
-+struct ctl_table_header *ipv6_route_sysctl_register(struct net *net,
-+						    const struct ctl_table *table)
- {
-+	size_t table_size = ARRAY_SIZE(ipv6_route_table_template);
-+
- 	/* Don't export sysctls to unprivileged users */
- 	if (net->user_ns != &init_user_ns)
--		return 1;
-+		table_size = 1;
- 
--	return ARRAY_SIZE(ipv6_route_table_template);
-+	return register_net_sysctl_sz(net, "net/ipv6/route", table,
-+				      table_size, ipv6_route_table_template);
- }
- #endif
- 
-diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
-index 75ba17cb7c0ccb4769d61e74220c75d0b3e2bcd9..88138fbd42b85d54d00cd15dfd7d6848ebabd607 100644
---- a/net/ipv6/sysctl_net_ipv6.c
-+++ b/net/ipv6/sysctl_net_ipv6.c
-@@ -280,17 +280,11 @@ static int __net_init ipv6_sysctl_net_init(struct net *net)
- 	if (!net->ipv6.sysctl.hdr)
- 		goto out_ipv6_icmp_table;
- 
--	net->ipv6.sysctl.route_hdr = register_net_sysctl_sz(net,
--							    "net/ipv6/route",
--							    ipv6_route_table,
--							    ipv6_route_sysctl_table_size(net));
-+	net->ipv6.sysctl.route_hdr = ipv6_route_sysctl_register(net, ipv6_route_table);
- 	if (!net->ipv6.sysctl.route_hdr)
- 		goto out_unregister_ipv6_table;
- 
--	net->ipv6.sysctl.icmp_hdr = register_net_sysctl_sz(net,
--							   "net/ipv6/icmp",
--							   ipv6_icmp_table,
--							   ipv6_icmp_sysctl_table_size());
-+	net->ipv6.sysctl.icmp_hdr = ipv6_icmp_sysctl_register(net, ipv6_icmp_table);
- 	if (!net->ipv6.sysctl.icmp_hdr)
- 		goto out_unregister_route_table;
+-	net->nf.nf_log_dir_header = register_net_sysctl_sz(net,
+-							   "net/netfilter/nf_log",
+-							   table,
+-							   ARRAY_SIZE(nf_log_sysctl_table));
++	/* MODULE_SYSCTL_TABLE(): template table's .procname set at run-time. */
++	net->nf.nf_log_dir_header = __register_net_sysctl_sz(net,
++							     "net/netfilter/nf_log",
++							     table,
++							     ARRAY_SIZE(nf_log_sysctl_table));
+ 	if (!net->nf.nf_log_dir_header)
+ 		goto err_reg;
  
 
 -- 
