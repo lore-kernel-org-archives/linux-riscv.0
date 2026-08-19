@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0040CC5DF85
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 16:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C6B6C5DF85
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 16:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qNMHECatl5WJbNxOSAt07c44DLakRJAc5z6sN5RC5mA=; b=v+wmw8dnEdpCLi
-	NTcKUvXu6fvX1yjPAWY8ykNUjCxEBSMPyk6EG5nlwK7IpmAvLlLySPkgjyTO/gM0rOOpwMW9pgRpw
-	qVuDju+gUmEXFwVe6VPG3u4f2KicyRWQzMf5KdZT6nVxtgXjpEwQXjaRP1Vkq0Ia50CnV1kFLxk6i
-	ZtY+r8mar4EVB071y7PjWUyQ2JADZ+5TGOS0FMPzM4ga7NGy0yuHPjWQoACw0lyZvYp6QmB8W5Mn7
-	Qq0BWb5MnDrOiZ+fNUgISgOFJDlTGyeZnI9chYZwdtBjny0FMn1aLJY54nG7efokrtowZR9P7yUHQ
-	6BoOgS/kPc8id6b/hKSw==;
+	List-Owner; bh=QQmmFNa8AislJLcfOUYyfLv/WhoFCHOXG9jD5lOhfbY=; b=0vvR4x/Ky5p0xr
+	3NbmWwxIy0XlMEW5ginN2LAvF1Nau/TMSBMwPvgRvuL64Zp/qgxbGXy3N/NE7aRxfKVVyqTsOei3E
+	5KFT6UFAulNoGZ1mdrVFoYxZsNR+oJB0nPipjC1O/6YtGf6cAVCS6T8/Yi3/kMzKWl6rpT46oRVZp
+	/OPPdokMTJcY5T7JIuxxeuWaFkREUQC84By0yvLv7k/8clbM163RlAyrqNZ5FRckfvpXQd0leGVyS
+	ubNUTwzsPAwmXFis+NHCd/J6Rsli7SgejLLWnK+mSFbzQq7qrBcRPhUXYsqFDbNxrrzib2wl4nJJ5
+	bNtb5o94J06W4FirsvDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwj2p-0000000AAJ5-3mV1;
-	Wed, 19 Aug 2026 16:21:39 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1wwjAa-0000000ABK6-26eq;
+	Wed, 19 Aug 2026 16:29:40 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwj2m-0000000AAGW-3Ahf
+	id 1wwjAW-0000000ABJa-1heJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 16:21:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=FRQS4Gu3K1UkoAbTFDfDTx1Q+vsx7N9SeYOIsx1Uuv4=; b=iYW88pKrgC/MSw4gpXaiLJ7tHt
-	McrtUQTYMOYe9QtDUuh4R5ChwP1kcy9d82pslQJehwPquNgL49APlh9gzZlQMRqBL+fR1r5XOpRHH
-	9ZQk8zdJBTJ4UWFSomHbVesv7M1OE5RJ5mt4/kBjcbBanJptOf5We9kKcOnKL//bRrNHKlRNiSU6c
-	oT4pMEOll46GgyETzmPr84TkyidtGPDjFVQQJXFR91so0waZGJVbu3CPQBGwCXz8IUdF+/Nh0nfCu
-	PXMptrEPzi6AJiFdTvOKB6KrE7dM+Kz5IJ/c5RAvJ5WDEc1FHwaz7PLdm3yR8u2Wmqko9OZHFOmYv
-	+6yCSS7g==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1wwj2e-0000000D4kp-1prc;
-	Wed, 19 Aug 2026 18:21:28 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>
-Cc: Aurelien Jarno <aurelien@aurel32.net>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
-	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
-Subject: [PATCH v3 4/5] riscv: dts: spacemit: k3: add rfkill node for WLAN on the K3 Pico-ITX board
-Date: Wed, 19 Aug 2026 18:15:45 +0200
-Message-ID: <20260819162115.2252812-5-aurelien@aurel32.net>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260819162115.2252812-1-aurelien@aurel32.net>
-References: <20260819162115.2252812-1-aurelien@aurel32.net>
+	Wed, 19 Aug 2026 16:29:39 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 2A14D1A173C;
+	Wed, 19 Aug 2026 16:29:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F1AB25FF42;
+	Wed, 19 Aug 2026 16:29:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 75DD211C75909;
+	Wed, 19 Aug 2026 18:29:24 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1787156968; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=dA/9EZ9q53klXGxSMo1BE6kAbWq3qo7qffJ+f8rPyrY=;
+	b=vW9kfX3tJSa4RM6w2+LuBmB03C7AuJy0pJfGTXDfgiKx4YLzGSSGKzSJ3ahMWzO/Ii9qUT
+	h+xqWhkvcM4XV4hNxWZ/6MWHEV7JikuGagdGpJ9lSZLSdJcpJNAkneKh+pqrWAqEuEwyFu
+	6TRr1MVf/NVKtvzfyix9EBaPI+u6h1/w/WvfYTgyXiXI1+SGmF8NAWAgREa4A+csCGSYTZ
+	lEGvl5HDRSy9b7Zp8ppHPVriCHByMBmP1ZmuId4GSYG2qTZIRr/Z1X32/huTYcvvQH4ERW
+	+WHVk3TZ6FFyVjUHDd94OE52JctQ+vdphM2KdrczT2UbBL9hGW0QB+xlQ/dOxQ==
+Date: Wed, 19 Aug 2026 18:29:23 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: dlan@kernel.org, elder@riscstar.com, kr494167@gmail.com
+Cc: linux-rtc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] rtc: spacemit: handle regmap_test_bits() error return
+Message-ID: <178715693830.130787.3002190547423884283.b4-ty@b4>
+References: <20260724135803.81223-1-kr494167@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260724135803.81223-1-kr494167@gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_092136_798554_55EF1B2B 
-X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-CacheID: sfid-20260819_092936_602721_C0A06244 
+X-CRM114-Status: UNSURE (   8.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,38 +75,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On the K3 Pico-ITX board, by default the GPIO pin that connects to the
-RTL8852BE WLAN enable signal is driven low, resulting in impossibility
-to connect to any network. Add a DT node to expose it as an RFKILL
-device, which lets the WLAN driver or userspace toggle it as required.
+On Fri, 24 Jul 2026 19:28:03 +0530, kr494167@gmail.com wrote:
+> p1_rtc_read_time() called if (!regmap_test_bits(regmap, RTC_CTRL, RTC_EN))
+> to check if the RTC was enabled.
+> 
+> regmap_test_bits() returns 1 if the bit is set, 0 if not set, and a
+> negative error code (e.g. -EIO) if reading the control register fails.
+> Using !regmap_test_bits(...) evaluates a negative error code as boolean
+> false, causing I2C/regmap read failures to be ignored and incorrectly
+> proceeding to read time registers from a failing device.
+> 
+> [...]
 
-Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
----
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 7 +++++++
- 1 file changed, 7 insertions(+)
+Applied, thanks!
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index d2e8df5ebeec..68f8224eabcd 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -44,6 +44,13 @@ reg_aux_vcc5v: regulator-aux-vcc5v {
- 		regulator-always-on;
- 	};
- 
-+	rfkill-pcie-wlan {
-+		compatible = "rfkill-gpio";
-+		label = "rfkill-pcie-wlan";
-+		radio-type = "wlan";
-+		shutdown-gpios = <&gpio 1 3 GPIO_ACTIVE_HIGH>;
-+	};
-+
- 	rfkill-usb-bt {
- 		compatible = "rfkill-gpio";
- 		label = "rfkill-usb-bt";
+[1/1] rtc: spacemit: handle regmap_test_bits() error return
+      https://git.kernel.org/abelloni/c/092755367e1a
+
+Best regards,
+
 -- 
-2.53.0
-
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
