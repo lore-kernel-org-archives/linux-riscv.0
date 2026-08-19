@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81730C5DF6D
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 08:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2678CC5DF6D
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 08:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WNWBjol6X9vs5JnLCVCjVPx1dbccxHzAbzxGC5QadFY=; b=p0KG5Wto2OZi8V
-	yzcVur5T7trCYP2tqIJFUXj0+NDEBqXz3JDW0YGRFhs5TnZnLnwq93uN8z34aFKcb8G/RBdJ/V/nj
-	5ZSHXjG9vu1mE9e8lU0yzWw+6u7kbMV7MMim6in3q09qlZXPUezpoKtl+IYsYMWmWNdeWMloCZRI9
-	bDLA/pKJ5oMksxT1nUEDm0vzer2VQSZczI/pQs/0ipL0Z5SPd7f2QRoqGvOjLBysOu2oYflkfgjA2
-	5m9YEVwdgHp5TbH+rvZIg5pGYUSj0fjnVSjSMGlB96dDeOqBSznplobcOVgV2zzeADrYz7EjMiUYr
-	Zan6lpyPJ7jny5/W7ogA==;
+	List-Owner; bh=Hd0Dtqw0bgxjwO1bYv+bbHvmum6ube3HaEOLSxNxH9s=; b=uKAE8AWE8jme3n
+	R7JywjnXHOGZ4EVeEjszN/X6fGtd7sg81TuvPZWL75bsrkxt1geoFXIzdjRoP/YUqQ5SrMXd3649K
+	AyyseGgi1PQ8kgKCJreye5uFZwCO5e5N8ZUVwcOSachtxfDvGIEAqQNmu4k/V53HzriycY5/zFTG7
+	GcQodfMrCj+ko9HTB0ed5dwN/zfvsAWjnSE3X7P9pgMmUNg00B/Y86NBKjlz0Nissl0zr3zW8mAbi
+	alxyWEH6u6RedgIKnz2FCy0jO+KI6Dhvs6yj6E5cd8lrTgAM8sSDTFFHhpDYaeXGCO2I5XolsR2Rc
+	BzeE/zg1bNfHAJRFLh9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwc37-00000009LWM-0Qma;
-	Wed, 19 Aug 2026 08:53:29 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1wwc3B-00000009LY5-1rU5;
+	Wed, 19 Aug 2026 08:53:33 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwc34-00000009LV1-0e80
+	id 1wwc35-00000009LVH-29Up
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Aug 2026 08:53:27 +0000
+	Wed, 19 Aug 2026 08:53:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1787129604; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=MWpf0VeTCBhwFwAftU7whr2vA1ztFY19iNzKSTGqoHg=;
-	b=q5Nv0dtVA8RmpgC3nXLkRnHqazFdeuQOq95yQNX/A4DeiO43CXMcx6nLLe/fyQbCZF0DNHqSvmLOfU1+6aAL5MIgnTrdCLM34lheqi1t83Ny3suxYjhR4u22tRRqsXHGEWH7mqmNLDJzfUjBO3dQl0u8b2edTg9fjmhsPNJ7Iu0=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R631e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0X9G1fzf_1787129602;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X9G1fzf_1787129602 cluster:ay36)
+	t=1787129605; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=ZCkwrG5UaWoJEzEsbaTN0x0VxiVzO2j77PibIF7G8XU=;
+	b=Fi8A6jH5QBLvC4i/+9h0Jfsdv4z9b977qkZwY2KESQmsntWpXXTGhMWmOn6KroQNJeHu1YTo5Elr+UyGUJDoEa81yAmzcwV8j3cpXbgVZganqsTIJPG+07nxYwrrAKOganQPVPcOCVO/KyG6Tz+AgAwYJuBct4awsOaNQUV3K9g=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0X9G1g-1_1787129603;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0X9G1g-1_1787129603 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Wed, 19 Aug 2026 16:53:23 +0800
+          Wed, 19 Aug 2026 16:53:24 +0800
 From: Chen Pei <cp0613@linux.alibaba.com>
 To: ast@kernel.org,
 	daniel@iogearbox.net,
@@ -59,16 +59,17 @@ Cc: ihor.solodrai@linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v2 1/2] bpf, riscv: Add support for signed arena loads
-Date: Wed, 19 Aug 2026 16:53:15 +0800
-Message-ID: <a78cd29b238aa1aba87efeb2fc09d25a56c22f69.1787128322.git.cp0613@linux.alibaba.com>
+Subject: [PATCH bpf-next v2 2/2] selftests/bpf: Enable arena LDSX tests for riscv64
+Date: Wed, 19 Aug 2026 16:53:16 +0800
+Message-ID: <b31c252625e16db62b87b8301b79bf6cc7d7ffac.1787128322.git.cp0613@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1787128322.git.cp0613@linux.alibaba.com>
 References: <cover.1787128322.git.cp0613@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_015326_649459_07BCBE1A 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260819_015327_805791_08CBB3BD 
+X-CRM114-Status: UNSURE (   5.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,81 +86,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed loads from arena memory are currently rejected on riscv64, as
-bpf_jit_supports_insn() refuses BPF_MEMSX loads when in_arena is set,
-while x86 and arm64 gained support for them in v6.18. Compilers such
-as GCC-14 are free to generate signed loads into arena memory, which
-breaks loading of otherwise valid BPF programs on riscv64.
+Now that the riscv64 JIT supports signed arena loads
+(BPF_PROBE_MEM32SX), enable the arena LDSX tests on riscv64:
+add JIT disassembly assertions for arena_ldsx_disasm (arena base in
+s7, add into t2, sign-extending lw/lh/lb loads) and run
+arena_ldsx_exception and arena_ldsx_s8/s16/s32 on riscv64.
 
-Implement BPF_PROBE_MEM32SX support in the RV64 JIT by reusing the
-existing arena handling: the arena base (RV_REG_ARENA) is added to
-the source register and the load is emitted with sign extension
-(lb/lh/lw). Add BPF_PROBE_MEM32SX to the add_exception_handler()
-mode gate so that faulting loads get an exception table entry which
-clears the destination register and resumes execution. Since
-BPF_PROBE_MEM32SX shares its mode value (0xc0) with BPF_ATOMIC, the
-gate accepts it only for LDX class instructions so that plain atomic
-instructions do not register exception table entries.
-
-Verified by running the arena LDSX selftests (arena_ldsx_disasm,
-arena_ldsx_exception, arena_ldsx_s8/s16/s32) and the full
-arena_atomics test suite on riscv64 QEMU, all passing.
-
+Reviewed-by: Pu Lehui <pulehui@huawei.com>
 Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 ---
+ .../testing/selftests/bpf/progs/verifier_ldsx.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-Changes in v2:
-- Fix extable entry overflow breaking arena_atomics load
-
- arch/riscv/net/bpf_jit_comp64.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
-
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index f9d5347ba966..acc1b16d2e2f 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -777,6 +777,8 @@ static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
- 	if (BPF_MODE(insn->code) != BPF_PROBE_MEM &&
- 	    BPF_MODE(insn->code) != BPF_PROBE_MEMSX &&
- 	    BPF_MODE(insn->code) != BPF_PROBE_MEM32 &&
-+	    !(BPF_MODE(insn->code) == BPF_PROBE_MEM32SX &&
-+	      BPF_CLASS(insn->code) == BPF_LDX) &&
- 	    BPF_MODE(insn->code) != BPF_PROBE_ATOMIC)
- 		return 0;
- 
-@@ -1902,13 +1904,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	case BPF_LDX | BPF_PROBE_MEM32 | BPF_H:
- 	case BPF_LDX | BPF_PROBE_MEM32 | BPF_W:
- 	case BPF_LDX | BPF_PROBE_MEM32 | BPF_DW:
-+	/* LDX | PROBE_MEM32SX: sign-extending arena load */
-+	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_B:
-+	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_H:
-+	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_W:
- 	{
- 		bool sign_ext;
- 
- 		sign_ext = BPF_MODE(insn->code) == BPF_MEMSX ||
--			   BPF_MODE(insn->code) == BPF_PROBE_MEMSX;
-+			   BPF_MODE(insn->code) == BPF_PROBE_MEMSX ||
-+			   BPF_MODE(insn->code) == BPF_PROBE_MEM32SX;
- 
--		if (BPF_MODE(insn->code) == BPF_PROBE_MEM32) {
-+		if (BPF_MODE(insn->code) == BPF_PROBE_MEM32 ||
-+		    BPF_MODE(insn->code) == BPF_PROBE_MEM32SX) {
- 			emit_add(RV_REG_T2, rs, RV_REG_ARENA, ctx);
- 			rs = RV_REG_T2;
- 		}
-@@ -2126,10 +2134,6 @@ bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
- 			if (insn->imm == BPF_CMPXCHG)
- 				return rv_ext_enabled(ZACAS);
- 			break;
--		case BPF_LDX | BPF_MEMSX | BPF_B:
--		case BPF_LDX | BPF_MEMSX | BPF_H:
--		case BPF_LDX | BPF_MEMSX | BPF_W:
--			return false;
- 		}
- 	}
- 
+diff --git a/tools/testing/selftests/bpf/progs/verifier_ldsx.c b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
+index 41340877dc9d..ed0a0f159bc1 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_ldsx.c
++++ b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
+@@ -286,6 +286,19 @@ __jited("add	x11, x0, x28")
+ __jited("ldrsh	x22, [x11, #0x18]")
+ __jited("add	x11, x0, x28")
+ __jited("ldrsb	x22, [x11, #0x20]")
++__arch_riscv64
++__jited("add	t2, a5, s7")
++__jited("lw	s3, 0x10(t2)")
++__jited("add	t2, a5, s7")
++__jited("lh	s3, 0x18(t2)")
++__jited("add	t2, a5, s7")
++__jited("lb	s3, 0x20(t2)")
++__jited("add	t2, a0, s7")
++__jited("lw	s4, 0x10(t2)")
++__jited("add	t2, a0, s7")
++__jited("lh	s4, 0x18(t2)")
++__jited("add	t2, a0, s7")
++__jited("lb	s4, 0x20(t2)")
+ __naked void arena_ldsx_disasm(void *ctx)
+ {
+ 	asm volatile (
+@@ -317,6 +330,7 @@ __description("Arena LDSX Exception")
+ __success __retval(0)
+ __arch_x86_64
+ __arch_arm64
++__arch_riscv64
+ __naked void arena_ldsx_exception(void *ctx)
+ {
+ 	asm volatile (
+@@ -338,6 +352,7 @@ __description("Arena LDSX, S8")
+ __success __retval(-1)
+ __arch_x86_64
+ __arch_arm64
++__arch_riscv64
+ __naked void arena_ldsx_s8(void *ctx)
+ {
+ 	asm volatile (
+@@ -369,6 +384,7 @@ __description("Arena LDSX, S16")
+ __success __retval(-1)
+ __arch_x86_64
+ __arch_arm64
++__arch_riscv64
+ __naked void arena_ldsx_s16(void *ctx)
+ {
+ 	asm volatile (
+@@ -400,6 +416,7 @@ __description("Arena LDSX, S32")
+ __success __retval(-1)
+ __arch_x86_64
+ __arch_arm64
++__arch_riscv64
+ __naked void arena_ldsx_s32(void *ctx)
+ {
+ 	asm volatile (
 -- 
 2.50.1
 
