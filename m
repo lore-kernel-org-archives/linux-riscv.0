@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1055C5DF87
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74412C5DF82
 	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 07:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,61 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mdlXF1Fi84Dh33b0u+1iBJ8d9+nIqMtze+ThM4HBmkk=; b=mRKh0QwUHvzkhv
-	7FIgD6b71Rw/fhx089Misdsgf2ojrMdMMqV0rh07rSeQN78zCMk4xhEYBbwroazCMXP7T5gmWpbtD
-	unDy6Oguv3yu4nZzFndDKBmnsw2Fc8qXrRpMEs5BYFp6DPL2qXRNzFm5NKJI2nNQh4fXglkRrrL81
-	Hw+yHELfVMf03FYwJMoCRYaxy8ICAfhFDKdxTGYkGeJBHx7Nlwv0n+oUr3hE86hfYUMLzcgvPEwz+
-	LJ38I0vOkjKVhnpOSw4kXAo3u8/il72u9puP0TYP5esxQuVpOS88PmhkEAPj6fiE8Tg6R3xGNeMVs
-	HZP5+5W2y2CPyyuHOJow==;
+	List-Owner; bh=vT+H97vHnCkTu5psRfUxE6ROLggEYUQ5AewToPFtt4M=; b=qF2O54PwfWE5n/
+	nlZUQ4/vAwccXGb+pxdC1laht8byGCn1EmYIck07O/kq5yACuSoaZFurEhy+wxfJ/kVShSQ5oZohs
+	P7ECNEYh2bDjlsJP2oNqOVEQPKe/UloF9XiJ6CGhJZKkGLpONrSUh6K1BkFxo7gokmZX6QEgPdoR2
+	ygwcbyi9a7yPskYQUs3gK0CAotsRvMwNiTxR02ielDh5XTZXvXv2FI1txvkJN4ThXwt7PgXZzX9L4
+	Sr0Qu5uqxmPeLT0meObFE//QlCZfsYfaZ6PFhc8ko2ukJrC/Yz4FCUaki5qHjZ8zZRGZXMtG+nKnZ
+	0l7QHXW3OZ9mQLcB9XZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwwtk-0000000B0Sg-08WK;
-	Thu, 20 Aug 2026 07:09:12 +0000
-Received: from mx0a-00128a01.pphosted.com ([148.163.135.77] helo=mx0b-00128a01.pphosted.com)
+	id 1wwwtl-0000000B0TI-2toP;
+	Thu, 20 Aug 2026 07:09:13 +0000
+Received: from mx0a-00128a01.pphosted.com ([148.163.135.77])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwwtf-0000000B0Qe-4Aws
+	id 1wwwtj-0000000B0Rm-0oTr
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 07:09:11 +0000
-Received: from pps.filterd (m0375855.ppops.net [127.0.0.1])
-	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67K74fxE2445763;
-	Thu, 20 Aug 2026 03:08:59 -0400
+	Thu, 20 Aug 2026 07:09:12 +0000
+Received: from pps.filterd (m0516787.ppops.net [127.0.0.1])
+	by mx0a-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67K3hvHG3166368;
+	Thu, 20 Aug 2026 03:09:02 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=DKIM; bh=3Ndwo
-	EndMuJU2g6LD4o+Mb6YaN2eWHZ+1AKTMnboCCY=; b=T8UZQwrX15u0qM99zaXVa
-	P+t+vsGzZx6OH1sp/D6L5qFTJEIqcpcOqt9p41pBlhIs//byAriEUzY0xd1nwhVB
-	zZUzR2pRSNRp4MCNm7OLOFgHVt8zJfD2yfhwjZ2eGlr4u+ZeeneATMNy6P66P4uo
-	3mPy41IxjqaMojjndyS/ba2HF0gP2FKdacSvChSbRTEQGKXXIcIm3Y241wYG6V05
-	Nf27w6Ww8xQGpbiwRyBTcLUunK2ATjNv41JGKbJ7gU60a/+n9mHJBQ2MUfxM08C5
-	eRzT+4r2y1U4Slex0JpoyDbNdqnCW7lZGgdLtmg3y/A6yM/H2PHTaKoG+HzKsmVZ
-	A==
+	:message-id:mime-version:references:subject:to; s=DKIM; bh=2S9K4
+	JYkBpeZ/OAviIhOklAj6gwpnd3hEz1M/3PyNZE=; b=IzT6dCeAR76gaaDX54uaB
+	2neUjt88K4BXfsuf0IiEToBIMnJNYZfpOEHY8w2us/0tzFSVZiolCPoGKfwtWgx8
+	nqXMmxn7s6cW2x6Cndcsn3KvrH2M6a6ZsUoGJYoaOLkXcHpLp/fGaaU2p76ARddK
+	4YUZ7V2jPILxYNOQNH++e9ECd0BpC7+l6Pd/HoyffkUenBvA2PgqJf+iLAHn10tZ
+	cNDM30tvem2qW9lXOLaiIIXjwO7HviVtrHNuxYrqaeFazcMqO6XBKdb6hIIwwD/c
+	DuXTQfTeEipDX5fkIv4prII6taJucHBuvMh9AGeU2mg5PDXKpa1fOka1n6dAwU2P
+	g==
 Received: from nwd2mta4.analog.com ([137.71.173.58])
-	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4g4yeps9y0-1
+	by mx0a-00128a01.pphosted.com (PPS) with ESMTPS id 4g4yfbh59j-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Aug 2026 03:08:58 -0400 (EDT)
+	Thu, 20 Aug 2026 03:09:01 -0400 (EDT)
 Received: from ASHBMBX8.ad.analog.com (ASHBMBX8.ad.analog.com [10.64.17.5])
-	by nwd2mta4.analog.com (8.14.7/8.14.7) with ESMTP id 67K78v5C018801
+	by nwd2mta4.analog.com (8.14.7/8.14.7) with ESMTP id 67K790Sh018810
 	(version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 20 Aug 2026 03:08:57 -0400
-Received: from ASHBCASHYB5.ad.analog.com (10.64.17.133) by
+	Thu, 20 Aug 2026 03:09:00 -0400
+Received: from ASHBCASHYB4.ad.analog.com (10.64.17.132) by
  ASHBMBX8.ad.analog.com (10.64.17.5) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.37; Thu, 20 Aug 2026 03:08:57 -0400
+ 15.2.1748.37; Thu, 20 Aug 2026 03:09:00 -0400
 Received: from ASHBMBX9.ad.analog.com (10.64.17.10) by
- ASHBCASHYB5.ad.analog.com (10.64.17.133) with Microsoft SMTP Server
+ ASHBCASHYB4.ad.analog.com (10.64.17.132) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.37; Thu, 20 Aug 2026 03:08:57 -0400
+ 15.2.1748.37; Thu, 20 Aug 2026 03:09:00 -0400
 Received: from zeus.spd.analog.com (10.66.68.11) by ashbmbx9.ad.analog.com
  (10.64.17.10) with Microsoft SMTP Server id 15.2.1748.37 via Frontend
- Transport; Thu, 20 Aug 2026 03:08:57 -0400
+ Transport; Thu, 20 Aug 2026 03:09:00 -0400
 Received: from HYB-e1y2fvUQ3cx.ad.analog.com (HYB-e1y2fvUQ3cx.ad.analog.com [10.44.3.68])
-	by zeus.spd.analog.com (8.15.1/8.15.1) with ESMTP id 67K78Oka003019;
-	Thu, 20 Aug 2026 03:08:48 -0400
+	by zeus.spd.analog.com (8.15.1/8.15.1) with ESMTP id 67K78Okb003019;
+	Thu, 20 Aug 2026 03:08:52 -0400
 From: Janani Sunil <janani.sunil@analog.com>
-Date: Thu, 20 Aug 2026 09:08:22 +0200
-Subject: [PATCH v9 2/3] dt-bindings: iio: dac: Add AD5529R
+Date: Thu, 20 Aug 2026 09:08:23 +0200
+Subject: [PATCH v9 3/3] iio: dac: Add AD5529R DAC driver support
 MIME-Version: 1.0
-Message-ID: <20260820-ad5529r-driver-v9-2-ba62e0b2a816@analog.com>
+Message-ID: <20260820-ad5529r-driver-v9-3-ba62e0b2a816@analog.com>
 References: <20260820-ad5529r-driver-v9-0-ba62e0b2a816@analog.com>
 In-Reply-To: <20260820-ad5529r-driver-v9-0-ba62e0b2a816@analog.com>
 To: Lars-Peter Clausen <lars@metafoo.de>,
@@ -108,46 +108,43 @@ CC: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
         Janani Sunil
 	<janani.sunil@analog.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787209704; l=8983;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787209704; l=19274;
  i=janani.sunil@analog.com; s=20260507; h=from:subject:message-id;
- bh=MXKdOZpCM1FPMB1cHTo/QJDSTNOf9pX3eF4RY9JI/uo=;
- b=a6HQJLJ9lRKqMmLJclZI29tKN3NIadsZc0V+8Yxw5JEQ7lcG2hwaw7xyBhlHUmxU1OfQylUu0
- dvVHlcEnSKrCm3faci7eXJsN5KSjdikW6NnztRGD304xVzS7f+InRZQ
+ bh=gE5q52/sAIPRuycMYozfY40aAfLtAFgCtUhc2Gn58Po=;
+ b=ubnA6utLXAwEORA6BAUO6O9Lp73WGdyb0HzoH+WtYuBkLq40L/ZzEMMxWGe+rSx6D7Ur24jRT
+ AVuyQ9BBhmKCGhpx5oa1sSkvTjjEFHfEaXyy2l9Jth/ekRGQmIcTxQs
 X-Developer-Key: i=janani.sunil@analog.com; a=ed25519;
  pk=e25MyjRLPY3RWrYm/LrJ+/+t1MZJUbkgIW5CZg+g+hA=
 X-ADIRuleOP-NewSCL: Rule Triggered
-X-Proofpoint-ORIG-GUID: ImBfcdlNjYSuM1ReKO155h680FdCpb2v
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDA1MCBTYWx0ZWRfXzrKagiBMvHkp
- 0rMOPDFZ/C2FPUvdzv3kjyaH1PD9FhCXUX1A2kgxhBZMCMaxKKHr6v8dQzSkiN6MGcppJuKTuP7
- uEt+8FdEhhHSoQBBv8yDSNCu3KYf9tpDhcIeXwxiTKpQiA0D9/xI
-X-Authority-Analysis: v=2.4 cv=NLHlPU6g c=1 sm=1 tr=0 ts=6a86a80a cx=c_pps
+X-Proofpoint-ORIG-GUID: jOZsC_Dog1-db5WI5zYAVhQ4kp5JzZ2e
+X-Authority-Analysis: v=2.4 cv=KbTidwYD c=1 sm=1 tr=0 ts=6a86a80d cx=c_pps
  a=3WNzaoukacrqR9RwcOSAdA==:117 a=3WNzaoukacrqR9RwcOSAdA==:17
  a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=0sLvza09kfJOxVLZPwjg:22 a=N--XFCr6TIEc_64PeIT2:22 a=gEfo2CItAAAA:8
- a=gAnH3GRIAAAA:8 a=XYAwZIGsAAAA:8 a=VwQbUJbxAAAA:8 a=w-5zq-aVFruw5tgyEi8A:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=sptkURWiP4Gy88Gu7hUp:22
- a=E8ToXWR_bxluHZ7gmE-Z:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDA1MCBTYWx0ZWRfX9gpUR2m59fhG
- S0999JoE8n4904AL7oZqVAC+h0Pz3Vmn3YCU9tDjOa9hUJHF3knAxu1byjmAcfHjkGnEerA9yEi
- U66F9MW0SqYfG8/ZohhHh6xEOxylQ6D+2SFfKX3zP0BObXqAaUjPgLc6xUnqs0eYD3mkhONfqOF
- 6uOnu/Q3ZjWwGBM37ACXbA6vJTZvjI8c97D3dxkscKzChPvvmY1y/DRns09WAyYoPsxNVgbY2z6
- rBsPmDtmNhKZY9U/h8D20vUxt8GtkWJnT/NyYNxPlzab3M4IsI8AjHXhkvve8IWeuWIloNVzc7g
- p+4plasuxSL8++b6diARfp47WtktOOuDem74LWUcOC30pfXeACSVSlP2HocHe5/RfiqPNS4rlIM
- HJ1FV+m0LpfbtXX1Gg4HhbT/U2zkzubpot26HA08fm/ZclLHMuehA0JscrkMc5JGOqK+1ZsEvgL
- d8ZampFacCiFWiGSrJw==
-X-Proofpoint-GUID: ImBfcdlNjYSuM1ReKO155h680FdCpb2v
+ a=0sLvza09kfJOxVLZPwjg:22 a=OmVn7CZJonkx5R5zMQLL:22 a=gAnH3GRIAAAA:8
+ a=VwQbUJbxAAAA:8 a=RYKflIcWaOGVf2NWG3oA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDA1MCBTYWx0ZWRfX+BcG214dM2kW
+ z8G/LLJazwFwMyYWm93JWrCb6/IWWEMQPabqA8fl3U7hi+yL0bCUMxAVjU0JJMQ5WOY1qndu96v
+ Z2tNNnoGfQKwpzljfIF75+rgsnjLqXNsMjZGPTOK4Rbb9Lr+gOvRhyEYMRFA467iZuztTStcHVS
+ /tktZweaoq3P+NWF5ESKuNpoD0QQt8IyV9ubF2x50KS1ZqroDFeL2YcZPU4Ch7naRMx7Oc6SqNy
+ vSrDM52gwgtUbFzVPCp4dhdZqTDwrwLCmEvg7EF282zvH3/+l0cVlkbfEW7UaDWwC3irutY4SJy
+ 5xEsuRnpWZxXkPcwteHZ5kQhpixtKG8U7p09welRyGGru/9QX5bWBuxqwu+xvV5biYDP9z4dpop
+ I2kAoIwkaA/T4nn47ZRIBjT/WcJXT87Zzv12CGRG/OUoKdk2NiFvoKRTE9CS35ywDhJiSG5gf3x
+ 9Sus05bMMZlxB0CkxKw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDA1MCBTYWx0ZWRfX0mGXN5JgvcXN
+ gEUIWThNGUwF0FhLiflEI+BN1+i53IzOqCIKbCldr81HVmCVNhysjqk/KPF0usWW75DpuwhecMv
+ zabGsn0/exF7wIx76bgNamikWtgvFf+G+sRAad+du+Sz25LcQZ2L
+X-Proofpoint-GUID: jOZsC_Dog1-db5WI5zYAVhQ4kp5JzZ2e
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-19_06,2026-08-19_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 suspectscore=0 clxscore=1015 phishscore=0
- lowpriorityscore=0 bulkscore=0 impostorscore=0 malwarescore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608200050
+ malwarescore=0 priorityscore=1501 spamscore=0 phishscore=0 bulkscore=0
+ suspectscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608200050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_000908_089739_3FF9B262 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20260820_000911_259846_882D8BB6 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,164 +156,627 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RGV2aWNldHJlZSBiaW5kaW5ncyBmb3IgQUQ1NTI5UiAxNiBjaGFubmVsIDEyLzE2IGJpdCBoaWdo
-IHZvbHRhZ2UsCmJ1ZmZlcmVkIHZvbHRhZ2Ugb3V0cHV0IGRpZ2l0YWwtdG8tYW5hbG9nIGNvbnZl
-cnRlciAoREFDKSB3aXRoIGFuCmludGVncmF0ZWQgcHJlY2lzaW9uIHJlZmVyZW5jZS4KClJldmll
-d2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgpTaWduZWQt
-b2ZmLWJ5OiBKYW5hbmkgU3VuaWwgPGphbmFuaS5zdW5pbEBhbmFsb2cuY29tPgotLS0KIC4uLi9k
-ZXZpY2V0cmVlL2JpbmRpbmdzL2lpby9kYWMvYWRpLGFkNTUyOXIueWFtbCAgIHwgMjU0ICsrKysr
-KysrKysrKysrKysrKysrKwogTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgfCAgIDcgKwogMiBmaWxlcyBjaGFuZ2VkLCAyNjEgaW5zZXJ0aW9ucygrKQoK
-ZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9paW8vZGFjL2Fk
-aSxhZDU1MjlyLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvaWlvL2Rh
-Yy9hZGksYWQ1NTI5ci55YW1sCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAwMDAw
-MC4uOWMzOTBkNDYwZTVmCi0tLSAvZGV2L251bGwKKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0
-cmVlL2JpbmRpbmdzL2lpby9kYWMvYWRpLGFkNTUyOXIueWFtbApAQCAtMCwwICsxLDI1NCBAQAor
-IyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogKEdQTC0yLjAgT1IgQlNELTItQ2xhdXNlKQorJVlB
-TUwgMS4yCistLS0KKyRpZDogaHR0cDovL2RldmljZXRyZWUub3JnL3NjaGVtYXMvaWlvL2RhYy9h
-ZGksYWQ1NTI5ci55YW1sIworJHNjaGVtYTogaHR0cDovL2RldmljZXRyZWUub3JnL21ldGEtc2No
-ZW1hcy9jb3JlLnlhbWwjCisKK3RpdGxlOiBBbmFsb2cgRGV2aWNlcyBBRDU1MjlSIDE2LUNoYW5u
-ZWwgMTIvMTYtYml0IEhpZ2ggVm9sdGFnZSBEQUMKKworbWFpbnRhaW5lcnM6CisgIC0gSmFuYW5p
-IFN1bmlsIDxqYW5hbmkuc3VuaWxAYW5hbG9nLmNvbT4KKworZGVzY3JpcHRpb246IHwKKyAgVGhl
-IEFENTUyOVIgaXMgYSAxNi1jaGFubmVsLCAxMi1iaXQgb3IgMTYtYml0LCBoaWdoIHZvbHRhZ2Us
-IGJ1ZmZlcmVkIHZvbHRhZ2UKKyAgb3V0cHV0IGRpZ2l0YWwtdG8tYW5hbG9nIGNvbnZlcnRlciAo
-REFDKSB3aXRoIGFuIGludGVncmF0ZWQgcHJlY2lzaW9uIHJlZmVyZW5jZS4KKyAgVGhlIGRldmlj
-ZSBvcGVyYXRlcyBmcm9tIHVuaXBvbGFyIGFuZCBiaXBvbGFyIHN1cHBsaWVzLiBJdCBpcyBndWFy
-YW50ZWVkCisgIG1vbm90b25pYyBhbmQgaGFzIGJ1aWx0LWluIHJhaWwtdG8tcmFpbCBvdXRwdXQg
-YnVmZmVycyB0aGF0IGNhbiBzb3VyY2Ugb3IKKyAgc2luayB1cCB0byAyNW1BLgorCisgIFNwZWNp
-ZmljYXRpb25zOgorICAqIDE2IGluZGVwZW5kZW50IDEyLWJpdCBvciAxNi1iaXQgREFDIGNoYW5u
-ZWxzCisgICogSW5kZXBlbmRlbnRseSBwcm9ncmFtbWFibGUgb3V0cHV0IHJhbmdlczogMFYgdG8g
-NVYsIDBWIHRvIDEwViwgMFYgdG8gMjBWLAorICAgIDBWIHRvIDQwViwgwrE1ViwgwrExMFYsIMKx
-MTVWLCBhbmQgwrEyMFYKKyAgKiBUaGUgZGV2aWNlIHN1cHBvcnRzIFNQSSBjb21tdW5pY2F0aW9u
-IHdpdGggTW9kZSAwIGFuZCBNb2RlIDMuCisgICogNC4wOTZWIHByZWNpc2lvbiByZWZlcmVuY2Us
-IDEycHBtL8KwQyBtYXhpbXVtCisgICogQnVpbHQtaW4gZnVuY3Rpb24gZ2VuZXJhdGlvbjogVG9n
-Z2xlLCBTaW51c29pZGFsIERpdGhlciwgYW5kIFJhbXAgd2F2ZWZvcm1zCisgICogTXVsdGlwbGV4
-ZXIgZm9yIG91dHB1dCB2b2x0YWdlLCBsb2FkIGN1cnJlbnQgc2Vuc2UgYW5kIGRpZSB0ZW1wZXJh
-dHVyZQorCisgIERhdGFzaGVldDogaHR0cHM6Ly93d3cuYW5hbG9nLmNvbS9tZWRpYS9lbi90ZWNo
-bmljYWwtZG9jdW1lbnRhdGlvbi9kYXRhLXNoZWV0cy9hZDU1MjlyLnBkZgorCitwcm9wZXJ0aWVz
-OgorICBjb21wYXRpYmxlOgorICAgIGVudW06CisgICAgICAtIGFkaSxhZDU1MjlyLTE2ICAgIyAx
-Ni1iaXQgdmFyaWFudAorICAgICAgLSBhZGksYWQ1NTI5ci0xMiAgICMgMTItYml0IHZhcmlhbnQK
-KworICByZWc6CisgICAgbWF4SXRlbXM6IDEKKworICBzcGktbWF4LWZyZXF1ZW5jeToKKyAgICBt
-YXhpbXVtOiAyNTAwMDAwMAorICAgIGRlc2NyaXB0aW9uOgorICAgICAgTWF4aW11bSBTUEkgZnJl
-cXVlbmN5LiBUaGUgZGV2aWNlIHN1cHBvcnRzIFNQSSBNb2RlIDAgYW5kIE1vZGUgMy4KKyAgICAg
-IFJlYWQgb3BlcmF0aW9ucyBhcmUgbGltaXRlZCB0byAyNU1IeiBtYXhpbXVtLgorCisgIHJlc2V0
-LWdwaW9zOgorICAgIG1heEl0ZW1zOiAxCisgICAgZGVzY3JpcHRpb246CisgICAgICBHUElPIGNv
-bm5lY3RlZCB0byB0aGUgUkVTRVQgcGluLiBBY3RpdmUgbG93LiBXaGVuIGFzc2VydGVkIGxvdywK
-KyAgICAgIHBlcmZvcm1zIGEgcG93ZXItb24gcmVzZXQgYW5kIGluaXRpYWxpemVzIHRoZSBkZXZp
-Y2UgdG8gaXRzIGRlZmF1bHQgc3RhdGUuCisKKyAgY2xlYXItZ3Bpb3M6CisgICAgbWF4SXRlbXM6
-IDEKKyAgICBkZXNjcmlwdGlvbjoKKyAgICAgIEdQSU8gY29ubmVjdGVkIHRvIHRoZSBDTEVBUiBw
-aW4uIEFjdGl2ZSBsb3cuIFdoZW4gYXNzZXJ0ZWQgbG93LAorICAgICAgY2xlYXJzIGFsbCBEQUMg
-ZGF0YSByZWdpc3RlcnMgd2l0aG91dCBhZmZlY3RpbmcgY29uZmlndXJhdGlvbiBzZXR0aW5ncy4K
-KworICBpbnRlcnJ1cHRzOgorICAgIG1heEl0ZW1zOiAxCisgICAgZGVzY3JpcHRpb246CisgICAg
-ICBJbnRlcnJ1cHQgY29ubmVjdGVkIHRvIHRoZSBBTEFSTSBwaW4uIEFjdGl2ZSBsb3cgaW50ZXJy
-dXB0IG91dHB1dAorICAgICAgZm9yIG92ZXJ0ZW1wZXJhdHVyZSBjb25kaXRpb25zLCBTUEkgQ1JD
-IGVycm9ycywgYW5kIGZ1bmN0aW9uIGNvbXBsZXRpb24uCisKKyAgcHdtczoKKyAgICBtaW5JdGVt
-czogMQorICAgIG1heEl0ZW1zOiA0CisgICAgZGVzY3JpcHRpb246CisgICAgICBQV00gc2lnbmFs
-cyBjb25uZWN0ZWQgdG8gdGhlIFRHMC1URzMgdG9nZ2xlIHBpbnMuIFB1bHNpbmcgdGhlc2UgcGlu
-cworICAgICAgYmFzZWQgb24gdHJpZ2dlciBlZGdlIHNldHRpbmdzIGFsbG93cyBzZWxlY3RlZCBE
-QUNzIHRvIGJlIHVwZGF0ZWQKKyAgICAgIHN5bmNocm9ub3VzbHkgZm9yIGRpZ2l0YWwgZnVuY3Rp
-b24gZ2VuZXJhdGlvbi4KKworICBwd20tbmFtZXM6CisgICAgbWluSXRlbXM6IDEKKyAgICBtYXhJ
-dGVtczogNAorICAgIGl0ZW1zOgorICAgICAgZW51bTogWyB0ZzAsIHRnMSwgdGcyLCB0ZzMgXQor
-CisgIGlvLWNoYW5uZWxzOgorICAgIG1heEl0ZW1zOiAxCisgICAgZGVzY3JpcHRpb246CisgICAg
-ICBBREMgY2hhbm5lbCBjb25uZWN0ZWQgdG8gdGhlIE1VWE9VVCBwaW4gZm9yIG1vbml0b3Jpbmcg
-b3V0cHV0IHZvbHRhZ2UsCisgICAgICBsb2FkIGN1cnJlbnQgc2Vuc2UsIGFuZCBkaWUgdGVtcGVy
-YXR1cmUuCisKKyAgaW8tY2hhbm5lbC1uYW1lczoKKyAgICBjb25zdDogbXV4b3V0CisKKyAgdmRk
-LWlvLXN1cHBseToKKyAgICBkZXNjcmlwdGlvbjogRGlnaXRhbCBwb3dlciBzdXBwbHkgKDEuMDhW
-IHRvIDEuOThWKQorCisgIHZkZC01di1zdXBwbHk6CisgICAgZGVzY3JpcHRpb246IEFuYWxvZyBw
-b3dlciBzdXBwbHkgKDQuNzVWIHRvIDUuMjVWKQorCisgIHZkZC1odjAtc3VwcGx5OgorICAgIGRl
-c2NyaXB0aW9uOgorICAgICAgSGlnaCB2b2x0YWdlIHBvc2l0aXZlIHN1cHBseSAoN1YgdG8gNDVW
-KSBmb3IgY2hhbm5lbHMgMCB0byAzLgorCisgIHZkZC1odjEtc3VwcGx5OgorICAgIGRlc2NyaXB0
-aW9uOgorICAgICAgSGlnaCB2b2x0YWdlIHBvc2l0aXZlIHN1cHBseSAoN1YgdG8gNDVWKSBmb3Ig
-Y2hhbm5lbHMgNCB0byA3LgorCisgIHZkZC1odjItc3VwcGx5OgorICAgIGRlc2NyaXB0aW9uOgor
-ICAgICAgSGlnaCB2b2x0YWdlIHBvc2l0aXZlIHN1cHBseSAoN1YgdG8gNDVWKSBmb3IgY2hhbm5l
-bHMgOCB0byAxMS4KKworICB2ZGQtaHYzLXN1cHBseToKKyAgICBkZXNjcmlwdGlvbjoKKyAgICAg
-IEhpZ2ggdm9sdGFnZSBwb3NpdGl2ZSBzdXBwbHkgKDdWIHRvIDQ1VikgZm9yIGNoYW5uZWxzIDEy
-IHRvIDE1LgorCisgIHZzcy1odjAtc3VwcGx5OgorICAgIGRlc2NyaXB0aW9uOgorICAgICAgSGln
-aCB2b2x0YWdlIG5lZ2F0aXZlIHN1cHBseSAoLTIyLjVWIHRvIDBWKSBmb3IgY2hhbm5lbHMgMCB0
-byAzLgorCisgIHZzcy1odjEtc3VwcGx5OgorICAgIGRlc2NyaXB0aW9uOgorICAgICAgSGlnaCB2
-b2x0YWdlIG5lZ2F0aXZlIHN1cHBseSAoLTIyLjVWIHRvIDBWKSBmb3IgY2hhbm5lbHMgNCB0byA3
-LgorCisgIHZzcy1odjItc3VwcGx5OgorICAgIGRlc2NyaXB0aW9uOgorICAgICAgSGlnaCB2b2x0
-YWdlIG5lZ2F0aXZlIHN1cHBseSAoLTIyLjVWIHRvIDBWKSBmb3IgY2hhbm5lbHMgOCB0byAxMS4K
-KworICB2c3MtaHYzLXN1cHBseToKKyAgICBkZXNjcmlwdGlvbjoKKyAgICAgIEhpZ2ggdm9sdGFn
-ZSBuZWdhdGl2ZSBzdXBwbHkgKC0yMi41ViB0byAwVikgZm9yIGNoYW5uZWxzIDEyIHRvIDE1Lgor
-CisgIHZyZWYtc3VwcGx5OgorICAgIGRlc2NyaXB0aW9uOgorICAgICAgRXh0ZXJuYWwgdm9sdGFn
-ZSByZWZlcmVuY2Ugc3VwcGx5ICg0LjA1NlYgdG8gNC4xMzZWLCB0eXBpY2FsbHkgNC4wOTZWKS4K
-KyAgICAgIFdoZW4gc3BlY2lmaWVkLCB0aGUgZGV2aWNlIHVzZXMgZXh0ZXJuYWwgcmVmZXJlbmNl
-IG1vZGUgYW5kIHRoZSBWUkVGIHBpbgorICAgICAgYmVjb21lcyBhbiBpbnB1dC4gVGhlIGRldmlj
-ZSB1c2VzIHRoZSBpbnRlcm5hbCA0LjA5NlYgcHJlY2lzaW9uIHJlZmVyZW5jZQorICAgICAgb3Ro
-ZXJ3aXNlLgorCisgIHNwaS1kZXZpY2UtYWRkcjoKKyAgICBtaW5JdGVtczogMQorICAgIG1heEl0
-ZW1zOiA0CisgICAgaXRlbXM6CisgICAgICBlbnVtOiBbMCwgMSwgMiwgM10KKyAgICBkZWZhdWx0
-OiAwCisgICAgZGVzY3JpcHRpb246CisgICAgICBIYXJkd2FyZSBhZGRyZXNzIG9mIGVhY2ggZGV2
-aWNlLCBzZWxlY3RlZCBieSB0aGUgSUQwIGFuZCBJRDEgcGlucy4KKyAgICAgIFVwIHRvIGZvdXIg
-QUQ1NTI5UiBkZXZpY2VzIGNhbiBzaGFyZSBhIHNpbmdsZSBTUEkgY2hpcCBzZWxlY3QuCisKKyAg
-IiNhZGRyZXNzLWNlbGxzIjoKKyAgICBjb25zdDogMQorCisgICIjc2l6ZS1jZWxscyI6CisgICAg
-Y29uc3Q6IDAKKworcGF0dGVyblByb3BlcnRpZXM6CisgICJeY2hhbm5lbEAoWzAtOWEtZl17MSwy
-fSkkIjoKKyAgICAkcmVmOiBkYWMueWFtbAorICAgIHR5cGU6IG9iamVjdAorICAgIGRlc2NyaXB0
-aW9uOiBDaGlsZCBub2RlcyBmb3IgaW5kaXZpZHVhbCBjaGFubmVsIGNvbmZpZ3VyYXRpb24KKwor
-ICAgIHByb3BlcnRpZXM6CisgICAgICByZWc6CisgICAgICAgIGRlc2NyaXB0aW9uOgorICAgICAg
-ICAgIEZsYXR0ZW5lZCBjaGFubmVsIG51bWJlciBhY3Jvc3MgYWxsIEFENTUyOVIgZGV2aWNlcyBz
-aGFyaW5nIHRoZSBjaGlwCisgICAgICAgICAgc2VsZWN0LiBXaXRoaW4gZWFjaCAxNi1jaGFubmVs
-IGJsb2NrLCB0aGUgcGh5c2ljYWwgY2hhbm5lbCBudW1iZXIgaXMgcmVnICUgMTYuCisgICAgICAg
-IG1pbmltdW06IDAKKyAgICAgICAgbWF4aW11bTogNjMKKworICAgICAgb3V0cHV0LXJhbmdlLW1p
-Y3Jvdm9sdDoKKyAgICAgICAgZGVzY3JpcHRpb246CisgICAgICAgICAgT3V0cHV0IHZvbHRhZ2Ug
-cmFuZ2UgZm9yIHRoaXMgY2hhbm5lbCBhcyBbbWluLCBtYXhdIGluCisgICAgICAgICAgbWljcm92
-b2x0cy4KKyAgICAgICAgb25lT2Y6CisgICAgICAgICAgLSBpdGVtczoKKyAgICAgICAgICAgICAg
-LSBjb25zdDogMAorICAgICAgICAgICAgICAgIGRlZmF1bHQ6IDAKKyAgICAgICAgICAgICAgLSBl
-bnVtOiBbNTAwMDAwMCwgMTAwMDAwMDAsIDIwMDAwMDAwLCA0MDAwMDAwMF0KKyAgICAgICAgICAg
-ICAgICBkZWZhdWx0OiA1MDAwMDAwCisgICAgICAgICAgLSBpdGVtczoKKyAgICAgICAgICAgICAg
-LSBjb25zdDogLTUwMDAwMDAKKyAgICAgICAgICAgICAgLSBjb25zdDogNTAwMDAwMAorICAgICAg
-ICAgIC0gaXRlbXM6CisgICAgICAgICAgICAgIC0gY29uc3Q6IC0xMDAwMDAwMAorICAgICAgICAg
-ICAgICAtIGNvbnN0OiAxMDAwMDAwMAorICAgICAgICAgIC0gaXRlbXM6CisgICAgICAgICAgICAg
-IC0gY29uc3Q6IC0xNTAwMDAwMAorICAgICAgICAgICAgICAtIGNvbnN0OiAxNTAwMDAwMAorICAg
-ICAgICAgIC0gaXRlbXM6CisgICAgICAgICAgICAgIC0gY29uc3Q6IC0yMDAwMDAwMAorICAgICAg
-ICAgICAgICAtIGNvbnN0OiAyMDAwMDAwMAorCisgICAgcmVxdWlyZWQ6CisgICAgICAtIHJlZwor
-CisgICAgYWRkaXRpb25hbFByb3BlcnRpZXM6IGZhbHNlCisKK3JlcXVpcmVkOgorICAtIGNvbXBh
-dGlibGUKKyAgLSByZWcKKyAgLSB2ZGQtaW8tc3VwcGx5CisgIC0gdmRkLTV2LXN1cHBseQorICAt
-IHZkZC1odjAtc3VwcGx5CisgIC0gdmRkLWh2MS1zdXBwbHkKKyAgLSB2ZGQtaHYyLXN1cHBseQor
-ICAtIHZkZC1odjMtc3VwcGx5CisKK2RlcGVuZGVuY2llczoKKyAgc3BpLWNwaGE6IFsgc3BpLWNw
-b2wgXQorICBzcGktY3BvbDogWyBzcGktY3BoYSBdCisKK2FsbE9mOgorICAtICRyZWY6IC9zY2hl
-bWFzL3NwaS9zcGktcGVyaXBoZXJhbC1wcm9wcy55YW1sIworCit1bmV2YWx1YXRlZFByb3BlcnRp
-ZXM6IGZhbHNlCisKK2V4YW1wbGVzOgorICAtIHwKKyAgICAjaW5jbHVkZSA8ZHQtYmluZGluZ3Mv
-Z3Bpby9ncGlvLmg+CisKKyAgICBzcGkgeworICAgICAgICAjYWRkcmVzcy1jZWxscyA9IDwxPjsK
-KyAgICAgICAgI3NpemUtY2VsbHMgPSA8MD47CisKKyAgICAgICAgZGFjQDAgeworICAgICAgICAg
-ICAgY29tcGF0aWJsZSA9ICJhZGksYWQ1NTI5ci0xNiI7CisgICAgICAgICAgICByZWcgPSA8MD47
-CisgICAgICAgICAgICBzcGktbWF4LWZyZXF1ZW5jeSA9IDwyNTAwMDAwMD47CisgICAgICAgICAg
-ICBzcGktZGV2aWNlLWFkZHIgPSA8MD47CisKKyAgICAgICAgICAgIHZkZC1pby1zdXBwbHkgPSA8
-JnZkZF9pb19yZWd1bGF0b3I+OworICAgICAgICAgICAgdmRkLTV2LXN1cHBseSA9IDwmdmRkXzV2
-X3JlZ3VsYXRvcj47CisgICAgICAgICAgICB2ZGQtaHYwLXN1cHBseSA9IDwmdmRkX2h2MF9yZWd1
-bGF0b3I+OworICAgICAgICAgICAgdmRkLWh2MS1zdXBwbHkgPSA8JnZkZF9odjFfcmVndWxhdG9y
-PjsKKyAgICAgICAgICAgIHZkZC1odjItc3VwcGx5ID0gPCZ2ZGRfaHYyX3JlZ3VsYXRvcj47Cisg
-ICAgICAgICAgICB2ZGQtaHYzLXN1cHBseSA9IDwmdmRkX2h2M19yZWd1bGF0b3I+OworICAgICAg
-ICAgICAgdnNzLWh2MC1zdXBwbHkgPSA8JnZzc19odjBfcmVndWxhdG9yPjsKKyAgICAgICAgICAg
-IHZzcy1odjEtc3VwcGx5ID0gPCZ2c3NfaHYxX3JlZ3VsYXRvcj47CisgICAgICAgICAgICB2c3Mt
-aHYyLXN1cHBseSA9IDwmdnNzX2h2Ml9yZWd1bGF0b3I+OworICAgICAgICAgICAgdnNzLWh2My1z
-dXBwbHkgPSA8JnZzc19odjNfcmVndWxhdG9yPjsKKworICAgICAgICAgICAgcmVzZXQtZ3Bpb3Mg
-PSA8JmdwaW8wIDg3IEdQSU9fQUNUSVZFX0xPVz47CisKKyAgICAgICAgICAgICNhZGRyZXNzLWNl
-bGxzID0gPDE+OworICAgICAgICAgICAgI3NpemUtY2VsbHMgPSA8MD47CisKKyAgICAgICAgICAg
-IGNoYW5uZWxAMCB7CisgICAgICAgICAgICAgICAgcmVnID0gPDA+OworICAgICAgICAgICAgICAg
-IG91dHB1dC1yYW5nZS1taWNyb3ZvbHQgPSA8MCA1MDAwMDAwPjsKKyAgICAgICAgICAgIH07CisK
-KyAgICAgICAgICAgIGNoYW5uZWxAMSB7CisgICAgICAgICAgICAgICAgcmVnID0gPDE+OworICAg
-ICAgICAgICAgICAgIG91dHB1dC1yYW5nZS1taWNyb3ZvbHQgPSA8KC0xMDAwMDAwMCkgMTAwMDAw
-MDA+OworICAgICAgICAgICAgfTsKKworICAgICAgICAgICAgY2hhbm5lbEAyIHsKKyAgICAgICAg
-ICAgICAgICByZWcgPSA8Mj47CisgICAgICAgICAgICAgICAgb3V0cHV0LXJhbmdlLW1pY3Jvdm9s
-dCA9IDwwIDQwMDAwMDAwPjsKKyAgICAgICAgICAgIH07CisgICAgICAgIH07CisgICAgfTsKKy4u
-LgpkaWZmIC0tZ2l0IGEvTUFJTlRBSU5FUlMgYi9NQUlOVEFJTkVSUwppbmRleCBkNmMzYzdkMjI0
-MDMuLjMyMGU4NDc2NWNlNiAxMDA2NDQKLS0tIGEvTUFJTlRBSU5FUlMKKysrIGIvTUFJTlRBSU5F
-UlMKQEAgLTE1MDcsNiArMTUwNywxMyBAQCBXOglodHRwczovL2V6LmFuYWxvZy5jb20vbGludXgt
-c29mdHdhcmUtZHJpdmVycwogRjoJRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2lp
-by9hZGMvYWRpLGFkNDg1MS55YW1sCiBGOglkcml2ZXJzL2lpby9hZGMvYWQ0ODUxLmMKIAorQU5B
-TE9HIERFVklDRVMgSU5DIEFENTUyOVIgRFJJVkVSCitNOglKYW5hbmkgU3VuaWwgPGphbmFuaS5z
-dW5pbEBhbmFsb2cuY29tPgorTDoJbGludXgtaWlvQHZnZXIua2VybmVsLm9yZworUzoJU3VwcG9y
-dGVkCitXOglodHRwczovL2V6LmFuYWxvZy5jb20vbGludXgtc29mdHdhcmUtZHJpdmVycworRjoJ
-RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2lpby9kYWMvYWRpLGFkNTUyOXIueWFt
-bAorCiBBTkFMT0cgREVWSUNFUyBJTkMgQUQ1NzA2UiBEUklWRVIKIE06CUFsZXhpcyBDemV6YXIg
-VG9ycmVubyA8YWxleGlzY3plemFyLnRvcnJlbm9AYW5hbG9nLmNvbT4KIEw6CWxpbnV4LWlpb0B2
-Z2VyLmtlcm5lbC5vcmcKCi0tIAoyLjQzLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
+from Analog Devices.
+
+The device communicates over SPI and supports per-channel output range
+configuration. An optional external 4.096V reference can be used in
+place of the internal reference.
+
+Signed-off-by: Janani Sunil <janani.sunil@analog.com>
+---
+ MAINTAINERS               |   1 +
+ drivers/iio/dac/Kconfig   |  16 ++
+ drivers/iio/dac/Makefile  |   1 +
+ drivers/iio/dac/ad5529r.c | 538 ++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 556 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 320e84765ce6..143714e27d51 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1513,6 +1513,7 @@ L:	linux-iio@vger.kernel.org
+ S:	Supported
+ W:	https://ez.analog.com/linux-software-drivers
+ F:	Documentation/devicetree/bindings/iio/dac/adi,ad5529r.yaml
++F:	drivers/iio/dac/ad5529r.c
+ 
+ ANALOG DEVICES INC AD5706R DRIVER
+ M:	Alexis Czezar Torreno <alexisczezar.torreno@analog.com>
+diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
+index 657c68e75542..6a7109f42f2a 100644
+--- a/drivers/iio/dac/Kconfig
++++ b/drivers/iio/dac/Kconfig
+@@ -134,6 +134,22 @@ config AD5449
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called ad5449.
+ 
++config AD5529R
++	tristate "Analog Devices AD5529R High Voltage DAC driver"
++	depends on SPI_MASTER
++	select REGMAP_SPI
++	help
++	  Say yes here to build support for Analog Devices AD5529R 16-Channel,
++	  12-Bit/16-Bit, 40V High Voltage Precision Digital to Analog Converter.
++
++	  The device features multiple output voltage ranges from -20V to +20V,
++	  built-in 4.096V voltage reference, and digital functions including
++	  toggle, dither, and ramp modes. Supports both 12-bit and 16-bit
++	  resolution variants.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called ad5529r.
++
+ config AD5592R_BASE
+ 	tristate
+ 
+diff --git a/drivers/iio/dac/Makefile b/drivers/iio/dac/Makefile
+index 003431798498..f35e060b3643 100644
+--- a/drivers/iio/dac/Makefile
++++ b/drivers/iio/dac/Makefile
+@@ -18,6 +18,7 @@ obj-$(CONFIG_AD5446) += ad5446.o
+ obj-$(CONFIG_AD5446_SPI) += ad5446-spi.o
+ obj-$(CONFIG_AD5446_I2C) += ad5446-i2c.o
+ obj-$(CONFIG_AD5449) += ad5449.o
++obj-$(CONFIG_AD5529R) += ad5529r.o
+ obj-$(CONFIG_AD5592R_BASE) += ad5592r-base.o
+ obj-$(CONFIG_AD5592R) += ad5592r.o
+ obj-$(CONFIG_AD5593R) += ad5593r.o
+diff --git a/drivers/iio/dac/ad5529r.c b/drivers/iio/dac/ad5529r.c
+new file mode 100644
+index 000000000000..698284023268
+--- /dev/null
++++ b/drivers/iio/dac/ad5529r.c
+@@ -0,0 +1,538 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * AD5529R Digital-to-Analog Converter Driver
++ * 16-Channel, 12/16-Bit, 40V High Voltage Precision DAC
++ *
++ * Copyright 2026 Analog Devices Inc.
++ * Author: Janani Sunil <janani.sunil@analog.com>
++ */
++
++#include <linux/array_size.h>
++#include <linux/bits.h>
++#include <linux/delay.h>
++#include <linux/dev_printk.h>
++#include <linux/err.h>
++#include <linux/errno.h>
++#include <linux/iio/iio.h>
++#include <linux/module.h>
++#include <linux/property.h>
++#include <linux/regmap.h>
++#include <linux/regulator/consumer.h>
++#include <linux/reset.h>
++#include <linux/spi/spi.h>
++#include <linux/types.h>
++#include <linux/units.h>
++
++#define AD5529R_REG_INTERFACE_CONFIG_A		0x00
++#define   AD5529R_INTERFACE_CONFIG_A_SW_RESET	(BIT(7) | BIT(0))
++#define   AD5529R_INTERFACE_CONFIG_A_ADDR_ASCENSION	BIT(5)
++#define   AD5529R_INTERFACE_CONFIG_A_SDO_ENABLE	BIT(4)
++#define AD5529R_REG_DEVICE_CONFIG		0x02
++#define AD5529R_REG_CHIP_GRADE			0x06
++#define AD5529R_REG_SCRATCH_PAD			0x0A
++#define AD5529R_REG_SPI_REVISION		0x0B
++#define AD5529R_REG_VENDOR_H			0x0D
++#define AD5529R_REG_STREAM_MODE			0x0E
++#define AD5529R_REG_INTERFACE_STATUS_A		0x11
++#define AD5529R_REG_MULTI_DAC_CH_SEL		0x14
++#define AD5529R_REG_OUT_RANGE_BASE		0x3C
++#define AD5529R_REG_OUT_RANGE(ch)		(AD5529R_REG_OUT_RANGE_BASE + (ch) * 2)
++#define AD5529R_REG_DAC_INPUT_A_BASE		0x148
++#define AD5529R_REG_DAC_INPUT_A(ch)		(AD5529R_REG_DAC_INPUT_A_BASE + (ch) * 2)
++#define AD5529R_REG_DAC_DATA_READBACK_BASE	0x16A
++#define AD5529R_REG_TSENS_ALERT_FLAG		0x18C
++#define AD5529R_REG_TSENS_SHTD_FLAG		0x18E
++#define AD5529R_REG_FUNC_BUSY			0x1A0
++#define AD5529R_REG_REF_SEL			0x1A2
++#define   AD5529R_REF_SEL_INTERNAL_REF		BIT(0)
++#define AD5529R_REG_INIT_CRC_ERR_STAT		0x1A4
++#define AD5529R_REG_MULTI_DAC_HOTPATH_SW_LDAC	0x1A8
++
++#define AD5529R_MAX_REGISTER			0x232
++#define AD5529R_8BIT_REG_MAX			0x13
++#define AD5529R_MAX_CHANNELS			16
++#define AD5529R_SPI_READ_FLAG			0x80
++#define AD5529R_ADDR_SHIFT			12
++
++struct ad5529r_model_data {
++	const char *model_name;
++	unsigned int resolution;
++};
++
++#define AD5529R_DAC_CHANNEL(chan) ((struct iio_chan_spec) {		\
++	.type = IIO_VOLTAGE,						\
++	.indexed = 1,							\
++	.output = 1,							\
++	.channel = (chan),						\
++	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |			\
++			      BIT(IIO_CHAN_INFO_SCALE) |		\
++			      BIT(IIO_CHAN_INFO_OFFSET),		\
++})
++
++static const char * const ad5529r_supply_names[] = {
++	"vdd-io",
++	"vdd-5v",
++	"vdd-hv0",
++	"vdd-hv1",
++	"vdd-hv2",
++	"vdd-hv3",
++};
++
++static const char * const ad5529r_vss_supply_names[] = {
++	"vss-hv0",
++	"vss-hv1",
++	"vss-hv2",
++	"vss-hv3",
++};
++
++static const struct ad5529r_model_data ad5529r_16bit_model_data = {
++	.model_name = "ad5529r-16",
++	.resolution = 16,
++};
++
++static const struct ad5529r_model_data ad5529r_12bit_model_data = {
++	.model_name = "ad5529r-12",
++	.resolution = 12,
++};
++
++enum ad5529r_output_range {
++	AD5529R_RANGE_0V_5V,
++	AD5529R_RANGE_0V_10V,
++	AD5529R_RANGE_0V_20V,
++	AD5529R_RANGE_0V_40V,
++	AD5529R_RANGE_NEG5V_5V,
++	AD5529R_RANGE_NEG10V_10V,
++	AD5529R_RANGE_NEG15V_15V,
++	AD5529R_RANGE_NEG20V_20V,
++};
++
++static const s32 ad5529r_output_ranges_mV[8][2] = {
++	[AD5529R_RANGE_0V_5V] = { 0, 5000 },
++	[AD5529R_RANGE_0V_10V] = { 0, 10000 },
++	[AD5529R_RANGE_0V_20V] = { 0, 20000 },
++	[AD5529R_RANGE_0V_40V] = { 0, 40000 },
++	[AD5529R_RANGE_NEG5V_5V] = { -5000, 5000 },
++	[AD5529R_RANGE_NEG10V_10V] = { -10000, 10000 },
++	[AD5529R_RANGE_NEG15V_15V] = { -15000, 15000 },
++	[AD5529R_RANGE_NEG20V_20V] = { -20000, 20000 },
++};
++
++struct ad5529r_state {
++	struct spi_device *spi;
++	const struct ad5529r_model_data *model_data;
++	struct regmap *regmap_8bit;
++	struct regmap *regmap_16bit;
++	struct iio_chan_spec channels[AD5529R_MAX_CHANNELS];
++	unsigned int num_channels;
++	enum ad5529r_output_range output_range_idx[AD5529R_MAX_CHANNELS];
++};
++
++static const struct regmap_range ad5529r_8bit_readable_ranges[] = {
++	regmap_reg_range(AD5529R_REG_INTERFACE_CONFIG_A, AD5529R_REG_CHIP_GRADE),
++	regmap_reg_range(AD5529R_REG_SCRATCH_PAD, AD5529R_REG_VENDOR_H),
++	regmap_reg_range(AD5529R_REG_STREAM_MODE, AD5529R_REG_INTERFACE_STATUS_A),
++};
++
++static const struct regmap_range ad5529r_16bit_readable_ranges[] = {
++	regmap_reg_range(AD5529R_REG_MULTI_DAC_CH_SEL, AD5529R_REG_INIT_CRC_ERR_STAT),
++	regmap_reg_range(AD5529R_REG_MULTI_DAC_HOTPATH_SW_LDAC, AD5529R_MAX_REGISTER),
++};
++
++static const struct regmap_access_table ad5529r_8bit_readable_table = {
++	.yes_ranges = ad5529r_8bit_readable_ranges,
++	.n_yes_ranges = ARRAY_SIZE(ad5529r_8bit_readable_ranges),
++};
++
++static const struct regmap_access_table ad5529r_16bit_readable_table = {
++	.yes_ranges = ad5529r_16bit_readable_ranges,
++	.n_yes_ranges = ARRAY_SIZE(ad5529r_16bit_readable_ranges),
++};
++
++static const struct regmap_range ad5529r_8bit_read_only_ranges[] = {
++	regmap_reg_range(AD5529R_REG_DEVICE_CONFIG, AD5529R_REG_CHIP_GRADE),
++	regmap_reg_range(AD5529R_REG_SPI_REVISION, AD5529R_REG_VENDOR_H),
++};
++
++static const struct regmap_range ad5529r_16bit_read_only_ranges[] = {
++	regmap_reg_range(AD5529R_REG_DAC_DATA_READBACK_BASE,
++			 AD5529R_REG_DAC_DATA_READBACK_BASE +
++			 (AD5529R_MAX_CHANNELS - 1) * 2),
++	regmap_reg_range(AD5529R_REG_TSENS_ALERT_FLAG, AD5529R_REG_TSENS_SHTD_FLAG),
++	regmap_reg_range(AD5529R_REG_FUNC_BUSY, AD5529R_REG_FUNC_BUSY),
++	regmap_reg_range(AD5529R_REG_INIT_CRC_ERR_STAT, AD5529R_REG_INIT_CRC_ERR_STAT),
++};
++
++static const struct regmap_access_table ad5529r_8bit_writeable_table = {
++	.no_ranges = ad5529r_8bit_read_only_ranges,
++	.n_no_ranges = ARRAY_SIZE(ad5529r_8bit_read_only_ranges),
++};
++
++static const struct regmap_access_table ad5529r_16bit_writeable_table = {
++	.no_ranges = ad5529r_16bit_read_only_ranges,
++	.n_no_ranges = ARRAY_SIZE(ad5529r_16bit_read_only_ranges),
++};
++
++static struct regmap *ad5529r_get_regmap(struct ad5529r_state *st,
++					 unsigned int reg)
++{
++	if (reg <= AD5529R_8BIT_REG_MAX)
++		return st->regmap_8bit;
++
++	return st->regmap_16bit;
++}
++
++static int ad5529r_reset(struct ad5529r_state *st)
++{
++	struct reset_control *rst;
++	int ret;
++
++	rst = devm_reset_control_get_optional_exclusive(&st->spi->dev, NULL);
++	if (IS_ERR(rst))
++		return PTR_ERR(rst);
++
++	if (rst) {
++		ret = reset_control_assert(rst);
++		if (ret)
++			return ret;
++
++		/* Minimum reset low width (t_reset) is 20 ns per datasheet. */
++		ndelay(20);
++
++		ret = reset_control_deassert(rst);
++		if (ret)
++			return ret;
++	} else {
++		ret = regmap_write(st->regmap_8bit, AD5529R_REG_INTERFACE_CONFIG_A,
++				   AD5529R_INTERFACE_CONFIG_A_SW_RESET);
++		if (ret)
++			return ret;
++	}
++
++	/*
++	 * Wait 10 ms for digital initialization to complete.
++	 * Per datasheet, Interface Status A register NOT_READY_ERR bit is
++	 * set if SPI transactions are attempted before digital initialization
++	 * completes.
++	 */
++	fsleep(10 * USEC_PER_MSEC);
++
++	return regmap_write(st->regmap_8bit, AD5529R_REG_INTERFACE_CONFIG_A,
++			    AD5529R_INTERFACE_CONFIG_A_SDO_ENABLE |
++			    AD5529R_INTERFACE_CONFIG_A_ADDR_ASCENSION);
++}
++
++static int ad5529r_read_raw(struct iio_dev *indio_dev,
++			    struct iio_chan_spec const *chan,
++			    int *val, int *val2, long mask)
++{
++	struct ad5529r_state *st = iio_priv(indio_dev);
++	unsigned int reg_addr, reg_val_h;
++	int ret, range_idx, span_mv;
++
++	switch (mask) {
++	case IIO_CHAN_INFO_RAW:
++		/*
++		 * Read from DAC_INPUT_A register rather than DAC_DATA_READBACK.
++		 * The DAC operates in transparent mode and directly reflects
++		 * whatever value is written to the INPUT_A register.
++		 */
++		reg_addr = AD5529R_REG_DAC_INPUT_A(chan->channel);
++		ret = regmap_read(st->regmap_16bit, reg_addr, &reg_val_h);
++		if (ret)
++			return ret;
++
++		*val = reg_val_h;
++
++		return IIO_VAL_INT;
++	case IIO_CHAN_INFO_SCALE:
++		range_idx = st->output_range_idx[chan->channel];
++
++		/*
++		 * The datasheet specifies a 4.096 V external reference,
++		 * matching the nominal output voltage of the internal
++		 * reference.
++		 */
++		span_mv = ad5529r_output_ranges_mV[range_idx][1] -
++			  ad5529r_output_ranges_mV[range_idx][0];
++		*val = span_mv;
++		*val2 = st->model_data->resolution;
++
++		return IIO_VAL_FRACTIONAL_LOG2;
++	case IIO_CHAN_INFO_OFFSET:
++		range_idx = st->output_range_idx[chan->channel];
++
++		if (ad5529r_output_ranges_mV[range_idx][0] < 0)
++			*val = -(1 << (st->model_data->resolution - 1));
++		else
++			*val = 0;
++
++		return IIO_VAL_INT;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int ad5529r_write_raw(struct iio_dev *indio_dev,
++			     struct iio_chan_spec const *chan,
++			     int val, int val2, long mask)
++{
++	struct ad5529r_state *st = iio_priv(indio_dev);
++	unsigned int reg_addr;
++
++	switch (mask) {
++	case IIO_CHAN_INFO_RAW:
++		if (val < 0 || val > GENMASK(st->model_data->resolution - 1, 0))
++			return -EINVAL;
++
++		reg_addr = AD5529R_REG_DAC_INPUT_A(chan->channel);
++
++		return regmap_write(st->regmap_16bit, reg_addr, val);
++	default:
++		return -EINVAL;
++	}
++}
++
++static int ad5529r_find_output_range(const s32 *vals)
++{
++	for (unsigned int i = 0; i < ARRAY_SIZE(ad5529r_output_ranges_mV); i++) {
++		const s32 *range = ad5529r_output_ranges_mV[i];
++
++		if (vals[0] == range[0] * (MICRO / MILLI) &&
++		    vals[1] == range[1] * (MICRO / MILLI))
++			return i;
++	}
++
++	return -EINVAL;
++}
++
++static int ad5529r_parse_channel_ranges(struct device *dev,
++					struct ad5529r_state *st)
++{
++	unsigned long channel_mask = 0;
++	s32 vals[2];
++	int ret, range_idx;
++	u32 ch;
++
++	device_for_each_child_node_scoped(dev, child) {
++		if (st->num_channels == ARRAY_SIZE(st->channels))
++			return dev_err_probe(dev, -EINVAL, "Too many channels\n");
++
++		ret = fwnode_property_read_u32(child, "reg", &ch);
++		if (ret)
++			return dev_err_probe(dev, ret,
++					     "Missing reg property in channel node\n");
++
++		if (ch >= AD5529R_MAX_CHANNELS)
++			return dev_err_probe(dev, -EINVAL,
++					     "Channel %u exceeds maximum 15\n",
++					     ch);
++
++		if (channel_mask & BIT(ch))
++			return dev_err_probe(dev, -EINVAL,
++					     "Duplicate channel %u\n", ch);
++
++		channel_mask |= BIT(ch);
++
++		if (fwnode_property_present(child, "output-range-microvolt")) {
++			/*
++			 * DT stores cells as raw 32-bit values; signed endpoints are
++			 * encoded by dtc in two's-complement and then interpreted
++			 * here as s32.
++			 */
++			ret = fwnode_property_read_u32_array(child,
++							     "output-range-microvolt",
++							     (u32 *)vals, ARRAY_SIZE(vals));
++			if (ret < 0)
++				return dev_err_probe(dev, ret,
++						     "Failed to read range for ch %u\n",
++						     ch);
++
++			range_idx = ad5529r_find_output_range(vals);
++			if (range_idx < 0)
++				return dev_err_probe(dev, range_idx,
++						     "Invalid range [%d %d] for ch %u\n",
++						     vals[0], vals[1], ch);
++		} else {
++			range_idx = AD5529R_RANGE_0V_5V;
++		}
++
++		st->output_range_idx[ch] = range_idx;
++		ret = regmap_write(st->regmap_16bit,
++				   AD5529R_REG_OUT_RANGE(ch), range_idx);
++		if (ret)
++			return dev_err_probe(dev, ret,
++					     "Failed to configure range for ch %u\n",
++					     ch);
++
++		st->channels[st->num_channels++] = AD5529R_DAC_CHANNEL(ch);
++	}
++
++	return 0;
++}
++
++static int ad5529r_reg_access(struct iio_dev *indio_dev,
++			      unsigned int reg,
++			      unsigned int writeval,
++			      unsigned int *readval)
++{
++	struct ad5529r_state *st = iio_priv(indio_dev);
++
++	if (readval)
++		return regmap_read(ad5529r_get_regmap(st, reg), reg, readval);
++
++	return regmap_write(ad5529r_get_regmap(st, reg), reg, writeval);
++}
++
++static const struct iio_info ad5529r_info = {
++	.read_raw = ad5529r_read_raw,
++	.write_raw = ad5529r_write_raw,
++	.debugfs_reg_access = ad5529r_reg_access,
++};
++
++static int ad5529r_probe(struct spi_device *spi)
++{
++	struct device *dev = &spi->dev;
++	struct iio_dev *indio_dev;
++	struct ad5529r_state *st;
++	struct regmap_config regmap_8bit_cfg;
++	struct regmap_config regmap_16bit_cfg;
++	bool external_vref;
++	u32 dev_addr = 0;
++	unsigned int i;
++	int ret;
++
++	indio_dev = devm_iio_device_alloc(dev, sizeof(*st));
++	if (!indio_dev)
++		return -ENOMEM;
++
++	st = iio_priv(indio_dev);
++
++	st->spi = spi;
++
++	st->model_data = spi_get_device_match_data(spi);
++	if (!st->model_data)
++		return dev_err_probe(dev, -ENODATA,
++				     "Failed to identify device variant\n");
++
++	device_property_read_u32(dev, "spi-device-addr", &dev_addr);
++	if (dev_addr > 3)
++		return dev_err_probe(dev, -EINVAL,
++				     "spi-device-addr %u out of range [0, 3]\n",
++				     dev_addr);
++
++	regmap_8bit_cfg = (struct regmap_config) {
++		.name = "ad5529r-8bit",
++		.reg_bits = 16,
++		.val_bits = 8,
++		.max_register = AD5529R_8BIT_REG_MAX,
++		.read_flag_mask = AD5529R_SPI_READ_FLAG,
++		.rd_table = &ad5529r_8bit_readable_table,
++		.wr_table = &ad5529r_8bit_writeable_table,
++		.reg_base = dev_addr << AD5529R_ADDR_SHIFT,
++	};
++	regmap_16bit_cfg = (struct regmap_config) {
++		.name = "ad5529r-16bit",
++		.reg_bits = 16,
++		.val_bits = 16,
++		.max_register = AD5529R_MAX_REGISTER,
++		.read_flag_mask = AD5529R_SPI_READ_FLAG,
++		.val_format_endian = REGMAP_ENDIAN_LITTLE,
++		.rd_table = &ad5529r_16bit_readable_table,
++		.wr_table = &ad5529r_16bit_writeable_table,
++		.reg_stride = 2,
++		.reg_base = dev_addr << AD5529R_ADDR_SHIFT,
++	};
++
++	ret = devm_regulator_bulk_get_enable(dev, ARRAY_SIZE(ad5529r_supply_names),
++					     ad5529r_supply_names);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "Failed to get and enable regulators\n");
++
++	for (i = 0; i < ARRAY_SIZE(ad5529r_vss_supply_names); i++) {
++		ret = devm_regulator_get_enable_optional(dev,
++							 ad5529r_vss_supply_names[i]);
++		if (ret && ret != -ENODEV)
++			return dev_err_probe(dev, ret,
++					     "Failed to get and enable %s regulator\n",
++					     ad5529r_vss_supply_names[i]);
++	}
++
++	ret = devm_regulator_get_enable_optional(dev, "vref");
++	if (ret == -ENODEV)
++		external_vref = false;
++	else if (ret)
++		return dev_err_probe(dev, ret,
++				     "Failed to get and enable vref regulator\n");
++	else
++		external_vref = true;
++
++	/* Wait 10 ms after power-up before the first SPI transaction. */
++	fsleep(10 * USEC_PER_MSEC);
++
++	st->regmap_8bit = devm_regmap_init_spi(spi, &regmap_8bit_cfg);
++	if (IS_ERR(st->regmap_8bit))
++		return dev_err_probe(dev, PTR_ERR(st->regmap_8bit),
++				     "Failed to initialize 8-bit regmap\n");
++
++	st->regmap_16bit = devm_regmap_init_spi(spi, &regmap_16bit_cfg);
++	if (IS_ERR(st->regmap_16bit))
++		return dev_err_probe(dev, PTR_ERR(st->regmap_16bit),
++				     "Failed to initialize 16-bit regmap\n");
++
++	ret = ad5529r_reset(st);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to reset device\n");
++
++	ret = regmap_assign_bits(st->regmap_16bit, AD5529R_REG_REF_SEL,
++				 AD5529R_REF_SEL_INTERNAL_REF,
++				 !external_vref);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to configure reference\n");
++
++	ret = ad5529r_parse_channel_ranges(dev, st);
++	if (ret)
++		return ret;
++
++	indio_dev->name = st->model_data->model_name;
++	indio_dev->info = &ad5529r_info;
++	indio_dev->modes = INDIO_DIRECT_MODE;
++	indio_dev->channels = st->channels;
++	indio_dev->num_channels = st->num_channels;
++
++	return devm_iio_device_register(dev, indio_dev);
++}
++
++static const struct of_device_id ad5529r_of_match[] = {
++	{ .compatible = "adi,ad5529r-16", .data = &ad5529r_16bit_model_data },
++	{ .compatible = "adi,ad5529r-12", .data = &ad5529r_12bit_model_data },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, ad5529r_of_match);
++
++static const struct spi_device_id ad5529r_id[] = {
++	{
++		.name = "ad5529r-16",
++		.driver_data = (kernel_ulong_t)&ad5529r_16bit_model_data,
++	},
++	{
++		.name = "ad5529r-12",
++		.driver_data = (kernel_ulong_t)&ad5529r_12bit_model_data,
++	},
++	{ }
++};
++MODULE_DEVICE_TABLE(spi, ad5529r_id);
++
++static struct spi_driver ad5529r_driver = {
++	.driver = {
++		.name = "ad5529r",
++		.of_match_table = ad5529r_of_match,
++	},
++	.probe = ad5529r_probe,
++	.id_table = ad5529r_id,
++};
++module_spi_driver(ad5529r_driver);
++
++MODULE_AUTHOR("Janani Sunil <janani.sunil@analog.com>");
++MODULE_DESCRIPTION("Analog Devices AD5529R 12/16-bit DAC driver");
++MODULE_LICENSE("GPL");
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
