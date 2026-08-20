@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8D4C5DF8F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B74F2C5DF90
 	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 21:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,81 +12,81 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nzI9qsPN1eNK4ObtSGL0yr49sGQM/QCOY+LfivucNVA=; b=l7mDa+S9ViU0LP
-	oDX6/kvjN2ojst+Cgk3MHU+qv8jA6fSqwl+9g9aRJgtjic5VRNQyXFzuPwARMJktfIwrdeMqNXM+L
-	SYzGtmkSlFb+mXgRMstJvr2PHQBIG6foNzWTd/XECM07/rYQArhuDTARZ/DS56mzSrTEy5EGARAPC
-	Q2IS8dYuuqFMH67eInkfx9rZgQtEm/LhVuEvnrpHGkFpHXHr9QDOb3+3nspbrlonShJyloX0/nIG6
-	NZ7gLsLjI03N53pj+O9sYzOgY0k+eKRTgSpYUMksJFhXxsMm/4mrONA3Coc70cImQzr+Aoj0ITyUG
-	ArKURUCsvd/1VdBkjj6g==;
+	List-Owner; bh=7V428d90S/b/l2NRYec6GDF3rVh40PEWU5RBoZpRnhw=; b=Y5B+Br0df6phCw
+	9QnT8szl6Q0GhXNgmnJsxS9n7xQ/DbrncA8x5w2xTFrNW14QOftGk8i3FPqD7LPO38X8g/xnGKqyz
+	UPErbzx8cwRv+RMa8QekuEtKbRO3oEYjH37LgHubCC1sgkjN4pAA8aElu2nCu7XLUd1VGNcfyql7a
+	vk+eXRLEJzSHbzCmnOTrX/CeVHxAkhB5LTfWhmn1zNb8aCANbqDG4J+vHtkYxzSGSVZhT1k36voxH
+	S7UTcrvusAR4JgX7Nb/B0h/2W2iZVMPo1vVzqGH6aFZBs40Na61tsJEkaXU6C7OqcPZw3DpnHve4v
+	smAOvbSxRAtlrW3YYwfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAWU-0000000CDcN-2etg;
-	Thu, 20 Aug 2026 21:42:06 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wxAWV-0000000CDdH-3IgQ;
+	Thu, 20 Aug 2026 21:42:07 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAWP-0000000CDZo-0wBj
+	id 1wxAWT-0000000CDap-1Ali
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 21:42:03 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67KK7RHm1298358
-	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:42:01 GMT
+	Thu, 20 Aug 2026 21:42:06 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67KK7aWP587707
+	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:42:04 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=+m1BHDhHK9T
-	Y2fxWAkv5d/udjXarPp2DOE+7KtvToDU=; b=bndIb7HQYHDGpUUyyq6mwwz72Iv
-	6cu2le0Sl7jvB7UpNryAj3+yX5zOjE2C9CdA4tjAcPhFpg+UulXaLI8x9G3ue7Wu
-	lUwf5y8uxtvs6iIquyS9+9ik557SfXj5sX9e8ynTwjxgx00xlQfJil1mDF3hpenr
-	Swnd4zNBAj1gY7jX/T9qV51e6Tet6uH/2zmXQGAmT4uTig3fVdwAFPvh0xByv7+i
-	hA+Ue2kQ3sF0xUVsmsB76GwMZJpuh1A2ib8o2kCSLvlbYljQBr1WBhIWiApiVa8b
-	Qi6CKYogIfsBUnfJoXRGVPr8MVEWbCO/LIPeXzDduzBz7zi0iRiEiuEp5jA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5vn8btb0-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=qwULhjudGmx
+	SOoYi+ERFWqMhOqB03wQScF80uC4a0ZI=; b=RfvY8Wcs3qLdq8oowJMXcR7z1nt
+	JNP+PoPdC49U4oITFwviPEmlqZl/9CRhQkS+r4BkjIz5yhhmty6TPI475GXt2RBQ
+	99H/h8uDrrc8AbS7hWceCdDQObMx0CZ3TX6KeFbN0BtBi1jHxG0bcq+guN5xIQFS
+	fRX4AlUa0O5AgFDuf6zKUb6WGoEOuf7gz836iDigUoSHyp3MUt4e2eT9h9jWxsfs
+	etcL+Byl9SRzkYQwlt4d0+5hNiJ/zpDbrTb3N8Oy4QSeIyf+YD7AENanCtGTaXoJ
+	2qVktuRWtTAUmDNJsZf6DmoiwxYecuLyk3/FuZ3WcRd0z4mqr5uCz31o7LA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5yg8b23g-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:42:00 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-92e82060977so30194285a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 14:42:00 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:42:04 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93494527488so49595885a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 14:42:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787262119; x=1787866919; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1787262123; x=1787866923; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+m1BHDhHK9TY2fxWAkv5d/udjXarPp2DOE+7KtvToDU=;
-        b=VBuhrjhcKfNwumX+BbRaMaPU21bvvDDbNk9GYuA52ygHZlIRo15a3hoCcPh//58tzX
-         1rFZ4HW3OZWQOV1omH1o38KG5Yzl1hknhIoBTJla2AvtIxm2WiYE/sCpsFXaH+eTXFMt
-         oPD1P/ADPVYlDuQT3qGEwtX/6/xVEKQGBNTDlx65LcfG+XePHSbNKfnjsB9HKA6Pf6JY
-         KIWPS6uSB6D3zWgArLPdJzCBLFh8w+hnzatVF/xGsUUcBHw/quMNKbIMvL5ZGtCcMKoH
-         Rjwrq/AedB5o18qg4lAV56RBQHN11Tb4XB51L3EgswfstcWjGmUXK/nTtUKJuJ0oCY95
-         E2Aw==
+        bh=qwULhjudGmxSOoYi+ERFWqMhOqB03wQScF80uC4a0ZI=;
+        b=Aa6HD/6B7FlgZ7e6aEVl8UNWaRHFmYbWeIANTbX68tpnzr/pJsBMPVPYhaCmVGuxY2
+         A3QoK4u+SkSBuri6FFTcpWEqkZuI8hpRaj2cMDGdnijaCaFQa6taB+YD2vEBSC/KUghe
+         g8yW/ybL+dHX+6SOi+BcTzbUzsrLb0au4QBAfdbogPUNtsfGvIC0L6+CxCjz/VROiIYo
+         PA5d1lBaBJBIhWfP0H8+hnj2EwOOLq5VfjdgDLuRFsHbpTvmvXNm7q2G5rIBTsK3veDP
+         bHsJxzc8eMGkogyi124AwoGDN+B96+iuqDtv/nNUF0x9gwk5HYYbRdP2EmPY/+dOwpKQ
+         fjFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787262119; x=1787866919;
+        d=1e100.net; s=20251104; t=1787262123; x=1787866923;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+m1BHDhHK9TY2fxWAkv5d/udjXarPp2DOE+7KtvToDU=;
-        b=IwHxigWvNzaR1MW3vLTAd0IvOzTbTS1hV4dtPYSLHcCZMuXX+9yEy0Uqy90pKQJSbE
-         FZp0rJlu42eFUCv1tXSs6F9upMZsBiy+1Z3Cl78THGj9BKcygTkwXO2eluZz3xIqrKw0
-         1Jo5PF6WPX3EbxxKUynTu99jgLHNVJi90IrBoTPR0wk8JQCah1pj7wLwqiqFzspvUotK
-         s8wwkpv6JQ+N9UeQuTuiHU5PZU0pU24z48wu7qC7jSYDXx7ms+p/sueOo0uMq4HQdZtu
-         tmvtIHdnDM+sEli/wueY3jW28FoYBRhg2ZqMa8sFxWc/0Sqn3hL9wH+2uD9KZRbgpXa3
-         /YJQ==
-X-Gm-Message-State: AOJu0Yy1sIqCVBUN/SiFgZOF04KKuqxbmIxyq2ZbYkxZa4pDhukkEchs
-	ezh4Y6Wsh32pdDBQ+Ma9igDH3m7frVdG/zoNsgUp/Si5hERrMt/lSWhWtBP10zIUHFQscRP+8ZZ
-	VwVrVsjPVS/X6KODpAtYrlgr0NwLufegoL15PmEfZCMNx3X/C1fwWYEGdDTEm267HZzkb2vMopf
-	guwP4=
-X-Gm-Gg: AR+sD13L6GxW1vqPiLCz33IXwDExa+S6gLlVuaKI6+9gt7RKAxeYxCdiZpEyJ8xUiLi
-	6NdsCvRgPIhs0sceUWqeCEQ1DaL0Y3LzMbbjc3T+vxInCCkxq1BcML3cQ4h0deTDRgcFJnVNLa5
-	+4yJCVHi/IBLvZuL2UOOP9gi9ifgR2FZ1xGdhJyYD3iX8Sv4j20KNkyRgtkWq2BqyRyNB6ISi24
-	ZKtsYsvI4w2x0icE08omQqZGvb0/nHmAvc2YGEez+/fWssR3sGoXoshYq4wfG4r9IeJWsZSVmCk
-	n9zfy4zuIOEIZmUxQOSIp9UmjT6XDvBUH2TqOuMH8bjNJbbcLJwukLJyd1fFHNdxCq+mAnd0SQI
-	XH1SZy7zu
-X-Received: by 2002:a05:620a:63c8:b0:937:17f9:da2 with SMTP id af79cd13be357-937283b5de9mr979111585a.6.1787262119606;
-        Thu, 20 Aug 2026 14:41:59 -0700 (PDT)
-X-Received: by 2002:a05:620a:63c8:b0:937:17f9:da2 with SMTP id af79cd13be357-937283b5de9mr979108785a.6.1787262119202;
-        Thu, 20 Aug 2026 14:41:59 -0700 (PDT)
+        bh=qwULhjudGmxSOoYi+ERFWqMhOqB03wQScF80uC4a0ZI=;
+        b=i9WMMLfDmWGvBdJVt3RUhbqylPLZ50MeFjT31IG4yN0oiMku5oEqzwVmKRvzIZ/DCP
+         kYkRkaO7o6QBU96UG9BEmA03zRhhnefQh3Wi4W22GSFTAAOUE6ZUuKBpLdOkCgf+MyAj
+         A2yIuctiGB3haBeI5h14KvB+vamF7ecvdC+hnIaxLeU0OQN5jyuXvwKjD2lIo3ZR6Odv
+         m7/wEwQ9zbkmkiiw39V37UFfggGqcS9VSWCN1utK3Q9lH4xtadc7P8E6EuDxIfPpKJwg
+         3AAr9mHtYjOTkk344asSpX+CbAoRDZZR/6Wrdpa6RTXpH2WzKi0T1y6htV6lb2jZAAlB
+         EONQ==
+X-Gm-Message-State: AOJu0Yy1TmwtgXOKRMzxpWUkcNlQ+tKBpBGnKHWUho7mRt4H3uDQ/d5P
+	1mL5igIU3Z5MwaCkVYfVcFHtg0duH+cZXU4FfXelXSHiATEIQ+/XE7MHfNkplUNYkfYIxfAydU5
+	Emqjxu4xeVGXdTc4dT7RCdbvC3/b2Iwd+HuQ0jN4MsX0fYtWW646H5Om9QuADRUNuewpxfxD2bB
+	Rm8Fo=
+X-Gm-Gg: AR+sD10D+wAAdADhRnAUmJPRTBH1TnWOHyNe5psdRZ3Uo0qNSV7ebCwAQ3F0WnhFl3+
+	cipikKHjpl4yp0FJEEdrbGI8z4Nv8P+CURLeNoyKaTAshfqxCmSN5hYkX+uAV08umg+yH/r5DQH
+	c0sNbCm9qtFzHCWU3BnaflTx+RAeZbJ6FJCMhtyKrG+DuzJK+K4mudx0zVzu9u5y15XJ6y0vsaH
+	WddH0iDsVOJ4JXR3MnEysH4f+nM3JJ+8DKa+xpN+Gk8GkWsWq2wXJEfz2Nlhm5XRFzIDrfYozF5
+	rUVLx/JwR5b9T4MyTWeQYS12YhC10pyrPjHnRRPnmGtRfifh3GyY9McOXKgwjBSP5dFbLKJPfu+
+	Q5LuotNXb
+X-Received: by 2002:a05:620a:3952:b0:937:39a0:a15d with SMTP id af79cd13be357-93739a0a4e7mr100182385a.41.1787262123579;
+        Thu, 20 Aug 2026 14:42:03 -0700 (PDT)
+X-Received: by 2002:a05:620a:3952:b0:937:39a0:a15d with SMTP id af79cd13be357-93739a0a4e7mr100176985a.41.1787262123167;
+        Thu, 20 Aug 2026 14:42:03 -0700 (PDT)
 Received: from localhost ([193.165.40.195])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482b14c3775sm13092981f8f.26.2026.08.20.14.41.57
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b9bb47b3sm293655e9.3.2026.08.20.14.42.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 14:41:57 -0700 (PDT)
+        Thu, 20 Aug 2026 14:42:02 -0700 (PDT)
 From: Andrew Jones <andrew.jones@oss.qualcomm.com>
 To: linux-riscv@lists.infradead.org, iommu@lists.linux.dev
 Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
@@ -94,43 +94,42 @@ Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
         will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
         palmer@dabbelt.com, anup@brainfault.org, tglx@kernel.org,
         kevin.tian@intel.com, fangyu.yu@linux.alibaba.com
-Subject: [PATCH v4 03/21] iommu/dma: Add iommu_dma_sw_map_msi()
-Date: Thu, 20 Aug 2026 23:41:32 +0200
-Message-ID: <20260820214150.545737-4-andrew.jones@oss.qualcomm.com>
+Subject: [PATCH v4 05/21] iommu: Document MSI mapping during domain replacement
+Date: Thu, 20 Aug 2026 23:41:34 +0200
+Message-ID: <20260820214150.545737-6-andrew.jones@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
 References: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfX3WrawaMQtVt5
- e8KiL41Ik5ZTX2yXCz46CDTZRKEzvuP4N+/tsQUydmy7p4Oe15JVp2WgSLpsP7F4TCTM+ZL31+J
- ghpo90Uj/ZSWAztHQS6WtOyISI8lbnUT6XSueA4G6knXQrDLGEp84Us1s3dASInL1ekJmJVd9ta
- xG76QVU9aG1l3Iz9z+Rts9Hyum/Ne1Osy1D+G7NQuIj3Zz0j6BxH/+sZ7WQrhlz/jQVIZAIHai7
- Q9vSSF323VGXvgMAEMoST5b5CKFn7m1J+CfF8jXLwFHdXlnwkPy0c4scWLeWn9kOpDhhiAefFhC
- M0dXbk+W/TR/oLttG/QD+WMeRRkibcMeyVkkAn7RBPCSnXSrrJ7pJ+GYU+ZB1U/ZpI9b1EXQsyP
- jfUCrN//wmjWTh7S2S0jRm8w+hrtsMYJYjmuaCxOpguVCJAyiz/1pwQDvt1vROzfeevU4gXGdYx
- AtZf3pK2awQfQ/NYXBw==
-X-Authority-Analysis: v=2.4 cv=KpJ9H2WN c=1 sm=1 tr=0 ts=6a8774a8 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=CzrpMg+lqiTzknPDBj2tlw==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfX4vIKOY3GmU+u
+ 4YVN1pNZDmQCJasW0w4gro2J1bXoMiv5eCd58Vs9Nd3MqR4nJaaDvZMkObJA9b2pDcCAGQScyoE
+ 2ARwpYpqtSgWFDSEY1FC8lqRLGiyWTM=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfX4TvmupfTu/gC
+ MkxT9AC0nOApGknzFS4oYI1cvBFsvtGuFHc6Lds4mlpccjk8tcEC8Mcj2uCcQolGzTJHV+s4fJL
+ 0xk4VocYeVeyBbTLDLitDSlmyWRCc4XpK0fWfjx/jxsZ+hsb8eTakpqV5PSF2ILbqYxX1Opj94v
+ R9c6Asz1mrplo4DLcj0ILZpL/Yz6ZwMjysEy8RipSofOqiJx0TWFAEEoDCa+tPjoFtwbjQX3ZaR
+ UFD+nDZGPDLbDQucGIdo0Hp4mYVwp1wc1F9A50i/QRJJpMkWt9+2BXIt8snE8cy7Sb1EUsms2LC
+ W3/IV6x76u0k/j+Nuq5kh4QsTfR8ub56AgIXPTMZf2d8GnU5Tk36Q1ksFSPR7LaBVbk3nXegmgc
+ UEq3A0aKwsK4RV+54Z7Mvrm9Kpq6ce30EVsINrx5wL7jIuuYFPLcIdM1RF6tNSmz/w9t0xDTRMM
+ cwGkt2PHTkI/tIiIcZA==
+X-Authority-Analysis: v=2.4 cv=Y7/IdBeN c=1 sm=1 tr=0 ts=6a8774ac cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=CzrpMg+lqiTzknPDBj2tlw==:17
  a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
- a=B9hF7e9JpKM1iJhnVVUA:9 a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfXwoRTb77W+Nza
- iYPJVBzYRyVAWtFYqRWPxGDi6mlaOObGGbzbsDY1/r4lt/0IZrlmVnFCti0iLApjIv3w4UW7iP6
- aEmHkpGtvFyEIRYGrgafNa00kPV19Jw=
-X-Proofpoint-ORIG-GUID: 8pUPGfL1iL4i2GcBxw1tl1mnNOXBb3KI
-X-Proofpoint-GUID: 8pUPGfL1iL4i2GcBxw1tl1mnNOXBb3KI
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
+ a=dE3YUn1xrUNcRiCJ4h8A:9 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-GUID: MK9MHTierOW7YnXaH2V-H5GOS3oVt8ZB
+X-Proofpoint-ORIG-GUID: MK9MHTierOW7YnXaH2V-H5GOS3oVt8ZB
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-20_02,2026-08-20_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 impostorscore=0 bulkscore=0 suspectscore=0 clxscore=1015
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608200162
+ suspectscore=0 bulkscore=0 priorityscore=1501 malwarescore=0 adultscore=0
+ clxscore=1015 phishscore=0 impostorscore=0 lowpriorityscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608200162
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_144202_803103_CCB63860 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20260820_144205_440721_EBA31BA3 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,120 +146,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a descriptor-free counterpart to iommu_dma_sw_msi(). The existing
-function is tied to a struct msi_desc and stores the result in the
-descriptor. This variant returns the IOVA directly so callers can
-pre-map MSI targets before any descriptor has been allocated.
+Interrupt-remapping drivers may need to prepare software MSI mappings
+for an incoming domain from their attach_dev() callback. At that point
+the device is not yet attached to the supplied domain and, for an
+iommufd replacement, the current attach handle still describes the old
+domain.
 
-Callers may pass a required mapping size so MSI doorbells that must
-not share a larger IOMMU leaf, such as RISC-V IMSIC files, can fail
-before a mapping is installed.
+Document that iommu_dma_map_msi() supports this use. Clarify the DMA
+backend only requires a compatible device and that the iommufd backend
+intentionally combines context from the current handle with the
+explicitly supplied destination HWPT.
 
 Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 ---
- drivers/iommu/dma-iommu.c | 48 ++++++++++++++++++++++++++++++++-------
- drivers/iommu/dma-iommu.h | 12 ++++++++++
- 2 files changed, 52 insertions(+), 8 deletions(-)
+ drivers/iommu/dma-iommu.c      | 7 ++++---
+ drivers/iommu/iommu.c          | 5 +++++
+ drivers/iommu/iommufd/driver.c | 8 +++++---
+ 3 files changed, 14 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
-index 9a07eb39336e..3ce9f4878d92 100644
+index 39ee5f0b1da9..030948a7e6b9 100644
 --- a/drivers/iommu/dma-iommu.c
 +++ b/drivers/iommu/dma-iommu.c
-@@ -2247,24 +2247,56 @@ static struct iommu_dma_msi_page *iommu_dma_get_msi_page(struct device *dev,
- 	return NULL;
- }
- 
--int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
--		     phys_addr_t msi_addr)
-+/*
-+ * Descriptor-free counterpart to iommu_dma_sw_msi(). Maps an MSI physical
-+ * page into the domain and returns the IOVA and mapping granule. Used for
-+ * pre-mapping MSI targets before any MSI descriptor has been set.
+@@ -2252,9 +2252,10 @@ static struct iommu_dma_msi_page *iommu_dma_get_msi_page(struct device *dev,
+  * mapping granule. Used for pre-mapping MSI targets before any MSI
+  * descriptor has been set.
+  *
+- * The caller must pass a device attached to @domain and hold @dev's IOMMU
+- * group mutex. If @required_size is non-zero then it must exactly match the
+- * domain's MSI mapping granule. @msi_iova and @msi_shift must be non-NULL.
++ * The caller must pass a device compatible with @domain and hold @dev's IOMMU
++ * group mutex. @domain may be the incoming domain of an attach_dev() callback.
++ * If @required_size is non-zero then it must exactly match the domain's MSI
++ * mapping granule. @msi_iova and @msi_shift must be non-NULL.
+  */
+ int iommu_dma_sw_map_msi(struct iommu_domain *domain,
+ 			 struct device *dev, phys_addr_t msi_addr,
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index 84b60d0f8c23..389d67c4bda3 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -4272,6 +4272,11 @@ EXPORT_SYMBOL_GPL(pci_dev_reset_iommu_done);
+  * stop the domain from changing between iterations, leaving the table
+  * inconsistent. The caller locks once around the whole loop instead.
+  *
++ * @domain may be the incoming domain of an attach_dev() callback. In that
++ * case, @dev need not be attached to @domain yet, but it must be compatible
++ * with @domain and the caller must keep the current group attachment stable
++ * until the callback completes.
 + *
-+ * The caller must pass a device attached to @domain and hold @dev's IOMMU
-+ * group mutex. If @required_size is non-zero then it must exactly match the
-+ * domain's MSI mapping granule. @msi_iova and @msi_shift must be non-NULL.
-+ */
-+int iommu_dma_sw_map_msi(struct iommu_domain *domain,
-+			 struct device *dev, phys_addr_t msi_addr,
-+			 size_t required_size, dma_addr_t *msi_iova,
-+			 unsigned int *msi_shift)
- {
--	struct device *dev = msi_desc_to_dev(desc);
- 	const struct iommu_dma_msi_page *msi_page;
-+	size_t size;
+  * Return: 0 on success or negative error code if the mapping failed.
+  */
+ int iommu_dma_map_msi(struct iommu_domain *domain,
+diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
+index b39796bc7251..358cc6d87941 100644
+--- a/drivers/iommu/iommufd/driver.c
++++ b/drivers/iommu/iommufd/driver.c
+@@ -281,9 +281,11 @@ int iommufd_sw_map_msi(struct iommu_domain *domain, struct device *dev,
+ 		return -EOPNOTSUPP;
  
--	if (!has_msi_cookie(domain)) {
--		msi_desc_set_iommu_msi_iova(desc, 0, 0);
-+	*msi_iova = 0;
-+	*msi_shift = 0;
-+
-+	if (!has_msi_cookie(domain))
- 		return 0;
--	}
-+
-+	size = cookie_msi_granule(domain);
-+	if (required_size && size != required_size)
-+		return -EOPNOTSUPP;
- 
+ 	/*
+-	 * It is safe to call iommu_attach_handle_get() here because the iommu
+-	 * core code invokes this under the group mutex which also prevents any
+-	 * change of the attach handle for the duration of this function.
++	 * During a domain replacement this returns the current handle, not the
++	 * handle for @domain. That is intentional: the current handle supplies
++	 * the stable iommufd context and group MSI window, while @domain selects
++	 * the HWPT where the mapping is installed. The group mutex prevents the
++	 * current handle from changing for the duration of this function.
+ 	 */
  	iommu_group_mutex_assert(dev);
- 	msi_page = iommu_dma_get_msi_page(dev, msi_addr, domain);
- 	if (!msi_page)
- 		return -ENOMEM;
  
--	msi_desc_set_iommu_msi_iova(desc, msi_page->iova,
--				    ilog2(cookie_msi_granule(domain)));
-+	*msi_iova = msi_page->iova;
-+	*msi_shift = ilog2(size);
-+	return 0;
-+}
-+
-+int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
-+		     phys_addr_t msi_addr)
-+{
-+	struct device *dev = msi_desc_to_dev(desc);
-+	dma_addr_t msi_iova;
-+	unsigned int msi_shift;
-+	int ret;
-+
-+	ret = iommu_dma_sw_map_msi(domain, dev, msi_addr, 0, &msi_iova, &msi_shift);
-+	if (ret)
-+		return ret;
-+
-+	msi_desc_set_iommu_msi_iova(desc, msi_iova, msi_shift);
- 	return 0;
- }
- 
-diff --git a/drivers/iommu/dma-iommu.h b/drivers/iommu/dma-iommu.h
-index 040d00252563..3e1adeafdcac 100644
---- a/drivers/iommu/dma-iommu.h
-+++ b/drivers/iommu/dma-iommu.h
-@@ -19,6 +19,10 @@ int iommu_dma_init_fq(struct iommu_domain *domain);
- 
- void iommu_dma_get_resv_regions(struct device *dev, struct list_head *list);
- 
-+int iommu_dma_sw_map_msi(struct iommu_domain *domain,
-+			 struct device *dev, phys_addr_t msi_addr,
-+			 size_t required_size, dma_addr_t *msi_iova,
-+			 unsigned int *msi_shift);
- int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
- 		     phys_addr_t msi_addr);
- 
-@@ -53,6 +57,14 @@ static inline void iommu_dma_get_resv_regions(struct device *dev, struct list_he
- {
- }
- 
-+static inline int iommu_dma_sw_map_msi(struct iommu_domain *domain,
-+				       struct device *dev, phys_addr_t msi_addr,
-+				       size_t required_size, dma_addr_t *msi_iova,
-+				       unsigned int *msi_shift)
-+{
-+	return -ENODEV;
-+}
-+
- static inline int iommu_dma_sw_msi(struct iommu_domain *domain,
- 				   struct msi_desc *desc, phys_addr_t msi_addr)
- {
 -- 
 2.43.0
 
