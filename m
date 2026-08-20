@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DFD7C5DF81
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 11:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784CBC5DF81
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 12:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5jGF5m/igxsuFiQKEy0GBdWDR8HqOKUzzu8vT4C7yME=; b=tKMbb92IAb8wTC
-	mrzLohkQ8AADr0pyw8Y6RJBjrLZbbEuGqYI7P09FkZFr8LQdVvJpau9f+qy4ZQtIAIgdIKextZ9K0
-	P7e5cg0KQEHgyVTNN5prifeerHoN9hO2eP1x8uC53MT3pYPo98csNbZVUVrkrXcd9hRDZI7APLOZ9
-	B4SS3M/C0C5LSgpqQCiOsLBio91lbG3fO49nP6trmK+FPzwYwHyClToUStyC3dqNo/fOQTgtCbyW/
-	cT7u5uz77y5KvyJJBuy9BtogZAjMEVpAbCCEELPp9uxMiQ3cZGDDCC5pxNAb+JIoXmaolMYIMlcOE
-	gX+DjYK+YNvKGj9W3Ifg==;
+	List-Owner; bh=ywnzjcvoCePCNmRg90CjNZQ/dQLoS7Zj1MKXN/LU4Yo=; b=MohKTmfDtFY5vy
+	T9Un3A5F7RT53cR8ScO7hN52EkaoPcMb1psGej3fsOi0/z6hSsK5dFWGwwMHd2d773OhCIYYuObbs
+	/SxEi5+w1P2m6jVqZzHu5dXPkX80hhy6SkNlMGLQ2vRExUfnFk7N1k/2R5YsUirTtp3qbwl2eLXZv
+	qlIEm7Ob67isDf0+dSNIzCaARq3WXhXZpPvshy/H5QTti8SsX3pFyOxtymU+nEpBFIXPB4J/gLkkp
+	muTxdIL4OxKLCJ/41Vd234ioNdPRimqWPZ/wRYvDsxkTjmjOfblN8dHt+mH+uxzCLWoi/WPhi6oJN
+	9p+S9WUMnch2KrWuD2uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1D7-0000000BTat-30IC;
-	Thu, 20 Aug 2026 11:45:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wx1mF-0000000BWIX-2TmH;
+	Thu, 20 Aug 2026 12:21:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1D7-0000000BTae-07Rb
+	id 1wx1mD-0000000BWHP-03PN
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 11:45:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6896743CF7
-	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 11:45:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D6331F00AC4
-	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 11:45:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787226328;
-	bh=hBVCbdn3EEHFDipkM52+ES86DnnMbe9gd2U25NMqEbo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ld/J46QTq+sUbtovv+en3C/LSKMAogmu4UjaPHCxgW2nfY57tx8t3PD46s9NgUcKJ
-	 NChEwAMAkqTSm94qCinNk75xGp/2x162FU2/Hwx2GROgNylzG7G3X2TlCnsTNS5X9Y
-	 A4oq6CzzPjwEKL6YWQTQzEMSs4evVfIiuTu5JL+Lp3SBbDKfAkK1x2gBycs0Od3WOi
-	 VYMtuYmVtMMSy7FREr6tv7hHnIN7LkX82RPK0CzaeK7rrPsh0tuDDA027Sa4EwYufc
-	 Y93CCES/6c6uQVT/jxUnKfumcGmzTDEEwy+hB88Xn9dhkRh3w8damBfdSLj4nzTR5O
-	 2YDYVoIvudp3g==
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-481412f1828so854241f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 04:45:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpFvDrgC5ftc0Nj1GWeT9DhiW/u64F4U8ZgInwoDdPbVbrRrPeKjs1kNzf4+2n9RXwsV3hs090B89M+yA==@lists.infradead.org
-X-Gm-Message-State: AFuF++lVqSjzsTiVtsaSrAWAUkzgw3LD3Y84n9OWVrI12pNvcgv64v6o
-	LNMve/Q65ATMDEtXPL8Y+d7YJyH2uC5HMylrrgNRv1qUDVfgMu1rvUzxfeJj1AtulM4jNIrOMII
-	z/mj2jFZJapTj60LEarrAYXHnp9CGzNc=
-X-Received: by 2002:a05:6000:1445:b0:482:9dc6:16c4 with SMTP id
- ffacd0b85a97d-482b1e83abdmr18437712f8f.1.1787226326941; Thu, 20 Aug 2026
- 04:45:26 -0700 (PDT)
+	Thu, 20 Aug 2026 12:21:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1787228504;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gNk7Cd7avSLwD5U7YbcUtZCLln2gfmogkmv7E85mGj8=;
+	b=VIWlyvapupDFOljBdTk5HecbcN8eEojZj5SbAv4qgCl8KTBng2M0mnMFIhQ9CKUa/mCJTd
+	ZqgQF96pL2J7aNrz9JLRtERJAJAA4iu0xE96Z4jYyqBl6InB3eL4cWzDqAY9v/uVQkgyz9
+	nGNTEmXgAcxSohrgl/Pw4ujgADUMXG0=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-35-1NbTOSR6MKevFigPeVGjpQ-1; Thu,
+ 20 Aug 2026 08:21:32 -0400
+X-MC-Unique: 1NbTOSR6MKevFigPeVGjpQ-1
+X-Mimecast-MFC-AGG-ID: 1NbTOSR6MKevFigPeVGjpQ_1787228489
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2C39D1800471;
+	Thu, 20 Aug 2026 12:21:27 +0000 (UTC)
+Received: from rotkaeppchen (headnet03.pony-001.prod.iad2.dc.redhat.com [10.2.32.114])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 185991955F03;
+	Thu, 20 Aug 2026 12:21:19 +0000 (UTC)
+Date: Thu, 20 Aug 2026 14:21:14 +0200
+From: Philipp Rudo <prudo@redhat.com>
+To: Mukesh Pilaniya <mpilaniy@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton
+ <akpm@linux-foundation.org>, Baoquan He <baoquan.he@linux.dev>, Mike
+ Rapoport <rppt@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ kexec@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] kexec: fix error propagation in
+ kexec_image_probe_default()
+Message-ID: <20260820142114.0a36ac78@rotkaeppchen>
+In-Reply-To: <20260819-mpilaniy-v2-2-95e929ede0e5@redhat.com>
+References: <20260819-mpilaniy-v2-0-95e929ede0e5@redhat.com>
+	<20260819-mpilaniy-v2-2-95e929ede0e5@redhat.com>
+Organization: Red Hat inc.
 MIME-Version: 1.0
-References: <20260820063233.2567-1-cp0613@linux.alibaba.com>
-In-Reply-To: <20260820063233.2567-1-cp0613@linux.alibaba.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 20 Aug 2026 19:45:13 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQ-_kSrtV_rpoMK2pKPM3q-CmgDwyX111XvM9oJ=oyDxg@mail.gmail.com>
-X-Gm-Features: AcwNN1XdGt6Og7pbvA5AWf8snjRkbQz-gJqB8zUegZGNFED00Q9cedb9vkScv6s
-Message-ID: <CAJF2gTQ-_kSrtV_rpoMK2pKPM3q-CmgDwyX111XvM9oJ=oyDxg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: ptrace: reject CFI regset access when extensions
- are absent
-To: Chen Pei <cp0613@linux.alibaba.com>
-Cc: pjw@kernel.org, oleg@redhat.com, debug@rivosinc.com, alex@ghiti.fr, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Mimecast-MFC-PROC-ID: gcX04UtjqWIvf5YchASWQk1gcMFmu_Gtwot_qhWq540_1787228489
+X-Mimecast-Originator: redhat.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_052145_121526_A1BC4CCB 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +92,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBdWcgMjAsIDIwMjYgYXQgMjozMuKAr1BNIENoZW4gUGVpIDxjcDA2MTNAbGludXgu
-YWxpYmFiYS5jb20+IHdyb3RlOgo+Cj4gcmlzY3ZfY2ZpX2dldCgpIGFuZCByaXNjdl9jZmlfc2V0
-KCkgZG8gbm90IGNoZWNrIHdoZXRoZXIgdGhlIFppY2ZpbHAKPiBvciBaaWNmaXNzIGV4dGVuc2lv
-bnMgYXJlIHByZXNlbnQuIE9uIHN5c3RlbXMgd2l0aG91dCB0aGVtLAo+IFBUUkFDRV9HRVRSRUdT
-RVQgb24gUkVHU0VUX0NGSSBzdGlsbCBzdWNjZWVkcyBhbmQgcmV0dXJucyBhIHplcm9lZAo+IHVz
-ZXJfY2ZpX3N0YXRlLCBtaXNsZWFkaW5nIGRlYnVnZ2VycyBpbnRvIGJlbGlldmluZyB0aGUgcmVn
-aXN0ZXIgc2V0Cj4gaXMgYXZhaWxhYmxlLCBhbmQgUFRSQUNFX1NFVFJFR1NFVCBzaWxlbnRseSBh
-Y2NlcHRzIHdyaXRlcyB0aGF0IGhhdmUKPiBubyBlZmZlY3QgKGUuZy4gY2xlYXJpbmcgU1JfRUxQ
-KS4KPgo+IFJlamVjdCB0aGUgYWNjZXNzIHdpdGggLUVJTlZBTCB3aGVuIG5laXRoZXIgYnJhbmNo
-IGxhbmRpbmcgcGFkcyBub3IKPiBzaGFkb3cgc3RhY2sgaXMgYXZhaWxhYmxlIHRvIHVzZXJzcGFj
-ZSwgdXNpbmcgdGhlIHNhbWUgYXZhaWxhYmlsaXR5Cj4gaGVscGVycyBhcyB0aGUgcHJjdGwgcGF0
-aC4KPgo+IEZpeGVzOiAyYWY3YzljZjAyMWMgKCJyaXNjdi9wdHJhY2U6IGV4cG9zZSByaXNjdiBD
-Rkkgc3RhdHVzIGFuZCBzdGF0ZSB2aWEgcHRyYWNlIGFuZCBpbiBjb3JlIGZpbGVzIikKQ2M6IHN0
-YWJsZUB2Z2VyLmtlcm5lbC5vcmcKCj4gU2lnbmVkLW9mZi1ieTogQ2hlbiBQZWkgPGNwMDYxM0Bs
-aW51eC5hbGliYWJhLmNvbT4KPiAtLS0KPiBUaGlzIGZvbGxvd3MgdGhlIGJlaGF2aW91ciBvZiB0
-aGUgYXJtNjQgR0NTIHJlZ3NldC4gVW5saWtlIHZlY3Rvcgo+IHJlZ2lzdGVycywgbm8gRU5PREFU
-QSBjYXNlIGFwcGxpZXMgaGVyZTogdGhlIENGSSBzdGF0dXMgcmVnc2V0IGhhcyBhCj4gdmFsaWQg
-YWxsLXplcm8gcmVwcmVzZW50YXRpb24gZXZlbiB3aGVuIENGSSBoYXMgbm90IGJlZW4gZW5hYmxl
-ZCBmb3IKPiB0aGUgdHJhY2VkIHRhc2suCj4KPiBpc191c2VyX2xwYWRfZW5hYmxlZCgpL2lzX3Vz
-ZXJfc2hzdGtfZW5hYmxlZCgpIGFyZSB1c2VkIGluc3RlYWQgb2YgYQo+IHBsYWluIElTQSBjaGVj
-ayBzbyB0aGF0IHRoZSByZWdzZXQgdmlzaWJpbGl0eSBtYXRjaGVzIHdoYXQgdXNlcnNwYWNlCj4g
-Y2FuIGFjdHVhbGx5IHVzZSB2aWEgcHJjdGw6IGJvdGggaGVscGVycyBhbHNvIGhvbm9yIHRoZQo+
-IHJpc2N2X25vdXNlcmNmaSBrZXJuZWwgY29tbWFuZCBsaW5lIHN3aXRjaC4KPgo+ICBhcmNoL3Jp
-c2N2L2tlcm5lbC9wdHJhY2UuYyB8IDYgKysrKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCA2IGluc2Vy
-dGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wdHJhY2UuYyBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL3B0cmFjZS5jCj4gaW5kZXggZjMzNmExODM2NjdlLi41NjY4NTZlNDJm
-NjUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNlLmMKPiArKysgYi9hcmNo
-L3Jpc2N2L2tlcm5lbC9wdHJhY2UuYwo+IEBAIC0yOTksNiArMjk5LDkgQEAgc3RhdGljIGludCBy
-aXNjdl9jZmlfZ2V0KHN0cnVjdCB0YXNrX3N0cnVjdCAqdGFyZ2V0LAo+ICAgICAgICAgc3RydWN0
-IHVzZXJfY2ZpX3N0YXRlIHVzZXJfY2ZpOwo+ICAgICAgICAgc3RydWN0IHB0X3JlZ3MgKnJlZ3M7
-Cj4KPiArICAgICAgIGlmICghaXNfdXNlcl9scGFkX2VuYWJsZWQoKSAmJiAhaXNfdXNlcl9zaHN0
-a19lbmFibGVkKCkpCkRvIHlvdSB3YW50OgoKLyogSWYgc2hhZG93IHN0YWNrIGlzIG5vdCBzdXBw
-b3J0ZWQgb3Igbm90IGVuYWJsZWQsIG5vdGhpbmcgdG8gLi4uICovCmlmICghaXNfdXNlcl9zaHN0
-a19lbmFibGVkKCkgfHwgIWlzX3Noc3RrX2VuYWJsZWQodHNrKSkKCj4gKyAgICAgICAgICAgICAg
-IHJldHVybiAtRUlOVkFMOwo+ICsKPiAgICAgICAgIG1lbXNldCgmdXNlcl9jZmksIDAsIHNpemVv
-Zih1c2VyX2NmaSkpOwo+ICAgICAgICAgcmVncyA9IHRhc2tfcHRfcmVncyh0YXJnZXQpOwo+Cj4g
-QEAgLTMzNyw2ICszNDAsOSBAQCBzdGF0aWMgaW50IHJpc2N2X2NmaV9zZXQoc3RydWN0IHRhc2tf
-c3RydWN0ICp0YXJnZXQsCj4gICAgICAgICBzdHJ1Y3QgdXNlcl9jZmlfc3RhdGUgdXNlcl9jZmk7
-Cj4gICAgICAgICBzdHJ1Y3QgcHRfcmVncyAqcmVnczsKPgo+ICsgICAgICAgaWYgKCFpc191c2Vy
-X2xwYWRfZW5hYmxlZCgpICYmICFpc191c2VyX3Noc3RrX2VuYWJsZWQoKSkKPiArICAgICAgICAg
-ICAgICAgcmV0dXJuIC1FSU5WQUw7Cj4gKwo+ICAgICAgICAgcmVncyA9IHRhc2tfcHRfcmVncyh0
-YXJnZXQpOwo+Cj4gICAgICAgICByZXQgPSB1c2VyX3JlZ3NldF9jb3B5aW4oJnBvcywgJmNvdW50
-LCAma2J1ZiwgJnVidWYsICZ1c2VyX2NmaSwgMCwgLTEpOwo+IC0tCj4gMi41MC4xCj4KCgotLSAK
-QmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+Hi Mukesh,
+Hi Pratyush,
+
+having this patch makes sense. Personally I'd go with having a
+switch-case rather than individual if-blocks. E.g.
+
+	switch (ret) {
+		case 0:
+			image->fops = *fops;
+			return 0;
+		case -ENOEXEC:
+			continue;
+		default:
+			return ret;
+	}
+
+IMHO that is better readable and easier to extend in case other error
+codes need special handling as well. But that is only my personal
+opinion.
+
+Independent on which implementation you use.
+
+Reviewed-by: Philipp Rudo <prudo@redhat.com>
+
+
+On Wed, 19 Aug 2026 23:17:23 +0530
+Mukesh Pilaniya <mpilaniy@redhat.com> wrote:
+
+> kexec_image_probe_default() overwrites ret with each loader's probe
+> return value and returns whatever the last loader returned when no
+> probe matches.  The error code reaching userspace depends on whichever
+> loader happens to be last in kexec_file_loaders[].
+> 
+> Only continue to the next loader when a probe returns -ENOEXEC.
+> Propagate any other error such as -ENOMEM immediately. Return -ENOEXEC
+> only when all loaders have been tried and none matched.
+> 
+> Suggested-by: Pratyush Yadav <pratyush@kernel.org>
+> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
+> ---
+>  kernel/kexec_file.c | 12 +++++++-----
+>  1 file changed, 7 insertions(+), 5 deletions(-)
+> 
+> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+> index 59fb9d71e9d8..b3060e984ef3 100644
+> --- a/kernel/kexec_file.c
+> +++ b/kernel/kexec_file.c
+> @@ -68,17 +68,19 @@ int kexec_image_probe_default(struct kimage *image, void *buf,
+>  			      unsigned long buf_len)
+>  {
+>  	const struct kexec_file_ops * const *fops;
+> -	int ret = -ENOEXEC;
+>  
+>  	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
+> -		ret = (*fops)->probe(buf, buf_len);
+> -		if (!ret) {
+> +		int ret = (*fops)->probe(buf, buf_len);
+> +
+> +		if (ret == 0) {
+>  			image->fops = *fops;
+> -			return ret;
+> +			return 0;
+>  		}
+> +		if (ret != -ENOEXEC)
+> +			return ret;
+>  	}
+>  
+> -	return ret;
+> +	return -ENOEXEC;
+>  }
+>  
+>  static void *kexec_image_load_default(struct kimage *image)
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
