@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7702C5DF8C
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 21:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F60C5DF91
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 21:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OhFAqbD2ruQtUAtVrExx+lhprmoYlnYNmtlxHTrl1Kw=; b=3kCXFvKJfs8deb
-	jiiwxeg1N3tUZvYNilT1/TLonOB1+49HnzDJ7bQWqqmlRs00y5EqpO6WrhF4w+HH04z3TiyH8tGXN
-	ndGUX1n7FxdkYvu3BR0f7XHbH7/Z3/durGxW6YTCZz2HYQCAvcwyKYINLmJQOtitc9R/dC/8uJsqs
-	t+3k4OHv0IiLFy6rbgFQbJfNnN6P9WC3svGTvwL+Iq+euGfImrZPSfuO2/90alasno73XF85L7g5H
-	9v9VmyHz0prFJgW7KHB3qg0c9JJG04t/pMJ90BRrFjcBgWs7kM9bk6tOk3kKq2P4jmCiFdefpMi4W
-	VD/Oj7m+hZ40E6Gu8h8w==;
+	List-Owner; bh=dpDD9JpSK+XZCzYBVQO+mfriVS/jnvfsyqHjBXP297k=; b=LTivtnBYXBjCVa
+	D+UzN2i3A6+6ge+c4dKKxQDvu1ZeDhy+qxEMs4A+fuWnAiVEsXUby8a41fo4V3FPF1fYl0J8i1TvV
+	6ePRCKNfJbNgmRZOx4cXWgn/q1D61HyRWzvi0Hhdf0rCdzLpDpSl4KORjPgkg9GUojb7Cy25HyLD/
+	Fi5ZSm3gJLYX+6z+SNUCkrP8wRFMkr1TqtcT08ws0Vv10Ivc0XTgS39gsx+C0PoLm1FIwl0Z6L4hr
+	RG8GHQaVYcj4LaYyNEttc4+E0eEXCgAcErHz7USyaj4bcirWCNMpMibgZJKwuguUL8xUEEHvRRQST
+	BfoQTODaYrXk7Yd4VsZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAWZ-0000000CDev-101H;
-	Thu, 20 Aug 2026 21:42:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wxAWY-0000000CDem-43ZD;
+	Thu, 20 Aug 2026 21:42:10 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAWW-0000000CDdm-2DbT
+	id 1wxAWT-0000000CDar-1dnW
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 21:42:09 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67KK7k7S1298508
-	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:42:08 GMT
+	Thu, 20 Aug 2026 21:42:07 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67KK8LBJ4032141
+	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:42:04 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=vyODiBWKuzm
-	uq5TZsRKKzD7ne2IN4bfUAIf/kyMhK2I=; b=Hai/VHYydaPn/Lrgc4Dc8uZKjFJ
-	FHchH7uar4NIJHbRxH6Bc7GuM9fDY397iR8kytDPbcydYhD9DzMs/cAtGkldZ6DM
-	eSqkHyQ3UiJnfhUanyhAJtPG5v9MdjhtVMAyo1hehFVHPz/cg84midQv5T05a9RO
-	yHWCEN9Uls7/dxuOQz6sKTtwTLyEynwBeghq+opWeK4v9ufVheXOqUgGFT7tbAwc
-	chMGabjtqgsfQtwS2SOFoXl5T4u98xdPLCKRs7u1rJz5oC/M18qJxgl1wyNhLJlx
-	zeNDJixtkBgiUaJEH3dapAprUuf8q4m2m0k623mloJoA8rEfWwN0yVcKwZg==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5vn8btbh-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=tRMIY00QWRw
+	kXWT015GEhRk4eSzgHIEurYwgXmBTB+k=; b=fdH77Ip/tZe1FIoOQzJQSvIgque
+	udbXZbz/pKIq3VgrVvC6LckgBhX8jrgDAYZtpgJeG9otk/078VQ+kbTN5GkIQkw4
+	khoj0ufh4JUI40NOMA5rzxNIhp/eCG7WTysI0m7qcUtc31+X149bmQzFrC/UY/L8
+	uQodUhURkuIW4PvNhmWdns7vYaj+Nygx160Wp3k7MaugBmSTvERiPY1AOTBb9o25
+	Ayvd/wFKJVeLbV1782KOgEeJrzetkBiGTgA4SHoxdJHLJKXsZR+dS19P2bH8tFZ4
+	gc1/shdsMYLc9ED6luyrlya/CvSogN2joklngyjpUoHGKv/Dd7qGcPkNI1w==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5xbvbc8k-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:42:07 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c1d30035dso2119081cf.2
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 14:42:07 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:42:04 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-930b571432fso30051685a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 14:42:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787262127; x=1787866927; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1787262124; x=1787866924; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vyODiBWKuzmuq5TZsRKKzD7ne2IN4bfUAIf/kyMhK2I=;
-        b=eUq3dCCGM/hKYDJdbVZyrHBJraUtzFQnBwgU47UuyOQpj5bA8TB+UxGxuEZCwNkbQI
-         3fdcQWrmYYKXx+9Rrc710qhPujFnQzMrB22UpH6rvrRa09kfAxrfmDagG8AWXBrnLddi
-         lMMlTRRE7qZi0Jf+iV+TXaygHjFgURKEZ43gVjmZxuKgJWHHiWRht5GbctWqQSlCCqFN
-         95bKbbwz1efbx5PVbA3n5jSRbeXdoF+hFLmOqtoTKsb4zLo9uXejWc6HTO0+KoKlwmtk
-         i4EHUPS1owHX6wkecVUGWcvoMkHBsoM+BUiy8R1E1uCZ9cOcFtcGKsVcrozF1I8TNLxo
-         bePA==
+        bh=tRMIY00QWRwkXWT015GEhRk4eSzgHIEurYwgXmBTB+k=;
+        b=Rn7lOcuMEm6mXTLptUHPGIHyEakkcj1jl1JWMGTCSnnJ6VTbWjAqvyXhPKg4mWyUYO
+         Dffj/fIYqMmt6Rk0DYmppUBVx3uTQh01OXjto1+auBMjJLiD0MPa/i7v96XtTgEF8JCd
+         yLCG8WX5WMx8oZKD9d9KApFcZ6XbsYK1/8LeYtJDFfcCcIQaGY/YvT+ZAJZcPrMfoOP8
+         eXykoRop1z1/IJM4bbzepQ0KieITcLdE9uOyvetVHLfdUkxtXd8AFl37t5BDreYDU14Z
+         9W2YcVfZdm0rPuuikNaX4Rn6xQHnQYGHZgInuxpg5KX13uR4934Bw9ovYAaVS0FvAkfU
+         i2vA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787262127; x=1787866927;
+        d=1e100.net; s=20251104; t=1787262124; x=1787866924;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vyODiBWKuzmuq5TZsRKKzD7ne2IN4bfUAIf/kyMhK2I=;
-        b=TrhaggZoiGaIWXDDZyuaRLlnbdcqfrywDOpPhp7Bmd8EkCZCzJjqw2NKVZvzhyh7pB
-         sghra7SBuTeQxXoBp9IGwv1LvlHSTlrh8nKiv0kWXckUgea5+89wIWpq1cofZp89rzRh
-         PA3HAe1Oi1QAks46TsY6sjTXLp5oIBnCMQDfSLrPtxCk2uORmd0qdMR7mIb1e+8CtcDR
-         I1NBWnlYyPpKOsoPOKUNmQ2Y/xr0B21niRt4PwR3CEkfp7lqtUTq/w9HR4QAIsnFPAIg
-         zFgGmQgP6XxASXGy7NVHoPbCMYIumEwL20WmcpWgF9E5V+PSWQImDi8a2ScKptRTDNLK
-         OWLA==
-X-Gm-Message-State: AOJu0Yw8KqaR5iOjiHbZ8Ylg1Gxr7jcaPEpqLl9Es3PANPQ9JsUV9Wml
-	PwAlWfB8/NJYCVJwz2MArIHU1vyk7DfC1jryMTzAYFWLFvMUS3X5ToY8DCZ8aQg/mCK4t+amqpv
-	WHKGiVDkODGfwmgeZoTq2r/qK6cP7MdWCctEJVrRLzjOOFDaueLBYxt5KWjvyDGgppJMcL1+LgL
-	EzhQg=
-X-Gm-Gg: AR+sD102GPJEL1qc1afxN2DXAvqnMLGaq3KzIHN0P/Xe+jKCjyxXliUaY1pkua3baK7
-	VPTsuTD2QhPj18iADarqcsf6wwSxmt17xOWvE2nTYKoNzcG/7N9wr1UPI6VKk0XnGQeImKUynBd
-	q/67hcU/VDAj93UX2U0w4XRq7OZQWCnExwaVAZLjrckzV4CyzsEVwnBl24DRbRLSxJkP9W+RJF1
-	dCw73kCMTvPAHHjyIH0/kORjhfgAlNyMgtm/gme8qJlKqwKAaA8jW8ImpjfqAZJFwz01LhF4MBC
-	i5wmM6d5KPvpeTKyiXNwyTruWqsca/XdZRweTXrNOWZbFOInmtXKZ/GaVvfyS+T+u1McONtXFCM
-	0qwAnMDyK
-X-Received: by 2002:ac8:6543:0:b0:51c:1117:c7c with SMTP id d75a77b69052e-52df59aa4b2mr15893131cf.25.1787262126891;
-        Thu, 20 Aug 2026 14:42:06 -0700 (PDT)
-X-Received: by 2002:ac8:6543:0:b0:51c:1117:c7c with SMTP id d75a77b69052e-52df59aa4b2mr15892411cf.25.1787262126339;
-        Thu, 20 Aug 2026 14:42:06 -0700 (PDT)
+        bh=tRMIY00QWRwkXWT015GEhRk4eSzgHIEurYwgXmBTB+k=;
+        b=W3N3DTGqbjO4U8Nui/461X6OnQPDwn1vbB0/Ow7Ipk9mypsswTWVw64LL7Puq44+OK
+         VZ3nk+REzleBDj0oDy1AcEj1tWjw9PUJQRo8OU00pY2sSArTl0tqxVBVs3qYY2CfXMUI
+         gaS8F8vsc/BnsCedEInPkoqpvFbMyhaXI4Hlk8XrGPZmDsITkp2qxjbnaDkWlxoYA9Dd
+         PYoVzm+WHH1N73UasgqYntLbwuoMZKZkmjhZY8qZDkro9qPms9SuRAt+p4xEr6eEWU1Z
+         XymLt/GPkLej+tVOglfixFr0gu2llOdzN/gtVyA1pVv85nP1VTF9P4RphD4tfzsxfHbD
+         VjkA==
+X-Gm-Message-State: AOJu0YxFeoUo+19umeefDPKP4E+Fspcg2S1jdMg0f8DZ7yMV0VE6/xFb
+	slLkTz+Qxp2KbqHLgsnax6zt51NQ7o3bN0wm/Gk8ckgfAy1mZNRC8K937ZZMY4Bo31kEKDo1Y/f
+	kLvt3dnovcJ5Bjd3wQILTvYhFPmOa1m1B+OVwsjJNiu0k4R64o9AwApG0ypEucvV0Wkp4smwa1y
+	EuKGo=
+X-Gm-Gg: AR+sD10PbPGk4XQ9hoKjL1DV8Pz6vcK74ByMQgNLQRTOec2jjXdT1b0pK4PoYgd3PY9
+	HgU9Wf2O7ufDPf8oPaeWrslh+xGPUdJAtPqut+NLAsI2SSt8is0N7ZsEPg9mmp8bSokJaIih7Nb
+	4BNyzUrgCTJ4Vn7AkQzWjjts1YEWTNEiE2QZXhjeXZVk/QzLFOE7RpImLuMuSXVU5wKw6LE9csh
+	906l570UNEuYE0IvhuTm7KxhumsL9Mbz3HWYcAWCqzetDX38nk2YKMOhLmpuEYAIbh8ls4f4J2R
+	D2H1/sjsImLYlrAkVQA8Ua4YnIh9RKLUNFUEN1TdKOmI32JlnkdKIybqArpgLAtxJKq4wc+6nIO
+	n17KJSWLn
+X-Received: by 2002:a05:620a:294d:b0:936:a184:3cf3 with SMTP id af79cd13be357-9372840f584mr1043401685a.10.1787262123662;
+        Thu, 20 Aug 2026 14:42:03 -0700 (PDT)
+X-Received: by 2002:a05:620a:294d:b0:936:a184:3cf3 with SMTP id af79cd13be357-9372840f584mr1043377785a.10.1787262121474;
+        Thu, 20 Aug 2026 14:42:01 -0700 (PDT)
 Received: from localhost ([193.165.40.195])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b90e3170sm8164685e9.5.2026.08.20.14.42.05
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b90f7e24sm5944115e9.8.2026.08.20.14.41.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 14:42:05 -0700 (PDT)
+        Thu, 20 Aug 2026 14:42:00 -0700 (PDT)
 From: Andrew Jones <andrew.jones@oss.qualcomm.com>
 To: linux-riscv@lists.infradead.org, iommu@lists.linux.dev
 Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
@@ -94,43 +94,42 @@ Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
         will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
         palmer@dabbelt.com, anup@brainfault.org, tglx@kernel.org,
         kevin.tian@intel.com, fangyu.yu@linux.alibaba.com
-Subject: [PATCH v4 07/21] irqchip/riscv-imsic: Compose MSI updates through the hierarchy
-Date: Thu, 20 Aug 2026 23:41:36 +0200
-Message-ID: <20260820214150.545737-8-andrew.jones@oss.qualcomm.com>
+Subject: [PATCH v4 04/21] iommu/dma: Add iommu_dma_map_msi()
+Date: Thu, 20 Aug 2026 23:41:33 +0200
+Message-ID: <20260820214150.545737-5-andrew.jones@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
 References: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfX5gHiSV6TqLRZ
- fsNOFVducHw7MZMeWdEORLQEsNIjeWAHETFQbvPaGLmaBi5lxvQbDMMvwrS7GDCvhPIjWkVvRvy
- Z2DYNxwtn6oECH+cjAANdgmDBHZthK89WkaHW/hU2fa2/SDnYMDMQpdpvpyeGOra42miSvr/DFy
- P8LDB/jVUWprppE0bC2697S9jEfiHwohMvdh6TYhdalCM65utJE2LUp/LtMutzCKSFgalgGljgX
- 9je4p3NlRM0VqiDSNEJsHtD8Iu5oB8UXvfWvbbMDeHyESXwjuYUSGgPGSfQlPKDid8iqyk30gYV
- HosnGSKDfxscrhF6RxE/TN1Xj1rBUbADb0HRudCLbcS4Mo1dJ3nB4aoln5rE6HV63BsCGV0bF6P
- SarRtN4jJrga9fg6qw9ox964W3TJVA8R/pOjjYWLWgCuhwAEaXJWOFxuQGWO/8njiDhzuUHazpW
- AWMNN4xnKHDgo96ep5w==
-X-Authority-Analysis: v=2.4 cv=KpJ9H2WN c=1 sm=1 tr=0 ts=6a8774af cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=CzrpMg+lqiTzknPDBj2tlw==:17
+X-Authority-Analysis: v=2.4 cv=AMKAkK6n c=1 sm=1 tr=0 ts=6a8774ac cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=CzrpMg+lqiTzknPDBj2tlw==:17
  a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
- a=6bvwFovRZacPTmdMXs8A:9 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfX2b0vQTGicciy
- qwr/R8uEUI47kq8kjnPbN7kVKuh/sekp4vkHpgbOY79Q16uUds8MNeSYUmyQxXhy/76GGo5qw5w
- NFcDbWi9zBnR1jgYLmkuC3DBo6g+Lzo=
-X-Proofpoint-ORIG-GUID: 2MLBa0P3ho8-7HYEMFaiw8z6A4FA9Z8Q
-X-Proofpoint-GUID: 2MLBa0P3ho8-7HYEMFaiw8z6A4FA9Z8Q
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8
+ a=nir-2xX3lSHJcyBuNR8A:9 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfX9N/5s0QRwoVu
+ PHbd9EpfCa9rcDDKVy5wfivZ2cnbpwm0eqiRVFdnrn/bMeOiSKspGqQOE5yECliwzqiZ9pkZwOR
+ W/VNeC/MY76UBS7jLaT8zObiFNb1jAuu5GTYb96SZ3Och83AoQqSTzSqJ44BN6Efg+46+Ytid7Y
+ 0EUouOKwKQJ+aZUrmg89qx+WMAPuPIAse25cBWyJLGFISHPGCAjqvrKj2UIHTjlnMtuzVNkpwqq
+ es/YYQjYdzD2Uiu7S11ijOlLHwKdXfkUUGI0YUChAsi6i5TvJkFgFPkPalu3A4UMoGPYJPVFmDT
+ iD4kvGR2h8huB5UsRarBT2eq1uzp7H5hwUSdKriI4MHw7TrN25j0WkBcnQ5n9LhJ1j4FjQva8jV
+ gpQardo8OfEY+5HNw22acZ6+melMv8rNNeLC+Oj0oZC1C3sznCA1NjhIZXRvECSDv1VASOo4Bh+
+ U0cZQniU3AqkAbLc9ZQ==
+X-Proofpoint-GUID: 63-UpNxu3_NEyOK31yhwGj7fmE4Z7Jaf
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfXwSUCSP4Yd3rn
+ /TSaCTsz+M9lTO7vlfdPwZaTXjmLdDAFernlJtpq4znu4XSQJerpCeDD9ZHuvVTGMLqNjnRhtZY
+ cs9uj18jPS3EQCqS1nyEqTn5dzxt0HA=
+X-Proofpoint-ORIG-GUID: 63-UpNxu3_NEyOK31yhwGj7fmE4Z7Jaf
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-20_02,2026-08-20_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 impostorscore=0 bulkscore=0 suspectscore=0 clxscore=1015
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608200162
+ priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0
+ adultscore=0 suspectscore=0 malwarescore=0 impostorscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608200162
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_144208_571087_7ADA5793 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20260820_144205_559667_632ECA19 
+X-CRM114-Status: GOOD (  30.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,81 +146,373 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-imsic_irq_set_affinity() currently writes a newly composed MSI message
-directly to the device. This bypasses intermediate irqdomains, so an
-IOMMU remapping domain cannot translate the target after an affinity
-change.
+Interrupt-remapping drivers may need to map MSI targets before any MSI
+descriptor exists and retain their own PA-to-IOVA lookup table. Add
+iommu_dma_map_msi() to return the IOVA and mapping granule for both
+DMA-IOMMU and iommufd domains.
 
-Compose affinity updates from the top of the hierarchy instead. This
-allows each intermediate domain to update the message and any descriptor
-state before the device is programmed.
+Allow callers to require an exact mapping size. This prevents doorbells
+such as RISC-V IMSIC files from sharing a larger IOMMU leaf.
 
-Non-atomic moves temporarily use the old address with the new interrupt
-ID before switching to the new vector. Preserve that transition by
-composing the temporary message before publishing the new vector, then
-compose the final message after publishing it, but before the old vector
-is retired.
+Building a table requires the domain to remain stable across every
+mapping. The IOMMU group mutex provides that serialization, but its
+structure is private to the core. Expose lock helpers and a scoped guard
+so external callers can hold it for the complete operation.
 
 Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
 ---
- drivers/irqchip/irq-riscv-imsic-platform.c | 27 ++++++++--------------
- 1 file changed, 10 insertions(+), 17 deletions(-)
+ drivers/iommu/dma-iommu.c      |  22 +------
+ drivers/iommu/dma-iommu.h      |   8 ---
+ drivers/iommu/iommu-priv.h     |   8 ---
+ drivers/iommu/iommu.c          | 104 ++++++++++++++++++++++++++++-----
+ drivers/iommu/iommufd/driver.c |  31 ++--------
+ include/linux/iommu.h          |  31 ++++++++++
+ 6 files changed, 127 insertions(+), 77 deletions(-)
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index 643c8e459611..5634641dc223 100644
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -90,19 +90,12 @@ static void imsic_irq_compose_msg(struct irq_data *d, struct msi_msg *msg)
+diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+index 3ce9f4878d92..39ee5f0b1da9 100644
+--- a/drivers/iommu/dma-iommu.c
++++ b/drivers/iommu/dma-iommu.c
+@@ -2248,9 +2248,9 @@ static struct iommu_dma_msi_page *iommu_dma_get_msi_page(struct device *dev,
  }
  
- #ifdef CONFIG_SMP
--static void imsic_msi_update_msg(struct irq_data *d, struct imsic_vector *vec)
+ /*
+- * Descriptor-free counterpart to iommu_dma_sw_msi(). Maps an MSI physical
+- * page into the domain and returns the IOVA and mapping granule. Used for
+- * pre-mapping MSI targets before any MSI descriptor has been set.
++ * Maps an MSI physical page into the domain and returns the IOVA and
++ * mapping granule. Used for pre-mapping MSI targets before any MSI
++ * descriptor has been set.
+  *
+  * The caller must pass a device attached to @domain and hold @dev's IOMMU
+  * group mutex. If @required_size is non-zero then it must exactly match the
+@@ -2284,22 +2284,6 @@ int iommu_dma_sw_map_msi(struct iommu_domain *domain,
+ 	return 0;
+ }
+ 
+-int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+-		     phys_addr_t msi_addr)
 -{
--	struct msi_msg msg = { };
+-	struct device *dev = msi_desc_to_dev(desc);
+-	dma_addr_t msi_iova;
+-	unsigned int msi_shift;
+-	int ret;
 -
--	imsic_irq_compose_vector_msg(vec, &msg);
--	irq_data_get_irq_chip(d)->irq_write_msi_msg(d, &msg);
+-	ret = iommu_dma_sw_map_msi(domain, dev, msi_addr, 0, &msi_iova, &msi_shift);
+-	if (ret)
+-		return ret;
+-
+-	msi_desc_set_iommu_msi_iova(desc, msi_iova, msi_shift);
+-	return 0;
 -}
 -
- static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
- 				  bool force)
+ static int iommu_dma_init(void)
  {
-+	struct irq_data *top = irq_get_irq_data(d->irq);
- 	struct imsic_vector *old_vec, *new_vec;
--	struct imsic_vector tmp_vec;
-+	struct msi_msg msg = { };
+ 	if (is_kdump_kernel())
+diff --git a/drivers/iommu/dma-iommu.h b/drivers/iommu/dma-iommu.h
+index 3e1adeafdcac..7d707157aebb 100644
+--- a/drivers/iommu/dma-iommu.h
++++ b/drivers/iommu/dma-iommu.h
+@@ -23,8 +23,6 @@ int iommu_dma_sw_map_msi(struct iommu_domain *domain,
+ 			 struct device *dev, phys_addr_t msi_addr,
+ 			 size_t required_size, dma_addr_t *msi_iova,
+ 			 unsigned int *msi_shift);
+-int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+-		     phys_addr_t msi_addr);
  
- 	/*
- 	 * Requirements for the downstream irqdomains (or devices):
-@@ -153,20 +146,20 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
- 	 */
- 	if (!irq_can_move_in_process_context(d) &&
- 	    new_vec->local_id != old_vec->local_id) {
--		/* Setup temporary vector */
--		tmp_vec.cpu = old_vec->cpu;
--		tmp_vec.local_id = new_vec->local_id;
+ extern bool iommu_dma_forcedac;
+ 
+@@ -65,11 +63,5 @@ static inline int iommu_dma_sw_map_msi(struct iommu_domain *domain,
+ 	return -ENODEV;
+ }
+ 
+-static inline int iommu_dma_sw_msi(struct iommu_domain *domain,
+-				   struct msi_desc *desc, phys_addr_t msi_addr)
+-{
+-	return -ENODEV;
+-}
 -
- 		/* Point device to the temporary vector */
--		imsic_msi_update_msg(irq_get_irq_data(d->irq), &tmp_vec);
-+		BUG_ON(irq_chip_compose_msi_msg(top, &msg));
-+		msg.data = new_vec->local_id;
-+		irq_data_get_irq_chip(top)->irq_write_msi_msg(top, &msg);
- 	}
+ #endif	/* CONFIG_IOMMU_DMA */
+ #endif	/* __DMA_IOMMU_H */
+diff --git a/drivers/iommu/iommu-priv.h b/drivers/iommu/iommu-priv.h
+index f60373cd2f70..109aca07470b 100644
+--- a/drivers/iommu/iommu-priv.h
++++ b/drivers/iommu/iommu-priv.h
+@@ -53,18 +53,10 @@ int iommu_replace_group_handle(struct iommu_group *group,
+ 			       struct iommu_attach_handle *handle);
  
--	/* Point device to the new vector */
--	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
+ #if IS_ENABLED(CONFIG_IOMMUFD_DRIVER_CORE) && IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
+-int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+-		   phys_addr_t msi_addr);
+ int iommufd_sw_map_msi(struct iommu_domain *domain, struct device *dev,
+ 		       phys_addr_t msi_addr, size_t required_size,
+ 		       dma_addr_t *msi_iova, unsigned int *msi_shift);
+ #else /* !CONFIG_IOMMUFD_DRIVER_CORE || !CONFIG_IRQ_MSI_IOMMU */
+-static inline int iommufd_sw_msi(struct iommu_domain *domain,
+-				 struct msi_desc *desc, phys_addr_t msi_addr)
+-{
+-	return -EOPNOTSUPP;
+-}
 -
- 	/* Update irq descriptors with the new vector */
- 	d->chip_data = new_vec;
+ static inline int iommufd_sw_map_msi(struct iommu_domain *domain,
+ 				     struct device *dev, phys_addr_t msi_addr,
+ 				     size_t required_size, dma_addr_t *msi_iova,
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index a3dea7353500..84b60d0f8c23 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -1364,15 +1364,46 @@ void iommu_group_remove_device(struct device *dev)
+ }
+ EXPORT_SYMBOL_GPL(iommu_group_remove_device);
  
-+	/* Point device to the new vector */
-+	memset(&msg, 0, sizeof(msg));
-+	BUG_ON(irq_chip_compose_msi_msg(top, &msg));
-+	irq_data_get_irq_chip(top)->irq_write_msi_msg(top, &msg);
+-#if IS_ENABLED(CONFIG_LOCKDEP) && IS_ENABLED(CONFIG_IOMMU_API)
++#if IS_ENABLED(CONFIG_IOMMU_API)
++/*
++ * iommu_group_mutex_lock(), iommu_group_mutex_unlock(), and
++ * iommu_group_mutex_assert() must be called after device group param is
++ * set.
++ */
 +
- 	/* Update effective affinity */
- 	irq_data_update_effective_affinity(d, cpumask_of(new_vec->cpu));
++/**
++ * iommu_group_mutex_lock - Lock the iommu group mutex for a device
++ * @dev: the device whose group mutex should be locked
++ *
++ * Callers that need to invoke a function documented as requiring the
++ * device's iommu group mutex (e.g. iommu_dma_map_msi()) from outside
++ * drivers/iommu/ use this instead of reaching into struct iommu_group,
++ * which is private to the core. Must be paired with
++ * iommu_group_mutex_unlock().
++ */
++void iommu_group_mutex_lock(struct device *dev)
++{
++	mutex_lock(&dev->iommu_group->mutex);
++}
++EXPORT_SYMBOL_GPL(iommu_group_mutex_lock);
++
++/**
++ * iommu_group_mutex_unlock - Unlock the iommu group mutex for a device
++ * @dev: the device whose group mutex should be unlocked
++ */
++void iommu_group_mutex_unlock(struct device *dev)
++{
++	mutex_unlock(&dev->iommu_group->mutex);
++}
++EXPORT_SYMBOL_GPL(iommu_group_mutex_unlock);
++
++#if IS_ENABLED(CONFIG_LOCKDEP)
+ /**
+  * iommu_group_mutex_assert - Check device group mutex lock
+  * @dev: the device that has group param set
+  *
+  * This function is called by an iommu driver to check whether it holds
+  * group mutex lock for the given device or not.
+- *
+- * Note that this function must be called after device group param is set.
+  */
+ void iommu_group_mutex_assert(struct device *dev)
+ {
+@@ -1381,7 +1412,8 @@ void iommu_group_mutex_assert(struct device *dev)
+ 	lockdep_assert_held(&group->mutex);
+ }
+ EXPORT_SYMBOL_GPL(iommu_group_mutex_assert);
+-#endif
++#endif /* CONFIG_LOCKDEP */
++#endif /* CONFIG_IOMMU_API */
  
+ static struct device *iommu_group_first_dev(struct iommu_group *group)
+ {
+@@ -4223,6 +4255,52 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev)
+ EXPORT_SYMBOL_GPL(pci_dev_reset_iommu_done);
+ 
+ #if IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
++/**
++ * iommu_dma_map_msi() - Map an MSI page in an IOMMU domain
++ * @domain: IOMMU domain to map into
++ * @dev: Device used to allocate the IOVA
++ * @msi_addr: MSI target address to be mapped
++ * @required_size: Required mapping size, or 0 to accept any size
++ * @msi_iova: IOVA for @msi_addr, or 0 for passthrough
++ * @msi_shift: Mapping granule shift, or 0 for passthrough
++ *
++ * The caller must hold @dev's iommu group mutex, e.g. via
++ * iommu_group_mutex_lock()/iommu_group_mutex_unlock(). This function does
++ * not take the mutex itself because callers building a table of mappings
++ * (e.g. one IOVA per possible CPU's IMSIC page) call it in a loop; locking
++ * inside would mean re-acquiring the mutex on every iteration and would not
++ * stop the domain from changing between iterations, leaving the table
++ * inconsistent. The caller locks once around the whole loop instead.
++ *
++ * Return: 0 on success or negative error code if the mapping failed.
++ */
++int iommu_dma_map_msi(struct iommu_domain *domain,
++		      struct device *dev, phys_addr_t msi_addr,
++		      size_t required_size, dma_addr_t *msi_iova,
++		      unsigned int *msi_shift)
++{
++	*msi_iova = 0;
++	*msi_shift = 0;
++
++	if (!domain)
++		return -EINVAL;
++
++	if (domain->type == IOMMU_DOMAIN_IDENTITY)
++		return 0;
++
++	switch (domain->cookie_type) {
++	case IOMMU_COOKIE_DMA_MSI:
++	case IOMMU_COOKIE_DMA_IOVA:
++		return iommu_dma_sw_map_msi(domain, dev, msi_addr,
++					    required_size, msi_iova, msi_shift);
++	case IOMMU_COOKIE_IOMMUFD:
++		return iommufd_sw_map_msi(domain, dev, msi_addr,
++					  required_size, msi_iova, msi_shift);
++	default:
++		return -EOPNOTSUPP;
++	}
++}
++
+ /**
+  * iommu_dma_prepare_msi() - Map the MSI page in the IOMMU domain
+  * @desc: MSI descriptor, will store the MSI page
+@@ -4238,6 +4316,8 @@ int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
+ {
+ 	struct device *dev = msi_desc_to_dev(desc);
+ 	struct iommu_group *group = dev->iommu_group;
++	dma_addr_t msi_iova;
++	unsigned int msi_shift;
+ 	int ret = 0;
+ 
+ 	if (!group)
+@@ -4246,18 +4326,10 @@ int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
+ 	mutex_lock(&group->mutex);
+ 	/* An IDENTITY domain must pass through */
+ 	if (group->domain && group->domain->type != IOMMU_DOMAIN_IDENTITY) {
+-		switch (group->domain->cookie_type) {
+-		case IOMMU_COOKIE_DMA_MSI:
+-		case IOMMU_COOKIE_DMA_IOVA:
+-			ret = iommu_dma_sw_msi(group->domain, desc, msi_addr);
+-			break;
+-		case IOMMU_COOKIE_IOMMUFD:
+-			ret = iommufd_sw_msi(group->domain, desc, msi_addr);
+-			break;
+-		default:
+-			ret = -EOPNOTSUPP;
+-			break;
+-		}
++		ret = iommu_dma_map_msi(group->domain, dev, msi_addr, 0,
++					&msi_iova, &msi_shift);
++		if (!ret)
++			msi_desc_set_iommu_msi_iova(desc, msi_iova, msi_shift);
+ 	}
+ 	mutex_unlock(&group->mutex);
+ 	return ret;
+diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
+index 69b3dbcbee3b..b39796bc7251 100644
+--- a/drivers/iommu/iommufd/driver.c
++++ b/drivers/iommu/iommufd/driver.c
+@@ -249,11 +249,11 @@ int iommufd_sw_msi_install(struct iommufd_ctx *ictx,
+ EXPORT_SYMBOL_NS_GPL(iommufd_sw_msi_install, "IOMMUFD_INTERNAL");
+ 
+ /*
+- * Descriptor-free counterpart to iommufd_sw_msi(). Maps an MSI physical page
+- * into the domain and returns the IOVA. Used for pre-mapping MSI targets before
+- * any MSI descriptor has been set (e.g. IMSIC doorbell pages). The IOVA is
+- * global to the iommufd file descriptor: every domain and device using the
+- * same MSI parameters gets the same IOVA.
++ * Maps an MSI physical page into the domain and returns the IOVA. Used for
++ * pre-mapping MSI targets before any MSI descriptor has been set (e.g.
++ * IMSIC doorbell pages). The IOVA is global to the iommufd file
++ * descriptor: every domain and device using the same MSI parameters gets
++ * the same IOVA.
+  *
+  * msi_addr is the exact byte offset of the MSI doorbell; the caller must have
+  * verified it is contained within an MMIO region safe to map at PAGE_SIZE. If
+@@ -321,27 +321,6 @@ int iommufd_sw_map_msi(struct iommu_domain *domain, struct device *dev,
+ 	return 0;
+ }
+ EXPORT_SYMBOL_NS_GPL(iommufd_sw_map_msi, "IOMMUFD");
+-
+-/*
+- * Called by the irq layer when the platform translates MSI addresses through
+- * the IOMMU. Wraps iommufd_sw_map_msi() and stores the result in the descriptor.
+- */
+-int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+-		   phys_addr_t msi_addr)
+-{
+-	dma_addr_t msi_iova;
+-	unsigned int msi_shift;
+-	int rc;
+-
+-	rc = iommufd_sw_map_msi(domain, msi_desc_to_dev(desc), msi_addr,
+-				0, &msi_iova, &msi_shift);
+-	if (rc)
+-		return rc;
+-
+-	msi_desc_set_iommu_msi_iova(desc, msi_iova, msi_shift);
+-	return 0;
+-}
+-EXPORT_SYMBOL_NS_GPL(iommufd_sw_msi, "IOMMUFD");
+ #endif
+ 
+ MODULE_DESCRIPTION("iommufd code shared with builtin modules");
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index ac43b8b93f14..868b14b63e77 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -8,6 +8,7 @@
+ #define __LINUX_IOMMU_H
+ 
+ #include <linux/scatterlist.h>
++#include <linux/cleanup.h>
+ #include <linux/device.h>
+ #include <linux/types.h>
+ #include <linux/errno.h>
+@@ -1561,8 +1562,22 @@ static inline void pci_dev_reset_iommu_done(struct pci_dev *pdev)
+ 
+ #ifdef CONFIG_IRQ_MSI_IOMMU
+ #ifdef CONFIG_IOMMU_API
++int iommu_dma_map_msi(struct iommu_domain *domain,
++		      struct device *dev, phys_addr_t msi_addr,
++		      size_t required_size, dma_addr_t *msi_iova,
++		      unsigned int *msi_shift);
+ int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr);
+ #else
++static inline int iommu_dma_map_msi(struct iommu_domain *domain,
++				    struct device *dev, phys_addr_t msi_addr,
++				    size_t required_size, dma_addr_t *msi_iova,
++				    unsigned int *msi_shift)
++{
++	*msi_iova = 0;
++	*msi_shift = 0;
++	return 0;
++}
++
+ static inline int iommu_dma_prepare_msi(struct msi_desc *desc,
+ 					phys_addr_t msi_addr)
+ {
+@@ -1571,6 +1586,22 @@ static inline int iommu_dma_prepare_msi(struct msi_desc *desc,
+ #endif /* CONFIG_IOMMU_API */
+ #endif /* CONFIG_IRQ_MSI_IOMMU */
+ 
++#if IS_ENABLED(CONFIG_IOMMU_API)
++void iommu_group_mutex_lock(struct device *dev);
++void iommu_group_mutex_unlock(struct device *dev);
++#else
++static inline void iommu_group_mutex_lock(struct device *dev) { }
++static inline void iommu_group_mutex_unlock(struct device *dev) { }
++#endif
++
++/*
++ * scoped_guard(iommu_group, dev) { ... } locks dev's iommu group mutex for
++ * the scope of the block. See iommu_group_mutex_lock().
++ */
++DEFINE_LOCK_GUARD_1(iommu_group, struct device,
++		    iommu_group_mutex_lock(_T->lock),
++		    iommu_group_mutex_unlock(_T->lock))
++
+ #if IS_ENABLED(CONFIG_LOCKDEP) && IS_ENABLED(CONFIG_IOMMU_API)
+ void iommu_group_mutex_assert(struct device *dev);
+ #else
 -- 
 2.43.0
 
