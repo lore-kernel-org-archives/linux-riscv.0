@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0664FC5DF82
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 18:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EF1C5DF81
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 18:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Haq8GzxwjO+m6pj5tIoBJL2oA3vZ3mJqNMSe4W6MWjY=; b=olXX4KTUQYUJ+F
-	Du4byY9zx4oeE0GvuJLI8eKcnrxi5eXrBqwCQ1eGUymSlsKLnlofXM/ZZC7GBCPVd6HqAJpnAklCW
-	QTQGE9MQ1oX9nl166ZlR75jUL5+2HDFY2cpjCLPADv6NykA/PpwgXyW9P2plaLu6YSCdhWOOEko9v
-	iXdpObn7JuXQALWVh3ubWrGX3v6Beu380rYnWCWbPvClih9C85k+5dyrx3Hxlky8AKbGNF96Nri5P
-	B+X0lG/TTVJTe3xyZaHldhNw+9dxnOOvCFovV1Ks5PST6blVmJtik+YB4BQYU+Nc3OWyMcipWIWkx
-	GYwRoKA94XoYj5SflZMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R1e7q/svll/jJoWXMFO7wt5gnqC6ryynbcUfPlyRJR4=; b=lUVrh28DfJhDGX5hEyMquXq42C
+	mL0n7UUEanrapfv+/LoXB+N/15+2E46p0mqIVlTdmrZPB2yrSNZC2CiTlMWVeNA1ECAvCU05DNthj
+	Vz5NDyqFeWtTxmJwb1JGFo/ceVB50CFgpR+/Ln7B2sjrfCW883l87GYecOp6gdZ8BKeMKHjc/vLf2
+	jAP9pcdJ4UHXCyu0/r/h6PuKn+84Dh6BYh5g6YYmt+0SHnIPvmVdQHWz2MhrZ4i8mUWMGZeHTB0Y8
+	uLweEdhn6atGcbXgk1RGsgyeHYBWv9hgNa+CG7HCVQLz1EUhBQTZehGwSeA+jpddat0S4SK2QkKPW
+	TZRlH8og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7EY-0000000C1Ge-23yO;
-	Thu, 20 Aug 2026 18:11:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wx7Nj-0000000C2lq-0QjS;
+	Thu, 20 Aug 2026 18:20:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7EW-0000000C1GB-28hs;
-	Thu, 20 Aug 2026 18:11:20 +0000
+	id 1wx7Nh-0000000C2lM-0x8X
+	for linux-riscv@lists.infradead.org;
+	Thu, 20 Aug 2026 18:20:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98E7D60A72;
-	Thu, 20 Aug 2026 18:11:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9D21F000E9;
-	Thu, 20 Aug 2026 18:11:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DA49743F85;
+	Thu, 20 Aug 2026 18:20:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D4B91F000E9;
+	Thu, 20 Aug 2026 18:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787249479;
-	bh=6VimjWe3SmWZw3TNJVt1GnwULpIdvyBeLBzyA9oKCVE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=ff04qASpnnH+GDL7vbbffBf0ro3l6ENId2a1UaG+kDxmpLGG9E/rRV8i0D6rOl3XN
-	 wgxtGXB7UiV3blQzR27KjmkLdOWK6DZ7aWFU9oatFUX2e4j1XViEmrUEG1zFN9GHNn
-	 WFOLI43qiCQ7ydx8oyzBlkLLDXLVCQnk3Qd8r9vtidG3JgSaat0NTyiVjaxr5kbsRy
-	 /nMChtOImCKK1XOsLycua5DxDT0autDeembT79vP3FvbU1WkHlIaI6YZc4nwuRBNpf
-	 s1J8dxXB66OukDIpjwkKfdKZ1ChSWeVZ/L9K34Gfa7vtHGKEMKsJfzo5pTUtcgPotU
-	 +xlFa/ZaUx/8w==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Philipp Rudo <prudo@redhat.com>
-Cc: Mukesh Pilaniya <mpilaniy@redhat.com>,  Catalin Marinas
- <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Mark Rutland
- <mark.rutland@arm.com>,  Huacai Chen <chenhuacai@kernel.org>,  WANG Xuerui
- <kernel@xen0n.name>,  Paul Walmsley <pjw@kernel.org>,  Palmer Dabbelt
- <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti
- <alex@ghiti.fr>,  Andrew Morton <akpm@linux-foundation.org>,  Baoquan He
- <baoquan.he@linux.dev>,  Mike Rapoport <rppt@kernel.org>,  Pasha Tatashin
- <pasha.tatashin@soleen.com>,  Pratyush Yadav <pratyush@kernel.org>,  Tao
- Liu <ltao@redhat.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  loongarch@lists.linux.dev,
-  linux-riscv@lists.infradead.org,  kexec@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] kexec: fix error propagation in
- kexec_image_probe_default()
-In-Reply-To: <20260820142114.0a36ac78@rotkaeppchen> (Philipp Rudo's message of
-	"Thu, 20 Aug 2026 14:21:14 +0200")
-References: <20260819-mpilaniy-v2-0-95e929ede0e5@redhat.com>
-	<20260819-mpilaniy-v2-2-95e929ede0e5@redhat.com>
-	<20260820142114.0a36ac78@rotkaeppchen>
-Date: Thu, 20 Aug 2026 20:11:14 +0200
-Message-ID: <2vxzik54zmpp.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	s=k20260515; t=1787250048;
+	bh=Dt1ularuwh4GAmniGZXU1TkEHbWNs9aSSgtoCZdHQQA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=j5WjCTHj2OOop5JTee/9oCrF08yTx4iYKqVa+YvFXGrQXHk48pBpCcWRgD0mu+m1o
+	 7pdvlVtRqV5MXA4tcnPyIGtFiF6j5aC+YhFsHVn6FM9cHPXyUbFy9WEHO++8C43b2p
+	 r5RaLV+ZioRfh6qrAJ6qkbDYJpCuX9Zk3m+DQCytK+vLjV5XdLOjE2vn4Iaz9JwGZT
+	 O+x3goDl04p9J//mxxriKH/CqBuSHet6eQ919vhK3a450/iyJ7EjCi1g1Czad31FHg
+	 AI1W0P62B42o7PPmiEWMnqxLt5y8v6Q1wI6tK0uGhKaBC0m/x5YVl3Ll94v0Two6Pv
+	 84AMNSso17REA==
+Date: Thu, 20 Aug 2026 19:20:44 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yaxing Guo <guoyaxing@bosc.ac.cn>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org, inux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, yangyinglu@bosc.ac.cn,
+	yangyinglu <yangyinglu@bosc.cn>
+Subject: Re: [PATCH] dt-bindings: riscv: firmware: Add OpenSBI configuration
+ binding
+Message-ID: <20260820-mowing-marbling-ff0a0c82804c@spud>
+References: <20260819090411.18561-1-guoyaxing@bosc.ac.cn>
+ <20260819-extent-decrease-0483d66a87af@spud>
 MIME-Version: 1.0
+In-Reply-To: <20260819-extent-decrease-0483d66a87af@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,104 +70,145 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9206981976750155679=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20 2026, Philipp Rudo wrote:
+--===============9206981976750155679==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NAPYhvb5+gg4INVm"
+Content-Disposition: inline
 
-> Hi Mukesh,
-> Hi Pratyush,
->
-> having this patch makes sense. Personally I'd go with having a
-> switch-case rather than individual if-blocks. E.g.
->
-> 	switch (ret) {
-> 		case 0:
-> 			image->fops = *fops;
-> 			return 0;
-> 		case -ENOEXEC:
-> 			continue;
-> 		default:
-> 			return ret;
-> 	}
->
-> IMHO that is better readable and easier to extend in case other error
-> codes need special handling as well. But that is only my personal
-> opinion.
+--NAPYhvb5+gg4INVm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Well, IMO both look roughly the same so I unless Mukesh prefers your
-version more, we can keep it as-is.
+On Wed, Aug 19, 2026 at 06:03:12PM +0100, Conor Dooley wrote:
+> On Wed, Aug 19, 2026 at 05:04:11PM +0800, Yaxing Guo wrote:
+> > From: yangyinglu <yangyinglu@bosc.cn>
+> >=20
+> > Add a Devicetree binding for OpenSBI configuration data in the
+> > chosen node, including the cold-boot-harts property.
+> >=20
+> > OpenSBI supports describing certain Generic Platform configurations in
+> > the device tree passed by the previous boot stage. The OpenSBI source
+> > tree documents the `opensbi,config` node and provides the corresponding
+> > device tree parsing flow.
+> >=20
+> > The `/chosen/opensbi-config` node can be used to configure OpenSBI,
+> > including the set of harts permitted to perform a cold boot through the
+> > `cold-boot-harts` property. OpenSBI parses this node during the boot
+> > phase and removes it from the device tree after cold boot.
+> >=20
+> > Add the Devicetree binding for this OpenSBI configuration node to
+> > document the supported `compatible` and `cold-boot-harts` properties.
+> >=20
+> > Signed-off-by: yangyinglu <yangyinglu@bosc.cn>
+> > ---
+> >  .../bindings/firmware/opensbi,config.yaml     | 38 +++++++++++++++++++
+> >  1 file changed, 38 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/firmware/opensbi,=
+config.yaml
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/firmware/opensbi,config.=
+yaml b/Documentation/devicetree/bindings/firmware/opensbi,config.yaml
+> > new file mode 100644
+> > index 000000000000..86b1e1e673a8
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/firmware/opensbi,config.yaml
+> > @@ -0,0 +1,38 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/firmware/opensbi,config.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: OpenSBI Firmware Configuration
+> > +
+> > +maintainers:
+>=20
+> You probably should've waited for a response to your question about who
+> should maintain it before sending, becuase I am not entirely sure this
+> software configuration node should be documented or if the maintainers
+> of opensbi would want it to be.
 
->
-> Independent on which implementation you use.
->
-> Reviewed-by: Philipp Rudo <prudo@redhat.com>
+And to quote Anup:
+| The opensbi configuration is all under "/chosen" DT node so I am
+| not sure if we should have related bindings under Linux sources.
+|=20
+| Other projects (such as U-boot or Xen) who use "/chosen" DT node
+| also don't have their bindings under Linux sources.
 
-Thanks for reviewing!
+So this is a nack from me on that basis, sorry. Did you have some user
+for this that could change my mind?
 
-One tiny suggestion. Can you please reply in-line the next time around?
-It is a bit easier reading this response below the code that it refers
-to.
+Thanks,
+Conor.
 
->
->
-> On Wed, 19 Aug 2026 23:17:23 +0530
-> Mukesh Pilaniya <mpilaniy@redhat.com> wrote:
->
->> kexec_image_probe_default() overwrites ret with each loader's probe
->> return value and returns whatever the last loader returned when no
->> probe matches.  The error code reaching userspace depends on whichever
->> loader happens to be last in kexec_file_loaders[].
->> 
->> Only continue to the next loader when a probe returns -ENOEXEC.
->> Propagate any other error such as -ENOMEM immediately. Return -ENOEXEC
->> only when all loaders have been tried and none matched.
->> 
->> Suggested-by: Pratyush Yadav <pratyush@kernel.org>
->> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
->> ---
->>  kernel/kexec_file.c | 12 +++++++-----
->>  1 file changed, 7 insertions(+), 5 deletions(-)
->> 
->> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
->> index 59fb9d71e9d8..b3060e984ef3 100644
->> --- a/kernel/kexec_file.c
->> +++ b/kernel/kexec_file.c
->> @@ -68,17 +68,19 @@ int kexec_image_probe_default(struct kimage *image, void *buf,
->>  			      unsigned long buf_len)
->>  {
->>  	const struct kexec_file_ops * const *fops;
->> -	int ret = -ENOEXEC;
->>  
->>  	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
->> -		ret = (*fops)->probe(buf, buf_len);
->> -		if (!ret) {
->> +		int ret = (*fops)->probe(buf, buf_len);
->> +
->> +		if (ret == 0) {
->>  			image->fops = *fops;
->> -			return ret;
->> +			return 0;
->>  		}
->> +		if (ret != -ENOEXEC)
->> +			return ret;
->>  	}
->>  
->> -	return ret;
->> +	return -ENOEXEC;
->>  }
->>  
->>  static void *kexec_image_load_default(struct kimage *image)
->> 
->
+>=20
+> Cheers,
+> Conor.
+>=20
+> > +
+> > +description: |
+> > +  OpenSBI configuration data passed in the chosen node.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: opensbi,config
+> > +
+> > +  cold-boot-harts:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> > +    description:
+> > +      List of hart CPU nodes selected as cold boot harts by OpenSBI.
+> > +
+> > +required:
+> > +  - compatible
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    / {
+> > +        chosen {
+> > +            opensbi-config {
+> > +                compatible =3D "opensbi,config";
+> > +                cold-boot-harts =3D <&cpu0>;
+> > +            };
+> > +        };
+> > +    };
+> > +...
+> > --=20
+> > 2.43.0
+> >=20
 
--- 
-Regards,
-Pratyush Yadav
+
+
+--NAPYhvb5+gg4INVm
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaodFewAKCRB4tDGHoIJi
+0rIDAP9KaJzdKUnGV/A5JJJ7EmTMo1fKndvtfhOidaamNZuoFwEA4QEPjPvvPMfi
+Dxa3fwxFgwi+xB0QaJhJKcdI1T+pBAQ=
+=2xDn
+-----END PGP SIGNATURE-----
+
+--NAPYhvb5+gg4INVm--
+
+
+--===============9206981976750155679==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9206981976750155679==--
+
