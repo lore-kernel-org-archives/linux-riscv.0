@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0DCC5B572
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 01:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E54C5DF81
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 04:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4CVpk8gGLJeJxOB+bGgU/rzl3fsB8F8KPB3tDB+EGUE=; b=ONrfYmNvioua1G
-	Pe25ojBBJWL2ZGERIX36kdqBIn9hHBR1B/2gHuUg3T1kAsINBsuxY8zxkSKLww1FudYtNpMLAujyE
-	oko9ybkvSrt+AKRwBeDA7+IOTjUiZPz4XpPyRudLzjkOq8kymaddCP3gek1w+FNCbmzM5A7rZiqrU
-	H3I7e3SRz3D7yXZzay8Sk6Wpdu+nOszPXuo/Dcmxu9t1N6jyMARYARZBB5KR1DIu+v3NFIz+v7lip
-	8mlgDCcun5HNBCrl+GxY8+XLScWeTeGTWgPNmjeqR+krbKeU+46U7A9G0WFa9E6RqmFDTd3tb/Q0Y
-	QMCS5nFwetzuh6RhTw8Q==;
+	List-Owner; bh=vYfZhGTi4toKzznGVh1ThdD2Zws9IUPNAnHXug1PdKY=; b=WsBBRa5RPAk11+
+	ZGkCDN/FXNQQC63IAg1XhgNP0EFXxbQxu+BH+LFkxEyqgVIPD3flAYkrVapvtc4MTrnu6UV/UH+Sg
+	xBl7GUtIXxsNQGru5VS7oeznWcIoRafezgj2FP2n8a2KXdoPOBU8e3tIx7ZUYgSOws9sIH8bvuIHj
+	2xZQiEJUjMQjjHRGDtqbd4FWGAZ2koa12gWireqPRsQfKl/e0HBqrnWHuoz4can20uEkBkwJVlxGQ
+	gsIis9NMMQ5BbIw7Z4jDz2EQzDujlGnnPSkXlKqtpiZaqYdGEZIvm9fnmKi/4fBrMnHm46mQnampj
+	lUkMisGg61egzNHjGnhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwrub-0000000Ajcx-1YZZ;
-	Thu, 20 Aug 2026 01:49:45 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1wwu8l-0000000Anpj-06aE;
+	Thu, 20 Aug 2026 04:12:31 +0000
+Received: from [113.46.200.227] (helo=canpmsgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwruZ-0000000Ajcc-0u6x
+	id 1wwu8h-0000000Ann1-3pvI
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 01:49:44 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7e9ef94c0e2so1050328a34.3
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Aug 2026 18:49:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1787190582; x=1787795382; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ze1L0S4sesJZh95VqJNWzJb8j2n+58CZfzAPSw1jjOA=;
-        b=cKNmTerG2Ct0KT4ZJBmTHR5utboccoH0v3b0wZm4yoKfYiyDkF6JXbM+oH0nCTLp2s
-         3ETIWjbrdZsEX8nzCltVFbAzMcnvRCjzoyXz/utHTylX3TRrr2YcXvX6GezT5wKlsEqe
-         QPkh20tpDpe+axGkKzowBooXvNA2FOVIL5p2YOPVKVBG/aYV3l0OzPlozC/333afDhYA
-         7KCnY2EtASsOV9o8fs+wJMKkLrb6r/xKKM3EGUh6DnOnhlhr1utQB2BLZDuA3pyt8KfI
-         uqtGAV8Y6YG1T14uvLn3ZgSZd40h8z3pj5osqTLumeMqF1330DeDy5P1/SYqaD+T5O8K
-         SGlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787190582; x=1787795382;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ze1L0S4sesJZh95VqJNWzJb8j2n+58CZfzAPSw1jjOA=;
-        b=UwkgLZq3XMyvu7BYcpwWvE3I7VNlPB/E/BWwujYJr+0dZlbl2w5fJR+93xcNj6FAwv
-         vP4iPVP2ZSdSKRL1yZYSTQ/rsguOToTD2LAwrgT6VsPi5J7kF/xuqAMlCknSWAijQsYM
-         NBERiuATukYmIt6zEIHqKwI3y1Cy+uS5Ju+3/0dtciawD7TsZ0cHScqE1d1W8x4LQBPg
-         mPFPuuWcpworO3Rqgc9JVYRFK7N1+6watcMAB3arGmvu6Z8Mtg6D3Vw3xjkaa5RfrFxN
-         P7ur9ixS2BqOEz2obac6EtshBwor1uqA9I26lZ7pWLPyPYGdVoGOiGwufKG85bDvzcpc
-         4MUA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq+9D7lOgwL9V6T4/zjFqNv55PuN0qILK7EnoCdOH5W6y/eQ5IHQ9hTrn58tDe+PzKeU4XsqOKSCGyjzg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9eJi0vtfpulLEa+/5/KhomnMbsmCY2jpij/GfCvGr6P/iQonZ
-	BCRsQUO+P/6mgVZAkQMpn9O/Ah1loVfXfSxceYaq+VJZUjcUEYmOuTfkcx1liW6dF/E=
-X-Gm-Gg: AR+sD10qNKXT9ayE5qtoiWnqjLaBfxMCDJwHoBI4/fBiZ4EzHodyCIKiXjrzPYSwyc9
-	h/lcgxq4fI56aY7Q/xpS3BfyLMLGGO1UA3Iz9HB/3aV9I1MXjU0MDV53FXnqANBb7YEoff4ngn1
-	IT6RpMMTT6CeAGuGfYdiyqxHr43rz1+0NyJOEeXlYizEBoZPU/2TKNeFhEe8ukTwCDVsG4auBV1
-	yjWXNvS8C5rvBt/3r93o58OY85ZIAWyTxhaxAw1OU4dzglOz3j6Gu4xu1oVY7N14JuL2eXvOqJf
-	NfeW1Wj0e4W3JRjIt2QV4oPldzYjePj6RHxDsRhCxBqXvbtVm9KCrcYi2REE9iX6yj7gjffXceC
-	RS863kwAmMyrpkBfGxbrL+31bOfnFCLOuETa51vGl+Ustn8Aq2DoxjZq5ZYEXaiOLHgdI2+5afE
-	4JFkXzUvCmGxfdbSUYx8TRVy5Q34epoCEgPkxcqFy45p7vDKdhew4vmFNQsbBwKHtV2iJ7TVv1n
-	+5rMofOeBk=
-X-Received: by 2002:a05:6830:2117:b0:7e9:d4b5:8004 with SMTP id 46e09a7af769-7f43f95afe1mr10936044a34.5.1787190581986;
-        Wed, 19 Aug 2026 18:49:41 -0700 (PDT)
-Received: from [100.64.0.1] ([170.85.102.82])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f43fe70786sm3565200a34.4.2026.08.19.18.49.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Aug 2026 18:49:41 -0700 (PDT)
-Message-ID: <1e5340c0-6a36-4727-b96e-19ac40565a92@sifive.com>
-Date: Wed, 19 Aug 2026 20:49:39 -0500
+	Thu, 20 Aug 2026 04:12:29 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Wj6aI8sCMr/ayoDuGnce4gweZGzZgQpUacHTKZeft6I=;
+	b=GLeMssTF0KR+dj5hVHlK7JyNVD0lCo9uLLklNHiWrjzEHdA8DFPfHATa3XC/O+JQt5XYH0LMc
+	eAPBtzBq2N0RpO5IONVCy69Qq1dEJD96inAMFaWuwLW0z33aMg/FMassW8EKNGZaNAsvi5MDgin
+	0vOMid57voUOhpqNYejdYx8=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hQV9z5k9jznTVd;
+	Thu, 20 Aug 2026 12:01:43 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id CAE7A40565;
+	Thu, 20 Aug 2026 12:12:01 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
+ (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 20 Aug
+ 2026 12:12:00 +0800
+Message-ID: <f8721d92-c07a-46ca-a1f3-6720aec01628@huawei.com>
+Date: Thu, 20 Aug 2026 12:12:00 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: selftests: Fix pointer masking test failures on
- real hardware
-To: JinRui <jinrui@haiwei.tech>, Shuah Khan <shuah@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Charlie Jenkins <charlie@rivosinc.com>,
- linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <04B199F7DC302BCA+20260721065242.233233-1-jinrui@haiwei.tech>
-From: Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH bpf-next v3 1/2] bpf, riscv: Add support for signed arena
+ loads
 Content-Language: en-US
-In-Reply-To: <04B199F7DC302BCA+20260721065242.233233-1-jinrui@haiwei.tech>
+To: Chen Pei <cp0613@linux.alibaba.com>, <ast@kernel.org>,
+	<daniel@iogearbox.net>, <andrii@kernel.org>, <memxor@gmail.com>,
+	<bjorn@kernel.org>, <puranjay@kernel.org>
+CC: <ihor.solodrai@linux.dev>, <eddyz87@gmail.com>, <martin.lau@linux.dev>,
+	<song@kernel.org>, <yonghong.song@linux.dev>, <jolsa@kernel.org>,
+	<emil@etsalapatis.com>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<shuah@kernel.org>, <guoren@kernel.org>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <cover.1787140923.git.cp0613@linux.alibaba.com>
+ <67422a421852c3eed2269c6def7b5569e727617f.1787140923.git.cp0613@linux.alibaba.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <67422a421852c3eed2269c6def7b5569e727617f.1787140923.git.cp0613@linux.alibaba.com>
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_184943_274594_EFB522AB 
-X-CRM114-Status: GOOD (  30.14  )
+X-CRM114-CacheID: sfid-20260819_211228_267016_F89BB51F 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,146 +81,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 2026-07-21 1:52 AM, JinRui wrote:
-> From: jinrui <jinrui@haiwei.tech>
+
+On 2026/8/19 20:09, Chen Pei wrote:
+> Signed loads from arena memory are currently rejected on riscv64, as
+> bpf_jit_supports_insn() refuses BPF_MEMSX loads when in_arena is set,
+> while x86 and arm64 gained support for them in v6.18. Compilers such
+> as GCC-14 are free to generate signed loads into arena memory, which
+> breaks loading of otherwise valid BPF programs on riscv64.
 > 
-> The pointer masking selftest contains several bugs that cause it to fail
-> on real RISC-V hardware:
+> Implement BPF_PROBE_MEM32SX support in the RV64 JIT by reusing the
+> existing arena handling: the arena base (RV_REG_ARENA) is added to
+> the source register and the load is emitted with sign extension
+> (lb/lh/lw). Add BPF_PROBE_MEM32SX to the add_exception_handler()
+> mode gate so that faulting loads get an exception table entry which
+> clears the destination register and resumes execution. Since
+> BPF_PROBE_MEM32SX shares its mode value (0xc0) with BPF_ATOMIC, the
+> gate accepts it only for LDX class instructions so that plain atomic
+> instructions do not register exception table entries.
 > 
-> 1. test_pmlen() did not pass PR_TAGGED_ADDR_ENABLE when requesting a
->    non-zero PMLEN. The kernel requires this flag; without it, PMLEN is
->    forced to 0 regardless of the requested value (see process.c:352).
-
-Ouch, sorry, this is a bug in the kernel, introduced by commit 3033b2b1e394
-("riscv: Reset pmm when PR_TAGGED_ADDR_ENABLE is not set"). The kernel
-documentation and existing selftest logic are correct. PMLEN is independent from
-PR_TAGGED_ADDR_ENABLE so userspace can use pointer masking internally without
-changing the syscall ABI. This allows userspace software to behave like it does
-on arm64, where TBI is always enabled, but the tagged address ABI is disabled by
-default.
-
-I was not paying enough attention and should not have Reviewed-by that patch. I
-just sent a revert:
-https://lore.kernel.org/linux-riscv/20260820014551.1979772-1-samuel.holland@sifive.com/
-
-> 2. set_tagged_addr_ctrl() required the PR_GET return value to exactly
->    match the PR_SET argument. However, the kernel may legitimately:
->    - Force PMLEN to 0 when the ABI is disabled (tagged_addr_abi=false)
->    - Round up PMLEN (e.g., request=1 -> PMLEN=7 or PMLEN=16)
-
-There should be no rounding here, because set_tagged_addr_ctrl() is only ever
-called with pmlen set to 0, min_pmlen, or max_pmlen. All of these are values
-that the kernel is known to support (in other words, they are already rounded).
-The remaining issues described here should be fixed by the revert linked above.
-
-Regards,
-Samuel
-
-> 3. test_dereference_pmlen() always passed tagged_addr_abi=false, even
->    for non-zero PMLEN values. This meant PMLEN was never actually
->    enabled, so the valid tag dereference test always triggered SIGSEGV.
+> Verified by running the arena LDSX selftests (arena_ldsx_disasm,
+> arena_ldsx_exception, arena_ldsx_s8/s16/s32) and the full
+> arena_atomics test suite on riscv64 QEMU, all passing.
 > 
-> 4. test_fork_exec() passed tagged_addr_abi=false, causing the fork
->    child's tagged pointer dereference to fail because the inherited
->    PMLEN was 0.
-> 
-> Additionally, add an explicit #include <stdint.h> for uintptr_t, which
-> is required by the C standard and must be included explicitly on some
-> compiler/libc combinations.
-> 
-> Fixes: 7470b5afd150 ("riscv: selftests: Add a pointer masking test")
-> Signed-off-by: jinrui <jinrui@haiwei.tech>
+> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 > ---
->  .../selftests/riscv/abi/pointer_masking.c     | 34 +++++++++++++++++--
->  1 file changed, 31 insertions(+), 3 deletions(-)
 > 
-> diff --git a/tools/testing/selftests/riscv/abi/pointer_masking.c b/tools/testing/selftests/riscv/abi/pointer_masking.c
-> index 2d540af7b558..106f12f1ea44 100644
-> --- a/tools/testing/selftests/riscv/abi/pointer_masking.c
-> +++ b/tools/testing/selftests/riscv/abi/pointer_masking.c
-> @@ -5,6 +5,7 @@
->  #include <setjmp.h>
->  #include <signal.h>
->  #include <stdbool.h>
-> +#include <stdint.h>
->  #include <sys/prctl.h>
->  #include <sys/wait.h>
->  #include <unistd.h>
-> @@ -17,6 +18,9 @@
->  #ifndef PR_PMLEN_MASK
->  #define PR_PMLEN_MASK			(0x7fUL << PR_PMLEN_SHIFT)
->  #endif
-> +#ifndef PR_TAGGED_ADDR_ENABLE
-> +#define PR_TAGGED_ADDR_ENABLE		1
-> +#endif
->  
->  static int dev_zero;
->  
-> @@ -44,7 +48,10 @@ static void test_pmlen(void)
->  	for (int request = 0; request <= 16; request++) {
->  		int pmlen, ret;
->  
-> -		ret = prctl(PR_SET_TAGGED_ADDR_CTRL, request << PR_PMLEN_SHIFT, 0, 0, 0);
-> +		ret = prctl(PR_SET_TAGGED_ADDR_CTRL,
-> +			    request << PR_PMLEN_SHIFT |
-> +			    (request ? PR_TAGGED_ADDR_ENABLE : 0),
-> +			    0, 0, 0);
->  		if (ret)
->  			goto pr_set_error;
->  
-> @@ -85,6 +92,22 @@ static int set_tagged_addr_ctrl(int pmlen, bool tagged_addr_abi)
->  		ret = prctl(PR_GET_TAGGED_ADDR_CTRL, 0, 0, 0, 0);
->  		if (ret == arg)
->  			return 0;
-> +
-> +		/*
-> +		 * When tagged_addr_abi is false, the kernel forces PMLEN
-> +		 * to 0 regardless of what was requested. Accept the result
-> +		 * as long as PR_TAGGED_ADDR_ENABLE is not set.
-> +		 */
-> +		if (!tagged_addr_abi && !(ret & PR_TAGGED_ADDR_ENABLE))
-> +			return 0;
-> +
-> +		/*
-> +		 * When tagged_addr_abi is true, the kernel may round up
-> +		 * the PMLEN (e.g. request=1 -> PMLEN=7 or PMLEN=16).
-> +		 * Accept the result if the enable bit is set.
-> +		 */
-> +		if (tagged_addr_abi && (ret & PR_TAGGED_ADDR_ENABLE))
-> +			return 0;
->  	}
->  
->  	return ret < 0 ? -errno : -ENODATA;
-> @@ -96,7 +119,12 @@ static void test_dereference_pmlen(int pmlen)
->  	volatile int *p;
->  	int ret;
->  
-> -	ret = set_tagged_addr_ctrl(pmlen, false);
-> +	/*
-> +	 * When pmlen is 0, the tagged address ABI cannot be enabled (the
-> +	 * kernel rejects PR_TAGGED_ADDR_ENABLE when PMLEN is 0). Disable
-> +	 * pointer masking and test the invalid tag path instead.
-> +	 */
-> +	ret = set_tagged_addr_ctrl(pmlen, pmlen ? true : false);
->  	if (ret)
->  		return ksft_test_result_error("PMLEN=%d setup (%d)\n", pmlen, ret);
->  
-> @@ -157,7 +185,7 @@ static void test_fork_exec(void)
->  
->  	ksft_print_msg("Testing fork/exec behavior\n");
->  
-> -	ret = set_tagged_addr_ctrl(min_pmlen, false);
-> +	ret = set_tagged_addr_ctrl(min_pmlen, true);
->  	if (ret)
->  		return ksft_test_result_error("setup (%d)\n", ret);
->  
+> Changes in v3:
+> - Restore the pseudo-code form of the PROBE_MEM32SX case comment.
+> 
+> Changes in v2:
+> - Fix extable entry overflow breaking arena_atomics load
+> 
+>   arch/riscv/net/bpf_jit_comp64.c | 16 ++++++++++------
+>   1 file changed, 10 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index f9d5347ba966..64ebd262c498 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -777,6 +777,8 @@ static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
+>   	if (BPF_MODE(insn->code) != BPF_PROBE_MEM &&
+>   	    BPF_MODE(insn->code) != BPF_PROBE_MEMSX &&
+>   	    BPF_MODE(insn->code) != BPF_PROBE_MEM32 &&
+> +	    !(BPF_MODE(insn->code) == BPF_PROBE_MEM32SX &&
+> +	      BPF_CLASS(insn->code) == BPF_LDX) &&
+>   	    BPF_MODE(insn->code) != BPF_PROBE_ATOMIC)
+>   		return 0;
+>   
+> @@ -1902,13 +1904,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   	case BPF_LDX | BPF_PROBE_MEM32 | BPF_H:
+>   	case BPF_LDX | BPF_PROBE_MEM32 | BPF_W:
+>   	case BPF_LDX | BPF_PROBE_MEM32 | BPF_DW:
+> +	/* LDX | PROBE_MEM32SX: dst = *(signed size *)(src + RV_REG_ARENA + off) */
+> +	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_B:
+> +	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_H:
+> +	case BPF_LDX | BPF_PROBE_MEM32SX | BPF_W:
+>   	{
+>   		bool sign_ext;
+>   
+>   		sign_ext = BPF_MODE(insn->code) == BPF_MEMSX ||
+> -			   BPF_MODE(insn->code) == BPF_PROBE_MEMSX;
+> +			   BPF_MODE(insn->code) == BPF_PROBE_MEMSX ||
+> +			   BPF_MODE(insn->code) == BPF_PROBE_MEM32SX;
+>   
+> -		if (BPF_MODE(insn->code) == BPF_PROBE_MEM32) {
+> +		if (BPF_MODE(insn->code) == BPF_PROBE_MEM32 ||
+> +		    BPF_MODE(insn->code) == BPF_PROBE_MEM32SX) {
+>   			emit_add(RV_REG_T2, rs, RV_REG_ARENA, ctx);
+>   			rs = RV_REG_T2;
+>   		}
+> @@ -2126,10 +2134,6 @@ bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
+>   			if (insn->imm == BPF_CMPXCHG)
+>   				return rv_ext_enabled(ZACAS);
+>   			break;
+> -		case BPF_LDX | BPF_MEMSX | BPF_B:
+> -		case BPF_LDX | BPF_MEMSX | BPF_H:
+> -		case BPF_LDX | BPF_MEMSX | BPF_W:
+> -			return false;
+>   		}
+>   	}
+>   
+
+Reviewed-by: Pu Lehui <pulehui@huawei.com>
+Tested-by: Pu Lehui <pulehui@huawei.com>
 
 
 _______________________________________________
