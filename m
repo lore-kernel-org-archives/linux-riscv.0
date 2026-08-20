@@ -4,59 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4874FC5DF88
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2026 18:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4081C5B572
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 01:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=tJxFt/S0vjn277kDPbh94YwD7PhrnsEoD/4Ccs/MfJg=; b=EOajpRT7Q0kgzT
-	yQFhOQbNVWZ2JabhhyjNNRD3x3OKzgLXbx6ygseLXsWI2+F/NukIxyDIZEgEe6yGskwYaRu3JbRKL
-	8kGAsi8uQCeN00tyZQ4VOyy6SgHc7t+ZWxK/qSd1FPxQMC4OArQ0EGWyxqUcxtri4GSx/lNlLNxMQ
-	ISJHOsO8Irw7o+c3eoNobYh05+MRg02xztnl2CLQ/3or+XjJgk32ULiIlW/WT0xBcjFRt8K7qHD6i
-	RNaqTlhuJiV1AYaRQMk3/2Vc3q0EdK/ns9qjctZPQq+KNGuAPQjjNI+BEb1xcaaZ2di0cDF4ETP/b
-	rI8RLhq6MZSS0AWIGr7A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FRTL3AoMVXz8tUARX7IEY+33ityLnPjjljjqRNoJToE=; b=J/87jMzSAwQ4oQ
+	12xsCEB1Z/FOiUvvCwqKGfcX30LULk8sBJB0jtfyQ+X0DdvmRn1s3QsJskV/ZiqNKERaVQHaKoj+y
+	U2XOsXxrrKYf/5Z/6RtS99SVdXBFfn79UA1CEJOVWtqs5FFAZ2Yiha9IwSPqP6auOlMYjEKQt9JaE
+	usUBWAdjQO9uULrh56/Snf6/CPvdCdp0ZSjoESmSXw7otM1tE1ekfr44guu9U53DZwmEb4BXtCZJX
+	kfBYJWrMPnkUQq67aBcnTQlTYZhraKimerqZG9umPjlimFNNzSr00IrU6rytHOZT5CwDf0SoyM/Bz
+	yBT/8v9P0kOpHeeFK9Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwl6J-0000000ANcz-0p2d;
-	Wed, 19 Aug 2026 18:33:23 +0000
-Received: from latitanza.investici.org ([185.218.207.228])
+	id 1wwrqu-0000000AjTD-3nb9;
+	Thu, 20 Aug 2026 01:45:56 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwl6F-0000000ANb1-1bkx;
-	Wed, 19 Aug 2026 18:33:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1787164394;
-	bh=BxnW8xTe/GUg/okReI0ZUTX8lPXwU0KqEEY1BznrYFQ=;
-	h=Date:From:To:CC:Subject:In-Reply-To:From;
-	b=ribwPyRn+LH1F9A7EcB0DgsCpO4YlE+W4B7sMWptzOdv9HbwxbE2gSDVkkAoJx/7Z
-	 3ipIsQyfMGHdVkh1ij6tRVVllP1O+ZnvPYjkOWd3qtCz9l2NylxuLKo7QF+pEJk6p6
-	 2AlSFPZca9TqbKlG+uiDUlbU6ro915a0i4gk313w=
-Received: from mx3.investici.org (unknown [127.0.0.1])
-	by latitanza.investici.org (Postfix) with ESMTP id 4hQFZ23NQrzGpD4;
-	Wed, 19 Aug 2026 18:33:14 +0000 (UTC)
-Received: by mx3.investici.org (Postfix) id 4hQFZ20qN3zGpD1;
-	Wed, 19 Aug 2026 18:33:14 +0000 (UTC)
-Date: Wed, 19 Aug 2026 19:33:13 +0100
-From: Bradley Morgan <include@grrlz.net>
-To: mpilaniy@redhat.com
-CC: akpm@linux-foundation.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
- baoquan.he@linux.dev, catalin.marinas@arm.com, chenhuacai@kernel.org,
- kernel@xen0n.name, kexec@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, ltao@redhat.com,
- mark.rutland@arm.com, palmer@dabbelt.com, pasha.tatashin@soleen.com,
- pjw@kernel.org, pratyush@kernel.org, prudo@redhat.com, rppt@kernel.org,
- will@kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_1/2=5D_kexec=3A_return_-ENOEXE?=
- =?US-ASCII?Q?C_from_image_probe_functions_on_mismatch?=
-In-Reply-To: <20260819-mpilaniy-v2-1-95e929ede0e5@redhat.com>
-Message-ID: <B5D12BAE-2701-46EC-8458-3716F856703D@grrlz.net>
+	id 1wwrqs-0000000AjSs-2jot
+	for linux-riscv@lists.infradead.org;
+	Thu, 20 Aug 2026 01:45:55 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-cc11a30a259so1446815a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Aug 2026 18:45:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1787190353; x=1787795153; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hcbmxgCXq1Ai2lvtBMwQpFOstE3BYsfTfvmqnVMkCrA=;
+        b=gAnnlcxBGS8YVK9H7LohW2ovQo+dasOHvco6kaEiSZkNb98u+ifHkgk5xZg1cv6Wtq
+         SN9+5v83aSzfiLJvRbN8XwdrfzKf8BBhjpHEObSxm7yapyxkH4HxPv3BsoOmC53EaWky
+         b7diSFD7poR4An56HuBohQwaR9xuec5yaMZEK6QPho3/9Y3CL/+YMwpROYO80rAXr59H
+         DvG8bwqzkeY9i3IkDTCcJeUO75j4/YtMBLPaISl0sTwSkCTtqGdVZ4/v04N6Xmjjeyfs
+         cRqFjunkYZ/p343DuZKG0OBfNpWVmHdZpQ5Zl4aDuRZcG5OBqIoyIEGAvqDIyqGHgAgT
+         NR3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787190353; x=1787795153;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hcbmxgCXq1Ai2lvtBMwQpFOstE3BYsfTfvmqnVMkCrA=;
+        b=QxXhwgkbRRH/IHRZFcYmC8aZwXxCNhzIMNrqMig+29ap2H9y0h/HdJnk20zOgMP+Yr
+         dlY99cj8iSBk1wvKBd+DOy9Z1o7vCseugX78rJ5032TuUcw4SlHoE/JHgTHTvpmcOcQF
+         EePH03hbXGabA9mDhKPoGekFxoJVKUR1/dOQY4pYG2d7tKtEKMDYSco+azilJQ9lT02D
+         3xaATs7MYcBX+ycK1tiBCpspIWXbyWBaYT9zhwsYk+SSPrbQ9Q9ENyI06eO74LZrbqkm
+         HTtKg1vSQ+qzP+4XxZv+2lzrXbDVStmuFeua+YKYxLYFpLHO6Gku/VEDZCIHGYZJDGHq
+         uQcQ==
+X-Gm-Message-State: AOJu0Yyxd14kFyB6ayoC+78SralygxTMAvHt+5SVMln7bwqaa/S6AN85
+	6ZWdpeLxzGqCNUX+wB8iETOaOf43l4EmvZeBurnJlo+SvImbjXZ+TLGF75P6GiEwO8I=
+X-Gm-Gg: AR+sD11sK8duIsWyuYwiX/L0ST3SW/r42gtB1ocBC7AmOpQanWQIrjuhXEBQBo2rZDF
+	JI0YF128ogffDuLoQ5XbSmV6IhjxEXpwkN7V5QejHqs1cVoUUxcN5G+YOyT5NAPSo+6jZdhOmHF
+	aIH4wbkLVW82mVqAIRZFfkoJMTrj5UXpTb5PuIXsJ8ZgpLwJxr8ZL8QW/VpWaldnOhb9rE5PSYp
+	KFjN1Lf/XsVd47B0u66Y3Muheg2wLNqPS4FAfcl8lyh3KE11tnpIdGxF+kKouVD6AHUbpB3+Orw
+	uIcyvXORR/xyCrUGcEWmLEQutb1juxp/ZRpMG4dU1KwT312fYOOvWjAu4EwHeTC9yttjSwRCsTz
+	ebhAfOJMF9bxWPSpy0UAx3wnCaCKCDP9aFuVueqKNngRh532trZprGFMpTKW719S07PznZ19oSV
+	peMML8Fg+7Qb6bIIDHvEU9LpEyQt0WQST2cyJOIrqknmIMlTRKL1qbF2AA+cmuxWD6kG9iBbZiz
+	T/kFp+LrCuIvAtlJ3aJ
+X-Received: by 2002:a05:6a21:6b0f:b0:3c3:8c91:5da0 with SMTP id adf61e73a8af0-3cd012342ecmr16884819637.15.1787190353142;
+        Wed, 19 Aug 2026 18:45:53 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-327c946293dsm5052389eec.22.2026.08.19.18.45.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Aug 2026 18:45:52 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Simon Schuster <schuster.simon@siemens-energy.com>,
+	Zishun Yi <vulab@iscas.ac.cn>,
+	Zong Li <zong.li@sifive.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] Revert "riscv: Reset pmm when PR_TAGGED_ADDR_ENABLE is not set"
+Date: Wed, 19 Aug 2026 18:45:16 -0700
+Message-ID: <20260820014551.1979772-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_113319_862661_F1823D9D 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20260819_184554_708869_CAA60736 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,119 +104,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19 August 2026 18:47:22 BST, Mukesh Pilaniya <mpilaniy@redhat.com>
-wrote:
->Several kexec_file_load() image probe functions return -EINVAL when
->they do not recognize the image format.  A probe function that rejects
->an image should return -ENOEXEC to indicate that the image is not a
->recognized executable format.  -EINVAL implies a problem with the
->syscall parameters, not with image recognition.
->
->kexec_image_probe_default() iterates through registered loaders and
->returns the last probe's error code to the caller.  That error
->propagates as the kexec_file_load() return value to userspace.
->Returning -EINVAL from a probe when no loader matches is semantically
->incorrect and misleads userspace about the nature of the failure.
->
->Return -ENOEXEC from all probe functions and their helpers when the
->image format is not recognized.
->
->Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
->Reviewed-by: Philipp Rudo <prudo@redhat.com>
->Reviewed-by: Pratyush Yadav <pratyush@kernel.org>
-Reviewed-by: Bradley Morgan <include@grrlz.net>
+This reverts commit 3033b2b1e3949274f33a140e2a97571b5a307298.
 
->---
-> arch/arm64/kernel/kexec_image.c   | 4 ++--
-> arch/loongarch/kernel/kexec_efi.c | 4 ++--
-> arch/riscv/kernel/kexec_image.c   | 4 ++--
-> kernel/kexec_elf.c                | 4 ++--
-> 4 files changed, 8 insertions(+), 8 deletions(-)
->
->diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
->index b70f4df15a1a..101259874d44 100644
->--- a/arch/arm64/kernel/kexec_image.c
->+++ b/arch/arm64/kernel/kexec_image.c
->@@ -25,10 +25,10 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
-> 		(const struct arm64_image_header *)(kernel_buf);
-> 
-> 	if (!h || (kernel_len < sizeof(*h)))
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 
-> 	if (memcmp(&h->magic, ARM64_IMAGE_MAGIC, sizeof(h->magic)))
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 
-> 	return 0;
-> }
->diff --git a/arch/loongarch/kernel/kexec_efi.c b/arch/loongarch/kernel/kexec_efi.c
->index 5ee78ebb1546..28a1d0420ba3 100644
->--- a/arch/loongarch/kernel/kexec_efi.c
->+++ b/arch/loongarch/kernel/kexec_efi.c
->@@ -24,12 +24,12 @@ static int efi_kexec_probe(const char *kernel_buf, unsigned long kernel_len)
-> 
-> 	if (!h || (kernel_len < sizeof(*h))) {
-> 		kexec_dprintk("No LoongArch image header.\n");
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 	}
-> 
-> 	if (!loongarch_header_check_dos_sig(h)) {
-> 		kexec_dprintk("No LoongArch PE image header.\n");
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 	}
-> 
-> 	return 0;
->diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
->index 51dc89259f16..963a25f5b55b 100644
->--- a/arch/riscv/kernel/kexec_image.c
->+++ b/arch/riscv/kernel/kexec_image.c
->@@ -20,7 +20,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
-> 	const struct riscv_image_header *h = (const struct riscv_image_header *)kernel_buf;
-> 
-> 	if (!h || kernel_len < sizeof(*h))
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 
-> 	/* According to Documentation/arch/riscv/boot-image-header.rst,
-> 	 * use "magic2" field to check when version >= 0.2.
->@@ -28,7 +28,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
-> 
-> 	if (h->version >= RISCV_HEADER_VERSION &&
-> 	    memcmp(&h->magic2, RISCV_IMAGE_MAGIC2, sizeof(h->magic2)))
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 
-> 	return 0;
-> }
->diff --git a/kernel/kexec_elf.c b/kernel/kexec_elf.c
->index 3a5c25b2adc9..89a444a00693 100644
->--- a/kernel/kexec_elf.c
->+++ b/kernel/kexec_elf.c
->@@ -172,7 +172,7 @@ static int elf_read_ehdr(const char *buf, size_t len, struct elfhdr *ehdr)
-> 
-> 	default:
-> 		pr_debug("Unknown ELF class.\n");
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 	}
-> 
-> 	return elf_is_ehdr_sane(ehdr, len) ? 0 : -ENOEXEC;
->@@ -236,7 +236,7 @@ static int elf_read_phdr(const char *buf, size_t len,
-> 
-> 	default:
-> 		pr_debug("Unknown ELF class.\n");
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 	}
-> 
-> 	return elf_is_phdr_sane(phdr, len) ? 0 : -ENOEXEC;
->
->
+The reverted patch is userspace-visible behavior change, not a bug fix.
+The two variables here (pmm and pmlen) control two independent features:
+pmm is the _hardware_ pointer masking mode that applies while executing
+in userspace. pmlen is the shift amount that the _kernel_ uses when
+untagging addresses; PMLEN_0 means no untagging occurs, so the kernel
+does not accept tagged addresses in syscall arguments.
 
-Thanks!
+It is valid (as documented and tested by the self test) to enable
+pointer masking without enabling the tagged address ABI. This separation
+is necessary to allow userspace to create an execution environment
+similar to what the kernel supports on arm64 by default, where TBI is
+enabled but the tagged address ABI is not. (On arm64, there is no
+equivalent to PR_PMLEN_MASK because TBI is always enabled.)
+
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+---
+
+ arch/riscv/kernel/process.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index b2df7f72241a5..7cc5a6a5c0206 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -349,10 +349,8 @@ long set_tagged_addr_ctrl(struct task_struct *task, unsigned long arg)
+ 	if (arg & PR_TAGGED_ADDR_ENABLE && (tagged_addr_disabled || !pmlen))
+ 		return -EINVAL;
+ 
+-	if (!(arg & PR_TAGGED_ADDR_ENABLE)) {
++	if (!(arg & PR_TAGGED_ADDR_ENABLE))
+ 		pmlen = PMLEN_0;
+-		pmm = ENVCFG_PMM_PMLEN_0;
+-	}
+ 
+ 	if (mmap_write_lock_killable(mm))
+ 		return -EINTR;
+-- 
+2.52.0
+
+base-commit: a4ff2be345d0abc943da8dd8da98151843b750dc
+branch: up/pointer-masking-fix
 
 _______________________________________________
 linux-riscv mailing list
