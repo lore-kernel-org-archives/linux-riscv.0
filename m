@@ -4,95 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E08AAC5DF82
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 06:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F91C5DF85
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 07:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References:Message-ID
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oD/tBGFOaQ6jO+/tNvFvU8J6Yl1ndgJ+foI07GoPRvA=; b=m7gAjCfLjRUTmv
-	XVRDsMghsnOkL6DCpMCIYXAhUINrWV4rxr4yks9h1jktQ7U7eAmfI/O3TMWlURDUHXQ05o7JGARkK
-	dYyMECxGvDV1rf/fnsYoIF8wVk7vUnb826RqQ01251s06Yy5U4B0sNtwwYGDAb7EABZYbvTTJXvbF
-	4ZCG1jtM4MduduPUSZg3DWXmAMailQNSy/ZauIRA6cwtl2UwwNquu+uVAFdhcaqNTUT3sOf0/xy9Y
-	5kOv9cWCifg3M8emsEbmsRqNZ92Xd5jNvNJ3wlX2vhzAH79xVZV/8Q4pDf41/lwLts+vFMV3yOlyy
-	nyswTSPbjVjEXPW+nDow==;
+	List-Owner; bh=LtHLiGV51cxoNy6HE0zfjcOFVJxPR01XwxeAdWoWrcQ=; b=txvaEG4ZWgQ/K9
+	D04C5qCD94v0lNWMMbZdmTLUeRq4GbU5kC1ZntPJ+VgQCGKrs+Z5yQEH4T+5EMxMhOC/D29gkp/BL
+	XeT3UfdKW/ZvwFot3gYBs+BIW3Slykpm6UfRcj0YoJLbeXLulbKEx1SXOAnpvXTfio2uhIVgkVI2j
+	V3vOpXFr6q9nIgVcq7RPgDp2renEjDRs7KwMdGqgPIrd2Ks4r6CyABCJYSTTpiTF4YZKLBlMjUIOS
+	ycpmBTHKr9VOcJaEoaxBPQV5QC6+R+wfApLSBu9r+fkkdkVeWG9eXxjuPjL7CLc7Fk4nHtSFfqFsl
+	vgiQH46E8e+hv5J0eyzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwway-0000000AyP4-2qqj;
-	Thu, 20 Aug 2026 06:49:48 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1wwwti-0000000B0Ri-3qBq;
+	Thu, 20 Aug 2026 07:09:10 +0000
+Received: from mx0a-00128a01.pphosted.com ([148.163.135.77])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwwav-0000000AyOd-1u2A
+	id 1wwwte-0000000B0Q9-3bMU
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 06:49:46 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38deea72eebso1952018a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Aug 2026 23:49:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787208584; x=1787813384; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kRc1eSHVwu1q1qbvgzDIPRU3EZV0cBSELC6VRfYKDj0=;
-        b=LKsOowGVFKMIVli3K3lLc+sTWrbcL8eYg3piYkQ8l/uyEhtWG0PvK9LdEjYWnGMbNS
-         +QRAeBdHNH2jKBHlLN2y0L6x3YJilEY5QjhR1bXHX32n/i/xbCIP+n60n7aqx0V5CR6h
-         wU4CGn9iFoSdIbZe2q57uFhL2oW1rmy4TmEZqYdrqMvT9geQj2SU3eIEQHjLROarL/7L
-         YDg0Un9KbF7bkXO2PrYxT41k3YAUBZITv38FCFvBT2xXWHn9CId7WQY+ps2ANq4R3ys0
-         VWTZ3XFQ3cEl2LejntZgV4gBpWPqf10M9dIxHVUvT+SK3AjRikYScQBmgsSjOpwFIW9k
-         p/bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787208584; x=1787813384;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=kRc1eSHVwu1q1qbvgzDIPRU3EZV0cBSELC6VRfYKDj0=;
-        b=cpK0qO2oVD4KUjztt+uVLOHyCVN35PeR9J8MM3YtG4xeI42QjRUdjvFfMmR4aUXpAo
-         Dv3jDJDesSqF86a2CO5wPHF/ZGNfx0zIva3Wh/reXJmD4PtOT9NA7aKdz5ziIZq4L7OJ
-         Va1Z7Bn0I3ZFrv1CgullO3EHRSbQKUYIC34WjgaD7ytSMSiwKUrZKvyoadZ89Oy5SiwV
-         beJwoVnXVUImSScCIniy4Kmp5k9pIxDK2yXu2d1ma901DdMuwc76D75NLGmONXlOFT2J
-         ki2150dSbsootcg27TG0n66MQucuTDXPFTSZSclpvcMo0u+GJzpQcL0ER+uTysFRwBkY
-         Cr4g==
-X-Forwarded-Encrypted: i=1; AHgh+Rp/cOPRQKFwvh0nYIEPdrU/NNHo5p24SGGuzMIIzxjTLLP2C8xICItma6ZH1DGDL4oC6sKoiftLBoNR0Q==@lists.infradead.org
-X-Gm-Message-State: AFuF++ly7v5mNmzmU/FOlXm8TXxKBNYPw+5jANU9kOqsugAPMErkE9K5
-	72sf2u0btnS5zFBaUqzrIz920OPNz5KVmodbI8enMxOMw2iDBPNdd4ly
-X-Gm-Gg: AR+sD135oJs/0oUhQhKOjFQgT16RYdYs6jisqPT/JR+h488sOH0WIPZ5ST5x+dzOvDQ
-	axqFoV+t3wazQmwR8vfntgx53Fjm9P5feieQP4QGl4rKgBFFDl40voRo2x/u2p/denA2vrZgQ2C
-	JbJjGskcjfLxkYnuyeR5D9GDR8BDF+cXtbb6B0mUlfNPTBHLc9tZxPM2OxQmqeTZcWN6UmB0byr
-	CjEybO2runoi/9beO47ijhdAUsRJb62Gt4BGkdLNmO34zM/6/TlHFPo/ezU90Ya4iNeYlXYg0/e
-	QxyBfYLBv5pG7zOwoQ0aixuZOmzRq15E8T2GT8zIRRqv0HhKq8wEF1RISC6N6ExL+HJilDeX/1v
-	eJOyg/4aWserRkYEMKsoyhiK7/MBuD4HqPhUaiHEx0+x0x4DjB39+47kPG4QBigL87mrSJNEAnK
-	ziM/vL/1+GGrLBNf3i65mUXYegQw3+AfPvPb7r95+4w8fdttyBaFH8ffRvWn6P41/UCsKD9CaTL
-	LZyQ++D8gNuLjlJTiVtTBp2TGBMyet5
-X-Received: by 2002:a17:90b:4e8f:b0:38e:bfe:81e9 with SMTP id 98e67ed59e1d1-39580a80a58mr18755677a91.1.1787208584359;
-        Wed, 19 Aug 2026 23:49:44 -0700 (PDT)
-Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([129.41.58.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3957fb3069csm6696864a91.15.2026.08.19.23.49.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Aug 2026 23:49:43 -0700 (PDT)
-Date: Thu, 20 Aug 2026 12:19:33 +0530
-From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com, 
-	lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com, tmgross@umich.edu, 
-	dakr@kernel.org, daniel.almeida@collabora.com, tamird@kernel.org, 
-	acourbot@nvidia.com, work@onurozkan.dev, thuth@redhat.com, 
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	rust-for-linux@vger.kernel.org, FUJITA Tomonori <tomo@flapping.org>
-Subject: Re: [PATCH] powerpc/bug: Add ARCH_WARN_ASM and refactor
- _EMIT_BUG_ENTRY for Rust support
-Message-ID: <aoahpef37-7EaTrY@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
-References: <20260819084825.969116-1-mkchauras@gmail.com>
- <4c5b2ab5-83f8-4ee7-bb02-3046ed01fd84@kernel.org>
+	Thu, 20 Aug 2026 07:09:08 +0000
+Received: from pps.filterd (m0516787.ppops.net [127.0.0.1])
+	by mx0a-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67K414g43166229;
+	Thu, 20 Aug 2026 03:08:53 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=DKIM; bh=c8Rp8
+	EOzkyMI8boZQTY40lparKG2slm87g2a/+q88n0=; b=aPxtgK2nk0GxLk4aMJIL1
+	twcYACcEaPq1VLxioW2IAjxA7xjxcXVlJySRPqnDZr+k1oasKlgQhlR54HIzyV+v
+	VvmWoH73qBBop9vL2wwoWb+GINlLfydY4KnQ1EWonq26K2JlD9QnjTuSS3rE0DSa
+	J7mY2OecBrmLuR6bLhZZwGhMb67bq3Goc4tdP5i8TezIqP848Plok2G4xVi0Qln+
+	FoxogNBLr6tzHhtUrp4xwR4f7xBQtcSAqyeDHX4a+I1igKKnMwKtYYmtLmY9W+zO
+	agiZitEoz9NlqvOEMzl+UY/wEAam32W5lcgelyL3X/4xIUF0rOw4RhLcvwQ9m21y
+	g==
+Received: from nwd2mta4.analog.com ([137.71.173.58])
+	by mx0a-00128a01.pphosted.com (PPS) with ESMTPS id 4g4yfbh598-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 20 Aug 2026 03:08:52 -0400 (EDT)
+Received: from ASHBMBX8.ad.analog.com (ASHBMBX8.ad.analog.com [10.64.17.5])
+	by nwd2mta4.analog.com (8.14.7/8.14.7) with ESMTP id 67K78pjG018792
+	(version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 20 Aug 2026 03:08:51 -0400
+Received: from ASHBCASHYB4.ad.analog.com (10.64.17.132) by
+ ASHBMBX8.ad.analog.com (10.64.17.5) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.37; Thu, 20 Aug 2026 03:08:51 -0400
+Received: from ASHBMBX9.ad.analog.com (10.64.17.10) by
+ ASHBCASHYB4.ad.analog.com (10.64.17.132) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.37; Thu, 20 Aug 2026 03:08:51 -0400
+Received: from zeus.spd.analog.com (10.66.68.11) by ashbmbx9.ad.analog.com
+ (10.64.17.10) with Microsoft SMTP Server id 15.2.1748.37 via Frontend
+ Transport; Thu, 20 Aug 2026 03:08:51 -0400
+Received: from HYB-e1y2fvUQ3cx.ad.analog.com (HYB-e1y2fvUQ3cx.ad.analog.com [10.44.3.68])
+	by zeus.spd.analog.com (8.15.1/8.15.1) with ESMTP id 67K78OkZ003019;
+	Thu, 20 Aug 2026 03:08:45 -0400
+From: Janani Sunil <janani.sunil@analog.com>
+Date: Thu, 20 Aug 2026 09:08:21 +0200
+Subject: [PATCH v9 1/3] spi: dt-bindings: Add spi-device-addr peripheral
+ property
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <4c5b2ab5-83f8-4ee7-bb02-3046ed01fd84@kernel.org>
+Message-ID: <20260820-ad5529r-driver-v9-1-ba62e0b2a816@analog.com>
+References: <20260820-ad5529r-driver-v9-0-ba62e0b2a816@analog.com>
+In-Reply-To: <20260820-ad5529r-driver-v9-0-ba62e0b2a816@analog.com>
+To: Lars-Peter Clausen <lars@metafoo.de>,
+        Michael Hennerich
+	<Michael.Hennerich@analog.com>,
+        Jonathan Cameron <jic23@kernel.org>,
+        "David
+ Lechner" <dlechner@baylibre.com>,
+        =?utf-8?q?Nuno_S=C3=A1?=
+	<nuno.sa@analog.com>,
+        Andy Shevchenko <andy@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        "Jonathan
+ Corbet" <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Mark Brown
+	<broonie@kernel.org>,
+        Marius Cristea <marius.cristea@microchip.com>,
+        "Marcus
+ Folkesson" <marcus.folkesson@gmail.com>,
+        Kent Gustavsson <kent@minoris.se>,
+        Conor Dooley <conor.dooley@microchip.com>,
+        Daire McNamara
+	<daire.mcnamara@microchip.com>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>
+CC: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        Janani Sunil
+	<jan.sun97@gmail.com>, <linux-spi@vger.kernel.org>,
+        Kent Gustavsson
+	<nedo80@gmail.com>, <linux-riscv@lists.infradead.org>,
+        Janani Sunil
+	<janani.sunil@analog.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787209704; l=1442;
+ i=janani.sunil@analog.com; s=20260507; h=from:subject:message-id;
+ bh=ZKN1B2gZYBwuyNnxocxDDBrNCih2O5jweGLmrMvotJQ=;
+ b=enKpVGYoGz7FY2BNinLZVvp/ftfLGXdjoVVghGU86biCNk+K86Dq5QdYpSEhzqyG0GDoVb3VU
+ M2tCLkxlw9JDetpeuk/wD63J98wnFj8j1BNe8/5AXwtZqS6I5jC/F15
+X-Developer-Key: i=janani.sunil@analog.com; a=ed25519;
+ pk=e25MyjRLPY3RWrYm/LrJ+/+t1MZJUbkgIW5CZg+g+hA=
+X-ADIRuleOP-NewSCL: Rule Triggered
+X-Proofpoint-ORIG-GUID: aYdxdomK0ogdalLcYWCfNU-VbXALsyQF
+X-Authority-Analysis: v=2.4 cv=KbTidwYD c=1 sm=1 tr=0 ts=6a86a804 cx=c_pps
+ a=3WNzaoukacrqR9RwcOSAdA==:117 a=3WNzaoukacrqR9RwcOSAdA==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=0sLvza09kfJOxVLZPwjg:22 a=OmVn7CZJonkx5R5zMQLL:22 a=gAnH3GRIAAAA:8
+ a=XYAwZIGsAAAA:8 a=pGLkceISAAAA:8 a=p7DZuduEnTu05McJuzUA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=E8ToXWR_bxluHZ7gmE-Z:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDA1MCBTYWx0ZWRfXzNFA5vxlonkc
+ MsMm/7/4aQyjMBC6zF54mwdH9QhK5fHVYAdftQYs0jOmHD/kApRbTT7pE+fWgN7o64ZQWYvdOD2
+ 6835JJ6YH87/cJoPB+OLukAf9dPqRh1DCLXkCpD8zC4CuHkCxxjFSl6mumVxngR76oR/vWHBAtp
+ G8Nb5HSuUaqtDC3U2bAOZ9mK22cCLF9OgLwr9bcWLKf9MpsCGyji/N8fCwGxfvHclghBluXQCkW
+ nioZHYEnNzoZl+tGpQWPYma+FTImE6J5d/WAKEBjSSzobhSkfHvKlzObU2LUNZWue0BM6jFPuW0
+ 7K8JldOb604BECo7RPniqD3e//BMxXmeB46rts6GL26e0q1LScN01pAu44bzuUzTmV3cIHqd9Ea
+ tj3nM2O88IPdHCYwiU6NKNpAegwiSZXc7HEPInDDvx4Ym/ZT+DZUFTujTWKQ/zUayTunFUD3KKy
+ xD9Ho8yYAWlcfgUp3AQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDA1MCBTYWx0ZWRfX+rLpp9Jfxnwp
+ W17a3XTdEC5y94YmECvUwLW3SW7YrImxs1bsvVuYiPuReIoNC5fP1W4ov+1K0aP376xecd/Hqf1
+ mwci1/ZE1yQZD/5U5nHw4ZZwwRY9S5P3fJ7wi8VV9Yn4OQSb05pU
+X-Proofpoint-GUID: aYdxdomK0ogdalLcYWCfNU-VbXALsyQF
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-19_06,2026-08-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 priorityscore=1501 spamscore=0 phishscore=0 bulkscore=0
+ suspectscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608200050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_234945_500490_5F9C911F 
-X-CRM114-Status: GOOD (  25.32  )
+X-CRM114-CacheID: sfid-20260820_000906_907949_B75538A4 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,113 +158,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 01:50:43PM +0200, Christophe Leroy (CS GROUP) wrote:
-> =
-
-> =
-
-> Le 19/08/2026 =E0 10:48, Mukesh Kumar Chaurasiya (IBM) a =E9crit=A0:
-> > The Rust kernel infrastructure generates inline asm for WARN() via
-> > ARCH_WARN_ASM(file, line, flags, size), expanding it through a C
-> > preprocessor pass (generated_arch_warn_asm.rs.S) to produce an
-> > arch-specific asm template string for use in Rust's core::arch macros.
-> > =
-
-> > powerpc currently lacks ARCH_WARN_ASM and ARCH_WARN_REACHABLE, causing
-> > Rust builds to fail on powerpc.
-> > =
-
-> > Refactor _EMIT_BUG_ENTRY to accept explicit (file, line, flags) string
-> > arguments rather than relying on positional asm operand references
-> > (%0, %1, %2, %3). This allows the macro to be composed as a plain
-> > string concatenation, which is required for ARCH_WARN_ASM where no asm
-> > operand context exists.
-> > =
-
-> > Move the .org and .previous directives out of _EMIT_BUG_ENTRY and into
-> > the BUG_ENTRY() call site to preserve existing behaviour while enabling
-> > ARCH_WARN_ASM to supply its own size operand independently.
-> > =
-
-> > Add ARCH_WARN_REACHABLE as an empty define, matching the arm64
-> > convention, indicating that no additional reachability annotation is
-> > needed after a WARN on powerpc.
-> > =
-
-> > This brings powerpc into line with x86, arm64, s390, and riscv, all of
-> > which already define ARCH_WARN_ASM and ARCH_WARN_REACHABLE.
-> > =
-
-> > Suggested-by: FUJITA Tomonori <tomo@flapping.org>
-> > Signed-off-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
-> > ---
-> >   arch/powerpc/include/asm/bug.h | 28 ++++++++++++++++------------
-> >   1 file changed, 16 insertions(+), 12 deletions(-)
-> > =
-
-> > diff --git a/arch/powerpc/include/asm/bug.h b/arch/powerpc/include/asm/=
-bug.h
-> > index 0db48977c70c..8aba39e0cf26 100644
-> > --- a/arch/powerpc/include/asm/bug.h
-> > +++ b/arch/powerpc/include/asm/bug.h
-> > @@ -32,34 +32,38 @@
-> >   #endif /* verbose */
-> >   #else /* !__ASSEMBLER__ */
-> =
-
-> Sorry, I still don't understand. The only place the new macro is used is a
-> .S file (namely rust/kernel/generated_arch_warn_asm.rs.S), and the change
-> this patch implements is inside a #if !__ASSEMBLER__.
-> =
-
-> What am I missing ?
-> =
-
-> Christophe
-
-Hey Christophe,
-
-The code calling ARCH_WARN_ASM is a .rs.S file that goes through the C
-preprocessor as part of the Rust build machinery.
-
-The intended mechanism is essentially
-
-generated_arch_warn_asm.rs.S
-          |
-          v
-         CPP
-          |
-          | includes <linux/bug.h>
-          |
-          v
-ARCH_WARN_ASM(...) gets expanded
-          |
-          v
-Rust source containing the generated assembly string
-
-The patch therefore needs ARCH_WARN_ASM in the non-__ASSEMBLER__ section,
-because that section is where the macros intended for C preprocessing
-are defined.
-
-The thing is .rs.S is not using ARCH_WARN_ASM as an assembler-time macro,
-it is using the C preprocessor to expand ARCH_WARN_ASM before the
-Rust/assembly processing stage.
-
-This is my understanding of things, if i am wrong somewhere maybe
-someone can clarify.
-
-Regards,
-Mukesh
-
-
-[...]
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U29tZSBTUEkgZGV2aWNlcyBzdXBwb3J0IHNoYXJpbmcgYSBzaW5nbGUgY2hpcCBzZWxlY3QgYWNy
+b3NzIG11bHRpcGxlCnBoeXNpY2FsIGNoaXBzIGJ5IGVuY29kaW5nIGEgZGV2aWNlIGFkZHJlc3Mg
+aW4gdGhlIFNQSSBmcmFtZSBpdHNlbGYuCkFkZCB0aGUgZ2VuZXJpYyBzcGktZGV2aWNlLWFkZHIg
+cHJvcGVydHkgZm9yIGRlc2NyaWJpbmcgdGhlc2UgaGFyZHdhcmUKYWRkcmVzc2VzLiBUaGUgcHJv
+cGVydHkgaXMgcGxhY2VkIG9uIHRoZSBTUEkgcGVyaXBoZXJhbCBub2RlIGFuZCBtYXkKY29udGFp
+biBtdWx0aXBsZSBhZGRyZXNzZXMuCgpBY2tlZC1ieTogTnVubyBTw6EgPG51bm8uc2FAYW5hbG9n
+LmNvbT4KUmV2aWV3ZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5j
+b20+ClJldmlld2VkLWJ5OiBNYXJjdXMgRm9sa2Vzc29uIDxtYXJjdXMuZm9sa2Vzc29uQGdtYWls
+LmNvbT4KU2lnbmVkLW9mZi1ieTogSmFuYW5pIFN1bmlsIDxqYW5hbmkuc3VuaWxAYW5hbG9nLmNv
+bT4KLS0tCiBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvc3BpL3NwaS1wZXJpcGhl
+cmFsLXByb3BzLnlhbWwgfCA3ICsrKysrKysKIDEgZmlsZSBjaGFuZ2VkLCA3IGluc2VydGlvbnMo
+KykKCmRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvc3BpL3Nw
+aS1wZXJpcGhlcmFsLXByb3BzLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGlu
+Z3Mvc3BpL3NwaS1wZXJpcGhlcmFsLXByb3BzLnlhbWwKaW5kZXggODgwYTlmNjI0NTY2Li40ODk0
+MTk2YzhmOWMgMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9z
+cGkvc3BpLXBlcmlwaGVyYWwtcHJvcHMueWFtbAorKysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRy
+ZWUvYmluZGluZ3Mvc3BpL3NwaS1wZXJpcGhlcmFsLXByb3BzLnlhbWwKQEAgLTE0Miw2ICsxNDIs
+MTMgQEAgcHJvcGVydGllczoKICAgICBtaW5JdGVtczogMgogICAgIG1heEl0ZW1zOiA0CiAKKyAg
+c3BpLWRldmljZS1hZGRyOgorICAgICRyZWY6IC9zY2hlbWFzL3R5cGVzLnlhbWwjL2RlZmluaXRp
+b25zL3VpbnQzMi1hcnJheQorICAgIGRlc2NyaXB0aW9uOgorICAgICAgRGV2aWNlIGFkZHJlc3Nl
+cyB1c2VkIHdoZW4gbXVsdGlwbGUgcGVyaXBoZXJhbHMgc2hhcmUgYSBzaW5nbGUgY2hpcAorICAg
+ICAgc2VsZWN0LiBUaGUgYXJyYXkgYWxsb3dzIG9uZSBsb2dpY2FsIHBlcmlwaGVyYWwgdG8gY29t
+cHJpc2UgbXVsdGlwbGUKKyAgICAgIHBoeXNpY2FsIGRldmljZXMsIHdpdGggb25lIGFkZHJlc3Mg
+cGVyIHBoeXNpY2FsIGRldmljZS4KKwogICBzdCxzcGktbWlkaS1uczoKICAgICBkZXByZWNhdGVk
+OiB0cnVlCiAgICAgZGVzY3JpcHRpb246IHwKCi0tIAoyLjQzLjAKCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
