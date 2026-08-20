@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A43C5DF82
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 18:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8E1C5DF8C
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 21:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:
+	Subject:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n43FQAkXlzDk4W8/yrLqztNJfIwKD4b00gSKYR+l6ts=; b=X7O7IG9rr8p8r7
-	ucHXAuR2VO0udfzRSK0YJHYyRSdLOq6q4jQXl2GrLX5Idq0kwgXgq4wC8xG21KdpmU2jBjf6ScU2W
-	TXn1YwDgS1MfrrPje+mGBnrtvnnvmUVH5D6gVQsj4NSZ957te4/zBwUGZ/d52pY+sx0OzLqdRTSZM
-	DeZNaaXO7zk+d+Kpcxx4SncOwaPLnNi/yrQ91g0LA97PgXJ7wLMk5S/UuWvkaR0dIBt2Zu+kxjAwl
-	Gbf2a86M4dAMrlCnFQKjfy/YS91HgbxND8B7DrGzj+0nWk2IG8ipoQXtXqxKHPG2A6EyV0k/2hpPq
-	wwslnOhPClp0As5cnlbA==;
+	List-Owner; bh=01jvWh/wH29pG0YuQuKJ5nu3lZwvuQS1Qpwmmecrof0=; b=tOGeN8ESnNXLNF
+	hyj6nmedkEvdtTWCDmCh5GOZVUyV4bKDT3i1Z1ozX7FGWmVuM0iVRgKu3JAcvyraO5t17jhz8qiM4
+	JQ0B6QqbXuo9YeWfKIZd9wmQ8HpaSwjoQgovJX88Gz1Nr4u+kkxHHBdliqVA7RcOvhKsBMz93GYON
+	IpzhJ90Kq59IWJw+cpLOjqshza6/DcTtTqWQQROQJzpVgGngdUlEy0YMk/ke8iX1lLmHb8xI0Hpww
+	vUPC6IKkM1uvs/Hic+dy8OLbZy4R+gzI6HjOBhjPyNt2CGpUiL5KWBYuTVY8sBE7auxyDn/JKlgXa
+	b3d+RjrhnkwlxYu5i5Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7m1-0000000C4Le-0T90;
-	Thu, 20 Aug 2026 18:45:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wxADh-0000000CCwk-3IRa;
+	Thu, 20 Aug 2026 21:22:41 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7lz-0000000C4LY-2Z2G
+	id 1wxADc-0000000CCw9-0yfF
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 18:45:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 002F843EEE
-	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 18:45:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8DA31F00ACA
-	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 18:45:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787251554;
-	bh=YVb4J1V0CMvgwLitjlRlo9yrvIFqh3ZSrAUYXqj6bIs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=e/+La2GY4UAk5VcwL4muLjCKn2rx880XpGq0C5KgbU1DtW1UMyDREDlr5v0wC2bDn
-	 JJ0HZIRbNSwCcFnNhcIuYctP2YK8pwl6adfCUoKkkKRlgUAX5XTyO/Ev1Yn9zpmLQi
-	 K6PC+1fhC8DScW+2dFN0XBhyIkxQd9AxZC6YHGUWkecMeTaL+UDybyuv/6fm8qgV6K
-	 aqtcw3IgVMYuFNJzm6VOGVwOvQNuurOMyfdErNwWT2RayKu8uVP/nUHff6MvTe5gsW
-	 C06TFCHa+pUv558ENfF5BzP2jhGE/CEGfdBwB9jB6iPiCYv5PCk9NcmMNEb17nEPv+
-	 WFsCBEnuIXm+A==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5b159850b16so144815e87.3
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 11:45:54 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rpl61GvPpQMWUM2Gviqnrho4ktBxA72rjLFvrCY5we7YWIUqZEDrKu0LwJmUPDEP6ybI0TEzJ81Em0Gig==@lists.infradead.org
-X-Gm-Message-State: AFuF++mMLkOro2Kp3WAkA+4/G5zwluebFAy/mwN33djeLSMnkzLC9UCS
-	QGHX3lSOsYpdrxHV8w3qzj5TIxrjou3EWMGOEuv6jEdHeRK5pxSs5LM/ERR/VWxySShXHyEZFRw
-	gkdNTjzali/r8hQOTXfr8ggpkZCjs5BM=
-X-Received: by 2002:a05:6512:3b90:b0:5b4:5846:d925 with SMTP id
- 2adb3069b0e04-5b484233905mr120830e87.21.1787251553281; Thu, 20 Aug 2026
- 11:45:53 -0700 (PDT)
+	Thu, 20 Aug 2026 21:22:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:Message-ID:Subject:Cc:To
+	:From:Date:MIME-Version:From:Reply-To;
+	bh=VVmJbA2qSMFaP8opo9Ndr4fLkuQPcO1ld+9q8zqI4gU=; b=YBPdifGreGdx02v4W+03i1hb8P
+	kW1i1NpMNWAZvBa3xGSBVamJJvrLrxcuJJEWscfdKlGsjhU6WczaoYxpVh8lX6/UeYm82kHNbOQQ/
+	glTcrzL2PfmSiprrWg8EpipC3LS6L9xzpcxwylH0PLoofGYIJCpR3ubtgK3ODLKf6oH4qAazKHZ9/
+	uyFFl1bhgqYsfzIHPcKYF0R3ewT+w3J3TUi4sJWELfnHTTCbNxVzuuI0XA5LFc3YpgJGHHpn0PeM8
+	B+2/piTsRzf+T8xDavrRZphMysTDVCOgP3ba1xgFSZj0j6O99zOrgbS3hVt+qVsOk+iUB5PcA91OH
+	VygvGNjA==;
+Received: from maestria.local.igalia.com ([192.168.10.14] helo=mail.igalia.com)
+	by fanzine2.igalia.com with esmtps 
+	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1wxADH-006m8d-Ow; Thu, 20 Aug 2026 23:22:15 +0200
+Received: from webmail.service.igalia.com ([192.168.21.45])
+	by mail.igalia.com with esmtp (Exim)
+	id 1wxADF-00GOZQ-Si; Thu, 20 Aug 2026 23:22:15 +0200
+Received: from localhost ([127.0.0.1] helo=webmail.igalia.com)
+	by webmail.service.igalia.com with esmtp (Exim 4.98.2)
+	(envelope-from <mfo@igalia.com>)
+	id 1wxADF-00000002RTu-3Rre;
+	Thu, 20 Aug 2026 23:22:13 +0200
 MIME-Version: 1.0
-References: <20260820-acpi-power-resource-ref-fix-v2-1-29818173ea13@linux.spacemit.com>
-In-Reply-To: <20260820-acpi-power-resource-ref-fix-v2-1-29818173ea13@linux.spacemit.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Thu, 20 Aug 2026 20:45:19 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0hxNALP_GRBk+QpfrpSAwJxbhjcvdYWkh8aakTppZnHSQ@mail.gmail.com>
-X-Gm-Features: AcwNN1Xkgg8dkhd5DrHEclBbxpwM5hJZxuiRpd3gKjDhZGY6sALVJ87AqhbLVIw
-Message-ID: <CAJZ5v0hxNALP_GRBk+QpfrpSAwJxbhjcvdYWkh8aakTppZnHSQ@mail.gmail.com>
-Subject: Re: [PATCH v2] ACPI: scan: Defer device power initialization
-To: Peixin Xie <peixin.xie@linux.spacemit.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Yixun Lan <dlan@kernel.org>, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Date: Thu, 20 Aug 2026 18:22:13 -0300
+From: Mauricio Faria de Oliveira <mfo@igalia.com>
+To: Joel Granados <joel.granados@kernel.org>
+Cc: Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, fsverity@lists.linux.dev,
+ keyrings@vger.kernel.org, bpf@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ netdev@vger.kernel.org, linux-wpan@vger.kernel.org,
+ lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, linux-sctp@vger.kernel.org,
+ linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org,
+ bridge@lists.linux.dev, mptcp@lists.linux.dev, rds-devel@oss.oracle.com,
+ virtualization@lists.linux.dev
+Subject: Re: [PATCH RFC v3 00/13] sysctl: add module aliases
+In-Reply-To: <bpnqwggtidgiec5akns3fa5edbsvl7xf55dxabtwng2xspy4pn@ue554aii2ngk>
+References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
+ <bpnqwggtidgiec5akns3fa5edbsvl7xf55dxabtwng2xspy4pn@ue554aii2ngk>
+Message-ID: <53155340c897560bfc67e61ba9568fd6@igalia.com>
+X-Sender: mfo@igalia.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_142237_561494_9CD958AC 
+X-CRM114-Status: GOOD (  31.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,107 +86,235 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBdWcgMjAsIDIwMjYgYXQgNzo1NuKAr0FNIFBlaXhpbiBYaWUKPHBlaXhpbi54aWVA
-bGludXguc3BhY2VtaXQuY29tPiB3cm90ZToKPgo+IGFjcGlfYnVzX2dldF9wb3dlcl9mbGFncygp
-IGluaXRpYWxpemVzIHRoZSBkZXZpY2UgcG93ZXIgc3RhdGUgd2hpbGUgdGhlCj4gQUNQSSBkZXZp
-Y2Ugb2JqZWN0IGlzIGJlaW5nIGNyZWF0ZWQsIGJlZm9yZSBjaGVja2luZyB3aGV0aGVyIHRoZSBk
-ZXZpY2UKPiBpcyByZWFkeSBmb3IgZW51bWVyYXRpb24uCj4KPiBJZiBlbnVtZXJhdGlvbiBpcyBk
-ZWZlcnJlZCwgYWNwaV9idXNfYXR0YWNoKCkgY2xlYXJzIHRoZSBpbml0aWFsaXplZCBhbmQKPiBw
-b3dlcl9tYW5hZ2VhYmxlIGZsYWdzLiBXaGVuIHRoZSBkZXBlbmRlbmN5IGlzIGxhdGVyIHNhdGlz
-ZmllZCwKPiBhY3BpX2J1c19pbml0X3Bvd2VyKCkgaXMgY2FsbGVkIGFnYWluIGFuZCB0YWtlcyBh
-ZGRpdGlvbmFsIHJlZmVyZW5jZXMgdG8KPiB0aGUgcG93ZXIgcmVzb3VyY2VzIHVzZWQgYnkgdGhl
-IGRldmljZS4gVGhlc2UgcmVmZXJlbmNlcyBwcmV2ZW50IHRoZQo+IHJlc291cmNlcyBmcm9tIGJl
-aW5nIHR1cm5lZCBvZmYgd2hlbiB0aGUgZGV2aWNlIGVudGVycyBEMy4KPgo+IFJlbW92ZSB0aGUg
-ZWFybHkgYWNwaV9idXNfaW5pdF9wb3dlcigpIGNhbGwgYW5kIGxlYXZlIHJlZ3VsYXIgQUNQSSBk
-ZXZpY2UKPiBvYmplY3RzIHVuaW5pdGlhbGl6ZWQgdW50aWwgYWNwaV9idXNfYXR0YWNoKCkgcnVu
-cyBhZnRlciB0aGUgZGV2aWNlIGlzCj4gcmVhZHkgZm9yIGVudW1lcmF0aW9uLgo+Cj4gUG93ZXIg
-cmVzb3VyY2Ugb2JqZWN0cyBhcmUgaW5pdGlhbGl6ZWQgdGhyb3VnaCBhY3BpX2FkZF9wb3dlcl9y
-ZXNvdXJjZSgpCj4gYW5kIGRvIG5vdCByZXF1aXJlIHRoZSBnZW5lcmljIGluaXRpYWxpemF0aW9u
-IGluIGFjcGlfYnVzX2F0dGFjaCgpLCBzbwo+IG1hcmsgdGhlbSBhcyBpbml0aWFsaXplZCB0aGVy
-ZS4KPgo+IFRoaXMgYWxzbyBhdm9pZHMgcG93ZXJpbmcgdXAgZGV2aWNlcyBiZWZvcmUgdGhlaXIg
-ZGVwZW5kZW5jaWVzIGFyZQo+IGF2YWlsYWJsZS4KPgo+IFNpZ25lZC1vZmYtYnk6IFBlaXhpbiBY
-aWUgPHBlaXhpbi54aWVAbGludXguc3BhY2VtaXQuY29tPgo+IC0tLQo+IFRoaXMgaXNzdWUgd2Fz
-IHJlcHJvZHVjZWQgb24gYSBTcGFjZW1pVCBLMyBSSVNDLVYgUGljby1JVFguIFRoZSBhZmZlY3Rl
-ZAo+IGRldmljZSB1c2VzIGEgcG93ZXIgcmVzb3VyY2UgdGhyb3VnaCBfUFIwIGFuZCBoYXMgYW4g
-YXV0b21hdGljYWxseSBkZXJpdmVkCj4gZGVwZW5kZW5jeSBvbiBpdHMgaW50ZXJydXB0IGNvbnRy
-b2xsZXIuCj4KPiBCZWZvcmUgdGhlIGNoYW5nZSwgdGhlIGluaXRpYWwgcG93ZXIgaW5pdGlhbGl6
-YXRpb24gYWNxdWlyZXMgYSBwb3dlcgo+IHJlc291cmNlIHJlZmVyZW5jZS4gVGhlIGRldmljZSBp
-cyB0aGVuIGRlZmVycmVkLCBidXQgdGhhdCByZWZlcmVuY2UgaXMgbm90Cj4gZHJvcHBlZC4gV2hl
-biB0aGUgZGVwZW5kZW5jeSBiZWNvbWVzIGF2YWlsYWJsZSwgcG93ZXIgaW5pdGlhbGl6YXRpb24K
-PiBhY3F1aXJlcyBhbm90aGVyIHJlZmVyZW5jZS4gQ29uc2VxdWVudGx5LCBlbnRlcmluZyBEMyBv
-bmx5IGRyb3BzIHRoZQo+IHJlZmVyZW5jZSBjb3VudCBmcm9tIDIgdG8gMSBhbmQgX09GRiBpcyBu
-b3QgZXZhbHVhdGVkOgo+Cj4gIFsgICAgMC4zMTQ2MTFdIEFDUEkgRGVidWc6ICAiSTJQMiBfU1RB
-Igo+ICBbICAgIDAuMzE4MjYwXSBBQ1BJOiBcX1NCXy5JMlAyOiBBQ1BJOiBQTTogUG93ZXIgcmVz
-b3VyY2UgaXMgb24KPiAgWyAgICAwLjMyMzk5OF0gQUNQSTogXF9TQl8uSTJQMjogTmV3IHBvd2Vy
-IHJlc291cmNlCj4gIFsgICAgMC4zODIxMDhdIEFDUEkgRGVidWc6ICAiSTJQMiBfU1RBIgo+ICBb
-ICAgIDAuNDc4OTY0XSBBQ1BJIERlYnVnOiAgIkkyUDIgX09OIgo+ICBbICAgIDAuNDgyNDk4XSBB
-Q1BJOiBcX1NCXy5JMlAyOiBBQ1BJOiBQTTogUG93ZXIgcmVzb3VyY2UgdHVybmVkIG9uCj4gIFsg
-ICAgMC40ODg1OTddIEFDUEkgRGVidWc6ICAiSTJDMiwgUFMwIgo+ICBbICAgIDAuODYzMTcwXSBB
-Q1BJOiBcX1NCXy5JMlAyOiBBQ1BJOiBQTTogUG93ZXIgcmVzb3VyY2UgYWxyZWFkeSBvbgo+ICBb
-ICAgIDAuODczNjg2XSBBQ1BJIERlYnVnOiAgIkkyQzIsIFBTMCIKPiAgWyAgICAyLjQxNjA1NV0g
-QUNQSSBEZWJ1ZzogICJJMkMyLCBQUzMiCj4gIFsgICAgMi40MjMzOTddIEFDUEk6IFxfU0JfLkky
-UDI6IEFDUEk6IFBNOiBQb3dlciByZXNvdXJjZSBzdGlsbCBpbiB1c2UKPgo+IEFmdGVyIHRoZSBj
-aGFuZ2UsIGRldmljZSBwb3dlciBzdGF0ZSBpbml0aWFsaXphdGlvbiBpcyBkZWZlcnJlZCB1bnRp
-bCBpdHMKPiBkZXBlbmRlbmN5IGlzIG1ldC4gU2luY2Ugbm8gcmVmZXJlbmNlIGlzIGFjcXVpcmVk
-IGJlZm9yZSB0aGVuLCB0aGUgcG93ZXIKPiByZXNvdXJjZSBsZWZ0IG9uIGJ5IGZpcm13YXJlIGlz
-IHR1cm5lZCBvZmYgYXMgdW51c2VkIGFmdGVyIHRoZSBuYW1lc3BhY2UKPiBzY2FuLiBPbmNlIHRo
-ZSBkZXBlbmRlbmN5IGlzIG1ldCwgdGhlIHJlc291cmNlIGlzIHR1cm5lZCBvbiBvbmNlIGZvciB0
-aGUKPiBkZXZpY2UgYW5kIGlzIHR1cm5lZCBvZmYgbm9ybWFsbHkgd2hlbiB0aGUgZGV2aWNlIGxh
-dGVyIGVudGVycyBEMzoKPgo+IFsgICAgMC4zMTQ2MjhdIEFDUEkgRGVidWc6ICAiSTJQMiBfU1RB
-Igo+ICBbICAgIDAuMzE4Mjc3XSBBQ1BJOiBcX1NCXy5JMlAyOiBBQ1BJOiBQTTogUG93ZXIgcmVz
-b3VyY2UgaXMgb24KPiAgWyAgICAwLjMyNDAxNl0gQUNQSTogXF9TQl8uSTJQMjogTmV3IHBvd2Vy
-IHJlc291cmNlCj4gIFsgICAgMC4zODIxMThdIEFDUEkgRGVidWc6ICAiSTJQMiBfU1RBIgo+ICBb
-ICAgIDAuNDk2MTE2XSBBQ1BJOiBcX1NCXy5JMlAyOiBBQ1BJOiBQTTogVHVybmluZyBPRkYKPiAg
-WyAgICAwLjUwMTA4MV0gQUNQSSBEZWJ1ZzogICJJMlAyIF9PRkYiCj4gIFsgICAgMC41MDQ3MDVd
-IEFDUEk6IFxfU0JfLkkyUDI6IEFDUEk6IFBNOiBQb3dlciByZXNvdXJjZSB0dXJuZWQgb2ZmCj4g
-IFsgICAgMS40MTU4OTldIEFDUEkgRGVidWc6ICAiSTJQMiBfT04iCj4gIFsgICAgMS40MTg4NjZd
-IEFDUEk6IFxfU0JfLkkyUDI6IEFDUEk6IFBNOiBQb3dlciByZXNvdXJjZSB0dXJuZWQgb24KPiAg
-WyAgICAxLjQyNDk0N10gQUNQSSBEZWJ1ZzogICJJMkMyLCBQUzAiCj4gIFsgICAgMi42NDc2NTVd
-IEFDUEkgRGVidWc6ICAiSTJDMiwgUFMzIgo+ICBbICAgIDIuNjU0ODU2XSBBQ1BJIERlYnVnOiAg
-IkkyUDIgX09GRiIKPiAgWyAgICAyLjY1NDg2Nl0gQUNQSTogXF9TQl8uSTJQMjogQUNQSTogUE06
-IFBvd2VyIHJlc291cmNlIHR1cm5lZCBvZmYKPiAtLS0KPiBDaGFuZ2VzIGluIHYyOgo+IC0gUmVw
-bGFjZSB0aGUgRDNjb2xkIHRyYW5zaXRpb24gYWRkZWQgaW4gdjEgd2l0aCBkZWZlcnJlZCBkZXZp
-Y2UgcG93ZXIKPiAgIGluaXRpYWxpemF0aW9uLCBhcyBzdWdnZXN0ZWQgYnkgUmFmYWVsLgo+IC0g
-TWFyayBwb3dlciByZXNvdXJjZSBvYmplY3RzIGFzIGluaXRpYWxpemVkIGluIHRoZWlyIGRlZGlj
-YXRlZCBjcmVhdGlvbgo+ICAgcGF0aC4KPiAtIExpbmsgdG8gdjE6IGh0dHBzOi8vcGF0Y2gubXNn
-aWQubGluay8yMDI2MDgxMS1hY3BpLXBvd2VyLXJlc291cmNlLXJlZi1maXgtdjEtMS04MjhmMWMz
-ODM4MzFAbGludXguc3BhY2VtaXQuY29tCj4gLS0tCj4gIGRyaXZlcnMvYWNwaS9wb3dlci5jIHwg
-MSArCj4gIGRyaXZlcnMvYWNwaS9zY2FuLmMgIHwgNCAtLS0tCj4gIDIgZmlsZXMgY2hhbmdlZCwg
-MSBpbnNlcnRpb24oKyksIDQgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9h
-Y3BpL3Bvd2VyLmMgYi9kcml2ZXJzL2FjcGkvcG93ZXIuYwo+IGluZGV4IGQ0MTMxYzE4NGJlOC4u
-NGYxNDc5MTAzYmZlIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvYWNwaS9wb3dlci5jCj4gKysrIGIv
-ZHJpdmVycy9hY3BpL3Bvd2VyLmMKPiBAQCAtOTU1LDYgKzk1NSw3IEBAIHN0cnVjdCBhY3BpX2Rl
-dmljZSAqYWNwaV9hZGRfcG93ZXJfcmVzb3VyY2UoYWNwaV9oYW5kbGUgaGFuZGxlKQo+ICAgICAg
-ICAgSU5JVF9MSVNUX0hFQUQoJnJlc291cmNlLT5kZXBlbmRlbnRzKTsKPiAgICAgICAgIGRldmlj
-ZS0+cG93ZXIuc3RhdGUgPSBBQ1BJX1NUQVRFX1VOS05PV047Cj4gICAgICAgICBkZXZpY2UtPmZs
-YWdzLm1hdGNoX2RyaXZlciA9IHRydWU7Cj4gKyAgICAgICBkZXZpY2UtPmZsYWdzLmluaXRpYWxp
-emVkID0gdHJ1ZTsKPgo+ICAgICAgICAgLyogRXZhbHVhdGUgdGhlIG9iamVjdCB0byBnZXQgdGhl
-IHN5c3RlbSBsZXZlbCBhbmQgcmVzb3VyY2Ugb3JkZXIuICovCj4gICAgICAgICBzdGF0dXMgPSBh
-Y3BpX2V2YWx1YXRlX29iamVjdChoYW5kbGUsIE5VTEwsIE5VTEwsICZidWZmZXIpOwo+IGRpZmYg
-LS1naXQgYS9kcml2ZXJzL2FjcGkvc2Nhbi5jIGIvZHJpdmVycy9hY3BpL3NjYW4uYwo+IGluZGV4
-IDlhN2FjMmViOWNlMC4uNDg5MzUyYmE4MGUxIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvYWNwaS9z
-Y2FuLmMKPiArKysgYi9kcml2ZXJzL2FjcGkvc2Nhbi5jCj4gQEAgLTExNDEsOSArMTE0MSw2IEBA
-IHN0YXRpYyB2b2lkIGFjcGlfYnVzX2dldF9wb3dlcl9mbGFncyhzdHJ1Y3QgYWNwaV9kZXZpY2Ug
-KmRldmljZSkKPiAgICAgICAgICAgICAgICAgaWYgKCFsaXN0X2VtcHR5KCZkZXZpY2UtPnBvd2Vy
-LnN0YXRlc1tBQ1BJX1NUQVRFX0QzX0hPVF0ucmVzb3VyY2VzKSkKPiAgICAgICAgICAgICAgICAg
-ICAgICAgICBkZXZpY2UtPnBvd2VyLnN0YXRlc1tBQ1BJX1NUQVRFX0QzX0NPTERdLmZsYWdzLnZh
-bGlkID0gMTsKPiAgICAgICAgIH0KPiAtCj4gLSAgICAgICBpZiAoYWNwaV9idXNfaW5pdF9wb3dl
-cihkZXZpY2UpKQo+IC0gICAgICAgICAgICAgICBkZXZpY2UtPmZsYWdzLnBvd2VyX21hbmFnZWFi
-bGUgPSAwOwo+ICB9Cj4KPiAgc3RhdGljIHZvaWQgYWNwaV9idXNfZ2V0X2ZsYWdzKHN0cnVjdCBh
-Y3BpX2RldmljZSAqZGV2aWNlKQo+IEBAIC0xODIyLDcgKzE4MTksNiBAQCB2b2lkIGFjcGlfaW5p
-dF9kZXZpY2Vfb2JqZWN0KHN0cnVjdCBhY3BpX2RldmljZSAqZGV2aWNlLCBhY3BpX2hhbmRsZSBo
-YW5kbGUsCj4gICAgICAgICBhY3BpX2luaXRfcHJvcGVydGllcyhkZXZpY2UpOwo+ICAgICAgICAg
-YWNwaV9idXNfZ2V0X2ZsYWdzKGRldmljZSk7Cj4gICAgICAgICBkZXZpY2UtPmZsYWdzLm1hdGNo
-X2RyaXZlciA9IGZhbHNlOwo+IC0gICAgICAgZGV2aWNlLT5mbGFncy5pbml0aWFsaXplZCA9IHRy
-dWU7Cj4gICAgICAgICBkZXZpY2UtPmZsYWdzLmVudW1lcmF0aW9uX2J5X3BhcmVudCA9Cj4gICAg
-ICAgICAgICAgICAgIGFjcGlfZGV2aWNlX2VudW1lcmF0aW9uX2J5X3BhcmVudChkZXZpY2UpOwo+
-ICAgICAgICAgYWNwaV9kZXZpY2VfY2xlYXJfZW51bWVyYXRlZChkZXZpY2UpOwo+Cj4gLS0tCgpB
-cHBsaWVkIGFzIDcuMy1yYyBtYXRlcmlhbCwgdGhhbmtzIQoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 2026-08-20 09:51, Joel Granados wrote:
+> On Wed, Aug 19, 2026 at 03:16:13PM -0300, Mauricio Faria de Oliveira wrote:
+>> This series adds 'sysctl:' aliases to modules that register sysctl tables; e.g.:
+>> 
+>>         $ modinfo ./mpls_router.ko  | grep sysctl:
+>>         alias:          sysctl:*/net/mpls/conf/*/input
+>>         alias:          sysctl:*/net/mpls/default_ttl
+>>         alias:          sysctl:*/net/mpls/ip_ttl_propagate
+>>         alias:          sysctl:*/net/mpls/platform_labels
+>> 
+>> It provides a trivial way to map /proc/sys files to modules (not trivial today),
+>> and for userspace to handle nonexistent /proc/sys files (e.g., procps's sysctl
+>> and systemd-sysctl applying tunables) with "modprobe sysctl:<...>" and a retry.
+>> 
+>> This is done almost automatically with register_sysctl(), register_net_sysctl()
+>> and friends as wrappers of MODULE_SYSCTL_TABLE (similar to MODULE_DEVICE_TABLE),
+>> which emits symbols for file2alias/modpost to find and parse the sysctl tables.
+>> 
+>> The big exception to 'almost' are sysctl tables and paths allocated or defined
+>> at runtime (e.g., per-namespace or per-device), as all information is required
+>> at build-time. Fortunately, such tables and paths are often based on 'templates'
+>> which are static and can be used.
+>> 
+>> This is done by plumbing the template table/path as optional arguments (macros
+>> with default values as default_gfp()), so not to create functions for all cases:
+>> 
+>>         register_sysctl(path, table [, table_tmpl [, path_tmpl]]);
+>>         register_net_sysctl(net, path, table [, table_tmpl[, path_tmpl]]);
+>>         register_net_sysctl_sz(net, path, table, size [, table_tmpl[, path_tmpl]]);
+> 
+> The "what" is described but I'm missing more clarity on the "why". Why
+> does this need to be trivial? Where is it that you will know the sysctl
+> file path of a module and not the module name or alias?
+
+Thanks for looking at this.
+
+The problem this feature addresses is sysctl settings not applied
+because modules aren't yet loaded when systemd-sysctl/procps's sysctl
+runs on boot, and the usage of /etc/modules as a workaround.
+
+This can be addressed with a way for sysctl tools to load the module for
+a non-existent sysctl file path.
+For that, the mapping between a sysctl file path (known) and its module
+(unknown) needs to be trivial.
+
+It may not seem serious at first, but I've seen this consume significant
+engineering time and impact production systems, in a previous technical
+support job.
+An example: cloud deployments with non-scalable network routing
+performance due to nf_conntrack_max not applied after reboot or an
+upgrade because the component which turned out to help with the
+/etc/modules workaround had its placement changed from network router
+nodes.
+
+> Additionally, sysctls are not module specific; they are a way to
+> read/write kernel variables. Putting a module specific aspect in the
+> function arguments (that needs to be ignored in non-module cases) seems
+> wrong. Why not use the module subsys to add sysctl alias instead of the
+> sysctl subsys?
+
+Fair point. The current design has 2 reasons:
+
+1) Use the 'path' argument (raised in [1]), only available in the
+register sysctl functions.
+2) Use a more implicit/transparent approach, instead of more
+explicit/declarative approach. 
+
+I guess that a different design could use MODULE_SYSCTL_TABLE() as
+MODULE_DEVICE_TABLE(), declared per table instead of wrapped into
+register sysctl functions.
+However, it seems to require moving the value of the path argument (or
+its template) into the macro and still referencing it in the function
+(or its instantiation of the template), which adds obfuscation, to all
+callers. 
+
+What do you think?
+
+[snip]
+
+>> P.S.
+>> ====
+>> 
+>> I wrote proof-of-concept patches for procps sysctl and systemd-sysctl some time
+>> ago, which worked as expected, i.e., successfully set sysctl tunables which did
+>> not exist in /proc/sys, by running 'modprobe sysctl:/proc/sys/...' and retrying.
+> 
+> Do you have links to this? To the old one, not necessarily a new
+> version.
+
+Sure, please see [2] and [3]. I did a quick rebase/refresh, but both
+seem to work:
+
+procps sysctl:
+
+    $ strace -e execve -f -s 64 ./src/sysctl --modprobe=1 -w net.test=1
+2>&1 | grep modprobe
+
+    [pid 505958] execve("/bin/sh", ["sh", "-c", "--", "modprobe
+sysctl:/proc/sys/net/test >/dev/null 2>&1"], 0x7ffc12efff80 /* 63 vars
+*/) = 0
+
+systemd-sysctl:
+
+$ cat /etc/sysctl.d/net-test.conf
+net.test = 1
+
+    $ sudo strace -e execve -f -s 64 ./build/systemd-sysctl
+--modprobe=true /etc/sysctl.d/net-test.conf  2>&1 | grep modprobe
+
+[pid 505777] execve("/usr/sbin/modprobe", ["modprobe",
+"sysctl:*/net/test"], 0x7ffd473d1418 /* 20 vars */) = 0
+
+Thanks,
+
+[1]
+https://lore.kernel.org/linux-fsdevel/CAK7LNAR=7zgOiqTD9okXfZXroFH1yagMFsRuq0G-z6OfSUPLQg@mail.gmail.com/
+[2] https://github.com/mfoliveira/procps/commits/sysctl-module-aliases/
+[3] https://github.com/mfoliveira/systemd/commits/sysctl-module-aliases/
+
+> 
+> Best
+>> 
+>> Should this series eventually be merged, the patches will be submitted upstream
+>> as well, for userspace to start consuming it.
+>> 
+>> Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
+>> 
+>> Changes in v3:
+>> - All issues were reported by sashiko-bot@kernel.org.
+>> - Tested allmodconfig with option enabled on x86_64.
+>> - Patch 2:
+>>   - Fix typo ('s/options/option/').
+>> - Patch 3:
+>>   - Fix usage of __UNIQUE_ID().
+>>   - Add __must_be_array() in MODULE_SYSCTL_TABLE().
+>> - Patch 4:
+>>   - Remove trailing backslash in register_sysctl().
+>> - Patch 6:
+>>   - Fix missing __register_net_sysctl_sz() in !CONFIG_SYSCTL.
+>> - Patch 13:
+>>   - Fix potential out-of-bounds read in do_sysctl_entry().
+>>   - Add check for entry size of zero.
+>> - Link to v2: https://lore.kernel.org/r/20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com
+>> 
+>> Changes in v2:
+>> - This is based on the series submitted 4 years ago,
+>>   with Originally-by: tags added in related patches.
+>> - Link to v1: https://lore.kernel.org/linux-fsdevel/20220722022416.137548-1-mfo@canonical.com/
+>> 
+>> ---
+>> Mauricio Faria de Oliveira (13):
+>>       keys, pidns, fs/verity, riscv/vector: reorder '#include <linux/sysctl.h>'
+>>       proc: add config option SYSCTL_MODULE_ALIASES
+>>       sysctl, mod_devicetable: add macro MODULE_SYSCTL_TABLE
+>>       sysctl: add register_sysctl() wrapper for MODULE_SYSCTL_TABLE
+>>       sysctl, parport: update register_sysctl() callers with template arguments
+>>       sysctl, net: add register_net_sysctl{_sz}() wrappers for MODULE_SYSCTL_TABLE
+>>       sysctl, net: update register_net_sysctl{_sz}() callers with template arguments
+>>       sysctl, net: update register_net_sysctl_sz(ARRAY_SIZE(table_tmpl)) with template arguments
+>>       sysctl, ipv6: update register_net_sysctl{_sz}() callers with template arguments
+>>       sysctl, net: update register_net_sysctl_sz() edge case
+>>       sysctl: unrandomize struct ctl_table.procname
+>>       modpost: move addend_*_rel() calls into addend_rel()
+>>       modpost: handle MODULE_SYSCTL_TABLE symbols
+>> 
+>>  arch/riscv/kernel/vector.c              |   1 +
+>>  drivers/net/vrf.c                       |   3 +-
+>>  drivers/parport/procfs.c                |  26 +++-
+>>  fs/proc/Kconfig                         |  13 ++
+>>  fs/verity/init.c                        |   1 +
+>>  include/linux/key.h                     |   1 -
+>>  include/linux/mod_devicetable.h         |   7 +
+>>  include/linux/pid_namespace.h           |   1 +
+>>  include/linux/sysctl.h                  | 110 ++++++++++++++-
+>>  include/net/ipv6.h                      |   6 +-
+>>  include/net/net_namespace.h             |  47 ++++++-
+>>  net/bridge/br_netfilter_hooks.c         |   3 +-
+>>  net/core/neighbour.c                    |  11 +-
+>>  net/core/sysctl_net_core.c              |   3 +-
+>>  net/ieee802154/6lowpan/reassembly.c     |   2 +-
+>>  net/ipv4/devinet.c                      |  12 +-
+>>  net/ipv4/ip_fragment.c                  |   3 +-
+>>  net/ipv4/route.c                        |   3 +-
+>>  net/ipv4/sysctl_net_ipv4.c              |   2 +-
+>>  net/ipv4/xfrm4_policy.c                 |   3 +-
+>>  net/ipv6/addrconf.c                     |   7 +-
+>>  net/ipv6/icmp.c                         |   6 +-
+>>  net/ipv6/netfilter/nf_conntrack_reasm.c |   4 +-
+>>  net/ipv6/reassembly.c                   |   3 +-
+>>  net/ipv6/route.c                        |  10 +-
+>>  net/ipv6/sysctl_net_ipv6.c              |  13 +-
+>>  net/ipv6/xfrm6_policy.c                 |   3 +-
+>>  net/mpls/af_mpls.c                      |   9 +-
+>>  net/mptcp/ctrl.c                        |   3 +-
+>>  net/netfilter/ipvs/ip_vs_ctl.c          |   4 +-
+>>  net/netfilter/ipvs/ip_vs_lblc.c         |   3 +-
+>>  net/netfilter/ipvs/ip_vs_lblcr.c        |   3 +-
+>>  net/netfilter/nf_conntrack_standalone.c |   5 +-
+>>  net/netfilter/nf_log.c                  |   9 +-
+>>  net/rds/tcp.c                           |   4 +-
+>>  net/sctp/sysctl.c                       |   3 +-
+>>  net/smc/smc_sysctl.c                    |   2 +-
+>>  net/sysctl_net.c                        |  10 +-
+>>  net/unix/sysctl_net_unix.c              |   3 +-
+>>  net/vmw_vsock/af_vsock.c                |   4 +-
+>>  net/xfrm/xfrm_sysctl.c                  |   2 +-
+>>  scripts/mod/devicetable-offsets.c       |   6 +
+>>  scripts/mod/file2alias.c                | 237 ++++++++++++++++++++++++++++++++
+>>  scripts/mod/modpost.c                   |  46 ++++---
+>>  scripts/mod/modpost.h                   |  25 ++++
+>>  45 files changed, 575 insertions(+), 107 deletions(-)
+>> ---
+>> base-commit: 2697ef8943c9985c14708a6429e21812693857b2
+>> change-id: 20260818-sysctl-module-aliases-2f5801b1eb71
+>> 
+>> Best regards,
+>> -- 
+>> Mauricio Faria de Oliveira <mfo@igalia.com>
+>>
+
+-- 
+Mauricio
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
