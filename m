@@ -4,77 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8E1C5DF8C
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 21:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361AEC5DF8C
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 21:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:
-	Subject:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=01jvWh/wH29pG0YuQuKJ5nu3lZwvuQS1Qpwmmecrof0=; b=tOGeN8ESnNXLNF
-	hyj6nmedkEvdtTWCDmCh5GOZVUyV4bKDT3i1Z1ozX7FGWmVuM0iVRgKu3JAcvyraO5t17jhz8qiM4
-	JQ0B6QqbXuo9YeWfKIZd9wmQ8HpaSwjoQgovJX88Gz1Nr4u+kkxHHBdliqVA7RcOvhKsBMz93GYON
-	IpzhJ90Kq59IWJw+cpLOjqshza6/DcTtTqWQQROQJzpVgGngdUlEy0YMk/ke8iX1lLmHb8xI0Hpww
-	vUPC6IKkM1uvs/Hic+dy8OLbZy4R+gzI6HjOBhjPyNt2CGpUiL5KWBYuTVY8sBE7auxyDn/JKlgXa
-	b3d+RjrhnkwlxYu5i5Ew==;
+	List-Owner; bh=yaaj06q51l9RsdEJUghV6EUlW1+Pxq3yOo38xBDumfM=; b=LYOJYecclj0yM5
+	zhvNVy1gY6ru+LHBI6pqGqB7g+hPW5K+MxBOdHHUE9cPLN5kZ2a7Q3FBWhwgSU8CReeGyZLb0Oqi0
+	b1z10XZI8ZYjiAthnJRiP8NmLjxZvkyv4IxhaHxvSPD9oBBVJy5fgBhFWCr5kvAuz470ZNjiHCQbW
+	9s8YJat8ErNzAFzU/t/vNKSB+GmpNpGk1DIgLgo7uNbupe/B9LEHWpZnLYXYTyyXH0t3i/YJt7ESe
+	b+ApsZnq3u6vARcmE/1/c1+E0gNHYfoIPdx+51WjaMZH4vxZvVdMChZJ5Id88xJIX01pTMft2UKzn
+	bgZTr7LNyL5BScXZBiDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxADh-0000000CCwk-3IRa;
-	Thu, 20 Aug 2026 21:22:41 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wxAWR-0000000CDaV-27u6;
+	Thu, 20 Aug 2026 21:42:03 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxADc-0000000CCw9-0yfF
+	id 1wxAWN-0000000CDZJ-0QFx
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 21:22:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:Message-ID:Subject:Cc:To
-	:From:Date:MIME-Version:From:Reply-To;
-	bh=VVmJbA2qSMFaP8opo9Ndr4fLkuQPcO1ld+9q8zqI4gU=; b=YBPdifGreGdx02v4W+03i1hb8P
-	kW1i1NpMNWAZvBa3xGSBVamJJvrLrxcuJJEWscfdKlGsjhU6WczaoYxpVh8lX6/UeYm82kHNbOQQ/
-	glTcrzL2PfmSiprrWg8EpipC3LS6L9xzpcxwylH0PLoofGYIJCpR3ubtgK3ODLKf6oH4qAazKHZ9/
-	uyFFl1bhgqYsfzIHPcKYF0R3ewT+w3J3TUi4sJWELfnHTTCbNxVzuuI0XA5LFc3YpgJGHHpn0PeM8
-	B+2/piTsRzf+T8xDavrRZphMysTDVCOgP3ba1xgFSZj0j6O99zOrgbS3hVt+qVsOk+iUB5PcA91OH
-	VygvGNjA==;
-Received: from maestria.local.igalia.com ([192.168.10.14] helo=mail.igalia.com)
-	by fanzine2.igalia.com with esmtps 
-	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wxADH-006m8d-Ow; Thu, 20 Aug 2026 23:22:15 +0200
-Received: from webmail.service.igalia.com ([192.168.21.45])
-	by mail.igalia.com with esmtp (Exim)
-	id 1wxADF-00GOZQ-Si; Thu, 20 Aug 2026 23:22:15 +0200
-Received: from localhost ([127.0.0.1] helo=webmail.igalia.com)
-	by webmail.service.igalia.com with esmtp (Exim 4.98.2)
-	(envelope-from <mfo@igalia.com>)
-	id 1wxADF-00000002RTu-3Rre;
-	Thu, 20 Aug 2026 23:22:13 +0200
+	Thu, 20 Aug 2026 21:42:00 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67KK7XQj250308
+	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:41:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=gu+JFGkyqPx
+	/Q45IWTCbHOfkGmMO1gxqkNte7ZP70m0=; b=b2nvc7w/FnZzkiDM2hLfy1bSh0g
+	j35Ze/etDBeZozYR10+jRRbwRyKESSUY0hTTgF7Q4IAxmwlcpfE+r5Ga1yVMeUC1
+	X6+c6mjfZZDaxyUnb962DNPn2CqnKU+UwuyFFaLwCJhqETMyR450urlkC+472Zqc
+	5ryBOQwZrUze4wrCDupHrOJlPPR7eS85wbjNCVFtqGC3XWOmpY12/44OxB7Iu+jb
+	urEE+CFjMyv1m9sItfvHKhWEAag9bFXS8OQL7MXNwcNZXM+/R3H3xAs3AsZvPnJg
+	EZ5aRezNc6vcMNfHU6gK07CCi08UK1amNJZdGHqnFbiQMuB2WfkSwVdnO8w==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5w49bqp4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 21:41:58 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93494cce712so38468885a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Aug 2026 14:41:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787262117; x=1787866917; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gu+JFGkyqPx/Q45IWTCbHOfkGmMO1gxqkNte7ZP70m0=;
+        b=Pjj+FMX2Fd43buTAPTYFgXZZ90M5TqSxpOJCa6BzxU3KtlQKLMVIfCJHxJaOaLrWtt
+         sc6cMwGaeILeLp8SDWehqzuW4q8Zz/6cV30+9lWC/x1T1EoloosPvXiS076WMVflukzR
+         rwFkWJ/9HOIi6rUUYYtV24kDki7ufgYPtf18z2rvbH5CsgAfhFirkXI1a3UK16BHdb7J
+         Q2IpluAsdjk/BMkkY+AIPLFMfC8zBxg15FoLIyWII1jugWhXPDAMz6c9ljE/08LLsvB7
+         bSA23T8SMRcoN9k9jbpJLvBnczdUtezDE5BMM6XjFEGJ7bEtaOj0qrPeCi8p0hAYbFjw
+         JpEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787262117; x=1787866917;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gu+JFGkyqPx/Q45IWTCbHOfkGmMO1gxqkNte7ZP70m0=;
+        b=eipAUMFH8uqU8BhiG+AuqJVcQtAQu2+7o6wpwIQlu2a8opOtjK3uWRQBzDn12eXWug
+         IS5a17I6/v9lZ6jPZyWoapKLqfKlR4fq7bkdQ8NklqMPhMzVpOqmUTGDLnuYJnxDAQdf
+         zGZDeyxA8aXQzC5bhs53DpQi0X0yNS0oTNSri5XNZJ/xHVR8wMqFIkyEy+D0pQ9yJxx9
+         Z3UhRumg7lHx7WnjzuBdvZwO+qklaetStyo+p1UiojU0bPYSHYALKQ4/eD61PKoqGv1J
+         RsRkcX5aSFO2WJOtIpmwRQdDydv2zTHRtYP9uF2w+C+Ma+dxbBes6sloVtV18+yFG/jP
+         IilA==
+X-Gm-Message-State: AOJu0Yz+S3EiSSH35zXz91WQssGYUKRZh27y2n8xKoC4Gtoeg/AmY4m5
+	3QWoiCkTe4BC8ZQOYykg1eXTbKUlty5e693r0qUuXs4yABqiNd+NcNOEKOhmkcNBP2s0O0jUxD+
+	IGELFnQPRVD5lUasgmE42AgdRmEBsDKTNBZOarDxcSxq89rtNCzRay3FT4g/Cc56nLuifvxVZFD
+	jY/4o=
+X-Gm-Gg: AR+sD10mM4O+eAhcEvBDnrzZUzHbcYex4UO+TbIjfRfIHvwItu5xlkqAmh7gnO0KmuE
+	dw3pQZVbiSpvG4bPw2i6vLqWL6Labs0Rxy4Oiwzh7hOF/teRtQx/IXTypP1Fd0LwzEh4QUrm3Nw
+	qF+OJjwbfv7R7lVopViII1VaFxge9DFsnbTXFxzBh8h0IGyMdUI/d01CrC5c1zR72QoZUScTx0a
+	4ju23BgEop2NJ4yQwHPcuepAowccND0TlamEYtIe7tvDHoANOG1TG44GhZ9pqQLlnGStH04yoq+
+	Oghym6HgltaAiStusUEvJJgQFFmu9nBVQV5ejCSRGxB7thbxQaxmNx0m3Q29uVRAfiz1Tc+cNyr
+	RT70+h0yl
+X-Received: by 2002:a05:620a:222c:b0:937:2ec9:c98 with SMTP id af79cd13be357-9373942667bmr103110385a.5.1787262117404;
+        Thu, 20 Aug 2026 14:41:57 -0700 (PDT)
+X-Received: by 2002:a05:620a:222c:b0:937:2ec9:c98 with SMTP id af79cd13be357-9373942667bmr103108385a.5.1787262116964;
+        Thu, 20 Aug 2026 14:41:56 -0700 (PDT)
+Received: from localhost ([193.165.40.195])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b91173c4sm5335855e9.2.2026.08.20.14.41.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 14:41:56 -0700 (PDT)
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: linux-riscv@lists.infradead.org, iommu@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
+        tjeznach@rivosinc.com, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
+        will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
+        palmer@dabbelt.com, anup@brainfault.org, tglx@kernel.org,
+        kevin.tian@intel.com, fangyu.yu@linux.alibaba.com
+Subject: [PATCH v4 02/21] iommufd: Add iommufd_sw_map_msi()
+Date: Thu, 20 Aug 2026 23:41:31 +0200
+Message-ID: <20260820214150.545737-3-andrew.jones@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
+References: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-Date: Thu, 20 Aug 2026 18:22:13 -0300
-From: Mauricio Faria de Oliveira <mfo@igalia.com>
-To: Joel Granados <joel.granados@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nsc@kernel.org>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, fsverity@lists.linux.dev,
- keyrings@vger.kernel.org, bpf@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-kbuild@vger.kernel.org,
- netdev@vger.kernel.org, linux-wpan@vger.kernel.org,
- lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org,
- coreteam@netfilter.org, linux-sctp@vger.kernel.org,
- linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org,
- bridge@lists.linux.dev, mptcp@lists.linux.dev, rds-devel@oss.oracle.com,
- virtualization@lists.linux.dev
-Subject: Re: [PATCH RFC v3 00/13] sysctl: add module aliases
-In-Reply-To: <bpnqwggtidgiec5akns3fa5edbsvl7xf55dxabtwng2xspy4pn@ue554aii2ngk>
-References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
- <bpnqwggtidgiec5akns3fa5edbsvl7xf55dxabtwng2xspy4pn@ue554aii2ngk>
-Message-ID: <53155340c897560bfc67e61ba9568fd6@igalia.com>
-X-Sender: mfo@igalia.com
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfX3vYpHbOVuOUA
+ QwGKXrdJV9z09Ef+Z4szF4lS09tMky3WTtIUfNSzlJ6/u6l7+lOkTPQrNQoa5cKc6WgxRXlZuG4
+ 2PjyV5NI5e2mKYpDc5nQmCilnIqgmAs=
+X-Authority-Analysis: v=2.4 cv=YP+vDxGx c=1 sm=1 tr=0 ts=6a8774a6 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=CzrpMg+lqiTzknPDBj2tlw==:17
+ a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
+ a=5IMjXt7tboKol454yg4A:9 a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-ORIG-GUID: J8AVvIDtr2eXhY8q8zgWTWEEUSlMEj0L
+X-Proofpoint-GUID: J8AVvIDtr2eXhY8q8zgWTWEEUSlMEj0L
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDE2MiBTYWx0ZWRfXygtuWR3luPxH
+ JvaxGzd+b/6FmqbdHZaGifCRk81rrLXxvl1vkiKXgaU6xP98V+R+W4CwxotL6wFKutXrXvAJWO9
+ 3VV9V0q61meVbhgNBHIZt284OpbkS/P+XFdemHwMtC6dflJpETCoZmTG3PPl8haBGd4uB6klJUp
+ M+ImcyDCugoe/dqZBZMCnj+2+SlY8+myHtVYuKkTplbNkM7qrEYHd/WhaRp+jM94YGCLKQmbOuO
+ wHNYIlfjSTr0V5OyVDkd9hwOl7sVh/anBS3pq6UYvgoPBnxmN5l3I85KnO9GN0TT1CtBFRakkDl
+ fVtGUe92FwqwboIAFHMbrEEGgn0vuzHiPNILj0+rWzMB2SvspCoVNWW2VKmznHl3m8FggRYLpe1
+ u4JaQTKr+fJLPMpOf1swKAxH4VtwDCrcFJYR6YUFemO+rPmeefV9KwOcUNdVm2B12ElS/88KPV8
+ bEYFUL98Lm9qFguTYuw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-20_02,2026-08-20_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 suspectscore=0 bulkscore=0 adultscore=0 impostorscore=0
+ lowpriorityscore=0 priorityscore=1501 phishscore=0 clxscore=1015
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608200162
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_142237_561494_9CD958AC 
-X-CRM114-Status: GOOD (  31.64  )
+X-CRM114-CacheID: sfid-20260820_144159_146325_A8C90B47 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,228 +147,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-20 09:51, Joel Granados wrote:
-> On Wed, Aug 19, 2026 at 03:16:13PM -0300, Mauricio Faria de Oliveira wrote:
->> This series adds 'sysctl:' aliases to modules that register sysctl tables; e.g.:
->> 
->>         $ modinfo ./mpls_router.ko  | grep sysctl:
->>         alias:          sysctl:*/net/mpls/conf/*/input
->>         alias:          sysctl:*/net/mpls/default_ttl
->>         alias:          sysctl:*/net/mpls/ip_ttl_propagate
->>         alias:          sysctl:*/net/mpls/platform_labels
->> 
->> It provides a trivial way to map /proc/sys files to modules (not trivial today),
->> and for userspace to handle nonexistent /proc/sys files (e.g., procps's sysctl
->> and systemd-sysctl applying tunables) with "modprobe sysctl:<...>" and a retry.
->> 
->> This is done almost automatically with register_sysctl(), register_net_sysctl()
->> and friends as wrappers of MODULE_SYSCTL_TABLE (similar to MODULE_DEVICE_TABLE),
->> which emits symbols for file2alias/modpost to find and parse the sysctl tables.
->> 
->> The big exception to 'almost' are sysctl tables and paths allocated or defined
->> at runtime (e.g., per-namespace or per-device), as all information is required
->> at build-time. Fortunately, such tables and paths are often based on 'templates'
->> which are static and can be used.
->> 
->> This is done by plumbing the template table/path as optional arguments (macros
->> with default values as default_gfp()), so not to create functions for all cases:
->> 
->>         register_sysctl(path, table [, table_tmpl [, path_tmpl]]);
->>         register_net_sysctl(net, path, table [, table_tmpl[, path_tmpl]]);
->>         register_net_sysctl_sz(net, path, table, size [, table_tmpl[, path_tmpl]]);
-> 
-> The "what" is described but I'm missing more clarity on the "why". Why
-> does this need to be trivial? Where is it that you will know the sysctl
-> file path of a module and not the module name or alias?
+Add a descriptor-free counterpart to iommufd_sw_msi(). The existing
+function is tied to a struct msi_desc and stores the result in the
+descriptor. This variant returns the IOVA directly so callers can
+pre-map MSI targets before any descriptor has been allocated.
 
-Thanks for looking at this.
+Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+---
+ drivers/iommu/iommu-priv.h     | 11 +++++++
+ drivers/iommu/iommufd/driver.c | 60 +++++++++++++++++++++++++---------
+ 2 files changed, 56 insertions(+), 15 deletions(-)
 
-The problem this feature addresses is sysctl settings not applied
-because modules aren't yet loaded when systemd-sysctl/procps's sysctl
-runs on boot, and the usage of /etc/modules as a workaround.
-
-This can be addressed with a way for sysctl tools to load the module for
-a non-existent sysctl file path.
-For that, the mapping between a sysctl file path (known) and its module
-(unknown) needs to be trivial.
-
-It may not seem serious at first, but I've seen this consume significant
-engineering time and impact production systems, in a previous technical
-support job.
-An example: cloud deployments with non-scalable network routing
-performance due to nf_conntrack_max not applied after reboot or an
-upgrade because the component which turned out to help with the
-/etc/modules workaround had its placement changed from network router
-nodes.
-
-> Additionally, sysctls are not module specific; they are a way to
-> read/write kernel variables. Putting a module specific aspect in the
-> function arguments (that needs to be ignored in non-module cases) seems
-> wrong. Why not use the module subsys to add sysctl alias instead of the
-> sysctl subsys?
-
-Fair point. The current design has 2 reasons:
-
-1) Use the 'path' argument (raised in [1]), only available in the
-register sysctl functions.
-2) Use a more implicit/transparent approach, instead of more
-explicit/declarative approach. 
-
-I guess that a different design could use MODULE_SYSCTL_TABLE() as
-MODULE_DEVICE_TABLE(), declared per table instead of wrapped into
-register sysctl functions.
-However, it seems to require moving the value of the path argument (or
-its template) into the macro and still referencing it in the function
-(or its instantiation of the template), which adds obfuscation, to all
-callers. 
-
-What do you think?
-
-[snip]
-
->> P.S.
->> ====
->> 
->> I wrote proof-of-concept patches for procps sysctl and systemd-sysctl some time
->> ago, which worked as expected, i.e., successfully set sysctl tunables which did
->> not exist in /proc/sys, by running 'modprobe sysctl:/proc/sys/...' and retrying.
-> 
-> Do you have links to this? To the old one, not necessarily a new
-> version.
-
-Sure, please see [2] and [3]. I did a quick rebase/refresh, but both
-seem to work:
-
-procps sysctl:
-
-    $ strace -e execve -f -s 64 ./src/sysctl --modprobe=1 -w net.test=1
-2>&1 | grep modprobe
-
-    [pid 505958] execve("/bin/sh", ["sh", "-c", "--", "modprobe
-sysctl:/proc/sys/net/test >/dev/null 2>&1"], 0x7ffc12efff80 /* 63 vars
-*/) = 0
-
-systemd-sysctl:
-
-$ cat /etc/sysctl.d/net-test.conf
-net.test = 1
-
-    $ sudo strace -e execve -f -s 64 ./build/systemd-sysctl
---modprobe=true /etc/sysctl.d/net-test.conf  2>&1 | grep modprobe
-
-[pid 505777] execve("/usr/sbin/modprobe", ["modprobe",
-"sysctl:*/net/test"], 0x7ffd473d1418 /* 20 vars */) = 0
-
-Thanks,
-
-[1]
-https://lore.kernel.org/linux-fsdevel/CAK7LNAR=7zgOiqTD9okXfZXroFH1yagMFsRuq0G-z6OfSUPLQg@mail.gmail.com/
-[2] https://github.com/mfoliveira/procps/commits/sysctl-module-aliases/
-[3] https://github.com/mfoliveira/systemd/commits/sysctl-module-aliases/
-
-> 
-> Best
->> 
->> Should this series eventually be merged, the patches will be submitted upstream
->> as well, for userspace to start consuming it.
->> 
->> Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
->> 
->> Changes in v3:
->> - All issues were reported by sashiko-bot@kernel.org.
->> - Tested allmodconfig with option enabled on x86_64.
->> - Patch 2:
->>   - Fix typo ('s/options/option/').
->> - Patch 3:
->>   - Fix usage of __UNIQUE_ID().
->>   - Add __must_be_array() in MODULE_SYSCTL_TABLE().
->> - Patch 4:
->>   - Remove trailing backslash in register_sysctl().
->> - Patch 6:
->>   - Fix missing __register_net_sysctl_sz() in !CONFIG_SYSCTL.
->> - Patch 13:
->>   - Fix potential out-of-bounds read in do_sysctl_entry().
->>   - Add check for entry size of zero.
->> - Link to v2: https://lore.kernel.org/r/20260818-sysctl-module-aliases-v2-0-d5a69dae5798@igalia.com
->> 
->> Changes in v2:
->> - This is based on the series submitted 4 years ago,
->>   with Originally-by: tags added in related patches.
->> - Link to v1: https://lore.kernel.org/linux-fsdevel/20220722022416.137548-1-mfo@canonical.com/
->> 
->> ---
->> Mauricio Faria de Oliveira (13):
->>       keys, pidns, fs/verity, riscv/vector: reorder '#include <linux/sysctl.h>'
->>       proc: add config option SYSCTL_MODULE_ALIASES
->>       sysctl, mod_devicetable: add macro MODULE_SYSCTL_TABLE
->>       sysctl: add register_sysctl() wrapper for MODULE_SYSCTL_TABLE
->>       sysctl, parport: update register_sysctl() callers with template arguments
->>       sysctl, net: add register_net_sysctl{_sz}() wrappers for MODULE_SYSCTL_TABLE
->>       sysctl, net: update register_net_sysctl{_sz}() callers with template arguments
->>       sysctl, net: update register_net_sysctl_sz(ARRAY_SIZE(table_tmpl)) with template arguments
->>       sysctl, ipv6: update register_net_sysctl{_sz}() callers with template arguments
->>       sysctl, net: update register_net_sysctl_sz() edge case
->>       sysctl: unrandomize struct ctl_table.procname
->>       modpost: move addend_*_rel() calls into addend_rel()
->>       modpost: handle MODULE_SYSCTL_TABLE symbols
->> 
->>  arch/riscv/kernel/vector.c              |   1 +
->>  drivers/net/vrf.c                       |   3 +-
->>  drivers/parport/procfs.c                |  26 +++-
->>  fs/proc/Kconfig                         |  13 ++
->>  fs/verity/init.c                        |   1 +
->>  include/linux/key.h                     |   1 -
->>  include/linux/mod_devicetable.h         |   7 +
->>  include/linux/pid_namespace.h           |   1 +
->>  include/linux/sysctl.h                  | 110 ++++++++++++++-
->>  include/net/ipv6.h                      |   6 +-
->>  include/net/net_namespace.h             |  47 ++++++-
->>  net/bridge/br_netfilter_hooks.c         |   3 +-
->>  net/core/neighbour.c                    |  11 +-
->>  net/core/sysctl_net_core.c              |   3 +-
->>  net/ieee802154/6lowpan/reassembly.c     |   2 +-
->>  net/ipv4/devinet.c                      |  12 +-
->>  net/ipv4/ip_fragment.c                  |   3 +-
->>  net/ipv4/route.c                        |   3 +-
->>  net/ipv4/sysctl_net_ipv4.c              |   2 +-
->>  net/ipv4/xfrm4_policy.c                 |   3 +-
->>  net/ipv6/addrconf.c                     |   7 +-
->>  net/ipv6/icmp.c                         |   6 +-
->>  net/ipv6/netfilter/nf_conntrack_reasm.c |   4 +-
->>  net/ipv6/reassembly.c                   |   3 +-
->>  net/ipv6/route.c                        |  10 +-
->>  net/ipv6/sysctl_net_ipv6.c              |  13 +-
->>  net/ipv6/xfrm6_policy.c                 |   3 +-
->>  net/mpls/af_mpls.c                      |   9 +-
->>  net/mptcp/ctrl.c                        |   3 +-
->>  net/netfilter/ipvs/ip_vs_ctl.c          |   4 +-
->>  net/netfilter/ipvs/ip_vs_lblc.c         |   3 +-
->>  net/netfilter/ipvs/ip_vs_lblcr.c        |   3 +-
->>  net/netfilter/nf_conntrack_standalone.c |   5 +-
->>  net/netfilter/nf_log.c                  |   9 +-
->>  net/rds/tcp.c                           |   4 +-
->>  net/sctp/sysctl.c                       |   3 +-
->>  net/smc/smc_sysctl.c                    |   2 +-
->>  net/sysctl_net.c                        |  10 +-
->>  net/unix/sysctl_net_unix.c              |   3 +-
->>  net/vmw_vsock/af_vsock.c                |   4 +-
->>  net/xfrm/xfrm_sysctl.c                  |   2 +-
->>  scripts/mod/devicetable-offsets.c       |   6 +
->>  scripts/mod/file2alias.c                | 237 ++++++++++++++++++++++++++++++++
->>  scripts/mod/modpost.c                   |  46 ++++---
->>  scripts/mod/modpost.h                   |  25 ++++
->>  45 files changed, 575 insertions(+), 107 deletions(-)
->> ---
->> base-commit: 2697ef8943c9985c14708a6429e21812693857b2
->> change-id: 20260818-sysctl-module-aliases-2f5801b1eb71
->> 
->> Best regards,
->> -- 
->> Mauricio Faria de Oliveira <mfo@igalia.com>
->>
-
+diff --git a/drivers/iommu/iommu-priv.h b/drivers/iommu/iommu-priv.h
+index aaffad5854fc..f60373cd2f70 100644
+--- a/drivers/iommu/iommu-priv.h
++++ b/drivers/iommu/iommu-priv.h
+@@ -55,12 +55,23 @@ int iommu_replace_group_handle(struct iommu_group *group,
+ #if IS_ENABLED(CONFIG_IOMMUFD_DRIVER_CORE) && IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
+ int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+ 		   phys_addr_t msi_addr);
++int iommufd_sw_map_msi(struct iommu_domain *domain, struct device *dev,
++		       phys_addr_t msi_addr, size_t required_size,
++		       dma_addr_t *msi_iova, unsigned int *msi_shift);
+ #else /* !CONFIG_IOMMUFD_DRIVER_CORE || !CONFIG_IRQ_MSI_IOMMU */
+ static inline int iommufd_sw_msi(struct iommu_domain *domain,
+ 				 struct msi_desc *desc, phys_addr_t msi_addr)
+ {
+ 	return -EOPNOTSUPP;
+ }
++
++static inline int iommufd_sw_map_msi(struct iommu_domain *domain,
++				     struct device *dev, phys_addr_t msi_addr,
++				     size_t required_size, dma_addr_t *msi_iova,
++				     unsigned int *msi_shift)
++{
++	return -EOPNOTSUPP;
++}
+ #endif /* CONFIG_IOMMUFD_DRIVER_CORE && CONFIG_IRQ_MSI_IOMMU */
+ 
+ int iommu_replace_device_pasid(struct iommu_domain *domain,
+diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
+index 9b9316ae4266..69b3dbcbee3b 100644
+--- a/drivers/iommu/iommufd/driver.c
++++ b/drivers/iommu/iommufd/driver.c
+@@ -249,15 +249,23 @@ int iommufd_sw_msi_install(struct iommufd_ctx *ictx,
+ EXPORT_SYMBOL_NS_GPL(iommufd_sw_msi_install, "IOMMUFD_INTERNAL");
+ 
+ /*
+- * Called by the irq code if the platform translates the MSI address through the
+- * IOMMU. msi_addr is the physical address of the MSI page. iommufd will
+- * allocate a fd global iova for the physical page that is the same on all
+- * domains and devices.
++ * Descriptor-free counterpart to iommufd_sw_msi(). Maps an MSI physical page
++ * into the domain and returns the IOVA. Used for pre-mapping MSI targets before
++ * any MSI descriptor has been set (e.g. IMSIC doorbell pages). The IOVA is
++ * global to the iommufd file descriptor: every domain and device using the
++ * same MSI parameters gets the same IOVA.
++ *
++ * msi_addr is the exact byte offset of the MSI doorbell; the caller must have
++ * verified it is contained within an MMIO region safe to map at PAGE_SIZE. If
++ * required_size is non-zero it must equal PAGE_SIZE. @msi_iova and @msi_shift
++ * must be non-NULL.
++ *
++ * The caller must hold @dev's iommu group mutex.
+  */
+-int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+-		   phys_addr_t msi_addr)
++int iommufd_sw_map_msi(struct iommu_domain *domain, struct device *dev,
++		       phys_addr_t msi_addr, size_t required_size,
++		       dma_addr_t *msi_iova, unsigned int *msi_shift)
+ {
+-	struct device *dev = msi_desc_to_dev(desc);
+ 	struct iommufd_hwpt_paging *hwpt_paging;
+ 	struct iommu_attach_handle *raw_handle;
+ 	struct iommufd_attach_handle *handle;
+@@ -266,6 +274,12 @@ int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+ 	unsigned long iova;
+ 	int rc;
+ 
++	*msi_iova = 0;
++	*msi_shift = 0;
++
++	if (required_size && required_size != PAGE_SIZE)
++		return -EOPNOTSUPP;
++
+ 	/*
+ 	 * It is safe to call iommu_attach_handle_get() here because the iommu
+ 	 * core code invokes this under the group mutex which also prevents any
+@@ -286,13 +300,7 @@ int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+ 
+ 	ictx = handle->idev->ictx;
+ 	guard(mutex)(&ictx->sw_msi_lock);
+-	/*
+-	 * The input msi_addr is the exact byte offset of the MSI doorbell, we
+-	 * assume the caller has checked that it is contained with a MMIO region
+-	 * that is secure to map at PAGE_SIZE.
+-	 */
+-	msi_map = iommufd_sw_msi_get_map(handle->idev->ictx,
+-					 msi_addr & PAGE_MASK,
++	msi_map = iommufd_sw_msi_get_map(ictx, msi_addr & PAGE_MASK,
+ 					 handle->idev->igroup->sw_msi_start);
+ 	if (IS_ERR(msi_map))
+ 		return PTR_ERR(msi_map);
+@@ -308,7 +316,29 @@ int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+ 	__set_bit(msi_map->id, handle->idev->igroup->required_sw_msi.bitmap);
+ 
+ 	iova = msi_map->sw_msi_start + msi_map->pgoff * PAGE_SIZE;
+-	msi_desc_set_iommu_msi_iova(desc, iova, PAGE_SHIFT);
++	*msi_iova = iova;
++	*msi_shift = PAGE_SHIFT;
++	return 0;
++}
++EXPORT_SYMBOL_NS_GPL(iommufd_sw_map_msi, "IOMMUFD");
++
++/*
++ * Called by the irq layer when the platform translates MSI addresses through
++ * the IOMMU. Wraps iommufd_sw_map_msi() and stores the result in the descriptor.
++ */
++int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
++		   phys_addr_t msi_addr)
++{
++	dma_addr_t msi_iova;
++	unsigned int msi_shift;
++	int rc;
++
++	rc = iommufd_sw_map_msi(domain, msi_desc_to_dev(desc), msi_addr,
++				0, &msi_iova, &msi_shift);
++	if (rc)
++		return rc;
++
++	msi_desc_set_iommu_msi_iova(desc, msi_iova, msi_shift);
+ 	return 0;
+ }
+ EXPORT_SYMBOL_NS_GPL(iommufd_sw_msi, "IOMMUFD");
 -- 
-Mauricio
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
