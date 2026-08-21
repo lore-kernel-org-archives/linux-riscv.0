@@ -4,138 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB026C5DF7D
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 13:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D219C5DF89
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 14:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kb7MTpPecAEn1DMikHoSxh3b/ThoWZ/HTJ/8FKJZe80=; b=SCbTM3pfzkPw/C
-	PWw9pVlfuxB7KpnhC7DaIZhnYHTDsIQ/vjdTTWNwcCU6e4BAEDsUEdt7kxZb6WywvPL/WeQp0x+P/
-	S1N+5r+Jsbe1+Gcpyz2NN4Wa/UZM34lPvYIjtZEWIt166OEYxsCdkSdhdZk1ayBTROkOjfzWCcDPE
-	928Ssa5Uw3hQRejJcSAEUp27fV73BTMJK4OZ/WQp4k0rueOoA5Uvm4hJ6u90+x+Ni9OY+83pgDgp6
-	muqhPMyjufcirZT/F7l693yz4RFHP/wkMyfvkqDyo1UQ68Htm1Kx+t6ejXB9SK9Kc+1I0NaV1MshQ
-	C+KFu6ug5OYRz9TUyydg==;
+	List-Owner; bh=a9suqlDFixifS/KFAevlgbd1FqJ3hh9CqDde8tD0V8Q=; b=cpXxfYAlgCfRCV
+	luX7xR/fSIEXnCAzC940CyrdDzvfdti39tVYeKKPPZexT+XfMqenUOJjO1XLSBLCI6bCcYxCFjqLS
+	MrwHBSjuPEbVOF5sB+PYyBstE/OEkc5EE/6//akpLdTqj3jyrHXWFYctZdHSAoySbCFKlMvDdpQw9
+	WPWQOPFEbFtbFuiuZEvQ+OSx5/d49878fvd+FPTYd+yW9P7k8RjAgxC/WFphlXQZEkoZOnQE4xGvD
+	Ss1Tn5hjlUR55sS2uL+GZ7Ax85TBgVwhJX/FgMQmzW2JhbXplBrHxBFdjKBrzydSgoR+D5ew/h825
+	uF7p/mzdwsx8IAtD1yKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPjf-0000000DTpL-1I8v;
-	Fri, 21 Aug 2026 13:56:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wxPng-0000000DUE7-3B8p;
+	Fri, 21 Aug 2026 14:00:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPjc-0000000DTo9-2Wad
+	id 1wxPnf-0000000DUDx-1boL
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 21 Aug 2026 14:00:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=TVSYgqwCXUnUc2sVIjdxHcp4gyn6wWyYnlbJ9uz/cSk=; b=SoMrPXHf9UdOUA3PtlRG4ePoJs
+	AgDlHF30alwnea7DT99qv6YAfQlsI9sTNJDzkeuN3s5dsU9LYRiL3zwIPVIh6uKedRhiwpKYZQS4T
+	GupOrDTy9kF+Q1Khiu3WbQVLit3kbiDu7KR2JYA520V2b2tN+jNRAdF1cswJeHqQhxspTygFtguwX
+	9JB1fKChYqICKVhrdzVE1zMTuv9GH5u968z8lMdirbtH3vlRtVFIieyCLoprhoAtFdjYXnkmoKi2R
+	PfE9PMSNLrs0G8sp4xKQaNl4zhFGsdgMCHRPM19a0X02cogy+ZcHbNfhHQHCbe4DB3SZCE7mpvDaf
+	CN6ICXtA==;
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wxPnc-00000003oVK-0fr1
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 13:56:41 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67LCoqHS2467509
-	for <linux-riscv@lists.infradead.org>; Fri, 21 Aug 2026 13:56:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=208mLy3Ki7ZmUkj5X/SI6UnX
-	5AP2enQuN0QqXNysB90=; b=UlQysatIPD9oDfNfH5bXZiRF20aUSbgJm1sesl/U
-	ehCjC5bmYfreXwIuQMPVsfjcRSzfDOPM8jfj93DK4MwH322b9pbf/Voh905Kzu0i
-	KR8CxvkfdkyNYyXPaxIoxWrR/R+jEhGbgWXeSvmfYXOHmHtcB8Xjgf1n2MJ5vsKb
-	ZwrIlQIROWVjb10pUIM5WoMtHxbaDGH6RizJcNbLTzzQzXCmLBd/8bAoXHxtGGJh
-	4ehVnPcsDpayitk0mFnoR2c2w78HjZ5Vzodn3R64K96rjQfvoP0I1EzSZNn9hDkf
-	RuV4mI1hHdV5rFQvlwW9kT4dvvTPeoj7KVXv9JAduHNPHQ==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g6gddhw5t-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Fri, 21 Aug 2026 13:56:39 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-5174a236220so12720081cf.3
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Aug 2026 06:56:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787320599; x=1787925399; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=208mLy3Ki7ZmUkj5X/SI6UnX5AP2enQuN0QqXNysB90=;
-        b=RuRcuJPsTXenlVXr/wxajSg9EHz4Nez514GvINCqFG3VSlgFGjg9JcbwO9imAS+VnE
-         D0fO9Gst4r6CVtd+oPWTNZE5MzKs2Gdlwv5xsOjwSTdv+r9lBRUD3oyZdVyeWAYkH+hB
-         UyfbReRhfKUB3CnyZ8NwF/GbWjOvFg4KkPio3QRgMvA1grKXGLCty/i8lyl3Hn60MuzB
-         vtO+vTaOpCWpN+Hq2tSeN6hwo1qScmGBl8kXhcYPT0468qDt5+pR/xTepXccCrqakBy/
-         LsaedjnuQRabtwWPpxftFVS1Zt8t+zLoJ8gotDyWStTIdykVyy+iPu9irXlbgFtNE+oL
-         jW6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787320599; x=1787925399;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=208mLy3Ki7ZmUkj5X/SI6UnX5AP2enQuN0QqXNysB90=;
-        b=QDEAjIS00HPVr0F0C+qjQT5T1PHPqXzhPPPl42xIhNFi5+itlHeX2jFQyUPNz8/cjk
-         j7oMKjcgb9tTs8KRwof/tGpCvoQy7kB6SsTNcBFqWvFMas5QnO2s4fbiD/FrUg+PWVpr
-         Sn5hSZwIlY0qJcrRkfZiGmF+iNDPajKa4YA2ndOJad1WPFD9cgMlso4cM17oZSBPsDj+
-         bGBPyZT55kNWxEY9g8PRXtLfsrncnWvORw44yGJVndAMEFHxk8U1FQvALOQ+qeM1qIxO
-         8fZoExTxCy+58HiJdhVZ+gq352Kf108E+uwTkcntyKze7svkgiWUBULi7jHj5CTgNzKn
-         ZIsA==
-X-Gm-Message-State: AOJu0YwsUSDH0tefITfQpCpJxtFgh9FCz8vLOmwth0h4roofX5MVJrCQ
-	1iwcCz2j6rSFwghd/NDfLgX0vXZUkFmwuLbQn8zPWBDPWhQh9LRN/kNo27kAkEO9JyVpo6UTVD6
-	P0gD8sIcLPpRhBsUVKdvEcldWyjtlhSKuEf6QznEkWOaK1mihB3Wn+dbBLWJjFmuybOSZ/o8=
-X-Gm-Gg: AR+sD10N3E/aMJdYWnvfEGWbbnoZ8EBLSZuBATMZ9YoBgaD9vRk9GvgnbBCrMs9tSf9
-	mEQ/4NKNBpsUjUtC33uSFcUwDb6TK/LVSVF3O8GmcPStdxdrAuM8gBsUuh7O000LjDg1NboQlUe
-	40H92cU9RmPcuZExWaXL9ntJ2m2bmzpM/eufFRbdsyqh9iVr0tu27I+d+j5BfZYJI6elpDQiBW0
-	Lrmo7n8UXgCb6+/ZYD2po1kctS0yMleOHX1exwvanwNvw4qDOVnCObHLE4Y10FcALSer8blMoYr
-	MJx/+YGWr+qVwUux+pxY0uXEb8+/VoRtHzDHGXAK65v6hC1bxnh5Q8l18P+KvlHd9rMoLslpmO1
-	Y7UDc4Fhr/DMUi+1DXvjk3JfIXGkBVJD+aJc=
-X-Received: by 2002:a05:622a:4818:b0:527:8770:8fd6 with SMTP id d75a77b69052e-52df5a421b1mr55979451cf.35.1787320598701;
-        Fri, 21 Aug 2026 06:56:38 -0700 (PDT)
-X-Received: by 2002:a05:622a:4818:b0:527:8770:8fd6 with SMTP id d75a77b69052e-52df5a421b1mr55978681cf.35.1787320598266;
-        Fri, 21 Aug 2026 06:56:38 -0700 (PDT)
-Received: from localhost (ip-86-49-251-7.bb.vodafone.cz. [86.49.251.7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b916a250sm28764715e9.15.2026.08.21.06.56.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 06:56:37 -0700 (PDT)
-Date: Fri, 21 Aug 2026 15:56:36 +0200
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
+	Fri, 21 Aug 2026 14:00:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sOoXLEjot2Yf2bm6AqKQlSzpzswIGru3iI3uiQSSNgORC3vTRZpxeR/32EPHkE0PI1cr59IZEygip982XwxCwbKHS1U1KxXLKMjN83Os1AKa1If+vbsBXjHPNbe1Au5JiVSw5KO0VXlM2w0m35P0Qq5uR6p0XuZiAdnBv8tgJm14ZDa9cz6veXKvS0xP1o1/JTkMAwnljeZL4Om4X2RqFL9uUN9ndLDqPgIiiHJEDQ+AIag3c1XQjnFNEnEfUaR3GwvgW15Nc3qsxquk3TAz71k/7V8NihwQ6QjhJ7m6TEpVgICOIwZ/AYnAXddiGyQcAWPamzJ9aTs4UQuUZD8irA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TVSYgqwCXUnUc2sVIjdxHcp4gyn6wWyYnlbJ9uz/cSk=;
+ b=w6vhfOzOSPtQwsEiA+WNnHcUYEtYHfGBHsi7E8edtKAolPmfzR8gurdRZRanS3tpOjKLsftwN8n2uW/IXFqAjxq5r+nehCWVTpSHEUCiA4UZsjx7SNxjucCw1c6RET6xWn+ZQtScMurMAJtpngfPPl9J+mIcMveOa08Cf7QS4lOe0b5m+lS+g3v3fs4w9YOYVbjs0sR3LJOQKrBJFzOfnmvINsbb2wxY9CJ1xeSW6mMI1d0PaTnv+H1SIRGDtVzS4Uoop4yNt6TPAqTUB4rkA/j8Hu8YR4o40Fj17QC/EOUdgXozsRf6Job+VsEyU1pyz3sLlCErSwvavohyjXDEJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TVSYgqwCXUnUc2sVIjdxHcp4gyn6wWyYnlbJ9uz/cSk=;
+ b=eNKtvwKD7Z/XQdN7XvNdVyJROH2o3neFJOluxd107Djc/cezjhXTvP+T7EEM3582Tmxto171+L5LoGq1DEJvWh4u+I/Rj0cR19pxOjBgMSY+vrcNqJfgJnR99k8ZjvO81NmS9zl0miuugWCg2cyPCWxYvo/jBH6veiJ+sncZjwTrXIzn5PBMAR3rldJDscl93+VVJomKCS1Y+JFoeNa54zXWWFsjvgJdJ5yP38e/gq+PxF6zOThXOWBVoLL3GLQ6VTifBMilimdERS67VoL0hlJYX6XgSginF1F6BrCJNSJD8i+ZE/ijJpKoStFoS+Tseu7sAOxEpUzXvzjOEqRzew==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SA1PR12MB6727.namprd12.prod.outlook.com (2603:10b6:806:256::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Fri, 21 Aug
+ 2026 14:00:34 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0339.010; Fri, 21 Aug 2026
+ 14:00:34 +0000
+Date: Fri, 21 Aug 2026 11:00:33 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Andrew Jones <andrew.jones@oss.qualcomm.com>
 Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
-        linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
-        tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
-        robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
-        anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
-        fangyu.yu@linux.alibaba.com
-Subject: Re: [PATCH v4 13/21] iommu/riscv: Preserve MSI IOVA state across
- domain replacement
-Message-ID: <6d32btsqdpuqta2bda2hr4kco7m46tmpigfcthtpgiogho2xz4@7j6eaudgicct>
+	linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
+	tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
+	robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
+	anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
+	fangyu.yu@linux.alibaba.com
+Subject: Re: [PATCH v4 02/21] iommufd: Add iommufd_sw_map_msi()
+Message-ID: <20260821140033.GH244917@nvidia.com>
 References: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
- <20260820214150.545737-14-andrew.jones@oss.qualcomm.com>
- <20260820215204.GD244917@nvidia.com>
- <wshoqx3xyz7f2jmhgbyzpkm4ppl64olswhw5u6dye7nmomkari@j2zg5ecuvsmg>
- <20260821132252.GG244917@nvidia.com>
-MIME-Version: 1.0
+ <20260820214150.545737-3-andrew.jones@oss.qualcomm.com>
+ <20260820220908.GE244917@nvidia.com>
+ <gr2h3ktgacozyo7rdggkxsg5mbdtzcnimaawd24c37hnf2tun3@hqivsenaq5wd>
+ <20260821120204.GF244917@nvidia.com>
+ <zygm4qm3fjv57nsgcectwikfa3cdnidxnhv55nxv4b6l2kllrs@dt36j4p3zhoa>
 Content-Disposition: inline
-In-Reply-To: <20260821132252.GG244917@nvidia.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODIxMDEwOCBTYWx0ZWRfX5vym/2l/38Se
- XuS/ZgyWhlxqxFwxiqX7vf4YpBzpxIcGXkcCwgL1GtavR4t2aWauEbCX3is4cJbje8M6LmttqNl
- TtxF9JYgwlJHOcgqztJ4/vWwaYEwFjY=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIxMDEwOCBTYWx0ZWRfX7S3RQC2TcYml
- 297aTwtGwji43yNFmVnSKfsHbVuEAb5ikp0zl9WRJoeTfevLr7s6BEjN6cBzNKHdwU5nIbVII94
- V0NsSkJmGTm1y6DVCz8WPJCdVBM7vrKlPqcZNZ1YDoatboGcI3P6JAQFOOvjIG/UlRcdMz6lgLt
- 9gjaPkwGm05Yw7Cy/A4QlPUp6dtLNzMOuAkhHTmsKQ2+SVQCRgsTj+JWzGpRRlz/7Y+mY9KsZj1
- Y/UQG59Vfvrwj2ZfQ7DCHURTTPhuM50xsmGUgU20Wu+GCuAtm3HX2kh/3lxvY+TNMPpY5494v4u
- P2az/hz9LopcWplSIAY2iQ6F3xSAITyLsBCtMswL1qgIrGzCdvfsla/DVq/+Q83bnu0lR5AttHc
- o60GfR9/iZrB+8EFx+WzWGK0GTiPG7cJXmYxrfgd9KlP+pzMm09RsasA5IYOi4MAeoUeykMPLRh
- 6GvFRuBYsQEsi0Uh9Gw==
-X-Authority-Analysis: v=2.4 cv=ApHeGu9P c=1 sm=1 tr=0 ts=6a885917 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=on9AXyaqQ0RhfYpiXjjEXA==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=eCfTknyUrC7K7Id0JDUA:9 a=CjuIK1q_8ugA:10 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-GUID: SLJV71InwtDmlMqX7pH2eoeRWTryipsl
-X-Proofpoint-ORIG-GUID: SLJV71InwtDmlMqX7pH2eoeRWTryipsl
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-21_04,2026-08-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 bulkscore=0 priorityscore=1501 clxscore=1015
- lowpriorityscore=0 adultscore=0 phishscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608210108
+In-Reply-To: <zygm4qm3fjv57nsgcectwikfa3cdnidxnhv55nxv4b6l2kllrs@dt36j4p3zhoa>
+X-ClientProxiedBy: YT4PR01CA0365.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:fd::16) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA1PR12MB6727:EE_
+X-MS-Office365-Filtering-Correlation-Id: 184dcc95-b237-49c0-c304-08deff8c91f7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|10067099003|56012099006|4143699003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: fTccslmbVcq/OqnvvHXzWkTG3CUCVRO7Xdi89nrUsxheEvwE5UOjzX5vBpoSoMoQfAo0/W5hSJJljjvnf/32TnqUhbDDMW0u/VBeBes0kSALoxYEE7EmGkybNXY9tytXzcnl1Tw3lqR7iOtTEexqA8UMfS/NBTxepUuI4oNg2VYg70dj7Oep1kb4e8efNZFpvoXgnj/MemYW3Ijpl+dOiQRzxSriaLqC7wkskuH3HcjRUGf92r5Khx6WI+z9Ib+xa9gzaycsF3hdfma94kHHtNnKVXz6sbz6/7okg51J1k8IwltDVoO3qh6JWnHQ8MrMUMZ9Q+uUVtM9RPeg1YdqIFvtqHi8cdqGB+HHcBaiXjqhuLpoQ/YdfJajocfeu5N0MXuEZvdxetIgde6p3IG2N70m1RIJ5A4CFFe1E7N7EcjMMrM1Eanv1X80hmtfPhDFsPeuXa0WlY0+gMi6faYGhloFhVr4B1Rj7tWYkj4cg9wQHHLwICNDZ4me7y9PoiVnAdkt0Kp2ynFzRIxD111xroyqAgIftF9TIq7vMsdBi1xri+7QWmX8T15T3GZGDuO6pOsgO8FGiolSWmRwvvBoYDZH3WHfT7TK/G3MMhx5t4jwFAZWOWwyVvM1HeUuIPhYhL0mjpg+HoBP3/fjMrlO3OMMVVP8B0C6WeRTWZiC2dk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(10067099003)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YrIA2p5Abi1fBOdwyaA/TKa502gowI4qG9MHnP36MUploOGJuE8WuAEhQ92W?=
+ =?us-ascii?Q?neMPciGIp0m7f4WNvpcSeK34lHptx59P40fKyZM6Io88vH7mM+PO/M3ctKgy?=
+ =?us-ascii?Q?k5fYOVt71fD15a1uVR73oiaL0xJO5cyjAmWcWzo6L/1Julpar2vkyaZHMpsi?=
+ =?us-ascii?Q?4nEbBl97leD3jV+XiviNRZofxRrSVfKssZ5/jv+qcRbPXlbwqbyNKpbvgOyN?=
+ =?us-ascii?Q?dadghGhVt47c7TOwnU5Kb9VMBXgbaacvV4zW1EZcVr+rqzm6DNgX8cJi/uFz?=
+ =?us-ascii?Q?lfJSb6EWsK1si0zSquZKO7WwGhDXHaPTR7WU722DAcP9PC3FFFXLCLfg0BbB?=
+ =?us-ascii?Q?kOK1JvDIUUIbpcBMXr93NThZlGTbFgxGYXnn77uGpo54d9wUNdQXizYMsJhf?=
+ =?us-ascii?Q?RIG/0u/CZnHIrr5/DU1aN8kujr8SsryphTV0az8A+HF7UUwtdeRPvHn6YUtr?=
+ =?us-ascii?Q?e0NwHXGAlMLbvs7bG1O/h7m1ObJyuqWL/NrABAH3xIPhnpLnvOut0Osvgbqs?=
+ =?us-ascii?Q?oWQ8m8sp0/21bAKappy+SRxIwQIX8or/gSzzW/ukDbLaJFHlKcfEH7Au67Ts?=
+ =?us-ascii?Q?R4WTMCbhSYV1K14XIHXrxU8m29JzKkjYPH9l3lXBQlnUntyKxa7JNXvRoMNd?=
+ =?us-ascii?Q?FpvA257UetJ2tw7EXzkC7sZGH60kGcDJcwEzzt74wQ0ICPVqDpWbBNjNnU+l?=
+ =?us-ascii?Q?bDRdK2i2/+5EVqbGHYnmyZ3ZLaGvHmklzrn3WgFMmVr9TDONpZC0JCn1fWeV?=
+ =?us-ascii?Q?7EEVeGsVFqEyBrgbarukc2DJ+ScgIuMNN848rwV2QwuRlLTJQpouuT/kRLGN?=
+ =?us-ascii?Q?80DWtMd/ixqVfrT5pldVI/nmyBn6VBW9p23TOjx/DXQNzJhmV2gSIGB7qIx/?=
+ =?us-ascii?Q?VyLufAy2+Nf7NV2N5OEIQ8mDSMumUARaSt2Kxnpkq5jSPOIrW5/z9172LDtM?=
+ =?us-ascii?Q?UpemBHl2o/IPEPI5l4Y3+Z1YkbXJRjhemV4Q+oo3DyhSoNeCZ285eKwKeeRy?=
+ =?us-ascii?Q?qBXoX4RDtBajLoBFzaabEu7Xv3cnFqZAnhUEOn0pmoHTn4XB2Gy0iGbyHH+i?=
+ =?us-ascii?Q?aruxNig+lPRmg8BJIVVMYPdA6/qS8hrJG1O+PBqbKdv4hhkfMbnQNLj69S2C?=
+ =?us-ascii?Q?T2OtlzH7/T00/fLwFzaTAUIBY6BtulSLEixI4EJmJqvZEImrOIJXmijxtkqz?=
+ =?us-ascii?Q?2b5w3bcRocM/o5TmMYRhEVWiREe5NuB2uZEgA2RP8eBscjnc6g8tFszrnlfU?=
+ =?us-ascii?Q?MSIb4WjYAsz6zsuTry4JfUtjCx0YCWEyTTVSw8ia/Kbla2JXPeZZQfiaFsfl?=
+ =?us-ascii?Q?AFShlXLZgKtcw13hD1sKGGdVhRkh1GUnN0UVCALqPEGjsON/v3yd1+ITQ+WN?=
+ =?us-ascii?Q?c75/iDfaOJHl8l/992BGjagzHTcYIxfq7k+ZTOzTXgCFxe+Cj2CS3j/U2pgn?=
+ =?us-ascii?Q?79wpqIX6YCXt33Cvx8fgatgqaXf0dcz3E+Jpq907IHmCQD5dRQxcRR0cxPIT?=
+ =?us-ascii?Q?rk1yA8ZY27jVOHqAdl2XtrEHwReo9h0rfoW1TmJIw2u1l3O/4ugUtlwBLmcq?=
+ =?us-ascii?Q?FcRsPi55JfzsMikowJ4GfyUUrIHBdcE0C2Fa4L25t8kewGZBdvciyyO27fmU?=
+ =?us-ascii?Q?uQDo0O+tx+FJ2AvOZYwWorPk+E3IFkyjfVhDpnjje0qT1dxZyUwWwjpuSF6Q?=
+ =?us-ascii?Q?AG8XDQBUY5HGO+aC+PC7N1VP0wLS4W3CL1/k+8zBxBgZtQwA?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 184dcc95-b237-49c0-c304-08deff8c91f7
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 14:00:34.4819
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /kmPL5vi5ldR18OXKBWKC/0cGaA+OJK+RXYgsy1X72+d1763Z8hrfUHyVNje5Pzz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6727
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_065640_761751_3AA1ECE6 
-X-CRM114-Status: GOOD (  22.87  )
+X-CRM114-CacheID: sfid-20260821_150048_419779_683EC3EF 
+X-CRM114-Status: GOOD (  26.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,41 +159,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 10:22:52AM -0300, Jason Gunthorpe wrote:
-> On Fri, Aug 21, 2026 at 01:14:39PM +0200, Andrew Jones wrote:
-> > On Thu, Aug 20, 2026 at 06:52:04PM -0300, Jason Gunthorpe wrote:
-> > > On Thu, Aug 20, 2026 at 11:41:42PM +0200, Andrew Jones wrote:
-> > > > MSI IOVAs belong to a paging domain, but iommufd may replace a device's
-> > > > domain while its interrupts remain allocated. Waiting for another IRQ
-> > > > allocation to populate the new table would leave existing interrupts
-> > > > without valid MSI IOVAs.
-> > > 
-> > > ???
-> > > 
-> > > iommufd is supposed to handle all of this itself, that is what commit
-> > > 40f5175d0eb7 ("iommufd: Implement sw_msi support natively")
-> > > 
-> > > is doing?
-> > > 
-> > > The whole point of that commit was so drivers don't have to deal with
-> > > this at all.
-> > >
+On Fri, Aug 21, 2026 at 03:47:17PM +0200, Andrew Jones wrote:
+> On Fri, Aug 21, 2026 at 09:02:04AM -0300, Jason Gunthorpe wrote:
+> > On Fri, Aug 21, 2026 at 01:07:03PM +0200, Andrew Jones wrote:
 > > 
-> > This driver relies on that support. iommufd installs all required MSI
-> > mappings in the incoming HWPT before attach. The additional driver work
-> > is to populate the PA-to-IOVA lookup table riscv needs in MSI composition
-> > on IRQ affinity changes.
+> > > > What I rather expected was for riscv to have a PA window that is very
+> > > > big and not just one page, eg adjust iommu_dma_prepare_msi() so you
+> > > > can pass in the entire PA space that you need for the affinity
+> > > > changes. Maybe this is a list of phys_addr_t ?
+> > > 
+> > > That's more or less what this series does. 
+> > 
+> > But it does it in a completely different way, and I'm struggling to
+> > see any justification for this.
+> > 
+> > Again, just pass your list of PAs to iommu_dma_prepare_msi() from the
+> > irq domain seems like the easiest and most ARM aligned thing.
+> > 
+> > When you need a new IOVA for an affinity change the PA's are already
+> > mapped a simple offset calculation is that is needed.
 > 
-> So it is all because some of the MSI state got leaked into the iommu
-> driver? I do not like it :)
->
+> Ah, I see what I missed. The proposed batched API would guarantee a
+> contiguous IOVA range, so the descriptor could cache the IOVA base and
+> then the riscv IR compose-msi-msg could simply compute its target off
+> that base. That would indeed eliminate msi_iova[] and all its complexity.
 
-It's a cache of the MSI target IOVAs, rather than MSI state itself. But
-the batched API lets the descriptor cache one IOVA base, so msi_iova[]
-and its maintenance can go. I'll rework that for the next version.
+Yeah, that is pretty simple like that
 
-Thanks,
-drew
+Then you just need to teach everything downstream to have a list of
+phys not a single phys and thats an easy to understand delta
+
+> ARM calls iommu_dma_prepare_msi() from ITS since there is no SMMU
+> irqdomain and ITS owns the MSI target.
+
+Right SMMU is not involved in interrupt translation
+
+> This series adds a RISC-V IOMMU IR irqdomain to replace the IMSIC PA
+> with the corresponding IOVA, so the IR domain's alloc callback is
+> the right place to create the mappings through common
+> DMA-IOMMU/iommufd code.
+
+But RISC-V IOMMU is also not involved in interrupt translation. Beyond
+it could remap the PAs which represent the CPUs, but you are not using
+it that way since it is statically setup.
+
+So I'm not sure why the iommu gets an IR? Isn't it the same as ARM
+where the IMSIC itself just has a wack of PAs it needs to access so it
+calls iommu_dma_prepare_msi() to do it?
+
+Jason
 
 _______________________________________________
 linux-riscv mailing list
