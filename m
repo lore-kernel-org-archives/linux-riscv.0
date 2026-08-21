@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 380FEC5DF81
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2026 23:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88262C5DF87
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 01:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8J0TyOzZg1AENomNdbjH8Q0kdftxWI4CgKFrRWfoD8U=; b=Bs8v5vzLcgwYqo
-	/L6fwvnqV5X3wccgb1j/tYVrwiUCDt2dsai0Hl2rLKCgmcdcsfGvJmSlT6stAeeYtryk3QDGd4Sgr
-	E7e7vWLVQGNVEK0718IpwEGrzzYMXYOPEsdD+TAMTvlCV2pbCUWxmvwQVt86C6lXPtHUhuVB1C0K4
-	5q95behZiq0j1ldly4zYoaCsvG/nE4ZpPrrheNKYpCzFbz4heVpRorGvU/orNDaUNjlELp60nsbTO
-	BfpWnJQB4GeTRHAdNeuV9y06NvMoE6FChRid4ee0NEUC/4ZWMFPODVgJZCEj1GYtGBZI2ua7gmo8P
-	ihyo7JwXxWWqw3637JOQ==;
+	List-Owner; bh=QTEtzv6hIcKzUhhd1aWyzyVDcyL6baUmKathIGZIGhI=; b=KsloPT0K4N/s80
+	sWsto9nKEGYaD5xw/Rb1xm6XRg2Qig6KAUjSB7a9lYZkwrNWZkrIE4NS5VkeiDFc5OnyQzr+Bg2Io
+	wQvdxC3of5ZySMmHDoOTgB866v9NB/2hzNoemYA9U4USvsqFacayIhzZUAt7EmtnP5yWbTqsVmjlc
+	zXWEcgVDe3PdJCi4BO+NkN1Zg/h2pjkN9ocLmfMXyC79C22rhrsigzthrX2TFXQ2MBLkZk8IPr01P
+	iLtx79Xz5BsB3Y25/rLMtRr0pHAZ6GlGGuvSZRAq3RbscekrAWL6N/I6eaYEfH4Y+FiB5Baeykink
+	Czy9N3gWMT6at0YFH0bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxCR9-0000000CMZs-2KbI;
-	Thu, 20 Aug 2026 23:44:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wxE2V-0000000CQ35-3bLx;
+	Fri, 21 Aug 2026 01:27:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxCR8-0000000CMZZ-0kce
+	id 1wxE2U-0000000CQ2x-0bSs
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Aug 2026 23:44:42 +0000
+	Fri, 21 Aug 2026 01:27:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3199A439A8;
-	Thu, 20 Aug 2026 23:44:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 650D81F000E9;
-	Thu, 20 Aug 2026 23:44:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D8D9260A58;
+	Fri, 21 Aug 2026 01:27:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 320B91F000E9;
+	Fri, 21 Aug 2026 01:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787269481;
-	bh=AucMdxpKqWIDptLE//Ma53AtN235JlXmNlvQ13jfyn4=;
+	s=k20260515; t=1787275639;
+	bh=/YvkqO1Co8rgXsGiEEuyiIzaT5tlySRac/ZA+XW5nAU=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=Hla9xLvC2wEukAuDp8X0tvV7s9u6TN4J3p1JDKAMYsFtgULNye+NXg77FB30PCY4o
-	 IjHcQxiQ8AixeqWvo9zDWkwIK7Z+gGpZZaKq5Wl4iQAKQ8vBkCcU5zh6tqskB75bde
-	 QO+ZnFc+/fuw+I9TPFmRcOXa8lCoAQ/L6bVydTp4zvMIaqtrL7cnABF7EH3jPXqEPd
-	 eTSyajUfsC2TiIrhgO+r5EvcwfFjLtECxMqNfF3EazKNIJa5jAROj9WEdJ+EX5ZPcQ
-	 EVCQYz6NNwMu8F1f0q4xNgVho+LJVL3Dxj59iR5smfkd2T1cr71ij8BcijvZ3pHPqK
-	 K29lq8KCFB2BQ==
-Date: Thu, 20 Aug 2026 17:44:37 -0600 (MDT)
+	b=G6PPtaLkflZk3MTvspaS+cIYDyds2Bql7vWVSowsj9PNZLKEOHqY20F3VBht+OmDG
+	 Lry/15CZ5gFe31X80DSUoQ1tpbI6z83yCLGwfnfZCQxS5pQV68fqYELjtOli9J45nf
+	 OxhlIinkSrsqdgmJLwHJ9RWFWygnrGjIaCGfOwZKQdsL2tUJ2dNMcuQDNa95GKg5TY
+	 EmxDYSNOpuLe+L7Xk69DS6kjVF9HMLzkTVoMc4emBCGXglXqr8FwnPQFqZQzOezhLs
+	 mAnoM4uDW2LgiLudE6yHax2WzwLAAUnuf1Tp/UmZ9veCFtrjI98umQl8YsX3aYF7AE
+	 4HcVId5PTEnfA==
+Date: Thu, 20 Aug 2026 19:27:16 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+To: Xie Bo <xb@ultrarisc.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
     Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Deepak Gupta <debug@rivosinc.com>, Paul Walmsley <pjw@kernel.org>, 
-    Simon Schuster <schuster.simon@siemens-energy.com>, 
-    Zishun Yi <vulab@iscas.ac.cn>, Zong Li <zong.li@sifive.com>, 
+    linux-riscv@lists.infradead.org, Dennis Zhou <dennis@kernel.org>, 
+    Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, 
+    Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+    linux-mm@kvack.org, linux-doc@vger.kernel.org, 
     linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Revert "riscv: Reset pmm when PR_TAGGED_ADDR_ENABLE is
- not set"
-In-Reply-To: <20260820014551.1979772-1-samuel.holland@sifive.com>
-Message-ID: <866528a0-bebb-91d3-9d9d-d5f8a15b8f1c@kernel.org>
-References: <20260820014551.1979772-1-samuel.holland@sifive.com>
+Subject: Re: [PATCH] riscv: Add native this_cpu_cmpxchg() support
+In-Reply-To: <20260730094407.16588-1-xb@ultrarisc.com>
+Message-ID: <8b8cbb4a-474d-1de4-eaf2-dd8b4e6ca8ec@kernel.org>
+References: <20260730094407.16588-1-xb@ultrarisc.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,28 +73,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Aug 2026, Samuel Holland wrote:
+Hi, 
 
-> This reverts commit 3033b2b1e3949274f33a140e2a97571b5a307298.
-> 
-> The reverted patch is userspace-visible behavior change, not a bug fix.
-> The two variables here (pmm and pmlen) control two independent features:
-> pmm is the _hardware_ pointer masking mode that applies while executing
-> in userspace. pmlen is the shift amount that the _kernel_ uses when
-> untagging addresses; PMLEN_0 means no untagging occurs, so the kernel
-> does not accept tagged addresses in syscall arguments.
-> 
-> It is valid (as documented and tested by the self test) to enable
-> pointer masking without enabling the tagged address ABI. This separation
-> is necessary to allow userspace to create an execution environment
-> similar to what the kernel supports on arm64 by default, where TBI is
-> enabled but the tagged address ABI is not. (On arm64, there is no
-> equivalent to PR_PMLEN_MASK because TBI is always enabled.)
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+On Thu, 30 Jul 2026, Xie Bo wrote:
 
-Thanks, queued for v7.3-rc with a Fixes: tag and cc: stable.
+> RISC-V falls back to the generic this_cpu_cmpxchg() implementation,
+> which serializes the operation by disabling local interrupts.
+> Consequently, HAVE_CMPXCHG_LOCAL is unset and users such as
+> percpu_counter cannot use their cmpxchg-based fast paths.
+> 
+> Implement the 4-byte this_cpu_cmpxchg() operation with cmpxchg_local(),
+> and provide the 8-byte operation on RV64. Pin execution while resolving
+> the current CPU pointer so the LR/SC loop operates on one per-CPU
+> instance, while allowing interrupt-context updates to race through the
+> atomic operation.
+> 
+> Copy the old and new values to private temporaries before invoking
+> cmpxchg_local(). This avoids collisions between local variable names in
+> nested statement-expression macros.
+> 
+> The 1- and 2-byte operations continue to use the generic fallback.
+> 
+> Select HAVE_CMPXCHG_LOCAL and update the architecture feature matrix.
+> 
+> A percpu_counter_add() benchmark using the default batch value reduced
+> the median time per operation by 77.3% (10 runs of 5,000,000
+> operations).
+> 
+> In three 60-second stress-ng fork runs, median throughput increased by
+> 4.6%. A 120-second combined fork and VM stress test completed without
+> rss-counter errors or validation failures.
+> 
+> Signed-off-by: Xie Bo <xb@ultrarisc.com>
 
+This patch seems to be missing 128-bit cmpxchg support.  Care to add it?
+
+
+thanks,
 
 - Paul
 
