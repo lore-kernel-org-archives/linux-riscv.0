@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7C2C5DF89
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 02:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2998C5DF81
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 02:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-ID:Content-Type:
-	MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3hyDfgCh8/bjSQHogz0Y+iJDJTYXmRHS4Nagkg14nY=; b=VgzOCIPPm+e/eus7mdtrvZXxyp
-	rRSYCxlfmDRKUE6ERSmHzq0+cGJuj5Pq1Ru9DbWhOR8RGAE2d3mL9VlgoEEvj8QC8+TbxWnTRfgva
-	ln1NOVVdHJ9BQSTh6wrK0a9t3q89kIlTJ+MQKy2wnj1P3vPvOejWgup2xkSAsYXeZh4SZ5jfsoGd2
-	HEy8lWBgTfAuO8K9Hxz1UFLbegzXpEHF4WQdeSFcdEFjxv623V6imn4EsxgBtc9wELGuVzZct4Hn8
-	9BK06V06yrNQQYmjJ9QOy7oflapfDnrZvHxgAZwvJfplKNXX6ZPOhka0FQKCOv4lt4vaCGUJ8OhT6
-	Ff/RZOcA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+dIeYY+5yhiOK87zwo4O/AabUMKQxllBr6Ok0JK6dLs=; b=u6FzJaeyvbOq+N
+	rQwMJom5QbZEn7DQDlFsDFo4tbf8oi2ToW3rXbpQRITlCPoctXiunAuY+iDxl0sdNoSMKthshOe0Z
+	LA9Gzy4Bvfih3ribTIkQ0jPLI3yD97eSdDAs6qyfX7KZPFxW0PcLQfA7WrwAXx/HTdIsa8r7z8hCD
+	1BT/XmBLQxa+obb85ZDlYvqityyHPsiFaAcS6urPxdggN640VfDAI6KEPcu+QKc7uO/c73u659NaA
+	aQRvDgwF3GCtiUofpc9uHDVEMlqHc4IRDwUtuWTPzyV7TyXAAxGU0d/JTWdUsqcNpmKJwmCdpUp1N
+	Percn1O2LdiE+1lJAMdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEv6-0000000CS7K-0Fyq;
-	Fri, 21 Aug 2026 02:23:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wxEzv-0000000CSO2-2Z2Z;
+	Fri, 21 Aug 2026 02:28:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEv4-0000000CS76-2SSD;
-	Fri, 21 Aug 2026 02:23:46 +0000
+	id 1wxEzt-0000000CSNw-1MZP
+	for linux-riscv@lists.infradead.org;
+	Fri, 21 Aug 2026 02:28:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E251A40179;
-	Fri, 21 Aug 2026 02:23:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB7941F000E9;
-	Fri, 21 Aug 2026 02:23:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CBDD60A58;
+	Fri, 21 Aug 2026 02:28:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CB3D1F000E9;
+	Fri, 21 Aug 2026 02:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787279025;
-	bh=nwj029qvfIuS0n2IlGGdFsymc671fa/erueghYr3m0A=;
+	s=k20260515; t=1787279323;
+	bh=nHm5YYqrRRHZSeZOc2nzTdyIuo/3xHKfy+ea7BVrX2c=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=FKOdp80K1NCdExfZ1tcV6jarRclI8uxefHf43o0VfsGMY7h6gHGbb2Rx1STpUXm3W
-	 ZqllCnvzbL/8/x8dercSC6kVEvqT2XPEZGyYrbE/rwLPpSiTtbtKl/4vEvNiotiM+H
-	 /ppk8euQ1OD384/8sy5svQj87ViMgNLjapwxeRn6TmnDbBv5i/zXQQ8t/325nQ2NjH
-	 AqolJF6RXXh+L7bpAQA8mNzojnq//qqj9QpSOI+LWw5dQiVChms/JXaexpX7c34u1l
-	 e++Owow0HeRcTCq1jG3DhsIBIx9wYnOEK/idwAIO06GpBh+b3diywe7T4A4oLu4hfJ
-	 p6mVte1Qi/1sw==
-Date: Thu, 20 Aug 2026 20:23:44 -0600 (MDT)
+	b=l7xZzjKTcpZe4QxoCuQxd9B72fdsGOmRpUWDMQkI6PhUOgw2mtyVJJ53+P3UPmI+b
+	 aRZVcOP+6rAnILgTBKJ34/pxsu6nGKjz3kJUYmIr2hIZ0N/mWBNvj0uyxUfXh8TsXE
+	 0BKml8B4YOd2EotWZN+MEIM0yskFVlayXwXBEqpIpb+8gAW318HckX/fhTEn+LoIDK
+	 kbz3XUD0tBXmzj/jbXbESKMSMu6JBWeHfxN2G4a0AeMuSkLYXUA87Ao//ohevbX+jO
+	 KuHW887aTi2/5R8KSA2ZRZWX+ruW0RPml9G14OwB1NlhD8sJICGINRTkAniIkUD8z4
+	 VVtyLv6o9UZ0Q==
+Date: Thu, 20 Aug 2026 20:28:42 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-cc: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-    linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-    linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-    linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
-    linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-    linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
-    linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org
-Subject: Re: [PATCH 07/15] RISC-V: Remove AT_VECTOR_SIZE_ARCH from UAPI
-In-Reply-To: <20260302-at-vector-size-arch-v1-7-a11f03ba2ca8@linutronix.de>
-Message-ID: <236a0edb-76f4-a28c-175b-f43994310a9f@kernel.org>
-References: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de> <20260302-at-vector-size-arch-v1-7-a11f03ba2ca8@linutronix.de>
+To: Jisheng Zhang <jszhang@kernel.org>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: bug: Make RV32 use
+ GENERIC_BUG_RELATIVE_POINTERS
+In-Reply-To: <20260221024255.3552-1-jszhang@kernel.org>
+Message-ID: <a34a939f-1a6b-8e24-d7af-39e38d6abfd7@kernel.org>
+References: <20260221024255.3552-1-jszhang@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; BOUNDARY="8323329-746012605-1787278993=:86110"
-Content-ID: <1dd06b80-a066-feec-b1fa-addb8fb6fff9@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,41 +65,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Sat, 21 Feb 2026, Jisheng Zhang wrote:
 
---8323329-746012605-1787278993=:86110
-Content-Type: text/plain; CHARSET=ISO-8859-15
-Content-Transfer-Encoding: 8BIT
-Content-ID: <c4da6fb9-7dfb-d0d8-ef0a-6c21140cde31@kernel.org>
-
-On Mon, 2 Mar 2026, Thomas Weiﬂschuh wrote:
-
-> There is nothing userspace can do with this value. In the kernel is
-> always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
-> userspace and also changes from time to time.
+> x86 did this in commit b0a848f4a47a ("x86/bugs: Make i386 use
+> GENERIC_BUG_RELATIVE_POINTERS")
 > 
-> Move the symbol to a kernel-internal header.
+> powerpc did this in commit 1baa1f70ef77 ("powerpc: Allow relative
+> pointers in bug table entries")
 > 
-> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+> Similar as x86 and powerpc does, make RV32 use
+> GENERIC_BUG_RELATIVE_POINTERS for "there is only one code path." and
+> "less #ifdef is more better".
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
-Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
+Thanks, queued for v7.3-rc.
 
 
 - Paul
---8323329-746012605-1787278993=:86110
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-746012605-1787278993=:86110--
-
