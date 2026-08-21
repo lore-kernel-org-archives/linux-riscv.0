@@ -4,145 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D219C5DF89
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 14:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E87DC5DF89
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 14:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a9suqlDFixifS/KFAevlgbd1FqJ3hh9CqDde8tD0V8Q=; b=cpXxfYAlgCfRCV
-	luX7xR/fSIEXnCAzC940CyrdDzvfdti39tVYeKKPPZexT+XfMqenUOJjO1XLSBLCI6bCcYxCFjqLS
-	MrwHBSjuPEbVOF5sB+PYyBstE/OEkc5EE/6//akpLdTqj3jyrHXWFYctZdHSAoySbCFKlMvDdpQw9
-	WPWQOPFEbFtbFuiuZEvQ+OSx5/d49878fvd+FPTYd+yW9P7k8RjAgxC/WFphlXQZEkoZOnQE4xGvD
-	Ss1Tn5hjlUR55sS2uL+GZ7Ax85TBgVwhJX/FgMQmzW2JhbXplBrHxBFdjKBrzydSgoR+D5ew/h825
-	uF7p/mzdwsx8IAtD1yKQ==;
+	List-Owner; bh=tdWHBMV/L4wWedSYgaC08DLBJYI/hW0+CSOTnz8tmVo=; b=qOgVDj7IhOMrFe
+	WplouUFev7+4sIwHVl42TmD/90zoTIaqvrtuZTrqilKI0tJZiVa6nTMcX+8sqsUB68EPhWTanClHR
+	4QlXlIxLWmKJEm4N1J8wKuEbP3lh0iivpAUx6vO7m6wCeYH81gD62Ua0n0lvact5SqsBC+I6KJYNC
+	L65RhyIdAuTfRfmjovg08uzlc5qr5cKdHzFTGKGHQ/DfHxFoTVloEzA7VkE36aJxLAgMYrukLpoYd
+	PUkj9LmMaCnP42LY1DZ2Zws26bO3XkDa/t7hYnz4IkiaA/rE1jsOcLWiBIhRdZcTqHYY93/r45zg0
+	sLbGJ7oo2kFd4KbZyoQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPng-0000000DUE7-3B8p;
-	Fri, 21 Aug 2026 14:00:52 +0000
+	id 1wxPqY-0000000DUbP-1Ibq;
+	Fri, 21 Aug 2026 14:03:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPnf-0000000DUDx-1boL
+	id 1wxPqX-0000000DUaw-0h5d
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 21 Aug 2026 14:00:51 +0000
+	Fri, 21 Aug 2026 14:03:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TVSYgqwCXUnUc2sVIjdxHcp4gyn6wWyYnlbJ9uz/cSk=; b=SoMrPXHf9UdOUA3PtlRG4ePoJs
-	AgDlHF30alwnea7DT99qv6YAfQlsI9sTNJDzkeuN3s5dsU9LYRiL3zwIPVIh6uKedRhiwpKYZQS4T
-	GupOrDTy9kF+Q1Khiu3WbQVLit3kbiDu7KR2JYA520V2b2tN+jNRAdF1cswJeHqQhxspTygFtguwX
-	9JB1fKChYqICKVhrdzVE1zMTuv9GH5u968z8lMdirbtH3vlRtVFIieyCLoprhoAtFdjYXnkmoKi2R
-	PfE9PMSNLrs0G8sp4xKQaNl4zhFGsdgMCHRPM19a0X02cogy+ZcHbNfhHQHCbe4DB3SZCE7mpvDaf
-	CN6ICXtA==;
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	bh=Om6T8MSyTD/SG92U5RChhVeEZVX1cV43aK2KvbHIThQ=; b=WDA11cpO+LM0FEUP5CAyk0ahRY
+	op0uLOh/x7O4crKeflDTwDf5SGBiSrVzQFOrrKaQXL8xS1tuFw/DetqUEY8OLiDQfsqNPNlCCSmnT
+	6yWDmjIHnKiuNgQ/DJiPaZcABausaAMkZfA74Me90Snq0al0fHR1Ho0s+NkCugc5EUlzMzvrDsDqS
+	Imc09rBqxJeuC8gVJ2LxQUzpHGfuHbjh+YiB0nrHPAxW4BqMc2YEXyn53zavS0L/XygGKWK//PD8s
+	z7tBPV+3MLOjCp/jOXKjPwrivMfbwUML42aMrNAy3v4pkbpgVkNCQ7I67BM+eXTkiICUSZcbvrDHZ
+	Jd6mv4yw==;
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wxPnc-00000003oVK-0fr1
+	id 1wxPqU-00000003ojH-0oPp
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 14:00:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sOoXLEjot2Yf2bm6AqKQlSzpzswIGru3iI3uiQSSNgORC3vTRZpxeR/32EPHkE0PI1cr59IZEygip982XwxCwbKHS1U1KxXLKMjN83Os1AKa1If+vbsBXjHPNbe1Au5JiVSw5KO0VXlM2w0m35P0Qq5uR6p0XuZiAdnBv8tgJm14ZDa9cz6veXKvS0xP1o1/JTkMAwnljeZL4Om4X2RqFL9uUN9ndLDqPgIiiHJEDQ+AIag3c1XQjnFNEnEfUaR3GwvgW15Nc3qsxquk3TAz71k/7V8NihwQ6QjhJ7m6TEpVgICOIwZ/AYnAXddiGyQcAWPamzJ9aTs4UQuUZD8irA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TVSYgqwCXUnUc2sVIjdxHcp4gyn6wWyYnlbJ9uz/cSk=;
- b=w6vhfOzOSPtQwsEiA+WNnHcUYEtYHfGBHsi7E8edtKAolPmfzR8gurdRZRanS3tpOjKLsftwN8n2uW/IXFqAjxq5r+nehCWVTpSHEUCiA4UZsjx7SNxjucCw1c6RET6xWn+ZQtScMurMAJtpngfPPl9J+mIcMveOa08Cf7QS4lOe0b5m+lS+g3v3fs4w9YOYVbjs0sR3LJOQKrBJFzOfnmvINsbb2wxY9CJ1xeSW6mMI1d0PaTnv+H1SIRGDtVzS4Uoop4yNt6TPAqTUB4rkA/j8Hu8YR4o40Fj17QC/EOUdgXozsRf6Job+VsEyU1pyz3sLlCErSwvavohyjXDEJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TVSYgqwCXUnUc2sVIjdxHcp4gyn6wWyYnlbJ9uz/cSk=;
- b=eNKtvwKD7Z/XQdN7XvNdVyJROH2o3neFJOluxd107Djc/cezjhXTvP+T7EEM3582Tmxto171+L5LoGq1DEJvWh4u+I/Rj0cR19pxOjBgMSY+vrcNqJfgJnR99k8ZjvO81NmS9zl0miuugWCg2cyPCWxYvo/jBH6veiJ+sncZjwTrXIzn5PBMAR3rldJDscl93+VVJomKCS1Y+JFoeNa54zXWWFsjvgJdJ5yP38e/gq+PxF6zOThXOWBVoLL3GLQ6VTifBMilimdERS67VoL0hlJYX6XgSginF1F6BrCJNSJD8i+ZE/ijJpKoStFoS+Tseu7sAOxEpUzXvzjOEqRzew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SA1PR12MB6727.namprd12.prod.outlook.com (2603:10b6:806:256::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Fri, 21 Aug
- 2026 14:00:34 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0339.010; Fri, 21 Aug 2026
- 14:00:34 +0000
-Date: Fri, 21 Aug 2026 11:00:33 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
-	tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
+	Fri, 21 Aug 2026 14:03:48 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-51c0006ea8eso7174061cf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Aug 2026 07:03:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1787321023; x=1787925823; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Om6T8MSyTD/SG92U5RChhVeEZVX1cV43aK2KvbHIThQ=;
+        b=hhjr4Js1x6kJgPOPtMFSgp2sXCV5CQ4e9Ph4DN91wxrEAuk+M1qCVBuRJrLwu9YFWl
+         yh4J5tMBamw/voYCXR/oxaxT7ygXYxVuor1l25Z2pIbMhpZjna2Uk44ryeBh3FQx+6Aw
+         Q1yQp02cFLTWz7Ggo1ClLyVTwRPyOAApvRn5anQdG+fz0vnUTgcrIPnJA4utb1wTIY5D
+         gunD2TeARV2lypRmIqiBDNtE/Xx2XuIRnm932muKqMT82/FJgX4Vc+KaS2cKz9WFYZ2O
+         sdsrWyaWtAaxJ3oIjI+FFpMmLbm3hn+sJmEa+L8LUTtcbGVIGlsARNfc4jWLm0Hm4fwk
+         Z4og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787321023; x=1787925823;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Om6T8MSyTD/SG92U5RChhVeEZVX1cV43aK2KvbHIThQ=;
+        b=gZ3rfkB5xC2xdawqKkr9mX6exfyss+HsTA23VrhO8+6KdbRIwcdHKx3LrAKwrxolts
+         eD3QvZ6uUBCTqILiyIXzqJrl7bYi4WPPLXdm90lctxbkyoHIySw+h4OBLANYtPD0PYsE
+         iRI1OHEKPvxZyLu5qvXKLZrCPzefSQzJd5nY5SYqIruvb7OvCua3US44jwigzRuWGP1T
+         lrI135NPpRwwk/SX3zLflKMdfSnjJrsCRDbXtpaUC+yKO6CcJuJ+qdhWJloay1YMKgIF
+         rJb8Hes0KXaTjCiqB82AwmVELIZ8B2K0J0pGUhQR/i4S/6msWUfU4uayuWIinbyLpA26
+         QDKA==
+X-Forwarded-Encrypted: i=1; AHgh+RqsDEOsX43vNLVGhGjbIPnPQcA4alZbA79r7rjxaV99Ys7sT4yPoQcstQ43Imr6JT9gw0FFoVbROtfc1w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw76foXh8zLYb1Yf/pLu7q6+QNR1h55lAP0hiFh/dxOEbjyI8Pb
+	Srvun3qWabuZFv1+ji6/xgPears3NG5SqxO/9GeSyIX+mFjIvR+Z3WZEGmqOGEJ1v0I=
+X-Gm-Gg: AR+sD103pp3xGroxjEX+Wpaa5ho99hx3GJO6/nEb5eNVGrJCrJI2t4jLXr3o2/nyTDk
+	tRWdMga2woWzCqaioOUfWnUc+Ni5YoR5/TitEQIhDunAUbO8iK68U68vi9Eo+4KZ6KEISnLr0Ci
+	8+ATayRxnhBW8GUTxYzlmdOaOAjmedOvhCWYgeBOjTA0GzF3EY8lwsIYtGcqGNiuXtQV3Z5hnae
+	JTmrpHEEE9AHRjl4NzIn4UXqp/tJ2uI4qrC1MvsXr6jvf8mD7ul9NyT53tBkGKnfPA+pIXKQLW/
+	PXyt3/L3yTUr6SGeAQTpSyT84hYqfaI1FH9xbUAaHY1k6eY0eE02Sj49BNUX6RBvjJM5RPUyB3/
+	ug/gC14Z7YGXh0pR8L0mo46czRkhrAdz8OXbaA6O2CHlXgqB983WV82LN2owEn2mpeb7+/JHF1y
+	vObjkoi+Y+obcBTF7rXx4kf71WlbklHcki3rdPSGesPy5IWVMZ7xhfzeprhT9JaOKH3yZTB+4Qu
+	Wxv4AWxD8tDuzUky41HnOx2wpPrRXmy1uWZjG1rX0WQxg==
+X-Received: by 2002:a05:622a:2305:b0:51c:849b:86b with SMTP id d75a77b69052e-52df5ba9d6fmr58940341cf.43.1787321022876;
+        Fri, 21 Aug 2026 07:03:42 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52dd87823efsm51424521cf.31.2026.08.21.07.03.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Aug 2026 07:03:42 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wxPqP-00000006349-1gzv;
+	Fri, 21 Aug 2026 11:03:41 -0300
+Date: Fri, 21 Aug 2026 11:03:41 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: fangyu.yu@linux.alibaba.com
+Cc: tomasz.jeznach@linux.dev, joro@8bytes.org, will@kernel.org,
 	robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
-	anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
-	fangyu.yu@linux.alibaba.com
-Subject: Re: [PATCH v4 02/21] iommufd: Add iommufd_sw_map_msi()
-Message-ID: <20260821140033.GH244917@nvidia.com>
-References: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
- <20260820214150.545737-3-andrew.jones@oss.qualcomm.com>
- <20260820220908.GE244917@nvidia.com>
- <gr2h3ktgacozyo7rdggkxsg5mbdtzcnimaawd24c37hnf2tun3@hqivsenaq5wd>
- <20260821120204.GF244917@nvidia.com>
- <zygm4qm3fjv57nsgcectwikfa3cdnidxnhv55nxv4b6l2kllrs@dt36j4p3zhoa>
-Content-Disposition: inline
-In-Reply-To: <zygm4qm3fjv57nsgcectwikfa3cdnidxnhv55nxv4b6l2kllrs@dt36j4p3zhoa>
-X-ClientProxiedBy: YT4PR01CA0365.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:fd::16) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	aou@eecs.berkeley.edu, alex@ghiti.fr, baolu.lu@linux.intel.com,
+	jroedel@suse.de, zong.li@sifive.com, andrew.jones@oss.qualcomm.com,
+	anup@brainfault.org, kevin.tian@intel.com, atish.patra@linux.dev,
+	skhawaja@google.com, vasant.hegde@amd.com, guoren@kernel.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [RFC PATCH v3 02/10] iommupt: Add RISC-V dirty tracking PTE ops
+Message-ID: <20260821140341.GC1114497@ziepe.ca>
+References: <20260821132749.82070-1-fangyu.yu@linux.alibaba.com>
+ <20260821132749.82070-3-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA1PR12MB6727:EE_
-X-MS-Office365-Filtering-Correlation-Id: 184dcc95-b237-49c0-c304-08deff8c91f7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|10067099003|56012099006|4143699003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: fTccslmbVcq/OqnvvHXzWkTG3CUCVRO7Xdi89nrUsxheEvwE5UOjzX5vBpoSoMoQfAo0/W5hSJJljjvnf/32TnqUhbDDMW0u/VBeBes0kSALoxYEE7EmGkybNXY9tytXzcnl1Tw3lqR7iOtTEexqA8UMfS/NBTxepUuI4oNg2VYg70dj7Oep1kb4e8efNZFpvoXgnj/MemYW3Ijpl+dOiQRzxSriaLqC7wkskuH3HcjRUGf92r5Khx6WI+z9Ib+xa9gzaycsF3hdfma94kHHtNnKVXz6sbz6/7okg51J1k8IwltDVoO3qh6JWnHQ8MrMUMZ9Q+uUVtM9RPeg1YdqIFvtqHi8cdqGB+HHcBaiXjqhuLpoQ/YdfJajocfeu5N0MXuEZvdxetIgde6p3IG2N70m1RIJ5A4CFFe1E7N7EcjMMrM1Eanv1X80hmtfPhDFsPeuXa0WlY0+gMi6faYGhloFhVr4B1Rj7tWYkj4cg9wQHHLwICNDZ4me7y9PoiVnAdkt0Kp2ynFzRIxD111xroyqAgIftF9TIq7vMsdBi1xri+7QWmX8T15T3GZGDuO6pOsgO8FGiolSWmRwvvBoYDZH3WHfT7TK/G3MMhx5t4jwFAZWOWwyVvM1HeUuIPhYhL0mjpg+HoBP3/fjMrlO3OMMVVP8B0C6WeRTWZiC2dk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(10067099003)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YrIA2p5Abi1fBOdwyaA/TKa502gowI4qG9MHnP36MUploOGJuE8WuAEhQ92W?=
- =?us-ascii?Q?neMPciGIp0m7f4WNvpcSeK34lHptx59P40fKyZM6Io88vH7mM+PO/M3ctKgy?=
- =?us-ascii?Q?k5fYOVt71fD15a1uVR73oiaL0xJO5cyjAmWcWzo6L/1Julpar2vkyaZHMpsi?=
- =?us-ascii?Q?4nEbBl97leD3jV+XiviNRZofxRrSVfKssZ5/jv+qcRbPXlbwqbyNKpbvgOyN?=
- =?us-ascii?Q?dadghGhVt47c7TOwnU5Kb9VMBXgbaacvV4zW1EZcVr+rqzm6DNgX8cJi/uFz?=
- =?us-ascii?Q?lfJSb6EWsK1si0zSquZKO7WwGhDXHaPTR7WU722DAcP9PC3FFFXLCLfg0BbB?=
- =?us-ascii?Q?kOK1JvDIUUIbpcBMXr93NThZlGTbFgxGYXnn77uGpo54d9wUNdQXizYMsJhf?=
- =?us-ascii?Q?RIG/0u/CZnHIrr5/DU1aN8kujr8SsryphTV0az8A+HF7UUwtdeRPvHn6YUtr?=
- =?us-ascii?Q?e0NwHXGAlMLbvs7bG1O/h7m1ObJyuqWL/NrABAH3xIPhnpLnvOut0Osvgbqs?=
- =?us-ascii?Q?oWQ8m8sp0/21bAKappy+SRxIwQIX8or/gSzzW/ukDbLaJFHlKcfEH7Au67Ts?=
- =?us-ascii?Q?R4WTMCbhSYV1K14XIHXrxU8m29JzKkjYPH9l3lXBQlnUntyKxa7JNXvRoMNd?=
- =?us-ascii?Q?FpvA257UetJ2tw7EXzkC7sZGH60kGcDJcwEzzt74wQ0ICPVqDpWbBNjNnU+l?=
- =?us-ascii?Q?bDRdK2i2/+5EVqbGHYnmyZ3ZLaGvHmklzrn3WgFMmVr9TDONpZC0JCn1fWeV?=
- =?us-ascii?Q?7EEVeGsVFqEyBrgbarukc2DJ+ScgIuMNN848rwV2QwuRlLTJQpouuT/kRLGN?=
- =?us-ascii?Q?80DWtMd/ixqVfrT5pldVI/nmyBn6VBW9p23TOjx/DXQNzJhmV2gSIGB7qIx/?=
- =?us-ascii?Q?VyLufAy2+Nf7NV2N5OEIQ8mDSMumUARaSt2Kxnpkq5jSPOIrW5/z9172LDtM?=
- =?us-ascii?Q?UpemBHl2o/IPEPI5l4Y3+Z1YkbXJRjhemV4Q+oo3DyhSoNeCZ285eKwKeeRy?=
- =?us-ascii?Q?qBXoX4RDtBajLoBFzaabEu7Xv3cnFqZAnhUEOn0pmoHTn4XB2Gy0iGbyHH+i?=
- =?us-ascii?Q?aruxNig+lPRmg8BJIVVMYPdA6/qS8hrJG1O+PBqbKdv4hhkfMbnQNLj69S2C?=
- =?us-ascii?Q?T2OtlzH7/T00/fLwFzaTAUIBY6BtulSLEixI4EJmJqvZEImrOIJXmijxtkqz?=
- =?us-ascii?Q?2b5w3bcRocM/o5TmMYRhEVWiREe5NuB2uZEgA2RP8eBscjnc6g8tFszrnlfU?=
- =?us-ascii?Q?MSIb4WjYAsz6zsuTry4JfUtjCx0YCWEyTTVSw8ia/Kbla2JXPeZZQfiaFsfl?=
- =?us-ascii?Q?AFShlXLZgKtcw13hD1sKGGdVhRkh1GUnN0UVCALqPEGjsON/v3yd1+ITQ+WN?=
- =?us-ascii?Q?c75/iDfaOJHl8l/992BGjagzHTcYIxfq7k+ZTOzTXgCFxe+Cj2CS3j/U2pgn?=
- =?us-ascii?Q?79wpqIX6YCXt33Cvx8fgatgqaXf0dcz3E+Jpq907IHmCQD5dRQxcRR0cxPIT?=
- =?us-ascii?Q?rk1yA8ZY27jVOHqAdl2XtrEHwReo9h0rfoW1TmJIw2u1l3O/4ugUtlwBLmcq?=
- =?us-ascii?Q?FcRsPi55JfzsMikowJ4GfyUUrIHBdcE0C2Fa4L25t8kewGZBdvciyyO27fmU?=
- =?us-ascii?Q?uQDo0O+tx+FJ2AvOZYwWorPk+E3IFkyjfVhDpnjje0qT1dxZyUwWwjpuSF6Q?=
- =?us-ascii?Q?AG8XDQBUY5HGO+aC+PC7N1VP0wLS4W3CL1/k+8zBxBgZtQwA?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 184dcc95-b237-49c0-c304-08deff8c91f7
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 14:00:34.4819
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /kmPL5vi5ldR18OXKBWKC/0cGaA+OJK+RXYgsy1X72+d1763Z8hrfUHyVNje5Pzz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6727
+Content-Disposition: inline
+In-Reply-To: <20260821132749.82070-3-fangyu.yu@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_150048_419779_683EC3EF 
-X-CRM114-Status: GOOD (  26.92  )
+X-CRM114-CacheID: sfid-20260821_150346_395356_ADFDAD4C 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,53 +127,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 03:47:17PM +0200, Andrew Jones wrote:
-> On Fri, Aug 21, 2026 at 09:02:04AM -0300, Jason Gunthorpe wrote:
-> > On Fri, Aug 21, 2026 at 01:07:03PM +0200, Andrew Jones wrote:
-> > 
-> > > > What I rather expected was for riscv to have a PA window that is very
-> > > > big and not just one page, eg adjust iommu_dma_prepare_msi() so you
-> > > > can pass in the entire PA space that you need for the affinity
-> > > > changes. Maybe this is a list of phys_addr_t ?
-> > > 
-> > > That's more or less what this series does. 
-> > 
-> > But it does it in a completely different way, and I'm struggling to
-> > see any justification for this.
-> > 
-> > Again, just pass your list of PAs to iommu_dma_prepare_msi() from the
-> > irq domain seems like the easiest and most ARM aligned thing.
-> > 
-> > When you need a new IOVA for an affinity change the PA's are already
-> > mapped a simple offset calculation is that is needed.
+On Fri, Aug 21, 2026 at 09:27:42PM +0800, fangyu.yu@linux.alibaba.com wrote:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 > 
-> Ah, I see what I missed. The proposed batched API would guarantee a
-> contiguous IOVA range, so the descriptor could cache the IOVA base and
-> then the riscv IR compose-msi-msg could simply compute its target off
-> that base. That would indeed eliminate msi_iova[] and all its complexity.
+> Implement the three dirty-tracking hooks required by the generic page
+> table framework for the RISC-V format:
+> 
+>   pt_entry_is_write_dirty():
+>     Check the D bit (bit 7) in the PTE.
+> 
+>   pt_entry_make_write_clean():
+>     Clear the D bit across the full contiguous range.
+> 
+>   pt_entry_make_write_dirty():
+>     Atomically set D via try_cmpxchg64() on a single PTE.
+> 
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> ---
+>  drivers/iommu/generic_pt/fmt/riscv.h | 43 ++++++++++++++++++++++++++++
+>  1 file changed, 43 insertions(+)
+> 
+> diff --git a/drivers/iommu/generic_pt/fmt/riscv.h b/drivers/iommu/generic_pt/fmt/riscv.h
+> index 5692c033dbde..09581798e753 100644
+> --- a/drivers/iommu/generic_pt/fmt/riscv.h
+> +++ b/drivers/iommu/generic_pt/fmt/riscv.h
+> @@ -226,6 +226,49 @@ static inline void riscvpt_attr_from_entry(const struct pt_state *pts,
+>  }
+>  #define pt_attr_from_entry riscvpt_attr_from_entry
 
-Yeah, that is pretty simple like that
-
-Then you just need to teach everything downstream to have a list of
-phys not a single phys and thats an easy to understand delta
-
-> ARM calls iommu_dma_prepare_msi() from ITS since there is no SMMU
-> irqdomain and ITS owns the MSI target.
-
-Right SMMU is not involved in interrupt translation
-
-> This series adds a RISC-V IOMMU IR irqdomain to replace the IMSIC PA
-> with the corresponding IOVA, so the IR domain's alloc callback is
-> the right place to create the mappings through common
-> DMA-IOMMU/iommufd code.
-
-But RISC-V IOMMU is also not involved in interrupt translation. Beyond
-it could remap the PAs which represent the CPUs, but you are not using
-it that way since it is statically setup.
-
-So I'm not sure why the iommu gets an IR? Isn't it the same as ARM
-where the IMSIC itself just has a wack of PAs it needs to access so it
-calls iommu_dma_prepare_msi() to do it?
+Does this work for all stages or does it need  pt_dirty_supported ?
 
 Jason
 
