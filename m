@@ -4,58 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88262C5DF87
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 01:27:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD0BC5DF87
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 01:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QTEtzv6hIcKzUhhd1aWyzyVDcyL6baUmKathIGZIGhI=; b=KsloPT0K4N/s80
-	sWsto9nKEGYaD5xw/Rb1xm6XRg2Qig6KAUjSB7a9lYZkwrNWZkrIE4NS5VkeiDFc5OnyQzr+Bg2Io
-	wQvdxC3of5ZySMmHDoOTgB866v9NB/2hzNoemYA9U4USvsqFacayIhzZUAt7EmtnP5yWbTqsVmjlc
-	zXWEcgVDe3PdJCi4BO+NkN1Zg/h2pjkN9ocLmfMXyC79C22rhrsigzthrX2TFXQ2MBLkZk8IPr01P
-	iLtx79Xz5BsB3Y25/rLMtRr0pHAZ6GlGGuvSZRAq3RbscekrAWL6N/I6eaYEfH4Y+FiB5Baeykink
-	Czy9N3gWMT6at0YFH0bQ==;
+	List-Owner; bh=jx1jNRU03t9rl4mNz2iJu4xi8qH2ClgzbqfnBfIQHmQ=; b=18kb1VHkBMyn4P
+	3HXpgFNIlX4Eyg/t2j8W1QHT8ld4CXWkPYMlhKsmouhulxUZygLjSjZghte1f7RFDfUlG/zcmY1lr
+	tkpy5fhOhM5+h0PAS4cjQc/LCX/sr+Tw4Xzjw+wEJqzeT8VYamrMzLTKJ46YdU0axtW9mOz/Foniq
+	OBHAqPbmI3Gy+jW09M29qPFt/3FS5bWIb21enIggkAiFzlCbJ06zxgkurLKcGp7r0fvClWHtrSl7J
+	ARfmMt/TdxmlwnbhlmWNAC6AQBb3Eu/7KxXY1kE1LzOew/StutPmSI7Paga7rTo9Vy7m1CFJOFG9v
+	/qJkabs6J3e9+kcFdZFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxE2V-0000000CQ35-3bLx;
-	Fri, 21 Aug 2026 01:27:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wxEJn-0000000CQd1-0s3b;
+	Fri, 21 Aug 2026 01:45:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxE2U-0000000CQ2x-0bSs
+	id 1wxEJl-0000000CQch-2CRu
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 01:27:22 +0000
+	Fri, 21 Aug 2026 01:45:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D8D9260A58;
-	Fri, 21 Aug 2026 01:27:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 320B91F000E9;
-	Fri, 21 Aug 2026 01:27:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0106D43ECF;
+	Fri, 21 Aug 2026 01:45:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56E931F000E9;
+	Fri, 21 Aug 2026 01:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787275639;
-	bh=/YvkqO1Co8rgXsGiEEuyiIzaT5tlySRac/ZA+XW5nAU=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=G6PPtaLkflZk3MTvspaS+cIYDyds2Bql7vWVSowsj9PNZLKEOHqY20F3VBht+OmDG
-	 Lry/15CZ5gFe31X80DSUoQ1tpbI6z83yCLGwfnfZCQxS5pQV68fqYELjtOli9J45nf
-	 OxhlIinkSrsqdgmJLwHJ9RWFWygnrGjIaCGfOwZKQdsL2tUJ2dNMcuQDNa95GKg5TY
-	 EmxDYSNOpuLe+L7Xk69DS6kjVF9HMLzkTVoMc4emBCGXglXqr8FwnPQFqZQzOezhLs
-	 mAnoM4uDW2LgiLudE6yHax2WzwLAAUnuf1Tp/UmZ9veCFtrjI98umQl8YsX3aYF7AE
-	 4HcVId5PTEnfA==
-Date: Thu, 20 Aug 2026 19:27:16 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Xie Bo <xb@ultrarisc.com>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, Dennis Zhou <dennis@kernel.org>, 
-    Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, 
-    Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-    linux-mm@kvack.org, linux-doc@vger.kernel.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Add native this_cpu_cmpxchg() support
-In-Reply-To: <20260730094407.16588-1-xb@ultrarisc.com>
-Message-ID: <8b8cbb4a-474d-1de4-eaf2-dd8b4e6ca8ec@kernel.org>
-References: <20260730094407.16588-1-xb@ultrarisc.com>
+	s=k20260515; t=1787276711;
+	bh=EytWCRbUnZTggNNvhZbYX0Ci1gaj4r9l+nuPXwpNRxU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EMcY7emrBcx15ZBTZ9TyK2MNPtpanSb+MnUMIopeyZQcYhyTLsHpuigLAJUQwo7FM
+	 F2qdP4ym5yj4H2OkwR74YGulydlBbmWsQbisAo1Lg073q9qvTFNJEuWkEd8sF6dRcI
+	 aAbONeH74vvBPwUG9wQ35Hn9CASAEdCPaNeKDFK4ePSCHBpS1MIcBGXndg/5mFBzIp
+	 Lw6phJWkQVCzV8Nju3i6P9k5kWuQSSDHOAO8iQ5IPyyldY5t5AyZsvsfZInb/YxX2T
+	 8/athXNG1bCGTDhb5o6JEiYSli5CjGCrrwB5diUDx8ggSJbPvu7sFTTIyLQJ+1dnjZ
+	 4HFIUzpC5lyVQ==
+Date: Fri, 21 Aug 2026 02:45:03 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Janani Sunil <janani.sunil@analog.com>
+Cc: Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich
+ <Michael.Hennerich@analog.com>, "David Lechner" <dlechner@baylibre.com>,
+ Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
+ <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, "Jonathan Corbet" <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Mark Brown <broonie@kernel.org>, Marius
+ Cristea <marius.cristea@microchip.com>, "Marcus Folkesson"
+ <marcus.folkesson@gmail.com>, Kent Gustavsson <kent@minoris.se>, Conor
+ Dooley <conor.dooley@microchip.com>, Daire McNamara
+ <daire.mcnamara@microchip.com>, Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, <linux-iio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>, Janani Sunil <jan.sun97@gmail.com>,
+ <linux-spi@vger.kernel.org>, Kent Gustavsson <nedo80@gmail.com>,
+ <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v9 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <20260821024503.592fabc1@jic23-huawei>
+In-Reply-To: <20260820-ad5529r-driver-v9-3-ba62e0b2a816@analog.com>
+References: <20260820-ad5529r-driver-v9-0-ba62e0b2a816@analog.com>
+	<20260820-ad5529r-driver-v9-3-ba62e0b2a816@analog.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,45 +85,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, 
+On Thu, 20 Aug 2026 09:08:23 +0200
+Janani Sunil <janani.sunil@analog.com> wrote:
 
-On Thu, 30 Jul 2026, Xie Bo wrote:
+> Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
+> from Analog Devices.
+> 
+> The device communicates over SPI and supports per-channel output range
+> configuration. An optional external 4.096V reference can be used in
+> place of the internal reference.
+> 
+> Signed-off-by: Janani Sunil <janani.sunil@analog.com>
+Sashiko calls out that dependency should be on CONFIG_SPI.
 
-> RISC-V falls back to the generic this_cpu_cmpxchg() implementation,
-> which serializes the operation by disabling local interrupts.
-> Consequently, HAVE_CMPXCHG_LOCAL is unset and users such as
-> percpu_counter cannot use their cmpxchg-based fast paths.
-> 
-> Implement the 4-byte this_cpu_cmpxchg() operation with cmpxchg_local(),
-> and provide the 8-byte operation on RV64. Pin execution while resolving
-> the current CPU pointer so the LR/SC loop operates on one per-CPU
-> instance, while allowing interrupt-context updates to race through the
-> atomic operation.
-> 
-> Copy the old and new values to private temporaries before invoking
-> cmpxchg_local(). This avoids collisions between local variable names in
-> nested statement-expression macros.
-> 
-> The 1- and 2-byte operations continue to use the generic fallback.
-> 
-> Select HAVE_CMPXCHG_LOCAL and update the architecture feature matrix.
-> 
-> A percpu_counter_add() benchmark using the default batch value reduced
-> the median time per operation by 77.3% (10 runs of 5,000,000
-> operations).
-> 
-> In three 60-second stress-ng fork runs, median throughput increased by
-> 4.6%. A 120-second combined fork and VM stress test completed without
-> rss-counter errors or validation failures.
-> 
-> Signed-off-by: Xie Bo <xb@ultrarisc.com>
+I didn't check it's reasoning but I believe the conclusion is correct.
+If that's all that comes up, I can tweak whilst applying.
 
-This patch seems to be missing 128-bit cmpxchg support.  Care to add it?
+Looks good to me, but I'll leave it on list for a little longer
+as we aren't in a rush and others may well want to review.
 
+Thanks,
 
-thanks,
+Jonathan
 
-- Paul
+> ---
+>  MAINTAINERS               |   1 +
+>  drivers/iio/dac/Kconfig   |  16 ++
+>  drivers/iio/dac/Makefile  |   1 +
+>  drivers/iio/dac/ad5529r.c | 538 ++++++++++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 556 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 320e84765ce6..143714e27d51 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -1513,6 +1513,7 @@ L:	linux-iio@vger.kernel.org
+>  S:	Supported
+>  W:	https://ez.analog.com/linux-software-drivers
+>  F:	Documentation/devicetree/bindings/iio/dac/adi,ad5529r.yaml
+> +F:	drivers/iio/dac/ad5529r.c
+>  
+>  ANALOG DEVICES INC AD5706R DRIVER
+>  M:	Alexis Czezar Torreno <alexisczezar.torreno@analog.com>
+> diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
+> index 657c68e75542..6a7109f42f2a 100644
+> --- a/drivers/iio/dac/Kconfig
+> +++ b/drivers/iio/dac/Kconfig
+> @@ -134,6 +134,22 @@ config AD5449
+>  	  To compile this driver as a module, choose M here: the
+>  	  module will be called ad5449.
+>  
+> +config AD5529R
+> +	tristate "Analog Devices AD5529R High Voltage DAC driver"
+> +	depends on SPI_MASTER
+
+depends on SPI
+
+> +	select REGMAP_SPI
+> +	help
+> +	  Say yes here to build support for Analog Devices AD5529R 16-Channel,
+> +	  12-Bit/16-Bit, 40V High Voltage Precision Digital to Analog Converter.
+> +
+> +	  The device features multiple output voltage ranges from -20V to +20V,
+> +	  built-in 4.096V voltage reference, and digital functions including
+> +	  toggle, dither, and ramp modes. Supports both 12-bit and 16-bit
+> +	  resolution variants.
+> +
+> +	  To compile this driver as a module, choose M here: the
+> +	  module will be called ad5529r.
+> +
+
 
 _______________________________________________
 linux-riscv mailing list
