@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E666C5DF87
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 02:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D7C2C5DF89
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 02:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8y3GVQFpbaTYxryc25IK3nNuEyc6jj6k8Nx33uPk9gc=; b=f29SefOUjB2hpH
-	DdPF+KEJDHZlffQ+CyJxdtCjLmgDGJJWR39S4E+MPCIE/ve73RjVlsCJn05j8nw94opf/FzpE6IBY
-	8di1cCO2Rysrdk6LX6Yj6BEfMk3MMWoRbYuyY7lkedSC61iR742h6VFyUh67UAwdOojcEgP0Hx9sX
-	WEWivwPzE7WIohvJiWTHJf3H22BSrk/MD+wTvvYFJP50gRfLV0sF34hEo5ynvPBUlNKm+si+fLmvQ
-	WME7cvJoictUzwS9/PmYqp+5EcF9djR7bsspAEAjqj5qgyvE1qwbWmNtFjP+U0YNloxidvmMvzva6
-	unEOTgHcNRetwmNfOwwg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-ID:Content-Type:
+	MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i3hyDfgCh8/bjSQHogz0Y+iJDJTYXmRHS4Nagkg14nY=; b=VgzOCIPPm+e/eus7mdtrvZXxyp
+	rRSYCxlfmDRKUE6ERSmHzq0+cGJuj5Pq1Ru9DbWhOR8RGAE2d3mL9VlgoEEvj8QC8+TbxWnTRfgva
+	ln1NOVVdHJ9BQSTh6wrK0a9t3q89kIlTJ+MQKy2wnj1P3vPvOejWgup2xkSAsYXeZh4SZ5jfsoGd2
+	HEy8lWBgTfAuO8K9Hxz1UFLbegzXpEHF4WQdeSFcdEFjxv623V6imn4EsxgBtc9wELGuVzZct4Hn8
+	9BK06V06yrNQQYmjJ9QOy7oflapfDnrZvHxgAZwvJfplKNXX6ZPOhka0FQKCOv4lt4vaCGUJ8OhT6
+	Ff/RZOcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEjN-0000000CRWD-3YBX;
-	Fri, 21 Aug 2026 02:11:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wxEv6-0000000CS7K-0Fyq;
+	Fri, 21 Aug 2026 02:23:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEjN-0000000CRVu-0Eln
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 02:11:41 +0000
+	id 1wxEv4-0000000CS76-2SSD;
+	Fri, 21 Aug 2026 02:23:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B61342339;
-	Fri, 21 Aug 2026 02:11:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D414E1F000E9;
-	Fri, 21 Aug 2026 02:11:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E251A40179;
+	Fri, 21 Aug 2026 02:23:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB7941F000E9;
+	Fri, 21 Aug 2026 02:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787278300;
-	bh=OEG0v2HGsE+hywve2JgEKb25loMOtaO4622dEMT+sgI=;
+	s=k20260515; t=1787279025;
+	bh=nwj029qvfIuS0n2IlGGdFsymc671fa/erueghYr3m0A=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=jWiA18cgAochHeVvRo5YIRh7lP5+9ftZAJXSgTXrPUOTCCq2HuiL1E+YSZaGSeHMv
-	 YVlWcjiJXCIXWI7D3s3GgPBC0JdkF1vuttv74XqYA95fPjD0aMyvBS5NPSRgs75YQn
-	 9Tlt1it1n2WoGJ/bRP8BFLTMoUVXb/ecBPuGpaTJds6kkN2c8PH0oCMC2sE/29im1b
-	 O8Xfkm4j7Bm2sUAaHhT4IkM+mgTCZxy94hFDcaUKZgK1jpxOig4ri+pOIQUxqWQ2Gs
-	 mT8odKt+3o0Fmq6CXkM/4Bya/c0dEOjI79Q6M9I2wKUY7qZ9DV06wlhlM6AjoJQuVX
-	 KtxOW+Ibj86hg==
-Date: Thu, 20 Aug 2026 20:11:37 -0600 (MDT)
+	b=FKOdp80K1NCdExfZ1tcV6jarRclI8uxefHf43o0VfsGMY7h6gHGbb2Rx1STpUXm3W
+	 ZqllCnvzbL/8/x8dercSC6kVEvqT2XPEZGyYrbE/rwLPpSiTtbtKl/4vEvNiotiM+H
+	 /ppk8euQ1OD384/8sy5svQj87ViMgNLjapwxeRn6TmnDbBv5i/zXQQ8t/325nQ2NjH
+	 AqolJF6RXXh+L7bpAQA8mNzojnq//qqj9QpSOI+LWw5dQiVChms/JXaexpX7c34u1l
+	 e++Owow0HeRcTCq1jG3DhsIBIx9wYnOEK/idwAIO06GpBh+b3diywe7T4A4oLu4hfJ
+	 p6mVte1Qi/1sw==
+Date: Thu, 20 Aug 2026 20:23:44 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Andy Chiu <tchiu@tenstorrent.com>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Evan Green <evan@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, 
-    linux-riscv@lists.infradead.org, bergner@tenstorrent.com, 
-    kito.cheng@sifive.com, dfustini@oss.tenstorrent.com, 
-    greentime.hu@sifive.com, Andrew Jones <andrew.jones@oss.qualcomm.com>, 
-    Deepak Gupta <debug@rivosinc.com>, Xu Lu <luxu.kernel@bytedance.com>, 
-    Yao Zihong <zihong.plct@isrc.iscas.ac.cn>, 
-    Jingwei Wang <wangjingwei@iscas.ac.cn>, 
-    =?ISO-8859-15?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Subject: Re: [PATCH v3 1/3] riscv: hwprobe: initialize pair->value in
- hwprobe_one_pair()
-In-Reply-To: <20260725001614.2578617-2-tchiu@tenstorrent.com>
-Message-ID: <48f9d505-b80c-e6c7-1623-b86822393dd1@kernel.org>
-References: <20260725001614.2578617-1-tchiu@tenstorrent.com> <20260725001614.2578617-2-tchiu@tenstorrent.com>
+To: =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+cc: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+    linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+    linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+    linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+    linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
+    linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org
+Subject: Re: [PATCH 07/15] RISC-V: Remove AT_VECTOR_SIZE_ARCH from UAPI
+In-Reply-To: <20260302-at-vector-size-arch-v1-7-a11f03ba2ca8@linutronix.de>
+Message-ID: <236a0edb-76f4-a28c-175b-f43994310a9f@kernel.org>
+References: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de> <20260302-at-vector-size-arch-v1-7-a11f03ba2ca8@linutronix.de>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; BOUNDARY="8323329-746012605-1787278993=:86110"
+Content-ID: <1dd06b80-a066-feec-b1fa-addb8fb6fff9@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +69,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-On Fri, 24 Jul 2026, Andy Chiu wrote:
+--8323329-746012605-1787278993=:86110
+Content-Type: text/plain; CHARSET=ISO-8859-15
+Content-Transfer-Encoding: 8BIT
+Content-ID: <c4da6fb9-7dfb-d0d8-ef0a-6c21140cde31@kernel.org>
 
-> The vendor-extension handlers reached from hwprobe_one_pair()
-> (hwprobe_isa_vendor_ext_thead_0() and friends) only OR the present bits
-> into pair->value via VENDOR_EXTENSION_SUPPORTED() and clear their own
-> missing bits; they assume the caller has already zeroed pair->value.
-> 
-> That holds for hwprobe_get_values() (it zeroes each pair) and
-> hwprobe_get_cpus() (it re-initializes its scratch pair per key), but not
-> for complete_hwprobe_vdso_data(), which reuses a single pair across all
-> keys without re-zeroing. A vendor key therefore inherits stale bits from
-> the previously probed key, and the wrong value is cached in the vDSO
-> all_cpu_hwprobe_values[] and handed to userspace on the fast patih.
-> 
-> Zero pair->value once at the top of hwprobe_one_pair() so every handler
-> starts from a clean value regardless of the caller, and drop the now
-> redundant zeroing in the *_BLOCK_SIZE cases. hwprobe_isa_ext0() keeps its
-> own zeroing because hwprobe_ext0_has() calls it directly, bypassing
-> hwprobe_one_pair().
-> 
-> Fixes: a5ea53da65c5 ("riscv: hwprobe: Add thead vendor extension probing")
-> Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
+On Mon, 2 Mar 2026, Thomas Weiﬂschuh wrote:
 
-Thanks, queued for v7.3-rc.
+> There is nothing userspace can do with this value. In the kernel is
+> always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
+> userspace and also changes from time to time.
+> 
+> Move the symbol to a kernel-internal header.
+> 
+> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+
+Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
 
 
 - Paul
+--8323329-746012605-1787278993=:86110
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-746012605-1787278993=:86110--
+
