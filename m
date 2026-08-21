@@ -4,70 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD0BC5DF87
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 01:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DC8C5DF87
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 01:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jx1jNRU03t9rl4mNz2iJu4xi8qH2ClgzbqfnBfIQHmQ=; b=18kb1VHkBMyn4P
-	3HXpgFNIlX4Eyg/t2j8W1QHT8ld4CXWkPYMlhKsmouhulxUZygLjSjZghte1f7RFDfUlG/zcmY1lr
-	tkpy5fhOhM5+h0PAS4cjQc/LCX/sr+Tw4Xzjw+wEJqzeT8VYamrMzLTKJ46YdU0axtW9mOz/Foniq
-	OBHAqPbmI3Gy+jW09M29qPFt/3FS5bWIb21enIggkAiFzlCbJ06zxgkurLKcGp7r0fvClWHtrSl7J
-	ARfmMt/TdxmlwnbhlmWNAC6AQBb3Eu/7KxXY1kE1LzOew/StutPmSI7Paga7rTo9Vy7m1CFJOFG9v
-	/qJkabs6J3e9+kcFdZFQ==;
+	List-Owner; bh=d3Qsj1EK5CGOsIPxSgqAQblFbxKheREznL+SCLwST38=; b=fqLTFlLvvYFV7E
+	S57yia2U4gCWai/HSIsGnSR+t3pMGmva39+77P5YGmbnpc87kCpcRY8Pzhg4jMYbMJPn5xjL7pE8y
+	bGxdpnOk/xtA6C1BtrLXq8lYW/VnsVDWz5bTB9KZIUVd1lpW4C07z7lqCbmEAaThLgRvMavdA0cEL
+	+ONPrRkn9LR0Jz/UbdAEMRDJWqKeq4xrbeXSOGplyRHfkkykPkiAKcZc9I3L95m2fx/WVGBtOzLPx
+	WPitJyNXMzCXP4RI0+de8SuxzQLkOnHdtz0QGV+mvDoYqoWM7VqTPqTcxNqdwN+BTF80QBZm7fq9i
+	NdpZc+5CajiTRwDbPkew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEJn-0000000CQd1-0s3b;
-	Fri, 21 Aug 2026 01:45:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wxERs-0000000CQuD-0E2w;
+	Fri, 21 Aug 2026 01:53:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEJl-0000000CQch-2CRu
+	id 1wxERq-0000000CQu7-0a9K
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 01:45:13 +0000
+	Fri, 21 Aug 2026 01:53:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0106D43ECF;
-	Fri, 21 Aug 2026 01:45:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56E931F000E9;
-	Fri, 21 Aug 2026 01:45:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 29E6B60A58;
+	Fri, 21 Aug 2026 01:53:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 268B31F000E9;
+	Fri, 21 Aug 2026 01:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787276711;
-	bh=EytWCRbUnZTggNNvhZbYX0Ci1gaj4r9l+nuPXwpNRxU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=EMcY7emrBcx15ZBTZ9TyK2MNPtpanSb+MnUMIopeyZQcYhyTLsHpuigLAJUQwo7FM
-	 F2qdP4ym5yj4H2OkwR74YGulydlBbmWsQbisAo1Lg073q9qvTFNJEuWkEd8sF6dRcI
-	 aAbONeH74vvBPwUG9wQ35Hn9CASAEdCPaNeKDFK4ePSCHBpS1MIcBGXndg/5mFBzIp
-	 Lw6phJWkQVCzV8Nju3i6P9k5kWuQSSDHOAO8iQ5IPyyldY5t5AyZsvsfZInb/YxX2T
-	 8/athXNG1bCGTDhb5o6JEiYSli5CjGCrrwB5diUDx8ggSJbPvu7sFTTIyLQJ+1dnjZ
-	 4HFIUzpC5lyVQ==
-Date: Fri, 21 Aug 2026 02:45:03 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Janani Sunil <janani.sunil@analog.com>
-Cc: Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich
- <Michael.Hennerich@analog.com>, "David Lechner" <dlechner@baylibre.com>,
- Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, "Jonathan Corbet" <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Mark Brown <broonie@kernel.org>, Marius
- Cristea <marius.cristea@microchip.com>, "Marcus Folkesson"
- <marcus.folkesson@gmail.com>, Kent Gustavsson <kent@minoris.se>, Conor
- Dooley <conor.dooley@microchip.com>, Daire McNamara
- <daire.mcnamara@microchip.com>, Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, <linux-iio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-doc@vger.kernel.org>, Janani Sunil <jan.sun97@gmail.com>,
- <linux-spi@vger.kernel.org>, Kent Gustavsson <nedo80@gmail.com>,
- <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v9 3/3] iio: dac: Add AD5529R DAC driver support
-Message-ID: <20260821024503.592fabc1@jic23-huawei>
-In-Reply-To: <20260820-ad5529r-driver-v9-3-ba62e0b2a816@analog.com>
-References: <20260820-ad5529r-driver-v9-0-ba62e0b2a816@analog.com>
-	<20260820-ad5529r-driver-v9-3-ba62e0b2a816@analog.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1787277212;
+	bh=dKo2aLMBgmdPLr+9SGvRD08MU3JFbNMO745B0V9ZYu8=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=mik8zYI82kKavrlvHO9BvvyrcO678LBFFZJdBq5xSdP5CfUY64tP7NTIbJONk7zyB
+	 fivO9+/fwsAGYsdrBYnHROqg3NrpD2bEkRWlsSDX/wMScxKuWfwOztXEVFTzzer97R
+	 pMeRNj7w4TqX9bG9XDOhG5Cs5GeQTtggE5bSeuFrOXElmADVdvWnYHt/SljPYse1zm
+	 T/RtkkCHLj7xNLJvtOdglC2v8PiHf6iRVdvm5K2ewf1QTGdnI0yisgz6lixEDEaZkT
+	 3Xgetb28yu3/ZnakjB1rTePJ29jECSG5sjlZNeaB7fga+MryNrTcxCDavSe7kqeufo
+	 EiXN2yflQgeDw==
+Date: Thu, 20 Aug 2026 19:53:29 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Djordje Todorovic <Djordje.Todorovic@htecgroup.com>, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    Jesse Taube <jtaubepe@redhat.com>
+Subject: Re: [PATCH] riscv: Add support for early boot errata application on
+ MIPS chips
+In-Reply-To: <20260810-p8700-early-boot-v1-1-5c4aa08d500f@htecgroup.com>
+Message-ID: <1bd31b3c-bdbe-37e1-0f0a-3cf152ff81d5@kernel.org>
+References: <20260810-p8700-early-boot-v1-1-5c4aa08d500f@htecgroup.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,76 +72,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Aug 2026 09:08:23 +0200
-Janani Sunil <janani.sunil@analog.com> wrote:
+On Mon, 10 Aug 2026, Aleksa Paunovic via B4 Relay wrote:
 
-> Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
-> from Analog Devices.
+> From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 > 
-> The device communicates over SPI and supports per-channel output range
-> configuration. An optional external 4.096V reference can be used in
-> place of the internal reference.
+> MIPS errata implementation previously skipped early boot application
+> entirely. Although the only currently existing MIPS erratum does not
+> require this, amending this now should make any future addition easier to
+> implement.
 > 
-> Signed-off-by: Janani Sunil <janani.sunil@analog.com>
-Sashiko calls out that dependency should be on CONFIG_SPI.
-
-I didn't check it's reasoning but I believe the conclusion is correct.
-If that's all that comes up, I can tweak whilst applying.
-
-Looks good to me, but I'll leave it on list for a little longer
-as we aren't in a rush and others may well want to review.
-
-Thanks,
-
-Jonathan
-
+> This commit was based on the existing T-Head implementation.
+> 
+> Suggested-by: Jesse Taube <jtaubepe@redhat.com>
+> Link: https://lore.kernel.org/linux-riscv/CADRr4bcbD57hmR0XGgo8BjgNp4shEADOondZEtwscCJ9-nxXRQ@mail.gmail.com/
+> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 > ---
->  MAINTAINERS               |   1 +
->  drivers/iio/dac/Kconfig   |  16 ++
->  drivers/iio/dac/Makefile  |   1 +
->  drivers/iio/dac/ad5529r.c | 538 ++++++++++++++++++++++++++++++++++++++++++++++
->  4 files changed, 556 insertions(+)
+> The patch was motivated by Jesse's suggestion to implement [2] as an early boot erratum.
+> However, since it's in conflict with [1] as well, I decided against sending this one and the ZALRSC patch as a series,
+> opting for rebasing [1] and [2] once it's clear we should move forward with this approach.
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 320e84765ce6..143714e27d51 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -1513,6 +1513,7 @@ L:	linux-iio@vger.kernel.org
->  S:	Supported
->  W:	https://ez.analog.com/linux-software-drivers
->  F:	Documentation/devicetree/bindings/iio/dac/adi,ad5529r.yaml
-> +F:	drivers/iio/dac/ad5529r.c
->  
->  ANALOG DEVICES INC AD5706R DRIVER
->  M:	Alexis Czezar Torreno <alexisczezar.torreno@analog.com>
-> diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
-> index 657c68e75542..6a7109f42f2a 100644
-> --- a/drivers/iio/dac/Kconfig
-> +++ b/drivers/iio/dac/Kconfig
-> @@ -134,6 +134,22 @@ config AD5449
->  	  To compile this driver as a module, choose M here: the
->  	  module will be called ad5449.
->  
-> +config AD5529R
-> +	tristate "Analog Devices AD5529R High Voltage DAC driver"
-> +	depends on SPI_MASTER
+> I tested this on an eight-hart QEMU config. The testing was done by rebasing [1] and [2] onto the patch
+> and running most of the same tests used to verify those patches. This includes: coremark testing, futex kselftests
+> and GDB to check errata application. The same tests were run on the Boston board, configured with a single P8700 core.
+> 
+> Links:
+> [1] https://lore.kernel.org/linux-riscv/20260608-p8700-wfi-v2-1-77efc7459f3d@htecgroup.com/
+> [2] https://lore.kernel.org/linux-riscv/20260723-p8700-zalrsc-v4-1-59c21b252e29@htecgroup.com/
 
-depends on SPI
+Thanks, queued for v7.4.
 
-> +	select REGMAP_SPI
-> +	help
-> +	  Say yes here to build support for Analog Devices AD5529R 16-Channel,
-> +	  12-Bit/16-Bit, 40V High Voltage Precision Digital to Analog Converter.
-> +
-> +	  The device features multiple output voltage ranges from -20V to +20V,
-> +	  built-in 4.096V voltage reference, and digital functions including
-> +	  toggle, dither, and ramp modes. Supports both 12-bit and 16-bit
-> +	  resolution variants.
-> +
-> +	  To compile this driver as a module, choose M here: the
-> +	  module will be called ad5529r.
-> +
 
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
