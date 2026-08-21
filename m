@@ -4,156 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E54BC5DF93
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 14:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93429C5DF93
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 14:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KhlgkzpJn+01Hl2mtX/eAt9MRGgE2tHb4nJij+yCODs=; b=x6Hfaps3kQDCs8
-	Tx8N//DNx9jJL6CbwHpQiwy1+QurrZt0Z6s6i7tIvB/dvnvmmjC8Y9H0GaPUmzcB3yGcJ+aUqIjNl
-	GWUruAyHV7VCz2nuAEwAq/xZ+OMIzzpTYOgotIG+8XvrrOVRWdOis7R/0xk1Mhyf3haFabAU0VbSz
-	/ANwnyFD2tM2OTQgphL8xctP6E9YfuOLO0FL+ytSlUVaif2ayWtprDlzlTrZyr/ERudsHItMcJzL8
-	S4oAplwPWSITO/1BE2ElAf+VldMNxcds9HEnMaMkKTLUrLeJsMsxViuSNILHtz8GnmlQkMqF4fBOs
-	xmdh/+P3wTdLBoCJjDEQ==;
+	List-Owner; bh=BaSHEMAFejghQQaQZ9Mik8NU2LKVlm3PIqcW9BUppzQ=; b=UjvnZ++Hd7HxWh
+	9ecr4xslEb9dFryF4SQz2woPEw0l8LkliAG6T7x0ZHlmY5wJJaOmVAZ87o2VRmWZYdD3552/MQJ/e
+	OpFGLLTqROXprYBMwHHyTmP+YnoJyk0qj3yY/HoG2hvDnEfVMbuK6lef+cTyZzaExUo5YZYSMsla5
+	ut+cPqSiS4+xTgR0kbhPxG/IvLJPWPUn4BV3UexBnpbeFW58XXB+97rKs1ZQv97Q+OJ0UxCNIvxhj
+	U95PcHFDmpzvrFpUaea2Onf/EOGJk5t7nADwLei6V3XvyAISG4RPbfYmt4xgGcN8VHyFSGdZ9diyK
+	saUyFO5V9eIQJJjvSCqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPt0-0000000DUzb-00I1;
-	Fri, 21 Aug 2026 14:06:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wxQ9Z-0000000DXYY-1XaC;
+	Fri, 21 Aug 2026 14:23:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPsy-0000000DUzN-1iSy
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 21 Aug 2026 14:06:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To
-	:From:Sender:Reply-To:Content-Description;
-	bh=9Ds7nLoZ7Wu9dbhxR+fAiPKP3lfAhk5bBHQVtDcx6Bs=; b=ifFZL98AkFZeKPQdmSbpxdWP6d
-	xd4y/7UleywnmTBmcVbvAs67G5hdIwaV/PyHt2hPHD7g08gsVL47BQr6Q0yYXdOmFZ4ydi1dgkw7O
-	SGLXnCYqZhhVHHMtvwzGcfrbObX9WVbH85D30rMtoRWptBOITBi9Xq4Zb5UwczQnRFbVGjoyzVg74
-	5MIJEXrkWGigTfwcdE0jHuHwY5Z4QwDv8XozV7XDvvNrHd6R33kGyXzoTrKZUSa9FZl99gqvHSXgS
-	LNQOOeJ1e9bIoRGiTSRviw+8oQM55ZBPBoUGhF25RHPx75ekqMbMo6M8y9RL3luxqs750ysiR0jqm
-	FKugI+pg==;
-Received: from mail-francecentralazon11023073.outbound.protection.outlook.com ([40.107.162.73] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wxPsv-00000003osb-0Dsi
+	id 1wxQ9X-0000000DXYC-0Ejm
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 14:06:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=baCBxQLtxCeQAn3aI8k/ff3hzk4Urv7rnMlsg1oaCmfW/3vz0GaLS6AIpFD5ADf7cFRlKlGjFxrrfn2mHTD7lBlHsHvi2mS6kaT5qf0W7HYc3MS1db84kI0dF+0q3GCsPMBjpeMl8CbkQlXlbSdip2do2sVMzzCEZXe/Wr/vQWZOIup5dz+RiVqiozIyVkZZPaa1OB/VRHshU62+SkBTtrCtxZ+Nmzjj/u2sidvZbIDPk0WUnW2EhkfRYDpdUIqJItMyBxr48WZvwpFQSvD2LGqCBisoWf+ySOX5CK3l0oOU2ZKM2a2QV38yd6GA21rIYmqSi9Sp4xQEUdYQyF4Orw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9Ds7nLoZ7Wu9dbhxR+fAiPKP3lfAhk5bBHQVtDcx6Bs=;
- b=xTpm8VLPXNfnDDO7WMf6T3Pv+5oNvpXR39GyLmNOveh1oseJzBQEY+4kW6fsRhs6JOC3jyFQLujdZq6cqVXf1mTwKqdXYM5mnsizU02NCqelHdrLRfhfz/5L8n/zi8uZ9cxECKwLH79ITHp6BZGHvODvWNL/qV3McAeLkFjny7cUZW+tQ9ZKWyLyNLsxjMHVNpPm5wgxsh5LXX2sjbhHua44O2fYbAHyXyHuLN4tpSiac+K8+AYjy/VnSBRZ11stTBRsHuSupmipXWYU2MCYPJJyQSAmIo6udO8MpYjvIAAll7mUpMtHaxNUxQmbJdPGrAW6TVcJjcwITblro6HGtg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=htecgroup.com; dmarc=pass action=none
- header.from=htecgroup.com; dkim=pass header.d=htecgroup.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=htecgroup.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9Ds7nLoZ7Wu9dbhxR+fAiPKP3lfAhk5bBHQVtDcx6Bs=;
- b=HZulvKxxaIp9qgKWFX8+dBwcNtiOYriBpPZtnX1EEddecuxNdn9jgOgRfX0S9mnv6NoNOxjLOd+5eeuPoq8nv5mGq29YBrz6zJUgvj1oGzL387jUDUlYPh6L+ox8y0qdKfijZom7fJUZBJk0PDtqtmy5Hvh2b+HiXGOR90Dk+kt9fMfV43Tbx/iaBuu7ER8bwwK2/Vwl6QFwUKteapf9ANHaVJUWnURDbdiMUjMB+zuaKHksci0F39eDmprevIiOVTuOURqghykvBNoWHsXa6dozJZtzmFwJxMGpBsj1Onild/Z8XkAJbc4xutyczg4yIjfiNh64rSrBE/f0KR9nkw==
-Received: from AS4PR09MB5681.eurprd09.prod.outlook.com (2603:10a6:20b:4fc::5)
- by VI3PR09MB828996.eurprd09.prod.outlook.com (2603:10a6:800:382::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.11; Fri, 21 Aug
- 2026 14:06:10 +0000
-Received: from AS4PR09MB5681.eurprd09.prod.outlook.com
- ([fe80::8d2b:5798:928f:9faa]) by AS4PR09MB5681.eurprd09.prod.outlook.com
- ([fe80::8d2b:5798:928f:9faa%4]) with mapi id 15.21.0339.007; Fri, 21 Aug 2026
- 14:06:09 +0000
-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-To: Paul Walmsley <pjw@kernel.org>
-CC: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, Djordje Todorovic
-	<Djordje.Todorovic@htecgroup.com>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Jesse Taube <jtaubepe@redhat.com>
-Subject: Re: [PATCH] riscv: Add support for early boot errata application on
- MIPS chips
-Thread-Topic: [PATCH] riscv: Add support for early boot errata application on
- MIPS chips
-Thread-Index: AQHdKNpSnxccm2JY00K0tBZrZ88Ew7anzgSAgADMtYA=
-Date: Fri, 21 Aug 2026 14:06:09 +0000
-Message-ID: <85d9bba1-a44a-4634-b235-a1c2228a5474@htecgroup.com>
-References: <20260810-p8700-early-boot-v1-1-5c4aa08d500f@htecgroup.com>
- <1bd31b3c-bdbe-37e1-0f0a-3cf152ff81d5@kernel.org>
-In-Reply-To: <1bd31b3c-bdbe-37e1-0f0a-3cf152ff81d5@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=htecgroup.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS4PR09MB5681:EE_|VI3PR09MB828996:EE_
-x-ms-office365-filtering-correlation-id: 7908b3be-9810-43fa-1842-08deff8d5a0d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|4143699003|56012099006|11063799006|10067099003|4133799003|18002099003|22082099003|38070700021|6133799003;
-x-microsoft-antispam-message-info: HPi/P8tEX1AEwpTXyyBX7Nm9dtG52fjeTVTJtU3dPkqSzN8GfhLuo0vaNCy6AMyN9AZl7H+U3LM5HsMnvxdzunXGgNw02iXV0TrF2Uezt0aSr8s4pUTL6N7LH0Y9mq0TQzEyN5srqMAlEGAQLJIwQ/7hoxAmN2pRNda0LLfYaEFXaqntCEpnyZkgmyeyKqIDXTDo0Gvr8PJFBrjwAquZ+wQwj8yQCbmoZkQDgZRo/Nin/0+E5VLFOB+Zc/gYNYVP+b+HzRyjwur+MjzRrLkoo93fh54guh+1YQPbKttVzmqg8mHZqv6yYx2XTVseAx+4Yma3V9lSPZLbR9Qukx4edq28fm+DCbPC5+qSX0F0m8lQCXDA/GCqD0kmt+H+lsUQxucd41unrfFV/mvhfCiQ9ww7pfmTQL9pmBYRiEyYnrR5+kHGPn2pgeZiig2cDZ4HqKk9tTEDovcfjOmFHJQwYJSj5L12dllHT/55fDdvfAx0wNHxdF0Y94Ne6I4PewdWLQSVa2aBNyz4THKnJQAutD0AAP4ox62m0yGHgYCoONXKM9YNV1D8HmRsmYgYEYlOJsCqJDLrVAceekZeo3Og0EHYGgSfBJUb3/gYgyNuLKmB0aOvlFKG11Hl2ct2FpHH4BPn+F//EIGakgthk0yEyifbgSOt1hxP7VdGl/0u6jZ2tUyNV0hinpx9DIgZbasaRq1kBcz0y4xh8PybKIQNgoQOj9vMIrtkcwzu1l78k4U=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR09MB5681.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(4143699003)(56012099006)(11063799006)(10067099003)(4133799003)(18002099003)(22082099003)(38070700021)(6133799003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?R2FwaXEvek1TYjNYU29ldzF4ZTRGeHpCT2lhKzZLTlU4dXVGeUZVQTZIMHV5?=
- =?utf-8?B?OW5Ga0ppTzlSbmVEb3QzSXhMZ2o0SEJ1dkdKVXJMWmdSaW1VQWZnSSs3dzlZ?=
- =?utf-8?B?NGFaV3Z1dlRTU1VEaWlMcVUvcTcxaW1HOVF1Sm4vaUlVeWg2ZDRYYUtFVjNq?=
- =?utf-8?B?bFB2Vk5RcGNIMzhyK281bnpXUS9hdkxHWnk1ckF3YzlyYWVlSVUxMm9IMGh4?=
- =?utf-8?B?Y0JYYW03d3pGOGpIYUhpRmk2cjVhQW1jdkNiYnZNK2wyWVV4dlRLWUtaM1Ra?=
- =?utf-8?B?TFU5WlYyZFA4SSthbnVyLy9sbmdsWlRWeGorTjFNQmJnZXYxRkUwZlB2RWlQ?=
- =?utf-8?B?WVhBZ2VrRjcwMnYyOW1PYnREY0gxV2FCdHZTcmZYZC9yNkg1b09RdWlJV0Fi?=
- =?utf-8?B?MHVzTlMrNzRCK2MyOStWQmhFeXZTN1pIcjBjaW9tblpxMVgzSUpScVlSUGZ0?=
- =?utf-8?B?QnEwdEVIdG0xM2tpQ01oaHdtcEtqVVpmYXRsc3lQdGdyL3FEdTVRVE9sQ2lZ?=
- =?utf-8?B?STNZOU1FcnhLZDM1dnBvNWhNUytISU9xQ09uR2Z4Q0lhblVDazdTZHFYc1A4?=
- =?utf-8?B?UjlPYlFFWnZmUHNIdnNRTmN2WnU5OTlyOTFNKzdvWkkwemE3RTBSa1BZVWN3?=
- =?utf-8?B?dmNVTzBodEZVQkFqYWwzcmtSdEF1cDZ3cGMxV2Uwa1cxbVV0MG9IRGVHMTcv?=
- =?utf-8?B?RThRb3ZvMzRld2Fua1YyRlB0dlRPU3pqQmlOTy9TcjJCMDgrMnJDMGJuWUNI?=
- =?utf-8?B?b3R6cndxZkZ2MHpQSlpITGVuVXh2dHlGbVRjVjVWdEpPak5HVzd4ZzNOdjdC?=
- =?utf-8?B?OFdzV3ozV045V0VQSGJ2cEtZMEhUS21zV2JnUkNGa2toQitFNjVXREZydUk1?=
- =?utf-8?B?NFNUejU5M00vRDhVVWh6TmtPNHF3YU9LMGdVbnd5RllrRGNLMUxmdnRxa1lD?=
- =?utf-8?B?SGVDYldPQ0pRMnlpV2RKR29Wa2lDRlVJMHg3dDNva2RQbkRQeHNsaFlrakJk?=
- =?utf-8?B?enA5aEdqQXU3ay9lanpQU1E0VzBVcCtmWFdqTkwyalMyTFp1UFBCMlBXdER0?=
- =?utf-8?B?WXdnMjBNMndkZk9GamFtYVBBRnJ4UFZKQVVBU1RISERseEx4QzFDK2FBeFln?=
- =?utf-8?B?cnhxTTFLY0laMExqY1AxNnBwSGdDK3hEcnJ6UVc2NVc4VUt1Ti9VTVNMaW9r?=
- =?utf-8?B?ZUFrYWxOSmtDRWJMTTl6c0J1cXNlTkNpOWFjVFlDN01OcHh2SFlpR1hWOWo5?=
- =?utf-8?B?MlhzL1pJK2szWCtSZFJYSUJFS0NSS3RLd3d2WVp3OWtBZTJUd3hybllOTHE4?=
- =?utf-8?B?UmRNY2JnS1lwcDY3a0JpNVVaTHZSSjVQZ0l1c041aDg5amlGVjdPS1NpZ1R6?=
- =?utf-8?B?ZytIa3MzaktKMTNxc3RwSUw2QVZFcVIyZElIMnJiRmZmZzd0Rk1tVUdkMmJl?=
- =?utf-8?B?UU5sbFJCNzdVZ1d2WFBjL1QvK3Y3YTlPQ1pWUXJIS0RyMktzUSs3TS9kNDkz?=
- =?utf-8?B?czY5L1hkNlJYcEl2WUprM3AzMjBpYVA0VjBKL1VEM054NGhPYU03K0p5N3Yy?=
- =?utf-8?B?MWoySTVrRmVmc2RRRERlaEx4dGErMmdUa0ZtT01DRDFxZnJFQVU1SlcwYUdR?=
- =?utf-8?B?NmkzNnZaZlRtWk0zNXhHb1RvdG5HRGpEckNzenduMGpxNXBwd21OVTBaUDVh?=
- =?utf-8?B?TmtZZ3VxbTNVNnhweXdKT3lFU01xTFZDK0Rvcnd0UjQ5QyszbjdtTzUrZHhz?=
- =?utf-8?B?QTFvVUpnY1I2SXZST0oyZnRRVGhIQVRmblh2LzVScDZxV1IzVjcvRFRjTjA1?=
- =?utf-8?B?am5uMVVBdnh5VlVoMmhNY2V3VXlPd0NyRUVrVWZ0K3phRDZHYngwaGY4Si9n?=
- =?utf-8?B?T0s5T012Snp1Rld1QlExSERSSjZyYk5nWlBTNU1aUGRvSDdxd0ozeStOSFFX?=
- =?utf-8?B?Y1hMUVNybXlDK2o4QjBZek1wa3N4V2tXZUx3MzQra2JUczNrVWhOeFBxQWxT?=
- =?utf-8?B?Rnd1ZlFGZVVQMVhockdWVXVwMVVsS0VNaWYzSzVXWTlIcU0zN3NUWWFwcXFj?=
- =?utf-8?B?YVUwZi9UUERvQmw3aytTVFpJQk5jdkxPdmZ2THlmWGczTmg1czlMWkZZRHFH?=
- =?utf-8?B?NUxyWVkzak1OK09Yak51bE1yam5MTlBTMmpHeG5aTEhPbkNsZlR2WHByNFJV?=
- =?utf-8?B?TUxrNVJscG5iR1lad0VOSzUxeEx1OWl4RjIrQlBqWG5zQVBOMlozT21FQWZW?=
- =?utf-8?B?UWhNdFNHdHNoOVBjYzdpa3A4aTBiU0h1bzRWRnByUG11emVVa0RqNGJxWVZY?=
- =?utf-8?B?QW5yZENjVEdOdmJwSkJQdnpISHJlYzl0c3FBMzNmUk1DOHdBS1NrRzdhZWJm?=
- =?utf-8?Q?fiER+svPA/TMYBCA=3D?=
-Content-ID: <950B04B02389B34EAC7079AA39D798D2@eurprd09.prod.outlook.com>
+	Fri, 21 Aug 2026 14:23:28 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67LCoYNP1249466
+	for <linux-riscv@lists.infradead.org>; Fri, 21 Aug 2026 14:23:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=aAjaC/eX97Qc62891l39Bqzx
+	7m2BZLa4DWDzydgpsxg=; b=eNmHpPL+w7A9GNDiGNVj+XKJ+bMy5ITEt+9oMU/8
+	69ywfuFRDIMju/pzphcM2O6jd+UmqSjSEUTtMH+EeWizoSJBEPRP1v/vunWt6YUA
+	86s4KafCRdHh5xkRHy1oPVo0qNQp+iqFGQ2+vodk2qZ6/LXUrJt87UOZOD6Yb0M+
+	pUBECBKBEVZd744x7tAB7z+YED5iSINFmlNxhwon5uWlhesfIxpomnIKJfzdwWd7
+	Phl+unYXDEZQmowRqkqCQ++wakLGmW0dGGuuwukqIOmcog8lLRANQWcSP7BbZE4O
+	alKpwJsGa9iJqrl+DJSA9y+0w2xOn0Dm52zshRzjagblQw==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g6ebutdju-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Fri, 21 Aug 2026 14:23:25 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51bf321d786so9939141cf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Aug 2026 07:23:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787322205; x=1787927005; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aAjaC/eX97Qc62891l39Bqzx7m2BZLa4DWDzydgpsxg=;
+        b=e71l1/DBSpsGVR2XkzeYgSiUkjFZoV4TcPIJgZ3ZMKdEe1mPycbMK76nmmZcgbKRq9
+         buDHc2pNpGkgITWFw2tMbMLtfT2/qqPzb7YH2GKeZpCAQwbpKfPboR9Z18JmHQaLsIgj
+         qg3+t97too4qlZzpugI/RIR7l8kn5iRKY9ci7VBIUIzPu4lTHuUMawWPY6A9SkortDNs
+         ML5E+GS4BcoOFYZnA7pBRF2OBgTOembaM/R7mvC11psh11tQfv+3p3/H4UkKBtl+ioEu
+         uTaAmjYfAYjsKXZUyfdkyQh+J4aWBcwEKBURMHDT22kIIPf+/a1et9jLN2IK33u+4uqC
+         VB0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787322205; x=1787927005;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aAjaC/eX97Qc62891l39Bqzx7m2BZLa4DWDzydgpsxg=;
+        b=aKQDqyIqwSfZNf9KGEpc/OSqb9KpPzHSTM46SlBK+nzRB+oIiY6rFOTIU6d+lVDnTO
+         u6EeNp2fTyDIdG5KRfidMk0OhIGo+E5zIDVyonpRiCT4y6R3jI5mZrsNZohm1BoW9c1H
+         zxUSt7yjWXsvVc0GQB2yeVS4XSkt9OBF4X4TAx//dfMW0rJVahEpQYjwYDdlLNu2i6Si
+         X/sD/jdhm/tZnPR0EEHkcBP8NrAxciZWj4iza3tN1i20Go+VrEWdIcbtHLe8e03ivRPw
+         R9WB7yDex/lRIn9CmqQYVg0H2sfGjQuDMeiqj91A+7olrXjKV7UAnxkhzRwmHu+4H/uk
+         3OPA==
+X-Gm-Message-State: AOJu0YyupIvdK3myArpvKS43ZZKwFrMN3SA/5IKP38HZDsffCMmOvWpe
+	3bh/AkCu7k5d2y/e6az0R4bMKXR6XsXXk95xXOAShHIn4EPLvuFmPkGwkPQoC3KH4VV0IOEKDUh
+	abHDgS3Tp9fEebAVvFqUC0rhdfhWeWFX3H2sZwYAg/ZpcOLNK18b30DGHPR9e3aqAjHG5kCk=
+X-Gm-Gg: AR+sD12amUuLX0JZAf3yCYxPIbWa6+1n/eckvHFE852mr+WimfBSBBMPnaPd20i/B+q
+	mgvNOHwVI844QN6Y896D3HHucbpBFz/JJUARC7bSKUEMX7qxNoo02PFwJNsIHsVeRE9uZU1VqHU
+	l/HIKZy3VFIigzxjp761JUfLTH0l6mnke125Vv3CDDi5uf7yKL2uG+fQ1TjFZmDBEBtaCj7Fmxy
+	KYHmvmPHMHXltw9NYinTFV/ZhOdlEAEyhDJ8m8xVJ8obiBZixpWfAcZvN+BX6Z6Ani8yfNEcwL+
+	8Fm4xP8A5OzXXJRUbRqggVf+8CtQ08Z3EbIaLsZt6iVS7PUwEyi6mvy7yUvXwDY51N5pTqpvjgu
+	xFunE10WPhMlSQPP9yVy7mrCpHmIEY/1kyBQ=
+X-Received: by 2002:a05:622a:a11:b0:52d:918b:92e2 with SMTP id d75a77b69052e-52df56f1740mr67349861cf.6.1787322204977;
+        Fri, 21 Aug 2026 07:23:24 -0700 (PDT)
+X-Received: by 2002:a05:622a:a11:b0:52d:918b:92e2 with SMTP id d75a77b69052e-52df56f1740mr67349071cf.6.1787322204377;
+        Fri, 21 Aug 2026 07:23:24 -0700 (PDT)
+Received: from localhost (ip-86-49-251-7.bb.vodafone.cz. [86.49.251.7])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b915c6ccsm29704055e9.13.2026.08.21.07.23.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Aug 2026 07:23:23 -0700 (PDT)
+Date: Fri, 21 Aug 2026 16:23:22 +0200
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
+        linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
+        tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
+        robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
+        anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
+        fangyu.yu@linux.alibaba.com
+Subject: Re: [PATCH v4 02/21] iommufd: Add iommufd_sw_map_msi()
+Message-ID: <yikhefui2flgfffmtbpdxemjtto2ryfmkgtlgdtmr2ndgxrw3r@rcjz523m3sw5>
+References: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
+ <20260820214150.545737-3-andrew.jones@oss.qualcomm.com>
+ <20260820220908.GE244917@nvidia.com>
+ <gr2h3ktgacozyo7rdggkxsg5mbdtzcnimaawd24c37hnf2tun3@hqivsenaq5wd>
+ <20260821120204.GF244917@nvidia.com>
+ <zygm4qm3fjv57nsgcectwikfa3cdnidxnhv55nxv4b6l2kllrs@dt36j4p3zhoa>
+ <20260821140033.GH244917@nvidia.com>
 MIME-Version: 1.0
-X-OriginatorOrg: htecgroup.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR09MB5681.eurprd09.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7908b3be-9810-43fa-1842-08deff8d5a0d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Aug 2026 14:06:09.9013
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 9f85665b-7efd-4776-9dfe-b6bfda2565ee
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 8nxU6Muh2USmLc1B8+K8bD9FoPRytBjAyLY5AoWWFWnG1qmQ1RsY14AJSy/mGJd5KA8r29iuUS1s81jUDkJQnCnHNuM15jUsIJs2PKyTsLI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI3PR09MB828996
+Content-Disposition: inline
+In-Reply-To: <20260821140033.GH244917@nvidia.com>
+X-Proofpoint-GUID: yCtJt9OFZSTWZ9KXI798FX_5vGEOKshf
+X-Proofpoint-ORIG-GUID: yCtJt9OFZSTWZ9KXI798FX_5vGEOKshf
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIxMDExMSBTYWx0ZWRfX8h+PnfXzEmlV
+ 2uDmuSs7vpl6Uo1FHOgXoZzCz3qTDexkEBukczW9JvKOIqCaLj21D12dHnGrmrtSas/D1GgGe/i
+ CPz5aiD5IuvhcBks7XJFN92b3HlwiMA=
+X-Authority-Analysis: v=2.4 cv=QJlYgALL c=1 sm=1 tr=0 ts=6a885f5d cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=on9AXyaqQ0RhfYpiXjjEXA==:17
+ a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=JO-7leH7fczbGu3iEqoA:9 a=CjuIK1q_8ugA:10 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIxMDExMSBTYWx0ZWRfX+361p9qb/vqe
+ qXm6AbXhwzSg2BA0xiGgWls8MfrARSe8GIpqiOxQhRDmMWYgra3lzgSClp9hkXDcoz/X6FyTDLa
+ M9XG+hPtFOkbVYWxGGiCaIw8F/mImp7sCtfQdo+AUtKV00mDWXTAiNz94EewCXAJsqpxGdhvdLY
+ TU3ka26otT7wo+oaBM1C+vox75jzwGW2/wF3z+KUXqk9VG5sRv4fSx5S8SNP3h5PmSU+UhViRgf
+ 3wou8Ll9J3hnnxEi0lKFPOq1aMSiFPaJ4ARA9+cauw+UGCwWbIhV4VvRwEfVKa4CFOw/Wib9lgD
+ QkJhKRFdeN8n/4sG5GZvY3P9yDCz/fjhYaDWxM/R7pJLTvIvKe5K0kaJKMm4NBy25SIY2DzB6DW
+ PPDTA4nnyZ+taTRRJhhZE/eYGb/DLUDcBrckt+YfzR+GJYg8P23o60oTK055ikYG0+ec+KiUDkA
+ d/zoYKaKnq5Itv1FKMQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-21_04,2026-08-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 bulkscore=0 suspectscore=0 impostorscore=0 clxscore=1015
+ priorityscore=1501 spamscore=0 lowpriorityscore=0 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608210111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_150617_323744_11348540 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20260821_072327_220288_7E76EA1C 
+X-CRM114-Status: GOOD (  35.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,40 +153,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+On Fri, Aug 21, 2026 at 11:00:33AM -0300, Jason Gunthorpe wrote:
+> On Fri, Aug 21, 2026 at 03:47:17PM +0200, Andrew Jones wrote:
+> > On Fri, Aug 21, 2026 at 09:02:04AM -0300, Jason Gunthorpe wrote:
+> > > On Fri, Aug 21, 2026 at 01:07:03PM +0200, Andrew Jones wrote:
+> > > 
+> > > > > What I rather expected was for riscv to have a PA window that is very
+> > > > > big and not just one page, eg adjust iommu_dma_prepare_msi() so you
+> > > > > can pass in the entire PA space that you need for the affinity
+> > > > > changes. Maybe this is a list of phys_addr_t ?
+> > > > 
+> > > > That's more or less what this series does. 
+> > > 
+> > > But it does it in a completely different way, and I'm struggling to
+> > > see any justification for this.
+> > > 
+> > > Again, just pass your list of PAs to iommu_dma_prepare_msi() from the
+> > > irq domain seems like the easiest and most ARM aligned thing.
+> > > 
+> > > When you need a new IOVA for an affinity change the PA's are already
+> > > mapped a simple offset calculation is that is needed.
+> > 
+> > Ah, I see what I missed. The proposed batched API would guarantee a
+> > contiguous IOVA range, so the descriptor could cache the IOVA base and
+> > then the riscv IR compose-msi-msg could simply compute its target off
+> > that base. That would indeed eliminate msi_iova[] and all its complexity.
+> 
+> Yeah, that is pretty simple like that
+> 
+> Then you just need to teach everything downstream to have a list of
+> phys not a single phys and thats an easy to understand delta
+> 
+> > ARM calls iommu_dma_prepare_msi() from ITS since there is no SMMU
+> > irqdomain and ITS owns the MSI target.
+> 
+> Right SMMU is not involved in interrupt translation
+> 
+> > This series adds a RISC-V IOMMU IR irqdomain to replace the IMSIC PA
+> > with the corresponding IOVA, so the IR domain's alloc callback is
+> > the right place to create the mappings through common
+> > DMA-IOMMU/iommufd code.
+> 
+> But RISC-V IOMMU is also not involved in interrupt translation. Beyond
+> it could remap the PAs which represent the CPUs, but you are not using
+> it that way since it is statically setup.
+> 
+> So I'm not sure why the iommu gets an IR? Isn't it the same as ARM
+> where the IMSIC itself just has a wack of PAs it needs to access so it
+> calls iommu_dma_prepare_msi() to do it?
 
-On 8/21/26 03:53, Paul Walmsley wrote:
-> On Mon, 10 Aug 2026, Aleksa Paunovic via B4 Relay wrote:
->
->> From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
->>
->> MIPS errata implementation previously skipped early boot application
->> entirely. Although the only currently existing MIPS erratum does not
->> require this, amending this now should make any future addition easier to
->> implement.
->>
->> This commit was based on the existing T-Head implementation.
->>
->> Suggested-by: Jesse Taube <jtaubepe@redhat.com>
->> Link: https://lore.kernel.org/linux-riscv/CADRr4bcbD57hmR0XGgo8BjgNp4shEADOondZEtwscCJ9-nxXRQ@mail.gmail.com/
->> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
->> ---
->> The patch was motivated by Jesse's suggestion to implement [2] as an early boot erratum.
->> However, since it's in conflict with [1] as well, I decided against sending this one and the ZALRSC patch as a series,
->> opting for rebasing [1] and [2] once it's clear we should move forward with this approach.
->>
->> I tested this on an eight-hart QEMU config. The testing was done by rebasing [1] and [2] onto the patch
->> and running most of the same tests used to verify those patches. This includes: coremark testing, futex kselftests
->> and GDB to check errata application. The same tests were run on the Boston board, configured with a single P8700 core.
->>
->> Links:
->> [1] https://lore.kernel.org/linux-riscv/20260608-p8700-wfi-v2-1-77efc7459f3d@htecgroup.com/
->> [2] https://lore.kernel.org/linux-riscv/20260723-p8700-zalrsc-v4-1-59c21b252e29@htecgroup.com/
-> Thanks, queued for v7.4.
-Thanks a lot!
+Right, this series is only remapping IMSIC PAs, not using the IOMMU MSI
+table. The MSI table must be disabled when second-stage translation is
+Bare, so it cannot be used for the host mappings here. It will be needed
+for guest interrupt files (the irqbypass series I'm also working on),
+where this IR irqdomain can then intercept irq_set_vcpu_affinity().
+Also, keeping the MSI setup in this IR irqdomain avoids putting IOMMU
+mapping knowledge in the IMSIC driver.
 
-Best regards,
-Aleksa
+Thanks,
+drew
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
