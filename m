@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DC8C5DF87
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 01:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E147BC5DF87
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 02:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d3Qsj1EK5CGOsIPxSgqAQblFbxKheREznL+SCLwST38=; b=fqLTFlLvvYFV7E
-	S57yia2U4gCWai/HSIsGnSR+t3pMGmva39+77P5YGmbnpc87kCpcRY8Pzhg4jMYbMJPn5xjL7pE8y
-	bGxdpnOk/xtA6C1BtrLXq8lYW/VnsVDWz5bTB9KZIUVd1lpW4C07z7lqCbmEAaThLgRvMavdA0cEL
-	+ONPrRkn9LR0Jz/UbdAEMRDJWqKeq4xrbeXSOGplyRHfkkykPkiAKcZc9I3L95m2fx/WVGBtOzLPx
-	WPitJyNXMzCXP4RI0+de8SuxzQLkOnHdtz0QGV+mvDoYqoWM7VqTPqTcxNqdwN+BTF80QBZm7fq9i
-	NdpZc+5CajiTRwDbPkew==;
+	List-Owner; bh=QdaCd0peLk6GH+u4ZMWoF+5UwOwpT2SQu6yIZ0Dj1Ow=; b=1I7Fgs3ih/9Rn2
+	ple1yXVpF27XBAhhnR/TNf8SRm1r8BOgLQOJ0Me6zvq9xTm90t+ABOJRVLVMc15mTQE2Ge298fUzW
+	Z+lre4NfGs3rKop/0eMSaeLNhDSYpnVJII/gJXaFuKJo6fSlPMx1DiVcbcmItOtCcMPP0IJEWLDse
+	06Vr9Epx9Li6x4JuMUHo799OYB0vIbNl/kHdXt++n5XImUtj8KWoQU3aYKnbxElfBzCFkM06VhoQ9
+	632QFKvfn2t4Atb6qtZcSOzHj6c2AtGtfjL+prwuHvGCIOx47au19zG2WMapZC3nvIc+qCzK+/cA8
+	4Hm2I62uYTfZmLpIywow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxERs-0000000CQuD-0E2w;
-	Fri, 21 Aug 2026 01:53:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wxEYr-0000000CRC2-3lKI;
+	Fri, 21 Aug 2026 02:00:49 +0000
+Received: from out-75.mta0.migadu.com ([2001:41d0:1004:224b::4b] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxERq-0000000CQu7-0a9K
+	id 1wxEYo-0000000CRB3-0llj
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 01:53:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29E6B60A58;
-	Fri, 21 Aug 2026 01:53:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 268B31F000E9;
-	Fri, 21 Aug 2026 01:53:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787277212;
-	bh=dKo2aLMBgmdPLr+9SGvRD08MU3JFbNMO745B0V9ZYu8=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=mik8zYI82kKavrlvHO9BvvyrcO678LBFFZJdBq5xSdP5CfUY64tP7NTIbJONk7zyB
-	 fivO9+/fwsAGYsdrBYnHROqg3NrpD2bEkRWlsSDX/wMScxKuWfwOztXEVFTzzer97R
-	 pMeRNj7w4TqX9bG9XDOhG5Cs5GeQTtggE5bSeuFrOXElmADVdvWnYHt/SljPYse1zm
-	 T/RtkkCHLj7xNLJvtOdglC2v8PiHf6iRVdvm5K2ewf1QTGdnI0yisgz6lixEDEaZkT
-	 3Xgetb28yu3/ZnakjB1rTePJ29jECSG5sjlZNeaB7fga+MryNrTcxCDavSe7kqeufo
-	 EiXN2yflQgeDw==
-Date: Thu, 20 Aug 2026 19:53:29 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Djordje Todorovic <Djordje.Todorovic@htecgroup.com>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    Jesse Taube <jtaubepe@redhat.com>
-Subject: Re: [PATCH] riscv: Add support for early boot errata application on
- MIPS chips
-In-Reply-To: <20260810-p8700-early-boot-v1-1-5c4aa08d500f@htecgroup.com>
-Message-ID: <1bd31b3c-bdbe-37e1-0f0a-3cf152ff81d5@kernel.org>
-References: <20260810-p8700-early-boot-v1-1-5c4aa08d500f@htecgroup.com>
-MIME-Version: 1.0
+	Fri, 21 Aug 2026 02:00:48 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=9ac753xghRJn/27tVS9JoobeWsB8lFA3MSTyYxuV/EI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787277640; v=1; x=1787882440;
+ b=FcW9iiIGHzYl31nZDMkmvL/8BBgE4iH2G4x3Hn44KuOl0mZ/S1yAqHnuWBMnqLGvju955qOo
+ lqspBEgAmAGpvFmlTWDJLHgegGLyUwPIVIpeS2YQPu/6tK4dU1ZcMUNCAEMvbUrnIZ5VTX99tzf
+ lkihv4PBg+asFcGN48d/R6tc=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: from localhost (114.94.8.21)
+	by smtp.migadu.com with ESMTPS id d136abca33384d49;
+	Fri, 21 Aug 2026 02:00:40 +0000
+X-Mizu-Trace-ID: d136abca33384d49
+X-Migadu-Flow: FLOW_OUT
+Mime-Version: 1.0
+Date: Fri, 21 Aug 2026 10:00:37 +0800
+Message-Id: <DKU91NS0JNRS.SLSXQO6JHRLM@linux.dev>
+Subject: Re: [PATCH 0/6] Add SpacemiT K1 USB2.0 controllers support
+From: "Ze Huang" <huang.ze@linux.dev>
+To: "Junzhong Pan" <panjunzhong@linux.spacemit.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Yixun Lan" <dlan@kernel.org>, "Xu Yang" <xu.yang_2@nxp.com>, "Peng Fan"
+ <peng.fan@nxp.com>, "Peter Chen" <peter.chen@kernel.org>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>
+Cc: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>, "linux-riscv"
+ <linux-riscv-bounces@lists.infradead.org>
+X-Mailer: aerc 0.21.0-146-gb5c16ebe1835
+References: <20260812-b4-spacemit-k1-usb2-v1-0-f28cf29e522b@linux.spacemit.com>
+In-Reply-To: <20260812-b4-spacemit-k1-usb2-v1-0-f28cf29e522b@linux.spacemit.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_190046_354271_2588A68B 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,37 +81,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026, Aleksa Paunovic via B4 Relay wrote:
+On Wed Aug 12, 2026 at 5:26 PM CST, Junzhong Pan wrote:
+> The SpacemiT K1 SoC has two USB2.0 controllers, one has Dual-Role
+> support, but the hardware has no internal OTG registers, the other is
+> Host only. These controllers are compatible with Chipidea USB2 driver
+> with some flags set and reset control support.
+>
+> This series is based on 7.2-rc1 and has been tested on Banana Pi F3
+> development board.
+>
+> A self-powered USB device/hub is needed to test the host function of the
+> dual-role controller on Banana Pi F3, a MINI-PCIe USB2.0 module (a
+> cellular module e.g.) is needed to test the host only controller.
+>
+> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
 
-> From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-> 
-> MIPS errata implementation previously skipped early boot application
-> entirely. Although the only currently existing MIPS erratum does not
-> require this, amending this now should make any future addition easier to
-> implement.
-> 
-> This commit was based on the existing T-Head implementation.
-> 
-> Suggested-by: Jesse Taube <jtaubepe@redhat.com>
-> Link: https://lore.kernel.org/linux-riscv/CADRr4bcbD57hmR0XGgo8BjgNp4shEADOondZEtwscCJ9-nxXRQ@mail.gmail.com/
-> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+Tested on OrangePi RV2.
+
+To use USB2.0 Type-A port as host on this board, usb2_0 needs:
+  - dr_mode = "host"
+  - a vbus-supply regulator driving gpio126
+
+Tested-by: Ze Huang <huang.ze@linux.dev>
+
 > ---
-> The patch was motivated by Jesse's suggestion to implement [2] as an early boot erratum.
-> However, since it's in conflict with [1] as well, I decided against sending this one and the ZALRSC patch as a series,
-> opting for rebasing [1] and [2] once it's clear we should move forward with this approach.
-> 
-> I tested this on an eight-hart QEMU config. The testing was done by rebasing [1] and [2] onto the patch
-> and running most of the same tests used to verify those patches. This includes: coremark testing, futex kselftests
-> and GDB to check errata application. The same tests were run on the Boston board, configured with a single P8700 core.
-> 
-> Links:
-> [1] https://lore.kernel.org/linux-riscv/20260608-p8700-wfi-v2-1-77efc7459f3d@htecgroup.com/
-> [2] https://lore.kernel.org/linux-riscv/20260723-p8700-zalrsc-v4-1-59c21b252e29@htecgroup.com/
+> Junzhong Pan (6):
+>       dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible
+>       usb: chipidea: usb2: add optional reset support
+>       usb: chipidea: usb2: add SpacemiT K1 support
+>       riscv: dts: spacemit: add USB2.0 controller nodes for K1
+>       riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3
+>       riscv: defconfig: enable ChipIdea USB controller support
+>
+>  .../devicetree/bindings/usb/ci-hdrc-usb2.yaml      |  1 +
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    | 16 +++++++++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi               | 40 ++++++++++++++++++++++
+>  arch/riscv/configs/defconfig                       |  4 +++
+>  drivers/usb/chipidea/ci_hdrc_usb2.c                | 16 +++++++++
+>  5 files changed, 77 insertions(+)
+> ---
+> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+> change-id: 20260812-b4-spacemit-k1-usb2-97adfc283d58
+>
+> Best regards,
 
-Thanks, queued for v7.4.
 
-
-- Paul
 
 _______________________________________________
 linux-riscv mailing list
