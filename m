@@ -4,85 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CF0C5DF7D
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 08:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51278C5DF87
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 09:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D7IgmzbbidGgD6tUYO5eVHPjbJW2bVle7aqJ/6MrpDg=; b=BnD4Js4oVMDfdG
-	O2vOgWA/o5hGljDRH3dlzPur5krCBcgf1m6ZAI4ZG61b/eeApf26hv1NwI5dsT+q65LDcN9b9wsgP
-	Ylp1gbMg9xZturmkgDdGzVAX9vCQ1T11do5gQt/AgIp/X2ODcZEOCO4Ul3jgIjWB/o1u9a9/eFiLo
-	K5TF/7a174hSJ2n2UfDBWbnUVSqDZ91iald2SbSUGmB/dnCbLEZKI8QMJD7XYflp3yl1fGgaiMqBT
-	kHXdnZ8wD885nzOM/ny4BnK5RA8QXCWuPiBz58e84oNtJXwRppAC8xCU3ViVEU/lWqOPyb14JZY1z
-	bCrrEVLRkUXcLLmk0o/g==;
+	List-Owner; bh=R+eOLO7Zdmpf7BwPWqnnlyt/BhKQjhyguN8eBRtb0kU=; b=SxB0NDZAyViuH5
+	4IThkIThm/MSgIBe21mP9MLLCX2E4aDLfnAfMACDiic8Z5rDHzYq5lK+8MPwy7TVqqADyqYYs2ar1
+	v67+QUpIK/7j+Q4kUsNnT/Sg1wo24Yj51ccGhkyF6RXQgb4xFl8hOyjMtvU0UmsMfhZ9/5G9/d4LD
+	T4OJgu6IfxzI+VE25lj1XPpdjv3RmdSpNX09alVV4yOlbfzgHCf+ml1MTjuJvw2+0LdAssndFjrig
+	I/BF1DeM3xdg/kehY3KedO5ueTaMWHpKAGmAIqUaCNrelH+tbb+RNkKAKhVpauojJ/xyaXHJcRi4t
+	AMaXre5RfZvD2xN6mMNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKo2-0000000CoeF-0pm1;
-	Fri, 21 Aug 2026 08:40:54 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wxLpz-0000000Cwk9-3uQq;
+	Fri, 21 Aug 2026 09:46:59 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKny-0000000Coco-3gO1
+	id 1wxLpx-0000000CwjD-0YE1
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 08:40:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787301650;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yECaM6gMbXnP91uZ4srjkL1nmloCLEH+XRj0dZ8xS3g=;
-	b=T6PIOS6hG3HzHZIFcB9iqlDgrJxyD5kZue0oDZ8AM9dhqTBbl9UnxH568gtBIFfcusneC3
-	fzhikiIDPNtvFT1E2gY/PTiFBcu2xyFReiCst9jisaShgCIgCYkIkGHLpkjS98KXOG5GwH
-	JFCkrbexiw2tLujVNJXLK5SV/xiuupE=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-465-a42FUQFdMxyrU_1m2nTEew-1; Fri,
- 21 Aug 2026 04:40:43 -0400
-X-MC-Unique: a42FUQFdMxyrU_1m2nTEew-1
-X-Mimecast-MFC-AGG-ID: a42FUQFdMxyrU_1m2nTEew_1787301640
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 402D219560AE;
-	Fri, 21 Aug 2026 08:40:39 +0000 (UTC)
-Received: from rotkaeppchen (headnet03.pony-001.prod.iad2.dc.redhat.com [10.2.32.114])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 93497180034C;
-	Fri, 21 Aug 2026 08:40:32 +0000 (UTC)
-Date: Fri, 21 Aug 2026 10:40:26 +0200
-From: Philipp Rudo <prudo@redhat.com>
-To: Pratyush Yadav <pratyush@kernel.org>
-Cc: Mukesh Pilaniya <mpilaniy@redhat.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
- <kernel@xen0n.name>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>, Baoquan He
- <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>, Pasha Tatashin
- <pasha.tatashin@soleen.com>, Tao Liu <ltao@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- kexec@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] kexec: fix error propagation in
- kexec_image_probe_default()
-Message-ID: <20260821104026.07b7a31d@rotkaeppchen>
-In-Reply-To: <2vxzik54zmpp.fsf@kernel.org>
-References: <20260819-mpilaniy-v2-0-95e929ede0e5@redhat.com>
-	<20260819-mpilaniy-v2-2-95e929ede0e5@redhat.com>
-	<20260820142114.0a36ac78@rotkaeppchen>
-	<2vxzik54zmpp.fsf@kernel.org>
-Organization: Red Hat inc.
+	Fri, 21 Aug 2026 09:46:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787305617; x=1818841617;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=t8v2/ogFndfgh8m90+gQPp4REVawnYyCxxkJjTJIox8=;
+  b=KlLtzIU7dk4GZz8k3mDK8hKmt1YyDhrk7ayWdJBcJaKh0dWsGDX5Dt4B
+   PAuLCxb2GbMmky/xLIWutlrPOVnKXoWrmNPMRk9o31TW82fnEu8VmjFLy
+   Y0mRPqK9dGH78i/H7xZ8spR56I+cxSf3CXDvOZN5Gl+OIWdJq12ITYkKj
+   7jN5CizPtr/KTAUYuqG/wiuAXb89zhhKbSU/8dzXFN/okHBZDNzeKuRPa
+   MYK9qFItnsQu3aiIDq429imjGlQ9pV0t8s7vCf3w3cH/N4lN79hq6TMLl
+   hH6e3DP5G0snOp81+Hw9MMJtEaSSFKTcT0pP3dd5tevNIZUl6cihNPVkL
+   Q==;
+X-CSE-ConnectionGUID: HIJmSToJTY+1vwrpL+xhQA==
+X-CSE-MsgGUID: ikf7S+scQZ2NSkw1rz5mSQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11881"; a="87621803"
+X-IronPort-AV: E=Sophos;i="6.25,234,1779174000"; 
+   d="scan'208";a="87621803"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 02:46:55 -0700
+X-CSE-ConnectionGUID: YY5c0jAQQ7CiuzwVDXO3EQ==
+X-CSE-MsgGUID: ++tW1p51QbGSL2QypOxziw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,234,1779174000"; 
+   d="scan'208";a="270114138"
+Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.245.241])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 02:46:49 -0700
+Date: Fri, 21 Aug 2026 12:46:46 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Janani Sunil <janani.sunil@analog.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Marius Cristea <marius.cristea@microchip.com>,
+	Marcus Folkesson <marcus.folkesson@gmail.com>,
+	Kent Gustavsson <kent@minoris.se>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	Janani Sunil <jan.sun97@gmail.com>, linux-spi@vger.kernel.org,
+	Kent Gustavsson <nedo80@gmail.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v9 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <aogehm5B7hoqmnKo@ashevche-desk.local>
+References: <20260820-ad5529r-driver-v9-0-ba62e0b2a816@analog.com>
+ <20260820-ad5529r-driver-v9-3-ba62e0b2a816@analog.com>
+ <20260821024503.592fabc1@jic23-huawei>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: 5c-2n056ryBd49eQS1rmDomnblKil70cMeOFap-4ITQ_1787301640
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20260821024503.592fabc1@jic23-huawei>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_014050_981785_2E40F047 
-X-CRM114-Status: GOOD (  33.44  )
+X-CRM114-CacheID: sfid-20260821_024657_209751_B91BE908 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,111 +109,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Pratyush,
-
-On Thu, 20 Aug 2026 20:11:14 +0200
-Pratyush Yadav <pratyush@kernel.org> wrote:
-
-> On Thu, Aug 20 2026, Philipp Rudo wrote:
+On Fri, Aug 21, 2026 at 02:45:03AM +0100, Jonathan Cameron wrote:
+> On Thu, 20 Aug 2026 09:08:23 +0200
+> Janani Sunil <janani.sunil@analog.com> wrote:
 > 
-> > Hi Mukesh,
-> > Hi Pratyush,
-> >
-> > having this patch makes sense. Personally I'd go with having a
-> > switch-case rather than individual if-blocks. E.g.
-> >
-> > 	switch (ret) {
-> > 		case 0:
-> > 			image->fops = *fops;
-> > 			return 0;
-> > 		case -ENOEXEC:
-> > 			continue;
-> > 		default:
-> > 			return ret;
-> > 	}
-> >
-> > IMHO that is better readable and easier to extend in case other error
-> > codes need special handling as well. But that is only my personal
-> > opinion.  
+> > Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
+> > from Analog Devices.
+> > 
+> > The device communicates over SPI and supports per-channel output range
+> > configuration. An optional external 4.096V reference can be used in
+> > place of the internal reference.
+
+> Sashiko calls out that dependency should be on CONFIG_SPI.
 > 
-> Well, IMO both look roughly the same so I unless Mukesh prefers your
-> version more, we can keep it as-is.
+> I didn't check it's reasoning but I believe the conclusion is correct.
+> If that's all that comes up, I can tweak whilst applying.
 
-that's why I've marked it as a personal preference. I don't expect
-Mukesh to switch to it. Still I thought it is worth mentioning just to
-give an other perspective.
+Interestingly we have the following statistics (might be a few cases missing):
 
-> >
-> > Independent on which implementation you use.
-> >
-> > Reviewed-by: Philipp Rudo <prudo@redhat.com>  
+$ git grep -n 'depends on.*[[:space:]\(]SPI_MASTER' | wc -l
+156
+$ git grep -n 'depends on.*[[:space:]\(]SPI\([^_]*\)\?$' | wc -l
+299
+
+But reading the Kconfig I tend to agree that what we need is SPI_MASTER.
+SPI might be enabled for SPI_SLAVE only, would it mean we have a usable
+HW on such a configuration / platform?
+
+> Looks good to me, but I'll leave it on list for a little longer
+> as we aren't in a rush and others may well want to review.
+
+...
+
+> > +config AD5529R
+> > +	tristate "Analog Devices AD5529R High Voltage DAC driver"
+> > +	depends on SPI_MASTER
 > 
-> Thanks for reviewing!
+> depends on SPI
 > 
-> One tiny suggestion. Can you please reply in-line the next time around?
-> It is a bit easier reading this response below the code that it refers
-> to.
+> > +	select REGMAP_SPI
 
-Agree, especially with larger, more complex patches. In this case
-however, I thought that the patch is so small that it wouldn't make
-much of a difference.
-Anyway, I'll reply in-line next time in such cases as well.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Thanks for your review!
-Philipp
-
-> >
-> >
-> > On Wed, 19 Aug 2026 23:17:23 +0530
-> > Mukesh Pilaniya <mpilaniy@redhat.com> wrote:
-> >  
-> >> kexec_image_probe_default() overwrites ret with each loader's probe
-> >> return value and returns whatever the last loader returned when no
-> >> probe matches.  The error code reaching userspace depends on whichever
-> >> loader happens to be last in kexec_file_loaders[].
-> >> 
-> >> Only continue to the next loader when a probe returns -ENOEXEC.
-> >> Propagate any other error such as -ENOMEM immediately. Return -ENOEXEC
-> >> only when all loaders have been tried and none matched.
-> >> 
-> >> Suggested-by: Pratyush Yadav <pratyush@kernel.org>
-> >> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
-> >> ---
-> >>  kernel/kexec_file.c | 12 +++++++-----
-> >>  1 file changed, 7 insertions(+), 5 deletions(-)
-> >> 
-> >> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-> >> index 59fb9d71e9d8..b3060e984ef3 100644
-> >> --- a/kernel/kexec_file.c
-> >> +++ b/kernel/kexec_file.c
-> >> @@ -68,17 +68,19 @@ int kexec_image_probe_default(struct kimage *image, void *buf,
-> >>  			      unsigned long buf_len)
-> >>  {
-> >>  	const struct kexec_file_ops * const *fops;
-> >> -	int ret = -ENOEXEC;
-> >>  
-> >>  	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
-> >> -		ret = (*fops)->probe(buf, buf_len);
-> >> -		if (!ret) {
-> >> +		int ret = (*fops)->probe(buf, buf_len);
-> >> +
-> >> +		if (ret == 0) {
-> >>  			image->fops = *fops;
-> >> -			return ret;
-> >> +			return 0;
-> >>  		}
-> >> +		if (ret != -ENOEXEC)
-> >> +			return ret;
-> >>  	}
-> >>  
-> >> -	return ret;
-> >> +	return -ENOEXEC;
-> >>  }
-> >>  
-> >>  static void *kexec_image_load_default(struct kimage *image)
-> >>   
-> >  
-> 
 
 
 _______________________________________________
