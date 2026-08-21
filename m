@@ -4,128 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9540CC5DF87
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 12:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B8CC5DF87
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 13:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mQaP/amj/BhUx354GZH53vyb5FSzYEM9AmdAjmUz7mg=; b=teL3IklZpZZrkR
-	9m7ibqtZOC4ANCQ6PyhwqBg9ut5CQ3hV37T+QKCAt+PNlNiW1oZM6ufu0gI5gktWlVO82O8+92djT
-	DJplJD1kgW083zg305I/ITBfy0mpp2j6X65CvcuYs6OvY9bO02Ixmcvvqi1yzAsC7Cp46mBG7aZL+
-	52vB6mzq7DZUqF9mo7/VwIQjPrjBffn9NvUmPS+8GQ8fd9VkFFsWsBBRG8Ul+ntun1g1Ia8GKviCO
-	R5TxE4pXFXbAznNVUhXPXCOQYTJ7X8QlpiWen6i542i8dZDdbiWlZy1NILLiKeLe16inqPRljkT1Y
-	gySCDgotighfv7qwJxAw==;
+	List-Owner; bh=xpAEgljVdHwDFcs7hjjiFygvDCIHj7oTB6x7puLSBLA=; b=ONUPcR0ha1nuHf
+	YM0YwITzwUz1sEtl94jFMeDeY/9cFvlJRRMfNVvOck+fhLyk5NZTrUB/c5nxy5XUMRGmLrYzECRD0
+	b+C/QSI7iH+Tr6dJIvmWxmOT0WRQI0rBA5u0f9sNDTJhfgEBCGAdJDb/3/c/S8R0wQCLMOizXn8mG
+	t6F/CfgtA8wR5J3qrqR+JHkFAd8R9XOkMzpDzKWy1h4o2Z0eDzHy9pGLvCF82X4xsKS2LIbOuuMys
+	voLdX/1wsf0mcqrsZNjCryGCysUdaLoPiGBdnv2a4YYFrrobZda68eLzX6nmgckuuQKayh5z5NG8H
+	q2hzOo6FcpX+jpynmfOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxNwr-0000000DFsQ-2S35;
-	Fri, 21 Aug 2026 12:02:13 +0000
-Received: from mail-eastusazon11011015.outbound.protection.outlook.com ([52.101.52.15] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wxP6r-0000000DNjP-0Nsc;
+	Fri, 21 Aug 2026 13:16:37 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxNwo-0000000DFs0-3fFp
+	id 1wxP6o-0000000DNj5-1WiT
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 12:02:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xv6v8vJ2EO4Ma3z09yZrdvqzvLiWeDCpkK0SzZKjzO+eRwD5PhvK0ViWEYKrpbcX2/9GCM4KmXQq3N4cD/PYXAV+2x19d1RExb+l02occOF+H4JfJzM0MXz3IX2xqrX8iXD+M+8YekV44QnU0KL48YDW+G/VjnqP0SCnzFfcJNQWiJAFkJDruRjisjmQPOCJElDtny8R+kg4ebgq+lZNJR/ktgG8f/cSvtmSkaZxRl50FxtHefW4RV71hJT1lRyfRlM/56sUZLlFNEoygHGl/plaRMcx+S9xFIYQvYfEE0pa1Z4Xna6foUDvWQHJBvJ0EzTl3A8Uzn4D/Y4UPHYsGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DJTK6vcd0z8UYg6glV8mmKpybwYoS64IXjelVBD1rnQ=;
- b=u3ypeuvs5Oyk1NMDXEW2pqJ4eLXfyjplK/HoVwf1iEmFRv0Dfp0WfVtw4K6LQm1fEEHn1++/DGBWXRMj8OkQDyXQ1s9vYv14WEBMa3J6mOj7TJYLLl1JH3vefJt2jWn8e8V0neS3SHGOCN2WbxAqqKgSqcPhLR0F27q67qtnf3/ObaRpxx9RJmq7+hziguPMDjznN1edSbqmWnBBjiyU7XxorMJ4dXNiT7MHZN3ru3bjFuC/xl05aJUb6vWgUt55xxVn7KIUht8PnSMXblK1Ja/HSc5uLQjEHjBuFI0Zm89P5tpnctkwlSUMJ7+b+E8zYaepnms0i7un0mrazOWM3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DJTK6vcd0z8UYg6glV8mmKpybwYoS64IXjelVBD1rnQ=;
- b=hJTYLM8Y3/ZgKd538sVK7CN96Euz73fA+U8g3b5uFKuE5DSV7tWqIi7b5Z82f2/mcM6jGpZaHbxd5tbP+EHN71bLWdImFddLtz3vzZomrDQUz/LCM0mpuwhL4nRB7mOHjQ4iUEje74sMnY1sQamla4iDo20jC3iPxc7oDS/7tG9oZFe9xM1kR9pBeMLSnDveR9xal3W2n/NscdFBtyeatqLfYpM1mxlY9D7h05xY744Fz5OQb+WQMCoxgHznka+dFfyjklD7o9Cf46ZDd4OckBnl4QiISG7qEoo0yesLgP0Rnab8fR4GeXg14dVBO1y6h2OEISzDeTp3WddSzIL4Sg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by LV8PR12MB9184.namprd12.prod.outlook.com (2603:10b6:408:18f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
- 2026 12:02:05 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0339.010; Fri, 21 Aug 2026
- 12:02:05 +0000
-Date: Fri, 21 Aug 2026 09:02:04 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
-	tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
-	anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
-	fangyu.yu@linux.alibaba.com
-Subject: Re: [PATCH v4 02/21] iommufd: Add iommufd_sw_map_msi()
-Message-ID: <20260821120204.GF244917@nvidia.com>
-References: <20260820214150.545737-1-andrew.jones@oss.qualcomm.com>
- <20260820214150.545737-3-andrew.jones@oss.qualcomm.com>
- <20260820220908.GE244917@nvidia.com>
- <gr2h3ktgacozyo7rdggkxsg5mbdtzcnimaawd24c37hnf2tun3@hqivsenaq5wd>
-Content-Disposition: inline
-In-Reply-To: <gr2h3ktgacozyo7rdggkxsg5mbdtzcnimaawd24c37hnf2tun3@hqivsenaq5wd>
-X-ClientProxiedBy: IA4P220CA0006.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:558::7) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 21 Aug 2026 13:16:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787318194; x=1818854194;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mFQeiGUM9dHfF6xABuT1qe621J+n7EAwg91rA4n4YbY=;
+  b=GYU8ApcpZ7Jg6oiyRpIVxnEliZhdqsWCrn96X9jU0SiDubAt3OsjP2Ho
+   5N1uOjdUuoZD9zmCj0ClUMzMxh2LQWmQci423Vo5PLk5xzoXk6cY+UV2C
+   3b5Gt/ET08eRQoC0bXNR8NSW5RU/jesBv2RFegxVJVIXYMSwBBY3LQU/u
+   q16HpoQ0K+z6kG9kH7wHxzcV/UmOYhKCsRl8ORrLFaiJgrLGjmMXE3MpM
+   PDr5Aq0dae9mUHmgiFNbQISmQrUktTaCWjoumuMTMtbGq54tmGKDaik/G
+   cxagUcQQDCzvmvZ2Zu4TnNzYU3s8amQU87idWarBzgkfBfvpEKU41N6Ye
+   Q==;
+X-CSE-ConnectionGUID: vWo3/LmARZC8w0FCPZ0qTQ==
+X-CSE-MsgGUID: vHfL/TuvR+aNsQje/5xGiA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11882"; a="91738965"
+X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
+   d="scan'208";a="91738965"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 06:16:30 -0700
+X-CSE-ConnectionGUID: FyWoSdOVQMmJhrmTM8kHtA==
+X-CSE-MsgGUID: wyLPXuhxSiO2w24PR3267A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
+   d="scan'208";a="271572530"
+Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.245.241])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 06:16:23 -0700
+Date: Fri, 21 Aug 2026 16:16:21 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Janani Sunil <janani.sunil@analog.com>
+Cc: Lars-Peter Clausen <lars@metafoo.de>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Marius Cristea <marius.cristea@microchip.com>,
+	Marcus Folkesson <marcus.folkesson@gmail.com>,
+	Kent Gustavsson <kent@minoris.se>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	Janani Sunil <jan.sun97@gmail.com>, linux-spi@vger.kernel.org,
+	Kent Gustavsson <nedo80@gmail.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v9 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <aohPpQRn5tOANk-c@ashevche-desk.local>
+References: <20260820-ad5529r-driver-v9-0-ba62e0b2a816@analog.com>
+ <20260820-ad5529r-driver-v9-3-ba62e0b2a816@analog.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|LV8PR12MB9184:EE_
-X-MS-Office365-Filtering-Correlation-Id: f2164a1a-626d-4e02-32b6-08deff7c048b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|56012099006|10067099003|4143699003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: qRBV3uqtPu3yaB6PqIyypK/AhV+dKqgDxUwycUVkyVgU8Hnc4ojLgYsAgcW90v/fxEkiNwjZ3inKzuwPFi6JAHpD24Hg6HKNBNll2LC2ltUIgwxIXVoQ6a4wa0He83/SXh2EuLC8eOoXGtQudcTdOdcPQQudRkYXQllWqEof+5F4TfOPT8XV4kFyrKVbRJRkyvog64eDGmSNbj/Hqulw9EVlMgeMeUl7RwFRqUNUbgS8ExgO1ung6HvgQbfBxg4+w7fzuHJan4ywKA6eun93R5IRmtEccWnG9K+xoh9tML8H3FEIeynhKx4pHEm/CzykpvoUn3tcSCYxYa37x/kA4IKN35LQuS5hmv2OT9qDJRaiyhUVTrr8lj9VXY/Im3pmls1EG9RhNth4t+9FhQkx7dvRX0zfOFYGmvMDOGe0Ez5wD4s8Z+wTywwgeA+6rK7KXIHeceFK42EwoxfhdleIqekBqIeFChqJ5Mxvg3ctYHO8cc8IPLAoNTW/pdkn8lvcDZnEBoL4moOASOmkiePIpD4S0TsUt36LW70Pk5K+kNwUjQHwkTrbHLaXdXnIB5r69PAP1YDw8ARR1fbRe/Fu50YScuPXhodUPOmJXZlB9yO0q5aIU1q5M1pReNmaTFmCm39WSgp4zDbeKGCprtghF9mplznlJVzrz0jMQwiGTbU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(56012099006)(10067099003)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AbkBJeYkhigpMV6xkUeLAhj/spXC5gCEU34JQbEcJrL4wCyHBJ2oyfd+Zh4z?=
- =?us-ascii?Q?BHY47mbWC3Iw2DDFwR+qhpbI0Scvm/Z++ZEnErETnQyjjspsZsbOdU/iXB7T?=
- =?us-ascii?Q?LW5k1rMym2QRoiWo/NVGMU8aXc7G0LHpo45Y67f5fesTItpYflqs1lrh1Pl9?=
- =?us-ascii?Q?Vyp+TDYyCpi/YGdhZOvHXHmGx3U0yesacqntajhwdiILWnzFextzvrm77fWI?=
- =?us-ascii?Q?ayBYqHllUvlFiNQjOf1HqU4BAqg6J/xJ2CHkYMzySPcu7QqhfALGiN3PtE12?=
- =?us-ascii?Q?uKfeF8pPr8qTws/QWzFhP6CeDbdER71vgygQnzfEy9PH6OwchPWsII6xEMKg?=
- =?us-ascii?Q?jvIbMRoAjw6gMiRflsxuv+iRtLWzMAho3zTgMAcRysPPMhkL9ZTPC7vMOw9Q?=
- =?us-ascii?Q?zsKdC2DqTRpfiCedyAwazlSGsMMT8DM6QYwkqYAV20mxZ7ZSjPD3Ozb+wYlw?=
- =?us-ascii?Q?yQLHBEIYj1Cren620gGETHhXe6bjF11qezgC6OXE3jzSREQ8Q+pE4QB+dQKV?=
- =?us-ascii?Q?n4aBnRkxdc15yqFsaVWpHhw70L4P8hWrrA3UXD045pGz9hEc+dWFWE2EQtFQ?=
- =?us-ascii?Q?QFlmx3kq1F6O51TVF4jRAbSKRFUuirsm0i46KtTEl8z7TPzAeT3pnPS563Zp?=
- =?us-ascii?Q?GAqnSGA8R7Oa36HAHp+lFO+HMOm/QTlRYAETBdwF60LEG4EvkpoFxBDFtz0w?=
- =?us-ascii?Q?G06r7LTo23pYYbYcjplTkmaSgr5laiozHxv4cuCMNcW7Fwb/CQiYV1UIxlTU?=
- =?us-ascii?Q?R+jBN6CmQXNvZeJOQgvB5hlyU4954f79zGQ/E9CbIkFceLFBhuN0m5uvvj2D?=
- =?us-ascii?Q?PqGP/wkJdeh/g6v7Hh8edxxxkoTjEpcCi2KaHKCTcxT8H3VXqB66sBQcVddj?=
- =?us-ascii?Q?WfN2q28bSpJuBx0l2x4P4zfeuWAc2n0ITdN65xBo240Dr7RW9ymmfb4zY/6b?=
- =?us-ascii?Q?x5MAXQvDiyiTagZQ3bNRB+QuA34JliM5h0LCb+NicKjsrd23iUkPiX+bicFs?=
- =?us-ascii?Q?N+f42NDobZdNORv/ayKJvtqd4vlXVNbqiVZdzQX/02ke0/l+P/ZwqH2zSUdt?=
- =?us-ascii?Q?3OdJtMqKSEqb82v0OM3kgQa+moh2Rb9503dsA6A8fC5UpKWhXF8pjtsQZKfr?=
- =?us-ascii?Q?sDcKRqvT9cpeOlOY6uyGRZiR3dpXBypdJ0OQdRcSrly/cRPmMcphp+DYWEjh?=
- =?us-ascii?Q?mKIMMSsLarfaFEtfC39gRHReoqOV9ncpaVBCB+OugLOE/X78+EtRtsLmiPX0?=
- =?us-ascii?Q?SjOjFtCrYq/uplJdp32Jcq9JwLJh97UkWj+QzuBEJZwhtMnBkmX58PPRxw0K?=
- =?us-ascii?Q?2fno3kEFgb2FQcwuLWolYsw77gOxyre/amVEWKcKNz45WBFEDI0iOmJCyx+d?=
- =?us-ascii?Q?OxqNnThq5H8LGCw0vTdKV7rYekIfF8tbQg5VKctASLZ70sSefLpxN3C6MW0/?=
- =?us-ascii?Q?PAvo0J2OZKNDfucUpWUI54NeX9o9xvBq0oNqrNYgs59z3f7uVrjFMpno+nq/?=
- =?us-ascii?Q?PHyoPE+DpHlPG96BeJn/wKLNAXxIuk6yUhyHphOJ2B3iO3N3+hctY5PXI3MY?=
- =?us-ascii?Q?hNjDMnaWKykn1xslW8c7etWv5ecVYaLHIhy9dne/hFMGVebRSTXz8bH6xtPg?=
- =?us-ascii?Q?vCR2P7Wcyjst28/xvyb1pRbCyzVVauN8NMOkwrUlKcL7lmxGYouUYBOMnKlx?=
- =?us-ascii?Q?U5eA1iHLgqDVKr3MTzQaSqARB1ogIdy9W4iQa7GPmeFk0/sT?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2164a1a-626d-4e02-32b6-08deff7c048b
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 12:02:05.2218
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yDNak8COQXAPbfe28SqMp6yNjDyI5lm9aApmzn32uTI8nHaC33ORo66vLBAVnQL1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9184
+Content-Disposition: inline
+In-Reply-To: <20260820-ad5529r-driver-v9-3-ba62e0b2a816@analog.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_050210_937012_D0AC1CFC 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20260821_061634_453778_85606E5E 
+X-CRM114-Status: GOOD (  28.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,41 +108,338 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 01:07:03PM +0200, Andrew Jones wrote:
-
-> > What I rather expected was for riscv to have a PA window that is very
-> > big and not just one page, eg adjust iommu_dma_prepare_msi() so you
-> > can pass in the entire PA space that you need for the affinity
-> > changes. Maybe this is a list of phys_addr_t ?
+On Thu, Aug 20, 2026 at 09:08:23AM +0200, Janani Sunil wrote:
+> Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
+> from Analog Devices.
 > 
-> That's more or less what this series does. 
+> The device communicates over SPI and supports per-channel output range
+> configuration. An optional external 4.096V reference can be used in
+> place of the internal reference.
 
-But it does it in a completely different way, and I'm struggling to
-see any justification for this.
+...
 
-Again, just pass your list of PAs to iommu_dma_prepare_msi() from the
-irq domain seems like the easiest and most ARM aligned thing.
+> +enum ad5529r_output_range {
+> +	AD5529R_RANGE_0V_5V,
+> +	AD5529R_RANGE_0V_10V,
+> +	AD5529R_RANGE_0V_20V,
+> +	AD5529R_RANGE_0V_40V,
+> +	AD5529R_RANGE_NEG5V_5V,
+> +	AD5529R_RANGE_NEG10V_10V,
+> +	AD5529R_RANGE_NEG15V_15V,
+> +	AD5529R_RANGE_NEG20V_20V,
 
-When you need a new IOVA for an affinity change the PA's are already
-mapped a simple offset calculation is that is needed.
+TBH I don't see the value in 'NEG'. It's kinda obvious that they are all ranges
+and from -X volts to +Y volts. I don't expect to see the "range" out of an single
+exclusive constant.
 
-No weridness in domain allocation, no messing with irq stuff in a
-finalize function, no hackery to iommufd.
+> +};
 
-> There's no big PA window
-> because the IMSIC PAs aren't generally contiguous. iommu_dma_map_msi()
-> factors the mapping operation out of iommu_dma_prepare_msi() and returns
-> each IOVA directly. A batched list API would be possible, but it would
-> only move the loop.
+...
 
-But it keeps the entire flow consistent. Trying to pre-map MSIs and
-mangle all sorts of things in the riscv driver is undoing the
-generalization and what is expected to be be common code.
+> +static int ad5529r_reset(struct ad5529r_state *st)
+> +{
+> +	struct reset_control *rst;
+> +	int ret;
+> +
+> +	rst = devm_reset_control_get_optional_exclusive(&st->spi->dev, NULL);
 
-I don't want to see any mapping of msi in the rsicv iommu driver at
-all, that should be the most important design point.
+It seems having an 'spi' member in the state structure is overkill.
+This all can be done here locally
 
-Jason
+	struct regmap *map = st->regmap_8bit;
+	struct device *dev = regmap_get_device(map);
+
+> +	if (IS_ERR(rst))
+> +		return PTR_ERR(rst);
+> +
+> +	if (rst) {
+> +		ret = reset_control_assert(rst);
+> +		if (ret)
+> +			return ret;
+> +
+> +		/* Minimum reset low width (t_reset) is 20 ns per datasheet. */
+> +		ndelay(20);
+> +
+> +		ret = reset_control_deassert(rst);
+> +		if (ret)
+> +			return ret;
+> +	} else {
+> +		ret = regmap_write(st->regmap_8bit, AD5529R_REG_INTERFACE_CONFIG_A,
+> +				   AD5529R_INTERFACE_CONFIG_A_SW_RESET);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	/*
+> +	 * Wait 10 ms for digital initialization to complete.
+> +	 * Per datasheet, Interface Status A register NOT_READY_ERR bit is
+> +	 * set if SPI transactions are attempted before digital initialization
+> +	 * completes.
+> +	 */
+> +	fsleep(10 * USEC_PER_MSEC);
+> +
+> +	return regmap_write(st->regmap_8bit, AD5529R_REG_INTERFACE_CONFIG_A,
+> +			    AD5529R_INTERFACE_CONFIG_A_SDO_ENABLE |
+> +			    AD5529R_INTERFACE_CONFIG_A_ADDR_ASCENSION);
+> +}
+
+...
+
+> +static int ad5529r_read_raw(struct iio_dev *indio_dev,
+> +			    struct iio_chan_spec const *chan,
+> +			    int *val, int *val2, long mask)
+> +{
+> +	struct ad5529r_state *st = iio_priv(indio_dev);
+> +	unsigned int reg_addr, reg_val_h;
+> +	int ret, range_idx, span_mv;
+
+_mV
+
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		/*
+> +		 * Read from DAC_INPUT_A register rather than DAC_DATA_READBACK.
+> +		 * The DAC operates in transparent mode and directly reflects
+> +		 * whatever value is written to the INPUT_A register.
+> +		 */
+> +		reg_addr = AD5529R_REG_DAC_INPUT_A(chan->channel);
+> +		ret = regmap_read(st->regmap_16bit, reg_addr, &reg_val_h);
+> +		if (ret)
+> +			return ret;
+> +
+> +		*val = reg_val_h;
+> +
+> +		return IIO_VAL_INT;
+> +	case IIO_CHAN_INFO_SCALE:
+> +		range_idx = st->output_range_idx[chan->channel];
+> +
+> +		/*
+> +		 * The datasheet specifies a 4.096 V external reference,
+> +		 * matching the nominal output voltage of the internal
+> +		 * reference.
+> +		 */
+> +		span_mv = ad5529r_output_ranges_mV[range_idx][1] -
+> +			  ad5529r_output_ranges_mV[range_idx][0];
+> +		*val = span_mv;
+> +		*val2 = st->model_data->resolution;
+> +
+> +		return IIO_VAL_FRACTIONAL_LOG2;
+> +	case IIO_CHAN_INFO_OFFSET:
+> +		range_idx = st->output_range_idx[chan->channel];
+> +
+> +		if (ad5529r_output_ranges_mV[range_idx][0] < 0)
+> +			*val = -(1 << (st->model_data->resolution - 1));
+
+Hmm... Why not -BIT(st->model_data->resolution - 1)?
+
+> +		else
+> +			*val = 0;
+> +
+> +		return IIO_VAL_INT;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+...
+
+> +static int ad5529r_parse_channel_ranges(struct device *dev,
+> +					struct ad5529r_state *st)
+> +{
+> +	unsigned long channel_mask = 0;
+> +	s32 vals[2];
+> +	int ret, range_idx;
+> +	u32 ch;
+> +
+> +	device_for_each_child_node_scoped(dev, child) {
+> +		if (st->num_channels == ARRAY_SIZE(st->channels))
+> +			return dev_err_probe(dev, -EINVAL, "Too many channels\n");
+
+Perhaps -ECHRNG?
+
+> +		ret = fwnode_property_read_u32(child, "reg", &ch);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "Missing reg property in channel node\n");
+> +
+> +		if (ch >= AD5529R_MAX_CHANNELS)
+> +			return dev_err_probe(dev, -EINVAL,
+> +					     "Channel %u exceeds maximum 15\n",
+> +					     ch);
+> +
+> +		if (channel_mask & BIT(ch))
+> +			return dev_err_probe(dev, -EINVAL,
+> +					     "Duplicate channel %u\n", ch);
+> +
+> +		channel_mask |= BIT(ch);
+> +
+> +		if (fwnode_property_present(child, "output-range-microvolt")) {
+> +			/*
+> +			 * DT stores cells as raw 32-bit values; signed endpoints are
+> +			 * encoded by dtc in two's-complement and then interpreted
+> +			 * here as s32.
+> +			 */
+> +			ret = fwnode_property_read_u32_array(child,
+> +							     "output-range-microvolt",
+> +							     (u32 *)vals, ARRAY_SIZE(vals));
+> +			if (ret < 0)
+> +				return dev_err_probe(dev, ret,
+> +						     "Failed to read range for ch %u\n",
+> +						     ch);
+> +
+> +			range_idx = ad5529r_find_output_range(vals);
+> +			if (range_idx < 0)
+> +				return dev_err_probe(dev, range_idx,
+> +						     "Invalid range [%d %d] for ch %u\n",
+> +						     vals[0], vals[1], ch);
+> +		} else {
+> +			range_idx = AD5529R_RANGE_0V_5V;
+> +		}
+> +
+> +		st->output_range_idx[ch] = range_idx;
+> +		ret = regmap_write(st->regmap_16bit,
+> +				   AD5529R_REG_OUT_RANGE(ch), range_idx);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "Failed to configure range for ch %u\n",
+> +					     ch);
+> +
+> +		st->channels[st->num_channels++] = AD5529R_DAC_CHANNEL(ch);
+> +	}
+> +
+> +	return 0;
+> +}
+
+...
+
+> +static int ad5529r_probe(struct spi_device *spi)
+> +{
+> +	struct device *dev = &spi->dev;
+> +	struct iio_dev *indio_dev;
+> +	struct ad5529r_state *st;
+
+> +	struct regmap_config regmap_8bit_cfg;
+> +	struct regmap_config regmap_16bit_cfg;
+
+Make them to be first in the list, it will follow reversed xmas tree order.
+
+> +	bool external_vref;
+> +	u32 dev_addr = 0;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*st));
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	st = iio_priv(indio_dev);
+
+> +	st->spi = spi;
+
+No need, the same is used when both regmap:s are initialised.
+
+> +	st->model_data = spi_get_device_match_data(spi);
+> +	if (!st->model_data)
+> +		return dev_err_probe(dev, -ENODATA,
+> +				     "Failed to identify device variant\n");
+> +
+> +	device_property_read_u32(dev, "spi-device-addr", &dev_addr);
+> +	if (dev_addr > 3)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "spi-device-addr %u out of range [0, 3]\n",
+> +				     dev_addr);
+> +
+> +	regmap_8bit_cfg = (struct regmap_config) {
+> +		.name = "ad5529r-8bit",
+> +		.reg_bits = 16,
+> +		.val_bits = 8,
+> +		.max_register = AD5529R_8BIT_REG_MAX,
+> +		.read_flag_mask = AD5529R_SPI_READ_FLAG,
+> +		.rd_table = &ad5529r_8bit_readable_table,
+> +		.wr_table = &ad5529r_8bit_writeable_table,
+> +		.reg_base = dev_addr << AD5529R_ADDR_SHIFT,
+> +	};
+> +	regmap_16bit_cfg = (struct regmap_config) {
+> +		.name = "ad5529r-16bit",
+> +		.reg_bits = 16,
+> +		.val_bits = 16,
+> +		.max_register = AD5529R_MAX_REGISTER,
+> +		.read_flag_mask = AD5529R_SPI_READ_FLAG,
+> +		.val_format_endian = REGMAP_ENDIAN_LITTLE,
+> +		.rd_table = &ad5529r_16bit_readable_table,
+> +		.wr_table = &ad5529r_16bit_writeable_table,
+> +		.reg_stride = 2,
+> +		.reg_base = dev_addr << AD5529R_ADDR_SHIFT,
+> +	};
+> +
+> +	ret = devm_regulator_bulk_get_enable(dev, ARRAY_SIZE(ad5529r_supply_names),
+> +					     ad5529r_supply_names);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed to get and enable regulators\n");
+
+> +	for (i = 0; i < ARRAY_SIZE(ad5529r_vss_supply_names); i++) {
+
+	for (unsigned int i = 0; i < ARRAY_SIZE(ad5529r_vss_supply_names); i++) {
+
+> +		ret = devm_regulator_get_enable_optional(dev,
+> +							 ad5529r_vss_supply_names[i]);
+> +		if (ret && ret != -ENODEV)
+> +			return dev_err_probe(dev, ret,
+> +					     "Failed to get and enable %s regulator\n",
+> +					     ad5529r_vss_supply_names[i]);
+> +	}
+> +
+> +	ret = devm_regulator_get_enable_optional(dev, "vref");
+> +	if (ret == -ENODEV)
+> +		external_vref = false;
+> +	else if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed to get and enable vref regulator\n");
+> +	else
+> +		external_vref = true;
+> +
+> +	/* Wait 10 ms after power-up before the first SPI transaction. */
+> +	fsleep(10 * USEC_PER_MSEC);
+> +
+> +	st->regmap_8bit = devm_regmap_init_spi(spi, &regmap_8bit_cfg);
+> +	if (IS_ERR(st->regmap_8bit))
+> +		return dev_err_probe(dev, PTR_ERR(st->regmap_8bit),
+> +				     "Failed to initialize 8-bit regmap\n");
+> +
+> +	st->regmap_16bit = devm_regmap_init_spi(spi, &regmap_16bit_cfg);
+> +	if (IS_ERR(st->regmap_16bit))
+> +		return dev_err_probe(dev, PTR_ERR(st->regmap_16bit),
+> +				     "Failed to initialize 16-bit regmap\n");
+> +
+> +	ret = ad5529r_reset(st);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to reset device\n");
+> +
+> +	ret = regmap_assign_bits(st->regmap_16bit, AD5529R_REG_REF_SEL,
+> +				 AD5529R_REF_SEL_INTERNAL_REF,
+> +				 !external_vref);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to configure reference\n");
+> +
+> +	ret = ad5529r_parse_channel_ranges(dev, st);
+> +	if (ret)
+> +		return ret;
+> +
+> +	indio_dev->name = st->model_data->model_name;
+> +	indio_dev->info = &ad5529r_info;
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +	indio_dev->channels = st->channels;
+> +	indio_dev->num_channels = st->num_channels;
+> +
+> +	return devm_iio_device_register(dev, indio_dev);
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
