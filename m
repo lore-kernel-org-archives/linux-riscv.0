@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28C3C5DF94
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 13:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72062C5DF8E
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 13:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OJ5Vm5mQjWgEGvpGYuU+up14iaMQMLVNL8R9fWr+3XY=; b=EIFXaRqZt2Wv2L
-	D5RpQxOAtWJd/Jn+zZtDfQZGG+O3imDq8RY0hRRitDje8rdMypmhgWVTvco0Umq83mOSnXNDYAp42
-	UIxEOijMC5bLA45ZSzs/QBKcj95i7uZ95VT1K6mQA676auDP4OQi/2st7Tk8e1GQ+7FETaKSgtpS1
-	qEwMnVkeBNZCRPrlmiC/Aa17pxsrZ5GMesRSx6LTcyMaJ2Fex2R7PLvZpUf+g1SilPaOt0rlUPKyz
-	VNNgKOZcLU+ebTWWfvo9YQF/WRlugT2F834lPpKCmneWHA+mKx6Bjy79zv4ChwtgsB+stXrs4IPfj
-	WNCu8l8m6KMjCI34Y2Kw==;
+	List-Owner; bh=0NWPwCMX3FFAOeoAbfJYVQcERIZ4xx/Yzs3B9WadbE0=; b=z38oynrihVIzsL
+	Ydn6utWEzQDDCuEdPtzYoP4Buu8b5I424QXRR3FFoesRV7oLvDEQBkgMcLwxgFk1sQ//qj9C7eKiF
+	RPCA8LPxJi48k0w9iS75acAum+MjJvnxi0OXnm7cxc2wQrC8sLOplCFSMFbPKR8936v6uq0IbXXxQ
+	9rJVMqM1D0feCRb3WY1MKaU0tXb1yqhYju75zJ7Ly/HVug6enULMXnRzT5XP9f/5gzE8y5V5iNMFn
+	m1SZ2gAco7dIjUHlJ5OxmZJMgCmSKS6u0JSqkVNuq5AUmOqRpXHVLb75MhlptlfvKldnskVq0dzrp
+	w4iaMHWsliqDynDxqTyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPIA-0000000DPJr-3HrN;
+	id 1wxPIA-0000000DPJb-2eVP;
 	Fri, 21 Aug 2026 13:28:18 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPI8-0000000DPDy-0KWC
+	id 1wxPI6-0000000DPBf-20ew
 	for linux-riscv@lists.infradead.org;
 	Fri, 21 Aug 2026 13:28:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1787318894; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=bJah1AVjklnltP+n9003t/Lfq0Y0xBXEyF9SiWfTvEg=;
-	b=kZ/5OA0v/1UfbbHPIaxolWHcVgbrwo3ygYq9TeWxbzmHmgi9vqsFJT1g8VnwJ9yPvMqTOscZ70jCqjz38pjcicGuyLzLSdO9ZD4ka9B0LH99PjeZYJynbmD7xzfJ2c8xluOFLIfAMSbjA0HGIOBUybXvBWt8RLPnLmZDqOA/NRw=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X9MSFIz_1787318890;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X9MSFIz_1787318890 cluster:ay36)
+	t=1787318892; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=fN2a+F9K2N+9UIHzo/fPW1ZnfAPXmKisjaWnaBsgmck=;
+	b=pgNzNmrZmEJUStuohurEV6s6AKlvX/zElH8mxtgfTpDpyXZ7uNiY7hgd0NP6R1lTcGDHcv/Xomz2TZsMWNifJ/4PK5rvhlDq8rxKvF3vOQpaF4FSp+9QfKk+GrYSdolkOF7XHzQHg0BnCocI/j5kb/vhBnbk+35U00GkQOhx93s=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0X9MSFIP_1787318888;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0X9MSFIP_1787318888 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Fri, 21 Aug 2026 21:28:12 +0800
+          Fri, 21 Aug 2026 21:28:10 +0800
 From: fangyu.yu@linux.alibaba.com
 To: tomasz.jeznach@linux.dev,
 	joro@8bytes.org,
@@ -61,16 +61,17 @@ Cc: fangyu.yu@linux.alibaba.com,
 	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [RFC PATCH v3 09/10] iommu/riscv: Add dirty tracking support for second-stage domains
-Date: Fri, 21 Aug 2026 21:27:49 +0800
-Message-Id: <20260821132749.82070-10-fangyu.yu@linux.alibaba.com>
+Subject: [RFC PATCH v3 08/10] iommu/riscv: Pre-enable GADE for second-stage domains
+Date: Fri, 21 Aug 2026 21:27:48 +0800
+Message-Id: <20260821132749.82070-9-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260821132749.82070-1-fangyu.yu@linux.alibaba.com>
 References: <20260821132749.82070-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_062816_304086_A1553989 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20260821_062816_200885_1F4C2138 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,79 +90,36 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Add hardware dirty tracking support for second-stage (iohgatp) domains
-used in KVM VFIO device pass-through.
+Pre-enable RISCV_IOMMU_DC_TC_GADE in the device context when
+attaching a second-stage domain, if the IOMMU supports AMO_HWAD.
 
-The RISC-V IOMMU can automatically set the dirty bit in PTEs on write
-access when DC.tc.GADE is set and the hardware has AMO_HWAD capability.
-Wire this up to the iommufd dirty tracking interface:
+Software pre-populates second-stage page tables with D set, so
+enabling GADE by default does not change normal behavior. When
+dirty tracking is enabled, iommufd clears the pre-set D bits and
+GADE becomes necessary for hardware to update the dirty bit on
+write access.
 
-  - riscv_iommu_set_dirty_tracking(): Always enabled dirty tracking for
-    second-stage domain.
-
-  - riscv_iommu_dirty_ops: Exposes set_dirty_tracking and the generic
-    page-table read_and_clear_dirty via IOMMU_PT_DIRTY_OPS(riscv_64).
-
-  - domain_alloc_paging_flags: Assigns dirty_ops to second-stage domains
-    when AMO_HWAD is advertised in hardware capabilities.
-
-  - riscv_iommu_capable: Reports IOMMU_CAP_DIRTY_TRACKING when
-    AMO_HWAD is present.
+This avoids toggling GADE dynamically and keeps device context
+setup consistent with second-stage domain attachment.
 
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- drivers/iommu/riscv/iommu.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ drivers/iommu/riscv/iommu.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index f01fd4e2f840..41b593def1f5 100644
+index 16779877351b..f01fd4e2f840 100644
 --- a/drivers/iommu/riscv/iommu.c
 +++ b/drivers/iommu/riscv/iommu.c
-@@ -1352,6 +1352,21 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
- 	return 0;
- }
- 
-+static int riscv_iommu_set_dirty_tracking(struct iommu_domain *iommu_domain,
-+					  bool enable)
-+{
-+	/*
-+	 * Always enabled and the dirty bitmap is cleared prior to
-+	 * set_dirty_tracking().
-+	 */
-+	return 0;
-+}
-+
-+static const struct iommu_dirty_ops riscv_iommu_dirty_ops = {
-+	IOMMU_PT_DIRTY_OPS(riscv_64),
-+	.set_dirty_tracking = riscv_iommu_set_dirty_tracking,
-+};
-+
- static const struct iommu_domain_ops riscv_iommu_paging_domain_ops = {
- 	IOMMU_PT_DOMAIN_OPS(riscv_64),
- 	.attach_dev = riscv_iommu_attach_paging_domain,
-@@ -1442,6 +1457,8 @@ riscv_iommu_domain_alloc_paging_flags(struct device *dev, u32 flags,
- 			goto err_free;
- 		}
- 		cfg.common.features |= BIT(PT_FEAT_RISCV_S2);
+@@ -1330,6 +1330,8 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+ 			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_MODE, pt_info.iohgatp_mode) |
+ 			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_GSCID, domain->gscid) |
+ 			FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_PPN, pt_info.ppn);
 +		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD)
-+			domain->domain.dirty_ops = &riscv_iommu_dirty_ops;
- 		break;
- 	default:
- 		ret = -EOPNOTSUPP;
-@@ -1517,9 +1534,13 @@ static struct iommu_group *riscv_iommu_device_group(struct device *dev)
- 
- static bool riscv_iommu_capable(struct device *dev, enum iommu_cap cap)
- {
-+	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
-+
- 	switch (cap) {
- 	case IOMMU_CAP_CACHE_COHERENCY:
- 		return true;
-+	case IOMMU_CAP_DIRTY_TRACKING:
-+		return !!(iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD);
- 	default:
- 		return false;
- 	}
++			dc.tc |= RISCV_IOMMU_DC_TC_GADE;
+ 	} else {
+ 		if (!riscv_iommu_fsc_supported(iommu, pt_info.fsc_iosatp_mode))
+ 			return -ENODEV;
 -- 
 2.50.1
 
