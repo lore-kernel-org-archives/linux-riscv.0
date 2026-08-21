@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E147BC5DF87
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 02:01:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E666C5DF87
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 02:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QdaCd0peLk6GH+u4ZMWoF+5UwOwpT2SQu6yIZ0Dj1Ow=; b=1I7Fgs3ih/9Rn2
-	ple1yXVpF27XBAhhnR/TNf8SRm1r8BOgLQOJ0Me6zvq9xTm90t+ABOJRVLVMc15mTQE2Ge298fUzW
-	Z+lre4NfGs3rKop/0eMSaeLNhDSYpnVJII/gJXaFuKJo6fSlPMx1DiVcbcmItOtCcMPP0IJEWLDse
-	06Vr9Epx9Li6x4JuMUHo799OYB0vIbNl/kHdXt++n5XImUtj8KWoQU3aYKnbxElfBzCFkM06VhoQ9
-	632QFKvfn2t4Atb6qtZcSOzHj6c2AtGtfjL+prwuHvGCIOx47au19zG2WMapZC3nvIc+qCzK+/cA8
-	4Hm2I62uYTfZmLpIywow==;
+	List-Owner; bh=8y3GVQFpbaTYxryc25IK3nNuEyc6jj6k8Nx33uPk9gc=; b=f29SefOUjB2hpH
+	DdPF+KEJDHZlffQ+CyJxdtCjLmgDGJJWR39S4E+MPCIE/ve73RjVlsCJn05j8nw94opf/FzpE6IBY
+	8di1cCO2Rysrdk6LX6Yj6BEfMk3MMWoRbYuyY7lkedSC61iR742h6VFyUh67UAwdOojcEgP0Hx9sX
+	WEWivwPzE7WIohvJiWTHJf3H22BSrk/MD+wTvvYFJP50gRfLV0sF34hEo5ynvPBUlNKm+si+fLmvQ
+	WME7cvJoictUzwS9/PmYqp+5EcF9djR7bsspAEAjqj5qgyvE1qwbWmNtFjP+U0YNloxidvmMvzva6
+	unEOTgHcNRetwmNfOwwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEYr-0000000CRC2-3lKI;
-	Fri, 21 Aug 2026 02:00:49 +0000
-Received: from out-75.mta0.migadu.com ([2001:41d0:1004:224b::4b] helo=mta0.migadu.com)
+	id 1wxEjN-0000000CRWD-3YBX;
+	Fri, 21 Aug 2026 02:11:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEYo-0000000CRB3-0llj
+	id 1wxEjN-0000000CRVu-0Eln
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 02:00:48 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=9ac753xghRJn/27tVS9JoobeWsB8lFA3MSTyYxuV/EI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787277640; v=1; x=1787882440;
- b=FcW9iiIGHzYl31nZDMkmvL/8BBgE4iH2G4x3Hn44KuOl0mZ/S1yAqHnuWBMnqLGvju955qOo
- lqspBEgAmAGpvFmlTWDJLHgegGLyUwPIVIpeS2YQPu/6tK4dU1ZcMUNCAEMvbUrnIZ5VTX99tzf
- lkihv4PBg+asFcGN48d/R6tc=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: from localhost (114.94.8.21)
-	by smtp.migadu.com with ESMTPS id d136abca33384d49;
-	Fri, 21 Aug 2026 02:00:40 +0000
-X-Mizu-Trace-ID: d136abca33384d49
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
-Date: Fri, 21 Aug 2026 10:00:37 +0800
-Message-Id: <DKU91NS0JNRS.SLSXQO6JHRLM@linux.dev>
-Subject: Re: [PATCH 0/6] Add SpacemiT K1 USB2.0 controllers support
-From: "Ze Huang" <huang.ze@linux.dev>
-To: "Junzhong Pan" <panjunzhong@linux.spacemit.com>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Yixun Lan" <dlan@kernel.org>, "Xu Yang" <xu.yang_2@nxp.com>, "Peng Fan"
- <peng.fan@nxp.com>, "Peter Chen" <peter.chen@kernel.org>, "Philipp Zabel"
- <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>
-Cc: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>, "linux-riscv"
- <linux-riscv-bounces@lists.infradead.org>
-X-Mailer: aerc 0.21.0-146-gb5c16ebe1835
-References: <20260812-b4-spacemit-k1-usb2-v1-0-f28cf29e522b@linux.spacemit.com>
-In-Reply-To: <20260812-b4-spacemit-k1-usb2-v1-0-f28cf29e522b@linux.spacemit.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_190046_354271_2588A68B 
-X-CRM114-Status: GOOD (  12.76  )
+	Fri, 21 Aug 2026 02:11:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B61342339;
+	Fri, 21 Aug 2026 02:11:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D414E1F000E9;
+	Fri, 21 Aug 2026 02:11:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787278300;
+	bh=OEG0v2HGsE+hywve2JgEKb25loMOtaO4622dEMT+sgI=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=jWiA18cgAochHeVvRo5YIRh7lP5+9ftZAJXSgTXrPUOTCCq2HuiL1E+YSZaGSeHMv
+	 YVlWcjiJXCIXWI7D3s3GgPBC0JdkF1vuttv74XqYA95fPjD0aMyvBS5NPSRgs75YQn
+	 9Tlt1it1n2WoGJ/bRP8BFLTMoUVXb/ecBPuGpaTJds6kkN2c8PH0oCMC2sE/29im1b
+	 O8Xfkm4j7Bm2sUAaHhT4IkM+mgTCZxy94hFDcaUKZgK1jpxOig4ri+pOIQUxqWQ2Gs
+	 mT8odKt+3o0Fmq6CXkM/4Bya/c0dEOjI79Q6M9I2wKUY7qZ9DV06wlhlM6AjoJQuVX
+	 KtxOW+Ibj86hg==
+Date: Thu, 20 Aug 2026 20:11:37 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Andy Chiu <tchiu@tenstorrent.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Evan Green <evan@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, 
+    linux-riscv@lists.infradead.org, bergner@tenstorrent.com, 
+    kito.cheng@sifive.com, dfustini@oss.tenstorrent.com, 
+    greentime.hu@sifive.com, Andrew Jones <andrew.jones@oss.qualcomm.com>, 
+    Deepak Gupta <debug@rivosinc.com>, Xu Lu <luxu.kernel@bytedance.com>, 
+    Yao Zihong <zihong.plct@isrc.iscas.ac.cn>, 
+    Jingwei Wang <wangjingwei@iscas.ac.cn>, 
+    =?ISO-8859-15?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Subject: Re: [PATCH v3 1/3] riscv: hwprobe: initialize pair->value in
+ hwprobe_one_pair()
+In-Reply-To: <20260725001614.2578617-2-tchiu@tenstorrent.com>
+Message-ID: <48f9d505-b80c-e6c7-1623-b86822393dd1@kernel.org>
+References: <20260725001614.2578617-1-tchiu@tenstorrent.com> <20260725001614.2578617-2-tchiu@tenstorrent.com>
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,51 +77,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed Aug 12, 2026 at 5:26 PM CST, Junzhong Pan wrote:
-> The SpacemiT K1 SoC has two USB2.0 controllers, one has Dual-Role
-> support, but the hardware has no internal OTG registers, the other is
-> Host only. These controllers are compatible with Chipidea USB2 driver
-> with some flags set and reset control support.
->
-> This series is based on 7.2-rc1 and has been tested on Banana Pi F3
-> development board.
->
-> A self-powered USB device/hub is needed to test the host function of the
-> dual-role controller on Banana Pi F3, a MINI-PCIe USB2.0 module (a
-> cellular module e.g.) is needed to test the host only controller.
->
-> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Hi Andy,
 
-Tested on OrangePi RV2.
+On Fri, 24 Jul 2026, Andy Chiu wrote:
 
-To use USB2.0 Type-A port as host on this board, usb2_0 needs:
-  - dr_mode = "host"
-  - a vbus-supply regulator driving gpio126
+> The vendor-extension handlers reached from hwprobe_one_pair()
+> (hwprobe_isa_vendor_ext_thead_0() and friends) only OR the present bits
+> into pair->value via VENDOR_EXTENSION_SUPPORTED() and clear their own
+> missing bits; they assume the caller has already zeroed pair->value.
+> 
+> That holds for hwprobe_get_values() (it zeroes each pair) and
+> hwprobe_get_cpus() (it re-initializes its scratch pair per key), but not
+> for complete_hwprobe_vdso_data(), which reuses a single pair across all
+> keys without re-zeroing. A vendor key therefore inherits stale bits from
+> the previously probed key, and the wrong value is cached in the vDSO
+> all_cpu_hwprobe_values[] and handed to userspace on the fast patih.
+> 
+> Zero pair->value once at the top of hwprobe_one_pair() so every handler
+> starts from a clean value regardless of the caller, and drop the now
+> redundant zeroing in the *_BLOCK_SIZE cases. hwprobe_isa_ext0() keeps its
+> own zeroing because hwprobe_ext0_has() calls it directly, bypassing
+> hwprobe_one_pair().
+> 
+> Fixes: a5ea53da65c5 ("riscv: hwprobe: Add thead vendor extension probing")
+> Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
 
-Tested-by: Ze Huang <huang.ze@linux.dev>
-
-> ---
-> Junzhong Pan (6):
->       dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible
->       usb: chipidea: usb2: add optional reset support
->       usb: chipidea: usb2: add SpacemiT K1 support
->       riscv: dts: spacemit: add USB2.0 controller nodes for K1
->       riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3
->       riscv: defconfig: enable ChipIdea USB controller support
->
->  .../devicetree/bindings/usb/ci-hdrc-usb2.yaml      |  1 +
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    | 16 +++++++++
->  arch/riscv/boot/dts/spacemit/k1.dtsi               | 40 ++++++++++++++++++++++
->  arch/riscv/configs/defconfig                       |  4 +++
->  drivers/usb/chipidea/ci_hdrc_usb2.c                | 16 +++++++++
->  5 files changed, 77 insertions(+)
-> ---
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> change-id: 20260812-b4-spacemit-k1-usb2-97adfc283d58
->
-> Best regards,
+Thanks, queued for v7.3-rc.
 
 
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
