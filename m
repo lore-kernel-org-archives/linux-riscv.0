@@ -4,134 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47A63C5DF8C
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Aug 2026 17:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00D0C5DF8C
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Aug 2026 02:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YSZj34+stn0fclK3SBPa7WbXYwuGcP9Pm3h2iG/XMLE=; b=HG4hL+gec4fkvQ
-	sRosU6Y9joBT84Geeu7OPqkD4YApn29se0VHRMt0Y6qVPQHiz2WfU7Sr4KxTr/oDXoP5YgdyGkOyB
-	rWimgQrlhyvc9rDlXWa0X1TfpTJvrKt0ej0gRzEFtRiOg833LBC5dS0Bbhn98/5DcB6plVLjesGYo
-	BgK0ugT/zmxDhzU3miXkMPyaR8lGfjSMKxd8E5Myuh/ZP08oLzts9EpH2r6SwtLUK2ZXbFvlcT2sM
-	WyQ6E4kJ18LqiwhSDsuJA2jilQOjCis3pJxDPGZRd+kvmd8RlD5cjhG3r9Rg/mTmPsPcCKXjedXrF
-	UDFGqlqFHXcqebXIWBfQ==;
+	List-Owner; bh=cPo5WzXDD6ZZfAkOTVJvhkf8dOmxcZcUsJ/RlrVGJVs=; b=Ym1D2lqM3eIdo1
+	QhOgJXo5/I608k8j331fFEPNh2Q1pTtE6tjPIF/LRORhXve+7+kS7K6IZ150qaKS0hcRRrzQVW4aJ
+	gOSSFznSjDzHkm6ezpjZuhDp2TJxn+/hKTC0zKtRt4GmsGjTbaLKKJH3OTq/Y2IUuSg2Zj/50sH4M
+	no3ifUC/wnHiGQi1MNyBuqP8UBFCHhaHIYqvurRCROCooujox3/21ZjiMKHTQcITp0USb4T6OaCDi
+	NCwvSDwIztWpesKUVZONV1j2vRGQGOy2q14qDqSEEuxXZZUorkmPejW933AWl/7+IZyz3Tq8ipuZP
+	lgmh73zUrPy/8ZGhLvMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxSuq-0000000DtcR-1NDQ;
-	Fri, 21 Aug 2026 17:20:28 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wxbEr-0000000EEvx-2MCx;
+	Sat, 22 Aug 2026 02:13:41 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxSuo-0000000Dtbq-1LLb
+	id 1wxbEo-0000000EEvZ-2mMh
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Aug 2026 17:20:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FPFjSwn7yjfCc5v4RmLJcLl+FC7BC60+Qggvh+67ZuZv22AK50kF+EapiZYcfcfzyzJ7vNGwNJYi4rO+YH7EKSt8a1Pka5XfuAr9hgdZcpyAQsprPMVcJXwfWlfoIoKzLBiBQjPbseTEHiBo72oN8DqSlfwlisY6r90VbzfXww17r+gR3HnqeCjMwJ9KLGCv5B4Zj/3mroCAiVfre+ZI5wktjY2Xm1dtDtt4YN6bWShLQY+EKZfQH+PKz4E4qhPzjLHcMauyjzs8H1PwlQAh7smx0867XWOvPSlxvrefmMDyF2bUd93mydckKpZFpWpLJPe11oMoTEPbmEayXWz/dw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=njwh7iTW3lY2QjWOmD20TIMtwcCZjkXV9ZkpsS5pnzM=;
- b=Sagyg0GLWE6HZNWRNkkLoaamoBjdEf4KVxG9dek+4bLOPw3rNOcItVwULm61m5yRf9YO973GdmLqVRfwqzo4b7cXTwquuhQSl3HJ7DcyDHgDt2x+uNk4Ye055AhLBN9S9bRpmEfndwj3rVRtv1NJg4Sd9gAkEtCQabQpnMgoeMa6rGkgyqUrVI0MSFQBFXwZyxWp3dJWiA+o0vDIUFNN82g9nA/1jiB0fuZ6C+IbVXtIyObJnk4PWzO/blK4JhSBQqt+VdObiGDiqcTP81UTPry2doTsWgE3/BwhTTy4vcBUsFMYhh5wVPM7WmFbJH22uuggknGjclOmXPO3PpcQLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=njwh7iTW3lY2QjWOmD20TIMtwcCZjkXV9ZkpsS5pnzM=;
- b=pVSS/ASIwK8HudxpqrtxcVjPUzAlqvvKaNyto/RuEi0nmRBTvsSbSk0HSUWJbsYuI91a1PNLMx1uFVRq/wWAcJYMOGzwltyEb2RqwAZakeS5pEgCUfGKetjRjRDWitL7/i9BrrAQjvx81Esc0ZKDFy73X7N21iITlysjMYr44V9ldyDIFTyK10ISQ0A6z5FLPhIYUVjFjXhmFV1//p5pWI4N+NBkIvI76GWWtLnNAJOJgAjJSUcNLfUFYio5GMRQ62NDcq5kgkZOaGp4T3u+ZFa+pqHL4JyunLulCYcCVkzbcxxllrDMLOlaFuAQ9XAIiAjGB2vF9vitXSbDQSVdWw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CY1PR12MB9584.namprd12.prod.outlook.com (2603:10b6:930:fe::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
- 2026 17:20:17 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0339.010; Fri, 21 Aug 2026
- 17:20:16 +0000
-Date: Fri, 21 Aug 2026 14:20:15 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
-	tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
-	anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
-	fangyu.yu@linux.alibaba.com
-Subject: Re: [PATCH v4 02/21] iommufd: Add iommufd_sw_map_msi()
-Message-ID: <20260821172015.GL244917@nvidia.com>
-References: <20260820220908.GE244917@nvidia.com>
- <gr2h3ktgacozyo7rdggkxsg5mbdtzcnimaawd24c37hnf2tun3@hqivsenaq5wd>
- <20260821120204.GF244917@nvidia.com>
- <zygm4qm3fjv57nsgcectwikfa3cdnidxnhv55nxv4b6l2kllrs@dt36j4p3zhoa>
- <20260821140033.GH244917@nvidia.com>
- <yikhefui2flgfffmtbpdxemjtto2ryfmkgtlgdtmr2ndgxrw3r@rcjz523m3sw5>
- <20260821143155.GI244917@nvidia.com>
- <pzlzv2lzik4miqc5oejichltnyqabolyaezbkrufcl7nbttygm@7rdmkig3t56u>
- <20260821161256.GK244917@nvidia.com>
- <dug43layphru76sqleerwtryyerwa4a6n5s4xwrk4iyfru4o7m@al37eknignld>
-Content-Disposition: inline
-In-Reply-To: <dug43layphru76sqleerwtryyerwa4a6n5s4xwrk4iyfru4o7m@al37eknignld>
-X-ClientProxiedBy: YT4PR01CA0067.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:111::22) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Sat, 22 Aug 2026 02:13:39 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-38e347638adso1507167a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Aug 2026 19:13:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787364817; x=1787969617; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=u+kJNsMh7lbuSLTH19NsCfuQgNIbC7xznYYNfdfSxlo=;
+        b=sX8JfW5mNftTZaJbuzy7e53tCVbghoJdsg1B5J2bNNopL4ftyyrvTWoUvdo8J+FHg4
+         4KWjCSVy6KPMpSQ9OjP38631IIbi/yHf6vmxNWJJhL1BcUl8Tv5hgRyXVrZ59Sqf10WT
+         1dR/MQEFZv67h6yEBBPGS9v1IYTOn7x2ZlAy90h7HT+WqrAu2EPPHLdwVsBte3SZA2Rf
+         69wvDCNHQG1VgEyqTQNUYuwFs10vRTbdIx+rGQ2MFGeSD/V6bhDcENybniqWJ+ozIJCy
+         qnVjlb+Qyj6U8HeRyBtnlAJbCRXwQGEQ9MvJefDf+cuVv1JmVNCdOY5T8YO9F0k1WULC
+         QQvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787364817; x=1787969617;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=u+kJNsMh7lbuSLTH19NsCfuQgNIbC7xznYYNfdfSxlo=;
+        b=k/RYA5fsWqbeJ/vQigWkxjqUYuhNB+Wh41dnyi70CgJ8pHcE2rCCGapG2HVJTOPr2c
+         5xLaJIPTZz7IKOSnVhQ/Um9Hajv74hXvZN8xp1euyB9WM9jLTsugOJKB51AqBPTawXrZ
+         lmEZA5fjGwXNydMymvaiK4l0ZIKluwTXRM2mZYV4LEHAhGcH2gfcauIm/9FW30MIPWVG
+         LqIBalXfhx/8T5881T8BhjzKtTkHk3Ks1WaUEK8vDjIMtqHaPSM5VjX4M9JqyNyKMPTz
+         pCYtrmhUeWPttDfenF7eSRQOV0+5mZUzIQ1JooCB6aPwEFBQ7XAbie30zeADV4hCRaxt
+         X9Qw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq8e44eO5mhkXrtajRCOPRDy1K87cZhwjLvbQcnf+QboWC/GC4TVbeG/IOnHgAMWkvMHpD3HTVz39dd7A==@lists.infradead.org
+X-Gm-Message-State: AFuF++mup5zT/o9lCSvvCbleTgb8OP6OZqMgOcRTGIXbgaQ0IMvdohuI
+	+7WA5RTmhsd/k3RVP4pV06gijHGPpyogR/yuPDqK/NtPBZQ7OaMgTw+B
+X-Gm-Gg: AR+sD11x2WsUUjT9fyjIm/ef9rc5FpioFMaP4WmMnl9TTnBeMqX26hXNTXRO19Hj+h6
+	NUCYObdQVp7tvPbSOmLCfFs3kTqYxbYHQMS+Rlm6BPqcSFj1DrnjV5sYX2IKKiH/eWHm7wmu7e1
+	w/YpM6yoZ8JdIyFCnQU8FvAjAjiumHmodL2WmX7x9O7T5TqwmkxNHr6c+M1Aehxa3Trrb0JHwCD
+	M4hcTBUHw46evusJuZDdWVrsfSZgBKmY9SBi66ON/69OoaDe2h6OXJSLfad7eW99Iys6OdNChi9
+	naggoA08OP4RE6IfXv0EFscbqMlxzheG/ZE/BWMA53uBZI8UVb35F6hkCiqsYgBrrxz5l6wfaFH
+	CFOTalh1w3y//P1huAGpt1lTplLG6gQxejOgXSUHxdNtNKCN451HFvQLBNamRQ0KhjyhgtYSrql
+	5V9zl2GulNiXh7Rm54yEof+jKsnzAlipBaNBvNZlLKOutD002yTleSzKzL2F8=
+X-Received: by 2002:a17:90b:4a82:b0:38d:dfd1:7a8 with SMTP id 98e67ed59e1d1-395dee5610fmr4115491a91.2.1787364817123;
+        Fri, 21 Aug 2026 19:13:37 -0700 (PDT)
+Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395c91348e2sm1571108a91.2.2026.08.21.19.13.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Aug 2026 19:13:36 -0700 (PDT)
+Date: Sat, 22 Aug 2026 10:13:34 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen-Yu Yeh <chenyou910331@gmail.com>, chen.wang@linux.dev, 
+	inochiama@gmail.com
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Longbin Li <looong.bin@gmail.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, 
+	"open list:SOPHGO DEVICETREES and DRIVERS" <sophgo@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/2] riscv: dts: sophgo: Enable ethernet for Milk-V Duo
+ 256M
+Message-ID: <aokFbP7wArV58T9E@inochi.infowork>
+References: <20260803163323.74414-1-chenyou910331@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CY1PR12MB9584:EE_
-X-MS-Office365-Filtering-Correlation-Id: 07a2bf92-790a-4097-e4ce-08deffa877c9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|376014|7416014|1800799024|10067099003|56012099006|4143699003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: oxi0Igt1eFDa5wEOgeeESqIwVvZQ7v5o2y+WIwXDOycnWw5Y4r8u4uXnp7iQ962EQ14hskO0JdQSJXLKmIvY0cn4LBBjCb80kZJovWxWEAscFhjV17gZa6ESXpWa0RK7CcG3Z5Gfu5EUtleg1WlaTUnPQj9Zg+q/TjfeXFcuJANLGzFXuXoDeSlR8482Zr3ELTNdTiXcZO8bPGapJef6EiXbxsWliFJmDE265DK3OmLaq+/+WcoYUa9f4jMQjgnFpctFEufTqdM5s0G+dvsX3mwauLAwhEiMdK4FBTs7AWYROJ8TLU6kfqg3VpApQoq1l2DGjhGMWrOiumpDl0koglKFoLPjVdsdjyrGQ8WD/5rHldjVwGptIyYcWEpTRwhv/G8UhVClob2PBJJKydsbTlx0CKVB2TAWQdBHY/a/MseIOhKZPFGPwaZtC9OC1KzA7N2r8yxM8OZ6mnzU9tZ1vUJSjXCBDW5MR1V+rjPEKK2pLXzWmWkJBDQXPqY1va7mXt/Lz78iZed3ajoZot1GmI2Vz0skETY69aAznUTiK/jMh4dt2C8gBrcxFwYfcdx4yhQAwxNTceE4jAbPNvZzQXadQiqnNVEqYZR4dvVbuDjyN4jqroFKNBaV7c5/Tgvz9FQHSyhijTX1T4C0KqyqNW+ZaTRHqZlAznPPk886jhU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(7416014)(1800799024)(10067099003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d0Zx45/vYjmbdOuatben6T0Nhb7wF5H47GdB5EZEcKYkfSG+g+HL8b3a5uwg?=
- =?us-ascii?Q?WbrKhwpLSW6W5XsqMJ/npW7rkXtSJ6jDuyQE2Dg40KZWQ2CnQEsVpllNbATt?=
- =?us-ascii?Q?fIqFoRCA5hvrco+CjH/TjXU4BZSuDY/ONOZrY5EwvVUOFo2tAq2iEb991Uif?=
- =?us-ascii?Q?gxOiOoAtMbJPG7mw4zEFMcR1iE/ayVgujmOTyhobSPioCUysTBGqjE9YYgwr?=
- =?us-ascii?Q?BxIsv53c6WGjohL4PJBc6C7KqAEtSqqg4KR9jIC7Di92pxjMGwAmm3mRHeGc?=
- =?us-ascii?Q?mCxjl45BjdoxXo0zkHwN8+DNUbwToR76IgVkZUanXVHPS6n6MAU2t5tJJUVQ?=
- =?us-ascii?Q?D+bRtXBDpBVQebx0KXaYIHvbYpl/wLiG2Ch6crLB1kcPiPOnUjCsLPFvb23e?=
- =?us-ascii?Q?AhSFVWOEWJmvtmRUleQMXWOypg0NuyqXDbEGzFqd9eDkomsa9kW9Ic6J2iyl?=
- =?us-ascii?Q?hMvZFKmuQFSxEg/UivwytTQzC7+OItmV0sxZuHdtD3F2EuB/alcyNOuNYkfJ?=
- =?us-ascii?Q?x/HDfeyd9xX8/JdY4jwhazx1gkaaUpItsB0ZiF6EU90aCDCS0WgaTX/yUG3Y?=
- =?us-ascii?Q?9QR11x6gyKTaB7DpI6kK49B8DTZOVmLmEV5poMDjTYWU+MEKL2vslL3glZva?=
- =?us-ascii?Q?CO+YDKyxkpFO9iRrj0H6Y0fXsnp+Vmq6luFURctpOA21xpnkG/twfWdpMOMX?=
- =?us-ascii?Q?ujyQ1PAsH4gHp10zSvynF84sF/L6i+QtSLTkSoiY9VUtB/grbrep993e3wwE?=
- =?us-ascii?Q?40v38kP97/GISH+aULtRKhbbGFUouCUmQoCAec75u0nCwZfsvsVX4wZRNL3O?=
- =?us-ascii?Q?uV2qIwO0BCMQrlRZVjR2JCw+YA63kuMXaF6hEPBYdz3SQJm7GEg4iRJUfutR?=
- =?us-ascii?Q?+ieA6TzSFf7vM62XPqrAhRRIjUTKIj+zDgaecKVvraNOQslSZ6uv6j1Pm7Sf?=
- =?us-ascii?Q?ioz0onogaYasAANXodD1JbvK1K8W+UTE0JOLlzsa84BA7cwkIeo7RV/bjHMb?=
- =?us-ascii?Q?e0H+8zL3Q99FiUuCXh7sxHFWKIPh9pSInQzj+i/emkG6Na09g5CYyPm1BYYo?=
- =?us-ascii?Q?YYYNkzlPnaVDbIdNLe4iWIVVVozydF5BmQmaiJ9AMpjO8f7kq9irnk/Enrxi?=
- =?us-ascii?Q?urJGo/3X/lGh4odHSKVX1SympjdDP9pOFJeM3h80N/xFqQHd4ZV1RgRG9//W?=
- =?us-ascii?Q?s0k/iI+8ax6hVpcbS53RHfTVI/C4yk7yCEKkHaC1+mLcdlVPguSMtihm4T42?=
- =?us-ascii?Q?YhkDphvH4kVbIVFxkJHePv0X6ZyVkwjMvKr2810hWqdW5hkqMTtgEw8hdhAA?=
- =?us-ascii?Q?+IDdGctGrPbU1J+hotHULcFo9ug67gDnTyPAtgpx6OqXs8369FV829NvuhxJ?=
- =?us-ascii?Q?F9wo3Zqb5oImR5C08Lh4piBugFzHOW6WQeNYuYxQtfDtDmJD2f23fLVFj0y5?=
- =?us-ascii?Q?wz6pm+OOOzaGjl0N5HxynmW1bBH5ROUxjqho6pQE2u489f6OuW767z/oNiDv?=
- =?us-ascii?Q?RaJIihfEMA6AJZ/DW3cdgnk2PMIB5lQwjUPf/6Yo94XRgYVPdJJGvYJQgrmS?=
- =?us-ascii?Q?EfpO/xXcfWaxyxiLWqAda2DL6Nam+uDpMTWaDEVB7hNuUkWrEtdAao9bbQWJ?=
- =?us-ascii?Q?a1HEwBpMQL+oqNtdKJr3vimnJdvdxuwRjvpOF20T3nBJnVpwDAFYBNcbArUJ?=
- =?us-ascii?Q?ISxTIP0h1KaqwL9oSlgLx+EH/3TyqXAT9bMS3Xy1TIXAW8LO?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 07a2bf92-790a-4097-e4ce-08deffa877c9
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 17:20:16.6084
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cHy2b/7wQdAZYAM1M9tKyKUDgqljXfSGOQjMRIlMBEodkeMYO6YjvjnT8HcfSImQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9584
+Content-Disposition: inline
+In-Reply-To: <20260803163323.74414-1-chenyou910331@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_102026_368766_267F6A5E 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20260821_191338_708904_57384C78 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,37 +108,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 07:12:15PM +0200, Andrew Jones wrote:
-> > Does riscv absolutely require this? I suppose you have a new problem
-> > where you don't know what affinity the guest is selecting when it
-> > provides a MSI-X addr as you don't know what physical IMSIC page is
-> > under its S1 IOVA?
+On Tue, Aug 04, 2026 at 12:33:18AM +0800, Chen-Yu Yeh wrote:
+> The SG2002 has an internal ethernet PHY, but on the Milk-V Duo 256M the
+> ethernet signals are only routed to the RJ45 connector of the optional
+> IO board.
 > 
-> The IOMMU MSI table operates after S1, so it matches the resulting IMSIC
-> GPA. With a vIOMMU, the guest may use any MSI IOVA that its S1 maps to
-> that GPA. With S1 Bare, the device uses the GPA directly. In either case
-> the hypervisor provides the guest IMSIC topology and the guest interrupt
-> file or MRIF target needed to program the MSI table (through the IRQ
-> domain).
+> Enable the GMAC and the MDIO multiplexer so that the interface is usable
+> when such a board is attached.
+> 
+> Tested on actual Milk-V Duo 256M hardware: the GMAC probes, the MDIO
+> multiplexer selects the internal bus and the internal EPHY is detected
+> at address 1:
+> 
+>   eth0: PHY [mdio_mux-0.0:01] driver [Generic PHY]
+> 
 
-I suspect you should have an IRQ domain for the msiptp functionality,
-but IDK what it should do... Is this basically to remap vCPUs to
-pCPUs?
+> Link-up was not verified for lack of the IO board.
+> 
 
-The viommu can set the msi_addr_pattern
+This is not acceptable, I agree with something like DT overlay for
+support external IO board to enable this. But you should not enable
+this by default. As other may want to use this as GPIO.
 
-The existing msi stuff can place the physical ICMC at the right spot
-in the S1 to give to the viommu (Nicolin's series may be needed for
-this too, I forget)
+Regards,
+Inochi
 
-Not sure how you provide the guest MSI descriptor and have the irq
-layer program it directly..
-
-It is unfortunate you can't learn the vCPU the MSI is targetting from
-the MSI descriptor, in terms of linux that's a pretty difficult choice
-to implement.
-
-Jason
+> Signed-off-by: Chen-Yu Yeh <chenyou910331@gmail.com>
+> ---
+>  arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts
+> index a2797c0bd767..1462a96a1c12 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts
+> +++ b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts
+> @@ -49,6 +49,14 @@ coprocessor_rtos: region@8fe00000 {
+>  	};
+>  };
+>  
+> +&gmac0 {
+> +	status = "okay";
+> +};
+> +
+> +&mdio {
+> +	status = "okay";
+> +};
+> +
+>  &osc {
+>  	clock-frequency = <25000000>;
+>  };
+> 
+> base-commit: 11881041b745b444e4f6c87a2748f1951cf02742
+> -- 
+> 2.43.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
