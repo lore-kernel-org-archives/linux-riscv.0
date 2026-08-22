@@ -4,82 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 628C9C5DF8C
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Aug 2026 13:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5560C5DF8C
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Aug 2026 13:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xLAxdm92CnpOW+hnSuxfBvv5MoHpqSyNZyEN+gi/Ac8=; b=1sztf/FNIoaFck
-	g+z4Msd61pqXm6daTug29Ivuk5uIYsYvjzkqP9p6KWjjXDGBheND/wEB+vypQOuVjFpqJ+2dR+K7k
-	6yclWonSsrbAcgV2KTAYs5BfxXMbbv+9Zw3TuKj4kwMwRdCRak/rptMUb+0ruA2sFDRoPx8hqnb/o
-	XBAThhdz0CiXBEHRSgGOf89PS8lO0FDSSfqZjNAUeQ0QuEwscGiXXAT42QbJPGP/upN+G7R2fYMWo
-	C0tDqchtba7EDPZ42ONJgBsK5g9SpPBmyUCjF4VQAyA/gxKH5hL8cvoa34DIf2lItpocWUpxX/F35
-	tCls9gvxbjYjK2j7M4bQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dzmVLmNe0w+O0jVr8esRwelPfTnyCdXBBEiIJe3rwcQ=; b=3GlWGOyCRjf3wPI2/vdrXtfzZ+
+	Z1ISXBbpshIW33F/XlkhbysU16BApoEU/s9w+Rrz9lMuFJRbbTY5Z7WXZyWnpdKHdFl0630MqP6mf
+	fPjx8dBaBERpm0EzOGCLM8dRwL1okpMgjQ/9h026PWzG1zvKLIVq/KdvPTsAmjJ/N24BNGcAazWIQ
+	zr0S/FTwMuEFhP/2LHD7vaWw/RYJX6hPCv0aB8DKWmJKY7DSVjoRpzwAhIQppqG4z8oUp4dadmCqJ
+	FOBe827owbXrWbpTsH+UtkL9+A0N4LryXsjaxyzfHT0BGxv4wI71qwuKgKWEIm6QvA+f6FjW1BTdz
+	KvNdmUoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxlv2-0000000EXqr-32is;
-	Sat, 22 Aug 2026 13:37:56 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1wxlyx-0000000EY6O-1OVA;
+	Sat, 22 Aug 2026 13:41:59 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxlv0-0000000EXqU-0B07
+	id 1wxlyu-0000000EY64-11Yr
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Aug 2026 13:37:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=zDBgsV3+jDmiqlzEZNoPIOW8mF2ckwIKQWsrUdzM27s=; b=GwWRbV3p3phXULnOIKKsbeIyxS
-	a/iq7+zFdy9cVFu/p5GT0uvFZcKL/jOrlXlWyZO/pKcyELSZ+EyqiT/hLnNjiJVPc7+gLn07NHLrY
-	k+U1K7ZIalmwwMd8oFtHZAcfV30WWqqP/GxA8vm86RCRSvnLfqGO0P8YMGbyLFsPy2W0IUXUhfRrx
-	/rpYcsaaPRMO6rKxggF8NWaHgPla149UaPEa8pQJMsVFrXbe8asH8i2bzd8VNdDBWMsOAC8BVntZ1
-	1T+z26BdC9S0L1tkDnBnT/PRfDE4jaEi2cVRPoDTQxOeOGDjVPnLtKcFONUL/whLvqaRjpNvNrHUy
-	us1Wi0fg==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1wxluw-0000000GuRp-1pH4;
-	Sat, 22 Aug 2026 15:37:50 +0200
-Date: Sat, 22 Aug 2026 15:37:49 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v3 1/5] riscv: dts: spacemit: k3: move USB3 phy to board
- level
-Message-ID: <aommLXHW26fbHe70@aurel32.net>
-Mail-Followup-To: Inochi Amaoto <inochiama@gmail.com>,
-	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-References: <20260819162115.2252812-1-aurelien@aurel32.net>
- <20260819162115.2252812-2-aurelien@aurel32.net>
- <aokGbT7XTCbxUQzl@inochi.infowork>
- <aolt6CaL9b6p8A8V@aurel32.net>
- <aomWjQGk_p84pPD2@inochi.infowork>
+	Sat, 22 Aug 2026 13:41:58 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-c15cb6f5c12so352919666b.0
+        for <linux-riscv@lists.infradead.org>; Sat, 22 Aug 2026 06:41:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1787406114; x=1788010914; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Aj3ZYubTvLgnR11pZYHVat4EVUJdKX6AnHgTVge4+Wc=;
+        b=TfNXE18swEIt1N7xsh1DJPmEuGWtDR2uZfh88zBk6RiF/sTtI1YeKaQHX3iC1ENQWx
+         tTxOZWd1cqoOoqIAJQ5A4MNNYqkT3wS1HgQTIpLCuyrkd0BE1n3vICUwawkV2aczE6OF
+         RLNVQR8IUQ6TX7nz9oVP+kac1Cu/YMB4WXS/pad5zF4w+FlHA2gWgNbgSE/DVHvrw+1u
+         /1xdR5p0kkVg+GIYP1knNszVKDYBkbBIKhjjO7HuQHnuvWm7okOZPtfRhVguiitAgTg+
+         c7lkQFZovNQUdQp/DYsj/5+1V75xKKw2G8fH+KvQKRF/5agH+RZ6FLRST5qiROYsgSwg
+         Xtdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787406114; x=1788010914;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Aj3ZYubTvLgnR11pZYHVat4EVUJdKX6AnHgTVge4+Wc=;
+        b=b8dNDYZD2BaMSrUBatYTQ2l1OBeOs8f6//i4FLVu6Jzu/HAmPf8wAEFIn/b+MBww6q
+         fTG3zf8j8R4gqaCd2bvmeCJSGAt/KUS+/sMJbROVa7jLG620Dqj9VLmtaEaD2VvERAI5
+         OZEye4De6DmvueyP3um0LxFTjom+n802ldaGxz+G0JsbKJjWKFnKF6ULp6fHB5ddZER8
+         tEciF/xZ4Wz+G5sLhoYbsbqO3vvBGKgXI/V2atElcm4g3gDTljTUntMeOP1zQyvo43gb
+         N2m+hF8iRuxFMQgAGM2ML7llnjoyQp+SNFtGoBV3UNBntvPkg3wMjsVd8WAdc3j81jp1
+         q/gg==
+X-Forwarded-Encrypted: i=1; AHgh+RoRjSD3EWTOinwIVfEIgh+Fi0ATffuZcSqAbidkhX0oDeczeAbxRqwRyeAaaFxvKIiUAbIlb/2VsCoruw==@lists.infradead.org
+X-Gm-Message-State: AFuF++lEJ7c9LPGjUQxZNeQ4op340T76vpAeAKb9VXcFV42pvybDc6tJ
+	UF2QaPW4AjrQcdOfdU0tOaX6ZVEtvtBnRRIEUkMh6t5AU8PUssOTWpOItJ+34yt/ApU=
+X-Gm-Gg: AR+sD11FfrLT8NvFqaw43EG0g3QDsfX36VpbHCyhVesqzrKF/6IzdjtcBUBlurtav39
+	yjhoS1UfFqs5f6KinaE0cI4sleZgEKmcVtSLocmAiQyu5D8z0+qOrZTMsCVQwvDj2ZjDYJ83ypL
+	1wk41JEzQCYYmNB+3nnglu3MiCgEpV9fuIvbw4JTvd/YB/GYtZ8zRnl2N0b94XGJHa0i+fdb+G7
+	turoxo8ZMV7puUUon0vAhG8fHgC3JqqkPXYzMxszFYp11mq4++zGkF8HjZH94NL9kD6cxQeD/uB
+	+G2TIX4UEk/cFbRnIbY22ZlsIrJgzuka+AMj4WPKDNxjrTmPo0oiS6AbY71EZ3idPmszUDP/9Lr
+	BybjFtKGU8GzKTgxO4KWJFWqih45qRu4GM7hRPO6FjHs/ayopocri9CaEbA3ED2mpOEiM8rZ06d
+	eWnUwBdMU+fHtk+P0e/olbybgc3fucv1PO5IM68bPj6A5I5S9Pc7FAihfLjMY+yH9jYQ==
+X-Received: by 2002:a17:907:8908:b0:c21:35d0:f435 with SMTP id a640c23a62f3a-c24924db408mr547750766b.10.1787406113365;
+        Sat, 22 Aug 2026 06:41:53 -0700 (PDT)
+Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-c249606a8fasm387614266b.8.2026.08.22.06.41.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 22 Aug 2026 06:41:52 -0700 (PDT)
+Date: Sat, 22 Aug 2026 15:41:50 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Mauricio Faria de Oliveira <mfo@igalia.com>
+Cc: Kees Cook <kees@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	kernel-dev@igalia.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	fsverity@lists.linux.dev, keyrings@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-kbuild@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-wpan@vger.kernel.org, lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org, 
+	coreteam@netfilter.org, linux-sctp@vger.kernel.org, linux-rdma@vger.kernel.org, 
+	linux-s390@vger.kernel.org, bridge@lists.linux.dev, mptcp@lists.linux.dev, 
+	rds-devel@oss.oracle.com, virtualization@lists.linux.dev
+Subject: Re: [PATCH RFC v3 03/13] sysctl, mod_devicetable: add macro
+ MODULE_SYSCTL_TABLE
+Message-ID: <aomlfGJM61qZKxx2@monoceros>
+References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
+ <20260819-sysctl-module-aliases-v3-3-aab90569365d@igalia.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aomWjQGk_p84pPD2@inochi.infowork>
-User-Agent: Mutt/2.4.1 (2026-07-04)
+In-Reply-To: <20260819-sysctl-module-aliases-v3-3-aab90569365d@igalia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_063754_112382_731AB61E 
-X-CRM114-Status: GOOD (  30.32  )
+X-CRM114-CacheID: sfid-20260822_064156_600620_DE3C0A84 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,89 +105,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7422012452489464130=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-22 20:33, Inochi Amaoto wrote:
-> On Sat, Aug 22, 2026 at 11:37:44AM +0200, Aurelien Jarno wrote:
-> > On 2026-08-22 10:17, Inochi Amaoto wrote:
-> > > On Wed, Aug 19, 2026 at 06:15:42PM +0200, Aurelien Jarno wrote:
-> > > > On the SpacemiT K3 SoC, the combo phy provides 8 lines that can
-> > > > either be used for PCIe or USB3, depending on its configuration
-> > > > (spacemit,apmu). This configuration is defined at the board level, and
-> > > > assigning a phy line to a USB3 controller while it is configured as PCIe
-> > > > results in an "Invalid PHY mode" error.
-> > > > 
-> > > > Move the USB3 phy at the board level, the as it is done for the
-> > > > submitted PCIe controller [1]. Keep the USB2 phy at the SoC level as
-> > > > there is one phy per USB controller.
-> > > > 
-> > > > [1] https://lore.kernel.org/20260727094726.890179-3-inochiama@gmail.com/
-> > > > 
-> > > > Fixes: 46380e4b1534c1626cecd7f4d0abb5e0cce09af6 ("riscv: dts: spacemit: k3: add USB controller and USB phy support")
-> > > > Cc: Inochi Amaoto <inochiama@gmail.com>
-> > > > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> > > > ---
-> > > >  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 3 +++
-> > > >  arch/riscv/boot/dts/spacemit/k3.dtsi         | 5 ++---
-> > > >  2 files changed, 5 insertions(+), 3 deletions(-)
-> > > > 
-> > > > diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > > > index b084a35aa00e..171bd2f40aa6 100644
-> > > > --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > > > +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > > > @@ -328,5 +328,8 @@ &usb3d_u2phy {
-> > > >  };
-> > > >  
-> > > >  &usb3d {
-> > > > +	phys = <&usb3d_u2phy>,
-> > > > +	       <&combophy 4 PHY_TYPE_USB3>;
-> > > > +	phy-names = "usb2-phy", "usb3-phy";
-> > > >  	status = "okay";
-> > > >  };
-> > > > diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> > > > index c3f2dce0969c..3e24054d2084 100644
-> > > > --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-> > > > +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> > > > @@ -452,9 +452,8 @@ usb3d: usb@81a00000 {
-> > > >  				 <&syscon_apmu RESET_APMU_USB3_D_VCC>,
-> > > >  				 <&syscon_apmu RESET_APMU_USB3_D_PHY>;
-> > > >  			reset-names = "ahb", "vcc", "phy";
-> > > 
-> > > > -			phys = <&usb3d_u2phy>,
-> > > > -			       <&combophy 4 PHY_TYPE_USB3>;
-> > > > -			phy-names = "usb2-phy", "usb3-phy";
-> > > > +			phys = <&usb3d_u2phy>;
-> > > > +			phy-names = "usb2-phy";
-> > > 
-> > > I suggest removing this completely as we can not determine the
-> > > phy we used. I think it is suitable for setting this in board
-> > > file only
-> > 
-> > Yes, moving all the phy definition to the board level is an option. I 
-> > decided to keep the USB2 phy at the SoC level, because contrary to the 
-> > USB3 phys, there is a one to one mapping between the controller and the 
-> > phy. Do you think it is a wrong assumption?
-> > 
-> 
-> By default, I prefer to make the forgotten thing as an error in
-> validation for any flexible field. If you leave the default value,
-> the forgotten field will lead to a downgrade hardware (or maybe
-> broken hardware). So I prefer to remove this rather than give a
-> default value.
 
-Ok, thanks for the feedback, i'll fix that in the v4.
+--===============7422012452489464130==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="akn7oxv4v2qk2wdq"
+Content-Disposition: inline
 
-Regards
-Aurelien
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+--akn7oxv4v2qk2wdq
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH RFC v3 03/13] sysctl, mod_devicetable: add macro
+ MODULE_SYSCTL_TABLE
+MIME-Version: 1.0
+
+Hello,
+
+On Wed, Aug 19, 2026 at 03:16:16PM -0300, Mauricio Faria de Oliveira wrote:
+> The MODULE_SYSCTL_TABLE macro emits a struct module_sysctl_table variable
+> with pointers to a sysctl table's path and entries, and table/entry sizes.
+
+That new struct doesn't seem to contain any pointer?
+
+> That symbol will be handled by file2alias.c (modpost) with the changes in
+> mod_devicetable.h and devicetable-offsets.c.
+>=20
+> The option macros MODULE_SYSCTL_TABLE_{DISABLE,UNIQUE_ID} can be used on
+> a per-file basis to disable the macro and change the symbol name pattern.
+>=20
+> Signed-off-by: Mauricio Faria de Oliveira <mfo@igalia.com>
+> ---
+>  include/linux/mod_devicetable.h   |  7 +++++++
+>  include/linux/sysctl.h            | 42 +++++++++++++++++++++++++++++++++=
+++++++
+>  scripts/mod/devicetable-offsets.c |  6 ++++++
+>  3 files changed, 55 insertions(+)
+
+Please put the new struct in a separate header. Apart from not being
+about a device table, I'm currently work on removing
+<linux/mod_devicetable.h>. See commit
+ad428f5811bd7fb3d91fa002174de533f9da94d7 for more details.
+
+Best regards
+Uwe
+
+--akn7oxv4v2qk2wdq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqJpxsACgkQj4D7WH0S
+/k5bfgf9HJoNnVEr9RCdAghOTP5QqFmH5ae7Kbmnodv6c6Pi9JGIjjGbeT5eKw3e
+JkSKqdEnlVMrLoKrhneRsxwTDGPrZvrLZrPLdZwJmPWZn5Fg+kkOO9yFAGPeMsPX
+S6UP1NY9kaCiBtlcsGT9EvMWz0jWVAWX1xb7Y2WcVZJsCWdcPhvWc3/lIbw3E4o7
+PqLtSFblkQmtGl2OL4WkP6xhEPH6qQO9BAmhLVKKZwFW5/l4sHmXRrpgSJlroR3b
+iH3liIeS6wxFp/fMYuFRryGHNMXn6gC447OnOCTmGNEj7+7Y3COwSGivgubcRIzI
+RkmxkMf2Iuntnwp4oQzCbipE5EiKGA==
+=SPY4
+-----END PGP SIGNATURE-----
+
+--akn7oxv4v2qk2wdq--
+
+
+--===============7422012452489464130==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7422012452489464130==--
+
