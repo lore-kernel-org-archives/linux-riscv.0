@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA48BC5DF97
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Aug 2026 09:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9F8C5B572
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Aug 2026 09:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=52huVtdoN2dtKSKuRO7t4E3FlEqsRz/SX+gPrmk3ltA=; b=DcH7+BwchbCu4T
-	Gjc4koevrMB4SMOfzuB48ARp6Kr7S4DnE6afFsAw4NSv0o4q7q3ceX4mJbwNkxvJ9LFC+ZU94N+wn
-	VxJSp3JK6Bx0PDC+q9/06PNo/Knz+vIkRJLRFv6EmJX47sUVXg6LJwV9JF9KWhuFEQURIvDMuVQqL
-	ErLk6B9tDgsI7leg43NilL7nPV5xtLCaC0mYU3A8z7qLORNMnDbObt3018DJ0xWbJAAvJ0/aam4/g
-	JIsmyAZs6NMXNYv1QLTuuaPhHArwNesKqJ8myW4Bivz0e10R4iVCIISAAGFanqlXXm/xSrEXBou07
-	X3T35vksaXyEGz2iNYUQ==;
+	List-Owner; bh=MtF3kbMW7NlXN2HotBwHVizSVj369Xgamz06rOiTxH8=; b=aK5poV5cKJZHkf
+	QQLKt6EX5CqsX6fuZueWLdwopkfbfWwGiGJu9kC6QcOgbRfvcoXMmmJxF7NSwd2eRA0j/I8FJPGRQ
+	O1dImJHxpUKlPSDz1ew1TUyM1RGHGYfXA0TYAKgOWAtgiga+GtVPYCkme6iRbbqHX48TVzmMVlVpH
+	NCKUxXGgAejPtzGJWzbIhemHohM8s5blynEfV1fNVImvHSB2vP48uRMjZaNTGPUuGNydh1/qdQ2k1
+	VmEuxbPvK1AGf7co8GIhCQqpqzy7UtB6bhrlPghJNuS2GEP1P54xlpZzmI3zUENLOpSIKwqebz3mQ
+	Z7RZkkME1FAEsvWjgIkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxiAn-0000000EQkw-0HVL;
-	Sat, 22 Aug 2026 09:37:57 +0000
+	id 1wxiPk-0000000ERHZ-29Z2;
+	Sat, 22 Aug 2026 09:53:24 +0000
 Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxiAl-0000000EQkZ-0TMZ
+	id 1wxiPh-0000000ERHB-1oTy
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Aug 2026 09:37:56 +0000
+	Sat, 22 Aug 2026 09:53:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
 	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
 	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=PXtr0FjCl+UhNS+rb/fTOHoXrNWxlpBFn/+u2wMK3T0=; b=ktaxalRVTUSReGk9GXhu9N5bs+
-	Z/iyvukyhoi3gYd4ynDR5LcIzftPg8Gnax2P1H6nqk2pK8uH5tsa+ZT80pQc/0n4xzO6ifdgg5HcE
-	F3SkISlhWF9uXzlCyqXahWS2/nQv+swdR/NhjW4lcE16p9O9zWAPneoEhktBRt2h2DIEsWYHDnylT
-	aMunADRl+UOBHZoHPbqFjc8wH3LdfPuRocd1UUlDrCmNgCO5aTIC5JcJ9rRvBLVyQ3Cn35zH+Ae84
-	FB5e+/O72Te6YiiK05lbnzYSk6Le6/x0a6JPtYXwxn4IQBP6KvjDLb0/YFpfRuTP6LKcFYOE3lJqr
-	VaxJpSpA==;
-Received: from aurel32 by hall.aurel32.net with local  (Exim 4.98.2)
+	bh=jg9y4mI5v5W79aBW5EPfVqWvy0/7GhcpTvwiYa0ffF0=; b=WID03Aemp+e0J9keA6q1A7lTRY
+	4hyWskXvElzC4uLsCLCZ89BBMX5pzjzSPRBZ976sAwbcw6QhITIW5DAse64b/CXvbQZaZLrTmU84A
+	9yo9M0Gqcd37+C88yIAWmpIhRSrwiLQON1pG4vAOWtL3LZU3Qu8VfNFhfdDQQIXzENOTd6tnNFs6D
+	iKIJA116hbcoCeeRTlY432rR0zIxu4Hnx9Jruoi5ozA4VMxp65mG9PFCjZgq0jtCAFzwgJR4BNQIl
+	NxnWIUiD8Ky2siZ29a3NM4A89dXoH+uGAW1qJbv19Old6lEjQ3Z536ojQicjJAkbenxY/1YXadki5
+	DS8kQ9YA==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
 	(envelope-from <aurelien@aurel32.net>)
-	id 1wxiAa-0000000GhRJ-31Jx;
-	Sat, 22 Aug 2026 11:37:44 +0200
-Date: Sat, 22 Aug 2026 11:37:44 +0200
+	id 1wxiPb-0000000GiHh-3ff0;
+	Sat, 22 Aug 2026 11:53:15 +0200
+Date: Sat, 22 Aug 2026 11:53:15 +0200
 From: Aurelien Jarno <aurelien@aurel32.net>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-Subject: Re: [PATCH v3 1/5] riscv: dts: spacemit: k3: move USB3 phy to board
- level
-Message-ID: <aolt6CaL9b6p8A8V@aurel32.net>
-Mail-Followup-To: Inochi Amaoto <inochiama@gmail.com>,
-	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yixun Lan <dlan@kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
-References: <20260819162115.2252812-1-aurelien@aurel32.net>
- <20260819162115.2252812-2-aurelien@aurel32.net>
- <aokGbT7XTCbxUQzl@inochi.infowork>
+To: gao.rui@zte.com.cn
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, jiangfeng@kylinos.cn,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: lib: Fix address overflow due to large count
+ values in strnlen ZBB path
+Message-ID: <aolxiwRzSDlJt2t5@aurel32.net>
+Mail-Followup-To: gao.rui@zte.com.cn, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, jiangfeng@kylinos.cn,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260819161821053fNUWuvdGIo4HUBmxlcNfG@zte.com.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aokGbT7XTCbxUQzl@inochi.infowork>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+In-Reply-To: <20260819161821053fNUWuvdGIo4HUBmxlcNfG@zte.com.cn>
+User-Agent: Mutt/2.4.1 (2026-07-04)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_023755_184160_B176C70E 
-X-CRM114-Status: GOOD (  23.40  )
+X-CRM114-CacheID: sfid-20260822_025321_474076_CA638120 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,64 +79,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-22 10:17, Inochi Amaoto wrote:
-> On Wed, Aug 19, 2026 at 06:15:42PM +0200, Aurelien Jarno wrote:
-> > On the SpacemiT K3 SoC, the combo phy provides 8 lines that can
-> > either be used for PCIe or USB3, depending on its configuration
-> > (spacemit,apmu). This configuration is defined at the board level, and
-> > assigning a phy line to a USB3 controller while it is configured as PCIe
-> > results in an "Invalid PHY mode" error.
-> > 
-> > Move the USB3 phy at the board level, the as it is done for the
-> > submitted PCIe controller [1]. Keep the USB2 phy at the SoC level as
-> > there is one phy per USB controller.
-> > 
-> > [1] https://lore.kernel.org/20260727094726.890179-3-inochiama@gmail.com/
-> > 
-> > Fixes: 46380e4b1534c1626cecd7f4d0abb5e0cce09af6 ("riscv: dts: spacemit: k3: add USB controller and USB phy support")
-> > Cc: Inochi Amaoto <inochiama@gmail.com>
-> > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
-> > ---
-> >  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 3 +++
-> >  arch/riscv/boot/dts/spacemit/k3.dtsi         | 5 ++---
-> >  2 files changed, 5 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > index b084a35aa00e..171bd2f40aa6 100644
-> > --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-> > @@ -328,5 +328,8 @@ &usb3d_u2phy {
-> >  };
-> >  
-> >  &usb3d {
-> > +	phys = <&usb3d_u2phy>,
-> > +	       <&combophy 4 PHY_TYPE_USB3>;
-> > +	phy-names = "usb2-phy", "usb3-phy";
-> >  	status = "okay";
-> >  };
-> > diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> > index c3f2dce0969c..3e24054d2084 100644
-> > --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-> > +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-> > @@ -452,9 +452,8 @@ usb3d: usb@81a00000 {
-> >  				 <&syscon_apmu RESET_APMU_USB3_D_VCC>,
-> >  				 <&syscon_apmu RESET_APMU_USB3_D_PHY>;
-> >  			reset-names = "ahb", "vcc", "phy";
-> 
-> > -			phys = <&usb3d_u2phy>,
-> > -			       <&combophy 4 PHY_TYPE_USB3>;
-> > -			phy-names = "usb2-phy", "usb3-phy";
-> > +			phys = <&usb3d_u2phy>;
-> > +			phy-names = "usb2-phy";
-> 
-> I suggest removing this completely as we can not determine the
-> phy we used. I think it is suitable for setting this in board
-> file only
+Hi,
 
-Yes, moving all the phy definition to the board level is an option. I 
-decided to keep the USB2 phy at the SoC level, because contrary to the 
-USB3 phys, there is a one to one mapping between the controller and the 
-phy. Do you think it is a wrong assumption?
+On 2026-08-19 16:18, gao.rui@zte.com.cn wrote:
+> Hi all,
+> 
+> This patch fixes an issue in the RISC-V ZBB optimized strnlen implementation.
+> 
+> Problem description: When using the ZBB optimized strnlen implementation, passing very large count values (such as SIZE_MAX) can cause address overflow and return incorrect results.
+> 
+> This issue was observed in device-mapper tests:
+> 
+> sh-5.2# dmsetup create testname9 --table "0 8 zero"
+> sh-5.2# cat /sys/block/dm-*/dm/name
+> testname
+> sh-5.2# dmsetup remove testname9
+> 
+> The overflow in strnlen caused failures in string handling during device-mapper operations.
+> 
+> Patch summary:
+> - Explicitly introduce the strnlen_generic label.
+> - Simplify the generic implementation loop.
+
+This part should be in a separate patch, separated from the bug fix, and 
+if possible with some benchmark.
+
+> - Add fallback logic in strnlen_zbb to redirect to the generic path when a0 + a1 overflows.
+> This ensures correct behavior for large count values and SIZE_MAX cases.
+
+Is there a way to instead to fix the strnlen_zbb to avoid the fallback?
 
 Regards
 Aurelien
