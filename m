@@ -4,97 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E92C5B572
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Aug 2026 06:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA48BC5DF97
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Aug 2026 09:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=ZYnybDixHAs0fDw/R/u6hIwnuPtBt1KundUFpqbbsR0=; b=ChR
-	Mr+K9h1IDsfV8dh04uwOo1NbVeD4ippElxs3BovZ8v0Ewal0tsyptFOtsIgxlrNqjJz1MIzIPxCVG
-	n2zUiyL/ojM2MnhxJRNBMidJMoZEt4ZAqVCpE/Jyc4XhfZF2FIX8BgwrxZ7j1hyzJAp7HCn8mKiHT
-	RLrC3Wm03pWHUN7JR4U5CAYtJhC4t2grYPTXtWncDHvPPn8eKzlCgQ1/MHYKTQwWtLZfqReFtXNCS
-	FAAAPiXTiCmWlfWpOQZT+rTOHoA0qaso7B7YK5frhl+5dKU9FVIjTVONmINJ4CkYqN2+3OwPGj5Ru
-	jmKF+M29QiFqESw6zY/84gSrwwhvrAw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=52huVtdoN2dtKSKuRO7t4E3FlEqsRz/SX+gPrmk3ltA=; b=DcH7+BwchbCu4T
+	Gjc4koevrMB4SMOfzuB48ARp6Kr7S4DnE6afFsAw4NSv0o4q7q3ceX4mJbwNkxvJ9LFC+ZU94N+wn
+	VxJSp3JK6Bx0PDC+q9/06PNo/Knz+vIkRJLRFv6EmJX47sUVXg6LJwV9JF9KWhuFEQURIvDMuVQqL
+	ErLk6B9tDgsI7leg43NilL7nPV5xtLCaC0mYU3A8z7qLORNMnDbObt3018DJ0xWbJAAvJ0/aam4/g
+	JIsmyAZs6NMXNYv1QLTuuaPhHArwNesKqJ8myW4Bivz0e10R4iVCIISAAGFanqlXXm/xSrEXBou07
+	X3T35vksaXyEGz2iNYUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxeuX-0000000EJRL-0mar;
-	Sat, 22 Aug 2026 06:08:57 +0000
-Received: from mail-ed2-x0a.google.com ([2a00:1450:4864:33::a])
+	id 1wxiAn-0000000EQkw-0HVL;
+	Sat, 22 Aug 2026 09:37:57 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxeuU-0000000EJR0-41Z8
+	id 1wxiAl-0000000EQkZ-0TMZ
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Aug 2026 06:08:56 +0000
-Received: by mail-ed2-x0a.google.com with SMTP id 4fb4d7f45d1cf-6a14f2e937cso899590a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Aug 2026 23:08:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787378933; cv=none;
-        d=google.com; s=arc-20260327;
-        b=V1bOCcOqBHaHw24HsPsvWTZSv0NPDcOHnP61g+KkUIenLa3Zqs5UgRETkP/YTX2LWz
-         OFyTPZYnQVSVgurvx7dEpYcYLbhDr9lamrkZdUoCua87BoKMutQ7wSkPXmlhY4cUEUDC
-         cem+y3ZcKpIK3r3bICjZYQSEqkkjcG1Y7TuYta5EovUrkWd0WSy+0YPpsdhm/tt3VSgl
-         +vk23X4MRlT93WhjQNYwQu3oWUvOq4QafO4AvuoRuHwZ/c2D2VhPd3+KpT3j6rGasdD1
-         B2AHWeAJJS2gC/RD/a2q8Q2kbmToILGKyfbXlRI1YPOo9OQGnhgKIuNVaTHexRkTN6Oh
-         EWQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=3MSpWqleVc+oTG1Z24e4udqd/mlnq4ZhRulqHsFjniQ=;
-        fh=74Mq1Xx4STYqpqU1Ef/51O6BfKYnRl9S7UnEub4nl/w=;
-        b=dZLeb/9sb6XFDgReixrETiqJd7HVuUFAKm2UjzYaTsk2dQmPXshaEMqkTLR+4NyEZA
-         6ysIveNn8X6qDfOcKEB6iZJ3lxESphyRfPAeP3KUM6iVeUhYgmdE/KAPf8t0zwJ/j6ex
-         FNbAmCc/dg/k+U0OOo0hTdfsE6JVuwrmKE409G7uymcqopytmts4eCY4e0lUwhk7uW8V
-         rizCNnzSC2ROLgJ/W81+nARtVn3bCnRZBV1O+AkFK+hylEopwTcp2jaX02eRPquvKE/5
-         qjaxAyK16merJIcugl1YeMFx9aHYxYnnIK6gAB/6TwPrM/CT41/UHst9z1rXbp4utDF1
-         7xLA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787378933; x=1787983733; darn=lists.infradead.org;
-        h=content-type:to:subject:message-id:date:from:mime-version:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=3MSpWqleVc+oTG1Z24e4udqd/mlnq4ZhRulqHsFjniQ=;
-        b=H1TfAYeST1zoIFAlQW51MEq5j32M9Ps6wLNSAhd8KT+mlIfhWnBmfuxVDb6jPDVrs1
-         76Ct47yw8Ub3xlnzN6AJk0K9guDZN51kSUVaEhk3wBTTu7k1LAqF16/SVVDs2bGcr7pg
-         7hFpX6i6f7MDyFJEKrXapX5twtAma52zrRH4xCeapFw//r5OiPsdLN3H4XiOvebnvI5P
-         9fqvpHqrrji07aSO3g+glV1YUXB3WXEYeVZoJkPdZsiAjUJjMLF6npPAXlR9xvXgKYCv
-         XOa8Oou9jHEDD1ePe3ut89ZCfdWFfiRitzqYJuR5uIOXQN/MFlwv9H8Z+mEmFrPGd1NZ
-         XUSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787378933; x=1787983733;
-        h=content-type:to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3MSpWqleVc+oTG1Z24e4udqd/mlnq4ZhRulqHsFjniQ=;
-        b=LTceaMGmjnk62JfJREexSoJHFkXSgHAkg1R/7mJv/EWnxCnFoSnqNWz0jx5auO/Y3h
-         QvfTrjY8KQt+i4GUj30VGSAyp53DTMWNgtMiQdk7yMz2WVlWsog6GX+ob6UbC9nRtP/p
-         O+iV/NTvTwA58LbPfT0wSbeki3/bbCdnT1psQbp4fLqLxEn5r2SLtpmzY3XwjTEMFoma
-         vk/FBUpealVLDuoc3Fl6Qg5bC+P5U6qfZYSnldSy/VJzyZuox7TpsCJGhAuQrXCPkPZS
-         aMMBEUpp2334IQf2AIjIoa+otqzqjOYAz/RwzQBVY0OAvoNuARfNywamLegYjiSOeJoD
-         UDeg==
-X-Gm-Message-State: AFuF++lUE8uBYR+vcqqEZlB0z4o3rGmPx+FiWjjhqwodSd2Cw0iVrWNl
-	vKvHnF+miUuBLyRY3k2vFrwdPWwaQ/rVLcil4dEFbn5k5l8UlLgESLkmWVO7tSrULesGw7MJJes
-	vrwg5nRYOVkfBiPGy13yzs2EeE5uy42bLk4eslD7wEA==
-X-Gm-Gg: AR+sD10XYpKIU0fmFJG/D4NJhbAHIw3rybTh1buX6w5ws+F7eF62cAgjDrE4Cd9X5a0
-	ZEKL5zzYw0Dhkiq9Z71rsOPHdJjqp+cCnRq7ULod9v54Uzwgvmyg5dxcmb7eusv2B9Qv9+ppR0O
-	jBXAS+K/HL/h6OjMYwtW3WCp2mYfzAgZn1lY9biaT1ZydtX1IxrhVXr/24DiYpPgRu+DpcV7DI1
-	5Ji3+cUMiE5txjK0gCkFZB5iLaddKvGvHuCjeMKK1fMvkn/skYEdfUkJsEC5KzwjaCO2W6klTyl
-	JoJSg4iRBV+muHyJLgb0KDzkj8v71s8iU6pZMMUnWOae
-X-Received: by 2002:a05:6402:5042:b0:6a3:eb58:dcfb with SMTP id
- 4fb4d7f45d1cf-6a42f1ddad2mr12271094a12.10.1787378932766; Fri, 21 Aug 2026
- 23:08:52 -0700 (PDT)
+	Sat, 22 Aug 2026 09:37:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=PXtr0FjCl+UhNS+rb/fTOHoXrNWxlpBFn/+u2wMK3T0=; b=ktaxalRVTUSReGk9GXhu9N5bs+
+	Z/iyvukyhoi3gYd4ynDR5LcIzftPg8Gnax2P1H6nqk2pK8uH5tsa+ZT80pQc/0n4xzO6ifdgg5HcE
+	F3SkISlhWF9uXzlCyqXahWS2/nQv+swdR/NhjW4lcE16p9O9zWAPneoEhktBRt2h2DIEsWYHDnylT
+	aMunADRl+UOBHZoHPbqFjc8wH3LdfPuRocd1UUlDrCmNgCO5aTIC5JcJ9rRvBLVyQ3Cn35zH+Ae84
+	FB5e+/O72Te6YiiK05lbnzYSk6Le6/x0a6JPtYXwxn4IQBP6KvjDLb0/YFpfRuTP6LKcFYOE3lJqr
+	VaxJpSpA==;
+Received: from aurel32 by hall.aurel32.net with local  (Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1wxiAa-0000000GhRJ-31Jx;
+	Sat, 22 Aug 2026 11:37:44 +0200
+Date: Sat, 22 Aug 2026 11:37:44 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+Subject: Re: [PATCH v3 1/5] riscv: dts: spacemit: k3: move USB3 phy to board
+ level
+Message-ID: <aolt6CaL9b6p8A8V@aurel32.net>
+Mail-Followup-To: Inochi Amaoto <inochiama@gmail.com>,
+	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>
+References: <20260819162115.2252812-1-aurelien@aurel32.net>
+ <20260819162115.2252812-2-aurelien@aurel32.net>
+ <aokGbT7XTCbxUQzl@inochi.infowork>
 MIME-Version: 1.0
-From: x jys <xjys2017@gmail.com>
-Date: Sat, 22 Aug 2026 14:08:41 +0800
-X-Gm-Features: AcwNN1UD3HWRDtz8tZY3_dfJLmtGyJLIPinusJQgVME3VsciHWVBkRQkgFw8xGI
-Message-ID: <CAEi-r96d2vvZVX8pATt0rDPu+jbBumNos81HQirNziZEAqHEkw@mail.gmail.com>
-Subject: riscv: abi/pointer_masking kselftest fails on ZPM-capable platforms
- (test expects PMLEN round-up without PR_TAGGED_ADDR_ENABLE)
-To: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <aokGbT7XTCbxUQzl@inochi.infowork>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_230855_021011_D3EBB39D 
-X-CRM114-Status: UNSURE (   6.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260822_023755_184160_B176C70E 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,50 +92,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On 2026-08-22 10:17, Inochi Amaoto wrote:
+> On Wed, Aug 19, 2026 at 06:15:42PM +0200, Aurelien Jarno wrote:
+> > On the SpacemiT K3 SoC, the combo phy provides 8 lines that can
+> > either be used for PCIe or USB3, depending on its configuration
+> > (spacemit,apmu). This configuration is defined at the board level, and
+> > assigning a phy line to a USB3 controller while it is configured as PCIe
+> > results in an "Invalid PHY mode" error.
+> > 
+> > Move the USB3 phy at the board level, the as it is done for the
+> > submitted PCIe controller [1]. Keep the USB2 phy at the SoC level as
+> > there is one phy per USB controller.
+> > 
+> > [1] https://lore.kernel.org/20260727094726.890179-3-inochiama@gmail.com/
+> > 
+> > Fixes: 46380e4b1534c1626cecd7f4d0abb5e0cce09af6 ("riscv: dts: spacemit: k3: add USB controller and USB phy support")
+> > Cc: Inochi Amaoto <inochiama@gmail.com>
+> > Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> > ---
+> >  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 3 +++
+> >  arch/riscv/boot/dts/spacemit/k3.dtsi         | 5 ++---
+> >  2 files changed, 5 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> > index b084a35aa00e..171bd2f40aa6 100644
+> > --- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> > +++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+> > @@ -328,5 +328,8 @@ &usb3d_u2phy {
+> >  };
+> >  
+> >  &usb3d {
+> > +	phys = <&usb3d_u2phy>,
+> > +	       <&combophy 4 PHY_TYPE_USB3>;
+> > +	phy-names = "usb2-phy", "usb3-phy";
+> >  	status = "okay";
+> >  };
+> > diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> > index c3f2dce0969c..3e24054d2084 100644
+> > --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
+> > +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+> > @@ -452,9 +452,8 @@ usb3d: usb@81a00000 {
+> >  				 <&syscon_apmu RESET_APMU_USB3_D_VCC>,
+> >  				 <&syscon_apmu RESET_APMU_USB3_D_PHY>;
+> >  			reset-names = "ahb", "vcc", "phy";
+> 
+> > -			phys = <&usb3d_u2phy>,
+> > -			       <&combophy 4 PHY_TYPE_USB3>;
+> > -			phy-names = "usb2-phy", "usb3-phy";
+> > +			phys = <&usb3d_u2phy>;
+> > +			phy-names = "usb2-phy";
+> 
+> I suggest removing this completely as we can not determine the
+> phy we used. I think it is suitable for setting this in board
+> file only
 
-I am an intern at KUBUDS Tech, a RISC-V International member
-organization. While building a local KernelCI-style testing pipeline
-for RISC-V (QEMU virt -cpu max, kernel v7.2.0-rc7, riscv defconfig),
-the tools/testing/selftests/riscv/abi/pointer_masking test fails every
-"constraint" assertion for PMLEN=1..16:
+Yes, moving all the phy definition to the board level is an option. I 
+decided to keep the USB2 phy at the SoC level, because contrary to the 
+USB3 phys, there is a one to one mapping between the controller and the 
+phy. Do you think it is a wrong assumption?
 
-    not ok 5 PMLEN=1 constraint
-    ...
-    not ok 23 PMLEN=7 constraint
+Regards
+Aurelien
 
-while the "validity" assertions pass. PR_SET_TAGGED_ADDR_CTRL returns 0
-for every requested PMLEN, but PR_GET_TAGGED_ADDR_CTRL always reports
-an effective PMLEN of 0.
-
-Root cause appears to be a mismatch between the test's expectation and
-the kernel's semantics, both present in v7.2.0-rc7 and current master:
-
-- test (test_pmlen): sets only the PMLEN field (without
-  PR_TAGGED_ADDR_ENABLE) and asserts the effective PMLEN is rounded up
-  to >= the requested value;
-
-- kernel (arch/riscv/kernel/process.c, set_tagged_addr_ctrl): when
-  PR_TAGGED_ADDR_ENABLE is not set, resets pmlen to PMLEN_0 and returns
-  success. This comes from commit 3033b2b1e3 ("riscv: Reset pmm when
-  PR_TAGGED_ADDR_ENABLE is not set").
-
-Why upstream CI does not see this: on platforms without the ZPM
-extension the kernel rejects the prctl, so the test takes the skip
-path. QEMU -cpu max emulates Smnpm/Ssnpm, which exposes the mismatch;
-most real hardware lacks ZPM.
-
-Questions:
-1. Is the intended semantics of PR_SET_TAGGED_ADDR_CTRL with only PMLEN
-   set (no ENABLE) to remember the rounded PMLEN, or to reset it to 0?
-2. Depending on the answer, either the test should pass
-   PR_TAGGED_ADDR_ENABLE, or the kernel should keep the rounded PMLEN.
-
-Full details, reproducer, and the failure tracked as XFAIL in our CI:
-https://github.com/xjysiiau/kernelci-riscv/blob/main/docs/findings-pointer-masking.md
-
-Best regards,
-X Jys
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
