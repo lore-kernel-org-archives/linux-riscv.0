@@ -4,51 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD3DC5DF9D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CD2C5DF9C
 	for <linux-riscv@archiver.kernel.org>; Sun, 23 Aug 2026 11:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7UvxGeuW2d7MMmmuJ5K9frp3wuXknVnDQ+gibxwsZBI=; b=NxCWccGIrMC3hu
-	1t8fyh3JKz0f73RT2c9QKzNin+TqctRFCwXIkh/1IO/AqVEsrfBEnSICSRec9Gxv9PX+RdnXjnNdn
-	pvlV19QfZKI0uZ+WQCduPhHdhvdgPaJfYe+KV3SOYo8QP0FWyUzwQNmt7yGQZBnHl70frnvWq/a8J
-	Vwat0pXw1ETdzqxPDmamvNxlZZlKlYKu6Hd2o04fTmXBuwS5ZIbxdaqtRxGDuWOR43f8+VAkcblsw
-	/7l60r7DFdnyn+3pbw4LFBH0yt+74p5m0gAvp0Sb5eCDj0kTPO9X/n0DO/hnCHAgOWksYqAQ92hcb
-	Sx3omJoCxENxOO6mzzEw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=j+Ho9qAZOlkjZl2WdmvPI3FZk1N/qosVFtHXPB0hi9o=; b=LuOgnv0vZbMP+o
+	yVIUGIcsu8B0JsuKaT+Hsd84nZjls6LVtsvwjP0C2AgotHU2KExjkrMPMlqvKk9bgFd49rpnXoAy5
+	m1Gyna/9AUbNbSGtAhdDZAHcnzYX/tOFezqs7PQdELQVf4ZIUGEkKxDUYDQe7+FSDx7o+zwuOdC9v
+	4DnGvhpO73gTs5/+V9LkJPj786Fza1caYSoRj/soQNyAJ9mPVTrlkQgH/StM2pvU+sRzezjULkBpQ
+	hXGychKtNulWbQKPnuDAegGR7DKB2Vn4f0KbGrysyuikAGmJubSP8AFat1mHLIkl6WVhPCEBvgch4
+	wqtHt8HHmKU5Rw9wi7Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy6f1-0000000FI8V-48p7;
-	Sun, 23 Aug 2026 11:46:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wy6el-0000000FI3m-2Drb;
+	Sun, 23 Aug 2026 11:46:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy6f0-0000000FI7T-3kNo;
-	Sun, 23 Aug 2026 11:46:46 +0000
+	id 1wy6ej-0000000FI3W-2QlY;
+	Sun, 23 Aug 2026 11:46:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4041840103;
-	Sun, 23 Aug 2026 11:46:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B30B91F000E9;
-	Sun, 23 Aug 2026 11:46:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C8AE60052;
+	Sun, 23 Aug 2026 11:46:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD03A1F000E9;
+	Sun, 23 Aug 2026 11:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787485606;
-	bh=YH6xHkx4+EyCoseoSiUf2zwvyC6OW03ddFXTuW/vMMg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=VyWudsJGZZyn98IpDn33fiJpcRQMtFjwf269UCpmwdtR/WVag6vsK83RuHax2TL3s
-	 TTyVaOEq5dByB4DENbbp14bUpoLk16SOg+s5gq+Yo3DpAT9OVRlgf7oUH/IMx9Tl4B
-	 gBh1M7+s2LbOLsQMlvBF49yV5I89L6IAiDhC9+MGX14RBk1HvhY4FgKXygUbjXtSV9
-	 WgBhXsUFyhGVNDe1SfV1s1oULI1r/gwIibyPFizfUTqYWrr6IwUdQIps1dr/8NfM/O
-	 QszJm+j6PVZH6tLf6zN/NcQGt0UL5noV+oU2bZ6dJA1SZEfZucZIu9HdqTF0dbp/8E
-	 VshKjRX91/aIg==
+	s=k20260515; t=1787485588;
+	bh=Lrb3AaG5i4+pyOfjbgQo+jz5A6PG6nAPFo2gdyz4uew=;
+	h=From:Subject:Date:To:Cc;
+	b=KxsWQ55VlofiuDkDqLgek/1eVhKQq7dlOrawBrJveRKSZ1yGnkgnqiGKv46o2hZM0
+	 1f20ZKFiMj+1fxQNOTXgRAyLxU2lfST+kmfN/+1qWuc+RAy6F0PaDSCzoCbeQS5vHo
+	 LSPO3vI0V7PtU3PthwkC+vp2ll5Q1rwMpxKdF+mluTuDJZ1prHz/55dPjwK5+lHlts
+	 RBZlLhx4emUfToOGA/bT35i9FhDMh5qEWu7LHj8Q7lPVdPY4MUGzRJqPcWoki4Vf+b
+	 3igd+UgVgyQ0xUwwiiKuXFOAflN/AhFVsnUUeSYuG8OoCfanjQms6d3jJWtydQaeV+
+	 kI8IOB9eqYv8A==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Sun, 23 Aug 2026 14:46:13 +0300
-Subject: [PATCH v2 2/6] mm/vmalloc: set area's page_order after allocation
- succeeds
+Subject: [PATCH v2 0/6] arch, mm/execmem: resolve confusion about
+ set_direct_map_valid_noflush()
+Date: Sun, 23 Aug 2026 14:46:11 +0300
+Message-Id: <20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260823-execmem-set-vm-perms-v0-2-v2-2-b013a37d84b3@kernel.org>
-References: <20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org>
-In-Reply-To: <20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42OQQ7CIBBFr2JYO0orqdWV9zAuAIcWdWjDUKIxv
+ btFL+Dy/fz/8t+CMXpkcVy9RcTs2Q9hgXq9ErbXoUPw14VFLetGtlUD+ERLSMCYIBOMGIkhS6j
+ BaGzVXivXKCeW/RjR+efXfb78mCdzQ5uKsDSMZgQTdbB9iYiGRFsimAInbR5YOr3nNMTX92Cui
+ uufL7kCCQd5UErv9FXt3OmOMeBjM8ROXOZ5/gChQWkL+QAAAA==
+X-Change-ID: 20260816-execmem-set-vm-perms-v0-2-bae847a4f64f
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
  Albert Ou <aou@eecs.berkeley.edu>, 
@@ -91,66 +94,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-__vmalloc_area_node() calls set_vm_area_page_order() to set area's
-page_order before actually allocating pages to populate the area.
+Recent discussion about implementation of execmem's ROX caches on arm64
+revealed a confusion about how set_direct_map_valid_noflush()
+implemented on different architectures.
 
-If allocation of large pages in HUGE_VMAP case fails midway, this leaves
-the area with elevated page_order throughout the cleanup path.
+On arm64 it sets or clears the PTE_VALID bit marking a PTE as present or
+not present.
 
-There is no actual issue with this because the only place that currently
-relies on area->page_order on the cleanup path is the loop calculating
-the direct map alias range in vm_reset_perms() and it anyway skips
-unpopulated pages.
+On other architectures it's a range version of
+set_direct_map_invalid_noflush() and set_direct_map_default_noflush()
 
-But having set_vm_area_page_order() in the middle of __vmalloc_area_node()
-makes things very obscure, hard to reason about and error prone against
-future changes of the cleanup path.
+Unlike arm64::set_direct_map_valid_noflush(),
+set_direct_map_default_noflush() not only marks PTE as present, but also
+sets its default protection mode.
 
-Move the call to set_vm_area_page_order() just before the successful
-return from __vmalloc_area_node() where page order is guaranteed.
+Other than that, initial design of execmem ROX caches didn't rely on
+restoration of large mappings that's now available on x86, but
+completely removed the memory allocated for the ROX cache from the
+direct map to ensure that large mappings are not split. This precluded
+usage of VM_FLUSH_RESET_PERMS for the ROX cache allocations and required
+execmem to implement manipulation of the direct map alias.
 
-While on it, initialize local page_order variable with its declaration.
+Current implementation of ROX caches does not remove the direct map
+alias but simply calls set_memory_rox() that updates the permissions in
+both vmalloc address space and the direct map and relies on
+collapse_large_pages() in x86 CPA to keep large mappings.
 
-Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+This allow using VM_FLUSH_RESET_PERMS for execmem ROX cache allocations
+with small adjustments to set_direct_map APIs and vmalloc::reset_perms()
+behaviour: adding number of pages parameter to set_direct_map APIs and
+making resetting of the direct map permissions in vmalloc VMAP_HUGE
+friendly.
+
+Implement these adjustments, make execmem always use
+VM_FLUSH_RESET_PERMS and revert set_direct_map_valid_noflush() changes.
+
+[1] https://lore.kernel.org/all/20260611130144.1385343-4-abarnas@google.com
+
 ---
- mm/vmalloc.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+v2 changes:
+* move setting of VM area order back to __vmalloc_area_node()
+* add tags, thanks!
 
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 22566e0b6e38..9bd94e2f2895 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -3873,7 +3873,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
- 	unsigned long size = get_vm_area_size(area);
- 	unsigned long array_size;
- 	unsigned long nr_small_pages = size >> PAGE_SHIFT;
--	unsigned int page_order;
-+	unsigned int page_order = page_shift - PAGE_SHIFT;
- 	unsigned int flags;
- 	int ret;
- 
-@@ -3901,9 +3901,6 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
- 		goto fail;
- 	}
- 
--	set_vm_area_page_order(area, page_shift - PAGE_SHIFT);
--	page_order = vm_area_page_order(area);
--
- 	/*
- 	 * High-order nofail allocations are really expensive and
- 	 * potentially dangerous (pre-mature OOM, disruptive reclaim
-@@ -3958,6 +3955,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
- 		goto fail;
- 	}
- 
-+	set_vm_area_page_order(area, page_order);
- 	return area->addr;
- 
- fail:
+v1: https://patch.msgid.link/20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org
 
--- 
-2.53.0
+---
+Mike Rapoport (Microsoft) (6):
+      set_memory: add number of pages parameter to set_direct_map APIs
+      mm/vmalloc: set area's page_order after allocation succeeds
+      mm/vmalloc: constify vm parameter of get_vm_area_page_order()
+      mm/vmalloc: make set_area_direct_map HUGE_VMAP friendly
+      mm/execmem: use VM_FLUSH_RESET_PERMS for ROX cache allocations
+      Revert "arch: introduce set_direct_map_valid_noflush()"
+
+ arch/arm64/include/asm/set_memory.h     |  5 ++--
+ arch/arm64/mm/pageattr.c                | 24 ++++---------------
+ arch/loongarch/include/asm/set_memory.h |  5 ++--
+ arch/loongarch/mm/pageattr.c            | 27 ++++-----------------
+ arch/riscv/include/asm/set_memory.h     |  5 ++--
+ arch/riscv/mm/pageattr.c                | 23 ++++--------------
+ arch/s390/include/asm/set_memory.h      |  5 ++--
+ arch/s390/mm/pageattr.c                 | 20 ++++------------
+ arch/x86/include/asm/set_memory.h       |  5 ++--
+ arch/x86/mm/pat/set_memory.c            | 16 ++++---------
+ include/linux/set_memory.h              | 12 ++++------
+ kernel/power/snapshot.c                 |  4 ++--
+ mm/execmem.c                            | 42 ++++++---------------------------
+ mm/secretmem.c                          |  6 ++---
+ mm/vmalloc.c                            | 26 ++++++++++----------
+ mm/vmalloc.h                            |  2 +-
+ 16 files changed, 61 insertions(+), 166 deletions(-)
+---
+base-commit: 1029098ee3275ea5b78e329ce132262affa2f8cc
+change-id: 20260816-execmem-set-vm-perms-v0-2-bae847a4f64f
+
+--
+Sincerely yours,
+Mike.
 
 
 _______________________________________________
