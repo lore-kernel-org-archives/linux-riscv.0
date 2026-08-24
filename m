@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8BBC5DF94
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2026 06:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC648C61DB4
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2026 06:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3N+/MrZR6iAyOL+lX0E82gl7DNRxgiAgHmTBgO0eLPA=; b=Lar3XHpf8dot7H
-	AgLiVD0Fn9GIJIs0GaR6/cPOZb6qSbSGzpn8mE1V+g9MZdNh9uT/F7sY2OWGwOuAE204AjY+M6ECx
-	QPG7p3ciSkisFUm6zQQrxqRDQ11LthCUseos3+qhNJkC5pukrQQosWqOwy9AWvBEPMzZjY1xTkxhf
-	IHzZq/VMdt2RezI1u5xUO4jGEHkKXSPyuE1jWM+aH5NNzK05pqL06tykonqeokD3gmmpnOJMZyofK
-	yw1FvgU6s17l4iIxtciZ+KPQCA7VQVYxsG0iNYCV1kmXji/EGG8Uf8/yW6riY8/9Yc0slLGmcERIM
-	r0hxaxX7sVz5oIlF219A==;
+	List-Owner; bh=RS80kherPQxYcbGaV6C2UHMFFQh/CeURqQVJVj/ifHE=; b=C6NHeFfTVGnSXr
+	93hHCLzgxOXulobMLTw//QVwYUho3Bew7khGUi+CpjHO/MXdnIMM+ZJvqCkVBF1OmR0kIti5D08T8
+	889HRS2N1LnPczMu+Z6GIKqr6Hjd/3PL83a0qIAEJ77+1Jl2GpNDDs98EzNN1qLHzbi/5wkVm48S5
+	gELUAyWO3qjRlaFTOtGUXLTvYoVaNfuUpG361ftOakxMs9qIxqtRf41JH14QbH4zhoanS7WMf8LiS
+	UA7sexurgrvfDCMsQRQiBZYQzbf/kVUVgb48DL2PCLgGsGDKbf50j9b/flqYQwm2Uw7Ivz96EsxPW
+	DtYQS1tq4Jjj1pvFi0fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyNxh-0000000FxfS-1o8Y;
-	Mon, 24 Aug 2026 06:15:13 +0000
+	id 1wyNxl-0000000Fxh1-1c7u;
+	Mon, 24 Aug 2026 06:15:17 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyNxf-0000000FxeV-3cVs
+	id 1wyNxh-0000000FxeV-0CZv
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Aug 2026 06:15:11 +0000
+	Mon, 24 Aug 2026 06:15:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D2DD44EE8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 495B944FF5;
 	Mon, 24 Aug 2026 06:15:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A3ABBC2BCFC;
-	Mon, 24 Aug 2026 06:15:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1496FC32782;
+	Mon, 24 Aug 2026 06:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787552110;
-	bh=FLy/qTiAhZfI9GhBeq9b7ybYoYqfoqJ7jxv71DLMssA=;
+	s=k20201202; t=1787552111;
+	bh=/tORglKOn/6hGNCzOPRziWVwHttzvbuXlVQzocvD4VY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ha8qadyspFFt1+vg60wdpR2RzJRfnGtLgnVzRSi4nVzTeIDjo2CmzDuMPcu7ySuPU
-	 C4e8yUpjRaW1Z21EP/yz5UjXdl6r7SSieOLY3k4rPDMNhdy7Y7nDpNFu4z+mO8IrQd
-	 f6Eo5UvIcpA/j7KRdpULAL3MsFYjPREpk2z66xPrluSmqzgntChhGDTcO+A3Gk3lmi
-	 Dr473nab85w3GkgAAZXv+93R0MBu6QIXLNVCVcYz3+Z4+4+ZcFpvTFrZVGJ2JDWsFw
-	 dYKZ+cMMF2/kx1DAgKJUOW0nvI2VK7sCfdg1JpYyh23QNKcmoaTglZX/bI+dUe1Wgy
-	 ft2UAY+4BCLJA==
+	b=so7BWFEmHR5F2wte9vg5VuHjetEVyy9NRI/bG6xxy9dOG6Bfy7KOlyNy6lO1pHU0+
+	 +ZUSG92wSBwa+SUjgxmsgA8Q79S0LXUFF3RxWLcNOUtGovIhRO13YoXTnCwQEmVUCp
+	 R/LpDLvJW47shUxxYtcV8YnhgcpLYfV5c14LQlUH96Bx5ZmSzPHpOwyP0EQoINu/1k
+	 RpImfsYR7y5kdQt/4D2WSw50DVoclsaYycpLf2JU0KJfpsNEW9KNgXVV8yKB0/2sa0
+	 PaUBmDAgpM4CTT9Na5dZj4B34zq4A7hvI7zP0RhNyBIdeaIdAT68tDovfkdQmjEsns
+	 M49TGLyC8/Pkg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 83BAAC5DF9D;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F1B8FC5DF9D;
 	Mon, 24 Aug 2026 06:15:10 +0000 (UTC)
 From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
-Date: Mon, 24 Aug 2026 13:54:16 +0800
-Subject: [PATCH 03/12] dt-bindings: riscv: cpus: Add UltraRISC CP100
- compatible
+Date: Mon, 24 Aug 2026 13:54:20 +0800
+Subject: [PATCH 07/12] dt-bindings: i2c: dw: Add compatible for UltraRISC
+ DP1000 SoC
 MIME-Version: 1.0
-Message-Id: <20260824-ultrarisc-dts-v1-3-61ab7aebe9e5@ultrarisc.com>
+Message-Id: <20260824-ultrarisc-dts-v1-7-61ab7aebe9e5@ultrarisc.com>
 References: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
 In-Reply-To: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -77,11 +77,11 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  linux-i2c@vger.kernel.org, netdev@vger.kernel.org, 
  dmaengine@vger.kernel.org, Jia Wang <wangjia@ultrarisc.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787552108; l=751;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787552108; l=846;
  i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=PLH98AWMWhEDDtI7P4MBr8Ej9OKDTOxH4/kye1KfXcs=;
- b=uI8E83sWqzeJyxFJjF1Pxn9pu9ZOR1cxxf/juShwZi19Ep8HUOnUHoh4zL5GQxA//IsERyKUI
- 5ouqlO5rBXJBs9s/7mvkSQQFDH828iwCjF1SObjLasgHWv9mbMWyAhT
+ bh=a3FLG1v/opm8P6Mx7tFBUWeLRZtmVFCN4Uxnx7ELy+8=;
+ b=FZb78z8T9rITx8H9711DLMJwoTpitGFde0UxVr48CTWjgXqPmZIps0nVG5x8Ive0NSxtUTIag
+ x3P+jfsIl4CDCgsd45dmaaxozFkO1pbWp2oQT4QQIDnp4SGSBiQMxvT
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
 X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260515 with
@@ -106,27 +106,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jia Wang <wangjia@ultrarisc.com>
 
-Document the UltraRISC CP100 CPU compatible.
-
-The CP100 CPU is used in the UltraRISC DP1000 SoC.
+Add the SoC-specific compatible string and use the generic one as fallback
+for the UltraRISC DP1000 I2C controller.
 
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+ Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 0da219ae6769..85adf72899c9 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -67,6 +67,7 @@ properties:
-               - thead,c908
-               - thead,c910
-               - thead,c920
-+              - ultrarisc,cp100
-           - const: riscv
-       - items:
-           - enum:
+diff --git a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+index 467bdcbb8538..eee21ca8d7ed 100644
+--- a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
++++ b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+@@ -44,6 +44,7 @@ properties:
+               - mscc,ocelot-i2c
+               - sophgo,sg2044-i2c
+               - thead,th1520-i2c
++              - ultrarisc,dp1000-i2c
+           - const: snps,designware-i2c
+ 
+   reg:
 
 -- 
 2.34.1
