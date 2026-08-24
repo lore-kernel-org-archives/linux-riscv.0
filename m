@@ -4,68 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CF4C5DF94
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2026 14:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75C3C5DF94
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2026 15:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ISBMohsQmEYRtPzv7Lw8q7Z2664pYrXGFnSNM8QH5ns=; b=0B18ASUNXd4RuH
-	CCz5Nx+vf5UfocWC5phT7OPznSpPZuele1QT6DYYfYDGpOLAw9ddefOkkMIBvfUg6FIv/IBCUnnEM
-	n08Cx22jWhMYkb+z9xaXLTQLYtef66G6bEL8ePPuJP7nzpHd+n6pJv7m1RQcyXWIr5VdzOUCm+JTc
-	iVbUU1nguLM0bkci9ZzQTf6o4Gy3zi0m9oZEX4NDAbRXoPHCoPJo2IfMhlUMdnWAhf/d12bUK5OLT
-	pPONbHk3Djjz2Huzxf5h43qbD/+OK8a6GBTs2Mrs9xgm3PYm0mWwkWyTLIDKBEsmoOPU6VbbRvUpZ
-	Q6o/zsVZo9kahU1aLdyA==;
+	List-Owner; bh=I0LYsPkcQ0aAP2mhb7o3T6YQsDRk/wQhfYxaUUuVwjk=; b=aQeUYP81woMLnJ
+	R4cmwK8EqYx7PgEhxdTD/KlgasiT/iIWNx9zHzrMG6utykTB3zjWNOqOe2gbBqk1vhm/E9EXNlHdH
+	cyhYnmV+T56oIplhv2Ytv3rMAMgT6DdeWOQtrwiQxTx6bvTZgDr9GHxn/uwbMAc1dn0ipRVmeBtg7
+	1EddMB3ZojyzpQujakPy3Io9wuu58IvdXxJXESzkbHbZexudIxyCn5TCNvgJK82KWlP/RkXFDm9Aj
+	Ifjk9qVQXJTj5SS5MJZCqTQVwvCopv2pdtIZAUhS1pIK/uvNkeEiFKThhqZxLjYMhfWSFuKBEHKMV
+	6MCr1mLioXqowDqFHh7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyVKj-0000000GkMo-0RWh;
-	Mon, 24 Aug 2026 14:07:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wyWa0-0000000GvMi-1fMA;
+	Mon, 24 Aug 2026 15:27:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyVKh-0000000GkM8-3xrB;
-	Mon, 24 Aug 2026 14:07:28 +0000
+	id 1wyWZx-0000000GvLV-1vOa;
+	Mon, 24 Aug 2026 15:27:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA871600CB;
-	Mon, 24 Aug 2026 14:07:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3EE71F000E9;
-	Mon, 24 Aug 2026 14:07:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D0F3C40708;
+	Mon, 24 Aug 2026 15:27:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00BFB1F000E9;
+	Mon, 24 Aug 2026 15:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787580446;
-	bh=my9GYhoB5pagzF6M6ZagB0B0WZqIwM9tl/SdPaf+pZk=;
+	s=k20260515; t=1787585236;
+	bh=hWqZ6E/rpLHflNJIRN+si29gzxrcJ8/c9XXZU6wdsnA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TOv+PwCGfXFC332KGFB9T7dQXJCrhXdMJFRpEQ9/TE3Vx6NIAY2MKQP0Iznx7qRcz
-	 L2MrLS5j4meQvz+/oOSbDMYImL0w/a+KlTtqGfu3JwN/vioyhG8u2vZ1p45PJIb/Ga
-	 2njsOlOPXwa4SCTgrRl3GWIu3eDt+mXQ/BLl+ocbChhTFt363vDUHPRQpA9rHDkdG/
-	 8j3imGMbxGZ2S/VjpPB98mGjco2CXiZHRzysGH5l3+mQoZqDUN5dAfXyj51k8QHx8J
-	 IqGM0pZEDWjWBuH2ICNqxRnUPl1xf8qU0LuX04/D7Zj0qES6hFUgP2PlHWXXY84ZeU
-	 o+MyUMGi/9STA==
-Date: Mon, 24 Aug 2026 15:07:19 +0100
-From: Will Deacon <will@kernel.org>
-To: Mukesh Pilaniya <mpilaniy@redhat.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>,
-	Philipp Rudo <prudo@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org, Bradley Morgan <include@grrlz.net>
-Subject: Re: [PATCH v3 1/2] kexec: return -ENOEXEC from image probe functions
- on mismatch
-Message-ID: <aoxQFxuzZ1AHmM8d@willie-the-truck>
-References: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
- <20260821-mpilaniy-v3-1-76b355399d2e@redhat.com>
+	b=gy+J1A/kIndBp1Kh3XXNb3phBhcrivN6jLnEuqv15VGWu8qbHER4jx1CzzwtNm4rV
+	 go4PHDbRk+M2eFHzHPgAsxNVtW7yjHmQaOZ/DviZNSnKlDDVFoZHZDO7tMcmdLt0lO
+	 6bvAWbE+IC1lRSs1nI9aGKzUU4OIlC12e8FMnZZ0EOfGKjZTwvQUl+Wp+/uKwcU8Xh
+	 2jEu2uDHuefqj8kqdUpktxFWlNxfdvsMq38Vk7xxXNlSNo4hImNWmzaOmXcQS4RDUj
+	 kUpZUgvhvsS2I0FmGTnY+1i+1Cxu20YEoeK13Ck2kB5bJZG9S+NFb3snlKbeSNu/dt
+	 nNVvGL7nwc2Iw==
+Date: Mon, 24 Aug 2026 16:27:14 +0100
+From: Simon Horman <horms@kernel.org>
+To: Rui Qi <qirui.001@bytedance.com>
+Cc: kexec@lists.infradead.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 0/2] kexec-tools: Fix split crash kernel reservations
+Message-ID: <20260824152714.GA102316@horms.kernel.org>
+References: <20260818123504.12022-4-qirui.001@bytedance.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260821-mpilaniy-v3-1-76b355399d2e@redhat.com>
+In-Reply-To: <20260818123504.12022-4-qirui.001@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +67,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 07:19:57PM +0530, Mukesh Pilaniya wrote:
-> Several kexec_file_load() image probe functions return -EINVAL when
-> they do not recognize the image format.  A probe function that rejects
-> an image should return -ENOEXEC to indicate that the image is not a
-> recognized executable format.  -EINVAL implies a problem with the
-> syscall parameters, not with image recognition.
+On Tue, Aug 18, 2026 at 08:35:05PM +0800, Rui Qi wrote:
+> Hi,
 > 
-> kexec_image_probe_default() iterates through registered loaders and
-> returns the last probe's error code to the caller.  That error
-> propagates as the kexec_file_load() return value to userspace.
-> Returning -EINVAL from a probe when no loader matches is semantically
-> incorrect and misleads userspace about the nature of the failure.
+> This series fixes two kexec-tools issues seen with split crash kernel
+> reservations.
 > 
-> Return -ENOEXEC from all probe functions and their helpers when the
-> image format is not recognized.
+> The first patch makes --print-ckr-size prefer
+> /sys/kernel/kexec_crash_size. This restores the option's original
+> user-visible contract: report the same crash kernel reserved size and
+> unit as the kernel sysfs attribute when that attribute is available.
+> The existing arch load-range based calculation is kept as a fallback for
+> older kernels.
 > 
-> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
-> Reviewed-by: Philipp Rudo <prudo@redhat.com>
-> Reviewed-by: Pratyush Yadav <pratyush@kernel.org>
-> Reviewed-by: Bradley Morgan <include@grrlz.net>
-> ---
->  arch/arm64/kernel/kexec_image.c   | 4 ++--
->  arch/loongarch/kernel/kexec_efi.c | 4 ++--
->  arch/riscv/kernel/kexec_image.c   | 4 ++--
->  kernel/kexec_elf.c                | 4 ++--
->  4 files changed, 8 insertions(+), 8 deletions(-)
+> The second patch fixes the RISC-V kexec_load crash path. RISC-V records
+> all Crash kernel ranges from /proc/iomem, but it currently writes only
+> the selected load range to linux,usable-memory-range. On systems with
+> high/low crash kernel reservations, that prevents the crash kernel from
+> seeing the low reservation after boot.
+> 
+> Keep placing the crash image segments in the selected load range, but
+> pass all crash kernel ranges to the crash kernel through
+> linux,usable-memory-range. This follows the split-reservation handoff
+> model already used by arm64 kexec-tools, where
+> linux,usable-memory-range = <BASE1 SIZE1 BASE2 SIZE2> advertises both
+> high and low crash kernel ranges to the crash dump kernel.
+> 
+> Tested on riscv64 with:
+> 
+>   /proc/iomem:
+>     f7e00000-ffdfffff       : Crash kernel  (128 MiB low)
+>     1f88c00000-1ff6bfffff   : Crash kernel  (1760 MiB high)
+> 
+>   /sys/kernel/kexec_crash_size:
+>     1979711488
+> 
+> With the patched kexec binary:
+> 
+>   kexec --print-ckr-size
+>     1979711488
+> 
+>   kexec -c -p ... followed by a panic completed kdump successfully.
+>   The crash kernel reported both ranges as System RAM in /proc/iomem:
+> 
+>     f7e00000-ffdfffff       : System RAM
+>     1f88c00000-1ff6bfffff   : System RAM
+> 
+> The vmcore was saved successfully.
+> 
+> Rui Qi (2):
+>   kexec: Print crash kernel reserved size from sysfs
+>   RISC-V: Pass all crash kernel ranges to crash kernel
 
-Hmm, so after this patch, are there actually any implementations of .probe()
-that return anything other than 0 or -ENOEXEC? I couldn't spot any after
-a quick look.
+Thanks, applied.
 
-Will
+- RISC-V: Pass all crash kernel ranges to crash kernel
+  https://git.kernel.org/pub/scm/utils/kernel/kexec/kexec-tools.git/commit/?id=6b8b27fbe5cc
+- kexec: Print crash kernel reserved size from sysfs
+  https://git.kernel.org/pub/scm/utils/kernel/kexec/kexec-tools.git/commit/?id=97061549e25f
+
 
 _______________________________________________
 linux-riscv mailing list
