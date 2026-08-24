@@ -4,101 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5536EC5DF81
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2026 15:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D3AC5DF81
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2026 16:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Cc:From:References:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xRl075EMj8r3AqAXgnRLL8RU1/7Zsay1Y+dAGXKmZvU=; b=VXi9BqrcxWyFVc
-	N9q/DI9rmYNfhmLgXsvOEILoUjzbeyk0OgsNrYsI54zmeXwHI+F+NrG/yDrzSZr7A1Js+oCtTTkDO
-	UA+8vBlhmYwKaNFQfDCupAcUqoSRdMJYelxxF98F3eYWgZOxdN9pFazTrWWwCl+37QKsB32ZCSrMu
-	gXmHmD+a7ZdLl2N9W+ixxemFUKQoevFbRgxR2F7glmzF5UP9tp4QcJKf6hRh/JAplPIObwIYUY/Dz
-	a3xIcSZBNKj1PFZw6tJuXde6AiZqTzoFuVzEwNVpyJ6qSVh4wf2B1oqSKooCNuS3NiImzAKk/5z+p
-	h0owRVZp7r/WhOWAtZRg==;
+	List-Owner; bh=lz/LpMqC+1bpP2fmmW90Skfvhb1FJs9Kj5N5LBoxP0Q=; b=FGX2cTta+8wBvt
+	mrfBlfzVLkxarxRDu8UO1EVMbeXH2PmWYxWTWksLTPOxTPanZfgkHXYxSZH1iYRbTRBLJMA/hGfON
+	RoycgagFjyT6obQZc2MIYkgL8PAY5FlRVZgX6aNjUhee43e1v8IY7DYsV7ADfKhuFb4rZxSjM/UzO
+	H7H7j4LJTkctbpF3DJovUN2brLgPApiXpCflhja8ivXiK2ASe83LevFq63cPSzBrIYyYN69l92J7F
+	dFuqaFXFci7r2DbwMr/DYDzmcjLv5P61hE21IxPkI40JL15Ychzv2+IWw7lISwafgEx61Bk1qqaS6
+	HMa9sOtYViMxHlHsj/fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWwe-0000000GxyZ-1L9R;
-	Mon, 24 Aug 2026 15:50:44 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wyXLI-0000000H1fx-1J9z;
+	Mon, 24 Aug 2026 16:16:12 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWwa-0000000GxwR-1Gxc
+	id 1wyXLF-0000000H1fO-2wHa
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Aug 2026 15:50:42 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-8487214ad2bso4836409b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Aug 2026 08:50:40 -0700 (PDT)
+	Mon, 24 Aug 2026 16:16:10 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2cfbbdfa60bso29739465ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Aug 2026 09:16:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1787586639; x=1788191439; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
+        d=sifive.com; s=google; t=1787588169; x=1788192969; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:cc:from
+         :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8n2sUFyNkTeeyJ480adWKOU51gCub2/F4WE3r3BRNf0=;
-        b=Icpr5OJVzI/ZGQpR09V3wtZh0ZpIHijKFiv0/dYpIoGAi9bzWAbInYHAtDc6Tq4aLB
-         BjmpScVMTThtnz4QDstISghXHm+FsH9ZqqvWACs65UjHZf6hSpUxa2WXHh55bA/b8uMu
-         elQZnZfq16DtIIPin4mNrlvI3z6uZqKiHrqr4X7y+ujnV2HIUmaLUsfu87IkmXWPV1h7
-         0+vc2FrFcug5LUdWQdi2XZ6CJ2WQzgsgl8ihDm1N6aeuV/mediAp965wW0rh7V0/eNxi
-         lLEXAXqo/Y1TP9dp+naV75cSno57O/MvTEZj58xXKa64nGMujxyPcMXZDgzCkKYMLei5
-         U3Rg==
+        bh=maqBVhQee0ygnsKuGXMla9Fm3bXmG5D3gh1nmD/er9c=;
+        b=MBa0HC0NKRmwtrGkHXBgG6y0U5fmMQn6sROL4B0tQNiP61O+afypKEYB+O3pzTmNPZ
+         C+Jjfoteknuv5SpAuwszEeHGI5qtsVD/vTq5/ZH2i5z0i3iz6inVhZmZfVFacLdpr//w
+         auJGKe+KhfWPcHTt1bPEEuyk/pTyDbiF79r+vIKPepVaXV5MO6F/n98EqZSIFag0SCcC
+         /O2cx9kVN7zGSHgaDNLnBk3FdGZrAr57zXhbPRn6AJMFPnfz+FPxG6pYTq5OHE3XDRUf
+         FHZVe2+q7wYKybs4gtN0dM9MX3mLD9RiTRfJHIIy4mYTUDMloL66XkrBWHazx+tYnSku
+         mS4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787586639; x=1788191439;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
+        d=1e100.net; s=20251104; t=1787588169; x=1788192969;
+        h=content-transfer-encoding:content-type:in-reply-to:cc:from
+         :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8n2sUFyNkTeeyJ480adWKOU51gCub2/F4WE3r3BRNf0=;
-        b=pSCzgN4pUXJCatUkoaaOmgijVO+hqDi0UUKBa8jCGpzzwie4i4JczomNlzfJ+ZWNqm
-         lOt6mEKyflTZ1eTrNjCR+nb71k6EWL33CAHu/5m2yDaL1Cy1e2IB8VMrYnPYIE13H3Gl
-         DT2wtUV3Si3sXPHfnBjjDzNeQUk/btZNajsTVUHa/3oh0vA+YREOIljuqJzF12yspQJB
-         1KGj0KZdmhp7uW2AZpPXb++JsvjpjTUxRan3IMWr1bZbJ7ZYfD8jFa1Bl0HqcZkQMxgP
-         yrOPhOdDe8LQjWPM3GUFNzPIpLwVD/NAVmtZkfWQbP4LtUPevCrrfcu8RNQaEwKt6ZeU
-         guhQ==
-X-Forwarded-Encrypted: i=1; AHgh+RocTXWcPCRuGqd52PNPKpE07IyZ4vPmyXnVS+37qzUgj20IcO8IvoZxJ3wtCDfDW1PhXAXc4ebaQ6Yiog==@lists.infradead.org
-X-Gm-Message-State: AFuF++mqRjMa9zGOdk+dk2dBhrWN0eqVKqFIlh5HEvaY0Uk53IEWEelM
-	jKlC9wQ24rsPaaJ5dXqOuiwMiPDVZunVhz0ewDck1cqOWvm8XcjoWWrFStv+gXtQsIc=
-X-Gm-Gg: AR+sD12erj2x6oKwok+uvbWGed5nQSfQXg8U/pqBU10MrnyGbr6JkeT2Fj1kSciyKgz
-	ZxEZjj+osWrCtlThhoMPOnIVflevh897iXn72Ys2pnCgDrdAf98P7WF7pWP0m2JgQiUPTizfTB0
-	2vRAq4fQbx5GwZadiEG3tGV96K2m7puUkFaICVn4OyLm4UrQ7/eod+1vVEiYmE3louK3bjiLhkC
-	u7xSHfO/WA8BfKX8CQs/h0T8ayTbpG9WQ8g+221riFLyUmmv9K0kmiRq2h9BoBbpmWQWgdY6glI
-	pcxbvq1tR8msxDvPB5k74MWK3SrZD2Mq91yNeVOMJa4RlCXY2GTj96o/np+ix9fOW6ihoLcROZd
-	e9+vWa+Cs498+5IoWeaIsn3LHMmoKKK+G3p5YK4rUAtO45xi4Z6fm2ttkURjLdPW/1eYJ1N2jBT
-	3zracHy/ricb8EQXdcKwEcKCKfZ/ocejBR9/Yyb8Lae+Wegs8pxOZ/nL6mlWL4ct0k
-X-Received: by 2002:a05:6a00:10d1:b0:848:5540:2377 with SMTP id d2e1a72fcca58-851fa070c14mr40910400b3a.17.1787586639434;
-        Mon, 24 Aug 2026 08:50:39 -0700 (PDT)
+        bh=maqBVhQee0ygnsKuGXMla9Fm3bXmG5D3gh1nmD/er9c=;
+        b=mnFVvlYhalCorUN8+Yk9lSTyrnHefalGygRHXpsfwu8zSsXMiJKnEQeG0egRAmvVIF
+         O654K6jfFRrMA2a5CR6VCLeiy3JE1OaZt4Up49loYnxXQbBtu9LLmAY3MnlGVrwdJL3J
+         B2eavpDF9iIAKo1ojJnELwkLcHQKx/WZnZ9fP9x0fx2RqMTv/XRoxzgKPX+dm5/FAWLw
+         f9WzFqO+eiC8W+LtiD4Mj6ohmJKZKYuPjRfCPCh6W/RWMjuijfOCY6Ye1j2OgBuX90he
+         vV/7HxDYUrfUFwS8XRwLvxHMQ3jftAKmNIIseNZQHf6ZKrvA86dLG5svFtgelKuAobYu
+         c3cA==
+X-Gm-Message-State: AFuF++l3kdeE177F1Ez9mGBzQOrjNiMDwBD11n6OrntVxr4LFSFBW0dM
+	aVLMwqQ5ucUluHo7DYjvqB9oVhmwAw8iXF7W+3pr14gk6y26BkgIkBo+Elamzo2wpFa0mYTYR0x
+	w39xH
+X-Gm-Gg: AR+sD10+oOW0Jtxkbh5yTkVfHiHDA3fEGd+VHVqvSd47NxAOevdlo8P4oMIwuCFUVif
+	hr97hf2ipmfKkPonVA+dradSgUXFRJaj7k9eUE8SizbNbJpBDgdhnaPbykuj/DO3Fr81Diy1m77
+	A3sfInvoP8RGDpyMowRvtbWmEguWSDGzy3ozdUVMTx7xSZiLZvoGdq73wrXRxdoM8kU9tJaMoKF
+	tpW41iezTqAvY9sBWNJqgAXlEEx2F2Xq4drqGcyXPRPiIlpKGkrJAEQbYrWJTMyExuitKvAz3TF
+	IorIQAffjh2FUmvyOs/Sai5zbYvM3SSMzhIOfcOWUlRPRNCkm5IEu1R2DXuV/8q5WAKwRXQ9pq2
+	6MC/IEDHLCIWhhBGiuS5B3LBGzRbo2Pesq3xKkLHEuSAaJ9/aQdE5tBo2WaOTr0ifqpayX21GSV
+	Z+jwF4zzytOGBDZTkklGEXPj660fF8K4WXCnDLXdbfbhaxqX4171BtNmQHvd2rJYxoEt/+7O9+/
+	3hUTYpJ0A/VjA==
+X-Received: by 2002:a17:903:1850:b0:2cc:aa36:c04c with SMTP id d9443c01a7336-2d6dca57bebmr6918505ad.1.1787588168705;
+        Mon, 24 Aug 2026 09:16:08 -0700 (PDT)
 Received: from [100.64.0.1] ([165.225.242.163])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8520ef36048sm2219670b3a.26.2026.08.24.08.50.37
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d676792dfdsm19647135ad.26.2026.08.24.09.16.08
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Aug 2026 08:50:38 -0700 (PDT)
-Message-ID: <6dae9cae-9665-4dc8-9a49-d6e5acda221b@sifive.com>
-Date: Mon, 24 Aug 2026 10:50:37 -0500
+        Mon, 24 Aug 2026 09:16:08 -0700 (PDT)
+Message-ID: <fa61b3d7-af9f-4fd9-813e-848242f70d27@sifive.com>
+Date: Mon, 24 Aug 2026 11:16:06 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V3 8/8] mm: Drop pxd_ERROR()
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker
- <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-mm@kvack.org, akpm@linux-foundation.org, david@kernel.org
-References: <20260818040041.1891769-1-anshuman.khandual@arm.com>
- <20260818040041.1891769-9-anshuman.khandual@arm.com>
-From: Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: riscv: abi/pointer_masking kselftest fails on ZPM-capable
+ platforms (test expects PMLEN round-up without PR_TAGGED_ADDR_ENABLE)
+To: x jys <xjys2017@gmail.com>
+References: <CAEi-r96d2vvZVX8pATt0rDPu+jbBumNos81HQirNziZEAqHEkw@mail.gmail.com>
 Content-Language: en-US
-In-Reply-To: <20260818040041.1891769-9-anshuman.khandual@arm.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org
+In-Reply-To: <CAEi-r96d2vvZVX8pATt0rDPu+jbBumNos81HQirNziZEAqHEkw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_085040_380714_FE2DF9A8 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260824_091609_769128_F727FCCA 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,91 +102,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-17 11:00 PM, Anshuman Khandual wrote:
-> There are no more users left for any pxd_ERROR() either in generic MM or in
-> the platform MM. Hence all these platform macros along with their generic
-> fallback could be dropped across the tree.
-> 
-> Cc: linux-alpha@vger.kernel.org
-> Cc: linux-snps-arc@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-csky@vger.kernel.org
-> Cc: linux-hexagon@vger.kernel.org
-> Cc: loongarch@lists.linux.dev
-> Cc: linux-m68k@lists.linux-m68k.org
-> Cc: linux-mips@vger.kernel.org
-> Cc: linux-openrisc@vger.kernel.org
-> Cc: linux-parisc@vger.kernel.org
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-sh@vger.kernel.org
-> Cc: sparclinux@vger.kernel.org
-> Cc: linux-um@lists.infradead.org
-> Cc: linux-arch@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> Cc: linux-kernel@vger.kernel.org
-> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> Changes in RFC V3
-> 
-> - Moved ptrval_to_str() as header in a [PATCH 1/8]
-> - Stopped using pxd_ERROR() in generic MM in [PATCH 2/8]
-> - Dropped pxd_ERRO() macros from all platforms in this patch
-> 
->  arch/alpha/include/asm/pgtable.h               |  7 -------
->  arch/arc/include/asm/pgtable-levels.h          | 11 -----------
->  arch/arm/include/asm/pgtable.h                 |  7 -------
->  arch/arm/kernel/traps.c                        | 17 -----------------
->  arch/arm64/include/asm/pgtable.h               | 15 ---------------
->  arch/csky/include/asm/pgtable.h                |  4 ----
->  arch/hexagon/include/asm/pgtable.h             |  3 ---
->  arch/loongarch/include/asm/pgtable.h           | 11 -----------
->  arch/m68k/include/asm/mcf_pgtable.h            |  6 ------
->  arch/m68k/include/asm/motorola_pgtable.h       |  8 --------
->  arch/m68k/include/asm/sun3_pgtable.h           |  7 -------
->  arch/microblaze/include/asm/pgtable.h          |  7 -------
->  arch/mips/include/asm/pgtable-32.h             | 10 ----------
->  arch/mips/include/asm/pgtable-64.h             | 13 -------------
->  arch/nios2/include/asm/pgtable.h               |  7 -------
->  arch/openrisc/include/asm/pgtable.h            |  7 -------
->  arch/parisc/include/asm/pgtable.h              |  9 ---------
->  arch/powerpc/include/asm/book3s/32/pgtable.h   |  2 --
->  arch/powerpc/include/asm/book3s/64/pgtable.h   |  7 -------
->  arch/powerpc/include/asm/nohash/32/pgtable.h   |  2 --
->  .../powerpc/include/asm/nohash/64/pgtable-4k.h |  3 ---
->  arch/powerpc/include/asm/nohash/64/pgtable.h   |  5 -----
->  arch/riscv/include/asm/pgtable-64.h            |  9 ---------
->  arch/riscv/include/asm/pgtable.h               |  4 ----
->  arch/s390/include/asm/pgtable.h                | 11 -----------
->  arch/sh/include/asm/pgtable-3level.h           |  3 ---
->  arch/sh/include/asm/pgtable_32.h               |  8 --------
->  arch/sparc/include/asm/pgtable_32.h            |  3 ---
->  arch/sparc/include/asm/pgtable_64.h            | 10 ----------
->  arch/um/include/asm/pgtable-2level.h           |  7 -------
->  arch/um/include/asm/pgtable-4level.h           | 13 -------------
->  arch/x86/include/asm/pgtable-2level.h          |  5 -----
->  arch/x86/include/asm/pgtable-3level.h          | 11 -----------
->  arch/x86/include/asm/pgtable_64.h              | 18 ------------------
->  arch/xtensa/include/asm/pgtable.h              |  4 ----
->  include/asm-generic/pgtable-nop4d.h            |  1 -
->  include/asm-generic/pgtable-nopmd.h            |  1 -
->  include/asm-generic/pgtable-nopud.h            |  1 -
->  38 files changed, 277 deletions(-)
-> ...
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 5d5756bda82e..993a6505eb8f 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -559,10 +559,6 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
->  	return __pte((pte_val(pte) & _PAGE_CHG_MASK) | newprot_val);
->  }
->  
-> -#define pgd_ERROR(e) \
-> -	pr_err("%s:%d: bad pgd " PTE_FMT ".\n", __FILE__, __LINE__, pgd_val(e))
+Hi,
 
-We can drop the PTE_FMT macro now too.
+On 2026-08-22 1:08 AM, x jys wrote:
+> Hi all,
+> 
+> I am an intern at KUBUDS Tech, a RISC-V International member
+> organization. While building a local KernelCI-style testing pipeline
+> for RISC-V (QEMU virt -cpu max, kernel v7.2.0-rc7, riscv defconfig),
+> the tools/testing/selftests/riscv/abi/pointer_masking test fails every
+> "constraint" assertion for PMLEN=1..16:
+> 
+>     not ok 5 PMLEN=1 constraint
+>     ...
+>     not ok 23 PMLEN=7 constraint
+> 
+> while the "validity" assertions pass. PR_SET_TAGGED_ADDR_CTRL returns 0
+> for every requested PMLEN, but PR_GET_TAGGED_ADDR_CTRL always reports
+> an effective PMLEN of 0.
+> 
+> Root cause appears to be a mismatch between the test's expectation and
+> the kernel's semantics, both present in v7.2.0-rc7 and current master:
+> 
+> - test (test_pmlen): sets only the PMLEN field (without
+>   PR_TAGGED_ADDR_ENABLE) and asserts the effective PMLEN is rounded up
+>   to >= the requested value;
+> 
+> - kernel (arch/riscv/kernel/process.c, set_tagged_addr_ctrl): when
+>   PR_TAGGED_ADDR_ENABLE is not set, resets pmlen to PMLEN_0 and returns
+>   success. This comes from commit 3033b2b1e3 ("riscv: Reset pmm when
+>   PR_TAGGED_ADDR_ENABLE is not set").
+> 
+> Why upstream CI does not see this: on platforms without the ZPM
+> extension the kernel rejects the prctl, so the test takes the skip
+> path. QEMU -cpu max emulates Smnpm/Ssnpm, which exposes the mismatch;
+> most real hardware lacks ZPM.
+> 
+> Questions:
+> 1. Is the intended semantics of PR_SET_TAGGED_ADDR_CTRL with only PMLEN
+>    set (no ENABLE) to remember the rounded PMLEN, or to reset it to 0?
+> 2. Depending on the answer, either the test should pass
+>    PR_TAGGED_ADDR_ENABLE, or the kernel should keep the rounded PMLEN.
+
+The test is correct here, and matches the original kernel semantics. The kernel
+should be fixed by https://git.kernel.org/riscv/c/e2715cca37c2.
 
 Regards,
 Samuel
