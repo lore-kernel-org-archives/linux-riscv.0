@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2044DC61DBD
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 22:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DA9C61DC4
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 22:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OiUVO9yZ4ek2mjwU4+U4pJad7zw67Zxz5Tbwo74vDuU=; b=Xou1mboQ2Ck8Va
-	8HKCUt1GOXnIIQHTJ696Uaii77YCldXF5orWNoYG0LGLNQvAXt0db2+rhkdKw5AiXZmThLJ3qS+vV
-	ysx8uott2le3vg7onFdslpgXIe0n5K5FAiVyYAB0JN2i2UIWQN0Bk4nhWty1RupmEMpyO4u8UY/zr
-	W++up4RQtmzTNA0QUuHS7Ldc0xLh7f6JPfzV8MQccmhvV6dOHzDZn9F/9rM4W+z/nwCS/6mhDODEM
-	VgAlf3v0GJT+il115aJDnkfAb5CKzA9a0e/FN/ghxsnZyXXPDFcLi/UZhpggsy6GovrxYXvq/0hPi
-	66F3KCTLLtR4ealUwZCQ==;
+	List-Owner; bh=17Wf8mVMmr/TXTJSU/kaubVPpcc+YIqCSjhxXSmKJ7o=; b=xaEzFKhnzcJI1M
+	OferdoW15tPb2zpE+UsOF+lhOYmxFjtmMx9JscdmiUehbKJzGrzc660gbv44REFKKQPB3CgneiD4n
+	ofcFzriuyibvPXl2/yOgUGBjco0jELHj8+6AyvPihZZCgoI+Oev6Ec9BKY9bYSO0/vpz1Jbz1k9Un
+	FkUTOTWFL5kLko6BHQZUNhhrNNzGziLsqp+qFlwykP9UNRIOWMCSxEpD7++9KlVtzYz2TS767IU/X
+	x0IuWQNdc2pX0qE89NPmc49+IEnLA7rOgKF0Zoc/tW/iYR72vz9zR7pz++cW6D4kf9uQCHgRI3FN9
+	XazX/3tVfqRv2tsrXcMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyzRB-00000001a69-0Esq;
-	Tue, 25 Aug 2026 22:16:09 +0000
-Received: from mail-southcentralusazon11021130.outbound.protection.outlook.com ([40.93.194.130] helo=SN4PR0501CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyzR3-00000001Zzo-3a9y
-	for linux-riscv@lists.infradead.org;
+	id 1wyzR9-00000001a4w-3PLq;
 	Tue, 25 Aug 2026 22:16:07 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyzR3-00000001Zzh-3bJL
+	for linux-riscv@lists.infradead.org;
+	Tue, 25 Aug 2026 22:16:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PVe2mcwg54w4Rc28GEKcbvJxhx72SX9fXhbzhXSDa8I3cfiEoOwkN2o6D5VA5mEjeOnT1Pq8b0G9d4GXtlFf1ZbfodvckmlsEazKXOxx8UMS96wmn4fqQ15LlsMcfS16HVIKGnnawCNf9Jaz9Qf0k8G7UEum8UIzAVthOfe5TgVBw9ZwWaVcZigCPDuErrBzq6GAzkrREIgqaAcwN10/XZPYRlRGRR1EHMlmMNCre5b//zmIgf9QnagS1yDK04cgvxmbykLZUPBDJcaDkheFfzxmd3W/FMlnHs0+MU4pPnuGjbwLMQBx1ZcezSdfiKtE9H6xb/4H2RS8W5G90m2Wgg==
+ b=nn3IwDjNGh7pi5Kbpbuf8zeWrqKQY/1nU1MQzz2HaDosI90w0im+wDVGxAEt8we8nVCdEwGENZQ0pFwdrZ5GihKNGYP2zRs4/2KJBOOEHNg2stls754eg1Qz3uC3hZUA6cJuQPor7hvNXxQEjN8x8EVaTKZjcMdVzYXfMJ8mEn+R/Dii5J7cKAuOQ1qvDYjG1IIR5HMbvEVIHRyLhTduqJNrvmmx6JnCGE3m8+cL13EHoEQm7bbfiw0V1Slk4TFzp5Mfb1CJhLI6jW0tIm3IxlnVoW/adg8iWhER2MVb7nSzJwRNBk1B9ECtnfBkLQ4hkcppGl4x1lgc0Fe0if0FmA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CwwcBtRE1uljw0HPn8RwOtf8PSk7ACHE8ZA0Q76mNkc=;
- b=sfcV4ftyrIQTOVgym0f6k4EpdZfcsfD3xtiYvmxlXlJzDUolmbrGbZeXlteP1oj1gQ8cyahjgBpGmz4F3h0IFrfaBqD7nTgdj6KOEGy9QAGNEp1vigddiAC11u+OvqLRTJWmKi4PZkdbYD3B9E0vHT2FaRZ/PLIXBp//a0VRK1YqPwQ2NHsFmBQADXKpQy9XKDH8onLgHym0Kion2xQ6QdjIn+MdP+oULqEJsY9tmN5LK8GfBv6VB5QKlQLx/DKdrPOpVYGcTqC21SdQkUcZ4vwFiJxcw+W3ZxttcWCS9ACoToEPIJAbdx39JUP3p5NS1bOzC149y/lu4iuPV5HPdw==
+ bh=dFw5xgTTtQEZtSuMNPCmBsMXVO/pk1uiMdIrQvoI+CY=;
+ b=jkGFEnfn2xTZ3hb6GGzisPwAiMkZSc6D4+TgLVqADLO+jcQuKxajOJdOLNHqiFg5h2arClnU6PRQgy/WyBrfm5RqfFpT/Jgb5aYfAS2gg/vz5dF4ldTuid36uz3lqRPnodjak+n7wrJC57R9iQ4OWY6q9P77zQkf799f1c4WT2jWj40uSTSgyZiwIUlh5dtVau29RhJn8BLnQKj+tPkXUuNRifp7SOeIO/Kv2oRzz7EaSCrXB/KITh5Kaw6mF6RpPvBirUeW9kJPUYSFGm4c/XQTJcRArsQ4Ytp6d5uQ72OzeloRg8v4rQgnMh6DCu41eflJXtRVObrMceOwFmtTVQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  192.86.86.210) smtp.rcpttodomain=cryptography.com smtp.mailfrom=rambus.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=rambus.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CwwcBtRE1uljw0HPn8RwOtf8PSk7ACHE8ZA0Q76mNkc=;
- b=Q7TF/VJmqwCiH5PykAGNfjEN39aSZy15NNrTb3q77Mg6yNqV2gN5zZdiypU1q1iLpwLpkwdRyxUWsjJZY/ehplNQlq4EUNkvwo+TRFUyt+KWPi3k7e/03iiQJerMsAgCpWgd21By2sUS2rX9dtAQrUW/VFPxQlYSmaeUpr9tdm24lGiO0pVRLZOyKHXK7Xsn85fTpD80A6+VvzAROoadA6CJzZuRajwu/GLuHQaPGr45rnZUsmWtMet3SIk6bX8MF1tESh5zFEctQKF0F8Ohj+ElOehnjZv1BMCgGa0PwzhSnTeEI55afoQq7oW0mCKAPawYZ3xFaLK0e318/OmusA==
-Received: from SJ0PR05CA0046.namprd05.prod.outlook.com (2603:10b6:a03:33f::21)
- by BY5PR04MB6614.namprd04.prod.outlook.com (2603:10b6:a03:1d3::17) with
+ bh=dFw5xgTTtQEZtSuMNPCmBsMXVO/pk1uiMdIrQvoI+CY=;
+ b=sSlneDQoDfkz5APlQi7IboxuygIy7zvSMUNbyTCYjKWgEaJVgWGcXGoKuiaDs5ofHsfy6TpEOsvvpdQxSr639eZBLQIHsduNZhYsy+dkdkZX2OqY6oWugFqICt3c5eMwcCk8YN2M1koiKVeNFsFa43aIRoWsh17rEkGol1OGMgxv3Q5tSTCZ02fLHliMc+tfflZX3iRjBPBa+NGoQzwUURBmo4BQCRqLSt1EV7Q8/fbXrNHj62Rfo3opxxkYLgeA1IGU2hi075BdD1kSUCUpe+ri+y1kM9RswhW2mi4GDgL9C2IzfCic3ixJiQRCIcmDY50Li2p9F/X/jgVIZYcHng==
+Received: from SJ0PR03CA0274.namprd03.prod.outlook.com (2603:10b6:a03:39e::9)
+ by CH2PR04MB7109.namprd04.prod.outlook.com (2603:10b6:610:9e::24) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.7; Tue, 25 Aug
- 2026 22:15:52 +0000
-Received: from SJ5PEPF000001D7.namprd05.prod.outlook.com
- (2603:10b6:a03:33f:cafe::1d) by SJ0PR05CA0046.outlook.office365.com
- (2603:10b6:a03:33f::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.6 via Frontend Transport; Tue, 25
- Aug 2026 22:15:52 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Tue, 25 Aug
+ 2026 22:15:51 +0000
+Received: from SJ1PEPF000023D0.namprd02.prod.outlook.com
+ (2603:10b6:a03:39e:cafe::6d) by SJ0PR03CA0274.outlook.office365.com
+ (2603:10b6:a03:39e::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.12 via Frontend Transport; Tue,
+ 25 Aug 2026 22:15:51 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 192.86.86.210)
  smtp.mailfrom=rambus.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=rambus.com;
@@ -60,12 +60,12 @@ Received-SPF: Pass (protection.outlook.com: domain of rambus.com designates
  192.86.86.210 as permitted sender) receiver=protection.outlook.com;
  client-ip=192.86.86.210; helo=hqxsv-psmtppxy01.rambus.com; pr=C
 Received: from hqxsv-psmtppxy01.rambus.com (192.86.86.210) by
- SJ5PEPF000001D7.mail.protection.outlook.com (10.167.242.59) with Microsoft
+ SJ1PEPF000023D0.mail.protection.outlook.com (10.167.244.4) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.3
- via Frontend Transport; Tue, 25 Aug 2026 22:15:52 +0000
+ via Frontend Transport; Tue, 25 Aug 2026 22:15:51 +0000
 Received: from hqxsv-cmdev3-aousherovitch.rambus.com (hqn-lb-int-float.rambus.com [10.12.20.20])
-	by hqxsv-psmtppxy01.rambus.com (Postfix) with ESMTP id 7AA331801769;
-	Tue, 25 Aug 2026 18:15:51 -0400 (EDT)
+	by hqxsv-psmtppxy01.rambus.com (Postfix) with ESMTP id DD206180175C;
+	Tue, 25 Aug 2026 18:15:50 -0400 (EDT)
 From: Alex Ousherovitch <aousherovitch@rambus.com>
 To: Albert Ou <aou@eecs.berkeley.edu>,
 	Alex Ousherovitch <aousherovitch@rambus.com>,
@@ -90,37 +90,37 @@ Cc: Alexandre Ghiti <alex@ghiti.fr>,
 	linux-riscv@lists.infradead.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	Thi Nguyen <thin@rambus.com>
-Subject: [PATCH v4 11/19] crypto: cmh - add DRBG hwrng
-Date: Tue, 25 Aug 2026 15:15:30 -0700
-Message-ID: <20260825221539.255951-12-aousherovitch@rambus.com>
+Subject: [PATCH v4 01/19] dt-bindings: crypto: add Rambus CryptoManager Hub
+Date: Tue, 25 Aug 2026 15:15:20 -0700
+Message-ID: <20260825221539.255951-2-aousherovitch@rambus.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260825221539.255951-1-aousherovitch@rambus.com>
 References: <20260825221539.255951-1-aousherovitch@rambus.com>
 MIME-Version: 1.0
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D7:EE_|BY5PR04MB6614:EE_
-X-MS-Office365-Filtering-Correlation-Id: b668a00b-d423-438c-a8e6-08df02f66d20
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D0:EE_|CH2PR04MB7109:EE_
+X-MS-Office365-Filtering-Correlation-Id: aac4cfce-18f1-45c1-ced2-08df02f66c37
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|82310400026|36860700016|376014|7416014|56012099006|10067099003|6133799003|3023799007|18002099003|22082099003|11063799006|921020;
-X-Microsoft-Antispam-Message-Info: zn8Fgsoeq68CY/aZxst6PNoerTE4q9TArNO+hzCV2JDZK4lhGe4tjHsQ2dwcSVjcnRAyEtzKd0DGvkAHBa2M5PcPmkKWproxj8phP6OOC1JWni5ICtEsYpE9clhVhCf0jL4AaqMKL/Hgktk5jX0aLbU0Mb20nfPmgSvOK4U3idOHxH5eled6saH1afRZr9St/vXQaZmQAKFxGU7716E5P3Y1Vro5R8GU7Th5flqc4kkdtm7wxTn4L/C+Kj8CFnxtZ9/dmcQ2vGs2fFG6Z49wJF8OKjeEr9MN/Z2++nnhkvZtVELtE0Q4Y66UF9jZo/tXd890MIxl2FkpkuMRrubmyqjeywpsrpGdrSeU+aDm6dGs4xMlIAvcyyPSHOIva1CfNSGSwuKW4RjHQIOrJrkw3d4zFBrZtcImT5YXn8OdVA7MnMXI/3i5Ru1co+oanjWl/ZFHKCEQ4pm4SRwnpn4dEURKfod4/H9oZHXNMazSWIamzAdBCQr8z5lzPucIZhbtx3w1brwDztH/Vwp91QGhTaHFEJ/hNp/91q8XJTAG4uIVMn8RWn7go6Dq/4jdtgZ6zSPy5tvkbKwsafr0zecYYazltdkIkS6rNGd6h05V07fOWTrqXT/o72vq4BABPpFW08gEwU8sCiWkwcTCemwPRQh/iQPTex18Mjp8djIJWvRALSO5/43CXYltgUc46Ze9HBVQ9Whbf+nhHcC5rCGu0F1aGBLxuJF+1u8YqD3yTbaIky/IRwyO2HazjB934agH
-X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy01.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(36860700016)(376014)(7416014)(56012099006)(10067099003)(6133799003)(3023799007)(18002099003)(22082099003)(11063799006)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|82310400026|1800799024|36860700016|7416014|10067099003|56012099006|3023799007|6133799003|22082099003|18002099003|11063799006|13003099007|921020;
+X-Microsoft-Antispam-Message-Info: igTG6sk+3LU5teQfBpY/mcX43JfmapqTA+c5sshlbSM3vwRCOFBxFJHQwSCD6Y1QQisPEtKSETf+22RcdEaGPu8LO9orZ49hi45+CdMz/VISkb/l7+YbZY3tdKtBPyN021N8DrfRySQ3MzZp0Jl469UyfETTlWSzQn1JEXhK8sFNQAmNJbKMA9caML8JOzWIbEwGCDa5Q42nxNw3fDY5NdcKrjMx/oMa8caxGN+dp24UHuI0xoo0C4v8sJRirdyiEwy2+XpZ3TDq8/yZbsw19OTRkIrMyP2EDbNgEG21jvItbTuXvpEyj1nhI8MDaBkm5qKUFpR3qoSPkOoHUWXKTr+/MTL/iRv4QpSIdlCFIJnMOm1oQV1PON/Msxo7AbzysiOEGp3f9TPbm5t2NlMZlHEOJ8L/cbU9OfrxyyJTME+fUPV0PGzaW5kdM3jtarsbnr+4nv/UdKifJBvo0+IAZT4eq0MQfPCLeiz5Tq24/W5tv5oM9aG425Lh1S2WHfTQPPysCQgMD/LN+9L/lO4mxdk+sPTcVo/GqvvyqQ0/ltYWCTaJ7b9cJIfAetkIuX4F4eFGi4P1EebPhJvCKSvjzrSSIomP99XwoskV587WxdraCNTUhjBqdp4zidhnOd8WyXMA3ojV1PIO71cjJhSN9cdWteQ+9aiKdc+lD8zRBiBJHHNo6GHII0tRBpiTcPi8
+X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy01.rambus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(1800799024)(36860700016)(7416014)(10067099003)(56012099006)(3023799007)(6133799003)(22082099003)(18002099003)(11063799006)(13003099007)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: BMVlHfJlVELRIQO4A8Z1PQHIYt4iEM50w9I55PJTWArFBHo8ETExX3gkBuLqJFDn6RrbrGIZct+ya1bFqyl1SZz5Gifyzo2aP4KQwxhPCOqxmt9OYpeWkv6s0bjCGST+NNd9nsM20IgDjEdwCPcMjdWil/WkWCLj1XP3t+JBNpoVATyXbfUOkDQLjInp4X4oR+E7WqIKsGIk0+whEl3wdr2mP+HVomk9yf1Hdw55rK6MUo4LL6gPBM4eduZPCo3er2MXK6ybLMbieljjKbdN2aiwTku3bjA6sjktl4EkBqDOQaVX9nPlFFfWbXDewRtZvzdvsfGAlRqIx9gqwe2atFJTP2sy7QAHf7+et53GLe0mLw9Hj+Zsz0wxkJmy2tZ9iq60Bw2B6Txw67R3nf/CR0pdQmm1Uhj+lpXrVsTmWdXGIZVwI4FtoAQneDdfouDF
+X-MS-Exchange-AntiSpam-MessageData-0: 0dyzWICsqdi41IXpZQFHAXI3D1trgLrL9gIjvIE5LXyV/z4AC6fzfbZhh+qpHD+GOHR0xMDgTmppaDeJIlwlf9wFJtr4R96+YLta+6wpTDf9kKcaLRaKkxwnRVyJEsTidZ+CSwqkkUZ4EsAJXeMGWHeP2z6ycVW9U2W03FJndgJxN8JvUfXiltaQRwYJ5cpf8OOzoecyBahv6sJb5SrNec7Sv3KDxcFILfSEZTy4BWpyD7K+nGPVkHsVPr0fNjX9v2vrP6eR3vuDdCSbhTvdp00VjY/lQ+sau/HGM8YMxtVOCNBgliemH8rdDs7sv6RHz3guXr5FIhHfwAm9LD+MGnmy5D690OpSOdAB5NCdVjP+VgvDsI20yQ3gPC58Hm+Weqlb8tkj+qOXCIPIdBOUnasjB6/ioudM39kUhDKUwARf4xqdKlzkvmiIIPIp7K1T
 X-OriginatorOrg: rambus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 22:15:52.5507
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 22:15:51.0246
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b668a00b-d423-438c-a8e6-08df02f66d20
+X-MS-Exchange-CrossTenant-Network-Message-Id: aac4cfce-18f1-45c1-ced2-08df02f66c37
 X-MS-Exchange-CrossTenant-Id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bd0ba799-c2b9-413c-9c56-5d1731c4827c;Ip=[192.86.86.210];Helo=[hqxsv-psmtppxy01.rambus.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D7.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D0.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR04MB6614
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR04MB7109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_151602_087881_AB65D1FE 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20260825_151602_132513_42BAFBF1 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,362 +137,239 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Register the CMH DRBG core (core ID 0x0f) as an hwrng provider.
-The hardware implements a NIST SP 800-90A compliant DRBG with
-automatic self-seeding.
+Add device tree binding schema for the Rambus CryptoManager Hub (CMH)
+hardware crypto accelerator.  The binding describes the parent
+SoC-level node with its SIC register region and one queue@N child
+node per mailbox the host owns, each carrying a reg (mailbox instance
+index), an optional interrupt, VCQ ring geometry (rambus,num-slots /
+rambus,slot-stride-bytes) and a rambus,cores affinity list.  Which crypto cores
+are present is discovered from the SIC CORE_ENABLE register at probe,
+not described in the device tree.
+
+Register the 'rambus' vendor prefix for Rambus Inc.
 
 Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
 Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
 Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
 ---
- drivers/crypto/cmh/Makefile   |   3 +-
- drivers/crypto/cmh/cmh_main.c |   9 ++
- drivers/crypto/cmh/cmh_rng.c  | 281 ++++++++++++++++++++++++++++++++++
- 3 files changed, 292 insertions(+), 1 deletion(-)
- create mode 100644 drivers/crypto/cmh/cmh_rng.c
+ .../bindings/crypto/rambus,cmh-v1030.yaml     | 194 ++++++++++++++++++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ 2 files changed, 196 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml
 
-diff --git a/drivers/crypto/cmh/Makefile b/drivers/crypto/cmh/Makefile
-index ef24879ba1f1..407fd2870f6d 100644
---- a/drivers/crypto/cmh/Makefile
-+++ b/drivers/crypto/cmh/Makefile
-@@ -28,7 +28,8 @@ cmh-y := \
- 	cmh_sm4_cmac.o \
- 	cmh_ccp.o \
- 	cmh_ccp_aead.o \
--	cmh_ccp_poly.o
-+	cmh_ccp_poly.o \
-+	cmh_rng.o
- 
- # Management ioctl device (/dev/cmh_mgmt): key lifecycle, PKE, PQC ioctls.
- cmh-$(CONFIG_CRYPTO_DEV_CMH_MGMT) += \
-diff --git a/drivers/crypto/cmh/cmh_main.c b/drivers/crypto/cmh/cmh_main.c
-index 0738b9815a11..b06a5ea0df4f 100644
---- a/drivers/crypto/cmh/cmh_main.c
-+++ b/drivers/crypto/cmh/cmh_main.c
-@@ -36,6 +36,7 @@
- #include "cmh_cshake.h"
- #include "cmh_kmac.h"
- #include "cmh_sm3.h"
-+#include "cmh_rng.h"
- #include "cmh_aes.h"
- #include "cmh_sm4.h"
- #include "cmh_ccp.h"
-@@ -235,6 +236,11 @@ static int cmh_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_sm3_register;
- 
-+	/* Register hwrng backed by DRBG core */
-+	ret = cmh_rng_register(pdev);
-+	if (ret)
-+		goto err_rng_register;
-+
- 	/* Register AES skcipher algorithms */
- 	ret = cmh_aes_register();
- 	if (ret)
-@@ -308,6 +314,8 @@ static int cmh_probe(struct platform_device *pdev)
- err_aes_aead_register:
- 	cmh_aes_unregister();
- err_aes_register:
-+	cmh_rng_unregister();
-+err_rng_register:
- 	cmh_sm3_unregister();
- err_sm3_register:
- 	cmh_kmac_unregister();
-@@ -353,6 +361,7 @@ static void cmh_remove(struct platform_device *pdev)
- 	cmh_aes_cmac_unregister();
- 	cmh_aes_aead_unregister();
- 	cmh_aes_unregister();
-+	cmh_rng_unregister();
- 	cmh_sm3_unregister();
- 	cmh_kmac_unregister();
- 	cmh_cshake_unregister();
-diff --git a/drivers/crypto/cmh/cmh_rng.c b/drivers/crypto/cmh/cmh_rng.c
+diff --git a/Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml b/Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml
 new file mode 100644
-index 000000000000..a73634024e13
+index 000000000000..d9598b0f3bbc
 --- /dev/null
-+++ b/drivers/crypto/cmh/cmh_rng.c
-@@ -0,0 +1,281 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2026 Cryptography Research, Inc. (CRI).
-+ * CMH LKM -- Hardware RNG (DRBG) Driver
-+ *
-+ * Implements a Linux hwrng backed by the CMH DRBG core.  Each .read()
-+ * builds a 3-entry VCQ (header + GENERATE + FLUSH) and submits it
-+ * synchronously through the Transaction Manager.
-+ *
-+ * DRBG configuration (CONFIG) is a management-host operation in the
-+ * CMH security model.  The driver attempts CONFIG at probe with the
-+ * hardcoded ratio/strength defaults; this succeeds in stateless mode
-+ * (any host may CONFIG) or when this host is the management host.  On
-+ * -EPERM the driver logs a notice and continues -- GENERATE works once
-+ * the management host configures the DRBG.
-+ *
-+ * The management host (or any privileged user-space process) can also
-+ * reconfigure the DRBG at runtime via CMH_IOCTL_DRBG_CONFIG.
-+ */
++++ b/Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml
+@@ -0,0 +1,194 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/crypto/rambus,cmh-v1030.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/delay.h>
-+#include <linux/hw_random.h>
-+#include <linux/slab.h>
-+#include <linux/platform_device.h>
++title: Rambus CryptoManager Hub (CMH) Hardware Crypto Accelerator
 +
-+#include "cmh_rng.h"
-+#include "cmh_vcq.h"
-+#include "cmh_txn.h"
-+#include "cmh_dma.h"
-+#include "cmh_sys.h"
-+#include "cmh_config.h"
++maintainers:
++  - Alex Ousherovitch <aousherovitch@rambus.com>
++  - Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
++  - Joel Wittenauer <Joel.Wittenauer@cryptography.com>
 +
-+/* VCQ layout for .read(): header + GENERATE + FLUSH = 3 entries. */
-+#define DRBG_READ_VCQ_CMDS	3
++description: |
++  The Rambus CryptoManager Hub (CMH) is a hardware cryptographic accelerator
++  accessed via a mailbox-based VCQ (Virtual Command Queue) interface.  The
++  host writes VCQ command sequences into per-mailbox DMA queue buffers and
++  rings a doorbell; the CMH eSW processes them and signals completion via
++  interrupt.
 +
-+/* VCQ layout for CONFIG: header + RESET + CONFIG + FLUSH = 4 entries. */
-+#define DRBG_CONFIG_VCQ_CMDS	4
++  The management host statically partitions the hardware mailboxes across
++  the SoC's host interfaces at integration time; the set of mailboxes a
++  given host owns is therefore fixed and not runtime-discoverable (a
++  mailbox locked to a host reads as unavailable in the SIC availability
++  register).  Each owned mailbox is described by a child node.  Which
++  crypto cores are present is a fixed silicon-build property indicated by
++  the SIC CORE_ENABLE register, so cores are not described in the device
++  tree.
 +
-+/*
-+ * DRBG parameters -- hardcoded to production defaults.
-+ * Entropy ratio 0 = 1:1 (full entropy), security strength 0x10 = 256-bit.
-+ */
-+#define CMH_DRBG_ENTROPY_RATIO		0
-+#define CMH_DRBG_SECURITY_STRENGTH	0x10
++  CMH gates access to a locked mailbox by a hardware HOST ID presented on
++  the bus with every access, permitting only the owning host's ID.  An
++  integration must present a single, stable HOST ID for all accesses to a
++  given mailbox, independent of the issuing CPU (relevant on SMP hosts
++  whose interconnect encodes the issuing CPU in the HOST ID).
 +
-+static unsigned int drbg_timeout_ms = 500;
++properties:
++  compatible:
++    const: rambus,cmh-v1030
++    description:
++      Identifies the CryptoManager Hub v1.030 IP revision (register map and
++      command ABI).  A specific SoC integration should list its own
++      "<vendor>,<soc>-cmh" compatible first with "rambus,cmh-v1030" as a
++      fallback; that extended form will be added when such a platform is
++      upstreamed.
 +
-+/* VCQ Builders */
++  reg:
++    maxItems: 1
++    description:
++      SIC (System Interface Controller) MMIO region.  The registers of
++      mailbox instance N are at offset N * 0x1000 within this region.
 +
-+static void vcq_add_drbg_generate(struct vcq_cmd *slot, u64 dst_phys, u32 len)
-+{
-+	memset(slot, 0, sizeof(*slot));
-+	slot->magic = VCQ_CMD_MAGIC;
-+	slot->id = VCQ_CMD_ID(CORE_ID_DRBG, 0, 1, DRBG_CMD_GENERATE);
-+	slot->hwc.drbg.cmd_generate.dst = dst_phys;
-+	slot->hwc.drbg.cmd_generate.len = len;
-+}
++  clocks:
++    minItems: 1
++    items:
++      - description: Main functional clock ("core").
++      - description:
++          Half-rate "core-div2" clock (present only on configurations with
++          side-channel-protected cores) or the "rt" real-time tick clock.
++      - description: Real-time tick clock ("rt") for the internal timer.
 +
-+/*
-+ * Maximum bytes per DRBG GENERATE request.  The kernel calls .read()
-+ * repeatedly to fill larger requests, so capping here is safe.
-+ * 32 bytes matches the 256-bit security strength natural output size.
-+ */
-+#define CMH_DRBG_MAX_GENERATE	32U
-+/* Backoff before re-issuing a blocking read after a transient DRBG error. */
-+#define CMH_DRBG_RETRY_BACKOFF_MS	20U
++  clock-names:
++    oneOf:
++      - items:
++          - const: core
++      - items:
++          - const: core
++          - const: core-div2
++      - items:
++          - const: core
++          - const: rt
++      - items:
++          - const: core
++          - const: core-div2
++          - const: rt
 +
-+/* hwrng .read() callback */
++  reset-gpios:
++    maxItems: 1
++    description:
++      Host-controlled reset for the CryptoManager Hub.  The hub has two
++      external, active-low reset inputs -- a power-on reset and a hard
++      reset; where a board routes one of them to a host GPIO, that line is
++      described here.
 +
-+static int cmh_rng_read(struct hwrng *rng, void *data, size_t max, bool wait)
-+{
-+	struct cmh_dma_orphan *orphan;
-+	struct vcq_cmd vcq[DRBG_READ_VCQ_CMDS];
-+	dma_addr_t dma_addr;
-+	void *dmabuf;
-+	size_t nbytes;
-+	int ret;
++  "#address-cells":
++    const: 1
 +
-+	if (max == 0)
-+		return 0;
++  "#size-cells":
++    const: 0
 +
-+	/*
-+	 * Our path uses GFP_KERNEL allocations and synchronous VCQ
-+	 * submission -- both may sleep.  When the caller indicates
-+	 * non-blocking context (!wait), return 0 ("no data yet") so
-+	 * the hwrng core retries later.
-+	 */
-+	if (!wait)
-+		return 0;
++patternProperties:
++  "^queue@[0-9a-f]+$":
++    type: object
++    description:
++      One node per hardware mailbox (VCQ command queue) this host owns.
++      The set of owned mailboxes is fixed by the management host at
++      integration time and enumerated here.
++    properties:
++      reg:
++        maxItems: 1
++        description:
++          0-based mailbox instance index.  The instance's registers are
++          at reg * 0x1000 within the SIC region.
 +
-+	nbytes = min_t(size_t, max, CMH_DRBG_MAX_GENERATE);
++      interrupts:
++        maxItems: 1
++        description: Completion/error interrupt for this mailbox.
 +
-+	orphan = kmalloc_obj(*orphan, GFP_KERNEL);
-+	if (!orphan)
-+		return -ENOMEM;
++      rambus,num-slots:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192,
++               16384, 32768]
++        default: 64
++        description:
++          Number of VCQ ring slots for this mailbox's command queue in
++          host DMA memory.  This is a per-board, per-mailbox host-memory
++          ring geometry -- boards built around the same SoC (hence the
++          same compatible) may use different ring sizes, so it is
++          described per mailbox rather than derived from the compatible.
 +
-+	dmabuf = kmalloc(nbytes, GFP_KERNEL);
-+	if (!dmabuf) {
-+		kfree(orphan);
-+		return -ENOMEM;
-+	}
++      rambus,slot-stride-bytes:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [128, 256, 512, 1024]
++        default: 512
++        description:
++          Stride in bytes between consecutive VCQ ring slots for this
++          mailbox's command queue.  Like rambus,num-slots this is a
++          per-board host-memory ring geometry, not derived from the
++          compatible.
 +
-+	dma_addr = cmh_dma_map_single(dmabuf, nbytes, DMA_FROM_DEVICE);
-+	if (cmh_dma_map_error(dma_addr)) {
-+		kfree(dmabuf);
-+		kfree(orphan);
-+		return -ENOMEM;
-+	}
++      rambus,cores:
++        $ref: /schemas/types.yaml#/definitions/uint32-array
++        items:
++          enum: [0x02, 0x03, 0x04, 0x05, 0x08, 0x09, 0x0a, 0x18]
++        description: |
++          Core-affinity list: the hardware core IDs whose work is
++          dispatched to this mailbox.  A core ID may appear on at most one
++          mailbox.  Cores not listed on any mailbox are load-balanced
++          across all mailboxes.  Optional (default: none -- the mailbox
++          only serves the load-balanced pool).
 +
-+	orphan->buf  = dmabuf;
-+	orphan->addr = dma_addr;
-+	orphan->len  = nbytes;
-+	orphan->dir  = DMA_FROM_DEVICE;
++          Because each core instance has a distinct ID, separate
++          instances of the same core type can be pinned to different
++          mailboxes.
 +
-+	vcq_set_header(&vcq[0], DRBG_READ_VCQ_CMDS);
-+	vcq_add_drbg_generate(&vcq[1], dma_addr, nbytes);
-+	vcq_add_flush(&vcq[2], CORE_ID_DRBG);
++          Core IDs:
++            0x02 HC, 0x03 AES, 0x04 SM4, 0x05 SM3,
++            0x08 HCQ, 0x09 QSE, 0x0a PKE, 0x18 CCP.
 +
-+	/*
-+	 * Use the noabort variant: if the MBX is occupied by a slow
-+	 * operation (e.g. SLH-DSA sign at 120 s), we must not issue
-+	 * MBX_COMMAND_ABORT -- that would kill the unrelated in-flight
-+	 * VCQ.  On timeout with an in-flight VCQ (-EINPROGRESS), the
-+	 * orphan callback defers DMA cleanup until the RH fires.
-+	 */
-+	ret = cmh_tm_submit_sync_noabort(vcq, DRBG_READ_VCQ_CMDS, 1,
-+					 msecs_to_jiffies(drbg_timeout_ms),
-+					 cmh_dma_orphan_free, orphan);
-+	if (ret == -EINPROGRESS) {
-+		/*
-+		 * The orphan callback owns dmabuf and frees it on VCQ
-+		 * completion.  Return 0 (not -EAGAIN): .read() only runs with
-+		 * wait=true (see the !wait early return above), and the hwrng
-+		 * core forwards a negative errno straight to a blocking read
-+		 * whereas a 0 return makes it retry.
-+		 */
-+		return 0;
-+	}
++    required:
++      - reg
 +
-+	/* Normal path or cancelled-from-queue: caller owns DMA */
-+	cmh_dma_unmap_single(dma_addr, nbytes, DMA_FROM_DEVICE);
-+	kfree(orphan);
++    additionalProperties: false
 +
-+	if (ret) {
-+		/*
-+		 * .read() only runs with wait=true (see the !wait early
-+		 * return above).  For known transient conditions return 0 so
-+		 * the hwrng core retries the blocking read; a negative errno
-+		 * here would be forwarded to userspace on a blocking fd
-+		 * (e.g. -EAGAIN violates POSIX).  Propagate genuinely
-+		 * unexpected failures so real faults are not masked into an
-+		 * indefinite retry loop.
-+		 */
-+		switch (ret) {
-+		case -EAGAIN:
-+		case -EBUSY:
-+		case -ETIMEDOUT:
-+		case -EIO:
-+		/*
-+		 * -ENODEV: the TM is not running -- occurs when the
-+		 * hwrng kthread (PF_NOFREEZE, not frozen during
-+		 * suspend) calls .read() while the device is suspended.
-+		 * Treat as transient: the TM restarts on resume.
-+		 */
-+		case -ENODEV:
-+			dev_dbg_ratelimited(cmh_dev(),
-+					    "rng: transient DRBG failure (rc=%d)\n",
-+					    ret);
-+			kfree_sensitive(dmabuf);
-+			/*
-+			 * Back off before the hwrng core re-issues the
-+			 * blocking read: rng_dev_read() loops on a 0 return
-+			 * with only a conditional need_resched, so a persistent
-+			 * transient fault would otherwise spin the CPU.
-+			 */
-+			msleep(CMH_DRBG_RETRY_BACKOFF_MS);
-+			return 0;
-+		default:
-+			dev_err_ratelimited(cmh_dev(),
-+					    "rng: DRBG generate failed (rc=%d)\n",
-+					    ret);
-+			kfree_sensitive(dmabuf);
-+			return ret;
-+		}
-+	}
++required:
++  - compatible
++  - reg
++  - "#address-cells"
++  - "#size-cells"
 +
-+	memcpy(data, dmabuf, nbytes);
-+	kfree_sensitive(dmabuf);
++additionalProperties: false
 +
-+	return nbytes;
-+}
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
 +
-+/* Registration */
++        crypto@a4800000 {
++            compatible = "rambus,cmh-v1030";
++            reg = <0x0 0xa4800000 0x0 0x41000>;
++            clocks = <&cmh_core_clk>;
++            clock-names = "core";
++            #address-cells = <1>;
++            #size-cells = <0>;
 +
-+static bool cmh_rng_registered;
++            /* Fast symmetric cores dedicated to mailbox 0:
++             * HC 0x02, AES 0x03, SM4 0x04, SM3 0x05, CCP 0x18 */
++            queue@0 {
++                reg = <0>;
++                interrupts = <1>;
++                rambus,cores = <0x02 0x03 0x04 0x05 0x18>;
++            };
 +
-+static struct hwrng cmh_hwrng = {
-+	.name = "rambus-cmh-drbg",
-+	.read = cmh_rng_read,
-+};
-+
-+/**
-+ * cmh_rng_register() - Register the CMH hardware RNG device
-+ * @pdev: Platform device for the CMH accelerator
-+ *
-+ * Attempt a DRBG CONFIG VCQ (best effort; -EPERM when not the management
-+ * host is non-fatal), then register the hwrng device with the kernel
-+ * hwrng framework.
-+ *
-+ * Return: 0 on success, negative errno on failure.
-+ */
-+int cmh_rng_register(struct platform_device *pdev)
-+{
-+	struct vcq_cmd cfg_vcq[DRBG_CONFIG_VCQ_CMDS];
-+	int ret;
-+
-+	/*
-+	 * The hwrng core elevates a zero quality to full trust (1024) for
-+	 * a hardware RNG, so cmh_hwrng.quality is left at 0.  Set it in the
-+	 * hwrng initializer to lower the entropy estimate if a platform
-+	 * requires it.
-+	 *
-+	 * DRBG CONFIG is a management-host operation.  Attempt it: it
-+	 * succeeds in stateless mode (any host) or when we are the
-+	 * management host.  On -EPERM (not the management host) continue
-+	 * without error -- GENERATE works once the management host has
-+	 * configured the DRBG.
-+	 */
-+	vcq_set_header(&cfg_vcq[0], DRBG_CONFIG_VCQ_CMDS);
-+	vcq_add_drbg_reset(&cfg_vcq[1]);
-+	vcq_add_drbg_config(&cfg_vcq[2], CMH_DRBG_ENTROPY_RATIO,
-+			    CMH_DRBG_SECURITY_STRENGTH);
-+	vcq_add_flush(&cfg_vcq[3], CORE_ID_DRBG);
-+	ret = cmh_tm_submit_sync(cfg_vcq, DRBG_CONFIG_VCQ_CMDS, 1);
-+	if (ret == -EPERM)
-+		dev_notice(&pdev->dev,
-+			   "rng: DRBG config not permitted (not management host); assuming external configuration\n");
-+	else if (ret)
-+		dev_warn(&pdev->dev,
-+			 "rng: DRBG config failed (rc=%d)\n", ret);
-+
-+	ret = hwrng_register(&cmh_hwrng);
-+	if (ret) {
-+		dev_err(&pdev->dev, "rng: hwrng_register failed (rc=%d)\n",
-+			ret);
-+		return ret;
-+	}
-+
-+	cmh_rng_registered = true;
-+	return 0;
-+}
-+
-+/**
-+ * cmh_rng_unregister() - Unregister the CMH hardware RNG device
-+ *
-+ * Unregisters the hwrng device from the kernel hwrng framework if it
-+ * was previously registered.
-+ */
-+void cmh_rng_unregister(void)
-+{
-+	if (!cmh_rng_registered)
-+		return;
-+	hwrng_unregister(&cmh_hwrng);
-+	cmh_rng_registered = false;
-+}
-+
-+/* -- debugfs timeout accessor ------------------------------------------ */
-+
-+#ifdef CONFIG_CRYPTO_DEV_CMH_DEBUG
-+/**
-+ * cmh_rng_timeout_drbg_ptr() - Return pointer to drbg_timeout_ms for debugfs
-+ *
-+ * Exposes the DRBG operation timeout for runtime tuning via debugfs
-+ * config/ directory.
-+ *
-+ * Return: pointer to the static drbg_timeout_ms variable.
-+ */
-+unsigned int *cmh_rng_timeout_drbg_ptr(void) { return &drbg_timeout_ms; }
-+#endif
++            /* Slow asymmetric/PQC cores dedicated to mailbox 1:
++             * HCQ 0x08, QSE 0x09, PKE 0x0a */
++            queue@1 {
++                reg = <1>;
++                interrupts = <2>;
++                rambus,cores = <0x08 0x09 0x0a>;
++                rambus,num-slots = <64>;
++                rambus,slot-stride-bytes = <512>;
++            };
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 396044f368e7..8b1a8f0a673d 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1371,6 +1371,8 @@ patternProperties:
+     description: RaidSonic Technology GmbH
+   "^ralink,.*":
+     description: Mediatek/Ralink Technology Corp.
++  "^rambus,.*":
++    description: Rambus Inc.
+   "^ramtron,.*":
+     description: Ramtron International
+   "^raspberrypi,.*":
 -- 
 2.43.7
 
