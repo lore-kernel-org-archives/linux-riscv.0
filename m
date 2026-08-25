@@ -4,104 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083EBC61DB4
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 10:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 697F3C61DBE
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 12:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JGCYjuEEvR+3xs/uAe9PM5Zm5bC8Wcw/eJgMC9NszDs=; b=x+CoZ95OjD+Nx9
-	NEAQcm9eVakzW4F29C1fTu2NylepoTCjSnMyfBFVM5qOJkEry6eR7Ly/WmFmT/mK86UflGeKf5Hbz
-	2Cs2YifwmTiA74U4wC7IPzS2DUF2ErwshEHAV75FHz16kJS8a7MC/JWT5WO3h+5ZU1Nii/ucqQKiU
-	qgISS4xzzj2DzDkHC1fqjq+iCXxZ1fIKFy60M7lUoFQpodsrdOHY+4qkC6jw0HzPgCwBEZxFEaymv
-	1rd+86CAJkhPCwyFeXiMIOBm8PIQdNS45Iot/CK/to0K8UrcbJ6oCW42RTKBKW1cEqgr5nrXcDjXh
-	TDMw0J0l8VVW16mDG1DA==;
+	List-Owner; bh=lCyhf+Oil+Efg42yfA1K2MmaWrOd+BwFQs6GOV0E5oM=; b=2+STyeDAK+J/tL
+	hxnwWsbwS70PGsir5ORCuWFBEgd6EXHXgWXgdfTfFzMpy/V+A40gbmMeyl2XxLnxmbEvopfub7XsX
+	Y7nCX/gqpRs7Fa2L0+0L7afUq5XiTHU7rJFfARqIYIQbeYyzGlM9vupr3h7JISZHdA12hOe/DQErX
+	XZt4kQ7N+flU1GJutxKsiN4ZFsCjFcA0KCUd2MZcx3Q89xeDCAXYAb7M3G37MusGOYI9Q04lpnaBB
+	RCxORoU+3RB8i55HMrCEzQGkMlCBFgTrmRXko7p52aZABojm/ux4o6X/V5yuLc4UpeflPcA9w5flT
+	MA6w1IwqOQIU22+EzFvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyo9T-00000000a7y-022s;
-	Tue, 25 Aug 2026 10:13:07 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
+	id 1wyq9I-00000000kp5-3AKZ;
+	Tue, 25 Aug 2026 12:21:04 +0000
+Received: from azure-sdnproxy.icoremail.net ([40.65.178.148])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyo9O-00000000a4D-0CWW
+	id 1wyq9D-00000000knU-09l1
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Aug 2026 10:13:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=B6Ik//fdJsRM3YoXkW+CTFTfgmywDovmt
-	WiSCiahu00=; b=TXn0V4i9HS7MYYNysCyvSp+F4BJOzFOwJYlbjciEmSxFeIBbm
-	qqnMw6M6ei/ZU5vRU9RqEetUmHRq590cpvKNW0a96CU3Kr7rQKxFqbIPkpPy78y7
-	xux4QDYLTPP9Had1QWV4OUg9yai8KUDZYd7JZKcBMuEJBkXYL2i8LrdkvU=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwCXxs2jao1qpzMBAA--.329S2;
-	Tue, 25 Aug 2026 18:12:52 +0800 (CST)
+	Tue, 25 Aug 2026 12:21:02 +0000
+Received: from E0002472LT.eswin.cn (unknown [10.12.96.78])
+	by app2 (Coremail) with SMTP id TQJkCgB3jaCbiI1q14xgAA--.39139S3;
+	Tue, 25 Aug 2026 20:20:47 +0800 (CST)
+From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+To: Nam Cao <namcao@linutronix.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+Subject: [PATCH v2 1/2] riscv: kprobes: simulate nop and c.nop instructions
+Date: Tue, 25 Aug 2026 20:20:19 +0800
+Message-Id: <20260825122020.1192-2-yuanxiaofeng@eswincomputing.com>
+X-Mailer: git-send-email 2.31.1.windows.1
+In-Reply-To: <20260825122020.1192-1-yuanxiaofeng@eswincomputing.com>
+References: <20260825122020.1192-1-yuanxiaofeng@eswincomputing.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 08/12] dt-bindings: net: snps,dwmac: Add compatible for
- UltraRISC DP1000 SoC
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: wangjia@ultrarisc.com, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>, 
- Andi Shyti <andi.shyti@kernel.org>, 
- Mika Westerberg <mika.westerberg@linux.intel.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org, 
- netdev@vger.kernel.org, dmaengine@vger.kernel.org
-In-Reply-To: <20260824-blimp-spirited-01365897db24@spud>
-References: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
- <20260824-ultrarisc-dts-v1-8-61ab7aebe9e5@ultrarisc.com>
- <20260824-bride-food-052b313e4b76@spud>
- <20260824-blimp-spirited-01365897db24@spud>
-Date: Tue, 25 Aug 2026 18:12:37 +0800
-Message-Id: <178765275795.744215.4911904858473260204.b4-reply@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787652758; l=2269;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=5dYjzzWbAa+d1SZc/KWtoViQS1sWxVQw8dgEHXnwgvQ=;
- b=BmgfJ4TSHWZivJhgL5UzOY3W7O3nZB2tcpMTcDQMruGKyZz5R7tjA1mWLIcqeXFtnstKZ9/Yb
- pofdSWFIrXgBEIaX7n4Pqd1ZfUWYV9FifkwuftQ7j+dkeJTVucEGiKo
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwCXxs2jao1qpzMBAA--.329S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CF4xGrWxJw1kZry3JF4rGrg_yoW8uFyfpF
-	95AFZFkF13Jr13Jw1kt3WxGF1jvr40yrW8Xrs5tr1UKF90gFsYqrZFgw15W3Z5Zr4rJFyj
-	vrWUur13X3WjvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBEb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWrXVW3AwCY02Avz4vE-s
-	yl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWU
-	JVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26rWY6r4UJwCIc40Y0x
-	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
-	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
-	AIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pKiifUUUUUU
-	=
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAHEWqJFPsACQA0sm
+X-CM-TRANSID: TQJkCgB3jaCbiI1q14xgAA--.39139S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxZF45GFWDur1UGFWUtF4kCrg_yoW7JF18pa
+	n8C3sxGr4kWFs7Cr9xArs8ur4rtws5Kw43Ka1UKayrKw42gryrX3s3Ka15AF1kJFWFgryx
+	K34Y9rykC343A37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUP214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
+	x26xkF7I0E14v26r1I6r4UM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
+	ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I2
+	62IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcV
+	AFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG
+	0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_JF0_Jw1lc2
+	xSY4AK6svPMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
+	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtw
+	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
+	67AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
+	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjNV
+	yDUUUUU==
+X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAQEKE2qMciwftQAAsL
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_031302_657785_EB07F6B3 
-X-CRM114-Status: GOOD (  25.36  )
+X-CRM114-CacheID: sfid-20260825_052059_283627_CBE94D8C 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,75 +82,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-24 18:13 +0100, Conor Dooley wrote:
-> On Mon, Aug 24, 2026 at 06:09:48PM +0100, Conor Dooley wrote:
-> > On Mon, Aug 24, 2026 at 01:54:21PM +0800, Jia Wang via B4 Relay wrote:
-> > > From: Jia Wang <wangjia@ultrarisc.com>
-> > > 
-> > > Add the SoC-specific compatible string for the UltraRISC DP1000 GMAC
-> > > controller to the DesignWare MAC binding.
-> > > 
-> > > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> > 
-> > The dts may not be right, but I am also a bit concerned here.
-> > 
-> > This binding permits 100s of combinations of properties, of which only
-> > a very limited set can be correct for your device. Just adding the
-> > compatible permits all of this variation.
-> > 
-> > Please add some restrictions.
-> 
-> In fact, it's particularly bad here because you don't even restrict
-> which fallback compatibles are used, so there's no guidance on what
-> version of the IP is even in use!
-> 
+nop and c.nop have no architectural effect, so allocating an
+out-of-line instruction slot and single-stepping through them is
+pure overhead. Simulate them directly in the breakpoint handler
+by advancing the program counter, following the approach already
+used on arm64.
 
-I have rechecked the DTS against the hardware. The controller uses a
-DesignWare GMAC IP from the 5.20 series, with "snps,dwmac-5.20" as its
-version-specific fallback.
+This avoids slot allocation, text patching, IRQ flag save/restore
+and the single-step exception for these instructions.
 
-In the next version, I will restrict the fallback compatibles and add
-DP1000-specific constraints for its hardware resources.
+riscv_probe_decode_insn() is shared by kprobes and uprobes, so the
+simulation also applies to uprobes placed on nop instructions. This
+is relevant for USDT probe sites in user-space binaries, which are
+nop/c.nop instructions, the same use case that motivated the arm64
+implementation. In kernel text, nops are also found at ftrace
+mcount call sites and disabled jump_label sites.
 
-> > 
-> > pw-bot: changes-requested
-> > 
-> > Thanks,
-> > Conor.
-> >
+Measured on QEMU (RISC-V virt, emulated), this reduces the per-hit
+cost of a kprobe on a nop by roughly 40% compared to single-stepping
+through the out-of-line slot.
 
-Best regards,
-Jia Wang
+Compile tested on RISC-V, and verified with the RISC-V kprobes
+KUnit test which now covers nop and c.nop.
+
+Signed-off-by: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+---
+ arch/riscv/include/asm/insn.h            | 11 +++++++++++
+ arch/riscv/kernel/probes/decode-insn.c   |  6 ++++++
+ arch/riscv/kernel/probes/simulate-insn.c | 14 ++++++++++++++
+ arch/riscv/kernel/probes/simulate-insn.h |  2 ++
+ 4 files changed, 33 insertions(+)
+
+diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+index c3005573e8..5b3944a5fa 100644
+--- a/arch/riscv/include/asm/insn.h
++++ b/arch/riscv/include/asm/insn.h
+@@ -228,6 +228,15 @@
+ #define RVG_MASK_EBREAK		0xffffffff
+ #define RVG_MASK_SRET		0xffffffff
  
-> > > ---
-> > >  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > index 2449311c6d28..2ed4564ae99d 100644
-> > > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > @@ -119,6 +119,7 @@ properties:
-> > >          - starfive,jh7110-dwmac
-> > >          - tesla,fsd-ethqos
-> > >          - thead,th1520-gmac
-> > > +        - ultrarisc,dp1000-gmac
-> > >  
-> > >    reg:
-> > >      minItems: 1
-> > > 
-> > > -- 
-> > > 2.34.1
-> > > 
-> > > 
-> > > 
-> > > _______________________________________________
-> > > linux-riscv mailing list
-> > > linux-riscv@lists.infradead.org
-> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-> 
-
++/*
++ * NOP and C.NOP have no variable fields, so all bits must match.
++ * NOP is encoded as ADDI x0, x0, 0 (0x00000013), C.NOP as C.ADDI x0, 0 (0x0001).
++ */
++#define RVG_MATCH_NOP		0x00000013
++#define RVG_MASK_NOP		0xffffffff
++#define RVC_MATCH_C_NOP		0x0001
++#define RVC_MASK_C_NOP		0xffff
++
+ #define __INSN_LENGTH_MASK	_UL(0x3)
+ #define __INSN_LENGTH_GE_32	_UL(0x3)
+ #define __INSN_OPCODE_MASK	_UL(0x7F)
+@@ -262,6 +271,8 @@ __RISCV_INSN_FUNCS(c_ebreak, RVC_MASK_C_EBREAK, RVC_MATCH_C_EBREAK)
+ __RISCV_INSN_FUNCS(ebreak, RVG_MASK_EBREAK, RVG_MATCH_EBREAK)
+ __RISCV_INSN_FUNCS(sret, RVG_MASK_SRET, RVG_MATCH_SRET)
+ __RISCV_INSN_FUNCS(fence, RVG_MASK_FENCE, RVG_MATCH_FENCE);
++__RISCV_INSN_FUNCS(nop, RVG_MASK_NOP, RVG_MATCH_NOP)
++__RISCV_INSN_FUNCS(c_nop, RVC_MASK_C_NOP, RVC_MATCH_C_NOP)
+ 
+ /* special case to catch _any_ system instruction */
+ static __always_inline bool riscv_insn_is_system(u32 code)
+diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
+index 65d9590bfb..d28408f0b7 100644
+--- a/arch/riscv/kernel/probes/decode-insn.c
++++ b/arch/riscv/kernel/probes/decode-insn.c
+@@ -44,5 +44,11 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
+ 	RISCV_INSN_SET_SIMULATE(auipc,		insn);
+ 	RISCV_INSN_SET_SIMULATE(branch,		insn);
+ 
++	/* Simulate NOP for better performance */
++	RISCV_INSN_SET_SIMULATE(nop,		insn);
++#ifdef CONFIG_RISCV_ISA_C
++	RISCV_INSN_SET_SIMULATE(c_nop,		insn);
++#endif
++
+ 	return INSN_GOOD;
+ }
+diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
+index fa581590c1..3b22d3ad53 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.c
++++ b/arch/riscv/kernel/probes/simulate-insn.c
+@@ -237,3 +237,17 @@ bool __kprobes simulate_c_beqz(u32 opcode, unsigned long addr, struct pt_regs *r
+ {
+ 	return simulate_c_bnez_beqz(opcode, addr, regs, false);
+ }
++
++bool __kprobes simulate_nop(u32 opcode, unsigned long addr, struct pt_regs *regs)
++{
++	instruction_pointer_set(regs, addr + 4);
++
++	return true;
++}
++
++bool __kprobes simulate_c_nop(u32 opcode, unsigned long addr, struct pt_regs *regs)
++{
++	instruction_pointer_set(regs, addr + 2);
++
++	return true;
++}
+diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
+index 44ebbc444d..7e0936613f 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.h
++++ b/arch/riscv/kernel/probes/simulate-insn.h
+@@ -29,5 +29,7 @@ bool simulate_c_jr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_bnez(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_c_beqz(u32 opcode, unsigned long addr, struct pt_regs *regs);
++bool simulate_nop(u32 opcode, unsigned long addr, struct pt_regs *regs);
++bool simulate_c_nop(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ 
+ #endif /* _RISCV_KERNEL_PROBES_SIMULATE_INSN_H */
+-- 
+2.43.0
 
 
 _______________________________________________
