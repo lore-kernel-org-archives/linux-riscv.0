@@ -4,109 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D76C5DF81
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 05:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7581C5DF9C
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 05:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P3FUF/qXbF2KvnrdPLDtP45sy2XKY1i9JxCrBwLiUbs=; b=TUGtF1nyVy0Dz3
-	l5gN5NkGJIi0eXNfts1fuxI0cBt406K+05KRYZ97MHIqJlTmOcPZahzzFTwMKxE+t7Gt3h2wzHpMe
-	0DvgFq2J0IQSAu4iYHi326VhsW+Vi28abF0F6cFXPpg1Pg7EjHY+8Rhx4ton+B95O4DaSwlkIqwOy
-	Co3aVtdCj6ew0EYs07oLP/YD27TXpJylVxv+VyjC4CtSPR55Wl1hYcbvpO81Watw3f289JM7vOYu1
-	BYpkf38Q+2pekkAab6Dc5uoiLp537bz++ut+yqHDXUHzcRzPQFQZ8D4iemZcAaQwZf5UfeLKVdOe9
-	J0asVulDmPbzlJxftlEQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Yd9KtzHratQoAEUsZjA8iig7rIIZkrKOu1SYyfXltok=; b=PbkqmgJxqQNviH
+	W5iAHDtPTr61M8EByo0gwaPUtb1/RQ/LiYU3ZpgtBiiRvmae5zYc/r7YumQGu0SrGYDecObOzX7iI
+	Qq/YKw68k9fLBtJa4vJW3WJOkF+RZy6f8j6i3uFuJhB+1poOrRD6IUpZiEsuJLIm7o6XuH0DAI0UQ
+	StSVIft4dbHIzxd4jJICfuvs614GMl5pM6maqFdBPucYEVtvQSxJwQeM4h72AYPfZEekbdzpH2GVv
+	IhYAO879Y9XlwC5Uu0dClJ5Gc1l1bDftP+CldzBreB68uYScO8v6ZcP1g1LPjYPV0u/jOwtPPkMYx
+	cbrKPSZGJh38+pkmV6ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyjU6-00000000AEh-1OOz;
-	Tue, 25 Aug 2026 05:14:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wyjbs-00000000B8N-06tO;
+	Tue, 25 Aug 2026 05:22:08 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyjU2-00000000ADW-2aJo
+	id 1wyjbp-00000000B7b-1R9k
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Aug 2026 05:14:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787634841;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K9OwnSzTLO9oC5dFpcmND+TzPw2bMH6k9WMlDpSF/Bk=;
-	b=D/DfWQ1ojVexHfaX+44I0hDGOLd5IdoSKLR71/TQzVpNJ8h1Hw/d5nbwBSlx3hg1EvMDJE
-	rb6fBJf7zpO/MAUbD2HNMRXA+ZMbvJPJNWUTF+vXqSBF+6fowabNf+Dxfx0fe9ToxpCTvy
-	jTXI7uM4Qe1jCkWdBxDvdTzm17yJab0=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-647-QLnOC-BxOVCwbhkYlvsoVw-1; Tue, 25 Aug 2026 01:13:59 -0400
-X-MC-Unique: QLnOC-BxOVCwbhkYlvsoVw-1
-X-Mimecast-MFC-AGG-ID: QLnOC-BxOVCwbhkYlvsoVw_1787634838
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38e8fee6af3so5534351a91.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Aug 2026 22:13:58 -0700 (PDT)
+	Tue, 25 Aug 2026 05:22:06 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c15d47266baso496792766b.3
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Aug 2026 22:22:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787635323; x=1788240123; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0ryfq8ZlJaF8dkUkfOTfrmP2SiE+/6PCtICjVZMb1cA=;
+        b=IZtAFzMNg9zsZ/wCMGbO3bneqlhIamnLKzf/Oupf8OCVZeqTsPXul6H+1JXqT9RNOK
+         way/zCY7EpXc5lkR2s63fYbjI7eVdXlu5vd6X4IDpYO3TpOqgaa6vLiUFCZ3y/+nUBSA
+         aF4Y4ZM57SNUIptI9wQJJREMbfUaluVK7ab+RflHTu/wziNwAIzO6+dwpUxAhphha0Co
+         biRj0wWROvTwfJ4xVN7QeP+KeuLVBe5u50fviKVvGfRZRKteigz+8QlbEyEgMkgE0tpO
+         ak90h+MqTKxf3sljmqDr4gfK23fMg4iUvRE3avOLWPG+M2/+wCCgo4OsFGfoZWf0NaZR
+         SBcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787634838; x=1788239638;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1787635323; x=1788240123;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=K9OwnSzTLO9oC5dFpcmND+TzPw2bMH6k9WMlDpSF/Bk=;
-        b=NV+m0oxjXPBlz+RVsbnCB4AJFWYC9JClNk6FBaRUJX9yarTKmJuPHZbyumBb3DOcyb
-         WQQ0IbUKvHoP374IIrwcrj3kB87YxTdcc30rhBf60IdtC0FQioalg3I1529rW9+ST5XH
-         SjkrrpfLECfNVYWKNZS4923QKftJDkIBKE33DDfGXm77WpKoMOEPJWK7nt5/oMo8lCCf
-         2Fn8+vQYPgA+Kg7CHCJsLJrrMjQWbtMhdjSt/9Y8bZktujkphqlA/pFRlhsv+xYtnz7x
-         M/51EJVUmdUAd23Kw5kpix8aJYCz9h8LiWHlIedMKT2yrUIfUiC2zOHMBgNH9sDwIvgN
-         m9FA==
-X-Forwarded-Encrypted: i=1; AHgh+Roc2xveglCLiFXIJgSTmk8y8U2s+FqEpcrnTvjG4mjJ+NMdDW2gV7bhHGf8Eky2i0izzKZI8ONzyn5pMQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++lSKneiEMxkr1c24Zg5gsd+mfU1Ie19nGn9X5PvbMUAUKiEXeIn
-	8zriPXGBOdQYdzdyBgIqZc8M0uSq6nypLZ/O5ud6Wv0Ebv6+ZaE7vWf7u0ifOOkYzogcAntuuuk
-	ZWQHUJqjZKFBaQxpFwc194CgD7KQvhfcomsNwyg9yAxlgNQzMrWju1siqAH/Tuw/r1wnWtw==
-X-Gm-Gg: AR+sD130U7Rs295lZVuyVn6XCIqT032CXJLVdeOjMf3Umum8gR9CRDjxvvPC8xksn6C
-	rn3nLSFxjx8gGo4b6FgUvshEh5t9Rq00P8YM9Fbb/K/5vxMV/poBcEGYFVnV+Yq+VJMrb71c2Sb
-	B6FDYujRO57j3uhfRPtR2GvIe1JYz6TnfUjMxk2/FMKUIqxLt0KJUygF1eG/KvFgvXKR6F/l42P
-	1vzFG1K44QucpoeyhkWEP3WMZOXnJlEs679RK2TGyySBKYoaLe31PIEabq2epBcEZd16MZXpgzl
-	/SfRcIEf/IyHaDHahom0feW+XsQfiiTv4h2l+3gk6KdRoeYmmIS3m9Ha7Ytf4hnMjdS4NDAJu3I
-	pK0p14yepiAZkQsVeBA==
-X-Received: by 2002:a17:90b:184f:b0:395:5f43:4ec4 with SMTP id 98e67ed59e1d1-3964603084fmr8668912a91.0.1787634837957;
-        Mon, 24 Aug 2026 22:13:57 -0700 (PDT)
-X-Received: by 2002:a17:90b:184f:b0:395:5f43:4ec4 with SMTP id 98e67ed59e1d1-3964603084fmr8668825a91.0.1787634837463;
-        Mon, 24 Aug 2026 22:13:57 -0700 (PDT)
-Received: from [192.168.1.2] ([122.171.16.109])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39645da08desm2156603a91.17.2026.08.24.22.13.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Aug 2026 22:13:56 -0700 (PDT)
-Message-ID: <06a45c67-2642-4efa-994a-ee50cd40a697@redhat.com>
-Date: Tue, 25 Aug 2026 10:43:48 +0530
+        bh=0ryfq8ZlJaF8dkUkfOTfrmP2SiE+/6PCtICjVZMb1cA=;
+        b=CzYSQ0+W77xGObLbdH41SHDlQr15u7ufq/fOFOxTD1AlaIq9DozW1pmYnsTrilRhxi
+         bMptunu5O+jNxKVIThkdOwDvWmWyd+sOI13/J5iWDun6hvrhBfs4uhK/caqbM9brn2Oi
+         6GeqX2l6JpCdTEi+B38oUc/FE8a47hEGgsiKsbXa+A1zREXezmGM8x0Uhww1GvOo3vuO
+         7vLP8dHtTeMvHggwobmtfnLlOuTjkwlrDRbMomQdceRAkYfSK+Sh1TTaW9xqk4DfgW8y
+         cI9GhF9KKOjbLAY2ln+ROqag+IjZamN7KwBZ/joIs4twvuhgv3+6p4ICIjAcauPw5unW
+         tEjQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpZN0TGsZRS6oKjJWwMvNDXFCAf/nJK0lP+5CdSBO2ayNkRNnXyORzjwVWbVQuv4CLVU1RmRMrPrRcjHw==@lists.infradead.org
+X-Gm-Message-State: AFuF++k1aHN1OSs3cLc5ejxLPG9fsuK7Jds6/1xhsVkWaGOncfAAyLjP
+	ZJemaB6Dl4O6V4sE18UBP3o8ZF9HG1KdlZzzyMWNg5OWLs7GwLNY0L7yfHRJXNwy
+X-Gm-Gg: AR+sD13N6KHWl76RKhYh7LBdbfRDGjT0oesOi5tMhsp/gH12+1nPvrE8/qhy9n2JTTu
+	OhszWBbgICPo0i2/wMGa/CZTyfmeg9IYa4+DV9tDASNMpmzS/81OYKvOSTn7KNA6uGMRd0g7DKu
+	azgNZyLfZuphkdP81ZjV/bCKdIQP+9VncmL4ufVWOvLIVaBfBotJKs391SmoRGqXoehCaSNo8rC
+	ajkbm7F6WOu0mgDm+AK2HXtSWjt07FydKNWbVVLu1U7YXWUfGEfS2FbNVcoSA88hT3kw6LZMAZA
+	NwipcxYzl0znmbIYDOzqdh5lln85hjYrcbpz0atG0+ICxh8eDRXUip/y3+mAF0T4ij6V4nMGqg/
+	+czMeAMEBHxSqum4qAu5eE511OOawRzuI7lJFEpaZOwbrKa4FqWfc9KhYEiM/M4UCYK4nydz64j
+	WOZ0bzKz0V06rxMmV7T7p9MbK7g6Ed9oO91bADTmibeRilGbO8bPVWirF/8YYML9qVcEMyQiz2D
+	UPOGQ7+IuqZUEKC1mBWcKBKEF28WkqZaodSl7hAa/wA5FIVT6WEAfYAFg==
+X-Received: by 2002:a17:907:8995:b0:c24:4128:c19d with SMTP id a640c23a62f3a-c24e584dc37mr325956566b.4.1787635322840;
+        Mon, 24 Aug 2026 22:22:02 -0700 (PDT)
+Received: from GOLDENAXE.office-radnicka.localarea.network (c82-214-103-66.loc.akton.net. [82.214.103.66])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c249606a8fasm1733198866b.8.2026.08.24.22.22.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Aug 2026 22:22:02 -0700 (PDT)
+From: Bruno Banelli <bbanelli@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Ze Huang <huang.ze@linux.dev>,
+	Alex Elder <elder@riscstar.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-phy@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Bruno Banelli <bbanelli@gmail.com>
+Subject: [PATCH] phy: spacemit: enable K1 USB 2.0 PHY by default on ARCH_SPACEMIT
+Date: Tue, 25 Aug 2026 07:21:58 +0200
+Message-ID: <20260825052158.66367-1-bbanelli@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] kexec: return -ENOEXEC from image probe functions
- on mismatch
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
- Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>,
- Philipp Rudo <prudo@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
- Bradley Morgan <include@grrlz.net>
-References: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
- <20260821-mpilaniy-v3-1-76b355399d2e@redhat.com>
- <aoxQFxuzZ1AHmM8d@willie-the-truck>
-From: Mukesh Pilaniya <mpilaniy@redhat.com>
-In-Reply-To: <aoxQFxuzZ1AHmM8d@willie-the-truck>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5NQ8MvsTUE-VZYhk99QS2qccvDS4LyQeHZ9E2ttmD_4_1787634838
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_221402_740957_28669A09 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20260824_222205_397234_02F19815 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,51 +108,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+PHY_SPACEMIT_K1_PCIE has "default ARCH_SPACEMIT", but
+PHY_SPACEMIT_K1_USB2, twelve lines below it in the same file, does not.
+Since the symbol is also absent from arch/riscv/configs/defconfig, a
+plain "make defconfig" build for a SpacemiT K1 board ends up with the
+USB 2.0 PHY driver disabled.
 
-On 24/08/26 7:37 pm, Will Deacon wrote:
-> On Fri, Aug 21, 2026 at 07:19:57PM +0530, Mukesh Pilaniya wrote:
->> Several kexec_file_load() image probe functions return -EINVAL when
->> they do not recognize the image format.  A probe function that rejects
->> an image should return -ENOEXEC to indicate that the image is not a
->> recognized executable format.  -EINVAL implies a problem with the
->> syscall parameters, not with image recognition.
->>
->> kexec_image_probe_default() iterates through registered loaders and
->> returns the last probe's error code to the caller.  That error
->> propagates as the kexec_file_load() return value to userspace.
->> Returning -EINVAL from a probe when no loader matches is semantically
->> incorrect and misleads userspace about the nature of the failure.
->>
->> Return -ENOEXEC from all probe functions and their helpers when the
->> image format is not recognized.
->>
->> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
->> Reviewed-by: Philipp Rudo <prudo@redhat.com>
->> Reviewed-by: Pratyush Yadav <pratyush@kernel.org>
->> Reviewed-by: Bradley Morgan <include@grrlz.net>
->> ---
->>  arch/arm64/kernel/kexec_image.c   | 4 ++--
->>  arch/loongarch/kernel/kexec_efi.c | 4 ++--
->>  arch/riscv/kernel/kexec_image.c   | 4 ++--
->>  kernel/kexec_elf.c                | 4 ++--
->>  4 files changed, 8 insertions(+), 8 deletions(-)
-> 
-> Hmm, so after this patch, are there actually any implementations of .probe()
-> that return anything other than 0 or -ENOEXEC? I couldn't spot any after
-> a quick look.
-> 
-> Willkexec_elf_probe() can return -ENOMEM if memory allocation (kzalloc())
-fails inside elf_read_phdrs(). This behavior was previously discussed in
-the first patch of this series [1].
+dwc3-generic-plat needs that PHY, so the result is a kernel with no
+working USB at all on boards such as the Milk-V Jupiter, where all four
+USB 3.0 type-A ports hang off the single dwc3 controller.
 
-[1]
-https://lore.kernel.org/all/0d7acb43-2eb4-44ec-9bfb-b89440afc605@redhat.com/#t
+Give it the same default as its sibling.
 
+Signed-off-by: Bruno Banelli <bbanelli@gmail.com>
+---
+ drivers/phy/spacemit/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/drivers/phy/spacemit/Kconfig b/drivers/phy/spacemit/Kconfig
+index 5fdf18fce..dd74a3faf 100644
+--- a/drivers/phy/spacemit/Kconfig
++++ b/drivers/phy/spacemit/Kconfig
+@@ -20,6 +20,7 @@ config PHY_SPACEMIT_K1_USB2
+ 	depends on COMMON_CLK
+ 	depends on USB_COMMON
+ 	select GENERIC_PHY
++	default ARCH_SPACEMIT
+ 	help
+ 	  Enable this to support K1 USB 2.0 PHY driver. This driver takes care of
+ 	  enabling and clock setup and will be used by K1 udc/ehci/otg/xhci driver.
+
+base-commit: 66498c75b4f8017f62d720d9b59675bdf3abce91
 -- 
-Regards,
-Mukesh Pilaniya
+2.43.0
 
 
 _______________________________________________
