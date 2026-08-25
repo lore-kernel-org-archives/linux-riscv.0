@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE9CC61DBC
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 07:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D22BC5DF94
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 07:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Mime-Version:Cc:To:Message-Id:Date:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=LLOkwRs9Yss0Nv/GA58gXbs2vR/JY+9y2AQB27xsGac=; b=i4QLMnOTCFv5QemYdIROxLwQ9j
-	xFa1OvcfEl0kmk0CSrNI1wOFJ4jjpjJLyNZ8r7lMzuT2tbh6xrdnDR0N3ZG3PunmhBhTZXTWxzyML
-	ldip6XWJVdp8ytcfcbSVSjT7aKNH+OZHThUN/Uf8P2+Cxf8APaHS6KYL0RtHIanWPMDsJK3H+8wf0
-	W+xdh3ve0SRjZvFb9MTXSb1t1tbximRm17MLfOY8yEBI5wxHLsk2XXxGVvBuc30jwMmzdW1iw+qq0
-	9PNVhjSnJuYT8tjnef0SjtaeycxsLDmpEVm1sGDpWUhZrT106PQwi1eW4W0UNPFQly5fay/qGZk0W
-	rSUnq/Qw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=u3U/2Tds3IjMLzFeBAH6E2ladA4fdOABNSlZDbnI1GM=; b=iKfcUJwpivQlfQ
+	6N7NrBYsEaAx+C07vOea4LJBuVhnMCCmSZhX/i/q2RN+vXuxFxICkm6w8lliCGoEFvI0/YkKCJa1R
+	csfuyHTp2MYit285Ntoasc74zJZ8VE7FuTCVc0qhWPdUlpQs01wwXdpgy5aJmhCYMEnK+N5XJ6W4X
+	Dpbwutw5h/FpCyPHQecEg/bBH2umZKtxmAxi2HbmW7Za6FmWpyMTlIAWDFkEZusrGnPnuosUx9NX6
+	c4meo7Uk6i5HM120ouq1eEPARFcHqXMsDGiyJF1q7j0LiJp5MjZaL2bKZsQvaM0wT99SuUl/yFKd2
+	kHYaLRms/KB0JYGMz6Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyll0-00000000Iqr-0R4l;
-	Tue, 25 Aug 2026 07:39:42 +0000
-Received: from va-2-35.ptr.blmpb.com ([209.127.231.35])
+	id 1wylsu-00000000Jgh-27oM;
+	Tue, 25 Aug 2026 07:47:52 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylkx-00000000Iol-0e0n
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Aug 2026 07:39:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1787643568; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=q7zPMmqRJkJjVLdvMHDlbcmHxR9pKIRa+xbuMm1XbXc=;
- b=LveF5K9b1hGh4OWFzBviShR3pz1FCET6H4GG5WCdS9++xOvhR8MGmdBDaTbTeJf+CKi90V
- xCe8ECYapx742Q2qonQjIuSQHiGQ7Qavdj5ROPXIlyO6hXWMRNtGL+OsGjBlRBsWMCUUdy
- KWu6iW6eUHX1yxRJ54OXeAUwUb0Wu8C7OP0EbT0s3C4tI4F0qmvCeFpHZfDC2oSoc4rVI/
- 25Gp5q5S4T+lIoHo/dJAWXixtlnt7pOlHBURqgT2m1TQwVB03wnlzekBtEUlTklwCm8bCl
- bobIy9IAnZphBUvPvC790M53Zk9BzZkJK3QU0sfFBFisOa9TQySTm3sEOUIYBg==
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Date: Tue, 25 Aug 2026 15:39:23 +0800
-Message-Id: <ab423d7d-4402-47c5-aa3f-bf2fe85322e7@picoheart.com>
-Content-Language: en-US
-To: "Paul Walmsley" <pjw@kernel.org>
-Cc: <yang.yicong@picoheart.com>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>, 
-	<wangruikang@iscas.ac.cn>, <ganboing@gmail.com>, 
-	<geshijian@picoheart.com>, <niehaitao@picoheart.com>, 
-	<cuiyunhui@bytedance.com>
-Mime-Version: 1.0
-In-Reply-To: <6108297c-73b7-a04b-67d9-2ef444eecb60@kernel.org>
-References: <20260728094627.94975-1-yang.yicong@picoheart.com> <20260728094627.94975-3-yang.yicong@picoheart.com> <6108297c-73b7-a04b-67d9-2ef444eecb60@kernel.org>
-X-Lms-Return-Path: <lba+26a8d46ae+43a7f8+lists.infradead.org+yang.yicong@picoheart.com>
-Subject: Re: [PATCH v2 2/6] riscv: insn: Set sstatus.MXR when reading userspace instruction
-User-Agent: Mozilla Thunderbird
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-Received: from [100.86.213.231] ([61.141.241.116]) by smtp.feishu.cn with ESMTPS; Tue, 25 Aug 2026 15:39:25 +0800
+	id 1wylsr-00000000JgF-2o4i;
+	Tue, 25 Aug 2026 07:47:51 +0000
+Received: from localhost.localdomain (unknown [111.196.241.250])
+	by APP-03 (Coremail) with SMTP id rQCowABXWzmWSI1q0uM4Bg--.20181S2;
+	Tue, 25 Aug 2026 15:47:34 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Atish Patra <atish.patra@linux.dev>,
+	Yu Chien Peter Lin <peterlin@andestech.com>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Charles Ci-Jyun Wu <dminus@andestech.com>,
+	Leo Yu-Chi Liang <ycliang@andestech.com>,
+	Locus Wei-Han Chen <locus84@andestech.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Clement Leger <cleger@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] perf: riscv: Clear PMU pending interrupt through vendor helper
+Date: Tue, 25 Aug 2026 15:34:33 +0800
+Message-ID: <20260825151001.2-andes-pmu-clear-caplitmus-rv@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
+MIME-Version: 1.0
+X-CM-TRANSID: rQCowABXWzmWSI1q0uM4Bg--.20181S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AFyxKr1kXr4xWryxKry8Xwb_yoW8JFy5pr
+	Z09FW8ArnYqF4jva45A3W8uF1rua45u3yYk3yqk39rZa13Jry5XFn8JryfArnYvFW8G347
+	urWxWrW5AFnYkF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0pRiSdgUUUUU=
+X-Originating-IP: [111.196.241.250]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_003939_593096_7C7028DF 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260825_004750_075925_A0447CA3 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +92,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/25/26 8:06 AM, Paul Walmsley wrote:
-> Hi,
-> 
-> On Tue, 28 Jul 2026, Yicong Yang wrote:
-> 
->> The __read_insn() uses get_user() to read userspace instructions.
->> Bo Gan noticed that get_user() is insufficient in this case since
->> it's possible for the instruction segment mapped as execute-only
->> and get_user() doesn't have permissions to load it. The architecture
->> provides sstatus.MXR for handling this so set MXR when reading
->> userspace instruction.
-> 
-> If this patch fixes a bug with the preceding patch, it would
-> better just to roll the fix into the original patch.
+When no hardware counters are in use, the PMU overflow handler clears the
+pending interrupt directly in CSR_SIP with BIT(riscv_pmu_irq_num).
 
+For Andes PMU, riscv_pmu_irq_num is 274 and the pending bit lives in the
+vendor SLIP CSR. The direct clear therefore uses an out-of-width shift and
+the wrong CSR, unlike the other exits from the same handler.
 
-sure, will squash into previous one.
+Use ALT_SBI_PMU_OVF_CLEAR_PENDING() on this early return as well.
 
-I used to split the refactor (preceding) and fix (current)
-to separate patches for better review.
+Fixes: bc969d6cc96a ("perf: RISC-V: Introduce Andes PMU to support perf event sampling")
+Assisted-by: Codex:gpt-5
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/perf/riscv_pmu_sbi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-thanks.
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 50220f7b46d9..ff95f5f13603 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -1058,6 +1058,6 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	/* Firmware counter don't support overflow yet */
+ 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
+ 	if (fidx == RISCV_MAX_COUNTERS) {
+-		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
++		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+ 		return IRQ_NONE;
+ 	}
+
 
 _______________________________________________
 linux-riscv mailing list
