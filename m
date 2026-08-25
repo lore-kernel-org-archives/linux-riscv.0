@@ -4,98 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D978C61DB6
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 08:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED51CC5DF94
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 08:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6zzQOEBuU0xtJ8IjIDOcPfxXqidLXKv1lSvMorEuf+0=; b=v6RPwOIfv1gl0x
-	zqcSJy/OcHzGtxAWXFNFQxXKBfM4pZr/jHu2ujT6M3nLuE5n8N39ZY+MrALLWASQ5tmGRv3D9yNDV
-	P7nbCCt1ZHG0oX+OAN3ip4Kh6ojy/iEazH+Y4lRq1A+H5qqERqJi6hMuMqbs990AsE2aOdOnBKzUp
-	zwalA/PCOWpZ11mwB/tFktYsfUTkTRfAsfhrSzUUk/mwTwE0T4C6tQXbi1jmYcxT83yMzqHkYVuy0
-	6k/tUdzSpnqmgv/WXAOVbAA3kxaqRP3XgNjjcdDQmmLj0k8YhqYDHXgXfq/K3IijOn7jhalOu8aDA
-	x7y+HmzEb4QLuufBkGjA==;
+	List-Owner; bh=/mzk8L6klwNVUOnPm5lLlBauwLoMh/MDXF3HyNR4OBU=; b=hTk2Ts4WJl2Zyl
+	6/qkvzs1m/rvgb31XVQNc/80Ty+lGYbpaDvQVP4OPyOpddjqPftUnPpFq4MtSSk+YiesUCIEP2w3T
+	Y/pXTcFKS/1ZuSRFGnzBdtVGkW0Gop8INrMeRauRyhR2x9nkcOYPpGL3fdYgvS+8UX6RcIuTkf6CK
+	o+qY2DY2I/z0l1XsvnIUynljZbgVzvrQn2DUGVXwDOAl88kxNdBYk9spYR2TtFLfbzhIhk8M5iAYV
+	PszWiYIYlh0Q+AgNbDzR9AnaNIogK631DJc9KbwurzE37IRb+eTjReXy4iXFdyN+IoCQfRJr+ZUhJ
+	WOwIpzYYe/vSun4IKDNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymfY-00000000P3J-1U3p;
-	Tue, 25 Aug 2026 08:38:08 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymfL-00000000OvF-3jk3
+	id 1wymn1-00000000Pzs-1bWj;
+	Tue, 25 Aug 2026 08:45:51 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wymmx-00000000PzC-2IXs
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Aug 2026 08:38:06 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-cbe827e3cb4so5094506a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Aug 2026 01:37:55 -0700 (PDT)
+	Tue, 25 Aug 2026 08:45:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787647075; x=1788251875; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hN2Jmy0Yce+ny/9mzHdZVPdF+NxcdzE2Ab9UDeAEcWs=;
-        b=lw/HX3uKXRJmA8x+lzbR/xmOc5KGO9TtWDAyMv/VF4eXDBOChVDzJViEEXT+1t32XX
-         BpVcb40Wgv7x82R3gSxQq4upQji561smm8/JDhItNIpAq+HUHl9mLFkaQoGC0lho8SFz
-         DVd7bollszw0ut3UCzT32WH7W44p1YGhLsiKSiNi+EpkQTIAPID1JzzM1UH3T41c7E3B
-         isiTO/ulPiOrPsLOFw86UWnzdWtsyzrVBMTTtro5HayM9Uu1rIWRfJA2BCv9vuWBS+XZ
-         orqRdKT5K1G3vNkEULzb+qDoIZjJQrLJdjBmjNRZLpjZBbEOX/59U27dkXn/w+q98LNA
-         FB6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787647075; x=1788251875;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hN2Jmy0Yce+ny/9mzHdZVPdF+NxcdzE2Ab9UDeAEcWs=;
-        b=r/NE4f32ztylsjNdhj8s2tAiKpk2r1PANK9fkbZRNQcv8PcBxEzW18AQsifALMBfnc
-         Qx5tDXip959XGIuopnQZeCmzAe7gq68A6tG415blj7PYNliucPuVsS/qUFk+TalhdHg2
-         CnluuMTqaO7KWkdn0HYOfAtwUwBzURdGKLOs1NCy0g4oFpemYsCV+MZHfIYNIzyRxuu7
-         xwrtU7zosY5ZME7TLc+S8M8617Xa4N6qd2I3Zq+HHfVkX7YJzSuCMIGRyhLniF4EoDxZ
-         ODZKoK2ghHn+I6zFV0jCop45+e8asgzEqOJSBmQAq+g81l/ZWWgWAg+xT+pv+g42rn+H
-         s8nA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq0VTksj4ncEVpHLxtGkQtoV6xNVidMXdzKuxUvRIh+gFT6X3bjtWRsK4K85HymA4pET0yAQBJHVUI1AA==@lists.infradead.org
-X-Gm-Message-State: AFuF++nLcceYvBv2yW7L7YIVG802OdyjkhTmYaBTl1DZg/NfC6bR6bTg
-	ebEsvE9pvUECzbmPl8YAv4M2e6j/99Pyhp14z/wkVJojVLFFFNXwbFKz
-X-Gm-Gg: AR+sD102+C6Q01GvZK3CNt/5xWiucup6V8BH3S+x7tZtXtQK3nCUIQUFuGNOEX6YMvl
-	Ugi0VZEk3hYHBUH99ROshOWW3fHA+Jcmgcea+63yfzbrGhCveVPAiKJST/ynxs9X6qNA67usuBw
-	mbfjWv6qgIuQ3ZxrJw7TV+wIkMAGelQEQWCNIKVP4/Yc01VZ8o1QJRwYI9t7Kw18nUVByE3GP5q
-	uLOe6QXxhvWi6abo9ZLHQVWnBFwR38L0MOOdIEkVw6HD5QcFFl7rZkUO5CSk3VxMNgQD2gn3zM2
-	2VaA/EFeN0BeHIYzm8dlhe0DRSMLeReUpMgASKmyb7oP+BTyf79op9Ss3IHBZolJkzLg8wj11aK
-	VErW3pbagr3t0TgQBDAIIJSsxqhYNnGIUNMAxn7dyldBhtBfrRMZvBnTELkq8DruMBzPo1scF/D
-	PC8LSnnI1+l0sjTAhC3TqEHnH/CMEUcRCU/IOm5wSlIisME3gznhNOcFhla8Mteul5wTsLlpi+X
-	AAhrLgJ6h3s
-X-Received: by 2002:a05:6a20:c90c:b0:3cc:22bb:8911 with SMTP id adf61e73a8af0-3cd2fe7a2cdmr66070868637.6.1787647074852;
-        Tue, 25 Aug 2026 01:37:54 -0700 (PDT)
-Received: from fedora ([61.74.238.173])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc199e60abbsm1835887a12.23.2026.08.25.01.37.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 01:37:54 -0700 (PDT)
-From: SeungJu Cheon <suunj1331@gmail.com>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-kernel-mentees@lists.linux.dev,
-	me@brighamcampbell.com,
-	SeungJu Cheon <suunj1331@gmail.com>
-Subject: [PATCH v1 3/3] RISC-V: KVM: Fix perf-backed counter accounting across stop and read
-Date: Tue, 25 Aug 2026 17:37:19 +0900
-Message-ID: <20260825083719.643970-4-suunj1331@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260825083719.643970-1-suunj1331@gmail.com>
-References: <20260825083719.643970-1-suunj1331@gmail.com>
+	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	References:Date:Message-Id; bh=Y5OfRGX5nb3vPgvkisInJ84mcEX6LHgXS
+	SdtcBu0E6s=; b=UJLQyy0c/aSzoDyUBvs8rCWvLWp87i51EdbbuFNUUBKMVgsLH
+	ULLWeO7vGwcTfLhPQiN9STfKz2hNBdHeZvcYMfCuX/VA1ehYO3QPzAWLJWYIUqDC
+	suqelmdwWv8u381pXK3WZnHrA4UHlBhmeteSTB7waVf2RzAXjcEm0svTfk=
+Received: from [127.0.0.1] (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwCn1s05Vo1qWzEBAA--.296S2;
+	Tue, 25 Aug 2026 16:45:45 +0800 (CST)
 MIME-Version: 1.0
+Subject: Re: [PATCH 07/12] dt-bindings: i2c: dw: Add compatible for
+ UltraRISC DP1000 SoC
+From: Jia Wang <wangjia@ultrarisc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: wangjia@ultrarisc.com, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ Mika Westerberg <mika.westerberg@linux.intel.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ netdev@vger.kernel.org, dmaengine@vger.kernel.org
+In-Reply-To: <20260824-aging-umbilical-8e68cfcea468@spud>
+References: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
+ <20260824-ultrarisc-dts-v1-7-61ab7aebe9e5@ultrarisc.com>
+ <20260824-oppressed-jogging-5b055ca274b1@spud>
+ <20260824-aging-umbilical-8e68cfcea468@spud>
+Date: Tue, 25 Aug 2026 16:45:31 +0800
+Message-Id: <178764753153.744215.13628356455140662072.b4-reply@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787647531; l=854;
+ i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
+ bh=WrJtVbLSM8GbkbAn64EbEX8lLAe/w4MbK7EWpFSxYw0=;
+ b=h1QFd/geJ3eCnvfmWE8MCcEuTL/3WBAshWGKokJSW5v7Y342aTIZNXVyNJFCAnwmJzvTTSSz4
+ VabtmlcOV21DQ+pv1nlrXSy7xqd4zrKSpl7e8nDQc1SjJu3Iax0A8mE
+X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
+ pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
+X-CM-TRANSID: AQAAfwCn1s05Vo1qWzEBAA--.296S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GF18Aw4Dtry5JFyxuF4rZrb_yoW3uFg_ur
+	Z7Ar97AF1UZFy7Kws8AFsIy3sY9F4DWrZxGr45XF4UJ3s5Kry8Wwn2grySvw13JrW8try7
+	Cr1Sva4DtrnI9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb6kYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z2
+	80aVCY1x0267AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26rWY6Fy7MxkIecxEwVCm-w
+	CF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j
+	6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Wrv_Gr1UMIIYrxkI7V
+	AKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42
+	IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRjg43UUUUU
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAHEWqJFPsACQAwsi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_013755_926609_70FE2655 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20260825_014548_340649_9333F051 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,77 +117,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-pmu_ctr_read() adds the event count returned by perf_event_read_value()
-to counter_val, which can accumulate the same count repeatedly across
-reads. kvm_riscv_vcpu_pmu_ctr_stop() also leaves counter_val stale by
-not folding the current event count into it.
+On 2026-08-24 18:14 +0100, Conor Dooley wrote:
+> On Mon, Aug 24, 2026 at 06:07:29PM +0100, Conor Dooley wrote:
+> > On Mon, Aug 24, 2026 at 01:54:20PM +0800, Jia Wang via B4 Relay wrote:
+> > > From: Jia Wang <wangjia@ultrarisc.com>
+> > > 
+> > > Add the SoC-specific compatible string and use the generic one as fallback
+> > > for the UltraRISC DP1000 I2C controller.
+> > > 
+> > > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+> > 
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > pw-bot: not-applicable
+> 
+> Same here, I was too hasty - please add some constraints like clocks
+> being required etc.
+>
 
-Make reads of perf-backed counters side-effect free, and use
-perf_event_pause() when stopping a counter to fold the current event
-count into counter_val while resetting it. This preserves the counter
-value across stop/start and lets the snapshot path use counter_val
-directly.
+Thanks for the review.
 
-Fixes: 0cb74b65d2e5 ("RISC-V: KVM: Implement perf support without sampling")
-Signed-off-by: SeungJu Cheon <suunj1331@gmail.com>
----
- arch/riscv/kvm/vcpu_pmu.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+The existing schema already limits each DP1000 I2C controller to one
+register range. In the next version, I will require two clocks and the
+corresponding clock names.
 
-diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-index 45dd5233340d..7d50490cc622 100644
---- a/arch/riscv/kvm/vcpu_pmu.c
-+++ b/arch/riscv/kvm/vcpu_pmu.c
-@@ -268,12 +268,13 @@ static int pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
- 			return -EINVAL;
- 
- 		pmc->counter_val = kvpmu->fw_event[fevent_code].value;
-+		*out_val = pmc->counter_val;
- 	} else if (pmc->perf_event) {
--		pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
-+		*out_val = pmc->counter_val +
-+			   perf_event_read_value(pmc->perf_event, &enabled, &running);
- 	} else {
- 		return -EINVAL;
- 	}
--	*out_val = pmc->counter_val;
- 
- 	return 0;
- }
-@@ -641,7 +642,6 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
- {
- 	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
- 	int i, pmc_index, sbiret = 0;
--	u64 enabled, running;
- 	struct kvm_pmc *pmc;
- 	int fevent_code;
- 	bool snap_flag_set = flags & SBI_PMU_STOP_FLAG_TAKE_SNAPSHOT;
-@@ -679,8 +679,11 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
- 			}
- 		} else if (pmc->perf_event) {
- 			if (pmc->started) {
--				/* Stop counting the counter */
--				perf_event_disable(pmc->perf_event);
-+				/*
-+				 * Stop the counter and fold the live count into counter_val.
-+				 * Reset the event value to avoid redundant accumulation.
-+				 */
-+				pmc->counter_val += perf_event_pause(pmc->perf_event, true);
- 				pmc->started = false;
- 			} else {
- 				sbiret = SBI_ERR_ALREADY_STOPPED;
-@@ -694,9 +697,6 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
- 		}
- 
- 		if (snap_flag_set && !sbiret) {
--			if (pmc->perf_event)
--				pmc->counter_val += perf_event_read_value(pmc->perf_event,
--									  &enabled, &running);
- 			/*
- 			 * The counter and overflow indices in the snapshot region are w.r.to
- 			 * cbase. Modify the set bit in the counter mask instead of the pmc_index
--- 
-2.52.0
+Best regards,
+Jia Wang
+
 
 
 _______________________________________________
