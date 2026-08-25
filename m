@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2083BC61DBD
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 08:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4275C61DB6
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2026 08:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AKAe9U53dQbQG/LdcOk3U1cfUjQTDGBeTgh1iXEUjZ0=; b=K72C2gNleDNQLg
-	AtofSInMs5W7YClTgyMD/GNLbPJqH2FkbEJbK4ODNy+9gjz7UkHBY0Td+VMMLdzT7OVFUpOaw5QLN
-	jhRBdUNhlZMxpGlQWYnD8Qc7z6/zmZgdsVK0LWCUn88XvLocoD3ebX6lyOKALDwXv9vmOE85dG3IC
-	Z0gEnCTtLZG30lMLSzA6kNCvRWt6aYQgCSEJWERcZFxpToXKbknF3UhJdCxAFcSYn3cZcEBus2Wj6
-	V/U3S5fYDS0kqqm18+TC6h32S/7ddJQ86UUmr55V6bQ/5eLc6ro6wB2kgPEQAN8EDzDBHNp2kekEp
-	mCQ4O1fK4krvfRzaN2aA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zIihNGfc7UxXnrwgcGsJw3i8va4InmhsAQT+Vq0unzw=; b=qNr8K7jgisejwT
+	Y39IRhKZZctC9U46aGsL84jnFY5VMzzPPOmSDRsPa15WJ/Pd9MhucNO3LPVH6JC/t84WGn6FAk8CY
+	Ss5ptEyW8YeH1PvMBfi9bQat0xnWq5aWYvx0LEjMGYzM9nZwzSeVvU/KnJfOmjvFB/ptugIUKiF2f
+	GSI51S67ZMMUf526YRKEgPw8N6sdw5I1kkESuUT/j2ryXCktnA0BRZEd4U4giQM8IofxapM+nBwOb
+	e4KtjXXvzkyw+ZB6QweFTlHCYIfvQmUNUyJkiDTPprlK6cJr08ILc8UqCMVZYT6wYXF4wgJTJ0GAI
+	6ZYJAKvuvD0XGuAS/R3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymf8-00000000Oo9-21Zc;
-	Tue, 25 Aug 2026 08:37:42 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1wymfD-00000000OqX-2SOZ;
+	Tue, 25 Aug 2026 08:37:47 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymf5-00000000OnE-0o2n
+	id 1wymfB-00000000OpE-2FBq
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Aug 2026 08:37:40 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-cc11a905ba5so3247989a12.2
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Aug 2026 01:37:38 -0700 (PDT)
+	Tue, 25 Aug 2026 08:37:46 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c9d1fff21edso3717753a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Aug 2026 01:37:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787647058; x=1788251858; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rTiqxajFCS8JhT00U7QUj901RHFXVk9RFW4qrD2ZWqc=;
-        b=n6eYs0k3dsmQDS8AzNMsknuIakC5ulwN/nuHdt/c+/9HfYt0Z46qBL6uzB2wp6rm07
-         aoHIbkTEbMQlvkzlea+kwT7JGQGtAn3fPOnMfs+15uNsZXLu69O5zIKQyPjDLyWjvGum
-         Z+arOAzBdnn4Rjs0jlJ7b0UaqOAmMMVuBlPFMl01jFamNObZEZbGqmWzzdwOZktLFm7b
-         5EL+kFoXleC+uJ0IAopS3EhbDSp8TJFNBd3tgAFqphvxZB9c+NUrJvJGHg43yUsNekLk
-         jDIiDoIIDpvt3J2l3jZVQ/qzof64uGWfLv0VGs8UK0EW2vffRStyidbt+TXYUFYk2gA6
-         FbYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787647058; x=1788251858;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1787647065; x=1788251865; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rTiqxajFCS8JhT00U7QUj901RHFXVk9RFW4qrD2ZWqc=;
-        b=mBXbw6RSdhO4mxwUE33xnPqIWtWsGOqwpd3x+DPRVn8mzbk8GXM5vDIKRk5ySVrOXd
-         dN2rm7w3HOwt4zMKwX9Dq38mWrlZUaEbP0OCL0xqudB8Eb0j8Hkti/ePUtUSgeNSFuX8
-         PdU/johj2CL6NvuPHPFRlDP4zGph8qT6E4uQNlfkk8+9+6WVpUvQjEyu7jBaBjDe+LKi
-         0bZYDgVoAjHdOxXgtP2mgPciI1ivfn6ok+muYyLObYDrItaO2YIZhgeuhzEm8tHuq/0z
-         63SlWflK9OyJ/gzTE6ifSDOWQPuSlOeygoLa9Yas+zmmHPPqz3Dh1HCkKziUtbvkk2cK
-         ut3Q==
-X-Forwarded-Encrypted: i=1; AHgh+RobZuezCUrGJMwHPoQYbskGEL/DLvbQaqGA+6E/zMfNVxP6th27vZlLZa1MkG0/rRpo+um9daRS+ZlyYg==@lists.infradead.org
-X-Gm-Message-State: AFuF++kEyZrjTVGgPDTpK6zAVudHQy13oko/Ruo23HjW8kjAdmjKsHJ2
-	UmwBcpourTeFCbnDrjQVNF5VRDLz0fm2uE5O1NweV33R7zXrq8gfp89N
-X-Gm-Gg: AR+sD13NNTPsZJLPGmI+Cwce9psn/8H5PQMKjusSaxrqtxbSRMtSFM6PzAHylpsUPx9
-	qnzyO3JPBHp035jG1hdLopgpov3hjMZDS3sOrKWQYw3sCZTkcGQTDFa9dUxLmnfZu17aVUNh9iA
-	qZdmDAV0hJwXVUmmQKwK4jqT07QQkzaVBsNYXOyCmQploWyDuzmvbj6YbJxEYNYCi7S7czb1aVX
-	DRHOboL6cXxSgk+a9o26QLy8s4A8VTX+hB4Rfo2ul49HozJLDPFUpvy7vlULTP5u5Nonngh4jrV
-	Jo1s+z6zsy7TZsSZGcYlZiPBWD9OGLPD0B8113avGsFutI/K5Jn0oEBNAPYL35m3djB0BKVDbby
-	5nmF8ZhmPE7bEtFJhC46NVtCiHYiEipqmE9O+BXYnvum9xarG+yn09lYQro+sAbwiuNbNbeE09A
-	nxGm+eO4CzZxKy3s9Xvt9nNuKsM6S7SR4gluUzbM3D3kpfVO0axgxwi9ONyv86Xc/a3vFt8cdVR
-	6NiUe0s2fd9
-X-Received: by 2002:a05:6a21:320b:b0:3be:b0b3:3962 with SMTP id adf61e73a8af0-3cd9125ad6dmr10437900637.9.1787647057741;
-        Tue, 25 Aug 2026 01:37:37 -0700 (PDT)
+        bh=EKUnc+hCH/m96lQyJ3IHIfrh5f9TDgQ6D60NAJmR+nI=;
+        b=B5IWOJp4Pe0JNFAJMiTgCXoVhZEjzTRJbff4dvRp7YaNhmfOMbb3aUV6rZrq4Oi5/c
+         2ioe5hiHzIbWRXSl41xinBLRXdWtrioD1ALJjTEfvv37cxq0GwEf5PGJiqWeTaFtOFL0
+         4Op/Z5aCMPHvS6aM1SOKywW9mcX3iPun3RTMDwYtUUInjligz9H6OhCWR5hXNse4MqqV
+         1wYcwAvHiE9RQxD8I5xLiU3AIp2wXIk9+IgXmxGPYAW1GPifhDf+4tw4u8SsPzcefLy5
+         ydgMHrMCMX6omuqoKQ7o01NNHlN0NktceM1RsPHzxmSNKJQo7iTHGqjoIHoxNP6dJDFi
+         4qhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787647065; x=1788251865;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EKUnc+hCH/m96lQyJ3IHIfrh5f9TDgQ6D60NAJmR+nI=;
+        b=dkQdFWUNuzH4p4uoRcLjokGPkxF6ySw1/loaRalZPYYPIu2Q1nWtUSITStLeaStcS+
+         3EUJEM6LDA/zk4xCWT/7WFv8uc49oB2djBOgB9IzTsSq9lqdxKG/X2/IazNK+H6/28uv
+         7rkMb2gojNLPCdX/9rgues6OcuFy8dE3Srvsyqk9LSDIXH+SPlTIzdd3zhFQ5H4M80pe
+         MXLU3fVXfjxcwnbGrufluzk864jPCB5ewV3SRmuHx+D9X+3Brd0YW1G54jorzoaAPPOZ
+         ocyZUl5nDaIhGlbEND8SdtWc44eAJMOFx7/VOeZnCordDhIyY91FcI5g1TAXCUSRFKnj
+         enow==
+X-Forwarded-Encrypted: i=1; AHgh+RqsoQ8tl0s8riClfi9Z0e8fnODNOIjnM+2+GYWuPW4YCtAxynA2ZqfXrP3GQ6N5W/qBx53+OB/4q+Zz8Q==@lists.infradead.org
+X-Gm-Message-State: AFuF++k/pbW9EF1n2yl2gyRzc/oM8xFscUvhi3AYP2ng1WoSxBTAzFwY
+	GJq7SxRtOmfUgyQdxoj0RLZZt73EeoeZ3seW3mj47FwOSNYHZsrhbBhF
+X-Gm-Gg: AR+sD10E0LnliZOnL9YpXpzH6sbDyRnpjxqZA1v6Pok9AGBNtalJYGFXdSAEK7wUuQp
+	wfOJFXih5oHacfwm/16CQML09bEcxVBKrV3ZYgjC1iWToEvUq9ZqiMKfo87QJCuJDOoiJ/RqHMy
+	fAqre5o5d3wo4bm9B4rt2+CdXgmUIBL0n50SuXUsgoAWzg19NpVONQbMtiRtGACf01UvLGsgb+t
+	cJfNQydSWGtYuAbiEVT9B8539ACud+6Wf1YXbSkVkEQLSfuL6n254SH2grqr29yIyAtzQVm5lff
+	V2I7WM0x9hR6Jp3bvHHpPg3HOTZA2jFAwKKaZbh+MX/f8emb9j7hqY3RU0Y51wgXqaMLqZsNy+z
+	l0z61I+tRhi1VZqwWDnrFrVyW8zPofUxHyeVRFrtaNwv9jLP5RpxVZupIZf88SIuheRuQz0rLFO
+	OyjEF67TD/R/QsP/qF1lpdRb8st6N0OSeq09hHOV8wFHPIndqS1PPe4Kp4lAXz7rWkrFelTFPK+
+	MZlm1v7cqW+
+X-Received: by 2002:a05:6a20:6f04:b0:3c4:1916:9d3c with SMTP id adf61e73a8af0-3cd301428ecmr16874917637.15.1787647064570;
+        Tue, 25 Aug 2026 01:37:44 -0700 (PDT)
 Received: from fedora ([61.74.238.173])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc199e60abbsm1835887a12.23.2026.08.25.01.37.34
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc199e60abbsm1835887a12.23.2026.08.25.01.37.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 01:37:37 -0700 (PDT)
+        Tue, 25 Aug 2026 01:37:44 -0700 (PDT)
 From: SeungJu Cheon <suunj1331@gmail.com>
 To: Anup Patel <anup@brainfault.org>,
 	Atish Patra <atish.patra@linux.dev>
@@ -85,15 +86,16 @@ Cc: Paul Walmsley <pjw@kernel.org>,
 	linux-kernel-mentees@lists.linux.dev,
 	me@brighamcampbell.com,
 	SeungJu Cheon <suunj1331@gmail.com>
-Subject: [PATCH v1 0/3] RISC-V: KVM: Fix PMU counter handling issues
-Date: Tue, 25 Aug 2026 17:37:16 +0900
-Message-ID: <20260825083719.643970-1-suunj1331@gmail.com>
+Subject: [PATCH v1 1/3] RISC-V: KVM: Preserve firmware counter value across stop/start
+Date: Tue, 25 Aug 2026 17:37:17 +0900
+Message-ID: <20260825083719.643970-2-suunj1331@gmail.com>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260825083719.643970-1-suunj1331@gmail.com>
+References: <20260825083719.643970-1-suunj1331@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_013739_230535_C935883B 
-X-CRM114-Status: UNSURE (   6.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260825_013745_567499_37A58716 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,26 +112,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series fixes three issues in the KVM RISC-V PMU implementation:
+Firmware events accumulate in kvpmu->fw_event[].value while running,
+but counter stop only clears fw_event[].started without saving the
+value back to pmc->counter_val. A subsequent counter start without
+SBI_PMU_START_FLAG_SET_INIT_VALUE reloads the stale counter_val into
+fw_event[].value, losing all events counted so far.
 
-- preserve firmware counter values across stop/start;
-- report failures when writing snapshot data to guest memory; and
-- fix perf-backed counter accounting across read and stop.
+Save fw_event[].value into counter_val when actually stopping a
+running counter, and remove the now redundant synchronization from
+the snapshot path.
 
-The changes were tested with the existing KVM RISC-V SBI PMU selftests
-and additional tests covering the affected stop/start, snapshot failure,
-and repeated read paths.
+Fixes: badc386869e2c ("RISC-V: KVM: Support firmware events")
+Signed-off-by: SeungJu Cheon <suunj1331@gmail.com>
+---
+ arch/riscv/kvm/vcpu_pmu.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-SeungJu Cheon (3):
-  RISC-V: KVM: Preserve firmware counter value across stop/start
-  RISC-V: KVM: Report snapshot write failure to the guest
-  RISC-V: KVM: Fix perf-backed counter accounting across stop and read
-
- arch/riscv/kvm/vcpu_pmu.c | 33 +++++++++++++++++----------------
- 1 file changed, 17 insertions(+), 16 deletions(-)
-
-
-base-commit: 0a0d1d55dad570724bf8c7ea83409639cfb4be9b
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index 2025b664961c..56dd5b1b2846 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -671,10 +671,12 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 				goto out;
+ 			}
+ 
+-			if (!kvpmu->fw_event[fevent_code].started)
++			if (!kvpmu->fw_event[fevent_code].started) {
+ 				sbiret = SBI_ERR_ALREADY_STOPPED;
+-
+-			kvpmu->fw_event[fevent_code].started = false;
++			} else {
++				kvpmu->fw_event[fevent_code].started = false;
++				pmc->counter_val = kvpmu->fw_event[fevent_code].value;
++			}
+ 		} else if (pmc->perf_event) {
+ 			if (pmc->started) {
+ 				/* Stop counting the counter */
+@@ -692,9 +694,7 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 		}
+ 
+ 		if (snap_flag_set && !sbiret) {
+-			if (pmc->cinfo.type == SBI_PMU_CTR_TYPE_FW)
+-				pmc->counter_val = kvpmu->fw_event[fevent_code].value;
+-			else if (pmc->perf_event)
++			if (pmc->perf_event)
+ 				pmc->counter_val += perf_event_read_value(pmc->perf_event,
+ 									  &enabled, &running);
+ 			/*
 -- 
 2.52.0
 
