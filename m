@@ -4,70 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60DFFC5DF97
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 17:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9797C61DBD
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 18:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5HdKUucrfJtMCJFwkddAbNLANZE0sseuSM4Z525wp4g=; b=YohKdUD+yb8QKP8wm0PFB23h1D
-	R7227bJj2k4FV0gF0YRMkAU4/MO7hR81e4xnwPeGyGrN1LmCP+JVd2os1oXE/9/qsOYe/V/Vu8k7l
-	CqkZYi5JNXxmk7yUTbTHPLRsF47xXXtk2VbvwSqgl5kc99IOWJuWDzJMftkFGSfYhDYkS+g9oNtaC
-	5cRhIY2MQCxCPiDJMez1VbWkSFhngYge+9016fr9t+vfSAmgOZGyWauFsIMfi1+2ssGs4LKT6Ncaj
-	TudPpyuBHw3nlFQUPeukXL0OeHKMsvv554J7qV9VBVrhdY41KRE08K6pAjqOGJFngLiS0icL1OkMb
-	jjXBv90Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oydbztAoEO4AUp/Z9QnDTPEfHt+RKkzkDGn0GHIQcvc=; b=V9BUEKiS1YgWNL
+	75p58kJlztfGD5xaiav1TO2Xo3Q/soDJYHAvr5HqwB46JyPF+/1+4O+5ZNI+K84/rNEGADQO35B5L
+	HOPstJtOqw81KnQx9OvTyUrzuwk6ipTEbZMno+sD8EN3pyMzyk0sSR2x2gPgC7XM6hfE9d6VePPYL
+	xCGT7ArkPAkjYmdLFApxH/wKlMhys/moeL+jPcDMWcKdydQJ22lFRTES3U51WOYNnln9FRN5+OFA9
+	rmW7DgquJ1MJZORhADLE4zpstxz13eXEiYzPRqzSDNdm9mxhqgQMTSaonleHo2+LiCMkTWUAwd0Y3
+	myEDZ136F4eH2U9fgdWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzH18-00000002mrN-1aGP;
-	Wed, 26 Aug 2026 17:02:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wzI6X-00000002qy2-0cnX;
+	Wed, 26 Aug 2026 18:12:05 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzH16-00000002mrD-1kEa
+	id 1wzI6U-00000002qxV-2aCz
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Aug 2026 17:02:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54A456112D;
-	Wed, 26 Aug 2026 17:02:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2EBA1F000E9;
-	Wed, 26 Aug 2026 17:02:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787763743;
-	bh=PvMhOpMtgahb/2g6h4rPwkBMlykF3l7pKxLhOb+mM+E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Bn/DiV/GuREkqk9gLaLx9oQOgG/zG/4wjB0MvEVME582wC2HbgYlUE3fOR/KD8sYK
-	 oCBf2UdqvnKJ9wytcgrqwQVTkbinysLZ0yZz5oPZlMo9pSqLwYCsXEQhrrzYoxBA0R
-	 wEnMTcMArz+ogjjsExgFwpAwuLvyJovUy67/4qFCwoMeD++JRnmcm4KbH+lKP2QajX
-	 C+XapE8uFFYdvM+bW+q8IsgbwPhHCO9diw1dha1JdZgQBacL8KU9dtB/xdES3J1ndv
-	 vC0o3AN8uuJla0rAs/LFvDPR/bq6bkALmlomtA/wkxeSOibPN2luyhIryddfiEse/P
-	 ilQneArTa5cxg==
-Date: Wed, 26 Aug 2026 18:02:16 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alex Ousherovitch <aousherovitch@rambus.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>,
-	Shuah Khan <shuah@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org,
-	Joel Wittenauer <Joel.Wittenauer@cryptography.com>,
-	linux-api@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Thi Nguyen <thin@rambus.com>
-Subject: Re: [PATCH v4 01/19] dt-bindings: crypto: add Rambus CryptoManager
- Hub
-Message-ID: <20260826-unwritten-marshland-47cdf3c17cad@spud>
-References: <20260825221539.255951-1-aousherovitch@rambus.com>
- <20260825221539.255951-2-aousherovitch@rambus.com>
+	Wed, 26 Aug 2026 18:12:03 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67QGubPX2103196
+	for <linux-riscv@lists.infradead.org>; Wed, 26 Aug 2026 18:12:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=dSVenvfxBw53qjjuZWr9MSvP
+	Nm3bVPnT5i/8UJYBkTc=; b=Mut5g1fbLlR37Uq+cSyRhoeRHz9YiuCYrHbS7Ver
+	mY82Pd4jblSlKnVzgw8WAYn4YcsNFC92IWSF06xmRaNjlgphDGRNS/5muiYg+Hn6
+	ZxqLkzlTf4Az3pFztC2svtbwN3u6PXyiixH6zztdbTUuN6ZLy+kf04SLUCasCiLd
+	BldZeHABcIzlAeBhT5wW7Bw/BXrHRLc6Q7mJFSjMAoho1xADoWBYMep2kBV8Eqcp
+	LY5haTUWvPWZ4+Sko9AAkeQ0UWeoqRN87mdqmi0h7bHes0dLGFhYyPeZQlkxUcOb
+	4c/m1Iylf+MVHBobVVsKtrDdDk+dHSEgLJPR6g345OnUVA==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ga0wbs5f4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Wed, 26 Aug 2026 18:12:01 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-52dcf1bb6e9so1490261cf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Aug 2026 11:12:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787767921; x=1788372721; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dSVenvfxBw53qjjuZWr9MSvPNm3bVPnT5i/8UJYBkTc=;
+        b=FxU6QvXKo7bjoQs6ewZOEtLLxNtRt16U9ZWchZHHWQcCXMWdDRXBX1Wr6IkrdHkrB8
+         Ndhoehh7l2k6ehFlVjvxUO3/CuvjY+tv3C3sg6GtTw+XdOOWyrItCn87DLBgZAMN1wAh
+         EkX4ojQuPvY6iDK3gjQreduMOHy8NYOQOTpupBxLe3yqmZ8+xUNL0EAaxMvWE5tc1Yo1
+         D6POnoHZce3f7L5W4K4S3N3iQzJ4gry7pm+9vN5mGCKme4BY423ipFD/u25TaKhjxMgL
+         EeofctOEILa3lgKWbD3zCXhZSv7j8lLS/m8IkCwPiiFw5utraJKsyCc2jq8Aj6uqR6Xi
+         YpDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787767921; x=1788372721;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dSVenvfxBw53qjjuZWr9MSvPNm3bVPnT5i/8UJYBkTc=;
+        b=ldRuYYneIKF/4nFQYvnD0P9thsSqwFBw1uoH6kgD62OOIRkKbQN4KuNPXgeRHLeHTT
+         KYPRyRGnHzG94Ay7CmO4eqDDRlk57thq7dCKvPE8C5kws+EH+eZLPQ7nuWJfIKOw2pj4
+         a3qrX3mltZHcf03xMWoxdbIvEsrS9Ro3nBLDs83MAay7iJRW+xWrdsoC1xXxW3Xy9Ek8
+         RoGOWoekMeNREMkmUqKAU8PYFw5NCbbCEUK3aV0PKZrBVJCzGVGid5kDh1IoVCXP5MQo
+         cnxK8mXPo4elN/ouJmEh/PCr/VwMa145sMVvpilbzGiN9MjL5x74jTVvzroF9XDPBaa1
+         x3QQ==
+X-Gm-Message-State: AFuF++lCYSanTMOh/NS4uExjeRU6w3scbvA/O9t/HBkewdtWa7heNWbl
+	bgP/J8TXlZQkOwuESDmn5qnlTccb+LXT/vOpVkrvEleFQi5qHzEc5r4ZCCyUqGrOWkW3GfrT5ac
+	rNC2IR+piOPdNQUpe8SSCOinq1XatfC+nA4+cURHkWHSOe9MMHNgABpsjswnHP5kl8L7wmoQ=
+X-Gm-Gg: AR+sD10x3PssPFBuVDCaqFqbWltKPHxH6AEg/Kxw/Iu8SiNWfZY0A3CYYdf81g58/at
+	4q+bmkoLA+mQr9CS8JBJpMUFlTM78R9eyUeMtQhi4WL+ln9Wtq18VM+OI7OPh0msw+UlS7XPKUY
+	IM1MlXuz3jD/q1RRIwAVL9BreqeUNcOCmPJmMi+uWSzHXZKmHRyoHI/DPdr0TEL6eigWv7XrPr4
+	cFgw7apmzD/JJ9TH4HmjZ5jnRRJeh+vZdSrtSqA2tgkFN3/jouyARdSDNd1aS54KfWgzStK5Yre
+	c8ltY9X05DukRwJ4Dp2Du/qkcXT4ijHTVJTIxR8bBBDBj28+J0fMCIrK/D9iSZkxVKx8KdH6NHT
+	3C8kMfBys
+X-Received: by 2002:a05:622a:2d3:b0:517:6fc2:4760 with SMTP id d75a77b69052e-52fa1a9aa93mr11665711cf.9.1787767920821;
+        Wed, 26 Aug 2026 11:12:00 -0700 (PDT)
+X-Received: by 2002:a05:622a:2d3:b0:517:6fc2:4760 with SMTP id d75a77b69052e-52fa1a9aa93mr11664871cf.9.1787767920295;
+        Wed, 26 Aug 2026 11:12:00 -0700 (PDT)
+Received: from localhost ([193.165.40.195])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499fa55f458sm12784615e9.0.2026.08.26.11.11.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Aug 2026 11:11:59 -0700 (PDT)
+Date: Wed, 26 Aug 2026 20:11:58 +0200
+From: Andrew Jones <andrew.jones@oss.qualcomm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
+        linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
+        tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
+        robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
+        anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
+        fangyu.yu@linux.alibaba.com
+Subject: Re: [PATCH v4 02/21] iommufd: Add iommufd_sw_map_msi()
+Message-ID: <l3xyzbhqfremod6swwiks54znvoqy57hmqpsdlpcji5czjja4w@4qgiuwhwlie3>
+References: <fp5myre5qaersxxshitgoupbzkx2zwo3rsz3q5jfdiarmtwknh@gmfhz3cxuc33>
+ <20260824170417.GR244917@nvidia.com>
+ <3gdj54zcs5dncgom3zlntyredyuh2xe5ueg7nd4pdrcksmnwfl@k3fyky4h6556>
+ <20260825140334.GA3325090@nvidia.com>
+ <cxbneh42ui3gbkoqrsnoatxoec5exzbprfbgxcy4iekqmbceho@gouiwn5q5uzs>
+ <20260825165209.GB3325090@nvidia.com>
+ <iltwtfmgnmofsroo7eqrvjx6yhqbptwutywq65mgm7adudz7pq@2mdg3dhvtoud>
+ <20260825175901.GE3325090@nvidia.com>
+ <pzutriwhwe4whonj3veoo4hzxmq5tlmmyui5u6gt4bgl5wxxrg@qjsq2pvd7by3>
+ <20260826163234.GN3325090@nvidia.com>
 MIME-Version: 1.0
-In-Reply-To: <20260825221539.255951-2-aousherovitch@rambus.com>
+Content-Disposition: inline
+In-Reply-To: <20260826163234.GN3325090@nvidia.com>
+X-Proofpoint-ORIG-GUID: ohuXOjCQFk2kEHdqAtdY8BLqwAE88AZt
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI2MDE1MiBTYWx0ZWRfX0d5QkixR2UwT
+ rvh2dUuegQ9u1ES+/m0hkI5igd6dAsn2BcoqeWobpUKE4Lu00IAHgoiIboBuuyAyPni8UQ2xqUw
+ pN4cWha4tc0qwcehpTYo3WPbY7zFrOU=
+X-Proofpoint-GUID: ohuXOjCQFk2kEHdqAtdY8BLqwAE88AZt
+X-Authority-Analysis: v=2.4 cv=SoCgLvO0 c=1 sm=1 tr=0 ts=6a8f2c71 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=CzrpMg+lqiTzknPDBj2tlw==:17
+ a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=b5O_Hy56fsZqd-xyW_cA:9 a=CjuIK1q_8ugA:10 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI2MDE1MiBTYWx0ZWRfX7t0chbTw2Jdl
+ +tDVbUgjTxE+eA7zq6Cj3FcVnfWVWnEZgNVc4GeXB16yIHTsOm+ImZ/EH4oH3DTpbuRuoQdmvM+
+ PX2rXPXxTnKvl8TQ4DmLx4QTyvzqsgAgInu6OagoMyNtDrJsbKdW4J8nSIpSOlmS66l0AlqVdvm
+ 0X+uktYRKhslLLrP0IoMC0mZ6ld77B9OptSUqFbJ7Ck6aUTPnlh7U1O1Ba6t6AVeo6kjGb2mISv
+ 4wGzL+2OPff0xwZ+6HkqmYqDm90soRUSmZT3ojkdgrqdkZk0+awGJyPWbTfuhHdun8xuRvQmdUD
+ ix/54Gg1a1GHpmTRnMnni5pSJ9NMIExu4n2IyTERVJbiTa9ESCS60EofrL7i3piTXJCYlOapPPp
+ CduNTTYqHJRNOczwMP+lCqs4G+EawnQZvEf86j77OC94YlnREqXpoIBZRnaqHS+IGzBpV+tPlvK
+ BsHJJKeMVpsYw070UxA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-26_05,2026-08-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 malwarescore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 priorityscore=1501 suspectscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608260152
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260826_111202_662350_5C9998B3 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,317 +152,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8963667445975000153=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8963667445975000153==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ijLsa67cbXpBs7zp"
-Content-Disposition: inline
+On Wed, Aug 26, 2026 at 01:32:34PM -0300, Jason Gunthorpe wrote:
+> On Wed, Aug 26, 2026 at 10:23:20AM +0200, Andrew Jones wrote:
+> > RISC-V uses the same basic model as x86 (an IOMMU-owned interrupt
+> > remapping IRQ domain). x86 makes that domain per-IOMMU because its IRTE
+> > resources belong to the IOMMU instance. RISC-V makes it per-device because
+> > its callbacks operate on the device's attached IOMMU domain and preserve
+> > that device's existing MSI parent. The IRQ callbacks provide the lifecycle
+> > hooks, even though the mappings, MSI table, and device context all remain
+> > IOMMU state.
+> 
+> The irq domain isn't per device, it is per msi table, many devices can
+> share the same table, and the VM should have a single shared table
+> across all devices. That's the core uniquely RISCV wrinkle I think.
+> 
+> IDK how Thomas would like to model this, but you will get a better
+> result if it is very clearly explained and asked.
+> 
+> I would like to keep the iommu out of it, so I prefer if IRQ code
+> patches in its MSI table pointer broadly the same way AMD does.
+> Though AMD doesn't have the restriction that remapping only works with
+> a S2 domain :(
+>
 
---ijLsa67cbXpBs7zp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The per-device irqdomain model allows multiple devices to share the same
+S2 IOMMU domain and MSI table. Unlike AMD, however, the RISC-V remapping
+state belongs to a replaceable S2 domain rather than the physical IOMMU.
+The IRQ hierarchy must remain stable across domain changes, so a stable
+per-device irqdomain which operates on the currently attached S2 domain
+may be the closest practical equivalent. I'll explore this further while
+reworking the irqbypass series.
 
-On Tue, Aug 25, 2026 at 03:15:20PM -0700, Alex Ousherovitch wrote:
-> Add device tree binding schema for the Rambus CryptoManager Hub (CMH)
-> hardware crypto accelerator.  The binding describes the parent
-> SoC-level node with its SIC register region and one queue@N child
-> node per mailbox the host owns, each carrying a reg (mailbox instance
-> index), an optional interrupt, VCQ ring geometry (rambus,num-slots /
-> rambus,slot-stride-bytes) and a rambus,cores affinity list.  Which crypto=
- cores
-> are present is discovered from the SIC CORE_ENABLE register at probe,
-> not described in the device tree.
->=20
-> Register the 'rambus' vendor prefix for Rambus Inc.
->=20
-> Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
-> Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.=
-com>
-> Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.co=
-m>
-> ---
->  .../bindings/crypto/rambus,cmh-v1030.yaml     | 194 ++++++++++++++++++
->  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
->  2 files changed, 196 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/crypto/rambus,cmh-v=
-1030.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.ya=
-ml b/Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml
-> new file mode 100644
-> index 000000000000..d9598b0f3bbc
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml
-> @@ -0,0 +1,194 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/crypto/rambus,cmh-v1030.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Rambus CryptoManager Hub (CMH) Hardware Crypto Accelerator
-> +
-> +maintainers:
-> +  - Alex Ousherovitch <aousherovitch@rambus.com>
-> +  - Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
-> +  - Joel Wittenauer <Joel.Wittenauer@cryptography.com>
-> +
-> +description: |
-> +  The Rambus CryptoManager Hub (CMH) is a hardware cryptographic acceler=
-ator
-> +  accessed via a mailbox-based VCQ (Virtual Command Queue) interface.  T=
-he
-> +  host writes VCQ command sequences into per-mailbox DMA queue buffers a=
-nd
-> +  rings a doorbell; the CMH eSW processes them and signals completion via
-> +  interrupt.
-> +
-> +  The management host statically partitions the hardware mailboxes across
-> +  the SoC's host interfaces at integration time; the set of mailboxes a
-> +  given host owns is therefore fixed and not runtime-discoverable (a
-> +  mailbox locked to a host reads as unavailable in the SIC availability
-> +  register).  Each owned mailbox is described by a child node.  Which
-> +  crypto cores are present is a fixed silicon-build property indicated by
-> +  the SIC CORE_ENABLE register, so cores are not described in the device
-> +  tree.
-> +
-> +  CMH gates access to a locked mailbox by a hardware HOST ID presented on
-> +  the bus with every access, permitting only the owning host's ID.  An
-> +  integration must present a single, stable HOST ID for all accesses to a
-> +  given mailbox, independent of the issuing CPU (relevant on SMP hosts
-> +  whose interconnect encodes the issuing CPU in the HOST ID).
-> +
-> +properties:
-> +  compatible:
-> +    const: rambus,cmh-v1030
-> +    description:
-> +      Identifies the CryptoManager Hub v1.030 IP revision (register map =
-and
-> +      command ABI).  A specific SoC integration should list its own
-> +      "<vendor>,<soc>-cmh" compatible first with "rambus,cmh-v1030" as a
-> +      fallback; that extended form will be added when such a platform is
-> +      upstreamed.
-
-This commentary should just not be here.
-Instead, do what's been done in sifive,clint.yaml for the clint2. I
-don't feel great about suggesting that, and it feels like it's becoming
-more common - although maybe that's a good thing because it means IP
-vendors are being more proactive about upstreaming.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description:
-> +      SIC (System Interface Controller) MMIO region.  The registers of
-> +      mailbox instance N are at offset N * 0x1000 within this region.
-> +
-> +  clocks:
-> +    minItems: 1
-> +    items:
-> +      - description: Main functional clock ("core").
-> +      - description:
-> +          Half-rate "core-div2" clock (present only on configurations wi=
-th
-> +          side-channel-protected cores) or the "rt" real-time tick clock.
-> +      - description: Real-time tick clock ("rt") for the internal timer.
-> +
-> +  clock-names:
-> +    oneOf:
-> +      - items:
-> +          - const: core
-> +      - items:
-> +          - const: core
-> +          - const: core-div2
-> +      - items:
-> +          - const: core
-> +          - const: rt
-> +      - items:
-> +          - const: core
-> +          - const: core-div2
-> +          - const: rt
-> +
-> +  reset-gpios:
-> +    maxItems: 1
-> +    description:
-> +      Host-controlled reset for the CryptoManager Hub.  The hub has two
-> +      external, active-low reset inputs -- a power-on reset and a hard
-> +      reset; where a board routes one of them to a host GPIO, that line =
-is
-> +      described here.
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 0
-> +
-> +patternProperties:
-> +  "^queue@[0-9a-f]+$":
-> +    type: object
-> +    description:
-> +      One node per hardware mailbox (VCQ command queue) this host owns.
-> +      The set of owned mailboxes is fixed by the management host at
-> +      integration time and enumerated here.
-> +    properties:
-> +      reg:
-> +        maxItems: 1
-> +        description:
-> +          0-based mailbox instance index.  The instance's registers are
-> +          at reg * 0x1000 within the SIC region.
-> +
-> +      interrupts:
-> +        maxItems: 1
-> +        description: Completion/error interrupt for this mailbox.
-> +
-> +      rambus,num-slots:
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +        enum: [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 819=
-2,
-> +               16384, 32768]
-> +        default: 64
-> +        description:
-> +          Number of VCQ ring slots for this mailbox's command queue in
-> +          host DMA memory.  This is a per-board, per-mailbox host-memory
-> +          ring geometry -- boards built around the same SoC (hence the
-> +          same compatible) may use different ring sizes, so it is
-> +          described per mailbox rather than derived from the compatible.
-> +
-> +      rambus,slot-stride-bytes:
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +        enum: [128, 256, 512, 1024]
-> +        default: 512
-> +        description:
-> +          Stride in bytes between consecutive VCQ ring slots for this
-> +          mailbox's command queue.  Like rambus,num-slots this is a
-> +          per-board host-memory ring geometry, not derived from the
-> +          compatible.
-> +
-> +      rambus,cores:
-> +        $ref: /schemas/types.yaml#/definitions/uint32-array
-> +        items:
-> +          enum: [0x02, 0x03, 0x04, 0x05, 0x08, 0x09, 0x0a, 0x18]
-> +        description: |
-> +          Core-affinity list: the hardware core IDs whose work is
-> +          dispatched to this mailbox.  A core ID may appear on at most o=
-ne
-> +          mailbox.  Cores not listed on any mailbox are load-balanced
-> +          across all mailboxes.  Optional (default: none -- the mailbox
-> +          only serves the load-balanced pool).
-> +
-> +          Because each core instance has a distinct ID, separate
-> +          instances of the same core type can be pinned to different
-> +          mailboxes.
-> +
-> +          Core IDs:
-> +            0x02 HC, 0x03 AES, 0x04 SM4, 0x05 SM3,
-> +            0x08 HCQ, 0x09 QSE, 0x0a PKE, 0x18 CCP.
-
-You could just make this a string array, and then you'd not need this
-mapping of unintelligible hex values. Of course then your driver has to
-do it, but I'd rather see understandable (and portable, since a new
-revision could change the IDs) values in DT.
-
-> +
-> +    required:
-> +      - reg
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#address-cells"
-> +  - "#size-cells"
-
-Surely clocks are also mandatory?
-
-pw-bot: changes-requested
-
-Cheers,
-Conor.
-
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    soc {
-> +        #address-cells =3D <2>;
-> +        #size-cells =3D <2>;
-> +
-> +        crypto@a4800000 {
-> +            compatible =3D "rambus,cmh-v1030";
-> +            reg =3D <0x0 0xa4800000 0x0 0x41000>;
-> +            clocks =3D <&cmh_core_clk>;
-> +            clock-names =3D "core";
-> +            #address-cells =3D <1>;
-> +            #size-cells =3D <0>;
-> +
-> +            /* Fast symmetric cores dedicated to mailbox 0:
-> +             * HC 0x02, AES 0x03, SM4 0x04, SM3 0x05, CCP 0x18 */
-> +            queue@0 {
-> +                reg =3D <0>;
-> +                interrupts =3D <1>;
-> +                rambus,cores =3D <0x02 0x03 0x04 0x05 0x18>;
-> +            };
-> +
-> +            /* Slow asymmetric/PQC cores dedicated to mailbox 1:
-> +             * HCQ 0x08, QSE 0x09, PKE 0x0a */
-> +            queue@1 {
-> +                reg =3D <1>;
-> +                interrupts =3D <2>;
-> +                rambus,cores =3D <0x08 0x09 0x0a>;
-> +                rambus,num-slots =3D <64>;
-> +                rambus,slot-stride-bytes =3D <512>;
-> +            };
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
-umentation/devicetree/bindings/vendor-prefixes.yaml
-> index 396044f368e7..8b1a8f0a673d 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -1371,6 +1371,8 @@ patternProperties:
->      description: RaidSonic Technology GmbH
->    "^ralink,.*":
->      description: Mediatek/Ralink Technology Corp.
-> +  "^rambus,.*":
-> +    description: Rambus Inc.
->    "^ramtron,.*":
->      description: Ramtron International
->    "^raspberrypi,.*":
-> --=20
-> 2.43.7
->=20
-
---ijLsa67cbXpBs7zp
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCao8cGAAKCRB4tDGHoIJi
-0sjsAQCs5O4ETXRJy6kouRnk1/OQzmyoUsRPrpeb9rM/21hfJAD9EpAJQfU5xwoJ
-RERZNwRIPTsmZQlDVlrThF4+t3HV5wM=
-=dVOj
------END PGP SIGNATURE-----
-
---ijLsa67cbXpBs7zp--
-
-
---===============8963667445975000153==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8963667445975000153==--
-
