@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CA6C61DBE
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 23:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF66CC5DF97
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 23:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wyZXUtxtgXjy6A7KRTRpfGXWoVjPrloWtV3najqjAoo=; b=olwO/5tDpvbLYR
-	saJpLH2qj1RZrACrTRyWpTuWEokEO3b7lWu1COVNX5Lv/NNo4IvmMa1nk4LCMBM1rGdzC3isfihYj
-	Y9KoUEQXfQNumyxmu7jVGGeRMcwLlSNL1BIRlUpe9lpDXtXrvZujRuK5TQs7HAAfg94LmIRr/2S3I
-	9ce/Fif7Y73h0maqP8Vdjg16EPCYYvaJ6HiaTsFUUJjwWKgJPIrjKT/wguvS1+p5TUDxxJmojWwm2
-	EookMKCkr/y71vFhgiPEuVARJgQokaNGvVeVut76qyECnrzM/G5py4bKvvQETRhd5fAjXfQJE4GSV
-	H358YjrGb/I4tK/Y9W7Q==;
+	List-Owner; bh=0qWcEyuFqgrzvzwCc6f7dPd5R3GeVrbghsrOoKtiknQ=; b=uZ0F2IsvPwuPPD
+	3G5Y3Pk7ifs2/aTqyZyYiBU9cxH7jS0PFOc7Pfxdaxdl/mmjwbCWgNkBxHTnNnZ0IoW9ddbTxp6W4
+	Fgh8uPra4wvPvfEUIN1mwE2XH9ZbFk9kTr5KwFmb2inehDKZdL1om0zetoM5uiDdp5npWL11hHjki
+	Nr9XnE7QoapUPIgYhqjerQL65elMjGE6Twh4aj8J/onvmGoV7g++OqlYhGh+WPtgCOy+9eXxcIKai
+	HXhPCMlKuCGx0Q79poDWgkkXMsM7sPmkGw6W+19mVjfl0Z43igKdu3l99i2n9wQqZ90qKWQewezHM
+	6ZWIyOqUGYoc0Ldjnl1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMh5-000000037Dh-2E1R;
-	Wed, 26 Aug 2026 23:06:07 +0000
-Received: from mail-pg1-x545.google.com ([2607:f8b0:4864:20::545])
+	id 1wzMhG-000000037Tn-45K9;
+	Wed, 26 Aug 2026 23:06:18 +0000
+Received: from mail-pg1-x546.google.com ([2607:f8b0:4864:20::546])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMgU-000000036G1-1TCA
+	id 1wzMgW-000000036HE-2O0K
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Aug 2026 23:05:33 +0000
-Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cb48f41343aso302165a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Aug 2026 16:05:29 -0700 (PDT)
+	Wed, 26 Aug 2026 23:05:34 +0000
+Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-cb48f41343aso302194a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Aug 2026 16:05:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787785529; x=1788390329; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787785530; x=1788390330; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=GZ4MVTLP0goD2ecS0YI5oUFT+iv0vlU/KAAezn2Wgnw=;
-        b=pMUoHwFwCdpsvUDyQa3kirpn6AMlnDmektJawgzP8F1CERwRf4/R6jfpyuQMVFWK19
-         IPa2rPMVcLsNj9jGbKBbpo2E5ipk6VzHPTmE+90bmJxRY4wrYT+HKcvMvEBdlMnFzeYs
-         fE91q3SwQ1sIzsHpOxJ16J21vV6+0DOSqgpQRzgQ87HUbDS4t1W60eysy1qpbQ9BXIu7
-         66ymVrxnnhLL8xGlU4NYz/lUfhAFHBFCuhdY4z7DX0Rk2TC0Nf+4xFkFT+Gj0GTOuk0U
-         eMUfaQ3Uc4SDT2KcyTzyvnRHQ56e3EzvbDBHi09VULtkfa+toZhiAmHsdId1Ga4uyTL6
-         3s/Q==
+        bh=N89bCfABJreQrIt289fAG+G+a6K8qwfLKTGSVLeSHrg=;
+        b=g3BwB12bGIUqjIreCkj8IZhWQMpfqL0SI9qJMgA8RMdZuce2g6Y6GPXg7kptULIBTa
+         7MyepbM23VvsTNA1jcOxnB/s8XuR2ibpuV+zaeLOcmRZRmDqlfwSey2Frn2Cqi4pa6I+
+         xbwU/KT8hhDeExpliZU5xaNIBJXgSD4jEzkwnWFK4KdW98Pv9wrFpd1SEQtsqGB6SxWi
+         Cj6o5FxX1MtEBJi5uJcixi49gXwC/hLe+ptTlc+oFwWkmk4HguerVuaftmRuuE99LvCM
+         AfnBpQ5q+6W5NSVD46A2Y/DKzN3zcHMPeeBZjNK8Y1fG883LUdbucPfHqXCZ0WwbIY8V
+         WVqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787785529; x=1788390329;
+        d=1e100.net; s=20251104; t=1787785530; x=1788390330;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=GZ4MVTLP0goD2ecS0YI5oUFT+iv0vlU/KAAezn2Wgnw=;
-        b=d8CLt9OH9887fOMZidVJVtwjV0hsodao6+Z/86fH56Xnlu1C1YjvX4lqnmJa8/eWwD
-         69UO4vgn+f5SyM98L4XOh5V9r65Et6OBPnHNLCjOcFayIED8D+wyofetO4GAJkjCW/3d
-         F9WQ9DItUUK28MnxjzktKrFJhZ87Ha3iofK6Uxm/2tCNAf2Jfx1TCUUO/9yHn7R4ln2r
-         8RmEz8tE7gp8eQdSwlQRci6oNjjGW03iJb7cKRL7ypRQ0vAeb/k2/nSatPoWiGSGg3Aj
-         Y6Xm36MkjclFAiPiX9s+tWWNcOlSUCbJ6JaCQIt+oIql35KOTznBXqQyEjm7vvp9YujX
-         KJRg==
-X-Forwarded-Encrypted: i=1; AHgh+Rp//eTAnVPAmRKwzeAQx8+sTY9HgqPblnIz7nnep0faaQ28X/jOAoUlOrFJAzdw00BTPgz4J8AK8WHszg==@lists.infradead.org
-X-Gm-Message-State: AFuF++niRm729A3h0NSsZNyWYgFiZpR/07I+uNfWeDIMppFYFIzijAc9
-	60NztZ3H9WkcXg+zTuNHtZH26cBemtOiR7HhN3uOG1IGpuxqH4SBWcMyZ57VKBX7gugXxOSerD5
-	+EaUnhQ==
-X-Received: from pgdt3.prod.google.com ([2002:a05:6a02:3003:b0:c9e:41e5:2eec])
+        bh=N89bCfABJreQrIt289fAG+G+a6K8qwfLKTGSVLeSHrg=;
+        b=gHaUvZotoQyX6eooyCNAYrUd5yNYjxd8jRKCmdVeSck+kLZUJmT6gEx2AEyarN3A6u
+         cVc0UwMRbGovEnzOkWnE0KfMBii1438G0FgtvOkygVVQo4x0yfNrZZuCxjxaQHOJlqbK
+         3lPQAtk4Nud01GIA+Z8sdPrUZ3qvKUgyg9eHyTeMDCAt5Y0Np2/XMYavENzUUx0FmkBj
+         j1N7Y00nsiQFCG+v89ebi5sycDOCZSk4KOCZEDsbKW5yjtRxDDPNaGbu9gKk4EJGyOTF
+         CwOOdj/aNEFQD5BV8sr65Yw6BAgiPKvWVPG0mqeNK7wnInJNVCkBjvleAxPsgRmIGUI/
+         VkuQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpHhGTEShocEej+br6gQKDmmNU1vFhCV5ei+iUS+jHg+CBk+AOTLYiJq7yD0ZBPySbLsYABHaqxQOEFwg==@lists.infradead.org
+X-Gm-Message-State: AFuF++leiyoidoyIXG1WXBYydnyWz6/LZ1mgZ+zTyTR/mJeB/TXc4t/q
+	3cMp/UaMMn6HExBKwxut4Rx2LDKRsy0dy1Exrh7xqruOllBa5rLxKku/G63F6uovQY5JJB8zraJ
+	ZM6GbZw==
+X-Received: from pgkj19.prod.google.com ([2002:a63:e753:0:b0:cc1:517a:d29])
  (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:4388:b0:3b2:8674:9830
- with SMTP id adf61e73a8af0-3d0f6d2abaemr2865016637.14.1787785528406; Wed, 26
- Aug 2026 16:05:28 -0700 (PDT)
-Date: Wed, 26 Aug 2026 16:05:01 -0700
+ with SMTP id adf61e73a8af0-3d0f6d2abaemr2865141637.14.1787785529701; Wed, 26
+ Aug 2026 16:05:29 -0700 (PDT)
+Date: Wed, 26 Aug 2026 16:05:02 -0700
 In-Reply-To: <20260826230511.972824-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260826230511.972824-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.887.g758fc8c411-goog
-Message-ID: <20260826230511.972824-11-seanjc@google.com>
-Subject: [PATCH 10/20] KVM: selftests: Add a wrapper API to allocate multiple
- page table pages
+Message-ID: <20260826230511.972824-12-seanjc@google.com>
+Subject: [PATCH 11/20] KVM: selftests: Initialize vm->memslots[] with invalid
+ memslots during creation
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -86,9 +86,8 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
 	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>, 
 	Ritesh Harjani <ritesh.list@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_160530_560566_D3B17CEC 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260826_160532_890957_07642FCF 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,97 +105,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add vm_alloc_page_table_pages() and use it throughout arch code to replace
-open coded equivalents.
-
-No functional change intended.
+Initialize vm->memslots[] with an invalid memslots value during very
+initial VM creation so that failure to configure the core memory regions
+generates an immediate assert instead of potential weirdness, e.g. if slot0
+is coincidentally valid.  This will also allow hardening the region APIs to
+guard overriding a region's memslot multiple times.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/include/kvm_util.h    | 9 +++++++--
- tools/testing/selftests/kvm/lib/arm64/processor.c | 4 +---
- tools/testing/selftests/kvm/lib/riscv/processor.c | 4 +---
- tools/testing/selftests/kvm/lib/s390/processor.c  | 8 ++------
- 4 files changed, 11 insertions(+), 14 deletions(-)
+ tools/testing/selftests/kvm/include/kvm_util.h  | 2 ++
+ tools/testing/selftests/kvm/lib/kvm_util.c      | 5 +++++
+ tools/testing/selftests/kvm/lib/x86/processor.c | 5 ++++-
+ 3 files changed, 11 insertions(+), 1 deletion(-)
 
 diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 2525c2cacc22..21354434de0a 100644
+index 21354434de0a..70e77992dd2f 100644
 --- a/tools/testing/selftests/kvm/include/kvm_util.h
 +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -1013,10 +1013,15 @@ static inline gpa_t vm_phy_page_alloc(struct kvm_vm *vm, gpa_t min_gpa,
- 	return vm_phy_pages_alloc(vm, 1, min_gpa, memslot);
- }
+@@ -33,6 +33,8 @@
  
-+static inline gpa_t vm_alloc_page_table_pages(struct kvm_vm *vm, size_t nr_pages)
-+{
-+	return vm_phy_pages_alloc(vm, nr_pages, KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-+				  vm->memslots[MEM_REGION_PT]);
-+}
+ #define NSEC_PER_SEC 1000000000L
+ 
++#define KVM_INVALID_MEMSLOT UINT_MAX
 +
- static inline gpa_t vm_alloc_page_table(struct kvm_vm *vm)
+ struct userspace_mem_region {
+ 	struct kvm_userspace_memory_region2 region;
+ 	struct sparsebit *unused_phy_pages;
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index ce0d8fba4624..56df5b1d9c79 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -288,6 +288,7 @@ __weak void vm_populate_gva_bitmap(struct kvm_vm *vm)
+ struct kvm_vm *____vm_create(struct vm_shape shape)
  {
--	return vm_phy_page_alloc(vm, KVM_GUEST_PAGE_TABLE_MIN_PADDR,
--				 vm->memslots[MEM_REGION_PT]);
-+	return vm_alloc_page_table_pages(vm, 1);
- }
+ 	struct kvm_vm *vm;
++	int i;
  
- /*
-diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-index 01325bf4d36f..2dcaa2c4a038 100644
---- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-@@ -115,9 +115,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
- 	if (vm->mmu.pgd_created)
- 		return;
+ 	vm = calloc(1, sizeof(*vm));
+ 	TEST_ASSERT(vm != NULL, "Insufficient Memory");
+@@ -296,6 +297,8 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
+ 	vm->regions.gpa_tree = RB_ROOT;
+ 	vm->regions.hva_tree = RB_ROOT;
+ 	hash_init(vm->regions.slot_hash);
++	for (i = 0; i < NR_MEM_REGIONS; i++)
++		vm->memslots[i] = KVM_INVALID_MEMSLOT;
  
--	vm->mmu.pgd = vm_phy_pages_alloc(vm, nr_pages,
--					 KVM_GUEST_PAGE_TABLE_MIN_PADDR,
--					 vm->memslots[MEM_REGION_PT]);
-+	vm->mmu.pgd = vm_alloc_page_table_pages(vm, nr_pages);
- 	vm->mmu.pgd_created = true;
- }
- 
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index ded5429f3448..c175dcd14114 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -69,9 +69,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
- 	if (vm->mmu.pgd_created)
- 		return;
- 
--	vm->mmu.pgd = vm_phy_pages_alloc(vm, nr_pages,
--					 KVM_GUEST_PAGE_TABLE_MIN_PADDR,
--					 vm->memslots[MEM_REGION_PT]);
-+	vm->mmu.pgd = vm_alloc_page_table_pages(vm, nr_pages);
- 	vm->mmu.pgd_created = true;
- }
- 
-diff --git a/tools/testing/selftests/kvm/lib/s390/processor.c b/tools/testing/selftests/kvm/lib/s390/processor.c
-index fb9dab92d4d1..33f49d743b5f 100644
---- a/tools/testing/selftests/kvm/lib/s390/processor.c
-+++ b/tools/testing/selftests/kvm/lib/s390/processor.c
-@@ -20,9 +20,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
- 	if (vm->mmu.pgd_created)
- 		return;
- 
--	gpa = vm_phy_pages_alloc(vm, PAGES_PER_REGION,
--				   KVM_GUEST_PAGE_TABLE_MIN_PADDR,
--				   vm->memslots[MEM_REGION_PT]);
-+	gpa = vm_alloc_page_table_pages(vm, PAGES_PER_REGION);
- 	memset(addr_gpa2hva(vm, gpa), 0xff, PAGES_PER_REGION * vm->page_size);
- 
- 	vm->mmu.pgd = gpa;
-@@ -38,9 +36,7 @@ static u64 virt_alloc_region(struct kvm_vm *vm, int ri)
+ 	vm->mode = shape.mode;
+ 	vm->type = shape.type;
+@@ -1190,6 +1193,8 @@ memslot2region(struct kvm_vm *vm, u32 memslot)
  {
- 	u64 taddr;
+ 	struct userspace_mem_region *region;
  
--	taddr = vm_phy_pages_alloc(vm,  ri < 4 ? PAGES_PER_REGION : 1,
--				   KVM_GUEST_PAGE_TABLE_MIN_PADDR,
--				   vm->memslots[MEM_REGION_PT]);
-+	taddr = vm_alloc_page_table_pages(vm, ri < 4 ? PAGES_PER_REGION : 1);
- 	memset(addr_gpa2hva(vm, taddr), 0xff, PAGES_PER_REGION * vm->page_size);
++	TEST_ASSERT(memslot != KVM_INVALID_MEMSLOT, "vm->memslots[] unpopulated?");
++
+ 	hash_for_each_possible(vm->regions.slot_hash, region, slot_node,
+ 			       memslot)
+ 		if (region->region.slot == memslot)
+diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
+index d31fa81ea075..ea5fa59888af 100644
+--- a/tools/testing/selftests/kvm/lib/x86/processor.c
++++ b/tools/testing/selftests/kvm/lib/x86/processor.c
+@@ -529,7 +529,10 @@ void tdp_identity_map_default_memslots(struct kvm_vm *vm)
  
- 	return (taddr & REGION_ENTRY_ORIGIN)
+ 	/* Only memslot 0 is mapped here, ensure it's the only one being used */
+ 	for (s = 0; s < NR_MEM_REGIONS; s++)
+-		TEST_ASSERT_EQ(vm->memslots[s], 0);
++		TEST_ASSERT(!vm->memslots[s] ||
++			    vm->memslots[s] == KVM_INVALID_MEMSLOT,
++			    "Unhandled memslot '%u' for type '%u'",
++			    vm->memslots[s], s);
+ 
+ 	i = (region->region.guest_phys_addr >> vm->page_shift) - 1;
+ 	last = i + (region->region.memory_size >> vm->page_shift);
 -- 
 2.55.0.887.g758fc8c411-goog
 
