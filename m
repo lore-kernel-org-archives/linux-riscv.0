@@ -4,99 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21348C61DBD
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 01:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E577C61DBD
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 05:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+kivSSGDCJEG59rNTn6YikDRdQkb6YkGt+kbbe1kyE=; b=yhvqrdTR0trW75SHe4qBzKDa44
-	Rj825+8TlUZrGfh0tCDfvT9Ul4puYr1bSN1RTQyFoW/8BK92wzp2N6FsonSirBeuV/6pXwEOQ+piE
-	q5VaE1lKK5KrMuKkor3RIUZ0L5XR2/zEGs6HhQAoAQxzM5Cy0ggevCn5C7my6JXQWyhRxnoleBlZ9
-	mTOs45H0t/dAUeKn4klknLjVgJze5WFxRv37yTfh2MdlJeoag3JcOK6BlIket/3GoHJ6xzvDOc48e
-	Po9KSsgXqBs210yp3zHfECHaGrIgIGh/A2qAKf9DRpdyFZxFcMTENxwUsIj9Pcn3d7eCMZjKI/dT4
-	Kb3/FkrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H9555Hzh18FAn7W4qyh0/0JGYKF8VOaGAie0xQge/b4=; b=zK5T18g8Mi3PmB
+	pKazLSbZUaSmWLuzSyCStRJneNnKCJK1ZP9+xa7xDMaJ5GDZFYIcquVJ0xbAweKySPPdiBNLbAle5
+	dSTyF2AUaIqHc99YqBMWR4QgDfWiJoW9b5LGkG40qu8kBqlpc1rWonzl/MYiHtSnwq2cJQK3wAAAt
+	UcROcajQo2BgZEV1m4u+zUHF0+FcD9KHZGO4R9bWk+Fv8HUZi13f2xLOi71fgPtDxez/i4hJR5WSU
+	6r0Cbm31vy5/mM6azZivjWpFFNGF/oBphiS7YHjMmDir/6saj2f7k/L7Hnplf/TbgYjg4hldgjJ90
+	LSGlz5ScXhgm9udFXMIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz2O3-00000001kl4-1QZG;
-	Wed, 26 Aug 2026 01:25:07 +0000
-Received: from common.ash.relay.mailchannels.net ([23.83.222.38])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz2O1-00000001kke-0nSE
+	id 1wz6Ea-00000001vuy-48mN;
+	Wed, 26 Aug 2026 05:31:36 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wz6EX-00000001vuf-0C9x
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Aug 2026 01:25:06 +0000
-X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id CF1D84E1377;
-	Wed, 26 Aug 2026 01:25:03 +0000 (UTC)
-Received: from pdx1-sub0-mail-a204.dreamhost.com (trex-green-7.trex.outbound.svc.cluster.local [100.96.17.28])
-	(Authenticated sender: dreamhost)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 2F6304E1551;
-	Wed, 26 Aug 2026 01:25:03 +0000 (UTC)
-X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: dreamhost|x-authsender|dave@stgolabs.net
-X-MailChannels-Auth-Id: dreamhost
-X-Shoe-Trade: 329137dc4d059e0c_1787707503612_153827419
-X-MC-Loop-Signature: 1787707503612:1092170596
-X-MC-Ingress-Time: 1787707503612
-Received: from pdx1-sub0-mail-a204.dreamhost.com (pop.dreamhost.com
- [64.90.62.162])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.96.17.28 (trex/8.0.2);
-	Wed, 26 Aug 2026 01:25:03 +0000
-Received: from offworld (unknown [76.167.199.67])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dave@stgolabs.net)
-	by pdx1-sub0-mail-a204.dreamhost.com (Postfix) with ESMTPSA id 4hV6QN4m4Qz1V;
-	Tue, 25 Aug 2026 18:25:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=stgolabs.net;
-	s=dreamhost; t=1787707503;
-	bh=8mvVAM5/C4VKX+uyn+Ue+KiWk4xHiIhC8s/6hAlyMMs=;
-	h=Date:From:To:Cc:Subject:Content-Type;
-	b=j6is/86GlPmrZ409Z13BQVNYvcmsOqVE5NPB3rajquDkLuKgFEq0vQWaBy2ze21v2
-	 guCgQsPzj672ix7aiK7PSuDhiCMVjcjSMi5txQiqHwQLAfOf8Q+hShk7ufHCvwCnu6
-	 /OOITLkG4BMZPC1jlQGIAZRiaTZPHCF39n3GLKv+l55qryyNpe2zkTeOVzWiW9IfKV
-	 U4T5po5xCW5Xej0JU0qJ7HjxmAtVCs9RuJ5fB+qIkZXb2R7sB5qT4/LKDKeIHj1LOQ
-	 jU8YPXWFwRY8qmN6V26lMSe1iKhNLDNkTu+x6NyKkDURg3qwofhyDd7XtCE6LBvdVX
-	 DHlAkm+mFg8/w==
-Date: Tue, 25 Aug 2026 18:24:57 -0700
-From: Davidlohr Bueso <dave@stgolabs.net>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, dennis@kernel.org, tj@kernel.org, cl@gentwo.org,
-	ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
-	martin.lau@linux.dev, eddyz87@gmail.com, memxor@gmail.com,
-	song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org,
-	bjorn@kernel.org, pulehui@huawei.com, puranjay@kernel.org,
-	thuth@redhat.com, ajones@ventanamicro.com,
-	ben.dooks@codethink.co.uk, rkrcmar@ventanamicro.com,
-	samuel.holland@sifive.com, zong.li@sifive.com,
-	conor.dooley@microchip.com, tglx@kernel.org, debug@rivosinc.com,
-	seanwascoding@gmail.com, andybnac@gmail.com,
-	menglong8.dong@gmail.com, cyrilbur@tenstorrent.com,
-	wangruikang@iscas.ac.cn, atishp@rivosinc.com,
-	apatel@ventanamicro.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	bpf@vger.kernel.org, arnd@arndb.de, nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com, morbo@google.com,
-	justinstitt@google.com, qingfang.deng@siflower.com.cn,
-	linux-arch@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v8 3/3] riscv: store percpu offset into thread_info
-Message-ID: <20260826012457.ig3rfmji7vywf6kc@offworld>
-References: <20260703122832.15984-1-cuiyunhui@bytedance.com>
- <20260703122832.15984-4-cuiyunhui@bytedance.com>
+	Wed, 26 Aug 2026 05:31:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	References:Date:Message-Id; bh=Qn1K5uZcsjIXg5afIwVEwPEUZMEcJXFBf
+	xRn3HuhEcM=; b=R2Jl4SJCzKDArYGiy4rCDXjo0P9VUuAaKL6vbdPLl+cVY6evq
+	llUgG+RQePIqOYJo8Cdc2IsurArNLyODjRrqe2dPFjinC7du8A5Tbf9abbiCbCzl
+	IdTMS92ZQZcdhSPGKTa4fLUFei7p4asIjevCHQOwWDQ9tNktwsldTboYJ8=
+Received: from [127.0.0.1] (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwCn1s0teo5qc04BAA--.336S2;
+	Wed, 26 Aug 2026 13:31:26 +0800 (CST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260703122832.15984-4-cuiyunhui@bytedance.com>
-User-Agent: NeoMutt/20220429
+Subject: Re: [PATCH 09/12] dt-bindings: dma: snps,dw-axi-dmac: Add
+ UltraRISC DP1000 compatible
+From: Jia Wang <wangjia@ultrarisc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: wangjia@ultrarisc.com, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ Mika Westerberg <mika.westerberg@linux.intel.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ netdev@vger.kernel.org, dmaengine@vger.kernel.org
+In-Reply-To: <20260824-throat-arguably-779a75446a81@spud>
+References: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
+ <20260824-ultrarisc-dts-v1-9-61ab7aebe9e5@ultrarisc.com>
+ <20260824-moneywise-magician-50d8e6ff79ea@spud>
+ <20260824-throat-arguably-779a75446a81@spud>
+Date: Wed, 26 Aug 2026 13:31:12 +0800
+Message-Id: <178772227234.2049162.4715674009458678447.b4-reply@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787722272; l=492;
+ i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
+ bh=KYYT+/PQ4xcJVd8Wmai5v72T0IDhA620QIZm052UeOc=;
+ b=ZF4bncxtlyzP5EpRsjS7n7l91oiZzzea5cJ3tGDPIYOG5k7bhC2NAKb/MHRfByrSQ9QA2oNC0
+ 96SjQtEw5x1Co0DN6ydYssZfQRyPQVOf7uP3tEi0o2lguU/blniQRpL
+X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
+ pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
+X-CM-TRANSID: AQAAfwCn1s0teo5qc04BAA--.336S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYX7AC8VAFwI0_Wr0E3s1l1xkIjI8I6I8E
+	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
+	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8I
+	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aV
+	CY1x0267AKxVW8JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE
+	5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeV
+	CFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1l
+	FIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMxAqzxv26x
+	kF7I0En4kS14v26rWY6Fy7MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_
+	Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8Jr1lIxkGc2
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
+	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUd8n5UUUUU
+	=
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQALEWqOWvsABAABsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_182505_429325_9CD3FE69 
-X-CRM114-Status: UNSURE (   4.10  )
+X-CRM114-CacheID: sfid-20260825_223133_627434_A60CDE66 
+X-CRM114-Status: UNSURE (   7.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,22 +112,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 03 Jul 2026, Yunhui Cui wrote:
+On 2026-08-24 18:11 +0100, Conor Dooley wrote:
+> On Mon, Aug 24, 2026 at 06:03:21PM +0100, Conor Dooley wrote:
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > pw-bot: not-applicable
+> 
+> Actually no, please add constraints for your device.
 
->RISC-V percpu addressing currently derives the base offset from the CPU
->number and __per_cpu_offset[]. Cache the current CPU percpu offset in
->thread_info so percpu accesses can load it directly.
+In the next version, I will add DP1000-specific constraints for the
+controller resources and hardware configuration, including its channel
+and AXI master counts, data width, and per-channel properties.
 
-fyi on a sifive p550 I am seeing this_cpu_inc() cost dropping by ~15-20%
-an adhoc microbench measuring/grouping various calls.
+Best regards,
+Jia Wang
 
-Thanks,
-Davidlohr
+
 
 _______________________________________________
 linux-riscv mailing list
