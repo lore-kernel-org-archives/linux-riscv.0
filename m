@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C23C61DBD
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 13:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90247C61DBD
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 13:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iOG2qZMPu/M25CkRheiiWoEvlQFohfA/jXWO9Vc/NJY=; b=bx3TURB0ubXtLI
-	HNT/3Sw142RfqX+5Mb3SYeqQHGuF5755EXdZ3FEfKePnfzStc49uJjMbpPLaTrU9DPdIJFztbMSbP
-	fMvrxZKTZ5O4+IXfAuezyIrv0uBBphAUDaW6Z2kFJeOyxHWONXqnNSuzrt3gBVsYCxAaFnW2NFlSO
-	lAkoawhLA869BjYxvrKao/Ajk45DSGsQUwZHi9BrqB3/HIGtw/RmvmQ6G4kOuY3/+NLb4tTOAUjoP
-	cxQXch+Fr2rC7COpWln1jpQ/F/tZXTpnyB0ZznmoMpxDxIzNyGeO1Lo0a1nw0aFVZpzdFVPUp87AW
-	b1VkO0Qu8M/5YNea6Lcg==;
+	List-Owner; bh=mCG+hKLl6vNr9pj64rKbUI9ul1NkyvYPQgG8uvx/Wq0=; b=iQSSPWYZx6FmIk
+	zjvwhJp03b85Plr5cQPRdsyaOdWe2XDmfQKXc1N6do83Tj0vJlNBVaWMGdyLXhuiuyzEOTYN+9B4z
+	kAzHUkiVaKyW4mDIsXUEyu/yiO3INDZLoHnC6DjuEVTkXxG4ci7zP4MJeGVnNqkDAaiHQ88bcdjCX
+	UgWXVBR8CfBMmsl7QIDErfTCh225gB3hFmb2aNawJyZ/JlzoLDu0QCNUFdq9XUn5lHhp2jPtqlTlg
+	Q0Uljvz0HbRzAzexYZFkrWin2ZKxlWiyyggbx4WQ2yu+s1mk7c1crBxA/lCIN6OpJEeD1OPHbTzXl
+	u/RVgNDzwVSW12sRzaOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzDIy-00000002Tf0-1XBY;
-	Wed, 26 Aug 2026 13:04:36 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wzDQH-00000002UMa-0zUi;
+	Wed, 26 Aug 2026 13:12:10 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzDIu-00000002Te5-28XP
+	id 1wzDQD-00000002ULt-1dL9
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Aug 2026 13:04:34 +0000
+	Wed, 26 Aug 2026 13:12:06 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1787749467;
+	s=2020; t=1787749923;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wpSzobdW7JdDHwC0e4Ezi+h72uHE+Mul1UkI6UnwtXo=;
-	b=Our6ZHzNaVxaDs6CRXZ5w6h/VMnlhRsNy+QG7a/N98JG8Qv5Xk+XGNMLLU4XEFHWrA/d/J
-	O5klY/PDXr43Axr5/aewn1SGp8toQo6JeMtMODtcG2Z01hCWbe7o3Yi9NERt/AJP2wmaVb
-	MK7Fe7E4Ci6kbnqPPbV2SVbxn43TSi4h3JquNpJNCpvvebwXrE7fygVQOwbb3u93bXGiqT
-	Y+5GIOM9jpOh3BqtQjiqlxcUVKZmTKBCjZo59w/vdH+/11b9AdqBvy6BSEbUy0WC/45j4e
-	bV2x1PSUJZfD//ypWmPYZ27s4NDk1h84cV81R4qx1jwaGKDiDtwU1kw0QE9nyQ==
+	bh=6tSux68TjAVzHt9ILyO7OorYkWmsxWCF0PwD8LN+AhM=;
+	b=mjTRuOTceW6N1SUswgEwYXop3AtLvScDZaD0MC/5Q+xHhRpFcVFkDIFXjlwvfJrrlKEGSt
+	IvszXxs88zO+qKWmfohwkgX25eNM4qxppuzI9pU2RQhDi70ial9W3ZClDAF7U0wYwO2Yux
+	7wPlmtoz1rse/cwbGC0BialfMFbQl2mhcJv1b1OjyhAik8Bm/z/CdWrDrcvyv6BnJCAFGv
+	sAsmn/dHPDml9V4QGZRL20UFUx6G7T7iWDlPdRdXCrcL87y0EY2H+b6YhbrtymSg+VvK60
+	9U+uDzWyif1mmC0t+kvUdRhUGct355V4TnZBoeYVGF4pdxBWUELLH5psHAPXcg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1787749467;
+	s=2020e; t=1787749923;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wpSzobdW7JdDHwC0e4Ezi+h72uHE+Mul1UkI6UnwtXo=;
-	b=KJZL7ijfMjYxE6Jd4ZpRY+5Kc3/LSC2tL0JmFgYV2Io73KNXqK6XSvuRbGzBY7xSagKiS0
-	G/6m2U3Nt9aTNRAA==
+	bh=6tSux68TjAVzHt9ILyO7OorYkWmsxWCF0PwD8LN+AhM=;
+	b=Rh6rK55qkl6TekdA+YzNGSlskayduNLeLNpS/G8w0Mt6sSI6HBGYjTK0Y1H7RKlyKP17Nv
+	WoMLhCmgzDD9BRAQ==
 To: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>, Paul Walmsley
  <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
 Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
  Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-Subject: Re: [PATCH v2 1/2] riscv: kprobes: simulate nop and c.nop instructions
-In-Reply-To: <20260825122020.1192-2-yuanxiaofeng@eswincomputing.com>
-References: <20260825122020.1192-1-yuanxiaofeng@eswincomputing.com>
- <20260825122020.1192-2-yuanxiaofeng@eswincomputing.com>
-Date: Wed, 26 Aug 2026 15:04:26 +0200
-Message-ID: <87wltdt4md.fsf@yellow.woof>
+Subject: Re: [PATCH v3] riscv: probes: reject kprobes inside LR/SC sequences
+In-Reply-To: <20260826100256.1418-1-yuanxiaofeng@eswincomputing.com>
+References: <20260826100256.1418-1-yuanxiaofeng@eswincomputing.com>
+Date: Wed, 26 Aug 2026 15:12:02 +0200
+Message-ID: <87tsoht49p.fsf@yellow.woof>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_060432_690075_E6DF1376 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260826_061205_573435_87B9D814 
+X-CRM114-Status: UNSURE (   6.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +78,36 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com> writes:
-> nop and c.nop have no architectural effect, so allocating an
-> out-of-line instruction slot and single-stepping through them is
-> pure overhead. Simulate them directly in the breakpoint handler
-> by advancing the program counter, following the approach already
-> used on arm64.
+> +	while (tmp > scan_end && count < MAX_ATOMIC_CONTEXT_INSN) {
+> +		u16 halfword = get_unaligned((u16 *)(tmp - 2));
+> +		unsigned int len = (halfword & 0x3) == 0x3 ? 4 : 2;
+> +
+> +		if (tmp - len < scan_end)
+> +			break;
+> +
+> +		if (len == 4) {
+> +			u32 insn = get_unaligned((u32 *)(tmp - 4));
+> +
+> +			if (riscv_insn_is_lr(insn))
+> +				in_atomic = true;
+> +			else if (riscv_insn_is_sc(insn))
+> +				in_atomic = false;
+> +		}
+> +
+> +		tmp -= len;
+> +		count++;
+> +	}
 
-That is not the reason why arm64 simulate nop. And how is single
-stepping slower than simulating?
+This does not look right. If we have
 
-> This avoids slot allocation, text patching, IRQ flag save/restore
-> and the single-step exception for these instructions.
->
-> riscv_probe_decode_insn() is shared by kprobes and uprobes, so the
-> simulation also applies to uprobes placed on nop instructions. This
-> is relevant for USDT probe sites in user-space binaries, which are
-> nop/c.nop instructions, the same use case that motivated the arm64
-> implementation.
+    lr
+    another instruction
+    sc
+    probed instruction
 
-I can only find https://github.com/chrisa/libusdt, which does not have
-riscv support. Which USDT are you referring to?
+Then riscv_probe_insn_in_atomic() return true, which is clearly wrong.
 
-> In kernel text, nops are also found at ftrace mcount call sites and
-> disabled jump_label sites.
-
-Not sure about mcount, but isn't installing kprobe on jump labels forbidden?
-
-> Measured on QEMU (RISC-V virt, emulated), this reduces the per-hit
-> cost of a kprobe on a nop by roughly 40% compared to single-stepping
-> through the out-of-line slot.
-
-Reading the arm64's commit, simulating nop should only improve uprobe,
-not kprobe; or am I confused somewhere?
+Have you even tested this patch?
 
 Nam
 
