@@ -4,104 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A757C5DF97
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 05:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EF2C61DC2
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 06:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fhjJDblroxJbxS3N5hWaX6o+rOOJcBhwsml2PLHUY80=; b=v0i/Zb60cqSAPA
-	lnLM1YYkUmDWzwP1UL8GkBgyiOMrT/LzMeROvwt7tFUftatYSL2xwO+SL66GaqhewKMWX767y473M
-	Qhq7lW0zCLb/lxu//Eh0gZPOVqtkySlkBBT4LtMr4mJnnt9fwCyPzaJgVMuw6FNU8LugivxY1sPqa
-	wMPtpu9n3WhMvdFBFlRbMCnkdYUPErsM6YQuJjLoPpPHFCo63Bl+oi+eK1vShEpxtVzPiquTzd4CT
-	6DgVpXam7miEjtDhczPei3N9+9WXKf40l8WVrsvvWM/0kJabDhTyEteiudx2bOZVWzU/AXLM7ZlOn
-	AQc2EnxZUAYRS26fFqXg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kz4D4RMulAgcJEC7m5HfQqYO2OYgxIOGAqdxs1cNZrs=; b=JoDlU3gWgR3ua8
+	JUNUn702wagNJqZOHicVyMFpf3WsqUzTtPSkGYZ2+0JiedQbPN539xqG/eexW1U8+l7p8Rmlr4Ymh
+	KznTFjs1y8rBYGQ9elRHpFJpLBju3mvfuA8QBEgs8++eaZkLU9TsD+Fn5rW+8fiDWoxeWj1AsqzzW
+	kTU4LA8rKGo8/efArbW8V2j7+T30IL2kFIhmAZIEw1dLCkVd27g2mwMMTw7LJjJidyKFIPDYkfHeI
+	EE7nNTxB+S2MnLsOD5TAktLCjdi8TOyw+ARBdPZU222J0tuDpbQpQewe3LHPrWIz0SOkoZRDNzOZz
+	y91yKpu4sjZaVjtx7joQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz6Zb-00000001wW7-0B7m;
-	Wed, 26 Aug 2026 05:53:19 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wz7LS-00000001yRS-1sMr;
+	Wed, 26 Aug 2026 06:42:46 +0000
+Received: from [117.135.210.5] (helo=m16.mail.163.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz6ZY-00000001wVh-3X2V
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Aug 2026 05:53:18 +0000
-Received: from hawking.suse.de (unknown [10.168.4.11])
-	by smtp-out1.suse.de (Postfix) with ESMTP id 3A4EA87271;
-	Wed, 26 Aug 2026 05:53:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787723589; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tNvNUCXhyehNUs7EdlvTJWHNSuaexrptLaVqfNEkOzI=;
-	b=mooYyg5/xCHIih4IrEqNuKqlHzZP3e7c0dECQKaoPD2fxgnHffD59CLWYVRKzFNcO9jXG5
-	WLfiqXLaG+G3Wb3iRyoPASELtox9HdZUwHftFTaY3n/i6kg0OL0FeoUnHJnNnFyKY4nJc2
-	OCPqi0nWHEfacySa5seanUF0lidiEy0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787723589;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tNvNUCXhyehNUs7EdlvTJWHNSuaexrptLaVqfNEkOzI=;
-	b=XvRpuv9BRAiKY2RxKBTFbJ1zC8dvFKbyr0AhDbf28VoTYrxcma4BB4arezmyt2m7PSlacK
-	Jn2ZtIZnnFjGrdBw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787723585; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tNvNUCXhyehNUs7EdlvTJWHNSuaexrptLaVqfNEkOzI=;
-	b=QbkveSXRip7y6KaFBISbofwH5/sbEZRAeRIoSD0yv5pksmCroJ+oLCYnza3exkwzkZWOC3
-	U6k/1XKhKz4pWuaJXdEXa7CDrb4fw13b9VbNoeQcDRF9AY/d7zP5geE/hB3WqWdCdYuHv9
-	zvFREaqtHLkCAq1AZTp6CNgzIM9lgbg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787723585;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tNvNUCXhyehNUs7EdlvTJWHNSuaexrptLaVqfNEkOzI=;
-	b=HmGDbRxbM6LqVhOIedb2i5GLhAO4aG3nnXq+TCxInZqre4H1TbQ63jYUXUyFgJUTMHXotV
-	8lOQ2tIkEDMRCKAA==
-Received: by hawking.suse.de (Postfix, from userid 17005)
-	id 2BC374AAD89; Wed, 26 Aug 2026 07:53:05 +0200 (CEST)
-From: Andreas Schwab <schwab@suse.de>
-To: Ivy Lopez <skunkolee@gmail.com>
-Cc: pjw@kernel.org,  palmer@dabbelt.com,  aou@eecs.berkeley.edu,
-  alex@ghiti.fr,  andrew.jones@oss.qualcomm.com,
-  conor.dooley@microchip.com,  linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: hwprobe: fix has_fpu() to require D extension
- only
-In-Reply-To: <20260825191950.42614-1-skunkolee@gmail.com>
-References: <20260825191950.42614-1-skunkolee@gmail.com>
-Date: Wed, 26 Aug 2026 07:53:05 +0200
-Message-ID: <mvmfr01l96m.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1wz7LP-00000001yQi-19if;
+	Wed, 26 Aug 2026 06:42:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=J5
+	wmbMVjfWUBCfpN0Lp0qCoOGcsiprXR0qo1DrktL6I=; b=nHhrjsvwBUSCK4U7Zo
+	14IX8BgmYz/ItK20Q3P7zRZeaPkt1JYLsDM85BYejRgvxoApM5qKzlNnbXkFBB/h
+	EXFAIDDljjdqlmwLPseWnFwd27cRDikCbAeLk8OAP1ugD/ljcqCbUdWa0UXC2fY7
+	iblWK/GFl7sqctbXmipdDPQ2Q=
+Received: from thinkpadx13gen2i.. (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgBHDxyPio5qdUk4OQ--.40540S2;
+	Wed, 26 Aug 2026 14:41:19 +0800 (CST)
+From: Zongmin Zhou <min_halo@163.com>
+To: anup@brainfault.org,
+	atish.patra@linux.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: ajones@ventanamicro.com,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Zongmin Zhou <zhouzongmin@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] RISC-V: KVM: Fix sdata leak and stale snapshot_addr in snapshot_set_shmem
+Date: Wed, 26 Aug 2026 14:41:17 +0800
+Message-Id: <20260826064117.58029-1-min_halo@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-4.19 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.19)[-0.935];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_NO_TLS_LAST(0.10)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_COUNT_ONE(0.00)[1];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	ARC_NA(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid]
+X-CM-TRANSID: PygvCgBHDxyPio5qdUk4OQ--.40540S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7AryUAF18AF4kGF4furykXwb_yoW8AFyxpF
+	ZxCa4FqrWrAr1fK34avFWvgrWjvws5urs8Xr4xGa48Gr45GF1Fvwna9ry8WF4Ut3y8Xa9a
+	qr4rZF98CFs0vrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jbUUUUUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: pplqsxxdorqiywtou0bp/xtbC0RAFsGqOipASBQAA3d
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_225317_054942_E2E42BE3 
-X-CRM114-Status: UNSURE (   4.03  )
+X-CRM114-CacheID: sfid-20260825_234244_209047_B60E3EBA 
+X-CRM114-Status: UNSURE (   9.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,15 +81,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Aug 25 2026, Ivy Lopez wrote:
+From: Zongmin Zhou <zhouzongmin@kylinos.cn>
 
-> The kernel never supports F without D, since D depends on F. As such,
-                            D without F
+A guest may call SBI_PMU_SNAPSHOT_SET_SHMEM repeatedly. Each call
+overwrites kvpmu->sdata without freeing the old buffer (memory leak),
+and if a later kvm_vcpu_write_guest() fails, the error path frees
+sdata but leaves snapshot_addr stale. A subsequent
+SBI_PMU_COUNTER_START then passes the INVALID_GPA check and crashes
+the host with a NULL buffer in kvm_vcpu_read_guest().
 
+Fix this by clearing the previously installed snapshot area before
+installing a new one, which keeps sdata and snapshot_addr consistent.
+The SBI spec suggests a single invocation but defines no error code
+for repeated calls, so KVM must tolerate them.
+
+Fixes: c2f41ddbcdd756 ("RISC-V: KVM: Implement SBI PMU Snapshot feature")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zongmin Zhou <zhouzongmin@kylinos.cn>
+---
+ arch/riscv/kvm/vcpu_pmu.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index 752f1014d633e7d67f69c27b72088ed560c187ac..14f73490f12cbc5a8547859f0d1bb1170d89403b 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -454,6 +454,14 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
+ 		}
+ 	}
+ 
++	/*
++	 * Clear any previously installed snapshot area to avoid leaking
++	 * the old sdata and to keep sdata/snapshot_addr consistent if
++	 * the re-install fails below.
++	 */
++	if (kvpmu->snapshot_addr != INVALID_GPA)
++		kvm_pmu_clear_snapshot_area(vcpu);
++
+ 	kvpmu->sdata = kzalloc(snapshot_area_size, GFP_ATOMIC | __GFP_ACCOUNT);
+ 	if (!kvpmu->sdata) {
+ 		sbiret = SBI_ERR_FAILURE;
 -- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+2.34.1
+
+
+No virus found
+		Checked by Hillstone Network AntiVirus
+
 
 _______________________________________________
 linux-riscv mailing list
