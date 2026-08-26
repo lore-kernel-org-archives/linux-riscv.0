@@ -4,73 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EFCC982D0
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D12DC982D7
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1P9Ecr/2ne/vBJDGgywkeZHgHfe4ayX9eW5yCnk+Lmk=; b=meqVHs3Z5JOOuQ
-	arOeaoB3w+lY7NO/NPzBSaxiDRxnulTb7YOuTiGseZvC1JwhlWqXGc1gAer0WEtOQsC/gt04A2kML
-	2YqtdUNB4FiwH1vfU6zF1Bt73olXPt5P3GyMRUz/ULXLLrJUfplIThU6Vs1eFnEus5ykZyYN3WKUn
-	fXVupx515tM90wdhXh9Fl+9BPTuYajBJ4xYXRNjpXztmr7f5Slsc7ScB52jS3UwezLmTXofQSIe06
-	15YSWa7YfG5JvWmdqLMPIDH/9ZoN8ow/mx8ruIPnsr49BO2RrrlZ3l4V5qeM27FmSgCL54MA8sOTV
-	pFSE00gPgQxetvUIgSjg==;
+	List-Owner; bh=KSKRC+YyadULItoNzmEl+6vhfzW2sbbpKMhOxd2ewFU=; b=4bCKMrWHbh2VTx
+	M2Rx2kyuU0sWG5UmkQNzg+b/W66S0U5diSxaU7DuPFT1nCRJZecLiO9qfXxHStoFhBOf/s3LA3/nA
+	f87KzHKmVw06h/8mvExplENJrDzJ9kIxqdvLjznBBi5QdurHbNjoEjW6bjZgeyyQqLuvBgSsd0Kzf
+	hMDuzN6sx2ntN4HBCFlquTr02vw+i9D7YiIZjKGOVKWT9zzS4O/G0YK99qrr1Je7DpA61Q6vssfs+
+	8UfTohEU3pTJXCy7sKolNTRJsLqItV7WrgVkU4hgT28lMxoS4fnVB9zKM5WYrq2aZ5EZcviIGs9vA
+	w+RBqZ6VU75UsFJNV6rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Lft-0000000CoAI-2EdG;
-	Thu, 17 Sep 2026 23:37:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7Lfq-0000000Cnzo-0bXL;
+	Thu, 17 Sep 2026 23:37:50 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42J1-0000000AB7k-2rWw;
-	Tue, 08 Sep 2026 20:20:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2640240783;
-	Tue,  8 Sep 2026 20:20:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1D361F00A3A;
-	Tue,  8 Sep 2026 20:20:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788898834;
-	bh=6Y+9oL/ecFCyRQAjQwMJw2Dhtd7MvaAf0ZcM9wqOIa0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=eteeMNKc3bw5QkqTCjME8KE/Uo8s2RLyCENbyObJd2//uesYBzeHpd/cO37Et3mhn
-	 thzmodv6/i2aGrGFSbw89amq+CWgseY/mmVtI0zmwvdreMnFrCbwqLNlue7sPdj1R7
-	 Z34dWA2QwPoLDzixr3Eiz6+B4srecPcGlaJqf9wWYAfMosuMrbyKnTPTVnpq2XrCWo
-	 bRGY31fGM141IHku+T4a34VBQe4FOHg1Rnf/hbwasgK2dPjZk3Ny60O/wZyZiUoop5
-	 UeUj7G663kAFRujAPTaMXvmzB0Beg6DqPVIImfITZf6U8YRqwZGceyJzNvetmoKRbr
-	 ul2q/MJvHIHkg==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 08 Sep 2026 21:01:42 +0100
-Subject: [PATCH 38/39] mm/huge_memory: remove vma_is_special_huge()
+	id 1wzCnG-00000002R7u-0m47
+	for linux-riscv@lists.infradead.org;
+	Wed, 26 Aug 2026 12:31:51 +0000
+Received: from localhost.localdomain (unknown [IPv6:2a07:de40:b2bf:2b::1244])
+	by smtp-out1.suse.de (Postfix) with ESMTP id 3DB3F87356;
+	Wed, 26 Aug 2026 12:31:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1787747502; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=w60MUEPPZZbvYy8QQ4yVOi1L7uwwFMmDPTTTaGxo5h4=;
+	b=JjO/JJpb/8Wfqqzx1cI/6gFvp/xzHc80uqkN+i567O1EAgIE/vCtToER7AF+ibCVPRuMo1
+	c/D11PLEAnKdQk+K6dUUmUxIjhDLlLuLE60AxWIXQelP2RaSOUwrCzSgw64BBWTgZ3SV4q
+	5BzNofWMjyjRt1Ab0SQwFK9IDzNuEOU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1787747502;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=w60MUEPPZZbvYy8QQ4yVOi1L7uwwFMmDPTTTaGxo5h4=;
+	b=rtXoyWTPDMbXjHFu72LfrYZfl3rQD0tGHtgtWs9ZNyb2EHMybfJJtBB2DU73UPzFx/cSkG
+	4RhNvCY2lDg5EAAw==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=s6YMpsXp;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=3rRqRllx
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1787747498; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=w60MUEPPZZbvYy8QQ4yVOi1L7uwwFMmDPTTTaGxo5h4=;
+	b=s6YMpsXpEULDXFWfejACdaOtBcEISjW86Qjl/fsLX0v1jtNQU909v0FRQr7cv7SXMHTJsK
+	DoP7FjtGvhh6w/fhDMxYd69bYj4FZBAPAX5+UGz1vfYOk+LVqOQvr8e1vTS9dzj/mv7s1O
+	H1fzEdHnk0Nf9e9N38edioAkOQCLRRQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1787747498;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=w60MUEPPZZbvYy8QQ4yVOi1L7uwwFMmDPTTTaGxo5h4=;
+	b=3rRqRllxzJU+Zcuc3dcoMsc4W3ek9SN9J8rJlIeAFVIFPQdbNuT/Lv1xx5XECDSbMPAkZ7
+	yaJNiGm38NjtwFBw==
 MIME-Version: 1.0
-Message-Id: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-38-dacf19cce22b@kernel.org>
-References: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-0-dacf19cce22b@kernel.org>
-In-Reply-To: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-0-dacf19cce22b@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, 
- linux-rdma@vger.kernel.org, selinux@vger.kernel.org, 
- linux-sound@vger.kernel.org, bpf@vger.kernel.org, 
- linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, 
- linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, 
- linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
- fuse-devel@lists.linux.dev, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2897; i=ljs@kernel.org;
- h=from:subject:message-id; bh=eRGK0143iN6Vv+TT1St3Vl71ux9hqcMzpEC9J57eqcY=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIWZG7XWRi9RuG+pETo53V7Fhdk3mF2NtrLvDrokHWNq
- NkU90eLOkpZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCRroMM//0Lq+dITJUQzZ7w
- 8MIdjYzvs/MkOc1yJn7osrnqlWQ/153hn4Ly5Es+Rp7THqc8Xm6hUqr3uH2hKr/mvG1pfRI7V7w
- J5AYA
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
-X-Mailman-Approved-At: Thu, 17 Sep 2026 16:37:27 -0700
+Subject: Re: [PATCH v5 7/7] selftests/livepatch: Add RISC-V syscall wrapper
+ prefix
+From: Miroslav Benes <mbenes@suse.cz>
+To: Wang Han <wanghan@linux.alibaba.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ linux-riscv@lists.infradead.org, Oleg Nesterov <oleg@redhat.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+ Jiri Kosina <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>, 
+ Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, 
+ Shuah Khan <shuah@kernel.org>, oliver.yang@linux.alibaba.com, 
+ xueshuai@linux.alibaba.com, zhuo.song@linux.alibaba.com, 
+ jkchen@linux.alibaba.com, Marcos Paulo de Souza <mpdesouza@suse.com>, 
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, live-patching@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org
+In-Reply-To: <20260804103626.2803112-8-wanghan@linux.alibaba.com>
+References: <20260804103626.2803112-1-wanghan@linux.alibaba.com>
+ <20260804103626.2803112-8-wanghan@linux.alibaba.com>
+Date: Wed, 26 Aug 2026 14:31:33 +0200
+Message-Id: <178774749311.159175.197938017149793901.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=520; i=mbenes@suse.cz;
+ h=from:subject:message-id; bh=3R4U9U3LOQcVPjm8gFeqKN8zymsv4hvRyJVxXwif1qk=;
+ b=owGbwMvMwMHYWJt9x2W1tA7jabUkhqy+O8vnqEukLZkoF3nULnnRwzVdzxet08tb2n/u//Pji
+ 2wC5VqrOhn9WRgYORgsxRRZXu91ljOckmugWf3uLswgViaQKdIiDQxAwMLAl5uYV2qkY6Rnqm2o
+ Zwhk6BgxcHEKwFQbsLH/09PfUWOQGdS2gvPIl4Rjuw2KWK/fMVqQmM7AP0lpzq8wXs5P6pY7Zz5
+ tjtj3I9xqsdgaSUZW+8UM1mptHiXXmJzbJM92B32433rv1/SLy0Md/s5zUyp7trZLJapBcOX65/
+ uklsmmr2/br77B3tvv+Ox3aS832wTEMx5OZjI9XKRzxaiENduL/bVNlYxcktR8K3tHq+D69dvKD
+ jbtfF11Q367uri1zpzaD1NmVsZr7jwaWWTZfuZ8m+NLkz8sVsdetPNHKH0Q2Nhy5Ijt13eXQ7Im
+ tdmdMV52X4Vtqf7itIk1q9UltnzwYbx5/kX933kajNOrrl2cd+aPqIdMdM+/jAP/xJ4ve3Dj4Me
+ gkk5JAA==
+X-Developer-Key: i=mbenes@suse.cz; a=openpgp;
+ fpr=91BB0699882EF39D46654BB3FF98A38DA80834DA
+X-Spamd-Result: default: False [17.40 / 50.00];
+	SPAM_FLAG(5.00)[];
+	NEURAL_SPAM_LONG(3.50)[1.000];
+	HFILTER_HELO_5(3.00)[localhost.localdomain];
+	NEURAL_SPAM_SHORT(3.00)[0.999];
+	BAYES_HAM(-2.99)[99.96%];
+	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
+	RDNS_NONE(2.00)[];
+	ONCE_RECEIVED(1.20)[];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCPT_COUNT_TWELVE(0.00)[35];
+	ARC_NA(0.00)[];
+	DIRECT_TO_MX(0.00)[b4 0.17-dev];
+	MIME_TRACE(0.00)[0:+];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b2bf:2b::1244:from];
+	R_RATELIMIT(0.00)[to_ip_from(RLsioq18c1iinsph8nfbxhofki)];
+	RCVD_COUNT_ZERO(0.00)[0];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:email,suse.cz:dkim]
+X-Spamd-Bar: +++++++++++++++++
+X-Rspamd-Queue-Id: 3DB3F87356
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: add header
+X-Spam: Yes
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260826_053150_531632_76D669C7 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
+X-Mailman-Approved-At: Thu, 17 Sep 2026 16:37:31 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,86 +165,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-vma_is_special_huge() tests whether either the VMA_PFNMAP_BIT or
-VMA_MIXEDMAP_BIT is set (i.e. whether the VMA is a kernel-owned mapping),
-but with a DAX carve-out.
+On Tue, 04 Aug 2026 18:36:26 +0800, Wang Han <wanghan@linux.alibaba.com> wrote:
+> The syscall livepatch selftest resolves and patches a syscall wrapper
+> symbol. To use that test for RISC-V livepatch validation, add the
+> RISC-V FN_PREFIX definition for ARCH_HAS_SYSCALL_WRAPPER.
+> 
+> Without this macro, the syscall livepatch selftest cannot resolve the
+> RISC-V target symbol, and the syscall-related livepatch test fails on
+> RISC-V.
+> 
+> [...]
 
-DAX however no longer sets VMA_MIXEDMAP_BIT, so this carve-out is no longer
-required.
-
-Therefore test for vma_is_kernel_owned() instead and also drop the
-VMA_IO_BIT check, as it is now redundant since it is enforced that only
-kernel-owned mappings can set this flag.
-
-This also eliminates another overloaded use of 'special' within mm.
-
-No functional change intended.
-
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- mm/huge_memory.c | 18 ++++--------------
- 1 file changed, 4 insertions(+), 14 deletions(-)
-
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index cf6c50e531f5..1ec1cd970ce6 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -110,14 +110,6 @@ static inline bool file_thp_enabled(const struct vm_area_struct *vma)
- 	return S_ISREG(inode->i_mode);
- }
- 
--/* If returns true, we are unable to access the VMA's folios. */
--static bool vma_is_special_huge(const struct vm_area_struct *vma)
--{
--	if (vma_is_dax(vma))
--		return false;
--	return vma_test_any(vma, VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT);
--}
--
- static bool vma_file_bypass_thp_tuneables(const struct vm_area_struct *vma,
- 		enum tva_type type)
- {
-@@ -192,7 +184,7 @@ unsigned long __thp_vma_allowable_orders(struct vm_area_struct *vma,
- 	/* Check the intersection of requested and supported orders. */
- 	if (vma_is_anonymous(vma))
- 		supported_orders = THP_ORDERS_ALL_ANON;
--	else if (vma_is_dax(vma) || vma_is_special_huge(vma))
-+	else if (vma_is_dax(vma) || vma_is_kernel_owned(vma))
- 		supported_orders = THP_ORDERS_ALL_SPECIAL_DAX;
- 	else
- 		supported_orders = THP_ORDERS_ALL_FILE_DEFAULT;
-@@ -3065,7 +3057,7 @@ int zap_huge_pud(struct mmu_gather *tlb, struct vm_area_struct *vma,
- 	orig_pud = pudp_huge_get_and_clear_full(vma, addr, pud, tlb->fullmm);
- 	arch_check_zapped_pud(vma, orig_pud);
- 	tlb_remove_pud_tlb_entry(tlb, pud, addr);
--	if (vma_is_special_huge(vma)) {
-+	if (vma_is_kernel_owned(vma)) {
- 		spin_unlock(ptl);
- 		/* No zero page support yet */
- 	} else {
-@@ -3221,7 +3213,7 @@ static void __split_huge_pmd_locked(struct vm_area_struct *vma, pmd_t *pmd,
- 		 */
- 		if (arch_needs_pgtable_deposit())
- 			zap_deposited_table(mm, pmd);
--		if (vma_is_special_huge(vma))
-+		if (vma_is_kernel_owned(vma))
- 			return;
- 		if (unlikely(pmd_is_migration_entry(old_pmd))) {
- 			const softleaf_t old_entry = softleaf_from_pmd(old_pmd);
-@@ -4750,9 +4742,7 @@ static inline bool vma_not_suitable_for_thp_split(struct vm_area_struct *vma)
- {
- 	if (vma_is_dax(vma))
- 		return true;
--	if (vma_is_special_huge(vma))
--		return true;
--	if (vma_test(vma, VMA_IO_BIT))
-+	if (vma_is_kernel_owned(vma))
- 		return true;
- 	if (vma_is_hugetlb(vma))
- 		return true;
+Acked-by: Miroslav Benes <mbenes@suse.cz>
 
 -- 
-2.55.0
+Miroslav
 
 
 _______________________________________________
