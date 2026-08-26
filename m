@@ -4,45 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBF6C61DBD
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 08:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED3EC61DC2
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2026 08:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Mime-Version:Message-Id:
-	Subject:Cc:In-Reply-To:To:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:From:Message-Id:Cc:In-Reply-To:
+	Mime-Version:Date:References:To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hh1lM8yiu65EAAtPaqCZpV43TqaGfDuIwqGfQiIhaBw=; b=t7CJFsrSRA+g4L
-	1u4zyDzVMPO+YdpyfRliPGzwslA1c3KNm9oZCaLSFau9VUVhmL16GjwmCQ5PjlgApWW4vEQveUNOB
-	E8S0Fu66Q0LnkO4TSLOrNu/pJUwdDcroEBuVhRwUSpgsF3PSH+y/1+wlU1s1W+pHb8CINi/1NUdzA
-	JpqFlJnjXHuO1ew1wislcMbdZ/Q/Gm4SpnbURMvlXHkCebNWintQqbIhFnStuR8nBlZVOtQFlysgB
-	TTs4XsqeUpKxZX4bWf5D1G5ykuJKRQsiVDgMWU+NW6RIhdfNVk1hKOKVC1+Uk52vMC5HGkKYpmLhw
-	VCjM479r8XIjyGTlWTAg==;
+	List-Owner; bh=WSEoJLXuZD7LoTtNYesENskvRYNL1ndjmaRW6DFKV6c=; b=DQkh/nLGSdCqdv
+	aWEJmiSprLf/Lfup6lVNCSaVwdfXn9CYhJOanam+GJoprqdYEteyHvNe8IwmfCI2QgTSYk61BfElP
+	36DdkmsZvbid4/UFkKnCLBIL9fgwPqTj9mFKBv0Mw6AesPlkSJfrNhtSobrp76Tgg18mHnQHBVtqE
+	wdRfBxX6limstQkODEYY6iBfKx/e/5cFgMARxw1HGn/r9L12jEJf8yANFPQ0nEbwJD9kZNKW8tL9J
+	TztSo51/MpwUE3LR+f25TvDMAcToDsF9BHb5n4v8yAd4rs9/GZPV8e+ID59dwlruSHu3GwSSwx5p4
+	wl5S2NsPKeQQcn/G+F8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz8zV-00000002648-3mh8;
-	Wed, 26 Aug 2026 08:28:13 +0000
-Received: from va-2-27.ptr.blmpb.com ([209.127.231.27])
+	id 1wz90y-000000026Gi-0pdo;
+	Wed, 26 Aug 2026 08:29:44 +0000
+Received: from va-2-38.ptr.blmpb.com ([209.127.231.38])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz8zS-0000000262Y-40fD
+	id 1wz90w-000000026GO-0E54
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Aug 2026 08:28:12 +0000
+	Wed, 26 Aug 2026 08:29:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1787732884; h=from:subject:
+ s=feishu2604151535; d=picoheart.com; t=1787732977; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=WO2BCPR/8KRc3BQ0bllOBFiz4a3Wu8hjsL+uVPJ43H0=;
- b=cjxigXgoFshAdg/FsFq5QxJvEAmtFVtNRaIeLnMk/lDf9xESOBFx53e7q9VG1hAfUWA67F
- LIhiDLOAfB0BRTsbNAEFnDbHMwXACfUSIo8TSlDXSx4NeR81cUfGXj57y4lv7hGYEhxg+1
- Ybc79CQ+BNGLhPrwNPAGv6Ohbx/vl+O3uj4HXy0u0S0SwCT8siOBzMJVfnl6/JkIcnlYFu
- vggEB2cCSqJYIpeLUWTohFOWXMHO3ln+QnX6PuTddSNDL/KW62rEp4cqvS+p+iR7qkyK16
- 7GfDqrCEIrhku8t2kjmFVYYdkvLinndlEBlIOC6h1vGOwKDMiszLJ/zIe8Tmjg==
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Date: Wed, 26 Aug 2026 16:27:52 +0800
-Received: from [100.86.213.231] ([61.141.241.110]) by smtp.feishu.cn with ESMTPS; Wed, 26 Aug 2026 16:27:55 +0800
+ bh=HzdH8nsqTysaIedViXV7Z9XxXF8cCq89j3KqpBDmv5o=;
+ b=i/FoCy0UAYSWhTFfxs4N+tQYdKiEKIY7Q02+ElGjQpppoKorysZHuM/wZzTKvDGJlTwsQD
+ gpcvWi9G03LE0c3fmAJ26EigOLdmXwIaJCjSwYxg9vnqM1KybIwSk0a7N4AL4nwS7LABIG
+ HmCrh3zSADnjQIGMfetSrdcuub5/d99/6JJ34wMGeFksypuJ00j2mr3CvAcKPjuG/1fitV
+ N55d4CjhOYxNg1FlfDsYCAwnk/KfGfbHXDDmZtJxyxHufXJUjWs/U1Pu6bOegDXe24Zlbs
+ ITW32ET/zVsrRW+j6LWlveRC/+n0tnxiYhLbSyg6+tVtwOaHjZHhmCvFzRlkEg==
 To: "Zong Li" <zong.li@sifive.com>
-In-Reply-To: <20260824022034.3916570-2-zong.li@sifive.com>
+References: <20260824022034.3916570-1-zong.li@sifive.com> <20260824022034.3916570-3-zong.li@sifive.com>
+User-Agent: Mozilla Thunderbird
+X-Lms-Return-Path: <lba+26a8ea3ef+cb7676+lists.infradead.org+yang.yicong@picoheart.com>
+Date: Wed, 26 Aug 2026 16:29:30 +0800
+Mime-Version: 1.0
 Content-Language: en-US
+In-Reply-To: <20260824022034.3916570-3-zong.li@sifive.com>
 Cc: <tomasz.jeznach@linux.dev>, <joro@8bytes.org>, <will@kernel.org>, 
 	<robin.murphy@arm.com>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
 	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <mark.rutland@arm.com>, 
@@ -51,17 +53,16 @@ Cc: <tomasz.jeznach@linux.dev>, <joro@8bytes.org>, <will@kernel.org>,
 	<iommu@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
 	<linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>, 
 	<yang.yicong@picoheart.com>, "Chen Pei" <cp0613@linux.alibaba.com>, 
-	"Fangyu Yu" <fangyu.yu@linux.alibaba.com>
+	"Fangyu Yu" <fangyu.yu@linux.alibaba.com>, 
+	"Samuel Holland" <samuel.holland@sifive.com>
+Message-Id: <612d401c-2543-44aa-8b16-9f571432a788@picoheart.com>
 X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-X-Lms-Return-Path: <lba+26a8ea38c+82e7f8+lists.infradead.org+yang.yicong@picoheart.com>
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/2] drivers/perf: riscv-iommu: add risc-v iommu pmu driver
-Message-Id: <ab59c5b8-2915-4d59-8766-7a6297224494@picoheart.com>
-Mime-Version: 1.0
-References: <20260824022034.3916570-1-zong.li@sifive.com> <20260824022034.3916570-2-zong.li@sifive.com>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Subject: Re: [PATCH v6 2/2] iommu/riscv: create a auxiliary device for HPM
+Received: from [100.86.213.231] ([120.234.91.234]) by smtp.feishu.cn with ESMTPS; Wed, 26 Aug 2026 16:29:33 +0800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_012811_213683_960DC672 
-X-CRM114-Status: GOOD (  32.30  )
+X-CRM114-CacheID: sfid-20260826_012942_167570_5CD9E299 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,235 +80,103 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 8/24/26 10:20 AM, Zong Li wrote:
-> Add a new driver to support the RISC-V IOMMU PMU. This is an auxiliary
-> device driver created by the parent RISC-V IOMMU driver.
-> 
-> The performance monitor provides counters with filtering support to
-> collect events for specific device ID/process ID, or GSCID/PSCID.
-> 
-> The RISC-V IOMMU PMU separates the cycle counter from the event counters.
-> The cycle counter is not associated with iohpmevt0, so a software-defined
-> cycle event is required for the perf subsystem.
-> 
-> The number and width of the counters are hardware-implemented and must
-> be detected at runtime.
-> 
-> Leave out all the dead cleanup code (i.e. .remove() operation) if the
-> PMU driver is tied to the IOMMU driver and can never realistically be
-> removed.
-> 
-> PMU-related definitions are moved into the perf driver, where they are
-> used exclusively.
-> 
-> According to RISC-V IOMMU specification Chapter 6:
-> Whether an 8 byte access to an IOMMU register is single-copy atomic is
-> UNSPECIFIED. Use two separate 4 byte accesses for hardware
-> compatibility.
+> Create an auxiliary device for HPM when the IOMMU supports a
+> hardware performance monitor.
 > 
 > Tested-by: Chen Pei <cp0613@linux.alibaba.com>
 > Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-> Reviewed-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
-> Suggested-by: David Laight <david.laight.linux@gmail.com>
-> Suggested-by: Guo Ren <guoren@kernel.org>
-> Link: https://lore.kernel.org/linux-riscv/20260618143634.7f3dd6c5@pumpkin/
+> Reviewed-by: Guo Ren <guoren@kernel.org>
+> Suggested-by: Samuel Holland <samuel.holland@sifive.com>
 > Signed-off-by: Zong Li <zong.li@sifive.com>
-> ---
->  drivers/iommu/riscv/iommu-bits.h |  61 ---
->  drivers/perf/Kconfig             |  12 +
->  drivers/perf/Makefile            |   1 +
->  drivers/perf/riscv_iommu_pmu.c   | 813 +++++++++++++++++++++++++++++++
->  4 files changed, 826 insertions(+), 61 deletions(-)
->  create mode 100644 drivers/perf/riscv_iommu_pmu.c
-> 
-
-[...]
-
-> +
-> +/* cpumask */
-> +static ssize_t riscv_iommu_cpumask_show(struct device *dev,
-> +					struct device_attribute *attr,
-> +					char *buf)
-> +{
-> +	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(dev_get_drvdata(dev));
-> +
-> +	return cpumap_print_to_pagebuf(true, buf, cpumask_of(pmu->on_cpu));
-
-needs to use sysfs_emit(), cpumap_print_to_pagebuf is removed in 7.3-rc
-
-https://lore.kernel.org/lkml/20260702154725.185376-1-ynorov@nvidia.com/
-
-> +}
-> +
-
-[...]
-
-> +
-> +static int riscv_iommu_pmu_probe(struct auxiliary_device *auxdev,
-> +				 const struct auxiliary_device_id *id)
-> +{
-> +	struct  riscv_iommu_device *iommu_dev = dev_get_platdata(&auxdev->dev);
-> +	struct riscv_iommu_pmu *iommu_pmu;
-> +	void __iomem *addr;
-> +	char *name;
-> +	int ret;
-> +
-> +	iommu_pmu = devm_kzalloc(&auxdev->dev, sizeof(*iommu_pmu), GFP_KERNEL);
-> +	if (!iommu_pmu)
-> +		return -ENOMEM;
-> +
-> +	iommu_pmu->reg = iommu_dev->reg;
-> +
-> +	/*
-> +	 * Counter number and width are hardware-implemented.
-> +	 * Detect them by write 1s. Counter should be consecutive.
-> +	 */
-> +	addr = iommu_pmu->reg + RISCV_IOMMU_REG_IOCOUNTINH;
-> +	writel(RISCV_IOMMU_IOCOUNTINH_HPM, addr);
-> +	iommu_pmu->num_counters = hweight32(readl(addr));
-> +
-> +	addr = iommu_pmu->reg + RISCV_IOMMU_REG_IOHPMCYCLES;
-> +	riscv_iommu_pmu_writeq(RISCV_IOMMU_IOHPMCYCLES_COUNTER, addr);
-> +	iommu_pmu->cycle_cntr_mask = riscv_iommu_pmu_readq(addr);
-> +
-> +	/* Assume the width of all event counters are the same */
-> +	addr = iommu_pmu->reg + RISCV_IOMMU_REG_IOHPMCTR_BASE;
-> +	riscv_iommu_pmu_writeq(RISCV_IOMMU_IOHPMCTR_COUNTER, addr);
-> +	iommu_pmu->event_cntr_mask = riscv_iommu_pmu_readq(addr);
-> +
-> +	iommu_pmu->pmu = (struct pmu) {
-> +		.module		= THIS_MODULE,
-> +		.parent		= &auxdev->dev,
-> +		.task_ctx_nr	= perf_invalid_context,
-> +		.event_init	= riscv_iommu_pmu_event_init,
-> +		.add		= riscv_iommu_pmu_add,
-> +		.del		= riscv_iommu_pmu_del,
-> +		.start		= riscv_iommu_pmu_start,
-> +		.stop		= riscv_iommu_pmu_stop,
-> +		.read		= riscv_iommu_pmu_read,
-> +		.attr_groups	= riscv_iommu_pmu_attr_grps,
-> +		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
-> +	};
-> +
-> +	auxiliary_set_drvdata(auxdev, iommu_pmu);
-> +
-> +	name = devm_kasprintf(&auxdev->dev, GFP_KERNEL,
-> +			      "riscv_iommu_pmu_%u", auxdev->id);
-> +	if (!name) {
-> +		dev_err(&auxdev->dev, "Failed to create name riscv_iommu_pmu%u\n",
-> +			auxdev->id);
-> +		return -ENOMEM;
-> +	}
-> +
-> +	iommu_pmu->numa_node = dev_to_node(iommu_dev->dev);
-> +	iommu_pmu->irq = riscv_iommu_pmu_get_irq_num(iommu_dev);
-> +
-> +	ret = riscv_iommu_pmu_request_irq(auxdev, iommu_dev, iommu_pmu);
-> +	if (ret) {
-> +		dev_err(&auxdev->dev, "Failed to request irq %s: %d\n", name, ret);
-> +		return ret;
-> +	}
-> +
-> +	/*
-> +	 * Bind all events to the same cpu context to avoid race enabling.
-> +	 * Pick a local CPU from the numa node of this iommu for the locality.
-> +	 *
-> +	 * Hold the hotplug lock until this instance is registered, otherwise
-> +	 * the CPU picked here could go offline in between. The teardown
-> +	 * callback does not run for an instance which is not registered yet,
-> +	 * so nothing would move the PMU off that CPU afterwards.
-> +	 */
-> +	cpus_read_lock();
-> +
-> +	iommu_pmu->on_cpu = cpumask_local_spread(0, iommu_pmu->numa_node);
-> +	ret = irq_set_affinity(iommu_pmu->irq, cpumask_of(iommu_pmu->on_cpu));
-> +	if (ret)
-> +		dev_dbg(&auxdev->dev, "failed to set irq %u affinity to cpu %u: %d\n",
-> +			iommu_pmu->irq, iommu_pmu->on_cpu, ret);
-> +
-> +	ret = cpuhp_state_add_instance_nocalls_cpuslocked(cpuhp_state,
-> +							 &iommu_pmu->node);
-> +
-> +	cpus_read_unlock();
-
-it could be simplified to init the ->on_cpu in the hotplug handler without
-holding the cpu hotplug lock like below:
-
-iommu_pmu->on_cpu = -1;
-ret = cpuhp_state_add_instance() /* init the ->on_cpu in the hotplug handler */
-
-otherwise looks good to me.
 
 Reviewed-by: Yicong Yang <yang.yicong@picoheart.com>
 
+> ---
+>  drivers/iommu/riscv/Kconfig |  1 +
+>  drivers/iommu/riscv/iommu.c | 37 +++++++++++++++++++++++++++++++++++++
+>  2 files changed, 38 insertions(+)
+> 
+> diff --git a/drivers/iommu/riscv/Kconfig b/drivers/iommu/riscv/Kconfig
+> index b86e5ab94183..8025bf0fb67f 100644
+> --- a/drivers/iommu/riscv/Kconfig
+> +++ b/drivers/iommu/riscv/Kconfig
+> @@ -10,6 +10,7 @@ config RISCV_IOMMU
+>  	select GENERIC_PT
+>  	select IOMMU_PT
+>  	select IOMMU_PT_RISCV64
+> +	select AUXILIARY_BUS
+>  	help
+>  	  Support for implementations of the RISC-V IOMMU architecture that
+>  	  complements the RISC-V MMU capabilities, providing similar address
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index cec3ddd7ab10..7f619971bb70 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -14,6 +14,7 @@
+>  
+>  #include <linux/acpi.h>
+>  #include <linux/acpi_rimt.h>
+> +#include <linux/auxiliary_bus.h>
+>  #include <linux/compiler.h>
+>  #include <linux/crash_dump.h>
+>  #include <linux/init.h>
+> @@ -48,6 +49,9 @@
+>  static DEFINE_IDA(riscv_iommu_pscids);
+>  #define RISCV_IOMMU_MAX_PSCID		(BIT(20) - 1)
+>  
+> +/* IOMMU PMU auxiliary device id allocation namespace. */
+> +static DEFINE_IDA(riscv_iommu_pmu_ida);
 > +
-> +	if (ret) {
-> +		dev_err(&auxdev->dev, "Failed to register hotplug %s: %d\n", name, ret);
-> +		return ret;
-> +	}
+>  /* Device resource-managed allocations */
+>  struct riscv_iommu_devres {
+>  	void *addr;
+> @@ -565,6 +569,36 @@ static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
+>  	return IRQ_HANDLED;
+>  }
+>  
+> +/*
+> + * IOMMU Hardware performance monitor
+> + */
+> +static void riscv_iommu_pmu_id_free(void *data)
+> +{
+> +	ida_free(&riscv_iommu_pmu_ida, (unsigned long)data);
+> +}
 > +
-> +	ret = devm_add_action_or_reset(&auxdev->dev,
-> +				       riscv_iommu_pmu_remove_cpuhp_instance,
-> +				       iommu_pmu);
+> +static int riscv_iommu_hpm_enable(struct riscv_iommu_device *iommu)
+> +{
+> +	struct auxiliary_device *auxdev;
+> +	int id, ret;
+> +
+> +	id = ida_alloc(&riscv_iommu_pmu_ida, GFP_KERNEL);
+> +	if (id < 0)
+> +		return id;
+> +
+> +	ret = devm_add_action_or_reset(iommu->dev, riscv_iommu_pmu_id_free,
+> +				       (void *)(unsigned long)id);
 > +	if (ret)
 > +		return ret;
 > +
-> +	ret = perf_pmu_register(&iommu_pmu->pmu, name, -1);
-> +	if (ret) {
-> +		dev_err(&auxdev->dev, "Failed to registe %s: %d\n", name, ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = devm_add_action_or_reset(&auxdev->dev,
-> +				       riscv_iommu_pmu_do_unregister,
-> +				       iommu_pmu);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/*
-> +	 * The PMU name only carries the aux dev id, not the iommu dev name, so
-> +	 * find the iommu dev name here to map this PMU back to its iommu dev.
-> +	 */
-> +	dev_info(&auxdev->dev, "%s: Registered with %d counters (iommu %s)\n",
-> +		 name, iommu_pmu->num_counters, dev_name(iommu_dev->dev));
+> +	auxdev = __devm_auxiliary_device_create(iommu->dev, "riscv-iommu",
+> +						"pmu", iommu, id);
+> +	if (!auxdev)
+> +		return -ENODEV;
 > +
 > +	return 0;
 > +}
 > +
-> +static const struct auxiliary_device_id riscv_iommu_pmu_id_table[] = {
-> +	{ .name = "riscv-iommu.pmu" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(auxiliary, riscv_iommu_pmu_id_table);
+>  /* Lookup and initialize device context info structure. */
+>  static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
+>  						 unsigned int devid)
+> @@ -1613,6 +1647,9 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+>  		goto err_remove_sysfs;
+>  	}
+>  
+> +	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM)
+> +		riscv_iommu_hpm_enable(iommu);
 > +
-> +static struct auxiliary_driver iommu_pmu_driver = {
-> +	.driver = {
-> +		.suppress_bind_attrs = true,
-> +	},
-> +	.probe		= riscv_iommu_pmu_probe,
-> +	.id_table	= riscv_iommu_pmu_id_table,
-> +};
-> +
-> +static int __init riscv_iommu_pmu_init(void)
-> +{
-> +	int ret;
-> +
-> +	cpuhp_state = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
-> +					      "perf/riscv/iommu:online",
-> +					      riscv_iommu_pmu_online_cpu,
-> +					      riscv_iommu_pmu_offline_cpu);
-> +	if (cpuhp_state < 0)
-> +		return cpuhp_state;
-> +
-> +	ret = auxiliary_driver_register(&iommu_pmu_driver);
-> +	if (ret)
-> +		cpuhp_remove_multi_state(cpuhp_state);
-> +
-> +	return ret;
-> +}
-> +module_init(riscv_iommu_pmu_init);
-> +
-> +MODULE_DESCRIPTION("RISC-V IOMMU PMU");
-> +MODULE_LICENSE("GPL");
+>  	return 0;
+>  
+>  err_remove_sysfs:
 
 _______________________________________________
 linux-riscv mailing list
