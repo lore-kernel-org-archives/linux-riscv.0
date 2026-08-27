@@ -4,112 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A738C61DC4
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 14:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DFC4C61DC4
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 17:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QKJtxLhV9NHo48L+ivMkaqjt7el+RL8KeANu/77ZCPg=; b=nE00BkPOAkmkN5
-	aXT+XBF1LIOsNgDwwyoHWqdZKtVukaQoOVlg7XD+kNWurlIsF1TKkE4dRL/2cNYFPkjMhonLYCoMR
-	ynYVjNMaA/dkAvTmVdERdqOcCMWG//V+zxbnTyFEROkTFkHaJlmV/fImWZKoh1Pei0YC3QyI3GM8e
-	kFwCW+dREXZ5NxmNKtqEW8u6KZIpP/FsGALRnoTRG0fGoN+1IBiulmDxxI2Ys+5BGWSjNJ/Pn7A9l
-	nwGV1KZUQCGhCkm5V/chkQSUg20k3zTkzxdbPGEmVKNHDXYoq//K55IQ5T9FLGgl2hdVEpSMNVU2q
-	9Lo/4qVxHcM+6bsDb0Tg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N1cXLHUK01lxNvf0yf/Fzn+UI6V5XdkWFfoItBGXwTI=; b=WFDxFB7eR5ZXDpSzeUpI1VLTko
+	0VO2Jwb2/jV/KeopbboErpqKbeyvEjOVGHs4teUBHvtD6EMe4uqZtu0t+HBqADu/ul/7m2sz5yvHc
+	LD7laqBgsiP+tcHrV2EOc1Nt8VEDdPDYypHx9jWMnih72GbkudR59VEa3yHSL0g/Co0YwzUqJIGcq
+	D71RVJ8wLRVsKm9vUgaFeQAqiwBs6ShKzpFxNbqWKCmiVRBtn9awKttwV/fXJLV/66Xn9h9GuElUk
+	WNZq5TIzuFxa7k7JDec2TJ6woF5HR+A4QxKoFI80xKpVNrcvAKEumEhoznRGPWPhqpzwaCeTkMdaa
+	IBMG3Czg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzbLx-00000004Bm6-2ljX;
-	Thu, 27 Aug 2026 14:45:17 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wzdgL-00000004R4G-0Ruc;
+	Thu, 27 Aug 2026 17:14:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzbLt-00000004BlQ-0xwk;
-	Thu, 27 Aug 2026 14:45:16 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67REVxiP3333991;
-	Thu, 27 Aug 2026 14:45:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pp1; bh=9Wsdf8rVeG8RWU3k0TB6qxezFClQPADVajE5uS5jr
-	FU=; b=K1kUxPgLYOP1BZT45K3gVMptFc+QZVJSTvqyRbbeqRuOE0ZW14Ebjevcz
-	PkhQOi3MJUCnPAf8FlbSSq2gJeWWeu++0vwJlHYLI9Q6bwoospjVQT2XoSjGHtTU
-	Eimr0l33CMDErEIHdBIV/PpT0PJmXw0/gPO4ywFy6ly3d4NiR3vMYRRowtatbmrr
-	aWdAMk9DjzgA7Rcm5EgFAIfUvXZsKYBW12fP4QDxHZz2BFHLLQXfxnzyLLPnERCR
-	vr3A8YSiK6DrkxqV81QJchBY3wjSFM0OvcfkVd0nBHOccEgrL8zCwraAC1ZlYNZp
-	COeVMLQyJgJkeuaimlGv22x4jKvcQ==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4g73dxnn5g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 27 Aug 2026 14:45:04 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67REfF4O026300;
-	Thu, 27 Aug 2026 14:45:04 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4g7rsygasf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 27 Aug 2026 14:45:03 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67REj2em37487042
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 27 Aug 2026 14:45:02 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 258A12004B;
-	Thu, 27 Aug 2026 14:45:02 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 73E7920040;
-	Thu, 27 Aug 2026 14:44:56 +0000 (GMT)
-Received: from li-4f5ba44c-27d4-11b2-a85c-a08f5b49eada.ibm.com.domain.name (unknown [9.67.160.40])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 27 Aug 2026 14:44:56 +0000 (GMT)
-From: Sourabh Jain <sourabhjain@linux.ibm.com>
-To: linux-kernel@vger.kernel.org
-Cc: Sourabh Jain <sourabhjain@linux.ibm.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Paul Walmsley <pjw@kernel.org>, Pratyush Yadav <pratyush@kernel.org>,
-        linux-riscv@lists.infradead.org, kexec@lists.infradead.org
-Subject: [PATCH] kexec_file: remove unused arch_kexec_locate_mem_hole hook
-Date: Thu, 27 Aug 2026 20:14:52 +0530
-Message-ID: <20260827144452.508328-1-sourabhjain@linux.ibm.com>
-X-Mailer: git-send-email 2.55.0
+	id 1wzdgK-00000004R3r-0zpb
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Aug 2026 17:14:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 959394064F;
+	Thu, 27 Aug 2026 17:14:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B6881F000E9;
+	Thu, 27 Aug 2026 17:14:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787850867;
+	bh=4lm/k56nr7IHGEr+v1yjkGgSAWBS975WgKpRUfju9b8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JCSVox6GL19a1MTaGMX1VoBUpxeEk51N0QWkSBIaHhujZm9iUPhOUm9Xgpbkd7JZE
+	 a3pL4vSkeI8SVuclpzWy452xIPJC/6fz4FQzcBhyDDfM1pIhBwFNAotSj2W5B2z7Qp
+	 S82CaLweYkZnhheouvTqSWOdOBcKQ88ir5fZuxzmRiNqhPXQ6OeuVCROsQAy85nIQG
+	 iwqGqpl61SDgQjqyiDF6nhCoNkPec6JITmHYh039Xu8xm/8q0zJV2RxsAx1BZS/BYy
+	 /eB/d9RgLwScRO9DvSiaNXdzYOIKF+nKaXhAa5x91SDuar5TmnX4JABSlzXWNypJWb
+	 ADT6YNf+Pwkcw==
+Date: Thu, 27 Aug 2026 18:14:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: "Ousherovitch, Alex" <aousherovitch@rambus.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	"Krishnamoorthy, Saravanakrishnan" <skrishnamoorthy@rambus.com>,
+	Shuah Khan <shuah@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"Wittenauer, Joel" <Joel.Wittenauer@cryptography.com>,
+	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	"Nguyen, Thi" <thin@rambus.com>
+Subject: Re: [PATCH v4 01/19] dt-bindings: crypto: add Rambus CryptoManager
+ Hub
+Message-ID: <20260827-crust-giddy-6888a52871a5@spud>
+References: <20260825221539.255951-1-aousherovitch@rambus.com>
+ <20260825221539.255951-2-aousherovitch@rambus.com>
+ <20260826-unwritten-marshland-47cdf3c17cad@spud>
+ <SA3PR04MB9001B48FBE7B7C3EB81C5338D7AD2@SA3PR04MB9001.namprd04.prod.outlook.com>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDEyMiBTYWx0ZWRfXy84UX2sXhnLT
- LaNtJyz+aF9qIImZWKYxb+r7rlmbGmQIil5i+oGlFlw1b1IUSmp2nZelsysTHq5Dk9d6uTnpgpd
- V6ufqUDaM75hzMTDTCmE5t0hrBuHR6Y=
-X-Authority-Analysis: v=2.4 cv=AYuB2XXG c=1 sm=1 tr=0 ts=6a904d70 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=RzCfie-kr_QcCd8fBx8p:22 a=Z4Rwk6OoAAAA:8 a=VwQbUJbxAAAA:8 a=_O3DOGVWAAAA:8
- a=7ipKWUHlAAAA:8 a=JfrnYn6hAAAA:8 a=VnNF1IyMAAAA:8 a=RFyrcEgT9I63OMj7VqIA:9
- a=HkZW87K1Qel5hWWM3VKY:22 a=2TKV-7w1aU1AVAwN0oqT:22 a=gpc5p9EgBqZVLdJeV_V1:22
- a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-ORIG-GUID: La38qUEpUZRLxheRuQ91YouAfAvZu4Kz
-X-Proofpoint-GUID: La38qUEpUZRLxheRuQ91YouAfAvZu4Kz
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDEyMiBTYWx0ZWRfX9uFIUwCD1ZsR
- hMFNu0gvVhiL6e2uEo8oTTVETLUBxFNVWFkrUG2fcRXH1u9GDVoZ9ZEZuFeKzF+b0b2VbE1QoIj
- 08ZpC8j3Uar9R0J+wRE/MQDivcmA0s4sL0A05P8dHYGZ4XpFMa5bwMbWll2VyHkp1y117NtHuJc
- XlSijr+5KDKXpaUj04Dr7/tEz7ohGAM4fG9ak6+q5K+U85aqLrDHUvxu7/jykAs8lVI5NhDPiYw
- iO6XG608zXp+X7SXW9pzDiXPzjWYmWMkHqZba4Bg3zUg2pU/r6zauHiOU/UY6N5gLG95VcFSrxT
- xIRMKkVqL2D5W7Oub8ykcBARuHHaTwn47BvrGx6gosqHE/VGM7p+t+sWjVhNIwA9y3ffk663ZFZ
- wETs83wfBC1jECRppsospXXsMbIjHHTsAf5CRJGPc7hMAWDPlliyDrjaINHBBT6uP1Bafu59r/j
- /RcM5YQm1ZD1OaR2fMw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-27_05,2026-08-27_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 clxscore=1011 adultscore=0 bulkscore=0
- impostorscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608270122
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_074515_425368_4637FDE1 
-X-CRM114-Status: GOOD (  16.31  )
+In-Reply-To: <SA3PR04MB9001B48FBE7B7C3EB81C5338D7AD2@SA3PR04MB9001.namprd04.prod.outlook.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,92 +84,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3382483211313197860=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-No architecture provides an implementation of
-arch_kexec_locate_mem_hole(). Use kexec_locate_mem_hole() directly
-and remove the unused fallback wrapper from the kexec header.
+--===============3382483211313197860==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fecVinCGlQpVGphf"
+Content-Disposition: inline
 
-This simplifies the kexec memory allocation path without changing
-its behavior.
+--fecVinCGlQpVGphf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Baoquan He <baoquan.he@linux.dev>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
-Cc: Paul Walmsley <pjw@kernel.org>
-Cc: Pratyush Yadav <pratyush@kernel.org>
-Cc: linux-riscv@lists.infradead.org
-Cc: kexec@lists.infradead.org
-Signed-off-by: Sourabh Jain <sourabhjain@linux.ibm.com>
----
- arch/riscv/kernel/kexec_elf.c |  2 +-
- include/linux/kexec.h         | 15 ---------------
- kernel/kexec_file.c           |  2 +-
- 3 files changed, 2 insertions(+), 17 deletions(-)
+On Thu, Aug 27, 2026 at 01:39:35AM +0000, Ousherovitch, Alex wrote:
+> On Wed, Aug 26, 2026 at 06:02:16PM +0100, Conor Dooley wrote:
+> > On Tue, Aug 25, 2026 at 03:15:20PM -0700, Alex Ousherovitch wrote:
+> > > +      command ABI).  A specific SoC integration should list its own
+> > > +      "<vendor>,<soc>-cmh" compatible first with "rambus,cmh-v1030" =
+as a
+> > > +      fallback; that extended form will be added when such a platfor=
+m is
+> > > +      upstreamed.
+> >
+> > This commentary should just not be here.
+> > Instead, do what's been done in sifive,clint.yaml for the clint2.
+>=20
+> Will do -- I'll drop the prose and model the compatible on sifive,clint2
+> so the schema itself requires an SoC-specific compatible ahead of the IP
+> fallback:
+>=20
+>     compatible:
+>       items:
+>         - {}
+>         - const: rambus,cmh-v1030
+>=20
+> Since that makes the two-item form the only valid one, I'll also move the
+> binding example (and our test DTs) to it, using a placeholder SoC-specific
+> compatible under the now-registered rambus prefix, e.g.
+>=20
+>     compatible =3D "rambus,<soc>-cmh", "rambus,cmh-v1030";
+>=20
+> and swap in the real "<vendor>,<soc>-cmh" string once the first integrati=
+ng
+> platform is upstreamed.
 
-diff --git a/arch/riscv/kernel/kexec_elf.c b/arch/riscv/kernel/kexec_elf.c
-index 3e9a32acb8f2..ca5abbad59e5 100644
---- a/arch/riscv/kernel/kexec_elf.c
-+++ b/arch/riscv/kernel/kexec_elf.c
-@@ -91,7 +91,7 @@ static int elf_find_pbase(struct kimage *image, unsigned long kernel_len,
- 	kbuf.memsz = ALIGN(kernel_len, PAGE_SIZE);
- 	kbuf.cma = NULL;
- 	kbuf.top_down = false;
--	ret = arch_kexec_locate_mem_hole(&kbuf);
-+	ret = kexec_locate_mem_hole(&kbuf);
- 	if (!ret) {
- 		*old_pbase = lowest_paddr;
- 		*new_pbase = kbuf.mem;
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index 0af8ae4fdd08..e5f1cfc11fef 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -259,21 +259,6 @@ int kexec_kernel_verify_pe_sig(const char *kernel, unsigned long kernel_len);
- extern int kexec_add_buffer(struct kexec_buf *kbuf);
- int kexec_locate_mem_hole(struct kexec_buf *kbuf);
- 
--#ifndef arch_kexec_locate_mem_hole
--/**
-- * arch_kexec_locate_mem_hole - Find free memory to place the segments.
-- * @kbuf:                       Parameters for the memory search.
-- *
-- * On success, kbuf->mem will have the start address of the memory region found.
-- *
-- * Return: 0 on success, negative errno on error.
-- */
--static inline int arch_kexec_locate_mem_hole(struct kexec_buf *kbuf)
--{
--	return kexec_locate_mem_hole(kbuf);
--}
--#endif
--
- #ifndef arch_kexec_apply_relocations_add
- /*
-  * arch_kexec_apply_relocations_add - apply relocations of type RELA
-diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-index 59fb9d71e9d8..9a981359addd 100644
---- a/kernel/kexec_file.c
-+++ b/kernel/kexec_file.c
-@@ -784,7 +784,7 @@ int kexec_add_buffer(struct kexec_buf *kbuf)
- 	kbuf->cma = NULL;
- 
- 	/* Walk the RAM ranges and allocate a suitable range for the buffer */
--	ret = arch_kexec_locate_mem_hole(kbuf);
-+	ret = kexec_locate_mem_hole(kbuf);
- 	if (ret)
- 		return ret;
- 
--- 
-2.55.0
+With the correct syntax, which I think the sifive example I copied from
+doesn't have, but
+Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+does, fake compatibles won't be permitted (and we would probably object
+to seeing them too). What we want is the binding to force people to use
+a soc-specific one to pass validation. Unfortunately this does mean you
+can't have an example because it won't pass the validation, which is
+annoying!
 
+>=20
+> > > +      rambus,cores:
+> > > +        $ref: /schemas/types.yaml#/definitions/uint32-array
+> > > +        items:
+> > > +          enum: [0x02, 0x03, 0x04, 0x05, 0x08, 0x09, 0x0a, 0x18]
+> > [...]
+> >
+> > You could just make this a string array, and then you'd not need this
+> > mapping of unintelligible hex values. Of course then your driver has to
+> > do it, but I'd rather see understandable (and portable, since a new
+> > revision could change the IDs) values in DT.
+>=20
+> Agreed, that's clearly better.  The next revision makes rambus,cores a
+> string array and maps the names to core IDs in the driver, so the
+> numbering can change across IP revisions without touching the DT:
+>=20
+>     rambus,cores:
+>       $ref: /schemas/types.yaml#/definitions/string-array
+>       items:
+>         enum: [hc, aes, sm4, sm3, hcq, qse, pke, ccp]
+>=20
+> (keeping the affinity semantics in the description -- a core appears on at
+> most one queue, unlisted cores are load-balanced -- just without the hex
+> table.)
+>=20
+> > > +required:
+> > > +  - compatible
+> > > +  - reg
+> > > +  - "#address-cells"
+> > > +  - "#size-cells"
+> >
+> > Surely clocks are also mandatory?
+>=20
+> They can't be mandatory for this binding -- there may be no clock provider
+> for the node to reference:
+>=20
+> - CMH is shared between hosts.  The SIC presents up to four host
+>    interfaces; a designated management host owns the privileged
+>    configuration (clock, reset and power) while the other hosts are
+>    granted only a subset of mailboxes.  A node describing a non-management
+>    host therefore has no clock/reset provider to point at -- those lines
+>    are driven by the management host or an SoC power controller.
+>=20
+> - Even where a provider exists, only the main "core" clock is always
+>    fitted; "core-div2" is present only on builds that include the
+>    side-channel-protected slow cores, and "rt" is the real-time tick,
+>    which is why clock-names is a oneOf of subsets rather than a fixed
+>    list.
+>=20
+> So I'd keep clocks (and reset-gpios) optional.  I can add a one-line,
+> hardware-framed note to the description if you'd like that rationale on
+> record.
+
+Please do, yeah.
+
+Thanks,
+Conor.
+
+--fecVinCGlQpVGphf
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapBwbQAKCRB4tDGHoIJi
+0tg1AQDJxvd89lNx3GSYKYhVSI+ByKuzMH06Aat4j5i/Er7GCAD/bUIEGNkrxnPj
+TriUguZYuEpl11M5MLqp9TSVpc3RUQw=
+=+I7h
+-----END PGP SIGNATURE-----
+
+--fecVinCGlQpVGphf--
+
+
+--===============3382483211313197860==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3382483211313197860==--
+
