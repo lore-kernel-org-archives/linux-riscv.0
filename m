@@ -4,97 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ECB5C61DC2
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 12:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A738C61DC4
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 14:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vIv9MYis10S/CQSWQjD7YUKhFf8LqFPIS6EuV4MgcXM=; b=oHxzlzTd5gEBXm
-	RyyHprQqHi/L2VR5Ui3FA19rvGxAykHj/rdTO0nMcg7x8TNJ+JRImaIcU0KzIvH43iVDotDjA9V8C
-	3BNKXb3vBYQgdJcrNA6ZjScyUK8yKAJrU/q2kE0W1Ag8nJqDflYqtIarZ9Gc09/du2JBQmiXcqlal
-	VTYe6GJZcKK1lngaxMIU8tw3uRZfSrQkOoM6c808fGUtsUNX7fVRCj3u0bhc/i38Tq9AonKcpiK5N
-	89cr/Dxy3XFNu14H/ZwRKbnynmJzgGNoEP4jhFGS2rR1CueOgopdj5y+UK0QbYsjJeoaxzi3SBTwr
-	/IwfQwP8clwkqYrs3vzg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QKJtxLhV9NHo48L+ivMkaqjt7el+RL8KeANu/77ZCPg=; b=nE00BkPOAkmkN5
+	aXT+XBF1LIOsNgDwwyoHWqdZKtVukaQoOVlg7XD+kNWurlIsF1TKkE4dRL/2cNYFPkjMhonLYCoMR
+	ynYVjNMaA/dkAvTmVdERdqOcCMWG//V+zxbnTyFEROkTFkHaJlmV/fImWZKoh1Pei0YC3QyI3GM8e
+	kFwCW+dREXZ5NxmNKtqEW8u6KZIpP/FsGALRnoTRG0fGoN+1IBiulmDxxI2Ys+5BGWSjNJ/Pn7A9l
+	nwGV1KZUQCGhCkm5V/chkQSUg20k3zTkzxdbPGEmVKNHDXYoq//K55IQ5T9FLGgl2hdVEpSMNVU2q
+	9Lo/4qVxHcM+6bsDb0Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZWd-00000003zVC-2H3S;
-	Thu, 27 Aug 2026 12:48:11 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1wzbLx-00000004Bm6-2ljX;
+	Thu, 27 Aug 2026 14:45:17 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZWa-00000003zUn-0gg4
-	for linux-riscv@lists.infradead.org;
-	Thu, 27 Aug 2026 12:48:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787834888; x=1819370888;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=LSe4ClYHyzoUMjPQ2O2AIJo3kbtl9bxf0qFjcfWnhxI=;
-  b=W0KgFlSvW+TLqEVz++zAfqPE+vGVI9b5xqAtCkcYftQ7wZ1rRYCB6x0+
-   7xM23Bw03QTRF3LdwHx5Rldd3FPqfsrUWG35ePqgXxDac0JaxzbBN8FLd
-   xBK3OIrsuHCTWSiCyg+nSJhY1I8pS3McQ8norQ48Fratn53iC+8GyNwHW
-   HqVH+XG/KkMrZfeGstE7IPUDxz8iNPJAlDNlccWsDEJm+ilXwxadTOlPz
-   S9NXWxL0lqCRcl7pU0iSTZpZtw9sit/Ar+skJsmXST4srlBiFTbqmYYRk
-   Tv8jV1FMVHNWe/ZZFQpbKw8hZs2bN5SP+3X7hgrbbGq6Z8FTrgWk0dvYG
-   Q==;
-X-CSE-ConnectionGUID: GbSzu1oLQNuDTdEE+VOKUw==
-X-CSE-MsgGUID: groCxEeEStSgUNZGYzo5Ww==
-X-IronPort-AV: E=McAfee;i="6800,10657,11887"; a="88189820"
-X-IronPort-AV: E=Sophos;i="6.25,246,1779174000"; 
-   d="scan'208";a="88189820"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 05:48:07 -0700
-X-CSE-ConnectionGUID: 5r8ZA7vORXinB4cAgEhcqQ==
-X-CSE-MsgGUID: wbyizxAKSNCFhTkpZJP1mA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,246,1779174000"; 
-   d="scan'208";a="271386983"
-Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.125])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 05:48:01 -0700
-Date: Thu, 27 Aug 2026 15:47:57 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Janani Sunil <jan.sun97@gmail.com>
-Cc: Janani Sunil <janani.sunil@analog.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Mark Brown <broonie@kernel.org>,
-	Marius Cristea <marius.cristea@microchip.com>,
-	Marcus Folkesson <marcus.folkesson@gmail.com>,
-	Kent Gustavsson <kent@minoris.se>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-spi@vger.kernel.org, Kent Gustavsson <nedo80@gmail.com>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 3/3] iio: dac: Add AD5529R DAC driver support
-Message-ID: <apAx_ZUDQ6G6XVuc@ashevche-desk.local>
-References: <20260827-ad5529r-driver-v10-0-38f2be07b824@analog.com>
- <20260827-ad5529r-driver-v10-3-38f2be07b824@analog.com>
- <ao_z9QTJC_q8gH0v@ashevche-desk.local>
- <aed972ef-3776-4055-81aa-63255d072b8d@gmail.com>
+	id 1wzbLt-00000004BlQ-0xwk;
+	Thu, 27 Aug 2026 14:45:16 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67REVxiP3333991;
+	Thu, 27 Aug 2026 14:45:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=9Wsdf8rVeG8RWU3k0TB6qxezFClQPADVajE5uS5jr
+	FU=; b=K1kUxPgLYOP1BZT45K3gVMptFc+QZVJSTvqyRbbeqRuOE0ZW14Ebjevcz
+	PkhQOi3MJUCnPAf8FlbSSq2gJeWWeu++0vwJlHYLI9Q6bwoospjVQT2XoSjGHtTU
+	Eimr0l33CMDErEIHdBIV/PpT0PJmXw0/gPO4ywFy6ly3d4NiR3vMYRRowtatbmrr
+	aWdAMk9DjzgA7Rcm5EgFAIfUvXZsKYBW12fP4QDxHZz2BFHLLQXfxnzyLLPnERCR
+	vr3A8YSiK6DrkxqV81QJchBY3wjSFM0OvcfkVd0nBHOccEgrL8zCwraAC1ZlYNZp
+	COeVMLQyJgJkeuaimlGv22x4jKvcQ==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4g73dxnn5g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 27 Aug 2026 14:45:04 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67REfF4O026300;
+	Thu, 27 Aug 2026 14:45:04 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4g7rsygasf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 27 Aug 2026 14:45:03 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67REj2em37487042
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 27 Aug 2026 14:45:02 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 258A12004B;
+	Thu, 27 Aug 2026 14:45:02 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 73E7920040;
+	Thu, 27 Aug 2026 14:44:56 +0000 (GMT)
+Received: from li-4f5ba44c-27d4-11b2-a85c-a08f5b49eada.ibm.com.domain.name (unknown [9.67.160.40])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 27 Aug 2026 14:44:56 +0000 (GMT)
+From: Sourabh Jain <sourabhjain@linux.ibm.com>
+To: linux-kernel@vger.kernel.org
+Cc: Sourabh Jain <sourabhjain@linux.ibm.com>,
+        Albert Ou <aou@eecs.berkeley.edu>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Pasha Tatashin <pasha.tatashin@soleen.com>,
+        Paul Walmsley <pjw@kernel.org>, Pratyush Yadav <pratyush@kernel.org>,
+        linux-riscv@lists.infradead.org, kexec@lists.infradead.org
+Subject: [PATCH] kexec_file: remove unused arch_kexec_locate_mem_hole hook
+Date: Thu, 27 Aug 2026 20:14:52 +0530
+Message-ID: <20260827144452.508328-1-sourabhjain@linux.ibm.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aed972ef-3776-4055-81aa-63255d072b8d@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDEyMiBTYWx0ZWRfXy84UX2sXhnLT
+ LaNtJyz+aF9qIImZWKYxb+r7rlmbGmQIil5i+oGlFlw1b1IUSmp2nZelsysTHq5Dk9d6uTnpgpd
+ V6ufqUDaM75hzMTDTCmE5t0hrBuHR6Y=
+X-Authority-Analysis: v=2.4 cv=AYuB2XXG c=1 sm=1 tr=0 ts=6a904d70 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=RzCfie-kr_QcCd8fBx8p:22 a=Z4Rwk6OoAAAA:8 a=VwQbUJbxAAAA:8 a=_O3DOGVWAAAA:8
+ a=7ipKWUHlAAAA:8 a=JfrnYn6hAAAA:8 a=VnNF1IyMAAAA:8 a=RFyrcEgT9I63OMj7VqIA:9
+ a=HkZW87K1Qel5hWWM3VKY:22 a=2TKV-7w1aU1AVAwN0oqT:22 a=gpc5p9EgBqZVLdJeV_V1:22
+ a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-ORIG-GUID: La38qUEpUZRLxheRuQ91YouAfAvZu4Kz
+X-Proofpoint-GUID: La38qUEpUZRLxheRuQ91YouAfAvZu4Kz
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDEyMiBTYWx0ZWRfX9uFIUwCD1ZsR
+ hMFNu0gvVhiL6e2uEo8oTTVETLUBxFNVWFkrUG2fcRXH1u9GDVoZ9ZEZuFeKzF+b0b2VbE1QoIj
+ 08ZpC8j3Uar9R0J+wRE/MQDivcmA0s4sL0A05P8dHYGZ4XpFMa5bwMbWll2VyHkp1y117NtHuJc
+ XlSijr+5KDKXpaUj04Dr7/tEz7ohGAM4fG9ak6+q5K+U85aqLrDHUvxu7/jykAs8lVI5NhDPiYw
+ iO6XG608zXp+X7SXW9pzDiXPzjWYmWMkHqZba4Bg3zUg2pU/r6zauHiOU/UY6N5gLG95VcFSrxT
+ xIRMKkVqL2D5W7Oub8ykcBARuHHaTwn47BvrGx6gosqHE/VGM7p+t+sWjVhNIwA9y3ffk663ZFZ
+ wETs83wfBC1jECRppsospXXsMbIjHHTsAf5CRJGPc7hMAWDPlliyDrjaINHBBT6uP1Bafu59r/j
+ /RcM5YQm1ZD1OaR2fMw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-27_05,2026-08-27_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 clxscore=1011 adultscore=0 bulkscore=0
+ impostorscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608270122
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_054808_292198_55FC3B14 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20260827_074515_425368_4637FDE1 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,41 +121,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 01:17:13PM +0200, Janani Sunil wrote:
-> On 8/27/26 10:23, Andy Shevchenko wrote:
-> > On Thu, Aug 27, 2026 at 09:34:48AM +0200, Janani Sunil wrote:
+No architecture provides an implementation of
+arch_kexec_locate_mem_hole(). Use kexec_locate_mem_hole() directly
+and remove the unused fallback wrapper from the kexec header.
 
-...
+This simplifies the kexec memory allocation path without changing
+its behavior.
 
-> > > +	for (unsigned int i =3D 0; i < ARRAY_SIZE(ad5529r_vss_supply_names)=
-; i++) {
-> > > +		ret =3D devm_regulator_get_enable_optional(dev,
-> > > +							 ad5529r_vss_supply_names[i]);
-> > > +		if (ret && ret !=3D -ENODEV)
-> > > +			return dev_err_probe(dev, ret,
-> > > +					     "Failed to get and enable %s regulator\n",
-> > > +					     ad5529r_vss_supply_names[i]);
-> > > +	}
-> > Hmm... Can we use bulk regulator approach here?
-> =
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Baoquan He <baoquan.he@linux.dev>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Pratyush Yadav <pratyush@kernel.org>
+Cc: linux-riscv@lists.infradead.org
+Cc: kexec@lists.infradead.org
+Signed-off-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+---
+ arch/riscv/kernel/kexec_elf.c |  2 +-
+ include/linux/kexec.h         | 15 ---------------
+ kernel/kexec_file.c           |  2 +-
+ 3 files changed, 2 insertions(+), 17 deletions(-)
 
-> I don=B4t think the bulk helper fits here. Each VSS supply is independent=
-ly
-> optional, and there is currently no optional bulk get-enable regulator
-> helper.
-
-Ah, I see. Yeah, then we have to live with a for-loop...
-
--- =
-
-With Best Regards,
-Andy Shevchenko
-
+diff --git a/arch/riscv/kernel/kexec_elf.c b/arch/riscv/kernel/kexec_elf.c
+index 3e9a32acb8f2..ca5abbad59e5 100644
+--- a/arch/riscv/kernel/kexec_elf.c
++++ b/arch/riscv/kernel/kexec_elf.c
+@@ -91,7 +91,7 @@ static int elf_find_pbase(struct kimage *image, unsigned long kernel_len,
+ 	kbuf.memsz = ALIGN(kernel_len, PAGE_SIZE);
+ 	kbuf.cma = NULL;
+ 	kbuf.top_down = false;
+-	ret = arch_kexec_locate_mem_hole(&kbuf);
++	ret = kexec_locate_mem_hole(&kbuf);
+ 	if (!ret) {
+ 		*old_pbase = lowest_paddr;
+ 		*new_pbase = kbuf.mem;
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index 0af8ae4fdd08..e5f1cfc11fef 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -259,21 +259,6 @@ int kexec_kernel_verify_pe_sig(const char *kernel, unsigned long kernel_len);
+ extern int kexec_add_buffer(struct kexec_buf *kbuf);
+ int kexec_locate_mem_hole(struct kexec_buf *kbuf);
+ 
+-#ifndef arch_kexec_locate_mem_hole
+-/**
+- * arch_kexec_locate_mem_hole - Find free memory to place the segments.
+- * @kbuf:                       Parameters for the memory search.
+- *
+- * On success, kbuf->mem will have the start address of the memory region found.
+- *
+- * Return: 0 on success, negative errno on error.
+- */
+-static inline int arch_kexec_locate_mem_hole(struct kexec_buf *kbuf)
+-{
+-	return kexec_locate_mem_hole(kbuf);
+-}
+-#endif
+-
+ #ifndef arch_kexec_apply_relocations_add
+ /*
+  * arch_kexec_apply_relocations_add - apply relocations of type RELA
+diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+index 59fb9d71e9d8..9a981359addd 100644
+--- a/kernel/kexec_file.c
++++ b/kernel/kexec_file.c
+@@ -784,7 +784,7 @@ int kexec_add_buffer(struct kexec_buf *kbuf)
+ 	kbuf->cma = NULL;
+ 
+ 	/* Walk the RAM ranges and allocate a suitable range for the buffer */
+-	ret = arch_kexec_locate_mem_hole(kbuf);
++	ret = kexec_locate_mem_hole(kbuf);
+ 	if (ret)
+ 		return ret;
+ 
+-- 
+2.55.0
 
 
 _______________________________________________
