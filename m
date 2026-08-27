@@ -4,105 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B69C5DF9D
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 08:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D19C61DC2
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 08:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YZ7k8UGKoxGC1QRRInxTzVzwWNvcHo246mkzs+VMGhk=; b=4fDPvfjm82rsJ0
-	ZZHTpKe3XTDyiLhBO90Q8vZ/ntzbYZbV2hBUtrsyOyJU0RVafWkFlhD4jx6Rybzd35hkgb8f3WqK3
-	TGLyqUmfKGnh0UCO4jUHbxc/25n1xNsEN6fDm3UWOqx5Gbb37Rb9JFTklOvQrDM8EwXus/QU4KAng
-	xGPgoU0FeIT2UsxYXhVXUWJCvUuxW2AJYnqSSQmynk+zrWLQJhSh7x93uz6YlZ+hPms+sC/Yvk6em
-	Ws5OqYIaFt4hM7WtKqttdOMFRWMWgjRs4Hypql8MmINxvdIB/aLhV4jnOMYSdl4Rqm/4q3F6Z+wZ0
-	XuEYW0P/9KGySvxChVSw==;
+	List-Owner; bh=24oNU6crFlBYyafcSg2AxK29x+EPgjN2HwZ+g/ws8v0=; b=39RDDVTTQcT5oP
+	tkAqz5f9GEfjdtLGNP+sUtbx/9Blyqujwznmj+Ibw0K0BtQXaIKSp5bHsTTkCYceP5RRPPvKZRVqk
+	0uiX/1rY3p/Mw6ofC3XYv0m+PqfaD6mxzOCUIJmotguhtlCmeeX0h8AWZ8SHEx7P8g6AnyF2dLhE7
+	WLtzu0+HEuO5pX9kAqbfa/HLvxcqrXeAuZ2DF9ysHFyTdggp/kNpsVEyj4+L0N/CRTfzAQUL0usjy
+	77xnzNNHw8eg1uHhveP96HOq45d/BcoLqToGy7ZA1GeHiQvbu/jsuhjL6qwPz6W1RcLkmVuXZeVBl
+	YmedpJD7dasmbXb0hu9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVIu-00000003cRF-3IHj;
-	Thu, 27 Aug 2026 08:17:44 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVIr-00000003cQJ-03nt
+	id 1wzVOS-00000003d0v-2Gpw;
+	Thu, 27 Aug 2026 08:23:28 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzVOQ-00000003d0T-3E5m
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Aug 2026 08:17:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=qJn7wJbUMWgChHPDDyLMAt32tsdxeqxOd
-	//ZEjwgzPE=; b=qFsXo8DW3ymaL/dtk0EINHI7KkhHPMs9yCPEQqLlrzcMnVVGe
-	c8QTLOmFyHsjEE1LI8F98ftxeTEGWBoA7YoeRYGyXCkXRT1qx/Gk3PwzAXH6MBoq
-	9Ex+LFy66KozxrJg3/r6cCwkZioTmcAoriIgH85uCPgxKCzC2rWy6/M9HU=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwB3V86Z8o9qyloBAA--.426S2;
-	Thu, 27 Aug 2026 16:17:29 +0800 (CST)
+	Thu, 27 Aug 2026 08:23:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787819006; x=1819355006;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zXoFXBF16RYQNFRjCj4DCymrGUMbzxz6bjyW/wn/hL8=;
+  b=CCigRrU2/mOcw38ME35PQj/8zmAmzIKWcVZ2I2XJtTJQedRtElQavbwF
+   9HPIpYHTMRI15bwf9cVRIIw6i9gqHX48BTtzgrDOxAA2lMPhBkI5Er7bs
+   V+GXsMtHP2a0Z3yDXZ5U8Io1WSRBHrK8grYdgA0aG3ylJOU3DfjtipueD
+   czywBvZkIgM/LG/jdjbYOmOI6WZYknW++oSGloycm9uaMH4HcwxOlbEkN
+   rNLwXaYhtg6DhiKiSpjlA6Q6drcVf29ZfxMDRT2V4XkJjGYUpH+qfOGqi
+   QUim8E/ESBUz7UU/GcXBnz4kGwZjx8Kvinpyb5hRUop8Z4WLLvr+OG4E6
+   g==;
+X-CSE-ConnectionGUID: fIPSGnWGTAm2RoDb5itlYA==
+X-CSE-MsgGUID: SdHnqBuGQDeKJy6/exHtGQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11887"; a="87447675"
+X-IronPort-AV: E=Sophos;i="6.25,246,1779174000"; 
+   d="scan'208";a="87447675"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 01:23:26 -0700
+X-CSE-ConnectionGUID: BZTCOsTISJiwB0Cy4AKNnQ==
+X-CSE-MsgGUID: 5sTsQy1+SrWMmybKjgelnw==
+X-ExtLoop1: 1
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.125])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 01:23:19 -0700
+Date: Thu, 27 Aug 2026 11:23:17 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Janani Sunil <janani.sunil@analog.com>
+Cc: Lars-Peter Clausen <lars@metafoo.de>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Marius Cristea <marius.cristea@microchip.com>,
+	Marcus Folkesson <marcus.folkesson@gmail.com>,
+	Kent Gustavsson <kent@minoris.se>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	Janani Sunil <jan.sun97@gmail.com>, linux-spi@vger.kernel.org,
+	Kent Gustavsson <nedo80@gmail.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <ao_z9QTJC_q8gH0v@ashevche-desk.local>
+References: <20260827-ad5529r-driver-v10-0-38f2be07b824@analog.com>
+ <20260827-ad5529r-driver-v10-3-38f2be07b824@analog.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 08/12] dt-bindings: net: snps,dwmac: Add compatible for
- UltraRISC DP1000 SoC
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>, 
- Andi Shyti <andi.shyti@kernel.org>, 
- Mika Westerberg <mika.westerberg@linux.intel.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org, 
- netdev@vger.kernel.org, dmaengine@vger.kernel.org
-In-Reply-To: <178765275795.744215.4911904858473260204.b4-reply@b4>
-References: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
- <20260824-ultrarisc-dts-v1-8-61ab7aebe9e5@ultrarisc.com>
- <20260824-bride-food-052b313e4b76@spud>
- <20260824-blimp-spirited-01365897db24@spud>
- <178765275795.744215.4911904858473260204.b4-reply@b4>
-Date: Thu, 27 Aug 2026 16:17:16 +0800
-Message-Id: <178781863615.2006105.6267469136684218126.b4-reply@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787818636; l=2733;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=5BaBaUpgbE7yZAPVZNeV57kX7ae+OLSMniMswhoEkkw=;
- b=yY3yRewGFr8detGpKXWyntfFHN5tgfDhLwzMiCHKFuFC9QP8BaO4Ra35Xa9Z5GUaqytZylF/o
- TBafhCLJFs0CdSTIHPO0SFPDgpPeTVPXfGX+6IafSoBj78xUPCINNMC
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwB3V86Z8o9qyloBAA--.426S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWF4DWrykZF13Zr4fWr4rXwb_yoW5Jw13pF
-	yrAFWjkF47Jr13Jw1kt3WxGF1jvr4SkrW8Xr4rtr1UKF90gFnYqrsrKw15W3Z5Zr4rGFy2
-	vrWUuw13J3WjvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBEb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWrXVW3AwCY02Avz4vE-s
-	yl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWU
-	JVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26rWY6r4UJwCIc40Y0x
-	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
-	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
-	AIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pKiifUUUUUU
-	=
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAMEWqPrHsAIQAAsP
+Content-Disposition: inline
+In-Reply-To: <20260827-ad5529r-driver-v10-3-38f2be07b824@analog.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_011741_587112_6FA9040C 
-X-CRM114-Status: GOOD (  29.24  )
+X-CRM114-CacheID: sfid-20260827_012326_829941_0945E759 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,88 +106,296 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-25 18:12 +0800, Jia Wang wrote:
-> On 2026-08-24 18:13 +0100, Conor Dooley wrote:
-> > On Mon, Aug 24, 2026 at 06:09:48PM +0100, Conor Dooley wrote:
-> > > On Mon, Aug 24, 2026 at 01:54:21PM +0800, Jia Wang via B4 Relay wrote:
-> > > > From: Jia Wang <wangjia@ultrarisc.com>
-> > > > 
-> > > > Add the SoC-specific compatible string for the UltraRISC DP1000 GMAC
-> > > > controller to the DesignWare MAC binding.
-> > > > 
-> > > > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
-> > > 
-> > > The dts may not be right, but I am also a bit concerned here.
-> > > 
-> > > This binding permits 100s of combinations of properties, of which only
-> > > a very limited set can be correct for your device. Just adding the
-> > > compatible permits all of this variation.
-> > > 
-> > > Please add some restrictions.
-> > 
-> > In fact, it's particularly bad here because you don't even restrict
-> > which fallback compatibles are used, so there's no guidance on what
-> > version of the IP is even in use!
-> > 
-> 
-> I have rechecked the DTS against the hardware. The controller uses a
-> DesignWare GMAC IP from the 5.20 series, with "snps,dwmac-5.20" as its
-> version-specific fallback.
-> 
-> In the next version, I will restrict the fallback compatibles and add
-> DP1000-specific constraints for its hardware resources.
-> 
+More or less in a good shape, a few nit-picks and minor issues here and there
+and I believe the next version will be fine to go. Note, some of the mentioned
+issues can be addressed later, but if no doubts, address now.
 
-Following the discussion in patch 11, I will drop this patch from v2. I
-will first submit the dedicated DP1000 GMAC binding and DWMAC glue driver
-as a separate series, and then send v2 of this DTS series with that
-dependency recorded.
+On Thu, Aug 27, 2026 at 09:34:48AM +0200, Janani Sunil wrote:
+> Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
+> from Analog Devices.
+> 
+> The device communicates over SPI and supports per-channel output range
+> configuration. An optional external 4.096V reference can be used in
+> place of the internal reference.
 
-> > > 
-> > > pw-bot: changes-requested
-> > > 
-> > > Thanks,
-> > > Conor.
-> > >
-> 
-> Best regards,
-> Jia Wang
->  
+Don't you want to add Datasheet tag?
 
-Best regards,
-Jia Wang
+...
 
-> > > > ---
-> > > >  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 1 +
-> > > >  1 file changed, 1 insertion(+)
-> > > > 
-> > > > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > > index 2449311c6d28..2ed4564ae99d 100644
-> > > > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> > > > @@ -119,6 +119,7 @@ properties:
-> > > >          - starfive,jh7110-dwmac
-> > > >          - tesla,fsd-ethqos
-> > > >          - thead,th1520-gmac
-> > > > +        - ultrarisc,dp1000-gmac
-> > > >  
-> > > >    reg:
-> > > >      minItems: 1
-> > > > 
-> > > > -- 
-> > > > 2.34.1
-> > > > 
-> > > > 
-> > > > 
-> > > > _______________________________________________
-> > > > linux-riscv mailing list
-> > > > linux-riscv@lists.infradead.org
-> > > > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> > 
-> > 
-> 
-> 
-> 
+> +#include <linux/array_size.h>
+> +#include <linux/bits.h>
+> +#include <linux/delay.h>
+> +#include <linux/dev_printk.h>
+> +#include <linux/err.h>
+
+err.h implies standard errno, so unless you are not using Linux specific ones
+(>= 512), the errno.h is not required.
+
+> +#include <linux/errno.h>
+> +#include <linux/iio/iio.h>
+> +#include <linux/module.h>
+> +#include <linux/property.h>
+> +#include <linux/regmap.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/reset.h>
+> +#include <linux/spi/spi.h>
+> +#include <linux/types.h>
+> +#include <linux/units.h>
+
+...
+
+> +static int ad5529r_reset(struct ad5529r_state *st)
+> +{
+> +	struct reset_control *rst;
+> +	struct regmap *map = st->regmap_8bit;
+> +	struct device *dev = regmap_get_device(map);
+
+Keep it in reversed xmas tree order
+
+	struct regmap *map = st->regmap_8bit;
+	struct device *dev = regmap_get_device(map);
+	struct reset_control *rst;
+
+> +	int ret;
+> +
+> +	rst = devm_reset_control_get_optional_exclusive(dev, NULL);
+> +	if (IS_ERR(rst))
+> +		return PTR_ERR(rst);
+> +
+> +	if (rst) {
+> +		ret = reset_control_assert(rst);
+> +		if (ret)
+> +			return ret;
+> +
+> +		/* Minimum reset low width (t_reset) is 20 ns per datasheet. */
+> +		ndelay(20);
+> +
+> +		ret = reset_control_deassert(rst);
+> +		if (ret)
+> +			return ret;
+> +	} else {
+> +		ret = regmap_write(map, AD5529R_REG_INTERFACE_CONFIG_A,
+> +				   AD5529R_INTERFACE_CONFIG_A_SW_RESET);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	/*
+> +	 * Wait 10 ms for digital initialization to complete.
+> +	 * Per datasheet, Interface Status A register NOT_READY_ERR bit is
+> +	 * set if SPI transactions are attempted before digital initialization
+> +	 * completes.
+> +	 */
+> +	fsleep(10 * USEC_PER_MSEC);
+> +
+> +	return regmap_write(map, AD5529R_REG_INTERFACE_CONFIG_A,
+> +			    AD5529R_INTERFACE_CONFIG_A_SDO_ENABLE |
+> +			    AD5529R_INTERFACE_CONFIG_A_ADDR_ASCENSION);
+> +}
+
+...
+
+> +static int ad5529r_parse_channel_ranges(struct device *dev,
+> +					struct ad5529r_state *st)
+> +{
+> +	unsigned long channel_mask = 0;
+> +	s32 vals[2];
+> +	int ret, range_idx;
+> +	u32 ch;
+> +
+> +	device_for_each_child_node_scoped(dev, child) {
+> +		if (st->num_channels == ARRAY_SIZE(st->channels))
+> +			return dev_err_probe(dev, -ECHRNG, "Too many channels\n");
+
+Okay, this actually better to be ENOSPC
+
+> +		ret = fwnode_property_read_u32(child, "reg", &ch);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "Missing reg property in channel node\n");
+> +
+> +		if (ch >= AD5529R_MAX_CHANNELS)
+> +			return dev_err_probe(dev, -EINVAL,
+
+and ECHRNG is here.
+
+> +					     "Channel %u exceeds maximum 15\n",
+
+Replace 15 with the compile-time constant based on the actual capacity?
+
+> +					     ch);
+
+> +		if (channel_mask & BIT(ch))
+> +			return dev_err_probe(dev, -EINVAL,
+
+EEXIST
+
+> +					     "Duplicate channel %u\n", ch);
+> +
+> +		channel_mask |= BIT(ch);
+
+		if (__test_and_set_bit(...))
+
+will require replacing bits.h with bitops.h.
+
+> +		if (fwnode_property_present(child, "output-range-microvolt")) {
+> +			/*
+> +			 * DT stores cells as raw 32-bit values; signed endpoints are
+> +			 * encoded by dtc in two's-complement and then interpreted
+> +			 * here as s32.
+> +			 */
+> +			ret = fwnode_property_read_u32_array(child,
+> +							     "output-range-microvolt",
+> +							     (u32 *)vals, ARRAY_SIZE(vals));
+> +			if (ret < 0)
+> +				return dev_err_probe(dev, ret,
+> +						     "Failed to read range for ch %u\n",
+> +						     ch);
+> +
+> +			range_idx = ad5529r_find_output_range(vals);
+> +			if (range_idx < 0)
+> +				return dev_err_probe(dev, range_idx,
+> +						     "Invalid range [%d %d] for ch %u\n",
+> +						     vals[0], vals[1], ch);
+> +		} else {
+> +			range_idx = AD5529R_RANGE_0V_5V;
+> +		}
+> +
+> +		st->output_range_idx[ch] = range_idx;
+> +		ret = regmap_write(st->regmap_16bit,
+> +				   AD5529R_REG_OUT_RANGE(ch), range_idx);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "Failed to configure range for ch %u\n",
+> +					     ch);
+> +
+> +		st->channels[st->num_channels++] = AD5529R_DAC_CHANNEL(ch);
+> +	}
+> +
+> +	return 0;
+> +}
+
+...
+
+> +static int ad5529r_probe(struct spi_device *spi)
+> +{
+> +	struct regmap_config regmap_16bit_cfg;
+> +	struct regmap_config regmap_8bit_cfg;
+> +	struct device *dev = &spi->dev;
+> +	struct iio_dev *indio_dev;
+> +	struct ad5529r_state *st;
+> +	bool external_vref;
+> +	u32 dev_addr = 0;
+> +	int ret;
+> +
+> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*st));
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	st = iio_priv(indio_dev);
+> +
+> +	st->model_data = spi_get_device_match_data(spi);
+> +	if (!st->model_data)
+> +		return dev_err_probe(dev, -ENODATA,
+> +				     "Failed to identify device variant\n");
+> +
+> +	device_property_read_u32(dev, "spi-device-addr", &dev_addr);
+> +	if (dev_addr > 3)
+> +		return dev_err_probe(dev, -EINVAL,
+
+EADDRNOTAVAIL ?
+
+> +				     "spi-device-addr %u out of range [0, 3]\n",
+> +				     dev_addr);
+> +
+> +	regmap_8bit_cfg = (struct regmap_config) {
+> +		.name = "ad5529r-8bit",
+> +		.reg_bits = 16,
+> +		.val_bits = 8,
+> +		.max_register = AD5529R_8BIT_REG_MAX,
+> +		.read_flag_mask = AD5529R_SPI_READ_FLAG,
+> +		.rd_table = &ad5529r_8bit_readable_table,
+> +		.wr_table = &ad5529r_8bit_writeable_table,
+> +		.reg_base = dev_addr << AD5529R_ADDR_SHIFT,
+> +	};
+> +	regmap_16bit_cfg = (struct regmap_config) {
+> +		.name = "ad5529r-16bit",
+> +		.reg_bits = 16,
+> +		.val_bits = 16,
+> +		.max_register = AD5529R_MAX_REGISTER,
+> +		.read_flag_mask = AD5529R_SPI_READ_FLAG,
+> +		.val_format_endian = REGMAP_ENDIAN_LITTLE,
+> +		.rd_table = &ad5529r_16bit_readable_table,
+> +		.wr_table = &ad5529r_16bit_writeable_table,
+> +		.reg_stride = 2,
+> +		.reg_base = dev_addr << AD5529R_ADDR_SHIFT,
+> +	};
+> +
+> +	ret = devm_regulator_bulk_get_enable(dev, ARRAY_SIZE(ad5529r_supply_names),
+> +					     ad5529r_supply_names);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed to get and enable regulators\n");
+
+> +	for (unsigned int i = 0; i < ARRAY_SIZE(ad5529r_vss_supply_names); i++) {
+> +		ret = devm_regulator_get_enable_optional(dev,
+> +							 ad5529r_vss_supply_names[i]);
+> +		if (ret && ret != -ENODEV)
+> +			return dev_err_probe(dev, ret,
+> +					     "Failed to get and enable %s regulator\n",
+> +					     ad5529r_vss_supply_names[i]);
+> +	}
+
+Hmm... Can we use bulk regulator approach here?
+
+> +	ret = devm_regulator_get_enable_optional(dev, "vref");
+> +	if (ret == -ENODEV)
+> +		external_vref = false;
+> +	else if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed to get and enable vref regulator\n");
+> +	else
+> +		external_vref = true;
+> +
+> +	/* Wait 10 ms after power-up before the first SPI transaction. */
+> +	fsleep(10 * USEC_PER_MSEC);
+> +
+> +	st->regmap_8bit = devm_regmap_init_spi(spi, &regmap_8bit_cfg);
+> +	if (IS_ERR(st->regmap_8bit))
+> +		return dev_err_probe(dev, PTR_ERR(st->regmap_8bit),
+> +				     "Failed to initialize 8-bit regmap\n");
+> +
+> +	st->regmap_16bit = devm_regmap_init_spi(spi, &regmap_16bit_cfg);
+> +	if (IS_ERR(st->regmap_16bit))
+> +		return dev_err_probe(dev, PTR_ERR(st->regmap_16bit),
+> +				     "Failed to initialize 16-bit regmap\n");
+> +
+> +	ret = ad5529r_reset(st);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to reset device\n");
+> +
+> +	ret = regmap_assign_bits(st->regmap_16bit, AD5529R_REG_REF_SEL,
+> +				 AD5529R_REF_SEL_INTERNAL_REF,
+> +				 !external_vref);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to configure reference\n");
+> +
+> +	ret = ad5529r_parse_channel_ranges(dev, st);
+> +	if (ret)
+> +		return ret;
+> +
+> +	indio_dev->name = st->model_data->model_name;
+> +	indio_dev->info = &ad5529r_info;
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +	indio_dev->channels = st->channels;
+> +	indio_dev->num_channels = st->num_channels;
+> +
+> +	return devm_iio_device_register(dev, indio_dev);
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 
