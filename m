@@ -4,100 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199FCC5DF9D
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 08:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B69C5DF9D
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 08:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jfkv4aBRQFWsSbyrY4spyFa38HBYTGsXXI/Z235pG9Q=; b=262pMSMRO6Achv
-	zLdMns1HpwhrGCn1thcb5PDktfupPBUA2fPiusuSOmEGiWALZQHOi1DwSdB1WJYX/5K61R0lD+JA+
-	srPvpkJbODubjRtZb1xU2d2kfE+ZdfZ2hG66+rEJWmtvLDiIVvYoROKYPFNu3Cio0jG9nAuEswSQO
-	GsF0+Zco+kRw80sNETIhgl7k0kWYN7JWqOBpdYoC1hs96Gs2prxjNfvgv6UTYvBz4UK8b69Yzpfzc
-	wwCIDGkUcmpu869vRJn7QGcC5+kK4mKTtQZ0AbrGOCROoFgbZcsQD8Odc7c7PxtxSDQKwpDl1oBpi
-	gODI6cLx0zbkD9DnsFGQ==;
+	List-Owner; bh=YZ7k8UGKoxGC1QRRInxTzVzwWNvcHo246mkzs+VMGhk=; b=4fDPvfjm82rsJ0
+	ZZHTpKe3XTDyiLhBO90Q8vZ/ntzbYZbV2hBUtrsyOyJU0RVafWkFlhD4jx6Rybzd35hkgb8f3WqK3
+	TGLyqUmfKGnh0UCO4jUHbxc/25n1xNsEN6fDm3UWOqx5Gbb37Rb9JFTklOvQrDM8EwXus/QU4KAng
+	xGPgoU0FeIT2UsxYXhVXUWJCvUuxW2AJYnqSSQmynk+zrWLQJhSh7x93uz6YlZ+hPms+sC/Yvk6em
+	Ws5OqYIaFt4hM7WtKqttdOMFRWMWgjRs4Hypql8MmINxvdIB/aLhV4jnOMYSdl4Rqm/4q3F6Z+wZ0
+	XuEYW0P/9KGySvxChVSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzV9S-00000003bUx-2iyj;
-	Thu, 27 Aug 2026 08:07:58 +0000
-Received: from esa6.hc1455-7.c3s2.iphmx.com ([68.232.139.139])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzV9P-00000003bU8-2ToH;
-	Thu, 27 Aug 2026 08:07:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1787818079; x=1819354079;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=HfubrEGF3eKsGUawx1MnfZr959FNLY03HrFmRB8niVo=;
-  b=F8vKbfRlKUdYUy1yD3yC+fz+uRFTNyZabBy6Usz3m906YspLGD9wWBlO
-   MQ/+F9fpKUcW3DBJEfxIpavLe83PsB0Aq7MHxEiS2C2fyk/v15yV2Liua
-   ogrGDGhOK+G4i7sMrKDHVsFzLSo8X5qDw8pfOZVMOmoPhlab0uPG10DAJ
-   IM5ROensBYZ5OzvtdvI6W4N91fMZ7XaYNQXq47Y1+RpAVup92Ud0ck4Cg
-   jOfKYqSG6gNO6ejsjZwsn2z/6/x1suRINZRm3nfwm+Bu1l9YhW581oyeV
-   zHTZ89JpMvL2WG9IT0/VBuqK609i6wsyGc6i08gQ/1H70JDQg8fZkoQSJ
-   w==;
-X-CSE-ConnectionGUID: PAlDcqwxQX+X7KzQzL59dg==
-X-CSE-MsgGUID: NaBqTo7CR8mzmPAxpmHdAQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11887"; a="256543813"
-X-IronPort-AV: E=Sophos;i="6.25,246,1779116400"; 
-   d="scan'208";a="256543813"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa6.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 17:07:56 +0900
-Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 6592640610A;
-	Thu, 27 Aug 2026 08:07:52 +0000 (UTC)
-Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id 19474180CCE9;
-	Thu, 27 Aug 2026 08:07:52 +0000 (UTC)
-Received: from sm-arm-grace07 (unknown [10.124.178.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTPS id 670BD1004B16;
-	Thu, 27 Aug 2026 08:07:43 +0000 (UTC)
-Date: Thu, 27 Aug 2026 17:07:40 +0900
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	David Hildenbrand <david@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
-	Ritesh Harjani <ritesh.list@gmail.com>
-Subject: Re: [PATCH 00/20] KVM: selftests: PPC pre-enabling
-Message-ID: <ao_wTAq6U2bvWzgu@sm-arm-grace07>
-References: <20260826230511.972824-1-seanjc@google.com>
+	id 1wzVIu-00000003cRF-3IHj;
+	Thu, 27 Aug 2026 08:17:44 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzVIr-00000003cQJ-03nt
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Aug 2026 08:17:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	References:Date:Message-Id; bh=qJn7wJbUMWgChHPDDyLMAt32tsdxeqxOd
+	//ZEjwgzPE=; b=qFsXo8DW3ymaL/dtk0EINHI7KkhHPMs9yCPEQqLlrzcMnVVGe
+	c8QTLOmFyHsjEE1LI8F98ftxeTEGWBoA7YoeRYGyXCkXRT1qx/Gk3PwzAXH6MBoq
+	9Ex+LFy66KozxrJg3/r6cCwkZioTmcAoriIgH85uCPgxKCzC2rWy6/M9HU=
+Received: from [127.0.0.1] (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwB3V86Z8o9qyloBAA--.426S2;
+	Thu, 27 Aug 2026 16:17:29 +0800 (CST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260826230511.972824-1-seanjc@google.com>
+Subject: Re: [PATCH 08/12] dt-bindings: net: snps,dwmac: Add compatible for
+ UltraRISC DP1000 SoC
+From: Jia Wang <wangjia@ultrarisc.com>
+To: Jia Wang <wangjia@ultrarisc.com>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ Mika Westerberg <mika.westerberg@linux.intel.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ netdev@vger.kernel.org, dmaengine@vger.kernel.org
+In-Reply-To: <178765275795.744215.4911904858473260204.b4-reply@b4>
+References: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
+ <20260824-ultrarisc-dts-v1-8-61ab7aebe9e5@ultrarisc.com>
+ <20260824-bride-food-052b313e4b76@spud>
+ <20260824-blimp-spirited-01365897db24@spud>
+ <178765275795.744215.4911904858473260204.b4-reply@b4>
+Date: Thu, 27 Aug 2026 16:17:16 +0800
+Message-Id: <178781863615.2006105.6267469136684218126.b4-reply@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787818636; l=2733;
+ i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
+ bh=5BaBaUpgbE7yZAPVZNeV57kX7ae+OLSMniMswhoEkkw=;
+ b=yY3yRewGFr8detGpKXWyntfFHN5tgfDhLwzMiCHKFuFC9QP8BaO4Ra35Xa9Z5GUaqytZylF/o
+ TBafhCLJFs0CdSTIHPO0SFPDgpPeTVPXfGX+6IafSoBj78xUPCINNMC
+X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
+ pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
+X-CM-TRANSID: AQAAfwB3V86Z8o9qyloBAA--.426S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWF4DWrykZF13Zr4fWr4rXwb_yoW5Jw13pF
+	yrAFWjkF47Jr13Jw1kt3WxGF1jvr4SkrW8Xr4rtr1UKF90gFnYqrsrKw15W3Z5Zr4rGFy2
+	vrWUuw13J3WjvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBEb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
+	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWrXVW3AwCY02Avz4vE-s
+	yl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWU
+	JVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26rWY6r4UJwCIc40Y0x
+	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
+	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
+	AIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pKiifUUUUUU
+	=
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAMEWqPrHsAIQAAsP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_010756_016938_154C4B8E 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20260827_011741_587112_6FA9040C 
+X-CRM114-Status: GOOD (  29.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,95 +119,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 04:04:51PM -0700, Sean Christopherson wrote:
-> This is a big pile of cleanups and refactoring to prepare for PPC support in
-> KVM selftests.  PPC has paging modes that require multi-page page tables, and
-> those page tables need to be naturally aligned.  The original proposal was to
-> plumb in an @align param to the page allocators[*], but I didn't love the idea
-> of adding another rarely used param to the allocators.
+On 2026-08-25 18:12 +0800, Jia Wang wrote:
+> On 2026-08-24 18:13 +0100, Conor Dooley wrote:
+> > On Mon, Aug 24, 2026 at 06:09:48PM +0100, Conor Dooley wrote:
+> > > On Mon, Aug 24, 2026 at 01:54:21PM +0800, Jia Wang via B4 Relay wrote:
+> > > > From: Jia Wang <wangjia@ultrarisc.com>
+> > > > 
+> > > > Add the SoC-specific compatible string for the UltraRISC DP1000 GMAC
+> > > > controller to the DesignWare MAC binding.
+> > > > 
+> > > > Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+> > > 
+> > > The dts may not be right, but I am also a bit concerned here.
+> > > 
+> > > This binding permits 100s of combinations of properties, of which only
+> > > a very limited set can be correct for your device. Just adding the
+> > > compatible permits all of this variation.
+> > > 
+> > > Please add some restrictions.
+> > 
+> > In fact, it's particularly bad here because you don't even restrict
+> > which fallback compatibles are used, so there's no guidance on what
+> > version of the IP is even in use!
+> > 
 > 
-> Reworking the APIs to take a region type requires a fair bit of churn, and was
-> more painful than expected as I didn't realize just how many one-off tests did
-> weird things, but overall I think it's worth it?  If only to keep cutting down
-> on the use of magic memslot numbers in tests.
+> I have rechecked the DTS against the hardware. The controller uses a
+> DesignWare GMAC IP from the 5.20 series, with "snps,dwmac-5.20" as its
+> version-specific fallback.
 > 
-> This needs explicit testing on s390.  I tested on arm64 and x86, and given the
-> number of failures I had to wade through, I wouldn't be at all suprised if I
-> broke something subtle on s390 as well.
+> In the next version, I will restrict the fallback compatibles and add
+> DP1000-specific constraints for its hardware resources.
 > 
-> I'm less concerned about RISC-V and LoongArch as they don't have any custom
-> tests that are affected (which is where I got burned).
 
-I ran kvm_page_table_test with this series applied on Grace CPUs.
+Following the discussion in patch 11, I will drop this patch from v2. I
+will first submit the dedicated DP1000 GMAC binding and DWMAC glue driver
+as a separate series, and then send v2 of this DTS series with that
+dependency recorded.
 
-Passes across all the arm64 guest modes supported.
+> > > 
+> > > pw-bot: changes-requested
+> > > 
+> > > Thanks,
+> > > Conor.
+> > >
+> 
+> Best regards,
+> Jia Wang
+>  
 
-Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Best regards,
+Jia Wang
 
-> 
-> [*] https://lore.kernel.org/all/df86b5ccdbdafc3509d9538bd5e6796737bab2db.1781093720.git.ritesh.list@gmail.com
-> 
-> Nicholas Piggin (1):
->   KVM: selftests: Use goto instead of do-while to retry finding unused
->     physical pages
-> 
-> Sean Christopherson (19):
->   KVM: selftests: Use MEM_REGION_PT memslot instead of '0' for s390
->     regions/segments
->   KVM: selftests: Bump the minimum GPA for page tables to 0x200000
->   KVM: selftests: Use vm_alloc_page_table() to allocate LoongArch page
->     tables
->   KVM: selftests: Rename "num" param to "nr_pages" for physical page
->     allocators
->   KVM: selftests: Extend page allocator to support naturally aligned
->     allocations
->   KVM: selftests: Make the single-page allocator APIs static inline
->   KVM: selftests: Use the innermost page allocator API in the memslot
->     perf test
->   KVM: selftests: Use the innermost page allocator API in s390's IRQ
->     routing test
->   KVM: selftests: Add a wrapper API to allocate multiple page table
->     pages
->   KVM: selftests: Initialize vm->memslots[] with invalid memslots during
->     creation
->   KVM: selftests: Add APIs to override memory region types with custom
->     memslots
->   KVM: selftests: Add TEST_EXTRA memory region type for "special"
->     memslots
->   KVM: selftests: Use TEST_EXTRA region in arm64's vGIC LPI stress test
->   KVM: selftests: Use TEST_EXTRA region in x86's smaller MAXPHYADDR test
->   KVM: selftests: Use TEST_EXTRA region in set memory region test
->   KVM: selftests: Take the memory region type, not memslot, in page
->     allocators
->   KVM: selftests: Use TEST_ASSERT(), not assert(), in
->     vm_get_mem_region()
->   KVM: selftests: Automatically pick min_gpa for allocations based on
->     region type
->   KVM: selftests: Add arch hook to force page tables to be naturally
->     aligned
-> 
->  .../selftests/kvm/arm64/page_fault_test.c     |  18 ++-
->  .../selftests/kvm/arm64/vgic_lpi_stress.c     |  19 ++-
->  .../testing/selftests/kvm/include/kvm_util.h  | 106 +++++++++++++--
->  tools/testing/selftests/kvm/include/x86/smm.h |   2 +-
->  .../selftests/kvm/lib/arm64/processor.c       |   4 +-
->  tools/testing/selftests/kvm/lib/kvm_util.c    | 127 +++++++++++-------
->  .../selftests/kvm/lib/loongarch/processor.c   |   5 +-
->  .../selftests/kvm/lib/riscv/processor.c       |   4 +-
->  .../selftests/kvm/lib/s390/processor.c        |   7 +-
->  .../testing/selftests/kvm/lib/x86/processor.c |  15 ++-
->  .../testing/selftests/kvm/memslot_perf_test.c |   3 +-
->  tools/testing/selftests/kvm/s390/cmma_test.c  |  19 +--
->  .../testing/selftests/kvm/s390/irq_routing.c  |   2 +-
->  .../selftests/kvm/set_memory_region_test.c    |   8 +-
->  .../x86/smaller_maxphyaddr_emulation_test.c   |   9 +-
->  15 files changed, 219 insertions(+), 129 deletions(-)
+> > > > ---
+> > > >  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 1 +
+> > > >  1 file changed, 1 insertion(+)
+> > > > 
+> > > > diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > > index 2449311c6d28..2ed4564ae99d 100644
+> > > > --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > > +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> > > > @@ -119,6 +119,7 @@ properties:
+> > > >          - starfive,jh7110-dwmac
+> > > >          - tesla,fsd-ethqos
+> > > >          - thead,th1520-gmac
+> > > > +        - ultrarisc,dp1000-gmac
+> > > >  
+> > > >    reg:
+> > > >      minItems: 1
+> > > > 
+> > > > -- 
+> > > > 2.34.1
+> > > > 
+> > > > 
+> > > > 
+> > > > _______________________________________________
+> > > > linux-riscv mailing list
+> > > > linux-riscv@lists.infradead.org
+> > > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> > 
+> > 
 > 
 > 
-> base-commit: 76671054f9a1ff6abb976583cd8da37650acdc97
-> -- 
-> 2.55.0.887.g758fc8c411-goog
 > 
+
+
 
 _______________________________________________
 linux-riscv mailing list
