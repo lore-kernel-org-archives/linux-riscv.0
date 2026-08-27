@@ -4,102 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDECCC61DB9
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 04:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15CFFC5DF9D
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 04:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fbvhkf6PNZHdx9tQrKXWwlUfazam9r++Tsl9yVraraA=; b=LJUu8lO8+VvxtB
-	zbQ+xCK9+t5pq6biW8qEWqvlVF73b9KYlVlQTcwTmzmWSYStTHopkNUAqtIteNo2Va2e5MS87016Z
-	cmy7Jg7vWXe1TA5rz9Xl1xqi894kqdIoYUfY7rIOyaoJktqdIV/AFPwoU00fJE1UZuR5owUujcoeq
-	BsEYedzwSU4gMffml2RhQRSpZA5375OPUv9SiHEvhxAf9R9t00hatvgMPufdVxUGkLpW2ijRNYw5x
-	8HoLlIJaIV/lrjWspsJH0SffTUHBiMiZ1YF9JsGAQoc1apHg8YwY5KtkUia9crOgMi6o7u1IuKlTf
-	kUAiB7/G7Gcx90apg2xg==;
+	List-Owner; bh=H0fLiEVw6vh3TPBtAi4M+Z5YPHgnqYNLICbUUqLaeyw=; b=sM0Tg47HTaYMKe
+	6C3rsjoyu8kfvg30cZcb7R/7iJXW9g7F/MJCLkQDdPzjqIAzKiO6mXhsjXRmw7v8CYGDrWSlvfab8
+	iTa1izYrQ7PJwBI3tx3hoIA2fAzqTHUaIZ+9YRHiOIwD+/QtCAUSixYqaHE535Zs7HpHpCc94ApJd
+	GZYHM/oWEHrSNZHlr9pIbxQTNjLsKZjOb/sfSlxTfA/SJgv1cXKaRHio/P0DO8n2pbQm9Zjt0eh4A
+	cmK5tg8F2lzWMlLnMeoQ7cYt9tUqR3Uu+31vx87VFYd6zXPPcbO93uwFUH1yUjrQ+QbeHcT6lv2Ib
+	yC98iVRd1F5Rww+yVVuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzRs5-00000003ON7-1W3s;
-	Thu, 27 Aug 2026 04:37:49 +0000
-Received: from esa1.hc1455-7.c3s2.iphmx.com ([207.54.90.47])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzRs1-00000003OMQ-0vXc;
-	Thu, 27 Aug 2026 04:37:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1787805465; x=1819341465;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NjWJ6dMRbw0kkXr/0njtHxbP59W1uKKAQPA07UgnXFc=;
-  b=hYgip6nrRvYeUhy69KTL28sF/XTrrCLSj/PdO1/IKraryWF/Be4rUkhE
-   cp3Z9Oyt+MA1ZtMu1tvRRTZ1TPrUCrybOA4/XC0nB640wDfOJ6WRSkFx2
-   nk03OvmcPW1KxUYxMqgfVjRtgfjViQSMZH1WTBAN3b4jjmJejRmn10bee
-   i7dY6KqB9ymWfwuq1duMtonGLgZt9tZjxKLhyye5KgvLH1CzWoZ3SWWxB
-   K6Pbbobh8Rr3wSywRAgD2f8RtIGCah10QB/E1GKyGuk5vPLOE4Ek2VTAH
-   MI76knaUchPEDhnvzcsyVcYMpOzzku+mkD2/boDHZY3uq/mKXbdNS8bQz
-   w==;
-X-CSE-ConnectionGUID: g+v5ojJWRauKG9WKcj5ycA==
-X-CSE-MsgGUID: sum/L88DQ5WDJtbTx5uB+w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11887"; a="252818242"
-X-IronPort-AV: E=Sophos;i="6.25,246,1779116400"; 
-   d="scan'208";a="252818242"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa1.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 13:37:40 +0900
-Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 0C57B820C30;
-	Thu, 27 Aug 2026 04:37:40 +0000 (UTC)
-Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id BB59B18002ED;
-	Thu, 27 Aug 2026 04:37:39 +0000 (UTC)
-Received: from sm-arm-grace07 (unknown [10.124.178.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTPS id 17B3F405EDE;
-	Thu, 27 Aug 2026 04:37:20 +0000 (UTC)
-Date: Thu, 27 Aug 2026 13:37:18 +0900
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	David Hildenbrand <david@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
-	Ritesh Harjani <ritesh.list@gmail.com>
-Subject: Re: [PATCH 13/20] KVM: selftests: Add TEST_EXTRA memory region type
- for "special" memslots
-Message-ID: <ao--_gaqpfWir9v4@sm-arm-grace07>
-References: <20260826230511.972824-1-seanjc@google.com>
- <20260826230511.972824-14-seanjc@google.com>
+	id 1wzS96-00000003P1A-364j;
+	Thu, 27 Aug 2026 04:55:24 +0000
+Received: from [218.76.62.146] (helo=ultrarisc.com)
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzS90-00000003P0m-2dKM
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Aug 2026 04:55:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
+	References:Date:Message-Id; bh=/vtHaHrw6VqvnjqtqCEIU3jfkZsq9QIio
+	bIZuMjLspc=; b=Wq9KEZpQYp4DqLt0IQiwZVH6ErO3Mj9uNJEdMLRLW5R4aaBvo
+	mdqXox0mVyR8F//CeNYbjrJgI50P9tMTxirp5DjxFdHUHpQzwyWbOPVOgTZT+sko
+	kAzuemtAEl7tFCpZF7K1WQntCHMLsAe0fQkOKSvedgpjUVCqEnk3pD8Po8=
+Received: from [127.0.0.1] (unknown [192.168.100.1])
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwCXxs0rw49qQFkBAA--.434S2;
+	Thu, 27 Aug 2026 12:55:07 +0800 (CST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260826230511.972824-14-seanjc@google.com>
+Subject: Re: [PATCH 11/12] riscv: dts: ultrarisc: Add Shenzhen Rongda M0
+ board device tree
+From: Jia Wang <wangjia@ultrarisc.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Jia Wang <wangjia@ultrarisc.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ Mika Westerberg <mika.westerberg@linux.intel.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, netdev@vger.kernel.org, 
+ dmaengine@vger.kernel.org
+In-Reply-To: <db174bcd-3b21-464f-ab56-439d65e2a064@lunn.ch>
+References: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
+ <20260824-ultrarisc-dts-v1-11-61ab7aebe9e5@ultrarisc.com>
+ <d93868e7-00c7-4251-9b23-8b3ed0535185@lunn.ch>
+ <178779718359.1423015.16616466921659081322.b4-reply@b4>
+ <db174bcd-3b21-464f-ab56-439d65e2a064@lunn.ch>
+Date: Thu, 27 Aug 2026 12:54:53 +0800
+Message-Id: <178780649385.1608658.14465948095163858225.b4-reply@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787806494; l=2092;
+ i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
+ bh=90tsSyDLBX0Cz3GrAAWW/LutBnaIZV2qndroWkPLluk=;
+ b=UNtZghpp8iIE5tWCpGGJhUnNUY4ikL3VrrbizN1JtzpGTGYZP4oq9qfaPCSasOkkUmdlClkG4
+ lScRZMeQkt/DZlkXjkc0Jp0wzBPkf16XErs6jp0+2r+I1LEU+z1NUua
+X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
+ pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
+X-CM-TRANSID: AQAAfwCXxs0rw49qQFkBAA--.434S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ury8XFyktw4fXryxKF4xtFb_yoW8Zrykpa
+	y5G3W7tFZ8tr4xCFn29w4IqasI9ayxGr1jqr1kJ34rA3Z8KF1rtr1Ig3yUuasrGrs5XF1j
+	9ay0qa9xGan0yaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9K14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJV
+	WxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Wrv_ZF1lc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
+	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
+	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
+	0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjTRJMa0UUUUU
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAMEWqPrHsABwAAsp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_213745_936076_6F5AED6B 
-X-CRM114-Status: GOOD (  30.58  )
+X-CRM114-CacheID: sfid-20260826_215521_110285_1C399E99 
+X-CRM114-Status: GOOD (  26.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,133 +119,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 04:05:04PM -0700, Sean Christopherson wrote:
-> And another memory region type to deal with extra, one-off memory regions,
-> and use the new type to manage x86's SMRAM memslot, as another step towards
-> taking the region type instead of the raw memslot in the physical page
-> allocator APIs.
+On 2026-08-27 04:46 +0200, Andrew Lunn wrote:
+> On Thu, Aug 27, 2026 at 10:19:43AM +0800, Jia Wang wrote:
+> > On 2026-08-24 15:02 +0200, Andrew Lunn wrote:
+> > > > +&ethernet {
+> > > > +	phy-handle = <&phy0>;
+> > > > +	/*
+> > > > +	 * YT8531 RGMII timing on this board requires no PHY internal delays.
+> > > 
+> > > Please extend this sentence with an explanation why it needs no delay?
+> > > 
+> > > There are times this is correct, but it is also mostly wrong. Without
+> > > an explanation, i cannot say if this is correct or not.
+> > > 
+> > 
+> > Thanks for the review.
+> > 
+> > The DP1000 SoC integration provides the required TX and RX RGMII clock
+> > skew, so enabling the YT8531 internal delays would apply the delay twice.
 > 
-> Alternatively, SMRAM setup could simply use the quad-underscore API to
-> continue passing in the memslot, but a surprising number of tests use an
-> "extra" memslot for a variety of reasons.  I.e. allocating memory from one
-> (and exactly one) extra memslot isn't all that rare, and so should be
-> treated as normal behavior, not as something extraordinary, as
-> quad-underscore functions typically suggest.
+> Please take a read of
 > 
-> Opportunistically add comments to document the intended usage of the types,
-> as the difference between DATA, TEST_DATA, and TEST_EXTRA in particular
-> isn't exactly obvious.
+> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
 > 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  .../testing/selftests/kvm/include/kvm_util.h  | 37 ++++++++++++++++---
->  tools/testing/selftests/kvm/include/x86/smm.h |  2 +-
->  .../testing/selftests/kvm/lib/x86/processor.c |  7 ++--
->  3 files changed, 37 insertions(+), 9 deletions(-)
+> You need to make the MAC driver do the correct thing:
 > 
-> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-> index 14f87c8a00ec..f4f4f360a10b 100644
-> --- a/tools/testing/selftests/kvm/include/kvm_util.h
-> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-> @@ -82,11 +82,43 @@ struct userspace_mem_regions {
->  	DECLARE_HASHTABLE(slot_hash, 9);
->  };
->  
-> +/*
-> + * Memory region types are passed to various page allocators to communicate
-> + * various properties and metadata related to the allocation.  Note, the
-> + * descriptions below described the primary usage of each type.  Individual
-> + * tests may allocate memory for other purposes.
-> + *
-> + * By default, all regions are mapped to memslot '0'.  Tests can override the
-> + * memslot for any or all types, e.g. so that all test data is allocated from a
-> + * curated memslot.
-> + */
+> # There are a small number of cases where the MAC has hard coded
+> # delays which cannot be disabled. The 'phy-mode' only describes the
+> # PCB.  The inability to disable the delays in the MAC does not change
+> # the meaning of 'phy-mode'. It does however mean that a 'phy-mode' of
+> # 'rgmii' is now invalid, it cannot be supported, since both the PCB
+> # and the MAC and PHY adding delays cannot result in a functional
+> # link. Thus the MAC should report a fatal error for any modes which
+> # cannot be supported. When the MAC implements the delay, it must
+> # ensure that the PHY does not also implement the same delay. So it
+> # must modify the phy-mode it passes to the PHY, removing the delay it
+> # has added. Failure to remove the delay will result in a
+> # non-functioning link.
+> 
 
-This is helpful as it wasn't so obvious to me. Thanks for adding the comments 
-on the default behaviour.
+Thanks for the clarification.
 
-Thanks,
-Itaru.
+I will update the DTS to use "rgmii-id" and add a small DP1000 stmmac
+glue driver. The driver will account for the fixed TX and RX MAC delays
+using phy_fix_phy_mode_for_mac_delays(), reject unsupported modes, and
+pass "rgmii" to the PHY.
 
->  enum kvm_mem_region_type {
-> +	/*
-> +	 * The CODE region is used by lib/elf when loading the test's code into
-> +	 * guest memory.
-> +	 */
->  	MEM_REGION_CODE,
-> +	/*
-> +	 * The DATA region is used to allocate core data structures, e.g. vCPU
-> +	 * stacks, VM exception tables, x86's TSS, etc.
-> +	 */
->  	MEM_REGION_DATA,
-> +	/*
-> +	 * The PT region, a.k.a. Page Table region, is used to allocate page
-> +	 * table pages.
-> +	 */
->  	MEM_REGION_PT,
-> +	/*
-> +	 * The TEST_DATA region is used for allocating test data that is either
-> +	 * test specific, and/or isn't considered a "core" data structure.
-> +	 */
->  	MEM_REGION_TEST_DATA,
-> +	/*
-> +	 * The TEST_EXTRA region is for special snowflakes, where a test wants
-> +	 * to create and use a one-off memslot, without impacting "normal" test
-> +	 * data allocations.
-> +	 */
-> +	MEM_REGION_TEST_EXTRA,
->  	NR_MEM_REGIONS,
->  };
->  
-> @@ -129,11 +161,6 @@ struct kvm_vm {
->  
->  	struct kvm_binary_stats stats;
->  
-> -	/*
-> -	 * KVM region slots. These are the default memslots used by page
-> -	 * allocators, e.g., lib/elf uses the memslots[MEM_REGION_CODE]
-> -	 * memslot.
-> -	 */
->  	u32 memslots[NR_MEM_REGIONS];
->  };
->  
-> diff --git a/tools/testing/selftests/kvm/include/x86/smm.h b/tools/testing/selftests/kvm/include/x86/smm.h
-> index 2d1afa09819b..15faaa060126 100644
-> --- a/tools/testing/selftests/kvm/include/x86/smm.h
-> +++ b/tools/testing/selftests/kvm/include/x86/smm.h
-> @@ -8,7 +8,7 @@
->  #define SMRAM_MEMSLOT	((1 << 16) | 1)
->  #define SMRAM_PAGES	(SMRAM_SIZE / PAGE_SIZE)
->  
-> -void setup_smram(struct kvm_vm *vm, struct kvm_vcpu *vcpu, u64 smram_gpa,
-> +void setup_smram(struct kvm_vm *vm, struct kvm_vcpu *vcpu, gpa_t smram_gpa,
->  		 const void *smi_handler, size_t handler_size);
->  
->  void inject_smi(struct kvm_vcpu *vcpu);
-> diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-> index ea5fa59888af..b988eea373ad 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-> @@ -1468,11 +1468,12 @@ bool kvm_arch_has_default_irqchip(void)
->  	return true;
->  }
->  
-> -void setup_smram(struct kvm_vm *vm, struct kvm_vcpu *vcpu, u64 smram_gpa,
-> +void setup_smram(struct kvm_vm *vm, struct kvm_vcpu *vcpu, gpa_t smram_gpa,
->  		 const void *smi_handler, size_t handler_size)
->  {
-> -	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, smram_gpa,
-> -				    SMRAM_MEMSLOT, SMRAM_PAGES, 0);
-> +	vm_override_mem_region(vm, MEM_REGION_TEST_EXTRA, VM_MEM_SRC_ANONYMOUS,
-> +			       smram_gpa, SMRAM_MEMSLOT, SMRAM_PAGES);
-> +
->  	TEST_ASSERT(vm_phy_pages_alloc(vm, SMRAM_PAGES, smram_gpa,
->  				       SMRAM_MEMSLOT) == smram_gpa,
->  		    "Could not allocate guest physical addresses for SMRAM");
-> -- 
-> 2.55.0.887.g758fc8c411-goog
+>     Andrew
 > 
+
+Best regards,
+Jia Wang
+
+
 
 _______________________________________________
 linux-riscv mailing list
