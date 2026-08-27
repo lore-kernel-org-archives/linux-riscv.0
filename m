@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE846C61DC4
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 17:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C18C61DB9
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 18:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hKofah7Vf8SVv7PlbfLWGnJwXQV4XUki7xFcIEm97Uw=; b=qpY4dJzBWxvzfE
-	c23Ks9PTolwNjL+RxKaBVurwX+LK4yjVS5v2G54/K29WaDGpCtwtYu8dxMD3bkj/rPjrEdA9152lY
-	ZAECeVG9FgLZ/iqusyrmdFUhTyWguXeY7EFISfOSe5Jq4iCsdArlSd/i6fB6pl2ANMaGapdnW1XTg
-	UiRRTSwhKSjS1L02qkzD6/CeVQFdah/4a89Qw8oCDeojtVtQUMyWn4sbK3j4FoV4eVOBbqSEg9kPD
-	T0vc6S/zPN9uODxWQFk0NUID/QuuC3tszJxyIL4rRJPUg8vJ1Bz3OyjgjrjhfOkHe7Y7rQQH00KtQ
-	zN9blW+7bXH/r/xWZM8w==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HaRX7nRtC+FKd1631gKoLKjwOBlOY6IaL48iX0UeYyA=; b=OcykIWx3SinBEQ0wwOuYLRG45m
+	ltYrBLDf5RmY/M8CUtjoIW17LU80lPpNzrwzamh1iPOnrLR9b7ZMOBvos1a+ZmfpCoKns23+Ya3mT
+	15KSnQjHeb+/L9ZP6IzOMDb7LX+n81XyP1JsEslAWtMKy0vKGezHiK444bnjjzAdOEU1yv1XZhP8H
+	oR5Z/Dmh2Jxt6k7XFCNQ6/eFrX5sb45ZdI1hAHKxbfFbs1vzR88Zxqay9m+GOU09Qe/P2P+beec8T
+	Gkh85iD0IsUF1KFckCPGDvKA/dRF22QHVHoseGDzcg99KZjhSRY38Lrt6FOU3V2ZYzYo+GXHZj9Mt
+	z+2e3bkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeHJ-00000004Vmc-100y;
-	Thu, 27 Aug 2026 17:52:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeHC-00000004Vgj-32wN;
-	Thu, 27 Aug 2026 17:52:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C51F2165C;
-	Thu, 27 Aug 2026 10:52:25 -0700 (PDT)
-Received: from [10.211.55.7] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DFB0F3F7D8;
-	Thu, 27 Aug 2026 10:52:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=foss.arm.com; s=main;
-	t=1787853149; bh=3Lo+ZdElb1bhCszSyr1ciTzcKatyHt00pcCO0obh9Hk=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=LLVXzCCVqihttZUVw5hf327N6NQF/8OTgVqmkRTWAKwtW7JaJNRd34Dmfeb89URQY
-	 SFvbiIJ41kOlYkwg6d2BlBms8vwwU1klpZ1EkH3E618IMsvMTHTUDoTHcVPSrjx5Ns
-	 UPBGKX1xHk57nyAWP2hBKL9tmsqr2otVNnrPAcSU=
-Message-ID: <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
-Date: Thu, 27 Aug 2026 12:52:28 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	id 1wzecW-00000004Zvv-08Ac;
+	Thu, 27 Aug 2026 18:14:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzecU-00000004Zv7-0rBq;
+	Thu, 27 Aug 2026 18:14:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3233D600D9;
+	Thu, 27 Aug 2026 18:14:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2219B1F000E9;
+	Thu, 27 Aug 2026 18:14:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787854472;
+	bh=BLqeMPBBFLZB2XtBVAVDJSZch4XELRlb7qugskkfcMg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Vt4ggbUetYUKJ27EewJQTpgv3qkZTj9ozDFcDv8WygJ3eSNDoxxMV8fBzZLHs9PnA
+	 xxxnvaoZsrRyYqFAX4UZZ7TYobmBeZx/FTo05GSUCcrTcQLPNZ4Q7bH2F5eXgDrWRw
+	 EcaiZurE6opfx44t9QE5Rqn8848DD59WBL5kcMohlgZX5u+Aug4DF2lxQveaKOL0dc
+	 hxzUv8KwTUFyeWOo0IlkU+1ivw7s8z/EI6UmxNB1uUjkZsvnFefYrGbZttRPQN3kTb
+	 iYuXAjqHBj7mSV8h8Zz3m6/VaOOFGxNvypQ+ewn9m3+dCXKfZn19mHLfXQGCUTk2+X
+	 9S9YOem41Zxmw==
+Date: Thu, 27 Aug 2026 19:14:28 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Bill Roberts <bill.roberts@foss.arm.com>
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	linux-hardening@vger.kernel.org, linux-api@vger.kernel.org,
+	dave.hansen@linux.intel.com, rick.p.edgecombe@intel.com,
+	debug@rivosinc.com
 Subject: Re: Shadow Stack Locking Semantics between arch's
-From: Bill Roberts <bill.roberts@foss.arm.com>
-To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- linux-arm-kernel@lists.infradead.org,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- linux-hardening@vger.kernel.org, linux-api@vger.kernel.org
-Cc: dave.hansen@linux.intel.com, rick.p.edgecombe@intel.com,
- debug@rivosinc.com, broonie@kernel.org
+Message-ID: <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
 References: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
-Content-Language: en-US
-In-Reply-To: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_105238_517845_16C01375 
-X-CRM114-Status: GOOD (  13.42  )
+ <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
+MIME-Version: 1.0
+In-Reply-To: <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
+X-Cookie: Exercise caution in your daily affairs.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,58 +68,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============0668299872197080082=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOC8yNy8yNiAxMjoxNSBQTSwgQmlsbCBSb2JlcnRzIHdyb3RlOgoKU29ycnkgcmVzZW5kLCB3
-cm9uZyBvdXRnb2luZyBtYWlsIHNlcnZlciBpbiBteSBjbGllbnQgc28gaXQgZ290IG1hbmdsZWQs
-IAp0aGlzIG9uZSBzaG91bGQgYmUgcHJvcGVyLi4uCgpIb3dkeSBmb2xrcywKCklmIHlvdSBoYXZl
-bid0IHNlZW4sIEkgaGF2ZSBiZWVuIGZsb2F0aW5nIHNvbWUgcGF0Y2hlcyB0byBicmluZyB4ODYt
-NjQgCnNoYWRvdyBzdGFjayBjb250cm9scyBvdmVyIHRvIHByY3RsLCBhbmQgaXQncyBnZW5lcmFs
-bHkgc3RyYWlnaHQgZm9yd2FyZC4KVGhlIGxhcmdlciBtb3RpdmF0aW9uLCBpcyB0aGF0IEkgYW0g
-ZG9pbmcgYWxsIG9mIHRoaXMgc28gd2UgY2FuIHBsYWNlIApMU00gY29udHJvbHMgb24gc2hhZG93
-IHN0YWNrIG1hbmlwdWxhdGlvbnMuIEZvciB4ODYgd2lsbCB3ZSBuZWVkIHRvIGhvb2sKdGhlIG9s
-ZCBhbmQgbmV3IGltcGxlbWVudGF0aW9ucy4KCkkgaGF2ZSBub3RpY2VkIHNvbWUgc2VtYW50aWMg
-ZGlmZmVyZW5jZXMgYmV0d2VlbiB0aGUgYXJjaGVzLiBHaXZlbiB0aGlzIApleGFtcGxlIG9mIGN1
-cnJlbnQgdGhyZWFkIHN0YXRlLCBjdXJyZW50IHRocmVhZCBsb2NraW5nIHN0YXRlIGFuZCB0aGUK
-bmV3IGZlYXR1cmVzIHJlcXVlc3RlZCwgYXMgc2hvd24gYmVsb3c6Cgp1bnNpZ25lZCBsb25nIGxv
-Y2tlZCA9IDB4MjsgLy8gS2VybmVsIFRhc2sgU3RhdGUgLT4gTE9DSyBXUklURQp1bnNpZ25lZCBs
-b25nIGN1cl92YWwgPSAweDM7IC8vIEtlcm5lbCBUYXNrIFN0YXRlIC0+IFdSSVRFIGFuZCAKU0hB
-RE9XU1RBQ0sgRU5BQkxFRAp1bnNpZ25lZCBsb25nIG5ld192YWwgPSAweDA7IC8vIFVzZXJzcGFj
-ZSBGZWF0dXJlIENoYW5nZSB2aWEgc3lzY2FsbCAtPiAKRElTQUJMRQoKfCB4ODYtNjQgfCByaXNj
-LXYgfCBhcm02NCB8CnwgLS0tLS0tLS0tLSB8IC0tLS0tLS0tIHwgLS0tLS0tLS0tIHwKfCBXb3Jr
-c8KgIHwgRmFpbHPCoCB8IEZhaWxzwqAgwqAgwqB8CgpCZXNpZGVzIHRoZSBsb2NraW5nIGRpZmZl
-cmVuY2UsIEkgaGF2ZSBhbHNvIG5vdGljZWQgYSBmZXcgb3RoZXIgaXNzdWVzIApub3RlZCBiZWxv
-dzoKClJpc2MtdjoKLSBzaG91bGRuJ3QgcmVqZWN0IGFsbCBiaXRzIGluIGxvY2tpbmcsIGl0IHN1
-cHBvcnRzIHNoYWRvdyBzdGFjay4KLSBzaG91bGRuJ3QgcmV0dXJuIEVJTlZBTCBvbiBsb2NraW5n
-IGNoZWNrcwoKU2VlIHRoZSBjb2RlIHNuaXBwZXRzIGZvciB0aGVzZSBiZWxvdzoKCmlmIChpc19z
-aHN0a19sb2NrZWQodCkpCiDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCByZXR1cm4gLUVJTlZBTDsK
-CmludCBhcmNoX2xvY2tfc2hhZG93X3N0YWNrX3N0YXR1cyhzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRh
-c2ssCiDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCB1
-bnNpZ25lZCBsb25nIGFyZykKewogwqAgwqAgwqAgwqAgLyogSWYgc2h0c3RrIG5vdCBzdXBwb3J0
-ZWQgb3Igbm90IGVuYWJsZWQgb24gdGFzaywgbm90aGluZyB0byAKbG9jayBoZXJlICovCiDCoCDC
-oCDCoCDCoCBpZiAoIWlzX3VzZXJfc2hzdGtfZW5hYmxlZCgpIHx8CiDCoCDCoCDCoCDCoCDCoCDC
-oCAhaXNfc2hzdGtfZW5hYmxlZCh0YXNrKSB8fCBhcmcgIT0gMCkKIMKgIMKgIMKgIMKgIMKgIMKg
-IMKgIMKgIHJldHVybiAtRUlOVkFMOwoKIMKgIMKgIMKgIMKgIHNldF9zaHN0a19sb2NrKHRhc2ss
-IHRydWUpOwoKIMKgIMKgIMKgIMKgIHJldHVybiAwOwp9Cgphcm02NDoKMS4gTG9ja2luZyBmYWls
-dXJlcyByZXR1cm4gLUVCVVNZIHZzIC1FUEVSTSwgSSBzcG9rZSB3aXRoIE1hcmsgKG9uIENDKSAK
-aGUgc2VlbWVkIE9LIHdpdGggdGhpcywKCkkgd291bGQgbGlrZSB0byBmaW5kIGEgd2F5IHRvIHJl
-Y3RpZnkgdGhpcyBzbyB1c2Vyc3BhY2UgaGFzIGEgY29tbW9uIEFQSS4KCkkgYW0gcHJvcG9zaW5n
-IGFuZCBoYXZlIHF1ZXN0aW9ucyBvdmVyIHRoZSBmb2xsb3dpbmc6CjEuIFdoYXQgc2hvdWxkIHRo
-ZSBiZWhhdmlvciBiZSBpZiB5b3UgaGFkIHdyaXRlIGxvY2tlZCBhbmQgZGlzYWJsZSB0aGUgCnNo
-YWRvdyBzdGFjaz8KIMKgIC0gSSBjYW4gYXJndWUgYm90aCB3YXlzIGhlcmUsIC1FUEVSTSBvciBz
-dWNjZXNzLiBJIHRoaW5rIEkgYW5kIG1vc3QgCmFyY2hlcyBsZWFkIHRvIGZhaWx1cmUuCjIuIHJp
-c2N2IHNob3VsZCBjaGVjayB0aGF0IHRoZSBsb3cgYml0IGlzIHNldCBpbiBsb2NraW5nIG5vdCBq
-dXN0IHRoYXQgCml0cyAwLCBpdCBzaG91bGQgYmUgMQozLiByaXNjdiBzaG91bGQgcmV0dXJuIC1F
-UEVSTSB2cyAtRUlOVkFMCjQuIHg4NiBsb2NraW5nIHN0YXRlIHNob3VsZCBmYWlsCgpJZiB3ZSBj
-YW4gYWxsIGFncmVlIG9uIGl0ZW0gMSwgdGhhdCBsb2NrZWQgYml0cyBjaGVjayBjYW4gYmUgcmVm
-YWN0b3JlZCAKYW5kIHNoYXJlZCBpbiBvbmUgb2YKdHdvIHdheXM6CjEuIHdpdGhpbiBwcmN0bCBp
-dHNlbGYsIGJlZm9yZSB0aGUgYXJjaCBob29rIGlzIGNhbGxlZCwgd2Ugd291bGQgbmVlZCAKaGVs
-cGVycyBwZXItYXJjaCB0byBleHRyYWN0IHRoZSB0aHJlYWQgZmVhdHVyZXMgYW5kIGxvY2sgYml0
-cwoyLiBhcyBhIGhlbHBlciB3aGVyZSBmb2xrcyBqdXN0IHBhc3MgdGhlIHVuc2lnbmVkIGxvbmcg
-b2YgdGhlIGJpdHMgdG8gCmdldCB0aGUgcmVzdWx0CgpUaGFua3MgZXZlcnlvbmUKCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============0668299872197080082==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Yf0EwlbjDAgbC5GQ"
+Content-Disposition: inline
+
+
+--Yf0EwlbjDAgbC5GQ
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Aug 27, 2026 at 12:52:28PM -0500, Bill Roberts wrote:
+
+> I have noticed some semantic differences between the arches. Given this
+> example of current thread state, current thread locking state and the
+> new features requested, as shown below:
+
+> unsigned long locked =3D 0x2; // Kernel Task State -> LOCK WRITE
+> unsigned long cur_val =3D 0x3; // Kernel Task State -> WRITE and SHADOWST=
+ACK
+> ENABLED
+> unsigned long new_val =3D 0x0; // Userspace Feature Change via syscall ->
+> DISABLE
+
+> | x86-64 | risc-v | arm64 |
+> | ---------- | -------- | --------- |
+> | Works=A0 | Fails=A0 | Fails=A0 =A0 =A0|
+
+I would not have expected that combination to work at all with the
+prctl() (as opposed to arch_prctl()) interface TBH, if you've locked
+write on you shouldn't be able to disable it.  The reason that works on
+x86 at the minute is that for x86 you can only change one bit at a time
+so the new value when disabling is effectively 0x2, not 0x0.
+
+> I am proposing and have questions over the following:
+> 1. What should the behavior be if you had write locked and disable the
+> shadow stack?
+> =A0 - I can argue both ways here, -EPERM or success. I think I and most a=
+rches
+> lead to failure.
+
+Given that RISC-V doesn't support control of writes it's moot there
+at the minute, and x86 currently uses arch_prctl() so will need an
+additional API, it seems the path of least resistance is to allow it.
+This also avoids locking writes (or pushes, for arm64) on effectively
+also locking enable which seems neater.
+
+> 2. riscv should check that the low bit is set in locking not just that its
+> 0, it should be 1
+
+I think for ABI compatibility RISC-V will have to continue accepting 0
+as being equivalent to locking PR_SHADOW_STACK_ENABLE (or everything,
+but it only supports that one bit right now).
+
+> 3. riscv should return -EPERM vs -EINVAL
+
+If you mean for arch_lock_shadow_stack_status() I think -EINVAL is a
+sensible error code when the system or task does not support shadow
+stacks, I'm not sure we should return -EPERM at all.  On arm64 we
+support locking any bit, not just the ones that we currently know about.
+This is for future proofing, userspace can lock unknown flags.
+
+> If we can all agree on item 1, that locked bits check can be refactored a=
+nd
+> shared in one of
+> two ways:
+> 1. within prctl itself, before the arch hook is called, we would need
+> helpers per-arch to extract the thread features and lock bits
+> 2. as a helper where folks just pass the unsigned long of the bits to get
+> the result
+
+For me option 1 seems a bit nicer, and moves more of the implementation
+into generic code which is something we should really be doing in
+general with the shadow stack support - there's a lot of cross arch
+duplication at the minute.  It has been on my list to look at this
+repitition at some point, it had been held up by the clone3() stuff but
+that seems to have died a death for now.
+
+--Yf0EwlbjDAgbC5GQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqQfoMACgkQJNaLcl1U
+h9CgJQf/RXCfxOLBrpvqx7CGBBJ+UQyh71H64Yy4Tt40trYCcoJLxK6joixB/sT7
+g0fKTvETGH7NCIr9NJqTGfvOyZ7Bf4gL2ZL79NU5zTtmWdwB21cDG7tmvoXw2mUw
+9SMS62c1y4XEpniYBz7nYA24TgB4ZkpL0J8tOPGVkol0Gjf7ZTnd80JrsdWiYbNY
+pFjWClV4iJ/MEwq0Q7dsrRY/3399co/0ZlRMp2LeLEKGce4gGKgmBAJlSv1wQ/lw
+qhofehL0NPsqRgdVjXpdoUuRwZ9/odMAZav8deL4wvZJiEtppw7em8wuTszq8NxZ
+Ct5MM4+/dYaw4Oh2ftBDOMgYjAL/lA==
+=a0+n
+-----END PGP SIGNATURE-----
+
+--Yf0EwlbjDAgbC5GQ--
+
+
+--===============0668299872197080082==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0668299872197080082==--
+
