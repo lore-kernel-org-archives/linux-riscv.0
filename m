@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A349DC61DC6
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 12:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ECB5C61DC2
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 12:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lXYIPRi5ArHkNJ/NW3Fr9B/J7lb1+kcD88cE/WpoJVk=; b=S+1JMCJwIQTKXb
-	QTKAQapW1jVf0SfJC7bRtJgmvNmni8kRUZcPX4Cw1L+D6OtxQhi0WzVkqGrQd3VPRDjZCrgZ3KlM8
-	jXwJaUyrWjz/O5gFajjdC74Egj6tHka5qaQX5tyWdHRchXOr3mMVoxAg4aEKJtI6qR38baq8f2LxF
-	m85T0dKGZ/BkO4Gbehb9vV0c0UQOp8uDmJSudC5gOqAJk72XT4MH3vbIH18bX1CoHNXX1J5lvk8Km
-	CozbzVgnAw4Ha6qq89SRzrhFGP4mEpgTOH5bC4I3lkCZxEZxNekdNjq/1g2kj0sfR0FytVEREn3Br
-	5n5+LV1LAWQMmAhfMN6Q==;
+	List-Owner; bh=vIv9MYis10S/CQSWQjD7YUKhFf8LqFPIS6EuV4MgcXM=; b=oHxzlzTd5gEBXm
+	RyyHprQqHi/L2VR5Ui3FA19rvGxAykHj/rdTO0nMcg7x8TNJ+JRImaIcU0KzIvH43iVDotDjA9V8C
+	3BNKXb3vBYQgdJcrNA6ZjScyUK8yKAJrU/q2kE0W1Ag8nJqDflYqtIarZ9Gc09/du2JBQmiXcqlal
+	VTYe6GJZcKK1lngaxMIU8tw3uRZfSrQkOoM6c808fGUtsUNX7fVRCj3u0bhc/i38Tq9AonKcpiK5N
+	89cr/Dxy3XFNu14H/ZwRKbnynmJzgGNoEP4jhFGS2rR1CueOgopdj5y+UK0QbYsjJeoaxzi3SBTwr
+	/IwfQwP8clwkqYrs3vzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZO7-00000003yvZ-1Tva;
-	Thu, 27 Aug 2026 12:39:23 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wzZWd-00000003zVC-2H3S;
+	Thu, 27 Aug 2026 12:48:11 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZO3-00000003yv6-3D9L
+	id 1wzZWa-00000003zUn-0gg4
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Aug 2026 12:39:22 +0000
-Received: from localhost.localdomain (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAAXHz3kL5Bq4ERiBg--.38527S2;
-	Thu, 27 Aug 2026 20:39:03 +0800 (CST)
-From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-To: xujiakai2025@iscas.ac.cn
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	dev.mbstr@gmail.com,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	qirui.001@bytedance.com,
-	samuel.holland@sifive.com,
-	zhangchunyan@iscas.ac.cn
-Subject: Re: [PATCH v5] riscv: stacktrace: fix stack-out-of-bounds in walk_stackframe()
-Date: Thu, 27 Aug 2026 20:38:48 +0800
-Message-Id: <20260827123849.816-1-xujiakai2025@iscas.ac.cn>
-X-Mailer: git-send-email 2.35.1.windows.2
-In-Reply-To: <20260705063656.237676-1-xujiakai2025@iscas.ac.cn>
-References: <20260705063656.237676-1-xujiakai2025@iscas.ac.cn>
+	Thu, 27 Aug 2026 12:48:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787834888; x=1819370888;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=LSe4ClYHyzoUMjPQ2O2AIJo3kbtl9bxf0qFjcfWnhxI=;
+  b=W0KgFlSvW+TLqEVz++zAfqPE+vGVI9b5xqAtCkcYftQ7wZ1rRYCB6x0+
+   7xM23Bw03QTRF3LdwHx5Rldd3FPqfsrUWG35ePqgXxDac0JaxzbBN8FLd
+   xBK3OIrsuHCTWSiCyg+nSJhY1I8pS3McQ8norQ48Fratn53iC+8GyNwHW
+   HqVH+XG/KkMrZfeGstE7IPUDxz8iNPJAlDNlccWsDEJm+ilXwxadTOlPz
+   S9NXWxL0lqCRcl7pU0iSTZpZtw9sit/Ar+skJsmXST4srlBiFTbqmYYRk
+   Tv8jV1FMVHNWe/ZZFQpbKw8hZs2bN5SP+3X7hgrbbGq6Z8FTrgWk0dvYG
+   Q==;
+X-CSE-ConnectionGUID: GbSzu1oLQNuDTdEE+VOKUw==
+X-CSE-MsgGUID: groCxEeEStSgUNZGYzo5Ww==
+X-IronPort-AV: E=McAfee;i="6800,10657,11887"; a="88189820"
+X-IronPort-AV: E=Sophos;i="6.25,246,1779174000"; 
+   d="scan'208";a="88189820"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 05:48:07 -0700
+X-CSE-ConnectionGUID: 5r8ZA7vORXinB4cAgEhcqQ==
+X-CSE-MsgGUID: wbyizxAKSNCFhTkpZJP1mA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,246,1779174000"; 
+   d="scan'208";a="271386983"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.125])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 05:48:01 -0700
+Date: Thu, 27 Aug 2026 15:47:57 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Janani Sunil <jan.sun97@gmail.com>
+Cc: Janani Sunil <janani.sunil@analog.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Marius Cristea <marius.cristea@microchip.com>,
+	Marcus Folkesson <marcus.folkesson@gmail.com>,
+	Kent Gustavsson <kent@minoris.se>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-spi@vger.kernel.org, Kent Gustavsson <nedo80@gmail.com>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <apAx_ZUDQ6G6XVuc@ashevche-desk.local>
+References: <20260827-ad5529r-driver-v10-0-38f2be07b824@analog.com>
+ <20260827-ad5529r-driver-v10-3-38f2be07b824@analog.com>
+ <ao_z9QTJC_q8gH0v@ashevche-desk.local>
+ <aed972ef-3776-4055-81aa-63255d072b8d@gmail.com>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowAAXHz3kL5Bq4ERiBg--.38527S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxKF13Aw4Uuw1DZryDGFyxGrg_yoW3uw48pF
-	Z8CFnrArZrKryIva4avrn7WFy5Jrs5W345KFW7Jw15Aa1rtFyrZr909as0qr1UAry0qa40
-	qF12yws3Can0va7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBF14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWxJVW8Jr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x
-	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
-	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcV
-	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF
-	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
-	CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUC1v3UUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCRMMCWqP79DjiwAAst
+Content-Disposition: inline
+In-Reply-To: <aed972ef-3776-4055-81aa-63255d072b8d@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_053920_175330_49D8606F 
-X-CRM114-Status: GOOD (  29.39  )
+X-CRM114-CacheID: sfid-20260827_054808_292198_55FC3B14 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,202 +106,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-gentle ping ?
+On Thu, Aug 27, 2026 at 01:17:13PM +0200, Janani Sunil wrote:
+> On 8/27/26 10:23, Andy Shevchenko wrote:
+> > On Thu, Aug 27, 2026 at 09:34:48AM +0200, Janani Sunil wrote:
 
-> The fp_is_valid() function uses ALIGN(sp, THREAD_SIZE) as the upper
-> bound for the frame pointer check. This bound is calculated relative
-> to the current sp and shifts upward when sp itself exceeds the valid
-> stack region, allowing the unwinder to read past the end of the
-> allocated task stack and triggering KASAN stack-out-of-bounds.
-> 
-> Fix this by using absolute stack boundaries determined once before
-> the unwind loop:
-> 
-> - When sp is on the task stack, use the task's pt_regs as the upper
->   bound.
-> - When sp is on the overflow_stack (CONFIG_VMAP_STACK=y), use the
->   overflow_stack's top as the boundary.
-> - When sp is on the IRQ stack (CONFIG_IRQ_STACKS=y), use the IRQ
->   stack's top as the boundary.
-> - When sp is not on any known stack, warn and return.
-> - For remote tasks (task != current), if sp is not on the task
->   stack, warn and return since we cannot reliably determine the
->   correct boundary from a different CPU's stacks.
-> 
-> Make the DECLARE_PER_CPU(overflow_stack) unconditional in
-> asm/stacktrace.h so that stacktrace.c can use
-> IS_ENABLED(CONFIG_VMAP_STACK) instead of #ifdef, in line with the
-> kernel coding style which discourages the use of #ifdef in .c files
-> (https://docs.kernel.org/process/coding-style.html).  This is safe
-> because the DEFINE_PER_CPU (memory allocation) in traps.c remains
-> guarded by CONFIG_VMAP_STACK; the reference in stacktrace.c is only
-> compiled when IS_ENABLED(CONFIG_VMAP_STACK) evaluates to true.
-> 
-> Fixes: a2a4d4a6a0bf ("riscv: stacktrace: fixed walk_stackframe()")
-> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
-> Assisted-by: YuanSheng:DeepSeek-V3.2
-> ---
-> V4 -> V5:
-> - Made DECLARE_PER_CPU(overflow_stack) unconditional in
->   asm/stacktrace.h so that stacktrace.c can use IS_ENABLED()
->   instead of #ifdef, as suggested by Nam Cao.
-> - Converted #ifdef CONFIG_VMAP_STACK to else if
->   (IS_ENABLED(CONFIG_VMAP_STACK)) in walk_stackframe() and folded
->   the overflow_stack and IRQ stack checks into a single if-else
->   chain, eliminating the !high sentinel variable.
-> Link: https://lore.kernel.org/linux-riscv/20260630090535.4103888-1-xujiakai2025@iscas.ac.cn/T/#u
-> 
-> V3 -> V4:
-> - Switched to #include <asm/irq_stack.h> instead of hand-written
->   DECLARE_PER_CPU, as suggested by Nam Cao.  This also fixes a
->   build failure when CONFIG_IRQ_STACKS=n since the header
->   unconditionally declares irq_stack_ptr.
-> - Added dedicated overflow_stack handling (CONFIG_VMAP_STACK)
->   with the correct 4 KiB boundary. v3 fell through to the 32 KiB
->   IRQ stack bound when unwinding from the overflow_stack,
->   triggering KASAN OOB reads past the small overflow_stack
->   allocation. Reported by Sashiko AI review and reproduced by Xiao Wu.
-> - Changed the fallback else branch to warn and return instead of
->   silently falling back to task_pt_regs(), as suggested by Nam Cao.
-> - For remote tasks (task != current), bail out with a warning when
->   sp is not on the task stack, since we cannot reliably use the
->   local CPU's IRQ/overflow stacks as the boundary.
-> Link: https://lore.kernel.org/linux-riscv/20260625123906.211981-1-xujiakai2025@iscas.ac.cn/T/#u
-> 
-> V2 -> V3:
-> - Handled the case where sp is on the IRQ stack (CONFIG_IRQ_STACKS),
->   as suggested by Nam Cao: when sp is not within the task stack
->   range, use the IRQ stack's top (irq_stack_ptr + IRQ_STACK_SIZE)
->   as the upper bound instead of task_pt_regs(), which would point
->   to the wrong stack. The check uses the sp variable directly rather
->   than on_thread_stack(), because on_thread_stack() reads the
->   current CPU register sp which may differ from the unwinder's sp
->   when regs is provided.
-> - Used IS_ENABLED(CONFIG_IRQ_STACKS) to guard the IRQ stack check,
->   and cast irq_stack_ptr to unsigned long for byte-level arithmetic.
-> Link: https://lore.kernel.org/linux-riscv/20260517143704.659416-1-xujiakai2025@iscas.ac.cn/T/#u
-> 
-> V1 -> V2:
-> - Moved the NULL task check from fp_is_valid() into walk_stackframe(),
->   as suggested by Matthew Bystrin.
-> - Changed the upper bound from task_stack_page(task) + THREAD_SIZE to
->   task_pt_regs(task) for a tighter boundary, as suggested by Matthew
->   Bystrin.
-> Link: https://lore.kernel.org/linux-riscv/20260514100711.838895-1-xujiakai2025@iscas.ac.cn/t/#u
-> ---
->  arch/riscv/include/asm/stacktrace.h |  8 +++++--
->  arch/riscv/kernel/stacktrace.c      | 37 ++++++++++++++++++++++++-----
->  2 files changed, 37 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
-> index b1495a7e06ce..2d13c35a8c05 100644
-> --- a/arch/riscv/include/asm/stacktrace.h
-> +++ b/arch/riscv/include/asm/stacktrace.h
-> @@ -22,8 +22,12 @@ static inline bool on_thread_stack(void)
->  }
->  
->  
-> -#ifdef CONFIG_VMAP_STACK
-> +/*
-> + * Declare unconditionally so that arch/riscv/kernel/stacktrace.c can use
-> + * IS_ENABLED(CONFIG_VMAP_STACK) rather than #ifdef, in line with the kernel
-> + * coding style. The DEFINE_PER_CPU (memory allocation) remains guarded by
-> + * CONFIG_VMAP_STACK in traps.c.
-> + */
->  DECLARE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
-> -#endif /* CONFIG_VMAP_STACK */
->  
->  #endif /* _ASM_RISCV_STACKTRACE_H */
-> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-> index c7555447149b..7a66c7ee2c81 100644
-> --- a/arch/riscv/kernel/stacktrace.c
-> +++ b/arch/riscv/kernel/stacktrace.c
-> @@ -12,6 +12,7 @@
->  #include <linux/stacktrace.h>
->  #include <linux/ftrace.h>
->  
-> +#include <asm/irq_stack.h>
->  #include <asm/stacktrace.h>
->  
->  #ifdef CONFIG_FRAME_POINTER
-> @@ -35,12 +36,12 @@
->  extern asmlinkage void handle_exception(void);
->  extern unsigned long ret_from_exception_end;
->  
-> -static inline int fp_is_valid(unsigned long fp, unsigned long sp)
-> +static inline int fp_is_valid(unsigned long fp, unsigned long sp,
-> +			       unsigned long high)
->  {
-> -	unsigned long low, high;
-> +	unsigned long low;
->  
->  	low = sp + sizeof(struct stackframe);
-> -	high = ALIGN(sp, THREAD_SIZE);
->  
->  	return !(fp < low || fp > high || fp & 0x07);
->  }
-> @@ -48,7 +49,7 @@ static inline int fp_is_valid(unsigned long fp, unsigned long sp)
->  void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->  			     bool (*fn)(void *, unsigned long), void *arg)
->  {
-> -	unsigned long fp, sp, pc;
-> +	unsigned long fp, sp, pc, high = 0;
->  	int graph_idx = 0;
->  	int level = 0;
->  
-> @@ -68,19 +69,43 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->  		pc = task->thread.ra;
->  	}
->  
-> +	if (!task)
-> +		task = current;
-> +
-> +	if (sp >= (unsigned long)task_stack_page(task) &&
-> +	    sp < (unsigned long)task_stack_page(task) + THREAD_SIZE) {
-> +		high = (unsigned long)task_pt_regs(task);
-> +	} else if (task != current) {
-> +		pr_warn("%s: sp (%lx) is not in task stack of %s\n",
-> +			__func__, sp, task->comm);
-> +		return;
-> +	} else if (IS_ENABLED(CONFIG_VMAP_STACK) &&
-> +		   sp >= (unsigned long)this_cpu_ptr(overflow_stack) &&
-> +		   sp < (unsigned long)this_cpu_ptr(overflow_stack) + OVERFLOW_STACK_SIZE) {
-> +		high = (unsigned long)this_cpu_ptr(overflow_stack) + OVERFLOW_STACK_SIZE;
-> +	} else if (IS_ENABLED(CONFIG_IRQ_STACKS) &&
-> +		   sp >= (unsigned long)this_cpu_read(irq_stack_ptr) &&
-> +		   sp < (unsigned long)this_cpu_read(irq_stack_ptr) + IRQ_STACK_SIZE) {
-> +		high = (unsigned long)this_cpu_read(irq_stack_ptr) + IRQ_STACK_SIZE;
-> +	} else {
-> +		pr_warn("%s: sp (%lx) is not on any known stack\n",
-> +			__func__, sp);
-> +		return;
-> +	}
-> +
->  	for (;;) {
->  		struct stackframe *frame;
->  
->  		if (unlikely(!__kernel_text_address(pc) || (level++ >= 0 && !fn(arg, pc))))
->  			break;
->  
-> -		if (unlikely(!fp_is_valid(fp, sp)))
-> +		if (unlikely(!fp_is_valid(fp, sp, high)))
->  			break;
->  
->  		/* Unwind stack frame */
->  		frame = (struct stackframe *)fp - 1;
->  		sp = fp;
-> -		if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp)) {
-> +		if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp, high)) {
->  			/* We hit function where ra is not saved on the stack */
->  			fp = frame->ra;
->  			pc = regs->ra;
-> -- 
-> 2.34.1
+...
+
+> > > +	for (unsigned int i =3D 0; i < ARRAY_SIZE(ad5529r_vss_supply_names)=
+; i++) {
+> > > +		ret =3D devm_regulator_get_enable_optional(dev,
+> > > +							 ad5529r_vss_supply_names[i]);
+> > > +		if (ret && ret !=3D -ENODEV)
+> > > +			return dev_err_probe(dev, ret,
+> > > +					     "Failed to get and enable %s regulator\n",
+> > > +					     ad5529r_vss_supply_names[i]);
+> > > +	}
+> > Hmm... Can we use bulk regulator approach here?
+> =
+
+> I don=B4t think the bulk helper fits here. Each VSS supply is independent=
+ly
+> optional, and there is currently no optional bulk get-enable regulator
+> helper.
+
+Ah, I see. Yeah, then we have to live with a for-loop...
+
+-- =
+
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
