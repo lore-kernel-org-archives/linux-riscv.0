@@ -4,47 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BB7C61DBD
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 02:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDECCC61DB9
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 04:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nLBZNUar7cZdre/HQV3jRkS0ggmkPK7D719JSM0rtzM=; b=zJzAz5yd5bRafy
-	1Dvi+XQTO1r3FfD+KeFBJItDZBpr4zsFPXbwofmfCqd7XukIWGnWEvBwB7xL4RUlaN3gtTJT4YvLG
-	kE9o73T3DrR//01bc0G0MXXoMwbp0uu2A/pg+vvgGQDcq17EYsSr8l85jqPLEKAitYxX+8OeJv/xy
-	tBAghrqCo2BNySMwWLSjOYNrO4OvW/qc3D35m+IZIVBcRzM93JdGdx7E0D4pHuGOtVDdMDvevR3pY
-	hT+u29u1zX8ik0186HM9UkLukeC+dttWqNlzs+sckGS7MOmIWLTccT5kxEnwTnK7HJX2F5eR9Rcyv
-	IuQ355oae+TjBZ7w9R0A==;
+	List-Owner; bh=Fbvhkf6PNZHdx9tQrKXWwlUfazam9r++Tsl9yVraraA=; b=LJUu8lO8+VvxtB
+	zbQ+xCK9+t5pq6biW8qEWqvlVF73b9KYlVlQTcwTmzmWSYStTHopkNUAqtIteNo2Va2e5MS87016Z
+	cmy7Jg7vWXe1TA5rz9Xl1xqi894kqdIoYUfY7rIOyaoJktqdIV/AFPwoU00fJE1UZuR5owUujcoeq
+	BsEYedzwSU4gMffml2RhQRSpZA5375OPUv9SiHEvhxAf9R9t00hatvgMPufdVxUGkLpW2ijRNYw5x
+	8HoLlIJaIV/lrjWspsJH0SffTUHBiMiZ1YF9JsGAQoc1apHg8YwY5KtkUia9crOgMi6o7u1IuKlTf
+	kUAiB7/G7Gcx90apg2xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzQB3-00000003KHy-31c1;
-	Thu, 27 Aug 2026 02:49:17 +0000
-Received: from [38.23.173.23] (helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzQB1-00000003KHf-19Y2;
-	Thu, 27 Aug 2026 02:49:15 +0000
-Date: Wed, 26 Aug 2026 22:49:12 -0400
-From: "Liam R. Howlett" <liam@infradead.org>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich <dakr@kernel.org>, 
-	David Hildenbrand <david@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>, driver-core@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] drivers/base, mm: move arch_numa.c to mm/
-Message-ID: <xzndraf66344jbze5gfst2ugz5plr4cqsgv7hiw4w2vefqekn6@fkaqeczif5cb>
-References: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+	id 1wzRs5-00000003ON7-1W3s;
+	Thu, 27 Aug 2026 04:37:49 +0000
+Received: from esa1.hc1455-7.c3s2.iphmx.com ([207.54.90.47])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzRs1-00000003OMQ-0vXc;
+	Thu, 27 Aug 2026 04:37:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1787805465; x=1819341465;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NjWJ6dMRbw0kkXr/0njtHxbP59W1uKKAQPA07UgnXFc=;
+  b=hYgip6nrRvYeUhy69KTL28sF/XTrrCLSj/PdO1/IKraryWF/Be4rUkhE
+   cp3Z9Oyt+MA1ZtMu1tvRRTZ1TPrUCrybOA4/XC0nB640wDfOJ6WRSkFx2
+   nk03OvmcPW1KxUYxMqgfVjRtgfjViQSMZH1WTBAN3b4jjmJejRmn10bee
+   i7dY6KqB9ymWfwuq1duMtonGLgZt9tZjxKLhyye5KgvLH1CzWoZ3SWWxB
+   K6Pbbobh8Rr3wSywRAgD2f8RtIGCah10QB/E1GKyGuk5vPLOE4Ek2VTAH
+   MI76knaUchPEDhnvzcsyVcYMpOzzku+mkD2/boDHZY3uq/mKXbdNS8bQz
+   w==;
+X-CSE-ConnectionGUID: g+v5ojJWRauKG9WKcj5ycA==
+X-CSE-MsgGUID: sum/L88DQ5WDJtbTx5uB+w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11887"; a="252818242"
+X-IronPort-AV: E=Sophos;i="6.25,246,1779116400"; 
+   d="scan'208";a="252818242"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa1.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 13:37:40 +0900
+Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 0C57B820C30;
+	Thu, 27 Aug 2026 04:37:40 +0000 (UTC)
+Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id BB59B18002ED;
+	Thu, 27 Aug 2026 04:37:39 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTPS id 17B3F405EDE;
+	Thu, 27 Aug 2026 04:37:20 +0000 (UTC)
+Date: Thu, 27 Aug 2026 13:37:18 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
+	Ritesh Harjani <ritesh.list@gmail.com>
+Subject: Re: [PATCH 13/20] KVM: selftests: Add TEST_EXTRA memory region type
+ for "special" memslots
+Message-ID: <ao--_gaqpfWir9v4@sm-arm-grace07>
+References: <20260826230511.972824-1-seanjc@google.com>
+ <20260826230511.972824-14-seanjc@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+In-Reply-To: <20260826230511.972824-14-seanjc@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260826_213745_936076_6F5AED6B 
+X-CRM114-Status: GOOD (  30.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,115 +116,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/08/06 09:58AM, Mike Rapoport (Microsoft) wrote:
-> arch_numa.c implements boot time discovery and initialization of NUMA
-> topology on architectures that select GENERIC_ARCH_NUMA (currently arm64
-> and riscv).
+On Wed, Aug 26, 2026 at 04:05:04PM -0700, Sean Christopherson wrote:
+> And another memory region type to deal with extra, one-off memory regions,
+> and use the new type to manage x86's SMRAM memslot, as another step towards
+> taking the region type instead of the raw memslot in the physical page
+> allocator APIs.
 > 
-> Since this is step in the initialization of the memory management
-> subsystem, it's logical to have arch_numa.c in mm/ alongside numa.c,
-> numa_memblks.c and numa_emulation.c.
+> Alternatively, SMRAM setup could simply use the quad-underscore API to
+> continue passing in the memslot, but a surprising number of tests use an
+> "extra" memslot for a variety of reasons.  I.e. allocating memory from one
+> (and exactly one) extra memslot isn't all that rare, and so should be
+> treated as normal behavior, not as something extraordinary, as
+> quad-underscore functions typically suggest.
 > 
-> Move arch_numa.c to mm/ and add its F: entry to "MEMBLOCK AND MEMORY
-> MANAGEMENT INITIALIZATION" in MAINTAINERS.
+> Opportunistically add comments to document the intended usage of the types,
+> as the difference between DATA, TEST_DATA, and TEST_EXTRA in particular
+> isn't exactly obvious.
 > 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-
-Acked-by: Liam R. Howlett (Oracle) <liam@infradead.org>
-
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  MAINTAINERS                      | 1 +
->  drivers/base/Kconfig             | 7 -------
->  drivers/base/Makefile            | 1 -
->  mm/Kconfig                       | 7 +++++++
->  mm/Makefile                      | 1 +
->  {drivers/base => mm}/arch_numa.c | 0
->  6 files changed, 9 insertions(+), 8 deletions(-)
+>  .../testing/selftests/kvm/include/kvm_util.h  | 37 ++++++++++++++++---
+>  tools/testing/selftests/kvm/include/x86/smm.h |  2 +-
+>  .../testing/selftests/kvm/lib/x86/processor.c |  7 ++--
+>  3 files changed, 37 insertions(+), 9 deletions(-)
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 5114e6db7307..465b64f8e93c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -16880,6 +16880,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git fixes
->  F:	Documentation/core-api/boot-time-mm.rst
->  F:	include/linux/kho/abi/memblock.h
->  F:	include/linux/memblock.h
-> +F:	mm/arch_numa.c
->  F:	mm/bootmem_info.c
->  F:	mm/memblock.c
->  F:	mm/memtest.c
-> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
-> index f7d385cbd3ba..1d93bfc34490 100644
-> --- a/drivers/base/Kconfig
-> +++ b/drivers/base/Kconfig
-> @@ -239,13 +239,6 @@ config GENERIC_ARCH_TOPOLOGY
->  	  appropriate scaling, sysfs interface for reading capacity values at
->  	  runtime.
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index 14f87c8a00ec..f4f4f360a10b 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -82,11 +82,43 @@ struct userspace_mem_regions {
+>  	DECLARE_HASHTABLE(slot_hash, 9);
+>  };
 >  
-> -config GENERIC_ARCH_NUMA
-> -	bool
-> -	select NUMA_MEMBLKS
-> -	help
-> -	  Enable support for generic NUMA implementation. Currently, RISC-V
-> -	  and ARM64 use it.
-> -
->  config FW_DEVLINK_SYNC_STATE_TIMEOUT
->  	bool "sync_state() behavior defaults to timeout instead of strict"
->  	help
-> diff --git a/drivers/base/Makefile b/drivers/base/Makefile
-> index 8074a10183dc..435710f643a5 100644
-> --- a/drivers/base/Makefile
-> +++ b/drivers/base/Makefile
-> @@ -25,7 +25,6 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
->  obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
->  obj-$(CONFIG_GENERIC_MSI_IRQ) += platform-msi.o
->  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
-> -obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
->  obj-$(CONFIG_ACPI) += physical_location.o
+> +/*
+> + * Memory region types are passed to various page allocators to communicate
+> + * various properties and metadata related to the allocation.  Note, the
+> + * descriptions below described the primary usage of each type.  Individual
+> + * tests may allocate memory for other purposes.
+> + *
+> + * By default, all regions are mapped to memslot '0'.  Tests can override the
+> + * memslot for any or all types, e.g. so that all test data is allocated from a
+> + * curated memslot.
+> + */
+
+This is helpful as it wasn't so obvious to me. Thanks for adding the comments 
+on the default behaviour.
+
+Thanks,
+Itaru.
+
+>  enum kvm_mem_region_type {
+> +	/*
+> +	 * The CODE region is used by lib/elf when loading the test's code into
+> +	 * guest memory.
+> +	 */
+>  	MEM_REGION_CODE,
+> +	/*
+> +	 * The DATA region is used to allocate core data structures, e.g. vCPU
+> +	 * stacks, VM exception tables, x86's TSS, etc.
+> +	 */
+>  	MEM_REGION_DATA,
+> +	/*
+> +	 * The PT region, a.k.a. Page Table region, is used to allocate page
+> +	 * table pages.
+> +	 */
+>  	MEM_REGION_PT,
+> +	/*
+> +	 * The TEST_DATA region is used for allocating test data that is either
+> +	 * test specific, and/or isn't considered a "core" data structure.
+> +	 */
+>  	MEM_REGION_TEST_DATA,
+> +	/*
+> +	 * The TEST_EXTRA region is for special snowflakes, where a test wants
+> +	 * to create and use a one-off memslot, without impacting "normal" test
+> +	 * data allocations.
+> +	 */
+> +	MEM_REGION_TEST_EXTRA,
+>  	NR_MEM_REGIONS,
+>  };
 >  
->  obj-y			+= test/
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index 9e0ca4824905..410b8a0a92b9 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -1469,6 +1469,13 @@ config NUMA_EMU
->  	  into virtual nodes when booted with "numa=fake=N", where N is the
->  	  number of nodes. This is only useful for debugging.
+> @@ -129,11 +161,6 @@ struct kvm_vm {
 >  
-> +config GENERIC_ARCH_NUMA
-> +	bool
-> +	select NUMA_MEMBLKS
-> +	help
-> +	  Enable support for generic NUMA implementation. Currently, RISC-V
-> +	  and ARM64 use it.
+>  	struct kvm_binary_stats stats;
+>  
+> -	/*
+> -	 * KVM region slots. These are the default memslots used by page
+> -	 * allocators, e.g., lib/elf uses the memslots[MEM_REGION_CODE]
+> -	 * memslot.
+> -	 */
+>  	u32 memslots[NR_MEM_REGIONS];
+>  };
+>  
+> diff --git a/tools/testing/selftests/kvm/include/x86/smm.h b/tools/testing/selftests/kvm/include/x86/smm.h
+> index 2d1afa09819b..15faaa060126 100644
+> --- a/tools/testing/selftests/kvm/include/x86/smm.h
+> +++ b/tools/testing/selftests/kvm/include/x86/smm.h
+> @@ -8,7 +8,7 @@
+>  #define SMRAM_MEMSLOT	((1 << 16) | 1)
+>  #define SMRAM_PAGES	(SMRAM_SIZE / PAGE_SIZE)
+>  
+> -void setup_smram(struct kvm_vm *vm, struct kvm_vcpu *vcpu, u64 smram_gpa,
+> +void setup_smram(struct kvm_vm *vm, struct kvm_vcpu *vcpu, gpa_t smram_gpa,
+>  		 const void *smi_handler, size_t handler_size);
+>  
+>  void inject_smi(struct kvm_vcpu *vcpu);
+> diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
+> index ea5fa59888af..b988eea373ad 100644
+> --- a/tools/testing/selftests/kvm/lib/x86/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/x86/processor.c
+> @@ -1468,11 +1468,12 @@ bool kvm_arch_has_default_irqchip(void)
+>  	return true;
+>  }
+>  
+> -void setup_smram(struct kvm_vm *vm, struct kvm_vcpu *vcpu, u64 smram_gpa,
+> +void setup_smram(struct kvm_vm *vm, struct kvm_vcpu *vcpu, gpa_t smram_gpa,
+>  		 const void *smi_handler, size_t handler_size)
+>  {
+> -	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, smram_gpa,
+> -				    SMRAM_MEMSLOT, SMRAM_PAGES, 0);
+> +	vm_override_mem_region(vm, MEM_REGION_TEST_EXTRA, VM_MEM_SRC_ANONYMOUS,
+> +			       smram_gpa, SMRAM_MEMSLOT, SMRAM_PAGES);
 > +
->  config ARCH_HAS_USER_SHADOW_STACK
->  	bool
->  	help
-> diff --git a/mm/Makefile b/mm/Makefile
-> index eff9f9e7e061..fd29be716fa8 100644
-> --- a/mm/Makefile
-> +++ b/mm/Makefile
-> @@ -122,6 +122,7 @@ obj-$(CONFIG_CMA)	+= cma.o
->  obj-$(CONFIG_NUMA) += numa.o
->  obj-$(CONFIG_NUMA_MEMBLKS) += numa_memblks.o
->  obj-$(CONFIG_NUMA_EMU) += numa_emulation.o
-> +obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
->  obj-$(CONFIG_BALLOON) += balloon.o
->  obj-$(CONFIG_PAGE_EXTENSION) += page_ext.o
->  obj-$(CONFIG_PAGE_TABLE_CHECK) += page_table_check.o
-> diff --git a/drivers/base/arch_numa.c b/mm/arch_numa.c
-> similarity index 100%
-> rename from drivers/base/arch_numa.c
-> rename to mm/arch_numa.c
-> 
-> ---
-> base-commit: 075b74841bd0065a3bda3440873c747938e69b68
-> change-id: 20260806-arch-numa-444bb4806114
-> 
-> --
-> Sincerely yours,
-> Mike.
+>  	TEST_ASSERT(vm_phy_pages_alloc(vm, SMRAM_PAGES, smram_gpa,
+>  				       SMRAM_MEMSLOT) == smram_gpa,
+>  		    "Could not allocate guest physical addresses for SMRAM");
+> -- 
+> 2.55.0.887.g758fc8c411-goog
 > 
 
 _______________________________________________
