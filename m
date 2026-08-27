@@ -4,134 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1987EC61DC2
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 12:11:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A349DC61DC6
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 12:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=htLFuCiOmCN1WxygM9M005ZOzTz8m9dseqEFG5Yh6AM=; b=oxk61Ogz7NC+Ua
-	BVwNip2nmu0wFiG91ZMbPUKK9No5VcgF755qHo+oB2jOKjkU5sr9FevDpBgovm7HJcBTBTN84JFCV
-	5ZFzoTUFFswCFD9raYsj25qt1+TpNebF4gMatYy3QTZI5+uUWgVUMQeaiHWNhl/fsprFw+fvSnN74
-	u930gLpN7siYNzS+TidYGB6zRVMiAruG9cKGDusddgicnnxVFu4dUX5Bqc2gjKtnkKdQV3X1bPIO3
-	3Cat3mLOxfquViEA6eA8Atxn9mhWendNwHp02i9tfFC7aIxrK3bUMQgmwlqUDcpneE2NZ1qspygpq
-	BWI3GgtDbFa/Y8ycH/Kw==;
+	List-Owner; bh=lXYIPRi5ArHkNJ/NW3Fr9B/J7lb1+kcD88cE/WpoJVk=; b=S+1JMCJwIQTKXb
+	QTKAQapW1jVf0SfJC7bRtJgmvNmni8kRUZcPX4Cw1L+D6OtxQhi0WzVkqGrQd3VPRDjZCrgZ3KlM8
+	jXwJaUyrWjz/O5gFajjdC74Egj6tHka5qaQX5tyWdHRchXOr3mMVoxAg4aEKJtI6qR38baq8f2LxF
+	m85T0dKGZ/BkO4Gbehb9vV0c0UQOp8uDmJSudC5gOqAJk72XT4MH3vbIH18bX1CoHNXX1J5lvk8Km
+	CozbzVgnAw4Ha6qq89SRzrhFGP4mEpgTOH5bC4I3lkCZxEZxNekdNjq/1g2kj0sfR0FytVEREn3Br
+	5n5+LV1LAWQMmAhfMN6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzYwt-00000003vt8-3zgr;
-	Thu, 27 Aug 2026 12:11:18 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wzZO7-00000003yvZ-1Tva;
+	Thu, 27 Aug 2026 12:39:23 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzYwr-00000003vsm-2Dpg
+	id 1wzZO3-00000003yv6-3D9L
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Aug 2026 12:11:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UmhRGRWP1rBrsyFJJ1drLUtJgUyNmJZFb9Sto/lVIHurIrNkWD5n79Rh0e4GugkgEpOvhZXQUmmgF2wADDVI/CPL/ezotdAKtN3ACI5oXm4Q6iDfDW9fZ1WCNnbSE+NS/YnEsrtst5gJ1WVa/NwPs+lRgcJnUjKhy8d3lKE2m35j4JHmZXMSak5aADVDTq+lIIhKZ9Ys3JGGSEDVoO8fC16pipexvlStsxpQklWb8idiklEgllPuJQ0PFAy8C91QgFkOlnkt9itQZydF/wGEGCCFr8YWnCqz1B1RH7HiHli1KPncXuhx1CpjFfi4wxxGoOfI57dtRiBGj1JR3AZjag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=deEPRo4GYZ0TyEr56GWr9mqhfm9lUTE0TFJx6ZTavl8=;
- b=PMbjQkY3A2rV32zd1dnrnSbLpiUl9nri4yxq7mmEUl/CQe0wcTP24OUfPKwqkKiaETgCx2MOJ+nXyRiTd0L6t5Grbo6X/Nxp62tyKAXg8V+qoUR3xiofv2kPkD45X8qfHPZcCrzqFMx3uGE1J43xbpJvAhPGR8HCKGD87lH7IKrpqjVHwzD1CcIdKkFSa32L7yiSv7gE09Oog+N9qi48rLF4jDhb8Cin9f73fIDmHNozQ6puVfkZzKBsN4eBaqm0aftkb55OFwnRbLfrM0Vfum4JeSdjaS6qezrztVnLQyjBKqKtnBxu9H5Ggg4HBiP+9QAj/+OsMoRQmDAqngEKjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=deEPRo4GYZ0TyEr56GWr9mqhfm9lUTE0TFJx6ZTavl8=;
- b=V7GD7rwbawqJNbfmmFteNjwJU4ArqGQNmQiLNBEUVEG7DNPCLApvBo74sQxsCcL03IeVEjvMNSvhqaZQ/I41cBYlgCOWb/AqfIAdwa8v2o8iM6iYrH1FbtFJnlYdN5pNPWC0nDXxiFwZgFdHAPlz8wSVcDfAnHUB11eYN+fLmKKe0aet6xMraG6+2gvEvNqZYHFImQYJuoozuGIC9J0o/rkYCv3BM2kpMEY0txG/6qNLxnpA0bvGsn1l4WtXOHdlVo3A/8R/FLlV12crSo3OfOF49kjf2ZcKSmSAoh6WvXeCpwK3EsSwHYuNHPPUdMiwzEe4rljQGKSko8DZwvPJxQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SJ0PR12MB6760.namprd12.prod.outlook.com (2603:10b6:a03:44c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.11; Thu, 27 Aug
- 2026 12:11:07 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
- 12:11:07 +0000
-Date: Thu, 27 Aug 2026 09:11:05 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Andrew Jones <andrew.jones@oss.qualcomm.com>
-Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
-	tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
-	anup@brainfault.org, tglx@kernel.org, kevin.tian@intel.com,
-	fangyu.yu@linux.alibaba.com
-Subject: Re: [PATCH v4 02/21] iommufd: Add iommufd_sw_map_msi()
-Message-ID: <20260827121105.GQ3325090@nvidia.com>
-References: <3gdj54zcs5dncgom3zlntyredyuh2xe5ueg7nd4pdrcksmnwfl@k3fyky4h6556>
- <20260825140334.GA3325090@nvidia.com>
- <cxbneh42ui3gbkoqrsnoatxoec5exzbprfbgxcy4iekqmbceho@gouiwn5q5uzs>
- <20260825165209.GB3325090@nvidia.com>
- <iltwtfmgnmofsroo7eqrvjx6yhqbptwutywq65mgm7adudz7pq@2mdg3dhvtoud>
- <20260825175901.GE3325090@nvidia.com>
- <pzutriwhwe4whonj3veoo4hzxmq5tlmmyui5u6gt4bgl5wxxrg@qjsq2pvd7by3>
- <20260826163234.GN3325090@nvidia.com>
- <l3xyzbhqfremod6swwiks54znvoqy57hmqpsdlpcji5czjja4w@4qgiuwhwlie3>
- <lxrej2bonrvt5ew7e6wjupcaptj7nxpesnzwvktjusawg3od2u@v3zb2bdjdilo>
-Content-Disposition: inline
-In-Reply-To: <lxrej2bonrvt5ew7e6wjupcaptj7nxpesnzwvktjusawg3od2u@v3zb2bdjdilo>
-X-ClientProxiedBy: BN1PR10CA0021.namprd10.prod.outlook.com
- (2603:10b6:408:e0::26) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Thu, 27 Aug 2026 12:39:22 +0000
+Received: from localhost.localdomain (unknown [36.110.52.2])
+	by APP-03 (Coremail) with SMTP id rQCowAAXHz3kL5Bq4ERiBg--.38527S2;
+	Thu, 27 Aug 2026 20:39:03 +0800 (CST)
+From: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+To: xujiakai2025@iscas.ac.cn
+Cc: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	dev.mbstr@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	qirui.001@bytedance.com,
+	samuel.holland@sifive.com,
+	zhangchunyan@iscas.ac.cn
+Subject: Re: [PATCH v5] riscv: stacktrace: fix stack-out-of-bounds in walk_stackframe()
+Date: Thu, 27 Aug 2026 20:38:48 +0800
+Message-Id: <20260827123849.816-1-xujiakai2025@iscas.ac.cn>
+X-Mailer: git-send-email 2.35.1.windows.2
+In-Reply-To: <20260705063656.237676-1-xujiakai2025@iscas.ac.cn>
+References: <20260705063656.237676-1-xujiakai2025@iscas.ac.cn>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ0PR12MB6760:EE_
-X-MS-Office365-Filtering-Correlation-Id: 832cb32b-7dd8-42c2-724f-08df043445f2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|7416014|1800799024|4143699003|22082099003|56012099006|11063799006|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: eF0hxMUFdILJPqHuFYuQTGpTLaOZXvpS9E5BqFViHqAlbTfNn18KdiYO93BU1p2x9s8mHw74LezjqlLZfPz4u0SaKS5Smce3EwxjSZDnxCOuAzi+b5d+h9JI4yyP608c5nZWWxeC803HaoNsfFRiOghKOrAz2FxOsbCIb6wXazx1GwDsgqK04qfHxu+DsyFTgEPtqJtrJjzcZYi+CwV4wlC56musSS2a9X7aRBM/M2m5ZJFlh7Jc6+bw37V56zeIW9GFub8xrCk82YHAkZ5SvVcd+hQitQGLJ01Hf3803H0Ta2kW/1i0OUDv9GBzP42nu7sm/Yl7bsRbSNV65nvy9Yv3oMMjWrhFRoJGu0OO1MYOicY9TMPp10g4CiiBUWTn1pihBILXwqwPtXesllo1562u/Y3gxluQ36BCZ59/4n8wVpjZpWuLmGttiSadWSCNMlDk6SKM6OE3c1/jsnNoHnQ2yejw8zpaMraFpuZ9pHV5YiQ+TDUAt6IoqxVCuxA8uVStHH1lKz4PzBlRKODGXXy58MYMq5fhyU7xJ7ELHiVlg4vyGDbs4qbbPCeGLS1WvxE2JELKGPCR2QgI1Hk9SeMzfTEReHWUHQ41xSPfCvgJSk4Rbeld1j4FTr1qiwVIAv9pNpDrMveGfMgvciGLwCeK7WQO2MY9Dw09h7YeV9k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(7416014)(1800799024)(4143699003)(22082099003)(56012099006)(11063799006)(18002099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3mEFv3iZ995FLykcY20soRac4a40bXlYRoQPXkU8ZPkHMHHUV07KPR2L93+L?=
- =?us-ascii?Q?9DWXV6Dfinxp6UQ7SD0E9Z453TB8Hh66+XoHyQhU1KZleRX7Y2UoUwQk9yv/?=
- =?us-ascii?Q?8jv8pxEPye3eoA+puF8NcfyCVL1WWQMA7QHaGwr1ou43TEJuuixL4iYVxRY/?=
- =?us-ascii?Q?X8Lnl87Z28hwcDiDvDjVoKk9JK+mHBc7IQizXrdbnQH2XuoYcwoCT4Um6W0H?=
- =?us-ascii?Q?oLuYW1ncLdygo3X9kMVayE8zY8WJhwAnV0k/OEf1MBDkxd2f8EaWbGRvV/GW?=
- =?us-ascii?Q?pMpOCNuGYa3pY5bqJElH8+SV7pmUSZaRx8IqOYj7vQdRaKRSv4Ky6Ivwu3sx?=
- =?us-ascii?Q?PFmUttOi24hsZr5Eogo+RQblCBIub+4c9kNYRqF3izTRz44lR4jMPRSTNsG+?=
- =?us-ascii?Q?tNOu51sCyGKA5WTd0fOdyrPINH/Oae+SHUGB1IZB/z5MdnZc/l1DOJRTZTfN?=
- =?us-ascii?Q?YtI18wdohiPB23PN32vkkOv0N6tMJR4wnXHuxPV+yApjWGpnzj8W3MAiek7A?=
- =?us-ascii?Q?LZQadc9Toh7+cHQY1xxtLSle1bzwENfazuAqUrkPF/GtcNpPmWPG0rEdjkzy?=
- =?us-ascii?Q?N890YHIOpPpZT6ygGf1OLIatBK10LbWLg/2+WHp08yULuoEpzIgtKa1ZnyTp?=
- =?us-ascii?Q?5qGAqzzkoXN4KrqwZghv/wAZuThCO6xMzUVOeKSpbJ169OTqkeHAflEoe1qo?=
- =?us-ascii?Q?2KSiBUppS06Au5SSbf5uQwRzsf4rgJ9l0RS1oQ/Z78t4LcrMuTVrJM7o9AN6?=
- =?us-ascii?Q?3OyBo6mEHllSVZK41ctHiUnByeIUa5jynrAMU27P1cPd7ESsyZM1FBuq0FiJ?=
- =?us-ascii?Q?/K81fZlG/gvRLiFIB24zhhJ3V9fKThjq803f7dICbiArTQZW/clnBws/KhuZ?=
- =?us-ascii?Q?qe6vwUMAlajWNzy7KZh+WL0iIahkp6PRWw+Rvtai5RQryFjhgJAlMYKajtVr?=
- =?us-ascii?Q?EeaG725RaITnP8m100RlBHr8cYUsWxUSCpgOuJb6cwrWuzqdDnGaR5ak2dJZ?=
- =?us-ascii?Q?qc8zWtbdR5iPAyW4hGB3W7h0CUUvOef1HtC5vif8jtpbWVvYneXl0GpOxjMk?=
- =?us-ascii?Q?MHni143+V6tGI56stoT3gUjxlonXd2g1inA5REZIRNSWXNKAX4O4+aRHi91S?=
- =?us-ascii?Q?6XvOZeIA6PGUb50HcD8BW8+OhsHFWIDOowU+ATkfmH8vWib7TsIxJgG/c3P3?=
- =?us-ascii?Q?ijghvsfs1ebjSz6YEeg73IJPcuTQKbkcR+r4r2cBihwqKyT2c8x+3Wdy5ZL+?=
- =?us-ascii?Q?//HwEe98wvT9mi6NjxarrJnjg8Yjiz40MsHC5akoTlQmDvavkp9a3tXMaB3d?=
- =?us-ascii?Q?YFJsk84VA7NKRbycr+JEmMNP6A3ERnO31zCicdz39gZQgHrP+w+gNyC1iMVX?=
- =?us-ascii?Q?XaZUWTFC7i+54jj54RfysFrAE1D+bEXIS5UJYBc9IZMzho6NReqW81myh//Q?=
- =?us-ascii?Q?Wn7EyJGp6qqGY6kKTn1jtDLh91ONF1aE8+qIO6OZ9kcZ7yOxyGtDA9XZcUNU?=
- =?us-ascii?Q?gl1HElFncU3xdIYoK46oPpWdiwE+uo6OK3wrh764pk6jAbw7B+HinDU7XaVx?=
- =?us-ascii?Q?CMOov7+JZ94mC+tlrBFnScUnaEIyKwWxqqEHnH7ng9zP0dZxyO+vQAsTnVyF?=
- =?us-ascii?Q?x/6g51nUNnr5af6dJCf8GVzHyKWztqL/3eL1PkFkPGeAC3hVHUz/pz5HmFbH?=
- =?us-ascii?Q?zVSmajJ2HrVM+VC5POVRtYfY51BF+AGzky3FpqFbk8f9UXyL?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 832cb32b-7dd8-42c2-724f-08df043445f2
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 12:11:07.0538
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3fEaHg99yQsB7nibzknwpjxv6FBXM40OwQMdSRTbsmOPlmYpYdHzaBE3WrEDy8AK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6760
+X-CM-TRANSID: rQCowAAXHz3kL5Bq4ERiBg--.38527S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxKF13Aw4Uuw1DZryDGFyxGrg_yoW3uw48pF
+	Z8CFnrArZrKryIva4avrn7WFy5Jrs5W345KFW7Jw15Aa1rtFyrZr909as0qr1UAry0qa40
+	qF12yws3Can0va7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBF14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWxJVW8Jr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
+	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x
+	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
+	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcV
+	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF
+	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
+	CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUC1v3UUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: 50xmxthndljiysv6x2xfdvhtffof0/1tbiCRMMCWqP79DjiwAAst
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_051113_573932_D0E4D073 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260827_053920_175330_49D8606F 
+X-CRM114-Status: GOOD (  29.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,30 +87,197 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 10:47:47AM +0200, Andrew Jones wrote:
+gentle ping ?
 
-> I think it should be possible to follow AMD's model more closely. I'll
-> create one IOMMU-owned irqdomain and install it as each device's MSI
-> parent at probe time, provided the device currently uses the expected
-> IMSIC MSI domain, which will be the IOMMU irqdomain's parent. The
-> irqdomain will contain no per-device or MSI-table state and its callbacks
-> can recover the device and operate on its currently attached S2 domain.
-> This is better than the per-device irqdomain since sharing it avoids
-> redundant domains.
-
-I would still like to go over this with Thomas. It does feel more
-logical to me that there would be one irqdomain per MSI table.
-
-I dislike this implicit weak coupling between the iommufd viommu
-operating the S2 and representing the VM and the irqdomain then
-"magically" discovering what VM it is part of and what MSI table the
-device is supposed to us.
-
-I also don't want the iommu side to be managing msi tables. It would
-be more reasonable for the generic viommu world to create irqdomains
-per-VM...
-
-Jason
+> The fp_is_valid() function uses ALIGN(sp, THREAD_SIZE) as the upper
+> bound for the frame pointer check. This bound is calculated relative
+> to the current sp and shifts upward when sp itself exceeds the valid
+> stack region, allowing the unwinder to read past the end of the
+> allocated task stack and triggering KASAN stack-out-of-bounds.
+> 
+> Fix this by using absolute stack boundaries determined once before
+> the unwind loop:
+> 
+> - When sp is on the task stack, use the task's pt_regs as the upper
+>   bound.
+> - When sp is on the overflow_stack (CONFIG_VMAP_STACK=y), use the
+>   overflow_stack's top as the boundary.
+> - When sp is on the IRQ stack (CONFIG_IRQ_STACKS=y), use the IRQ
+>   stack's top as the boundary.
+> - When sp is not on any known stack, warn and return.
+> - For remote tasks (task != current), if sp is not on the task
+>   stack, warn and return since we cannot reliably determine the
+>   correct boundary from a different CPU's stacks.
+> 
+> Make the DECLARE_PER_CPU(overflow_stack) unconditional in
+> asm/stacktrace.h so that stacktrace.c can use
+> IS_ENABLED(CONFIG_VMAP_STACK) instead of #ifdef, in line with the
+> kernel coding style which discourages the use of #ifdef in .c files
+> (https://docs.kernel.org/process/coding-style.html).  This is safe
+> because the DEFINE_PER_CPU (memory allocation) in traps.c remains
+> guarded by CONFIG_VMAP_STACK; the reference in stacktrace.c is only
+> compiled when IS_ENABLED(CONFIG_VMAP_STACK) evaluates to true.
+> 
+> Fixes: a2a4d4a6a0bf ("riscv: stacktrace: fixed walk_stackframe()")
+> Signed-off-by: Jiakai Xu <xujiakai2025@iscas.ac.cn>
+> Assisted-by: YuanSheng:DeepSeek-V3.2
+> ---
+> V4 -> V5:
+> - Made DECLARE_PER_CPU(overflow_stack) unconditional in
+>   asm/stacktrace.h so that stacktrace.c can use IS_ENABLED()
+>   instead of #ifdef, as suggested by Nam Cao.
+> - Converted #ifdef CONFIG_VMAP_STACK to else if
+>   (IS_ENABLED(CONFIG_VMAP_STACK)) in walk_stackframe() and folded
+>   the overflow_stack and IRQ stack checks into a single if-else
+>   chain, eliminating the !high sentinel variable.
+> Link: https://lore.kernel.org/linux-riscv/20260630090535.4103888-1-xujiakai2025@iscas.ac.cn/T/#u
+> 
+> V3 -> V4:
+> - Switched to #include <asm/irq_stack.h> instead of hand-written
+>   DECLARE_PER_CPU, as suggested by Nam Cao.  This also fixes a
+>   build failure when CONFIG_IRQ_STACKS=n since the header
+>   unconditionally declares irq_stack_ptr.
+> - Added dedicated overflow_stack handling (CONFIG_VMAP_STACK)
+>   with the correct 4 KiB boundary. v3 fell through to the 32 KiB
+>   IRQ stack bound when unwinding from the overflow_stack,
+>   triggering KASAN OOB reads past the small overflow_stack
+>   allocation. Reported by Sashiko AI review and reproduced by Xiao Wu.
+> - Changed the fallback else branch to warn and return instead of
+>   silently falling back to task_pt_regs(), as suggested by Nam Cao.
+> - For remote tasks (task != current), bail out with a warning when
+>   sp is not on the task stack, since we cannot reliably use the
+>   local CPU's IRQ/overflow stacks as the boundary.
+> Link: https://lore.kernel.org/linux-riscv/20260625123906.211981-1-xujiakai2025@iscas.ac.cn/T/#u
+> 
+> V2 -> V3:
+> - Handled the case where sp is on the IRQ stack (CONFIG_IRQ_STACKS),
+>   as suggested by Nam Cao: when sp is not within the task stack
+>   range, use the IRQ stack's top (irq_stack_ptr + IRQ_STACK_SIZE)
+>   as the upper bound instead of task_pt_regs(), which would point
+>   to the wrong stack. The check uses the sp variable directly rather
+>   than on_thread_stack(), because on_thread_stack() reads the
+>   current CPU register sp which may differ from the unwinder's sp
+>   when regs is provided.
+> - Used IS_ENABLED(CONFIG_IRQ_STACKS) to guard the IRQ stack check,
+>   and cast irq_stack_ptr to unsigned long for byte-level arithmetic.
+> Link: https://lore.kernel.org/linux-riscv/20260517143704.659416-1-xujiakai2025@iscas.ac.cn/T/#u
+> 
+> V1 -> V2:
+> - Moved the NULL task check from fp_is_valid() into walk_stackframe(),
+>   as suggested by Matthew Bystrin.
+> - Changed the upper bound from task_stack_page(task) + THREAD_SIZE to
+>   task_pt_regs(task) for a tighter boundary, as suggested by Matthew
+>   Bystrin.
+> Link: https://lore.kernel.org/linux-riscv/20260514100711.838895-1-xujiakai2025@iscas.ac.cn/t/#u
+> ---
+>  arch/riscv/include/asm/stacktrace.h |  8 +++++--
+>  arch/riscv/kernel/stacktrace.c      | 37 ++++++++++++++++++++++++-----
+>  2 files changed, 37 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+> index b1495a7e06ce..2d13c35a8c05 100644
+> --- a/arch/riscv/include/asm/stacktrace.h
+> +++ b/arch/riscv/include/asm/stacktrace.h
+> @@ -22,8 +22,12 @@ static inline bool on_thread_stack(void)
+>  }
+>  
+>  
+> -#ifdef CONFIG_VMAP_STACK
+> +/*
+> + * Declare unconditionally so that arch/riscv/kernel/stacktrace.c can use
+> + * IS_ENABLED(CONFIG_VMAP_STACK) rather than #ifdef, in line with the kernel
+> + * coding style. The DEFINE_PER_CPU (memory allocation) remains guarded by
+> + * CONFIG_VMAP_STACK in traps.c.
+> + */
+>  DECLARE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
+> -#endif /* CONFIG_VMAP_STACK */
+>  
+>  #endif /* _ASM_RISCV_STACKTRACE_H */
+> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+> index c7555447149b..7a66c7ee2c81 100644
+> --- a/arch/riscv/kernel/stacktrace.c
+> +++ b/arch/riscv/kernel/stacktrace.c
+> @@ -12,6 +12,7 @@
+>  #include <linux/stacktrace.h>
+>  #include <linux/ftrace.h>
+>  
+> +#include <asm/irq_stack.h>
+>  #include <asm/stacktrace.h>
+>  
+>  #ifdef CONFIG_FRAME_POINTER
+> @@ -35,12 +36,12 @@
+>  extern asmlinkage void handle_exception(void);
+>  extern unsigned long ret_from_exception_end;
+>  
+> -static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+> +static inline int fp_is_valid(unsigned long fp, unsigned long sp,
+> +			       unsigned long high)
+>  {
+> -	unsigned long low, high;
+> +	unsigned long low;
+>  
+>  	low = sp + sizeof(struct stackframe);
+> -	high = ALIGN(sp, THREAD_SIZE);
+>  
+>  	return !(fp < low || fp > high || fp & 0x07);
+>  }
+> @@ -48,7 +49,7 @@ static inline int fp_is_valid(unsigned long fp, unsigned long sp)
+>  void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>  			     bool (*fn)(void *, unsigned long), void *arg)
+>  {
+> -	unsigned long fp, sp, pc;
+> +	unsigned long fp, sp, pc, high = 0;
+>  	int graph_idx = 0;
+>  	int level = 0;
+>  
+> @@ -68,19 +69,43 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>  		pc = task->thread.ra;
+>  	}
+>  
+> +	if (!task)
+> +		task = current;
+> +
+> +	if (sp >= (unsigned long)task_stack_page(task) &&
+> +	    sp < (unsigned long)task_stack_page(task) + THREAD_SIZE) {
+> +		high = (unsigned long)task_pt_regs(task);
+> +	} else if (task != current) {
+> +		pr_warn("%s: sp (%lx) is not in task stack of %s\n",
+> +			__func__, sp, task->comm);
+> +		return;
+> +	} else if (IS_ENABLED(CONFIG_VMAP_STACK) &&
+> +		   sp >= (unsigned long)this_cpu_ptr(overflow_stack) &&
+> +		   sp < (unsigned long)this_cpu_ptr(overflow_stack) + OVERFLOW_STACK_SIZE) {
+> +		high = (unsigned long)this_cpu_ptr(overflow_stack) + OVERFLOW_STACK_SIZE;
+> +	} else if (IS_ENABLED(CONFIG_IRQ_STACKS) &&
+> +		   sp >= (unsigned long)this_cpu_read(irq_stack_ptr) &&
+> +		   sp < (unsigned long)this_cpu_read(irq_stack_ptr) + IRQ_STACK_SIZE) {
+> +		high = (unsigned long)this_cpu_read(irq_stack_ptr) + IRQ_STACK_SIZE;
+> +	} else {
+> +		pr_warn("%s: sp (%lx) is not on any known stack\n",
+> +			__func__, sp);
+> +		return;
+> +	}
+> +
+>  	for (;;) {
+>  		struct stackframe *frame;
+>  
+>  		if (unlikely(!__kernel_text_address(pc) || (level++ >= 0 && !fn(arg, pc))))
+>  			break;
+>  
+> -		if (unlikely(!fp_is_valid(fp, sp)))
+> +		if (unlikely(!fp_is_valid(fp, sp, high)))
+>  			break;
+>  
+>  		/* Unwind stack frame */
+>  		frame = (struct stackframe *)fp - 1;
+>  		sp = fp;
+> -		if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp)) {
+> +		if (regs && (regs->epc == pc) && fp_is_valid(frame->ra, sp, high)) {
+>  			/* We hit function where ra is not saved on the stack */
+>  			fp = frame->ra;
+>  			pc = regs->ra;
+> -- 
+> 2.34.1
 
 _______________________________________________
 linux-riscv mailing list
