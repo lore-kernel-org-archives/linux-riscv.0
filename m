@@ -4,105 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15CFFC5DF9D
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 04:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08DAC61DC4
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Aug 2026 05:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H0fLiEVw6vh3TPBtAi4M+Z5YPHgnqYNLICbUUqLaeyw=; b=sM0Tg47HTaYMKe
-	6C3rsjoyu8kfvg30cZcb7R/7iJXW9g7F/MJCLkQDdPzjqIAzKiO6mXhsjXRmw7v8CYGDrWSlvfab8
-	iTa1izYrQ7PJwBI3tx3hoIA2fAzqTHUaIZ+9YRHiOIwD+/QtCAUSixYqaHE535Zs7HpHpCc94ApJd
-	GZYHM/oWEHrSNZHlr9pIbxQTNjLsKZjOb/sfSlxTfA/SJgv1cXKaRHio/P0DO8n2pbQm9Zjt0eh4A
-	cmK5tg8F2lzWMlLnMeoQ7cYt9tUqR3Uu+31vx87VFYd6zXPPcbO93uwFUH1yUjrQ+QbeHcT6lv2Ib
-	yC98iVRd1F5Rww+yVVuw==;
+	List-Owner; bh=bKxhIqd1mo1xkaOvowayChjIh7uWLdjffFqTVy85NIo=; b=svpfPu3GPHACUB
+	Z7BfjW9Do3Nq5HpO31DAFQl5qkU5R2R5SNRk94phN192pT9xi8YJMflUL4+pQzv3iJnkHc994Slcu
+	Fd1KOkhZLi/JKupKy1zyNo42dBVT+1Lk9b1C8mdJbgxGLLxQkcx60jYKjJ7Wt/QVjFmZVEtyC8i3m
+	w1KiR1oG6MUt6ZModfcnZsxtWFmJMjxdW9NNtjvHC5Cvo5+Lc3ADbE/61lCZQe5S3Bw60NR9RySfM
+	2C5A3SqJadhKqWI/xJKaKyix9W9V6nrWCTwwIdmfLBIr7GdCJYXWKHW10HwxieLesK8vUJEE8/h7y
+	chTUSZ+pKTtL50SnoCjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzS96-00000003P1A-364j;
-	Thu, 27 Aug 2026 04:55:24 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzS90-00000003P0m-2dKM
-	for linux-riscv@lists.infradead.org;
-	Thu, 27 Aug 2026 04:55:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=/vtHaHrw6VqvnjqtqCEIU3jfkZsq9QIio
-	bIZuMjLspc=; b=Wq9KEZpQYp4DqLt0IQiwZVH6ErO3Mj9uNJEdMLRLW5R4aaBvo
-	mdqXox0mVyR8F//CeNYbjrJgI50P9tMTxirp5DjxFdHUHpQzwyWbOPVOgTZT+sko
-	kAzuemtAEl7tFCpZF7K1WQntCHMLsAe0fQkOKSvedgpjUVCqEnk3pD8Po8=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwCXxs0rw49qQFkBAA--.434S2;
-	Thu, 27 Aug 2026 12:55:07 +0800 (CST)
+	id 1wzSe9-00000003QHu-1lUU;
+	Thu, 27 Aug 2026 05:27:29 +0000
+Received: from esa1.hc1455-7.c3s2.iphmx.com ([207.54.90.47])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzSe6-00000003QHA-38vC;
+	Thu, 27 Aug 2026 05:27:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1787808447; x=1819344447;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=LNguTLWe0jdKgr+r/c43BTP0XhTiTX9J59hPN8fgAWE=;
+  b=WAGunQmJi4u2Do6RVl+V1ZTZfd4IqNw6Y8e5tR0xf/2gRDSdcI2jJkJZ
+   5WVa6av94i3LC+tMt5H4gF9pqCP31JIE950C+fhOsH7qClvjUmXeOgr8s
+   3vystjtoSJtgVDvTp3o/WGGtoMcSN3Y3+Jrs66uEpIQ7RMgyxwfUFz8ca
+   MvaVL1iqoluDlN6/AF7fDhnjyNoTe8wGXijz6fv49U0w6u6EzkSn0qurB
+   Uxuxn0kN+NSe4o1xOGIORAk8ZCWy4Z4Pd5u5MxqZm4IF0DJDYJRUfydBG
+   dGOYXGIVEJQEF/vzMzMDqgsUjzV8SgLsKshHdMfUett0GJM7LHhT4R83N
+   Q==;
+X-CSE-ConnectionGUID: SizoyF8jTgeDVnpcTNx0zQ==
+X-CSE-MsgGUID: TAfQNkuvQMm+nfEu3RKDGQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11887"; a="252825888"
+X-IronPort-AV: E=Sophos;i="6.25,246,1779116400"; 
+   d="scan'208";a="252825888"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa1.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 14:27:25 +0900
+Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 7FAF3FC82;
+	Thu, 27 Aug 2026 05:27:24 +0000 (UTC)
+Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 064A9C01EED;
+	Thu, 27 Aug 2026 05:27:24 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom3.fujitsu.com (Postfix) with ESMTPS id C2002101732E;
+	Thu, 27 Aug 2026 05:27:14 +0000 (UTC)
+Date: Thu, 27 Aug 2026 14:27:11 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
+	Ritesh Harjani <ritesh.list@gmail.com>
+Subject: Re: [PATCH 10/20] KVM: selftests: Add a wrapper API to allocate
+ multiple page table pages
+Message-ID: <ao_KrzUvfrpYGZVV@sm-arm-grace07>
+References: <20260826230511.972824-1-seanjc@google.com>
+ <20260826230511.972824-11-seanjc@google.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 11/12] riscv: dts: ultrarisc: Add Shenzhen Rongda M0
- board device tree
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Jia Wang <wangjia@ultrarisc.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>, 
- Andi Shyti <andi.shyti@kernel.org>, 
- Mika Westerberg <mika.westerberg@linux.intel.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, 
- linux-i2c@vger.kernel.org, netdev@vger.kernel.org, 
- dmaengine@vger.kernel.org
-In-Reply-To: <db174bcd-3b21-464f-ab56-439d65e2a064@lunn.ch>
-References: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
- <20260824-ultrarisc-dts-v1-11-61ab7aebe9e5@ultrarisc.com>
- <d93868e7-00c7-4251-9b23-8b3ed0535185@lunn.ch>
- <178779718359.1423015.16616466921659081322.b4-reply@b4>
- <db174bcd-3b21-464f-ab56-439d65e2a064@lunn.ch>
-Date: Thu, 27 Aug 2026 12:54:53 +0800
-Message-Id: <178780649385.1608658.14465948095163858225.b4-reply@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787806494; l=2092;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=90tsSyDLBX0Cz3GrAAWW/LutBnaIZV2qndroWkPLluk=;
- b=UNtZghpp8iIE5tWCpGGJhUnNUY4ikL3VrrbizN1JtzpGTGYZP4oq9qfaPCSasOkkUmdlClkG4
- lScRZMeQkt/DZlkXjkc0Jp0wzBPkf16XErs6jp0+2r+I1LEU+z1NUua
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwCXxs0rw49qQFkBAA--.434S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ury8XFyktw4fXryxKF4xtFb_yoW8Zrykpa
-	y5G3W7tFZ8tr4xCFn29w4IqasI9ayxGr1jqr1kJ34rA3Z8KF1rtr1Ig3yUuasrGrs5XF1j
-	9ay0qa9xGan0yaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9K14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJV
-	WxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Wrv_ZF1lc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMx
-	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
-	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
-	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
-	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
-	0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjTRJMa0UUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAMEWqPrHsABwAAsp
+Content-Disposition: inline
+In-Reply-To: <20260826230511.972824-11-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_215521_110285_1C399E99 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20260826_222727_083541_E5FF064A 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,59 +116,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-27 04:46 +0200, Andrew Lunn wrote:
-> On Thu, Aug 27, 2026 at 10:19:43AM +0800, Jia Wang wrote:
-> > On 2026-08-24 15:02 +0200, Andrew Lunn wrote:
-> > > > +&ethernet {
-> > > > +	phy-handle = <&phy0>;
-> > > > +	/*
-> > > > +	 * YT8531 RGMII timing on this board requires no PHY internal delays.
-> > > 
-> > > Please extend this sentence with an explanation why it needs no delay?
-> > > 
-> > > There are times this is correct, but it is also mostly wrong. Without
-> > > an explanation, i cannot say if this is correct or not.
-> > > 
-> > 
-> > Thanks for the review.
-> > 
-> > The DP1000 SoC integration provides the required TX and RX RGMII clock
-> > skew, so enabling the YT8531 internal delays would apply the delay twice.
+On Wed, Aug 26, 2026 at 04:05:01PM -0700, Sean Christopherson wrote:
+> Add vm_alloc_page_table_pages() and use it throughout arch code to replace
+> open coded equivalents.
 > 
-> Please take a read of
+> No functional change intended.
 > 
-> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  tools/testing/selftests/kvm/include/kvm_util.h    | 9 +++++++--
+>  tools/testing/selftests/kvm/lib/arm64/processor.c | 4 +---
+>  tools/testing/selftests/kvm/lib/riscv/processor.c | 4 +---
+>  tools/testing/selftests/kvm/lib/s390/processor.c  | 8 ++------
+>  4 files changed, 11 insertions(+), 14 deletions(-)
 > 
-> You need to make the MAC driver do the correct thing:
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index 2525c2cacc22..21354434de0a 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -1013,10 +1013,15 @@ static inline gpa_t vm_phy_page_alloc(struct kvm_vm *vm, gpa_t min_gpa,
+>  	return vm_phy_pages_alloc(vm, 1, min_gpa, memslot);
+>  }
+>  
+> +static inline gpa_t vm_alloc_page_table_pages(struct kvm_vm *vm, size_t nr_pages)
+> +{
+> +	return vm_phy_pages_alloc(vm, nr_pages, KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> +				  vm->memslots[MEM_REGION_PT]);
+> +}
+> +
+>  static inline gpa_t vm_alloc_page_table(struct kvm_vm *vm)
+>  {
+> -	return vm_phy_page_alloc(vm, KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> -				 vm->memslots[MEM_REGION_PT]);
+> +	return vm_alloc_page_table_pages(vm, 1);
+>  }
+>  
+>  /*
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> index 01325bf4d36f..2dcaa2c4a038 100644
+> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> @@ -115,9 +115,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  	if (vm->mmu.pgd_created)
+>  		return;
+>  
+> -	vm->mmu.pgd = vm_phy_pages_alloc(vm, nr_pages,
+> -					 KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> -					 vm->memslots[MEM_REGION_PT]);
+> +	vm->mmu.pgd = vm_alloc_page_table_pages(vm, nr_pages);
+>  	vm->mmu.pgd_created = true;
+>  }
+
+Reviewed-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+
+>  
+> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> index ded5429f3448..c175dcd14114 100644
+> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> @@ -69,9 +69,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  	if (vm->mmu.pgd_created)
+>  		return;
+>  
+> -	vm->mmu.pgd = vm_phy_pages_alloc(vm, nr_pages,
+> -					 KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> -					 vm->memslots[MEM_REGION_PT]);
+> +	vm->mmu.pgd = vm_alloc_page_table_pages(vm, nr_pages);
+>  	vm->mmu.pgd_created = true;
+>  }
+>  
+> diff --git a/tools/testing/selftests/kvm/lib/s390/processor.c b/tools/testing/selftests/kvm/lib/s390/processor.c
+> index fb9dab92d4d1..33f49d743b5f 100644
+> --- a/tools/testing/selftests/kvm/lib/s390/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/s390/processor.c
+> @@ -20,9 +20,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>  	if (vm->mmu.pgd_created)
+>  		return;
+>  
+> -	gpa = vm_phy_pages_alloc(vm, PAGES_PER_REGION,
+> -				   KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> -				   vm->memslots[MEM_REGION_PT]);
+> +	gpa = vm_alloc_page_table_pages(vm, PAGES_PER_REGION);
+>  	memset(addr_gpa2hva(vm, gpa), 0xff, PAGES_PER_REGION * vm->page_size);
+>  
+>  	vm->mmu.pgd = gpa;
+> @@ -38,9 +36,7 @@ static u64 virt_alloc_region(struct kvm_vm *vm, int ri)
+>  {
+>  	u64 taddr;
+>  
+> -	taddr = vm_phy_pages_alloc(vm,  ri < 4 ? PAGES_PER_REGION : 1,
+> -				   KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> -				   vm->memslots[MEM_REGION_PT]);
+> +	taddr = vm_alloc_page_table_pages(vm, ri < 4 ? PAGES_PER_REGION : 1);
+>  	memset(addr_gpa2hva(vm, taddr), 0xff, PAGES_PER_REGION * vm->page_size);
+>  
+>  	return (taddr & REGION_ENTRY_ORIGIN)
+> -- 
+> 2.55.0.887.g758fc8c411-goog
 > 
-> # There are a small number of cases where the MAC has hard coded
-> # delays which cannot be disabled. The 'phy-mode' only describes the
-> # PCB.  The inability to disable the delays in the MAC does not change
-> # the meaning of 'phy-mode'. It does however mean that a 'phy-mode' of
-> # 'rgmii' is now invalid, it cannot be supported, since both the PCB
-> # and the MAC and PHY adding delays cannot result in a functional
-> # link. Thus the MAC should report a fatal error for any modes which
-> # cannot be supported. When the MAC implements the delay, it must
-> # ensure that the PHY does not also implement the same delay. So it
-> # must modify the phy-mode it passes to the PHY, removing the delay it
-> # has added. Failure to remove the delay will result in a
-> # non-functioning link.
-> 
-
-Thanks for the clarification.
-
-I will update the DTS to use "rgmii-id" and add a small DP1000 stmmac
-glue driver. The driver will account for the fixed TX and RX MAC delays
-using phy_fix_phy_mode_for_mac_delays(), reject unsupported modes, and
-pass "rgmii" to the PHY.
-
->     Andrew
-> 
-
-Best regards,
-Jia Wang
-
-
 
 _______________________________________________
 linux-riscv mailing list
