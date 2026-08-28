@@ -4,82 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E5DC61DCB
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 13:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1155C61DD3
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 13:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:To:In-Reply-To:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8QvzTcmDUAetwxz4UsHpOfvWDiwkpimi4X4uV5i/+Cg=; b=jMRJcK4qzlD1HZ
-	srg90+/Dj32wOJHrbPOHNucpjDjR3S/itxZnthcXoE7nKJUeVwC16jJ51+S0MsrARVAS3Aet1+Soj
-	lbQn0uCGrqajBRfHN10pTDTfvQGg3TKmDTAp1nBUSJ/gYi4OYsIYvVA9pBVgAHmbnqXS2f0lgjapg
-	nQQ8hqo3g+eb9Ym+4WScE6LRnljsMJkXZs+KHtZOm7po9tikFcX9bV+Uss8XZZOz6UHJKwTutU9AE
-	KRJq/pQ9POg+/w1NC4dZUd6AH1Ow1QPj6cZDOlxznYibvO9z0ccAgJtnYzH6Np69qOea9mRTeb8RC
-	R0kYuWdD2LvTVfTCLsdg==;
+	List-Owner; bh=iLqDPmMJl28LF+ov7yzonMjAAuahho0Sm1+dHO5Y2FU=; b=tL+MuncMAh7knJ
+	7q0ZtxtbuL+OGBbxrAKv1NRHtsvVIk9OwWqpdRlqtZzPHIpSgtHHQ+ZJ3sn9BKFCYryjDeg0aafpb
+	cggtO9ian38jX9IycCcEgQ1Ec60hutXp0WfUCwFYugB/lFHgl48nsDzb3btmhOJkZi8aN+KSJ38Hz
+	voW5JSiu4SyTuMphQsYrJcmUk4CPycAPps+nMtLX04D8V2mTQpAuOwpUSGgKZCMt1dqYKMgHAsZP1
+	O5kXvsr9Bx4aOHKScmE6JEWja35o8Rz8deOJZYtTUiGd/891dKWkDTzYXG8kxwBlHNtVvLb4dM6GJ
+	3BtWd2spjKIlHXcz82Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwxH-00000005sBt-3kCx;
-	Fri, 28 Aug 2026 13:49:15 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1wzwxM-00000005sJj-2WLF;
+	Fri, 28 Aug 2026 13:49:20 +0000
+Received: from mail-pj2-x01.google.com ([2607:f8b0:4864:39::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwwZ-00000005r6n-1ue1;
+	id 1wzwwa-00000005r8l-1NTg
+	for linux-riscv@lists.infradead.org;
 	Fri, 28 Aug 2026 13:48:33 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260828134829euoutp0250edc85dfc54a0dc749bdcac417b5be9~P-Dtpwzl33189331893euoutp02J;
-	Fri, 28 Aug 2026 13:48:29 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260828134829euoutp0250edc85dfc54a0dc749bdcac417b5be9~P-Dtpwzl33189331893euoutp02J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1787924909;
-	bh=6TpRp0DjIJUdbRcNdnvAFPAmKldOEx8C5g0M4OxMKEQ=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=jIKRWYLrpjHf4CZdrkHABeXlzFliBMMS+VfD+XURbmP3RHj72Q05y9YJ/8XoROk46
-	 XA1B1ssrkKXFZzJAsJEg2TBhgXf79v4U9h14WetLkvS2gBC9ghf61cjQL/cQvJjk6g
-	 DQxjdy2xN4XWsPi9hf9zajv89PveSM5Dc623PRR4=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260828134828eucas1p1b4061de1538ef0d3322dc32f3db6140e~P-DtT7MDF0119801198eucas1p1P;
-	Fri, 28 Aug 2026 13:48:28 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260828134826eusmtip1137c7674e9e25e437900ae3d3c66b961~P-DrOH9982815728157eusmtip1C;
-	Fri, 28 Aug 2026 13:48:26 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 28 Aug 2026 15:47:32 +0200
-Subject: [PATCH v2 08/15] soc: starfive: Add jh7110-hdmi-subsystem driver
+Received: by mail-pj2-x01.google.com with SMTP id 98e67ed59e1d1-396d27bb2beso781131a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Aug 2026 06:48:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787924911; x=1788529711; darn=lists.infradead.org;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ryt7yZmF0T0BLkRjL8DfW4WEGpGCHSG+s/XfPRWVBow=;
+        b=E52kf0dS8n1G3HOn9SPBlPuO+GDwt7NBosiS6gS8LHcyI+WSVZ1oMK8NF0soZTr9Vt
+         YeTiY1DDUNsLMjHBFa9YsZpe43a/wlfPTJPRULHraygSbLlPuwBwafvCU9tJUlN8DolC
+         kFy15LhwgskVNJpJGrR3ipQj0t0FtCmY1zNbPMPirSRh88iwzXL86d+MlvzgkLEKy5H1
+         oln1Ez5VjN83d3BN9OKbe+7tp6R2g51XvZtMp2ijN+z7Fx1H72eNME1BgaLYI73LhyCr
+         04pH56WPVNlrTsi0vZKWoAF0DNsK9fiLdB00zmzkCMBRRGcVOjhzYI+0xl3zrpFK9QDK
+         XPMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787924911; x=1788529711;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ryt7yZmF0T0BLkRjL8DfW4WEGpGCHSG+s/XfPRWVBow=;
+        b=G1ESVorqV+bXrV7fDt1UMFTVZWHaYtf+nvDzzmJtnqDRVjMa8qurHpmZKObIXGwMP6
+         Yo9yqt+JTLihmh8dH3KuPE61VVjOnKtQtg897iBSQE/0Wyr7HP1Gk4ZRh0g0FxL4g0IW
+         vkGZbjfjDtzdfeTmOsA8r9rgg1ZAgQOcOIeRlxPCXTzP7BcYBmuuyWDohjwj4BOUVo5I
+         OcuJk4/SjOnGsRSdyB+R6aEYGZz34TEX8RjhlGWnPKi3WcOnjhtIycSwkkfWu9C2RDV4
+         jLkH0uHUjvEPu2foc60ZkJeEiAE6TwiierqN7D/6KYsHX3LrVzpePQF03JOPZ8CpseQG
+         t5Yg==
+X-Forwarded-Encrypted: i=1; AHgh+RpzFPYlmaGPdJ+WPw/mtcvkVhgwNXWw0PFl2wnCY1ULKOKdrTrMOJTPikFyv5WKP8YKjYjyU/hVM+MdAg==@lists.infradead.org
+X-Gm-Message-State: AFuF++nl0/+YGQ0vKlTFBAkXvseUn0VVn6LdlQ9ZB+4u0pA6dbXwfxNX
+	tTpvqiAj0XWRdIMCpUAShlHyMzRY6UDNycRE2AOGqjYTl55N12aOFeD16xdndARbTzTYoQ==
+X-Gm-Gg: AR+sD12rhzMb6wkp2UZ7po5vl4QE3as/dov1bes3WV35oxXZwP/VQvysd8kobsvLnK6
+	f9a0DMSCvEj/asJ6JJhmBSEQlnkM6GEGywSGSib8XFTRzxM4ieFqxND3HVtTrSulPpc9D75qKdY
+	I/E/mpzAKfKC+tlr5AZhrLCYLNxuwYa4AG7H+3TwtBGPX8HX28QY0V55RF7PbFORyM4EZVS3btM
+	4YcWcRoolqnj9yAerYeOHGAxxtNBRduHLqqVzVcVsj6Csb6dWZxRM5u3jPyJfhOAdYV3bjRSRjK
+	HON4ALRhkt+/Vhhms3QKADmecy2qzuhXOz5pfOkdAwtf5u/KJ5abxNp6LxChe0RoAPfVFhans4d
+	TEu+9eCY6AJNi64az75ntA8gpSzDjNR2KAyDN2cOae64CcfMShp2X3dKdZFNlAnGXRgUztaZ7aq
+	KwWHvB5c0vqUGtR8v24hktUI0sLFX2pw32WCXfbqhPiudYfJUsCv/KXbOjcvU0sUa6j2MdN6alr
+	w6lrFzat8lbyQ==
+X-Received: by 2002:a17:90a:4cc2:b0:396:d27b:89b9 with SMTP id 98e67ed59e1d1-396d27bb20fmr1472296a91.10.1787924911385;
+        Fri, 28 Aug 2026 06:48:31 -0700 (PDT)
+Received: from hppc-archlinux.localnet ([101.68.111.107])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396b0fcfa3asm7340190a91.6.2026.08.28.06.48.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Aug 2026 06:48:30 -0700 (PDT)
+From: Yukai Wu <xiaoyewuz.ruster@gmail.com>
+X-Google-Original-From: Yukai Wu <xiaoyewuz.Ruster@gmail.com>
+To: Weijie Yuan <wy@wyuan.org>
+Cc: Alex Shi <alexs@kernel.org>, Yanteng Si <si.yanteng@linux.dev>,
+ Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Dongliang Mu <dzm91@hust.edu.cn>, Shuah Khan <skhan@linuxfoundation.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] docs/zh_CN: Update arch/riscv/patch-acceptance.rst translation
+Date: Fri, 28 Aug 2026 21:46:40 +0800
+Message-ID: <RbJcKtULSuOq1gqhZCEqbA@gmail.com>
+In-Reply-To: <apGIgyn-iJ534D9S@wyuan.org>
+References: <20260828061834.3645176-1-xiaoyewuz.Ruster@gmail.com>
+ <apGIgyn-iJ534D9S@wyuan.org>
 MIME-Version: 1.0
-Message-Id: <20260828-jh7110-clean-send-v2-8-331680c8b9d1@samsung.com>
-In-Reply-To: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
-	Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>,  Robert Foss <rfoss@kernel.org>,  Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,  Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,  Simona
-	Vetter <simona@ffwll.ch>,  Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,  Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>,  Philipp Zabel <p.zabel@pengutronix.de>, 
-	Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
-	<hal.feng@starfivetech.com>,  Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,  Heiko
-	Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,  Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
-	Belhachemi <db@domibel.de>
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260828134828eucas1p1b4061de1538ef0d3322dc32f3db6140e
-X-Msg-Generator: CA
-X-RootMTR: 20260828134828eucas1p1b4061de1538ef0d3322dc32f3db6140e
-X-EPHeader: CA
-X-CMS-RootMailID: 20260828134828eucas1p1b4061de1538ef0d3322dc32f3db6140e
-References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-	<CGME20260828134828eucas1p1b4061de1538ef0d3322dc32f3db6140e@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_064831_897854_946BD6DB 
-X-CRM114-Status: GOOD (  24.23  )
+X-CRM114-CacheID: sfid-20260828_064832_381235_D97B541E 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,226 +101,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, mfd@lists.linux.dev, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Andy Yan <andyshrk@163.com>, Graham Markall <hello@big-grey.co.uk>, linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org, Michal Wilczynski <m.wilczynski@samsung.com>, linux-riscv@lists.infradead.org, Maud Spierings <maudspierings@gocontroll.com>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the parent driver for the monolithic JH7110 HDMI IP block.
-
-This driver binds to the starfive,jh7110-hdmi-subsystem node. It maps the
-shared register block, creates a regmap, and calls
-devm_of_platform_populate() to create its hdmi_phy and hdmi_controller
-child devices, which retrieve the shared regmap from this parent.
-
-The NoC display-bus clock and reset gate access to the whole vout register
-region, and this subsystem's PHY child is the first device there to touch
-registers. Enable the bus before populating the children; PD_VOUT is
-handled by genpd through the power-domains property.
-
-Co-developed-by: Dominique Belhachemi <db@domibel.de>
-Signed-off-by: Dominique Belhachemi <db@domibel.de>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- drivers/soc/Kconfig                          |   1 +
- drivers/soc/Makefile                         |   1 +
- drivers/soc/starfive/Kconfig                 |  27 +++++++
- drivers/soc/starfive/Makefile                |   2 +
- drivers/soc/starfive/jh7110-hdmi-subsystem.c | 114 +++++++++++++++++++++++++++
- 5 files changed, 145 insertions(+)
-
-diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
-index a2d65adffb8052c0ac5a6b60bf33fa9c644701bb..b3b01fc38139d98076c14f626a42ae3b7ef7c5d6 100644
---- a/drivers/soc/Kconfig
-+++ b/drivers/soc/Kconfig
-@@ -24,6 +24,7 @@ source "drivers/soc/renesas/Kconfig"
- source "drivers/soc/rockchip/Kconfig"
- source "drivers/soc/samsung/Kconfig"
- source "drivers/soc/sophgo/Kconfig"
-+source "drivers/soc/starfive/Kconfig"
- source "drivers/soc/sunxi/Kconfig"
- source "drivers/soc/tegra/Kconfig"
- source "drivers/soc/ti/Kconfig"
-diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-index c9e689080ceb759384f690c2b65a82b3cb451c74..009f85ff891a15e0455f92c5d5a4059d8b1fcd3f 100644
---- a/drivers/soc/Makefile
-+++ b/drivers/soc/Makefile
-@@ -30,6 +30,7 @@ obj-y				+= renesas/
- obj-y				+= rockchip/
- obj-$(CONFIG_SOC_SAMSUNG)	+= samsung/
- obj-y				+= sophgo/
-+obj-y				+= starfive/
- obj-y				+= sunxi/
- obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
- obj-y				+= ti/
-diff --git a/drivers/soc/starfive/Kconfig b/drivers/soc/starfive/Kconfig
-new file mode 100644
-index 0000000000000000000000000000000000000000..7592d87dea37a7c14560b3eb9b23e49e503c2d71
---- /dev/null
-+++ b/drivers/soc/starfive/Kconfig
-@@ -0,0 +1,27 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Starfive SoC drivers
-+#
-+
-+if ARCH_STARFIVE || COMPILE_TEST
-+menu "Starfive SoC drivers"
-+
-+config SOC_STARFIVE_JH7110_HDMI_SUBSYSTEM
-+	tristate "StarFive JH7110 HDMI subsystem driver"
-+	depends on OF
-+	help
-+	  This option enables the parent driver
-+	  for the monolithic StarFive JH7110 HDMI peripheral.
-+
-+	  The JH7110 HDMI IP block contains both the digital controller
-+	  (DRM bridge) and the analog PHY (clock/phy provider) logic within
-+	  a single shared register space.
-+
-+	  This driver acts as a wrapper. Its only job is to map the
-+	  shared registers and create separate logical child devices
-+	  for the "PHY" and the "controller". This is required to
-+	  correctly manage resources and break a circular clock dependency
-+	  between the PHY and the VOUT clock generator at probe time.
-+
-+endmenu
-+endif
-diff --git a/drivers/soc/starfive/Makefile b/drivers/soc/starfive/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..be89d8119212b7a7038817c2f0e8eac1984ada88
---- /dev/null
-+++ b/drivers/soc/starfive/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_SOC_STARFIVE_JH7110_HDMI_SUBSYSTEM) += jh7110-hdmi-subsystem.o
-diff --git a/drivers/soc/starfive/jh7110-hdmi-subsystem.c b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..d893c1c29f98b072b09d261343d3317dbf4c75fe
---- /dev/null
-+++ b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
-@@ -0,0 +1,114 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for the StarFive JH7110 HDMI subsystem
-+ *
-+ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
-+ * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-+ *
-+ * This driver binds to the monolithic HDMI block and creates separate
-+ * logical platform devices for the HDMI Controller (bridge) and the
-+ * HDMI PHY (clock/phy provider), allowing them to share a single regmap
-+ * and breaking the probing circular dependency.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/reset.h>
-+
-+static const struct regmap_config starfive_hdmi_regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 8,
-+	.max_register = 0x3fff,
-+};
-+
-+static void starfive_hdmi_subsys_clk_disable(void *data)
-+{
-+	clk_disable_unprepare(data);
-+}
-+
-+static void starfive_hdmi_subsys_rst_assert(void *data)
-+{
-+	reset_control_assert(data);
-+}
-+
-+static int starfive_hdmi_subsys_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct reset_control *bus_rst;
-+	void __iomem *regs;
-+	struct regmap *regmap;
-+	struct clk *bus_clk;
-+	int ret;
-+
-+	/*
-+	 * The NoC display-bus clock and reset gate access to the whole vout
-+	 * register region, and this subsystem's PHY child is the first device in
-+	 * that region to touch registers. Bring the bus up here before
-+	 * populating the children; PD_VOUT is powered on by genpd through the
-+	 * power-domains property.
-+	 */
-+	bus_clk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(bus_clk))
-+		return dev_err_probe(dev, PTR_ERR(bus_clk),
-+				     "Failed to get NoC bus clock\n");
-+
-+	ret = clk_prepare_enable(bus_clk);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to enable NoC bus clock\n");
-+
-+	ret = devm_add_action_or_reset(dev, starfive_hdmi_subsys_clk_disable, bus_clk);
-+	if (ret)
-+		return ret;
-+
-+	bus_rst = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(bus_rst))
-+		return dev_err_probe(dev, PTR_ERR(bus_rst),
-+				     "Failed to get NoC bus reset\n");
-+
-+	ret = reset_control_deassert(bus_rst);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to deassert NoC bus reset\n");
-+
-+	ret = devm_add_action_or_reset(dev, starfive_hdmi_subsys_rst_assert, bus_rst);
-+	if (ret)
-+		return ret;
-+
-+	regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(regs))
-+		return PTR_ERR(regs);
-+
-+	regmap = devm_regmap_init_mmio(dev, regs,
-+				       &starfive_hdmi_regmap_config);
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(dev, PTR_ERR(regmap),
-+				     "Failed to init shared regmap\n");
-+
-+	ret = devm_of_platform_populate(dev);
-+	if (ret)
-+		dev_err(dev, "Failed to populate child devices: %d\n", ret);
-+
-+	return ret;
-+}
-+
-+static const struct of_device_id starfive_hdmi_subsys_of_match[] = {
-+	{ .compatible = "starfive,jh7110-hdmi-subsystem", },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, starfive_hdmi_subsys_of_match);
-+
-+static struct platform_driver starfive_hdmi_subsys_driver = {
-+	.probe = starfive_hdmi_subsys_probe,
-+	.driver = {
-+		.name = "starfive-hdmi-subsystem",
-+		.of_match_table = starfive_hdmi_subsys_of_match,
-+	},
-+};
-+module_platform_driver(starfive_hdmi_subsys_driver);
-+
-+MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
-+MODULE_DESCRIPTION("StarFive JH7110 HDMI subsystem Driver");
-+MODULE_LICENSE("GPL");
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgV2VpamllLAoKT24gRnJpZGF5LCBBdWd1c3QgMjgsIDIwMjYgOTowOToyM+KAr1BNIENoaW5h
+IFN0YW5kYXJkIFRpbWUgV2VpamllIFl1YW4gd3JvdGU6Cj4gSGkgWXVrYWksCj4gCj4gT24gRnJp
+LCBBdWcgMjgsIDIwMjYgYXQgMDI6MTg6MTZQTSArMDgwMCwgWXVrYWkgV3Ugd3JvdGU6Cj4gPiBV
+cGRhdGUgRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L3BhdGNoLWFjY2VwdGFuY2UucnN0IHRyYW5z
+bGF0aW9uLgo+ID4gCj4gPiBVcGRhdGUgdGhlIHRyYW5zbGF0aW9uIHRocm91Z2ggY29tbWl0IGVk
+ODQzYWU5NDdmOAo+ID4gKCJkb2NzOiBtb3ZlIHJpc2N2IHVuZGVyIGFyY2giKQo+ID4gCj4gPiBT
+aWduZWQtb2ZmLWJ5OiBZdWthaSBXdSA8eGlhb3lld3V6LlJ1c3RlckBnbWFpbC5jb20+Cj4gPiAt
+LS0KPiA+IAo+ID4gIC4uLi96aF9DTi9hcmNoL3Jpc2N2L3BhdGNoLWFjY2VwdGFuY2UucnN0ICAg
+ICB8IDQ2ICsrKysrKysrKysrKysrLS0tLS0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgMzQgaW5zZXJ0
+aW9ucygrKSwgMTIgZGVsZXRpb25zKC0pCj4gPiAKPiA+IGRpZmYgLS1naXQKPiA+IGEvRG9jdW1l
+bnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04vYXJjaC9yaXNjdi9wYXRjaC1hY2NlcHRhbmNlLnJz
+dAo+ID4gYi9Eb2N1bWVudGF0aW9uL3RyYW5zbGF0aW9ucy96aF9DTi9hcmNoL3Jpc2N2L3BhdGNo
+LWFjY2VwdGFuY2UucnN0IGluZGV4Cj4gPiBjOGViMjMwY2E4ZWUuLmE0OGU2ZTU3NWE2NyAxMDA2
+NDQKPiA+IC0tLSBhL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2FyY2gvcmlzY3Yv
+cGF0Y2gtYWNjZXB0YW5jZS5yc3QKPiA+ICsrKyBiL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25z
+L3poX0NOL2FyY2gvcmlzY3YvcGF0Y2gtYWNjZXB0YW5jZS5yc3QKPiA+IEBAIC0xNSwxOSArMTUs
+NDEgQEAgYXJjaC9yaXNjdiDlvIDlj5HogIXnu7TmiqTmjIfljZcKPiA+IAo+ID4gIOamgui/sAo+
+ID4gIC0tLS0KPiA+IAo+ID4gLVJJU0MtVuaMh+S7pOmbhuS9k+ezu+e7k+aehOaYr+WFrOW8gOW8
+gOWPkeeahO+8mgo+ID4gK1JJU0MtViDmjIfku6Tpm4bkvZPns7vnu5PmnoTmmK/lhazlvIDlvIDl
+j5HnmoTvvJoKPiA+IAo+ID4gIOato+WcqOi/m+ihjOeahOiNieahiOWPr+S+m+aJgOacieS6uuaf
+peeci+WSjOa1i+ivleWunueOsOOAguaWsOaooeWdl+aIluiAheaJqeWxleiNieahiOWPr+iDveS8
+muWcqOW8gOWPkei/h+eoi+S4reWPkQo+ID4gCj4gPiAt55Sf5pu05pS5LS0t5pyJ5pe25Lul5LiN
+5YW85a6555qE5pa55byP5a+55Lul5YmN55qE6I2J5qGI6L+b6KGM5pu05pS544CC6L+Z56eN54G1
+5rS75oCn5Y+v6IO95Lya57uZUklTQy1WIExpbnV4Cj4gPiAt57u05oqk6ICF5bim5p2l5oyR5oiY
+44CCTGludXjlvIDlj5Hov4fnqIvmm7TllpzmrKLnu4/ov4foia/lpb3mo4Dmn6XlkozmtYvor5Xn
+moTku6PnoIHvvIzogIzkuI3mmK/or5Xpqozku6PnoIHjgILmiJEKPiA+IC3ku6zluIzmnJvmjqjl
+ub/lkIzmoLfnmoTop4TliJnliLDljbPlsIbooqvlhoXmoLjlkIjlubbnmoRSSVNDLVbnm7jlhbPk
+u6PnoIHjgIIKPiA+ICvnlJ/mm7TmlLkgLS0tIOacieaXtuS7peS4jeWFvOWuueeahOaWueW8j+Wv
+ueS7peWJjeeahOiNieahiOi/m+ihjOabtOaUueOAgui/meenjeeBtea0u+aAp+WPr+iDveS8mue7
+mSBSSVNDLVYKPiA+ICtMaW51eCDnu7TmiqTogIXluKbmnaXmjJHmiJjjgIJMaW51eCDnu7TmiqTo
+gIXkuI3otZ7miJDpopHnuYHnmoTlj5jmm7TvvIzkuJQgTGludXgg5byA5Y+R6L+H56iL5pu05Zac
+5qyi57uP6L+HCj4gPiAr6Imv5aW95qOA5p+l5ZKM5rWL6K+V55qE5Luj56CB77yM6ICM5LiN5piv
+6K+V6aqM5Luj56CB44CC5oiR5Lus5biM5pyb5o6o5bm/5ZCM5qC355qE6KeE5YiZ5Yiw5Y2z5bCG
+6KKr5YaF5qC45ZCI5bm255qECj4gPiArUklTQy1WIOebuOWFs+S7o+eggeOAggo+ID4gCj4gPiAr
+6KGl5LiB6Lef6Liq57O757ufCj4gPiArLS0tLS0tLS0tLS0tCj4gPiArCj4gPiArUklTQy1WIOac
+ieS4gOS4quihpeS4gei3n+i4quezu+e7n+WunuS+i++8jOWPr+S7peWcqOmCo+mHjOafpeeci+ih
+peS4geeahOeKtuaAge+8mgo+IAo+IEkgc3VnZ2VzdCBrZWVwaW5nIHRoZSBuYW1lICJQYXRjaHdv
+cmsiIGFzIGlzLiBCZWNhdXNlIHdlIGRvbid0IHRyYW5zbGF0ZQo+IGl0IGluIG1vc3QgY2FzZXMu
+Cj4gCgpBZ3JlZWQuIEkgd2lsbCBrZWVwIGl0IGluIHRoZSB2MiBwYXRjaC4KCj4gPiArCj4gPiAr
+ICBodHRwczovL3BhdGNod29yay5rZXJuZWwub3JnL3Byb2plY3QvbGludXgtcmlzY3YvbGlzdC8K
+PiA+ICsKPiA+ICvlpoLmnpzkvaDnmoTooaXkuIHkuI3lnKjpu5jorqTop4blm77kuK3lh7rnjrDv
+vIzpgqPkuYggUklTQy1WIOe7tOaKpOiAheW+iOacieWPr+iDveW3suimgeaxguS/ruaUue+8jOaI
+luiAheW4jOacmwo+ID4gK+WwhuWFtuW6lOeUqOWIsOWPpuS4gOS4quS7o+eggeagkeS4iuOAggo+
+ID4gKwo+ID4gK+iHquWKqOWMlua1geeoi+S8muWcqOivpeihpeS4gei3n+i4quezu+e7n+WunuS+
+i+S4iui/kOihjO+8jOWcqOavj+S4quihpeS4geWIsOi+vuaXtueri+WIu+WvueWFtui/m+ihjOae
+hOW7ui/mtYvor5XjgIIKPiA+ICvoh6rliqjljJbmtYHnqIvmoLnmja7ooaXkuIHmmK/lkKbooqvo
+r4bliKvkuLrkv67lpI3vvIzlsIblhbblupTnlKjliLAgUklTQy1WIGBmb3ItbmV4dGAg5ZKMIGBm
+aXhlc2Ag5YiG5pSvCj4gPiAr5b2T5YmN55qEIEhFQUQg5LiK44CC5aaC5p6c5Z2H5LiN6YCC55So
+77yM5YiZ5Lya5L2/55SoIFJJU0MtViBgbWFzdGVyYCDliIbmlK/jgILooaXkuIHns7vliJfooqvl
+upTnlKjliLDnmoTlhbcKPiA+ICvkvZPmj5DkuqTlsIbmoIfms6jlnKjooaXkuIHot5/ouKrns7vn
+u5/kuIrjgILku7vkvZXmo4Dmn6XmnKrpgJrov4fnmoTooaXkuIHpgJrluLjkuI3kvJrooqvlupTn
+lKjvvIzlubbkuJTlnKjlpKflpJrmlbDmg4UKPiA+ICvlhrXkuIvlsIbpnIDopoHph43mlrDmj5Dk
+uqTjgIIKPiA+IAo+ID4gIOmZhOWKoOeahOaPkOS6pOajgOafpeWNlQo+ID4gIC0tLS0tLS0tLS0t
+LS0tLS0KPiA+IAo+ID4gLeaIkeS7rOS7heaOpeWPl+ebuOWFs+agh+WHhuW3sue7j+iiq1JJU0Mt
+VuWfuumHkeS8muagh+WHhuS4uuKAnOW3suaJueWHhuKAneaIluKAnOW3suWGu+e7k+KAneeahOaJ
+qeWxleaIluaooeWdl+eahOihpeS4geOAggo+ID4gLe+8iOW8gOWPkeiAheW9k+eEtuWPr+S7pee7
+tOaKpOiHquW3seeahExpbnV45YaF5qC45qCR77yM5YW25Lit5YyF5ZCr5omA6ZyA5Luj56CB5omp
+5bGV6I2J5qGI55qE5Luj56CB44CC77yJCj4gCj4gT3JpZ2luYWw6ICJGcm96ZW4iIG9yICJSYXRp
+ZmllZCIgLS0gIuW3suWGu+e7kyLmiJYi5bey5om55YeGIgo+IAo+IEJ1dCBkb2VuJ3QgbWF0dGVy
+IG11Y2guCj4gCgpVbmRlcnN0b29kLiBJIHdpbGwgY2hhbmdlIGl0LgoKPiA+IC0KPiA+IC3mraTl
+pJbvvIxSSVNDLVbop4TojIPlhYHorrjniLHlpb3ogIXliJvlu7roh6rlt7HnmoToh6rlrprkuYnm
+ianlsZXjgILov5nkupvoh6rlrprkuYnmi5PlsZXkuI3pnIDopoHpgJrov4dSSVNDLVYKPiA+IC3l
+n7rph5HkvJrnmoTku7vkvZXlrqHmoLjmiJbmibnlh4bjgILkuLrkuobpgb/lhY3lsIbniLHlpb3o
+gIXkuIDkupvnibnliKvnmoRSSVNDLVbmi5PlsZXmt7vliqDov5vlhoXmoLjku6PnoIHluKbmnaUK
+PiA+IC3nmoTnu7TmiqTlpI3mnYLmgKflkozlr7nmgKfog73nmoTmvZzlnKjlvbHlk43vvIzmiJHk
+u6zlsIblj6rmjqXlj5dSSVNDLVbln7rph5HkvJrmraPlvI/lhrvnu5PmiJbmibnlh4bnmoTnmoTm
+ianlsZUKPiAKPiB3ZSdsbCBvbmx5IGNvbnNpZGVyIC0g5Y+q6ICD6JmR77yfCj4gCj4gVGhlIGNo
+YW5nZSAoYWNjZXB0IC0+IGNvbnNpZGVyKSBpcyBpbiBjb21taXQgOTM2MTAwZDQ1MDdmCj4gKERv
+Y3VtZW50YXRpb246IFJJU0MtVjogQWxsb3cgcGF0Y2hlcyBmb3Igbm9uLXN0YW5kYXJkIGJlaGF2
+aW9yKQo+IAo+IERpZCB5b3UgbWlzcyBpdD8KPiAKClllcywgSSBtaXNzZWQgdGhhdC4gVGhhbmsg
+eW91IGZvciBwb2ludGluZyBvdXQuIEkgd2lsbCBjb3JyZWN0IGl0IGluIHYyLgoKPiA+IC3ooaXk
+uIHjgILvvIjlvIDlj5HogIXlvZPnhLblj6/ku6Xnu7TmiqToh6rlt7HnmoRMaW51eOWGheaguOag
+ke+8jOWFtuS4reWMheWQq+S7luS7rOaDs+imgeeahOS7u+S9leiHquWumuS5ieaJqeWxlQo+ID4g
+LeeahOS7o+eggeOAgu+8iQo+ID4gK+aIkeS7rOS7heaOpeWPl+mSiOWvueaWsOaooeWdl+aIluaJ
+qeWxleeahOihpeS4ge+8jOWJjeaPkOaYr+i/meS6m+aooeWdl+aIluaJqeWxleeahOinhOiMg+ii
+q+WIl+S4uuacquadpeS4jeWkquWPr+iDveWPkQo+ID4gK+eUn+S4jeWFvOWuueeahOWPmOabtOOA
+guWvueS6juadpeiHqiBSSVNDLVYg5Z+66YeR5Lya55qE6KeE6IyD77yM6L+Z5oSP5ZGz552A4oCc
+5bey5om55YeG4oCd5oiW4oCc5bey5Ya757uT4oCd77yM5a+55LqOCj4gPiArVUVGSSDorrrlnZvn
+moTop4TojIPvvIzov5nmhI/lkbPnnYDlt7Llj5HluIPnmoQgRUNS44CC77yI5byA5Y+R6ICF5b2T
+54S25Y+v5Lul57u05oqk6Ieq5bex55qEIExpbnV4IOWGheaguOagke+8jAo+ID4gK+WFtuS4reWM
+heWQq+S7luS7rOaJgOmcgOeahOS7u+S9leaJqeWxleiNieahiOeahOS7o+eggeOAgu+8iQo+ID4g
+Kwo+ID4gK+atpOWklu+8jFJJU0MtViDop4TojIPlhYHorrjlrp7njrDogIXliJvlu7roh6rlt7Hn
+moToh6rlrprkuYnmianlsZXjgILov5nkupvoh6rlrprkuYnmianlsZXkuI3pnIDopoHpgJrov4cg
+UklTQy1WCj4gPiAr5Z+66YeR5Lya55qE5Lu75L2V5a6h5qC45oiW5om55YeG5rWB56iL44CC5Li6
+5LqG6YG/5YWN5Zug5re75Yqg5a6e546w6ICF54m55a6a55qEIFJJU0MtViDmianlsZXluKbmnaXn
+moTnu7TmiqTlpI3mnYIKPiA+ICvmgKflkozlr7nmgKfog73nmoTmvZzlnKjlvbHlk43vvIzmiJHk
+u6zlsIblj6rmjqXlj5fnrKblkIjku6XkuIvku7vkuIDmnaHku7bnmoTmianlsZXooaXkuIHvvJoK
+PiA+ICsKPiA+ICstIOW3sueUsSBSSVNDLVYg5Z+66YeR5Lya5q2j5byP5Ya757uT5oiW5om55YeG
+Cj4gPiArLSDlt7LmjInnhafmoIflh4YgTGludXgg5oOv5L6L77yM5Zyo5bm/5rOb5Y+v55So55qE
+56Gs5Lu25Lit5a6e546wCj4gPiArCj4gPiAr77yI5a6e546w6ICF5b2T54S25Y+v5Lul57u05oqk
+6Ieq5bex55qEIExpbnV4IOWGheaguOagke+8jOWFtuS4reWMheWQq+S7luS7rOaJgOmcgOeahOS7
+u+S9leiHquWumuS5ieaJqeWxleeahOS7o+eggeOAgu+8iQo+IAo+IC0gUmV2aWV3cyBmcm9tIGNv
+bW11bml0eSwgYmV0dGVyIHdhaXQgZm9yIHRoZSByZXBseSBmcm9tIG1haW50YWluZXJzLgo+IAo+
+IFRoYW5rcy4KClRoYW5rcyBhZ2FpbiBmb3IgeW91ciB0aW1lIGFuZCByZXZpZXcuIEFuZCBzb3Jy
+eSBmb3IgcmVhZGluZyB0aGUgb3JpZ2luYWwgCmRvY3VtZW50YXRpb24gbm90IHNvIGNhcmVmdWxs
+eS4KCkJlc3QgcmVnYXJkcywKWXVrYWkgV3UKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
