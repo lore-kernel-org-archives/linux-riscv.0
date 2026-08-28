@@ -4,67 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1835C61DCB
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 17:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D3FC61DBD
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 17:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zgA28ROExvAW2krExvoE/+Nfd/QCayC3jQM22OGRzIk=; b=ro2GiC9cz3DVfroJOQDVFsL7cN
-	izQV3vnuHVIq3ZVDwWPCFs6X8IOpw4E86iXTBK0v0cA2g1qmwzMTXhTrjRD4AjsqNRpo8BwK8XEZ+
-	DUWhYfrbvT/lmitDNRyYe2U5Fh8DixMswNS10//0aIk5/utiKe30tkU5sr+7mSMQgy7MEQt9cDV4Q
-	KQ/CdmMLts2dVT8pDLX+OEJDgttYbsuzT1YahJWj6fzd9n9Q/W2mEqLQTSJ1GSTVoZWMemRjizF4Y
-	E4OhQjaXLMIxSyQgd1s0y3O5kjR+ztCPmiVl7XW3USw9sTifeqyyCMN4GqcBCJOnnCEfEk6jIYl54
-	wbJIUUlw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=g4qfXl7xj9ea1eRrvQp1A8Lyhf3D7yXrLlHDd5IEK5I=; b=MYMUb65z+xL3DK
+	0y7IdBA/Afx4ZgqXMjjm85Z3+tiEReyCBZ80+wTnduDWGmcVYy93RpBVyUkflwcqLAFQeSe2vZK/N
+	/v1urCSnp+7yddXC4dPU+BA8gRWRmNbm11uzAbLirhfQiBglHfXHIq8sEOv4uNiLnNjX5hucWbuTX
+	brA13EhfsTGB2/ZjwqMCrHN44AvU3TtLvrXA1AH+zpOElIdTYU7xaq0EZZTJBnjtLaPjmzTx/YgSh
+	Jfk7gsmU2DNw6du6Bw4HLtQJMpLhw4wYHIaq4oqFnC8HrJI/2hHXrz0z9XkO/0VdXU55owpCW6TeM
+	/LCwKJ16sa8aQ77s8lIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0079-00000006FHn-3aYV;
-	Fri, 28 Aug 2026 17:11:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x00rB-00000006Hht-1xsQ;
+	Fri, 28 Aug 2026 17:59:13 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0078-00000006FHS-3d9D;
-	Fri, 28 Aug 2026 17:11:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C1F740BDF;
-	Fri, 28 Aug 2026 17:11:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A0FC1F000E9;
-	Fri, 28 Aug 2026 17:11:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787937098;
-	bh=+5cMUJGHBZZmsAYQ6USpqxzXHzi+ihgdIcDyT1zg37s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CPw7xnPiXa/4e2xFtG3sMy612KK0MBc2+Q4wKts7jq+cIBnTq8nNw6Auolim0jKi8
-	 DJw5LzayG4RhUJO9rvla4DuTJRPxgp+IRUKGriIgHDaE2AF9BoiS4fkz++DJrY0PfF
-	 WgchVx7syIK+HUMujeMEe4ZvFBgqP6tH4YSa1t96jsnm8Vd7/2gKWufci5a9NPG+q0
-	 IbOJlkeM17jgDR7SGMaocUqeoKjG3bakxZt6NNphlDiEA9PZUhXQssD4sfh8lUJYlA
-	 6Fw15Y3AtO13YH8AOOMi+VmwPyb6xFS2iXDVLceYE3wunjtSnDo1+/07hbDDim4W/M
-	 H35PnNyK0l/yA==
-Date: Fri, 28 Aug 2026 18:11:33 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "debug@rivosinc.com" <debug@rivosinc.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"bill.roberts@foss.arm.com" <bill.roberts@foss.arm.com>,
-	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>
-Subject: Re: Shadow Stack Locking Semantics between arch's
-Message-ID: <efe21e09-1e60-4d9f-b5b7-f637b72941a2@sirena.org.uk>
-References: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
- <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
- <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
- <01b0fe86d5700847f78b0e6f839119f54ac88b04.camel@intel.com>
- <apCvGct9U1yprAUE@sirena.org.uk>
- <f2819c4f1a86845b5b2f2b6f0e03f4c334e84eaa.camel@intel.com>
- <c4ac49d9-1fdb-46c4-9303-f17a517ac4c1@sirena.org.uk>
- <e126b2a52321c0a9a6e9de425304e01a62256634.camel@intel.com>
+	id 1x00r8-00000006Hgw-3na7;
+	Fri, 28 Aug 2026 17:59:12 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67SGVluO721927;
+	Fri, 28 Aug 2026 17:58:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=AZFBZK
+	lZxOOnh7LYWP8T1WR9V2U7Ewlnl/05R2xnW1w=; b=pFEzQ2Wrc0RQAapmmBD6W2
+	GKyaFb0C3hjy2/vyaTApogAFCjrZ/timR10B8bIJckCxkX5I3dz7BnaOfraFk3tO
+	tkBnbLAepDkYENxlTFqQLPAJqQfDFHTmSmzVtQIU8M76oTzE7YRFqIdjtjOPAhd7
+	vD5k6zT1FQKzUArFLbkkhNT3QC5OUNb4hjCfAcWPFI9dqasPHHP7X6u3XmVxEuEZ
+	QkHDi07Lb0S6Jkdu9+icPYAyIv7lbI0Pbj4qXkflPyllXE6NCrXXc76fQA2uipPD
+	LKj6Wrqs4w6IdnFXw7mbU7WB5JdEyRgQ4vrXikpcGexzZo/Ka2q9VLI5PTVb5IWw
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4g73ere7uh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 28 Aug 2026 17:58:55 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67SHuWfi008298;
+	Fri, 28 Aug 2026 17:58:54 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4g7rsyqqjb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 28 Aug 2026 17:58:54 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67SHwo5W38338878
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 28 Aug 2026 17:58:50 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 831A020040;
+	Fri, 28 Aug 2026 17:58:50 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 20D1E20043;
+	Fri, 28 Aug 2026 17:58:50 +0000 (GMT)
+Received: from p-imbrenda (unknown [9.224.75.30])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Fri, 28 Aug 2026 17:58:50 +0000 (GMT)
+Date: Fri, 28 Aug 2026 19:58:48 +0200
+From: Claudio Imbrenda <imbrenda@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Paolo
+ Bonzini <pbonzini@redhat.com>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>,
+        Bibo
+ Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+        Anup Patel
+ <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt
+ <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>,
+        Christian
+ Borntraeger <borntraeger@linux.ibm.com>,
+        Janosch Frank
+ <frankja@linux.ibm.com>,
+        Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
+ <joey.gouly@arm.com>,
+        Steffen Eiden <seiden@linux.ibm.com>,
+        Suzuki K
+ Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Atish
+ Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
+        David
+ Hildenbrand <david@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvm@vger.kernel.org, loongarch@lists.linux.dev,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
+        Ritesh
+ Harjani <ritesh.list@gmail.com>
+Subject: Re: [PATCH 02/20] KVM: selftests: Bump the minimum GPA for page
+ tables to 0x200000
+Message-ID: <20260828195848.2d14e9aa@p-imbrenda>
+In-Reply-To: <20260826230511.972824-3-seanjc@google.com>
+References: <20260826230511.972824-1-seanjc@google.com>
+	<20260826230511.972824-3-seanjc@google.com>
+Organization: IBM
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <e126b2a52321c0a9a6e9de425304e01a62256634.camel@intel.com>
-X-Cookie: Subject to change without notice.
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: 6HLzcE55zTkKQP62ckFMr43JzrkoC_oe
+X-Proofpoint-ORIG-GUID: _S2ZlVd_KKoZRw557abXl1I420nQqrgM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI4MDE1MyBTYWx0ZWRfX0qLLxglo25xX
+ c0LNE8XwpN3clTQ27kM5obCN/mEKCM9T/V2UrYDQGoDeLX/sVrfZOyt/r6/j4m6ZL9tZwwdloCX
+ 4ypWX+xcPPxfyFFj9CzHJ+H1Jy+Nesr9gJfeq0vFd2dplKnzTWJssOegw+X8u4WcEZkJzQEUZze
+ fMhRqtdMmDyXsI5MbPZ0klTINPE7IkclPa0O3GRO+hXLWMcECgv1UVnO0USv3G3nQs2z/fAyFHt
+ gNF+rh3+M4hf2TlE3OLLpCOZzZ0quhk9kQX7DNKwRaTTPu9yI5FGeBiu38rACVpkLaS76RTvvwk
+ ELUm+pM5KW56fI0RwGoW8Y541MsPZt4YlDLI0plXmqCecpK+KMoc14R0xuC6t5Q+da6p9BTxg9I
+ Z2MJP0donTGv3lcaG4UoyVdwmTdFs+WvA2dxyIbg21fJJAVArBBYfJ7ZgKbehjiHOWklyrh9NP/
+ jx1EDxOnKwX5OS/aUiA==
+X-Authority-Analysis: v=2.4 cv=QsRuG1yd c=1 sm=1 tr=0 ts=6a91cc60 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=1XWaLZrsAAAA:8
+ a=Rex0ZKQa4XsKW5WIoWMA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI4MDE1MyBTYWx0ZWRfX/pS+uSLiiIVc
+ dz0zFaQHlHiFiK9bsIl+xi1GR3ZuN8ixPgN9QIrOdnh1lnLipbWGJZ07LBCw2zrVE6icQuqM30v
+ TB/vJ8xy+UMB1HVhNbAWSTx71V1+vCs=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-28_05,2026-08-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 adultscore=0 suspectscore=0 priorityscore=1501 impostorscore=0
+ spamscore=0 lowpriorityscore=0 clxscore=1011 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608280153
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260828_105910_971605_19F3738B 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,81 +148,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4159423413833320015=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 26 Aug 2026 16:04:53 -0700
+Sean Christopherson <seanjc@google.com> wrote:
 
---===============4159423413833320015==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="FUxlxnPVf/3jcu8z"
-Content-Disposition: inline
+> Bump selftests completely arbitrary minimum GPA for page tables from
+> 0x180000 to 0x200000 (LoongArch's minimum), so that LoongArch can use
+> vm_alloc_page_table() instead of open coding a rough equivalent.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  tools/testing/selftests/kvm/include/kvm_util.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index 5a7a455b5387..70906a0d1003 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -175,7 +175,7 @@ static inline struct userspace_mem_region *vm_get_mem_region(struct kvm_vm *vm,
+>  
+>  /* Minimum allocated guest virtual and physical addresses */
+>  #define KVM_UTIL_MIN_VADDR		0x2000
+> -#define KVM_GUEST_PAGE_TABLE_MIN_PADDR	0x180000
+> +#define KVM_GUEST_PAGE_TABLE_MIN_PADDR	0x200000
+>  
+>  #define DEFAULT_GUEST_STACK_VADDR_MIN	0xab6000
+>  #define DEFAULT_STACK_PGS		5
 
+this breaks s390/cmma_test
 
---FUxlxnPVf/3jcu8z
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I tried a quick fix, but nope... I will need to actually invest some
+time (i.e. next week) to understand why the quick fix is not enough,
+and come up with a proper fix
 
-On Fri, Aug 28, 2026 at 04:48:36PM +0000, Edgecombe, Rick P wrote:
-> On Fri, 2026-08-28 at 14:27 +0100, Mark Brown wrote:
-
-> > Yeah, it is.=A0 I can't think why someone would ask for that either, but
-> > equally it's more work to explicitly have a list of combinations we
-> > reject for policy reasons.=A0 At least on arm64 each permission just co=
-mes
-> > down to a separate bit in a control register so they're fully
-> > independent all the way down to the hardware.
-
-> If we want to have a unified API (Bill convinced me that we did, but mayb=
-e we
-> should have more discussion on this point), we will need to hammer out th=
-e small
-> differences between the arch's. For technically supported, but nonsensical
-> combos. I'd think to resolve the differences by not supporting them. But =
-I mean,
-> it's not the end of the world. In the end we are just talking about confu=
-sing a
-> handful of libc developers. They can be probably handle things.
-
-I think it's similar to differences due to architecture features - only
-arm64 supports _PUSH because it's the only one with that feature, users
-will have to work out something to do about that.  If someone has a
-burning desire to lock weird feature combinations that can't be provided
-everywhere they'll have similar issues but I don't see much benefit in
-writing code we don't need to.  We should specify what happens if the
-architecture can't do what was asked (return -EINVAL?) but I think it's
-reasonable to allow the exact restrictions to vary so long as the
-sensible cases all work.
-
---FUxlxnPVf/3jcu8z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqRwUUACgkQJNaLcl1U
-h9APqAf+IkGHTRPI/0IiQMGD3YP3clcwR6a6ymnPlFl/ykDGiI6UvAy5HqzwJxIr
-TwemI/7Qc2NZu+jFmkIvdc8cUxzGpMpBWiejW8eUy99QTrpM1xCS73Hd4Wo16uya
-z9JSr+ohVYgdnuyCSK4mm+gVhebNCgm0UvIQ2YfWGsOgZ8F/YZZuP0r3gDi6UGYW
-FMDdZ/ToJIvNsuUWKMLhiUgD4Wlf9aaWXYQXvc0w+zTjWuPCasxsKk4FrpAesCqP
-MdwW4E4iRGyT7VRC1vTQH7A3Fa2rF029oTayqbzk3IoqrGk3dpbFJ7haX1cqtGXu
-mIIEnbh+TZxm2CiQTs0jrKQPwSZUfQ==
-=WfGd
------END PGP SIGNATURE-----
-
---FUxlxnPVf/3jcu8z--
-
-
---===============4159423413833320015==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+the good news is: it seems like cmma_test is the only test that is
+negatively affected by this series.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4159423413833320015==--
-
