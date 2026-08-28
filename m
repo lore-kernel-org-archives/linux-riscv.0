@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E20AC61DBD
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 14:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26B0C61DD9
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 14:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4RTgKLWJg51q/REiiSNKN9/lgfvtbYFyv1ZO22UTu70=; b=ewrtXGLNBuzYS/
-	aXS1SKLPVL24fcgFslkCtyR0qXXmkPkrwUnBNiSWT3sBMs2/MPDcVaFoLEKnsMLS+sopukz4hat79
-	sFx0EoMcOYu443Zoxzjt/7N5bRFSIoOmSmootKRNoPED+J6ACdaKkWeeRcBMASl8nD2zdR03WVDzT
-	JUbf+qMcdY1qP0YaqP/BKitzOife5+ddjQR2wM6PVAvKaiQ5yVJHhVbne9TB3tFJMXG+JKwnO8tp8
-	5uxvEVdvarA3uyKPw8lcdiSPcrlWQ/iTzzQdvz5dIz5Cc8Azwe2UexU2sb8LbS9ElsqtW42BmJzo1
-	0NcdPN6yDNhlnwWhpvFQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4c8XLiVChFADtZJQFr5UwjESni3G0WF7IpPmJdjXOqI=; b=ZcBWjDyKdU6F//
+	owXu3g8I0PIT/aMciUgYIxwkaLM47dR2Iq65rk+VzSgTlmsKiGPhNeYUduadVM7oGXcTFjNhW5Exy
+	QVM1DTnKrY8uiE59rjLPIPGQCP11OiFfbztbs3t48IOU44VDFsX9diAhqyj/zW2kdOERQtdPqZJ5T
+	JWe8XACRZv4vGahOf76rlWYIxKMBFDTIQh/ijxdfcGBb4pkJ0t70OR46ekR2dtehaFADGltqYGLhI
+	7/iyOIwuRkYwbz91g5VDublTnB/r/gdG4U4Ge11jzHtq+d8QF9kBiFmNj4mApXP6R3VvDIPJTNQi+
+	plbYiIlpPMVPejy/cpFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzxN8-00000005xYz-1m9S;
-	Fri, 28 Aug 2026 14:15:58 +0000
+	id 1wzxSg-00000005y4f-1N8L;
+	Fri, 28 Aug 2026 14:21:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzxN6-00000005xYV-3ORj
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 28 Aug 2026 14:15:56 +0000
+	id 1wzxSe-00000005y4U-22Vo;
+	Fri, 28 Aug 2026 14:21:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Message-ID:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=1togXF87+OBuNEJP3KkPLd3eqlmq8mszazMQvvo8Vc0=; b=B6LJfz+gVMLm/fhsyTYpjUyPC7
-	9QclLaYoF4NnHFNnTJdAykp5TlpBAaUHoFGgqvHsGZ6LORcjNZJIZmqY5Ntw+gqgr70LUiTmeWwB3
-	W1DzfVDVE0rEv/tq/Op6re9ZO0b/IW3hbfuoxBTt/LSX0nqcmfY9Q1AkFDisaS63h46LGmM/wQu+b
-	WEbYsHg+sR0Ar5zUbXJjcmCspPySBi7Lm7zZsa/mgzB6OB8R8L6gq/AlNXCkU0xxc8yGQWwlddyvm
-	s4jHAk8VrgfH1nDDLHx2scEi04HLkoRRCcKp8RFmQQec141ENhR6Wo8sIwhCmHqB45m5nTQDTfk1P
-	IQ5G02bw==;
-Received: from azure-sdnproxy.icoremail.net ([4.193.249.245])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wzxN0-00000008JK7-3dcs
-	for linux-riscv@lists.infradead.org;
-	Fri, 28 Aug 2026 14:15:55 +0000
-Received: from dzm91$hust.edu.cn ( [58.19.0.248] ) by ajax-webmail-app1
- (Coremail) ; Fri, 28 Aug 2026 22:15:27 +0800 (GMT+08:00)
-X-Originating-IP: [58.19.0.248]
-Date: Fri, 28 Aug 2026 22:15:27 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5oWV5Yas5Lqu?= <dzm91@hust.edu.cn>
-To: "Yukai Wu" <xiaoyewuz.ruster@gmail.com>
-Cc: "Alex Shi" <alexs@kernel.org>, "Yanteng Si" <si.yanteng@linux.dev>,
-	"Jonathan Corbet" <corbet@lwn.net>, "Paul Walmsley" <pjw@kernel.org>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>,
-	"Albert Ou" <aou@eecs.berkeley.edu>,
-	"Shuah Khan" <skhan@linuxfoundation.org>,
-	"Alexandre Ghiti" <alex@ghiti.fr>, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] docs/zh_CN: Update arch/riscv/patch-acceptance.rst
- translation
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2025.3-cmXT6 build
- 20260810(6c94e3b5) Copyright (c) 2002-2026 www.mailtech.cn hust
-In-Reply-To: <20260828061834.3645176-1-xiaoyewuz.Ruster@gmail.com>
-References: <20260828061834.3645176-1-xiaoyewuz.Ruster@gmail.com>
-X-CM-CTRLMSGS: =?B?S1oygjiH6nJ5xwDR7hwMki1N8jM=
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=bKyeJkIVmCWyj53saLMAZloYbQt1nChY5+/rBnDqtnQ=; b=nMMsKDPCRE4ioXtthodfJfBui1
+	8UGX3ZmrYAryGZkKwwo222fvG2ppgTWCT9J5tPqXSoJbUlVcxepgO+ioheDLR9+EU6fuLTqaMPyVF
+	ehJCXe6QnWQPpd7ruGgyt6rkuQbBrvLrU0sbFKKSCUSOePwKcTmHw/Ee+FBTXOjTUHvvTs8M7LVbQ
+	MK+UnTJcvvjSxqRQJedkc5o/lJE6+L0eTobf1r5X42Rv8/KNA3g8CEk0/MuVBUcFoXjG8pETglO6T
+	nUtxWGGVjaXhHVLnSHfRj1Gp/sXOpZVDEEUnUOm6qf1jOIhuJjHN7sm0ua8+g6I9V/N1dDaML6XM9
+	2WGQ60Hw==;
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wzxSb-00000008JZd-0UZP;
+	Fri, 28 Aug 2026 14:21:39 +0000
+Received: from localhost.localdomain (unknown [111.196.241.250])
+	by APP-01 (Coremail) with SMTP id qwCowAD3zfFhmZFqhFnABg--.44541S2;
+	Fri, 28 Aug 2026 22:21:22 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Atish Patra <atish.patra@linux.dev>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	Conor Dooley <conor@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] perf: riscv: fix PMU overflow counter restart state
+Date: Fri, 28 Aug 2026 22:21:18 +0800
+Message-ID: <20260828142120.12616-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Message-ID: <14a7a290.91f.1a048b9be40.Coremail.dzm91@hust.edu.cn>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: IAEQrMD2HAf_l5Fq5acpAA--.6725W
-X-CM-SenderInfo: asqsiiirqrkko6kx23oohg3hdfq/1tbiAgQND2qQY2eCzgABs3
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VW5Jw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+X-CM-TRANSID: qwCowAD3zfFhmZFqhFnABg--.44541S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCFWDuF1fGw17XrWruFW8Crg_yoWrJr43pr
+	W0kFW5trs5Xw4Ivas5Ja1kGa45Gws3JFZxKF1qkr1vkFy3tF15X3WkKr1ftr15JrWrWryj
+	vF4Y9FWruF4jv37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUqeHgUUUUU=
+X-Originating-IP: [111.196.241.250]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_151551_138892_CD7E1F4F 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260828_152137_706706_6ABD1A48 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,105 +97,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PiDlj5Hku7bkuro6ICJZdWthaSBXdSIgPHhpYW95ZXd1ei5ydXN0ZXJAZ21haWwuY29tPgo+IOWP
-kemAgeaXtumXtDoyMDI2LTA4LTI4IDE0OjE4OjE2ICjmmJ/mnJ/kupQpCj4g5pS25Lu25Lq6OiAi
-QWxleCBTaGkiIDxhbGV4c0BrZXJuZWwub3JnPiwgIllhbnRlbmcgU2kiIDxzaS55YW50ZW5nQGxp
-bnV4LmRldj4sICJKb25hdGhhbiBDb3JiZXQiIDxjb3JiZXRAbHduLm5ldD4sICJQYXVsIFdhbG1z
-bGV5IiA8cGp3QGtlcm5lbC5vcmc+LCAiUGFsbWVyIERhYmJlbHQiIDxwYWxtZXJAZGFiYmVsdC5j
-b20+LCAiQWxiZXJ0IE91IiA8YW91QGVlY3MuYmVya2VsZXkuZWR1Pgo+IOaKhOmAgTogIkRvbmds
-aWFuZyBNdSIgPGR6bTkxQGh1c3QuZWR1LmNuPiwgIlNodWFoIEtoYW4iIDxza2hhbkBsaW51eGZv
-dW5kYXRpb24ub3JnPiwgIkFsZXhhbmRyZSBHaGl0aSIgPGFsZXhAZ2hpdGkuZnI+LCBsaW51eC1k
-b2NAdmdlci5rZXJuZWwub3JnLCBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnLCBsaW51
-eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCAiWXVrYWkgV3UiIDx4aWFveWV3dXouUnVzdGVyQGdt
-YWlsLmNvbT4KPiDkuLvpopg6IFtQQVRDSF0gZG9jcy96aF9DTjogVXBkYXRlIGFyY2gvcmlzY3Yv
-cGF0Y2gtYWNjZXB0YW5jZS5yc3QgdHJhbnNsYXRpb24KPiAKPiBVcGRhdGUgRG9jdW1lbnRhdGlv
-bi9hcmNoL3Jpc2N2L3BhdGNoLWFjY2VwdGFuY2UucnN0IHRyYW5zbGF0aW9uLgo+IAo+IFVwZGF0
-ZSB0aGUgdHJhbnNsYXRpb24gdGhyb3VnaCBjb21taXQgZWQ4NDNhZTk0N2Y4Cj4gKCJkb2NzOiBt
-b3ZlIHJpc2N2IHVuZGVyIGFyY2giKQo+IAo+IFNpZ25lZC1vZmYtYnk6IFl1a2FpIFd1IDx4aWFv
-eWV3dXouUnVzdGVyQGdtYWlsLmNvbT4KPiAtLS0KPiAgLi4uL3poX0NOL2FyY2gvcmlzY3YvcGF0
-Y2gtYWNjZXB0YW5jZS5yc3QgICAgIHwgNDYgKysrKysrKysrKysrKystLS0tLQo+ICAxIGZpbGUg
-Y2hhbmdlZCwgMzQgaW5zZXJ0aW9ucygrKSwgMTIgZGVsZXRpb25zKC0pCj4gCj4gZGlmZiAtLWdp
-dCBhL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2FyY2gvcmlzY3YvcGF0Y2gtYWNj
-ZXB0YW5jZS5yc3QgYi9Eb2N1bWVudGF0aW9uL3RyYW5zbGF0aW9ucy96aF9DTi9hcmNoL3Jpc2N2
-L3BhdGNoLWFjY2VwdGFuY2UucnN0Cj4gaW5kZXggYzhlYjIzMGNhOGVlLi5hNDhlNmU1NzVhNjcg
-MTAwNjQ0Cj4gLS0tIGEvRG9jdW1lbnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04vYXJjaC9yaXNj
-di9wYXRjaC1hY2NlcHRhbmNlLnJzdAo+ICsrKyBiL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25z
-L3poX0NOL2FyY2gvcmlzY3YvcGF0Y2gtYWNjZXB0YW5jZS5yc3QKPiBAQCAtMTUsMTkgKzE1LDQx
-IEBAIGFyY2gvcmlzY3Yg5byA5Y+R6ICF57u05oqk5oyH5Y2XCj4gIAo+ICDmpoLov7AKPiAgLS0t
-LQo+IC1SSVNDLVbmjIfku6Tpm4bkvZPns7vnu5PmnoTmmK/lhazlvIDlvIDlj5HnmoTvvJoKPiAr
-UklTQy1WIOaMh+S7pOmbhuS9k+ezu+e7k+aehOaYr+WFrOW8gOW8gOWPkeeahO+8mgo+ICDmraPl
-nKjov5vooYznmoTojYnmoYjlj6/kvpvmiYDmnInkurrmn6XnnIvlkozmtYvor5Xlrp7njrDjgILm
-lrDmqKHlnZfmiJbogIXmianlsZXojYnmoYjlj6/og73kvJrlnKjlvIDlj5Hov4fnqIvkuK3lj5EK
-PiAt55Sf5pu05pS5LS0t5pyJ5pe25Lul5LiN5YW85a6555qE5pa55byP5a+55Lul5YmN55qE6I2J
-5qGI6L+b6KGM5pu05pS544CC6L+Z56eN54G15rS75oCn5Y+v6IO95Lya57uZUklTQy1WIExpbnV4
-Cj4gLee7tOaKpOiAheW4puadpeaMkeaImOOAgkxpbnV45byA5Y+R6L+H56iL5pu05Zac5qyi57uP
-6L+H6Imv5aW95qOA5p+l5ZKM5rWL6K+V55qE5Luj56CB77yM6ICM5LiN5piv6K+V6aqM5Luj56CB
-44CC5oiRCj4gLeS7rOW4jOacm+aOqOW5v+WQjOagt+eahOinhOWImeWIsOWNs+Wwhuiiq+WGheag
-uOWQiOW5tueahFJJU0MtVuebuOWFs+S7o+eggeOAggo+ICvnlJ/mm7TmlLkgLS0tIOacieaXtuS7
-peS4jeWFvOWuueeahOaWueW8j+WvueS7peWJjeeahOiNieahiOi/m+ihjOabtOaUueOAgui/meen
-jeeBtea0u+aAp+WPr+iDveS8mue7mSBSSVNDLVYKPiArTGludXgg57u05oqk6ICF5bim5p2l5oyR
-5oiY44CCTGludXgg57u05oqk6ICF5LiN6LWe5oiQ6aKR57mB55qE5Y+Y5pu077yM5LiUIExpbnV4
-IOW8gOWPkei/h+eoi+abtOWWnOasoue7j+i/hwo+ICvoia/lpb3mo4Dmn6XlkozmtYvor5XnmoTk
-u6PnoIHvvIzogIzkuI3mmK/or5Xpqozku6PnoIHjgILmiJHku6zluIzmnJvmjqjlub/lkIzmoLfn
-moTop4TliJnliLDljbPlsIbooqvlhoXmoLjlkIjlubbnmoQKPiArUklTQy1WIOebuOWFs+S7o+eg
-geOAggo+ICsKPiAr6KGl5LiB6Lef6Liq57O757ufCj4gKy0tLS0tLS0tLS0tLQo+ICsKPiArUklT
-Qy1WIOacieS4gOS4quihpeS4gei3n+i4quezu+e7n+WunuS+i++8jOWPr+S7peWcqOmCo+mHjOaf
-peeci+ihpeS4geeahOeKtuaAge+8mgo+ICsKPiArICBodHRwczovL3BhdGNod29yay5rZXJuZWwu
-b3JnL3Byb2plY3QvbGludXgtcmlzY3YvbGlzdC8KPiArCj4gK+WmguaenOS9oOeahOihpeS4geS4
-jeWcqOm7mOiupOinhuWbvuS4reWHuueOsO+8jOmCo+S5iCBSSVNDLVYg57u05oqk6ICF5b6I5pyJ
-5Y+v6IO95bey6KaB5rGC5L+u5pS577yM5oiW6ICF5biM5pybCj4gK+WwhuWFtuW6lOeUqOWIsOWP
-puS4gOS4quS7o+eggeagkeS4iuOAggo+ICsKPiAr6Ieq5Yqo5YyW5rWB56iL5Lya5Zyo6K+l6KGl
-5LiB6Lef6Liq57O757uf5a6e5L6L5LiK6L+Q6KGM77yM5Zyo5q+P5Liq6KGl5LiB5Yiw6L6+5pe2
-56uL5Yi75a+55YW26L+b6KGM5p6E5bu6L+a1i+ivleOAggo+ICvoh6rliqjljJbmtYHnqIvmoLnm
-ja7ooaXkuIHmmK/lkKbooqvor4bliKvkuLrkv67lpI3vvIzlsIblhbblupTnlKjliLAgUklTQy1W
-IGBmb3ItbmV4dGAg5ZKMIGBmaXhlc2Ag5YiG5pSvCj4gK+W9k+WJjeeahCBIRUFEIOS4iuOAguWm
-guaenOWdh+S4jemAgueUqO+8jOWImeS8muS9v+eUqCBSSVNDLVYgYG1hc3RlcmAg5YiG5pSv44CC
-6KGl5LiB57O75YiX6KKr5bqU55So5Yiw55qE5YW3Cgrov5nlj6Xor53nv7vor5HmnInmraPnoa7m
-gKfpl67popjvvIzor7flj4LogIPlpoLkuIvnv7vor5HvvJoKCuiHquWKqOWMlua1geeoi+S8muag
-ueaNruihpeS4geaYr+WQpuiiq+ivhuWIq+S4uuS/ruWkje+8jOmAieeUqCBSSVNDLVYgYGZvci1u
-ZXh0YCDmiJYgYGZpeGVzYCDliIbmlK8K5b2T5YmN55qEIEhFQUTvvJvoi6XlupTnlKjlpLHotKXv
-vIzliJnkvb/nlKggUklTQy1WIG1hc3RlciDliIbmlK/jgIIKCj4gK+S9k+aPkOS6pOWwhuagh+az
-qOWcqOihpeS4gei3n+i4quezu+e7n+S4iuOAguS7u+S9leajgOafpeacqumAmui/h+eahOihpeS4
-gemAmuW4uOS4jeS8muiiq+W6lOeUqO+8jOW5tuS4lOWcqOWkp+WkmuaVsOaDhQo+ICvlhrXkuIvl
-sIbpnIDopoHph43mlrDmj5DkuqTjgIIKPiAgCj4gIOmZhOWKoOeahOaPkOS6pOajgOafpeWNlQo+
-ICAtLS0tLS0tLS0tLS0tLS0tCj4gLeaIkeS7rOS7heaOpeWPl+ebuOWFs+agh+WHhuW3sue7j+ii
-q1JJU0MtVuWfuumHkeS8muagh+WHhuS4uuKAnOW3suaJueWHhuKAneaIluKAnOW3suWGu+e7k+KA
-neeahOaJqeWxleaIluaooeWdl+eahOihpeS4geOAggo+IC3vvIjlvIDlj5HogIXlvZPnhLblj6/k
-u6Xnu7TmiqToh6rlt7HnmoRMaW51eOWGheaguOagke+8jOWFtuS4reWMheWQq+aJgOmcgOS7o+eg
-geaJqeWxleiNieahiOeahOS7o+eggeOAgu+8iQo+IC0KPiAt5q2k5aSW77yMUklTQy1W6KeE6IyD
-5YWB6K6454ix5aW96ICF5Yib5bu66Ieq5bex55qE6Ieq5a6a5LmJ5omp5bGV44CC6L+Z5Lqb6Ieq
-5a6a5LmJ5ouT5bGV5LiN6ZyA6KaB6YCa6L+HUklTQy1WCj4gLeWfuumHkeS8mueahOS7u+S9leWu
-oeaguOaIluaJueWHhuOAguS4uuS6humBv+WFjeWwhueIseWlveiAheS4gOS6m+eJueWIq+eahFJJ
-U0MtVuaLk+Wxlea3u+WKoOi/m+WGheaguOS7o+eggeW4puadpQo+IC3nmoTnu7TmiqTlpI3mnYLm
-gKflkozlr7nmgKfog73nmoTmvZzlnKjlvbHlk43vvIzmiJHku6zlsIblj6rmjqXlj5dSSVNDLVbl
-n7rph5HkvJrmraPlvI/lhrvnu5PmiJbmibnlh4bnmoTnmoTmianlsZUKPiAt6KGl5LiB44CC77yI
-5byA5Y+R6ICF5b2T54S25Y+v5Lul57u05oqk6Ieq5bex55qETGludXjlhoXmoLjmoJHvvIzlhbbk
-uK3ljIXlkKvku5bku6zmg7PopoHnmoTku7vkvZXoh6rlrprkuYnmianlsZUKPiAt55qE5Luj56CB
-44CC77yJCj4gK+aIkeS7rOS7heaOpeWPl+mSiOWvueaWsOaooeWdl+aIluaJqeWxleeahOihpeS4
-ge+8jOWJjeaPkOaYr+i/meS6m+aooeWdl+aIluaJqeWxleeahOinhOiMg+iiq+WIl+S4uuacquad
-peS4jeWkquWPr+iDveWPkQoK5o6l5Y+XIGlzIG5vdCBhIGdvb2QgdHJhbnNsYXRpb24gZm9yICJj
-b25zaWRlciIKCkRvbmdsaWFuZyBNdQoKPiAr55Sf5LiN5YW85a6555qE5Y+Y5pu044CC5a+55LqO
-5p2l6IeqIFJJU0MtViDln7rph5HkvJrnmoTop4TojIPvvIzov5nmhI/lkbPnnYDigJzlt7Lmibnl
-h4bigJ3miJbigJzlt7Llhrvnu5PigJ3vvIzlr7nkuo4KPiArVUVGSSDorrrlnZvnmoTop4TojIPv
-vIzov5nmhI/lkbPnnYDlt7Llj5HluIPnmoQgRUNS44CC77yI5byA5Y+R6ICF5b2T54S25Y+v5Lul
-57u05oqk6Ieq5bex55qEIExpbnV4IOWGheaguOagke+8jAo+ICvlhbbkuK3ljIXlkKvku5bku6zm
-iYDpnIDnmoTku7vkvZXmianlsZXojYnmoYjnmoTku6PnoIHjgILvvIkKPiArCj4gK+atpOWklu+8
-jFJJU0MtViDop4TojIPlhYHorrjlrp7njrDogIXliJvlu7roh6rlt7HnmoToh6rlrprkuYnmianl
-sZXjgILov5nkupvoh6rlrprkuYnmianlsZXkuI3pnIDopoHpgJrov4cgUklTQy1WCj4gK+WfuumH
-keS8mueahOS7u+S9leWuoeaguOaIluaJueWHhua1geeoi+OAguS4uuS6humBv+WFjeWboOa3u+WK
-oOWunueOsOiAheeJueWumueahCBSSVNDLVYg5omp5bGV5bim5p2l55qE57u05oqk5aSN5p2CCj4g
-K+aAp+WSjOWvueaAp+iDveeahOa9nOWcqOW9seWTje+8jOaIkeS7rOWwhuWPquaOpeWPl+espuWQ
-iOS7peS4i+S7u+S4gOadoeS7tueahOaJqeWxleihpeS4ge+8mgo+ICsKPiArLSDlt7LnlLEgUklT
-Qy1WIOWfuumHkeS8muato+W8j+WGu+e7k+aIluaJueWHhgo+ICstIOW3suaMieeFp+agh+WHhiBM
-aW51eCDmg6/kvovvvIzlnKjlub/ms5vlj6/nlKjnmoTnoazku7bkuK3lrp7njrAKPiArCj4gK++8
-iOWunueOsOiAheW9k+eEtuWPr+S7pee7tOaKpOiHquW3seeahCBMaW51eCDlhoXmoLjmoJHvvIzl
-hbbkuK3ljIXlkKvku5bku6zmiYDpnIDnmoTku7vkvZXoh6rlrprkuYnmianlsZXnmoTku6PnoIHj
-gILvvIkKPiAtLSAKPiAyLjU1LjAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+The PMU overflow handler keeps a 64-bit mask for all logical counters,
+while SBI start calls consume an XLEN-sized mask relative to a counter
+base.
+
+On RV32, pmu_sbi_start_ovf_ctrs_sbi() applies the low overflow-mask word
+to every used-counter word. Counters 32 through 63 can therefore be
+classified using overflow bits 0 through 31.
+
+The snapshot path and overflow handler also test and construct 64-bit
+masks with XLEN-sized BIT(). In addition, snapshot restart uses the
+completed inner-loop index instead of the outer word index to form
+counter_idx_base. The latter selects an invalid counter base on both RV32
+and RV64: for_each_set_bit() finishes with idx equal to BITS_PER_LONG, so
+the current expression passes BITS_PER_LONG squared instead of the
+expected i times BITS_PER_LONG.
+
+Select the overflow word matching each SBI mask, use 64-bit bit operations
+for global counter indices, and derive the snapshot start base from the
+outer word index.
+
+Fixes: b994cdfcdf7b ("drivers/perf: riscv: Fix counter mask iteration for RV32")
+Fixes: a8625217a054 ("drivers/perf: riscv: Implement SBI PMU snapshot function")
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/perf/riscv_pmu_sbi.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 50220f7b46d9..6cfb1fc0ec6e 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -962,7 +962,9 @@ static inline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
+ 	u64 init_val = 0;
+ 
+ 	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
+-		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~ctr_ovf_mask;
++		unsigned long word_ovf_mask =
++			ctr_ovf_mask >> (i * BITS_PER_LONG);
++		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~word_ovf_mask;
+ 		/* Start all the counters that did not overflow in a single shot */
+ 		if (ctr_start_mask) {
+ 			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
+@@ -1002,7 +1004,7 @@ static inline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_
+ 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
+ 
+ 	for_each_set_bit(idx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
+-		if (ctr_ovf_mask & BIT(idx)) {
++		if (ctr_ovf_mask & BIT_ULL(idx)) {
+ 			event = cpu_hw_evt->events[idx];
+ 			hwc = &event->hw;
+ 			max_period = riscv_pmu_ctr_get_width_mask(event);
+@@ -1021,7 +1023,7 @@ static inline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_
+ 			sdata->ctr_values[idx] =
+ 					cpu_hw_evt->snapshot_cval_shcopy[idx + i * BITS_PER_LONG];
+ 		/* Start all the counters in a single shot */
+-		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx * BITS_PER_LONG,
++		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
+ 			  cpu_hw_evt->used_hw_ctrs[i], flag, 0, 0, 0);
+ 	}
+ }
+@@ -1109,14 +1111,14 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 			hidx = info->csr - CSR_CYCLE;
+ 
+ 		/* check if the corresponding bit is set in scountovf or overflow mask in shmem */
+-		if (!(overflow & BIT(hidx)))
++		if (!(overflow & BIT_ULL(hidx)))
+ 			continue;
+ 
+ 		/*
+ 		 * Keep a track of overflowed counters so that they can be started
+ 		 * with updated initial value.
+ 		 */
+-		overflowed_ctrs |= BIT(lidx);
++		overflowed_ctrs |= BIT_ULL(lidx);
+ 		hw_evt = &event->hw;
+ 		/* Update the event states here so that we know the state while reading */
+ 		hw_evt->state |= PERF_HES_STOPPED;
+
+base-commit: 1b78070aaef63512688aebfbc82365ef9d6660f1
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
