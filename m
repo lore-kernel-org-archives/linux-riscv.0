@@ -4,64 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED53DC61DCB
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 13:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE53C61DBD
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 13:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dOxYNmb4NDJ8lUotIA0NZQt6l2yFqVw4U/Kokd+5IVI=; b=qsS8r2gWTF6tn+
-	yrNL0AGGxgVe3acT9bziRirwKOv8zxkovzmeyXvUukJ6pG6Ov0NIB1gvwWAQGqKAohpXPz9s+YlcE
-	hgsT2GB23TCYDygqiFC9a0SYRl4NsN7aEUX5/0fNbIKRLbKQMb3bZTnDfUcO8ELIPWTbcAzzcIcVc
-	6MBk63t+aoNPmsJHxjmj6oeM+Y2xLapmacfzt1npp3St80idiGhzXuKdz3TB4NMd4flMZlYpFebWf
-	cmCDL1eSGEZ4Zpg0f9+jSJg7voZcOdaWjgEseQad5SEpxio1ogLPvP9zAjCFX9MDM0n1KLITlYHoC
-	izVFWsdkaHZFgHUA7HdQ==;
+	List-Owner; bh=Wdu/GornikytJneCkHF/zYm5105TO2tDrojVH8bSOcc=; b=J43oCIirM3bQG8
+	u259V4sKACYYPt42JkrH8ALFh1aiVnnLy9S25CiOkvYZ0+8rdotizsOwjVOFtY9AHtlw9epBhbrVM
+	d5ATtRHWilpGW76hjtmMlljhCCXb9Wy3QsfvNXLXRf400n87JapfzbOUiaX5ZOWCbq1FiDBhlSiAy
+	C+LdfwdoSfWZpX6/rTC3z2A5zxEmU237PQGzV8neH0dLWpPj1LtiZRTvoe5cIRL4aXZm9bO3zGlTv
+	dXjvuu0Ovq4GHw9T2p13ALPikLqQm3B+Z3hQNC3JjIbUS3OqhkedJNbenqLSRYOiWmFHiqG/vsYxu
+	SiXjei5sm3DNt8nuaE3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwKz-00000005nAf-0jj8;
-	Fri, 28 Aug 2026 13:09:41 +0000
-Received: from out-90.mta1.migadu.com ([2001:41d0:203:375::5a] helo=mta1.migadu.com)
+	id 1wzwW8-00000005oCA-0sUa;
+	Fri, 28 Aug 2026 13:21:12 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwKv-00000005nA7-1nT2
+	id 1wzwW4-00000005oBN-1Nal
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Aug 2026 13:09:39 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=7Ajbzjj2AKFat2xyqRunplCt/lLNL3Ud/x2dLApOItE=;
- c=simple/simple; d=wyuan.org;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787922573; v=1; x=1788527373;
- b=nfaeTn28epLyF82T+JBS6+N5DSFlT8CjZoGQD7xyZbfxmfXh+BqH9mxjc6KhEvN1EEyTcQE/
- /KkvbHOixtbaL3Ssu+AF9nybtptcKuRDK05fo0gO3ScSE9WDM9wsrvHZy9M0+OUDteCEP0aLgwv
- CTxdDx94lwkUdSHV/1wxBg8DbewC8Iy+ZIvMYURyRXxyf7lVuw7acPfR//ucLn+RGYiAuJ8zwFu
- bD3jzJlB7mhtHdpjtcxohZvo7MO0jvDIvRWt6+IQgWeoiFF/7DUidsgfE3c+5diszzPcs0ZDma9
- 0qY3nhnhi2fo3LZ41traJtQkaJbkfIQD7noY+d5mD856g==
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id a4483ccbc7d78e00;
-	Fri, 28 Aug 2026 13:09:33 +0000
-X-Mizu-Trace-ID: a4483ccbc7d78e00
-X-Migadu-Flow: FLOW_OUT
-Date: Fri, 28 Aug 2026 21:09:23 +0800
-From: Weijie Yuan <wy@wyuan.org>
-To: Yukai Wu <xiaoyewuz.ruster@gmail.com>
-Cc: Alex Shi <alexs@kernel.org>, Yanteng Si <si.yanteng@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Dongliang Mu <dzm91@hust.edu.cn>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] docs/zh_CN: Update arch/riscv/patch-acceptance.rst
- translation
-Message-ID: <apGIgyn-iJ534D9S@wyuan.org>
-References: <20260828061834.3645176-1-xiaoyewuz.Ruster@gmail.com>
+	Fri, 28 Aug 2026 13:21:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1787923265;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V2F7fOxUu4V0dP2Sv1iyT3HhBi0Yf+rjtTWsb6sJWmE=;
+	b=LyrYBEXaPQX5WP754Q+rkkjI6tvVPOfDw6gVX/Ekswa2tJCtHtrbed27t3SHoef65OD8Ls
+	kyn5tvGGVZHFF9K9upNIH+nbtzhnWF5xQDKO2ZQbI1Zzjjcu4B1J+st+bBQnngZZXq3q36
+	TInTQhrApxnVG+t/e8L67keL7TZ82UU=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-686-m8LjwEirOuiqAvt1imgGgw-1; Fri, 28 Aug 2026 09:21:02 -0400
+X-MC-Unique: m8LjwEirOuiqAvt1imgGgw-1
+X-Mimecast-MFC-AGG-ID: m8LjwEirOuiqAvt1imgGgw_1787923261
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2d7293f13c6so13536885ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Aug 2026 06:21:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787923261; x=1788528061;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=V2F7fOxUu4V0dP2Sv1iyT3HhBi0Yf+rjtTWsb6sJWmE=;
+        b=rbefk7nzxSXWSrE2+Z7EmXxRk60S5gEp225IhAbX4v1TPp8mGisbYPjm4skNAATtQk
+         P3C9Y16iprkIiMLUPNuCWQqZJ5YRASYGXiKuqFSU2nqhAmc3p8LqQme0mJ+Nl0hmBffR
+         0Ccg1D4MBQZXuKdwyHND7hATayRXk8SwiCs7w4vGZlqtWAwXdLekLRZpeUxP3EYPuelG
+         +NqOu7KIm+WmQ+pPXvUzM/APZ8r15VAs4ulOHhQK3Sf1EqQPIRUlSN5DUFBBguPj5QiK
+         8EpcQDVoZbGCLTiM73EbGUXO9ktvVGKxQhTFnI22QawzdhJXkmYkYcWJoNiLhRmNXK+q
+         yJXA==
+X-Forwarded-Encrypted: i=1; AHgh+RqPZpGB63GVcSsj8a/pQ2AdAJLh6XxCvqcth/WzdS6Jqi485DDUwru1+/Z+Z9R8nJ8wDCJdDHrWeUWOYw==@lists.infradead.org
+X-Gm-Message-State: AFuF++ktkS6e9tvO2LLDnAnXyrST/2Xu31dczrP39L6bZMidgy8a2E7L
+	3QWjylgcLoyyEGFslRJXBLdsBtGMGhJVNLbuuI1nKor4S+/vXbDZ12pvY5XmwywhAQy1FEaC8bJ
+	JY/b5mFGHtP4hzecb5FUMgx+fMbhCJbuo9fGRudxw6W9LmGWAHBYevJvnbls7kx1e4r/rSQ==
+X-Gm-Gg: AR+sD11cCVMTZgNCg4bjbrD83juVOBOrpglpgmTOHgmcQpelB9p2v2FTBdgJSHCmP6S
+	E9JKXBYP/11UDlYZcGPnaPfuhH7HzVGsQtwclB6shcd1rFV2s+kKQhB6ifgWoX4vvG5IrUd4x/g
+	nXLMe9OqJDGKGsfOAdeNF/TX8k7VczYMmJGasJPNlKJWVZvXL2MrH0pINUhaThQwYOXxOKy7yfA
+	7RyhH4icp0e1+anN8ffhBupiVZWAIMo8NZTquEFmBmxlTMyQOZK/a2MEncVIhoqLULLxVuuKEbS
+	ldiN/ZEJsRIoaGXwOl8DJKOQ3B07tVtltEtWr3Ky+MjxYKi1Q5CJzg7O8KBVsQg8Tl1uZuaGVxe
+	A6uQNnjqkztymPz6N
+X-Received: by 2002:a17:902:ca13:b0:2cf:afe8:b722 with SMTP id d9443c01a7336-2d74deed25dmr102924005ad.11.1787923261373;
+        Fri, 28 Aug 2026 06:21:01 -0700 (PDT)
+X-Received: by 2002:a17:902:ca13:b0:2cf:afe8:b722 with SMTP id d9443c01a7336-2d74deed25dmr102923095ad.11.1787923260879;
+        Fri, 28 Aug 2026 06:21:00 -0700 (PDT)
+Received: from [192.168.1.2] ([122.171.16.35])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d75988b6c7sm5149255ad.60.2026.08.28.06.20.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 28 Aug 2026 06:21:00 -0700 (PDT)
+Message-ID: <d16164ef-7211-4272-bc74-bc38efd8623e@redhat.com>
+Date: Fri, 28 Aug 2026 18:50:50 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260828061834.3645176-1-xiaoyewuz.Ruster@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] kexec_file: remove unused arch_kexec_locate_mem_hole hook
+To: Sourabh Jain <sourabhjain@linux.ibm.com>, linux-kernel@vger.kernel.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Morton <akpm@linux-foundation.org>, Baoquan He
+ <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, Paul Walmsley <pjw@kernel.org>,
+ Pratyush Yadav <pratyush@kernel.org>, linux-riscv@lists.infradead.org,
+ kexec@lists.infradead.org
+References: <20260827144452.508328-1-sourabhjain@linux.ibm.com>
+From: Mukesh Pilaniya <mpilaniy@redhat.com>
+In-Reply-To: <20260827144452.508328-1-sourabhjain@linux.ibm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: lY-uddB4QiRYz_eN5hjpnPgmvxrd89L4mhV6wQA6Lvo_1787923261
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_060937_878848_84DF64BD 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260828_062108_433358_5ABDEDF5 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,96 +110,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgWXVrYWksCgpPbiBGcmksIEF1ZyAyOCwgMjAyNiBhdCAwMjoxODoxNlBNICswODAwLCBZdWth
-aSBXdSB3cm90ZToKPiBVcGRhdGUgRG9jdW1lbnRhdGlvbi9hcmNoL3Jpc2N2L3BhdGNoLWFjY2Vw
-dGFuY2UucnN0IHRyYW5zbGF0aW9uLgo+IAo+IFVwZGF0ZSB0aGUgdHJhbnNsYXRpb24gdGhyb3Vn
-aCBjb21taXQgZWQ4NDNhZTk0N2Y4Cj4gKCJkb2NzOiBtb3ZlIHJpc2N2IHVuZGVyIGFyY2giKQo+
-IAo+IFNpZ25lZC1vZmYtYnk6IFl1a2FpIFd1IDx4aWFveWV3dXouUnVzdGVyQGdtYWlsLmNvbT4K
-PiAtLS0KPiAgLi4uL3poX0NOL2FyY2gvcmlzY3YvcGF0Y2gtYWNjZXB0YW5jZS5yc3QgICAgIHwg
-NDYgKysrKysrKysrKysrKystLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMzQgaW5zZXJ0aW9ucygr
-KSwgMTIgZGVsZXRpb25zKC0pCj4gCj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vdHJhbnNs
-YXRpb25zL3poX0NOL2FyY2gvcmlzY3YvcGF0Y2gtYWNjZXB0YW5jZS5yc3QgYi9Eb2N1bWVudGF0
-aW9uL3RyYW5zbGF0aW9ucy96aF9DTi9hcmNoL3Jpc2N2L3BhdGNoLWFjY2VwdGFuY2UucnN0Cj4g
-aW5kZXggYzhlYjIzMGNhOGVlLi5hNDhlNmU1NzVhNjcgMTAwNjQ0Cj4gLS0tIGEvRG9jdW1lbnRh
-dGlvbi90cmFuc2xhdGlvbnMvemhfQ04vYXJjaC9yaXNjdi9wYXRjaC1hY2NlcHRhbmNlLnJzdAo+
-ICsrKyBiL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2FyY2gvcmlzY3YvcGF0Y2gt
-YWNjZXB0YW5jZS5yc3QKPiBAQCAtMTUsMTkgKzE1LDQxIEBAIGFyY2gvcmlzY3Yg5byA5Y+R6ICF
-57u05oqk5oyH5Y2XCj4gIAo+ICDmpoLov7AKPiAgLS0tLQo+IC1SSVNDLVbmjIfku6Tpm4bkvZPn
-s7vnu5PmnoTmmK/lhazlvIDlvIDlj5HnmoTvvJoKPiArUklTQy1WIOaMh+S7pOmbhuS9k+ezu+e7
-k+aehOaYr+WFrOW8gOW8gOWPkeeahO+8mgo+ICDmraPlnKjov5vooYznmoTojYnmoYjlj6/kvpvm
-iYDmnInkurrmn6XnnIvlkozmtYvor5Xlrp7njrDjgILmlrDmqKHlnZfmiJbogIXmianlsZXojYnm
-oYjlj6/og73kvJrlnKjlvIDlj5Hov4fnqIvkuK3lj5EKPiAt55Sf5pu05pS5LS0t5pyJ5pe25Lul
-5LiN5YW85a6555qE5pa55byP5a+55Lul5YmN55qE6I2J5qGI6L+b6KGM5pu05pS544CC6L+Z56eN
-54G15rS75oCn5Y+v6IO95Lya57uZUklTQy1WIExpbnV4Cj4gLee7tOaKpOiAheW4puadpeaMkeaI
-mOOAgkxpbnV45byA5Y+R6L+H56iL5pu05Zac5qyi57uP6L+H6Imv5aW95qOA5p+l5ZKM5rWL6K+V
-55qE5Luj56CB77yM6ICM5LiN5piv6K+V6aqM5Luj56CB44CC5oiRCj4gLeS7rOW4jOacm+aOqOW5
-v+WQjOagt+eahOinhOWImeWIsOWNs+Wwhuiiq+WGheaguOWQiOW5tueahFJJU0MtVuebuOWFs+S7
-o+eggeOAggo+ICvnlJ/mm7TmlLkgLS0tIOacieaXtuS7peS4jeWFvOWuueeahOaWueW8j+WvueS7
-peWJjeeahOiNieahiOi/m+ihjOabtOaUueOAgui/meenjeeBtea0u+aAp+WPr+iDveS8mue7mSBS
-SVNDLVYKPiArTGludXgg57u05oqk6ICF5bim5p2l5oyR5oiY44CCTGludXgg57u05oqk6ICF5LiN
-6LWe5oiQ6aKR57mB55qE5Y+Y5pu077yM5LiUIExpbnV4IOW8gOWPkei/h+eoi+abtOWWnOasoue7
-j+i/hwo+ICvoia/lpb3mo4Dmn6XlkozmtYvor5XnmoTku6PnoIHvvIzogIzkuI3mmK/or5Xpqozk
-u6PnoIHjgILmiJHku6zluIzmnJvmjqjlub/lkIzmoLfnmoTop4TliJnliLDljbPlsIbooqvlhoXm
-oLjlkIjlubbnmoQKPiArUklTQy1WIOebuOWFs+S7o+eggeOAggoKPiAr6KGl5LiB6Lef6Liq57O7
-57ufCj4gKy0tLS0tLS0tLS0tLQo+ICsKPiArUklTQy1WIOacieS4gOS4quihpeS4gei3n+i4quez
-u+e7n+WunuS+i++8jOWPr+S7peWcqOmCo+mHjOafpeeci+ihpeS4geeahOeKtuaAge+8mgoKSSBz
-dWdnZXN0IGtlZXBpbmcgdGhlIG5hbWUgIlBhdGNod29yayIgYXMgaXMuIEJlY2F1c2Ugd2UgZG9u
-J3QgdHJhbnNsYXRlCml0IGluIG1vc3QgY2FzZXMuCgo+ICsKPiArICBodHRwczovL3BhdGNod29y
-ay5rZXJuZWwub3JnL3Byb2plY3QvbGludXgtcmlzY3YvbGlzdC8KPiArCj4gK+WmguaenOS9oOea
-hOihpeS4geS4jeWcqOm7mOiupOinhuWbvuS4reWHuueOsO+8jOmCo+S5iCBSSVNDLVYg57u05oqk
-6ICF5b6I5pyJ5Y+v6IO95bey6KaB5rGC5L+u5pS577yM5oiW6ICF5biM5pybCj4gK+WwhuWFtuW6
-lOeUqOWIsOWPpuS4gOS4quS7o+eggeagkeS4iuOAggo+ICsKPiAr6Ieq5Yqo5YyW5rWB56iL5Lya
-5Zyo6K+l6KGl5LiB6Lef6Liq57O757uf5a6e5L6L5LiK6L+Q6KGM77yM5Zyo5q+P5Liq6KGl5LiB
-5Yiw6L6+5pe256uL5Yi75a+55YW26L+b6KGM5p6E5bu6L+a1i+ivleOAggo+ICvoh6rliqjljJbm
-tYHnqIvmoLnmja7ooaXkuIHmmK/lkKbooqvor4bliKvkuLrkv67lpI3vvIzlsIblhbblupTnlKjl
-iLAgUklTQy1WIGBmb3ItbmV4dGAg5ZKMIGBmaXhlc2Ag5YiG5pSvCj4gK+W9k+WJjeeahCBIRUFE
-IOS4iuOAguWmguaenOWdh+S4jemAgueUqO+8jOWImeS8muS9v+eUqCBSSVNDLVYgYG1hc3RlcmAg
-5YiG5pSv44CC6KGl5LiB57O75YiX6KKr5bqU55So5Yiw55qE5YW3Cj4gK+S9k+aPkOS6pOWwhuag
-h+azqOWcqOihpeS4gei3n+i4quezu+e7n+S4iuOAguS7u+S9leajgOafpeacqumAmui/h+eahOih
-peS4gemAmuW4uOS4jeS8muiiq+W6lOeUqO+8jOW5tuS4lOWcqOWkp+WkmuaVsOaDhQo+ICvlhrXk
-uIvlsIbpnIDopoHph43mlrDmj5DkuqTjgIIKPiAgCj4gIOmZhOWKoOeahOaPkOS6pOajgOafpeWN
-lQo+ICAtLS0tLS0tLS0tLS0tLS0tCj4gLeaIkeS7rOS7heaOpeWPl+ebuOWFs+agh+WHhuW3sue7
-j+iiq1JJU0MtVuWfuumHkeS8muagh+WHhuS4uuKAnOW3suaJueWHhuKAneaIluKAnOW3suWGu+e7
-k+KAneeahOaJqeWxleaIluaooeWdl+eahOihpeS4geOAggo+IC3vvIjlvIDlj5HogIXlvZPnhLbl
-j6/ku6Xnu7TmiqToh6rlt7HnmoRMaW51eOWGheaguOagke+8jOWFtuS4reWMheWQq+aJgOmcgOS7
-o+eggeaJqeWxleiNieahiOeahOS7o+eggeOAgu+8iQoKT3JpZ2luYWw6ICJGcm96ZW4iIG9yICJS
-YXRpZmllZCIgLS0gIuW3suWGu+e7kyLmiJYi5bey5om55YeGIgoKQnV0IGRvZW4ndCBtYXR0ZXIg
-bXVjaC4KCj4gLQo+IC3mraTlpJbvvIxSSVNDLVbop4TojIPlhYHorrjniLHlpb3ogIXliJvlu7ro
-h6rlt7HnmoToh6rlrprkuYnmianlsZXjgILov5nkupvoh6rlrprkuYnmi5PlsZXkuI3pnIDopoHp
-gJrov4dSSVNDLVYKPiAt5Z+66YeR5Lya55qE5Lu75L2V5a6h5qC45oiW5om55YeG44CC5Li65LqG
-6YG/5YWN5bCG54ix5aW96ICF5LiA5Lqb54m55Yir55qEUklTQy1W5ouT5bGV5re75Yqg6L+b5YaF
-5qC45Luj56CB5bim5p2lCj4gLeeahOe7tOaKpOWkjeadguaAp+WSjOWvueaAp+iDveeahOa9nOWc
-qOW9seWTje+8jOaIkeS7rOWwhuWPquaOpeWPl1JJU0MtVuWfuumHkeS8muato+W8j+WGu+e7k+aI
-luaJueWHhueahOeahOaJqeWxlQoKd2UnbGwgb25seSBjb25zaWRlciAtIOWPquiAg+iZke+8nwoK
-VGhlIGNoYW5nZSAoYWNjZXB0IC0+IGNvbnNpZGVyKSBpcyBpbiBjb21taXQgOTM2MTAwZDQ1MDdm
-CihEb2N1bWVudGF0aW9uOiBSSVNDLVY6IEFsbG93IHBhdGNoZXMgZm9yIG5vbi1zdGFuZGFyZCBi
-ZWhhdmlvcikKCkRpZCB5b3UgbWlzcyBpdD8KCj4gLeihpeS4geOAgu+8iOW8gOWPkeiAheW9k+eE
-tuWPr+S7pee7tOaKpOiHquW3seeahExpbnV45YaF5qC45qCR77yM5YW25Lit5YyF5ZCr5LuW5Lus
-5oOz6KaB55qE5Lu75L2V6Ieq5a6a5LmJ5omp5bGVCj4gLeeahOS7o+eggeOAgu+8iQo+ICvmiJHk
-u6zku4XmjqXlj5fpkojlr7nmlrDmqKHlnZfmiJbmianlsZXnmoTooaXkuIHvvIzliY3mj5DmmK/o
-v5nkupvmqKHlnZfmiJbmianlsZXnmoTop4TojIPooqvliJfkuLrmnKrmnaXkuI3lpKrlj6/og73l
-j5EKPiAr55Sf5LiN5YW85a6555qE5Y+Y5pu044CC5a+55LqO5p2l6IeqIFJJU0MtViDln7rph5Hk
-vJrnmoTop4TojIPvvIzov5nmhI/lkbPnnYDigJzlt7Lmibnlh4bigJ3miJbigJzlt7Llhrvnu5Pi
-gJ3vvIzlr7nkuo4KPiArVUVGSSDorrrlnZvnmoTop4TojIPvvIzov5nmhI/lkbPnnYDlt7Llj5Hl
-uIPnmoQgRUNS44CC77yI5byA5Y+R6ICF5b2T54S25Y+v5Lul57u05oqk6Ieq5bex55qEIExpbnV4
-IOWGheaguOagke+8jAo+ICvlhbbkuK3ljIXlkKvku5bku6zmiYDpnIDnmoTku7vkvZXmianlsZXo
-jYnmoYjnmoTku6PnoIHjgILvvIkKPiArCj4gK+atpOWklu+8jFJJU0MtViDop4TojIPlhYHorrjl
-rp7njrDogIXliJvlu7roh6rlt7HnmoToh6rlrprkuYnmianlsZXjgILov5nkupvoh6rlrprkuYnm
-ianlsZXkuI3pnIDopoHpgJrov4cgUklTQy1WCj4gK+WfuumHkeS8mueahOS7u+S9leWuoeaguOaI
-luaJueWHhua1geeoi+OAguS4uuS6humBv+WFjeWboOa3u+WKoOWunueOsOiAheeJueWumueahCBS
-SVNDLVYg5omp5bGV5bim5p2l55qE57u05oqk5aSN5p2CCj4gK+aAp+WSjOWvueaAp+iDveeahOa9
-nOWcqOW9seWTje+8jOaIkeS7rOWwhuWPquaOpeWPl+espuWQiOS7peS4i+S7u+S4gOadoeS7tuea
-hOaJqeWxleihpeS4ge+8mgo+ICsKPiArLSDlt7LnlLEgUklTQy1WIOWfuumHkeS8muato+W8j+WG
-u+e7k+aIluaJueWHhgo+ICstIOW3suaMieeFp+agh+WHhiBMaW51eCDmg6/kvovvvIzlnKjlub/m
-s5vlj6/nlKjnmoTnoazku7bkuK3lrp7njrAKPiArCj4gK++8iOWunueOsOiAheW9k+eEtuWPr+S7
-pee7tOaKpOiHquW3seeahCBMaW51eCDlhoXmoLjmoJHvvIzlhbbkuK3ljIXlkKvku5bku6zmiYDp
-nIDnmoTku7vkvZXoh6rlrprkuYnmianlsZXnmoTku6PnoIHjgILvvIkKCi0gUmV2aWV3cyBmcm9t
-IGNvbW11bml0eSwgYmV0dGVyIHdhaXQgZm9yIHRoZSByZXBseSBmcm9tIG1haW50YWluZXJzLgoK
-VGhhbmtzLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Sourabh,
+
+The patch touches three files across three subsystems so kexec: would be
+a more accurate prefix than kexec_file, for e.g.:
+
+kexec: remove unused arch_kexec_locate_mem_hole hook
+
+On 27/08/26 8:14 pm, Sourabh Jain wrote:
+> No architecture provides an implementation of
+> arch_kexec_locate_mem_hole(). Use kexec_locate_mem_hole() directly
+> and remove the unused fallback wrapper from the kexec header.
+> 
+> This simplifies the kexec memory allocation path without changing
+> its behavior.
+> 
+Also, it might be worth mentioning in the commit message that this hook
+was originally introduced by commit f891f19736bd and that the last arch
+override was removed in commit 6e5250eaa665; making it safe to remove now.
+
+Otherwise, the change looks good to me. Feel free to add:
+Reviewed-by: Mukesh Pilaniya <mpilaniy@redhat.com>
+
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Baoquan He <baoquan.he@linux.dev>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
+> Cc: Paul Walmsley <pjw@kernel.org>
+> Cc: Pratyush Yadav <pratyush@kernel.org>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: kexec@lists.infradead.org
+> Signed-off-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+> ---
+>  arch/riscv/kernel/kexec_elf.c |  2 +-
+>  include/linux/kexec.h         | 15 ---------------
+>  kernel/kexec_file.c           |  2 +-
+>  3 files changed, 2 insertions(+), 17 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/kexec_elf.c b/arch/riscv/kernel/kexec_elf.c
+> index 3e9a32acb8f2..ca5abbad59e5 100644
+> --- a/arch/riscv/kernel/kexec_elf.c
+> +++ b/arch/riscv/kernel/kexec_elf.c
+> @@ -91,7 +91,7 @@ static int elf_find_pbase(struct kimage *image, unsigned long kernel_len,
+>  	kbuf.memsz = ALIGN(kernel_len, PAGE_SIZE);
+>  	kbuf.cma = NULL;
+>  	kbuf.top_down = false;
+> -	ret = arch_kexec_locate_mem_hole(&kbuf);
+> +	ret = kexec_locate_mem_hole(&kbuf);
+>  	if (!ret) {
+>  		*old_pbase = lowest_paddr;
+>  		*new_pbase = kbuf.mem;
+> diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+> index 0af8ae4fdd08..e5f1cfc11fef 100644
+> --- a/include/linux/kexec.h
+> +++ b/include/linux/kexec.h
+> @@ -259,21 +259,6 @@ int kexec_kernel_verify_pe_sig(const char *kernel, unsigned long kernel_len);
+>  extern int kexec_add_buffer(struct kexec_buf *kbuf);
+>  int kexec_locate_mem_hole(struct kexec_buf *kbuf);
+>  
+> -#ifndef arch_kexec_locate_mem_hole
+> -/**
+> - * arch_kexec_locate_mem_hole - Find free memory to place the segments.
+> - * @kbuf:                       Parameters for the memory search.
+> - *
+> - * On success, kbuf->mem will have the start address of the memory region found.
+> - *
+> - * Return: 0 on success, negative errno on error.
+> - */
+> -static inline int arch_kexec_locate_mem_hole(struct kexec_buf *kbuf)
+> -{
+> -	return kexec_locate_mem_hole(kbuf);
+> -}
+> -#endif
+> -
+>  #ifndef arch_kexec_apply_relocations_add
+>  /*
+>   * arch_kexec_apply_relocations_add - apply relocations of type RELA
+> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+> index 59fb9d71e9d8..9a981359addd 100644
+> --- a/kernel/kexec_file.c
+> +++ b/kernel/kexec_file.c
+> @@ -784,7 +784,7 @@ int kexec_add_buffer(struct kexec_buf *kbuf)
+>  	kbuf->cma = NULL;
+>  
+>  	/* Walk the RAM ranges and allocate a suitable range for the buffer */
+> -	ret = arch_kexec_locate_mem_hole(kbuf);
+> +	ret = kexec_locate_mem_hole(kbuf);
+>  	if (ret)
+>  		return ret;
+>  
+
+-- 
+Regards,
+Mukesh Pilaniya
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
