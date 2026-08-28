@@ -4,101 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C50C61DD3
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 07:08:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49467C61DC6
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 07:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B33IOdl+Em7luu2eOqyvsD3SxAuZtIGV2CmZRfW/xgk=; b=Ui19ojiLdR0KlD
-	tn08hmK12996I+U80Ug4kvxy/hcSz8w6Lw+eP+qDX1Bna2jtG+FKsIPkTsO2gLJ2fJaBo7heeGutF
-	MHRFSPP0N8icPv3NC/NqmjIXxEgRxjIrtoqnhO9k5a5DnKAwZvQd/x5X0Kt8yQpt59O87iK9mXxG7
-	1cjYh/G+NjxeoYJkN0osydpi44cIz4CrLifrp2jXLvX1GiGdQzc/FAomvP4zNmv4+QpHfkDboZySO
-	jpcwhs2Qwn/6GReXp9BIT/hinEin7XBZUPlFxEybIhc8CFIIUowjAmfBj0PBvn4CBnkCWgs/bQqq/
-	LipXRmZ4RQzR/C4E9T1A==;
+	List-Owner; bh=xpBr/BfFVbfTs1+/b/V40JoCwhIysjeOzYAog1HlIFw=; b=T+0faSA1HLokvr
+	O0zyPNjzdYI6hC8yQ0JefwxdaY8s8vnUBpu8g31zpNANVkaukHVgMqtmXCOzWkdeVuX4x8gT5XL/6
+	4Z9zMgiscY+Y7UmG6YMjklhvKjUvEPDzSayU4+UwlPt0X8UqitFXVKylO6wsb726qTVjoyA1J8H8P
+	OMMSY3hsE6MDsJS//JnwyXI1DfaJTjqG9uO02xRKvuzPjlr8ygK+gply0C64JBDHGe+9N0JFy8AMY
+	P1uNDbUPQs6gRLl97FuY1qRIc2V8t+3NwRxoWtw9CZ6XDhxobRQuyUSRer7pN/vfxSXLLJw8aUBTI
+	7QyHwkg/q9JErVI5g8qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzqgv-00000005FpQ-1hxO;
-	Fri, 28 Aug 2026 07:07:57 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1wzrNs-00000005ITy-1nEF;
+	Fri, 28 Aug 2026 07:52:20 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzqgs-00000005Fod-0mYy
+	id 1wzrNo-00000005ITJ-0Zqw
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Aug 2026 07:07:55 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c9e607d81fcso500943a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Aug 2026 00:07:53 -0700 (PDT)
+	Fri, 28 Aug 2026 07:52:17 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-499b2981a7bso6658565e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Aug 2026 00:52:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1787900873; x=1788505673; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TRFIKfxO5tXI3eQnrJwwXHHecr77RgRWRC9iwHx3Doo=;
-        b=fj9n4iIvIi1wDiCoiL3N+Mh9AyyEpI3G0St98Vs0qEQxagS2rAz6FTLXAEnxNOWQC6
-         1rfPebPzrkCcqz/nflNX9iBl7+mH/vT7+fJH+d5GSbYv2+u7GuPC+O5aa5P8AT/tBYEm
-         94yOoydaWKAl/kEVKe793lI7kpeT4hiNlhTFrYSn3aqtwL3lw27wNOdoZeiozAY9r4/K
-         rgrfXN7ghFErb/Bfla5zRE6IN5T3SKNrqRNkVbhfVsedR9JBD9wZjLk7M16QWAhGNM2d
-         U29xH8usG4HTYXp171WMZo0v2PO5POJmYBAhdFiaxIZp/oOqLubXdfgotxJVnB4NnKMh
-         z9UA==
+        d=gmail.com; s=20251104; t=1787903534; x=1788508334; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dg/MQ8inXuFFEbvgK+mHsA3iNLAg+xiUDh4PfNOolRQ=;
+        b=qycGMxRrrhfFw2ouS7fuH7viz484LH7UJh/HfoADi8ckhmC0xorejxSJR0oXLzYLH8
+         nCX1sUwKPxa9YUJw/8SifCsA+imOB0IHtOhx/KSkD2uXPnwCRFnCOm0AroitO+CevI4l
+         CNEMi7Dk1YHxpwD2cimYulynVi/yfy/Oe/sKOyrb1eLOn1W7LpPqWsSannE2dEIqQLQ0
+         FDX/p0wnHDamSo3Hz3llxu6rjwe9BwDNp4NCGk+U1Q8GcAZ3hNW0ljmd8Wy+EYrrYD+t
+         rNzT6shUilyr9MQ8NiuW0czDZb/2k5ic5zBQm0KU9RlZVUJ4lCqkPf2oB+faGU+dbQFg
+         KjSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787900873; x=1788505673;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TRFIKfxO5tXI3eQnrJwwXHHecr77RgRWRC9iwHx3Doo=;
-        b=I1F92wtumQFg4q2eNASvgynmW2Qiw3CztuN6kJEPOg8kZq5fxUeiDWjWNklNZuzkca
-         9eL9vv/IXuCyLR8tl6F7KO1lhFiVfjAI6yxsgxmHKKbve2Va9K6qxqBgHw1pku8dZfh3
-         9/ZLR7XNQ6YSYyQEM8OvVb+K2bHSGD5VwBeOTtS7AQIAP26tDs+zJy7JoHb6EJMvSOx/
-         PWtFr493Y/gvv4LFBXmOZ4FXrLg1InRpNtiSbc7pFcSI0W1HMZqN8BBQsfuutvdHVIX9
-         D9z+ztFVPbDlfPl9GxL9sP0tvQOnHIvzVJjMp0grSCMqcc7vbBba2KYhlr5UUhhNqfgW
-         icdQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpEvtVEaHSTfqUHtI3IaIE5dF1HNaWTQQnYw7nZhoL+p0miO+qlanevjm7eU+FQA4TLKsKRADtR/Gt8SA==@lists.infradead.org
-X-Gm-Message-State: AFuF++mwO9PV59vUPGlGHw6WYUat+SRKoUgx6j1uxuw3z3I1FQ81U24R
-	l3IwzvPDJe+sg5jQPGAn7BFEqVADqya1I8DfrpghDZT6MBSSyhqi4JKl/Mlq53zTEYs=
-X-Gm-Gg: AR+sD12pPoDAbVkWMce+Mg94ikdIyzB12ppB3DYX6htQXyTCyBjQiM/cEiqVfsVi0Wa
-	dNCyzKnbo6/DoELFLN+1K3soA2k0+hWnebzxlFG3DZPWKBCAoWmgjBTVC+/eonlNuJUzBddwkrk
-	fQouqu4kiePFOB9jT0Bs7juRvik9Lr8D7BHBm+gcFf1/EgD4uQHQnfNWic+O5efOvmZuT/FRPXR
-	DtX2X1dLqrDwqsm/T/qQ6wEGetvfvgC6u5B48vGe/0QP6ZXbTUUog43Z3gnBHShy/Y9Dmy5P6ps
-	stzvhgMCJmiOf7fhIvjEYWSX9Ofm0uuf0kwWt/gKpQOiB5cGazLD+4138YmS1X9jDTvSMPX5vig
-	t8r0fxX1s/Pl0GIItOHmrz/meen4AnoYFBGKCQhLy6kzlBsOwGEdEYPyIE7IOf6IsrNvhFrqSOO
-	kSk/gI2zfSIKBl/YpCsNalRMY9Y3+khV4icO8eZGtBOc74qv87w4sVtE5kvLaE5zXhV/e4HP7O
-X-Received: by 2002:a17:90b:17c3:b0:38f:240d:b857 with SMTP id 98e67ed59e1d1-396d0ea9ce7mr7181024a91.2.1787900873239;
-        Fri, 28 Aug 2026 00:07:53 -0700 (PDT)
-Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-142e0d1b38esm3156610c88.3.2026.08.28.00.07.51
+        d=1e100.net; s=20251104; t=1787903534; x=1788508334;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dg/MQ8inXuFFEbvgK+mHsA3iNLAg+xiUDh4PfNOolRQ=;
+        b=CTDblASuST8OzslBthXd1S7/e1bZtqEN2DSV1Se7UzJS0ry4c3XA/97IT5h9Uo61vT
+         CKtWscfoWqxLofPmctB4uXpsPL1c41QdnGTxnIpqsXt3EneYE9XKC9+Qy5EXPFaIVmhX
+         mGQ5/1Y7IOxn8tqWAfOd5wIchaPnQu7Nz04NbEHGXLXd5+nKECThi1y4Bow02s4cK61k
+         rqDXEJCXufLRPHu9X/utTJB7BGqmETO2kjGORMwa35JQrbh5M/B2zSygI6AcTjTk92MV
+         OKeVTPmtaeQ0ErTCnBKavhGYvQR+QisZ9vI9/4kjq02g/spSlgSQB+s7K+jMH+JJNehO
+         lpFQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rpk5NU/GNgJ+d7I6FEiCSc8KHoCwQAkBmYmbts9UFZPGKDr2CijQIh5X8m7icNOorEfYs/+gAhHNno0pQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++ki8FpaxbdDAEYBmyEhWar7Tz3Uj7o81ATiGqist36ay52uIiKW
+	mIqGPpH9FcjrzyuieB4kjJUevlOLXs6a0MXgEiZnEp0w8lDQLvLJcULK
+X-Gm-Gg: AR+sD139aDURU3dD3caF55rfZLtoXP/AovFTSWfNtBt/b7H46aY9nMZfsAkbTWa8A0G
+	reAUvK2PXn9J0oyvU4HeqKhmWDO9Wy+SGPgJ4mKt2pafv8KoYg1lOLdDYPbAvQvO+eBHjkqS1RW
+	LrnjHLIQuOsLVGNEsjtRPVj1xjX+jejaC6LO/v/dCwgZfB8XUsbrkTs+x75cJtjuZoa2+QOUzX4
+	FFs0+c7n30QwqndUHaXPwVsf1LdUG+UNvZQMtui7n1CS4mcwxVVuzrgJmMVTWwuZiAy0cf9xnRd
+	QzIfHaIUrH4nRLY0PRwOiTNTEdHX02bz7VmT3h+0ZAsKAg9bpbkf8TtGuZx02vN4kLewYh8wa9o
+	XHUcT2D9abUqqZH+hymqg8geNrCeCCWfIOwaJfyIkRwdkjJ9igKG5T80sBUc/CLT9/6QNiRXkX5
+	CykIO8Yvmt3ee8EyZouuM8p/gBjWl+/Dl5aP00D5yxrBRADXmEYv7PIAeCKcQk4Z3d/HOfZIrj4
+	aSAEc1PBW4aKncyhAkDo8nGBw==
+X-Received: by 2002:a05:600c:1394:b0:499:83f1:398 with SMTP id 5b1f17b1804b1-49b91c47b6bmr60078885e9.9.1787903533497;
+        Fri, 28 Aug 2026 00:52:13 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b95013d06sm41438895e9.12.2026.08.28.00.52.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Aug 2026 00:07:52 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: tomasz.jeznach@linux.dev,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	mark.rutland@arm.com,
-	andrew.jones@oss.qualcomm.com,
-	guoren@kernel.org,
-	david.laight.linux@gmail.com,
-	zhangzhanpeng.jasper@bytedance.com,
-	yang.yicong@picoheart.com,
-	iommu@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v7 2/2] drivers/perf: riscv-iommu: protect shared state with a raw spinlock
-Date: Fri, 28 Aug 2026 00:07:47 -0700
-Message-ID: <20260828070747.4009519-3-zong.li@sifive.com>
-X-Mailer: git-send-email @GIT_VERSION@
-In-Reply-To: <20260828070747.4009519-1-zong.li@sifive.com>
-References: <20260828070747.4009519-1-zong.li@sifive.com>
+        Fri, 28 Aug 2026 00:52:13 -0700 (PDT)
+Date: Fri, 28 Aug 2026 08:52:11 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Zong Li <zong.li@sifive.com>
+Cc: Guo Ren <guoren@kernel.org>, Vivian Wang <wangruikang@iscas.ac.cn>,
+ zhangzhanpeng.jasper@bytedance.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
+ cuiyunhui@bytedance.com, iommu@lists.linux.dev, joro@8bytes.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ luxu.kernel@bytedance.com, palmer@dabbelt.com, pjw@kernel.org,
+ robin.murphy@arm.com, tjeznach@rivosinc.com, will@kernel.org,
+ yuanzhu@bytedance.com
+Subject: Re: [PATCH v1] iommu/riscv: Support 32-bit register accesses
+Message-ID: <20260828085211.2c8e6b74@pumpkin>
+In-Reply-To: <CANXhq0qtt7U3jKEB4drvSn7gg55nwWm8VFnfY-NRGjBaWVr_MQ@mail.gmail.com>
+References: <20260615064855.90316-1-zhangzhanpeng.jasper@bytedance.com>
+	<20260615123821.373248-1-guoren@kernel.org>
+	<7c490aeb-a3d9-4fe9-81de-f9662577851d@iscas.ac.cn>
+	<CAJF2gTQ+-gpvUDtOh99aKP2-iDJy3MYOWti9k2Ntd0-J0MXqxQ@mail.gmail.com>
+	<e051d822-d0be-4a88-ba86-ec9b5905fd1e@iscas.ac.cn>
+	<CAJF2gTRH6x78A3J5HJ5kUM47aDv8R0yFr8LRP+7jiLX4GL3ssg@mail.gmail.com>
+	<20260618143634.7f3dd6c5@pumpkin>
+	<CANXhq0qtt7U3jKEB4drvSn7gg55nwWm8VFnfY-NRGjBaWVr_MQ@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_000754_231683_898E7726 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20260828_005216_228649_0DCFC8BE 
+X-CRM114-Status: GOOD (  34.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,213 +108,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Events are bound to one CPU and the interrupt is affine to it, so the
-perf callbacks running with interrupts disabled would be enough to
-exclude the handler.
-
-PCI MSI/MSI-X on IMSIC breaks that: the irqchip sets
-IRQCHIP_MOVE_DEFERRED, so irq_set_affinity() reports success while only
-recording the request, and the move is applied in interrupt context upon
-the next device interrupt. Until then the interrupt is still routed to
-the CPU IMSIC picked initially, so the first overflow interrupt can run
-concurrently with the perf callbacks on the CPU the events are bound to.
-
-Take a raw spinlock, with interrupts disabled so that the handler can
-never interrupt a holder on the same CPU, rather than depending on that
-irqchip behaviour. It covers the state which is reachable from both
-sides:
-
- - IOCOUNTINH is read-modify-written by ->start()/->stop() and is saved
-   and restored around the whole handler.
- - pmu->events[] is written by ->del() and read by the handler.
- - hw_perf_event::prev_count is updated by both.
-
-->add() and ->del() call the unlocked __riscv_iommu_pmu_start() and
-__riscv_iommu_pmu_stop() so the lock is taken once per callback.
-
-Signed-off-by: Zong Li <zong.li@sifive.com>
----
- drivers/perf/riscv_iommu_pmu.c | 66 ++++++++++++++++++++++++++++++----
- 1 file changed, 60 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/perf/riscv_iommu_pmu.c b/drivers/perf/riscv_iommu_pmu.c
-index f6acd56f2f61..ee2f6d1fbece 100644
---- a/drivers/perf/riscv_iommu_pmu.c
-+++ b/drivers/perf/riscv_iommu_pmu.c
-@@ -101,6 +101,7 @@ struct riscv_iommu_pmu {
- 	u64 event_cntr_mask;
- 	struct perf_event *events[RISCV_IOMMU_HPM_COUNTER_NUM];
- 	DECLARE_BITMAP(used_counters, RISCV_IOMMU_HPM_COUNTER_NUM);
-+	raw_spinlock_t lock;
- };
- 
- #define to_riscv_iommu_pmu(p) (container_of(p, struct riscv_iommu_pmu, pmu))
-@@ -485,7 +486,8 @@ static void riscv_iommu_pmu_update(struct perf_event *event)
- 	local64_add(delta, &event->count);
- }
- 
--static void riscv_iommu_pmu_start(struct perf_event *event, int flags)
-+/* Called with pmu->lock held */
-+static void __riscv_iommu_pmu_start(struct perf_event *event, int flags)
- {
- 	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
- 	struct hw_perf_event *hwc = &event->hw;
-@@ -500,11 +502,22 @@ static void riscv_iommu_pmu_start(struct perf_event *event, int flags)
- 	riscv_iommu_pmu_set_period(event);
- 	riscv_iommu_pmu_set_event(pmu, hwc->idx, hwc->config);
- 	riscv_iommu_pmu_enable_counter(pmu, hwc->idx);
-+}
-+
-+static void riscv_iommu_pmu_start(struct perf_event *event, int flags)
-+{
-+	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
-+	unsigned long irqflags;
-+
-+	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-+	__riscv_iommu_pmu_start(event, flags);
-+	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
- 
- 	perf_event_update_userpage(event);
- }
- 
--static void riscv_iommu_pmu_stop(struct perf_event *event, int flags)
-+/* Called with pmu->lock held */
-+static void __riscv_iommu_pmu_stop(struct perf_event *event, int flags)
- {
- 	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
- 	struct hw_perf_event *hwc = &event->hw;
-@@ -521,13 +534,26 @@ static void riscv_iommu_pmu_stop(struct perf_event *event, int flags)
- 	hwc->state |= PERF_HES_STOPPED | PERF_HES_UPTODATE;
- }
- 
-+static void riscv_iommu_pmu_stop(struct perf_event *event, int flags)
-+{
-+	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
-+	unsigned long irqflags;
-+
-+	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-+	__riscv_iommu_pmu_stop(event, flags);
-+	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
-+}
-+
- static int riscv_iommu_pmu_add(struct perf_event *event, int flags)
- {
- 	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
- 	struct hw_perf_event *hwc = &event->hw;
- 	unsigned int num_counters = pmu->num_counters;
-+	unsigned long irqflags;
- 	unsigned int idx;
- 
-+	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-+
- 	/* Reserve index zero for iohpmcycles */
- 	if (is_cycle_event(event->attr.config))
- 		idx = RISCV_IOMMU_HPM_CYCLE_IDX;
-@@ -535,8 +561,10 @@ static int riscv_iommu_pmu_add(struct perf_event *event, int flags)
- 		idx = find_next_zero_bit(pmu->used_counters, num_counters, 1);
- 
- 	/* All event counters or cycle counter are in use */
--	if (idx == num_counters || pmu->events[idx])
-+	if (idx == num_counters || pmu->events[idx]) {
-+		raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
- 		return -EAGAIN;
-+	}
- 
- 	set_bit(idx, pmu->used_counters);
- 
-@@ -546,7 +574,9 @@ static int riscv_iommu_pmu_add(struct perf_event *event, int flags)
- 	local64_set(&hwc->prev_count, 0);
- 
- 	if (flags & PERF_EF_START)
--		riscv_iommu_pmu_start(event, flags);
-+		__riscv_iommu_pmu_start(event, flags);
-+
-+	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
- 
- 	/* Propagate changes to the userspace mapping. */
- 	perf_event_update_userpage(event);
-@@ -556,18 +586,26 @@ static int riscv_iommu_pmu_add(struct perf_event *event, int flags)
- 
- static void riscv_iommu_pmu_read(struct perf_event *event)
- {
-+	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
-+	unsigned long irqflags;
-+
-+	raw_spin_lock_irqsave(&pmu->lock, irqflags);
- 	riscv_iommu_pmu_update(event);
-+	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
- }
- 
- static void riscv_iommu_pmu_del(struct perf_event *event, int flags)
- {
- 	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
- 	struct hw_perf_event *hwc = &event->hw;
-+	unsigned long irqflags;
- 	int idx = hwc->idx;
- 
--	riscv_iommu_pmu_stop(event, PERF_EF_UPDATE);
-+	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-+	__riscv_iommu_pmu_stop(event, PERF_EF_UPDATE);
- 	pmu->events[idx] = NULL;
- 	clear_bit(idx, pmu->used_counters);
-+	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
- 
- 	perf_event_update_userpage(event);
- }
-@@ -635,12 +673,24 @@ static irqreturn_t riscv_iommu_pmu_irq_handler(int irq, void *dev_id)
- {
- 	struct riscv_iommu_pmu *pmu = (struct riscv_iommu_pmu *)dev_id;
- 	DECLARE_BITMAP(ovf_bitmap, BITS_PER_TYPE(u64));
-+	unsigned long irqflags;
- 	u32 ovf, idx, inhibit;
- 
--	/* Check whether this interrupt is for PMU */
-+	/*
-+	 * Check whether this interrupt is for PMU. Done outside the lock so
-+	 * that a shared interrupt line is left alone as cheaply as possible.
-+	 */
- 	if (!(readl_relaxed(pmu->reg + RISCV_IOMMU_REG_IPSR) & RISCV_IOMMU_IPSR_PMIP))
- 		return IRQ_NONE;
- 
-+	/*
-+	 * Hold the lock across the whole sequence below. Stopping the
-+	 * counters, processing them and restoring the previous inhibit state
-+	 * has to be atomic against ->start()/->stop(), otherwise a counter
-+	 * enabled in between would be inhibited again by the restore.
-+	 */
-+	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-+
- 	/* Process PMU IRQ */
- 	inhibit = riscv_iommu_pmu_stop_all(pmu);
- 
-@@ -672,6 +722,8 @@ static irqreturn_t riscv_iommu_pmu_irq_handler(int irq, void *dev_id)
- 
- 	riscv_iommu_pmu_start_all(pmu, inhibit);
- 
-+	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
-+
- 	return IRQ_HANDLED;
- }
- 
-@@ -735,6 +787,8 @@ static int riscv_iommu_pmu_probe(struct auxiliary_device *auxdev,
- 
- 	iommu_pmu->reg = iommu_dev->reg;
- 
-+	raw_spin_lock_init(&iommu_pmu->lock);
-+
- 	/*
- 	 * Counter number and width are hardware-implemented, detect them by
- 	 * writing 1s and reading back which bits stuck.
--- 
-2.43.7
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAyOCBBdWcgMjAyNiAxMDo1MjowOCArMDgwMApab25nIExpIDx6b25nLmxpQHNpZml2
+ZS5jb20+IHdyb3RlOgoKPiBPbiBGcmksIEp1biAxOSwgMjAyNiBhdCAxMjowMuKAr0FNIERhdmlk
+IExhaWdodAo+IDxkYXZpZC5sYWlnaHQubGludXhAZ21haWwuY29tPiB3cm90ZToKPiA+Cj4gPiBP
+biBUaHUsIDE4IEp1biAyMDI2IDE3OjUxOjM0ICswODAwCj4gPiBHdW8gUmVuIDxndW9yZW5Aa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4gPiAgCj4gPiA+IEhpIFZpdmlhbiwKPiA+ID4KPiA+ID4gQXMgbm90
+ZWQgaW4gdGhlIFJJU0MtViBJT01NVSBTcGVjaWZpY2F0aW9uLCBDaGFwdGVyIDY6ICAKPiA+ID4g
+PiBXaGV0aGVyIGFuIDgtYnl0ZSBhY2Nlc3MgdG8gYW4gSU9NTVUgcmVnaXN0ZXIgaXMgc2luZ2xl
+LWNvcHkgYXRvbWljIGlzIFVOU1BFQ0lGSUVELCBhbmQgc3VjaCBhbiBhY2Nlc3MgbWF5IGFwcGVh
+ciwgaW50ZXJuYWxseSB0byB0aGUgSU9NTVUsIGFzIGlmIHR3byBzZXBhcmF0ZSA0LWJ5dGUgYWNj
+ZXNzZXMg4oCUIGZpcnN0IHRvIHRoZSBoaWdoIGhhbGYgYW5kIHNlY29uZCB0byB0aGUgbG93IGhh
+bGYg4oCUIHdlcmUgcGVyZm9ybWVkLiAgCj4gPiA+Cj4gPiA+IFRoZXJlZm9yZSwgdGhlIGF0b21p
+Y2l0eSBvZiA2NC1iaXQgTU1JTyBhY2Nlc3NlcyBpcyBVTlNQRUNJRklFRCBhbmQKPiA+ID4gbm90
+IGNsZWFybHkgZGVmaW5lZCBpbiB0aGUgY3VycmVudCByYXRpZmllZCBSSVNDLVYgSU9NTVUKPiA+
+ID4gc3BlY2lmaWNhdGlvbi4gVG8gaGFuZGxlIHRoaXMgY29ycmVjdGx5LCB0aGUgTGludXggUklT
+Qy1WIElPTU1VIGRyaXZlcgo+ID4gPiBzaG91bGQgZmFsbCBiYWNrIHRvIDMyLWJpdCBNTUlPIGFj
+Y2Vzc2VzIHdoZW4gcmVhZGluZyA2NC1iaXQgcmVnaXN0ZXJzCj4gPiA+IChlLmcuLCBwZXJmb3Jt
+YW5jZSBjb3VudGVycykuIFRoZSBiZWhhdmlvciBvZiAzMi1iaXQgTU1JTyBhY2Nlc3NlcyBpcwo+
+ID4gPiBtb3JlIHByZWNpc2VseSBkZWZpbmVkIGluIHRoZSBSSVNDLVYgSU9NTVUgc3BlY2lmaWNh
+dGlvbi4KPiA+ID4KPiA+ID4gVGh1cywgbWFueSBoYXJkd2FyZSB2ZW5kb3JzIGltcGxlbWVudCAz
+Mi1iaXQgTU1JTyAocmF0aGVyIHRoYW4gNjQtYml0Cj4gPiA+IE1NSU8pIGJhc2VkIG9uIHRoZSBj
+dXJyZW50IHJhdGlmaWVkIFJJU0MtViBJT01NVSBzcGVjaWZpY2F0aW9uLCBhbmQKPiA+ID4gdGhp
+cyBkcml2ZXIgZG9lcyBub3QgYXBwZWFyIHRvIGJlbmVmaXQgZnJvbSA2NC1iaXQgTU1JTyBhY2Nl
+c3MgZWl0aGVyLgo+ID4gPiBQZXJmb3JtYW5jZSBpcyBmdW5kYW1lbnRhbGx5IGNvbnN0cmFpbmVk
+IGJ5IGJ1cyBsYXRlbmN5OyBhc3N1bWluZyB0aGF0Cj4gPiA+IHNpbXBseSByZWR1Y2luZyB0aGUg
+bnVtYmVyIG9mIGFjY2Vzc2VzIHdpbGwgaW1wcm92ZSBwZXJmb3JtYW5jZSBpcyBhbgo+ID4gPiBv
+dmVyc2ltcGxpZmljYXRpb24gdGhhdCBpZ25vcmVzIHRoZSB1bmRlcmx5aW5nIGhhcmR3YXJlCj4g
+PiA+IGNoYXJhY3RlcmlzdGljcy4gIAo+ID4KPiA+IElmIHRoZSBidXMgbGF0ZW5jeSBpcyBzaWdu
+aWZpY2FudCBpdCBpcyBhbG1vc3QgY2VydGFpbmx5IHdvcnRoIHVzaW5nCj4gPiBtZW1vcnkgYWNj
+ZXNzZXMgdG8gYXZvaWQgcmUtcmVhZGluZyB0aGUgaGkgcmVnaXN0ZXIuCj4gPgo+ID4gU29tZXRo
+aW5nIGxpa2UgdGhpcyBtaWdodCB3b3JrOgo+ID4KPiA+IHN0YXRpYyB2b2xhdGlsZSB1MzIgaGlf
+cHJldiwgbG9fcHJldjsKPiA+Cj4gPiAgICAgICAgIHUzMiBoaSA9IHJlYWRfcmVnX2hpKCk7Cj4g
+PiAgICAgICAgIHUzMiBsbyA9IHJlYWRfcmVnX2xvKCk7Cj4gPgo+ID4gICAgICAgICBpZiAobG8g
+PD0gbG9fcHJldiB8fCBoaSAhPSBoaV9wcmV2KSB7Cj4gPiAgICAgICAgICAgICAgICAgdTMyIGhp
+X3RtcCA9IHJlYWRfcmVnX2hpOwo+ID4gICAgICAgICAgICAgICAgIGlmIChoaV90bXAgIT0gaGkp
+IHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIGhpID0gaGlfdG1wOwo+ID4gICAgICAgICAg
+ICAgICAgICAgICAgICAgbG8gPSAwOwo+ID4gICAgICAgICAgICAgICAgIH0KPiA+ICAgICAgICAg
+ICAgICAgICBsb19wcmV2ID0gfjB1Owo+ID4gICAgICAgICAgICAgICAgIGhpX3ByZXYgPSBoaTsK
+PiA+ICAgICAgICAgfQo+ID4gICAgICAgICBsb19wcmV2ID0gbG87Cj4gPiAgICAgICAgIHJldHVy
+biAodTY0KWhpIDw8IDMyIHwgbG87Cj4gPiAgCj4gCj4gSGkgRGFpdmQsCj4gCj4gSSBpbmNsdWRl
+ZCB0aGlzIGluIG15IHY1IG9mIHRoZSBJT01NVSBQTVUgc2VyaWVzLCBidXQgd2Ugbm90aWNlZCB0
+aGF0Cj4gc2FzaGlrby1ib3QgQUkgcmVwb3J0ZWQgdHdvIGlzc3VlczoKCkkgZGlkIHNheSAnc29t
+ZXRoaW5nIGxpa2UgdGhpcycgbWlnaHQgd29yay4uLi4KCkRhdmlkCgo+IAo+IDE6IFRoZSBsb19w
+cmV2IGlzIGltbWVkaWF0ZWx5IG92ZXJ3cml0dGVuOgo+IFRoZSB0cmFpbGluZyAncG11LT5sb19w
+cmV2W2lkeF0gPSBsbzsnIGlzIG91dHNpZGUgdGhlIGlmIGJsb2NrIGFuZAo+IHJ1bnMgdW5jb25k
+aXRpb25hbGx5LCBzbyB0aGUgJ2xvX3ByZXYgPSB+MHUnIGlzIGNsb2JiZXJlZCBiZWZvcmUgdGhl
+Cj4gZnVuY3Rpb24gZXZlbiByZXR1cm5zLiBJdCBuZXZlciBzdXJ2aXZlcyB0byB0aGUgbmV4dCBj
+YWxsLiBsb19wcmV2Cj4gZW5kcyB1cCBob2xkaW5nIHRoZSBndWVzc2VkIHZhbHVlICh0eXBpY2Fs
+bHkgMCkgaW5zdGVhZCwgd2hpY2ggaXMgYQo+IHBlcmZlY3RseSBvcmRpbmFyeSBzbWFsbCBudW1i
+ZXIsIGFuZCB0aGUgaW50ZW5kZWQgImFsd2F5cyByZS12ZXJpZnkKPiBuZXh0IHRpbWUiIGJlaGF2
+aW91ciBuZXZlciBoYXBwZW5zLiBUaGUgc2VudGluZWwgd3JpdGUgd2FzIGVmZmVjdGl2ZWx5Cj4g
+ZGVhZCBjb2RlLgo+IAo+IDI6IFRoZSB3cmFwIGNoZWNrIGl0c2VsZiBjYW4gbWlzcyBhIHdyYXAK
+PiBIZXJlIGlzIGEgY29uY3JldGUgc2VxdWVuY2UuIEFzc3VtZSBhIHByZXZpb3VzIGNhbGwgbGVm
+dCBoaV9wcmV2ID0gMQo+IGFuZCBsb19wcmV2ID0gNSwgaS5lLiB0aGUgY291bnRlciB3YXMgMHgx
+XzAwMDAwMDA1LiBTb21lIHRpbWUgbGF0ZXIKPiB0aGUgY291bnRlciBoYXMgYWR2YW5jZWQgY2xv
+c2UgdG8gMHgxX0ZGRkZGRkZGOgo+IAo+ICAgMS4gaGkgPSByZWFkbChhZGRyICsgNCkgIC0+IGNv
+dW50ZXIgaXMgMHgxX0ZGRkZGRkYwLCBzbyBoaSA9IDEKPiAgIDIuIHRoZSBjb3VudGVyIGNyb3Nz
+ZXMgdGhlIGJvdW5kYXJ5IGFuZCBiZWNvbWVzIDB4Ml8wMDAwMDAwOAo+ICAgMy4gbG8gPSByZWFk
+bChhZGRyKSAgICAgIC0+IGxvID0gOAo+IAo+IFRoZSBjaGVjayB0aGVuIGV2YWx1YXRlczoKPiAK
+PiAgIGxvICg4KSA8PSBsb19wcmV2ICg1KSAgIC0+IGZhbHNlCj4gICBoaSAoMSkgIT0gaGlfcHJl
+diAoMSkgICAtPiBmYWxzZQo+IAo+IEJvdGggYXJlIGZhbHNlLCBzbyB0aGUgZmFzdCBwYXRoIGlz
+IHRha2VuIGFuZCAweDFfMDAwMDAwMDggaXMKPiByZXR1cm5lZC4gVGhlIHRydWUgdmFsdWUgaXMg
+MHgyXzAwMDAwMDA4LCBzbyB0aGUgcmVzdWx0IGlzIHNob3J0IGJ5Cj4gMl4zMiBhbmQgdGhlIHRo
+aXJkIHJlYWQgb2YgdGhlIGhpZ2ggaGFsZiBuZXZlciBldmVuIGV4ZWN1dGVzLgo+IAo+IEJvdGgg
+c2l0dWF0aW9ucyBzaGFyZSB0aGUgc2FtZSByb290IGNhdXNlOiBJdCBwdXRzIHRoZSByZWxpYWJs
+ZSBjaGVjawo+ICh0aGUgdGhpcmQgcmVhZCkgaW5zaWRlIGFuIGlmIGd1YXJkZWQgYnkgdGhlIHVu
+cmVsaWFibGUgY3Jvc3MtY2FsbAo+IGhldXJpc3RpYyAnbG8gPD0gbG9fcHJldiB8fCBoaSAhPSBo
+aV9wcmV2KScKPiBDYXNlIDEgaXMgYW4gaXNzdWUgaW4gdGhlIGJvb2trZWVwaW5nIHRoYXQgaGV1
+cmlzdGljIGRlcGVuZHMgb24sIGFuZAo+IGNhc2UgMiBzaG93cyB0aGF0IGV2ZW4gd2l0aCBjb3Jy
+ZWN0IGJvb2trZWVwaW5nIHRoZSBoZXVyaXN0aWMgaXMgbm90Cj4gc291bmQuCj4gCj4gVG8gbWFr
+ZSBldmVyeXRoaW5nIHNpbXBsZXIsIEkgd291bGQgdXNlIHlvdXIgZmlyc3QgdmVyc2lvbiBmb3Ig
+dGhlCj4gbGF0ZXN0IElPTU1VIFBNVSBzZXJpZXM6Cj4gCj4gICAgICAgICBoaSA9IHJlYWRfaGko
+KTsKPiAgICAgICAgIGxvID0gcmVhZF9sbygpOwo+ICAgICAgICAgaWYgKGhpICE9IHJlYWRfaGko
+KSkgewo+ICAgICAgICAgICAgICAgICAvLyBQaWNrIGEgdmFsdWUgdGhhdCBoYXBwZW5lZCB3aGls
+ZSBkb2luZyB0aGUgcmVhZHMuCj4gICAgICAgICAgICAgICAgIGhpKys7Cj4gICAgICAgICAgICAg
+ICAgIGxvID0gMDsKPiAgICAgICAgIH0KPiAKPiA+IEl0IHNob3VsZG4ndCBuZWVkIGFueSBsb2Nr
+aW5nIGJ1dCB0aGUgYWNjZXNzZXMgZG8gbmVlZCB0byBiZSBvcmRlcmVkLgo+ID4KPiA+ICAgICAg
+ICAgRGF2aWQKPiA+Cj4gPgo+ID4KPiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCj4gPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiA+IGxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiA+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YgIAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
