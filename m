@@ -4,101 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE53C61DBD
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 13:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7191FC61DBD
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 13:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wdu/GornikytJneCkHF/zYm5105TO2tDrojVH8bSOcc=; b=J43oCIirM3bQG8
-	u259V4sKACYYPt42JkrH8ALFh1aiVnnLy9S25CiOkvYZ0+8rdotizsOwjVOFtY9AHtlw9epBhbrVM
-	d5ATtRHWilpGW76hjtmMlljhCCXb9Wy3QsfvNXLXRf400n87JapfzbOUiaX5ZOWCbq1FiDBhlSiAy
-	C+LdfwdoSfWZpX6/rTC3z2A5zxEmU237PQGzV8neH0dLWpPj1LtiZRTvoe5cIRL4aXZm9bO3zGlTv
-	dXjvuu0Ovq4GHw9T2p13ALPikLqQm3B+Z3hQNC3JjIbUS3OqhkedJNbenqLSRYOiWmFHiqG/vsYxu
-	SiXjei5sm3DNt8nuaE3g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A1wkd2w3d4nNr6yIWET9txPIC7k0DkVzw9JLadICYXI=; b=Ow/ugUQTlV2Z12np/WX0iUK6pl
+	7KPnBDTGIdAXXGpFMBD5/Hs52U5O//izOX4Ufe9JirBP8pBXYQJJG8FNqeccU/jzfMesU5+jxPE9E
+	dPPm7lmtl1lxGLv14sHl7q3ZQGU7WXemOor9XHcLZF8SswfA8fW625MK8cF6p0BlqMSKVPLSJ3msi
+	onCwhv9s1GNRMa4XMFARVkh29m9ii/WZ6BY+LapwYNumEVTbNsRr+NKGdksdlNHDJ+CPirMg+U5In
+	gE6FXoIQztzUFEDjk0Kizgg+Ujn6UVVszTUyOt6SCfAlbHNmkfdL/ajeTvqPX5L5EgesKUKjizTtk
+	PQ1VJ7qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwW8-00000005oCA-0sUa;
-	Fri, 28 Aug 2026 13:21:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wzwbt-00000005oqO-2UOn;
+	Fri, 28 Aug 2026 13:27:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwW4-00000005oBN-1Nal
-	for linux-riscv@lists.infradead.org;
-	Fri, 28 Aug 2026 13:21:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787923265;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=V2F7fOxUu4V0dP2Sv1iyT3HhBi0Yf+rjtTWsb6sJWmE=;
-	b=LyrYBEXaPQX5WP754Q+rkkjI6tvVPOfDw6gVX/Ekswa2tJCtHtrbed27t3SHoef65OD8Ls
-	kyn5tvGGVZHFF9K9upNIH+nbtzhnWF5xQDKO2ZQbI1Zzjjcu4B1J+st+bBQnngZZXq3q36
-	TInTQhrApxnVG+t/e8L67keL7TZ82UU=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-686-m8LjwEirOuiqAvt1imgGgw-1; Fri, 28 Aug 2026 09:21:02 -0400
-X-MC-Unique: m8LjwEirOuiqAvt1imgGgw-1
-X-Mimecast-MFC-AGG-ID: m8LjwEirOuiqAvt1imgGgw_1787923261
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2d7293f13c6so13536885ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Aug 2026 06:21:02 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787923261; x=1788528061;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=V2F7fOxUu4V0dP2Sv1iyT3HhBi0Yf+rjtTWsb6sJWmE=;
-        b=rbefk7nzxSXWSrE2+Z7EmXxRk60S5gEp225IhAbX4v1TPp8mGisbYPjm4skNAATtQk
-         P3C9Y16iprkIiMLUPNuCWQqZJ5YRASYGXiKuqFSU2nqhAmc3p8LqQme0mJ+Nl0hmBffR
-         0Ccg1D4MBQZXuKdwyHND7hATayRXk8SwiCs7w4vGZlqtWAwXdLekLRZpeUxP3EYPuelG
-         +NqOu7KIm+WmQ+pPXvUzM/APZ8r15VAs4ulOHhQK3Sf1EqQPIRUlSN5DUFBBguPj5QiK
-         8EpcQDVoZbGCLTiM73EbGUXO9ktvVGKxQhTFnI22QawzdhJXkmYkYcWJoNiLhRmNXK+q
-         yJXA==
-X-Forwarded-Encrypted: i=1; AHgh+RqPZpGB63GVcSsj8a/pQ2AdAJLh6XxCvqcth/WzdS6Jqi485DDUwru1+/Z+Z9R8nJ8wDCJdDHrWeUWOYw==@lists.infradead.org
-X-Gm-Message-State: AFuF++ktkS6e9tvO2LLDnAnXyrST/2Xu31dczrP39L6bZMidgy8a2E7L
-	3QWjylgcLoyyEGFslRJXBLdsBtGMGhJVNLbuuI1nKor4S+/vXbDZ12pvY5XmwywhAQy1FEaC8bJ
-	JY/b5mFGHtP4hzecb5FUMgx+fMbhCJbuo9fGRudxw6W9LmGWAHBYevJvnbls7kx1e4r/rSQ==
-X-Gm-Gg: AR+sD11cCVMTZgNCg4bjbrD83juVOBOrpglpgmTOHgmcQpelB9p2v2FTBdgJSHCmP6S
-	E9JKXBYP/11UDlYZcGPnaPfuhH7HzVGsQtwclB6shcd1rFV2s+kKQhB6ifgWoX4vvG5IrUd4x/g
-	nXLMe9OqJDGKGsfOAdeNF/TX8k7VczYMmJGasJPNlKJWVZvXL2MrH0pINUhaThQwYOXxOKy7yfA
-	7RyhH4icp0e1+anN8ffhBupiVZWAIMo8NZTquEFmBmxlTMyQOZK/a2MEncVIhoqLULLxVuuKEbS
-	ldiN/ZEJsRIoaGXwOl8DJKOQ3B07tVtltEtWr3Ky+MjxYKi1Q5CJzg7O8KBVsQg8Tl1uZuaGVxe
-	A6uQNnjqkztymPz6N
-X-Received: by 2002:a17:902:ca13:b0:2cf:afe8:b722 with SMTP id d9443c01a7336-2d74deed25dmr102924005ad.11.1787923261373;
-        Fri, 28 Aug 2026 06:21:01 -0700 (PDT)
-X-Received: by 2002:a17:902:ca13:b0:2cf:afe8:b722 with SMTP id d9443c01a7336-2d74deed25dmr102923095ad.11.1787923260879;
-        Fri, 28 Aug 2026 06:21:00 -0700 (PDT)
-Received: from [192.168.1.2] ([122.171.16.35])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d75988b6c7sm5149255ad.60.2026.08.28.06.20.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 28 Aug 2026 06:21:00 -0700 (PDT)
-Message-ID: <d16164ef-7211-4272-bc74-bc38efd8623e@redhat.com>
-Date: Fri, 28 Aug 2026 18:50:50 +0530
+	id 1wzwbr-00000005opm-1oTS;
+	Fri, 28 Aug 2026 13:27:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B60CF40890;
+	Fri, 28 Aug 2026 13:27:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8891F000E9;
+	Fri, 28 Aug 2026 13:27:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787923626;
+	bh=+FYIQ42DCGzI9ZW5t7HWRgY12JIQOn4Qff8BE8HFkZc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lkBlJOVXHDxt+3hZwt6gBCc7+DagH0ifqyudSYMbP8+Gz2cWqLvk6x1RlZR58OmG6
+	 qPC0j7hAP5Hd4qf+NHc6IIySvwjtaZaoRHsis//w54P0ERk+Q2zvjUMoaeVQsXLCQZ
+	 Zx6odVBiYNueTz4YWsa1AcUUy/b+tz6N3nyUlZ6TRNTSysjh7uJGzErYvvk5Iu0G9J
+	 0GDO6yE0cQ8SVMNmjJ0np3Qo94BOgK0rbwlM3Hd60ToSnDgp9D/qH7Q/xndWPUrm+Q
+	 vtQTN7V2w6mqlSZvvRb3wSYoQJRe9kGdrX6Tu5vKu+9Eaewy/de7VLBNahXEhXWl+Z
+	 RSm77pw+QMBtw==
+Date: Fri, 28 Aug 2026 14:27:01 +0100
+From: Mark Brown <broonie@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "debug@rivosinc.com" <debug@rivosinc.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+	"bill.roberts@foss.arm.com" <bill.roberts@foss.arm.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>
+Subject: Re: Shadow Stack Locking Semantics between arch's
+Message-ID: <c4ac49d9-1fdb-46c4-9303-f17a517ac4c1@sirena.org.uk>
+References: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
+ <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
+ <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
+ <01b0fe86d5700847f78b0e6f839119f54ac88b04.camel@intel.com>
+ <apCvGct9U1yprAUE@sirena.org.uk>
+ <f2819c4f1a86845b5b2f2b6f0e03f4c334e84eaa.camel@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] kexec_file: remove unused arch_kexec_locate_mem_hole hook
-To: Sourabh Jain <sourabhjain@linux.ibm.com>, linux-kernel@vger.kernel.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Morton <akpm@linux-foundation.org>, Baoquan He
- <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, Paul Walmsley <pjw@kernel.org>,
- Pratyush Yadav <pratyush@kernel.org>, linux-riscv@lists.infradead.org,
- kexec@lists.infradead.org
-References: <20260827144452.508328-1-sourabhjain@linux.ibm.com>
-From: Mukesh Pilaniya <mpilaniy@redhat.com>
-In-Reply-To: <20260827144452.508328-1-sourabhjain@linux.ibm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: lY-uddB4QiRYz_eN5hjpnPgmvxrd89L4mhV6wQA6Lvo_1787923261
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_062108_433358_5ABDEDF5 
-X-CRM114-Status: GOOD (  20.46  )
+In-Reply-To: <f2819c4f1a86845b5b2f2b6f0e03f4c334e84eaa.camel@intel.com>
+X-Cookie: Subject to change without notice.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,109 +74,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5705371047671223112=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Sourabh,
 
-The patch touches three files across three subsystems so kexec: would be
-a more accurate prefix than kexec_file, for e.g.:
+--===============5705371047671223112==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="L1v0x8HM/zJNwKCv"
+Content-Disposition: inline
 
-kexec: remove unused arch_kexec_locate_mem_hole hook
 
-On 27/08/26 8:14 pm, Sourabh Jain wrote:
-> No architecture provides an implementation of
-> arch_kexec_locate_mem_hole(). Use kexec_locate_mem_hole() directly
-> and remove the unused fallback wrapper from the kexec header.
-> 
-> This simplifies the kexec memory allocation path without changing
-> its behavior.
-> 
-Also, it might be worth mentioning in the commit message that this hook
-was originally introduced by commit f891f19736bd and that the last arch
-override was removed in commit 6e5250eaa665; making it safe to remove now.
+--L1v0x8HM/zJNwKCv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Otherwise, the change looks good to me. Feel free to add:
-Reviewed-by: Mukesh Pilaniya <mpilaniy@redhat.com>
+On Thu, Aug 27, 2026 at 10:37:45PM +0000, Edgecombe, Rick P wrote:
+> On Thu, 2026-08-27 at 22:41 +0100, Mark Brown wrote:
+> > On Thu, Aug 27, 2026 at 09:27:06PM +0000, Edgecombe, Rick P wrote:
 
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Baoquan He <baoquan.he@linux.dev>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
-> Cc: Paul Walmsley <pjw@kernel.org>
-> Cc: Pratyush Yadav <pratyush@kernel.org>
-> Cc: linux-riscv@lists.infradead.org
-> Cc: kexec@lists.infradead.org
-> Signed-off-by: Sourabh Jain <sourabhjain@linux.ibm.com>
-> ---
->  arch/riscv/kernel/kexec_elf.c |  2 +-
->  include/linux/kexec.h         | 15 ---------------
->  kernel/kexec_file.c           |  2 +-
->  3 files changed, 2 insertions(+), 17 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/kexec_elf.c b/arch/riscv/kernel/kexec_elf.c
-> index 3e9a32acb8f2..ca5abbad59e5 100644
-> --- a/arch/riscv/kernel/kexec_elf.c
-> +++ b/arch/riscv/kernel/kexec_elf.c
-> @@ -91,7 +91,7 @@ static int elf_find_pbase(struct kimage *image, unsigned long kernel_len,
->  	kbuf.memsz = ALIGN(kernel_len, PAGE_SIZE);
->  	kbuf.cma = NULL;
->  	kbuf.top_down = false;
-> -	ret = arch_kexec_locate_mem_hole(&kbuf);
-> +	ret = kexec_locate_mem_hole(&kbuf);
->  	if (!ret) {
->  		*old_pbase = lowest_paddr;
->  		*new_pbase = kbuf.mem;
-> diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-> index 0af8ae4fdd08..e5f1cfc11fef 100644
-> --- a/include/linux/kexec.h
-> +++ b/include/linux/kexec.h
-> @@ -259,21 +259,6 @@ int kexec_kernel_verify_pe_sig(const char *kernel, unsigned long kernel_len);
->  extern int kexec_add_buffer(struct kexec_buf *kbuf);
->  int kexec_locate_mem_hole(struct kexec_buf *kbuf);
->  
-> -#ifndef arch_kexec_locate_mem_hole
-> -/**
-> - * arch_kexec_locate_mem_hole - Find free memory to place the segments.
-> - * @kbuf:                       Parameters for the memory search.
-> - *
-> - * On success, kbuf->mem will have the start address of the memory region found.
-> - *
-> - * Return: 0 on success, negative errno on error.
-> - */
-> -static inline int arch_kexec_locate_mem_hole(struct kexec_buf *kbuf)
-> -{
-> -	return kexec_locate_mem_hole(kbuf);
-> -}
-> -#endif
-> -
->  #ifndef arch_kexec_apply_relocations_add
->  /*
->   * arch_kexec_apply_relocations_add - apply relocations of type RELA
-> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-> index 59fb9d71e9d8..9a981359addd 100644
-> --- a/kernel/kexec_file.c
-> +++ b/kernel/kexec_file.c
-> @@ -784,7 +784,7 @@ int kexec_add_buffer(struct kexec_buf *kbuf)
->  	kbuf->cma = NULL;
->  
->  	/* Walk the RAM ranges and allocate a suitable range for the buffer */
-> -	ret = arch_kexec_locate_mem_hole(kbuf);
-> +	ret = kexec_locate_mem_hole(kbuf);
->  	if (ret)
->  		return ret;
->  
+> > > Hmm. I can't think of a reason to lock writes and not lock shadow stack too.
+> > > Given likely no one is doing this, I wonder if we could change x86's behavior to
+> > > match the others?
 
--- 
-Regards,
-Mukesh Pilaniya
+> > > The API would makes more sense to prevent disabling shadow stack if writes were
+> > > enabled. It could return an EINVAL regardless if it is locked or not? Is that
+> > > the arm behavior (forgetting about locked)?
 
+> > arm64 currently treats each bit independently for simplicity.  The main
+> > use case I see for actually doing that is for preventing enabling writes
+> > or pushes, though in practice I'd expect something doing locks to just
+> > fully lock everything after having enabled the shadow stack.
+
+> Locking writes as off makes sense to me. But locking writes on, while leaving
+> shadow stack unlocked. I'm not sure why you would do that. I thought that was
+> Bill's scenario.
+
+Yeah, it is.  I can't think why someone would ask for that either, but
+equally it's more work to explicitly have a list of combinations we
+reject for policy reasons.  At least on arm64 each permission just comes
+down to a separate bit in a control register so they're fully
+independent all the way down to the hardware.
+
+> > > > It has been on my list to look at this
+> > > > repitition at some point, it had been held up by the clone3() stuff but
+> > > > that seems to have died a death for now.
+
+> > > Oh? What was the blocker?
+
+> > Basically the glibc people weren't convinced they'd ever want to reuse a
+> > shadow stack at which point having the kernel free and reallocate each time
+> > is just as easy.  It saves having to handle corner cases with threads that
+> > didn't exit cleanly.
+
+> I thought it was also because they wanted finer grained control of stack sizes
+> too? But yea, if no libc wants it, it's a hard sell.
+
+They'd rather have just a size control for that, probably a process wide
+control would be most useful since it's likely to be the same number for
+all threads.  I suspect the main use casse would be someone trying to do
+green threads, where there's an extra real thread being created.
+
+--L1v0x8HM/zJNwKCv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqRjKUACgkQJNaLcl1U
+h9AyUAf9GIV9Gka3OGQ62/nBYTo22uygHAaR+VThEC2Gy9E1mnzyyoDFDcMpGKfq
+FTQ0dN/MSRCNUCayYOB9BgR0VWFlUbxPUkqU+nemTJC3LkTv2BU+sZg2WqG/1aVe
+NVkES2ZbFx2+OtAKo5nu8aNUwbxRknniwDRmV401BnGnpEX8Bh2HPyK5puZ5Z0rf
+Z36MHk8Wya0KCYtiipFxd6rBahozcDQhX6C4RvML20EjPIBAMMtMOTPA1p1RiYdS
+azcc6OVruCJNDvTy7JOVPzoK2jAx49oV3hF1cY2xABzmXrL/cURqIjEcdBi0ONfY
+Px37thtnUk0aubSa7N6rI9FPbjgqow==
+=s+DF
+-----END PGP SIGNATURE-----
+
+--L1v0x8HM/zJNwKCv--
+
+
+--===============5705371047671223112==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5705371047671223112==--
+
