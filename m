@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F614C61DB9
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 07:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B9AC61DBD
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2026 07:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ey/P4wrI8eKiQss9EPxpM4Q5cpcsyqjIq1ZTip7hN0w=; b=jCO74xRRgsOsYM
-	ROfIjeIA5mB9IPZfwxLEIzOeotUy71th9HMSGmK9VsbRuxY8N/C8NzFYq3oXzRzcKFOK4N+w6pb06
-	gtdasVatHOYRANsPTWB0/Ep4AUJ7fFs4PKCz9yGx9B9v4Q4ikrmaHsD4LblKITZWjGZl29w1XPFjE
-	PkT6l87BBQ70S1UE1OE5ehwMBu58dXPU9d2f0vXNTS2n4kZnaUNYWuQnHlNMluY87UCrHvDLjiOxA
-	3sOC+LJ5kpgO0TLdSRIBp/1RfkV1RcNToia6y8o7UbbGBBFQoD1ztfuVcde8zuvOBb7UowBFD3MPG
-	9oezkg2e/8PFQc18/S0Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xlMwssB2LyBy9OZEitMGYXUg5mYV5vKmRMJsM0Yaysw=; b=43wvqrhAfiuCFc
+	R6+sV21bZP+ObEPvj4EYrcUOqUkGV/5HqLUcUsJ0p2JtM2sn+DmYhTug43Q79xe2drPr/MO9D82rt
+	MsWnzg4kUX8vnEgVX2elF3cR/L6Lfo4/SfqHKEDKPkKxq1Eh/qFpyK+T6nXtSb+I3uZOOX9gq4VCR
+	OkG18fqH5GxqBlFUDj8vqE589Upk2+vjmk6uB1H19FEE3gmf4aiqimld1y6H3InQlMjNu7Lgq12nX
+	lhcKbumdr14KZ/v2WjbDWTSUOq8UTMXmWxVfObcvepccx4eo+xD+oyIubT1RAyJmrkPh1c4acdHE7
+	8VNNOpA1JqRliJ1+c74w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzqgs-00000005Foy-3I5V;
-	Fri, 28 Aug 2026 07:07:55 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1wzqgv-00000005FpG-1I8W;
+	Fri, 28 Aug 2026 07:07:57 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzqgp-00000005Fnz-2sqL
+	id 1wzqgq-00000005FoF-34YT
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Aug 2026 07:07:52 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c9d1fff21edso746170a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Aug 2026 00:07:51 -0700 (PDT)
+	Fri, 28 Aug 2026 07:07:54 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-38dfe7eb825so707374a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Aug 2026 00:07:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1787900870; x=1788505670; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZRXFOZFial7txsdAx7JQk2q/tHsDJDeYpiV+eFKuNdk=;
-        b=Ep1mnKl8x+P/mZLj4iyAjhCZeD4RMUkE90QinA/9G3STo0wt23PEIgHRFLp34Z1pIK
-         2TECXzl+RFR+LG4V1j6wQlTtykKMybj5DtLVQNTPPqqpCv+2ngf8V5x1gCfjIHVEr+C3
-         j7GOfQgxfRRDkxpVRMXr3QrHMwJTRJ5co0Lv8y1ndZ8WlcTXKgaMlFyMlSAh3qCH2tH8
-         GpX3Sq4UJLxNqqaMUc19caq84T13BMrC1IqH5i7jv4mxQH5iA3HTHbVdekwTTXBh7f2n
-         g7wb8cl5oCNaAgXUUabUrPSyYUZtLo/wO4P7YdYswivoDrKRU7jxH8WMnGK00k9PDwOe
-         rWhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787900870; x=1788505670;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=sifive.com; s=google; t=1787900872; x=1788505672; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ZRXFOZFial7txsdAx7JQk2q/tHsDJDeYpiV+eFKuNdk=;
-        b=qrs73gT2ZD4JktvzQKl18eWP7pRcsCBiZ2YagP+gNR5oGg1m5ufu4eWy+DZrXLF5AP
-         cL0F3Nbu0oHqR94/wHg6LUEs73+/FHiZHGRNNK+ugWnFtafjhJEint/DRTJQ3y0CDsD8
-         o/kvY3N0sWUwaa6upgCdTy7GyCaKKwO8CKM8DrzZiVnPUYcBU7ro3cKnew/mCCqFMcPg
-         q1o2V4ntQZcjovuDgG7ob5tBGW7xwd4v6D2Pkeb34iHnoYu10QAmcP+9AGpevT4jPy+L
-         bPxdI9JNSopEys4IA8djcu1KRSuhGPu/JDCs6Lw2+/1/25yHbTjeTsLvzF+WXNkv40oU
-         /y+Q==
-X-Forwarded-Encrypted: i=1; AHgh+RrS9N/Oe3eeQVqN5A5QInAU7o0QNZlUIsan/LhQI55uVGChGOo2dtwF9RATOt3oEwEuwM7Xsp16/qDbJw==@lists.infradead.org
-X-Gm-Message-State: AFuF++naFFNe3voZexz6B5rZrDnMDzWvUHndDE9y3CAQ/MWGRHja2at7
-	YnvAoOO25AWYRMkehoXL7U9LclxdHyqrjyJNrHwB6vmP8Vn/xGyRC4JCUfKTJjvuhKI=
-X-Gm-Gg: AR+sD12f6iNVTr8rhGkbMYyyGjbISVYXYObOVljc69JwAHzw9cAhMHi4FRc1+/PaT0O
-	Lb5Bl8Ef+OYM2EH9fw/5qD8AgsWKlpy2DmezsO6jCoEhCYBLqtRR0bkabhlRNPiKfocV5chNIPw
-	gc1Fzpsg0yuW/ds9pB/xitnjudt437HRFMSWEc2ilDykA1NZo3d+Z+sC7h9oyiV9tgzLV5PYLzy
-	4hRnFHroDuaGA/ttD0fkLvJF8AkZEG4ZI/7YCVAB7U9lv2mpdcJKMohbDBrSA/oaEJhUmOAEQ8r
-	VmrVSe+f50Z40h2uH0FcrL2AMq0/MqssR0oiOaQ8/UN1tQamzTIKx4yJScluUCA79BKi/mY29Ah
-	2yfFIvC7i3MTlVDG24BTPGrAGw0dJxrSw+d8i6ByGiPF1cRzTOv4vWw2HxWYtCJOuafZNBRZFCE
-	/pGBw+Xx/w9L+XuGNNp+m/MDNC+LxCGS8r1p2Qeuk6KKcpGRbjJo48R66pEkQ+vFxkSeDfiBr8
-X-Received: by 2002:a17:90b:3ec3:b0:37c:6910:5758 with SMTP id 98e67ed59e1d1-396d0e37613mr9125343a91.1.1787900870554;
-        Fri, 28 Aug 2026 00:07:50 -0700 (PDT)
+        bh=0jwxUNr7N+2l26FeCwq48z6QyCIJefuKV/bUVltiLUA=;
+        b=ECab3bcBTQWtsDR1ehjQ90UTVdX65R3IoOCyrA1HzpWwURT7Cm+0o/sOGo1AeXxhJB
+         hohEKJ6rA3vlJw+m/wLh01ZDNo9kiS3Ya/NkwhHQ9MB4JVNmFZffFAeAokZ+lvNO0R9m
+         vHgLMP3UF1SZeCsoSLMaHFiO1lN08QwbHsgwAqyLfrfM5LrMfezUHhtM2FziHESlqhkR
+         WYCfVC5HTIYdEWT2k9zO89h1MQ/kby+hzDjIqZtchUDjezrQc8PV3kOGbLSokBSpd+GM
+         HzhTYMFU10QDwzeeWw1QuLX1plbeOFscoetZDB3YruAkZ4rB71ve479mjopdIRRmAeGk
+         +RVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787900872; x=1788505672;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0jwxUNr7N+2l26FeCwq48z6QyCIJefuKV/bUVltiLUA=;
+        b=EKvzGeklgIiqRWW+1FXtSMuU8sMjNgWVcj8NVXFu7SPwb3/LoF0rH10kYqqhHZH3WL
+         trMAr42eWlFjgsuTptlS2siCajndCrAtNdCXAMb4yR6ljEWYwbOQHvXzbXKtJSFKTZjL
+         d+tzy8qCKguVYtQsEP+l6yQs0aUL3jzTP5rUy2mSExy0f46itav9b+gWimbTxbCEX7tm
+         2kBvEqm5c775B+ckEIEKMuLJYiVGMItlIvIatK5VpBZ5FrMPA5yVnX0CL0qoOOv/AxhT
+         hJwqHs4Awlv+mCx68l+uRBA9uwsAk+SwNAFC8fbhH2qPakTEvIVyWW7k/HthviLVUZGE
+         Eg2w==
+X-Forwarded-Encrypted: i=1; AHgh+Rq1VO0m5ELKVRAEXB91CgHZHcF4US9YieoR9fQxRa+0SKKGdu6rHBegMLWZqrSu27hMsCPTz7dZykLSsA==@lists.infradead.org
+X-Gm-Message-State: AFuF++mLgol87YvJb1YI2Nr2TW5tSNpxIiTCUpyjuwpkkW62ONlLjkCU
+	Fe4jSl8nUEW4g1jkYRhuuo7sWzGOLJFj22aR8RcdkvqxSDNnb7x/EWlseEa+hLP69Oc=
+X-Gm-Gg: AR+sD13fTjPkM3wGxc8r/Pge+ks1jb0eazgZ4Cut4KU6/gPslPPa0j5w/6S1ozmHp1P
+	8uStwoVGMWJELb3OgjSnAJFVEHPJrUK6a+wlYUFweVMKVuau3/25AMYdKjtFb4sTUwRRBTQDVEW
+	kR7A+JTsdqMOIIzGttl2nWWIUI/S3Yp9/+0I+fgBC9XFT90yEHFeIlW9gyt+PQSD4eSpSeghSaH
+	BoeQSyWcyDwK5RZFQFGE1m/hnJkiXghQRM7LmJkI6CUM2QgDdbbrU29nUKY1FMfuiMrbA864fYh
+	6gBGGfIYBR66zUb1xE6aTW/cMdTT4wnGShYcHfKrFn/JLinzaw3UU0/yipxQuqDVjjT01kVYEjv
+	OMI90JC0SbYVSef2NUqeoKZK+G6gBlXzoz+eN+FHFbKvovLW8dGZ9Yj4oDa2X2EqvgGevzwgJbg
+	mR1/GxqZYhhiB117iqOtp4ZP5ioLcD5fvpvEpVEFueWf2rSQy+46W18br4ZfLlQVzSNmgUHJDk6
+	xoQb6mV6xw=
+X-Received: by 2002:a17:90b:388e:b0:38d:ddc2:7ccb with SMTP id 98e67ed59e1d1-396d0eaabfamr9040736a91.1.1787900871742;
+        Fri, 28 Aug 2026 00:07:51 -0700 (PDT)
 Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-142e0d1b38esm3156610c88.3.2026.08.28.00.07.49
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-142e0d1b38esm3156610c88.3.2026.08.28.00.07.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Aug 2026 00:07:49 -0700 (PDT)
+        Fri, 28 Aug 2026 00:07:51 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: tomasz.jeznach@linux.dev,
 	joro@8bytes.org,
@@ -87,15 +89,20 @@ To: tomasz.jeznach@linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v7 0/2] RISC-V IOMMU HPM support
-Date: Fri, 28 Aug 2026 00:07:45 -0700
-Message-ID: <20260828070747.4009519-1-zong.li@sifive.com>
+Cc: Zong Li <zong.li@sifive.com>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v7 1/2] iommu/riscv: create a auxiliary device for HPM
+Date: Fri, 28 Aug 2026 00:07:46 -0700
+Message-ID: <20260828070747.4009519-2-zong.li@sifive.com>
 X-Mailer: git-send-email @GIT_VERSION@
+In-Reply-To: <20260828070747.4009519-1-zong.li@sifive.com>
+References: <20260828070747.4009519-1-zong.li@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_000751_762807_46F34A5E 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20260828_000752_772393_BE6B4805 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,99 +119,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series implements support for the RISC-V IOMMU hardware performance
-monitor.
+Create an auxiliary device for HPM when the IOMMU supports a
+hardware performance monitor.
 
-The RISC-V IOMMU PMU driver is implemented as an auxiliary device driver
-created by the parent RISC-V IOMMU driver. Therefore, the child driver
-can obtain resources and information from the parent device, such as
-the MMIO base address and IRQ number.
+Tested-by: Chen Pei <cp0613@linux.alibaba.com>
+Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Yicong Yang <yang.yicong@picoheart.com>
+Suggested-by: Samuel Holland <samuel.holland@sifive.com>
+Signed-off-by: Zong Li <zong.li@sifive.com>
+---
+ drivers/iommu/riscv/Kconfig |  1 +
+ drivers/iommu/riscv/iommu.c | 37 +++++++++++++++++++++++++++++++++++++
+ 2 files changed, 38 insertions(+)
 
-The thrid commit adds raw spinlock for race condition when PCI MSI/MSI-X
-on IMSIC. As the commit message mentioned:
-Events are bound to one CPU and the interrupt is affine to it, so the
-perf callbacks running with interrupts disabled would be enough to
-exclude the handler. But PCI MSI/MSI-X on IMSIC breaks that:
-The irqchip sets IRQCHIP_MOVE_DEFERRED, so irq_set_affinity() reports
-success while only recording the request, and the move is applied in
-interrupt context upon the next device interrupt. Until then the
-interrupt is still routed to the CPU IMSIC picked initially, so the
-first overflow interrupt can run concurrently with the perf callbacks
-on the CPU the events are bound to.
-
-I noticed that xgene_pmu and arm-cci have similar implementation, so add
-it in riscv_iommu_pmu should be accepted.
-
-Changed in v6:
-- Rebased onto the latest v7.3-rc
-- Use sysfs_emit instead of cpumap_print_to_pagebuf
-- Set up on_cpu and irq affinity by cpuhp callbacks
-- Change type of on_cpu from unsigned int to int
-- Reject filter operands of cycle event in event_init
-- Check return value of counter number and  masks in probe
-- Add raw spinlock for race condition (third commit)
-
-Changed in v5:
-- Pick up suggestions from sashiko-bot as follows
-- Fix event group validation for sw event
-- Bind IRQ to aux PMU dev instead of parent IOMMU dev
-- Clear OF bit when event is NULL
-- Improve hi-lo-hi patten
-- Add back IRQF_SHARED flag due to mismatch
-- Manage cpuhp and pmu register by devre
-
-Changed in v4:
-- Rebased onto v7.3-rc
-- Use is_sampling_event() instead of accessing vairable directly
-- Rename the matching name from "iommu.pmu" to "riscv-iommu.pmu"
-- Change the naming of PMU device for avoid ":" in PCIe case
-- Add suppress_bind_attrs attribute
-- Remove IRQF_SHARED flag
-- Set irq affinity to local CPU of IOMMU
-- Allocate ID by IDA for auxiliary device
-- Pick up suggestions from sashiko-bot
-
-Changed in v3:
-- Rebased onto v7.2-rc3
-- Use hi_lo_writeq/readq to access register
-- Pick comments from sashiko-bot as follows
-- Set IRQ CPU affinity
-- Remove IRQF_ONESHOT flag when request irq
-- Adjust cycle event check by checking event_id field only
-- Fix bug for group events verificaiton
-- Fix KASAN issue about casting 32-bit variable to unsigned long pointer
-- Clear IPSR pending bit before starting counter
-- Clear OF bit in event selector register in irq handler
-- Release irq by devm instead of explicit free_irq
-
-Changed in v2:
-- Rebased onto v7.2-rc1
-- Use hi-lo-hi mechanism to read counter.
-  Suggested by Guo Ren and David Laight
-
-Changed in v1:
-- Rebased onto v6.19-rc8
-- Pick all suggestions and feedbacks from v1 series
-- Add cpu hotplug implementation to avoid race enablement
-- Move PMU-related definition from header to c file
-- Change PMU driver to auxiliary device driver
-
-Changed in RFC:
-- Rebase onto v6.13-rc7
-- Clear interrupt pending before handling interrupt
-- Fix the counter value issue caused by OF bit in the cycle counter.
-- Invoke riscv_iommu_hpm_disable() instead of riscv_iommu_pmu_uninit()
-  in riscv_iommu_remove()
-
-Zong Li (2):
-  iommu/riscv: create a auxiliary device for HPM
-  drivers/perf: riscv-iommu: protect shared state with a raw spinlock
-
- drivers/iommu/riscv/Kconfig    |  1 +
- drivers/iommu/riscv/iommu.c    | 37 +++++++++++++++++++
- drivers/perf/riscv_iommu_pmu.c | 66 ++++++++++++++++++++++++++++++----
- 3 files changed, 98 insertions(+), 6 deletions(-)
-
+diff --git a/drivers/iommu/riscv/Kconfig b/drivers/iommu/riscv/Kconfig
+index b86e5ab94183..8025bf0fb67f 100644
+--- a/drivers/iommu/riscv/Kconfig
++++ b/drivers/iommu/riscv/Kconfig
+@@ -10,6 +10,7 @@ config RISCV_IOMMU
+ 	select GENERIC_PT
+ 	select IOMMU_PT
+ 	select IOMMU_PT_RISCV64
++	select AUXILIARY_BUS
+ 	help
+ 	  Support for implementations of the RISC-V IOMMU architecture that
+ 	  complements the RISC-V MMU capabilities, providing similar address
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index cec3ddd7ab10..7f619971bb70 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -14,6 +14,7 @@
+ 
+ #include <linux/acpi.h>
+ #include <linux/acpi_rimt.h>
++#include <linux/auxiliary_bus.h>
+ #include <linux/compiler.h>
+ #include <linux/crash_dump.h>
+ #include <linux/init.h>
+@@ -48,6 +49,9 @@
+ static DEFINE_IDA(riscv_iommu_pscids);
+ #define RISCV_IOMMU_MAX_PSCID		(BIT(20) - 1)
+ 
++/* IOMMU PMU auxiliary device id allocation namespace. */
++static DEFINE_IDA(riscv_iommu_pmu_ida);
++
+ /* Device resource-managed allocations */
+ struct riscv_iommu_devres {
+ 	void *addr;
+@@ -565,6 +569,36 @@ static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
+ 
++/*
++ * IOMMU Hardware performance monitor
++ */
++static void riscv_iommu_pmu_id_free(void *data)
++{
++	ida_free(&riscv_iommu_pmu_ida, (unsigned long)data);
++}
++
++static int riscv_iommu_hpm_enable(struct riscv_iommu_device *iommu)
++{
++	struct auxiliary_device *auxdev;
++	int id, ret;
++
++	id = ida_alloc(&riscv_iommu_pmu_ida, GFP_KERNEL);
++	if (id < 0)
++		return id;
++
++	ret = devm_add_action_or_reset(iommu->dev, riscv_iommu_pmu_id_free,
++				       (void *)(unsigned long)id);
++	if (ret)
++		return ret;
++
++	auxdev = __devm_auxiliary_device_create(iommu->dev, "riscv-iommu",
++						"pmu", iommu, id);
++	if (!auxdev)
++		return -ENODEV;
++
++	return 0;
++}
++
+ /* Lookup and initialize device context info structure. */
+ static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
+ 						 unsigned int devid)
+@@ -1613,6 +1647,9 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+ 		goto err_remove_sysfs;
+ 	}
+ 
++	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM)
++		riscv_iommu_hpm_enable(iommu);
++
+ 	return 0;
+ 
+ err_remove_sysfs:
 -- 
 2.43.7
 
