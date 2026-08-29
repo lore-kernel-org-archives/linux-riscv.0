@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACB4C61DCB
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Aug 2026 18:54:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B88C61DCB
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Aug 2026 20:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:To:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XeQyULXpnP1r1AZhh2EmiDtQHXYUdeW5P/yt7r/4aKk=; b=KrOzPvta5pZeQVGHpYbOc9kiNV
-	ooqj7L65uyS9ltHCf9p11Nn7fOAyc5XaC9HNlbjzNOvrgQo4Cc56vHQt2izSh2aNNQrBBfiudrq7N
-	04wcDwA3T6Hdk9/E7TT2TTu0pXohECPBzSEixOtfG6xMiluItSSF7WKL6Y2t5MRJyrAir/mfLwAu3
-	9NPjx2gv17dL2dVPT2qkVmkARGOrqB8jmV24KtsGs6lfVWLC5/lQCR+RrxwKzgtyiBcBPbQmHRim3
-	IpuoCrRM+3lvwxGw2ye6ipTWqSs4NR/YqY1fwfYL3MfxsoBFokP1roNOgdskBdFj7pCegjHSCKbYS
-	4CJMPZbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QfA15/7loAP+UpUB/0eSaiy4X7gcOtrLNH+HF/6Gddo=; b=U8Vz4Xzd0DlUha
+	buuBdhUnx6hqtUcTMHo3z6lvpdrY+PLBa4LTnPAlPugpeWRh2diD0hXqr36bTPqzDcvfJCZKsaIlv
+	Hgo01NpzUQLnMHtPeFY2qzgo77r4MWhzZK0e05gtcfR1KwrvMmypRkfh70Eeo6lU2c2TC3U3iapRn
+	0B1+WTdvctL6PJ+3psbpqbOdiX2wAGp1EWxY6bszZqh7Jd9PUad1s1YP6cxY/2V6oQbv4JBdJ1lG4
+	vjm1HojZj2K+XemMjCGQTeWWMxCnNWg2eUn52wvKf0bq2JxbunRMNt/R4B+V0iiyby88sV44h7RmF
+	9Rpeui8D5QNsLccOYJZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0OBz-00000007Dnl-2q1T;
-	Sat, 29 Aug 2026 18:54:15 +0000
-Received: from email3.ecloud.global ([2a01:4f9:3a:1386::2] helo=mail3.ecloud.global)
+	id 1x0PNj-00000007Hpl-2CKo;
+	Sat, 29 Aug 2026 20:10:27 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0OBw-00000007Dn6-1igS;
-	Sat, 29 Aug 2026 18:54:14 +0000
-Received: from authenticated-user (mail3.ecloud.global [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail3.ecloud.global (Postfix) with ESMTPSA id 9E0E9883DCA;
-	Sat, 29 Aug 2026 18:54:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io; s=mail3;
-	t=1788029646;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ehcjoluw1ltFHOACxESvJjxgUUGWa+g0poTQdMIRy1U=;
-	b=nkuOAMzBmGj+QW/LFVmCluA3XLtxasCrezDA5Gp8iboVAS5YbdiSaS4tPc2rRzEKDjCYkc
-	OSR5IyCbOTx5S9CuiWjcb9S2khgdusyJZQcyxiaFh2LVNDVnRNcG4AowmJimuO9OCmGUhM
-	E8ltcGFsoumAKU8e9XDn5NFnMzowtmM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io;
-	s=mail3; t=1788029646;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ehcjoluw1ltFHOACxESvJjxgUUGWa+g0poTQdMIRy1U=;
-	b=SUQju1a5AyeEzsWtU11p1zJQg4cmekzyHbQn978fM7Z94OJlpQkUWJ1Kf5ziFCMASSAE+q
-	g/465/MYThLZ7f2m9lYFLAPJJodxWKBQD4qtbleprFGCuTMdrW6whmVQqu6bSatvl+Om8B
-	XOOSzbyrTeaRUnxvI88HOy9celngZRo=
-ARC-Seal: i=1; s=mail3; d=murena.io; t=1788029646; a=rsa-sha256; cv=none;
-	b=4u//Z/BtuPsOYlapubZ5m21WKQAJm/nJb66dH3KaNyha5i+ennk/ENAKtj8HINSK53tyn4
-	5JPH3HWfg734eML0ysqPRxleYyjhd60c8M3yyDQ2xXlkyHVdWJdM/relDgP30qvuYkmy/5
-	E+ouPdROr+TNqlt/XVODzbVbfkCftOc=
-ARC-Authentication-Results: i=1;
-	mail3.ecloud.global;
-	auth=pass smtp.mailfrom=maud_spierings@murena.io
-Message-ID: <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
-Date: Sat, 29 Aug 2026 20:54:03 +0200
+	id 1x0PNg-00000007HpI-2BYF
+	for linux-riscv@lists.infradead.org;
+	Sat, 29 Aug 2026 20:10:26 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id 449E9C33D3;
+	Sat, 29 Aug 2026 23:10:16 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 449E9C33D3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1788034217;
+	bh=ZqxY1D+fzC3+wDVQotEIAuDf7u8tvsnBtIziyWtCx0M=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=aK3zuHTbhpNWq6uHwc7UtKDWf+dJE5LH64VqksnEnWXlWXtIOLB8PxwHJrv2tmVpQ
+	 Imk+iBKtnnSppkyZ6dF8vkTsbdkBA06p16GIYzXGA5iWeEqVKMqRHwdX565jo/DToi
+	 0rG7JAuheSc8IdLW60MNCLpxhwlvfo2SXTzESjx9JU4oqzMocGt52e2TcJG9dXMxPh
+	 vEqZB7Rw1rCrjetLrjMq+U0Ou3KneOxpIybU+148cJVZXh2WJrIp2AppsIl1YrpgiP
+	 /uKYGtCD7lct2Oa3EzCs3k5rgbmYE/rn5WNorewYEnphduIEf57aYqaCW5bVwcSuGa
+	 JFWRo+GW28Ydw==
+Message-ID: <1778ce7c2880eb5eb719932b5273776a57eea481.camel@rendec.net>
+Subject: Re: [PATCH] irqchip/sifive-plic: Avoid signed shift in interrupt
+ enable mask
+From: Radu Rendec <radu@rendec.net>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Thomas Gleixner <tglx@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Samuel Holland
+ <samuel.holland@sifive.com>,  Charles Mirabile <cmirabil@redhat.com>, Lucas
+ Zampieri <lzampier@redhat.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Date: Sat, 29 Aug 2026 16:10:14 -0400
+In-Reply-To: <20260825151000.1-plic-bit31-caplitmus-rv@iscas.ac.cn>
+References: <20260825151000.1-plic-bit31-caplitmus-rv@iscas.ac.cn>
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-To: m.wilczynski@samsung.com
-References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
-Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
-Content-Language: en-US
-From: Maud Spierings <maud_spierings@murena.io>
-In-Reply-To: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260829_115412_665575_BFE0BBA3 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20260829_131024_752296_8013D3C7 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,226 +69,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: heiko@sntech.de, mturquette@baylibre.com, dri-devel@lists.freedesktop.org, Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, airlied@gmail.com, linux-clk@vger.kernel.org, kernel@esmil.dk, simona@ffwll.ch, robh@kernel.org, db@domibel.de, rfoss@kernel.org, alex@ghiti.fr, lee@kernel.org, andyshrk@163.com, jernej.skrabec@gmail.com, hal.feng@starfivetech.com, hello@big-grey.co.uk, linux-rockchip@lists.infradead.org, m.szyprowski@samsung.com, luca.ceresoli@bootlin.com, devicetree@vger.kernel.org, conor+dt@kernel.org, aou@eecs.berkeley.edu, tzimmermann@suse.de, jonas@kwiboo.se, maarten.lankhorst@linux.intel.com, bmasney@redhat.com, mripard@kernel.org, mfd@lists.linux.dev, pjw@kernel.org, linux-arm-kernel@lists.infradead.org, neil.armstrong@linaro.org, sboyd@kernel.org, linux-kernel@vger.kernel.org, conor@kernel.org, maudspierings@gocontroll.com, vkoul@kernel.org, palmer@dabbelt.com, p.zabel@pengutronix.de, andy.yan@rock-chips.com, krzk+dt@kernel.org
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
-
-Small request for an eventual v3
-
-> Add the HDMI PHY driver for the StarFive JH7110.
-> 
-> This driver binds to the starfive,jh7110-inno-hdmi-phy node and
-> gets its regmap from the parent. It has no dependencies on voutcrg, only
-> on its refoclk (xin24m), which breaks the probe-time circular
-> dependency.
-> 
-> This driver provides two main functions:
->  - Clock Provider: It registers clk_ops to provide the variable pixel
->    clock (hdmi_pclk). The .set_rate operation configures the Pre-PLL
->    registers (0x1a0+) based on the requested rate.
-> 
->  - PHY Provider: It registers phy_ops for the controller. The .power_on
->    op configures and enables the Post-PLL and other analog blocks (BIAS,
->    LDO, Serializer, etc.).
-> 
-> The JH7110 instantiates the same Innosilicon IP as the Rockchip RK3328,
-> with the PHY register block shifted by 0x100 because it sits behind the
-> HDMI controller in the shared register space. The pre-PLL programming
-> therefore comes from the common Innosilicon helpers; this driver adds
-> the JH7110 pixel clock table, the post-PLL and the analog configuration.
-> 
-> Co-developed-by: Dominique Belhachemi <db@domibel.de>
-> Signed-off-by: Dominique Belhachemi <db@domibel.de>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  drivers/phy/starfive/Kconfig                |  20 +
->  drivers/phy/starfive/Makefile               |   1 +
->  drivers/phy/starfive/phy-jh7110-inno-hdmi.c | 567 ++++++++++++++++++++++++++++
->  3 files changed, 588 insertions(+)
-> 
-
-[snip]
-
-> +
-> +static const struct inno_hdmi_phy_pre_pll_config pre_pll_cfg_table[] = {
-> +	{ 25175000, 25175000, 1, 100, 2, 3, 3, 12, 3, 3, 4, 0, 0xF55555 },
-> +	{ 25200000, 25200000, 1, 100, 2, 3, 3, 12, 3, 3, 4, 0, 0 },
-> +	{ 27000000, 27000000, 1, 90, 3, 2, 2, 10, 3, 3, 4, 0, 0 },
-> +	{ 27027000, 27027000, 1, 90, 3, 2, 2, 10, 3, 3, 4, 0, 0x170A3D },
-> +	{ 28320000, 28320000, 1, 28, 2, 1, 1, 3, 0, 3, 4, 0, 0x51EB85 },
-> +	{ 30240000, 30240000, 1, 30, 2, 1, 1, 3, 0, 3, 4, 0, 0x3D70A3 },
-> +	{ 31500000, 31500000, 1, 31, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
-> +	{ 33750000, 33750000, 1, 33, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
-> +	{ 36000000, 36000000, 1, 36, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 40000000, 40000000, 1, 80, 2, 2, 2, 12, 2, 2, 2, 0, 0 },
-> +	{ 46970000, 46970000, 1, 46, 2, 1, 1, 3, 0, 3, 4, 0, 0xF851EB },
-> +	{ 49500000, 49500000, 1, 49, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
-> +	{ 49000000, 49000000, 1, 49, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 50000000, 50000000, 1, 50, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 54000000, 54000000, 1, 54, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 54054000, 54054000, 1, 54, 2, 1, 1, 3, 0, 3, 4, 0, 0x0DD2F1 },
-> +	{ 57284000, 57284000, 1, 57, 2, 1, 1, 3, 0, 3, 4, 0, 0x48B439 },
-> +	{ 58230000, 58230000, 1, 58, 2, 1, 1, 3, 0, 3, 4, 0, 0x3AE147 },
-> +	{ 59341000, 59341000, 1, 59, 2, 1, 1, 3, 0, 3, 4, 0, 0x574BC6 },
-> +	{ 59400000, 59400000, 1, 99, 3, 1, 1, 1, 3, 3, 4, 0, 0 },
-> +	{ 65000000, 65000000, 1, 130, 2, 2, 2, 12, 0, 2, 2, 0, 0 },
-> +	{ 68250000, 68250000, 1, 68, 2, 1, 1, 3, 0, 3, 4, 0, 0x3FFFFF },
-> +	{ 71000000, 71000000, 1, 71, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 74176000, 74176000, 1, 98, 1, 2, 2, 1, 2, 3, 4, 0, 0xE6AE6B },
-> +	{ 74250000, 74250000, 1, 99, 1, 2, 2, 1, 2, 3, 4, 0, 0 },
-> +	{ 75000000, 75000000, 1, 75, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 78750000, 78750000, 1, 78, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
-> +	{ 79500000, 79500000, 1, 79, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
-> +	{ 83500000, 83500000, 2, 167, 2, 1, 1, 1, 0, 0, 6, 0, 0 },
-> +	{ 83500000, 104375000, 1, 104, 2, 1, 1, 1, 1, 0, 5, 0, 0x600000 },
-> +	{ 85500000, 85500000, 1, 85, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
-> +	{ 85750000, 85750000, 1, 85, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
-> +	{ 85800000, 85800000, 1, 85, 2, 1, 1, 3, 0, 3, 4, 0, 0xCCCCCC },
-> +	{ 88750000, 88750000, 1, 88, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
-> +	{ 89910000, 89910000, 1, 89, 2, 1, 1, 3, 0, 3, 4, 0, 0xE8F5C1 },
-> +	{ 90000000, 90000000, 1, 90, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 101000000, 101000000, 1, 101, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 102250000, 102250000, 1, 102, 2, 1, 1, 3, 0, 3, 4, 0, 0x3FFFFF },
-> +	{ 106500000, 106500000, 1, 106, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
-> +	{ 108000000, 108000000, 1, 90, 3, 0, 0, 5, 0, 2, 2, 0, 0 },
-> +	{ 119000000, 119000000, 1, 119, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 131481000, 131481000, 1, 131, 2, 1, 1, 3, 0, 3, 4, 0, 0x7B22D1 },
-> +	{ 135000000, 135000000, 1, 135, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 136750000, 136750000, 1, 136, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
-> +	{ 147180000, 147180000, 1, 147, 2, 1, 1, 3, 0, 3, 4, 0, 0x2E147A },
-> +	{ 148352000, 148352000, 1, 98, 1, 1, 1, 1, 2, 2, 2, 0, 0xE6AE6B },
-> +	{ 148500000, 148500000, 1, 99, 1, 1, 1, 1, 2, 2, 2, 0, 0 },
-> +	{ 154000000, 154000000, 1, 154, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 156000000, 156000000, 1, 156, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 157000000, 157000000, 1, 157, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 162000000, 162000000, 1, 162, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> +	{ 174250000, 174250000, 1, 145, 3, 0, 0, 5, 0, 2, 2, 0, 0x355555 },
-> +	{ 174500000, 174500000, 1, 174, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
-> +	{ 174570000, 174570000, 1, 174, 2, 1, 1, 3, 0, 3, 4, 0, 0x91EB84 },
-> +	{ 175500000, 175500000, 1, 175, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
-> +	{ 185590000, 185590000, 1, 185, 2, 1, 1, 3, 0, 3, 4, 0, 0x970A3C },
-> +	{ 187000000, 187000000, 1, 187, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-
-add:
-{ 235690000, 235690000, 1, 235, 2, 1, 1, 3, 0, 3, 4, 0, 0xB0A3D6},
-
-This matches one of the framework 13 displays (fml13v01 board)
-
-source: [1]
-
-edid:
-
-edid-decode (hex):
-
-00 ff ff ff ff ff ff 00 09 e5 5f 09 00 00 00 00
-17 1d 01 03 80 1c 13 78 02 de 50 a3 54 4c 99 26
-0f 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01
-01 01 01 01 01 01 11 5c d0 18 81 e0 2d 50 30 20
-36 00 1d be 10 00 00 1a a7 49 d0 18 81 e0 2d 50
-30 20 36 00 1d be 10 00 00 1a 00 00 00 fe 00 42
-4f 45 20 43 51 0a 20 20 20 20 20 20 00 00 00 fe
-00 4e 45 31 33 35 46 42 4d 2d 4e 34 31 0a 01 21
-
-02 03 19 c1 44 83 10 02 01 23 09 07 07 83 01 00
-00 67 03 0c 00 10 00 00 44 11 5c d0 18 81 e0 2d
-50 30 20 36 00 1d be 10 00 00 1a 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01
-
-----------------
-
-Block 0, Base EDID:
-   EDID Structure Version & Revision: 1.3
-   Vendor & Product Identification:
-     Manufacturer: BOE
-     Model: 2399
-     Made in: week 23 of 2019
-   Basic Display Parameters & Features:
-     Digital display
-     Maximum image size: 28 cm x 19 cm
-     Gamma: 2.20
-     Monochrome or grayscale display
-     First detailed timing is the preferred timing
-   Color Characteristics:
-     Red  : 0.6396, 0.3291
-     Green: 0.2998, 0.5996
-     Blue : 0.1494, 0.0595
-     White: 0.3125, 0.3281
-   Established Timings I & II: none
-   Standard Timings: none
-   Detailed Timing Descriptors:
-     DTD 1:  2256x1504   59.998513 Hz   3:2     92.938 kHz    235.690000 
-MHz (285 mm x 190 mm)
-                  Hfront   48 Hsync  32 Hback  200 Hpol P
-                  Vfront    3 Vsync   6 Vback   36 Vpol N
-     DTD 2:  2256x1504   47.998302 Hz   3:2     74.349 kHz    188.550000 
-MHz (285 mm x 190 mm)
-                  Hfront   48 Hsync  32 Hback  200 Hpol P
-                  Vfront    3 Vsync   6 Vback   36 Vpol N
-     Alphanumeric Data String: 'BOE CQ'
-     Alphanumeric Data String: 'NE135FBM-N41'
-   Extension blocks: 1
-Checksum: 0x21
-
-----------------
-
-Block 1, CTA-861 Extension Block:
-   Revision: 3
-   Underscans IT Video Formats by default
-   Basic audio support
-   Native detailed modes: 1
-   Video Data Block:
-     VIC   3:   720x480    59.940060 Hz  16:9     31.469 kHz 
-27.000000 MHz (native)
-     VIC  16:  1920x1080   60.000000 Hz  16:9     67.500 kHz 
-148.500000 MHz
-     VIC   2:   720x480    59.940060 Hz   4:3     31.469 kHz 
-27.000000 MHz
-     VIC   1:   640x480    59.940476 Hz   4:3     31.469 kHz 
-25.175000 MHz
-   Audio Data Block:
-     Linear PCM:
-       Max channels: 2
-       Supported sample rates (kHz): 48 44.1 32
-       Supported sample sizes (bits): 24 20 16
-   Speaker Allocation Data Block:
-     FL/FR - Front Left/Right
-   Vendor-Specific Data Block (HDMI), OUI 00-0C-03:
-     Source physical address: 1.0.0.0
-     Maximum TMDS clock: 340 MHz
-   Detailed Timing Descriptors:
-     DTD 3:  2256x1504   59.998513 Hz   3:2     92.938 kHz    235.690000 
-MHz (285 mm x 190 mm)
-                  Hfront   48 Hsync  32 Hback  200 Hpol P
-                  Vfront    3 Vsync   6 Vback   36 Vpol N
-Checksum: 0x01  Unused space in Extension Block: 84 bytes
-
-
-> +	{ 241500000, 241500000, 1, 161, 1, 1, 1, 4, 0, 2, 2, 0, 0 },
-> +	{ 241700000, 241700000, 1, 241, 2, 1, 1, 3, 0, 3, 4, 0, 0xB33332 },
-> +	{ 262750000, 262750000, 1, 262, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
-> +	{ 296500000, 296500000, 1, 296, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
-> +	{ 296703000, 296703000, 1, 98, 0, 1, 1, 1, 0, 2, 2, 0, 0xE6AE6B },
-> +	{ 297000000, 297000000, 1, 99, 0, 1, 1, 1, 0, 2, 2, 0, 0 },
-> +	{ 594000000, 594000000, 1, 99, 0, 2, 0, 1, 0, 1, 1, 0, 0 },
-> +	{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-> +};
-> +
-
-kind regards,
-Maud
-
-[1]: 
-https://github.com/DC-DeepComputing/fml13v01-linux/blob/97c64fe2832b6826914b6da7aa4febcdd4d3d444/drivers/gpu/drm/verisilicon/inno_hdmi.c#L112
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAyMDI2LTA4LTI1IGF0IDE1OjMzICswODAwLCBQZW5ncGVuZyBIb3Ugd3JvdGU6Cj4g
+X19wbGljX3RvZ2dsZSgpIGJ1aWxkcyBhIDMyLWJpdCBlbmFibGUtcmVnaXN0ZXIgbWFzayBmcm9t
+IHRoZSBoYXJkd2FyZQo+IGludGVycnVwdCBudW1iZXIuIEEgdmFsaWQgaW50ZXJydXB0IHdob3Nl
+IGxvdyBmaXZlIGJpdHMgYXJlIDMxIGV2YWx1YXRlcwo+IDEgPDwgMzEsIHdoaWNoIHNoaWZ0cyBh
+IHNpZ25lZCBpbnQgaW50byBpdHMgc2lnbiBiaXQgYW5kIGlzIHVuZGVmaW5lZAo+IGJlaGF2aW9y
+Lgo+IAo+IFVzZSBCSVQoKSwgbWF0Y2hpbmcgdGhlIGVxdWl2YWxlbnQgbWFzayBjb25zdHJ1Y3Rp
+b24gaW4gcGxpY19pcnFfZW9pKCkuCj4gCj4gRml4ZXM6IDE0ZmY5ZTU0ZGQxNCAoImlycWNoaXAv
+c2lmaXZlLXBsaWM6IENhY2hlIHRoZSBpbnRlcnJ1cHQgZW5hYmxlIHN0YXRlIikKClRoYW5rcyBm
+b3IgdGhlIHBhdGNoISBUaGUgcGF0Y2ggaXRzZWxmIGxvb2tzIGdvb2QgYnV0IHRoZSBGaXhlcyB0
+YWcKYWJvdmUgZG9lcyBub3QgY29ycmVjdGx5IGlkZW50aWZ5IHRoZSBjb21taXQgdGhhdCBpbnRy
+b2R1Y2VkIHRoZQpwcm9ibGVtYXRpYyBsaW5lLiBJcm9uaWNhbGx5LCB0aGF0J3Mgb25lIG9mIHRo
+ZSBmZXcgbGluZXMgaW4gdGhhdApmdW5jdGlvbiB0aGF0IHdlcmUgKm5vdCogbW9kaWZpZWQgaW4g
+dGhhdCBjb21taXQuCgpQbGVhc2UgdXNlICJnaXQgYmxhbWUiIHRvIGZpbmQgdGhlIHJpZ2h0IGNv
+bW1pdCwgYW5kIHJlc2VuZCB0aGUgcGF0Y2gKd2l0aCBhIGNvcnJlY3QgRml4ZXMgdGFnLgoKPiBB
+c3Npc3RlZC1ieTogQ29kZXg6Z3B0LTUKPiBTaWduZWQtb2ZmLWJ5OiBQZW5ncGVuZyBIb3UgPHBl
+bmdwZW5nQGlzY2FzLmFjLmNuPgo+IC0tLQo+IMKgZHJpdmVycy9pcnFjaGlwL2lycS1zaWZpdmUt
+cGxpYy5jIHwgMiArLQo+IMKgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0
+aW9uKC0pCj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZlLXBsaWMu
+YyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZlLXBsaWMuYwo+IGluZGV4IDViMGRhYzEwNDgx
+NC4uZDNkNDE4N2I5NmFiIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZl
+LXBsaWMuYwo+ICsrKyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZlLXBsaWMuYwo+IEBAIC0x
+MDgsNiArMTA4LDYgQEAgc3RhdGljIGludCBwbGljX2lycV9zZXRfdHlwZShzdHJ1Y3QgaXJxX2Rh
+dGEgKmQsIHVuc2lnbmVkIGludCB0eXBlKTsKPiDCoHN0YXRpYyB2b2lkIF9fcGxpY190b2dnbGUo
+c3RydWN0IHBsaWNfaGFuZGxlciAqaGFuZGxlciwgaW50IGh3aXJxLCBpbnQgZW5hYmxlKQo+IMKg
+ewo+IMKgCXUzMiBfX2lvbWVtICpiYXNlID0gaGFuZGxlci0+ZW5hYmxlX2Jhc2U7Cj4gLQl1MzIg
+aHdpcnFfbWFzayA9IDEgPDwgKGh3aXJxICUgMzIpOwo+ICsJdTMyIGh3aXJxX21hc2sgPSBCSVQo
+aHdpcnEgJSAzMik7Cj4gwqAJaW50IGdyb3VwID0gaHdpcnEgLyAzMjsKPiDCoAl1MzIgdmFsdWU7
+CgotLSAKUmVnYXJkcywKUmFkdQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
