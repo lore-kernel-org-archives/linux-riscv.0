@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D91C61DCB
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Aug 2026 20:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2384C61DD6
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Aug 2026 20:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1rknx9zTe/A8zDAdejyxuOyd0wwvNZeOv6R2AMj1TuI=; b=mJCjIrlQHj2qdw
-	V6YDaDeSa3dGyal0WVTHRX72jlkobCzOUU1pBmcZz0BY+SxYNnfHmSSFTfyjj7TdMItXev/IXELKM
-	aiEoOwLifUJRzc/8OcjlQx1luhEpEnUJseSb/Ih0SVKvRVzYkXb69FxagRlym0KKgwfI9OeDidV5g
-	A1n/9FbuZS8oCy0hzn20ZlsehitIna9DVFPf55UFHUrVLd90TzG94a2I5o2rle2ou5I2ry8dGpZ3M
-	vBeh5+yvPIjgQDiEpv6Lp3rDLg6XWm14Qk+fV/VdFns5Imwn/jaLP2L3gVZm1U7RnqbLsTsgWQwn7
-	OrB/V8EQx92dPP62a0oA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZWr1ZqyweYVVfyOJCcrzsOfGszrG1Nm+joUdg1yvOAI=; b=x1C5GCGLfDe9XG
+	ZjEat7qj+n56wlosmBvF35nZaAFBMhMcE7/Gk2gfB5HB0MJ0EsjggglKXaAzxBoifgzvEkH0Hol9x
+	M6OsBH/Rk8wphj83V2LGDv23IN+5fAIcPhj8Zy8nv0pn5nU55aFmi91qPDQExAbG7zSRg6W5sqOB8
+	TtZIbF5j6WN8PESPSbynIW2soTfPDbzrR+AJM4BiOzWqRp//lfThFHtQbEby+cjxzuecknDFtWx5V
+	npLy1t4+n4RW0aNm4Wc3KVpPdjHRTKYpmdfNCY9RwWnffZLgSCo9PeFF/O+2Vb0XSrPXFY1PdmvEm
+	DMrfvJseBnL0ujs2sneg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Q6Q-00000007Jt1-3wGw;
-	Sat, 29 Aug 2026 20:56:38 +0000
+	id 1x0Q6T-00000007Ju8-0Ed4;
+	Sat, 29 Aug 2026 20:56:41 +0000
 Received: from mail-bjschn02on2093.outbound.protection.partner.outlook.cn ([139.219.17.93] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Q6O-00000007JsK-0FKV
+	id 1x0Q6Q-00000007JsK-1YNc
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Aug 2026 20:56:37 +0000
+	Sat, 29 Aug 2026 20:56:39 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=jaCbOhivUIcLCgvxF9vEMJ9CJAWRoMPuGqjVOERMAQkh7JQ3rKgewXrj6LTTueiN2qAkIK3ukyJUQsiFST4Lm12b8j8pPz68VIIO2smRJGJ6e/RmqYbFxvd3/MF+sLlCf9NzrDphi5D9S3Zh80M/EphgGMLcfulr+mQfdDYg50+IDTqLtHjCUOwH4fIoYjhbx07LtGaXIsQfiQihBFqKhzci7xCbzNCexcZI5ZcxSNPBCFXmSSAYsf4jiwrLLW/9y9PpM9vQCBnpLTeF02XnnvSqxTqqf6C6kDrRLbwmEqlY9JpFd0IyEkoA5Qow9OfRmBO7/ssUBS7KywSnhwld3g==
+ b=VONzmYUB66gzFZVlaAt4iCKF7D2irKnbtvAnIQUiARFO96QE4RadqbW+9RtJQuUMPn07NjOJtoRokeGx0ME7OC9ubAXKDGn5q3ENMbze3o6OoAvcXNhNz62p7UidiFPn27aZz/tIUhQSgE4MHyLQdF851EWS7XTWN9W6AOsu8nS6LwcLOF9pfJsEMPZa+POXjuLRSiwwSLNpLxqSTTZF2+E6Bv+ma+EwnvNd+GWZmhwJIjw1ozo7Q1pGk6ot3ZlizoinxgNw2RmK5aSl1HWMtcIMLOP+oVEk/FBQCNJaSpVAwkIr4c47ZwcQ+3Ml//+vMQCqvFw8QCzWXaqlVOqo2A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=M9g1i6iTFbZ+gpnieiWQgYULXeGpVwZmdfuT/028Ql8=;
- b=YPp6BEa1qdF+et4nblwGZrzVg5Fk5d/hX6QmNqHpxRjG/jzI1V7fhDfJpriZOY+tErMLkFlvhyibvdXojE36kxrjSZZW3SeBGH81uFcVRJ+pOUd62SqE9ZYZ+4LHRwHjQzxk/bTzbmkw46P+roaHlWSmT+RoYiQbcYHLTlFJsHMVZ9a24qIONcBgqTVv5Go5s+bzWRqdniuGpdaScWEvdF24sg9FAjxApszcqY7IiHNm0RScmDOfRIMSPTBZn5cs1FN5ZeFbkRhvjHiWA7b84RrZg3J1FWYzUrV0qPJCyaOsuZILef9Bpg21V4IAKMk/DJyPWFDGhyQzeiLhS5KfBA==
+ bh=w+qoQIZIyGZLEKbZaeCztvK/3VrELEMlKlZ6iktumko=;
+ b=NbeHr8x6mVyx+UrGBdkkP6ey8Xmcesam0parpLsdWsRXbeiPqvBg6/1XPx62xUrQQ1OyEb48SLhtYJqfZpyM0K5dOxjK7B0hTrdLEsRk8vsRZojbm3VH9/YoSjcWipr5sgIlY3FCPOKhmcxqSq+xB5+Jxk7P/9f4W+xadXZaZZGYJN11Mvq6jup4+1aozclMHgqYvkMyOgwRZgHo1Qn4cVZypgHwwBu/i76QzKxEBwfJZapwHqGFeUScD8wAnu/NKi2eKv/DF3WsqoIOQ7mTNe9F8947J0PGD6jrTwuGq/YNNPd/flDf89QY4wXSVyQwyM869518zL7dEUGfaivkyQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=starfivetech.com; dmarc=pass action=none
  header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
@@ -43,11 +43,11 @@ Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:1b::23) by BJXPR01MB0709.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:1b::19) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Sat, 29 Aug
- 2026 20:56:18 +0000
+ 2026 20:56:26 +0000
 Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
  ([fe80::e644:7bf5:5a3c:e548]) by
  BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn ([fe80::e644:7bf5:5a3c:e548%3])
- with mapi id 15.21.0315.011; Sat, 29 Aug 2026 20:56:17 +0000
+ with mapi id 15.21.0315.011; Sat, 29 Aug 2026 20:56:26 +0000
 From: Joshua Yeong <joshua.yeong@starfivetech.com>
 To: rahul@summations.net,
 	anup@brainfault.org,
@@ -65,67 +65,68 @@ Cc: alex@ghiti.fr,
 	linux-pm@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] Add RISC-V RPMI device power service support
-Date: Sun, 30 Aug 2026 04:55:17 +0800
-Message-ID: <20260829205520.1691-1-joshua.yeong@starfivetech.com>
+Subject: [PATCH 1/2] dt-bindings: power: Add RPMI device power service bindings
+Date: Sun, 30 Aug 2026 04:55:18 +0800
+Message-ID: <20260829205520.1691-2-joshua.yeong@starfivetech.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260829205520.1691-1-joshua.yeong@starfivetech.com>
+References: <20260829205520.1691-1-joshua.yeong@starfivetech.com>
 X-ClientProxiedBy: BJXPR01CA0062.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:12::29) To BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
  (2406:e500:c211:1b::23)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: BJXPR01MB0838:EE_|BJXPR01MB0709:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4a1ff247-8f1b-4012-9d38-08df060ff895
+X-MS-Office365-Filtering-Correlation-Id: 5547727c-2f3d-47b2-850b-08df060ffd71
 X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|23010399003|1800799024|7416014|376014|366016|18002099003|56012099006|10067099003|3023799007|38350700014|6133799003|921020;
-X-Microsoft-Antispam-Message-Info: y5oABsVmHsj7QuRjEk5Bi5PSIzIKEOhM4RKB2K9UQo8azxMh1Mr9Mm4X1nBDWtmFOladG2Z9PbCIP+0ZjHdL8NkCqkVQCkOvh12AjRb8f9ju1r0DwxVbbmjGTjxPgMIbV0+81zSrZNXJzHWKrqVcO9e5rW2IYnUKeFZXgwjuqz/b6Aik/Yska/MOuEyTisX6FwcGjuKsiJP8XX6ww3IDIlvmkxUL7QnyL2RyDuyK9kaZJkQlbefGy35YWAGaTTClSs5yPLyqH4AV4qz78eetinCv9LzhD0FR7p0ynWrc7NgLyX7i6XFe2bjfTzjbDO1AScaorxCFr/rYgllRbwnFsuaj9mjR3rDXZkuX7SQ21iGj5enJpeJ7ZFSWxR19P3vkPllwTJS3Dp4QNiLYi09qKySBSQriFM0RbdozL5M1O1XuDEFI/QvV+1wIPpc0TY1v1bV89NdQVV5DiOxm41Was2cXwAVe+8Jzd/2q2D3Yf/GRxClXlNtH8b5uTBnLQsgzzc2pH9f22xrar0TX2NYxBJOWtk6lIRtIu3olTrq8VcU53taI/36nv0XSr+F3LRP85zTR1XRbEtUHVNMp4Yh82A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(52116014)(23010399003)(1800799024)(7416014)(376014)(366016)(18002099003)(56012099006)(10067099003)(3023799007)(38350700014)(6133799003)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|23010399003|1800799024|7416014|376014|366016|18002099003|56012099006|10067099003|3023799007|22082099003|13003099007|38350700014|6133799003|921020;
+X-Microsoft-Antispam-Message-Info: bUQlGE6TgdNTZ0P/8+gF5fsVelVXzSEJMaebnHH/Qr1GLRHlIlhLMm20OF+NqcQBLkbUwuHxIhAKsy9wf3WFLThGO4ZQz8rFC8MHR2T7AHM7Fvy55Tq8WzXLtYJLL7yK57vYbTwEEkcChyNguFjhqKKeZ9Qv2BaMOz0g5auH2Xy0M9dKwHhB29pt30J8SnvtBsUPiavP8AVXJF+56WTu3z+TCrwNU/Rh5j7Bgqui2UAMeImddW/LGMXRI+Elk8frgIqFa4nKnsUJFpILfREsnOBRuMAf1Hv9Sh+Wqd3tp3rMa8QrZKIUV64lxyfXEuAmtaLLnp6RgSZ/RfebOd4AKf5gWlWhR+LqhRxTKujXty4+UbmzCMeyQZ0e3J8bWkKJ89oAOWcMuZvxzA9pivCrZd6Qlk8FXoN1qyLkfXvwwpw7pXEleQx2UjTJ8nAAcZsw6LrjWqQLM4QQw0IQQC1wkULqo8Ge3NNbc2M2ohIKdQbyRiFEaZEjVMRhPU7nk3Kgg2Nxu50Uk83MhUiXmkPyMhGt6P6yR/Hjd5q9GF25+g9HnpyQDop2vrzC9ugKaz8DSzbRVbt9K0kB0VGy9SQ76g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(52116014)(23010399003)(1800799024)(7416014)(376014)(366016)(18002099003)(56012099006)(10067099003)(3023799007)(22082099003)(13003099007)(38350700014)(6133799003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?I38AFtD0LaL7nDffBVMCz5S8NSbL9UKFd0P4DXpw5SK0iQ4EAYeWeESCVWPD?=
- =?us-ascii?Q?NtzJ6RXEQ930sp0THU39JncMWK0RdrYPB+W/Gkj2K/VjK414PoQuuA53ysY6?=
- =?us-ascii?Q?binFZ5T51Xnh70+LmEsXfBdul+1V1oNPNVZBZHleDWYxWw+kyledFnd9wa6q?=
- =?us-ascii?Q?Lk2Rvm1L+hU7h11v1qQwLhVYtvXi3VHPHPkSJM6O3e9RarxiEFVA+d0rSfRF?=
- =?us-ascii?Q?YB3jE0QGt0tJasUjLHUnxBCjLATTjC0x18Sr+rfM2tXy3mnb2CxM5GvHGxGa?=
- =?us-ascii?Q?ImSP9yI5tzEdc+NKkqTLydXvynGMD18dlXKq/ZCORfyaemLlBw5JfMNSWdN9?=
- =?us-ascii?Q?BAx4J0GsWT4QU2vrb2YdPwgejG9+QdDi/mu859UTc6wQMS9xlobELw7onihS?=
- =?us-ascii?Q?M/Y3EuKw1aYyP3i2qpBbXQbww4+19U9LpnAO9mcBumUlmsPq8tGFh1gfCoLm?=
- =?us-ascii?Q?IXv+jMos11MUqTXVpBd1Y1g7KsJPOlecIvrA9rs16uhbb9i+4QLAjum1Z3ad?=
- =?us-ascii?Q?R72zxqovNcKx5FtxbQu4OsvUUEOkXuG1peN136xFAktEnYQ+ZO0bgqde9U8J?=
- =?us-ascii?Q?1Nmzl35cVMRcIQ8RFrGiUyz5ux/Jk4WrLN3opVDFJdbgS8DOnh+gWVoOIggl?=
- =?us-ascii?Q?oCCsqOtBcGiGQOt8ZvxFFky5Z7KeL7wv6uxX78eLNZItWaEa1X7NF+Ooj3Ka?=
- =?us-ascii?Q?nwuxkim9k5p6+dSGc6d9ZWaCU6Of5vEdWat12FhMSBi7I3LAOD4f3QoQE5lN?=
- =?us-ascii?Q?OovhwghQ+b9xE/SVtd86l9Y0F/Q2EW9ubV5+0yY9eLzqtLFfpxevoOQ3iJGB?=
- =?us-ascii?Q?PBhW+UhxhdPpeU7LeIJ0ofV9aGENhoIc6FM1CyeOt2S8aDNbivrK7q2aFgzl?=
- =?us-ascii?Q?MC7kikFzkDX6Gp6Htv7aUs0QGX0O3MM9hiNnLAAX0zx/mRYq4xWjUnmy2FCm?=
- =?us-ascii?Q?zFSDlmVvv7hHINN5Gvde+0zYbnFNhptrFTQAKx5Pov13919sZpY2EIrdf9Pn?=
- =?us-ascii?Q?jtDGIi8IEIhynJuGANLnP9QhKH1wcqaMeuFjrKw3aUv86xeYISiyLG1q4jV+?=
- =?us-ascii?Q?+cT/QqjVG8HMEeqFU41v6DJ3GLsAdHRjhFZo2hxs/e44NYv1xbQk2ehTpj5x?=
- =?us-ascii?Q?WE3EE54s8YyO2fbicmQh+nJ4GYg/i4vubtgqq3mU6/p7WXlxeHYS7vEDWrol?=
- =?us-ascii?Q?EfBwghSjCMLg3Fqn18MShvX16QgGEgbLyPpvEQrYNfU5uD0MJunUnL9O5zTi?=
- =?us-ascii?Q?ND4iCM+pzvgAvh+lntyERvkADUin3Xu8ws8F3TrkIPeoegBm7NczmhvZtygz?=
- =?us-ascii?Q?DJEFVmyom6S7adZuDqNmwuPAjtgqKcGuUfJfp8voqg5owYebLdoOC0raVuTi?=
- =?us-ascii?Q?IW3xSMg9uMPkcBXG8dtISNvdrgLJR0heQk0UBOkMY3gxl9GvNN6rjzT7CoPK?=
- =?us-ascii?Q?HH6U6n0oMz18PL/r1d/Llt6RtG9Ii6lLsIgldxUoBKeiduGVydT+rN499uBj?=
- =?us-ascii?Q?GgPk0G3sS+0+p7W0lKLvRG9uysU+AUdgNeipLvobwI5cirEFoKVH7Cazq8YU?=
- =?us-ascii?Q?Ae2dij4pEi9EdghWiT8q2t5ZtloAUeoGOB2vgdfRH5H2XckWFijI9bTLPAV7?=
- =?us-ascii?Q?WGH51MUUndmI92o2V/m3JkpwVpUn8xz/LOmabpMAx8fMVVPFOuhFVHKfqRfV?=
- =?us-ascii?Q?oZk2Ta42z3MNTZoJf/j1FSMQA8w7RbrQaHDOXPAm/4cYDNk//04w5LsSHcRx?=
- =?us-ascii?Q?dni28js0326+lJqSDTLr6vg3IYN5bxI=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+3iCfW3Lgg1cG7cEVPG4jT0HWMJrDk6WeaJnL/i+36L8GJumXimiXzKD9mW8?=
+ =?us-ascii?Q?8C0RMDXXvmYEj76984UvJME/Oqnt7aYk2YaUysZ37jXJJppiqdomjbSnzSJf?=
+ =?us-ascii?Q?viPcLA4YkFvU/XqVlOaD9wr7cY4xsqJZR0RdOl0D+k4bqj2eTCkSS/tT37LN?=
+ =?us-ascii?Q?QzGchngAcfch2scJlYndq2OMLhjLCw/2qYdwH6QzeL5w53b/F/7nWgZM27LA?=
+ =?us-ascii?Q?e0xbiQEOL9P/8/eeVUZyKf/CAAnYs2KZHHSzBplb1OHUV0AzfF6hJWhb36qe?=
+ =?us-ascii?Q?+CVnCIAl/cUP8B4wvCESm4a6op+/DTEqiKqjOSnYTS0I5fraZX/z6mNWKG/p?=
+ =?us-ascii?Q?GAmN/fOzk1rYR3RIHHHJlwhj0H8cjM7flBmSMKbw/4t+t06RVo7XLtf0PILr?=
+ =?us-ascii?Q?5sl3OYe52r1NYWeJDXPauKLvYLsGwElRsCLrHRPHcMb/zoj21ovEYGhe4Daa?=
+ =?us-ascii?Q?N/hCSH56Sbp0kGCtKCvlqOq4nLCkRCH13uexe4ArM+JPsgUWRzhJOY3MjnXF?=
+ =?us-ascii?Q?R2Kf4HmbkEJ49TfPH/50zSM1O+0ZSFOQH8dQXXfdDURI1J6074dAllfQ6/0n?=
+ =?us-ascii?Q?ZbStjgY6oE1H6sVE7K/cUqJQPd5l+mMaYm9ZR26BolMr7kyEKi4mRG8INlO+?=
+ =?us-ascii?Q?y+Dh4cFB2k8XnHaYRhjAiV32PxFkDop8e2nyl6FDi6w/eWtfbWOut89aLI86?=
+ =?us-ascii?Q?N1L1NnnxOxBfpkgIxzA31XnIuLkA5EJQtSt65VHfC5C8TgiB+bXcRvm+ampR?=
+ =?us-ascii?Q?xCsYcinZAIZm+DV9KaGymQCOFoMQL6RnLpkFvqEypO74MM07DRwx2SIfLYr0?=
+ =?us-ascii?Q?FQVyEx7Xl1RMmEz5SNoRGnnGM5JEyksUBg4Z99EiDNcyEflu2EBtvJreVNaf?=
+ =?us-ascii?Q?FzVoLYtAjUcWwMzVMgmSDovQqaD39tRlupbUuZNflsWeCn2r+DC3E4GdOx3g?=
+ =?us-ascii?Q?LMMmcoaP10cJArj0A4XM0hIBbabjbHY6PoP07MimQXCbia05DhJY2eaej0sH?=
+ =?us-ascii?Q?P9ZlYUgsPVU9UpJ/ygMdklCp+II+RgUv0y9gT9xhNre7uybHo8t8fdkLH9th?=
+ =?us-ascii?Q?z4mIiLBubKQOGfEELUJwW7fAku79GW/tc12o96e9LdHppV5wIwc67QfUeFP9?=
+ =?us-ascii?Q?dgTlK1fM2PmDPB5bsB5BpTETzxBDY6VVCkDAfXBPz7s8ncSnNtLD0i9WEBPG?=
+ =?us-ascii?Q?0/nKwunqlh4kyPIfFM1fCUe/BMYu33s/eU+fAm4idF6ljz+KUCzzVl7XgozX?=
+ =?us-ascii?Q?Nb6BKQKwVH3cUGTWaIJYfA5c1SxROhCBCQ1S6PEtshevncFQawpaoEbAS/4H?=
+ =?us-ascii?Q?jgC8ypRDHJFdOLRizYBMUZkknoQETJ9gDyacyyk8B4GWoCUnLktUQo2K+uxw?=
+ =?us-ascii?Q?BCYXpdyCk0/cNyk6YK2iQFyh6+hJQTp9sJBggcfRvyNWs159E6cZwSdRXWxf?=
+ =?us-ascii?Q?39Wz7ANEU5CPSBKrAQpYHhT4m5qqqxz4JYE4aMWTBHcYwZ3S+HYk3ilYQdxS?=
+ =?us-ascii?Q?dyRw5zVgyw4e7Wa4FBmSwiTubO/xAJJc745i+R6+5hP5pFtvpvpAEu6Ik+iV?=
+ =?us-ascii?Q?ZQ+1tEsRA4kDJZLp4IoKVPyGMRD+KlXXaoup0Ko7fW/QOFYK9FKjOqInzbJY?=
+ =?us-ascii?Q?zPn+sVBBz9cyvt1EZVdBbgSlrTSKRO6yKs1L5XZMrrD9wvynDURutXRXEETH?=
+ =?us-ascii?Q?KbUTLLXikX56G40HoV2+qmkWUCjE+qv0BCIbzNpMtG05KNIfnVcOHkT7MoJc?=
+ =?us-ascii?Q?fkAX5hKUtI3Dhpa+ljzsF6IPZCnF+Fk=3D?=
 X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4a1ff247-8f1b-4012-9d38-08df060ff895
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5547727c-2f3d-47b2-850b-08df060ffd71
 X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2026 20:56:17.7641
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Aug 2026 20:56:25.9008
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HnH/lc9gFpJZEAnKk8JZlLMDylbj6OZ2SCgYwnwjH2l50APuBf8jBs5P84A9+cZrsZdd0khuKIS0Kt5pYiqZ/md/RjNjyKCPiqNnjWiHSuI=
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZMFlz4+HONCVm4UtTK1sHrKwoHuo9fiWmTLNiD6aHxQcR488bu0Gwu0TziIPkHYxWNahmA7NtA0YT+znnyb9+CvuI1i4eD50Zpn8dSrwols=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0709
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260829_135636_101797_7DFA9E7D 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260829_135638_416085_CC35ADF9 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,68 +143,164 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V Platform Management Interface (RPMI) specification defines a
-modular and extensible messaging protocol between the supervisor software
-and a platform microcontroller (PuC). Among the service groups it defines
-is the device power service group (service group ID 0x00009), which allows
-the supervisor to enumerate the power domains of platform devices managed
-by the PuC, query their attributes, and get/set their power state.
+Add device tree bindings for the RISC-V Platform Management Interface
+(RPMI) device power service group, both for the supervisor-facing power
+domain controller and for the SBI MPXY channel which the SBI
+implementation uses to expose the service group.
 
-This series adds supervisor-side support for that service group:
+Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
+---
+ .../power/riscv,rpmi-device-power.yaml        | 65 +++++++++++++++++++
+ .../power/riscv,rpmi-mpxy-device-power.yaml   | 65 +++++++++++++++++++
+ 2 files changed, 130 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml
+ create mode 100644 Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
 
- - DT bindings for the power domain controller exposed to the supervisor
-   ("riscv,rpmi-device-power") and for the SBI MPXY channel that the SBI
-   implementation uses to expose the service group to the supervisor
-   ("riscv,rpmi-mpxy-device-power").
-
- - A generic power domain (genpd) provider driver under
-   drivers/pmdomain/riscv/ which talks to the PuC over an SBI MPXY
-   mailbox channel. At probe it queries GET_NUM_DOMAINS, then for each
-   domain queries GET_ATTRS for the name and transition latency and
-   GET_STATE for the initial state, and registers the whole set as a
-   onecell genpd provider. Domain power on/off is driven through
-   SET_STATE with the generic ON/OFF power state parameters, so devices
-   can simply reference a domain through the "power-domains" property.
-
-The series is based on the existing RISC-V RPMI/MPXY infrastructure
-already present in the tree (drivers/mailbox/riscv-sbi-mpxy-mbox.c and
-include/linux/mailbox/riscv-rpmi-message.h), and only adds the device
-power service group definitions on top of it.
-
-Testing
-=======
-
-The series was tested under QEMU with the RPMI device power service
-implemented in firmware.
-
-Components:
-
- - OpenSBI: latest master branch
-   https://github.com/riscv-software-src/opensbi
-
- - QEMU: the RPMI-enabled tree at
-   https://github.com/yeongjoshua/qemu/tree/rpmi-v11.1.0
-
-Kernel config: enable CONFIG_RISCV_RPMI_DEVICE_POWER (default y on RISC-V
-when MAILBOX is enabled) along with the SBI MPXY mailbox driver.
-
-Run with:
-
-  qemu-system-riscv64 \
-      -M virt -m 2G -smp 4 \
-      -bios fw_dynamic.bin \
-      -kernel Image \
-      -M rpmi=true \
-      -nographic \
-      -initrd rootfs-busybox.cpio \
-      -append "root=/dev/ram rw console=ttyS0,115200 no_console_suspend mem=2048M earlycon=uart8250,mmio,0x10000000"
-
-The RPMI device power domains advertised by the emulated platform
-microcontroller show up as generic power domains and can be inspected
-through /sys/kernel/debug/pm_genpd/.
-
---
+diff --git a/Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml b/Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml
+new file mode 100644
+index 000000000000..5afdc40df7e0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml
+@@ -0,0 +1,65 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/riscv,rpmi-device-power.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V RPMI device power service group based power domain controller
++
++maintainers:
++  - Joshua Yeong <joshua.yeong@starfivetech.com>
++
++description: |
++  The RISC-V Platform Management Interface (RPMI) [1] defines a
++  messaging protocol which is modular and extensible. The supervisor
++  software can send/receive RPMI messages via SBI MPXY extension [2]
++  or some dedicated supervisor-mode RPMI transport.
++
++  The RPMI specification [1] defines device power service group for
++  accessing and controlling the power state of platform devices managed
++  by a platform microcontroller. The supervisor software can access RPMI
++  device power service group via SBI MPXY channel or some dedicated
++  supervisor-mode RPMI transport.
++
++  ===========================================
++  References
++  ===========================================
++
++  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-rpmi/releases
++
++  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++
++properties:
++  compatible:
++    description:
++      Intended for use by the supervisor software.
++    const: riscv,rpmi-device-power
++
++  mboxes:
++    maxItems: 1
++    description:
++      Mailbox channel of the underlying RPMI transport or SBI message proxy channel.
++
++  "#power-domain-cells":
++    const: 1
++    description:
++      Platform specific DOMAIN_ID as defined by the RISC-V Platform Management
++      Interface (RPMI) specification.
++
++required:
++  - compatible
++  - mboxes
++  - "#power-domain-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    power-controller {
++        compatible = "riscv,rpmi-device-power";
++        mboxes = <&mpxy_mbox 0x1002 0x0>;
++        #power-domain-cells = <1>;
++    };
++...
+diff --git a/Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml b/Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
+new file mode 100644
+index 000000000000..2b7df66ba172
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
+@@ -0,0 +1,65 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/riscv,rpmi-mpxy-device-power.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V RPMI device power service group based message proxy
++
++maintainers:
++  - Joshua Yeong <joshua.yeong@starfivetech.com>
++
++description: |
++  The RISC-V Platform Management Interface (RPMI) [1] defines a
++  messaging protocol which is modular and extensible. The supervisor
++  software can send/receive RPMI messages via SBI MPXY extension [2]
++  or some dedicated supervisor-mode RPMI transport.
++
++  The RPMI specification [1] defines device power service group for
++  accessing and controlling the power state of platform devices managed
++  by a platform microcontroller. The SBI implementation (machine mode
++  firmware or hypervisor) can implement an SBI MPXY channel to allow RPMI
++  device power service group access to the supervisor software.
++
++  ===========================================
++  References
++  ===========================================
++
++  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-rpmi/releases
++
++  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++
++properties:
++  compatible:
++    description:
++      Intended for use by the SBI implementation.
++    const: riscv,rpmi-mpxy-device-power
++
++  mboxes:
++    maxItems: 1
++    description:
++      Mailbox channel of the underlying RPMI transport.
++
++  riscv,sbi-mpxy-channel-id:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The SBI MPXY channel id to be used for providing RPMI access to
++      the supervisor software.
++
++required:
++  - compatible
++  - mboxes
++  - riscv,sbi-mpxy-channel-id
++
++additionalProperties: false
++
++examples:
++  - |
++    device-power-service {
++        compatible = "riscv,rpmi-mpxy-device-power";
++        mboxes = <&rpmi_shmem_mbox 0x9>;
++        riscv,sbi-mpxy-channel-id = <0x1002>;
++    };
++...
+-- 
 2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
