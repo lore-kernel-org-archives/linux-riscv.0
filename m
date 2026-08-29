@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A994C61DD7
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Aug 2026 07:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8A5C61DD6
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Aug 2026 08:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z5px4v4UonH98neBByarkYi1KRnX/2uykdbcE/ZhnSk=; b=RefVSGk1VB9ArJ
-	DJxzcuDnV/uhtJQl57U9jqFgyuhxBux9TxDf8dp+4LkgY60/DXANAUFtgqvV1q2uJwyZ5ldmCMqxS
-	aQmix3jGH8Yv21eLmnfHmtx/mrTpARkXUAcEvfaYVK9aw2sPATz3gfa/cY6h9+hVoAXFVQ4/evMzn
-	QO4CkLPaSs2a2c+Cvmxb1mijksVaXwUxesfCO0GxH3RX6NiQoQvHkq9+Ml+g9QmtpZ90GCG66MPmK
-	8JEBvh0F6D4sjIZ03a6J2ja4RKan/61+ENGaBgfZ24uGbfJciUXh7upR6jheay2TfxG93btauIw+L
-	J48YnClI94Ac/kmqZ+0A==;
+	List-Owner; bh=ssyj/pKtuur0uoZpYmLhYj5d1Xti2R7t+fau6YMaeNc=; b=sbrybibgoR1Q7w
+	5FsmAWic1Odh9SBJ3TIkBsxNVCT8t69BMh08BSH63Qi+/G4E2cRz887EMU5Vb1bUZHI3venmywrTo
+	1BfDv0hHzR0T5Y0S2IA7p0sXUa7Zu9grwIJZ6kKDtde4OvdKOn43X2/7CE9nsMlrOVcFmDwxNUs5d
+	ga3hiTpMaWWTwhiu7myCdHtRkgSS/mlWSbDI7E0xJee7+bBBWec6IWLLhCgMGpEkCuawvHQp/vBZs
+	8/618o5dn0g9KI6+9kdY9EWJS2oYW3xa6Edf6eqVCJpn9vAbUHSzxxan29/YbxAsLT0tuqYNHjptO
+	8+amhJZgk+ZeAO6KnUXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0DX8-00000006pSA-3muG;
-	Sat, 29 Aug 2026 07:31:22 +0000
+	id 1x0E1o-00000006qN2-0b6D;
+	Sat, 29 Aug 2026 08:03:04 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0DX7-00000006pS0-1POQ
+	id 1x0E1m-00000006qMw-1TeB
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Aug 2026 07:31:21 +0000
+	Sat, 29 Aug 2026 08:03:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 12D1560055;
-	Sat, 29 Aug 2026 07:31:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A36AB1F000E9;
-	Sat, 29 Aug 2026 07:31:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1658960055;
+	Sat, 29 Aug 2026 08:03:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9071F000E9;
+	Sat, 29 Aug 2026 08:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787988679;
-	bh=NfubPM6UMo/IG6FaMOOEgle+rUB5+JQcFLVJFPtH9ZM=;
+	s=k20260515; t=1787990579;
+	bh=zBUzO8Dj/vf5qJL5Di4e7l+uaBL4EoFy+oRcvSdhKWA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=iBV3YhXOUrioxddD2+5BsxZ85uor5LFZs2irnpSTbtMOJ2PD615qO2QtpacVozRo3
-	 q0KLtI0q3NINJOiWyqecCJCL+P/k9vKLNEqUi+zU/pbedcyj4h8PSbx+ttg9amiz2P
-	 aSnog2NI3YOJNwQa+sgz/+Lsq5/CcF/povHf1nQNq+FP70K/2BK/nYrG4e1bi0C8zw
-	 UnQW/JYI2WIUGQq5rW3ziNE7lQNltyl5tc8AUe5gYHcMQ4sWlnnrm3J7oo0CQiZpUm
-	 9VlL7h64x7D37+VvmSWDFirmN89v+yCWiQZTalcOsqZI8Wi/nIYlQKTnl1urHFXIfd
-	 zYZC6txPx61og==
-Message-ID: <bd23268f-dee6-43a0-9f8a-51ae8a272082@kernel.org>
-Date: Sat, 29 Aug 2026 09:31:10 +0200
+	b=KydmdCun6TXb3/1wzjgwG1kIlN48qY6kYXktUD0VhHyfwrKf7kGwOufFAWIHrq4Am
+	 1ySenn7ctl/HqZeHQOk575xqFyxXNiI9qIz9aiG7zwB1Vap3VcACp2VjmNei2V1bCI
+	 DH9ReYPbaubN7Ps6zZu8gGBlB4IvZHUOJUWw6gGRTPiiZp6T2yAz3+9MU/19ZDInYP
+	 rdT0F8LC9YBlAogJ52453aWVEvhKLYUyUtqYGj0wrAA0cfSzeUZprN0ar7fjgGHNcW
+	 C7Lt2/lQWRWQn4DtlxhDrztBqbPTGzLgb+8H8jAUlWi2sMNp96Rl+4n+YdvvEtZFpD
+	 6VWOLJBF531fg==
+Message-ID: <f474f659-8234-4dfb-85cc-06d2cc295107@kernel.org>
+Date: Sat, 29 Aug 2026 10:02:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 03/21] dt-bindings: pinctrl: Add
+Subject: Re: [PATCH v6 03/21] dt-bindings: pinctrl: Add
  starfive,jhb100-sys0-pinctrl
 To: Changhuang Liang <changhuang.liang@starfivetech.com>,
- Rob Herring <robh@kernel.org>, Linus Walleij <linusw@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Emil Renner Berthing <kernel@esmil.dk>,
- Alexandre Ghiti <alex@ghiti.fr>,
- Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Bartosz Golaszewski <brgl@kernel.org>
-References: <20260810063650.239303-1-changhuang.liang@starfivetech.com>
- <20260810063650.239303-4-changhuang.liang@starfivetech.com>
- <178634991918.1014951.7989635238440361454.robh@kernel.org>
- <ZQ4PR01MB120202070B9006984B8677EAF2DE2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260810144012.GA1574021-robh@kernel.org>
- <ZQ4PR01MB12020D2031C400FF805791B7F2DD2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <ZQ4PR01MB120275B9C0CF6BCE8C88261CF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <20260814-shapeless-onyx-pronghorn-d423a9@quoll>
- <ZQ4PR01MB12022F6D6F71542033CF857BF2DA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <CAD++jL=Q38HwraN1NEOxLf_hE+k=3Q6JP+DUgQsThfYve0t0RA@mail.gmail.com>
- <20260817134715.GA18207-robh@kernel.org>
- <ZQ4PR01MB1202CB0BB258ED52179F3DF4F2AB2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
+References: <20260829025720.23915-1-changhuang.liang@starfivetech.com>
+ <20260829025720.23915-4-changhuang.liang@starfivetech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -118,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <ZQ4PR01MB1202CB0BB258ED52179F3DF4F2AB2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+In-Reply-To: <20260829025720.23915-4-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,44 +117,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjkvMDgvMjAyNiAwNTowOCwgQ2hhbmdodWFuZyBMaWFuZyB3cm90ZToKPiBIaSwgUm9iLCBL
-cnp5c3p0b2YsIENvbm9yCj4gCj4+IE9uIE1vbiwgQXVnIDE3LCAyMDI2IGF0IDAyOjQ1OjIyUE0g
-KzAyMDAsIExpbnVzIFdhbGxlaWogd3JvdGU6Cj4+PiBPbiBGcmksIEF1ZyAxNCwgMjAyNiBhdCAx
-OjIy4oCvUE0gQ2hhbmdodWFuZyBMaWFuZwo+Pj4gPGNoYW5naHVhbmcubGlhbmdAc3RhcmZpdmV0
-ZWNoLmNvbT4gd3JvdGU6Cj4+Pgo+Pj4+PiBZb3Ugc3RpbGwgZGlkIG5vdCBleHBsYWluIHRoZSBj
-ZWxscyAtIG5laXRoZXIgaW4gcmVwbHkgbm9yIGluCj4+Pj4+IGNvbW1pdCAtIHRodXMgc3RhcnQg
-d2l0aCB0aGF0LiBXaHkgZG8geW91IG5lZWQgaXQ/IE11bHRpcGxlCj4+Pj4+IGNvbnRyb2xsZXJz
-IGhhdmUgZ3JvdXBwZWQgcGlucyBvciBHUElPcyBpbiByZWdpc3RlcnMsIHNvIGV4cGxhbmF0aW9u
-Cj4+ICJldmVyeSAzMiBHUElPcyBjb3JyZXNwb25kIHRvIG9uZSByZWdpc3RlciIKPj4+Pj4gdGVs
-bHMgbWUgbm90aGluZy4gV2h5IHdvdWxkIHRoYXQgbWF0dGVyIGhvdyBtYW55IEdQSU9zIGlzIGlu
-IG9uZQo+PiByZWdpc3Rlcj8KPj4+Pgo+Pj4+IFNpbmNlIGV2ZXJ5IDMyIEdQSU9zIGNvcnJlc3Bv
-bmQgdG8gb25lIHJlZ2lzdGVyLCBMaW51cyBzdWdnZXN0ZWQgYXQgdGhlCj4+IHRpbWUgdGhhdCBJ
-IGNvdWxkIHRyeSB1c2luZzoKPj4+PiBncGlvcyA9IDwmZ3BpbyBbaW5zdGFuY2VdIG9mZnNldCBm
-bGFncz47IGdwaW8tcmFuZ2VzID0gPCZwaW5jdHJsCj4+Pj4gW2dwaW9faW5zdGFuY2VdIGdwaW9f
-b2Zmc2V0IHBpbl9vZmZzZXQgY291bnQ+Owo+Pj4+Cj4+Pj4gVGhlIGFkdmFudGFnZSBvZiB1c2lu
-ZyB0aGlzIGlzIHRoYXQgaW4gYSBHUElPIGNvbnRyb2xsZXIgd2l0aCBtb3JlCj4+Pj4gdGhhbiAz
-MiBHUElPcywgZXZlcnkgMzIgR1BJT3MgY2FuIGJlIHRyZWF0ZWQgYXMgb25lIEdQSU8gYmFuay4g
-VGhpcwo+Pj4+IHdheSwgaW4gdGhlIGRyaXZlciwgY29udmVydGluZyBwaW5fb2Zmc2V0IHRvIGdw
-aW9fb2Zmc2V0IGRvZXMgbm90IHJlcXVpcmUgYQo+PiBsYXJnZSBudW1iZXIgb2YgLzMyIGFuZCAl
-MzIgb3BlcmF0aW9ucy4KPj4+Pgo+Pj4+IHRoZSBmb2xsb3dpbmcgaXMgTGludXMncyBvcmlnaW5h
-bCBzdWdnZXN0aW9uIGF0IHRoZSB0aW1lCj4+Pj4KPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
-YWxsL0NBRCsrakw9dHZEQldKSFJHR0p3NG5ub3hfa2NKS241aHd2d3o5engKPj4+PiBhZE1SZWR5
-dlJod0BtYWlsLmdtYWlsLmNvbS8KPj4+Cj4+PiBKdXN0IGNvcHkgdGhpcyBleHBsYW5hdGlvbiBp
-bnRvIHRoZSBjb21taXQgc28gaXQgaXMgY2xlYXIgd2h5IHlvdSBuZWVkCj4+PiB0aHJlZSBjZWxs
-cyBmb3IgdGhpcy4KPj4KPj4gIkNhbiB1c2UgZ3Bpb2xpYiIgaXMgbm90IHJlYWxseSBqdXN0aWZp
-Y2F0aW9uLiBOZWl0aGVyIGlzIGF2b2lkaW5nIGEgc2hpZnQgYW5kL29yCj4+IG1hc2suIEkgc3Vw
-cG9zZSB0aGVyZSdzIHNvbWUgaC93IGF0dHJpYnV0ZSBoZXJlIHRvIGp1c3RpZnkgaXQ/Cj4gCj4g
-SSdsbCBnbyBhaGVhZCBhbmQgc2VuZCBvdXQgYSBuZXcgdmVyc2lvbiBwZXIgTGludXMncyBzdWdn
-ZXN0aW9uLiBJbiB0aGUgbWVhbnRpbWUsIAo+IGlmIGFueW9uZSBoYXMgYW55IGFkZGl0aW9uYWwg
-dGhvdWdodHMgb3IgZnVydGhlciBmZWVkYmFjaywgSSdkIGJlIG1vcmUgdGhhbiBoYXBweSAKPiB0
-byBpbmNvcnBvcmF0ZSB0aGVtLiBQbGVhc2UgZG9uJ3QgaGVzaXRhdGUgdG8gbGV0IG1lIGtub3ch
-CgpZb3UgZ290IGZlZWRiYWNrLi4uIGhhdmluZyB0aGluZ3Mgb3JnYW5pemVkIHBlciByZWdpc3Rl
-cnMgZG9lcyBub3QgbWFrZQp0aGVtIGEgYmFuay4KCkJlc3QgcmVnYXJkcywKS3J6eXN6dG9mCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 29/08/2026 04:57, Changhuang Liang wrote:
+> +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+> +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+> +
+> +/* sys0 pad numbers */
+> +#define PADNUM_SYS0_GPIO_A0				0
+> +#define PADNUM_SYS0_GPIO_A1				1
+> +#define PADNUM_SYS0_GPIO_A2				2
+> +#define PADNUM_SYS0_GPIO_A3				3
+
+I could not find how your driver uses these, so are you sure it's a
+binding constant for the SW?
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
