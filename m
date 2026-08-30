@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6368C61DE1
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Aug 2026 16:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 805BEC61DE1
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Aug 2026 16:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2lPiG9Efcc9JI4QRpm8DwmtOKZikJe8b35CbrPGfnuU=; b=biB6Ev3Xr2puLl
-	FIWd2o1Sn4sziTsE71KpOhDu76PT2E3dfG6rPwsNq/QiIrAbIZ4dBc9V9UVkZPH243pXWa/wxZECu
-	JVhgRl+WtadGjR0T01Cs/e+/DeJU1tBh0qaUZ03KuZqPcorS9Q9yvinhubfYaIPE309yoap0I+0bC
-	wN7nOdpEHteuhbPkL+iMaafIUip02zBJbFXqhL3G/6cnVV5ljFjR71JqZhD6J6DZufziYANfOofxs
-	73EuDhDDZYARLyJrZGLU7MJoFabgb5NPFIqHisPYBlV3RsCKBVq/duyXNOxBqGW8vv3wdpOm9QluK
-	yGQTGeEFAHvSwWGJT1OQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MXYNJxsHWN/8LyyqUL2U09tBl2iGdet1SOgxCvZb/+0=; b=YtvAyGBq/DVhzv
+	vtiJnoUGrGZZhYn4t+CGqEMW7ElifoOH0EgruKLcIwYZl+QlpKKiDDBaeiqzYk/iXgLjdU63lY8zs
+	pYj75xlzt4z0ZiAgdcYjAtsPdwtsVjlblPstxbGrteKrB6h428F+EKOKdI0lcoSMNhDqTH/uh3oEJ
+	XoWctk2AoSoKVofOOYnB0PLkjgQhy8XuFbgohSbyDCHapQWNO6zj7oZ80Ql+wyh62Zcgj2E2SbeMs
+	JoCXalH3D39jaoXj0vEaj125akn0e0O6lQDJeqHIHZn6/mc783fGhEpd8Kc78cpG5CpOb69pKLkt3
+	oFxdlU09JMc5TlXOoMZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0i8v-00000007ttE-0gof;
-	Sun, 30 Aug 2026 16:12:25 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1x0i93-00000007tus-15TW;
+	Sun, 30 Aug 2026 16:12:33 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0i8r-00000007tsh-3ZkM
+	id 1x0i90-00000007tu8-29zL
 	for linux-riscv@lists.infradead.org;
-	Sun, 30 Aug 2026 16:12:23 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-cc1cb472b76so2266787a12.0
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Aug 2026 09:12:21 -0700 (PDT)
+	Sun, 30 Aug 2026 16:12:31 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-398a5aad413so1084390a91.3
+        for <linux-riscv@lists.infradead.org>; Sun, 30 Aug 2026 09:12:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788106340; x=1788711140; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=v+ZZzE+7YChtFOdG6RvfuESoJaQ8tR6VAjdqUH+Gqes=;
-        b=hRwab70xDZw7BPp/+zYnqFwkOxwJwyhEX7KfGZrC1pcJ9yk1E0ySYAuUvWZrEY8xBq
-         VxDQvvYQJtmtpSx21lO8aX49wUd++0eQqiPYjaAmES3izj3U6Lw5SW8KkR+3+2abEufd
-         SwUvD8PO+wTqwYtK4VUdPm3JvZTAmO/pP6LTS3YiVO5zhtf1HxFX9BNkchi+05Z+8eoc
-         HHmaKNy/pdpt6AxAQ5RrXmBlrWcgfxeJc1+aU9Jl5IaIRLFY9Z5UAzQl5GOPMNrk0LVC
-         /2PJKKg4a00yAaZlFmAFca04P9yc9LVMAfxiev1zOW9jaXYhgaqjY6Y4aXVFq3B/CHHP
-         ndPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788106340; x=1788711140;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788106349; x=1788711149; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=v+ZZzE+7YChtFOdG6RvfuESoJaQ8tR6VAjdqUH+Gqes=;
-        b=cjcA0d5ffhRQeB3UfRE3dUk2KD1hKPt6yyGxDma1ix5TO5Ajb5nbyECu28uy8ZqN4N
-         9QmXai81Ly5QfbFwlgcPeGGBlCRg5TJKYhXIVswpOHJ3Q/8yfJ6+8/Fdg/kzNuK/x0CT
-         JKTbTz7Mjj8W++/RqkdhEYn4LuTuj1ZMd/G6OAWc/a3eHX0XwIHTtPUJ6B6u+4lRk9JH
-         IH+335Ml/n30TNmeheA8rpEIC1p3q5x6xRkLS9afZIWeTidNrKUPjd10+UaIfCMAgfUb
-         nvmQml++CjNoj3klx2h83dh+rdjhBE/Tm0ldG2d3dwFPfwGBGV6pj0WgGOGNVeOQUvMJ
-         69RA==
-X-Gm-Message-State: AFuF++kscvAujRwSvB1aPwZwZXXmdfm8YV5cyxZ39zs1ZlkGj/29ajm0
-	/hg3J8RepGlntK8uNPWlwKGV0S1hXlRmofR/mMuC0yNj8rrefNNY8B8HfMD9Z4VhdQ/dXQ==
-X-Gm-Gg: AR+sD10lSrCGDvODfNmSVpAwBpptvco+PTE20WBEpWgcuJQSHq9RSQcX3NzC6KzJiZ5
-	po+vgN6mtBA4yKLBOThtfZIfOH4tIEwzZ9KEyi9RfUGoxgCAAR2PjpGhkfMHncMd+Np6v7SXKLf
-	bUlq0MbheYxoRq5tCARZ/iRfdq9oXDNqtJjhH7yIWSbcZBfy7gUDCPPV5V2APBIXCpbvT2JLX3p
-	sR2A0NG8hzbqo2+X82T22zKfaH6o6E3fDN07Erur+sa8nsE2xTlyV84yEsII9XLZyYQ1JSwa1Be
-	STECrzXFuUbHHEhFd4blK4Pgz1nPb9JedkViv+JpDBm6KI3rreLjS2k9gpBxM7yfuTMVySH3sw0
-	y4zAr1lXJN+HfLHJdx2jWW34DfxTQ84kuvQHJIpvspCRIhPutAN+F+13X3d9nCpeW0ZSftHR0ku
-	NgLhbxhRcLAe3XLaZmKLXH8i0qfeLgdCwTeJpJJc0qfrjM4S0oWkrPgHS4OfmC0YDSphsh3dzI2
-	NGRjvqCColeh+uj++LJ7jYT+09o171859E=
-X-Received: by 2002:a05:6a20:c998:b0:3cd:9bb1:c6f5 with SMTP id adf61e73a8af0-3d267a6b464mr35141406637.10.1788106340361;
-        Sun, 30 Aug 2026 09:12:20 -0700 (PDT)
+        bh=3oPpwMsCahf6JtLGhYR2mgNDmu982ouZaUg+WHl9e+M=;
+        b=EK7CSHLFPApTRdatdPTcMF58rp5KAu9WixzLxL9hwjtQex/BuG1Ht742nYwlOsQkID
+         zzK9cXjRNAMc03o81JqlwdNC07PhKJmET+NPhAJ3IbQOpzfWsDjW1Tiq9gWh8X/9TM0a
+         pIEZxlcLr3AjfhBGpyEB1matwu/OAnuyhSNAQ24EdTngjqxoS8qfked456+TLN6iV57Y
+         e5vKS52XMQoQIiOJ1fl935PyDkoFsk6A0X2WamF3/QH7haucyb5MzafxkzKFzJBO4RIL
+         0DRRytStxKY3GMq+shj0Fl/nN6AbbEiA5kbcAjPEfp2Sts6fd4VtLVqUv5JDTRrSgsgl
+         OpwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788106349; x=1788711149;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3oPpwMsCahf6JtLGhYR2mgNDmu982ouZaUg+WHl9e+M=;
+        b=S1cDuJWNYS2nw9IgR+NBHpjw+2hrEmh3WP4Dgm57bvP3QS53b4YYxXupnx6L8JX1Uk
+         KZE22sMMqwhhO/bAHjvjjvTRUWSrwGe8HYWVtsgavOpUXBpv7AWZu0KwTpCFV2OLyMA4
+         o86tRn7g86eyeCDVKsTPDX35mIUz038rc3OC5wBLEVHZaG4PwuQZziQWeX8ZXGUGJthI
+         6lPS3O6bDfcO4vteHQLb3ezmO50M06uOe/ntjyBdmtXw6HaWlC2CIcnH2mqWfZ4RHGl9
+         kP+2FIyVrYICoQgsoXYsn5sE56GIy3WRbTzPVMUwyI1iY/ak2IDkZH5Q8uVhfVoDju7w
+         jcyQ==
+X-Gm-Message-State: AFuF++m5Slo4XvYc5g2Q4PWtI9PPuOwHyZEVndvtkUfpSDSNn1J+dZ6P
+	zMdfzoAayLZaCnZNgSSYyh8YvrvU9SD4yRryo+wl0hoD1nE/eskAyrU9FP6s6WclK5dRkw==
+X-Gm-Gg: AYBFou0zwgj5uD2zV4EsWErCjTYIHlnr0OgvMyPRUhJR5t6xOzBwvZRNDNNyMPRfA6T
+	auhND7JUeDdcJEDeHhmhil30GdZLFtxBvjbq8om3rSTr1Hxwo9nL7epXBB8Zcv7QFrURU356Pmb
+	uXvsS9pZabq2xRdemN8R09sCOG/6pGDOf0NAH4YlCoChLQSNn0YPKVi8vcHzN82RVrEroGwuwD6
+	NIWVpdsooBwuYUL5LWQ1GGNSdx86wtODhNoB06LFPBY9j2KapqrVNLACcPoT8EHnTtkq/DOYLSG
+	rxSjeykEMlHxVmPiocL//wEEvKNZhKPbrsffMBCDH4wiLvBgyFjkbiMuTABxardJlrwMYy6llIT
+	3rNgKp/qP7ZyLlxybMksJJySsn1f6ZhsjlgPw5NaLC0/OY6peEzLVSSlNY/ZKvzR7vYOwbnO9bj
+	Q+U9cASlwe6U4U50VcrRvc/DruVIM5w4EUwg5KVntgCR5pBcyZZrUU5Zr5/QUmvBxd3duHyjCWV
+	ouBPixVOScivUuCDQU0JkrXe5vdiIRw7eQ=
+X-Received: by 2002:a17:90b:3ec1:b0:38e:7168:281 with SMTP id 98e67ed59e1d1-396d0f2dcd8mr23466138a91.10.1788106349495;
+        Sun, 30 Aug 2026 09:12:29 -0700 (PDT)
 Received: from localhost.localdomain ([134.195.101.83])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-32bdfd03e71sm5719005eec.1.2026.08.30.09.12.16
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-32bdfd03e71sm5719005eec.1.2026.08.30.09.12.24
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 30 Aug 2026 09:12:19 -0700 (PDT)
+        Sun, 30 Aug 2026 09:12:28 -0700 (PDT)
 From: Yu Jin <lambda.jinyu@gmail.com>
 To: linux-riscv@lists.infradead.org
 Cc: Albert Ou <aou@eecs.berkeley.edu>,
@@ -80,14 +81,16 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	Yu Jin <lambda.jinyu@gmail.com>
-Subject: [RFC PATCH 0/2] riscv: document the Sv32 virtual memory layout
-Date: Mon, 31 Aug 2026 00:12:03 +0800
-Message-ID: <20260830161205.80162-1-lambda.jinyu@gmail.com>
+Subject: [RFC PATCH 1/2] docs: riscv: document the Sv32 virtual memory layout
+Date: Mon, 31 Aug 2026 00:12:04 +0800
+Message-ID: <20260830161205.80162-2-lambda.jinyu@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260830161205.80162-1-lambda.jinyu@gmail.com>
+References: <20260830161205.80162-1-lambda.jinyu@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_091221_894736_CACC9DF8 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20260830_091230_571131_2645C886 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,53 +108,58 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 The RISC-V virtual memory layout documentation describes the 64-bit
-paging modes but has left the Sv32 section as a TODO. The layout is
-already defined by the RV32 page-table macros and can be observed in the
-boot-time layout printed with CONFIG_DEBUG_VM.
+paging modes but leaves the Sv32 section as a TODO.
 
-RV32 remains relevant to current hardware rather than only legacy
-systems. For example, Espressif announced the ESP32-S31 in March 2026 as
-a dual-core 32-bit RISC-V microcontroller with MMU support.
+Document the rv32_defconfig layout and clarify which boundaries depend
+on the configured size of struct page. Distinguish the maximum direct-map
+range from the portion backed by physical memory. Also explain why the
+34-bit physical addresses encoded by Sv32 page table entries do not make
+all of that address space usable as RAM by the current RV32 kernel.
 
-This series documents the existing rv32_defconfig layout and corrects a
-nearby comment that gives a stale fixed value for RV32 TASK_SIZE. The
-implementation is unchanged.
-
-The main point on which I would appreciate feedback is whether this is
-the clearest way to present the configuration-dependent part of the
-layout. This is my first Linux kernel contribution, so I would also
-appreciate guidance on any process or presentation issues.
-
-Tested on QEMU with a kernel based on commit 08dbfad3f504:
-
-  - rv32_defconfig plus CONFIG_DEBUG_VM=y
-  - full RV32 kernel and modules build with GCC 13.3.0
-  - boot with qemu-system-riscv32 8.2.2 and 512 MB or 4 GB RAM
-  - userspace reached using a minimal initramfs
-  - runtime layout matched the documented addresses
-  - the 4 GB boot exposed 1 GB of managed RAM, matching the current
-    direct-map and no-highmem limitations
-  - make SPHINXDIRS=arch/riscv htmldocs
-  - scripts/checkpatch.pl --strict, no errors or warnings per patch
-
-The boot-time layout was:
-
-  fixmap  : 0x9c800000 - 0x9d000000
-  pci io  : 0x9d000000 - 0x9e000000
-  vmemmap : 0x9e000000 - 0xa0000000
-  vmalloc : 0xa0000000 - 0xc0000000
-  lowmem  : 0xc0000000 - 0xdfc00000
-
-Yu Jin (2):
-  docs: riscv: document the Sv32 virtual memory layout
-  riscv: mm: correct the stale RV32 TASK_SIZE comment
-
+Signed-off-by: Yu Jin <lambda.jinyu@gmail.com>
+---
  Documentation/arch/riscv/vm-layout.rst | 28 +++++++++++++++++++++++++-
- arch/riscv/include/asm/pgtable.h       |  6 ++----
- 2 files changed, 29 insertions(+), 5 deletions(-)
+ 1 file changed, 27 insertions(+), 1 deletion(-)
 
-
-base-commit: 08dbfad3f5040f5bdb6c529da20d6d4e81fefd72
+diff --git a/Documentation/arch/riscv/vm-layout.rst b/Documentation/arch/riscv/vm-layout.rst
+index eabec99b5852..8e1447cf574e 100644
+--- a/Documentation/arch/riscv/vm-layout.rst
++++ b/Documentation/arch/riscv/vm-layout.rst
+@@ -16,7 +16,33 @@ RISC-V Linux Kernel 32bit
+ RISC-V Linux Kernel SV32
+ ------------------------
+ 
+-TODO
++Sv32 provides a 4GB virtual address space, with the upper part used by the
++kernel. Unlike the 64-bit layouts, the kernel image is part of the direct
++mapping. The following layout is produced by ``rv32_defconfig``.
++
++::
++
++  ========================================================================================================================
++      Start addr    |   Offset   |     End addr     |  Size   | VM area description
++  ========================================================================================================================
++                    |            |                  |         |
++           00000000 |    0       |         9c7fffff | 2504 MB | user-space virtual memory, different per mm
++  __________________|____________|__________________|_________|___________________________________________________________
++                                                              |
++                                                              | Kernel-space virtual memory, shared between all processes:
++  ____________________________________________________________|___________________________________________________________
++                    |            |                  |         |
++           9c800000 | -1592   MB |         9cffffff |    8 MB | fixmap
++           9d000000 | -1584   MB |         9dffffff |   16 MB | PCI io
++           9e000000 | -1568   MB |         9fffffff |   32 MB | vmemmap-sized reserved area
++           a0000000 |   -1.5  GB |         bfffffff |  512 MB | vmalloc/ioremap/modules; BPF JIT uses the last 128 MB
++           c0000000 |   -1    GB |         ffffffff |    1 GB | direct mapping of physical memory
++  __________________|____________|__________________|_________|___________________________________________________________
++
++The layout before ``VMALLOC_START`` depends on the configured size of
++``struct page``. The direct mapping row shows its maximum range; usable RAM is
++limited by its mapped portion and the 32-bit ``phys_addr_t``, despite the
++34-bit physical addresses encoded by Sv32 page table entries.
+ 
+ RISC-V Linux Kernel 64bit
+ =========================
 -- 
 2.43.0
 
