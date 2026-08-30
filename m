@@ -4,91 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABE0C61DE1
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Aug 2026 14:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769EFC61DE1
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Aug 2026 15:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BdblGbLke9V60cxZL0WAAlaghr8C3b30W/OlFeBBr+Q=; b=pBLOsoPaZI6217
-	vRTJJjXuDTWxPWO85SmYXaGXxq4c24J3vj6WqLcxCsuPhI8n5X5pyuwrpmc4DdlpBy2N3cojwJiou
-	y38nCy4SdzAJ7w6CUW6Nq+6bjEQn9ZUigzFg1uBn3tvN1APfl1FhsDya35wecuMXx0egsaIgusmm1
-	D3NAe9p3tolpl94rRdowjiorT+kStcVG+El9E1q3aBq07YCUClaKhf/R5Mw8/fAN1joOVbt4IELQA
-	hp9t+424a8DvNnLW0JoYFIVpaa+JoR/5pwLfft+sCw+IjnX3VR+XZvW4gqJabvqd45LZOelJkkx50
-	He2jSH2VA7I6Dq13DNhQ==;
+	List-Owner; bh=msEjs1yvvxzYsuZwFGbJEukCwRzA7b+eAyJ0wF6jsiM=; b=MvyayagRmhpNdz
+	TgpPTrY2n8e/l4RhkEEZrLgZ/U1K4CXw9qCck2BKvdcBFH0bFMwW7owk/UCszmY9jryC+cR6c32Pw
+	/UrkbljkCswFZ1IwgYF++HcX45JyoM7YIzOCs+5O8DX7+gxQHkeEgleUZkC0wStvOvXXD5utle6rI
+	B2f7ZC33kPkKngSIzRx9lWFIPDd061YbYUITSeI5tjKHzjkqle2ghsNnio6BM+eMal2JtZEr1cWOY
+	l1be6h8tbgPvOdvLhbVVxPbhNwViGQNGsG606og4cX4pbut1jileb+RTLr9otARYsDwoBrG0C48XH
+	VzLnEGscJHqs8T2Td6NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0geR-00000007oNq-17Cj;
-	Sun, 30 Aug 2026 14:36:51 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1x0hSw-00000007rLi-1Jd0;
+	Sun, 30 Aug 2026 15:29:02 +0000
+Received: from mail-bjschn02on20719.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::719] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0geO-00000007oNU-3Qv9
+	id 1x0hSs-00000007rL2-1h1J
 	for linux-riscv@lists.infradead.org;
-	Sun, 30 Aug 2026 14:36:50 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49b0dbfbf7bso18139795e9.2
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Aug 2026 07:36:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788100607; x=1788705407; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=K5qhWC1RezqgUxSYoHlPtRL/UlEjuJcpyuDmW9yQF/c=;
-        b=aDdQNX04zsTvWb/VNzyMMvOG0kzJTKGCQzbm34qqs7HsUqCLHpXz5RZlyQXHsexjm2
-         634kQ7imkTL4pnVU6YzpU/KbGFi7AN6PpBOLsHyUeinPTWj3Mzl3uexFq3GBkYIToie3
-         5O4zq7rPxEOEykTV3uI6eK5VmW+D0zgnTdCdfWoM9ptnBYEywwB5v2Iyjk/Che5SSVBU
-         W104X44GlWK99pOF9rXQKry7C/+EZiS1mxFKwtFbswwLi9QV8+6biRaq9yo5QDszl+2O
-         m/+rgeJNFz5ISwzGfroK+SrsRjCXUqFglDmuiS9QmUT3luZCHZLvAapCOt14gaAvule1
-         clXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788100607; x=1788705407;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=K5qhWC1RezqgUxSYoHlPtRL/UlEjuJcpyuDmW9yQF/c=;
-        b=pRVuTtz1o0MwitSFqBH6OnB50umPEuWc7XrT6sqEL/zHAGmDRmWvWBtW0ffhaZGUUd
-         kbaiqem+tO3B93E9ebr4fvzU9kF+6dNEJSUb+AAEOSbmcfhxPIMrTuAtFaWlKguB9KpB
-         8KhZ02jOXuVbV6KPLtuMS72q9LDhg0CgXTCEC+HmKFxydsYn0rgRODb5y8c0u6oEmM6j
-         zEfNLX6Jix5xtXL2+EotFgaa9M68gzfmWExhK8Am8uIQY2gg6kNOn7CQM9zCjkSjtMMO
-         iIkybtH6sXTLDrv1ZXM/vqrgs1wsQGWd2WiXM1sgFqF9Me/WnqOrDWOjo3wbCWgtVg0z
-         qyrA==
-X-Gm-Message-State: AFuF++moEZH6kJvQB/5n/qnSRMHn0T6jfJ7VmL8Ss+nJbZGd2ANXMZaW
-	RXHNe7i6qQacGNYRtpQjyhavD0Id2kt9/lF0r/dsg7nmxdScVOB97cdX
-X-Gm-Gg: AR+sD11UxUw5H7BGOTA6SuC+W/qKWMHKLB27N25Gm4yEHn02RV/sGnRDFF41JjRl3UT
-	6vLX1SGgetGxwfOTidNhSuLpOr6zDUbVNNMPyfzdyf7jsK/u96++GmHeDBTRAk6P/HiA4kz+IQ3
-	4fZCEm2h8K6kdT5tYXUjKL1yB/edx/JxkRHhY+OODXu6Bge3wBi1Pg00OmMUFJ03wo0JTYUigOn
-	HvZEA1HyFGokv4Sk66+uGd2ymwy3NSQ+CxHaqD40d6xSUZIMBQhuc2hp7uzjIiR02hz1IVNt2/R
-	dIygr14gyFEExHi76N/xWl3jgLY9W4Aq1FYNkUT9DDlizYb/y6H9JMhV9cOrCVEil9+5XDlnAza
-	JF1VCtop6Qjlw3DTkbILEKCMM5hwzOZCXuQaQgM6biD5p+VSNaHZDf0j93MDLrYfiTbigoDcpgZ
-	oshw7aU9tYuGnZ9jzIwCHMhF+VH1nXD2g9D2ZwAyJVTWDE/EqkrxHhLNdoL+iElp4CbFUgfEZRw
-	1XImhYu83NIZzOaOvLJ
-X-Received: by 2002:a05:600c:8885:b0:49b:909e:922e with SMTP id 5b1f17b1804b1-49b91c4884amr257020755e9.10.1788100606661;
-        Sun, 30 Aug 2026 07:36:46 -0700 (PDT)
-Received: from [127.0.1.1] (89-65-152-218.dynamic.play.pl. [89.65.152.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b9500c80asm245179715e9.9.2026.08.30.07.36.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Aug 2026 07:36:46 -0700 (PDT)
-From: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-Date: Sun, 30 Aug 2026 16:36:37 +0200
-Subject: [PATCH v2] riscv: mm: Trace TLB flush path selection
+	Sun, 30 Aug 2026 15:29:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Qevw+yDOFVyDIQdvMrX1OQ7OUd3OpjN7/v7rj4oeg6uiewHn2taY/cQzT0MK+guxk+F/v27SWKBEk23ncoK6EDp2viD3SDWU41hkO3dsH/vx/CxxSPfghZsRCeK6ANKh+R/5k3FmfQ2hEoAnf2fZWUGVrYI5IOmyxqeBlodG/+GbgccawmCjPxpyczZCyC71k30X7VzIZQV6TbAJmMgvC8qWBu5MdjwaDHBgZ9gv7hEvz0EWe0vmBXz0InQqoRXyvju3tjmqJ6BOJ6N0FT483IpW5Fq/EVLsSUUTN2qYT+SKgi9wLMd0lc6RdBsKgI2mjQoM90UvV+OeyJx07gufhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3J3yj6W6f8jJj3VR6IxxfR0zk4sGMs8NtzBZ81frLvQ=;
+ b=C2i+gcwQK4RmoPUfD4TnZ7RwsuQhxGKza7nH5fAH2xY2yqowy7JuAQFO/vqN1vwayaIR0KM9N/3fIfkNKoHwB4LekoaSvBuDUd9+rWeZ5/jmJ6nNQqCT7UF9ETV4A9l7cYF02Pw66y+JmXjVpCgl+wYGegtF0Jd31LXd9qqsSOGXhd3wMT3f6uw38TTUdoLSRlzs5S5tn4uiLm5Rh24FxMLMKA2+UPpwW/caOxan205H/y+AYh9Ms/U9BwFLm8O8uj3MhC8zl9dSmyBnif3L5M2z4GSN6WTOo8pXhJu36LsS1q4lfmNhVX8MpM8YWkqgJX2j50JnJhd71dYo9A6qvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:1b::23) by BJXPR01MB0821.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:1a::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Sun, 30 Aug
+ 2026 15:28:33 +0000
+Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e644:7bf5:5a3c:e548]) by
+ BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn ([fe80::e644:7bf5:5a3c:e548%3])
+ with mapi id 15.21.0315.011; Sun, 30 Aug 2026 15:28:33 +0000
+From: Joshua Yeong <joshua.yeong@starfivetech.com>
+To: rahul@summations.net,
+	anup@brainfault.org,
+	lftan.linux@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ulfh@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	joshua.yeong@starfivetech.com,
+	linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] Add RISC-V RPMI device power service support
+Date: Sun, 30 Aug 2026 23:28:10 +0800
+Message-ID: <20260830152812.312663-1-joshua.yeong@starfivetech.com>
+X-Mailer: git-send-email 2.43.0
+X-ClientProxiedBy: BJXPR01CA0063.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:12::30) To BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:1b::23)
 MIME-Version: 1.0
-Message-Id: <20260830-tlb_tracepoint-v2-1-e3c88c24df5b@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAPQ/lGoC/3XM0QqDIBTG8VeJcz2Hiq3a1d5jxDA91YHKUJGN8
- N3nut/l/4Pvd0BATxjgXh3gMVEgt5WQlwrMrLcJGdnSILm88VZ2LC7DK3ptcHe0RdYqJXith5p
- 3Espp9zjS+wSffemZQnT+c/pJ/Na/VBJMMDtajRYbbJR4TKum5WrcCn3O+QuOmNa2rAAAAA==
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, 
- Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-X-Mailer: b4 0.13.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BJXPR01MB0838:EE_|BJXPR01MB0821:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81928ac7-7c2b-47a9-9105-08df06ab59d6
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|23010399003|7416014|366016|376014|1800799024|921020|6133799003|38350700014|10067099003|56012099006|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: HyZaw1S0h/gULFkqvOu2beyELQtAprO1pnl6UHfB93w4h8Y6+FsoeJmxzTP0C3PB45ZEgRAiKdyANu4kqkjL+jyQO3e6CoFpRz8gpWZA2xhAeMjOmB5Oe/l1CRG/23xYwc2KQVyE3h+s1nWCpRzQUtqr93b94+ekzWWsRY71tRzpsNWPxDRJR6KDJC7l6BtVaEL/5R11sJkn1Rzf5buNvgCMGd+2PN2GXHJbxBPicdgDhPTdVw9yTkdBPPIsn+MbF9E0sWR/0ymWxRQQ0uMvQ01pIdn/djLzDj4y5bflEN8VQucpKyQx7m/4xY1yjI5rCjnM4aY/xW4tL1iUuQD058rryST7zTXLOJ+ItYCu4Gpn/oa/eHDih6GLS39o2ZE5sUwaX8G6Q6791mUKFIzNPkyTygSEuglUgwLG0Ntedt0vWwMO6U8IZ8r1R4bSz5VJnj+Gh7QdOSRt5A7gHwnJpM84Ow9MsUdujnyY9LH/2HUJ7zwP6ukmQAeO3iq2oitkQ/k6Ozhx4sKWZXM/PaWjKkbGoy0efVU5DHEUKx2pFtysE64maFQE/tqf2YClFDCCQMR4YUjWBWCf6EZghgy4xw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(52116014)(23010399003)(7416014)(366016)(376014)(1800799024)(921020)(6133799003)(38350700014)(10067099003)(56012099006)(18002099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eY/unVhVrmaCwNfGSXrPdZlIa124HSNvjLB0zzfrfZeM8QE1SNE3iw9ePJN7?=
+ =?us-ascii?Q?18HjBGn8Rn0Sdnd4mwn79B3ZLR5SZPQaiPLOzc0p9jd2laSS7gsFE1bYew50?=
+ =?us-ascii?Q?Wki7dhUWE2Ijxx21Ot+FrcfdJEiuj8abQaT6t1HFwAWfRcyglylHNU1TGd8n?=
+ =?us-ascii?Q?fTzl3wnxqOoke8lLfk5OgAFG6c/D2Mda6eySLYkQiy1R0OfaBz3OsAPpM+SP?=
+ =?us-ascii?Q?n2d+bDRxKKbqpf2a3MRt9kYwqtHuePL+rHuMOzOBVFyEaVLJSJoNaV/LdHsJ?=
+ =?us-ascii?Q?Vvt4PghuZdTI69AGDiNGz6i2sK+zPmSprJqwKLG3C4sAjvrkEs5I2TipQXul?=
+ =?us-ascii?Q?WjKZRrW0mPh2u2XtBhRAylGgv1vHq80sWyczohFlcMTS2P8Gq0P6hWYIoiRA?=
+ =?us-ascii?Q?xAxifNDXv4p5hvxeJTTAZy3UHT3+N0IEf0+PXLU3vENmRYVnlg3TkRMWuvI/?=
+ =?us-ascii?Q?KokNOel7xW/G5F5YZqL+ep9SNOaXUfBzo9eDMYbFqAWSmFpLQybRSgNsxyIf?=
+ =?us-ascii?Q?hvUEMks6NEBgunWu0P38ZFDSaSf1bS3NuNOD5fijfl86cVYnT/4Y+cklzxNU?=
+ =?us-ascii?Q?pbk+M16M19YDEVxSJUQftmxhCyXmk5KL3U5aBxJNwpHz5I4xHEO8/mxsFTlF?=
+ =?us-ascii?Q?VO8IHv3sPAhc6a5hXcHvQ1a9OPP1AM/TjvuZrXkAztwNTn9m/oRrmOC06Yp2?=
+ =?us-ascii?Q?5mFnQsfgvaTWX7HEr3vUH0643m+ifp+vOMtBlJLc/Uhi8uY3b3yJOrvQvR7u?=
+ =?us-ascii?Q?jgMtFkDPlRQn+E61wyDza4wPAY+2k2qptZJ2oETIlMGMqm75Pt7DTHs9ey61?=
+ =?us-ascii?Q?5W58flfnWHKsgEImVnJIZl7dPbNCXPLLLHgeuwa2/SwtYgGs4n19M3VEHmPj?=
+ =?us-ascii?Q?JyGZba96nkInLU11ImRLX+zQu49VtfOcUHRudb1XWiOXn4/J24QUhFYG0r77?=
+ =?us-ascii?Q?QA8QUCBgUcmceG+y2Xr68YUY3mDsMTypBXRugiluKbzVXUyqNyC/0wftJZXU?=
+ =?us-ascii?Q?ceh2Vog9dOisgEKrC7q+rIhcPIWSo6BjZHyJxTpDkaDLC9LF/o3DytSCr6OL?=
+ =?us-ascii?Q?7QSczyWZwxpq7mkSRuC0A3fNqZX1rwOdx5V+H8WO7X0kZh+iEjuhcrFp0fBR?=
+ =?us-ascii?Q?hyJFzZaEUlxQ9AkWkgC/Kerqloa5zxuIMg5rlG++T3BwRzylmfmyGIS3VoLz?=
+ =?us-ascii?Q?Fn3nbEtrQnuuAb+VHZl+v7uB0xWl6nb4gFehM1AtEWylcc/xpLX7eodmmKvv?=
+ =?us-ascii?Q?jwiFh6EzDj8FYIBwBA9mOE/RCFlWTNi2HLTB0CHwRcBBS0qq2eQ53GL005N1?=
+ =?us-ascii?Q?NHNlHDXesHM2S+xmH0fhKme2JWC7aNt02/ea5+BjYQai9H3PcOqQhEdoR6TI?=
+ =?us-ascii?Q?g3P5EQbul8CQWGw0MUouLhf5a8mtYKhyJqTaRrIl6Zxo4SiHI9wCE3n5GDrm?=
+ =?us-ascii?Q?bWx7iRqQeDrH/z/iPy3VLgWPbqVO1GC7p+qgoNLSRj+toJ85v7pKOnIQr+OZ?=
+ =?us-ascii?Q?T3bEdpH10VqxuwlGM9H74CvuuTE9qjrKYdW37zy60tW0GlE5LL6msPPSgRvA?=
+ =?us-ascii?Q?MI/6rytt3f8olVX4G1vXh43MVcKoEXd4WfYC3aWw08gzGIDqCYc1Jh2VTaDU?=
+ =?us-ascii?Q?30iPCI99Ar0cR/pzKX4XwyyAWs3xLWJNOaPrXtqqpqxy2LfYH+kCEdhXMGrG?=
+ =?us-ascii?Q?CsP4cYbX7ehyz4YrfFeKky8F6eP9jHXcalwuB/Ni28LOg7DC+htxl7jjeayk?=
+ =?us-ascii?Q?IJAfvTuxE0bZpqmLxOLkbLBsFxZjnyM=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81928ac7-7c2b-47a9-9105-08df06ab59d6
+X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2026 15:28:32.9530
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zO5j90VjrDVVBbgAz1k+pWRop7PUSV7EeoLeND9fqcKWSu5OsFjtfatIuPeP0gar83nOY7tKOwE5VSQMdO3M4BrdMGOg28nvW65yzsTxiS8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0821
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_073648_934665_03C88E89 
-X-CRM114-Status: GOOD (  27.98  )
+X-CRM114-CacheID: sfid-20260830_082858_457263_0CDD4E4C 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,309 +141,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make RISC-V TLB flush path selection observable. Record whether Linux
-handles an invalidation locally, delegates it to SBI RFENCE, or executes
-it through a cross-CPU call, so MM activity can be correlated with the
-RISC-V, firmware, or Linux cross-CPU path carrying the request.
+The RISC-V Platform Management Interface (RPMI) specification defines a
+modular and extensible messaging protocol between the supervisor software
+and a platform microcontroller (PuC). Among the service groups it defines
+is the device power service group (service group ID 0x00009), which allows
+the supervisor to enumerate the power domains of platform devices managed
+by the PuC, query their attributes, and get/set their power state.
 
-The generic tlb:tlb_flush event describes TLB flush activity using
-architecture-independent reason and page-count information. The RISC-V
-implementation subsequently selects between local invalidation, SBI
-RFENCE, and Linux cross-CPU coordination, with additional
-architecture-specific request context available at that point.
+This series adds supervisor-side support for that service group:
 
-Making this selection observable is useful when debugging RISC-V TLB
-shootdowns. When a remote invalidation is observed to be slow, the
-selected path determines whether to investigate SBI firmware and
-platform handling or Linux cross-CPU and IPI handling. An unexpectedly
-broad target mask can reveal an unintended address-space CPU footprint,
-while the range and stride distinguish invalidation requests with
-different mapping granularities.
+ - DT bindings for the power domain controller exposed to the supervisor
+   ("riscv,rpmi-device-power") and for the SBI MPXY channel that the SBI
+   implementation uses to expose the service group to the supervisor
+   ("riscv,rpmi-mpxy-device-power").
 
-Place the event in the RISC-V implementation because the local, SBI
-RFENCE, or cross-CPU choice is made there, and SBI RFENCE and the
-invalidation stride are RISC-V-specific semantics rather than properties
-of the generic MM flush request.
+ - A generic power domain (genpd) provider driver under
+   drivers/pmdomain/riscv/ which talks to the PuC over an SBI MPXY
+   mailbox channel. At probe it queries GET_NUM_DOMAINS, then for each
+   domain queries GET_ATTRS for the name and transition latency and
+   GET_STATE for the initial state, and registers the whole set as a
+   onecell genpd provider. Domain power on/off is driven through
+   SET_STATE with the generic ON/OFF power state parameters, so devices
+   can simply reference a domain through the "power-domains" property.
 
-Add riscv_tlb:riscv_tlb_flush_path in flush_tlb_all() and
-__flush_tlb_range(). Record start, size, stride, the hardware-visible
-ASID, whether a specific mm is associated with the request, the target
-CPU mask and its weight, the requested scope, and the selected path.
+The series is based on the existing RISC-V RPMI/MPXY infrastructure
+already present in the tree (drivers/mailbox/riscv-sbi-mpxy-mbox.c and
+include/linux/mailbox/riscv-rpmi-message.h), and only adds the device
+power service group definitions on top of it.
 
-Record the complete target mask in addition to its weight because CPU
-identity cannot be reconstructed from a count and is needed to correlate
-the request with per-CPU scheduler, IPI, and firmware activity.
-
-The event records the invalidation request and the path selected by Linux
-before the operation is dispatched. In particular, selecting the SBI
-RFENCE path means that Linux delegated the request to firmware; the event
-does not describe the implementation or outcome of that delegated
-operation.
-
-Tested on QEMU virt with OpenSBI using local and shared-mm
-mprotect()/munmap() workloads. Local requests reported path=local,
-while remote requests reported path=sbi-rfence and were followed by the
-existing riscv:sbi_call RFENCE event.
-
-The cross-CPU-call path was tested with QEMU virt using APLIC+IMSIC.
-A MADV_PAGEOUT reclaim workload was used to exercise mm-independent
-global flushes. All reported path values (local, sbi-rfence and
-cross-cpu-call) and scope values (single, range, address-space and all)
-were observed.
-
-Signed-off-by: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
----
-Add a RISC-V tracepoint for observing the path selected by Linux for TLB
-invalidation requests: local invalidation, SBI RFENCE, or Linux
-cross-CPU coordination.
-
-The tracepoint is intended to make RISC-V TLB shootdown behavior easier
-to correlate with MM activity, CPU targeting, SBI calls, and IPI
-handling. The patch records the invalidation request context and the
-Linux path-selection decision before the operation is dispatched.
-
-The patch was tested on QEMU virt with both the SBI RFENCE path and an
-APLIC+IMSIC configuration. Local, SBI RFENCE, and cross-CPU-call paths
-were exercised. All reported scope values -- single, range,
-address-space, and all -- were also observed.
----
 Changes in v2:
-- Use trace_call__riscv_tlb_flush_path() after the explicit
-  trace_riscv_tlb_flush_path_enabled() check to avoid a second
-  tracepoint static-key test, as suggested by Steven Rostedt.
-- Link to v1: https://lore.kernel.org/r/20260829-tlb_tracepoint-v1-1-dfdaede7e741@gmail.com
----
- arch/riscv/mm/tlbflush.c         |  60 +++++++++++++++++++--
- include/trace/events/riscv_tlb.h | 113 +++++++++++++++++++++++++++++++++++++++
- 2 files changed, 169 insertions(+), 4 deletions(-)
+ - Serialize RPMI transactions on the shared mailbox channel with a
+   mutex. The channel is used in non-blocking mode with client signalled
+   txdone, so mbox_send_message() only submits a message when the
+   channel is idle and silently queues it otherwise, returning the ring
+   buffer index. A concurrent caller would therefore see success, return
+   with an untouched response buffer, and leave its stack allocated
+   struct rpmi_mbox_message referenced by the mailbox ring.
+ - Unwind the already initialised power domains with pm_genpd_remove()
+   when of_genpd_add_provider_onecell() fails, so that devres does not
+   free memory still linked into the global gpd_list.
+ - Set .suppress_bind_attrs and drop the .remove() callback. The domains
+   are handed out to consumer devices and pm_genpd_remove() cannot fail
+   safely from a void remove(), so unbinding is now refused outright.
+   Use builtin_platform_driver() to match, since the driver is bool only;
+   this also makes a later switch to tristate fail to build rather than
+   silently reintroducing the problem. Both match other genpd providers,
+   e.g. drivers/pmdomain/starfive/jh71xx-pmu.c.
+ - Use __le32 for the RPMI message fields and convert the responses with
+   le32_to_cpu(), matching drivers/clk/clk-rpmi.c. The requests were
+   already converted with cpu_to_le32() but stored into plain u32.
+ - Zero initialise the response structures and reject responses shorter
+   than expected with -EPROTO, so a short reply from the PuC can no
+   longer leak uninitialised stack into a power domain name. The length
+   is checked after the status field so that a legitimate error reply,
+   which carries only STATUS, is still reported as the RPMI error.
 
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 962db300a166..cefce9364bd2 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -9,6 +9,9 @@
- #include <asm/mmu_context.h>
- #include <asm/cpufeature.h>
- 
-+#define CREATE_TRACE_POINTS
-+#include <trace/events/riscv_tlb.h>
-+
- #define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
- 
- /*
-@@ -63,6 +66,33 @@ void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
- 	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE, FLUSH_TLB_NO_ASID);
- }
- 
-+static enum riscv_tlb_flush_scope
-+riscv_tlb_get_flush_scope(unsigned long size, unsigned long stride, bool has_mm)
-+{
-+	if (size == FLUSH_TLB_MAX_SIZE)
-+		return has_mm ? RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE :
-+			RISCV_TLB_FLUSH_SCOPE_ALL;
-+
-+	return size <= stride ? RISCV_TLB_FLUSH_SCOPE_SINGLE :
-+		RISCV_TLB_FLUSH_SCOPE_RANGE;
-+}
-+
-+static __always_inline void
-+riscv_tlb_trace_flush_path(const struct cpumask *cmask, unsigned long start,
-+			   unsigned long size, unsigned long stride,
-+			   unsigned long asid, bool has_mm,
-+			   enum riscv_tlb_flush_path path)
-+{
-+	enum riscv_tlb_flush_scope scope;
-+
-+	if (!trace_riscv_tlb_flush_path_enabled())
-+		return;
-+
-+	scope = riscv_tlb_get_flush_scope(size, stride, has_mm);
-+	trace_call__riscv_tlb_flush_path(start, size, stride, asid, has_mm,
-+			 cmask, scope, path);
-+}
-+
- static void __ipi_flush_tlb_all(void *info)
- {
- 	local_flush_tlb_all();
-@@ -70,12 +100,26 @@ static void __ipi_flush_tlb_all(void *info)
- 
- void flush_tlb_all(void)
- {
--	if (num_online_cpus() < 2)
-+	if (num_online_cpus() < 2) {
-+		riscv_tlb_trace_flush_path(cpu_online_mask, 0,
-+					   FLUSH_TLB_MAX_SIZE, 0,
-+					   FLUSH_TLB_NO_ASID, false,
-+					   RISCV_TLB_FLUSH_PATH_LOCAL);
- 		local_flush_tlb_all();
--	else if (riscv_use_sbi_for_rfence())
--		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
--	else
-+	} else if (riscv_use_sbi_for_rfence()) {
-+		riscv_tlb_trace_flush_path(cpu_online_mask, 0,
-+					   FLUSH_TLB_MAX_SIZE, 0,
-+					   FLUSH_TLB_NO_ASID, false,
-+					   RISCV_TLB_FLUSH_PATH_SBI_RFENCE);
-+		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE,
-+					   FLUSH_TLB_NO_ASID);
-+	} else {
-+		riscv_tlb_trace_flush_path(cpu_online_mask, 0,
-+					   FLUSH_TLB_MAX_SIZE, 0,
-+					   FLUSH_TLB_NO_ASID, false,
-+					   RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL);
- 		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
-+	}
- }
- 
- struct flush_tlb_range_data {
-@@ -107,12 +151,20 @@ static void __flush_tlb_range(struct mm_struct *mm,
- 
- 	/* Check if the TLB flush needs to be sent to other CPUs. */
- 	if (cpumask_any_but(cmask, cpu) >= nr_cpu_ids) {
-+		riscv_tlb_trace_flush_path(cmask, start, size, stride, asid,
-+					   !!mm, RISCV_TLB_FLUSH_PATH_LOCAL);
- 		local_flush_tlb_range_asid(start, size, stride, asid);
- 	} else if (riscv_use_sbi_for_rfence()) {
-+		riscv_tlb_trace_flush_path(cmask, start, size, stride, asid,
-+					   !!mm, RISCV_TLB_FLUSH_PATH_SBI_RFENCE);
- 		sbi_remote_sfence_vma_asid(cmask, start, size, asid);
- 	} else {
- 		struct flush_tlb_range_data ftd;
- 
-+		riscv_tlb_trace_flush_path(cmask, start, size, stride, asid,
-+					   !!mm,
-+					   RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL);
-+
- 		ftd.asid = asid;
- 		ftd.start = start;
- 		ftd.size = size;
-diff --git a/include/trace/events/riscv_tlb.h b/include/trace/events/riscv_tlb.h
-new file mode 100644
-index 000000000000..3eff171ec54f
---- /dev/null
-+++ b/include/trace/events/riscv_tlb.h
-@@ -0,0 +1,113 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM riscv_tlb
-+
-+#if !defined(_TRACE_RISCV_TLB_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_RISCV_TLB_H
-+
-+#include <linux/cpumask.h>
-+#include <linux/tracepoint.h>
-+
-+#ifndef _TRACE_RISCV_TLB_ENUMS
-+#define _TRACE_RISCV_TLB_ENUMS
-+
-+enum riscv_tlb_flush_scope {
-+	RISCV_TLB_FLUSH_SCOPE_SINGLE,
-+	RISCV_TLB_FLUSH_SCOPE_RANGE,
-+	RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE,
-+	RISCV_TLB_FLUSH_SCOPE_ALL,
-+};
-+
-+enum riscv_tlb_flush_path {
-+	RISCV_TLB_FLUSH_PATH_LOCAL,
-+	RISCV_TLB_FLUSH_PATH_SBI_RFENCE,
-+	RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL,
-+};
-+
-+#endif /* _TRACE_RISCV_TLB_ENUMS */
-+
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_SINGLE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_RANGE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ALL);
-+
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_PATH_LOCAL);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_PATH_SBI_RFENCE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL);
-+
-+#define show_riscv_tlb_flush_scope(scope) \
-+	__print_symbolic(scope, \
-+		{ RISCV_TLB_FLUSH_SCOPE_SINGLE,        "single" }, \
-+		{ RISCV_TLB_FLUSH_SCOPE_RANGE,         "range" }, \
-+		{ RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE, "address-space" }, \
-+		{ RISCV_TLB_FLUSH_SCOPE_ALL,           "all" })
-+
-+#define show_riscv_tlb_flush_path(path) \
-+	__print_symbolic(path, \
-+		{ RISCV_TLB_FLUSH_PATH_LOCAL,          "local" }, \
-+		{ RISCV_TLB_FLUSH_PATH_SBI_RFENCE,     "sbi-rfence" }, \
-+		{ RISCV_TLB_FLUSH_PATH_CROSS_CPU_CALL, "cross-cpu-call" })
-+
-+/*
-+ * Record the invalidation request received by the RISC-V architecture code
-+ * and the path selected by Linux.
-+ *
-+ * The target CPU mask represents the CPUs Linux intends to cover for the
-+ * request. It can be correlated with per-CPU activity, but does not describe
-+ * which harts ultimately performed an invalidation.
-+ *
-+ * The ASID is hardware-visible and may be reused. It must not be treated as a
-+ * persistent identifier for an mm.
-+ *
-+ * The stride describes the invalidation granularity supplied to the RISC-V
-+ * implementation. SBI RFENCE receives start, size and ASID, but not stride.
-+ *
-+ * The event is emitted at path selection time. For SBI RFENCE, it records
-+ * delegation of the request to firmware; firmware processing after that
-+ * point is outside the event's scope.
-+ */
-+TRACE_EVENT(riscv_tlb_flush_path,
-+	TP_PROTO(unsigned long start, unsigned long size,
-+		 unsigned long stride, unsigned long asid, bool has_mm,
-+		 const struct cpumask *cmask,
-+		 enum riscv_tlb_flush_scope scope,
-+		 enum riscv_tlb_flush_path path),
-+
-+	TP_ARGS(start, size, stride, asid, has_mm, cmask, scope, path),
-+
-+	TP_STRUCT__entry(
-+		__field(unsigned long, start)
-+		__field(unsigned long, size)
-+		__field(unsigned long, stride)
-+		__field(unsigned long, asid)
-+		__field(bool, has_mm)
-+		__field(unsigned int, target_mask_weight)
-+		__cpumask(target_cpus)
-+		__field(u8, scope)
-+		__field(u8, path)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->start = start;
-+		__entry->size = size;
-+		__entry->stride = stride;
-+		__entry->asid = asid;
-+		__entry->has_mm = has_mm;
-+		__entry->target_mask_weight = cpumask_weight(cmask);
-+		__assign_cpumask(target_cpus, cpumask_bits(cmask));
-+		__entry->scope = scope;
-+		__entry->path = path;
-+	),
-+
-+	TP_printk("start=%#lx size=%#lx stride=%#lx asid=%#lx has_mm=%d target_mask_weight=%u target_cpus=%s scope=%s path=%s",
-+		  __entry->start, __entry->size, __entry->stride,
-+		  __entry->asid, __entry->has_mm,
-+		  __entry->target_mask_weight, __get_cpumask(target_cpus),
-+		  show_riscv_tlb_flush_scope(__entry->scope),
-+		  show_riscv_tlb_flush_path(__entry->path))
-+);
-+
-+#endif /* _TRACE_RISCV_TLB_H */
-+
-+/* This part must be outside protection. */
-+#include <trace/define_trace.h>
+The v1 review also asked for a sync_state callback, on the grounds that
+domains initialised in the ON state would never be powered off. That one
+is not addressed, because genpd already handles it: for a provider node
+with a bound device, of_genpd_add_provider_onecell() installs its own
+genpd_sync_state() through dev_set_drv_sync_state(), which clears
+->stay_on and powers off the unclaimed domains once all consumers have
+probed. A driver supplied .sync_state would in fact be refused, since
+dev_set_drv_sync_state() returns -EBUSY rather than overwriting an
+existing callback. This was confirmed under QEMU: domains reported as ON
+by the PuC with no consumer do end up powered off, while the domain held
+by the RTC stays on.
 
----
-base-commit: 77ae27fd98f3b548797c9f22c10ab5cf1c4ada53
-change-id: 20260829-tlb_tracepoint-844105ab5092
+v1: https://lore.kernel.org/r/20260829205520.1691-1-joshua.yeong@starfivetech.com
 
-Best regards,
+Testing
+=======
+
+The series was tested under QEMU with the RPMI device power service
+implemented in firmware.
+
+Components:
+
+ - OpenSBI: latest master branch
+   https://github.com/riscv-software-src/opensbi
+
+ - QEMU: the RPMI-enabled tree at
+   https://github.com/yeongjoshua/qemu/tree/rpmi-v11.1.0
+
+Kernel config: enable CONFIG_RISCV_RPMI_DEVICE_POWER (default y on RISC-V
+when MAILBOX is enabled) along with the SBI MPXY mailbox driver.
+
+Run with:
+
+  qemu-system-riscv64 \
+      -M virt -m 2G -smp 4 \
+      -bios fw_dynamic.bin \
+      -kernel Image \
+      -M rpmi=true \
+      -nographic \
+      -initrd rootfs-busybox.cpio \
+      -append "root=/dev/ram rw console=ttyS0,115200 no_console_suspend mem=2048M earlycon=uart8250,mmio,0x10000000"
+
+The RPMI device power domains advertised by the emulated platform
+microcontroller show up as generic power domains and can be inspected
+through /sys/kernel/debug/pm_genpd/. The series was additionally booted
+with CONFIG_PROVE_LOCKING, CONFIG_DEBUG_MUTEXES and
+CONFIG_DEBUG_ATOMIC_SLEEP enabled, with no lockdep reports.
+
+Joshua Yeong (2):
+  dt-bindings: power: Add RPMI device power service bindings
+  pmdomain: riscv: Add RPMI device power service
+
+ .../power/riscv,rpmi-device-power.yaml        |  65 +++
+ .../power/riscv,rpmi-mpxy-device-power.yaml   |  65 +++
+ MAINTAINERS                                   |   4 +
+ drivers/pmdomain/Kconfig                      |   1 +
+ drivers/pmdomain/Makefile                     |   1 +
+ drivers/pmdomain/riscv/Kconfig                |  13 +
+ drivers/pmdomain/riscv/Makefile               |   3 +
+ .../pmdomain/riscv/riscv-rpmi-device-power.c  | 466 ++++++++++++++++++
+ include/linux/mailbox/riscv-rpmi-message.h    |  11 +
+ 9 files changed, 629 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml
+ create mode 100644 Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
+ create mode 100644 drivers/pmdomain/riscv/Kconfig
+ create mode 100644 drivers/pmdomain/riscv/Makefile
+ create mode 100644 drivers/pmdomain/riscv/riscv-rpmi-device-power.c
+
+
+base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
 -- 
-Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
+2.43.0
 
 
 _______________________________________________
