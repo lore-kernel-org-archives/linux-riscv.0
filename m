@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B81C61DD9
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Aug 2026 17:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1905EC61DD9
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Aug 2026 17:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YiWoHjcECPg2SSVnSQKmOzpSZCDmJPrAclylrKAuo60=; b=mEUPX3g+kmN/0c
-	fVyWZuq9Hl8x4TnWyf/Fa8CzZPg492GbDz2BYvfZmk5isKYD6CapB3dLzi8GXPrNIcUH+PqAb/Gd+
-	/HidZJ+ZEnWeBXdjNLrAYRiE/xyF6vHbtaNcoaXWur/DblBTijxxDr89czEPRtYKh/3OFRzUtYt8R
-	06S6IzTIXl7sIgPnQoB1PaM8jeXDWMPfvfsCf/BuJ59Us/x0i1qwxPucx5c+tb14LiafkBKK1OkhB
-	7OQ9PwCXOdwrQ+S0zRjrSOhwGDHal/deYCX4czd8go9/6Kz9tLNJ7NAOy0n0Xo5+av/y1tdslMguw
-	h4mlwSCYAKCaNaXMJx7w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XQGyPtdpCKehKjJrruE6rzo8u+WQ28uu2OJ9+ZEZOfA=; b=ss8whh6z+j80o3
+	GdMhknfmQJPCMtrMrlc6odjPA99zopYNbx/apP37ld3K2shMT3Zg6ozeGB+zN12n31Q0eOMw2FaSh
+	CK9bnd3lLa+r8rOyG2a2ersBjT1PI5iT9eqRJ+fHSPyFBhT7v/wzf3blLl0SKrzefSx9tzcd0OClB
+	jsULyGGb3KNK4OwS/J5+OOFR/CSMvZZ68IXMqRe0v9os0RYUAwDL7EGoyAitKP62+POCqEdmupYhD
+	JMSbEpRNHLTTyXuJUvY3k+jjHMVicO01M/rCkTK8qs0AXaUJnIUjE/9hq8zIFCXCZRTPEmGjv3iR7
+	0hHwIUARktXVUMGU/XlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0jGF-00000007x9n-3bd7;
-	Sun, 30 Aug 2026 17:24:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0jGD-00000007x9W-2QtF
-	for linux-riscv@lists.infradead.org;
+	id 1x0jGD-00000007x9Y-2xLc;
 	Sun, 30 Aug 2026 17:24:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x0jGB-00000007x9E-45WS
+	for linux-riscv@lists.infradead.org;
+	Sun, 30 Aug 2026 17:24:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7975B43973;
-	Sun, 30 Aug 2026 17:24:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01B681F00AC4;
+	by tor.source.kernel.org (Postfix) with ESMTP id CCFC5600AE;
 	Sun, 30 Aug 2026 17:23:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B9AC1F000E9;
+	Sun, 30 Aug 2026 17:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788110640;
-	bh=r0Za95NxwjXTwT3tld/1tYydLeQeiEWwl1b59iKEheQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fnuPJlXiuUQiluo/jnM9JTcIU8FveBGagrgFnEmZcQPYQmjUl5lf7+dNt1lc3Wp6w
-	 aGdLmxy2A7rGsPI1w4S2elodwv/3/Wy/0zUt8DBW28Cy44t6CGnCyKGdOGx9FOvfGw
-	 V8DeuHAQJW/6yHdyxilmRtjCt9aJdNsz3zsb8INjkR4di50Ujv6W1QoQonV/y9OkYF
-	 WLB8iMeJkaS3yaKZVQALcLpkCSDVdtv442uaEdHSOpPXzd6NqqGjn3lOS951+H94Zr
-	 JiPA+p6cS7eW2H2c4oaDw5h2f2tsYedJXR7S+quvpr7v0fRbrOfT+LTw77D5JbzdN9
-	 wEBKaVAT0cs2Q==
+	s=k20260515; t=1788110638;
+	bh=RUQXlwj7uSjpiw/7CJUxBxHOVF3WkXMqnPE7Hd8+ijE=;
+	h=From:To:Cc:Subject:Date;
+	b=FHDUcg9dGq2zGgjotRwwlqixv2W5NKpHkfFEOb5iCcKWy4JZGcESsfF9ScF2ald7H
+	 FbLDR3Ww54o1Mbx6RoYvWHD+A/f0daHq0bGJH8h3m1zkB1PjFMZbsUS3lJefDIvOD4
+	 HQTvIf+SaJmjAY/18UYZ3ruHaTI8HClmTZSF6MupbJWhh4nrCofBngwFLzRTFSok0G
+	 voZA2bTfuyyTH5sR2LMiSVaeVjPAMhywAUcDtbHES/GXL226n+XlJ7Fq0zHWyYw4Sz
+	 dS+TSfIAsO+d2Rq2J+/rACSm12KIISPyTK5GExkJw+wP3RjaaFklDiYVOifFQxQ8BC
+	 rMzm/Y1RMyhUQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -49,12 +49,10 @@ To: Paul Walmsley <pjw@kernel.org>,
 	Alexandre Ghiti <alex@ghiti.fr>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/3] riscv: remove RISCV_ALTERNATIVE Kconfig option
-Date: Mon, 31 Aug 2026 01:03:59 +0800
-Message-ID: <20260830170414.4505-2-jszhang@kernel.org>
+Subject: [PATCH 0/3] optimize pgtable_l4|l5_enabled
+Date: Mon, 31 Aug 2026 01:03:58 +0800
+Message-ID: <20260830170414.4505-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260830170414.4505-1-jszhang@kernel.org>
-References: <20260830170414.4505-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,405 +65,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv always selects RISCV_ALTERNATIVE now, so we can remove this
-Kconfig option and enable RISCV_ALTERNATIVE code unconditionally.
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/Kconfig                          | 23 --------------------
- arch/riscv/Kconfig.errata                   |  5 +----
- arch/riscv/include/asm/alternative-macros.h | 24 ---------------------
- arch/riscv/include/asm/alternative.h        | 10 ---------
- arch/riscv/include/asm/cpufeature-macros.h  | 10 ++-------
- arch/riscv/include/asm/cpufeature.h         |  6 ++----
- arch/riscv/include/asm/vendor_extensions.h  | 18 ++++++----------
- arch/riscv/kernel/Makefile                  |  2 +-
- arch/riscv/kernel/cpufeature.c              |  2 --
- 9 files changed, 12 insertions(+), 88 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index f8e26c4bed2b..13b7bb77087e 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -218,7 +218,6 @@ config RISCV
- 	select PCI_ECAM if (ACPI && PCI)
- 	select PCI_MSI if PCI
- 	select RELOCATABLE if !MMU && !PHYS_RAM_BASE_FIXED
--	select RISCV_ALTERNATIVE
- 	select RISCV_APLIC
- 	select RISCV_IMSIC
- 	select RISCV_INTC
-@@ -539,17 +538,8 @@ config RISCV_COMBO_SPINLOCKS
- 
- endchoice
- 
--config RISCV_ALTERNATIVE
--	bool
--	help
--	  This Kconfig allows the kernel to automatically patch the
--	  erratum or cpufeature required by the execution platform at run
--	  time. The code patching overhead is minimal, as it's only done
--	  once at boot and once on each module load.
--
- config RISCV_ALTERNATIVE_EARLY
- 	bool
--	depends on RISCV_ALTERNATIVE
- 	help
- 	  Allows early patching of the kernel for special errata
- 
-@@ -578,7 +568,6 @@ config RISCV_ISA_SUPM
- config RISCV_ISA_SVNAPOT
- 	bool "Svnapot extension support for supervisor mode NAPOT pages"
- 	depends on 64BIT && MMU
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	  Enable support for the Svnapot ISA-extension when it is detected
-@@ -615,7 +604,6 @@ config RISCV_ISA_SSQOSID
- config RISCV_ISA_SVPBMT
- 	bool "Svpbmt extension support for supervisor mode page-based memory types"
- 	depends on 64BIT && MMU
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	   Add support for the Svpbmt ISA-extension (Supervisor-mode:
-@@ -685,7 +673,6 @@ config RISCV_ISA_V_PREEMPTIVE
- 
- config RISCV_ISA_ZAWRS
- 	bool "Zawrs extension support for more efficient busy waiting"
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	  The Zawrs extension defines instructions to be used in polling loops
-@@ -704,7 +691,6 @@ config TOOLCHAIN_HAS_ZABHA
- config RISCV_ISA_ZABHA
- 	bool "Zabha extension support for atomic byte/halfword operations"
- 	depends on TOOLCHAIN_HAS_ZABHA
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	  Enable the use of the Zabha ISA-extension to implement kernel
-@@ -721,7 +707,6 @@ config TOOLCHAIN_HAS_ZACAS
- 
- config RISCV_ISA_ZACAS
- 	bool "Zacas extension support for atomic CAS"
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	  Enable the use of the Zacas ISA-extension to implement kernel atomic
-@@ -766,7 +751,6 @@ config RISCV_ISA_ZBA
- 
- config RISCV_ISA_ZBB
- 	bool "Zbb extension support for bit manipulation instructions"
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	   Add support for enabling optimisations in the kernel when the
-@@ -791,7 +775,6 @@ config RISCV_ISA_ZBC
- 	bool "Zbc extension support for carry-less multiplication instructions"
- 	depends on TOOLCHAIN_HAS_ZBC
- 	depends on MMU
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	   Adds support to dynamically detect the presence of the Zbc
-@@ -813,7 +796,6 @@ config TOOLCHAIN_HAS_ZBKB
- config RISCV_ISA_ZBKB
- 	bool "Zbkb extension support for bit manipulation instructions"
- 	depends on TOOLCHAIN_HAS_ZBKB
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	   Adds support to dynamically detect the presence of the ZBKB
-@@ -827,7 +809,6 @@ config RISCV_ISA_ZBKB
- config RISCV_ISA_ZICBOM
- 	bool "Zicbom extension support for non-coherent DMA operation"
- 	depends on MMU
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	select RISCV_DMA_NONCOHERENT
- 	select DMA_DIRECT_REMAP
-@@ -843,7 +824,6 @@ config RISCV_ISA_ZICBOM
- 
- config RISCV_ISA_ZICBOZ
- 	bool "Zicboz extension support for faster zeroing of memory"
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	   Enable the use of the Zicboz extension (cbo.zero instruction)
-@@ -856,7 +836,6 @@ config RISCV_ISA_ZICBOZ
- config RISCV_ISA_ZICBOP
- 	bool "Zicbop extension support for cache block prefetch"
- 	depends on MMU
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	  Adds support to dynamically detect the presence of the ZICBOP
-@@ -871,7 +850,6 @@ config RISCV_ISA_ZICBOP
- config RISCV_ISA_SVRSW60T59B
- 	bool "Svrsw60t59b extension support for using PTE bits 60 and 59"
- 	depends on MMU && 64BIT
--	depends on RISCV_ALTERNATIVE
- 	default y
- 	help
- 	  Adds support to dynamically detect the presence of the Svrsw60t59b
-@@ -1204,7 +1182,6 @@ config RISCV_USER_CFI
- 	bool "riscv userspace control flow integrity"
- 	depends on 64BIT && MMU && \
- 		$(cc-option,-mabi=lp64 -march=rv64ima_zicfiss_zicfilp -fcf-protection=full)
--	depends on RISCV_ALTERNATIVE
- 	select RISCV_SBI
- 	select ARCH_HAS_USER_SHADOW_STACK
- 	select ARCH_USES_HIGH_VMA_FLAGS
-diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-index 3c945d086c7d..1a66e5b6f7d1 100644
---- a/arch/riscv/Kconfig.errata
-+++ b/arch/riscv/Kconfig.errata
-@@ -2,7 +2,7 @@ menu "CPU errata selection"
- 
- config ERRATA_ANDES
- 	bool "Andes AX45MP errata"
--	depends on RISCV_ALTERNATIVE && RISCV_SBI
-+	depends on RISCV_SBI
- 	help
- 	  All Andes errata Kconfig depend on this Kconfig. Disabling
- 	  this Kconfig will disable all Andes errata. Please say "Y"
-@@ -23,7 +23,6 @@ config ERRATA_ANDES_CMO
- 
- config ERRATA_MIPS
- 	bool "MIPS errata"
--	depends on RISCV_ALTERNATIVE
- 	help
- 	  All MIPS errata Kconfig depend on this Kconfig. Disabling
- 	  this Kconfig will disable all MIPS errata. Please say "Y"
-@@ -46,7 +45,6 @@ config ERRATA_MIPS_P8700_PAUSE_OPCODE
- 
- config ERRATA_SIFIVE
- 	bool "SiFive errata"
--	depends on RISCV_ALTERNATIVE
- 	help
- 	  All SiFive errata Kconfig depend on this Kconfig. Disabling
- 	  this Kconfig will disable all SiFive errata. Please say "Y"
-@@ -98,7 +96,6 @@ config ERRATA_STARFIVE_JH7100
- 
- config ERRATA_THEAD
- 	bool "T-HEAD errata"
--	depends on RISCV_ALTERNATIVE
- 	help
- 	  All T-HEAD errata Kconfig depend on this Kconfig. Disabling
- 	  this Kconfig will disable all T-HEAD errata. Please say "Y"
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index 9619bd5c8eba..629d884578da 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -2,8 +2,6 @@
- #ifndef __ASM_ALTERNATIVE_MACROS_H
- #define __ASM_ALTERNATIVE_MACROS_H
- 
--#ifdef CONFIG_RISCV_ALTERNATIVE
--
- #ifdef __ASSEMBLER__
- 
- .macro ALT_ENTRY oldptr newptr vendor_id patch_id new_len
-@@ -108,28 +106,6 @@
- 	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, patch_id_1, IS_ENABLED(CONFIG_k_1),	\
- 				   new_c_2, vendor_id_2, patch_id_2, IS_ENABLED(CONFIG_k_2))
- 
--#else /* CONFIG_RISCV_ALTERNATIVE */
--#ifdef __ASSEMBLER__
--
--.macro ALTERNATIVE_CFG old_c
--	\old_c
--.endm
--
--#define __ALTERNATIVE_CFG(old_c, ...)		ALTERNATIVE_CFG old_c
--#define __ALTERNATIVE_CFG_2(old_c, ...)		ALTERNATIVE_CFG old_c
--
--#else /* !__ASSEMBLER__ */
--
--#define __ALTERNATIVE_CFG(old_c, ...)		old_c "\n"
--#define __ALTERNATIVE_CFG_2(old_c, ...)		old_c "\n"
--
--#endif /* __ASSEMBLER__ */
--
--#define _ALTERNATIVE_CFG(old_c, ...)		__ALTERNATIVE_CFG(old_c)
--#define _ALTERNATIVE_CFG_2(old_c, ...)		__ALTERNATIVE_CFG_2(old_c)
--
--#endif /* CONFIG_RISCV_ALTERNATIVE */
--
- /*
-  * Usage:
-  *   ALTERNATIVE(old_content, new_content, vendor_id, patch_id, CONFIG_k)
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-index 8407d1d535b8..688c7d1a9ae3 100644
---- a/arch/riscv/include/asm/alternative.h
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -10,8 +10,6 @@
- 
- #ifndef __ASSEMBLER__
- 
--#ifdef CONFIG_RISCV_ALTERNATIVE
--
- #include <linux/init.h>
- #include <linux/kernel.h>
- #include <linux/types.h>
-@@ -61,13 +59,5 @@ void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 				 unsigned int stage);
- 
--#else /* CONFIG_RISCV_ALTERNATIVE */
--
--static inline void apply_boot_alternatives(void) { }
--static inline void apply_early_boot_alternatives(void) { }
--static inline void apply_module_alternatives(void *start, size_t length) { }
--
--#endif /* CONFIG_RISCV_ALTERNATIVE */
--
- #endif
- #endif
-diff --git a/arch/riscv/include/asm/cpufeature-macros.h b/arch/riscv/include/asm/cpufeature-macros.h
-index a8103edbf51f..adaf9e3fb25c 100644
---- a/arch/riscv/include/asm/cpufeature-macros.h
-+++ b/arch/riscv/include/asm/cpufeature-macros.h
-@@ -47,20 +47,14 @@ static __always_inline bool riscv_has_extension_unlikely(const unsigned long ext
- {
- 	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_MAX");
- 
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
--		return __riscv_has_extension_unlikely(STANDARD_EXT, ext);
--
--	return __riscv_isa_extension_available(NULL, ext);
-+	return __riscv_has_extension_unlikely(STANDARD_EXT, ext);
- }
- 
- static __always_inline bool riscv_has_extension_likely(const unsigned long ext)
- {
- 	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_MAX");
- 
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
--		return __riscv_has_extension_likely(STANDARD_EXT, ext);
--
--	return __riscv_isa_extension_available(NULL, ext);
-+	return __riscv_has_extension_likely(STANDARD_EXT, ext);
- }
- 
- #endif /* _ASM_CPUFEATURE_MACROS_H */
-diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index 739fcc84bf7b..37c9f2a0fb54 100644
---- a/arch/riscv/include/asm/cpufeature.h
-+++ b/arch/riscv/include/asm/cpufeature.h
-@@ -134,8 +134,7 @@ static __always_inline bool riscv_cpu_has_extension_likely(int cpu, const unsign
- {
- 	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_MAX");
- 
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE) &&
--	    __riscv_has_extension_likely(STANDARD_EXT, ext))
-+	if (__riscv_has_extension_likely(STANDARD_EXT, ext))
- 		return true;
- 
- 	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
-@@ -145,8 +144,7 @@ static __always_inline bool riscv_cpu_has_extension_unlikely(int cpu, const unsi
- {
- 	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_MAX");
- 
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE) &&
--	    __riscv_has_extension_unlikely(STANDARD_EXT, ext))
-+	if (__riscv_has_extension_unlikely(STANDARD_EXT, ext))
- 		return true;
- 
- 	return __riscv_isa_extension_available(hart_isa[cpu].isa, ext);
-diff --git a/arch/riscv/include/asm/vendor_extensions.h b/arch/riscv/include/asm/vendor_extensions.h
-index 7437304a71b9..b00149be2627 100644
---- a/arch/riscv/include/asm/vendor_extensions.h
-+++ b/arch/riscv/include/asm/vendor_extensions.h
-@@ -54,11 +54,9 @@ static __always_inline bool riscv_has_vendor_extension_likely(const unsigned lon
- 	if (!IS_ENABLED(CONFIG_RISCV_ISA_VENDOR_EXT))
- 		return false;
- 
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
--		return __riscv_has_extension_likely(vendor,
--						    ext + RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
-+	return __riscv_has_extension_likely(vendor,
-+					    ext + RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
- 
--	return __riscv_isa_vendor_extension_available(VENDOR_EXT_ALL_CPUS, vendor, ext);
- }
- 
- static __always_inline bool riscv_has_vendor_extension_unlikely(const unsigned long vendor,
-@@ -67,11 +65,9 @@ static __always_inline bool riscv_has_vendor_extension_unlikely(const unsigned l
- 	if (!IS_ENABLED(CONFIG_RISCV_ISA_VENDOR_EXT))
- 		return false;
- 
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
--		return __riscv_has_extension_unlikely(vendor,
--						      ext + RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
-+	return __riscv_has_extension_unlikely(vendor,
-+					      ext + RISCV_VENDOR_EXT_ALTERNATIVES_BASE);
- 
--	return __riscv_isa_vendor_extension_available(VENDOR_EXT_ALL_CPUS, vendor, ext);
- }
- 
- static __always_inline bool riscv_cpu_has_vendor_extension_likely(const unsigned long vendor,
-@@ -80,8 +76,7 @@ static __always_inline bool riscv_cpu_has_vendor_extension_likely(const unsigned
- 	if (!IS_ENABLED(CONFIG_RISCV_ISA_VENDOR_EXT))
- 		return false;
- 
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE) &&
--	    __riscv_has_extension_likely(vendor, ext + RISCV_VENDOR_EXT_ALTERNATIVES_BASE))
-+	if (__riscv_has_extension_likely(vendor, ext + RISCV_VENDOR_EXT_ALTERNATIVES_BASE))
- 		return true;
- 
- 	return __riscv_isa_vendor_extension_available(cpu, vendor, ext);
-@@ -94,8 +89,7 @@ static __always_inline bool riscv_cpu_has_vendor_extension_unlikely(const unsign
- 	if (!IS_ENABLED(CONFIG_RISCV_ISA_VENDOR_EXT))
- 		return false;
- 
--	if (IS_ENABLED(CONFIG_RISCV_ALTERNATIVE) &&
--	    __riscv_has_extension_unlikely(vendor, ext + RISCV_VENDOR_EXT_ALTERNATIVES_BASE))
-+	if (__riscv_has_extension_unlikely(vendor, ext + RISCV_VENDOR_EXT_ALTERNATIVES_BASE))
- 		return true;
- 
- 	return __riscv_isa_vendor_extension_available(cpu, vendor, ext);
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index ebe1c3588177..91353c94bfab 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -48,7 +48,7 @@ always-$(KBUILD_BUILTIN) += vmlinux.lds
- 
- obj-y	+= head.o
- obj-y	+= soc.o
--obj-$(CONFIG_RISCV_ALTERNATIVE) += alternative.o
-+obj-y	+= alternative.o
- obj-y	+= cpu.o
- obj-y	+= cpufeature.o
- obj-y	+= entry.o
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index d2ec96843456..9915121e9438 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -1217,7 +1217,6 @@ void __init riscv_user_isa_enable(void)
- 		pr_warn("Zicbop disabled as it is unavailable on some harts\n");
- }
- 
--#ifdef CONFIG_RISCV_ALTERNATIVE
- /*
-  * Alternative patch sites consider 48 bits when determining when to patch
-  * the old instruction sequence with the new. These bits are broken into a
-@@ -1306,4 +1305,3 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
- 		mutex_unlock(&text_mutex);
- 	}
- }
--#endif
--- 
-2.53.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SW4gMjAyMiwgSSB0cmllZCB0byBvcHRpbWl6ZSBwZ3RhYmxlX2w0fGw1X2VuYWJsZWQgdXNlIHN0
+YXRpYyBicmFuY2hbM10KQnV0IGFzIGlzIGtub3duLCBzdGF0aWMgYnJhbmNoIGhhcyBzb21lIGRy
+YXdiYWNrcy4gCgpUaGlzIHNlcmllcyBpcyBhbm90aGVyIHJvdW5kIG9mIG9wdG1pemluZyBwZ3Rh
+YmxlX2w0fGw1X2VuYWJsZWQsIGJ1dAp3aXRoIGFub3RoZXIgbWVjaGFuaXNtLiBCZWxvdyB0aGUg
+aXMgbm9ybWFsIGNvdmVyLWxldHRlci4KClRoZSBwZ3RhYmxlX2w0fFtsNV1fZW5hYmxlZCBjaGVj
+ayBzaXRzIGF0IGhvdCBjb2RlIHBhdGgsIHBlcmZvcm1hbmNlCmlzIGltcGFjdGVkIGEgbG90LiBT
+aW5jZSBwZ3RhYmxlX2w0fFtsNV1fZW5hYmxlZCBpc24ndCBjaGFuZ2VkIGFmdGVyCmJvb3QsIHdl
+IGNhbiB1c2UgYWx0ZXJuYXRpdmUgbWVjaGFuaXNtIHRvIG9wdGltaXplIHRoZW0uCgpTbyB0aGUg
+cXVlc3Rpb24gaXMgd2hldGhlciB3ZSBjYW4gYWRkIFJJU0NWX0lTQV9FWFRfU1Y0OC9TVjUgYW5k
+IHVzZQpyaXNjdl9oYXNfZXh0ZW5zaW9uXyooKSBvciBub3QuIEFsdGhvdWdoLCBwZXIgWzFdIGFu
+ZCBbMl0sIFNWNDggYW5kClNWNTcgYXJlIElTQSBleGVuc2lvbnMgdG9vLCBSSVNDVl9JU0FfRVhU
+X1NWNDgvU1Y1NyBhcmUgdG8gZGVzY3JpYmUgaHcKc3VwcG9ydGVkIGV4dGVuc2lvbnMsIHdoaWxl
+IHRoaXMgZG9lc24ndCBtZWFuIHRoZSBwZ3RhYmxlX2w0fGw1IGlzCmVuYWJsZWQsIGZvciBleGFt
+cGxlLCB3ZSBtYXkgcGFzcyBubzVsdmwvbm80bHZsIGtlcm5lbCBib290IGFyZ3Mgb3IKZXhwbGlj
+aXRseSBhc2sgZm9yIFNWMzkgYnkgc2V0dGluZyBkdCBtbXUtdHlwZSBwcm9wZXJ0eSBhcwoicmlz
+Y3Ysc3YzOSIuIElmIHdlIGNsZWFyIFJJU0NWX0lTQV9FWFRfU1Y0OHxTVjU3LCB0aGVuIGludGVy
+bmFsCmV4dGVuc2lvbiBxdWVyaWVzIGFuZCBwb3RlbnRpYWxseSB1c2Vyc3BhY2UgcmVwb3J0aW5n
+IGNhbiBubyBsb25nZXIKZGlzdGluZ3Vpc2gg4oCcdW5zdXBwb3J0ZWTigJ0gZnJvbSDigJxzdXBw
+b3J0ZWQgYnV0IGRpc2FibGVkLuKAnQoKSW50cm9kdWNlIGNhcCBmcmFtZXdvcmsgdG8gZGVzY3Jp
+YmUgdGhlIGNhcGFiaWxpdGllcyBzZWxlY3RlZCBieQprZXJuZWwuIEl0IGFsc28gdXNlcyBzaW1p
+bGFyIGFsdGVybmF0aXZlcyBtZWNoYW5pc20gYXMgdGhlCnJpc2N2X2hhc19leHRlbnNpb25fKigp
+IGhlbHBlcnMuCgpBZnRlciB0aGF0LCB1c2UgaXQgdG8gb3B0aW1pemUgcGd0YWJsZV9sNHxsNV9l
+bmFibGVkLgoKRm9yIHRoZSB0eXBpY2FsIGFjY2Vzc19vayhhZGRyLCAxKTsKYmVmb3JlIHRoZSBw
+YXRjaDoKCi4uLgphdWlwYwlhNSwweGI0MwpsYnUJYTUsMTAwKGE1KSAjIGZmZmZmZmZmODBiNTFm
+NjggPHBndGFibGVfbDVfZW5hYmxlZD4KYm5leglhNSxmZmZmZmZmZjgwMDBlZjQ2IDxmb28rMHg1
+Nj4KYXVpcGMJYTUsMHhiNDMKbGJ1CWE1LDkxKGE1KSAjIGZmZmZmZmZmODBiNTFmNjkgPHBndGFi
+bGVfbDRfZW5hYmxlZD4KYmVxeglhNSxmZmZmZmZmZjgwMDBlZjVhIDxmb28rMHg2YT4KLi4uCgph
+ZnRlciB0aGUgcGF0Y2g6CnRoZXJlIGFyZSBvbmx5IHR3byBqIG9yIG5vcCBpbnN0cnVjdGlvbnMg
+d2hpY2ggYXZvaWQgbWVtb3J5IGxvYWQgYW5kCnRlc3QgYnJhbmNoLgoKSW5pdGlhbCB0ZXN0IGxt
+YmVuY2gncyBsYXRfc3lzY2FsbCB3cml0ZSBvbiBUSDE1MjAgcGxhdGZvcm1zIHNob3dzIHRoYXQK
+dGhlIHdyaXRlIHN5c2NhbGwgbGF0ZW5jeSBpcyByZWR1Y2VkIGJ5IGFib3V0IDIuMzglLgoKU2ln
+bmVkLW9mZi1ieTogSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgpMaW5rOiBodHRw
+czovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtaXNhLW1hbnVhbC9ibG9iL21haW4vc3JjL3Byb2Zp
+bGVzL3Byb2ZpbGVzLmFkb2MgWzFdCkxpbms6IGh0dHBzOi8vcmlzY3YuYXRsYXNzaWFuLm5ldC93
+aWtpL3NwYWNlcy9IT01FL3BhZ2VzLzE2MTU0NzMyL1JhdGlmaWVkK0lTQStFeHRlbnNpb25zIFsy
+XQoKSmlzaGVuZyBaaGFuZyAoMyk6CiAgcmlzY3Y6IHJlbW92ZSBSSVNDVl9BTFRFUk5BVElWRSBL
+Y29uZmlnIG9wdGlvbgogIHJpc2N2OiBjb252ZXJ0IHBndGFibGVfbDR8bDVfZW5hYmxlZCB0byBp
+bmxpbmUgZnVuY3Rpb24KICByaXNjdjogaW50cm9kdWNlIGNhcCBmcmFtZXdvcmsgYW5kIHVzZSBp
+dCB0byBvcHRpbWl6ZQogICAgcGd0YWJsZV9sNHxsNV9lbmFibGVkCgogYXJjaC9yaXNjdi9LY29u
+ZmlnICAgICAgICAgICAgICAgICAgICAgICAgICB8IDI0ICstLS0tLS0KIGFyY2gvcmlzY3YvS2Nv
+bmZpZy5lcnJhdGEgICAgICAgICAgICAgICAgICAgfCAgNSArLQogYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9hbHRlcm5hdGl2ZS1tYWNyb3MuaCB8IDI0IC0tLS0tLS0KIGFyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vYWx0ZXJuYXRpdmUuaCAgICAgICAgfCAxMiArLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2NwdWZlYXR1cmUtbWFjcm9zLmggIHwgNTQgKysrKysrKysrKysrKy0tCiBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2NwdWZlYXR1cmUuaCAgICAgICAgIHwgIDggKy0tCiBhcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL2h3Y2FwLmggICAgICAgICAgICAgIHwgIDYgKysKIGFyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vcGdhbGxvYy5oICAgICAgICAgICAgfCAxNCArKy0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL3BndGFibGUtMzIuaCAgICAgICAgIHwgIDQgKy0KIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+cGd0YWJsZS02NC5oICAgICAgICAgfCA2MiArKysrKysrKysrKy0tLS0tLQogYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS9wZ3RhYmxlLmggICAgICAgICAgICB8ICA0ICstCiBhcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3ZlbmRvcl9leHRlbnNpb25zLmggIHwgMTggKystLS0KIGFyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vdm1hbGxvYy5oICAgICAgICAgICAgfCAgNSArLQogYXJjaC9yaXNjdi9rZXJuZWwvTWFr
+ZWZpbGUgICAgICAgICAgICAgICAgICB8ICAyICstCiBhcmNoL3Jpc2N2L2tlcm5lbC9hbHRlcm5h
+dGl2ZS5jICAgICAgICAgICAgIHwgMjQgKysrKystLQogYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMg
+ICAgICAgICAgICAgICAgICAgICB8ICA0ICstCiBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJl
+LmMgICAgICAgICAgICAgIHwgNDMgKysrKysrKysrLS0tCiBhcmNoL3Jpc2N2L21tL2luaXQuYyAg
+ICAgICAgICAgICAgICAgICAgICAgIHwgNzMgKysrKysrKysrKysrLS0tLS0tLS0tCiBhcmNoL3Jp
+c2N2L21tL2thc2FuX2luaXQuYyAgICAgICAgICAgICAgICAgIHwgMjAgKysrLS0tCiBhcmNoL3Jp
+c2N2L21tL3BndGFibGUuYyAgICAgICAgICAgICAgICAgICAgIHwgIDQgKy0KIGFyY2gvcmlzY3Yv
+bW0vcHRkdW1wLmMgICAgICAgICAgICAgICAgICAgICAgfCAgNCArLQogMjEgZmlsZXMgY2hhbmdl
+ZCwgMjMwIGluc2VydGlvbnMoKyksIDE4NCBkZWxldGlvbnMoLSkKCi0tIAoyLjUzLjAKCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
