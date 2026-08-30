@@ -4,56 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99E2AC61DD6
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Aug 2026 02:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5935FC61DB9
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Aug 2026 04:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k1O51DDrCoUp8LdobHjincjHWuP3zn4eQtN6/xlK+2U=; b=MXwsPYwLhCFxh+
-	cO+h0SaJ2kT8/9BdPkhOFcsuBOM+d+O1Bmzu8rypvoLwoMOKKeTiD1s4MNiTe4C/ji3XYykJcBPaB
-	zu2oHGRWq95DDOwXQRle/zlhivrNF8fctYQr//MDhJ4732BCrER/tDxsicHXjf9AYVo6u3xbp/er0
-	ztKL92nbIA2sKhZQNQbDSSeqO8vvk+E2JOA4AJX6AhCJ9lmWePl3X60taAWi6aKdDJiy08rZD0s0g
-	jtH/LhnQZrvwzvnD0gTd6ndbYoAgynoX1VXkyat3cmaj0gthtzKMKvSM4NBKe+6S+R/B6k0p31Rav
-	U2Fjr+y3Tt8V7lIjXTzw==;
+	List-Owner; bh=Gmv7nglpwALiMsmLQ/Me/HljwB6hsH5p4YxzaeVKgIQ=; b=QIgkLBjDe2XFNU
+	pFwhLYIfhwuTP5B/m+gzw9A7KGQLuFXmuUE1007XEL0xVARxc5gS22Z7Ba/PesjnosAiMV9ye3p2l
+	SBtqS6dzPKa2LLNsMjoipJl8CNpcJTzDTYqGOy+rn2nsPZziW+TE1NQVK6k6aL3nhpLUqBveHRPzz
+	8TfU97VcKdMTpr5+7RKdsKJ/Kzv8LIcb91/nXwcZTdv3tetAKAbyw9qk0gtIamZcY0qdqlZ3AeRBn
+	y9Xp+mgE93fFAv8bGAdRF5tcBqUaSUPuw2RvX8Ox/tSzq1Vy4LrLpJI4Wu7dOw1l1Qq3S5x+DD6nP
+	6OypZclU4AxqY58kVwsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0VQr-00000007RY6-2dPk;
-	Sun, 30 Aug 2026 02:38:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x0XZu-00000007UnF-0DyF;
+	Sun, 30 Aug 2026 04:55:34 +0000
+Received: from out-229.mta0.migadu.com ([2001:41d0:1004:224b::e5] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0VQp-00000007RXy-24Mg
+	id 1x0XZi-00000007UmR-2u9K
 	for linux-riscv@lists.infradead.org;
-	Sun, 30 Aug 2026 02:38:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7006A600AE;
-	Sun, 30 Aug 2026 02:38:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AC531F000E9;
-	Sun, 30 Aug 2026 02:37:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1788057479;
-	bh=8JYy4cwxYHYB3SLpHqiVEkE1C6SYKPTNsf1PpaVEnwg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=QVajQr8NNF6WPo/YrfP06JWv6nBxuMXUVYkL4jV+k7kofGQyAqz7WQZ82AizCeFUZ
-	 kAT3EfC07ssgCo3wsWRLa38WTRca6Bkg907opIQTsW6d1FYUAiYxWdnnhbzERCR/8a
-	 erqZhgAOb21E3uccdcRdMiINp9YIOYLA7PNTvGX0=
-Date: Sat, 29 Aug 2026 19:37:58 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Miaohe Lin <linmiaohe@huawei.com>, Naoya Horiguchi
- <nao.horiguchi@gmail.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, david@kernel.org, SJ Park <sj@kernel.org>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, kernel-team@meta.com
-Subject: Re: [PATCH v2] tools/mm: add hwpoison-panic tool
-Message-Id: <20260829193758.b251f3c89f8201bdc585a305@linux-foundation.org>
-In-Reply-To: <20260803-memory_failure_rewrite_test-v2-1-ed020ce42129@debian.org>
-References: <20260803-memory_failure_rewrite_test-v2-1-ed020ce42129@debian.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Sun, 30 Aug 2026 04:55:32 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=kW8u6QAGL30Ul+wHORAOeZzkRSJ24MIILtkoaK3HiBQ=;
+ c=simple/simple; d=wyuan.org;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788065718; v=1; x=1788670518;
+ b=FNU6ErINnd/L8TNrOEbXX3yPu490Bnat7n4GG5ZXq63E+E+h+74HZMhO21CD7e9p63sQRlm9
+ APEVtouWFSylzQycPAU9m/KMVbYDOGNrWcl26wmPo39oLTT7bcjFvX+LYiG3z881th81twP6pio
+ dStAfIw3iPoG+LBI3K7n98JXpFJesqL/6FnD2LtgUx0c/gOrp6U6UKsMtwXS2vHWg+06PN+AKHw
+ w+rzn8QjKFsHqSUzJsQgEgOyGU9qUG2532jzaLXYHhOaK3FjX55DSh1oFqmLPKXgEQ7X+iN9f9e
+ quFKRfqod7A1CdEsoC+DIxJ/GF0V14kgQiCKHulCm5S3w==
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 8d93383cd71421ba;
+	Sun, 30 Aug 2026 04:55:11 +0000
+X-Mizu-Trace-ID: 8d93383cd71421ba
+X-Migadu-Flow: FLOW_OUT
+Date: Sun, 30 Aug 2026 12:55:04 +0800
+From: Weijie Yuan <wy@wyuan.org>
+To: Yukai Wu <xiaoyewuz.ruster@gmail.com>
+Cc: Alex Shi <alexs@kernel.org>, Yanteng Si <si.yanteng@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Dongliang Mu <dzm91@hust.edu.cn>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Alexandre Ghiti <alex@ghiti.fr>, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Chen-Yu Yeh <chenyou910331@gmail.com>
+Subject: Re: [PATCH] docs/zh_CN: Update arch/riscv/vm-layout.rst translation
+Message-ID: <apO3qAhf95TyJauu@wyuan.org>
+References: <20260829041542.256360-1-xiaoyewuz.Ruster@gmail.com>
+ <apL7ctZhcN5t77Yu@wyuan.org>
+ <f-IgWNAyTmaoW34tfNxIvg@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <f-IgWNAyTmaoW34tfNxIvg@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260829_215523_879737_F0C7F29C 
+X-CRM114-Status: GOOD (  31.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,46 +75,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 03 Aug 2026 04:31:20 -0700 Breno Leitao <leitao@debian.org> wrote:
-
-> Add a tool that enables the vm.panic_on_unrecoverable_memory_failure
-> sysctl, picks a kernel-owned PFN and writes its physical address to
-> hard_offline_page.  Three page kinds are selectable with -k: rodata
-> (default), slab or pgtable. In all cases the host should panic.
-> 
-> Example:
-> 
->         # ./hwpoison-panic -k slab --yes-panic-my-kernel
->         injecting hwpoison at phys 0x100032000 (pfn 0x100032, kind=slab)
->         expecting kernel panic: 'Memory failure: <pfn>: unrecoverable page'
-> 
-> In dmesg, you will see:
-> 
->         Memory failure: 0x100032: unhandlable page.
->         Memory failure: 0x100032: recovery action for reserved kernel page: Ignored
->         Kernel panic - not syncing: Memory failure: 0x100032: unrecoverable page
-> 
-> This lives in tools/mm rather than selftests/mm because every successful
-> run crashes the machine, which is not something to run from CI.
-
-I wonder if we can fix this.  Add a knob which tells the kernel not to
-panic/oops/crash/etc.  Instead it sends a message "i tried to crash but
-you told me not to" and proceeds.
-
-Set that knob around your hwpoison-panic tool and voila, it's now a
-selftest.
-
-Wondering if we can sneakily use fault-injection to do this.  Add a new
-i_should_crash_now() and use fault-injection to make this function
-"fail", by returning zero.  Or something else.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBBdWcgMzAsIDIwMjYgYXQgMDk6MzM6MTJBTSArMDgwMCwgWXVrYWkgV3Ugd3JvdGU6
+Cj4gT24gU2F0dXJkYXksIEF1Z3VzdCAyOSwgMjAyNiAxMTozMjowMuKAr1BNIENoaW5hIFN0YW5k
+YXJkIFRpbWUgV2VpamllIFl1YW4gCj4gd3JvdGU6Cj4gPiBIaSwgaXQncyBtZSBhZ2FpbiA7LSkK
+PiA+IAo+ID4gT24gU2F0LCBBdWcgMjksIDIwMjYgYXQgMTI6MTU6MTBQTSArMDgwMCwgWXVrYWkg
+V3Ugd3JvdGU6Cj4gPiA+IFVwZGF0ZSBEb2N1bWVudGF0aW9uL2FyY2gvcmlzY3Yvdm0tbGF5b3V0
+LnJzdCB0cmFuc2xhdGlvbi4KPiA+ID4gCj4gPiA+IFVwZGF0ZSB0aGUgdHJhbnNsYXRpb24gdGhy
+b3VnaCBjb21taXQgOTU0MjYwZmY1YTQ2Cj4gPiA+ICgiUmV2ZXJ0ICJSSVNDLVY6IG1tOiBEb2N1
+bWVudCBtbWFwIGNoYW5nZXMiIikKPiA+IAo+ID4gU29tZWhvdyBJIGd1ZXNzIHlvdSBkaWRuJ3Qg
+Z2V0IHRoZSBhY3R1YWwgbWVhbmluZyBiZWhpbmQgdGhpcyAiVXBkYXRlIHh4eAo+ID4gdGhyb3Vn
+aCBjb21taXQuLi4iLgo+ID4gCj4gPiBDb3JyZWN0IG1lIGlmIEknbSB3cm9uZy4gSWYgeW91IHdy
+aXRlIHRoaXMgbGluZSBpbiB5b3VyIGNvbW1pdCBtZXNzYWdlLgo+ID4gVGhlbiBpdCBtZWFucyBp
+ZiB3ZSBhcHBseSB0aGlzIHBhdGNoIG9mIHlvdXJzLiBUaGUgQ2hpbmVzZSBkb2N1bWVudGF0aW9u
+Cj4gPiBvZiB0aGlzIGZpbGUgc2hvdWxkIGJlIGFscmVhZHkgX2NvbXBsZXRlbHlfIHN5bmNocm9u
+aXplZC4KPiA+IAo+IAo+IEkgYWdyZWUuIE15IGZhdWx0IGFnYWluLgoKTm8gd29ycmllcyBhdCBh
+bGwuCgo+IAo+ID4gSG93ZXZlciwgdGhlIGN1cnJlbnQgdHJhbnNsYXRpb24gb2YgdGhpcyBmaWxl
+IGlzIG1pc3NpbmcgdGhpcyBwYXJ0Ogo+ID4gCj4gPiBSSVNDLVYgTGludXggS2VybmVsIFNWNTcK
+PiA+IC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ID4gCj4gPiAuLi4gd2hpY2ggaXMgbm90IHRy
+YW5zbGF0ZWQvc3luY2hyb25pemVkIGluIHlvdXIgcGF0Y2guCj4gPiAKPiA+IAo+IAo+IERpZG4n
+dCBzZWUgdGhhdCBiZWNhdXNlIEkganVzdCB1c2VkIHRoZSB0b29scy9kb2NzL2NoZWNrdHJhbnN1
+cGRhdGUucHkgc2NyaXB0LCAKPiB3aGljaCBjYW5ub3Qgc2VlIHRoZSBjb21taXRzIGJlZm9yZSBl
+ZDg0M2FlOTQ3ZjggKCJkb2NzOiBtb3ZlIHJpc2N2IHVuZGVyIAo+IGFyY2giKS4gVGhhdCBjb21t
+aXQganVzdCBtb3ZlZCB0aGUgQ2hpbmVzZSB0cmFuc2xhdGlvbiBidXQgd2FzIHRyZWF0ZWQgYXMg
+YW4gCj4gdXBkYXRlIGJ5IHRoZSBzY3JpcHQuIEFuZCBJIG9ubHkgbG9va2VkIGF0IHRoZSBjb21t
+aXRzIHJlcG9ydGVkIGJ5IHRoZSBzY3JpcHQuCgpPSywgSSBub3RpY2VkIHRoYXQgdGhpcyBmaWxl
+IHdhcyBtb3ZlZC9yZW5hbWVkLgoKJCB0b29scy9kb2NzL2NoZWNrdHJhbnN1cGRhdGUucHkgRG9j
+dW1lbnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04vYXJjaC9yaXNjdi92bS1sYXlvdXQucnN0Clsx
+Nzg4MDYyMDQyLjM3ODEwMF0gRG9jdW1lbnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04vYXJjaC9y
+aXNjdi92bS1sYXlvdXQucnN0ClsxNzg4MDYyMDQyLjUxODQwMF0gY29tbWl0IDk1NDI2MGZmNWE0
+NiAoIlJldmVydCAiUklTQy1WOiBtbTogRG9jdW1lbnQgbW1hcCBjaGFuZ2VzIiIpClsxNzg4MDYy
+MDQyLjU2MDkyNl0gY29tbWl0IDVjODQwNWQ3NjNkYyAoInJpc2N2OiBFeHRlbmQgc3YzOSBsaW5l
+YXIgbWFwcGluZyBtYXggc2l6ZSB0byAxMjhHIikKWzE3ODgwNjIwNDIuNjAxODIyXSBjb21taXQg
+MzcxYTNjMjA1NWRiICgiZG9jczogcmlzY3Y6IERlZmluZSBiZWhhdmlvciBvZiBtbWFwIikKWzE3
+ODgwNjIwNDIuNjAxOTQ3XSAzIGNvbW1pdHMgbmVlZHMgcmVzb2x2aW5nIGluIHRvdGFsCgouLiBT
+byBvdXIgc2NyaXB0IG1pc3NlZCBhIGZldyBjb21taXQgYmVmb3JlIG5hbWUtY2hhbmdpbmc/CgpC
+dXQgd2hhdGV2ZXIsIHRoaXMgZmlsZSBpcyBub3QgbG9uZyBhbmQgY29tcGxpY2F0ZWQuIEFuZCB0
+aGUgc2NyaXB0IGlzCmp1c3QgYSByZWZlcmVuY2UgdG8gY2hlY2sgdGhlIHN0YXR1cy4KCkFsc28s
+IHdlIGRvIG5vdCBuZWVkIGNvbnRyaWJ1dG9ycyB0byB1cGRhdGUgdGhlIHRyYW5zbGF0aW9uIG9u
+ZSBjb21taXQKYnkgb25lIGNvbW1pdC4KClNvLCB0aGUgYmVzdCBzb2x1dGlvbiBub3cgaXMgc2lt
+cGx5IG1hbnVhbGx5IHN5bmNocm9uaXppbmcgdGhlCnRyYW5zbGF0aW9uLCBJIHRoaW5rLgoKPiA+
+IE5vdGUgdGhhdCBJJ20gbm90IGJsYW1pbmcgb24geW91IGZvciB0aGlzLiBCdXQgSSBmZWVsIHRo
+aXMgaXMgYSBwb2ludAo+ID4gdGhhdCBhIG5ld2NvbWVyIG1pZ2h0IGZpbmQgY29uZnVzaW5nLCBp
+bmNsdWRpbmcgbWUgYW5kIENoZW4tWXUgYSBjb3VwbGUKPiA+IG9mIHdlZWtzIGFnbywgaWYgZGlk
+IG5vdCByZWFkIHRoZSBzY3JpcHQuCj4gPiAKPiA+IE91ciBjdXJyZW50IGhvdy10by5yc3Qgb25s
+eSBhc2tzIHRvIHdyaXRlIHRoaXMgbGluZSBpbiB0aGUgY29tbWl0Cj4gPiBtZXNzYWdlIGJ1dCBk
+b2VzIG5vdCBleHBsYWluIHRoZSByZXN1bHRzIG9yIHRoZSBhY3R1YWwgd29yayBiZWhpbmQgaXQu
+Cj4gPiAKPiA+IFsuLi5dCj4gPiAJVXBkYXRlIHRoZSB0cmFuc2xhdGlvbiB0aHJvdWdoIGNvbW1p
+dCBiMDgwZTUyMTEwZWEKPiA+IAkoImRvY3M6IHVwZGF0ZSBzZWxmLXByb3RlY3Rpb24gX19yb19h
+ZnRlcl9pbml0IHN0YXR1cyIpCj4gPiAJIyDor7fmiafooYwgZ2l0IGxvZyAtLW9uZWxpbmUgPOaC
+qOe/u+ivkeeahOiLseaWh+aWh+aho+i3r+W+hD7vvIzlubbmm7/mjaLkuIrov7DlhoXlrrkKPiA+
+IAo+ID4gCVNvIHdoZW4gYSBuZXdjb21lciBjb21lcyBhbmQganVzdCBkb2VzIHdoYXQgdGhpcyBh
+c2tzLCB3aXRob3V0Cj4gPiAJY29uc2lkZXJpbmcgd2hldGhlciBoaXMvaGVyL2l0cyB0cmFuc2xh
+dGlvbiBpcyBjb21wbGV0ZWx5Cj4gPiAJc3luY2hyb25pemVkIG9yIG5vdCwgb3VyIHNjcmlwdCB3
+b3VsZCBiZSBraW5kIG9mIGluYWNjdXJhdGUuID8KPiA+IAo+ID4gTWF5YmUgd2UgY2FuIGFkZCBh
+IGRlc2NyaXB0aW9uIG9yIGEgaGludCBsaWtlOgo+ID4gCj4gPiBJZiB5b3VyIGN1cnJlbnQgY2hh
+bmdlcyBtYWtlIHRoZSB0cmFuc2xhdGlvbiBjb21wbGV0ZWx5IGluIGxpbmUgd2l0aCB0aGUKPiA+
+IEVuZ2xpc2ggdmVyc2lvbiwgdGhlbiBwbGVhc2UgYWRkIHRoaXMgbGluZSBhZnRlciB5b3VyIGRl
+c2NyaXB0aW9ucyBhbmQKPiA+IGJlZm9yZSBhIGJsYW5rIGxpbmUgYW5kIHlvdXIgc2lnbi1vZmY6
+Cj4gPiAKPiA+IFVwZGF0ZSB0aGUgdHJhbnNsYXRpb24gdGhyb3VnaCBjb21taXQgZTgzYzUxNjMz
+MTZmCj4gPiAoSW5pdGlhbCByZXZpc2lvbiBvZiAiZ2l0IiwgdGhlIGluZm9ybWF0aW9uIG1hbmFn
+ZXIgZnJvbSBoZWxsKQo+ID4gCj4gPiAuLnRoZW4gZm9sbG93cyBhIHRlbXBsYXRlIGNvbW1pdCBt
+ZXNzYWdlCj4gCj4gQWxsb3dpbmcgcGFydGlhbCB1cGRhdGVzIHRvIHRoZSB0cmFuc2xhdGlvbj8K
+CkkgdGhpbmsgaXQncyBmaW5lIHRvIGRvIHBhcnRpYWwgdXBkYXRlcy4gSWYgeW91IGp1c3QgZG8g
+cGFydGlhbCB1cGRhdGVzLAp0aGVyZWZvcmUgZG8gbm90IGFkZCB0aGF0IGxpbmUgIlVwZGF0ZSB0
+aGUgdHJhbnNsYXRpb24gdGhyb3VnaCBjb21taXQgYWJjIi4KVGhhdCB3b3VsZCBtYWtlIHRoZSBz
+Y3JpcHQgdGhpbmsgeW91IGhhdmUgZG9uZSBhbGwgdGhlIG1pc3Npbmcgam9icy4KCkFsc28sIHlv
+dSBjYW4gYWJzb2x1dGVseSB3cml0ZSB0aGUgX3NwZWNpZmljXyBjb21taXQgaGFzaCBpZiB5b3Ug
+ZG8gc28sCihvbmx5IHVwZGF0ZSBwYXJ0aWFsKSAsIG5vdCB0aGUgbGFzdGVzdCBjb21taXQgaGFz
+aCBvZiB0aGUgRW5nbGlzaCBvcmlnaW5hbCBvbmUuCgpUaGF0IHNhaWQsIEkgZGlkIG5vdCByZWFk
+IHRoZSBzY3JpcHQgeWV0LiA6KCAgU28gSSdkIGJldHRlciB0YWtlIGEgY2xvc2UKbG9vayB0aGVu
+LgoKPiA+IChTaG91bGQgSSBjYyB0aGUgb3JpZ2luYWwgYXV0aG9ycyBvZiB0aGUgc2NyaXB0PykK
+PiAKPiBDQyB0aGUgYXV0aG9ycyBvZiB0aGUgY2hlY2t0cmFuc3VwZGF0ZS5weSBzY3JpcHQ/CgpZ
+ZXMsIGJ1dCBzaW5jZSBEb25nbGlhbmcgaXMgdGhlIG9yaWdpbmFsIGF1dGhvciwgSSBndWVzcyBp
+dCdzIGVub3VnaC4KClRoYW5rcy4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
