@@ -4,132 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D21C624C6
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 15:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F83C624A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 15:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nJcIXvDvbVZGMWKEN9ByzQe09nEujKXHZ6Ld14H1wkY=; b=z+c47ynY9LJtUL
-	2flbPgV2S+o+MZ2+pbb2iEBUUC4ICjjIVE0gEAL1VMyiJIi8FjkFGlskJ1psdUIUFf18mzc27Q5mT
-	eqsjMPn7ettxagWUJ5CbB7Z8uuPuv6h/macPlVLh/RMDlyb57eQEw4q4UGaRIWCpVjxqBU7SIWtjR
-	Lvq9HYVAaJVDjNFVONnuXW5b2dmdqJbOz/Kdkp6P7wiL6kg2OT+96M7msGoZ+CLpZQVkHOVUBqfES
-	Qh1M8B/jN3I3cvS/Xha8AnI8u/UHtspnNUo2Y4epaUTOjUyzmU+kPuMRjxxDoOhiqvjFmGrfM3N4t
-	DZB1GCoLcjW0/gQTUk1A==;
+	List-Owner; bh=SizIzF2awZxsEgSGviHfFD7OP96mf9FW9YhqHBWbQWU=; b=g1ZSQuJg8sg3z7
+	F6Zq1H7bOSpObClEEnX2R4pVOceL8l+qxj1mwngoblgkW3Dmytvsw2l/C24XUdGBBQ8Qi6JBTm/3o
+	7x8piSb4OL53L9j/4tfRfUHN8OB6IPA7+bxrb6CFlpQInAPL04jpYqslwMSVItqTbJbZsKme0GWOA
+	Qt7r3sCaET0a0B+mjE1FrOgO5Y+HwKHneg7A4lSUsDGD2t6L9GgGLWTX2eAlrrk8Nz22hGkSMZZWK
+	bbZu83cuRxmFqquHY+IEj/Gy3KF6ZCTJDfi6kvVOY6pc2NlJ2oOehXD+G9NmyT5nPCisJ/wvE3r1O
+	xpoZETol3QNgOeCj7BuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13UZ-00000009ki6-0Gsz;
-	Mon, 31 Aug 2026 15:00:11 +0000
+	id 1x13Un-00000009l4f-2B2e;
+	Mon, 31 Aug 2026 15:00:25 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13UN-00000009kTa-0skU
+	id 1x13UZ-00000009khs-2IJh
 	for linux-riscv@lists.infradead.org;
-	Mon, 31 Aug 2026 15:00:00 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VETQsT3296599
-	for <linux-riscv@lists.infradead.org>; Mon, 31 Aug 2026 14:59:58 GMT
+	Mon, 31 Aug 2026 15:00:21 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VETbCj4049761
+	for <linux-riscv@lists.infradead.org>; Mon, 31 Aug 2026 15:00:10 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=l+wO2YNnEaL
-	XrAQk2P5XKsnRLtuMJ3Ijr8ghrcqISrk=; b=glyLadnVtfQteledri6mEzwwDiI
-	IoRauTHIAyauECNeinQ0XUxMGZQ+4D/KatKY2W8rufK/AcaaDD+ndizr5cpduIsC
-	EKgKkuOI/kWryKFRDFr+A6nNzpjyhcs5A5XHWeGeptpK+Cglihio3e1rPtJ+IvgK
-	TPBgLqxYT2B33G2vVABNuSWKwGDo5s9ibfuv+urmokGcCMHJU5A9z6ljbnl9qv5j
-	6jkVyagqkxLqiafR7U20ZmtLPE5UY/chTemyWZaCHUkpNctWXLVasoG0Ca4ldCzp
-	WEePGIMyBPjbJga9BIrgbDG7Wo0A9PTrIjptJaSoUE4IPSQo4ArytbwW7GA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gd6ayhhxk-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=Z/0MUXfJDNe
+	HlErsfNSNArUm0DaS7PuJvPVjEpFxNjQ=; b=FJY+UZ5wY0Pooggdsd9At+BbBAQ
+	Lp1R9dHZfYhnMrLjazZTQTXXwd13pRpgl/GN0BiudGNYxrw9VJpGYA4/YN7zt+BP
+	aoo3n6IhpIxds9ukDfa3Sy65BuHW8PBuOBZZoKTkzKymwwgZxWhkpPsQJudLB+hX
+	jYhqzb9rpHN2MJ+JtRsxBOLlSrh/I93wMoGfQbgpJCbBwxtANfeHpX1GK7IZhdSF
+	DT56QYgg5H6tyR14AvzaAySlrenn2x2hcYYQ6bm62wz2pEs6RL6l70pKoxfbbSFE
+	i1BL/AkVHtlAYA96jrfouNy7xxL2zzlszBLikRA8Pb5ENI6VCcUbT2hdxGg==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gd6jghfyt-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Mon, 31 Aug 2026 14:59:58 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-934956beec8so612704285a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 31 Aug 2026 07:59:58 -0700 (PDT)
+	for <linux-riscv@lists.infradead.org>; Mon, 31 Aug 2026 15:00:10 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-92e4f946461so599915185a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 31 Aug 2026 08:00:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788188398; x=1788793198; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1788188409; x=1788793209; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=l+wO2YNnEaLXrAQk2P5XKsnRLtuMJ3Ijr8ghrcqISrk=;
-        b=gW8TRVHKU6yi1aHGdbXM44WI7zEFex6fGOE8JNjHlQk/9EAf+BKC5JipV+cMg3L7+e
-         5GzqoXmUAaEy8NyfKGmXqx0WxSJCGS+GOU9/Bu5Sh3vUWW+i4KXwvdwmuX1HnDwGkNhj
-         wWEfU3BeJadGWKCj7xfmrn19EbfbIc0bQWRWlz9A4d5kBEecRCXGmr9vkJ0hud2SzH29
-         t4D4vKnDu3Pl54m3yW9pdjDF3ONZw5gGXebScQuJrkjslqAG6JdfSAkguz9Ma7oT3CGo
-         GNdpqeu4/iNtbbUzOgV0xS5ddqmdaSpEUlLqwoQIUDYCe2b6AOaiN3Y5bLvExitOJZCC
-         kf2A==
+        bh=Z/0MUXfJDNeHlErsfNSNArUm0DaS7PuJvPVjEpFxNjQ=;
+        b=jGkwWB7SsQQT8zKECiYH34V4lcIxiz7HytQ/0/fTqAaqA6atTOCKUZkg3vEiCv4FPF
+         x1LOqL/bmNHku9uaPDngQuN2aTCLcYveKR7PrGxw/Bu2XEFo6rcFBk4G/DtIYDP5awdM
+         fHLAy59xGICd9j0NDNReJC60yF6a4ry/DzvX9RlFGMkxFR/K0hKMONNRf6dV9tu9tNcm
+         FMwd4dG7OaH6q02P1ERWWG3lFngbTQgLhZ+C3BxnSi81bJ5nPEun7B5Ck+iRoJDJ9D2z
+         MsLQq6xztijxOuAE7V8TeVUoB8ekAxzpP+BINhfSpJU0zN+5CNEHW6d30NI+639srA+m
+         SURQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788188398; x=1788793198;
+        d=1e100.net; s=20251104; t=1788188409; x=1788793209;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=l+wO2YNnEaLXrAQk2P5XKsnRLtuMJ3Ijr8ghrcqISrk=;
-        b=qc5ytstocwDlLNhwyJBPVGAdgESyod7oO9COGWDxJ57igfS5XrwBo1vMpszQNnrVBa
-         BXiaKIdACCoCVtFwuEU0I/ehisetUvTY1DuNCiAI8i3/N2YXkf2nxHBvEb4BaREdUMRK
-         9h+UngC4Zr64XBKU5Lf0aOvE37Hv6sMsqM5Ke+CJm7Uv2MlVZrmlouqEoZFArIjv8U1u
-         +BhygSY7YSvVv5j/4ten5lMs7GoTmCH69pazMbW3bi8req9llj9LY4SvAULHvvd3acl8
-         6gk1UWYR3aOZz9kWs5bFC6zTOhmHK2esTjd07hh5qIgIX5gPVQWGxrokhgpuNj+3LAJ9
-         WEGQ==
-X-Gm-Message-State: AFuF++liUcXYzJDCEujkBbN5TE/485pbyGgXDH/zhBfEOeZZho+l0i+l
-	ca9ZlmpcSlovDCLvmmZmoTI8vS+yLb+ve6O6vgNiFT3CesKqpzJQNpRP3TYcOT+YnTypiElzAC+
-	xAol62ux1DuhVTJszDc9oEWIFd9HFpwoSQLtHpaxoUs79mxeDQf/zwbST1Ww+D1ByJHpHegYj1V
-	iJZEM=
-X-Gm-Gg: AR+sD115ecbtW9EJdEif+bjBx/9p6fQowhLht5KZgmqfogPBNiJFTgdnNBOAlfXyMZl
-	QktOoIZq9bspthFPE9m9dvla4F/7qc3/EZpqtGQQcQ7favVSOOFHWuwJf4l2wNvOvOVLt5pMyQa
-	YnphjrfYjdNkGlLQ/IVq6l+QjDoo1PmThjROSPIHzlXMCITYA9Ut7Xkk+qi7WgVNxE1RuRPhaeH
-	7MdW/JP8KLV+PoMAr78UBC1Tkpfzba638ZwzyrdMSiksGEop2E4+fve6Oe7U/hXUAXzYMd9fS1s
-	ftYePEdsZqRzkxi/P0IecrKq1FVrjGV1UrQkbJgiXVx8BX8S1weg3dkaqU7U6vMJ5L2bQj+gqxK
-	J487iS/qFozZTl2Uyk6wn4YU3ONaWa8yS1eg=
-X-Received: by 2002:a05:620a:a404:10b0:939:209:c805 with SMTP id af79cd13be357-939138015b1mr2421459985a.12.1788188397633;
-        Mon, 31 Aug 2026 07:59:57 -0700 (PDT)
-X-Received: by 2002:a05:620a:a404:10b0:939:209:c805 with SMTP id af79cd13be357-939138015b1mr2421451585a.12.1788188396956;
-        Mon, 31 Aug 2026 07:59:56 -0700 (PDT)
+        bh=Z/0MUXfJDNeHlErsfNSNArUm0DaS7PuJvPVjEpFxNjQ=;
+        b=SB0gnWOlqil7iDdVCPlOJxMSUApMoHpSQS9M2Rfe8JBU9zSIPwHBUpLum+SPQg/aq2
+         3I4cEd9e6F86AwGKsDQk32DGjwDT81wDCg+U8mQtvoZLuxWlzQBEG+DpgL9M8/fkBqwE
+         2gVTObL3126ju4sR/Y1c8Nas5ODDRnPR9W31dRGi2BnutbH20aTE5uDErUwI/Av9BYoK
+         5u6RnZ0th4ygFXyuuj7wkOz3tie0zB/FyFz0sAKAWp+0EF03reIrwCUNtdLp7zv4j1av
+         zYoxuAFDBSNey+6W3pTEG/9vukCnmNL7SJv6iQcxtrysWf7/4o2CbUtCwGwE9bcz2G6z
+         /wSQ==
+X-Gm-Message-State: AFuF++nrNQzOH8SEYnqIWWgWxSXIr7gcELlVjeqRISWjCmTXwlk7hgcN
+	nrtxWE/t+rx16C2QJxlma5ehwC13Lue7RS4S6rugSQU1ESzJT8EPvrh7yhb8UefY7Dqfb/N7Ahb
+	7v+datQdwK+N5AzNC6hNMMk3VwLajyXh5OIJjbFwq7BQLyHGHiQY0CkwfimrTVN4pIpCVYdJyDL
+	yc6qc=
+X-Gm-Gg: AR+sD12VsJhdQPzBqUNN134/xMQWWML/xsnCGW0N783EbFOb8BQg7KEyv40r8zsy/lk
+	UgDwdusRN7SzGbQrA8GCqdQxniHZCQLwGQW2lCm5Kdiv4B/zpb4EgDjKzuPY/o4hYXKA4yzJBpE
+	0XhZtW9EZ3IoWXpWdJssoYYft6DlBYDunnvQTsI7h4Qp3YQwWrDRo62pWWNW7ilen7V+vn1jjdp
+	9ck2f6KBryeU5O0QMsYIhTpFke8FxGa44hVFKP/EiVoxfAbSmGmx3+TrKTm0JU0PjmTEJnkombo
+	6fxWehYuYGQh5HuzplH/hShaSq0JXAGjKgxodDOFl0+/1LfNIkvaYJKMq/gNQHmE0gvCDUf8hfe
+	AeXZcvS68VaDcsqbWkyYIISyAkxMyY3rnMdw=
+X-Received: by 2002:a05:620a:a404:20b0:939:365b:37d8 with SMTP id af79cd13be357-9394817f9d9mr195744385a.36.1788188409493;
+        Mon, 31 Aug 2026 08:00:09 -0700 (PDT)
+X-Received: by 2002:a05:620a:a404:20b0:939:365b:37d8 with SMTP id af79cd13be357-9394817f9d9mr195730785a.36.1788188408868;
+        Mon, 31 Aug 2026 08:00:08 -0700 (PDT)
 Received: from localhost (ip-86-49-251-7.bb.vodafone.cz. [86.49.251.7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cdb13f094sm40886845e9.3.2026.08.31.07.59.55
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ccd1e19desm252798825e9.1.2026.08.31.08.00.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 07:59:56 -0700 (PDT)
+        Mon, 31 Aug 2026 08:00:08 -0700 (PDT)
 From: Andrew Jones <andrew.jones@oss.qualcomm.com>
 To: linux-riscv@lists.infradead.org, iommu@lists.linux.dev
 Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
         tjeznach@rivosinc.com, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
         will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
         palmer@dabbelt.com, anup@brainfault.org, tglx@kernel.org,
-        kevin.tian@intel.com, fangyu.yu@linux.alibaba.com
-Subject: [PATCH v5 07/17] iommufd: Prepare software MSI installation for address lists
-Date: Mon, 31 Aug 2026 16:59:33 +0200
-Message-ID: <20260831145943.313726-8-andrew.jones@oss.qualcomm.com>
+        kevin.tian@intel.com, fangyu.yu@linux.alibaba.com,
+        Nutty Liu <nutty.liu@hotmail.com>
+Subject: [PATCH v5 14/17] vfio: enable IOMMU_TYPE1 for RISC-V
+Date: Mon, 31 Aug 2026 16:59:40 +0200
+Message-ID: <20260831145943.313726-15-andrew.jones@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260831145943.313726-1-andrew.jones@oss.qualcomm.com>
 References: <20260831145943.313726-1-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyOSBTYWx0ZWRfX/hvX1HGWvE//
- GTGKkiQgMDkp9UbAmLDsySQ1iIwnQBNSBJRc84y9wfDdQjkECuSx2nHoVNh3DOlqX6IbO3+IMcF
- Li3F6uIaJiXxoFehAmhGw4ckgeOT3/c=
-X-Proofpoint-GUID: Xd-8urJPY2p--ugrUjfLSyQpIl_CQKaJ
-X-Authority-Analysis: v=2.4 cv=CYE4Irrl c=1 sm=1 tr=0 ts=6a9596ee cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=on9AXyaqQ0RhfYpiXjjEXA==:17
+X-Proofpoint-GUID: 0V0IIruXc445u2nGkqdSZVvHsFEAWaxe
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyOSBTYWx0ZWRfX2LwU8XaUF0TN
+ ny8n17krg1L3CbbzFbQaaB5Lugy37Cbbc/QPhf0zR90GBlHl4MBTvds87lwRTo0jN121wnzP/NJ
+ d5/xQ0ezJNsnCnPZYCdOZnklSGil/+g=
+X-Proofpoint-ORIG-GUID: 0V0IIruXc445u2nGkqdSZVvHsFEAWaxe
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyOSBTYWx0ZWRfX3z0an98ZK/bl
+ tAZILbEH+c8Ol64onA7FIKtdQGdjwUpJ2WFbaq7+vglsSPyubgXD19YRNG2Jwz8jZdopEpvNkSz
+ J4Pwr5sO/+vji7R9VcRYohMuGzyfrOe5tYrpD8nppBO8F5jjWZqHG/fSQpFskJkVKDDsLVkGHsC
+ XQHV5yBxxFCLmIo1yiMrG85aNlpeyJp7rwi2mSu/nejsqVXB8vszqQenPFjrWZlaPdG42UW8AgL
+ /+74Mrpo8yhMmInaMLxJBd4T5r4wTYv5yPsPrhrezsZl4hy9Wfxrx7aJA2iwi+s/t54BrVpbOVp
+ lyvjWpbZQRMUlKogdTeKiqJlsjTWSsyOC/eDSXLzKCkdRILo+WiGbmNWYywBVjCaemOURVFqD+/
+ xNwdN1eVnesTmF3RRf7kDASumMV1YHEh7k09hEtmrudTogbTj4n+5jUAdQZGY7mGvMS10jerzn9
+ aBdgcayY855a6/K7CWg==
+X-Authority-Analysis: v=2.4 cv=YsY/gYYX c=1 sm=1 tr=0 ts=6a9596fa cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=on9AXyaqQ0RhfYpiXjjEXA==:17
  a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8
- a=fyE6B5mSzfnmm1qxREQA:9 a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-ORIG-GUID: Xd-8urJPY2p--ugrUjfLSyQpIl_CQKaJ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyOSBTYWx0ZWRfX/6tEpx0unga8
- UOwzJwl+QPPaJNVHZfmaWmU/0sSBfvo7NXCjyS4ceGtsvmCv0mgClP58NRC7CZCR+Ixh+Yulv6v
- c4UihnY2SpMMHgnpILIUBJUDV/Wwx7+4T3ibClgpPfyefUG389npq5bP4pWKbvvtB0el0vSn6UO
- GUrvObatpKd/4cLPJNFnwohXBVa9ONyALGE/WIOpbj7wDr7E5OQJliXUNkhsL5yrw9sxKL9N05L
- 60kUsDs2/ysiNW541OVdlHAv7NvEUD6Y2cJWs/t8ZFSzt/v0psQCP3jrehYdQz/FORavxCLeadv
- OFD+LxqDQI8iqAryOxEULqA3ZBtLW+X5EybKbSw+BH33dWIk13bw5AowXG/nT6S60i74NgESOVY
- 6WKKFxIC72U2EYNv0D5NnfCAkl1mWjF8lybOuBunoO1cqVMrOM2Xm4aw7Cd7wKoLWJndtrUVhSn
- aRtZ3McBODJ7fvkC3OA==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=h0uksLzaAAAA:8
+ a=EUspDBNiAAAA:8 a=69EAbJreAAAA:8 a=e-vb6wPzIjHU0Swrx_MA:9
+ a=NFOGd7dJGGMPyQGDc5-O:22 a=MSi_79tMYmZZG2gvAgS0:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-31_05,2026-08-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 suspectscore=0 bulkscore=0 spamscore=0 phishscore=0
+ lowpriorityscore=0 spamscore=0 clxscore=1015 suspectscore=0 phishscore=0
+ priorityscore=1501 adultscore=0 impostorscore=0 malwarescore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_075959_373457_0DFF91AB 
-X-CRM114-Status: GOOD (  25.01  )
+X-CRM114-CacheID: sfid-20260831_080011_890044_6DE09F7C 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,179 +148,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Teach the software MSI path to install every mapping in an address list
-before publishing newly allocated maps. Mark the complete list as
-required by the group and roll back mappings installed by a failed
-operation.
+From: Tomasz Jeznach <tjeznach@rivosinc.com>
 
-Keep iommufd_sw_msi() as a one-address wrapper so existing callers
-retain their current behavior.
+Enable VFIO support on RISC-V architecture, now that the RISC-V IOMMU
+driver reports the IOMMU_CAP_CACHE_COHERENCY capability VFIO_TYPE1 and
+iommufd both require before allowing a device to be bound.
 
+Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
 Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
 ---
- drivers/iommu/iommufd/driver.c | 101 +++++++++++++++++++++++----------
- 1 file changed, 72 insertions(+), 29 deletions(-)
+ drivers/vfio/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
-index a43a25078f87..45278c11c688 100644
---- a/drivers/iommu/iommufd/driver.c
-+++ b/drivers/iommu/iommufd/driver.c
-@@ -340,14 +340,14 @@ static int iommufd_sw_msi_install_one(struct iommufd_ctx *ictx,
- 	return 0;
- }
+diff --git a/drivers/vfio/Kconfig b/drivers/vfio/Kconfig
+index ceae52fd7586..ad62205b4e45 100644
+--- a/drivers/vfio/Kconfig
++++ b/drivers/vfio/Kconfig
+@@ -39,7 +39,7 @@ config VFIO_GROUP
  
--int iommufd_sw_msi_install(struct iommufd_ctx *ictx,
--			   struct iommufd_hwpt_paging *hwpt_paging,
--			   struct iommufd_sw_msi_map *base_map)
-+static int __iommufd_sw_msi_install_range(struct iommufd_ctx *ictx,
-+					  struct iommufd_hwpt_paging *hwpt_paging,
-+					  struct list_head *msi_maps,
-+					  const struct iommufd_sw_msi_map *base_map,
-+					  unsigned int nr_addrs)
- {
- 	struct iommufd_sw_msi_map *msi_map;
--	struct list_head *msi_maps = &ictx->sw_msi_list;
- 	unsigned long *newly_mapped;
--	unsigned int nr_addrs = base_map->range_size ? base_map->range_size / PAGE_SIZE : 1;
- 	unsigned int nr_found = 0;
- 	unsigned int index;
- 	int rc = 0;
-@@ -392,16 +392,36 @@ int iommufd_sw_msi_install(struct iommufd_ctx *ictx,
- 	bitmap_free(newly_mapped);
- 	return rc;
- }
-+
-+int iommufd_sw_msi_install(struct iommufd_ctx *ictx,
-+			   struct iommufd_hwpt_paging *hwpt_paging,
-+			   struct iommufd_sw_msi_map *base_map)
-+{
-+	unsigned int nr_addrs = base_map->range_size ? base_map->range_size / PAGE_SIZE : 1;
-+
-+	return __iommufd_sw_msi_install_range(ictx, hwpt_paging, &ictx->sw_msi_list, base_map,
-+					      nr_addrs);
-+}
- EXPORT_SYMBOL_NS_GPL(iommufd_sw_msi_install, "IOMMUFD_INTERNAL");
- 
--/*
-- * Called by the irq code if the platform translates the MSI address through the
-- * IOMMU. msi_addr is the physical address of the MSI page. iommufd will
-- * allocate a fd global iova for the physical page that is the same on all
-- * domains and devices.
-- */
--int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
--		   phys_addr_t msi_addr)
-+static void iommufd_sw_msi_set_required(struct iommufd_group *igroup,
-+					struct list_head *msi_maps,
-+					const struct iommufd_sw_msi_map *base_map,
-+					unsigned int nr_addrs)
-+{
-+	struct iommufd_sw_msi_map *msi_map;
-+	unsigned int index;
-+
-+	list_for_each_entry(msi_map, msi_maps, sw_msi_item) {
-+		if (!iommufd_sw_msi_range_index(msi_map, base_map, nr_addrs, &index))
-+			continue;
-+		__set_bit(msi_map->id, igroup->required_sw_msi.bitmap);
-+	}
-+}
-+
-+static int iommufd_sw_msi_list(struct iommu_domain *domain, struct msi_desc *desc,
-+			       const phys_addr_t *phys_addrs, unsigned int nr_addrs,
-+			       size_t granule)
- {
- 	struct device *dev = msi_desc_to_dev(desc);
- 	struct iommufd_hwpt_paging *hwpt_paging;
-@@ -410,10 +430,19 @@ int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
- 	struct iommufd_sw_msi_map *msi_map;
- 	struct iommufd_ctx *ictx;
- 	LIST_HEAD(new_msi_maps);
-+	struct list_head *msi_maps;
- 	unsigned long iova;
--	phys_addr_t phys_addr;
-+	unsigned int i;
- 	int rc;
- 
-+	if (granule != PAGE_SIZE)
-+		return -EOPNOTSUPP;
-+	if (!nr_addrs || nr_addrs > SIZE_MAX / PAGE_SIZE)
-+		return -EINVAL;
-+	for (i = 0; i < nr_addrs; i++)
-+		if (!IS_ALIGNED(phys_addrs[i], PAGE_SIZE))
-+			return -EINVAL;
-+
- 	/*
- 	 * It is safe to call iommu_attach_handle_get() here because the iommu
- 	 * core code invokes this under the group mutex which also prevents any
-@@ -434,33 +463,33 @@ int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
- 
- 	ictx = handle->idev->ictx;
- 	guard(mutex)(&ictx->sw_msi_lock);
--	/*
--	 * The input msi_addr is the exact byte offset of the MSI doorbell, we
--	 * assume the caller has checked that it is contained with a MMIO region
--	 * that is secure to map at PAGE_SIZE.
--	 */
--	phys_addr = msi_addr & PAGE_MASK;
--	msi_map = iommufd_sw_msi_get_map(ictx, &phys_addr, 1, &handle->idev->igroup->sw_msi_range);
--	if (!msi_map)
--		msi_map = iommufd_sw_msi_alloc_map(ictx, &phys_addr, 1,
-+	msi_map = iommufd_sw_msi_get_map(ictx, phys_addrs, nr_addrs,
-+					 &handle->idev->igroup->sw_msi_range);
-+	if (msi_map) {
-+		msi_maps = &ictx->sw_msi_list;
-+	} else {
-+		msi_map = iommufd_sw_msi_alloc_map(ictx, phys_addrs, nr_addrs,
- 						   &handle->idev->igroup->sw_msi_range,
- 						   &new_msi_maps);
--	if (IS_ERR(msi_map))
--		return PTR_ERR(msi_map);
-+		if (IS_ERR(msi_map))
-+			return PTR_ERR(msi_map);
-+		msi_maps = &new_msi_maps;
-+	}
- 
- 	rc = iommufd_sw_msi_maps_ensure(&handle->idev->igroup->required_sw_msi,
--					msi_map->id);
-+					msi_map->id + nr_addrs - 1);
- 	if (rc)
- 		goto err_free;
- 
--	rc = iommufd_sw_msi_install(ictx, hwpt_paging, msi_map);
-+	rc = __iommufd_sw_msi_install_range(ictx, hwpt_paging, msi_maps, msi_map, nr_addrs);
- 	if (rc)
- 		goto err_free;
--	__set_bit(msi_map->id, handle->idev->igroup->required_sw_msi.bitmap);
-+
-+	iommufd_sw_msi_set_required(handle->idev->igroup, msi_maps, msi_map, nr_addrs);
- 
- 	if (!list_empty(&new_msi_maps)) {
- 		list_splice_tail_init(&new_msi_maps, &ictx->sw_msi_list);
--		ictx->sw_msi_id++;
-+		ictx->sw_msi_id += nr_addrs;
- 	}
- 
- 	iova = msi_map->sw_msi_start + msi_map->pgoff * PAGE_SIZE;
-@@ -475,6 +504,20 @@ int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
- 	}
- 	return rc;
- }
-+
-+/*
-+ * Called by the irq code if the platform translates the MSI address through the
-+ * IOMMU. msi_addr is the physical address of the MSI page. iommufd will
-+ * allocate a fd global iova for the physical page that is the same on all
-+ * domains and devices.
-+ */
-+int iommufd_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
-+		   phys_addr_t msi_addr)
-+{
-+	phys_addr_t phys_addr = msi_addr & PAGE_MASK;
-+
-+	return iommufd_sw_msi_list(domain, desc, &phys_addr, 1, PAGE_SIZE);
-+}
- EXPORT_SYMBOL_NS_GPL(iommufd_sw_msi, "IOMMUFD");
- #endif
- 
+ config VFIO_CONTAINER
+ 	bool "Support for the VFIO container /dev/vfio/vfio"
+-	select VFIO_IOMMU_TYPE1 if MMU && (X86 || S390 || ARM || ARM64)
++	select VFIO_IOMMU_TYPE1 if MMU && (X86 || S390 || ARM || ARM64 || RISCV)
+ 	depends on VFIO_GROUP
+ 	default y
+ 	help
 -- 
 2.43.0
 
