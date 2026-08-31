@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA24FC61DFD
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 19:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991BCC61DD3
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 21:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8PRrGc9/FRcPhbBo/VdVq2RJhkt6jllRcR/HWRgN1UE=; b=yiPEAn1+A0cnp9
-	ppWWap1oMnezyJ8jIXLzx/DFlbkRCY/hqzqO6g8X/g3pcitd5AWS9X9CkrSizq0dIM4mer+tZZfQ0
-	kB+GQuBMvstjA8u82j7ntkDHiTnEU6VqK2l8agvkw1Zj805HI7GxA8T9qny2YfR/EPExChfuv6wcH
-	rdZj5zAwu4wy6O8lMMaX6hizRvtPcb6Frni6tXWhPt0Y/iNkiEdpv5pjUIFntWjBVDgPh2gkt7CLO
-	tsCqbBtKZwYvIVomikemubEmx7l0zLrNGehLRUzvbiErgUzXvFjgqXb/f8iX0ceij6U9cozpoBmfT
-	37iTUOgWLWHTlfYeUfow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RrFqXPnfuRmW45/W3oUp6mbtt5axHZnYCZBaOi3Obu0=; b=EeaE5I4L4yVZiefHyLGpSAdItg
+	4T4ohd2Wg4NG1jByQ+xPFcqdSZz4sN/P6+ecE57G8z4y6hYzFi0FfbYm+w7HSa72DfXJhV6Rba/Wz
+	HA+arXQ1MTwwdNqVMzZUNbf2DYDjBD4r1UtlKVQp/tnBT7L9FYCwkNcICMKBnCDOuZBvqo9UmC8NR
+	UogI3gs57BHYmGaVHh2XdkuxAWpf8usdMKrtOqQHcmbtguzX3tE2LAC5GmQVXCo32vDySq93Y0zcM
+	XvHdCsmU8OWaHTlfTILWA4mfzIYT0ZBuZkn6siFdMC7BEuBr5xFRGsFtVlc3T/P3QsqiwGVS67UW8
+	kSFAOYzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x189d-0000000APJV-1YT3;
-	Mon, 31 Aug 2026 19:58:53 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1x19XI-0000000AXVD-2in6;
+	Mon, 31 Aug 2026 21:27:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x189Z-0000000APIk-3qiB;
-	Mon, 31 Aug 2026 19:58:51 +0000
-Received: from [IPV6:2601:646:8081:8d71:2faf:8150:30da:aafd] ([IPv6:2601:646:8081:8d71:2faf:8150:30da:aafd])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 67VJvbar3264483
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Mon, 31 Aug 2026 12:57:38 -0700
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 67VJvbar3264483
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2026082801; t=1788206263;
-	bh=Lfk4Zm0mu1VaJNyCW+feQLM2PduJnrH08+Q8uKNAglM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hRWHGA+w8FeyeULwEDoEDUDPGkwf8JT2eZmPRRthmhsNz9HWOb7HiXCTZLLUmuztp
-	 lWRv7ug1Z+kxGR18u2FB1NAFu/6cVMaURG6BetJiHKBnIMtH9EfefRvmdaf5cQcfWS
-	 Iv6R5AMN9t7OAQ114p39WCAynQY5oir3FFMoBbYdgUDXZtV4B07Wsr3e2OhubFmvQs
-	 ktT4EOmqNjonvu8hUPE3i1g0T9wDBDboBsSqe9LwY819N+bvUhSesPS4zzwQuLkCru
-	 dSZCFGqC+rA/gs0WgODW7ZBr87rVZStGsxS6+U65Nf/RVAnAJDMEX94B5D/OKkRTEH
-	 BWNnKAFiy16zQ==
-Message-ID: <1238a07e-ce04-47d9-b8ac-8b7f557b401f@zytor.com>
-Date: Mon, 31 Aug 2026 12:57:32 -0700
+	id 1x19XG-0000000AXV5-44eM
+	for linux-riscv@lists.infradead.org;
+	Mon, 31 Aug 2026 21:27:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 04E6F40210;
+	Mon, 31 Aug 2026 21:27:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93A7B1F000E9;
+	Mon, 31 Aug 2026 21:27:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788211641;
+	bh=UWkAB/0UN0jAczMe5AfSqL0s1dlXiU0QWMONLCr0qvE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=B5Wg3vRFGUo/ZoMi0Kd9Mepopts3nZTxI9uo7amXP04TaiWeNf9eDNLC4CyNIlO01
+	 Jr883+5+GPQ9HhKM/TaroYUonHwy4Ok6GcinzJznQEeLkRlpewaXwfivVhiTW9U/Mq
+	 Il76JpGMDjl37kEOvVRN0uBpp46GqKnx0zAAv93tUSeGcpKlaOJcugX0zpJ+QhlElM
+	 s6p4S3wckoXM0VPhh5+tfCAOSuoiZ8OafEGWcbxg9EEzN6dlrTfGsboCwxX86argFz
+	 HRMTWQNva1hq2bjmlEl4q16uN5PGThW/1wMTTPnyrBZIRtQiZOHB3+lvU8kkfSVjwM
+	 qfiyp9r3K7J2w==
+Date: Mon, 31 Aug 2026 22:27:13 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Jia Wang <wangjia@ultrarisc.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-i2c@vger.kernel.org, netdev@vger.kernel.org,
+	dmaengine@vger.kernel.org
+Subject: Re: [PATCH 06/12] spi: dt-bindings: snps,dw-apb-ssi: Add compatible
+ for UltraRISC DP1000 SoC
+Message-ID: <9bd5a17a-43a8-4e3b-bd12-ddde9265c2f0@sirena.org.uk>
+References: <20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com>
+ <20260824-ultrarisc-dts-v1-6-61ab7aebe9e5@ultrarisc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch 00/18] entry: Consolidate and rework syscall entry
- handling
-To: Heiko Carstens <hca@linux.ibm.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Michael Ellerman
- <mpe@ellerman.id.au>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
-        Kees Cook <kees@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-        loongarch@lists.linux.dev, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-        Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
-        x86@kernel.org, Mark Rutland <mark.rutland@arm.com>,
-        Jinjie Ruan <ruanjinjie@huawei.com>, Andy Lutomirski <luto@kernel.org>,
-        Oleg Nesterov <oleg@redhat.com>,
-        Richard Henderson <richard.henderson@linaro.org>,
-        Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>, Guo Ren <guoren@kernel.org>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Helge Deller
- <deller@gmx.de>,
-        Yoshinori Sato <ysato@users.sourceforge.jp>,
-        Richard Weinberger <richard@nod.at>, Chris Zankel <chris@zankel.net>,
-        linux-arm-kernel@lists.infradead.org, linux-alpha@vger.kernel.org,
-        linux-csky@vger.kernel.org, linux-m68k@vger.kernel.org,
-        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-        linux-sh@vger.kernel.org, linux-um@lists.infradead.org,
-        Arnd Bergmann <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>,
-        Will Deacon <will@kernel.org>, Brian Cain <bcain@kernel.org>,
-        Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andreas Larsson <andreas@gaisler.com>,
-        linux-snps-arc@lists.infradead.org, linux-hexagon@vger.kernel.org,
-        linux-openrisc@vger.kernel.org, sparclinux@vger.kernel.org,
-        linux-arch@vger.kernel.org,
-        =?UTF-8?Q?Michal_Such=C3=A1nek?= <msuchanek@suse.de>,
-        Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-References: <20260707181957.433213175@kernel.org>
- <ed8b99e6-4d90-4622-9d43-451bf6a8db2c@zytor.com>
- <20260831085056.34274A00-hca@linux.ibm.com>
-Content-Language: en-US, sv-SE
-From: "H. Peter Anvin" <hpa@zytor.com>
-In-Reply-To: <20260831085056.34274A00-hca@linux.ibm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_125849_969873_82DB94FE 
-X-CRM114-Status: GOOD (  12.87  )
+In-Reply-To: <20260824-ultrarisc-dts-v1-6-61ab7aebe9e5@ultrarisc.com>
+X-Cookie: Chocolate chip.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,35 +89,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7637853790963351151=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-31 01:50, Heiko Carstens wrote:
-> On Thu, Aug 27, 2026 at 03:22:35PM -0700, H. Peter Anvin wrote:
->> This isn't a hard thing to solve in any way: replacing the pointer argument
->> with a two-element structure return would do the trick. As far as I know,
->> *all* architectures that support Linux support returning structures with two
->> register-sized values in registers.
-> 
-> That is unfortunately not true. The s390 ABI defines that structures,
-> regardless of size, are returned in a return value buffer allocated by
-> the caller.
 
-*Groan*
+--===============7637853790963351151==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="q+7g5Wbpwns/c8Jq"
+Content-Disposition: inline
 
-You guys should use an improved ABI for the kernel like i386 does (different
-from the standard ABI used in user space)...
 
-That being said, perhaps s390(x) isn't affected by the underlying problem, and
-passing a pointer to a structure isn't any more expensive than passing a
-pointer to a variable...
+--q+7g5Wbpwns/c8Jq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-	-hpa
+On Mon, Aug 24, 2026 at 01:54:19PM +0800, Jia Wang wrote:
+> Add the SoC-specific compatible string and use the generic one as fallback
+> for the UltraRISC DP1000 SPI controller.
 
+This doesn't apply against current code, please check and resend.
+
+--q+7g5Wbpwns/c8Jq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqV8bAACgkQJNaLcl1U
+h9DI8wf/eSvMfTYF0nSWOpBbx64lahzK6gdu0QfgliH0pyXLXPkDKM/MJk8BN5Mn
+h1/EIUG8xEEzzOTWbycIU1gyEVN1BSPELOL8mSJJg+5YS4SCKHjPLUvzHJUb+Tiv
+I41ubInBfOHEb15rEuP04UQovZYMvLCr/Grw4crXMM/hZW5RjdT48QhaltrjdbNT
+UOhg1ybDz4UzhD9ys7VACQ+U/cjjhbNezZZR4PaUST3pbURHoE9WFpohUbBhK5xT
+esoGPKe+DYO0LkRQ+SGGTekeE0q5hhwDGNp5F2rqqoz/8jUv5/iFlNsmUGvJQQAR
+0/8l/S9EqYMPbSKL1NQDqYdfFKPZQQ==
+=u+gt
+-----END PGP SIGNATURE-----
+
+--q+7g5Wbpwns/c8Jq--
+
+
+--===============7637853790963351151==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7637853790963351151==--
+
