@@ -4,142 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F514C61DD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 11:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CDAEC61DFD
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 11:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WfDNPBRQA3wGrDA0HujBRp3j6bwHXLLeUvb8CI/LbfE=; b=Ia8gh6SQFcm2hG
-	fxfrK8voX2OrvriEVHXHqN6/TXc20mnOdBJFZ7wmCmZlAR0Vvbc1I73WaB1DxZKuyEY+CjnFNmq6q
-	Ey7ofiMInqaycQxhagxSOad9tz6bQLsa7UY6uI44NxCPkjfpMTX12ukATHuy5Lj3hTBBQBU1SDNjO
-	cId6eQtbDW/FxPHPG4N+QPyvj86M7T1njonV1M0TfV5u0FjlR1FlVlM0WZBdXn8umcSlhmuxzV+cZ
-	9JTY4m9uvugNHgfcAdYkk9v9nnw8VF1MkVji8nfTmWN8NFn37Bc2PduIlaj/JfeKz7gKXH3ifS3jw
-	oyQtP4qj6ZUvhlz151wg==;
+	List-Owner; bh=JNoO7hAQQzo/HFtcnQsODWbW8lRAQSJXIZOFCkaEohs=; b=1WuJXBAaSFGay2
+	AiWKLnxoxREU4jh2EismpDvWau6yhi4u7JJsV6O5Pg/43webhFq4/fYQ10WivW/GeCme6b/pPtzYv
+	hkOoasbDJ0Hpc4W2wUX/OUcxiL4XAvyM7HR7wEjmkTciiakROnx2CsB4/2JHoS97EdtC4+pOx14CH
+	8JeKcgY7ZDZ4PiRgTHmN8A/iTnV6ujXDZAqffy/yVT5ISleHby14mxmTg27MLd9f24E5pC5tjoWrF
+	DiEiQusizVdghv5+lEL0HZGpsKXfvYOSeqRV/1sKmMalMqd81oP+hm2W+oYrfLrSASoXe/fP4gZo2
+	zS1nqMLfZkuoJDMdVNww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10Hv-00000009Bgx-1w0A;
-	Mon, 31 Aug 2026 11:34:55 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1x10Ik-00000009BwD-42So;
+	Mon, 31 Aug 2026 11:35:46 +0000
+Received: from mail-bjschn02on2132.outbound.protection.partner.outlook.cn ([139.219.17.132] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10Hl-00000009Bdi-0hUt;
-	Mon, 31 Aug 2026 11:34:46 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VBVmid956691;
-	Mon, 31 Aug 2026 11:34:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=aRirk3
-	u9Lgkg4mvt96x9s0nI8fUpFoM850JLTd6I6yQ=; b=VPqd2baDC3My6bFwl4KZdC
-	++UEg06J2fUvexHWKNc+19olv88u44nM3x/ZaK7i393BK2OSKPkHO1oTjREGNBIa
-	Wlfn+GeaG2EsKRt1YEJRodpy2hvFNwIM5D57rZDo1wJqACky82LSvWsH7F7y6X5r
-	j6hGIRqAHNp3MPAadX5ETu3cQUoZ2pOSveHzzxmpRhzqu+y/FMUmWXDdJSLiX4L3
-	QGWOase4mrH1hwEExNfwGpxmcrQC5UCG0Eo6q8+bd1QdpXpofW8MF68HChP1/roy
-	c6yBb2kbVkB9HQOS1mWV4gOE4TkqTdPwRaVm4MHyeWj2faeh6Agr6k+HbpvCT8pQ
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbnudgxcx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 11:34:25 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VBQIqR024526;
-	Mon, 31 Aug 2026 11:34:25 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcb8h5gwy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 11:34:24 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VBYKJ348234992
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 31 Aug 2026 11:34:20 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BEDAC2004E;
-	Mon, 31 Aug 2026 11:34:20 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 63DF92004D;
-	Mon, 31 Aug 2026 11:34:20 +0000 (GMT)
-Received: from p-imbrenda (unknown [9.224.75.30])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Mon, 31 Aug 2026 11:34:20 +0000 (GMT)
-Date: Mon, 31 Aug 2026 13:34:18 +0200
-From: Claudio Imbrenda <imbrenda@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Paolo
- Bonzini <pbonzini@redhat.com>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>,
-        Bibo
- Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-        Anup Patel
- <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt
- <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Christian
- Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank
- <frankja@linux.ibm.com>,
-        Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
- <joey.gouly@arm.com>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Suzuki K
- Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Atish
- Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
-        David
- Hildenbrand <david@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
-        Ritesh
- Harjani <ritesh.list@gmail.com>
-Subject: Re: [PATCH 02/20] KVM: selftests: Bump the minimum GPA for page
- tables to 0x200000
-Message-ID: <20260831133418.1594b410@p-imbrenda>
-In-Reply-To: <apHOZouaLKs5CgpI@google.com>
-References: <20260826230511.972824-1-seanjc@google.com>
-	<20260826230511.972824-3-seanjc@google.com>
-	<20260828195848.2d14e9aa@p-imbrenda>
-	<apHOZouaLKs5CgpI@google.com>
-Organization: IBM
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	id 1x10Ih-00000009Bs8-2afz
+	for linux-riscv@lists.infradead.org;
+	Mon, 31 Aug 2026 11:35:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=MvVOVhwF8aTiKLjB8DA6pSV5GCrrErFajFPBLnX7o33hrvdijrP8DMA4+Fq8hHsPJhRktrQvo9UIFAhTyvlEQJ6NbbRrSazG26w8BmrPLUN/Xt08dh8lQVqGD0nzqxMrG3B/dgWgP3LEWn+wBRLEdKKcNnqUNBUeWLsJu4rDgkmOdKubXfyPn8C1TCjTuIratLNvOlOcXiUGiuQ+GL4nGYykgLE1W3Q+R1lizav/oCbC8qDKhBkCdzuAEMKhZecyuDuWBAqEEyXDASMgCHDCt3YcGEoNFAGm6WSmb0OmbR8IeQST/XVB20GXui+2VtUbMcoanxuw23LWH1IzJI8F0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z2BXP1y+ypC5LvfUhrjCEltJQHhur4wc7+L3mJFjkB8=;
+ b=R2yNoiB8FQyTkV44u6RxIUraLOMZttFMRvcJ8F1+Cbkae4XAs63v48GZsikgvePyV98hAJVxrzkq8NHfeLc0xOyfF2+dl2qvHRFhZH1MhYIcKxIva5Dgv0Ya/mMjPX6q5ZpjTr6cMI4WSRgtPFUFw+9W1H1mz+wVSl0Fw/f/gbNQAb30poIMpTqWlyZ0GxlUDjvj4TYTxkY1Phavbpej86vs29oaOx2PQa4jSioSu3kHLy5AR1ILJC/vX7fu0aYtkUfSBRTvo2Ip83BFRh2HmokleonJ/PxuYIS6h8P9+mYrIeHejwpKTQixcXFgSEZW+jt72ONHJ8yfp7Atewkieg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1332.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:16::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 31 Aug
+ 2026 11:35:33 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0315.011; Mon, 31 Aug 2026 11:35:33 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <pjw@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: [PATCH v7 07/21] dt-bindings: pinctrl: Add starfive,jhb100-sys1-pinctrl
+Date: Mon, 31 Aug 2026 04:35:00 -0700
+Message-Id: <20260831113514.66382-8-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260831113514.66382-1-changhuang.liang@starfivetech.com>
+References: <20260831113514.66382-1-changhuang.liang@starfivetech.com>
+X-ClientProxiedBy: ZQ0PR01CA0013.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:5::8) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6)
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: G-OCitu2TpWXDgPjgttj0SGbLIz_ECdc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDA5OSBTYWx0ZWRfX4UatEpGoCD6o
- Kv1eA+dS2uJdH+4ManK2w/X6QyFrWWh7jd8KL6kiafdW3x+2ac/P/Zkz8HOZl+1VKLL8mqEiYNp
- +j6gQ5DWRR9ZLjH5RZ9q+jm2WEEvYWuCu+8CFvX4cAC1C9Vs/g74amZ4Oppy73+AeuLdlF2Q5M9
- tsOfQHTNMriNhBvEVpsU79JtekpA4ZZ6QS6aV6eUeLxVIC30m7f33YbB95d+awd7xHIciMoLHKu
- CSHQepUcB+t8wD8vZDWSRFe7dTAa4ibWzxCQlCdtJnbEBPoIp4skROGaDvCDVWJTK1VW/S4arjJ
- LNyvfSyOK9IYT9nFtTGYiRP05LMz259raqhxkHPwODSX0OnkUkV8kq6+RGlekjiIyFSS/0aWF4f
- g7/DukwXB5uHQDPuBbnmCWOHQjU0TbuawaWKzIPhnNWsyqy/wR4Tby3iuPc1P7EkbCvYr/zac9K
- QSdnbH+KYg1/rfkAONQ==
-X-Proofpoint-ORIG-GUID: a8BXvl6k17QNNmEGXkIB4yyp26bklHpk
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDA5OSBTYWx0ZWRfXwtaTiMJOBjFH
- tOMl0H4KERIHO7WfLS9yiOyzMOPcW6L7zLb7QkLf3GIfOSQtGS4DR3ikwAodhcbi8c8V/J48Qkq
- EtaWT5nrB08ZegHOb7IHlDrWnRHtJLc=
-X-Authority-Analysis: v=2.4 cv=B92JFutM c=1 sm=1 tr=0 ts=6a9566c2 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
- a=1XWaLZrsAAAA:8 a=_FYIVZ8AZ4pq6tOtmQUA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-31_04,2026-08-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 spamscore=0 clxscore=1015 suspectscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608310099
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1332:EE_
+X-MS-Office365-Filtering-Correlation-Id: c6b579ec-0bed-48b6-5148-08df0753f7b2
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|52116014|366016|1800799024|376014|7416014|18002099003|38350700014|22082099003|56012099006|3023799007|921020|10067099003|6133799003;
+X-Microsoft-Antispam-Message-Info: naEmKpn07NzBTZF2Wtz2eY33TjiAm4lqUCrFdbpEKl1wVHYsl46+rD3EidBncsIA1dLQkGwsfeF2Zz56qevgO+AfZWpTnrSiSbdubhxVvhwh6ZBNFmnen37G67kKLkoVc5I51GFT/x9A/nyTeXmO6RjuGWlHJT79UmpZTlMeaSTCdrA1qzuT5MLwa+wYaNSYbtfUh9j5lqq6LruaportXsygTd+PHG7Ea0gUHpAos+VuUwUJfz5rkJUfM+L0g9Ft0hysFpqD4SWLkKQZz5exX8+GSUs4N7bpZEoh55cEj60U+KJ3ZkqFpfegsYbja1RBS7r2YsYbujX+8793M/82Dc5ZFd8LQExO6syr8m8AGRd23TYc8CQo2cJTiqLDK5SwAHNS+dDUZToQ9CDiR4BTm7mgApMj5K9WKFpLDmOV2dwUOuzwlo8d2nvCO9d2lkQGKCyPNDwmdax8/ZrFKtlEQjC173OaoHljG7ZQd1qfZSOsDPpGfvd5SNFGA0nIvUkMQwdcyFXQRAaUjqLp8uApTXAWQ1raZJabVHDtJJqVrGtic17w4dlafjg/13JvVx6QKEAykdfxMd7qf/YVlUHDNg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(52116014)(366016)(1800799024)(376014)(7416014)(18002099003)(38350700014)(22082099003)(56012099006)(3023799007)(921020)(10067099003)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+8Kw5OXUXoKcqeE2uKyyyMIiKWcNrhA8Il3rMNJEoxt//162uUX9l//VgIwN?=
+ =?us-ascii?Q?qkwzKkkYD4AR18kQlMnOvW9gkhsNBYuWQbkc/EyZaZv7e7i0Ho+x8csi+Vjk?=
+ =?us-ascii?Q?4KgoEzTHaDCHo+YnMdY5B7eKKqwAzaPSHiki8GZuyed5uSerXlPn+B+CswFc?=
+ =?us-ascii?Q?nrOr7FdlvM2fx+y48arTUJBA7sK2rQdx4daR0cyXkbWPwYJpgYMJKTvFZdR1?=
+ =?us-ascii?Q?c/nV9L0yWu1OaFoHFgzzITeSR4UFbeQmzHjq31fanuFU2dL14IE76R8QR0uQ?=
+ =?us-ascii?Q?YrKF1UZbyN8Xgwm4RE40q7H/EG58EkjMHJT4S+wUS2Ui3ULLdxpSy3m/Q5vN?=
+ =?us-ascii?Q?VTeMkzsuAXkAhtc3aMA43FcZU7x3M8oCSBxKo97sSmjgonC3gE3OmmU/Q4OY?=
+ =?us-ascii?Q?RVrd0f6oHsGi9IpWwz3TME0SIaFCm2EX5813eLRKpbhU02zqL5+MDKY0FOaa?=
+ =?us-ascii?Q?o+HmyEvVMqnSdcA4/VjqqVqrJDGU4zXmJkrSmgurL2jHuA1ZrWvPyiV/UH3Y?=
+ =?us-ascii?Q?Y4Yz+O9xImKc05bsUzev/IOjkidiJpxnzmDBvCifpvPmd8Zui83/hDbU2IV4?=
+ =?us-ascii?Q?8OCxbRUF+t0Rgd/JfePaI0I9JUKbpFTvvL89DnTUF0NwFF8z0eeRK0J/4YRy?=
+ =?us-ascii?Q?mdBXh9BC2rPcqHGAkrMd7+tglW6FWg1faVH+ksK1cQwgw4W6scyO2xYGqKX3?=
+ =?us-ascii?Q?KZEx84xcB69C9Ae/f6sRvGMmTWrg+je+yMJhHkhZOUDX2Bq5wZox1o9NGC4z?=
+ =?us-ascii?Q?kM/wS69yry4SbdMNJuL9UHgnh+h1WdkMDsCvM8l6BfcfEIdHPaO43gfFi0y0?=
+ =?us-ascii?Q?8zu2qrDlX3jdlObLOqA5FH7q8dPL8DhBUb03/+se8d4SNy3jb4FVAnzTkywK?=
+ =?us-ascii?Q?IyESrv3yVnsDLRERru+Oh1IBbkeGbccpIp2FK895V64AHblOs3rzCRZhI+Up?=
+ =?us-ascii?Q?H+TdQBL3Gogo6usupFfGJ3Fykx7gQE9VbA5B13lJPHuIF6eOQF38r3icdTXG?=
+ =?us-ascii?Q?rEaL1j0V8/Z5zJ5s4b2b1Wq3rVd09cXsh+pH3NBKJfk/rtGjo/e7GhQgD/kZ?=
+ =?us-ascii?Q?SknvQ5pf+wMAy4wiAdx80Q/q5yQHRluhObr2ntwQRiiaE7DaxzHJU85UQ/AW?=
+ =?us-ascii?Q?Gh5/iU5taRFjYCKSsP6JXQHGL7WxB68DSpzZY8ZGqMSWelzyc6BG5pzLcfJF?=
+ =?us-ascii?Q?xezUem9RD4IzrnscC5/lMJE3Ks5/VoC64D2BMHdD/IYTxhZVoh4/SmnqsXdx?=
+ =?us-ascii?Q?QsVJo0l82uhUiHevmRA75QPytF58XtjK5YzmXeuzvfRPqkHIhLYObPVx8X7C?=
+ =?us-ascii?Q?FttZGaQhvnrgxl9KBxBfsN7M9fA3s2ATqqpdxx1mNzUBuuK/MpZ0jqWALmll?=
+ =?us-ascii?Q?+yJStNji2axy+cCWHB96xaot2ECrwlm0lFmFPdXqXTAH0HY3P8YPYyG5fi21?=
+ =?us-ascii?Q?0cQEG7jd5UaFXTLdWDCbLtPPnIigK0TqyZlateE4UT6Wcj/EupWfPbAukeAi?=
+ =?us-ascii?Q?96j5QOk2B76FBlByUXAsi105Mc729NnLGSSHUKl8VICZfCgtB8aAuvg5XCbM?=
+ =?us-ascii?Q?lVTb16DYzEwWtoBJIwHDwxu2TqM4DLoaQQuUNtdiNKJc+Tm2JDegHx2D6XAu?=
+ =?us-ascii?Q?3kI1sCcNQtGI7U6bam8t0SKGIDho3j1v9r2dpXY/AdvdxrCVuabD1J/DNO3r?=
+ =?us-ascii?Q?ANYzTdTVBmiATm+mcqANEmHHYGpF1BiUtrXAdTQqS7e2TrrZXZ4yZM1LWgxc?=
+ =?us-ascii?Q?HK8MeNTmOx+HYQpiCmnqW3euZkVoovE8vYsrXnDEpRt+aequE7qf?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6b579ec-0bed-48b6-5148-08df0753f7b2
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 11:35:33.0632
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NnaTr/KgE1aoKVsAEmlVjN1w/Cozcrb7dDt4Q6i4B3gzWwPqDOeD1d/nBuj05SVzWloPbVQRy54qjbNpjotCI1ME76beGn4ewBwE+MG9vL4cstv1ON2bbYIkV9zptYIR
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1332
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_043445_334333_658E095B 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20260831_043543_661347_71FAD0FE 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,67 +144,208 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Aug 2026 11:07:34 -0700
-Sean Christopherson <seanjc@google.com> wrote:
+Add pinctrl bindings for StarFive JHB100 SoC System-1(sys1) pinctrl
+controller.
 
-> On Fri, Aug 28, 2026, Claudio Imbrenda wrote:
-> > On Wed, 26 Aug 2026 16:04:53 -0700
-> > Sean Christopherson <seanjc@google.com> wrote:
-> >   
-> > > Bump selftests completely arbitrary minimum GPA for page tables from
-> > > 0x180000 to 0x200000 (LoongArch's minimum), so that LoongArch can use
-> > > vm_alloc_page_table() instead of open coding a rough equivalent.
-> > > 
-> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > > ---
-> > >  tools/testing/selftests/kvm/include/kvm_util.h | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > 
-> > > diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-> > > index 5a7a455b5387..70906a0d1003 100644
-> > > --- a/tools/testing/selftests/kvm/include/kvm_util.h
-> > > +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-> > > @@ -175,7 +175,7 @@ static inline struct userspace_mem_region *vm_get_mem_region(struct kvm_vm *vm,
-> > >  
-> > >  /* Minimum allocated guest virtual and physical addresses */
-> > >  #define KVM_UTIL_MIN_VADDR		0x2000
-> > > -#define KVM_GUEST_PAGE_TABLE_MIN_PADDR	0x180000
-> > > +#define KVM_GUEST_PAGE_TABLE_MIN_PADDR	0x200000
-> > >  
-> > >  #define DEFAULT_GUEST_STACK_VADDR_MIN	0xab6000
-> > >  #define DEFAULT_STACK_PGS		5  
-> > 
-> > this breaks s390/cmma_test
-> > 
-> > I tried a quick fix, but nope... I will need to actually invest some
-> > time (i.e. next week) to understand why the quick fix is not enough,
-> > and come up with a proper fix
-> > 
-> > the good news is: it seems like cmma_test is the only test that is
-> > negatively affected by this series.  
-> 
-> Is it this change specifically that's problematic?  Because if so, you can probably
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+---
+ .../pinctrl/starfive,jhb100-sys1-pinctrl.yaml | 164 ++++++++++++++++++
+ .../pinctrl/starfive,jhb100-pinctrl.h         |  10 ++
+ 2 files changed, 174 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys1-pinctrl.yaml
 
-yesn't
+diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys1-pinctrl.yaml
+new file mode 100644
+index 000000000000..55e111117ea0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys1-pinctrl.yaml
+@@ -0,0 +1,164 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/starfive,jhb100-sys1-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JHB100 System-1 Pin Controller
++
++description: |
++  Pinctrl bindings for JHB100 RISC-V SoC from StarFive Technology Ltd.
++
++  The JHB100 SoC has 13 pinctrl domains - sys0, sys0h, sys1, sys2, per0, per1,
++  per2, per2pok, per3, adc0, adc1, emmc, and vga.
++  This document provides an overview of the "sys1" pinctrl domain.
++
++  The "sys1" domain has a pin controller which provides
++  - function selection for GPIO pads.
++  - GPIO pad configuration.
++  - GPIO interrupt handling.
++
++  In the SYS1 Pin Controller, there are 8 multi-function GPIO_PADs. Each of
++  them can be multiplexed to different hardware blocks through function
++  selection. Each iopad has a maximum of up to 4 functions - 0, 1, 2, and 3.
++  Function 0 is the default function which is generally the GPIO function
++  (or occasionally, it can be a peripheral signal).
++  Function 1, 2, and 3 are the alternate functions or peripheral signals that
++  can be routed to the iopad. The function selection can be carried out by
++  writing the function number to the iopad function select register.
++
++  Each iopad is configurable with parameters such as input-enable, internal
++  pull-up/pull-down bias, drive strength, schmitt trigger, slew rate, input
++  debounce nanoseconds.
++
++maintainers:
++  - Changhuang Liang <changhuang.liang@starfivetech.com>
++
++properties:
++  compatible:
++    items:
++      - const: starfive,jhb100-sys1-pinctrl
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 2
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    const: 2
++
++  gpio-ranges: true
++
++  gpio-line-names: true
++
++patternProperties:
++  '-grp$':
++    type: object
++    additionalProperties: false
++    patternProperties:
++      '-pins$':
++        type: object
++        description: |
++          A pinctrl node should contain at least one subnode representing the
++          pinctrl groups available in the domain. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to
++          function selection, bias, input enable/disable, input schmitt
++          trigger enable/disable, slew-rate, input debounce nanoseconds
++          and drive-strength.
++        allOf:
++          - $ref: /schemas/pinctrl/pincfg-node.yaml
++          - $ref: /schemas/pinctrl/pinmux-node.yaml
++        additionalProperties: false
++
++        properties:
++          pins:
++            description:
++              The list of IOs that properties in the pincfg node apply to.
++
++          function:
++            description:
++              A string containing the name of the function to mux for these
++              pins.
++            enum: [ espi, espi_reset, gpio, host0_port80, host1_port80 ]
++
++          bias-disable: true
++
++          bias-pull-down:
++            type: boolean
++
++          bias-pull-up:
++            type: boolean
++
++          drive-strength:
++            enum: [ 2, 4, 8, 12 ]
++
++          drive-strength-microamp:
++            enum: [ 2000, 4000, 8000, 12000 ]
++
++          input-debounce-ns:
++            minimum: 0
++            maximum: 10485680
++            description:
++              Debounce time in nanoseconds. The hardware counts in 80 ns
++              stages with a 17-bit counter, so the maximum is 10485680 ns.
++
++          input-disable: true
++
++          input-enable: true
++
++          input-schmitt-enable: true
++
++          input-schmitt-disable: true
++
++          slew-rate:
++            enum: [ 0, 1 ]
++            default: 0
++            description: |
++                0: slow
++                1: fast
++
++required:
++  - compatible
++  - reg
++  - resets
++  - interrupts
++  - interrupt-controller
++  - '#interrupt-cells'
++  - gpio-controller
++  - '#gpio-cells'
++  - gpio-ranges
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pinctrl_sys1: pinctrl@13081000 {
++            compatible = "starfive,jhb100-sys1-pinctrl";
++            reg = <0x0 0x13081000 0x0 0x1000>;
++            resets = <&sys1crg 2>;
++            interrupts = <58>;
++            interrupt-controller;
++            #interrupt-cells = <2>;
++            gpio-controller;
++            #gpio-cells = <2>;
++            gpio-ranges = <&pinctrl_sys1 0 0 8>;
++        };
++    };
+diff --git a/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+index 38d5a94e92e3..30704a5a3418 100644
+--- a/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
++++ b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+@@ -28,4 +28,14 @@
+ #define PADNUM_SYS0H_GPIO_A14				10
+ #define PADNUM_SYS0H_GPIO_A15				11
+ 
++/* sys1 pad numbers */
++#define PADNUM_SYS1_GPIO_A16				0
++#define PADNUM_SYS1_GPIO_A17				1
++#define PADNUM_SYS1_GPIO_A18				2
++#define PADNUM_SYS1_GPIO_A19				3
++#define PADNUM_SYS1_GPIO_A20				4
++#define PADNUM_SYS1_GPIO_A21				5
++#define PADNUM_SYS1_GPIO_A22				6
++#define PADNUM_SYS1_GPIO_A23				7
++
+ #endif
+-- 
+2.25.1
 
-wihtout this patch everything works for s390, but my quick fix should
-have worked...
-
-so I still need to debug why things don't work the way I expect, but at
-least now my bug chase is independent from this series :)
-
-> just do nothing, because Sashiko (argh, just remembered that Sashiko doesn't Cc
-> everyone) pointed out that this will likely break some arm64 tests as well[*].
-> 
-> The LoongArch folks confirmed that using KVM_GUEST_PAGE_TABLE_MIN_PADDR as-is
-> should be a-ok, so my plan is to drop this patch and instead have LoongArch use
-> KVM_GUEST_PAGE_TABLE_MIN_PADDR.  I.e. make LoongArch match everyone else, instead
-> of making everyone else match LoongArch.
-> 
-> [*] https://lore.kernel.org/all/20260826232224.782021F000E9@smtp.kernel.org
-> 
-
-if you respin without this patch I'll Ack
 
 _______________________________________________
 linux-riscv mailing list
