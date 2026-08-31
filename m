@@ -4,130 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D14E4C61DFD
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 11:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C04F6C624C6
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 13:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tvppr4LNzVJ94oyo0oxG/zg3ra5dwBJzQZ+xHSX2GiY=; b=CP4vooEWdeM01F
-	C2XZJxakuuoEsjzAx7Sm9LAZgfK9VHypQ1kIYKrpJfNLD/r7OVTXEPubmQIh3M0bxt4/V3kyLRtLP
-	bCm++IiIMGuDiFtF91/dagk+b+YsSwQduNG4rcBBRSc9f4V4lWsZ1bi73Dodcv82Y8+TOAFbH2Hw+
-	pUh2onYrG5e6XNicmLwfTBeEWqXAGmW9QboEumnhdQfsP5pEn+n8pdWg7xUSpNp+gnrxmSDS22M5R
-	J8eKuE9f5sc9CA9cG+JOgoqc9inuuSNar6lMHG9fcSzKgtpuxNaTdNRFzzXlADaV9nB/mDJwdGgf5
-	CKrsFBdCScpIchumsPVA==;
+	List-Owner; bh=uxf+glhaZ9RX7j1yQjv4RIhqNl8xs4BtpeN0hN7R+QM=; b=xvmJ2YWkYI+bSo
+	uvU0gzEsN8gBZZA0ZJLL+8S0EBJFwEUiuiQCl+Y646kexM7dxeCwnYStU25PFRgUJTPpXLkjFBOde
+	veExUx5+4p53Hfral0Zb86frrhYGtmHS+pTjuTkkt8QYymUHY3Jp1m/peaFf19ukjupunf6vauU+K
+	QN8w0vDfXk0mFTvQHv+PwbCrxD3UhaN/sMD3JOktS8+EC06DvVi5snb4N6zSfCEH5Ab0aDKkOhi2y
+	dUza45ZVSQ67UPENCbsXUnHj8OYJSvccGGk1ZqX8RnIPikL88rEckbNaClLBTUeEhZS/1DLN56efg
+	JPeJLV+6K+TfdbyarPvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10JD-00000009CZz-0xyu;
-	Mon, 31 Aug 2026 11:36:15 +0000
-Received: from mail-bjschn02on2132.outbound.protection.partner.outlook.cn ([139.219.17.132] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1x12AL-00000009QwG-2cXB;
+	Mon, 31 Aug 2026 13:35:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10J2-00000009Bs8-0Bai
+	id 1x12AK-00000009QvY-1S2n
 	for linux-riscv@lists.infradead.org;
-	Mon, 31 Aug 2026 11:36:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=nAbWWyR9NQZUMApSbRT0bj45sm0yYzWRzGmBuJE6krvHjE0HjrdMIXS9PjYKVTpVhmDoaugYGKJyu5KcmDayw0PtApDJmv/Ey4zCWaxJ2nYRYz7Z27MBM7X/dLAUX/peqGdj1xDcvl6KBPOOmuHyLyfox/AZAUsaLSO3BiVs8N23SV8AhawjkyxAFCpqBcBRcq4Z63cdZ3NSg3MFVhPy0t/4mF1KD1uBxiGVUSri550IWFUQ/rtG7jAvin0hZfxrB7tR9iu60Euto2lxhGR+65nzDeM4Qo6N7bVsD/RBE1cNMTIqicbOeUX/OiBQZwjJ4tl1eNBbkYG4ZaCqfbGZiA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ofd5dDMH0G7purkHZgdvfz+193f1UwudkEEe6R3l/5Y=;
- b=it9IXiDrsv7UYCdShdVBktGL35zPIXaduI9M6KMtoDWRW+IvGldovOXTLynfwrh01yQzIOxs0L47LZnC0vsyilpyqq/E+BXZ9KNmfT9B/mPxmCI0PxyRP7y4uvFZCh4aDfAHOgPJOTPRbwBw8+oKz/bFm0D5X4GQhDyGFZRDG0cKtMJuWmbLEmH+0bFu0GrZxbRDy6FYkbOfQX/B95PKPa+cDP6Sy8D889l0X4IjepCaBSywhSbOIhmNGN20RMkfZwAxqDiMXL7PhkNSl11bltMELN9L6hMN3w4Wj0sVK7ZEc/TUImSfN04nMPoB5YfQtc0bke5vXs80rKZZKkEoCg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1332.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:16::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 31 Aug
- 2026 11:35:48 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0315.011; Mon, 31 Aug 2026 11:35:48 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
+	Mon, 31 Aug 2026 13:35:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C2EF360215;
+	Mon, 31 Aug 2026 13:35:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88B561F00A3F;
+	Mon, 31 Aug 2026 13:35:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788183311;
+	bh=7je4D7HCOA1A9JwOZ5zn8NV8msvnyViusw2JmHoGICg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ToeQ/sqkcMNUYEMXcqtf1ZSf3nqwry+4ru7zkUUvdcUhIGTSAK1nnotbFZw6Z3tlw
+	 S7vqxICM1ccSaM5ZGXe/2ugM34zYjnm6gYLu26oYg66Lnw55KwS1LIQtUF8y5yjkBm
+	 df9atEEFYBO0ixuBM5irNPFHQcbxz+/vQRe1pwKQyeyOZ+HH7L24kI+HNpG8IS8JIW
+	 TPbq769B4dN7eS9AdIlbcDNWJGOqBFqLxXw6DlDuIUEOHb1Vm69k4wNZll+jUoVL0L
+	 1fmxoAiAXpbX+MC0EG5VJ7waR4C3M5M+IWcscuxQky3lwBS3a+zqzOS7lb65PC3P8y
+	 INYURhSx0b5Tg==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Osama Abdelkader <osama.abdelkader@gmail.com>,
 	Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Sasha Levin <sashal@kernel.org>,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org,
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v7 20/21] pinctrl: starfive: Add StarFive JHB100 per3 controller driver
-Date: Mon, 31 Aug 2026 04:35:13 -0700
-Message-Id: <20260831113514.66382-21-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260831113514.66382-1-changhuang.liang@starfivetech.com>
-References: <20260831113514.66382-1-changhuang.liang@starfivetech.com>
-X-ClientProxiedBy: ZQ0PR01CA0013.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:5::8) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6)
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-6.12] riscv: panic if IRQ handler stacks cannot be allocated
+Date: Mon, 31 Aug 2026 09:21:41 -0400
+Message-ID: <20260831133314.4125787-73-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
+References: <20260831133314.4125787-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1332:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6dd66fa8-1707-45d8-c0cf-08df07540117
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|52116014|366016|1800799024|376014|7416014|18002099003|38350700014|22082099003|56012099006|5023799004|3023799007|921020|10067099003|6133799003;
-X-Microsoft-Antispam-Message-Info: oDacKBe2hmCPRhR3vE/Vy0HQSJuhFdhYSifg6FySP8pWbj0mu2CC1uv31kz+qmvd9f0km07nOK/m/DDq/+k9wDFshlgjlp5IYRsQNlaTJawZulMESvoCldgRWEHuougLtt0gOGN1f7do5TC3RjuXej3HyLwIussunrF/5w/DHEBPL2Nl06jTXr4iFUJ2tnr8QrxtZautmxneva/7+IKNl3fjjkzS5wxn1vSyIPikpAZEKwJsryW7jtkFslldw8UGPPd74CDRcj+SjiZ87fFMShP5mv0bhbphJC2EtCDyGg2mG4567/MXyk02zlJyoAq36lbQSk/JKFyckC+A0UQxlZr9kSPsEhERUcFBT8eiD0vNIP3XLaFFMymeZ/eiz90081/MZjLsZqfbT74ldLHjBqlLfA9JFhzcu8gHQosz0b8RoakhLJtTPfVO/Qaov8Y1/PvIMolK5khcKrU+4bmQoUQGdSHF4MBBSrrqTjFOh+WWt0AO/F0JKOsqAVmBHmz5sdYkIWkTlSX4EyUuquARZVcMWma7MMpJoTgrUq6HFCMldx95gw7C62XEE7DUJP0jf0ZMfi72rE96RzHqFq9WIg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(52116014)(366016)(1800799024)(376014)(7416014)(18002099003)(38350700014)(22082099003)(56012099006)(5023799004)(3023799007)(921020)(10067099003)(6133799003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?koXSucWSXw0kbut9/fyX/kQpGN5lBvmJBAYbAOjHbFLUMzHHALJL+qJysAN4?=
- =?us-ascii?Q?Dh1Wtm3LNkK8tJKFTmfSh32auVQ0Hx73Y2j/yyWcWdFMQAKdUB9oHaNUWOZ+?=
- =?us-ascii?Q?oYaUiPQd7ICrIyGOth2PBxBqX8kfEuFnzMnhhz5ySbWvpF+yxXuTLXk7fOTM?=
- =?us-ascii?Q?nKB+iz/dQE2tXWfWRR/o+z7dbbWX9iQSNHQqcV0GZRQmBFo4clqy2QtMgD7/?=
- =?us-ascii?Q?8p8VIV1JiKIiy4D0GDkwKZphU3rMJomYIr2MNOwCgh/8sv8ZnTG+d2hDqFdR?=
- =?us-ascii?Q?5p+BF98tNDkLJkQ7jurrW3yu1K+rQE/SDD7CJHyF+E4oxWylMmFg7KahbRS2?=
- =?us-ascii?Q?ouoDnv0WTDGFbKfSZqwFGKBTjnL2ANJnrxwK/wzAxkzX8RrR2Tk2dGWaIRkY?=
- =?us-ascii?Q?81bbsglCbs6OkGA8190QRgwu9lHfsBWGK4BA3c12lg0jpPzpsvZ03IVP4Vcd?=
- =?us-ascii?Q?O9HRGDx8xbvADqkFWsTQeYae7932XPov6UlN7VxCkFTIYvNoqOzschvoN2LF?=
- =?us-ascii?Q?OAp7kWLhcPZpQsYH11H6YdDPKxSbjZJUQbk0yF+JVg3fKdPm3iRWHyKKLphB?=
- =?us-ascii?Q?iMSLo7jd8EpoIFS/q7ebLyu/IQUnqqQ7HJtS89xTYGS2l/Kf4tykN/CMBycw?=
- =?us-ascii?Q?l5yYaxXsegy315lV7jhT3LrPSeArjOvmgQG6FbN7sa5p8HV2D7hhhLU31fh2?=
- =?us-ascii?Q?eD5iJToKl1GaN/A4j+Tx7Nasncmbn8qJIBOFxDefsDolIhBq9XWAtUs+pVwf?=
- =?us-ascii?Q?xhq5r0Xgjbv4bvIZXN37mDysvqAB73AwfPKQ4/Sj2FKiNbErtHHf4I6zDgS/?=
- =?us-ascii?Q?Q543G2S4CqKisu4nM4YRaasTeHQZNgqFdlXcgXT8y9K6qCkOmS6cgK6Dizh2?=
- =?us-ascii?Q?pIF1WX6KbC6X0krbVC8avhaUqZIzsRu1sD6RC5jLUmdUMd85YhOR1BPg2Ams?=
- =?us-ascii?Q?yMtioc6Y1FN0eK5IqzrnXHYA8n4Udah+T5BC3C83UWvyohChwn4Crm/ZDDTf?=
- =?us-ascii?Q?aG6s+BJIguLUtIW4oSrQgneSr81jvqREdnpmHFv3xfa2d2vC7A8Gqn3kP+sn?=
- =?us-ascii?Q?K6IHQvrjbSlFLYV1lOiFz5dta1Bbjd21xTfADuky0WSwXZkVVSnyK7kHxKdA?=
- =?us-ascii?Q?/WHoSPgnK8mlATIsRMejp6ElptBNg+m5ytXT4qeXwOKCLhE6LYk4jzWTyqKR?=
- =?us-ascii?Q?kcoqL4gkYHleLBJX0EU5jycSvikTm3ksGIGvcg0l6qlLRwPx81xdOyNSRbcc?=
- =?us-ascii?Q?US47aPqsTvwszSZzl1WpXj5IxEbu3YefH4Pnsmr+WvnqGk6j9ssvlUhyk9S6?=
- =?us-ascii?Q?3iR7KX5kF8fPmXuDwLL51XxmTk/trMvYdsiS4rs5wfIvPnC+jePfMKKLNABi?=
- =?us-ascii?Q?enMa7LuimTtAXCLYM93t4Dw3yxGJBQoqHodNA/1HKF6rNnVLa8cPMalJC1ZX?=
- =?us-ascii?Q?5nC03qy2TBLYgWltk590ZNSVBTtwyY7jTX+mUlkVdRd9j32LIvKfT9t45ibO?=
- =?us-ascii?Q?4XOHxFFjNYWqyon5SiRk9Yi0FSKcbA/OKJMSttiuHp+FVspdUzwM9lDcYZ3i?=
- =?us-ascii?Q?8ggtWryeXzfXWPh5R6NandfkhDvjzYk4UMLDiLhNdCdHGr5akgIjmNGjxfMf?=
- =?us-ascii?Q?kamtwUzplLm5oc86ikG7PS0kacRAhJ1fEorPcXQ5svp5ypbkOdINiC8buhQi?=
- =?us-ascii?Q?gu6obtpMMEPOsVuvzjGVF0yG22w2wRzeUBoLHepHCKb62vR451LoiN/nsXY1?=
- =?us-ascii?Q?tsrrGs10KNO1/q3F0MwHtWBea5YNyAYQyU5uqavvWFk32xLF9wPo?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6dd66fa8-1707-45d8-c0cf-08df07540117
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 11:35:48.7878
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aipYOeU6dHDc0k6a56Sa+SG6p+y3WuwdH3FnSlFWXLxF6lhpbu0Ex5dRH+DugzqPxmN+E77rcdT2PCedE1tAnvx+W7Hc8ovldI4tSuPPSjQLxY55K2MgYJptcvVlgghp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1332
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_043604_128197_C3893E76 
-X-CRM114-Status: GOOD (  18.80  )
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.18.48
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,187 +73,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl driver for StarFive JHB100 SoC Peripheral-3(per3) pinctrl
-controller.
-
-Co-developed-by: Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Signed-off-by: Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Signed-off-by: Alex Soo <yuklin.soo@starfivetech.com>
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
----
- drivers/pinctrl/starfive/Kconfig              |  11 ++
- drivers/pinctrl/starfive/Makefile             |   1 +
- .../starfive/pinctrl-starfive-jhb100-per3.c   | 117 ++++++++++++++++++
- 3 files changed, 129 insertions(+)
- create mode 100644 drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per3.c
-
-diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
-index 081e3ec4464d..85fbc4063238 100644
---- a/drivers/pinctrl/starfive/Kconfig
-+++ b/drivers/pinctrl/starfive/Kconfig
-@@ -100,6 +100,17 @@ config PINCTRL_STARFIVE_JHB100_PER2POK
- 	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
- 	  and interrupts on input changes.
- 
-+config PINCTRL_STARFIVE_JHB100_PER3
-+	tristate "StarFive JHB100 SoC Peripheral-3 pinctrl and GPIO driver"
-+	depends on ARCH_STARFIVE || COMPILE_TEST
-+	select PINCTRL_STARFIVE_JHB100
-+	default ARCH_STARFIVE
-+	help
-+	  Say yes here to support Peripheral-3 pin control on the StarFive JHB100 SoC.
-+	  This also provides an interface to the GPIO pins not used by other
-+	  peripherals supporting inputs, outputs, configuring pull-up/pull-down
-+	  and interrupts on input changes.
-+
- config PINCTRL_STARFIVE_JHB100_SYS0
- 	tristate "StarFive JHB100 SoC System-0 pinctrl and GPIO driver"
- 	depends on ARCH_STARFIVE || COMPILE_TEST
-diff --git a/drivers/pinctrl/starfive/Makefile b/drivers/pinctrl/starfive/Makefile
-index 213002da9cdd..351fce524fec 100644
---- a/drivers/pinctrl/starfive/Makefile
-+++ b/drivers/pinctrl/starfive/Makefile
-@@ -11,6 +11,7 @@ obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_PER0)	+= pinctrl-starfive-jhb100-per0.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_PER1)	+= pinctrl-starfive-jhb100-per1.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_PER2)	+= pinctrl-starfive-jhb100-per2.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_PER2POK)	+= pinctrl-starfive-jhb100-per2pok.o
-+obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_PER3)	+= pinctrl-starfive-jhb100-per3.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS0)	+= pinctrl-starfive-jhb100-sys0.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS0H)	+= pinctrl-starfive-jhb100-sys0h.o
- obj-$(CONFIG_PINCTRL_STARFIVE_JHB100_SYS1)	+= pinctrl-starfive-jhb100-sys1.o
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per3.c b/drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per3.c
-new file mode 100644
-index 000000000000..0643bd147210
---- /dev/null
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jhb100-per3.c
-@@ -0,0 +1,117 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Pinctrl / GPIO driver for StarFive JHB100 SoC Peripheral-3 domain
-+ *
-+ * Copyright (C) 2024 StarFive Technology Co., Ltd.
-+ * Author: Alex Soo <yuklin.soo@starfivetech.com>
-+ *
-+ */
-+
-+#include <dt-bindings/pinctrl/starfive,jhb100-pinctrl.h>
-+#include <linux/platform_device.h>
-+
-+#include "pinctrl-starfive-jhb100.h"
-+
-+static const struct jhb100_pin_layout_desc jhb100_per3_pl_desc[] = {
-+	{ .pin_start = 0, .pin_cnt = 11, .name = "gpio", .gpio_func_sel = 0 },
-+	{ 0xff },
-+};
-+
-+static const struct config_reg_layout_desc jhb100_per3_pinctrl_rl_desc[] = {
-+	{
-+		.pin_start					= 0,
-+		.pin_cnt					= 2,
-+		.fields[PAD_CFG_DRIVE_STRENGTH_2BIT]		= { .shift = 0, .width = 2 },
-+		.fields[PAD_CFG_INPUT_ENABLE]			= { .shift = 2, .width = 1 },
-+		.fields[PAD_CFG_PULL_DOWN]			= { .shift = 3, .width = 1 },
-+		.fields[PAD_CFG_PULL_UP]			= { .shift = 4, .width = 1 },
-+		.fields[PAD_CFG_SLEW_RATE]			= { .shift = 5, .width = 1 },
-+		.fields[PAD_CFG_SCHMITT_TRIGGER_SELECT]		= { .shift = 6, .width = 1 },
-+		.fields[PAD_CFG_DEBOUNCE_WIDTH]			= { .shift = 15, .width = 17 },
-+	},
-+	{
-+		.pin_start					= 2,
-+		.pin_cnt					= 9,
-+		.fields[PAD_CFG_INPUT_ENABLE]			= { .shift = 0, .width = 1 },
-+		.fields[PAD_CFG_SLEW_RATE]			= { .shift = 1, .width = 1 },
-+		.fields[PAD_CFG_VSEL]				= { .shift = 2, .width = 2 },
-+		.fields[PAD_CFG_DEBOUNCE_WIDTH]			= { .shift = 15, .width = 17 },
-+	},
-+	{ 0xff },
-+};
-+
-+static const struct pinvref_desc pinvref_desc_per3[] = {
-+	{
-+		/* gpios */
-+		.pin_grp = {
-+			PADNUM_PER3_GPIO_E0,
-+			PADNUM_PER3_GPIO_E1,
-+			PADNUM_PER3_GPIO_E2,
-+			PADNUM_PER3_GPIO_E3,
-+			PADNUM_PER3_GPIO_E4,
-+			PADNUM_PER3_GPIO_E5,
-+			PADNUM_PER3_GPIO_E6,
-+			PADNUM_PER3_GPIO_E7,
-+			PADNUM_PER3_GPIO_E8,
-+			PADNUM_PER3_GPIO_E9,
-+			PADNUM_PER3_GPIO_E10
-+		},
-+		.num_pins = 11,
-+		.range = BIT(JHB100_PINVREF_1_8V) | BIT(JHB100_PINVREF_2_5V) |
-+			 BIT(JHB100_PINVREF_3_3V)
-+	},
-+};
-+
-+static const struct starfive_pinctrl_regs jhb100_per3_pinctrl_regs = {
-+	.vref			= { .reg = 0x00, .pv_desc = pinvref_desc_per3,
-+				    .num_pv = ARRAY_SIZE(pinvref_desc_per3) },
-+	.func_sel		= { .reg = 0x3c, .width_per_pin = 2 },
-+	.config			= 0x04,
-+	.output			= 0x30,
-+	.output_en		= 0x34,
-+	.gpio_status		= 0x38,
-+	.irq_en			= 0x40,
-+	.irq_status		= 0x44,
-+	.irq_clr		= 0x48,
-+	.irq_trigger		= 0x4c,
-+	.irq_level		= 0x50,
-+	.irq_both_edge		= 0x54,
-+	.irq_edge		= 0x58,
-+};
-+
-+static const struct jhb100_pinctrl_func_maps jhb100_func_maps_per3[] = {
-+	{ .func = "gmac_mdio",		.val = 1 },
-+	{ .func = "gmac_rmii",		.val = 1 },
-+	{ .func = "gpio",		.val = 0 },
-+};
-+
-+static const struct jhb100_pinctrl_domain_info jhb100_per3_pinctrl_info = {
-+	.name			= "jhb100-per3",
-+	.pl_desc		= jhb100_per3_pl_desc,
-+	.crl_desc		= jhb100_per3_pinctrl_rl_desc,
-+	.regs			= &jhb100_per3_pinctrl_regs,
-+	.fmaps			= jhb100_func_maps_per3,
-+	.num_maps		= ARRAY_SIZE(jhb100_func_maps_per3),
-+};
-+
-+static const struct of_device_id jhb100_per3_pinctrl_of_match[] = {
-+	{
-+		.compatible = "starfive,jhb100-per3-pinctrl",
-+		.data = &jhb100_per3_pinctrl_info,
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jhb100_per3_pinctrl_of_match);
-+
-+static struct platform_driver jhb100_per3_pinctrl_driver = {
-+	.probe = jhb100_pinctrl_probe,
-+	.driver = {
-+		.name = "starfive-jhb100-per3-pinctrl",
-+		.of_match_table = jhb100_per3_pinctrl_of_match,
-+	},
-+};
-+module_platform_driver(jhb100_per3_pinctrl_driver);
-+
-+MODULE_DESCRIPTION("Pinctrl driver for StarFive JHB100 SoC Peripheral-3 domain");
-+MODULE_AUTHOR("Alex Soo <yuklin.soo@starfivetech.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogT3NhbWEgQWJkZWxrYWRlciA8b3NhbWEuYWJkZWxrYWRlckBnbWFpbC5jb20+CgpbIFVw
+c3RyZWFtIGNvbW1pdCAyYWJkMGRiYTU2MjU1MWQ1YzI3Zjk3Y2U1NjA2ODRmNTM0YzBjZjNhIF0K
+CmluaXRfaXJxX3N0YWNrcygpIGFuZCBpbml0X2lycV9zY3MoKSBtYXkgZmFpbCB3aGVuIGFyY2hf
+YWxsb2Nfdm1hcF9zdGFjawpvciBzY3NfYWxsb2MgcmV0dXJuIE5VTEwsIGNhbGwgcGFuaWMoKSBp
+biB0aGlzIGNhc2UuCgpTaWduZWQtb2ZmLWJ5OiBPc2FtYSBBYmRlbGthZGVyIDxvc2FtYS5hYmRl
+bGthZGVyQGdtYWlsLmNvbT4KTGluazogaHR0cHM6Ly9wYXRjaC5tc2dpZC5saW5rLzIwMjYwNDA0
+MTg1NTIyLjIxNzY3LTEtb3NhbWEuYWJkZWxrYWRlckBnbWFpbC5jb20KU2lnbmVkLW9mZi1ieTog
+UGF1bCBXYWxtc2xleSA8cGp3QGtlcm5lbC5vcmc+ClNpZ25lZC1vZmYtYnk6IFNhc2hhIExldmlu
+IDxzYXNoYWxAa2VybmVsLm9yZz4KLS0tCgpMTE0gR2VuZXJhdGVkIGV4cGxhbmF0aW9ucywgbWF5
+IGJlIGNvbXBsZXRlbHkgYm9ndXM6CgpUaGUgYnJhbmNoIGNoZWNrIGZpbmlzaGVkOiBgMmFiZDBk
+YmE1NjI1NWAgKCJyaXNjdjogcGFuaWMgaWYgSVJRIGhhbmRsZXIKc3RhY2tzIGNhbm5vdCBiZSBh
+bGxvY2F0ZWQiKSBpcyBvbiBgbWFzdGVyYCBhbmQgdGhlIGAtbmV4dGAgaW50ZWdyYXRpb24KYnJh
+bmNoZXMsIGJ1dCBub3Qgb24gdGhlIGN1cnJlbnQgYHY2LjE4LjQ0YCBzdGFibGUgdHJlZS4gVGhh
+dCBtYXRjaGVzCnRoZSBlYXJsaWVyICoqWUVTKiogYmFja3BvcnQgcmVjb21tZW5kYXRpb24g4oCU
+IHRoZSBmaXggaXMgbWFpbmxpbmUtb25seQphbmQgc3RpbGwgbmVlZHMgdG8gYmUgY2hlcnJ5LXBp
+Y2tlZCBpbnRvIDYuMTgueS4KCiBhcmNoL3Jpc2N2L2tlcm5lbC9pcnEuYyB8IDIyICsrKysrKysr
+KysrKysrLS0tLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCAxNCBpbnNlcnRpb25zKCspLCA4IGRlbGV0
+aW9ucygtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2lycS5jIGIvYXJjaC9yaXNj
+di9rZXJuZWwvaXJxLmMKaW5kZXggYjZhZjIwYmMzMDBmNS4uMDE3ZDQyZTc3OGJlNiAxMDA2NDQK
+LS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvaXJxLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvaXJx
+LmMKQEAgLTc1LDI4ICs3NSwzNCBAQCBERUNMQVJFX1BFUl9DUFUodWxvbmcgKiwgaXJxX3NoYWRv
+d19jYWxsX3N0YWNrX3B0cik7CiBERUZJTkVfUEVSX0NQVSh1bG9uZyAqLCBpcnFfc2hhZG93X2Nh
+bGxfc3RhY2tfcHRyKTsKICNlbmRpZgogCi1zdGF0aWMgdm9pZCBpbml0X2lycV9zY3Modm9pZCkK
+K3N0YXRpYyB2b2lkIF9faW5pdCBpbml0X2lycV9zY3Modm9pZCkKIHsKIAlpbnQgY3B1OworCXZv
+aWQgKnM7CiAKIAlpZiAoIXNjc19pc19lbmFibGVkKCkpCiAJCXJldHVybjsKIAotCWZvcl9lYWNo
+X3Bvc3NpYmxlX2NwdShjcHUpCi0JCXBlcl9jcHUoaXJxX3NoYWRvd19jYWxsX3N0YWNrX3B0ciwg
+Y3B1KSA9Ci0JCQlzY3NfYWxsb2MoY3B1X3RvX25vZGUoY3B1KSk7CisJZm9yX2VhY2hfcG9zc2li
+bGVfY3B1KGNwdSkgeworCQlzID0gc2NzX2FsbG9jKGNwdV90b19ub2RlKGNwdSkpOworCQlpZiAo
+IXMpCisJCQlwYW5pYygiRmFpbGVkIHRvIGFsbG9jYXRlIElSUSBzaGFkb3cgY2FsbCBzdGFjayBy
+ZXNvdXJjZXNcbiIpOworCQlwZXJfY3B1KGlycV9zaGFkb3dfY2FsbF9zdGFja19wdHIsIGNwdSkg
+PSBzOworCX0KIH0KIAogREVGSU5FX1BFUl9DUFUodWxvbmcgKiwgaXJxX3N0YWNrX3B0cik7CiAK
+ICNpZmRlZiBDT05GSUdfVk1BUF9TVEFDSwotc3RhdGljIHZvaWQgaW5pdF9pcnFfc3RhY2tzKHZv
+aWQpCitzdGF0aWMgdm9pZCBfX2luaXQgaW5pdF9pcnFfc3RhY2tzKHZvaWQpCiB7CiAJaW50IGNw
+dTsKIAl1bG9uZyAqcDsKIAogCWZvcl9lYWNoX3Bvc3NpYmxlX2NwdShjcHUpIHsKIAkJcCA9IGFy
+Y2hfYWxsb2Nfdm1hcF9zdGFjayhJUlFfU1RBQ0tfU0laRSwgY3B1X3RvX25vZGUoY3B1KSk7CisJ
+CWlmICghcCkKKwkJCXBhbmljKCJGYWlsZWQgdG8gYWxsb2NhdGUgSVJRIHN0YWNrIHJlc291cmNl
+c1xuIik7CiAJCXBlcl9jcHUoaXJxX3N0YWNrX3B0ciwgY3B1KSA9IHA7CiAJfQogfQpAQCAtMTA0
+LDcgKzExMCw3IEBAIHN0YXRpYyB2b2lkIGluaXRfaXJxX3N0YWNrcyh2b2lkKQogLyogaXJxIHN0
+YWNrIG9ubHkgbmVlZHMgdG8gYmUgMTYgYnl0ZSBhbGlnbmVkIC0gbm90IElSUV9TVEFDS19TSVpF
+IGFsaWduZWQuICovCiBERUZJTkVfUEVSX0NQVV9BTElHTkVEKHVsb25nIFtJUlFfU1RBQ0tfU0la
+RS9zaXplb2YodWxvbmcpXSwgaXJxX3N0YWNrKTsKIAotc3RhdGljIHZvaWQgaW5pdF9pcnFfc3Rh
+Y2tzKHZvaWQpCitzdGF0aWMgdm9pZCBfX2luaXQgaW5pdF9pcnFfc3RhY2tzKHZvaWQpCiB7CiAJ
+aW50IGNwdTsKIApAQCAtMTI5LDggKzEzNSw4IEBAIHZvaWQgZG9fc29mdGlycV9vd25fc3RhY2so
+dm9pZCkKICNlbmRpZiAvKiBDT05GSUdfU09GVElSUV9PTl9PV05fU1RBQ0sgKi8KIAogI2Vsc2UK
+LXN0YXRpYyB2b2lkIGluaXRfaXJxX3Njcyh2b2lkKSB7fQotc3RhdGljIHZvaWQgaW5pdF9pcnFf
+c3RhY2tzKHZvaWQpIHt9CitzdGF0aWMgdm9pZCBfX2luaXQgaW5pdF9pcnFfc2NzKHZvaWQpIHt9
+CitzdGF0aWMgdm9pZCBfX2luaXQgaW5pdF9pcnFfc3RhY2tzKHZvaWQpIHt9CiAjZW5kaWYgLyog
+Q09ORklHX0lSUV9TVEFDS1MgKi8KIAogaW50IGFyY2hfc2hvd19pbnRlcnJ1cHRzKHN0cnVjdCBz
+ZXFfZmlsZSAqcCwgaW50IHByZWMpCi0tIAoyLjUzLjAKCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
