@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DBBC61DD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 03:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFF3C61DF0
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2026 04:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Cc:To:References:
-	In-Reply-To:Mime-Version:Subject:From:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=amc8SiKosELfHQ8GbZGOeDqPZ9VDJ/6DUbc4aDK2v84=; b=1PU77w50WJCMpr
-	52lHnbYIBa3x6Mtjx5F5q2D4LoHtzUS7wQadKlBMHTKwGnBLCgCzqGO1uF2iuI2XUUih4mWrI1/mx
-	daL4cujFAvzocpjOjlshRkUPnTspWuLjs9ItRiJsrXp5H4CXzsP8S2cEMtw7EJ6ClANKBb7YYBN0F
-	vMizK0BsXqicqYbNkKE7b3klWxqS6xSp1zrnWuxg36ZeCYxdHYltlqKDNimyRZIc3Pn5Qt+3erCo/
-	hD3nvMepgIBO4mRj10XL8ukHquwygnfpYPMFQySN5mvBFGRc1ULUnepsiLOc/Ud8OBuy6IYifI3AE
-	TfE9XTbLOHhDAsZLyLnw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RbrHXTp2svgqexhJD/SYtB5+wBL6w9xxiZiLDpJD7NY=; b=Ce+qgWDgusG0bk
+	NrY+rI5cRYGX+jTWQ3XA3jWSZqyEE+EFjR3HPglr9zpCvFMqSTRX+1KjcETjDzREELsFEj6Q4nvKr
+	RQHq8G+sA135Z4abBpmBedAWp3jsn1pJAM0ywVqD9S797qOWjT7F0rtxw5II+2rS/PddUAZphqH4i
+	7gxs7Y4nj7SOKBYiLkchhZvxRLQHTrmor/0Mu0Il5hz43t9188vrLu0kHotezY1H9KGlAJGc7sbZt
+	ZegNEoEWSaRkiXsNC0q/0fRPw9BgZbgym68IQXVnj6GOnqaiu0EaeeCj1e35z3ndVjUC0QRj5FEEM
+	7QermQNoIgRex5YOunSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0t3T-00000008Qds-0Xme;
-	Mon, 31 Aug 2026 03:51:31 +0000
-Received: from va-1-114.ptr.blmpb.com ([209.127.230.114])
+	id 1x0tuD-00000008UiT-23XF;
+	Mon, 31 Aug 2026 04:46:01 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0t3P-00000008QdL-2jcr
+	id 1x0tu7-00000008Ufl-1nlD
 	for linux-riscv@lists.infradead.org;
-	Mon, 31 Aug 2026 03:51:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1788148279; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=D3NavzyV7KU3YGjx7vQPk6D5wG9vWP7Ie6nPRhzgPho=;
- b=jjA/nPJeifN9mW7KHr4BOWLZepw0nt8gzH57iQSoACDQCvdbtqEpAOssisISh911CtFw5b
- i1VqgCRbrNyBCGfNQhXOYIlcsWbQxcmarAkGEza+InPnT1kJ0YUC7568LxcTFZUIf2eNlb
- 1LYqyI6h7QaYTBcYScJ0Y3XxTXgKur0XI6pcyqBjzZSj9c4lcG2BSEgyGUBQ7sWKiKez7h
- LwdPRuGX9yKMGCvzRXbdtgwDX1UBjK7Yv1+fdvxOOPNtG4ENVDyHX0zzw8bVznTprEPZT1
- HQBrama6/jw8wcdWpDtCb22Psn5TSnzJ2bUXii0kSmk40Xt1Rz6Ne/fWl2sOzw==
-X-Mailer: git-send-email 2.20.1
-From: "Rui Qi" <qirui.001@bytedance.com>
-Subject: Re: [PATCH] riscv: ftrace: reject out-of-range non-direct targets
-Mime-Version: 1.0
-In-Reply-To: <20260707121235.759104-1-qirui.001@bytedance.com>
-References: <20260707121235.759104-1-qirui.001@bytedance.com>
-X-Lms-Return-Path: <lba+26a94fa35+375148+lists.infradead.org+qirui.001@bytedance.com>
-To: <rostedt@goodmis.org>, <mhiramat@kernel.org>
-Cc: "Rui Qi" <qirui.001@bytedance.com>, <mark.rutland@arm.com>, 
-	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
-	<alex@ghiti.fr>, <linux-kernel@vger.kernel.org>, 
-	<linux-trace-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Date: Mon, 31 Aug 2026 11:50:45 +0800
-Message-Id: <20260901020000.1-qirui.001@bytedance.com>
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
+	Mon, 31 Aug 2026 04:45:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=9J2seGKRWZVNJ1p8+AjKgKsDACjOYKsJmiv89i7OaIc=; b=CQsWHoPIG+chRQp9FTX+9wntNC
+	mq7WXVvcr6Ex4nrtJlK5nWnpfvZLZStA1SQrKX8PEahJ9LyNJ5URo92PNyOJiF7LZfQKeVkbW+BpD
+	ycSAT/R/muR7+SnJHwWRWISrytdefBGF1gMDxh8j4tcMpy6Wff/2ZUA3jmdlaIzaCTr3KFbXGg+Yi
+	WVCPUfE3VY86n9i+WNC5fa6sVRCTZJYiAZpVx4RUd8Q6qXK18Ts0zOf8CpHwmypovMjmZr/aYz3fB
+	mIbaG0GCcp1R+pe4bfHLvJ6YZg8WB5Mv26hP84Z1d53jL57wZHnKa5gs6Ex8ENRnQZvmq90BTneXy
+	UIK8nqCA==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1x0tu3-0000000Ape8-2BUo;
+	Mon, 31 Aug 2026 06:45:51 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>
+Cc: Aurelien Jarno <aurelien@aurel32.net>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-riscv@lists.infradead.org (open list:RISC-V SPACEMIT SoC Support),
+	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
+Subject: [PATCH v3 3/5] riscv: dts: spacemit: k3: add rfkill node for Bluetooth on Pico-ITX board
+Date: Mon, 31 Aug 2026 06:44:23 +0200
+Message-ID: <20260831044540.3304350-4-aurelien@aurel32.net>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260831044540.3304350-1-aurelien@aurel32.net>
+References: <20260831044540.3304350-1-aurelien@aurel32.net>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_205127_774463_8B872ADB 
-X-CRM114-Status: UNSURE (   2.84  )
+X-CRM114-CacheID: sfid-20260830_214555_487458_F4CA3199 
+X-CRM114-Status: UNSURE (   8.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,18 +85,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Steven,
+On the K3 Pico-ITX board, by default the GPIO pin that connects to the
+RTL8852BE Bluetooth enable signal is driven low, resulting in
+impossibility to use Bluetooth. Add a DT node to expose it as an RFKILL
+device, which lets the Bluetooth driver or userspace toggle it as
+required.
 
-Gentle ping on this patch. It's been over a month since submission
-and I'd appreciate your review when you have a chance.
+Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+---
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-The patch fixes ftrace_modify_call() on RISC-V to properly validate
-old_addr/addr instead of always treating sites as FTRACE_ADDR, and
-rejects out-of-range non-direct targets that can't be dispatched
-through the existing ftrace_caller path.
+diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+index 5aa6fa89cab58..d3f256dffb4fd 100644
+--- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
++++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
+@@ -43,6 +43,13 @@ reg_aux_vcc5v: regulator-aux-vcc5v {
+ 		regulator-max-microvolt = <5000000>;
+ 		regulator-always-on;
+ 	};
++
++	rfkill-usb-bt {
++		compatible = "rfkill-gpio";
++		label = "rfkill-usb-bt";
++		radio-type = "bluetooth";
++		shutdown-gpios = <&gpio 0 30 GPIO_ACTIVE_HIGH>;
++	};
+ };
+ 
+ &i2c2 {
+-- 
+2.53.0
 
-Thanks,
-Rui
 
 _______________________________________________
 linux-riscv mailing list
