@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA68C61DD3
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 18:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA40EC624D0
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 18:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E+F5sP/BieB9c+d/Q62308+lR5R1BmnK/eKwIdcF2Ds=; b=if9kecf7xd12bW
-	59n6LP09ngjycSMdKxD5y9Kl5Nsqn58jpx8I8Au6Hv8qevevXvjaK1kJJ9QF2VzN7FunQapT7G+tW
-	IVntfJCznM6vG8+SeSNwdbmZzbVI47tH21eyMhFDGQLeVnRwSP160HN/WwRxyVkW1cpI5QcH2/NOc
-	mzVXjKpLneGwOCxNEzBsWj49CnXoDqlyPLcHxDVyglZTVxgYR8gETobyzUictvRYsaZv72RAGy2zL
-	E2+shGVCbedaNuC8WYpaWukZvAj/SLC8yUHdPUklafTSO8dU5x+8UwnGWVoWkBl3LAFpMhEL5e/Vo
-	n1DonC/KhzE5EkkaZ3Sw==;
+	List-Owner; bh=EOtlsab+7tF6Bl9URSsQ3xn0TuU/yW7Sd8EjO5tCjDg=; b=TyyAhiqmabmJzs
+	l5SneIlOHgHBvb09GVyg9rwVH0vcpZAfhvC9tSYFjHv5uBiq+gYdLJFpWjQh86dQ78EBLoTb8TuyZ
+	PE5AfaJv4SpwGZKFSAIdYtv65qqdOXNMpTD18DV/KYGGOUibCupdlOkwdn67JfVSlf3fJOSXKnGpX
+	200GCDxthLHciXfIAPsIcG80569EE7unCSCqQwHsN3Y1J0i3iTMGkD/O0pqK9l+zodDT9RSe73opF
+	GDCtjdmB5gggwqKFlE879mR5iJfIQzq3VHrUoeLj3hMOsXn92pBM3I1H+jHuQ3dPF9S+X6oHAUXZp
+	uNjfCXU7y2K+tGt2ZE1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1T0W-0000000CvnR-2pRA;
-	Tue, 01 Sep 2026 18:14:52 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1x1TIc-0000000CyPM-3D0I;
+	Tue, 01 Sep 2026 18:33:34 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1T0T-0000000CvlN-1aho
-	for linux-riscv@lists.infradead.org;
-	Tue, 01 Sep 2026 18:14:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1788286488;
- bh=e7plJxIygwISfSRDt4IRuRj0Ea3yUgy5TIf9N8SYgTA=;
- b=hH6We8fLhmb8LWqKtD+9oDy5iZt+wMpHo1oLqe7qqflDTow9eKvSVlsN4GqAcjalNIy34ZYYJ
- DxKi9PS5pxK1PzG1S8+4x8SeHU6CfbwWRO0RdsXhzqwWzAAMN/YyUvKYTlYz7N63EZSumIxeGWz
- g3uOLqNx3R1TlLMyHz1jtLuveWLiq7A/BJzNbUE1mFEDPQQHaKtfzUq2UB/nUBHnwtW+bAMV34R
- ZIJhAfKMg5sk8X6bA0EuwRu9HE8B5T83Uff0jdKz0eZoVj/HGQdNhgiGw3JMeBbhFXtuz37UgZS
- RqR1cDD2emmROfsNc/b8NOTFexeh8OiVNBpCJ7UjvNTg==
-X-Forward-Email-ID: 6a971609a9d0b3c06ff430dc
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.14.0
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <cddc47a2-81de-4978-9009-bdefeda2d3b5@kwiboo.se>
-Date: Tue, 1 Sep 2026 20:14:23 +0200
+	id 1x1THs-0000000CyLH-0LnY;
+	Tue, 01 Sep 2026 18:33:32 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [120.85.96.74])
+	by APP-01 (Coremail) with SMTP id qwCowAAn__I8GpdqvbIDBw--.20040S2;
+	Wed, 02 Sep 2026 02:32:30 +0800 (CST)
+Message-ID: <51a0c0657870a424f6bc9e149542a57ff6fb3ecd.camel@iscas.ac.cn>
+Subject: Re: [PATCH 12/12] riscv: dts: thead: enable USB3 ports on Lichee Pi
+ 4A
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei	
+ <wefu@redhat.com>, Michael Turquette <mturquette@baylibre.com>, Stephen
+ Boyd	 <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vinod
+ Koul	 <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Jisheng Zhang <jszhang@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
+ 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-phy@lists.infradead.org, linux-usb@vger.kernel.org, Han Gao	
+ <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>
+Date: Wed, 02 Sep 2026 02:32:28 +0800
+In-Reply-To: <20260507081710.4090814-13-zhengxingda@iscas.ac.cn>
+References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
+	 <20260507081710.4090814-13-zhengxingda@iscas.ac.cn>
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/15] phy: rockchip: inno-hdmi: Use the common
- Innosilicon PHY helpers
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
- <CGME20260828134835eucas1p27736632121c17e11f554e295994a7d8d@eucas1p2.samsung.com>
- <20260828-jh7110-clean-send-v2-12-331680c8b9d1@samsung.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260828-jh7110-clean-send-v2-12-331680c8b9d1@samsung.com>
+X-CM-TRANSID: qwCowAAn__I8GpdqvbIDBw--.20040S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3XF13XrWrJFyUKrW3uw1Utrb_yoWxJFWkpa
+	9xJan3uay0vr17Ka13J3WDG3Z8Cr4v9a4v9r15Gr10kwsruwnFkryakrsY9ayUGF4xX34q
+	vr4kuFWIgrnIg3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
+	xwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07bIBTOUUUUU=
+X-Originating-IP: [120.85.96.74]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_111449_817823_8C642519 
-X-CRM114-Status: GOOD (  28.50  )
+X-CRM114-CacheID: sfid-20260901_113318_906038_929C4247 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,289 +85,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Heiko Stuebner <heiko@sntech.de>, Michael Turquette <mturquette@baylibre.com>, dri-devel@lists.freedesktop.org, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, linux-clk@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Dominique Belhachemi <db@domibel.de>, Robert Foss <rfoss@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Lee Jones <lee@kernel.org>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Hal Feng <hal.feng@starfivetech.com>, Graham Markall <hello@big-grey.co.uk>, linux-rockchip@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, mfd@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Maud Spierings <maudspierings@gocontroll.com>, Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Zimmermann <tzimmermann@suse.de>, Andy Yan <andy.yan@rock-chips.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
-
-On 8/28/2026 3:47 PM, Michal Wilczynski wrote:
-> The RK3328 pre-PLL programming, its table lookup and its recalc_rate and
-> determine_rate implementations are the generic Innosilicon ones, so drop
-> the local copies and use the shared helpers instead.
-
-RK3528 and RK3538/RK3539 also seems to use the generic Innosilicon ones,
-so we should hopefully also be able to use the helpers for those SoCs.
-
-> 
-> The RK3228 pre-PLL sits at different register addresses, so it keeps its
-> own register level code and only shares the table lookup.
-> 
-> The register writes, their order and the values written are unchanged.
-> No functional change intended.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  drivers/phy/rockchip/Kconfig                  |   1 +
->  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 127 +++++---------------------
->  2 files changed, 25 insertions(+), 103 deletions(-)
-> 
-> diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-> index 14698571b607590dc0e7a29f3b39eb9a5d4e3d25..9732c5be87717dc3ddbea1c60080952336a07af9 100644
-> --- a/drivers/phy/rockchip/Kconfig
-> +++ b/drivers/phy/rockchip/Kconfig
-> @@ -34,6 +34,7 @@ config PHY_ROCKCHIP_INNO_HDMI
->  	depends on COMMON_CLK
->  	depends on HAS_IOMEM
->  	select GENERIC_PHY
-> +	select PHY_INNO_HDMI
->  	help
->  	  Enable this to support the Rockchip Innosilicon HDMI PHY.
->  
-> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-> index 1483907413faa5ce1dc8614db05e6e929410404d..fae766607b0ea120b3adb36001387062f39a5c00 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-> @@ -17,6 +17,7 @@
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
->  #include <linux/regmap.h>
-> +#include <linux/phy/inno-hdmi-phy.h>
->  #include <linux/phy/phy.h>
->  #include <linux/slab.h>
->  
-> @@ -240,6 +241,8 @@ struct inno_hdmi_phy {
->  	const struct inno_hdmi_phy_drv_data *plat_data;
->  	int chip_version;
->  
-> +	struct inno_hdmi_phy_pre_pll pre_pll;
-> +
->  	/* clk provider */
->  	struct clk_hw hw;
->  	struct clk *phyclk;
-> @@ -247,21 +250,6 @@ struct inno_hdmi_phy {
->  	unsigned long tmdsclock;
->  };
->  
-> -struct pre_pll_config {
-> -	unsigned long pixclock;
-> -	unsigned long tmdsclock;
-> -	u8 prediv;
-> -	u16 fbdiv;
-> -	u8 tmds_div_a;
-> -	u8 tmds_div_b;
-> -	u8 tmds_div_c;
-> -	u8 pclk_div_a;
-> -	u8 pclk_div_b;
-> -	u8 pclk_div_c;
-> -	u8 pclk_div_d;
-> -	u8 vco_div_5_en;
-> -	u32 fracdiv;
-> -};
->  
->  struct post_pll_config {
->  	unsigned long tmdsclock;
-> @@ -290,7 +278,7 @@ struct inno_hdmi_phy_drv_data {
->  	const struct phy_config		*phy_cfg_table;
->  };
->  
-> -static const struct pre_pll_config pre_pll_cfg_table[] = {
-> +static const struct inno_hdmi_phy_pre_pll_config pre_pll_cfg_table[] = {
->  	{ 25175000,  25175000,  3,  125, 3, 1, 1,  1, 3, 3,  4, 0, 0xe00000},
->  	{ 25175000,  31468750,  1,   41, 0, 3, 3,  1, 3, 3,  4, 0, 0xf5554f},
->  	{ 27000000,  27000000,  1,   36, 0, 3, 3,  1, 2, 3,  4, 0,      0x0},
-> @@ -673,20 +661,12 @@ static const struct phy_ops inno_hdmi_phy_ops = {
->  };
->  
->  static const
-> -struct pre_pll_config *inno_hdmi_phy_get_pre_pll_cfg(struct inno_hdmi_phy *inno,
-> -						     unsigned long rate)
-> +struct inno_hdmi_phy_pre_pll_config *inno_hdmi_phy_get_pre_pll_cfg(struct inno_hdmi_phy *inno,
-> +								   unsigned long rate)
->  {
-> -	const struct pre_pll_config *cfg = pre_pll_cfg_table;
->  	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
->  
-> -	for (; cfg->pixclock != 0; cfg++)
-> -		if (cfg->pixclock == rate && cfg->tmdsclock == tmdsclock)
-> -			break;
-> -
-> -	if (cfg->pixclock == 0)
-> -		return ERR_PTR(-EINVAL);
-> -
-> -	return cfg;
-> +	return inno_hdmi_phy_pre_pll_lookup(&inno->pre_pll, rate, tmdsclock);
-
-Please fully remove the local inno_hdmi_phy_get_pre_pll_cfg() helper and
-call inno_hdmi_phy_pre_pll_lookup() in its place.
-
->  }
->  
->  static int inno_hdmi_phy_rk3228_clk_is_prepared(struct clk_hw *hw)
-> @@ -752,7 +732,7 @@ unsigned long inno_hdmi_phy_rk3228_clk_recalc_rate(struct clk_hw *hw,
->  static int inno_hdmi_phy_rk3228_clk_determine_rate(struct clk_hw *hw,
->  						   struct clk_rate_request *req)
->  {
-> -	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-> +	const struct inno_hdmi_phy_pre_pll_config *cfg = pre_pll_cfg_table;
->  
->  	req->rate = (req->rate / 1000) * 1000;
->  
-> @@ -773,7 +753,7 @@ static int inno_hdmi_phy_rk3228_clk_set_rate(struct clk_hw *hw,
->  					     unsigned long parent_rate)
->  {
->  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
-> -	const struct pre_pll_config *cfg;
-> +	const struct inno_hdmi_phy_pre_pll_config *cfg;
->  	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
->  	u32 v;
->  	int ret;
-> @@ -870,39 +850,11 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
->  						   unsigned long parent_rate)
->  {
->  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
-> -	unsigned long frac;
-> -	u8 nd, no_a, no_b, no_d;
-> -	u64 vco;
-> -	u16 nf;
-> -
-> -	nd = inno_read(inno, 0xa1) & RK3328_PRE_PLL_PRE_DIV_MASK;
-> -	nf = ((inno_read(inno, 0xa2) & RK3328_PRE_PLL_FB_DIV_11_8_MASK) << 8);
-> -	nf |= inno_read(inno, 0xa3);
-> -	vco = parent_rate * nf;
-> -
-> -	if (!(inno_read(inno, 0xa2) & RK3328_PRE_PLL_FRAC_DIV_DISABLE)) {
-> -		frac = inno_read(inno, 0xd3) |
-> -		       (inno_read(inno, 0xd2) << 8) |
-> -		       (inno_read(inno, 0xd1) << 16);
-> -		vco += DIV_ROUND_CLOSEST(parent_rate * frac, (1 << 24));
-> -	}
->  
-> -	if (inno_read(inno, 0xa0) & RK3328_PCLK_VCO_DIV_5_MASK) {
-> -		do_div(vco, nd * 5);
-> -	} else {
-> -		no_a = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_A_MASK;
-> -		no_b = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_B_MASK;
-> -		no_b >>= RK3328_PRE_PLL_PCLK_DIV_B_SHIFT;
-> -		no_b += 2;
-> -		no_d = inno_read(inno, 0xa6) & RK3328_PRE_PLL_PCLK_DIV_D_MASK;
-> -
-> -		do_div(vco, (nd * (no_a == 1 ? no_b : no_a) * no_d * 2));
-> -	}
-> +	inno->pixclock = inno_hdmi_phy_pre_pll_recalc_rate(&inno->pre_pll,
-> +							   parent_rate);
->  
-> -	inno->pixclock = DIV_ROUND_CLOSEST((unsigned long)vco, 1000) * 1000;
-> -
-> -	dev_dbg(inno->dev, "%s rate %lu vco %llu\n",
-> -		__func__, inno->pixclock, vco);
-> +	dev_dbg(inno->dev, "%s rate %lu\n", __func__, inno->pixclock);
-
-VCO should be between 1.4-3.2 GHz, we now loose this debug information.
-This is a change that probably should be noted in the commit message.
-
->  
->  	return inno->pixclock;
->  }
-> @@ -910,20 +862,9 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
->  static int inno_hdmi_phy_rk3328_clk_determine_rate(struct clk_hw *hw,
->  						   struct clk_rate_request *req)
->  {
-> -	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-> -
-> -	req->rate = (req->rate / 1000) * 1000;
-> -
-> -	for (; cfg->pixclock != 0; cfg++)
-> -		if (cfg->pixclock == req->rate)
-> -			break;
-> -
-> -	if (cfg->pixclock == 0)
-> -		return -EINVAL;
-> -
-> -	req->rate = cfg->pixclock;
-> +	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
->  
-> -	return 0;
-> +	return inno_hdmi_phy_pre_pll_determine_rate(&inno->pre_pll, req);
->  }
->  
->  static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
-> @@ -931,9 +872,8 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
->  					     unsigned long parent_rate)
->  {
->  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
-> -	const struct pre_pll_config *cfg;
-> +	const struct inno_hdmi_phy_pre_pll_config *cfg;
->  	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
-> -	u32 val;
->  	int ret;
->  
->  	dev_dbg(inno->dev, "%s rate %lu tmdsclk %lu\n",
-> @@ -946,35 +886,11 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
->  	if (IS_ERR(cfg))
->  		return PTR_ERR(cfg);
->  
-> -	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN,
-> -			 RK3328_PRE_PLL_POWER_DOWN);
-> -
-> -	/* Configure pre-pll */
-> -	inno_update_bits(inno, 0xa0, RK3328_PCLK_VCO_DIV_5_MASK,
-> -			 RK3328_PCLK_VCO_DIV_5(cfg->vco_div_5_en));
-> -	inno_write(inno, 0xa1, RK3328_PRE_PLL_PRE_DIV(cfg->prediv));
-> -
-> -	val = RK3328_SPREAD_SPECTRUM_MOD_DISABLE;
-> -	if (!cfg->fracdiv)
-> -		val |= RK3328_PRE_PLL_FRAC_DIV_DISABLE;
-> -	inno_write(inno, 0xa2, RK3328_PRE_PLL_FB_DIV_11_8(cfg->fbdiv) | val);
-> -	inno_write(inno, 0xa3, RK3328_PRE_PLL_FB_DIV_7_0(cfg->fbdiv));
-> -	inno_write(inno, 0xa5, RK3328_PRE_PLL_PCLK_DIV_A(cfg->pclk_div_a) |
-> -		   RK3328_PRE_PLL_PCLK_DIV_B(cfg->pclk_div_b));
-> -	inno_write(inno, 0xa6, RK3328_PRE_PLL_PCLK_DIV_C(cfg->pclk_div_c) |
-> -		   RK3328_PRE_PLL_PCLK_DIV_D(cfg->pclk_div_d));
-> -	inno_write(inno, 0xa4, RK3328_PRE_PLL_TMDSCLK_DIV_C(cfg->tmds_div_c) |
-> -		   RK3328_PRE_PLL_TMDSCLK_DIV_A(cfg->tmds_div_a) |
-> -		   RK3328_PRE_PLL_TMDSCLK_DIV_B(cfg->tmds_div_b));
-> -	inno_write(inno, 0xd3, RK3328_PRE_PLL_FRAC_DIV_7_0(cfg->fracdiv));
-> -	inno_write(inno, 0xd2, RK3328_PRE_PLL_FRAC_DIV_15_8(cfg->fracdiv));
-> -	inno_write(inno, 0xd1, RK3328_PRE_PLL_FRAC_DIV_23_16(cfg->fracdiv));
-> +	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, true);
-> +	inno_hdmi_phy_pre_pll_configure(&inno->pre_pll, cfg);
-> +	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, false);
->  
-> -	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN, 0);
-
-This should likely also remove all now unused RK3328 pre_pll related
-macros.
-
-Regards,
-Jonas
-
-> -
-> -	/* Wait for Pre-PLL lock */
-> -	ret = inno_poll(inno, 0xa9, val, val & RK3328_PRE_PLL_LOCK_STATUS,
-> -			1000, 10000);
-> +	ret = inno_hdmi_phy_pre_pll_wait_locked(&inno->pre_pll, 10000);
->  	if (ret) {
->  		dev_err(inno->dev, "Pre-PLL locking failed\n");
->  		return ret;
-> @@ -1373,6 +1289,11 @@ static int inno_hdmi_phy_probe(struct platform_device *pdev)
->  	if (IS_ERR(inno->regmap))
->  		return PTR_ERR(inno->regmap);
->  
-> +	/* The PHY block starts the register space on these SoCs. */
-> +	inno->pre_pll.regmap = inno->regmap;
-> +	inno->pre_pll.offset = 0;
-> +	inno->pre_pll.table = pre_pll_cfg_table;
-> +
->  	/* only the newer rk3328 hdmiphy has an interrupt */
->  	inno->irq = platform_get_irq(pdev, 0);
->  	if (inno->irq > 0) {
-> 
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjYtMDUtMDflm5vnmoQgMTY6MTcgKzA4MDDvvIxJY2Vub3d5IFpoZW5n5YaZ6YGT77ya
+Cj4gVGhlIExpY2hlZSBQaSA0QSBib2FyZCBmZWF0dXJlcyBhbiBvbmJvYXJkIFZJQSBWTDgxNyBo
+dWIgY29ubmVjdGVkIHRvCj4gdGhlIFNvQydzIFVTQjMgYXMgdXBzdHJlYW0gYW5kIDQgVVNCLTMu
+MC1jYXBhYmxlIFR5cGUtQSBwb3J0cyBhcwo+IGRvd25zdHJlYW0uCj4gCj4gRW5hYmxlIFNvQyBV
+U0IzIGFuZCB0aGUgaHViIG9uIExpY2hlZSBQaSA0QS4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBJY2Vu
+b3d5IFpoZW5nIDx6aGVuZ3hpbmdkYUBpc2Nhcy5hYy5jbj4KPiAtLS0KPiDCoC4uLi9kdHMvdGhl
+YWQvdGgxNTIwLWxpY2hlZS1tb2R1bGUtNGEuZHRzacKgwqDCoCB8wqAgMTUgKysKPiDCoC4uLi9i
+b290L2R0cy90aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0c8KgwqDCoCB8IDIzMQo+ICsrKysr
+KysrKysrKysrKysrKwo+IMKgMiBmaWxlcyBjaGFuZ2VkLCAyNDYgaW5zZXJ0aW9ucygrKQo+IAo+
+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC1saWNoZWUtbW9k
+dWxlLTRhLmR0c2kKPiBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvdGhlYWQvdGgxNTIwLWxpY2hlZS1t
+b2R1bGUtNGEuZHRzaQo+IGluZGV4IDhlNzZiNjNlMDEwMGEuLmJmZGE1YTZiNTZiOGYgMTAwNjQ0
+Cj4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy90aGVhZC90aDE1MjAtbGljaGVlLW1vZHVsZS00
+YS5kdHNpCj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy90aGVhZC90aDE1MjAtbGljaGVlLW1v
+ZHVsZS00YS5kdHNpCj4gQEAgLTIwLDYgKzIwLDE2IEBAIG1lbW9yeUAwIHsKPiDCoAkJZGV2aWNl
+X3R5cGUgPSAibWVtb3J5IjsKPiDCoAkJcmVnID0gPDB4MCAweDAwMDAwMDAwIDB4MiAweDAwMDAw
+MDAwPjsKPiDCoAl9Owo+ICsKPiArCS8qIFRPRE86IFN3aXRjaCB0byBBT04gcmVndWxhdG9yIHdo
+ZW4gaXQncyBhdmFpbGFibGUuICovCj4gKwlhdmRkMzNfdXNiMzogcmVndWxhdG9yLWF2ZGQzMy11
+c2IzIHsKPiArCQljb21wYXRpYmxlID0gInJlZ3VsYXRvci1maXhlZCI7Cj4gKwkJcmVndWxhdG9y
+LW5hbWUgPSAiQVZERDMzX1VTQjMiOwo+ICsJCXJlZ3VsYXRvci1taW4tbWljcm92b2x0ID0gPDMz
+MDAwMDA+Owo+ICsJCXJlZ3VsYXRvci1tYXgtbWljcm92b2x0ID0gPDMzMDAwMDA+Owo+ICsJCS8q
+IE1hcmtlZCBhcyBhbHdheXMgb24gb24gdGhlIHNjaGVtYXRpY3MgKi8KPiArCQlyZWd1bGF0b3It
+YWx3YXlzLW9uOwo+ICsJfTsKPiDCoH07Cj4gwqAKPiDCoCZvc2Mgewo+IEBAIC0yMDIsMyArMjEy
+LDggQEAgJnNkaW8wIHsKPiDCoAltYXgtZnJlcXVlbmN5ID0gPDE5ODAwMDAwMD47Cj4gwqAJc3Rh
+dHVzID0gIm9rYXkiOwo+IMKgfTsKPiArCj4gKyZ1c2JfcGh5IHsKPiArCWF2ZGQzMy11c2IzLXN1
+cHBseSA9IDwmYXZkZDMzX3VzYjM+Owo+ICsJc3RhdHVzID0gIm9rYXkiOwo+ICt9Owo+IGRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC1saWNoZWUtcGktNGEuZHRz
+Cj4gYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC1saWNoZWUtcGktNGEuZHRzCj4g
+aW5kZXggMzU0ZjM4OTNhYThjZi4uZGUzOGYxZjQ1N2U2YiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
+c2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC1saWNoZWUtcGktNGEuZHRzCj4gKysrIGIvYXJjaC9y
+aXNjdi9ib290L2R0cy90aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0cwo+IEBAIC00LDYgKzQs
+NyBAQAo+IMKgICovCj4gwqAKPiDCoCNpbmNsdWRlICJ0aDE1MjAtbGljaGVlLW1vZHVsZS00YS5k
+dHNpIgo+ICsjaW5jbHVkZSA8ZHQtYmluZGluZ3MvZ3Bpby9ncGlvLmg+Cj4gwqAKPiDCoC8gewo+
+IMKgCW1vZGVsID0gIlNpcGVlZCBMaWNoZWUgUGkgNEEiOwo+IEBAIC05Nyw2ICs5OCwxNDEgQEAg
+ZmFuOiBwd20tZmFuIHsKPiDCoAkJY29vbGluZy1sZXZlbHMgPSA8MCA2NiAxOTYgMjU1PjsKPiDC
+oAl9Owo+IMKgCj4gKwlodWJfNXY6IHJlZ3VsYXRvci1odWItNXYgewo+ICsJCWNvbXBhdGlibGUg
+PSAicmVndWxhdG9yLWZpeGVkIjsKPiArCQlyZWd1bGF0b3ItbmFtZSA9ICJIVUJfNVYiOwo+ICsJ
+CXJlZ3VsYXRvci1taW4tbWljcm92b2x0ID0gPDUwMDAwMDA+Owo+ICsJCXJlZ3VsYXRvci1tYXgt
+bWljcm92b2x0ID0gPDUwMDAwMDA+Owo+ICsJCWdwaW8gPSA8JmlvZXhwMyAzIEdQSU9fQUNUSVZF
+X0hJR0g+Owo+ICsJCWVuYWJsZS1hY3RpdmUtaGlnaDsKPiArCX07Cj4gKwo+ICsJdmNjNXZfdXNi
+OiByZWd1bGF0b3ItdmNjNXYtdXNiIHsKPiArCQljb21wYXRpYmxlID0gInJlZ3VsYXRvci1maXhl
+ZCI7Cj4gKwkJcmVndWxhdG9yLW5hbWUgPSAiVkNDNVZfVVNCIjsKPiArCQlyZWd1bGF0b3ItbWlu
+LW1pY3Jvdm9sdCA9IDw1MDAwMDAwPjsKPiArCQlyZWd1bGF0b3ItbWF4LW1pY3Jvdm9sdCA9IDw1
+MDAwMDAwPjsKPiArCQlncGlvID0gPCZncGlvMSAyMiBHUElPX0FDVElWRV9ISUdIPjsKPiArCQll
+bmFibGUtYWN0aXZlLWhpZ2g7Cj4gKwkJLyoKPiArCQkgKiBXb3JrYXJvdW5kIGZvciBMaW51eCBj
+dXJyZW50bHkgYmVpbmcgbm90IGFibGUgdG8KPiBwb3dlciBvbgo+ICsJCSAqIFZidXMgZm9yIFVT
+QiBUeXBlLUEgY29ubmVjdG9ycy4KPiArCQkgKi8KPiArCQlyZWd1bGF0b3ItYWx3YXlzLW9uOwoK
+T0hISEhIIG9uYm9hcmRfdXNiX2RldiBub3cgbWF0Y2hlcyAidXNiLWEtY29ubmVjdG9yIiBhbmQg
+aXMgYWJsZSB0bwpwb3dlciBvbiB0aGUgdmJ1cy1zdXBwbHkgcmVndWxhdG9yLgoKVGhpcyBoYWNr
+IHNob3VsZCBiZSByZW1vdmFibGUgbm93LgoKVGhhbmtzLApJY2Vub3d5Cgo+ICsJfTsKPiArCj4g
+Kwljb25uZWN0b3ItdXNiLWEtMSB7Cj4gKwkJY29tcGF0aWJsZSA9ICJ1c2ItYS1jb25uZWN0b3Ii
+Owo+ICsJCXZidXMtc3VwcGx5ID0gPCZ2Y2M1dl91c2I+Owo+ICsKPiArCQlwb3J0cyB7Cj4gKwkJ
+CSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkjc2l6ZS1jZWxscyA9IDwwPjsKPiArCj4gKwkJ
+CXBvcnRAMCB7Cj4gKwkJCQlyZWcgPSA8MD47Cj4gKwo+ICsJCQkJdXNiX2FfMV9oc19lcDogZW5k
+cG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZodWJfaHNfcG9ydDFfZXA+Owo+
+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRAMSB7Cj4gKwkJCQlyZWcgPSA8MT47Cj4g
+Kwo+ICsJCQkJdXNiX2FfMV9zc19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2lu
+dCA9Cj4gPCZodWJfc3NfcG9ydDFfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCQl9Owo+ICsJ
+fTsKPiArCj4gKwljb25uZWN0b3ItdXNiLWEtMiB7Cj4gKwkJY29tcGF0aWJsZSA9ICJ1c2ItYS1j
+b25uZWN0b3IiOwo+ICsJCXZidXMtc3VwcGx5ID0gPCZ2Y2M1dl91c2I+Owo+ICsKPiArCQlwb3J0
+cyB7Cj4gKwkJCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkjc2l6ZS1jZWxscyA9IDwwPjsK
+PiArCj4gKwkJCXBvcnRAMCB7Cj4gKwkJCQlyZWcgPSA8MD47Cj4gKwo+ICsJCQkJdXNiX2FfMl9o
+c19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZodWJfaHNfcG9y
+dDJfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRAMSB7Cj4gKwkJCQlyZWcg
+PSA8MT47Cj4gKwo+ICsJCQkJdXNiX2FfMl9zc19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90
+ZS1lbmRwb2ludCA9Cj4gPCZodWJfc3NfcG9ydDJfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiAr
+CQl9Owo+ICsJfTsKPiArCj4gKwljb25uZWN0b3ItdXNiLWEtMyB7Cj4gKwkJY29tcGF0aWJsZSA9
+ICJ1c2ItYS1jb25uZWN0b3IiOwo+ICsJCXZidXMtc3VwcGx5ID0gPCZ2Y2M1dl91c2I+Owo+ICsK
+PiArCQlwb3J0cyB7Cj4gKwkJCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkjc2l6ZS1jZWxs
+cyA9IDwwPjsKPiArCj4gKwkJCXBvcnRAMCB7Cj4gKwkJCQlyZWcgPSA8MD47Cj4gKwo+ICsJCQkJ
+dXNiX2FfM19oc19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZo
+dWJfaHNfcG9ydDNfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRAMSB7Cj4g
+KwkJCQlyZWcgPSA8MT47Cj4gKwo+ICsJCQkJdXNiX2FfM19zc19lcDogZW5kcG9pbnQgewo+ICsJ
+CQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZodWJfc3NfcG9ydDNfZXA+Owo+ICsJCQkJfTsKPiAr
+CQkJfTsKPiArCQl9Owo+ICsJfTsKPiArCj4gKwljb25uZWN0b3ItdXNiLWEtNCB7Cj4gKwkJY29t
+cGF0aWJsZSA9ICJ1c2ItYS1jb25uZWN0b3IiOwo+ICsJCXZidXMtc3VwcGx5ID0gPCZ2Y2M1dl91
+c2I+Owo+ICsKPiArCQlwb3J0cyB7Cj4gKwkJCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkj
+c2l6ZS1jZWxscyA9IDwwPjsKPiArCj4gKwkJCXBvcnRAMCB7Cj4gKwkJCQlyZWcgPSA8MD47Cj4g
+Kwo+ICsJCQkJdXNiX2FfNF9oc19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2lu
+dCA9Cj4gPCZodWJfaHNfcG9ydDRfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBv
+cnRAMSB7Cj4gKwkJCQlyZWcgPSA8MT47Cj4gKwo+ICsJCQkJdXNiX2FfNF9zc19lcDogZW5kcG9p
+bnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZodWJfc3NfcG9ydDRfZXA+Owo+ICsJ
+CQkJfTsKPiArCQkJfTsKPiArCQl9Owo+ICsJfTsKPiArfTsKPiArCj4gKyZhb2dwaW8gewo+ICsJ
+LyogUm91dGUgVVNCMiB0byB0aGUgb25ib2FyZCBodWIgZm9yIG5vcm1hbCBvcGVyYXRpb24gKi8K
+PiArCXNlbC11c2ItaHViLWhvZyB7Cj4gKwkJZ3Bpby1ob2c7Cj4gKwkJZ3Bpb3MgPSA8NCBHUElP
+X0FDVElWRV9ISUdIPjsKPiArCQlvdXRwdXQtaGlnaDsKPiArCX07Cj4gwqB9Owo+IMKgCj4gwqAm
+ZHB1IHsKPiBAQCAtMjYyLDMgKzM5OCw5OCBAQCAmdWFydDAgewo+IMKgCXBpbmN0cmwtMCA9IDwm
+dWFydDBfcGlucz47Cj4gwqAJc3RhdHVzID0gIm9rYXkiOwo+IMKgfTsKPiArCj4gKyZ1c2Igewo+
+ICsJZHJfbW9kZSA9ICJob3N0IjsKPiArCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJI3NpemUt
+Y2VsbHMgPSA8MD47Cj4gKwlzdGF0dXMgPSAib2theSI7Cj4gKwo+ICsJaHViX2hzOiBodWJAMSB7
+Cj4gKwkJY29tcGF0aWJsZSA9ICJ1c2IyMTA5LDI4MTciOwo+ICsJCXJlZyA9IDwxPjsKPiArCQlw
+ZWVyLWh1YiA9IDwmaHViX3NzPjsKPiArCQl2ZGQtc3VwcGx5ID0gPCZodWJfNXY+Owo+ICsKPiAr
+CQlwb3J0cyB7Cj4gKwkJCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkjc2l6ZS1jZWxscyA9
+IDwwPjsKPiArCj4gKwkJCXBvcnRAMSB7Cj4gKwkJCQlyZWcgPSA8MT47Cj4gKwo+ICsJCQkJaHVi
+X2hzX3BvcnQxX2VwOiBlbmRwb2ludCB7Cj4gKwkJCQkJcmVtb3RlLWVuZHBvaW50ID0KPiA8JnVz
+Yl9hXzFfaHNfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRAMiB7Cj4gKwkJ
+CQlyZWcgPSA8Mj47Cj4gKwo+ICsJCQkJaHViX2hzX3BvcnQyX2VwOiBlbmRwb2ludCB7Cj4gKwkJ
+CQkJcmVtb3RlLWVuZHBvaW50ID0KPiA8JnVzYl9hXzJfaHNfZXA+Owo+ICsJCQkJfTsKPiArCQkJ
+fTsKPiArCj4gKwkJCXBvcnRAMyB7Cj4gKwkJCQlyZWcgPSA8Mz47Cj4gKwo+ICsJCQkJaHViX2hz
+X3BvcnQzX2VwOiBlbmRwb2ludCB7Cj4gKwkJCQkJcmVtb3RlLWVuZHBvaW50ID0KPiA8JnVzYl9h
+XzNfaHNfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRANCB7Cj4gKwkJCQly
+ZWcgPSA8ND47Cj4gKwo+ICsJCQkJaHViX2hzX3BvcnQ0X2VwOiBlbmRwb2ludCB7Cj4gKwkJCQkJ
+cmVtb3RlLWVuZHBvaW50ID0KPiA8JnVzYl9hXzRfaHNfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsK
+PiArCQl9Owo+ICsJfTsKPiArCj4gKwlodWJfc3M6IGh1YkAyIHsKPiArCQljb21wYXRpYmxlID0g
+InVzYjIxMDksODE3IjsKPiArCQlyZWcgPSA8Mj47Cj4gKwkJcGVlci1odWIgPSA8Jmh1Yl9ocz47
+Cj4gKwkJdmRkLXN1cHBseSA9IDwmaHViXzV2PjsKPiArCj4gKwkJcG9ydHMgewo+ICsJCQkjYWRk
+cmVzcy1jZWxscyA9IDwxPjsKPiArCQkJI3NpemUtY2VsbHMgPSA8MD47Cj4gKwo+ICsJCQlwb3J0
+QDEgewo+ICsJCQkJcmVnID0gPDE+Owo+ICsKPiArCQkJCWh1Yl9zc19wb3J0MV9lcDogZW5kcG9p
+bnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZ1c2JfYV8xX3NzX2VwPjsKPiArCQkJ
+CX07Cj4gKwkJCX07Cj4gKwo+ICsJCQlwb3J0QDIgewo+ICsJCQkJcmVnID0gPDI+Owo+ICsKPiAr
+CQkJCWh1Yl9zc19wb3J0Ml9lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9
+Cj4gPCZ1c2JfYV8yX3NzX2VwPjsKPiArCQkJCX07Cj4gKwkJCX07Cj4gKwo+ICsJCQlwb3J0QDMg
+ewo+ICsJCQkJcmVnID0gPDM+Owo+ICsKPiArCQkJCWh1Yl9zc19wb3J0M19lcDogZW5kcG9pbnQg
+ewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZ1c2JfYV8zX3NzX2VwPjsKPiArCQkJCX07
+Cj4gKwkJCX07Cj4gKwo+ICsJCQlwb3J0QDQgewo+ICsJCQkJcmVnID0gPDQ+Owo+ICsKPiArCQkJ
+CWh1Yl9zc19wb3J0NF9lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4g
+PCZ1c2JfYV80X3NzX2VwPjsKPiArCQkJCX07Cj4gKwkJCX07Cj4gKwkJfTsKPiArCX07Cj4gK307
+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
