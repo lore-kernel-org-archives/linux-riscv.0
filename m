@@ -4,141 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 934B6C624D4
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 13:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3756AC61DD3
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 13:39:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OLL6UoymmeSarcAJvBgEq7pP0G2z/RHOvalbJ0bvp/Y=; b=mtJA08SVL5jC7Z
-	jyackUfA63U1m2Voo/nzjgyKyBcdOiPyMGCMacUbtksSQJSmt1QSc2qEe4gOmKh/4u7Yb3TKryx92
-	t5uRVyKhGwwIDGLkDpxmij34q4BXUjoFOu++LzPuZ4ooeaPbJEB4OekgI31WuDVb1Pqdb+2SBerZ8
-	hv1ysYs3RWR7ppUhv4sk06p5u6pbf1CVXclfOJVkwA7sYMVBpDELoSYwI9LUuoZfVZL9kVPBFZNX/
-	qRIYflF4CrD+oNJwYjqydIKhwBL4b7ozqL74jW3yobi2gqtRyBiHfuvE/VpKDbJhY1A5Xf6+N9o4A
-	BohDr/51SpLKVQNCHmpw==;
+	List-Owner; bh=V7K2TeCSPRq6Jb3BoPAi4BjVTCmbk0zqrR4OvFYXPy4=; b=FvvVIyRLv2G08V
+	lVuDQ74csu3vGU1GRZ6hEFRNT0TVPzVlLTewwjZDsXLpZViVnpRT5+1PCBBa9g/z6LNdKgT5yeNXA
+	puvfFDCpPN/sZHGl1Qax4yKxE/rxHDqkEonx8Cf/6CVU8BjVdnrVSNacvT+BEDJqEt5MDmRKE6X3N
+	ZYJdlNQ0vOMDr94iUI/AWVoeDMUvOILJw2Ilu6qhE1Vd0L42TXROllj5S1b73H52KUDIGuyIsY4Xt
+	oRwlRZcMnx/apVw2y7gKzXxuwVcFLNT8vNIGR7Rn1QDTtXGkVxWNrQFE+PN/1TBvyCfVdUdpMSA9e
+	6v6qAvTYJdeZhCTVysUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OcO-0000000CE1u-44bs;
-	Tue, 01 Sep 2026 13:33:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1Oi4-0000000CEVu-3bE4;
+	Tue, 01 Sep 2026 13:39:32 +0000
+Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OcN-0000000CE0m-2A7x;
-	Tue, 01 Sep 2026 13:33:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F6A642E9D;
-	Tue,  1 Sep 2026 13:33:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E7D61F00A3D;
-	Tue,  1 Sep 2026 13:33:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788269619;
-	bh=jcbNqyZ4CJOFUcx+fZWWPKksNhyQwz/xPjmgvkWytSE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EhPUjdjbePHeKrlhJaT/qdk8eCghU/xkjFLX2ZSOrSJgzGKxnfymBRLvRLIAB+lil
-	 LtyBPDuXQdS+62s8eoQup2ev8Bz3o3XBhF4l4zD/nMnmup/sePSt7atgjkAu6O47mQ
-	 f2pkabp2vmMejJeXGz6/yuYsn3G6A/J1getiSJCPN/ClVN7b9CEtMwGWDPDP0Lx5KX
-	 KDSEashxYtrPeaO0yRDcNqCrSU92Y7B6PwssrqM9VvmutoLso969XjnVariqlE82JI
-	 M0UCUlJLZx9XB2ca5ppcTYmrYgGfMIeWQa7fJQmKFlwQewkP2LNLsro6qKNlMDG7ry
-	 DkQIRfv8jHEFA==
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 57E291980064;
-	Tue,  1 Sep 2026 09:33:18 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Tue, 01 Sep 2026 09:33:33 -0400
-X-ME-Sender: <xms:HdSWar0zDxM1rzMXPVKSiiHY4KJJXKW9_dKFmXqdbTa_fmaDqPnrAQ>
-    <xme:HdSWasJnHNfyfuCbnPXJ41QnOfMcQ3IsJbdR3mnGKXr-4wj9FELqFm8ZdfeRPj7fy
-    bnm6jh3UIcKaloZqTodN2-BguOMyRSr9poABUPkwGcmSl04lFepx8g>
-X-ME-Received: <xmr:HdSWamc0hBDzYeZ6meHT1N8NrjNwQDlG7ndA51A5p6yJYm1erjaIFQqZ_aA>
-X-ME-Proxy-Cause: dmFkZTE7XYI88DUY2gRkJOK6+ZyCIFoNn8bzP7pT6CkwBKHBvKWUe6kvcLZyJKqoR/mFua
-    tnuce/0i36y0TC7Im4WvZyoy/crD2rPu16GAU43MkToFESYNa+q/dgDmYeFoLAKy++6ZgW
-    8jn2vUxLTK4d+JU7NpIMhvmFWN+lBL6CrhfWBNMDXcQ2eFN5VMfwvgG7wpe8357MD3J5gK
-    7xFBRFrqPTsz4yMLY+EEChvmjl1qNNrFzTmc4wdkVOaUc1KRt3nz4X6b9lgB4AP7QFsDWQ
-    tYyrUQvI3wO8SrGFb+1aGvYLJgVsklk3Kc0+LAmLAEM6pSFrAQvRZGfFtBIFEXt5smoDZ8
-    0sIIODp3p+XbaMM1IQmfCvE2+2bbjw/rRlbPqyxvx3AWjW0wx69YF5Ocr+JktO0nTZOok2
-    HEw0ft0H3myd2V1s6FmW7lpkinX5D+jdOQrkC/osJIL3mBMTcjL7XfwqTbI8tt3mank0qt
-    BcT630GiS2PTitGfmJ6/iVLTorQObFhmiWUpu/4o8m4w+lLom0XGtnouU3SvS4FcugWWNZ
-    7nEECz0GGK+6YbBSmEMxBhw/vyLb4HqtpoQS+cM14FfTsm1gjY737Jmi4qjcP7ghw4NaMo
-    mSjmk0LJqLELQl49SSqDTw86/FRQj/i6o2/Z7vFbf6wnUbIU1mKMMzFy+Xyw
-X-ME-Proxy: <xmx:HdSWaorGnJV8X3w6RQ6-yTLBHwkt_MBfkV8RsDaiRQlkH0hCDXuTig>
-    <xmx:HdSWam_C35Dm2JBzL0A5fzPuG5ZvMut58CN7trPjhfIb_5hDuszCGQ>
-    <xmx:HdSWaobzZlmDe5Y-27Rtv7XIlXhpki_IJYzJN_lp2MB6mY3t1TeGow>
-    <xmx:HdSWam8XuaM7yobHeA1s3aD4FW-Jnsz8789jiGSamkl6EtIN7IErBA>
-    <xmx:HdSWaoYZmoLC2txSUqseUpEqs0XigJd8k-YHiiGmmzkLSGyss1bakguf>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 1 Sep 2026 09:33:15 -0400 (EDT)
-Date: Tue, 1 Sep 2026 14:33:14 +0100
-From: Kiryl Shutsemau <kas@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- 	David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
- 	Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>,
- 	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
- Dev Jain <dev.jain@arm.com>, 	Barry Song <baohua@kernel.org>,
- Lance Yang <lance.yang@linux.dev>, 	Usama Arif <usama.arif@linux.dev>,
- Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>,
- 	Geert Uytterhoeven <geert@linux-m68k.org>,
- Dinh Nguyen <dinguyen@kernel.org>,
- 	Simon Schuster <schuster.simon@siemens-energy.com>,
- Jonas Bonn <jonas@southpole.se>,
- 	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>,
- 	Yoshinori Sato <ysato@users.sourceforge.jp>,
- Rich Felker <dalias@libc.org>,
- 	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Paul Walmsley <pjw@kernel.org>, 	Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, 	Alexandre Ghiti <alex@ghiti.fr>,
- Russell King <linux@armlinux.org.uk>, 	Vineet Gupta <vgupta@kernel.org>,
- Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>,
- 	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>,
- 	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- Nick Piggin <npiggin@gmail.com>, 	Peter Zijlstra <peterz@infradead.org>,
- "David S. Miller" <davem@davemloft.net>,
- 	Andreas Larsson <andreas@gaisler.com>,
- Richard Henderson <richard.henderson@linaro.org>,
- 	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
- 	Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- 	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- 	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- 	Michael Ellerman <mpe@ellerman.id.au>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- 	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- 	Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- 	Sven Schnelle <svens@linux.ibm.com>,
- Richard Weinberger <richard@nod.at>,
- 	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>,
- 	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, 	Arnd Bergmann <arnd@arndb.de>,
- Vlastimil Babka <vbabka@kernel.org>, 	Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, 	Michal Hocko <mhocko@suse.com>,
- Jason Gunthorpe <jgg@ziepe.ca>, 	John Hubbard <jhubbard@nvidia.com>,
- Peter Xu <peterx@redhat.com>, linux-mm@kvack.org,
- 	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, 	linux-m68k@lists.linux-m68k.org,
- linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
- 	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- 	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org,
- sparclinux@vger.kernel.org, 	linux-alpha@vger.kernel.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- 	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, 	linux-um@lists.infradead.org,
- Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>
-Subject: Re: [PATCH 11/12] mm: make userland page table freeing RCU-safe
-Message-ID: <apbSaL0YaQqtO9XB@thinkstation>
-References: <20260901-rcu-pagetable-freeing-v1-0-5456a81c8212@kernel.org>
- <20260901-rcu-pagetable-freeing-v1-11-5456a81c8212@kernel.org>
+	id 1x1Oi2-0000000CEUk-2YFX
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Sep 2026 13:39:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1788269967; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=Zhv3H2+2w0gZKGeUibRr/8VGF24nes4VuRka42uR/+4=;
+	b=jqdzBQnAW5zLQ/f07uzqoJ7+3MytExawkSvMuK5bn3tZASmMH3lB0RUh4x1EUyNhKr5ieGSKysdSjBh6W3L0Zk6R5KsP+4lu3fj/j/8vUT7ikf76NZtn7KGMPY/kuHWUsm64gKYVRIovtEd6Rem8O282EAKlLvzTleW04c7IQo0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=20;SR=0;TI=SMTPD_---0XA9NaYb_1788269964;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XA9NaYb_1788269964 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 01 Sep 2026 21:39:25 +0800
+From: fangyu.yu@linux.alibaba.com
+To: tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	baolu.lu@linux.intel.com,
+	jroedel@suse.de,
+	zong.li@sifive.com,
+	andrew.jones@oss.qualcomm.com,
+	anup@brainfault.org,
+	jgg@nvidia.com,
+	jgg@ziepe.ca
+Cc: fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 1/3] iommu/riscv: Add command queue lock
+Date: Tue,  1 Sep 2026 21:39:18 +0800
+Message-Id: <20260901133920.14550-2-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20260901133920.14550-1-fangyu.yu@linux.alibaba.com>
+References: <20260901133920.14550-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260901-rcu-pagetable-freeing-v1-11-5456a81c8212@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_063930_818916_118CA29B 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,20 +84,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 12:01:31PM +0100, Lorenzo Stoakes (ARM) wrote:
-> With this change in place the kernel policy is now that all page tables are
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-s/all/userspace/ as subject implies?
+Add a raw spinlock to the RISC-V IOMMU queue state so command queue
+publishing can be serialized by a later change.
 
-BTW, what is your take on kernel page tables? Do we want the same policy
-there. pagetable_free_kernel() is not RCU-safe as it is.
+Fixes: 856c0cfe5c5f ("iommu/riscv: Command and fault queue support")
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+---
+ drivers/iommu/riscv/iommu.c | 1 +
+ drivers/iommu/riscv/iommu.h | 2 ++
+ 2 files changed, 3 insertions(+)
 
-> freed after an RCU grace period, and thus it is now safe to unconditionally
-> perform page table walks under RCU, safe in the knowledge that page tables
-> will not be freed underneath the walker.
-
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index cec3ddd7ab10..2c0dcc90cf85 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1560,6 +1560,7 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+ 	int rc;
+ 
+ 	RISCV_IOMMU_QUEUE_INIT(&iommu->cmdq, CQ);
++	raw_spin_lock_init(&iommu->cmdq.lock);
+ 	RISCV_IOMMU_QUEUE_INIT(&iommu->fltq, FQ);
+ 
+ 	rc = riscv_iommu_init_check(iommu);
+diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+index 46df79dd5495..5676001548cc 100644
+--- a/drivers/iommu/riscv/iommu.h
++++ b/drivers/iommu/riscv/iommu.h
+@@ -12,6 +12,7 @@
+ #define _RISCV_IOMMU_H_
+ 
+ #include <linux/iommu.h>
++#include <linux/spinlock.h>
+ #include <linux/types.h>
+ #include <linux/iopoll.h>
+ 
+@@ -23,6 +24,7 @@ struct riscv_iommu_queue {
+ 	atomic_t prod;				/* unbounded producer allocation index */
+ 	atomic_t head;				/* unbounded shadow ring buffer consumer index */
+ 	atomic_t tail;				/* unbounded shadow ring buffer producer index */
++	raw_spinlock_t lock;			/* serialize queue publishing */
+ 	unsigned int mask;			/* index mask, queue length - 1 */
+ 	unsigned int irq;			/* allocated interrupt number */
+ 	struct riscv_iommu_device *iommu;	/* iommu device handling the queue when active */
 -- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+2.50.1
+
 
 _______________________________________________
 linux-riscv mailing list
