@@ -4,168 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3089C61DD6
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 22:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21167C61DD3
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 22:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rCdrhlbX9UgDtgNJ2rBJh52aAJE46O28+ehRXOfHfog=; b=zKjx6Sf+32wY/L
-	Rzro4+hjScAZoY7AQ9KyHFv7aa63WBkjFFJMj3/ILw4lXsA5CmOmS+UvrYVMA3XoDig3dCt3TW/tN
-	oK1Y7fM5lhFEOSBxyQ+7KH0IDqRDJXeXZqtbxSNK81+o60I1tTUtDy86GPl8PEOOWHP7bFsp+xXyG
-	gJlcA3wDvy6zp1/ZND/9RU9EqASjiqojzfRsg2x3yXFe2aTfbfGR9RXkAJPPXn5Jf8HiMI2McOEHU
-	xCmIufmQEVyYqscqFmUo3f4J1ceZyJOAXeuRTsq7xAr2Hi8U4cO0wlPDTSUURBS+bJuX1JRrSn799
-	ytIeCHGy7l1NNrPdOUIw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kM04QzV6zRaYgVaSCT7Slz+RnxPCFLl+ypTvesi4ZK0=; b=hgCBUrrhbBv6aF
+	xmaFgemwwKZ3H3RFRHfiAGTsas6bjjOH0Poi8suiyQ83iLJViCA9JJ06p6ALlNorwSClHeX2CEKcI
+	27dkxHDevy/9KfQ0quGLyPTJJlKubBqm+mkVFGrmGt3gbotJJ5JFQ5X6Z9sXC2mCEK5VAHiIIJ4Hr
+	IgnE9Q2ekdWraVCS8uJU2xViJKvelNv+655rSUBq+/npFnUcqi84tdS9XiSiGcI6WBmpwOZKCfBvE
+	cQ6LPTMVGXF1OOTtoVTqWJgdbtp0Gz5H3yOC+NEI8ubBuvxVb0OxqrFEWo/fta4hr+OcsaPS4kH5E
+	XcOx0m4KJKJ1wPLzYffQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Wji-0000000DSqp-0bW1;
-	Tue, 01 Sep 2026 22:13:46 +0000
-Received: from mail-westeuropeazon11010054.outbound.protection.outlook.com ([52.101.69.54] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1x1X28-0000000DUUQ-2TmQ;
+	Tue, 01 Sep 2026 22:32:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Wje-0000000DSpw-0cQQ;
-	Tue, 01 Sep 2026 22:13:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D2N/rFYiOUpV6fHaEaTFTqxSRgjF7xj+Uy2homdPV0IcQ0kVKuBtMGeDSmYSgCQ14sVFSugxjeNulwsF4sWEmEJqhydm0KiBjGGelTxjR7g5u1S/QdsmiNOuJL3a8XyRw6iRNNCZKgYF/oGDYUbBYkp27GATvuYimbw08vwUTsAENKhDM2tiwl5/+nAchZMmMZOO3NQgVPXGaEiXvso01UpR0Bx/x1l9DgxGz/LPESwdlFxc7sjystQwurmUlqwBxQUrFfGweR1TBPGWqJM3VwBVCSdkcdBEWNNRBEKYxK9YNVlhgOwuVA5RS4EsmMoFNHAo2ydja6u43VcAF/o2VA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=akiOHqqukLsd9OUEtJnyZzhRpAwURIBWGNMrS+Amwh0=;
- b=EhICDd/RnfYdypeIKw0DTboKmd57FkxuEuvV10T5cz+b1ATt1U/3Thi88SgMwdRmi+qt59BBy6xO26fpZuGP9RUfey4/bvNbvNw3SmP2AFDw1MU0XSCHYRsY8s+V/sNWKWjxySuOcmXFWJDD9TYkz7wrUSqfVsuumUvWjDw2kBOEe3xjvErDeK6jwWuptYCHJDerz/7GPN4VSrcJ4M76p+vrJxpDiXDNqnG/ARjtH/sok1kJ11UtpYhg+zkQbefbPWUcxGH/R9k/qHTeDFhAH9pbOkbIl9BzfmXMdCLQCrB+bh/2HmX9lempmEbEkGr8NuRNER3dDNBXkLQO49GhAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=akiOHqqukLsd9OUEtJnyZzhRpAwURIBWGNMrS+Amwh0=;
- b=dGDjXpQ4l5X0Ab1Glf/wi/6v93R08s8PCOUGHS0jc7hyTjcZLNqWPgfBKimRnvIjMIhwIKoPpX4hyEF93C/JUMs90PNWPYee535C1nHR+vbJfZec+8Pl3TjuAjqGNFw0fyLig5TzqVknYpSaJi1PUDrqQEs0d1VWYYAYhbaTZRk/OHwFnFskVimpWue954cMeQ5nRrZqxFCnvpOOU6sK7LY8duDQRVEDwY1TUvls6Ajfxrt0BStK4fVBrHhemeA6hRL7AFfJ6qFhNAyW+bBiaaieEDF/Wui1XLlY35APE77qHX9pJG2mCBGBupVsS4rR88l7efFoYlKCxWFlPeKEkQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA1PR04MB11312.eurprd04.prod.outlook.com (2603:10a6:102:4f6::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
- 2026 22:13:33 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Tue, 1 Sep 2026
- 22:13:33 +0000
-Date: Tue, 1 Sep 2026 18:13:16 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Allen Pais <allen.lkml@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Zhou Wang <wangzhou1@hisilicon.com>,
-	Longfang Liu <liulongfang@huawei.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Stephan Gerhold <stephan.gerhold@linaro.org>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	imx@lists.linux.dev, linux-mediatek@lists.infradead.org,
-	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v3 01/34] dmaengine: add tasklet-backed channel BH helpers
-Message-ID: <apdN_G_1M4e81gQd@lizhi-Precision-Tower-5810>
-References: <cover.1785183549.git.allen.lkml@gmail.com>
- <cover.1786384168.git.allen.lkml@gmail.com>
- <2c62c39cafc0df59eb5381d3da82b1616a58fa20.1786384168.git.allen.lkml@gmail.com>
-Content-Disposition: inline
-In-Reply-To: <2c62c39cafc0df59eb5381d3da82b1616a58fa20.1786384168.git.allen.lkml@gmail.com>
-X-ClientProxiedBy: CY5PR16CA0018.namprd16.prod.outlook.com
- (2603:10b6:930:10::19) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1x1X27-0000000DUUI-3o7r
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Sep 2026 22:32:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 47052600D4;
+	Tue,  1 Sep 2026 22:32:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C7301F000E9;
+	Tue,  1 Sep 2026 22:32:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788301967;
+	bh=xs4T+v4dhDD9qslaT4zwYqTAoWlFTIcuNamtJ3hJhrU=;
+	h=From:Subject:Date:To:Cc;
+	b=hiiOqtLQJN6vjIFIml1hsg+DBvaxPLTaokd6RoBWKWpCV1ws7NlXiL+Tt/DHyMgf2
+	 9Y3bzwLINuxsycGiN7fGd3VqDXRURDb95V3FAous+2h59Y1IbtdqZVATElSM153eGo
+	 9W2kiNnai9uEUwIh+13NeHhYxAdsg56SpmY6+xz6T/TJofwJRQ9wj2xBcb+w7g/GOH
+	 +XPrWKn+xnyoWyIO+A1D6b+we+GBtASTNXvSYlW+Jsi49oGoOOvv2wiHrqE1oee4jJ
+	 BM0N+sFkIoelqvQk36iGuNJXL/M2srOEO3l+1N9BN9NG6nIyqZNT/dsEDrc04LrVnL
+	 PsNqQKwSYF1Pg==
+From: Drew Fustini <fustini@kernel.org>
+Subject: [PATCH v7 0/5] riscv: Add Ssqosid and initial CBQRI resctrl
+ support
+Date: Tue, 01 Sep 2026 15:31:46 -0700
+Message-Id: <20260901-dfustini-atl-sc-cbqri-dt-v7-0-ca2935d85622@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB11312:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4ad6210e-4afd-42e5-05ae-08df087642bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|19092799006|376014|7416014|1800799024|6133799003|56012099006|10067099003|4143699003|11063799006|5023799004|3023799007|18002099003|22082099003|41080700001;
-X-Microsoft-Antispam-Message-Info: zdVAXm8z73vQgaoHKrDQIXbB+Mkzz/CM6Ziqv3i9XA6wayrbRvr/jGqkMAeWvSw9Z7F+1bNiZhfFBqsqtM/jat4SxqDnv56JZKWkYhlACTZSXZTw5L7PZXMKP72ntraHt4DhvGJFLNyt29N3Uq87Or7Wt3S2PrYlM9B+hzUzVd7ekOznIkxM7vKbrYtCCmOlAGsrBg5Q6cRr4vvecbvfNwg6nPNbGnNFnrEUklnEiWvbhsSoqGxi8XylAJP9q8yganwTfVntA6VTqExi6z8dMH1Pi6yhI9vnl8lvn5fwfd0A/g2Jp1gD/gdUtllTeS408euhpXBE2d3kXNZi7FRA1FoKl3KpK8NHZo5Z0jLG1Hj100UzcUUpjj1VA6R51X1gaog3Dki2SkthaM2NpRJ1k92a0kX9JFqiXKAIqpxAIoEUyNV+D6/dLtQxwZm8vr8fq1mkMb3tLYYEIwG9F+rVcwNmPZX2T0eEvgYJ03tUuHe6Msac26HBFUFnKewKx4fTfId6uoQzRiC1xBihmYe/jGM0Kiv5RXURfv/PuG/5M66heG6JWc7pPpT85SfGyGW7o0bB214O6ZVAy5o3udRSX1T3shp/cyedDk6P4xNh7/BAbla0pGNqF+vE6GLaVBKq7zVUCQpO715CYOKJHb7inXp4C2y2EIxYlc185R/Cm6znKncfejwGB4E+uS/mGCIxNTDS3RdX2Q8TRSyo0KJrrlvDltwGp5Vy/heDhWyR/Rs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(376014)(7416014)(1800799024)(6133799003)(56012099006)(10067099003)(4143699003)(11063799006)(5023799004)(3023799007)(18002099003)(22082099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ki2kyMFZDXZS+zB0nn24FqDnZJF3eOISQS3EmSCk1qas3Cbuhcc/yWJkbIGR?=
- =?us-ascii?Q?nt0McqDNsr4tVRdbAaeXjpmgaE7N1njHbfejHPQdkgcV8z7kEQQ3JwOAE0NP?=
- =?us-ascii?Q?qu8VUV8PMR4c8zdghM0xhXM387VdFIGoedxFUGiehcxauLD55wlkHuA/HlBC?=
- =?us-ascii?Q?QR74sLUMAPwOZ+f7++lHqDWE2Oz1UUKblBhTrMynHIWpnlR5uC3mGY/tqa7v?=
- =?us-ascii?Q?ToO09NydgBivsq/FLcLRDuszUCioMwXIv4NKftXJ41aR9Egowk5SGnOJvU6r?=
- =?us-ascii?Q?fVPBnMkrRKFRxjGSWCIJjUzCInvXawDWnlKY9LS64HmgWE1EXhv/HyojnLFT?=
- =?us-ascii?Q?1VVaVHV1L425HNAa6SzYDvWsisUJgQewebxBYn1Tv5jxCJLlbwTL/fULRiVd?=
- =?us-ascii?Q?243GaiNhq0Ld6tKxeRO1+ZOjYzaC/lFcQ9CcYgXSds+CIb5VEoUouOtNYleS?=
- =?us-ascii?Q?HE8lTpElQqomKOvjRtHdIUgJ7tBMkfpbdZCCuSOW/WRkfjAkKGrfC3YeDY5E?=
- =?us-ascii?Q?MQZAidz8qcOvsUXApCqHhTjn+pMUSuJiQtw2pzdvwYkm5IoJqmedq0g5vqzp?=
- =?us-ascii?Q?kKGfzt2//J/0Rk3D26IeehXe7XPir83DpxkbxjOftNCjRmf3CEZ4iXQVaaoM?=
- =?us-ascii?Q?GTpdNY8E2/nF4r/0mT7z5QWEGYE++hx9Pn6rvms+idM38xl5y7OwUB8yk2bQ?=
- =?us-ascii?Q?Zt0LG39i2wTfq/YM/yXCYmY3nZKv4ox8ELuA9zcyizjVGIcXcB5z9HWLuqAY?=
- =?us-ascii?Q?trhNEgj+QnwOl74ZrqZSOdhiIM60anBddSBzavoaQGt1z/H8ti1sTcInBd5N?=
- =?us-ascii?Q?HOhJKdzrhPD0zbqs6fkgSq/RxjYuPRXyCf7jcQ6UCQD5vHFyvbDeCHUsCPvc?=
- =?us-ascii?Q?EAe/22e+HzseOc7qX9w/ubm57xU9RoimJ/9e/uxbVxl8CATJY7PDL3HohiB2?=
- =?us-ascii?Q?Z6XHxbHI1elqV+Xwz8YI0FzKOnQ4/zLo6gQkWK5lQgT3+iY/AKgLl4ns/iXI?=
- =?us-ascii?Q?sFrnclnIkq4SS9xtX7P/PWSbGvXYP2yTRhWrqAaULCH/N0S62h1HSKrYEv+p?=
- =?us-ascii?Q?cWOIoJAfGJvYG9lwEIc1ArcBu+YLdNxXhj2BYTKX8Cd6X2MiuIe+E3ExBw4/?=
- =?us-ascii?Q?8sniCk0MeuUB9fSdGIvAZSV/5YWqiJf1MMJ9he1g606qZhfme+wPH7rq7gp3?=
- =?us-ascii?Q?xBjytIlH5f3U04O/IveHyiNYFTYJcNcvOXnwJJXC0EkC8u15WcJm7CNA9P0m?=
- =?us-ascii?Q?ncQZnbwXDlLsxeDvjkLaIgc6vgXWgm7IgoWJd/TkLdEbtqrpLlp8lUBuIpxj?=
- =?us-ascii?Q?wtN8QjXBvIQ7ed6Jombz0dWMyC7CMa0yGyjvwIGlaubJBas/GRlVgthcS6uU?=
- =?us-ascii?Q?J/HO+jawqp9+c+Lx4/9HCYCWHyXXTFIMw6cmEZiVBLLhDCmCG40gMKb3Vioj?=
- =?us-ascii?Q?Gudz312nMqKbrc+n57RMpvnZ7jShb8X4qPMnh0b93d9duK50l/IxGsSdtBVI?=
- =?us-ascii?Q?qwyq7/z4UwcMcxPLn1AtJhpCgDHcaEDTvsbC2BA1J46GoWpGWg09yDDqe0xp?=
- =?us-ascii?Q?w3uEh+iFr8UCo6kwnZWqBEhZ4JSueuTq9T86J4d6sHoZltwiBBqdZMVcVdCf?=
- =?us-ascii?Q?0r/64JmOCXXp1KgF9EO4PMEEiY5Rk0GCD1Z3UHo8UK7aj1R5wRNW766AJJk+?=
- =?us-ascii?Q?qu1xGL667uchyRKHAtYFuQqsPKZWROLvBtTkoaP8KMLxIzLHLCLWAUzsJT0G?=
- =?us-ascii?Q?HcQlAjFOnN10G+Xz7qO/5eK5QWWEnfEWuZT1Yl6JmF0YHAsySMNm?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4ad6210e-4afd-42e5-05ae-08df087642bc
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 22:13:33.2930
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FV+yJi2JuIcU/1+7GrNEgJmlIiIwHgE9+P5ZAXFSxpQ8pl6Hm2r7NZyZPm/v/S7K7yqewWxPi2Cqfsg+mjgZZhJ6bK9MKXOob3ctWOEoBSX3J4PKKsvqtE1JZHW8Lyp/
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11312
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_151342_348741_2106DE17 
-X-CRM114-Status: GOOD (  22.92  )
+X-B4-Tracking: v=1; b=H4sIAFJSl2oC/33QwU7EIBAG4FfZcBYzDBQWT76H8VBg2EU3rUK30
+ Wz67tIaY01jj5P88/2ZubFCOVFhD4cbyzSmkvquDubuwPy57U7EU6gzQ0ANWgAP8VqG1CXeDhd
+ ePPfuPSceBq4E+COhESIEVtffMsX0sdBPz99zuboX8sPszYlzKkOfP5fuUcy5nxr7f80oOHAyt
+ jUGZWwdPL5S7uhy3+cTm3tGXEmodiSsEsYjKBuDBXQbSa6l444kq+StF1JhJOnjRlK/kgG9I6n
+ lusbXKIig1UZqVpLYu66pkoOWDFlvJdJG0isJ9z6uq2Q8ooMmKC3+/mmapi+W3WbORQIAAA==
+X-Change-ID: 20260610-dfustini-atl-sc-cbqri-dt-410c8e2711dd
+To: Adrien Ricciardi <aricciardi@baylibre.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra <atishp@rivosinc.com>, 
+ Atish Patra <atish.patra@linux.dev>, Babu Moger <babu.moger@amd.com>, 
+ Ben Horgan <ben.horgan@arm.com>, Borislav Petkov <bp@alien8.de>, 
+ Chen Pei <cp0613@linux.alibaba.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>, 
+ Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai <gsh517@gmail.com>, 
+ guo.wenjia23@zte.com.cn, James Morse <james.morse@arm.com>, 
+ =?utf-8?q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn, 
+ Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+ Peter Newman <peternewman@google.com>, 
+ =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
+ Reinette Chatre <reinette.chatre@intel.com>, Rob Herring <robh@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Tony Luck <tony.luck@intel.com>, Vasudevan Srinivasan <vasu@rivosinc.com>, 
+ Ved Shanbhogue <ved@rivosinc.com>, Weiwei Li <liwei1518@gmail.com>, 
+ yunhui cui <cuiyunhui@bytedance.com>, 
+ Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>, 
+ Drew Fustini <fustini@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ x86@kernel.org, devicetree@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
+ linux-doc@vger.kernel.org
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9899; i=fustini@kernel.org;
+ h=from:subject:message-id; bh=USqjFRAb6LIlmnukXbDSN+CGoNtQbT72zrC+MtXY9nI=;
+ b=owGbwMvMwCV2+43O4ZsaG3kYT6slMWRND+pZp/yo5zB/neqX5Rbb3PPSOeziyidd05gf+JGpp
+ fbW2/jujlIWBjEuBlkxRZZNH/IuLPEK/bpg/ottMHNYmUCGMHBxCsBELp1iZHj98OPlGMdmFguu
+ K2/U9fTm+ZV7H4tNmhJwbnKL9C8rnn2MDJsuux3j50tIPce4JjbVVzCs53LhjexZRh+ab77d/7V
+ wCTMA
+X-Developer-Key: i=fustini@kernel.org; a=openpgp;
+ fpr=1B6F948213EA489734F3997035D5CD577C1E6010
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,749 +107,239 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 11:09:02AM -0700, Allen Pais wrote:
-> DMAengine drivers commonly use a per-channel tasklet to invoke client
-> callbacks. Add helpers that initialize, schedule, and kill a channel
-> bottom half, with an initial tasklet-backed implementation that preserves
-> the existing execution context.
->
-> Convert virt-dma to the new API and remove its private tasklet. Update all
-> drivers that directly kill or override that tasklet in the same change so
-> no stale users remain. While touching the completion handler, avoid forming
-> a result pointer from a NULL cyclic descriptor.
->
-> This establishes a backend-independent API before changing how channel
-> bottom halves are dispatched.
->
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-> ---
+This series adds initial RISC-V QoS support: the Ssqosid extension [1]
+(srmcfg CSR), the CBQRI controller interface [2] integrated with resctrl
+[3], and a DT-based platform driver for cache controllers. It has been
+tested on both the Tenstorrent Ascalon Shared Cache controller and a QEMU
+implementation [4].
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+  qemu-system-riscv64 -M virt,aia=aplic-imsic -nographic -m 1G -smp 8 \
+      -kernel arch/riscv/boot/Image \
+      -append "root=/dev/vda ro console=ttyS0 rootwait" \
+      -drive if=none,file=rootfs.ext2,format=raw,id=hd0 \
+      -device virtio-blk-device,drive=hd0 \
+      -device riscv.cbqri.capacity,max_mcids=256,max_rcids=64,ncblks=16,mmio_base=0x04820000
 
->  drivers/dma/bcm2835-dma.c                     |  2 +-
->  drivers/dma/dma-axi-dmac.c                    | 10 +++--
->  drivers/dma/dma-jz4780.c                      |  2 +-
->  drivers/dma/dmaengine.c                       | 42 +++++++++++++++++++
->  .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    |  2 +-
->  drivers/dma/dw-edma/dw-edma-core.c            |  2 +-
->  drivers/dma/fsl-edma-common.c                 |  2 +-
->  drivers/dma/fsl-qdma.c                        |  2 +-
->  drivers/dma/hisi_dma.c                        |  2 +-
->  drivers/dma/hsu/hsu.c                         |  2 +-
->  drivers/dma/idma64.c                          |  4 +-
->  drivers/dma/img-mdc-dma.c                     |  2 +-
->  drivers/dma/imx-sdma.c                        |  4 +-
->  drivers/dma/k3dma.c                           |  2 +-
->  drivers/dma/loongson/loongson1-apb-dma.c      |  2 +-
->  drivers/dma/mediatek/mtk-cqdma.c              |  2 +-
->  drivers/dma/mediatek/mtk-hsdma.c              |  2 +-
->  drivers/dma/mediatek/mtk-uart-apdma.c         |  4 +-
->  drivers/dma/owl-dma.c                         |  2 +-
->  drivers/dma/pxa_dma.c                         |  2 +-
->  drivers/dma/qcom/bam_dma.c                    |  4 +-
->  drivers/dma/qcom/qcom_adm.c                   |  4 +-
->  drivers/dma/sa11x0-dma.c                      |  2 +-
->  drivers/dma/sf-pdma/sf-pdma.c                 |  2 +-
->  drivers/dma/sprd-dma.c                        |  2 +-
->  drivers/dma/st_fdma.c                         |  2 +-
->  drivers/dma/sun6i-dma.c                       |  2 +-
->  drivers/dma/tegra186-gpc-dma.c                |  2 +-
->  drivers/dma/tegra210-adma.c                   |  2 +-
->  drivers/dma/ti/edma.c                         |  2 +-
->  drivers/dma/ti/k3-udma.c                      | 12 +++---
->  drivers/dma/ti/omap-dma.c                     |  2 +-
->  drivers/dma/virt-dma.c                        | 12 +++---
->  drivers/dma/virt-dma.h                        |  7 ++--
->  include/linux/dmaengine.h                     | 28 +++++++++++++
->  35 files changed, 125 insertions(+), 54 deletions(-)
->
-> diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
-> index 06d830d36882..c8add249dbfb 100644
-> --- a/drivers/dma/bcm2835-dma.c
-> +++ b/drivers/dma/bcm2835-dma.c
-> @@ -829,7 +829,7 @@ static void bcm2835_dma_free(struct bcm2835_dmadev *od)
->  	list_for_each_entry_safe(c, next, &od->ddev.channels,
->  				 vc.chan.device_node) {
->  		list_del(&c->vc.chan.device_node);
-> -		tasklet_kill(&c->vc.task);
-> +		dmaengine_kill_bh(&c->vc.chan);
->  	}
->
->  	dma_unmap_page_attrs(od->ddev.dev, od->zero_page, PAGE_SIZE,
-> diff --git a/drivers/dma/dma-axi-dmac.c b/drivers/dma/dma-axi-dmac.c
-> index d47ff27e1408..d245d04c3a27 100644
-> --- a/drivers/dma/dma-axi-dmac.c
-> +++ b/drivers/dma/dma-axi-dmac.c
-> @@ -1195,9 +1195,11 @@ static int axi_dmac_detect_caps(struct axi_dmac *dmac, unsigned int version)
->  	return 0;
->  }
->
-> -static void axi_dmac_tasklet_kill(void *task)
-> +static void axi_dmac_kill_bh(void *data)
->  {
-> -	tasklet_kill(task);
-> +	struct dma_chan *chan = data;
-> +
-> +	dmaengine_kill_bh(chan);
->  }
->
->  static void axi_dmac_free_dma_controller(void *of_node)
-> @@ -1302,8 +1304,8 @@ static int axi_dmac_probe(struct platform_device *pdev)
->  	 * Put the action in here so it get's done before unregistering the DMA
->  	 * device.
->  	 */
-> -	ret = devm_add_action_or_reset(&pdev->dev, axi_dmac_tasklet_kill,
-> -				       &dmac->chan.vchan.task);
-> +	ret = devm_add_action_or_reset(&pdev->dev, axi_dmac_kill_bh,
-> +				       &dmac->chan.vchan.chan);
->  	if (ret)
->  		return ret;
->
-> diff --git a/drivers/dma/dma-jz4780.c b/drivers/dma/dma-jz4780.c
-> index 6070dfdb7114..738801501e29 100644
-> --- a/drivers/dma/dma-jz4780.c
-> +++ b/drivers/dma/dma-jz4780.c
-> @@ -1019,7 +1019,7 @@ static void jz4780_dma_remove(struct platform_device *pdev)
->  	free_irq(jzdma->irq, jzdma);
->
->  	for (i = 0; i < jzdma->soc_data->nb_channels; i++)
-> -		tasklet_kill(&jzdma->chan[i].vchan.task);
-> +		dmaengine_kill_bh(&jzdma->chan[i].vchan.chan);
->  }
->
->  static const struct jz4780_dma_soc_data jz4740_dma_soc_data = {
-> diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-> index 9049171df857..d8fc7eb71b48 100644
-> --- a/drivers/dma/dmaengine.c
-> +++ b/drivers/dma/dmaengine.c
-> @@ -1428,6 +1428,48 @@ static void dmaengine_destroy_unmap_pool(void)
->  	}
->  }
->
-> +static void dma_chan_bh_entry(struct tasklet_struct *tasklet)
-> +{
-> +	struct dma_chan *chan = from_tasklet(chan, tasklet, bh_tasklet);
-> +	dmaengine_bh_work_fn fn = READ_ONCE(chan->bh_work_fn);
-> +
-> +	if (fn)
-> +		fn(chan);
-> +}
-> +
-> +void dmaengine_init_bh(struct dma_chan *chan, dmaengine_bh_work_fn fn)
-> +{
-> +	if (WARN_ON(!fn))
-> +		return;
-> +
-> +	if (WARN_ON(chan->bh_work_initialized))
-> +		return;
-> +
-> +	chan->bh_work_fn = fn;
-> +	tasklet_setup(&chan->bh_tasklet, dma_chan_bh_entry);
-> +	chan->bh_work_initialized = true;
-> +}
-> +EXPORT_SYMBOL_GPL(dmaengine_init_bh);
-> +
-> +bool dmaengine_schedule_bh(struct dma_chan *chan)
-> +{
-> +	if (WARN_ON(!chan->bh_work_initialized))
-> +		return false;
-> +
-> +	tasklet_schedule(&chan->bh_tasklet);
-> +	return true;
-> +}
-> +EXPORT_SYMBOL_GPL(dmaengine_schedule_bh);
-> +
-> +void dmaengine_kill_bh(struct dma_chan *chan)
-> +{
-> +	if (!chan->bh_work_initialized)
-> +		return;
-> +
-> +	tasklet_kill(&chan->bh_tasklet);
-> +}
-> +EXPORT_SYMBOL_GPL(dmaengine_kill_bh);
-> +
->  static int __init dmaengine_init_unmap_pool(void)
->  {
->  	int i;
-> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> index bcefaff03b5c..a2b688e7f47e 100644
-> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> @@ -1663,7 +1663,7 @@ static void dw_remove(struct platform_device *pdev)
->  	list_for_each_entry_safe(chan, _chan, &dw->dma.channels,
->  				 vc.chan.device_node) {
->  		list_del(&chan->vc.chan.device_node);
-> -		tasklet_kill(&chan->vc.task);
-> +		dmaengine_kill_bh(&chan->vc.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/dw-edma/dw-edma-core.c b/drivers/dma/dw-edma/dw-edma-core.c
-> index 89a4c498a17b..ade866fba2ad 100644
-> --- a/drivers/dma/dw-edma/dw-edma-core.c
-> +++ b/drivers/dma/dw-edma/dw-edma-core.c
-> @@ -1170,7 +1170,7 @@ int dw_edma_remove(struct dw_edma_chip *chip)
->  	dma_async_device_unregister(&dw->dma);
->  	list_for_each_entry_safe(chan, _chan, &dw->dma.channels,
->  				 vc.chan.device_node) {
-> -		tasklet_kill(&chan->vc.task);
-> +		dmaengine_kill_bh(&chan->vc.chan);
->  		list_del(&chan->vc.chan.device_node);
->  	}
->
-> diff --git a/drivers/dma/fsl-edma-common.c b/drivers/dma/fsl-edma-common.c
-> index bb7531c456df..90ae678c68d4 100644
-> --- a/drivers/dma/fsl-edma-common.c
-> +++ b/drivers/dma/fsl-edma-common.c
-> @@ -915,7 +915,7 @@ void fsl_edma_cleanup_vchan(struct dma_device *dmadev)
->  	list_for_each_entry_safe(chan, _chan,
->  				&dmadev->channels, vchan.chan.device_node) {
->  		list_del(&chan->vchan.chan.device_node);
-> -		tasklet_kill(&chan->vchan.task);
-> +		dmaengine_kill_bh(&chan->vchan.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/fsl-qdma.c b/drivers/dma/fsl-qdma.c
-> index df843fad0ece..b0ace8bad498 100644
-> --- a/drivers/dma/fsl-qdma.c
-> +++ b/drivers/dma/fsl-qdma.c
-> @@ -1255,7 +1255,7 @@ static void fsl_qdma_cleanup_vchan(struct dma_device *dmadev)
->  	list_for_each_entry_safe(chan, _chan,
->  				 &dmadev->channels, vchan.chan.device_node) {
->  		list_del(&chan->vchan.chan.device_node);
-> -		tasklet_kill(&chan->vchan.task);
-> +		dmaengine_kill_bh(&chan->vchan.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/hisi_dma.c b/drivers/dma/hisi_dma.c
-> index 28bf818f9aa6..10eb98350b9f 100644
-> --- a/drivers/dma/hisi_dma.c
-> +++ b/drivers/dma/hisi_dma.c
-> @@ -720,7 +720,7 @@ static void hisi_dma_disable_qps(struct hisi_dma_dev *hdma_dev)
->
->  	for (i = 0; i < hdma_dev->chan_num; i++) {
->  		hisi_dma_disable_qp(hdma_dev, i);
-> -		tasklet_kill(&hdma_dev->chan[i].vc.task);
-> +		dmaengine_kill_bh(&hdma_dev->chan[i].vc.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/hsu/hsu.c b/drivers/dma/hsu/hsu.c
-> index f62d60d7bc6b..315d0ebecd57 100644
-> --- a/drivers/dma/hsu/hsu.c
-> +++ b/drivers/dma/hsu/hsu.c
-> @@ -500,7 +500,7 @@ int hsu_dma_remove(struct hsu_dma_chip *chip)
->  	for (i = 0; i < hsu->nr_channels; i++) {
->  		struct hsu_dma_chan *hsuc = &hsu->chan[i];
->
-> -		tasklet_kill(&hsuc->vchan.task);
-> +		dmaengine_kill_bh(&hsuc->vchan.chan);
->  	}
->
->  	return 0;
-> diff --git a/drivers/dma/idma64.c b/drivers/dma/idma64.c
-> index 5fcd1befc92d..1d395fb735ff 100644
-> --- a/drivers/dma/idma64.c
-> +++ b/drivers/dma/idma64.c
-> @@ -617,14 +617,14 @@ static void idma64_remove(struct idma64_chip *chip)
->
->  	/*
->  	 * Explicitly call devm_request_irq() to avoid the side effects with
-> -	 * the scheduled tasklets.
-> +	 * scheduled BH work.
->  	 */
->  	devm_free_irq(chip->dev, chip->irq, idma64);
->
->  	for (i = 0; i < idma64->dma.chancnt; i++) {
->  		struct idma64_chan *idma64c = &idma64->chan[i];
->
-> -		tasklet_kill(&idma64c->vchan.task);
-> +		dmaengine_kill_bh(&idma64c->vchan.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/img-mdc-dma.c b/drivers/dma/img-mdc-dma.c
-> index b3765ba15803..0c6024088444 100644
-> --- a/drivers/dma/img-mdc-dma.c
-> +++ b/drivers/dma/img-mdc-dma.c
-> @@ -1031,7 +1031,7 @@ static void mdc_dma_remove(struct platform_device *pdev)
->
->  		devm_free_irq(&pdev->dev, mchan->irq, mchan);
->
-> -		tasklet_kill(&mchan->vc.task);
-> +		dmaengine_kill_bh(&mchan->vc.chan);
->  	}
->
->  	pm_runtime_disable(&pdev->dev);
-> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-> index 36368835a845..4d13b9d2880d 100644
-> --- a/drivers/dma/imx-sdma.c
-> +++ b/drivers/dma/imx-sdma.c
-> @@ -2399,11 +2399,11 @@ static void sdma_remove(struct platform_device *pdev)
->  	int i;
->
->  	devm_free_irq(&pdev->dev, sdma->irq, sdma);
-> -	/* Kill the tasklet */
-> +	/* Kill the channel BH */
->  	for (i = 0; i < MAX_DMA_CHANNELS; i++) {
->  		struct sdma_channel *sdmac = &sdma->channel[i];
->
-> -		tasklet_kill(&sdmac->vc.task);
-> +		dmaengine_kill_bh(&sdmac->vc.chan);
->  		sdma_free_chan_resources(&sdmac->vc.chan);
->  	}
->
-> diff --git a/drivers/dma/k3dma.c b/drivers/dma/k3dma.c
-> index e84f197fea76..3d73b391e42e 100644
-> --- a/drivers/dma/k3dma.c
-> +++ b/drivers/dma/k3dma.c
-> @@ -976,7 +976,7 @@ static void k3_dma_remove(struct platform_device *op)
->
->  	list_for_each_entry_safe(c, cn, &d->slave.channels, vc.chan.device_node) {
->  		list_del(&c->vc.chan.device_node);
-> -		tasklet_kill(&c->vc.task);
-> +		dmaengine_kill_bh(&c->vc.chan);
->  	}
->  	tasklet_kill(&d->task);
->  	clk_disable_unprepare(d->clk);
-> diff --git a/drivers/dma/loongson/loongson1-apb-dma.c b/drivers/dma/loongson/loongson1-apb-dma.c
-> index 89786cbd20ab..52a360719644 100644
-> --- a/drivers/dma/loongson/loongson1-apb-dma.c
-> +++ b/drivers/dma/loongson/loongson1-apb-dma.c
-> @@ -552,7 +552,7 @@ static void ls1x_dma_chan_remove(struct ls1x_dma *dma)
->
->  		if (chan->vc.chan.device == &dma->ddev) {
->  			list_del(&chan->vc.chan.device_node);
-> -			tasklet_kill(&chan->vc.task);
-> +			dmaengine_kill_bh(&chan->vc.chan);
->  		}
->  	}
->  }
-> diff --git a/drivers/dma/mediatek/mtk-cqdma.c b/drivers/dma/mediatek/mtk-cqdma.c
-> index 80791e30aec2..7b44d3358cda 100644
-> --- a/drivers/dma/mediatek/mtk-cqdma.c
-> +++ b/drivers/dma/mediatek/mtk-cqdma.c
-> @@ -895,7 +895,7 @@ static void mtk_cqdma_remove(struct platform_device *pdev)
->  		vc = &cqdma->vc[i];
->
->  		list_del(&vc->vc.chan.device_node);
-> -		tasklet_kill(&vc->vc.task);
-> +		dmaengine_kill_bh(&vc->vc.chan);
->  	}
->
->  	/* disable interrupt */
-> diff --git a/drivers/dma/mediatek/mtk-hsdma.c b/drivers/dma/mediatek/mtk-hsdma.c
-> index a43412ff5edd..75555fa41536 100644
-> --- a/drivers/dma/mediatek/mtk-hsdma.c
-> +++ b/drivers/dma/mediatek/mtk-hsdma.c
-> @@ -1020,7 +1020,7 @@ static void mtk_hsdma_remove(struct platform_device *pdev)
->  		vc = &hsdma->vc[i];
->
->  		list_del(&vc->vc.chan.device_node);
-> -		tasklet_kill(&vc->vc.task);
-> +		dmaengine_kill_bh(&vc->vc.chan);
->  	}
->
->  	/* Disable DMA interrupt */
-> diff --git a/drivers/dma/mediatek/mtk-uart-apdma.c b/drivers/dma/mediatek/mtk-uart-apdma.c
-> index c269d84d7bd2..8ce206a0ecc5 100644
-> --- a/drivers/dma/mediatek/mtk-uart-apdma.c
-> +++ b/drivers/dma/mediatek/mtk-uart-apdma.c
-> @@ -312,7 +312,7 @@ static void mtk_uart_apdma_free_chan_resources(struct dma_chan *chan)
->
->  	free_irq(c->irq, chan);
->
-> -	tasklet_kill(&c->vc.task);
-> +	dmaengine_kill_bh(&c->vc.chan);
->
->  	vchan_free_chan_resources(&c->vc);
->
-> @@ -463,7 +463,7 @@ static void mtk_uart_apdma_free(struct mtk_uart_apdmadev *mtkd)
->  			struct mtk_chan, vc.chan.device_node);
->
->  		list_del(&c->vc.chan.device_node);
-> -		tasklet_kill(&c->vc.task);
-> +		dmaengine_kill_bh(&c->vc.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/owl-dma.c b/drivers/dma/owl-dma.c
-> index 7c80572fc71d..0d9f324adba0 100644
-> --- a/drivers/dma/owl-dma.c
-> +++ b/drivers/dma/owl-dma.c
-> @@ -1055,7 +1055,7 @@ static inline void owl_dma_free(struct owl_dma *od)
->  	list_for_each_entry_safe(vchan,
->  				 next, &od->dma.channels, vc.chan.device_node) {
->  		list_del(&vchan->vc.chan.device_node);
-> -		tasklet_kill(&vchan->vc.task);
-> +		dmaengine_kill_bh(&vchan->vc.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/pxa_dma.c b/drivers/dma/pxa_dma.c
-> index fa2ee0b3e09f..2cca8c31929c 100644
-> --- a/drivers/dma/pxa_dma.c
-> +++ b/drivers/dma/pxa_dma.c
-> @@ -1215,7 +1215,7 @@ static void pxad_free_channels(struct dma_device *dmadev)
->  	list_for_each_entry_safe(c, cn, &dmadev->channels,
->  				 vc.chan.device_node) {
->  		list_del(&c->vc.chan.device_node);
-> -		tasklet_kill(&c->vc.task);
-> +		dmaengine_kill_bh(&c->vc.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-> index 1bb26af0405f..c23496c3ac69 100644
-> --- a/drivers/dma/qcom/bam_dma.c
-> +++ b/drivers/dma/qcom/bam_dma.c
-> @@ -1387,7 +1387,7 @@ static int bam_dma_probe(struct platform_device *pdev)
->  	dma_async_device_unregister(&bdev->common);
->  err_bam_channel_exit:
->  	for (i = 0; i < bdev->num_channels; i++)
-> -		tasklet_kill(&bdev->channels[i].vc.task);
-> +		dmaengine_kill_bh(&bdev->channels[i].vc.chan);
->  err_tasklet_kill:
->  	tasklet_kill(&bdev->task);
->  err_disable_clk:
-> @@ -1413,7 +1413,7 @@ static void bam_dma_remove(struct platform_device *pdev)
->
->  	for (i = 0; i < bdev->num_channels; i++) {
->  		bam_dma_terminate_all(&bdev->channels[i].vc.chan);
-> -		tasklet_kill(&bdev->channels[i].vc.task);
-> +		dmaengine_kill_bh(&bdev->channels[i].vc.chan);
->
->  		if (!bdev->channels[i].fifo_virt)
->  			continue;
-> diff --git a/drivers/dma/qcom/qcom_adm.c b/drivers/dma/qcom/qcom_adm.c
-> index 07fbe32d31fa..13f5ca8ff808 100644
-> --- a/drivers/dma/qcom/qcom_adm.c
-> +++ b/drivers/dma/qcom/qcom_adm.c
-> @@ -918,8 +918,8 @@ static void adm_dma_remove(struct platform_device *pdev)
->  		/* mask IRQs for this channel/EE pair */
->  		writel(0, adev->regs + ADM_CH_RSLT_CONF(achan->id, adev->ee));
->
-> -		tasklet_kill(&adev->channels[i].vc.task);
-> -		adm_terminate_all(&adev->channels[i].vc.chan);
-> +		dmaengine_kill_bh(&achan->vc.chan);
-> +		adm_terminate_all(&achan->vc.chan);
->  	}
->
->  	devm_free_irq(adev->dev, adev->irq, adev);
-> diff --git a/drivers/dma/sa11x0-dma.c b/drivers/dma/sa11x0-dma.c
-> index a6fa431530e3..e14566fa2d74 100644
-> --- a/drivers/dma/sa11x0-dma.c
-> +++ b/drivers/dma/sa11x0-dma.c
-> @@ -891,7 +891,7 @@ static void sa11x0_dma_free_channels(struct dma_device *dmadev)
->
->  	list_for_each_entry_safe(c, cn, &dmadev->channels, vc.chan.device_node) {
->  		list_del(&c->vc.chan.device_node);
-> -		tasklet_kill(&c->vc.task);
-> +		dmaengine_kill_bh(&c->vc.chan);
->  		kfree(c);
->  	}
->  }
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-> index 6f79cc28703e..a08ca355dadb 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.c
-> +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> @@ -602,7 +602,7 @@ static void sf_pdma_remove(struct platform_device *pdev)
->  		devm_free_irq(&pdev->dev, ch->txirq, ch);
->  		devm_free_irq(&pdev->dev, ch->errirq, ch);
->  		list_del(&ch->vchan.chan.device_node);
-> -		tasklet_kill(&ch->vchan.task);
-> +		dmaengine_kill_bh(&ch->vchan.chan);
->  		tasklet_kill(&ch->done_tasklet);
->  		tasklet_kill(&ch->err_tasklet);
->  	}
-> diff --git a/drivers/dma/sprd-dma.c b/drivers/dma/sprd-dma.c
-> index 087fea3af2e4..f90f5d8d5a1e 100644
-> --- a/drivers/dma/sprd-dma.c
-> +++ b/drivers/dma/sprd-dma.c
-> @@ -1253,7 +1253,7 @@ static void sprd_dma_remove(struct platform_device *pdev)
->  	list_for_each_entry_safe(c, cn, &sdev->dma_dev.channels,
->  				 vc.chan.device_node) {
->  		list_del(&c->vc.chan.device_node);
-> -		tasklet_kill(&c->vc.task);
-> +		dmaengine_kill_bh(&c->vc.chan);
->  	}
->
->  	of_dma_controller_free(pdev->dev.of_node);
-> diff --git a/drivers/dma/st_fdma.c b/drivers/dma/st_fdma.c
-> index d9547017f3bd..cae0a7fe6ceb 100644
-> --- a/drivers/dma/st_fdma.c
-> +++ b/drivers/dma/st_fdma.c
-> @@ -733,7 +733,7 @@ static void st_fdma_free(struct st_fdma_dev *fdev)
->  	for (i = 0; i < fdev->nr_channels; i++) {
->  		fchan = &fdev->chans[i];
->  		list_del(&fchan->vchan.chan.device_node);
-> -		tasklet_kill(&fchan->vchan.task);
-> +		dmaengine_kill_bh(&fchan->vchan.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index f47a326dd7ff..4ddea3cdcd66 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -1094,7 +1094,7 @@ static inline void sun6i_dma_free(struct sun6i_dma_dev *sdev)
->  		struct sun6i_vchan *vchan = &sdev->vchans[i];
->
->  		list_del(&vchan->vc.chan.device_node);
-> -		tasklet_kill(&vchan->vc.task);
-> +		dmaengine_kill_bh(&vchan->vc.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/tegra186-gpc-dma.c b/drivers/dma/tegra186-gpc-dma.c
-> index 64cedef1050a..3a27a83a3288 100644
-> --- a/drivers/dma/tegra186-gpc-dma.c
-> +++ b/drivers/dma/tegra186-gpc-dma.c
-> @@ -1284,7 +1284,7 @@ static void tegra_dma_free_chan_resources(struct dma_chan *dc)
->  	tegra_dma_terminate_all(dc);
->  	synchronize_irq(tdc->irq);
->
-> -	tasklet_kill(&tdc->vc.task);
-> +	dmaengine_kill_bh(&tdc->vc.chan);
->  	tdc->config_init = false;
->  	tdc->slave_id = -1;
->  	tdc->sid_dir = DMA_TRANS_NONE;
-> diff --git a/drivers/dma/tegra210-adma.c b/drivers/dma/tegra210-adma.c
-> index ceaee1e33e68..780863199224 100644
-> --- a/drivers/dma/tegra210-adma.c
-> +++ b/drivers/dma/tegra210-adma.c
-> @@ -811,7 +811,7 @@ static void tegra_adma_free_chan_resources(struct dma_chan *dc)
->
->  	tegra_adma_terminate_all(dc);
->  	vchan_free_chan_resources(&tdc->vc);
-> -	tasklet_kill(&tdc->vc.task);
-> +	dmaengine_kill_bh(&tdc->vc.chan);
->  	free_irq(tdc->irq, tdc);
->  	pm_runtime_put(tdc2dev(tdc));
->
-> diff --git a/drivers/dma/ti/edma.c b/drivers/dma/ti/edma.c
-> index d97db5af3555..c0ad0cdabb87 100644
-> --- a/drivers/dma/ti/edma.c
-> +++ b/drivers/dma/ti/edma.c
-> @@ -2560,7 +2560,7 @@ static void edma_cleanupp_vchan(struct dma_device *dmadev)
->  	list_for_each_entry_safe(echan, _echan,
->  			&dmadev->channels, vchan.chan.device_node) {
->  		list_del(&echan->vchan.chan.device_node);
-> -		tasklet_kill(&echan->vchan.task);
-> +		dmaengine_kill_bh(&echan->vchan.chan);
->  	}
->  }
->
-> diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-> index 1cf158eb7bdb..fd428c26799a 100644
-> --- a/drivers/dma/ti/k3-udma.c
-> +++ b/drivers/dma/ti/k3-udma.c
-> @@ -4042,12 +4042,12 @@ static void udma_desc_pre_callback(struct virt_dma_chan *vc,
->  }
->
->  /*
-> - * This tasklet handles the completion of a DMA descriptor by
-> + * This BH handles the completion of a DMA descriptor by
->   * calling its callback and freeing it.
->   */
-> -static void udma_vchan_complete(struct tasklet_struct *t)
-> +static void udma_vchan_complete(struct dma_chan *chan)
->  {
-> -	struct virt_dma_chan *vc = from_tasklet(vc, t, task);
-> +	struct virt_dma_chan *vc = to_virt_chan(chan);
->  	struct virt_dma_desc *vd, *_vd;
->  	struct dmaengine_desc_callback cb;
->  	LIST_HEAD(head);
-> @@ -4112,7 +4112,7 @@ static void udma_free_chan_resources(struct dma_chan *chan)
->  	}
->
->  	vchan_free_chan_resources(&uc->vc);
-> -	tasklet_kill(&uc->vc.task);
-> +	dmaengine_kill_bh(&uc->vc.chan);
->
->  	bcdma_free_bchan_resources(uc);
->  	udma_free_tx_resources(uc);
-> @@ -5627,8 +5627,8 @@ static int udma_probe(struct platform_device *pdev)
->  		if (!uc->name)
->  			return -ENOMEM;
->  		vchan_init(&uc->vc, &ud->ddev);
-> -		/* Use custom vchan completion handling */
-> -		tasklet_setup(&uc->vc.task, udma_vchan_complete);
-> +		/* Override the default vchan completion handler */
-> +		uc->vc.chan.bh_work_fn = udma_vchan_complete;
->  		init_completion(&uc->teardown_completed);
->  		INIT_DELAYED_WORK(&uc->tx_drain.work, udma_check_tx_completion);
->  	}
-> diff --git a/drivers/dma/ti/omap-dma.c b/drivers/dma/ti/omap-dma.c
-> index 55ece7fd0d99..899c5eeeac88 100644
-> --- a/drivers/dma/ti/omap-dma.c
-> +++ b/drivers/dma/ti/omap-dma.c
-> @@ -1521,7 +1521,7 @@ static void omap_dma_free(struct omap_dmadev *od)
->  			struct omap_chan, vc.chan.device_node);
->
->  		list_del(&c->vc.chan.device_node);
-> -		tasklet_kill(&c->vc.task);
-> +		dmaengine_kill_bh(&c->vc.chan);
->  		kfree(c);
->  	}
->  }
-> diff --git a/drivers/dma/virt-dma.c b/drivers/dma/virt-dma.c
-> index 7961172a780d..d407af6cc1da 100644
-> --- a/drivers/dma/virt-dma.c
-> +++ b/drivers/dma/virt-dma.c
-> @@ -77,12 +77,12 @@ struct virt_dma_desc *vchan_find_desc(struct virt_dma_chan *vc,
->  EXPORT_SYMBOL_GPL(vchan_find_desc);
->
->  /*
-> - * This tasklet handles the completion of a DMA descriptor by
-> - * calling its callback and freeing it.
-> + * This bottom-half handler completes a DMA descriptor by invoking its
-> + * callback and freeing it.
->   */
-> -static void vchan_complete(struct tasklet_struct *t)
-> +static void vchan_complete(struct dma_chan *chan)
->  {
-> -	struct virt_dma_chan *vc = from_tasklet(vc, t, task);
-> +	struct virt_dma_chan *vc = to_virt_chan(chan);
->  	struct virt_dma_desc *vd, *_vd;
->  	struct dmaengine_desc_callback cb;
->  	LIST_HEAD(head);
-> @@ -98,7 +98,7 @@ static void vchan_complete(struct tasklet_struct *t)
->  	}
->  	spin_unlock_irq(&vc->lock);
->
-> -	dmaengine_desc_callback_invoke(&cb, &vd->tx_result);
-> +	dmaengine_desc_callback_invoke(&cb, vd ? &vd->tx_result : NULL);
->
->  	list_for_each_entry_safe(vd, _vd, &head, node) {
->  		dmaengine_desc_get_callback(&vd->tx, &cb);
-> @@ -131,7 +131,7 @@ void vchan_init(struct virt_dma_chan *vc, struct dma_device *dmadev)
->  	INIT_LIST_HEAD(&vc->desc_completed);
->  	INIT_LIST_HEAD(&vc->desc_terminated);
->
-> -	tasklet_setup(&vc->task, vchan_complete);
-> +	dmaengine_init_bh(&vc->chan, vchan_complete);
->
->  	vc->chan.device = dmadev;
->  	list_add_tail(&vc->chan.device_node, &dmadev->channels);
-> diff --git a/drivers/dma/virt-dma.h b/drivers/dma/virt-dma.h
-> index 59d9eabc8b67..0ba42fded2cc 100644
-> --- a/drivers/dma/virt-dma.h
-> +++ b/drivers/dma/virt-dma.h
-> @@ -21,7 +21,6 @@ struct virt_dma_desc {
->
->  struct virt_dma_chan {
->  	struct dma_chan	chan;
-> -	struct tasklet_struct task;
->  	void (*desc_free)(struct virt_dma_desc *);
->
->  	spinlock_t lock;
-> @@ -106,7 +105,7 @@ static inline void vchan_cookie_complete(struct virt_dma_desc *vd)
->  		 vd, cookie);
->  	list_add_tail(&vd->node, &vc->desc_completed);
->
-> -	tasklet_schedule(&vc->task);
-> +	dmaengine_schedule_bh(&vc->chan);
->  }
->
->  /**
-> @@ -137,7 +136,7 @@ static inline void vchan_cyclic_callback(struct virt_dma_desc *vd)
->  	struct virt_dma_chan *vc = to_virt_chan(vd->tx.chan);
->
->  	vc->cyclic = vd;
-> -	tasklet_schedule(&vc->task);
-> +	dmaengine_schedule_bh(&vc->chan);
->  }
->
->  /**
-> @@ -223,7 +222,7 @@ static inline void vchan_synchronize(struct virt_dma_chan *vc)
->  	LIST_HEAD(head);
->  	unsigned long flags;
->
-> -	tasklet_kill(&vc->task);
-> +	dmaengine_kill_bh(&vc->chan);
->
->  	spin_lock_irqsave(&vc->lock, flags);
->
-> diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-> index b3d251c9734e..a1437bdbda9b 100644
-> --- a/include/linux/dmaengine.h
-> +++ b/include/linux/dmaengine.h
-> @@ -12,6 +12,7 @@
->  #include <linux/scatterlist.h>
->  #include <linux/bitmap.h>
->  #include <linux/types.h>
-> +#include <linux/interrupt.h>
->  #include <asm/page.h>
->
->  /**
-> @@ -295,6 +296,10 @@ enum dma_desc_metadata_mode {
->  	DESC_METADATA_ENGINE = BIT(1),
->  };
->
-> +struct dma_chan;
-> +
-> +typedef void (*dmaengine_bh_work_fn)(struct dma_chan *chan);
-> +
->  /**
->   * struct dma_chan_percpu - the per-CPU part of struct dma_chan
->   * @memcpy_count: transaction counter
-> @@ -334,6 +339,9 @@ struct dma_router {
->   * @router: pointer to the DMA router structure
->   * @route_data: channel specific data for the router
->   * @private: private data for certain client-channel associations
-> + * @bh_tasklet: bottom-half tasklet stored per-channel
-> + * @bh_work_fn: callback executed when @bh_tasklet runs
-> + * @bh_work_initialized: indicates whether @bh_tasklet has been initialized
->   */
->  struct dma_chan {
->  	struct dma_device *device;
-> @@ -359,6 +367,9 @@ struct dma_chan {
->  	void *route_data;
->
->  	void *private;
-> +	struct tasklet_struct bh_tasklet;
-> +	dmaengine_bh_work_fn bh_work_fn;
-> +	bool bh_work_initialized;
->  };
->
->  /**
-> @@ -1529,6 +1540,9 @@ struct dma_chan *devm_dma_request_chan(struct device *dev, const char *name);
->
->  void dma_release_channel(struct dma_chan *chan);
->  int dma_get_slave_caps(struct dma_chan *chan, struct dma_slave_caps *caps);
-> +void dmaengine_init_bh(struct dma_chan *chan, dmaengine_bh_work_fn fn);
-> +bool dmaengine_schedule_bh(struct dma_chan *chan);
-> +void dmaengine_kill_bh(struct dma_chan *chan);
->  #else
->  static inline struct dma_chan *dma_find_channel(enum dma_transaction_type tx_type)
->  {
-> @@ -1576,6 +1590,20 @@ static inline int dma_get_slave_caps(struct dma_chan *chan,
->  {
->  	return -ENXIO;
->  }
-> +
-> +static inline void dmaengine_init_bh(struct dma_chan *chan,
-> +				     dmaengine_bh_work_fn fn)
-> +{
-> +}
-> +
-> +static inline bool dmaengine_schedule_bh(struct dma_chan *chan)
-> +{
-> +	return false;
-> +}
-> +
-> +static inline void dmaengine_kill_bh(struct dma_chan *chan)
-> +{
-> +}
->  #endif
->
->  static inline int dmaengine_desc_set_reuse(struct dma_async_tx_descriptor *tx)
-> --
-> 2.43.0
->
+Cache allocation can be exercised on the booted system. Mount resctrl
+and read the default schemata. The L2 controller has 16 capacity
+blocks, so the default capacity bitmask (CBM) is 0xffff:
+
+  # mount -t resctrl resctrl /sys/fs/resctrl
+  # cat /sys/fs/resctrl/schemata
+  L2:0=ffff
+
+Write a narrower CBM to a new control group and read it back to confirm
+the L2 controller applied it:
+
+  # mkdir /sys/fs/resctrl/group0
+  # echo "L2:0=ff" > /sys/fs/resctrl/group0/schemata
+  # cat /sys/fs/resctrl/group0/schemata
+  L2:0=ff
+
+Note that this series only implements support for resctrl L2 and L3
+cache resources using CBQRI capacity allocation control. cc_block_mask
+maps onto resctrl's existing cbm schema. However, cc_cunits is not
+supported as there is no existing equivalent for capacity units in the
+resctrl schemata.
+
+I had previously been iterating on an RFC series [5] that did a full
+implementation of CBQRI including capacity monitoring, bandwidth
+allocation and monitoring. The bandwidth controls for CBQRI do not fit
+well into resctrl's existing throttle-based MB schemata. I believe that
+the path forward is Reinette's generic schema description proof of
+concept [6]. My plan is to rebase the full support of CBQRI onto the
+generic schema once it is ready.
+
+This series is based on v7.3-rc1.
+
+[1] https://github.com/riscv/riscv-ssqosid/releases/tag/v1.0
+[2] https://github.com/riscv-non-isa/riscv-cbqri/releases/tag/v1.0
+[3] https://docs.kernel.org/filesystems/resctrl.html
+[4] https://github.com/tt-fustini/qemu/tree/riscv-cbqri-cache
+[5] https://lore.kernel.org/linux-riscv/20260601-ssqosid-cbqri-rqsc-v7-0-v6-16-baf00f50028a@kernel.org/
+[6] https://lore.kernel.org/all/aab804b9-e8b5-40ad-a85b-af7033391243@intel.com/
+
+Changes in v7:
+--------------
+- Drop the three Ssqosid patches (dt-bindings description, extension
+  detection, and srmcfg CSR support). They are in mainline as of the
+  v7.3 merge window, so this revision is just the CBQRI driver, the
+  resctrl glue, and the CBQRI binding.
+
+- Rebase from next-20260713 onto v7.3-rc1. The five remaining patches
+  are otherwise unchanged from v6.
+
+- Sashiko review of v6:
+  https://sashiko.dev/#/patchset/20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org
+
+- Link to v6:
+  https://patch.msgid.link/20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org
+
+Changes in v6:
+--------------
+- Introduce the RISCV_CBQRI Kconfig if/endif block in the patch that
+  adds the RISCV_CBQRI_CAPACITY option it guards, rather than as an
+  empty block in an earlier patch.
+
+- Note in cbqri_probe_cc() that the 32 capacity block limit comes from
+  resctrl representing the CBM as a u32.
+
+- Sashiko review of v5:
+  https://sashiko.dev/#/message/20260714-dfustini-atl-sc-cbqri-dt-v5-0-b0ae7e9c932e@kernel.org
+
+- Link to v5:
+  https://patch.msgid.link/20260714-dfustini-atl-sc-cbqri-dt-v5-0-b0ae7e9c932e@kernel.org
+
+Changes in v5:
+--------------
+- Resolve control domain membership from each CPU's cache id in
+  cacheinfo at hotplug, instead of a CPU mask captured at probe.
+
+- Add and remove control domains on the ctrl_domains RCU list
+  following the documented traversal rules.
+
+- Restructure cbqri_resctrl_pick_caches() to select one controller per
+  cache level, which removes the separate dropped[] array and the
+  overloaded NULL controller pointer.
+
+- Initialize the control domain's resource id.
+
+- Drop the inaccurate comment above the stubbed resctrl_arch_*()
+  operations.
+
+- Sashiko review of v4:
+  https://sashiko.dev/#/patchset/20260706-dfustini-atl-sc-cbqri-dt-v4-0-e75c20201d64@kernel.org
+
+- Link to v4:
+  https://patch.msgid.link/20260706-dfustini-atl-sc-cbqri-dt-v4-0-e75c20201d64@kernel.org
+
+Changes in v4:
+--------------
+- Register the srmcfg PM notifier even if cpuhp_setup_state() fails in
+  riscv_srmcfg_init(). The early return on failure had skipped it,
+  dropping the srmcfg restore across suspend and resume.
+
+- Make RISCV_CBQRI a user-selectable option that depends on
+  RISCV_ISA_SSQOSID, instead of being selected unconditionally.
+
+- Bound the per-domain control value init by the domain's own
+  controller's RCID count rather than the resource wide count.
+
+- Drop only the affected cache level when capacity controllers at the
+  same level report mismatched capabilities, rather than aborting the
+  whole resctrl setup.
+
+- Use guard(mutex) instead of lock/unlock for cbqri_controllers_lock.
+
+- Read the CBQRI control registers into low and high halves so the
+  access order is explicit and comment on torn reads.
+
+- Clarify in cbqri_resctrl_pick_caches() that the first matching leaf is
+  correct for a unified shared cache.
+
+- Link to v3:
+  https://patch.msgid.link/20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org
+
+- Sashiko review of v3:
+  https://sashiko.dev/#/patchset/20260628-dfustini-atl-sc-cbqri-dt-v3-0-c9c1342fe3cf@kernel.org
+
+Changes in v3:
+--------------
+- riscv,cbqri.yaml:
+  - Require a device-specific compatible so a bare generic compatible
+    is no longer valid on its own.
+  - Rename node name from cache-controller@ to qos-controller@
+  - Rename compatible from tenstorrent,ascalon-sc-cbqri to
+    tenstorrent,ascalon-shared-cache-controller
+
+- Take cbqri_controllers_lock in cbqri_attach_cpu_to_all_ctrls() so a
+  controller probed after boot can't corrupt the cbqri_controllers list.
+
+- Revise comment above riscv_srmcfg_reset_cache() to clarify that the
+  teardown callback is not relied on. The cpuhp startup callback re-arms
+  the per-cpu sentinel, which forces the csr write on a re-onlined CPU.
+
+- Drop the memory fences around the srmcfg CSR write on context switch.
+  Ssqosid does not require the ordering. The brief tagging inaccuracy at
+  the switch boundary is acceptable for QoS.
+
+- Access the CBQRI controller registers with 32-bit reads and writes.
+  The spec only guarantees single-copy atomicity for 4-byte accesses.
+  This also removes the dependency on native 64-bit MMIO.
+
+- Program cc_cunits to 0 before a config limit operation on controllers
+  that support capacity units, so a stale unit limit does not constrain
+  block-mask allocation.
+
+- Link to v2:
+  https://patch.msgid.link/20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org
+
+- Sashiko review of v2:
+  https://sashiko.dev/#/patchset/20260624-dfustini-atl-sc-cbqri-dt-v2-0-2f8049fd902b@kernel.org
+
+Changes in v2:
+--------------
+The changes in this revision address the Sashiko review of v1.
+
+- Restore the srmcfg CSR for the current task on CPU_PM_EXIT and
+  CPU_PM_ENTER_FAILED, so it is not left configured incorrectly until
+  the next context switch.
+
+- Serialize the cbqri_controllers list insert and the boot time walk
+  with a mutex, so an asynchronous driver probe cannot corrupt the list.
+
+- Skip a controller at an unsupported cache level instead of aborting
+  resctrl setup, so valid L2 and L3 controllers still register.
+
+- RISCV_ISA_SSQOSID selects ARCH_HAS_CPU_RESCTRL and RISCV_CBQRI
+  together, so no intermediate commit enables RESCTRL_FS without the
+  CBQRI resctrl glue.
+
+- Rename the RISCV_CBQRI_DRIVER to RISCV_CBQRI, since it builds the
+  CBQRI core ops and resctrl integration rather than a driver.
+
+- Drop the RISCV_CBQRI_DRIVER_DEBUG Kconfig option and rely on dynamic
+  debug to control the pr_debug() output.
+
+- Note: Sashiko flagged the lack of suspend/resume state restore. I will
+  not fix that as register state is only lost when the power domain is
+  gated, which offlines the harts sharing the cache. resctrl reprograms
+  the default capacity mask through the normal control domain online
+  path on resume.
+
+- Link to v1:
+  https://lore.kernel.org/all/20260619-dfustini-atl-sc-cbqri-dt-v1-0-e79a7723fab0@kernel.org/
+
+- Sashiko review of v1:
+  https://sashiko.dev/#/patchset/20260619-dfustini-atl-sc-cbqri-dt-v1-0-e79a7723fab0@kernel.org
+
+---
+Drew Fustini (5):
+      riscv_cbqri: Add capacity controller probe and allocation device ops
+      riscv_cbqri: resctrl: Add cache allocation via capacity block mask
+      riscv: Enable resctrl filesystem for Ssqosid
+      dt-bindings: riscv: Add binding for CBQRI controllers
+      riscv_cbqri: Add CBQRI capacity allocation platform driver
+
+ .../devicetree/bindings/riscv/riscv,cbqri.yaml     |  97 +++
+ MAINTAINERS                                        |   7 +
+ arch/riscv/include/asm/resctrl.h                   | 147 ++++
+ drivers/resctrl/Kconfig                            |  30 +
+ drivers/resctrl/Makefile                           |   5 +
+ drivers/resctrl/cbqri_capacity.c                   | 127 ++++
+ drivers/resctrl/cbqri_devices.c                    | 568 +++++++++++++++
+ drivers/resctrl/cbqri_internal.h                   | 122 ++++
+ drivers/resctrl/cbqri_resctrl.c                    | 785 +++++++++++++++++++++
+ include/linux/riscv_cbqri.h                        |  45 ++
+ 10 files changed, 1933 insertions(+)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260610-dfustini-atl-sc-cbqri-dt-410c8e2711dd
+
+Best regards,
+--  
+Drew Fustini <fustini@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
