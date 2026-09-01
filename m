@@ -4,132 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2F0C61DD3
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 13:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E7CC61DD3
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 13:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r4JdhxBXhfs80h8jT5c4NdDh5pUerUUOs+922jEOobg=; b=RnvwMM5iqC4Pz4
-	OqbFPN2aHRg4uIGezo7IQDpz42EUZ3PFzBN1oHEoqaItA4gl0TiEUQ/lWtCBXWruFzBx8fcU5WAR8
-	tX8YMicesERQGlgiqRxIfxcIACNIE7lrxVRJBF5dBzkz8wLRnaGdl3C3MO0kkdgq7IHrLVvKuuXEq
-	xz5BYSMRotFz5qe2/NH+IaG5T1yJWYyz8Yla0dZHbx9IhUS/J9P0lz1sSvdx0eZNojE3GTciOzvYK
-	mUfLqj0C8o8ZxBFFgcGowekqVPGVMxroFTKSNk3zaLsIysbIy+SDWqzLFzCpVW+HURbhOI/GXXdXV
-	4l5u/mf+zPNPAHSCN6ow==;
+	List-Owner; bh=wlB7b0Nrw+fiGWPpf+A0RJl+ndEV9OCO58eFTfCCFFE=; b=mxGsZSHzaKyHJz
+	U28NOx2WG9Q5RLG5bZYY0aXt4Ks68GVXOUjCqVJo4CWcCYFQ/qxUBj/1ldbaei2wBN1ljHwfY9tnK
+	oPSLZxXvgwdDDdscIiLN2x0yhpQxdfGLEAqf4P3443pInLibl83pRR+Uh3eDi/ruhkSvOD8+VWvYk
+	9oHiLZIacfSlGenpcHAWzaq+/I5YGhBUAq8rs+A1JVdrqEVKXu+hAztbceGFJPn53rG1z5yz1J375
+	xIiPbH63qDU7nNYXHidZt+i1zR4cfoP1oeV3j5Sgg/5Nre8L7V2FwlE2hWG2byWR77ErF2C3p8eVa
+	wLcy3M4BUiY6jdSjkC+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OpT-0000000CFS2-0cOS;
-	Tue, 01 Sep 2026 13:47:11 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x1Ozc-0000000CGIw-18u2;
+	Tue, 01 Sep 2026 13:57:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OpR-0000000CFRh-01Tv
-	for linux-riscv@lists.infradead.org;
-	Tue, 01 Sep 2026 13:47:10 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 681DVnOG2829432
-	for <linux-riscv@lists.infradead.org>; Tue, 1 Sep 2026 13:47:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=1fLyC2LJrsM
-	PxrmgLgJESqyo9n3KdTEyY8OKdLzlv20=; b=TpJPlRuE09hUQt5ujRbsxtN4hHW
-	aQJG3Pd3y80qZiMkth3qtVPLWthdPCJEamQkRVoBmz53Rw94Z3GXGa4u2v2c+ERz
-	vtqkNV2whnUchFAb+0v8jVtTnVLg4hHR2eRtmL0Ahcg3JweOBNP8ii7Eb55/r5W/
-	iLpOULYwGL0ht0M1hxlHiFV2i1phYsS1jWvgxMYn1Sf0J6JWZ2lz/o21MeDYqfB6
-	kPRPRLniEtZ1izpEF0xQhIDNbAJ6LDKQA5C8DdYPQEoEor5/vNe9ydxpBmEDfp/5
-	4r2foM+JY2b9PDpsSIiv+YifBlx8RD4uPpCmLtqAXgQMabMyq6qeEPw0CEw==
-Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com [209.85.161.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gdp7r2k7r-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Tue, 01 Sep 2026 13:47:07 +0000 (GMT)
-Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-6b1c1538784so3313660eaf.3
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Sep 2026 06:47:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788270427; x=1788875227; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1fLyC2LJrsMPxrmgLgJESqyo9n3KdTEyY8OKdLzlv20=;
-        b=YF+TuXRCUWQIQqHN3DpbZoJ+88EJbReHmxWO8KfN5dy0bQJNKFu+YR1GxFnaC5doGL
-         vIBtjFsVhrugPb3HySTifCBk7n1XjRbQ8YcEDku3Jfr93riRtteuBY3SCzetumwzQFUH
-         8edD8IyaDNGJLRab47LVqJmnR/fAebxhozwTIJNgQi38/tHNod0Jsq0BbenlN4+sIeQn
-         i1htiyPkOGzvrg08IHZ0EdcnAHlKLrX1X1jkF+l+Y9hxkAMH3m0jtJj4Db7KZr1+e+H4
-         jFFo7CORzgqQSEKC2JbxVOJoeCTBID21t6fBVM70P+RqdNkOt/H8UgN8B9jM+o3BVuZy
-         mZhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788270427; x=1788875227;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1fLyC2LJrsMPxrmgLgJESqyo9n3KdTEyY8OKdLzlv20=;
-        b=BE956L9Q3rzOj/wEt1DdipchI8aNv4gioTGGMT7pd7fVSMGbUBqsiHo4JJmL/fVtjG
-         SnQZi4/4rfXmkZAflA9B1PTpq9OpzHpbQUJCvmAuB1ons35qbv+oCzUQUXZaCfG0aGie
-         HVuI3gmmW6MkTLbMHLxdUFS1CAR9jJkI+Iylmh7r2syK8rSkAGMEL27TBzHe0eOAO4PE
-         z5e1C1mhyWCzAj97d1JKLthjlw6OTlC9/TYE7IUvt+RKZMiiPWG91weZc8K01WsFCLc6
-         AFrzxNikaGa7NEZK95FZzDUeJrX3KnyRTCuAw+ik10yK/H/DH59gyuqZiw4DUxJERJh7
-         th/Q==
-X-Gm-Message-State: AFuF++mcmSm4/dGbu+zjUP9OrEFdwKgb7/AdpP4OLbK/hK6MZO/H6ajU
-	TR6p51v7Hr2eNA4rlM3uQpzPv0aJtGWrXmxgktc26/F1SoIa2bdj2OOZNW/7QqO7Wa9Z33kI/qp
-	jhllquYF2XdNoXMDFIzbCQ3nDJCPU34r7yiDcaVYYPQzLGStQwewzpWUz9F31UGmJV3OXbiRcMQ
-	zxZ+w=
-X-Gm-Gg: AR+sD13/YeTVcB8uPU/7b1gY1clWcMYJKmmgbArOQ+FznCovfhZdMDmOhdQMUxprDc9
-	m9BSpmT4oltUjePoMGKMi+SlrwP4aYVntdk6IlOeN4tE9OnbnYJ9cl7xnTtVQYqtZAu7TlW9jUE
-	bCbiHEm6l1YcugpaMAEyyQJlchGdiDLYV/OPXrR55jaIEfj4Q+Zi0/lr8XpCERBKaloTu+0WGqM
-	3dhV4mEfznZP2BpDCaJBuc8whP8/971tVGjFWK2HsZsovlJSQFHAoyF8cEALR1Tz4YfIn6ljY/2
-	X+wywMwzXaqtfOP/3fg07LYogRpvH9cCKHptbbELgYziUoKYp6CzUmPbXci4HcoiDWM6esu+PnD
-	I55x97MxxZF2aMuKh8efjTIRwhO9zgIWZ6Fc=
-X-Received: by 2002:a05:6820:290a:b0:6b0:be69:d3cd with SMTP id 006d021491bc7-6b372e76db7mr8287141eaf.17.1788270427274;
-        Tue, 01 Sep 2026 06:47:07 -0700 (PDT)
-X-Received: by 2002:a05:620a:3713:b0:939:69a:4764 with SMTP id af79cd13be357-93948132492mr956841785a.39.1788269920915;
-        Tue, 01 Sep 2026 06:38:40 -0700 (PDT)
-Received: from localhost (ip-86-49-251-7.bb.vodafone.cz. [86.49.251.7])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c255f1b2901sm582378466b.33.2026.09.01.06.38.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 06:38:40 -0700 (PDT)
-From: Andrew Jones <andrew.jones@oss.qualcomm.com>
-To: linux-riscv@lists.infradead.org, iommu@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org, tomasz.jeznach@linux.dev,
-        tjeznach@rivosinc.com, jgg@ziepe.ca, jgg@nvidia.com, joro@8bytes.org,
-        will@kernel.org, robin.murphy@arm.com, pjw@kernel.org,
-        palmer@dabbelt.com, anup@brainfault.org, tglx@kernel.org,
-        kevin.tian@intel.com, fangyu.yu@linux.alibaba.com
-Subject: Re: [PATCH v5 11/17] irqchip/riscv-imsic: Add S-mode MSI address list
-Date: Tue,  1 Sep 2026 15:38:34 +0200
-Message-ID: <20260901133835.345001-1-andrew.jones@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260831145943.313726-12-andrew.jones@oss.qualcomm.com>
-References: <20260831145943.313726-1-andrew.jones@oss.qualcomm.com> <20260831145943.313726-12-andrew.jones@oss.qualcomm.com>
+	id 1x1Oza-0000000CGIb-1Org;
+	Tue, 01 Sep 2026 13:57:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 990E86020B;
+	Tue,  1 Sep 2026 13:57:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 373E11F000E9;
+	Tue,  1 Sep 2026 13:57:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788271056;
+	bh=agwo4ogI1pqxdy5iNzHZWMq9fgC/4O+9PRQpyNWft68=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dS4rdcUpDtk8Sxb6szCUyHVMgnqIMqyqpcKWrox16EEMjkbKRtQlJfHH3ScwPl9Df
+	 8Bpk1Yp158o5ETXiKdRtjpMp00YBbGIKPgAmYa3r3pJQXT5wQA0QFgCem36VeMmzEO
+	 DGCNA582vMONWWT3CX2Y115OlRDxIuJYmuoHfBJLB/AqlYVFsvPh1VYiu3Idu0ZOQG
+	 DpNt+Ix6vcgc2nH11QOhjJI5P0VdXTWCVr6YpiDkIEc5pET6YRCDLPjZftlraZICRC
+	 hpX7PdJTrmQy3/x2Jnc+VcuDMhItR8h8J3kz3Gvw7Q1HJ9EzszfFSy31p4xhOlRCwz
+	 NGCGbK5IuImjQ==
+Received: from phl-compute-08.internal (phl-compute-08.internal [10.202.2.48])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 177151980075;
+	Tue,  1 Sep 2026 09:57:17 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-08.internal (MEProxy); Tue, 01 Sep 2026 09:57:31 -0400
+X-ME-Sender: <xms:vNmWahMoRfGHJylVp69tkl0ZxHuyu14twTOMSzDVmUdqODOOFCaOUA>
+    <xme:vNmWamC04sA7HLbhLFXFetRTQirQ4BCq3h9mf_X9eZoWhHHweJXfeNQnDFEkN-eZU
+    TNHprwg5j4bwG2-RtgLS24xR65NPMHQ58PhK4w0lkjNf7M__AtigCJf>
+X-ME-Received: <xmr:vNmWaq3HcGhSb341ukDeOtyXnIIR93_LM4ZWQrR0RvGyHQIkedHYy9DG-ho>
+X-ME-Proxy-Cause: dmFkZTGhE4xc2F35+/cH9QWJSP+T2sSz31kKWkLnMEla92oo5cnqKuXMLiYgktGt0fz0/P
+    1nAHqKz2XC4RLt0sZBuXgNoB+I3Lv5/lZeidGsyd69PUr2tNaXTbLl4Hq1jVnQD2pxKsB5
+    RUmimEN9ymjBpSBDK05+FgJk8e63uei569IciHBQw1D9FCH5SBdcJBtIvv01IcUYKhgTIS
+    f90WviMk+GkUmSBdkywQGyAi+Kb+Qs4cZvbCzXW86phJx62/9vfGS9f/B1vGm3MjEXgufi
+    xD125CxPznssp42WHeX1rGj2+Px0NTxJU25KbS651lVg+nwXVCAiD9QMRn4oxFx34KkMYx
+    /ylDM1rHu63l41H8z2zMGbuFg+bbu5OoPfGY964XH8pFkw0h2B5akZ5tb7ZRd15sBoxvJ5
+    9ZPlIQHmBss5JGvVitt5oDAdab0/sDuOhYj6IGcWNKZc4l5IguhFNv0eBdiZ2XkP48/xyz
+    q6bQQrm1dnGYKm/bGEuYX/jvKq3w6ZA5D0pVnRf58fwOUna5/8IR1fgu8jrX3MTvyrkxwQ
+    2WRtxks1DmwJsWM60SDXg8t4yPY+L4AyFb79enpcuanRGGerAd74MDz5L2Upjp9/rU+vza
+    OvhtVRTr2CvEdlW0VE/ceLVnrcS0aqrnoB++f7ZsN6y8Joe2E6rYjhbsCAXw
+X-ME-Proxy: <xmx:vNmWalhfMApERZzjpc7TJG7GtCgdX_4w67qtsX1G62pSARN2GZWDIw>
+    <xmx:vNmWaiXm6FAPUBkUzXVBQI0eO7tHb2vPP-rixD6Ad7WIkQTws5E-Kg>
+    <xmx:vNmWagSsKBNh9mcPCUFna8QpbE6wA1vVhKB8VhCwB5se-N496qRphw>
+    <xmx:vNmWahXZHR9XIJgivKj91oeRT0NDLSv9qe3xafv6It9647nhJIe3lw>
+    <xmx:vNmWajSxgwuhyjaLfEEt6Ejf2oTMeCpXSZHSN-d4vScBLmiRwr-9557Q>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 1 Sep 2026 09:57:14 -0400 (EDT)
+Date: Tue, 1 Sep 2026 14:57:13 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ 	David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
+ 	Baolin Wang <baolin.wang@linux.alibaba.com>,
+ "Liam R. Howlett" <liam@infradead.org>,
+ 	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, 	Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, 	Usama Arif <usama.arif@linux.dev>,
+ Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>,
+ 	Geert Uytterhoeven <geert@linux-m68k.org>,
+ Dinh Nguyen <dinguyen@kernel.org>,
+ 	Simon Schuster <schuster.simon@siemens-energy.com>,
+ Jonas Bonn <jonas@southpole.se>,
+ 	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>,
+ 	Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Rich Felker <dalias@libc.org>,
+ 	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Paul Walmsley <pjw@kernel.org>, 	Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, 	Alexandre Ghiti <alex@ghiti.fr>,
+ Russell King <linux@armlinux.org.uk>, 	Vineet Gupta <vgupta@kernel.org>,
+ Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>,
+ 	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>,
+ 	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Nick Piggin <npiggin@gmail.com>, 	Peter Zijlstra <peterz@infradead.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ 	Andreas Larsson <andreas@gaisler.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ 	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
+ 	Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ 	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ 	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ 	Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ 	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ 	Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ 	Sven Schnelle <svens@linux.ibm.com>,
+ Richard Weinberger <richard@nod.at>,
+ 	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>,
+ 	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, 	Arnd Bergmann <arnd@arndb.de>,
+ Vlastimil Babka <vbabka@kernel.org>, 	Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, 	Michal Hocko <mhocko@suse.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, 	John Hubbard <jhubbard@nvidia.com>,
+ Peter Xu <peterx@redhat.com>, linux-mm@kvack.org,
+ 	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, 	linux-m68k@lists.linux-m68k.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ 	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ 	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org,
+ sparclinux@vger.kernel.org, 	linux-alpha@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ 	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, 	linux-um@lists.infradead.org,
+ Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>
+Subject: Re: [PATCH 12/12] mm: change the contract for free_pgtables(),
+ update docs
+Message-ID: <apbUpMDJglS99_yK@thinkstation>
+References: <20260901-rcu-pagetable-freeing-v1-0-5456a81c8212@kernel.org>
+ <20260901-rcu-pagetable-freeing-v1-12-5456a81c8212@kernel.org>
 MIME-Version: 1.0
-X-Authority-Analysis: v=2.4 cv=beZbluPB c=1 sm=1 tr=0 ts=6a96d75b cx=c_pps
- a=lVi5GcDxkcJcfCmEjVJoaw==:117 a=on9AXyaqQ0RhfYpiXjjEXA==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=rNTwnVtw_qv2rMTDxuYA:9
- a=rBiNkAWo9uy_4UTK5NWh:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAxMDEyMiBTYWx0ZWRfX6yptQYV4XApq
- 9ORopmKbSQ66hs/HM/TmiCPL9DCPFKkYqs+Nl2Xs9h075QrvadQ0zw6ZtFwrwFCF4iuhOGSN7aN
- BR3aFKRvWIXUyyXGTTJyG4EtVbwcNTBdbS2Ig2DXbTyT1BVsPC/GqOkaR6lydEZAM7N8o67n/3w
- 8theSSxm8Ruz7PGLkn0WFcDGc01rHJYte6Wsnh1GZOwWvp46QuPrhPDoCh57gO/Jvi+88e4TyaG
- cn4nWDMEw1OHMHCHgbyabi6M/kpsaTCzA7wl1SA4i2aQDc/iCGR9PnmoKfLfs7L2PqVFC04cNxE
- CHQZuvcVoZVz1avDICY5wnvUzBfiboTF3Vebh4xQvX7QrAK3hH3qcUuT7pBfUaQJZJP64PoIiXw
- xRa+uGGlbZgeZafwDf+47h0aEgMjKO7l317aceMx7Gt4f8frRL8jf7t/ut92tcXx+8y0AcHzNBH
- ACHYrfYqdvARUspvWgA==
-X-Proofpoint-GUID: cCIihHGkENUjIi4uZun5d76qddmbiN6-
-X-Proofpoint-ORIG-GUID: cCIihHGkENUjIi4uZun5d76qddmbiN6-
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAxMDEyMiBTYWx0ZWRfX4H4bL7dhBTEH
- fnJTi7prymUjAH4KldZqAG6weu4mDQZ9LdLWpPz3Aw8jQLvFDQLfYDzfTN1k5QgblGZIF4cgQDU
- B0MXN+XkpJLv7m4BSKbhh4zxXaKjb/Y=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-01_03,2026-09-01_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 bulkscore=0 clxscore=1015 impostorscore=0
- priorityscore=1501 malwarescore=0 spamscore=0 adultscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609010122
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_064709_155620_482CFEB8 
-X-CRM114-Status: GOOD (  16.36  )
+Content-Disposition: inline
+In-Reply-To: <20260901-rcu-pagetable-freeing-v1-12-5456a81c8212@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,45 +156,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A Sashiko review raised the following questions:
+On Tue, Sep 01, 2026 at 12:01:32PM +0100, Lorenzo Stoakes (ARM) wrote:
+> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+> index b91b1a98029c..ff8ff3706485 100644
+> --- a/mm/pgtable-generic.c
+> +++ b/mm/pgtable-generic.c
+> @@ -386,9 +386,21 @@ pte_t *pte_offset_map_rw_nolock(struct mm_struct *mm, pmd_t *pmd,
+>   * be read-only/read-write protected.
+>   *
+>   * Note that free_pgtables(), used after unmapping detached vmas, or when
+> - * exiting the whole mm, does not take page table lock before freeing a page
+> - * table, and may not use RCU at all: "outsiders" like khugepaged should avoid
+> - * pte_offset_map() and co once the vma is detached from mm or mm_users is zero.
+> + * exiting the whole mm, does not take the page table lock before freeing a
+> + * table.
+> + *
+> + * However, the PMD entry is cleared first, and the table freed only after
+> + * an RCU grace period, so a walker that mapped the table under
+> + * rcu_read_lock() stays safe, and the pmd_same() recheck in
+> + * pte_offset_map_lock() detects the teardown.
+> + *
+> + * Therefore it is safe for "outsiders" like khugepaged to use
+> + * pte_offset_map() and co. for VMAs that might be undergoing page table
+> + * teardown.
 
-> +		if (!local->msi_va) {
-> +			kfree(smode_msi_pa);
-> +			return -ENODEV;
->
-> Does this strict requirement introduce a regression on systems with partial
-> IMSIC coverage?
->
-> By returning -ENODEV here if any possible CPU lacks an IMSIC mapping, the
-> error bubbles up to imsic_setup_state() and fatally tears down the entire
-> driver. Previously, imsic_setup_state() allowed partial coverage as long as
-> at least one CPU handler was found.
+Is it strictly true?
 
-Partial IMSIC coverage is not functionally supported. The IPI and MSI
-paths can select any online CPU and unconditionally use that CPU's
-local->msi_va or local->msi_pa, so every possible CPU must have an
-initialized IMSIC page. Returning -ENODEV during setup therefore
-validates this invariant earlier.
+free_pte_range() clears the pmd without taking the PTL, so the
+pmd_same() recheck in pte_offset_map_lock() can pass and the pmd gets
+cleared right after.
 
->
-> +		smode_msi_pa[cpu] = local->msi_pa;
->
-> Could this assignment cause an out-of-bounds write on systems where the CPU
-> mask is sparse?
->
-> The smode_msi_pa array is allocated using num_possible_cpus() (the count of
-> possible CPUs) but is indexed here by the logical CPU ID. If the CPU mask has
-> gaps (for example, if logical CPUs 0 and 2 are present), num_possible_cpus()
-> would evaluate to 2, but this loop would attempt to write to index 2,
-> overflowing the bounds of the array. Would allocating based on nr_cpu_ids
-> prevent this issue?
+Readers are fine -- __pte_offset_map() holds rcu_read_lock() until
+pte_unmap(), so the table cannot go away.
 
-For RISC-V, num_possible_cpus() == nr_cpu_ids because RISC-V assigns
-logical CPU IDs sequentially during both DT and ACPI discovery and
-populates the possible mask from those contiguous mappings.
+khugepaged is an odd example here. collapse_pte_mapped_thp() and
+retract_page_tables() don't rely on this recheck -- they take pmd_lock()
+plus the ptl and do their own pmd_same() under both.
 
-Thanks,
-drew
+Can we say walks are safe and leave the write rule where it is?
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
