@@ -4,91 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4891C624D0
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 19:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA29C61DD3
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 19:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FXgsePgpuWI3iFM7RSL7o9xml43NVrdTrDKGFtcOd7I=; b=GSOfWOSLPuOdPq
-	fw1NCSq9oldDo4Mq2P7/yRRiVa7+Im7DccBm6YNFjI/+9XozEcDrZ9xwxbRhrT8TUSP7c6+8QNWjJ
-	zvUv25cZh5KDPurxiN1t3hAnmY76EPffRtdB2k/QHnnlcDt5M3xdvsg3c9kky0gBibbFFrEvK+FnZ
-	SSF2f/5a1ql1witLsKbDPDeYcl5Pq2oVCx+7u6VV8NzGnx0IGZYYQJpMgCsixpbzl0RRfPv0v3jD2
-	xOxl198zbyr+423Gs6OWpC4RVmoqVf2EHaiCfpRXbhMzwwL+JL4EZ8qCCBoHZyNyWca3QvZgZqW6/
-	Dt70g+ArHW/r5jHU+fUg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=spcvWYGc2h1safKkR9X/f1ZcuiQHvkCY6XAKFosNx6E=; b=Jk5Ljpmd0jSUpB
+	qGPDOj8kS6Kbr0NT1+CajC9AbDk5MwMmmBpKN5IATYAzncekxWKxoG6ED41q/moGPkLU3xGRDGoe4
+	/G8fzG+0WaViVfimQMpQ9Ne1HricslSYZYjuyRwxCu9lec6Z0uO+jyE+3mZIlA6yOQEBIyxi6EU34
+	xAzZeHOvfFFnnBLSYj5gwM9Q1S0hTCe6ZoVFfnxv72zT7ZsIsFu9wLYSRkDtxdzdbBLGMrdOCNGOO
+	VCrEtBq+KxqOqa5AREVtu99Wu+jeOfMZnGM4nM1sXejRUEGOJdi6eScahj2H6vNIREmSKlhhdZ+wH
+	o4N89zO6b3j+1O19xRMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1U5A-0000000DC24-39EI;
-	Tue, 01 Sep 2026 19:23:44 +0000
-Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
+	id 1x1ULx-0000000DEm9-44Xb;
+	Tue, 01 Sep 2026 19:41:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1U55-0000000DC0n-1IBv
+	id 1x1ULx-0000000DElp-0ddS
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Sep 2026 19:23:43 +0000
-Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7f18c0e03e3so77809a34.2
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Sep 2026 12:23:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1788290617; x=1788895417; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PNvkhU2BRMZNB3fl0oNJy+OMAEhNSqwG8+0oFRP4+kI=;
-        b=OvrHYujXV8fo0P5sNjKQbTpb6CYACxaoH1mQcw/WFhYrFS7VpsjX0z5L8KWJ/6jyxi
-         krdPvTL8F2MiPsA+D0Cy7mIokOmTYkdbyeQJhAJWirqiv6iE2oS7cGRfEK2qfHd7l1T/
-         nQxYZ/iVoTgrmTvZlLs5Hfhx0kIS0Cgu+NAZGjZyI+BvjEOA+cXjRG8KWiF/WWEI4Cbt
-         hK3rh8COyp+HmapAv4cYaZJ4bujO0lC4980h6GF/kJs/zbffN2QOGcyCNO+k+rZFCaVB
-         vTiLUVDqXRy31TUG7ASsvGP8ff6PQ6EFCDOkADzWNWXGvZsqMsRBFF6XKNWVXQQs5Dqn
-         mnmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788290617; x=1788895417;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PNvkhU2BRMZNB3fl0oNJy+OMAEhNSqwG8+0oFRP4+kI=;
-        b=CZahx5umoGEjNQf+w1a6uhZGbZYyy+OfWhRuptYRQYB/Tk+knEomN2ehuLi743w/Vu
-         khBZlSCUxIgqXjXpp8oggUN3ln0htnaUTVinHDFpbzeLGm9ze1al6tsP7GLopng3O/YE
-         2oiFTXAB8i3xjSsHSwcrNS73R8inb5m7cqQkuupsUVqicDh+q9TzzsqOvGg24rKVzhRQ
-         TgCbiaCvbSF4Yy9jKJl8v3o4AnwfMNBaPwFrG2SXvDZthChUSK2cf/MGkpRxj7VGGq8L
-         omx188wI0sBsdNZ+Zo3Ng1QrSGvlhohjIYAsklAPwZKT9bKX7k4Wzx8aPK9DzKhKNv3t
-         TZqg==
-X-Forwarded-Encrypted: i=1; AHgh+RqUazS6R3I9Cz2H75e2Q7F4cHPcVQCfuZn0l7IDXJzqDi3jEZYeOArEq9OqL9cDWBIXE3qEYWtXGD+N2w==@lists.infradead.org
-X-Gm-Message-State: AFuF++llPr8qjqRrA8/SSTNnQH2igp68/1RZVBIDvQEwGPd+3KVBnHNA
-	lghz2+JQBechz8fJ88naEuILQCpVXGBOPbftCqBI2S1ECzj++jWKd+XxV9uTe9fW29o/z36D7oI
-	qQccgug1DoA==
-X-Gm-Gg: AR+sD11z45+PVwYMzsg5B6k7A8BV/yce8zBrl6rurGJm/IsoQR80oYN3A/jQSAoik34
-	RR6AsRk40gESeLEo0t/2IQ3poOW7YDjjMxkZZDr4XoYikjpAYDCh74fE7uA3wn+Hx8QAozM7vUL
-	KTeHS/c7FEGMLZmDBw6f3lPVOZCndW2aMcx4s83cQIx4lIUtcabUf2DDHIatmImBO5g1HeJ2uyV
-	Cfx1+031shm+UoPrngwtdLabcuWOPSBYG5cyWCi0E+nphZthR3JnSSldd/ErlcGYGtcy5K3VwPO
-	vwO1BVidpCS0zoUS2Tid7HcvmWks+fPckL7t4hS3eCmTj1c7APF13SZifeU8skC9RjeCP5bfwIm
-	Q6QS3qVhDxpde4eJO+eAqcWQw+voRCW2o09xuYeWbbRSlSg2BBm5axMcpnYUOfWMSAuO4hzmMdL
-	GxkMqeItOa3wOxHBirsybvUCcDSYEMBQv3civL1f0dRvdL0uejclZ7l3/MfaZsqNNuPzEKM72wY
-	zFRpcQkQKAIrJaBM6FrguMgaUD3
-X-Received: by 2002:a05:6820:1890:b0:6ae:a950:9faa with SMTP id 006d021491bc7-6b43661f415mr789332eaf.10.1788290617513;
-        Tue, 01 Sep 2026 12:23:37 -0700 (PDT)
-Received: from lima-default.tail89d63.ts.net ([47.209.119.30])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-46f330822basm808509fac.15.2026.09.01.12.23.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 12:23:37 -0700 (PDT)
-From: Andy Chiu <tchiu@tenstorrent.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org
-Cc: andybnac@gmail.com,
-	Andy Chiu <tchiu@tenstorrent.com>,
-	Anton Blanchard <antonb@tenstorrent.com>,
-	dfustini@oss.tenstorrent.com,
-	greentime.hu@sifive.com
-Subject: [PATCH v1] riscv: skip software algning code for HAVE_EFFICIENT_UNALIGNED_ACCESS
-Date: Tue,  1 Sep 2026 14:23:32 -0500
-Message-ID: <20260901192334.3543340-1-tchiu@tenstorrent.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 01 Sep 2026 19:41:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C9DA60207;
+	Tue,  1 Sep 2026 19:41:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 321C41F000E9;
+	Tue,  1 Sep 2026 19:41:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788291664;
+	bh=23/MZB8wrEyX9XWKNI5R0zZXXj8aB24fAIwXwsKt05E=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=A66J4XVPkBjqRvMBUD2kbAsKdX96r18WsMjLBTPX/HboTYjTHHgW6pdanrolYO8jw
+	 f7NZ+gjiHsFpZBOCKm4pbGtAX0q75DKObcEQH1umh4SAn9Pi4qxYLJBX9Ys6FPEpCg
+	 bB79LsNWd/PrTZeNo+CWPSDuXFFxvVAR0xiNWPwYTydct0uoQk4xx8/m3Jx1cPvO19
+	 tLVZ25tJk0gvcxbt24Ci7h4kRa3ta9RvlBPKleTXH6iRRE0jDjLUR0AUUd7o6zEhCz
+	 FHe1L0GvJNrnWdf3k2PGSgbwnLzoyxk2sViWwJQyvtPuUhHgwAf1WLNac/K/cR5hcg
+	 WniVsIEMtObaQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0AE539253EB;
+	Tue,  1 Sep 2026 19:40:07 +0000 (UTC)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_122339_458946_12BAE748 
-X-CRM114-Status: GOOD (  11.30  )
+Subject: Re: [PATCH] riscv: report Zfhmin/Zvfhmin when Zfh/Zvfh are present
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <178829160640.1815744.5288519540181026085.git-patchwork-notify@kernel.org>
+Date: Tue, 01 Sep 2026 19:40:06 +0000
+References: <7190E4DB338251C3+20260811081513.2849980-1-jinrui@haiwei.tech>
+In-Reply-To: <7190E4DB338251C3+20260811081513.2849980-1-jinrui@haiwei.tech>
+To: JinRui <jinrui@haiwei.tech>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, corbet@lwn.net,
+ skhan@linuxfoundation.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, alex@ghiti.fr,
+ ajones@ventanamicro.com, cleger@rivosinc.com, charlie@rivosinc.com,
+ samuel.holland@sifive.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,65 +75,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We can jump straight into the copy loop if the kernel is compiled for a
-hardware that natively supports misaligned access. The user copy
-bandwidth improvement on K3 and Ascaolon is shown as below:
+Hello:
 
-Misaligned user copy, size: 512B (offset: [0:15] except 0, 8)
-BW Improvement	| Write	| Read	|
-K3		| 6.19%	| 3.43%	|
-Ascalon		| 10.0%	| 11.4%	|
+This patch was applied to riscv/linux.git (fixes)
+by Paul Walmsley <pjw@kernel.org>:
 
-Aligned user copy, size: 512B (offset: 0, 8)
-BW Improvement	| Write	| Read	|
-K3		| 1.69%	| 0.90%	|
-Ascalon		| 1.25%	| 3.32%	|
+On Tue, 11 Aug 2026 08:15:13 +0000 you wrote:
+> The RISC-V ISA manual specifies that Zfh implies Zfhmin, a normative
+> rule clarified in
+> https://github.com/riscv/riscv-isa-manual/pull/3070. Zvfh likewise
+> implies Zvfhmin, as stated by the vector extension specification.
+> 
+> The kernel currently reports ZFH and ZFHMIN (and ZVFH and ZVFHMIN) as
+> independent hwprobe bits derived only from what the device tree
+> declares. Platforms that declare just "zfh" (Zfh being a superset that
+> already contains all Zfhmin instructions) therefore report
+> RISCV_HWPROBE_EXT_ZFHMIN=0, which breaks userspace RVA23 conformance
+> checks (e.g. snapd installing core26 on riscv64).
+> 
+> [...]
 
-Suggested-by: Anton Blanchard <antonb@tenstorrent.com>
-Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
----
- arch/riscv/lib/uaccess.S | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Here is the summary with links:
+  - riscv: report Zfhmin/Zvfhmin when Zfh/Zvfh are present
+    https://git.kernel.org/riscv/c/2dc1f8d0a5fd
 
-diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-index 4efea1b3326c..cf8586a937de 100644
---- a/arch/riscv/lib/uaccess.S
-+++ b/arch/riscv/lib/uaccess.S
-@@ -76,6 +76,7 @@ SYM_FUNC_START(fallback_scalar_usercopy_sum_enabled)
- 	li	a3, 9*SZREG-1 /* size must >= (word_copy stride + SZREG-1) */
- 	bltu	a2, a3, .Lbyte_copy_tail
- 
-+#if !defined(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)
- 	/*
- 	 * Copy first bytes until dst is aligned to word boundary.
- 	 * a0 - start of dst
-@@ -103,7 +104,7 @@ SYM_FUNC_START(fallback_scalar_usercopy_sum_enabled)
- 	/* a1 - start of src */
- 	andi	a3, a1, SZREG-1
- 	bnez	a3, .Lshift_copy
--
-+#endif
- .Lword_copy:
-         /*
- 	 * Both src and dst are aligned, unrolled word copy
-@@ -137,6 +138,7 @@ SYM_FUNC_START(fallback_scalar_usercopy_sum_enabled)
- 	addi	t0, t0, 8*SZREG /* revert to original value */
- 	j	.Lbyte_copy_tail
- 
-+#if !defined(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS)
- .Lshift_copy:
- 
- 	/*
-@@ -189,6 +191,7 @@ SYM_FUNC_START(fallback_scalar_usercopy_sum_enabled)
- 
- 	/* Revert src to original unaligned value  */
- 	add	a1, a1, a3
-+#endif
- 
- .Lbyte_copy_tail:
- 	/*
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
