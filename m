@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2426C624CE
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 01:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BC7C624CE
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 01:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=t6UIV5MInye83MD1uVMyAA+ygnMWLyEWkFad1MTTSVo=; b=pS+6Sha9FGcaRN
-	+Y4GS2ZJMmAz0hUhy0Q+YiJRfZ5/yirXTX/auv4637sT5GxApMjkR+bOx6/ZOsTIiQH7GXj4Qmp80
-	VKdJfvkI6LxGmypyhUQCOFxl/PXm4FNIGr9V0FIpuaCvO5UjBVQi1DgtqaHxb0ODBqINcOmDj8ZWq
-	9Lw0TOscwUNVFQ/3HVfZYdfQkjpWYW/PKdXHL8g8kAut46LADFmHGqL/xlUqqWp071X9i2CS6xY9P
-	b6huxODbEci4L4Bq5lq33QXozjSZQySK2cJ6vyIj5Ee7YVKppXC+r8qAPx/6+aORXRadke1z9IWzH
-	8jMakCsmfH1+PeGcYJEQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rjCqzCxo7IPMAOGjTZfGUR6upveK0zy9VmYwl5BO3Nc=; b=YK6Od6raXslVWX
+	XvGyn7Vu76yJI+AokdUTa6N73M9ZxGg7Ywgla+Wce6TaTdrDH+SiXnCWisxAbIvNjGXcDjui/CDzg
+	CKn383V65CO/djhr6tAWT67LN6qmE4rrtLQUxXs1Xr5SqGMNvbRcPAvJ+M1EjKwDEEuVmxL8+MhVj
+	SNkS0H7A+HFSRRUuZmRit7VEUx5xjTxzPIl7ukNxqraHo6UBv0ghZot+6+S1K+GOH+pkXfSweQQZ7
+	otmdiVfn4PJN/4S9YBUXJzZER7VqUYakjWpCO3hfLjjHt8RtAEGyL8ZDtARn+2OYTQ1Q/1WjubVEP
+	AlpHWQtVXOH1TVK2Y9Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1DRu-0000000AoQZ-0qb5;
-	Tue, 01 Sep 2026 01:38:06 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1x1DS2-0000000AoRh-1Ef4;
+	Tue, 01 Sep 2026 01:38:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1DRs-0000000AoQ9-0CKT
+	id 1x1DS1-0000000AoRZ-0Q2j
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Sep 2026 01:38:05 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2d91ff7d9acso15064615ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 31 Aug 2026 18:38:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788226683; x=1788831483; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MwrPzZ3UqC1qw7RtMh2uyX7vL1CZ1f9d+u4eMBeXRcg=;
-        b=pLHl1sguMzUailZyObMrMLgNcIPg+8kdJQbxLgnHCLj2iRt7yF6+eR2Owt1EKTYJDi
-         1p1y0dCQRfgg8ch7omeGow0SfvNpPOktwtFiLu0oC4ZXxwxXeWXpWkoVyw3wzw2HO0UR
-         FDiR+/oP7ZZHxRjPId48RrrNjIxOjgxPUk9Flb1V96YdnkXe9nMfqjS3H2olW0/Y67ph
-         LwzqCaOR/yzqBJZerm0hIgbTcWEec0NxDvJWCrC/DVZxMIST1MS6U8oC/bPf44M/CR+z
-         qGy7APDG2fUVdYtWJH7aqS0k3YoKE44vn7ALMQU1DMoawxIZdVy/TQdPWvquNl+21DLz
-         HlFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788226683; x=1788831483;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MwrPzZ3UqC1qw7RtMh2uyX7vL1CZ1f9d+u4eMBeXRcg=;
-        b=CadGCqnMljYYq1xdRKkvRdqR2vN5a67NSyTzwMJirvOA28EICylqbljeVZefL1p19U
-         4cVkvNQ4UIy/0xmqOO2br0RvJfUY6wJ5BrJcpjo1gEuu6+aybQ5BNMMVZvX7SMPLZiKW
-         pgnlzs9jhTMNhWbx5ydfRKNFAdSj7sXoYZoJZpcWmI/VPvC54nx2P8CnHVRqXv6jLJ6W
-         DDge1yoaCVB3vXFicgfnHbC5IZwJFJf8XOCsscT95D51YuCUm7gBkHk4r/c015th5hUU
-         RVhSrOWtMN8fSqoZykjHkhCjf6obLPZFyIDiwKnP2TfAwwAkwMX2ulEC8E5thHnX68UW
-         JrmQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxEGOyWd+Q5aryF54BXCa4xVELcGN7VwZ6ylmTjkZ7q4eBD9BQhF+TTYma0ist43UCX7gpOiLXe2UmeOA==@lists.infradead.org
-X-Gm-Message-State: AFuF++lPNUXK/JrN8vlwxFVhq/O3Lgr0PL6VZ4GkIEGjQ0Cf/OXppVlv
-	1wk77DyikGdm5gSxBI1AetPDtODqbvTA5JWULdCyjYc/s5FlaGPa30fhGEPreR56gB4=
-X-Gm-Gg: AYBFou0aKaFe8rTp5cS115NDm1VHdiFK/x1XzVZYK+ReToFEdi1C6BAY756/cP2cZtz
-	8e2uA0DR424HNFhMNf62Wh7ujAjHzesTrWhkuuY28gKphWMU4PuZOafz+BYMPUse6hIYPBw5+Ax
-	ASCV7y69zoHoyIu8jfSovJV4cC0ehFJVRquG5i644fS2ZcfK24rHr/Cb6XSUTzmgySJMnPd4X3H
-	Fzl0I/UTJsN/i5j7VFghbOV6/MUQILvT/Ar0gtxOt3kRF7sPRDZq16wCfu2JoQvIlYgjhYKFBgH
-	Ywp2avmX2/VSuTgIHpZk5Fs1OPC9F2ltikSdxwnNgNNqZDOJFnPmf5tTgj/+UOK5KKGS8YE0pax
-	jsnl64PZ8fEoUIwiMvTLaFvrLPk5p8XHBy7O5PWq0ItqWN/HW4uOdq1qrBDR+e0QdfKWtB2LAbw
-	dElT2FdeyhilpPABeO4hkD98+1ZH1YzqrHxVPsy6b8YsOGlMHLqR5V0qo=
-X-Received: by 2002:a17:902:ce86:b0:2d7:2edd:d140 with SMTP id d9443c01a7336-2d74dbfd59amr423838315ad.3.1788226682603;
-        Mon, 31 Aug 2026 18:38:02 -0700 (PDT)
-Received: from bloom.localdomain ([2604:3d09:178e:e100::3820])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d7594fc3f0sm43974415ad.3.2026.08.31.18.38.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 18:38:02 -0700 (PDT)
-From: Ivy Lopez <skunkolee@gmail.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: alex@ghiti.fr,
-	conor.dooley@microchip.com,
-	schwab@suse.de,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ivy Lopez <skunkolee@gmail.com>
-Subject: [PATCH] riscv: hwprobe: simplify has_fpu() to check D extension only
-Date: Mon, 31 Aug 2026 19:37:46 -0600
-Message-ID: <20260901013746.19386-1-skunkolee@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Tue, 01 Sep 2026 01:38:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 20095602C3;
+	Tue,  1 Sep 2026 01:38:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA8071F000E9;
+	Tue,  1 Sep 2026 01:38:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788226691;
+	bh=BrIiRFWtczkZQEdzjQfU9/6RPpw/i2QrGgvd2I+VXzs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=NcdeswUltGsBhID6VXv/iVFj1j2VSDPdMjVwIMYNjhwk+qAL2m3Tij7x+6lPct52V
+	 SylHxgblCs1CbxzFhF8XlDug85XelzDJLFy160Rku11eEmBe4+WC1r0gtgBDo1wjCW
+	 x5qSDPmUVvrCjoVld7nDbuS42ebeC00QMNv1qn16e+WtUR1+ChiHq7xFlpOgtbKd/O
+	 sSaVkW2mE0F0U1nSRH8GojV62Ia0ow3GVB1GI1z/udq+g0gbx0k71n75x4279cw3VA
+	 AtYvM7tXgXg2RalTE7wO6M0MVuN2EAL7i8HzPqKURD42lhfpD0WTcaiA3Cc4XdE4xq
+	 GnBZ7Ep70PC3w==
+Date: Tue, 1 Sep 2026 02:38:05 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Janani Sunil <janani.sunil@analog.com>, Lars-Peter Clausen
+ <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, David
+ Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Jonathan
+ Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Mark Brown
+ <broonie@kernel.org>, Marius Cristea <marius.cristea@microchip.com>, Marcus
+ Folkesson <marcus.folkesson@gmail.com>, Kent Gustavsson <kent@minoris.se>,
+ Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+ <daire.mcnamara@microchip.com>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, Janani Sunil <jan.sun97@gmail.com>,
+ linux-spi@vger.kernel.org, Kent Gustavsson <nedo80@gmail.com>,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <20260901023805.20abc542@jic23-huawei>
+In-Reply-To: <apUo4afCh5LhUqIO@ashevche-desk.local>
+References: <20260827-ad5529r-driver-v10-0-38f2be07b824@analog.com>
+	<20260827-ad5529r-driver-v10-3-38f2be07b824@analog.com>
+	<ao_z9QTJC_q8gH0v@ashevche-desk.local>
+	<178813177252.2788519.10940489053707901297.b4-reply@b4>
+	<apUo4afCh5LhUqIO@ashevche-desk.local>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_183804_091117_D2A0EC73 
-X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,58 +88,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The kernel never supports D without F, since D depends on F. The
-D-extension flag is cleared during devicetree/ACPI parsing whenever
-F is not present, so has_fpu() checking either extension with '||'
-never actually produces a different result than checking D alone -
-F without D cannot occur in practice, and there is no observable
-impact on RISCV_HWPROBE_IMA_FD or userspace.
+On Mon, 31 Aug 2026 10:10:25 +0300
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-Simplify has_fpu() to check D only, matching the expectations set
-elsewhere in the kernel for this dependency, rather than relying on
-a redundant OR condition.
+> On Mon, Aug 31, 2026 at 12:16:12AM +0100, Jonathan Cameron wrote:
+> 
+> ...
+> 
+> > > > +	device_for_each_child_node_scoped(dev, child) {
+> > > > +		if (st->num_channels == ARRAY_SIZE(st->channels))
+> > > > +			return dev_err_probe(dev, -ECHRNG, "Too many channels\n");  
+> > > 
+> > > Okay, this actually better to be ENOSPC
+> > >   
+> > > > +		ret = fwnode_property_read_u32(child, "reg", &ch);
+> > > > +		if (ret)
+> > > > +			return dev_err_probe(dev, ret,
+> > > > +					     "Missing reg property in channel node\n");
+> > > > +
+> > > > +		if (ch >= AD5529R_MAX_CHANNELS)
+> > > > +			return dev_err_probe(dev, -EINVAL,  
+> > > 
+> > > and ECHRNG is here.  
+> > 
+> > That one is getting rather creative even though I guess the description
+> > does fit rather well.  So I don't object, but also feel -EINVAL is
+> > probably good enough for an invalid property value.  
+> 
+> But missing property message propagates the fwnode return code (which will be
+> EINVAL IIRC). So the above is not about missing property, it's about wrong
+> channel. Note, I have checked uses of ECHRNG in the kernel, and many of them
+> are fine with the suggested one.
 
-sys_hwprobe.c already calls has_fpu() and needs no changes.
+Fair enough and works for me.  We can add this to the list of things
+to tidy up if we happen to be touching other code that deals with
+wrong channel numbers.  Not something we want to generate churn though
+unless there are far fewer instances of this than I think there are!
 
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=221874
-Suggested-by: Conor Dooley <conor.dooley@microchip.com>
-Suggested-by: Andreas Schwab <schwab@suse.de>
-Signed-off-by: Ivy Lopez <skunkolee@gmail.com>
----
-Changes in v4:
-- Rewrite commit message: drop the "weakens semantics"/incorrect-report
-  framing (Conor pointed out F-without-D cannot occur since the D flag
-  is cleared during devicetree/ACPI parsing - confirmed in
-  riscv_ext_f_validate(), arch/riscv/kernel/cpufeature.c - so there's
-  no actual behavioral impact). Reframe as a simplification matching
-  existing kernel conventions, not a correctness fix.
-- Fix "F without D" -> "D without F" (Andreas).
+Jonathan
 
-Changes in v3:
-- Drop the sys_hwprobe.c hunk entirely: it already calls has_fpu(),
-  no change needed there since v1 was never merged.
-- New thread per maintainer request, not a reply to v1/v2.
----
- arch/riscv/include/asm/switch_to.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-index 0e71eb82f920..8186cda88e17 100644
---- a/arch/riscv/include/asm/switch_to.h
-+++ b/arch/riscv/include/asm/switch_to.h
-@@ -60,8 +60,8 @@ static inline void __switch_to_fpu(struct task_struct *prev,
- 
- static __always_inline bool has_fpu(void)
- {
--	return riscv_has_extension_likely(RISCV_ISA_EXT_f) ||
--		riscv_has_extension_likely(RISCV_ISA_EXT_d);
-+	/* D extension depends on F, so checking D alone is sufficient. */
-+	return riscv_has_extension_likely(RISCV_ISA_EXT_d);
- }
- #else
- static __always_inline bool has_fpu(void) { return false; }
--- 
-2.55.0
+> 
+> > > > +					     "Channel %u exceeds maximum 15\n",  
+> 
 
 
 _______________________________________________
