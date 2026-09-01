@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A4DC61DFD
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 02:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A97C624A4
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 02:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:In-Reply-To:From:Cc:
-	References:Subject:To:Message-Id:Date:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QgM2+yGcOlG3rd8S2kSo2vOU0yCGMQXODWnymXCbwF4=; b=k9NSgHJsVkKJkK
-	3MoZ+kHXGkBofNYLJvnbSqct4mBMDcJ44xj57wlxFe1q9OwHAKQfh1chkBuNSshARs101tb3NI61G
-	Nk2UfOq01cJQG8+qYA0AUUPbWpWgLwf9FZnQwG2zlJNMG26IwgWZt/FdtGzxr3m2SkYjf35vEpG69
-	a/8yv92eb+WxXIqmndbWzsI1rWJGbWBLHgcykMkEPc43Mwgw9bbERIblcefaiCQcYhjCj/keZSMJA
-	zphukCLHmPz6Epy+HJTZlo7xRrBJ04tChWtZ0s0tJktEWR6AgDrOpOsCob4CpVYFtJ69iKChM2N2Q
-	MnPBjqSlgnOMWJvb1v2Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=poKi4Ghqj+xkL072GKhywYh1Q4a1d+IFXgzH1WHQ3Eo=; b=XyFTtznX3qg/gT
+	aPSGicih3qBRkGZZO5pwY8alzO0cw/2CQnUipSgcH9KyjfzWLrNNoCKoTCtYtlolNEIUjNq1dWb7M
+	bI3I2r7WgEYGhI3KpRGdxH+GmXyMpDp3C95LePh2EdmdOq2sBriSwlHorJQdvHF8osdOQa+OAr96w
+	G8j93AeuOhBRk74Xiye9Rx8Fe6zCZLS/ZWG6b4Rq7Mzib9oPfZxuE6YbkFwTRvhJfuPwHP4SPedJt
+	piGWyDk+lockKGWSRy+y/LjzXDgzyD2QbpZgupeGWC0C8Gu50FKKrPmRxBm3wbzoCl46sxlvzWooZ
+	K1LfvIipFH8OmImhSl9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1EFg-0000000Aso8-2FHS;
-	Tue, 01 Sep 2026 02:29:32 +0000
-Received: from va-1-111.ptr.blmpb.com ([209.127.230.111])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1EFe-0000000AsnW-0jdQ
-	for linux-riscv@lists.infradead.org;
-	Tue, 01 Sep 2026 02:29:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1788229764; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=nSl8I61Po4NfLfKWOqzFnz5x9QTmz7kfJ1JFGJE3pRE=;
- b=hlhscmI2xhebF6JU6PU6pMC525JkzK9pEvUyuBitNtDz8R0gCPPMWh10l/jEMNIgIBh/Sm
- aCbodVFA7wel9kPjXOGlkOHIsYme+5WNozR7DxCLAG/T8nYSit+M2VTFCox+ePYZVcpyeF
- 98UhbrxwegdzE+KwfHnvqCCsnUyreAO3xqusX+YMEvriYDCc+GPjkV/zgDRHEQEqdUOQ7d
- 9L5OS7+lAjP9qfuoNDewhhUpcFSCY6m2R1KnQ3ix+m9YDtMHKlZImmLpeiO7VAIDJhIp9u
- 5ot74krM2P1BgmTRoO97fLXsL0QZ7fdpxaYEsJaJauAEQiZB3l6PuMxOLa+wpg==
-Date: Tue, 1 Sep 2026 10:29:06 +0800
-Message-Id: <bd8646c1-1ed7-4b04-a00b-ef31700a41fa@bytedance.com>
-X-Lms-Return-Path: <lba+26a963882+d3e6f6+lists.infradead.org+qirui.001@bytedance.com>
-User-Agent: Mozilla Thunderbird
-To: "Steven Rostedt" <rostedt@goodmis.org>, <palmer@dabbelt.com>, 
-	<pjw@kernel.org>
-Subject: Re: [PATCH] riscv: ftrace: reject out-of-range non-direct targets
-References: <20260707121235.759104-1-qirui.001@bytedance.com> <20260901020000.1-qirui.001@bytedance.com> <20260831105820.22085739@gandalf.local.home>
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
-Cc: <mhiramat@kernel.org>, <mark.rutland@arm.com>, <aou@eecs.berkeley.edu>, 
-	<alex@ghiti.fr>, <linux-kernel@vger.kernel.org>, 
-	<linux-trace-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-From: "Rui Qi" <qirui.001@bytedance.com>
-In-Reply-To: <20260831105820.22085739@gandalf.local.home>
-Mime-Version: 1.0
+	id 1x1EY9-0000000Atpj-0z0k;
+	Tue, 01 Sep 2026 02:48:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1EY6-0000000Atp7-2egU;
+	Tue, 01 Sep 2026 02:48:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4CD931692;
+	Mon, 31 Aug 2026 19:48:28 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5150C3F882;
+	Mon, 31 Aug 2026 19:48:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788230912; bh=it2TzzIDYTIEJor+n+hAx7Y9VTg7srHvqDHPINLC58w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=usDt8rhjPTPyhurOvXc8PdfuSoWH0nYsX72TOilRCeK51T4CARGkosyhwrLBvxyhc
+	 l9WrmE/Q4V575jMJywI4lXro08Z3FihKyE+sAH5OZKnsGdk8N6U5ibobJVe6+qJK5R
+	 M+KgzpkQ/xqu4+mMb5mvQGSArMljTWloMojjfQx4=
+Date: Tue, 1 Sep 2026 08:18:28 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, samuel.holland@sifive.com, 
+	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+	Rich Felker <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/8] mm: Drop pxd_ERROR()
+Message-ID: <44crgg3r7p2d26blmgq2ewqan3anfhdo73zxe52rvpcjsdhdvd@xztk7osntzhf>
+References: <20260831054331.625505-1-anshuman.khandual@arm.com>
+ <20260831185519.66c6e6e83ce62d0fd9aee945@linux-foundation.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260831185519.66c6e6e83ce62d0fd9aee945@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_192930_287176_FAD27D93 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20260831_194834_790806_AC4B1349 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,45 +79,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/31/26 10:58 PM, Steven Rostedt wrote:
-> On Mon, 31 Aug 2026 11:50:45 +0800
-> "Rui Qi" <qirui.001@bytedance.com> wrote:
+On Mon, Aug 31, 2026 at 06:55:19PM -0700, Andrew Morton wrote:
+> On Mon, 31 Aug 2026 11:13:22 +0530 Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 > 
->> Hi Steven,
->>
->> Gentle ping on this patch. It's been over a month since submission
->> and I'd appreciate your review when you have a chance.
->>
->> The patch fixes ftrace_modify_call() on RISC-V to properly validate
->> old_addr/addr instead of always treating sites as FTRACE_ADDR, and
->> rejects out-of-range non-direct targets that can't be dispatched
->> through the existing ftrace_caller path.
+> > pxd_ERROR() macros have been provided by all platforms, which are very much
+> > identical and can be dropped off completely if these pgtable printing could
+> > be moved to callers in generic MM aka all pxd_clear_bad().
+> > 
+> > But first cleanups and re-organizations are required in some platforms that
+> > are using these macros internally. Afterwards [pte|pmd|pud|p4d|pgd]_ERROR()
+> > macros have been completely dropped from the entire tree.
 > 
-> This patch looks very architecture specific. Is there a generic ftrace
-> issue you have with this? "out-of-range" issues are specific to an
-> architecture (x86 doesn't have this issue).
+> All was going nicely until...
 > 
-> You need the RISC-V maintainers to review and accept this patch. I don't
-> see anything specific to generic ftrace infrastructure here, which is what
-> I maintain.
+> > This series is based on v7.3-rc1 after the following patch and has also been
+> > built tested on multiple platforms.
 > 
-> -- Steve
-> 
+> *what* following patch???
 
-Hi Steven,
+The dependency patch has already been merged upstream.
 
-Thanks for the clarification. You're right, this is entirely
-RISC-V specific -- the out-of-range issue comes from RISC-V's
-AUIPC/JALR relocation limits, and the fix only touches
-arch/riscv/kernel/ftrace.c. There's no generic ftrace change here.
+092836fedd82 (mm: standardize printing for pgtable entries)
 
-Palmer, Paul, could you take a look at this patch? The core fix is
-making ftrace_modify_call() honor its old_addr/addr arguments instead
-of always validating against FTRACE_ADDR, and rejecting out-of-range
-non-direct targets that can't fall back through ftrace_caller.
+Please ignore this.
 
-Thanks,
-Rui
+> 
+> Oh well, I'll queue it all up and shall hope for the arch maintainer
+> acks to roll in.  Please.
+
+Thanks !
 
 _______________________________________________
 linux-riscv mailing list
