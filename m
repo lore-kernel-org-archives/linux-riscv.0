@@ -4,109 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC213C61DD3
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 14:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D854EC61DD3
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 14:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jbAspGbVf1Fzy2IlRPnw1vkWvgrOyl3Af5EK9aKeQAo=; b=P72chuQuO57oo8
-	u9wuW20hNUkfugvfPmYo8WY+woRDWcrN5TfBcFNtPYwj7LLHkFOmrYfJ96rq8pI03glxjJX3L6Z8S
-	eG3zRWSofFI3BX6R98YbFWjWF2ksU5fMDBTNn31hb73HBmWirQ5sqmrW6fCq48vkOw8xNzcs+p75T
-	aGjnnkEmiw4KW5HjfJjnkHQ+Q/VJ0T6K2EOp4XdAGZInmZr91i61W11xi954BZi/XwkoC5zOMS7hl
-	F7BujlAs7m+wD/Xeq21Bh8bfW86NE15FD4f+Cck7zKRtDICTztwBcu4kXP4aUV/qGbDlC9NDJVK0q
-	EWDFsffyziU/cwVKOqIg==;
+	List-Owner; bh=Ip3QhL2O1Hdk2wEUJ0TYCxByRmpps/1701QOS6AEF5s=; b=IQmk2wWSWysaUa
+	IXUysg1stF7k5j/7ru767/WRnpdJEjHT99EPfKoZlT/jfJNqzUZaHtmg+Nf4Q3cknaV5lavrE2O88
+	juGhjDlUSnt3DlWRUeuZMppdETsH6S0iz/rVP9kNymha7fo8laOBYDECPgOh/U1LzqrlMUfmdObYI
+	EtMAJDzkzXEZYJroh0BjBGryxOT7opd9CuWtmmdl7PE3E2AOhYe5gHSfN5L4JA8kKCxRW/ANBJ1Wj
+	OlsW5KBekpuP5TXf4d+Aa+ng2twIMLBnN3wZRSpmWdwJpMy7mee0oaAqaqdnt/S2SYnUhSeOYSUq9
+	jxLR6ebhLGbIWej+97uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1P8o-0000000CISo-3ZBf;
-	Tue, 01 Sep 2026 14:07:10 +0000
-Received: from pdx-out-003.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.246.68.102])
+	id 1x1PEc-0000000CJJz-1XOY;
+	Tue, 01 Sep 2026 14:13:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1P8l-0000000CIS9-2tuk;
-	Tue, 01 Sep 2026 14:07:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1788271627; x=1819807627;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=gwbUYxXHQaXTXqslqakO/JmHO0leSCcNPKEN6HpwsIg=;
-  b=abkUevAVTopFbSXSUoPqexkGCzpsS/oS3RMZ2RLhblMsTHo5I7eLtGc1
-   EiTs6n+klb6ZpDQgF95lT2jj0/qHMH09Fso+GwwCFIBtJgSCo83+iUE0c
-   CNTrNi2HPHSJDDH1wkOmrPiOQEJDLOR2TPVxpJl3n1N3sSkfFl4PAkzgH
-   yFM3a7rhIUpcp93ukeWZ1sn8MmCmfqPqOJSUx3SNiOU+aJbvWWOhrbACP
-   R/GU5Ifx5jxHjbLK4ccV/OwFeL2FT4RA6kxUrI2PVp5vrQV3XMjUf+X1b
-   2cg5w0ZzI4FXIm2UTRC+FuIKOAAjm5IBrIjgJ6eZaOdiZCwmP39wTBeu1
-   w==;
-X-CSE-ConnectionGUID: g7Zx9TRQQvWpTs8W3wP04w==
-X-CSE-MsgGUID: 9pLg4PSzQd6ZYHeZKQt6qQ==
-X-IronPort-AV: E=Sophos;i="6.25,256,1779148800"; 
-   d="scan'208";a="27537013"
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-003.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 14:07:01 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:11398]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.52.146:2525] with esmtp (Farcaster)
- id 8f131d5e-0695-4138-b720-3dbdcb1830d0; Tue, 1 Sep 2026 14:07:01 +0000 (UTC)
-X-Farcaster-Flow-ID: 8f131d5e-0695-4138-b720-3dbdcb1830d0
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.45;
- Tue, 1 Sep 2026 14:07:01 +0000
-Received: from b0f1d8753182.ant.amazon.com (10.106.82.17) by
- EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.46;
- Tue, 1 Sep 2026 14:06:44 +0000
-From: Takahiro Itazuri <itazur@amazon.com>
-To: <brendan.jackman@linux.dev>, <maz@kernel.org>
-CC: <Liam.Howlett@oracle.com>, <ackerleytng@google.com>,
-	<agordeev@linux.ibm.com>, <ajones@ventanamicro.com>,
-	<akpm@linux-foundation.org>, <alex@ghiti.fr>, <andrii@kernel.org>,
-	<ast@kernel.org>, <baolu.lu@linux.intel.com>, <borntraeger@linux.ibm.com>,
-	<bp@alien8.de>, <bpf@vger.kernel.org>, <catalin.marinas@arm.com>,
-	<chenhuacai@kernel.org>, <corbet@lwn.net>, <coxu@redhat.com>,
-	<daniel@iogearbox.net>, <dave.hansen@linux.intel.com>, <david@kernel.org>,
-	<dev.jain@arm.com>, <eddyz87@gmail.com>, <haoluo@google.com>,
-	<hpa@zytor.com>, <itazur@amazon.co.uk>, <jackmanb@google.com>,
-	<jannh@google.com>, <jgg@ziepe.ca>, <jgross@suse.com>, <jhubbard@nvidia.com>,
-	<jmattson@google.com>, <joey.gouly@arm.com>, <john.fastabend@gmail.com>,
-	<jolsa@kernel.org>, <jthoughton@google.com>, <kalyazin@amazon.co.uk>,
-	<kas@kernel.org>, <kernel@xen0n.name>, <kpsingh@kernel.org>,
-	<kvm@vger.kernel.org>, <kvmarm@lists.linux.dev>, <lenb@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <linux-mm@kvack.org>,
-	<linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<lorenzo.stoakes@oracle.com>, <luto@kernel.org>, <maobibo@loongson.cn>,
-	<martin.lau@linux.dev>, <mhocko@suse.com>, <mingo@redhat.com>,
-	<mlevitsk@redhat.com>, <oupton@kernel.org>, <palmer@dabbelt.com>,
-	<patrick.roy@linux.dev>, <pavel@kernel.org>, <pbonzini@redhat.com>,
-	<peterx@redhat.com>, <peterz@infradead.org>, <pfalcato@suse.de>,
-	<pjw@kernel.org>, <prsampat@amd.com>, <riel@surriel.com>, <rppt@kernel.org>,
-	<ryan.roberts@arm.com>, <sdf@fomichev.me>, <seanjc@google.com>,
-	<shijie@os.amperecomputing.com>, <skhan@linuxfoundation.org>,
-	<song@kernel.org>, <surenb@google.com>, <suzuki.poulose@arm.com>,
-	<tabba@google.com>, <tglx@kernel.org>, <thuth@redhat.com>,
-	<vannapurve@google.com>, <vbabka@kernel.org>, <will@kernel.org>,
-	<willy@infradead.org>, <wu.fei9@sanechips.com.cn>, <x86@kernel.org>,
-	<yang@os.amperecomputing.com>, <yangyicong@hisilicon.com>,
-	<yonghong.song@linux.dev>, <yosry@kernel.org>, <yu-cheng.yu@intel.com>,
-	<yuzenghui@huawei.com>, <zhengqi.arch@bytedance.com>, Takahiro Itazuri
-	<zulinx86@gmail.com>
-Subject: Re: [PATCH v12 09/16] KVM: arm64: define kvm_arch_gmem_supports_no_direct_map()
-Date: Tue, 1 Sep 2026 15:05:21 +0100
-Message-ID: <20260901140520.78333-2-itazur@amazon.com>
-X-Mailer: git-send-email 2.43.1
-In-Reply-To: <DJJ28Z81JTQI.1SI0CNIP7W1JQ@linux.dev>
-References: <DJJ28Z81JTQI.1SI0CNIP7W1JQ@linux.dev>
+	id 1x1PEa-0000000CJJh-3jeb;
+	Tue, 01 Sep 2026 14:13:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6350043228;
+	Tue,  1 Sep 2026 14:13:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24C071F00A3E;
+	Tue,  1 Sep 2026 14:12:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788271988;
+	bh=zIFNccvs+atFhWftoJEJD5wmod58xIW+qFgefX0BOCg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ojh3C4HDmqZjOi1pkhDSDGdV7SfRfNfWGZdomRJtqMccy2x0v2yndUbLTlFfoma31
+	 dXPCD/3iuiFmrOyTzvDFsi3JMSQci44mXNjMW5aZrX1wksJI6YrjjSO9AmUv57cBYV
+	 9z8GlCwH5Lcq8HdHGJ0PhyaJV91X1hhmLlTYoLDJyqV5tpAA3OmuNtzuupyJ9NgXA9
+	 UJ1DFYAPUuZI2d/93NYxQqW7uJLFNFyZWGMt5ve018yg00i9qrJwXbMtHXQVNemoe6
+	 vmWZlNLESArFUgZ4rroUvf022k6zvA9BUurkwbyrW+S7uSnPMqBoCZlDQJvO6b3uMa
+	 s/wAJaE9PbDug==
+Date: Tue, 1 Sep 2026 15:12:45 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Simon Schuster <schuster.simon@siemens-energy.com>, Jonas Bonn <jonas@southpole.se>, 
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Russell King <linux@armlinux.org.uk>, 
+	Vineet Gupta <vgupta@kernel.org>, Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
+	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>, 
+	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>
+Subject: Re: [PATCH 01/12] mm/huge_memory: zap deposited page tables after an
+ RCU grace period
+Message-ID: <apbcoMTVlL42G5tg@gremlin>
+References: <20260901-rcu-pagetable-freeing-v1-0-5456a81c8212@kernel.org>
+ <20260901-rcu-pagetable-freeing-v1-1-5456a81c8212@kernel.org>
+ <apbOlyF77yDCV4cF@thinkstation>
 MIME-Version: 1.0
-X-Originating-IP: [10.106.82.17]
-X-ClientProxiedBy: EX19D038UWB004.ant.amazon.com (10.13.139.177) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_070707_775311_BE3FE292 
-X-CRM114-Status: GOOD (  16.62  )
+Content-Disposition: inline
+In-Reply-To: <apbOlyF77yDCV4cF@thinkstation>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,48 +110,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Apologies for the delayed response, and thank you for the review.
-
-On Fri, 26 Jun 2026 14:45:45 +0000, Brendan Jackman wrote:
-> On Tue Apr 21, 2026 at 4:55 PM UTC, Marc Zyngier wrote:
-> > Support for GUEST_MEMFD_FLAG_NO_DIRECT_MAP on arm64 depends on 1) direct
-> > map manipulations at 4k granularity being possible, and 2) FEAT_S2FWB.
+On Tue, Sep 01, 2026 at 02:19:36PM +0100, Kiryl Shutsemau wrote:
+> On Tue, Sep 01, 2026 at 12:01:21PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > When an anonymous mapping is collapsed for THP, a PTE page table is
+> > 'deposited' with the installed PMD entry.
 > >
-> > Where is this 4kB requirement enforced? Or is it that you means
-> > "PAGE_SIZE"?
+> > This is done in order that a split can be performed without needing to
+> > allocate additional memory.
+> >
+> > The freeing occurs in zap_deposited_table() and is done directly without
+> > any delay via pte_free().
+> >
+> > This is currently not a problem as existing page table walks are protected
+> > by the mmap or anon rmap lock.
+> >
+> > However this becomes problematic in a future where RCU-only page table
+> > walkers exist, as there is nothing to prevent a page table walker that
+> > started the walk prior to collapse having its PTE table freed underneath
+> > it.
+> >
+> > Commit 13cf577e6b66 ("mm/pgtable: add pte_free_defer() for pgtable as
+> > page") already provides us the mechanism by which to solve this -
+> > pte_free_defer().
+> >
+> > Therefore, as a prerequisite to a future commit which will permit fully RCU
+> > page table walks, update zap_deposited_table() to use pte_free_defer()
+> > rather than pte_free().
+> >
+> > Note that the IPI sync in collapse_huge_page() is still required to ensure
+> > refcount correctness against a GUP-fast operation.
+> >
+> > This is because GUP-fast might increment refcount, but
+> > __collapse_huge_page_isolate() determines whether it is safe to proceed by
+> > checking folio_ref_count() against folio_expected_ref_count(), so the two
+> > must be mutually excluded.
+> >
+> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> > ---
+> >  mm/huge_memory.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> > index 54494c3fa983..505f7b62ff28 100644
+> > --- a/mm/huge_memory.c
+> > +++ b/mm/huge_memory.c
+> > @@ -2476,7 +2476,7 @@ static inline void zap_deposited_table(struct mm_struct *mm, pmd_t *pmd)
+> >  	pgtable_t pgtable;
+> >
+> >  	pgtable = pgtable_trans_huge_withdraw(mm, pmd);
+> > -	pte_free(mm, pgtable);
+> > +	pte_free_defer(mm, pgtable);
 >
-> Yeah I believe this means PAGE_SIZE and that it's effectively enforced
-> by checking can_set_direct_map() in
-> kvm_arch_gmem_supports_no_direct_map().
-
-Yes, this should say PAGE_SIZE rather than 4k.
-
-If I understand the arm64 MM code correctly, can_set_direct_map() is the
-capability gate, but it does not require the linear map to be built with
-page-sized PTEs from boot. Without BBML2_NOABORT, force_pte_mapping()
-builds the linear map with PAGE_SIZE PTEs. With BBML2_NOABORT,
-update_range_prot() can use split_kernel_leaf_mapping() to safely split
-larger mappings on demand before changing a PAGE_SIZE range.
-
-I'll update the v13 commit message to describe this.
-
-On Tue, 21 Apr 2026 17:55:05 +0100, Marc Zyngier wrote:
-> KVM/arm64 has:
+> Hm. So it is call_rcu() on each PMD. It might be costly, especially for
+> zap_huge_pmd() path: 512 call_rcu() per-GB of unmapped THPs.
 >
->         select KVM_GUEST_MEMFD
+> Do we want leverage mmu_gather if caller has it?
 
-I also confirmed that KVM/arm64 selects KVM_GUEST_MEMFD, so I'll drop the
-redundant #ifdef in v13.
+I mean, I'm not sure in which respect that'd be costly, 512 is not a big number
+to a computer, and repeated call_rcu() invocations should just queue more
+operations no?
 
-> Why is it an inline function? Given that it takes a kvm parameter,
-> I fully expect that you'll have to evaluate this at some point.
+It won't be costly at the time of the calls obviously as its deferred. Maybe
+increase some time spent in softirq but again is 512x that big of a deal?
+
+I'm not sure how you'd both defer the free and somehow utilise mmu_gather here
+either really, certainly not without it becoming extremely messy.
+
+But yeah I'd want to see hard data on that before I really believe that's a
+problem :)
+
 >
-> But since struct kvm cannot be dereferenced in asm/kvm_host.h, it will
-> have to move. How about doing it right now?
+> >  	mm_dec_nr_ptes(mm);
+> >  }
+> >
+> >
+> > --
+> > 2.55.0
+> >
+>
+> --
+>   Kiryl Shutsemau / Kirill A. Shutemov
 
-Agreed. Although the current implementation does not dereference kvm, it
-makes sense to move it out of asm/kvm_host.h now. I'll move the
-implementation to an arm64 KVM .c file in v13.
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
