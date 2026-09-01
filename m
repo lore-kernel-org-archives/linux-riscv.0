@@ -4,58 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA33DC624D3
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 15:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B55C61DD6
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 15:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:Cc:To:
-	References:Message-Id:Date:Subject:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=DseHYr0lNlFQWgqp+/spv+hKNpsa2fh1bnrBYdADpcg=; b=vTPLZ2FbrV0g71XkA3eS1LjSqa
-	2if39Y39R4Xl9raUJUX7Y2rLCHITf+wFX5scwZzutCa3Jp/aKCMl6R6jpiAj15KEx2S1iWISjvSaz
-	zLprLBGiOm7U/DU5H+zwa8xvHFSTlo5NU+Ac7QzpohJnZ6f7j4zzNGrujfReab9als9FDyVAq6GK9
-	gRDr07vUYhvulsTZhaydHljz/vXoJgskM2Qmw+AwCQENoFJJv0GzQUVlKIBiY2lBra1Rb8/ZQhEQW
-	6oeSfBPxav6oB6wMnR8Ae1rx4IhCY6vfMku5sQI+vmqy6mTacduP4gWcpB4mFoBfBzIQ9qso3rADl
-	yLBdWK5Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gsz9PFkI1aoYiBVcVFeig0ZlOygvdVbHQjyK3uESzWM=; b=1s3zlLvw6eoTJf
+	tQBP3ya6LeLx3OdLafTnNKm1+wdkIKDCcgVBBaFJQtXeVk5tC+opjk8xIpe2eqIUSHtYQmvZy7FUl
+	zM0+EVRdpW2zgzAt9yJGr9tVZz3lQeiu1CG8dImCaH0N14TiP/5V+nZwM3gEyQoUjpGNM21+aQED7
+	T4uAmbrgG++CZVn1NstTlJ7t3uZ/uDneqJhOVgmQ/JlqzwQ3klraaNKPh60MZK2MYk4RxTshPWrDQ
+	EymHAFIGsW37PGAMIFMV9ZvZiHb5kkQmGjUlFdCn5mdxsLaIJ5JU2MACdd7+/9lgGodnqI0BCA4kO
+	i26UxQEVR6hKlevP3omQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QSJ-0000000CVVJ-30nw;
-	Tue, 01 Sep 2026 15:31:23 +0000
-Received: from va-1-113.ptr.blmpb.com ([209.127.230.113])
+	id 1x1QgB-0000000Ca3C-4AVB;
+	Tue, 01 Sep 2026 15:45:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QSH-0000000CVUi-1sBg
-	for linux-riscv@lists.infradead.org;
-	Tue, 01 Sep 2026 15:31:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1788276673; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=7BFZhNSOareWcX7VGdQfnFAQDysNGmECn54AT57ukPs=;
- b=bi09KIZ92RpLKu1jhCFCcRAAM9AqVmdmmzOs9rRTDvXqpXZrHVSDQ4oqV5a94Fn8i3zdI5
- XTTETSkvM7lIwVOgmZM2YaFh+kBRbrcV+zInCZDAE2rXOva2THMn8va6HeBuJnVuqZJl72
- cSeq7dWlbuchMOSBBjAXM+YFc+P693YZv5kUdLaGmEf3OIMjbkxooxSOaLohJ5pbtn9I6Q
- bI8cYu1qKt7i/a7UqG7Ssqnw9VbrCCAnRq6ib5atvR+TkxsM+pC9BgJckdp4NfKd6D09j3
- TsalbOBUafOZ8axeD5nbRd99jErlbSEz9TedTlrVRIWi/xKlxJDsu4zIXYqYDQ==
-From: "Rui Qi" <qirui.001@bytedance.com>
-Subject: Re: [PATCH 0/2] riscv: Fix cpu hotplug warnings
-Date: Tue,  1 Sep 2026 23:30:57 +0800
-Message-Id: <20260901153057.3557226-1-qirui.001@bytedance.com>
-References: <20260813130357.1144775-1-qirui.001@bytedance.com>
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
-X-Lms-Return-Path: <lba+26a96efbf+dca663+lists.infradead.org+qirui.001@bytedance.com>
-To: <palmer@dabbelt.com>
-Cc: "Rui Qi" <qirui.001@bytedance.com>, <pjw@kernel.org>, 
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Mime-Version: 1.0
-In-Reply-To: <20260813130357.1144775-1-qirui.001@bytedance.com>
-X-Mailer: git-send-email 2.20.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_083121_556127_E21FF16C 
-X-CRM114-Status: UNSURE (   2.94  )
-X-CRM114-Notice: Please train this message.
+	id 1x1QgA-0000000Ca2m-3jHP;
+	Tue, 01 Sep 2026 15:45:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2AC84434B4;
+	Tue,  1 Sep 2026 15:45:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 951D41F00A3A;
+	Tue,  1 Sep 2026 15:45:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788277542;
+	bh=UVHtz6Elr1SZh1A7h5PnNFYa2TvXIJLXLTfOMhtO9T0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZTvYdEaL17Xe57XD8vyZST14VBPRctjf28yyFGBI5rdY8BhdwP/dFY55tWjPYAROH
+	 wHw1cZaETEpdGFMWKgfrhKvyrIXd6bJDtcydcX3/fPqK8Kfi5IfzcyNr//cMw16txd
+	 HFiCeAX5f/1+Nu/YL3SO5aPns4ylRzukBeENUY24mi7KCFX+k7s14AOxgxiOOtHlum
+	 W6G9F88xDUVcAEipO83iD5JtJTIZcqLoGsvrFg6C9MQ0JUePRMRswDgKmoAF/Vk71T
+	 gM3PMpQT/NErJ7UkLFICeRZsY2Bjhj6d+sZWTtE2+9Pnuydiw13BrWhOWFQOR8QNap
+	 Lu8bcy8/bQcbQ==
+Date: Tue, 1 Sep 2026 16:45:14 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Simon Schuster <schuster.simon@siemens-energy.com>, Jonas Bonn <jonas@southpole.se>, 
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Russell King <linux@armlinux.org.uk>, 
+	Vineet Gupta <vgupta@kernel.org>, Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
+	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>, 
+	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, 
+	linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, 
+	Qi Zheng <qi.zheng@linux.dev>
+Subject: Re: [PATCH 01/12] mm/huge_memory: zap deposited page tables after an
+ RCU grace period
+Message-ID: <apbvoN6ttgHfI_xg@gremlin>
+References: <20260901-rcu-pagetable-freeing-v1-0-5456a81c8212@kernel.org>
+ <20260901-rcu-pagetable-freeing-v1-1-5456a81c8212@kernel.org>
+ <apbOlyF77yDCV4cF@thinkstation>
+ <apbcoMTVlL42G5tg@gremlin>
+ <20260901142408.GA56830@ziepe.ca>
+ <apbiB51hjm-9pRzf@gremlin>
+ <apbuO_QveZNAz3ns@thinkstation>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <apbuO_QveZNAz3ns@thinkstation>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,11 +114,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ping.
+On Tue, Sep 01, 2026 at 04:28:48PM +0100, Kiryl Shutsemau wrote:
+> On Tue, Sep 01, 2026 at 03:41:17PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > On Tue, Sep 01, 2026 at 11:24:08AM -0300, Jason Gunthorpe wrote:
+> > > On Tue, Sep 01, 2026 at 03:12:45PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > >
+> > > > It won't be costly at the time of the calls obviously as its deferred. Maybe
+> > > > increase some time spent in softirq but again is 512x that big of a deal?
+> > > >
+> > > > I'm not sure how you'd both defer the free and somehow utilise mmu_gather here
+> > > > either really, certainly not without it becoming extremely messy.
+> > >
+> > > The less costly version is to thread the page to be freed onto the
+> > > mmu_gather through a linked list in the struct page memory. This is
+> > > super cheap since it is just a singly linked list operation.
+> > >
+> > > Then when the mmu_gather is flushed it does a single call_rcu using
+> > > the rcu head of the struct page of the head of the list. The callback
+> > > clears the entire linked list of pages.
+> > >
+> > > Since you have to tlb flush anyhow, it makes sense to always use the
+> > > mmu_gather. For example the design I ended up with for iommupt
+> > > accumulates all the invalidations and all the free-able memory into a
+> > > gather then invalidates and frees.
+> > >
+> > > This allows maximizing the tlbi efficiency too. You can't do call_srcu
+> > > until you flush the tlb and if you call once per table then you are
+> > > also tlb flushing once per table too.
+> > >
+> > > So if the kernel really does want to clear out 512 leaf tables the
+> > > optimal implementation is one range tlbi for 512 entries followed by
+> > > one call_rcu to free the memory. Hence the gather..
+> >
+> > I think there's some confusion here.
+> >
+> > This isn't the path in which a page table is being freed, the _deposited_
+> > table is zapped, in zap_deposited_table().
+> >
+> > That is, the page table kept in reserve for THP split, that is not
+> > currently mapped.
+> >
+> > It amounts to a __free_pages() call.
+> >
+> > The TLB operations are in e.g. zap_huge_pmd() etc. and nobody has
+> > complained about inefficiencies there.
+> >
+> > So, unless I'm missing something here, TLB flushes play no role in this
+> > whatsoever.
+> >
+> > The issue Kiryl raised was that instead of immediately freeing page tables,
+> > they are now batched up individually by call_rcu().
+> >
+> > I personally find it difficult to imagine the numbers here would be
+> > problematic or certainly cause anything observable beyond what is
+> > observable now.
+> >
+> > So I'm going to have to say, unless it can be clearly demonstrated this is
+> > problematic, I don't think there's any reason to add additional complexity
+> > here.
+>
+> It would be nice to measure munmap() overhead here.
+>
+> I am worried about hitting DEFAULT_MAX_RCU_BLIMIT and trigger
+> rcu_force_quiescent_state() which can be disruptive to the system.
+>
+> DEFAULT_MAX_RCU_BLIMIT is 10K, so it is ~20G of THP unmapped on x86.
+>
+> munmap() of 64G worth of THP should be enough to demonstrate the
+> problem.
 
-This series fixes a regression introduced by commit 2b2b207e1162
-("riscv: cpu_ops: Change return value type of cpu_is_stopped() to bool")
-that causes spurious warnings when offlining CPUs.
+I mean you're going to hit that from RCU freeing page tables already, which
+most architectures already do right?
+
+So if RCU saturation is a problem, that problem already exists, but I've
+not heard of that being a problem at all?
+
+So you're going to have to demonstrate why this situation is markedly
+different from that. And it's the same scale.
+
+Overall I think freeing 64 GiB of mapped memory all at once will inevitably
+be a slow operation, freeing them directly will also be a lengthily process.
+
+And also it seems to me that RCU mishandling heavy load to the point of
+causing system instability should a bug filed with RCU no?
+
+Also note pte_free_defer() is already used in retract_page_tables() so a large
+collapse could also hit this problem?
+
+I'm not sure I'm convinced there's an issue here.
+
+>
+> --
+>   Kiryl Shutsemau / Kirill A. Shutemov
+
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
