@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F9AC61DD3
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 08:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A7FC624CF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 09:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HxDBcQ2PmeyPoiXs+GOXQ5hM38Ed/DJsbl7ntW6pCMM=; b=zCzUjSps3E6EQB
-	bE6n1KCb3S9JjhHkso3LqoFBjKUFxrR0sQpC48HrtaSRq4p/bA+ZK/Gb4GdXjTNhXa1fOevU0CqbZ
-	SPNcRgfzGBGTkWOWygG3p1rt9b8RGyGdBMeGuJZ5QV/xcfItGJTXwrFF4SWfYE6Z/DGljjF+uM2WD
-	L41hPcAKIdbu1NCFPD0cueFwF/DuQ3MYSWvdLVRmM1h7cFzsGyUt7v5WlZYwMOWwpsoTnBT7wEF7H
-	lsdXnFP4NeD9blRVLW9iwOwOlJ9NWqnhSDaRV3Lya+iajU8918ux78ZKBCPgwFwNnGFxA5YX/Esk2
-	JvNFjbN6KrAbM7yGty4A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mjKyqr9H3MhoZEBkZtOBGwxWVlaiLzizAnEEFDDmIWw=; b=qgDscesT9Hv7pL4KELfacY/urT
+	m8IU7NiD4+2A5e2Ko4WapIgLVhLktM/EMkz81giGJYV5OXjngbrPLmebwiYOCvS/RIU2UYVtmYdfM
+	ukwXGQv/Ljw1WXOWr00hWJkXhnG653wDD9LwdMzKgQAt8BZsRGsufZRdsGvHF7wTIgrE55jKuZKk4
+	Hzd4zYARIGtP+D/EEYL93TzBkEJRDTGLK41/YabJ0H2Th7FtM7RPOMMjx+p0DQFqyTWlkPIhoHiUT
+	igCGzeO1zvER3k5FZ4+bQOJkrwu14GAEhyjXgYGoCRJkqtkASzjTCe8PF5RzNF9ZZVfZOmrUYnZDl
+	HzmHKJOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JVo-0000000BCBW-1rYo;
-	Tue, 01 Sep 2026 08:06:32 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1x1LDC-0000000BU0I-0kXM;
+	Tue, 01 Sep 2026 09:55:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JVj-0000000BC8S-1nlK;
-	Tue, 01 Sep 2026 08:06:30 +0000
-Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-01 (Coremail) with SMTP id qwCowADHYPR1h5ZqTaP9Bg--.30584S2;
-	Tue, 01 Sep 2026 16:06:13 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] RISC-V: KVM: Preserve LCOFIP when checking pending interrupts
-Date: Tue,  1 Sep 2026 16:06:08 +0800
-Message-ID: <20260901080610.91993-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	id 1x1LDB-0000000BU09-2VMZ
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Sep 2026 09:55:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0F4F6601DB;
+	Tue,  1 Sep 2026 09:55:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CC7A1F000E9;
+	Tue,  1 Sep 2026 09:55:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788256524;
+	bh=VKK2FKU6ga5dMkaUkFpuPEJ4LQvPAltaxJYOizCcDWI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JEjvUnVjlrC1+x//uhaFrgAkPGR7RagUCMde9lL/pt4tOL5YRVgkMvFnuaogJqRkR
+	 uO2DpAm6+8ipbSsRa0ZEWC2+nXghTH9IPkwlTiyR42iOrONr+BlRH9k+neerbVdDNH
+	 yHx8k27aarKUgJr2fMPeWJTJeLjPI6pwHrg10iNav99OQmXOewgQKzXUdeILGFuM1J
+	 W8Z/PJ1B/yxPWfwYIUgnDnQtJBSu4JUqUZDtGm+EcGtiIYPWMV/gnGhny/SP2/txv4
+	 fIllJ8UP5Mg1U9SN0raE7R6eaGOJVWeuLbd4trRIoHVVumXtJHSJPwmLAzmQCJ7cnm
+	 VnH7zTybw/oDw==
+Date: Tue, 1 Sep 2026 10:55:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] riscv: introduce cap framework and use it to
+ optimize pgtable_l4|l5_enabled
+Message-ID: <20260901-mountable-engraved-f47c899ed194@spud>
+References: <20260830170414.4505-1-jszhang@kernel.org>
+ <20260830170414.4505-4-jszhang@kernel.org>
+ <20260831-falsify-arrogance-6917870b8596@spud>
+ <apYafAJvKqz_hRzR@xhacker>
+ <apZa3EnjGjpaydGm@xhacker>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowADHYPR1h5ZqTaP9Bg--.30584S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CrW7tF1xWF1xCrWfuw47CFg_yoW8Zry7pr
-	4Ikw1YqrW0qa4Ik342gr40gr1Yg3ykJr43uFZ29a4UJr42qa4ruF4kKa4UAF4rGryF9a4x
-	XryIga45uas8Zw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [111.196.241.250]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_010627_891686_215B5E7B 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <apZa3EnjGjpaydGm@xhacker>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,59 +69,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6757584663179251879=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM injects the guest counter-overflow interrupt into HVIP bit 13 and
-records the same bit in irqs_pending. The guest enables it through VSIE
-LCOFIE, also at bit 13.
+--===============6757584663179251879==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="m86E7V2/eBf8L2Q6"
+Content-Disposition: inline
 
-kvm_riscv_vcpu_has_interrupts() shifts the complete VSIP valid mask by
-VSIP_TO_HVIP_SHIFT before matching it against irqs_pending. That maps
-SSIP, STIP, and SEIP to VSSIP, VSTIP, and VSEIP, but incorrectly moves
-LCOFIP from bit 13 to bit 14. The following high-interrupt term excludes
-all local interrupt bits, so it cannot recover LCOFIP.
+--m86E7V2/eBf8L2Q6
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-As a result, kvm_arch_vcpu_runnable() can report false for a vCPU waiting
-in WFI even though an enabled PMU overflow interrupt is pending.
+On Tue, Sep 01, 2026 at 12:55:56PM +0800, Jisheng Zhang wrote:
+> On Tue, Sep 01, 2026 at 08:21:16AM +0800, Jisheng Zhang wrote:
+> > On Mon, Aug 31, 2026 at 11:04:12PM +0100, Conor Dooley wrote:
+> > > On Mon, Aug 31, 2026 at 01:04:01AM +0800, Jisheng Zhang wrote:
+> > > > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
+> > > > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
+> > > > boot, we can use alternative mechanism to optimize them.
+> > > >=20
+> > > > So the question is whether we can add RISCV_ISA_EXT_SV48/SV5 and use
+> > > > riscv_has_extension_*() or not. Although, per [1] and [2], SV48 and
+> > > > SV57 are ISA exensions too, RISCV_ISA_EXT_SV48/SV57 are to describe=
+ hw
+> > > > supported extensions, while this doesn't mean the pgtable_l4|l5 is
+> > > > enabled, for example, we may pass no5lvl/no4lvl kernel boot args or
+> > > > explicitly ask for SV39 by setting dt mmu-type property as
+> > > > "riscv,sv39". If we clear RISCV_ISA_EXT_SV48|SV57, then internal
+> > > > extension queries and potentially userspace reporting can no longer
+> > > > distinguish =E2=80=9Cunsupported=E2=80=9D from =E2=80=9Csupported b=
+ut disabled.=E2=80=9D
+> > >=20
+> > > That's the case for all extensions that the kernel does not support,
+> > > like if the fpu is disabled because the kernel doesn't have the
+> > > configuration option set. In fact, I think the CFI extensions are very
+> >=20
+> > To be honest, before introduce the cap framework, I did think about FPU,
+> > ZACAS, ZABHA etc. ISA extensions' cases. Finally I came to a conclusion
+> > that the SV48/57 is a different case: Let me take FPU for an example.
+> > FPU once probed, the ISA support is never disabled, IOW, the
+> > riscv_has_extension_likely(FPU) is always true no matter the CONFIG_FPU
+> > is enabled or not. There's "no supported but disabled" case for FPU.
+> > But for SV48 case, that's different. The underlying HW may support SV48
+> > or SV57, but the "no5lvl and no4lvl" may explicitly force SV39, thus
+> > if we go with exisiting riscv_has_extension_*() API, we need to
+> > explicitly disable it by clear the isa bitmap. IOW, riscv_has_extension=
+_likely(SV48)
+> > is false even the underlying HW supports SV48, thus the user can't
+> > distinguish between =E2=80=9Cunsupported=E2=80=9D from =E2=80=9Csupport=
+ed but disabled.=E2=80=9D
+> > What do you think?
 
-Keep LCOFIP in place while shifting the three interrupt classes that have
-distinct VS-level bit positions. This makes a vCPU halted in WFI runnable
-when its PMU overflow interrupt is pending.
+(moving things around a little bit)
 
-Fixes: 16b0bde9a37c ("RISC-V: KVM: Add perf sampling support for guests")
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- arch/riscv/kvm/vcpu.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+> and change its meaning a
+> bit from "the underlying HW supports the feature" to "the underlying HW
+> enables the feature".
+>=20
+> or keep it only for ISA extensions only.
+>=20
+> X86's X86_FEATURE_* take the first path, I.E it only means the feature
+> is enabled or disabled on current platform, but doesn't mean the current
+> platform HW supports the feature or not.
+>=20
+> Any comments is appreciated.
 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index e062ca1..c6eb3bd 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -487,12 +487,14 @@ int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq)
- bool kvm_riscv_vcpu_has_interrupts(struct kvm_vcpu *vcpu, u64 mask)
- {
- 	unsigned long flags;
--	unsigned long ie;
-+	unsigned long ie, vsie;
- 	bool ret;
- 
- 	raw_spin_lock_irqsave(&vcpu->arch.irqs_pending_lock, flags);
--	ie = ((vcpu->arch.guest_csr.vsie & VSIP_VALID_MASK)
--		<< VSIP_TO_HVIP_SHIFT) & (unsigned long)mask;
-+	vsie = vcpu->arch.guest_csr.vsie & VSIP_VALID_MASK;
-+	ie = ((vsie & ~SIP_LCOFIP) << VSIP_TO_HVIP_SHIFT) |
-+	     (vsie & SIP_LCOFIP);
-+	ie &= (unsigned long)mask;
- 	ie |= vcpu->arch.guest_csr.vsie & ~IRQ_LOCAL_MASK &
- 		(unsigned long)mask;
- 	ret = vcpu->arch.irqs_pending[0] & ie;
+On this particular point, this is already how it works.
+riscv_has_extension_[un]likely() and other related functions report
+whether the extension is supported and enabled on the platform, not just
+whether the underlying hardware can support it. As I mentioned
+yesterday, the F and D extensions depend on CONFIG_FPU being enabled. If
+CONFIG_FPU is disabled, but F and D appear in the DT or ACPI, we clear
+the relevant bits in the bitmap. In turn, if there are extensions that
+depend on F and D being enabled, they'll get turned off too.
 
+>=20
+> Other thoughts:
+>=20
+> performance PoV: usually, an ISA extension improves the performance, so
+> there's no case where we clear the ISA bit map. But SV48/SV57 is
+> different, e.g on a board w/ only 4GB DDR but the cpu supports SV57,
+> there's no reason to enable SV57 which impacts performance a bit. This
+> is the reason why no4lvl/no5lvl are introduced, AIUI.
+
+Again, I think this applies to CFI, I don't think what's being done here
+is fundamentally different to that.
+
+> > > similar here, because they also have riscv_nousercfi command line
+> >=20
+> > This is another story, neither CPU ISA extension nor CPU capbility.
+
+They are extensions though, riscv_nousercfi disables the cfilp and cfiss
+extensions. You can see that in cpufeature.c. Maybe there's some
+semantic argument about whether they're /CPU/ extensions, but there's
+other stuff that aren't really CPU extensions and we treat them all the
+same. I guess the difference for sv48/sv57 is that we'd just be setting
+the bitmap bits rather than parsing it from DT/ACPI - but there's prior art
+for that already.
+
+> >=20
+> > > options that can disable them.
+> > > If that's the reason for making a new-but-similar mechanism, I think =
+you
+> > > should just introduce RISCV_ISA_EXT_SV{48,57} and use that.
+
+> other cap usage PoV: the cap can be used to replace various static
+> branch usage in arch/riscv, for example the fast_unaligned_access_speed_k=
+ey
+> As is known, the static branch has some drawbacks.
+>=20
+> So no matter which direction this series goes to, we need similar cap
+> framework. The key question is whether we can extend the
+> riscv_has_extension_*() to cover cpu/HW cap,
+
+It'd be nice to see if we could reuse the functions, if we don't
+want to invent a bunch of XLINUXFOO for them. The vendor extension stuff
+that Charlie added reuses it, but since there's no Linux Foundation
+JEDEC ID (AFAIK anyway) perhaps there's just no easy way to do it and
+duplicating the functions with a different name is required.
+
+This particular case is an extension, so I think we should try to make
+it work using that framework though.
+
+--m86E7V2/eBf8L2Q6
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapahCAAKCRB4tDGHoIJi
+0qnHAP90+sOs6LO8ojMJfAhCXNMGFc8ojLDBve6pxw5OBElYagEAgj/2EkQMe9ls
+QBsNhEVXYz6xhSecB0B/IsCh2SNbHgY=
+=Fvnc
+-----END PGP SIGNATURE-----
+
+--m86E7V2/eBf8L2Q6--
+
+
+--===============6757584663179251879==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6757584663179251879==--
+
