@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C9AC624CE
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 02:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A4DC61DFD
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 02:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VZRZU1D4hchM7+F9t/9QKEPDiOqALQRRToMtQxhREJ8=; b=zBKx30THfASRk0
-	Qvtx7iFy0ZPiNplh81sFFbZyAAmDRTxNGMEOMVYSjApM/da+fZ5Sg2RVCc3wKUUu/3oaT7h66EJTo
-	VuU9agE3TDl9ctkEVAHqK3Dfz2B//eTpLznwYWwTm8h4q6v+bqDGU8Wf42RB8BjFK98UTN9mES5rW
-	RUUIoYbEb//faGfH+5rdaEprvIV/3wh9/WXeb+HNe8Bug/8LCAJ+LmaVDbRRvlx10NOKnDPx7xvGr
-	77kzulmjAFz4wWEbblC56S7NQSrTuSuroyEj+D/4dpYlW9FqfUiwohByDB3FzsqGqO3nvFGpEBwm7
-	wILGPBt4jXo8a1NjGABA==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:In-Reply-To:From:Cc:
+	References:Subject:To:Message-Id:Date:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QgM2+yGcOlG3rd8S2kSo2vOU0yCGMQXODWnymXCbwF4=; b=k9NSgHJsVkKJkK
+	3MoZ+kHXGkBofNYLJvnbSqct4mBMDcJ44xj57wlxFe1q9OwHAKQfh1chkBuNSshARs101tb3NI61G
+	Nk2UfOq01cJQG8+qYA0AUUPbWpWgLwf9FZnQwG2zlJNMG26IwgWZt/FdtGzxr3m2SkYjf35vEpG69
+	a/8yv92eb+WxXIqmndbWzsI1rWJGbWBLHgcykMkEPc43Mwgw9bbERIblcefaiCQcYhjCj/keZSMJA
+	zphukCLHmPz6Epy+HJTZlo7xRrBJ04tChWtZ0s0tJktEWR6AgDrOpOsCob4CpVYFtJ69iKChM2N2Q
+	MnPBjqSlgnOMWJvb1v2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Dwb-0000000AqOU-2FdU;
-	Tue, 01 Sep 2026 02:09:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1EFg-0000000Aso8-2FHS;
+	Tue, 01 Sep 2026 02:29:32 +0000
+Received: from va-1-111.ptr.blmpb.com ([209.127.230.111])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Dwa-0000000AqO7-2TJU;
-	Tue, 01 Sep 2026 02:09:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A9DD86020E;
-	Tue,  1 Sep 2026 02:09:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC8B41F00ADE;
-	Tue,  1 Sep 2026 02:09:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788228587;
-	bh=vmaAfbWHGwLcti2TlXMDXUq+DvFQ5ZoOFVXxydmhGrI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NPcwdzXbFAz7LdV+i8lTfKO3SbL8a239juAaEq0h+Tye0iCXqY+WttUHcy4enekA4
-	 CYaOzgHnESK3eiPFul++hOUuh9vdIlQ+lh8Jshqnu8CqlZJsd7oPOEWPnTugkCC1LL
-	 mS7zxd9U+Y1LGkvQdtfNF7hPewNh25TWfRzPz7PoACNvmQuJTX9l8iKxNzg7f42u5C
-	 QN8JNQRhHoaaut5DFwxOjoZG1efi8l1lHoj+XJoxjopxCOr4wl7SLG0XkzEObCutgv
-	 YBgGFHjh6yysqv3PeoCGRySK4UnWthUfiU4iVhwB2UjBmANMgAWXCPa94p2FSq1b6I
-	 l88z+W2V5iTRg==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: (subset) [PATCH v2 0/2] Add CoreSight nodes for Qualcomm Shikra SoC
-Date: Mon, 31 Aug 2026 21:09:23 -0500
-Message-ID: <178822856255.1835959.13014643071629589214.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
-References: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
-MIME-Version: 1.0
+	id 1x1EFe-0000000AsnW-0jdQ
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Sep 2026 02:29:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1788229764; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=nSl8I61Po4NfLfKWOqzFnz5x9QTmz7kfJ1JFGJE3pRE=;
+ b=hlhscmI2xhebF6JU6PU6pMC525JkzK9pEvUyuBitNtDz8R0gCPPMWh10l/jEMNIgIBh/Sm
+ aCbodVFA7wel9kPjXOGlkOHIsYme+5WNozR7DxCLAG/T8nYSit+M2VTFCox+ePYZVcpyeF
+ 98UhbrxwegdzE+KwfHnvqCCsnUyreAO3xqusX+YMEvriYDCc+GPjkV/zgDRHEQEqdUOQ7d
+ 9L5OS7+lAjP9qfuoNDewhhUpcFSCY6m2R1KnQ3ix+m9YDtMHKlZImmLpeiO7VAIDJhIp9u
+ 5ot74krM2P1BgmTRoO97fLXsL0QZ7fdpxaYEsJaJauAEQiZB3l6PuMxOLa+wpg==
+Date: Tue, 1 Sep 2026 10:29:06 +0800
+Message-Id: <bd8646c1-1ed7-4b04-a00b-ef31700a41fa@bytedance.com>
+X-Lms-Return-Path: <lba+26a963882+d3e6f6+lists.infradead.org+qirui.001@bytedance.com>
+User-Agent: Mozilla Thunderbird
+To: "Steven Rostedt" <rostedt@goodmis.org>, <palmer@dabbelt.com>, 
+	<pjw@kernel.org>
+Subject: Re: [PATCH] riscv: ftrace: reject out-of-range non-direct targets
+References: <20260707121235.759104-1-qirui.001@bytedance.com> <20260901020000.1-qirui.001@bytedance.com> <20260831105820.22085739@gandalf.local.home>
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
+Cc: <mhiramat@kernel.org>, <mark.rutland@arm.com>, <aou@eecs.berkeley.edu>, 
+	<alex@ghiti.fr>, <linux-kernel@vger.kernel.org>, 
+	<linux-trace-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+From: "Rui Qi" <qirui.001@bytedance.com>
+In-Reply-To: <20260831105820.22085739@gandalf.local.home>
+Mime-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260831_192930_287176_FAD27D93 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,26 +71,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 15 Jul 2026 09:16:13 +0800, Jie Gan wrote:
-> This series adds the CoreSight debug and trace subsystem for the
-> Qualcomm Shikra SoC.
+On 8/31/26 10:58 PM, Steven Rostedt wrote:
+> On Mon, 31 Aug 2026 11:50:45 +0800
+> "Rui Qi" <qirui.001@bytedance.com> wrote:
 > 
-> The first patch adds a fallback compatible for the Shikra CTCU (CoreSight
-> Trace Control Unit). The CTCU on Shikra shares the same configuration as
-> the one on SA8775p, so "qcom,shikra-ctcu" falls back to the existing
-> "qcom,sa8775p-ctcu" compatible.
+>> Hi Steven,
+>>
+>> Gentle ping on this patch. It's been over a month since submission
+>> and I'd appreciate your review when you have a chance.
+>>
+>> The patch fixes ftrace_modify_call() on RISC-V to properly validate
+>> old_addr/addr instead of always treating sites as FTRACE_ADDR, and
+>> rejects out-of-range non-direct targets that can't be dispatched
+>> through the existing ftrace_caller path.
 > 
-> [...]
+> This patch looks very architecture specific. Is there a generic ftrace
+> issue you have with this? "out-of-range" issues are specific to an
+> architecture (x86 doesn't have this issue).
+> 
+> You need the RISC-V maintainers to review and accept this patch. I don't
+> see anything specific to generic ftrace infrastructure here, which is what
+> I maintain.
+> 
+> -- Steve
+> 
 
-Applied, thanks!
+Hi Steven,
 
-[1/2] dt-bindings: arm: add CTCU device for shikra
-      commit: f0c7f46249b917668851f51c7f6e9297c44d42d4
+Thanks for the clarification. You're right, this is entirely
+RISC-V specific -- the out-of-range issue comes from RISC-V's
+AUIPC/JALR relocation limits, and the fix only touches
+arch/riscv/kernel/ftrace.c. There's no generic ftrace change here.
 
-Best regards,
--- 
-Bjorn Andersson <andersson@kernel.org>
+Palmer, Paul, could you take a look at this patch? The core fix is
+making ftrace_modify_call() honor its old_addr/addr arguments instead
+of always validating against FTRACE_ADDR, and rejecting out-of-range
+non-direct targets that can't fall back through ftrace_caller.
+
+Thanks,
+Rui
 
 _______________________________________________
 linux-riscv mailing list
