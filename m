@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F24C61DD6
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 06:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC107C61DD3
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 07:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	References:In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hq/25Aovqtrm30Debk/YxZ5PFsGdHDC23x9Zasw/4e4=; b=gIxiGB/gLPoMSHB4nKW+SLeFDv
-	vXvoFwRNk7FjShde3gQy0q1vf4Gnw/FJUUU+SwJG/yNd5fIdUIuuI+LVZDJ0xoYtpOkfQMo2rZBID
-	wtapRE49EMy+KnZTvrncoI1eRyIz9GhVXWYzE/8P2FD5xo/lL9urZPXY14jc+t/tWgQdToPXlid0p
-	ahntnklVE1suV3JFyhg+jpNTNaJuAHywG+rsg8PeMLDbY6aWprncD1g3a9Mal7envfEjUTMlmQYhl
-	Iczxc3WwFWsBEWIgvj3BdDVRRtF6aXebYx0h2DAZu5iqh1iz9WK6Unxi97chSoltZoB4VG7JTTPiR
-	JU0YOpTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ouw11pfomKC3LrH7+IWHv+dOl7ocDojnZs1iNgChwN8=; b=dpIvHijzkfEkz7
+	cPyAGfZexkVs4BbSWlq9/Svi1rfJrbVw0aT4AuYBKzSoVIFhnbO1jR4r10HpiEj7sq4B6edzSvwqc
+	z7bZe5/sq1tmMe1t73+w8g8IXO0c9NXPBl2ZUWltzkmMFJwADJ76VGtXUeg+keQcnfx3/LZUPitMI
+	pEwcPHf4klxKp9TD25Sue+syJUGTRKDu1Du8mrLwx83Pgt7iDE+WmYkaovxG2Nf85h6P8iBe7bP5B
+	kPUQ83PBivwVkPhZ3H4WKna3wiIto/V46QDTNrb7B/AaDewQGq0LpkAS3ibi37BI2hKkGTUeg95BE
+	RUrk3wAq9lxEEFwJ3cNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1HuU-0000000B3h5-44ZX;
-	Tue, 01 Sep 2026 06:23:54 +0000
-Received: from out-147.mta1.migadu.com ([2001:41d0:203:375::93] helo=mta1.migadu.com)
+	id 1x1IwW-0000000B8Kg-1AmJ;
+	Tue, 01 Sep 2026 07:30:04 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1HuR-0000000B3gW-2w83
+	id 1x1IwT-0000000B8Ju-3nrM
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Sep 2026 06:23:53 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=JYWgi8laE2xRmYqAktJ5/SY0SxkpUmzm3vsS4saBqCs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788243827; v=1; x=1788848627;
- b=tvZJo/lONEGG33RxIAI2uh4WeJpN8rDLDnOe1iyzX6NjrztypfMyq0QXvRzmk1xta8zfPdaz
- BOVmEewBVrrKENqDk0K0EKH+4jRl86fvdem/AV7JFLL2hKgh8uw3W9cGGs2OH/JoRkAN7cJC+So
- biHGz89sN9qpjOcvNDQn/elA=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta11.migadu.com with ESMTPS id 8f859e5041177fe5;
-	Tue, 01 Sep 2026 06:23:47 +0000
-X-Mizu-Trace-ID: 8f859e5041177fe5
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
-Date: Tue, 01 Sep 2026 14:23:42 +0800
-Message-Id: <DL3RJ2VF605G.2L1HBQB1CUEGA@linux.dev>
-Cc: "Troy Mitchell" <troy.mitchell@linux.dev>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-hwmon@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-doc@vger.kernel.org>, "Jean Delvare" <jdelvare@suse.de>
-Subject: Re: [PATCH v4 4/6] hwmon: (lm63) Add Sensylink CTF2301 support
-From: "Troy Mitchell" <troy.mitchell@linux.dev>
-To: <sashiko-reviews@lists.linux.dev>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Guenter Roeck" <linux@roeck-us.net>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Yixun Lan"
- <dlan@kernel.org>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah Khan"
- <skhan@linuxfoundation.org>, "Randy Dunlap" <rdunlap@infradead.org>
-In-Reply-To: <20260831163256.784771F000E9@smtp.kernel.org>
-References: <20260831-ctl2301-v4-0-b335d52a0570@linux.dev>
-	<20260831-ctl2301-v4-4-b335d52a0570@linux.dev>
-	<20260831163256.784771F000E9@smtp.kernel.org>
+	Tue, 01 Sep 2026 07:30:03 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c9b373d5af0so3552925a12.2
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Sep 2026 00:30:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788247800; x=1788852600; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=g+8A2LQ5vM3BigI+WhOB8dsA95qvFXB16HXhk64vkm4=;
+        b=MeWkfqy/GZQXQeZLd+7Dj/U7TlqGXvJpezyxGyIty41o85qspAX7Kd9MCUsDdBigfV
+         ObEnZKi9i3W553VHIpOfjtqaobngrrqGCDUPDtHEOB9cKk8x2wbFFQfE3mUIEtcCp4pA
+         DLFp8Q5b/B9F3E5RsCwH7PT6XBWfY6S4vnLrgC/r1T/v0igM0+06Ble4PbEJD1vPmFz7
+         S5D+GBQX9xZSFMlwB4VximbQsbXXfYkRvabOJdcvEdNtfB8qpOLGVq+kEnQvCYC+vUmF
+         UZhbzGrsNvv9J/jBZ7bw6S3Uf1SlP/jmpJc2shdk44hKgCeMMw7hCAnFfRLdoXurt0Lp
+         4sBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788247800; x=1788852600;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=g+8A2LQ5vM3BigI+WhOB8dsA95qvFXB16HXhk64vkm4=;
+        b=jGdOLCR/qlIcZgFNFiRXYuNLVv3SGH6GbbdMoDvH4qIKkA9kwAiHoI7LEe31NSnvKC
+         qIbPPJ10TM3jKnzUOQeIBrIE69DfcOVPSfWJnRIa2ZFVoZsTP2hpXif5Vs5uIG9zBL23
+         StcgD/3VF+TYdQyMbGWnZgwzt1Gi7Jkohkxz9Z3y5JUJ9my9hjqg45ruP+dpF0kH3ckH
+         cGBNy8yPHs7JPrs+wN6elXCInySNwl7L7O47OI3Lww6Ya6HMo/TEVD2DqFzRNgc/M7NR
+         fpHWhGxFDgJQ10gG2059CqVsSW6iNWvP0zJ8aybC11WvnmKY/mA7VqvALRJApwK0EjKl
+         RWrQ==
+X-Gm-Message-State: AFuF++kAAlXgcZQj5yn1dtt9Rw5SXcrKNgEuD2Bc1sAEVdGB1ryzIPO0
+	QmLGE0aAjHJ+A8wkDb3Mt1YYmFGohVh2mrBIOERMc3dwz/b5hD1pYgW3
+X-Gm-Gg: AYBFou2UsLIVpAd5jKc/rr1SZjhNBd2s9LPBqKyZl05DF5m5U7NkLHcbCDcXJNbjA81
+	UNk/i3Rh7a2uRHFhireDM8ZiGR1XID15it9brKmy8n2pQ7oLoMZ9veUmdrHE32yad5ebiKH1Zrp
+	nRE7QGI5eMyPs2xn/ki07ueE95BJww3i5l2o4WIS5428wmtS5MDIoYMr7he019hrH2BFCJJhjvY
+	piD414J7Aiq2BAD8BuvbXggXCByoFBKRNTzpQJfeRuo8bo3jlenssZDW91fHc7GuWm5xveGmsCe
+	yxCRKbMySsggAImCUxhAdkogmaPx69Vds3/tOf+HxldkZlxZpJP2D1/tLee3jNVVklYhWf6K5Vh
+	RUWhLsdLMv+XV9XNAlwU/SyWt82K/SyY8PjIuvHP3Xvvc8gdnX+TnDcbhNpU2hxmsQNOUPIuf2v
+	XHTVPgOaGdM2Ii48OcFTKVRkY8BuF10OaQXMuWBUVBPm2xsOZnmplBc+sqUK3tTQbuJ16e
+X-Received: by 2002:a17:90b:5284:b0:38e:bfe:81e9 with SMTP id 98e67ed59e1d1-396d0e5f5ffmr50882573a91.1.1788247800366;
+        Tue, 01 Sep 2026 00:30:00 -0700 (PDT)
+Received: from i386.168.1.127 ([2402:a00:163:2ce9:6882:91b7:8e79:7958])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-32b49c867f5sm22117403eec.2.2026.09.01.00.29.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Sep 2026 00:29:59 -0700 (PDT)
+From: Hrushiraj Gandhi <hrushirajg23@gmail.com>
+To: conor.dooley@microchip.com,
+	daire.mcnamara@microchip.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Hrushiraj Gandhi <hrushirajg23@gmail.com>
+Subject: [PATCH] firmware: microchip: use kzalloc_objs() instead of kzalloc() with multiply
+Date: Tue,  1 Sep 2026 12:59:50 +0530
+Message-ID: <20260901072951.525569-1-hrushirajg23@gmail.com>
+X-Mailer: git-send-email 2.47.3
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_232351_881570_7671B519 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20260901_003001_947828_4BE8C718 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,111 +92,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5558288337128573369=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5558288337128573369==
-Content-Type: multipart/signed;
- boundary=f5ad3a7a520e0675d3a1ee0e96ded0c415497e37ee75d1d57e33fbe0b954;
- micalg=pgp-sha512; protocol="application/pgp-signature"
+response_msg is sized as
+AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(*response_msg) by hand in both
+call sites. Use kzalloc_objs() instead, matching the kzalloc_obj()
+already used elsewhere in this same file for the other allocations in
+these functions, and getting the same overflow-checked size
+computation kzalloc_obj() already benefits from.
 
---f5ad3a7a520e0675d3a1ee0e96ded0c415497e37ee75d1d57e33fbe0b954
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+No functional change.
 
-On Mon, Aug 31, 2026 at 04:32:56PM +0000, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider:
-> - [Medium] TEMP12_TO_REG and software caching logic fail to align with
-> 12-bit hardware truncation, causing sysfs cache inconsistency.
->
-> [...]
->
-> @@ -121,6 +126,9 @@ static const unsigned short normal_i2c[] =3D { 0x18, =
-0x4c, 0x4e, I2C_CLIENT_END };
->  							    127000), 1000)
->  #define TEMP8U_TO_REG(val)	DIV_ROUND_CLOSEST(clamp_val((val), 0, \
->  							    255000), 1000)
-> +#define TEMP12_FROM_REG(reg)	DIV_ROUND_CLOSEST((s16)(reg) * 1000, 256)
-> +#define TEMP12_TO_REG(val)	DIV_ROUND_CLOSEST(clamp_val((val), -128000, \
-> +							     127937) * 256, 1000)
->  #define TEMP11_FROM_REG(reg)	((reg) / 32 * 125)
->  #define TEMP11_TO_REG(val)	(DIV_ROUND_CLOSEST(clamp_val((val), -128000, =
-\
->  							     127875), 125) * 32)
->
-> [...]
->
-> @@ -594,6 +692,21 @@ static ssize_t set_temp8(struct device *dev, struct =
-device_attribute *devattr,
->  		return err;
-> =20
->  	mutex_lock(&data->update_lock);
-> +	if (data->kind =3D=3D ctf2301 && nr =3D=3D 1) {
-> +		temp =3D TEMP12_TO_REG(val);
-> +		err =3D i2c_smbus_write_byte_data(client, LM63_REG_LOCAL_HIGH,
-> +						temp >> 8);
-> +		if (!err)
-> +			err =3D i2c_smbus_write_byte_data(client,
-> +							CTF2301_REG_LOCAL_HIGH_LSB,
-> +							temp & 0xf0);
-> +		if (!err)
-> +			data->temp1_max =3D temp;
->
-> [Severity: Medium]
-> Does this sequence cause the sysfs cache to become inconsistent with the
-> hardware state?
->
-> The TEMP12_TO_REG macro scales the value but does not align or quantize i=
-t
-> to a 12-bit hardware boundary, leaving fractional bits present in the
-> lowest 4 bits. Here in set_temp8, those lowest 4 bits of temp are masked
-> out with 0xf0 when writing to the hardware register, but the unmasked tem=
-p
-> is saved in data->temp1_max.
->
-> If a user writes a temperature limit that is not a perfect multiple of
-> 0.0625 degrees Celsius, will this cause the sysfs interface to return the
-> un-truncated value immediately after the write, but later shift to the
-> truncated value upon the next device poll?
+Signed-off-by: Hrushiraj Gandhi <hrushirajg23@gmail.com>
+---
+ drivers/firmware/microchip/mpfs-auto-update.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-This is a bug. TEMP12_TO_REG() currently produces an unaligned 8.8
-fixed-point value. The register write discards bits 3:0, while the cache
-retains them, so an immediate sysfs read can differ from the value read
-back from the device after the next update.
-
-I will fix this in the next version by quantizing the converted value to
-the CTF2301's 0.0625 degree C resolution before using it for both the
-register writes and the cache update.
-
-                                            - Troy
-
---f5ad3a7a520e0675d3a1ee0e96ded0c415497e37ee75d1d57e33fbe0b954
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCapZvbiEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC/UBQD/Y06tRaTFNMju
-NM/etVWC7V4lTIYgMiT04x1oaUoz20cA+gOu2r4waOeMxc0picDYJZruXgDd4WEC
-8kbzz6TfWb8A
-=zcf8
------END PGP SIGNATURE-----
-
---f5ad3a7a520e0675d3a1ee0e96ded0c415497e37ee75d1d57e33fbe0b954--
-
-
---===============5558288337128573369==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+diff --git a/drivers/firmware/microchip/mpfs-auto-update.c b/drivers/firmware/microchip/mpfs-auto-update.c
+index 1211fd8d0463..b97d34bd2354 100644
+--- a/drivers/firmware/microchip/mpfs-auto-update.c
++++ b/drivers/firmware/microchip/mpfs-auto-update.c
+@@ -156,7 +156,7 @@ static int mpfs_auto_update_verify_image(struct fw_upload *fw_uploader)
+ {
+ 	struct mpfs_auto_update_priv *priv = fw_uploader->dd_handle;
+ 	u32 *response_msg __free(kfree) =
+-		kzalloc(AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(*response_msg), GFP_KERNEL);
++		kzalloc_objs(*response_msg, AUTO_UPDATE_FEATURE_RESP_SIZE);
+ 	struct mpfs_mss_response *response __free(kfree) =
+ 		kzalloc_obj(struct mpfs_mss_response);
+ 	struct mpfs_mss_msg *message __free(kfree) =
+@@ -358,7 +358,7 @@ static const struct fw_upload_ops mpfs_auto_update_ops = {
+ static int mpfs_auto_update_available(struct mpfs_auto_update_priv *priv)
+ {
+ 	u32 *response_msg __free(kfree) =
+-		kzalloc(AUTO_UPDATE_FEATURE_RESP_SIZE * sizeof(*response_msg), GFP_KERNEL);
++		kzalloc_objs(*response_msg, AUTO_UPDATE_FEATURE_RESP_SIZE);
+ 	struct mpfs_mss_response *response __free(kfree) =
+ 		kzalloc_obj(struct mpfs_mss_response);
+ 	struct mpfs_mss_msg *message __free(kfree) =
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5558288337128573369==--
-
