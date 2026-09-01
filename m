@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D73C61DFD
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 01:55:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C9AC624CE
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 02:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DVuXFyH9tx2+Rnx83DmDOoatjQX4JZpwixgbegjD8aY=; b=zGbiThrAK5P5aV
-	3JPhmts2/cxQJTLEkBoIl385wt/Q2RvrWCB75U+4/bGUqqIN2SBbefQAK+Qdg0YDxQBNtTP6SfDVf
-	qLpsebPEtW6o6mfzQeSW2kmmXuXjhDa4RxEn/7JEoe4SB3i1qq0J4NCd5X4DpOfN300B+r+IFIT9T
-	WkuHiD7Vf6bJkjgsmujKoyy+zLxwvZBK1z3bc02PhPRAgRvALpN5dwbhyGJEmc4x13HVf3juAE7qL
-	AWEmhjzcSJoPE/rfBsxTppVkGQiKnP3Ecs5vJIgxoAxFA5rptxsnvrwo2oS4x8JqK4XYQ9MVDYJbu
-	34seaQRzS5sxZsGX9Zyg==;
+	List-Owner; bh=VZRZU1D4hchM7+F9t/9QKEPDiOqALQRRToMtQxhREJ8=; b=zBKx30THfASRk0
+	Qvtx7iFy0ZPiNplh81sFFbZyAAmDRTxNGMEOMVYSjApM/da+fZ5Sg2RVCc3wKUUu/3oaT7h66EJTo
+	VuU9agE3TDl9ctkEVAHqK3Dfz2B//eTpLznwYWwTm8h4q6v+bqDGU8Wf42RB8BjFK98UTN9mES5rW
+	RUUIoYbEb//faGfH+5rdaEprvIV/3wh9/WXeb+HNe8Bug/8LCAJ+LmaVDbRRvlx10NOKnDPx7xvGr
+	77kzulmjAFz4wWEbblC56S7NQSrTuSuroyEj+D/4dpYlW9FqfUiwohByDB3FzsqGqO3nvFGpEBwm7
+	wILGPBt4jXo8a1NjGABA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Did-0000000Apjs-0JtR;
-	Tue, 01 Sep 2026 01:55:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1Dwb-0000000AqOU-2FdU;
+	Tue, 01 Sep 2026 02:09:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Dib-0000000ApjJ-29rf;
-	Tue, 01 Sep 2026 01:55:21 +0000
+	id 1x1Dwa-0000000AqO7-2TJU;
+	Tue, 01 Sep 2026 02:09:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A24CC601DE;
-	Tue,  1 Sep 2026 01:55:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79FF81F000E9;
-	Tue,  1 Sep 2026 01:55:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1788227720;
-	bh=CbUFClJ4i3J7LjCwTB/35AHxIba4ym0JuMW7MLg9RkU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=QTvMOsLY/HyZChL07OeBST7evAmOyQDdqEsNG8IojIx94RZcYBwP8DgxztrD6FxPx
-	 UxNXGzD1L06crgm/t6O7u1Azv9jZngQt1/ls6DYB8X15tavuE8dNV9b/ojCvXtSt3F
-	 /qmxq+B/hEDiFvYVf1+pwfxpoT/BJ9uJYAxsblw0=
-Date: Mon, 31 Aug 2026 18:55:19 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-mm@kvack.org, samuel.holland@sifive.com, David Hildenbrand
- <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Lorenzo Stoakes
- <ljs@kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker
- <dalias@libc.org>, John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>, "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/8] mm: Drop pxd_ERROR()
-Message-Id: <20260831185519.66c6e6e83ce62d0fd9aee945@linux-foundation.org>
-In-Reply-To: <20260831054331.625505-1-anshuman.khandual@arm.com>
-References: <20260831054331.625505-1-anshuman.khandual@arm.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	by tor.source.kernel.org (Postfix) with ESMTP id A9DD86020E;
+	Tue,  1 Sep 2026 02:09:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC8B41F00ADE;
+	Tue,  1 Sep 2026 02:09:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788228587;
+	bh=vmaAfbWHGwLcti2TlXMDXUq+DvFQ5ZoOFVXxydmhGrI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=NPcwdzXbFAz7LdV+i8lTfKO3SbL8a239juAaEq0h+Tye0iCXqY+WttUHcy4enekA4
+	 CYaOzgHnESK3eiPFul++hOUuh9vdIlQ+lh8Jshqnu8CqlZJsd7oPOEWPnTugkCC1LL
+	 mS7zxd9U+Y1LGkvQdtfNF7hPewNh25TWfRzPz7PoACNvmQuJTX9l8iKxNzg7f42u5C
+	 QN8JNQRhHoaaut5DFwxOjoZG1efi8l1lHoj+XJoxjopxCOr4wl7SLG0XkzEObCutgv
+	 YBgGFHjh6yysqv3PeoCGRySK4UnWthUfiU4iVhwB2UjBmANMgAWXCPa94p2FSq1b6I
+	 l88z+W2V5iTRg==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: (subset) [PATCH v2 0/2] Add CoreSight nodes for Qualcomm Shikra SoC
+Date: Mon, 31 Aug 2026 21:09:23 -0500
+Message-ID: <178822856255.1835959.13014643071629589214.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
+References: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +87,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Aug 2026 11:13:22 +0530 Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 
-> pxd_ERROR() macros have been provided by all platforms, which are very much
-> identical and can be dropped off completely if these pgtable printing could
-> be moved to callers in generic MM aka all pxd_clear_bad().
+On Wed, 15 Jul 2026 09:16:13 +0800, Jie Gan wrote:
+> This series adds the CoreSight debug and trace subsystem for the
+> Qualcomm Shikra SoC.
 > 
-> But first cleanups and re-organizations are required in some platforms that
-> are using these macros internally. Afterwards [pte|pmd|pud|p4d|pgd]_ERROR()
-> macros have been completely dropped from the entire tree.
+> The first patch adds a fallback compatible for the Shikra CTCU (CoreSight
+> Trace Control Unit). The CTCU on Shikra shares the same configuration as
+> the one on SA8775p, so "qcom,shikra-ctcu" falls back to the existing
+> "qcom,sa8775p-ctcu" compatible.
+> 
+> [...]
 
-All was going nicely until...
+Applied, thanks!
 
-> This series is based on v7.3-rc1 after the following patch and has also been
-> built tested on multiple platforms.
+[1/2] dt-bindings: arm: add CTCU device for shikra
+      commit: f0c7f46249b917668851f51c7f6e9297c44d42d4
 
-*what* following patch???
-
-Oh well, I'll queue it all up and shall hope for the arch maintainer
-acks to roll in.  Please.
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
