@@ -4,60 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A7FC624CF
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 09:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96D8C61DD3
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 11:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mjKyqr9H3MhoZEBkZtOBGwxWVlaiLzizAnEEFDDmIWw=; b=qgDscesT9Hv7pL4KELfacY/urT
-	m8IU7NiD4+2A5e2Ko4WapIgLVhLktM/EMkz81giGJYV5OXjngbrPLmebwiYOCvS/RIU2UYVtmYdfM
-	ukwXGQv/Ljw1WXOWr00hWJkXhnG653wDD9LwdMzKgQAt8BZsRGsufZRdsGvHF7wTIgrE55jKuZKk4
-	Hzd4zYARIGtP+D/EEYL93TzBkEJRDTGLK41/YabJ0H2Th7FtM7RPOMMjx+p0DQFqyTWlkPIhoHiUT
-	igCGzeO1zvER3k5FZ4+bQOJkrwu14GAEhyjXgYGoCRJkqtkASzjTCe8PF5RzNF9ZZVfZOmrUYnZDl
-	HzmHKJOg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gMRJruGZNe0dMa4XJuzl24nMd8oyw1dF65qS4CtcRF8=; b=qA9cDntpvQrP0S
+	HcprqiLyW2IPbQMnHNGOrmqtFbg21bCsxBHGi/04TiEOAs9vA4opk3IzuFnmTQSHsAdTbe49KYYKv
+	9lgOUMYATBzedRd6zlB3w635261mzR/nsxiMFMkgs/VpCrePHXTIkrDiMktKyMJ0Y7dTGBZnMPdfR
+	CguKLCf9furAYU9BPH87ZJ7Gg05tdKhxGhubkZTqGyeP3acAOGEmzvHXeEG9lEqmoGOXJqtEtZDDO
+	ABwjF5Od0W0n4xEg2afVP/9IVOK6zLG/myiK1mx9Df+T+Vni9tH2dDr15pAhEj4S6N4Elx9NobGUf
+	Le398VqBGA9Ar4b11VxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1LDC-0000000BU0I-0kXM;
-	Tue, 01 Sep 2026 09:55:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1MIk-0000000Bcjf-2WCz;
+	Tue, 01 Sep 2026 11:05:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1LDB-0000000BU09-2VMZ
-	for linux-riscv@lists.infradead.org;
-	Tue, 01 Sep 2026 09:55:25 +0000
+	id 1x1MIi-0000000BcjN-3aoz;
+	Tue, 01 Sep 2026 11:05:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F4F6601DB;
-	Tue,  1 Sep 2026 09:55:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CC7A1F000E9;
-	Tue,  1 Sep 2026 09:55:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 90DAA6013A;
+	Tue,  1 Sep 2026 11:05:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 188E71F000E9;
+	Tue,  1 Sep 2026 11:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788256524;
-	bh=VKK2FKU6ga5dMkaUkFpuPEJ4LQvPAltaxJYOizCcDWI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JEjvUnVjlrC1+x//uhaFrgAkPGR7RagUCMde9lL/pt4tOL5YRVgkMvFnuaogJqRkR
-	 uO2DpAm6+8ipbSsRa0ZEWC2+nXghTH9IPkwlTiyR42iOrONr+BlRH9k+neerbVdDNH
-	 yHx8k27aarKUgJr2fMPeWJTJeLjPI6pwHrg10iNav99OQmXOewgQKzXUdeILGFuM1J
-	 W8Z/PJ1B/yxPWfwYIUgnDnQtJBSu4JUqUZDtGm+EcGtiIYPWMV/gnGhny/SP2/txv4
-	 fIllJ8UP5Mg1U9SN0raE7R6eaGOJVWeuLbd4trRIoHVVumXtJHSJPwmLAzmQCJ7cnm
-	 VnH7zTybw/oDw==
-Date: Tue, 1 Sep 2026 10:55:21 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] riscv: introduce cap framework and use it to
- optimize pgtable_l4|l5_enabled
-Message-ID: <20260901-mountable-engraved-f47c899ed194@spud>
-References: <20260830170414.4505-1-jszhang@kernel.org>
- <20260830170414.4505-4-jszhang@kernel.org>
- <20260831-falsify-arrogance-6917870b8596@spud>
- <apYafAJvKqz_hRzR@xhacker>
- <apZa3EnjGjpaydGm@xhacker>
+	s=k20260515; t=1788260711;
+	bh=gRmiVdG7zWf/GvbotLfM+46aH1AfJWGnO1OGWRPxU9E=;
+	h=From:Subject:Date:To:Cc;
+	b=aocYUNqMRbNIbR6s7Rg9UHR1UN1/ebvPynn8GpuDG2QdVDakyem/wqr3PXG73lTrw
+	 LRwJV+WxkKceCXprisvIxR3VWfUEANDIb29r9bo9cxnwu1RT88h7/r2oNGO6i4DLfA
+	 /1H00YbDEOwscD5LsRcrichbczg0w+PRJI3ol5M4Acd/RMmHVJ82SDlNk7qRSKQ6fv
+	 yZgIP4l8yq1hjJzoNIjNVErJih9+CIYXFkubFhrXJBYOwhfyQUHWcWiVYCHurHrUdp
+	 5I376A6qXa8usdLRXcRLGYqkpNqZlPMrocSBYL9TMfz13c76O+Hpawt3iY9CtV9EP1
+	 gw7MT7SmcXBiA==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: [PATCH 00/12] mm: make userland page table freeing RCU-safe
+Date: Tue, 01 Sep 2026 12:01:20 +0100
+Message-Id: <20260901-rcu-pagetable-freeing-v1-0-5456a81c8212@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <apZa3EnjGjpaydGm@xhacker>
+X-B4-Tracking: v=1; b=H4sIAICwlmoC/yXMQQqDMBBG4avIrDsQY5HQq0gXSfobR0qUiZaCe
+ Pem7fJbvHdQgQoK3ZqDFC8psuSK9tJQnHxOYHlUkzW2N65rWePOq0/YfHiCRwUkJ3bX0Ae4zsA
+ aqu2qGOX9+w73v8seZsTtO6Pz/AAWVW4teQAAAA==
+X-Change-ID: 20260831-rcu-pagetable-freeing-84b6be830e20
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Dinh Nguyen <dinguyen@kernel.org>, 
+ Simon Schuster <schuster.simon@siemens-energy.com>, 
+ Jonas Bonn <jonas@southpole.se>, 
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+ Stafford Horne <shorne@gmail.com>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>, 
+ Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
+ Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
+ Nick Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Andreas Larsson <andreas@gaisler.com>, 
+ Richard Henderson <richard.henderson@linaro.org>, 
+ Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ WANG Xuerui <kernel@xen0n.name>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+ linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, 
+ linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org, 
+ linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
+ linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, 
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+ linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, 
+ Qi Zheng <qi.zheng@linux.dev>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7724; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=nOobssw3s2ybzz17WgTPwcFF0UlLF/ay3MomYWqGLy4=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKmbXRPzZlRe2dXWOSN5VOqw0LTPl0Mv/7n0cOKu9vTL
+ j4St330uqOUhUGMi0FWTJHl+Rfx/UEiYfM6L/i7wcxhZQIZwsDFKQATOfiUkWFF16YP/Tyvz6vt
+ NXmiVXQwt/+G8BbtXWvMJyYvqkt1jd7ByLDI/qRK5V1pmT/yjf2L/kXdcliok3bDpfT2pNb26wH
+ 9TxkB
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,155 +129,184 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6757584663179251879=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6757584663179251879==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="m86E7V2/eBf8L2Q6"
-Content-Disposition: inline
+The majority of architectures in the kernel defer page table freeing until
+an RCU grace period has elapsed, this series converts all remaining
+architectures to do so too and eliminates CONFIG_MMU_GATHER_RCU_TABLE_FREE
+altogether.
 
---m86E7V2/eBf8L2Q6
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This is important because it enables safe lockless page table walking under
+RCU alone.
 
-On Tue, Sep 01, 2026 at 12:55:56PM +0800, Jisheng Zhang wrote:
-> On Tue, Sep 01, 2026 at 08:21:16AM +0800, Jisheng Zhang wrote:
-> > On Mon, Aug 31, 2026 at 11:04:12PM +0100, Conor Dooley wrote:
-> > > On Mon, Aug 31, 2026 at 01:04:01AM +0800, Jisheng Zhang wrote:
-> > > > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
-> > > > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
-> > > > boot, we can use alternative mechanism to optimize them.
-> > > >=20
-> > > > So the question is whether we can add RISCV_ISA_EXT_SV48/SV5 and use
-> > > > riscv_has_extension_*() or not. Although, per [1] and [2], SV48 and
-> > > > SV57 are ISA exensions too, RISCV_ISA_EXT_SV48/SV57 are to describe=
- hw
-> > > > supported extensions, while this doesn't mean the pgtable_l4|l5 is
-> > > > enabled, for example, we may pass no5lvl/no4lvl kernel boot args or
-> > > > explicitly ask for SV39 by setting dt mmu-type property as
-> > > > "riscv,sv39". If we clear RISCV_ISA_EXT_SV48|SV57, then internal
-> > > > extension queries and potentially userspace reporting can no longer
-> > > > distinguish =E2=80=9Cunsupported=E2=80=9D from =E2=80=9Csupported b=
-ut disabled.=E2=80=9D
-> > >=20
-> > > That's the case for all extensions that the kernel does not support,
-> > > like if the fpu is disabled because the kernel doesn't have the
-> > > configuration option set. In fact, I think the CFI extensions are very
-> >=20
-> > To be honest, before introduce the cap framework, I did think about FPU,
-> > ZACAS, ZABHA etc. ISA extensions' cases. Finally I came to a conclusion
-> > that the SV48/57 is a different case: Let me take FPU for an example.
-> > FPU once probed, the ISA support is never disabled, IOW, the
-> > riscv_has_extension_likely(FPU) is always true no matter the CONFIG_FPU
-> > is enabled or not. There's "no supported but disabled" case for FPU.
-> > But for SV48 case, that's different. The underlying HW may support SV48
-> > or SV57, but the "no5lvl and no4lvl" may explicitly force SV39, thus
-> > if we go with exisiting riscv_has_extension_*() API, we need to
-> > explicitly disable it by clear the isa bitmap. IOW, riscv_has_extension=
-_likely(SV48)
-> > is false even the underlying HW supports SV48, thus the user can't
-> > distinguish between =E2=80=9Cunsupported=E2=80=9D from =E2=80=9Csupport=
-ed but disabled.=E2=80=9D
-> > What do you think?
+Doing so allows for reduced lock contention, avoids lock ordering concerns
+and enables fast, efficient and correct page table walking as a result.
 
-(moving things around a little bit)
+Additionally it removes a bunch of code and architecture-specific behaviour
+which is always a beneficial thing to do.
 
-> and change its meaning a
-> bit from "the underlying HW supports the feature" to "the underlying HW
-> enables the feature".
->=20
-> or keep it only for ISA extensions only.
->=20
-> X86's X86_FEATURE_* take the first path, I.E it only means the feature
-> is enabled or disabled on current platform, but doesn't mean the current
-> platform HW supports the feature or not.
->=20
-> Any comments is appreciated.
+There has been much recent work on this:
 
-On this particular point, this is already how it works.
-riscv_has_extension_[un]likely() and other related functions report
-whether the extension is supported and enabled on the platform, not just
-whether the underlying hardware can support it. As I mentioned
-yesterday, the F and D extensions depend on CONFIG_FPU being enabled. If
-CONFIG_FPU is disabled, but F and D appear in the DT or ACPI, we clear
-the relevant bits in the bitmap. In turn, if there are extensions that
-depend on F and D being enabled, they'll get turned off too.
+* In 2023 Hugh Dickins RCU-deferred khugepaged page table retraction in
+  commit 13cf577e6b66 ("mm/pgtable: add pte_free_defer() for pgtable as
+  page").
 
->=20
-> Other thoughts:
->=20
-> performance PoV: usually, an ISA extension improves the performance, so
-> there's no case where we clear the ISA bit map. But SV48/SV57 is
-> different, e.g on a board w/ only 4GB DDR but the cpu supports SV57,
-> there's no reason to enable SV57 which impacts performance a bit. This
-> is the reason why no4lvl/no5lvl are introduced, AIUI.
+* Qi Zheng has done most of the work that made this possible starting with
+  the critical commit 718b13861d22 ("x86: mm: free page table pages by RCU
+  instead of semi RCU").
 
-Again, I think this applies to CFI, I don't think what's being done here
-is fundamentally different to that.
+* Qi then went on to convert a large number of architectures in commit
+  e3ecf7c7d082 ("mm: pgtable: convert some architectures to use
+  tlb_remove_ptdesc()"), commit 44b079583f7d ("alpha: mm: enable
+  MMU_GATHER_RCU_TABLE_FREE") and the series to which it belongs.
 
-> > > similar here, because they also have riscv_nousercfi command line
-> >=20
-> > This is another story, neither CPU ISA extension nor CPU capbility.
+* Qi then introduced the important CONFIG_HAVE_ARCH_TLB_REMOVE_TABLE
+  option in commit 086498aed3f6 ("mm: convert __HAVE_ARCH_TLB_REMOVE_TABLE
+  to CONFIG_HAVE_ARCH_TLB_REMOVE_TABLE config").
 
-They are extensions though, riscv_nousercfi disables the cfilp and cfiss
-extensions. You can see that in cpufeature.c. Maybe there's some
-semantic argument about whether they're /CPU/ extensions, but there's
-other stuff that aren't really CPU extensions and we treat them all the
-same. I guess the difference for sv48/sv57 is that we'd just be setting
-the bitmap bits rather than parsing it from DT/ACPI - but there's prior art
-for that already.
+* Finally, and critically, Lance Yang then converted the batch allocation
+  fallback case to be RCU-safe in commit 1fb3d8c20bfa ("mm/mmu_gather:
+  replace IPI with synchronize_rcu() when batch allocation fails").
 
-> >=20
-> > > options that can disable them.
-> > > If that's the reason for making a new-but-similar mechanism, I think =
-you
-> > > should just introduce RISCV_ISA_EXT_SV{48,57} and use that.
+The work I do here is only possible due to the work Hugh, Qi, Lance and
+others have done previously.
 
-> other cap usage PoV: the cap can be used to replace various static
-> branch usage in arch/riscv, for example the fast_unaligned_access_speed_k=
-ey
-> As is known, the static branch has some drawbacks.
->=20
-> So no matter which direction this series goes to, we need similar cap
-> framework. The key question is whether we can extend the
-> riscv_has_extension_*() to cover cpu/HW cap,
+An initial task this series addresses is to zap deposited page tables after
+an RCU grace period. Not doing so is currently safe, but for page table
+walkers relying on RCU alone, it would not be.
 
-It'd be nice to see if we could reuse the functions, if we don't
-want to invent a bunch of XLINUXFOO for them. The vendor extension stuff
-that Charlie added reuses it, but since there's no Linux Foundation
-JEDEC ID (AFAIK anyway) perhaps there's just no easy way to do it and
-duplicating the functions with a different name is required.
+The changes are largely mechanical - the majority of arches already have
+the machinery required to support CONFIG_MMU_GATHER_RCU_TABLE_FREE and
+simply needed configuration changes or small implementation changes to
+switch over.
 
-This particular case is an extension, so I think we should try to make
-it work using that framework though.
+However some arches required extra attention - sh-X2, m68k-motorola and
+sparc32.
 
---m86E7V2/eBf8L2Q6
-Content-Type: application/pgp-signature; name=signature.asc
+sh-X2 allocates PMDs from the slab allocator and PTEs as normal. Therefore
+CONFIG_HAVE_ARCH_TLB_REMOVE_TABLE is set to customise page table freeing
+and the LSB is used to encode which page table level is used, with
+__tlb_remove_table() doing the right thing depending on this.
 
------BEGIN PGP SIGNATURE-----
+This pattern is repeated for m68k-motorola and sparc32 to account for
+different page table levels. In each case, the page tables are aligned such
+that sufficient bits are available in each case for encoding this
+information.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapahCAAKCRB4tDGHoIJi
-0qnHAP90+sOs6LO8ojMJfAhCXNMGFc8ojLDBve6pxw5OBElYagEAgj/2EkQMe9ls
-QBsNhEVXYz6xhSecB0B/IsCh2SNbHgY=
-=Fvnc
------END PGP SIGNATURE-----
+m68k-motorola required the biggest change - since RCU page table freeing
+uses call_rcu(), this means page table freeing can arise from softirq
+context.
 
---m86E7V2/eBf8L2Q6--
+This was fixed with an IRQ-safe spin lock used in both get_pointer_table()
+and free_pointer_table().
 
+As part of this change, the logic for allocation of a new pointer table was
+separated out into add_pointer_table() to make the locking more obviously
+correct.
 
---===============6757584663179251879==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Finally, sparc32 was similar to m68k-motorola in that locking was required,
+however this was already implemented via a spinlock, and only had to be
+updated to be IRQ-safe.
+
+Additionally, the nocache pool's bit_map lock was updated to be IRQ-safe
+for softirq frees.
+
+Separately, the PTE path can't take mm->page_table_lock from softirq (no mm
+there), which is fine because the page reference count transitions are
+atomic and fully ordered.
+
+The series finally removes CONFIG_MMU_GATHER_RCU_TABLE_FREE and all related
+configurations and code that supported !CONFIG_MMU_GATHER_RCU_TABLE_FREE.
+
+As a result, page table walks can now be performed safely under RCU without
+any risk of page tables being freed underneath a walker.
+
+However, this is the only guarantee that this work provides - page table
+walkers must still ensure that page table entries are as expected
+throughout.
+
+All changes have been build tested. As most of the conversions are simply
+utilising existing mechanics that are known to work, this suffices for most
+cases.
+
+However those arches where significant changes have been made -
+m68k-motorola, sparc32 and sh-X2 - have been tested further.
+
+For each of these a boot test and stress test has been performed - fork 400
+children, each mmap()'ing 2 MiB and touching every page then partially
+munmap()'ing then exiting to trigger as much page table freeing as
+possible.
+
+All were found to be working correctly.
+
+Note that sparc32 LEON SMP is not emulated, Andreas - do you have a means
+of testing this?
+
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+Lorenzo Stoakes (ARM) (12):
+      mm/huge_memory: zap deposited page tables after an RCU grace period
+      mm: enable MMU_GATHER_RCU_TABLE_FREE for most 2-level architectures
+      mm: enable MMU_GATHER_RCU_TABLE_FREE for MMU riscv
+      mm: enable MMU_GATHER_RCU_TABLE_FREE for MMU arm
+      mm: enable MMU_GATHER_RCU_TABLE_FREE for arc, microblaze, xtensa
+      mm: enable MMU_GATHER_RCU_TABLE_FREE for sparc64
+      mm: enable MMU_GATHER_RCU_TABLE_FREE for m68k-coldfire
+      mm: enable MMU_GATHER_RCU_TABLE_FREE for sh-X2
+      mm: enable MMU_GATHER_RCU_TABLE_FREE for m68k-motorola
+      mm: enable MMU_GATHER_RCU_TABLE_FREE for sparc32
+      mm: make userland page table freeing RCU-safe
+      mm: change the contract for free_pgtables(), update docs
+
+ Documentation/mm/process_addrs.rst       |   6 ++
+ arch/Kconfig                             |   8 --
+ arch/alpha/Kconfig                       |   1 -
+ arch/arc/include/asm/pgalloc.h           |   6 +-
+ arch/arm/Kconfig                         |   1 -
+ arch/arm64/Kconfig                       |   1 -
+ arch/loongarch/Kconfig                   |   1 -
+ arch/m68k/Kconfig                        |   1 +
+ arch/m68k/include/asm/mcf_pgalloc.h      |   5 +-
+ arch/m68k/include/asm/motorola_pgalloc.h |   9 ++-
+ arch/m68k/mm/motorola.c                  | 121 ++++++++++++++++++++-----------
+ arch/microblaze/include/asm/pgalloc.h    |   2 +-
+ arch/mips/Kconfig                        |   1 -
+ arch/parisc/Kconfig                      |   1 -
+ arch/powerpc/Kconfig                     |   1 -
+ arch/riscv/Kconfig                       |   1 -
+ arch/s390/Kconfig                        |   1 -
+ arch/sh/Kconfig                          |   1 +
+ arch/sh/include/asm/pgalloc.h            |   6 +-
+ arch/sh/mm/pgtable.c                     |  20 +++++
+ arch/sparc/Kconfig                       |   4 +-
+ arch/sparc/include/asm/pgalloc_32.h      |   7 +-
+ arch/sparc/include/asm/pgalloc_64.h      |   8 --
+ arch/sparc/include/asm/tlb_64.h          |   2 -
+ arch/sparc/lib/bitext.c                  |  14 ++--
+ arch/sparc/mm/srmmu.c                    |  26 ++++++-
+ arch/um/Kconfig                          |   1 -
+ arch/x86/Kconfig                         |   1 -
+ arch/xtensa/include/asm/tlb.h            |   2 +-
+ include/asm-generic/tlb.h                |  66 +++--------------
+ mm/Kconfig                               |   2 +-
+ mm/gup.c                                 |   5 +-
+ mm/huge_memory.c                         |   2 +-
+ mm/mmu_gather.c                          |  30 ++------
+ mm/pgtable-generic.c                     |  18 ++++-
+ 35 files changed, 194 insertions(+), 188 deletions(-)
+---
+base-commit: 88297631d4d42f6004cb39c0ba3da7d2d10a616f
+change-id: 20260831-rcu-pagetable-freeing-84b6be830e20
+
+Cheers,
+-- 
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6757584663179251879==--
-
