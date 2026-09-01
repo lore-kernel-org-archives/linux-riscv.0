@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA29C61DD3
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 19:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7C2C61DD6
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 22:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=spcvWYGc2h1safKkR9X/f1ZcuiQHvkCY6XAKFosNx6E=; b=Jk5Ljpmd0jSUpB
-	qGPDOj8kS6Kbr0NT1+CajC9AbDk5MwMmmBpKN5IATYAzncekxWKxoG6ED41q/moGPkLU3xGRDGoe4
-	/G8fzG+0WaViVfimQMpQ9Ne1HricslSYZYjuyRwxCu9lec6Z0uO+jyE+3mZIlA6yOQEBIyxi6EU34
-	xAzZeHOvfFFnnBLSYj5gwM9Q1S0hTCe6ZoVFfnxv72zT7ZsIsFu9wLYSRkDtxdzdbBLGMrdOCNGOO
-	VCrEtBq+KxqOqa5AREVtu99Wu+jeOfMZnGM4nM1sXejRUEGOJdi6eScahj2H6vNIREmSKlhhdZ+wH
-	o4N89zO6b3j+1O19xRMA==;
+	List-Owner; bh=Lz4XObw7RYk858XiNUnM5yuxVnxj037f6JUF5ettZnA=; b=wbK4o0D4kHGKgm
+	e/YfNMQ6E76Yvxk4p4e917L+5a7+ugrtDj/z9h4eZZBZTMtXqrScM+ao1TBKSGri3L8/LgERBIa1v
+	uq06uw16AGwJuBNzyhFUvXcxMdE5ytD8dRmg+im7sq5AT86A9zhpzAT56AM0gUoiRFmNg7bEbLPpn
+	Zjj2BPr2GeUYUjqVmLdWJ8LAse+/34hO7pR53l5vGi3WAOYmLFiGk6UG0wUYeW+z+A8nN6naUXCWf
+	aLo3Wqyjq2hBL4sjIbIXx1ZE6Pqab0bBjAsibp4bhRREruY6WCXOLqaiZXWY8fUUB06HUWWfTijim
+	8OdGuGSUlRMBebvyI/LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ULx-0000000DEm9-44Xb;
-	Tue, 01 Sep 2026 19:41:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1We8-0000000DSL0-1yRO;
+	Tue, 01 Sep 2026 22:08:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ULx-0000000DElp-0ddS
+	id 1x1We6-0000000DSKe-2vwY
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Sep 2026 19:41:05 +0000
+	Tue, 01 Sep 2026 22:07:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C9DA60207;
-	Tue,  1 Sep 2026 19:41:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 321C41F000E9;
-	Tue,  1 Sep 2026 19:41:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F109143601;
+	Tue,  1 Sep 2026 22:07:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 847DF1F000E9;
+	Tue,  1 Sep 2026 22:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788291664;
-	bh=23/MZB8wrEyX9XWKNI5R0zZXXj8aB24fAIwXwsKt05E=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=A66J4XVPkBjqRvMBUD2kbAsKdX96r18WsMjLBTPX/HboTYjTHHgW6pdanrolYO8jw
-	 f7NZ+gjiHsFpZBOCKm4pbGtAX0q75DKObcEQH1umh4SAn9Pi4qxYLJBX9Ys6FPEpCg
-	 bB79LsNWd/PrTZeNo+CWPSDuXFFxvVAR0xiNWPwYTydct0uoQk4xx8/m3Jx1cPvO19
-	 tLVZ25tJk0gvcxbt24Ci7h4kRa3ta9RvlBPKleTXH6iRRE0jDjLUR0AUUd7o6zEhCz
-	 FHe1L0GvJNrnWdf3k2PGSgbwnLzoyxk2sViWwJQyvtPuUhHgwAf1WLNac/K/cR5hcg
-	 WniVsIEMtObaQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0AE539253EB;
-	Tue,  1 Sep 2026 19:40:07 +0000 (UTC)
+	s=k20260515; t=1788300477;
+	bh=GxJ1J5o192Yi57FIwYJ2EOUQdRT6ypUFpputH/0IOeQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lR511LSQVSe9EdXltrtmNkOFE/TMh95ryDURboDTyyanhfibv5hS+A1di+rF3X1HG
+	 JfrrIa785v6+L5e1P4wKk/fmTkKXInKZVKRw/h0vjer88zu/anais1Y07FJ0S0GM/P
+	 rpHWWumV/MtRG/vnK1eBWypCMFw1ophLkq7JoQ5gSrcloW8zuV7Ct/4jPbfS8Oe8mV
+	 BLchSuVccGGoyOITjb6E0x0s1n9aPzj+q1LQKaxxu/8dIjG+AybLS+xTxIlY+ZYClZ
+	 zDy3wktDaB9+AZBUH6CG1hXHaSnOakwod/5moyfam5y8da0P4JGw3Lo+0P8khW0eEg
+	 IXj8HUadNw/bQ==
+Date: Tue, 1 Sep 2026 15:07:56 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: Chen Pei <cp0613@linux.alibaba.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	x86@kernel.org, devicetree@vger.kernel.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Patra <atish.patra@linux.dev>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Tony Luck <tony.luck@intel.com>, Babu Moger <babu.moger@amd.com>,
+	Peter Newman <peternewman@google.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Ved Shanbhogue <ved@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Zhiwei Liu <zhiwei_liu@linux.alibaba.com>, d@gen8
+Subject: Re: [PATCH v6 5/8] riscv_cbqri: resctrl: Add cache allocation via
+ capacity block mask
+Message-ID: <apdMvKYegtdEWntp@gen8>
+References: <20260729-dfustini-atl-sc-cbqri-dt-v6-0-7c22b05d461b@kernel.org>
+ <20260729-dfustini-atl-sc-cbqri-dt-v6-5-7c22b05d461b@kernel.org>
+ <20260831100216.reply.cp0613@linux.alibaba.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: report Zfhmin/Zvfhmin when Zfh/Zvfh are present
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178829160640.1815744.5288519540181026085.git-patchwork-notify@kernel.org>
-Date: Tue, 01 Sep 2026 19:40:06 +0000
-References: <7190E4DB338251C3+20260811081513.2849980-1-jinrui@haiwei.tech>
-In-Reply-To: <7190E4DB338251C3+20260811081513.2849980-1-jinrui@haiwei.tech>
-To: JinRui <jinrui@haiwei.tech>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, corbet@lwn.net,
- skhan@linuxfoundation.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, alex@ghiti.fr,
- ajones@ventanamicro.com, cleger@rivosinc.com, charlie@rivosinc.com,
- samuel.holland@sifive.com
+Content-Disposition: inline
+In-Reply-To: <20260831100216.reply.cp0613@linux.alibaba.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,41 +78,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Mon, Aug 31, 2026 at 10:16:16AM +0800, Chen Pei wrote:
+> Hi Drew,
+> =
 
-This patch was applied to riscv/linux.git (fixes)
-by Paul Walmsley <pjw@kernel.org>:
+> Thanks for keeping this series alive. While testing v6 on a RISC-V
+> platform with a CBQRI capacity controller (8 capacity blocks backing
+> one L3, Ssqosid + CBQRI exposed via DT), I hit a problem that traces
+> back to this patch; findings and a suggested fix below.
 
-On Tue, 11 Aug 2026 08:15:13 +0000 you wrote:
-> The RISC-V ISA manual specifies that Zfh implies Zfhmin, a normative
-> rule clarified in
-> https://github.com/riscv/riscv-isa-manual/pull/3070. Zvfh likewise
-> implies Zvfhmin, as stated by the vector extension specification.
-> 
-> The kernel currently reports ZFH and ZFHMIN (and ZVFH and ZVFHMIN) as
-> independent hwprobe bits derived only from what the device tree
-> declares. Platforms that declare just "zfh" (Zfh being a superset that
-> already contains all Zfhmin instructions) therefore report
-> RISCV_HWPROBE_EXT_ZFHMIN=0, which breaks userspace RVA23 conformance
-> checks (e.g. snapd installing core26 on riscv64).
-> 
-> [...]
+Thanks for testing the siers.
 
-Here is the summary with links:
-  - riscv: report Zfhmin/Zvfhmin when Zfh/Zvfh are present
-    https://git.kernel.org/riscv/c/2dc1f8d0a5fd
+> Symptom
+> -------
+> With the series applied, the resctrl interface reports an empty
+> capacity mask everywhere:
+> =
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+>   # cat /sys/fs/resctrl/info/L3/cbm_mask
+>   0
+>   # cat /sys/fs/resctrl/schemata
+>   L3:0=3D0
+>   # cat /sys/fs/resctrl/size
+>   L3:0=3D0
+> =
 
+> while the hardware reports NCBLKS=3D8 in the CC capabilities register
+> (bits[23:8] of cc_capabilities, per CBQRI v1.0 =A73.5), i.e. the
+> expected values are cbm_mask=3Dff / L3:0=3Dff.
+> =
 
+> Root cause
+> ----------
+> cbqri_resctrl_control_init() fills cbm_len/shareable_bits/min_cbm_bits
+> but never initializes res->default_ctrl, which therefore stays 0
+> (static storage):
+> =
+
+> > +static int cbqri_resctrl_control_init(struct cbqri_cache *ctrl,
+> > +				      struct rdt_resource *res)
+> > +{
+> > +	res->name =3D kasprintf(...);
+> > +	res->cache.cbm_len =3D ctrl->cc.ncblks;
+> > +	res->cache.shareable_bits =3D 0;
+> > +	...
+
+I think you may be looking at an older version. The function in this
+patch is:
+
+static void cbqri_resctrl_control_init(struct cbqri_resctrl_res *cbqri_res)
+
+struct rdt_resource no longer has a default_ctrl member. Commit
+dbc58f7eec40 ("x86/resctrl: Generate default_ctrl instead of sharing
+it") removed it and derives the value instead.
+
+The default seems to work okay in my testing. For example, with Qemu [1]:
+
+ qemu-system-riscv64 \
+      -M virt,aia=3Daplic-imsic \
+      -nographic \
+      -m 1G \
+      -smp 8 \
+      -kernel arch/riscv/boot/Image \
+      -append "root=3D/dev/vda ro console=3DttyS0 rootwait earlycon" \
+      -drive if=3Dnone,file=3Drootfs.ext2,format=3Draw,id=3Dhd0 \
+      -device virtio-blk-device,drive=3Dhd0 \
+      -device riscv.cbqri.capacity,max_mcids=3D256,max_rcids=3D64,ncblks=3D=
+16,mmio_base=3D0x04820000
+
+# cat /sys/fs/resctrl/info/L2/cbm_mask
+ffff
+# cat /sys/fs/resctrl/schemata
+L2:0=3Dffff
+
+I will send v7 today as I have now rebased on v7.3-rc1. It is already
+available as a branch [2]. Please give that a try and let me know of any
+problems.
+
+Thanks,
+Drew
+
+[1] https://github.com/tt-fustini/qemu/tree/riscv-cbqri-cache
+[2] https://github.com/tt-fustini/linux/tree/cbqri-cache-alloc-dt
 
 _______________________________________________
 linux-riscv mailing list
