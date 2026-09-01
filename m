@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6CF2C624D4
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 13:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4529DC624D4
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 13:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sQ0rgxnAxHGaCI7L6bqLuDHc4iUPJQafOXot9b02e4I=; b=SYwFONHJIhRkBh
-	LBL5VK8sjZrkJ0Y5KJ1Qom6V3j/xYipykqYMu9FXmnB1BsW5lD1TaIDbeq74HCp/g64Uga87c+Q5u
-	KUQonC1WZeZrki0jbXnfIrIjUix6dxDOclyaARly7xD7mv+dSImKxMv4Rd4nAW6GReGyEk01N+Khb
-	6kq55MjVCZ3+6VNT0lwwD6U1+YN6mQkyOL2bMEnYTmZGA9uD+gg4CZGsQNuzp709kTrdm6v/G7M0g
-	nWtOrn4AO2jvMXf+n4nRjksXM8GmQppp74NlU4vO1mTQOreyf43bmuYi3KC4gzyL7IH3ViwemByeN
-	SRRwv5OFi6YbEZ3hWJkA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vlUaat8/ChJruiE6tR2aRHhw4M6pHwPieVehpCths6k=; b=OYUkSGBicSFxTH
+	vzyHVp19SVhcVEgnMCUAD1AKiOVlqCbMEJIUII6WoWFP+pvaeRFpHnBgEDhhOKXmOiK5oFw2TOd1q
+	TmxdowzBTurSkB3PLsdUs2nS5+u8Z5ghetWGFPwiOQjiFbEgrcoKi53l1jBDDbcty2jlRnPTnGJnF
+	QQyXNTANscWTkY9fb38mRPsIdQvmhmT63ChbfaOFqf7WurYs1E4P36NfGGsOwfFkV4Vnpa4mwACOs
+	/nmnuyWHk7gknMklH/d6TjHGi1Ed/W72UqukUAYZ1opubOPuKtzWMrQyZNH00miaiHkJ3VafIRMqX
+	Du5FdOpfiJfAwc/3/Skg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Oi6-0000000CEWX-09c3;
-	Tue, 01 Sep 2026 13:39:34 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Oi3-0000000CEUm-1V9k
-	for linux-riscv@lists.infradead.org;
+	id 1x1Oi4-0000000CEW2-3zjQ;
 	Tue, 01 Sep 2026 13:39:32 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1Oi2-0000000CEUd-0nWL
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Sep 2026 13:39:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1788269968; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=zyLF35runNtHobgU5o7kJ9boPye3AhCPnim8elazGm0=;
-	b=nthgCvR7YgvZiqI5Kp+eDC4TP6rXpDzddgd1CDbFnWQ3Y70+gCB5Z2hD2VWnx1d8r5sIJFzKmwkQCEHtjArrz35/ZMVVsESZapbyPj94kcZ80VwVhAW13+RScdlbwxukFPESkW145NNn5aPezTVNvrivcg21ISIJyqOE5I74UwI=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=20;SR=0;TI=SMTPD_---0XA9NaZ8_1788269965;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XA9NaZ8_1788269965 cluster:ay36)
+	t=1788269965; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=rjZG1oum5ouwIyghJAvrKRp+c0uDhrzvhztsrMAS+V4=;
+	b=f8DxVwFu1I1zMWp+9TwoNs1EYCWd/M2eIv0Tl1RQBGDwfL5gSxdEVrHThKMeAkzBsX8stfdewhgyTDCJFq8t2h3AYF0qETIjTBJ+GwlwcC617IvZWnIyGTwJtHIqdY88zGQkrJCmlDEEqHUw0HvT7MveiQzawciilNMEfvhAB58=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=20;SR=0;TI=SMTPD_---0XA9NaXm_1788269962;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XA9NaXm_1788269962 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 01 Sep 2026 21:39:26 +0800
+          Tue, 01 Sep 2026 21:39:23 +0800
 From: fangyu.yu@linux.alibaba.com
 To: tomasz.jeznach@linux.dev,
 	joro@8bytes.org,
@@ -57,16 +57,14 @@ Cc: fangyu.yu@linux.alibaba.com,
 	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 2/3] iommu/riscv: Serialize command queue publishing
-Date: Tue,  1 Sep 2026 21:39:19 +0800
-Message-Id: <20260901133920.14550-3-fangyu.yu@linux.alibaba.com>
+Subject: [PATCH v2 0/3] iommu/riscv: Fix command queue publishing races
+Date: Tue,  1 Sep 2026 21:39:17 +0800
+Message-Id: <20260901133920.14550-1-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20260901133920.14550-1-fangyu.yu@linux.alibaba.com>
-References: <20260901133920.14550-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_063931_551161_CD6595BD 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20260901_063930_740134_0BBA4FC5 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,157 +83,53 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Serialize command queue publishing so software producer state advances only
-after a command is written and the hardware tail is updated. Wait for
-hardware consumption outside the queue lock when the command queue is full
-so other CPUs are not blocked behind a long poll.
+This series fixes races in the RISC-V IOMMU command queue submission
+path.
 
-Fixes: 856c0cfe5c5f ("iommu/riscv: Command and fault queue support")
-Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+The current command queue code reserves a producer index before the
+command is written and before the hardware tail is updated. Multiple CPUs
+can therefore reserve different producer indexes concurrently and then
+wait for the software tail to reach their index before publishing their
+own command.
+
+That model is fragile when a command submission fails after reserving an
+index. The failed producer index is never published, so later submitters
+can wait behind a hole in the software producer stream. This can also
+lead to misleading IOFENCE.C completion timeouts, because the sync path
+may wait for a producer index whose command was never actually enqueued.
+
+Fix this by serializing command queue publishing with a raw spinlock.
+Instead of reserving producer indexes ahead of time, the submission path
+uses the current software tail as the next command index, writes the
+command, publishes the hardware tail, and then advances the software tail
+while holding the lock. When the command queue is full, the code drops
+the lock and waits for hardware consumption before retrying, so other CPUs
+are not blocked behind a long hardware poll.
+
+The final patch changes the queue submission helper to return an error 
+when enqueue fails. The IOFENCE.C sync path then avoids waiting for a
+command that was never published to hardware.
+
+This series does not attempt to add full RAS/error recovery for command 
+queue failures. It keeps the existing local error reporting behavior and
+only fixes the software queue state and wait semantics.
+
 ---
- drivers/iommu/riscv/iommu.c | 100 +++++++++++++++++++++---------------
- 1 file changed, 58 insertions(+), 42 deletions(-)
+Changes in v2:
+    - Avoid reacquiring the command queue lock after waiting for space
+      times out.
+    - Link to v1:
+      https://lore.kernel.org/linux-riscv/20260817142728.61783-1-fangyu.yu@linux.alibaba.com/
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 2c0dcc90cf85..e335beb70e42 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -382,77 +382,93 @@ static int riscv_iommu_queue_wait(struct riscv_iommu_queue *queue,
- 				 (int)(cons - index) > 0, 0, timeout_us);
- }
- 
--/* Enqueue an entry and wait to be processed if timeout_us > 0
-- *
-- * Error handling for IOMMU hardware not responding in reasonable time
-- * will be added as separate patch series along with other RAS features.
-- * For now, only report hardware failure and continue.
-- */
-+static int riscv_iommu_queue_wait_for_space(struct riscv_iommu_queue *queue,
-+						   unsigned int last)
-+{
-+	unsigned int head;
-+	unsigned int tail;
-+	unsigned int hw_head;
-+	unsigned long flags;
-+	int ret;
-+
-+	ret = riscv_iommu_readl_timeout(queue->iommu, Q_HEAD(queue), hw_head,
-+					      !(hw_head & ~queue->mask) && hw_head != last,
-+					      0, RISCV_IOMMU_QUEUE_TIMEOUT);
-+	if (ret)
-+		return ret;
-+
-+	raw_spin_lock_irqsave(&queue->lock, flags);
-+	head = atomic_read(&queue->head);
-+	tail = atomic_read(&queue->tail);
-+	if ((tail - head) >= queue->mask) {
-+		last = Q_ITEM(queue, head);
-+		/*
-+		 * Re-read hw_head under the lock so that it is consistent with
-+		 * the freshly computed 'last'.  Using the pre-lock snapshot
-+		 * could produce a stale value that wraps around relative to the
-+		 * new 'last', advancing the shadow head past entries that have
-+		 * not yet been consumed by the hardware.
-+		 */
-+		hw_head = riscv_iommu_readl(queue->iommu, Q_HEAD(queue));
-+		if (!(hw_head & ~queue->mask) && hw_head != last)
-+			atomic_add((hw_head - last) & queue->mask, &queue->head);
-+	}
-+	raw_spin_unlock_irqrestore(&queue->lock, flags);
-+
-+	return 0;
-+}
-+
-+/* Enqueue an entry and publish it to the hardware queue. */
- static unsigned int riscv_iommu_queue_send(struct riscv_iommu_queue *queue,
- 					   void *entry, size_t entry_size)
- {
- 	unsigned int prod;
- 	unsigned int head;
--	unsigned int tail;
- 	unsigned long flags;
-+	int ret;
- 
--	/* Do not preempt submission flow. */
--	local_irq_save(flags);
-+	/* 1. Wait for space availability and reserve the next slot. */
-+	for (;;) {
-+		raw_spin_lock_irqsave(&queue->lock, flags);
- 
--	/* 1. Allocate some space in the queue */
--	prod = atomic_inc_return(&queue->prod) - 1;
--	head = atomic_read(&queue->head);
-+		prod = atomic_read(&queue->tail);
-+		head = atomic_read(&queue->head);
- 
--	/* 2. Wait for space availability. */
--	if ((prod - head) > queue->mask) {
--		if (readx_poll_timeout(atomic_read, &queue->head,
--				       head, (prod - head) < queue->mask,
--				       0, RISCV_IOMMU_QUEUE_TIMEOUT))
--			goto err_busy;
--	} else if ((prod - head) == queue->mask) {
--		const unsigned int last = Q_ITEM(queue, head);
-+		if ((prod - head) < queue->mask)
-+			break;
-+
-+		head = Q_ITEM(queue, head);
-+		raw_spin_unlock_irqrestore(&queue->lock, flags);
- 
--		if (riscv_iommu_readl_timeout(queue->iommu, Q_HEAD(queue), head,
--					      !(head & ~queue->mask) && head != last,
--					      0, RISCV_IOMMU_QUEUE_TIMEOUT))
-+		ret = riscv_iommu_queue_wait_for_space(queue, head);
-+		if (ret)
- 			goto err_busy;
--		atomic_add((head - last) & queue->mask, &queue->head);
- 	}
- 
--	/* 3. Store entry in the ring buffer */
-+	/* 2. Store entry in the ring buffer. */
- 	memcpy(queue->base + Q_ITEM(queue, prod) * entry_size, entry, entry_size);
- 
--	/* 4. Wait for all previous entries to be ready */
--	if (readx_poll_timeout(atomic_read, &queue->tail, tail, prod == tail,
--			       0, RISCV_IOMMU_QUEUE_TIMEOUT))
--		goto err_busy;
--
--	/*
--	 * 5. Make sure the ring buffer update (whether in normal or I/O memory) is
--	 *    completed and visible before signaling the tail doorbell to fetch
--	 *    the next command. 'fence ow, ow'
--	 */
-+	/* 3. Make sure the entry is visible before updating the queue tail. */
- 	dma_wmb();
- 	riscv_iommu_writel(queue->iommu, Q_TAIL(queue), Q_ITEM(queue, prod + 1));
- 
- 	/*
--	 * 6. Make sure the doorbell write to the device has finished before updating
--	 *    the shadow tail index in normal memory. 'fence o, w'
-+	 * 4. Make sure the doorbell write to the device has finished before
-+	 *    updating the shadow tail index in normal memory. 'fence o, w'
- 	 */
- #ifdef CONFIG_MMIOWB
- 	mmiowb();
- #endif
--	atomic_inc(&queue->tail);
-+	atomic_set(&queue->tail, prod + 1);
-+	atomic_set(&queue->prod, prod + 1);
- 
--	/* 7. Complete submission and restore local interrupts */
--	local_irq_restore(flags);
-+	raw_spin_unlock_irqrestore(&queue->lock, flags);
- 
- 	return prod;
- 
- err_busy:
--	local_irq_restore(flags);
-+	/* Report the failure and continue; full RAS recovery is not implemented. */
- 	dev_err_once(queue->iommu->dev, "Hardware error: command enqueue failed\n");
--
- 	return prod;
- }
- 
+Fangyu Yu (3):
+  iommu/riscv: Add command queue lock
+  iommu/riscv: Serialize command queue publishing
+  iommu/riscv: Avoid waiting on failed command enqueue
+
+ drivers/iommu/riscv/iommu.c | 117 +++++++++++++++++++++---------------
+ drivers/iommu/riscv/iommu.h |   2 +
+ 2 files changed, 72 insertions(+), 47 deletions(-)
+
 -- 
 2.50.1
 
