@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA40EC624D0
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 18:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C02BDC624D0
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Sep 2026 18:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EOtlsab+7tF6Bl9URSsQ3xn0TuU/yW7Sd8EjO5tCjDg=; b=TyyAhiqmabmJzs
-	l5SneIlOHgHBvb09GVyg9rwVH0vcpZAfhvC9tSYFjHv5uBiq+gYdLJFpWjQh86dQ78EBLoTb8TuyZ
-	PE5AfaJv4SpwGZKFSAIdYtv65qqdOXNMpTD18DV/KYGGOUibCupdlOkwdn67JfVSlf3fJOSXKnGpX
-	200GCDxthLHciXfIAPsIcG80569EE7unCSCqQwHsN3Y1J0i3iTMGkD/O0pqK9l+zodDT9RSe73opF
-	GDCtjdmB5gggwqKFlE879mR5iJfIQzq3VHrUoeLj3hMOsXn92pBM3I1H+jHuQ3dPF9S+X6oHAUXZp
-	uNjfCXU7y2K+tGt2ZE1w==;
+	List-Owner; bh=1f+E++mIZqv9mBKaByJ9SizWMzEAClUqDf7f1o7u4XY=; b=AG/DQAOQIyhEYD
+	wb+/0gfKvAyZU1KrRcVBPnJq1d8LRK/sKw204SHEDBAtvVJ+ursAfDh5wX+s47atfIgnHGq0hElvh
+	1RvDp/suGgVdqZcYOrkyyxA6d17OBRK3YXsSB/xOxfh1RcnZsfa7le5Dx4xuNXvRTrJUfNyZkF2hW
+	mO8utA/E+G5XbNHvFk9V/Y/SbL0AUzGAeyEqwWw4R7xkKDTQ+DKDflza2rSEHacy6dQnK6VWjyR76
+	wsd+v3KChx7VL14SadWJ1IdUv4D4uT2eRp5cnfad2CioH0bt3gfWelp9Ptf5wATYzhaPBZ967s6C2
+	JPk/GboHE25XibFqHf3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TIc-0000000CyPM-3D0I;
-	Tue, 01 Sep 2026 18:33:34 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1x1TJY-0000000CybU-3ZFq;
+	Tue, 01 Sep 2026 18:34:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1THs-0000000CyLH-0LnY;
-	Tue, 01 Sep 2026 18:33:32 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [120.85.96.74])
-	by APP-01 (Coremail) with SMTP id qwCowAAn__I8GpdqvbIDBw--.20040S2;
-	Wed, 02 Sep 2026 02:32:30 +0800 (CST)
-Message-ID: <51a0c0657870a424f6bc9e149542a57ff6fb3ecd.camel@iscas.ac.cn>
-Subject: Re: [PATCH 12/12] riscv: dts: thead: enable USB3 ports on Lichee Pi
- 4A
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, Fu Wei	
- <wefu@redhat.com>, Michael Turquette <mturquette@baylibre.com>, Stephen
- Boyd	 <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vinod
- Koul	 <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Jisheng Zhang <jszhang@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
- 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-usb@vger.kernel.org, Han Gao	
- <rabenda.cn@gmail.com>, Yao Zi <ziyao@disroot.org>
-Date: Wed, 02 Sep 2026 02:32:28 +0800
-In-Reply-To: <20260507081710.4090814-13-zhengxingda@iscas.ac.cn>
-References: <20260507081710.4090814-1-zhengxingda@iscas.ac.cn>
-	 <20260507081710.4090814-13-zhengxingda@iscas.ac.cn>
-User-Agent: Evolution 3.58.3 
+	id 1x1TJX-0000000Cyb2-43u1
+	for linux-riscv@lists.infradead.org;
+	Tue, 01 Sep 2026 18:34:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 76FE840244;
+	Tue,  1 Sep 2026 18:34:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55EDF1F000E9;
+	Tue,  1 Sep 2026 18:34:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788287671;
+	bh=5NXgbY7RzU8g0Kf53Luap+wGnaz+b4K8573/iOsTQ/s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=I/ixn95taCRJGX4PAMNj/C2sqsS1ahSoeW9hr3nqYKv27L2TmqCZFfi1XeScTVlf+
+	 cbstwnjn2a3/FJPdPre8LRomsAIgGvRkr30ufESK8Ikz1ihAT1e4EFZlbXk2zU8HLl
+	 ICHHFQtXJZxvByz5b71CGGjk2IP+1XjSgOlMXEDq0LNZLLkh8BQHNzaOGHep5rMr7n
+	 9ox1IiG5y5PYzg0A1y8r0QUfK0PPZkloaruwpOABRYG2htBc6Pz48lBnz1ZlV+utDZ
+	 Iq+UfKLLwTr8PX+yV+aVmPr3HM7CzjtIchVC9ohRkL51kOj3+kssxJRDWicb2pXwkp
+	 blNMtbtGrXCJQ==
+Date: Tue, 1 Sep 2026 11:34:31 -0700
+From: Kees Cook <kees@kernel.org>
+To: Michal Suchanek <msuchanek@suse.de>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Will Drewry <wad@chromium.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org, Huacai Chen <chenhuacai@kernel.org>,
+	loongarch@lists.linux.dev, Sven Schnelle <svens@linux.ibm.com>,
+	linux-s390@vger.kernel.org, x86@kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	"Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>, Radu Rendec <radu@rendec.net>,
+	Renzo Davoli <renzo@cs.unibo.it>, Oleg Nesterov <oleg@redhat.com>
+Subject: Re: [PATCH] seccomp: Fix syscall skip logic on ptrace
+Message-ID: <202609011132.F4A3EB7103@keescook>
+References: <20260707181957.433213175@kernel.org>
+ <al9NlZi20xHMvla2@kunlun.suse.cz>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAn__I8GpdqvbIDBw--.20040S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3XF13XrWrJFyUKrW3uw1Utrb_yoWxJFWkpa
-	9xJan3uay0vr17Ka13J3WDG3Z8Cr4v9a4v9r15Gr10kwsruwnFkryakrsY9ayUGF4xX34q
-	vr4kuFWIgrnIg3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
-	xwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07bIBTOUUUUU=
-X-Originating-IP: [120.85.96.74]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_113318_906038_929C4247 
-X-CRM114-Status: GOOD (  15.11  )
+Content-Disposition: inline
+In-Reply-To: <al9NlZi20xHMvla2@kunlun.suse.cz>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,128 +80,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDUtMDflm5vnmoQgMTY6MTcgKzA4MDDvvIxJY2Vub3d5IFpoZW5n5YaZ6YGT77ya
-Cj4gVGhlIExpY2hlZSBQaSA0QSBib2FyZCBmZWF0dXJlcyBhbiBvbmJvYXJkIFZJQSBWTDgxNyBo
-dWIgY29ubmVjdGVkIHRvCj4gdGhlIFNvQydzIFVTQjMgYXMgdXBzdHJlYW0gYW5kIDQgVVNCLTMu
-MC1jYXBhYmxlIFR5cGUtQSBwb3J0cyBhcwo+IGRvd25zdHJlYW0uCj4gCj4gRW5hYmxlIFNvQyBV
-U0IzIGFuZCB0aGUgaHViIG9uIExpY2hlZSBQaSA0QS4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBJY2Vu
-b3d5IFpoZW5nIDx6aGVuZ3hpbmdkYUBpc2Nhcy5hYy5jbj4KPiAtLS0KPiDCoC4uLi9kdHMvdGhl
-YWQvdGgxNTIwLWxpY2hlZS1tb2R1bGUtNGEuZHRzacKgwqDCoCB8wqAgMTUgKysKPiDCoC4uLi9i
-b290L2R0cy90aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0c8KgwqDCoCB8IDIzMQo+ICsrKysr
-KysrKysrKysrKysrKwo+IMKgMiBmaWxlcyBjaGFuZ2VkLCAyNDYgaW5zZXJ0aW9ucygrKQo+IAo+
-IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC1saWNoZWUtbW9k
-dWxlLTRhLmR0c2kKPiBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvdGhlYWQvdGgxNTIwLWxpY2hlZS1t
-b2R1bGUtNGEuZHRzaQo+IGluZGV4IDhlNzZiNjNlMDEwMGEuLmJmZGE1YTZiNTZiOGYgMTAwNjQ0
-Cj4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy90aGVhZC90aDE1MjAtbGljaGVlLW1vZHVsZS00
-YS5kdHNpCj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy90aGVhZC90aDE1MjAtbGljaGVlLW1v
-ZHVsZS00YS5kdHNpCj4gQEAgLTIwLDYgKzIwLDE2IEBAIG1lbW9yeUAwIHsKPiDCoAkJZGV2aWNl
-X3R5cGUgPSAibWVtb3J5IjsKPiDCoAkJcmVnID0gPDB4MCAweDAwMDAwMDAwIDB4MiAweDAwMDAw
-MDAwPjsKPiDCoAl9Owo+ICsKPiArCS8qIFRPRE86IFN3aXRjaCB0byBBT04gcmVndWxhdG9yIHdo
-ZW4gaXQncyBhdmFpbGFibGUuICovCj4gKwlhdmRkMzNfdXNiMzogcmVndWxhdG9yLWF2ZGQzMy11
-c2IzIHsKPiArCQljb21wYXRpYmxlID0gInJlZ3VsYXRvci1maXhlZCI7Cj4gKwkJcmVndWxhdG9y
-LW5hbWUgPSAiQVZERDMzX1VTQjMiOwo+ICsJCXJlZ3VsYXRvci1taW4tbWljcm92b2x0ID0gPDMz
-MDAwMDA+Owo+ICsJCXJlZ3VsYXRvci1tYXgtbWljcm92b2x0ID0gPDMzMDAwMDA+Owo+ICsJCS8q
-IE1hcmtlZCBhcyBhbHdheXMgb24gb24gdGhlIHNjaGVtYXRpY3MgKi8KPiArCQlyZWd1bGF0b3It
-YWx3YXlzLW9uOwo+ICsJfTsKPiDCoH07Cj4gwqAKPiDCoCZvc2Mgewo+IEBAIC0yMDIsMyArMjEy
-LDggQEAgJnNkaW8wIHsKPiDCoAltYXgtZnJlcXVlbmN5ID0gPDE5ODAwMDAwMD47Cj4gwqAJc3Rh
-dHVzID0gIm9rYXkiOwo+IMKgfTsKPiArCj4gKyZ1c2JfcGh5IHsKPiArCWF2ZGQzMy11c2IzLXN1
-cHBseSA9IDwmYXZkZDMzX3VzYjM+Owo+ICsJc3RhdHVzID0gIm9rYXkiOwo+ICt9Owo+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC1saWNoZWUtcGktNGEuZHRz
-Cj4gYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC1saWNoZWUtcGktNGEuZHRzCj4g
-aW5kZXggMzU0ZjM4OTNhYThjZi4uZGUzOGYxZjQ1N2U2YiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
-c2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC1saWNoZWUtcGktNGEuZHRzCj4gKysrIGIvYXJjaC9y
-aXNjdi9ib290L2R0cy90aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0cwo+IEBAIC00LDYgKzQs
-NyBAQAo+IMKgICovCj4gwqAKPiDCoCNpbmNsdWRlICJ0aDE1MjAtbGljaGVlLW1vZHVsZS00YS5k
-dHNpIgo+ICsjaW5jbHVkZSA8ZHQtYmluZGluZ3MvZ3Bpby9ncGlvLmg+Cj4gwqAKPiDCoC8gewo+
-IMKgCW1vZGVsID0gIlNpcGVlZCBMaWNoZWUgUGkgNEEiOwo+IEBAIC05Nyw2ICs5OCwxNDEgQEAg
-ZmFuOiBwd20tZmFuIHsKPiDCoAkJY29vbGluZy1sZXZlbHMgPSA8MCA2NiAxOTYgMjU1PjsKPiDC
-oAl9Owo+IMKgCj4gKwlodWJfNXY6IHJlZ3VsYXRvci1odWItNXYgewo+ICsJCWNvbXBhdGlibGUg
-PSAicmVndWxhdG9yLWZpeGVkIjsKPiArCQlyZWd1bGF0b3ItbmFtZSA9ICJIVUJfNVYiOwo+ICsJ
-CXJlZ3VsYXRvci1taW4tbWljcm92b2x0ID0gPDUwMDAwMDA+Owo+ICsJCXJlZ3VsYXRvci1tYXgt
-bWljcm92b2x0ID0gPDUwMDAwMDA+Owo+ICsJCWdwaW8gPSA8JmlvZXhwMyAzIEdQSU9fQUNUSVZF
-X0hJR0g+Owo+ICsJCWVuYWJsZS1hY3RpdmUtaGlnaDsKPiArCX07Cj4gKwo+ICsJdmNjNXZfdXNi
-OiByZWd1bGF0b3ItdmNjNXYtdXNiIHsKPiArCQljb21wYXRpYmxlID0gInJlZ3VsYXRvci1maXhl
-ZCI7Cj4gKwkJcmVndWxhdG9yLW5hbWUgPSAiVkNDNVZfVVNCIjsKPiArCQlyZWd1bGF0b3ItbWlu
-LW1pY3Jvdm9sdCA9IDw1MDAwMDAwPjsKPiArCQlyZWd1bGF0b3ItbWF4LW1pY3Jvdm9sdCA9IDw1
-MDAwMDAwPjsKPiArCQlncGlvID0gPCZncGlvMSAyMiBHUElPX0FDVElWRV9ISUdIPjsKPiArCQll
-bmFibGUtYWN0aXZlLWhpZ2g7Cj4gKwkJLyoKPiArCQkgKiBXb3JrYXJvdW5kIGZvciBMaW51eCBj
-dXJyZW50bHkgYmVpbmcgbm90IGFibGUgdG8KPiBwb3dlciBvbgo+ICsJCSAqIFZidXMgZm9yIFVT
-QiBUeXBlLUEgY29ubmVjdG9ycy4KPiArCQkgKi8KPiArCQlyZWd1bGF0b3ItYWx3YXlzLW9uOwoK
-T0hISEhIIG9uYm9hcmRfdXNiX2RldiBub3cgbWF0Y2hlcyAidXNiLWEtY29ubmVjdG9yIiBhbmQg
-aXMgYWJsZSB0bwpwb3dlciBvbiB0aGUgdmJ1cy1zdXBwbHkgcmVndWxhdG9yLgoKVGhpcyBoYWNr
-IHNob3VsZCBiZSByZW1vdmFibGUgbm93LgoKVGhhbmtzLApJY2Vub3d5Cgo+ICsJfTsKPiArCj4g
-Kwljb25uZWN0b3ItdXNiLWEtMSB7Cj4gKwkJY29tcGF0aWJsZSA9ICJ1c2ItYS1jb25uZWN0b3Ii
-Owo+ICsJCXZidXMtc3VwcGx5ID0gPCZ2Y2M1dl91c2I+Owo+ICsKPiArCQlwb3J0cyB7Cj4gKwkJ
-CSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkjc2l6ZS1jZWxscyA9IDwwPjsKPiArCj4gKwkJ
-CXBvcnRAMCB7Cj4gKwkJCQlyZWcgPSA8MD47Cj4gKwo+ICsJCQkJdXNiX2FfMV9oc19lcDogZW5k
-cG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZodWJfaHNfcG9ydDFfZXA+Owo+
-ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRAMSB7Cj4gKwkJCQlyZWcgPSA8MT47Cj4g
-Kwo+ICsJCQkJdXNiX2FfMV9zc19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2lu
-dCA9Cj4gPCZodWJfc3NfcG9ydDFfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCQl9Owo+ICsJ
-fTsKPiArCj4gKwljb25uZWN0b3ItdXNiLWEtMiB7Cj4gKwkJY29tcGF0aWJsZSA9ICJ1c2ItYS1j
-b25uZWN0b3IiOwo+ICsJCXZidXMtc3VwcGx5ID0gPCZ2Y2M1dl91c2I+Owo+ICsKPiArCQlwb3J0
-cyB7Cj4gKwkJCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkjc2l6ZS1jZWxscyA9IDwwPjsK
-PiArCj4gKwkJCXBvcnRAMCB7Cj4gKwkJCQlyZWcgPSA8MD47Cj4gKwo+ICsJCQkJdXNiX2FfMl9o
-c19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZodWJfaHNfcG9y
-dDJfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRAMSB7Cj4gKwkJCQlyZWcg
-PSA8MT47Cj4gKwo+ICsJCQkJdXNiX2FfMl9zc19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90
-ZS1lbmRwb2ludCA9Cj4gPCZodWJfc3NfcG9ydDJfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiAr
-CQl9Owo+ICsJfTsKPiArCj4gKwljb25uZWN0b3ItdXNiLWEtMyB7Cj4gKwkJY29tcGF0aWJsZSA9
-ICJ1c2ItYS1jb25uZWN0b3IiOwo+ICsJCXZidXMtc3VwcGx5ID0gPCZ2Y2M1dl91c2I+Owo+ICsK
-PiArCQlwb3J0cyB7Cj4gKwkJCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkjc2l6ZS1jZWxs
-cyA9IDwwPjsKPiArCj4gKwkJCXBvcnRAMCB7Cj4gKwkJCQlyZWcgPSA8MD47Cj4gKwo+ICsJCQkJ
-dXNiX2FfM19oc19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZo
-dWJfaHNfcG9ydDNfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRAMSB7Cj4g
-KwkJCQlyZWcgPSA8MT47Cj4gKwo+ICsJCQkJdXNiX2FfM19zc19lcDogZW5kcG9pbnQgewo+ICsJ
-CQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZodWJfc3NfcG9ydDNfZXA+Owo+ICsJCQkJfTsKPiAr
-CQkJfTsKPiArCQl9Owo+ICsJfTsKPiArCj4gKwljb25uZWN0b3ItdXNiLWEtNCB7Cj4gKwkJY29t
-cGF0aWJsZSA9ICJ1c2ItYS1jb25uZWN0b3IiOwo+ICsJCXZidXMtc3VwcGx5ID0gPCZ2Y2M1dl91
-c2I+Owo+ICsKPiArCQlwb3J0cyB7Cj4gKwkJCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkj
-c2l6ZS1jZWxscyA9IDwwPjsKPiArCj4gKwkJCXBvcnRAMCB7Cj4gKwkJCQlyZWcgPSA8MD47Cj4g
-Kwo+ICsJCQkJdXNiX2FfNF9oc19lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2lu
-dCA9Cj4gPCZodWJfaHNfcG9ydDRfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBv
-cnRAMSB7Cj4gKwkJCQlyZWcgPSA8MT47Cj4gKwo+ICsJCQkJdXNiX2FfNF9zc19lcDogZW5kcG9p
-bnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZodWJfc3NfcG9ydDRfZXA+Owo+ICsJ
-CQkJfTsKPiArCQkJfTsKPiArCQl9Owo+ICsJfTsKPiArfTsKPiArCj4gKyZhb2dwaW8gewo+ICsJ
-LyogUm91dGUgVVNCMiB0byB0aGUgb25ib2FyZCBodWIgZm9yIG5vcm1hbCBvcGVyYXRpb24gKi8K
-PiArCXNlbC11c2ItaHViLWhvZyB7Cj4gKwkJZ3Bpby1ob2c7Cj4gKwkJZ3Bpb3MgPSA8NCBHUElP
-X0FDVElWRV9ISUdIPjsKPiArCQlvdXRwdXQtaGlnaDsKPiArCX07Cj4gwqB9Owo+IMKgCj4gwqAm
-ZHB1IHsKPiBAQCAtMjYyLDMgKzM5OCw5OCBAQCAmdWFydDAgewo+IMKgCXBpbmN0cmwtMCA9IDwm
-dWFydDBfcGlucz47Cj4gwqAJc3RhdHVzID0gIm9rYXkiOwo+IMKgfTsKPiArCj4gKyZ1c2Igewo+
-ICsJZHJfbW9kZSA9ICJob3N0IjsKPiArCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJI3NpemUt
-Y2VsbHMgPSA8MD47Cj4gKwlzdGF0dXMgPSAib2theSI7Cj4gKwo+ICsJaHViX2hzOiBodWJAMSB7
-Cj4gKwkJY29tcGF0aWJsZSA9ICJ1c2IyMTA5LDI4MTciOwo+ICsJCXJlZyA9IDwxPjsKPiArCQlw
-ZWVyLWh1YiA9IDwmaHViX3NzPjsKPiArCQl2ZGQtc3VwcGx5ID0gPCZodWJfNXY+Owo+ICsKPiAr
-CQlwb3J0cyB7Cj4gKwkJCSNhZGRyZXNzLWNlbGxzID0gPDE+Owo+ICsJCQkjc2l6ZS1jZWxscyA9
-IDwwPjsKPiArCj4gKwkJCXBvcnRAMSB7Cj4gKwkJCQlyZWcgPSA8MT47Cj4gKwo+ICsJCQkJaHVi
-X2hzX3BvcnQxX2VwOiBlbmRwb2ludCB7Cj4gKwkJCQkJcmVtb3RlLWVuZHBvaW50ID0KPiA8JnVz
-Yl9hXzFfaHNfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRAMiB7Cj4gKwkJ
-CQlyZWcgPSA8Mj47Cj4gKwo+ICsJCQkJaHViX2hzX3BvcnQyX2VwOiBlbmRwb2ludCB7Cj4gKwkJ
-CQkJcmVtb3RlLWVuZHBvaW50ID0KPiA8JnVzYl9hXzJfaHNfZXA+Owo+ICsJCQkJfTsKPiArCQkJ
-fTsKPiArCj4gKwkJCXBvcnRAMyB7Cj4gKwkJCQlyZWcgPSA8Mz47Cj4gKwo+ICsJCQkJaHViX2hz
-X3BvcnQzX2VwOiBlbmRwb2ludCB7Cj4gKwkJCQkJcmVtb3RlLWVuZHBvaW50ID0KPiA8JnVzYl9h
-XzNfaHNfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsKPiArCj4gKwkJCXBvcnRANCB7Cj4gKwkJCQly
-ZWcgPSA8ND47Cj4gKwo+ICsJCQkJaHViX2hzX3BvcnQ0X2VwOiBlbmRwb2ludCB7Cj4gKwkJCQkJ
-cmVtb3RlLWVuZHBvaW50ID0KPiA8JnVzYl9hXzRfaHNfZXA+Owo+ICsJCQkJfTsKPiArCQkJfTsK
-PiArCQl9Owo+ICsJfTsKPiArCj4gKwlodWJfc3M6IGh1YkAyIHsKPiArCQljb21wYXRpYmxlID0g
-InVzYjIxMDksODE3IjsKPiArCQlyZWcgPSA8Mj47Cj4gKwkJcGVlci1odWIgPSA8Jmh1Yl9ocz47
-Cj4gKwkJdmRkLXN1cHBseSA9IDwmaHViXzV2PjsKPiArCj4gKwkJcG9ydHMgewo+ICsJCQkjYWRk
-cmVzcy1jZWxscyA9IDwxPjsKPiArCQkJI3NpemUtY2VsbHMgPSA8MD47Cj4gKwo+ICsJCQlwb3J0
-QDEgewo+ICsJCQkJcmVnID0gPDE+Owo+ICsKPiArCQkJCWh1Yl9zc19wb3J0MV9lcDogZW5kcG9p
-bnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZ1c2JfYV8xX3NzX2VwPjsKPiArCQkJ
-CX07Cj4gKwkJCX07Cj4gKwo+ICsJCQlwb3J0QDIgewo+ICsJCQkJcmVnID0gPDI+Owo+ICsKPiAr
-CQkJCWh1Yl9zc19wb3J0Ml9lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9
-Cj4gPCZ1c2JfYV8yX3NzX2VwPjsKPiArCQkJCX07Cj4gKwkJCX07Cj4gKwo+ICsJCQlwb3J0QDMg
-ewo+ICsJCQkJcmVnID0gPDM+Owo+ICsKPiArCQkJCWh1Yl9zc19wb3J0M19lcDogZW5kcG9pbnQg
-ewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4gPCZ1c2JfYV8zX3NzX2VwPjsKPiArCQkJCX07
-Cj4gKwkJCX07Cj4gKwo+ICsJCQlwb3J0QDQgewo+ICsJCQkJcmVnID0gPDQ+Owo+ICsKPiArCQkJ
-CWh1Yl9zc19wb3J0NF9lcDogZW5kcG9pbnQgewo+ICsJCQkJCXJlbW90ZS1lbmRwb2ludCA9Cj4g
-PCZ1c2JfYV80X3NzX2VwPjsKPiArCQkJCX07Cj4gKwkJCX07Cj4gKwkJfTsKPiArCX07Cj4gK307
-CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, Jul 21, 2026 at 12:44:37PM +0200, Michal Suchanek wrote:
+> seccomp takes a shortcut here. When the syscall number is re-read after
+> ptrace and the sign bit is set in the syscall number the syscall is
+> skipped right away.
+> 
+> This works fairly well on x86 where the return value of the syscall is
+> preset before seccomp is processed.
+> 
+> However, on some architectures the syscall return value overlaps with
+> the syscall number or syscall arguments, and as a result the return
+> value cannot be preset in advance.
+> 
+> For these architectures seccomp needs to exit without flagging the
+> syscall as skipped. Then processing of invalid syscall number in the
+> architecture code should set the return value to -ENOSYS and skip the
+> syscall.
+> 
+> This introduces a change: If the syscall number has the sign bit
+> set, such as -1, previously the filter re-check would not be done, not
+> applying the filter after trace. Now the re-check is done both for
+> syscall nubers with and without sign bit set. This would only make a
+> difference if the syscall number or the filter was changed by the
+> tracer. Otherwise the filter would be resolved the first time around.
+> 
+> Signed-off-by: Michal Suchanek <msuchanek@suse.de>
+> ---
+>  kernel/seccomp.c | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
+> 
+> diff --git a/kernel/seccomp.c b/kernel/seccomp.c
+> index 066909393c38..9e40a38aaedf 100644
+> --- a/kernel/seccomp.c
+> +++ b/kernel/seccomp.c
+> @@ -1318,11 +1318,8 @@ static int __seccomp_filter(int this_syscall, const bool recheck_after_trace)
+>  		 */
+>  		if (fatal_signal_pending(current))
+>  			goto skip;
+> -		/* Check if the tracer forced the syscall to be skipped. */
+> -		this_syscall = syscall_get_nr(current, current_pt_regs());
+> -		if (this_syscall < 0)
+> -			goto skip;
+>  
+> +		this_syscall = syscall_get_nr(current, current_pt_regs());
+>  		/*
+>  		 * Recheck the syscall, since it may have changed. This
+>  		 * intentionally uses a NULL struct seccomp_data to force
+
+Does the seccomp selftest still pass with this change? I _think_ it's
+fine; this just induces more work on a tracer-induced skip path, which,
+in theory, shouldn't be fast-path: kicking out to the tracer is going to
+be the slowest part.
+
+-- 
+Kees Cook
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
