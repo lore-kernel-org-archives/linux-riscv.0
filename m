@@ -4,115 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AF8C624D4
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 07:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0415C61DD6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6bls9YdJMsDJam/SzmhXt09iViy0uAF0wLn847Z2eKg=; b=BvT3x+uLYSXcDM
-	9d+9PFHlDWEdn3eHp2oW0Z9YG+w4fX5U1UngEN8j5Oiem6lw0rw7A0YhzVRkNJTt2VuaN03iQlbEA
-	lDMwmNW7NVRYBE7ydDlaH3yH+4+xx8pho3h551kXK3pktdf+8zPEpo+sIuVAt+2oNQ/nj2tgE/+co
-	ELPWYPa2qXRb9aYKhVpdCbvgWrDUMyWOTR9ZZD1Uj+ALFErvxOIrqeYxcqM2sih4n9LDIoZA4yx57
-	LX9PXPxWIkPZOgcUEFQbrFOWyZ4OSHF2P6LyZvVmS4e+JyenchDuzSTeRuPtJyEKqVjbz2v/cZLIQ
-	PpQuGh2opYPkqCekfmFw==;
+	List-Owner; bh=opBsodMbMV6/7mk4S5VCGBY8AboDLP3gy+QixKd7/C8=; b=cgGL2zatXBjt3E
+	H0ouY8MNBmtqesVS5sSDudx0SUNS/h6weB0j0z1TM6yRH+e9sw+sFMhQZZhCDUTZP4gl+XEQTiz+1
+	7KxHiecyGIx/oneAc2NK/YblNHWl1BDfkXgF42l3MEn0VKsT1mjLJnJwzjuOUPaD5ii/FdDPI7CaW
+	TYeIHPg0ETuK99SVlzC88H05dJG+MpgP5Xs/vJOLQSozeZUZoAUPR/WMAtvjOnaTLkxf/E6CO6I70
+	pO4yyAxxGxT3w5ND/CcnbQcSJSl5fpOBZLogvA9pahfoHjNTXDACDDeJ66Ro7x6zM6zsYlXbn9qgo
+	3XT/qR6gHbckcnIdIing==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fUr-0000000DxQL-1L5a;
-	Wed, 02 Sep 2026 07:35:01 +0000
-Received: from mail-pz2-x0a.google.com ([2607:f8b0:4864:3b::a])
+	id 1x1fxw-0000000E0ol-0GZY;
+	Wed, 02 Sep 2026 08:05:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fTc-0000000Dx6p-0hxd
+	id 1x1fxv-0000000E0oP-1o4L
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 07:34:03 +0000
-Received: by mail-pz2-x0a.google.com with SMTP id 41be03b00d2f7-cc2085ecd44so201093a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Sep 2026 00:33:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788334423; x=1788939223; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Nb5Q2Se78rLq0fXFEmBN2MgTVK3UgvxyIXmhlVfKh+w=;
-        b=F7MXSFNQC7lN7mWAImdv78D2wRBdtBQwMR2uldOxjj6ia1+HqbiETEtq3JdDyTM/v0
-         lcuQNxWzjgmkWEpF/lG0MURaQyN91w4pl71OrunzIgV1OSOzSDzkITmriOsW+STQ+wsf
-         A0vGwgg5W2Pc4ovLiKX0EnTmQjQk1UzwL1i7m1+BKAothuVKfyfwBta61VA2GBdMhlWe
-         44HGpakdWFGan5XKvXWoAD9cMOhHWiCw6s2G8Lo+iy89bSp879oePLdt3cEk/gExs0C/
-         DUiwcuk5sIdjLNJzMtBYj2IuyKhrXx8cB4cmrdMAjsfsWRka6pKYOZpLphOD0+pbS3zh
-         MB+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788334423; x=1788939223;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Nb5Q2Se78rLq0fXFEmBN2MgTVK3UgvxyIXmhlVfKh+w=;
-        b=nvjkbn2mtlXrxBN9rtoefOU+u3MlMVpb7cvTGJ0r7WFoKWd8DuyRf6SLSvGbe9GklV
-         DNpuF9NWL6O+x/riqyQV9o7PTo1yC3cBeBqJIGmflTy/UYmMjGppgTnS1uoZj3z2RFuI
-         x4Mpf4i8Y6KmeFOW3AnK/klzd0GaSEJFSplbO0siaXGw066K6KHhAi2bW6L8ROcxaJvX
-         p2Wwq6KZedubSiqgrI7gN1nvmx7/oJn75eNMf1M3aO8rMFIZvIibZIAYJC5VDKJPIS+J
-         tXTTqWpVZg2EYSaNmhzcrPxRRbIUG/tg5QkDAaZRKKSGQSOGXZiZTTdSglzQgFheJYMa
-         WYFw==
-X-Forwarded-Encrypted: i=1; AKwUvBz2r3QqtcrQrJjo8jFc61T6bJoSYWfIOZhn1ofRCqKkoTGmpqs1GOlvdToQKIG5XTNd3jbaxxvd5gPDFw==@lists.infradead.org
-X-Gm-Message-State: AFuF++n51tMA1zm5pbJrrdDSCFnkOKe6cF6vVdVZLLwSaBnhCq/GsTNv
-	yzDucaFLFf64uM2PCastiWA6IR6XIb1KnobSt0i/cB91euxg88VqBBUy
-X-Gm-Gg: AYBFou0lL9fHk+HreiHjRlZcpVPDx4GB+ZWupeRMaTrDL+pX5vFB23xa3UuXZW6Vxq5
-	BAxzorDeVUmLlHDZ1GpyeboujTKyS0wLGIdKJBkIxaNgSAH0OdGB+IylBUixE7VJBQAMoxBI204
-	/SJADcHfJ7OIFVcXN3Nw8DSci2AYKmuT3cwoOC90VHdd3Es2t3Bs1d77Zm6MFoX6pDTxcIX255t
-	symGoyEWDI8G2YO30Gmn8XbihvL4LUK7vwKEanhaJhrTkp5Re9nR3T5Ly950nnTXFJlJmF7Wcwd
-	5yM3GacLXuXP3hCGFW+qCkx3o/TOfU5/uRC8B47XU8FYVEt+2MecoVp6jz+7FpcHCVOhMLEAFHU
-	J80TGfv96wZbEqLDnDAiin0FphiB6Xov0BMSPz9vD/r7q2eVThBboo0c1LKKJ1Wv41vxFAdFjUu
-	vOPNismlzv9awJA4Im7ilKR+uzboSnV5j4D25xjy9fReOLnymz6OFvL++T4WHptwuysdWpCb+6
-X-Received: by 2002:a05:6a00:6ca9:b0:84f:77cc:63cd with SMTP id d2e1a72fcca58-85ed4449927mr5116039b3a.17.1788334423379;
-        Wed, 02 Sep 2026 00:33:43 -0700 (PDT)
-Received: from intel.company.local ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85db2adcbedsm926914b3a.20.2026.09.02.00.33.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 00:33:41 -0700 (PDT)
-From: Wandun Chen <chenwandun1@gmail.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	chenhuacai@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	robh@kernel.org,
-	saravanak@kernel.org,
-	akpm@linux-foundation.org,
-	baoquan.he@linux.dev,
-	rppt@kernel.org,
-	pasha.tatashin@soleen.com,
-	pratyush@kernel.org,
-	m.szyprowski@samsung.com
-Cc: mark.rutland@arm.com,
-	kernel@xen0n.name,
-	alex@ghiti.fr,
-	hpa@zytor.com,
-	ruirui.yang@linux.dev,
-	robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	kexec@lists.infradead.org,
-	linux-mm@kvack.org,
-	iommu@lists.linux.dev
-Subject: [PATCH v6 10/10] crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF header
-Date: Wed,  2 Sep 2026 15:31:16 +0800
-Message-ID: <20260902073116.802752-11-chenwandun1@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260902073116.802752-1-chenwandun1@gmail.com>
-References: <20260902073116.802752-1-chenwandun1@gmail.com>
+	Wed, 02 Sep 2026 08:05:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC8B560229;
+	Wed,  2 Sep 2026 08:05:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DE2A1F00A3A;
+	Wed,  2 Sep 2026 08:05:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788336302;
+	bh=VSy3rEZxd/1rqE63G1l3UhTJKsxc97wUjHaQ0rElp7A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=hSoy0kAeXB15yJsA1GMGHjlgG0APpaepUDyJh4wr+q1raYeaum5d+r2fMfYNKQ2xG
+	 FpyRP4FdPL5LFauT4FQBJJ4Z5V5F2unfnRKOY5YyHFDiSZ8DcDrThWFRoa3ehGmS9N
+	 Oy3FNt/Z5DGraNXKqO2UZGelZW9oalJNMfzjtFAm/olo7Ew8077OsPU0lTMtQwlHsK
+	 WWiVrOIBOiKwxGSg99kvbNCThpEEeFN5viFjqs73wi2Z3R8M+UpyhqppTxx3dSUbG+
+	 kv/xmgGped65bHQyOEbS2csT1R/lOnJy98SdHPy/1oQ/Y1V0xpL94kBoEyDZUPz4FF
+	 x2FhsTtj0LlBw==
+From: Yixun Lan <dlan@kernel.org>
+Date: Wed, 02 Sep 2026 08:04:22 +0000
+Subject: [PATCH 1/7] mmc: sdhci-of-k1: no pinctrl state switching
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_003345_220522_DC53F3B4 
-X-CRM114-Status: GOOD (  10.12  )
+Message-Id: <20260902-07-k3-sdhci-fix-v1-1-b15c5d0f64fd@kernel.org>
+References: <20260902-07-k3-sdhci-fix-v1-0-b15c5d0f64fd@kernel.org>
+In-Reply-To: <20260902-07-k3-sdhci-fix-v1-0-b15c5d0f64fd@kernel.org>
+To: Adrian Hunter <adrian.hunter@intel.com>, Ulf Hansson <ulfh@kernel.org>
+Cc: Long Wan <long.wan@linux.spacemit.com>, linux-mmc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1042; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=48HJXbKiYAzT2GXhaKjL8LaaHoDQcdGr+unV8bXxKB8=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBql9iU0tJjEvGw1f3/YZtGzzw/tnFP17dfMSTas
+ TIbsoScW8OJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCapfYlBsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+2Anw/8CePzgKC8BR7xIncocdkKlVSJTddj5vKjgl2vd870lujK+7faRGlmL
+ Ko/txe1Dwct9cX9otxmrTGAloztuW3tQbL9OCYL4PlDqHmIZpdzeQmCK+Bs5u5na2VlUrZgMVDe
+ DRlEJrQ6xuJMRPJ4/ytvK564mB5fVYfMjkmKRHmTxHedTdcKVZ4Eu7NPl2XcO3higrZcRyfX6qZ
+ 0yNv68Z5gW9ETotgF7BHO3PuGYDVOoHhlmE9TGgqiMnKBfhv58ELWc7Q0BMuSjhdqv1mlSIQ0aM
+ D/HGv84xSEgzu48thBvKhR0eHp5eW1FAc5PyZnMJ9xSkMWpJRG7sqIgQELRxdtiCuIHlsV/1TFu
+ qglA+Tgo9FSdPbELLfLdwvC5mQG0hwJbEXLFwKx4dHeL/3jBJ3D1UWn2vuzS7t8G+KpU5vFitIx
+ +jV8R5EDUvNTZJRTe8pSqgWnVMjH1tbssLtGDj9QVRvK1IPjobzYN2bKuZ/Kz4j8QWH2/STFFZa
+ 7aPRSjPYYL4BTz9wPTewFXnohOojioqAN0/Xsd1yxeWnSgw+E+1abhHLkFrvvQQ9nlVHINMN7zl
+ 0H3p96WHwkYYkzbuEjlSS299f1aO3UwNU2VJC1jZg3BnmpchE/1edvPr29vyPx6yHQTBeMBHNub
+ WKRz7vP19H/48phaL7f6nZ3qUfJdwo=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,38 +88,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Wandun Chen <chenwandun@lixiang.com>
+From: Long Wan <long.wan@linux.spacemit.com>
 
-Reserve regions (for GPU, DSP, ...) carry no data useful for crash
-analysis. Exclude MEMBLOCK_NODUMP regions from the vmcore ELF header to
-reduce vmcore size and capture time. crash_should_skip_region() now also
-returns true for MEMBLOCK_NODUMP.
+No need to switch pinctrl state if the SDHCI controller only support 1.8v
+IO voltage which DT will only provide a "default" pinctrl state, otherwise
+function pinctrl_select_state() will trigger a NULL pointer error.
 
-Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+Fixes: 00a97fc57c09 ("mmc: sdhci-of-k1: add regulator and pinctrl voltage switching support")
+Signed-off-by: Long Wan <long.wan@linux.spacemit.com>
+Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- kernel/crash_core.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/mmc/host/sdhci-of-k1.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index bd64cf585795..b0e618e13588 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -270,10 +270,10 @@ int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
- 	return 0;
- }
+diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
+index 37b0911e7cf2..0916340d3265 100644
+--- a/drivers/mmc/host/sdhci-of-k1.c
++++ b/drivers/mmc/host/sdhci-of-k1.c
+@@ -407,7 +407,8 @@ static int spacemit_sdhci_start_signal_voltage_switch(struct mmc_host *mmc,
+ 	if (ret)
+ 		return ret;
  
--/* Exclude NOMAP regions from the vmcore. */
-+/* Exclude NOMAP and NODUMP regions from the vmcore. */
- static bool crash_should_skip_region(struct memblock_region *reg)
- {
--	return memblock_is_nomap(reg);
-+	return memblock_is_nomap(reg) || memblock_is_nodump(reg);
- }
+-	if (!sdhst->pinctrl)
++	/* No pinctrl or no "uhs" state */
++	if (!sdhst->pinctrl || !sdhst->pinctrl_uhs)
+ 		return 0;
  
- static struct crash_mem *alloc_cmem(unsigned int nr_ranges)
+ 	/* Select appropriate pinctrl state based on signal voltage */
+
 -- 
-2.43.0
+2.55.0
 
 
 _______________________________________________
