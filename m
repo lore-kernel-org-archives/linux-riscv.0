@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E96C61DD6
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 11:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A90C624D0
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 11:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oTpBXZ9t0KzTW7sU9BUG6TIHx4k0Gb2viYcMLvQVnzc=; b=FVo3UFWbLMjCXW
-	VKy8aWj/yqRhSuNxA1UFbcbLzu5QnPjrZuzw7WJ7KvhT5hKtGz4qBwXLK+3i42Doe3VKWReJT1LVd
-	Ct875VjzXwdHJQlTgft0kYfFs7HAdkWGyPdQAHsDxV8XKXE8pL6vvl26MaTWgsEYgHoYAJwi+fKH6
-	BBd4rdzIWnsxKFyKE0ylkC48irTNDanOhvj+Ymwe6cQg+fqBrmAdt6glBUeV601IlS4QJiYZei6aF
-	DzzxlNwXKm+VNjl3rw1ps5r4yyjNzaohhO6infaoekhci4/SAoVGjXZTK5atLY+4dggVFEVsaZm9d
-	JLKRjbQtKEMP0IGg1L8w==;
+	List-Owner; bh=5t+7d1MAs2CzkGkTH8DGzSrFcJmDFqr18PB5p1vrJnk=; b=dwhy2joK1kxMun
+	IbuGOlAtxDqz7nP+HL5nAUUhnXlFbgqS5I5HkUN4t7dAOrFYgv8qKWXSEgYJ00E1+qEv4IlNXe52O
+	g353APTg+vBi0MBMkvJqliey3Xg4kjF7KtfjTU/7LazHNGcFfIltPnjEHKrNPiUsMwuTwGB9qHxht
+	j6+xMyOOCxWZdMaGvslb6F8YwVgHGzjuaOHZ4dUBgD+GrziZs/JGqSEJimmRjJuCgdDRJPc73YlZs
+	KWqHFMeuaDNU5vTMHRpU41XViiXVcxWhEdaFqeyHq8xOA6a1gNH/FyIH/XMfWTtrLXGrp5WIHGqRj
+	N/4BNCLjp1GvNCMhmnTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ik2-0000000ER0w-26Rc;
-	Wed, 02 Sep 2026 11:02:54 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1x1ilp-0000000ERI7-30cs;
+	Wed, 02 Sep 2026 11:04:46 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ik0-0000000ER0Y-2R7h
+	id 1x1ilm-0000000ERHU-0IP9
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 11:02:53 +0000
+	Wed, 02 Sep 2026 11:04:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788346973; x=1819882973;
+  t=1788347082; x=1819883082;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=QDIu2KNP99Ja5J5CxxlX8SGwIhLbH5hz3Yi2K4FYpdA=;
-  b=INES5aQFbwT0ddH2UAlkKUtN2qaG0WCTc892ZPymiXWtwJ0gdenaHHEZ
-   3sfq/03DWG69AXn69BVbgUUsOL8p2DcYXL+EUKeJqDy4fjXkVzpK+BWel
-   N+Q61rfv2RLYMK1QH3e/1RczeqBH94oQHGZWulQGmxHqfxpcPYCsAtRue
-   0lyzTGf/FTHcrD7DyNj+ihBCf2NeFskg4oYIuFs1q710xY+8bwMw8nP9Z
-   qFPEMHBKePWaNbz2adjNE3vx3p/rYAgB8wm9gaDnpbAyo03Tzlhog04d9
-   9fMzPqCbSgSTVCOIJWOLhw64YK8LtXOnu9LBnaXQvsyav8OLrT7t5kcbo
-   g==;
-X-CSE-ConnectionGUID: E0n7GEpCQ8GrK4wKhhw8JQ==
-X-CSE-MsgGUID: XOhmqDnMQ9+JYjfQoRZqUA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11893"; a="111571208"
+  bh=qwetBkwPV/BecwdCTylobCVUO79rqCxrXRGVs48GO2k=;
+  b=JVB2Uv866HkddZg3JX68/yZPfA0yeECFMtM4O9gTKMINE+xkK6fvh30y
+   0TfatIrkOM9yuNt5hC9hl8barxzHurVVZSYPUaoHsOxzZCdP+ijDoALje
+   3QjXd1I9r1g616o2FD7YnXRFyBEcC1tDd4F7mOaFa7Fb8bOM8XfF3ecl+
+   Z5tRT84VqNJUpIsMwFxwBkjGIAW5h2xFFQp/8UEH/+703v65P7fziN9OX
+   y95eea1Avd+X7oYR+lEdOfzHV6OQ6rAyyY4Y1l5UoRvfOT/vSqEJeUPTZ
+   S2Htl1co7Vu4jqViqVKEjgyPlHL9rJCwINFCD9qPXL0RUAQmmHNiLZaTD
+   w==;
+X-CSE-ConnectionGUID: vz1sjqiUQcO+QyNIDmxHdw==
+X-CSE-MsgGUID: 9b9mUVVXRqK2bviGRpLcTA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11893"; a="92622161"
 X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
-   d="scan'208";a="111571208"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 04:02:52 -0700
-X-CSE-ConnectionGUID: nDsLt4K9RA+MtI2/zg1M2Q==
-X-CSE-MsgGUID: OfBGuYvRRB+9nYzVNAP5KQ==
+   d="scan'208";a="92622161"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 04:04:42 -0700
+X-CSE-ConnectionGUID: RVAaSA4TTtiVRlj5QwQTEA==
+X-CSE-MsgGUID: umDBro+NTf6a89hob7PZLA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
-   d="scan'208";a="269395361"
+   d="scan'208";a="268837578"
 Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.118])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 04:02:44 -0700
-Date: Wed, 2 Sep 2026 14:02:42 +0300
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 04:04:35 -0700
+Date: Wed, 2 Sep 2026 14:04:32 +0300
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Janani Sunil <jan.sun97@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Janani Sunil <janani.sunil@analog.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
+To: Janani Sunil <janani.sunil@analog.com>
+Cc: Lars-Peter Clausen <lars@metafoo.de>,
 	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
 	David Lechner <dlechner@baylibre.com>,
 	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
 	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -79,23 +78,20 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-spi@vger.kernel.org, Kent Gustavsson <nedo80@gmail.com>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 3/3] iio: dac: Add AD5529R DAC driver support
-Message-ID: <apgCUiOL3Of9P_e1@ashevche-desk.local>
-References: <20260827-ad5529r-driver-v10-0-38f2be07b824@analog.com>
- <20260827-ad5529r-driver-v10-3-38f2be07b824@analog.com>
- <178813261957.2788519.4929586195765891569.b4-review@b4>
- <0c5a657d-e134-49a7-b2cd-82f293685cb7@gmail.com>
+	Janani Sunil <jan.sun97@gmail.com>, linux-spi@vger.kernel.org,
+	Kent Gustavsson <nedo80@gmail.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v11 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <apgCwKB3QA2uKD1e@ashevche-desk.local>
+References: <20260902-ad5529r-driver-v11-0-301c491a0719@analog.com>
+ <20260902-ad5529r-driver-v11-3-301c491a0719@analog.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0c5a657d-e134-49a7-b2cd-82f293685cb7@gmail.com>
+In-Reply-To: <20260902-ad5529r-driver-v11-3-301c491a0719@analog.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_040252_661145_FA4D6C3E 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260902_040442_124733_EA6CC046 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,18 +108,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 10:48:58AM +0200, Janani Sunil wrote:
-> On 8/31/26 01:30, Jonathan Cameron wrote:
+On Wed, Sep 02, 2026 at 11:26:17AM +0200, Janani Sunil wrote:
+> Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
+> from Analog Devices.
+> 
+> The device communicates over SPI and supports per-channel output range
+> configuration. An optional external 4.096V reference can be used in
+> place of the internal reference.
+> 
+> Datasheet: https://www.analog.com/media/en/technical-documentation/data-sheets/ad5529r.pdf
+> 
 
-...
+No blank line in tag block.
 
-> > Why do we need those outer () ?
+> Signed-off-by: Janani Sunil <janani.sunil@analog.com>
 
-> The outer parenthesis are required by checkpatch for macros with complex
-> values. The same pattern is also used by AD3552R_CH_DAC() in
-> drivers/iio/dac/ad3552r.c
 
-checkpatch is wrong.
+Wait a bit more to settle things down before sending a new version!
+This one still contains issues that were noticed in v10.
 
 -- 
 With Best Regards,
