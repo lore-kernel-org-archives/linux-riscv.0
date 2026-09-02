@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FE8C61DD3
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 00:17:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E39DC61DD6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 00:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IVo4aUERipFggOdXRvZGSoTC2P59zV9kjw8/37Eel6o=; b=aGj7/9plejliY6
-	u70KwYH7WUefI6ReS3X/ksyc8EeeIKlJCSb1rQr+HgJdNiGw66jFi7sp2eZMW2bWmJZPIshbtuo7d
-	ejXG+SQdzX7OwsPSvKRKbxsG85vQ1YW53XgFIMKYUJk9urQLkTO9WIk/MkgT1zKTOsECXbCGNhk4v
-	faYYgoQ9/PwsaWIL6mCh1aytovJZfUovPB3cGlHxhfQy1I+ILjzH8VJIP18qMXXEfTB3b1N4fCUfB
-	aip1JdFzheG1eBW0gClrPLtKa88X2D6iq5J41SZUpBg6mktflrUcw07Jb2z7Skokmfbjpf+MVfPeH
-	wgnM2fKU5EKaRG8kuH3Q==;
+	List-Owner; bh=Vg19X8nYEQXIOqnYa3a+j0b8JRlzAnfXqQJnixUTfAY=; b=jhN2ujEXlQKjkt
+	1Ag6CUumkTHV/h7Jjz0912J4NeaT43yOWN8oEcQhAWt5N9CU8y1TiY4U4hBJCcdc4l1WwOXF7Yqit
+	R4I4vOxTiDRpIz6pBN63K8V71yj1NPeiZ1ZT6QLktCD78WUF9uqIytetuc3gd7Pqgf0vxboMfUwzv
+	rRPg1Wp+gZ4vZzRi//AW6/6H2W0/E00AsNCE0RllYh+Ae2ceCZmxIRf/830Byo5pXajipGGyDtoy9
+	txUE0o8x3D6X/I+ILTvbBiNZgzHH8UoQzEWPk7odV7LOXI0zQoLil7NE2efMIPv9cTat0/SBlEwfe
+	AAJwyVRb/ioD2aNpqEOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1YfB-0000000DZKS-2qnp;
-	Wed, 02 Sep 2026 00:17:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1Yw5-0000000DaQW-43CO;
+	Wed, 02 Sep 2026 00:34:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Yf9-0000000DZKM-3tKb
+	id 1x1Yw4-0000000DaQI-0WaW
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 00:17:11 +0000
+	Wed, 02 Sep 2026 00:34:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 53F5F40F11;
-	Wed,  2 Sep 2026 00:17:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9FDF1F000E9;
-	Wed,  2 Sep 2026 00:17:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2BBC9600C8;
+	Wed,  2 Sep 2026 00:34:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C0361F000E9;
+	Wed,  2 Sep 2026 00:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788308231;
-	bh=FFHPut+Xq2Ea+rkcvqGUhCh1a+lSyQIPTaGYORuhApw=;
+	s=k20260515; t=1788309278;
+	bh=OdJylGa78WF2doU9FXC8lzmhghGNL2Y5XclAhve2yqY=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=GjyQdgHCFzqoqFBuxCIfmvoSztUITn24xhAGXlt0hn9x0F8F8Cgxz1MstlQYzBE6t
-	 IdM26bC9+5F94mw29ktD62FrJkV01KbmD9uhDbCNA2cVP85dP8eGpnQeiA08AVBXa4
-	 Zxzfisb+rjN4naX4eL6GI6WUlohZ3rR/NFi8L1tmX0OnhJNn5Ewwo9FvV3neiELvvg
-	 iEDYPD1vXK785RI/q8ZHY4jKsmXhnmfCWt61WNQ+dJ6byX6TtZJEcQjss8id0jAu6V
-	 Tjexq5L5XsLR6LQz0r8MUJKjgPFhEuB6BrtEjhllSh33ZGvdkfRp097OHMAQCWlzIM
-	 1J9zCr0exKdlA==
-Date: Tue, 1 Sep 2026 18:17:08 -0600 (MDT)
+	b=F+86Z2NMUvxCho1lNmTfOYrl7CDzh/k0LLIca39sFZCvi4pnrf4P6b5jpV9bcOhGG
+	 heDkjqkj9SH+JnsZTlDT1JES7DWQcOpZ5sle+yrlPkWCdzBRvjfi37pNH44u3tN7Xq
+	 UrJubsKos2Mct70Ip5SlWmXdonwRyNM4Gg615N14Ud14I9rLLVOdYCLJaJwLoAxVgU
+	 qFx/3N4274mvIWUqokbZ7lzSIwiKWDna+ov6SwAnLC6cRuVukvtRRORRKIqQXrigKm
+	 1rkOIcWTbCYmj4TGlkKXjTzfsmz3Dc6K7d6ix4k0PmS9l2LcbSa6i8xKq3uo+uw2eZ
+	 NSRf8OsrFd4Vg==
+Date: Tue, 1 Sep 2026 18:34:38 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
-To: Yukai Wu <xiaoyewuz.ruster@gmail.com>
-cc: Alex Shi <alexs@kernel.org>, Yanteng Si <si.yanteng@linux.dev>, 
-    Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <pjw@kernel.org>, 
+To: Thomas Huth <thuth@redhat.com>
+cc: Shuah Khan <shuah@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
     Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Dongliang Mu <dzm91@hust.edu.cn>, Shuah Khan <skhan@linuxfoundation.org>, 
-    Alexandre Ghiti <alex@ghiti.fr>, linux-doc@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] docs/zh_CN: Update arch/riscv/patch-acceptance.rst
- translation
-In-Reply-To: <20260829022344.192491-1-xiaoyewuz.Ruster@gmail.com>
-Message-ID: <6ffd979c-6d6d-e631-79eb-680ea3766c3c@kernel.org>
-References: <20260829022344.192491-1-xiaoyewuz.Ruster@gmail.com>
+    Nathan Chancellor <nathan@kernel.org>, Deepak Gupta <debug@rivosinc.com>, 
+    Alexandre Ghiti <alex@ghiti.fr>, 
+    Nick Desaulniers <ndesaulniers@google.com>, 
+    Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+    linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH] kselftest/riscv: Replace __ASSEMBLY__ with
+ __ASSEMBLER__
+In-Reply-To: <20260813075304.75988-1-thuth@redhat.com>
+Message-ID: <93f5f872-5d81-cab1-7231-a9da03dccc7c@kernel.org>
+References: <20260813075304.75988-1-thuth@redhat.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,16 +75,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 Aug 2026, Yukai Wu wrote:
+On Thu, 13 Aug 2026, Thomas Huth wrote:
 
-> Update Documentation/arch/riscv/patch-acceptance.rst translation.
+> From: Thomas Huth <thuth@redhat.com>
 > 
-> Update the translation through commit ed843ae947f8
-> ("docs: move riscv under arch")
+> While the GCC and Clang compilers already define __ASSEMBLER__
+> automatically when compiling assembly code, __ASSEMBLY__ is a
+> macro that only gets defined by the Makefiles in the kernel.
+> This can be very confusing when switching between userspace
+> and kernelspace coding, or when dealing with uapi headers that
+> rather should use __ASSEMBLER__ instead. So let's standardize now
+> on the __ASSEMBLER__ macro that is provided by the compilers.
 > 
-> Signed-off-by: Yukai Wu <xiaoyewuz.Ruster@gmail.com>
+> Signed-off-by: Thomas Huth <thuth@redhat.com>
 
-Thanks, queued for v7.3-rc.
+Thanks, queued for v7.3-rc.  Have you considered patching checkpatch.pl to 
+catch this problem?  Might save a lot of time.
 
 
 - Paul
