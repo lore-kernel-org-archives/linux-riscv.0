@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ADC5C624D6
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 11:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4772BC624D5
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 11:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uZVoUUx4kwTJwGzodXBq4CLoIP6lO2e7rAochMeP5cM=; b=uDRXIf/BJ+eQ4Z
-	cjB/fjf3+GqHKS3J1riVolF0RW9gPFIo2uyd+Fgdp5o/Nzm/d0InDo2Hd71/soQ59Y0HtRebQsul6
-	wzAQQe4uiduSFokTA64hvrmeNrYTfn9uBxSBAaaopPqRVbNx+P8OOL47aBEb41ZYepbMe5bmk42ez
-	PKxUgx9pTfkTHVJR4vHVSXFygG6KUWSwtL905dezy5nJXzvbFktjLmviJhhbZOz8hHQEZ64ewtk9a
-	7jokviRrYQZ5MM9tittOZyBrIdO9lK9dQM2XvRdJKkyHiFMo9RigLn95vIVtVCdI6tf8B0eDusGbB
-	x1bzcXRTeDWllzWxS6nQ==;
+	List-Owner; bh=FDIVZ6m/wgg/C4SYlYVUydSfX//7wa8sXGyygbeETKg=; b=PL/Fqjf+qnN9uA
+	pep3w7rJmfhgATRoFYarpCjKysyckuDKkG2B+BEaXbOgpDPGpiZsVkAQPVU2X0XeYhAXf2MidY6yh
+	i4MzasH4ryprtCsz41ZSOQXbs2LYXhR1PLAI2qmFPJDBuBtWz/gwhj6VbAuad3lzoQfALnfEhj/M7
+	HQlUsS1/6yN6Du25sf56/8YbXOvD1wzCeNG6hVLY2Up6zdOYCxCHfL55s49pDGnMMD8MvQj10Qc6k
+	utC4SHMMdYxalpNopHyCjgsnCRoF84+Dkj8tvhGNPieVITZH43XV/xibPC5l3dA7EoKGRf6rQ30Sv
+	WgVGTvE959yehA/C5oPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jaP-0000000EZOW-3p5o;
-	Wed, 02 Sep 2026 11:57:02 +0000
+	id 1x1jaX-0000000EZUB-1a5m;
+	Wed, 02 Sep 2026 11:57:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jaN-0000000EZMt-0EcQ;
-	Wed, 02 Sep 2026 11:57:00 +0000
+	id 1x1jaU-0000000EZSH-26M1;
+	Wed, 02 Sep 2026 11:57:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 961661596;
-	Wed,  2 Sep 2026 04:56:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1327F1D70;
+	Wed,  2 Sep 2026 04:57:02 -0700 (PDT)
 Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EC283F85F;
-	Wed,  2 Sep 2026 04:56:51 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF15D3F85F;
+	Wed,  2 Sep 2026 04:56:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788350218; bh=mi4xjJsCAhGuG1KP2jLhKq+FK/V2NIyuuhsagoZBG7g=;
+	t=1788350225; bh=j5KZYcW3oeEza4wEEPuE0tmGJJW/8LJA7zNPUWzIuhk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DBs+SEJ/tWGTTLaux+S1LwsrrYGBwQV3ATuKZgMbvei+jVh1WSY/M2QC4NxmGgA1y
-	 i7m5xO5OZ/Kze26/9ZcqAvwphvv8ZcI6T4TjkMJLHNM7089rPf0Uh66u16hKJ2O/bw
-	 eUVTOabXRMEhFzmJCMwjz8dAs2j1D7hwhGxnsB4s=
+	b=f884vSlO+uAcSOf6hpsG5kaWDJDu6ROVeqIxakx81gtXhm/KayFYQx3b0SCK781i+
+	 ZSk6qtseiictiBC97Kr4v1QHtwtGjl/atFe3flG+GhuG+wfBXuUBazoiBAngDR8fvR
+	 tKEl/qlZ1BbKg9E51TqNwea+bodKg9gJ9tMXlYsY=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Wed, 02 Sep 2026 12:56:05 +0100
-Subject: [PATCH RFC v3 03/21] ARM: mm: remove custom pgdp_get()
+Date: Wed, 02 Sep 2026 12:56:06 +0100
+Subject: [PATCH RFC v3 04/21] LoongArch: mm: define pud_leaf() only when
+ PUD exists
 MIME-Version: 1.0
-Message-Id: <20260902-dummy_ptxp3-v3-3-5d8f5b17c25c@arm.com>
+Message-Id: <20260902-dummy_ptxp3-v3-4-5d8f5b17c25c@arm.com>
 References: <20260902-dummy_ptxp3-v3-0-5d8f5b17c25c@arm.com>
 In-Reply-To: <20260902-dummy_ptxp3-v3-0-5d8f5b17c25c@arm.com>
 To: Russell King <linux@armlinux.org.uk>, 
@@ -75,22 +76,22 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
  linux-openrisc@vger.kernel.org
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=792; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=Kei+qz90eZd/Rla66RuJIaqD0aMM/I6F6uU024NhR+s=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqmA7jjEkXgd07toBiXhGHtW6l2HJSNxf8EJFQR
- MrLQ8sVkn2JAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCapgO4wAKCRBt1cPRWsUx
- M6UpDACvafb5I6qRyuKtjC3o3BB6X1x2pDkn7WzYN1XkHRJTOSQqVabpYB98QmaZehBIp+rjcY5
- 8XhZPr4/VlBHOVk3oTKXafUozy78zoYZq0S0E3Lf2aAZxvVYJ2NiTRRojaaLsZjYC90Gh0q972O
- Rz/p7u4wzhU9+zIBlnLnLO0sHStfpkZzqgRmFRNN/cNQcudRxV/D0DvX3QUiHospfakh8Gzd+tw
- YagxhalJiyRHw1OpcDf+m4tYW4H3OvMHS425VPwVBRIIouFfanScIRA0+fKzG0k4IK2M2wrA02H
- KrgC0K5GAs47HdDG3A/K8w5D4465AqabgyFWC/Z45fkdQwIBIeMAYZZ0m0GQzSVgwFcP4uCsTeT
- g65+aH2rnoY/2z+l0jnY4nIE9dI1zATCV6ZhkOXlXqpUwtP1NdLmkFwU+Dzgi7M8aclQ4OMOAwx
- Hd2do+6aUtYqw9yndif4b5hrcikHznxCCtm2jeKnhCm3VafyuCD3Yr1/8LH2X6S9Li8T4=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=991; i=yeoreum.yun@arm.com;
+ h=from:subject:message-id; bh=MeOlGX5zz7TlceiZpHJLSajwL3IbIwIyElnPnwNLJYM=;
+ b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqmA7jTpyCvz3weXiiloXvIu0HwGyNZYxNUOeR8
+ zzOVDDHkf+JAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCapgO4wAKCRBt1cPRWsUx
+ M3FsDACKI0amFDWitWwqgh1X55KBW3r2psT1svJy9ACAY/TLdpJ2t6SqKg8N3iwOgav6tFmT1XU
+ 86PQMGlakmgCrVcxwGzFtiDfDMkcWhmxqA/hhBGByyFv3V8gAiqsIoTquASbDXeL6LoJdJ5A/xg
+ IebsQSd4VBxzbzb0gOXKeqBB+7iXnGt0wae0LXAeHWxCPmG9kDER4VE2c68yCvvDMmeoYfzr1BH
+ +OFsMihMBsPX8/ZK/6nTeTCYg8IPT+9DnZPLlxl0lP+VsQbT0ev47AJ3nVeUHxgAOk8zPIY9K9I
+ dCABHAruCzWiJw+oV/AwPm/soI68/eQC5VVhARWFqQbPX19ouqoqsU7X4HJpSm751C8/KxvRCja
+ Xy/x/jEo2crwE3wqLwygg1u2ZnbLaY8I5NsAH2gLHc3J9pcUSFUnPbsXlRmoFcDcVLAZVj5ic6J
+ mm/ikE8OecbRalNsAOP1gdwZSr3I6i2GxLBhGHvtVWYZUt6+GxdiXpV3MblQM1dbfU9L8=
 X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
  fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_045659_194816_40351FC9 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260902_045706_626625_1966F514 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,27 +110,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 
-Now that pgd_t is no longer an array and rely on the common
-code pgdp_get(), which is a static inline function that returns pgd_t.
+In include/asm-generic/pgtable-nopmd.h, pud_leaf() is hardcoded
+to return false as inline function, but it misses the "define pud_leaf
+pud_leaf" part.
+
+To prepare for fixing that, define pud_leaf() only when
+__PAGETABLE_PMD_FOLDED isn't defined.
 
 Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
- arch/arm/include/asm/pgtable.h | 2 --
- 1 file changed, 2 deletions(-)
+ arch/loongarch/include/asm/pgtable.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
-index 8dd17d20faa3..ff3868acea94 100644
---- a/arch/arm/include/asm/pgtable.h
-+++ b/arch/arm/include/asm/pgtable.h
-@@ -134,8 +134,6 @@ extern pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
+diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
+index cf29a4c8ac59..8aee4fc27a26 100644
+--- a/arch/loongarch/include/asm/pgtable.h
++++ b/arch/loongarch/include/asm/pgtable.h
+@@ -630,7 +630,9 @@ static inline long pmd_protnone(pmd_t pmd)
+ #endif /* CONFIG_ARCH_HAS_PTE_PROTNONE */
  
- extern pgd_t swapper_pg_dir[PTRS_PER_PGD];
+ #define pmd_leaf(pmd)		((pmd_val(pmd) & _PAGE_HUGE) != 0)
++#ifndef __PAGETABLE_PMD_FOLDED
+ #define pud_leaf(pud)		((pud_val(pud) & _PAGE_HUGE) != 0)
++#endif
  
--#define pgdp_get(pgpd)		READ_ONCE(*pgdp)
--
- #define pud_page(pud)		pmd_page(__pmd(pud_val(pud)))
- #define pud_write(pud)		pmd_write(__pmd(pud_val(pud)))
- 
+ /*
+  * We provide our own get_unmapped area to cope with the virtual aliasing
 
 -- 
 2.43.0
