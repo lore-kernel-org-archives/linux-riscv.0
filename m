@@ -4,102 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68052C61DFD
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 06:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89AD8C61DD6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 07:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=g8E5cG4Yw+1MfBT0ffSfadp/NNDrF4i3AfeIvICT4P0=; b=2KXTm1sWfp3yqv
-	4JyyMlvWSJD1NuhofDYWpKisL621X1fjZQTMUqzZO1HOAKkXC4KTHsO2x0M65RjJbvC/pj6Egy+6e
-	QAH1pJ3gm7d3koriL7M8AFLkn3kyoHwj8VC/E/4eE7IUgNPiDf366luM24pSxz0FR3qEphGEQIkiz
-	Tj9q9yirC5wObvDV8dVVO+MKJRbCfJRD2azqf/TjJv3T2sJIkLja4TUvr3HA1m2E+mBPZ6a0f+ipS
-	6c29FW/hHi/8GA0tP4DGXJQjx7pvQc/Lo4zeG/cZD6wuMWuiuoKLA6frJGGjMtZDs+ThDAWaa7NCF
-	Csb3bkjZNIErmYlrsGbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y9mhDuXyVso1x4IxsQvz8daXDYeURc3Iuru8aIpzO94=; b=PSchpVJER1yRTj9hpHxTbthtdQ
+	HLUfH3G7ODTHAhHD7cqQ1nkrUoBAKwlHdCWE/zGR5qtxUgc6hOXAzKDQkL5ekk/hJova42Dv3mZWR
+	CeAoFt8JDrHJ6GEm1ht4KfdHnWhpJ0GQmKRDULw81rpS4a0kVlRU/WpmXwZut54F/WkWPiMqaHTuT
+	YJRQlSawnJv7oc0OobrlT1RKpnEzvKJeN1VthzDZfnIxDmSErdQTSZwAuJtDpc6Mbdfu1bRh58SSN
+	ucN/C1U8v1EwxT7JRhtSZLbMzvQuoVOVzFY/kg4vJCpc9KBeQZqm7fHaark6IbkbapsSt17dNrptR
+	MUToZZbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1eFe-0000000DqNK-3ciQ;
-	Wed, 02 Sep 2026 06:15:14 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1x1exK-0000000DtNE-45NQ;
+	Wed, 02 Sep 2026 07:00:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1eFc-0000000DqMT-2cUw
+	id 1x1exJ-0000000DtN6-3YGx
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 06:15:13 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2d71d1cc8b2so5701345ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Sep 2026 23:15:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1788329711; x=1788934511; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=eu4ymMPYKZBtIpuaapdXbFgIh8ENIgqZKDyMhyBzO+s=;
-        b=Vt5S7tvudDny++iitXx/il1bthyzI+/7dM3fpRCwKQrFGxz9i8RVor68ognzN3VBNo
-         dIVRW6lZ3JXmLq8fHgA0FQ+2QknmxSQ7BghdujDT/KFKum5Of3iZR9wBP1tg0QEXSnfj
-         WL7NvU0hT2u3EMAe4dY0BVyvUCG5cuocd2gZ0JVRtEnK0pXus3KyYbvKYRQc4Ix9FXu0
-         eVLHEyPcCZyZotaJ4i+akT25PMAJXx0NE3AufUDh5Opj00O/FDFbOd/FLJxDFgrY7t1O
-         K8GT9ni+/spfKO0+tlaWx7iRkLJKeamgVNkeSh9/b+gWYvk8olEbDMZiA8YPwzN7tInp
-         nPyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788329711; x=1788934511;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=eu4ymMPYKZBtIpuaapdXbFgIh8ENIgqZKDyMhyBzO+s=;
-        b=KI050m1rOJjD8pn+skoAUAhiPgnUGR5E5qCERFVSc1vnmzduon27175R+yTwZccVPL
-         DVZfYzSLOIGVxhbtMJy4f1oCVSK4okAsv8LefqmunNcJA2Z/EzVGzUVKY7nX7Kk+JBxx
-         w0KilLhZ0x12hGpmlfG7hdgS+v/hBmOXCScW0WnlwyAv6YDwvJOT4OXZlMgBotKn9pZ7
-         9p9K1YnGvMFSgXS+QD+8l2sdLa7wKWZVI3Zwud3JB5eF1FFvNAol9mFoFk1I4ViBqc7K
-         PMV4pDO8FawQtiDt+Oa1tf53bH6dEf53sbpeTsoHfPzl07Tr5zRtMOrxk0S7kC8DhwZA
-         J6Tg==
-X-Forwarded-Encrypted: i=1; AKwUvBxFFTbcTiy61HcusNgR2QdfqSaHsf3hNkyEJg/6TbX5YqyLEtPa6GuqXQBkylkeB0YF1lMekcMdMj1WFg==@lists.infradead.org
-X-Gm-Message-State: AFuF++k3l8rR8PGFnqMSO/CQS4POuesq3JzXBMsV36tmlRtaBeQYA7oz
-	z5KLq8vcf54/ESLLqTajl1ugHgWYGgRtfzeONjmtuIGkBC33tPIY/sRjvSWMX7SOGgg=
-X-Gm-Gg: AYBFou17wo4M5OX0AlPXHQqdBWIa6b1BVis+aGpvcmRMn45jlMWq5+dZzJSIWZum2v8
-	Y6cqVWy1iTuhx1A3sLZw87lFY+3ht5j3qKIY7br0+DLQe4Dln49nkhc4yVtpN8dyvc9vA1S+ZHp
-	cI7xoFTh8zhFxJfGc/R3jf57CwOrS6B49mdRGuLD7rHivC+aEYo1+1J72uPpaujztHp5A8QCcXy
-	K/VgXjsk0ROEg5mpYT3j/yM76DmDkT2cxwYA3XvLqIIhYZIqOSBj+sRGeSLLjJ356BdDY3A8c5K
-	oQjOc27HY+TxhI/IEExYAdLqf9tqwH5VJkRUDDtvMFFp1BFS701xZjnz0oUutSa+1OeOAmIngH0
-	2Z1VFKIaK5ARJLEgBwzx+Suggk2UP/Q1uG7FXan0qW5T5evBrufr4HcmMQNCfTw8Bv4S1Fwyo3I
-	04bModcnvpnC2GZ5PrSkTHNXv2fjThFnD7q64zgCRZLRBLG0Wnmjy6fUPcgSBpx3QDVWOMYMOYl
-	rEsoSkZ
-X-Received: by 2002:a17:902:e804:b0:2d1:134:b86e with SMTP id d9443c01a7336-2daec5ad579mr31546085ad.2.1788329711119;
-        Tue, 01 Sep 2026 23:15:11 -0700 (PDT)
-Received: from sw07.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-32f079f1f4fsm3462624eec.11.2026.09.01.23.15.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 23:15:10 -0700 (PDT)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Date: Tue, 01 Sep 2026 23:15:08 -0700
-Subject: [PATCH] KVM: riscv: selftests: Disable vector extension in build
- flags
+	Wed, 02 Sep 2026 07:00:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FDD44038C;
+	Wed,  2 Sep 2026 07:00:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBE2C1F00A3A;
+	Wed,  2 Sep 2026 07:00:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788332421;
+	bh=6GQWjWiyHMh2NyzpXqt8ZPQBafv2oClqvk7rN86jNY0=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=edprlGG5rdgI2dhNAMIZridLzVabhdXyXnRUiZRQg1vo77kz7/3zA82+1F40pWTAj
+	 s4tgyizJeg9xRGuXD3/CWPs/okWeFAQ8C4kCx0u97J86dHSFvYzmbCYojYM/brpI4o
+	 GMmGG4J82I3NbaI34HrPdHSBhI07+ZLFkencpHTjEU3fUFRWNl2+QynIZ0YLW75g78
+	 4g5MhnsRPZ/gaKIYsGVFEDN5MfB3Trxm29HZYUpSDH0UjKNLTphUR2YGcNIwBFimIs
+	 uV7yi3NDcyzx4SECSrq7SJTJZN9C1zlgVQQRNfv3DpP+L9D9QGhQPWH3wfmxwxoJnE
+	 vdRaQqwNlrsrA==
+Content-Type: multipart/mixed; boundary="===============5269529957093976897=="
 MIME-Version: 1.0
-Message-Id: <20260901-kvm_kselftest_disable_v-v1-1-fe73aca5bf95@sifive.com>
-X-B4-Tracking: v=1; b=H4sIAOu+l2oC/yXMQQqDMBBA0avIrBuIEST1KqWEjE7sqLUlE0NBv
- HvTunyL/3cQikwCXbVDpMzCr7WgvlTQP/w6kuKhGIw2rbZNreb8dLPQEhJJcgOLx4VcVqZBDB5
- bq68WSv2OFPjzP9/up2XDifr028FxfAF5qXhSewAAAA==
-X-Change-ID: 20260831-kvm_kselftest_disable_v-23bbfab68098
-To: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- anup@brainfault.org
-Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, zong.li@sifive.com, 
- kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Yong-Xuan Wang <yongxuan.wang@sifive.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788329710; l=1384;
- i=yongxuan.wang@sifive.com; s=20260424; h=from:subject:message-id;
- bh=UwOA8LjM0NSCFy3j2zt1k5HHkmtLxl/qmELRahsK2hE=;
- b=Wu6dcMEbHae6NcaOo3PXMhRBifeLnVbHpjN50VxkDCm33Rv81KHvvaw2L4qt/n0WHkwTsJNJs
- 8+5SSom61XiCmQ1TrwA1tilfCToI+4AHBSI3tH+M6wUcvuvmXA6LVs3
-X-Developer-Key: i=yongxuan.wang@sifive.com; a=ed25519;
- pk=+8NCHB1ZJvZthQAmZspOAaqjo+/snaW8mFSiDx45HxY=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_231512_683534_0C69D1CC 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <594ed4944926f6a7202b016eca03d879d11bfdf09a2cbaea039421ae4ab962c0@mail.kernel.org>
+In-Reply-To: <20260902061451.1416-1-cp0613@linux.alibaba.com>
+References: <20260902061451.1416-1-cp0613@linux.alibaba.com>
+Subject: Re: [PATCH bpf v2] bpf, riscv: Make arena support depend on ZACAS
+From: bot+bpf-ci@kernel.org
+To: cp0613@linux.alibaba.com,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,memxor@gmail.com,bjorn@kernel.org,puranjay@kernel.org
+Cc: ihor.solodrai@linux.dev,eddyz87@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,pulehui@huawei.com,pjw@kernel.org,palmer@dabbelt.com,guoren@kernel.org,bpf@vger.kernel.org,linux-riscv@lists.infradead.org,linux-kernel@vger.kernel.org,stable@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Wed,  2 Sep 2026 07:00:19 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,47 +63,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Guest vCPUs never enable Vector state (sstatus.VS), so any vector
-instruction traps as illegal. If the toolchain's default -march
-includes the V extension, the compiler may auto-vectorize routines
-like memset() into vector instructions, crashing guests.
+--===============5269529957093976897==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-Build with -march=rv64gc, probed the same way as x86's
--march=x86-64-v2, to ensure vector instructions are never emitted.
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index 74efe4b138d2..151031e97a24 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -2128,7 +2128,15 @@ bool bpf_jit_supports_ptr_xchg(void)
+>
+>  bool bpf_jit_supports_arena(void)
+>  {
+> -	return true;
+> +	/*
+> +	 * The arena range tree uses kmalloc_nolock(), which needs
+> +	 * cmpxchg128, provided by ZACAS on riscv.
+> +	 */
+> +#ifdef system_has_cmpxchg128
+> +	return system_has_cmpxchg128();
+> +#else
+> +	return false;
+> +#endif
+>  }
 
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+The constraint being checked here is a slab property (kmalloc_nolock()
+requiring cmpxchg128 support), not a JIT property. Fixing it
+per-architecture leaves the identical misleading -ENOMEM on every other
+architecture.
+
+Looking at mm/slub.c, kmalloc_nolock() rejects the request whenever
+the cache lacks __CMPXCHG_DOUBLE:
+
+    if (!(s->flags & __CMPXCHG_DOUBLE) && !kmem_cache_debug(s))
+            return NULL;
+
+and __CMPXCHG_DOUBLE is __SLAB_FLAG_UNUSED (0) whenever the arch
+provides no system_has_cmpxchg128 on 64-bit (mm/slab.h).
+
+Grepping every definition of system_has_cmpxchg128 in the tree gives:
+
+    arm64        constant 1
+    s390         constant 1
+    x86_64       boot_cpu_has(X86_FEATURE_CX16)
+    loongarch    cpu_opt(LOONGARCH_CPU_SCQ)
+    riscv        this patch's ZACAS check
+
+Yet the other bpf_jit_supports_arena() implementations are unconditional:
+
+    arch/powerpc/net/bpf_jit_comp.c      return IS_ENABLED(CONFIG_PPC64);
+    arch/x86/net/bpf_jit_comp.c          return true;
+    arch/loongarch/net/bpf_jit.c         return true;
+
+So on ppc64 kmalloc_nolock() can never succeed for a non-debug cache,
+and arena_map_alloc() returns -ENOMEM unconditionally -- exactly the
+symptom this patch is fixing, with no ZACAS involved. The same holds
+for x86_64 CPUs without CX16 and loongarch without SCQ.
+
+Is a check in generic code (arena_map_alloc() or a slab-provided
+helper) worth considering to fix all affected architectures at once and
+avoid replicating SLUB internals knowledge into each arch JIT hook?
+
+--- Commit message ---
+
+> The arena range tree allocates its nodes with kmalloc_nolock() since
+> commit f8c67d8550ee ("bpf: Use kmalloc_nolock() in range tree").
+> kmalloc_nolock() requires slab caches with cmpxchg128 support
+> (__CMPXCHG_DOUBLE); on riscv cmpxchg128 is provided by the ZACAS
+> extension. On systems without ZACAS every arena map creation fails
+> with a misleading -ENOMEM.
+
+The claim "every arena map creation fails with a misleading -ENOMEM" is
+not exhaustively accurate. Looking at mm/slub.c:
+
+    if (!(s->flags & __CMPXCHG_DOUBLE) && !kmem_cache_debug(s))
+            /*
+             * kmalloc_nolock() is not supported on architectures that
+             * don't implement cmpxchg16b and thus need slab_lock()
+             * ...
+             * kmem_cache_node->list_lock, so kmalloc_nolock() can attempt
+             * to allocate from debug caches by
+             * spin_trylock_irqsave(&n->list_lock, ...)
+             */
+            return NULL;
+
+The condition is an AND: when the cache is a debug cache (slub_debug
+boot parameter, or CONFIG_SLUB_DEBUG_ON=y), kmalloc_nolock() proceeds
+even with no cmpxchg128, so range_tree_set() and the arena.c
+kmalloc_nolock() sites succeed and arena maps can be created today on a
+non-ZACAS riscv64 system. After this change those same systems get
+-EOPNOTSUPP.
+
+That narrowing is arguably desirable (BPF should not depend on a SLUB
+debug-mode escape hatch), but is the changelog accurate about the
+current behavior? Should it note the debug-cache exception, or state
+explicitly that gating on the CPU feature is deliberately stricter than
+kmalloc_nolock()'s minimum requirement?
+
+
 ---
- tools/testing/selftests/kvm/Makefile.kvm | 5 +++++
- 1 file changed, 5 insertions(+)
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 6fc34e9bf8e1..46c54948f4b1 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -297,6 +297,11 @@ CFLAGS += -I$(GEN_HDRS)
- $(GEN_HDRS): $(wildcard $(arm64_tools_dir)/*)
- 	$(MAKE) -C $(arm64_tools_dir) OUTPUT=$(arm64_hdr_outdir)
- endif
-+ifeq ($(ARCH),riscv)
-+ifeq ($(shell echo "void foo(void) { }" | $(CC) -march=rv64gc -x c - -c -o /dev/null 2>/dev/null; echo "$$?"),0)
-+	CFLAGS += -march=rv64gc
-+endif
-+endif
- 
- no-pie-option := $(call try-run, echo 'int main(void) { return 0; }' | \
-         $(CC) -Werror $(CFLAGS) -no-pie -x c - -o "$$TMP", -no-pie)
-
----
-base-commit: b5060a4aa33d7d78a8c1837ab08ef0c81ea96650
-change-id: 20260831-kvm_kselftest_disable_v-23bbfab68098
-
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/33598715943
+--===============5269529957093976897==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5269529957093976897==--
+
