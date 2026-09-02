@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A37C61DD6
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40366C624D6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1t/MnBFGb7DHu4dfCjJt1kO2SW3R7WqsSeFu2fNZ9hk=; b=p2TDIXDPRpRd18
-	4kZpj2WfGPMuHmeQx4MVeWM9282LRgnnaiCAnhn+Tu4iCt1bAcFIgNyOGCWlFkDbPMO82A7fJGhW3
-	0pqh+aAsIOGfxDdQAig7a111VD/ZCZo/lrG5NYi3Yi0qqdSA6nEbSNYuQiiNPzGyC8eZ9B47l0ptk
-	NZEQ3NJ13tdrDgeg5rq7eXeCgPXycN4o0yAiL5GE0ISUSQA15Gty878+pfZvJChQD8av4ylLPFszZ
-	rbucQ/1TL1qSPPgKd2FhBWQB2iB24M+tHRABrKmwc5m3tbiCtV+LEf2PZ2duf6BhSpuZUT9u/Oy2W
-	7kvl25udcOFLiQKL+t2w==;
+	List-Owner; bh=ntaeg4m8djuCdSSiIAB/2OwnA1E3TGDqd89M0IJZHdA=; b=UsguZqXAXwX62W
+	pir45RGYctOzU4IBFd1dYscWZF/ucZDfXAEjqqsvIfbm1/27MHO1xyf/NZjOVsOdTt8JMrfTjtG5Z
+	vnwZ92WmZnOdQFJ7jb/oCAW2/YZxUXB9/xH1Tyx/nNXhiX67VtVVg8arzxWkB1oIQCTL27ccm9bne
+	O74IrYdWL9t6TQreJKVTSWpmjG44X+7EFuhCs01CI8ewsScMeSB9XA4L/5M/lB0glaYIOGlT6vfcf
+	kRG2z3jNvlDD+olj+oUEmfkShNjOO0QFSEZlzMPJ/brVTHLtkMTGax9QAquXV1DocxSlojubet0WK
+	pfgYWaapZSTOcUwXOnEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fy4-0000000E0tw-2DA6;
-	Wed, 02 Sep 2026 08:05:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1fy6-0000000E0vC-2c1k;
+	Wed, 02 Sep 2026 08:05:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fy3-0000000E0se-2XYL
+	id 1x1fy5-0000000E0ud-0rjJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 08:05:11 +0000
+	Wed, 02 Sep 2026 08:05:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 237934451E;
+	by sea.source.kernel.org (Postfix) with ESMTP id EF2AF4477F;
+	Wed,  2 Sep 2026 08:05:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C15C1F00A3D;
 	Wed,  2 Sep 2026 08:05:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 965D81F00A3A;
-	Wed,  2 Sep 2026 08:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788336311;
-	bh=G/IFPDyfzhIoZFct3RGPm8HsjSQA2NovYHhqihlRERM=;
+	s=k20260515; t=1788336312;
+	bh=POmWOknNtTO/bFj1tOVGoSaF82mOopdrhB/HoyO6q9A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=HJ5KONVceE9WDdEl13snx/1ss5v26p0c90/Uyspgg39/l3AnJVD74qKMvPxTPO0RK
-	 f2hSpEoUmq/LS4jl4FWxc5NezuprOt1lZFzOfAkkIdm1Fwujx1tmHg6WF7mcUi/ycC
-	 ccEyHML+cCiZGC118eACYi0zu3PyYkjJimitAVpra+G7T99XzWcKC7nbQV6Om5O7yL
-	 knWWJGplwNJHsNasXzJlRX51b/qgn19KMail3KWB3BzaSYaymVz+HRbKGgEcSh5Bu+
-	 pLbvn2wHzpK5fwGQvyhAIhxhEedDKFFcICbhKTpar82OENxd9f47GT35ULMKY0U2bX
-	 4TQYLKc7EOYjQ==
+	b=FcV1fCpwLiSaXYRxlMf0DXaT7DyJ70mcfwu32BA0GH1LFj1LOgK1L76JUQbcJ+N7D
+	 V2DztpwkbYO9VAuqt0WTzmgdgUdV4gkms4uXlIVa160uKvzbLUlHY02qu1/4a5bxje
+	 ZnG8vACEEV4U1wIxCWzaW2lF4MV2rKDx4tBB6SQDciw3o5sQmW1uyScogYsH/qowo3
+	 ByqHGIxdUQ1SIfeos81IrpoAlLFT/Eaf1TUD0d723YgarGJspp5qN0n2mFQAVirn2L
+	 SnWiCd9JpDrVwpdGQlUhAqB8eQ4s3wwl62eT+WbCJGlEb7IRQoEMBc9zjXbSVe/e6v
+	 eDoK+ycsWh5DA==
 From: Yixun Lan <dlan@kernel.org>
-Date: Wed, 02 Sep 2026 08:04:26 +0000
-Subject: [PATCH 5/7] mmc: sdhci-of-k1: Use finest delay granularity for RX
- tuning
+Date: Wed, 02 Sep 2026 08:04:27 +0000
+Subject: [PATCH 6/7] mmc: sdhci-of-k1: Improve RX tuning window
 MIME-Version: 1.0
-Message-Id: <20260902-07-k3-sdhci-fix-v1-5-b15c5d0f64fd@kernel.org>
+Message-Id: <20260902-07-k3-sdhci-fix-v1-6-b15c5d0f64fd@kernel.org>
 References: <20260902-07-k3-sdhci-fix-v1-0-b15c5d0f64fd@kernel.org>
 In-Reply-To: <20260902-07-k3-sdhci-fix-v1-0-b15c5d0f64fd@kernel.org>
 To: Adrian Hunter <adrian.hunter@intel.com>, Ulf Hansson <ulfh@kernel.org>
@@ -55,22 +54,22 @@ Cc: Long Wan <long.wan@linux.spacemit.com>, linux-mmc@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=956; i=dlan@kernel.org;
- h=from:subject:message-id; bh=Qc6WE/5RPjDixK1mUhV9vvXFCMN4SYq/CXesrgV9Q1I=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBql9ihfSPbM8z87ZD5AM1H264Ay5pIZvFam/itK
- zID5CTkEECJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCapfYoRsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1088; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=fxIltcJX5Uwnq3dNxRUoyfBOhLTw8pBZO1fExcD0Xrk=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBql9iknDWofrDWeNlh+AiDVUT/uohKMRltmkQ7G
+ tU5ZNSEZ0SJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCapfYpBsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+1G+BAAgpTS/M0HkvRKnO1EfRhtp88v9Dd2D0E0eHhWTINBKK3fhiO9DvBKb
- ApPMdK3PNMQIItxwU5/ieJZR5fMdqafc9x1zxVO0yMJOWeLOl14YnvpAnkdcGMxywnQLkQJ2Z+L
- A6lH9mroEHe0RA60Lq/eCi/7cqtdf2t1EN3dXGdHUrgof9ZQ3tI595+9DVOjBvZkZq3RKH9vr5N
- mORakmF5dfyj+GuGZegw7qz+4ncvibN8QVRdC2dpStHdzlMt0F1UnrXkaVaDT76ojVspljRb/9t
- M3MvnkIkLe1SULqSDuy9EsyRQKCDUWuhIIuE47GrCHq4wDs9ut5taN5K2nOX3845UylsQcq1PMC
- x8cEkXtnyTux1zykVjaIfZV6kP1X8kC6Cx75MMCofn5gqjV56eRkLFZlEOuNcUN7lTM3w8xVU29
- goucnrs2fgyHInfDzgXLXzIxTg2be40HKKEhTDyvyUhEc3k94tPjy9N8BkAppj7hr//fGsr4HFP
- HFj0er/4wYYoest7EEKmeGcQGCSVAc+Bp+/WUZvR1uYjvRVXDZvfNumfgYO4L/3NXiMzjJGOVy4
- LThqRSNTT0TuIEwkv7Gq7Lojsvg291gFh5SElyx+vzo1J+/c7aCVVNCReikeFryuj8xeV4ywmWB
- Z4Y5Ofchn54RiHIeAqjquJ6Rtz2S4Y=
+ QACgkQMarqR1lNu+18jw/+IsClSoXL1iuwryIUbeeMdJqr3eSUcezMiUhCiVZ0ulvN0d4jGikzk
+ LGs1uxoCBN6kqD6Xy7RB68+0TJ22sjvPxDQlDKevgZsa1XlYq3G9cfFYAroiXtHkZyJ9W9Tw6Tc
+ nB4Yr434vzRuC+ZHzAb+41xSpSoU8Dlg3DzTzfCcj5eTyQniYO3H5p06JXcjbGUaMg2b3VcSy1E
+ PQUxskHTxOgSruQkNOlx7roPoJm6OtlWb8wUHMV8M8tEyLotUNRnSzIUlbUHnkquOfQp62MiBq0
+ 8cWutal+oIrM0uUAe+dcO8PDBT2Ylyb/poaWr1/Dd5FpCGGDeGhEXWGpOJBKlpl+4DHd/xLJqHn
+ jD2jYPEDPegn1p5NH91PB0V0trnlc5nRfDrby3JqeJbgp5WsxAev8Utp+STggeGnXoSYMtIgM94
+ QjMcJxh1It7LBNvsoUnrM0f1DtForTLocQeqT3mu1Uss8I1oRaWFl6Giz7woaOX4uq2HaFmni0c
+ CpDhaNMTuTUnpmzZ3CGnJlo3FiWBahQGMrNI8HIjiFTW/KTa2vl5soHX0ZGkVzFQEqm9yBFftPQ
+ VBofRkEQvNOVpICPCVt163ZlL44TSD2rWSDLTZncdDUlYWLi8Ahn/GwZtdoovTbz5iT2d4nF+fA
+ RQVAFG9Nnrivu/lw0zZx0pWre2byxY=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -91,9 +90,12 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Long Wan <long.wan@linux.spacemit.com>
 
-Initialize the RX delay line to 0 (finest step size) instead of 9.
-This improves tuning precision by allowing smaller delay increments
-when searching for the optimal sampling point.
+Raise the minimum delay codes of RX tuning window from 3 to 50, to more
+accurately retrieve a valid configuration.
+
+A window of 3 codes wide leaves no sampling margin, which will result
+tuning tests reporting success on a configuration that drifts out of the
+window under thermal or power variation.
 
 Fixes: e9cb83c10071 ("mmc: sdhci-of-k1: add comprehensive SDR tuning support")
 Signed-off-by: Long Wan <long.wan@linux.spacemit.com>
@@ -103,18 +105,18 @@ Signed-off-by: Yixun Lan <dlan@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-index be770e8a9884..257c954ce587 100644
+index 257c954ce587..a07e7db0853e 100644
 --- a/drivers/mmc/host/sdhci-of-k1.c
 +++ b/drivers/mmc/host/sdhci-of-k1.c
-@@ -84,7 +84,7 @@
- #define  SDHC_RX_DLINE_GAIN             BIT(8)
- #define  SDHC_TX_DLINE_REG_MASK         GENMASK(23, 16)
+@@ -314,7 +314,7 @@ static int spacemit_sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
+ 		max_pass_start = current_start;
+ 	}
  
--#define SPACEMIT_RX_DLINE_REG		9
-+#define SPACEMIT_RX_DLINE_REG		0
- #define SPACEMIT_RX_TUNE_DELAY_MIN	0x0
- #define SPACEMIT_RX_TUNE_DELAY_MAX	0xFF
- 
+-	if (max_pass_len < 3) {
++	if (max_pass_len < 50) {
+ 		dev_err(mmc_dev(host->mmc), "Tuning failed: no stable window found\n");
+ 		return -EIO;
+ 	}
 
 -- 
 2.55.0
