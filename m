@@ -4,87 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0811C61DD3
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 03:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3ABC624D0
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 04:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WxR1xub6CXwWBH0Ap7RZJtyP1ADkvcWM7NeZSM+pEzw=; b=0ex50ePXBs5Os0
-	YCF1c/kaElsAS/2sFueNBDJl65QsdJNVOokQ6ShHVwykC0vC1nrzMKqC+BjFomZQQRhoAkXeRBLJG
-	6G1tXgcsBnPKEJec7jNm9cJTrbnT2r+mZL991mtaW8nLNFpbTP3TyiPCwSfNSLWZBXdxeyDT9iiEg
-	q8D6d3j6mXZWXQaV8dhQNfdLVzHsMwA3gwpIAcCeLS1vabeN6qKT0Ol/TvyVNGd5+PH00CVwi5Hzo
-	7CYcdbfdGfTYUfIHSHRn1NBa19djGQECexH8kl7gmsdSxIlxHGKL1UMPjjDSWWVLJ8v5dXOYXYQgN
-	z2ud47pn/1eseXPjmINA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=g0VMM0yMuDjxJcEFzOE9hYJWBVujqs1xuC9L+cnfD+4=; b=nLV4kBPoy5Ib2V
+	kEtgMxNllTM6UahifqSpnrlX0/jWbhoL5Lwb+aZJzihBne8PwfmJBxFDOszddobsULpej+jTlxQ7u
+	clgRynDfot0+hTYvaqiy2i5V6aQqabOUchi/kXKmHy3zNbmh36kfTKm03JBkHSCH4XQdFVR9Y8j0y
+	2PwLTz0I+Bl95otPrhqeKWczlZpZoNJ1fJIWRCS5sZNpB4f/B7lT6Dv5pjmLQv7QEsajCQI86nOW3
+	/eC6lv3Qqw64I3I2Z4s1Dlo4RZBCiOnYYZNSrWqWCyuXIg1yXVBEyJC6/9fvzc+VMalGs0XyHTM+l
+	Pc4ZXUbqhR+vpGrUMXyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1bfj-0000000DimB-0v6k;
-	Wed, 02 Sep 2026 03:29:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x1cWe-0000000DlKA-1gpw;
+	Wed, 02 Sep 2026 04:24:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1bfh-0000000Dil2-3LHK
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 02 Sep 2026 03:29:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=V/dlReRWmcpaJacPAy+g1eVWzWtHIWi93ITfcA0HWxA=; b=BBAOWm/07fek7pTLkxrUYXFiP5
-	m3oABrPOLMsovMnif6kzl+iolyYlFTH9f0gEinjplfo9QO5eUYzJdwOt7IUWg8QVRkeu1bLYjK31l
-	Vy392W2FLmTYOCsEXQ9KBw1KSMA+V0XgBdLpR6stWiKwrY4i288BIdZ/NoukSqMuhqYZ/h1xzy68V
-	lRLHEsP7L6v7P5i3sMfRsgwQ6uKt52yuRWlEmI7sWrFxJej+/0B+m3kuc19/FpU/lSHp0Q7xTrCpT
-	N1wBeL4Rr5kA/zXtBurCWp9Hf9UNULy5vQeLtZNJWiUHynU1T+kT/wvXvFG63e7o4uIGjMnqLn0K8
-	3Gje2QHg==;
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1agK-0000000BXS9-1Ebv
+	id 1x1cWc-0000000DlK2-1u22
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 02:26:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1788315978; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=V/dlReRWmcpaJacPAy+g1eVWzWtHIWi93ITfcA0HWxA=;
-	b=FTbq36ZyM4YgeBSM22yyCmq+H321pERKQZZic62Tm2PQ/CXcf1tA+XxgzSvBR3POEH/mO0FhvqZklI53Xo0FU9K8H9mErVY5iU5+o+LIKAwkG9BiWyaEtFNBQfHGDMkjqXzKowLX/CAu88s8eOanRvOU3r1zw6C8uvVKB0O5WCQ=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R261e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0XAArZhl_1788315971;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XAArZhl_1788315971 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 02 Sep 2026 10:26:16 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: bot+bpf-ci@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	memxor@gmail.com,
-	bjorn@kernel.org,
-	puranjay@kernel.org
-Cc: ihor.solodrai@linux.dev,
-	eddyz87@gmail.com,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	emil@etsalapatis.com,
-	pulehui@huawei.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	shuah@kernel.org,
-	guoren@kernel.org,
-	bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next] bpf, riscv: Register extable entries at probe insn call sites
-Date: Wed,  2 Sep 2026 10:26:08 +0800
-Message-ID: <20260902015152.16104-1-reply-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <46b7038550e5d5ed680c36ee4e9bd96429b9bd85b600c257a254fe73b17d6e19@mail.kernel.org>
-References: <20260901120013.16104-1-cp0613@linux.alibaba.com> <46b7038550e5d5ed680c36ee4e9bd96429b9bd85b600c257a254fe73b17d6e19@mail.kernel.org>
+	Wed, 02 Sep 2026 04:24:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7307D402E2;
+	Wed,  2 Sep 2026 04:24:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C653B1F000E9;
+	Wed,  2 Sep 2026 04:24:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788323077;
+	bh=5Ry17mQiFCxfToY1zGA6QNTErIMgHFsdYh7nrM2aQsw=;
+	h=From:To:Cc:Subject:Date;
+	b=odoGSNp1MbqDpEuyeK62ClueJJ0rMyOhPlRTh+dS+S2rvVKPqqwaS8FtxlE85CY4G
+	 W9QWeoXn94wXug7Ag/OwK2sEVmtxD5PrdGMCBNa+HcU+wP7yG75zIjs0fCpSqxfnI6
+	 Nft3XV57xdoYMCozRMq1MOmw2CU1V9KfDGDmJh/sK4ofUIQoouw9khrv6eAKfMntrE
+	 V52poEDnj5f5M3qzE8kQUHyNEIsykRBbJbsk0b6FJfOiNkVWsh9CScht12rFJan6JO
+	 fS1MyEtwxymSNMHr/1/A8fFkrftEsTDsFG7ngAoZ4+zrmh2IuXxYBrwMGrwnm/34C6
+	 g1rGjDr0HTwxQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] clocksource/timer-riscv: use riscv_has_extension_likely
+Date: Wed,  2 Sep 2026 12:04:53 +0800
+Message-ID: <20260902040453.6258-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_032633_463083_C3DEC909 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,40 +72,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> This looks like a bug fix for the fragile mode-based filtering in
-> add_exception_handler(). Should this include:
->
->   Fixes: b4757714cc63 ("bpf, riscv: Add support for signed arena loads")
+Instead of static branch, use riscv_has_extension_likely() to check
+whether SSTC is supported or not. For one thing, this is straight
+forward, no need to add and enable/disable a static branch during
+probe; For another, riscv_has_extension_likely() is based on
+alternative mechanism, it avoid some downsides of static branch, for
+example static branch's metadata in the __jump_table section, which is
+not discarded after ISA extensions are finalized, wastes some space.
 
-No Fixes tag, because the mode/class collision has never been a live
-bug in any released tree. b4757714cc63 introduced both the
-BPF_PROBE_MEM32SX support and the LDX class guard in the mode gate, in
-the same commit, precisely to keep plain atomics (which share the 0xc0
-mode value) out of the exception table. Its commit message says so
-explicitly:
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ drivers/clocksource/timer-riscv.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
-  "Since BPF_PROBE_MEM32SX shares its mode value (0xc0) with
-   BPF_ATOMIC, the gate accepts it only for LDX class instructions so
-   that plain atomic instructions do not register exception table
-   entries."
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index b310e6721fac..151f4f0cfd6c 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -29,12 +29,11 @@
+ #include <asm/sbi.h>
+ #include <asm/timex.h>
+ 
+-static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
+ static bool riscv_timer_cannot_wake_cpu;
+ 
+ static void riscv_clock_event_stop(void)
+ {
+-	if (static_branch_likely(&riscv_sstc_available)) {
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC)) {
+ 		csr_write(CSR_STIMECMP, ULONG_MAX);
+ 		if (IS_ENABLED(CONFIG_32BIT))
+ 			csr_write(CSR_STIMECMPH, ULONG_MAX);
+@@ -48,7 +47,7 @@ static int riscv_clock_next_event(unsigned long delta,
+ {
+ 	u64 next_tval = get_cycles64() + delta;
+ 
+-	if (static_branch_likely(&riscv_sstc_available)) {
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC)) {
+ #if defined(CONFIG_32BIT)
+ 		csr_write(CSR_STIMECMP, ULONG_MAX);
+ 		csr_write(CSR_STIMECMPH, next_tval >> 32);
+@@ -112,7 +111,7 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+ 	ce->irq = riscv_clock_event_irq;
+ 	if (riscv_timer_cannot_wake_cpu)
+ 		ce->features |= CLOCK_EVT_FEAT_C3STOP;
+-	if (static_branch_likely(&riscv_sstc_available))
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_SSTC))
+ 		ce->rating = 450;
+ 	clockevents_config_and_register(ce, riscv_timebase, 100, ULONG_MAX);
+ 
+@@ -186,10 +185,8 @@ static int __init riscv_timer_init_common(void)
+ 		return error;
+ 	}
+ 
+-	if (riscv_isa_extension_available(NULL, SSTC)) {
++	if (riscv_isa_extension_available(NULL, SSTC))
+ 		pr_info("Timer interrupt in S-mode is available via sstc extension\n");
+-		static_branch_enable(&riscv_sstc_available);
+-	}
+ 
+ 	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
+ 			 "clockevents/riscv/timer:starting",
+-- 
+2.53.0
 
-For context: I noticed this fragile shared-state gate while working on
-v1 of "bpf, riscv: Add support for signed arena loads", where the class
-guard was added as a preventive measure. This patch now follows up with
-the actual cleanup, making the registration decision explicit at each
-call site so future probe modes cannot silently collide with legitimate
-encodings.
-
-Also, regarding sashiko-bot's separate concern about BPF_PROBE_ATOMIC
-cmpxchg without ZACAS: that path is unreachable, as arena BPF_CMPXCHG
-is already gated on ZACAS by bpf_jit_supports_insn(), and
-add_exception_handler() resets its offsets after every registration,
-so stale offsets cannot be consumed. A separate fix I have prepared,
-"bpf, riscv: Make arena support depend on ZACAS", further rejects
-arena map creation on non-ZACAS systems altogether.
-
-Best regards,
-Pei
 
 _______________________________________________
 linux-riscv mailing list
