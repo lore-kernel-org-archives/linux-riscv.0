@@ -4,73 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CBCC61DD6
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 21:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAFB5C61DD6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 23:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=evWUN/OUB9Jso1aBjN4X2PHh39jD7wfWZZxLzrU0hts=; b=42ibduFjiO1Lbt
-	1OUdwSVsoe/0GjD3OBTLwR/mNpZ6oNDfsmGfWA9DaNssYzKTNX5od+5GrK6rMjeFWSu+lVwomCjAQ
-	YSCtarKx1dXYMwkhn+RVzztRBsv2duSBpUg9gcOdBKsZJAaTX9S0JUlffc3BICr2v2cOYvLyHjMM9
-	zlyZOxgvhCOcXiTwwVeaMGNgitr0mA1aXoaalfRY6si/pF1NjtFZeLt5T4f1BnCkIsUfsgoNYfB7B
-	AsyFije8IW2nkil3yxXvIj/4QYS1dbzi6lS7O6RXGcHBsXB777TPlsxNqGabPdIoxTkvZG347WjyT
-	bsKlQdULcfLD+iS3xGxQ==;
+	List-Owner; bh=U6JAt3sfR/+UR7Rb3K0S6O3Ui1qoH9yq0N60aCZtGu4=; b=kmXocobUGLXci5
+	y5DXaOGNaATp2f+idX8jBNYCfNCxt6AWh+Y3JAzlMAQ1IjAYCrL1LuqCfn9UZlQ9Xyr2nmclcN0M2
+	FqqvJqckYTf7HH/lD9kAN1lQjJUGdg5/BkM+wVaZoyqVsdUNW7Oszx2+TgJiDAJNj9podHiUw3YST
+	Bcx4YxlHgdQU6qvtOQ3vpho6ztxGYRabw2aEugGZffs/aiGc5yxaU72y2+vLdiAO83Tiv5t4sVxGk
+	BBRaZVVS2ZfFAkeimLpy4f0kH6D9RrFaJIl3AN4zY+0xdgOHNACcAXU/PaM77ZYcdjd+k8B9I4Sbx
+	KnscqV98ms6nNRAAOscQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1slS-0000000Fxq8-2uwJ;
-	Wed, 02 Sep 2026 21:45:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1u34-0000000G4aR-1jWf;
+	Wed, 02 Sep 2026 23:07:18 +0000
+Received: from esa1.hc1455-7.c3s2.iphmx.com ([207.54.90.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1slQ-0000000Fxoe-3xoB;
-	Wed, 02 Sep 2026 21:45:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5098040A75;
-	Wed,  2 Sep 2026 21:45:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0FCB1F000E9;
-	Wed,  2 Sep 2026 21:44:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788385500;
-	bh=DKhiFcIu3U/nZQ+nOoipt2+PvemBJAQMmi+1qUgcv3I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=EaMxLwFqGWrC61tK2jVCoTo4fmzbjPJ0grEnLR4xmMDsp4pR95EcPG901+WWB721J
-	 W6YyUYdNHj5kLffFOCRgKF6/wYav0tQ/SVv545TBl5XhaUbU02YneiWITBq9vXWQW9
-	 vrCUoPkbhSOFpyQ0wV9rjVRroCqpQBxZEzC/FAOM9AMdAUAmMXbE1FS5knZo6wntu7
-	 yMEkcMzNI0hUEFYECLJHWDwbMo1nU5z4OPTxYzUe/GkJzdhXFZJ0b+lVvrD9WB+49d
-	 QH54fEhLSKAVf/TnA3RRNifjClCsXAryA4AQYvlSfheBSr0G3C38otP/hhTg2X7E25
-	 72HODp6ZUu4Nw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-	Paul Walmsley <pjw@kernel.org>,
+	id 1x1u30-0000000G4ZO-3UHX;
+	Wed, 02 Sep 2026 23:07:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1788390434; x=1819926434;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=DGhH14+yE9nyt5xO4fYtNZdDfh3D8lYk97bpxGHpfRM=;
+  b=mykIYhVnI0zvw0IjXivNoYB0xaM/J8fQePNtm8h36rv+U6ZaceipP+2A
+   prxYxHhNjRWc0ubQe2Ho0GbUgJCnOwDSeb2eTt6vydB4CUKbd1NfgMnVy
+   n/bM/CVnLZpylo+4/RrQze9Zdw7f82b3BEC5eYksCzrrhICNkys51ndoN
+   UJkoprJBkuEFgAvJJ6+m/ip5RggQ8kPUsSNBCVl2bacU+IaT6tuGtr7+O
+   7NXDyGcA/fJPfeQtRPaSiQNF/x2GkZqkEyva5IdlY6eVL2riITMxKRd/5
+   eg/lFYdFkHnMBVFiVik3b2shsx6oRHqrXt83w7b2AU2FNJDrbhUui8EYs
+   w==;
+X-CSE-ConnectionGUID: Ofn1fpTWTbW09R+kIPfXvw==
+X-CSE-MsgGUID: D0F/vOykTUKuEDcXBMLDjQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11894"; a="253617833"
+X-IronPort-AV: E=Sophos;i="6.25,258,1779116400"; 
+   d="scan'208";a="253617833"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa1.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:07:07 +0900
+Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id BC88E42A309;
+	Wed,  2 Sep 2026 23:07:07 +0000 (UTC)
+Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 5E65FC012A2;
+	Wed,  2 Sep 2026 23:07:07 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom2.o.css.fujitsu.com (Postfix) with ESMTPS id 9805E18021BF;
+	Wed,  2 Sep 2026 23:06:57 +0000 (UTC)
+Date: Thu, 3 Sep 2026 08:06:54 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Atish Patra <atish.patra@linux.dev>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: (subset) [PATCH v2 0/2] Add CoreSight nodes for Qualcomm Shikra SoC
-Date: Wed,  2 Sep 2026 16:44:46 -0500
-Message-ID: <178838546724.167607.3784743895923860900.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
-References: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
+	Ritesh Harjani <ritesh.list@gmail.com>
+Subject: Re: [PATCH v2 00/20] KVM: selftests: PPC pre-enabling
+Message-ID: <apisDlhdG7xNDVyl@sm-arm-grace07>
+References: <20260902164123.2546762-1-seanjc@google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260902164123.2546762-1-seanjc@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_160715_450753_FE1F38B7 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,26 +114,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 15 Jul 2026 09:16:13 +0800, Jie Gan wrote:
-> This series adds the CoreSight debug and trace subsystem for the
-> Qualcomm Shikra SoC.
+On Wed, Sep 02, 2026 at 09:41:03AM -0700, Sean Christopherson wrote:
+> This is a big pile of cleanups and refactoring to prepare for PPC support in
+> KVM selftests.  PPC has paging modes that require multi-page page tables, and
+> those page tables need to be naturally aligned.  The original proposal was to
+> plumb in an @align param to the page allocators[*], but I didn't love the idea
+> of adding another rarely used param to the allocators.
 > 
-> The first patch adds a fallback compatible for the Shikra CTCU (CoreSight
-> Trace Control Unit). The CTCU on Shikra shares the same configuration as
-> the one on SA8775p, so "qcom,shikra-ctcu" falls back to the existing
-> "qcom,sa8775p-ctcu" compatible.
+> v2:
+>  - Collect tags. [Itaru, Bibo]
+
+I ran kvm_page_table_test for arm64 again it went ok on HW.
+
+Tested-by: Itaru Kitayam <itaru.kitayama@fujitsu.com>
+
+Thanks,
+Itaru.
+>  - Use 0x180000 as the min GPA for page table pages on LoongArch, instead of
+>    changing every other arch to use 0x200000. [Sashiko, Bibo]
+>  - Opportunistically move the vGIC LPI stress test's global "gpa_base" variable
+>    into setup_memslot(). [Sashiko]
 > 
-> [...]
-
-Applied, thanks!
-
-[2/2] arm64: dts: qcom: shikra: Add coresight nodes
-      commit: eed738c6dd0ca67e8e0ed0e18c97e4665078867b
-
-Best regards,
--- 
-Bjorn Andersson <andersson@kernel.org>
+> v1: https://lore.kernel.org/all/20260826230511.972824-1-seanjc@google.com
+> 
+> [*] https://lore.kernel.org/all/df86b5ccdbdafc3509d9538bd5e6796737bab2db.1781093720.git.ritesh.list@gmail.com
+> 
+> Nicholas Piggin (1):
+>   KVM: selftests: Use goto instead of do-while to retry finding unused
+>     physical pages
+> 
+> Sean Christopherson (19):
+>   KVM: selftests: Use MEM_REGION_PT memslot instead of '0' for s390
+>     regions/segments
+>   KVM: selftests: Use the common minimum GPA for page tables on
+>     LoongArch
+>   KVM: selftests: Use vm_alloc_page_table() to allocate LoongArch page
+>     tables
+>   KVM: selftests: Rename "num" param to "nr_pages" for physical page
+>     allocators
+>   KVM: selftests: Extend page allocator to support naturally aligned
+>     allocations
+>   KVM: selftests: Make the single-page allocator APIs static inline
+>   KVM: selftests: Use the innermost page allocator API in the memslot
+>     perf test
+>   KVM: selftests: Use the innermost page allocator API in s390's IRQ
+>     routing test
+>   KVM: selftests: Add a wrapper API to allocate multiple page table
+>     pages
+>   KVM: selftests: Initialize vm->memslots[] with invalid memslots during
+>     creation
+>   KVM: selftests: Add APIs to override memory region types with custom
+>     memslots
+>   KVM: selftests: Add TEST_EXTRA memory region type for "special"
+>     memslots
+>   KVM: selftests: Use TEST_EXTRA region in arm64's vGIC LPI stress test
+>   KVM: selftests: Use TEST_EXTRA region in x86's smaller MAXPHYADDR test
+>   KVM: selftests: Use TEST_EXTRA region in set memory region test
+>   KVM: selftests: Take the memory region type, not memslot, in page
+>     allocators
+>   KVM: selftests: Use TEST_ASSERT(), not assert(), in
+>     vm_get_mem_region()
+>   KVM: selftests: Automatically pick min_gpa for allocations based on
+>     region type
+>   KVM: selftests: Add arch hook to force page tables to be naturally
+>     aligned
+> 
+>  .../selftests/kvm/arm64/page_fault_test.c     |  18 ++-
+>  .../selftests/kvm/arm64/vgic_lpi_stress.c     |  21 ++-
+>  .../testing/selftests/kvm/include/kvm_util.h  | 106 +++++++++++++--
+>  tools/testing/selftests/kvm/include/x86/smm.h |   2 +-
+>  .../selftests/kvm/lib/arm64/processor.c       |   4 +-
+>  tools/testing/selftests/kvm/lib/kvm_util.c    | 127 +++++++++++-------
+>  .../selftests/kvm/lib/loongarch/processor.c   |   5 +-
+>  .../selftests/kvm/lib/riscv/processor.c       |   4 +-
+>  .../selftests/kvm/lib/s390/processor.c        |   7 +-
+>  .../testing/selftests/kvm/lib/x86/processor.c |  15 ++-
+>  .../testing/selftests/kvm/memslot_perf_test.c |   3 +-
+>  tools/testing/selftests/kvm/s390/cmma_test.c  |  19 +--
+>  .../testing/selftests/kvm/s390/irq_routing.c  |   2 +-
+>  .../selftests/kvm/set_memory_region_test.c    |   8 +-
+>  .../x86/smaller_maxphyaddr_emulation_test.c   |   9 +-
+>  15 files changed, 221 insertions(+), 129 deletions(-)
+> 
+> 
+> base-commit: 76671054f9a1ff6abb976583cd8da37650acdc97
+> -- 
+> 2.55.0.966.g6673acef38-goog
+> 
 
 _______________________________________________
 linux-riscv mailing list
