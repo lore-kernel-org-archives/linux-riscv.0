@@ -4,108 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B041C624D0
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 11:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D20C624D6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 12:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NMAQ7XE9lPkQUthP/vNnh0ubHybTMnYMjkrpKu7QU6w=; b=gTgV3HApBBgfme
-	vOfIACZo733oSD/pGdEGS5u88Mg/3OYtdtUPIu3qG9sp9d7vXtJlKtpviJoWS/7kmW3t8J8KqCpBu
-	n65Xqm0uTv4MXeXpTMhDr3Qxbxg4KbGH9/81ACNQtVMSgl+fCDY43P9hY4LXz0CeoEde4zVnyybtL
-	4N+i/B8F71bdJjoeTdi3gDNNdl2QVjASln4GavlVoNBpi+8kgXg62vBY5rSSPEzehClOyMXORdX7A
-	IFoBEI8z5dA/5ImwK86Hju5Pe9ZdPd/U+FbFKDS/heBiTF5F5dC3X16uCgYJYjvPriRUAVmV/AHL5
-	+PrPTUk5uxHn/sHQrJ7Q==;
+	List-Owner; bh=8gLXpPcYr47ivL4O0AaiCFKCo5VmQqnmZZia0D4lITg=; b=sMbcw+fhhg7YNq
+	2Kyz+gUukqX+BJY8mYkG1ZGhAJ+iPpVvtxlb7GVY2VCT7heVF+KTNBGonL5JNoVI2sTMtBAsJYn5U
+	nxX1wFbSIUX645DtseV98fEPY29wIrusDSG2cuKkKNYsy4/EMsLnUc2DPp/GDdw/aLIFygAMF6mvg
+	wdBiTF4DD9EL/+1AsEdn2HQ8mxaxEnA7k9VBov4XFvq4fUCKkEaKvrcWh+uExTj4UfIZPI5URa72t
+	CZFj/C2YEz0Za59bUkDyNJjWRW4Wn1M/y1KD2EnJlgGY2tG3RBnJBpGLS6uZ11C4kI1MR6kN4IXBB
+	N2YDdBuTLrtBpzptFLUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jce-0000000EbVc-3qqX;
-	Wed, 02 Sep 2026 11:59:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x1kWW-0000000EjZn-35Vl;
+	Wed, 02 Sep 2026 12:57:04 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jcd-0000000EbUI-2REK;
-	Wed, 02 Sep 2026 11:59:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=mrBct1ISMak5bjABJ9a0QZ572O4KmXxSTLwo8amtM1I=; b=RFX1boRqCxFmnHy2kmn0JugU95
-	ldXlvVFam66q1+KLgazxd+NQLTu/0i7ur5uyTBnyDjxS56z4wLESsNQZnxzRmWWecldFlmc1ye2cP
-	fjwLeHB/PlvYXSdVMDrzKSCSCY9fRvenNLvxfTCdIiaOT+1XV9Au08wm0cfZaUrf3FW4b7K8U5m27
-	5MZ9C1JOmYVwmIHaOqGWkd0Q2idCnenoonJQDkV9Y56raqUc+rc9qJmErnAa7jcF0K8995bJRIeCE
-	g5uL7rS9bOWuzShw8fkVp3Jh+1XaOOAtB0574qnWVYsc4o25WvpkzVuCj0UlYCK/21538e+uHa5cd
-	Fb+0M1eQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1jcZ-0000000Bw3b-36fL;
-	Wed, 02 Sep 2026 11:59:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4CC611E32;
-	Wed,  2 Sep 2026 04:59:10 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6C6E3F85F;
-	Wed,  2 Sep 2026 04:59:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788350354; bh=Br/cs+FpftnQOol6BErs3frU8GfYo1jZb/nBuxpBEq8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YNIufYY97B6qUu57kfR8nwRxcLtpS+O6ostRIi/nQOuKLD58rztHwSAiT1AAYOntl
-	 fxPaSMddAYwDW8STJc6MsE8WWxYq2NPYdK+F0yYS0HcTTtt1ra7YEAriOl0DmEf2lo
-	 zM0F0pNqICHzqI3Xh+hnQZNMeBEPTobb3bXedcbs=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-Date: Wed, 02 Sep 2026 12:56:23 +0100
-Subject: [PATCH RFC v3 21/21] Documentation: mm: clarify behaviour of
- compile-time folded page tables
+	id 1x1kWV-0000000EjYs-00wF
+	for linux-riscv@lists.infradead.org;
+	Wed, 02 Sep 2026 12:57:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788353823; x=1819889823;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+sqEe1LGe4fEP5uabRD28y+M+U2lWTjublfmuX++eck=;
+  b=BZr9FMYuJLguMgWohmMJ3oT09Y4/J45Qgqa8ddBzQbgFFQh5L/xyyZLk
+   Ba4bXYk92HUno0y5Wp5lUyf6h5AXRYf0akIcIx3N6IOzbK8rvgfSSnbxZ
+   NyKgWU0ScXjJy+BWBarTacfKX5dLge1XfSrClVkKDz3mERgJTjn1tX60Z
+   j+KPvm/kiBxa2ZfQqO9wirqi/etNYeH1jPwGCtdsGaQPx3+YqfIGhnKeK
+   42b1zJSUcsAQZ/+NKxoNQZTupanlSZgJKrJVkq4RhiDmyO0QCeSiStCIY
+   tBO73rcBkPFzAqOhHry5MnVuAFbWsh8fd2N/VxNFcAurRFdx82wPNpWXE
+   g==;
+X-CSE-ConnectionGUID: X2BIU0IeQxeAe0P6wL3JKg==
+X-CSE-MsgGUID: XGWBmB07RjCGkvGHwX1AWQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11893"; a="100165337"
+X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
+   d="scan'208";a="100165337"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 05:56:58 -0700
+X-CSE-ConnectionGUID: ydY/x6WaSTiRl04+a7s3zA==
+X-CSE-MsgGUID: Yl8xqNi8R+e7HGDSivpLpA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
+   d="scan'208";a="273570230"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.118])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 05:56:51 -0700
+Date: Wed, 2 Sep 2026 15:56:49 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Janani Sunil <janani.sunil@analog.com>
+Cc: Lars-Peter Clausen <lars@metafoo.de>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Mark Brown <broonie@kernel.org>,
+	Marius Cristea <marius.cristea@microchip.com>,
+	Marcus Folkesson <marcus.folkesson@gmail.com>,
+	Kent Gustavsson <kent@minoris.se>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	Janani Sunil <jan.sun97@gmail.com>, linux-spi@vger.kernel.org,
+	Kent Gustavsson <nedo80@gmail.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v11 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <apgdEf3pi_soGr3T@ashevche-desk.local>
+References: <20260902-ad5529r-driver-v11-0-301c491a0719@analog.com>
+ <20260902-ad5529r-driver-v11-3-301c491a0719@analog.com>
 MIME-Version: 1.0
-Message-Id: <20260902-dummy_ptxp3-v3-21-5d8f5b17c25c@arm.com>
-References: <20260902-dummy_ptxp3-v3-0-5d8f5b17c25c@arm.com>
-In-Reply-To: <20260902-dummy_ptxp3-v3-0-5d8f5b17c25c@arm.com>
-To: Russell King <linux@armlinux.org.uk>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>, 
- Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
- Shakeel Butt <shakeel.butt@linux.dev>, Barry Song <baohua@kernel.org>, 
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
- Wei Xu <weixugc@google.com>, Johannes Weiner <hannes@cmpxchg.org>, 
- David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>, 
- Lorenzo Stoakes <ljs@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
- Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Dave Hansen <dave.hansen@linux.intel.com>, 
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, "Liam R. Howlett" <liam@infradead.org>, 
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
- Jonas Bonn <jonas@southpole.se>, 
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
- Stafford Horne <shorne@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
- linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-openrisc@vger.kernel.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5247; i=yeoreum.yun@arm.com;
- h=from:subject:message-id; bh=QkuS96DAgeRV++qcxLUFqnS2tbZYgjub9eHsvrXmSd4=;
- b=owEB7QES/pANAwAKAW3Vw9FaxTEzAcsmYgBqmA7r6ZZHyXCpThNLcIh389noXapBmN0QtJRA/
- 0G6xN7Ry3uJAbMEAAEKAB0WIQQtg+CS3QUzuFh1pJ1t1cPRWsUxMwUCapgO6wAKCRBt1cPRWsUx
- M58/C/9U9B6FfYQ/fupAFaXvIw1Mnt9yYqNpnlfNtC6NDeZsWkfEpD8g8rzw/ZmT9NJlS4YfPs1
- Qx6kcjhDR9PAeBJBPGh8BxQwaeLNn1ssBbAQxNDfX7yrRLWPxHK9wZ7XBK+0+Y5Lk3lgdRQJ6qI
- p4F+YbpHGfi22XGen2K3KAJo4nzOC2nru7i6LL5wr8wAlWshB+2+4MqDHojeNHwLITRml9jgLu1
- /5lqRtOqA/q+Qf0MpV0tPwdATl3vJk5GSkq2yFyzkMR4LYpE4C4fuh5kWjMReGy62Non6aPXFa8
- +6UdHtXQ4V3qp9smbO5LbcLD7qQUPFqBTFktH5C1HQXXAvjDBzouhN5N4kjlLCeCrRwIwAVEVZR
- TNUIXv8PMlOojSv+isqEwSGFr+0lJ0ySAkyPAXIRh55obtZ2bBmU/KQx8c+65rZmmgDb4nJ57+G
- Vajqff8eVIyX0IvBrlsknDMl32bDAWeQx3n/WwlNzdx1iu6CzzjQqt5l1s9+zYKYR23pU=
-X-Developer-Key: i=yeoreum.yun@arm.com; a=openpgp;
- fpr=2D83E092DD0533B85875A49D6DD5C3D15AC53133
+Content-Disposition: inline
+In-Reply-To: <20260902-ad5529r-driver-v11-3-301c491a0719@analog.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_125916_051936_8E72DCDE 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20260902_055703_112363_6A501CF6 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,118 +108,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+On Wed, Sep 02, 2026 at 11:26:17AM +0200, Janani Sunil wrote:
+> Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
+> from Analog Devices.
+> 
+> The device communicates over SPI and supports per-channel output range
+> configuration. An optional external 4.096V reference can be used in
+> place of the internal reference.
 
-Compile-time folded page tables are not necessarily easy to understand, and even
-people the were once familiar with the concept might need to refresh their memory.
+Since there might be a v12 (depends on Jonathan), a few more nit-picks.
 
-Add proper documentation, including a nice diagram, for the current design.
-Mention details about dummy functions, including the recently changed pXdp_get()
-helpers.
+...
 
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
----
- Documentation/mm/page_tables.rst | 84 +++++++++++++++++++++++++++++++++++-----
- 1 file changed, 75 insertions(+), 9 deletions(-)
+> +static const s32 ad5529r_output_ranges_mV[8][2] = {
+> +	[AD5529R_RANGE_0V_5V] = { 0, 5000 },
+> +	[AD5529R_RANGE_0V_10V] = { 0, 10000 },
+> +	[AD5529R_RANGE_0V_20V] = { 0, 20000 },
+> +	[AD5529R_RANGE_0V_40V] = { 0, 40000 },
+> +	[AD5529R_RANGE_M5V_5V] = { -5000, 5000 },
+> +	[AD5529R_RANGE_M10V_10V] = { -10000, 10000 },
+> +	[AD5529R_RANGE_M15V_15V] = { -15000, 15000 },
+> +	[AD5529R_RANGE_M20V_20V] = { -20000, 20000 },
+> +};
 
-diff --git a/Documentation/mm/page_tables.rst b/Documentation/mm/page_tables.rst
-index 126c87628250..84f2715c7de0 100644
---- a/Documentation/mm/page_tables.rst
-+++ b/Documentation/mm/page_tables.rst
-@@ -143,15 +143,81 @@ pointers on each level is architecture-defined.::
- Page Table Folding
- ==================
- 
--If the architecture does not use all the page table levels, they can be *folded*
--which means skipped, and all operations performed on page tables will be
--compile-time augmented to just skip a level when accessing the next lower
--level.
--
--Page table handling code that wishes to be architecture-neutral, such as the
--virtual memory manager, will need to be written so that it traverses all of the
--currently five levels. This style should also be preferred for
--architecture-specific code, so as to be robust to future changes.
-+Not all architectures support 5-level page tables; while for some of them
-+the exact number of supported page table levels is known at compile time,
-+others can determine the number of page table levels at runtime based on
-+hardware support and address space sizes.
-+
-+Generic page table walking code always assumes that 5 levels of page table
-+exist. To make page table walking code not have to worry about that,
-+`compile-time folding` and `runtime folding` of page tables are used.
-+Compile-time folding is mostly handled in common code, whereas runtime folding
-+is exclusively handled in architecture code.
-+
-+This description focuses on generic compile-time folded page tables; for
-+architecture-specific variants, some details can vary, however, without
-+affecting common page table walkers.
-+
-+When walking folded page tables, all upper page table levels up to the supported
-+level are skipped in page table walkers: this is achieved by (a) treating
-+entries in upper page table levels as present and pointing at a page table; and
-+(b) having page table walkers cast the entry pointer to the next-level entry
-+instead of dereferencing that table. From the perspective of a page table
-+walker, the entry points at itself.
-+
-+Assuming compile-time folded 4-level page tables, to achieve (a), pgd_present()
-+and pgd_leaf() are hard-coded to indicate a present page table entry that
-+points at a page table, and to achieve (b) p4d_offset() and
-+p4d_offset_lockless() simply cast the page table entry pointer to the next
-+lower level.
-+
-+In the current design, this is further modeled by having the P4D have a
-+single page table entry::
-+
-+        PGD
-+  --> +------+          NOP4D
-+      | ptr0 |-------> +------+           PUD
-+      | ptr1 |-        | ptr0 |-------> +-----+
-+      | ptr2 | \       +------+         | ptr |-------> ...
-+      | ptr3 |  \                       | ptr |
-+        ...      \                        ..
-+                  \        NOP4D
-+                   +----> +------+           PUD
-+                          | ptr1 |-------> +-----+
-+                          +------+         | ptr |-------> ...
-+                                           | ptr |
-+                                             ...
-+
-+Note that the arrows from PGD to NOP4D represent page-table-walker
-+transitions, not pointers stored in the pgd entries.
-+
-+Using p4d as an example, `nop4d`/`p4d folded` translates to the following:
-+
-+- p4d is considered folded into pgd; both are operating on the same page
-+ table.
-+
-+- Most pgd_* helpers are hard-coded dummy functions that ignore the passed
-+  pgd_t values entirely. Exceptions are pgd_val() and low-level helpers
-+  set_pgd() + pgd_page_vaddr(), which effectively translate to set_p4d()/
-+  p4d_pgtable() to keep existing arch code working.
-+
-+  Architectures must provide p4d_* helpers (unless further common
-+  compile-time folding applies).
-+
-+- PTRS_PER_P4D is hard-coded to 1. Architectures must define PTRS_PER_PGD.
-+
-+To avoid reading a value that will never be used but cannot be entirely
-+optimized out, compile-time folded page table code also makes pXdp_get()
-+return a constant dummy value.
-+
-+In common code, this only affects pXd_val() when used for printing page
-+table entries for debugging purposes. As we don't want architecture code
-+that uses set_pXd(), pgd_page_vaddr() or pXd_pgtable() to accidentally
-+operate on dummy values, the compiler will error out if it detects that the
-+helpers are used with dummy values. For a folded level, pXd_page() must not
-+be used and unconditionally triggers a compiler error. Architecture code must
-+instead call the helpers on the proper first page table level: e.g., set_p4d()
-+instead of set_pgd().
- 
- 
- MMU, TLB, and Page Faults
+Perhaps use MILLI multiplier?
+
+...
+
+> +static int ad5529r_read_raw(struct iio_dev *indio_dev,
+> +			    struct iio_chan_spec const *chan,
+> +			    int *val, int *val2, long mask)
+> +{
+> +	struct ad5529r_state *st = iio_priv(indio_dev);
+> +	unsigned int reg_addr, reg_val_h;
+> +	int ret, range_idx, span_mV;
+
+Why is 'range_idx' signed?
+
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		/*
+> +		 * Read from DAC_INPUT_A register rather than DAC_DATA_READBACK.
+> +		 * The DAC operates in transparent mode and directly reflects
+> +		 * whatever value is written to the INPUT_A register.
+> +		 */
+> +		reg_addr = AD5529R_REG_DAC_INPUT_A(chan->channel);
+> +		ret = regmap_read(st->regmap_16bit, reg_addr, &reg_val_h);
+> +		if (ret)
+> +			return ret;
+> +
+> +		*val = reg_val_h;
+> +
+> +		return IIO_VAL_INT;
+> +	case IIO_CHAN_INFO_SCALE:
+> +		range_idx = st->output_range_idx[chan->channel];
+> +
+> +		/*
+> +		 * The datasheet specifies a 4.096 V external reference,
+> +		 * matching the nominal output voltage of the internal
+> +		 * reference.
+> +		 */
+> +		span_mV = ad5529r_output_ranges_mV[range_idx][1] -
+> +			  ad5529r_output_ranges_mV[range_idx][0];
+> +		*val = span_mV;
+> +		*val2 = st->model_data->resolution;
+> +
+> +		return IIO_VAL_FRACTIONAL_LOG2;
+> +	case IIO_CHAN_INFO_OFFSET:
+> +		range_idx = st->output_range_idx[chan->channel];
+> +
+> +		if (ad5529r_output_ranges_mV[range_idx][0] < 0)
+> +			*val = -BIT(st->model_data->resolution - 1);
+> +		else
+> +			*val = 0;
+> +
+> +		return IIO_VAL_INT;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
 
 -- 
-2.43.0
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
