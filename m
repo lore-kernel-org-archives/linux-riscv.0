@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28E9C61DD6
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:08:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 112CBC61DFD
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1Z/LT8bnvHgj5vLVqlZ2LblUiJz73M50ibjmId9cODg=; b=obdoQ8jSccP22F
-	x21FfKL+idXzHDKwJZQLFCIICYUpMh31Ke5nMt5dqC9SQBxGrDWIKznpf3j953AxSA1wFQoP4Mt/1
-	Te7tafRhczVq9w1R8UTZ7t0x7GmywvxU48xcjOftaghOF7u0JwL11hEogu4GuQNVDsSCefvYawsgs
-	OANvGzzDyiDSwUUZzcEpmsF6RabfNHWyaZmyTG3ldTeLqamUaeHu/OG0TxG5vBk+5ivuY3PniSt6d
-	gPYYTu7T5+us8yeOuoOC7CkTvc46YBGoMNov8LIOWBpdinKfdqWvPnX5mPUhPRNFZs9uJUz9sMTdB
-	fdrsOTmzQ5SpZDvsL6OQ==;
+	List-Owner; bh=dKOziUpOj/2w6vCmy119/NtdCt+82IQQUfXNXzCqvL0=; b=LxCLtJYKOnSddy
+	lTooZrrRM07I3+TOCK6MH5y47KMLI5vWwx23VDvOaGbSV4p15oO6Wv1csOFqS+GbF5cDoNVYnwY4r
+	cdvnnlWGcEf9RE+Wrez60sujvJX9SIJYqmtJ+U/QLvsqy5ZDjtfyDOvd8lC0iprUDVuXR9ivs+yBg
+	WPTqIlN0p35oMqthIaQEOIfa3GSg/nHxtctO2McZVStOsNiOe17E1ADTFZjWXnNHgqY2K7Ums/OKL
+	vShSKfIsntym5+Sqj571kMe6USBhIIXKgPZgIk55yCdyideJezVoX+YbF3pCl0JP4uZGzzNXPuSt5
+	2i1sBOhh5Ma5DnUhTMZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1g1Q-0000000E2N3-0UCY;
-	Wed, 02 Sep 2026 08:08:40 +0000
-Received: from zg8tmja2lje4os43os4xodqa.icoremail.net ([206.189.79.184])
+	id 1x1g1Y-0000000E2Q8-142C;
+	Wed, 02 Sep 2026 08:08:48 +0000
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1g1N-0000000E2M9-3aYV
+	id 1x1g1V-0000000E2Oi-08CV
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 08:08:39 +0000
+	Wed, 02 Sep 2026 08:08:46 +0000
 Received: from E0002472LT.eswin.cn (unknown [10.12.96.78])
-	by app1 (Coremail) with SMTP id TAJkCgCXKW5z2ZdqoZ96AA--.27641S3;
-	Wed, 02 Sep 2026 16:08:31 +0800 (CST)
+	by app1 (Coremail) with SMTP id TAJkCgCXKW5z2ZdqoZ96AA--.27641S4;
+	Wed, 02 Sep 2026 16:08:40 +0800 (CST)
 From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
 To: Nam Cao <namcao@linutronix.de>,
 	Paul Walmsley <pjw@kernel.org>,
@@ -37,20 +37,20 @@ To: Nam Cao <namcao@linutronix.de>,
 Cc: Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org,
 	Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-Subject: [PATCH v3 1/2] riscv: kprobes: simulate nop and c.nop instructions
-Date: Wed,  2 Sep 2026 16:08:16 +0800
-Message-Id: <20260902080817.681-2-yuanxiaofeng@eswincomputing.com>
+Subject: [PATCH v3 2/2] riscv: kprobes: add nop and c.nop to the KUnit test
+Date: Wed,  2 Sep 2026 16:08:17 +0800
+Message-Id: <20260902080817.681-3-yuanxiaofeng@eswincomputing.com>
 X-Mailer: git-send-email 2.31.1.windows.1
 In-Reply-To: <20260902080817.681-1-yuanxiaofeng@eswincomputing.com>
 References: <20260902080817.681-1-yuanxiaofeng@eswincomputing.com>
 MIME-Version: 1.0
-X-CM-TRANSID: TAJkCgCXKW5z2ZdqoZ96AA--.27641S3
-X-Coremail-Antispam: 1UD129KBjvJXoW3Wr43AryxXrWUGFW8tr17GFg_yoW7Ww1kpa
-	n8C3ZxGrWkWFs7Cr9xArn8ur4rtws5Kw43Ka17ta15K3y7WryrZ3s3Kw43AF1DJryFgryx
-	KryYvrykC343A37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPa14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r1I6r4UM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+X-CM-TRANSID: TAJkCgCXKW5z2ZdqoZ96AA--.27641S4
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zr48tr4DXw13try3GrWxJFb_yoW8Zw4xpF
+	nrJw15KF48Gasxtry7Ww18AryFya1kA3yagw1DWr4rKry8G3W3tr9FgFWUtrsrKrWFv3yS
+	934rWry8KF9rAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPa14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
 	Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
 	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
 	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
@@ -61,11 +61,12 @@ X-Coremail-Antispam: 1UD129KBjvJXoW3Wr43AryxXrWUGFW8tr17GFg_yoW7Ww1kpa
 	1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
 	7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
 	WUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU
-	emhwUUUUU
-X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgESE2qW-qNgkgAAsR
+	bManUUUUU
+X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgESE2qW-qNgkwABsR
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_010837_929686_3DCA2CD1 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260902_010845_276998_DE41CBD7 
+X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,122 +83,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A kprobe or uprobe placed on a nop currently replays the instruction
-out-of-line: the breakpoint trap runs the probe handler and redirects
-execution to a copy of the instruction sitting in an XOL slot, and a
-second breakpoint appended after the copy traps again to finish the
-hit.  That costs an extra exception round-trip per hit; for uprobes
-the slot runs in user mode, so the re-trap is a full
-kernel<->userspace round-trip.
-
-nop and c.nop have no architectural effect, so the replay can be
-replaced by simply advancing the program counter when handling the
-initial breakpoint, completing every hit within a single trap.
-arm64 does the same in its probe-decode path, which is also shared
-between kprobes and uprobes; see commit ac4ad5c09b34 ("arm64: insn:
-Simulate nop instruction for better uprobe performance").
-
-riscv_probe_decode_insn() is shared by kprobes and uprobes, so the
-simulation applies to both.  It primarily matters for uprobes on
-USDT probe sites: under the SystemTap SDT ABI (sys/sdt.h, parsed by
-libbpf), the recorded probe location is by construction a plain nop
-or c.nop, the same case that motivated the arm64 series.
-
-Measured on QEMU (RISC-V virt, emulated): for a uprobe on a USDT
-style nop site the per-hit cost drops by roughly 80 percent; for a
-kprobe on a nop by roughly 40 percent.  On real arm64 hardware the
-referenced commit measured ~2x.
-
-Compile tested on RISC-V, and verified with the RISC-V kprobes
-KUnit test which now covers nop and c.nop.
+Extend the RISC-V kprobes KUnit test with test_kprobes_nop and
+test_kprobes_c_nop, covering both the 32-bit nop and the
+compressed c.nop simulation paths.
 
 Signed-off-by: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
 ---
- arch/riscv/include/asm/insn.h            | 11 +++++++++++
- arch/riscv/kernel/probes/decode-insn.c   |  6 ++++++
- arch/riscv/kernel/probes/simulate-insn.c | 14 ++++++++++++++
- arch/riscv/kernel/probes/simulate-insn.h |  2 ++
- 4 files changed, 33 insertions(+)
+ .../kernel/tests/kprobes/test-kprobes-asm.S   | 23 +++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index c3005573e8..5b3944a5fa 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -228,6 +228,15 @@
- #define RVG_MASK_EBREAK		0xffffffff
- #define RVG_MASK_SRET		0xffffffff
+diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+index f16deee9e0..06a9cb35c9 100644
+--- a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
++++ b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+@@ -181,6 +181,25 @@ SYM_FUNC_END(test_kprobes_c_bnez)
  
-+/*
-+ * NOP and C.NOP have no variable fields, so all bits must match.
-+ * NOP is encoded as ADDI x0, x0, 0 (0x00000013), C.NOP as C.ADDI x0, 0 (0x0001).
-+ */
-+#define RVG_MATCH_NOP		0x00000013
-+#define RVG_MASK_NOP		0xffffffff
-+#define RVC_MATCH_C_NOP		0x0001
-+#define RVC_MASK_C_NOP		0xffff
+ #endif /* CONFIG_RISCV_ISA_C */
+ 
++SYM_FUNC_START(test_kprobes_nop)
++	.option push
++	.option norvc
++test_kprobes_nop_addr:
++	nop
++	.option pop
++	li a0, KPROBE_TEST_MAGIC
++	ret
++SYM_FUNC_END(test_kprobes_nop)
 +
- #define __INSN_LENGTH_MASK	_UL(0x3)
- #define __INSN_LENGTH_GE_32	_UL(0x3)
- #define __INSN_OPCODE_MASK	_UL(0x7F)
-@@ -262,6 +271,8 @@ __RISCV_INSN_FUNCS(c_ebreak, RVC_MASK_C_EBREAK, RVC_MATCH_C_EBREAK)
- __RISCV_INSN_FUNCS(ebreak, RVG_MASK_EBREAK, RVG_MATCH_EBREAK)
- __RISCV_INSN_FUNCS(sret, RVG_MASK_SRET, RVG_MATCH_SRET)
- __RISCV_INSN_FUNCS(fence, RVG_MASK_FENCE, RVG_MATCH_FENCE);
-+__RISCV_INSN_FUNCS(nop, RVG_MASK_NOP, RVG_MATCH_NOP)
-+__RISCV_INSN_FUNCS(c_nop, RVC_MASK_C_NOP, RVC_MATCH_C_NOP)
- 
- /* special case to catch _any_ system instruction */
- static __always_inline bool riscv_insn_is_system(u32 code)
-diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
-index 65d9590bfb..d28408f0b7 100644
---- a/arch/riscv/kernel/probes/decode-insn.c
-+++ b/arch/riscv/kernel/probes/decode-insn.c
-@@ -44,5 +44,11 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
- 	RISCV_INSN_SET_SIMULATE(auipc,		insn);
- 	RISCV_INSN_SET_SIMULATE(branch,		insn);
- 
-+	/* Simulate NOP for better performance */
-+	RISCV_INSN_SET_SIMULATE(nop,		insn);
 +#ifdef CONFIG_RISCV_ISA_C
-+	RISCV_INSN_SET_SIMULATE(c_nop,		insn);
-+#endif
++SYM_FUNC_START(test_kprobes_c_nop)
++test_kprobes_c_nop_addr:
++	c.nop
++	li a0, KPROBE_TEST_MAGIC
++	ret
++SYM_FUNC_END(test_kprobes_c_nop)
++#endif /* CONFIG_RISCV_ISA_C */
 +
- 	return INSN_GOOD;
- }
-diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
-index fa581590c1..3b22d3ad53 100644
---- a/arch/riscv/kernel/probes/simulate-insn.c
-+++ b/arch/riscv/kernel/probes/simulate-insn.c
-@@ -237,3 +237,17 @@ bool __kprobes simulate_c_beqz(u32 opcode, unsigned long addr, struct pt_regs *r
- {
- 	return simulate_c_bnez_beqz(opcode, addr, regs, false);
- }
-+
-+bool __kprobes simulate_nop(u32 opcode, unsigned long addr, struct pt_regs *regs)
-+{
-+	instruction_pointer_set(regs, addr + 4);
-+
-+	return true;
-+}
-+
-+bool __kprobes simulate_c_nop(u32 opcode, unsigned long addr, struct pt_regs *regs)
-+{
-+	instruction_pointer_set(regs, addr + 2);
-+
-+	return true;
-+}
-diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
-index 44ebbc444d..7e0936613f 100644
---- a/arch/riscv/kernel/probes/simulate-insn.h
-+++ b/arch/riscv/kernel/probes/simulate-insn.h
-@@ -29,5 +29,7 @@ bool simulate_c_jr(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_bnez(u32 opcode, unsigned long addr, struct pt_regs *regs);
- bool simulate_c_beqz(u32 opcode, unsigned long addr, struct pt_regs *regs);
-+bool simulate_nop(u32 opcode, unsigned long addr, struct pt_regs *regs);
-+bool simulate_c_nop(u32 opcode, unsigned long addr, struct pt_regs *regs);
- 
- #endif /* _RISCV_KERNEL_PROBES_SIMULATE_INSN_H */
+ .section .rodata
+ SYM_DATA_START(test_kprobes_addresses)
+ 	RISCV_PTR test_kprobes_add_addr1
+@@ -197,7 +216,9 @@ SYM_DATA_START(test_kprobes_addresses)
+ 	RISCV_PTR test_kprobes_branch_addr6
+ 	RISCV_PTR test_kprobes_branch_addr7
+ 	RISCV_PTR test_kprobes_branch_addr8
++	RISCV_PTR test_kprobes_nop_addr
+ #ifdef CONFIG_RISCV_ISA_C
++	RISCV_PTR test_kprobes_c_nop_addr
+ 	RISCV_PTR test_kprobes_branch_c_j_addr1
+ 	RISCV_PTR test_kprobes_branch_c_j_addr2
+ 	RISCV_PTR test_kprobes_c_jr_addr1
+@@ -220,7 +241,9 @@ SYM_DATA_START(test_kprobes_functions)
+ 	RISCV_PTR test_kprobes_jalr
+ 	RISCV_PTR test_kprobes_auipc
+ 	RISCV_PTR test_kprobes_branch
++	RISCV_PTR test_kprobes_nop
+ #ifdef CONFIG_RISCV_ISA_C
++	RISCV_PTR test_kprobes_c_nop
+ 	RISCV_PTR test_kprobes_c_j
+ 	RISCV_PTR test_kprobes_c_jr
+ 	RISCV_PTR test_kprobes_c_jalr
 -- 
 2.43.0
 
