@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C62C61DFD
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A1BDC61DFD
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:In-Reply-To:Subject:From:
-	To:References:Message-Id:Date:Cc:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rXeGa0WjFQlmT4QAPt5s420hgp1UgFUrg6tXVGn7fxM=; b=GpZKD+r6N7exfZ
-	347AevBTHZF/TuVA+HFComQpo053SlfY08jLI1gBg/HwtmqOT+jgDITYR5rdcQFMVx1RjyE19SyxO
-	fIcxCNeZfkJjBBdgh4N/HNOwI8ftuCmRkcGEp/Tq/0Nb7m0UpfIJs/HqSSR/yd2abULBm9pD7cgxP
-	AfXTVMFPhJDp0G9+R6wxwItucxq0tsfVkC8W5hiu/k6St03mpaSuk8enGApEVchlH3QlFa6Eft3Zv
-	yRY1NiIvSY9IZDgvyhfRwCczzTv5hpZ6frKuPDn4fWhvvgO7iuWEYwbxz4SeE+IIVI9VpP9ol/iK+
-	bCIYTKMo1VoJWmEMxE8A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NtIhoTrHpvJrKFgkuHL1OAAXo9TJEWhf5XI5zm3cC2A=; b=EcJLQQAStSfhuj
+	yUQWexfIkdcQIEbCatt8ZX0URnQG4IPh3be+gPMb8lurcdAQKqo9WGjs0ydfUWxeeQILQavHLCBkb
+	0kCNVSckxcpQ4G50aCO6DK8Df1VgcxBQ3dZbD33BYf9Xg4hu0vG8D/43zzGElWQ6Ml8qJUoIvn2w4
+	pDZF4HgnRahWaQaIIu3tf3/+derWP+lDldVSiwCDLU1Yjcn4t6/0OKNi82BhR6zXqh/xbECXH20NS
+	PT9Vh6WOEASbAJyHUZKy7iLRl4HRLalVZQNFm/5CaXxkLKZ2ub7lEl743LnTCb84zoUgyvXI0aVeh
+	Z+E5GgRqLi/kzFfwZYNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1g0K-0000000E29p-2lbo;
-	Wed, 02 Sep 2026 08:07:32 +0000
-Received: from va-2-29.ptr.blmpb.com ([209.127.231.29])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1g0I-0000000E28Y-39qU
+	id 1x1g1J-0000000E2KZ-45rZ;
+	Wed, 02 Sep 2026 08:08:33 +0000
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1g1G-0000000E2JO-2Rp5
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 08:07:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1788336442; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=JtUcpfCIQENx/RAqzn2XCRp4WPXE5eT3JQCOCuuv+HE=;
- b=PZCbv27GGJClC4UJJrXdSQdMd3+b6n9EO7mhXltb2MM9F2JtM3mmS+kRbELDodn1uI6dgW
- DfPj/ws1x23RssEXBcC+JEEx9a73vudtkkHQLXnXzsHGlSGaF9S5bn2oRPa2tpBUtHMXxo
- 3NmVYQX+/ns8ZrKOKurlW/jvmW5p5a352eHacJOMGkjDapBUaoVrXySY7VV5Ret4rafa3N
- GMktlVKpoZELn4SBuae84/o3rmAWBNBBRBNHQuS6Yz9DJ5NJ9EeJQGHwIzBEbNgXcRqaDw
- GXDM9xiVB3d3+DXd8xRjFdTdSUQMC+tMlN6z1OYoW1WV/1jKFey1nU/NS7D9mA==
-Cc: <tomasz.jeznach@linux.dev>, <joro@8bytes.org>, <will@kernel.org>, 
-	<robin.murphy@arm.com>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <mark.rutland@arm.com>, 
-	<andrew.jones@oss.qualcomm.com>, <guoren@kernel.org>, 
-	<david.laight.linux@gmail.com>, <zhangzhanpeng.jasper@bytedance.com>, 
-	<iommu@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
-	<linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>, 
-	<yang.yicong@picoheart.com>
-Date: Wed, 2 Sep 2026 16:07:16 +0800
-Message-Id: <8267ee7a-98b7-42a5-b479-648d2bec8ade@picoheart.com>
-References: <20260828085819.4076449-1-zong.li@sifive.com> <20260828085819.4076449-4-zong.li@sifive.com>
-Received: from [100.86.218.63] ([61.141.241.110]) by smtp.feishu.cn with ESMTPS; Wed, 02 Sep 2026 16:07:19 +0800
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-To: "Zong Li" <zong.li@sifive.com>
-User-Agent: Mozilla Thunderbird
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Subject: Re: [PATCH RESEND v7 3/3] drivers/perf: riscv-iommu: protect shared state with a raw spinlock
-Content-Language: en-US
-In-Reply-To: <20260828085819.4076449-4-zong.li@sifive.com>
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+26a97d938+0ad979+lists.infradead.org+yang.yicong@picoheart.com>
+	Wed, 02 Sep 2026 08:08:32 +0000
+Received: from E0002472LT.eswin.cn (unknown [10.12.96.78])
+	by app1 (Coremail) with SMTP id TAJkCgCXKW5z2ZdqoZ96AA--.27641S2;
+	Wed, 02 Sep 2026 16:08:21 +0800 (CST)
+From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+To: Nam Cao <namcao@linutronix.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+Subject: [PATCH v3 0/2] riscv: kprobes: simulate nop and c.nop instructions
+Date: Wed,  2 Sep 2026 16:08:15 +0800
+Message-Id: <20260902080817.681-1-yuanxiaofeng@eswincomputing.com>
+X-Mailer: git-send-email 2.31.1.windows.1
+MIME-Version: 1.0
+X-CM-TRANSID: TAJkCgCXKW5z2ZdqoZ96AA--.27641S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WFWUXFW5GF1xJr4xXr18Xwb_yoW5JF4kpF
+	s0kwn8Kr4kJ3Z3Cr9xAw4xAFyrKw4kJw43JF47t34rta15KF15tFnFg3yYvFnxWr4Yg34a
+	vF17uryvkry7ArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUva14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
+	JF0_Jw1lc2xSY4AK6svPMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI
+	8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AK
+	xVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI
+	8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280
+	aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyT
+	uYvjfUehL0UUUUU
+X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgESE2qW-qNgjgAAsN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_010730_988061_5EB5B5B7 
-X-CRM114-Status: GOOD (  35.10  )
+X-CRM114-CacheID: sfid-20260902_010830_789313_9743EAF7 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,219 +80,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/28/26 4:58 PM, Zong Li wrote:
-> Events are bound to one CPU and the interrupt is affine to it, so the
-> perf callbacks running with interrupts disabled would be enough to
-> exclude the handler.
-> 
-> PCI MSI/MSI-X on IMSIC breaks that: the irqchip sets
-> IRQCHIP_MOVE_DEFERRED, so irq_set_affinity() reports success while only
-> recording the request, and the move is applied in interrupt context upon
-> the next device interrupt. Until then the interrupt is still routed to
-> the CPU IMSIC picked initially, so the first overflow interrupt can run
-> concurrently with the perf callbacks on the CPU the events are bound to.
-> 
-> Take a raw spinlock, with interrupts disabled so that the handler can
-> never interrupt a holder on the same CPU, rather than depending on that
-> irqchip behaviour. It covers the state which is reachable from both
-> sides:
-> 
->  - IOCOUNTINH is read-modify-written by ->start()/->stop() and is saved
->    and restored around the whole handler.
->  - pmu->events[] is written by ->del() and read by the handler.
->  - hw_perf_event::prev_count is updated by both.
-> 
-> ->add() and ->del() call the unlocked __riscv_iommu_pmu_start() and
-> __riscv_iommu_pmu_stop() so the lock is taken once per callback.
-> 
-> Signed-off-by: Zong Li <zong.li@sifive.com>
-> ---
->  drivers/perf/riscv_iommu_pmu.c | 66 ++++++++++++++++++++++++++++++----
->  1 file changed, 60 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/perf/riscv_iommu_pmu.c b/drivers/perf/riscv_iommu_pmu.c
-> index f6acd56f2f61..ee2f6d1fbece 100644
-> --- a/drivers/perf/riscv_iommu_pmu.c
-> +++ b/drivers/perf/riscv_iommu_pmu.c
-> @@ -101,6 +101,7 @@ struct riscv_iommu_pmu {
->  	u64 event_cntr_mask;
->  	struct perf_event *events[RISCV_IOMMU_HPM_COUNTER_NUM];
->  	DECLARE_BITMAP(used_counters, RISCV_IOMMU_HPM_COUNTER_NUM);
-> +	raw_spinlock_t lock;
->  };
->  
->  #define to_riscv_iommu_pmu(p) (container_of(p, struct riscv_iommu_pmu, pmu))
-> @@ -485,7 +486,8 @@ static void riscv_iommu_pmu_update(struct perf_event *event)
->  	local64_add(delta, &event->count);
->  }
->  
-> -static void riscv_iommu_pmu_start(struct perf_event *event, int flags)
-> +/* Called with pmu->lock held */
-> +static void __riscv_iommu_pmu_start(struct perf_event *event, int flags)
->  {
->  	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
->  	struct hw_perf_event *hwc = &event->hw;
-> @@ -500,11 +502,22 @@ static void riscv_iommu_pmu_start(struct perf_event *event, int flags)
->  	riscv_iommu_pmu_set_period(event);
->  	riscv_iommu_pmu_set_event(pmu, hwc->idx, hwc->config);
->  	riscv_iommu_pmu_enable_counter(pmu, hwc->idx);
-> +}
-> +
-> +static void riscv_iommu_pmu_start(struct perf_event *event, int flags)
-> +{
-> +	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
-> +	unsigned long irqflags;
-> +
-> +	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-> +	__riscv_iommu_pmu_start(event, flags);
-> +	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
+Per-hit XOL out-of-line execution of a probed nop costs an extra
+exception round-trip (the slot's trailing breakpoint traps back into
+the kernel), and for uprobes that round-trip is a full
+kernel<->userspace one.  Since these instructions have no
+architectural effect, simply advance the program counter inside the
+breakpoint handler instead.  riscv_probe_decode_insn() is shared by
+kprobes and uprobes, so both benefit.  It primarily matters for
+uprobes on USDT sites: under the SystemTap SDT ABI, the recorded
+probe location is by construction a plain nop or c.nop.
 
-could use guard(raw_spinlock_irqsave)() to help handle the lock release.
+patch 1: simulate nop and c.nop in the breakpoint handler.
+patch 2: extend the RISC-V kprobes KUnit test to cover both.
 
-I'm considering if it'll better to use irq_work or function call to handle the
-counts update from the interrupt handler, e.g. in the irq handler first check
-if current cpu is the pmu->on_cpu, if so update the counts, otherwise queue
-the update work to pmu->on_cpu by irq work or smp_call_function_single_async.
-In this way we can use pmu's original synchronization mechanism without
-extra spin locks since the callbacks will always run and synchronized by
-the same cpu, and the shared interrupt doesn't matter at all.
+Measured on QEMU (RISC-V virt, emulated): per-hit cost of a uprobe
+on a USDT-style nop site drops by roughly 80 percent; a kprobe on a
+nop by roughly 40 percent.  (arm64 commit ac4ad5c09b34 measured ~2x
+on real arm64 hardware for the same class of change.)
 
-any thoughts on this?
+Changes since v2:
+- patch 1: no code change; commit message reworked per Nam Cao's
+  review:
+  - dropped the kernel-text nop motivation (jump_label text sites
+    cannot be kprobed; register_kprobe() rejects them via
+    jump_label_text_reserved()), and the mcount claim (the function
+    entry instruction is an auipc; the nop sits at +4 only).
+  - corrected the attribution of the arm64 prior: ac4ad5c09b34 was
+    motivated by uprobe/USDT benchmarks, not by a generic "single
+    step is slow" claim.
+  - described the per-hit saving precisely in XOL terms (one extra
+    exception round-trip; for uprobes a full kernel<->userspace one).
+  - added a USDT-form uprobe measurement (ftrace uprobe event,
+    emulated QEMU), in the style of the arm64 series numbers.
+- patch 2: unchanged.
 
-thanks.
+Changes since v1:
+- patch 1: add use-case justification and benchmark result to the
+  commit message.
+- patch 2: simplify test functions to load KPROBE_TEST_MAGIC
+  directly (per review).
 
->  
->  	perf_event_update_userpage(event);
->  }
->  
-> -static void riscv_iommu_pmu_stop(struct perf_event *event, int flags)
-> +/* Called with pmu->lock held */
-> +static void __riscv_iommu_pmu_stop(struct perf_event *event, int flags)
->  {
->  	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
->  	struct hw_perf_event *hwc = &event->hw;
-> @@ -521,13 +534,26 @@ static void riscv_iommu_pmu_stop(struct perf_event *event, int flags)
->  	hwc->state |= PERF_HES_STOPPED | PERF_HES_UPTODATE;
->  }
->  
-> +static void riscv_iommu_pmu_stop(struct perf_event *event, int flags)
-> +{
-> +	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
-> +	unsigned long irqflags;
-> +
-> +	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-> +	__riscv_iommu_pmu_stop(event, flags);
-> +	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
-> +}
-> +
->  static int riscv_iommu_pmu_add(struct perf_event *event, int flags)
->  {
->  	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
->  	struct hw_perf_event *hwc = &event->hw;
->  	unsigned int num_counters = pmu->num_counters;
-> +	unsigned long irqflags;
->  	unsigned int idx;
->  
-> +	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-> +
->  	/* Reserve index zero for iohpmcycles */
->  	if (is_cycle_event(event->attr.config))
->  		idx = RISCV_IOMMU_HPM_CYCLE_IDX;
-> @@ -535,8 +561,10 @@ static int riscv_iommu_pmu_add(struct perf_event *event, int flags)
->  		idx = find_next_zero_bit(pmu->used_counters, num_counters, 1);
->  
->  	/* All event counters or cycle counter are in use */
-> -	if (idx == num_counters || pmu->events[idx])
-> +	if (idx == num_counters || pmu->events[idx]) {
-> +		raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
->  		return -EAGAIN;
-> +	}
->  
->  	set_bit(idx, pmu->used_counters);
->  
-> @@ -546,7 +574,9 @@ static int riscv_iommu_pmu_add(struct perf_event *event, int flags)
->  	local64_set(&hwc->prev_count, 0);
->  
->  	if (flags & PERF_EF_START)
-> -		riscv_iommu_pmu_start(event, flags);
-> +		__riscv_iommu_pmu_start(event, flags);
-> +
-> +	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
->  
->  	/* Propagate changes to the userspace mapping. */
->  	perf_event_update_userpage(event);
-> @@ -556,18 +586,26 @@ static int riscv_iommu_pmu_add(struct perf_event *event, int flags)
->  
->  static void riscv_iommu_pmu_read(struct perf_event *event)
->  {
-> +	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
-> +	unsigned long irqflags;
-> +
-> +	raw_spin_lock_irqsave(&pmu->lock, irqflags);
->  	riscv_iommu_pmu_update(event);
-> +	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
->  }
->  
->  static void riscv_iommu_pmu_del(struct perf_event *event, int flags)
->  {
->  	struct riscv_iommu_pmu *pmu = to_riscv_iommu_pmu(event->pmu);
->  	struct hw_perf_event *hwc = &event->hw;
-> +	unsigned long irqflags;
->  	int idx = hwc->idx;
->  
-> -	riscv_iommu_pmu_stop(event, PERF_EF_UPDATE);
-> +	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-> +	__riscv_iommu_pmu_stop(event, PERF_EF_UPDATE);
->  	pmu->events[idx] = NULL;
->  	clear_bit(idx, pmu->used_counters);
-> +	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
->  
->  	perf_event_update_userpage(event);
->  }
-> @@ -635,12 +673,24 @@ static irqreturn_t riscv_iommu_pmu_irq_handler(int irq, void *dev_id)
->  {
->  	struct riscv_iommu_pmu *pmu = (struct riscv_iommu_pmu *)dev_id;
->  	DECLARE_BITMAP(ovf_bitmap, BITS_PER_TYPE(u64));
-> +	unsigned long irqflags;
->  	u32 ovf, idx, inhibit;
->  
-> -	/* Check whether this interrupt is for PMU */
-> +	/*
-> +	 * Check whether this interrupt is for PMU. Done outside the lock so
-> +	 * that a shared interrupt line is left alone as cheaply as possible.
-> +	 */
->  	if (!(readl_relaxed(pmu->reg + RISCV_IOMMU_REG_IPSR) & RISCV_IOMMU_IPSR_PMIP))
->  		return IRQ_NONE;
->  
-> +	/*
-> +	 * Hold the lock across the whole sequence below. Stopping the
-> +	 * counters, processing them and restoring the previous inhibit state
-> +	 * has to be atomic against ->start()/->stop(), otherwise a counter
-> +	 * enabled in between would be inhibited again by the restore.
-> +	 */
-> +	raw_spin_lock_irqsave(&pmu->lock, irqflags);
-> +
->  	/* Process PMU IRQ */
->  	inhibit = riscv_iommu_pmu_stop_all(pmu);
->  
-> @@ -672,6 +722,8 @@ static irqreturn_t riscv_iommu_pmu_irq_handler(int irq, void *dev_id)
->  
->  	riscv_iommu_pmu_start_all(pmu, inhibit);
->  
-> +	raw_spin_unlock_irqrestore(&pmu->lock, irqflags);
-> +
->  	return IRQ_HANDLED;
->  }
->  
-> @@ -735,6 +787,8 @@ static int riscv_iommu_pmu_probe(struct auxiliary_device *auxdev,
->  
->  	iommu_pmu->reg = iommu_dev->reg;
->  
-> +	raw_spin_lock_init(&iommu_pmu->lock);
-> +
->  	/*
->  	 * Counter number and width are hardware-implemented, detect them by
->  	 * writing 1s and reading back which bits stuck.
+Verified by cross-compiling for RISC-V and running the kprobes KUnit
+test in QEMU (ok 1 kprobes_riscv).
+
+Xiaofeng Yuan (2):
+  riscv: kprobes: simulate nop and c.nop instructions
+  riscv: kprobes: add nop and c.nop to the KUnit test
+
+ arch/riscv/include/asm/insn.h                 | 11 +++++++++
+ arch/riscv/kernel/probes/decode-insn.c        |  6 +++++
+ arch/riscv/kernel/probes/simulate-insn.c      | 14 +++++++++++
+ arch/riscv/kernel/probes/simulate-insn.h      |  2 ++
+ .../kernel/tests/kprobes/test-kprobes-asm.S   | 23 +++++++++++++++++++
+ 5 files changed, 56 insertions(+)
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
