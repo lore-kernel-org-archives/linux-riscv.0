@@ -4,94 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D20C624D6
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 12:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B026C624D6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 13:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8gLXpPcYr47ivL4O0AaiCFKCo5VmQqnmZZia0D4lITg=; b=sMbcw+fhhg7YNq
-	2Kyz+gUukqX+BJY8mYkG1ZGhAJ+iPpVvtxlb7GVY2VCT7heVF+KTNBGonL5JNoVI2sTMtBAsJYn5U
-	nxX1wFbSIUX645DtseV98fEPY29wIrusDSG2cuKkKNYsy4/EMsLnUc2DPp/GDdw/aLIFygAMF6mvg
-	wdBiTF4DD9EL/+1AsEdn2HQ8mxaxEnA7k9VBov4XFvq4fUCKkEaKvrcWh+uExTj4UfIZPI5URa72t
-	CZFj/C2YEz0Za59bUkDyNJjWRW4Wn1M/y1KD2EnJlgGY2tG3RBnJBpGLS6uZ11C4kI1MR6kN4IXBB
-	N2YDdBuTLrtBpzptFLUg==;
+	List-Owner; bh=/6V5kXPTqTCQdYCzDxedUmr+ItuuXTBsRhOYd58zh5c=; b=fMp7iocBMi5BlG
+	8qvjLXN6xWlLoRlnv/7ZlG3lhTjoMWzOesjQRf2//nVphrC1M5HLFa1n9P5Ki+j8TN2oJ0wLhZZ1b
+	YghoiMyOdnTo85aDU0nOF4swqdOQVQZEsZ1mHBGAl1FfF4egAUqEC00GVV2dULUTzxycZmKUYAbCB
+	FJQdhMKhmIWo91EPqbpjlIIUDJh4W/DeokyZsyv2S8sCKpJWCMEKChXzPLBIdOj4hoP0Eh9C3Syu9
+	zLiwn13AouiXEx/zPdJwVmX//kYu3jeDbbBk5dQG4IPJmsLmacVIop6mIjJwo4NhGQ5EkDaV+NgHW
+	8N5iXh9AkHOETp0uMnwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kWW-0000000EjZn-35Vl;
-	Wed, 02 Sep 2026 12:57:04 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1x1lEw-0000000Epyf-02Oi;
+	Wed, 02 Sep 2026 13:42:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kWV-0000000EjYs-00wF
+	id 1x1lEu-0000000EpyT-0pB3
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 12:57:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788353823; x=1819889823;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+sqEe1LGe4fEP5uabRD28y+M+U2lWTjublfmuX++eck=;
-  b=BZr9FMYuJLguMgWohmMJ3oT09Y4/J45Qgqa8ddBzQbgFFQh5L/xyyZLk
-   Ba4bXYk92HUno0y5Wp5lUyf6h5AXRYf0akIcIx3N6IOzbK8rvgfSSnbxZ
-   NyKgWU0ScXjJy+BWBarTacfKX5dLge1XfSrClVkKDz3mERgJTjn1tX60Z
-   j+KPvm/kiBxa2ZfQqO9wirqi/etNYeH1jPwGCtdsGaQPx3+YqfIGhnKeK
-   42b1zJSUcsAQZ/+NKxoNQZTupanlSZgJKrJVkq4RhiDmyO0QCeSiStCIY
-   tBO73rcBkPFzAqOhHry5MnVuAFbWsh8fd2N/VxNFcAurRFdx82wPNpWXE
-   g==;
-X-CSE-ConnectionGUID: X2BIU0IeQxeAe0P6wL3JKg==
-X-CSE-MsgGUID: XGWBmB07RjCGkvGHwX1AWQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11893"; a="100165337"
-X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
-   d="scan'208";a="100165337"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 05:56:58 -0700
-X-CSE-ConnectionGUID: ydY/x6WaSTiRl04+a7s3zA==
-X-CSE-MsgGUID: Yl8xqNi8R+e7HGDSivpLpA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
-   d="scan'208";a="273570230"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.118])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 05:56:51 -0700
-Date: Wed, 2 Sep 2026 15:56:49 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Janani Sunil <janani.sunil@analog.com>
-Cc: Lars-Peter Clausen <lars@metafoo.de>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Mark Brown <broonie@kernel.org>,
-	Marius Cristea <marius.cristea@microchip.com>,
-	Marcus Folkesson <marcus.folkesson@gmail.com>,
-	Kent Gustavsson <kent@minoris.se>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	Janani Sunil <jan.sun97@gmail.com>, linux-spi@vger.kernel.org,
-	Kent Gustavsson <nedo80@gmail.com>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v11 3/3] iio: dac: Add AD5529R DAC driver support
-Message-ID: <apgdEf3pi_soGr3T@ashevche-desk.local>
-References: <20260902-ad5529r-driver-v11-0-301c491a0719@analog.com>
- <20260902-ad5529r-driver-v11-3-301c491a0719@analog.com>
+	Wed, 02 Sep 2026 13:42:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8462843B21;
+	Wed,  2 Sep 2026 13:42:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7843C1F00A3F;
+	Wed,  2 Sep 2026 13:42:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788356575;
+	bh=qhAEz77Y2kZ1jZ+VILUhus+BJGUXN2LMY1ixFi2XZHY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IbnRy+qBeV/o5vIsvzltys0xmFQ+2EOsgmvL/OsE6rAhpziJhvHXVb+YAAttbvzwj
+	 7j5k5CvFbSNpW6oj6nO9yeIXIUTa8LLtPgqiWImU+W9307XnaADrwZgoGmvYPqcK16
+	 HqgwxzO/N+GwvjTGmjfTtJAr3fw/ExygS0DSWxlL0PEELwaNLTOor73xtveXYYbWRY
+	 gNIGaeb6gaZ4k2pljjeTrik6Jy0IGFQkegPbRp0J8epAB+Icu+s4WfwbN31rF5Bnyf
+	 BdUTuoSxzyHs+/ZdFPoTpyysUZYuiSudwxLRpUtVXY/vmx+IZMAj/485sCT6pNYizH
+	 fJq2J2O6mzp9w==
+Date: Wed, 2 Sep 2026 15:42:41 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: spacemit@lists.linux.dev, Alex Elder <elder@riscstar.com>, 
+	Bruno Banelli <bbanelli@gmail.com>
+Cc: linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, Alex Elder <elder@riscstar.com>, Yixun Lan <dlan@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof Wilczynski <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Danilo Krummrich <dakr@kernel.org>, Uwe Kleine-Koenig <u.kleine-koenig@baylibre.com>, 
+	Javier Martinez Canillas <javierm@redhat.com>, linux-kernel@vger.kernel.org
+Subject: Re: [BUG] PCI: spacemit-k1: port C probe hard-hangs a CPU with one
+ endpoint on Milk-V Jupiter
+Message-ID: <c24pt2ls62rxxg77xjbng7dmiflgdjlqd3mkoxehc2rvjgh7ai@dcxvmau3ykmt>
+References: <20260825052249.66921-1-bbanelli@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260902-ad5529r-driver-v11-3-301c491a0719@analog.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_055703_112363_6A501CF6 
-X-CRM114-Status: GOOD (  18.35  )
+In-Reply-To: <20260825052249.66921-1-bbanelli@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,98 +70,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 11:26:17AM +0200, Janani Sunil wrote:
-> Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
-> from Analog Devices.
-> 
-> The device communicates over SPI and supports per-channel output range
-> configuration. An optional external 4.096V reference can be used in
-> place of the internal reference.
-
-Since there might be a v12 (depends on Jonathan), a few more nit-picks.
-
-...
-
-> +static const s32 ad5529r_output_ranges_mV[8][2] = {
-> +	[AD5529R_RANGE_0V_5V] = { 0, 5000 },
-> +	[AD5529R_RANGE_0V_10V] = { 0, 10000 },
-> +	[AD5529R_RANGE_0V_20V] = { 0, 20000 },
-> +	[AD5529R_RANGE_0V_40V] = { 0, 40000 },
-> +	[AD5529R_RANGE_M5V_5V] = { -5000, 5000 },
-> +	[AD5529R_RANGE_M10V_10V] = { -10000, 10000 },
-> +	[AD5529R_RANGE_M15V_15V] = { -15000, 15000 },
-> +	[AD5529R_RANGE_M20V_20V] = { -20000, 20000 },
-> +};
-
-Perhaps use MILLI multiplier?
-
-...
-
-> +static int ad5529r_read_raw(struct iio_dev *indio_dev,
-> +			    struct iio_chan_spec const *chan,
-> +			    int *val, int *val2, long mask)
-> +{
-> +	struct ad5529r_state *st = iio_priv(indio_dev);
-> +	unsigned int reg_addr, reg_val_h;
-> +	int ret, range_idx, span_mV;
-
-Why is 'range_idx' signed?
-
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_RAW:
-> +		/*
-> +		 * Read from DAC_INPUT_A register rather than DAC_DATA_READBACK.
-> +		 * The DAC operates in transparent mode and directly reflects
-> +		 * whatever value is written to the INPUT_A register.
-> +		 */
-> +		reg_addr = AD5529R_REG_DAC_INPUT_A(chan->channel);
-> +		ret = regmap_read(st->regmap_16bit, reg_addr, &reg_val_h);
-> +		if (ret)
-> +			return ret;
-> +
-> +		*val = reg_val_h;
-> +
-> +		return IIO_VAL_INT;
-> +	case IIO_CHAN_INFO_SCALE:
-> +		range_idx = st->output_range_idx[chan->channel];
-> +
-> +		/*
-> +		 * The datasheet specifies a 4.096 V external reference,
-> +		 * matching the nominal output voltage of the internal
-> +		 * reference.
-> +		 */
-> +		span_mV = ad5529r_output_ranges_mV[range_idx][1] -
-> +			  ad5529r_output_ranges_mV[range_idx][0];
-> +		*val = span_mV;
-> +		*val2 = st->model_data->resolution;
-> +
-> +		return IIO_VAL_FRACTIONAL_LOG2;
-> +	case IIO_CHAN_INFO_OFFSET:
-> +		range_idx = st->output_range_idx[chan->channel];
-> +
-> +		if (ad5529r_output_ranges_mV[range_idx][0] < 0)
-> +			*val = -BIT(st->model_data->resolution - 1);
-> +		else
-> +			*val = 0;
-> +
-> +		return IIO_VAL_INT;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBBdWcgMjUsIDIwMjYgYXQgMDc6MjI6NDlBTSArMDIwMCwgQnJ1bm8gQmFuZWxsaSB3
+cm90ZToKPiBIaSwKPiAKPiBPbiBhIE1pbGstViBKdXBpdGVyLCBwcm9iaW5nIHRoZSBQQ0llIGNv
+bnRyb2xsZXIgYXQgY2E4MDAwMDAgKHBvcnQgQywgdGhlCj4gY2FyZCBzbG90KSBwZXJtYW5lbnRs
+eSB3ZWRnZXMgdGhlIENQVSB0aGF0IHJ1bnMgdGhlIHByb2JlIHdoZW4gb25lCj4gcGFydGljdWxh
+ciBhZGQtaW4gY2FyZCBpcyBpbnN0YWxsZWQuICBUaGUgQ1BVIHN0b3BzIHJlc3BvbmRpbmcgdG8g
+Tk1JLCBhbmQKPiBiZWNhdXNlIHRoZSBwcm9iZSBpcyBhc3luY2hyb25vdXMsIGtlcm5lbF9pbml0
+KCkgdGhlbiBibG9ja3MgZm9yZXZlciBpbgo+IGFzeW5jX3N5bmNocm9uaXplX2Z1bGwoKSBhbmQg
+dGhlIG1hY2hpbmUgbmV2ZXIgZmluaXNoZXMgYm9vdGluZy4KPiAKPiBUaGUgc2FtZSBjYXJkLCBp
+biB0aGUgc2FtZSBzbG90LCBvbiB0aGUgc2FtZSBib2FyZCwgZG9lcyAqbm90KiBoYW5nIHRoZQo+
+IHZlbmRvciA2LjYga2VybmVsIC0tIGl0IHJlcG9ydHMgIlBoeSBsaW5rIG5ldmVyIGNhbWUgdXAi
+IGFuZCBib290cyBub3JtYWxseS4KPiBTaXggb3RoZXIgY2FyZHMgZG8gbm90IGhhbmcgbWFpbmxp
+bmUgZWl0aGVyLiAgU28gd2hhdGV2ZXIgdGhlIGVsZWN0cmljYWwKPiBjYXVzZSwgdGhpcyBsb29r
+cyBsaWtlIGEgcm9idXN0bmVzcyBwcm9ibGVtIGluIHBjaWUtc3BhY2VtaXQtazE6IGFuIGVuZHBv
+aW50Cj4gc2hvdWxkIG5vdCBiZSBhYmxlIHRvIGhhbmcgYSBob3N0LXNpZGUgREJJIHJlZ2lzdGVy
+IGFjY2Vzcy4KPiAKPiAKPiBIQVJEV0FSRQo+IC0tLS0tLS0tCj4gICBNaWxrLVYgSnVwaXRlciB2
+MS4xLCBTcGFjZW1pVCBNMSAoc29jaW5mbzogQ1BVW00xLTg1NzFdIFJFVltDXSBEUk9bMTMwXSks
+Cj4gICAxNiBHaUIgTFBERFI0WC4KPiAgIEZpcm13YXJlOiBzdG9jayB2ZW5kb3IgVS1Cb290IDIw
+MjIuMTAgKGsxLWJsLXYyLjIuOSksIHVubW9kaWZpZWQuCj4gICBQb3J0IEIgKGNhNDAwMDAwLCBN
+LjIpIGhhcyBhIFNhbXN1bmcgUE05QjEgTlZNZSBhbmQgd29ya3MgdGhyb3VnaG91dC4KPiAgIFBv
+cnQgQyAoY2E4MDAwMDApIGlzIHRoZSBjYXJkIHNsb3QgLS0gYW4geDgtbGVuZ3RoIGNvbm5lY3Rv
+ciwgc2lsa3NjcmVlbmVkCj4gICBQQ0lFX1gyLCB3aXJlZCB4Mi4KPiAKPiAKPiBSRVBST0RVQ0VE
+IE9OCj4gLS0tLS0tLS0tLS0tLQo+ICAgdjcuMSBhbmQgdjcuMiwgcmlzY3YgZGVmY29uZmlnIChw
+bHVzIFBIWV9TUEFDRU1JVF9LMV9VU0IyLCBVU0JfRFdDMywKPiAgIFNQQUNFTUlUX0sxX1RTRU5T
+T1IsIElHQiwgSUdDLCBOVk1lL2V4dDQgYnVpbHQgaW4pLgo+ICAgZ2NjIDEzLjMuMCAoY3Jvc3Mp
+IGFuZCBnY2MgMTYuMi4wIChuYXRpdmUsIERlYmlhbiBzaWQpLgo+ICAgSWRlbnRpY2FsIGZhaWx1
+cmUgaW4gYWxsIGNvbWJpbmF0aW9ucy4gIE5vdCBhIHJlZ3Jlc3Npb24gLS0gcG9ydCBDIGhhcwo+
+ICAgbmV2ZXIgd29ya2VkIHdpdGggdGhpcyBjYXJkIG9uIG1haW5saW5lLgo+IAo+IENvbW1hbmQg
+bGluZToKPiAgIGNvbnNvbGU9dHR5UzAsMTE1MjAwIGVhcmx5Y29uIHJvb3Q9L2Rldi9udm1lMG4x
+cDIgcm9vdHdhaXQgcncKPiAgIHN3aW90bGI9NjU1MzYgY2xrX2lnbm9yZV91bnVzZWQgcGRfaWdu
+b3JlX3VudXNlZAo+IAo+IAo+IFNZTVBUT00KPiAtLS0tLS0tCj4gUG9ydCBDIHByaW50cyBpdHMg
+YWRkcmVzcyByYW5nZXMgYW5kIHRoZW4gbmV2ZXIgc3BlYWtzIGFnYWluLiAgKExvZyBiZWxvdyBp
+cwo+IGZyb20gYSBydW4gd2l0aCBwb3J0IEIgZGlzYWJsZWQgaW4gRFQsIHNvIG5vdGhpbmcgaXMg
+aW50ZXJsZWF2ZWQuKQo+IAo+ICAgWyAxLjI5MDA3NF0gc3BhY2VtaXQtazEtcGNpZSBjYTgwMDAw
+MC5wY2llOiBob3N0IGJyaWRnZSAvc29jL3BjaWUtYnVzL3BjaWVAY2E4MDAwMDAgcmFuZ2VzOgo+
+ICAgWyAxLjI5NzI4M10gc3BhY2VtaXQtazEtcGNpZSBjYTgwMDAwMC5wY2llOiAgICAgICBJTyAw
+eDAwYjcwMDIwMDAuLjB4MDBiNzEwMWZmZiAtPiAweDAwMDAwMDAwMDAKPiAgIFsgMS4zMTI3ODNd
+IHNwYWNlbWl0LWsxLXBjaWUgY2E4MDAwMDAucGNpZTogICAgICBNRU0gMHgwMGEwMDAwMDAwLi4w
+eDAwYWZmZmZmZmYgLT4gMHgwMGEwMDAwMDAwCj4gICBbIDEuMzI2NzUzXSBzcGFjZW1pdC1rMS1w
+Y2llIGNhODAwMDAwLnBjaWU6ICAgICAgTUVNIDB4MDBiMDAwMDAwMC4uMHgwMGI2ZmZmZmZmIC0+
+IDB4MDBiMDAwMDAwMAo+ICAgWzIyLjM0ODQ5MF0gcmN1OiBJTkZPOiByY3Vfc2NoZWQgZGV0ZWN0
+ZWQgc3RhbGxzIG9uIENQVXMvdGFza3M6Cj4gICBbMjIuMzUxNzY0XSByY3U6ICAgICA0LS4uLjA6
+ICgxMiBHUHMgYmVoaW5kKSBpZGxlPTA1MWMvMS8weDQwMDAwMDAwMDAwMDAwMDAgc29mdGlycT00
+My80MyBmcXM9MTkwOAo+ICAgWzIyLjM2NzA0MF0gU2VuZGluZyBOTUkgZnJvbSBDUFUgMiB0byBD
+UFVzIDQ6Cj4gICBbMzIuMzY3MDQ5XSBBZnRlciAxMCBzZWNvbmRzLCB0aGVzZSBDUFVTIHN0aWxs
+IGhhdmVuJ3QgcmVzcG9uZGVkIHRvIHRoZSBOTUk6IDQKPiAKPiBUaGUgQ1BVIGlnbm9yaW5nIGFu
+IE5NSSBmb3IgdGVuIHNlY29uZHMgaXMgd2h5IEkgcmVhZCB0aGlzIGFzIGFuIE1NSU8gYWNjZXNz
+Cj4gdGhhdCBuZXZlciByZWNlaXZlcyBhIGNvbXBsZXRpb24gcmF0aGVyIHRoYW4gYSBzcGluIG9y
+IGEgZGVhZGxvY2suCj4gCj4gCj4gTE9DQUxJU0FUSU9OCj4gLS0tLS0tLS0tLS0tCj4gSSBhZGRl
+ZCBhIGRldl9pbmZvKCkgYmVmb3JlIGVhY2ggc3RlcCBvZiBrMV9wY2llX2luaXQoKSAocGF0Y2gg
+YXQgdGhlIGVuZCBvZgo+IHRoaXMgbWFpbCkuICBUaGUgbGFzdCBtYXJrZXIgcG9ydCBDIHByaW50
+cyBpcyB0aGUgb25lIGltbWVkaWF0ZWx5IGJlZm9yZSB0aGUKPiBmaXJzdCBEQkkgYWNjZXNzOgo+
+IAo+ICAgWzEuMzQ3MDUwXSBzcGFjZW1pdC1rMS1wY2llIGNhODAwMDAwLnBjaWU6IEsxREJHIDEg
+dG9nZ2xlX3NvZnRfcmVzZXQKPiAgIFsxLjM2MjYzNV0gc3BhY2VtaXQtazEtcGNpZSBjYTgwMDAw
+MC5wY2llOiBLMURCRyAyIGVuYWJsZV9yZXNvdXJjZXMKPiAgIFsxLjM3MDkxOF0gc3BhY2VtaXQt
+azEtcGNpZSBjYTgwMDAwMC5wY2llOiBLMURCRyAzIGZpcnN0IERCSSB3cml0ZSAodmVuZG9yL2Rl
+dmljZSBJRCkKPiAgIDxub3RoaW5nIGZ1cnRoZXI+CgpTb3VuZHMgd2VpcmQgdGhhdCBhbiBlbmRw
+b2ludCBpcyBjYXVzaW5nIERCSSB3cml0ZSBoYW5nLgoKQ2FuIEFsZXggb3Igc29tZW9uZSBmcm9t
+IFNwYWNlbWl0IGxvb2sgaW50byB0aGlzIGlzc3VlPwoKLSBNYW5pCgotLSAK4K6u4K6j4K6/4K61
+4K6j4K+N4K6j4K6p4K+NIOCumuCupOCuvuCumuCuv+CuteCuruCvjQoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
