@@ -4,142 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C57C61DD6
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 20:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CBCC61DD6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 21:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dZLtCKsaL24FxVcA6Nu94bNt/3R63jFMosS4NYCWHys=; b=zLonFt26KEt76Q
-	FCA2Jwb9XFdXoU3Xh9Kxz4Vx1ACeNq8ZNqGFC64MIFe5i3Ae1Wnal9C9qa0BFu9zU8B7RulpwhkHP
-	dsffZwOaQLRRv/Le8a/kkX/KkGdcwypiQUWBbFFCNLiGLU0QV4gyYmtuO/a8qKrx/05CtPhduGyLT
-	PsU77h0VMJA5CHaeJ9N9EjPzZqPj9Ajte+b5IOjcEpTt4bcn+ES5XYcjQ0sIUApmy7p1DEH7tbbya
-	TzuQj9yYFecexHJDU62GuZJfaK7fgvazCUhuOxNZTMDCg0X9DcTfsSkXWgx1xUpW3HAWEX/NtPj0p
-	P9Fex67uJFOA6vdQqGxQ==;
+	List-Owner; bh=evWUN/OUB9Jso1aBjN4X2PHh39jD7wfWZZxLzrU0hts=; b=42ibduFjiO1Lbt
+	1OUdwSVsoe/0GjD3OBTLwR/mNpZ6oNDfsmGfWA9DaNssYzKTNX5od+5GrK6rMjeFWSu+lVwomCjAQ
+	YSCtarKx1dXYMwkhn+RVzztRBsv2duSBpUg9gcOdBKsZJAaTX9S0JUlffc3BICr2v2cOYvLyHjMM9
+	zlyZOxgvhCOcXiTwwVeaMGNgitr0mA1aXoaalfRY6si/pF1NjtFZeLt5T4f1BnCkIsUfsgoNYfB7B
+	AsyFije8IW2nkil3yxXvIj/4QYS1dbzi6lS7O6RXGcHBsXB777TPlsxNqGabPdIoxTkvZG347WjyT
+	bsKlQdULcfLD+iS3xGxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rsO-0000000FtK1-2Bj1;
-	Wed, 02 Sep 2026 20:48:08 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1x1slS-0000000Fxq8-2uwJ;
+	Wed, 02 Sep 2026 21:45:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rsM-0000000FtJU-0EI1;
-	Wed, 02 Sep 2026 20:48:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788382086; x=1819918086;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=LsMn3/y0ByvC1uXtR6xF4fWxSc3am3y8Xh2THPJZMyg=;
-  b=ketJLARjgHSYkzCrJJRPcOTJytmQqpJE86bAweuoeOsk989Jf2HPjAcO
-   JQh5ONS708U0TMDK0HXPw1JKVzhGp008a1WtrOcJMx3z+dPu0/cyJOsRf
-   YtSrs3atSUCkTMA8Bm7eyw0dDUaSLXXR15ceuVf0RytH7nQ35jLjSrW4x
-   wo5YSfB+ErenSQHF19xBv2w8eJaBSMf0Q21nRODLCE5U8ky+zTi4JijQG
-   spCySYLDOjFsiVTngtXfYJe/C363AKr5H+3lpvWOlB6LoOVikW61E0DUk
-   gC1+fLnlbyyc3grT564mAuAjAKWHELCTTvS4NdBCbVA4ImbVsWRIeRrxg
-   g==;
-X-CSE-ConnectionGUID: XhC26c5YQ7yo6zZnBu0c9Q==
-X-CSE-MsgGUID: e//p5qJTQYW+KAIUnUK+PA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11894"; a="88777070"
-X-IronPort-AV: E=Sophos;i="6.25,258,1779174000"; 
-   d="scan'208";a="88777070"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 13:48:05 -0700
-X-CSE-ConnectionGUID: 7lG7cHPvSjGN3cya1Kgtcw==
-X-CSE-MsgGUID: iKbUXdDDS3i4/Eh3uQmPpw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,258,1779174000"; 
-   d="scan'208";a="268192165"
-Received: from cjhill-mobl.amr.corp.intel.com (HELO [10.125.110.134]) ([10.125.110.134])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 13:48:04 -0700
-Message-ID: <8f3979a9-238a-4d7d-a040-6aa526fedec5@intel.com>
-Date: Wed, 2 Sep 2026 13:48:03 -0700
+	id 1x1slQ-0000000Fxoe-3xoB;
+	Wed, 02 Sep 2026 21:45:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5098040A75;
+	Wed,  2 Sep 2026 21:45:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0FCB1F000E9;
+	Wed,  2 Sep 2026 21:44:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788385500;
+	bh=DKhiFcIu3U/nZQ+nOoipt2+PvemBJAQMmi+1qUgcv3I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=EaMxLwFqGWrC61tK2jVCoTo4fmzbjPJ0grEnLR4xmMDsp4pR95EcPG901+WWB721J
+	 W6YyUYdNHj5kLffFOCRgKF6/wYav0tQ/SVv545TBl5XhaUbU02YneiWITBq9vXWQW9
+	 vrCUoPkbhSOFpyQ0wV9rjVRroCqpQBxZEzC/FAOM9AMdAUAmMXbE1FS5knZo6wntu7
+	 yMEkcMzNI0hUEFYECLJHWDwbMo1nU5z4OPTxYzUe/GkJzdhXFZJ0b+lVvrD9WB+49d
+	 QH54fEhLSKAVf/TnA3RRNifjClCsXAryA4AQYvlSfheBSr0G3C38otP/hhTg2X7E25
+	 72HODp6ZUu4Nw==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: (subset) [PATCH v2 0/2] Add CoreSight nodes for Qualcomm Shikra SoC
+Date: Wed,  2 Sep 2026 16:44:46 -0500
+Message-ID: <178838546724.167607.3784743895923860900.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
+References: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v3 13/21] x86: mm: use pgtable_level enum in
- effective_prot_pXd()
-To: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>,
- Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Barry Song <baohua@kernel.org>,
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
- Wei Xu <weixugc@google.com>, Johannes Weiner <hannes@cmpxchg.org>,
- David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-openrisc@vger.kernel.org
-References: <20260902-dummy_ptxp3-v3-0-5d8f5b17c25c@arm.com>
- <20260902-dummy_ptxp3-v3-13-5d8f5b17c25c@arm.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20260902-dummy_ptxp3-v3-13-5d8f5b17c25c@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_134806_169685_A66FFA77 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,20 +87,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/2/26 04:56, Yeoreum Yun wrote:
-> Instead of using hard-coded integer in effective_prot_pXd(), use
-> pgtable level enum.
 
-Does this actually *do* anything? ;)
+On Wed, 15 Jul 2026 09:16:13 +0800, Jie Gan wrote:
+> This series adds the CoreSight debug and trace subsystem for the
+> Qualcomm Shikra SoC.
+> 
+> The first patch adds a fallback compatible for the Shikra CTCU (CoreSight
+> Trace Control Unit). The CTCU on Shikra shares the same configuration as
+> the one on SA8775p, so "qcom,shikra-ctcu" falls back to the existing
+> "qcom,sa8775p-ctcu" compatible.
+> 
+> [...]
 
-I guess it's nice to have a wee bit of type safety from the enum and it
-means that you don't have to *know* which level number a PUD is, for
-example.
+Applied, thanks!
 
-Either way:
+[2/2] arm64: dts: qcom: shikra: Add coresight nodes
+      commit: eed738c6dd0ca67e8e0ed0e18c97e4665078867b
 
-Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
-
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
