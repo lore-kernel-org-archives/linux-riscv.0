@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74D8C624D4
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A37C61DD6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p3CaXihlm+KC/tw93vbCl0mfYVh1SQlPQFzGxN1zrFI=; b=wUuuhjKuweBPgs
-	gmnPRvnI3l+m+9RbvqxEkNsouEY7xyVEEKtZJXiZApIK1PgkxbtY8wvYDFpzhOMfiABMxjWJEE0tk
-	VVNdHg3mI97jgmy+Mf76uIkkhUWzzGDvZGcoYKiSVloGrStQtGqoP+GWTvhHUsFC9T/zaOAdX4ddp
-	BTzMZLvCRCUO8eedFDSUQmUVkn9rNRG4ShwabFlnJB86S3fxCqnc1W8jbmHAb19lyATk5O8G+WDGh
-	PoGxyN6Aleg7+PChKCQTUSU4RztTVWBgrRDgF2863LcrgPKGSPTYYWKINUh0V62Gw67EPhKXE9ytg
-	bUo59OhHFnHEZkgLIPKg==;
+	List-Owner; bh=1t/MnBFGb7DHu4dfCjJt1kO2SW3R7WqsSeFu2fNZ9hk=; b=p2TDIXDPRpRd18
+	4kZpj2WfGPMuHmeQx4MVeWM9282LRgnnaiCAnhn+Tu4iCt1bAcFIgNyOGCWlFkDbPMO82A7fJGhW3
+	0pqh+aAsIOGfxDdQAig7a111VD/ZCZo/lrG5NYi3Yi0qqdSA6nEbSNYuQiiNPzGyC8eZ9B47l0ptk
+	NZEQ3NJ13tdrDgeg5rq7eXeCgPXycN4o0yAiL5GE0ISUSQA15Gty878+pfZvJChQD8av4ylLPFszZ
+	rbucQ/1TL1qSPPgKd2FhBWQB2iB24M+tHRABrKmwc5m3tbiCtV+LEf2PZ2duf6BhSpuZUT9u/Oy2W
+	7kvl25udcOFLiQKL+t2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fy3-0000000E0si-1kIg;
-	Wed, 02 Sep 2026 08:05:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1fy4-0000000E0tw-2DA6;
+	Wed, 02 Sep 2026 08:05:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fy2-0000000E0s3-0We2
+	id 1x1fy3-0000000E0se-2XYL
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 08:05:10 +0000
+	Wed, 02 Sep 2026 08:05:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78E07602BA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 237934451E;
+	Wed,  2 Sep 2026 08:05:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 965D81F00A3A;
 	Wed,  2 Sep 2026 08:05:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0E801F000E9;
-	Wed,  2 Sep 2026 08:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788336309;
-	bh=VTBHZqMzNtfGu0/ii6nYXJrwVNlixijnWIIxoUCWQXk=;
+	s=k20260515; t=1788336311;
+	bh=G/IFPDyfzhIoZFct3RGPm8HsjSQA2NovYHhqihlRERM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ROO8Ih8PuAw0rLCyOMi8UQ8EKLb0OiVCrXqqpJfz4bOgRcjJE1MrJQqK0OIgtmLMF
-	 CcOcDk6E4bB1g1N0fhYG10tQbnvCza1Np2UwW8hBfUkksiNEpSigXyVypds3QLEO3W
-	 cHuE2cmI8MaOVv3JwbB7uq13KXZ1zUdvkD8eDOWEIVjF61HezQCRuqJrsbsHIX9sKE
-	 YAp0GN3wrcEZ2Ovw0dr+XYm8DpF9S275O9A4iixW0cWG6e4ykKTSswxptKpm/9qyCG
-	 W/Zr9HYr4j+Ad8pr0siACb9/P1FXIakgZ6Go10TsRRCKZoy8sNoK0sq552eTUoKb5g
-	 ZIrkJlJjGli4A==
+	b=HJ5KONVceE9WDdEl13snx/1ss5v26p0c90/Uyspgg39/l3AnJVD74qKMvPxTPO0RK
+	 f2hSpEoUmq/LS4jl4FWxc5NezuprOt1lZFzOfAkkIdm1Fwujx1tmHg6WF7mcUi/ycC
+	 ccEyHML+cCiZGC118eACYi0zu3PyYkjJimitAVpra+G7T99XzWcKC7nbQV6Om5O7yL
+	 knWWJGplwNJHsNasXzJlRX51b/qgn19KMail3KWB3BzaSYaymVz+HRbKGgEcSh5Bu+
+	 pLbvn2wHzpK5fwGQvyhAIhxhEedDKFFcICbhKTpar82OENxd9f47GT35ULMKY0U2bX
+	 4TQYLKc7EOYjQ==
 From: Yixun Lan <dlan@kernel.org>
-Date: Wed, 02 Sep 2026 08:04:25 +0000
-Subject: [PATCH 4/7] mmc: sdhci-of-k1: Improve power control
+Date: Wed, 02 Sep 2026 08:04:26 +0000
+Subject: [PATCH 5/7] mmc: sdhci-of-k1: Use finest delay granularity for RX
+ tuning
 MIME-Version: 1.0
-Message-Id: <20260902-07-k3-sdhci-fix-v1-4-b15c5d0f64fd@kernel.org>
+Message-Id: <20260902-07-k3-sdhci-fix-v1-5-b15c5d0f64fd@kernel.org>
 References: <20260902-07-k3-sdhci-fix-v1-0-b15c5d0f64fd@kernel.org>
 In-Reply-To: <20260902-07-k3-sdhci-fix-v1-0-b15c5d0f64fd@kernel.org>
 To: Adrian Hunter <adrian.hunter@intel.com>, Ulf Hansson <ulfh@kernel.org>
@@ -54,22 +55,22 @@ Cc: Long Wan <long.wan@linux.spacemit.com>, linux-mmc@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, Yixun Lan <dlan@kernel.org>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1065; i=dlan@kernel.org;
- h=from:subject:message-id; bh=ZZnwSyRWem1cufE+ykT/c74WDL6JDGMXan1pWqJy6GA=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBql9id5/j9bEGbznCN/oeX7c5UcrLyeiwrT9Z/N
- FnF9u2RecuJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCapfYnRsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=956; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=Qc6WE/5RPjDixK1mUhV9vvXFCMN4SYq/CXesrgV9Q1I=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBql9ihfSPbM8z87ZD5AM1H264Ay5pIZvFam/itK
+ zID5CTkEECJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCapfYoRsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+2Enw/9FeHpWaCDIgagCZFIhkm8Y/pzQR5CPvoPpu7bpu+wTsDFQNtNR3IMz
- JQG9a+S9AyRyvNo7NVc8Dj1UhfFczYukpA4Q3BhkRMA50VxM1x7kYv0N/kjynX5jpvX1G44eiQX
- JbDfD7GqZ94q4KxXlemTVuWDytioeDIKwVsw3RAC2+mScY9cadb5Oe5ST8S6ZQZ3QPqDuTdonHC
- IPi2KvuJU23HuCD2sVQUADpc3JnW5AG/GuciRPRMQBwfj/B7hw0czRRamfhXnp1y+5jSxjXuzEh
- VaGh2DFcL4ZvDXiKUiFFfWcRyCOxFkeGLCKrYdJJDxPWsmcAwOyzyWYhTqFBbM79llVtEsR/dWk
- TSXNAI3KX6dAsNqev6VM5HEeTwHEtBHrnakr0MF+6lAhQIeLwXJ6Zv3AQo+wUFSI16FvBl7jfuj
- oS4b11PhrMvdJc0dWh2mi1AFhe5IjRG0nNX6ztWVXk/RWxyvFjW0UCn0ZqTNYUN8qmQcxOmOPjR
- MfWvlnY54ufkWsosPaGTuAs/tc4K1l6/wSmV/Xo36wzyMHfBILtHXcivTKU9EV0aG48C8ug1iDP
- Yge8qgd95ynZgTm/wVqvWPi6A2FeB11VnCE4iMeRxS1lzvvbqBD5LE430I/UaItbkaBtl/A/psc
- yi6O2byc8WesXkBwG6hWkp2xWhwYVI=
+ QACgkQMarqR1lNu+1G+BAAgpTS/M0HkvRKnO1EfRhtp88v9Dd2D0E0eHhWTINBKK3fhiO9DvBKb
+ ApPMdK3PNMQIItxwU5/ieJZR5fMdqafc9x1zxVO0yMJOWeLOl14YnvpAnkdcGMxywnQLkQJ2Z+L
+ A6lH9mroEHe0RA60Lq/eCi/7cqtdf2t1EN3dXGdHUrgof9ZQ3tI595+9DVOjBvZkZq3RKH9vr5N
+ mORakmF5dfyj+GuGZegw7qz+4ncvibN8QVRdC2dpStHdzlMt0F1UnrXkaVaDT76ojVspljRb/9t
+ M3MvnkIkLe1SULqSDuy9EsyRQKCDUWuhIIuE47GrCHq4wDs9ut5taN5K2nOX3845UylsQcq1PMC
+ x8cEkXtnyTux1zykVjaIfZV6kP1X8kC6Cx75MMCofn5gqjV56eRkLFZlEOuNcUN7lTM3w8xVU29
+ goucnrs2fgyHInfDzgXLXzIxTg2be40HKKEhTDyvyUhEc3k94tPjy9N8BkAppj7hr//fGsr4HFP
+ HFj0er/4wYYoest7EEKmeGcQGCSVAc+Bp+/WUZvR1uYjvRVXDZvfNumfgYO4L/3NXiMzjJGOVy4
+ LThqRSNTT0TuIEwkv7Gq7Lojsvg291gFh5SElyx+vzo1J+/c7aCVVNCReikeFryuj8xeV4ywmWB
+ Z4Y5Ofchn54RiHIeAqjquJ6Rtz2S4Y=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -90,30 +91,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Long Wan <long.wan@linux.spacemit.com>
 
-The default sdhci_set_power() skips the SD bus voltage select field
-entirely when a vmmc regulator is present, leaving SD Bus Power in off
-state of the power control register. To fix this, configure the bus
-voltage explicitly.
+Initialize the RX delay line to 0 (finest step size) instead of 9.
+This improves tuning precision by allowing smaller delay increments
+when searching for the optimal sampling point.
 
-Fixes: e5502d15b0f3 ("mmc: sdhci-of-k1: add support for SpacemiT K1 SoC")
+Fixes: e9cb83c10071 ("mmc: sdhci-of-k1: add comprehensive SDR tuning support")
 Signed-off-by: Long Wan <long.wan@linux.spacemit.com>
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- drivers/mmc/host/sdhci-of-k1.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/mmc/host/sdhci-of-k1.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-index 5dccdd4b217d..be770e8a9884 100644
+index be770e8a9884..257c954ce587 100644
 --- a/drivers/mmc/host/sdhci-of-k1.c
 +++ b/drivers/mmc/host/sdhci-of-k1.c
-@@ -496,6 +496,7 @@ static const struct sdhci_ops spacemit_sdhci_ops = {
- 	.reset			= spacemit_sdhci_reset,
- 	.set_bus_width		= sdhci_set_bus_width,
- 	.set_clock		= spacemit_sdhci_set_clock,
-+	.set_power		= sdhci_set_power_and_bus_voltage,
- 	.set_uhs_signaling	= spacemit_sdhci_set_uhs_signaling,
- 	.platform_execute_tuning = spacemit_sdhci_execute_tuning,
- };
+@@ -84,7 +84,7 @@
+ #define  SDHC_RX_DLINE_GAIN             BIT(8)
+ #define  SDHC_TX_DLINE_REG_MASK         GENMASK(23, 16)
+ 
+-#define SPACEMIT_RX_DLINE_REG		9
++#define SPACEMIT_RX_DLINE_REG		0
+ #define SPACEMIT_RX_TUNE_DELAY_MIN	0x0
+ #define SPACEMIT_RX_TUNE_DELAY_MAX	0xFF
+ 
 
 -- 
 2.55.0
