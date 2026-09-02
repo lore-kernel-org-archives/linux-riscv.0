@@ -4,61 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D300C624D3
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 18:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15532C624D5
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 18:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m7VfWjySEP6VrpXzu/T7otLL+FuEzlz3R1nyIeM3h6Q=; b=BoGYzod3S+uKrI00o1Out9krI7
-	HtSxjUv7xdtt/j/ODMlMWZbhaCx6aEbOdZAnGGivutC0ncIgKW7OFu7VzAMDZd0J2wsSNivaYOlUS
-	Zct1DJNc7YeNemhJ85sjQNw405YT/WpmDazBQEUXVYwxRnB+01OjriTXEdRJjhl/d3YBCI4MhyS2D
-	GWJ9POKklwgnLpfae274pwUmsgasodltjHOFRKnMy9TQp2TwmVVq+a7m3PeEHJ1VgjMhhG+xR9xZV
-	WnAeP9uV+t0iZlgtrwCek/dhDtvxqtndYCLYLuXUkhbsLFYzQHCQwVzA6MD+l/dlHeTStS/Otg1er
-	Z0IDg/Ig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kGV4KR8Fs51WTSV5ng7gzwzROe4pf5T7SBiB9Coalhc=; b=H3B7KJ5wqS8fRV
+	00iTpENjAtDlCif/G89K/kmtUv2k1xFFHoqbZPkN/5529xv+Hvpc/sG9BFWZj3BDiCm68LUN8jMZn
+	KV/t/7m6COUHLQD9+1tx8+48tS4Te6bsdwwNkyLtOx0R5O6CeWimXlrV1s6wr39loFLuqRMpIvfkg
+	sd2d6XnrNj3ON9cBKQLc42w1pDKfIVrejVCLh34VLgWjdyNPodF7S5u0GDnVt4rBvM4+/hUoNJKI/
+	oqP4hLscfk+xqWwHSRhdCEzPHRZ2UYkVYmohn5dkCuoLaJufUrtBS+GfaGCZoIYmBreCH5Xdxd4z+
+	1dLoq8U6HVjFwZveldgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1pJL-0000000FXHu-2ITv;
-	Wed, 02 Sep 2026 18:03:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1pKw-0000000FXXl-3lZK;
+	Wed, 02 Sep 2026 18:05:26 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1pJJ-0000000FXHh-3XF2
+	id 1x1pKs-0000000FXV6-3EE0
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 18:03:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E41D43C23;
-	Wed,  2 Sep 2026 18:03:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA8A41F000E9;
-	Wed,  2 Sep 2026 18:03:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788372225;
-	bh=Uj9/RDwv9k2iRrF8z8+r037C19R/tl/T6HaynuHBg7Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YryQdOG6rCS+CoxXuEhmKqZdD8O0bh7F0WgNxh8InFZjr/iLSM0valYUf4rdXM5E6
-	 Vxe3whVlTKMY0QPvSa04XFtUlbX8YsISoVn3NrW+crTxg88qsYsTr3tnLISd4Kd8Dt
-	 iYtrHEj2YTmG3kJJLChg+lb7XBELtrMweBQCCo7iZ7+muXc64rjY96EBBYmH/+R6ie
-	 NwZVU3R9XH//x33Z0hYhHJPSQgGQgNRvyr5CmG+ouEnbkdMnmMRfgYhJMMsAhhnpiT
-	 jMljJ/6L/ziJe6kbaA5W9kRZrJn7mcUOgv+T88DR0r/Pk39Ub4KzjoNcLcZbgbgdgO
-	 1DQu/IxJCAB5w==
-Date: Wed, 2 Sep 2026 19:03:40 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Long Wan <long.wan@linux.spacemit.com>, linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] dt-bindings: mmc: spacemit,sdhci: Add tx delay
- property
-Message-ID: <20260902-crept-player-b3f30ab4e6f6@spud>
-References: <20260902-07-k3-sdhci-dts-v1-0-4e7909cf4233@kernel.org>
- <20260902-07-k3-sdhci-dts-v1-2-4e7909cf4233@kernel.org>
+	Wed, 02 Sep 2026 18:05:25 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-38ec1402b05so1313691a91.2
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Sep 2026 11:05:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788372321; x=1788977121; darn=lists.infradead.org;
+        h=content-type:mime-version:references:message-id:date:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mIy9w1/7l+YPH2gFOr27PV6p4ska6UcSUlBoAUwTOLk=;
+        b=PuCaPRW/QVNgvt3V4HGNaA40SBkfx0hCDEI0+0BIbtZiGO74GfNMJyks9mLSHYMJD6
+         u2LJJzGUT9Ia+t4HUUuNTyu/LOMHrdbarAcLqPmQ7CGLePigFbjywd+tHJ+HUP2sZDzM
+         AoI/ZIy42MP/Z4UgOPre/XJvo/s3DSfSxJ13vbBliXDnudGUTf7xftVwZDNCGCfuOrQl
+         MmpSMnF2bnTXw5bsL1Lf74naqrJVcwOiPYehbsCT56bvcxogZlyMyw/2/xO8SU/89nHv
+         MO/I8R92XrVdSHh7lcHfemTfpzlJopDkWMVQ3lKt7FCZtX7h+eeWJumGWuqveqohMbyP
+         tfEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788372321; x=1788977121;
+        h=content-type:mime-version:references:message-id:date:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mIy9w1/7l+YPH2gFOr27PV6p4ska6UcSUlBoAUwTOLk=;
+        b=FXZ5EzaG0Raa0boG1fRIdTl5e5/DSl2iS9Cr4GugB6SsmetT7X/jie+DgEzUBis59W
+         0NzES9myUDxlODoy4dpMMiPpDaUrGEyaHeUUj0GXbq3cMfzJOo7dZi1lUCLoVFK1Im0k
+         RdTI6EbXbiGltOwfA9sTOmiczNgZsCyK1wYYJmqCVG/sZWMWXPFYC0m947nLHDnXs/BU
+         oU8keWUwEFdDECk4bLSy6Et1Eibq3VNy2ofUCmTphOn5ITrl+/ro8bmNP/4M5wvw0g+L
+         ymcOdgb0OKv27isA04oJ93yIYfbZ+X3E67rowUshzsmXBsfIyplzANo8mJWUnqyuJlRa
+         vBww==
+X-Forwarded-Encrypted: i=1; AKwUvBzBiCLbOo65oZ40QOwGXgLSVijhXy7e5iqnaA15kuu7fkNAnfO8eudNFUiVzeVuWl3Yv+tTWD0jS9D5yQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++lEWLnBQ1r4PS2ZP8752hw+pUNLADlRrM9sLj5bh9u5tBt+A/Xq
+	8TVE6NcFsgzD3bSFzT2goh3jhvJG2YhyKChXKEWo0T1/O0WXeiy2Q4ES
+X-Gm-Gg: AYBFou0gAMNysrH88NkMt2RIc7SKMFrutcXEDitb+Hcts1vsKw6X3O1D4N7wjh8zWtC
+	+gbap7ROjp9YiubESxOo3NL8bUU1QcBsjwdKGdsMIWpyWR1gMOtHK/Gqa7SrB1ZsVjUZyUDyYE2
+	Pkly6vn/m4Sjp1XI9BFRSRZ6aOYKH4+RQboAHlfwQjda6hVBXdC8+hvIgHqYwBmlfyrl40S8XqY
+	lgQifX8I+Rx+HBhXVH5jjWc3uZiTMoT7wD7BlLpFJTU9daUpCG5DkebRMA1POHCJCHrcj4sz2Co
+	gAAt5aAVgqRWadZmcercQQ3H/7OAhgEqsyu6dIr1p7OQQJ1Zs5wTq2DWyb6HW3pEHi85NqE3Xv9
+	PRoGEVei8aGWv/NGGLAS4KWMDnkROSe62Z/MjLHhvi/EGBiaqDOBrhrCb5zuhS1bCzn8nZ2JSnu
+	B+Q2TefjDPDgWk3Wz3f2Ql5vvDXOGbFHqyfQuh9TTwMNNqMcqOfcKALLvThOAs/DsgAeLH2QH/R
+	35ymwRnNGeR/aByL530Pb8XIhEjogFufTFV9WZHmT9L
+X-Received: by 2002:a17:90b:4b89:b0:398:c3ca:1ebc with SMTP id 98e67ed59e1d1-39aee105a46mr9138561a91.18.1788372321290;
+        Wed, 02 Sep 2026 11:05:21 -0700 (PDT)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-32f07b79cf9sm9808273eec.18.2026.09.02.11.05.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 11:05:20 -0700 (PDT)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Sean Christopherson <seanjc@google.com>, Gautam Menghani <gautam@linux.ibm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, 
+	David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>, 
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 00/20] KVM: selftests: PPC pre-enabling
+In-Reply-To: <aphioo_KTboUCtZd@google.com>
+Date: Wed, 02 Sep 2026 23:29:06 +0530
+Message-ID: <h5k7ttzp.ritesh.list@gmail.com>
+References: <20260826230511.972824-1-seanjc@google.com> <aphhKDm7Vx7G5ivr@Gautams-MacBook-Pro.local> <aphioo_KTboUCtZd@google.com>
 MIME-Version: 1.0
-In-Reply-To: <20260902-07-k3-sdhci-dts-v1-2-4e7909cf4233@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_110522_807300_937768CF 
+X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,91 +108,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2506834946109195186=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2506834946109195186==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JPvI9JMjjGIUeUlx"
-Content-Disposition: inline
+Sean Christopherson <seanjc@google.com> writes:
 
---JPvI9JMjjGIUeUlx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> On Wed, Sep 02, 2026, Gautam Menghani wrote:
+>> 
+>> + linuxppc-dev
+>
+> Ah, shoot, I *just* posted v2.  I'll add linuxppc-dev to that cover letter.
+>
+> https://lore.kernel.org/all/20260902164123.2546762-1-seanjc@google.com
 
-On Wed, Sep 02, 2026 at 07:03:13AM +0000, Yixun Lan wrote:
-> From: Long Wan <long.wan@linux.spacemit.com>
->=20
-> Introduce a vendor specific property to configure the step count of TX
-> delay line which should be applied before RX tuning, compensating for
-> board level trace differences. The TX delay line result comes from test
-> out of real board which vary from different hardware layout.
->=20
-> Signed-off-by: Long Wan <long.wan@linux.spacemit.com>
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
+Thanks Sean for sharing these changes.
 
-Everyone seems to have their own custom delays, so what's another..
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-
-> ---
->  Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml b/=
-Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
-> index f35bf7ce08dd..3399a2d076dc 100644
-> --- a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
-> @@ -63,6 +63,16 @@ properties:
->    pinctrl-1:
->      description: Optional pinctrl state for 1.8V UHS operation with "uhs=
-" name
-> =20
-> +  spacemit,tx-delay:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 255
-> +    description:
-> +      TX delay line setting applied before RX tuning, compensating for
-> +      board level trace differences. This is a delay line step count with
-> +      no fixed time-per-step conversion; determined empirically per board
-> +      specific, used on SD/SDIO hosts.
-> +
->  required:
->    - compatible
->    - reg
->=20
-> --=20
-> 2.55.0
->=20
-
---JPvI9JMjjGIUeUlx
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaphk/AAKCRB4tDGHoIJi
-0po+AQCA6PqLcTKT7imRX8EmzXyV4cbV44EdaTRHvitAdUV6IgD/ViMPsvHGYEO1
-7Ph5zn0Vyp3Oo8iHwbyKP3VfMdWVMQg=
-=fS0X
------END PGP SIGNATURE-----
-
---JPvI9JMjjGIUeUlx--
+Thought of sharing an interim update:
+I have rebased PPC KVM selftests support on top of this series and the
+initial tests ran fine. I am currently looking info few findings though
+- but will soon rebase those changes on top of your v2, review that &
+update the results.
 
 
---===============2506834946109195186==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-ritesh
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2506834946109195186==--
-
