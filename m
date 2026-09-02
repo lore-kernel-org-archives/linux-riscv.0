@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0603C624DA
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 16:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B78C624D9
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 16:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p4eYZon23z1DNiKGE0NbONsY4/2+cMlkEi74y58Fu+I=; b=qRndc7fcGk0sJQ
-	L4exivJ6dnA+4L2CkuYgjcEPi8c1Y9y0cZgbVVYX/Xh1z+jq/pjZg5Q0E7Rg/PMMtdzmEUJZDrS9h
-	w4Mftv1donA3H2VTdnitayVZQRhqIDRMOfKrqmH/Ff3j/MIpxvp+xfEY0XaGdNglxmb27EdDnElg8
-	7gJoLtCjB+qEf7ciYvuWYcViNUpDtQ8d2eCtQJ/fPL6zvtpd8qi6cvbd65XlYuDRRPEgKs118qJJD
-	OHlVStsdBVNRXvGjEWb9gsFNbX5ZeI3jAgS+zA6JTSPTG0vvlaIpkdOA98IpGnUssuu7C5+pCE9fb
-	si39fWdNJsctSRoXyKsQ==;
+	List-Owner; bh=RDfi2rRJA7R5BEJ/YgWZ3UTGr8NipK5UC4VcWwoseH8=; b=39p0tIwLRzehVZ
+	y8v5A/tes0Q/rp6am2IWyQGCA/EuP+tZdDvwA0IbrnBUt0SMfD8ySQ+hSNEPdrtpTCAmTkKcajhab
+	lnRw8V1ZPA2z4K/RfJEA5VK8ZILeXo2QaDLBtwWcEn6/N0TEixO2xNNo/C1UjzPlh3LVafmp8YNBu
+	KBSghSZJ2YrRsQpEEmRb1Z1jdF0l4HuS5//X8XSYL3GBYpCtk8EM0pcIRfVbXlMjaRJq661lXYO64
+	MwybxeFn9HR5bAhzhn0JDPVAT99JxLYeQrqHTyPTq/FD+r39DJorKw76fyDi10z1DFcyB6QJZJvhV
+	9Wk8fyjXFvx9Q2cwo9Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1o2F-0000000FF9x-1ppf;
-	Wed, 02 Sep 2026 16:42:03 +0000
-Received: from mail-pf1-x447.google.com ([2607:f8b0:4864:20::447])
+	id 1x1o2H-0000000FFEy-0wF0;
+	Wed, 02 Sep 2026 16:42:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1o1u-0000000FEOB-0Tc1
+	id 1x1o1z-0000000FEaK-0a2Y
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 02 Sep 2026 16:41:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=o5u+D2Eye+Inmljua0Pt8umFr/3SFEmDrz+aVxfwQfA=; b=HvbCIJRN1yyYvBHLjXdyaRO33W
+	GNgZL82mvwW5AogLu5TI/gvmGtg1RW7CLnNKlbj8RcyAJjvXBdo7UuIWHxvctOZ/WFHi9/qiV79EY
+	5S+O89C2xu5IP7411rAy4BdXD7WYMddleXSaL3GUbV/WYlqFmdAq+O9PMVUweN7QswbMnNmWm6OzF
+	qRuHPS29dQBk+I33Whox4G+gfHbgjttCVCuIliNms5F03C3Wltc5asAnE+xI2tpkJYvpaIFQC+ZrC
+	Csm3CLecZBNtMB+0KktuxgnJVlEJjI9qQ7LSC3939Ii+yjSwOawOA3JXBs251+MLHyCQPTGaEE+gm
+	J/MBZBrQ==;
+Received: from mail-pg1-x547.google.com ([2607:f8b0:4864:20::547])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x1o1w-0000000CD8d-1fGl
 	for linux-riscv@lists.infradead.org;
 	Wed, 02 Sep 2026 16:41:45 +0000
-Received: by mail-pf1-x447.google.com with SMTP id d2e1a72fcca58-84a251c2e3eso47301b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Sep 2026 09:41:39 -0700 (PDT)
+Received: by mail-pg1-x547.google.com with SMTP id 41be03b00d2f7-cc1b8088203so1665380a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Sep 2026 09:41:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788367298; x=1788972098; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788367302; x=1788972102; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=OWxwiZu3iI1BKMOXY9Ac60kPARcqOSTNs6vsc+7jhyU=;
-        b=UfKo/5dCocvkvwKG96rA0BZrPe8t74v1+L+hoiw6jA2nWpZG2QkIIZhmuE9xnVaG91
-         h2FOAlrsZRHpWqM+DXXrwe+EyN7W4mVivtti6shIS3qQDsvpaNpmO4fvhWi/FGOALEsE
-         mvVOQZGTdTQze7giKWYOpFXojWTmhUmlkblYdsK2geoC1MgmOAzXenZlHe1qcqOs1jWt
-         BGy2SPQmpF3SUXeKEXwcQb7Kp48Z6bIEvHJXpEkXyLq0kglijN2iQnmaVk/zOFXLdFl5
-         QjyhktiCplhbaPqEzgsjusq+rE2KXDFMad0GoRlnigQ3hdpwBqZougSc8HrZyXXNimi3
-         uWmg==
+        bh=o5u+D2Eye+Inmljua0Pt8umFr/3SFEmDrz+aVxfwQfA=;
+        b=qOO/w7wodSzLTPCscUCpJtuY5nrEEGmvC9JDcdYMir0jdZ6IOz+2SEAi20RbPeWY5N
+         a0sN4DEJv/9VO1hQ6i7alU/8Xsd4i2p4iEki7AU+VUhki933k0jzFni/HpKWS/fWt035
+         eWkLCpGTjy/h9qkBRt6oiv+9eFMkfIJ8tE03i6/fCZaoTq8Kw8ji4N4nCZ+1Je49gyzL
+         mxltJU4bi9XqG3ZnZqk+o9u89hBffIexe4aEoW2zoXmOOawWjNxPYNF8YP8705cDl9pP
+         L6dCKaGYmGN4pjNiuEuIPb1SFSmBz52tuByzKuEnVXkDLAKMJnHX1dcgYdajhkD63BJO
+         b8aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788367298; x=1788972098;
+        d=1e100.net; s=20251104; t=1788367302; x=1788972102;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=OWxwiZu3iI1BKMOXY9Ac60kPARcqOSTNs6vsc+7jhyU=;
-        b=kTLVAAxABgGqXu17qOWxDcCBudFr+e6XOPnsSHqQQ0Z+N17NcpkcAUVrBXdwvxfZUG
-         OSU51ldSLOJT3ct7IiHEEo+lE9ajiwMtExLJr7a2C+VK6exHq6c3b1W1dQqMqxC6pUh/
-         lMPjS709q+Gq8LKLLYDQcBviPRJvuW4qvz584S/M4mRi89dSBXZ3yboHSWaHHKX2uPCO
-         fyrPyks7kHjTjyL4SCyjQLCs2UF1Z0d6AcRYYGwGoymFujPK/oit5S5/lCmBxbYUuaED
-         F42dZxZ4zjstqdpdKoBJW/VJBpzi53+Ub0di3okZSiVfNs3leVtcvaPsaTdz13BOv0+s
-         CFFw==
-X-Forwarded-Encrypted: i=1; AKwUvBxkNV8e8xiPinU7D8as4PxI8Nfm6Nkg9BueU0x+uBtSc6w1WpmU3AU5GazQHAh7WkibN2Dh8P4ef+Lgbw==@lists.infradead.org
-X-Gm-Message-State: AFuF++kAga+AxoFE6olO1sTTRSGzSi9KxBFnWVFObr304zmC6C+/FW6X
-	GgOulTMmPEuWw+OeTglJTyB4LMQ3ZwyPtNrGWV6nqhb5LiburYXmu8YLVBPE13KUvlpT/9Szm4F
-	lwQ4D2g==
-X-Received: from pfbbm14.prod.google.com ([2002:a05:6a00:320e:b0:84c:2e88:693d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:3d55:b0:84e:cd14:aeba
- with SMTP id d2e1a72fcca58-85ffbe960f2mr374778b3a.6.1788367298091; Wed, 02
- Sep 2026 09:41:38 -0700 (PDT)
-Date: Wed,  2 Sep 2026 09:41:14 -0700
+        bh=o5u+D2Eye+Inmljua0Pt8umFr/3SFEmDrz+aVxfwQfA=;
+        b=sC/ZTBxbpEZmD8zrCJfyh4uvZw9kyV7WN9YC50o7cuRXbDJ6MA0Otwv34t9OIXoLgf
+         M/nfyi+YCsZ8UDVcucih+UpC51jKPojCJyycNTXt9nmT/jSHU5E7jZFvqNUnJ6S4nHlm
+         4TGCSmjFlAk+njmEF4hKTSL4XK1oddM67mr6umfl7a/bFt10g936Su6DivrGK+TLWMit
+         kGuOV8+t7fr2PgMgdWyiuattSqlvg9kIRigatLt5TrDI845VzurT0AprRf4Mvqqp5gnU
+         brp4IgBRAKvyP4j0H7FiFsOYjGUrdml3QnuMRrNTUikL4I7nroGXExBb81VdReszFysW
+         SW4g==
+X-Forwarded-Encrypted: i=1; AKwUvBzD8Kc9IJjuhtQQ+R6CTr1q1usOmjXgkDwJfszOpn97XhWVxvbKM0XCThACHtvVGfgwvsmWn1jNKPiSPA==@lists.infradead.org
+X-Gm-Message-State: AFuF++nixaWH9yPWjAQ1ZuNhxl1nelwH9AYsk4SmicKckIkNBtSzFEoH
+	aj4pJk7F1ezRnQeJORwkY7uXin2OgSKuFdLzmedW6cHaDGUuYZDrefW62X5TPk5tJX+r9bucX5b
+	eboUrBg==
+X-Received: from pfbhm12.prod.google.com ([2002:a05:6a00:670c:b0:84a:30be:791f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:35c4:b0:857:73e2:9107
+ with SMTP id d2e1a72fcca58-85ed99b48fcmr9375483b3a.23.1788367301626; Wed, 02
+ Sep 2026 09:41:41 -0700 (PDT)
+Date: Wed,  2 Sep 2026 09:41:17 -0700
 In-Reply-To: <20260902164123.2546762-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260902164123.2546762-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.966.g6673acef38-goog
-Message-ID: <20260902164123.2546762-12-seanjc@google.com>
-Subject: [PATCH v2 11/20] KVM: selftests: Initialize vm->memslots[] with
- invalid memslots during creation
+Message-ID: <20260902164123.2546762-15-seanjc@google.com>
+Subject: [PATCH v2 14/20] KVM: selftests: Use TEST_EXTRA region in arm64's
+ vGIC LPI stress test
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -86,8 +101,8 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
 	linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
 	Nicholas Piggin <npiggin@gmail.com>, Ritesh Harjani <ritesh.list@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_094142_279429_813204B7 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260902_174144_521713_CBD22068 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,79 +120,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Initialize vm->memslots[] with an invalid memslots value during very
-initial VM creation so that failure to configure the core memory regions
-generates an immediate assert instead of potential weirdness, e.g. if slot0
-is coincidentally valid.  This will also allow hardening the region APIs to
-guard overriding a region's memslot multiple times.
+Use the TEST_EXTRA region/memslot for arm64's vGIC LPI stress test instead
+of a custom memslot, so that the primary vm_phy_pages_alloc() APIs can be
+reworked to take a region type instead of a raw memslot.
+
+For all intents and purposes, no functional change intended, as
+vm_override_mem_region() is barely more than a wrapper for
+vm_userspace_mem_region_add().
 
 Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/include/kvm_util.h  | 2 ++
- tools/testing/selftests/kvm/lib/kvm_util.c      | 5 +++++
- tools/testing/selftests/kvm/lib/x86/processor.c | 5 ++++-
- 3 files changed, 11 insertions(+), 1 deletion(-)
+ tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index c56f342b16fd..304ef6af3268 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -33,6 +33,8 @@
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+index 9a69c439a0f8..9865b204fdeb 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+@@ -164,8 +164,8 @@ static void setup_memslot(void)
  
- #define NSEC_PER_SEC 1000000000L
+ 	pages = sz / vm->page_size;
+ 	gpa_base = ((vm_compute_max_gfn(vm) + 1) * vm->page_size) - sz;
+-	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, gpa_base,
+-				    TEST_MEMSLOT_INDEX, pages, 0);
++	vm_override_mem_region(vm, MEM_REGION_TEST_EXTRA, VM_MEM_SRC_ANONYMOUS,
++			       gpa_base, TEST_MEMSLOT_INDEX, pages);
+ }
  
-+#define KVM_INVALID_MEMSLOT UINT_MAX
-+
- struct userspace_mem_region {
- 	struct kvm_userspace_memory_region2 region;
- 	struct sparsebit *unused_phy_pages;
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index ce0d8fba4624..56df5b1d9c79 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -288,6 +288,7 @@ __weak void vm_populate_gva_bitmap(struct kvm_vm *vm)
- struct kvm_vm *____vm_create(struct vm_shape shape)
- {
- 	struct kvm_vm *vm;
-+	int i;
- 
- 	vm = calloc(1, sizeof(*vm));
- 	TEST_ASSERT(vm != NULL, "Insufficient Memory");
-@@ -296,6 +297,8 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
- 	vm->regions.gpa_tree = RB_ROOT;
- 	vm->regions.hva_tree = RB_ROOT;
- 	hash_init(vm->regions.slot_hash);
-+	for (i = 0; i < NR_MEM_REGIONS; i++)
-+		vm->memslots[i] = KVM_INVALID_MEMSLOT;
- 
- 	vm->mode = shape.mode;
- 	vm->type = shape.type;
-@@ -1190,6 +1193,8 @@ memslot2region(struct kvm_vm *vm, u32 memslot)
- {
- 	struct userspace_mem_region *region;
- 
-+	TEST_ASSERT(memslot != KVM_INVALID_MEMSLOT, "vm->memslots[] unpopulated?");
-+
- 	hash_for_each_possible(vm->regions.slot_hash, region, slot_node,
- 			       memslot)
- 		if (region->region.slot == memslot)
-diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-index d31fa81ea075..ea5fa59888af 100644
---- a/tools/testing/selftests/kvm/lib/x86/processor.c
-+++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-@@ -529,7 +529,10 @@ void tdp_identity_map_default_memslots(struct kvm_vm *vm)
- 
- 	/* Only memslot 0 is mapped here, ensure it's the only one being used */
- 	for (s = 0; s < NR_MEM_REGIONS; s++)
--		TEST_ASSERT_EQ(vm->memslots[s], 0);
-+		TEST_ASSERT(!vm->memslots[s] ||
-+			    vm->memslots[s] == KVM_INVALID_MEMSLOT,
-+			    "Unhandled memslot '%u' for type '%u'",
-+			    vm->memslots[s], s);
- 
- 	i = (region->region.guest_phys_addr >> vm->page_shift) - 1;
- 	last = i + (region->region.memory_size >> vm->page_shift);
+ #define LPI_PROP_DEFAULT_PRIO	0xa0
 -- 
 2.55.0.966.g6673acef38-goog
 
