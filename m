@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 112CBC61DFD
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:08:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A479BC61DFD
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 08:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dKOziUpOj/2w6vCmy119/NtdCt+82IQQUfXNXzCqvL0=; b=LxCLtJYKOnSddy
-	lTooZrrRM07I3+TOCK6MH5y47KMLI5vWwx23VDvOaGbSV4p15oO6Wv1csOFqS+GbF5cDoNVYnwY4r
-	cdvnnlWGcEf9RE+Wrez60sujvJX9SIJYqmtJ+U/QLvsqy5ZDjtfyDOvd8lC0iprUDVuXR9ivs+yBg
-	WPTqIlN0p35oMqthIaQEOIfa3GSg/nHxtctO2McZVStOsNiOe17E1ADTFZjWXnNHgqY2K7Ums/OKL
-	vShSKfIsntym5+Sqj571kMe6USBhIIXKgPZgIk55yCdyideJezVoX+YbF3pCl0JP4uZGzzNXPuSt5
-	2i1sBOhh5Ma5DnUhTMZQ==;
+	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:From:To:Subject:
+	Mime-Version:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=Er8ZMHUKoTTMsYgvpxjkIzh2WZPLJJKV0x+b3pQNpUw=; b=ynM
+	PrTyGKizJ39uybC8iz02fxfQw+HX1fTv5Oe4QjpYR52okogo0I2jMO/Np9Wx16AhrmakBeWUwnGow
+	n0111LxIZHGE4cfSyGdesBCoyOX6wjfjX2Wtav8yD0AY0loVHqGVSePsmAUv6ej28eS7mb8ippVJU
+	7GfaV22u/0lkrA9cqQGRKXi96AufIAvf9h6tWi1MZ8PXS52RsfMhM9NostVEdygDtbv5uW7v6KYRe
+	gnmjxFGxYyfs7jvNNhb32rRxejvwz9Oy5DNxtGWAKFaKHQpDE34Kgo7Zk/tpOfZQPWpqwN3h7pVBl
+	l+eHgP8mV8YaeXRBWKYQt6HBOyDU8KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1g1Y-0000000E2Q8-142C;
-	Wed, 02 Sep 2026 08:08:48 +0000
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1g1V-0000000E2Oi-08CV
+	id 1x1gR4-0000000E6s7-1RNk;
+	Wed, 02 Sep 2026 08:35:10 +0000
+Received: from va-2-26.ptr.blmpb.com ([209.127.231.26])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1gR2-0000000E6qm-0Z8H
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 08:08:46 +0000
-Received: from E0002472LT.eswin.cn (unknown [10.12.96.78])
-	by app1 (Coremail) with SMTP id TAJkCgCXKW5z2ZdqoZ96AA--.27641S4;
-	Wed, 02 Sep 2026 16:08:40 +0800 (CST)
-From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-To: Nam Cao <namcao@linutronix.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-Subject: [PATCH v3 2/2] riscv: kprobes: add nop and c.nop to the KUnit test
-Date: Wed,  2 Sep 2026 16:08:17 +0800
-Message-Id: <20260902080817.681-3-yuanxiaofeng@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
-In-Reply-To: <20260902080817.681-1-yuanxiaofeng@eswincomputing.com>
-References: <20260902080817.681-1-yuanxiaofeng@eswincomputing.com>
-MIME-Version: 1.0
-X-CM-TRANSID: TAJkCgCXKW5z2ZdqoZ96AA--.27641S4
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zr48tr4DXw13try3GrWxJFb_yoW8Zw4xpF
-	nrJw15KF48Gasxtry7Ww18AryFya1kA3yagw1DWr4rKry8G3W3tr9FgFWUtrsrKrWFv3yS
-	934rWry8KF9rAFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPa14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAVWUtw
-	CY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
-	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r
-	1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
-	7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxV
-	WUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU
-	bManUUUUU
-X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgESE2qW-qNgkwABsR
+	Wed, 02 Sep 2026 08:35:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604151535; d=picoheart.com; t=1788338094; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=wD9RsUO9lSPScERFohkjXD33MGWV4xKAf1UmItB58WI=;
+ b=OY6sZyRk8hVXuV3bclp/Y8HIul8+Ic907idxBrDqUK85wrgKrsmt+VPFqgnWUgWnDDgZO8
+ Ik+hcC2jgXOrI63FDib9/ixl0R2Yy5PmjaLWwLVmJdAAFO2VSrTRIGvyEVE/oB1J3l8wUc
+ hqEjwbev6dZ0diSr3d+W1PQjxdhx1er4SLVE1YoZWwIUq6x4NnDq8eHmavgTbhv/ffbl2o
+ iDGGjXSWyVfWdowdwmjMqg6qGuJR9mtLmZZY6+0PYtx1qEEUjqXTHpA4R3a600Jld9+j0S
+ zUtthVM5GFZBQM4Lx9UOER/fYsudHjsqc2nwA0QB1SQcdzszO4uuaoQLmvoasw==
+Cc: <yuchao.46@picoheart.com>, <zhanjie9@hisilicon.com>, 
+	<yang.yicong@picoheart.com>, <geshijian@picoheart.com>
+Mime-Version: 1.0
+Subject: [PATCH] ACPI: RISC-V: CPPC: Implement cpc_read_ffh_fb_ctrs()
+X-Original-From: Yufan Dou <douyufan@picoheart.com>
+X-Lms-Return-Path: <lba+26a97dfac+7ba75e+lists.infradead.org+douyufan@picoheart.com>
+To: "Sunil V L" <sunilvl@ventanamicro.com>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, "Len Brown" <lenb@kernel.org>, 
+	"Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	<linux-acpi@vger.kernel.org>, <linux-riscv@lists.infradead.org>, 
+	<linux-kernel@vger.kernel.org>
+From: "Yufan Dou" <douyufan@picoheart.com>
+Message-Id: <20260902083450.2348-1-douyufan@picoheart.com>
+X-Mailer: git-send-email 2.53.0
+Date: Wed,  2 Sep 2026 16:34:50 +0800
+Received: from 5CG30262N9-QAP.localdomain ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Wed, 02 Sep 2026 16:34:51 +0800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_010845_276998_DE41CBD7 
-X-CRM114-Status: UNSURE (   6.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260902_013508_370798_E55493DC 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,68 +73,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend the RISC-V kprobes KUnit test with test_kprobes_nop and
-test_kprobes_c_nop, covering both the 32-bit nop and the
-compressed c.nop simulation paths.
+On RISC-V, each cpc_read_ffh() for a CSR-type FFH register sends a
+separate IPI to the target hart via smp_call_function_single().
+cppc_get_perf_ctrs() therefore samples the delivered and reference
+counters in two separate IPIs, at two different instants. The skew
+between the two sampling points distorts the delivered/reference
+ratio and thus the frequency reported by cpufreq.
 
-Signed-off-by: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+Implement the cpc_read_ffh_fb_ctrs() hook to read both CSR counters
+back-to-back in a single IPI, which narrows the sampling window to a
+few instructions and halves the number of cross-CPU calls. This
+improves the accuracy of the reported frequency in the same way as
+the arm64 implementation of the hook, which reads both AMU counters
+in a single counters_read_on_cpu() call.
+
+SBI-type FFH registers still fall back to individual reads, since
+pairing them would not reduce the number of SBI calls on the target
+hart.
+
+Testing was performed while CPU1 was kept busy with:
+
+  # stress-ng --cpu 1 --taskset 1
+
+On a CPU with cpuinfo_max_freq of 3000000 kHz:
+
+Before:
+
+  Maximum observed cpuinfo_cur_freq: 3201369 kHz
+  Maximum observed error:            +201369 kHz (+6.71%)
+
+After:
+
+  Maximum observed cpuinfo_cur_freq: 3009646 kHz
+  Maximum observed error:              +9646 kHz (+0.32%)
+
+The maximum observed error is reduced by 95.2%.
+
+Signed-off-by: Yufan Dou <douyufan@picoheart.com>
 ---
- .../kernel/tests/kprobes/test-kprobes-asm.S   | 23 +++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ drivers/acpi/riscv/cppc.c | 47 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 47 insertions(+)
 
-diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-index f16deee9e0..06a9cb35c9 100644
---- a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-+++ b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-@@ -181,6 +181,25 @@ SYM_FUNC_END(test_kprobes_c_bnez)
+diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
+index 42c1a9052470..2ca98fa69e9a 100644
+--- a/drivers/acpi/riscv/cppc.c
++++ b/drivers/acpi/riscv/cppc.c
+@@ -85,6 +85,20 @@ static void cppc_ffh_csr_write(void *write_data)
+ 	data->ret.error = -EINVAL;
+ }
  
- #endif /* CONFIG_RISCV_ISA_C */
++struct sbi_cppc_fb_ctrs_data {
++	struct sbi_cppc_data first;
++	struct sbi_cppc_data second;
++};
++
++static void cppc_ffh_csr_read_fb_ctrs(void *read_data)
++{
++	struct sbi_cppc_fb_ctrs_data *data = read_data;
++
++	cppc_ffh_csr_read(&data->first);
++	if (!data->first.ret.error)
++		cppc_ffh_csr_read(&data->second);
++}
++
+ /*
+  * Refer to drivers/acpi/cppc_acpi.c for the description of the functions
+  * below.
+@@ -125,6 +139,39 @@ int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
+ 	return -EINVAL;
+ }
  
-+SYM_FUNC_START(test_kprobes_nop)
-+	.option push
-+	.option norvc
-+test_kprobes_nop_addr:
-+	nop
-+	.option pop
-+	li a0, KPROBE_TEST_MAGIC
-+	ret
-+SYM_FUNC_END(test_kprobes_nop)
++int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
++			 struct cpc_reg *reg2, u64 *val2)
++{
++	struct sbi_cppc_fb_ctrs_data data;
++	int ret;
 +
-+#ifdef CONFIG_RISCV_ISA_C
-+SYM_FUNC_START(test_kprobes_c_nop)
-+test_kprobes_c_nop_addr:
-+	c.nop
-+	li a0, KPROBE_TEST_MAGIC
-+	ret
-+SYM_FUNC_END(test_kprobes_c_nop)
-+#endif /* CONFIG_RISCV_ISA_C */
++	if (WARN_ON_ONCE(irqs_disabled()))
++		return -EPERM;
 +
- .section .rodata
- SYM_DATA_START(test_kprobes_addresses)
- 	RISCV_PTR test_kprobes_add_addr1
-@@ -197,7 +216,9 @@ SYM_DATA_START(test_kprobes_addresses)
- 	RISCV_PTR test_kprobes_branch_addr6
- 	RISCV_PTR test_kprobes_branch_addr7
- 	RISCV_PTR test_kprobes_branch_addr8
-+	RISCV_PTR test_kprobes_nop_addr
- #ifdef CONFIG_RISCV_ISA_C
-+	RISCV_PTR test_kprobes_c_nop_addr
- 	RISCV_PTR test_kprobes_branch_c_j_addr1
- 	RISCV_PTR test_kprobes_branch_c_j_addr2
- 	RISCV_PTR test_kprobes_c_jr_addr1
-@@ -220,7 +241,9 @@ SYM_DATA_START(test_kprobes_functions)
- 	RISCV_PTR test_kprobes_jalr
- 	RISCV_PTR test_kprobes_auipc
- 	RISCV_PTR test_kprobes_branch
-+	RISCV_PTR test_kprobes_nop
- #ifdef CONFIG_RISCV_ISA_C
-+	RISCV_PTR test_kprobes_c_nop
- 	RISCV_PTR test_kprobes_c_j
- 	RISCV_PTR test_kprobes_c_jr
- 	RISCV_PTR test_kprobes_c_jalr
++	/* Only CSR counters can be paired within a single IPI. */
++	if (FFH_CPPC_TYPE(reg1->address) != FFH_CPPC_CSR ||
++	    FFH_CPPC_TYPE(reg2->address) != FFH_CPPC_CSR)
++		return -EOPNOTSUPP;
++
++	data.first.reg = FFH_CPPC_CSR_NUM(reg1->address);
++	data.second.reg = FFH_CPPC_CSR_NUM(reg2->address);
++
++	ret = smp_call_function_single(cpu, cppc_ffh_csr_read_fb_ctrs,
++				       &data, 1);
++	if (ret)
++		return ret;
++
++	if (data.first.ret.error)
++		return data.first.ret.error;
++	if (data.second.ret.error)
++		return data.second.ret.error;
++
++	*val1 = data.first.ret.value;
++	*val2 = data.second.ret.value;
++
++	return 0;
++}
++
+ int cpc_write_ffh(int cpu, struct cpc_reg *reg, u64 val)
+ {
+ 	struct sbi_cppc_data data;
+
+base-commit: 89a312991dc6e638a36adc43ccb91dbc25504c04
 -- 
-2.43.0
-
+2.34.1
 
 _______________________________________________
 linux-riscv mailing list
