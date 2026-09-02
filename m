@@ -4,129 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FBBFC61DD6
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 15:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC5CC624D6
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2026 16:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ckbSEswAB/ZRlGdQaJXkl6KPsauuQeK206B2vWFi6sM=; b=upWfHWHmkAAByH
-	fJ3fL1EwUgVJcmoXXK4UNQyQzdyU+DQIg0c3GqtRylN7FkECoFc5hwRqHb5dm/HxPvoWAonhuKZPF
-	6DNUQ/5TBq+pA90WL66Rvn81y/E1hPSUWlF1ch/RWiC7OVEn5SuCHA47N0y2suFfgBMoYXZRZ64Bi
-	rHf/kOLapPEcW88lpHIukk4xxsEZPUwDASPfiFVzrHrOZr0W4dvUei5qSCJ1VAR2UG3zM5uJXJtrp
-	XaDvog1V8hPUzZFl126z+TLc+nG/3l+UCkHZyl72on9noKpTzRnPC4l+DZG6qMTAkT9ar7EuEWHah
-	YcvJGePqW3x8i9je77BA==;
+	List-Owner; bh=skhs/gmMtMBUrLYxTdEsp7d2pF2UI6VgXde7WvnduJM=; b=FHkLHUjLyOjHoO
+	Fb+ilawEuCqXuz4sTHel181+XoLw6Qc4nJazRVtqtinRul06Qtfwl1KxiLL8lBkUVl0FIB7LE54JX
+	n0EcDEZMfZEJR9JKDSjl96Di5y+KifeWHhuJXoqD9xkyAWms4GIO2GgrX1zn/Wghti5mN2Tfgd+12
+	WCrH5hJ4CHORBpRNsQXh0zmxNQ4oNYatbryEZ8zlsbfdjR8muu95LJeGnlJPzqM5Ija7jb6qbFRXp
+	Zsp2jvR/GL99WoSnBQj0m+YdSze5ay1fvi701rQZCSIJlJMzC1mEhHh4Edd7rigjAQgsFKFU9o1q1
+	yF1Td6q9x8ovCKpPJYlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1n46-0000000F7eI-27yo;
-	Wed, 02 Sep 2026 15:39:54 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1x1o1l-0000000FEAa-22aT;
+	Wed, 02 Sep 2026 16:41:33 +0000
+Received: from mail-pg1-x545.google.com ([2607:f8b0:4864:20::545])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1n44-0000000F7dB-00kt
+	id 1x1o1h-0000000FE3w-1oYl
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Sep 2026 15:39:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qonjqzBLQygb2Rc/zWsE8QCxsJQHHgySdEbjZ5gxJHmMnQmrkadvo7pIqASdpPvw9Dj+8PypmEmeRD64WpG2d0pzRsVsqBnOXN4XjjA+YoTZB5j/dlkDy6lkg+5qC6tDaZXT1s3D1jJ+TyR7QPzT6L4jj+LPWR1UMWXkiSI1QZ3d9PFR+7FZfdXrXV3p3Hhn7yxm9q0Eo4SMTK6KQIFJU9D8AFcnqssSbj4RfiDkPvUYKtTd+fXSskMRRsKx5dGoCjz+/YbNkjzUNZV87IGWnsVCDSXSc9NMz3soj+JGHG4364yqJ9ORzYJ09Jlv8IxQ7+PxOW3Gpwsr6cSTXffJKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=isJAxm4pAM+MN4u01HPNUs+caxqNh5FAKGsgPyuu3KI=;
- b=LIbjDzSKwjClaSFi1M8S2ju9h0xYa6YeoDatAVdbCoWchhmkyS2Weblboq5pmvT4sQ/u/hp7wQZnLikVcsbsewzyHRyhzTymwUvjfSPweYTKiU+0FtvaO0SifIbG2OnwOnYKSQbHZzopWwuuft2JUTiAnF/prwE5CIS31JxWrCk0WbQoXZ3AbK+7Ou9hwUBuJvs3F4ovbNcxu7M7laGfSPkFSjyQ58oPkLE4Tu9QgSQv6WXj1OnvFFhVStNPklK483+clUHJmiGriXVIlKSG+v2mX62s1cMNMiX8+kIbRRy3gCcWOckNj+zwM2oPEoLW8Lp4xhNTVmIcWVJ/+iY+CQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=isJAxm4pAM+MN4u01HPNUs+caxqNh5FAKGsgPyuu3KI=;
- b=gO/akj3S2tfMq1oWH/v7FvQY6d0TRYuDIV6YJP9BkTO81nVnIEPoEWSuJo62sE+e+UNq0Hzd7jDT8sz2ZRdherAxrYRQtXNpvyVaTj7VsKeyqMDO4JmsD6hsj6xoQWwZ5SaI7/cJuF7iW/Bv6VmeqHgevocLcjkhPvmW9v2RbLrl/Lnbf/pU+rd1hZoxLEYkvdSpYTFHoS2XgOyZ+ybjQWRnVFDi8HGxqLnmFcA3oLI+w4IvAtwURVY++utE5JUJSjv+V22aO1G1Iji79fYs7YXNaa3lNS4sU9Vbt0z6oeBeaEYdJDc+wS9FOxJvhxSIujZ/xmiD/EREaVBT/B7+pQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB9PR04MB9474.eurprd04.prod.outlook.com (2603:10a6:10:368::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Wed, 2 Sep
- 2026 15:39:46 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
- 15:39:46 +0000
-Date: Wed, 2 Sep 2026 11:39:38 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Allen Pais <allen.lkml@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 28/34] dmaengine: sf-pdma: route error callbacks
- through channel BH
-Message-ID: <aphDOns0k3TWXWEZ@lizhi-Precision-Tower-5810>
-References: <cover.1785183549.git.allen.lkml@gmail.com>
- <cover.1786384168.git.allen.lkml@gmail.com>
- <8538eed11abe0c92b1a5b2830baf7a3f06ac698c.1786384169.git.allen.lkml@gmail.com>
-Content-Disposition: inline
-In-Reply-To: <8538eed11abe0c92b1a5b2830baf7a3f06ac698c.1786384169.git.allen.lkml@gmail.com>
-X-ClientProxiedBy: CY8PR11CA0034.namprd11.prod.outlook.com
- (2603:10b6:930:4a::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB9474:EE_
-X-MS-Office365-Filtering-Correlation-Id: e53d2f54-bc6f-4081-050d-08df09086a83
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|23010399003|1800799024|4143699003|11063799006|5023799004|10067099003|56012099006|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: GunaXcEg4Q/GxHkV++lde8sbsR0AFTdkfiSwIpYpco7Q6pZN5tm0cygwKu1k8Axfr9qK7f10KlpQO20IaQhPLrUK7BVTUvdlMCxRk2guLk/AgiuoSfRqUjFZzGN0OdL+M6Zh2BANCyRTlvppR7unCpU2fLZe6GmORrUR1C9e9UOluCaHY2xzBB9VAfbU9uhjEHKATOxrQiI4odveLBsoC4Ds3wSNU5/h7Cts08h8VXqr/hdsKdJiF73rSn1igmnV7YSnF1xrB7z3o1dX8/2gJ0S+8soRqr8Q5lFCn1J3YQPjxlbfF994aS/SkHC1lNxtl2D+ywcgnrlDIUOS/lb4OqSARDgjrPCzKSL5IjR7BvUWBrcdkIJxQJEwXQ4C6l4XvIkoocYZmEnxx29VmwXTr/Me0O1voIKmIrjRMtqiMIcIhg1Bx/38pM2I0yKlEmqEsaE3aJ1pSvEBdWUHYJiGN1EYxArrOEQxZAoeNACPm7la5wZKEtoDkAir3bGO+wKFPdfISsvbQKwA2NDAqZ3CLIv66bjxMcByHHr/+aN80phCbB21TSW72shlBhZGZf17e8GqoiuqQchqIcYTx7deJA2JbYWkMYSh9T1xrKgX3DTk9ZVVCWYSzofn00TqAdv8tWCoRKnSKTLmFthFT8mx4N5Nrxvlz0zJ0g0XCwx8ew4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(23010399003)(1800799024)(4143699003)(11063799006)(5023799004)(10067099003)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?f9YsHHwaMrFxERzDL27KMGTi9yU3wskS++1HzeEOo9IzKzptPb4CB7JH5SdG?=
- =?us-ascii?Q?3zSxuMmuhzfTFgUaMuNh5juF//F2eMcC8DBpreQcBY1i1h/PkAYBGX4U6BKL?=
- =?us-ascii?Q?x+WKQFNzh52Gfp6FbUqlbb5PKdwrFOXJBsc9+0+dHis9kJ8dSkghImPKhoeu?=
- =?us-ascii?Q?r143gnmZI5VTV4Tyy5+GdGeoIo1JAto61d9NMO411znDnDHrY6eKa2orLAK0?=
- =?us-ascii?Q?PMJwOeuANhJz3r5vKLkl4w4ZENDPbnTULSXnQaiPM4s8FC/2y66W3nO1bWIX?=
- =?us-ascii?Q?qGBNBWKJN1NiRqlR9QeoflkYPyevXtkSUByUsvzvh2s3vc7CoM53Je0HyQ2l?=
- =?us-ascii?Q?pbTuMNjhoLKhhT+6k/0R64nDc7DfDcosbiZ4nZ7ddG7+5em/Q42kVCJ+W5mY?=
- =?us-ascii?Q?r9U5+hpWM7bGTz6PmLQXNL3z2GZC0sc21ThBGg9OmmTXTvrM0RH6FsvyngdW?=
- =?us-ascii?Q?0140SJLWDCLVYQzj4ymAzHmky74e9KlV3Cdlw2ovYb4yXFRuAwsytFINWHS9?=
- =?us-ascii?Q?Q62GZKda51bhTqRPfb/XDLfYE+kQpr07fpEBabT9kF+AkN60tV84WlFPyjvN?=
- =?us-ascii?Q?x10e+ITVdy0CVCj2/5XG3eooGYD36NxFwIrjddhmlpzCXYDSdrqAKYJdGcCQ?=
- =?us-ascii?Q?cuz6v9QG5h+PgC1njT7+pCAyowK1VNjroWhpv2q1rlj8X9Zj5bitD9NwZfYk?=
- =?us-ascii?Q?AlG0GAWxwz1iN/6mqZqa8clRh/LFNKK5wA2QdZN5MATxpND7G1wC1TyoASOk?=
- =?us-ascii?Q?VE2zBaSCd8DoCB1k4+Ac4wlNAtBk0+LuewEd67tg4U3tCsa0jGWQF2yHv8qP?=
- =?us-ascii?Q?ssFcfndKRCQB+Rc/D844Z0bwpCYrA0NUvFd19DZk5HvEd/FqCXDcWwkAcGbx?=
- =?us-ascii?Q?KFPgx3hg8w1Zt2tYp2nXkcLZ7HlMyCCtH1ANmhmlv465z2F9oLmTWvuhOav2?=
- =?us-ascii?Q?EjnE2ZuNm+0H/ObUQdoPVjfQNNG2UCIblyxVgwxQNK07QqeP7nb3sXQqQe9p?=
- =?us-ascii?Q?F0hNUjVzOPDpGWTP/4v0TUQcCfFNJi/VISS37uzt+II0+59kQmb0WtmM+fWo?=
- =?us-ascii?Q?TOn1AmWGttTJhMtUrV0P/rlfuw6J6ruzoLvsNO9iewcVCUdpTzsdjqdQh4hp?=
- =?us-ascii?Q?ALOcyZkU9PpF81YAM5KTB+7RIeR3ejRoP2JdNShxrBciiWYK4bV0ztbZl/RY?=
- =?us-ascii?Q?evOkRpK5Xy8HJtfKlY/BnbCZAKJDXAqd7xRwIImoVgrPfJtYgyLINEa8NeMM?=
- =?us-ascii?Q?dVPD3lv8V8nKfE3pORc5K4/zSVobGur3DZ3l1G3U844r9uDwbt1GLU8l5sDu?=
- =?us-ascii?Q?XZFhHjNN4mvQMAdIfUA9cmJDWK9oOs6nhNY8qpRe5TXngY51tYfiFU6Sjze+?=
- =?us-ascii?Q?eyfTa9fjIrx65qUA/SR8G5VUdBxz2SH+gDLKXtHR0qBz+UGEvCEyJURsjGRI?=
- =?us-ascii?Q?ezd9OrX1dZnxLYBuqQNflkYmGJPWvFZ/fL/GauSHlMbGe1pDIFf3QUYPAaQ2?=
- =?us-ascii?Q?jTrM1VQMCoTVsXsKWBSK5F2NumozEiKjCPQZONGvxY3w0wURUMx7++7Kylqv?=
- =?us-ascii?Q?/r4REmml0tRO1EhS0vo3QoILyvhMK4Y+vqGsjRrp/gYhPtBDAEq87nglxEXL?=
- =?us-ascii?Q?3ZROdaZIxNNeNx1gcEpNjtMxVBdnkqDqhA9zODKgGyIltvvrWSrlTwwiclWm?=
- =?us-ascii?Q?lSC8Thjz8JWJ3eR4P3nDGpHf0oTRPx/3Ctw8Ip0PYXGrHingZ3bciwabSX8P?=
- =?us-ascii?Q?9fLb/Wa2WUYiXm0CIklH/HtEsPDmLhMjmPhUFNHOgLXXYc+EspC0?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e53d2f54-bc6f-4081-050d-08df09086a83
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 15:39:46.2945
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fJPNPh+LB6mQLUgVr1nhya5hdEBVXGmN82tPhg9tB1+9RR2mMceJZYxSCQS0w7UrEFDvy/9/ZYWxIVTxfNrFzmH7G9tW1RjqTDNEdJKu8IMbxQT9Dda9gioBxNs8O+/o
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9474
+	Wed, 02 Sep 2026 16:41:31 +0000
+Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cc1d85c012dso2254771a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Sep 2026 09:41:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788367288; x=1788972088; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=0zhVxUyRpRhnHXbQLMxjoc4Ys+BN3Anj09sDDnw94v8=;
+        b=rNguueMKEn6U8mBZL+YrixjT5dWBLQKLi7eGjef8sVFhDUuN4R3l6eqw+qPg4hRzF2
+         5WVNmfOS+YHyk+MX0od7yoxnU02pcpStNmXF1OUNSAYiZCH63Aasf9/IrpldCAXNzXVh
+         Tx5jxIE6Jld3lGrv7aO/PeoWYyKnvkt5+7c8Wfs4MdA8ipxN3cjBJuwHd7qU53LYbPq/
+         KRjtFEPuacjHa9b08pm8lYHB+wxJoFbmaAj95b22VTp+uXE7HvHloGhicOJZTOfM2pDh
+         6dt6dgeoyZmYzUV2BLvYikc2IOJEMxcMeR4jhTU0FUw8UBbXAgb/AyvnP8/PzHbVGURE
+         7O8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788367288; x=1788972088;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0zhVxUyRpRhnHXbQLMxjoc4Ys+BN3Anj09sDDnw94v8=;
+        b=Q+DWusBFK8Uyq7D8EG3knLKP/uztPH6CUtbavqvprcS1A8Y1SyYjV+3FLwr9+eXXpk
+         ml7cbU3GyINHB6bwdmTgifOieQxPr+Qf0/xtdOC+5xnA+3Dez3Vcs5HJHUmuEQS/y2fs
+         kEUrsiRl/IkCRtOKhosXGW/BG4+aLTPbJACEbqsDbxOReWACG5wGg900v6BLkv0Npbrq
+         chb19f3thbUajxbEYmhCkyeBZjPUlGLPA66KJBBfMuYZbbQze4CimSEKe7REaTVvKHiN
+         PWZn6I7j2J/3kCAy+PWxzdQfB7CE/YVeqGweqCSDlNZMX4ioFY4B7k6coFuExF7QWz3a
+         fjRg==
+X-Forwarded-Encrypted: i=1; AKwUvBzM0cnAhp332Bb11j56garbuEmuOsFpBHGpNOHWWoP5VU8u3CFD8JnXLMr5bJzwQNgbnd58O+rreItlHA==@lists.infradead.org
+X-Gm-Message-State: AFuF++k6W6fjp+PPqdN23BmH/fh5slwPIhKKvGGMltO0f35EvLW49D4o
+	x6YcpnjkvvisKx0SQuJcD609AC7EzD+aEPAhq3eq0gEKnQr8i20HpqEqdvhV1FocvIV4HGk5Jx2
+	dnAIT4Q==
+X-Received: from pgbd10-n1.prod.google.com ([2002:a05:6a02:64ca:10b0:cc4:2728:8938])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:7f82:b0:3cc:2552:ddd7
+ with SMTP id adf61e73a8af0-3d9adaba731mr8793167637.5.1788367287815; Wed, 02
+ Sep 2026 09:41:27 -0700 (PDT)
+Date: Wed,  2 Sep 2026 09:41:06 -0700
+In-Reply-To: <20260902164123.2546762-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20260902164123.2546762-1-seanjc@google.com>
+X-Mailer: git-send-email 2.55.0.966.g6673acef38-goog
+Message-ID: <20260902164123.2546762-4-seanjc@google.com>
+Subject: [PATCH v2 03/20] KVM: selftests: Use vm_alloc_page_table() to
+ allocate LoongArch page tables
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, 
+	Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
+	Nicholas Piggin <npiggin@gmail.com>, Ritesh Harjani <ritesh.list@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_083952_048287_1869B445 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20260902_094129_469805_8A97D553 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,68 +99,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 11:09:29AM -0700, Allen Pais wrote:
-> virt-dma now dispatches completion callbacks through per-channel BH work,
-> but SF-PDMA invokes the client callback directly from its error tasklet
-> after exhausting its retries.
->
-> Complete failed descriptors through virt-dma with an aborted result and
-> the remaining transfer size, then start the next pending transfer. During
-> removal, kill the producer tasklets before the channel BH so they cannot
-> enqueue callback work after it has been canceled.
->
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-> ---
->  drivers/dma/sf-pdma/sf-pdma.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-> index a08ca355dadb..ab2029af0c0c 100644
-> --- a/drivers/dma/sf-pdma/sf-pdma.c
-> +++ b/drivers/dma/sf-pdma/sf-pdma.c
-> @@ -328,7 +328,17 @@ static void sf_pdma_errbh_tasklet(struct tasklet_struct *t)
->  	if (chan->retries <= 0) {
->  		/* fail to recover */
->  		spin_unlock_irqrestore(&chan->lock, flags);
-> -		dmaengine_desc_get_callback_invoke(desc->async_tx, NULL);
-> +
-> +		spin_lock_irqsave(&chan->vchan.lock, flags);
-> +		list_del(&desc->vdesc.node);
-> +		desc->vdesc.tx_result.result = DMA_TRANS_ABORTED;
-> +		desc->vdesc.tx_result.residue = desc->xfer_size;
-> +		vchan_cookie_complete(&desc->vdesc);
-> +
-> +		chan->desc = sf_pdma_get_first_pending_desc(chan);
-> +		if (chan->desc)
-> +			sf_pdma_xfer_desc(chan);
-> +		spin_unlock_irqrestore(&chan->vchan.lock, flags);
+Now that LoongArch uses KVM_GUEST_PAGE_TABLE_MIN_PADDR for its page table
+page allocations, use the common vm_alloc_page_table() instead of open
+coding the same.
 
-I am not sure if logic is equal. It'd better someone can help test it.
+Opportunistically drop the assert that the allocation succeeded, as the
+allocator itself guarantees success.
 
-Frank
+No functional change intended.
 
->  	} else {
->  		/* retry */
->  		chan->retries--;
-> @@ -602,9 +612,9 @@ static void sf_pdma_remove(struct platform_device *pdev)
->  		devm_free_irq(&pdev->dev, ch->txirq, ch);
->  		devm_free_irq(&pdev->dev, ch->errirq, ch);
->  		list_del(&ch->vchan.chan.device_node);
-> -		dmaengine_kill_bh(&ch->vchan.chan);
->  		tasklet_kill(&ch->done_tasklet);
->  		tasklet_kill(&ch->err_tasklet);
-> +		dmaengine_kill_bh(&ch->vchan.chan);
->  	}
->
->  	if (pdev->dev.of_node)
-> --
-> 2.43.0
->
+Reviewed-by: Bibo Mao <maobibo@loongson.cn>
+Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ tools/testing/selftests/kvm/lib/loongarch/processor.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/tools/testing/selftests/kvm/lib/loongarch/processor.c b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+index 057a77713542..fcd41bc6fbda 100644
+--- a/tools/testing/selftests/kvm/lib/loongarch/processor.c
++++ b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+@@ -56,9 +56,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+ 	child = table = 0;
+ 	for (i = 0; i < vm->mmu.pgtable_levels; i++) {
+ 		invalid_pgtable[i] = child;
+-		table = vm_phy_page_alloc(vm, KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+-				vm->memslots[MEM_REGION_PT]);
+-		TEST_ASSERT(table, "Fail to allocate page tale at level %d\n", i);
++		table = vm_alloc_page_table(vm);
+ 		virt_set_pgtable(vm, table, child);
+ 		child = table;
+ 	}
+-- 
+2.55.0.966.g6673acef38-goog
+
 
 _______________________________________________
 linux-riscv mailing list
