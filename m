@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0128C624D7
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 10:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C1CC61DD3
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 10:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L/76h5IAw9bafUcLpFiR2p00EIaelhIOcTfz9ftp3Tg=; b=yudrVS/Z8AxNJK
-	t6H7CNB3L9hpKf+FRoWXNkvJvX+N5hLoLMCCJcCyYxZqd56YpWfhQv/Y5xMAuv7MkoPDO3LJcA67o
-	zkEFPNuFhqR2VUXJnZ67uqkdHqeeKyg8JiCaa+aiKWR+Dr3AG6GOHlCqAgyekI8idFuGMNWsqX10R
-	lQ9RXJV7n8ZQVdJBsiUYkFxV3h7wGcfHdOrDc8YjIlPc5hGwVvX1GgflIYvTC3S9K0Fc0FbwJ73lm
-	SL4eb7/QWH42blJj7C9CLeKz4FMmGa5504ZscnbgL7+J75gB79F/irXTJvyesxir0Ds0gEc1p4lcD
-	/678DSMs+FfjmdLB+Trg==;
+	List-Owner; bh=qugW2Q//kvPzVlV4M+Op/hS5/NZ7IkIfHPqQnnK9XhY=; b=33WzfBrwBGE8+P
+	SHwYhbXawHgsZilia+JTQqXeRKig0sZmwt4lGi0sfHEiMBOL84TDgcD8N91hUM8NufTWhTwMIx2Sg
+	/xLgM7tou0QG3ef8wwQxkjXrJqYSK09JkU4rKBvbB/E/NpSaq4XlVdx2w3zYbPdg3ru2RatCswJl5
+	oD+J5JDKW8WiGt8+EEykag2MkKxLr7EjlnFmOl1oJtn2iexvzGpDt2u8y2dE/B+jHEWvWa/eavTFB
+	FhnrDzRJj8Jli8aPVlagbfhYNm8YvXjU/Okl+EVXY/Hpn+7MfBPeer0ak4lpfXgNk/65Hg+s0ImaQ
+	X/C2/DOJrRf9Bn05z5NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24pP-0000000H6fF-2cqm;
-	Thu, 03 Sep 2026 10:37:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24pO-0000000H6f9-0GTN
-	for linux-riscv@lists.infradead.org;
-	Thu, 03 Sep 2026 10:37:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4FA64600D4;
-	Thu,  3 Sep 2026 10:37:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 856F91F000E9;
-	Thu,  3 Sep 2026 10:37:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788431873;
-	bh=LfEUm61UAnFxFCDwYCcGPaECxT78ZX20G6SRen0PmCk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lapq4JcpXh2EdT5CtHGldRjhzK+EeM7FDQ17fM8aayLExDmULweYBoUFvnSTgV/CG
-	 oyH1ZIinJ2W8x2FCDvfAMyqLw7OuDepb81Ei9a6k5Mxo9KIbts6HZuqaju7VriutUz
-	 fu8Lhi0Nx0FDGrjzbCa8pppqq7h37FnceKSX7ULZI6dmHrTVHvDpDTiPrSNYfun2pG
-	 8t484gzCyEJcmpqkGoS+WUBG0JVoQeGLZSZ/4aMsWOfB9prh4NPTXksFAB2hmtgJu6
-	 OMhVJZwriZS/YNlnkkG77YFgSxQYH0foS7EM2igTWJ4nLr2OHIlWm24nn21yNDO1/8
-	 X8VPHQAGUV6Cw==
-Date: Thu, 3 Sep 2026 10:37:51 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Long Wan <long.wan@linux.spacemit.com>, linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] mmc: sdhci-of-k1: Add TX tuning parameter
-Message-ID: <20260903103751-GKA53903@kernel.org>
-References: <20260902-07-k3-sdhci-dts-v1-0-4e7909cf4233@kernel.org>
- <20260902-07-k3-sdhci-dts-v1-4-4e7909cf4233@kernel.org>
- <DL5D12BKMIWN.QUCX18JF8GDU@linux.spacemit.com>
+	id 1x24xC-0000000H7mc-3LEs;
+	Thu, 03 Sep 2026 10:45:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x24xA-0000000H7lP-1m5q;
+	Thu, 03 Sep 2026 10:45:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B2FD1596;
+	Thu,  3 Sep 2026 03:45:51 -0700 (PDT)
+Received: from [10.164.19.53] (unknown [10.164.19.53])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B13C3F673;
+	Thu,  3 Sep 2026 03:45:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788432354; bh=B2EGgiinFjR7PIuJDjwPP8zw52e7kf6hQY7DC+ox1r0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mmq3evjbS8hafbKWyN6WfvB9UfVySk+qoHqsF1QzrHYtoeRp/5znyDeIxQ0XWmzpM
+	 HmppJc+wsmOrkjn5ugj5vuGdbtya+eR9c57C4aB5SNws+Twq1UmKFOoPZzxS2fmElr
+	 iaXr3Hj7l3p0cwNUfXzOQlwUrYPQgaUrPZbbaJFc=
+Message-ID: <f4de678d-de34-482e-85c6-0d168af62563@arm.com>
+Date: Thu, 3 Sep 2026 16:15:42 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <DL5D12BKMIWN.QUCX18JF8GDU@linux.spacemit.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/6] mm/vmalloc: constify vm parameter of
+ get_vm_area_page_order()
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Brendan Jackman <brendan.jackman@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@kernel.org>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ loongarch@lists.linux.dev
+References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-3-949b64a9f755@kernel.org>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-3-949b64a9f755@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_034556_537828_2F5BD943 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,91 +93,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
 
-On 11:27 Thu 03 Sep     , Troy Mitchell wrote:
-> On Wed Sep 2, 2026 at 3:03 PM +08, Yixun Lan wrote:
-> > From: Long Wan <long.wan@linux.spacemit.com>
-> >
-> > Instead of setting the TX delay code via hardcoded parameter, configuring
-> > it via device tree property, which make it able to adapt according to
-> > board specific tuning requirement.
-> >
-> > Signed-off-by: Long Wan <long.wan@linux.spacemit.com>
-> > Signed-off-by: Yixun Lan <dlan@kernel.org>
-> > ---
-> >  drivers/mmc/host/sdhci-of-k1.c | 25 +++++++++++++++++++++++--
-> >  1 file changed, 23 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-> > index e6ab40c9a555..6cab06332747 100644
-> > --- a/drivers/mmc/host/sdhci-of-k1.c
-> > +++ b/drivers/mmc/host/sdhci-of-k1.c
-> > @@ -97,6 +97,7 @@ struct spacemit_sdhci_host {
-> >  	struct pinctrl *pinctrl;
-> >  	struct pinctrl_state *pinctrl_default;
-> >  	struct pinctrl_state *pinctrl_uhs;
-> > +	u8 tx_delaycode;
-> >  };
-> >  
-> >  /* All helper functions will update clr/set while preserve rest bits */
-> > @@ -263,6 +264,7 @@ static int spacemit_sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
-> >  	int max_pass_len = 0, max_pass_start = 0;
-> >  	struct mmc_host *mmc = host->mmc;
-> >  	struct mmc_ios ios = mmc->ios;
-> > +	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(sdhci_priv(host));
-> This is only a minor style suggestion, not a requirement. Would it be
-> clearer to make `sdhst` the first local declaration? That would make the
-> declaration block easier to scan.
 
-somehow I hate to bring extra unnecessary changes..
-but if we want to follow reverse christmas tree style and put struct declaration first,
-then we should also move "int max_pass_len = 0, max_pass_start = 0;" down below
-
-I can adjust this if maintainer/others don't mind..
-
-> >  	u8 final_delay;
-> >  	int ret = 0;
-> >  	int i;
-> > @@ -279,11 +281,11 @@ static int spacemit_sdhci_execute_tuning(struct sdhci_host *host, u32 opcode)
-> >  
-> >  	if (mmc->caps2 & MMC_CAP2_NO_MMC) {
-> >  		spacemit_sdhci_set_tx_dline_reg(host, SPACEMIT_TX_TUNING_DLINE_REG);
-> > -		spacemit_sdhci_set_tx_delay(host, SPACEMIT_TX_TUNING_DELAYCODE);
-> > +		spacemit_sdhci_set_tx_delay(host, sdhst->tx_delaycode);
-> >  		spacemit_sdhci_tx_tuning_prepare(host);
-> >  
-> >  		dev_dbg(mmc_dev(host->mmc), "TX tuning: dline_reg=%d, delaycode=%d\n",
-> > -			SPACEMIT_TX_TUNING_DLINE_REG, SPACEMIT_TX_TUNING_DELAYCODE);
-> > +			SPACEMIT_TX_TUNING_DLINE_REG, sdhst->tx_delaycode);
-> >  	}
-> >  
-> >  	spacemit_sdhci_prepare_tuning(host);
-> > @@ -496,6 +498,23 @@ static inline void spacemit_sdhci_get_pins(struct device *dev,
-> >  		sdhst->pinctrl_default, sdhst->pinctrl_uhs);
-> >  }
-> >  
-> > +static void spacemit_sdhci_get_tuning_params(struct device *dev,
-> > +					     struct sdhci_pltfm_host *pltfm_host)
-> > +{
-> > +	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
-> > +	u32 val;
-> > +
-> > +	sdhst->tx_delaycode = SPACEMIT_TX_TUNING_DELAYCODE;
-> > +
-> > +	/* Override from DT property */
-> > +	if (!device_property_read_u32(dev, "spacemit,tx-delay", &val)) {
-> > +		if (val <= U8_MAX)
-> > +			sdhst->tx_delaycode = val;
-> > +		else
-> > +			dev_warn(dev, "ignoring invalid tx delay: %u\n", val);
-> Should this warning also report the default delay code that will be used
-> instead?
+On 03/09/26 2:58 pm, Mike Rapoport (Microsoft) wrote:
+> get_vm_area_page_order() and vm_area_page_order() do not need to modify
+> struct vm_struct passed to them.
 > 
-yes, can improve a bit
+> Constify the parameter.
+> 
+> Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
 
--- 
-Yixun Lan (dlan)
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+
+
+>  mm/vmalloc.c | 4 ++--
+>  mm/vmalloc.h | 2 +-
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 22aa554d123f5..5506b180f5c27 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -3130,7 +3130,7 @@ EXPORT_SYMBOL(vm_map_ram);
+>  
+>  static struct vm_struct *vmlist __initdata;
+>  
+> -static inline unsigned int vm_area_page_order(struct vm_struct *vm)
+> +static inline unsigned int vm_area_page_order(const struct vm_struct *vm)
+>  {
+>  #ifdef CONFIG_HAVE_ARCH_HUGE_VMALLOC
+>  	return vm->page_order;
+> @@ -3139,7 +3139,7 @@ static inline unsigned int vm_area_page_order(struct vm_struct *vm)
+>  #endif
+>  }
+>  
+> -unsigned int get_vm_area_page_order(struct vm_struct *vm)
+> +unsigned int get_vm_area_page_order(const struct vm_struct *vm)
+>  {
+>  	return vm_area_page_order(vm);
+>  }
+> diff --git a/mm/vmalloc.h b/mm/vmalloc.h
+> index 8866ddcff6681..211869f365095 100644
+> --- a/mm/vmalloc.h
+> +++ b/mm/vmalloc.h
+> @@ -12,7 +12,7 @@ void __init vmalloc_init(void);
+>  int __must_check vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		pgprot_t prot, struct page **pages,
+>  		unsigned int page_shift, gfp_t gfp_mask);
+> -unsigned int get_vm_area_page_order(struct vm_struct *vm);
+> +unsigned int get_vm_area_page_order(const struct vm_struct *vm);
+>  #else
+>  static inline void vmalloc_init(void) {}
+>  
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
