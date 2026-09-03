@@ -4,69 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7BDAC61DD3
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 08:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA2EC61DD3
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 09:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lbB9NqdTzO2aHBbH6yqSeJIOQYt04aDF+OFmR9jk+QM=; b=XkVMUbyAKi4hN2
-	RT+keBJuHg2ew98UH5GlyXcR2EA7HZUzukogvNnByTLv0SMg6mpK5w2kI66AcvJpy8Vvthfx8e0jK
-	iKHc2005ZIaF6+AHstgBQ9aQ0ftbjuHnrPM3EyJDcpEEZW1JDaqMG4gAfeFjdPtGPul6rGRj5Rdq7
-	Xp0NOk4bWr0jEuUUTFmwp8CxFtaY3Lq0PwvW119Sjp1dNfu/eZdkFtClcpEmvH+ixjR4x1mX9Cuin
-	0zLKZSh4YzH0rtw4x5VrObpXzOuhXPC1wC52wS3QX15YT7M+tN8E97T+z95LCYHwno2bMO6Zud0zV
-	DceqLMEzem/s9GIxwnVQ==;
+	List-Owner; bh=ZWr1ZqyweYVVfyOJCcrzsOfGszrG1Nm+joUdg1yvOAI=; b=SggiLbJmPSxrzW
+	mxhlIl3bA+wtT5R5phI4qzlDYk5gs5NDuCCRItN3lB/xTk+xLageOKyo68+bD91H5oPDUeHOeD4ur
+	L0Rg010XSTvtVQvz9DAZpzn3yyzSt/auNPQJUv4xUECd6HX5BNe6axUcSaDUVMcFoU9mgzTQlPK8h
+	urVOjAaMHeXEPiRrdHxGeec6MBn6kyIGRPJGgp68leewzWvaJ1ekPk1rHDm2Of2NRmB5dSPofgYfO
+	aMdP98lCHZX7Fc+0nlghYr0QZE8R73hkv0z1Wi00i6weO28IKgP7s6LMXScF6+l0AkpmsNJug+liX
+	MdNK19/RWNPO+sat3l/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23DO-0000000GrIG-27uI;
-	Thu, 03 Sep 2026 08:54:34 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1x23gU-0000000Gvss-3GR7;
+	Thu, 03 Sep 2026 09:24:38 +0000
+Received: from mail-bjschn02on2107.outbound.protection.partner.outlook.cn ([139.219.17.107] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23DK-0000000GrHQ-2yTe;
-	Thu, 03 Sep 2026 08:54:33 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260903085426euoutp0126e2eeae739fc11060973a0b7ba3555e~Rw6sV3hs02164721647euoutp017;
-	Thu,  3 Sep 2026 08:54:26 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260903085426euoutp0126e2eeae739fc11060973a0b7ba3555e~Rw6sV3hs02164721647euoutp017
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788425666;
-	bh=LOkYxz3Oezfh1yuw0xzCd8pYE55TvVzXagNAQsIRoy0=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=MhKqhME4b5F32bicau4K2jzSEq3wIsEIb5MwjlwFt3U8gckjylOcOhsyGgtydmFMn
-	 7hKX6KuKGngVtIGY6WXos3x5vtepLkZ+Z5fK7JQEblrXSVYB+mE5Rp2qQF0SCP9BMn
-	 rvX+W9Dv3cPgLWA2YwkMBcJCeOAZ3E1uT5NkqwEk=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260903085426eucas1p1713eec26146a98505e28a101e05d802a~Rw6sH43dC2977729777eucas1p1q;
-	Thu,  3 Sep 2026 08:54:26 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260903085424eusmtip2c180ef4b2dc77c593da322a763d8ace6~Rw6qbbnE42884428844eusmtip28;
-	Thu,  3 Sep 2026 08:54:24 +0000 (GMT)
-Message-ID: <0a2524af-b6fa-4570-b959-b4bdabee5ad7@samsung.com>
-Date: Thu, 3 Sep 2026 10:54:24 +0200
+	id 1x23gR-0000000Gvri-3uTy
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Sep 2026 09:24:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=fVWGM01EJ0fvvRJXQAFCa8iB9gDi9iwpT1LVjbot8f5oGa64Ugr+5XNJQIs58003mFoGlMElpd0YmQpLVDS70w70TS3rFjIuejh/WNLH4ziJwTU9N4NzgD/r+/IaRTjVpL9TCnzYjPYb5ZXkFLxcJj5AdityPBKnic6SRSsMhTjzvt6yEM4U8UG9ZdZyfhyRuYC/z5qRiztsnkglrFmKTOtyt94BHRAGwj3l00SvH8/T07SwWjXlTK+rwi5HNU8o0TxfIet3Cxg4OJW6FjB1Pk0weHUlfNQMNRVSsrh3nfTmHTY+K9gscvKrmU+VDzdeiz+eo4FNL3K8Bu8cCJ0V/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w+qoQIZIyGZLEKbZaeCztvK/3VrELEMlKlZ6iktumko=;
+ b=lomRyr/7NmJNK5oCHjmysXgNy/iJNBxVT784FrSlZd4yandra/RddNVZ9pV/QxGK7/sCNdLONwGVgnX1XAKkbjpEUzv4NkAkN7YLoZYmAQA4r87Q8DBzJ/cLpZ3mEZnGopLKvR4Tt3VaIPp1smJulxInXayO4u2WPkQ45gHMMFDRqFxEYgE2KOrsV0CZfT11Ea3CvKA0tLHbh7ZtgVvmrn0KtM/RHNdn6FTw+9OvRyMNXn/GX1G3hwhnmQedcUMsO1pfOQ8pGs/XZEXJD2sEFl68W3MaWXn18xra6uUrXYjPUL6C7PIIL8gH+4QdtBDTxY+hcca9NqvIVFL5Pw07Rw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:1b::23) by BJXPR01MB0680.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:1b::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Thu, 3 Sep
+ 2026 09:24:19 +0000
+Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e644:7bf5:5a3c:e548]) by
+ BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn ([fe80::e644:7bf5:5a3c:e548%3])
+ with mapi id 15.21.0315.011; Thu, 3 Sep 2026 09:24:19 +0000
+From: Joshua Yeong <joshua.yeong@starfivetech.com>
+To: rahul@summations.net,
+	anup@brainfault.org,
+	lftan.linux@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ulfh@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	joshua.yeong@starfivetech.com,
+	linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/3] dt-bindings: power: Add RPMI device power service
+Date: Thu,  3 Sep 2026 17:23:45 +0800
+Message-ID: <20260903092347.620060-2-joshua.yeong@starfivetech.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260903092347.620060-1-joshua.yeong@starfivetech.com>
+References: <20260903092347.620060-1-joshua.yeong@starfivetech.com>
+X-ClientProxiedBy: ZQ0PR01CA0021.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:2::14) To BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:1b::23)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/15] phy: rockchip: inno-hdmi: Use the common
- Innosilicon PHY helpers
-To: Jonas Karlman <jonas@kwiboo.se>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <cddc47a2-81de-4978-9009-bdefeda2d3b5@kwiboo.se>
-X-CMS-MailID: 20260903085426eucas1p1713eec26146a98505e28a101e05d802a
-X-Msg-Generator: CA
-X-RootMTR: 20260828134835eucas1p27736632121c17e11f554e295994a7d8d
-X-EPHeader: CA
-X-CMS-RootMailID: 20260828134835eucas1p27736632121c17e11f554e295994a7d8d
-References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-	<CGME20260828134835eucas1p27736632121c17e11f554e295994a7d8d@eucas1p2.samsung.com>
-	<20260828-jh7110-clean-send-v2-12-331680c8b9d1@samsung.com>
-	<cddc47a2-81de-4978-9009-bdefeda2d3b5@kwiboo.se>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BJXPR01MB0838:EE_|BJXPR01MB0680:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7549e53e-8777-453a-19b8-08df099d21e6
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|7416014|1800799024|376014|23010399003|3023799007|921020|56012099006|6133799003|22082099003|13003099007|38350700014|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: tY7w54jMBELqW6gJTCeQM3iv3tyWcG19W+eG7v4FeOtcT3QqMnR2ehaJxlLd2Jny12E5ftrv2+Kuf1Er5l4lcSUp4eBwQXCY/Otpna8qlquBC0JA3NRIw79HKxqVUl0fy6k+GGmAcy9h/9vNHYcCaetrRLKHY88nGd1mxbBfSj6PEwxI7lC7aQjgenPr16UrDajmKWIsf9tyQf5HG73+oEFc34hocS7Om7Izf/LEIom/kMasRyliB/HBzI0u3ha6AoSPvH9pa9RQgdhp+x2MEd2ZCZcp9aUNr4V0h49BS6bSLyhtLswgobCzjv/ZJ5Z7uPyHtIOu9nuCG8cwww1u/EwrL2HOtweTHhZ0aHDX7GIBuj2hF+smPcjr401MtzjzYQlmjx1dB2DAXRaPW4ohTECGHdkmoQWDAc48A6XyCMwXIzF4akcl6iiZak4MBkDPGKiWQGWGhXCHcG77qZ2FUONow2oQ9AUiLuxtjAEzsu6q7Mh7PQDkjI9LY1xNjNyWfXv8J+UvkbHtqH1677BER+E6SMYwbeg74oxKrVsrW2QyqQ2g0dnABzBmjZgtE6UjWc4jNeJ8th0g19wKymkbZA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(7416014)(1800799024)(376014)(23010399003)(3023799007)(921020)(56012099006)(6133799003)(22082099003)(13003099007)(38350700014)(10067099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jTeZsg4BAtQvJnA0/aE7aoji57yFP/F1XRPKJv3vI/Au0Q+sQX0wYNjED5da?=
+ =?us-ascii?Q?/D44jflzBHbWmxaBA4RtzDR8kVqYloBKWNKFP6Zco6sOTiimL7vFh0zLfjzh?=
+ =?us-ascii?Q?kEUJpN+y7TGNm8cjMa9djoW8N7bWIwpbrruCC5c/hQ0kcnmNSqzPyJ2ox4dS?=
+ =?us-ascii?Q?fC0NUIc+yJNVUqUcJFiLs4McXGQiAkODlSvRVfa7CSVHxvXZF5L7KGzlTvMu?=
+ =?us-ascii?Q?P7i2eEwMwiEo8KrEuQtJAlUOU0S5QNw8rVhEUTJzXkTRXMdJhTUqC25RUxHq?=
+ =?us-ascii?Q?URifiTdRVvNniUGZCtDCT3Sv/LGMopnIkOBwDAN3EEHKPaH9skC7KJ5OKJEk?=
+ =?us-ascii?Q?AAoxnjcaSWLIzqWncHD8lIBnxN42gWMhifvgOPIftH8rN46WW9uellKYFNdL?=
+ =?us-ascii?Q?R7PXby3vBOw/lWJjSycPbemQnHDrN6ISjMA8lLEwF8jXXnmC+J8aL38DML+v?=
+ =?us-ascii?Q?a2iQ+ioHRPxTLMA2oYdv2jYflDMpeBUVwMYWlhVu+Htf9ADdVQj5CHVq66Qy?=
+ =?us-ascii?Q?ufWRvxizzYVnmWiwYnU9/CTCKd6vI7OdtFbUTtIkLe2/Q1KJBv/n9G3S0pD1?=
+ =?us-ascii?Q?PRCFlGCZR4RIC6WV1vl0f1SCPUrgLRRM21LxmKO0F++v0cRPk3rEtWVvyi5L?=
+ =?us-ascii?Q?NHvnOLskDDkwSDQtiDkc5Dd1s7zya07uJ4/ugUG539vGNzvXU8O1QBRGnoax?=
+ =?us-ascii?Q?7caFCq5ZFaLTp6haLsZpYiiN4OJyZykgZpQs+S4lZcT1nvC49Meqr8oxPkYn?=
+ =?us-ascii?Q?vmZMQKSA1wVPMoJFdp6sTrvGJEiWFQ3jgFuTdchrea3OK1B0Eqa5jy4g3X66?=
+ =?us-ascii?Q?pI4RMPoVKvZg29ivVOh9kjDNxFGLvDubQbWXK3zJ0tFN/mUWu7vy+iG62Eoe?=
+ =?us-ascii?Q?Cd05rNMQpoau0vPYpGMP17TSxvU12SMfu+6Vc+KKohhyL7oCMhsx61YJvohS?=
+ =?us-ascii?Q?1fLJIwX3tIj+LgQW1iMNOmrOXLNIXrk9rwmSGJNEfzls/5tDqQ/6o7y3Smdg?=
+ =?us-ascii?Q?jNeqW5xI+DuuSLGIBWWH76FiV63o0jMLxS7/7cEUoQrRQZuEDR/gj8FetJBy?=
+ =?us-ascii?Q?625ej+nHM3HixK4jYW+j24frnEwGX2uyUGT33DlMFFXdyUCUxtOjkiiyCS5q?=
+ =?us-ascii?Q?8I1oKUYE3N2qbEJtI8tvfa3ZFQG8aAVWpvKT3voXu90I94Rb57PCzm/ePXY/?=
+ =?us-ascii?Q?K5LA3zHaAr214/paumbqZwde74M57U4Mhl6ZRuXtQNuwquA9S2HP6Nje32Vk?=
+ =?us-ascii?Q?E2G5P+kMJ2Evdwd3XMRBOfLhcCCyoi6sqxoRZ+RLI/5IHhe2ksGOcr3HhwXU?=
+ =?us-ascii?Q?FO4hB+OY+VdarmJn6JuOQtqd6xswPr90HB0rzM4oIujxHydnMub8n8uwFxp1?=
+ =?us-ascii?Q?u454bbMpiGCCgeBNZzKCSVUXzjKJyykAjDZUZN7TH8GxYyb+Vc20oeLOV149?=
+ =?us-ascii?Q?b1iOKS8gtoQprms4nQptcSeVWsUl/gq7iIiVDEW6q3+bfpQ6CiPmr0WWHL3g?=
+ =?us-ascii?Q?lfp4XMsjqFC2rrhM3WaPpp25edcESq8Fl/z6vfY+xIaXEs4l4s37mjyDIxmt?=
+ =?us-ascii?Q?ReAB4Bkxw5S5TTO7QYstIKde4vGH1o+gZHvFwF6qujvkOTiws8YlU7YU+1Ru?=
+ =?us-ascii?Q?LqUa8T35lbmX7PhgScdSL88OlVJhHmAi8pbA4D6Rb14U0xemlncqNVjR4K4R?=
+ =?us-ascii?Q?lt5ZsAV5M2oPqwzIvokacVQcR4uWdx8vGNuQH3dtzhU5ZRUuQ7w3cleDEv0u?=
+ =?us-ascii?Q?OAxThs8wZ6TWN3Id81PsyEhtwYpLGBU=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7549e53e-8777-453a-19b8-08df099d21e6
+X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 09:24:19.5803
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UJrizHD3KQJrmwOPDATjq/ddlulJ/4FlAkVmCgFRIZyc/373x1iJ7GbCvRxH6yAP3pnGwY1BdVz/5Y5rd4BNZtj5rJSbWjkJ7KBqEhs1r5c=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0680
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_015431_046862_5692A115 
-X-CRM114-Status: GOOD (  32.04  )
+X-CRM114-CacheID: sfid-20260903_022435_972664_AA638E84 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,311 +138,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Heiko Stuebner <heiko@sntech.de>, Michael Turquette <mturquette@baylibre.com>, dri-devel@lists.freedesktop.org, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, linux-clk@vger.kernel.org, Emil Renner Berthing <kernel@esmil.dk>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Dominique Belhachemi <db@domibel.de>, Robert Foss <rfoss@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Lee Jones <lee@kernel.org>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Hal Feng <hal.feng@starfivetech.com>, Graham Markall <hello@big-grey.co.uk>, linux-rockchip@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, mfd@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Maud Spierings <maudspierings@gocontroll.com>, Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Zimmermann <tzimmermann@suse.de>, Andy Yan <andy.yan@rock-chips.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add device tree bindings for the RISC-V Platform Management Interface
+(RPMI) device power service group, both for the supervisor-facing power
+domain controller and for the SBI MPXY channel which the SBI
+implementation uses to expose the service group.
 
+Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
+---
+ .../power/riscv,rpmi-device-power.yaml        | 65 +++++++++++++++++++
+ .../power/riscv,rpmi-mpxy-device-power.yaml   | 65 +++++++++++++++++++
+ 2 files changed, 130 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml
+ create mode 100644 Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
 
-On 9/1/26 20:14, Jonas Karlman wrote:
-> Hi Michal,
-> 
-> On 8/28/2026 3:47 PM, Michal Wilczynski wrote:
->> The RK3328 pre-PLL programming, its table lookup and its recalc_rate and
->> determine_rate implementations are the generic Innosilicon ones, so drop
->> the local copies and use the shared helpers instead.
-> 
-> RK3528 and RK3538/RK3539 also seems to use the generic Innosilicon ones,
-> so we should hopefully also be able to use the helpers for those SoCs.
-
-Good to know, I've left them alone for now since I don't have the board
-to test it, but it should be fairly easy to convert them as well.
-
-> 
->>
->> The RK3228 pre-PLL sits at different register addresses, so it keeps its
->> own register level code and only shares the table lookup.
->>
->> The register writes, their order and the values written are unchanged.
->> No functional change intended.
->>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> ---
->>  drivers/phy/rockchip/Kconfig                  |   1 +
->>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 127 +++++---------------------
->>  2 files changed, 25 insertions(+), 103 deletions(-)
->>
->> diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
->> index 14698571b607590dc0e7a29f3b39eb9a5d4e3d25..9732c5be87717dc3ddbea1c60080952336a07af9 100644
->> --- a/drivers/phy/rockchip/Kconfig
->> +++ b/drivers/phy/rockchip/Kconfig
->> @@ -34,6 +34,7 @@ config PHY_ROCKCHIP_INNO_HDMI
->>  	depends on COMMON_CLK
->>  	depends on HAS_IOMEM
->>  	select GENERIC_PHY
->> +	select PHY_INNO_HDMI
->>  	help
->>  	  Enable this to support the Rockchip Innosilicon HDMI PHY.
->>  
->> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
->> index 1483907413faa5ce1dc8614db05e6e929410404d..fae766607b0ea120b3adb36001387062f39a5c00 100644
->> --- a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
->> +++ b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
->> @@ -17,6 +17,7 @@
->>  #include <linux/of.h>
->>  #include <linux/platform_device.h>
->>  #include <linux/regmap.h>
->> +#include <linux/phy/inno-hdmi-phy.h>
->>  #include <linux/phy/phy.h>
->>  #include <linux/slab.h>
->>  
->> @@ -240,6 +241,8 @@ struct inno_hdmi_phy {
->>  	const struct inno_hdmi_phy_drv_data *plat_data;
->>  	int chip_version;
->>  
->> +	struct inno_hdmi_phy_pre_pll pre_pll;
->> +
->>  	/* clk provider */
->>  	struct clk_hw hw;
->>  	struct clk *phyclk;
->> @@ -247,21 +250,6 @@ struct inno_hdmi_phy {
->>  	unsigned long tmdsclock;
->>  };
->>  
->> -struct pre_pll_config {
->> -	unsigned long pixclock;
->> -	unsigned long tmdsclock;
->> -	u8 prediv;
->> -	u16 fbdiv;
->> -	u8 tmds_div_a;
->> -	u8 tmds_div_b;
->> -	u8 tmds_div_c;
->> -	u8 pclk_div_a;
->> -	u8 pclk_div_b;
->> -	u8 pclk_div_c;
->> -	u8 pclk_div_d;
->> -	u8 vco_div_5_en;
->> -	u32 fracdiv;
->> -};
->>  
->>  struct post_pll_config {
->>  	unsigned long tmdsclock;
->> @@ -290,7 +278,7 @@ struct inno_hdmi_phy_drv_data {
->>  	const struct phy_config		*phy_cfg_table;
->>  };
->>  
->> -static const struct pre_pll_config pre_pll_cfg_table[] = {
->> +static const struct inno_hdmi_phy_pre_pll_config pre_pll_cfg_table[] = {
->>  	{ 25175000,  25175000,  3,  125, 3, 1, 1,  1, 3, 3,  4, 0, 0xe00000},
->>  	{ 25175000,  31468750,  1,   41, 0, 3, 3,  1, 3, 3,  4, 0, 0xf5554f},
->>  	{ 27000000,  27000000,  1,   36, 0, 3, 3,  1, 2, 3,  4, 0,      0x0},
->> @@ -673,20 +661,12 @@ static const struct phy_ops inno_hdmi_phy_ops = {
->>  };
->>  
->>  static const
->> -struct pre_pll_config *inno_hdmi_phy_get_pre_pll_cfg(struct inno_hdmi_phy *inno,
->> -						     unsigned long rate)
->> +struct inno_hdmi_phy_pre_pll_config *inno_hdmi_phy_get_pre_pll_cfg(struct inno_hdmi_phy *inno,
->> +								   unsigned long rate)
->>  {
->> -	const struct pre_pll_config *cfg = pre_pll_cfg_table;
->>  	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
->>  
->> -	for (; cfg->pixclock != 0; cfg++)
->> -		if (cfg->pixclock == rate && cfg->tmdsclock == tmdsclock)
->> -			break;
->> -
->> -	if (cfg->pixclock == 0)
->> -		return ERR_PTR(-EINVAL);
->> -
->> -	return cfg;
->> +	return inno_hdmi_phy_pre_pll_lookup(&inno->pre_pll, rate, tmdsclock);
-> 
-> Please fully remove the local inno_hdmi_phy_get_pre_pll_cfg() helper and
-> call inno_hdmi_phy_pre_pll_lookup() in its place.
-
-will do in v3
-
-> 
->>  }
->>  
->>  static int inno_hdmi_phy_rk3228_clk_is_prepared(struct clk_hw *hw)
->> @@ -752,7 +732,7 @@ unsigned long inno_hdmi_phy_rk3228_clk_recalc_rate(struct clk_hw *hw,
->>  static int inno_hdmi_phy_rk3228_clk_determine_rate(struct clk_hw *hw,
->>  						   struct clk_rate_request *req)
->>  {
->> -	const struct pre_pll_config *cfg = pre_pll_cfg_table;
->> +	const struct inno_hdmi_phy_pre_pll_config *cfg = pre_pll_cfg_table;
->>  
->>  	req->rate = (req->rate / 1000) * 1000;
->>  
->> @@ -773,7 +753,7 @@ static int inno_hdmi_phy_rk3228_clk_set_rate(struct clk_hw *hw,
->>  					     unsigned long parent_rate)
->>  {
->>  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
->> -	const struct pre_pll_config *cfg;
->> +	const struct inno_hdmi_phy_pre_pll_config *cfg;
->>  	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
->>  	u32 v;
->>  	int ret;
->> @@ -870,39 +850,11 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
->>  						   unsigned long parent_rate)
->>  {
->>  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
->> -	unsigned long frac;
->> -	u8 nd, no_a, no_b, no_d;
->> -	u64 vco;
->> -	u16 nf;
->> -
->> -	nd = inno_read(inno, 0xa1) & RK3328_PRE_PLL_PRE_DIV_MASK;
->> -	nf = ((inno_read(inno, 0xa2) & RK3328_PRE_PLL_FB_DIV_11_8_MASK) << 8);
->> -	nf |= inno_read(inno, 0xa3);
->> -	vco = parent_rate * nf;
->> -
->> -	if (!(inno_read(inno, 0xa2) & RK3328_PRE_PLL_FRAC_DIV_DISABLE)) {
->> -		frac = inno_read(inno, 0xd3) |
->> -		       (inno_read(inno, 0xd2) << 8) |
->> -		       (inno_read(inno, 0xd1) << 16);
->> -		vco += DIV_ROUND_CLOSEST(parent_rate * frac, (1 << 24));
->> -	}
->>  
->> -	if (inno_read(inno, 0xa0) & RK3328_PCLK_VCO_DIV_5_MASK) {
->> -		do_div(vco, nd * 5);
->> -	} else {
->> -		no_a = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_A_MASK;
->> -		no_b = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_B_MASK;
->> -		no_b >>= RK3328_PRE_PLL_PCLK_DIV_B_SHIFT;
->> -		no_b += 2;
->> -		no_d = inno_read(inno, 0xa6) & RK3328_PRE_PLL_PCLK_DIV_D_MASK;
->> -
->> -		do_div(vco, (nd * (no_a == 1 ? no_b : no_a) * no_d * 2));
->> -	}
->> +	inno->pixclock = inno_hdmi_phy_pre_pll_recalc_rate(&inno->pre_pll,
->> +							   parent_rate);
->>  
->> -	inno->pixclock = DIV_ROUND_CLOSEST((unsigned long)vco, 1000) * 1000;
->> -
->> -	dev_dbg(inno->dev, "%s rate %lu vco %llu\n",
->> -		__func__, inno->pixclock, vco);
->> +	dev_dbg(inno->dev, "%s rate %lu\n", __func__, inno->pixclock);
-> 
-> VCO should be between 1.4-3.2 GHz, we now loose this debug information.
-> This is a change that probably should be noted in the commit message.
-
-I think I can restore this debug info in the helper for v3
-
-> 
->>  
->>  	return inno->pixclock;
->>  }
->> @@ -910,20 +862,9 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
->>  static int inno_hdmi_phy_rk3328_clk_determine_rate(struct clk_hw *hw,
->>  						   struct clk_rate_request *req)
->>  {
->> -	const struct pre_pll_config *cfg = pre_pll_cfg_table;
->> -
->> -	req->rate = (req->rate / 1000) * 1000;
->> -
->> -	for (; cfg->pixclock != 0; cfg++)
->> -		if (cfg->pixclock == req->rate)
->> -			break;
->> -
->> -	if (cfg->pixclock == 0)
->> -		return -EINVAL;
->> -
->> -	req->rate = cfg->pixclock;
->> +	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
->>  
->> -	return 0;
->> +	return inno_hdmi_phy_pre_pll_determine_rate(&inno->pre_pll, req);
->>  }
->>  
->>  static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
->> @@ -931,9 +872,8 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
->>  					     unsigned long parent_rate)
->>  {
->>  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
->> -	const struct pre_pll_config *cfg;
->> +	const struct inno_hdmi_phy_pre_pll_config *cfg;
->>  	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
->> -	u32 val;
->>  	int ret;
->>  
->>  	dev_dbg(inno->dev, "%s rate %lu tmdsclk %lu\n",
->> @@ -946,35 +886,11 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
->>  	if (IS_ERR(cfg))
->>  		return PTR_ERR(cfg);
->>  
->> -	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN,
->> -			 RK3328_PRE_PLL_POWER_DOWN);
->> -
->> -	/* Configure pre-pll */
->> -	inno_update_bits(inno, 0xa0, RK3328_PCLK_VCO_DIV_5_MASK,
->> -			 RK3328_PCLK_VCO_DIV_5(cfg->vco_div_5_en));
->> -	inno_write(inno, 0xa1, RK3328_PRE_PLL_PRE_DIV(cfg->prediv));
->> -
->> -	val = RK3328_SPREAD_SPECTRUM_MOD_DISABLE;
->> -	if (!cfg->fracdiv)
->> -		val |= RK3328_PRE_PLL_FRAC_DIV_DISABLE;
->> -	inno_write(inno, 0xa2, RK3328_PRE_PLL_FB_DIV_11_8(cfg->fbdiv) | val);
->> -	inno_write(inno, 0xa3, RK3328_PRE_PLL_FB_DIV_7_0(cfg->fbdiv));
->> -	inno_write(inno, 0xa5, RK3328_PRE_PLL_PCLK_DIV_A(cfg->pclk_div_a) |
->> -		   RK3328_PRE_PLL_PCLK_DIV_B(cfg->pclk_div_b));
->> -	inno_write(inno, 0xa6, RK3328_PRE_PLL_PCLK_DIV_C(cfg->pclk_div_c) |
->> -		   RK3328_PRE_PLL_PCLK_DIV_D(cfg->pclk_div_d));
->> -	inno_write(inno, 0xa4, RK3328_PRE_PLL_TMDSCLK_DIV_C(cfg->tmds_div_c) |
->> -		   RK3328_PRE_PLL_TMDSCLK_DIV_A(cfg->tmds_div_a) |
->> -		   RK3328_PRE_PLL_TMDSCLK_DIV_B(cfg->tmds_div_b));
->> -	inno_write(inno, 0xd3, RK3328_PRE_PLL_FRAC_DIV_7_0(cfg->fracdiv));
->> -	inno_write(inno, 0xd2, RK3328_PRE_PLL_FRAC_DIV_15_8(cfg->fracdiv));
->> -	inno_write(inno, 0xd1, RK3328_PRE_PLL_FRAC_DIV_23_16(cfg->fracdiv));
->> +	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, true);
->> +	inno_hdmi_phy_pre_pll_configure(&inno->pre_pll, cfg);
->> +	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, false);
->>  
->> -	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN, 0);
-> 
-> This should likely also remove all now unused RK3328 pre_pll related
-> macros.
-
-will do for v3.
-
-Thank you for your review, as mentioned before I don't have rockchip
-hardware so a Tested-by tag for after v3 is sent would be very welcome.
-
-> 
-> Regards,
-> Jonas
-> 
->> -
->> -	/* Wait for Pre-PLL lock */
->> -	ret = inno_poll(inno, 0xa9, val, val & RK3328_PRE_PLL_LOCK_STATUS,
->> -			1000, 10000);
->> +	ret = inno_hdmi_phy_pre_pll_wait_locked(&inno->pre_pll, 10000);
->>  	if (ret) {
->>  		dev_err(inno->dev, "Pre-PLL locking failed\n");
->>  		return ret;
->> @@ -1373,6 +1289,11 @@ static int inno_hdmi_phy_probe(struct platform_device *pdev)
->>  	if (IS_ERR(inno->regmap))
->>  		return PTR_ERR(inno->regmap);
->>  
->> +	/* The PHY block starts the register space on these SoCs. */
->> +	inno->pre_pll.regmap = inno->regmap;
->> +	inno->pre_pll.offset = 0;
->> +	inno->pre_pll.table = pre_pll_cfg_table;
->> +
->>  	/* only the newer rk3328 hdmiphy has an interrupt */
->>  	inno->irq = platform_get_irq(pdev, 0);
->>  	if (inno->irq > 0) {
->>
-> 
-> 
-
-Best regards,
+diff --git a/Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml b/Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml
+new file mode 100644
+index 000000000000..5afdc40df7e0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/riscv,rpmi-device-power.yaml
+@@ -0,0 +1,65 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/riscv,rpmi-device-power.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V RPMI device power service group based power domain controller
++
++maintainers:
++  - Joshua Yeong <joshua.yeong@starfivetech.com>
++
++description: |
++  The RISC-V Platform Management Interface (RPMI) [1] defines a
++  messaging protocol which is modular and extensible. The supervisor
++  software can send/receive RPMI messages via SBI MPXY extension [2]
++  or some dedicated supervisor-mode RPMI transport.
++
++  The RPMI specification [1] defines device power service group for
++  accessing and controlling the power state of platform devices managed
++  by a platform microcontroller. The supervisor software can access RPMI
++  device power service group via SBI MPXY channel or some dedicated
++  supervisor-mode RPMI transport.
++
++  ===========================================
++  References
++  ===========================================
++
++  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-rpmi/releases
++
++  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++
++properties:
++  compatible:
++    description:
++      Intended for use by the supervisor software.
++    const: riscv,rpmi-device-power
++
++  mboxes:
++    maxItems: 1
++    description:
++      Mailbox channel of the underlying RPMI transport or SBI message proxy channel.
++
++  "#power-domain-cells":
++    const: 1
++    description:
++      Platform specific DOMAIN_ID as defined by the RISC-V Platform Management
++      Interface (RPMI) specification.
++
++required:
++  - compatible
++  - mboxes
++  - "#power-domain-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    power-controller {
++        compatible = "riscv,rpmi-device-power";
++        mboxes = <&mpxy_mbox 0x1002 0x0>;
++        #power-domain-cells = <1>;
++    };
++...
+diff --git a/Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml b/Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
+new file mode 100644
+index 000000000000..2b7df66ba172
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
+@@ -0,0 +1,65 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/riscv,rpmi-mpxy-device-power.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V RPMI device power service group based message proxy
++
++maintainers:
++  - Joshua Yeong <joshua.yeong@starfivetech.com>
++
++description: |
++  The RISC-V Platform Management Interface (RPMI) [1] defines a
++  messaging protocol which is modular and extensible. The supervisor
++  software can send/receive RPMI messages via SBI MPXY extension [2]
++  or some dedicated supervisor-mode RPMI transport.
++
++  The RPMI specification [1] defines device power service group for
++  accessing and controlling the power state of platform devices managed
++  by a platform microcontroller. The SBI implementation (machine mode
++  firmware or hypervisor) can implement an SBI MPXY channel to allow RPMI
++  device power service group access to the supervisor software.
++
++  ===========================================
++  References
++  ===========================================
++
++  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-rpmi/releases
++
++  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++
++properties:
++  compatible:
++    description:
++      Intended for use by the SBI implementation.
++    const: riscv,rpmi-mpxy-device-power
++
++  mboxes:
++    maxItems: 1
++    description:
++      Mailbox channel of the underlying RPMI transport.
++
++  riscv,sbi-mpxy-channel-id:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The SBI MPXY channel id to be used for providing RPMI access to
++      the supervisor software.
++
++required:
++  - compatible
++  - mboxes
++  - riscv,sbi-mpxy-channel-id
++
++additionalProperties: false
++
++examples:
++  - |
++    device-power-service {
++        compatible = "riscv,rpmi-mpxy-device-power";
++        mboxes = <&rpmi_shmem_mbox 0x9>;
++        riscv,sbi-mpxy-channel-id = <0x1002>;
++    };
++...
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
