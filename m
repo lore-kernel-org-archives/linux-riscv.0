@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C19C624D6
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 01:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B05E8C61DD6
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 01:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCuO2/rR6Q0Mj8hZAPcxm6q0Q3IMvCSWtU6alsgsfdc=; b=1jfY6xK34O9VT37cGcL2IOMbL1
-	kQazul3wABt75dW9YAbHv9y+zDLXUkhLDx3oBrlHCArY74irZVA2ex+4kywZ6d5GVxIpzKc0w9BVR
-	8M/uMii9UCCyiVScCVB4hoxBsY5jJok0YTNLlEAUx0trb9gwm/7dXA8jbvR8R7ox6/p4TlDTBiH6v
-	xlTuH4kXS/TrNrjQiv1pwA4vcz2k3WE2yJ3/o3rKbyxq8EElas3O+Xb71SaRI4kJARSOzgYul6Qoz
-	oiAPgs3zSsX5JM5Dpw+FeyUKhiwD8vHpZ8+Eb5AxnE5Cgemp/HneCik4BlbYEvUlzMINjdChtTySr
-	YOXV9n0w==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:Cc:To:From:Subject:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uZ6kWlj975v+eLuwjUIPqM+kt2wGDJFRCtaSgii6RD8=; b=r7HgShalGcg6pBN0ENW3/QeMmO
+	irF+PPyQdxzZJB6G4ZVg1HquDRtpDvZ0bOvNYWdp6c1lizNpQHRmV6ryiiKZ20Gmg7jBbjfzJ/R4E
+	sftkVYKgXIOow8Gj+h8/25YN5jPljshajaCLMSikK7tAFNjOVVyyc4SzWdRpAO/lZd0h0JpG0wSHw
+	GUzTH8n+t7pS4DBJJbFmv4duwvSp7vr+CpEg7esdMbOtq/FoFX+i+1CYueAMYpW26kG27Yt+qD3xK
+	z4FFbwVrjG7KmfDGKKKGf4odMbvVXLCezfSm2YrgSJ9WznkXnK+sRn/IeTxeR7pDa9O3y84so9jCq
+	V5tExhSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1vq2-0000000G8nC-20gN;
-	Thu, 03 Sep 2026 01:01:58 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1x1vvO-0000000G9EQ-1lna;
+	Thu, 03 Sep 2026 01:07:30 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1vq1-0000000G8my-0Vuh;
-	Thu, 03 Sep 2026 01:01:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=VIRv+z3mPNZFa1bmE43M/kgaKBia3XUx5hcUcZMH5lg=; b=RvHCfdH3QVzTyy081zRM1gAbDO
-	n6QmCbiMyAI9Ifamg9FQdfvtPYDp+0W8GJAfE01p3ocP796sLiU8Wzjpbn8UEJ9RI5eGb3LJJI2QV
-	3yu31P+0GXbPnwR8JyIeyg38K84AcYjpdNy4aACSm20rhVkpjUFccdRToU/lSlZVCpqpW63KyEOlM
-	ePt+k3wEOHP+yrAP91LSnUWZmLbiNeoAg9iyGvJNhH/RHK783KYcZdP2ASBF1m8AflpC3gHAJLiKk
-	xVRwPSKVH5NAU+ga0XfyEeE2NbVwR45IImyjFyC62MCm2bygHfiUWzT4P0mTFn/YBulbsZfm6+Xq7
-	NqE0Nsig==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by casper.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1vpw-00000008KeR-1HTv;
-	Thu, 03 Sep 2026 01:01:55 +0000
-Received: from loongson.cn (unknown [10.20.42.62])
-	by gateway (Coremail) with SMTP id _____8CxQNH3xphq0P8HAA--.22980S3;
-	Thu, 03 Sep 2026 09:01:43 +0800 (CST)
-Received: from [10.20.42.62] (unknown [10.20.42.62])
-	by front1 (Coremail) with SMTP id qMiowJDxRs30xphqzu0ZAA--.42143S2;
-	Thu, 03 Sep 2026 09:01:41 +0800 (CST)
-Subject: Re: [PATCH v2 02/20] KVM: selftests: Use the common minimum GPA for
- page tables on LoongArch
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
- Steffen Eiden <seiden@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>,
- Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>,
- Nicholas Piggin <npiggin@gmail.com>, Ritesh Harjani <ritesh.list@gmail.com>
-References: <20260902164123.2546762-1-seanjc@google.com>
- <20260902164123.2546762-3-seanjc@google.com>
-From: Bibo Mao <maobibo@loongson.cn>
-Message-ID: <170acb36-7542-e6f8-d834-250816ddfbfc@loongson.cn>
-Date: Thu, 3 Sep 2026 09:01:24 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
-MIME-Version: 1.0
-In-Reply-To: <20260902164123.2546762-3-seanjc@google.com>
-Content-Language: en-US
-X-CM-TRANSID: qMiowJDxRs30xphqzu0ZAA--.42143S2
-X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
-X-Coremail-Antispam: 1Uk129KBj93XoW7ZF43uFy8JrWDCF15CFWUJrc_yoW8CrWUpa
-	ykAryY9r4rGr17KFZ7WwnYqFy8Wa97GFWxAr1S9ryDurnrAry2gFWxKasrXFy5Z39Yq34S
-	v3WI93W5Za1kZwbCm3ZEXasCq-sJn29KB7ZKAUJUUUUd529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUPFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	Gr0_Gr1UM2kKe7AKxVWUtVW8ZwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
-	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUtVWr
-	XwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
-	k0xIA0c2IEe2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l
-	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_Jw0_GFylx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
-	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Gr0_Xr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI
-	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUShiSDUUUU
+	id 1x1vvK-0000000G9D1-1ADz
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Sep 2026 01:07:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1788397598;
+	bh=sn4Zqvuy3iv8MXIhtE8ntlyyLJ+J0+s0jH6g+E8SxjY=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=A5k5NRBvPhC3tGJXsyYf7fc8LdYv7Vuxkx/RmhmEDP1YRrBswZjX99/MkSV9suFTc
+	 QdM3Cvr2jl9mqvuSmqB9povPoTwKDjNEdKUqPctGTWLSuGls4LEq5Enpb5xHyN+tQS
+	 NudzFTF8nwnPxqGUIb/8AmVmt3DENtCar8MEF/04=
+X-QQ-mid: zesmtpgz6t1788397590t809805a0
+X-QQ-Originating-IP: VhXi++IEq6mjKwdvVbXNY7Td/lOsJov/j5KV2ygThxU=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 03 Sep 2026 09:06:28 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15480183741827357636
+EX-QQ-RecipientCnt: 16
+Mime-Version: 1.0
+Date: Thu, 03 Sep 2026 09:06:25 +0800
+Message-Id: <DL5A18T0GPB5.32JI7ECB3UCRX@linux.spacemit.com>
+Subject: Re: [BUG] PCI: spacemit-k1: port C probe hard-hangs a CPU with one
+ endpoint on Milk-V Jupiter
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Alex Elder" <elder@riscstar.com>, "Manivannan Sadhasivam"
+ <mani@kernel.org>, <spacemit@lists.linux.dev>, "Bruno Banelli"
+ <bbanelli@gmail.com>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+Cc: <linux-pci@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Yixun
+ Lan" <dlan@kernel.org>, "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ "Krzysztof Wilczynski" <kwilczynski@kernel.org>, "Rob Herring"
+ <robh@kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>, "Danilo
+ Krummrich" <dakr@kernel.org>, "Uwe Kleine-Koenig"
+ <u.kleine-koenig@baylibre.com>, "Javier Martinez Canillas"
+ <javierm@redhat.com>, <linux-kernel@vger.kernel.org>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260825052249.66921-1-bbanelli@gmail.com>
+ <c24pt2ls62rxxg77xjbng7dmiflgdjlqd3mkoxehc2rvjgh7ai@dcxvmau3ykmt>
+ <7a29717b-dc62-4421-b783-7b78e4375268@riscstar.com>
+In-Reply-To: <7a29717b-dc62-4421-b783-7b78e4375268@riscstar.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Nj+N5zFEdFN5ecwz1dKKsurGbo40lil/pAtYzExiD4CbPnsFd6P0Yf3U
+	BmoAOPWMMwfzkRy86Pa9g/Ff+G2KHWmscKrzo9ToPkGk2Scp2MtxPvbJqWARlUQVWWmzOqQ
+	WiX3e/sxkUPtKHWaKCoHgE2sIpi5ikh4JhZu4ITX8+EqqBsZYnEWhVvPfq+dZZC+G5k6ycL
+	a1wW03EPUxUAsD1yL+kBE2NB3v5y2lZi4gY9jfqOasX9TNZZKyLhA0xNAVAFTrSYanCKRgL
+	evxutO3ujhh9KMWuf0m1/0puqSXtOi1vQS3CcVTqCssbSxb4sD3dZZQMDaRkEba13X9wPL9
+	qKVhOrPpDZcxe61I0UvENwWb8OVOAKf1692Rqq0oQER5nIFyfPb22gqPCHf60NOmaZbG+mm
+	KWmplHFmg2kAiZDCyu8byB1rgOrIY2s5HGrj6xf3lscXDR8x2DA+9rLORexHhHK2tlYu0zA
+	uiJR49fU/fxH7zFInMDcilIhsnH9msQppH8npuNe6Lfjq4b1nPRhr2+MDCK3c6STDOFjkzd
+	mFxdWr8DcYX33WUIbR6QkGL6652GyzCS2AdCqdBqTK0VpQZ4mqVIDPZiKFpDVhNpyrb9LBh
+	3IhTa+GoKuuzdvWmf6D89rsZq+mjCoFExBEEMknK0MAF5su53VNopKDnHMvS8XRxl1PQdY0
+	4S6axfg6jst67SUXpCYWtKV4tWWkYfRUKc0vxH3jyALJ3X0mXFXNbniQzW24KZoBIxMrYA4
+	EVdD9TcCM/7wFOARHbcNy9tMR464eiFVnbh3HNGsdRMOGrREmfkWek6RXbgd9cywGQFfoik
+	/Z6oFqGoVRn9cCl1fM/ka1hhuHNJXL2F5NJhmuB8v7OS/47gdbTQTskUKErgoZau0tXjSRY
+	oTMrxIYiepBRHLWENdxk96ipjsBldLzzHswZyAGZo8sFlLnZlI5naZlPXld2dOlkEmsMZJj
+	EXf5Lk8HAGKq3j10PANcYMRoL9LS3NecESVCrVfVA0XzNlvy1wKL7tvsKZo/HohRA/4U24X
+	Sn+MRylOL2dEeKV6tN1Z8rlvmafOq/G2GgPnUsHiHipE/NElgLiWhecHnZRMQzwOxzxefAb
+	i2HQeCGj9PyTBeMf+HjsyBx6O05IdGmiaA/yGBO8s0O
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_020152_974008_C1C60034 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20260902_180727_245162_C30AFB49 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +99,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============3165887725231524269=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDI2LzkvMyDkuIrljYgxMjo0MSwgU2VhbiBDaHJpc3RvcGhlcnNvbiB3cm90ZToKPiBV
-c2UgdGhlIGNvbW1vbiBtaW5pbXVtIEdQQSBmb3IgcGFnZSB0YWJsZXMgKDB4MTgwMDAwKSBvbiBM
-b29uZ0FyY2ggaW5zdGVhZAo+IG9mIExvb25nQXJjaCdzIGN1c3RvbSBtaW5pbXVtIG9mIDB4MjAw
-MDAwLCBzbyB0aGF0IExvb25nQXJjaCBjYW4gdXNlCj4gdm1fYWxsb2NfcGFnZV90YWJsZSgpIGlu
-c3RlYWQgb2Ygb3BlbiBjb2RpbmcgYSByb3VnaCBlcXVpdmFsZW50LiAgVGhlcmUgYXJlCj4gbm8g
-a25vd24gcmVhc29ucyB3aHkgTG9vbmdBcmNoIGNhbid0IHVzZSBhIGxvd2VyLCBsZXNzLWFsaWdu
-ZWQgbWluaW11bS4KPiBUaGUgbW9yZS1hbGlnbmVkIHZhbHVlIHdhcyBvcmlnaW5hbGx5IHNlbGVj
-dGVkIHRvIHN1cHBvcnQgaHVnZSBwYWdlcyBmb3IKPiB0aGUgZ3Vlc3QsIGJ1dCB0aGF0IG9ubHkg
-cmVxdWlyZXMgdGhlIGFkZHJlc3Mgb2YgdGhlIGZpbmFsIGFsbG9jYXRpb24gdG8gYmUKPiBhbGln
-bmVkLCB0aGUgYWRkcmVzc2VzIG9mIHBhZ2UgdGFibGUgcGFnZXMgaXMgaXJyZWxldmFudCBvbiB0
-aGF0IGZyb250Lgo+IAo+IFNpZ25lZC1vZmYtYnk6IFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5q
-Y0Bnb29nbGUuY29tPgo+IC0tLQo+ICAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL2xpYi9s
-b29uZ2FyY2gvcHJvY2Vzc29yLmMgfCAzICstLQo+ICAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0
-aW9uKCspLCAyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3Nl
-bGZ0ZXN0cy9rdm0vbGliL2xvb25nYXJjaC9wcm9jZXNzb3IuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2Vs
-ZnRlc3RzL2t2bS9saWIvbG9vbmdhcmNoL3Byb2Nlc3Nvci5jCj4gaW5kZXggNDdiYmRlM2UyMDVh
-Li4wNTdhNzc3MTM1NDIgMTAwNjQ0Cj4gLS0tIGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3Zt
-L2xpYi9sb29uZ2FyY2gvcHJvY2Vzc29yLmMKPiArKysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0
-cy9rdm0vbGliL2xvb25nYXJjaC9wcm9jZXNzb3IuYwo+IEBAIC05LDcgKzksNiBAQAo+ICAgI2lu
-Y2x1ZGUgInByb2Nlc3Nvci5oIgo+ICAgI2luY2x1ZGUgInVjYWxsX2NvbW1vbi5oIgo+ICAgCj4g
-LSNkZWZpbmUgTE9PTkdBUkNIX1BBR0VfVEFCTEVfUEhZU19NSU4JCTB4MjAwMDAwCj4gICAjZGVm
-aW5lIExPT05HQVJDSF9HVUVTVF9TVEFDS19WQUREUl9NSU4JCTB4MjAwMDAwCj4gICAKPiAgIHN0
-YXRpYyBncGFfdCBpbnZhbGlkX3BndGFibGVbNF07Cj4gQEAgLTU3LDcgKzU2LDcgQEAgdm9pZCB2
-aXJ0X2FyY2hfcGdkX2FsbG9jKHN0cnVjdCBrdm1fdm0gKnZtKQo+ICAgCWNoaWxkID0gdGFibGUg
-PSAwOwo+ICAgCWZvciAoaSA9IDA7IGkgPCB2bS0+bW11LnBndGFibGVfbGV2ZWxzOyBpKyspIHsK
-PiAgIAkJaW52YWxpZF9wZ3RhYmxlW2ldID0gY2hpbGQ7Cj4gLQkJdGFibGUgPSB2bV9waHlfcGFn
-ZV9hbGxvYyh2bSwgTE9PTkdBUkNIX1BBR0VfVEFCTEVfUEhZU19NSU4sCj4gKwkJdGFibGUgPSB2
-bV9waHlfcGFnZV9hbGxvYyh2bSwgS1ZNX0dVRVNUX1BBR0VfVEFCTEVfTUlOX1BBRERSLAo+ICAg
-CQkJCXZtLT5tZW1zbG90c1tNRU1fUkVHSU9OX1BUXSk7Cj4gICAJCVRFU1RfQVNTRVJUKHRhYmxl
-LCAiRmFpbCB0byBhbGxvY2F0ZSBwYWdlIHRhbGUgYXQgbGV2ZWwgJWRcbiIsIGkpOwo+ICAgCQl2
-aXJ0X3NldF9wZ3RhYmxlKHZtLCB0YWJsZSwgY2hpbGQpOwo+IApSZXZpZXdlZC1ieTogQmlibyBN
-YW8gPG1hb2JpYm9AbG9vbmdzb24uY24+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+--===============3165887725231524269==
+Content-Type: multipart/signed;
+ boundary=5aa6fa5638c6e4ef04b289541629de5e53ccc8327148dde49673ae679c24;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+
+--5aa6fa5638c6e4ef04b289541629de5e53ccc8327148dde49673ae679c24
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+On Wed Sep 2, 2026 at 9:56 PM +08, Alex Elder wrote:
+> On 9/2/26 8:42 AM, Manivannan Sadhasivam wrote:
+>> On Tue, Aug 25, 2026 at 07:22:49AM +0200, Bruno Banelli wrote:
+>>> Hi,
+>>>
+>>> On a Milk-V Jupiter, probing the PCIe controller at ca800000 (port C, t=
+he
+>>> card slot) permanently wedges the CPU that runs the probe when one
+>>> particular add-in card is installed.  The CPU stops responding to NMI, =
+and
+>>> because the probe is asynchronous, kernel_init() then blocks forever in
+>>> async_synchronize_full() and the machine never finishes booting.
+>>>
+>>> The same card, in the same slot, on the same board, does *not* hang the
+>>> vendor 6.6 kernel -- it reports "Phy link never came up" and boots norm=
+ally.
+>>> Six other cards do not hang mainline either.  So whatever the electrica=
+l
+>>> cause, this looks like a robustness problem in pcie-spacemit-k1: an end=
+point
+>>> should not be able to hang a host-side DBI register access.
+>>>
+>>>
+>>> HARDWARE
+>>> --------
+>>>    Milk-V Jupiter v1.1, SpacemiT M1 (socinfo: CPU[M1-8571] REV[C] DRO[1=
+30]),
+>>>    16 GiB LPDDR4X.
+>>>    Firmware: stock vendor U-Boot 2022.10 (k1-bl-v2.2.9), unmodified.
+>>>    Port B (ca400000, M.2) has a Samsung PM9B1 NVMe and works throughout=
+.
+>>>    Port C (ca800000) is the card slot -- an x8-length connector, silksc=
+reened
+>>>    PCIE_X2, wired x2.
+>>>
+>>>
+>>> REPRODUCED ON
+>>> -------------
+>>>    v7.1 and v7.2, riscv defconfig (plus PHY_SPACEMIT_K1_USB2, USB_DWC3,
+>>>    SPACEMIT_K1_TSENSOR, IGB, IGC, NVMe/ext4 built in).
+>>>    gcc 13.3.0 (cross) and gcc 16.2.0 (native, Debian sid).
+>>>    Identical failure in all combinations.  Not a regression -- port C h=
+as
+>>>    never worked with this card on mainline.
+>>>
+>>> Command line:
+>>>    console=3DttyS0,115200 earlycon root=3D/dev/nvme0n1p2 rootwait rw
+>>>    swiotlb=3D65536 clk_ignore_unused pd_ignore_unused
+>>>
+>>>
+>>> SYMPTOM
+>>> -------
+>>> Port C prints its address ranges and then never speaks again.  (Log bel=
+ow is
+>>> from a run with port B disabled in DT, so nothing is interleaved.)
+>>>
+>>>    [ 1.290074] spacemit-k1-pcie ca800000.pcie: host bridge /soc/pcie-bu=
+s/pcie@ca800000 ranges:
+>>>    [ 1.297283] spacemit-k1-pcie ca800000.pcie:       IO 0x00b7002000..0=
+x00b7101fff -> 0x0000000000
+>>>    [ 1.312783] spacemit-k1-pcie ca800000.pcie:      MEM 0x00a0000000..0=
+x00afffffff -> 0x00a0000000
+>>>    [ 1.326753] spacemit-k1-pcie ca800000.pcie:      MEM 0x00b0000000..0=
+x00b6ffffff -> 0x00b0000000
+>>>    [22.348490] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
+>>>    [22.351764] rcu:     4-...0: (12 GPs behind) idle=3D051c/1/0x4000000=
+000000000 softirq=3D43/43 fqs=3D1908
+>>>    [22.367040] Sending NMI from CPU 2 to CPUs 4:
+>>>    [32.367049] After 10 seconds, these CPUS still haven't responded to =
+the NMI: 4
+>>>
+>>> The CPU ignoring an NMI for ten seconds is why I read this as an MMIO a=
+ccess
+>>> that never receives a completion rather than a spin or a deadlock.
+>>>
+>>>
+>>> LOCALISATION
+>>> ------------
+>>> I added a dev_info() before each step of k1_pcie_init() (patch at the e=
+nd of
+>>> this mail).  The last marker port C prints is the one immediately befor=
+e the
+>>> first DBI access:
+>>>
+>>>    [1.347050] spacemit-k1-pcie ca800000.pcie: K1DBG 1 toggle_soft_reset
+>>>    [1.362635] spacemit-k1-pcie ca800000.pcie: K1DBG 2 enable_resources
+>>>    [1.370918] spacemit-k1-pcie ca800000.pcie: K1DBG 3 first DBI write (=
+vendor/device ID)
+>>>    <nothing further>
+>>=20
+>> Sounds weird that an endpoint is causing DBI write hang.
+>>=20
+>> Can Alex or someone from Spacemit look into this issue?
+>
+> I think Yixun Lan or maybe Troy Mitchell should investigate.
+>
+> I have not done anything on the Milk-V Jupiter and have no
+> access to any board of that type.
+This seems to be device-specific. Some of our team members are already look=
+ing into it.
+
+--=20
+Troy Mitchell
+
+
+--5aa6fa5638c6e4ef04b289541629de5e53ccc8327148dde49673ae679c24
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCapjIEQ0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQv/3sA/3cB2V5ShRbpFKlrOGG/ak5AYZnPZSI4Cj9mD/S8
+v+bfAP9TR48gN2ZQ6yxgPavM/EQxD9OF1y6BdJfsu6pnp6BtAA==
+=unDq
+-----END PGP SIGNATURE-----
+
+--5aa6fa5638c6e4ef04b289541629de5e53ccc8327148dde49673ae679c24--
+
+
+--===============3165887725231524269==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3165887725231524269==--
+
