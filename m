@@ -4,114 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C99C61DD3
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 06:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B8BC624A4
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 07:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ogO8bUAnBweYXa784J7nNwiu/U+yP78T3osabe4TEGM=; b=0brUe+kRkvvPA9
-	IhuesKxlqhZ9c3qQHohc1qgvCY420YlgSuKwISly9R5kHA5XjyJV/le3jCqFjhCSKrBCLINjrD099
-	MNC2abljVf9HN7oYMIEmUZ5aFLNSsBaRmE7KULrzIcsqE2rM++XnIvvhzUeWsyFfI4zC+G3BkHl0o
-	W4gt0BPnDke/DI7FkmQ9bkV6itQVQDQTkA0ugmvlb+57I/SZxANmpqWdV5vtnlqRyTymuExh/4Cdy
-	EuvzRvMktnmcBqkspVMx3mylxjBpc5zhwJ8++RVfbVRd8Kz9BRR5WeENm/fRa2WSdz8z5lvYLIDE/
-	AJE3vMa2D/fpMoGe/ZRw==;
+	List-Owner; bh=HjV2vZmcStCBKyy/ziUAWYpZj89KjxrXHT/hFS6u+Qs=; b=k/YBJiFt6YvHdd
+	EXHCm4LhyH2cbXGCc32FGmg+mzEUWaO4LmCopYVmbfUITnT6iJclaSYszc+nUw/nMy2XpEpe9ubBG
+	UIx14a/pvYYfcHcPpmBTAzCzx2xMmJIA803943wTBqad7ZFuklIcKA7nxAPcGJvyL2+A4m13ljnNu
+	pCOn5Bu3j5LfWaab52LML+yMIZ2sTvec6yBsaDedmirJdaacqe2F0uaZkRqllThju/q1v4eHiu/mc
+	k2O31BWpSn/FTmZRuoBzXBz2yfQE/BvNLZOIqz60ido9nJdnEyQcms+UG/XG9du1uL0prEdy4hwML
+	dl7rB+IcBOM05ACjBl0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x216t-0000000GV7n-04IK;
-	Thu, 03 Sep 2026 06:39:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x21WM-0000000GWZk-32s7;
+	Thu, 03 Sep 2026 07:06:02 +0000
+Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x216s-0000000GV7g-1yY6
+	id 1x21WI-0000000GWXi-1EvC
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Sep 2026 06:39:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E46D6600D1;
-	Thu,  3 Sep 2026 06:39:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EE821F00A3A;
-	Thu,  3 Sep 2026 06:39:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788417581;
-	bh=VPF7B3LTWDh/DW091/duRLfEkzauv9zKTVocOUIbt2k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ad8Va8n198IM2BqiMBl+Tai2HZgE8nxKlvdU1Z5QL4kw+gclDPq8ZlV2dJqBTBwbW
-	 3f2RZTQR8+W0h0x17wktNc+rIeU6r65KreIQp/wzjJVRwHeHaiZgsJTaB9uc6qbCe0
-	 g6fPjGM6//2biDjUHi+s99Fq/QPu1l5WE4fiGXeLWvlcQEAYdhF1Mu1aqBg96oomyM
-	 xGoLpaZtZyqLnVO5bbNDIxFK5OzGcqcl1xg69uNwbS7epKB/u3hAywhHlzYpW4fV2O
-	 O/odLtTKigUjPLXBmmoqjAJJkOYzkNnCRRwRYKnyHe/LVUfdC/cpK8k0a12PiGz0yI
-	 TdgClfCBimyxg==
-Message-ID: <85401168-1372-4904-b3af-cfcb837947db@kernel.org>
-Date: Thu, 3 Sep 2026 08:39:33 +0200
+	Thu, 03 Sep 2026 07:06:01 +0000
+Received: by mail-pj2-x0b.google.com with SMTP id 98e67ed59e1d1-38de693676dso1208043a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Sep 2026 00:05:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788419157; x=1789023957; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bPr0Tiyi9ufsaoMkecG9LBvmdZ8IsvdK2aRx8FqQP84=;
+        b=jw+LEBMFRjL/MLyA3D0nGu7jJYdXg0/4gf9Lhibb1ru0M6BEP0MPXxztW8rSDhhCNl
+         coH1+zn9JPhVtjq9PF/QcCXtFnDD5AOL808HldVhXrPJK7Zo/YnjxL9YRUznWy4XQVIb
+         2F5ac0vmcIrXx2kLuNBoU+IrJvrirIA8JYAMhLUY1dtUdc3DAcKRN/hjWVbS0PoBb8fY
+         ai8UZcbJzh15xATP8wWplKWyIMlnXjkOC2PshyZjPYEMUpjXnzIDgtUDdnv7aR7DBSYU
+         79Ou2T6fU0QmMCdPfRSLDWM22pg795bkNlw/KenfNYggorO6w82XEwNHJCk1KC66mHS5
+         vLgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788419157; x=1789023957;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bPr0Tiyi9ufsaoMkecG9LBvmdZ8IsvdK2aRx8FqQP84=;
+        b=siwcD6bywSljMvdADCakS5gP0iIStxDEnD2Kdo0bGjoDJLbY7FadPZNPX5Sk1tc3qY
+         fQ0ScETPssxuS+6va0y8Mj9K4YXkjqAUo4pBYqM6n/HNNgw7vXWejZJzl/HuLrfe9tMX
+         5vFeT2yEI8asoBPQfgv00nDG5ul4d0ZpVqlYWdY35PMI8ojdU6RVSfBVyajSAzwUccfc
+         KqS6rsMphQRd/a0L0v3Re6O/rXlqDEoU1CKIzffkxD/IyQPd+Evm/ltbYCuAwvrj7D+O
+         qOGQYe9BfuAn1jzvvgJaoq709nBIOiUVVPJ6d+hu9qClxFPRP5mJhD6jKwBtjunAjiSI
+         1nUQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx4Il+RF7CpUeTUWlJikOIzI6js6QY/Y4jzDpKv0RywjjVQgbppUag9CXq+hLU3omsetHjmk2vUwOHKQg==@lists.infradead.org
+X-Gm-Message-State: AFuF++mYoubdhLgRwMwmbWJUJJcrLWGAi7e7MD5vYDS5Cnqy6cnVazoB
+	C0c8V6TXUyfEfWF9gvywJ03APzmcEDxEjEnQAwdqDQyIicbxYeIxULZP
+X-Gm-Gg: AYBFou2H2dyw28zeogCjc65GssAd7hdIuOYftwKX6cGj4f9c0IkVptugkvZu2s2Pl6j
+	cgqOeIfAWyxJWaxPLbvuguOky5gRh12prEjJ/eqf/w6Gi94Lnkw7Q30QN+eD4cTXAIoa2v7bMH/
+	zFTHW9Al3lt/aLDw5W76/z40prUEEMmjVhLG3Yo5ODsNhRGkCl+wa5NVWhOjWCCFFt7w9x5cp4Q
+	QGnUWfCgDAp9gMlv0VwR2MWg2h6CiDhbJCTuZuFLNd434OPAwFQ62fhItMDICaJLK1gHtsltIXm
+	KfYugIxNFWEy08hWICGP2Vx2SqEzyxwWK6fRwqC2WfCSYzU0iO4M1fXkUvXeOzUqnlZsRsUH0h4
+	O3SjQ45puUGiuNQc8L5RynPgFl9Wopj1sORn5F8+mfpfUFLMrnon1bSyiWuet30F0C24UDwvZ6e
+	+4MZLl77h2UzWJaHzeDA8B3HJTQOjEeaQHXXGWVgRZoBLMOt0xrP5KZIj3oTRM3bxOwEssGRPKg
+	ukvYpg=
+X-Received: by 2002:a17:90b:2b46:b0:39a:e002:f192 with SMTP id 98e67ed59e1d1-39aee26d6c3mr16239819a91.22.1788419157335;
+        Thu, 03 Sep 2026 00:05:57 -0700 (PDT)
+Received: from [10.125.112.20] ([122.11.210.25])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b07b197a9sm3382844a91.0.2026.09.03.00.05.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 03 Sep 2026 00:05:56 -0700 (PDT)
+Message-ID: <6aef2f48-1cc5-408d-a5a2-2b4b4d45ad7b@gmail.com>
+Date: Thu, 3 Sep 2026 15:05:44 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: power: Add RPMI device power service
- bindings
-To: Joshua Yeong <joshua.yeong@starfivetech.com>
-Cc: "rahul@summations.net" <rahul@summations.net>,
- "anup@brainfault.org" <anup@brainfault.org>,
- "lftan.linux@gmail.com" <lftan.linux@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "ulfh@kernel.org" <ulfh@kernel.org>, "pjw@kernel.org" <pjw@kernel.org>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "alex@ghiti.fr" <alex@ghiti.fr>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260830152812.312663-1-joshua.yeong@starfivetech.com>
- <20260830152812.312663-2-joshua.yeong@starfivetech.com>
- <20260831-fluorescent-garrulous-kraken-74eecd@quoll>
- <BJXPR01MB08380868E1DE7029DC52AB06F9B72@BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v6 00/10] kdump: reduce vmcore size and capture time
+To: Baoquan He <baoquan.he@linux.dev>
+Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ robh@kernel.org, saravanak@kernel.org, akpm@linux-foundation.org,
+ rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+ m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
+ alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev, robin.murphy@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
+ iommu@lists.linux.dev
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+ <apfkDlcMYrgiuGYA@fedora>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <BJXPR01MB08380868E1DE7029DC52AB06F9B72@BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn>
+From: Wandun <chenwandun1@gmail.com>
+In-Reply-To: <apfkDlcMYrgiuGYA@fedora>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_000558_370649_EB7168FA 
+X-CRM114-Status: GOOD (  28.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,139 +113,167 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/09/2026 13:30, Joshua Yeong wrote:
-> On Mon, Aug 31, 2026 at 11:38:07AM +0200, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->> On Sun, Aug 30, 2026 at 11:28:11PM +0800, Joshua Yeong wrote:
->>> diff --git a/Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml b/Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
->>> new file mode 100644
->>> index 000000000000..2b7df66ba172
+
+
+On 9/2/26 16:53, Baoquan He wrote:
+> Hi Wandun,
+> 
+> On 09/02/26 at 03:31pm, Wandun Chen wrote:
+>> From: Wandun Chen <chenwandun@lixiang.com>
 >>
->> A nit, subject: drop second/last, redundant "bindings". The
->> "dt-bindings" prefix is already stating that these are bindings.
->> See also:
->> https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
+>> On SoCs that carve out large firmware-owned reserved memory (GPU,
+>> camera ISP, ...), kdump currently dumps those carveouts as part of
+>> system RAM even though their contents are firmware state that is not
+>> useful for kernel crash analysis.
 >>
-> 
-> Ok, I will drop the redundant "bindings" word in v3.
-> 
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/power/riscv,rpmi-mpxy-device-power.yaml
->>> @@ -0,0 +1,65 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/power/riscv,rpmi-mpxy-device-power.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: RISC-V RPMI device power service group based message proxy
->>> +
->>> +maintainers:
->>> +  - Joshua Yeong <joshua.yeong@starfivetech.com>
->>> +
->>> +description: |
->>> +  The RISC-V Platform Management Interface (RPMI) [1] defines a
->>> +  messaging protocol which is modular and extensible. The supervisor
->>> +  software can send/receive RPMI messages via SBI MPXY extension [2]
->>> +  or some dedicated supervisor-mode RPMI transport.
->>> +
->>> +  The RPMI specification [1] defines device power service group for
->>> +  accessing and controlling the power state of platform devices managed
->>> +  by a platform microcontroller. The SBI implementation (machine mode
->>> +  firmware or hypervisor) can implement an SBI MPXY channel to allow RPMI
->>> +  device power service group access to the supervisor software.
->>> +
->>> +  ===========================================
->>> +  References
->>> +  ===========================================
->>> +
->>> +  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
->>> +      https://github.com/riscv-non-isa/riscv-rpmi/releases
->>> +
->>> +  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
->>> +      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
->>> +
->>> +properties:
->>> +  compatible:
->>> +    description:
->>> +      Intended for use by the SBI implementation.
->>> +    const: riscv,rpmi-mpxy-device-power
->>> +
->>> +  mboxes:
->>> +    maxItems: 1
->>> +    description:
->>> +      Mailbox channel of the underlying RPMI transport.
->>> +
->>> +  riscv,sbi-mpxy-channel-id:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
+>> reserved memory on DT-based architectures (arm64, riscv, loongarch).
+>> Reserved regions default are marked MEMBLOCK_NODUMP so kdump omits them;
+>> reusable CMA regions are different because their pages are handed back
+>> to the buddy allocator and may carry crash-relevant data.
 >>
->> Why isn't this just phandle to mbox? Or even implied by mbox channel? As
->> your example shows, having same value in two places points that it is
->> redundant.
+>> ACPI systems already filter reserved memory out of the vmcore through
+>> their existing path; only DT-based systems currently fail to filter these
+>> regions, which is what this series addresses. The flag lives in memblock
+>> itself rather than in a DT-only structure, so the mechanism is generic and
+>> both ACPI and DT systems can benefit from it (suggested by Rob, thanks) [1].
+> 
+> Thanks for the effort. I am not against this patchset, and I haven't
+> went through it carefully. Just from the cover letter, you mentioned
+> generic, I am wondering if this can be generic for excluding other
+> memory regions. Asking this because I try to find a way to exclude
+> unwanted memory regions too, please check below link where there's
+> the relevant discussion. We definitely don't like inventing wheels
+> time after time. Do you think this memblock region excluding can
+> be used in other places of kernel?
+> 
+> https://lore.kernel.org/all/aoLFai0gzzH2bGgy@MiWiFi-R3L-srv/T/#u
+
+
+Thanks for taking a look, and for the pointer to the crash-wipe thread.
+
+To answer your question directly: the exclusion mechanism in this series
+is already generic, memblock_mark_nodump() is the entry point. Any code
+that wants a region out of the vmcore just marks it MEMBLOCK_NODUMP, when
+preparing vmcore elf header by walking memblock, these regionss are skipped;
+This series is simply one caller, marking the DTS /reserved-memory and
+/memreserve/ regions with MEMBLOCK_NODUMP.
+
+x86 currently builds the vmcore elf header from iomem_resource, not
+memblock; it could be switched to memblock, but that would bring no
+benefit for the problem this series solves, so this series makes no
+x86 change. I'd personally be in favor of switching to memblock for
+a unified implementation across architectures.
+
+Best regards
+Wandun
+
+
+> 
 >>
-> 
-> They look alike but they are in different namespaces, so the two values
-> are not the same number. In this node "mboxes" points at the RPMI shared
-> memory transport, whose #mbox-cells is 1 and whose cell is an RPMI
-> service group ID 0x9 for device power. "riscv,sbi-mpxy-channel-id" is
-> the SBI MPXY channel number that the SBI implementation then creates for
+>> Since the reserved memory regions are filtered out, the vmcore is
+>> smaller in size and faster to produce. 
+>>
+>> The series is based on linux-next and is organized as follows:
+>>
+>> Patches 1-4: Preparation and bugfixes: fix the missing HugeTLB
+>>              flagname, switch riscv crash_mem to memblock, fold the
+>>              duplicated per-arch memblock walks into the weak
+>>              defaults, and serialize crash header preparation against
+>>              memory hotplug.
+>> Patches 5-9: NODUMP infrastructure: switch crash_core to
+>>              for_each_mem_region(), introduce the MEMBLOCK_NODUMP
+>>              flag, add a dumpable flag to struct reserved_mem, and
+>>              mark /reserved-memory and /memreserve/ entries with
+>> 	     MEMBLOCK_NODUMP flag.
+>> Patch 10:    Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
+>>              header.
+>>
+>> In v5, Sashiko found some pre-existing issues related to reserved-memory,
+>> and has no dependency on this series, so these issues have been addressed
+>> in a separate series [2].
+>>
+>> v5 --> v6:
+>> 1. Serialize crash header preparation against memory hotplug to avoid
+>>    out-of-bounds or use-after-free issues.
+>>
+>> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
+>>    avoiding a panic from too few regions before resize is permitted.
+>>
+>> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
+>>
+>>
+>> v4 --> v5:
+>> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
+>>    (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
+>>    DT-only struct reserved_mem.
+>> 2. Switch the riscv vmcore elf header preparation to use memblock
+>>    instead of the resource tree, aligning it with arm64 and loongarch,
+>>    so riscv also can exclude reserved memory from vmcore.
+>> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
+>>    loongarch open-coded the same logic, so fold it into shared
+>>     __weak defaults in crash_core.
+>> 4.  Drop the v4 patch that saved /memreserve/ entries into the
+>>     reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
+>>     directly.
+>>
+>> v3 --> v4:
+>> 1. Rebase this series on v7.2-rc1.
+>> 2. Add two cleanup patches (patch 02/03).
+>> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
+>>    NULL multiple times, suggested by Rob.
+>>
+>> v2 --> v3:
+>> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
+>> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
+>> 3. Add some prepare patches.
+>>
+>> v1 --> v2:
+>> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+>>    feedback [3], v2 drop that property and exclude reserve memory
+>>    by default.
+>> 2. Split some prepared patches from the original patches.
+>> 3. Address coding-style comments on patch 5 from Rob.
+>>
+>> [1] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
+>> [2] https://lore.kernel.org/lkml/20260818092420.2859026-1-chenwandun1@gmail.com/
+>> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+>>
+>> Meijing Zhao (1):
+>>   mm: memblock: add missing HugeTLB flag name
+>>
+>> Wandun Chen (9):
+>>   riscv: build crash_mem ranges from memblock instead of resource tree
+>>   crash_core: fold duplicated memblock arch hooks into the weak default
+>>   crash_core: serialize crash header preparation against hotplug
+>>   crash_core: replace for_each_mem_range() with for_each_mem_region()
+>>   memblock: introduce MEMBLOCK_NODUMP flag
+>>   of: reserved_mem: add dumpable flag to opt-in vmcore
+>>   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
+>>   of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
+>>   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
+>>     header
+>>
+>>  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
+>>  arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
+>>  arch/riscv/Kconfig                         |  2 +-
+>>  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
+>>  arch/x86/kernel/crash.c                    |  2 +-
+>>  drivers/of/fdt.c                           |  2 +
+>>  drivers/of/of_private.h                    |  2 +
+>>  drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
+>>  include/linux/crash_core.h                 |  2 +
+>>  include/linux/memblock.h                   |  9 ++++
+>>  include/linux/of_reserved_mem.h            |  1 +
+>>  kernel/crash_core.c                        | 51 ++++++++++++++++++++--
+>>  kernel/dma/contiguous.c                    |  1 +
+>>  mm/memblock.c                              | 17 ++++++++
+>>  14 files changed, 131 insertions(+), 95 deletions(-)
+>>
+>> -- 
+>> 2.43.0
+>>
 
-But SBI MPXY is also a mailbox, so you are encoding mailbox channel with
-a different property.
-
-> that service group. The node therefore describes a translation
-> rather than a duplication, consume RPMI service group 0x9 on the
-> transport and expose it to the supervisor as MPXY channel 0x1002.
-> 
-> The 0x1002 that does appear twice is spread over two nodes with two
-> different audiences, sitting under two different mailbox controllers:
-> 
-> 
->     rpmi-shmem@12c10000 {            /* RISC-V machine mode only */
->             compatible = "riscv,rpmi-shmem-mbox";
->             reg = <...>;
->             #mbox-cells = <1>;
-> 
->             power-domain@9 {         /* read by the SBI implementation */
->                     compatible = "riscv,rpmi-mpxy-device-power";
->                     mboxes = <&rpmi_shmem 0x9>;
->                     riscv,sbi-mpxy-channel-id = <0x1002>;
-
-... so 0x1002 is:
-
-
->             };
->     };
-> 
->     sbi-mpxy-mbox {                  /* RISC-V supervisor mode only */
->             compatible = "riscv,sbi-mpxy-mbox";
->             #mbox-cells = <2>;       /* cells: channel_id, MSG_PROT_ID */
->     };
-> 
->     rpmi-device-power {              /* RISC-V supervisor mode only */
->             compatible = "riscv,rpmi-device-power";
->             mboxes = <&sbi_mpxy_mbox 0x1002 0x0>;
-
-exactly this, no?
-
->             #power-domain-cells = <1>;
->     };
-> 
-> A phandle from the supervisor node to power-domain@9 would resolve its
-> "mboxes" to the shared memory transport, which is not something the
-> supervisor can drive. The windows are owned by machine mode and the
-> only RPMI mailbox Linux implements is "riscv,sbi-mpxy-mbox". The
-> supervisor reaches the platform controller through the SBI MPXY extension and
-> that ABI addresses channels by number, so the channel id has to survive
-> as a plain integer on both sides of the SBI boundary.
-> 
-> You can have a look at the diagram in RISC-V ratified specifications in
-> https://github.com/riscv-non-isa/riscv-rpmi/releases/tag/v1.0 -> riscv-rpmi.pdf
-> in Figure 2 High Level Architecture.
-> 
-
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
