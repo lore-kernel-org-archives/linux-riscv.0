@@ -4,115 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B758AC61DD3
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 07:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E8CC624A4
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 07:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QqT9A7dvGPt1nUujQHhztVYRuj507PjHtol4yNIqak4=; b=llHb5RpZ/Bs57+
-	cC6mLVR+EcHuqyg2MqJbx4rMlHbHLMYZFjiagwLI/qhmE54Hq/hfWjIWaSvJGpTGWXY8R0ZLZzw6J
-	mVKin+QHw6+n4XpAo0fOWKiYc9CSEFZdPrZMvNjxhmHcvA6SCEkAW+ZmgWbFpVf3DBKizr5asg1fR
-	CddakldW5qK7L1NGtrRUgZMzvviZC1ZX75kChsTO/vnICFTtH/Nxd8IjzlhcfY1jYYB5qKrJUh3+5
-	7MVDsSAkPt2HMrLZCsSvdoYdHrjqwFuzCTKPoW6AgBV0fmKIrrl9KknkVTyNXkoW8qplafnKW8wkU
-	MLrJyBAUp/Y1+CQzwDsQ==;
+	List-Owner; bh=tdNUkdjxws9XjMInahgqcvCjsRu4XBll4pvetHaFonY=; b=fKQXB/2U74GuNV
+	ZZIBXZl8CBZWT2x38z8caT41UA7ktBlExJ3y20bkESVl0zfGtMi18AOXNo4yE3ONZ+o1MqAQwU/bH
+	bMNh2tH0yy6gLLouainD2lpzjPQW/UUksHvX/ymiq5asT3YihU0yHmfj1JP3qhQidca5jkgR/wxU+
+	yUoWtzNrXJSsgvzuXI/V5wG/GDfJliO6J/M5ogmmEQxNx78pgIdxkdlLRyPv2typmLuiiNro9Ky+A
+	nNk43Y4vl4HG9/mZaDWY5DMsKLiwA0w6RSXWreBKlocBs6ZXdZWF7wHoB4JoTlkcfw/rWo9LhFHIi
+	G9diXCU43zZ3AfsHaLog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x227R-0000000GfRq-1sVI;
-	Thu, 03 Sep 2026 07:44:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x22Db-0000000Ggbz-38GO;
+	Thu, 03 Sep 2026 07:50:43 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x227N-0000000GfQF-3lc4
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 03 Sep 2026 07:44:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=oUbrqLv47LI31OwZX/zERcJxLxOgrZ94RwwzK9bj0r8=; b=OQJhal0lF48sZ1eNHtliHkAsrd
-	8x3ZOJWO2Q5ur2G8x67jDmN7o0Hqy6X5J8eHybqXcqVdgrNiDihExS02tg6bFmsZ4zGLJLGWKuvf/
-	UmBwBkvF3+14tAyWARhHuwp9KF1W9XOOZokprrfWIm4d58qeeDr9LZh8dlA/nAgZ+T4rCmUSsg8Dd
-	Kwv8j13rYcvE5fVO3nzbLSybfpZOuRcol4ckG72MYPdPt9izaIezeNN+bDvMiiBXU9wb3OX0fxDQX
-	ySHTmhQHVeyJoOT+FeIfpKswS+JjA5DSS8S/KizkLJHAsSXAMXUty8WFaOYhxP6zRvHkKK5vxFBt6
-	49XquGxg==;
-Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x227K-0000000CoAN-2vJD
-	for linux-riscv@lists.infradead.org;
-	Thu, 03 Sep 2026 07:44:16 +0000
-Received: by mail-pj2-x0b.google.com with SMTP id d9443c01a7336-2ceb5a39c48so5438105ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Sep 2026 00:44:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788421452; x=1789026252; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oUbrqLv47LI31OwZX/zERcJxLxOgrZ94RwwzK9bj0r8=;
-        b=eFA6cRNk/PBgFH1iOMLedw63Nh2Q9IV0LZNkVFIZ1xzosP8EQFHslH0d48e8du1D9w
-         VTBs8JI6lvStFecdKqNEGGlVm9inFMSof/WI32yIrCB5M5U68BbXiTisnubjkjETQ2FS
-         6VZ+MT0I5zgM0dptLEay+3jgpfnoIW7EIvi8Hn+xDvEjGEeU3qe1pxJXkCqAamzWjnfC
-         q4/NlMTMykmmWj2LC1kljzDP5QjrqtCXLP56gDsvn0C8PY7gChUGhJf7qjJWYrpHJvGt
-         nHqypkYiGyz1FZ6va9UVLCdyDSqWwm6pQB+vUIjuh0YpAJ3j1XOVACA9Kb0AzCO6vIE3
-         DTyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788421452; x=1789026252;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oUbrqLv47LI31OwZX/zERcJxLxOgrZ94RwwzK9bj0r8=;
-        b=JsBNaqe+u5fPfg2MLBu3DvFxbhEm6exMqBGWwLz75UqI4Vu7reda5y8GFzZRiH731q
-         fmLlnEAfTjP0LzOHIQCcuTqEk5/MrMc4Ak+nicXWVVrk0Doi1EWUz/zqeFF7/nfYisfr
-         0hiM90RYGSW6nlSZ4b7IK/ZkZzcF+QK5VqyXBAsSBsgIpD/befAf8Pfm3QIK49kr0/ym
-         e65/wA+jAkOdkXC3uV5gDvsztoio6n050+rI3KQCRCYSB3yWssLSIdoNF6UH70FOtqip
-         WUOsy3KTLxRzML1HxbsmjIwJG8XVM97ezggo/Vmv022q3l1VupSIkS66kObfdIH+hEXg
-         Mgyw==
-X-Forwarded-Encrypted: i=1; AKwUvBxNePUbSnz+EEdVjTggd4vQ09Evkw1cnju333QNuI8Kcq9b52+w177YP5+4dRlJscy+DTY3CeYLPKySSQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++lgzGJUwo5D/6o4CtfUT3N1jk9euvEo65oAkN11jSsBSQQ4FBhh
-	BTT+gzMXBJDDc0yejoqsoMxVdT85DC/hI73w1FVuokLwr8g/qLb024rO
-X-Gm-Gg: AYBFou0Vx8fucuqSJN3GqY8A0Gy0kWyFmSy64aEIqW+NHmGltcvDSr0bRON1q/vmY++
-	TZaJSm5PrGlzhb3l5vcLRVUO23RfaxEHD/nTx+wkOR2ZN92XjGtnrQSikxIce1+RD95DYhJEEa5
-	gp8SX0771tHq3PahyiXgRAQSwKEUS7T5LLIjJSCc4p9gmuVtw7bzZDet9/C9uUWa1rWFnP1ZnoX
-	nbH1Mv0Uq6J7sBBkitmiP6PVyRuqMtOgcNHrIOKQjY+PaajcuFCKc2Hn6hIB3ckaX3H6i8iAfU3
-	1+314q+JMJuw5JtimsWr/tXd4ePt7+6rv6Wh2dUCFNYNZ7wdt3n5IJDHi3kGyERdvAubcc69QCS
-	AsajFN7y+thmhjKalnnTjDjivtoa82H8dP3Ya26a0260Q2KEj37BUkU6LPQ+xie/g2jjRQSZEaB
-	n7a/8Au/277UqjGhjVTkoWwp9mSizWVvtfU9cONrW7UcM6F9qZ1yidgczeL8+Vb9jyzFrlJPOnG
-	FFKiEY=
-X-Received: by 2002:a17:902:e809:b0:2d7:4b42:9352 with SMTP id d9443c01a7336-2daec60af43mr131715375ad.3.1788421451864;
-        Thu, 03 Sep 2026 00:44:11 -0700 (PDT)
-Received: from [10.125.112.20] ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dafe62d7c2sm5931425ad.29.2026.09.03.00.44.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Sep 2026 00:44:11 -0700 (PDT)
-Message-ID: <edd83cd6-663f-43f5-8058-99e59d941d5b@gmail.com>
-Date: Thu, 3 Sep 2026 15:43:58 +0800
+	id 1x22DX-0000000GgaB-3jxX;
+	Thu, 03 Sep 2026 07:50:41 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 45462200571;
+	Thu, 03 Sep 2026 09:50:35 +0200 (CEST)
+Message-ID: <0ffb792adfafd06a0d7fc65153707e3c728fe0ac.camel@pengutronix.de>
+Subject: Re: [PATCH v2 08/15] soc: starfive: Add jh7110-hdmi-subsystem driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Michal Wilczynski <m.wilczynski@samsung.com>, Vinod Koul
+ <vkoul@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Andrzej Hajda	 <andrzej.hajda@intel.com>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart	
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, David Airlie	 <airlied@gmail.com>, Simona
+ Vetter <simona@ffwll.ch>, Maarten Lankhorst	
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+ Yan <andy.yan@rock-chips.com>, Emil Renner Berthing <kernel@esmil.dk>, Hal
+ Feng <hal.feng@starfivetech.com>, Michael Turquette	
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney	
+ <bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley	
+ <conor@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt	
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti	
+ <alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>
+Date: Thu, 03 Sep 2026 09:50:35 +0200
+In-Reply-To: <20260828-jh7110-clean-send-v2-8-331680c8b9d1@samsung.com>
+References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
+		<CGME20260828134828eucas1p1b4061de1538ef0d3322dc32f3db6140e@eucas1p1.samsung.com>
+	 <20260828-jh7110-clean-send-v2-8-331680c8b9d1@samsung.com>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/10] kdump: reduce vmcore size and capture time
-To: Baoquan He <baoquan.he@linux.dev>
-Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- robh@kernel.org, saravanak@kernel.org, akpm@linux-foundation.org,
- rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
- m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
- alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev, robin.murphy@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
- iommu@lists.linux.dev
-References: <20260902073116.802752-1-chenwandun1@gmail.com>
- <apfkDlcMYrgiuGYA@fedora> <6aef2f48-1cc5-408d-a5a2-2b4b4d45ad7b@gmail.com>
- <apkiW8gn9Z5XaVQh@fedora>
-Content-Language: en-US
-From: Wandun <chenwandun1@gmail.com>
-In-Reply-To: <apkiW8gn9Z5XaVQh@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_084414_953261_689A902A 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20260903_005040_084989_7F3B5B0F 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,184 +72,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, mfd@lists.linux.dev, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Andy Yan <andyshrk@163.com>, Graham Markall <hello@big-grey.co.uk>, linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, Maud Spierings <maudspierings@gocontroll.com>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/3/26 15:31, Baoquan He wrote:
-> On 09/03/26 at 03:05pm, Wandun wrote:
->>
->>
->> On 9/2/26 16:53, Baoquan He wrote:
->>> Hi Wandun,
->>>
->>> On 09/02/26 at 03:31pm, Wandun Chen wrote:
->>>> From: Wandun Chen <chenwandun@lixiang.com>
->>>>
->>>> On SoCs that carve out large firmware-owned reserved memory (GPU,
->>>> camera ISP, ...), kdump currently dumps those carveouts as part of
->>>> system RAM even though their contents are firmware state that is not
->>>> useful for kernel crash analysis.
->>>>
->>>> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
->>>> reserved memory on DT-based architectures (arm64, riscv, loongarch).
->>>> Reserved regions default are marked MEMBLOCK_NODUMP so kdump omits them;
->>>> reusable CMA regions are different because their pages are handed back
->>>> to the buddy allocator and may carry crash-relevant data.
->>>>
->>>> ACPI systems already filter reserved memory out of the vmcore through
->>>> their existing path; only DT-based systems currently fail to filter these
->>>> regions, which is what this series addresses. The flag lives in memblock
->>>> itself rather than in a DT-only structure, so the mechanism is generic and
->>>> both ACPI and DT systems can benefit from it (suggested by Rob, thanks) [1].
->>>
->>> Thanks for the effort. I am not against this patchset, and I haven't
->>> went through it carefully. Just from the cover letter, you mentioned
->>> generic, I am wondering if this can be generic for excluding other
->>> memory regions. Asking this because I try to find a way to exclude
->>> unwanted memory regions too, please check below link where there's
->>> the relevant discussion. We definitely don't like inventing wheels
->>> time after time. Do you think this memblock region excluding can
->>> be used in other places of kernel?
->>>
->>> https://lore.kernel.org/all/aoLFai0gzzH2bGgy@MiWiFi-R3L-srv/T/#u
->>
->>
->> Thanks for taking a look, and for the pointer to the crash-wipe thread.
->>
->> To answer your question directly: the exclusion mechanism in this series
->> is already generic, memblock_mark_nodump() is the entry point. Any code
->> that wants a region out of the vmcore just marks it MEMBLOCK_NODUMP, when
->> preparing vmcore elf header by walking memblock, these regionss are skipped;
->> This series is simply one caller, marking the DTS /reserved-memory and
->> /memreserve/ regions with MEMBLOCK_NODUMP.
+On Fr, 2026-08-28 at 15:47 +0200, Michal Wilczynski wrote:
+> Add the parent driver for the monolithic JH7110 HDMI IP block.
 > 
-> Thanks, for memory not allocated from memblock, e.g buddy, is it still
-> good?
-
-Yes, still good, only need to pass the physical range to memblock_mark_nodump().
-
+> This driver binds to the starfive,jh7110-hdmi-subsystem node. It maps the
+> shared register block, creates a regmap, and calls
+> devm_of_platform_populate() to create its hdmi_phy and hdmi_controller
+> child devices, which retrieve the shared regmap from this parent.
 > 
->>
->> x86 currently builds the vmcore elf header from iomem_resource, not
->> memblock; it could be switched to memblock, but that would bring no
->> benefit for the problem this series solves, so this series makes no
->> x86 change. I'd personally be in favor of switching to memblock for
->> a unified implementation across architectures.
->>
->> Best regards
->> Wandun
->>
->>
->>>
->>>>
->>>> Since the reserved memory regions are filtered out, the vmcore is
->>>> smaller in size and faster to produce. 
->>>>
->>>> The series is based on linux-next and is organized as follows:
->>>>
->>>> Patches 1-4: Preparation and bugfixes: fix the missing HugeTLB
->>>>              flagname, switch riscv crash_mem to memblock, fold the
->>>>              duplicated per-arch memblock walks into the weak
->>>>              defaults, and serialize crash header preparation against
->>>>              memory hotplug.
->>>> Patches 5-9: NODUMP infrastructure: switch crash_core to
->>>>              for_each_mem_region(), introduce the MEMBLOCK_NODUMP
->>>>              flag, add a dumpable flag to struct reserved_mem, and
->>>>              mark /reserved-memory and /memreserve/ entries with
->>>> 	     MEMBLOCK_NODUMP flag.
->>>> Patch 10:    Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
->>>>              header.
->>>>
->>>> In v5, Sashiko found some pre-existing issues related to reserved-memory,
->>>> and has no dependency on this series, so these issues have been addressed
->>>> in a separate series [2].
->>>>
->>>> v5 --> v6:
->>>> 1. Serialize crash header preparation against memory hotplug to avoid
->>>>    out-of-bounds or use-after-free issues.
->>>>
->>>> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
->>>>    avoiding a panic from too few regions before resize is permitted.
->>>>
->>>> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
->>>>
->>>>
->>>> v4 --> v5:
->>>> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
->>>>    (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
->>>>    DT-only struct reserved_mem.
->>>> 2. Switch the riscv vmcore elf header preparation to use memblock
->>>>    instead of the resource tree, aligning it with arm64 and loongarch,
->>>>    so riscv also can exclude reserved memory from vmcore.
->>>> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
->>>>    loongarch open-coded the same logic, so fold it into shared
->>>>     __weak defaults in crash_core.
->>>> 4.  Drop the v4 patch that saved /memreserve/ entries into the
->>>>     reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
->>>>     directly.
->>>>
->>>> v3 --> v4:
->>>> 1. Rebase this series on v7.2-rc1.
->>>> 2. Add two cleanup patches (patch 02/03).
->>>> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
->>>>    NULL multiple times, suggested by Rob.
->>>>
->>>> v2 --> v3:
->>>> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
->>>> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
->>>> 3. Add some prepare patches.
->>>>
->>>> v1 --> v2:
->>>> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
->>>>    feedback [3], v2 drop that property and exclude reserve memory
->>>>    by default.
->>>> 2. Split some prepared patches from the original patches.
->>>> 3. Address coding-style comments on patch 5 from Rob.
->>>>
->>>> [1] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
->>>> [2] https://lore.kernel.org/lkml/20260818092420.2859026-1-chenwandun1@gmail.com/
->>>> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
->>>>
->>>> Meijing Zhao (1):
->>>>   mm: memblock: add missing HugeTLB flag name
->>>>
->>>> Wandun Chen (9):
->>>>   riscv: build crash_mem ranges from memblock instead of resource tree
->>>>   crash_core: fold duplicated memblock arch hooks into the weak default
->>>>   crash_core: serialize crash header preparation against hotplug
->>>>   crash_core: replace for_each_mem_range() with for_each_mem_region()
->>>>   memblock: introduce MEMBLOCK_NODUMP flag
->>>>   of: reserved_mem: add dumpable flag to opt-in vmcore
->>>>   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
->>>>   of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
->>>>   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
->>>>     header
->>>>
->>>>  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
->>>>  arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
->>>>  arch/riscv/Kconfig                         |  2 +-
->>>>  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
->>>>  arch/x86/kernel/crash.c                    |  2 +-
->>>>  drivers/of/fdt.c                           |  2 +
->>>>  drivers/of/of_private.h                    |  2 +
->>>>  drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
->>>>  include/linux/crash_core.h                 |  2 +
->>>>  include/linux/memblock.h                   |  9 ++++
->>>>  include/linux/of_reserved_mem.h            |  1 +
->>>>  kernel/crash_core.c                        | 51 ++++++++++++++++++++--
->>>>  kernel/dma/contiguous.c                    |  1 +
->>>>  mm/memblock.c                              | 17 ++++++++
->>>>  14 files changed, 131 insertions(+), 95 deletions(-)
->>>>
->>>> -- 
->>>> 2.43.0
->>>>
->>
+> The NoC display-bus clock and reset gate access to the whole vout register
+> region, and this subsystem's PHY child is the first device there to touch
+> registers. Enable the bus before populating the children; PD_VOUT is
+> handled by genpd through the power-domains property.
+> 
+> Co-developed-by: Dominique Belhachemi <db@domibel.de>
+> Signed-off-by: Dominique Belhachemi <db@domibel.de>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  drivers/soc/Kconfig                          |   1 +
+>  drivers/soc/Makefile                         |   1 +
+>  drivers/soc/starfive/Kconfig                 |  27 +++++++
+>  drivers/soc/starfive/Makefile                |   2 +
+>  drivers/soc/starfive/jh7110-hdmi-subsystem.c | 114 +++++++++++++++++++++++++++
+>  5 files changed, 145 insertions(+)
+> 
+[...]
+> diff --git a/drivers/soc/starfive/jh7110-hdmi-subsystem.c b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..d893c1c29f98b072b09d261343d3317dbf4c75fe
+> --- /dev/null
+> +++ b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
+> @@ -0,0 +1,114 @@
+[...]
+> +static int starfive_hdmi_subsys_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct reset_control *bus_rst;
+> +	void __iomem *regs;
+> +	struct regmap *regmap;
+> +	struct clk *bus_clk;
+> +	int ret;
+> +
+> +	/*
+> +	 * The NoC display-bus clock and reset gate access to the whole vout
+> +	 * register region, and this subsystem's PHY child is the first device in
+> +	 * that region to touch registers. Bring the bus up here before
+> +	 * populating the children; PD_VOUT is powered on by genpd through the
+> +	 * power-domains property.
+> +	 */
+> +	bus_clk = devm_clk_get(dev, NULL);
+> +	if (IS_ERR(bus_clk))
+> +		return dev_err_probe(dev, PTR_ERR(bus_clk),
+> +				     "Failed to get NoC bus clock\n");
+> +
+> +	ret = clk_prepare_enable(bus_clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to enable NoC bus clock\n");
+> +
+> +	ret = devm_add_action_or_reset(dev, starfive_hdmi_subsys_clk_disable, bus_clk);
+> +	if (ret)
+> +		return ret;
 
+You can simplify this with devm_clk_get_enabled().
+
+> +	bus_rst = devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(bus_rst))
+> +		return dev_err_probe(dev, PTR_ERR(bus_rst),
+> +				     "Failed to get NoC bus reset\n");
+> +
+> +	ret = reset_control_deassert(bus_rst);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to deassert NoC bus reset\n");
+> +
+> +	ret = devm_add_action_or_reset(dev, starfive_hdmi_subsys_rst_assert, bus_rst);
+> +	if (ret)
+> +		return ret;
+
+You can simplify this with
+devm_reset_control_get_exclusive_deasserted().
+
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
