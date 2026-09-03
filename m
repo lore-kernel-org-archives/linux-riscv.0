@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A960C624A4
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 12:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC878C624A4
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Sep 2026 13:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NWtKCv7FClgCGbKpbg7a52i/Z2WhUbxrNjodZgYOZ9Q=; b=uBtNtfBIYarcQ2
-	nRMB2QtdkSJyocgkc4LfFAtKalRRj0Bgdf3Wyt6Z5pgt/AlxPpOcqhjlUHGujbPvQOosftdrTAJX4
-	uWrYH9v63QzkQf08q/XdIBkOh5pdnoIGePIFdaA0b+K/uvURKXdF3dNHls3ZPe8A4ZN4332imhWQW
-	lA8no1TWeXBDf+WyOoorHRy+3IV0DoC4SSqJLByXJ2UVpBCx7V4YlpSi3gPAYDD1cuH0I3LnITvkd
-	ohZfaVZZuPQmEt9XfBGyIoKHlKfZTQcklJNVkA7aWEsDKjEamaQSwj4du4QhgtTA8Q9XEql1aBCZB
-	21mPL1Caz35FbSL1mbyg==;
+	List-Owner; bh=N+LWSMbqH+oHRvCUxGi4+FW0nT0jglyvIQfWOpEdGU0=; b=HQJWKMoD+xsY89
+	O5gRKBeC5+n95kDBiXXHNlQKc4ZvIpnInOZfu1ISPbi/qTH84yPZXr30MGUOjIyulC+uyDGYWWJII
+	NZxtcFMYaYsZMWIqV3P9NdJnBhrXV/4sheHZ0hHNtdake0L1A5rOBxwPV8eTjF5tqfdMoP4kja+Sd
+	R8Qqod4aOgaytWEBWH3eMQ202344t5mlOraV6vnvkbKkbVTzZXsWRtdigShvTvRGNoailXzEkDU/T
+	inVybZQCnHfOxnwz0ThAGiR63uy0YZaNQv2wpHaR16yHsLa504fsTKIuVDwpQ69X0QvnNxiCXoyvz
+	NQtdBLV1nkz/F+/E4GVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26sf-0000000HLaH-1IhA;
-	Thu, 03 Sep 2026 12:49:25 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1x273e-0000000HMw0-1161;
+	Thu, 03 Sep 2026 13:00:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26sb-0000000HLZ1-2IqF;
-	Thu, 03 Sep 2026 12:49:23 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260903124916euoutp01c70c3377e9531d0b4effba39237e9f0d~R0Humhg0D2837828378euoutp01a;
-	Thu,  3 Sep 2026 12:49:16 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260903124916euoutp01c70c3377e9531d0b4effba39237e9f0d~R0Humhg0D2837828378euoutp01a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788439756;
-	bh=21XK8ouXwSbTKoSgpNp9PTnpZIppeDeeNUFwSv6ef0I=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=A84uFu5vC7oRa7UYvp4kb1qaFuO04d7y8EFyNaPGxT8vRYtNhTEAf1v8qbCTK1g9c
-	 ErZ7MNjb63emnIqANJbVFtycOFms2nxzltkpKWI+k2FVQDNvhQLzokz+RsiTTZD/sZ
-	 tbFgIVRs1iU0Hx2ZDAjgQWZBvVwu/E+5h3lOiTJE=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260903124916eucas1p2046caac892ee377927f97ac1ed022764~R0HuWwHQ41235012350eucas1p2O;
-	Thu,  3 Sep 2026 12:49:16 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260903124914eusmtip1c88b35a3579efd350fc5d28e52aac15c~R0HsrL5_S2573525735eusmtip1u;
-	Thu,  3 Sep 2026 12:49:14 +0000 (GMT)
-Message-ID: <113c3906-56c1-4940-9857-d611edc64361@samsung.com>
-Date: Thu, 3 Sep 2026 14:49:14 +0200
+	id 1x273c-0000000HMve-2bpf
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Sep 2026 13:00:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E1C2C4013E;
+	Thu,  3 Sep 2026 13:00:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0BC11F000E9;
+	Thu,  3 Sep 2026 13:00:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788440443;
+	bh=iegNva3kkOGJqjCoKK1iRqK5iFz7ZD4YDy8u6AOCQVc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JuaBmTRR2rTrs+dzlAeqYCZZFwDrmCKGd3uT8IPDU4YSqKWK3PnBdTDk20//uAy14
+	 VhPiw1hy90EnkF/yrhvEX7blaDtM3iCXX1+a9rm4cqngxZCvjrdIUo8N781ht6zl+n
+	 ZGoDZzuJJYpfO52npPPSmT0MeXUx02U5Q0coe1Wf3yoobyrmJ5UjDj6FcyKudyS2Jj
+	 X0T8F3vy4cqCKhKe6SXb8Ug76wWClmniPyilsvJylEG194A+/lA3V9k/cDkCjZB0+G
+	 2R/m1C6D5+LwDKC5MglHBL2ieJISBwnsUKXQX1y0uJFG+uUeYP6EymykyJ8k++0rUo
+	 0vWPUZHVHHUZQ==
+Date: Thu, 3 Sep 2026 15:00:39 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Long Wan <long.wan@linux.spacemit.com>, 
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] dt-bindings: mmc: spacemit,sdhci: Add tx delay
+ property
+Message-ID: <20260903-tactful-scorpion-from-nibiru-a4ebe2@quoll>
+References: <20260902-07-k3-sdhci-dts-v1-0-4e7909cf4233@kernel.org>
+ <20260902-07-k3-sdhci-dts-v1-2-4e7909cf4233@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/15] dt-bindings: display: bridge: Add
- starfive,jh7110-inno-hdmi-controller
-To: Conor Dooley <conor@kernel.org>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20260828-stylus-bonfire-b71cbfe8b983@spud>
-X-CMS-MailID: 20260903124916eucas1p2046caac892ee377927f97ac1ed022764
-X-Msg-Generator: CA
-X-RootMTR: 20260828134817eucas1p2e2756deff8871be4ea8bb5c65f9c179d
-X-EPHeader: CA
-X-CMS-RootMailID: 20260828134817eucas1p2e2756deff8871be4ea8bb5c65f9c179d
-References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-	<CGME20260828134817eucas1p2e2756deff8871be4ea8bb5c65f9c179d@eucas1p2.samsung.com>
-	<20260828-jh7110-clean-send-v2-2-331680c8b9d1@samsung.com>
-	<20260828-stylus-bonfire-b71cbfe8b983@spud>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_054922_189181_CA7B9A66 
-X-CRM114-Status: GOOD (  26.09  )
+Content-Disposition: inline
+In-Reply-To: <20260902-07-k3-sdhci-dts-v1-2-4e7909cf4233@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,202 +69,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Michael Turquette <mturquette@baylibre.com>, dri-devel@lists.freedesktop.org, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, David Airlie <airlied@gmail.com>, linux-clk@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Dominique Belhachemi <db@domibel.de>, Robert Foss <rfoss@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Lee Jones <lee@kernel.org>, Andy Yan <andyshrk@163.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Hal Feng <hal.feng@starfivetech.com>, Graham Markall <hello@big-grey.co.uk>, linux-rockchip@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Jonas Karlman <jonas@kwiboo.se>, Brian Masney <bmasney@redhat.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, mfd@lists.linux.dev, Paul Walmsley <pjw@kernel.org>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Maud Spierings <maudspierings@gocontroll.com>, Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Zimmermann <tzimmermann@suse.de>, Andy Yan <andy.yan@rock-chips.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8/28/26 18:47, Conor Dooley wrote:
-> On Fri, Aug 28, 2026 at 03:47:26PM +0200, Michal Wilczynski wrote:
->> Add the dt-binding for the StarFive JH7110 Innosilicon HDMI controller
->> (DRM bridge).
->>
->> This device is the second child of the starfive,jh7110-hdmi-subsystem node.
->> It consumes register access clocks (sys, mclk, bclk) from the voutcrg and
->> both the pixel clock (pclk) and the PHY from its hdmi_phy sibling.
->>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> ---
->>  .../starfive,jh7110-inno-hdmi-controller.yaml      | 109 +++++++++++++++++++++
->>  1 file changed, 109 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml b/Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..0e584e7b756e24e2f99a62daab3117bbf4b472b6
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml
->> @@ -0,0 +1,109 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: https://protect2.fireeye.com/v1/url?k=af8ec5c4-ce05d0f2-af8f4e8b-74fe485cbff1-93a4f693847d5818&q=1&e=48120ebb-9eda-4ddc-b580-e20f8c69d005&u=http%3A%2F%2Fdevicetree.org%2Fschemas%2Fdisplay%2Fbridge%2Fstarfive%2Cjh7110-inno-hdmi-controller.yaml%23
->> +$schema: https://protect2.fireeye.com/v1/url?k=4b8c4737-2a075201-4b8dcc78-74fe485cbff1-8caced678494fd92&q=1&e=48120ebb-9eda-4ddc-b580-e20f8c69d005&u=http%3A%2F%2Fdevicetree.org%2Fmeta-schemas%2Fcore.yaml%23
->> +
->> +title: StarFive JH7110 Innosilicon HDMI Controller
->> +
->> +maintainers:
->> +  - Michal Wilczynski <m.wilczynski@samsung.com>
->> +
->> +description:
->> +  The controller portion of the StarFive JH7110 INNO HDMI IP.
->> +
->> +properties:
->> +  compatible:
->> +    const: starfive,jh7110-inno-hdmi-controller
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    items:
->> +      - description: System clock for register access
->> +      - description: Module clock
->> +      - description: Bus clock
->> +      - description: Pixel clock from PHY
->> +
->> +  clock-names:
->> +    items:
->> +      - const: sys
->> +      - const: mclk
->> +      - const: bclk
->> +      - const: pclk
+On Wed, Sep 02, 2026 at 07:03:13AM +0000, Yixun Lan wrote:
+> From: Long Wan <long.wan@linux.spacemit.com>
 > 
-> "module" "bus" "pixel" would be more informative than spending most of
-> your characters regurgitating what these are by definition?
-
-So I've reread the TRM and mclk and bclk are named as such there and they
-are audio clocks: section 5.3 lists a "four channel I2S transmitter bit
-clock" among the display subsystem's clock sources, and that is this bclk.
-The already merged starfive,jh7110-voutcrg.yaml names the same input
-"i2stx0_bclk". So I've kept the names and put the information in the
-descriptions instead:
-
- - description: The HDMI controller main clock
- - description: Audio master clock
- - description: Audio bit clock, from the I2S transmitter
- - description: The pixel clock, generated by the PHY
-
-pclk was wrong. In this binding pclk is the register clock, as in
-rockchip,inno-hdmi.yaml, and the generic inno-hdmi driver looks it up by
-that name, holds it enabled for its lifetime and derives the DDC divider
-from its rate. We had it bound to the pixel clock so the pre-PLL stayed
-powered from probe and the divider was sized from 297 MHz instead of
-49.5 MHz, putting the DDC bus at 17 kHz. Slow but not broken which
-is why it went unnoticed.
-
-So in v3 the register clock takes "pclk" and the PHY clock is named
-"pixel".
-
+> Introduce a vendor specific property to configure the step count of TX
+> delay line which should be applied before RX tuning, compensating for
+> board level trace differences. The TX delay line result comes from test
+> out of real board which vary from different hardware layout.
 > 
->> +
->> +  resets:
->> +    maxItems: 1
->> +
->> +  reset-names:
->> +    const: hdmi_tx
->> +
->> +  phys:
->> +    maxItems: 1
->> +
->> +  phy-names:
->> +    const: hdmi-phy
+> Signed-off-by: Long Wan <long.wan@linux.spacemit.com>
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
-> With the trend of ?pointless? -names properties, I'm surprised you don't
-> have interrupt-names? I'd ditch 'em all where there's only a single
-> clock. The _ rather than - in the reset name triggers my OCD.
-> pw-bot: changes-requested
+> diff --git a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+> index f35bf7ce08dd..3399a2d076dc 100644
+> --- a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
+> @@ -63,6 +63,16 @@ properties:
+>    pinctrl-1:
+>      description: Optional pinctrl state for 1.8V UHS operation with "uhs" name
+>  
+> +  spacemit,tx-delay:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 0
+> +    maximum: 255
 
-Will do. reset-names and phy-names will be gone which takes the
-underscore in hdmi_tx with them.
-
-Note that in v3 the vout subsystem parent node will be back on Icenowy's
-review, so there will be three new DT patches: bindings for
-starfive,jh7110-vout-subsystem and starfive,jh7110-vout-syscon, and
-starfive,jh7110-dc8200 added to verisilicon,dc.yaml
-
-> 
->> +
->> +  ports:
->> +    $ref: /schemas/graph.yaml#/properties/ports
->> +    description:
->> +      A graph node with one input port and one output port.
->> +
->> +required:
->> +  - compatible
->> +  - interrupts
->> +  - clocks
->> +  - clock-names
->> +  - resets
->> +  - reset-names
->> +  - phys
->> +  - phy-names
->> +  - ports
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  # Shown as a child of the HDMI subsystem node; see
->> +  # Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
->> +  # for the full node.
->> +  - |
->> +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
->> +    #include <dt-bindings/reset/starfive,jh7110-crg.h>
->> +
->> +    controller {
-> 
-> "controller" seems over generic for a node, but I guess if the parent is
-> "hdmi-subsystem" or something it makes sense in that context.
-> 
-> Cheers,
-> Conor.
-> 
-> 
->> +        compatible = "starfive,jh7110-inno-hdmi-controller";
->> +        clocks = <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
->> +                 <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
->> +                 <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>,
->> +                 <&hdmi_phy>;
->> +        clock-names = "sys", "mclk", "bclk", "pclk";
->> +        interrupts = <99>;
->> +        phys = <&hdmi_phy>;
->> +        phy-names = "hdmi-phy";
->> +        resets = <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
->> +        reset-names = "hdmi_tx";
->> +
->> +        ports {
->> +            #address-cells = <1>;
->> +            #size-cells = <0>;
->> +
->> +            port@0 {
->> +                reg = <0>;
->> +
->> +                endpoint {
->> +                    remote-endpoint = <&dpu_out_dpi0>;
->> +                };
->> +            };
->> +
->> +            port@1 {
->> +                reg = <1>;
->> +
->> +                endpoint {
->> +                    remote-endpoint = <&hdmi_con_in>;
->> +                };
->> +            };
->> +        };
->> +    };
->> +
->> +...
->>
->> -- 
->> 2.34.1
->>
+default: 0, I guess?
 
 Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
