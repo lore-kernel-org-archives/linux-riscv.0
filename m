@@ -4,87 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DEAC61DD6
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 14:21:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC01CC61DD6
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 14:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rJZmwExd9QrMgeTkmi9krB51cGjJ5+AqxVQCWkAvMvg=; b=GQPBtneVNA2PXK
-	9IoNCufhwELBqj3j26zwa0ygqsuD4DVDCThnNNbR5ZuHG0ywdYkWBM1bSSLsnw5vEyaCNp/Fwqp8E
-	ZZ83CQd3Kvacwnxsv69DOoyo2pALSoGbmGfeCU24xYH754ejfclRloKSTe7gpcNe0eayo2AIX/504
-	EFA+onLnNX8L6uiVHTxnhp5NH0BsI2qqgml3s97ldV+ZQspttn/ntRb0QN9jg2ksxN1YX8qqlRCgp
-	wkKj95RGdMR5SxOgu48F+YMVWsIMdD+/zZItC8As/HUzAMyOGT58oRcJGYlgW9M1Wkzvd/uJLkqmv
-	9+HlzFL3VigRABKsU5+A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fOtreflkM7uNSOtKOMag/8ql1VDur/J2sudXBaL+kSg=; b=lzOOtTy8EZZ6Zs
+	qtL2qJJK+ejjW5GYGmbdYSlf9ryMXhv2Qvt9trRxa7BF0l6reOp2pFZxeiut54c3wsDSswpB4W1j2
+	rlVEYplMeHPBKK5VsdEGJvUgsN4RC71pw785fu6uQ/0eEwNWi30xkwRXp3clV5FdPBlMiTFvcXxFl
+	I6CKgmp1iGm9NLn3xNtof5l5y8rHf2ZCnA6wqqCIH0sew6kYiSryA+b+GExNiPCnrYIAiK61lCrU/
+	WD+fR80qOicRGpJFhBtgifxOujJnEnCAHNlHL0zQPcq1IcyMwdsSnWqrD+DoMo/61nd1k5NFQxUiY
+	76Ruhxk4B/4QqW9EHfPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Umh-00000002MiS-2m7x;
-	Fri, 04 Sep 2026 14:20:51 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1x2Uxo-00000002ORv-0f4N;
+	Fri, 04 Sep 2026 14:32:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Ume-00000002Mhs-0jkt;
-	Fri, 04 Sep 2026 14:20:49 +0000
-Received: from [192.168.0.113] (unknown [123.118.210.34])
-	by APP-01 (Coremail) with SMTP id qwCowAB3Se1v05pqrLYrBw--.65223S2;
-	Fri, 04 Sep 2026 22:19:28 +0800 (CST)
-Message-ID: <da1da563-1011-4b0c-a480-9d3d3acb6441@iscas.ac.cn>
-Date: Fri, 4 Sep 2026 22:19:27 +0800
+	id 1x2Uxm-00000002ORS-30PT
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Sep 2026 14:32:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 98913600C8;
+	Fri,  4 Sep 2026 14:32:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3EDA1F00A3D;
+	Fri,  4 Sep 2026 14:32:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788532336;
+	bh=d+O012cIavAI0ujYW26k+aWCjKOSb9qbSR86lFvYnd8=;
+	h=From:Date:Subject:To:Cc;
+	b=UmiBxtgR/T5raT7CoumzmJ48BTwWw3sMkg6cNt4bB5zYgVpj5dRAHBqZWRh3v1gCl
+	 rWTq5EdiUBYt19DdfvTfFvSHbkBqZ6rpIjVC+bPRfRetVndmYbleq7zRGCbAGtxVdH
+	 qCEN/TudGyUPlNpBrH7VdxZSCqTsZFhEn5ILb4GtzH3bS1qFIwohbi4xbKMGJwQDbo
+	 LK4kunEQAyBYgEflA8s1va6+nmBdXxNTd5GVH5qyb41UhTPcBYOLHVKoUEBIsSt1di
+	 gS/Y032GIR1ez3J3ymUqgiQxa8yEEYAShWf1A3zo4nM6Ro5QKAosixsAuE+Z0U8BC/
+	 8xSf8IYBs0Bfw==
+From: "GUO Ren (XuanTie)" <guoren@kernel.org>
+Date: Fri, 04 Sep 2026 14:31:38 +0000
+Subject: [PATCH] irqchip/riscv-imsic: Fix MMIO regset lookup loop bound
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 25/33] net: spacemit: k1_emac: Remove comma after
- sentinel-entry in match-table
-To: Siddharth Vadapalli <s-vadapalli@ti.com>,
- dario.binacchi@amarulasolutions.com, mkl@pengutronix.de, mailhol@kernel.org,
- msp@baylibre.com, florian.fainelli@broadcom.com, jonas.gorski@gmail.com,
- andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, kurt@linutronix.de, hauke@hauke-m.de,
- chester.a.unal@arinc9.com, daniel@makrotopia.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, ansuelsmth@gmail.com,
- linusw@kernel.org, luizluca@gmail.com, alvin.sipraga@analog.com,
- clement.leger@bootlin.com, justin.chen@broadcom.com, dlan@kernel.org,
- rogerq@kernel.org, hkallweit1@gmail.com, linux@armlinux.org.uk,
- rjui@broadcom.com, sbranden@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, opendmb@gmail.com,
- andrei.botila@oss.nxp.com, amadeus@jmu.edu.cn, kees@kernel.org,
- tmshlvck@gmail.com, c-vankar@ti.com, horms@kernel.org,
- vadim.fedorenko@linux.dev, daniel.zahka@gmail.com,
- nora.schiffer@ew.tq-group.com, v-singh1@ti.com, oss@vassilevski.com,
- haokexin@gmail.com, alex@sverdlin.org, aleksandr.loktionov@intel.com,
- lgs201920130244@gmail.com
-Cc: linux-can@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-omap@vger.kernel.org
-References: <20260904043724.2955444-1-s-vadapalli@ti.com>
- <20260904043724.2955444-26-s-vadapalli@ti.com>
-Content-Language: en-US
-From: Vivian Wang <wangruikang@iscas.ac.cn>
-In-Reply-To: <20260904043724.2955444-26-s-vadapalli@ti.com>
-X-CM-TRANSID: qwCowAB3Se1v05pqrLYrBw--.65223S2
-X-Coremail-Antispam: 1UD129KBjvdXoWruFW5ur1kJFyxAr18Xr1UZFb_yoWkKrbE9r
-	1fXas3Jr4DCryv9a4akF1avrWkKrs8Xr48Was7KrW3ZasrWr1kArWkCF97t34furWrXFZ3
-	GrnxKF48Aw17KjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbsAYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I
-	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
-	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0
-	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVWrXVW3AwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IUnGZX7UUUUU==
-X-Originating-IP: [123.118.210.34]
-X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_072048_694741_C9F39B8F 
-X-CRM114-Status: GOOD (  12.55  )
+Message-Id: <20260904-nr_mmios-v1-1-3a19dc74fab8@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAEnWmmoC/yXM7QpAQBCF4VvR/La1FhtuRZKPwShLO0ht7t3i5
+ 1PvOQ4YLSFDETiweBLTajyiMIBuasyIgnpvUFJpmctEGFsvC60sMp1hrPMeVdqCzzeLA13fVVn
+ 95qOdsdvfPdz3A1ncUOVsAAAA
+X-Change-ID: 20260904-nr_mmios-868e369de25b
+To: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ "GUO Ren (XuanTie)" <guoren@kernel.org>
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +76,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/4/26 12:36, Siddharth Vadapalli wrote:
+The nr_mmios is the number of entries in the MMIO resource array, while
+j is the index used to iterate over the array. Testing nr_mmios directly
+makes the loop condition permanently true whenever at least one MMIO
+region exists.
 
-> Since sentinel is the last entry and we do not expect further entries
-> following it, remove the comma.
->
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
->  drivers/net/ethernet/spacemit/k1_emac.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
-> index f7f16397a2c2..29385d78fc4b 100644
-> --- a/drivers/net/ethernet/spacemit/k1_emac.c
-> +++ b/drivers/net/ethernet/spacemit/k1_emac.c
-> @@ -1161,7 +1161,7 @@ static const struct ethtool_rmon_hist_range emac_rmon_hist_ranges[] = {
->  	{  512, 1023 },
->  	{ 1024, 1518 },
->  	{ 1519, 4096 },
-> -	{ /* sentinel */ },
-> +	{ /* sentinel */ }
->  };
->  
->  /* Like dev_fetch_dstats(), but we only use tx_drops */
-> @@ -2066,7 +2066,7 @@ static const struct dev_pm_ops emac_pm_ops = {
->  
->  static const struct of_device_id emac_of_match[] = {
->  	{ .compatible = "spacemit,k1-emac" },
-> -	{ /* sentinel */ },
-> +	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, emac_of_match);
->  
+So, change
+  for (j = 0; nr_mmios; j++) {
+to
+  for (j = 0; j < nr_mmios; j++) {
 
-Acked-by: Vivian Wang <wangruikang@iscas.ac.cn>
+Fixes: 21a8f8a0eb35 ("irqchip: Add RISC-V incoming MSI controller early driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+---
+This patch fixes an out-of-bounds access in the RISC-V IMSIC MMIO
+resource lookup.
+---
+ drivers/irqchip/irq-riscv-imsic-state.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Regards,
-Vivian "dramforever" Wang
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+index b8d1bbbf42f7..008dfcf343e5 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.c
++++ b/drivers/irqchip/irq-riscv-imsic-state.c
+@@ -896,7 +896,7 @@ int __init imsic_setup_state(struct fwnode_handle *fwnode, void *opaque)
+ 		index = nr_mmios;
+ 		reloff = i * BIT(global->guest_index_bits) *
+ 			 IMSIC_MMIO_PAGE_SZ;
+-		for (j = 0; nr_mmios; j++) {
++		for (j = 0; j < nr_mmios; j++) {
+ 			if (reloff < resource_size(&mmios[j])) {
+ 				index = j;
+ 				break;
+
+---
+base-commit: bc35965f6940a9bf834d54187b6088b8eb09206d
+change-id: 20260904-nr_mmios-868e369de25b
+
+Best regards,
+--  
+GUO Ren (XuanTie) <guoren@kernel.org>
 
 
 _______________________________________________
