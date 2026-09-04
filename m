@@ -4,127 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F64C624DE
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 11:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998BCC61DD6
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 12:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ep1PsgbMHL5q5V9oQGHSGUM4Tg8B9ZN0HrMOYNQU1cY=; b=CwviXbcbkfly+Y
-	0hsWH6OSB+V4cbnXu82oVXpdHA5Hp6jOMon5apxo6bn+DOPqbvCO1/QbZLFn6+Qd4JaHucq4BAfIn
-	TrrI+dsKKoKs+AV3H9bN3Hy/NnlIQ5drbQLVTs6DFmOAeKMnZPg2e9DgfFdNjy7nx+/yQhOqd6x1W
-	Js7jX+1KGFeD/VqM2XnpA6PJQHU6cYmpDlONl69mn2du8MCv02sC36lh2GYbd8emL6HNOxcQnEZcl
-	5G6EwQXA2bP9uPIwqHfCtxNrdDhgQWIYQpjraOs05QfNFsiScugNDml2mZJFaQcUkQJnZ5e8ssG8z
-	KpfmRP2QOx6PTTIgZiCA==;
+	List-Owner; bh=P2lfLiPMgwg3/e0k5fXjYMP9d31aT3qSLQ0xmoIftBA=; b=CRBoGKrH71VJJZ
+	890oBXYXzueOVqL4A5lJ6nSy7Hus5JDxQZA2OFzmzzwEcPdjOsnRY1Ue5UiJyt5a7AxYYYAS7lVgc
+	/t9HuVgtZ+jPShvLxymsk8CxpIphwOjGzHc184a7Vjdb19oC2g5dyxHUjINgQoLcwK40suf/aXnlT
+	QDyYtJAGaiqKEnJk66gB4i9uWY93WE3Zpa0RiXYyVb8ybm8vfIAD12EpoXbubvdJeh2aKpexsw3ZI
+	ofhngD12yx5HhJdp/Wjk2yRjJ/Cse6MZcGa1LxWZhYU8i2p3gtCT/zIQnBNWdsgzwav4UhMV7p8ob
+	38Pm0P7D33GSB0z94ayw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SNx-00000001uZR-3WeU;
-	Fri, 04 Sep 2026 11:47:09 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1x2T2W-0000000225b-3XQX;
+	Fri, 04 Sep 2026 12:29:04 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SNr-00000001uVH-269m;
-	Fri, 04 Sep 2026 11:47:04 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 684AVULO1494058;
-	Fri, 4 Sep 2026 11:41:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=CW3vxjA5wTt3e2Lkv1OSc2ps48i5Up
-	xjTiNuU2k3ZY4=; b=ZtqwcJXn5JjmXK2TedINfsQgvWM0AhEuCR8XMhF5sCghQ2
-	v230MU9wmpif2eXtIPwp5SCe9ncyfCxRPcTrpDXEkmD1miQCYnFc6Gg0se6DhOHK
-	ISZeX1ugcVanxPwHmfopz1JLGjknKWnVzWbUsbdYAeQifUpCGC0YmzdoDPHQiIjQ
-	Ehb+5yIWXzN9ao4EDI3kMKGdovDa7o8ruBgXpk6+kgM1EpQcUEWdEv2l+X+eJWZs
-	ZJ0WjNJmqWERrBJ1Rmo5mOTjR3fUZnBLdZDwLYzdXMhtTaKrN2k+A23z7NK77nsB
-	5hmnkJ2B9aWPjzJR8H+guVTJe5xyBizBVPTun6Xg==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbq55ajhe-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 04 Sep 2026 11:41:39 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 684BfHje002278;
-	Fri, 4 Sep 2026 11:41:38 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gcbygvnb5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 04 Sep 2026 11:41:38 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 684BfY7345154586
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 4 Sep 2026 11:41:34 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9660E2004B;
-	Fri,  4 Sep 2026 11:41:34 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 506BB20040;
-	Fri,  4 Sep 2026 11:41:29 +0000 (GMT)
-Received: from dhcp-9-123-3-18.bl1-in.ibm.com (unknown [9.123.3.18])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri,  4 Sep 2026 11:41:29 +0000 (GMT)
-Date: Fri, 4 Sep 2026 17:11:26 +0530
-From: Gautam Menghani <gautam@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-        Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>,
-        Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org,
-        Itaru Kitayama <itaru.kitayama@fujitsu.com>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Ritesh Harjani <ritesh.list@gmail.com>
-Subject: Re: [PATCH v2 10/20] KVM: selftests: Add a wrapper API to allocate
- multiple page table pages
-Message-ID: <apquZpW2qQKO2ut6@dhcp-9-123-3-18.bl1-in.ibm.com>
-References: <20260902164123.2546762-1-seanjc@google.com>
- <20260902164123.2546762-11-seanjc@google.com>
+	id 1x2T2U-0000000224m-10zi
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Sep 2026 12:29:04 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-48436251906so1035838f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2026 05:29:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1788524940; x=1789129740; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wkKTYWKeG6QUBS922LjHNIJ7+OwGoSgdldmULUcOoY0=;
+        b=LHHkq7yixTwBGaAsGGg+Vlj0AjIg55v/ADIwWNEsMUDQPeY8x60tldZXhmt0EgzAUz
+         BLWBpAIhhMV8KfQZ/eOKveKWvDZGI6YBJOAC+zYNNVj7rsxTVeY+JMRWE+w8pXkEYaFO
+         p2scVWmYe1tRFadGGkkcfbLRMU880i0SCov2w1yv1b116/W1lxZ2Yt2uY0KKAHYEsg+a
+         +cPQBOskqXs9Odp+RWTB5XTEMkx6Vk17KE9R665DvC5Dpv12qp0igdL1E+718yrhjaH7
+         I/6Y4vyTWT0Mmrazn09tIMiJu1I4D+JkLd8pNiuzTuhTaB4RP9fnGteSL22hjkKY1Dtz
+         ugRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788524940; x=1789129740;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wkKTYWKeG6QUBS922LjHNIJ7+OwGoSgdldmULUcOoY0=;
+        b=RR+BPd61xkKa8Aj93Y6pRhbvUxSUOo4HPmRX60/hKXRzIYtpzEEonDadiW4pnlKEOz
+         vtXBEDOY8wDxsbNqk0RswB+hGgNPjsVKDMdzZpUWrKQ0dQWrB9pu27MtPuV2eyfLv/W/
+         kQ2zF+uBjRCtDmyh7Qhj9GSR1jdyGvaoEXQz8ywA1RcAnN3B1+r5zg/LTeEJBLRwFIU9
+         bXG41Q8MaeU0csahLc9g8vicqH2UblU96nwHwjbQdZhR680T6sGnFKKHlNaqTFsI167N
+         87hqUsBgQvv/N1EuMMjCz+Bvi8CRNEgRU4h+MLbmyeYLQdKEgk8n9J8WkuD6l/Jrn+aQ
+         9KiQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzOoEMKv68LMNgxYVw5AEFIVX8e5srmoYtG+fOnpaFUUrqqyczo8gv3U5WZsFgQ6qGzV9kUmvwgwVojuA==@lists.infradead.org
+X-Gm-Message-State: AFuF++mwmfY/a29RRSDL8qwMqoeqOrKQbFg/KvEXlJVL8DnJtHChOTP9
+	9C/O+S/kPUwWmCCrvkzBsGyC7qjmN5TabhbNJoLPqhvLSXfO0fNwDEdIAsimKHFI4TFRl58PkKy
+	T1l9YDRQ=
+X-Gm-Gg: AYBFou03Bjd0UxFGoVO55/SP0M6LI0/hTmP9u/v5QHe1y8ODodLpH5PCpUSbMAR/SCW
+	FvYvYtZxShb9umKsru0h3RGJHzLQGpHCGrgjgTStWVC+WF6s7zknfCRtcuNiTToBkpsFY6tlQ4s
+	b3+fzryQ40ZsLge0yqgmESB6GiV7hK65seVoHV0O7wYWK9Ll69pmAnN9+YrIBNCRm+wJMTtU6rv
+	94P1C5/CwmFJLRQPWwBKMqA2Zm3KTs+VS1pu8NiDUR9wvz+rZsNjTB4CPXgGR/ORqPYhZdov1nK
+	8GJTcL/69CPnWqEDhiRJej6AKHBSl+XR/bT6O++HQUnUrQItrSPQP9UTm1qD/OFjQUriQ+0ZBu7
+	0eSQVmu0flYAGpAtPcikSHq/DedsuYiDTQsTNI3uznQ6voASc49Aqra1XPQ8LC61KUDF9pHTMpB
+	bhcMbfYjLdobYu3lFoZ0dckhKu4APPdq1tonk3i5KqpDVgNa7WOr9IakICoibg/w==
+X-Received: by 2002:a05:600c:6087:b0:49c:d52e:d0ea with SMTP id 5b1f17b1804b1-49cf81e3454mr99528635e9.4.1788524939473;
+        Fri, 04 Sep 2026 05:28:59 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee5f912esm153375065e9.4.2026.09.04.05.28.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Sep 2026 05:28:58 -0700 (PDT)
+Date: Fri, 4 Sep 2026 14:28:56 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: bcrl@kvack.org, viro@zeniv.linux.org.uk, brauner@kernel.org,
+	jack@suse.cz, tytso@mit.edu, adilger.kernel@dilger.ca,
+	libaokun@linux.alibaba.com, ojaswin@linux.ibm.com,
+	ritesh.list@gmail.com, yi.zhang@huawei.com, sforshee@kernel.org,
+	akpm@linux-foundation.org, rostedt@goodmis.org,
+	andriy.shevchenko@linux.intel.com, linux@rasmusvillemoes.dk,
+	senozhatsky@chromium.org, kees@kernel.org, tglx@kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-aio@kvack.org,
+	linux-kernel@vger.kernel.org, linux-ext4@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 0/8] Convert barrier pairs to acquire/release for
+ better performance
+Message-ID: <apq5iLOF8lAQ_ZVU@pathway.suse.cz>
+References: <20260902074805.398540-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260902164123.2546762-11-seanjc@google.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA0MDEwNCBTYWx0ZWRfX0Aoocv+enqPy
- aAHT452RrJdq6SGsyysUOLwIt05V+7QWTcYIwPhxSJ8PpoZLIWaD0eknmM2AjE6j895e9ceNN9y
- n/MFYB7qDup5ZpVogUz9zCco9JBq7PIsp4p139vHdb3xAULB7scjdOrPgQaTHrNsxlx3QechR0B
- thNj5adTK1H6yFG0fUQs8l5P3Q07ZrZWnUQdLyXlAG5z5eagZB064/ZmfrBaBZqh3ecFAL8Xf8K
- dLY1A+9rj7dKrDJaQGKuYpHRMuQkc48MGlyetM4MQIltnExj3Ilh2S1xM8viLxBDLcnIrt1tFh6
- Ex4+C1O1XXJ6+2AIYfbt69aKnQksr7gupT44zIaWrQtaTqrfAzzuKBJqZpUduWJzXnD7V6p/K6g
- YqRwsMvR7Fj1lzVxu4q/By/jmikEq+An7rp4/XrW23m9IX3cp2CTBmuxKj/yw9U10c0TBqETXbe
- 0N1BmAqqrAebaBtq9JQ==
-X-Proofpoint-ORIG-GUID: FOemvUVA6EC5QNrBSWqfJgS9IV7SOAo1
-X-Authority-Analysis: v=2.4 cv=CNgamxrD c=1 sm=1 tr=0 ts=6a9aae74 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=omOdbC7AAAAA:8
- a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8 a=PQm9XMsn1R9s6TzZnB4A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: oezkvRzJlqy-qd0w4ak4ksf3GbxB-t4v
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA0MDEwNCBTYWx0ZWRfX4JTqGICJcYX2
- 0ueBv90Fpcuo7VOTmVQ5oYB6OFExT2sdH7SJ6GMdoluxil3EZKa42dPYC6ihbQugc/GTpVH+fqy
- XbaXe1nlxV6xMxpI+8M+abze3HvmBMw=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-04_03,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 suspectscore=0 phishscore=0 lowpriorityscore=0
- priorityscore=1501 clxscore=1011 impostorscore=0 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609040104
+In-Reply-To: <20260902074805.398540-1-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_044703_550636_B8037DD9 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20260904_052902_319804_CB22A242 
+X-CRM114-Status: GOOD (  28.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,106 +110,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 09:41:13AM -0700, Sean Christopherson wrote:
-> Add vm_alloc_page_table_pages() and use it throughout arch code to replace
-> open coded equivalents.
+Adding Risc-V list into Cc.
+
+On Wed 2026-09-02 15:47:57, Jinjie Ruan wrote:
+> Hi,
 > 
-> No functional change intended.
+> This series converts some existing smp_wmb()/smp_rmb() barrier pairs to
+> smp_store_release()/smp_load_acquire() across various subsystems.
 > 
-> Reviewed-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-> Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  tools/testing/selftests/kvm/include/kvm_util.h    | 9 +++++++--
->  tools/testing/selftests/kvm/lib/arm64/processor.c | 4 +---
->  tools/testing/selftests/kvm/lib/riscv/processor.c | 4 +---
->  tools/testing/selftests/kvm/lib/s390/processor.c  | 8 ++------
->  4 files changed, 11 insertions(+), 14 deletions(-)
+> Background
+> ==========
 > 
-> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-> index d9d39a8894e2..c56f342b16fd 100644
-> --- a/tools/testing/selftests/kvm/include/kvm_util.h
-> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-> @@ -1013,10 +1013,15 @@ static inline gpa_t vm_phy_page_alloc(struct kvm_vm *vm, gpa_t min_gpa,
->  	return vm_phy_pages_alloc(vm, 1, min_gpa, memslot);
->  }
->  
-> +static inline gpa_t vm_alloc_page_table_pages(struct kvm_vm *vm, size_t nr_pages)
-> +{
-> +	return vm_phy_pages_alloc(vm, nr_pages, KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> +				  vm->memslots[MEM_REGION_PT]);
-> +}
-> +
->  static inline gpa_t vm_alloc_page_table(struct kvm_vm *vm)
->  {
-> -	return vm_phy_page_alloc(vm, KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -				 vm->memslots[MEM_REGION_PT]);
-> +	return vm_alloc_page_table_pages(vm, 1);
->  }
->  
->  /*
-> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> index 01325bf4d36f..2dcaa2c4a038 100644
-> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> @@ -115,9 +115,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
->  	if (vm->mmu.pgd_created)
->  		return;
->  
-> -	vm->mmu.pgd = vm_phy_pages_alloc(vm, nr_pages,
-> -					 KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -					 vm->memslots[MEM_REGION_PT]);
-> +	vm->mmu.pgd = vm_alloc_page_table_pages(vm, nr_pages);
->  	vm->mmu.pgd_created = true;
->  }
->  
-> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-> index ded5429f3448..c175dcd14114 100644
-> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-> @@ -69,9 +69,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
->  	if (vm->mmu.pgd_created)
->  		return;
->  
-> -	vm->mmu.pgd = vm_phy_pages_alloc(vm, nr_pages,
-> -					 KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -					 vm->memslots[MEM_REGION_PT]);
-> +	vm->mmu.pgd = vm_alloc_page_table_pages(vm, nr_pages);
->  	vm->mmu.pgd_created = true;
->  }
->  
-> diff --git a/tools/testing/selftests/kvm/lib/s390/processor.c b/tools/testing/selftests/kvm/lib/s390/processor.c
-> index fb9dab92d4d1..33f49d743b5f 100644
-> --- a/tools/testing/selftests/kvm/lib/s390/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/s390/processor.c
-> @@ -20,9 +20,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
->  	if (vm->mmu.pgd_created)
->  		return;
->  
-> -	gpa = vm_phy_pages_alloc(vm, PAGES_PER_REGION,
-> -				   KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -				   vm->memslots[MEM_REGION_PT]);
-> +	gpa = vm_alloc_page_table_pages(vm, PAGES_PER_REGION);
->  	memset(addr_gpa2hva(vm, gpa), 0xff, PAGES_PER_REGION * vm->page_size);
->  
->  	vm->mmu.pgd = gpa;
-> @@ -38,9 +36,7 @@ static u64 virt_alloc_region(struct kvm_vm *vm, int ri)
->  {
->  	u64 taddr;
->  
-> -	taddr = vm_phy_pages_alloc(vm,  ri < 4 ? PAGES_PER_REGION : 1,
-> -				   KVM_GUEST_PAGE_TABLE_MIN_PADDR,
-> -				   vm->memslots[MEM_REGION_PT]);
-> +	taddr = vm_alloc_page_table_pages(vm, ri < 4 ? PAGES_PER_REGION : 1);
->  	memset(addr_gpa2hva(vm, taddr), 0xff, PAGES_PER_REGION * vm->page_size);
->  
->  	return (taddr & REGION_ENTRY_ORIGIN)
+> Many architectures support load acquire and store release instructions
+> which can replace explicit memory barriers and save cycles. As noted
+> in the ARM architecture reference [1]:
+> 
+>   "Weaker ordering requirements that are imposed by Load-Acquire and
+>    Store-Release instructions allow for micro-architectural
+>    optimizations, which could reduce some of the performance impacts
+>    that are otherwise imposed by an explicit memory barrier.
+> 
+>    If the ordering requirement is satisfied using either a Load-Acquire
+>    or Store-Release, then it would be preferable to use these
+>    instructions instead of a DMB."
+> 
+> On arm64, a typical seqcount [2] read loop requires 13 cycles with DMB
+> barriers. Replacing the read barrier with smp_load_acquire() reduces
+> this to 8 cycles on an Ampere Altra.
+
+I wonder if this is true on all other architectures:
+
+  + It seems that Arm gets the gain because the instruction
+    does both load/store + barrier. It helps even when
+    the barrier is full.
+
+  + Some other architectures need two instructions. One for the
+    load/store and the other for the barrier. But the barrier
+    is weaker, it synchronizes just reads or just writes.
+
+For example, I see the following in riscv/include/asm/barrier.h:
+
+<paste riscv/include/asm/barrier.h>
+#define smp_mb()	RISCV_FENCE(rw, rw)
+#define smp_rmb()	RISCV_FENCE(r, r)
+#define smp_wmb()	RISCV_FENCE(w, w)
+
+#define smp_store_release(p, v)						\
+do {									\
+	RISCV_FENCE(rw, w);						\
+	WRITE_ONCE(*p, v);						\
+} while (0)
+
+#define smp_load_acquire(p)						\
+({									\
+	typeof(*p) ___p1 = READ_ONCE(*p);				\
+	RISCV_FENCE(r, rw);						\
+	___p1;								\
+})
+</paste riscv/include/asm/barrier.h>
+
+I wonder whether:
+
+  + RISCV_FENCE(r, r) is faster than RISCV_FENCE(r, rw)
+  + RISCV_FENCE(w, w) is faster than RISCV_FENCE(rw, w)
+
+so it might cause performance regression there...
+
+Best Regards,
+Petr
+
+> We also observed significant barrier overhead while profiling Unxibench
+> syscall test on arm64: a single getuid() call is ~8ns slower than on
+> a comparable x86 system, with the dominant cost in map_id_up()'s smp_rmb(),
+> which is a DMB ISHLD on arm64. Converting it to smp_load_acquire() allows
+> the use of LDAR, eliminating the measurable overhead.
+> 
+> This motivated a broader search for existing barrier pairs that can
+> be converted to the lighter acquire/release semantics.
+> 
+> Changes
+> =======
+> 
+> Each patch in this series targets a specific barrier pair where the
+> publish/subscribe pattern is already present:
+> 
+> - Writers populate data, then publish a flag/count/pointer via
+>   smp_store_release()
+> 
+> - Readers load the flag/count/pointer via smp_load_acquire(), then
+>   consume the data
+> 
+> This preserves the existing memory ordering guarantees while allowing
+> architectures with native acquire/release instructions (e.g. arm64's
+> STLR/LDAR) to avoid the cost of full one-way barriers (DMB ISHST/ISHLD).
+> On architectures without native support, the generated code is
+> generally no worse than the explicit barrier pair.
+> 
+> The conversions are mechanical and no functional change is intended.
+> 
+> Testing (Kunpeng HIP09 arm64 server)
+> ====================================
+> 
+> 1. UNIXBENCH syscall
+> 	Baseline: 715.27
+> 	Patched:  718.83
+> 	Improvement: +0.50%
+> 
+> 2. fs/aio (fio + null_blk, 4 jobs):
+> 	Baseline: 1441k IOPS, 86.46us
+> 	Patched:  1452k IOPS, 85.80us
+> 	Improvement: ~0.8%
+> 
+> Both improvements are consistent across runs and align with the
+> expected savings from replacing DMB with LDAR/STLR on arm64.
+> 
+> [1]: https://support.arm.com/documentation/102336/0100/Load-Acquire-and-Store-Release-instructions
+> [2]: https://github.com/torvalds/linux/commit/d0dd066a0fa26d55c19ace9e89dedd9504c5bcba
+> 
+> Changes in v3:
+> - Add Reviewed-by.
+> - Split out network patch set as Kuniyuki suggested.
+> - Link to v2: https://lore.kernel.org/all/20260901024234.135119-1-ruanjinjie@huawei.com/
+> 
+> Changes in v2:
+> - Fix pre-existing issue for ext4 and 8021q [3].
+> - Fix missing copy_mnt_idmap() udapte [3].
+> - Drop nacked isotp patch.
+> - Add test data.
+> - Add Reviewed-by and update fs patch as Jan suggested.
+> 
+> [3]: https://sashiko.dev/#/patchset/20260825095422.3166067-1-ruanjinjie%40huawei.com
+> 
+> Jinjie Ruan (8):
+>   user_namespace: Use acquire/release for nr_extents synchronization
+>   lib/vsprintf: Use acquire/release for ptr_key publication
+>   fs: aio: Use acquire/release for ring->tail publication
+>   fs: Use acquire/release for fdtable resize synchronization
+>   pidfs: Use test_bit_acquire() for attr flag tests
+>   super: Use acquire for SB_BORN check in super_cache_count()
+>   ext4: Fix out-of-bounds read in ext4_get_group_info()
+>   ext4: Convert group-count barrier protocol to acquire/release
+> 
+>  fs/aio.c                | 10 ++++------
+>  fs/ext4/balloc.c        |  2 +-
+>  fs/ext4/ext4.h          | 10 +++-------
+>  fs/ext4/mballoc.c       |  6 ++----
+>  fs/ext4/resize.c        | 19 +++++++++++--------
+>  fs/file.c               | 10 ++++------
+>  fs/mnt_idmapping.c      |  5 ++---
+>  fs/pidfs.c              |  6 ++----
+>  fs/super.c              |  6 ++----
+>  kernel/user_namespace.c | 24 +++++++++++++-----------
+>  lib/vsprintf.c          | 11 ++++-------
+>  11 files changed, 48 insertions(+), 61 deletions(-)
+> 
 > -- 
-> 2.55.0.966.g6673acef38-goog
-> 
-
-
-Acked-by: Gautam Menghani <gautam@linux.ibm.com>
+> 2.34.1
 
 _______________________________________________
 linux-riscv mailing list
