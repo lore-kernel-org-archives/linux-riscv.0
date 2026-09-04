@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F25C79F89
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 19:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298C3C79F85
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 19:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gKvrApOf9jgXHh+kIKbB/lxHw8T6wciYNAI3UcyL4Jg=; b=z60vZcRYIdgn1K
-	I1eQR/MFwDJup4/Gaf74eQTpwuZ+rgmbxbrzWri5x8MX14PY8vCOi0/OJfiKtKkghMG7YGOLALlBb
-	pcE28wQbmTZEgIvDi9zsN21cDi9cUKpMxQTT1IP+YWSfyb8ADUrYFBRg6iWa1K1uzN3oJhfb5ujpJ
-	Q2OKrFhYC4jjR+tUmN/X7uM04rjyiCvDlIRLS87Dy9TWrC2mKol8k831sIKREeMT/Yq75ty0Wxe8N
-	D9hSgUbNsab/ReB4na//pBFaWMdyoPHZkr8pP7V3uB4zKm6kBSEl3ef5tVdPWLXr98Fe3sqBmBj8i
-	hxmlHUfxbq15MsrEi/cg==;
+	List-Owner; bh=Ln6NiHPmc5qSRzUJUadVCHRiL9rFuCpyx3Ij26XlnaU=; b=mFSGYU/5OXSRZI
+	TNhuVmXZLvq/TUydqFoXY9+/BhK8tHRi530h7asVf/yRqC2xyImQAWhSs1DwonnkOzZE74b/ryqk3
+	TQLSUusCgFxJa3IdbaQUpVviRFLxa3Z9fUUbhaKTeP0x3LjFKuVPZUdYNCEPuwCHwUOAg4UftsAOX
+	NzBXP6/yt2k2TKyhatUzY0Dq5RmngKkdw/L+4zNgSu5JWeBXl/7wYJO5eoRRyqql7CVb078BESQTY
+	/6Hd31hWj9xrEKeWPa6/l8jiw2Yq7AadyaiQrNcJ3tVjwQRi958pVCa4H6miKjHZgg1/R9Ed7cCac
+	QIlHSKWhmc05UOB5qcDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Zwt-00000003DAn-3BQd;
-	Fri, 04 Sep 2026 19:51:43 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1x2Zws-00000003DA5-3zK4;
+	Fri, 04 Sep 2026 19:51:42 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Zwq-00000003D8L-14ww
+	id 1x2Zwo-00000003D7U-1N8Q
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Sep 2026 19:51:41 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-855d2bfae95so3070608b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2026 12:51:40 -0700 (PDT)
+	Fri, 04 Sep 2026 19:51:40 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-853c07a76adso1276437b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2026 12:51:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788551500; x=1789156300; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788551497; x=1789156297; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=sQVUWoA7x45iUD9G/BjlX2mTaB7Twjm1Fp1QyKVPw8I=;
-        b=mchpmFS8r+tOp0C31rW9ULeo8uMYtrQfTZnRhdfLNdy04J58iLbpopYGE1+0ndfREc
-         H/hQhLe9Vv1gGWo6S+xGsTCJrEEHbyDKPfKsdXdQk0T65m5qJbGm07ITWNeKYYcazqMU
-         GpZcnyAOnTDV/ryzmEwjjNKlsLXy1wrbvVj0dKUd9BBNnJ+X7R7c5b23Ql62hoye7hsL
-         SDUYsGGrE3A5oc9elZq3G7H3Zewf5T9I09+pxsmyfvenfy1FA/ZxjfrQFhCNpDHXmHF6
-         /5tEgcKEDGxxSkDs+nfUDoiZsuPKg3AwIWBq7P7ZvzZpdIy27ZGKHqkmiQfaM/jm+vQm
-         e5HA==
+        bh=+qDNedZBe5IOgOVXUT3YGJ7aNww3Lf+ZOsFiBHpPGIg=;
+        b=Bc1W/u7sPoUtI0cYB2bJSjSdCpzfcH0OWCgPuJXzERZwk31xCPjR1R9wkkpRXXAEYa
+         WIzuAWtHYOOgVmSuKkfyPWGzkWDClbIG0h9tU0HsWLDIu4IsXN/cuqbuA2ltedOTnI2y
+         9mVZ+pp2D5RBJfZFUYpP1gsmMX+C3TXW+XRER3sWlrm5q4H5tcY23o2DGORCfZksjr7F
+         v2AcoRupUJu85VWrDB3FDqtLIMiwXLJOKivMXjGL0l1Fq7Mgz4kHkw/CHkPdDA+ytnaD
+         kWQ47/5jUT1HW0BAgBQGukvzzOuhYx5bNLZ0GSGfadefpLOo8cpdDxD558daCaIAgksF
+         3TNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788551500; x=1789156300;
+        d=1e100.net; s=20251104; t=1788551497; x=1789156297;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sQVUWoA7x45iUD9G/BjlX2mTaB7Twjm1Fp1QyKVPw8I=;
-        b=izN1gEs2vzQmcBvlymq6dQ2117C1xYgGmL5WJQONzzNkJslC6p1ZgA7DiHUB8derH2
-         M9qA6j77+6NUDf85ml3XpNwwNl8X5yH68k35NK/7zskPJ9ACb5vAyQl4fnuu7xQzpWMH
-         A0JdvymZUZG3NFSi75OSwB1ek3zp5/4zuCBlFDryFT705kjp42wgyC6mhzlJH0EKwYYB
-         Qg/9xZI57ZhZ2wacdOhfO3md0Cr6pZeeJYn13HhQ9bgV8KtA34cP/N7tj6CzwS4LfVr0
-         AHYpDjU6H3fnx3tJuZeIGzgujAGROUmjXx+x0pLbCoxFxCXzYk43VKhEGbI+sKGF+T8O
-         YYFw==
-X-Forwarded-Encrypted: i=1; AKwUvByh1qGPv8ud/V/WF3JBgyW9Cr67gq47cPlEcUGU/QYMdr0wx2cSDZcjbT3edwecPbY5c03jNw4aev9aYA==@lists.infradead.org
-X-Gm-Message-State: AFuF++lwvdhlDanR/qTmckxjAaKI+DB22br4PKmR0EtBXgtDq68Bti1k
-	wRXfkyPWwu4BpgCktrgaGLR0t+HeU4eATIdA1SmCMh7pEO0698JziCNH
-X-Gm-Gg: AYBFou3Tivnitd4htDbHROudz6iBVJ6p6/YlTK0U3IeOYSS9Vq+TEQKPKtr+41fGisv
-	hsH1GCGIxEihTWc8Hb25m4YpFYQ967cBl9GdmvyEZQZfmn7+ZPKqxvgIp/FSz3BH/zN8q5qrj0Q
-	pLaWcsz9+lquvKU1tA1FNueyITDe1dopTvRpKtTapRWNz8RvQIBGXhIABV/Cheycwo9Zhi12H+W
-	yLxem5oazhREwMNKDE1YjLW0dABHK7eQbRtJLm5uGiB/bQwP8cFQMvGLIg5pVr5ed/eATwd3c6T
-	UsbB3aLPTvqJqeYpXQ/Q1B3/CdR7FIo4/N0sPSjVUvYNajzfREPG0ufqlI7iXVZqc4Y1Pn1BaQW
-	2Kq8LQ02zNQ9GyhhMMzlxrLbA1+iIXNSoL7zcNwuerdn3v6M1edO6wlH01z8OwepViNNbOYvMbx
-	BddlK1FLznw6bAxZLxuhf+xXyvAnAFaSroROnzQCBZ/S7GY0PCPQsLFGtKuT2Q4Ueb/axxOfaVO
-	A4JWatNnbQaWVTwow4jx5g4C8WalCIClySvOEHIcPvj14JmqxffDrYqhPa2kkQa+gnYlPEVio88
-	hoR0DpG7dLarCr1uTUEyr4g/K9BNJS/3sXcrGQzlrQuxjw4NE1OTN7tDk76ulKjLndoOctO4UGc
+        bh=+qDNedZBe5IOgOVXUT3YGJ7aNww3Lf+ZOsFiBHpPGIg=;
+        b=OABftN8q4n+sAmoL3y98aYU2u+3IGvOKZxJY+plcF8VVmg8OTPN71eS9zN+/VI5WI/
+         QjhvFV9V0+so/1cRR8iDgC8txPhcPeSXYC4Jmi3HDB7fz54i41g2LGv1YAspzMUCpavP
+         xKoUW0r7kGMDktmQzvf3XGs4EkP8lSUlShlsy+KPH4xldte5VaXFeS2KEzRcCgm1h0nu
+         I29IO+KhP1G4MR91mdNSXsjo2dVuV4DRCZu5cCTtT36jHKwHk5rPcCD/4CeJ7AzFKx5r
+         9MZ3uaMNlw8VXjt6lRRbP3WGNQ23A36l3UqNZ0KFZwAHNL3VEemhT71SiwjH8ycbrh+Q
+         kdAw==
+X-Forwarded-Encrypted: i=1; AKwUvBwHMZgG/p3Vh1zwj/r5y8VA176TL421GiMxZchk2VkDFt3S67aM/+0DwKFe171NcNVywDH364hTK9UrGQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++nFDz2u4WdMnBLEcbtTbv5fcAlWvmblEOYBxxOGkc1ADp1SzC3G
+	OHk9d/CTZ0ocMwKDROOiF6qg7Y/XWXY6KBJSwpVB82Eok96yzi0T0cju
+X-Gm-Gg: AYBFou34B1DoPeeZ+66MchqbI81jH6Y309CBThwyKNHTsrcgrVsDgMrAoGfyZJVrq5m
+	+x/y+LFl9CPoJpViljHEa2indEBKarn+SQu2iYYxATc1HrO6PiFQsE37Tf88GjJvKxSqGooAAp/
+	OWGvP3McM1jDnLfqcgT+GOZrP+pRX9qJNGBjwJwg3nlW/eztYSW+6zuekc9p4rRPOAaWnNzlc2A
+	Ne2zhke7Qdqxh8sxJMIiMSMnJ1MbNen6hu/2u84h2whvJpgnJBz7OF2lSv/aoY15Xt2IZ4gmwjx
+	TxWRpYAmyPzHzfjFgS/Hqw5qdETlS+jZnx7K/h4CDZklRrzSGY95uX4WNghG3UcKDfm+Qa0v7qm
+	mk/lP8uJpfxWjMNfHqUr9rJquPtKqacFWiBnaX43vwjhUUPY/AQLFUd6t4BYPDHaKZ50OQd7hEU
+	fwq9QwdkAWIaDY31H29I42YxOA4jZH+gt+0qRJIhJ0JV/q03+D/p0Pfw72blnqj/Pu5Tm/UWJ9E
+	vPi364i24s5H324TC2bMOphGVlPFbv7QMOmB6MJtAX+4AMpF5fVG0oipo5Wl1qTY6QdrG84I2sc
+	+453OjKcMarqY20U+NMisyZxaplg/FpWLTgm1l/YggJlzU9q8z2KYfrlsB6klQI5nHd7LOynAIk
 	=
-X-Received: by 2002:a05:6a00:159a:b0:84a:65e8:137e with SMTP id d2e1a72fcca58-85ffe1099ecmr11049338b3a.17.1788551499491;
-        Fri, 04 Sep 2026 12:51:39 -0700 (PDT)
+X-Received: by 2002:a05:6a00:3007:b0:846:4d4c:23f8 with SMTP id d2e1a72fcca58-861662d4c34mr11674869b3a.1.1788551497395;
+        Fri, 04 Sep 2026 12:51:37 -0700 (PDT)
 Received: from sid-dev-env.cgrhrlrrq2nuffriizdlnb1x4b.xx.internal.cloudapp.net ([4.155.54.158])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8615404876fsm1497684b3a.59.2026.09.04.12.51.38
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8615404876fsm1497684b3a.59.2026.09.04.12.51.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 12:51:39 -0700 (PDT)
+        Fri, 04 Sep 2026 12:51:36 -0700 (PDT)
 From: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
 To: bpf@vger.kernel.org
 Cc: Siddharth Chintamaneni <sidchintamaneni@gmail.com>,
@@ -96,16 +96,17 @@ Cc: Siddharth Chintamaneni <sidchintamaneni@gmail.com>,
 	rlmenge@gmail.com,
 	hargar@linux.microsoft.com,
 	apais@microsoft.com
-Subject: [PATCH bpf-next v1 4/7] bpf, powerpc64: Use resolved pointer for timed may_goto
-Date: Fri,  4 Sep 2026 19:51:29 +0000
-Message-ID: <20260904195132.141068-5-sidchintamaneni@gmail.com>
+Subject: [PATCH bpf-next v1 2/7] bpf, x86: Use resolved pointer for timed may_goto
+Date: Fri,  4 Sep 2026 19:51:27 +0000
+Message-ID: <20260904195132.141068-3-sidchintamaneni@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260904195132.141068-1-sidchintamaneni@gmail.com>
 References: <20260904195132.141068-1-sidchintamaneni@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_125140_295611_E12AC2E7 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260904_125138_363737_C031FF7B 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,45 +126,34 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 The timed may_goto fixup now passes the resolved counter pointer through
 BPF_REG_AX instead of a stack offset.
 
-Copy the pointer directly into the first argument register rather than
-adding it to the BPF frame pointer again.
+Use the pointer directly rather than adding it to RBP. This preserves the
+private-stack address selected by the JIT through R9.
 
-Fixes: b55b6b9ad76c ("powerpc64/bpf: Add powerpc64 JIT support for timed may_goto")
+Fixes: 2fb761823ead ("bpf, x86: Add x86 JIT support for timed may_goto")
 Reported-by: Jeremy Jean <jeremy.jean@oss.cyber.gouv.fr>
 Link: https://lore.kernel.org/all/20260824213158.3755932-2-Jeremy.Jean@oss.cyber.gouv.fr/
-Assisted-by: Copilot:gpt-5.6-sol
 Signed-off-by: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
 ---
- arch/powerpc/net/bpf_timed_may_goto.S | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/x86/net/bpf_timed_may_goto.S | 6 ------
+ 1 file changed, 6 deletions(-)
 
-diff --git a/arch/powerpc/net/bpf_timed_may_goto.S b/arch/powerpc/net/bpf_timed_may_goto.S
-index 84ecf6fa7f5d..d88825dd34fe 100644
---- a/arch/powerpc/net/bpf_timed_may_goto.S
-+++ b/arch/powerpc/net/bpf_timed_may_goto.S
-@@ -8,7 +8,7 @@
-  * arch_bpf_timed_may_goto() trampoline for powerpc64
-  *
-  * Custom BPF convention (verifier/JIT):
-- *	- input:  stack offset in BPF_REG_AX (r12)
-+ *	- input:  count and timestamp pointer in BPF_REG_AX (r12)
-  *	- output: updated count in BPF_REG_AX (r12)
-  *
-  * Call bpf_check_timed_may_goto(ptr) with normal powerpc64 ABI:
-@@ -32,10 +32,10 @@ SYM_FUNC_START(arch_bpf_timed_may_goto)
- 	std     r8, 72(r1)
+diff --git a/arch/x86/net/bpf_timed_may_goto.S b/arch/x86/net/bpf_timed_may_goto.S
+index 54c690cae190..6e9d9e7c2b1d 100644
+--- a/arch/x86/net/bpf_timed_may_goto.S
++++ b/arch/x86/net/bpf_timed_may_goto.S
+@@ -11,12 +11,6 @@
+ SYM_FUNC_START(arch_bpf_timed_may_goto)
+ 	ANNOTATE_NOENDBR
  
- 	/*
--	 * r3 = BPF_REG_FP + BPF_REG_AX
--	 * BPF_REG_FP is r31; BPF_REG_AX is r12 (stack offset in bytes).
-+	 * BPF_REG_AX (r12) contains the count and timestamp pointer; pass it as
-+	 * the first argument in r3.
- 	 */
--	add     r3, r31, r12
-+	mr      r3, r12
- 	bl      CFUNC(bpf_check_timed_may_goto)
- 
- 	/* Put return value back into AX */
+-	/*
+-	 * r10 passes us stack depth, load the pointer to count and timestamp
+-	 * into r10 by adding it to BPF frame pointer.
+-	 */
+-	leaq (%rbp, %r10, 1), %r10
+-
+ 	/* Setup frame. */
+ 	pushq %rbp
+ 	movq %rsp, %rbp
 -- 
 2.43.0
 
