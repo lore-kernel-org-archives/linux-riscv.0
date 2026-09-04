@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C372DC624DE
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 16:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A11C79F80
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 17:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rQ7JiH2Xg6Ld+tNwd1qlvnpx6+v+/tfjnSoSnlbuv4I=; b=hsQWKLU8TLuObU
-	Kdt/PO9jEe50uUMMH30bUN6zgqb8KDDyat64JZHOzUz7Hixx8FfJm2MMwHOfL6sXXMIqldkO1dDKL
-	lRiVyKlsUdQ01B4nfK85S4iNiwutmIJAuhyqmx12D8nLAShFqqUc2W00OjyBUER9YYHFu+y0sGKJf
-	P/yqKU9w+NjGX9oksEaup88ov+JGL7Mui67P1Z/B/w76Oy+gCZTtyWwNUs6qbFmeJ/6+DykorCaNG
-	W9OVCTnEp9LhAFPE/ynYz94hqSOGOvqoAXbl0RGwtoaq43afa+gOfJ77rENmB0MELg8s6reSus38n
-	CapG3bPfYz8OGcWBX4wQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=02HPxYO+jFkfSXHOv7ukuAHM3nod2sBW0KM8P9ZIwDg=; b=JhCxRC5aADGXMu
+	KWpQGt+lf3Z3l6VPEINRCXb0mvhPOKVnThcjvAgPK6E6Rv65dCUTI+VRDsdILQRcKWTkEa1RbRs2F
+	JyzPWbh2t6X7Cmc9n7snqLQLaHa+Frr0wA9jagSRJpxt1c/NXvsiZhCohC9y3g5novTYOS2jDFCsO
+	pSV9P5LGTTVlvS7hbrUtAelSJ3ZiQ+Kzq+iVcrq91XpGZXxyKBONJ9r6wsIpYN7xy4cyzqJ7jyYnm
+	a6vqiKBCs61vyl9XzDuLsEL3/wv+DnE9TF5oX1l3KgQ6WSn32fk7WKbAqOHhLG+NeObIBikwLrhcg
+	LZtxTFwwPfFEzyY7H9Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2X5s-00000002mu0-2xcA;
-	Fri, 04 Sep 2026 16:48:48 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1x2XdL-00000002sMf-2WVY;
+	Fri, 04 Sep 2026 17:23:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2X5q-00000002mqT-0lG0;
-	Fri, 04 Sep 2026 16:48:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788540517; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=KKXe0rl46KxOiyymqgOXGGXDz08jU5LzyGuG/cnJY2hnq2O4MwIEPQ7vQ/fXbmAK53vye4BG+wFUQWXmZETp3p9yKNwFR1a3zd/O7KJehWnbvGds2ZSHTyC7xCwFA5Abxes37nUhZiYuivvHnOV+m2Avt7jra7yrHuyLimgUo8o=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788540517; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=/nqSTI4M+1pDbQcVOP14IODgeb4p0RYKm7UPKJAD8ZI=; 
-	b=WMMqOUICJBFiPVvYOAGVVgb79usdzvK0BavoEH8phKZRhH5rjrGTMRuB5KaoXLOesUyrIFPqc6MtqcrrtcpIrYHllzahzlAxtrYuzQk5VBKNOGRzygIiqLXvN0mV7XAtOv6sq5U9/fVi65yFcLZm6PCXLrfryjzSTEJGwugDOHs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788540517;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=/nqSTI4M+1pDbQcVOP14IODgeb4p0RYKm7UPKJAD8ZI=;
-	b=RNjlnp70af3QRp0IXvZLWv9BZzsBdPYLh9FsVaM/pKwoskzUq4Ym+YbCcUREzMt5
-	sP75Dc27LQ1muyNkHripMT5/ztqEUcKN3y/BXHM+w0PEiN7atK/7UNbdtaTgBKz4uzJ
-	oqrahnLriUVuPomMQ3epPGLIkrMx+E4cAEK4XMRY=
-Received: by mx.zohomail.com with SMTPS id 1788540508375129.33683735137345;
-	Fri, 4 Sep 2026 09:48:28 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Sat, 05 Sep 2026 00:45:37 +0800
-Subject: [PATCH v3 8/8] clk: sunxi-ng: a733: Add reset lines
+	id 1x2XdI-00000002sMY-1T3A
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Sep 2026 17:23:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5F6F3600D4;
+	Fri,  4 Sep 2026 17:23:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BA3F1F00A3D;
+	Fri,  4 Sep 2026 17:23:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788542599;
+	bh=Qe/SR/azOYN4FcYL3Zi0mhaXWiftLHOPJv3t4uJcphc=;
+	h=From:To:Cc:Subject:Date;
+	b=EJ3qV0/vmlS5DC4Ju+pgBKtyfO9cpsen5fo6kR4PoUfqdtTer1NSeBOZNUpKnCdYt
+	 Ou0SNCLu0alpia5AHSY9mVSPodQ0mSwNaIKbcYJOpzc15gme3j/dHtyJFcWPHakJNY
+	 M+RgFXVP8l+bvVR2VUur6Xyr8xX6mp3UWIUDG2lhbewtoWP440wZAJGaD30cTiyRu0
+	 y6LXpqXl13Z9B89VIc9paGBLk0PGovB/GB5QNaf7ez8PtpvI51rWgzvociUoU0N0EL
+	 lCvIZNzOCnFop3fQoxzdmnl7BMWzj0IC8DpVtE1k+x1paCv8KQIEOdh062iFm4iWQh
+	 GZ5DPM1J6moRQ==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Valentina.FernandezAlanis@microchip.com,
+	stable@vger.kernel.org
+Subject: [PATCH] riscv: dts: microchip: beaglev-fire: remove double definition of gpio interrupts
+Date: Fri,  4 Sep 2026 18:22:55 +0100
+Message-ID: <20260904172253.2274751-3-conor@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Message-Id: <20260905-a733-clk-v3-8-50f238f39c78@pigmoral.tech>
-References: <20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech>
-In-Reply-To: <20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
- Enzo Adriano <enzo.adriano.code@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6960;
- i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
- bh=yd6GWaVDPMIe/o6TIDlz+K0N/98nvL5ILtZcOOjErcI=;
- b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLJmfb178cF35+82KQyL2J6UyDeeXDxv+tbwtN3rgkreG
- nz12tI0p6OUhUGMi0FWTJGFy1/8n7UOz7cjAq33YeawMoEMYeDiFICJrJrOyNAYdPYX8z7O76e5
- mue062t/aXP/2NZwPCjs7YVnLDInQpYw/DO7kMa/31Sw9+C6msDDR77kiHzd2NEfz9HTHbZ1E9t
- 8CyYA
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
- fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_094846_276928_BD209301 
-X-CRM114-Status: GOOD (  10.80  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2720; i=conor.dooley@microchip.com; h=from:subject; bh=g+2NEGXgnzSlaVh9vBHDs5IpNqnrxlZ37dU6ImCHIP4=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFmz/uVN2VEnyLksbdMylX2/5kis542YuNw4ocR7o/xmS 12xqPT/HaUsDGJcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZiIQSbD/5CNiZ5cDdzPfSwj vdcwJDzPdM/b8Sf5xf3go24N62yXGzMyzO2Qurvo+G+VOQFXTnZy/72zguPFGlOFO0bbP9RFf72 4mQUA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,171 +76,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the reset lines for the Allwinner A733 SoC. These reset control bits
-are integrated into the Bus Gate Reset (BGR) registers, typically
-sharing the same register address with their corresponding bus clock
-gates. Integrate them into the main CCU driver using the existing
-sunxi-ng ccu_reset framework, allowing the CCU to also function as a
-reset controller for the SoC.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Tested-by: Jerome Brunet <jbrunet@baylibre.com>
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+When the irq-mux and its interrupt-map were added to the mpfs
+devicetree, the gpio interrupts became fixed at the SoC level rather
+than dependant on the design - the interrupt-map is now what varies.
+The beaglev-fire should have had its dts copy of the interrupts removed
+but did not. As a result, the mcp3564 driver does not probe, because
+even though it doesn't use the interrupt at present, the SPI core still
+looks it up. This lookup fails because the second copy of the interrupts
+property doesn't resolve to something valid when passed via the
+interrupt-map. Remove the second/incorrect set of interrupts properties.
+
+Fixes: b0258f69f1e0 ("riscv: dts: microchip: update mpfs gpio interrupts to better match the SoC")
+CC: stable@vger.kernel.org
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 126 +++++++++++++++++++++++++++++++++
- 1 file changed, 126 insertions(+)
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-index c124b09855c0..b7fc2cfc626c 100644
---- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-@@ -19,6 +19,7 @@
- #include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
- 
- #include "ccu_common.h"
-+#include "ccu_reset.h"
- 
- #include "ccu_div.h"
- #include "ccu_gate.h"
-@@ -2183,11 +2184,136 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
- 	.num	= CLK_FANOUT3 + 1,
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: linux-riscv@lists.infradead.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: Valentina.FernandezAlanis@microchip.com
+
+ .../boot/dts/microchip/mpfs-beaglev-fire.dts   | 18 ------------------
+ 1 file changed, 18 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts b/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
+index 6d7037c9528d..a09371d9d064 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-beaglev-fire.dts
+@@ -90,10 +90,6 @@ regulator-1v8-syzygy {
  };
  
-+static const struct ccu_reset_map sun60i_a733_ccu_resets[] = {
-+	[RST_BUS_ITS_PCIE0]		= { 0x574, BIT(16) },
-+	[RST_BUS_IOMMU0_SYS]		= { 0x58c, BIT(16) },
-+	[RST_BUS_MSI_LITE0_AHB]		= { 0x594, BIT(16) },
-+	[RST_BUS_MSI_LITE0_MBUS]	= { 0x594, BIT(17) },
-+	[RST_BUS_MSI_LITE1_AHB]		= { 0x59c, BIT(16) },
-+	[RST_BUS_MSI_LITE1_MBUS]	= { 0x59c, BIT(17) },
-+	[RST_BUS_MSI_LITE2_AHB]		= { 0x5a4, BIT(16) },
-+	[RST_BUS_MSI_LITE2_MBUS]	= { 0x5a4, BIT(17) },
-+	[RST_BUS_IOMMU1_SYS]		= { 0x5b4, BIT(16) },
-+	[RST_BUS_DMA0]			= { 0x704, BIT(16) },
-+	[RST_BUS_DMA1]			= { 0x70c, BIT(16) },
-+	[RST_BUS_SPINLOCK]		= { 0x724, BIT(16) },
-+	[RST_BUS_MSGBOX]		= { 0x744, BIT(16) },
-+	[RST_BUS_PWM0]			= { 0x784, BIT(16) },
-+	[RST_BUS_PWM1]			= { 0x78c, BIT(16) },
-+	[RST_BUS_DBG]			= { 0x7a4, BIT(16) },
-+	[RST_BUS_SYSDAP]		= { 0x7ac, BIT(16) },
-+	[RST_BUS_TIMER0]		= { 0x850, BIT(16) },
-+	[RST_BUS_DE0]			= { 0xa04, BIT(16) },
-+	[RST_BUS_DI]			= { 0xa24, BIT(16) },
-+	[RST_BUS_G2D]			= { 0xa44, BIT(16) },
-+	[RST_BUS_EINK]			= { 0xa6c, BIT(16) },
-+	[RST_BUS_DE_SYS]		= { 0xa74, BIT(16) },
-+	[RST_BUS_VE_ENC0]		= { 0xa8c, BIT(16) },
-+	[RST_BUS_VE_DEC0]		= { 0xa8c, BIT(18) },
-+	[RST_BUS_CE]			= { 0xac4, BIT(16) },
-+	[RST_BUS_CE_SYS]		= { 0xac4, BIT(17) },
-+	[RST_BUS_NPU_CORE]		= { 0xb04, BIT(16) },
-+	[RST_BUS_NPU_AXI]		= { 0xb04, BIT(17) },
-+	[RST_BUS_NPU_AHB]		= { 0xb04, BIT(18) },
-+	[RST_BUS_NPU_SRAM]		= { 0xb04, BIT(19) },
-+	[RST_BUS_GPU0]			= { 0xb24, BIT(16) },
-+	[RST_BUS_DRAM0]			= { 0xc0c, BIT(16) },
-+	[RST_BUS_NAND0]			= { 0xc8c, BIT(16) },
-+	[RST_BUS_MMC0]			= { 0xd0c, BIT(16) },
-+	[RST_BUS_MMC1]			= { 0xd1c, BIT(16) },
-+	[RST_BUS_MMC2]			= { 0xd2c, BIT(16) },
-+	[RST_BUS_MMC3]			= { 0xd3c, BIT(16) },
-+	[RST_BUS_UFS_AHB]		= { 0xd8c, BIT(16) },
-+	[RST_BUS_UFS_AXI]		= { 0xd8c, BIT(17) },
-+	[RST_BUS_UFS_PHY]		= { 0xd8c, BIT(18) },
-+	[RST_BUS_UFS_CORE]		= { 0xd8c, BIT(19) },
-+	[RST_BUS_UART0]			= { 0xe00, BIT(16) },
-+	[RST_BUS_UART1]			= { 0xe04, BIT(16) },
-+	[RST_BUS_UART2]			= { 0xe08, BIT(16) },
-+	[RST_BUS_UART3]			= { 0xe0c, BIT(16) },
-+	[RST_BUS_UART4]			= { 0xe10, BIT(16) },
-+	[RST_BUS_UART5]			= { 0xe14, BIT(16) },
-+	[RST_BUS_UART6]			= { 0xe18, BIT(16) },
-+	[RST_BUS_I2C0]			= { 0xe80, BIT(16) },
-+	[RST_BUS_I2C1]			= { 0xe84, BIT(16) },
-+	[RST_BUS_I2C2]			= { 0xe88, BIT(16) },
-+	[RST_BUS_I2C3]			= { 0xe8c, BIT(16) },
-+	[RST_BUS_I2C4]			= { 0xe90, BIT(16) },
-+	[RST_BUS_I2C5]			= { 0xe94, BIT(16) },
-+	[RST_BUS_I2C6]			= { 0xe98, BIT(16) },
-+	[RST_BUS_I2C7]			= { 0xe9c, BIT(16) },
-+	[RST_BUS_I2C8]			= { 0xea0, BIT(16) },
-+	[RST_BUS_I2C9]			= { 0xea4, BIT(16) },
-+	[RST_BUS_I2C10]			= { 0xea8, BIT(16) },
-+	[RST_BUS_I2C11]			= { 0xeac, BIT(16) },
-+	[RST_BUS_I2C12]			= { 0xeb0, BIT(16) },
-+	[RST_BUS_SPI0]			= { 0xf04, BIT(16) },
-+	[RST_BUS_SPI1]			= { 0xf0c, BIT(16) },
-+	[RST_BUS_SPI2]			= { 0xf14, BIT(16) },
-+	[RST_BUS_SPIF]			= { 0xf1c, BIT(16) },
-+	[RST_BUS_SPI3]			= { 0xf24, BIT(16) },
-+	[RST_BUS_SPI4]			= { 0xf2c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GPADC0]		= { 0xfc4, BIT(16) },
-+	[RST_BUS_THS0]			= { 0xfe4, BIT(16) },
-+	[RST_BUS_IRRX]			= { 0x1004, BIT(16) },
-+	[RST_BUS_IRTX]			= { 0x100c, BIT(16) },
-+	[RST_BUS_LRADC]			= { 0x1024, BIT(16) },
-+	[RST_BUS_SGPIO]			= { 0x1064, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LPC]			= { 0x1084, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_I2SPCM0]		= { 0x120c, BIT(16) },
-+	[RST_BUS_I2SPCM1]		= { 0x121c, BIT(16) },
-+	[RST_BUS_I2SPCM2]		= { 0x122c, BIT(16) },
-+	[RST_BUS_I2SPCM3]		= { 0x123c, BIT(16) },
-+	[RST_BUS_I2SPCM4]		= { 0x124c, BIT(16) },
-+	[RST_BUS_SPDIF]			= { 0x128c, BIT(16) },
-+	[RST_BUS_DMIC]			= { 0x12cc, BIT(16) },
-+	[RST_USB_PHY0]			= { 0x1300, BIT(30) },
-+	[RST_BUS_OHCI0]			= { 0x1304, BIT(16) },
-+	[RST_BUS_EHCI0]			= { 0x1304, BIT(20) },
-+	[RST_BUS_OTG]			= { 0x1304, BIT(24) },
-+	[RST_USB_PHY1]			= { 0x1308, BIT(30) },
-+	[RST_BUS_OHCI1]			= { 0x130c, BIT(16) },
-+	[RST_BUS_EHCI1]			= { 0x130c, BIT(20) },
-+	[RST_BUS_USB2]			= { 0x135c, BIT(16) },
-+	[RST_BUS_PCIE_PWRUP]		= { 0x138c, BIT(16) },
-+	[RST_BUS_PCIE]			= { 0x138c, BIT(17) },
-+	[RST_BUS_SERDES]		= { 0x13c4, BIT(16) },
-+	[RST_BUS_GMAC0]			= { 0x141c, BIT(16) },
-+	[RST_BUS_GMAC0_AXI]		= { 0x141c, BIT(17) },
-+	[RST_BUS_GMAC1]			= { 0x142c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GMAC1_AXI]		= { 0x142c, BIT(17) }, /* From the vendor kernel. */
-+	[RST_BUS_TCON_LCD0]		= { 0x1504, BIT(16) },
-+	[RST_BUS_TCON_LCD1]		= { 0x150c, BIT(16) },
-+	[RST_BUS_TCON_LCD2]		= { 0x1514, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LVDS0]			= { 0x1544, BIT(16) },
-+	[RST_BUS_LVDS1]			= { 0x154c, BIT(16) },
-+	[RST_BUS_DSI0]			= { 0x1584, BIT(16) },
-+	[RST_BUS_DSI1]			= { 0x158c, BIT(16) },
-+	[RST_BUS_TCON_TV0]		= { 0x1604, BIT(16) },
-+	[RST_BUS_TCON_TV1]		= { 0x160c, BIT(16) },
-+	[RST_BUS_EDP]			= { 0x164c, BIT(16) },
-+	[RST_BUS_HDMI_MAIN]		= { 0x168c, BIT(16) },
-+	[RST_BUS_HDMI_SUB]		= { 0x168c, BIT(17) },
-+	[RST_BUS_HDMI_HDCP]		= { 0x168c, BIT(18) },
-+	[RST_BUS_DPSS_TOP0]		= { 0x16c4, BIT(16) },
-+	[RST_BUS_DPSS_TOP1]		= { 0x16cc, BIT(16) },
-+	[RST_BUS_VIDEO_OUT0]		= { 0x16e4, BIT(16) },
-+	[RST_BUS_VIDEO_OUT1]		= { 0x16ec, BIT(16) },
-+	[RST_BUS_LEDC]			= { 0x1704, BIT(16) },
-+	[RST_BUS_DSC]			= { 0x1744, BIT(16) },
-+	[RST_BUS_CSI]			= { 0x1844, BIT(16) },
-+	[RST_BUS_VIDEO_IN]		= { 0x1884, BIT(16) },
-+	[RST_BUS_APB2JTAG]		= { 0x1c04, BIT(16) },
-+};
-+
- static const struct sunxi_ccu_desc sun60i_a733_ccu_desc = {
- 	.ccu_clks	= sun60i_a733_ccu_clks,
- 	.num_ccu_clks	= ARRAY_SIZE(sun60i_a733_ccu_clks),
- 
- 	.hw_clks	= &sun60i_a733_hw_clks,
-+
-+	.resets		= sun60i_a733_ccu_resets,
-+	.num_resets	= ARRAY_SIZE(sun60i_a733_ccu_resets),
+ &gpio0 {
+-	interrupts = <13>, <14>, <15>, <16>,
+-		     <17>, <18>, <19>, <20>,
+-		     <21>, <22>, <23>, <24>,
+-		     <25>, <26>;
+ 	ngpios = <14>;
+ 	gpio-line-names = "", "", "", "", "", "", "",
+ 			  "", "", "", "", "", "SD_CARD_CS", "USER_BUTTON";
+@@ -101,12 +97,6 @@ &gpio0 {
  };
  
- static const u32 pll_regs[] = {
-
+ &gpio1 {
+-	interrupts = <27>, <28>, <29>, <30>,
+-		     <31>, <32>, <33>, <34>,
+-		     <35>, <36>, <37>, <38>,
+-		     <39>, <40>, <41>, <42>,
+-		     <43>, <44>, <45>, <46>,
+-		     <47>, <48>, <49>, <50>;
+ 	ngpios = <24>;
+ 	gpio-line-names = "", "", "", "", "", "", "", "", "", "",
+ 			  "", "", "", "", "", "", "", "", "", "",
+@@ -115,14 +105,6 @@ &gpio1 {
+ };
+ 
+ &gpio2 {
+-	interrupts = <53>, <53>, <53>, <53>,
+-		     <53>, <53>, <53>, <53>,
+-		     <53>, <53>, <53>, <53>,
+-		     <53>, <53>, <53>, <53>,
+-		     <53>, <53>, <53>, <53>,
+-		     <53>, <53>, <53>, <53>,
+-		     <53>, <53>, <53>, <53>,
+-		     <53>, <53>, <53>, <53>;
+ 	ngpios = <32>;
+ 	gpio-line-names = "P8_PIN3_USER_LED_0", "P8_PIN4_USER_LED_1", "P8_PIN5_USER_LED_2",
+ 			  "P8_PIN6_USER_LED_3", "P8_PIN7_USER_LED_4", "P8_PIN8_USER_LED_5",
 -- 
-2.55.0
+2.53.0
 
 
 _______________________________________________
