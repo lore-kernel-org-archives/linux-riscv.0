@@ -4,88 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B112AC61DD6
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 03:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F22C61DD6
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 04:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:Cc:To:From:Subject:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLxkqiafys0+9P5B9Rw/yNlTePHLjQF8V9zlEuasgrU=; b=2B09nHJt46xdCcFIrhg8T/ue28
-	Cg4BMmfQralkPIX06nqWcDS5k/jzNLbpLBPfDWpx39piM9hlbmp44SoWjSkqOkpk0alaZeaiyKxl2
-	bFqknYwPvfxvMcKRM6yiIfubhjGCsuFaQ6f9j4qy/B2vaKOFmFd7TmWA88dD1MbUsomTKzodcRT3R
-	RrxWgsw/1uodU9CFryi3IbgnvVwNYYFHh7XT9ROSNbkCjNB4sRTlgQYQz5j28wO3srm3RgwSFSzP0
-	dFjqbok4LjPI6Mp0Tk/BSfPTqAPEySAjwXbifTvXJQP5+GCyeO5yN1QQS0pd3UEqFhFkKtOID7UOI
-	VZDxnecw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EiDfaVIMAqnDIdV9Be38qRr06kUADZy/07uQ1qR7oFA=; b=HRqxaqlEJnI49n
+	qH4rGQYCNtwcDQIu3qQ0jOijLzwYSeIEgZPcEy4nUkWSIvLdvrtOd4ebpBzHXUV02t/Iyjspvo1IT
+	Z5wXMd96HZHOHQxkjHHMqbEM3lbVLP43BgSDT27yqonKzVzgLLSWIMP9tz+NxyEUVS47vUwcrlnJB
+	yGqsRrT1aphmyiItAGHL7g9Rx+4xeklLJP+tOZwsbcof8/+zj4iRSTiOMruISfsnjumYfvhcm9he+
+	XomXUY4SYS42K9tyReDd0ng4KORvgq+/a399wh/MO/HqspRXohPcADbYhcvvXnupSYZQn8Pq0Fv4F
+	/Ph4AzKi/SMVfl0l1J7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2KXo-00000000vNO-08LY;
-	Fri, 04 Sep 2026 03:24:48 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1x2LeJ-00000000xz1-2XFY;
+	Fri, 04 Sep 2026 04:35:35 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2KXk-00000000vMb-1ekb
-	for linux-riscv@lists.infradead.org;
-	Fri, 04 Sep 2026 03:24:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1788492269;
-	bh=+fjce5Gv68gDb4c/l/fe5+Q4SZGtlsosTF1WEjjxUK8=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=Zj8yLUQlyL2m6aW139jNLntDDWwOrrsU4IJ5v7dA4/ogtjFSLT7ga397YGm8m0fLP
-	 VR6QQcq+e07+VFKYPKW3A2kPtwwOWmw7ucELMob7u3CQdStIYPfjxTLBn7xtKkK+yP
-	 rjcANDqptKp07AifhFMujrBNb72RNpM8HH/TXIRA=
-X-QQ-mid: zesmtpsz4t1788492267t97a1c389
-X-QQ-Originating-IP: UUFOhxrmyWmafniu2RpwCuAxO+jazOpB/m3P/JOKzfU=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 04 Sep 2026 11:24:25 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16749050241281996791
-EX-QQ-RecipientCnt: 19
-Mime-Version: 1.0
-Date: Fri, 04 Sep 2026 11:24:22 +0800
-Message-Id: <DL67LEVCXFA5.39M5FO7JGKWZS@linux.spacemit.com>
-Subject: Re: [PATCH v4] clk: spacemit: k3: add CPU PLL rate tables
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Aurelien Jarno" <aurelien@aurel32.net>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>
-Cc: "Michael Turquette" <mturquette@baylibre.com>, "Inochi Amaoto"
- <inochiama@outlook.com>, "Alex Elder" <elder@riscstar.com>, "Haylen Chu"
- <heylenay@4d2.org>, <stable@vger.kernel.org>, "Stephen Boyd"
- <sboyd@kernel.org>, "Brian Masney" <bmasney+clk@redhat.com>, "Jerome
- Brunet" <jbrunet+clk@baylibre.com>, "Yixun Lan" <dlan@kernel.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- <linux-clk@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260903-k3-pll5-pll8-1800mhz-v4-1-afafd9cb47d9@linux.spacemit.com> <apmuG46sBg2rGzCD@aurel32.net>
-In-Reply-To: <apmuG46sBg2rGzCD@aurel32.net>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MOsVgoF62rlXg2jMy+En6/iirgDaQNRxZyXqrMP91f3S8ZHwZMVbtaJr
-	7xM27fIaocapgAnzKqQp5stV87/ZpBc/zKO6PJuvevedWvY9zw5FFoz/3JV0FOolmEnfyGC
-	KjDSRkS7G/2zDvIQYc3c4B43MSMHXs+QROIIVuMkfPItNf6WkF9Y7SStWvLuxgOpFKYstbO
-	E8ya/Mp+URQBbu6hVxKByMG0w+zbXAdmPf4QIWRia/xGiAoA12zo5abK8p5vKQw175Y/fqy
-	QhpqPQ7UJt2FJz9OOEJ/4y1oK3RUMbKLQ9qE2VzjsksyZfQLQ+L7WkXbBGnLnwwC16AdJQL
-	c3om90lp2j49lBfkHhaXBT7xKbsguaHKhqILVfhS/FVpujLYZ2JPS+QfDKgQETZtj6uqOxh
-	kg6X35hm8x8RgX2peklC9yHTyQ3f3e/fdPc7s87d3fTANlIn/T8XqpEl/3/bGsPnONcXa7B
-	0sXLQttbLYKutcn0LixM7wet4tI/8mKTCd3h41glH6cC7jGk8rlri4LtHSnzkd1jZcKripf
-	j7xzsm+0gP1mZZk/bF5J9/xb2RSeGI6hWIsllNWajCGLR9ti/kF4k2PvomRof0NrYDxxKro
-	W6KEdmFMWSElR4hqEOvGx1ZOYr+w5X7FeR5N8RSwpQe1dSyyrM+gEZHcSvJylse8N9FQik2
-	2PcCN3bSLovT8BTREGCD3WTHja5a50R/R/KpXxpI5+QRi5gzv3Hm/sSnLiBVPsf12OqNpyS
-	3KakqTIoiABkNOmDDT8RHZAfjdN+kZDsUFc1ALiUafPZ6gkvJ1JyAwRJ98NRSbV+78b8Phx
-	ZPdnVCBsgFGHCQ4Rf12cdikVShykaPvkxFI+XLlvYy+FKt1oWpbdqslGxmNZwFH95egsF/T
-	6VBlf4GICSzNhi9PV+KiqZX88el5Wuso/zbDHiYVf6lzHJ/w6BtvayOw1V7/gR/NZgx9px2
-	JLd+d7MiCfKzoOmm1Feg3zd+IJ9kHQAfgo8M5sadAOwNonVfZoPYpXdoNwGjciuTFzjgjrf
-	XysuNksj4lxi/ZCYbN2eZu3ZD0rjZd35uug+7OwcN6CVmuRDz1lpqsHCNPFuuWfG3kT/8nV
-	WrB8WGoZVJunAMSLegddIhyZNsCfJsctV3Zpd4M/EhdJybl7oSG+olr+UCqxZK7nw==
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+	id 1x2LeH-00000000xxs-0T6W;
+	Fri, 04 Sep 2026 04:35:34 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6842t6a01101474;
+	Thu, 3 Sep 2026 23:34:04 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=RT3UH0kQJ0P/e
+	JCVcoXFU5wF/HzNhyvZpDkx9m30zSw=; b=f84JNZRPd5UL80McEEEvBBT1zKLLR
+	8mWZxVnzrjxurlNgiE0+UgIm9fg+ACY4h4RCK+vyQUaMHXsUhwdgY5f4mejtctXd
+	Wo25+ta2tqQ+WDDSUD/yi1tZRN2FqIfk4i2KP9Y0IdehDhYUjh/EiCziP7+SccCi
+	5iHL2nFQjTcHKXHRUQF2U0xYJt05JFxs/n+Cl890RDMwm4QHP6cF5WdLU3Z4uM6h
+	jVcEWj/vF5HFERYj3/bepCcvHtdE2K4To7xxISNVlz1DkT8JL8gVShKCbT9R6ptI
+	6u3r3F6G2bI0TvOdARz/HNhymjcF5lA0w3iQednXvTltT/xGRK9cLJWng==
+Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012037.outbound.protection.outlook.com [40.107.200.37])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4gf0jv8n3t-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 03 Sep 2026 23:34:03 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bq5hQ/x3nWEwD7TKCV65lAiirPyQBpLBQ3cW41s6aDLnaF4UIKbwixQQok7k/4YMPVDztPi0Ra8I3RDCnOsqhWXKGOxQJLSuRP7SpUKegquRdOltLmOVeoxsei0eOmnSgpQIJ/jtJ7ZXJFdoe0rQrVsqA77Vq7DnLROEo9I82kyyokBxryH0695u3up97kt8gkhIaKuIRsxTcs/I1oSN0a0c8pzBnd9wo2K/apf2zNN7MYQzlTSW8sRoBYEi29ntTzcekahmHaRv0eLwcP/kWM3N+gGaAbx3nGg6qVst4g6sLoCpnxvGFcRjzCzE1UXk0Y8Bz/fpGMKIe91n+CDjvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RT3UH0kQJ0P/eJCVcoXFU5wF/HzNhyvZpDkx9m30zSw=;
+ b=F44jol/bEd6QEgsbcJ+oK1TfNaSGAaYFewc6YcZKccP2TRS4MLolT3JcDqhLKTk9GNA811FIHhtd5hHUMi16I3gstng/ULp3bMfwYUbHjqCG/pZuIir5UQyZRi4Ki7wSeZB/z9eQwAcdETbmgHQbcp9ryHDEfRCDyo70/7c7oUvc44yj2nXtGyKCcCp87rZ/8VbWm//ioeeZ1RBc41D7QAS5fzQdBqBZSca2z8WjTSsHx+zO/EoUwLIoCyKXCkkGYtt5RKdi9jNMVe45ZwXPTTHOuTWV8yj8h19mqFH8sxONt4Vq4LB+Le2lP8NI2bEd4XDKyEjbEYhXitgQ00PK9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RT3UH0kQJ0P/eJCVcoXFU5wF/HzNhyvZpDkx9m30zSw=;
+ b=OWEzgFOv0zmisydXQ9Ba1K7WwsIE9ZGXhL4WoXHWwVJf9QbPf7tB/cJIPD24NyJJsS8I9VsF3ZQZJbbu/itDKSyeA1CKsIi7EQYpSETeM9dDDns3BSgx1x1bNJ0/UtVvsdgTMDVPT5U10Mb1kH1CiOPXHXLTp6/GRJ2aI39Ui/I=
+Received: from PH7P220CA0117.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32d::34)
+ by BN0PR10MB4949.namprd10.prod.outlook.com (2603:10b6:408:12b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Fri, 4 Sep
+ 2026 04:34:00 +0000
+Received: from SJ1PEPF000023D9.namprd21.prod.outlook.com
+ (2603:10b6:510:32d:cafe::a2) by PH7P220CA0117.outlook.office365.com
+ (2603:10b6:510:32d::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Fri, 4
+ Sep 2026 04:34:00 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ1PEPF000023D9.mail.protection.outlook.com (10.167.244.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.1 via Frontend Transport; Fri, 4 Sep 2026 04:34:00 +0000
+Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 3 Sep
+ 2026 23:33:58 -0500
+Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 3 Sep
+ 2026 23:33:58 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Thu, 3 Sep 2026 23:33:58 -0500
+Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.68.110])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6844Xh1G3831572;
+	Thu, 3 Sep 2026 23:33:43 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <dario.binacchi@amarulasolutions.com>, <mkl@pengutronix.de>,
+        <mailhol@kernel.org>, <msp@baylibre.com>,
+        <florian.fainelli@broadcom.com>, <jonas.gorski@gmail.com>,
+        <andrew@lunn.ch>, <olteanv@gmail.com>, <davem@davemloft.net>,
+        <edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
+        <kurt@linutronix.de>, <hauke@hauke-m.de>, <chester.a.unal@arinc9.com>,
+        <daniel@makrotopia.org>, <matthias.bgg@gmail.com>,
+        <angelogioacchino.delregno@collabora.com>, <ansuelsmth@gmail.com>,
+        <linusw@kernel.org>, <luizluca@gmail.com>, <alvin.sipraga@analog.com>,
+        <clement.leger@bootlin.com>, <justin.chen@broadcom.com>,
+        <dlan@kernel.org>, <rogerq@kernel.org>, <hkallweit1@gmail.com>,
+        <linux@armlinux.org.uk>, <rjui@broadcom.com>, <sbranden@broadcom.com>,
+        <bcm-kernel-feedback-list@broadcom.com>, <opendmb@gmail.com>,
+        <andrei.botila@oss.nxp.com>, <wangruikang@iscas.ac.cn>,
+        <amadeus@jmu.edu.cn>, <kees@kernel.org>, <tmshlvck@gmail.com>,
+        <c-vankar@ti.com>, <horms@kernel.org>, <vadim.fedorenko@linux.dev>,
+        <daniel.zahka@gmail.com>, <nora.schiffer@ew.tq-group.com>,
+        <v-singh1@ti.com>, <oss@vassilevski.com>, <haokexin@gmail.com>,
+        <alex@sverdlin.org>, <aleksandr.loktionov@intel.com>,
+        <lgs201920130244@gmail.com>
+CC: <linux-can@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-mediatek@lists.infradead.org>,
+        <linux-renesas-soc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <spacemit@lists.linux.dev>, <linux-omap@vger.kernel.org>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH net-next 00/33] Remove comma after sentinel entries in match table
+Date: Fri, 4 Sep 2026 10:06:06 +0530
+Message-ID: <20260904043724.2955444-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.51.1
+MIME-Version: 1.0
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D9:EE_|BN0PR10MB4949:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4ec6af4b-8091-445f-d0f2-08df0a3dbdbf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|7416014|376014|36860700016|921020|13003099007|6133799003|10067099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: dSxkknKsltO8PRbd0alMZM3b/Wioe1DDb50EgD8FRTp+M1VNwWdP9m6NRRF4yLomxDt/EAuv3DgOlWJimNJbNoRjNXhCzwCR5VRNc5QIue7gy34AdQrOpzMi8nSa8jYIqOr49V5UrZh4oXyo/fBFhsPSk6FElcVg9mlh3CWdKUxgV9+a6DJphBIJpU/DZbSDPmbTyTYrwBzngUa2sqlawhgNcfm5OObqR1yvdoPLeqZVZLbrIKV3WqoNkd97El+Zl6TErCKWYdwCsc6kRZ9vdseq0adQ33ox2512W3/XqwpcgMWuzgkyK6Tf/6XcS6akfeR6WJk+Y3srf8Q/jyVmL+lw//nnbhzEtKV7/B55Gl0y3dhLBgJHTWJ+2NEK6luOFDjAQSfssFYjnIjjuxzTWK0OLj96YdfI26OTlxmzKShWli53uONdElha6jF68zxgKLWcdKNUhW8wCUGk67N9s8en8grdpwWiktiFd7F4HRwo7mUciWKhDwDcRlOsE9OlI6hlSbNkecIaY/7Zs9r8c4g99lB9T9Q12M0EHhu42Tbp+eMBq9+MJb9eXe/iharxq46gt0QvLX5rQpKXV8f5738fZrNmLC5gIiT5DPdAQwMFrKNChnfCq6BkcyGXnigW/V2fMR76bMUCIJd5gfuX3YYbBBMhNXUgq3t2Ce/NDsyZmyTgdx0F9rjLJwKEISLhzoWkziXps4Wu7rvFsEDmRw==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(7416014)(376014)(36860700016)(921020)(13003099007)(6133799003)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: SfsW+l6Ufjq4sz3XQ1Bvvrfrb6vA6AvIKLrBlqQDA1K5Uu8Vd6XHJiiklm9DRWB3AdTByHH+zBu95xFgZmPYHxn5lY3UvduCsV8jD0AgQWUTejq5v+/F9n4+0SDE1ebjbeOtwRK9BcPrb3+iypifhPxD69Enr9d5/l52TzhU+4+EaUmIA2wea+FLCKaPla+Nrk2MyWNdi94kE5uZIMG8K71FPQoW5vXtKDAzivM5foDkzLYGlB+UHA/U/V9/2JRim2C5dejNKJx1RlvmK/DxfmhiMl+M7+UPMM+nzWk9QGKoa9PmEkUauF6RD1IvrGgsc8703/d743tqL7zrgpzwfYwPsdmgIrGVSSlbL26bNTncn03RRZKqXPrV1BuabPMwapyuvrDti8aakG063YWa0I4CrlfWDgaOTy1VWqUJ881iRBn1NO+Ou3LFJE2Vjt3Y
+X-Exchange-RoutingPolicyChecked: CAbb3Bl+XY/byuRqWhvqBrkhj2dc7MmGV6l4jLypw/J8V+1kP47t0JA8m05kjTm5W+o0vYeh/hEvFjS8e02woUR7BdA/NPmBU5hPvvFwP6o8AnJ3iFJeTkrEZDShGO2Z+4RTI6Zz3RqbUOytkr4zW4k3UCskA1UkIAB9ddGkBXspfRLpu7t0LMdeJO0NdCorEgZBwIJHp1qob3nuwZk+aThdmdcq2CaaP1L+UkWUoZm713pxc9TVHatEtePjU6buTXcNq7LavykEvVVS5R/vK956EEOUNgaJh3342PxvdE8mMfDhLouoTolDgs8oeX4wRb5m1K5lgm6P7flx4AI9vA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 04:34:00.1724
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ec6af4b-8091-445f-d0f2-08df0a3dbdbf
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D9.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB4949
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA0MDAzOSBTYWx0ZWRfXyGyDNPgy5mLk
+ 8IoJqSwEwZUIWUogxSB3Vf5BjzRCqCBQow9xcrg8ai+Ow7JwmnvnvaV3FEQlexRHnsmEpKqz0mq
+ UnSEc20AQRF4G1dl0ECsgBVSy/uVDCU=
+X-Authority-Analysis: v=2.4 cv=J6eaKgnS c=1 sm=1 tr=0 ts=6a9a4a3b cx=c_pps
+ a=TuEuCTxUJaX1tclN0RLokw==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=s63m1ICgrNkA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
+ a=Bt1NjzTRiCgrIjd4xQkA:9
+X-Proofpoint-GUID: wLs0pMu7OUr3Q82zq8rN0zh1Ul4Wq8yg
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA0MDAzOSBTYWx0ZWRfX82fOd8DBmr9o
+ j2syTGn877FLMLCiX9ccgFrrpLxHOj6INjVLYkM082IW7zE8FhMtWWHXJuID1Jwkybq8hgF0yLI
+ vhn81y/h1mvoAHGvlImQFvo+m/c5NK++D3nS4s/a+wZEeoffqrVe/uAH3p2IcqIc5DQ+f0AMsvq
+ YeACsRkHVzRfwo7b3YU7WdzFCjhnByCI8rIBBh+KHyig+zVVrSTna9wD4FAudorQdnOz0aFUagx
+ +j+mWV1eCGqnnC+TM5AMvRIHKvX+spMzgwZTcBKparKN8z5qOZu59I37fFe6Osjjy8qoo5MGWmF
+ 8UpEbI2NQ2Oc5Mb2VLBRLulREn5YZyCHlarHdNnYAgbJZ2MFvS2LRt6wAuec7aG9ahyFaQKvjlk
+ cqVxGYkls0CCf5ytJjivTZAWsDTWIbLaSBFkWJb5BJk9NuULqUb6vOn2c31o0MKN8JVLddu3h+v
+ FV4Uy928E0oQG1uDuRQ==
+X-Proofpoint-ORIG-GUID: wLs0pMu7OUr3Q82zq8rN0zh1Ul4Wq8yg
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-04_01,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 clxscore=1011 adultscore=0 bulkscore=0
+ impostorscore=0 lowpriorityscore=0 suspectscore=0 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609040039
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_202445_258748_44C2B920 
-X-CRM114-Status: GOOD (  28.28  )
+X-CRM114-CacheID: sfid-20260903_213533_162034_8EAD815C 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,162 +187,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0497002844557088923=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0497002844557088923==
-Content-Type: multipart/signed;
- boundary=a1891db0d9ec175249303eb0426fd87ee9cd330fcbf1e2986c4b86e25967;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Content-Transfer-Encoding: quoted-printable
+Hello,
 
---a1891db0d9ec175249303eb0426fd87ee9cd330fcbf1e2986c4b86e25967
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+This series removes the comma present after sentinel entries in the match
+tables across all networking subsystem drivers, with the exception of the
+davinci_mdio.c driver, for which, the patch posted by Geert at:
+https://lore.kernel.org/r/e481b6de46cecc6ea604ae165272c667274cc621.1788437140.git.geert+renesas@glider.be/
+does the same.
 
-Hi Aurelien,
+Since I inquired about a cleanup across the entire networking subsystem but
+didn't get a response:
+https://lore.kernel.org/r/b3d19098-eccd-4619-b667-ad3b7e0a4422@ti.com/
+I decided to post this series. Given that Andrew Lunn acknowledged the
+cleanup of the davinci_mdio driver:
+https://lore.kernel.org/r/abec6831-d344-489d-b70c-1e5dd4d43c2d@lunn.ch/
+and I don't see why the cleanup is specific to davinci_mdio driver alone,
+I am hoping that this series is treated identically to the patch that
+Geert had posted for the davinci_mdio driver.
 
-On Fri Sep 4, 2026 at 1:27 AM +08, Aurelien Jarno wrote:
-> Hi Troy,
->
-> On 2026-09-03 11:06, Troy Mitchell wrote:
->> The K3 CPU PLL rate tables currently describe only one rate per PLL,
->> although the hardware supports a wider range.
->>=20
->> PLL3 and PLL4 support rates from 1.05 to 2.4 GHz, while PLL5 and PLL8
->> support rates from 1.05 to 2 GHz. Populate the tables with every
->> supported rate in 50 MHz steps.
->>=20
->> Cc: stable@vger.kernel.org # 7.0+
->> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
->> ---
->> The corresponding U-Boot changes are available at:
->>=20
->> - Add the CPU PLL rate tables:
->>   https://github.com/spacemit-com/uboot-2022.10/commit/787b5cf44c8dbc99d=
-b886d5522c0c9cd5a96ffd6
->> - Correct the 1.10 GHz and 2.15 GHz table entries:
->>   https://github.com/spacemit-com/uboot-2022.10/commit/16a775c20e9efb54c=
-a55352215e76eb3f12e6cf0
->> ---
->> Changes in v4:
->> - Expand the update to every supported PLL3, PLL4, PLL5 and PLL8 rate.
->> - Drop Aurelien Jarno's Reviewed-by and Tested-by trailers because the
->>   patch scope has expanded.
->> - Add U-Boot references for the complete tables and corrected entries.
->> - Link to v3: https://patch.msgid.link/20260831-k3-pll5-pll8-1800mhz-v3-=
-1-530ed0978615@linux.spacemit.com
->>=20
->> Changes in v3:
->> - Mark the change for stable kernels starting with v7.0.
->> - Add Aurelien Jarno's Reviewed-by and Tested-by trailers.
->> - Rebase onto v7.3-rc1.
->> - Link to v2: https://patch.msgid.link/20260810-k3-pll5-pll8-1800mhz-v2-=
-1-aabff510a797@linux.spacemit.com
->>=20
->> Changes in v2:
->> - Drop "clk: spacemit: re-enable PLLs after init"; the PLL init issue
->>   will be handled in a separate series.
->> - Send the K3 PLL5 and PLL8 1.8 GHz rate-table update as a standalone
->>   patch.
->> - Clarify that 1.8 GHz is nominal and 2 GHz is an overclocking rate.
->> - Link to v1: https://patch.msgid.link/20260804-k3-pll5-pll8-1800mhz-v1-=
-0-a3a75866ce32@linux.spacemit.com
->>=20
->> To: Stephen Boyd <sboyd@kernel.org>
->> To: Brian Masney <bmasney+clk@redhat.com>
->> To: Jerome Brunet <jbrunet+clk@baylibre.com>
->> To: Yixun Lan <dlan@kernel.org>
->> To: Paul Walmsley <pjw@kernel.org>
->> To: Palmer Dabbelt <palmer@dabbelt.com>
->> To: Albert Ou <aou@eecs.berkeley.edu>
->> To: Alexandre Ghiti <alex@ghiti.fr>
->> Cc: linux-clk@vger.kernel.org
->> Cc: linux-riscv@lists.infradead.org
->> Cc: spacemit@lists.linux.dev
->> Cc: linux-kernel@vger.kernel.org
->> ---
->>  drivers/clk/spacemit/ccu-k3.c | 96 ++++++++++++++++++++++++++++++++++++=
-+++++++
->>  1 file changed, 96 insertions(+)
->
-> Thanks for the patch, it makes sense to add all the values, to support=20
-> future firmware changes. The values match the ones in the vendor kernel.
-I forgot that you had a similar patch as well..
+Series is based on commit
+6ebcf5074cff net: openvswitch: don't schedule rebalancing if there are no datapaths
+of the 'main' branch of the net-next tree.
 
->
->> diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3=
-.c
->> index 92b930d5ff30..950bf531c734 100644
->> --- a/drivers/clk/spacemit/ccu-k3.c
->> +++ b/drivers/clk/spacemit/ccu-k3.c
->> @@ -29,15 +29,91 @@ static const struct ccu_pll_rate_tbl pll2_rate_tbl[]=
- =3D {
->>  	CCU_PLLA_RATE(3000000000UL, 0x0b3e2000, 0x00000000, 0xa0558c8c),
->>  };
->> =20
->> +/* Keep the firmware default as the first entry. */
->>  static const struct ccu_pll_rate_tbl pll3_rate_tbl[] =3D {
->> +	CCU_PLLA_RATE(2000000000UL, 0x0b292aaa, 0x0000ab00, 0xa0558686),
->
-> Is it really necessary to put this entry first? I guess it's the current=
-=20
-> default frequency, but we have seen it can evolve. From my tests, the=20
-> driver seems to just keep the value configured by the firmware=20
-> independently from the table order, so I am not sure it's necessary.
-I think keeping it first is necessary. If the current register settings do
-not match any entry in the table, ccu_plla_init() falls back to the first
-entry:
+Regards,
+Siddharth.
 
+Siddharth Vadapalli (33):
+  can: bxcan: Remove comma after sentinel-entry in match-table
+  can: c_can: Remove comma after sentinel-entry in match-table
+  can: flexcan: Remove comma after sentinel-entry in match-table
+  can: ifi_canfd: Remove comma after sentinel-entry in match-table
+  can: m_can: Remove comma after sentinel-entry in match-table
+  can: sja1000: f81601: Remove comma after sentinel-entry in match-table
+  can: sja1000_platform: Remove comma after sentinel-entry in
+    match-table
+  net: dsa: b53: mdio: Remove comma after sentinel-entry in match-table
+  net: dsa: b53: srab: Remove comma after sentinel-entry in match-table
+  net: dsa: bcm_sf2: Remove comma after sentinel-entry in match-table
+  net: dsa: hellcreek: Remove comma after sentinel-entry in match-table
+  net: dsa: lan9303: i2c: Remove comma after sentinel-entry in
+    match-table
+  net: dsa: lan9303: mdio: Remove comma after sentinel-entry in
+    match-table
+  net: dsa: mxl-gsw1xx: Remove comma after sentinel-entry in match-table
+  net: dsa: mt7530: mdio: Remove comma after sentinel-entry in
+    match-table
+  net: dsa: mt7530: mmio: Remove comma after sentinel-entry in
+    match-table
+  net: dsa: mv88e6060: Remove comma after sentinel-entry in match-table
+  net: dsa: mv88e6xxx: Remove comma after sentinel-entry in match-table
+  net: dsa: qca8k: Remove comma after sentinel-entry in match-table
+  net: dsa: realtek: rtl8365mb: Remove comma after sentinel-entry in
+    match-table
+  net: dsa: realtek: rtl8366rb: Remove comma after sentinel-entry in
+    match-table
+  net: dsa: rzn1_a5psw: Remove comma after sentinel-entry in match-table
+  net: dsa: sja1105: Remove comma after sentinel-entry in match-table
+  net: bcmasp: Remove comma after sentinel-entry in match-table
+  net: spacemit: k1_emac: Remove comma after sentinel-entry in
+    match-table
+  net: ti: am65-cpsw-nuss: Remove comma after sentinel-entry in
+    match-table
+  net: ethernet: ti: cpsw: Remove comma after sentinel-entry in
+    match-table
+  net: ethernet: ti: cpsw_new: Remove comma after sentinel-entry in
+    match-table
+  net: mdio: bcm-iproc: Remove comma after sentinel-entry in match-table
+  net: mdio: bcm-unimac: Remove comma after sentinel-entry in
+    match-table
+  net: pcs: xpcs-plat: Remove comma after sentinel-entry in match-table
+  net: phy: nxp-c45-tja11xx: Remove comma after sentinel-entry in
+    match-table
+  net: wan: slic_ds26522: Remove comma after sentinel-entry in
+    match-table
 
-	ccu_plla_update_param(pll, &pll->config.rate_tbl[0]);
+ drivers/net/can/bxcan.c                     | 2 +-
+ drivers/net/can/c_can/c_can_platform.c      | 4 ++--
+ drivers/net/can/flexcan/flexcan-core.c      | 2 +-
+ drivers/net/can/ifi_canfd/ifi_canfd.c       | 2 +-
+ drivers/net/can/m_can/m_can_platform.c      | 2 +-
+ drivers/net/can/sja1000/f81601.c            | 2 +-
+ drivers/net/can/sja1000/sja1000_platform.c  | 2 +-
+ drivers/net/dsa/b53/b53_mdio.c              | 2 +-
+ drivers/net/dsa/b53/b53_srab.c              | 2 +-
+ drivers/net/dsa/bcm_sf2.c                   | 2 +-
+ drivers/net/dsa/hirschmann/hellcreek.c      | 2 +-
+ drivers/net/dsa/lan9303_i2c.c               | 2 +-
+ drivers/net/dsa/lan9303_mdio.c              | 2 +-
+ drivers/net/dsa/lantiq/mxl-gsw1xx.c         | 2 +-
+ drivers/net/dsa/mt7530-mdio.c               | 2 +-
+ drivers/net/dsa/mt7530-mmio.c               | 2 +-
+ drivers/net/dsa/mv88e6060.c                 | 2 +-
+ drivers/net/dsa/mv88e6xxx/chip.c            | 2 +-
+ drivers/net/dsa/qca/qca8k-8xxx.c            | 2 +-
+ drivers/net/dsa/realtek/rtl8365mb_main.c    | 2 +-
+ drivers/net/dsa/realtek/rtl8366rb.c         | 2 +-
+ drivers/net/dsa/rzn1_a5psw.c                | 2 +-
+ drivers/net/dsa/sja1105/sja1105_main.c      | 2 +-
+ drivers/net/ethernet/broadcom/asp2/bcmasp.c | 4 ++--
+ drivers/net/ethernet/spacemit/k1_emac.c     | 4 ++--
+ drivers/net/ethernet/ti/am65-cpsw-nuss.c    | 2 +-
+ drivers/net/ethernet/ti/cpsw.c              | 2 +-
+ drivers/net/ethernet/ti/cpsw_new.c          | 2 +-
+ drivers/net/mdio/mdio-bcm-iproc.c           | 2 +-
+ drivers/net/mdio/mdio-bcm-unimac.c          | 2 +-
+ drivers/net/pcs/pcs-xpcs-plat.c             | 2 +-
+ drivers/net/phy/nxp-c45-tja11xx.c           | 2 +-
+ drivers/net/wan/slic_ds26522.c              | 2 +-
+ 33 files changed, 36 insertions(+), 36 deletions(-)
 
-[...]
+-- 
+2.51.1
 
->>  };
->
-> I have tested the patch, and I confirm it fixes the boot hang with newer=
-=20
-> firmware, and will fix it if the default firmware values change again.=20
-> My comments are just minor ones, so:
->
-> Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
-> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-Thanks for the tags.
-
->
-> Regards
-> Aurelien=20
-
-
---=20
-Troy Mitchell
-
---a1891db0d9ec175249303eb0426fd87ee9cd330fcbf1e2986c4b86e25967
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCapo55g0caUB0cm95LXku
-b3JnAAoJEJgJ74D5MzQvWBABAOrdMzrm+oSmpz+4PbCFYU/sKXN1r/pnmybu2iWq
-K9rlAQDr7ekCrcf/gUilgr3y2rN7N0vIvjxWJ3Sylb1GzzXXAA==
-=DS8M
------END PGP SIGNATURE-----
-
---a1891db0d9ec175249303eb0426fd87ee9cd330fcbf1e2986c4b86e25967--
-
-
---===============0497002844557088923==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0497002844557088923==--
-
