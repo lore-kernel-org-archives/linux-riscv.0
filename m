@@ -4,52 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756EEC79F82
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 14:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF43CC79F82
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 14:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/cJO8ei+NBeeuTYH0+HEC5RyQDSTkLYFX28CEMenN44=; b=CVfbuicChVIjIG
-	3BCiTBGs4rmQ5pywwJG9mC1r5ef7dB3FPVDXzDncJ7evNPBV3j6UPOq+0r4xaAT8fjsvi7VCKIU5X
-	dRf7wiac15PxxddftUzhgHGl+QCDmWWrUK4MCpdUnpJKOCvb/sh6Hi0Ugwvinqlue7iJW+cOM/7hz
-	hINoKNfD5NaCfGhJ0D39JNEan/MlQDgwDjrWIOQlsfxlxgbJwXcNHSV9cMUCn44CRGOE36CNo244y
-	QiUKr85DMUrYqB0qQtXrTz2Hbqipw5S+5KGKgVkuTskV2rJA84b1voEB37DBPXN02vZwdrToHj2fc
-	GVu8ZZAsYulPsqbvx83g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XH3EHvHrwzNSlOKwUGdLUmNJsfKy5ywOZtBdfbt/LU8=; b=4v+Umxeid/8hwX
+	qjEFV2EBqOylHdxi9J8qGHhBpIP76LBnKR47rA8UlkrlWWXLVUntuFQ+rtc+0Lj+iQDs/PQx6InJB
+	gWKOQPaRkzEyEVKr0OUC0f8QRzLiZFo1E1sZjwOjIgLvWVuuEdCj1OazaBuveCK+bF8rwgQgz6Bct
+	26Ay1scQUegRhi1dd75+ZS6vF0Vgtctrtc44LNNVcQyUt8FPS0yZN/Dc12MfG9IACOVZUi6XoE8QH
+	8S1WgToAnVF0KrXQcMHonfcuH5ZDMwumnioA9JkYRt//UtUrwxsgNO5KcCG/HXGEp1o8eFGxOAR6q
+	FYYILVQfaGT3L93akiQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VEj-00000002R4T-41Rn;
-	Fri, 04 Sep 2026 14:49:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2VNA-00000002S6A-2Ki0;
+	Fri, 04 Sep 2026 14:58:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VEj-00000002R4C-0gut;
-	Fri, 04 Sep 2026 14:49:49 +0000
+	id 1x2VN8-00000002S5g-39Yr;
+	Fri, 04 Sep 2026 14:58:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E5C2600CB;
-	Fri,  4 Sep 2026 14:49:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F8C91F00A3D;
-	Fri,  4 Sep 2026 14:49:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2563A41ACE;
+	Fri,  4 Sep 2026 14:58:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0390A1F00A3D;
+	Fri,  4 Sep 2026 14:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788533388;
-	bh=D8QP+kbZpQDntP1Tn0kRj3eRn2VrXYnQZO0ZaU5rhW8=;
-	h=From:To:Cc:Subject:Date;
-	b=HrZrB6+XKVeTKBRp6ZHAm3pMUVe/b+VHffHbaQ1TFnLcC32ptUS5VE6USRIWadLFN
-	 ZT5AJp8VcE65mN4oEiJOcTp8s0+yTarqerV7mKCo4LvvrtlqQaX25R7fQrQMJ8RuWU
-	 s3tWmp2vxZeP5tCwWd9IMXICnSpDXeGWmCPUiTjSe2ARmGu1YJ5a6rODeHs0FA13xO
-	 IuTf3f5fNCaG/djDUVsLv5Ai6BeUgDpLWQo2s0/ADPf8kXmSdvYwaTytkTnTpszC6x
-	 kHaQypMs/4EmSsxJIU2AGQ1DQ/ZpH81vplkqu2n7VE/2RbKdOgagK9SchPns9IwStM
-	 bpyGN0Ouoyxig==
-From: Thomas Gleixner <tglx@kernel.org>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Radu Rendec <radu@rendec.net>, Marc Zyngier <maz@kernel.org>, Anup Patel
- <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>
-Subject: Interrupt chip driver maintainence
-Date: Fri, 04 Sep 2026 16:49:44 +0200
-Message-ID: <871pb9841j.ffs@fw13>
-MIME-Version: 1.0
+	s=k20260515; t=1788533910;
+	bh=raL05OcO6NoZ4LQ42XeSiuFqhaiAOq8+yzkxYrgfcOA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=W2N8Zp/ohA9ZWVhJHBgJG9cUdYgXIMIGDIvkeBJhppqGxU+gM20ijg9pjv/CQ/xFt
+	 jX3CowWthjEkwIweQIbJ2x/DIJdRsW2MgI6swPd/iDQDxWMPO+qnU+I40Rafpjqh7A
+	 D5nEUwitrdEwR1aILqPE656XZhXTjAaIkieHGBH5J2AJcKgqfeAScECZDvHGOZCZsv
+	 xIRWZhMVR6LeTJojfFlu2BvsyXK9U/XHUkviLkgxJzTdMt8Pl8VCXXili99XwzzeAl
+	 ZT4uBe9iGIXuONmVsVZ8/V2LN16PDnYTDH4Jb3jCN6BCH1zbUHLTElzdCjXowrXQDH
+	 688EjY26Vf9WA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x2VN6-00000004uQP-0ZCz;
+	Fri, 04 Sep 2026 14:58:28 +0000
+Date: Fri, 04 Sep 2026 16:01:02 +0100
+Message-ID: <87qzj93vtd.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Radu Rendec <radu@rendec.net>,
+	Anup Patel
+ <anup@brainfault.org>,
+	Paul Walmsley <pjw@kernel.org>
+Subject: Re: Interrupt chip driver maintainence
+In-Reply-To: <871pb9841j.ffs@fw13>
+References: <871pb9841j.ffs@fw13>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tglx@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, radu@rendec.net, anup@brainfault.org, pjw@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,37 +85,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Folks!
+On Fri, 04 Sep 2026 15:49:44 +0100,
+Thomas Gleixner <tglx@kernel.org> wrote:
+> 
+> Folks!
+> 
+> I'm wading through my inbox full of patches for interrupt chip drivers
+> and I'm thoroughly annoyed. The way how this works today is not
+> sustainable.
+> 
+> Patches end up in my and Radu's inbox and all we can do is go through
+> them mostly on a formal basis, but it's out of our scope to look at the
+> correctness vs. a particular hardware. In the past I just picked up
+> patches when I had the gut feeling they are remotely correct, but I'm
+> tired of this.
+> 
+> I've just marked about 20 patches and patch series obsolete due to zero
+> feedback from the relevant architecture/SoC people who were on Cc.
+> 
+> And I'm going to do that from now on very consequently. If the
+> architecture, SoC experts can't be bothered to look after their stuff,
+> then don't expect me to suck all of this crap up and then deal with the
+> complaints when it breaks.
+> 
+> I'm still going to pick up obvious and simple bug fixes, but for
+> anything which requires deep knowledge on the underlying hardware, I'm
+> going to just mark them obsolete when they molded in my inbox unreviewed
+> by the people who understand it for six weeks.
 
-I'm wading through my inbox full of patches for interrupt chip drivers
-and I'm thoroughly annoyed. The way how this works today is not
-sustainable.
-
-Patches end up in my and Radu's inbox and all we can do is go through
-them mostly on a formal basis, but it's out of our scope to look at the
-correctness vs. a particular hardware. In the past I just picked up
-patches when I had the gut feeling they are remotely correct, but I'm
-tired of this.
-
-I've just marked about 20 patches and patch series obsolete due to zero
-feedback from the relevant architecture/SoC people who were on Cc.
-
-And I'm going to do that from now on very consequently. If the
-architecture, SoC experts can't be bothered to look after their stuff,
-then don't expect me to suck all of this crap up and then deal with the
-complaints when it breaks.
-
-I'm still going to pick up obvious and simple bug fixes, but for
-anything which requires deep knowledge on the underlying hardware, I'm
-going to just mark them obsolete when they molded in my inbox unreviewed
-by the people who understand it for six weeks.
+Works for me. I didn't expect anything else.
 
 Thanks,
 
-        Thomas
+	M.
 
-
-
+-- 
+Jazz isn't dead. It just smells funny.
 
 _______________________________________________
 linux-riscv mailing list
