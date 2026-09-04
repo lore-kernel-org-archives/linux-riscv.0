@@ -4,63 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D065FC624D3
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 20:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCDCC624D3
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 20:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mBfnFefFMnUMBX28NBBjTRBMiVykhCBMtekojEgUTjk=; b=AbgrXORY9YPCS0
-	jE79difXaYY+pJ+0kmAQ2KhMPxKUyUnyBvUlTSfWGZzTo0rnuFycSEojUhViVMnqv+wUoLxFc3qKU
-	iYfoqEUqGEIh7XG8N7FRlarczmUbemoiVkP+RNv+GfieiOH3yMFK1ByDtvd7bU1CN2GDEG9BPjG1d
-	2+yhUtcQzk7Z861okLfv/4JIpQ90DXxcdH9G4FA2Xzm/2nlrYvvpNHkDNizCDWEIJWkxcLqbQtQ4G
-	q0sT2Lv1LYX/6nfNi+rAdpkOm5GUox6m0ivtu5zkScUU2dr9I7XiUlhZhUsF7v7YqQu4lenJcP+gr
-	s22CSE1E/ym0deEu+YWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8dGzAsoZo9j47NuAjaUmXhAz/8f25MqA8Im5f7vNorg=; b=VZF6+1+NTdNR0usFHjtspdewkt
+	D7wl/nMxJ9R2eExbWzyQuwM9P4kq7WKcjE13XyACONVi1C7sF9w2tEG7aGIh5Bay1BDlyiUeczssh
+	KGXALoNrSK2DQwUxUXZVWthTzlDSuHbbA8QhsxZbwIJiCwz2fNf2CPA22utyGweKjnEfPM404gpgT
+	dcRQGqnB6NkWRNRnr9SPt3Rzk/UHp3z/75aihNTJLrvXM3A4eKFomjBA075MhdwrLbFnHyVlu4znB
+	tSStble0C1pHqeEsAuWELKXdJ7STqfyUSY+XMO5NIezrVSe9fvzAiOqUutZ9IpL0Cv2+YuCDwBmGu
+	gdGqUrTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2aaF-00000003Gdd-19H4;
-	Fri, 04 Sep 2026 20:32:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2abb-00000003GjN-2bLH;
+	Fri, 04 Sep 2026 20:33:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2aaE-00000003GdS-0FjY
+	id 1x2aba-00000003GjA-2hTo
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Sep 2026 20:32:22 +0000
+	Fri, 04 Sep 2026 20:33:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE6DB40974;
-	Fri,  4 Sep 2026 20:32:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47F421F00ACF;
-	Fri,  4 Sep 2026 20:32:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EA19A60209;
+	Fri,  4 Sep 2026 20:33:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6881E1F00A3E;
+	Fri,  4 Sep 2026 20:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788553941;
-	bh=faGt6RM9nZNDLVI5nWQekSsP9/y8RIHlIgi2gEzyN+8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BNXVkHm2rG8675ikzmcjNnHgunSqXRbTTuayweLcKMp8l7UE7v92MRw5pWImYbIz5
-	 lGYTGnfotzQUypdlQyN7Yc51U7QJ5LLsGIhcBgkp965Qb2y8OUXTpQpulEcztklLIW
-	 iPRAYMyLchGPR1us8b4z6VcIyOqcyTX1RzEGyPXuRdFVLIbj9IiciQUehrSMirVvWg
-	 ZAOBV2jL5frRz9h01vDYBVEYypKroLjgNUFpuMV5o2Hyt6XBxXeYMqmsPnBelfmqDl
-	 /cltB37YfZEdHn0FG0F6R30iQ3ZjfIG1mmYh9KAAA683HakS8XUxINeWODQGHQlCGx
-	 XYTOO9LiVe8aQ==
-Date: Fri, 4 Sep 2026 20:32:19 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Long Wan <long.wan@linux.spacemit.com>, linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] dt-bindings: mmc: spacemit,sdhci: Add tx delay
- property
-Message-ID: <20260904203219-GKC1974@kernel.org>
-References: <20260902-07-k3-sdhci-dts-v1-0-4e7909cf4233@kernel.org>
- <20260902-07-k3-sdhci-dts-v1-2-4e7909cf4233@kernel.org>
- <20260903-tactful-scorpion-from-nibiru-a4ebe2@quoll>
+	s=k20260515; t=1788554025;
+	bh=8aB1i9jJLG+tSKTCm+1ryvh5nYTDSP1C/YxKnVYbkFo=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=Nw1B/cic15PV8GvcJBDU3KgUvAJCEDg1ovQi0JHYn+ONAlYGy+dGN7nC8R1VMhzVU
+	 P6y5s2cNwlnf2En8vgDUM+4WRjVWAnVv6qum4rdKSFpd7PElGXT//ley+6mZ9avApz
+	 tJzpPov8X0+v5xlfa32tgkywVgKAXqV8DpeW1knJ3W3e8vE6Hbl0rKHdxh6Ng0FPpO
+	 NrAtWI7NNT6jI4Y/iHu+4v6QSWwO/+VnLbQsD5V0dzxi7/myWyg/ifUrh/kPYXOdBI
+	 P3d230pecJL0TTFmWIqlWxhBmt9vkqZrtYef58g8CQ3yGu2eZlzPkoZ6h+X8PjhWUe
+	 xnGC3xZiiySKQ==
+Content-Type: multipart/mixed; boundary="===============0649529080789511206=="
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260903-tactful-scorpion-from-nibiru-a4ebe2@quoll>
+Message-Id: <4866144aa416a8491c9874325394e88f5dc2e66259212baa56032e0428f0772b@mail.kernel.org>
+In-Reply-To: <20260904195132.141068-3-sidchintamaneni@gmail.com>
+References: <20260904195132.141068-3-sidchintamaneni@gmail.com>
+Subject: Re: [PATCH bpf-next v1 2/7] bpf, x86: Use resolved pointer for timed may_goto
+From: bot+bpf-ci@kernel.org
+To: sidchintamaneni@gmail.com,bpf@vger.kernel.org
+Cc: sidchintamaneni@gmail.com,jeremy.jean@oss.cyber.gouv.fr,ast@kernel.org,daniel@iogearbox.net,john.fastabend@gmail.com,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,a.s.protopopov@gmail.com,puranjay@kernel.org,linuxppc-dev@lists.ozlabs.org,linux-s390@vger.kernel.org,linux-riscv@lists.infradead.org,rlmenge@gmail.com,hargar@linux.microsoft.com,apais@microsoft.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Fri,  4 Sep 2026 20:33:44 +0000 (UTC)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,53 +63,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+--===============0649529080789511206==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-On 15:00 Thu 03 Sep     , Krzysztof Kozlowski wrote:
-> On Wed, Sep 02, 2026 at 07:03:13AM +0000, Yixun Lan wrote:
-> > From: Long Wan <long.wan@linux.spacemit.com>
-> > 
-> > Introduce a vendor specific property to configure the step count of TX
-> > delay line which should be applied before RX tuning, compensating for
-> > board level trace differences. The TX delay line result comes from test
-> > out of real board which vary from different hardware layout.
-> > 
-> > Signed-off-by: Long Wan <long.wan@linux.spacemit.com>
-> > Signed-off-by: Yixun Lan <dlan@kernel.org>
-> > ---
-> >  Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
-> > index f35bf7ce08dd..3399a2d076dc 100644
-> > --- a/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
-> > +++ b/Documentation/devicetree/bindings/mmc/spacemit,sdhci.yaml
-> > @@ -63,6 +63,16 @@ properties:
-> >    pinctrl-1:
-> >      description: Optional pinctrl state for 1.8V UHS operation with "uhs" name
-> >  
-> > +  spacemit,tx-delay:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    minimum: 0
-> > +    maximum: 255
-> 
-> default: 0, I guess?
-> 
-It's actually 127, I will fix it in next version
+> diff --git a/arch/x86/net/bpf_timed_may_goto.S b/arch/x86/net/bpf_timed_may_goto.S
+> index 54c690cae190..6e9d9e7c2b1d 100644
+> --- a/arch/x86/net/bpf_timed_may_goto.S
+> +++ b/arch/x86/net/bpf_timed_may_goto.S
+> @@ -11,12 +11,6 @@
+>  SYM_FUNC_START(arch_bpf_timed_may_goto)
+>  	ANNOTATE_NOENDBR
+>
+> -	/*
+> -	 * r10 passes us stack depth, load the pointer to count and timestamp
+> -	 * into r10 by adding it to BPF frame pointer.
+> -	 */
+> -	leaq (%rbp, %r10, 1), %r10
+> -
 
-Also in my second thought, I will change the data type to uint8
-then drop this additional minimum/maximum property, which will
- also simplify the code with device_property_read_u8() a bit
+A subsystem pattern flags this as potentially concerning: This commit
+changes the x86 trampoline to the new 'pointer in BPF_REG_AX' ABI, but the
+producer side of that ABI was changed one commit earlier, in d8319a04dafc
+("bpf: Fix timed may_goto stack pointer for private stacks"), which
+rewrote kernel/bpf/fixups.c to emit:
 
--- 
-Yixun Lan (dlan)
+    insn_buf[4] = BPF_MOV64_REG(BPF_REG_AX, BPF_REG_FP);
+    insn_buf[5] = BPF_ALU64_IMM(BPF_ADD, BPF_REG_AX, stack_off_cnt);
+
+At commit d8319a04dafc (i.e. HEAD~1), does x86 still execute
+'leaq (%rbp, %r10, 1), %r10' on a register that already holds a resolved
+pointer, producing r10 = rbp + (frame_ptr + stack_off_cnt) -- roughly
+2*rbp, a non-canonical address?
+
+bpf_check_timed_may_goto() then reads and writes p->timestamp / p->count
+through it (kernel/bpf/core.c:3410). Would any BPF program containing
+may_goto oops on x86_64 at that commit?
+
+The same window exists for arm64, riscv, powerpc64 and s390, whose
+trampolines are only converted in the four later commits d35642770d98,
+7053db7d3c0d, 6e03227c5677 and 20356163d51e. Is the tree bisectable across
+the series?
+
+The two halves carry different Fixes: tags (this one 2fb761823ead, the
+fixups.c one e723608bf428), which invites a partial stable backport that
+reintroduces exactly this wild-pointer write. Would squashing the fixups.c
+ABI change with the arch trampoline updates, or ordering all arch updates
+before the generic change, address the bisectability concern?
+
+>  	/* Setup frame. */
+>  	pushq %rbp
+>  	movq %rsp, %rbp
+
+The x86-only __xlated expectations for the timed may_goto expansion in
+tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c were never
+updated for the new 7-insn -> 8-insn sequence. The test expects:
+
+    __xlated("7: if r12 == 0x0 goto pc+6")
+    __xlated("8: r12 -= 1")
+    __xlated("9: if r12 != 0x0 goto pc+2")
+    __xlated("10: r12 = -24")
+    __xlated("11: call unknown")
+    __xlated("12: *(u64 *)(r10 -24) = r12")
+
+Does this test fail on x86_64 for the whole series? Every line from index
+7 onward is now wrong: the first branch becomes 'goto pc+7' (insn->off + 6
+instead of insn->off + 5), the second becomes 'goto pc+3' instead of
+'pc+2', 'r12 = -24' is replaced by the pair 'r12 = r10' / 'r12 += -24',
+and the trailing indices shift by one ('call unknown' at 12, the store at
+13, then 14 and 15).
+
+git log 28bd77eb835b..8dc5c7d5340d shows the only selftest commit in the
+series is 8dc5c7d5340d ("selftests/bpf: Test timed may_goto with private
+stacks"), which adds new coverage but does not touch
+verifier_bpf_fastcall.c. Note the original x86 JIT enablement commit
+2fb761823ead -- the commit this patch lists in its Fixes: tag -- adjusted
+this very test for the same reason, so the update belongs with the ABI
+change.
+
+> commit 28bd77eb835bc1a95190315e93afbc6bb186b9ff
+> Author: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+>
+>     bpf, x86: Use resolved pointer for timed may_goto
+>
+>     The timed may_goto fixup now passes the resolved counter pointer through
+>     BPF_REG_AX instead of a stack offset.
+>
+>     Use the pointer directly rather than adding it to RBP. This preserves the
+>     private-stack address selected by the JIT through R9.
+>
+>     Fixes: 2fb761823ead ("bpf, x86: Add x86 JIT support for timed may_goto")
+                 ^^^^^^^^^^^
+
+The existing Fixes: tag points to commit 2fb761823ead, which is not an
+ancestor of this fix and is on a different branch (bpf-next/res_spin_lock).
+
+The bug was actually introduced by commit 47ab38f3f4d9 in this branch's
+history, which added the incorrect code 'leaq (%rbp, %r10, 1), %r10' that
+overwrites r10 instead of preserving it.
+
+Should this use:
+
+  Fixes: 47ab38f3f4d9 ("adding ci files")
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/33914557238
+--===============0649529080789511206==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0649529080789511206==--
+
