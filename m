@@ -4,93 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EDFBC624DB
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 02:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B112AC61DD6
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 03:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YPdwnlQcLcfDrJi++2N1JbeifEqg55Ils3aJr0+O4Lw=; b=sd969lkoaEChbB
-	av31w+hWAGWfYo4IFh4BJHe7NkV66hwpGWNevmI0zixQcBgV9RR+B4JoNkjuhME7N/PIEb48CfgL8
-	5Rqnnu2NLgbGJSTZEsLSa3wicyr4mBysKND++T5xzp1iOWdCKG7rdIfLfh9UwW2PRm2H0hHZZiHH4
-	fgwQp50kJLKJr8rLefyUGKD94XigiJrlFccGZco8iZQVJjEU9ViHFI86/zMrjzldxQmmESP61moTv
-	yMHXxMljy1XlRL+desgBLS+pXHQ+FzinL19MLVPdbPKkadUnCpUHrwSI3v8mT6n7StG/DE/yflQUo
-	AOgASi8En/eqbnjC/Y3w==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:Cc:To:From:Subject:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yLxkqiafys0+9P5B9Rw/yNlTePHLjQF8V9zlEuasgrU=; b=2B09nHJt46xdCcFIrhg8T/ue28
+	Cg4BMmfQralkPIX06nqWcDS5k/jzNLbpLBPfDWpx39piM9hlbmp44SoWjSkqOkpk0alaZeaiyKxl2
+	bFqknYwPvfxvMcKRM6yiIfubhjGCsuFaQ6f9j4qy/B2vaKOFmFd7TmWA88dD1MbUsomTKzodcRT3R
+	RrxWgsw/1uodU9CFryi3IbgnvVwNYYFHh7XT9ROSNbkCjNB4sRTlgQYQz5j28wO3srm3RgwSFSzP0
+	dFjqbok4LjPI6Mp0Tk/BSfPTqAPEySAjwXbifTvXJQP5+GCyeO5yN1QQS0pd3UEqFhFkKtOID7UOI
+	VZDxnecw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2JSn-00000000rwS-1Cec;
-	Fri, 04 Sep 2026 02:15:33 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1x2KXo-00000000vNO-08LY;
+	Fri, 04 Sep 2026 03:24:48 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2JSl-00000000rw7-1Ub7
+	id 1x2KXk-00000000vMb-1ekb
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Sep 2026 02:15:32 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2ce98cb8165so5762515ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Sep 2026 19:15:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788488130; x=1789092930; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ndeE7CrNCxxdH5dHnLsA71031MLc9UwFM/YE1dDZ/bg=;
-        b=lm/I2gSXEDZ+iRr38cSlbLIbhMTLM0CVQ5UKHUg0aca5PiLvAn72m1FoimWBZw6Wkx
-         CFIUie65d/nEwZvf/XhJjlG0jV+B6U3nCroS/k5aWF85rJDmO2dAx0oBSfgZRe1kjHW/
-         5v3+rkzY+B78LUL0iU1hP22xh1E0U/nMh9aWim930bYMDf+AwUFNaXST0YRTwUS1PLlI
-         DhVZQd+nVdClXSYuKS9IllJ1tmXIWqie3gHmmV+fqXjqDubUr1Je4CyCbSr+mlDH5wti
-         azYILmH12nAyrV5lL0xIcDxma45aDYYSytzBmsBCKMtYq1YdzgNCK+UyHGzIxa3nDICQ
-         PBsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788488130; x=1789092930;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ndeE7CrNCxxdH5dHnLsA71031MLc9UwFM/YE1dDZ/bg=;
-        b=nJ9pyhgYe90tZgXXl/fsg+8CBagHT9Z1KzqE/+96rIPa0DZsPbceZxq5vNk96cI7bt
-         bXsLdeodqhFw1hd9cVRzFclo1tpkM38pn89CmVt98l1j4LnjJQ11Eq1UdbTb5O19XQVr
-         7KGzNxQxZeiJe2s6RB2VkZA/Q7RZiwzspMWAWpVQ/+U8cDUsSr8mW0LXoyMkUJjCRbFV
-         rVU9AQJMO+G3GPvcX4o+Bg2cSdpU3LhBfs5GQUYixNxQI6KghrOaxDhNvuXD5H8VYgkg
-         8I1YI872iidDbKdfNHSUzgEgUeBKB1TvEMwzeZafeLYUySiv9HCMS/7dHOiBIuK+awjw
-         g7Kw==
-X-Gm-Message-State: AFuF++kTsd+CRXiVzHnYpshWRuTiuTZ6KRipSYXViBmNUuVtKm64K4c9
-	vWheyK2t7uguSjB+w9Cb7kn7iaMZFE2LgAyYPBuH27P+7qEmpvwC8BR7
-X-Gm-Gg: AYBFou2eHW8D7I/jgUaBd7fnmQeKAG1Jgv1VDsmtQnTOZuULffJ7VmaOO8SRRw1PJ+b
-	kSK0yNDuqJ4hzpCdk3dHWWdx815wZ65FUpwNzuuq5Tw51vP0HjwA0qMAiDq1Agvpvmtro7thr4r
-	5HSdDgsWwcv6ko3Q/A6IknHb3cFROIwePxhr0brqYx8nkanOJFrNkz5ybqjy/F2Gig1ThySV6Iy
-	9G+xo9Ar6TGQZOe2Iipmug5y7OeD2oXAclqWZQWZv9O7cOSm3+IsqXKDHwkQZ+keWWZtYJv46gK
-	mlmiQ4uqLJCiS+JVQwR0uC+h/Jx96gjgeKNlTpz/0+oMxVvUBPCpxZwdEc/lPu36rls9bsZHMpk
-	4NWgU5+TVy3Rf+rqv2Q912joZE2t8z1zggbt0zl3mVYMMiIkhcSblNW4tTk7UwfyzRWAh3Ewpu/
-	22kKbhqEJcE+luEm8Jb49J4Cw/LClrO7pHFMkWQvZF0oc1iOseHTl2jEq58g4sioU509tlYGLd
-X-Received: by 2002:a17:902:b217:b0:2ce:b3cd:7539 with SMTP id d9443c01a7336-2db159b5996mr10682725ad.6.1788488129501;
-        Thu, 03 Sep 2026 19:15:29 -0700 (PDT)
-Received: from [192.168.0.13] ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db1495a0b2sm3062125ad.28.2026.09.03.19.15.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Sep 2026 19:15:28 -0700 (PDT)
-Message-ID: <1a7cf36f-aef3-4837-8390-5d063fab3e14@gmail.com>
-Date: Thu, 3 Sep 2026 19:15:14 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 0/3] riscv: support EIC770X/JH7110 noncoherent
- devices with XPbmtUC
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com,
- david@redhat.com, palmer@dabbelt.com, pjw@kernel.org, gaohan@iscas.ac.cn,
- me@ziyao.cc, lizhi2@eswincomputing.com, hal.feng@starfivetech.com,
- marcel@ziswiler.com, kernel@esmil.dk, devicetree@vger.kernel.org
-References: <20260316060328.1173634-1-ganboing@gmail.com>
- <ee2b42b0-1489-478d-8c88-ced6b77824b3@gmail.com>
- <20260324-marshland-stretch-cc21ae7fdc2e@spud>
-Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20260324-marshland-stretch-cc21ae7fdc2e@spud>
+	Fri, 04 Sep 2026 03:24:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1788492269;
+	bh=+fjce5Gv68gDb4c/l/fe5+Q4SZGtlsosTF1WEjjxUK8=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=Zj8yLUQlyL2m6aW139jNLntDDWwOrrsU4IJ5v7dA4/ogtjFSLT7ga397YGm8m0fLP
+	 VR6QQcq+e07+VFKYPKW3A2kPtwwOWmw7ucELMob7u3CQdStIYPfjxTLBn7xtKkK+yP
+	 rjcANDqptKp07AifhFMujrBNb72RNpM8HH/TXIRA=
+X-QQ-mid: zesmtpsz4t1788492267t97a1c389
+X-QQ-Originating-IP: UUFOhxrmyWmafniu2RpwCuAxO+jazOpB/m3P/JOKzfU=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 04 Sep 2026 11:24:25 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16749050241281996791
+EX-QQ-RecipientCnt: 19
+Mime-Version: 1.0
+Date: Fri, 04 Sep 2026 11:24:22 +0800
+Message-Id: <DL67LEVCXFA5.39M5FO7JGKWZS@linux.spacemit.com>
+Subject: Re: [PATCH v4] clk: spacemit: k3: add CPU PLL rate tables
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Aurelien Jarno" <aurelien@aurel32.net>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>
+Cc: "Michael Turquette" <mturquette@baylibre.com>, "Inochi Amaoto"
+ <inochiama@outlook.com>, "Alex Elder" <elder@riscstar.com>, "Haylen Chu"
+ <heylenay@4d2.org>, <stable@vger.kernel.org>, "Stephen Boyd"
+ <sboyd@kernel.org>, "Brian Masney" <bmasney+clk@redhat.com>, "Jerome
+ Brunet" <jbrunet+clk@baylibre.com>, "Yixun Lan" <dlan@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ <linux-clk@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260903-k3-pll5-pll8-1800mhz-v4-1-afafd9cb47d9@linux.spacemit.com> <apmuG46sBg2rGzCD@aurel32.net>
+In-Reply-To: <apmuG46sBg2rGzCD@aurel32.net>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MOsVgoF62rlXg2jMy+En6/iirgDaQNRxZyXqrMP91f3S8ZHwZMVbtaJr
+	7xM27fIaocapgAnzKqQp5stV87/ZpBc/zKO6PJuvevedWvY9zw5FFoz/3JV0FOolmEnfyGC
+	KjDSRkS7G/2zDvIQYc3c4B43MSMHXs+QROIIVuMkfPItNf6WkF9Y7SStWvLuxgOpFKYstbO
+	E8ya/Mp+URQBbu6hVxKByMG0w+zbXAdmPf4QIWRia/xGiAoA12zo5abK8p5vKQw175Y/fqy
+	QhpqPQ7UJt2FJz9OOEJ/4y1oK3RUMbKLQ9qE2VzjsksyZfQLQ+L7WkXbBGnLnwwC16AdJQL
+	c3om90lp2j49lBfkHhaXBT7xKbsguaHKhqILVfhS/FVpujLYZ2JPS+QfDKgQETZtj6uqOxh
+	kg6X35hm8x8RgX2peklC9yHTyQ3f3e/fdPc7s87d3fTANlIn/T8XqpEl/3/bGsPnONcXa7B
+	0sXLQttbLYKutcn0LixM7wet4tI/8mKTCd3h41glH6cC7jGk8rlri4LtHSnzkd1jZcKripf
+	j7xzsm+0gP1mZZk/bF5J9/xb2RSeGI6hWIsllNWajCGLR9ti/kF4k2PvomRof0NrYDxxKro
+	W6KEdmFMWSElR4hqEOvGx1ZOYr+w5X7FeR5N8RSwpQe1dSyyrM+gEZHcSvJylse8N9FQik2
+	2PcCN3bSLovT8BTREGCD3WTHja5a50R/R/KpXxpI5+QRi5gzv3Hm/sSnLiBVPsf12OqNpyS
+	3KakqTIoiABkNOmDDT8RHZAfjdN+kZDsUFc1ALiUafPZ6gkvJ1JyAwRJ98NRSbV+78b8Phx
+	ZPdnVCBsgFGHCQ4Rf12cdikVShykaPvkxFI+XLlvYy+FKt1oWpbdqslGxmNZwFH95egsF/T
+	6VBlf4GICSzNhi9PV+KiqZX88el5Wuso/zbDHiYVf6lzHJ/w6BtvayOw1V7/gR/NZgx9px2
+	JLd+d7MiCfKzoOmm1Feg3zd+IJ9kHQAfgo8M5sadAOwNonVfZoPYpXdoNwGjciuTFzjgjrf
+	XysuNksj4lxi/ZCYbN2eZu3ZD0rjZd35uug+7OwcN6CVmuRDz1lpqsHCNPFuuWfG3kT/8nV
+	WrB8WGoZVJunAMSLegddIhyZNsCfJsctV3Zpd4M/EhdJybl7oSG+olr+UCqxZK7nw==
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_191531_404995_4061E074 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260903_202445_258748_44C2B920 
+X-CRM114-Status: GOOD (  28.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,27 +97,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============0497002844557088923=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/24/26 10:49, Conor Dooley wrote:
-> On Mon, Mar 23, 2026 at 04:08:33PM -0700, Bo Gan wrote:
->> Hi All,
->>
->> Any suggestions/comments on this?
-> 
-> I'll get to it at some point, just busy sorry!
+--===============0497002844557088923==
+Content-Type: multipart/signed;
+ boundary=a1891db0d9ec175249303eb0426fd87ee9cd330fcbf1e2986c4b86e25967;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Conor,
+--a1891db0d9ec175249303eb0426fd87ee9cd330fcbf1e2986c4b86e25967
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-It's been quite a while, and I almost forgot about this. Any new
-suggestions? Comments?
+Hi Aurelien,
 
-Bo
+On Fri Sep 4, 2026 at 1:27 AM +08, Aurelien Jarno wrote:
+> Hi Troy,
+>
+> On 2026-09-03 11:06, Troy Mitchell wrote:
+>> The K3 CPU PLL rate tables currently describe only one rate per PLL,
+>> although the hardware supports a wider range.
+>>=20
+>> PLL3 and PLL4 support rates from 1.05 to 2.4 GHz, while PLL5 and PLL8
+>> support rates from 1.05 to 2 GHz. Populate the tables with every
+>> supported rate in 50 MHz steps.
+>>=20
+>> Cc: stable@vger.kernel.org # 7.0+
+>> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+>> ---
+>> The corresponding U-Boot changes are available at:
+>>=20
+>> - Add the CPU PLL rate tables:
+>>   https://github.com/spacemit-com/uboot-2022.10/commit/787b5cf44c8dbc99d=
+b886d5522c0c9cd5a96ffd6
+>> - Correct the 1.10 GHz and 2.15 GHz table entries:
+>>   https://github.com/spacemit-com/uboot-2022.10/commit/16a775c20e9efb54c=
+a55352215e76eb3f12e6cf0
+>> ---
+>> Changes in v4:
+>> - Expand the update to every supported PLL3, PLL4, PLL5 and PLL8 rate.
+>> - Drop Aurelien Jarno's Reviewed-by and Tested-by trailers because the
+>>   patch scope has expanded.
+>> - Add U-Boot references for the complete tables and corrected entries.
+>> - Link to v3: https://patch.msgid.link/20260831-k3-pll5-pll8-1800mhz-v3-=
+1-530ed0978615@linux.spacemit.com
+>>=20
+>> Changes in v3:
+>> - Mark the change for stable kernels starting with v7.0.
+>> - Add Aurelien Jarno's Reviewed-by and Tested-by trailers.
+>> - Rebase onto v7.3-rc1.
+>> - Link to v2: https://patch.msgid.link/20260810-k3-pll5-pll8-1800mhz-v2-=
+1-aabff510a797@linux.spacemit.com
+>>=20
+>> Changes in v2:
+>> - Drop "clk: spacemit: re-enable PLLs after init"; the PLL init issue
+>>   will be handled in a separate series.
+>> - Send the K3 PLL5 and PLL8 1.8 GHz rate-table update as a standalone
+>>   patch.
+>> - Clarify that 1.8 GHz is nominal and 2 GHz is an overclocking rate.
+>> - Link to v1: https://patch.msgid.link/20260804-k3-pll5-pll8-1800mhz-v1-=
+0-a3a75866ce32@linux.spacemit.com
+>>=20
+>> To: Stephen Boyd <sboyd@kernel.org>
+>> To: Brian Masney <bmasney+clk@redhat.com>
+>> To: Jerome Brunet <jbrunet+clk@baylibre.com>
+>> To: Yixun Lan <dlan@kernel.org>
+>> To: Paul Walmsley <pjw@kernel.org>
+>> To: Palmer Dabbelt <palmer@dabbelt.com>
+>> To: Albert Ou <aou@eecs.berkeley.edu>
+>> To: Alexandre Ghiti <alex@ghiti.fr>
+>> Cc: linux-clk@vger.kernel.org
+>> Cc: linux-riscv@lists.infradead.org
+>> Cc: spacemit@lists.linux.dev
+>> Cc: linux-kernel@vger.kernel.org
+>> ---
+>>  drivers/clk/spacemit/ccu-k3.c | 96 ++++++++++++++++++++++++++++++++++++=
++++++++
+>>  1 file changed, 96 insertions(+)
+>
+> Thanks for the patch, it makes sense to add all the values, to support=20
+> future firmware changes. The values match the ones in the vendor kernel.
+I forgot that you had a similar patch as well..
+
+>
+>> diff --git a/drivers/clk/spacemit/ccu-k3.c b/drivers/clk/spacemit/ccu-k3=
+.c
+>> index 92b930d5ff30..950bf531c734 100644
+>> --- a/drivers/clk/spacemit/ccu-k3.c
+>> +++ b/drivers/clk/spacemit/ccu-k3.c
+>> @@ -29,15 +29,91 @@ static const struct ccu_pll_rate_tbl pll2_rate_tbl[]=
+ =3D {
+>>  	CCU_PLLA_RATE(3000000000UL, 0x0b3e2000, 0x00000000, 0xa0558c8c),
+>>  };
+>> =20
+>> +/* Keep the firmware default as the first entry. */
+>>  static const struct ccu_pll_rate_tbl pll3_rate_tbl[] =3D {
+>> +	CCU_PLLA_RATE(2000000000UL, 0x0b292aaa, 0x0000ab00, 0xa0558686),
+>
+> Is it really necessary to put this entry first? I guess it's the current=
+=20
+> default frequency, but we have seen it can evolve. From my tests, the=20
+> driver seems to just keep the value configured by the firmware=20
+> independently from the table order, so I am not sure it's necessary.
+I think keeping it first is necessary. If the current register settings do
+not match any entry in the table, ccu_plla_init() falls back to the first
+entry:
+
+
+	ccu_plla_update_param(pll, &pll->config.rate_tbl[0]);
+
+[...]
+
+>>  };
+>
+> I have tested the patch, and I confirm it fixes the boot hang with newer=
+=20
+> firmware, and will fix it if the default firmware values change again.=20
+> My comments are just minor ones, so:
+>
+> Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
+> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+Thanks for the tags.
+
+>
+> Regards
+> Aurelien=20
+
+
+--=20
+Troy Mitchell
+
+--a1891db0d9ec175249303eb0426fd87ee9cd330fcbf1e2986c4b86e25967
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCapo55g0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQvWBABAOrdMzrm+oSmpz+4PbCFYU/sKXN1r/pnmybu2iWq
+K9rlAQDr7ekCrcf/gUilgr3y2rN7N0vIvjxWJ3Sylb1GzzXXAA==
+=DS8M
+-----END PGP SIGNATURE-----
+
+--a1891db0d9ec175249303eb0426fd87ee9cd330fcbf1e2986c4b86e25967--
+
+
+--===============0497002844557088923==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0497002844557088923==--
+
