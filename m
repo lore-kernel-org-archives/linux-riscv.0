@@ -4,138 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31484C61DD6
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 13:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DEAC61DD6
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 14:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3iA+sHjX1mIThTI6ZRa2XBDQKw3uuFOI0ohSsicviVU=; b=W6akYbIl4Tfsvl
-	GVqD28B7Bh5QRqyp1MXuVFCsfqkog2zdpSUYO6CvfXknaKuYQLaEl25TB0W80UshK7qiOJ78GDpyY
-	oVRxOWOLvs6wnN1KJIEMDmHhSzd86QEDz9UDyD1t8TZt/vvHJE72cnEPKzI06eQKGCxTIeNhmL/BW
-	TMqR2E3kL7//nxup4SdabmqK9tjJMBSNAZ53w4ppM10i5o3DyNay0oqONCTBG6aIzDPExSFWzlpUz
-	bqpdegvSIxLtcP1CcaolxWSg0cSbAWXT8Q1iHw3BpttNs9zJMR+maW97imBmyOiqncjdfczfg6CXU
-	ChKgdANfueRfSEYgdqKw==;
+	List-Owner; bh=rJZmwExd9QrMgeTkmi9krB51cGjJ5+AqxVQCWkAvMvg=; b=GQPBtneVNA2PXK
+	9IoNCufhwELBqj3j26zwa0ygqsuD4DVDCThnNNbR5ZuHG0ywdYkWBM1bSSLsnw5vEyaCNp/Fwqp8E
+	ZZ83CQd3Kvacwnxsv69DOoyo2pALSoGbmGfeCU24xYH754ejfclRloKSTe7gpcNe0eayo2AIX/504
+	EFA+onLnNX8L6uiVHTxnhp5NH0BsI2qqgml3s97ldV+ZQspttn/ntRb0QN9jg2ksxN1YX8qqlRCgp
+	wkKj95RGdMR5SxOgu48F+YMVWsIMdD+/zZItC8As/HUzAMyOGT58oRcJGYlgW9M1Wkzvd/uJLkqmv
+	9+HlzFL3VigRABKsU5+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UOR-00000002IXc-16cS;
-	Fri, 04 Sep 2026 13:55:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x2Umh-00000002MiS-2m7x;
+	Fri, 04 Sep 2026 14:20:51 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UOP-00000002IXJ-3NyK
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 04 Sep 2026 13:55:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=pkjDjgzDaw86AXoG1909ddrRynkL4ufeKlwmjCrQJhQ=; b=b89yyUiBJI205I5iWaFIi4vmuk
-	piKyqlhs0PRDQJ2IVkC/xnpcgF5ATj9MbUVkw0l4YC9/VxjlY3UYCRgpy9IK0KzBzVFYWjERBn1de
-	e6rEnu56imTT6sIabjRjGBB/KIgv0L55/5WbR7RrDq9jSJpix54OOV2+yWjdDS0HKayDH6z0s3q/B
-	gzN3vaWu6F2EqFDfRZM/1q4wTl42SPWAcineNJ191l4cDAlSTxpmHqilL0SWgFTm4GyMrML3pCABM
-	Y6ZsU7QiE6j0ZoGK0xnfQyNIuEvE02mUO0Chei7iCU1z2sH3uN59xSSuqxOw+JsIxT0lAQbj8sANU
-	ba3NKpaQ==;
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x2UOJ-0000000E9wU-1vnK
-	for linux-riscv@lists.infradead.org;
-	Fri, 04 Sep 2026 13:55:44 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6a051b737d8so934904a12.1
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2026 06:55:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788530134; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GjfaaywhvwuGjIkBcPcUGB8UsGbUrLdY6KX9ZAbGaeQnhBYrV9EKkvqOCU61ehGxcA
-         k/2bz08ez6uKKAZbqaC3kMQI0VK7uHwIHsOyep1EMHHbyDlaUkEwFUBQVI9Raaiykqo1
-         DnRVR21qIcKRZ0H3oCBLoQcvX/+eyHmXao7kXmjYx5yKyzMwe8iq4YRSfoD9pbGGRDRw
-         0R2KI9lQYK0Gf57AHVNAe53lRrtEoI/3GNVJYsXoGBjiMsKtNRVK6lVZgntfsCv0oMmZ
-         sSdmjYD114P63DTkfpUmUbp2hKGlO6fizQeOQ5ttBUwrwEQpTCV0SIcwuYy4sNX+d+ll
-         LB3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=pkjDjgzDaw86AXoG1909ddrRynkL4ufeKlwmjCrQJhQ=;
-        fh=c0FOCpUPZywr1OYUkguJJyZrAt5dfHrFtnuOiglth6M=;
-        b=kBnjuj0JP7bAgq3KAeTdqU3keUC3ZIDMOjTxNMYibABT9Wmikh34H2bRpcDO8l5xqM
-         eqcct026wnwa7RxnLkHlliD2X2CsiRlsqnBDY0FLSmKt5cMOWurA/dLSxULwfmcbHnrQ
-         W5ztrr3TK5wcKm6n2c+h+t4zY3MUldRDZBuRe1jucAEAGUrJ7gfB2Slsssyw+CbVO0gU
-         X95qcq+a1HOit3VRDQvtSMftILrrUcXq3eoHYQETgKPXpLPLQm5ibGUartWfl7Zj0k0o
-         RD2lAJ8grKfHsRqkMarH87GgxwBpm6REBETjYhc7d/j4KAwuvuONeKh4W/zK6l647w66
-         A2+A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788530134; x=1789134934; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pkjDjgzDaw86AXoG1909ddrRynkL4ufeKlwmjCrQJhQ=;
-        b=AlEXy+FJQ/YC0ggrCCOYwjOC7k7SFksnwlMu263Zp+RDqhdxs7FNnIKGEWnwLYE/2o
-         9YjU8+nGPTwLywrRZ5elfGvhnjndWkfdyzykHSAxgtYjnEtM1qb5myUMNtvQFgVLLcYa
-         zkPOrDBIfGm2DcADcp81uYcObNhUbdhBcV4nrHD8qC8arZY3TARuOv41Ko6m9KA7U6SR
-         5gNcGdCIDnz+zOZRvWA1PpDo5Ij08gwn737D82rxPtttIg2Rf1bdttzaLK2aTO5FT/3e
-         M3FlqLhps0cE5OB9C9T2V0fnTC7MDnm4KRNlwHJ3i6m0FwezYbSsCb+1OCMZDH+catiM
-         QN2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788530134; x=1789134934;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pkjDjgzDaw86AXoG1909ddrRynkL4ufeKlwmjCrQJhQ=;
-        b=L8hF0ciQVa5UZctYbnOmCq50YuZ8naFgs2+E0VkypD/vwIm7XXqir9MID9GMP7dJRk
-         maY3DO9fn3f2sD6qaRcslyh/vybHb3Q30yEQXqedM0DhifGsZf//sJo20KPNFu01j9dZ
-         0Xqs8kWuHvufN2F7K1RMp08D80fA2vlH6QXV1PqiBf15neDyaZVschv6/A/6yPfA7eac
-         K5F22j7ZVv/ZGA34bBI+168h22N2VARkHvvbB5tiS3CHKpvteseDiOOrd4qpkkAjNKck
-         uBr27JsAL8yYFinVaDHqpBPlPIu3Oj+CI1QsvEGFL0PrnDut/nNXpQ21Pv4O2qrtUdan
-         Ym1g==
-X-Forwarded-Encrypted: i=1; AKwUvBzI7TfeuAVWYQQCj776hs6joZlYi8TQkNOpFEgHvju4K6n0W78xn7Lgo5wuqn4x/CU/XTK3oatZKV7ZjA==@lists.infradead.org
-X-Gm-Message-State: AFuF++npneRhREcsIWsp9LveFvuGlPgoZbs/oVSLobBdrcjK0FjVDYqD
-	igICMmPhkDyII9raz2mnPwUsn5Pr6k8plxiBHn+plWjobwVOIYx5YWeVR8KDnRPQ9B84s4SsqK5
-	lZTXvlZX0t+dXTxmePU1rJycJxE4aPdY=
-X-Gm-Gg: AYBFou0hX29MY18RCT2XmTo9zhfPEXqPKd3aRpOU3wYusYiYGQcKNbjINLUsybCw3zh
-	zpiTkI8783BQwVP2Uw8sRdCjE61Nwx0MicrTEo8/p1fPqpnXOAJ5j/yPfa8iIt2VqpUQdhWlmQX
-	I2KCyhoMExhm7ScVqfkeqRXNTa4dIqg9eB7mAz8KcJyEE0avf9pCtEh5dTCRqZAVixgQ5sstelR
-	cfVXWLzfDlWdho9F/5eZPgB9bHxJ2dbVVTwhDLMNQ2TS6Bp5Ck0xzyF+mHA0cMVDeqHk8LSVS3W
-	uTAgccqllLOYtRE2EHmf8JWpsydxmBwdiU4n56tK/3UJ8jIOLOhcocmLiDT4
-X-Received: by 2002:a17:907:720f:b0:c25:5d2:acf0 with SMTP id
- a640c23a62f3a-c260c8c21d3mr311924666b.8.1788530134042; Fri, 04 Sep 2026
- 06:55:34 -0700 (PDT)
+	id 1x2Ume-00000002Mhs-0jkt;
+	Fri, 04 Sep 2026 14:20:49 +0000
+Received: from [192.168.0.113] (unknown [123.118.210.34])
+	by APP-01 (Coremail) with SMTP id qwCowAB3Se1v05pqrLYrBw--.65223S2;
+	Fri, 04 Sep 2026 22:19:28 +0800 (CST)
+Message-ID: <da1da563-1011-4b0c-a480-9d3d3acb6441@iscas.ac.cn>
+Date: Fri, 4 Sep 2026 22:19:27 +0800
 MIME-Version: 1.0
-References: <20260904043724.2955444-1-s-vadapalli@ti.com> <20260904043724.2955444-21-s-vadapalli@ti.com>
-In-Reply-To: <20260904043724.2955444-21-s-vadapalli@ti.com>
-From: Luiz Angelo Daros de Luca <luizluca@gmail.com>
-Date: Fri, 4 Sep 2026 10:55:19 -0300
-X-Gm-Features: AcwNN1WkMLBcSKjjx-549nVRZ1ZETkJHm5sDyQYa7o61EdbIDExabOintEMeFfo
-Message-ID: <CAJq09z44PfcEKsoH9eP+c5rxmzQ52hQO33k8sO-e6po1bpE6rQ@mail.gmail.com>
-Subject: Re: [PATCH net-next 20/33] net: dsa: realtek: rtl8365mb: Remove comma
- after sentinel-entry in match-table
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: dario.binacchi@amarulasolutions.com, mkl@pengutronix.de, 
-	mailhol@kernel.org, msp@baylibre.com, florian.fainelli@broadcom.com, 
-	jonas.gorski@gmail.com, andrew@lunn.ch, olteanv@gmail.com, 
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
-	kurt@linutronix.de, hauke@hauke-m.de, chester.a.unal@arinc9.com, 
-	daniel@makrotopia.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, ansuelsmth@gmail.com, 
-	linusw@kernel.org, alvin.sipraga@analog.com, clement.leger@bootlin.com, 
-	justin.chen@broadcom.com, dlan@kernel.org, rogerq@kernel.org, 
-	hkallweit1@gmail.com, linux@armlinux.org.uk, rjui@broadcom.com, 
-	sbranden@broadcom.com, bcm-kernel-feedback-list@broadcom.com, 
-	opendmb@gmail.com, andrei.botila@oss.nxp.com, wangruikang@iscas.ac.cn, 
-	amadeus@jmu.edu.cn, kees@kernel.org, tmshlvck@gmail.com, c-vankar@ti.com, 
-	horms@kernel.org, vadim.fedorenko@linux.dev, daniel.zahka@gmail.com, 
-	nora.schiffer@ew.tq-group.com, v-singh1@ti.com, oss@vassilevski.com, 
-	haokexin@gmail.com, alex@sverdlin.org, aleksandr.loktionov@intel.com, 
-	lgs201920130244@gmail.com, linux-can@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-omap@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 25/33] net: spacemit: k1_emac: Remove comma after
+ sentinel-entry in match-table
+To: Siddharth Vadapalli <s-vadapalli@ti.com>,
+ dario.binacchi@amarulasolutions.com, mkl@pengutronix.de, mailhol@kernel.org,
+ msp@baylibre.com, florian.fainelli@broadcom.com, jonas.gorski@gmail.com,
+ andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, kurt@linutronix.de, hauke@hauke-m.de,
+ chester.a.unal@arinc9.com, daniel@makrotopia.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, ansuelsmth@gmail.com,
+ linusw@kernel.org, luizluca@gmail.com, alvin.sipraga@analog.com,
+ clement.leger@bootlin.com, justin.chen@broadcom.com, dlan@kernel.org,
+ rogerq@kernel.org, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ rjui@broadcom.com, sbranden@broadcom.com,
+ bcm-kernel-feedback-list@broadcom.com, opendmb@gmail.com,
+ andrei.botila@oss.nxp.com, amadeus@jmu.edu.cn, kees@kernel.org,
+ tmshlvck@gmail.com, c-vankar@ti.com, horms@kernel.org,
+ vadim.fedorenko@linux.dev, daniel.zahka@gmail.com,
+ nora.schiffer@ew.tq-group.com, v-singh1@ti.com, oss@vassilevski.com,
+ haokexin@gmail.com, alex@sverdlin.org, aleksandr.loktionov@intel.com,
+ lgs201920130244@gmail.com
+Cc: linux-can@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-omap@vger.kernel.org
+References: <20260904043724.2955444-1-s-vadapalli@ti.com>
+ <20260904043724.2955444-26-s-vadapalli@ti.com>
+Content-Language: en-US
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+In-Reply-To: <20260904043724.2955444-26-s-vadapalli@ti.com>
+X-CM-TRANSID: qwCowAB3Se1v05pqrLYrBw--.65223S2
+X-Coremail-Antispam: 1UD129KBjvdXoWruFW5ur1kJFyxAr18Xr1UZFb_yoWkKrbE9r
+	1fXas3Jr4DCryv9a4akF1avrWkKrs8Xr48Was7KrW3ZasrWr1kArWkCF97t34furWrXFZ3
+	GrnxKF48Aw17KjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbsAYjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVWrXVW3AwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_Wrv_Gr1UMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IUnGZX7UUUUU==
+X-Originating-IP: [123.118.210.34]
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_145541_668961_CFBF1D84 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20260904_072048_694741_C9F39B8F 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,29 +96,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RW0gc2V4LiwgNCBkZSBzZXQuIGRlIDIwMjYgw6BzIDAxOjM5LCBTaWRkaGFydGggVmFkYXBhbGxp
-CjxzLXZhZGFwYWxsaUB0aS5jb20+IGVzY3JldmV1Ogo+Cj4gU2luY2Ugc2VudGluZWwgaXMgdGhl
-IGxhc3QgZW50cnkgYW5kIHdlIGRvIG5vdCBleHBlY3QgZnVydGhlciBlbnRyaWVzCj4gZm9sbG93
-aW5nIGl0LCByZW1vdmUgdGhlIGNvbW1hLgo+Cj4gU2lnbmVkLW9mZi1ieTogU2lkZGhhcnRoIFZh
-ZGFwYWxsaSA8cy12YWRhcGFsbGlAdGkuY29tPgo+IC0tLQo+ICBkcml2ZXJzL25ldC9kc2EvcmVh
-bHRlay9ydGw4MzY1bWJfbWFpbi5jIHwgMiArLQo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRp
-b24oKyksIDEgZGVsZXRpb24oLSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL25ldC9kc2EvcmVh
-bHRlay9ydGw4MzY1bWJfbWFpbi5jIGIvZHJpdmVycy9uZXQvZHNhL3JlYWx0ZWsvcnRsODM2NW1i
-X21haW4uYwo+IGluZGV4IDRjMzA1NzU2MTE2Yy4uZjgyMjBkODMyZTQ2IDEwMDY0NAo+IC0tLSBh
-L2RyaXZlcnMvbmV0L2RzYS9yZWFsdGVrL3J0bDgzNjVtYl9tYWluLmMKPiArKysgYi9kcml2ZXJz
-L25ldC9kc2EvcmVhbHRlay9ydGw4MzY1bWJfbWFpbi5jCj4gQEAgLTMzNTIsNyArMzM1Miw3IEBA
-IGNvbnN0IHN0cnVjdCByZWFsdGVrX3ZhcmlhbnQgcnRsODM2NW1iX3ZhcmlhbnQgPSB7Cj4KPiAg
-c3RhdGljIGNvbnN0IHN0cnVjdCBvZl9kZXZpY2VfaWQgcnRsODM2NW1iX29mX21hdGNoW10gPSB7
-Cj4gICAgICAgICB7IC5jb21wYXRpYmxlID0gInJlYWx0ZWsscnRsODM2NW1iIiwgLmRhdGEgPSAm
-cnRsODM2NW1iX3ZhcmlhbnQsIH0sCj4gLSAgICAgICB7IC8qIHNlbnRpbmVsICovIH0sCj4gKyAg
-ICAgICB7IC8qIHNlbnRpbmVsICovIH0KPiAgfTsKPiAgTU9EVUxFX0RFVklDRV9UQUJMRShvZiwg
-cnRsODM2NW1iX29mX21hdGNoKTsKPgo+IC0tCj4gMi41MS4xCj4KClJldmlld2VkLWJ5OiBMdWl6
-IEFuZ2VsbyBEYXJvcyBkZSBMdWNhIDxsdWl6bHVjYUBnbWFpbC5jb20+CgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 9/4/26 12:36, Siddharth Vadapalli wrote:
+
+> Since sentinel is the last entry and we do not expect further entries
+> following it, remove the comma.
+>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> ---
+>  drivers/net/ethernet/spacemit/k1_emac.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/net/ethernet/spacemit/k1_emac.c b/drivers/net/ethernet/spacemit/k1_emac.c
+> index f7f16397a2c2..29385d78fc4b 100644
+> --- a/drivers/net/ethernet/spacemit/k1_emac.c
+> +++ b/drivers/net/ethernet/spacemit/k1_emac.c
+> @@ -1161,7 +1161,7 @@ static const struct ethtool_rmon_hist_range emac_rmon_hist_ranges[] = {
+>  	{  512, 1023 },
+>  	{ 1024, 1518 },
+>  	{ 1519, 4096 },
+> -	{ /* sentinel */ },
+> +	{ /* sentinel */ }
+>  };
+>  
+>  /* Like dev_fetch_dstats(), but we only use tx_drops */
+> @@ -2066,7 +2066,7 @@ static const struct dev_pm_ops emac_pm_ops = {
+>  
+>  static const struct of_device_id emac_of_match[] = {
+>  	{ .compatible = "spacemit,k1-emac" },
+> -	{ /* sentinel */ },
+> +	{ /* sentinel */ }
+>  };
+>  MODULE_DEVICE_TABLE(of, emac_of_match);
+>  
+
+Acked-by: Vivian Wang <wangruikang@iscas.ac.cn>
+
+Regards,
+Vivian "dramforever" Wang
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
