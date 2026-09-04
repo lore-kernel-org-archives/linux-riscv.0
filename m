@@ -4,96 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0F8C61DD6
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 10:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C413C61DD6
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 11:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aolE4A4+JaBbjvVVuDMzglYFHYb3HDRm6ZXb6gwKDH8=; b=tuk2g9xPFOsUcy
-	BRgf/HP4gJHrj9QlJtUYOtS9sutUMoZ09AtoSysXUMSBhW0HtP+iXua9V/vnz9yZ9nrj8S8wvTRS/
-	Bx6VbK7pM1IJuOi05y7EIGp64LEENUSIz/RFxuQPGMvyxGX/7yNBJdLDVA+rLRI0cc+g7kd7gustG
-	YNpyQUudLLCYLHN9U8le5uaTA1aZV27mCd+NVOigW1UwKsmN/vtmBMOsCJxIM847nyjilXG3KSSPm
-	t5mq/EBzQMQIdX55nCc/ybUH5EPQ/m0dSdUGTpdUEaMrrwt2SJHLK8bQWOGBzPhs7kWMVTANC2zYn
-	2+zlf9CSpCvctKswh4Qw==;
+	List-Owner; bh=qI3q2kD/QG0+S+Gy4c4NbmlDqPjZi+B358TkTz8hfps=; b=XKQMqZ+JVzjdGw
+	MitLkRaN9B/d1PEkkD+n2bk54P1wqcwAGgNycfA4Eih93JyjCjaUBEy6YBOwdwwPxDUZGn39pehIf
+	2hDWVo/bWpwsQDJzOv6KsXVkF5pyB7T6q2DpoRZU/HsLfJoQrJ7I1XNqV3mnV94pIGs/D0I4vSJen
+	m7wSOoZQoxwfF0SCCLW5+vT2DepN4unSVcGkN/+LKWqrWilPSrbv6PXH9mVvHfncI7Ok2VbkveJd3
+	/YYjomWEx/epQ8cq9l2OIAgAV3Te+sQBLdJ8ZbQANpsJq1nuf530Q9ybyLRFk744D5UEMrzjY47Fw
+	hklt6igl10sOiDc3ba2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2R1A-00000001eVe-0bHK;
-	Fri, 04 Sep 2026 10:19:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2RnJ-00000001mPY-0GeW;
+	Fri, 04 Sep 2026 11:09:17 +0000
+Received: from mail-pj2-x07.google.com ([2607:f8b0:4864:39::7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2R18-00000001eTa-2wJu;
-	Fri, 04 Sep 2026 10:19:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 229BF6020A;
-	Fri,  4 Sep 2026 10:19:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89C2D1F00A3D;
-	Fri,  4 Sep 2026 10:19:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788517169;
-	bh=zHj7Jl4ER2+DUDGeXhri9eyZ/g0x3N0pfswy8RuEkQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DDJwGiQQcGBuD0sr5QOJBi+FgIhBc6LUaQyqvxbdxT16FlQzs1rjs6WEKus4Lnn6A
-	 j60NR7rPgDsW/izsP6g8SwYmgeQcWtkQnzsA17fbOjIpNNwqwDIKSGawoO5zUcrd6P
-	 ROEwa06rDkQUmdUdxMhLSZU43vk2Qwv+Y6pEHSqySVc34BQFt+oam7yM7iIuC4h62s
-	 nlfQok5mVyqLOw4VBO9dCWVtya4Z27wHZi1BX3rnDSQd/dMW6ETJiOZdH5ae15CtD9
-	 55bF4NAMgiET9n38B/U1Z9dQGEFPES5opWTgNAAcPm5CYWSddF/U9QOWcd+tKSmTHF
-	 24urd22gLAZuA==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v3 4/4] dma: swiotlb: Remove SWIOTLB_ANY
-Date: Fri,  4 Sep 2026 15:48:10 +0530
-Message-ID: <20260904101810.1193505-5-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260904101810.1193505-1-aneesh.kumar@kernel.org>
-References: <20260904101810.1193505-1-aneesh.kumar@kernel.org>
+	id 1x2RnF-00000001mND-3FXG
+	for linux-riscv@lists.infradead.org;
+	Fri, 04 Sep 2026 11:09:16 +0000
+Received: by mail-pj2-x07.google.com with SMTP id d9443c01a7336-2d561173f9fso5047185ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2026 04:09:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788520152; x=1789124952; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JgjLk2Wj4ezNGWQB3j7DpVIqIrI833hmatUkGCCEbj4=;
+        b=MzItqUIOcuUj3ih9YSV4bmzIFGg9FvVPPvqrh8Uz7dMygb5g5NtMvYasp9zNmtx4nL
+         zS0JwlxEaSEquHN7FueDMhqBHQKCRqGFr92ZV9+Q38AcV6XX7oupu23m2Lq0DHEJ7ZnB
+         4BCg70k5n1TfJuyBj9XgtbvqHlHJR8RQVOD0vf29xE96TMtWBSqpc9yOojY14/IJlX1M
+         RbndL065j/pRQAigf8XqTS8nhsuYXB2i6fVrzCfZV+n7YzZEy8c0q94O3HA6Sikwo5nc
+         v2qQ6956bbr10BJLqPYCKjRGajwQ36MH9kAwC+ahK1/A4UKf+TWfpnnF6nwrdJqkhXWI
+         1EfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788520152; x=1789124952;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JgjLk2Wj4ezNGWQB3j7DpVIqIrI833hmatUkGCCEbj4=;
+        b=PKY8gZUHkg7It0ZhBwrc8sMR1rO6hf83zcYIY6ZFguo3IZJxXhCTO/CAYS9vvqLgCj
+         8dmZbPxq6zZ+NCJDW+DQBWouMHAPUsnbybMEojt/kXONmuzlFKXbl/pDEJGxhCNN68Fj
+         gnAvOsJn0kXT8eIpXEVR+VuIpW8dJR9vVQNsiiUoqpZGhbP6Cw2Pgpm27RhH/9khEEJe
+         TimMV0iYs9lgveQsf2+vkq4r0xywMZjbn2Gyv3vsYbv612AMwBiBW20J73acFyUZMkie
+         7sAtXTQC6rvU/MvchQ8an2ujOVEtM0Hr3Np64AwghZZrBrrI/B3laLbeCRT2y9JQUmM+
+         gfwA==
+X-Forwarded-Encrypted: i=1; AKwUvBzkKGqC86BXlIHaqoUuQclw0SYLz5WBR4YtcdO+9ausYTY2e8Et0kTjMOOBOjy52stipyY3l0cwm5Gujg==@lists.infradead.org
+X-Gm-Message-State: AFuF++lVocuty1ckP2oVbdH17Uc5G6FFcClSD0TXazbsavuOJiFCBiMY
+	vdKTi5bW8HHTtclS/Es525g1Y0Dh/Ie41u82pNbRkNEjkFcVkQoCFIZg
+X-Gm-Gg: AYBFou2qgTQl15JgPb68xSlfGUdOWNn0IdynPp08eGP7aIl/bCiybfUwOVjSOtfs/CT
+	mBnjzXO31oxOotT7nbY5OWbqL0FTHUDOdTSbpDGCN1sl6cCOdjZlxoom3+Nx83WbdealxNb9czD
+	CLuGvj7I1r83dTJzzxHPvclLKWbdmxBNsvV1bGCgToZJcxNjqeEuJ+j/ZTCNSoEpBbZZEkusFhn
+	tnCKpyqqVQlrLp0+2IT0WNTHs0cjOs7D6lkF2/uAFl2R3ohw+pvqU+J8RmjbQaGLS2LBPdKTOEE
+	Nph14EOs//sXHJ2d+nkYU4voNN0+2gyn9fmfROquYJB8LPVXbSSlQOGJg5RuQVDAciQsOKM8yPm
+	LPMGYWR/t9QO8OgytGeoAMTAWZfelDFN8RzMHFhshSYgmpopRYWw3saA5XOVdCHdMQoWh358G+0
+	hqKklZkiTbEc23ieSAH6SgvdbLk4A26LBFd424KCZk8JBshUiZoGiqst4DwF5ZSbZNWopmr45Xs
+	mNFkj7eDbzqZOCJ2Q==
+X-Received: by 2002:a17:902:fb48:b0:2d7:203b:9863 with SMTP id d9443c01a7336-2db1232c6a9mr51752645ad.1.1788520152439;
+        Fri, 04 Sep 2026 04:09:12 -0700 (PDT)
+Received: from [10.240.227.78] ([114.111.24.207])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db148404d1sm8326655ad.6.2026.09.04.04.09.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 04 Sep 2026 04:09:11 -0700 (PDT)
+Message-ID: <a859f6dd-cc65-4bce-b4a0-0b757248f6d2@gmail.com>
+Date: Fri, 4 Sep 2026 19:08:57 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/10] kdump: reduce vmcore size and capture time
+To: Baoquan He <baoquan.he@linux.dev>
+Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ robh@kernel.org, saravanak@kernel.org, akpm@linux-foundation.org,
+ rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+ m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
+ alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev, robin.murphy@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
+ iommu@lists.linux.dev
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+ <apfkDlcMYrgiuGYA@fedora> <6aef2f48-1cc5-408d-a5a2-2b4b4d45ad7b@gmail.com>
+ <apkiW8gn9Z5XaVQh@fedora> <edd83cd6-663f-43f5-8058-99e59d941d5b@gmail.com>
+ <aplAA9-NX3pw9Wmb@fedora>
+From: Chen Wandun <chenwandun1@gmail.com>
+In-Reply-To: <aplAA9-NX3pw9Wmb@fedora>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_040913_817039_A363C001 
+X-CRM114-Status: GOOD (  24.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,150 +108,208 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SWIOTLB_ANY permits the swiotlb pool to be allocated outside the
-architecture's low address limit. This is already implied when
-SWIOTLB_INIT_ADDRESSING_LIMIT is not set, making SWIOTLB_ANY redundant.
 
-Use SWIOTLB_INIT_ADDRESSING_LIMIT as the sole indication that the
-default pool and any dynamically allocated pools must reside below
-ARCH_LOW_ADDRESS_LIMIT. Otherwise, allow the pools to use any directly
-mapped memory.
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- Documentation/core-api/swiotlb.rst |  8 ++++----
- arch/powerpc/mm/mem.c              |  6 ++++--
- arch/s390/mm/init.c                |  2 +-
- arch/x86/kernel/pci-dma.c          |  2 +-
- include/linux/swiotlb.h            |  5 ++---
- kernel/dma/swiotlb.c               | 17 ++++++-----------
- 6 files changed, 18 insertions(+), 22 deletions(-)
+On 9/3/26 5:38 PM, Baoquan He wrote:
+> On 09/03/26 at 03:43pm, Wandun wrote:
+>>
+>>
+>> On 9/3/26 15:31, Baoquan He wrote:
+>>> On 09/03/26 at 03:05pm, Wandun wrote:
+>>>>
+>>>>
+>>>> On 9/2/26 16:53, Baoquan He wrote:
+>>>>> Hi Wandun,
+>>>>>
+>>>>> On 09/02/26 at 03:31pm, Wandun Chen wrote:
+>>>>>> From: Wandun Chen <chenwandun@lixiang.com>
+>>>>>>
+>>>>>> On SoCs that carve out large firmware-owned reserved memory (GPU,
+>>>>>> camera ISP, ...), kdump currently dumps those carveouts as part of
+>>>>>> system RAM even though their contents are firmware state that is not
+>>>>>> useful for kernel crash analysis.
+>>>>>>
+>>>>>> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
+>>>>>> reserved memory on DT-based architectures (arm64, riscv, loongarch).
+>>>>>> Reserved regions default are marked MEMBLOCK_NODUMP so kdump omits them;
+>>>>>> reusable CMA regions are different because their pages are handed back
+>>>>>> to the buddy allocator and may carry crash-relevant data.
+>>>>>>
+>>>>>> ACPI systems already filter reserved memory out of the vmcore through
+>>>>>> their existing path; only DT-based systems currently fail to filter these
+>>>>>> regions, which is what this series addresses. The flag lives in memblock
+>>>>>> itself rather than in a DT-only structure, so the mechanism is generic and
+>>>>>> both ACPI and DT systems can benefit from it (suggested by Rob, thanks) [1].
+>>>>>
+>>>>> Thanks for the effort. I am not against this patchset, and I haven't
+>>>>> went through it carefully. Just from the cover letter, you mentioned
+>>>>> generic, I am wondering if this can be generic for excluding other
+>>>>> memory regions. Asking this because I try to find a way to exclude
+>>>>> unwanted memory regions too, please check below link where there's
+>>>>> the relevant discussion. We definitely don't like inventing wheels
+>>>>> time after time. Do you think this memblock region excluding can
+>>>>> be used in other places of kernel?
+>>>>>
+>>>>> https://lore.kernel.org/all/aoLFai0gzzH2bGgy@MiWiFi-R3L-srv/T/#u
+>>>>
+>>>>
+>>>> Thanks for taking a look, and for the pointer to the crash-wipe thread.
+>>>>
+>>>> To answer your question directly: the exclusion mechanism in this series
+>>>> is already generic, memblock_mark_nodump() is the entry point. Any code
+>>>> that wants a region out of the vmcore just marks it MEMBLOCK_NODUMP, when
+>>>> preparing vmcore elf header by walking memblock, these regionss are skipped;
+>>>> This series is simply one caller, marking the DTS /reserved-memory and
+>>>> /memreserve/ regions with MEMBLOCK_NODUMP.
+>>>
+>>> Thanks, for memory not allocated from memblock, e.g buddy, is it still
+>>> good?
+>>
+>> Yes, still good, only need to pass the physical range to memblock_mark_nodump().
+> 
+> That's interesting. If drivers or any component allocate memory from
+> buddy, then you will call memblock_mark_nodump() to mark the region
+> specifically (memblock_setclr_flag will split regions if it's a sub
+> region of existing memblock region), it won't impact anything?
 
-diff --git a/Documentation/core-api/swiotlb.rst b/Documentation/core-api/swiotlb.rst
-index 71b4e4c27eb5..06d9f88fdf7b 100644
---- a/Documentation/core-api/swiotlb.rst
-+++ b/Documentation/core-api/swiotlb.rst
-@@ -148,10 +148,10 @@ may also be adjusted
- due to other conditions, such as running in a CoCo VM, as described above. If
- CONFIG_SWIOTLB_DYNAMIC is enabled, additional pools may be allocated later in
- the life of the system. Each pool must be a contiguous range of physical
--memory. The default pool is allocated below the 4 GiB physical address line so
--it works for devices that can only address 32-bits of physical memory (unless
--architecture-specific code provides the SWIOTLB_ANY flag). In a CoCo VM, the
--pool memory must be decrypted before swiotlb is used.
-+memory. The default pool is allocated below the architecture's low address
-+limit when it is needed for devices with limited DMA addressing. Otherwise,
-+it may be allocated anywhere in directly mapped memory. In a CoCo VM, the pool
-+memory must be decrypted before swiotlb is used.
- 
- Each pool is divided into "slots" of size IO_TLB_SIZE, which is 2 KiB with
- current definitions. IO_TLB_SEGSIZE contiguous slots (128 slots) constitute
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index 006ed41097e9..1bdea6c03848 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -295,9 +295,11 @@ void __init arch_mm_preinit(void)
- 		/*
- 		 * Since the guest memory is inaccessible to the host,
- 		 * devices always need to use the SWIOTLB buffer for DMA
--		 * even if dma_capable() says otherwise.
-+		 * even if dma_capable() says otherwise. The hypervisor has
-+		 * no addressing limitation, so the buffer may be allocated
-+		 * anywhere.
- 		 */
--		ppc_swiotlb_flags |= SWIOTLB_ANY;
-+		ppc_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
- 	}
- 
- 	/*
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index 78f507e24ceb..ce10292447f1 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -166,7 +166,7 @@ static void __init pv_init(void)
- 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
- 
- 	/* make sure bounce buffers are shared */
--	swiotlb_init(SWIOTLB_VERBOSE | SWIOTLB_ANY);
-+	swiotlb_init(SWIOTLB_VERBOSE);
- 	swiotlb_update_mem_attributes();
- }
- 
-diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
-index 3c82ebb5b6e0..e472631a5bd7 100644
---- a/arch/x86/kernel/pci-dma.c
-+++ b/arch/x86/kernel/pci-dma.c
-@@ -84,7 +84,7 @@ static void __init pci_xen_swiotlb_init(void)
- 	x86_swiotlb_enable = true;
- 	/* Xen can use a SWIOTLB pool anywhere in directly mapped memory. */
- 	x86_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
--	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP | SWIOTLB_ANY;
-+	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP;
- 	swiotlb_init_remap(x86_swiotlb_flags, xen_swiotlb_fixup);
- 	dma_ops = &xen_swiotlb_dma_ops;
- 	if (IS_ENABLED(CONFIG_PCI))
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index be3962a33fc6..b3da751a81dd 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -15,11 +15,10 @@ struct page;
- struct scatterlist;
- 
- #define SWIOTLB_VERBOSE	(1 << 0) /* verbose initialization */
--#define SWIOTLB_ANY	(1 << 1) /* allow any memory for the buffer */
- /* Initialize a default-sized pool for devices with limited DMA addressing. */
--#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
-+#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 1)
- /* Initialize a default-sized pool that requires architecture remapping. */
--#define SWIOTLB_INIT_REMAP		(1 << 3)
-+#define SWIOTLB_INIT_REMAP		(1 << 2)
- 
- /*
-  * Maximum allowable number of contiguous slabs to map,
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index c4611b2c4540..2715833a21f8 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -448,15 +448,10 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
- 	size_t bytes = PAGE_ALIGN(nslabs << IO_TLB_SHIFT);
- 	void *tlb;
- 
--	/*
--	 * By default allocate the bounce buffer memory from low memory, but
--	 * allow to pick a location everywhere for hypervisors with guest
--	 * memory encryption.
--	 */
--	if (flags & SWIOTLB_ANY)
--		tlb = memblock_alloc(bytes, PAGE_SIZE);
--	else
-+	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
- 		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
-+	else
-+		tlb = memblock_alloc(bytes, PAGE_SIZE);
- 
- 	if (!tlb) {
- 		pr_warn("%s: Failed to allocate %zu bytes tlb structure\n",
-@@ -598,10 +593,10 @@ void __init swiotlb_init_remap(unsigned int flags,
- #ifdef CONFIG_SWIOTLB_DYNAMIC
- 	if (!remap)
- 		io_tlb_default_mem.can_grow = true;
--	if (flags & SWIOTLB_ANY)
--		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
--	else
-+	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
- 		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
-+	else
-+		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
- #endif
- 
- 	/* if we have host or guest memory encryption */
--- 
-2.43.0
+IIUC, it won't impact anyting; memblock_mark_nodump() only set
+the MEMBLOCK_NODUMP bit on the matching memblock.memory regions,
+and from the buddy allocator's view, there is nothing changed.
+
+The only effect is the region split you already pointed out: marking
+a sub-range costs up to two extra entries in the memblock.memory
+region array.
+
+
+Best regards,
+Wandun
+
+
+> 
+>>
+>>>
+>>>>
+>>>> x86 currently builds the vmcore elf header from iomem_resource, not
+>>>> memblock; it could be switched to memblock, but that would bring no
+>>>> benefit for the problem this series solves, so this series makes no
+>>>> x86 change. I'd personally be in favor of switching to memblock for
+>>>> a unified implementation across architectures.
+>>>>
+>>>> Best regards
+>>>> Wandun
+>>>>
+>>>>
+>>>>>
+>>>>>>
+>>>>>> Since the reserved memory regions are filtered out, the vmcore is
+>>>>>> smaller in size and faster to produce.
+>>>>>>
+>>>>>> The series is based on linux-next and is organized as follows:
+>>>>>>
+>>>>>> Patches 1-4: Preparation and bugfixes: fix the missing HugeTLB
+>>>>>>               flagname, switch riscv crash_mem to memblock, fold the
+>>>>>>               duplicated per-arch memblock walks into the weak
+>>>>>>               defaults, and serialize crash header preparation against
+>>>>>>               memory hotplug.
+>>>>>> Patches 5-9: NODUMP infrastructure: switch crash_core to
+>>>>>>               for_each_mem_region(), introduce the MEMBLOCK_NODUMP
+>>>>>>               flag, add a dumpable flag to struct reserved_mem, and
+>>>>>>               mark /reserved-memory and /memreserve/ entries with
+>>>>>> 	     MEMBLOCK_NODUMP flag.
+>>>>>> Patch 10:    Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
+>>>>>>               header.
+>>>>>>
+>>>>>> In v5, Sashiko found some pre-existing issues related to reserved-memory,
+>>>>>> and has no dependency on this series, so these issues have been addressed
+>>>>>> in a separate series [2].
+>>>>>>
+>>>>>> v5 --> v6:
+>>>>>> 1. Serialize crash header preparation against memory hotplug to avoid
+>>>>>>     out-of-bounds or use-after-free issues.
+>>>>>>
+>>>>>> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
+>>>>>>     avoiding a panic from too few regions before resize is permitted.
+>>>>>>
+>>>>>> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
+>>>>>>
+>>>>>>
+>>>>>> v4 --> v5:
+>>>>>> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
+>>>>>>     (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
+>>>>>>     DT-only struct reserved_mem.
+>>>>>> 2. Switch the riscv vmcore elf header preparation to use memblock
+>>>>>>     instead of the resource tree, aligning it with arm64 and loongarch,
+>>>>>>     so riscv also can exclude reserved memory from vmcore.
+>>>>>> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
+>>>>>>     loongarch open-coded the same logic, so fold it into shared
+>>>>>>      __weak defaults in crash_core.
+>>>>>> 4.  Drop the v4 patch that saved /memreserve/ entries into the
+>>>>>>      reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
+>>>>>>      directly.
+>>>>>>
+>>>>>> v3 --> v4:
+>>>>>> 1. Rebase this series on v7.2-rc1.
+>>>>>> 2. Add two cleanup patches (patch 02/03).
+>>>>>> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
+>>>>>>     NULL multiple times, suggested by Rob.
+>>>>>>
+>>>>>> v2 --> v3:
+>>>>>> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
+>>>>>> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
+>>>>>> 3. Add some prepare patches.
+>>>>>>
+>>>>>> v1 --> v2:
+>>>>>> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+>>>>>>     feedback [3], v2 drop that property and exclude reserve memory
+>>>>>>     by default.
+>>>>>> 2. Split some prepared patches from the original patches.
+>>>>>> 3. Address coding-style comments on patch 5 from Rob.
+>>>>>>
+>>>>>> [1] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
+>>>>>> [2] https://lore.kernel.org/lkml/20260818092420.2859026-1-chenwandun1@gmail.com/
+>>>>>> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+>>>>>>
+>>>>>> Meijing Zhao (1):
+>>>>>>    mm: memblock: add missing HugeTLB flag name
+>>>>>>
+>>>>>> Wandun Chen (9):
+>>>>>>    riscv: build crash_mem ranges from memblock instead of resource tree
+>>>>>>    crash_core: fold duplicated memblock arch hooks into the weak default
+>>>>>>    crash_core: serialize crash header preparation against hotplug
+>>>>>>    crash_core: replace for_each_mem_range() with for_each_mem_region()
+>>>>>>    memblock: introduce MEMBLOCK_NODUMP flag
+>>>>>>    of: reserved_mem: add dumpable flag to opt-in vmcore
+>>>>>>    of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
+>>>>>>    of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
+>>>>>>    crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
+>>>>>>      header
+>>>>>>
+>>>>>>   arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
+>>>>>>   arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
+>>>>>>   arch/riscv/Kconfig                         |  2 +-
+>>>>>>   arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
+>>>>>>   arch/x86/kernel/crash.c                    |  2 +-
+>>>>>>   drivers/of/fdt.c                           |  2 +
+>>>>>>   drivers/of/of_private.h                    |  2 +
+>>>>>>   drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
+>>>>>>   include/linux/crash_core.h                 |  2 +
+>>>>>>   include/linux/memblock.h                   |  9 ++++
+>>>>>>   include/linux/of_reserved_mem.h            |  1 +
+>>>>>>   kernel/crash_core.c                        | 51 ++++++++++++++++++++--
+>>>>>>   kernel/dma/contiguous.c                    |  1 +
+>>>>>>   mm/memblock.c                              | 17 ++++++++
+>>>>>>   14 files changed, 131 insertions(+), 95 deletions(-)
+>>>>>>
+>>>>>> -- 
+>>>>>> 2.43.0
+>>>>>>
+>>>>
+>>
 
 
 _______________________________________________
