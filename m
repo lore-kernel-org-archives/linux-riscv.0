@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D72C624DE
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 20:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FCADC624D3
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 22:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xucVtkY3eOhAWRfOUltQUClXleOrNes+miQ/wLjsITI=; b=cNNw+h9zZLwrf94erZO/Oioy6N
-	RHWyt0rKgJJ1n23q1Yj59iimOakg15Qh+aT5ugzfP1WFuTNpUa44P6nRZdqE49B3ljSTManm38+Ig
-	tDKYflTuBWR0pE33cmrQTW3g/fU0LNbje5eRWFX2YX9fnmla/az6VKBnjSVkxET9UhYNEi55FNl9T
-	lVQtXk5ab21b312cpSh6migxHufhpfkM5gpxkRtyySBtOioPNn98a7DEt2tnxVT9hCHax9AXPgZHI
-	Qi73suEh+edqYy8kXjw3YVjvGPncoNjFgbuTXUflhBcwpPF0IQT8sq+xJZhfHZvjDVTiegrQRc93T
-	6RVhbpkQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vNGdauYYUDTmnRIr1tMi8jK4gfVl391mBc8kehD+X0o=; b=XVuSnZHqx1RF1w
+	cKRdNl1NKTIIhZyVRSWoZTOo09ZsCIxG/vs50zdi7e5mNHSNwjS8P4iIWgGkqT04iZgAbHY9W3+me
+	TZMqE2xqYEZwe/0BdeJ4dariZDD9xjFt2Q+out2UkmoS1l0LtMGWMSWr9aGRHXMeZIGgLQiI3gkfk
+	x62pN9Vxpt3et5zMqNX6E6ahGlum73jm1SVHXafMmKq9T7ZhYvM7sQIa8BFVBBEATBOCnfqiKLpEf
+	7Ic2QWlD7uleFP83ocYd2JcoWWJBQZebTLagrVkZTotv1sibLUBkrwrN5o2GWjMGgG7lVfiWktRsc
+	Qjt7KHyZXRHrRgoq3WLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ar3-00000003Hdt-0s9H;
-	Fri, 04 Sep 2026 20:49:45 +0000
+	id 1x2cUR-00000003PAC-1FfY;
+	Fri, 04 Sep 2026 22:34:31 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ar0-00000003HdV-4712
+	id 1x2cUP-00000003P9k-3145
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Sep 2026 20:49:43 +0000
+	Fri, 04 Sep 2026 22:34:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5AEB141935;
-	Fri,  4 Sep 2026 20:49:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE4F41F00A3D;
-	Fri,  4 Sep 2026 20:49:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D140143C92
+	for <linux-riscv@lists.infradead.org>; Fri,  4 Sep 2026 22:34:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76E561F0155B
+	for <linux-riscv@lists.infradead.org>; Fri,  4 Sep 2026 22:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788554982;
-	bh=yv0otkI4R3GXS81uLq6Au1MGNUzomyZRVJ0cIST0K2Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Oftt+C177df3SD8JCk4/ygJrGu/v6qf0D/JTfSn3l/7d23chMcQP3Y1rc6iwqVCyI
-	 gw9/d/GkFudw5128IJ++gyEmJNBmVxrSWKFAmCAktxBPWOzR7qSrjrS+hHhP7x0VHa
-	 xIgObrqftMKlh4vA8WX/7G4AHbsC2KyvgsQ2XyNKhJDVsmUYQog+pS+bWlMvm+c58F
-	 n2XNLBaHgVIlTkKC5opSqy6lxwUiqCC7nvRBeL44C+y/iAodR7g4e2Dv98x5oR2+8U
-	 WYjtWB/8GrtfphOrqhvzyq4/RA8pUd1uXR9PsKyg7hDIygsxKPx1/k+bVBnRTHxGJK
-	 jKhMW3cIwOMYw==
-Date: Fri, 4 Sep 2026 21:49:38 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] riscv: introduce cap framework and use it to
- optimize pgtable_l4|l5_enabled
-Message-ID: <20260904-semantic-quiet-24fff0973cc2@spud>
-References: <20260830170414.4505-1-jszhang@kernel.org>
- <20260830170414.4505-4-jszhang@kernel.org>
- <20260831-falsify-arrogance-6917870b8596@spud>
- <apYafAJvKqz_hRzR@xhacker>
- <apZa3EnjGjpaydGm@xhacker>
- <20260901-mountable-engraved-f47c899ed194@spud>
- <apdeoLGpeBW0Hq4y@xhacker>
+	s=k20260515; t=1788561267;
+	bh=dft8jIKZLyvDmq/LPRhVyMm6r8WW3Y1LCnA91drhmyY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=JYoDekoIWqbyA2d6AFs9pkfIIIPviX99b4PNrXAxgbCQQF1dL9694ILlfzsOF9bjh
+	 EDHjfFBj2rg1kN5BUPZ7sWwgCJdF1O2LBadFOYioLe3NL6Z0UxgN8bQZIPykzb0kIV
+	 CeP2V94/YysKm8y7qehaNBmQINcQeTkVH3rYQZFzRNSJADYXZ6FaZoxF7+yGFHc7bL
+	 j29jH+Fm2j64ewfDLmTZ/aVDHVwg5weAwMpu4nTwJimPoca4wLEQjEhcIXxlIJ7Aso
+	 N2p5m9b0qKictMOibmx7IdV2ehpyhNL4kLPEvcWp4PUPxcQfEqdR6Xu/62SYhhmq8h
+	 QX8pZpIOeK8Tw==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5b45f2e5f58so1375881e87.0
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2026 15:34:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByyVa2VKYcod+S0kQvGsoOgMwSTSm6fnZrQGnPkP05n7IsGsHoAwXkUpHGB7aoTnjDHoc1dw7Qs8zKS5Q==@lists.infradead.org
+X-Gm-Message-State: AFuF++nIa8bCLyV3E7ptWk5GOVa73HkZxsK8oiG9uiWHE56n26gk586V
+	0i55sNCAhL6TDEMZ/v/DrFnMBt196Xp0nqQqJ6kmjhOgE8s8/2tBGpeLsKCEK7FIaoKCbsFtXNH
+	qV7MIMH1wv79jO0Z+jIGq1NQcwTj+Oeg=
+X-Received: by 2002:a05:6512:1313:b0:5b0:22a6:6b13 with SMTP id
+ 2adb3069b0e04-5b616e717cfmr1606890e87.0.1788561266181; Fri, 04 Sep 2026
+ 15:34:26 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <apdeoLGpeBW0Hq4y@xhacker>
+References: <20260904043724.2955444-1-s-vadapalli@ti.com> <20260904043724.2955444-21-s-vadapalli@ti.com>
+In-Reply-To: <20260904043724.2955444-21-s-vadapalli@ti.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 5 Sep 2026 00:34:13 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=V6eLEywiyKKFCQMZikQ79ULaq1uPYAQxu-rtYuSW7CA@mail.gmail.com>
+X-Gm-Features: AcwNN1X2dJF1quKIRJ19ZE4zvP-mImnANUJmKgqRVeK17MZA2wOCllak4fdVdf4
+Message-ID: <CAD++jL=V6eLEywiyKKFCQMZikQ79ULaq1uPYAQxu-rtYuSW7CA@mail.gmail.com>
+Subject: Re: [PATCH net-next 20/33] net: dsa: realtek: rtl8365mb: Remove comma
+ after sentinel-entry in match-table
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: dario.binacchi@amarulasolutions.com, mkl@pengutronix.de, 
+	mailhol@kernel.org, msp@baylibre.com, florian.fainelli@broadcom.com, 
+	jonas.gorski@gmail.com, andrew@lunn.ch, olteanv@gmail.com, 
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	kurt@linutronix.de, hauke@hauke-m.de, chester.a.unal@arinc9.com, 
+	daniel@makrotopia.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, ansuelsmth@gmail.com, 
+	luizluca@gmail.com, alvin.sipraga@analog.com, clement.leger@bootlin.com, 
+	justin.chen@broadcom.com, dlan@kernel.org, rogerq@kernel.org, 
+	hkallweit1@gmail.com, linux@armlinux.org.uk, rjui@broadcom.com, 
+	sbranden@broadcom.com, bcm-kernel-feedback-list@broadcom.com, 
+	opendmb@gmail.com, andrei.botila@oss.nxp.com, wangruikang@iscas.ac.cn, 
+	amadeus@jmu.edu.cn, kees@kernel.org, tmshlvck@gmail.com, c-vankar@ti.com, 
+	horms@kernel.org, vadim.fedorenko@linux.dev, daniel.zahka@gmail.com, 
+	nora.schiffer@ew.tq-group.com, v-singh1@ti.com, oss@vassilevski.com, 
+	haokexin@gmail.com, alex@sverdlin.org, aleksandr.loktionov@intel.com, 
+	lgs201920130244@gmail.com, linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-omap@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,102 +94,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1718358328168857479=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1718358328168857479==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="GG0dE94JHQf052MT"
-Content-Disposition: inline
-
---GG0dE94JHQf052MT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Sep 02, 2026 at 07:24:16AM +0800, Jisheng Zhang wrote:
-> > > other cap usage PoV: the cap can be used to replace various static
-> > > branch usage in arch/riscv, for example the fast_unaligned_access_spe=
-ed_key
-> > > As is known, the static branch has some drawbacks.
-> > >=20
-> > > So no matter which direction this series goes to, we need similar cap
-> > > framework. The key question is whether we can extend the
-> > > riscv_has_extension_*() to cover cpu/HW cap,
-> >=20
-> > It'd be nice to see if we could reuse the functions, if we don't
-> > want to invent a bunch of XLINUXFOO for them. The vendor extension stuff
-> > that Charlie added reuses it, but since there's no Linux Foundation
-> > JEDEC ID (AFAIK anyway) perhaps there's just no easy way to do it and
-> > duplicating the functions with a different name is required.
->=20
-> what about if convert fast_unaligned_access_speed_key from static branch
-> to alternative? It's a cpu HW capbility not extension. rename the
-> riscv_has_extension_*() to riscv_has_cap_*()?
-
-
-Is there any value in actually moving that one to an alternative? I
-think it currently only has one user?
-
-If there is value, I'd rather see __riscv_has_extension_*() get renamed
-to __riscv_has_cap*(), so that things like unaligned access speed get a
-different namespace to standard and vendor extensions. IOW you'd end up
-with
-
-static __always_inline bool riscv_has_extension_unlikely(const unsigned lon=
-g ext)
-{
-	compiletime_assert(ext < RISCV_ISA_EXT_MAX, "ext must be < RISCV_ISA_EXT_M=
-AX");
-
-	return __riscv_has_cap_unlikely(STANDARD_EXT, ext);
-}
-
-static __always_inline bool riscv_has_vendor_extension_unlikely(const unsig=
-ned long vendor,
-								const unsigned long ext)
-{
-	if (!IS_ENABLED(CONFIG_RISCV_ISA_VENDOR_EXT))
-		return false;
-
-	return __riscv_has_cap_unlikely(vendor, ext + RISCV_VENDOR_EXT_ALTERNATIVE=
-S_BASE);
-}
-
-static __always_inline bool riscv_has_cap_unlikely(const unsigned long cap)
-{
-	return __riscv_has_cap_unlikely(LINUX_CAP, cap);
-}
-
-Currently standard extensions use 0 as the vendor, perhaps we could then
-use -1 (the value is an unsigned long) for non extension related caps?
-
-
---GG0dE94JHQf052MT
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapsu4gAKCRB4tDGHoIJi
-0sbxAQDD0972SFMaZj7AaksRhMd64kn+GSb6fXOk3mnVmeDRLQEAsGi9D+KNoVsv
-z+fOmb4fa34uegQWg4zaQQs+Iv220A0=
-=BIVN
------END PGP SIGNATURE-----
-
---GG0dE94JHQf052MT--
-
-
---===============1718358328168857479==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1718358328168857479==--
-
+T24gRnJpLCBTZXAgNCwgMjAyNiBhdCA2OjM54oCvQU0gU2lkZGhhcnRoIFZhZGFwYWxsaSA8cy12
+YWRhcGFsbGlAdGkuY29tPiB3cm90ZToKCj4gU2luY2Ugc2VudGluZWwgaXMgdGhlIGxhc3QgZW50
+cnkgYW5kIHdlIGRvIG5vdCBleHBlY3QgZnVydGhlciBlbnRyaWVzCj4gZm9sbG93aW5nIGl0LCBy
+ZW1vdmUgdGhlIGNvbW1hLgo+Cj4gU2lnbmVkLW9mZi1ieTogU2lkZGhhcnRoIFZhZGFwYWxsaSA8
+cy12YWRhcGFsbGlAdGkuY29tPgoKUmV2aWV3ZWQtYnk6IExpbnVzIFdhbGxlaWogPGxpbnVzd0Br
+ZXJuZWwub3JnPgoKWW91cnMsCkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
