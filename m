@@ -4,65 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB3AC61DD6
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 13:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31484C61DD6
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2026 13:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2YdeKaCFoijJ0BIsIhPVl59xBgwsNtX2tSnn7Y53F54=; b=xPqoISesjdF3zC924CGJegGG1p
-	HRFsxrpkC40QG6ZigcykTm237ITPwzC9HAg8Q4miTYYit7LVD/qesJ3zGfDXdf6EnF28RF6pg33E3
-	EiKa5PVavXzhLsZsmej5IzvbFGoxTX1MVfNd0znQV67j7Lp5HM556DNuGxg54C0vUkV2JQmW/Ip3r
-	YHSAmlt7Q4HB2Viydpd8LBB4r3N2Q7asTqYdbUL5yp96aJQczwthkOuSAukdQEV103dgCMyPJ5Pl8
-	Y2kQ2H5Lk/hZL+2eCZPuTtRPQJ3hRIgIw11P1cCQOu/uRSmQTtR05GTfRg7MacHP/kDTts/e/9mm9
-	lfv0qgBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3iA+sHjX1mIThTI6ZRa2XBDQKw3uuFOI0ohSsicviVU=; b=W6akYbIl4Tfsvl
+	GVqD28B7Bh5QRqyp1MXuVFCsfqkog2zdpSUYO6CvfXknaKuYQLaEl25TB0W80UshK7qiOJ78GDpyY
+	oVRxOWOLvs6wnN1KJIEMDmHhSzd86QEDz9UDyD1t8TZt/vvHJE72cnEPKzI06eQKGCxTIeNhmL/BW
+	TMqR2E3kL7//nxup4SdabmqK9tjJMBSNAZ53w4ppM10i5o3DyNay0oqONCTBG6aIzDPExSFWzlpUz
+	bqpdegvSIxLtcP1CcaolxWSg0cSbAWXT8Q1iHw3BpttNs9zJMR+maW97imBmyOiqncjdfczfg6CXU
+	ChKgdANfueRfSEYgdqKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UAY-00000002GG0-0oJi;
-	Fri, 04 Sep 2026 13:41:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2UOR-00000002IXc-16cS;
+	Fri, 04 Sep 2026 13:55:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UAW-00000002GFP-3qn5
+	id 1x2UOP-00000002IXJ-3NyK
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 04 Sep 2026 13:55:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=pkjDjgzDaw86AXoG1909ddrRynkL4ufeKlwmjCrQJhQ=; b=b89yyUiBJI205I5iWaFIi4vmuk
+	piKyqlhs0PRDQJ2IVkC/xnpcgF5ATj9MbUVkw0l4YC9/VxjlY3UYCRgpy9IK0KzBzVFYWjERBn1de
+	e6rEnu56imTT6sIabjRjGBB/KIgv0L55/5WbR7RrDq9jSJpix54OOV2+yWjdDS0HKayDH6z0s3q/B
+	gzN3vaWu6F2EqFDfRZM/1q4wTl42SPWAcineNJ191l4cDAlSTxpmHqilL0SWgFTm4GyMrML3pCABM
+	Y6ZsU7QiE6j0ZoGK0xnfQyNIuEvE02mUO0Chei7iCU1z2sH3uN59xSSuqxOw+JsIxT0lAQbj8sANU
+	ba3NKpaQ==;
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x2UOJ-0000000E9wU-1vnK
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Sep 2026 13:41:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A89644079F;
-	Fri,  4 Sep 2026 13:41:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0867A1F00A3E;
-	Fri,  4 Sep 2026 13:41:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788529284;
-	bh=sdodzR4Na8Sqljw2U9YzO1/rhfdn+6lstjf3xmHL5yY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Tl3HNtlXjcpki9vJTKEAAdlO/sey7IATDkDXoGNKQfG6pfaXr4LGdJJGRG8VQgzou
-	 M2pMGSsjenEtPt2HYbit8AGm+zwRYU5v9RbQSzJXr8V0rQyNFsminbBOzSV0N/aKVy
-	 T4tc0TMfejuONmEj3jri/Jm7C22kCrbauJZDyv4yvs6lFrYeqtaQ8mYSZwNVYPTehg
-	 cT52vtqmWpeUlt6o2nazGP1yTRVmu/xV1wgVt7M30HHfVo+7BRpk5YyYZU+0oqF4Pn
-	 MWvpnb80OGvr0tGNxDUJrHuklEe72v1ymZTXWjhbrsp5Xlo+jUMr6KkZv93KHG7u4Z
-	 HKQTZQoMlaj1A==
-Date: Fri, 4 Sep 2026 15:41:09 +0200
-From: Joel Granados <joel.granados@kernel.org>
-To: Mauricio Faria de Oliveira <mfo@igalia.com>
-Cc: Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nsc@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, kernel-dev@igalia.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, fsverity@lists.linux.dev, 
-	keyrings@vger.kernel.org, bpf@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, netdev@vger.kernel.org, linux-wpan@vger.kernel.org, 
-	lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org, coreteam@netfilter.org, 
-	linux-sctp@vger.kernel.org, linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org, 
-	bridge@lists.linux.dev, mptcp@lists.linux.dev, rds-devel@oss.oracle.com, 
-	virtualization@lists.linux.dev
-Subject: Re: [PATCH RFC v3 00/13] sysctl: add module aliases
-Message-ID: <mokz5pdtwswkyab4byfq7q7m6ac2g6ceoi6jflyxmaszaibzqa@su6m4kamtdpy>
-References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
- <bpnqwggtidgiec5akns3fa5edbsvl7xf55dxabtwng2xspy4pn@ue554aii2ngk>
- <53155340c897560bfc67e61ba9568fd6@igalia.com>
+	Fri, 04 Sep 2026 13:55:44 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6a051b737d8so934904a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2026 06:55:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788530134; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GjfaaywhvwuGjIkBcPcUGB8UsGbUrLdY6KX9ZAbGaeQnhBYrV9EKkvqOCU61ehGxcA
+         k/2bz08ez6uKKAZbqaC3kMQI0VK7uHwIHsOyep1EMHHbyDlaUkEwFUBQVI9Raaiykqo1
+         DnRVR21qIcKRZ0H3oCBLoQcvX/+eyHmXao7kXmjYx5yKyzMwe8iq4YRSfoD9pbGGRDRw
+         0R2KI9lQYK0Gf57AHVNAe53lRrtEoI/3GNVJYsXoGBjiMsKtNRVK6lVZgntfsCv0oMmZ
+         sSdmjYD114P63DTkfpUmUbp2hKGlO6fizQeOQ5ttBUwrwEQpTCV0SIcwuYy4sNX+d+ll
+         LB3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pkjDjgzDaw86AXoG1909ddrRynkL4ufeKlwmjCrQJhQ=;
+        fh=c0FOCpUPZywr1OYUkguJJyZrAt5dfHrFtnuOiglth6M=;
+        b=kBnjuj0JP7bAgq3KAeTdqU3keUC3ZIDMOjTxNMYibABT9Wmikh34H2bRpcDO8l5xqM
+         eqcct026wnwa7RxnLkHlliD2X2CsiRlsqnBDY0FLSmKt5cMOWurA/dLSxULwfmcbHnrQ
+         W5ztrr3TK5wcKm6n2c+h+t4zY3MUldRDZBuRe1jucAEAGUrJ7gfB2Slsssyw+CbVO0gU
+         X95qcq+a1HOit3VRDQvtSMftILrrUcXq3eoHYQETgKPXpLPLQm5ibGUartWfl7Zj0k0o
+         RD2lAJ8grKfHsRqkMarH87GgxwBpm6REBETjYhc7d/j4KAwuvuONeKh4W/zK6l647w66
+         A2+A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788530134; x=1789134934; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pkjDjgzDaw86AXoG1909ddrRynkL4ufeKlwmjCrQJhQ=;
+        b=AlEXy+FJQ/YC0ggrCCOYwjOC7k7SFksnwlMu263Zp+RDqhdxs7FNnIKGEWnwLYE/2o
+         9YjU8+nGPTwLywrRZ5elfGvhnjndWkfdyzykHSAxgtYjnEtM1qb5myUMNtvQFgVLLcYa
+         zkPOrDBIfGm2DcADcp81uYcObNhUbdhBcV4nrHD8qC8arZY3TARuOv41Ko6m9KA7U6SR
+         5gNcGdCIDnz+zOZRvWA1PpDo5Ij08gwn737D82rxPtttIg2Rf1bdttzaLK2aTO5FT/3e
+         M3FlqLhps0cE5OB9C9T2V0fnTC7MDnm4KRNlwHJ3i6m0FwezYbSsCb+1OCMZDH+catiM
+         QN2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788530134; x=1789134934;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pkjDjgzDaw86AXoG1909ddrRynkL4ufeKlwmjCrQJhQ=;
+        b=L8hF0ciQVa5UZctYbnOmCq50YuZ8naFgs2+E0VkypD/vwIm7XXqir9MID9GMP7dJRk
+         maY3DO9fn3f2sD6qaRcslyh/vybHb3Q30yEQXqedM0DhifGsZf//sJo20KPNFu01j9dZ
+         0Xqs8kWuHvufN2F7K1RMp08D80fA2vlH6QXV1PqiBf15neDyaZVschv6/A/6yPfA7eac
+         K5F22j7ZVv/ZGA34bBI+168h22N2VARkHvvbB5tiS3CHKpvteseDiOOrd4qpkkAjNKck
+         uBr27JsAL8yYFinVaDHqpBPlPIu3Oj+CI1QsvEGFL0PrnDut/nNXpQ21Pv4O2qrtUdan
+         Ym1g==
+X-Forwarded-Encrypted: i=1; AKwUvBzI7TfeuAVWYQQCj776hs6joZlYi8TQkNOpFEgHvju4K6n0W78xn7Lgo5wuqn4x/CU/XTK3oatZKV7ZjA==@lists.infradead.org
+X-Gm-Message-State: AFuF++npneRhREcsIWsp9LveFvuGlPgoZbs/oVSLobBdrcjK0FjVDYqD
+	igICMmPhkDyII9raz2mnPwUsn5Pr6k8plxiBHn+plWjobwVOIYx5YWeVR8KDnRPQ9B84s4SsqK5
+	lZTXvlZX0t+dXTxmePU1rJycJxE4aPdY=
+X-Gm-Gg: AYBFou0hX29MY18RCT2XmTo9zhfPEXqPKd3aRpOU3wYusYiYGQcKNbjINLUsybCw3zh
+	zpiTkI8783BQwVP2Uw8sRdCjE61Nwx0MicrTEo8/p1fPqpnXOAJ5j/yPfa8iIt2VqpUQdhWlmQX
+	I2KCyhoMExhm7ScVqfkeqRXNTa4dIqg9eB7mAz8KcJyEE0avf9pCtEh5dTCRqZAVixgQ5sstelR
+	cfVXWLzfDlWdho9F/5eZPgB9bHxJ2dbVVTwhDLMNQ2TS6Bp5Ck0xzyF+mHA0cMVDeqHk8LSVS3W
+	uTAgccqllLOYtRE2EHmf8JWpsydxmBwdiU4n56tK/3UJ8jIOLOhcocmLiDT4
+X-Received: by 2002:a17:907:720f:b0:c25:5d2:acf0 with SMTP id
+ a640c23a62f3a-c260c8c21d3mr311924666b.8.1788530134042; Fri, 04 Sep 2026
+ 06:55:34 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <53155340c897560bfc67e61ba9568fd6@igalia.com>
+References: <20260904043724.2955444-1-s-vadapalli@ti.com> <20260904043724.2955444-21-s-vadapalli@ti.com>
+In-Reply-To: <20260904043724.2955444-21-s-vadapalli@ti.com>
+From: Luiz Angelo Daros de Luca <luizluca@gmail.com>
+Date: Fri, 4 Sep 2026 10:55:19 -0300
+X-Gm-Features: AcwNN1WkMLBcSKjjx-549nVRZ1ZETkJHm5sDyQYa7o61EdbIDExabOintEMeFfo
+Message-ID: <CAJq09z44PfcEKsoH9eP+c5rxmzQ52hQO33k8sO-e6po1bpE6rQ@mail.gmail.com>
+Subject: Re: [PATCH net-next 20/33] net: dsa: realtek: rtl8365mb: Remove comma
+ after sentinel-entry in match-table
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: dario.binacchi@amarulasolutions.com, mkl@pengutronix.de, 
+	mailhol@kernel.org, msp@baylibre.com, florian.fainelli@broadcom.com, 
+	jonas.gorski@gmail.com, andrew@lunn.ch, olteanv@gmail.com, 
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	kurt@linutronix.de, hauke@hauke-m.de, chester.a.unal@arinc9.com, 
+	daniel@makrotopia.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, ansuelsmth@gmail.com, 
+	linusw@kernel.org, alvin.sipraga@analog.com, clement.leger@bootlin.com, 
+	justin.chen@broadcom.com, dlan@kernel.org, rogerq@kernel.org, 
+	hkallweit1@gmail.com, linux@armlinux.org.uk, rjui@broadcom.com, 
+	sbranden@broadcom.com, bcm-kernel-feedback-list@broadcom.com, 
+	opendmb@gmail.com, andrei.botila@oss.nxp.com, wangruikang@iscas.ac.cn, 
+	amadeus@jmu.edu.cn, kees@kernel.org, tmshlvck@gmail.com, c-vankar@ti.com, 
+	horms@kernel.org, vadim.fedorenko@linux.dev, daniel.zahka@gmail.com, 
+	nora.schiffer@ew.tq-group.com, v-singh1@ti.com, oss@vassilevski.com, 
+	haokexin@gmail.com, alex@sverdlin.org, aleksandr.loktionov@intel.com, 
+	lgs201920130244@gmail.com, linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-omap@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_145541_668961_CFBF1D84 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,176 +147,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2038877730752506776=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============2038877730752506776==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="f2bekayrv5kknxjs"
-Content-Disposition: inline
-
-
---f2bekayrv5kknxjs
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Aug 20, 2026 at 06:22:13PM -0300, Mauricio Faria de Oliveira wrote:
-> On 2026-08-20 09:51, Joel Granados wrote:
-> > On Wed, Aug 19, 2026 at 03:16:13PM -0300, Mauricio Faria de Oliveira wr=
-ote:
-> >> This series adds 'sysctl:' aliases to modules that register sysctl tab=
-les; e.g.:
-> >>=20
-> >>         $ modinfo ./mpls_router.ko  | grep sysctl:
-> >>         alias:          sysctl:*/net/mpls/conf/*/input
-> >>         alias:          sysctl:*/net/mpls/default_ttl
-> >>         alias:          sysctl:*/net/mpls/ip_ttl_propagate
-> >>         alias:          sysctl:*/net/mpls/platform_labels
-> >>=20
-> >> It provides a trivial way to map /proc/sys files to modules (not trivi=
-al today),
-> >> and for userspace to handle nonexistent /proc/sys files (e.g., procps'=
-s sysctl
-> >> and systemd-sysctl applying tunables) with "modprobe sysctl:<...>" and=
- a retry.
-> >>=20
-> >> This is done almost automatically with register_sysctl(), register_net=
-_sysctl()
-> >> and friends as wrappers of MODULE_SYSCTL_TABLE (similar to MODULE_DEVI=
-CE_TABLE),
-> >> which emits symbols for file2alias/modpost to find and parse the sysct=
-l tables.
-> >>=20
-> >> The big exception to 'almost' are sysctl tables and paths allocated or=
- defined
-> >> at runtime (e.g., per-namespace or per-device), as all information is =
-required
-> >> at build-time. Fortunately, such tables and paths are often based on '=
-templates'
-> >> which are static and can be used.
-> >>=20
-> >> This is done by plumbing the template table/path as optional arguments=
- (macros
-> >> with default values as default_gfp()), so not to create functions for =
-all cases:
-> >>=20
-> >>         register_sysctl(path, table [, table_tmpl [, path_tmpl]]);
-> >>         register_net_sysctl(net, path, table [, table_tmpl[, path_tmpl=
-]]);
-> >>         register_net_sysctl_sz(net, path, table, size [, table_tmpl[, =
-path_tmpl]]);
-> >=20
-> > The "what" is described but I'm missing more clarity on the "why". Why
-> > does this need to be trivial? Where is it that you will know the sysctl
-> > file path of a module and not the module name or alias?
->=20
-> Thanks for looking at this.
->=20
-> The problem this feature addresses is sysctl settings not applied
-> because modules aren't yet loaded when systemd-sysctl/procps's sysctl
-> runs on boot, and the usage of /etc/modules as a workaround.
-
-Sorry for insisting, but is it not possible to set the sysctls after the
-modules have been loaded? Why is the order to first set the sysctl and
-then load the module?
-
->=20
-> This can be addressed with a way for sysctl tools to load the module for
-> a non-existent sysctl file path.
-> For that, the mapping between a sysctl file path (known) and its module
-> (unknown) needs to be trivial.
-This touches on my question. How is the file path known and the module
-not known? The module is the one providing the paths, not the other way
-around. Why choose to just work with sysctl path lists and not include
-the modules that go with them?
-
->=20
-> It may not seem serious at first, but I've seen this consume significant
-> engineering time and impact production systems, in a previous technical
-> support job.
-> An example: cloud deployments with non-scalable network routing
-> performance due to nf_conntrack_max not applied after reboot or an
-> upgrade because the component which turned out to help with the
-> /etc/modules workaround had its placement changed from network router
-> nodes.
-This is more understandable to me. The issue is that you loose the
-relationship between sysctl paths and modules on updates. Are there
-other cases where the module would not be loaded?
-
-And doesn't it create another problem where you will load modules that
-you don't expect (on the update)?
-
->=20
-> > Additionally, sysctls are not module specific; they are a way to
-> > read/write kernel variables. Putting a module specific aspect in the
-> > function arguments (that needs to be ignored in non-module cases) seems
-> > wrong. Why not use the module subsys to add sysctl alias instead of the
-> > sysctl subsys?
->=20
-> Fair point. The current design has 2 reasons:
->=20
-> 1) Use the 'path' argument (raised in [1]), only available in the
-> register sysctl functions.
-> 2) Use a more implicit/transparent approach, instead of more
-> explicit/declarative approach.=20
-
-I get that the data is there and you would be able to do it, but it
-still seems misplaced. Additionally, are you planning to move all the
-modules to this scheme? If not, does that mean that some modules would
-work and some wouldn't? And how would you make sure that modules would
-use the correct call moving forward?
-
->=20
-> I guess that a different design could use MODULE_SYSCTL_TABLE() as
-> MODULE_DEVICE_TABLE(), declared per table instead of wrapped into
-> register sysctl functions.
-> However, it seems to require moving the value of the path argument (or
-> its template) into the macro and still referencing it in the function
-> (or its instantiation of the template), which adds obfuscation, to all
-> callers.=20
->=20
-> What do you think?
-It might be that having it inside the module subsys is more work, but I
-believe that there is the right place to have it. I still don't see that
-adding a module specific arg to the sysctl register is a good thing.
-
-
-Best
-
---f2bekayrv5kknxjs
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmqaymwACgkQupfNUreW
-QU+lGQv9G3M3cE2j6nFu2ajfmqXn/HK3F13D57StjtuTwbNUrTKJAl5NYfXzFtv/
-WI0RRjBuOJKO4tZwqjX37MLUYJqa3GYA6eoQ8efnCCygEUInpicx3wittaZqtnv0
-TGnCLpyb4BHmtJRx6lEoZFyU4juYti6APKn4p2+CBQN9jPCn2RbFf8fRCql2G7F2
-LpM/O+tkXTZ8iY6iGjkROFdKmbNXq0JO5m6dOOgtyJt/m4dLF+ivs7HxExEvaAdq
-0vMjANmTDelElI17ouGEstSU8WLY1R+rMEzMbm5Y5lTWK0MxCkReBjJSEx/yAQEZ
-ecNJej849cFo1mun6yzEB6+3tiB1IGZaTerj7LfxHm+Ku9nVZ4p29/emoQ0UzWdd
-SkWXhwUZbVGehFGYaCTT7KVDcv5fZiCr2WBM0POFIXhmSIk0CSLezhFr6JDElVov
-R12dzrMN46WspdvHiWrBWBGMtUh+8hxByKgR+YduWJfKyeKBoQnsai2u+4zJ7Ayp
-sBanGs6K
-=SHqf
------END PGP SIGNATURE-----
-
---f2bekayrv5kknxjs--
-
-
---===============2038877730752506776==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2038877730752506776==--
-
+RW0gc2V4LiwgNCBkZSBzZXQuIGRlIDIwMjYgw6BzIDAxOjM5LCBTaWRkaGFydGggVmFkYXBhbGxp
+CjxzLXZhZGFwYWxsaUB0aS5jb20+IGVzY3JldmV1Ogo+Cj4gU2luY2Ugc2VudGluZWwgaXMgdGhl
+IGxhc3QgZW50cnkgYW5kIHdlIGRvIG5vdCBleHBlY3QgZnVydGhlciBlbnRyaWVzCj4gZm9sbG93
+aW5nIGl0LCByZW1vdmUgdGhlIGNvbW1hLgo+Cj4gU2lnbmVkLW9mZi1ieTogU2lkZGhhcnRoIFZh
+ZGFwYWxsaSA8cy12YWRhcGFsbGlAdGkuY29tPgo+IC0tLQo+ICBkcml2ZXJzL25ldC9kc2EvcmVh
+bHRlay9ydGw4MzY1bWJfbWFpbi5jIHwgMiArLQo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRp
+b24oKyksIDEgZGVsZXRpb24oLSkKPgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL25ldC9kc2EvcmVh
+bHRlay9ydGw4MzY1bWJfbWFpbi5jIGIvZHJpdmVycy9uZXQvZHNhL3JlYWx0ZWsvcnRsODM2NW1i
+X21haW4uYwo+IGluZGV4IDRjMzA1NzU2MTE2Yy4uZjgyMjBkODMyZTQ2IDEwMDY0NAo+IC0tLSBh
+L2RyaXZlcnMvbmV0L2RzYS9yZWFsdGVrL3J0bDgzNjVtYl9tYWluLmMKPiArKysgYi9kcml2ZXJz
+L25ldC9kc2EvcmVhbHRlay9ydGw4MzY1bWJfbWFpbi5jCj4gQEAgLTMzNTIsNyArMzM1Miw3IEBA
+IGNvbnN0IHN0cnVjdCByZWFsdGVrX3ZhcmlhbnQgcnRsODM2NW1iX3ZhcmlhbnQgPSB7Cj4KPiAg
+c3RhdGljIGNvbnN0IHN0cnVjdCBvZl9kZXZpY2VfaWQgcnRsODM2NW1iX29mX21hdGNoW10gPSB7
+Cj4gICAgICAgICB7IC5jb21wYXRpYmxlID0gInJlYWx0ZWsscnRsODM2NW1iIiwgLmRhdGEgPSAm
+cnRsODM2NW1iX3ZhcmlhbnQsIH0sCj4gLSAgICAgICB7IC8qIHNlbnRpbmVsICovIH0sCj4gKyAg
+ICAgICB7IC8qIHNlbnRpbmVsICovIH0KPiAgfTsKPiAgTU9EVUxFX0RFVklDRV9UQUJMRShvZiwg
+cnRsODM2NW1iX29mX21hdGNoKTsKPgo+IC0tCj4gMi41MS4xCj4KClJldmlld2VkLWJ5OiBMdWl6
+IEFuZ2VsbyBEYXJvcyBkZSBMdWNhIDxsdWl6bHVjYUBnbWFpbC5jb20+CgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
