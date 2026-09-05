@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E71C79F82
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 02:51:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CFCC79F89
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 03:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v0Fk5NylvhXTavMM2xFmCKWlu31sOSXEvcuMRGdnd/g=; b=DKmhqRVpgG2qKy
-	5r1Z5N8Xhjs00VjzSpwKjzce+ozy28PuS5WK4HSlb5AGcCSrHM2dyhmcRzs6V6Q0d10oFpWQojXkA
-	qdiW55qcwF2tqg9hFkF0qMTGnSd6Z9hokXMQB1jXdztybMDnJ2G00acjDJlcpbroZ01+rQGUfVy4v
-	v0bMvQScmflyuZ6ma2NcEGF5s/q+IZWY7AMrHMIbyJk7HfuHGEstcq/EbKFtXwJ3GnxcBoer9gf3z
-	4zqYRsg4wtB1dDx9Jx1T870UhUn6x/XlFNvhKF/PaUVyH1oxmFpbNjWYvm8v6EJEooBhH4WluNlfU
-	FVh6Jssmf3ORMCVmwXUg==;
+	List-Owner; bh=0bAgNcXQI2mYTCq/kvJD2qTP+bUoU25dRvjcFjAO3Xg=; b=Q53WT9EKx4DJvw
+	66GLpOANE1LG+YLAmKqeXcR5xGqzPDqn/rc7B0RB83f/ik6mycAXCusq12TbM//YFZ81BTsjyrFu3
+	wgHBJU6by10UzHEcz1SMbOYeTjRnO9XztbTIt/lv0dCOR5dnSWNwiLWf83tOhB6bgPvnRqwQ42vyH
+	ok2HU87diqbe7D/pn9Bqw7JWGWzF3bEX5z/G+pxQ3sFO6RFFXqUHFxc4gXb0BefOzY3X2yq1PzGNb
+	nXLsq9O2r7olCzxlHJsSBXOBkwsqzz0sg6O8fonVhwTB4n+igJLm5lRV63s+dJeRA7T+IEX1l8grm
+	xYlCb8VSa43cH/6kT0yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2gV5-00000003cD8-2Ygm;
-	Sat, 05 Sep 2026 02:51:27 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1x2glZ-00000003cjD-3wgT;
+	Sat, 05 Sep 2026 03:08:29 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2gV2-00000003cCg-2RZR;
-	Sat, 05 Sep 2026 02:51:26 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1788576680;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C3df1ugh6rUzruXPX+OJp8A2wl50vXoeEbMwgMt7JGQ=;
-	b=f+IfZYh02MvNdVrnFsEjZ4G++kBTWkOlKuUw+3PKhov/C0rvmt5d9hVpCYJeWEkZQCnoAf
-	IsBOB9SJ/ukPY/NofPwrkYw4/z4/oXTPBhLpYDvle2leiszhwQKjoObZ/al6KWOFkgr5ZG
-	msUKYm/quktS/uhLadceUv1RSYYg2tLiW/GzUBhTVp0f3D4TLdl4OX4CfSoo6FS/M/01AB
-	Q4KfMrCdPHnia7NSvCqRo7ij0Q0+L+fFwaMn43ahpuAdX08lHZPdi6SclPCDbjU08RL7jM
-	5sRU0wxlnItYPGPuGdk1dpMqhWM0jfej/m32kMv1Gh6Jr5b8o/ENLOEOS9NoHA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1788576680;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C3df1ugh6rUzruXPX+OJp8A2wl50vXoeEbMwgMt7JGQ=;
-	b=ifFd0LWf4Jb0hg6moZmbTBt5hEpYB5RTHdy3YrlSBNWGwFhsR4JqdoTOpD87JnjOj19VlF
-	UniHL//75eSm+VAg==
-To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Radu Rendec <radu@rendec.net>, Marc Zyngier <maz@kernel.org>, Anup Patel
- <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>
-Subject: Re: Interrupt chip driver maintainence
-In-Reply-To: <871pb9841j.ffs@fw13>
-References: <871pb9841j.ffs@fw13>
-Date: Sat, 05 Sep 2026 04:51:18 +0200
-Message-ID: <87ld9g9zrt.fsf@yellow.woof>
+	id 1x2glV-00000003ciO-3nk1
+	for linux-riscv@lists.infradead.org;
+	Sat, 05 Sep 2026 03:08:28 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Rau380fv/C3PIMO8upUmN2ndspPXutqa2G+T2w4vG2g=;
+	b=6XxG4jvVSS2yP6Twqz++PqKHMDiJ+xiJaTnRUXE78I1KRddCIO/l3t/PVROSi3vqBhDcqvNBg
+	VH80GddnFqp8jbISNmo1hRfzgljAx81PxpoS6zKcY9grHjWlBZvaEeeXrhQwRmKAsbXe389JuT9
+	gCkFoSX+kvTN1iDo/uk6uI0=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hcJ0B121DzLlXB;
+	Sat,  5 Sep 2026 10:57:14 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id CE5C74056C;
+	Sat,  5 Sep 2026 11:08:05 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
+ (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
+ 2026 11:08:04 +0800
+Message-ID: <3e7fb313-021a-49d0-9def-fd9f03e3c2bb@huawei.com>
+Date: Sat, 5 Sep 2026 11:08:04 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf v2] bpf, riscv: Make arena support depend on ZACAS
+Content-Language: en-US
+To: Chen Pei <cp0613@linux.alibaba.com>, <ast@kernel.org>,
+	<daniel@iogearbox.net>, <andrii@kernel.org>, <memxor@gmail.com>,
+	<bjorn@kernel.org>, <puranjay@kernel.org>
+CC: <ihor.solodrai@linux.dev>, <eddyz87@gmail.com>, <martin.lau@linux.dev>,
+	<song@kernel.org>, <yonghong.song@linux.dev>, <jolsa@kernel.org>,
+	<emil@etsalapatis.com>, <pjw@kernel.org>, <palmer@dabbelt.com>,
+	<guoren@kernel.org>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+References: <20260902061451.1416-1-cp0613@linux.alibaba.com>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20260902061451.1416-1-cp0613@linux.alibaba.com>
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_195124_766620_B344665E 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260904_200826_573017_D0113B2C 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,29 +79,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thomas Gleixner <tglx@kernel.org> writes:
-> I'm wading through my inbox full of patches for interrupt chip drivers
-> and I'm thoroughly annoyed. The way how this works today is not
-> sustainable.
->
-> Patches end up in my and Radu's inbox and all we can do is go through
-> them mostly on a formal basis, but it's out of our scope to look at the
-> correctness vs. a particular hardware. In the past I just picked up
-> patches when I had the gut feeling they are remotely correct, but I'm
-> tired of this.
+Hi Pei,
 
-I have hardware to test the SiFive PLIC. I also spent quite some time
-staring at the specification attempting to cleanse the mess we have for
-plic_irq_eoi() (which sadly yielded nothing).
+On 2026/9/2 14:14, Chen Pei wrote:
+> The arena range tree allocates its nodes with kmalloc_nolock() since
+> commit f8c67d8550ee ("bpf: Use kmalloc_nolock() in range tree").
+> kmalloc_nolock() requires slab caches with cmpxchg128 support
+> (__CMPXCHG_DOUBLE); on riscv cmpxchg128 is provided by the ZACAS
+> extension. On systems without ZACAS every arena map creation fails
 
-I can help looking at patches. Would that help moving things forward?
+This limitation has a significant impact, as much of the hardware on the 
+market lacks ZACAS support given that it is not mandatory in RVA23.
 
-Nam
+> with a misleading -ENOMEM.
+> 
+> Report the missing support instead: make bpf_jit_supports_arena()
+> return system_has_cmpxchg128() where it is defined, so arena map
+
+Originally, I thought rv_ext_enabled(ZACAS) && 
+IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZACAS) would make it more explicit, but 
+system_has_cmpxchg128() seems to better capture what we were missing.
+
+
+Acked-by: Pu Lehui <pulehui@huawei.com>
+
+> creation fails with -EOPNOTSUPP on systems without ZACAS. The macro
+> is only defined when both CONFIG_RISCV_ISA_ZACAS and
+> CONFIG_TOOLCHAIN_HAS_ZACAS are enabled, so guard it with #ifdef the
+> same way mm/slab.h consumes it, and reject arena otherwise. This
+> matches how arena BPF_CMPXCHG instructions are already gated on ZACAS
+> in bpf_jit_supports_insn().
+> 
+> Fixes: f8c67d8550ee ("bpf: Use kmalloc_nolock() in range tree")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+> ---
+> Changes since v1:
+> - Guard system_has_cmpxchg128() with #ifdef instead of calling it
+>    unconditionally: the macro is only defined when both
+>    CONFIG_RISCV_ISA_ZACAS and CONFIG_TOOLCHAIN_HAS_ZACAS are enabled
+>    (as reported by sashiko-bot), so v1 broke the build when either
+>    was disabled. This mirrors how mm/slab.h consumes the macro.
+> 
+> Why #ifdef rather than rv_ext_enabled(ZACAS)? The predicates differ
+> exactly in the configurations that matter:
+> 
+>    scenario (ISA_ZACAS/TOOLCHAIN/hw)  v1           rv_ext_enabled  #ifdef
+>    ISA=n or TOOLCHAIN=n               build fails  rejects         rejects
+>    ISA=y TOOLCHAIN=n hw has ZACAS     build fails  accepts, then   rejects
+>                                                    -ENOMEM again
+>    ISA=y TOOLCHAIN=y hw has ZACAS     exact        exact           exact
+> 
+> rv_ext_enabled(ZACAS) does not check CONFIG_TOOLCHAIN_HAS_ZACAS, but
+> slab's cmpxchg128 - and thus kmalloc_nolock() - does require it, so
+> on an old toolchain with ZACAS hardware it would accept arena maps
+> and bring back the very -ENOMEM failure this patch fixes. The #ifdef
+> form builds in every configuration and matches exactly the
+> kmalloc_nolock() availability gate in mm/slab.h.
+> 
+> This issue was reported by sashiko-bot:
+> https://sashiko.dev/#/patchset/20260901120013.16104-1-cp0613@linux.alibaba.com?part=1
+> 
+> Question for reviewers: should the arena selftests gate on ZACAS,
+> e.g. probing it via riscv_hwprobe() (RISCV_ISA_EXT_ZACAS) and
+> SKIPping cleanly on systems without the extension?
+
+riscv isn't currently integrated into the BPF CI, and handling this 
+locally via qemu is fairly straightforward, so I'm not entirely sure 
+this is strictly necessary.
+
+> 
+>   arch/riscv/net/bpf_jit_comp64.c | 10 +++++++++-
+>   1 file changed, 9 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+> index 74efe4b138d2..151031e97a24 100644
+> --- a/arch/riscv/net/bpf_jit_comp64.c
+> +++ b/arch/riscv/net/bpf_jit_comp64.c
+> @@ -2128,7 +2128,15 @@ bool bpf_jit_supports_ptr_xchg(void)
+>   
+>   bool bpf_jit_supports_arena(void)
+>   {
+> -	return true;
+> +	/*
+> +	 * The arena range tree uses kmalloc_nolock(), which needs
+> +	 * cmpxchg128, provided by ZACAS on riscv.
+> +	 */
+> +#ifdef system_has_cmpxchg128
+> +	return system_has_cmpxchg128();
+> +#else
+> +	return false;
+> +#endif
+>   }
+>   
+>   bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
 
 _______________________________________________
 linux-riscv mailing list
