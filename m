@@ -4,57 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20314C624DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 08:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC43C624DB
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 08:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HVpekmLMeCneMOWkB1znxYxLlJHS6c89ZbL4prv8JYE=; b=q1wLa27KdoVVuV
-	qWjZDj3elfRsQ7YMSEOpIyGqueuxLCrlST4aZHH+6nx3z/5F+ozaCSNEACc8SFxU3K4RqI9TuThYr
-	EX/UsH9Y1uMm65QpjeWvaAV0MZEL75yhrQxd7x5iRwZS+8twqwiIfNul9T0papbQKC6FFKfKew5eU
-	hCyjEprDMAZeEGmfK8Tn4QHjUJcjI+Ixk1D0byF/Ol+DNtfrjDqQqz+tuNx8lSBj/D/UDoAShDM/X
-	iidW41Max0+pMGTQLhShJIYDQ5aKbYjfbeu/xi1G8whlOXr/jvWwpBSefrGuH1ngenXZC7YJb3QtA
-	gTtlDHPvo4Uu1MYabLXw==;
+	List-Owner; bh=4hxoGYelhSKkNu7y1P/7WFAv9ouDmY2wuvZ14ZsMjo8=; b=ox+qD0CZSbOItg
+	xeMcLVpZa2KXzsR3YpuOVnpYaMbqcJrwb79JGW3q6blT5g8OnO2/edKejoqHEA2jiJgPq7PXuWpQZ
+	3IF4/QzFWrOZ3bzFgx6N3xvsEEDk4Vznv3UsNWg1JsYtitaxRq5HfR6XucbKaZSMSPhDiSmfAKN82
+	r3Gv+W0OkoUnYzM51J7+JebP2owz23uGqf65/55KOs3xjmGIBbNoSWVKmGq/09xp+cKdVYFHxML9B
+	6kBmevmAviHMsyfnvyDlLc8oAPpXd9R9qkTFl/XWvYPljMdFX6+7mXNVRIHDtbJ570hUdfFJWq78Z
+	6bECWTtPxKfXHu17a/1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2m0I-00000003sOp-28qS;
-	Sat, 05 Sep 2026 08:44:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x2m9x-00000003t0M-0qGw;
+	Sat, 05 Sep 2026 08:54:01 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2m0H-00000003sOV-27cG
+	id 1x2m9s-00000003syy-2nmf
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Sep 2026 08:44:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF7AB40710;
-	Sat,  5 Sep 2026 08:44:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0590B1F00A3D;
-	Sat,  5 Sep 2026 08:43:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788597840;
-	bh=TqHxrurdJhNzBV3eFI/kHdibDuBoPuJBWEjFN7cWhls=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=n45UFJebFtAjpDIOQvQV6ILE4X7MHItuVnpyCO6mUMJT8AXVeHMpqd0snSOdXyDoC
-	 zzU9B/7atWIOLzsPiAei1sXp+RPDcxNsLQp3/HNA7p2/qia6Y7iAOodsD0tPVWfiFn
-	 Rd364Le1+++FmU/fQ5K1ezV1jAbMWMnpTPnLAIFuVLH2SAoOWE/202b4OzCkDDk03E
-	 vnhgebbCWxSLAMCbCL9agEzksRK33yvkS81CY5FaIqId45H6KHo2fh9gxSEmr1Byz9
-	 sGZd7nGrfZYKmt81BTe9QERcbQmkH/TJ6XI34/347HOhyPu9nWX7pcvFFd+CwQuqUL
-	 6PZlcWRna20YQ==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Philip Li <philip.li@intel.com>
-Cc: kernel test robot <lkp@intel.com>, oe-kbuild-all@lists.linux.dev,
- linux-kernel@vger.kernel.org, Jinjie Ruan <ruanjinjie@huawei.com>,
- linux-riscv@lists.infradead.org
-Subject: [PATCH] entry: Guard syscall_enter_audit() invocation with
- CONFIG_AUDITSYSCALL
-In-Reply-To: <875x0k7i9k.ffs@fw13>
-References: <202609031938.ZvZZaRQy-lkp@intel.com> <87wlt29k5v.ffs@fw13>
- <aprKt3OlFvdQN5w+@rli9-mobl> <875x0k7i9k.ffs@fw13>
-Date: Sat, 05 Sep 2026 10:43:57 +0200
-Message-ID: <87tso45bqq.ffs@fw13>
+	Sat, 05 Sep 2026 08:53:59 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hcRtm0jRVzYQv1N
+	for <linux-riscv@lists.infradead.org>; Sat,  5 Sep 2026 16:53:04 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 24D3940561
+	for <linux-riscv@lists.infradead.org>; Sat,  5 Sep 2026 16:53:50 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP1 (Coremail) with UTF8SMTPA id cCh0CgBnTwqc2JtqP8lOAw--.13006S5;
+	Sat, 05 Sep 2026 16:53:49 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Feng Jiang <jiangfeng@kylinos.cn>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Pu Lehui <pulehui@huawei.com>
+Subject: [PATCH bpf-next v5 3/3] selftests/bpf: Enable stack argument tests for RV64
+Date: Sat,  5 Sep 2026 08:58:57 +0000
+Message-Id: <20260905085857.14143-4-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260905085857.14143-1-pulehui@huaweicloud.com>
+References: <20260905085857.14143-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
+X-CM-TRANSID: cCh0CgBnTwqc2JtqP8lOAw--.13006S5
+X-Coremail-Antispam: 1UD129KBjvPXoW5Ar1fGFyrKF4UXw47XFW5p5X_Cr1fWoZxKF
+	9Iy3WUCan7Zw47uF1fJFy8Wr48KF1fJF4IkryrtF9Fyr1rCr1jyw4fZF1Fq39Ygas0gFyD
+	C3yqvFykGF1kn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3AaLa
+	J3UjIYCTnIWjp_UUUO07kC6x804xWl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAv
+	wI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82
+	xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI
+	8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr
+	0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0
+	oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7V
+	C0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j
+	6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r
+	4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAF
+	wI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc4
+	0Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AK
+	xVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F
+	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxUIF4i
+	UUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260905_015357_061589_06E96A6E 
+X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,68 +104,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A bunch of older cross compilers notably RISCV64 and S390 fail to eliminate
-the dead code when CONFIG_AUDITSYSCALL=n. The code in question is:
+From: Feng Jiang <jiangfeng@kylinos.cn>
 
-     if (unlikely(audit_context())
-     	syscall_enter_audit(regs);
+Enable the stack argument selftests for RV64. The riscv guard is
+restricted to __riscv_xlen == 64 since stack arguments are only
+supported by the RV64 JIT.
 
-and in case of CONFIG_AUDITSYSCALL=n:
+Keep the __BPF_FEATURE_STACK_ARGUMENT gate, defined by clang with
+BPF stack argument support [1].
 
-  static inline struct audit_context *audit_context(void)
-  {
-        return NULL;
-  }
+[1] https://github.com/llvm/llvm-project/pull/189060
 
-which should make the compiler eliminate the syscall_enter_audit()
-call. But a RISV64 GCC12 cross compiler translates that into:
-
-        if (unlikely(audit_context()))
-    1c34:       00000097                auipc   ra,0x0
-    1c38:       000080e7                jalr    ra # 1c34 <.L785>
-    1c3c:       c511                    beqz    a0,1c48 <.L787>
-                syscall_enter_audit(regs);
-    1c3e:       8526                    mv      a0,s1
-    1c40:       00000097                auipc   ra,0x0
-    1c44:       000080e7                jalr    ra # 1c40 <.L785+0xc>
-
-and then claims in the failing link:
-
-   include/asm-generic/preempt.h:54:(.noinstr.text+0x1a20):
-	undefined reference to 'syscall_enter_audit'
-
-which is obviously hallucination.
-
-Add an explicit IS_ENABLED(CONFIG_AUDITSYSCALL) check into the condition to
-cure this compiler madness.
-
-Fixes: 6f25517010dd ("entry: Rework syscall_audit_enter()")
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: stable@vger.kernel.org
-Closes: https://lore.kernel.org/oe-kbuild-all/202609031938.ZvZZaRQy-lkp@intel.com/
+Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
 ---
- include/linux/entry-common.h |    9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c   | 3 ++-
+ .../selftests/bpf/progs/btf__verifier_stack_arg_order.c        | 3 ++-
+ tools/testing/selftests/bpf/progs/stack_arg.c                  | 3 ++-
+ tools/testing/selftests/bpf/progs/stack_arg_kfunc.c            | 3 ++-
+ tools/testing/selftests/bpf/progs/stack_arg_precision.c        | 3 ++-
+ tools/testing/selftests/bpf/progs/verifier_stack_arg.c         | 3 ++-
+ tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c   | 3 ++-
+ 7 files changed, 14 insertions(+), 7 deletions(-)
 
---- a/include/linux/entry-common.h
-+++ b/include/linux/entry-common.h
-@@ -102,7 +102,14 @@ static __always_inline long syscall_trac
- 	if (unlikely(work & SYSCALL_WORK_SYSCALL_TRACEPOINT))
- 		trace_syscall_enter(regs);
+diff --git a/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c b/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c
+index 8d38aafe66a2..ab12397a9b52 100644
+--- a/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c
++++ b/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c
+@@ -4,7 +4,8 @@
+ #include <bpf/bpf_helpers.h>
+ #include "../test_kmods/bpf_testmod_kfunc.h"
  
--	if (unlikely(audit_context()))
-+	/*
-+	 * The config check works around broken compilers which fail to
-+	 * eliminate the dead code in case of CONFIG_AUDITSYSCALL=n as they
-+	 * insist on creating a always false runtime condition based on
-+	 * audit_context() which returns NULL in that case. The explicit
-+	 * IS_ENABLED() check makes that madness go away.
-+	 */
-+	if (IS_ENABLED(CONFIG_AUDITSYSCALL) && unlikely(audit_context()))
- 		syscall_enter_audit(regs);
+-#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
++#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
++	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
+ 	defined(__BPF_FEATURE_STACK_ARGUMENT)
  
- 	return true;
+ long subprog_call_mem_kfunc(long a, long b, long c, long d, long e, long size)
+diff --git a/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c b/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c
+index 99bc115f8380..a980a3a399d3 100644
+--- a/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c
++++ b/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c
+@@ -3,7 +3,8 @@
+ #include <vmlinux.h>
+ #include <bpf/bpf_helpers.h>
+ 
+-#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
++#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
++	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
+ 	defined(__BPF_FEATURE_STACK_ARGUMENT)
+ 
+ int subprog_bad_order_6args(int a, int b, int c, int d, int e, int f)
+diff --git a/tools/testing/selftests/bpf/progs/stack_arg.c b/tools/testing/selftests/bpf/progs/stack_arg.c
+index 944e3bb603e7..3e9ed37c57bb 100644
+--- a/tools/testing/selftests/bpf/progs/stack_arg.c
++++ b/tools/testing/selftests/bpf/progs/stack_arg.c
+@@ -21,7 +21,8 @@ struct {
+ 
+ int timer_result;
+ 
+-#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
++#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
++	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
+ 	defined(__BPF_FEATURE_STACK_ARGUMENT)
+ 
+ const volatile bool has_stack_arg = true;
+diff --git a/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c b/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
+index 345f2da2e361..b6b1a8aa7f44 100644
+--- a/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
++++ b/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
+@@ -6,7 +6,8 @@
+ #include "bpf_kfuncs.h"
+ #include "../test_kmods/bpf_testmod_kfunc.h"
+ 
+-#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
++#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
++	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
+ 	defined(__BPF_FEATURE_STACK_ARGUMENT)
+ 
+ const volatile bool has_stack_arg = true;
+diff --git a/tools/testing/selftests/bpf/progs/stack_arg_precision.c b/tools/testing/selftests/bpf/progs/stack_arg_precision.c
+index ce0301a41fa9..7baa9c1c8e31 100644
+--- a/tools/testing/selftests/bpf/progs/stack_arg_precision.c
++++ b/tools/testing/selftests/bpf/progs/stack_arg_precision.c
+@@ -6,7 +6,8 @@
+ #include "../test_kmods/bpf_testmod_kfunc.h"
+ #include "bpf_misc.h"
+ 
+-#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
++#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
++	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
+ 	defined(__BPF_FEATURE_STACK_ARGUMENT)
+ 
+ /* Force kfunc extern BTF generation for inline asm call below.
+diff --git a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
+index 51d22faf4559..f6a4a6aa0e61 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
++++ b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
+@@ -12,7 +12,8 @@ struct {
+ 	__type(value, long long);
+ } map_hash_8b SEC(".maps");
+ 
+-#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
++#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
++	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
+ 	defined(__BPF_FEATURE_STACK_ARGUMENT)
+ 
+ __noinline __used
+diff --git a/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c b/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c
+index 8e4325273b3d..57f22691744a 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c
++++ b/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c
+@@ -5,7 +5,8 @@
+ #include <bpf/bpf_helpers.h>
+ #include "bpf_misc.h"
+ 
+-#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
++#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
++	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
+ 	defined(__BPF_FEATURE_STACK_ARGUMENT)
+ 
+ __noinline __used __naked
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
