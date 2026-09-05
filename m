@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC43C624DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 08:54:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FC0C624D6
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 08:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4hxoGYelhSKkNu7y1P/7WFAv9ouDmY2wuvZ14ZsMjo8=; b=ox+qD0CZSbOItg
-	xeMcLVpZa2KXzsR3YpuOVnpYaMbqcJrwb79JGW3q6blT5g8OnO2/edKejoqHEA2jiJgPq7PXuWpQZ
-	3IF4/QzFWrOZ3bzFgx6N3xvsEEDk4Vznv3UsNWg1JsYtitaxRq5HfR6XucbKaZSMSPhDiSmfAKN82
-	r3Gv+W0OkoUnYzM51J7+JebP2owz23uGqf65/55KOs3xjmGIBbNoSWVKmGq/09xp+cKdVYFHxML9B
-	6kBmevmAviHMsyfnvyDlLc8oAPpXd9R9qkTFl/XWvYPljMdFX6+7mXNVRIHDtbJ570hUdfFJWq78Z
-	6bECWTtPxKfXHu17a/1g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ak9ca5b41OOjRyNsjqtPnNVfyfZ/YIy2qErcQxF/AJs=; b=u1eSBZvaEs38oh
+	fUepal1FZwM46TR7zMiJgIXTBAySJZt+dcn5fdf6jj/Pp8CPz3S4+qYziTCGaPGlZmnyFBuEoLaI2
+	PoZuRY35DS/i0b3Sp2wWHySaELpYZaBlMoo+s5X7531WQf/f4NijbzlPNi3iTDuLP5f26Us2w3Bs1
+	pDPx08jRbl2zF7ReW5eDN0LIIpKpUxz3N4fMoMyvGD8e3OHAJFqr+CmVj6TWiSYVejm7WTJsTViRw
+	AbPVg/LGu2vO+e6eIfBODexqSf99WRLg2JbzNHnP0625LXA9t3ZOsCKVclpLy5EUTLS+FwvV3r94P
+	8VcXhpUHWPmzNgGZ++Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2m9x-00000003t0M-0qGw;
-	Sat, 05 Sep 2026 08:54:01 +0000
+	id 1x2m9v-00000003szp-012q;
+	Sat, 05 Sep 2026 08:53:59 +0000
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2m9s-00000003syy-2nmf
+	id 1x2m9s-00000003syx-2mw7
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Sep 2026 08:53:59 +0000
+	Sat, 05 Sep 2026 08:53:58 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hcRtm0jRVzYQv1N
-	for <linux-riscv@lists.infradead.org>; Sat,  5 Sep 2026 16:53:04 +0800 (CST)
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hcRtl6HMrzYQv0y
+	for <linux-riscv@lists.infradead.org>; Sat,  5 Sep 2026 16:53:03 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 24D3940561
-	for <linux-riscv@lists.infradead.org>; Sat,  5 Sep 2026 16:53:50 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTP id E7A2140574
+	for <linux-riscv@lists.infradead.org>; Sat,  5 Sep 2026 16:53:49 +0800 (CST)
 Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with UTF8SMTPA id cCh0CgBnTwqc2JtqP8lOAw--.13006S5;
+	by APP1 (Coremail) with UTF8SMTPA id cCh0CgBnTwqc2JtqP8lOAw--.13006S2;
 	Sat, 05 Sep 2026 16:53:49 +0800 (CST)
 From: Pu Lehui <pulehui@huaweicloud.com>
 To: bpf@vger.kernel.org,
@@ -58,35 +58,32 @@ Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH bpf-next v5 3/3] selftests/bpf: Enable stack argument tests for RV64
-Date: Sat,  5 Sep 2026 08:58:57 +0000
-Message-Id: <20260905085857.14143-4-pulehui@huaweicloud.com>
+Subject: [PATCH bpf-next v5 0/3] Add bpf stack arguments support for RV64
+Date: Sat,  5 Sep 2026 08:58:54 +0000
+Message-Id: <20260905085857.14143-1-pulehui@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260905085857.14143-1-pulehui@huaweicloud.com>
-References: <20260905085857.14143-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgBnTwqc2JtqP8lOAw--.13006S5
-X-Coremail-Antispam: 1UD129KBjvPXoW5Ar1fGFyrKF4UXw47XFW5p5X_Cr1fWoZxKF
-	9Iy3WUCan7Zw47uF1fJFy8Wr48KF1fJF4IkryrtF9Fyr1rCr1jyw4fZF1Fq39Ygas0gFyD
-	C3yqvFykGF1kn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3AaLa
-	J3UjIYCTnIWjp_UUUO07kC6x804xWl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAv
-	wI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82
-	xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI
-	8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr
-	0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0
-	oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7V
-	C0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j
-	6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r
-	4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAF
-	wI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc4
-	0Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AK
-	xVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F
-	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxUIF4i
-	UUUUU
+X-CM-TRANSID: cCh0CgBnTwqc2JtqP8lOAw--.13006S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KF18Jw48CrWkWrWktF4UXFb_yoW8KF4rpa
+	4v9Fy3K34vya12qa1xCFWUWryrJrs5u343Wr4fZ3y5J3W8try8Wr13Ka1rJwn8JF97Z3W8
+	Zwna9FZxCa1kZ37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv2b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAa
+	w2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
+	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a
+	6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
+	kF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
+	xVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa
+	7IU0s2-5UUUUU==
 X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_015357_061589_06E96A6E 
-X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-CacheID: sfid-20260905_015357_058870_1ADDBD53 
+X-CRM114-Status: UNSURE (   7.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,126 +101,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Feng Jiang <jiangfeng@kylinos.cn>
+Implement bpf_jit_supports_stack_args() on RV64 JIT to allow bpf
+subprogs and kfuncs to pass and receive more than 5 arguments.
 
-Enable the stack argument selftests for RV64. The riscv guard is
-restricted to __riscv_xlen == 64 since stack arguments are only
-supported by the RV64 JIT.
-
-Keep the __BPF_FEATURE_STACK_ARGUMENT gate, defined by clang with
-BPF stack argument support [1].
+Tested on riscv64 QEMU with LLVM main [1]; BPF-to-BPF and kfunc
+selftests pass.
 
 [1] https://github.com/llvm/llvm-project/pull/189060
 
-Signed-off-by: Feng Jiang <jiangfeng@kylinos.cn>
 ---
- tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c   | 3 ++-
- .../selftests/bpf/progs/btf__verifier_stack_arg_order.c        | 3 ++-
- tools/testing/selftests/bpf/progs/stack_arg.c                  | 3 ++-
- tools/testing/selftests/bpf/progs/stack_arg_kfunc.c            | 3 ++-
- tools/testing/selftests/bpf/progs/stack_arg_precision.c        | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_stack_arg.c         | 3 ++-
- tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c   | 3 ++-
- 7 files changed, 14 insertions(+), 7 deletions(-)
+Changes in v5:
+- Add RV_EXTRA_STK_ARGS macro to represent the exceeding stack args
+  passed in riscv arg regs. (BPF CI)
+- Optimize emit_stack_arg_st() by materializing immediates directly
+  into destination registers. (BPF CI)
+- Update stale comments. (BPF CI and sashiko)
 
-diff --git a/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c b/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c
-index 8d38aafe66a2..ab12397a9b52 100644
---- a/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c
-+++ b/tools/testing/selftests/bpf/progs/btf__stack_arg_precision.c
-@@ -4,7 +4,8 @@
- #include <bpf/bpf_helpers.h>
- #include "../test_kmods/bpf_testmod_kfunc.h"
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- long subprog_call_mem_kfunc(long a, long b, long c, long d, long e, long size)
-diff --git a/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c b/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c
-index 99bc115f8380..a980a3a399d3 100644
---- a/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c
-+++ b/tools/testing/selftests/bpf/progs/btf__verifier_stack_arg_order.c
-@@ -3,7 +3,8 @@
- #include <vmlinux.h>
- #include <bpf/bpf_helpers.h>
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- int subprog_bad_order_6args(int a, int b, int c, int d, int e, int f)
-diff --git a/tools/testing/selftests/bpf/progs/stack_arg.c b/tools/testing/selftests/bpf/progs/stack_arg.c
-index 944e3bb603e7..3e9ed37c57bb 100644
---- a/tools/testing/selftests/bpf/progs/stack_arg.c
-+++ b/tools/testing/selftests/bpf/progs/stack_arg.c
-@@ -21,7 +21,8 @@ struct {
- 
- int timer_result;
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- const volatile bool has_stack_arg = true;
-diff --git a/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c b/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
-index 345f2da2e361..b6b1a8aa7f44 100644
---- a/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
-+++ b/tools/testing/selftests/bpf/progs/stack_arg_kfunc.c
-@@ -6,7 +6,8 @@
- #include "bpf_kfuncs.h"
- #include "../test_kmods/bpf_testmod_kfunc.h"
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- const volatile bool has_stack_arg = true;
-diff --git a/tools/testing/selftests/bpf/progs/stack_arg_precision.c b/tools/testing/selftests/bpf/progs/stack_arg_precision.c
-index ce0301a41fa9..7baa9c1c8e31 100644
---- a/tools/testing/selftests/bpf/progs/stack_arg_precision.c
-+++ b/tools/testing/selftests/bpf/progs/stack_arg_precision.c
-@@ -6,7 +6,8 @@
- #include "../test_kmods/bpf_testmod_kfunc.h"
- #include "bpf_misc.h"
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- /* Force kfunc extern BTF generation for inline asm call below.
-diff --git a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-index 51d22faf4559..f6a4a6aa0e61 100644
---- a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
-@@ -12,7 +12,8 @@ struct {
- 	__type(value, long long);
- } map_hash_8b SEC(".maps");
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- __noinline __used
-diff --git a/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c b/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c
-index 8e4325273b3d..57f22691744a 100644
---- a/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_stack_arg_order.c
-@@ -5,7 +5,8 @@
- #include <bpf/bpf_helpers.h>
- #include "bpf_misc.h"
- 
--#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64)) && \
-+#if (defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
-+	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)) && \
- 	defined(__BPF_FEATURE_STACK_ARGUMENT)
- 
- __noinline __used __naked
+Changes in v4:
+- Remap BPF_REG_0 and RV_REG_TCC to align the calling convention of
+  bpf2bpf and kfunc calls with the riscv abi.
+- Adapt the bpf stack arguments implementation based on change 1.
+
+Changes in v3:
+- Drop the exceptions.c guard change: the guarded programs use
+  bpf_throw(), unsupported by the RV64 JIT, so the test is denylisted
+  on riscv64 and the guard has no effect. (BPF CI)
+- Link to v2: https://lore.kernel.org/r/20260813-bpf-riscv-stack-args-v2-0-efea8f9b3fe1@kylinos.cn
+
+Changes in v2:
+- Sign-extend 32-bit kfunc arguments passed on the stack (args 9+),
+  matching the register path and the RISC-V psABI. (Sashiko)
+- Restrict the riscv selftest guard to __riscv_xlen == 64 so the
+  tests are not enabled on RV32. (Sashiko)
+- Link to v1: https://lore.kernel.org/r/20260812-bpf-riscv-stack-args-v1-0-67b246806e59@kylinos.cn
+
+Feng Jiang (2):
+  riscv, bpf: Add BPF stack arguments support for RV64 JIT
+  selftests/bpf: Enable stack argument tests for RV64
+
+Pu Lehui (1):
+  riscv, bpf: Remap BPF_REG_0 and RV_REG_TCC
+
+ arch/riscv/net/bpf_jit.h                      |  4 +
+ arch/riscv/net/bpf_jit_comp64.c               | 90 +++++++++++++++----
+ arch/riscv/net/bpf_jit_core.c                 |  7 ++
+ arch/riscv/net/bpf_timed_may_goto.S           |  8 +-
+ .../bpf/progs/btf__stack_arg_precision.c      |  3 +-
+ .../bpf/progs/btf__verifier_stack_arg_order.c |  3 +-
+ tools/testing/selftests/bpf/progs/stack_arg.c |  3 +-
+ .../selftests/bpf/progs/stack_arg_kfunc.c     |  3 +-
+ .../selftests/bpf/progs/stack_arg_precision.c |  3 +-
+ .../selftests/bpf/progs/verifier_jit_inline.c |  2 +-
+ .../selftests/bpf/progs/verifier_ldsx.c       |  6 +-
+ .../selftests/bpf/progs/verifier_stack_arg.c  |  3 +-
+ .../bpf/progs/verifier_stack_arg_order.c      |  3 +-
+ 13 files changed, 108 insertions(+), 30 deletions(-)
+
 -- 
 2.34.1
 
