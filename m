@@ -4,102 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05BDC79F85
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 05:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99D5C624D6
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 05:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VtDitZf0IKnKhXda34N7c3pFD3J4iM6H7CiafDrUoO4=; b=4ULP5q+GoiMpTL
-	OBBBjBcwVf1QuAWxz2VA58gCYd2xqr/vwdHM7Rea9x2+CNI4B8b4MdM8p7XGnsehvGpsNyDHS1dXY
-	DN6KjAG6MmqyUwflHdksXno7Wfzyxojx1k+v4UG8r54a1vdxxvg4zGOmgnpMIiw6qUfakfu1nDkL8
-	NOIwxtUl+q/WBawSKp5UA81BtS6dv+vag/fwVnn8xa48WtyzIUd5SMAEdCfCddB1tgHbrdq+xPb1t
-	DKwR3tb1VNfIhkcbxu+nPfDg3a6yW6GsK2jiDJ/bRPs6bqn/aMzA+ltwrHYMXdxnfUDJDpYSKnaJz
-	avcQq31M7tC/WW8d6WZg==;
+	List-Owner; bh=h2bxY2XWzwM4uaNRkdCz+/qhLD7X3nmMBhETzNh9Pmk=; b=LG2zV6dF35QcFn
+	SOAdFtSGNshEaCs62tiF6fGn2UfKu/h4azJ1uqVQYLBC5h/7i03eqweenb6A3z9nEpXZWC0vdPX3T
+	oqqOntXP62D8lrKsCi3TUYZrK3aQ/MYXfx0RYqm+A0LNK10N3dVQQAfzi/VAePhRirCOt6FMTNJtp
+	0hEUwfIdPmSiIH8sBQplMcrANpdAHCQhoOvpPDFajYOBO/KwrpU4axacPjiNoZxiTUJnmUUQgF0u7
+	2+5BtFzA4PnD7gGMiCyODJNE798QYr0oGQSkv7wldC11RETj0BQgrkS6z/LkCZHc3XORXc3Wp6Umo
+	UJ8YuoMKG8sos0XzCAnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2iqc-00000003hNX-1TBT;
-	Sat, 05 Sep 2026 05:21:50 +0000
-Received: from mail2.ecloud.global ([135.181.6.248])
+	id 1x2jAl-00000003iOr-0rOH;
+	Sat, 05 Sep 2026 05:42:39 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2iqZ-00000003hM1-0boV;
-	Sat, 05 Sep 2026 05:21:48 +0000
-Received: from authenticated-user (mail2.ecloud.global [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail2.ecloud.global (Postfix) with ESMTPSA id B8626721285;
-	Sat,  5 Sep 2026 05:21:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io; s=mail2;
-	t=1788585699;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KCOIseHcTnUxxa8UzPwtOfVQnt/pNmZAJdUPIg+XLqo=;
-	b=e09BHDAHB8rW8CJ877ybXQO9BIhYTyEJyZ1UfCDGFBXGQp83jw90VJvx43GTmCwSaQjzmZ
-	vZpB35WoTlow0wOgePmLAALvOVX4UDG1WLETkdYfE0Yms42sgAvS1PemSzA2A12krn4rTT
-	1cf3fVX7lS+xZMHPIc92+QnIa3PDUgs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io;
-	s=mail2; t=1788585699;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KCOIseHcTnUxxa8UzPwtOfVQnt/pNmZAJdUPIg+XLqo=;
-	b=jP8u0+6IUTg6AgiXIbTGUEcfBSMqo7Nmd7Jr3DYd3CWjZY43q91uDjoMKSmOPb7C2g5uaR
-	iIEJS2tWhm2RJi0GFGMGg4N9fF1QxzfQ74UijbJC18veoZSi49xvXSRP1T4Cl2WVqw+irA
-	xNMCko+5QoxwijbilgirxAp71w2JUOQ=
-ARC-Authentication-Results: i=1;
-	mail2.ecloud.global;
-	auth=pass smtp.mailfrom=maud_spierings@murena.io
-ARC-Seal: i=1; s=mail2; d=murena.io; t=1788585699; a=rsa-sha256; cv=none;
-	b=Ky3gcQbu+iQn3gGJSjO38x37++V52aS5N/nQCOx3J6XxPIqfFy1ZbkijYRzWOWiFT+pVmT
-	7YFhfuIVisKc3ETR/8jHzo+pemFPQ34KVfBmoujMt5BFDBSdKw+v6R/9q4pnc6yOtpxUSR
-	njWiXCniQ4hrwKE4/mkGqbMrN0fifdM=
-Message-ID: <ea529e06-2eab-4e3b-92af-ba17de44091c@murena.io>
-Date: Sat, 5 Sep 2026 07:21:35 +0200
+	id 1x2jAi-00000003iOG-26WS;
+	Sat, 05 Sep 2026 05:42:37 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6854o8eR3977122;
+	Sat, 5 Sep 2026 00:41:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=yEKUGkt2hgAlj9omPZffjiwekH6H6bbMkmnHhOUUL
+	zg=; b=aNKZdWByASg6SWDKyipDX2wjZeZBsqFjOaEq5j7XCQv2Qmccx5L3XJpR2
+	0JlR3ZTOzhVubifmtlbDKWJ3tY47arJAEuMNWjy7r4dQgtznVqXAFu8QMCQG3plS
+	nA7i+8LjhJHpyEV4yEaycTXtN5tZOEap41fOOfUh8OUXCdYbimWUo/mlOa5k6+8F
+	u5YIO58uQCtwsZ+e0fFbNnG87yag9CViN6XRmUL3SSkAyAwEDCjDcyuKG238WCBh
+	JeMYZLnQ54yw0E0ZxEyqkuuhyayn7DBhLXTzcwFRLO1c8DJo1Hmt6bfQxmhUXpcU
+	Rj/DQ5yMgtH6SMTJ7azx2qpcNtLKw==
+Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011070.outbound.protection.outlook.com [40.107.208.70])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4gfyx7vke4-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sat, 05 Sep 2026 00:41:02 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LjZIavOEsFjGf4hWls/2r+S6Z8FVorV/xU6N49nXouTb2GEk/BGN9Pw1rZAdKCS/vmLxltdXUXmdOrD1UYxeS08j46/GMYeLmLBGD6/x/h/SC3FjtUsqyjuj0BuXOXwRA8N9EqHHClTd0NY3Cs8sRoBhz9uc/f0EThB9dyNTOz92+pttTcyIRMnS/m9E564APVQGbm+QW4b14iUwerDBJ3bg6xRjFp5B027mhnoiGNQ4fFc8Dlzsb+QVCNtgAwGa6dL2vzHseA1vLUwf73AAfUnwopw7PKtbnGYAYdatXCrl6EQsm8o2XHla9optjhL59MUrIAeW5D+PBj7Xzc7tzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yEKUGkt2hgAlj9omPZffjiwekH6H6bbMkmnHhOUULzg=;
+ b=kz6Wkna/c5cxnwzLsp6bMclN/9wqS32JHrQIK4ZL6yW9Ajg8zcSnWpirnaU3JoB2PxRG+p8Kyu0gTFdqlTQztryJ1NlDSIYo0mKubxpiAmowW/7nVVEkx0OVqAiUoRqzwFaFBhrG4kc//dKy8xIQoIMU9kBd5JAe7BKJEoGwwDekoBk1A8Xpa/38RCNVkGG5eKTBTsttfAT14kx0mnGLzwIyens8Mit/KK3X62v83EgOuAPa8fiD7NIpNJr/smvHjOF+nzomxXmIN/fK+qY/DCRMNYXeHOsdrj6gCVbuHBm96TrvoOqwSswBFcorU66X7rIuBHbD1hSqKLdCZGlTow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yEKUGkt2hgAlj9omPZffjiwekH6H6bbMkmnHhOUULzg=;
+ b=Qt6kf35NunzjL4N1dFmKWJHojcyWI7bFS551IpkvmLPHves5YSfIwyorZMpTzKf2qRMWC4Ca6AVLCr/V3kcUOLH4l+fHaZNXotnQRavZHiJM1nh9lxxl6Murz3UqWuXbfaea1jyhypNdxKj71BmFsfuX2I8DF3NS3PZZlTvhDLU=
+Received: from BN9PR03CA0058.namprd03.prod.outlook.com (2603:10b6:408:fb::33)
+ by MW6PR10MB7552.namprd10.prod.outlook.com (2603:10b6:303:23f::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Sat, 5 Sep
+ 2026 05:40:57 +0000
+Received: from BN1PEPF00018549.namprd05.prod.outlook.com
+ (2603:10b6:408:fb:cafe::5a) by BN9PR03CA0058.outlook.office365.com
+ (2603:10b6:408:fb::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.13 via Frontend Transport; Sat, 5
+ Sep 2026 05:40:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN1PEPF00018549.mail.protection.outlook.com (10.167.248.8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Sat, 5 Sep 2026 05:40:55 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
+ 2026 00:40:12 -0500
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
+ 2026 00:40:12 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Sat, 5 Sep 2026 00:40:12 -0500
+Received: from [10.249.136.91] ([10.249.136.91])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6855dtTK1628523;
+	Sat, 5 Sep 2026 00:39:56 -0500
+Message-ID: <cc1f9d12-e853-4000-8236-9e7f5a9ed314@ti.com>
+Date: Sat, 5 Sep 2026 11:09:54 +0530
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 00/19] drm: starfive: jh7110: Enable display subsystem
-To: Michal Wilczynski <m.wilczynski@samsung.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
- <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- mfd@lists.linux.dev, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Graham Markall <hello@big-grey.co.uk>,
- Icenowy Zheng <zhengxingda@iscas.ac.cn>
-References: <CGME20260904132708eucas1p1adfa26ef0fe5109eca63a3aeadf74915@eucas1p1.samsung.com>
- <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 00/33] Remove comma after sentinel entries in
+ match table
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <dario.binacchi@amarulasolutions.com>, <mkl@pengutronix.de>,
+        <mailhol@kernel.org>, <msp@baylibre.com>,
+        <florian.fainelli@broadcom.com>, <jonas.gorski@gmail.com>,
+        <andrew@lunn.ch>, <olteanv@gmail.com>, <davem@davemloft.net>,
+        <edumazet@google.com>, <pabeni@redhat.com>, <kurt@linutronix.de>,
+        <hauke@hauke-m.de>, <chester.a.unal@arinc9.com>,
+        <daniel@makrotopia.org>, <matthias.bgg@gmail.com>,
+        <angelogioacchino.delregno@collabora.com>, <ansuelsmth@gmail.com>,
+        <linusw@kernel.org>, <luizluca@gmail.com>, <alvin.sipraga@analog.com>,
+        <clement.leger@bootlin.com>, <justin.chen@broadcom.com>,
+        <dlan@kernel.org>, <rogerq@kernel.org>, <hkallweit1@gmail.com>,
+        <linux@armlinux.org.uk>, <rjui@broadcom.com>, <sbranden@broadcom.com>,
+        <bcm-kernel-feedback-list@broadcom.com>, <opendmb@gmail.com>,
+        <andrei.botila@oss.nxp.com>, <wangruikang@iscas.ac.cn>,
+        <amadeus@jmu.edu.cn>, <kees@kernel.org>, <tmshlvck@gmail.com>,
+        <c-vankar@ti.com>, <horms@kernel.org>, <vadim.fedorenko@linux.dev>,
+        <daniel.zahka@gmail.com>, <nora.schiffer@ew.tq-group.com>,
+        <v-singh1@ti.com>, <oss@vassilevski.com>, <haokexin@gmail.com>,
+        <alex@sverdlin.org>, <aleksandr.loktionov@intel.com>,
+        <lgs201920130244@gmail.com>, <linux-can@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-mediatek@lists.infradead.org>,
+        <linux-renesas-soc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <spacemit@lists.linux.dev>, <linux-omap@vger.kernel.org>
+References: <20260904043724.2955444-1-s-vadapalli@ti.com>
+ <20260904085811.7e2c2db6@kernel.org>
 Content-Language: en-US
-From: Maud Spierings <maud_spierings@murena.io>
-In-Reply-To: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+In-Reply-To: <20260904085811.7e2c2db6@kernel.org>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00018549:EE_|MW6PR10MB7552:EE_
+X-MS-Office365-Filtering-Correlation-Id: aa0e73ec-ed69-452d-c7d7-08df0b104169
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|7416014|376014|36860700016|18002099003|22082099003|13003099007|56012099006|10067099003|4143699003;
+X-Microsoft-Antispam-Message-Info: 5aoIw4zjTE0sV7kM+NLE+Lkrglurlenw86Bd0n4hkg4EsLtRKGs9Q9f4SIBxOLkpxB+jX/j6l+BhUPByeEcJCAF3lOGW87SHkoboYcCeUJbZZWSY7Y2zbcBo10xddJ3/X8OHQz+q9luBxUTQVO9/IKtpB6C9KxilhfJ7GrXc/hI1eDaUZZRH3YHCKRHhyET7ISG1OAs65HvkpaLppzTACMIDhHQFfbjQGMONXx3WyvDLaAqEASFnjX2ITlDqUzvrEX3531ZAw4I4HHUO583Tth4kI5h6COpQrkNPU2KGBNJIxKdfjoojOJ8A5++0AKIzdNrH1/QrF2Z7uNJeo9DMUnf5c2Qx0y4gaebxV1USo3j7PlunVScB1zYTZ1sUWTCL3MUj9l30zLV001HarKofqb5X6GTdnSFHp/ccJIp+2z3qtrzw6b+6JVYWFy5zGZqpq4wEaCNlViJqqkm3B7oLhBIpjEzEFSrVhdijioDqrlOH7NKsLIJogPYbCrK1/N6rUl8DYf5cd7Jj8nW7s21NJxOamz7n5HAKf85NmjwzRkYlExvG8iODaL3Q6tvsAMLvnf30aXvj6meOmDhFAaAecyBBkYGxEbh72F0b2fkJGeYYA5+sNjZDP6GDowDrq3Fa0bb2zxMhG0n2THPUNB2rMHDIxKVFOLFqVBrabwJmurw=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(7416014)(376014)(36860700016)(18002099003)(22082099003)(13003099007)(56012099006)(10067099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ODhVe2RaV4dkUy6kAYpAL8dmKc2nIq2Rl1ygJOZvuD4PGc6A9Oe+DRSUYVV+S9YRQHRkOkmd2OKoil0AiXL9jD5vxWFfdxwtRYr5e9ZYZ1hZnnbTEkUH040ejZNwOaspEEhYM3PDaVXYII0g4fHztZqjd2VKKRVOMkvsB3YUIzLRoSWSHFqdxgw6JO6saULfGY3H+CQajNJ2yuhgnX3A5MZPZECsrPfXyLiH2CDtSM2x7XrLPpdNpQe5OmL0wa0NbxR1t075SYwh+uX6WQ2sZGd5nuv4lMoghBlg/BdGbKdp43grEPcEQZIZPsXxgJftOoUE+xqh8NPxLMGPNiaDAWai0wtPzyvvnRAZcWS2r0orL2ehnxaSVH2oSqVxAIrNrggtTEf7tDxjX4R/wtAg+XYNONSiXHdAhZy4kjKLj6tAjdACPHRvqCrWPez+24Nw
+X-Exchange-RoutingPolicyChecked: 3Lra0vQEFrhO5lzRP6Y+xM8XGfNvO9BEfYa3WCHbBNAN6A6qJHDtFStbVE+fdyHFDpEh2tSB0kP0iOBGozuxwzBEsYDRCNVvwgThKKGdRdp9wmW2+R4g/tT5SgFywz0Q94w/YiyUEscl0Q//MU3SwOklol+GvyRxHqXx+LsXstqk27gNQgmuZkD7pQ5gJ/AQ+Yb8DsXZQIX7viW37xrM94PwYiuB7hhDloyd98bf6cg0yuSEVrcOXzriqUuqmcSi0cOTq3oaG2n0KO4hqTv9llKU8A1RN9Yo+u507zrj+pByxyou/1WkAXT7NQ7uygWek6154mt0VAr280UjhMBhXw==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 05:40:55.3892
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa0e73ec-ed69-452d-c7d7-08df0b104169
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018549.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR10MB7552
+X-Proofpoint-GUID: 4C87J7UArWmIdJvMevTHcbG7BZIJuQXa
+X-Proofpoint-ORIG-GUID: 4C87J7UArWmIdJvMevTHcbG7BZIJuQXa
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA1MDA1NiBTYWx0ZWRfX5xGT5nrhv+3q
+ qlnaCfaSeiJlw714/H9yCunEzUyHOBLsdRgOvGgsYtKzfgi7HQPygBrPr751OTV+Bg3WNUFPuQh
+ F7ubzrWyv3YgO8OKCT9Bj88690osO8Y=
+X-Authority-Analysis: v=2.4 cv=PPM/P/qC c=1 sm=1 tr=0 ts=6a9bab6f cx=c_pps
+ a=0qEcZjvAL+vPLqsQtgLcWw==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
+ a=9ttYfyVtp4DjXX0bujUA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA1MDA1NiBTYWx0ZWRfXzJvRA8SK/vwF
+ SXxJFR9sFUddOE4XFhGjhsgbpEDX6h7WEMhjD7MPm4BVh+QIS113PVFg4uQVn5OorGy4KSZOw+Q
+ pzMyon6/4Dh70cktWubf6m6rbTy4FYZA0oM2Yy2Fdr0cHPd80eKy8i86z/SbTfJPa2WdUc38c1s
+ UWzpGIJZdtOZ1+oAxkN2x4oCdXHDdvIkpJrHA4tgzGXIXu6vNu/ElxClsOYQhmGu74p5xChQXtW
+ L18oC7cQixFMQSzvhPU/mRH7L5HrcT+ZF/t3iIXZ05TckLVroqaCWbiuKswFWzIJqg91UXvV42k
+ gaCne0g0NEEYdM58M60oMmgs3hvl1JqnP5EepYlvrXiWY4h+IpWtO9jSRAas6pCCVuF+sSMbuiz
+ rhMgo7FGBFAMnnybXL7mhZtHy78sKdVg39E6bP9983V2YE1YLq37wNmWfyqdYnfxcfH16/ylBrm
+ ISHfQYkNBsWZoRuYcjg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-05_02,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 clxscore=1015 impostorscore=0 phishscore=0 adultscore=0
+ spamscore=0 suspectscore=0 lowpriorityscore=0 priorityscore=1501
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609050056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_222147_403036_D8123476 
-X-CRM114-Status: GOOD (  33.58  )
+X-CRM114-CacheID: sfid-20260904_224236_552928_A3DB4F72 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,120 +199,49 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Michal,
+On 04/09/26 9:28 PM, Jakub Kicinski wrote:
+> On Fri, 4 Sep 2026 10:06:06 +0530 Siddharth Vadapalli wrote:
+>> This series removes the comma present after sentinel entries in the match
+>> tables across all networking subsystem drivers, with the exception of the
+>> davinci_mdio.c driver, for which, the patch posted by Geert at:
+>> https://lore.kernel.org/r/e481b6de46cecc6ea604ae165272c667274cc621.1788437140.git.geert+renesas@glider.be/
+>> does the same.
+>>
+>> Since I inquired about a cleanup across the entire networking subsystem but
+>> didn't get a response:
+>> https://lore.kernel.org/r/b3d19098-eccd-4619-b667-ad3b7e0a4422@ti.com/
+>> I decided to post this series. Given that Andrew Lunn acknowledged the
+>> cleanup of the davinci_mdio driver:
+>> https://lore.kernel.org/r/abec6831-d344-489d-b70c-1e5dd4d43c2d@lunn.ch/
+>> and I don't see why the cleanup is specific to davinci_mdio driver alone,
+>> I am hoping that this series is treated identically to the patch that
+>> Geert had posted for the davinci_mdio driver.
+>>
+>> Series is based on commit
+>> 6ebcf5074cff net: openvswitch: don't schedule rebalancing if there are no datapaths
+>> of the 'main' branch of the net-next tree.
+> 
+> You failed to specify why this "cleanup" makes a difference.
+> have you ever seen the sentinel not be the last entry?
 
-This new version added some more issues on my fml13v01 board, this time 
-2 registers in the VOUT_CRG are misconfigured that were correct in v2, 
-namely:
+The 'cleanup' in a way 'guarantees'/'enforces' sentinel being the last 
+entry, by catching 'copy-paste' errors at compile-time rather than being 
+a silent bug that shows up at runtime. If a new entry were to be 
+accidentally added after the sentinel entry in the current drivers, it 
+will not cause any compile-time error, but will fail silently at 
+runtime. This series 'cleans up' the drivers by making it a compile-time 
+error going forward (adding a new entry below sentinel will cause a 
+build error with the comma removed after the sentinel entry). I do not 
+doubt the review process on the mailing lists where such errors will 
+certainly be caught, but isn't it better if they are caught at 
+build-time instead, thereby saving reviewers the trouble of pointing out 
+such trivial mistakes?
 
-0x295c0004 was 0x00000004 on the previous version but is now 0x00000006
-0x295c001c was 0x81000000 on the previous version but is now 0x80000000
-
-xx04 sets a slightly different clock divider, but it doesn't seem to 
-matter, display also works with this changed value.
-
-xx1c seems to select the wrong clock mux?
-
-After correcting 0x295c001c (and the ones that I mentioned before in the 
-hdmitx block), the display comes to life again.
-
-Not sure why these are changed.
-
-Besides that it works great!
-
-Kind regards,
-Maud
-
-On 9/4/26 15:27, Michal Wilczynski wrote:
-> This series enables the display subsystem on the StarFive JH7110.
-> 
-> The dom_vout block holds the display controller (dc8200), the clock
-> generator (voutcrg) and the HDMI IP, all inside PD_VOUT. The HDMI IP is
-> a single register block containing both the controller and the PHY, and
-> it has a circular clock dependency with voutcrg:
-> 
->    - the HDMI controller needs pclk/mclk/bclk from voutcrg
->    - voutcrg needs the pixel clock for its dc8200 pixel MUXes, and that
->      clock is generated by the HDMI PHY
-> 
-> The loop only exists if the HDMI block is treated as one device. The
-> PHY's reference clock is xin24m, not a voutcrg output, so splitting the
-> node into a parent plus phy and controller children gives deferred probe
-> a linear order: hdmi-phy, then voutcrg, then hdmi-controller.
-> 
-> The parent maps the register block and owns the regmap its two children
-> share. Everything in the region sits behind one NoC port whose clock and
-> reset gate access to it, inside PD_VOUT, so the vout subsystem node from
-> the RFC is back and owns those for as long as any child exists.
-> 
-> Patch 10 adds a .mode_valid platform op to inno-hdmi.
-> inno_hdmi_bridge_mode_valid() checks the pixel clock against
-> hdmi->refclk, but that clock only exists where a "ref" clock is
-> described. The JH7110 gets its pixel clock from the PHY, so refclk is
-> NULL and the check was skipped: unsupported modes were advertised, the
-> modeset then "succeeded" because the atomic enable path cannot fail, and
-> the display stayed blank.
-> 
-> Patches 15-17 drop the PHY duplication from the RFC. The JH7110 has the
-> same Innosilicon PHY as the RK3328, offset by 0x100 because it sits
-> behind the controller in the shared register block. Patch 15 factors out
-> the pre-PLL config format, table lookup, determine_rate, recalc_rate and
-> the pre-PLL programming; patch 16 moves Rockchip onto it; patch 17 adds
-> the JH7110 driver. Pixel clock tables, post-PLL and analog config stay
-> SoC specific.
-> 
-> Patch 16 should be a no-op for Rockchip - same writes, same order, same
-> values - and RK3228, whose pre-PLL is at different addresses, keeps its
-> own register code and shares only the lookup. I have no Rockchip
-> hardware, so it is build tested only (arm and riscv). A Tested-by would
-> help.
-> 
-> The dc8200 driver, th1520 reset controller and inno-hdmi bridge that the
-> RFC listed as prerequisites are all upstream now, so there are no
-> out-of-tree dependencies.
-> 
-> Testing
-> =======
-> 
-> Tested on a VisionFive 2 v1.3B using modetest.
-> 
-> All 42 modes the sink advertises work, with nothing in dmesg. Pixel
-> clocks run from 25.175 MHz (640x480@59.94) up to 297 MHz
-> (4096x2160@30), including 3840x2160 and the full 1920x1080 and 1280x720
-> rate families.
-> 
-> The four modes the RFC reported as broken work now too: 2560x1440@59.95,
-> 2048x1080@60.00, 2048x1080@24.00 and 720x400@70.08.
-> 
-> Before patch 10, four of the advertised modes failed: 1680x1050@59.95
-> (146.250 MHz), 1400x1050@59.98 (121.750), 1152x864@59.97 (81.768) and
-> 1280x768@60.35 (80.140). Those pixel clocks are not in the PHY pre-PLL
-> table, so clk_set_rate() returned -EINVAL and the screen stayed black
-> while userspace saw a successful modeset. They are rejected in
-> .mode_valid now; the other refresh rates of those resolutions still work.
-> 
-> Every commit builds for riscv, and the Rockchip PHY also for arm.
-> 
-> Notes
-> =====
-> 
-> The JH7110 has no central MAINTAINERS entry and maintainership is
-> fragmented, so patch 19 adds one for the display subsystem and I am
-> happy to help maintain it. The new PHY library lives under drivers/phy/,
-> already covered by the generic PHY framework entry.
-> 
-> checkpatch warns "does MAINTAINERS need updating?" on the patches adding
-> files, because that entry comes in patch 19.
-> 
-> Thanks to Icenowy Zheng for the dc8200 driver and for explaining how the
-> SoC and the display pipeline fit together.
-> 
-> Thanks also to Dominique Belhachemi, who got rid of the vout-subsystem
-> wrapper and helped with the testing, to Maud Spierings for testing on a
-> Framework 13 panel, and to Graham Markall for testing
-> the JH7110 display patches independently and writing up the results:
-> https://big-grey.co.uk/2026/01/26/testing-starfive-jh7110-display-controller-patches/
-> 
+Trailing commas are an indication of 'scope-for-extension' in the 
+future, which holds true for 'enums' or other structures where newer 
+entires are added towards the end rather than being inserted in the 
+middle. Since that isn't the case here, this series makes it clear by 
+removing the trailing comma.
 
 _______________________________________________
 linux-riscv mailing list
