@@ -4,185 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99D5C624D6
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 05:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7072C624D6
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 06:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h2bxY2XWzwM4uaNRkdCz+/qhLD7X3nmMBhETzNh9Pmk=; b=LG2zV6dF35QcFn
-	SOAdFtSGNshEaCs62tiF6fGn2UfKu/h4azJ1uqVQYLBC5h/7i03eqweenb6A3z9nEpXZWC0vdPX3T
-	oqqOntXP62D8lrKsCi3TUYZrK3aQ/MYXfx0RYqm+A0LNK10N3dVQQAfzi/VAePhRirCOt6FMTNJtp
-	0hEUwfIdPmSiIH8sBQplMcrANpdAHCQhoOvpPDFajYOBO/KwrpU4axacPjiNoZxiTUJnmUUQgF0u7
-	2+5BtFzA4PnD7gGMiCyODJNE798QYr0oGQSkv7wldC11RETj0BQgrkS6z/LkCZHc3XORXc3Wp6Umo
-	UJ8YuoMKG8sos0XzCAnA==;
+	List-Owner; bh=xZhAYL9FL2cu/eU8D9I5KGGS1xdW4OUE8/q72ADkqWs=; b=1ZJUdftoD5mmgw
+	uOcpdHzvG+ITBK03oym6940bBIXwbvcyoLc6/vl7CwH6q4YQZbR6dXBdkXIB4t15ApfnC3RY+6hOi
+	exYaQ7ngRlt6FJj8S98l3T+RKjAZ7965mCp/4FcilReoAuQiYnll9iWF3C4HaEkjF9EAU36Qm5kUj
+	MnqFmGZ1mMK5S7o9KYzU38XeexZuZHEruEvt9a5KZu37PhVNItulUXCMunwBb0qg/ZUAC9ho42Vmk
+	MOP2LgEfccFnATapGU8dNZrub+6DV9TipszFvYtMQ+V5ifAB0cV+0Mi4UurtWc5GzA/FeTYMzeEjD
+	121Camm0LPGs7LTEakYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2jAl-00000003iOr-0rOH;
-	Sat, 05 Sep 2026 05:42:39 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1x2kMv-00000003kQr-2obE;
+	Sat, 05 Sep 2026 06:59:17 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2jAi-00000003iOG-26WS;
-	Sat, 05 Sep 2026 05:42:37 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6854o8eR3977122;
-	Sat, 5 Sep 2026 00:41:03 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=yEKUGkt2hgAlj9omPZffjiwekH6H6bbMkmnHhOUUL
-	zg=; b=aNKZdWByASg6SWDKyipDX2wjZeZBsqFjOaEq5j7XCQv2Qmccx5L3XJpR2
-	0JlR3ZTOzhVubifmtlbDKWJ3tY47arJAEuMNWjy7r4dQgtznVqXAFu8QMCQG3plS
-	nA7i+8LjhJHpyEV4yEaycTXtN5tZOEap41fOOfUh8OUXCdYbimWUo/mlOa5k6+8F
-	u5YIO58uQCtwsZ+e0fFbNnG87yag9CViN6XRmUL3SSkAyAwEDCjDcyuKG238WCBh
-	JeMYZLnQ54yw0E0ZxEyqkuuhyayn7DBhLXTzcwFRLO1c8DJo1Hmt6bfQxmhUXpcU
-	Rj/DQ5yMgtH6SMTJ7azx2qpcNtLKw==
-Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011070.outbound.protection.outlook.com [40.107.208.70])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4gfyx7vke4-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sat, 05 Sep 2026 00:41:02 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LjZIavOEsFjGf4hWls/2r+S6Z8FVorV/xU6N49nXouTb2GEk/BGN9Pw1rZAdKCS/vmLxltdXUXmdOrD1UYxeS08j46/GMYeLmLBGD6/x/h/SC3FjtUsqyjuj0BuXOXwRA8N9EqHHClTd0NY3Cs8sRoBhz9uc/f0EThB9dyNTOz92+pttTcyIRMnS/m9E564APVQGbm+QW4b14iUwerDBJ3bg6xRjFp5B027mhnoiGNQ4fFc8Dlzsb+QVCNtgAwGa6dL2vzHseA1vLUwf73AAfUnwopw7PKtbnGYAYdatXCrl6EQsm8o2XHla9optjhL59MUrIAeW5D+PBj7Xzc7tzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yEKUGkt2hgAlj9omPZffjiwekH6H6bbMkmnHhOUULzg=;
- b=kz6Wkna/c5cxnwzLsp6bMclN/9wqS32JHrQIK4ZL6yW9Ajg8zcSnWpirnaU3JoB2PxRG+p8Kyu0gTFdqlTQztryJ1NlDSIYo0mKubxpiAmowW/7nVVEkx0OVqAiUoRqzwFaFBhrG4kc//dKy8xIQoIMU9kBd5JAe7BKJEoGwwDekoBk1A8Xpa/38RCNVkGG5eKTBTsttfAT14kx0mnGLzwIyens8Mit/KK3X62v83EgOuAPa8fiD7NIpNJr/smvHjOF+nzomxXmIN/fK+qY/DCRMNYXeHOsdrj6gCVbuHBm96TrvoOqwSswBFcorU66X7rIuBHbD1hSqKLdCZGlTow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yEKUGkt2hgAlj9omPZffjiwekH6H6bbMkmnHhOUULzg=;
- b=Qt6kf35NunzjL4N1dFmKWJHojcyWI7bFS551IpkvmLPHves5YSfIwyorZMpTzKf2qRMWC4Ca6AVLCr/V3kcUOLH4l+fHaZNXotnQRavZHiJM1nh9lxxl6Murz3UqWuXbfaea1jyhypNdxKj71BmFsfuX2I8DF3NS3PZZlTvhDLU=
-Received: from BN9PR03CA0058.namprd03.prod.outlook.com (2603:10b6:408:fb::33)
- by MW6PR10MB7552.namprd10.prod.outlook.com (2603:10b6:303:23f::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Sat, 5 Sep
- 2026 05:40:57 +0000
-Received: from BN1PEPF00018549.namprd05.prod.outlook.com
- (2603:10b6:408:fb:cafe::5a) by BN9PR03CA0058.outlook.office365.com
- (2603:10b6:408:fb::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.13 via Frontend Transport; Sat, 5
- Sep 2026 05:40:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN1PEPF00018549.mail.protection.outlook.com (10.167.248.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Sat, 5 Sep 2026 05:40:55 +0000
-Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
- 2026 00:40:12 -0500
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
- 2026 00:40:12 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Sat, 5 Sep 2026 00:40:12 -0500
-Received: from [10.249.136.91] ([10.249.136.91])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6855dtTK1628523;
-	Sat, 5 Sep 2026 00:39:56 -0500
-Message-ID: <cc1f9d12-e853-4000-8236-9e7f5a9ed314@ti.com>
-Date: Sat, 5 Sep 2026 11:09:54 +0530
+	id 1x2kMs-00000003kOp-0iT0
+	for linux-riscv@lists.infradead.org;
+	Sat, 05 Sep 2026 06:59:16 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hcPL54YpgzKHMWC
+	for <linux-riscv@lists.infradead.org>; Sat,  5 Sep 2026 14:58:05 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 305C54056E
+	for <linux-riscv@lists.infradead.org>; Sat,  5 Sep 2026 14:59:02 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP1 (Coremail) with UTF8SMTPA id cCh0CgDXvQi0vZtqheFEAw--.38251S3;
+	Sat, 05 Sep 2026 14:59:01 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Feng Jiang <jiangfeng@kylinos.cn>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Pu Lehui <pulehui@huawei.com>
+Subject: [PATCH bpf-next v4 1/3] riscv, bpf: Remap BPF_REG_0 and RV_REG_TCC
+Date: Sat,  5 Sep 2026 07:04:07 +0000
+Message-Id: <20260905070409.4141522-2-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260905070409.4141522-1-pulehui@huaweicloud.com>
+References: <20260905070409.4141522-1-pulehui@huaweicloud.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 00/33] Remove comma after sentinel entries in
- match table
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <dario.binacchi@amarulasolutions.com>, <mkl@pengutronix.de>,
-        <mailhol@kernel.org>, <msp@baylibre.com>,
-        <florian.fainelli@broadcom.com>, <jonas.gorski@gmail.com>,
-        <andrew@lunn.ch>, <olteanv@gmail.com>, <davem@davemloft.net>,
-        <edumazet@google.com>, <pabeni@redhat.com>, <kurt@linutronix.de>,
-        <hauke@hauke-m.de>, <chester.a.unal@arinc9.com>,
-        <daniel@makrotopia.org>, <matthias.bgg@gmail.com>,
-        <angelogioacchino.delregno@collabora.com>, <ansuelsmth@gmail.com>,
-        <linusw@kernel.org>, <luizluca@gmail.com>, <alvin.sipraga@analog.com>,
-        <clement.leger@bootlin.com>, <justin.chen@broadcom.com>,
-        <dlan@kernel.org>, <rogerq@kernel.org>, <hkallweit1@gmail.com>,
-        <linux@armlinux.org.uk>, <rjui@broadcom.com>, <sbranden@broadcom.com>,
-        <bcm-kernel-feedback-list@broadcom.com>, <opendmb@gmail.com>,
-        <andrei.botila@oss.nxp.com>, <wangruikang@iscas.ac.cn>,
-        <amadeus@jmu.edu.cn>, <kees@kernel.org>, <tmshlvck@gmail.com>,
-        <c-vankar@ti.com>, <horms@kernel.org>, <vadim.fedorenko@linux.dev>,
-        <daniel.zahka@gmail.com>, <nora.schiffer@ew.tq-group.com>,
-        <v-singh1@ti.com>, <oss@vassilevski.com>, <haokexin@gmail.com>,
-        <alex@sverdlin.org>, <aleksandr.loktionov@intel.com>,
-        <lgs201920130244@gmail.com>, <linux-can@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-mediatek@lists.infradead.org>,
-        <linux-renesas-soc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <spacemit@lists.linux.dev>, <linux-omap@vger.kernel.org>
-References: <20260904043724.2955444-1-s-vadapalli@ti.com>
- <20260904085811.7e2c2db6@kernel.org>
-Content-Language: en-US
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-In-Reply-To: <20260904085811.7e2c2db6@kernel.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00018549:EE_|MW6PR10MB7552:EE_
-X-MS-Office365-Filtering-Correlation-Id: aa0e73ec-ed69-452d-c7d7-08df0b104169
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|7416014|376014|36860700016|18002099003|22082099003|13003099007|56012099006|10067099003|4143699003;
-X-Microsoft-Antispam-Message-Info: 5aoIw4zjTE0sV7kM+NLE+Lkrglurlenw86Bd0n4hkg4EsLtRKGs9Q9f4SIBxOLkpxB+jX/j6l+BhUPByeEcJCAF3lOGW87SHkoboYcCeUJbZZWSY7Y2zbcBo10xddJ3/X8OHQz+q9luBxUTQVO9/IKtpB6C9KxilhfJ7GrXc/hI1eDaUZZRH3YHCKRHhyET7ISG1OAs65HvkpaLppzTACMIDhHQFfbjQGMONXx3WyvDLaAqEASFnjX2ITlDqUzvrEX3531ZAw4I4HHUO583Tth4kI5h6COpQrkNPU2KGBNJIxKdfjoojOJ8A5++0AKIzdNrH1/QrF2Z7uNJeo9DMUnf5c2Qx0y4gaebxV1USo3j7PlunVScB1zYTZ1sUWTCL3MUj9l30zLV001HarKofqb5X6GTdnSFHp/ccJIp+2z3qtrzw6b+6JVYWFy5zGZqpq4wEaCNlViJqqkm3B7oLhBIpjEzEFSrVhdijioDqrlOH7NKsLIJogPYbCrK1/N6rUl8DYf5cd7Jj8nW7s21NJxOamz7n5HAKf85NmjwzRkYlExvG8iODaL3Q6tvsAMLvnf30aXvj6meOmDhFAaAecyBBkYGxEbh72F0b2fkJGeYYA5+sNjZDP6GDowDrq3Fa0bb2zxMhG0n2THPUNB2rMHDIxKVFOLFqVBrabwJmurw=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(7416014)(376014)(36860700016)(18002099003)(22082099003)(13003099007)(56012099006)(10067099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ODhVe2RaV4dkUy6kAYpAL8dmKc2nIq2Rl1ygJOZvuD4PGc6A9Oe+DRSUYVV+S9YRQHRkOkmd2OKoil0AiXL9jD5vxWFfdxwtRYr5e9ZYZ1hZnnbTEkUH040ejZNwOaspEEhYM3PDaVXYII0g4fHztZqjd2VKKRVOMkvsB3YUIzLRoSWSHFqdxgw6JO6saULfGY3H+CQajNJ2yuhgnX3A5MZPZECsrPfXyLiH2CDtSM2x7XrLPpdNpQe5OmL0wa0NbxR1t075SYwh+uX6WQ2sZGd5nuv4lMoghBlg/BdGbKdp43grEPcEQZIZPsXxgJftOoUE+xqh8NPxLMGPNiaDAWai0wtPzyvvnRAZcWS2r0orL2ehnxaSVH2oSqVxAIrNrggtTEf7tDxjX4R/wtAg+XYNONSiXHdAhZy4kjKLj6tAjdACPHRvqCrWPez+24Nw
-X-Exchange-RoutingPolicyChecked: 3Lra0vQEFrhO5lzRP6Y+xM8XGfNvO9BEfYa3WCHbBNAN6A6qJHDtFStbVE+fdyHFDpEh2tSB0kP0iOBGozuxwzBEsYDRCNVvwgThKKGdRdp9wmW2+R4g/tT5SgFywz0Q94w/YiyUEscl0Q//MU3SwOklol+GvyRxHqXx+LsXstqk27gNQgmuZkD7pQ5gJ/AQ+Yb8DsXZQIX7viW37xrM94PwYiuB7hhDloyd98bf6cg0yuSEVrcOXzriqUuqmcSi0cOTq3oaG2n0KO4hqTv9llKU8A1RN9Yo+u507zrj+pByxyou/1WkAXT7NQ7uygWek6154mt0VAr280UjhMBhXw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 05:40:55.3892
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa0e73ec-ed69-452d-c7d7-08df0b104169
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018549.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR10MB7552
-X-Proofpoint-GUID: 4C87J7UArWmIdJvMevTHcbG7BZIJuQXa
-X-Proofpoint-ORIG-GUID: 4C87J7UArWmIdJvMevTHcbG7BZIJuQXa
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA1MDA1NiBTYWx0ZWRfX5xGT5nrhv+3q
- qlnaCfaSeiJlw714/H9yCunEzUyHOBLsdRgOvGgsYtKzfgi7HQPygBrPr751OTV+Bg3WNUFPuQh
- F7ubzrWyv3YgO8OKCT9Bj88690osO8Y=
-X-Authority-Analysis: v=2.4 cv=PPM/P/qC c=1 sm=1 tr=0 ts=6a9bab6f cx=c_pps
- a=0qEcZjvAL+vPLqsQtgLcWw==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
- a=9ttYfyVtp4DjXX0bujUA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA1MDA1NiBTYWx0ZWRfXzJvRA8SK/vwF
- SXxJFR9sFUddOE4XFhGjhsgbpEDX6h7WEMhjD7MPm4BVh+QIS113PVFg4uQVn5OorGy4KSZOw+Q
- pzMyon6/4Dh70cktWubf6m6rbTy4FYZA0oM2Yy2Fdr0cHPd80eKy8i86z/SbTfJPa2WdUc38c1s
- UWzpGIJZdtOZ1+oAxkN2x4oCdXHDdvIkpJrHA4tgzGXIXu6vNu/ElxClsOYQhmGu74p5xChQXtW
- L18oC7cQixFMQSzvhPU/mRH7L5HrcT+ZF/t3iIXZ05TckLVroqaCWbiuKswFWzIJqg91UXvV42k
- gaCne0g0NEEYdM58M60oMmgs3hvl1JqnP5EepYlvrXiWY4h+IpWtO9jSRAas6pCCVuF+sSMbuiz
- rhMgo7FGBFAMnnybXL7mhZtHy78sKdVg39E6bP9983V2YE1YLq37wNmWfyqdYnfxcfH16/ylBrm
- ISHfQYkNBsWZoRuYcjg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-05_02,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 impostorscore=0 phishscore=0 adultscore=0
- spamscore=0 suspectscore=0 lowpriorityscore=0 priorityscore=1501
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2609050056
+X-CM-TRANSID: cCh0CgDXvQi0vZtqheFEAw--.38251S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxZr1fZryftry5Wry5GrWfZrb_yoWrZw43pa
+	yUu3srJ34v9a13W347GF1UX3yfJrnYqay7Cw1fKayakF1qqryrXa1kKr45try5JrsYkws5
+	AF1v9wsa93W8JrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGw
+	A2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	WxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMc
+	Ij6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_
+	Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI
+	0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
+	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MI
+	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
+	14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJV
+	W8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUIw0e
+	DUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_224236_552928_A3DB4F72 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20260904_235914_573504_88633B07 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,54 +99,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04/09/26 9:28 PM, Jakub Kicinski wrote:
-> On Fri, 4 Sep 2026 10:06:06 +0530 Siddharth Vadapalli wrote:
->> This series removes the comma present after sentinel entries in the match
->> tables across all networking subsystem drivers, with the exception of the
->> davinci_mdio.c driver, for which, the patch posted by Geert at:
->> https://lore.kernel.org/r/e481b6de46cecc6ea604ae165272c667274cc621.1788437140.git.geert+renesas@glider.be/
->> does the same.
->>
->> Since I inquired about a cleanup across the entire networking subsystem but
->> didn't get a response:
->> https://lore.kernel.org/r/b3d19098-eccd-4619-b667-ad3b7e0a4422@ti.com/
->> I decided to post this series. Given that Andrew Lunn acknowledged the
->> cleanup of the davinci_mdio driver:
->> https://lore.kernel.org/r/abec6831-d344-489d-b70c-1e5dd4d43c2d@lunn.ch/
->> and I don't see why the cleanup is specific to davinci_mdio driver alone,
->> I am hoping that this series is treated identically to the patch that
->> Geert had posted for the davinci_mdio driver.
->>
->> Series is based on commit
->> 6ebcf5074cff net: openvswitch: don't schedule rebalancing if there are no datapaths
->> of the 'main' branch of the net-next tree.
-> 
-> You failed to specify why this "cleanup" makes a difference.
-> have you ever seen the sentinel not be the last entry?
+From: Pu Lehui <pulehui@huawei.com>
 
-The 'cleanup' in a way 'guarantees'/'enforces' sentinel being the last 
-entry, by catching 'copy-paste' errors at compile-time rather than being 
-a silent bug that shows up at runtime. If a new entry were to be 
-accidentally added after the sentinel entry in the current drivers, it 
-will not cause any compile-time error, but will fail silently at 
-runtime. This series 'cleans up' the drivers by making it a compile-time 
-error going forward (adding a new entry below sentinel will cause a 
-build error with the comma removed after the sentinel entry). I do not 
-doubt the review process on the mailing lists where such errors will 
-certainly be caught, but isn't it better if they are caught at 
-build-time instead, thereby saving reviewers the trouble of pointing out 
-such trivial mistakes?
+To prepare for supporting bpf stack arguments and unifying the calling
+convention between bpf2bpf calls and kfunc calls, remap BPF_REG_0 to t6
+and RV_REG_TCC to t5.
 
-Trailing commas are an indication of 'scope-for-extension' in the 
-future, which holds true for 'enums' or other structures where newer 
-entires are added towards the end rather than being inserted in the 
-middle. Since that isn't the case here, this series makes it clear by 
-removing the trailing comma.
+In the riscv abi, a0-a7 are designated for function argument passing.
+Freeing a5 and a6 allows bpf2bpf calls to pass extra arguments (6th to
+8th) via a5-a7 consistently with kfuncs.
+
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c                         | 8 ++++----
+ arch/riscv/net/bpf_timed_may_goto.S                     | 4 ++--
+ tools/testing/selftests/bpf/progs/verifier_jit_inline.c | 2 +-
+ tools/testing/selftests/bpf/progs/verifier_ldsx.c       | 6 +++---
+ 4 files changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index e7378be171a9..aac128b9f0a4 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -23,11 +23,11 @@
+ /* fentry and TCC init insns will be skipped on tailcall */
+ #define RV_TAILCALL_OFFSET ((RV_FENTRY_NINSNS + 1) * 4)
+ 
+-#define RV_REG_TCC RV_REG_A6
++#define RV_REG_TCC RV_REG_T5
+ #define RV_REG_ARENA RV_REG_S7 /* For storing arena_vm_start */
+ 
+ static const int regmap[] = {
+-	[BPF_REG_0] =	RV_REG_A5,
++	[BPF_REG_0] =	RV_REG_T6,
+ 	[BPF_REG_1] =	RV_REG_A0,
+ 	[BPF_REG_2] =	RV_REG_A1,
+ 	[BPF_REG_3] =	RV_REG_A2,
+@@ -47,13 +47,13 @@ static const int pt_regmap[] = {
+ 	[RV_REG_A2] = offsetof(struct pt_regs, a2),
+ 	[RV_REG_A3] = offsetof(struct pt_regs, a3),
+ 	[RV_REG_A4] = offsetof(struct pt_regs, a4),
+-	[RV_REG_A5] = offsetof(struct pt_regs, a5),
+ 	[RV_REG_S1] = offsetof(struct pt_regs, s1),
+ 	[RV_REG_S2] = offsetof(struct pt_regs, s2),
+ 	[RV_REG_S3] = offsetof(struct pt_regs, s3),
+ 	[RV_REG_S4] = offsetof(struct pt_regs, s4),
+ 	[RV_REG_S5] = offsetof(struct pt_regs, s5),
+ 	[RV_REG_T0] = offsetof(struct pt_regs, t0),
++	[RV_REG_T6] = offsetof(struct pt_regs, t6),
+ };
+ 
+ enum {
+@@ -239,7 +239,7 @@ static void __build_epilogue(bool is_tail_call, struct rv_jit_context *ctx)
+ 	emit_addi(RV_REG_SP, RV_REG_SP, stack_adjust, ctx);
+ 	/* Set return value. */
+ 	if (!is_tail_call)
+-		emit_addiw(RV_REG_A0, RV_REG_A5, 0, ctx);
++		emit_addiw(RV_REG_A0, regmap[BPF_REG_0], 0, ctx);
+ 	emit_jalr(RV_REG_ZERO, is_tail_call ? RV_REG_T3 : RV_REG_RA,
+ 		  is_tail_call ? RV_TAILCALL_OFFSET : 0, ctx);
+ }
+diff --git a/arch/riscv/net/bpf_timed_may_goto.S b/arch/riscv/net/bpf_timed_may_goto.S
+index 02c637d87420..ac41bf6dcb3d 100644
+--- a/arch/riscv/net/bpf_timed_may_goto.S
++++ b/arch/riscv/net/bpf_timed_may_goto.S
+@@ -21,7 +21,7 @@ SYM_FUNC_START(arch_bpf_timed_may_goto)
+ 	addi	s0, sp, 8*SZREG
+ 
+ 	/* Save BPF registers R0-R5 (a5, a0-a4) */
+-	REG_S	a5, 5*SZREG(sp)
++	REG_S	t6, 5*SZREG(sp)
+ 	REG_S	a0, 4*SZREG(sp)
+ 	REG_S	a1, 3*SZREG(sp)
+ 	REG_S	a2, 2*SZREG(sp)
+@@ -38,7 +38,7 @@ SYM_FUNC_START(arch_bpf_timed_may_goto)
+ 	REG_L	a2, 2*SZREG(sp)
+ 	REG_L	a1, 3*SZREG(sp)
+ 	REG_L	a0, 4*SZREG(sp)
+-	REG_L	a5, 5*SZREG(sp)
++	REG_L	t6, 5*SZREG(sp)
+ 
+ 	REG_L	s0, 6*SZREG(sp)
+ 	REG_L	ra, 7*SZREG(sp)
+diff --git a/tools/testing/selftests/bpf/progs/verifier_jit_inline.c b/tools/testing/selftests/bpf/progs/verifier_jit_inline.c
+index 02e562f56f9d..5b92da2ab75c 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_jit_inline.c
++++ b/tools/testing/selftests/bpf/progs/verifier_jit_inline.c
+@@ -11,7 +11,7 @@ __jited("	addq	%gs:{{.*}}, %rax")
+ __arch_arm64
+ __jited("	mrs	x8, SP_EL0")
+ __arch_riscv64
+-__jited("	mv	a5, tp")
++__jited("	mv	t6, tp")
+ __arch_loongarch
+ __jited("	move	$a5, $tp")
+ int inline_bpf_get_current_task(void)
+diff --git a/tools/testing/selftests/bpf/progs/verifier_ldsx.c b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
+index 7e25e1b8cd0b..49e8cd4bb4f9 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_ldsx.c
++++ b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
+@@ -289,11 +289,11 @@ __jited("ldrsh	x22, [x11, #0x18]")
+ __jited("add	x11, x0, x28")
+ __jited("ldrsb	x22, [x11, #0x20]")
+ __arch_riscv64
+-__jited("add	t2, a5, s7")
++__jited("add	t2, t6, s7")
+ __jited("lw	s3, 0x10(t2)")
+-__jited("add	t2, a5, s7")
++__jited("add	t2, t6, s7")
+ __jited("lh	s3, 0x18(t2)")
+-__jited("add	t2, a5, s7")
++__jited("add	t2, t6, s7")
+ __jited("lb	s3, 0x20(t2)")
+ __jited("add	t2, a0, s7")
+ __jited("lw	s4, 0x10(t2)")
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
