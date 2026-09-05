@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB49DC624D6
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 16:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7771C624D6
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 17:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ryvuWeBHPKw4HfSfcBClGJdqwpbITTXqAWN1xJFk0E4=; b=IorNHzvZYyHzQu
-	6s6jo+3ijSH0RmJzYOPk2qc+B6M2Hw36UJvPQ7NyAsKl8qGHpvL+0Z4oSisLuZuLIjAj8Rj+ixT2F
-	DROcrVl9fIZPLbSg/THgGA5VsCebRZ0Zf+m5lCwX1Fk/lcAit1dbOnCm0h6Kpj8qBVclSY5IJYtz+
-	UW2HN+BK1mhDRCTAT10MiKECnrEkzUqbpbCiOZly8eVvIdJe5VYlJMcGZInyvLy2M9rPfYnC1sKaX
-	dqid4dOa2MEkGah87go+JtZA182oQaceF+RmkUt4nD05arIfBVhX4WzpEnQxUCA0gwHu/EU6i1hIk
-	C4aZsxRcrF/KhMpcFHVQ==;
+	List-Owner; bh=1yCofydRTFDjST60FVUDEzj8DGINgHj8eTi12ImSuxE=; b=mtTFApIeRXENVG
+	TRsFN149b3vx+T1MR+QZ3nZknyHcveT1e7W4PwLuYLpe4fgK0RPpXfbsadgHSxwVgkRKiGxyyiJA4
+	F51lge9hO6w9OmQ/0lOLv/gFGofIr8w8wMOJidZplOgEPl7gcHH8c142AHhGrYFg9D26OSmZbFlw8
+	dFwOeVrEIxxaZ3R9hyQBIeDoe5e9hQT8xDm0sRy3MYHCPIx3kVsYcXu4tJMSnAta6JTb0eCvj3dG9
+	IWzYTv7Mt3AtySv13M0M4KH/kX3FaKLTIekK9HodUoWfznNlRcz7Th7tOXZQhv6h/Uen7rAU7hcP4
+	O0mA1bvPLABVvq+FAW2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2tTJ-00000004GnX-47Ku;
-	Sat, 05 Sep 2026 16:42:30 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1x2tph-00000004HJV-0fgX;
+	Sat, 05 Sep 2026 17:05:37 +0000
+Received: from mail-pj2-x01.google.com ([2607:f8b0:4864:39::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2tTD-00000004Gn2-1ad3
+	id 1x2tpe-00000004HJ8-0JXV
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Sep 2026 16:42:26 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-871c8a36fe3so19614517b3.1
-        for <linux-riscv@lists.infradead.org>; Sat, 05 Sep 2026 09:42:19 -0700 (PDT)
+	Sat, 05 Sep 2026 17:05:36 +0000
+Received: by mail-pj2-x01.google.com with SMTP id 98e67ed59e1d1-396a51b2605so790269a91.0
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Sep 2026 10:05:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1788626539; x=1789231339; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KLW1pUYTfPr1fy7y/Zlio4LKr099xCCPQ8MqnoWy0Aw=;
-        b=ZYLrppQjzCTQsBXfZ5e54e/9nLdbGNW6xMhrnXQBH9toGU02LutOl5YHx5+74H4XbJ
-         KN64pC1U5v1S5CrCKxT33tX2vE7qjoL8gOqL5riaQzEjnMFU6j0rIxShvkzRQTserMTW
-         wBpa0gWcwjdVb4KEnCF8kDMxghq6h1hu2dALLxE34G9vdHvxeiTcYZZhUSzKcFMdOLyE
-         2ahb1bghH8e+6Dcj5gcgYB48zJr7JC6hFPgFsBVv7WX0WSFmfS4asdo8xNar74b0ZvTG
-         1kSEKjkzTkmBO8GksiixkLWkKtx9yUIyEprUwUWmqz22kwBxAe7jGMhWlNBCW5nvN3SU
-         /eKQ==
+        d=gmail.com; s=20251104; t=1788627930; x=1789232730; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Lgfe+MC2Qpshqj28ePlzHxBw1FwK8wWPwaSdf9wxtGw=;
+        b=bxvsyPNhGpKbU7vckZK/cHG586++W7eb8GciPIQl3xs+c8CezSN5VQ2mJorRco3EKB
+         nCk+TIRrxLbD2BuUL+5gagNTUL10basw+m7s8HGT8Hz6dL1nVq7tu78QR8HkhDLW0sS7
+         FunQ9cI+zBibQtb3fOEjlf2vtXmQFshQlKPNC7Z6x4dUlkw3ToYceG2anJlEgaffndYN
+         hTOGZzMTdmtc8rraKtoZXmPQRMBeSwtMNaqjjL/4eivRDlWaEg3eMRBkvX/6Ry1dOb+I
+         wxSZTnxZ3XHtDjC0cAQkEloPfHCSHIyyV+KwfPaLqo93Iz4N2Fkm0i4EJyG4Mibmp3tE
+         mAOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788626539; x=1789231339;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1788627930; x=1789232730;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KLW1pUYTfPr1fy7y/Zlio4LKr099xCCPQ8MqnoWy0Aw=;
-        b=kxBBnJGV6KJVP/Pu20EE4qo6G2wKUvYYkUBABHwHqIS9Ahcaqf9PPZHdSwe4UTEue5
-         VgXcfDldkIp8HsmEx8o68HqIeaNFBJXmGu4yZWVWefNBn0ArdlCCQaHT23lRgyjBDUV9
-         Yrj1yTr4PTo/hR9jK3rRR/pqkLqApWv3tC1asU696wfKgN6ttUvvmMqr6zhzZ24QszuB
-         8Nz8DsQC+iVA0auOuVY83d7c2T7wBTHS2IwwRBnZzKQ4k2Lfb7NmhJtMdmnuUMe8TjeM
-         kn0rK96dCjp67SP+pvViW4KBycVuxa1jOx9QX/x1alI4aGCu6SnHxuMGfTJq9jqroZEE
-         af7w==
-X-Forwarded-Encrypted: i=1; AKwUvBwGbeKpWSkbFvAgP8LeV9k+1BDc7yv71GPXBLJlRdWNqzRvsafpk45ytwhy4GkeROlMumFXFCV9WUINQg==@lists.infradead.org
-X-Gm-Message-State: AFuF++kmJlPjKemytD3H1ISJPMZcqwYK0hJjYDgAO9gDsipWHVZ/tzry
-	zvxM/xSJrXFaYHWZb0HCxQQ/cc2VUuIDRVvWGwCR6Y1Ydkx3Li0bY/0uS+9UQBH2DV4=
-X-Gm-Gg: AYBFou0trePqufJLNUrR/wWs1an5LXfhkfOROFvduQkXmgD9JS5LZmAcLalMT60P9pS
-	ewpBOOOXnsk6/t+a/CFXGhHWa0zLFSKrfyhmhECZcSZQtjm2pVPOJ/hoCsTLQXxeEMFPQ5kUWZp
-	9UI+PBHAs14orX0NnwvKor4Mk1GdaUoajI8VI3c0EnYFU9hWv4oDSL1TJqULLNW2lxkXIo3rvtV
-	cxrgCJy4wK+axiyc1FaVrHPvOW5kDfCruqvF8buCGh3tiJYL58OehYw0oRWn5CpItSOjZ3qqKtJ
-	GuQvlHD13/0LD+E3Vf4uJkPLKhktCIkw+W0QuErgvtK1SbrSdZJcO0060L7YurNOaFLyayl6sly
-	AZnWAIOe+52kitIahxThT9scUUzjsq+BkPixKiU65lACZmDxCHTQwdez9S4mEjKGi6aWADrewqP
-	sXEFokM/j+HgYykynM4kcfL9DtoDrwX3+pXeZNZ9hvjIaTq4+BiFfX7qyURiUJJkVyPdgoy6T97
-	OvxrhQ2Lm8+gDTQs095ftesyZ6s6bSrCpngoth5D0GR
-X-Received: by 2002:a05:690e:4504:10b0:66f:c1bc:c075 with SMTP id 956f58d0204a3-66fc1bcc7a6mr1655174d50.61.1788626538948;
-        Sat, 05 Sep 2026 09:42:18 -0700 (PDT)
-Received: from toolbox ([2600:1700:220:59e0:9cba:538b:87b9:7f0f])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8714bb0efc1sm40923517b3.45.2026.09.05.09.42.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Sep 2026 09:42:18 -0700 (PDT)
-Date: Sat, 5 Sep 2026 11:41:59 -0500
-From: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
-	Yixun Lan <dlan@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
-	Aurelien Jarno <aurelien@aurel32.net>, stable@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-clk@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] clk: spacemit: k3: add CPU PLL rate tables
-Message-ID: <uyl23bmb7dtvkneu7wbpmq24gkmrpmr5n5xkanjrnjf27xsp6g@gcjezv6xwolx>
-References: <20260903-k3-pll5-pll8-1800mhz-v4-1-afafd9cb47d9@linux.spacemit.com>
+        bh=Lgfe+MC2Qpshqj28ePlzHxBw1FwK8wWPwaSdf9wxtGw=;
+        b=GYByuGzWeCXeDk6uTI5aig4ehkO2aRDaIRdxvPu/EfEMlV1NHZGPa4aCF+5SobWo5r
+         0z+61Pe02Vp4+nxuE+cz1tdpMDeC7eZgAJX86xTS2e8LMeaN3ow26BVgJJrjuS/Tf7/r
+         UvXMj1p/uAQXjzl954ltWy+PjAgZcZA7sX1/wNLs1MK1kIY8ob5kBqxkp+74XM+rb6C2
+         YVbZT6LTRHPMGNiWfHArf9mWhPLv3IeW9kuTx5gOdRBibz/p5v8PiDhXxR8hiUGLe5DB
+         +23k4zvOI2i0b+Bq5C7y8O1gLV5I1rH8CvxxDx6u1Sgr5gw+tjFfEgy7FDsXKyocNIbZ
+         LLDQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxU87ZsI3FKn9n03asZ2IOzQQFVU9YBmfKvdqUk1Bk/13Np4Ud7q43mkYkdeXrM+b0AouPtgW86DFOouw==@lists.infradead.org
+X-Gm-Message-State: AFuF++lUdc3Hlt2E/eXlSLenatjS5PTbUk0iTmTsXf36BJewO5vKMgTj
+	geIyhr0hyrQi8C4wEA2KqHchYagqozlnU6c0ob6XQMQ/F7udfFrJKXes
+X-Gm-Gg: AYBFou2dOldM0xFcxetR9IYJYsM5fD7mdwcaml7CSsplvaV2/9N3RQzc2hbSmrPB2Sj
+	W4cWWWkmSI/yr0OS5jc/iMqqBqGrrQ2Shv7mqkx061Kq8U6JY2y/MiaEYxa8wlZqOy4BxGvraPS
+	DbV8ywXTFQ+fOiYXHylkE4q1YG7jcwUQZpOWfhTh8a+oeXMAGQ4BG1jhzAMSsKCt3IVyiOKv7FQ
+	PWKpbJO1Ie/l0OLTTRN4uDPzDwgTZgTu+O0Ub74rBLJbrDqn7SEFjFcbWrnZSJyXvpd2U4apmo3
+	ep/btlrwiGJy8C6ffDhRx9F5yK4nEToTJD9OI4FmQZAZmc60/JOZIEXnq3C8TQyjw/bplcIT00a
+	iiN5xkijRuGKbVtgkdLlf4BvGw1jxmxStEkvLGLlks5eysOJLcRjstGPW5bv5n2O5Z6Xb1JdYtW
+	LnBLukA74A10wvE58nCH3Xq+Sbc70vQ7zGJcHSc4+l3BgxYU5zClvLZg+1chZlCN6dMYKcXpFA7
+	ZZVbQXg
+X-Received: by 2002:a05:6a21:9d84:b0:3d3:af85:eb98 with SMTP id adf61e73a8af0-3da3a16a579mr21841183637.26.1788627929852;
+        Sat, 05 Sep 2026 10:05:29 -0700 (PDT)
+Received: from [192.168.50.100] ([111.199.57.231])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc4554770f6sm2092737a12.24.2026.09.05.10.05.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 05 Sep 2026 10:05:29 -0700 (PDT)
+Message-ID: <4e8e6f90-9731-4416-8b1a-be1cef12bb72@gmail.com>
+Date: Sun, 6 Sep 2026 01:05:25 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260903-k3-pll5-pll8-1800mhz-v4-1-afafd9cb47d9@linux.spacemit.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] riscv: dts: spacemit: enable onboard eeprom for
+ OrangePi
+To: Chukun Pan <amadeus@jmu.edu.cn>, Yixun Lan <dlan@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ spacemit@lists.linux.dev
+References: <20260901080010.95040-1-amadeus@jmu.edu.cn>
+From: Gong Shuai <gsh517025@gmail.com>
+In-Reply-To: <20260901080010.95040-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_094223_743518_7F485C36 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20260905_100534_128667_01C28B95 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,92 +101,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
-
-On Thu, Sep 03, 2026 at 11:06:24AM +0800, Troy Mitchell wrote:
-> The K3 CPU PLL rate tables currently describe only one rate per PLL,
-> although the hardware supports a wider range.
+On 9/1/2026 4:00 PM, Chukun Pan wrote:
+> Enable the i2c2 bus and add the connected GT24C02B EEPROM.
 > 
-> PLL3 and PLL4 support rates from 1.05 to 2.4 GHz, while PLL5 and PLL8
-> support rates from 1.05 to 2 GHz. Populate the tables with every
-> supported rate in 50 MHz steps.
+> [   6.766] TlvInfo Header:
+> [   6.766]    Id String:    TlvInfo
+> [   6.769]    Version:      1
+> [   6.772]    Total Length: 38
+> [   6.775] TLV Name             Code Len Value
+> [   6.779] -------------------- ---- --- -----
+> [   6.783] Base MAC Address     0x24   6 .....
+> [   6.788] MAC Addresses        0x2A   2 2
+> [   6.792] Product Name         0x21  15 x1_orangepi-r2s
+> [   6.797] Unknown              0x41   1  0x01
+> [   6.801] CRC-32               0xFE   4 0xE5A74B18
+> [   6.806] Checksum is valid.
 > 
-> Cc: stable@vger.kernel.org # 7.0+
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 > ---
-> The corresponding U-Boot changes are available at:
-> 
-> - Add the CPU PLL rate tables:
->   https://github.com/spacemit-com/uboot-2022.10/commit/787b5cf44c8dbc99db886d5522c0c9cd5a96ffd6
-> - Correct the 1.10 GHz and 2.15 GHz table entries:
->   https://github.com/spacemit-com/uboot-2022.10/commit/16a775c20e9efb54ca55352215e76eb3f12e6cf0
+> This patch depends on the following to avoid conflicts:
+> https://lore.kernel.org/lkml/20260802100101.327815-1-amadeus@jmu.edu.cn/
 > ---
-> Changes in v4:
-> - Expand the update to every supported PLL3, PLL4, PLL5 and PLL8 rate.
-> - Drop Aurelien Jarno's Reviewed-by and Tested-by trailers because the
->   patch scope has expanded.
-> - Add U-Boot references for the complete tables and corrected entries.
-> - Link to v3: https://patch.msgid.link/20260831-k3-pll5-pll8-1800mhz-v3-1-530ed0978615@linux.spacemit.com
+>   .../boot/dts/spacemit/k1-orangepi-r2s.dts     | 30 ++++++++++++++++++
+>   .../boot/dts/spacemit/k1-orangepi-rv2.dts     | 31 +++++++++++++++++++
+>   2 files changed, 61 insertions(+)
 > 
-> Changes in v3:
-> - Mark the change for stable kernels starting with v7.0.
-> - Add Aurelien Jarno's Reviewed-by and Tested-by trailers.
-> - Rebase onto v7.3-rc1.
-> - Link to v2: https://patch.msgid.link/20260810-k3-pll5-pll8-1800mhz-v2-1-aabff510a797@linux.spacemit.com
-> 
-> Changes in v2:
-> - Drop "clk: spacemit: re-enable PLLs after init"; the PLL init issue
->   will be handled in a separate series.
-> - Send the K3 PLL5 and PLL8 1.8 GHz rate-table update as a standalone
->   patch.
-> - Clarify that 1.8 GHz is nominal and 2 GHz is an overclocking rate.
-> - Link to v1: https://patch.msgid.link/20260804-k3-pll5-pll8-1800mhz-v1-0-a3a75866ce32@linux.spacemit.com
-> 
-> To: Stephen Boyd <sboyd@kernel.org>
-> To: Brian Masney <bmasney+clk@redhat.com>
-> To: Jerome Brunet <jbrunet+clk@baylibre.com>
-> To: Yixun Lan <dlan@kernel.org>
-> To: Paul Walmsley <pjw@kernel.org>
-> To: Palmer Dabbelt <palmer@dabbelt.com>
-> To: Albert Ou <aou@eecs.berkeley.edu>
-> To: Alexandre Ghiti <alex@ghiti.fr>
-> Cc: linux-clk@vger.kernel.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: spacemit@lists.linux.dev
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  drivers/clk/spacemit/ccu-k3.c | 96 +++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 96 insertions(+)
->
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+> index 2d1ba34cb00e..7125f2882ce8 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
+> @@ -13,6 +13,7 @@ / {
+>   	compatible = "xunlong,orangepi-r2s", "spacemit,k1";
+>   
+>   	aliases {
+> +		i2c2 = &i2c2;
+>   		i2c8 = &i2c8;
+>   		serial0 = &uart0;
+>   		ethernet0 = &eth0;
+> @@ -112,6 +113,35 @@ rgmii1: phy@1 {
+>   	};
+>   };
+>   
+> +&i2c2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c2_0_cfg>;
+> +	status = "okay";
+> +
+> +	eeprom@50 {
+> +		compatible = "atmel,24c02";
+> +		reg = <0x50>;
+> +		pagesize = <16>;
+> +		size = <256>;
+> +		read-only;
+> +		vcc-supply = <&buck3_1v8>;
+> +
+> +		nvmem-layout {
+> +			compatible = "onie,tlv-layout";
+> +
+> +			mac-address {
+> +				#nvmem-cell-cells = <1>;
+> +			};
+> +
+> +			num-macs {
+> +			};
+> +
+> +			product-name {
+> +			};
+> +		};
+> +	};
+> +};
+> +
+>   &i2c8 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&i2c8_cfg>;
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+> index f7547a4da71a..837616255464 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+> @@ -17,6 +17,8 @@ aliases {
+>   		serial0 = &uart0;
+>   		ethernet0 = &eth0;
+>   		ethernet1 = &eth1;
+> +		i2c2 = &i2c2;
+> +		i2c8 = &i2c8;
+>   		mmc0 = &emmc;
+>   		mmc1 = &sdhci0;
+>   	};
+> @@ -138,6 +140,35 @@ rgmii1: phy@1 {
+>   	};
+>   };
+>   
+> +&i2c2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&i2c2_0_cfg>;
+> +	status = "okay";
+> +
+> +	eeprom@50 {
+> +		compatible = "atmel,24c02";
+> +		reg = <0x50>;
+> +		pagesize = <16>;
+> +		size = <256>;
+> +		read-only;
+> +		vcc-supply = <&buck3_1v8>;
+> +
+> +		nvmem-layout {
+> +			compatible = "onie,tlv-layout";
+> +
+> +			mac-address {
+> +				#nvmem-cell-cells = <1>;
+> +			};
+> +
+> +			num-macs {
+> +			};
+> +
+> +			product-name {
+> +			};
+> +		};
+> +	};
+> +};
+> +
+>   &i2c8 {
+>   	pinctrl-names = "default";
+>   	pinctrl-0 = <&i2c8_cfg>;
 
-On a recently new K3 board (shipped with OpenSBI/U-boot dated
-end of July), I was seeing upstream kernel boot hang after IMSIC
-initialization. Some logging indicated that it was hanging around the
-clock controller initializations (k3_ccu_driver_init).
 
-On a board running older U-boot/OpenSBI from May, I originally didn't
-observe this hang, but doing multiple repeated boots showed a rare
-instance of this hang happening. Some changes were added to OpenSBI in 
-this period (end of June) that trap clock controller registers to M 
-Mode and handle reads/writes there.
+Hi Chukun,
 
-Yixun pointed me to this patch, and it seems to fix the boot hang on 
-the board runner newer OpenSBI. I think this avoids some kind of a 
-race condition with disabling/re-enabling a PLL that the clock driver
-does. I'm finding it a bit hard to explain/understand what exactly it
-the reason though.
+I have tested this patch on an OrangePi RV2 with a kernel built from
+linux-next (next-20260904).
 
-Yixun, could this patch get added in soon?
+With the patch applied, the i2c2 bus comes up and a 24C02-compatible
+EEPROM (256 bytes) is probed at 2-0050. Reading the raw contents via
 
-Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+     hexdump -C /sys/bus/nvmem/devices/2-00500/nvmem
 
-Regards
-Anirudh Srinivasan
+shows a valid ONIE TlvInfo table, and the nvmem cells
+(product-name, mac-address, num-macs, crc32) are properly exposed.
+The Product Name field reads "x1_orangepi-rv2", which matches this
+board.
+
+Tested-by: Gong Shuai <gsh517025@gmail.com> # OrangePi-RV2
+
+
+I also tested the MAC address wiring below on top of this patch, with
+the nvmem-cells references added to eth0/eth1, eth0 picks up the base
+MAC address stored in the EEPROM and eth1 gets the base + 1; both
+addresses stay stable across reboots.
+
+
+diff --git a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+index 837616255464..44b81268c802 100644
+--- a/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
++++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts
+@@ -93,6 +93,8 @@ &emmc {
+};
+
+&eth0 {
++   nvmem-cells = <&mac_address 0>;
++   nvmem-cell-names = "mac-address";
+  phy-handle = <&rgmii0>;
+  phy-mode = "rgmii-id";
+  pinctrl-names = "default";
+@@ -117,6 +119,8 @@ rgmii0: phy@1 {
+};
+
+&eth1 {
++   nvmem-cells = <&mac_address 1>;
++   nvmem-cell-names = "mac-address";
+  phy-handle = <&rgmii1>;
+  phy-mode = "rgmii-id";
+  pinctrl-names = "default";
+@@ -156,7 +160,7 @@ eeprom@50 {
+	nvmem-layout {
+	   compatible = "onie,tlv-layout";
+
+-         mac-address {
++         mac_address: mac-address {
+		  #nvmem-cell-cells = <1>;
+	   };
+
+
+But I am not sure whether this wiring should be part of this patch.
+Without such wiring, the kernel falls back to random MAC addresses
+on this board.
+
+Best regards,
+Shuai
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
