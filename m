@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CFCC79F89
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 03:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6122C624D6
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 03:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0bAgNcXQI2mYTCq/kvJD2qTP+bUoU25dRvjcFjAO3Xg=; b=Q53WT9EKx4DJvw
-	66GLpOANE1LG+YLAmKqeXcR5xGqzPDqn/rc7B0RB83f/ik6mycAXCusq12TbM//YFZ81BTsjyrFu3
-	wgHBJU6by10UzHEcz1SMbOYeTjRnO9XztbTIt/lv0dCOR5dnSWNwiLWf83tOhB6bgPvnRqwQ42vyH
-	ok2HU87diqbe7D/pn9Bqw7JWGWzF3bEX5z/G+pxQ3sFO6RFFXqUHFxc4gXb0BefOzY3X2yq1PzGNb
-	nXLsq9O2r7olCzxlHJsSBXOBkwsqzz0sg6O8fonVhwTB4n+igJLm5lRV63s+dJeRA7T+IEX1l8grm
-	xYlCb8VSa43cH/6kT0yw==;
+	List-Owner; bh=LPrWrWJim42u/8MUtzZDBxwTwwjwVZhzhT2bBtXw1pE=; b=4Gzm4TlODaexih
+	DpOXUNcHcPqsn0yXRvMjnok8iIIkme6oTLymFAZL2sBp+H5lFSsnz3kk7Up7KNdoznstu9riq7YVD
+	zhfz8FYUFdhqZfluxxHG13FHUSOGrPlS4HBz8AByL9LXSWAcqipuTPoI4egizx4jFA8gheZpU+gOA
+	KhpPbqdougdbebWnwj3UNidZnLr3a1uCiW1M09CJT1v9IIXNvgh1Xc6g3ksP7anGE+0SZIAqE7UMZ
+	oz2oiTNFr07QTFJaadSOuzLcdt2Jt7mCjcr7LjZMJMdTiLZPs+vJtmrdkY6bF9Bd4YKniXnfaRdk7
+	VEl4M+Sd0MB0/ABplQRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2glZ-00000003cjD-3wgT;
-	Sat, 05 Sep 2026 03:08:29 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1x2hKb-00000003eJ9-0Biz;
+	Sat, 05 Sep 2026 03:44:41 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2glV-00000003ciO-3nk1
+	id 1x2hKV-00000003eIg-1XXS
 	for linux-riscv@lists.infradead.org;
-	Sat, 05 Sep 2026 03:08:28 +0000
+	Sat, 05 Sep 2026 03:44:39 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=Rau380fv/C3PIMO8upUmN2ndspPXutqa2G+T2w4vG2g=;
-	b=6XxG4jvVSS2yP6Twqz++PqKHMDiJ+xiJaTnRUXE78I1KRddCIO/l3t/PVROSi3vqBhDcqvNBg
-	VH80GddnFqp8jbISNmo1hRfzgljAx81PxpoS6zKcY9grHjWlBZvaEeeXrhQwRmKAsbXe389JuT9
-	gCkFoSX+kvTN1iDo/uk6uI0=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hcJ0B121DzLlXB;
-	Sat,  5 Sep 2026 10:57:14 +0800 (CST)
+	bh=Wp8B10J8KdXX1ICuZjCb5MGZd4JK6ZEKI5ReZhq+g4I=;
+	b=Ehcwnko2Vb9qOtg+1UmGVeyXzxq46q9jfDNH07nTQRZXRZSokJdIoiDr0+bjiVtdKFTWmSunl
+	vGPexvkmmBGBApKXAHoRiENF5Zbe2zAIJ4RNXBW5xhAIBQYLxa5NO247RXAEFsYt+XoZuAER5nr
+	YnbWasldB983YP6uFpE5n90=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4hcJnQ36SMzpSvB;
+	Sat,  5 Sep 2026 11:32:58 +0800 (CST)
 Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id CE5C74056C;
-	Sat,  5 Sep 2026 11:08:05 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 16D3A4056D;
+	Sat,  5 Sep 2026 11:44:24 +0800 (CST)
 Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
  (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
- 2026 11:08:04 +0800
-Message-ID: <3e7fb313-021a-49d0-9def-fd9f03e3c2bb@huawei.com>
-Date: Sat, 5 Sep 2026 11:08:04 +0800
+ 2026 11:44:23 +0800
+Message-ID: <7fbae9ac-44e4-4607-8aba-15db9779f80d@huawei.com>
+Date: Sat, 5 Sep 2026 11:44:22 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf v2] bpf, riscv: Make arena support depend on ZACAS
+Subject: Re: [PATCH bpf-next] bpf, riscv: Register extable entries at probe
+ insn call sites
 Content-Language: en-US
 To: Chen Pei <cp0613@linux.alibaba.com>, <ast@kernel.org>,
 	<daniel@iogearbox.net>, <andrii@kernel.org>, <memxor@gmail.com>,
@@ -56,18 +57,17 @@ To: Chen Pei <cp0613@linux.alibaba.com>, <ast@kernel.org>,
 CC: <ihor.solodrai@linux.dev>, <eddyz87@gmail.com>, <martin.lau@linux.dev>,
 	<song@kernel.org>, <yonghong.song@linux.dev>, <jolsa@kernel.org>,
 	<emil@etsalapatis.com>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-	<guoren@kernel.org>, <bpf@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>
-References: <20260902061451.1416-1-cp0613@linux.alibaba.com>
+	<shuah@kernel.org>, <guoren@kernel.org>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260901120013.16104-1-cp0613@linux.alibaba.com>
 From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <20260902061451.1416-1-cp0613@linux.alibaba.com>
+In-Reply-To: <20260901120013.16104-1-cp0613@linux.alibaba.com>
 X-Originating-IP: [10.67.110.68]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_200826_573017_D0113B2C 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20260904_204436_095219_EF716DEF 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,100 +84,145 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Pei,
 
-On 2026/9/2 14:14, Chen Pei wrote:
-> The arena range tree allocates its nodes with kmalloc_nolock() since
-> commit f8c67d8550ee ("bpf: Use kmalloc_nolock() in range tree").
-> kmalloc_nolock() requires slab caches with cmpxchg128 support
-> (__CMPXCHG_DOUBLE); on riscv cmpxchg128 is provided by the ZACAS
-> extension. On systems without ZACAS every arena map creation fails
-
-This limitation has a significant impact, as much of the hardware on the 
-market lacks ZACAS support given that it is not mandatory in RVA23.
-
-> with a misleading -ENOMEM.
+On 2026/9/1 20:00, Chen Pei wrote:
+> add_exception_handler() filters insns by matching BPF_MODE() against
+> the probe mode values. These values occupy unused opcode slots and
+> collide with legitimate encodings: BPF_PROBE_MEM32SX (0xc0) shares
+> its mode value with BPF_ATOMIC. Relying on the mode alone therefore
+> risks registering exception table entries for the wrong instructions,
+> as would happen for plain atomics without the LDX class check.
 > 
-> Report the missing support instead: make bpf_jit_supports_arena()
-> return system_has_cmpxchg128() where it is defined, so arena map
-
-Originally, I thought rv_ext_enabled(ZACAS) && 
-IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZACAS) would make it more explicit, but 
-system_has_cmpxchg128() seems to better capture what we were missing.
-
-
-Acked-by: Pu Lehui <pulehui@huawei.com>
-
-> creation fails with -EOPNOTSUPP on systems without ZACAS. The macro
-> is only defined when both CONFIG_RISCV_ISA_ZACAS and
-> CONFIG_TOOLCHAIN_HAS_ZACAS are enabled, so guard it with #ifdef the
-> same way mm/slab.h consumes it, and reject arena otherwise. This
-> matches how arena BPF_CMPXCHG instructions are already gated on ZACAS
-> in bpf_jit_supports_insn().
+> Make the decision explicit at the call sites instead: register an
+> entry only when emitting a probe load, a PROBE_MEM32 store, or a
+> PROBE_ATOMIC atomic, and drop the fragile mode gate from
+> add_exception_handler() along with the now unused insn argument. No
+> functional change intended.
 > 
-> Fixes: f8c67d8550ee ("bpf: Use kmalloc_nolock() in range tree")
-> Cc: stable@vger.kernel.org
 > Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 > ---
-> Changes since v1:
-> - Guard system_has_cmpxchg128() with #ifdef instead of calling it
->    unconditionally: the macro is only defined when both
->    CONFIG_RISCV_ISA_ZACAS and CONFIG_TOOLCHAIN_HAS_ZACAS are enabled
->    (as reported by sashiko-bot), so v1 broke the build when either
->    was disabled. This mirrors how mm/slab.h consumes the macro.
+> base-commit: d761934c9483ecde93fe99d8705282f716dfee50
 > 
-> Why #ifdef rather than rv_ext_enabled(ZACAS)? The predicates differ
-> exactly in the configurations that matter:
-> 
->    scenario (ISA_ZACAS/TOOLCHAIN/hw)  v1           rv_ext_enabled  #ifdef
->    ISA=n or TOOLCHAIN=n               build fails  rejects         rejects
->    ISA=y TOOLCHAIN=n hw has ZACAS     build fails  accepts, then   rejects
->                                                    -ENOMEM again
->    ISA=y TOOLCHAIN=y hw has ZACAS     exact        exact           exact
-> 
-> rv_ext_enabled(ZACAS) does not check CONFIG_TOOLCHAIN_HAS_ZACAS, but
-> slab's cmpxchg128 - and thus kmalloc_nolock() - does require it, so
-> on an old toolchain with ZACAS hardware it would accept arena maps
-> and bring back the very -ENOMEM failure this patch fixes. The #ifdef
-> form builds in every configuration and matches exactly the
-> kmalloc_nolock() availability gate in mm/slab.h.
-> 
-> This issue was reported by sashiko-bot:
-> https://sashiko.dev/#/patchset/20260901120013.16104-1-cp0613@linux.alibaba.com?part=1
-> 
-> Question for reviewers: should the arena selftests gate on ZACAS,
-> e.g. probing it via riscv_hwprobe() (RISCV_ISA_EXT_ZACAS) and
-> SKIPping cleanly on systems without the extension?
-
-riscv isn't currently integrated into the BPF CI, and handling this 
-locally via qemu is fairly straightforward, so I'm not entirely sure 
-this is strictly necessary.
-
-> 
->   arch/riscv/net/bpf_jit_comp64.c | 10 +++++++++-
->   1 file changed, 9 insertions(+), 1 deletion(-)
+>   arch/riscv/net/bpf_jit_comp64.c | 50 ++++++++++++++++++---------------
+>   1 file changed, 28 insertions(+), 22 deletions(-)
 > 
 > diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index 74efe4b138d2..151031e97a24 100644
+> index e7378be171a9..726c0169fc60 100644
 > --- a/arch/riscv/net/bpf_jit_comp64.c
 > +++ b/arch/riscv/net/bpf_jit_comp64.c
-> @@ -2128,7 +2128,15 @@ bool bpf_jit_supports_ptr_xchg(void)
->   
->   bool bpf_jit_supports_arena(void)
->   {
-> -	return true;
-> +	/*
-> +	 * The arena range tree uses kmalloc_nolock(), which needs
-> +	 * cmpxchg128, provided by ZACAS on riscv.
-> +	 */
-> +#ifdef system_has_cmpxchg128
-> +	return system_has_cmpxchg128();
-> +#else
-> +	return false;
-> +#endif
+> @@ -731,9 +731,8 @@ bool ex_handler_bpf(const struct exception_table_entry *ex,
+>   	return true;
 >   }
 >   
->   bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
+> -/* For accesses to BTF pointers, add an entry to the exception table */
+> -static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
+> -				 struct rv_jit_context *ctx)
+> +/* Add an entry to the exception table for a faulting probe insn */
+> +static int add_exception_handler(int dst_reg, struct rv_jit_context *ctx)
+>   {
+>   	struct exception_table_entry *ex;
+>   	unsigned long pc;
+> @@ -744,14 +743,6 @@ static int add_exception_handler(const struct bpf_insn *insn, int dst_reg,
+>   	    ctx->ex_insn_off <= 0 || ctx->ex_jmp_off <= 0)
+>   		return 0;
+>   
+> -	if (BPF_MODE(insn->code) != BPF_PROBE_MEM &&
+> -	    BPF_MODE(insn->code) != BPF_PROBE_MEMSX &&
+> -	    BPF_MODE(insn->code) != BPF_PROBE_MEM32 &&
+> -	    !(BPF_MODE(insn->code) == BPF_PROBE_MEM32SX &&
+> -	      BPF_CLASS(insn->code) == BPF_LDX) &&
+> -	    BPF_MODE(insn->code) != BPF_PROBE_ATOMIC)
+> -		return 0;
+
+Hi Pei,
+
+This patch looks fine, but I still tend not to introduce these changes. 
+I think the function itself should handle its own defensive checks, and 
+we should also avoid "shotgun surgery".
+
+> -
+>   	if (WARN_ON_ONCE(ctx->nexentries >= ctx->prog->aux->num_exentries))
+>   		return -EINVAL;
+>   
+> @@ -1360,6 +1351,15 @@ int arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *ro_image,
+>   	return ret < 0 ? ret : size;
+>   }
+>   
+> +/* Probe loads fault on unmapped memory and need an exception table entry */
+> +static bool insn_is_probe_ldx(const struct bpf_insn *insn)
+> +{
+> +	return BPF_MODE(insn->code) == BPF_PROBE_MEM ||
+> +	       BPF_MODE(insn->code) == BPF_PROBE_MEMSX ||
+> +	       BPF_MODE(insn->code) == BPF_PROBE_MEM32 ||
+> +	       BPF_MODE(insn->code) == BPF_PROBE_MEM32SX;
+> +}
+> +
+>   int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   		      bool extra_pass)
+>   {
+> @@ -1929,9 +1929,11 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   
+>   		emit_ldx(rd, off, rs, BPF_SIZE(code), sign_ext, ctx);
+>   
+> -		ret = add_exception_handler(insn, rd, ctx);
+> -		if (ret)
+> -			return ret;
+> +		if (insn_is_probe_ldx(insn)) {
+> +			ret = add_exception_handler(rd, ctx);
+> +			if (ret)
+> +				return ret;
+> +		}
+>   
+>   		if (BPF_SIZE(code) != BPF_DW && insn_is_zext(&insn[1]))
+>   			return 1;
+> @@ -1959,9 +1961,11 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   
+>   		emit_st(rd, off, imm, BPF_SIZE(code), ctx);
+>   
+> -		ret = add_exception_handler(insn, REG_DONT_CLEAR_MARKER, ctx);
+> -		if (ret)
+> -			return ret;
+> +		if (BPF_MODE(insn->code) == BPF_PROBE_MEM32) {
+> +			ret = add_exception_handler(REG_DONT_CLEAR_MARKER, ctx);
+> +			if (ret)
+> +				return ret;
+> +		}
+>   		break;
+>   
+>   	/* STX: *(size *)(dst + off) = src */
+> @@ -1981,9 +1985,11 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   
+>   		emit_stx(rd, off, rs, BPF_SIZE(code), ctx);
+>   
+> -		ret = add_exception_handler(insn, REG_DONT_CLEAR_MARKER, ctx);
+> -		if (ret)
+> -			return ret;
+> +		if (BPF_MODE(insn->code) == BPF_PROBE_MEM32) {
+> +			ret = add_exception_handler(REG_DONT_CLEAR_MARKER, ctx);
+> +			if (ret)
+> +				return ret;
+> +		}
+>   		break;
+>   
+>   	/* Atomics */
+> @@ -2001,7 +2007,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   			ret = emit_atomic_rmw(rd, rs, insn, ctx);
+>   
+>   		/* ret can be 1 (skip-zext); extable entry still needs to be added */
+> -		if (ret >= 0) {
+> +		if (ret >= 0 && BPF_MODE(insn->code) == BPF_PROBE_ATOMIC) {
+>   			/*
+>   			 * A load-acquire reads into dst_reg, and a read-modify-write
+>   			 * carrying BPF_FETCH reads the old value into src_reg, or into
+> @@ -2010,7 +2016,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   			 */
+>   			int load_reg = bpf_atomic_load_reg(insn);
+>   
+> -			ret = add_exception_handler(insn, load_reg < 0 ?
+> +			ret = add_exception_handler(load_reg < 0 ?
+>   					REG_DONT_CLEAR_MARKER : regmap[load_reg],
+>   					ctx) ?: ret;
+>   		}
 
 _______________________________________________
 linux-riscv mailing list
