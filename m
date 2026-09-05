@@ -4,112 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D09F0C624DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 14:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B7FC624D6
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2026 15:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cLhru2Y1/orSUHga5sTHIhkTvmsRxTwIjymcotGY/+0=; b=UYibLCW9yU0OEC
-	Tglw5v+5sStB+y3/x96awQiJhax2vB1k+7IsaanmW3RbhSnwW/ZjBQlEZnAn72DjKS6tKYakTHPi2
-	6WLul3+XTEWwSTSIDzqsHVpr5N3EL3qUE22MtALcnjJGB3DY1iy5eY5IcoFmvsOOsb8yuEfcN5YVH
-	Y6n9RsVHhNu/uBOMzDOYJ9M5hvk3y5k9yMaa5gW6JFiexrBDbrW9Oi7OTFaSaKquskrKlMBgT1ZtL
-	pv2kzK/ZOY9QR/UIRUVp38npOGErIv26U3V8c2VgF6a1erf9E5zfL7hb95Q5fhxcLl119stnSuCdQ
-	hGYaylCUcS4qST9y2T5Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ek5LeN9xoRqzwfGTYENw6Ya7pS5llg0knSq+mGEq5EY=; b=eZQOBkzoRzl/uz
+	f5KNNm5UdJEegGrcmSj7H6uBLlexKZVwTyB13IiNhrta8R+vinZTMmU0AuVQOwITpdmgRay/PSyjx
+	qvEee7GhRs7+do9cumGgWQCgZ8esxz/56e5u5xESlPWk28ZBifLVziECPCMAmcqHpD9VPkoIFUElB
+	sLpAK+6ADBj3SMFpLa7ESS6Vk4zbas7SgsRaAcgqMHriWJrs0DzfAYu+Rjwfhpk1LMOfsZIysu0Dq
+	19E2rAwzIIClHbknraScdsQTDptA9tHslY0OuXhuUA+G7/4PgNlK2fXEim+O3s4XAmfValVMr1NqK
+	3FiCUWujDx6UqdJfpQtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2rrK-00000004AA0-0jzD;
-	Sat, 05 Sep 2026 14:59:10 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1x2sjw-00000004FAY-3nOY;
+	Sat, 05 Sep 2026 15:55:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2rrH-00000004A9b-3jAf;
-	Sat, 05 Sep 2026 14:59:09 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 685CkXfm2741214;
-	Sat, 5 Sep 2026 14:58:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pp1; bh=Ij9z5kPKoq2gHQuITtcWtjtOtVF5/aUZLaHD2xUAn
-	Ec=; b=Dr6g+1yh2Y7PdCauRLyBLQ7PhMl5S5H31CZLT+lPBEctq1psTb2b9CeHP
-	sErtPvOSEfi//r60GAcziDQQLR33OK+7NTU1dwGfq+cDVOQMd+gVPUoPJg0c1iz1
-	4Q1WqsMus0JCKODt0NonHb+/V4xrlyne8QJRycS4hAHyNiYNlGi9fcGe5pvIn4Pg
-	C4ZcW6a92LOXt8tgin1zQPU9Du9TWlMcbZ1VJcMxjGZRq0oMj5TVSx9RsffHDqvS
-	qw8ognmmImXb8qQaGBwSg6y/7bC3T489ZB2bhcguJlfKCktHs3ap0A7LTgc6EucS
-	xQORg2ngLL6MvDDNFvHXpx9CnEhXw==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ggbqjhcqr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 05 Sep 2026 14:58:52 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 685EuPiA015563;
-	Sat, 5 Sep 2026 14:58:51 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4ggbm49d8s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 05 Sep 2026 14:58:50 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 685EwmKg27132432
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 5 Sep 2026 14:58:48 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B078820049;
-	Sat,  5 Sep 2026 14:58:48 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6D08F20040;
-	Sat,  5 Sep 2026 14:58:45 +0000 (GMT)
-Received: from li-4f5ba44c-27d4-11b2-a85c-a08f5b49eada.ibm.com.com (unknown [9.43.52.173])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Sat,  5 Sep 2026 14:58:45 +0000 (GMT)
-From: Sourabh Jain <sourabhjain@linux.ibm.com>
-To: linux-kernel@vger.kernel.org
-Cc: Sourabh Jain <sourabhjain@linux.ibm.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Paul Walmsley <pjw@kernel.org>, Pratyush Yadav <pratyush@kernel.org>,
-        linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
-        Baoquan He <baoquan.he@linux.dev>,
-        Mukesh Pilaniya <mpilaniy@redhat.com>
-Subject: [PATCH v2] kexec_file: remove unused arch_kexec_locate_mem_hole hook
-Date: Sat,  5 Sep 2026 20:28:35 +0530
-Message-ID: <20260905145835.501635-1-sourabhjain@linux.ibm.com>
-X-Mailer: git-send-email 2.55.0
+	id 1x2sjv-00000004FAQ-2IgO
+	for linux-riscv@lists.infradead.org;
+	Sat, 05 Sep 2026 15:55:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 744CB601DB;
+	Sat,  5 Sep 2026 15:55:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06F431F00A3A;
+	Sat,  5 Sep 2026 15:55:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788623734;
+	bh=ZbTROn2XMJRinRQck/0z8ofFxMzsslytuT8P6jNEoSk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=O0+pBOdg9C1mFoFBbVYhln7tAYR2LncMzHVU3jfXsccjpJQ6V7PGuRUfZN7ZFQFkA
+	 v1KS5MtKOcjN5C5/pHQaPV3gw1NIzOUVkZpk+s0dKiD96m3vq5KLiFXyvZWOsuxc7m
+	 bPYSjQ6ueB5et8T/8e+KYMf+6g9MtRf7ahP3gQeJj7MfyX+MasWU0n8nj8AwA6caQc
+	 yr5nEUfPyZk7HrQ4dEp7yrqUk0DToZSgPC27sQVLOSp7g3r8cXtjdXv34fKu1EJmWT
+	 NiNpoeiqP3DAkamwRgKHMgJmbOwz+uyBKM38QWK1ZTgB7FuYe7gZ8wKgHJ7OwMsdkW
+	 2psCuITcFfaUg==
+Date: Sat, 5 Sep 2026 17:55:25 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Nick Huang <sef1548@gmail.com>
+Cc: "hpp.iscas" <hppiscas@163.com>, 
+	Senchuan Zhang <zhangsenchuan@eswincomputing.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Yu Ning <ningyu@eswincomputing.com>, 
+	Yanghui Ou <ouyanghui@eswincomputing.com>
+Subject: Re: [PATCH] PCI: eswin: Publish the platform driver's OF alias
+Message-ID: <wg57x6u3fomukerbnfbmmxywoljyrlqlctytfnqdlhl74jvigg@t3aygzlhtpui>
+References: <20260905134251.67210-1-hppiscas@163.com>
+ <apwrUYd3VybxbAm7@nickhuang>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: NGhEFk5FrrcP4fqNX72WvC7krHIvxnGR
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA1MDE2MCBTYWx0ZWRfX+mNDmrWD8o2/
- iJbpgaKFbeuL3k70UD6/9EB8vA+bznHTQ34yS6SkUw62gRJWRq9VSDqWro92jzWxDUcXyke6g3w
- c73NTcV1KGsnn0ojieBqmua3lHT3m4Q=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA1MDE2MCBTYWx0ZWRfX0WNMTW+7pmkb
- XnxVF2GDahTK7zdNV5hn8+146ObORibZ/tbUXcO0Ct09HiUMD9mKI6wT7kgYKk8wtYAzggq4Vxp
- rRCo//mNHNhai9M3VKpy4nL4RIqbAGbhO4xhXbS8T8tS6H2Yd1Ffq+Ymtyj5+zY0N1xtFsbkQr0
- QxJt1MQ9KLZA7jbh7z2lThDgzNmZf1P8SdPg5WpTIJogjy8bG0piOp8e9qFbtj2mx4Hwd0e6KLO
- 2yIBk5c1krg4i/LRruDQ/94iaY5KK0PUSAdeJcjpdZK3F0yi/8Z8XngxvyQQU6ARrnq3vI5JxmF
- s1hKcabVH82OmzvI7nbuKKWedDoO7RO4BspngQUNtG08ZyVhKRaBPuvLZySf5skCZwjQQAFl1zQ
- 0X6GLfGUBwVMErfdeWShJlteUesowas7a21+u5q7BpLcX+CLk96cDfJdjEXziNsTeD489aXfmM3
- w89W0eN1JuaZWtQzL/A==
-X-Authority-Analysis: v=2.4 cv=JaKMa0KV c=1 sm=1 tr=0 ts=6a9c2e2c cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=Z4Rwk6OoAAAA:8
- a=_O3DOGVWAAAA:8 a=7ipKWUHlAAAA:8 a=JfrnYn6hAAAA:8 a=20KFwNOVAAAA:8
- a=uyLIc9BhHJT_Q4kdqAgA:9 a=HkZW87K1Qel5hWWM3VKY:22 a=2TKV-7w1aU1AVAwN0oqT:22
- a=gpc5p9EgBqZVLdJeV_V1:22 a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-GUID: NGhEFk5FrrcP4fqNX72WvC7krHIvxnGR
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-05_04,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0
- adultscore=0 bulkscore=0 priorityscore=1501 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609050160
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_075907_957190_2DEF9760 
-X-CRM114-Status: GOOD (  17.02  )
+Content-Disposition: inline
+In-Reply-To: <apwrUYd3VybxbAm7@nickhuang>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,108 +69,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-No architecture provides an implementation of
-arch_kexec_locate_mem_hole(). Use kexec_locate_mem_hole() directly
-and remove the unused fallback wrapper from the kexec header.
-
-This simplifies the kexec memory allocation path without changing
-its behavior. No functional changes intended.
-
-The arch hook was introduced by commit f891f19736bd ("kexec_file: Allow
-archs to handle special regions while locating memory hole"), and its
-last user was removed by commit 6e5250eaa665 ("powerpc/crash: use
-generic APIs to locate memory hole for kdump").
-
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
-Cc: Paul Walmsley <pjw@kernel.org>
-Cc: Pratyush Yadav <pratyush@kernel.org>
-Cc: linux-riscv@lists.infradead.org
-Cc: kexec@lists.infradead.org
-Acked-by: Baoquan He <baoquan.he@linux.dev>
-Reviewed-by: Mukesh Pilaniya <mpilaniy@redhat.com>
-Signed-off-by: Sourabh Jain <sourabhjain@linux.ibm.com>
----
-Changelog:
-
-v1:
-https://lore.kernel.org/all/20260827144452.508328-1-sourabhjain@linux.ibm.com/
-
-v2:
- - Update the commit references in the commit message to clarify the
-   history of the arch hook.
-
----
- arch/riscv/kernel/kexec_elf.c |  2 +-
- include/linux/kexec.h         | 15 ---------------
- kernel/kexec_file.c           |  2 +-
- 3 files changed, 2 insertions(+), 17 deletions(-)
-
-diff --git a/arch/riscv/kernel/kexec_elf.c b/arch/riscv/kernel/kexec_elf.c
-index 3e9a32acb8f2..ca5abbad59e5 100644
---- a/arch/riscv/kernel/kexec_elf.c
-+++ b/arch/riscv/kernel/kexec_elf.c
-@@ -91,7 +91,7 @@ static int elf_find_pbase(struct kimage *image, unsigned long kernel_len,
- 	kbuf.memsz = ALIGN(kernel_len, PAGE_SIZE);
- 	kbuf.cma = NULL;
- 	kbuf.top_down = false;
--	ret = arch_kexec_locate_mem_hole(&kbuf);
-+	ret = kexec_locate_mem_hole(&kbuf);
- 	if (!ret) {
- 		*old_pbase = lowest_paddr;
- 		*new_pbase = kbuf.mem;
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index 0af8ae4fdd08..e5f1cfc11fef 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -259,21 +259,6 @@ int kexec_kernel_verify_pe_sig(const char *kernel, unsigned long kernel_len);
- extern int kexec_add_buffer(struct kexec_buf *kbuf);
- int kexec_locate_mem_hole(struct kexec_buf *kbuf);
- 
--#ifndef arch_kexec_locate_mem_hole
--/**
-- * arch_kexec_locate_mem_hole - Find free memory to place the segments.
-- * @kbuf:                       Parameters for the memory search.
-- *
-- * On success, kbuf->mem will have the start address of the memory region found.
-- *
-- * Return: 0 on success, negative errno on error.
-- */
--static inline int arch_kexec_locate_mem_hole(struct kexec_buf *kbuf)
--{
--	return kexec_locate_mem_hole(kbuf);
--}
--#endif
--
- #ifndef arch_kexec_apply_relocations_add
- /*
-  * arch_kexec_apply_relocations_add - apply relocations of type RELA
-diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-index 59fb9d71e9d8..9a981359addd 100644
---- a/kernel/kexec_file.c
-+++ b/kernel/kexec_file.c
-@@ -784,7 +784,7 @@ int kexec_add_buffer(struct kexec_buf *kbuf)
- 	kbuf->cma = NULL;
- 
- 	/* Walk the RAM ranges and allocate a suitable range for the buffer */
--	ret = arch_kexec_locate_mem_hole(kbuf);
-+	ret = kexec_locate_mem_hole(kbuf);
- 	if (ret)
- 		return ret;
- 
--- 
-2.55.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBTZXAgMDUsIDIwMjYgYXQgMDI6NDY6NDFQTSArMDAwMCwgTmljayBIdWFuZyB3cm90
+ZToKPiBPbiBTYXQsIFNlcCAwNSwgMjAyNiBhdCAwOTo0Mjo1MVBNICswODAwLCBocHAuaXNjYXMg
+d3JvdGU6Cj4gPiBUaGUgRVNXSU4gUENJZSBob3N0IGNvbnRyb2xsZXIgaXMgYSBwbGF0Zm9ybSBk
+cml2ZXIgbWF0Y2hlZCB0aHJvdWdoCj4gPiBlc3dpbl9wY2llX29mX21hdGNoLiBQQ0lFX0VTV0lO
+IGlzIHRyaXN0YXRlLCBidXQgdGhlIHRhYmxlIGlzIG5vdAo+ID4gcHVibGlzaGVkIGZvciBPRiBt
+b2R1bGUgYXV0b2xvYWRpbmcuCj4gPiAKPiA+IFB1Ymxpc2ggdGhpcyBwbGF0Zm9ybS1kZXZpY2Ug
+dGFibGUuIERvIG5vdCBjaGFuZ2UgdGhlIFJJU0MtViBob3N0Cj4gPiBpbml0aWFsaXphdGlvbiBz
+ZXF1ZW5jZSBvciBQQ0kgZGV2aWNlIG1hdGNoaW5nLgo+ID4gCj4gPiBGaXhlczogYjU5M2MyNmQw
+ODFhICgiUENJOiBlc3dpbjogQWRkIEVTV0lOIFBDSWUgUm9vdCBDb21wbGV4IGRyaXZlciIpCj4g
+PiBTaWduZWQtb2ZmLWJ5OiBocHAuaXNjYXMgPGhwcGlzY2FzQDE2My5jb20+Cj4gPiAtLS0KPiA+
+ICBkcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWVzd2luLmMgfCAxICsKPiA+ICAxIGZp
+bGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMv
+cGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZXN3aW4uYyBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIv
+ZHdjL3BjaWUtZXN3aW4uYwo+ID4gaW5kZXggY2U4ZDY0Zi4uMWJiNDQ2OSAxMDA2NDQKPiA+IC0t
+LSBhL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZXN3aW4uYwo+ID4gKysrIGIvZHJp
+dmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpZS1lc3dpbi5jCj4gPiBAQCAtMzg4LDYgKzM4OCw3
+IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIGVzd2luX3BjaWVfb2ZfbWF0Y2hb
+XSA9IHsKPiA+ICAJeyAuY29tcGF0aWJsZSA9ICJlc3dpbixlaWM3NzAwLXBjaWUiLCAuZGF0YSA9
+ICZlc3dpbl9laWM3NzAwX2RhdGEgfSwKPiA+ICAJe30KPiA+ICB9Owo+ID4gK01PRFVMRV9ERVZJ
+Q0VfVEFCTEUob2YsIGVzd2luX3BjaWVfb2ZfbWF0Y2gpOwo+ID4gIAo+ID4gIHN0YXRpYyBzdHJ1
+Y3QgcGxhdGZvcm1fZHJpdmVyIGVzd2luX3BjaWVfZHJpdmVyID0gewo+ID4gIAkucHJvYmUgPSBl
+c3dpbl9wY2llX3Byb2JlLAo+ID4KPiBIaSBocHAuaXNjYXMKPiAKPiBTaW5jZSB0aGlzIGRyaXZl
+ciB1c2VzIGBidWlsdGluX3BsYXRmb3JtX2RyaXZlcihlc3dpbl9wY2llX2RyaXZlcilgLCBpdAo+
+IGFwcGVhcnMgdG8gYmUgYnVpbHQtaW4gb25seS4gSW4gdGhhdCBjYXNlLCBgTU9EVUxFX0RFVklD
+RV9UQUJMRSgpYCBzZWVtcwo+IHVubmVjZXNzYXJ5Lgo+IAoKTm9wZS4gYnVpbHRpbl9wbGF0Zm9y
+bV9kcml2ZXIoKSBvbmx5IHByZXZlbnRzIHJlbW92aW5nIHRoZSBkcml2ZXIgb25jZSBsb2FkZWQu
+ClNpbmNlIHRoZSBkcml2ZXIgaXMgZGVmaW5lZCBhcyAndHJpc3RhdGUnIGluIEtjb25maWcsIGl0
+IGNhbiBzdGlsbCBiZSBsb2FkZWQKZHluYW1pY2FsbHkuIFNvIE1PRFVMRV9ERVZJQ0VfVEFCTEUo
+KSB3b3VsZCBzdGlsbCBiZSBuZWNlc3NhcnkgZm9yIHVkZXYgdG8KYXV0b2xvYWQgdGhlIG1vZHVs
+ZSBiYXNlZCBvbiBtb2RhbGlhcy4KCi0gTWFuaQoKLS0gCuCuruCuo+Cuv+CuteCuo+CvjeCuo+Cu
+qeCvjSDgrprgrqTgrr7grprgrr/grrXgrq7gr40KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
