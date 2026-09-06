@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6129BC79F82
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Sep 2026 02:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B8BC79F8B
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Sep 2026 04:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q7RH6lXmjYRMzi+3aJCuBrPmWibcJwSfisnDtiXXf5k=; b=FutlwOi3bc5RSl
-	VC5CmKABPdtmGvQEiwyIrbQBEV05xdrvunjuxbyAUWRhyGwdBiVhpZbDX+SZ3+5YgwUKw9fOV90ou
-	Mbt2edgmCQ7YhN6PoLuk35muBEuGvFB8Hhg4GqgcLfLa32wX44+zSTo1klTMh47B/OoTJ5uG8LAUf
-	w0RZnnIRA/2YdMdB+uGJzg2LNaJOFtPeQLM6N6apqEpaUAsoo+1szHkwZK/2eAHDSaZLQHx/Wy3id
-	ddKnOPZAfp2fClv51igmrifo7/xkHzH0K1am2+J1/n1uU7pT5StZtoXOpnxCiqgkiCDWid0DlC0Gr
-	ABJHP9P5RBVkp2t4CbGw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RbNFFu1nSt4Pkw3SdXbiCuAyagypJUY1WHTn+iisn94=; b=nJ/rsgV2lF6VDJ
+	6I5d7EZbxprs49IgWIFg0Y4V/2skqB3F48tF7bU3L5Cqqp6GKJZnvVxC9T9RchHUY+nVyvJpvgA99
+	r4DYmm3sJz9KztyfpTCkbdETaC3yGXEct55v8WwWm8Y2OWqSb9j7Bdm/xLDrElAIO+Ymjw9aLK9rR
+	E44MQmg1HxIDgrL4t1CY0nqpzWlnCCzZVsymNk7Pf9uWGYspXdSQ0Eq6lY2Sjet3mD5CQNBfPSNWo
+	GxuW0uZpdfbcTplK9FA0yJ32kk/j6QrUPg2YQIGCJfM4yxJKkw8lZHGs86AI9xq2t7i9Vn2DFXxPX
+	ZCW+K2joYX4TzUbgmQ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x32BZ-00000004Z2a-1wfK;
-	Sun, 06 Sep 2026 02:00:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x34Vk-00000004gCl-0zh5;
+	Sun, 06 Sep 2026 04:29:44 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x32BN-00000004Z1s-2CFM;
-	Sun, 06 Sep 2026 02:00:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 54CA343C12;
-	Sun,  6 Sep 2026 02:00:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 131AD1F00A3A;
-	Sun,  6 Sep 2026 02:00:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1788660032;
-	bh=ohXcpCjF3E8Su2iGbnUTFcKH4Q5PX6bz9vn2jqgCP+c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=onvqGLmcP1GLOxpEKfzU67JdQE7IDZGMsPO64h/0NSOK+RvFXdBCqD8+ofD1WBq2g
-	 i6cYyIHzjygejYh8PKFLzFY7Ac5zL8dW6mlFYoHExtDtLuDxudvpRUkwCZVnaHxKoG
-	 FWNotUDCuJBgzmpoHcxnORH4VODmerRMAERbMW3I=
-Date: Sat, 5 Sep 2026 19:00:30 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Adrian =?UTF-8?Q?Barna=C5=9B?= <abarnas@google.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexander Gordeev <agordeev@linux.ibm.com>,
- Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Brendan Jackman
- <brendan.jackman@linux.dev>, Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, Dave Hansen
- <dave.hansen@linux.intel.com>, David Hildenbrand <david@kernel.org>, Gerald
- Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens
- <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, Len Brown <lenb@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Pavel Machek
- <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin"
- <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Ryan Roberts
- <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
- Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, Vasily
- Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon
- <will@kernel.org>, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- loongarch@lists.linux.dev
-Subject: Re: [PATCH v3 0/6] arch, mm/execmem: resolve confusion about
- set_direct_map_valid_noflush()
-Message-Id: <20260905190030.adf2740822e211ddc028a24a@linux-foundation.org>
-In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
-References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	id 1x34Vg-00000004gCM-3DFX;
+	Sun, 06 Sep 2026 04:29:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:Content-Type:
+	MIME-Version; bh=UWVKgjlpVvo+EoPOXvCFd6amsMMPLnh3+oXB0HxW/2I=;
+	b=HJKyoCj+XA9m0I+UsFXeya5l9M5/x6UxV8Kgv6YUvxpe7UrSObDDTKYKxIrjfb
+	+MdvBjxzcKrSYjMnrYX2WMs17tE9sT20PM11Q08RmXL5pb187JLinol7k/t+3yQQ
+	0RMq/d5mjH21lI3OUnQ5eGbNJ/0aPICrVyrCk7PRffui8=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgCnYyDh65xqP0cBQQ--.256S2;
+	Sun, 06 Sep 2026 12:28:19 +0800 (CST)
+From: Pengpeng Hou <hppiscas@163.com>
+To: Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>
+Cc: Pengpeng Hou <hppiscas@163.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>
+Subject: [PATCH] perf/riscv: clear snapshot setup state when a CPU goes offline
+Date: Sun,  6 Sep 2026 12:28:14 +0800
+Message-ID: <caplitmus-rv.75b0e9ee82984422ba17d833767912a8.d33@163.com>
+X-Mailer: git-send-email 2.50.1
+MIME-Version: 1.0
+X-CM-TRANSID: PygvCgCnYyDh65xqP0cBQQ--.256S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tryfGw4UXw15ur47ZFWxXrb_yoW8Zr47pr
+	4fCayYkF4FvF10q348AF48XFyrArs3W39rtr98CwnxZ3W3AF4fCFs5JFy5Zrn8JrW8Z3y2
+	yr4avrW5CF4jgFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UzE__UUUUU=
+X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbCxgP0vWqc6+NrcgAA3r
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260905_212941_252657_E5FC5AD9 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +82,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 03 Sep 2026 12:28:26 +0300 "Mike Rapoport (Microsoft)" <rppt@kernel.org> wrote:
+pmu_sbi_dying_cpu() disables the calling hart's SBI PMU snapshot shared
+memory but leaves snapshot_set_done set. When the CPU comes back online,
+pmu_sbi_snapshot_setup() returns early without registering the shared
+memory again.
 
-> Recent discussion about implementation of execmem's ROX caches on arm64
-> revealed a confusion about how set_direct_map_valid_noflush()
-> implemented on different architectures.
-> 
-> ...
-> 
-> Implement these adjustments, make execmem always use VM_FLUSH_RESET_PERMS
-> and revert set_direct_map_valid_noflush() changes.
-> 
+Snapshot operations on that hart can then fail because the firmware no
+longer has a snapshot area, while the driver still follows its snapshot
+paths.
 
-Thanks, I updated mm-unstable to this version.
+Clear the per-CPU setup flag after snapshot disable succeeds. Retain the
+flag and the existing error return if disable fails, so a failed teardown
+does not claim that the firmware registration has been removed.
 
-> 
-> v3 changes:
-> * set VM_FLUSH_RESET_PERMS to allocated area just before flipping the
->   permissions rather than at allocation time
-> 
-
-Here's how v3 altered mm.git:
+Fixes: a8625217a054 ("drivers/perf: riscv: Implement SBI PMU snapshot function")
+Assisted-by: GPT-5
+Signed-off-by: Pengpeng Hou <hppiscas@163.com>
+---
+The issue was found by our static-analysis tool and manually reviewed.
 
 
- mm/execmem.c |    6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
---- a/mm/execmem.c~b
-+++ a/mm/execmem.c
-@@ -36,7 +36,6 @@ static void *execmem_vmalloc(struct exec
- 	unsigned long end = range->end;
- 	void *p;
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 50220f7b..f38a64c7 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -1175,6 +1175,10 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
  
--	vm_flags |= VM_FLUSH_RESET_PERMS;
- 	if (kasan)
- 		vm_flags |= VM_DEFER_KMEMLEAK;
- 
-@@ -277,6 +276,8 @@ static void *execmem_cache_populate_allo
- 	/* fill memory with instructions that will trap */
- 	execmem_fill_trapping_insns(p, alloc_size);
- 
-+	set_vm_flush_reset_perms(p);
-+
- 	err = set_memory_rox((unsigned long)p, vm->nr_pages);
- 	if (err)
- 		goto err_free_mem;
-@@ -439,6 +440,7 @@ void *execmem_alloc(enum execmem_type ty
+ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
  {
- 	struct execmem_range *range = &execmem_info->ranges[type];
- 	bool use_cache = range->flags & EXECMEM_ROX_CACHE;
-+	unsigned long vm_flags = VM_FLUSH_RESET_PERMS;
- 	pgprot_t pgprot = range->pgprot;
- 	void *p = NULL;
++	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
++	struct cpu_hw_events *cpu_hw_evt = per_cpu_ptr(pmu->hw_events, cpu);
++	int ret;
++
+ 	if (riscv_pmu_use_irq) {
+ 		disable_percpu_irq(riscv_pmu_irq);
+ 	}
+@@ -1182,8 +1186,12 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+ 	/* Disable all counters access for user mode now */
+ 	csr_write(CSR_SCOUNTEREN, 0x0);
  
-@@ -447,7 +449,7 @@ void *execmem_alloc(enum execmem_type ty
- 	if (use_cache)
- 		p = execmem_cache_alloc(range, size);
- 	else
--		p = execmem_vmalloc(range, size, pgprot, 0);
-+		p = execmem_vmalloc(range, size, pgprot, vm_flags);
+-	if (sbi_pmu_snapshot_available())
+-		return pmu_sbi_snapshot_disable();
++	if (sbi_pmu_snapshot_available()) {
++		ret = pmu_sbi_snapshot_disable();
++		if (ret)
++			return ret;
++		cpu_hw_evt->snapshot_set_done = false;
++	}
  
- 	return kasan_reset_tag(p);
+ 	return 0;
  }
-_
+
+base-commit: 4d7d9486c04d917265f64c55bd23b2cc4fe7749c
 
 
 _______________________________________________
