@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE919C79F99
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Sep 2026 21:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F78C79F9E
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Sep 2026 21:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=snwqdlwnT8j8OUzWUJfeM2dJb4ErHXTteYdsgdstDDQ=; b=hZdZ9h0LVC4Lzs
-	eog+ZyP58kVRk5D6oKlnjVvzRafFbrAzPoXhL8z7dXW2PFTTopkTX3NDaMMCEI7PLaelK2XBtkql5
-	if0D5QeslsPtIP+cuSy5ULuP1lu3fji4GCvmmrNtiGMdoD1qr2uUzYMWqQJOP5POzHLfB/hLpo/pj
-	w4WbiGplaFTPfJwdpVDaPAr3gOMJXBlGTAlws11eEimL0LTqh6IrSioyapqIM0EMNCN0auF84xKOb
-	5MuBXVoa7G+qj9cldsqa4OT9bBkQX9RraVW5XO621Y49KOh1Nk1GT6eTHGd4j+YjbJLsIcJMtHrod
-	OvmkFgg2Q87oos4F1fxA==;
+	List-Owner; bh=aK6TP6viNNKORM4xgDmcjBo1d08cHuCUN7VRuBl4orw=; b=3elNrQ4A9RRDRZ
+	BtSLy008yJq7SRdqOZJ9ZRvQ9yxE02wPG4gZD0NHhFlf8YoS6Xp90Y1btXjvC/AosyYSVr2gbNPIG
+	4R9zSIQqSOCkwdqIo7yR4ZnQZik4hhVGYVKZZ2xDnb4FzIVtd3PFV1G2LwRfeRdP3f+ZLGHR1ukIs
+	M1k1P9wwEdd/WcG+Z3cy+IWBn3zp4MQbZd4mtpy2Ndh3JHvXNdCJMpt2BXgKgU8GsDyYtMCI4jkJh
+	Nn4kzQvSaIjPpSWOP1JBs4X/jB1n7r79Y42drqWe8q4TWvPaxZT4YVTQzvrKDG2/zGA/DU8GEzJwL
+	z5Co5xwzF0AVDN/Xz2Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3KIo-00000005a06-17wp;
-	Sun, 06 Sep 2026 21:21:26 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1x3KM9-00000005aAu-3KQr;
+	Sun, 06 Sep 2026 21:24:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3KIl-00000005Zz6-4B1v
+	id 1x3KM8-00000005aAo-2Y9D
 	for linux-riscv@lists.infradead.org;
-	Sun, 06 Sep 2026 21:21:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Reply-To:Content-ID:Content-Description;
-	bh=Y9LS7SYHFlkHvaK4ZooIhwRFHr3vUhLavYrz1nuVPqA=; b=f4AoxTbb7TWe9/8DFTs7RutDb7
-	L82gmbWW2DODqTgiGpBE+E/m0FCkwVtngj8SNAYQuewyWcdMlGTbsVC2+lwNR6wO2xoq3DR7498yq
-	mirf/cmsxLfxhCtGUqUheLnnAbkfCX9gaXuU2mFHeLlZAAYlJNtKMn4nOkQazdx2SK3u2RUlqfOFM
-	KWcbkU4Q73N5/5H/UvoLmg1kZBTNJRKz56T6MAydZXl+bJWQ9dQs7uiQsvZqBs6/e5nhDWZB1AItV
-	U8MJg2E733lKvHsWsYvc/4PDZ1t2e/Smd1u09n+LeuXOg4Y4OLkmRVpwVyptbunYr32iPGvPB515T
-	BJuyiljA==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
-	(Exim 4.96)
-	(envelope-from <domibel@debian.org>)
-	id 1x3KIk-0011JD-18
-	for linux-riscv@lists.infradead.org;
-	Sun, 06 Sep 2026 21:21:22 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-853f8c34ba4so3533957b3a.0
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Sep 2026 14:21:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBw98j0o/z9XpPV4v0RSmrYfXSr3FQlr/9KvMEJALJ5Yr26bUWWy7kV57AggrADjw6iM1zZ4db0rBAzOYw==@lists.infradead.org
-X-Gm-Message-State: AFuF++nqLGaKZG/FZx4K4KjoBo8Gryrnqt5XjS70x+HcA8+pNHfcw3Xl
-	a9JPUh2olZt4objCllE4KWnzIXSXqiKynOaODjJ5IEJvbjvoDctfNfcq54Gi/5HGxdtI+C/GKdD
-	SRUa4Ey4KF6OkxsxJko3+FN9T0FDaa+c=
-X-Received: by 2002:a05:6a00:c206:b0:851:d12e:389b with SMTP id
- d2e1a72fcca58-8628622c78fmr14582711b3a.14.1788729379886; Sun, 06 Sep 2026
- 14:16:19 -0700 (PDT)
+	Sun, 06 Sep 2026 21:24:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 82AB9601DE;
+	Sun,  6 Sep 2026 21:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F4EA1F00A3A;
+	Sun,  6 Sep 2026 21:24:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788729891;
+	bh=yI1ISZStHsI8HeOW6HBXC0E/onU4SL9A5+VALs2VukY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WrEBvDhqAxQXIPMonisjvp9LZh06k99gCdM8iXfvMH2ZZ5WTy3HVQIrp0lhjIlwrl
+	 pLMzNLBdXNUFKSx5iE2vCf0l4rWbq9XV7b0MuzsylG8Ah+G8UkfHtRLXAKDbvonzHr
+	 MaWT7ytX3uBeb1v2BnFD07xWtwxeJQPyqyaJQL+auRoTtsM9KbxkcU62KduldCAqKI
+	 wQrq9qMqHvuUCzI+Ntz+tSJS3kYB8SYnyxAncENKbtqUyEm4ldxdkGgY8JVc4IANYF
+	 jQH/WhqSPjF95KFUQ+102qfSK4TkEcgxIbp0eJJ42ot5/u1Af+ea3DmozWl5oe4Su6
+	 EV9ZP1Dng9LJA==
+Date: Sun, 6 Sep 2026 22:24:42 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Janani Sunil <janani.sunil@analog.com>, Lars-Peter Clausen
+ <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, David
+ Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Jonathan
+ Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Mark Brown
+ <broonie@kernel.org>, Marius Cristea <marius.cristea@microchip.com>, Marcus
+ Folkesson <marcus.folkesson@gmail.com>, Kent Gustavsson <kent@minoris.se>,
+ Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+ <daire.mcnamara@microchip.com>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, Janani Sunil <jan.sun97@gmail.com>,
+ linux-spi@vger.kernel.org, Kent Gustavsson <nedo80@gmail.com>,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v11 3/3] iio: dac: Add AD5529R DAC driver support
+Message-ID: <20260906222442.01ff098d@jic23-huawei>
+In-Reply-To: <apgdEf3pi_soGr3T@ashevche-desk.local>
+References: <20260902-ad5529r-driver-v11-0-301c491a0719@analog.com>
+	<20260902-ad5529r-driver-v11-3-301c491a0719@analog.com>
+	<apgdEf3pi_soGr3T@ashevche-desk.local>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
- <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io> <e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
- <CAAvaLCwvVUddS14MPx0FHdnp+QeZ99+ox17pXt2hSWPTCFcHtw@mail.gmail.com>
- <cb0884b3-c9be-4cfd-ba43-27add3821ddd@murena.io> <6a5f8c11a092cef83bae8d9ea0100c2fc133a514.camel@icenowy.me>
-In-Reply-To: <6a5f8c11a092cef83bae8d9ea0100c2fc133a514.camel@icenowy.me>
-From: Dominique Belhachemi <domibel@debian.org>
-Date: Sun, 6 Sep 2026 17:16:08 -0400
-X-Gmail-Original-Message-ID: <CAAvaLCxMntrTbTQ9VNu4H_6LA30TRAqi7mCpn+x3hbTG9WqERA@mail.gmail.com>
-X-Gm-Features: AcwNN1W3Ei1cx4_W0731mEUNvW6xw1POICbdb9C66iM9zFCtDZzsTbla6YfIM_c
-Message-ID: <CAAvaLCxMntrTbTQ9VNu4H_6LA30TRAqi7mCpn+x3hbTG9WqERA@mail.gmail.com>
-Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Maud Spierings <maud_spierings@murena.io>, Dominique Belhachemi <domibel@debian.org>, 
-	m.wilczynski@samsung.com, Laurent.pinchart@ideasonboard.com, 
-	airlied@gmail.com, alex@ghiti.fr, andrzej.hajda@intel.com, 
-	andy.yan@rock-chips.com, andyshrk@163.com, aou@eecs.berkeley.edu, 
-	bmasney@redhat.com, conor+dt@kernel.org, conor@kernel.org, 
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	hal.feng@starfivetech.com, heiko@sntech.de, hello@big-grey.co.uk, 
-	jernej.skrabec@gmail.com, jonas@kwiboo.se, kernel@esmil.dk, 
-	krzk+dt@kernel.org, lee@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, luca.ceresoli@bootlin.com, 
-	m.szyprowski@samsung.com, maarten.lankhorst@linux.intel.com, 
-	maudspierings@gocontroll.com, mfd@lists.linux.dev, mripard@kernel.org, 
-	mturquette@baylibre.com, neil.armstrong@linaro.org, p.zabel@pengutronix.de, 
-	palmer@dabbelt.com, pjw@kernel.org, rfoss@kernel.org, robh@kernel.org, 
-	sboyd@kernel.org, simona@ffwll.ch, tzimmermann@suse.de, vkoul@kernel.org
-X-Debian-User: domibel
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_142124_032895_A4DDA9DE 
-X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,43 +81,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBTZXAgNiwgMjAyNiBhdCAxMToxOeKAr0FNIEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vu
-b3d5Lm1lPiB3cm90ZToKPgo+IOWcqCAyMDI2LTA5LTA25pel55qEIDE2OjU5ICswMjAw77yMTWF1
-ZCBTcGllcmluZ3PlhpnpgZPvvJoKPiA+IE9uIDkvNi8yNiAwNzozOSwgRG9taW5pcXVlIEJlbGhh
-Y2hlbWkgd3JvdGU6Cj4gPiA+IE9uIFN1biwgQXVnIDMwLCAyMDI2IGF0IDEwOjE34oCvQU0gTWF1
-ZCBTcGllcmluZ3MKPiA+ID4gPG1hdWRfc3BpZXJpbmdzQG11cmVuYS5pbyA8bWFpbHRvOm1hdWRf
-c3BpZXJpbmdzQG11cmVuYS5pbz4+IHdyb3RlOgo+ID4gPgo+ID4gPiAgICAgSSB3YXMgc3RpbGwg
-aGF2aW5nIHNvbWUgZ2xpdGNoaW5nIGhhcHBlbmluZyBvbiB0aGUgZGlzcGxheSwgYnV0Cj4gPiA+
-IEkndmUKPiA+ID4gICAgIGZvdW5kIHRoZSB3YXkgdG8gZml4IHRoYXQsIHRoZSBxdWVzdGlvbiBp
-cyB3aGF0IGlzIGFjdHVhbGx5Cj4gPiA+ICAgICBoYXBwZW5pbmcgaGVyZS4KPiA+ID4KPiA+ID4g
-ICAgICAgICAweDI5NTkwMDIwIDwtIDB4MDAwMDAwMDUKPiA+ID4gICAgIFRoaXMgb25lIEkgaGF2
-ZSBubyBpZGVhLCBpdCBpcyAweDAwMDAwMDA5IHdpdGggdGhpcyBwYXRjaAo+ID4gPiBzZXJpZXMg
-YnV0Cj4gPiA+ICAgICB3aXRoIHRoZSB2ZW5kb3Iga2VybmVsIEkgZ2V0IHRoZSB2YWx1ZSBhYm92
-ZS4gV2hlbiBJIGhvb2sgdXAgbXkKPiA+ID4gICAgIGV4dGVybmFsCj4gPiA+ICAgICBkaXNwbGF5
-IChyZWd1bGFyIDE0NDBwKSB0aGlzIGJlY29tZXMgMHgwMDAwMDAwRCBvbiB0aGUgdmVuZG9yCj4g
-PiA+IGtlcm5lbC4KPiA+ID4KPiA+ID4gICAgIEJ1dCBJIGNhbid0IGZpbmQgdGhpcyByZWdpc3Rl
-ciBiZWluZyB3cml0dGVuIHRvIGFueXdoZXJlIHRoZXJlPwo+ID4gPgo+ID4gPgo+ID4gPiBNYXli
-ZSB0aGlzIG5lZWRzIHRvIGJlIHN3YXBwZWQ/Cj4gPiA+Cj4gPiA+IGRyaXZlcnMvZ3B1L2RybS9i
-cmlkZ2UvaW5uby1oZG1pLmMKPiA+ID4gICAgLSNkZWZpbmUgdl9IU1lOQ19QT0xBUklUWShuKSAg
-ICAgICAgICAoKG4pIDw8IDMpCj4gPiA+ICAgIC0jZGVmaW5lIHZfVlNZTkNfUE9MQVJJVFkobikg
-ICAgICAgICAgKChuKSA8PCAyKQo+ID4gPiAgICArI2RlZmluZSB2X0hTWU5DX1BPTEFSSVRZKG4p
-ICAgICAgICAgICgobikgPDwgMikKPiA+ID4gICAgKyNkZWZpbmUgdl9WU1lOQ19QT0xBUklUWShu
-KSAgICAgICAgICAoKG4pIDw8IDMpCj4KPiBWZXJ5IHdlaXJkbHksIHRoZSBvcmlnaW5hbCBkZWZp
-bml0aW9uIGhlcmUgbWF0Y2hlcyBjdXJyZW50IG1haW5saW5lCj4gaW5uby1oZG1pLmMsIGJ1dCB0
-aGUgY2hhbmdlZCBkZWZpbml0aW9uIG1hdGNoZXMgSkg3MTEwIHZlbmRvcgo+IGlubm9faGRtaS5o
-IFsxXS4KPgoKVGhlIHZlbmRvciBjb2RlIGlzIGNvcnJlY3QgYW5kIG1hdGNoZXMgdGhlIFJLMzEy
-OCBUUk0uCgpIRE1JX3JlZzA4CiAgICBCaXQgIEF0dHIgIFJlc2V0ICBEZXNjcmlwdGlvbgogICAg
-MyAgICBSVyAgICAweDAgICAgdnNfcG9sYXJpdHkgICBWU1lOQyBwb2xhcml0eSAgIDEnYjA6IE5l
-Z2F0aXZlCjEnYjE6IFBvc2l0aXZlCiAgICAyICAgIFJXICAgIDB4MCAgICBoc19wb2xhcml0eSAg
-IEhTWU5DIHBvbGFyaXR5ICAgMSdiMDogTmVnYXRpdmUKMSdiMTogUG9zaXRpdmUKCk5vYm9keSBu
-b3RpY2VkIHRoaXMgc28gZmFyIGJlY2F1c2UgaW4gNzIwcC8xMDgwcCBib3RoIHBvbGFyaXRpZXMg
-YXJlCnBvc2l0aXZlLCBidXQgTWF1ZCdzIDM6MiBwYW5lbCBoYXMgZGlmZmVyaW5nIEgvViBwb2xh
-cml0eS4KCkJlc3QKLURvbWluaXF1ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+On Wed, 2 Sep 2026 15:56:49 +0300
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+
+> On Wed, Sep 02, 2026 at 11:26:17AM +0200, Janani Sunil wrote:
+> > Add support for AD5529R 16-channel, 12/16 bit Digital to Analog Converter
+> > from Analog Devices.
+> > 
+> > The device communicates over SPI and supports per-channel output range
+> > configuration. An optional external 4.096V reference can be used in
+> > place of the internal reference.  
+> 
+> Since there might be a v12 (depends on Jonathan), a few more nit-picks.
+> 
+> ...
+> 
+> > +static const s32 ad5529r_output_ranges_mV[8][2] = {
+> > +	[AD5529R_RANGE_0V_5V] = { 0, 5000 },
+> > +	[AD5529R_RANGE_0V_10V] = { 0, 10000 },
+> > +	[AD5529R_RANGE_0V_20V] = { 0, 20000 },
+> > +	[AD5529R_RANGE_0V_40V] = { 0, 40000 },
+> > +	[AD5529R_RANGE_M5V_5V] = { -5000, 5000 },
+> > +	[AD5529R_RANGE_M10V_10V] = { -10000, 10000 },
+> > +	[AD5529R_RANGE_M15V_15V] = { -15000, 15000 },
+> > +	[AD5529R_RANGE_M20V_20V] = { -20000, 20000 },
+> > +};  
+> 
+> Perhaps use MILLI multiplier?
+I tried this and it looks pretty ugly so didn't adopt this one.
+If it were many more zeros I'd agree.
+
+> 
+> ...
+> 
+> > +static int ad5529r_read_raw(struct iio_dev *indio_dev,
+> > +			    struct iio_chan_spec const *chan,
+> > +			    int *val, int *val2, long mask)
+> > +{
+> > +	struct ad5529r_state *st = iio_priv(indio_dev);
+> > +	unsigned int reg_addr, reg_val_h;
+> > +	int ret, range_idx, span_mV;  
+> 
+> Why is 'range_idx' signed?
+
+Why isn't it the enum like where it is coming from?
+I changed it to the enum.
+
+diff --git a/drivers/iio/dac/ad5529r.c b/drivers/iio/dac/ad5529r.c
+index bc11d7671a76..8154b87ff831 100644
+--- a/drivers/iio/dac/ad5529r.c
++++ b/drivers/iio/dac/ad5529r.c
+@@ -228,8 +228,9 @@ static int ad5529r_read_raw(struct iio_dev *indio_dev,
+                            int *val, int *val2, long mask)
+ {
+        struct ad5529r_state *st = iio_priv(indio_dev);
++       enum ad5529r_output_range range_idx;
+        unsigned int reg_addr, reg_val_h;
+-       int ret, range_idx, span_mV;
++       int ret, span_mV;
+ 
+        switch (mask) {
+        case IIO_CHAN_INFO_RAW:
+
+> 
+> > +	switch (mask) {
+> > +	case IIO_CHAN_INFO_RAW:
+> > +		/*
+> > +		 * Read from DAC_INPUT_A register rather than DAC_DATA_READBACK.
+> > +		 * The DAC operates in transparent mode and directly reflects
+> > +		 * whatever value is written to the INPUT_A register.
+> > +		 */
+> > +		reg_addr = AD5529R_REG_DAC_INPUT_A(chan->channel);
+> > +		ret = regmap_read(st->regmap_16bit, reg_addr, &reg_val_h);
+> > +		if (ret)
+> > +			return ret;
+> > +
+> > +		*val = reg_val_h;
+> > +
+> > +		return IIO_VAL_INT;
+> > +	case IIO_CHAN_INFO_SCALE:
+> > +		range_idx = st->output_range_idx[chan->channel];
+> > +
+> > +		/*
+> > +		 * The datasheet specifies a 4.096 V external reference,
+> > +		 * matching the nominal output voltage of the internal
+> > +		 * reference.
+> > +		 */
+> > +		span_mV = ad5529r_output_ranges_mV[range_idx][1] -
+> > +			  ad5529r_output_ranges_mV[range_idx][0];
+> > +		*val = span_mV;
+> > +		*val2 = st->model_data->resolution;
+> > +
+> > +		return IIO_VAL_FRACTIONAL_LOG2;
+> > +	case IIO_CHAN_INFO_OFFSET:
+> > +		range_idx = st->output_range_idx[chan->channel];
+> > +
+> > +		if (ad5529r_output_ranges_mV[range_idx][0] < 0)
+> > +			*val = -BIT(st->model_data->resolution - 1);
+> > +		else
+> > +			*val = 0;
+> > +
+> > +		return IIO_VAL_INT;
+> > +	default:
+> > +		return -EINVAL;
+> > +	}
+> > +}  
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
