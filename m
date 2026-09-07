@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D38EC79F99
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 11:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20076C79F99
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 11:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X3Kfq4kUNiD9iRTbXI35lvkfF1dN5oZ6/kaX4/QhHzc=; b=Y8o9vj/Mq2ddqh
-	0ulhbhLmw/nNAMwvAN61ehqp3qYvZq/nMu44nLHo5Sq2JJfcqaXYIdMCo8CKrUyylYP8/7SW+9grU
-	WqmBRJ+Tc+13lz+IPt5AyXvUGCwdnQ19zun5vzRNkcyWL385uW6MJtPf4L7BDG1ru1+b1/qZYOwCK
-	m33g9AfWZvViEFyioqG/G4OQMKMFR99TlseHpqlF9a5kaRbsjLgvXlmFHis/jwBgwcmNtrVL+nmrv
-	Mg6nrLsJ2UuBONFijhbCu+bEjxIPkkNJ0CDVqqGsRtTDdCWSBRahzQxXa7bNynJxKABCayH41lu8O
-	LoXp3GSeilBv4Fofyd1A==;
+	List-Owner; bh=Lvjs0hKl9hBIfBdA8Kp2/atilYUkvQUk2tc75eXQufc=; b=ZcyquGTLIC6Vl0
+	t44JwbfF9CzbI2szFMVzprLVA3M6QV4zmunwugIGwx+cHMAxQA0/sFFHlkPzbvTkq8edUjLP1UJKE
+	n3LJoGt2MWSWFrvsTvMk6VBsGKqoRWM2TgDt/F/7+8NRTiM+ibKSKQyXE5wPH4KxlJNTFzD15mjx7
+	IzFpbScpLfplZJC/r9PMtBcXwxFmqD5AL/NI8edzMwbLyyVpD2XykL7wZf5C13iGOR9e4l0E9qJuR
+	yTPUjNRRgc9i/ZvOO7EoxAnThQhxeXK3uz58Gbi6LUC7I0yZe5YmSbgTuvWLy8Xt/3Rd36yuYo5ja
+	5OWzSixP4Gqmhqf3YAUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3XXg-00000006eqg-0SK7;
-	Mon, 07 Sep 2026 11:29:40 +0000
-Received: from [113.46.200.217] (helo=canpmsgout02.his.huawei.com)
+	id 1x3XXi-00000006erL-0oW1;
+	Mon, 07 Sep 2026 11:29:44 +0000
+Received: from [113.46.200.224] (helo=canpmsgout09.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3XXa-00000006enO-2m1R
+	id 1x3XXf-00000006epM-1PJJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 11:29:37 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=4fLtlkBiuB0dKIEhq8WkQbH4a+Gvw+bg1tZRF8p4ypM=;
-	b=c4oMSoqL0YUrS4sfQ++pg4ph+JJN4sR5nhLP4dbwj+wKTbFAC/kyoShweL7KYuCZpgyHPGvhX
-	U+5X7SMb3aoPiSqkBhVDHWyRsK7g0V26OCQlGHvzd6H5clE9pL6UDgyIUoJuZDneYewndkGP2a+
-	hzsEF/EGDNbi50vsViS+yWc=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hdl1L48P7zcbN0;
-	Mon,  7 Sep 2026 19:18:14 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 917894057A;
-	Mon,  7 Sep 2026 19:29:09 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- kwepemk200008.china.huawei.com (7.202.194.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Mon, 7 Sep 2026 19:29:07 +0800
-Message-ID: <75aeca50-74bf-4888-9dc8-7ac3c5af32ca@huawei.com>
-Date: Mon, 7 Sep 2026 19:29:06 +0800
+	Mon, 07 Sep 2026 11:29:41 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hdl1p3DgTz1cyPY;
+	Mon,  7 Sep 2026 19:18:38 +0800 (CST)
+Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
+	by mail.maildlp.com (Postfix) with ESMTPS id EB0C84057A;
+	Mon,  7 Sep 2026 19:29:30 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
+ (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 7 Sep
+ 2026 19:29:30 +0800
+Message-ID: <d48e5c92-f666-44e0-8375-9772d95065b5@hisilicon.com>
+Date: Mon, 7 Sep 2026 19:29:29 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/8] Convert barrier pairs to acquire/release for
- better performance
-To: Petr Mladek <pmladek@suse.com>
-CC: <bcrl@kvack.org>, <viro@zeniv.linux.org.uk>, <brauner@kernel.org>,
-	<jack@suse.cz>, <tytso@mit.edu>, <adilger.kernel@dilger.ca>,
-	<libaokun@linux.alibaba.com>, <ojaswin@linux.ibm.com>,
-	<ritesh.list@gmail.com>, <yi.zhang@huawei.com>, <sforshee@kernel.org>,
-	<akpm@linux-foundation.org>, <rostedt@goodmis.org>,
-	<andriy.shevchenko@linux.intel.com>, <linux@rasmusvillemoes.dk>,
-	<senozhatsky@chromium.org>, <kees@kernel.org>, <tglx@kernel.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-aio@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20260902074805.398540-1-ruanjinjie@huawei.com>
- <apq5iLOF8lAQ_ZVU@pathway.suse.cz>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <apq5iLOF8lAQ_ZVU@pathway.suse.cz>
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Subject: Re: [PATCH] ACPI: RISC-V: CPPC: Implement cpc_read_ffh_fb_ctrs()
+To: Yufan Dou <douyufan@picoheart.com>, Sunil V L <sunilvl@ventanamicro.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	<linux-acpi@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <yuchao.46@picoheart.com>, <yang.yicong@picoheart.com>,
+	<geshijian@picoheart.com>
+References: <20260902083450.2348-1-douyufan@picoheart.com>
+Content-Language: en-US
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <20260902083450.2348-1-douyufan@picoheart.com>
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_042935_407364_3B4ACCD5 
-X-CRM114-Status: GOOD (  25.10  )
+X-CRM114-CacheID: sfid-20260907_042939_681347_4A290DB4 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,127 +71,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyNi85LzQgMjA6MjgsIFBldHIgTWxhZGVrIOWGmemBkzoKPiBBZGRpbmcgUmlzYy1W
-IGxpc3QgaW50byBDYy4KPiAKPiBPbiBXZWQgMjAyNi0wOS0wMiAxNTo0Nzo1NywgSmluamllIFJ1
-YW4gd3JvdGU6Cj4+IEhpLAo+Pgo+PiBUaGlzIHNlcmllcyBjb252ZXJ0cyBzb21lIGV4aXN0aW5n
-IHNtcF93bWIoKS9zbXBfcm1iKCkgYmFycmllciBwYWlycyB0bwo+PiBzbXBfc3RvcmVfcmVsZWFz
-ZSgpL3NtcF9sb2FkX2FjcXVpcmUoKSBhY3Jvc3MgdmFyaW91cyBzdWJzeXN0ZW1zLgo+Pgo+PiBC
-YWNrZ3JvdW5kCj4+ID09PT09PT09PT0KPj4KPj4gTWFueSBhcmNoaXRlY3R1cmVzIHN1cHBvcnQg
-bG9hZCBhY3F1aXJlIGFuZCBzdG9yZSByZWxlYXNlIGluc3RydWN0aW9ucwo+PiB3aGljaCBjYW4g
-cmVwbGFjZSBleHBsaWNpdCBtZW1vcnkgYmFycmllcnMgYW5kIHNhdmUgY3ljbGVzLiBBcyBub3Rl
-ZAo+PiBpbiB0aGUgQVJNIGFyY2hpdGVjdHVyZSByZWZlcmVuY2UgWzFdOgo+Pgo+PiAgICJXZWFr
-ZXIgb3JkZXJpbmcgcmVxdWlyZW1lbnRzIHRoYXQgYXJlIGltcG9zZWQgYnkgTG9hZC1BY3F1aXJl
-IGFuZAo+PiAgICBTdG9yZS1SZWxlYXNlIGluc3RydWN0aW9ucyBhbGxvdyBmb3IgbWljcm8tYXJj
-aGl0ZWN0dXJhbAo+PiAgICBvcHRpbWl6YXRpb25zLCB3aGljaCBjb3VsZCByZWR1Y2Ugc29tZSBv
-ZiB0aGUgcGVyZm9ybWFuY2UgaW1wYWN0cwo+PiAgICB0aGF0IGFyZSBvdGhlcndpc2UgaW1wb3Nl
-ZCBieSBhbiBleHBsaWNpdCBtZW1vcnkgYmFycmllci4KPj4KPj4gICAgSWYgdGhlIG9yZGVyaW5n
-IHJlcXVpcmVtZW50IGlzIHNhdGlzZmllZCB1c2luZyBlaXRoZXIgYSBMb2FkLUFjcXVpcmUKPj4g
-ICAgb3IgU3RvcmUtUmVsZWFzZSwgdGhlbiBpdCB3b3VsZCBiZSBwcmVmZXJhYmxlIHRvIHVzZSB0
-aGVzZQo+PiAgICBpbnN0cnVjdGlvbnMgaW5zdGVhZCBvZiBhIERNQi4iCj4+Cj4+IE9uIGFybTY0
-LCBhIHR5cGljYWwgc2VxY291bnQgWzJdIHJlYWQgbG9vcCByZXF1aXJlcyAxMyBjeWNsZXMgd2l0
-aCBETUIKPj4gYmFycmllcnMuIFJlcGxhY2luZyB0aGUgcmVhZCBiYXJyaWVyIHdpdGggc21wX2xv
-YWRfYWNxdWlyZSgpIHJlZHVjZXMKPj4gdGhpcyB0byA4IGN5Y2xlcyBvbiBhbiBBbXBlcmUgQWx0
-cmEuCj4gCj4gSSB3b25kZXIgaWYgdGhpcyBpcyB0cnVlIG9uIGFsbCBvdGhlciBhcmNoaXRlY3R1
-cmVzOgo+IAo+ICAgKyBJdCBzZWVtcyB0aGF0IEFybSBnZXRzIHRoZSBnYWluIGJlY2F1c2UgdGhl
-IGluc3RydWN0aW9uCj4gICAgIGRvZXMgYm90aCBsb2FkL3N0b3JlICsgYmFycmllci4gSXQgaGVs
-cHMgZXZlbiB3aGVuCj4gICAgIHRoZSBiYXJyaWVyIGlzIGZ1bGwuCj4gCj4gICArIFNvbWUgb3Ro
-ZXIgYXJjaGl0ZWN0dXJlcyBuZWVkIHR3byBpbnN0cnVjdGlvbnMuIE9uZSBmb3IgdGhlCj4gICAg
-IGxvYWQvc3RvcmUgYW5kIHRoZSBvdGhlciBmb3IgdGhlIGJhcnJpZXIuIEJ1dCB0aGUgYmFycmll
-cgo+ICAgICBpcyB3ZWFrZXIsIGl0IHN5bmNocm9uaXplcyBqdXN0IHJlYWRzIG9yIGp1c3Qgd3Jp
-dGVzLgo+IAo+IEZvciBleGFtcGxlLCBJIHNlZSB0aGUgZm9sbG93aW5nIGluIHJpc2N2L2luY2x1
-ZGUvYXNtL2JhcnJpZXIuaDoKPiAKPiA8cGFzdGUgcmlzY3YvaW5jbHVkZS9hc20vYmFycmllci5o
-Pgo+ICNkZWZpbmUgc21wX21iKCkJUklTQ1ZfRkVOQ0UocncsIHJ3KQo+ICNkZWZpbmUgc21wX3Jt
-YigpCVJJU0NWX0ZFTkNFKHIsIHIpCj4gI2RlZmluZSBzbXBfd21iKCkJUklTQ1ZfRkVOQ0Uodywg
-dykKPiAKPiAjZGVmaW5lIHNtcF9zdG9yZV9yZWxlYXNlKHAsIHYpCQkJCQkJXAo+IGRvIHsJCQkJ
-CQkJCQlcCj4gCVJJU0NWX0ZFTkNFKHJ3LCB3KTsJCQkJCQlcCj4gCVdSSVRFX09OQ0UoKnAsIHYp
-OwkJCQkJCVwKPiB9IHdoaWxlICgwKQo+IAo+ICNkZWZpbmUgc21wX2xvYWRfYWNxdWlyZShwKQkJ
-CQkJCVwKPiAoewkJCQkJCQkJCVwKPiAJdHlwZW9mKCpwKSBfX19wMSA9IFJFQURfT05DRSgqcCk7
-CQkJCVwKPiAJUklTQ1ZfRkVOQ0UociwgcncpOwkJCQkJCVwKPiAJX19fcDE7CQkJCQkJCQlcCj4g
-fSkKPiA8L3Bhc3RlIHJpc2N2L2luY2x1ZGUvYXNtL2JhcnJpZXIuaD4KPiAKPiBJIHdvbmRlciB3
-aGV0aGVyOgo+IAo+ICAgKyBSSVNDVl9GRU5DRShyLCByKSBpcyBmYXN0ZXIgdGhhbiBSSVNDVl9G
-RU5DRShyLCBydykKPiAgICsgUklTQ1ZfRkVOQ0UodywgdykgaXMgZmFzdGVyIHRoYW4gUklTQ1Zf
-RkVOQ0UocncsIHcpCj4gCj4gc28gaXQgbWlnaHQgY2F1c2UgcGVyZm9ybWFuY2UgcmVncmVzc2lv
-biB0aGVyZS4uLgoKSGkgUGV0ciwKClRoYW5rcyBmb3IgdGhlIGRldGFpbGVkIGFuYWx5c2lzLiBZ
-b3UncmUgcmlnaHQgdGhhdCBvbiBzb21lCmFyY2hpdGVjdHVyZXMgdGhlIGFjcXVpcmUvcmVsZWFz
-ZSB2YXJpYW50cyB1c2UgYSBzbGlnaHRseSBoZWF2aWVyCmZlbmNlIHRoYW4gdGhlIHBsYWluIHNt
-cF93bWIoKS9zbXBfcm1iKCkgcGFpci4gVGhlIGZ1bGwgcGljdHVyZSBieQphcmNoaXRlY3R1cmU6
-CgogIGFybTY0OiAgICBJbXByb3ZlbWVudCAgIChETUIgSVNIU1QvSVNITEQgKyBTVFIvTERSIOKG
-kiBTVExSL0xEQVIpCiAgeDg2OiAgICAgIE5ldXRyYWwgICAgICAgKGJvdGggYXJlIGNvbXBpbGVy
-IGJhcnJpZXJzKQogIHMzOTA6ICAgICBOZXV0cmFsICAgICAgIChib3RoIGFyZSBjb21waWxlciBi
-YXJyaWVycykKICBwcGM2NDogICAgTmV1dHJhbCAgICAgICAoYm90aCB1c2UgbHdzeW5jKQogIGxv
-b25nYXJjaDogU2xpZ2h0bHkgaGVhdmllciBmZW5jZSAoREJBUihvX3dfdykg4oaSIERCQVIob3J3
-X3cpLAogICAgICAgICAgICAgICAgICAgICAgICAgICBEQkFSKG9yX3JfKSDihpIgREJBUihvcl9y
-dykpCiAgcmlzY3Y6ICAgIFNsaWdodGx5IGhlYXZpZXIgZmVuY2UgKGZlbmNlIHcsdyDihpIgZmVu
-Y2UgcncsdywKICAgICAgICAgICAgICAgICAgICAgICAgICAgZmVuY2UgcixyIOKGkiBmZW5jZSBy
-LHJ3KQoKU28gb24gTG9vbmdhcmNoIGFuZCBSaXNjdiwgdGhlcmUgbWF5IGJlIGEgc2xpZ2h0IHBl
-cmZvcm1hbmNlIHJlZ3Jlc3Npb24uCgpSZWdhcmRzLApKaW5qaWUKCj4gCj4gQmVzdCBSZWdhcmRz
-LAo+IFBldHIKPiAKPj4gV2UgYWxzbyBvYnNlcnZlZCBzaWduaWZpY2FudCBiYXJyaWVyIG92ZXJo
-ZWFkIHdoaWxlIHByb2ZpbGluZyBVbnhpYmVuY2gKPj4gc3lzY2FsbCB0ZXN0IG9uIGFybTY0OiBh
-IHNpbmdsZSBnZXR1aWQoKSBjYWxsIGlzIH44bnMgc2xvd2VyIHRoYW4gb24KPj4gYSBjb21wYXJh
-YmxlIHg4NiBzeXN0ZW0sIHdpdGggdGhlIGRvbWluYW50IGNvc3QgaW4gbWFwX2lkX3VwKCkncyBz
-bXBfcm1iKCksCj4+IHdoaWNoIGlzIGEgRE1CIElTSExEIG9uIGFybTY0LiBDb252ZXJ0aW5nIGl0
-IHRvIHNtcF9sb2FkX2FjcXVpcmUoKSBhbGxvd3MKPj4gdGhlIHVzZSBvZiBMREFSLCBlbGltaW5h
-dGluZyB0aGUgbWVhc3VyYWJsZSBvdmVyaGVhZC4KPj4KPj4gVGhpcyBtb3RpdmF0ZWQgYSBicm9h
-ZGVyIHNlYXJjaCBmb3IgZXhpc3RpbmcgYmFycmllciBwYWlycyB0aGF0IGNhbgo+PiBiZSBjb252
-ZXJ0ZWQgdG8gdGhlIGxpZ2h0ZXIgYWNxdWlyZS9yZWxlYXNlIHNlbWFudGljcy4KPj4KPj4gQ2hh
-bmdlcwo+PiA9PT09PT09Cj4+Cj4+IEVhY2ggcGF0Y2ggaW4gdGhpcyBzZXJpZXMgdGFyZ2V0cyBh
-IHNwZWNpZmljIGJhcnJpZXIgcGFpciB3aGVyZSB0aGUKPj4gcHVibGlzaC9zdWJzY3JpYmUgcGF0
-dGVybiBpcyBhbHJlYWR5IHByZXNlbnQ6Cj4+Cj4+IC0gV3JpdGVycyBwb3B1bGF0ZSBkYXRhLCB0
-aGVuIHB1Ymxpc2ggYSBmbGFnL2NvdW50L3BvaW50ZXIgdmlhCj4+ICAgc21wX3N0b3JlX3JlbGVh
-c2UoKQo+Pgo+PiAtIFJlYWRlcnMgbG9hZCB0aGUgZmxhZy9jb3VudC9wb2ludGVyIHZpYSBzbXBf
-bG9hZF9hY3F1aXJlKCksIHRoZW4KPj4gICBjb25zdW1lIHRoZSBkYXRhCj4+Cj4+IFRoaXMgcHJl
-c2VydmVzIHRoZSBleGlzdGluZyBtZW1vcnkgb3JkZXJpbmcgZ3VhcmFudGVlcyB3aGlsZSBhbGxv
-d2luZwo+PiBhcmNoaXRlY3R1cmVzIHdpdGggbmF0aXZlIGFjcXVpcmUvcmVsZWFzZSBpbnN0cnVj
-dGlvbnMgKGUuZy4gYXJtNjQncwo+PiBTVExSL0xEQVIpIHRvIGF2b2lkIHRoZSBjb3N0IG9mIGZ1
-bGwgb25lLXdheSBiYXJyaWVycyAoRE1CIElTSFNUL0lTSExEKS4KPj4gT24gYXJjaGl0ZWN0dXJl
-cyB3aXRob3V0IG5hdGl2ZSBzdXBwb3J0LCB0aGUgZ2VuZXJhdGVkIGNvZGUgaXMKPj4gZ2VuZXJh
-bGx5IG5vIHdvcnNlIHRoYW4gdGhlIGV4cGxpY2l0IGJhcnJpZXIgcGFpci4KPj4KPj4gVGhlIGNv
-bnZlcnNpb25zIGFyZSBtZWNoYW5pY2FsIGFuZCBubyBmdW5jdGlvbmFsIGNoYW5nZSBpcyBpbnRl
-bmRlZC4KPj4KPj4gVGVzdGluZyAoS3VucGVuZyBISVAwOSBhcm02NCBzZXJ2ZXIpCj4+ID09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQo+Pgo+PiAxLiBVTklYQkVOQ0ggc3lzY2Fs
-bAo+PiAJQmFzZWxpbmU6IDcxNS4yNwo+PiAJUGF0Y2hlZDogIDcxOC44Mwo+PiAJSW1wcm92ZW1l
-bnQ6ICswLjUwJQo+Pgo+PiAyLiBmcy9haW8gKGZpbyArIG51bGxfYmxrLCA0IGpvYnMpOgo+PiAJ
-QmFzZWxpbmU6IDE0NDFrIElPUFMsIDg2LjQ2dXMKPj4gCVBhdGNoZWQ6ICAxNDUyayBJT1BTLCA4
-NS44MHVzCj4+IAlJbXByb3ZlbWVudDogfjAuOCUKPj4KPj4gQm90aCBpbXByb3ZlbWVudHMgYXJl
-IGNvbnNpc3RlbnQgYWNyb3NzIHJ1bnMgYW5kIGFsaWduIHdpdGggdGhlCj4+IGV4cGVjdGVkIHNh
-dmluZ3MgZnJvbSByZXBsYWNpbmcgRE1CIHdpdGggTERBUi9TVExSIG9uIGFybTY0Lgo+Pgo+PiBb
-MV06IGh0dHBzOi8vc3VwcG9ydC5hcm0uY29tL2RvY3VtZW50YXRpb24vMTAyMzM2LzAxMDAvTG9h
-ZC1BY3F1aXJlLWFuZC1TdG9yZS1SZWxlYXNlLWluc3RydWN0aW9ucwo+PiBbMl06IGh0dHBzOi8v
-Z2l0aHViLmNvbS90b3J2YWxkcy9saW51eC9jb21taXQvZDBkZDA2NmEwZmEyNmQ1NWMxOWFjZTll
-ODlkZWRkOTUwNGM1YmNiYQo+Pgo+PiBDaGFuZ2VzIGluIHYzOgo+PiAtIEFkZCBSZXZpZXdlZC1i
-eS4KPj4gLSBTcGxpdCBvdXQgbmV0d29yayBwYXRjaCBzZXQgYXMgS3VuaXl1a2kgc3VnZ2VzdGVk
-Lgo+PiAtIExpbmsgdG8gdjI6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI2MDkwMTAy
-NDIzNC4xMzUxMTktMS1ydWFuamluamllQGh1YXdlaS5jb20vCj4+Cj4+IENoYW5nZXMgaW4gdjI6
-Cj4+IC0gRml4IHByZS1leGlzdGluZyBpc3N1ZSBmb3IgZXh0NCBhbmQgODAyMXEgWzNdLgo+PiAt
-IEZpeCBtaXNzaW5nIGNvcHlfbW50X2lkbWFwKCkgdWRhcHRlIFszXS4KPj4gLSBEcm9wIG5hY2tl
-ZCBpc290cCBwYXRjaC4KPj4gLSBBZGQgdGVzdCBkYXRhLgo+PiAtIEFkZCBSZXZpZXdlZC1ieSBh
-bmQgdXBkYXRlIGZzIHBhdGNoIGFzIEphbiBzdWdnZXN0ZWQuCj4+Cj4+IFszXTogaHR0cHM6Ly9z
-YXNoaWtvLmRldi8jL3BhdGNoc2V0LzIwMjYwODI1MDk1NDIyLjMxNjYwNjctMS1ydWFuamluamll
-JTQwaHVhd2VpLmNvbQo+Pgo+PiBKaW5qaWUgUnVhbiAoOCk6Cj4+ICAgdXNlcl9uYW1lc3BhY2U6
-IFVzZSBhY3F1aXJlL3JlbGVhc2UgZm9yIG5yX2V4dGVudHMgc3luY2hyb25pemF0aW9uCj4+ICAg
-bGliL3ZzcHJpbnRmOiBVc2UgYWNxdWlyZS9yZWxlYXNlIGZvciBwdHJfa2V5IHB1YmxpY2F0aW9u
-Cj4+ICAgZnM6IGFpbzogVXNlIGFjcXVpcmUvcmVsZWFzZSBmb3IgcmluZy0+dGFpbCBwdWJsaWNh
-dGlvbgo+PiAgIGZzOiBVc2UgYWNxdWlyZS9yZWxlYXNlIGZvciBmZHRhYmxlIHJlc2l6ZSBzeW5j
-aHJvbml6YXRpb24KPj4gICBwaWRmczogVXNlIHRlc3RfYml0X2FjcXVpcmUoKSBmb3IgYXR0ciBm
-bGFnIHRlc3RzCj4+ICAgc3VwZXI6IFVzZSBhY3F1aXJlIGZvciBTQl9CT1JOIGNoZWNrIGluIHN1
-cGVyX2NhY2hlX2NvdW50KCkKPj4gICBleHQ0OiBGaXggb3V0LW9mLWJvdW5kcyByZWFkIGluIGV4
-dDRfZ2V0X2dyb3VwX2luZm8oKQo+PiAgIGV4dDQ6IENvbnZlcnQgZ3JvdXAtY291bnQgYmFycmll
-ciBwcm90b2NvbCB0byBhY3F1aXJlL3JlbGVhc2UKPj4KPj4gIGZzL2Fpby5jICAgICAgICAgICAg
-ICAgIHwgMTAgKysrKy0tLS0tLQo+PiAgZnMvZXh0NC9iYWxsb2MuYyAgICAgICAgfCAgMiArLQo+
-PiAgZnMvZXh0NC9leHQ0LmggICAgICAgICAgfCAxMCArKystLS0tLS0tCj4+ICBmcy9leHQ0L21i
-YWxsb2MuYyAgICAgICB8ICA2ICsrLS0tLQo+PiAgZnMvZXh0NC9yZXNpemUuYyAgICAgICAgfCAx
-OSArKysrKysrKysrKy0tLS0tLS0tCj4+ICBmcy9maWxlLmMgICAgICAgICAgICAgICB8IDEwICsr
-KystLS0tLS0KPj4gIGZzL21udF9pZG1hcHBpbmcuYyAgICAgIHwgIDUgKystLS0KPj4gIGZzL3Bp
-ZGZzLmMgICAgICAgICAgICAgIHwgIDYgKystLS0tCj4+ICBmcy9zdXBlci5jICAgICAgICAgICAg
-ICB8ICA2ICsrLS0tLQo+PiAga2VybmVsL3VzZXJfbmFtZXNwYWNlLmMgfCAyNCArKysrKysrKysr
-KysrLS0tLS0tLS0tLS0KPj4gIGxpYi92c3ByaW50Zi5jICAgICAgICAgIHwgMTEgKysrKy0tLS0t
-LS0KPj4gIDExIGZpbGVzIGNoYW5nZWQsIDQ4IGluc2VydGlvbnMoKyksIDYxIGRlbGV0aW9ucygt
-KQo+Pgo+PiAtLSAKPj4gMi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+
+
+On 9/2/2026 4:34 PM, Yufan Dou wrote:
+> On RISC-V, each cpc_read_ffh() for a CSR-type FFH register sends a
+> separate IPI to the target hart via smp_call_function_single().
+> cppc_get_perf_ctrs() therefore samples the delivered and reference
+> counters in two separate IPIs, at two different instants. The skew
+> between the two sampling points distorts the delivered/reference
+> ratio and thus the frequency reported by cpufreq.
+> 
+> Implement the cpc_read_ffh_fb_ctrs() hook to read both CSR counters
+> back-to-back in a single IPI, which narrows the sampling window to a
+> few instructions and halves the number of cross-CPU calls. This
+> improves the accuracy of the reported frequency in the same way as
+> the arm64 implementation of the hook, which reads both AMU counters
+> in a single counters_read_on_cpu() call.
+> 
+> SBI-type FFH registers still fall back to individual reads, since
+> pairing them would not reduce the number of SBI calls on the target
+> hart.
+> 
+> Testing was performed while CPU1 was kept busy with:
+> 
+>   # stress-ng --cpu 1 --taskset 1
+> 
+> On a CPU with cpuinfo_max_freq of 3000000 kHz:
+> 
+> Before:
+> 
+>   Maximum observed cpuinfo_cur_freq: 3201369 kHz
+>   Maximum observed error:            +201369 kHz (+6.71%)
+> 
+> After:
+> 
+>   Maximum observed cpuinfo_cur_freq: 3009646 kHz
+>   Maximum observed error:              +9646 kHz (+0.32%)
+> 
+> The maximum observed error is reduced by 95.2%.
+Glad to see that works for RISC-V as well.
+> 
+> Signed-off-by: Yufan Dou <douyufan@picoheart.com>
+> ---
+>  drivers/acpi/riscv/cppc.c | 47 +++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+> 
+> diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
+> index 42c1a9052470..2ca98fa69e9a 100644
+> --- a/drivers/acpi/riscv/cppc.c
+> +++ b/drivers/acpi/riscv/cppc.c
+> @@ -85,6 +85,20 @@ static void cppc_ffh_csr_write(void *write_data)
+>  	data->ret.error = -EINVAL;
+>  }
+>  
+> +struct sbi_cppc_fb_ctrs_data {
+> +	struct sbi_cppc_data first;
+> +	struct sbi_cppc_data second;
+> +};
+> +
+> +static void cppc_ffh_csr_read_fb_ctrs(void *read_data)
+> +{
+> +	struct sbi_cppc_fb_ctrs_data *data = read_data;
+> +
+> +	cppc_ffh_csr_read(&data->first);
+> +	if (!data->first.ret.error)
+> +		cppc_ffh_csr_read(&data->second);
+> +}
+> +
+>  /*
+>   * Refer to drivers/acpi/cppc_acpi.c for the description of the functions
+>   * below.
+> @@ -125,6 +139,39 @@ int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
+>  	return -EINVAL;
+>  }
+>  
+> +int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
+> +			 struct cpc_reg *reg2, u64 *val2)
+> +{
+> +	struct sbi_cppc_fb_ctrs_data data;
+> +	int ret;
+> +
+> +	if (WARN_ON_ONCE(irqs_disabled()))
+> +		return -EPERM;
+AFAICS, this may cause CPPC FIE to constantly fail to read counters because
+FIE runs in hardirq context.
+
+Any test on CPPC FIE?
+> +
+> +	/* Only CSR counters can be paired within a single IPI. */
+> +	if (FFH_CPPC_TYPE(reg1->address) != FFH_CPPC_CSR ||
+> +	    FFH_CPPC_TYPE(reg2->address) != FFH_CPPC_CSR)
+> +		return -EOPNOTSUPP;
+> +
+> +	data.first.reg = FFH_CPPC_CSR_NUM(reg1->address);
+> +	data.second.reg = FFH_CPPC_CSR_NUM(reg2->address);
+> +
+> +	ret = smp_call_function_single(cpu, cppc_ffh_csr_read_fb_ctrs,
+> +				       &data, 1);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (data.first.ret.error)
+> +		return data.first.ret.error;
+> +	if (data.second.ret.error)
+> +		return data.second.ret.error;
+> +
+> +	*val1 = data.first.ret.value;
+> +	*val2 = data.second.ret.value;
+> +
+> +	return 0;
+> +}
+> +
+>  int cpc_write_ffh(int cpu, struct cpc_reg *reg, u64 val)
+>  {
+>  	struct sbi_cppc_data data;
+> 
+> base-commit: 89a312991dc6e638a36adc43ccb91dbc25504c04
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
