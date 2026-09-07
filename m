@@ -4,92 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000D5C79FA1
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 15:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3ECC79FA1
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 16:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P63/UZQUXIYzZ5OczGsUWMrCKWFYyIsq4n0LvoD0ALA=; b=eq13xwVtIJ4yc+
-	y/NbeodtGSzwsO79NG5bzquki+4fs5k7RPxzzgG0JvT7lvGF0PXcKTRchM0jskJDXuaLzo7Hzysaw
-	M90FdOC+kwoWdmH9TlHFiPFMpdhCJRCaQkLExirk0mHvwDV3ZMNE8yGI3ftjvpenVKlIqv0ZokgCV
-	2v9LnTXko1+ChiuL/q16EyPuwbYXiEjxIBOEVAksa6a6a2TL6E1jTiOefG298YlK8ru6m++SR6Vsu
-	KlkKhTkO5dII9+fpAfD6awRmPWgZRUqhcdVdgLicdirlbyh58iyII6+JXi8DW/WgE11vyHLghzRFq
-	D2EeYV3tA1bU73QZFyjA==;
+	List-Owner; bh=JdZUkiKNLf31El3B4OR+ZTlUgPZW7ijSbcK9LFh1Pjs=; b=YPxthx9Qnpwawb
+	5LChdnl2VUzqs/nAAbphRr0mv4MUnAbQKJAcrB92UfDb6xXCi4ZA8/qKcgr8GZYpz6GOvY04RujfH
+	I/9blKMbX5tueDead0/ypqfEqL4j8Pxb/EtMKKzMJ6Eficul/zs4TbRjOEhZVZvOnf4xlfDlRgb7p
+	QwW9B41jWeKA/SkdEEJHI/0vrYG9dtRTdnTTUQZbIm6chMZznv6ot13cYFAjUe102RlWMnJNVenjz
+	TM8R8vXo+4oirWs1Adb4onnekOKj8HLSvpC7Lq+d0RMO2xG6NFuFTlLcbleiNmQUiR0ZU8T265jmn
+	c4xaFiY5dljBWfvAU1eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3beh-00000007Ept-3coI;
-	Mon, 07 Sep 2026 15:53:11 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1x3byh-00000007Get-10pm;
+	Mon, 07 Sep 2026 16:13:51 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bef-00000007Ep5-19gZ
-	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 15:53:10 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3969e82ff8fso3731076a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Sep 2026 08:53:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788796388; x=1789401188; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6erjGy3u0IztxSasYUB07Hda9mjPevh3TT6gn74YsDM=;
-        b=UK2tYDckyMdGMuepNIKibhTXVJMLPH3WlZDhTVx6QdsuJ5LSM/nYvSEDkVEpeYdHH5
-         vaYDLsP3KU0dwcJ1WQ6oi2siEf8zXK9/4z//fsgz7u/3SA3cLYqehQtO9M1HQISMAoXQ
-         avVuCkFP5EzIxRnWX+6ySacKoRoAQWWyDj2xI5lTB/lIbcvtYPYxemEkA/fUzFNK8+yY
-         NOrduyE4zCcBZcZGfELJRpyBDQwOX05vGgMOK81sJkVCr5HyahqyN2tUyOo3+vxdAQNw
-         HdmzPjKfPuq4LMA65tanZkft3fQ8iacy90GMeQR1LmPKIMt+Ca99Lji8aIUIVl343rco
-         5fWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788796388; x=1789401188;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6erjGy3u0IztxSasYUB07Hda9mjPevh3TT6gn74YsDM=;
-        b=YRZACUaZFSHnj42qo2lTr6V1fVA6weT+zFcwQMqBx8ZuhYvilFLxzDNvcEHQVY+8rT
-         vPAuXBhX4ZqIcPsHvBN28OXSuzwe1pSdJY/HQiF/U7f2yaAKriJWBjNzZ6r7Vr97ZasD
-         rAvkEF1Q+wrWLX/sqWksa3D+9f0xsqYGevyWuhw6EzHO4D2QG6kl6t+K67bXJ0X65RAz
-         4DNbGKDFgcAB5AQkXCXxCtyMZusNQ117I+DLNa6KnRuVyX8Cc8sQYzUia4KA+56xZjWO
-         vhffaeOjjBerRO5nPC1AG9jn/i1bs8xWxIU4w0JoGcVnkQtxWbdOg45lcbWDkFRCWz0E
-         SWRg==
-X-Forwarded-Encrypted: i=1; AKwUvBwHN5wyZ2j5jiuB8pUYVDXwFUCpjLUtiJ6koPIvdX2rBVoEnQTOKFSeXtgqUbv20iiDtKMOcoHMqDxESg==@lists.infradead.org
-X-Gm-Message-State: AFuF++niySMpBgh9P890PhRyqcTm5QvhqnDGKpP+zRmKLuWr326uD15l
-	faqxonXOrQpyPW/YBmaDi4c7kwrGcz6T61I1VQHqZXj2yqERjuyuYeVK
-X-Gm-Gg: AYBFou1t7Yx5rRjkPjId/rgcpEj0vuFq1Zzq+VyHl09bmQr+G40h8qfkouKlukjS/Zr
-	uhmrG0QOUUWidmsVGtVVtbMFkZ1U3YkXC0UQs6wAFYiQt/oc24yYDsdNNamCYqbDwcqtpNo4yBj
-	7bel6D/JDtTd92BoBPv/SceF2uwzBa10MFSvaZqvO1oejNKesVLJfXXzPJdOrjitMlhK824a1Jk
-	P0mGzV0SfCIGujIOV5fqJuZei7U0PNm3Pm03vXmeLGeOVTz/AgTN/AZ4PEHjqC9q3WggQQBwGh7
-	m1P37SGNk9V6qyUbIFxEOY+hecoWEWf5VA/wd5aBKHStCVZuGX0McWkF30a0DTDKs1TNqlSmERG
-	Mahx5JO7gADasJCk0DdB3ca5dLn3qMeh7S0XcLA+PuQXlEUu4WBl35gAZLimLVZtvp5MAH1vfgU
-	NbIVjnkj+PbhqQPGoSmQtc7lwzesXUJaV1setfrkdBAfHuk+gPkKJ15+8wkvPgBgJDqQXJ/QTNO
-	TJc5DaAXC53r+JWRNU+Iav0ulWaHM6OFQWegoBIF843c9ZEdN8VVVzIFGExGfo1RFKvKqgHAjiF
-	KjLvtEhx0oP8WXqruLEioVHR+uA1Pz63AZHjDNrdC1AsdxbgIR1F/w==
-X-Received: by 2002:a17:90b:3c42:b0:38e:fea2:df53 with SMTP id 98e67ed59e1d1-39b260d2977mr35695612a91.4.1788796387891;
-        Mon, 07 Sep 2026 08:53:07 -0700 (PDT)
-Received: from alanhc-14700.tailb22ec2.ts.net (180-177-138-120.dynamic.kbronet.com.tw. [180.177.138.120])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b90e26276sm59604a91.2.2026.09.07.08.53.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 08:53:07 -0700 (PDT)
-From: Hung-Chun Tseng <alan.tseng.cs@gmail.com>
-To: dlan@kernel.org,
-	adrian.hunter@intel.com,
-	ulfh@kernel.org
-Cc: long.wan@linux.spacemit.com,
-	linux-mmc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH 6/7] mmc: sdhci-of-k1: Improve RX tuning window
-Date: Mon,  7 Sep 2026 23:53:00 +0800
-Message-ID: <20260907155300.1411173-1-alan.tseng.cs@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260902-07-k3-sdhci-fix-v1-6-b15c5d0f64fd@kernel.org>
-References: <20260902-07-k3-sdhci-fix-v1-6-b15c5d0f64fd@kernel.org>
+	id 1x3byd-00000007Gdx-2Dqv;
+	Mon, 07 Sep 2026 16:13:49 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id E5479219FA;
+	Mon,  7 Sep 2026 16:13:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1788797620;
+	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
+	 cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ejjj/UktNvHuL6ZfBgZGy2xOjH4lWFO1beWpbKfBw+Y=;
+	b=oeIFSP/L7324gUSNEaYyp0KvjIp3oQI6RVhqgp2FBq0m49WuGeoy1zRIO/5nqzENHG+mG1
+	3I9/e7RZBR0bX//gSSRRZHy+4nCa7HrY3t7N7iU9SeMYCFVC4sJVwNbKr6WTuh4G4x2/+I
+	ipZtHvSR+tcSiBKdXZn97W8WWTtz+R4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1788797620;
+	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
+	 cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ejjj/UktNvHuL6ZfBgZGy2xOjH4lWFO1beWpbKfBw+Y=;
+	b=kNANdT9iEIOsfAslKtmL2Q5eOUtU61PuGxDvBbGP3Xy3WUe1CHTjmKw4dOQMHg++xKpkoX
+	9F2kXR1wCo97u3Cg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1788797615;
+	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
+	 cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ejjj/UktNvHuL6ZfBgZGy2xOjH4lWFO1beWpbKfBw+Y=;
+	b=u1sO1jKj1FfYIzynI5bvYBkCHyro3DcF4Brevq/t09F8gGP51aD7yvK3titlL8rwhbmuiI
+	A0j0RJcHyqXxzT+B+py3ObaISB8tPQomVAWwRDRUUVudapBz87sohNNZQXmmpCnItWecYc
+	8hlFuJ4UpElNyrD13S3AkRRWDsvjQiE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1788797615;
+	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
+	 cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ejjj/UktNvHuL6ZfBgZGy2xOjH4lWFO1beWpbKfBw+Y=;
+	b=rRrXf8R3i97G0BUMSmSQiLikYTVEvTzIi0tEO54jMomkUPIdivwrpoQwYF7THAPUBMtj1H
+	tYUuuZzTr7cEy7Cg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9A6F71339B;
+	Mon,  7 Sep 2026 16:13:35 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id q4uAJa/inmqFDgAAD6G6ig
+	(envelope-from <dsterba@suse.cz>); Mon, 07 Sep 2026 16:13:35 +0000
+Date: Mon, 7 Sep 2026 18:13:30 +0200
+From: David Sterba <dsterba@suse.cz>
+To: Song Chen <chensong_2000@126.com>
+Cc: arnd@arndb.de, kees@kernel.org, clm@fb.com, dsterba@suse.com,
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	guoren@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
+	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, gor@linux.ibm.com, borntraeger@linux.ibm.com,
+	agordeev@linux.ibm.com, svens@linux.ibm.com, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	x86@kernel.org, hpa@zytor.com, jpoimboe@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 0/3] btrfs: add error injection support for
+ checksum verification
+Message-ID: <20260907161330.GX9053@suse.cz>
+References: <20260724021229.47302-1-chensong_2000@126.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260724021229.47302-1-chensong_2000@126.com>
+User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
+X-Spamd-Result: default: False [-2.50 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	HAS_REPLYTO(0.30)[dsterba@suse.cz];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_TLS_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLq7rgjtkhinpjg5fumb6k6gau)];
+	TO_DN_SOME(0.00)[];
+	FREEMAIL_TO(0.00)[126.com];
+	FREEMAIL_ENVRCPT(0.00)[126.com,gmail.com];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[arndb.de,kernel.org,fb.com,suse.com,armlinux.org.uk,arm.com,xen0n.name,linux.ibm.com,ellerman.id.au,gmail.com,dabbelt.com,eecs.berkeley.edu,ghiti.fr,redhat.com,alien8.de,linux.intel.com,zytor.com,lists.infradead.org,vger.kernel.org,lists.linux.dev,lists.ozlabs.org];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:replyto,suse.cz:mid,imap1.dmz-prg2.suse.org:helo];
+	RCVD_COUNT_TWO(0.00)[2];
+	REPLYTO_ADDR_EQ_FROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	REPLYTO_DOM_NEQ_TO_DOM(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_085309_313569_16B86AA0 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20260907_091347_754055_8079ABD0 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,80 +142,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: dsterba@suse.cz
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 08:04:27AM +0000, Yixun Lan wrote:
-> Raise the minimum delay codes of RX tuning window from 3 to 50, to more
-> accurately retrieve a valid configuration.
->
-> A window of 3 codes wide leaves no sampling margin, which will result
-> tuning tests reporting success on a configuration that drifts out of the
-> window under thermal or power variation.
+On Fri, Jul 24, 2026 at 10:12:26AM +0800, Song Chen wrote:
+> This patchset adds fault injection support for btrfs_data_csum_ok,
+> enabling controlled simulation of checksum mismatches to test btrfs
+> silent data corruption detection and reporting paths.
+> 
+> The first patch extends the error injection framework with a new type,
+> EI_ETYPE_FALSE, which allows bool-returning functions to be overridden
+> with a false return value directly.
+> 
+> The second patch marks btrfs_data_csum_ok with ALLOW_ERROR_INJECTION
+> using this new type.
+> 
+> The third patch adds a parent field to fei_attr to allow fault injection
+> on a function only when called from a specific parent function. 
+> 
+> Song Chen (3):
+>   error-injection: Introduce EI_ETYPE_FALSE for fail_function
+>   btrfs: Allow error injection on btrfs_data_csum_ok
+>   error-injection: Introduce parent in fei_attr
 
-I agree with the motivation, and I have some data from a K1 board that
-supports it. But I would like to ask about making 50 a compile-time
-constant.
+I'm going through my mailbox and found this. No objections to add the
+injection point to btrfs, but the rest is generic fault injection code
+so I can't take it via btrfs tree without acks.
 
-Caveat up front: my board runs the vendor sdhci-spacemit driver
-(6.6.63, compatible "spacemit,k1-x-sdhci"), not sdhci-of-k1.c, so the
-numbers below are observations from that driver rather than a test of
-this series. I could not test the series itself: rootfs on this board
-is on the SD card driven by this controller, and there is no eMMC, so
-a tuning regression means it does not boot.
+There are some sashiko comments (as replies in the thread [1]) and there
+have been some changes to btrfs code too so the patchset needs a
+refresh.
 
-Measured RX tuning windows, Milk-V Jupiter (K1), SDR104 SD card,
-across three boots (the vendor driver already logs these):
+I see maintainers in CC, if somebody could please let us know how to
+proceed.
 
-  mmc0 (SD, rootfs):
-    boot 0:  [0,55) [77,255)         -> widest 178
-    boot -1: [0,54) [77,255)         -> widest 178
-    boot -2: [0,50) [71,76) [79,255) -> widest 176
+[1] https://lore.kernel.org/all/20260724021229.47302-1-chensong_2000@126.com/
 
-  mmc1 (SDIO):
-    boot 0:  [0,73) [81,106) [137,255) -> widest 118
-    boot -1: [0,74) [81,106) [107,108) -> widest 74
-    boot -2: [0,76) [82,100)           -> widest 76
-
-So a threshold of 50 is comfortable here. It also supports your
-rationale directly: boot -2 produced a 5-code window and boot -1
-produced a 1-code window on mmc1, so the narrow-window case this
-patch guards against does occur in practice.
-
-Relevant to the delay-line question in 5/7: this board's DT already
-sets spacemit,rx_dline_reg = 0, so the windows above are already at
-the finest step size, i.e. they should be comparable to post-5/7
-behaviour rather than to the current mainline default of 9.
-
-My question is about the form rather than the value. The vendor
-driver takes this same limit from DT, per host:
-
-  sdh@d4280000: spacemit,rx_tuning_limit = <0x32>;  /* 50 */
-  sdh@d4280800: spacemit,rx_tuning_limit = <0x32>;  /* 50 */
-
-So 50 matches what SpacemiT already ships -- but there it is a
-per-controller DT property, and this patch turns it into a global
-compile-time constant. Was that deliberate? The vendor design implies
-the value is expected to need per-board adjustment, and with a Fixes:
-tag this will land in stable, where a board with a narrower window
-would go from "adjust the DT" to "patch and rebuild the kernel".
-
-Two options, if you think the concern is real: keep it as a DT
-property (matching the existing binding), or keep the constant as a
-default that DT can override.
-
-One more thing on 5/7 and 6/7: since patch 5 changes the delay-line
-step from 9 to 0, the same physical timing window spans a different
-number of delay codes with and without it. If 50 is calibrated against
-the finest step, then backporting 6/7 without 5/7 could reject
-configurations that currently work. Both carry Fixes: tags pointing at
-e9cb83c10071, so they may well be picked up separately -- might be
-worth making the dependency explicit for the stable maintainers.
-
-Thanks,
-Hung-Chun Tseng <alan.tseng.cs@gmail.com>
+>  arch/arm/lib/error-inject.c           |  6 ++
+>  arch/arm64/lib/error-inject.c         |  6 ++
+>  arch/csky/lib/error-inject.c          |  6 ++
+>  arch/loongarch/lib/error-inject.c     |  6 ++
+>  arch/powerpc/lib/error-inject.c       |  6 ++
+>  arch/riscv/lib/error-inject.c         |  6 ++
+>  arch/s390/lib/error-inject.c          |  6 ++
+>  arch/x86/lib/error-inject.c           |  6 ++
+>  fs/btrfs/inode.c                      |  1 +
+>  include/asm-generic/error-injection.h |  6 ++
+>  kernel/fail_function.c                | 98 ++++++++++++++++++++++++++-
+>  11 files changed, 152 insertions(+), 1 deletion(-)
 
 _______________________________________________
 linux-riscv mailing list
