@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BEE6C79FA3
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 07:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB20C79FA0
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 07:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Message-Id:Date:Subject:
-	References:From:In-Reply-To:Cc:To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:Date:Subject:
+	Cc:Message-Id:References:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R7LENZzCOZ/fCIydBGO4FfByfot352gbwmY09NrfHkk=; b=OvatZjDsEPVRkK
-	BXsLFv5rnorlg6Xl++QAQLLL3HoFB1irhNwwB5JcVl4CVmjFccS9HqREHJxa2fZcoNJB80i93B8Jc
-	4DlLe3yhlo6YsWCuRZClD/DyGbazN9N1DMbyj4eanNSnVLnm1MEXR8BLTRbx6CInniSTiukpknKww
-	MrPritn26nX6hUjuiWRF5TMwjVQgSdGtUEOaGAlldWRh4xZzoNNB5RDAAxw1vLl3+Z37/LSGMhRWl
-	UqwP1RDfv48J5e16zVfYc2p+fc8V5KL4sSWtxWNp8PANACm48DkF1MfRZ3jFyJsEJgtp7IFTZ8z5a
-	jIRT6O+0f+ADfVeiR26g==;
+	List-Owner; bh=QghQAIWyU1uT6gH7EuuhnmsUKpWt+31WP8WvGeHlJBE=; b=3KkYTmJ91jKL7X
+	NLJn4sEf0c/DoU1sJOrNhxAu8MCJzD813WmHBnrdScQwPZyo4Z+s95runhNvataHybopPVZS4Kl6I
+	/i6AKG74+ErcKCTktZ8PpynmA/bd4S/KKkGtKhZogMV5xB27b8fRxVYkv5ici1vqmNXDymgz1EU9V
+	Tt05RozHYqcuMQ6Ry6M/FWccuDeLo7mGLk7DNWbYj6h39f9oL0CB8xYeA4NDBhg0vf6MvOP2lP59G
+	5SFeNdnB9h8uyxFLV2XpvRjFFWEkcSzstsiZjMuWWM5m6RO8rI/6FTd0bBzeoNyBx5my65csHgvIN
+	o7p03N+AeISTMQ7/z6Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TgN-00000006984-0SKv;
-	Mon, 07 Sep 2026 07:22:24 +0000
-Received: from va-2-36.ptr.blmpb.com ([209.127.231.36])
+	id 1x3TgM-0000000697G-1Emw;
+	Mon, 07 Sep 2026 07:22:22 +0000
+Received: from va-2-27.ptr.blmpb.com ([209.127.231.27])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TgH-0000000695O-0lN7
+	id 1x3TgC-0000000694O-3nrl
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 07:22:20 +0000
+	Mon, 07 Sep 2026 07:22:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1788765725; h=from:subject:
+ s=feishu2604151535; d=picoheart.com; t=1788765727; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=QInJiKKxj7UHb0yYSPX5/4nx8ly8z8qW8wKlz/eRzIE=;
- b=LsvzS7y8kUUkbkncl96SmWY+lFY8ZUzWHAYWgGkw8jy73AsWI0teHPnXJvlqHDSLuLo+fu
- JhqXbuWxB+ksMLq0rdS3BHV3VNd2QsGaBL+AR5eVZI0XDo/huJG0OalF4bnRKI7Rxd9Jgi
- JulPaHl8QpS3ECnoZMTxBzuXx/tavc1Oefffy4pwnA72RBnldbspa+h2VNIkta6hLf2tpR
- I2LeDKhhw/WsZ3ax9zAn2NUVxjc00AFOGdxNfs9RY7+aRNjykvGIQoW8Y2vboJhdsF1D8g
- B7btaCnYCp4abbm7+pKFD40HhaGsoxi+gPi68hNF70OpRMKxCyacgRuiETQqFw==
+ bh=x0bXqiQFekd6yD4Y55YzaumrCvrR/RDcdZ8mNCeoC4Y=;
+ b=AgR7g1i1fyMjzl0ELcj5aXvkQsiqZIvPZAgnHQJrz2a+f4UhuKB16S8M4fCLTVmHz/ieuH
+ IF07f7QhDpDL6tSODbTcTaPVprn9auqDDKwnryH0RK+vq0baru062iaW48FUphjE8GqDzw
+ mUfhV4RSczw1NPm1O5EunM4dxnk276+ad+UVST4Z3lm4p94J0babNgDI2hzVl9aOD1561f
+ YU+zy13EN2VN/l+MsDr6mXCXshN7YrPQBhZ4CQusG1OsIYdsSRyxF/GHYkVYwpFNzzfJ5q
+ MFnlfylbGWh7ByP1RwOmNNeDMRHGAtC2+NV68aCAApQkWOqyF03UOlZ83sdUZQ==
+From: "Yicong Yang" <yang.yicong@picoheart.com>
 To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
 	<linux-riscv@lists.infradead.org>
+References: <20260907072149.72031-1-yang.yicong@picoheart.com>
+X-Lms-Return-Path: <lba+26a9e661e+a98929+lists.infradead.org+yang.yicong@picoheart.com>
+Message-Id: <20260907072149.72031-6-yang.yicong@picoheart.com>
+Received: from G9WYR9K0VW ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Mon, 07 Sep 2026 15:22:05 +0800
+X-Mailer: git-send-email 2.50.1
 Cc: <wangruikang@iscas.ac.cn>, <ganboing@gmail.com>, <alex@ghiti.fr>, 
 	<andrew.jones@oss.qualcomm.com>, <cleger@meta.com>, 
 	<geshijian@picoheart.com>, <niehaitao@picoheart.com>, 
 	<cuiyunhui@bytedance.com>, <yang.yicong@picoheart.com>
-In-Reply-To: <20260907072149.72031-1-yang.yicong@picoheart.com>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-References: <20260907072149.72031-1-yang.yicong@picoheart.com>
-Subject: [PATCH v3 4/5] riscv: errata: picoheart: Add workaround for cbo.clean errata
-X-Lms-Return-Path: <lba+26a9e661b+0a31ff+lists.infradead.org+yang.yicong@picoheart.com>
-Date: Mon,  7 Sep 2026 15:21:48 +0800
-Message-Id: <20260907072149.72031-5-yang.yicong@picoheart.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.50.1
+Subject: [PATCH v3 5/5] riscv: errata: picoheart: Add workaround for AMOCASQ errata
+Date: Mon,  7 Sep 2026 15:21:49 +0800
 X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-Received: from G9WYR9K0VW ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Mon, 07 Sep 2026 15:22:02 +0800
+Mime-Version: 1.0
+In-Reply-To: <20260907072149.72031-1-yang.yicong@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_002218_130297_BD032D73 
-X-CRM114-Status: GOOD (  20.52  )
+X-CRM114-CacheID: sfid-20260907_002214_174724_B2C84B4D 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,296 +73,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cbo.clean may fail to write back the cacheline in a few very corner
-cases on the affected Picoheart SoCs. Since cbo.flush is not affected,
-the problem could be solved by promoting cbo.clean to cbo.flush to
-keep the data coherent. So Implement and register Picoheart specific
-riscv_nonstd_cache_ops for all the kernel space cache maintenance
-operations. Implement riscv_nonstd_cache_ops->wback with cbo.clean
-while other callbacks with corresponding CBO operations.
-
-This could solve the issue in the kernel space. For userspace, clear
-the xenvcfg.CBCFE to trap the cbo.{clean, flush} and emulate
-the cbo.clean with cbo.flush in the kernel space to avoid the issue.
+Some Picoheart CPUs implement Zacas extension but lack support
+for AMOCASQ PMA attribute. Thus makes the CASQ instruction de
+facto unavailable. Since currently no ways to retrieve the PMA
+information and the riscv kernel will declare cmpxchg128 support
+if platform declare support of Zacas, the use of cmpxchg128 will
+lead to PMA violation and crash the kernel. Add the errata
+workaround to disable the use of cmpxchg128 on the affected CPUs.
 
 Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
 ---
- arch/riscv/Kconfig.errata            |  12 ++
- arch/riscv/errata/picoheart/errata.c | 159 +++++++++++++++++++++++++++
- arch/riscv/include/asm/errata_list.h |  25 ++++-
- arch/riscv/kernel/cpufeature.c       |   3 +
- arch/riscv/kernel/traps.c            |   4 +
- 5 files changed, 202 insertions(+), 1 deletion(-)
+ arch/riscv/Kconfig.errata            | 12 ++++++++++++
+ arch/riscv/errata/picoheart/errata.c | 22 ++++++++++++++++++++++
+ arch/riscv/include/asm/cmpxchg.h     |  2 +-
+ arch/riscv/include/asm/cpufeature.h  |  8 ++++++++
+ arch/riscv/kernel/cpufeature.c       | 13 ++++++++++++-
+ 5 files changed, 55 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-index 374d7fcf7936..8ce5c0314321 100644
+index 8ce5c0314321..16e37391d596 100644
 --- a/arch/riscv/Kconfig.errata
 +++ b/arch/riscv/Kconfig.errata
-@@ -164,4 +164,16 @@ config ERRATA_PICOHEART
+@@ -176,4 +176,16 @@ config ERRATA_PICOHEART_CBO_CLEAN
  
- 	  Otherwise, please say "N" here to avoid unnecessary overhead.
+ 	   If you don't know what to do here, say "Y".
  
-+config ERRATA_PICOHEART_CBO_CLEAN
-+	bool "Apply Picoheart cbo.clean errata"
-+	depends on ERRATA_PICOHEART
-+	select RISCV_NONSTANDARD_CACHE_OPS
++config ERRATA_PICOHEART_AMOCASQ
++	bool "Apply Picoheart AMOCASQ errata"
++	depends on ERRATA_PICOHEART && RISCV_ISA_ZACAS
 +	default y
 +	help
-+	   This will apply the cbo.clean errata workaround on the affected
-+	   Picoheart SoCs where cbo.clean instructions may fail to write back
-+	   the cacheline in few corner cases.
++	  Some Picoheart CPUs implement the Zacas extension but lack support
++	  for AMOCASQ PMA attribute. Thus makes the CASQ instruction de facto
++	  unavailable. Enable this errata workaround to disable the use of
++	  CASQ in the kernel (cmpxchg128).
 +
-+	   If you don't know what to do here, say "Y".
++	  If you don't know what to do here, say "Y".
 +
  endmenu # "CPU errata selection"
 diff --git a/arch/riscv/errata/picoheart/errata.c b/arch/riscv/errata/picoheart/errata.c
-index 53b690878f78..21480d19c084 100644
+index 21480d19c084..0fb4cb41ab03 100644
 --- a/arch/riscv/errata/picoheart/errata.c
 +++ b/arch/riscv/errata/picoheart/errata.c
-@@ -5,20 +5,179 @@
-  * Author: Yicong Yang <yang.yicong@picoheart.com>
-  */
+@@ -174,10 +174,32 @@ static void picoheart_errata_probe_cbo_clean(unsigned int stage,
+ 	static_branch_enable(&has_picoheart_cbo_clean_errata);
+ }
  
-+#include <linux/align.h>
- #include <linux/cacheflush.h>
- #include <linux/cleanup.h>
-+#include <linux/jump_label.h>
- #include <linux/kernel.h>
- #include <linux/memory.h>
-+#include <linux/mm_types.h>
-+#include <linux/mmap_lock.h>
-+#include <linux/signal.h>
- #include <linux/string.h>
-+#include <asm/asm-extable.h>
- #include <asm/alternative.h>
-+#include <asm/cpufeature.h>
-+#include <asm/dma-noncoherent.h>
- #include <asm/errata_list.h>
-+#include <asm/insn.h>
-+#include <asm/insn-def.h>
- #include <asm/text-patching.h>
-+#include <asm/uaccess.h>
- #include <asm/vendor_extensions.h>
- #include <asm/vendorid_list.h>
- 
-+#ifdef CONFIG_ERRATA_PICOHEART_CBO_CLEAN
-+
-+static bool insn_is_cbo_clean_flush(u32 insn_buf)
++static void picoheart_errata_probe_amocasq(unsigned int stage,
++					   unsigned long archid,
++					   unsigned long impid)
 +{
-+	u32 rd, opcode, funct3, funct12;
-+
-+	/* CBO instructions don't have compressed variants */
-+	if (GET_INSN_LENGTH(insn_buf) != 4)
-+		return false;
-+
-+	rd = RV_EXTRACT_RD_REG(insn_buf);
-+	opcode = insn_buf & __INSN_OPCODE_MASK;
-+	funct3 = insn_buf & RV_INSN_FUNCT3_MASK;
-+	funct12 = insn_buf & RV_INSN_FUNCT12_MASK;
-+
-+	if (rd != 0 || opcode != RVG_OPCODE_MISC_MEM ||
-+	    funct3 != RV_ENCODE_FUNCT3(CBO) ||
-+	    (funct12 != RV_ENCODE_FUNCT12(CBO_CLEAN) &&
-+	     funct12 != RV_ENCODE_FUNCT12(CBO_FLUSH)))
-+		return false;
-+
-+	return true;
-+}
-+
-+static int cbo_clean_fault_sicode(unsigned long addr)
-+{
-+	struct mm_struct *mm = current->mm;
-+	struct vm_area_struct *vma;
-+
-+	guard(mmap_read_lock)(mm);
-+	vma = vma_lookup(mm, addr);
-+	if (!vma)
-+		return SEGV_MAPERR;
-+
-+	return SEGV_ACCERR;
-+}
-+
-+bool riscv_picoheart_illegal_insn_handler(struct pt_regs *regs)
-+{
-+	unsigned long insn = regs->badaddr;
-+	unsigned long epc = regs->epc;
-+	void __user *line_addr;
-+	int ret = 0;
-+	u64 addr;
-+	u32 rs1;
-+
-+	if (!insn) {
-+		if (get_insn(regs, epc, &insn))
-+			return false;
-+	}
-+
-+	if (!insn_is_cbo_clean_flush(insn))
-+		return false;
-+
-+	rs1 = RV_EXTRACT_RS1_REG(insn);
-+	addr = rs1 ? ((unsigned long *)regs)[rs1] : 0;
-+	line_addr = (void __user *)ALIGN_DOWN(addr, riscv_cbom_block_size);
-+
-+	/*
-+	 * Check if the target address is within the valid userspace
-+	 * address range. Otherwise update the bad_cause to match the
-+	 * store page fault. See the comment below.
-+	 */
-+	if (!access_ok(line_addr, riscv_cbom_block_size)) {
-+		current->thread.bad_cause = EXC_STORE_PAGE_FAULT;
-+		goto err_map;
-+	}
-+
-+	__enable_user_access();
-+	asm volatile("\n"
-+		"1:	\n"
-+		CBO_FLUSH(%[addr])
-+		"2:	\n"
-+		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %[err])
-+	: [err] "+r" (ret)
-+	: [addr] "r" (untagged_addr(addr))
-+	: "memory");
-+	__disable_user_access();
-+
-+	if (ret)
-+		goto err_map;
-+
-+	regs->epc += GET_INSN_LENGTH(insn);
-+	return true;
-+
-+err_map:
-+	/*
-+	 * We'll reach here if the target address is invalid.
-+	 * cbo.{flush ,clean} on invalid address will cause
-+	 * store page fault, update the cause and badaddr.
-+	 */
-+	regs->badaddr = addr;
-+	regs->cause = current->thread.bad_cause;
-+
-+	/*
-+	 * In emulation of the cbo.clean, a SIGSEGV rather than
-+	 * a SIGILL should be issued if the target address is
-+	 * invalid. Use do_trap() to handle the signal delivery
-+	 * and related stuffs to make it analogous to the page
-+	 * fault.
-+	 */
-+	do_trap(regs, SIGSEGV, cbo_clean_fault_sicode(untagged_addr(addr)),
-+		untagged_addr(addr));
-+
-+	return true;
-+}
-+
-+#endif /* CONFIG_ERRATA_PICOHEART_CBO_CLEAN */
-+
-+static void picoheart_errata_cache_wback(phys_addr_t paddr, size_t size)
-+{
-+	void *vaddr = phys_to_virt(paddr);
-+
-+	ALT_CMO_OP(FLUSH, vaddr, size, riscv_cbom_block_size);
-+}
-+
-+/*
-+ * The errata only affects the cbo.clean (wback) so use standard operations
-+ * for other semantic.
-+ */
-+struct riscv_nonstd_cache_ops picoheart_errata_cmo_ops = {
-+	.wback = &picoheart_errata_cache_wback,
-+};
-+
-+DEFINE_STATIC_KEY_FALSE(has_picoheart_cbo_clean_errata);
-+
-+static void picoheart_errata_probe_cbo_clean(unsigned int stage,
-+					     unsigned long archid,
-+					     unsigned long impid)
-+{
-+	if (!IS_ENABLED(CONFIG_ERRATA_PICOHEART_CBO_CLEAN))
++	if (!IS_ENABLED(CONFIG_ERRATA_PICOHEART_AMOCASQ))
 +		return;
 +
 +	if (stage != RISCV_ALTERNATIVES_BOOT)
 +		return;
 +
-+	if (!riscv_isa_extension_available(NULL, ZICBOM))
++	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) ||
++	    !riscv_isa_extension_available(NULL, ZACAS))
 +		return;
 +
 +	if (archid != 0x804a555049544552 || impid != 0x100)
 +		return;
 +
-+	riscv_noncoherent_supported();
-+	riscv_noncoherent_register_cache_ops(&picoheart_errata_cmo_ops);
-+	static_branch_enable(&has_picoheart_cbo_clean_errata);
++	static_branch_disable(&cpus_support_cmpxchg128);
 +}
 +
  static u32 picoheart_errata_probe(unsigned int stage, unsigned long archid,
  				  unsigned long impid)
  {
-+	picoheart_errata_probe_cbo_clean(stage, archid, impid);
+ 	picoheart_errata_probe_cbo_clean(stage, archid, impid);
++	picoheart_errata_probe_amocasq(stage, archid, impid);
++
  	return 0;
  }
  
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 6694b5ccdcf8..7e31acae4e0a 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -117,6 +117,29 @@ asm volatile(ALTERNATIVE(						\
- #define THEAD_C9XX_RV_IRQ_PMU			17
- #define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 662e160b0522..e231e9619eee 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -329,7 +329,7 @@
  
--#endif /* __ASSEMBLER__ */
-+#ifdef CONFIG_ERRATA_PICOHEART_CBO_CLEAN
-+
-+#include <linux/jump_label.h>
-+
-+DECLARE_STATIC_KEY_FALSE(has_picoheart_cbo_clean_errata);
-+
-+static inline bool riscv_has_picoheart_zicbom_errata(void)
-+{
-+	return static_branch_unlikely(&has_picoheart_cbo_clean_errata);
-+}
-+
-+bool riscv_picoheart_illegal_insn_handler(struct pt_regs *regs);
-+
-+#else /* !CONFIG_ERRATA_PICOHEART_CBO_CLEAN */
-+
-+static inline bool riscv_has_picoheart_zicbom_errata(void) { return false; }
-+static inline bool riscv_picoheart_illegal_insn_handler(struct pt_regs *regs)
-+{
-+	return false;
-+}
-+
-+#endif /* CONFIG_ERRATA_PICOHEART_CBO_CLEAN */
-+
-+#endif /* __ASSEMBLY__ */
+ #if defined(CONFIG_64BIT) && defined(CONFIG_RISCV_ISA_ZACAS) && defined(CONFIG_TOOLCHAIN_HAS_ZACAS)
  
- #endif
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index d2ec96843456..b56d149cf4ed 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -1215,6 +1215,9 @@ void __init riscv_user_isa_enable(void)
- 	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOP) &&
- 	    any_cpu_has_zicbop)
- 		pr_warn("Zicbop disabled as it is unavailable on some harts\n");
-+
-+	if (riscv_has_picoheart_zicbom_errata())
-+		current->thread.envcfg &= ~ENVCFG_CBCFE;
+-#define system_has_cmpxchg128()        riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS)
++#define system_has_cmpxchg128	system_has_cmpxchg128
+ 
+ union __u128_halves {
+ 	u128 full;
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index 739fcc84bf7b..f9d95cbf5abd 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -164,4 +164,12 @@ static inline bool cpu_supports_indirect_br_lp_instr(void)
+ 		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFILP));
  }
  
- #ifdef CONFIG_RISCV_ALTERNATIVE
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index f8292adda099..a103203622ff 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -176,6 +176,10 @@ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *re
- 		local_irq_enable();
++DECLARE_STATIC_KEY_FALSE(cpus_support_cmpxchg128);
++
++static inline bool system_has_cmpxchg128(void)
++{
++	return riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS) &&
++	       static_branch_likely(&cpus_support_cmpxchg128);
++}
++
+ #endif
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index b56d149cf4ed..f73ce43df626 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -46,6 +46,9 @@ struct riscv_isainfo hart_isa[NR_CPUS];
  
- 		handled = riscv_v_first_use_handler(regs);
+ u32 thead_vlenb_of;
+ 
++/* All the CPUs supports cmpxchg128 (CASQ*). */
++DEFINE_STATIC_KEY_FALSE(cpus_support_cmpxchg128);
 +
-+		if (!handled && riscv_has_picoheart_zicbom_errata())
-+			handled = riscv_picoheart_illegal_insn_handler(regs);
+ /**
+  * riscv_isa_extension_base() - Get base extension word
+  *
+@@ -317,6 +320,14 @@ static int riscv_cfiss_validate(const struct riscv_isa_ext_data *data,
+ 	return 0;
+ }
+ 
++static int riscv_ext_zacas_validate(const struct riscv_isa_ext_data *data,
++				    const unsigned long *isa_bitmap)
++{
++	static_branch_enable(&cpus_support_cmpxchg128);
 +
- 		if (!handled)
- 			do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
- 				      "Oops - illegal instruction");
++	return 0;
++}
++
+ static const unsigned int riscv_a_exts[] = {
+ 	RISCV_ISA_EXT_ZAAMO,
+ 	RISCV_ISA_EXT_ZALRSC,
+@@ -544,7 +555,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(za64rs, RISCV_ISA_EXT_ZA64RS),
+ 	__RISCV_ISA_EXT_DATA(zaamo, RISCV_ISA_EXT_ZAAMO),
+ 	__RISCV_ISA_EXT_DATA(zabha, RISCV_ISA_EXT_ZABHA),
+-	__RISCV_ISA_EXT_DATA(zacas, RISCV_ISA_EXT_ZACAS),
++	__RISCV_ISA_EXT_DATA_VALIDATE(zacas, RISCV_ISA_EXT_ZACAS, riscv_ext_zacas_validate),
+ 	__RISCV_ISA_EXT_DATA(zalasr, RISCV_ISA_EXT_ZALASR),
+ 	__RISCV_ISA_EXT_DATA(zalrsc, RISCV_ISA_EXT_ZALRSC),
+ 	__RISCV_ISA_EXT_DATA(zawrs, RISCV_ISA_EXT_ZAWRS),
 -- 
 2.50.1 (Apple Git-155)
 
