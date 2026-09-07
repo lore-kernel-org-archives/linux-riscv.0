@@ -4,86 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7CCC79F89
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 03:52:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33EE0C79F89
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 03:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=44POHwUuntJVLgB/8nf4yv9GR7IM94/f7evWra6JBr0=; b=g5WF15mPPrTa97
-	8m5djEj4032m9zy6ZJqAF0z0PyMa28ZT71qWr+0umm9vk8cxeLhTWz3pH9wdB6rijY+ADZOZg4wC3
-	vAyxcl3qmenVLPIi20AKL+y9pEjF+2xoq+wGhbC55BnwPRclVkggYQ5nBYFcHQg1RxZ+ra5oFhELr
-	yv5kKl16TMN6k5oH+yzgW81vhY+v7+lpnGt2UhRRZWXTMcoqODEsUJjDYSsUPEC1gDskPBj5yBM0a
-	eHydvUZl4o10hMQaG+nY8g3nCz8eY2jWfrkKEEDmJT5IkpheUNY/KWp/bf41AJEBMCdIJ39V572Yp
-	yq3udo/IdmkE1py6h1zg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lXUkpsjtLB3VHCodxd5LBCwafcOsHJgDmYM8muxMszQ=; b=efEUDwRLZuCVCdYJTss/gmD3h7
+	JhnA9XpONJGQe0hsPib9/YJLSSrD0Po1LrkJFVdL2wol9LldvNyGV4cn4EG3vk208ZAP/SxYcFsYb
+	GlHrZPEjrFdF8IlN58tYwCF8P4skNqZ/saDX0OWIviK+lyCPC1gQrCoZl5RMpY70rpgbORV9M3R2f
+	shhCmzAE8Jrxyy0+zpFzqqqB0ani0M7G/ZFzG57T/vrnSfbwQTKtIyCjosws4a4QDlBSMt1Ht5/7K
+	RS58/gR0OF11Gn/N6NZZXWqFKSV4cGqWBA3LJDnGzaFVmXEbUcYZqFR1rVQqR1+SC/RzkAbLq/mj3
+	MkS0pmag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3QOr-00000005oSz-22qH;
-	Mon, 07 Sep 2026 03:52:05 +0000
-Received: from mail-m16023653245.xmail.ntesmail.com ([160.236.53.245])
+	id 1x3QPr-00000005p0F-0fhQ;
+	Mon, 07 Sep 2026 03:53:07 +0000
+Received: from mail-japaneastazolkn190130003.outbound.protection.outlook.com ([2a01:111:f403:d405::3] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3QOk-00000005oIr-2TcA;
-	Mon, 07 Sep 2026 03:52:02 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4cc106c1d;
-	Mon, 7 Sep 2026 11:51:52 +0800 (GMT+08:00)
-Message-ID: <15741677-7f2c-4190-b77f-a496643593c6@rock-chips.com>
-Date: Mon, 7 Sep 2026 11:51:50 +0800
-MIME-Version: 1.0
+	id 1x3QPo-00000005ozS-3OB4
+	for linux-riscv@lists.infradead.org;
+	Mon, 07 Sep 2026 03:53:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pML46IBsl+b97kl40WQpuiICoN1jD54bqkWKVEafyjSLKpP6coxibMJNjJIGvYIuLRmFDwPJMaEDw0qYJ0g1zST2Ai4iHbI8wjojLbkklU32t5R+XMukVjvmgWYXX7VDwHOyMorafDDnTxj0NJpLdIOZLVYXQws6npmmRSqE1rNPI4gnl3w82Ot7+53xIGjCT+AFECzNO7cKZkIgkHYK/+oaPFG4UmJrv9rgEHh7JR8WF7lwYOuup8CuqDE8CFFBBx/+2TXNC37v5hPO0Giusrxtc3anvmgKVa4Ci31KUg159dU/9H0EV44bCP1hH5ShOt7+tT10J27+2c+poC/crg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VsLyMDJjyNMKa8ecT40mZsTw6l1UvJg9lXF7NWXbkE0=;
+ b=ifQp0dnZQ1Mas+sZTjaHOCBB3aVd52vBvc4fzoyr7Q9uBSt5YU5tUbvxJNZPJFYGq59k95mJki+oczf7RbZ/WGk4/vyHFLJxH5CDMFbWnrn4WuMWfS16ag1pg/tAtXp15DnEeO4dwVT+sD3UxCVFPbJh+ajR/8z9VOJ1dHiS2GbpiWFsiOzb+tuj+zDL0QWKxPMB0yYPidqcQ/Rjn1dPJRhMDdsVBfpM6mL3gDi12L7bo0DZ/RCxhgOh2HyBDN8bGYFJPtTQB+npgVYcIhkGGTc+veabB8DE37shCU3dDbuezRl6KgwpvhcxoRmam1huFJ5c63nJZzP9hDeGFBUzMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VsLyMDJjyNMKa8ecT40mZsTw6l1UvJg9lXF7NWXbkE0=;
+ b=DLc6GzJa9P3y+HHbERv97WX4fHh2B6cWFsSjphAVAKZyXGPs5x8GyZAQ2KA9ROTam8RuQMDSkgTBoi3lU6cwCOlhNUxHFXItVBNlsATQgWIN4ekzsVBgHFlHEUXJEXjTWQLJZOIfVYSANBUihGe6MCt7KqXuCyu5taaD3fDjj1YHT5C2oZel+aEC4DCMs4CFATsj/5KYv3QMxo58aQjFgPWzjmrsw1TXZ1+n+DLbXU9py5Pfe98sHEXQ8YF8mYli8uNVH9vN4vVK5cgwc8JEOtiPQ3Wucf6k51NKxSGIQAQXgqCuN0YdXvOBnmK6ps/yCgeENj8126mWrpJmnf5bmw==
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com (2603:1096:101:2e9::7)
+ by TY0PR04MB5658.apcprd04.prod.outlook.com (2603:1096:400:1be::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.13; Mon, 7 Sep
+ 2026 03:52:47 +0000
+Received: from SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58]) by SE3PR04MB8922.apcprd04.prod.outlook.com
+ ([fe80::3450:f139:5238:8f58%5]) with mapi id 15.21.0382.014; Mon, 7 Sep 2026
+ 03:52:47 +0000
+Message-ID: <SE3PR04MB8922591D6A8B676B97A7CE59F3B22@SE3PR04MB8922.apcprd04.prod.outlook.com>
+Date: Mon, 7 Sep 2026 11:52:41 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/19] drm/bridge: starfive: Add JH7110 HDMI controller
- driver
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
- <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
- Andy Yan <andyshrk@163.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Maud Spierings <maud_spierings@murena.io>,
- Graham Markall <hello@big-grey.co.uk>,
- Icenowy Zheng <zhengxingda@iscas.ac.cn>
-References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
- <CGME20260904132735eucas1p2c898afe4a4c6e957a7b9eedff321a6dc@eucas1p2.samsung.com>
- <20260904-jh7110-clean-send-v3-14-484f9ae72715@samsung.com>
+Subject: Re: [PATCH v2 1/3] iommu/riscv: Add command queue lock
+To: fangyu.yu@linux.alibaba.com, tomasz.jeznach@linux.dev, joro@8bytes.org,
+ will@kernel.org, robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, baolu.lu@linux.intel.com,
+ jroedel@suse.de, zong.li@sifive.com, andrew.jones@oss.qualcomm.com,
+ anup@brainfault.org, jgg@nvidia.com, jgg@ziepe.ca
+Cc: guoren@kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20260901133920.14550-1-fangyu.yu@linux.alibaba.com>
+ <20260901133920.14550-2-fangyu.yu@linux.alibaba.com>
 Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20260904-jh7110-clean-send-v3-14-484f9ae72715@samsung.com>
-X-HM-Tid: 0aa079fe6d2b03a7kunm1578719f367f00
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSU0aVk9NTk4fHh4dQkkdSlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=XTf4ceYGuRf+Bea49mCirc4h09mur540oJnaxi7YtW22DeczQ/QS9Pu2+imyL5HE9X0Sni7hMr7LW88iqEnQBZBnrHflPfgVXhYoN2NjnhgPdp75SSK0Ru0ZydU9SF4zB8+2HhQErRYytmTazOix9GaPiCEcRV8gY1n+6Unb/d0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=sNftk6dAOj9MP5wzHtcUwGMPv4F8HHzi/b6fKcXGrKA=;
-	h=date:mime-version:subject:message-id:from;
+From: "Nutty.Liu" <nutty.liu@hotmail.com>
+In-Reply-To: <20260901133920.14550-2-fangyu.yu@linux.alibaba.com>
+X-ClientProxiedBy: TP0P295CA0057.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:3::16) To SE3PR04MB8922.apcprd04.prod.outlook.com
+ (2603:1096:101:2e9::7)
+X-Microsoft-Original-Message-ID: <9a66ce7d-e4d3-4639-b3b2-308883291515@hotmail.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SE3PR04MB8922:EE_|TY0PR04MB5658:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3e4bf26c-cb38-4ac8-4122-08df0c937ae8
+X-Microsoft-Antispam: BCL:0;ARA:14566002|24121999003|22091999003|5072599009|6090799003|25010399006|4140399003|12121999013|19110799012|8060799015|15080799012|19101099003|55001999006|23021999003|51005399006|440099028|3412199025|40105399003|2607281247196008;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?djRIWC8vcG8wNEhXSExycVpadTcweHhnWWU0OXUvQ3lQNjdUbVpnYS9Hd1pG?=
+ =?utf-8?B?aE0wVXdpTHM1VUI0OXgxSFQ4VmNHanhQcVAxYXR6OC9pcnIva2NVaUdSOUFa?=
+ =?utf-8?B?d2d6NC9CMElWT2QzTXdaaUluMkE2dUtPZE9vR3N1cXhmMFhDdkJSeUdkQndp?=
+ =?utf-8?B?UnY4Y09NUjJBUHdmYWFZRDVreTN4Sko1WHVtbnRVVEwrNjdPUnZiRDVkdDhy?=
+ =?utf-8?B?aUJiMXZRK1lSQ2VYWWFha1E3K2F4R0U5Ums1SjBhcGdKa2RvVTBHYnI3b042?=
+ =?utf-8?B?UlIxNDgzT1NXQ2dyRnlUdEVqazgxc3ZpU0dNNElFK2NUL09SRE5NdHNBTTVF?=
+ =?utf-8?B?RXhGNFhZbmZBUFNDVktFbGhNM1plSDREOFRwaUJoNGdHVTBqOGxOejhENGpK?=
+ =?utf-8?B?ZXR1K1ZpRWlURWNwRVFuN3NoOFBqNkwxazJGZDRGa0MwVzJBN0krTVgyallE?=
+ =?utf-8?B?aXpHQlFjbksrTzVPQUpGamRGWjVweC9oclg0RzBzMlYxVm5DL1JqNm9mNlF4?=
+ =?utf-8?B?UHAzMG92eisrT2JsQ0hwNzNqbXpqRGpXc296WEYrb3F0SGQ3RDlsanA3YjBT?=
+ =?utf-8?B?VG1nVFc4ZUNkZVZVS0E2ODlCTkxiMmQvV2JEcGJqNnBCRXZMM1FFK1VKeTV2?=
+ =?utf-8?B?Ly8zN1pTdXFwOXgyS09HdXBPVHIybjhSRVFMVUVuMGNORXlRbitFdGVqeXo3?=
+ =?utf-8?B?WkMybm4vd0JCcGtISElZc1BwTXlGaUFob3dSVVpBMStRQmFtZ2JUVldxSmdL?=
+ =?utf-8?B?by84V09kV20wYktmZWdhL3Z3ZVM1WnIxVVJ4RmhVUjRTaTdMNmNBcEt3blpk?=
+ =?utf-8?B?cUgyK0tRWXZJVUlCRllvdkc1WUl2cy9oYTNydktzaWlScWpXb1dZcTBCQm50?=
+ =?utf-8?B?K3ZRdmRxTkVjOU4vcnFObDRub3M5ZnhFVFFRRnoxZ2RhVmJtZjdhUVYxc0Vk?=
+ =?utf-8?B?b1NVdFVHMXZRZHhEUVFpVXNVeGk2cE9lQWkyMTU0cnQ1OUZxeHFMcld2dmJo?=
+ =?utf-8?B?MGNWRkR2dWRNOTU2N2R0TjJGeUJTOEFyeDJrb2t5YkhqNzlINDR2ZEtEaEt5?=
+ =?utf-8?B?MVI1QUJMVkVpTTBWaGd5UFJhZjVTODl5bmRaOHgwbk9NbTR6WkJnaFZtSlpZ?=
+ =?utf-8?B?TFJsT1ByTGFSclpLckJMVjROQ0hGZy9YU1QreHZSY1doZHdrTjdqektyR1ZX?=
+ =?utf-8?B?WlY5UzZaRzVTZlFFQW1BVUswSCtVWE9xYkVvejdudWNxNzlpK0VGYTEvdHpa?=
+ =?utf-8?B?RkR1ak5PcFBpdGpzQ1h3RWtodnFUMFFSNEZUSkttdXFQSUFsallqaUhoK2tM?=
+ =?utf-8?B?eXgxSmZjSkY2ZUxoUXZDVmFnc1R2L2JTa29IdTNYVjQ4N1BIWTNhVzNlaTVB?=
+ =?utf-8?B?OXlEdmEzWFdQYjgyVFBZYW8reHhrczY3aVlveUlRS3lDTS9Ec1Y2MnVidlFE?=
+ =?utf-8?B?NnpqYVN5b3Y3Mm9uTlYzaFRxeUh5VGlTbkVVTFpRPT0=?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R1NSeUczc2ZsVWhqemkrd2ZsOWJORnNQaFdjM3pJbWUzVDdhMkVqMVViY25S?=
+ =?utf-8?B?KzhBbThPYUxpd2N0MkxYT3RhQ29UaEpkUzkveXEwWTRybDBmWUtONmp4c3VX?=
+ =?utf-8?B?YzNSZVpCcWhCa3NJcWhYbjFoWFU0NFVJTzY0ZkhHWFM2WnIwSldYWXlLdmV5?=
+ =?utf-8?B?MmNZcWwxaDFqZVRTajB6VzQwUENjaDRqdkxkYUxxZUtrRTlvL3orNkF5QWFl?=
+ =?utf-8?B?RWFPQlp2MmZ1VnhtcDE4d0Z5ZjEyVEx3aFJNTjBZYWVKWXVNLyt5RkNSczhj?=
+ =?utf-8?B?aklFZ21xK0lINW1uVWRaQW0xOXhWQXN1cDRsQ3lMeGkzSmkwVWh6OU9IR0ZN?=
+ =?utf-8?B?Yzh0NE43d0d0UE9pTnVqcFR4SW1PZGlSZzhCeFBJR24rZEdqVkQ0aStjVVBN?=
+ =?utf-8?B?ZGhCaWMrRUYxbnJkdnNuVmVpU2lYUEZHWVE5dGFTOUFKYWY3UmFEeTZtWFZI?=
+ =?utf-8?B?SWdMdzlTTHJwOFZndEF2WlkzLzJFVUZHNUhQSWlxOUJJNFBCRkdYUU9iU095?=
+ =?utf-8?B?cTFXVDJBSGZIVjl6VTIwblNBT2FJRjZlaW1ueVVlR0htM2dWakk2bUpka1RV?=
+ =?utf-8?B?dkJjcG96S2NVb3JQZURIdFVIa0hxMGk0SGRlKzdzdkZ2cUdNaVMybjFTWUJa?=
+ =?utf-8?B?dmJGQ2NJeVBucXdDb1RoSGhWalF0Y2lYQ05QbjVsRktFTnI5cjNWOUFOZXNm?=
+ =?utf-8?B?eHJBeEZDNmNkZy9oU3VzSU9aRm5XejhCOUVzeFozdlVmTXgyRlNTL0M3dm5Z?=
+ =?utf-8?B?SXoyOXNGbEtkY2ZIRGYvSThuTHE3bFFrVkJIOU9CUW9vRVIvZWZMS2JrWlhE?=
+ =?utf-8?B?cXNIUVZOeDB6UDBRZkRYYTduVjBDZ3hteFF0L2tkZGt5dUR3SkxnMTQrWXo3?=
+ =?utf-8?B?MEMzL0ZySHE4Y2J6ZU5TcmJsc3RncjBIaHBuaDZvTkxlK1pSMlJlTUx2ajJO?=
+ =?utf-8?B?ZE5IV3RPNTJHNUxFOGU0OHZGUmFjUkJqaVlsWnE3K1dxUXVvbTEyVklnZEMy?=
+ =?utf-8?B?aWRvQnVxWUE1ZjcxazZVUXZmVW1qaXIycTkwa0xYa1V4U0Rrc0ZaOVJBRlhF?=
+ =?utf-8?B?bkVFVEhuMWNaa1lSVEhGUUNqSUNCMWNYdXcxbXA1VCtmeUZ6M08yd3Jaek8x?=
+ =?utf-8?B?RHgwUWVCR0pBdTlsbzg2aTgyZGd5aTh1R25OcjFpMzRVUHVvZjE5RjNtTWcy?=
+ =?utf-8?B?K1VIMHcyeU5MQlpvQllacVNuWWhaUlllclU3akllZ0FQVFcrUEYvRUdpNFFN?=
+ =?utf-8?B?cXBibDQyTnRSbSt6czBiUW1sa3ZCMFF0bkI5dThlNHNtRU4rWmJ6RDRwZm01?=
+ =?utf-8?B?UXRvR2VzVjRBWnlZRkVuUVEvZnFlT0tXMjVOMWcwK1FweElReDZhT1NTMUtC?=
+ =?utf-8?B?VVVXRUQ5cHZadGMzRGVzR2g4UDBHaHNVMjN0UHRMemRRNGxKQktVdjJKN1Nj?=
+ =?utf-8?B?UUlSUXRCRnorTDNSWjhjVEhIMzIxRUZxZ1N6Zmlxb0NGUnVjRHAyK29mZGxD?=
+ =?utf-8?B?b3g2NkZEaEt0a1R5K05SWHlUcHV2TzAxNGd3Rm93U2dINXF0MmpTS1dXeE1i?=
+ =?utf-8?B?TE8xSzFQbHRVWDd1RnVtcXJob1NuNXUwTXBDcFdTVElmZ0ZkK2VGSVk4WWpT?=
+ =?utf-8?B?YS8vWmdhZi9mRjFpV2ZHdzN5WWdDekMwUDF5NXI2bmZFRm9qa2ZZcDVmM1Vu?=
+ =?utf-8?B?ZjV5MDdhRS9rN2JMaTFJWTJpNlk2OTc3bkxrc05wMDZwNTFPK2dCNDhiL0N3?=
+ =?utf-8?B?anBtK0lSZllUZFZxeVM3ZEhxeTZzbHhGMUNPV2NhODhsMUVWbWFQOU42NzZZ?=
+ =?utf-8?B?V0NzUnE1QVpnbE9BZklhMjFNUkM2Z2Y2dTFWQ0tIRlpYUDcvTmR3WEtvb2s2?=
+ =?utf-8?Q?kTTGSQfZbr3Li?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-c3e7a.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e4bf26c-cb38-4ac8-4122-08df0c937ae8
+X-MS-Exchange-CrossTenant-AuthSource: SE3PR04MB8922.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 03:52:47.6504
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR04MB5658
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_205200_204838_050B6803 
-X-CRM114-Status: GOOD (  40.99  )
+X-CRM114-CacheID: sfid-20260906_205305_035712_EE3B6053 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,431 +158,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Michal,
 
-On 9/4/2026 9:27 PM, Michal Wilczynski wrote:
-> Add the HDMI controller (bridge) driver for the StarFive JH7110.
-> 
-> This driver binds to the starfive,jh7110-inno-hdmi-controller node.
-> It gets its shared regmap from its parent and its register access,
-> module and bus clocks from voutcrg. It consumes the pixel clock and the
-> PHY from its hdmi_phy sibling.
-> 
-> The driver calls the generic inno_hdmi_probe function and passes the
-> shared regmap to it, registering as a DRM bridge. The .enable hook is
-> responsible for setting the PHY's pixel clock rate via clk_set_rate()
-> and powering on the PHY via phy_power_on().
-> 
-> The DC8200 has two panels, each exposing a DP and a DPI interface, and a
-> mux in the video output system controller picks which of them drives the
-> HDMI transmitter. Program that mux from the port graph rather than
-> relying on whatever the bootloader left behind, taking the panel from the
-> remote port number and the interface from the remote endpoint number.
-> 
-> The generic driver holds the clock it looks up as the register access
-> clock enabled for its lifetime, and derives the DDC divider from that
-> clock's rate, so point it at the system clock. Naming the pixel clock
-> there instead would keep the PHY pre-PLL powered from probe onwards and
-> size the divider from the wrong rate.
-> 
-> The PHY can only generate the discrete set of pixel clocks described by
-> its pre-PLL table, so .mode_valid rejects any mode clk_round_rate()
-> cannot satisfy. Without it such a mode would be advertised to userspace
-> and the modeset would appear to succeed while the display stayed blank.
-> 
-> .enable returns early when the rate is unsupported or the PHY fails to
-> power on, so track whether the pixel clock was actually enabled and let
-> .disable tear down only what was brought up, otherwise the clock
-> refcount underflows.
-> 
-> The clocks and the reset are torn down through devm rather than from
-> .remove, so that they outlive the bridge that inno_hdmi_probe() adds with
-> devm_drm_bridge_add(). Releasing them in .remove runs before devres
-> unwinds and would leave the bridge registered with its clocks already
-> gated.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+On 9/1/2026 9:39 PM, fangyu.yu@linux.alibaba.com wrote:
+> From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>
+> Add a raw spinlock to the RISC-V IOMMU queue state so command queue
+> publishing can be serialized by a later change.
+>
+> Fixes: 856c0cfe5c5f ("iommu/riscv: Command and fault queue support")
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+
+Thanks,
+Nutty
 > ---
->  drivers/gpu/drm/bridge/Kconfig            |  11 ++
->  drivers/gpu/drm/bridge/Makefile           |   1 +
->  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c | 318 ++++++++++++++++++++++++++++++
->  3 files changed, 330 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-> index 4a57d49b4c6d3ab4b965228835b372d191647197..75b1cf6727d5a32310dcf9fe5734d95e14eea8fe 100644
-> --- a/drivers/gpu/drm/bridge/Kconfig
-> +++ b/drivers/gpu/drm/bridge/Kconfig
-> @@ -359,6 +359,17 @@ config DRM_SOLOMON_SSD2825
->  	  Say M here if you want to support this hardware as a module.
->  	  The module will be named "ssd2825".
->  
-> +config DRM_STARFIVE_JH7110_INNO_HDMI
-> +	tristate "Starfive JH7110 Innosilicon HDMI bridge"
-> +	depends on OF
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	select DRM_INNO_HDMI
-> +	help
-> +	  Enable support for the StarFive JH7110 specific implementation
-> +	  of the Innosilicon HDMI controller.
-> +	  This driver acts as a glue layer between the JH7110 HDMI subsystem
-> +	  parent driver and the generic Innosilicon HDMI bridge driver.
-> +
->  config DRM_THINE_THC63LVD1024
->  	tristate "Thine THC63LVD1024 LVDS decoder bridge"
->  	depends on OF
-> diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
-> index 15cc821d85b7ea6f3cdc313f3e521b028de567d7..5d843f4ad7ed50b28cb75286c5e22789d91a0836 100644
-> --- a/drivers/gpu/drm/bridge/Makefile
-> +++ b/drivers/gpu/drm/bridge/Makefile
-> @@ -30,6 +30,7 @@ obj-$(CONFIG_DRM_SIL_SII8620) += sil-sii8620.o
->  obj-$(CONFIG_DRM_SII902X) += sii902x.o
->  obj-$(CONFIG_DRM_SII9234) += sii9234.o
->  obj-$(CONFIG_DRM_SIMPLE_BRIDGE) += simple-bridge.o
-> +obj-$(CONFIG_DRM_STARFIVE_JH7110_INNO_HDMI) += jh7110-inno-hdmi.o
->  obj-$(CONFIG_DRM_SOLOMON_SSD2825) += ssd2825.o
->  obj-$(CONFIG_DRM_THEAD_TH1520_DW_HDMI) += th1520-dw-hdmi.o
->  obj-$(CONFIG_DRM_THINE_THC63LVD1024) += thc63lvd1024.o
-> diff --git a/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c b/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..b0bf6abaa55fb452a90021586faf5f220c150968
-> --- /dev/null
-> +++ b/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
-> @@ -0,0 +1,318 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) StarFive Technology Co., Ltd.
-> + * Copyright (c) 2025 Samsung Electronics Co., Ltd.
-> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-> + *
-> + * HDMI controller (bridge) driver for the StarFive JH7110 HDMI subsystem.
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/clk.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/of_graph.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/regmap.h>
-> +#include <linux/reset.h>
-> +
-> +#include <drm/bridge/inno_hdmi.h>
-> +#include <drm/drm_modes.h>
-> +
-> +/* dom_vout_syscon: HDMI pixel data mapping */
-> +#define VOUT_SYSCFG_4			0x4
-> +#define VOUT_HDMI_DP_BIT_DEPTH		BIT(25)
-> +#define VOUT_HDMI_DP_YUV_MODE		GENMASK(27, 26)
-> +#define VOUT_HDMI_DP_YUV_MODE_RGB	3
-> +#define VOUT_HDMI_DPI_BIT_DEPTH		GENMASK(29, 28)
-> +#define VOUT_HDMI_DPI_BIT_DEPTH_8BIT	0
-> +#define VOUT_HDMI_DPI_DP_SEL		BIT(30)
-> +
-> +/* u2_display_panel_mux feeds HDMI_Ctrl, see the block diagram in 5.1 */
-> +#define VOUT_SYSCFG_8			0x8
-> +#define VOUT_HDMI_PANEL_SEL		BIT(4)
-> +
-> +enum stf_hdmi_ctrl_clocks { CLK_SYS = 0, CLK_M, CLK_B, CLK_PCLK, CLK_CTRL_NUM };
-> +
-> +struct stf_inno_hdmi_controller {
-> +	struct device *dev;
-> +	struct clk_bulk_data clks[CLK_CTRL_NUM];
-> +	struct reset_control *tx_rst;
-> +	struct phy *phy;
-> +	bool enabled;
-> +};
-> +
-> +static enum drm_mode_status
-> +inno_hdmi_starfive_mode_valid(struct device *dev,
-> +			      const struct drm_display_mode *mode)
-> +{
-> +	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
-> +	unsigned long pixelclk = mode->clock * 1000;
-> +	long rounded;
-> +
-> +	/*
-> +	 * The PHY can only generate the discrete set of pixel clocks described
-> +	 * by its pre-PLL table, and clk_round_rate() fails for anything else.
-> +	 * Reject those modes here: without this the modeset would appear to
-> +	 * succeed while the PHY never produces a signal.
-> +	 */
-> +	rounded = clk_round_rate(ctrl->clks[CLK_PCLK].clk, pixelclk);
-> +	if (rounded < 0 || rounded != pixelclk)
-> +		return MODE_NOCLOCK;
-> +
-
-Using "if (rounded != pixelclk)" would be ok.
-
-> +	return MODE_OK;
-> +}
-> +
-> +static void inno_hdmi_starfive_enable(struct device *dev,
-> +				      struct drm_display_mode *mode)
-> +{
-> +	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	/*
-> +	 * 1. Set the pixel clock rate. This calls the PHY driver's .set_rate op.
-> +	 */
-> +	ret = clk_set_rate(ctrl->clks[CLK_PCLK].clk, mode->clock * 1000);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to set pclk rate %d: %d\n",
-> +			mode->clock * 1000, ret);
-> +		return;
-> +	}
-> +
-> +	/*
-> +	 * 2. Enable the pixel clock. This calls the PHY driver's .prepare op.
-> +	 */
-> +	ret = clk_prepare_enable(ctrl->clks[CLK_PCLK].clk);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to enable pclk: %d\n", ret);
-> +		return;
-> +	}
-> +
-> +	/*
-> +	 * 3. Power on the PHY. This calls the PHY driver's .power_on op,
-> +	 * which configures the Post-PLL and analog blocks.
-> +	 */
-> +	ret = phy_power_on(ctrl->phy);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to power on PHY: %d\n", ret);
-> +		clk_disable_unprepare(ctrl->clks[CLK_PCLK].clk);
-> +		return;
-> +	}
-> +
-> +	ctrl->enabled = true;
-> +}
-> +
-> +static void inno_hdmi_starfive_disable(struct device *dev)
-> +{
-> +	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
-> +
-> +	/*
-> +	 * .enable bails out early if the pixel clock rate is unsupported or
-> +	 * the PHY fails to power on, leaving pclk and the PHY untouched.
-> +	 * Only tear down what was actually brought up, otherwise the clock
-> +	 * refcount underflows.
-> +	 */
-> +	if (!ctrl->enabled)
-> +		return;
-> +
-> +	phy_power_off(ctrl->phy);
-> +	clk_disable_unprepare(ctrl->clks[CLK_PCLK].clk);
-> +	ctrl->enabled = false;
-> +}
-> +
-> +/*
-> + * The DC8200 has two panels, each exposing a DP and a DPI interface, and a mux
-> + * in dom_vout_syscon picks which of them drives the HDMI transmitter. Derive
-> + * the mux setting from the port graph: the remote port number selects the
-> + * DC8200 panel, and the remote endpoint number the interface on that panel
-> + * (0 for DPI, 1 for DP). Both drive 8-bit RGB, the only format this driver
-> + * currently produces.
-> + */
-> +static int stf_inno_hdmi_setup_mux(struct device *dev)
-> +{
-> +	struct device_node *ep, *remote;
-
-Using "struct device_node *ep __free(device_node)" can help you simplify
-the processing of resource release.
-
-> +	struct of_endpoint endpoint;
-> +	struct regmap *syscon;
-> +	u32 mask, val;
-> +	int ret;
-> +
-> +	syscon = syscon_regmap_lookup_by_phandle(dev->of_node,
-> +						 "starfive,vout-syscon");
-> +	if (IS_ERR(syscon))
-> +		return dev_err_probe(dev, PTR_ERR(syscon),
-> +				     "Failed to get vout syscon\n");
-> +
-> +	ep = of_graph_get_endpoint_by_regs(dev->of_node, 0, -1);
-> +	if (!ep)
-> +		return dev_err_probe(dev, -ENODEV, "No input endpoint\n");
-> +
-> +	remote = of_graph_get_remote_endpoint(ep);
-> +	of_node_put(ep);
-> +	if (!remote)
-> +		return dev_err_probe(dev, -ENODEV,
-> +				     "Input endpoint is not connected\n");
-> +
-> +	ret = of_graph_parse_endpoint(remote, &endpoint);
-> +	of_node_put(remote);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "Failed to parse the remote endpoint\n");
-> +
-> +	if (endpoint.port > 1 || endpoint.id > 1)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "Unsupported DC8200 output %u/%u\n",
-> +				     endpoint.port, endpoint.id);
-> +
-> +	/* Data mapping: 8-bit RGB on whichever interface is in use. */
-> +	mask = VOUT_HDMI_DPI_DP_SEL | VOUT_HDMI_DP_BIT_DEPTH |
-> +	       VOUT_HDMI_DP_YUV_MODE | VOUT_HDMI_DPI_BIT_DEPTH;
-> +	val = FIELD_PREP(VOUT_HDMI_DPI_DP_SEL, endpoint.id) |
-> +	      FIELD_PREP(VOUT_HDMI_DP_YUV_MODE, VOUT_HDMI_DP_YUV_MODE_RGB) |
-> +	      FIELD_PREP(VOUT_HDMI_DPI_BIT_DEPTH, VOUT_HDMI_DPI_BIT_DEPTH_8BIT);
-> +
-> +	ret = regmap_update_bits(syscon, VOUT_SYSCFG_4, mask, val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Which DC8200 panel drives the HDMI transmitter. */
-> +	return regmap_update_bits(syscon, VOUT_SYSCFG_8, VOUT_HDMI_PANEL_SEL,
-> +				  FIELD_PREP(VOUT_HDMI_PANEL_SEL,
-> +					     endpoint.port));
-> +}
-> +
-> +static void stf_inno_hdmi_clk_disable(void *data)
-> +{
-> +	struct stf_inno_hdmi_controller *ctrl = data;
-> +
-> +	clk_bulk_disable_unprepare(CLK_CTRL_NUM - 1, ctrl->clks);
-> +}
-> +
-> +static void stf_inno_hdmi_rst_assert(void *data)
-> +{
-> +	reset_control_assert(data);
-> +}
-> +
-> +static int starfive_inno_hdmi_controller_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device *parent = dev->parent;
-> +	struct stf_inno_hdmi_controller *ctrl;
-> +	const struct inno_hdmi_plat_data *plat_data;
-> +	struct regmap *regmap;
-> +	struct inno_hdmi *inno;
-> +	int ret;
-> +
-> +	ctrl = devm_kzalloc(dev, sizeof(*ctrl), GFP_KERNEL);
-> +	if (!ctrl)
-> +		return -ENOMEM;
-> +
-> +	ctrl->dev = dev;
-> +	platform_set_drvdata(pdev, ctrl);
-> +
-> +	/* Get the shared regmap from the parent */
-> +	regmap = dev_get_regmap(parent, NULL);
-> +	if (!regmap) {
-> +		dev_err(dev, "Failed to get parent regmap\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	ctrl->phy = devm_phy_get(dev, NULL);
-> +	if (IS_ERR(ctrl->phy))
-> +		return dev_err_probe(dev, PTR_ERR(ctrl->phy), "Failed to get PHY\n");
-> +
-> +	ctrl->tx_rst = devm_reset_control_get_exclusive(dev, NULL);
-> +	if (IS_ERR(ctrl->tx_rst))
-> +		return dev_err_probe(dev, PTR_ERR(ctrl->tx_rst), "failed to get tx reset\n");
-> +
-> +	/* Populate the clock names this controller *consumes* */
-> +	ctrl->clks[CLK_SYS].id = "pclk";
-> +	ctrl->clks[CLK_M].id = "mclk";
-> +	ctrl->clks[CLK_B].id = "bclk";
-> +	ctrl->clks[CLK_PCLK].id = "pixel"; /* Generated by the PHY */
-> +
-> +	ret = devm_clk_bulk_get(dev, CLK_CTRL_NUM, ctrl->clks);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Unable to get controller clocks\n");
-> +
-> +	/*
-> +	 * Tear the clocks and the reset down through devm, so that they outlive
-> +	 * everything registered after them. The bridge is added with
-> +	 * devm_drm_bridge_add(), and unwinding in the wrong order would leave it
-> +	 * registered while its clocks are already gated.
-> +	 *
-> +	 * The pixel clock is enabled on demand during modeset.
-> +	 */
-> +	ret = clk_bulk_prepare_enable(CLK_CTRL_NUM - 1, ctrl->clks);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = devm_add_action_or_reset(dev, stf_inno_hdmi_clk_disable, ctrl);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = reset_control_deassert(ctrl->tx_rst);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = devm_add_action_or_reset(dev, stf_inno_hdmi_rst_assert,
-> +				       ctrl->tx_rst);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = stf_inno_hdmi_setup_mux(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	plat_data = of_device_get_match_data(dev);
-> +
-> +	/* Hand off to the generic library to create the bridge. */
-> +	inno = inno_hdmi_probe(pdev, plat_data);
-> +	if (IS_ERR(inno))
-> +		return PTR_ERR(inno);
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * This table is now only used for the generic .mode_valid check.
-> + * The real validation happens in the PHY driver's .round_rate.
-> + */
-> +static struct inno_hdmi_phy_config stf_hdmi_phy_configs[] = {
-> +	{ 297000000, 0x00, 0x00 },
-> +	{ ~0UL, 0x00, 0x00 }, /* Sentinel */
-> +};
-> +
-> +static const struct inno_hdmi_plat_ops stf_inno_hdmi_plat_ops = {
-> +	.enable = inno_hdmi_starfive_enable,
-> +	.disable = inno_hdmi_starfive_disable,
-> +	.mode_valid = inno_hdmi_starfive_mode_valid,
-> +};
-> +
-> +static const struct inno_hdmi_plat_data stf_inno_hdmi_plat_data = {
-> +	.ops = &stf_inno_hdmi_plat_ops,
-> +	.phy_configs = stf_hdmi_phy_configs,
-> +	.default_phy_config = &stf_hdmi_phy_configs[0],
-> +};
-> +
-> +static const struct of_device_id starfive_hdmi_controller_dt_ids[] = {
-> +	{ .compatible = "starfive,jh7110-inno-hdmi-controller",
-> +	  .data = &stf_inno_hdmi_plat_data },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, starfive_hdmi_controller_dt_ids);
-> +
-> +struct platform_driver starfive_inno_hdmi_controller_driver = {
-> +	.probe = starfive_inno_hdmi_controller_probe,
-> +	.driver = {
-> +		.name = "starfive-inno-hdmi-controller",
-> +		.of_match_table = starfive_hdmi_controller_dt_ids,
-> +	},
-> +};
-> +module_platform_driver(starfive_inno_hdmi_controller_driver);
-> +
-> +MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
-> +MODULE_DESCRIPTION("StarFive INNO HDMI Controller Driver");
-> +MODULE_LICENSE("GPL");
-> 
-
--- 
-Best, 
-Chaoyi
+>   drivers/iommu/riscv/iommu.c | 1 +
+>   drivers/iommu/riscv/iommu.h | 2 ++
+>   2 files changed, 3 insertions(+)
+>
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index cec3ddd7ab10..2c0dcc90cf85 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -1560,6 +1560,7 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+>   	int rc;
+>   
+>   	RISCV_IOMMU_QUEUE_INIT(&iommu->cmdq, CQ);
+> +	raw_spin_lock_init(&iommu->cmdq.lock);
+>   	RISCV_IOMMU_QUEUE_INIT(&iommu->fltq, FQ);
+>   
+>   	rc = riscv_iommu_init_check(iommu);
+> diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+> index 46df79dd5495..5676001548cc 100644
+> --- a/drivers/iommu/riscv/iommu.h
+> +++ b/drivers/iommu/riscv/iommu.h
+> @@ -12,6 +12,7 @@
+>   #define _RISCV_IOMMU_H_
+>   
+>   #include <linux/iommu.h>
+> +#include <linux/spinlock.h>
+>   #include <linux/types.h>
+>   #include <linux/iopoll.h>
+>   
+> @@ -23,6 +24,7 @@ struct riscv_iommu_queue {
+>   	atomic_t prod;				/* unbounded producer allocation index */
+>   	atomic_t head;				/* unbounded shadow ring buffer consumer index */
+>   	atomic_t tail;				/* unbounded shadow ring buffer producer index */
+> +	raw_spinlock_t lock;			/* serialize queue publishing */
+>   	unsigned int mask;			/* index mask, queue length - 1 */
+>   	unsigned int irq;			/* allocated interrupt number */
+>   	struct riscv_iommu_device *iommu;	/* iommu device handling the queue when active */
 
 _______________________________________________
 linux-riscv mailing list
