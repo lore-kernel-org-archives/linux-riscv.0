@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84EC9C79F9E
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 13:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0401BC79FA1
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 15:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YQzW+gDDXAOBj8EzGqW7E0jCo/NIaEaQP74n1WH/mRs=; b=ER/SKi70KgMYY6
-	pWNP9SpzrY6E0kABX3ee5kjDqTdYdbQjpEfnhq9ew8wlYhSaSwi8xV7fkbW5Neh84P4B4vAkTaSAY
-	fRotNdVgpWntAJD8q0FN6YFFnDBtZmiOPXnku+HP6+W9/AcjCLLbc4Gs+5osIsYF3mhEWw5VLeZrk
-	bmfzWqLa8NLGdHpgVnZlRxmrYCm8kA8A+RaI2u5ALQ1unLpuWZ9BRjH2jLH2VT56bKsHpZ70PDmop
-	0wt2vGUmlWns96WZugA2AlABIJaDyoUyzidYixYrQCcKDBiNC/NppQbdS45x2raEz0/YpA5BU2XeS
-	caOlcyZYSmEy4O6PKwgQ==;
+	List-Owner; bh=k4oDSXguxPn/R8jQsx1DRBBRRvGr0G8SyxeTxzprL2E=; b=iyEFI/40+AYAOS
+	L2pORvGGq+3fpJ9sneJUKAy9rjHktVCC5CO8sk9BfRP2EBzSYDzu4UvWJht3Tgffg/mHTUcldIOnh
+	qSRSFO7Onb3nf4BfCebeIvLGUEKNb6NozAjXrn4t5df4dqooIAS/qgeKGvLDPJK8B7wvdee/UxZl5
+	zy3XF1c0/6GcqZciUEHz5k7QWsAJetSJL2yvljmYuekN6mM3X5Y4OyOZET7H3IOv9LRe0q4K/3Qhj
+	WEgWYFvlHGiqQ+OjjCae9rGJ637hcmGStIiDjzfg93SmKsfFeMzXeVnu26fmnpad8qBdsMdzvfl9G
+	8iNyc0dAtOGc5ndByPcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ZYF-00000006xfr-2LhB;
-	Mon, 07 Sep 2026 13:38:23 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1x3bJF-000000079pe-44oI;
+	Mon, 07 Sep 2026 15:31:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ZYC-00000006xf1-2RCl
+	id 1x3bJD-000000079oU-2R5d
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 13:38:22 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hdntG3nhbzLlXX;
-	Mon,  7 Sep 2026 21:27:18 +0800 (CST)
-Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id B67EE40565;
-	Mon,  7 Sep 2026 21:38:11 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
- (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 7 Sep
- 2026 21:38:10 +0800
-Message-ID: <ba883461-aa7c-49ac-b7c8-79e0d41fc086@hisilicon.com>
-Date: Mon, 7 Sep 2026 21:38:10 +0800
+	Mon, 07 Sep 2026 15:30:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5808E43621;
+	Mon,  7 Sep 2026 15:30:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71EC91F00A3D;
+	Mon,  7 Sep 2026 15:30:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788795059;
+	bh=WvJFOaQphIvH9VnjYWr9Zi/URbyT/0/TQJJh1ji7GNg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=WinvTtgFjsSvUMJkutVN78b2uPtVLCxQGgdANfz/jYwye8YpZcqq8eYtvL2gF8mbV
+	 HoYiwyhK1OYrDwGMNH1yO79xbNfTFTqQMEnkbzb+OMGiK9s4XCPD3DkQYhtdQ/NqgU
+	 cvJFvTRDidGczKbvv/v150iqiG1HTdBCe++xp68PSdURPpWC1/IYkxP2bG/ukWy+30
+	 Bntrh1AqXUs1BqDKDaFD+frW30Zo40tDGRSm+DTr6EICD8hm+N0ACInODCaY+fKRxD
+	 JYooH2cbZX5NLxZK80iu/UHV6wtFAB7+hNwGlWgIAWRfSqHNYQ0ERhKl6p6tF2BAa8
+	 IWl0b4W1FH6aQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/3] riscv: word-at-a-time: improve find_zero() for !RISCV_ISA_ZBB
+Date: Mon,  7 Sep 2026 23:11:06 +0800
+Message-ID: <20260907151108.7538-2-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260907151108.7538-1-jszhang@kernel.org>
+References: <20260907151108.7538-1-jszhang@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ACPI: RISC-V: CPPC: Implement cpc_read_ffh_fb_ctrs()
-To: Yicong Yang <yang.yicong@picoheart.com>
-References: <20260902083450.2348-1-douyufan@picoheart.com>
- <d48e5c92-f666-44e0-8375-9772d95065b5@hisilicon.com>
- <37731989-e1f1-4dc9-944d-2544ce8e9302@picoheart.com>
-Content-Language: en-US
-From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <37731989-e1f1-4dc9-944d-2544ce8e9302@picoheart.com>
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemf200017.china.huawei.com (7.202.181.10)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_063820_974631_37BAD864 
-X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,151 +68,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: geshijian@picoheart.com, yuchao.46@picoheart.com, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, "Rafael J . Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Yufan Dou <douyufan@picoheart.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Current find_zero() heavily depends on fls64() for calculation. This
+bring non-optimal code when !RISCV_ISA_ZBB.
 
+But in word-at-a-time case, we don't have to go with fls64() code path,
+instead, we can fallback to the generic word-at-a-time implementaion.
 
-On 9/7/2026 9:17 PM, Yicong Yang wrote:
-> On 9/7/26 7:29 PM, Jie Zhan wrote:
->>
->>
->> On 9/2/2026 4:34 PM, Yufan Dou wrote:
->>> On RISC-V, each cpc_read_ffh() for a CSR-type FFH register sends a
->>> separate IPI to the target hart via smp_call_function_single().
->>> cppc_get_perf_ctrs() therefore samples the delivered and reference
->>> counters in two separate IPIs, at two different instants. The skew
->>> between the two sampling points distorts the delivered/reference
->>> ratio and thus the frequency reported by cpufreq.
->>>
->>> Implement the cpc_read_ffh_fb_ctrs() hook to read both CSR counters
->>> back-to-back in a single IPI, which narrows the sampling window to a
->>> few instructions and halves the number of cross-CPU calls. This
->>> improves the accuracy of the reported frequency in the same way as
->>> the arm64 implementation of the hook, which reads both AMU counters
->>> in a single counters_read_on_cpu() call.
->>>
->>> SBI-type FFH registers still fall back to individual reads, since
->>> pairing them would not reduce the number of SBI calls on the target
->>> hart.
->>>
->>> Testing was performed while CPU1 was kept busy with:
->>>
->>>   # stress-ng --cpu 1 --taskset 1
->>>
->>> On a CPU with cpuinfo_max_freq of 3000000 kHz:
->>>
->>> Before:
->>>
->>>   Maximum observed cpuinfo_cur_freq: 3201369 kHz
->>>   Maximum observed error:            +201369 kHz (+6.71%)
->>>
->>> After:
->>>
->>>   Maximum observed cpuinfo_cur_freq: 3009646 kHz
->>>   Maximum observed error:              +9646 kHz (+0.32%)
->>>
->>> The maximum observed error is reduced by 95.2%.
->> Glad to see that works for RISC-V as well.
->>>
->>> Signed-off-by: Yufan Dou <douyufan@picoheart.com>
->>> ---
->>>  drivers/acpi/riscv/cppc.c | 47 +++++++++++++++++++++++++++++++++++++++
->>>  1 file changed, 47 insertions(+)
->>>
->>> diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
->>> index 42c1a9052470..2ca98fa69e9a 100644
->>> --- a/drivers/acpi/riscv/cppc.c
->>> +++ b/drivers/acpi/riscv/cppc.c
->>> @@ -85,6 +85,20 @@ static void cppc_ffh_csr_write(void *write_data)
->>>  	data->ret.error = -EINVAL;
->>>  }
->>>  
->>> +struct sbi_cppc_fb_ctrs_data {
->>> +	struct sbi_cppc_data first;
->>> +	struct sbi_cppc_data second;
->>> +};
->>> +
->>> +static void cppc_ffh_csr_read_fb_ctrs(void *read_data)
->>> +{
->>> +	struct sbi_cppc_fb_ctrs_data *data = read_data;
->>> +
->>> +	cppc_ffh_csr_read(&data->first);
->>> +	if (!data->first.ret.error)
->>> +		cppc_ffh_csr_read(&data->second);
->>> +}
->>> +
->>>  /*
->>>   * Refer to drivers/acpi/cppc_acpi.c for the description of the functions
->>>   * below.
->>> @@ -125,6 +139,39 @@ int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
->>>  	return -EINVAL;
->>>  }
->>>  
->>> +int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
->>> +			 struct cpc_reg *reg2, u64 *val2)
->>> +{
->>> +	struct sbi_cppc_fb_ctrs_data data;
->>> +	int ret;
->>> +
->>> +	if (WARN_ON_ONCE(irqs_disabled()))
->>> +		return -EPERM;
->> AFAICS, this may cause CPPC FIE to constantly fail to read counters because
->> FIE runs in hardirq context.
-> 
-> I suppose it's mainly due to the smp_call_function_single() cannot work
-> with irqs_disabled().
-> 
-> seems we need to do the similar handling like arm64's
-> counters_read_on_cpu() - read the counters locally when irqs_disabled()
-> if local cpu is the target cpu.
-Exactly.
-> 
-> so is cpc_read_ffh() of riscv. but I suppose this should be a fix of below
-> commit, as it were in the kthread for FIE...
-> 997c021abc6e ("cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs")
-> 
-The fix on riscv has been posted.
-https://lore.kernel.org/all/20260609192856874Y8AaPpKL5TnmbgiWI8DI3@zte.com.cn/
+What's more, the fls64() brings non-necessary zero bits couting for
+RV32. In fact, fls() is enough.
 
-cpc_read_ffh_fb_ctrs() and cpc_read_ffh() both call counters_read_on_cpu()
-on arm64, so fixing counters_read_on_cpu() is fine.
-But the two ABIs are implemented separately here on riscv, so copy the same
-fix to cpc_read_ffh_fb_ctrs() or factor out a common process.
->> Any test on CPPC FIE?
->>> +
->>> +	/* Only CSR counters can be paired within a single IPI. */
->>> +	if (FFH_CPPC_TYPE(reg1->address) != FFH_CPPC_CSR ||
->>> +	    FFH_CPPC_TYPE(reg2->address) != FFH_CPPC_CSR)
->>> +		return -EOPNOTSUPP;
->>> +
->>> +	data.first.reg = FFH_CPPC_CSR_NUM(reg1->address);
->>> +	data.second.reg = FFH_CPPC_CSR_NUM(reg2->address);
->>> +
->>> +	ret = smp_call_function_single(cpu, cppc_ffh_csr_read_fb_ctrs,
->>> +				       &data, 1);
->>> +	if (ret)
->>> +		return ret;
->>> +
->>> +	if (data.first.ret.error)
->>> +		return data.first.ret.error;
->>> +	if (data.second.ret.error)
->>> +		return data.second.ret.error;
->>> +
->>> +	*val1 = data.first.ret.value;
->>> +	*val2 = data.second.ret.value;
->>> +
->>> +	return 0;
->>> +}
->>> +
->>>  int cpc_write_ffh(int cpu, struct cpc_reg *reg, u64 val)
->>>  {
->>>  	struct sbi_cppc_data data;
->>>
->>> base-commit: 89a312991dc6e638a36adc43ccb91dbc25504c04
+Before the patch:
+
+0000000000000000 <find_zero>:
+   0:	c529                	beqz	a0,4a <.L1>
+   2:	577d                	li	a4,-1
+   4:	9301                	srli	a4,a4,0x20
+   6:	03f00793          	li	a5,63
+   a:	00a76463          	bltu	a4,a0,12 <.L3>
+   e:	1502                	slli	a0,a0,0x20
+  10:	47fd                	li	a5,31
+
+0000000000000012 <.L3>:
+  12:	577d                	li	a4,-1
+  14:	8341                	srli	a4,a4,0x10
+  16:	00a76463          	bltu	a4,a0,1e <.L4>
+  1a:	37c1                	addiw	a5,a5,-16
+  1c:	0542                	slli	a0,a0,0x10
+
+000000000000001e <.L4>:
+  1e:	577d                	li	a4,-1
+  20:	8321                	srli	a4,a4,0x8
+  22:	00a76463          	bltu	a4,a0,2a <.L5>
+  26:	37e1                	addiw	a5,a5,-8
+  28:	0522                	slli	a0,a0,0x8
+
+000000000000002a <.L5>:
+  2a:	577d                	li	a4,-1
+  2c:	8311                	srli	a4,a4,0x4
+  2e:	00a76463          	bltu	a4,a0,36 <.L6>
+  32:	37f1                	addiw	a5,a5,-4
+  34:	0512                	slli	a0,a0,0x4
+
+0000000000000036 <.L6>:
+  36:	577d                	li	a4,-1
+  38:	8309                	srli	a4,a4,0x2
+  3a:	00a76463          	bltu	a4,a0,42 <.L7>
+  3e:	37f9                	addiw	a5,a5,-2
+  40:	050a                	slli	a0,a0,0x2
+
+0000000000000042 <.L7>:
+  42:	00054563          	bltz	a0,4c <.L12>
+  46:	4037d51b          	sraiw	a0,a5,0x3
+
+000000000000004a <.L1>:
+  4a:	8082                	ret
+
+000000000000004c <.L12>:
+  4c:	2785                	addiw	a5,a5,1
+  4e:	4037d51b          	sraiw	a0,a5,0x3
+  52:	8082                	ret
+
+After the patch:
+
+0000000000000000 <find_zero>:
+   0:	102037b7          	lui	a5,0x10203
+   4:	0792                	slli	a5,a5,0x4
+   6:	40578793          	addi	a5,a5,1029 # 10203405 <.L4+0x102033c5>
+   a:	07c2                	slli	a5,a5,0x10
+   c:	60878793          	addi	a5,a5,1544
+  10:	02f50533          	mul	a0,a0,a5
+  14:	9161                	srli	a0,a0,0x38
+  16:	8082                	ret
+
+33 instructions vs 8 instructions!
+
+And this kind of instructions reducing dramatically improves the
+performance of below micro-benchmark:
+
+ $ cat tt.c
+ #inlcude <stdio.h>
+ #inlcude "word-at-a-time.h" // copy and modify, eg. remove other headers
+ int main()
+ {
+ 	int i;
+ 	unsigned long ret = 0;
+
+	for (i = 0; i < 100000000; i++)
+		ret |= find_zero(0xabcd123 + i);
+
+	printf("%ld\n", ret);
+ }
+ $ gcc -O tt.c
+ $ time ./a.out
+
+Per my test, the above micro-benchmark is improved by about 1150%!
+
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/include/asm/word-at-a-time.h | 29 ++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/include/asm/word-at-a-time.h b/arch/riscv/include/asm/word-at-a-time.h
+index 3802cda71ab7..1dcac57a73dd 100644
+--- a/arch/riscv/include/asm/word-at-a-time.h
++++ b/arch/riscv/include/asm/word-at-a-time.h
+@@ -39,9 +39,36 @@ static inline unsigned long create_zero_mask(unsigned long bits)
+ 	return bits >> 7;
+ }
+ 
++#ifdef CONFIG_64BIT
++/*
++ * Jan Achrenius on G+: microoptimized version of
++ * the simpler "(mask & ONEBYTES) * ONEBYTES >> 56"
++ * that works for the bytemasks without having to
++ * mask them first.
++ */
++static inline long count_masked_bytes(unsigned long mask)
++{
++	return mask*0x0001020304050608ul >> 56;
++}
++
++#else	/* 32-bit case */
++
++/* Carl Chatfield / Jan Achrenius G+ version for 32-bit */
++static inline long count_masked_bytes(long mask)
++{
++	/* (000000 0000ff 00ffff ffffff) -> ( 1 1 2 3 ) */
++	long a = (0x0ff0001+mask) >> 23;
++	/* Fix the 1 for 00 case */
++	return a & mask;
++}
++#endif
++
+ static inline unsigned long find_zero(unsigned long mask)
+ {
+-	return fls64(mask) >> 3;
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
++		return fls64(mask) >> 3;
++
++	return count_masked_bytes(mask);
+ }
+ 
+ /* The mask we created is directly usable as a bytemask */
+-- 
+2.53.0
+
 
 _______________________________________________
 linux-riscv mailing list
