@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC02C79FA7
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 07:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3252C79F89
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 07:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:In-Reply-To:Mime-Version:Subject:
-	Message-Id:Date:From:To:References:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T3Ag/7CoaacrJJAthou5LloawT3a4rdwLL60dRv6uCQ=; b=fUjSXBVTbuxlf+
-	xyFyvhOdO4aYaUisKmjjwIAEwYgchQZCDlEpy9HpzM5roixHATt3El8k467LlkslHeOIBV836TzXU
-	Jk6Y0lnc4GAvJ4znmxO3+7sREIFMB+q6jKNcgO7BAcNu1/SwRAXW8mMS4Ngki7uhx4geaa5hxShRT
-	sLvx3IPzXAqcgDwTpliGi3IiKIheAuLj2XxD/sGMU5FspLAN7NOzQtzEX+KxLj6buEv+DX8MpIxVY
-	z/SsC4QxjrR+iZwl/IIsK6nWBIF3Rku3D3nFV5WD80Zjb58Q5g5r3X/dvh+sUYrhj8L88g5Qi5zVV
-	UUo0rld5zG4LGCVbsE7w==;
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:From:Cc:Mime-Version:
+	Subject:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6ANl0j9Qkx81OghBEToJH5jC/6G6CRDH3mwUOCcXfyM=; b=yymY+EUbBSPiXS
+	/D6jtYc71x2Meqj7t5gQjDZz0gKUtgDKwgow3brGbOjrbZEwzjtD+Svz1V0ZeVJ+wJkh06JzxepUl
+	FE4bMVhB1M/tO5RvcqYAuU512E+pEMz72Ur9XjTcAJKfILPMFbLc4bGmLpe9r9KS7603Q2TJjQFrb
+	8P2qJfEREK3qfAggzgcz7F/KM8WhzxDoPBR4miPSE7lxouDVP0teOE9FClGiBVqfSI8xMGAnX0CQY
+	NgoIFTBsl8iIiG9Eu35+RskeuvFkV0VVR4PqiJLotqRnzFTdm6RM+pFPycGjqwNWoLbO21VfnuTSs
+	AmE/mazklbXCnY4Ib/1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TgE-0000000695A-1nGS;
-	Mon, 07 Sep 2026 07:22:14 +0000
-Received: from va-2-29.ptr.blmpb.com ([209.127.231.29])
+	id 1x3TgI-0000000696L-2nTb;
+	Mon, 07 Sep 2026 07:22:18 +0000
+Received: from va-2-35.ptr.blmpb.com ([209.127.231.35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Tg9-0000000692I-1Np5
+	id 1x3TgB-0000000692u-13m1
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 07:22:11 +0000
+	Mon, 07 Sep 2026 07:22:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1788765718; h=from:subject:
+ s=feishu2604151535; d=picoheart.com; t=1788765715; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=D2zVDZ9A0iNZQu4BiZaXjTbfMRw6cK06vVM3vUvAj44=;
- b=g5szO5MEagD+V3dPf27dxCHSK9u15q74s/rHZVkSjHyh1XgHjFoDe/oeQhaV5Lfm/xXMa0
- k5ovxAeuFWKq9y/OBPyKr79hocDCOTilNCpm45s/EnxSjecta1L7JW/MnIyjGzLhKu7YU9
- ancnQR+3qNxdSacPCHNwkkOxZmHQCwrKGeQwuK+Hg78Z4fhyuEVR6zneyxVqXZhIUeNFzu
- yMuhPKb3i4hXlY+bR2dM+ns2p5hvIYKr0tTMmeT32TKgDHwTx8EwwAsCWDA6nGUBaxi6Gu
- 9Fn32T1nESbdN3U07AfsaEpvziSYyQ5LJjvHdkdk/3OWFqT6sfuu1xYXWmh1BA==
-Received: from G9WYR9K0VW ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Mon, 07 Sep 2026 15:21:54 +0800
-References: <20260907072149.72031-1-yang.yicong@picoheart.com>
+ bh=VwzffnaMweiWFTGCCm7C67J2s2YdHjm1W23eMUxXKb8=;
+ b=q2Ns1KDBzsMKsO4Ger3Dqh0H6ydyrda4jlmh9Fw+oHuxPrRHzyQiXjbcoewryBCLNQhh2U
+ +iIY+/bCVNirB7qVFVKGVtDmo23v9jxoWdfGvoQmVsP3xElZjOEq/mVZCJEzu3GtYUxiOL
+ pyWmZqndespHjpaSyaghqw2Nmhdmf8l4scvUvo+ZB869F06pHaqbms8yYIB4TP/Xx1qcwG
+ 8zqdApRpkX6LJJWckHmHH91x0HQiscd77NgrBz4Bzou29sgaZzSdRnLrKulr+wPlGSbHmc
+ u2fs3KgbWT+oOrYZT9UN9+jnKhxGg83fZf5BufWfMzjmcMXUh6wT5s58yNuFww==
 X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+Received: from G9WYR9K0VW ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Mon, 07 Sep 2026 15:21:52 +0800
 To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
 	<linux-riscv@lists.infradead.org>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Date: Mon,  7 Sep 2026 15:21:45 +0800
-Message-Id: <20260907072149.72031-2-yang.yicong@picoheart.com>
-Subject: [PATCH v3 1/5] riscv: Make get_insn public for instruction fault handling
+Subject: [PATCH v3 0/5] Add workarounds for Picoheart erratas
+X-Lms-Return-Path: <lba+26a9e6611+298069+lists.infradead.org+yang.yicong@picoheart.com>
 Mime-Version: 1.0
-In-Reply-To: <20260907072149.72031-1-yang.yicong@picoheart.com>
 Cc: <wangruikang@iscas.ac.cn>, <ganboing@gmail.com>, <alex@ghiti.fr>, 
 	<andrew.jones@oss.qualcomm.com>, <cleger@meta.com>, 
 	<geshijian@picoheart.com>, <niehaitao@picoheart.com>, 
 	<cuiyunhui@bytedance.com>, <yang.yicong@picoheart.com>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Date: Mon,  7 Sep 2026 15:21:44 +0800
+Message-Id: <20260907072149.72031-1-yang.yicong@picoheart.com>
 X-Mailer: git-send-email 2.50.1
-X-Lms-Return-Path: <lba+26a9e6613+cbe738+lists.infradead.org+yang.yicong@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_002210_076590_660AF64E 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20260907_002211_382107_C4184092 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,271 +72,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently two places (vector and misaligned load/store) need
-to get fault instructions for handling and they implement the
-function separately. This is a common function so make
-get_insn() public in asm/insn.h for doing this job to make it
-less fragile and improve the maintainability.
+This series add basic errata framework for Picoheart SoCs for handling
+upcoming Picoheart erratas. And add workarounds for the first two
+erratas on our hardware. Also do some fixups and refactor in support
+of the erratas.
 
-Also fix a bug that Bo Gan noticed: get_user() is insufficient
-in this case since it's possible for the instruction segment
-mapped as execute-only and get_user() doesn't have permissions
-to load it. The architecture provides sstatus.MXR for handling
-this so set MXR when reading userspace instruction.
+Change since v2:
+- rebase on 7.3-rc2
+- merge the MXR fix and get_insn extraction into one patch
+Link: https://lore.kernel.org/linux-riscv/20260728094627.94975-1-yang.yicong@picoheart.com/
 
-Cc: Bo Gan <ganboing@gmail.com>
-Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
----
- arch/riscv/include/asm/csr.h         |  1 +
- arch/riscv/include/asm/insn.h        | 55 ++++++++++++++++++++++++++++
- arch/riscv/include/asm/processor.h   |  2 +-
- arch/riscv/kernel/asm-offsets.c      |  6 +--
- arch/riscv/kernel/entry.S            | 14 +++----
- arch/riscv/kernel/traps_misaligned.c | 52 --------------------------
- arch/riscv/kernel/vector.c           |  6 +--
- 7 files changed, 70 insertions(+), 66 deletions(-)
+Change since v1:
+- factor out a common get_insn for reading userspace instructions
+- fix the issue from reading instructions of a exec-only mapping
+- cleanups and code style refinements per comments
+Link: https://lore.kernel.org/linux-riscv/20260715084724.26578-1-yang.yicong@picoheart.com/
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 6c823361be86..16e1c5ee955c 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -17,6 +17,7 @@
- #define SR_SPP		_AC(0x00000100, UL) /* Previously Supervisor */
- #define SR_MPP		_AC(0x00001800, UL) /* Previously Machine */
- #define SR_SUM		_AC(0x00040000, UL) /* Supervisor User Memory Access */
-+#define SR_MXR		_AC(0x00080000, UL) /* Make eXecutable Readable */
- 
- /* zicfilp landing pad status bit */
- #define SR_SPELP	_AC(0x00800000, UL)
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index c3005573e8c9..c36d1dfa16c6 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -600,4 +600,59 @@ static inline void riscv_insn_insert_utype_itype_imm(u32 *utype_insn, u32 *itype
- 	*utype_insn |= (imm & RV_U_IMM_31_12_MASK) + ((imm & BIT(11)) << 1);
- 	*itype_insn |= ((imm & RV_I_IMM_11_0_MASK) << RV_I_IMM_11_0_OPOFF);
- }
-+
-+#define __read_insn(regs, insn, insn_addr, type)			\
-+({									\
-+	int __ret;							\
-+									\
-+	if (user_mode(regs)) {						\
-+		csr_set(CSR_STATUS, SR_MXR);				\
-+		__ret = get_user(insn, (type __user *) insn_addr);	\
-+		csr_clear(CSR_STATUS, SR_MXR);				\
-+	} else {							\
-+		insn = *(type *)insn_addr;				\
-+		__ret = 0;						\
-+	}								\
-+									\
-+	__ret;								\
-+})
-+
-+static inline int get_insn(struct pt_regs *regs, ulong epc, ulong *r_insn)
-+{
-+	ulong insn = 0;
-+
-+	if (epc & 0x2) {
-+		ulong tmp = 0;
-+
-+		if (__read_insn(regs, insn, epc, u16))
-+			return -EFAULT;
-+		/* __get_user() uses regular "lw" which sign extend the loaded
-+		 * value make sure to clear higher order bits in case we "or" it
-+		 * below with the upper 16 bits half.
-+		 */
-+		insn &= GENMASK(15, 0);
-+		if ((insn & __INSN_LENGTH_MASK) != __INSN_LENGTH_32) {
-+			*r_insn = insn;
-+			return 0;
-+		}
-+		epc += sizeof(u16);
-+		if (__read_insn(regs, tmp, epc, u16))
-+			return -EFAULT;
-+		*r_insn = (tmp << 16) | insn;
-+
-+		return 0;
-+	} else {
-+		if (__read_insn(regs, insn, epc, u32))
-+			return -EFAULT;
-+		if ((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_32) {
-+			*r_insn = insn;
-+			return 0;
-+		}
-+		insn &= GENMASK(15, 0);
-+		*r_insn = insn;
-+
-+		return 0;
-+	}
-+}
-+
- #endif /* _ASM_RISCV_INSN_H */
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 815715c67f94..29af76aa486e 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -119,7 +119,7 @@ struct thread_struct {
- 	struct __riscv_d_ext_state fstate;
- 	unsigned long bad_cause;
- 	unsigned long envcfg;
--	unsigned long sum;
-+	unsigned long sum_mxr;
- 	u32 riscv_v_flags;
- 	u32 vstate_ctrl;
- 	struct __riscv_v_ext_state vstate;
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index a75f0cfea1e9..b6de2179570b 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -35,7 +35,7 @@ void asm_offsets(void)
- 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
- 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
- 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
--	OFFSET(TASK_THREAD_SUM, task_struct, thread.sum);
-+	OFFSET(TASK_THREAD_SUM_MXR, task_struct, thread.sum_mxr);
- 
- 	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
- 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
-@@ -352,8 +352,8 @@ void asm_offsets(void)
- 		  offsetof(struct task_struct, thread.s[11])
- 		- offsetof(struct task_struct, thread.ra)
- 	);
--	DEFINE(TASK_THREAD_SUM_RA,
--		  offsetof(struct task_struct, thread.sum)
-+	DEFINE(TASK_THREAD_SUM_MXR_RA,
-+		  offsetof(struct task_struct, thread.sum_mxr)
- 		- offsetof(struct task_struct, thread.ra)
- 	);
- 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index d799c4e56f80..9ccc74aafece 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -172,13 +172,13 @@ SYM_CODE_START(handle_exception)
- 	save_from_x6_to_x31
- 
- 	/*
--	 * Disable user-mode memory access as it should only be set in the
--	 * actual user copy routines.
-+	 * Disable user-mode memory access and MXR as it should only be set in
-+	 * the actual user copy routines.
- 	 *
- 	 * Disable the FPU/Vector to detect illegal usage of floating point
- 	 * or vector in kernel space.
- 	 */
--	li t0, SR_SUM | SR_FS_VS
-+	li t0, SR_SUM | SR_MXR | SR_FS_VS
- #ifdef CONFIG_64BIT
- 	li t1, SR_ELP
- 	or t0, t0, t1
-@@ -443,15 +443,15 @@ SYM_FUNC_START(__switch_to)
- 	REG_S s10, TASK_THREAD_S10_RA(a3)
- 	REG_S s11, TASK_THREAD_S11_RA(a3)
- 
--	/* save the user space access flag */
-+	/* save the user space access and MXR flag */
- 	csrr  s0, CSR_STATUS
--	REG_S s0, TASK_THREAD_SUM_RA(a3)
-+	REG_S s0, TASK_THREAD_SUM_MXR_RA(a3)
- 
- 	/* Save the kernel shadow call stack pointer */
- 	scs_save_current
- 	/* Restore context from next->thread */
--	REG_L s0,  TASK_THREAD_SUM_RA(a4)
--	li    s1,  SR_SUM
-+	REG_L s0,  TASK_THREAD_SUM_MXR_RA(a4)
-+	li    s1,  SR_SUM | SR_MXR
- 	and   s0,  s0, s1
- 	csrs  CSR_STATUS, s0
- 	REG_L ra,  TASK_THREAD_RA_RA(a4)
-diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-index 6e8ae6c66322..f10f14001480 100644
---- a/arch/riscv/kernel/traps_misaligned.c
-+++ b/arch/riscv/kernel/traps_misaligned.c
-@@ -129,58 +129,6 @@ static unsigned long get_f32_rs(unsigned long insn, u8 fp_reg_offset,
- #define GET_F32_RS2C(insn, regs) (get_f32_rs(insn, 2, regs))
- #define GET_F32_RS2S(insn, regs) (get_f32_rs(RVC_RS2S(insn), 0, regs))
- 
--#define __read_insn(regs, insn, insn_addr, type)	\
--({							\
--	int __ret;					\
--							\
--	if (user_mode(regs)) {				\
--		__ret = get_user(insn, (type __user *) insn_addr); \
--	} else {					\
--		insn = *(type *)insn_addr;		\
--		__ret = 0;				\
--	}						\
--							\
--	__ret;						\
--})
--
--static inline int get_insn(struct pt_regs *regs, ulong epc, ulong *r_insn)
--{
--	ulong insn = 0;
--
--	if (epc & 0x2) {
--		ulong tmp = 0;
--
--		if (__read_insn(regs, insn, epc, u16))
--			return -EFAULT;
--		/* __get_user() uses regular "lw" which sign extend the loaded
--		 * value make sure to clear higher order bits in case we "or" it
--		 * below with the upper 16 bits half.
--		 */
--		insn &= GENMASK(15, 0);
--		if ((insn & __INSN_LENGTH_MASK) != __INSN_LENGTH_32) {
--			*r_insn = insn;
--			return 0;
--		}
--		epc += sizeof(u16);
--		if (__read_insn(regs, tmp, epc, u16))
--			return -EFAULT;
--		*r_insn = (tmp << 16) | insn;
--
--		return 0;
--	} else {
--		if (__read_insn(regs, insn, epc, u32))
--			return -EFAULT;
--		if ((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_32) {
--			*r_insn = insn;
--			return 0;
--		}
--		insn &= GENMASK(15, 0);
--		*r_insn = insn;
--
--		return 0;
--	}
--}
--
- union reg_data {
- 	u8 data_bytes[8];
- 	ulong data_ulong;
-diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-index b112166d51e9..1e37810035a9 100644
---- a/arch/riscv/kernel/vector.c
-+++ b/arch/riscv/kernel/vector.c
-@@ -184,8 +184,8 @@ EXPORT_SYMBOL_GPL(riscv_v_vstate_ctrl_user_allowed);
- 
- bool riscv_v_first_use_handler(struct pt_regs *regs)
- {
--	u32 __user *epc = (u32 __user *)regs->epc;
--	u32 insn = (u32)regs->badaddr;
-+	unsigned long epc = regs->epc;
-+	unsigned long insn = regs->badaddr;
- 
- 	if (!(has_vector() || has_xtheadvector()))
- 		return false;
-@@ -200,7 +200,7 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
- 
- 	/* Get the instruction */
- 	if (!insn) {
--		if (__get_user(insn, epc))
-+		if (get_insn(regs, epc, &insn))
- 			return false;
- 	}
- 
+Yicong Yang (5):
+  riscv: Make get_insn public for instruction fault handling
+  riscv: insn: Support decoding of CBO instructions
+  riscv: errata: Add init framework for picoheart errata
+  riscv: errata: picoheart: Add workaround for cbo.clean errata
+  riscv: errata: picoheart: Add workaround for AMOCASQ errata
+
+ arch/riscv/Kconfig.errata                    |  34 +++
+ arch/riscv/errata/Makefile                   |   1 +
+ arch/riscv/errata/picoheart/Makefile         |   5 +
+ arch/riscv/errata/picoheart/errata.c         | 238 +++++++++++++++++++
+ arch/riscv/include/asm/alternative.h         |   3 +
+ arch/riscv/include/asm/cmpxchg.h             |   2 +-
+ arch/riscv/include/asm/cpufeature.h          |   8 +
+ arch/riscv/include/asm/csr.h                 |   1 +
+ arch/riscv/include/asm/errata_list.h         |  25 +-
+ arch/riscv/include/asm/errata_list_vendors.h |   4 +
+ arch/riscv/include/asm/insn.h                |  63 ++++-
+ arch/riscv/include/asm/processor.h           |   2 +-
+ arch/riscv/include/asm/vendorid_list.h       |   1 +
+ arch/riscv/kernel/alternative.c              |   5 +
+ arch/riscv/kernel/asm-offsets.c              |   6 +-
+ arch/riscv/kernel/cpufeature.c               |  16 +-
+ arch/riscv/kernel/entry.S                    |  14 +-
+ arch/riscv/kernel/traps.c                    |   4 +
+ arch/riscv/kernel/traps_misaligned.c         |  52 ----
+ arch/riscv/kernel/vector.c                   |   6 +-
+ 20 files changed, 419 insertions(+), 71 deletions(-)
+ create mode 100644 arch/riscv/errata/picoheart/Makefile
+ create mode 100644 arch/riscv/errata/picoheart/errata.c
+
 -- 
 2.50.1 (Apple Git-155)
 
