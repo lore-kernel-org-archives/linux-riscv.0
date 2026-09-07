@@ -4,68 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616B8C79F8C
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 02:30:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE76BC79F8C
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 02:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Message-Id:MIME-Version:Subject:Date
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZAFQ3kze7cmURUqomETkqhGj8BqpXEE8nU11HnuyV40=; b=YSxFJyKwSTpOku
-	eHKopnIQ91+JtIPok+oYcxwI/SUX+/bspSSESw3/rAkrtloUvZufSxw3aJ9KnEP33f61JxGNYyJHU
-	3yOn2z03Jp9dhDSc1cdAqkhnEEhvEQ9y7El68YJR1qNmW//4aa+a6aeE7/bc1mYT4329Vu443fgIR
-	1hHCouMvL1RW8AIX2jN5R91tIIsmsNcVewNcumYBkZxBiArbTokLlR0ltXnZrrogRz1AY6Xm6/BpC
-	tcZIoQoflS4VF92pj1HlGRKMWvL0E7Sr/oPsJZlRd9wxt3OdLSa2NMuNSBpw3ySjmC4AVvLP4mZuw
-	Bfm7r/c8xnf8tNP7NuNQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bYtYKsnookBHa9e7zVAUld6KKFXJKfVQgf7MZ4UJ6Fs=; b=00ngZ03Tk1XtmW9j4Br33izRtv
+	AZwLto8J400OEbJ54Qu6uuc8TPEJee0yToPL5nYHiMd3/z4gRTWf0BQa3Dad89MU2+y6t82Dlb7tj
+	znRb2kB0mU5YFjm9amHcN9x4rlUoU5+mFpKTka9zxmdLSumRggfUJv4BGRPYQjhXw9vyBBiV1kUf/
+	z6r1w6ZwiCFdwySS+N/5v2UTQTO+tzRcbNBB7pU24Ky/VU88Eb+qsef5J1pK8KK5Ujypc0D6eYUg5
+	o6gYx4UffxIStc4zN+Epgl8sqbRS7i6kH5qgEdug94codwSPMX5IxKekMads2YMU4uXI55tOP+CVV
+	FzcPfxtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3P80-00000005iN4-2e3P;
-	Mon, 07 Sep 2026 02:30:36 +0000
-Received: from out-1.mta0.migadu.com ([2001:41d0:1004:224b::1] helo=mta0.migadu.com)
+	id 1x3PD2-00000005ith-3qs6;
+	Mon, 07 Sep 2026 02:35:48 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3P7y-00000005iM6-0fAA
-	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 02:30:35 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=gGOR70RWSVNpIZlUx4mowRB4v72DW7/ACEGX60I3uQQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788748229; v=1; x=1789353029;
- b=p755C2VN8+m3g+jfNzJqfRl3eQjn8RpJ5Esi7LppET+FuR2iKcUJa63cUlSLDc6SQa6OHX58
- DL1j2/viB5bgYAXrbsiLujKLbVbJ/f/HtpLd8bRVFIZsjK2uGQzCyKLdHgxZRnbXYLo2hE+VJot
- oLhcD5AlqglnoTnlQJiWMTaA=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta12.migadu.com with ESMTPS id 37145613f0e5f374;
-	Mon, 07 Sep 2026 02:30:29 +0000
-X-Mizu-Trace-ID: 37145613f0e5f374
-X-Migadu-Flow: FLOW_OUT
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Mon, 07 Sep 2026 10:30:24 +0800
-Subject: [PATCH v4] riscv: disable local interrupts and stop other CPUs
- before reboot/shutdown
-MIME-Version: 1.0
-Message-Id: <20260907-v7-0-rc1-rv-dis-int-before-restart-v4-1-42bb460c4afe@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XNu04DMRCF4VeJXDORx5c1UPEeKIU9OyYjkd3IN
- laiaN8dC1FEVKE6+pvv3FTlIlzV6+6mCnepsi4j3NNO0TEuHwwyj1ZGm0lbROgBNBRCKB1mqSB
- Lg8R5LQyFa4ulgU+WvYkuOXxRAzpKbWu5/nx0HPP+L64jICRyU3LWI0V6+5Tl67KfuavD4Lu5J
- 8NDpBmkZqJnn1MKOf8l7R1p9UOkHaSP2oeQaUY7/ZL1HIlP0va0ntRh27ZvcGW5+XMBAAA=
-X-Change-ID: 20260311-v7-0-rc1-rv-dis-int-before-restart-5b3e52a4b419
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3272;
- i=troy.mitchell@linux.dev; h=from:subject:message-id;
- bh=gGOR70RWSVNpIZlUx4mowRB4v72DW7/ACEGX60I3uQQ=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFnzFA8cei8r8T4i7E6z+DR9G8f9D1eeLxO86ejMtZ2Xd
- 3vslVaTjlIWBjEuBlkxRZbuBzzbCnyibAsECn1h5rAygQxh4OIUgIlYnGBkuMk5f/Ik9etJR3ID
- zqac2f9o4XO9h4t/+r3d22njvz/ugyLDP2OnGQzP4jKa1M46SnwufZi0ie28yCHNi7qSD2r2rd/
- NzwcA
-X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
- fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
+	id 1x3PCy-00000005iqn-3B9S;
+	Mon, 07 Sep 2026 02:35:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1788748493;
+	bh=/n3xihmU93G11KDPuXpxUGjTF/aZtrqDlguEa+obsXQ=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=kPpcBlqQEvSQBLI78Elo7gnb72DI8U8o36Fu/XYO7mpZHO+3awF+8TvtUj89a4ct/
+	 YWAvRlyhjEAnlLhC9Z9Wk8oST5FPFoRByvZc7e+cgSyRAkmEB/eWb5J/OQeK7DrAbv
+	 j5M8k6zCQdCD+Hkh8++lzkcSbdQ0W/7xBr3vPstU=
+X-QQ-mid: zesmtpgz3t1788748484t9bf26c94
+X-QQ-Originating-IP: 7jcO50RqRIZxPHY/moH8hgYnotivvrpyVTcywJ9C5gY=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 07 Sep 2026 10:34:39 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9707735077275929228
+EX-QQ-RecipientCnt: 59
+Mime-Version: 1.0
+Date: Mon, 07 Sep 2026 10:34:37 +0800
+Message-Id: <DL8QEYABXVMN.2CF6XXBXZ1X6U@linux.spacemit.com>
+Cc: <linux-can@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>, <linux-renesas-soc@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <linux-omap@vger.kernel.org>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH net-next 25/33] net: spacemit: k1_emac: Remove comma
+ after sentinel-entry in match-table
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Siddharth Vadapalli" <s-vadapalli@ti.com>,
+ <dario.binacchi@amarulasolutions.com>, <mkl@pengutronix.de>,
+ <mailhol@kernel.org>, <msp@baylibre.com>, <florian.fainelli@broadcom.com>,
+ <jonas.gorski@gmail.com>, <andrew@lunn.ch>, <olteanv@gmail.com>,
+ <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+ <pabeni@redhat.com>, <kurt@linutronix.de>, <hauke@hauke-m.de>,
+ <chester.a.unal@arinc9.com>, <daniel@makrotopia.org>,
+ <matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
+ <ansuelsmth@gmail.com>, <linusw@kernel.org>, <luizluca@gmail.com>,
+ <alvin.sipraga@analog.com>, <clement.leger@bootlin.com>,
+ <justin.chen@broadcom.com>, <dlan@kernel.org>, <rogerq@kernel.org>,
+ <hkallweit1@gmail.com>, <linux@armlinux.org.uk>, <rjui@broadcom.com>,
+ <sbranden@broadcom.com>, <bcm-kernel-feedback-list@broadcom.com>,
+ <opendmb@gmail.com>, <andrei.botila@oss.nxp.com>,
+ <wangruikang@iscas.ac.cn>, <amadeus@jmu.edu.cn>, <kees@kernel.org>,
+ <tmshlvck@gmail.com>, <c-vankar@ti.com>, <horms@kernel.org>,
+ <vadim.fedorenko@linux.dev>, <daniel.zahka@gmail.com>,
+ <nora.schiffer@ew.tq-group.com>, <v-singh1@ti.com>, <oss@vassilevski.com>,
+ <haokexin@gmail.com>, <alex@sverdlin.org>, <aleksandr.loktionov@intel.com>,
+ <lgs201920130244@gmail.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260904043724.2955444-1-s-vadapalli@ti.com>
+ <20260904043724.2955444-26-s-vadapalli@ti.com>
+In-Reply-To: <20260904043724.2955444-26-s-vadapalli@ti.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OOjPmw7/kYvNFpziBHOUgvSDVse/N8sfvrEHT1vw+v143DBev3KaNj9K
+	d0nc6lq5/8DlPcBkYDQm+JZAaDtphg49BWIPlNHRnJn8/BjjDeuYNqDsZNC/zhFK0nDpoK/
+	SOGxqGPaVOfmALdiL5CqYgw6t3Kibs2jaKxWXUShsO0Qne4RGa3c6Ls75NV1bwR920RpEjm
+	wnmHfVh3wokVV8MInzZVVvZeAwOtLKsfF2yhnQwy3Gu6t4beamsZqVDWzBhFusmhonKYROo
+	DV56CnAremtB9uzPJRoRekVzyYBS7ASO0mrz2hmvE0Ciwt7HhiUR6g6au+WjiJ9ZeodzaWK
+	wR/sZ8y0d7jt4FCsKcqmmrQdDZTi8D8RZKnP4zDO5PpLWrra3+UZSlr2QpJ3kyYj6O+Dw/6
+	8e4fb1nTfzmflhzCdIPWhbaItBa5lahfp/an2jrl17tjg6rZbe/6SbULjeR5YteQtpxN8ui
+	9XwmbzARqEWr1JhWrQT5r+MoEoPHG5BOlSW7G2OF+TwEIjqfYyVu2WHjqbkICADGZocc+BX
+	j9APOhiR8BSAJz0zo8GKRcM3z3HsNqobFR6ukTpPOOG0k9yqLBnn+dKSeT+zTnidT26l8/N
+	h6jr181CgTsKct8+GJjK66z9206FAft9Mdw3TZ7PvMDxu25lM5vvIkG9kgV/rywyX74tWBQ
+	u2b//1lIOSIaCZAURdPzrXsJBvyLUFDETQibjN6XQuQnlDhRsIfEyr6q6ZV/hCchMBlJit/
+	TUelKWbjCMm8DJpXHmwDAPLSZQrkvWaQn0UqVNVPIPI8M8H1/8LGPymX9j8VgATWPRCcYoi
+	dhFomeGb+n/VPULa5Yz3+ILzmkIIpIoMycsRzubAvSsYBfEL4wqi+Ajl4nz+q/R5iVfqSrJ
+	3d0Vr7r8EkamzeqBw7PB8iMShVjEWH17H8fzvPs0wsefvQaP1/H0NPZ1t6yaLWXEjSfNXP7
+	EPwCTR4oLnJ3D+G2dxQYrunCCTzwG8bHQrJz3IrR+mSIdWNZnzAi2WYUk5aFWfCKjBUti3G
+	MxjgPTqCRiU4Vxsd0/C1+Zzloh0Dwx6ZWI008MZtiGOVMm+wdndaF19H9PyX2s6lF0PIdkT
+	uKQY7yDKRQH
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_193034_406887_569F2CD8 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20260906_193545_713221_DF4752FF 
+X-CRM114-Status: UNSURE (   5.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,111 +114,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Troy Mitchell <troy.mitchell@linux.dev>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Aurelien Jarno <aurelien@aurel32.net>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5283988045766209084=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the RISC-V implementation of machine_restart(), machine_halt(),
-and machine_power_off() invokes the kernel teardown chains (e.g.,
-do_kernel_restart()) with local interrupts enabled and other CPUs still
-running.
+--===============5283988045766209084==
+Content-Type: multipart/signed;
+ boundary=c3446b7a882d909a1fb5e6c3d06e6abafc7af191330f8ccc8edf46454865;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
 
-This implementation fails to provide a deterministic execution environment
-for registered handlers in the restart or power-off notifier chains. These
-chains are intended to be executed in a strict atomic and single-threaded
-context.
+--c3446b7a882d909a1fb5e6c3d06e6abafc7af191330f8ccc8edf46454865
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Specifically, under CONFIG_PREEMPT_RCU, rcu_read_lock() does not increment
-the preempt_count. If local interrupts remain enabled, the environment
-is not guaranteed to be atomic. This can lead to a context misidentification
-within generic kernel teardown code, causing it to incorrectly enter
-non-atomic paths (such as attempting to acquire sleeping locks), which
-results in fatal "scheduling while atomic" splats or system hangs.
+On Fri Sep 4, 2026 at 12:36 PM +08, Siddharth Vadapalli wrote:
+> Since sentinel is the last entry and we do not expect further entries
+> following it, remove the comma.
+>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-Additionally, stopping other CPUs ensures the primary CPU has exclusive
-access to the hardware state during the final teardown phase, preventing
-unpredictable interference from other active cores.
+--=20
+Troy Mitchell
 
-Align RISC-V with other major architectures by disabling local interrupts
-and stopping other CPUs at the beginning of the shutdown sequences. This
-guarantees the architectural expectations of the kernel's restart and
-power-off handlers are met.
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-Tested-by: Anand Moon <linux.amoon@gmail.com>
----
-Changes in v4:
-- Rebase onto v7.3-rc1.
-- Link to v3: https://lore.kernel.org/r/20260330-v7-0-rc1-rv-dis-int-before-restart-v3-1-5a0577fcd136@linux.spacemit.com
+--c3446b7a882d909a1fb5e6c3d06e6abafc7af191330f8ccc8edf46454865
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Changes in v3:
-- add Aurelien's tag
-- Link to v2: https://lore.kernel.org/all/20260317-v7-0-rc1-rv-dis-int-before-restart-v2-1-0ecc85fbb7ff@linux.dev/
+-----BEGIN PGP SIGNATURE-----
 
-Changes in v2:
-- expand the fix to cover machine_halt() and machine_power_off() for
-  architectural consistency.
-- update commit message
-- Link to v1: https://lore.kernel.org/r/20260311-v7-0-rc1-rv-dis-int-before-restart-v1-1-bc46b4351cac@linux.dev
----
- arch/riscv/kernel/reset.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCap4ivQ0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQvrKoA/jq66no0m3AM6WPip5A8SiOQeVPyie/PjbmRqO4w
+PamfAQCtuus+o1dOGS/PPW44oBGtqifxJT5WcMspAw/AJH0KCQ==
+=xCA3
+-----END PGP SIGNATURE-----
 
-diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
-index 14eb08a6db85..ec84e3c94a3a 100644
---- a/arch/riscv/kernel/reset.c
-+++ b/arch/riscv/kernel/reset.c
-@@ -6,6 +6,7 @@
- #include <linux/efi.h>
- #include <linux/reboot.h>
- #include <linux/pm.h>
-+#include <linux/smp.h>
- 
- static void __noreturn default_power_off(void)
- {
-@@ -18,6 +19,9 @@ EXPORT_SYMBOL(pm_power_off);
- 
- void machine_restart(char *cmd)
- {
-+	local_irq_disable();
-+	smp_send_stop();
-+
- 	/*
- 	 * UpdateCapsule() depends on the system being reset via ResetSystem().
- 	 */
-@@ -30,12 +34,18 @@ void machine_restart(char *cmd)
- 
- void machine_halt(void)
- {
-+	local_irq_disable();
-+	smp_send_stop();
-+
- 	do_kernel_power_off();
- 	default_power_off();
- }
- 
- void machine_power_off(void)
- {
-+	local_irq_disable();
-+	smp_send_stop();
-+
- 	do_kernel_power_off();
- 	default_power_off();
- }
+--c3446b7a882d909a1fb5e6c3d06e6abafc7af191330f8ccc8edf46454865--
 
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260311-v7-0-rc1-rv-dis-int-before-restart-5b3e52a4b419
 
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.dev>
-
+--===============5283988045766209084==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5283988045766209084==--
+
