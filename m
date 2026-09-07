@@ -4,89 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC82C79FAC
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 09:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3BEC79FA9
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 10:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JOtBu+AdID/a9pVAn7sBvNtXp/0WxxQ7VQKAnXdQ+jY=; b=quyNRrcgKTPHh5
-	1lr39C2PANTPxMyLTnnOtGWUXRutHtTOGENjm8xTh0WOUECAHpstjt2ueGC9j/wSFT9EAcMs76XJh
-	LzPzyvz0v4nRi9HttM+8/nQ8BVBBoJqAhSt+sUA3ciAZy2SFMVIR3nCpE/609d0F0Q9szDrCtCiX4
-	clAoHDfD1cN8t/Mp8my5IVNYWterkRX5JYBtPPaqlo/MeXhJHk+CYTIwOXDTgLoPfWvAjwUvzu/5N
-	fvEv0Jtj5OOx4tdj11wgQ5vkhcjL5OpbU0v63pWQ7l2tQyGNE0MqVrQ9iEApNcCJ9RNm9Du2ure61
-	+xdywDZoSMZlEsgRLlrw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tu56OiCPc1caDXvnRemiE2KTt2xHCReBTk+/MlTodxw=; b=XIuYdP3kMtPL7B
+	vCQqK9e7eIqCfvUZFkAaZQ5K9w6QS5ZLnDUr04/+tPOEvIPtUvluG3WiASauXOFxFlom7SmBGCThi
+	SbPDjkb8+rl1yZVsFuo3arFezglQzvFVrh+o3XXUzq0rWt+3Rf2Qf4Up1azuVjL2FDBW8P7lRFM8A
+	KUvfVxGL8UHXgFvmJophowmSfXX4D6O1EXrcy8GRMiAnFsUab5HCJqIhWhDjLK4b212du5zuzB+IU
+	Xt+SUMxBiOScDtPniTwaRn4MOzpH1EiRMWaFaAkQ/k9nOnx4jqjui8ZuwzL9AFHeDMEj+lYQbpHdN
+	g/A5gDVchn0F4qNZerTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3W7R-00000006PTJ-04w7;
-	Mon, 07 Sep 2026 09:58:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3WVk-00000006TUY-3kU5;
+	Mon, 07 Sep 2026 10:23:36 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3W7O-00000006PS7-2ukS
+	id 1x3WVi-00000006TTx-1c5t
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 09:58:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0AE6E43222;
-	Mon,  7 Sep 2026 09:58:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CEF45C2BCC7;
-	Mon,  7 Sep 2026 09:58:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788775105;
-	bh=fs8d6nkh6D5RmIxH1uT+pAod8jqHIlEnS5dHbN7H6fI=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=fuCmIk48j2vavcBHuUKAeNWOJB8zLWsz0+9nN3tn6ZQvQpK+A8Fgvkz7VqjALdf2e
-	 0IDMHl0xztJpGXUe3p32EbSFZzT7thRSVdKnEuo2w1ZxVjxxT7obSxc3yPpg94y0LH
-	 lqPSxBsjwYECw7t9dvoP85wVameTgyhl/99hIzfK5S4z2zrdmrJf/QMuiAcmZfpue5
-	 PeP4nRGRNvGFBGoW6+xXZzMPJ+RFQTd9eNfxtzEbf34cTJG10pL6ubsaiIQ8N+3bLt
-	 n1/jIMJtfVPHWnL3SYauGpkQNW/CADv72SqXVPgFK/5rHmmxl1xrRhKdUvyqO0ks69
-	 iPANNpLq5XELQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A7988C79F99;
-	Mon,  7 Sep 2026 09:58:25 +0000 (UTC)
-From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
-Subject: [PATCH v2 00/10] riscv: Add device tree support for UltraRISC
- DP1000
-Date: Mon, 07 Sep 2026 17:54:39 +0800
-Message-Id: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
+	Mon, 07 Sep 2026 10:23:35 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48586861639so2479233f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Sep 2026 03:23:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788776612; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NwAwX2N9jk0wByz6aZHoCvr9lieCmO0OLFc+TlyVEX0qs5VyWZ10QZPLZaJous3oCL
+         H1rIBk+lPLHNhCaxjiEM6NC0btRWDwU16uM53UWe4ykXPWir7ruZuuyeAghPQzqM+NzI
+         4nS0wDiRo8YR3dQW/s1OMkC+umoJLqxbvBkVEbPaJOzBUHmzUMWgEDjyTjIviUgY5TqW
+         Xf0M1N/QON3WX5AfQJauzhD6bplXJk/fGvHYlsNDTsM9966yiELL1Vd1Rd4wfKnkk6Wl
+         /mnRuVDjuE9BijBO0BSmYTn7PWw2HkwnYcvy4A5q/K6FiRu71MaQteUo7xCC0sTx4n9K
+         NhWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=99rrNQK9PYDQWtqeDcI+v8dFCF97V9GRd5/NAE170tM=;
+        fh=cOHERzQytEjJWda+r6uTordghS88OD6sber32jX0nHQ=;
+        b=KMuOACXiWiWmxTpoS+nP8OFz2Zsa6K49qUXCC/T2d+d8y4saF0hAZZbavXr/nudEw3
+         yBmFreHugorIH9hYBFkg/YWQJvn7WxPmUqOjXkz/inqbM2KfrrgDdaE+EsD/NKPLaaDA
+         9zUcmM4Y+rOUzmLCIaOkrE+l6DJuyPfB/oiakxuhj1lDDdDxyVyrIlz9gvD3oHihUhpE
+         teHmE/37QFCCe7Sd9GrY/bByhgw12STqNHrX9O5tDZJPFp3sGS7q7Gvij7jC0QSxY95D
+         HPtz0RvMjKUshBjmplcWGjYEFDb38DNJ97JZbt+6JkdwF+WjKuM09wYl6mQJmXHWNRBV
+         vEEg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788776612; x=1789381412; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=99rrNQK9PYDQWtqeDcI+v8dFCF97V9GRd5/NAE170tM=;
+        b=A6z8pHzOqPxJxLS00tgNO3ymqncPwO2+aT5eAEVlVV2VlQXk0bRF9Rv2CJtJZ77ZvR
+         RYV7GD6a/GR7owAarIoQyw5z/frAZ1LgjiHawj2i1SKDMdVlmlvUjBD8ZZBsu6P0jw4r
+         nTepkWQHZKcTAGpt4twyUtg874utAtg3lyptqB5StyMWWpE5vyA29zV+CXTjCMS0Kf9A
+         SLa4BzqRaEcelYTK8HhpIKWo02kmWvOHXH9AJOSZ2wnCFy3QVMnTr/M7c20JB+WQlRUs
+         MLVpNNIdVfyG+rXORMOn+4WW6tvw8fdbATNSD06PYLp+WrXziFXoYdiQocR1RVP4JfP3
+         VAqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788776612; x=1789381412;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=99rrNQK9PYDQWtqeDcI+v8dFCF97V9GRd5/NAE170tM=;
+        b=Jrv0oFUabMFIwrFBZJIRAj9f3I3Wu0wyZUvwi4HkC5R+etm2uBbSoFsDN/cD3rNwR0
+         rtsav5RRjPXrdyZHrutb2ih1eQ0WapPZ7KohzDPMvQSxQqEd/26vj2exZIY/3vT5oy2H
+         P/pX5vWrvOINXGaAdt8xt2y/ygj1RzAFQNR6OY+WxE2REVHFYKLXgGwAS49n2Pbqm7DF
+         sO/MdLw/4qfUVlwZrfh5ErxBY2HyJuTf/SPvdj0MOimTHP72Bz+rimNRMEp51Y4YlioQ
+         kke8sune3EKOnFqCoNzHWxoDlVuQwL3FDgLzbJIzBxTk+BlFF4vJIysPg2V/FUtYJWzY
+         DqEw==
+X-Forwarded-Encrypted: i=1; AKwUvBzUvGC3WdZ8Rk9jI3LqaIWZRUiBJ53FwFxP0mcBmJr8NkJndVV7ZCNzqCkxsNLhe+Z/2M5syO1AfFe/Pw==@lists.infradead.org
+X-Gm-Message-State: AFuF++kMQKcYzBW1YqUBq/Div/3Jiy+0+lEwwbHQ5kf69nn2kQ/bhFSI
+	4s33PzedMkFHQvJkoyAfDlmgkhg3DEAQ9p2EoIbwhtt/tEigwyLuRSNScEpZMBP1kCrWgaP62MO
+	AaK6D33yDkFism6OdEpX3IV9WiaiypAiM5Vzb7TM=
+X-Gm-Gg: AYBFou20X9tKNytcmzPg6+IA56K4U8gpMl25zEycSG7J2NhuZk6i3qisDi+VM3AgM6p
+	Rwg48ZTG7DjzH0bjzPsYdIfyQJ8lhTHJMQdze+94M6wtnzU3d6+JkxLEzne42nAEqRZBVhoIeh2
+	rIxYEEaHPHQesbHq+EI+VqQpamYtjDXZ01GZqKMwUYrVpSINN/fB44zYAzrdRgtf/DSbN88QdPC
+	ZvAwXU2DeeBw8GeV7lYkmjtbyb97/9JEjGLCe3rm781rve3+xA2aDScNHvoAhgBBRfVpoTEkPE0
+	4zCOfsv8vQWH0X0iwxWb7o0FcwqlRn3sAQiqHP9VUDnVfcjWAZgKWh7rWPYlZlRdJa/4lLQ4Vkr
+	c8SU=
+X-Received: by 2002:adf:edc8:0:b0:482:e658:7a39 with SMTP id
+ ffacd0b85a97d-4857e5171femr24476358f8f.11.1788776611775; Mon, 07 Sep 2026
+ 03:23:31 -0700 (PDT)
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAOCJnmoC/12Q3U4DIRCFX2XDtRh+CiwbY3wP04sZmLUYt1Wgq
- 6bpu0upMerlycx855w5sUI5UWHTcGKZ1lTSYd+EuhlY2MH+iXiKTTMllBVGKX58qRlyKoHHWri
- PgBqUlhYtazevmeb00XmP26suR3ymUC+Q741Mb8dmVK9rbKFSoBtNw1338cLx+L5A+OW2Ki64B
- +1xHiNqqR9+ZrfhsNx3NtSw6xwIXmtpJBrQIjrro9MWSVuHGxODjTI2EJrLFUIh3hBLqtMQZ+X
- F2BKECNqOKOQ8b7QTfjZy9EI4G4yVxrFLu10q9ZA/+/NW2cv0/KPa/PvTKlt6KwEdEJIn8zc92
- 57P5y9vvEKZjAEAAA==
-X-Change-ID: 20260522-ultrarisc-dts-9dab3a2316b6
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Jia Wang <wangjia@ultrarisc.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>, 
- Andi Shyti <andi.shyti@kernel.org>, 
- Mika Westerberg <mika.westerberg@linux.intel.com>, 
- Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org, 
- linux-i2c@vger.kernel.org, dmaengine@vger.kernel.org, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788775103; l=6572;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=fs8d6nkh6D5RmIxH1uT+pAod8jqHIlEnS5dHbN7H6fI=;
- b=c33tukVmX93oP4g3h9Le0+lad+GXnTWwtk8+w9sK0qXF3luHh3Az/VxkVWq+KbB4u7uZTw2jd
- FkOBSxEHfmrA5jzgiXGtD20f7qmOJ/K/SCxhOLwIx2wptCxmA47T27T
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260515 with
- auth_id=779
-X-Original-From: Jia Wang <wangjia@ultrarisc.com>
+References: <20260905134251.67210-1-hppiscas@163.com> <apwrUYd3VybxbAm7@nickhuang>
+ <wg57x6u3fomukerbnfbmmxywoljyrlqlctytfnqdlhl74jvigg@t3aygzlhtpui>
+In-Reply-To: <wg57x6u3fomukerbnfbmmxywoljyrlqlctytfnqdlhl74jvigg@t3aygzlhtpui>
+From: Nick Huang <sef1548@gmail.com>
+Date: Mon, 7 Sep 2026 18:23:19 +0800
+X-Gm-Features: AcwNN1Vp_cuM5nShreT_zeNzhbqLHFyRtdBlAeKSiWtpbuJ0qpc92MV9cu7-sFI
+Message-ID: <CABZAGRFSqQh1AWF=bYO5xXQWDVHK+5NVgHt9=N8wcQY2ZuK4YQ@mail.gmail.com>
+Subject: Re: [PATCH] PCI: eswin: Publish the platform driver's OF alias
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: "hpp.iscas" <hppiscas@163.com>, Senchuan Zhang <zhangsenchuan@eswincomputing.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Yu Ning <ningyu@eswincomputing.com>, Yanghui Ou <ouyanghui@eswincomputing.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_032334_481299_647705E6 
+X-CRM114-Status: GOOD (  24.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,150 +117,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: wangjia@ultrarisc.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Devicetree support for the UltraRISC DP1000 RISC-V SoC and two
-DP1000-based motherboards: Shenzhen Rongda M0 and Milk-V Titan.
-
-DP1000 integrates eight UltraRISC CP100 CPU cores.  The SoC description
-includes the CPU and cache topology, CLINT, PLIC, clock controller,
-pinctrl, GPIO, four UARTs, two SPI controllers, four I2C controllers,
-three PCIe root complexes, GMAC, and the DMA controller.
-
-The Shenzhen Rongda M0 and Milk-V Titan device trees add their
-board-specific pin multiplexing, RTC devices, and Ethernet PHY
-configuration.  Both boards enable the three PCIe root complexes and
-the GMAC described as disabled by default in the SoC DTS.  The Titan
-description also provides its GPIO wakeup keys.
-
-The binding patches add the vendor, CPU, board, and peripheral compatible
-strings consumed by the new device trees.  The SPI, I2C, and AXI DMA nodes
-use their respective generic DesignWare compatible strings as fallbacks.
-
-An earlier version of the DP1000 SoC and board Devicetree support was
-posted as part of a combined Devicetree and pinctrl series. The pinctrl
-binding and driver were subsequently split out and merged separately.
-This series carries the updated Devicetree portion.
-
-Link: https://lore.kernel.org/all/20260515-ultrarisc-pinctrl-v1-0-bf559589ea8a@ultrarisc.com/
-
-This series depends on the UltraRISC DP1000 GMAC support series:
-
-net: stmmac: Add common RGMII delay handling and DP1000 support
-https://lore.kernel.org/netdev/20260907-dwmac-ultrarisc-v2-0-9a39bf8db313@ultrarisc.com/
-
-Testing:
-- Built dp1000-shenrongda-m0.dtb and dp1000-milkv-titan.dtb with
-  ARCH=riscv and W=1.
-- Ran dt_binding_check for the modified bindings and the prerequisite
-  DP1000 GMAC binding.
-- Validated both DTBs against the relevant Devicetree schemas with
-  CHECK_DTBS=y and the prerequisite GMAC series applied.
-- Boot-tested both DTBs on Shenzhen Rongda M0 and Milk-V Titan. Verified
-  the CPU topology and CBO selftests, UART, SPI, I2C/RTC, system memory,
-  and all three PCIe root complexes. The expected PCIe endpoints were
-  enumerated on both boards.
-- With the prerequisite GMAC series applied, ultrarisc-dwmac established
-  1000 Mb/s full-duplex links with the YT8531S PHY on M0 and the RTL8211F
-  PHY on Titan.
-
-Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
----
-Changes in v2:
-- Remove the dependency on the DP1000 clock series, which has since
-  been merged.
-- Drop the generic DWMAC compatible patch; DP1000 GMAC support is handled
-  by a separate prerequisite series.
-- Drop the RISC-V CPU binding yamllint fix, which has been applied.
-- Add DP1000-specific resource constraints and hardware descriptions to
-  the SPI, I2C and DMA bindings.
-- Correct the native chip-select count of SPI1 from three to four.
-- Describe all eight per-channel DMA interrupts.
-- Update the DP1000 GMAC nodes for the separate GMAC support series:
-  remove the generic DWMAC fallback, use "rgmii-id" for both boards, and
-  clarify the fixed MAC-side RGMII delays.
-- Link to v1: https://patch.msgid.link/20260824-ultrarisc-dts-v1-0-61ab7aebe9e5@ultrarisc.com
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-To: Albert Ou <aou@eecs.berkeley.edu>
-To: Alexandre Ghiti <alex@ghiti.fr>
-To: Jia Wang <wangjia@ultrarisc.com>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>
-To: Thomas Gleixner <tglx@kernel.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-To: Anup Patel <anup@brainfault.org>
-To: Mark Brown <broonie@kernel.org>
-To: Andi Shyti <andi.shyti@kernel.org>
-To: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
-To: Vinod Koul <vkoul@kernel.org>
-To: Frank Li <Frank.Li@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-spi@vger.kernel.org
-Cc: linux-i2c@vger.kernel.org
-Cc: dmaengine@vger.kernel.org
-
----
-Jia Wang (10):
-      dt-bindings: vendor-prefixes: Add shenrongda
-      dt-bindings: riscv: cpus: Add UltraRISC CP100 compatible
-      dt-bindings: riscv: Add UltraRISC DP1000 board compatibles
-      dt-bindings: timer: Add UltraRISC DP1000 CLINT
-      spi: dt-bindings: snps,dw-apb-ssi: Add compatible for UltraRISC DP1000 SoC
-      dt-bindings: i2c: dw: Add compatible for UltraRISC DP1000 SoC
-      dt-bindings: dma: snps,dw-axi-dmac: Add UltraRISC DP1000 compatible
-      riscv: dts: ultrarisc: Add initial device tree for UltraRISC DP1000
-      riscv: dts: ultrarisc: Add Shenzhen Rongda M0 board device tree
-      riscv: dts: ultrarisc: Add Milk-V Titan board device tree
-
- .../devicetree/bindings/dma/snps,dw-axi-dmac.yaml  |  22 +
- .../bindings/i2c/snps,designware-i2c.yaml          |  15 +
- Documentation/devicetree/bindings/riscv/cpus.yaml  |   1 +
- .../devicetree/bindings/riscv/ultrarisc.yaml       |  27 +
- .../devicetree/bindings/spi/snps,dw-apb-ssi.yaml   |  16 +
- .../devicetree/bindings/timer/sifive,clint.yaml    |   1 +
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- MAINTAINERS                                        |   8 +
- arch/riscv/boot/dts/Makefile                       |   1 +
- arch/riscv/boot/dts/ultrarisc/Makefile             |   3 +
- .../dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi  | 108 +++
- .../boot/dts/ultrarisc/dp1000-milkv-titan.dts      | 203 +++++
- arch/riscv/boot/dts/ultrarisc/dp1000-pinctrl.h     |  63 ++
- .../ultrarisc/dp1000-shenrongda-m0-pinctrl.dtsi    |  79 ++
- .../boot/dts/ultrarisc/dp1000-shenrongda-m0.dts    | 113 +++
- arch/riscv/boot/dts/ultrarisc/dp1000.dtsi          | 899 +++++++++++++++++++++
- 16 files changed, 1561 insertions(+)
----
-base-commit: df2908090cda368b01ff43709f51890076c56157
-change-id: 20260522-ultrarisc-dts-9dab3a2316b6
-prerequisite-message-id: <20260907-dwmac-ultrarisc-v2-0-9a39bf8db313@ultrarisc.com>
-prerequisite-patch-id: 92e6cf1352d54e283d7721dc1542b580b8a41be1
-prerequisite-patch-id: 875c2058e9d8a983d785d7447374758f994dc847
-prerequisite-patch-id: 060a9b129c32c623a52ab1ba66f7a357e54575ff
-prerequisite-patch-id: 9aafbac6d2531a378b2057bf57787c814523f9d3
-prerequisite-patch-id: d75120a112276bd966d37441bd4d631e1539d0e8
-prerequisite-patch-id: ac933151b5a30d769d736be367b45dc6d1d9bfb5
-
-Best regards,
---  
-Jia Wang <wangjia@ultrarisc.com>
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TWFuaXZhbm5hbiBTYWRoYXNpdmFtIDxtYW5pQGtlcm5lbC5vcmc+IOaWvCAyMDI25bm0OeaciDXm
+l6XpgLHlha0g5LiL5Y2IMTE6NTXlr6vpgZPvvJoKPgo+IE9uIFNhdCwgU2VwIDA1LCAyMDI2IGF0
+IDAyOjQ2OjQxUE0gKzAwMDAsIE5pY2sgSHVhbmcgd3JvdGU6Cj4gPiBPbiBTYXQsIFNlcCAwNSwg
+MjAyNiBhdCAwOTo0Mjo1MVBNICswODAwLCBocHAuaXNjYXMgd3JvdGU6Cj4gPiA+IFRoZSBFU1dJ
+TiBQQ0llIGhvc3QgY29udHJvbGxlciBpcyBhIHBsYXRmb3JtIGRyaXZlciBtYXRjaGVkIHRocm91
+Z2gKPiA+ID4gZXN3aW5fcGNpZV9vZl9tYXRjaC4gUENJRV9FU1dJTiBpcyB0cmlzdGF0ZSwgYnV0
+IHRoZSB0YWJsZSBpcyBub3QKPiA+ID4gcHVibGlzaGVkIGZvciBPRiBtb2R1bGUgYXV0b2xvYWRp
+bmcuCj4gPiA+Cj4gPiA+IFB1Ymxpc2ggdGhpcyBwbGF0Zm9ybS1kZXZpY2UgdGFibGUuIERvIG5v
+dCBjaGFuZ2UgdGhlIFJJU0MtViBob3N0Cj4gPiA+IGluaXRpYWxpemF0aW9uIHNlcXVlbmNlIG9y
+IFBDSSBkZXZpY2UgbWF0Y2hpbmcuCj4gPiA+Cj4gPiA+IEZpeGVzOiBiNTkzYzI2ZDA4MWEgKCJQ
+Q0k6IGVzd2luOiBBZGQgRVNXSU4gUENJZSBSb290IENvbXBsZXggZHJpdmVyIikKPiA+ID4gU2ln
+bmVkLW9mZi1ieTogaHBwLmlzY2FzIDxocHBpc2Nhc0AxNjMuY29tPgo+ID4gPiAtLS0KPiA+ID4g
+IGRyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZXN3aW4uYyB8IDEgKwo+ID4gPiAgMSBm
+aWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspCj4gPiA+Cj4gPiA+IGRpZmYgLS1naXQgYS9kcml2
+ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWVzd2luLmMgYi9kcml2ZXJzL3BjaS9jb250cm9s
+bGVyL2R3Yy9wY2llLWVzd2luLmMKPiA+ID4gaW5kZXggY2U4ZDY0Zi4uMWJiNDQ2OSAxMDA2NDQK
+PiA+ID4gLS0tIGEvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpZS1lc3dpbi5jCj4gPiA+
+ICsrKyBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZXN3aW4uYwo+ID4gPiBAQCAt
+Mzg4LDYgKzM4OCw3IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIGVzd2luX3Bj
+aWVfb2ZfbWF0Y2hbXSA9IHsKPiA+ID4gICAgIHsgLmNvbXBhdGlibGUgPSAiZXN3aW4sZWljNzcw
+MC1wY2llIiwgLmRhdGEgPSAmZXN3aW5fZWljNzcwMF9kYXRhIH0sCj4gPiA+ICAgICB7fQo+ID4g
+PiAgfTsKPiA+ID4gK01PRFVMRV9ERVZJQ0VfVEFCTEUob2YsIGVzd2luX3BjaWVfb2ZfbWF0Y2gp
+Owo+ID4gPgo+ID4gPiAgc3RhdGljIHN0cnVjdCBwbGF0Zm9ybV9kcml2ZXIgZXN3aW5fcGNpZV9k
+cml2ZXIgPSB7Cj4gPiA+ICAgICAucHJvYmUgPSBlc3dpbl9wY2llX3Byb2JlLAo+ID4gPgo+ID4g
+SGkgaHBwLmlzY2FzCj4gPgo+ID4gU2luY2UgdGhpcyBkcml2ZXIgdXNlcyBgYnVpbHRpbl9wbGF0
+Zm9ybV9kcml2ZXIoZXN3aW5fcGNpZV9kcml2ZXIpYCwgaXQKPiA+IGFwcGVhcnMgdG8gYmUgYnVp
+bHQtaW4gb25seS4gSW4gdGhhdCBjYXNlLCBgTU9EVUxFX0RFVklDRV9UQUJMRSgpYCBzZWVtcwo+
+ID4gdW5uZWNlc3NhcnkuCj4gPgo+Cj4gTm9wZS4gYnVpbHRpbl9wbGF0Zm9ybV9kcml2ZXIoKSBv
+bmx5IHByZXZlbnRzIHJlbW92aW5nIHRoZSBkcml2ZXIgb25jZSBsb2FkZWQuCj4gU2luY2UgdGhl
+IGRyaXZlciBpcyBkZWZpbmVkIGFzICd0cmlzdGF0ZScgaW4gS2NvbmZpZywgaXQgY2FuIHN0aWxs
+IGJlIGxvYWRlZAo+IGR5bmFtaWNhbGx5LiBTbyBNT0RVTEVfREVWSUNFX1RBQkxFKCkgd291bGQg
+c3RpbGwgYmUgbmVjZXNzYXJ5IGZvciB1ZGV2IHRvCj4gYXV0b2xvYWQgdGhlIG1vZHVsZSBiYXNl
+ZCBvbiBtb2RhbGlhcy4KPgo+IC0gTWFuaQo+Cj4gLS0KPiDgrq7grqPgrr/grrXgrqPgr43grqPg
+rqngr40g4K6a4K6k4K6+4K6a4K6/4K614K6u4K+NCkhpIE1hbmkKClRoYW5rcyBmb3IgdGhlIGNs
+YXJpZmljYXRpb24uIEkgc2VlIHRoYXQgYnVpbHRpbl9wbGF0Zm9ybV9kcml2ZXIoKSBkb2VzIG5v
+dApwcmV2ZW50IHRoZSBkcml2ZXIgZnJvbSBiZWluZyBidWlsdCBhbmQgbG9hZGVkIGFzIGEgbW9k
+dWxlLCBzbwpNT0RVTEVfREVWSUNFX1RBQkxFKCkgaXMgc3RpbGwgbmVlZGVkIGZvciBtb2R1bGUg
+YXV0b2xvYWRpbmcuCgpIb3dldmVyLCBzaW5jZSBidWlsdGluX3BsYXRmb3JtX2RyaXZlcigpIGRv
+ZXMgbm90IHByb3ZpZGUgYW4gdW5yZWdpc3RlcgpwYXRoLCB0aGUgbW9kdWxlIGNhbm5vdCBiZSB1
+bmxvYWRlZCB3aXRoIHJtbW9kLiBJcyB0aGF0IGludGVudGlvbmFsIGZvcgp0aGlzIGRyaXZlcj8K
+ClRoYW5rcywKTmljawoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
