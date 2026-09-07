@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2029CC79F9F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1DE2C79FA7
 	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 09:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,45 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SxRDH+lINjAC6ySMEpbBxlDkTMMic+eylFzMtRIzeV0=; b=Ye52GERxMjyPyO
-	VhMYfpSohA9qE14s3HmRuKPiiqGGZ7EZROZ0Y99ClBRpSo9+suh1d3qz8Oz0cZz+VJKpY6+hW0uHx
-	+hHPAyyK11PthwUUrMtPFRVYP5hSY9Kfg6xNTFejkfFNKEU3XLVvEQlG4olZmaTynU9adAJXsKHPU
-	NZh+XSJ7grTxAyGx2AEud5pBb9Qp74H4kGQtJTdXu+naTfLeyWE/RvbzsIl9Moe7zBGTYB+UzQGRY
-	fe6EKze0eNQb6V30pmHlprcqWxStmNBbv+dD70ZwTWsSxwE4U1uV7t9wB1JvJFzuINoo2TeX97sXP
-	zK8oMsTyvNx6PHq8JA3Q==;
+	List-Owner; bh=u6uDQHh0QAwo3/pThHYwO4yuj2m8l5kKqruU0TZNh50=; b=KU57heOgOkS3mr
+	mt+coC054xWnKWWKREMLt55BvBGu+EEkXlIbdhbgtRubk0M/2ewF20SgOP19aqJJzs1a8+xWIlCjd
+	nuwP3stleYlMfm4JL/6CuaOgdonim/xCK1NNhZDpRq85sudwpv21lXrJ3O5lWzwuRGSd8cIAHjGO4
+	oLcYXHBK11Y6uACPnn81w4NxjzXnmOebpGsDhRlPK/+hXDyH6a/WjaTgjy5xTLNFm41mf7hR6OFlG
+	sAuQISmtCOVdtJWt/S1KItOMHekdLPpO1ZITNoHcHjpUQ9yiAp8Yd0XShU63hIoXASQBbF14OHJp9
+	c+yMSIBb/BsDFG9ucorA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3W7S-00000006PTg-1L53;
-	Mon, 07 Sep 2026 09:58:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x3W7R-00000006PTN-23EY;
+	Mon, 07 Sep 2026 09:58:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3W7P-00000006PSR-1Dyq
+	id 1x3W7O-00000006PSC-2uko
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 09:58:27 +0000
+	Mon, 07 Sep 2026 09:58:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8A3654483E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2932C43DFF;
 	Mon,  7 Sep 2026 09:58:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3C2C8C4AF60;
-	Mon,  7 Sep 2026 09:58:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DF860C2BCFA;
+	Mon,  7 Sep 2026 09:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788775106;
-	bh=AkxTZASk2YMZM60To9GH5xBpg+U1tdOQBOOVag6AfDE=;
+	bh=jx8p4XoDCEmHkARz3LvR8mZjbN2RulpuK3cx8pTILlM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=e21NceUNmwRLetw3dh/flq+cEmnxcyk6lJBYKsudHJ635mDUkgBVnHPxCpFSpmvas
-	 IHATzzsXV8pWLVjd/2iBQAsJMZPPwXjIeija63NlFGMhVsumdx3BQHR//Cwn3SCAOU
-	 NRBDkNXsa4buCK204fpKJs3x32WspePnUIRT66p77t+YWVutxTpS8hVMGGRZM3RNDi
-	 XC1bHFrzXvQ0AMHXuGfIb1KSLyKzC2iSI5dP9a01d7nqOaRg/6eLBd5SjsFkc7u3uI
-	 MyV4ePj3+SqLuG9L64P0+va/ye1R4vRqzywO4/2C8Ip29fIn2vUZNQChbquNWVhaVq
-	 Js1kTkQm7OIFw==
+	b=CUO6ibPBnRIJ6br9N1+tglZAtiCQb54P+xFBHtVbEeHzlX7CCIYEohoJJxP2aCOVF
+	 rhWyA78DUPUPbC3nqZv25YVRlFygwkTF5HKV9hJ46PPgTlYc+wX3jRITtn2jRUTokB
+	 1jhxo/x3/bzHyxynHeE7NA8eVcKOlxGcyFxKjs5FxfIGtDybOkxLB+8UudHOr/P1fB
+	 kyUXoE5DfLyeAj5lNm6CyvJorHlvlCSZCEJN1JDlJ/iRsWMEsHA8Jseny5+0tIvPLv
+	 9jtDXPQlC7drisbr1plgBltwYk02ojwsytr/REnf07GLVb3xoxh4ObJiqqag8Cnap1
+	 LqrQlM99gmGKw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 279D8C79F9E;
-	Mon,  7 Sep 2026 09:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BECEDC79F89;
+	Mon,  7 Sep 2026 09:58:25 +0000 (UTC)
 From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
-Date: Mon, 07 Sep 2026 17:54:45 +0800
-Subject: [PATCH v2 06/10] dt-bindings: i2c: dw: Add compatible for
- UltraRISC DP1000 SoC
+Date: Mon, 07 Sep 2026 17:54:40 +0800
+Subject: [PATCH v2 01/10] dt-bindings: vendor-prefixes: Add shenrongda
 MIME-Version: 1.0
-Message-Id: <20260907-ultrarisc-dts-v2-6-5eb4c97477c5@ultrarisc.com>
+Message-Id: <20260907-ultrarisc-dts-v2-1-5eb4c97477c5@ultrarisc.com>
 References: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
 In-Reply-To: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -69,13 +68,14 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
  linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org, 
- linux-i2c@vger.kernel.org, dmaengine@vger.kernel.org
+ linux-i2c@vger.kernel.org, dmaengine@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788775103; l=1475;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788775103; l=887;
  i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=qmmOpiZIekiFaSTyRs9mX7I+f5uExLbikMi5zvQgBR0=;
- b=MwErmEoUN1yX+JIVBc+ba5Q2dXErRpQto0sss5j0hElQVOqMJXvvTtPalWZh+m4BTBf8Jq3Wl
- ENt8lFxCQsdB9c679906QjzeLeprXsiAtbyMOtMiuyYTnY914Vc6KyM
+ bh=e/Kow+cCHmWBpSOP+t1oxwgy4BH4snNIyYRmuufij+E=;
+ b=CR9ZckKOmzRgkynMxxjsH9rH+5MRkkuyyO5RWGoWCZBgJ9+mRHevzyy21zSGICPYhWEoToO9w
+ 2Kmphmkzo25Bfj0HIxEXWJH+ogZkWr5HtF7yOJTdXD+dM6ShhURhDZS
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
 X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260515 with
@@ -100,52 +100,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jia Wang <wangjia@ultrarisc.com>
 
-The DP1000 integrates four DesignWare APB I2C controllers. I2C1 supports
-SMBus, while I2C0, I2C2, and I2C3 support standard I2C transfers. Each
-controller has one register range and uses separate reference and APB
-interface clocks.
+Add Shenzhen Rongda Computer Co., Ltd. to the vendor prefixes.
 
-Add the DP1000-specific compatible string with the generic one as a
-fallback.
-
+Link: http://www.shenrongda.com/
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/i2c/snps,designware-i2c.yaml      | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
-index 467bdcbb8538..8a7c0a44601b 100644
---- a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
-@@ -21,6 +21,20 @@ allOf:
-       properties:
-         reg:
-           maxItems: 1
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: ultrarisc,dp1000-i2c
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 2
-+        clock-names:
-+          minItems: 2
-+      required:
-+        - clocks
-+        - clock-names
- 
- properties:
-   compatible:
-@@ -44,6 +58,7 @@ properties:
-               - mscc,ocelot-i2c
-               - sophgo,sg2044-i2c
-               - thead,th1520-i2c
-+              - ultrarisc,dp1000-i2c
-           - const: snps,designware-i2c
- 
-   reg:
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index ba2002969373..e100f3993e57 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1507,6 +1507,8 @@ patternProperties:
+     description: SGX Sensortech
+   "^sharp,.*":
+     description: Sharp Corporation
++  "^shenrongda,.*":
++    description: Shenzhen Rongda Computer Co., Ltd.
+   "^shift,.*":
+     description: SHIFT GmbH
+   "^shimafuji,.*":
 
 -- 
 2.34.1
