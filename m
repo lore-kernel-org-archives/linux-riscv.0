@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3252C79F89
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 07:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277A2C79F9E
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 07:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:From:Cc:Mime-Version:
-	Subject:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6ANl0j9Qkx81OghBEToJH5jC/6G6CRDH3mwUOCcXfyM=; b=yymY+EUbBSPiXS
-	/D6jtYc71x2Meqj7t5gQjDZz0gKUtgDKwgow3brGbOjrbZEwzjtD+Svz1V0ZeVJ+wJkh06JzxepUl
-	FE4bMVhB1M/tO5RvcqYAuU512E+pEMz72Ur9XjTcAJKfILPMFbLc4bGmLpe9r9KS7603Q2TJjQFrb
-	8P2qJfEREK3qfAggzgcz7F/KM8WhzxDoPBR4miPSE7lxouDVP0teOE9FClGiBVqfSI8xMGAnX0CQY
-	NgoIFTBsl8iIiG9Eu35+RskeuvFkV0VVR4PqiJLotqRnzFTdm6RM+pFPycGjqwNWoLbO21VfnuTSs
-	AmE/mazklbXCnY4Ib/1Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1O9QATLEAbDwGeFz/vvDdl7IV6lLOtjryxYdEG8f228=; b=r7wnH5d/veOEET
+	gyaRqVTzrdv/TzG9lPI2Ipjcx4thgN0+A6LnmHQ2SxuDuYE4tDlODdH9xzr801KelZ+g90VG1TURC
+	C8VBplFbmnvKXs7zjct032IeH9UjWkxXAmQ1Dt19WrSk8pxOkSDtExvspucj83kioCZVbMPM8sRHP
+	vxiAIHcJ6ekOxkgJ1Obrobwvp9P8f78m/CXuxp4wLCqqtAISaXRdV/cS8Mlusx4u41zC6bH22ajqW
+	NAdANZZD8LdfRHHyLwSzzPJhgI8eROIlAC2J5Y+vpAq/AUh6u/58KZFPptjNvnQXKgcJ/KiCmb3aO
+	PDwgIU1Vkfy9tsv6zY2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TgI-0000000696L-2nTb;
-	Mon, 07 Sep 2026 07:22:18 +0000
-Received: from va-2-35.ptr.blmpb.com ([209.127.231.35])
+	id 1x3U0g-00000006B5J-3KJP;
+	Mon, 07 Sep 2026 07:43:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3TgB-0000000692u-13m1
+	id 1x3U0e-00000006B4p-38JC
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 07:22:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1788765715; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=VwzffnaMweiWFTGCCm7C67J2s2YdHjm1W23eMUxXKb8=;
- b=q2Ns1KDBzsMKsO4Ger3Dqh0H6ydyrda4jlmh9Fw+oHuxPrRHzyQiXjbcoewryBCLNQhh2U
- +iIY+/bCVNirB7qVFVKGVtDmo23v9jxoWdfGvoQmVsP3xElZjOEq/mVZCJEzu3GtYUxiOL
- pyWmZqndespHjpaSyaghqw2Nmhdmf8l4scvUvo+ZB869F06pHaqbms8yYIB4TP/Xx1qcwG
- 8zqdApRpkX6LJJWckHmHH91x0HQiscd77NgrBz4Bzou29sgaZzSdRnLrKulr+wPlGSbHmc
- u2fs3KgbWT+oOrYZT9UN9+jnKhxGg83fZf5BufWfMzjmcMXUh6wT5s58yNuFww==
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-Received: from G9WYR9K0VW ([58.250.122.114]) by smtp.feishu.cn with ESMTPS; Mon, 07 Sep 2026 15:21:52 +0800
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, 
-	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v3 0/5] Add workarounds for Picoheart erratas
-X-Lms-Return-Path: <lba+26a9e6611+298069+lists.infradead.org+yang.yicong@picoheart.com>
-Mime-Version: 1.0
-Cc: <wangruikang@iscas.ac.cn>, <ganboing@gmail.com>, <alex@ghiti.fr>, 
-	<andrew.jones@oss.qualcomm.com>, <cleger@meta.com>, 
-	<geshijian@picoheart.com>, <niehaitao@picoheart.com>, 
-	<cuiyunhui@bytedance.com>, <yang.yicong@picoheart.com>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Date: Mon,  7 Sep 2026 15:21:44 +0800
-Message-Id: <20260907072149.72031-1-yang.yicong@picoheart.com>
-X-Mailer: git-send-email 2.50.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_002211_382107_C4184092 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+	Mon, 07 Sep 2026 07:43:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2812E43A93;
+	Mon,  7 Sep 2026 07:43:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B81E1F00A3A;
+	Mon,  7 Sep 2026 07:43:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788767000;
+	bh=Zr7A1tEkdrp6PUTPuyC3f4qOvrO1WN8HeZNd7b+EEUc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AeQB8rer4btJEQehOGOZQzkGmqSKHoF1A2AQ0KWb7GqXcwXkzwQhi2qQFlycyFhH4
+	 m4QX7T5IY5HfTPSgfCYUIH8hH/mbaWVBR7qPeDd3iFP5z1AscBuF9OlaQfgoD9mla0
+	 AWWaeS8EPGVER4XHkmflz/OIUvRXXF7EosYS+CjfbQpJbl2G2+t2DGW/6mxHxpeSyq
+	 1cWbjl6gZ7vNGqW4O9VgVktFugiG7/UKkczJmD3b669H+L7dnhMkMKu+F0hzWN1zTK
+	 JFg+Qu+hLKR3c+woX0+CaNJnBnxjghNENqUYreylOl/EsQEbqmzqoeuWQVWuJippc8
+	 LUNWhoHyZOoBA==
+Date: Mon, 7 Sep 2026 07:43:16 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>,
+	Aurelien Jarno <aurelien@aurel32.net>, stable@vger.kernel.org,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5] clk: spacemit: k3: add CPU PLL rate tables
+Message-ID: <20260907074316-GKC2330@kernel.org>
+References: <20260907-k3-pll5-pll8-1800mhz-v5-1-5cc96d716b0a@linux.spacemit.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260907-k3-pll5-pll8-1800mhz-v5-1-5cc96d716b0a@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +79,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series add basic errata framework for Picoheart SoCs for handling
-upcoming Picoheart erratas. And add workarounds for the first two
-erratas on our hardware. Also do some fixups and refactor in support
-of the erratas.
+On 09:54 Mon 07 Sep     , Troy Mitchell wrote:
+> The K3 CPU PLL rate tables currently describe only one rate per PLL,
+> although the hardware supports a wider range.
+> 
+> PLL3 and PLL4 support rates from 1.05 to 2.4 GHz, while PLL5 and PLL8
+> support rates from 1.05 to 2 GHz. Populate the tables with every
+> supported rate in 50 MHz steps.
+> 
+> Fixes: e371a77255b8 ("clk: spacemit: k3: add the clock tree")
+> Cc: stable@vger.kernel.org # 7.0+
+> Reviewed-by: Aurelien Jarno <aurelien@aurel32.net>
+> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+> Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-Change since v2:
-- rebase on 7.3-rc2
-- merge the MXR fix and get_insn extraction into one patch
-Link: https://lore.kernel.org/linux-riscv/20260728094627.94975-1-yang.yicong@picoheart.com/
-
-Change since v1:
-- factor out a common get_insn for reading userspace instructions
-- fix the issue from reading instructions of a exec-only mapping
-- cleanups and code style refinements per comments
-Link: https://lore.kernel.org/linux-riscv/20260715084724.26578-1-yang.yicong@picoheart.com/
-
-Yicong Yang (5):
-  riscv: Make get_insn public for instruction fault handling
-  riscv: insn: Support decoding of CBO instructions
-  riscv: errata: Add init framework for picoheart errata
-  riscv: errata: picoheart: Add workaround for cbo.clean errata
-  riscv: errata: picoheart: Add workaround for AMOCASQ errata
-
- arch/riscv/Kconfig.errata                    |  34 +++
- arch/riscv/errata/Makefile                   |   1 +
- arch/riscv/errata/picoheart/Makefile         |   5 +
- arch/riscv/errata/picoheart/errata.c         | 238 +++++++++++++++++++
- arch/riscv/include/asm/alternative.h         |   3 +
- arch/riscv/include/asm/cmpxchg.h             |   2 +-
- arch/riscv/include/asm/cpufeature.h          |   8 +
- arch/riscv/include/asm/csr.h                 |   1 +
- arch/riscv/include/asm/errata_list.h         |  25 +-
- arch/riscv/include/asm/errata_list_vendors.h |   4 +
- arch/riscv/include/asm/insn.h                |  63 ++++-
- arch/riscv/include/asm/processor.h           |   2 +-
- arch/riscv/include/asm/vendorid_list.h       |   1 +
- arch/riscv/kernel/alternative.c              |   5 +
- arch/riscv/kernel/asm-offsets.c              |   6 +-
- arch/riscv/kernel/cpufeature.c               |  16 +-
- arch/riscv/kernel/entry.S                    |  14 +-
- arch/riscv/kernel/traps.c                    |   4 +
- arch/riscv/kernel/traps_misaligned.c         |  52 ----
- arch/riscv/kernel/vector.c                   |   6 +-
- 20 files changed, 419 insertions(+), 71 deletions(-)
- create mode 100644 arch/riscv/errata/picoheart/Makefile
- create mode 100644 arch/riscv/errata/picoheart/errata.c
+Reviewed-by: Yixun Lan <dlan@kernel.org>
 
 -- 
-2.50.1 (Apple Git-155)
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
