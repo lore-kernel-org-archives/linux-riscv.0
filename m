@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641CCC79FA3
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 15:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 294DFC79FA3
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 15:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n2sAqbuCYiuh8Yl72mOtjHhEgl4vdpeWTnzwP8KXSuY=; b=Cb3180kYhSmoVF
-	EThWHde8NO58TaRfM4ZjseFjFpQTvcfiPngicDAwpHYTkMZg71bN8Mdd6j7DBxdJwmZ6Edo6Bfwqu
-	fopjR6U9pOYQhJlqM0gR8lMZlU/vwED1pJ+damn4G/ynaiPs7M6zyoFf2qeLW0G9+lqaPaLgacJ8I
-	R1JJhjS0p7xRQi8U5Qvg/LCP74Lf2t8vFoJ+oi039NC8fjjBLZ2yCsuLwwaAxj4ctNDPGIrmyJT5l
-	MhY9qZT5OSen6p/EszWrQ6zN/wcOdzvnNv0fYj36nX+tN+BEpyXabjkgX5zG4oFqFei27BIslxImi
-	3Z/pZi1PTrLKOxpJbPsw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EPqGnnytgr0TwqVRtmX2xvR3Nw5derKawXNx3hKvAu8=; b=I7TahoCX1B5BKY
+	uc1Scxc60Jp0sRPJPEmByxzFbOLty9gfKodJS8OtettSeQqgKhsYJEmXjC+M7ahdxrZ8FNuE+hPtY
+	sFe0Vk7RgKtGRNH8D/LOY8J7tXFiXJektBHF+VcYvHM8346ycXWBVMfFVY+OHcJrqS8RHWxpzbR8k
+	iuBJPS3IymYgLuH5S4Qb4S7fQt2utkoJgBSr6STbuff53hW7KkGhJxa85ZYMZMx8SztgPg0Go+3eE
+	oYt9NbgWTwrLGDVZh0WKUOrmh2fVFGDi4zS5NecBGjT/p/S21RYV8KW8FW/3x4blrkPjZIX/G+Ol7
+	4NngBTnOX0T6kQQRtfcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bJL-000000079t9-1FM0;
-	Mon, 07 Sep 2026 15:31:07 +0000
+	id 1x3bMb-00000007AtO-3B5d;
+	Mon, 07 Sep 2026 15:34:29 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bJJ-000000079rd-3Rdd
+	id 1x3bMb-00000007AtC-0EoU
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 15:31:05 +0000
+	Mon, 07 Sep 2026 15:34:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0957060D8E;
-	Mon,  7 Sep 2026 15:31:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 921231F00A3D;
-	Mon,  7 Sep 2026 15:31:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 743FB60D89;
+	Mon,  7 Sep 2026 15:34:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80B371F00A3A;
+	Mon,  7 Sep 2026 15:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788795064;
-	bh=U1/4nM4HTUPSSUQ1nie+OmGSZKZ9RR8PG8T23avywYE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nsBrDlCPzbfm8aeLoJScIP5W4Js0JngNl5haBXUNqCRbYFl4ygb92NtuebaX4clA1
-	 Ly9gbYjyhs8Z+EQDiz/bfu+XIwRYtpdFNrNfAFelm6x8hb6kx7ISRR8OOzIqwPtAcG
-	 BgFHyl81e1myd1CjLRVark2OB9BeOoB/ANnAQRz8ssFaVSFILzuC4OWaRACfgkrbVE
-	 bgjlL1yDR6a6LbR+4MH9Y3giC09yF1LKoMcHqvtve8cJv0TVv8k4U1YR00VemCsT5J
-	 vVCJwczftku8UEGy8VKPgv9YmgXt1J8qDarNs18ud4MD+WtVB8QKW1yoGtks5cDHqN
-	 V0qfZprSaubbA==
+	s=k20260515; t=1788795268;
+	bh=EjAyqaHWJJCD8WZU9MsOvyhwLKZ2f6brl0AscimLQBQ=;
+	h=From:To:Cc:Subject:Date;
+	b=SWUQkOj5Y85Wxc3BWa8vOC39HG0fePLCSOWC7/Oo4ecKfVDCmVfm9wvBjaqjOme9e
+	 G9O7zGhhPttzp60pjgo4uNafSQnclk4tVaM0B2jPFN+bPRv2IxaEidfQ5b2EqO9eci
+	 lTwoD+ZT7L1XH1bTWEp7XfZLEn7Ej3pQu/E9g9wWehakuxqTfSLOq5yLwF7WQHUChn
+	 jimHTGQj568iTgYIhS4RIgetAohZf0EYfHCUi7k0ac03TwzOt1dQvnkmw/J4hEKsCp
+	 z0i/mFlgRqvovAQy8ZofNjjJDjhIp7kFivLQO1UgSpPbHP0wAlyHlLV9na11vro73e
+	 NE8fcbhdFGQQw==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Nam Cao <namcao@linutronix.de>
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>
 Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] riscv: word-at-a-time: improve find_zero() for Zbb
-Date: Mon,  7 Sep 2026 23:11:08 +0800
-Message-ID: <20260907151108.7538-4-jszhang@kernel.org>
+	linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com
+Subject: [PATCH v2 0/5] optimize pgtable_l4|l5_enabled
+Date: Mon,  7 Sep 2026 23:14:32 +0800
+Message-ID: <20260907151437.7603-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260907151108.7538-1-jszhang@kernel.org>
-References: <20260907151108.7538-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,94 +76,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In commit f915a3e5b018 ("arm64: word-at-a-time: improve byte count
-calculations for LE"), Linus improved the find_zero() for arm64 LE.
-Do the same optimization as he did: "do __ffs() on the intermediate value
-that found whether there is a zero byte, before we've actually computed
-the final byte mask.", so that we share the similar improvements:
+In 2022, I tried to optimize pgtable_l4|l5_enabled use static branch[3]
+But as is known, static branch has some drawbacks. 
 
-"The difference between the old and the new implementation is that
-"count_zero()" ends up scheduling better because it is being done on a
-value that is available earlier (before the final mask).
+This series is another round of optmizing pgtable_l4|l5_enabled, but
+with another mechanism. Below the is normal cover-letter.
 
-But more importantly, it can be implemented without the insane semantics
-of the standard bit finding helpers that have the off-by-one issue and
-have to special-case the zero mask situation."
+The pgtable_l4|[l5]_enabled check sits at hot code path, performance
+is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
+boot, we can use alternative mechanism to optimize them.
 
-Before the patch:
-0000000000000000 <find_zero>:
-   0:	c909                	beqz	a0,12 <.L1>
-   2:	60051793          	clz	a5,a0
-   6:	03f00513          	li	a0,63
-   a:	8d1d                	sub	a0,a0,a5
-   c:	2505                	addiw	a0,a0,1
-   e:	4035551b          	sraiw	a0,a0,0x3
+So the question is whether we can add RISCV_ISA_EXT_SV48/SV5 and use
+riscv_has_extension_*() or not. Per [1] and [2], SV48 and SV57 are ISA
+exensions too. From another side, riscv_has_extension_[un]likely() and
+other related functions report whether the extension is supported and
+enabled on the platform. So SV48 and SV57 can be supported with current
+isa extension alternative mechanism.
 
-0000000000000012 <.L1>:
-  12:	8082                	ret
+However, to use it to optimize pgtable_l4|l5_enabled, we have support
+the "early" characteristic, I.E besides risc_isa bitmap setting, we
+need to support appling alternative early before MMU on.
 
-After the patch:
+After that, use it to optimize pgtable_l4|l5_enabled.
 
-0000000000000000 <find_zero>:
-   0:	60151513          	ctz	a0,a0
-   4:	810d                	srli	a0,a0,0x3
-   6:	8082                	ret
+For the typical access_ok(addr, 1);
+before the patch:
 
-7 instructions vs 3 instructions!
+...
+auipc	a5,0xb43
+lbu	a5,100(a5) # ffffffff80b51f68 <pgtable_l5_enabled>
+bnez	a5,ffffffff8000ef46 <foo+0x56>
+auipc	a5,0xb43
+lbu	a5,91(a5) # ffffffff80b51f69 <pgtable_l4_enabled>
+beqz	a5,ffffffff8000ef5a <foo+0x6a>
+...
 
-As can be seen, on RV64 w/ Zbb, the new "find_zero()" ends up just
-"ctz" plus the shift right that then ends up being subsumed by the
-"add to final length".
+after the patch:
+These memory load and test branch instructions are replaced with only
+two j or nop instructions.
 
-But I have no HW platform which supports Zbb, so I can't get the
-performance improvement numbers by the last patch, only built and
-tested the patch on QEMU.
+Initial test lmbench's lat_syscall write on TH1520 platforms shows that
+the write syscall latency is reduced by about 2.38%.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/include/asm/word-at-a-time.h | 18 +++++++++++++++---
- 1 file changed, 15 insertions(+), 3 deletions(-)
+After that, introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE,
+so that the embedded platforms can choose the best option themselves,
+while still keep the feature of unified one kernel Image for all SV39, SV48
+and SV57 when !NONPORTABLE.
 
-diff --git a/arch/riscv/include/asm/word-at-a-time.h b/arch/riscv/include/asm/word-at-a-time.h
-index f2d16c1eea8d..31240133eccd 100644
---- a/arch/riscv/include/asm/word-at-a-time.h
-+++ b/arch/riscv/include/asm/word-at-a-time.h
-@@ -35,6 +35,10 @@ static inline unsigned long prep_zero_mask(unsigned long val,
- 
- static inline unsigned long create_zero_mask(unsigned long bits)
- {
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB) &&
-+	    riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
-+		return bits;
-+
- 	bits = (bits - 1) & ~bits;
- 	return bits >> 7;
- }
-@@ -67,13 +71,21 @@ static inline unsigned long find_zero(unsigned long mask)
- {
- 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB) &&
- 	    riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
--		return !mask ? 0 : ((__fls(mask) + 1) >> 3);
-+		return __ffs(mask) >> 3;
- 
- 	return count_masked_bytes(mask);
- }
- 
--/* The mask we created is directly usable as a bytemask */
--#define zero_bytemask(mask) (mask)
-+static inline unsigned long zero_bytemask(unsigned long bits)
-+{
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB) &&
-+	    riscv_has_extension_likely(RISCV_ISA_EXT_ZBB)) {
-+		bits = (bits - 1) & ~bits;
-+		return bits >> 7;
-+	}
-+
-+	return bits;
-+}
- 
- #ifdef CONFIG_DCACHE_WORD_ACCESS
- 
+Tested on TH1520 platforms with both RISCV_ISA_SV48 and RISCV_ISA_SV48
+disabled, we saved 20 instructions for access_ok(addr, 1)
+
+Link: https://github.com/riscv/riscv-isa-manual/blob/main/src/profiles/profiles.adoc [1]
+Link: https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154732/Ratified+ISA+Extensions [2]
+Link: https://lore.kernel.org/linux-riscv/20220821140918.3613-1-jszhang@kernel.org/ [3]
+
+Since v1:
+  - use current isa extension to support SV48/SV57
+  - collect Reviewed-by tag
+  - add patch4 to introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under
+    NONPORTABLE
+  - add patch5 to unexport _pgtable_l4_enabled and _pgtable_l5_enabled
+
+
+
+Jisheng Zhang (5):
+  riscv: remove RISCV_ALTERNATIVE Kconfig option
+  riscv: convert pgtable_l4|l5_enabled to inline function
+  riscv: support early isa ext and use it to optimize
+    pgtable_l4|l5_enabled
+  riscv: RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE
+  riscv: mm: unexport _pgtable_l4_enabled and _pgtable_l5_enabled
+
+ arch/riscv/Kconfig                          | 48 ++++++------
+ arch/riscv/Kconfig.errata                   |  5 +-
+ arch/riscv/include/asm/alternative-macros.h | 24 ------
+ arch/riscv/include/asm/alternative.h        | 12 +--
+ arch/riscv/include/asm/cpufeature-macros.h  | 10 +--
+ arch/riscv/include/asm/cpufeature.h         |  8 +-
+ arch/riscv/include/asm/hwcap.h              |  2 +
+ arch/riscv/include/asm/pgalloc.h            | 14 ++--
+ arch/riscv/include/asm/pgtable-32.h         |  4 +-
+ arch/riscv/include/asm/pgtable-64.h         | 74 ++++++++++++++-----
+ arch/riscv/include/asm/pgtable.h            |  4 +-
+ arch/riscv/include/asm/vendor_extensions.h  | 18 ++---
+ arch/riscv/include/asm/vmalloc.h            |  5 +-
+ arch/riscv/kernel/Makefile                  |  2 +-
+ arch/riscv/kernel/alternative.c             | 24 ++++--
+ arch/riscv/kernel/cpu.c                     |  4 +-
+ arch/riscv/kernel/cpufeature.c              | 62 ++++++++++++----
+ arch/riscv/mm/init.c                        | 81 +++++++++++++--------
+ arch/riscv/mm/kasan_init.c                  | 20 ++---
+ arch/riscv/mm/pgtable.c                     |  4 +-
+ arch/riscv/mm/ptdump.c                      |  4 +-
+ 21 files changed, 238 insertions(+), 191 deletions(-)
+
 -- 
 2.53.0
 
