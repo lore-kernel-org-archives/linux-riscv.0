@@ -4,90 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50AF0C79F9E
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 08:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD65C79F99
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 09:58:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rM88YZTc7S+h0WXjDWnk/OcMBcYudgS7ZtJ3XQDBk6Y=; b=JV0WEEjGdBLclVrqYiHJ3D6+eD
-	wbrVb/p86rB5HvI/PCEyx7ZFXM7twD4+jsZjcwdbqVBuvo+IK0iP2Gx22oKWEItGOszHO4lgRH7or
-	f70GExnyZMQoLkqJqgSzyqbjLUxNFHVpHYre0wanM2MmepjjVDLarwaIJWEwR0PiGtps5mNaR/suY
-	23ELNC96QjhpjOpXCrSJMzhK4UoHmMclppHEv6YQh3owJtLbSoniY3+Nakeckw7zfWs/z2pZdN+Oa
-	e+AkrLYyoBpsJ3Uv9mN/Chxxbva1hjldOI3DZl9c0beRw5o5KohQx9j7ISt+m4EoI0FE3JaKx5G52
-	9+l2OqqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=G49UjRs/4GfmDVJXhEDNDRvNoA6E18clSjjzG7mNO10=; b=Zf7YGuYxbim1WC
+	fcrjtLqQjBmxcW8yGzCVMraDs6Cov9wxZq8oTXVI97owYKV7fgTdXOMJ9AFXyceGXHXqircurKQv5
+	mBh/3yG4qUOUd4Ueo9hConfhVIILzqmpOlXGqJa1TMfmYRAmrSJZGq9mBxnFkzbOep47rVcKNPHr0
+	/4MTPnX1wfrGsNofUMUcV3Z0i9ao9EsygMBWiLb1eg9CR6c9L8tNkfgr6y7NF/fyHsQdvbFiKQ5My
+	JH0G3XbaiIkRIzzizooNr9i+yy/3nOpSxzG5p+fdKeMmH6n38+Wv3Hw14NyHEM+kDkYtBEedH2yvm
+	fTrlQb/9VmDqhXfQ1i7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3UwB-00000006IW0-0B42;
-	Mon, 07 Sep 2026 08:42:47 +0000
-Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	id 1x3W7S-00000006PTV-0CdU;
+	Mon, 07 Sep 2026 09:58:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Uw8-00000006ITX-0pTk
+	id 1x3W7P-00000006PSD-0Mij
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 08:42:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1788770550;
-	bh=yHCVeW/8VwrYJ68Qkewz1g1dKX6qVgzMZhqZvnvGTp0=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=NjiMJ+SYes74uePdnQ7Zhe82jEUMfGwy/hSLQO+LbBibi6OyDzO4MRkeHmNSyICiP
-	 7IWfTYCiFYKCK79TH3/bk/egYB7HDWJPrAykW9oKgaqGYIhbHjGB2ROLVPirLlvJDo
-	 kCjItFpl2BbRxdJWhiZM53rx1pQrAR+G5385f2q4=
-X-QQ-mid: zesmtpsz8t1788770544t3ba04c59
-X-QQ-Originating-IP: ij1MO0uxI1//XoyXbOGLzQihrsJbw3343CI25+CyBHk=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 07 Sep 2026 16:42:22 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15574196219480591680
-EX-QQ-RecipientCnt: 20
-Mime-Version: 1.0
-Date: Mon, 07 Sep 2026 16:42:19 +0800
-Message-Id: <DL8Y8HJ75OUV.2AC7IAYJ0UB26@linux.spacemit.com>
-Cc: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH 5/6] riscv: dts: spacemit: enable USB2.0 controllers on
- BananaPi F3
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Junzhong Pan" <panjunzhong@linux.spacemit.com>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Yixun Lan" <dlan@kernel.org>, "Xu Yang" <xu.yang_2@nxp.com>, "Peng Fan"
- <peng.fan@nxp.com>, "Peter Chen" <peter.chen@kernel.org>, "Philipp Zabel"
- <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260812-b4-spacemit-k1-usb2-v1-0-f28cf29e522b@linux.spacemit.com> <20260812-b4-spacemit-k1-usb2-v1-5-f28cf29e522b@linux.spacemit.com>
-In-Reply-To: <20260812-b4-spacemit-k1-usb2-v1-5-f28cf29e522b@linux.spacemit.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OFoXdVIInG+RDtkto4OqsOWYRqY2Uy3kymiablynzo66wsKqzKLeMG3V
-	h3TyAUmxulv6YB92hisnG8Ahxt5NgYaqs0NCuutnKBN76/18wK3W4mXKE7ha3+1sFsltsqc
-	+ED2A3jDnZBHxGyv6nRawXxey8tLtVIY4bGrxlQtc5P9HriKOM7oV5HyUA8tOCjY4u2fg90
-	VxgZhJyN7GoyWFZmPiY1pJ3USDe5vaBuwFQuEIo8ldzFy/BiYj/Y/agC2crVAXAifSL5+Wz
-	ODpQoY0plIoR6zGbtNAMQes2G+ijJFiirDdUSg4X2ELuhgKrLoE2nyHHSqBbRU1U7xGol3X
-	u3HhcB6KAY0q/SFmzEbImJ5Q5Coo0Ey5DN3p+ZrbNUsDLtYScn0x7uaK2PbQNoomIDtKB2B
-	A+eQfYO6sXW5Dq6X9apskZvOHsVqfrMYl6V+kvHbxF8zwnkXG+i3AwNQ/lOu/otH6a3n5LF
-	E7I14bghSBijsy/KHIyFcdgroh/+A19t1JUrSw0VN5/0+TRJvFRHCUHwQLCRAfjK8fwd1Ce
-	VyWZGGMaRrd8Q9FMnfGV9LPPdh5uOEO/I7ndxV/fn7lUKEAys6NcK7T8D6twyZ4Q4imOx8S
-	Fi6DeBTtrKzSLSjRMhT48nSQigli+qLzkThR29PwGgQsOlRb7Rvxw/5R84aX24bl15niPcY
-	A3TuyVOGfZoltmFEmVrUlrHsyzh2I6R9JZruoeacJFwPhfw/Q4O9YcGUDZDTqPy/OjJLqLe
-	vbJRb7DTxMrU/T4eEDhgb1OAEwKgF3PcbR3QgSmT4CSToX6O8flUnSGRSFtLzT84omPGgAS
-	11y6c0id2MfPPzmY/ZrdbD/dLRtdEdKCBzMp6tDv9QpF6PiqnSqIEorQ20srbZzYcaq0Iy/
-	oig8wZNAQfxJx1ZezCxC2cBGzbp7tezLmpCWUuIv14MGMoSedOkB17nmcr7e1/3Q+lnCVuG
-	22WLerJRClpSD2bqUcN/Uu08zSsxWwwf1SkYqRAkTUhmRH8JOQemdMy53KZ1mFy7IDHc8xh
-	S5ENixmlWLXR0RneYxgnr63NbZfbB6bv9I7z6uUn5AwJQe2TCRbL4nYtibRvVJinWkTgyLL
-	EaziIL2UmYW6Neg7Nbu1P11OVSQYMFOfg==
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_014244_925777_77ED4AA6 
-X-CRM114-Status: GOOD (  14.59  )
+	Mon, 07 Sep 2026 09:58:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C64A44811;
+	Mon,  7 Sep 2026 09:58:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0B6D8C2BD04;
+	Mon,  7 Sep 2026 09:58:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788775106;
+	bh=3o63M8GLJhdOwUiejYCoJC1fYY15kJrll06waHGvMoA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=JJVKbroyJjOnt1IxC+JFMuVfAvlA1hgUfpIyZxt9d2W61g0nnKPHWPp2lMqVIWGw1
+	 kj9bVSa+NS0rb9s5hfDmdRXDctzkvqJor6CF0+DsXwWFEw5kErB6SlPzdNhXKhVUwt
+	 hY+sk0X9126nh7pewxRzRl1iUdBaVa9A+SXhWeeA/YlQrL7erIzj41Ggiap4uU3cTP
+	 DR0nPlZfT80oJdIy0sz3zngUHrVO1d6BPc2ZK0S+tHkcrV5VSX+x+h2VkN4zk/Vbp9
+	 fGMoOlgPHDPQ++qB5txQM+byb387ToTEenwndtzGwvRYaAlAbMr+Cw5jXwh41CTutJ
+	 TUVUvHmvncTiQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E5F11C79FA0;
+	Mon,  7 Sep 2026 09:58:25 +0000 (UTC)
+From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
+Date: Mon, 07 Sep 2026 17:54:42 +0800
+Subject: [PATCH v2 03/10] dt-bindings: riscv: Add UltraRISC DP1000 board
+ compatibles
+MIME-Version: 1.0
+Message-Id: <20260907-ultrarisc-dts-v2-3-5eb4c97477c5@ultrarisc.com>
+References: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
+In-Reply-To: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Jia Wang <wangjia@ultrarisc.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ Mika Westerberg <mika.westerberg@linux.intel.com>, 
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, dmaengine@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788775103; l=1942;
+ i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
+ bh=0AlvsDRQTM/16/SNeo0QtnySbLZ7dH8R2EB+6wrTmkU=;
+ b=N34b9VnVbzUmghkdWvy/qCTaeByHAlvv+aKJzBty5aEVhPdhZHAX5Jsim7dSq1dpTRqgGaRAY
+ 5RalDm+jtoyB32OoRT8Qk06kDC9B/DrovyokPhYAFujVIpqQG6Z8S82
+X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
+ pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
+X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260515 with
+ auth_id=779
+X-Original-From: Jia Wang <wangjia@ultrarisc.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,93 +93,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0203973522880660806=="
+Reply-To: wangjia@ultrarisc.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0203973522880660806==
-Content-Type: multipart/signed;
- boundary=45e5895e4c3e82e45f3be96fceae5c1f0b830969d7cc94f6648371c4801a;
- micalg=pgp-sha512; protocol="application/pgp-signature"
+From: Jia Wang <wangjia@ultrarisc.com>
 
---45e5895e4c3e82e45f3be96fceae5c1f0b830969d7cc94f6648371c4801a
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Document the compatibles for the Shenzhen Rongda M0 and Milk-V Titan
+boards, both based on the UltraRISC DP1000 SoC.
 
-On Wed Aug 12, 2026 at 5:26 PM +08, Junzhong Pan wrote:
-> On BananaPi F3, usb2_0 is connected to a Type-C connector at device
-> mode by default. This port have no VBUS supply capability, thus host
-> mode only works with self-powered device or hub. User could switch the
-> role in sysfs.
->
-> And the usb2_1 is connected to the USB2.0 pins of the Mini PCIe slot to
-> support cellular modules.
->
-> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
-> ---
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv=
-/boot/dts/spacemit/k1-bananapi-f3.dts
-> index 72f77e9edd63..fd0f96262009 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> @@ -350,6 +350,22 @@ &uart0 {
->  	status =3D "okay";
->  };
-> =20
-> +&usbphy0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&usb2_0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&usbphy1 {
-> +	status =3D "okay";
-> +};
-> +
-> +&usb2_1 {
-> +	status =3D "okay";
-> +};
-> +
->  &usbphy2 {
->  	status =3D "okay";
->  };
-Could you keep the USB nodes in the same order as in k1.dtsi, with
-usbphy0/1/2 first, followed by usb2_0, usb2_1 and usb_dwc3?
+Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../devicetree/bindings/riscv/ultrarisc.yaml       | 27 ++++++++++++++++++++++
+ MAINTAINERS                                        |  7 ++++++
+ 2 files changed, 34 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/riscv/ultrarisc.yaml b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
+new file mode 100644
+index 000000000000..a51e63dbeca3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/ultrarisc.yaml
+@@ -0,0 +1,27 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/ultrarisc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: UltraRISC SoC-based boards
++
++maintainers:
++  - Jia Wang <wangjia@ultrarisc.com>
++
++description:
++  UltraRISC DP1000 SoC-based boards
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - shenrongda,m0
++              - milkv,titan
++          - const: ultrarisc,dp1000
++
++additionalProperties: true
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d6fb876227e9..eb7a9caaa225 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23637,6 +23637,13 @@ F:	include/dt-bindings/power/thead,th1520-power.h
+ F:	include/dt-bindings/reset/thead,th1520-reset.h
+ F:	include/linux/firmware/thead/thead,th1520-aon.h
+ 
++RISC-V ULTRARISC SoC SUPPORT
++M:	Jia Wang <wangjia@ultrarisc.com>
++L:	linux-riscv@lists.infradead.org
++S:	Supported
++T:	git https://github.com/ultrarisc/linux.git
++F:	Documentation/devicetree/bindings/riscv/ultrarisc.yaml
++
+ RNBD BLOCK DRIVERS
+ M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
+ M:	Jack Wang <jinpu.wang@ionos.com>
 
---=20
-Troy Mitchell
-
-
---45e5895e4c3e82e45f3be96fceae5c1f0b830969d7cc94f6648371c4801a
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCap546w0caUB0cm95LXku
-b3JnAAoJEJgJ74D5MzQvvCQA/3TMCabR6SOxIQsLp3SeFZYsrwhnszx/dAlUR50L
-2rc1AQClb0UwfcFZC4MPdfk85Rg2JoRIAwKQFKP//cnSYMzhDw==
-=IXf1
------END PGP SIGNATURE-----
-
---45e5895e4c3e82e45f3be96fceae5c1f0b830969d7cc94f6648371c4801a--
+-- 
+2.34.1
 
 
---===============0203973522880660806==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0203973522880660806==--
-
