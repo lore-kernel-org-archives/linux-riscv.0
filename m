@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0401BC79FA1
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 15:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF559C79FA0
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 15:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k4oDSXguxPn/R8jQsx1DRBBRRvGr0G8SyxeTxzprL2E=; b=iyEFI/40+AYAOS
-	L2pORvGGq+3fpJ9sneJUKAy9rjHktVCC5CO8sk9BfRP2EBzSYDzu4UvWJht3Tgffg/mHTUcldIOnh
-	qSRSFO7Onb3nf4BfCebeIvLGUEKNb6NozAjXrn4t5df4dqooIAS/qgeKGvLDPJK8B7wvdee/UxZl5
-	zy3XF1c0/6GcqZciUEHz5k7QWsAJetSJL2yvljmYuekN6mM3X5Y4OyOZET7H3IOv9LRe0q4K/3Qhj
-	WEgWYFvlHGiqQ+OjjCae9rGJ637hcmGStIiDjzfg93SmKsfFeMzXeVnu26fmnpad8qBdsMdzvfl9G
-	8iNyc0dAtOGc5ndByPcQ==;
+	List-Owner; bh=Jn3UdyoDtj8uVShu6zH3WGcBpudrCWWU0T+gFf/XUFs=; b=YPJmp9Wymw886J
+	gQkUkxVnTK75nbK9EfmXUlFGuUZ0ANml8fij6UpQ2DciOzV2HXolKr3RjYHK99dSLOLfmPU3NRSsH
+	FP7p5WL9PI175sAa1fDl8DcIqq36xX4ZBys5s/OnHj+7wkn5W7hr8k8eWSTVa8BCOHAv/QlP8SlyZ
+	gL7WhegPYUwarg28OMUgCv6rZq2od8E/i61JcB9jnhCwHZG7IWciMKktBm3gTtxxuOANRy6t9JhHx
+	r+/FW+BRaNxj9BF+KzmfM2O6j65X2zn2RL32E/Opb6yR+NRQEMV0izI4i0XOeGOr0CxUKuWjYjbFC
+	hgLhhjB89Jz6UOY+Dv8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bJF-000000079pe-44oI;
-	Mon, 07 Sep 2026 15:31:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3bJJ-000000079re-0twb;
+	Mon, 07 Sep 2026 15:31:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bJD-000000079oU-2R5d
+	id 1x3bJG-000000079pq-3f3V
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 15:30:59 +0000
+	Mon, 07 Sep 2026 15:31:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5808E43621;
+	by tor.source.kernel.org (Postfix) with ESMTP id 1922F60AB5;
+	Mon,  7 Sep 2026 15:31:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A27EA1F00A3A;
 	Mon,  7 Sep 2026 15:30:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71EC91F00A3D;
-	Mon,  7 Sep 2026 15:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788795059;
-	bh=WvJFOaQphIvH9VnjYWr9Zi/URbyT/0/TQJJh1ji7GNg=;
+	s=k20260515; t=1788795061;
+	bh=gPSXCb0eA8BM+P5Y//s4nfh/kZxqoCvqmOhim53CK5s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=WinvTtgFjsSvUMJkutVN78b2uPtVLCxQGgdANfz/jYwye8YpZcqq8eYtvL2gF8mbV
-	 HoYiwyhK1OYrDwGMNH1yO79xbNfTFTqQMEnkbzb+OMGiK9s4XCPD3DkQYhtdQ/NqgU
-	 cvJFvTRDidGczKbvv/v150iqiG1HTdBCe++xp68PSdURPpWC1/IYkxP2bG/ukWy+30
-	 Bntrh1AqXUs1BqDKDaFD+frW30Zo40tDGRSm+DTr6EICD8hm+N0ACInODCaY+fKRxD
-	 JYooH2cbZX5NLxZK80iu/UHV6wtFAB7+hNwGlWgIAWRfSqHNYQ0ERhKl6p6tF2BAa8
-	 IWl0b4W1FH6aQ==
+	b=HVw6X8N+utM+7JDNNFBTJ6314EnGppkvDrdoo/DJ1cIgh6HQDf5/ltQfz0/YndugQ
+	 nxlxrNvSvSBJKNPilHQ9ielMzQezBDtSBJhcpX/61E+WFuFtqgoOfGOudln2bnsRsL
+	 cH54ofASFpHzZdw91vaozCCtLniOPSFJGd7IKIqB8gguLvElxkUCs+dpbuOcfseq9x
+	 2l8C6AewxhCpYJMR/FvK8ND1kM7kxEKIAV0A68s6XYLJj2qNCKfloNrLCYqhwotUNd
+	 Qpc87G04ZhZJUYHVFqTt+t5LbHaEsOcA4KfEbeJcSC4xSiHlfDvQFD26XYn/21N2Pq
+	 8FoIExiR5SThA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -50,9 +50,9 @@ To: Paul Walmsley <pjw@kernel.org>,
 	Nam Cao <namcao@linutronix.de>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/3] riscv: word-at-a-time: improve find_zero() for !RISCV_ISA_ZBB
-Date: Mon,  7 Sep 2026 23:11:06 +0800
-Message-ID: <20260907151108.7538-2-jszhang@kernel.org>
+Subject: [PATCH v2 2/3] riscv: word-at-a-time: improve find_zero() without Zbb
+Date: Mon,  7 Sep 2026 23:11:07 +0800
+Message-ID: <20260907151108.7538-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260907151108.7538-1-jszhang@kernel.org>
 References: <20260907151108.7538-1-jszhang@kernel.org>
@@ -73,148 +73,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Current find_zero() heavily depends on fls64() for calculation. This
-bring non-optimal code when !RISCV_ISA_ZBB.
+Previous commit improved the find_zero() performance for !RISCV_ISA_ZBB.
+What about RISCV_ISA_ZBB=y but the HW doesn't support Zbb? We have the
+same heavy generic fls64() issue.
 
-But in word-at-a-time case, we don't have to go with fls64() code path,
-instead, we can fallback to the generic word-at-a-time implementaion.
+Let's improve this situation by checking Zbb extension and fall back
+to generic count_masked_bytes() if Zbb isn't supported.
 
-What's more, the fls64() brings non-necessary zero bits couting for
-RV32. In fact, fls() is enough.
+To remove non-necessary zero bits couting on RV32, we also replace the
+'fls64(mask) >> 3' with '!mask ? 0 : ((__fls(mask) + 1) >> 3);'
 
-Before the patch:
-
-0000000000000000 <find_zero>:
-   0:	c529                	beqz	a0,4a <.L1>
-   2:	577d                	li	a4,-1
-   4:	9301                	srli	a4,a4,0x20
-   6:	03f00793          	li	a5,63
-   a:	00a76463          	bltu	a4,a0,12 <.L3>
-   e:	1502                	slli	a0,a0,0x20
-  10:	47fd                	li	a5,31
-
-0000000000000012 <.L3>:
-  12:	577d                	li	a4,-1
-  14:	8341                	srli	a4,a4,0x10
-  16:	00a76463          	bltu	a4,a0,1e <.L4>
-  1a:	37c1                	addiw	a5,a5,-16
-  1c:	0542                	slli	a0,a0,0x10
-
-000000000000001e <.L4>:
-  1e:	577d                	li	a4,-1
-  20:	8321                	srli	a4,a4,0x8
-  22:	00a76463          	bltu	a4,a0,2a <.L5>
-  26:	37e1                	addiw	a5,a5,-8
-  28:	0522                	slli	a0,a0,0x8
-
-000000000000002a <.L5>:
-  2a:	577d                	li	a4,-1
-  2c:	8311                	srli	a4,a4,0x4
-  2e:	00a76463          	bltu	a4,a0,36 <.L6>
-  32:	37f1                	addiw	a5,a5,-4
-  34:	0512                	slli	a0,a0,0x4
-
-0000000000000036 <.L6>:
-  36:	577d                	li	a4,-1
-  38:	8309                	srli	a4,a4,0x2
-  3a:	00a76463          	bltu	a4,a0,42 <.L7>
-  3e:	37f9                	addiw	a5,a5,-2
-  40:	050a                	slli	a0,a0,0x2
-
-0000000000000042 <.L7>:
-  42:	00054563          	bltz	a0,4c <.L12>
-  46:	4037d51b          	sraiw	a0,a5,0x3
-
-000000000000004a <.L1>:
-  4a:	8082                	ret
-
-000000000000004c <.L12>:
-  4c:	2785                	addiw	a5,a5,1
-  4e:	4037d51b          	sraiw	a0,a5,0x3
-  52:	8082                	ret
-
-After the patch:
-
-0000000000000000 <find_zero>:
-   0:	102037b7          	lui	a5,0x10203
-   4:	0792                	slli	a5,a5,0x4
-   6:	40578793          	addi	a5,a5,1029 # 10203405 <.L4+0x102033c5>
-   a:	07c2                	slli	a5,a5,0x10
-   c:	60878793          	addi	a5,a5,1544
-  10:	02f50533          	mul	a0,a0,a5
-  14:	9161                	srli	a0,a0,0x38
-  16:	8082                	ret
-
-33 instructions vs 8 instructions!
-
-And this kind of instructions reducing dramatically improves the
-performance of below micro-benchmark:
-
- $ cat tt.c
- #inlcude <stdio.h>
- #inlcude "word-at-a-time.h" // copy and modify, eg. remove other headers
- int main()
- {
- 	int i;
- 	unsigned long ret = 0;
-
-	for (i = 0; i < 100000000; i++)
-		ret |= find_zero(0xabcd123 + i);
-
-	printf("%ld\n", ret);
- }
- $ gcc -O tt.c
- $ time ./a.out
-
-Per my test, the above micro-benchmark is improved by about 1150%!
+We will get similar performance improvement as previous commit for
+RISCV_ISA_ZBB=y but HW doesn't support Zbb.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/include/asm/word-at-a-time.h | 29 ++++++++++++++++++++++++-
- 1 file changed, 28 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/word-at-a-time.h | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/include/asm/word-at-a-time.h b/arch/riscv/include/asm/word-at-a-time.h
-index 3802cda71ab7..1dcac57a73dd 100644
+index 1dcac57a73dd..f2d16c1eea8d 100644
 --- a/arch/riscv/include/asm/word-at-a-time.h
 +++ b/arch/riscv/include/asm/word-at-a-time.h
-@@ -39,9 +39,36 @@ static inline unsigned long create_zero_mask(unsigned long bits)
- 	return bits >> 7;
- }
+@@ -65,8 +65,9 @@ static inline long count_masked_bytes(long mask)
  
-+#ifdef CONFIG_64BIT
-+/*
-+ * Jan Achrenius on G+: microoptimized version of
-+ * the simpler "(mask & ONEBYTES) * ONEBYTES >> 56"
-+ * that works for the bytemasks without having to
-+ * mask them first.
-+ */
-+static inline long count_masked_bytes(unsigned long mask)
-+{
-+	return mask*0x0001020304050608ul >> 56;
-+}
-+
-+#else	/* 32-bit case */
-+
-+/* Carl Chatfield / Jan Achrenius G+ version for 32-bit */
-+static inline long count_masked_bytes(long mask)
-+{
-+	/* (000000 0000ff 00ffff ffffff) -> ( 1 1 2 3 ) */
-+	long a = (0x0ff0001+mask) >> 23;
-+	/* Fix the 1 for 00 case */
-+	return a & mask;
-+}
-+#endif
-+
  static inline unsigned long find_zero(unsigned long mask)
  {
--	return fls64(mask) >> 3;
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
-+		return fls64(mask) >> 3;
-+
-+	return count_masked_bytes(mask);
- }
+-	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
+-		return fls64(mask) >> 3;
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB) &&
++	    riscv_has_extension_likely(RISCV_ISA_EXT_ZBB))
++		return !mask ? 0 : ((__fls(mask) + 1) >> 3);
  
- /* The mask we created is directly usable as a bytemask */
+ 	return count_masked_bytes(mask);
+ }
 -- 
 2.53.0
 
