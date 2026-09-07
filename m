@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB1AC79FAB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31060C79F99
 	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 09:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kSJJPgmaQ50uN2zxPEbIH62wkweLfOYb5uigVNBCa20=; b=0zTeAD24n0MOYv
-	a9dVLaHszjBVGhXPEwaZ/B7lr2ivwE7aQpQQQ3KZHTv+GpHIDCfa00uZ9t1RwcL1H+woDSsYcyPMf
-	9QtieeSyXabX6aN/XihfEbA6ywP88YXM0HQAwi1W6MuhAAnfTsRYsaONd66gZB3317LSdI1BxMBES
-	1bi5IGVRfbg82rxgWIC9dafH5PvXTOAQ7R+MUPAbqKK4GT2d+sohitMElQZGXkoiR1uoM+YHwMg8Q
-	jEObJbxug10fuE3c1PRcqGq0mFhdlUkG2ks2e0w3S8TLtJ4OWGQX3xLPmmcaagNT3l6UU1UFbp7yC
-	fPV3K+r0NECflnQNRmyg==;
+	List-Owner; bh=0Qteu5idOfJWAzWF2pz4VXF+hl3L6h/bRHjthdNfE3E=; b=wWNrYUKCqmB6I/
+	EE/d+XGNKw53ZfzktSoMzq0HWm/jd3ISpW1vmWIIa8xJchYnbda0+6CT1KBuQNUUYlDdK9/Dq2HRb
+	MF4LdRkH1mMnHioWIf4kHwzI0ZqQg+OC5iFGjRjnzS+MDO4Th/8qhpxIWmgYa27cFd71r0o2BVp/u
+	G6Tq6AtIQPEbGhlNDqk4eayO2z7S6c3qGb0zOFPTKQoKFycJBwbNSGbh8GChgV2WMKEEUIbgEiN0O
+	w/lWsGllxeduoZ9BRt5JcY/HYzEICm73d+K3Jpd4LW25xHBEQKdrAjARnCXGdHIig96wRKTLIigw6
+	b8taKaRTO471Y5hFGE1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3W7U-00000006PVO-2lUG;
+	id 1x3W7U-00000006PVK-2Ofe;
 	Mon, 07 Sep 2026 09:58:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3W7P-00000006PSS-2m9j
+	id 1x3W7P-00000006PSq-3HNs
 	for linux-riscv@lists.infradead.org;
 	Mon, 07 Sep 2026 09:58:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC89160DA3;
+	by sea.source.kernel.org (Postfix) with ESMTP id C5B4044860;
 	Mon,  7 Sep 2026 09:58:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4D60AC4AF11;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8AB6DC4AF1A;
 	Mon,  7 Sep 2026 09:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788775106;
-	bh=jbMzoob+yfp28o1fkQLtsSQu9lgIRg09JA0lafc+WTI=;
+	bh=stFWnGr8qituroDzzylkIvteQb6/v1UMCo2xAmzSvDs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=iyiovwlBBuEOAq4Xon/s5M71gn3gz/X0/Q0muVMM7NDmpzqsDt+MEASEgykjuXV16
-	 jkoUUZ4WC07E1GAF+5UDLZQEiX0OOTqu8TyOYXnsgO4sxaYeGqrTZ7ioOe7sPbB5ul
-	 fPxpBgJwGRw1YwrB6fdQB7ZgBISYWLnrwawdAlXDHLuCkV6bDWmYScWPs24qDqtf3V
-	 OTidh+RJnBG5uTKxiJLF3Gkv1rZe7V7sdluVeJbgaRAwMF62cxu1Kkk9yu97QPr+hC
-	 O1mHb8hg+fskHqBWz7BGzBror3FPaSTiGUNB2WypiiR9HgaSlZGhww95IgTQ+Itpdo
-	 NdymIhLtWNgOg==
+	b=m4TyiU7TwJ+ifibBW0Zkb4Hf+zypQ0r4ecQslRWV8KChBMBY0R25JHqmrwYKtjKVA
+	 YNEguJmMhqlHLh2vgu1Ttc4wGHY7267eABjlDm0qeaLJQaoPKq3dqheCv8GMCpo5ye
+	 ZjMjEedu5l0bSxJP5vy7flCkWh/DzAFL0fBz28F7IA4hIjL8xD0ol59MFn2Fizli11
+	 NWjTfDubEr3hA9AR4Th9M2oMHv6OYTEGuzYIVUhuUww5hTMrTHHCkuh+ZDpyYSH8LC
+	 BrxJ3z3fJwWNhg0z4eYG3DtNft1noH1s7lWqDpHEJKgm+GsmYTS75C/+VjlpVttivk
+	 dyG8zJd6u8JSg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A3DAC79FA0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76834C79F89;
 	Mon,  7 Sep 2026 09:58:26 +0000 (UTC)
 From: Jia Wang via B4 Relay <devnull+wangjia.ultrarisc.com@kernel.org>
-Date: Mon, 07 Sep 2026 17:54:46 +0800
-Subject: [PATCH v2 07/10] dt-bindings: dma: snps,dw-axi-dmac: Add UltraRISC
- DP1000 compatible
+Date: Mon, 07 Sep 2026 17:54:49 +0800
+Subject: [PATCH v2 10/10] riscv: dts: ultrarisc: Add Milk-V Titan board
+ device tree
 MIME-Version: 1.0
-Message-Id: <20260907-ultrarisc-dts-v2-7-5eb4c97477c5@ultrarisc.com>
+Message-Id: <20260907-ultrarisc-dts-v2-10-5eb4c97477c5@ultrarisc.com>
 References: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
 In-Reply-To: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -71,11 +71,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org, 
  linux-i2c@vger.kernel.org, dmaengine@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788775103; l=1419;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788775103; l=7334;
  i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=ENFwCaDg2Es24T1JPD8nJSb6K6VohaYxMboKPZolvgI=;
- b=MyRA9jGZrwxWJ4/f/ssvZI6lzGtLrFdRbrj04uuCN0+jhnwxhnZs36ZCQyo03NHkrgeKwTgY7
- meq5UYXIU1ZARPkIWze/XzKIuDOOQniuZ47xHauQ0/IYsaJTuP473O7
+ bh=dAtkSFZr6AV1hMUKbe3Hu73EzYFoZ2u8+96QxJOEsCA=;
+ b=yiRYYozF6HckWerWPKKZ2H+6+zbHMo+ifuvwcDW8yRYvlrtHo+QDOPpQFDR53zeLCFz8j8EQg
+ aAkJEqwaT8RDt/2foEZMiwYIBbE6mWhYR+i05lAfc2VHQk+Nl3iAbWw
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
 X-Endpoint-Received: by B4 Relay for wangjia@ultrarisc.com/20260515 with
@@ -100,55 +100,347 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jia Wang <wangjia@ultrarisc.com>
 
-The DP1000 integrates a DMA controller.
+Milk-V Titan is an ITX motherboard based on the UltraRISC DP1000 SoC.
 
-Add its SoC-specific compatible with the generic fallback.
-
+Link: https://milkv.io/docs/titan/overview
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 ---
- .../devicetree/bindings/dma/snps,dw-axi-dmac.yaml  | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ arch/riscv/boot/dts/ultrarisc/Makefile             |   1 +
+ .../dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi  | 108 +++++++++++
+ .../boot/dts/ultrarisc/dp1000-milkv-titan.dts      | 203 +++++++++++++++++++++
+ 3 files changed, 312 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-index 0a30a455b0ee..bfd6d67a98e6 100644
---- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-+++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-@@ -14,6 +14,27 @@ description:
- 
- allOf:
-   - $ref: dma-controller.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: ultrarisc,dp1000-axi-dma
-+    then:
-+      properties:
-+        reg:
-+          maxItems: 1
-+        interrupts:
-+          minItems: 8
-+        dma-channels:
-+          const: 8
-+        snps,dma-masters:
-+          const: 1
-+        snps,data-width:
-+          const: 4
-+        snps,priority:
-+          minItems: 8
-+        snps,block-size:
-+          minItems: 8
- 
- properties:
-   compatible:
-@@ -27,6 +48,7 @@ properties:
-           - enum:
-               - altr,agilex5-axi-dma
-               - sophgo,cv1800b-axi-dma
-+              - ultrarisc,dp1000-axi-dma
-           - const: snps,axi-dma-1.01a
- 
-   reg:
+diff --git a/arch/riscv/boot/dts/ultrarisc/Makefile b/arch/riscv/boot/dts/ultrarisc/Makefile
+index 454d849a6ce4..dfd15c064d07 100644
+--- a/arch/riscv/boot/dts/ultrarisc/Makefile
++++ b/arch/riscv/boot/dts/ultrarisc/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_ULTRARISC) += dp1000-milkv-titan.dtb
+ dtb-$(CONFIG_ARCH_ULTRARISC) += dp1000-shenrongda-m0.dtb
+diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi b/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi
+new file mode 100644
+index 000000000000..7a812e40a249
+--- /dev/null
++++ b/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan-pinctrl.dtsi
+@@ -0,0 +1,108 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
++ */
++
++#include "dp1000.dtsi"
++#include "dp1000-pinctrl.h"
++
++&pinctrl {
++	i2c0_pins: i2c0-pins {
++		pins = <PA12 PA13>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	i2c1_pins: i2c1-pins {
++		pins = <PB6 PB7>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	i2c2_pins: i2c2-pins {
++		pins = <PC0 PC1>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	i2c3_pins: i2c3-pins {
++		pins = <PC2 PC3>;
++		function = "i2c";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	io_pins: io-pins {
++		pins = <PA10 PA15 PB0 PB1 PB2 PD6 PD7>;
++		function = "gpio";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	gpio_keys_pins: gpio-keys-pins {
++		pins = <PA4 PA11 PA14>;
++		function = "gpio";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	mux_dcdc_i2c_pins: mux-dcdc-i2c-pins {
++		pins = <PA5>;
++		function = "gpio";
++	};
++
++	mux_i2c3_pins: mux-i2c3-pins {
++		pins = <PA6>;
++		function = "gpio";
++	};
++
++	mux_uart0_pins: mux-uart0-pins {
++		pins = <PA7>;
++		function = "gpio";
++	};
++
++	spi0_pins: spi0-pins {
++		pins = <PD0 PD1 PD2 PD3 PD4 PD5>;
++		function = "spi";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	spi1_pins: spi1-pins {
++		pins = <PA0 PA1 PA2 PA3>;
++		function = "spi";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart0_pins: uart0-pins {
++		pins = <PA8 PA9>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart1_pins: uart1-pins {
++		pins = <PB4 PB5>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart2_pins: uart2-pins {
++		pins = <PC4 PC5>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++
++	uart3_pins: uart3-pins {
++		pins = <PC6 PC7>;
++		function = "uart";
++		bias-pull-up;
++		drive-strength = <33>;
++	};
++};
+diff --git a/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan.dts b/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan.dts
+new file mode 100644
+index 000000000000..59edd8157221
+--- /dev/null
++++ b/arch/riscv/boot/dts/ultrarisc/dp1000-milkv-titan.dts
+@@ -0,0 +1,203 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright(C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
++ */
++
++#include "dp1000-milkv-titan-pinctrl.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/input/gpio-keys.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/leds/common.h>
++
++/ {
++	model = "Milk-V Titan";
++	compatible = "milkv,titan", "ultrarisc,dp1000";
++
++	aliases {
++		serial0 = &uart0;
++		serial1 = &uart1;
++		serial2 = &uart2;
++		serial3 = &uart3;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-names = "default";
++		pinctrl-0 = <&gpio_keys_pins>;
++
++		key-wakeup-0 {
++			label = "Wake-Up";
++			gpios = <&gpio_a 14 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_WAKEUP>;
++			linux,input-type = <EV_KEY>;
++			debounce-interval = <10>;
++			wakeup-source;
++			wakeup-event-action = <EV_ACT_ASSERTED>;
++		};
++
++		key-wakeup-1 {
++			label = "Power";
++			gpios = <&gpio_a 11 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_POWER>;
++			linux,input-type = <EV_KEY>;
++			debounce-interval = <10>;
++			wakeup-source;
++			wakeup-event-action = <EV_ACT_ASSERTED>;
++		};
++
++		key-wakeup-2 {
++			label = "Wake-Up-by-USB";
++			interrupts-extended = <&gpio_a 4 IRQ_TYPE_EDGE_FALLING>;
++			linux,code = <KEY_WAKEUP>;
++			linux,input-type = <EV_KEY>;
++			debounce-interval = <10>;
++			wakeup-source;
++		};
++	};
++};
++
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0_pins>;
++};
++
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_pins>;
++};
++
++&i2c2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c2_pins>;
++
++	rtc@68 {
++		compatible = "st,m41t11";
++		reg = <0x68>;
++	};
++};
++
++&i2c3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c3_pins>;
++};
++
++&spi0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi0_pins>;
++};
++
++&spi1 {
++	num-cs = <1>;
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi1_pins>;
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_pins>;
++};
++
++&uart1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart1_pins>;
++};
++
++&uart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart2_pins>;
++};
++
++&uart3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart3_pins>;
++};
++
++&pcie_x16 {
++	status = "okay";
++};
++
++&pcie_x4a {
++	status = "okay";
++};
++
++&pcie_x4b {
++	status = "okay";
++};
++
++&gpio {
++	pinctrl-names = "default";
++	pinctrl-0 = <&io_pins &mux_dcdc_i2c_pins &mux_i2c3_pins &mux_uart0_pins>;
++};
++
++&gpio_a {
++	dcdc-i2c-mux-hog {
++		gpio-hog;
++		gpios = <5 GPIO_ACTIVE_HIGH>;
++		output-low;
++		line-name = "dcdc-i2c-mux";
++	};
++
++	i2c3-mux-hog {
++		gpio-hog;
++		gpios = <6 GPIO_ACTIVE_HIGH>;
++		output-low;
++		line-name = "i2c3-mux";
++	};
++
++	uart0-mux-hog {
++		gpio-hog;
++		gpios = <7 GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "uart0-mux";
++	};
++};
++
++&ethernet {
++	phy-handle = <&phy0>;
++	/*
++	 * The PCB does not add RGMII TX or RX clock delays. The DP1000
++	 * integration adds fixed delays in both directions.
++	 */
++	phy-mode = "rgmii-id";
++
++	status = "okay";
++
++	mdio {
++		compatible = "snps,dwmac-mdio";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		phy0: phy@0 {
++			reg = <0>;
++
++			leds {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				led@1 {
++					label = "eth-link";
++					reg = <1>;
++					color = <LED_COLOR_ID_YELLOW>;
++					function = LED_FUNCTION_INDICATOR;
++					default-state = "keep";
++					linux,default-trigger = "netdev";
++				};
++
++				led@2 {
++					label = "eth-activity";
++					reg = <2>;
++					color = <LED_COLOR_ID_GREEN>;
++					function = LED_FUNCTION_ACTIVITY;
++					default-state = "keep";
++					linux,default-trigger = "netdev";
++				};
++			};
++		};
++	};
++};
 
 -- 
 2.34.1
