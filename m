@@ -4,63 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A908C79FA0
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 16:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829F0C79F99
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2026 16:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3lvFlmuYL6emMBFDkKxER0VUobeQG2g22UsGmtDRPcA=; b=c4JUrwUbj2sjtFFt6/a/cEMe3Q
-	Aw4jbdyq6fWeQaWDRRyNNnHjpRMd03Yqfwfq4D41wQGCqZTEyS3OlcqZscQ+bi06l879TtD+f0bUO
-	SRzcwDBSODnUM1sZGK04ngxiSF/HoCy1AgMRWZh6UHw1FVkUHMEX0aQCED5NiChPHNXzpEVrYEhuW
-	W6LyoLr5Zgl8J0nqwkorpBcRmOan4TZk2zViRX1BwL+ci3/YUD2HbNbr+ck7MuJ8f5dH6Id5orrsK
-	inNKaUxTa5zmj2MVDwGYzVnqx6zE0N42SNGPb//hAm/KG3JSvVxAM47TdUYCPz7jgRzeczs2+m/Hd
-	gjyk6IFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NjyR7vMIf7KtyR6XaN4DlV+wwlZoOm/uukI56cweW0M=; b=viVG84EyhRLSoH
+	I4ko+E6zw+l+pWsL9+bpkcQjPiw5gTMzKaZF7rZsuwpckRXkAYeIcJWovIPFD8x6dBrzmEyByS+gh
+	XtlgZzHw4TDrFWY38TMar2S9TCjQLAdckxJCauETK2gFq+SrJg75PblrhJxUca9PLe1xYrFBumDqN
+	ss73roMszJpXLk6M05DIDL96hsAdNjE4hqXd3Hdi5iabyZJM2FsO6yMP7sk2nSK5vOaX9IdkFLY9b
+	jmEbp+bMWoJQY75miPShEQZ7pR4g6z2HNcjHO2Fy+aHq4nA3imcifsn5NoaLkHLy1eeYyXRQO9R+P
+	1NDXy//W40/hMV1t3IzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cNB-00000007Ky7-0UZK;
-	Mon, 07 Sep 2026 16:39:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3cbe-00000007Ph0-07WA;
+	Mon, 07 Sep 2026 16:54:06 +0000
+Received: from mail-qk2-x10.google.com ([2607:f8b0:4864:34::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cNA-00000007Kxv-0Khb
+	id 1x3cbZ-00000007Pej-0ay2
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Sep 2026 16:39:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7AFE7601DB;
-	Mon,  7 Sep 2026 16:39:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B99381F00A3A;
-	Mon,  7 Sep 2026 16:39:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799147;
-	bh=oGqBtibtFgsMPz5mWSCwo/lq11kK1+9cicm+Lu5xbuk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FlCSzlfZqqLQr0YAHxxz9hIyUQiTsTtMn9aDfhxgj14vynnLWiQNOR8xV1ilE3GTh
-	 uz26HNjb9NGr2yMPOnuWs7PQK7DbhYUEVKINowjBg5/BQ7QpFFD8Z8n3z3IzCpx0to
-	 xeccece/KjpAkdxovarKiVDhvqPDvfnKh1+rYj25pzKnrBgP10oIlyqvo5awEHrICd
-	 RRUMbL2OdCy4hQW64vCvzSclUUT4qWY6HUVSOOVmzHBYHihJ2Vvi+CuptNxMz6C85r
-	 w0Zw/YdyUzaWFCFGOJq3xhk4h89t5G9NpL9dfnIrCs5ivSWxCSTFM25TtutevD9z1F
-	 t2MM8/yeRaDtg==
-Date: Mon, 7 Sep 2026 17:39:02 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: Re: [PATCH v2 3/5] riscv: support early isa ext and use it to
- optimize pgtable_l4|l5_enabled
-Message-ID: <20260907-smashup-darn-93d1ee105a57@spud>
-References: <20260907151437.7603-1-jszhang@kernel.org>
- <20260907151437.7603-4-jszhang@kernel.org>
+	Mon, 07 Sep 2026 16:54:03 +0000
+Received: by mail-qk2-x10.google.com with SMTP id d75a77b69052e-530411c7ee1so368611cf.0
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Sep 2026 09:53:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788800036; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QkPjwhDnrO5Uum6rZb1L4KWDT9Fvjm9mLfG2TodFoTXzaVbT603sxAdGhcDDsWXamP
+         gN25YUF3kEo6RCzpvNm7N6JBOmIe1kRM1eha42xLpkv416a3XnQulGRXl8MyKpF64Igl
+         SksgXQMd4eBXoWBAknAlqZPopNYjVvc/wsHqDWyBvcosdEhIp5dA5w11eSoHstnOc7Uu
+         X6LyfbeHt1AcgMqCReTDVDVxxBTyZt4B63F/jliba7n2fSucErd+/Q6TKEwhpIjO3YGX
+         DFnYxhAlduzrulsO8ePpgUxMyILWtFnHwOaLwLNdhrVM+Bi6gX/xRgBGoZwgTubU55pz
+         WuJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=WOgo3zFXzbtiQDjz57z5HXaLiQwAncd9HG4Gw1Bp/lg=;
+        fh=wLljdDK5TSoaeSuqNu9BDRhJ8Ym38f6l0vCyVLMdjfE=;
+        b=Y5lwOD3shoLh0rQoeMVmQ52en1dnbs2ecuzAzXJ9X+IZx/ZSf0kSVb7VBFfz/spNUg
+         UbXQxl/N1v/GSkQ3RfRywBa/MNJIvJX2rRk9CknOoffCxnu5/tQS914SKuRJj9PO/flM
+         9b9JCvbz4r1KRXLEFgGorKdvC3qQPIirc6BMb5XTY4hh6SbbYSaMx0t4n6z8u79Q7gf+
+         CdeQ1vcBKPrWOqHEiQ3laMwB5/L9XEMdATu3AtkJgQx5BdaFRVWgpGozH/4n0ja3rWEg
+         FfybJbFgMc0djeSHSjbwXhgkHNc9Ec1JTWvSEPbJ9yjFM1o1gxbkjhtXYUo8VMMgSkYt
+         OY7g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788800036; x=1789404836; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WOgo3zFXzbtiQDjz57z5HXaLiQwAncd9HG4Gw1Bp/lg=;
+        b=LYymi73UhgbSYoM2au7j/fs0QQeZcu6SP4+iqdilIM/lu6uzLsBiwJurS8jbeW5zPO
+         d+egXZ/2SBKJvvzT8ruU9VPIXzxPzwjDKLz7dPz1QNyPyvmyyc/AcwoHnyjZ8XrOsLAP
+         m+XOgER7q7kH2Fps0jjiN36yEghXbvxdWlvphEmhvPbSJVh95BvTzJcjB3KtJVxrX+WE
+         Ua9pf3em89Tzk8cxbpgRhxTNih3CP3QLyERwDb9weCt0LhQorIseDYaFoSOmZJHHZURV
+         GbRQikDx8r8s3zPyzw3PELt4gPS7ArlYNygt5lXCVqcf1TokJHF034a9nR71oKDX+U2B
+         jqhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788800036; x=1789404836;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WOgo3zFXzbtiQDjz57z5HXaLiQwAncd9HG4Gw1Bp/lg=;
+        b=UneuWB9QGfJZLgFOwPhs+OyIK2/ToUyrfYrVpXlYl/PXWXbzyphrmvAZsBeNy+ZHmF
+         P+nPoymP7h1F5Prx64UQteEZjXj994yqwDCMBPrOvlET2ClGENK0WC6XaolNmtPipfZS
+         JX2YkeIKxkuIhMbOFpQixtqJg1sWPkQ9uypArNuCNxzqc66S0vx83LkNbtm7gyykAVtj
+         F9mevynah2Att2k9QrxsqR+T/j9XyYd/NervxPciYgfMeGRhuFLfjdhGUGopuW5i+PRE
+         6cZpHJWkovYa+r9aQ4MguTQ3RfStNhwWrxR+5SWuN/RiHjIhbgGv5zg0OZfxeJ58LqrM
+         3d0A==
+X-Forwarded-Encrypted: i=1; AKwUvBxwb7z773vpG2vmu8p9S+Ocz39eVK/bGTfhcS9Gm0+7p/VhpvCDVjQvlg+VwemEHyqxwlGw5chXZtENfQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++kcUZwthl2wxclDZN3/t9GKcLnl6f3fGcF9HzxalilwmbZGjV3/
+	JdqwX7U7HOgqzezBsCx7oafpkRHHtNbHiwCHv+qlyzilse72QdUQSIFN/sL89To6oOZkk/vYYfP
+	hqXLzQsosOQNAa/CfjDOa1WcEwQL7T8fu+r+dO2/d
+X-Gm-Gg: AYBFou1Mmp44vCKEr/r7xMKp2csotgYyDVEfitDba/nFukT/PtjOTWk35RkEfyE/omV
+	3PUHGf2OpXbI7KjflLljUgyIwjpZ+xSqJfhzod4oIoXvNYUsHKF/yUkRO5Jt2A/Byfq4KH6Xo+0
+	NgF4RzSwh3PQfJIrx5gc+Rz6eyXeozUXeQzfCM/BDUY6j9cv+nyoHZ3U+zx7NLB+WtDp/wJ8l9J
+	fic8ygg59LB0xQSP2EPvVafOGzS/YJXrZDOh9SUevr3pcPWIHtyUvDxcP9Cu2AtzHvJXb2K82Os
+	y1A4/lTjbrTKfJQK4OwDZXj74S/8OHvggjpNoSybofU=
+X-Received: by 2002:a05:622a:28e:b0:52f:8389:29e0 with SMTP id
+ d75a77b69052e-530920caba6mr3560401cf.0.1788800035234; Mon, 07 Sep 2026
+ 09:53:55 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20260907151437.7603-4-jszhang@kernel.org>
+References: <20260901-rcu-pagetable-freeing-v1-0-5456a81c8212@kernel.org>
+ <20260901-rcu-pagetable-freeing-v1-12-5456a81c8212@kernel.org>
+ <apbUpMDJglS99_yK@thinkstation> <apbfzUwBQyxe3P9R@gremlin>
+ <apcH74QsR5I-DIbL@thinkstation> <apcJhtvnd45EkjJI@gremlin>
+In-Reply-To: <apcJhtvnd45EkjJI@gremlin>
+From: Suren Baghdasaryan <surenb@google.com>
+Date: Mon, 7 Sep 2026 09:53:43 -0700
+X-Gm-Features: AcwNN1WRGdFWOzxEbOcmfkztqDuQQAGpor7Xm60pdWlD2DjKNo1Y7S4S7DNXdgs
+Message-ID: <CAJuCfpH_v4YU+hsQDU_yQ4HZDf-2C6DuiJU5PGL+uVAsTwkZug@mail.gmail.com>
+Subject: Re: [PATCH 12/12] mm: change the contract for free_pgtables(), update docs
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Kiryl Shutsemau <kas@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Simon Schuster <schuster.simon@siemens-energy.com>, Jonas Bonn <jonas@southpole.se>, 
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>, 
+	Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+	Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
+	Nick Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
+	Richard Henderson <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, 
+	Magnus Lindholm <linmag7@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+	linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-alpha@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, 
+	Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_095401_196846_CD0B6EAA 
+X-CRM114-Status: GOOD (  31.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,505 +156,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2763913888886898162=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2763913888886898162==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZTOED9zx41IeCU4S"
-Content-Disposition: inline
-
---ZTOED9zx41IeCU4S
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Sep 07, 2026 at 11:14:35PM +0800, Jisheng Zhang wrote:
-> The pgtable_l4|[l5]_enabled check sits at hot code path, performance
-> is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
-> boot, we can use alternative mechanism to optimize them.
->=20
-> So the question is whether we can add RISCV_ISA_EXT_SV48/SV5 and use
-> riscv_has_extension_*() or not. Per [1] and [2], SV48 and SV57 are ISA
-> exensions too. From another side, riscv_has_extension_[un]likely() and
-> other related functions report whether the extension is supported and
-> enabled on the platform. So SV48 and SV57 can be supported with current
-> isa extension alternative mechanism.
->=20
-> However, to use it to optimize pgtable_l4|l5_enabled, we have support
-> the "early" characteristic, I.E besides risc_isa bitmap setting, we
-> need to support appling alternative early before MMU on.
->=20
-> After that, use it to optimize pgtable_l4|l5_enabled.
->=20
-> For the typical access_ok(addr, 1);
-> before the patch:
->=20
-> ...
-> auipc	a5,0xb43
-> lbu	a5,100(a5) # ffffffff80b51f68 <pgtable_l5_enabled>
-> bnez	a5,ffffffff8000ef46 <foo+0x56>
-> auipc	a5,0xb43
-> lbu	a5,91(a5) # ffffffff80b51f69 <pgtable_l4_enabled>
-> beqz	a5,ffffffff8000ef5a <foo+0x6a>
-> ...
->=20
-> after the patch:
-> These memory load and test branch instructions are replaced with only
-> two j or nop instructions.
->=20
-> Initial test lmbench's lat_syscall write on TH1520 platforms shows that
-> the write syscall latency is reduced by about 2.38%.
->=20
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Link: https://github.com/riscv/riscv-isa-manual/blob/main/src/profiles/pr=
-ofiles.adoc [1]
-> Link: https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154732/Ratifie=
-d+ISA+Extensions [2]
-> ---
->  arch/riscv/Kconfig                   |  1 +
->  arch/riscv/include/asm/alternative.h |  2 +-
->  arch/riscv/include/asm/cpufeature.h  |  2 +
->  arch/riscv/include/asm/hwcap.h       |  2 +
->  arch/riscv/include/asm/pgtable-64.h  | 12 ++++++
->  arch/riscv/kernel/alternative.c      | 24 +++++++----
->  arch/riscv/kernel/cpufeature.c       | 60 ++++++++++++++++++++++------
->  arch/riscv/mm/init.c                 |  9 +++++
->  8 files changed, 91 insertions(+), 21 deletions(-)
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 13b7bb77087e..e9476b8cbeb0 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -218,6 +218,7 @@ config RISCV
->  	select PCI_ECAM if (ACPI && PCI)
->  	select PCI_MSI if PCI
->  	select RELOCATABLE if !MMU && !PHYS_RAM_BASE_FIXED
-> +	select RISCV_ALTERNATIVE_EARLY if 64BIT
->  	select RISCV_APLIC
->  	select RISCV_IMSIC
->  	select RISCV_INTC
-> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/as=
-m/alternative.h
-> index 688c7d1a9ae3..6be7b2b6ade9 100644
-> --- a/arch/riscv/include/asm/alternative.h
-> +++ b/arch/riscv/include/asm/alternative.h
-> @@ -33,7 +33,7 @@ void __init apply_early_boot_alternatives(void);
->  void apply_module_alternatives(void *start, size_t length);
-> =20
->  void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
-> -				   int patch_offset);
-> +				   int patch_offset, bool early);
-> =20
->  struct alt_entry {
->  	s32 old_offset;		/* offset relative to original instruction or data  */
-> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
-/cpufeature.h
-> index 37c9f2a0fb54..af18ba93f580 100644
-> --- a/arch/riscv/include/asm/cpufeature.h
-> +++ b/arch/riscv/include/asm/cpufeature.h
-> @@ -36,6 +36,8 @@ extern const struct seq_operations cpuinfo_op;
->  /* Per-cpu ISA extensions. */
->  extern struct riscv_isainfo hart_isa[NR_CPUS];
-> =20
-> +extern DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX);
-> +
->  extern u32 thead_vlenb_of;
-> =20
->  void __init riscv_user_isa_enable(void);
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index f8db798b2654..b6d50025cb79 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -122,6 +122,8 @@
->  #define RISCV_ISA_EXT_ZICCAMOA		113
->  #define RISCV_ISA_EXT_ZICCIF		114
->  #define RISCV_ISA_EXT_ZA64RS		115
-> +#define RISCV_ISA_EXT_SV48		116
-> +#define RISCV_ISA_EXT_SV57		117
-> =20
->  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> =20
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm=
-/pgtable-64.h
-> index 72b8c63469fa..7e30ec0e9f6c 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -13,6 +13,7 @@
->  extern bool _pgtable_l4_enabled;
->  extern bool _pgtable_l5_enabled;
-> =20
-> +#ifdef USE_EARLY_PGTABLE_LEVELS
->  static __always_inline bool pgtable_l5_enabled(void)
->  {
->  	return _pgtable_l5_enabled;
-> @@ -22,6 +23,17 @@ static __always_inline bool pgtable_l4_enabled(void)
->  {
->  	return _pgtable_l4_enabled;
->  }
-> +#else
-> +static __always_inline bool pgtable_l4_enabled(void)
-> +{
-> +	return riscv_has_extension_likely(RISCV_ISA_EXT_SV48);
-> +}
-> +
-> +static __always_inline bool pgtable_l5_enabled(void)
-> +{
-> +	return riscv_has_extension_likely(RISCV_ISA_EXT_SV57);
-> +}
-> +#endif
-> =20
->  #define PGDIR_SHIFT_L3  30
->  #define PGDIR_SHIFT_L4  39
-> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternat=
-ive.c
-> index c0c9306022c5..bbb215349452 100644
-> --- a/arch/riscv/kernel/alternative.c
-> +++ b/arch/riscv/kernel/alternative.c
-> @@ -75,7 +75,8 @@ static u32 riscv_instruction_at(void *p)
->  }
-> =20
->  static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
-> -					     u32 jalr_insn, int patch_offset)
-> +					     u32 jalr_insn, int patch_offset,
-> +					     bool early)
->  {
->  	u32 call[2] =3D { auipc_insn, jalr_insn };
->  	s32 imm;
-> @@ -88,10 +89,15 @@ static void riscv_alternative_fix_auipc_jalr(void *pt=
-r, u32 auipc_insn,
->  	riscv_insn_insert_utype_itype_imm(&call[0], &call[1], imm);
-> =20
->  	/* patch the call place again */
-> -	patch_text_nosync(ptr, call, sizeof(u32) * 2);
-> +	if (early) {
-> +		memcpy(ptr, call, sizeof(call));
-> +	} else {
-> +		patch_text_nosync(ptr, call, sizeof(call));
-> +	}
->  }
-> =20
-> -static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch=
-_offset)
-> +static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch=
-_offset,
-> +				      bool early)
->  {
->  	s32 imm;
-> =20
-> @@ -103,11 +109,14 @@ static void riscv_alternative_fix_jal(void *ptr, u3=
-2 jal_insn, int patch_offset)
->  	riscv_insn_insert_jtype_imm(&jal_insn, imm);
-> =20
->  	/* patch the call place again */
-> -	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
-> +	if (early)
-> +		memcpy(ptr, &jal_insn, sizeof(u32));
-> +	else
-> +		patch_text_nosync(ptr, &jal_insn, sizeof(u32));
->  }
-> =20
->  void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
-> -				      int patch_offset)
-> +				   int patch_offset, bool early)
->  {
->  	int num_insn =3D len / sizeof(u32);
->  	int i;
-> @@ -131,7 +140,8 @@ void riscv_alternative_fix_offsets(void *alt_ptr, uns=
-igned int len,
->  				continue;
-> =20
->  			riscv_alternative_fix_auipc_jalr(alt_ptr + i * sizeof(u32),
-> -							 insn, insn2, patch_offset);
-> +							 insn, insn2, patch_offset,
-> +							 early);
->  			i++;
->  		}
-> =20
-> @@ -144,7 +154,7 @@ void riscv_alternative_fix_offsets(void *alt_ptr, uns=
-igned int len,
->  				continue;
-> =20
->  			riscv_alternative_fix_jal(alt_ptr + i * sizeof(u32),
-> -						  insn, patch_offset);
-> +						  insn, patch_offset, early);
->  		}
->  	}
->  }
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index 9915121e9438..ce08e7f19e2d 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -39,7 +39,7 @@ static bool any_cpu_has_zicbom;
->  unsigned long elf_hwcap __read_mostly;
-> =20
->  /* Host ISA bitmap */
-> -static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
-> +DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
-> =20
->  /* Per-cpu ISA extensions. */
->  struct riscv_isainfo hart_isa[NR_CPUS];
-> @@ -624,6 +624,8 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
->  	__RISCV_ISA_EXT_DATA(svrsw60t59b, RISCV_ISA_EXT_SVRSW60T59B),
->  	__RISCV_ISA_EXT_DATA(svvptc, RISCV_ISA_EXT_SVVPTC),
-> +	__RISCV_ISA_EXT_DATA(sv48, RISCV_ISA_EXT_SV48),
-> +	__RISCV_ISA_EXT_DATA(sv57, RISCV_ISA_EXT_SV57),
->  };
-> =20
->  const size_t riscv_isa_ext_count =3D ARRAY_SIZE(riscv_isa_ext);
-> @@ -862,7 +864,8 @@ static void __init riscv_parse_isa_string(const char =
-*isa, unsigned long *bitmap
->  	}
->  }
-> =20
-> -static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2h=
-wcap)
-> +static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2h=
-wcap,
-> +						    unsigned long *riscv_isa_early)
-
-All of the "early" business in this file seems overly complicated. Can
-we just do something like this?
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index d2ec96843456..46715a0255c1 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -922,6 +922,11 @@ static void __init riscv_fill_hwcap_from_isa_string(un=
-signed long *isa2hwcap)
- 			set_bit(RISCV_ISA_EXT_ZIHPM, source_isa);
- 		}
-=20
-+		if (_pgtable_l4_enabled)
-+			set_bit(RISCV_ISA_EXT_SV48, source_isa);
-+		if (_pgtable_l5_enabled)
-+			set_bit(RISCV_ISA_EXT_SV57, source_isa);
-+
- 		/*
- 		 * "V" in ISA strings is ambiguous in practice: it should mean
- 		 * just the standard V-1.0 but vendors aren't well behaved.
-@@ -1082,6 +1087,11 @@ static int __init riscv_fill_hwcap_from_ext_list(uns=
-igned long *isa2hwcap)
- 			riscv_isa_set_ext(ext, source_isa);
- 		}
-=20
-+		if (_pgtable_l4_enabled)
-+			set_bit(RISCV_ISA_EXT_SV48, source_isa);
-+		if (_pgtable_l5_enabled)
-+			set_bit(RISCV_ISA_EXT_SV57, source_isa);
-+
- 		riscv_resolve_isa(source_isa, isainfo->isa, &this_hwcap, isa2hwcap);
- 		riscv_fill_cpu_vendor_ext(cpu_node, cpu);
-
-The pagetable levels are the only thing we do this kind of early and
-probed detection for, adding a framework for them and only them that
-mostly just complicates the normal case seems rather excessive. Doing
-something simple like this is also quite explicit as to what's being
-done and what the basis for it is.
-
-Cheers,
-Conor.
-
->  {
->  	struct device_node *node;
->  	const char *isa;
-> @@ -933,6 +936,7 @@ static void __init riscv_fill_hwcap_from_isa_string(u=
-nsigned long *isa2hwcap)
->  		if (acpi_disabled && boot_vendorid =3D=3D THEAD_VENDOR_ID && boot_arch=
-id =3D=3D 0x0)
->  			clear_bit(RISCV_ISA_EXT_V, source_isa);
-> =20
-> +		bitmap_or(source_isa, source_isa, riscv_isa_early, RISCV_ISA_EXT_MAX);
->  		riscv_resolve_isa(source_isa, isainfo->isa, &this_hwcap, isa2hwcap);
-> =20
->  		/*
-> @@ -1050,7 +1054,8 @@ static int has_thead_homogeneous_vlenb(void)
->  	return 0;
->  }
-> =20
-> -static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwca=
-p)
-> +static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwca=
-p,
-> +						 unsigned long *riscv_isa_early)
->  {
->  	unsigned int cpu;
->  	bool mitigated;
-> @@ -1082,6 +1087,7 @@ static int __init riscv_fill_hwcap_from_ext_list(un=
-signed long *isa2hwcap)
->  			riscv_isa_set_ext(ext, source_isa);
->  		}
-> =20
-> +		bitmap_or(source_isa, source_isa, riscv_isa_early, RISCV_ISA_EXT_MAX);
->  		riscv_resolve_isa(source_isa, isainfo->isa, &this_hwcap, isa2hwcap);
->  		riscv_fill_cpu_vendor_ext(cpu_node, cpu);
-> =20
-> @@ -1137,6 +1143,7 @@ void __init riscv_fill_hwcap(void)
->  {
->  	char print_str[NUM_ALPHA_EXTS + 1];
->  	unsigned long isa2hwcap[RISCV_ISA_EXT_BASE] =3D {0};
-> +	DECLARE_BITMAP(riscv_isa_early, RISCV_ISA_EXT_MAX);
->  	int i, j;
-> =20
->  	isa2hwcap[RISCV_ISA_EXT_I] =3D COMPAT_HWCAP_ISA_I;
-> @@ -1147,14 +1154,17 @@ void __init riscv_fill_hwcap(void)
->  	isa2hwcap[RISCV_ISA_EXT_C] =3D COMPAT_HWCAP_ISA_C;
->  	isa2hwcap[RISCV_ISA_EXT_V] =3D COMPAT_HWCAP_ISA_V;
-> =20
-> +	bitmap_copy(riscv_isa_early, riscv_isa, RISCV_ISA_EXT_MAX);
-> +	bitmap_zero(riscv_isa, RISCV_ISA_EXT_MAX);
-> +
->  	if (!acpi_disabled) {
-> -		riscv_fill_hwcap_from_isa_string(isa2hwcap);
-> +		riscv_fill_hwcap_from_isa_string(isa2hwcap, riscv_isa_early);
->  	} else {
-> -		int ret =3D riscv_fill_hwcap_from_ext_list(isa2hwcap);
-> +		int ret =3D riscv_fill_hwcap_from_ext_list(isa2hwcap, riscv_isa_early);
-> =20
->  		if (ret && riscv_isa_fallback) {
->  			pr_info("Falling back to deprecated \"riscv,isa\"\n");
-> -			riscv_fill_hwcap_from_isa_string(isa2hwcap);
-> +			riscv_fill_hwcap_from_isa_string(isa2hwcap, riscv_isa_early);
->  		}
->  	}
-> =20
-> @@ -1250,6 +1260,17 @@ static bool riscv_cpufeature_patch_check(u16 id, u=
-16 value)
->  	return false;
->  }
-> =20
-> +static bool __init_or_module riscv_is_isa_ext_early_id(u16 id)
-> +{
-> +	switch (id) {
-> +	case RISCV_ISA_EXT_SV48:
-> +	case RISCV_ISA_EXT_SV57:
-> +		return true;
-> +	}
-> +
-> +	return false;
-> +}
-> +
->  void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begi=
-n,
->  						  struct alt_entry *end,
->  						  unsigned int stage)
-> @@ -1257,9 +1278,7 @@ void __init_or_module riscv_cpufeature_patch_func(s=
-truct alt_entry *begin,
->  	struct alt_entry *alt;
->  	void *oldptr, *altptr;
->  	u16 id, value, vendor;
-> -
-> -	if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
-> -		return;
-> +	bool early =3D stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT;
-> =20
->  	for (alt =3D begin; alt < end; alt++) {
->  		id =3D PATCH_ID_CPUFEATURE_ID(alt->patch_id);
-> @@ -1274,6 +1293,8 @@ void __init_or_module riscv_cpufeature_patch_func(s=
-truct alt_entry *begin,
->  		 * vendor extension.
->  		 */
->  		if (id < RISCV_ISA_EXT_MAX) {
-> +			if (early && !riscv_is_isa_ext_early_id(id))
-> +				continue;
->  			/*
->  			 * This patch should be treated as errata so skip
->  			 * processing here.
-> @@ -1288,6 +1309,8 @@ void __init_or_module riscv_cpufeature_patch_func(s=
-truct alt_entry *begin,
->  			if (!riscv_cpufeature_patch_check(id, value))
->  				continue;
->  		} else if (id >=3D RISCV_VENDOR_EXT_ALTERNATIVES_BASE) {
-> +			if (early)
-> +				continue;
->  			if (!__riscv_isa_vendor_extension_available(VENDOR_EXT_ALL_CPUS, vend=
-or,
->  								    id - RISCV_VENDOR_EXT_ALTERNATIVES_BASE))
->  				continue;
-> @@ -1299,9 +1322,20 @@ void __init_or_module riscv_cpufeature_patch_func(=
-struct alt_entry *begin,
->  		oldptr =3D ALT_OLD_PTR(alt);
->  		altptr =3D ALT_ALT_PTR(alt);
-> =20
-> -		mutex_lock(&text_mutex);
-> -		patch_text_nosync(oldptr, altptr, alt->alt_len);
-> -		riscv_alternative_fix_offsets(oldptr, alt->alt_len, oldptr - altptr);
-> -		mutex_unlock(&text_mutex);
-> +		if (early) {
-> +			/* oldptr is writable through the MMU-off kernel mapping. */
-> +			memcpy(oldptr, altptr, alt->alt_len);
-> +			riscv_alternative_fix_offsets(oldptr, alt->alt_len,
-> +						      oldptr - altptr, true);
-> +		} else {
-> +			mutex_lock(&text_mutex);
-> +			patch_text_nosync(oldptr, altptr, alt->alt_len);
-> +			riscv_alternative_fix_offsets(oldptr, alt->alt_len,
-> +						      oldptr - altptr, false);
-> +			mutex_unlock(&text_mutex);
-> +		}
->  	}
-> +
-> +	if (early)
-> +		local_flush_icache_all();
->  }
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index fc74142fe6e6..2a2402d79bc4 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -6,6 +6,11 @@
->   *  Nick Kossifidis <mick@ics.forth.gr>
->   */
-> =20
-> +#ifdef CONFIG_64BIT
-> +/* riscv_has_extension_likely() cannot be used this early */
-> +#define USE_EARLY_PGTABLE_LEVELS
-> +#endif
-> +
->  #include <linux/init.h>
->  #include <linux/mm.h>
->  #include <linux/memblock.h>
-> @@ -892,6 +897,10 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
->  	memset(early_p4d, 0, PAGE_SIZE);
->  	memset(early_pud, 0, PAGE_SIZE);
->  	memset(early_pmd, 0, PAGE_SIZE);
-> +	if (pgtable_l4_enabled())
-> +		set_bit(RISCV_ISA_EXT_SV48, riscv_isa);
-> +	if (pgtable_l5_enabled())
-> +		set_bit(RISCV_ISA_EXT_SV57, riscv_isa);
->  }
->  #endif
-> =20
-> --=20
-> 2.53.0
->=20
-
---ZTOED9zx41IeCU4S
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCap7opgAKCRB4tDGHoIJi
-0onpAQCRQS+0UntCvDxaK7OpaOnnOOBXqlQhhfLC9u/9CXLsqwEA6Co6+pAFSWNL
-ev5HBkjrYlbJXqSROseUC+3G9ijpWg4=
-=ReAT
------END PGP SIGNATURE-----
-
---ZTOED9zx41IeCU4S--
-
-
---===============2763913888886898162==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2763913888886898162==--
-
+T24gVHVlLCBTZXAgMSwgMjAyNiBhdCAxMDoyNeKAr0FNIExvcmVuem8gU3RvYWtlcyAoQVJNKSA8
+bGpzQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVHVlLCBTZXAgMDEsIDIwMjYgYXQgMDY6MTU6
+MTdQTSArMDEwMCwgS2lyeWwgU2h1dHNlbWF1IHdyb3RlOgo+ID4gT24gVHVlLCBTZXAgMDEsIDIw
+MjYgYXQgMDM6MzE6MjZQTSArMDEwMCwgTG9yZW56byBTdG9ha2VzIChBUk0pIHdyb3RlOgo+ID4g
+PiBPbiBUdWUsIFNlcCAwMSwgMjAyNiBhdCAwMjo1NzoxM1BNICswMTAwLCBLaXJ5bCBTaHV0c2Vt
+YXUgd3JvdGU6Cj4gPiA+ID4gT24gVHVlLCBTZXAgMDEsIDIwMjYgYXQgMTI6MDE6MzJQTSArMDEw
+MCwgTG9yZW56byBTdG9ha2VzIChBUk0pIHdyb3RlOgo+ID4gPiA+ID4gZGlmZiAtLWdpdCBhL21t
+L3BndGFibGUtZ2VuZXJpYy5jIGIvbW0vcGd0YWJsZS1nZW5lcmljLmMKPiA+ID4gPiA+IGluZGV4
+IGI5MWIxYTk4MDI5Yy4uZmY4ZmYzNzA2NDg1IDEwMDY0NAo+ID4gPiA+ID4gLS0tIGEvbW0vcGd0
+YWJsZS1nZW5lcmljLmMKPiA+ID4gPiA+ICsrKyBiL21tL3BndGFibGUtZ2VuZXJpYy5jCj4gPiA+
+ID4gPiBAQCAtMzg2LDkgKzM4NiwyMSBAQCBwdGVfdCAqcHRlX29mZnNldF9tYXBfcndfbm9sb2Nr
+KHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCBwbWRfdCAqcG1kLAo+ID4gPiA+ID4gICAqIGJlIHJlYWQt
+b25seS9yZWFkLXdyaXRlIHByb3RlY3RlZC4KPiA+ID4gPiA+ICAgKgo+ID4gPiA+ID4gICAqIE5v
+dGUgdGhhdCBmcmVlX3BndGFibGVzKCksIHVzZWQgYWZ0ZXIgdW5tYXBwaW5nIGRldGFjaGVkIHZt
+YXMsIG9yIHdoZW4KPiA+ID4gPiA+IC0gKiBleGl0aW5nIHRoZSB3aG9sZSBtbSwgZG9lcyBub3Qg
+dGFrZSBwYWdlIHRhYmxlIGxvY2sgYmVmb3JlIGZyZWVpbmcgYSBwYWdlCj4gPiA+ID4gPiAtICog
+dGFibGUsIGFuZCBtYXkgbm90IHVzZSBSQ1UgYXQgYWxsOiAib3V0c2lkZXJzIiBsaWtlIGtodWdl
+cGFnZWQgc2hvdWxkIGF2b2lkCj4gPiA+ID4gPiAtICogcHRlX29mZnNldF9tYXAoKSBhbmQgY28g
+b25jZSB0aGUgdm1hIGlzIGRldGFjaGVkIGZyb20gbW0gb3IgbW1fdXNlcnMgaXMgemVyby4KPiA+
+ID4gPiA+ICsgKiBleGl0aW5nIHRoZSB3aG9sZSBtbSwgZG9lcyBub3QgdGFrZSB0aGUgcGFnZSB0
+YWJsZSBsb2NrIGJlZm9yZSBmcmVlaW5nIGEKPiA+ID4gPiA+ICsgKiB0YWJsZS4KPiA+ID4gPiA+
+ICsgKgo+ID4gPiA+ID4gKyAqIEhvd2V2ZXIsIHRoZSBQTUQgZW50cnkgaXMgY2xlYXJlZCBmaXJz
+dCwgYW5kIHRoZSB0YWJsZSBmcmVlZCBvbmx5IGFmdGVyCj4gPiA+ID4gPiArICogYW4gUkNVIGdy
+YWNlIHBlcmlvZCwgc28gYSB3YWxrZXIgdGhhdCBtYXBwZWQgdGhlIHRhYmxlIHVuZGVyCj4gPiA+
+ID4gPiArICogcmN1X3JlYWRfbG9jaygpIHN0YXlzIHNhZmUsIGFuZCB0aGUgcG1kX3NhbWUoKSBy
+ZWNoZWNrIGluCj4gPiA+ID4gPiArICogcHRlX29mZnNldF9tYXBfbG9jaygpIGRldGVjdHMgdGhl
+IHRlYXJkb3duLgo+ID4gPiA+ID4gKyAqCj4gPiA+ID4gPiArICogVGhlcmVmb3JlIGl0IGlzIHNh
+ZmUgZm9yICJvdXRzaWRlcnMiIGxpa2Uga2h1Z2VwYWdlZCB0byB1c2UKPiA+ID4gPiA+ICsgKiBw
+dGVfb2Zmc2V0X21hcCgpIGFuZCBjby4gZm9yIFZNQXMgdGhhdCBtaWdodCBiZSB1bmRlcmdvaW5n
+IHBhZ2UgdGFibGUKPiA+ID4gPiA+ICsgKiB0ZWFyZG93bi4KPiA+ID4gPgo+ID4gPiA+IElzIGl0
+IHN0cmljdGx5IHRydWU/Cj4gPiA+ID4KPiA+ID4gPiBmcmVlX3B0ZV9yYW5nZSgpIGNsZWFycyB0
+aGUgcG1kIHdpdGhvdXQgdGFraW5nIHRoZSBQVEwsIHNvIHRoZQo+ID4gPiA+IHBtZF9zYW1lKCkg
+cmVjaGVjayBpbiBwdGVfb2Zmc2V0X21hcF9sb2NrKCkgY2FuIHBhc3MgYW5kIHRoZSBwbWQgZ2V0
+cwo+ID4gPiA+IGNsZWFyZWQgcmlnaHQgYWZ0ZXIuCj4gPiA+ID4KPiA+ID4gPiBSZWFkZXJzIGFy
+ZSBmaW5lIC0tIF9fcHRlX29mZnNldF9tYXAoKSBob2xkcyByY3VfcmVhZF9sb2NrKCkgdW50aWwK
+PiA+ID4gPiBwdGVfdW5tYXAoKSwgc28gdGhlIHRhYmxlIGNhbm5vdCBnbyBhd2F5Lgo+ID4gPiA+
+Cj4gPiA+ID4ga2h1Z2VwYWdlZCBpcyBhbiBvZGQgZXhhbXBsZSBoZXJlLiBjb2xsYXBzZV9wdGVf
+bWFwcGVkX3RocCgpIGFuZAo+ID4gPiA+IHJldHJhY3RfcGFnZV90YWJsZXMoKSBkb24ndCByZWx5
+IG9uIHRoaXMgcmVjaGVjayAtLSB0aGV5IHRha2UgcG1kX2xvY2soKQo+ID4gPiA+IHBsdXMgdGhl
+IHB0bCBhbmQgZG8gdGhlaXIgb3duIHBtZF9zYW1lKCkgdW5kZXIgYm90aC4KPiA+ID4gPgo+ID4g
+PiA+IENhbiB3ZSBzYXkgd2Fsa3MgYXJlIHNhZmUgYW5kIGxlYXZlIHRoZSB3cml0ZSBydWxlIHdo
+ZXJlIGl0IGlzPwo+ID4gPgo+ID4gPiBIbW0geWVhaCwgYWggcGFnZSB0YWJsZXMsIHdoYXQgYSBy
+YWJiaXQgaG9sZSBvZiBob3Jyb3IgOikKPiA+ID4KPiA+ID4gSSBndWVzcyB0aGlzIGlzIGVmZmVj
+dGl2ZWx5IGEgcmVmbGVjdGlvbiBvZiB0aGUgJ3dyaXRlIGxvY2sgb24gd3JpdGUsIFJDVSBsb2Fk
+Cj4gPiA+IG9uIHJlYWQnIHBhdHRlcm4gaW4gUkNVIGl0c2VsZiBnZW5lcmFsbHkuCj4gPiA+Cj4g
+PiA+IFNvLCBtYXliZSBzb21ldGhpbmcgbGlrZToKPiA+ID4KPiA+ID4gICogTm90ZSB0aGF0IGZy
+ZWVfcGd0YWJsZXMoKSwgdXNlZCBhZnRlciB1bmFtcHBpbmcgZGV0YWNoZWQgdm1hcywgb3Igd2hl
+bgo+ID4gPiAgKiBleGl0aW5nIHRoZSB3aG9lbCBtbSwgZG9lcyBub3QgdGFrZSBhIHBhZ2UgdGFi
+bGUgbG9jayBiZWZvcmUgZnJlZWluZyBhIHBhZ2UKPiA+ID4gICogdGFibGUuCj4gPiA+ICAqCj4g
+PiA+ICAqIEFzIHBhZ2UgdGFibGUgZnJlZWluZyBpdHNlbGYgaXMgUkNVLXNhZmUsIHBhZ2UgdGFi
+bGUgcmVhZGVycyBjYW4gc2FmZWx5IHJ1bgo+ID4gPiAgKiBjb25jdXJyZW50bHkgd2l0aCBwYWdl
+IHRhYmxlIHRlYXJkb3duLiBIb3dldmVyLCB3cml0ZXJzIGNhbm5vdCwgYXMgd2l0aG91dAo+ID4g
+PiAgKiBhIGxvY2sgbm90aGluZyBwcmV2ZW50cyBjb25jdXJyZW50IHRlYXJkb3duLgo+ID4gPiAg
+Ki8KPiA+ID4KPiA+ID4gSW5zdGVhZD8gV2hhdCBkbyB5b3UgdGhpbms/Cj4gPgo+ID4gcy93aG9l
+bC93aG9sZS8KPgo+IEhhaGEgeXVwIHRoZSBpbmV2aXRhYmxlIHR5cG8uLi4KCkFsc28gcy91bmFt
+cHBpbmcvdW5tYXBwaW5nIHBsZWFzZS4KPgo+ID4KPiA+IE90aGVyd2lzZSwgTEdUTS4KPgo+IFRo
+YW5rcyEgOikKPgo+ID4KPiA+IC0tCj4gPiAgIEtpcnlsIFNodXRzZW1hdSAvIEtpcmlsbCBBLiBT
+aHV0ZW1vdgo+Cj4gLS0KPiBDaGVlcnMsIExvcmVuem8KCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
