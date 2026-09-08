@@ -4,119 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB145C79F99
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 13:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59AA5C79F99
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 14:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nEGwmGapIwEBPBGl4gjjz+6gmEiuZ4ehTKLexlsxghw=; b=pg3esfCftUSnZs
-	xeZ8j/bnKyCWp2B/qgRPCR8LdMZtnV7EGqM6KQNwQ3pOjZ3jBR8suTZ4DbvfLF2Hd6o7kO9mbL6iU
-	1KCkhXzIbMtaPziurPi6VhuxbQTkC9iRb7aTwWokgX8L3zexZSMyENtn6VX1MQOBQQE1ou8MnutJs
-	H2DX04Qkib7rvDDQl5Yah2P2tm9zE22fWLTDv6mZsA2mA6n9xzXbDzfde8oi48eh76ZhU+hWmfwnl
-	vIbsvV/GLIXeBeGWT90PuJtViUIEMiMj/WIZNh0WKukzf3mAa2tKBqi+Mqj/DBtdH/cj8iI+nZRZW
-	5XGUsFjUTNt20+lO8GjQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GD5iYQD5GVCazWsYQuRgYCDu4VcDx0P/Wo2x+p7e0t8=; b=FlWCwb4BMPUo3j
+	GI3dfZ9u65hDf+Jnj3pqKkjN06T35UKLhMvTJmVF/88t2u04QtMrxBzun149Mnww/85UN7nk6+HqQ
+	0VsVkeiEgaePZ4C1BqOAODXMkgBJ6IT5nZU4REQ8GeSdZEVG8r/E+mlkAESvOTNVtMAxLgM5XNdQy
+	Btri/L6TaIeC2LpIgDqPiYjbWrrP9lsE+aqbDwlf+rmLFUUDcH+Jxj1o0Lp7pUMOIsPP18+K4RZO1
+	tUs2ac4zB24X2IqU4nfy/sWOTg+n2BC702FaNKXhVekgFzlM9/7I83u9+O1y9LZePmAullcToNxs+
+	Qpkau7lHfn5LQSYWOwkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wJg-00000009DB2-14i5;
-	Tue, 08 Sep 2026 13:56:53 +0000
-Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
+	id 1x3wOw-00000009DgE-027f;
+	Tue, 08 Sep 2026 14:02:18 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wJc-00000009D9o-2EAF;
-	Tue, 08 Sep 2026 13:56:50 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 3C45940E020D;
-	Tue,  8 Sep 2026 13:56:29 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=fail (4096-bit key)
-	reason="fail (body has been altered)" header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 5qXKlXyyaJ1A; Tue,  8 Sep 2026 13:56:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1788875778; bh=kXNkLBcr+MG7BHJqeeHaLokvBdBeeMHnjUE3stY0luk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ckTRe3APsxV8zd3aHLDbRKowGC2zSniJAA24Kt5+oY7o0ve9PWKF5qzBPopM3MPzG
-	 nCHC8z+inSEFr65KsTY7v0y5Me+yxQN+yYGf0Kea05MstOcF30c+7CTOeWLs4WHaen
-	 saUDiKtXKzodmoUWrICUVq2iX5AeQy5l0ohpxjUzLl6c9IHXEVVo3SiU927VoT+/6x
-	 qAopQ5XI0Z3df6psiX43eUXujqenUV0SMfLOjXQ7iu+N/pdMO135Hu0uia3OiezG6F
-	 3BQXZyL9gEAYT0T8MlWNODVy867kXqXWDznQLaaS3hnYUtTHX7ZPkioJ+C661mIH9b
-	 ic/QzGZYvbQCTW7sP6SYp95dpERxWEEjf4GNtlzOSWbxOHiLn0RHmVPtvW4BYJoWvh
-	 c/tOCDFqYnvh5YFTyN9GfAK6l94m91l6GS5sSYV+wFiupKKyMLGl8CaK+9cb3cZoI4
-	 mlWKwNA2s4fKHKSubYMAlCtd8a2o6fUxhWShY9aLdMFEqUQwrJenLRWIpJ0ag8aYsb
-	 W3QKYQQmTp4Jjf5zXuVHiRwAluE432BXUeWt7qI0luGw7gKHWwuLMGnQL1MEHEyLdb
-	 ONqhiiI6fb2L7uOxLcZK3mU619FPi/FBNNiTWRBnrCXpLvKVraEnxfnW1PUmkkdke8
-	 34u7wSXUJmbuZU/MSeUYx8hM=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 253D640E016C;
-	Tue,  8 Sep 2026 13:55:16 +0000 (UTC)
-Date: Tue, 8 Sep 2026 06:55:13 -0700
-From: Borislav Petkov <bp@alien8.de>
-To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>, Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Nicolas Schier <nsc@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-mm@kvack.org,
-	linux-um@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	Jan Stancek <jstancek@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v5 02/24] x86/elf, um/x86/elf: Move relocation constants
- to UAPI
-Message-ID: <20260908135513.GAaqATwXHcQD7plnH-@fat_crate.local>
-References: <20260908-vdso-absolute-reloc-v5-0-3a93791af1cf@linutronix.de>
- <20260908-vdso-absolute-reloc-v5-2-3a93791af1cf@linutronix.de>
+	id 1x3wOs-00000009Den-3eYA
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Sep 2026 14:02:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1788876098;
+	bh=7LGo2OQ7yhwaHNuhcrdYROzYNe6ldJsLGDujKMNtqX4=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=O4lkqtsFvyJp9DLNxlJY70i9Ff6oCMmJmWO1ujAt/dkY4SNIC2LjOmeQ5U+mkx9Rn
+	 WyjFYJnirxj4Y/Smtp6cKzSXpXSev+vibsG4+B19bYPuALWByocm+P4oBiwTnTc4e4
+	 IbVLyfKSkcPyYTnYV5jwaeCh4Fo/LLEprnBTw7tk=
+X-QQ-mid: esmtpsz16t1788876093t830e6267
+X-QQ-Originating-IP: TXCl4lwqu38gDlsMHp3gXdusF0fFEpvpfPPyidqgCjw=
+Received: from LT-PANJUNZHONG.dc.com ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 08 Sep 2026 22:01:30 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4229499913339683584
+EX-QQ-RecipientCnt: 8
+From: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Date: Tue, 08 Sep 2026 22:01:20 +0800
+Subject: [PATCH v2] usb: dwc3: core: resume xHCI child on runtime resume in
+ host mode
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260908-vdso-absolute-reloc-v5-2-3a93791af1cf@linutronix.de>
+Message-Id: <20260908-resume-xhci-v1-1-aca107602e9c@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIAC8VoGoC/x3MQQqAIBBA0avErBNMI7KrRAuzMWeRhZII4t2Tl
+ m/xf4GIgTDC0hUImCjS7RuGvgPjtD+R0dEMgouJKz6zgPG9kGVniHGr5Wit2qUU0IonoKX831Z
+ IArZaPywgqxhhAAAA
+X-Change-ID: 20260908-resume-xhci-0fa34ff9b332
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ Troy Mitchell <troy.mitchell@linux.dev>, 
+ Junzhong Pan <panjunzhong@linux.spacemit.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788876092; l=3482;
+ i=panjunzhong@linux.spacemit.com; s=20260306; h=from:subject:message-id;
+ bh=pMSN8Aa6SA//FJWOWSAwmKzpRwkXWyJEfgwCETNLt/A=;
+ b=TjYm4zrYsOmLRXr3kGWuVs5PgsRI7x00Nys61ULIxgVQVzPs3DOJJL/r09tYIwaB7iCDDN4ds
+ hH41StJeNxVB516z28V1clYWHpnd+nH1Z6k7tUTyPzGzRwBB7w8VCPh
+X-Developer-Key: i=panjunzhong@linux.spacemit.com; a=ed25519;
+ pk=bY08BOg2T9H93/jG8fEE/tVmdXoQQMp9M2rtzPFoyJg=
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: Od5ZbCMDTYwa7n7DsJaT5UDKfx7jqPeJcQy7a35xtycoTfHT9y+uoSRl
+	zZgLdpiUtwvU44YOeYkJjLPE0e5hCYSI3/N4LNyHBXMrG/jYO9ltxnTgfPPr6TmYEOileMo
+	ujCQnErMze79dQLClbBj5PmM0QZ0D1q9qWVnOnDm8xrDwH7VYWtKIAj3JrewBq55ed7v+qs
+	PdQGBcn+epDEVakL7hm3AM8qNdnR3lvWAbrV0Gz43qI306Ofv8SwDa3kf0E7dsfXhircgmc
+	YjnX8rDoR8O/bEYxW7GK8o3kFvgUjRGgMuJXVq5rSo5+888iy1Zvxa2hiM7JJEzo/IsgFwX
+	/iuxSWdakNRpPQn4JnDByUR91HH9qQXMgTvfGtOepVqCoorxU2l48dIyUXmRblpcd49zi/W
+	GzxYsZWz39HxfkWS4FMMRtf1siSuPWWJXijdAuFFpzRRhtBoAsUj1Qh4LWPT5NXhekGhbz/
+	MXAwZ2p9VEcKTKeiGeCACOTrLrrdESwUxaICU8RWtsEfQ49EmHf7s64E4KBxtfv+j9Arv1b
+	vVwWuQkLCWPJ+bVltIv75ytUkPGRSmoT0QVAe2U7aEqi19963CZq3zOrFXwDZ7CXnWfw8t9
+	LQyj3pP/cjQSbppaEOw/X93EpSJrq+znj59QNBTQlzvYldGR0Mzo4txl0mvfmSYVmfhRN82
+	FpzPiZtKYL475f9sdEBGyrf/cN5X2JFIDr/uierD/Si+DBMQsP29YWufdnK2rLSSQxKnEaO
+	zyCiMoQvAAdD5T90TTUiiJO9InjchrDvsC8/3YlwLRtcvGblRuv7kRneKx+x9/cU4fI0RFo
+	Q9+zpTtJEGDUOY5BxzrYGerPTMpWhbG/pYQWADKPYnIQiz0SuftbLsn0hYvSQH7uFhm5y+t
+	Xtk6eBTCubySRx+p3cQ1Is9JZk9UKI5czVFKdIcDcdu/U3G/0sHa3ULA+j6aSa9aKdiVDiE
+	QmEZ30tImHpv6UDpRVYMSd9aqoorEWsCocOPaW7iv1KXfHCypFxR13Ul4IJFRhisQ6iInD6
+	DL3c0ftVa3TfLX7YKt5GEXo2xPQjTntvbWmb9sfzGISphdF4vTjQkOJy1g3Gm/Rwx0Snozr
+	GH/1DpIfMBaThTJXdmeSWYSi3+BsrdKOQi/IPkDghUEiJLt/HiadnftR1ocQB4/SKeLho+N
+	2rgsA/+pRDUP/RsjJrkI/oqm+g0h2nA90RQ7
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_065648_747480_D88E5258 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260908_070215_690499_55E483A4 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,18 +103,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMDgsIDIwMjYgYXQgMDg6MzM6MzZBTSArMDIwMCwgVGhvbWFzIFdlacOfc2No
-dWggd3JvdGU6Cj4gVGhlc2UgY29uc3RhbnRzIGFyZSB1c2VmdWwgZm9yIGNyb3NzLXBsYXRmb3Jt
-IHVzZXJzcGFjZSwgZm9yIGV4YW1wbGUgdG8KPiBwcm9jZXNzIEVMRiBmaWxlcyBkdXJpbmcga2Vy
-bmVsIGNyb3NzLWNvbXBpbGF0aW9uLgo+IAo+IE1vdmUgdGhlbSBmcm9tIHRoZSBrZXJuZWwtcHJp
-dmF0ZSBhcmNoaXRlY3R1cmUtc3BlY2lmaWMgaGVhZGVyIHRvIHRoZSBVQVBJLgoKV2h5IFVBUEk/
-CgpXaHkgbm90IGluY2x1ZGUvbGludXgvID8KCi0tIApSZWdhcmRzL0dydXNzLAogICAgQm9yaXMu
-CgpodHRwczovL3Blb3BsZS5rZXJuZWwub3JnL3RnbHgvbm90ZXMtYWJvdXQtbmV0aXF1ZXR0ZQoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+USB controller runtime suspend halts the controller on disconnection.
+It relies on platforms with custom connection notification to start
+the controller again.
+
+The host branch of dwc3_runtime_resume() does nothing currently. There
+are two paths that can trigger a runtime resume of the dwc3 core in
+host mode:
+
+(a) Wake lands on the xHCI child (DT platforms, e.g. Qualcomm, i.MX8MP)
+    A platform wakeup IRQ fires and the glue handler calls
+    pm_runtime_resume(&xhci->dev). Runtime PM walks upward, resumes
+    the dwc3 parent first, then resumes xHCI. Both wake correctly.
+
+(b) Wake lands on the dwc3 parent (ACPI platforms)
+    When an ACPI Notify(ACPI_NOTIFY_DEVICE_WAKE) targets the dwc3
+    parent device -- for example via a Generic Event Device on a
+    hardware-reduced platform where dwc3 is enumerated as an ACPI
+    device without a glue driver -- the ACPI core turns this into
+    pm_request_resume(dwc3_dev). Runtime PM does not propagate resume
+    downward, so the xHCI child stays suspended. Root hub polling is
+    never re-armed, and a device plugged in while suspended is silently
+    dropped.
+
+This patch fills in the host branch to cover case (b) by requesting an
+async resume of the xHCI child so xhci_resume() can restore the port
+state machine and re-arm root hub polling. Glue drivers in case (a)
+resume xHCI directly, an extra call introduced by this change, but
+runtime PM can serialize those requests and skip device already active,
+so the extra resume call is safe. Those calls can be replaced with
+resume calls to dwc3 device later.
+
+Tested on SpacemiT K3 Pico-ITX, covering both wakeup paths: an ACPI
+boot with a GED device notifying the dwc3 node (HID 808622B7), and a
+DT boot with a modified dwc3-generic-plat driver exposing a wakeup IRQ
+similar to dwc3-qcom.c and dwc3-imx8mp.c. This is not validation on
+actual Qualcomm or i.MX8MP hardware, changing those drivers would still
+need platform-specific testing.
+
+Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Assisted-by: Opencode:claude-opus-5
+Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+---
+Changes since RFC:
+- add Assisted-By tag and collect tag
+- refine the commit message and comments as suggested
+
+Link to RFC: https://lore.kernel.org/linux-usb/20260811090817.109350-1-panjunzhong@linux.spacemit.com/
+---
+ drivers/usb/dwc3/core.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index fd5c2cd36c59..76883dc6184c 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -2739,6 +2739,18 @@ int dwc3_runtime_resume(struct dwc3 *dwc)
+ 		}
+ 		break;
+ 	case DWC3_GCTL_PRTCAP_HOST:
++		/*
++		 * Only the xHCI child's resume re-arms root hub polling, which
++		 * is what rediscovers a device plugged in while suspended.
++		 * Runtime PM doesn't resume children, so request it here.
++		 * Keep it asynchronous to avoid waiting for the parent's resume
++		 * callback to finish from inside it. Glue drivers may also
++		 * resume xHCI directly, but runtime PM will serialize those
++		 * requests and skips an already-active device.
++		 */
++		if (dwc->xhci)
++			pm_request_resume(&dwc->xhci->dev);
++		break;
+ 	default:
+ 		/* do nothing */
+ 		break;
+
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260908-resume-xhci-0fa34ff9b332
+
+Best regards,
+-- 
+Junzhong Pan <panjunzhong@linux.spacemit.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
