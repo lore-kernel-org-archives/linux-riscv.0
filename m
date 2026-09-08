@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F4C0C79F99
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 18:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C829CC79F82
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 19:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZrvVyNhSuuA24RezggVrTcoUTMzxlArsX88tj9XSfao=; b=Vd24MRAU3f06jC
-	WZgJhtDao/9kHsqJcmIJvrjDbJY8pg68fjfQhXrmXxp68J21S6qtuzBKQ29O4BgurlQSX9TGGvMIU
-	LIURKFGsCnbdxzKS5gzJi7WwzK3LXZ8skhbVnoaoStjTP3V8h4TRNLGOvGHFai3qVwILMQuH0XO5D
-	prZGb3ajMK3W23oCmhKD4yqGLL9oTaGtP7e3CvIyWTDBoBJNiUArH8bkzdGFmoB3BksPJB9Ny9SVd
-	tRfD6Jpry3R23fVU6ohZ+xkZtQHu6P+MxS95zADvpjF/+EFZO4OLq+yI4S0IzopxLyWiagJ+EvswD
-	b1U88XC8Y/jhLROX+I6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l8f+H6g1mfGUS5p8UAkwOTgGE8fg0fULXRK0OcDrBj4=; b=O4be2IOqAaIuvqZnHelgc+roSj
+	1gyHF/7rNsYqTzkxqB0xQRDOxCEyEY0iZMDNYbcYtBu6WXba60768aAGz3G0sSr8uZwgevRDcHgHV
+	xJR5p7pZz4AGU8jgReX+QLZaRkrXQQJL5rAy6YkkDRCNOJezZDs5uKzSUu6d33AgZly+EEABXAYfr
+	jnTK5BQ016oe6GlEmqfMpaMuHia/5Gtqx/Zg+zWc8yYKm0tISyt8KzK33398meTww3TF4XUknCIsS
+	XtUdUL2i/YKQ0tRcfX9AQtFuo9QS/oQ7Q/xcmVGLFN4yZV71dq3fimtC+E3iOl+GgmHBBUJ0heYYA
+	sZUKph1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x40Qv-00000009xWk-3Ggd;
-	Tue, 08 Sep 2026 18:20:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x41ww-0000000A7PT-0iMo;
+	Tue, 08 Sep 2026 19:57:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x40Qv-00000009xWb-04AO
+	id 1x41wv-0000000A7PH-0iJl
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 18:20:37 +0000
+	Tue, 08 Sep 2026 19:57:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 76FAE601FD;
-	Tue,  8 Sep 2026 18:20:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BEBF1F00A3D;
-	Tue,  8 Sep 2026 18:20:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9B66A601DE;
+	Tue,  8 Sep 2026 19:57:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E5D61F00A3A;
+	Tue,  8 Sep 2026 19:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788891636;
-	bh=ccXOdVFzH972jdgocJFa+E44+QQhkG58eRxMxfs9WlY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mkjkTa04ZPZEb5beLHdp/cJO/j/Gp8g1XFRdKygFna5WTunLf+r8AJ+WRXgQ0wVf1
-	 xnEldfNR/arHNmpMNuS7WfdDvlx6nXGCmo7rRblmzNnqDWMN1SukiyCZUIomuHCXGn
-	 xFYnEJK1j0AgS6jIDltyiXJOXB+DSpi2cRyTXAobmXF5mfVguV/7w7Sk+QIX7IgwoS
-	 MUIDpboS8kRfhsaDEIxZTp3rhqpmR+Uw5JBi4dK1e/MqpVcDanL/UKUwUPs3NtsZ5w
-	 gII4H9oioLPHv9uU2CDYf3L5P1N5atkLlJCNPSkygE1h1dUqt11qSpJrGdYVjbc5st
-	 S5+8c2Xqz3BtA==
+	s=k20260515; t=1788897464;
+	bh=XxjewhJfqVpvWK6lHZafiM2N3F3gmrUHu3yO9NDfuVM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ibk2TJ6AbCxCsNWmuVZMcTtt6wy6QTlt3liWJWEP4L3QXPPMIE+9dFMtvkZpghZCs
+	 bLmZu9TI38oA/GHd6FJYaIlPILyWBpnZcXTDkEWjOCZzh79A40Pgo/9hJkBSjfw+8x
+	 AVDSFoiga0rQqQpdV9qZP9zAy5XmoSQ+jbD/4OXPJGiMl4Pcak2EUdYKJ3W3k8P5eQ
+	 rN4GTGN2/EqohEFv2erx0mSwRWxx8/NXzWsI55FZ1cmdd39FcKJioimQJNSSOKpcV7
+	 MDVJB55itJxTCSzoN4kXDgWYfzccyudPWHjZJlVZTxfxROFeDma5YK23FSFR2MU1AR
+	 m6w8l/BtTNXtw==
+Date: Tue, 8 Sep 2026 20:57:39 +0100
 From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	linux-kernel@vger.kernel.org,
-	Pan Chuang <panchuang@vivo.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh@kernel.org>,
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Valentina.FernandezAlanis@microchip.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] cache: sifive_ccache: Remove redundant dev_err_probe()
-Date: Tue,  8 Sep 2026 19:20:28 +0100
-Message-ID: <178889161921.3146991.13668063347588456069.b4-ty@microchip.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260713112946.468067-1-panchuang@vivo.com>
-References: <20260713112946.468067-1-panchuang@vivo.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
+Subject: Re: [PATCH v7 03/21] dt-bindings: pinctrl: Add
+ starfive,jhb100-sys0-pinctrl
+Message-ID: <20260908-annually-catfight-39e3a1543274@spud>
+References: <20260831113514.66382-1-changhuang.liang@starfivetech.com>
+ <20260831113514.66382-4-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=466; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=vcZWekDFgRHjqKZw/CO3x6YyAvbCmqMsDCJ5P79VCoI=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDFkLAl9LztBwe2yjuO7Smqjkmd6z5MNmvnkvfcYsI93D8 fPLbQ9tOkpZGMS4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAnCT2xn+mZ29dHbHts1xyW90 c2fUet1b8uUVp+6TrM47Op+XbrzD+JeRYf3CzG7B+oCtvx22dfjzzVEQmB9nuzLT1s2vNeVPsOp kbgA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+In-Reply-To: <20260831113514.66382-4-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,28 +75,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5301543811189186148=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+--===============5301543811189186148==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aKnMEl9aGObXvGYC"
+Content-Disposition: inline
 
-On Mon, 13 Jul 2026 19:29:46 +0800, Pan Chuang wrote:
-> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-> devm_request_*_irq()"), devm_request_irq() automatically logs
-> detailed error messages on failure. Remove the now-redundant
-> driver-specific dev_err_probe() calls.
+--aKnMEl9aGObXvGYC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Applied to cache-for-next, thanks!
+On Mon, Aug 31, 2026 at 04:34:56AM -0700, Changhuang Liang wrote:
+> diff --git a/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> new file mode 100644
+> index 000000000000..6d8f5516a178
+> --- /dev/null
+> +++ b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + *
+> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> + */
+> +
+> +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+> +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+> +
+> +/* sys0 pad numbers */
+> +#define PADNUM_SYS0_GPIO_A0				0
+> +#define PADNUM_SYS0_GPIO_A1				1
+> +#define PADNUM_SYS0_GPIO_A2				2
+> +#define PADNUM_SYS0_GPIO_A3				3
 
-[1/1] cache: sifive_ccache: Remove redundant dev_err_probe()
-      https://git.kernel.org/conor/c/75effa447550
+Krzysztof's point [1] about these still stands. Pad indices aren't bindings.
+Sure, your driver and your dts both might want to use these but that
+doesn't make them a binding. For that to be the case, they need to
+effectively be made up numbers - like how clocks are often listed with
+numbers from 0 into the dozens or hundreds, when that may or may not
+correlate with actual bits in registers, e.g. indices 0-31 in a clock
+binding might be in register 1 and then 32-63 are in register 2. There's
+no need for a binding here to assign meanings to numbers, because the
+meanings are assigned by the hardware itself - index 0 for SYS0 *is* A0,
+because that's how the hardware is designed.
 
-Thanks,
+Were the numbers to run continuously, so that we had
+
+#define JHB100_PADNUM_A0	0
+#define JHB100_PADNUM_A1	1
+#define JHB100_PADNUM_A2	2
+#define JHB100_PADNUM_A3	3
+#define JHB100_PADNUM_A4	4
+and so on down to
+#define JHB100_PADNUM__D0	1234
+
+then it would be a binding, because we're assigning a meaning to 1234
+that's not something determined by the hardware.
+
+FWIW, I'm happy to have the unchanged starfive,jhb100-pinctrl.h sit in
+arch/riscv/boot/dts/starfive, because the defines are helpful - but as
+things stand I think Krzysztof is right.
+
+Cheers,
 Conor.
+
+1 - https://lore.kernel.org/all/ZQ4PR01MB1202123864865439817E1549F2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn/
+
+--aKnMEl9aGObXvGYC
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaqBosgAKCRB4tDGHoIJi
+0vUdAQDJk08iDuO2c5CqqTqe3Bbt2Jm+La/0mzM38iV/S+1uSQEAsuTsnqzv5q51
+I8rlyu+04nDW1cZlwp1+dPzjMdDQAAY=
+=GoqV
+-----END PGP SIGNATURE-----
+
+--aKnMEl9aGObXvGYC--
+
+
+--===============5301543811189186148==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5301543811189186148==--
+
