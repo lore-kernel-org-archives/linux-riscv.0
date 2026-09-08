@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8697C79F82
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 10:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E49C79F82
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 10:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u662CoebbYTbm2DrhHq0VoS/38FAHjiTARUkXfuODGY=; b=eFG1ygeMsQZ56L
-	z3V5DW51fIPYSxOuUxWyzxBb2JpxRgxX2X9spsyaqJPI1QxfX2GttiaS15Hx1G+fBIUMaaS4KxDZi
-	J4LmA/IdzaBj9PKwXhObnilf7zdqiSCfIfKf/zaUpsOaVGg69utAWFq09CPGKYm6vxJ9JFBpU1L8u
-	Ugzok0RrgRZKR+xd9TTKy2jkB8ZHJr2N84+wrmTwVxgxoD4mOKdQRZzDa+97pa8BFToZGV6NX34y8
-	MsDUPcuUBRQbc1/AuF73g9bGUDxXFuTEJa3jQxabRvzaKmISU7m408fS6uwiRnV/p8T40idf5fbge
-	w6t6dX3m8TBCdt3kqe2w==;
+	List-Owner; bh=NcFe+kDoSxV81OrbvALzjbsVO+qbU4d88QTvlTeF+KA=; b=L70bbwxgbyRqh6
+	D2jjfqNjexTq154/kR9EKyw+oyq4MEw/MduTwb0Y4OQbsHsLzhPv805MyRj3Jca9pF83BD4FepG26
+	GjM7rokOA7VOaOEcfaIoylE+/P+KLmdqPPzt9TKJh3FidDVH7UAnceUkPDJzhAObMUbQnLmakZKv1
+	0d8sJltS5hi3rPwo+OaSupZIhJLts+8Voi5Xryql3epE1Uzs9lEJltQUkMNeeN8a8JZmx4RnqRGnK
+	lIQ9LTv5J3F/cYM2dqBgM82aDrUEMoFXGea8+dkgDWF9WMp90kyvaofJgKGkJE0gzOFlnPD5nOXFi
+	kO0vU/0SpSNxoZFsmijg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tH9-00000008nf2-38lJ;
-	Tue, 08 Sep 2026 10:42:03 +0000
+	id 1x3tJ2-00000008o4c-171v;
+	Tue, 08 Sep 2026 10:44:00 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tH8-00000008nea-1bxR;
-	Tue, 08 Sep 2026 10:42:02 +0000
+	id 1x3tJ0-00000008o3z-3c9H;
+	Tue, 08 Sep 2026 10:43:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24EF6432A7;
-	Tue,  8 Sep 2026 10:42:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 217E41F00A3D;
-	Tue,  8 Sep 2026 10:41:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9999243CDA;
+	Tue,  8 Sep 2026 10:43:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E0541F00A3A;
+	Tue,  8 Sep 2026 10:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788864122;
-	bh=AXqs15IsRXVps+8wsgrFLas5JJDnQxYsS/CgwzQnLIQ=;
+	s=k20260515; t=1788864238;
+	bh=g0B7wENEpxIvccDLJRxXqbL7rcutNHrgtgVnGBh9mik=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Ts+2oT9g4dJ8E/yRTT4+ymW5CL2YgT30NOeH0+37YvojcObvX/+LwiXW6viFmv/li
-	 Kn/t6Lg4LFnq79JAr859FgsU7XvspRgAlKzQDkHtua6XY3i7HrqNpsuI6yUjozNycM
-	 JcyhwJZEj+qrzDkXpIzT9fXTaxcF7dV3EaR4PkuYHujkwfqFjLqoMiGIDMqZrCvGzq
-	 ezFSUXNF8AWUnyxoSHcP9zcnY8PW8YHaGuA812enyhr5Vh47ituyy+VP+uj/6KSU9x
-	 yQhY1Zlg5QuRgwIkMWdo590auZy/dtyijHs98kn/Dz9CNQ1YSj3uTLFHhqSjmusAlX
-	 KK7OnJtFUhmnQ==
-Message-ID: <2b0f5877-e71a-4824-adeb-5af2dd8b0269@kernel.org>
-Date: Tue, 8 Sep 2026 12:41:48 +0200
+	b=DhO0ZheHjan/SRSeXGixJyH8oo7EQVl6pY1Zvv4NBjV9MXFi9nEUNerTWTxa+yxJx
+	 Y4lnjFH5Fpq3IUKpFiGfk/gJbwVliEKYOeZJlHUAIVWB+21HjpkjfnVo2pHxsrizmA
+	 GX3qsGLRJoBYKPW4jm6zwExJv4tGStgBPZDANikXVzQKjkWI0wIsOS8xxI7u5LWqTy
+	 0gW44Qn3nnZtcXnaN46nGvLm2vb+/13Qz5A17VSWKOST/LVFHHGReP2rNwzkuW29VA
+	 a1ejYyd7L2hZCGokATZ5s91l4kw7X8hftF/eG8AcQ4i3fuzKLQWwjJo+ms7DzH/6Fs
+	 MNOxy84IcmpNQ==
+Message-ID: <c2237474-ed50-42ef-bcec-90fb705e1fe9@kernel.org>
+Date: Tue, 8 Sep 2026 12:43:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] mm/vmalloc: make set_area_direct_map HUGE_VMAP
- friendly
+Subject: Re: [PATCH v3 6/6] Revert "arch: introduce
+ set_direct_map_valid_noflush()"
 To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>
 Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
@@ -72,7 +72,7 @@ Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  loongarch@lists.linux.dev
 References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
- <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-6-949b64a9f755@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -119,7 +119,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-6-949b64a9f755@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,44 +137,39 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 9/3/26 11:28, Mike Rapoport (Microsoft) wrote:
-> set_area_direct_map() always updates direct map alias permissions in
-> single page increments.
+> Commit 0c6378a71574 ("arch: introduce set_direct_map_valid_noflush()")
+> added set_direct_map_valid_noflush() to allow updating the direct map
+> for a physically contiguous range in execmem.
 > 
-> For HUGE_VMAP areas it's suboptimal. Not only the loop in
-> set_area_direct_map() needlessly has more iterations (e.g times 512 on
-> x86), but it also causes fragmentation of the direct map that could be
-> avoided for the HUGE_VMAP areas populated with large pages.
+> As Brendan recently pointed out [1], this API is confusing because on
+> arm64 it means that is sets VALID bit in ptes, while on other
+> architectures it is an analog of set_direct_map_default_noflush().
 > 
-> All pages in an area are always of the same order: either same-order
-> large pages when VM_ALLOW_HUGE_VMAP is set and all huge pages were
-> successfully allocated, or order-0 page when VM_ALLOW_HUGE_VMAP is
-> cleared or when huge pages allocation fails and fallback path is taken.
+> The only user of set_direct_map_valid_noflush() was execmem's ROX cache
+> freeing path and it was switched to utilize VM_FLUSH_RESET_PERMS for
+> resetting permissions of the direct map alias.
 > 
-> Instead of updating the direct map permissions for every order-0 page in
-> an area, use the area's page_order as the loop increment and update the
-> large pages in one call to set_direct_map_{invalid,default}_noflush().
+> With the last user gone and with set_direct_map_{invalid,default}_noflush()
+> accepting number of pages as a parameter, set_direct_map_valid_noflush()
+> become a copy of set_memory_valid() on arm64 and a duplicate of
+> set_direct_map_{invalid,default}_noflush() on other architecture, it is
+> safe to remove set_direct_map_valid_noflush().
 > 
+> Also drop a stale comment in arm64::__kernel_map_pages() that Linus
+> bothered to add when merging changes containing set_direct_map_valid_noflush()
+> to his tree.
+> 
+> This reverts commit 0c6378a71574daa6cd1534ad42a956e3262756c7.
+> 
+> [1] https://lore.kernel.org/all/DJ69RCVRBO0Y.3JCYSW50IC4RC@linux.dev
+> 
+> Reviewed-by: Brendan Jackman <brendan.jackman@linux.dev>
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
->  mm/vmalloc.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 5506b180f5c27..6ed6c160abed7 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3367,12 +3367,15 @@ static inline void set_area_direct_map(const struct vm_struct *area,
->  				       int (*set_direct_map)(struct page *page,
->  							     unsigned int nr))
->  {
-> -	unsigned long i;
-> +	unsigned int nr = (1U << vm_area_page_order(area));
-> +
-> +	for (unsigned long i = 0; i < area->nr_pages; i += nr) {
-> +		if (page_address(area->pages[i])) {
-> +			int err = set_direct_map(area->pages[i], nr);
 
-Do we really expect some pages to have a directmap and others not?
+Thanks!
+
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
