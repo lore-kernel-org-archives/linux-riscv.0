@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2CBC79FAA
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 20:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC254C79F82
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 20:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jFhTk0sBuEZ6+E+bOHGZq5PpSHMlLEfgBQx1usPmqyY=; b=Pv5lRuG0g4EueI
-	QL2AvN1Td0QK2k1d15p8QS4zlbFWWKaeow7D4HLDeYpXwYRGVSZVuVne5hEyWRQdBunyjCEYP/GL2
-	58y7x9MxFI9g1ZZSbEYR0rWyMW9B8tt3tFuf0Mes5h2/eqDcP3rFo3DAmd/qfYoFOD6oqxtthe9zq
-	XNmolPzuFuL26oS6GHc+ktefezsKmNZ6Q4hDdwi19wFjAarLRXt8bn/xa4CjXSXJcijy7gdBQaRQR
-	JybFL9wju/GwFLPeuN7AhZg3rCpV3LZ32u5vtv+2vRPWkCT/fzNSXzIuuww5wxoUQxxFP3dNqbMx+
-	2ZdNjDQl6kp2hy4y5pXQ==;
+	List-Owner; bh=DFASJ3dWbs26GqHwS0CPtZgMMy9UdOFYsJE6C3VpLKM=; b=mHNTaemf9P6v/N
+	OBov/HbB+5q1nDduKFwprBvVQsdj8A6pH2Est4b6IjhG12brdM0SWE/s00/7/O/JlDSy/HyXuF0ZK
+	0hWWvjUJFbtHS5J1IRw7mTot4WZ1QPUKp9sapwq4TdA1A40OsyUihGZJguvUH4l1zDpkXqFhy4D4U
+	CVpbKFhoFlkFTnzdvYA6RQTaBUJEqP9ZZ103BAEPdPEFvjMdiNQZ7t2lYZZeeeFMwqXvvQoO2qWBw
+	v1dGDHJ2ypqFSnX92V4qxL/FrxlzZk1h/it3G18t9RCqsueF4H6xOAhqAzIFIrJte5iDY7lyxUngL
+	jueiEs7NwLDpv07oMppA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42tn-0000000AGDi-0ww9;
-	Tue, 08 Sep 2026 20:58:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x42tz-0000000AGJn-1fZ0;
+	Tue, 08 Sep 2026 20:58:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42tl-0000000AGCV-13GA;
-	Tue, 08 Sep 2026 20:58:33 +0000
+	id 1x42tv-0000000AGGd-48LX;
+	Tue, 08 Sep 2026 20:58:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB1CD601FB;
+	by sea.source.kernel.org (Postfix) with ESMTP id B912F40A2F;
+	Tue,  8 Sep 2026 20:58:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DABE81F00A3D;
 	Tue,  8 Sep 2026 20:58:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F9201F00A3A;
-	Tue,  8 Sep 2026 20:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788901112;
-	bh=pI6ihjInprs3EsyWvkPxTax/MQzOf/BnFtLX0/4DRHk=;
+	s=k20260515; t=1788901123;
+	bh=uqBq8a6PBmwcf0p2yuh6c4ut6ERzykBEHjxf3/hGkX8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=UoHfTkokxUxDvJUJNI0gY83ydEKYo9TV+HnOqobx9nDhcAVm/5ftXE/PQ7RqP+BMO
-	 ZyNOVUWijWGwyRLnZpuAPq5SxPKytoYXq7wgOdivVdtNjQfwe+ocBe2vDMAOD8d7V1
-	 RsDmC4+N4D7PIO+TALKkFcNyfZZcRR07hBdcp/S94BKuCdvcNMEv/cI3X5AjYLxugm
-	 XKh/n+j+/McakEWmmtsT3cbxhZeE4kdsKTd/8NM6HGZ4SwRYBmtXXhTNkgZtSEUlQ3
-	 ZCQgq76v3wYtOYUL+u8spfd7WcLC4Szxy4RN/QFJ/uA/4JUlNWXFcLSfwsen26eFNb
-	 njbLnnbezVWGw==
+	b=e6lx/od9mLRaFbj6pD8WjdyUrpu387L5oUbxsS74POQpizvsu2X9B5alOW1uFj8y5
+	 BogpoBtibbPrlFDz4Ec3/AdNz6xfPwZHUB5guwX01WhFo9UMbOB2aUsI9pZsrRRAP4
+	 wLq+X3qQGbQ3EeoOOjm9JR1UCr2lqd+VX4HE/xOvgXCQToYgf4Uq0lu6WcIoU831NT
+	 3Zr0ZWhdRXCFxU99AazeTkyNbDJRABmRLmC5/jK+DX1UXfCtMjxQZsFLerx/2qIlYU
+	 IYr/jQMlMujoHloJcSVIewZGRNZ7u1U02GBUq6x7y5XXIcE7+DXZzJcawr7XnyLaFC
+	 RprAR8YIz6BTg==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 08 Sep 2026 21:55:16 +0100
-Subject: [PATCH 16/23] kbuild: batch module finalisation
+Date: Tue, 08 Sep 2026 21:55:17 +0100
+Subject: [PATCH 17/23] modpost: perform srcversion hashing in parallel
 MIME-Version: 1.0
-Message-Id: <20260908-build-speedup-v1-16-5dc1ac01672d@kernel.org>
+Message-Id: <20260908-build-speedup-v1-17-5dc1ac01672d@kernel.org>
 References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
 In-Reply-To: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
 To: Linus Torvalds <torvalds@linux-foundation.org>, 
@@ -81,12 +81,12 @@ Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, 
  "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4146; i=ljs@kernel.org;
- h=from:subject:message-id; bh=Gelur0DpysKwUODmcguGccgt6clYJhYW6IXRF54x23c=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIWlFmYvV7lYBfmt0UvYf2hCVfScyq9LfxLQ2YW+h7eP
- fWgmm5YRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACayjp2R4TZvs0gN81KrvwzJ
- L/SZsyo77jQfeuBvJ66+aH6oZd2CZIb/ocsudvxk8HW7K32qrMbi6ffWnO6Pp8IsA5t3/m9c966
- TCQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5781; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=WICQxA7wSs1OjQCOKkZs0RphLh6aY8TzrexzGYQ5YdM=;
+ b=kA0DAAoWz53NioHifxQByyZiAGqgdjiivqgxWMcAzwXiFMjxhapr5eptu4LqrpJHxWdzErhUN
+ Yh1BAAWCgAdFiEE5/QXv1IUVp6J0E9Gz53NioHifxQFAmqgdjgACgkQz53NioHifxRJhQD+KkKD
+ qLzGPYKtOKR3m+zxpGn6XPTCEmJRgn6E7DzMTooBAIO2t2bh9xq8Miz8ic/o7YF92YFvKDtRCsm
+ kxE2EVJsK
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -105,116 +105,199 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Module finalisation on allmodconfig builds consists of a large number of
-very short-lived jobs, and the make job dispatcher cannot possibly dispatch
-jobs fast enough.
+modpost does a lot of single-threaded work hashing files from each object's
+.cmd file.
 
-For allmodconfig x86-64 this can be on the order of ~22,000 jobs of a few
-milliseconds in duration each.
-
-However per-job cost grows with the variables the instance holds, here the
-savedcmd_* of every .mod.o and .ko read back from the .cmd files, since it
-walks them all to build each child's environment.
-
-This makes module finalisation very inefficient when large numbers of
-modules are being built.
-
-Fix this by splitting modules.order into chunks of 128 at a time, run in
+This makes the build slower than it needs to be, so do this work in
 parallel.
 
-Each instance holds only its own modules' variables and the top-level one
-reads no per-module .cmd files at all, the same rules serve both levels,
-and an instance is told its chunk with modfinal-first=<index>.
+This is egregious for allmodconfig builds - for instance x86-64 can end up
+opening 200,000 files individually and hashing them all serially.
 
-"make modules" with every *.mod.o and *.ko deleted goes from 28.9s to 15.9s
-with clang 22. No-op "make modules" goes from 5.6s to 4.8s, as checking the
-22,000 targets is spread over the chunks too.
+Parallelise this operation by maintaining a thread pool for the hashing
+work.
+
+Combined with the per-file hashing commit this cuts modpost's run time
+nearly in half for an allmodconfig build.
+
+Module.symvers and every *.mod.S are byte for byte the same.
+
+modpost is on the serial tail of every allmodconfig build, however
+defconfig does not set CONFIG_MODULE_SRCVERSION_ALL and is unchanged.
 
 Whole build, 128-thread Threadripper 9980X, best of N runs:
 
                                          before   after     delta
                                          -------------------------------
-  x86 allmodconfig, no-op make, gcc         1.9s     1.2s    -0.74s (-39%)
-  x86 allmodconfig, no-op make, clang       2.4s     1.6s    -0.77s (-32%)
-  x86 allmodconfig, clean, gcc            304.5s   291.4s     -13.1s (-4%)
-  x86 allmodconfig, clean, clang          301.7s   297.0s     -4.7s (-2%)
+  x86 allmodconfig, touch mm/vma.c, gcc    33.4s    30.2s     -3.2s (-10%)
+  x86 allmodconfig, touch mm/vma.c, clang  31.1s    28.1s     -3.0s (-10%)
 
 Assisted-by: LLM
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- scripts/Makefile.modfinal | 26 +++++++++++++++++++++++++-
- scripts/mod/sumversion.c  |  4 ++--
- 2 files changed, 27 insertions(+), 3 deletions(-)
+ scripts/mod/Makefile     |  1 +
+ scripts/mod/modpost.c    | 72 ++++++++++++++++++++++++++++++++++++++++++++++--
+ scripts/mod/modpost.h    |  2 ++
+ scripts/mod/sumversion.c |  3 +-
+ 4 files changed, 74 insertions(+), 4 deletions(-)
 
-diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-index 75e9effdf02c..858fa798090b 100644
---- a/scripts/Makefile.modfinal
-+++ b/scripts/Makefile.modfinal
-@@ -13,9 +13,30 @@ include $(srctree)/scripts/Makefile.lib
- # find all modules listed in modules.order
- modules := $(call read-file, modules.order)
+diff --git a/scripts/mod/Makefile b/scripts/mod/Makefile
+index fbd5099e0441..fdd486184f9c 100644
+--- a/scripts/mod/Makefile
++++ b/scripts/mod/Makefile
+@@ -5,6 +5,7 @@ hostprogs-always-y	+= modpost mk_elfconfig
+ always-y		+= empty.o
  
-+modfinal-chunk-size := 128
-+
-+ifdef modfinal-first
-+
-+# this instance handles the chunk of modules.order starting at $(modfinal-first)
-+modules := $(wordlist $(modfinal-first), $(words $(modules)), $(modules))
-+modules := $(wordlist 1, $(modfinal-chunk-size), $(modules))
-+
- __modfinal: $(modules:%.o=%.ko)
- 	@:
+ modpost-objs	:= modpost.o file2alias.o sumversion.o symsearch.o
++HOSTLDLIBS_modpost := -lpthread
  
-+else
-+
-+modfinal-chunks := $(addprefix chunk-, $(shell seq 1 $(modfinal-chunk-size) $(words $(modules))))
-+
-+PHONY += $(modfinal-chunks)
-+$(modfinal-chunks): .module-common.o
-+	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modfinal modfinal-first=$(@:chunk-%=%)
-+
-+__modfinal: $(modfinal-chunks)
-+	@:
-+
-+endif
-+
- # modname and part-of-module are set to make c_flags define proper module flags
- modname = $(notdir $(@:.mod.o=))
- part-of-module = y
-@@ -58,7 +79,10 @@ ifdef CONFIG_DEBUG_INFO_BTF_MODULES
- endif
- 	+$(call cmd,check_tracepoint)
+ devicetable-offsets-file := devicetable-offsets.h
  
--targets += $(modules:%.o=%.ko) $(modules:%.o=%.mod.o) .module-common.o
-+targets += .module-common.o
-+ifdef modfinal-first
-+targets += $(modules:%.o=%.ko) $(modules:%.o=%.mod.o)
-+endif
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index 550ccd753ed8..882169e51851 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -16,6 +16,7 @@
+ #include <fnmatch.h>
+ #include <stdio.h>
+ #include <ctype.h>
++#include <pthread.h>
+ #include <string.h>
+ #include <limits.h>
+ #include <stdbool.h>
+@@ -1717,8 +1718,7 @@ static void read_symbols(const char *modname)
+ 	if (!mod->is_vmlinux) {
+ 		version = get_modinfo(&info, "version");
+ 		if (version || all_versions)
+-			get_src_version(mod->name, mod->srcversion,
+-					sizeof(mod->srcversion) - 1);
++			mod->need_srcversion = true;
+ 	}
  
- # Add FORCE to the prerequisites of a target to force it to be always rebuilt.
- # ---------------------------------------------------------------------------
+ 	parse_elf_finish(&info);
+@@ -1736,6 +1736,72 @@ static void read_symbols(const char *modname)
+ 	}
+ }
+ 
++static struct module **srcversion_mods;
++static unsigned int nr_srcversion_mods, next_srcversion_mod;
++
++static bool get_next_src_version(void)
++{
++	struct module *mod;
++	unsigned int idx;
++
++	idx = __sync_fetch_and_add(&next_srcversion_mod, 1);
++	if (idx >= nr_srcversion_mods)
++		return false;
++	mod = srcversion_mods[idx];
++
++	get_src_version(mod->name, mod->srcversion,
++			sizeof(mod->srcversion) - 1);
++	return true;
++}
++
++static void *srcversion_worker(void *arg)
++{
++	while (get_next_src_version())
++		;
++
++	return NULL;
++}
++
++static void hash_srcversions(void)
++{
++	unsigned int i = 0;
++	struct module *mod;
++	pthread_t *threads;
++	long nr_threads;
++
++	list_for_each_entry(mod, &modules, list)
++		if (mod->need_srcversion)
++			nr_srcversion_mods++;
++
++	if (!nr_srcversion_mods)
++		return;
++
++	srcversion_mods = xmalloc(nr_srcversion_mods * sizeof(*srcversion_mods));
++
++	list_for_each_entry(mod, &modules, list)
++		if (mod->need_srcversion)
++			srcversion_mods[i++] = mod;
++
++	nr_threads = sysconf(_SC_NPROCESSORS_ONLN);
++	nr_threads = nr_threads < 1 ? 1 : nr_threads; /* On error assume 1. */
++	if (nr_threads > nr_srcversion_mods)
++		nr_threads = nr_srcversion_mods;
++
++	sumversion_init();
++	threads = xmalloc(nr_threads * sizeof(*threads));
++	for (i = 0; i < nr_threads; i++) {
++		if (pthread_create(&threads[i], NULL, srcversion_worker, NULL)) {
++			perror("pthread_create");
++			exit(1);
++		}
++	}
++	for (i = 0; i < nr_threads; i++)
++		pthread_join(threads[i], NULL);
++
++	free(threads);
++	free(srcversion_mods);
++}
++
+ static void read_symbols_from_files(const char *filename)
+ {
+ 	FILE *in = stdin;
+@@ -2729,6 +2795,8 @@ int main(int argc, char **argv)
+ 	if (files_source)
+ 		read_symbols_from_files(files_source);
+ 
++	hash_srcversions();
++
+ 	list_for_each_entry(mod, &modules, list) {
+ 		keep_no_trim_symbols(mod);
+ 
+diff --git a/scripts/mod/modpost.h b/scripts/mod/modpost.h
+index d5f6d82837d5..10d5f8f2f293 100644
+--- a/scripts/mod/modpost.h
++++ b/scripts/mod/modpost.h
+@@ -127,6 +127,7 @@ struct module {
+ 	bool has_init;
+ 	bool has_cleanup;
+ 	char	     srcversion[25];
++	bool need_srcversion;
+ 	// Missing namespace dependencies
+ 	struct list_head missing_namespaces;
+ 	// Actual imported namespaces
+@@ -213,6 +214,7 @@ void handle_moddevtable(struct module *mod, struct elf_info *info,
+ 			Elf_Sym *sym, const char *symname);
+ 
+ /* sumversion.c */
++void sumversion_init(void);
+ void get_src_version(const char *modname, char sum[], unsigned sumlen);
+ 
+ /* from modpost.c */
 diff --git a/scripts/mod/sumversion.c b/scripts/mod/sumversion.c
-index 2cbadd3cd97d..5501d6aa0bea 100644
+index 5501d6aa0bea..4521b92ef868 100644
 --- a/scripts/mod/sumversion.c
 +++ b/scripts/mod/sumversion.c
 @@ -249,7 +249,7 @@ static int parse_comment(const char *file, unsigned long len)
  /* FIXME: Handle .s files differently (eg. # starts comments) --RR */
  static bool stop_char[256];
  
--static void init_stop_chars(void)
-+static void sumversion_init(void)
+-static void sumversion_init(void)
++void sumversion_init(void)
  {
  	static bool done;
  	int chr;
-@@ -274,7 +274,7 @@ static int parse_file(const char *fname, struct md4_ctx *md)
- 	len = strlen(file);
- 	if (!len)
- 		goto out_file;
--	init_stop_chars();
-+	sumversion_init();
- 	buf = xmalloc(len); /* File output buffer. */
+@@ -402,7 +402,6 @@ static int parse_source_files(const char *objfile, struct md4_ctx *md)
+ 				     line, strerror(errno));
+ 				goto out_file;
+ 			}
+-
+ 		}
  
- 	for (i = 0; i < len; i++) {
+ 	}
 
 -- 
 2.55.0
