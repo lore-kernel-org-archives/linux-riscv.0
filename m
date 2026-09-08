@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EADC7C982DF
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:37:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B70C982D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FtDoSIHEHeDfcPrx/I58O3qY68mylYZ8wgmodox9YHA=; b=eJbaxxhkSDuAKy
-	HOzzVCifQdmc9l8IDvQGBr/ZJ9qHqr2KfOpye7KWn8n/XRZsNQNRvIni1giXK3r8+6A8DCg2wsvyW
-	iBr4xIY41wT421MoT8W+Hbc0nZpt5l5vUKut76o0L3gCN8EQ0OigjH0GHk3tZxRJV5vJ7xsbfnrz4
-	ahwz7y2UwwVhh1xw9+zmyngjXaeyWz8Uod3a2BqN5wuoJTr34WzZO/PX6R6QEpwbfZt0ZG4H1jx5W
-	GkIgG+OVtZ71gl5HhjdEj5YWGmfkmpCMmfQFiig9yK0EkREaQ1esy6uE+QgHqQgVg/15V8qliaJIM
-	dSh38Wrsm7mLTcKsD1hA==;
+	List-Owner; bh=rZHlcUewIS8wsQicO2TQ7z+f+1xxcQpkmu0y0GeTQwE=; b=bhKmb4QpEzDgLv
+	nubcWCBNBJ2VVrfZ731Snlzw5nXHkAq5arx8jn860mtmaY6MSkHLhzMfBIfikbncy8THNPt/r3NsL
+	TWw/P9PZjmiyBFirG+0HbvkCUsxDNlVaq7fsSA5iS4Gy008S0ICPGCCwXqA8n362Pd4rMtypV1HjW
+	sdFYa7ylxM7dJVZLeQdk/JWr59IlIp+zTm5JcyJ2bcuur1ls9C63d7mXwNWAEOthUwHnr6H/iOTTv
+	fezW7vCSfzpu+JcjouBl3wE7J5I2FU0geyn1ZuK7o0cHSfQbdW5wUwqeP0DwuKKGF7/PG2brBQ2GY
+	uXFdonpRwtNjTI0j3+Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Lfe-0000000CnVy-3ILt;
-	Thu, 17 Sep 2026 23:37:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7Lff-0000000CnXY-2xP6;
+	Thu, 17 Sep 2026 23:37:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x428P-0000000A97J-0a4k;
-	Tue, 08 Sep 2026 20:09:37 +0000
+	id 1x429K-0000000A9JY-1YeJ;
+	Tue, 08 Sep 2026 20:10:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B66F601F6;
-	Tue,  8 Sep 2026 20:09:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 085C11F00A3A;
-	Tue,  8 Sep 2026 20:09:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 99985601F6;
+	Tue,  8 Sep 2026 20:10:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49B8C1F00A3A;
+	Tue,  8 Sep 2026 20:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788898176;
-	bh=p6dXD729ADCogJ3R/2wo51+NAzY7DqxT9oUL1eYTac8=;
+	s=k20260515; t=1788898233;
+	bh=oPJX0y8/AFpF4NLkzH+iQBcndkDmeOupn/4emEXwzc4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=bOh9qaVCnrZTWRlq9PaX4TcWsfcuLV7Sk55MPnRysjd8DAKGgc5dbOGtlcX+R2Cct
-	 etBvSqJ826/6aRGiGtQTdPbMl+HUHI65BgItFp7dB3nEU6+P4nEKEQuNokScxDAGQF
-	 1FaBk52Dtsu0Sj4lK3UEIwxTGPy3xPZsEJhkMYRkKSFy9wGxZ8EyeXQaET+rodI8WW
-	 O/YNIb3WpWuRKRCra6d2SyqzYF+1G2MDLogKznQgseOC4k+u/CpmskHe9Vw88IcYKe
-	 RfnYBGrEddugW7tvStnErBL9GNi//B0nMtdD+kFUuBn48Nqiv9Gl8vTlzDJSrGw4yP
-	 Z9voucWtUuFqg==
+	b=Tl9ZV6Hb8Hjiuc60Ij+5vASX4LO4r2f5Hjq6CP1FNLVozhArVz9mi1Jif7gPMJdIi
+	 4++H88OwBH/cogRhHQit1xi7oDME44hQN+VP+YZU4PJ57L8nsQXS/p5n4SXS57x5GK
+	 x619Olb5JOmJzBxzUUNKU71Y4lSc0ZV5Lb9Bcv3T3GsiFgV0TDnq5vt2SNzPS2lm5y
+	 FbYol0Fxi4EsP7jRcmb0BLBzoeikFrPPwtP6zJyl9ounKHiOiG4FUkK7FR+JVUcWWQ
+	 hoYJQAkJTHkCesL3G5CW1CVz7BbhVpPBN2Yw7kjQuTuX6MRqns6c/bi16DttknbuFV
+	 62dS5Inoq/Ffg==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 08 Sep 2026 21:01:19 +0100
-Subject: [PATCH 15/39] mm/vma: only allow mmap to clear VMA_MAYWRITE_BIT if
- kernel-owned
+Date: Tue, 08 Sep 2026 21:01:21 +0100
+Subject: [PATCH 17/39] scsi: sg: convert mmap hook to mmap_prepare and
+ rework
 MIME-Version: 1.0
-Message-Id: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-15-dacf19cce22b@kernel.org>
+Message-Id: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-17-dacf19cce22b@kernel.org>
 References: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-0-dacf19cce22b@kernel.org>
 In-Reply-To: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-0-dacf19cce22b@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>
@@ -63,12 +63,12 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
  fuse-devel@lists.linux.dev, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2245; i=ljs@kernel.org;
- h=from:subject:message-id; bh=RGYbj2HHlqxNjIH/BiZsGGf9u4x+neMkFtHuPWWBclU=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIWZG6KibjG1FkTM+mYgfPWohkScT/Xb9Je2BYwaa8ks
- yHfY4OSjlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAEzkBg8jwwWjXZ+PPozePoEj
- 91kM1/nIHiO2iOq9T7OszDhdPvc8Xcvw33PlsoVL3+0qfv9hsV1yu1KidJlsg/7GnOnrzLas9Ck
- 5wA8A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5941; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=mW1naObXPKtLwSWApVWsQPYHiLfHpNWdJIadTG8SHEw=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIWZG7+YfQznv34ok35avkX82er69RE11TdcfjmKdEzh
+ U15v2NeRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACbSlsrI8GBzr7PJndJrvjb1
+ l3MuT37UrxbVn16c5yHUa2VdtsFvPyPD5IthfpMVE29zJX2yOxuTIfxt1sMV6SaLjU7oe3lYPHr
+ ABgA=
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-Mailman-Approved-At: Thu, 17 Sep 2026 16:37:27 -0700
@@ -88,67 +88,188 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For ordinary files the only way the VMA_MAYWRITE_BIT flag is cleared is if
-the underlying file is itself read-only.
+Move from the deprecated mmap hook to the new mmap_prepare hook.
 
-This means that mprotect() cannot mark a shared mapping of a read-only file
-as read/write, as doing so would violate the read only attribute, and
-permit writes.
+We are mapping kernel pages here, so use the discontiguous kernel mapping
+mmap action to do so.
 
-In general, we do not want file systems to be able to do this for
-read/write files.
+Unwind the rather confusing loop and instead map as many pages as we can at
+one time.
 
-Doing so would violate fundamental user expectation of file attributes and
-likely break userspace.
+Note that we do not need to pay attention to rsv_schp->k_use_sg here, as
+the pages are populated for the length of the buffer at
+rsv_schp->page_order granularity as compound pages.
 
-However, drivers pose a tricky problem here - the /dev/xxx file may be
-read/write but provide access to a resource which is fundamentally
-read-only.
+The discontiguous kernel page mapping logic handles the compound pages for
+us.
 
-Therefore we must allow drivers to be able to clear VMA_MAYWRITE_BIT.
+sfp->mmap_called keeps the buffer stable for us. As before it is never
+cleared, so a failed mmap also leaves it set.
 
-To achieve both of these things, restrict this ability to kernel-owned
-mappings as identified by vma_flags_is_kernel_owned().
+We also remove some useless vma, vma->vm_file NULL checks - these will
+always be non-NULL if you reached the mmap hook logic.
 
-This constrains this ability to drivers which own the mapping's contents,
-whether memory-mapped I/O, kernel-allocated pages, or ordinary pages they
-map themselves, and so define its semantics.
+We retain log output for consistency, but change what's output on page
+mapping to indicate that sg_discontig_get() does the work now.
 
-Every in-tree mmap hook which clears VMA_MAYWRITE_BIT, some twenty sites
-across drivers, filesystems and bpf, establishes a kernel-owned mapping,
-with usbmon and the ALSA PCM status page converted earlier in this series
-to do so.
-
-Note that drivers may, if they do not gate on VMA_SHARED_BIT, be able to
-disable MAP_PRIVATE-file-backed mapping CoW semantics.
-
-This is perhaps not always intended, but we retain this capacity to
-maintain existing behaviour.
-
-As all drivers which clear VMA_MAYWRITE_BIT establish kernel-owned
-mappings, no functional change is intended.
+Note that we drop the VMA_IO_BIT flag for the VMA here. It was never
+necessary as we invoke alloc_pages() which gives us refcounted folios that
+are fine for GUP to access (VMA_IO_BIT would prevent that).
 
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- mm/vma.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/scsi/sg.c | 115 ++++++++++++++++++++++++------------------------------
+ 1 file changed, 51 insertions(+), 64 deletions(-)
 
-diff --git a/mm/vma.c b/mm/vma.c
-index 9e45fc83f74c..526428753218 100644
---- a/mm/vma.c
-+++ b/mm/vma.c
-@@ -2780,6 +2780,11 @@ static int mmap_validate(unsigned long prev_start,
- 	if (WARN_ON_ONCE(!was_maywrite && is_maywrite))
- 		return -EINVAL;
- 
-+	/* Only kernel-owned mappings may clear VMA_MAYWRITE_BIT. */
-+	if (!vma_flags_is_kernel_owned(curr_flags) &&
-+	    WARN_ON_ONCE(was_maywrite && !is_maywrite))
-+		return -EINVAL;
-+
- 	return mmap_validate_vma_flags(curr_flags);
+diff --git a/drivers/scsi/sg.c b/drivers/scsi/sg.c
+index 5408f002e6c0..12837b828b89 100644
+--- a/drivers/scsi/sg.c
++++ b/drivers/scsi/sg.c
+@@ -1212,85 +1212,72 @@ sg_fasync(int fd, struct file *filp, int mode)
+ 	return fasync_helper(fd, filp, mode, &sfp->async_qp);
  }
  
+-static vm_fault_t
+-sg_vma_fault(struct vm_fault *vmf)
++static int sg_discontig_init(void *vm_private_data, void **private)
+ {
+-	struct vm_area_struct *vma = vmf->vma;
+-	Sg_fd *sfp;
+-	unsigned long offset, len, sa;
+-	Sg_scatter_hold *rsv_schp;
+-	int k, length;
+-
+-	if ((NULL == vma) || (!(sfp = (Sg_fd *) vma->vm_private_data)))
+-		return VM_FAULT_SIGBUS;
+-	rsv_schp = &sfp->reserve;
+-	offset = vmf->pgoff << PAGE_SHIFT;
+-	if (offset >= rsv_schp->bufflen)
+-		return VM_FAULT_SIGBUS;
+-	SCSI_LOG_TIMEOUT(3, sg_printk(KERN_INFO, sfp->parentdp,
+-				      "sg_vma_fault: offset=%lu, scatg=%d\n",
+-				      offset, rsv_schp->k_use_sg));
+-	sa = vma->vm_start;
+-	length = 1 << (PAGE_SHIFT + rsv_schp->page_order);
+-	for (k = 0; k < rsv_schp->k_use_sg && sa < vma->vm_end; k++) {
+-		len = vma->vm_end - sa;
+-		len = (len < length) ? len : length;
+-		if (offset < len) {
+-			struct page *page = rsv_schp->pages[k] + (offset >> PAGE_SHIFT);
+-			get_page(page);	/* increment page count */
+-			vmf->page = page;
+-			return 0; /* success */
+-		}
+-		sa += len;
+-		offset -= len;
++	const unsigned long req_sz = (unsigned long)*private;
++	Sg_fd *sfp = vm_private_data;
++	Sg_scatter_hold *rsv_schp = &sfp->reserve;
++	int err = 0;
++
++	mutex_lock(&sfp->f_mutex);
++	if (req_sz > rsv_schp->bufflen) {
++		err = -ENOMEM;	/* cannot map more than reserved buffer */
++		goto out;
++	}
++	sfp->mmap_called = 1; /* Prevents changes to buffer size. */
++out:
++	mutex_unlock(&sfp->f_mutex);
++	return err;
++}
++
++static int
++sg_discontig_get(struct discontig_kernel_page_state *state)
++{
++	Sg_fd *sfp = state->vm_private_data;
++	Sg_scatter_hold *rsv_schp = &sfp->reserve;
++	const unsigned int order = rsv_schp->page_order;
++	const pgoff_t nr_pages = state->nr_pages_mapped;
++
++	if (nr_pages >= (rsv_schp->bufflen >> PAGE_SHIFT)) {
++		discontig_kernel_map_abort(state);
++		return 0;
+ 	}
+ 
+-	return VM_FAULT_SIGBUS;
++	SCSI_LOG_TIMEOUT(3, sg_printk(KERN_INFO, sfp->parentdp,
++				      "sg_discontig_get: offset=%lu, scatg=%d\n",
++				      nr_pages << PAGE_SHIFT, rsv_schp->k_use_sg));
++
++	discontig_kernel_map_page(state, rsv_schp->pages[nr_pages >> order]);
++	return 0;
+ }
+ 
+-static const struct vm_operations_struct sg_mmap_vm_ops = {
+-	.fault = sg_vma_fault,
++static const struct discontig_kernel_page_ops sg_discontig_ops = {
++	.init = sg_discontig_init,
++	.get = sg_discontig_get,
+ };
+ 
+ static int
+-sg_mmap(struct file *filp, struct vm_area_struct *vma)
++sg_mmap_prepare(struct vm_area_desc *desc)
+ {
+-	Sg_fd *sfp;
+-	unsigned long req_sz, len, sa;
+-	Sg_scatter_hold *rsv_schp;
+-	int k, length;
+-	int ret = 0;
++	Sg_fd *sfp = desc->file->private_data;
++	const unsigned long req_sz = vma_desc_size(desc);
+ 
+-	if ((!filp) || (!vma) || (!(sfp = (Sg_fd *) filp->private_data)))
++	if (!sfp)
+ 		return -ENXIO;
+-	req_sz = vma->vm_end - vma->vm_start;
++
+ 	SCSI_LOG_TIMEOUT(3, sg_printk(KERN_INFO, sfp->parentdp,
+ 				      "sg_mmap starting, vm_start=%p, len=%d\n",
+-				      (void *) vma->vm_start, (int) req_sz));
+-	if (vma->vm_pgoff)
++				      (void *) desc->start, (int) req_sz));
++
++	if (desc->pgoff)
+ 		return -EINVAL;	/* want no offset */
+-	rsv_schp = &sfp->reserve;
+-	mutex_lock(&sfp->f_mutex);
+-	if (req_sz > rsv_schp->bufflen) {
+-		ret = -ENOMEM;	/* cannot map more than reserved buffer */
+-		goto out;
+-	}
+ 
+-	sa = vma->vm_start;
+-	length = 1 << (PAGE_SHIFT + rsv_schp->page_order);
+-	for (k = 0; k < rsv_schp->k_use_sg && sa < vma->vm_end; k++) {
+-		len = vma->vm_end - sa;
+-		len = (len < length) ? len : length;
+-		sa += len;
+-	}
++	vma_desc_set_flags(desc, VMA_DONTEXPAND_BIT, VMA_DONTDUMP_BIT);
++	desc->private_data = sfp;
+ 
+-	sfp->mmap_called = 1;
+-	vm_flags_set(vma, VM_IO | VM_DONTEXPAND | VM_DONTDUMP);
+-	vma->vm_private_data = sfp;
+-	vma->vm_ops = &sg_mmap_vm_ops;
+-out:
+-	mutex_unlock(&sfp->f_mutex);
+-	return ret;
++	mmap_action_map_discontig_kernel_pages(desc, (void *)req_sz,
++					       &sg_discontig_ops);
++	return 0;
+ }
+ 
+ static void
+@@ -1415,7 +1402,7 @@ static const struct file_operations sg_fops = {
+ 	.unlocked_ioctl = sg_ioctl,
+ 	.compat_ioctl = compat_ptr_ioctl,
+ 	.open = sg_open,
+-	.mmap = sg_mmap,
++	.mmap_prepare = sg_mmap_prepare,
+ 	.release = sg_release,
+ 	.fasync = sg_fasync,
+ };
 
 -- 
 2.55.0
