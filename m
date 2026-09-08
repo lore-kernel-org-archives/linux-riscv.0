@@ -4,68 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4F5C79FA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 22:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E989C79FB2
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 22:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5PjUicu85XTI2PDsjIWchQuDTAsNc5HhpaEQ4bhE+Ug=; b=PztMlx8nz4BLV8
-	chZeOFqrYuJT6HBjrSssL3r9Yr4xUyWXF+dY1/Tw3p+pcfIxHJdTRoSoPnZUkKHQV/rpCIE3GC+8p
-	P9Ao280qrra5Wlirt5yw4B/funYNrQYwE3JkeuJvOLye5eBhBIlfD3X1HV5/CJbE+7izkYsbc48Cc
-	M8DueBWoQ6JtoygMh7HHR3hpkUB9xhV1qHZL8X6hzL/cvvAkyX42cSP3aao6eAmsOlN0bJ10ydu4f
-	AO57gP4X+fFYophbkLdFqC1sKtjIersHhhNgfhp3SwYJtGr3f94DyZQMiGSF3DKbjMhcCmiE1ghZ+
-	CXcLXeZBpKtg+EkOYqjQ==;
+	List-Owner; bh=/c2CHdlvzXq6K2TuKs9UwizpheYuYtOfdXTH7WuNsiU=; b=Ha40CiLFfThbc5
+	3kvPJh7fjFFoEZE1yaHwYh4vAxolS63OQZkkBH0suZVeTY9qyTmxz/qKgAIlvedLOTKBmQKRqJyo/
+	ks5YfBqjhVj24FGXOQlij8GZuH/Mt0fwzPlVt60Pu51ETXDkdehmJZgz8+tRKFIVdjYAg/E3732IL
+	bn4K3E0OE0c/Zd9vznED7o8KuNj+idxhMDBwSOnDnSEBqbhsDpDoLisAucVsNdjGkXWMk1OPLP2Ot
+	nSCi4EiCf2GvuOSrEi1PBYv22fL2GLO5+4XOjTwYnvhwUegIRUPcS9tN9VbohpB0R0n4PI+Xv4UJd
+	q0kcpJN8pO5kTkJHQDXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x43y7-0000000AMuJ-3jCN;
-	Tue, 08 Sep 2026 22:07:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x44EQ-0000000AOLJ-0nKl;
+	Tue, 08 Sep 2026 22:23:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x43y5-0000000AMtp-3L2g
+	id 1x44EN-0000000AOL7-42eS
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 22:07:05 +0000
+	Tue, 08 Sep 2026 22:23:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 240E640382;
-	Tue,  8 Sep 2026 22:07:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CB041F00A3A;
-	Tue,  8 Sep 2026 22:07:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE18F60214;
+	Tue,  8 Sep 2026 22:23:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0376B1F00A3A;
+	Tue,  8 Sep 2026 22:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788905225;
-	bh=JoK2n9Z7urXwu7MomxxLbY36ml5lzGDpWoJEJWTo6Js=;
+	s=k20260515; t=1788906234;
+	bh=rdePD4l8fV/1dBShtyAVdNh0Ias4aYNa6xAzkxWzQ/A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ht1oyT2pmfS8hYNjLMLZv8UUdLolw9bM0vdtZG4PTG8bQMpx9IU1W+LbDS4g9HbEY
-	 qnbKlwUqqY+or2QCAlEyVAo1riElAbTP21bEZDYkxNHH5klnLBe6TmZF5TQupdeUyg
-	 WQI+OzzrdXlS9dsds4R9kVBJl+JlOCDNyyiQx7bLfxdbYXumGT7xcfwA1QMv/P+gn3
-	 CYID6n1aMc84oLxAOpBcyHmazgNi24qXeS9bF3Ip886d7DlV5Via6OEMcm8gs1bPF6
-	 wYV0IxvuLLAXfqSWjcmdJZXf+ALB8ZTHsKf3ZZe04KAY9MT/VCntZJrUUAhGbXM3R5
-	 RaDxaspaqSnMg==
-Date: Tue, 8 Sep 2026 22:07:03 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Junzhong Pan <panjunzhong@linux.spacemit.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Xu Yang <xu.yang_2@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>, Peter Chen <peter.chen@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Ze Huang <huang.ze@linux.dev>
-Subject: Re: [PATCH v2 9/9] riscv: defconfig: enable ChipIdea USB controller
- support
-Message-ID: <20260908220703-GKD2346@kernel.org>
-References: <20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com>
- <20260908-b4-spacemit-k1-usb2-v2-9-f07342ffa051@linux.spacemit.com>
+	b=F522mD+VgsB5DgeJaxr9C2eXIiBu2P+ZDRJe0yFAKL7Sg+7S4sXFSsUeGTFiQTYmS
+	 KBlHdDUT6gbT38/XmCPnw+uTRZKnTAJvbb9X1FQsJ8H35I39nIiAkSfmoWYp9L/mQx
+	 x2mhSxBTbaZfeSXgR8Abzk/zBogZtCzXnJRmqLymSAFD+QlXK5e5LvAtLOtu3Jcw/M
+	 WQRb5kljsaSpLV2hfUBCW6qRbmEiUydugrp3y/iEYte0Q3uk5sywToBzr0Vn30ZGhe
+	 0lTBB1iR7lVsmHSVDeLfFaweCkkZuN4Izd8UWcGL9xNuGKuDIFav6vzBFJ16al224Q
+	 nmq1UGCitoWHg==
+Date: Tue, 8 Sep 2026 15:23:49 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Guo Ren <guoren@kernel.org>, tglx@kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	palmer@dabbelt.com, pjw@kernel.org, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, daniel.lezcano@kernel.org, anup@brainfault.org,
+	hui.wang@canonical.com, samuel.holland@sifive.com
+Subject: Re: [PATCH 1/5] riscv: smp: Move enum ipi_message_type to asm/smp.h
+Message-ID: <20260908222349.GA2324870@ax162>
+References: <20260816070049.2097442-1-guoren@kernel.org>
+ <20260816070049.2097442-2-guoren@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260908-b4-spacemit-k1-usb2-v2-9-f07342ffa051@linux.spacemit.com>
+In-Reply-To: <20260816070049.2097442-2-guoren@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,50 +72,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Junzhong,
-
-On 17:48 Tue 08 Sep     , Junzhong Pan wrote:
-> Enable the ChipIdea USB2 controller and SpacemiT K1 USB2 PHY to support
-> USB2.0 controllers on the SpacemiT K1 SoC.
+On Sun, Aug 16, 2026 at 07:00:45AM +0000, Guo Ren wrote:
+> From: "GUO Ren (XuanTie)" <guoren@kernel.org>
 > 
-> Tested-by: Ze Huang <huang.ze@linux.dev>
-> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+> The IPI message type enumeration (and therefore IPI_MAX) is currently
+> private to arch/riscv/kernel/smp.c.  Several IPI providers need to know
+> the exact number of IPIs that the architecture requires, so move the
+> enum into the public header.
+> 
+> This is a pure code movement with no functional change.
+
+Other than a build breakage with allmodconfig :) -next has this change
+as commit 1ae91dc397eb ("riscv: smp: Move enum ipi_message_type to
+asm/smp.h"), where it breaks allmodconfig with several errors along the
+lines of:
+
+  In file included from drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c:20:
+  drivers/media/platform/mediatek/vpu/mtk_vpu.h:63:9: error: redeclaration of enumerator 'IPI_MAX'
+     63 |         IPI_MAX,
+        |         ^~~~~~~
+  In file included from include/linux/smp.h:119,
+                   from include/linux/interrupt_rc.h:17,
+                   from include/linux/spinlock.h:60,
+                   from include/linux/sched.h:38,
+                   from include/linux/ratelimit.h:6,
+                   from include/linux/dev_printk.h:16,
+                   from include/linux/device.h:15,
+                   from drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c:8:
+  arch/riscv/include/asm/smp.h:27:9: note: previous definition of 'IPI_MAX' with type 'enum ipi_message_type'
+     27 |         IPI_MAX
+        |         ^~~~~~~
+
+So one of these needs to change.
+
+> Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
 > ---
->  arch/riscv/configs/defconfig | 4 ++++
->  1 file changed, 4 insertions(+)
+>  arch/riscv/include/asm/smp.h | 12 ++++++++++++
+>  arch/riscv/kernel/smp.c      | 12 ------------
+>  2 files changed, 12 insertions(+), 12 deletions(-)
 > 
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 04ae305d5511..5b556488de66 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -222,6 +222,9 @@ CONFIG_USB_CDNS3_HOST=y
->  CONFIG_USB_CDNS3_STARFIVE=m
->  CONFIG_USB_MUSB_HDRC=m
->  CONFIG_USB_MUSB_SUNXI=m
-> +CONFIG_USB_CHIPIDEA=y
-> +CONFIG_USB_CHIPIDEA_UDC=y
-> +CONFIG_USB_CHIPIDEA_HOST=y
-I know some prefer to enable as loadable module for non major drivers
-so, can you check if it works as module? and alter the config
-
->  CONFIG_NOP_USB_XCEIV=m
->  CONFIG_USB_GADGET=y
->  CONFIG_USB_CONFIGFS=m
-> @@ -272,6 +275,7 @@ CONFIG_PWM=y
->  CONFIG_PWM_PXA=m
->  CONFIG_THEAD_C900_ACLINT_SSWI=y
->  CONFIG_PHY_SUN4I_USB=m
-> +CONFIG_PHY_SPACEMIT_K1_USB2=y
->  CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=m
->  CONFIG_PHY_STARFIVE_JH7110_PCIE=m
->  CONFIG_PHY_STARFIVE_JH7110_USB=m
-> 
+> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+> index 0ecc67641b09..bed39fff1f8a 100644
+> --- a/arch/riscv/include/asm/smp.h
+> +++ b/arch/riscv/include/asm/smp.h
+> @@ -15,6 +15,18 @@
+>  struct seq_file;
+>  extern unsigned long boot_cpu_hartid;
+>  
+> +enum ipi_message_type {
+> +	IPI_RESCHEDULE,
+> +	IPI_CALL_FUNC,
+> +	IPI_CPU_STOP,
+> +	IPI_CPU_CRASH_STOP,
+> +	IPI_IRQ_WORK,
+> +	IPI_TIMER,
+> +	IPI_CPU_BACKTRACE,
+> +	IPI_KGDB_ROUNDUP,
+> +	IPI_MAX
+> +};
+> +
+>  #ifdef CONFIG_SMP
+>  
+>  #include <linux/jump_label.h>
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index fa66f9c97d74..8930b62b15e7 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -28,18 +28,6 @@
+>  #include <asm/cacheflush.h>
+>  #include <asm/cpu_ops.h>
+>  
+> -enum ipi_message_type {
+> -	IPI_RESCHEDULE,
+> -	IPI_CALL_FUNC,
+> -	IPI_CPU_STOP,
+> -	IPI_CPU_CRASH_STOP,
+> -	IPI_IRQ_WORK,
+> -	IPI_TIMER,
+> -	IPI_CPU_BACKTRACE,
+> -	IPI_KGDB_ROUNDUP,
+> -	IPI_MAX
+> -};
+> -
+>  static const char * const ipi_names[] = {
+>  	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
+>  	[IPI_CALL_FUNC]		= "Function call interrupts",
 > -- 
-> 2.34.1
+> 2.43.0
 > 
 
 -- 
-Yixun Lan (dlan)
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
