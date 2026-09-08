@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326DAC79FA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 11:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AFD4C79FA1
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 11:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s2sOfCH8TyzsohaxpZRPwN5EG4FGOtQQf4IDu2CNkNA=; b=0GPlQs8pTnNTTr
-	bG0xWZn3T2+4+YqNCocDL+KllMjvtkIzghWJpesgf+qyQy0m8j9Z8FfcsreAAZ+iyjV8SEmvqZda8
-	BDe6CoughmUR+9PMl9cyk74X3ETSyjZaE+e9b28CTj2xqmViDGumJhGwQQNQEMyIzaN8x+5NqCDCr
-	4jkdww3i6qSgPTjyYcvBt8c/b3of7X9xkHsEwaMcnFzp2wTN5x9vygSAoq7gS4N36x5d0LKjlk6jB
-	jO3Qa2CZVKUQonfb+5RCAKqviJ62IJTto1fIl/+MfW+PRhYy8PPo1OJTYTTXIkd5sPuDayFtD64bK
-	N5qWy3IGQrCIV6wBCc0Q==;
+	List-Owner; bh=Aq9Dza2XHqQF/nvYOc2ZLLyNBSnWTI3X7emwzEq55WU=; b=rqIUng7qbY962o
+	BFfhJdR1zrjT581hwmJUoG3mRSqRloS0o93rLqilphyf4gwsr80ZhNdv/9lhmXy4QKG88QntjESXZ
+	s9DVOYoz+Te7+Wlbg12mPWHVw3LFUsaRTDWAaEZa9ZOkwkGzVD5z8/BTfVdmOjHln4rMchLLL4VjT
+	83M/mnmkp/9t9oRW7RXQxfyYvyWf46dlNiF4QtS86KgvewsBQv2ZO3b1xMDGl9ZR/mW5zr2KucItY
+	d1e5fVr1L1oGU7vt953hc6EYvgmkxb74q7Zl+4+vMrm+MJFxuh7jyzvTAp4K8hXsDY2wlecJLhjHY
+	Kpf7MNumlTUfngvXOkEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uJo-00000008vjj-000w;
-	Tue, 08 Sep 2026 11:48:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3uOR-00000008wes-0qIr;
+	Tue, 08 Sep 2026 11:53:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uJm-00000008vjG-3J1J;
-	Tue, 08 Sep 2026 11:48:50 +0000
+	id 1x3uOL-00000008wdh-3XCb;
+	Tue, 08 Sep 2026 11:53:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 389C44072C;
-	Tue,  8 Sep 2026 11:48:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C5B91F00A3D;
-	Tue,  8 Sep 2026 11:48:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3113460A99;
+	Tue,  8 Sep 2026 11:53:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59A271F00A3A;
+	Tue,  8 Sep 2026 11:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788868130;
-	bh=E3fsDMUp6iZPwqWolrjkrZvy70fQS6FinWdQXIMSMow=;
+	s=k20260515; t=1788868412;
+	bh=TgnUvaODkORtnKYaf5ZZjujJr0av+pDqX4ZqIG/SHoI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=D4yNB+iHgYWM2xH5dEAI8mPSRYWnnNFm5P6il2ewjQLawqqHvZ0iRVtiPpend37Ov
-	 BVgRiJpLfeZphjBvLOtdJquXE28iPZ5jAq9L3m73yktY98VNQiyduG1fGDmCvwVCFb
-	 OvLVA5AbLLz20lLr4HCl1/Zo5X94Rj/pLMSJKZwrZUn0ZKKRR25TKJf8kMmj58VhYa
-	 5EFv/GYUk2Cp8uy7bb9mBwcWZI3nmjTc/K2o4v2pW1t25PbkazcJ2hQMXvqOr6CMwB
-	 BUgOfOJLNEmKpyPmA+NEmQzK8n1wSEEyA1X9FSj7HVQHwoVA4qOIzR04Pl5WRk30g8
-	 HA2wuKBfwd1Vg==
-Message-ID: <d379aae2-4249-4c6a-a748-5419d4f74f34@kernel.org>
-Date: Tue, 8 Sep 2026 13:48:36 +0200
+	b=FOvgWczjtpAGFlyIM04XPBgIUoYgQRRH9iQaS/fQqiEifiriUQHpKjSKDBjqk5Ie8
+	 0oOr0sP4NqKInOziq9sP+fXMPoxBG709B47qFJzEcqfb9gGfAMs4RWeAqLrYDJ2b7j
+	 1UFT48gWzZMcLwpoX4kX6BvB2PDJ55w4rNIU1dpiIbmNISjveLAaWpEGjM66hdkq1B
+	 8KwxB0pelLRjAa68tHEvtwkXApscMwxQFAfkbhtJYkgDQIL6bKVWQWpQw6PTHjHaft
+	 Xf+3/BWJ/iYReJCxPvtUDIGXjw1R+YmPTxpvghklWlpoU1JsKCOM1GmG2xHkxMD++X
+	 HQNs7u3zPqTXg==
+Message-ID: <71218174-ddc9-49e4-a920-d211c169aa50@kernel.org>
+Date: Tue, 8 Sep 2026 13:53:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] mm/vmalloc: make set_area_direct_map HUGE_VMAP
- friendly
+Subject: Re: [PATCH v3 1/6] set_memory: add number of pages parameter to
+ set_direct_map APIs
 To: Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
  =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
@@ -72,9 +72,9 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  loongarch@lists.linux.dev
 References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
- <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
- <2b0f5877-e71a-4824-adeb-5af2dd8b0269@kernel.org>
- <ap_tjOTR48tja_8e@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
+ <a98df077-3e97-4eea-8bfe-470bad9ff9e0@kernel.org>
+ <ap_vkSK_efv7ab90@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -121,7 +121,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <ap_tjOTR48tja_8e@kernel.org>
+In-Reply-To: <ap_vkSK_efv7ab90@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,58 +138,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/8/26 13:12, Mike Rapoport wrote:
-> On Tue, Sep 08, 2026 at 12:41:48PM +0200, David Hildenbrand (Arm) wrote:
->> On 9/3/26 11:28, Mike Rapoport (Microsoft) wrote:
->>> set_area_direct_map() always updates direct map alias permissions in
->>> single page increments.
->>>
->>> For HUGE_VMAP areas it's suboptimal. Not only the loop in
->>> set_area_direct_map() needlessly has more iterations (e.g times 512 on
->>> x86), but it also causes fragmentation of the direct map that could be
->>> avoided for the HUGE_VMAP areas populated with large pages.
->>>
->>> All pages in an area are always of the same order: either same-order
->>> large pages when VM_ALLOW_HUGE_VMAP is set and all huge pages were
->>> successfully allocated, or order-0 page when VM_ALLOW_HUGE_VMAP is
->>> cleared or when huge pages allocation fails and fallback path is taken.
->>>
->>> Instead of updating the direct map permissions for every order-0 page in
->>> an area, use the area's page_order as the loop increment and update the
->>> large pages in one call to set_direct_map_{invalid,default}_noflush().
->>>
->>> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
->>> ---
->>>  mm/vmalloc.c | 13 ++++++++-----
->>>  1 file changed, 8 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->>> index 5506b180f5c27..6ed6c160abed7 100644
->>> --- a/mm/vmalloc.c
->>> +++ b/mm/vmalloc.c
->>> @@ -3367,12 +3367,15 @@ static inline void set_area_direct_map(const struct vm_struct *area,
->>>  				       int (*set_direct_map)(struct page *page,
->>>  							     unsigned int nr))
->>>  {
->>> -	unsigned long i;
->>> +	unsigned int nr = (1U << vm_area_page_order(area));
->>> +
->>> +	for (unsigned long i = 0; i < area->nr_pages; i += nr) {
->>> +		if (page_address(area->pages[i])) {
->>> +			int err = set_direct_map(area->pages[i], nr);
+>> I'd assume such a case cannot currently get triggered, but there is no
+>> documentation on what's supported and what's not. Or is there?
 >>
->> Do we really expect some pages to have a directmap and others not?
+>> Imagine someone performing an update on an area that partially spans two PMDs.
+>> While splitting and updating the first PMD could succeed, splitting the second
+>> PMD could fail. What would be the end result? Rollback? Does the caller have to
+>> clean up?
 > 
-> Every page in the area can be allocated separately and
-> __vmalloc_area_node() has
-> 
-> 	if (!(gfp_mask & (GFP_DMA | GFP_DMA32)))
-> 		gfp_mask |= __GFP_HIGHMEM;
-> 
-> so generally speaking yes :)
+> There is no rollback in any of set_memory implementations. It's up to the
+> callers to cleanup the mess afterwards.
 
-Ah, I was thinking in terms of HUGE_VMAP, because there we sure would expect
-all-or-nothing, right?
+Good to know, let's document that ;)
+
+>  
+>> I'd appreciate if we could add proper documentation with expected semantics.
+> 
+> I believe it's more in the scope of  "arch, mm: create a generic
+> set_memory/change_page_attr core" [1] work than this patchset.
+> 
+> I can write (or maybe even slop ;) ) a doc about set_memory/set_direct_map,
+
+I prefer well minimal and accurate docs ;) Who knows, maybe we'll even realize
+while writing the docs that some semantics are weird and should be changed (some
+architecture implementations adjusted to not be weird).
+
+(I'm pretty sure we'll do, so schlop is not a good idea)
+
+> but I wouldn't want to hold this because there's not set_memory
+> documentation.
+
+I'm fine with documenting it separately, but we *really* should start
+documenting the semantics as we touch+cleanup this mess.
 
 -- 
 Cheers,
