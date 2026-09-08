@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F32C79FA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 21:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4F5C79FA1
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 22:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PMTZITpGtdP+za+ejo6CELh2lKxPcpeh+sECE8ehjm4=; b=PEvWtfCbdEfWsG
-	N+SGliJCqZYQAC5y+HbbZ1LLrHr38oNf4HvQ3yUzidCXC5c4QCwNFS/BYdKILELyZ7Yrq0eJbdOrB
-	qt5B8L4EC3PjX5o4npnaRinQXuI/0hNMYIvdULjtVErAmCXedFVJ2Yuds8Nh71G4aEHO0kBGGDRCs
-	Z9r6ENh1OLG99vLMD1DD+XVXiSvhTbsqnmYxCwZJr6j++bzvdeHXBlXkjM0bsTMQ7E6SOpQ+qSs0O
-	BShsDJ5bDVdVh4keNfPGKMEamsZNHYvEffKClNIFHz46rM6qpMUu2j3M+mKGVVZf1E02+dJahs5j3
-	z1RQ30vw3rkwX78xoZFA==;
+	List-Owner; bh=5PjUicu85XTI2PDsjIWchQuDTAsNc5HhpaEQ4bhE+Ug=; b=PztMlx8nz4BLV8
+	chZeOFqrYuJT6HBjrSssL3r9Yr4xUyWXF+dY1/Tw3p+pcfIxHJdTRoSoPnZUkKHQV/rpCIE3GC+8p
+	P9Ao280qrra5Wlirt5yw4B/funYNrQYwE3JkeuJvOLye5eBhBIlfD3X1HV5/CJbE+7izkYsbc48Cc
+	M8DueBWoQ6JtoygMh7HHR3hpkUB9xhV1qHZL8X6hzL/cvvAkyX42cSP3aao6eAmsOlN0bJ10ydu4f
+	AO57gP4X+fFYophbkLdFqC1sKtjIersHhhNgfhp3SwYJtGr3f94DyZQMiGSF3DKbjMhcCmiE1ghZ+
+	CXcLXeZBpKtg+EkOYqjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x43M7-0000000AJXj-22RR;
-	Tue, 08 Sep 2026 21:27:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x43y7-0000000AMuJ-3jCN;
+	Tue, 08 Sep 2026 22:07:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x43M6-0000000AJXc-3SJn
+	id 1x43y5-0000000AMtp-3L2g
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 21:27:50 +0000
+	Tue, 08 Sep 2026 22:07:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5558941FCF;
-	Tue,  8 Sep 2026 21:27:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B14D1F00A3A;
-	Tue,  8 Sep 2026 21:27:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 240E640382;
+	Tue,  8 Sep 2026 22:07:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CB041F00A3A;
+	Tue,  8 Sep 2026 22:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788902870;
-	bh=857GXWh5Wp+T+/E/9iEX9gx5IzxzoNleNVwqN+hai+0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=dtiU6qAOIMB++ZEgT7ArQ8A+1eY9m0aeMRbEECD3xRT2B/ws4In3noMgrNS5nR1KS
-	 m4VCI6nzngZOd1tbotVNI1/O/0eRPg1j2dE5zyiNCx+NwsK8xh+ezs9451E2l1tvu3
-	 6zdVf2sq/Rgwe6BoM7QyTvF5blVU7jnLDHxD3FW1NXB5FFot+lq5USwP0cYgV5TQx8
-	 WK8oCBGkvl3yYSPxysiq8ZRZNcqHyx6Ij7PG2u4vke5Yk1TGZX2dcIIanY+n43yhi+
-	 IGOTGtg+1m/6Z2O8tdDC1BD3LzlPWNWpW0fCHuToGYxUI2RTlbMu5JuwDebH6ZUE+E
-	 ysT9xDAklx7Og==
+	s=k20260515; t=1788905225;
+	bh=JoK2n9Z7urXwu7MomxxLbY36ml5lzGDpWoJEJWTo6Js=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ht1oyT2pmfS8hYNjLMLZv8UUdLolw9bM0vdtZG4PTG8bQMpx9IU1W+LbDS4g9HbEY
+	 qnbKlwUqqY+or2QCAlEyVAo1riElAbTP21bEZDYkxNHH5klnLBe6TmZF5TQupdeUyg
+	 WQI+OzzrdXlS9dsds4R9kVBJl+JlOCDNyyiQx7bLfxdbYXumGT7xcfwA1QMv/P+gn3
+	 CYID6n1aMc84oLxAOpBcyHmazgNi24qXeS9bF3Ip886d7DlV5Via6OEMcm8gs1bPF6
+	 wYV0IxvuLLAXfqSWjcmdJZXf+ALB8ZTHsKf3ZZe04KAY9MT/VCntZJrUUAhGbXM3R5
+	 RaDxaspaqSnMg==
+Date: Tue, 8 Sep 2026 22:07:03 +0000
 From: Yixun Lan <dlan@kernel.org>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>
-Cc: Yixun Lan <dlan@kernel.org>,
-	devicetree@vger.kernel.org,
+To: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Xu Yang <xu.yang_2@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>, Peter Chen <peter.chen@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
-	junhui.liu@pigmoral.tech,
-	stable@vger.kernel.org,
-	Guodong Xu <docular.xu@gmail.com>
-Subject: Re: [PATCH V2] riscv: dts: spacemit: k3: fix IMSIC num-guest-ids
-Date: Tue,  8 Sep 2026 21:27:45 +0000
-Message-ID: <178890281743.280809.6794567458346046104.b4-ty@b4>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260817033038.2286436-1-guoren@kernel.org>
-References: <20260817033038.2286436-1-guoren@kernel.org>
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Ze Huang <huang.ze@linux.dev>
+Subject: Re: [PATCH v2 9/9] riscv: defconfig: enable ChipIdea USB controller
+ support
+Message-ID: <20260908220703-GKD2346@kernel.org>
+References: <20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com>
+ <20260908-b4-spacemit-k1-usb2-v2-9-f07342ffa051@linux.spacemit.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260908-b4-spacemit-k1-usb2-v2-9-f07342ffa051@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +82,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Junzhong,
 
-On Mon, 17 Aug 2026 03:30:38 +0000, Guo Ren wrote:
-> The initial K3 device tree used generic/placeholder values for the
-> IMSIC guest configuration:
+On 17:48 Tue 08 Sep     , Junzhong Pan wrote:
+> Enable the ChipIdea USB2 controller and SpacemiT K1 USB2 PHY to support
+> USB2.0 controllers on the SpacemiT K1 SoC.
 > 
->   riscv,num-guest-ids    = <511>;
+> Tested-by: Ze Huang <huang.ze@linux.dev>
+> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+> ---
+>  arch/riscv/configs/defconfig | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> According to the SpacemiT K3 User Manual this values is incorrect
-> for the X100 cores:
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 04ae305d5511..5b556488de66 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -222,6 +222,9 @@ CONFIG_USB_CDNS3_HOST=y
+>  CONFIG_USB_CDNS3_STARFIVE=m
+>  CONFIG_USB_MUSB_HDRC=m
+>  CONFIG_USB_MUSB_SUNXI=m
+> +CONFIG_USB_CHIPIDEA=y
+> +CONFIG_USB_CHIPIDEA_UDC=y
+> +CONFIG_USB_CHIPIDEA_HOST=y
+I know some prefer to enable as loadable module for non major drivers
+so, can you check if it works as module? and alter the config
+
+>  CONFIG_NOP_USB_XCEIV=m
+>  CONFIG_USB_GADGET=y
+>  CONFIG_USB_CONFIGFS=m
+> @@ -272,6 +275,7 @@ CONFIG_PWM=y
+>  CONFIG_PWM_PXA=m
+>  CONFIG_THEAD_C900_ACLINT_SSWI=y
+>  CONFIG_PHY_SUN4I_USB=m
+> +CONFIG_PHY_SPACEMIT_K1_USB2=y
+>  CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=m
+>  CONFIG_PHY_STARFIVE_JH7110_PCIE=m
+>  CONFIG_PHY_STARFIVE_JH7110_USB=m
 > 
-> [...]
+> -- 
+> 2.34.1
+> 
 
-Applied, thanks!
-
-[1/1] riscv: dts: spacemit: k3: fix IMSIC num-guest-ids
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=69f95409f0053f787ad60175944080621a8b7d95
-
-Best regards,
 -- 
-Yixun Lan <dlan@kernel.org>
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
