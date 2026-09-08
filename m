@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008A7C79FAA
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 00:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7F2C79FA1
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 00:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+uOrSpieRrnC2KdDMVG113i2snAjzYMBautqmwMhcYM=; b=DC24Np43o0AZtz
-	+F/w93vbjMUjR7boC9etOLORs7HSnSGk56B4rDmIwUcK9Fo5fTr6WLPqioqXqdtnwT2Cgw1HEC+t6
-	qEKzdhM15TlIqRqvlMl5C+3R5pgbZpsmLUq4S934dsV7T4LclLr010DTU25bhLheOvIbdfRNXlrNM
-	DIFO/BPXEc1qc1JUruLRNW4hAFmMafR+hGRjqehTkp865g/3YGZAQVSeBrK0uj7qx4c1R8QK1vTnf
-	uEbmZWT6gGsTUDTIgVWJu2A7COm+VggobLJ5N0Syd2LK7hb5HltuY9H8nDYq4Te8kYyVLd5kdm8N8
-	UWhzrB2N3jCCGKWlXuwg==;
+	List-Owner; bh=k4oDSXguxPn/R8jQsx1DRBBRRvGr0G8SyxeTxzprL2E=; b=JOtLBes4xwDiBd
+	d7TT3hWaxrWNAuivK6Pe6qfZIK5uxPuvRElcH32+5NbhL039VhCpIpfSe4JJQ3mhBMHZZcXOiMc5Y
+	qq5ayv7RO1aeWkllB0X/7xKGDvkQM961xva9D0pEVD4nASYJsLUb9T6ZoqenHQozDdBgoivOrVIWW
+	doZaCvhHxwvV+Fy3t6WJdQ2B0rGaqiPm4+Y+ETWwQBeVjfXys/1Uv7JUBdf2oswhv04Yj0sRhyPk8
+	w7d6vb6Vk5srliYUimYFwSGW/EVUrIVKhFk+CIyNfO/xmeKoAipKYjejvgwFQVHJCndH5ZY2D1c87
+	deVpmZ//dNLYZNPGaLGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x45ru-0000000ATmU-2lTL;
-	Wed, 09 Sep 2026 00:08:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x45w0-0000000ATzP-12ak;
+	Wed, 09 Sep 2026 00:13:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x45rt-0000000ATmL-3Ucf
+	id 1x45vz-0000000ATyo-0Pn1
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Sep 2026 00:08:49 +0000
+	Wed, 09 Sep 2026 00:13:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 782DE40753;
-	Wed,  9 Sep 2026 00:08:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E03981F00A3A;
-	Wed,  9 Sep 2026 00:08:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 53B4A601FD;
+	Wed,  9 Sep 2026 00:13:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 799451F00A3E;
+	Wed,  9 Sep 2026 00:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788912528;
-	bh=7ksINdiT0UFx/hKh4F2kWOsK2yxMCMTbkrzCWX8HXes=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eTFrmH1ythZRn8310h2B+9Idlt6oNgWQ7p6cGIH1f/WK6SkCZdi8NtTjveyvFTyQ5
-	 bddKJz6zma1DuA3/VfM8SmVsrY+Kwr4iEnxE6qqq+6HWxW6cuBXzDlDlninYttFtAv
-	 5d13UagbwJERi+/SlRpQ4GyhTuV6IOiD0gc8UeV49IgbmgU5eMfqf/IaU2S0CIwEpV
-	 8ZxuAF0ZyV4o6Ba+sG3L1xzka4McqFgiLi61L+dvjSVDBB8M5deHsSU7RR0a0aNy6W
-	 XXIfnBM+I6J9EMEJv+s/ID7YwnKjLBndTYughxxcR7+oMocCl/7+k9GC3p3JkxMYoX
-	 MFcQqCcWe2yOQ==
-Date: Wed, 9 Sep 2026 07:48:57 +0800
+	s=k20260515; t=1788912782;
+	bh=WvJFOaQphIvH9VnjYWr9Zi/URbyT/0/TQJJh1ji7GNg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Flm3snO4XHFwJvNNSOJWDdMXgKq63xYrR0yCU9HmHWUYALOTLFFWDHr6+5aM1yHQA
+	 U1VlqaZ2VLvHQCmLMUIBUIn7rdggbvqEk1/dp9CjXobUS0XFEtqgL1tdtX0F4iBgUR
+	 6ngnJ8Wp3hSI7NiPVbFnB4hoDuHSf6zWPCeZKkbMJOfRnGlDGG94j+Gm3P/cCuJUSE
+	 UjUmntKt7FIFvczywMzuhiAIhDB+Q5GyQbLcwdJEgS00FTPkKC/tCNZ2rBsNEEIUdD
+	 6VzilnJSKQSK/AYm7KJ9qQSkxQUxUQbCkbiibrP9dN63CWjs4QTm8j6scXh5ZpqCtm
+	 D+a5gvxiNi0Wg==
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: Re: [PATCH v2 4/5] riscv: RISCV_ISA_SV48 and RISCV_ISA_SV57 under
- NONPORTABLE
-Message-ID: <aqCe6T8QKtJcLHiM@xhacker>
-References: <20260907151437.7603-1-jszhang@kernel.org>
- <20260907151437.7603-5-jszhang@kernel.org>
- <20260907-backless-theatrics-f19e489bc63f@spud>
- <ap-FtoTqMCnNACJN@xhacker>
- <20260908-deflector-degree-ceca18036811@spud>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/3] riscv: word-at-a-time: improve find_zero() for !RISCV_ISA_ZBB
+Date: Wed,  9 Sep 2026 07:53:10 +0800
+Message-ID: <20260908235312.8440-2-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260908235312.8440-1-jszhang@kernel.org>
+References: <20260908235312.8440-1-jszhang@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260908-deflector-degree-ceca18036811@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,294 +73,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 02:07:27PM +0100, Conor Dooley wrote:
-> On Tue, Sep 08, 2026 at 11:49:10AM +0800, Jisheng Zhang wrote:
-> > On Mon, Sep 07, 2026 at 05:21:11PM +0100, Conor Dooley wrote:
-> > > On Mon, Sep 07, 2026 at 11:14:36PM +0800, Jisheng Zhang wrote:
-> > > > In last commit, we have optimized the pgtable_l4|l5_enabled with isa
-> > > > extension alternative mechanism, thus a typical access_ok(addr, 1);
-> > > > is compiled as:
-> > > > 
-> > > > ffffffff8001dd30:	1141                	addi	sp,sp,-16
-> > > > ffffffff8001dd32:	e022                	sd	s0,0(sp)
-> > > > ffffffff8001dd34:	e406                	sd	ra,8(sp)
-> > > > ffffffff8001dd36:	0800                	addi	s0,sp,16
-> > > > ffffffff8001dd38:	00000013          	nop
-> > > > ffffffff8001dd3c:	02a0006f          	j	ffffffff8001dd66 <foo+0x3e>
-> > > > ffffffff8001dd40:	60a2                	ld	ra,8(sp)
-> > > > ffffffff8001dd42:	6402                	ld	s0,0(sp)
-> > > > ffffffff8001dd44:	57fd                	li	a5,-1
-> > > > ffffffff8001dd46:	83a1                	srli	a5,a5,0x8
-> > > > ffffffff8001dd48:	00a7b533          	sltu	a0,a5,a0
-> > > > ffffffff8001dd4c:	00154513          	xori	a0,a0,1
-> > > > ffffffff8001dd50:	0141                	addi	sp,sp,16
-> > > > ffffffff8001dd52:	8082                	ret
-> > > > ...
-> > > > ffffffff8001dd64:	bfe1                	j	ffffffff8001dd3c <foo+0x14>
-> > > > ffffffff8001dd66:	0180006f          	j	ffffffff8001dd7e <foo+0x56>
-> > > > ffffffff8001dd6a:	60a2                	ld	ra,8(sp)
-> > > > ffffffff8001dd6c:	6402                	ld	s0,0(sp)
-> > > > ffffffff8001dd6e:	57fd                	li	a5,-1
-> > > > ffffffff8001dd70:	83c5                	srli	a5,a5,0x11
-> > > > ffffffff8001dd72:	00a7b533          	sltu	a0,a5,a0
-> > > > ffffffff8001dd76:	00154513          	xori	a0,a0,1
-> > > > ffffffff8001dd7a:	0141                	addi	sp,sp,16
-> > > > ffffffff8001dd7c:	8082                	ret
-> > > > ffffffff8001dd7e:	60a2                	ld	ra,8(sp)
-> > > > ffffffff8001dd80:	6402                	ld	s0,0(sp)
-> > > > ffffffff8001dd82:	57fd                	li	a5,-1
-> > > > ffffffff8001dd84:	83e9                	srli	a5,a5,0x1a
-> > > > ffffffff8001dd86:	00a7b533          	sltu	a0,a5,a0
-> > > > ffffffff8001dd8a:	00154513          	xori	a0,a0,1
-> > > > ffffffff8001dd8e:	0141                	addi	sp,sp,16
-> > > > ffffffff8001dd90:	8082                	ret
-> > > > 
-> > > > As can be seen, different branches for SV39/SV48/SV57 are still there,
-> > > > since access_ok() sits at hot code path, why not reduce the code size
-> > > > to optimize to make the instruction cache happy?
-> > > > 
-> > > > Introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE, so that
-> > > > the embedded platforms can choose the best option themselves, while
-> > > > still keep the feature of unified one kernel Image for all SV39, SV48
-> > > > and SV57.
-> > > > 
-> > > > Before the patch, vmlinux built with pure RISCV64 defconfig
-> > > >    text    data     bss     dec     hex filename
-> > > > 13439437   6790446  483221 20713104 13c0e90 /tmp/old/vmlinux
-> > > > 
-> > > > After the patch, vmlinux built with pure RISCV64 defconfig:
-> > > >    text    data     bss     dec     hex filename
-> > > > 13314445   6787934  466837 20569216 139dc80 /tmp/new/vmlinux
-> > > > 
-> > > > .text section is reduced by 122KB!
-> > > > 
-> > > > And after the patch, typical access_ok(addr, 1) is compiled as:
-> > > > ffffffff8001809a:	1141                	addi	sp,sp,-16
-> > > > ffffffff8001809c:	e022                	sd	s0,0(sp)
-> > > > ffffffff8001809e:	e406                	sd	ra,8(sp)
-> > > > ffffffff800180a0:	0800                	addi	s0,sp,16
-> > > > ffffffff800180a2:	00000013          	nop
-> > > > ffffffff800180a6:	60a2                	ld	ra,8(sp)
-> > > > ffffffff800180a8:	6402                	ld	s0,0(sp)
-> > > > ffffffff800180aa:	4785                	li	a5,1
-> > > > ffffffff800180ac:	179a                	slli	a5,a5,0x26
-> > > > ffffffff800180ae:	00f53533          	sltu	a0,a0,a5
-> > > > ffffffff800180b2:	0141                	addi	sp,sp,16
-> > > > ffffffff800180b4:	8082                	ret
-> > > > 
-> > > > only 12 instruction!! For refernece, before the patch, the access(addr,
-> > > > 1) needs 32 instructions.
-> > > > 
-> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > > ---
-> > > >  arch/riscv/Kconfig                  | 24 ++++++++++++++++++++++++
-> > > >  arch/riscv/include/asm/pgtable-64.h | 12 ++++++++++++
-> > > >  arch/riscv/mm/init.c                | 10 ++++++++++
-> > > >  3 files changed, 46 insertions(+)
-> > > > 
-> > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > index e9476b8cbeb0..4cdb1e3f34be 100644
-> > > > --- a/arch/riscv/Kconfig
-> > > > +++ b/arch/riscv/Kconfig
-> > > > @@ -602,6 +602,30 @@ config RISCV_ISA_SSQOSID
-> > > >  	  cache partitioning scheme and use the MCID to track how much
-> > > >  	  cache a process, or a group of processes, is using.
-> > > >  
-> > > > +config RISCV_ISA_SV48
-> > > > +	bool "Page-Based 48-bit Virtual-Memory System"
-> > > > +	depends on 64BIT && NONPORTABLE
-> > > > +	default y
-> > > 
-> > > I don't understand how you've got this set up here.
-> > > If this is genuinely non-portable, then you should not set the default to
-> > > enabled. However, I'm not really sure that this is actually non-portable
-> > > at all....
-> > > 
-> > > > +	help
-> > > > +	  Add support for the Page-Based 48-bit Virtual-Memory System.
-> > > > +
-> > > > +	  Enable this option for systems for which a 39-bit virtual address
-> > > > +	  space is insufficient. But if 39-bit is enough, disabling this
-> > > > +	  option will result in smaller kernel size and slighly better
-> > > > +	  performance.
-> > > > +
-> > > > +config RISCV_ISA_SV57
-> > > > +	bool "Page-Based 57-bit Virtual-Memory System"
-> > > > +	depends on 64BIT && NONPORTABLE
-> > > > +	default y
-> > > > +	help
-> > > > +	  Add support for the Page-Based 57-bit Virtual-Memory System.
-> > > > +
-> > > > +	  Enable this option for systems for which a 48-bit virtual address
-> > > > +	  space is insufficient. But if 48-bit is enough, disabling this
-> > > > +	  option will result in smaller kernel size and slighly better
-> > > > +	  performance.
-> > > > +
-> > > >  config RISCV_ISA_SVPBMT
-> > > >  	bool "Svpbmt extension support for supervisor mode page-based memory types"
-> > > >  	depends on 64BIT && MMU
-> > > > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> > > > index 7e30ec0e9f6c..f2d29da93eea 100644
-> > > > --- a/arch/riscv/include/asm/pgtable-64.h
-> > > > +++ b/arch/riscv/include/asm/pgtable-64.h
-> > > > @@ -16,21 +16,33 @@ extern bool _pgtable_l5_enabled;
-> > > >  #ifdef USE_EARLY_PGTABLE_LEVELS
-> > > >  static __always_inline bool pgtable_l5_enabled(void)
-> > > >  {
-> > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV57))
-> > > > +		return false;
-> > > > +
-> > > >  	return _pgtable_l5_enabled;
-> > > >  }
-> > > >  
-> > > >  static __always_inline bool pgtable_l4_enabled(void)
-> > > >  {
-> > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV48))
-> > > > +		return false;
-> > > > +
-> > > >  	return _pgtable_l4_enabled;
-> > > >  }
-> > > >  #else
-> > > >  static __always_inline bool pgtable_l4_enabled(void)
-> > > >  {
-> > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV48))
-> > > > +		return false;
-> > > > +
-> > > >  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV48);
-> > > >  }
-> > > >  
-> > > >  static __always_inline bool pgtable_l5_enabled(void)
-> > > >  {
-> > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV57))
-> > > > +		return false;
-> > > > +
-> > > >  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV57);
-> > > >  }
-> > > >  #endif
-> > > 
-> > > ...because the code here won't enable sv57 etc if not supported...
-> > > 
-> > > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > > index 2a2402d79bc4..90bb85c5f167 100644
-> > > > --- a/arch/riscv/mm/init.c
-> > > > +++ b/arch/riscv/mm/init.c
-> > > > @@ -844,6 +844,16 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
-> > > >  
-> > > >  	kernel_map.page_offset = PAGE_OFFSET_L5;
-> > > >  
-> > > > +	/* Fall back to Sv48 if Sv57 is unsupported on non-portable systems */
-> > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV57) &&
-> > > > +			satp_mode_limit == 0)
-> > > > +		satp_mode_limit = SATP_MODE_48;
-> > > 
-> > > ...and neither does the code here.
-> > > 
-> > > > Introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE, so that
-> > > > the embedded platforms can choose the best option themselves, while
-> > > > still keep the feature of unified one kernel Image for all SV39, SV48
-> > > > and SV57.
-> > > 
-> > > NONPORTABLE is what you're meant to depend on when the kernel that gets
-> > > built cannot run on platforms without the feature.
-> > 
-> > The reason I put these two Kconfig options under NONPORTABLE is: all
-> > distributions won't enable NONPORTABLE for their defconfig, and I guess
-> > the distributions want to kept unified one kernel Image for all SV39,
-> > SV48 and SV57.
-> > 
-> > I have no preference whether move them out of NONPORTABLE or not.
-> 
-> Oh right I think I made a mistake in my understanding of what's going on
-> here.
-> 
-> If you turn on NONPORTABLE (but not these new options) then you only get
-> sv39 support. I think what you should do to make the behaviour of these
-> options clearer is invert them.
+Current find_zero() heavily depends on fls64() for calculation. This
+bring non-optimal code when !RISCV_ISA_ZBB.
 
-hmm, other ISA ext Kconfig options are not inverted, so I prefer moving
-SV48|57 out of NONPORTABLE and make them y by default.
+But in word-at-a-time case, we don't have to go with fls64() code path,
+instead, we can fallback to the generic word-at-a-time implementaion.
 
-> 
-> e.g. something like RISCV_ISA_NO_SV57 and RISCV_ISA_NO_SV48. These would
-> then depend on NONPORTABLE and be default n.
-> 
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -16,21 +16,33 @@ extern bool _pgtable_l5_enabled;
->  #ifdef USE_EARLY_PGTABLE_LEVELS
->  static __always_inline bool pgtable_l5_enabled(void)
->  {
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV57))
-> +		return false;
-> +
->  	return _pgtable_l5_enabled;
->  }
->  
->  static __always_inline bool pgtable_l4_enabled(void)
->  {
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_SV48))
-> +		return false;
-> +
->  	return _pgtable_l4_enabled;
->  }
->  #else
->  static __always_inline bool pgtable_l4_enabled(void)
->  {
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV48))
-> +		return false;
-> +
->  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV48);
->  }
->  
->  static __always_inline bool pgtable_l5_enabled(void)
->  {
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV57))
-> +		return false;
-> +
->  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV57);
->  }
->  #endif
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 2a2402d79bc4..90bb85c5f167 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -844,6 +844,16 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
->  
->  	kernel_map.page_offset = PAGE_OFFSET_L5;
->  
-> +	/* Fall back to Sv48 if Sv57 is unsupported on non-portable systems */
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV57) &&
-> +			satp_mode_limit == 0)
-> +		satp_mode_limit = SATP_MODE_48;
-> +
-> +	/* Fall back to Sv39 if Sv48 is unsupported on non-portable systems */
-> +	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV48) &&
-> +			satp_mode_limit == SATP_MODE_48)
-> +		satp_mode_limit = SATP_MODE_39;
-> 
-> 
-> I think that code's behaviour is a bit easier to understand and the
-> options become more obvious in terms of what they do.
-> 
-> Cheers,
-> Conor.
-> 
-> > > 
-> > > > +
-> > > > +	/* Fall back to Sv39 if Sv48 is unsupported on non-portable systems */
-> > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV48) &&
-> > > > +			satp_mode_limit == SATP_MODE_48)
-> > > > +		satp_mode_limit = SATP_MODE_39;
-> > > > +
-> > > >  	if (satp_mode_limit == SATP_MODE_48) {
-> > > >  		disable_pgtable_l5();
-> > > >  	} else if (satp_mode_limit == SATP_MODE_39) {
-> > > > -- 
-> > > > 2.53.0
-> > > > 
-> > 
-> > 
+What's more, the fls64() brings non-necessary zero bits couting for
+RV32. In fact, fls() is enough.
 
+Before the patch:
+
+0000000000000000 <find_zero>:
+   0:	c529                	beqz	a0,4a <.L1>
+   2:	577d                	li	a4,-1
+   4:	9301                	srli	a4,a4,0x20
+   6:	03f00793          	li	a5,63
+   a:	00a76463          	bltu	a4,a0,12 <.L3>
+   e:	1502                	slli	a0,a0,0x20
+  10:	47fd                	li	a5,31
+
+0000000000000012 <.L3>:
+  12:	577d                	li	a4,-1
+  14:	8341                	srli	a4,a4,0x10
+  16:	00a76463          	bltu	a4,a0,1e <.L4>
+  1a:	37c1                	addiw	a5,a5,-16
+  1c:	0542                	slli	a0,a0,0x10
+
+000000000000001e <.L4>:
+  1e:	577d                	li	a4,-1
+  20:	8321                	srli	a4,a4,0x8
+  22:	00a76463          	bltu	a4,a0,2a <.L5>
+  26:	37e1                	addiw	a5,a5,-8
+  28:	0522                	slli	a0,a0,0x8
+
+000000000000002a <.L5>:
+  2a:	577d                	li	a4,-1
+  2c:	8311                	srli	a4,a4,0x4
+  2e:	00a76463          	bltu	a4,a0,36 <.L6>
+  32:	37f1                	addiw	a5,a5,-4
+  34:	0512                	slli	a0,a0,0x4
+
+0000000000000036 <.L6>:
+  36:	577d                	li	a4,-1
+  38:	8309                	srli	a4,a4,0x2
+  3a:	00a76463          	bltu	a4,a0,42 <.L7>
+  3e:	37f9                	addiw	a5,a5,-2
+  40:	050a                	slli	a0,a0,0x2
+
+0000000000000042 <.L7>:
+  42:	00054563          	bltz	a0,4c <.L12>
+  46:	4037d51b          	sraiw	a0,a5,0x3
+
+000000000000004a <.L1>:
+  4a:	8082                	ret
+
+000000000000004c <.L12>:
+  4c:	2785                	addiw	a5,a5,1
+  4e:	4037d51b          	sraiw	a0,a5,0x3
+  52:	8082                	ret
+
+After the patch:
+
+0000000000000000 <find_zero>:
+   0:	102037b7          	lui	a5,0x10203
+   4:	0792                	slli	a5,a5,0x4
+   6:	40578793          	addi	a5,a5,1029 # 10203405 <.L4+0x102033c5>
+   a:	07c2                	slli	a5,a5,0x10
+   c:	60878793          	addi	a5,a5,1544
+  10:	02f50533          	mul	a0,a0,a5
+  14:	9161                	srli	a0,a0,0x38
+  16:	8082                	ret
+
+33 instructions vs 8 instructions!
+
+And this kind of instructions reducing dramatically improves the
+performance of below micro-benchmark:
+
+ $ cat tt.c
+ #inlcude <stdio.h>
+ #inlcude "word-at-a-time.h" // copy and modify, eg. remove other headers
+ int main()
+ {
+ 	int i;
+ 	unsigned long ret = 0;
+
+	for (i = 0; i < 100000000; i++)
+		ret |= find_zero(0xabcd123 + i);
+
+	printf("%ld\n", ret);
+ }
+ $ gcc -O tt.c
+ $ time ./a.out
+
+Per my test, the above micro-benchmark is improved by about 1150%!
+
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/include/asm/word-at-a-time.h | 29 ++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/include/asm/word-at-a-time.h b/arch/riscv/include/asm/word-at-a-time.h
+index 3802cda71ab7..1dcac57a73dd 100644
+--- a/arch/riscv/include/asm/word-at-a-time.h
++++ b/arch/riscv/include/asm/word-at-a-time.h
+@@ -39,9 +39,36 @@ static inline unsigned long create_zero_mask(unsigned long bits)
+ 	return bits >> 7;
+ }
+ 
++#ifdef CONFIG_64BIT
++/*
++ * Jan Achrenius on G+: microoptimized version of
++ * the simpler "(mask & ONEBYTES) * ONEBYTES >> 56"
++ * that works for the bytemasks without having to
++ * mask them first.
++ */
++static inline long count_masked_bytes(unsigned long mask)
++{
++	return mask*0x0001020304050608ul >> 56;
++}
++
++#else	/* 32-bit case */
++
++/* Carl Chatfield / Jan Achrenius G+ version for 32-bit */
++static inline long count_masked_bytes(long mask)
++{
++	/* (000000 0000ff 00ffff ffffff) -> ( 1 1 2 3 ) */
++	long a = (0x0ff0001+mask) >> 23;
++	/* Fix the 1 for 00 case */
++	return a & mask;
++}
++#endif
++
+ static inline unsigned long find_zero(unsigned long mask)
+ {
+-	return fls64(mask) >> 3;
++	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
++		return fls64(mask) >> 3;
++
++	return count_masked_bytes(mask);
+ }
+ 
+ /* The mask we created is directly usable as a bytemask */
+-- 
+2.53.0
 
 
 _______________________________________________
