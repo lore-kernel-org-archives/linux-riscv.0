@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8339CC79FA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 09:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479CDC79FA1
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 10:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GYLtdV6p5mT+hr9US3uDBcYvFiiBVFeGRc9CQOheriQ=; b=pWqR0sYmDprNtd
-	QPae4Zj6jrzQswRYbO3ZplMkrV4UGk630tR7xVTthhf/CEeDJMUT/NpIe6i/Y0/IQbXSXLpaHQLmy
-	yOS0Z8mKt52oytMhshmBGNsfPbjG+DT435AylH23DlKrvziLhmOapb2whB3Vv8BjkYOV/70yV8MLT
-	r9WlBLUrRYypM6MjDHXGXMM6Wa5A4aM3mnKI4oou42lB3Gv5p7gB/sIgObh4U4d65djN0iecWT/6v
-	RhrYJLtTirid7WZBIgKPm38TLBWgVcEG5cn2FQXPCkUrb4clmYP79a2qhN4K+6Nkk+a4bndtx/WfH
-	IlrNtsxa3yzFdInDOu+w==;
+	List-Owner; bh=1R9nptXQc3LyoIViUApxnQDZ4xnix8Xm95LqGpHZyfk=; b=gVUB7m6O77e3Oz
+	hF4E2RiCy9qB9FZ/F3sv7xIZ9INqOJJ4qM1+kJlc8kiS3Bn9V2VULSw0ydl0t5yDpOlnNzf1XIn9B
+	CBIdVJbSkMBfz41SXpqtFe+rgzvOLjd5HylbsXBIcMFNesMApN9ADpnZjs8iRLKtt9TBz20PIvKmP
+	Y3Vlnv3BQJ3sgcRYWz0PffPXBXorhxrFivcltJigIgBxk1cgbLE/x0J6vqTUAcmQRViAhx0COsuN1
+	x9yz1yUYH1Yl3dxHZ+PROKb1XL4Dco7ckNKlx1lt1qwAX2tpYZ4cQrtKgfTY45J3VjKSQIfloSGU7
+	ErSXarJqoRtdIs6oSJPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sc5-00000008hoF-3gBn;
-	Tue, 08 Sep 2026 09:59:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x3sez-00000008iMT-1Ze8;
+	Tue, 08 Sep 2026 10:02:37 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sc4-00000008hmk-3QwP;
-	Tue, 08 Sep 2026 09:59:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=CHEe090zxcvX/G2IQLHQp9iXm/EoC7Qx7nHJQJ/rGtQ=; b=qFuxPgngxSvw4b1gE783OIdOGk
-	aCh1xVz1gdphR/zSDmEp+UMtkdcgkLL1UOBSFR6FX1jemqAeZisR8IfqVYhAsU+GSGw1kkbgFYw8P
-	EY+0gLRpFUIeGTzNyhod0sjhANN9NXkDIMr4rNiQg4zaNS4W3DDwiTs1Xl3ev8FmPnl62ywBWwNDG
-	XbGCrxo9yJYAtQTs8tp1DaUd7NR0q3LbODp4TBV+sD7HesMDfcKOZWiam5Dy3v1eVBCXbHF2iqI24
-	NazPb/PZ+cuNtqHSKMku/eWj3Q91L7QIRKd+8gdBCK6l6pjwwNMwiexbjmgG1g6AcXdYuTw8c1UIp
-	0+sJJvxA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3sc0-0000000HF1j-0aKd;
-	Tue, 08 Sep 2026 09:59:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E6391476;
-	Tue,  8 Sep 2026 02:59:25 -0700 (PDT)
-Received: from [10.164.19.55] (unknown [10.164.19.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CBC43F7B4;
-	Tue,  8 Sep 2026 02:59:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788861569; bh=a/a9VuH1Pbu7fuqb4EF439JhWu4OMvquSWkjlVGi4tM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YR0UOmZKFbfAJ3SQSDswiFS+rXAWEo6USejgl07yJMtcUVzwUvoX92dfUQwwVpdX5
-	 EaS2HlcY5AR9bV7tQg2bFaeizuNwDp69wiztfvHe7QfBZ8M2HAbZx4+U2VfjisKvus
-	 ye1W5JquN+zfg/oiJuWT9J+cxec8MSXZ7ZVkbbDw=
-Message-ID: <88b48587-1f3e-479b-ae9b-67aa643e2acb@arm.com>
-Date: Tue, 8 Sep 2026 15:29:16 +0530
+	id 1x3sew-00000008iKB-066O
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Sep 2026 10:02:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1788861730;
+	bh=AsIdMehAHVx8Vn9co92csSXF/XK0Y8AfqFEfTMs6vWU=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=IWGY9+g0N4J643i6P6VTebvhRdq9bdF/HKLJuHhy/DDLPuTuF30MWpbuAk9imMU5/
+	 n80sPjYLcZ/tTKq6hXiQZ7sHUijOo5jpVTTAd8Z00nafIZjheK05ZInQzRACNQFNds
+	 gARtKOaZnZDOrnTe8xsFTNRj3GYRFsZz4I8z1yZk=
+X-QQ-mid: zesmtpgz4t1788861723t07d26cc1
+X-QQ-Originating-IP: gaC7llghVtvXGohF4L9JNRie7K9GccucX/uj9em3fyM=
+Received: from [192.168.1.100] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 08 Sep 2026 18:02:00 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 7742146852528035138
+EX-QQ-RecipientCnt: 20
+Message-ID: <140A6F61DCF6A29E+a53e2017-306b-460b-bce2-a269c3491509@linux.spacemit.com>
+Date: Tue, 8 Sep 2026 18:01:52 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] mm/vmalloc: make set_area_direct_map HUGE_VMAP
- friendly
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Brendan Jackman <brendan.jackman@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@kernel.org>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
- Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
- Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- loongarch@lists.linux.dev
-References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
- <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
+Subject: Re: [PATCH v2 3/9] usb: chipidea: usb2: use
+ devm_clk_get_optional_enabled()
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+ Xu Yang <xu.yang_2@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+ Peter Chen <peter.chen@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Ze Huang <huang.ze@linux.dev>
+References: <20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com>
+ <20260908-b4-spacemit-k1-usb2-v2-3-f07342ffa051@linux.spacemit.com>
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
+From: Junzhong Pan <panjunzhong@linux.spacemit.com>
+In-Reply-To: <20260908-b4-spacemit-k1-usb2-v2-3-f07342ffa051@linux.spacemit.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: MhBjP4hWpZv/XkDWrLgj2CupeClGVTds+5kNmXaVIvtbVU2lEoup+HHG
+	j97unkHczhBBlTv5PeZaMSe9a22cFTYVIzVlaKeu8HOsKLygM8+xakNCXNBm/PFP23B5/3p
+	yhlbnz2cB5vsflLo2qT6wKSsTpi3gM556vAMZz10PlcKmx+wIiGMaFbxVHuQS7kdU5CF5mO
+	irLeQMpuZo82gmRk+vRZ/Ndro+bXXwNyLzXjq0wOe5fnBAn4ZEOtOIwOso0Ff4E1twARpd6
+	Tt2OzgsnB3y/X+ePDHhOsYt936zZY2DCFDWi5Ec5B8LmY/P/7cd3ZMydOP49RNqVcr6xUud
+	oUQUbaBMzvYSOMv+ZwmTTEi8KfnUu+291BzhRHB+NDOwPNYoLXv4UZaNoQLvShojbE00W51
+	T9YYScjU2b1i0K4/FEKeY6h3Q2e99uYevTyw8skWU5aFDe4bn2ahGuurP7cFxSI8wb2qbxx
+	eFnXbU6yOc/AoOIkmRobrmDYq+U7sZRgxbDOWDVyFN/xGmApCByeMwNcgjb/u0WWYHxQDps
+	Uz3pn0+sq/QnF1fF7lBm4P18kzEjjEH55QN5KMFKnAjbEgumubwaFSpHilxZcl0t3BqIDUA
+	rCkNkiUCNYo19CuX4Gp3DFFGT0tdNc1SNgMMgmJbcRJX507lGJi2TLDhyeuDtc+GO/vbJ92
+	S6O1McPDVUSuIBm971o1QaytITY49aFqaI/rTxKbAzNH71BLH83prXefrvXv++z/6ZNELjA
+	Wk51d9uVPr21OfaEgDq8AeO9kE9bNznN5HVKW3PUFljdqO8BKY3rAKaetaqKjGzqu+aSGMl
+	eNIel9wLVvoA0v8bnPowxlXw5tyeA/Mr9w5xbL4bG8S11a+m9nsSWFoW7JtP0yWe1n1I2Ai
+	EiMrhiOUaK+m+2xFxvwmkaM3dgP347JOl09qy/xJYAdk8bBON5BzZ1/IZSLqj+EuQ74u/xt
+	oGZsdGqUV40656LOkJzbA5qrANjpIr2O8+He98T1zIJZ0sjkWSJtT8Bjqogy7OI7SD+B8oC
+	jbXJpYkTtEJByELZcf27Bfkgxwbym8ya3ysnczvuwUsAoIt6yW/gcBEXaFba6ZP0Mw8T5+g
+	oNJ46xPKrDp22gVA7SgOiavgxSyVgzV9b4PX94xIlXNS5+WHQwKH8zM6b2ODA9Y9w==
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_105932_574658_B0F36C69 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20260908_030234_933629_29A551AC 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,67 +105,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 03/09/26 2:58 pm, Mike Rapoport (Microsoft) wrote:
-> set_area_direct_map() always updates direct map alias permissions in
-> single page increments.
+On 9/8/2026 5:55 PM, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
+> - [High] Double disable and unprepare of the clock during device removal.
+> --
 > 
-> For HUGE_VMAP areas it's suboptimal. Not only the loop in
-> set_area_direct_map() needlessly has more iterations (e.g times 512 on
-> x86), but it also causes fragmentation of the direct map that could be
-> avoided for the HUGE_VMAP areas populated with large pages.
-
-Correct, this would also help us on arm64 once we have ROX caches.
-
-
+> commit d2e0018bd6f14cd49dfa6012d83048e3abde69f6
+> Author: Junzhong Pan <panjunzhong@linux.spacemit.com>
 > 
-> All pages in an area are always of the same order: either same-order
-> large pages when VM_ALLOW_HUGE_VMAP is set and all huge pages were
-> successfully allocated, or order-0 page when VM_ALLOW_HUGE_VMAP is
-> cleared or when huge pages allocation fails and fallback path is taken.
+> usb: chipidea: usb2: use devm_clk_get_optional_enabled()
 > 
-> Instead of updating the direct map permissions for every order-0 page in
-> an area, use the area's page_order as the loop increment and update the
-> large pages in one call to set_direct_map_{invalid,default}_noflush().
+> Convert devm_clk_get_optional() and clk_prepare_enable() into a single
+> call devm_clk_get_optional_enabled().
 > 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
-
-LGTM:
-
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-
-
->  mm/vmalloc.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
+>> diff --git a/drivers/usb/chipidea/ci_hdrc_usb2.c b/drivers/usb/chipidea/ci_hdrc_usb2.c
+>> index 8ffa1e95d8e86..6fae2d4a053a1 100644
+>> --- a/drivers/usb/chipidea/ci_hdrc_usb2.c
+>> +++ b/drivers/usb/chipidea/ci_hdrc_usb2.c
+> [ ... ]
+>> @@ -99,10 +94,6 @@ static int ci_hdrc_usb2_probe(struct platform_device *pdev)
+>>  	pm_runtime_enable(dev);
+>>  
+>>  	return 0;
+>> -
+>> -clk_err:
+>> -	clk_disable_unprepare(priv->clk);
+>> -	return ret;
+>>  }
+>>  
+>>  static void ci_hdrc_usb2_remove(struct platform_device *pdev)
 > 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 5506b180f5c27..6ed6c160abed7 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3367,12 +3367,15 @@ static inline void set_area_direct_map(const struct vm_struct *area,
->  				       int (*set_direct_map)(struct page *page,
->  							     unsigned int nr))
->  {
-> -	unsigned long i;
-> +	unsigned int nr = (1U << vm_area_page_order(area));
-> +
-> +	for (unsigned long i = 0; i < area->nr_pages; i += nr) {
-> +		if (page_address(area->pages[i])) {
-> +			int err = set_direct_map(area->pages[i], nr);
->  
-> -	/* HUGE_VMALLOC passes small pages to set_direct_map */
-> -	for (i = 0; i < area->nr_pages; i++)
-> -		if (page_address(area->pages[i]))
-> -			set_direct_map(area->pages[i], 1);
-> +			WARN_ON_ONCE(err);
-> +		}
-> +	}
->  }
->  
->  /*
+> [Severity: High]
+> Does this conversion also require removing the manual cleanup in
+> ci_hdrc_usb2_remove()?
 > 
+> Since the clock is now managed by devm_clk_get_optional_enabled(), it will
+> automatically handle disabling and unpreparing the clock when the device
+> is removed. 
+> 
+> Leaving the manual clk_disable_unprepare(priv->clk) in ci_hdrc_usb2_remove():
+> 
+> static void ci_hdrc_usb2_remove(struct platform_device *pdev)
+> {
+> 	struct ci_hdrc_usb2_priv *priv = platform_get_drvdata(pdev);
+> 
+> 	pm_runtime_disable(&pdev->dev);
+> 	ci_hdrc_remove_device(priv->ci_pdev);
+> 	clk_disable_unprepare(priv->clk);
+> }
+> 
+> appears to result in a double disable and unprepare of the clock during
+> device removal, which could lead to unbalanced reference counts and trigger
+> kernel warnings.
+
+Ok, I will fix this in v3. Thanks.
 
 
 _______________________________________________
