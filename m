@@ -4,55 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801A8C79F99
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 13:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E278C79F82
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 13:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yBJ1KN39kvsxRk+WHblYgj5cRgdRcwntHwS5ElhlYeA=; b=lmG1F8zn6Hg609f9ka7rdp92R7
-	B/Y8E/VRdxsGNUJ7rfUVo8gcLi8fHqlQbzWs79Vz2Rv5lgihB9mfzw71gVVfdsr70hR8RfLXpzn/P
-	WveL3IOzPKbdlnayBBrjFfkYUd5YqNiizp8JoIqG1q6paeSuGt+AEBEYZ6GdUgTFA4lW6JQ4Ze28J
-	ETcys1tsGUVSlBFVbZWrvp3XBRGerTZ+/3cAqXNGO5QNL4hwrYFH6qPrcRGYxhR13OfwJB/geFYKh
-	FXw8Dbe4QdodOEV+SCDS46Azrc9eon3abLPrYr7o+7F3UoWJT8is8D/Vk/+66G0QTNl2YPQL0Z7d8
-	LSG9eZVg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Bb1QFMPZiL6wynJJ5bIPs1B6fOBFTP/kFcK0fci8BEQ=; b=HMu88HfIeTvemZ
+	QsZm+1+eUpSaFQk/JBBH1VPW7xWFJkHm+OQBGFo2hbVyZJE184Vxa3b/4WvWWy3bjSd7G65w6v5pU
+	Rg8Z7EpcPLueWm8ueJ1EnZfv/82ZR3fRIT0W0eW8fX5tFqMRzTwyghaZfxzhm//3B+idmPhyVZCsz
+	uLGpjBFKjTm85Jpe9S4vyqysb5atEP+w9WSKHClDYn2t27wWWsLiHDn5RLC71W1qPR3JeLCpnzeWw
+	b2ogxgRdH17XHrP4KubW4rwOhqGwkmBhp/lQln4fFb+7EFdyXxkriG1kn69ysg9690cRGIuXVVq2C
+	RLrdhblYTjXtVDTeLm2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vYG-000000096pN-1zQE;
-	Tue, 08 Sep 2026 13:07:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3vZ3-000000096xV-2kAK;
+	Tue, 08 Sep 2026 13:08:41 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vYF-000000096oy-0rRH
+	id 1x3vZ0-000000096wn-3mCr
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 13:07:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBF16409EF;
-	Tue,  8 Sep 2026 13:07:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DC201F00A3A;
-	Tue,  8 Sep 2026 13:07:48 +0000 (UTC)
-Date: Tue, 8 Sep 2026 14:07:27 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: Re: [PATCH v2 4/5] riscv: RISCV_ISA_SV48 and RISCV_ISA_SV57 under
- NONPORTABLE
-Message-ID: <20260908-deflector-degree-ceca18036811@spud>
-References: <20260907151437.7603-1-jszhang@kernel.org>
- <20260907151437.7603-5-jszhang@kernel.org>
- <20260907-backless-theatrics-f19e489bc63f@spud>
- <ap-FtoTqMCnNACJN@xhacker>
+	Tue, 08 Sep 2026 13:08:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1788872913; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=lZOJZ1eXA52ShReNf9dL+c4a3gllm4PudhUTHQNpfUI=;
+	b=r9ZOx5PGf0NRmLJOUPdvc7WFOcP18Qr8g4ttnw0niASlGqGtRI63Jfhkm1iJfukT3mEOCGkwH2ak6dzhMenPJ5iYdLGkBRvKaliuSWGsSzR+vl6eYZB6ULIb20kTOtfyXgfEP7hq+b+k7sGFryFbjJgwUDszvNKWYygvqZZFa5U=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0XAbablx_1788872910;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XAbablx_1788872910 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 08 Sep 2026 21:08:32 +0800
+From: fangyu.yu@linux.alibaba.com
+To: andrew.jones@oss.qualcomm.com
+Cc: anup@brainfault.org,
+	fangyu.yu@linux.alibaba.com,
+	iommu@lists.linux.dev,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	joro@8bytes.org,
+	kevin.tian@intel.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	tglx@kernel.org,
+	tjeznach@rivosinc.com,
+	tomasz.jeznach@linux.dev,
+	will@kernel.org
+Subject: Re: [PATCH v5 00/17] iommu/riscv: Enable MSI remapping, IOMMU_DMA and VFIO
+Date: Tue,  8 Sep 2026 21:08:28 +0800
+Message-Id: <20260908130828.14195-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20260831145943.313726-1-andrew.jones@oss.qualcomm.com>
+References: <20260831145943.313726-1-andrew.jones@oss.qualcomm.com>
 MIME-Version: 1.0
-In-Reply-To: <ap-FtoTqMCnNACJN@xhacker>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_060839_104209_CEDAC5BA 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,340 +76,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2421107815730095746=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2421107815730095746==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ojkIykMDr8vtsB1t"
-Content-Disposition: inline
+>This series adds MSI remapping for IMSIC so a device's MSI target gets
+>translated the same way its DMA does, allowing RISC-V to enable IOMMU_DMA
+>and paging domains by default.
+>
+>v1[1] used get_resv_regions() with IOMMU_RESV_DIRECT_RELAXABLE to identity
+>map IMSIC pages, but that was rejected as only a workaround. v2 through
+>v4[2] instead introduced a RISC-V IOMMU IRQ domain which pre-mapped every
+>possible IMSIC target and maintained a domain-local PA-to-IOVA table. The
+>v4 discussion with Jason identified a simpler way to handle the RISC-V
+>requirement that the MSI target address changes with interrupt affinity:
+>extend the existing iommu_dma_prepare_msi() model to prepare an ordered
+>list of MSI targets as one contiguous IOVA range. v5 is a complete redesign
+>around that approach.
+>
+>The IMSIC driver now builds an array containing the supervisor IMSIC page
+>for every possible CPU, indexed by logical CPU number. When allocating an
+>IRQ, it passes the complete array to iommu_dma_prepare_msi_list(). The new
+>API maps the ordered physical address list into one contiguous IOVA range
+>through either DMA-IOMMU or iommufd, then caches the base IOVA and mapping
+>granule in the MSI descriptor. MSI composition can therefore select the
+>target for the current CPU with simple arithmetic, including during an
+>affinity change, without allocating memory or consulting IOMMU-owned state
+>in atomic context.
+>
+>DMA-IOMMU extends its existing per-page MSI cache to recognize and reuse
+>complete ranges. iommufd grows its software-MSI bitmap on demand, bounds
+>allocations to the reserved MSI window, and prepares, installs, rolls back,
+>and replays a range as one unit. This keeps the descriptor's contiguous
+>IOVA valid across iommufd paging-domain replacement without exposing a
+>partially installed range.
+>
+>Unlike v4, v5 has no RISC-V IOMMU IRQ domain, no domain-local IMSIC mapping
+>table, and no IOMMU lookup during MSI composition. The IMSIC IRQ domain
+>owns the target list and message composition, while the IOMMU layers only
+>provide the mappings. Devices which do not need IOMMU MSI translation keep
+>using physical MSI addresses through the same IMSIC path.
+>
+>The series also carries the remaining plumbing needed for RISC-V PCIe
+>device assignment through VFIO/KVM: the RISC-V IOMMU reports DMA
+>cache-coherency capability for coherent devices, VFIO type1 and KVM_VFIO
+>are enabled for RISC-V, defconfig enables IOMMUFD/VFIO as modules with cdev
+>support, and the generic VFIO/iommufd selftests can be built for RISC-V.
+>The RISC-V IOMMU specification does not provide MSI data validation, so
+>VFIO device assignment requires the applicable allow_unsafe_interrupts=1
+>module parameter. Direct MSI routing to guest interrupt files (irqbypass)
+>is not yet supported by this series and will be posted separately on top.
+>
 
---ojkIykMDr8vtsB1t
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Andrew:
 
-On Tue, Sep 08, 2026 at 11:49:10AM +0800, Jisheng Zhang wrote:
-> On Mon, Sep 07, 2026 at 05:21:11PM +0100, Conor Dooley wrote:
-> > On Mon, Sep 07, 2026 at 11:14:36PM +0800, Jisheng Zhang wrote:
-> > > In last commit, we have optimized the pgtable_l4|l5_enabled with isa
-> > > extension alternative mechanism, thus a typical access_ok(addr, 1);
-> > > is compiled as:
-> > >=20
-> > > ffffffff8001dd30:	1141                	addi	sp,sp,-16
-> > > ffffffff8001dd32:	e022                	sd	s0,0(sp)
-> > > ffffffff8001dd34:	e406                	sd	ra,8(sp)
-> > > ffffffff8001dd36:	0800                	addi	s0,sp,16
-> > > ffffffff8001dd38:	00000013          	nop
-> > > ffffffff8001dd3c:	02a0006f          	j	ffffffff8001dd66 <foo+0x3e>
-> > > ffffffff8001dd40:	60a2                	ld	ra,8(sp)
-> > > ffffffff8001dd42:	6402                	ld	s0,0(sp)
-> > > ffffffff8001dd44:	57fd                	li	a5,-1
-> > > ffffffff8001dd46:	83a1                	srli	a5,a5,0x8
-> > > ffffffff8001dd48:	00a7b533          	sltu	a0,a5,a0
-> > > ffffffff8001dd4c:	00154513          	xori	a0,a0,1
-> > > ffffffff8001dd50:	0141                	addi	sp,sp,16
-> > > ffffffff8001dd52:	8082                	ret
-> > > ...
-> > > ffffffff8001dd64:	bfe1                	j	ffffffff8001dd3c <foo+0x14>
-> > > ffffffff8001dd66:	0180006f          	j	ffffffff8001dd7e <foo+0x56>
-> > > ffffffff8001dd6a:	60a2                	ld	ra,8(sp)
-> > > ffffffff8001dd6c:	6402                	ld	s0,0(sp)
-> > > ffffffff8001dd6e:	57fd                	li	a5,-1
-> > > ffffffff8001dd70:	83c5                	srli	a5,a5,0x11
-> > > ffffffff8001dd72:	00a7b533          	sltu	a0,a5,a0
-> > > ffffffff8001dd76:	00154513          	xori	a0,a0,1
-> > > ffffffff8001dd7a:	0141                	addi	sp,sp,16
-> > > ffffffff8001dd7c:	8082                	ret
-> > > ffffffff8001dd7e:	60a2                	ld	ra,8(sp)
-> > > ffffffff8001dd80:	6402                	ld	s0,0(sp)
-> > > ffffffff8001dd82:	57fd                	li	a5,-1
-> > > ffffffff8001dd84:	83e9                	srli	a5,a5,0x1a
-> > > ffffffff8001dd86:	00a7b533          	sltu	a0,a5,a0
-> > > ffffffff8001dd8a:	00154513          	xori	a0,a0,1
-> > > ffffffff8001dd8e:	0141                	addi	sp,sp,16
-> > > ffffffff8001dd90:	8082                	ret
-> > >=20
-> > > As can be seen, different branches for SV39/SV48/SV57 are still there,
-> > > since access_ok() sits at hot code path, why not reduce the code size
-> > > to optimize to make the instruction cache happy?
-> > >=20
-> > > Introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE, so that
-> > > the embedded platforms can choose the best option themselves, while
-> > > still keep the feature of unified one kernel Image for all SV39, SV48
-> > > and SV57.
-> > >=20
-> > > Before the patch, vmlinux built with pure RISCV64 defconfig
-> > >    text    data     bss     dec     hex filename
-> > > 13439437   6790446  483221 20713104 13c0e90 /tmp/old/vmlinux
-> > >=20
-> > > After the patch, vmlinux built with pure RISCV64 defconfig:
-> > >    text    data     bss     dec     hex filename
-> > > 13314445   6787934  466837 20569216 139dc80 /tmp/new/vmlinux
-> > >=20
-> > > .text section is reduced by 122KB!
-> > >=20
-> > > And after the patch, typical access_ok(addr, 1) is compiled as:
-> > > ffffffff8001809a:	1141                	addi	sp,sp,-16
-> > > ffffffff8001809c:	e022                	sd	s0,0(sp)
-> > > ffffffff8001809e:	e406                	sd	ra,8(sp)
-> > > ffffffff800180a0:	0800                	addi	s0,sp,16
-> > > ffffffff800180a2:	00000013          	nop
-> > > ffffffff800180a6:	60a2                	ld	ra,8(sp)
-> > > ffffffff800180a8:	6402                	ld	s0,0(sp)
-> > > ffffffff800180aa:	4785                	li	a5,1
-> > > ffffffff800180ac:	179a                	slli	a5,a5,0x26
-> > > ffffffff800180ae:	00f53533          	sltu	a0,a0,a5
-> > > ffffffff800180b2:	0141                	addi	sp,sp,16
-> > > ffffffff800180b4:	8082                	ret
-> > >=20
-> > > only 12 instruction!! For refernece, before the patch, the access(add=
-r,
-> > > 1) needs 32 instructions.
-> > >=20
-> > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > ---
-> > >  arch/riscv/Kconfig                  | 24 ++++++++++++++++++++++++
-> > >  arch/riscv/include/asm/pgtable-64.h | 12 ++++++++++++
-> > >  arch/riscv/mm/init.c                | 10 ++++++++++
-> > >  3 files changed, 46 insertions(+)
-> > >=20
-> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > index e9476b8cbeb0..4cdb1e3f34be 100644
-> > > --- a/arch/riscv/Kconfig
-> > > +++ b/arch/riscv/Kconfig
-> > > @@ -602,6 +602,30 @@ config RISCV_ISA_SSQOSID
-> > >  	  cache partitioning scheme and use the MCID to track how much
-> > >  	  cache a process, or a group of processes, is using.
-> > > =20
-> > > +config RISCV_ISA_SV48
-> > > +	bool "Page-Based 48-bit Virtual-Memory System"
-> > > +	depends on 64BIT && NONPORTABLE
-> > > +	default y
-> >=20
-> > I don't understand how you've got this set up here.
-> > If this is genuinely non-portable, then you should not set the default =
-to
-> > enabled. However, I'm not really sure that this is actually non-portable
-> > at all....
-> >=20
-> > > +	help
-> > > +	  Add support for the Page-Based 48-bit Virtual-Memory System.
-> > > +
-> > > +	  Enable this option for systems for which a 39-bit virtual address
-> > > +	  space is insufficient. But if 39-bit is enough, disabling this
-> > > +	  option will result in smaller kernel size and slighly better
-> > > +	  performance.
-> > > +
-> > > +config RISCV_ISA_SV57
-> > > +	bool "Page-Based 57-bit Virtual-Memory System"
-> > > +	depends on 64BIT && NONPORTABLE
-> > > +	default y
-> > > +	help
-> > > +	  Add support for the Page-Based 57-bit Virtual-Memory System.
-> > > +
-> > > +	  Enable this option for systems for which a 48-bit virtual address
-> > > +	  space is insufficient. But if 48-bit is enough, disabling this
-> > > +	  option will result in smaller kernel size and slighly better
-> > > +	  performance.
-> > > +
-> > >  config RISCV_ISA_SVPBMT
-> > >  	bool "Svpbmt extension support for supervisor mode page-based memor=
-y types"
-> > >  	depends on 64BIT && MMU
-> > > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include=
-/asm/pgtable-64.h
-> > > index 7e30ec0e9f6c..f2d29da93eea 100644
-> > > --- a/arch/riscv/include/asm/pgtable-64.h
-> > > +++ b/arch/riscv/include/asm/pgtable-64.h
-> > > @@ -16,21 +16,33 @@ extern bool _pgtable_l5_enabled;
-> > >  #ifdef USE_EARLY_PGTABLE_LEVELS
-> > >  static __always_inline bool pgtable_l5_enabled(void)
-> > >  {
-> > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_=
-SV57))
-> > > +		return false;
-> > > +
-> > >  	return _pgtable_l5_enabled;
-> > >  }
-> > > =20
-> > >  static __always_inline bool pgtable_l4_enabled(void)
-> > >  {
-> > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_=
-SV48))
-> > > +		return false;
-> > > +
-> > >  	return _pgtable_l4_enabled;
-> > >  }
-> > >  #else
-> > >  static __always_inline bool pgtable_l4_enabled(void)
-> > >  {
-> > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_=
-SV48))
-> > > +		return false;
-> > > +
-> > >  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV48);
-> > >  }
-> > > =20
-> > >  static __always_inline bool pgtable_l5_enabled(void)
-> > >  {
-> > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_=
-SV57))
-> > > +		return false;
-> > > +
-> > >  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV57);
-> > >  }
-> > >  #endif
-> >=20
-> > ...because the code here won't enable sv57 etc if not supported...
-> >=20
-> > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > index 2a2402d79bc4..90bb85c5f167 100644
-> > > --- a/arch/riscv/mm/init.c
-> > > +++ b/arch/riscv/mm/init.c
-> > > @@ -844,6 +844,16 @@ static __init void set_satp_mode(uintptr_t dtb_p=
-a)
-> > > =20
-> > >  	kernel_map.page_offset =3D PAGE_OFFSET_L5;
-> > > =20
-> > > +	/* Fall back to Sv48 if Sv57 is unsupported on non-portable systems=
- */
-> > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_=
-SV57) &&
-> > > +			satp_mode_limit =3D=3D 0)
-> > > +		satp_mode_limit =3D SATP_MODE_48;
-> >=20
-> > ...and neither does the code here.
-> >=20
-> > > Introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE, so that
-> > > the embedded platforms can choose the best option themselves, while
-> > > still keep the feature of unified one kernel Image for all SV39, SV48
-> > > and SV57.
-> >=20
-> > NONPORTABLE is what you're meant to depend on when the kernel that gets
-> > built cannot run on platforms without the feature.
->=20
-> The reason I put these two Kconfig options under NONPORTABLE is: all
-> distributions won't enable NONPORTABLE for their defconfig, and I guess
-> the distributions want to kept unified one kernel Image for all SV39,
-> SV48 and SV57.
->=20
-> I have no preference whether move them out of NONPORTABLE or not.
+I tested this on riscv64 QEMU with an emulated NVMe device and e1000e
+network adapter. The fio and iperf3 tests both completed successfully,
+and the interrupt status was as expected.
 
-Oh right I think I made a mistake in my understanding of what's going on
-here.
+For this series
+Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-If you turn on NONPORTABLE (but not these new options) then you only get
-sv39 support. I think what you should do to make the behaviour of these
-options clearer is invert them.
-
-e.g. something like RISCV_ISA_NO_SV57 and RISCV_ISA_NO_SV48. These would
-then depend on NONPORTABLE and be default n.
-
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -16,21 +16,33 @@ extern bool _pgtable_l5_enabled;
- #ifdef USE_EARLY_PGTABLE_LEVELS
- static __always_inline bool pgtable_l5_enabled(void)
- {
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV57))
-+		return false;
-+
- 	return _pgtable_l5_enabled;
- }
-=20
- static __always_inline bool pgtable_l4_enabled(void)
- {
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_SV48))
-+		return false;
-+
- 	return _pgtable_l4_enabled;
- }
- #else
- static __always_inline bool pgtable_l4_enabled(void)
- {
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV48))
-+		return false;
-+
- 	return riscv_has_extension_likely(RISCV_ISA_EXT_SV48);
- }
-=20
- static __always_inline bool pgtable_l5_enabled(void)
- {
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV57))
-+		return false;
-+
- 	return riscv_has_extension_likely(RISCV_ISA_EXT_SV57);
- }
- #endif
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 2a2402d79bc4..90bb85c5f167 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -844,6 +844,16 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
-=20
- 	kernel_map.page_offset =3D PAGE_OFFSET_L5;
-=20
-+	/* Fall back to Sv48 if Sv57 is unsupported on non-portable systems */
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV57) &&
-+			satp_mode_limit =3D=3D 0)
-+		satp_mode_limit =3D SATP_MODE_48;
-+
-+	/* Fall back to Sv39 if Sv48 is unsupported on non-portable systems */
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_NO_SV48) &&
-+			satp_mode_limit =3D=3D SATP_MODE_48)
-+		satp_mode_limit =3D SATP_MODE_39;
-
-
-I think that code's behaviour is a bit easier to understand and the
-options become more obvious in terms of what they do.
-
-Cheers,
-Conor.
-
-> >=20
-> > > +
-> > > +	/* Fall back to Sv39 if Sv48 is unsupported on non-portable systems=
- */
-> > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_=
-SV48) &&
-> > > +			satp_mode_limit =3D=3D SATP_MODE_48)
-> > > +		satp_mode_limit =3D SATP_MODE_39;
-> > > +
-> > >  	if (satp_mode_limit =3D=3D SATP_MODE_48) {
-> > >  		disable_pgtable_l5();
-> > >  	} else if (satp_mode_limit =3D=3D SATP_MODE_39) {
-> > > --=20
-> > > 2.53.0
-> > >=20
->=20
->=20
-
---ojkIykMDr8vtsB1t
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaqAIjgAKCRB4tDGHoIJi
-0ujyAQCZNoXS59tkNOfPdsRIOypha8CXUfSjoDRvXEOwPyUC6QEAxDOY6wDvGO4o
-1/mnqss4ThrJQf7gj3lCaaSfA1pRhwg=
-=gepE
------END PGP SIGNATURE-----
-
---ojkIykMDr8vtsB1t--
-
-
---===============2421107815730095746==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>LLM-based coding assistants were used during development for code
+>exploration, patch review, test execution, and drafting and editing
+>commit messages and this cover letter. I reviewed and finalized all
+>resulting code and text. Per-patch Assisted-by tags are omitted in
+>light of ongoing discussions about simplifying coding-assistant
+>attribution.
+>
+>Thanks,
+>drew
+>
+>[1] https://lore.kernel.org/all/20260508212339.381933-1-andrew.jones@oss.qualcomm.com/
+>[2] https://lore.kernel.org/all/20260820214150.545737-1-andrew.jones@oss.qualcomm.com/
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2421107815730095746==--
-
