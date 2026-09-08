@@ -4,39 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BE7C79FA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 10:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5535CC79F82
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 10:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JihAzEXquR4102+7TGPdOtiJUDa1Q//K9e3c2pRi5VM=; b=jA0omGg3xbal72
-	oAr07lhc8OkKieUHmWK1DTFYUNUo/oRIhKjApbu9FxWzGAZ+cFB/qZSQax/yoN/c3MuaAXjsMf8uo
-	lypLZ9anGBnfK7+06uBs4X7+bfw57ljHDV5YjLLVDHww5xZQN9lN8dAx+oKqc8DnXynjcNPNDpivo
-	VS+/vRpflyxUX8W8/r2ZJA0fNR9Jrl1toUMU1wTSZjip5wW6fpO07mRDo2JQSBJvX/apY4VlA4UXO
-	R12oBGR8UplavZj1zucMHx2Ogebyf++uIk8SdExap2INnzaq6CAUWSVtsrVyh0LEAY2BL5Yjks3l1
-	Lc6UI1Lkj7W2CtdfcxAw==;
+	List-Owner; bh=zMncqpVpEuER0rVG7z21Hy/TNcyaSn7gCPe9Fjv5KzM=; b=Xjbe4FngMQIL20
+	fdY9M5D+UF8Ar/TZjSBy+Lh8XE1HAIbfTtGQvmxQty+QDWRXpZRwtkUyxpRUEvQoBeoEQol1DxsEQ
+	RXkAK+zC+nsc09UY2i8HW9YOJgC2+8w4fhqD6qx/LWk4bLmy2/53wKVPE8Yw1TsGVirjnvaiSdoGo
+	8ggWJCNWXI8wnwXZNM3wbgzU9xq7wzlgXxRh3dszKwuhxEJ7dXJ68ybMiNIGuPZsJcNwjONOCH5ft
+	WEldpnzHhPaHxuquwTqcwsNx9oXQYfWJpmFNB5rHOLuoGX7cqXhaOkBlqi8ME0g9TzNV8LG497Aqu
+	1aO+7eE8uA9fbNEI7J+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tEE-00000008n6f-05TQ;
-	Tue, 08 Sep 2026 10:39:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3tEn-00000008nGB-1FKX;
+	Tue, 08 Sep 2026 10:39:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3tEC-00000008n5o-1uxB;
-	Tue, 08 Sep 2026 10:39:00 +0000
+	id 1x3tEm-00000008nFS-1Yk9;
+	Tue, 08 Sep 2026 10:39:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1405D601DB;
-	Tue,  8 Sep 2026 10:38:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 398421F00A3A;
-	Tue,  8 Sep 2026 10:38:47 +0000 (UTC)
-Message-ID: <a98df077-3e97-4eea-8bfe-470bad9ff9e0@kernel.org>
-Date: Tue, 8 Sep 2026 12:38:44 +0200
+	by sea.source.kernel.org (Postfix) with ESMTP id 228E242B97;
+	Tue,  8 Sep 2026 10:39:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A6E71F00A3A;
+	Tue,  8 Sep 2026 10:39:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788863976;
+	bh=YjJUbcma5aHPiCDKq7gAqglFN4GHXWVPea1PTRoIqQA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Z85uGoCqW2p5OrfqlMbTAXWNhCWyeFTtc6hPJunew+AqwO8w3KB84dcM7HtTXc+Dp
+	 kIrVqA2uHjib4MQly5gG2sAWV4JPCDgZISbnhtgKcwHR0xCz3uoLmbPWy83eL6Z/Cn
+	 7Lv/ROM/uizyH06RQra7gnEsreWgzAfIm1COqq1/Jt9LqHb15MQ60SKteLfcaZSGfI
+	 3GWTl8KLB7IIHzthOvHejwNUNWLKZhaPmnBi5AvPtpnqb+e2YL/n96OxzCrewy3Byx
+	 lQOgGTIiQ5sPobSvuqfU6Zg9lgBvOxQl/s7HfzGNxSg2KmHXL0TCEKI4aeLa4S2kBG
+	 Aax0efOl35LZw==
+Message-ID: <610ebd79-3ad4-432c-ac92-b8956d7150d1@kernel.org>
+Date: Tue, 8 Sep 2026 12:39:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/6] set_memory: add number of pages parameter to
- set_direct_map APIs
+Subject: Re: [PATCH v3 3/6] mm/vmalloc: constify vm parameter of
+ get_vm_area_page_order()
 To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>
 Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
@@ -62,7 +72,7 @@ Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
  linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
  loongarch@lists.linux.dev
 References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
- <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-3-949b64a9f755@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -109,7 +119,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-3-949b64a9f755@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,37 +137,16 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 9/3/26 11:28, Mike Rapoport (Microsoft) wrote:
-> When set_direct_map APIs were introduced by the commit d253ca0c3865
-> ("x86/mm/cpa: Add set_direct_map_*() functions") the single page
-> parameter made sense because the initial callers (vmalloc and
-> hibernation) had sets of unsorted struct pages that required changes of
-> their mappings in the direct map.
+> get_vm_area_page_order() and vm_area_page_order() do not need to modify
+> struct vm_struct passed to them.
 > 
-> Since there is an increasing demand for direct map manipulation and it
-> is also desirable to be able to update larger physically contiguous
-> mappings, for example an entire large folio, extend set_direct_map APIs
-> to receive number of pages parameter.
+> Constify the parameter.
 > 
-> As there is still only a handful of callers, change the existing
-> functions directly and update all the call sites rather than adding
-> wrappers for single page case.
-> 
+> Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
-In general, LGTM.
 
-But regarding semantics, is it well defined what happens when an update fails
-halfway through an operation?
-
-I'd assume such a case cannot currently get triggered, but there is no
-documentation on what's supported and what's not. Or is there?
-
-Imagine someone performing an update on an area that partially spans two PMDs.
-While splitting and updating the first PMD could succeed, splitting the second
-PMD could fail. What would be the end result? Rollback? Does the caller have to
-clean up?
-
-I'd appreciate if we could add proper documentation with expected semantics.
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
