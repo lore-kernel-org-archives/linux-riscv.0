@@ -4,78 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B854C79F99
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 00:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8394C79F9E
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 02:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h7sSla3p8IadQiQQjdveJu85Cvz8/gfEcVeLVo+0Sj0=; b=VqTwDcFNT6MJV2
-	af+KM12u7qiSjpdIA5QU9jmbJg/1lI6toL0lXVDEMcUFI+JIDrIaGRXE/IQ+kQvR2gUnCyKlyMkG3
-	gMDdk/SG7rUCyn+Gz0xuFw/JbZMIRWrYMLKAo5zq9OnX8wSKBKE9WWiz1Id+HdPop1AN31BMe1K7G
-	mbPjbOvoPncJC73gnyuSIh/c5TcC0pV4dhutotzrsvKj5UWd6+yj89XRJs3OQxYQY1NJMEFzMpTPz
-	FZg9aAi45G2mbgxkoXHGbgCne+isJ4A7/QWs0m/OKFQefpSc9sY+2u1fjBJdAwrlphokpK42LbCqH
-	cuKNVkLKQrqdoKljOLNA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3Ua/BX3g/fsElOh5IdWnxOhjb0pZp4nseZB4tAa3J6w=; b=F15I3tIBNsRDMH
+	wS3mnhn9r7xi7rJxYFR/pU5/SqNkr+s57IhHH/B8N02KBwxpTXYG/X5sxszG9iyb/Rjwa3fBdvzAd
+	Es9ei3KrYamYjmpWsVC3y+IOgGa8CsdxwzwiX9PAcJ4ierrIPEcloatnBLlh7gOdkbmvs2saX6fwi
+	zXg82eqTSN7HlbscwoA0T1NjfXCfnC+OUhCyCUXckg4bCfzOMZUND7rHOmvHLeYjUxMzAsXVi9uiC
+	wJY56aLjyYiUvFcQqXFDtbwHBYvl0x5Sh9hrm9yWVEKTcfbkpaO9DhVJLkLaiFomlVEu2y5Qzjyas
+	uX4iFRMowqmpkjbeYasg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3jH6-00000007qpK-03Tw;
-	Tue, 08 Sep 2026 00:01:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3lBi-00000007ulX-3twM;
+	Tue, 08 Sep 2026 02:03:54 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3jH2-00000007qp0-3NE1;
-	Tue, 08 Sep 2026 00:01:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77019601FB;
-	Tue,  8 Sep 2026 00:01:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26BF71F00A3A;
-	Tue,  8 Sep 2026 00:01:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788825675;
-	bh=bcbXPgqqmhCGAYehVpdlPlHAVlBttNgjeXnR1sVfUjg=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=QieT0c/hEJuFm2V6fmOk29kMSBvFDbkIgsgSb6O2FnZgG/eWwIBwY7a7zrFi22m2e
-	 kbRJ5PRU2DEGfr8SpR3aD9y3j8k1lJAjt/6D5wx12NqREIHoI8WVA3H6bRDQxMVV3t
-	 MzOztgSXL1SfVGaG6oz82vSAuWh+VgCZQ08/lpuqhfzQQ+NfN5Fghwss5du/mdjlK0
-	 MGahfnhuHRV6OjOqoRger4y85JkAE3DOkBN3iWLnQGNZ8Sl/EVjajesxaScF6FEzBn
-	 E3Wivo9yluKmAC0megzUZptoDMe1OTCA+yP+K5CH1kvgt4gO+uE1vRTOV8S70Gf/Vb
-	 iUHZh9IHG5XfQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 56B3039E8A5A;
-	Tue,  8 Sep 2026 00:00:15 +0000 (UTC)
+	id 1x3lBg-00000007uka-0nJf
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Sep 2026 02:03:53 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso4439607a91.3
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Sep 2026 19:03:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1788833030; x=1789437830; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=E3sMw9iwve27Y2nH1ScSWttLx8rW++NN1zuHxfgNDdI=;
+        b=O5XeGcfgpEQx56PGPqisjBWCjA1K7ZZObOlBkP4+ATgadsTe5nwOPxazaAqZ5Mnlqo
+         +XHaGsE2BIbrrnmUcus14bmglSsnI3n4d3OTn8ZCbYgSVS6quNXoRivKlXyiGlDEkqBj
+         WRSjM4HqjcmDZjXg4oaViQMZK52l1CgFE+yeL6Zp4wGyfffMn7szWvh1lSs1A6s16OqY
+         wATCPVd8Acpj4+O9OymMfIKlpij3IHSQq+bXsP8yia6KFQ/idmXwhZ+t8vr1Kon3iA1L
+         8lPSGx+D7rnnIysJ73Cah6L0m2jhTVDWxAIkzv3TTkKKa1kImjHQKycyiUpa0AwI4eaq
+         03SQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788833030; x=1789437830;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=E3sMw9iwve27Y2nH1ScSWttLx8rW++NN1zuHxfgNDdI=;
+        b=gCWV5Kzbqz0QrKVZgELx9jdirsj74xT6AMjmPuCabz4mosJDQOs00o+BfHhuFHNgh5
+         nm41ZUrCHC7n6ObzEN0rSX1nhz3TsHSXQQnkCuwhDPFxSYsMg14r4pOkHaMXqqa3Oo5A
+         LBi3az/wyKHnhKDLnRUCK9ErYfvtOYA8CZ/wL9pYBugRQiWduetq0TDIkm8F35w/Ek4v
+         tp5vlaF3wqJXr9evfBpnAKDB5fbUUlseP2A034kW5yUplMiMWgJb9eWC+dBSZN/LCQs3
+         E3ZnQWztlTZLJNfgd/ZfhsjNX2b4piDlcAgQmal5Xst4zQDzwt4/XW625V+J8ZKQT8KS
+         97Ag==
+X-Forwarded-Encrypted: i=1; AKwUvBy/oY1/DynGzzGfaW2CcoxkutxKT61E/UO+X5aGrD4XqY5KhXFbQumN7hklR9Qo8iG2ue7moFl320p3qw==@lists.infradead.org
+X-Gm-Message-State: AFuF++nQOI9qpUDr7mZn3IbeMz/XJMgyGYvYa1Htoh/C738IZDeeUJIC
+	PkdV+F8JcyvA1C7z7e5/w/mZn9YuhJnDTQ+JdO5ajWBhVPp57DWxWz8ujECSlz08lK4=
+X-Gm-Gg: AYBFou1PwBDTXJfEAUk3peO/7M1kB2gc9nK5e4vgrCugsc36HT6Kv5hDLfqcZJYqlbd
+	kIl1ALXD29pOIsJ40PosZRSF9v/MNLdcv1edgh3TVlPOFT6cSZVXtLGVrwYMlU0SaBXQ3mSESRH
+	cbJekDEGKV//r82cE5xfY+Oi9l7gon0D8bLd96+WeC7tgHZWInIXCRGuDA11jm4JwSzFKvAUknz
+	m7Z6db4Kf4N4PD9txQZ1GS06icOP/6odqnK5tXA9Ynn6K613mickSTeL52Bi0ISpAT5nkVPsm8c
+	J/WSJ67a9prMz5sGe+aVVNoND7NMo/QkEBSUc2oKmUSdx0vjqqasMY7fwniGvZKIyj7So3++Vft
+	cQSDqNy9t/vqdUlOKWMcjomwQ22xZFWBPY64e/9y7Gij9YdVouitBwqzIMdq6EadIFm4iJZxElC
+	8beGSTI+XYUGDLSI1IP6gsyzHupQIE4h19Y053OyWwbVuNJC4LcQPDyweGGUEO/qXL5FCVrpMoR
+	CEXzhL8Kg4=
+X-Received: by 2002:a17:90b:3944:b0:392:b509:b1a5 with SMTP id 98e67ed59e1d1-39b261b19d9mr43841330a91.14.1788833030494;
+        Mon, 07 Sep 2026 19:03:50 -0700 (PDT)
+Received: from sw04.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1434c745a09sm893671c88.7.2026.09.07.19.03.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 19:03:49 -0700 (PDT)
+From: Zong Li <zong.li@sifive.com>
+To: tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	mark.rutland@arm.com,
+	andrew.jones@oss.qualcomm.com,
+	guoren@kernel.org,
+	david.laight.linux@gmail.com,
+	zhangzhanpeng.jasper@bytedance.com,
+	yang.yicong@picoheart.com,
+	nutty.liu@hotmail.com,
+	iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org
+Cc: Zong Li <zong.li@sifive.com>
+Subject: [PATCH v9 0/2] RISC-V IOMMU HPM support
+Date: Mon,  7 Sep 2026 19:03:43 -0700
+Message-ID: <20260908020347.1836653-1-zong.li@sifive.com>
+X-Mailer: git-send-email @GIT_VERSION@
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next 00/33] Remove comma after sentinel entries in
- match
- table
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178882561388.3212362.1851608781908345741.git-patchwork-notify@kernel.org>
-Date: Tue, 08 Sep 2026 00:00:13 +0000
-References: <20260904043724.2955444-1-s-vadapalli@ti.com>
-In-Reply-To: <20260904043724.2955444-1-s-vadapalli@ti.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: dario.binacchi@amarulasolutions.com, mkl@pengutronix.de,
- mailhol@kernel.org, msp@baylibre.com, florian.fainelli@broadcom.com,
- jonas.gorski@gmail.com, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- kurt@linutronix.de, hauke@hauke-m.de, chester.a.unal@arinc9.com,
- daniel@makrotopia.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, ansuelsmth@gmail.com,
- linusw@kernel.org, luizluca@gmail.com, alvin.sipraga@analog.com,
- clement.leger@bootlin.com, justin.chen@broadcom.com, dlan@kernel.org,
- rogerq@kernel.org, hkallweit1@gmail.com, linux@armlinux.org.uk,
- rjui@broadcom.com, sbranden@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, opendmb@gmail.com,
- andrei.botila@oss.nxp.com, wangruikang@iscas.ac.cn, amadeus@jmu.edu.cn,
- kees@kernel.org, tmshlvck@gmail.com, c-vankar@ti.com, horms@kernel.org,
- vadim.fedorenko@linux.dev, daniel.zahka@gmail.com,
- nora.schiffer@ew.tq-group.com, v-singh1@ti.com, oss@vassilevski.com,
- haokexin@gmail.com, alex@sverdlin.org, aleksandr.loktionov@intel.com,
- lgs201920130244@gmail.com, linux-can@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-omap@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_190352_282398_89F35A77 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,95 +114,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+This series implements support for the RISC-V IOMMU hardware performance
+monitor.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+The RISC-V IOMMU PMU driver is implemented as an auxiliary device driver
+created by the parent RISC-V IOMMU driver. Therefore, the child driver
+can obtain resources and information from the parent device, such as
+the MMIO base address and IRQ number.
 
-On Fri, 4 Sep 2026 10:06:06 +0530 you wrote:
-> Hello,
-> 
-> This series removes the comma present after sentinel entries in the match
-> tables across all networking subsystem drivers, with the exception of the
-> davinci_mdio.c driver, for which, the patch posted by Geert at:
-> https://lore.kernel.org/r/e481b6de46cecc6ea604ae165272c667274cc621.1788437140.git.geert+renesas@glider.be/
-> does the same.
-> 
-> [...]
+Changed in v8:
+- Rebased onto v7.3-rc2
+- Add irq work mechanism for IRQCHIP_MOVE_DEFERRED case
+- Filter multiple cycle event case
 
-Here is the summary with links:
-  - [net-next,01/33] can: bxcan: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/3fb94a277ff8
-  - [net-next,02/33] can: c_can: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/fa7291a2527a
-  - [net-next,03/33] can: flexcan: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/4b7e7da65530
-  - [net-next,04/33] can: ifi_canfd: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/e6f3617decf3
-  - [net-next,05/33] can: m_can: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/6c507ab36a83
-  - [net-next,06/33] can: sja1000: f81601: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/44ef827c95a8
-  - [net-next,07/33] can: sja1000_platform: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/5b01d5766043
-  - [net-next,08/33] net: dsa: b53: mdio: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/9869b64b320d
-  - [net-next,09/33] net: dsa: b53: srab: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/30fccb0c4e76
-  - [net-next,10/33] net: dsa: bcm_sf2: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/2d08ac30e2ed
-  - [net-next,11/33] net: dsa: hellcreek: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/4ea4ec365378
-  - [net-next,12/33] net: dsa: lan9303: i2c: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/a650dd1fc254
-  - [net-next,13/33] net: dsa: lan9303: mdio: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/4caa67d082f6
-  - [net-next,14/33] net: dsa: mxl-gsw1xx: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/9a580b3496c4
-  - [net-next,15/33] net: dsa: mt7530: mdio: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/e86151633076
-  - [net-next,16/33] net: dsa: mt7530: mmio: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/f9bcf01a6608
-  - [net-next,17/33] net: dsa: mv88e6060: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/6011d062dc7d
-  - [net-next,18/33] net: dsa: mv88e6xxx: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/ead589471593
-  - [net-next,19/33] net: dsa: qca8k: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/c45695468377
-  - [net-next,20/33] net: dsa: realtek: rtl8365mb: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/6233d1ee3771
-  - [net-next,21/33] net: dsa: realtek: rtl8366rb: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/068d6ebde398
-  - [net-next,22/33] net: dsa: rzn1_a5psw: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/39063420326f
-  - [net-next,23/33] net: dsa: sja1105: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/2b46b5c9efc9
-  - [net-next,24/33] net: bcmasp: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/a450f7315155
-  - [net-next,25/33] net: spacemit: k1_emac: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/435d4b4aa9c8
-  - [net-next,26/33] net: ti: am65-cpsw-nuss: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/8b7eacd62198
-  - [net-next,27/33] net: ethernet: ti: cpsw: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/1cdf69f1e9a0
-  - [net-next,28/33] net: ethernet: ti: cpsw_new: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/6d1c7d7a0731
-  - [net-next,29/33] net: mdio: bcm-iproc: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/93b9f4f13608
-  - [net-next,30/33] net: mdio: bcm-unimac: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/dd7a0a755874
-  - [net-next,31/33] net: pcs: xpcs-plat: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/3fc32eb28f15
-  - [net-next,32/33] net: phy: nxp-c45-tja11xx: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/af86c0a58007
-  - [net-next,33/33] net: wan: slic_ds26522: Remove comma after sentinel-entry in match-table
-    https://git.kernel.org/netdev/net-next/c/8afd6adb0717
+Changed in v7:
+- Rebased onto the v7.3-rc1
+- Remove raw spinlock
+- Check CPU matching at the beginning of irq handler
+- Add PERF_HES_STOPPED check before overflow handling
 
-You are awesome, thank you!
+Changed in v6:
+- Rebased onto the latest v7.3-rc
+- Use sysfs_emit instead of cpumap_print_to_pagebuf
+- Set up on_cpu and irq affinity by cpuhp callbacks
+- Change type of on_cpu from unsigned int to int
+- Reject filter operands of cycle event in event_init
+- Check return value of counter number and  masks in probe
+- Add raw spinlock for race condition (third commit)
+
+Changed in v5:
+- Pick up suggestions from sashiko-bot as follows
+- Fix event group validation for sw event
+- Bind IRQ to aux PMU dev instead of parent IOMMU dev
+- Clear OF bit when event is NULL
+- Improve hi-lo-hi patten
+- Add back IRQF_SHARED flag due to mismatch
+- Manage cpuhp and pmu register by devre
+
+Changed in v4:
+- Rebased onto v7.3-rc
+- Use is_sampling_event() instead of accessing vairable directly
+- Rename the matching name from "iommu.pmu" to "riscv-iommu.pmu"
+- Change the naming of PMU device for avoid ":" in PCIe case
+- Add suppress_bind_attrs attribute
+- Remove IRQF_SHARED flag
+- Set irq affinity to local CPU of IOMMU
+- Allocate ID by IDA for auxiliary device
+- Pick up suggestions from sashiko-bot
+
+Changed in v3:
+- Rebased onto v7.2-rc3
+- Use hi_lo_writeq/readq to access register
+- Pick comments from sashiko-bot as follows
+- Set IRQ CPU affinity
+- Remove IRQF_ONESHOT flag when request irq
+- Adjust cycle event check by checking event_id field only
+- Fix bug for group events verificaiton
+- Fix KASAN issue about casting 32-bit variable to unsigned long pointer
+- Clear IPSR pending bit before starting counter
+- Clear OF bit in event selector register in irq handler
+- Release irq by devm instead of explicit free_irq
+
+Changed in v2:
+- Rebased onto v7.2-rc1
+- Use hi-lo-hi mechanism to read counter.
+  Suggested by Guo Ren and David Laight
+
+Changed in v1:
+- Rebased onto v6.19-rc8
+- Pick all suggestions and feedbacks from v1 series
+- Add cpu hotplug implementation to avoid race enablement
+- Move PMU-related definition from header to c file
+- Change PMU driver to auxiliary device driver
+
+Changed in RFC:
+- Rebase onto v6.13-rc7
+- Clear interrupt pending before handling interrupt
+- Fix the counter value issue caused by OF bit in the cycle counter.
+- Invoke riscv_iommu_hpm_disable() instead of riscv_iommu_pmu_uninit()
+  in riscv_iommu_remove()
+
+Zong Li (2):
+  drivers/perf: riscv-iommu: add risc-v iommu pmu driver
+  iommu/riscv: create a auxiliary device for HPM
+
+ drivers/iommu/riscv/Kconfig      |    1 +
+ drivers/iommu/riscv/iommu-bits.h |   61 --
+ drivers/iommu/riscv/iommu.c      |   37 ++
+ drivers/perf/Kconfig             |   12 +
+ drivers/perf/Makefile            |    1 +
+ drivers/perf/riscv_iommu_pmu.c   | 1020 ++++++++++++++++++++++++++++++
+ 6 files changed, 1071 insertions(+), 61 deletions(-)
+ create mode 100644 drivers/perf/riscv_iommu_pmu.c
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.7
 
 
 _______________________________________________
