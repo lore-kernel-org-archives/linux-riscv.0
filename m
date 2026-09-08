@@ -4,88 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED9DC79F82
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 09:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FB2C79F82
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 09:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yOern31jqwyV2JW/JVEESi9NngB/xJu5WKC2ENSbZN8=; b=Rp8uhePQJXK+FZ
-	mLIKMUkLpFk6Vh+bg7x7INWVgzpFwuGA3JTlMAQdMs/uRhUoZnKAXzoEEsocp0vge/PofP09sqfal
-	XpWBYHaPNbEmVJWllnTgl8ksnX3ODTkOTcsOZyO1qyXbmbuL07yK/ivIjig0kUgVeZfT8SfDy4oun
-	NvG/vhbLDJX7q5m1v3vRcBMLPEybmAzfcBjjyHyRrsz6nDeulMZN1FDVIR2BZhGErllSz2qtKX10U
-	/KMlPOBSmDTW0dafuEcaju/4GdhzjmLndn/TCcVG8R/02oHspuHt+UGWidz5No9eb+YXUFDFi+p4p
-	0MJ/L+/WtH93flNDRM6g==;
+	List-Owner; bh=b/ZVZ4xFTmfpUpV7wFLnL3+KypLxff/hjLKOFV7MIT4=; b=bhgXQA3lqjV4xC
+	8ikwxWHqIhpyUFLm5c3Pu9yuOxPkOfK1UPq9dAWnlUazifXltuy8uJNWs0ygbHfg9HbzKGyW8l/wP
+	Fri1mosKCDs30J5AgqPcdOAdsBXHZrvt/6zH8fgE6oPFNkGMQOtcLmMYLHsd+WuTooVMVn39MeBl9
+	sOu4kmtjd81o57pCgsmfpkiqbsie1XReZesJd50b2yUuRzTuYoTLe6GDG+nGBLKOa5eej86tfYKvR
+	4KEKmifJtB41NSUFqEY/td59RdDZy/m5P9wnm+JlpopjwJlqi+3XsTOWXHNQmMacndBvts+h+22DJ
+	v0387FTI0Kju94sEm3Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sRe-00000008ezI-2zv1;
-	Tue, 08 Sep 2026 09:48:50 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1x3sS1-00000008f5n-0QFB;
+	Tue, 08 Sep 2026 09:49:13 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sRb-00000008eyQ-0mUf
+	id 1x3sRw-00000008f1J-35h6
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 09:48:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788860927; x=1820396927;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=si+pQMS2orFm2KYIwbM662sl0NYGSij8sMghKY+BowE=;
-  b=H8rSi4893Fjuc8u/W4kXKLE2vpcQ/R9PGExoA39VMr9xCZXf6W9r0c7E
-   dlHiKM0ywY1v+bQDvFCSrxhFd/cRk/6UQo06vFyADiwsuR002XKkCoOCZ
-   9RPHEpl0VuHK7K1uKaWlk0zrSLYcmKWExQbjsrelokRlMJzMvOlDolkIF
-   VvXUs7WjKM9TN7xnrvWe6mjwLDXOuNVJwF43kc+k+BpwXShEuUpqv8Ufk
-   lDxK93hVsgGS0ZPVfKvRxc1IJsG5Z0IkwItYWKwjtUsdZFE/jgENnF6OC
-   au0e84anMr+Y8jXuMf4CG9jZBS51jJW/bdJIIu9FCl+Xc6mm+AdmZqYUL
-   g==;
-X-CSE-ConnectionGUID: PywUpXb7T2+BqxWQ93cQRg==
-X-CSE-MsgGUID: iYxezUrRQKyp76QAH9XH8A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11899"; a="89301152"
-X-IronPort-AV: E=Sophos;i="6.25,268,1779174000"; 
-   d="scan'208";a="89301152"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2026 02:48:45 -0700
-X-CSE-ConnectionGUID: yiLn9v7XQR6NiVWkIyNgqw==
-X-CSE-MsgGUID: fgg/IIrsQAy1UtuZOE0jPg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,268,1779174000"; 
-   d="scan'208";a="272879880"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa004.fm.intel.com with ESMTP; 08 Sep 2026 02:48:41 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id A666B99; Tue, 08 Sep 2026 11:48:39 +0200 (CEST)
-Date: Tue, 8 Sep 2026 11:48:39 +0200
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: wangjia@ultrarisc.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>, Mark Brown <broonie@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
-	linux-i2c@vger.kernel.org, dmaengine@vger.kernel.org
-Subject: Re: [PATCH v2 06/10] dt-bindings: i2c: dw: Add compatible for
- UltraRISC DP1000 SoC
-Message-ID: <20260908094839.GF106095@black.igk.intel.com>
-References: <20260907-ultrarisc-dts-v2-0-5eb4c97477c5@ultrarisc.com>
- <20260907-ultrarisc-dts-v2-6-5eb4c97477c5@ultrarisc.com>
+	Tue, 08 Sep 2026 09:49:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1788860928;
+	bh=ga7Cc8VmPlzvTcI0Jn15zu3WuFtjhfzWSPUrlOrjDeo=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=j2ZLtX5LtDJgMwTTMZ0YbVB8P+EV4wRbV5123iFvJRAZK0H9xY83pGT2sl7be/Tda
+	 WgI73jrry2umwdQ88FHfKuGfIlt86WzRi4+BuuQMZ7++xdebRz0Llg/TJSocGgfi6D
+	 FlDbgtnLQuOrquk/Det7K+8ciaRmF8TDveiRwFc0=
+X-QQ-mid: zesmtpgz5t1788860926t19f03d4d
+X-QQ-Originating-IP: YuZo8LBOHAKjnCpx7FWaCiN+8A3UW2Pf5gnxtsSGcnI=
+Received: from LT-PANJUNZHONG.dc.com ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 08 Sep 2026 17:48:44 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 435864523406959042
+EX-QQ-RecipientCnt: 22
+From: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Date: Tue, 08 Sep 2026 17:48:38 +0800
+Subject: [PATCH v2 1/9] dt-bindings: usb: ci-hdrc-usb2: add
+ spacemit,k1-usb2 compatible
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260907-ultrarisc-dts-v2-6-5eb4c97477c5@ultrarisc.com>
+Message-Id: <20260908-b4-spacemit-k1-usb2-v2-1-f07342ffa051@linux.spacemit.com>
+References: <20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com>
+In-Reply-To: <20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Xu Yang <xu.yang_2@nxp.com>, Peng Fan <peng.fan@nxp.com>, 
+ Peter Chen <peter.chen@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Ze Huang <huang.ze@linux.dev>, 
+ Junzhong Pan <panjunzhong@linux.spacemit.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788860920; l=1030;
+ i=panjunzhong@linux.spacemit.com; s=20260306; h=from:subject:message-id;
+ bh=Q0kCzxHIUiOCWyfoizcW7qoxa2sZ8T22l48DSjpGzzE=;
+ b=hlvuL0vOizfCEuqH7I1fU0zVC+wKYnG4FY47seiO2aUDL5mRXqERk9fboyiy7o8Ykpyi5Haam
+ T0Mcsf1RTX8AAJZbeUHAxphaWA100Yomfl5PbItbHNYerrSiiSHA4Yj
+X-Developer-Key: i=panjunzhong@linux.spacemit.com; a=ed25519;
+ pk=bY08BOg2T9H93/jG8fEE/tVmdXoQQMp9M2rtzPFoyJg=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: MxwHD6hb8WBVHcxbDB4Lj5Z8QwT9ax/hdZpRutQ0QFVIiHTeivcKv5bE
+	1fSv5p1QUGgfGzAsmXPA5NceMMu4MI5KsblMKpTyfUSE0e9i3gE6zDb3QferV2gSEw2FBt1
+	ue1D27KaE14f68SIknbfLlwfNuGhX/eryAtZ4c+4pqCZnxani7Uavfm76dsTf6uC6VY6VhJ
+	4wuq2sOg4Jil05OVpoMVvZ7FY2zUXtyQ34hDkElmqsUO9/zhWbpd83EBSO1mg3vyXSagoOO
+	zNtPxbdNI5x1cLZb+ZXfalTQy3Qz8Akf5aW4FPmTQ5ScXW6I+h0Wt6iXwMRzlsR2Sv2BiD0
+	sTM8Ek/bvT90bup4HdqiaDK3e5+FFQmpaXviBrpLwmCS5iGFK4P2zN7Zci7qyZ8IHf2cdAQ
+	aFvMOReNQOWveSchUKp/fHQIbmMTwEvRzOV17NaAxzM59FKPVApBLLyPKD73AdyGBxK/lh5
+	GNjjnTO1uwB27aqepE5DtLyZuzuH6QmgPK3aVJqIs8NhNH9uAoTWJJYj1yEcFnCTx3WDoCY
+	ia9rcq3g0MP6RwgPN3jP4uatnsKq1CwAZO1UVnpixDopkWtiYY5AZOA4BDQ/41rJWq7FdQg
+	0P99fmKb4mf6Y79XCpxKPjugtk6eNChgTe2AcFuCK0MguRGI1252MrwWQ3kMqsEgJOcxX9J
+	BPHIqIhb7wNgqVqickud4ReIyaUftL6oB9Ij5evTiwNnkLtFxnKh3RHfbQYOw49fT1W6S92
+	6Af3lThe0PRZhMEpWDwahKb7msUGn5xVaNiXmon+e79svvUpuFjSL1COzP9k73YQs1/QJkO
+	egNTGegjJOK8Q0ABvZOqAyUUFWfEXhkJwEgzxK0ylnoBuUugSzHamRzbVYNbl0whGpAjPVr
+	D88AWDkE78aMO7PevlFbE1EY2Hti+eQHGR41IM9OUEQL6rCoOfmT+fRcg+5e/yMvMuL/ZM1
+	DYdxgQPHnhp7ulebi0pecsb5UmNCP8o+oFai9gZ6/kl3fer0iG0LmP3jOMaCVovDzTvYCpt
+	ZZaIhj5uOyBQ/+DpNbrWB1jk+lgwDxda1JokAZkBX4ez7/CCiZjyH/ELpkt0jhAurXcGjYR
+	Y5h9NjdUVfx7KJuL8E91nMkMl7KJp+B+QZ1KL934EY1GJiTWFEKp+37fwbkrqVB1L2amvZ8
+	ZsssM9SVWvG74nseSzBuIuN9CH0S0w2oHLLB+LyiIf1aZmkz9kHggkullg==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_024847_334621_8AB10179 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20260908_024909_265060_5BA324BA 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,20 +114,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 05:54:45PM +0800, Jia Wang via B4 Relay wrote:
-> From: Jia Wang <wangjia@ultrarisc.com>
-> 
-> The DP1000 integrates four DesignWare APB I2C controllers. I2C1 supports
-> SMBus, while I2C0, I2C2, and I2C3 support standard I2C transfers. Each
-> controller has one register range and uses separate reference and APB
-> interface clocks.
-> 
-> Add the DP1000-specific compatible string with the generic one as a
-> fallback.
-> 
-> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+The USB2.0 controller on the SpacemiT K1 SoC is dual-role capable but
+has no internal OTG registers, this requires flags which disable
+related features set in platform data. Add a compatible string to match
+the platform data.
 
-Acked-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Ze Huang <huang.ze@linux.dev>
+Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+---
+ Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml b/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml
+index 620b564914d4..6f8d88a0681d 100644
+--- a/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml
++++ b/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml
+@@ -25,6 +25,7 @@ properties:
+           - nvidia,tegra124-udc
+           - nxp,s32g2-usb
+           - qcom,ci-hdrc
++          - spacemit,k1-usb2
+       - items:
+           - enum:
+               - nvidia,tegra114-ehci
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
