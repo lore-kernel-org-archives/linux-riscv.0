@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5ABC79F99
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 04:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F9A3C79F9E
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 04:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F/6d1oLKMHepghVhlb9Yz462H3VIgBJcf+eSSMTOROM=; b=iluB92z1Sn6+BX
-	sCiwfqeJspmCuz5v40rlvwAwLxD6B1WpvfRCqf2Rk3jdJ8HyLV0+T6QPPvSDEaYcMS2WwJ+nli1qj
-	5xzPdN/A7IaeFd1HNj4B+vuCw+HM+riiM8hmi33YTUY8iU0LVBzpIHAhKPYVensG4oXoI6F022bYG
-	THOuqya2eG5HEhYSQVgVRB3PCBi2anbemiFuhgCdfZTuGHtizfaQdQ+Fr2DO+JLZMivshW/TQnIiP
-	rgjqFo8Cowkxuw1qw3tActclviaiW3kyMBSvfZPxnF1Xod4TEgA42X6Yaz4YuIlDaNrUiSBL0/GLe
-	KjhTblcxiTiMwwi47aTQ==;
+	List-Owner; bh=hJLeCMdqd6TSEDK9WG0cSqnRlBzGjW40fDYzbVzdnDo=; b=SIi7CmEranjI4E
+	Fqod1D16ro/9aOeLyXyRxRXJxbTL2SKKhQyO+WxAaCRZlIxCFAgPSxGCxJpYPgI/NWXBw/Qk6ScQa
+	LJez5XoBAm/f82WnqCV/PLmf/7bYrTD4kC1VBBk06ps7K1ZgSyNsA6Vf/FWKX3yQNxUNcyqfwmBQg
+	paHwu+x9/fOEYJxUR4bLjLJVQx5L4FFxUaflCXZIXvSrBzpXaiAtm2/PE6ShfBE0CceXSVf984MCS
+	OSFqScky/S+PMuryEaHdKySO6K9YcImPDb1jkdUted3Xo8uMiDo+H4bzePB/uPNPHto2FI3RPztPF
+	pSJrq0vkrTX+21q/bzCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3n8q-000000080c5-37x8;
-	Tue, 08 Sep 2026 04:09:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3nf2-000000081vr-44yr;
+	Tue, 08 Sep 2026 04:42:20 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3n8p-000000080ba-0pGz
+	id 1x3nf0-000000081us-0p7P
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 04:09:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42FD6601DB;
-	Tue,  8 Sep 2026 04:09:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2C981F00A3A;
-	Tue,  8 Sep 2026 04:08:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788840539;
-	bh=ehoCTMx0coj/KJ47b9XcGVJUZU+ZQz9X4iinIICsjVQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ag5CVwaZAQZNPeajC7pqJrW85pxzfgItMgDVZ1etA4SCzqeijDvQZyE0kpC3yK6TF
-	 Kuc+cXadqnt2UTUgZi5/Mwa9JuWe2qNPKLJ3NiA4TdPpl3bfHdpcucFD752xYOb75b
-	 mZEySrspBLVmu8NwVPTWzOtefb0H2IV++NdZ8OyN3XGYTddP2Z2ddLR0/RM6gPL0Bx
-	 5Hg7H/eT154Ue0vKTEO9//UifTXcGJ2WtoZs5XlUTit9KAPuS43sUUgc5fx1E8c/oq
-	 BKJsz3/4w7Tl8StirlH3w0ZBqZwn1DFHSyRXiOWPbnDrLiKQ0p5XHHhi6jfAGgCvHl
-	 d0zeVd+L/Owkg==
-Date: Tue, 8 Sep 2026 11:49:10 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: Re: [PATCH v2 4/5] riscv: RISCV_ISA_SV48 and RISCV_ISA_SV57 under
- NONPORTABLE
-Message-ID: <ap-FtoTqMCnNACJN@xhacker>
-References: <20260907151437.7603-1-jszhang@kernel.org>
- <20260907151437.7603-5-jszhang@kernel.org>
- <20260907-backless-theatrics-f19e489bc63f@spud>
+	Tue, 08 Sep 2026 04:42:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=pJTC0xXNuB6/FR3SFnQD89wasUY2SzDpeY/IZfDA5kY=; b=drlqnM6MJd1QipihzHmVJOJRhK
+	RGMPHGb7pK+htvEo71E5ODyA2DmlsQ6c4159CLGxIKE1pzapMO6MQcUieiavXiZ+S6tSK6xKnOMxE
+	Sz+NC/zU/a3NdoNDHrb+3p4EGW7Tx/85zkHWb5TIyyMEDrnplXrF9e3b09qPCSZkg43FSBEWjax8G
+	baHMDvzObQiP/tVxB9+JbR6M8+YECbHgRMLUREkv0Z6vVqzXslvhLFVAv08h0zws8M26wg4C8OAFG
+	ECnSvQdyA8Ld7qzVpSTCNxKIsT35avz0BbFjJix6hhVTHrTcHKFWHEj6IPdhGIu0AsQZXAFV43xAP
+	CTw/HkJg==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1x3nes-0000000423P-0ynJ;
+	Tue, 08 Sep 2026 06:42:10 +0200
+Date: Tue, 8 Sep 2026 06:42:09 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: spacemit@lists.linux.dev
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: Random corruption on SpacemiT K1 with RVV
+Message-ID: <ap-SIQ9DLt-CfAx6@aurel32.net>
+References: <apSYF5x1Tu7PlyL1@aurel32.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260907-backless-theatrics-f19e489bc63f@spud>
+In-Reply-To: <apSYF5x1Tu7PlyL1@aurel32.net>
+User-Agent: Mutt/2.4.1 (2026-07-04)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_214218_246039_D9DA4325 
+X-CRM114-Status: GOOD (  30.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,222 +68,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 07, 2026 at 05:21:11PM +0100, Conor Dooley wrote:
-> On Mon, Sep 07, 2026 at 11:14:36PM +0800, Jisheng Zhang wrote:
-> > In last commit, we have optimized the pgtable_l4|l5_enabled with isa
-> > extension alternative mechanism, thus a typical access_ok(addr, 1);
-> > is compiled as:
-> > 
-> > ffffffff8001dd30:	1141                	addi	sp,sp,-16
-> > ffffffff8001dd32:	e022                	sd	s0,0(sp)
-> > ffffffff8001dd34:	e406                	sd	ra,8(sp)
-> > ffffffff8001dd36:	0800                	addi	s0,sp,16
-> > ffffffff8001dd38:	00000013          	nop
-> > ffffffff8001dd3c:	02a0006f          	j	ffffffff8001dd66 <foo+0x3e>
-> > ffffffff8001dd40:	60a2                	ld	ra,8(sp)
-> > ffffffff8001dd42:	6402                	ld	s0,0(sp)
-> > ffffffff8001dd44:	57fd                	li	a5,-1
-> > ffffffff8001dd46:	83a1                	srli	a5,a5,0x8
-> > ffffffff8001dd48:	00a7b533          	sltu	a0,a5,a0
-> > ffffffff8001dd4c:	00154513          	xori	a0,a0,1
-> > ffffffff8001dd50:	0141                	addi	sp,sp,16
-> > ffffffff8001dd52:	8082                	ret
-> > ...
-> > ffffffff8001dd64:	bfe1                	j	ffffffff8001dd3c <foo+0x14>
-> > ffffffff8001dd66:	0180006f          	j	ffffffff8001dd7e <foo+0x56>
-> > ffffffff8001dd6a:	60a2                	ld	ra,8(sp)
-> > ffffffff8001dd6c:	6402                	ld	s0,0(sp)
-> > ffffffff8001dd6e:	57fd                	li	a5,-1
-> > ffffffff8001dd70:	83c5                	srli	a5,a5,0x11
-> > ffffffff8001dd72:	00a7b533          	sltu	a0,a5,a0
-> > ffffffff8001dd76:	00154513          	xori	a0,a0,1
-> > ffffffff8001dd7a:	0141                	addi	sp,sp,16
-> > ffffffff8001dd7c:	8082                	ret
-> > ffffffff8001dd7e:	60a2                	ld	ra,8(sp)
-> > ffffffff8001dd80:	6402                	ld	s0,0(sp)
-> > ffffffff8001dd82:	57fd                	li	a5,-1
-> > ffffffff8001dd84:	83e9                	srli	a5,a5,0x1a
-> > ffffffff8001dd86:	00a7b533          	sltu	a0,a5,a0
-> > ffffffff8001dd8a:	00154513          	xori	a0,a0,1
-> > ffffffff8001dd8e:	0141                	addi	sp,sp,16
-> > ffffffff8001dd90:	8082                	ret
-> > 
-> > As can be seen, different branches for SV39/SV48/SV57 are still there,
-> > since access_ok() sits at hot code path, why not reduce the code size
-> > to optimize to make the instruction cache happy?
-> > 
-> > Introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE, so that
-> > the embedded platforms can choose the best option themselves, while
-> > still keep the feature of unified one kernel Image for all SV39, SV48
-> > and SV57.
-> > 
-> > Before the patch, vmlinux built with pure RISCV64 defconfig
-> >    text    data     bss     dec     hex filename
-> > 13439437   6790446  483221 20713104 13c0e90 /tmp/old/vmlinux
-> > 
-> > After the patch, vmlinux built with pure RISCV64 defconfig:
-> >    text    data     bss     dec     hex filename
-> > 13314445   6787934  466837 20569216 139dc80 /tmp/new/vmlinux
-> > 
-> > .text section is reduced by 122KB!
-> > 
-> > And after the patch, typical access_ok(addr, 1) is compiled as:
-> > ffffffff8001809a:	1141                	addi	sp,sp,-16
-> > ffffffff8001809c:	e022                	sd	s0,0(sp)
-> > ffffffff8001809e:	e406                	sd	ra,8(sp)
-> > ffffffff800180a0:	0800                	addi	s0,sp,16
-> > ffffffff800180a2:	00000013          	nop
-> > ffffffff800180a6:	60a2                	ld	ra,8(sp)
-> > ffffffff800180a8:	6402                	ld	s0,0(sp)
-> > ffffffff800180aa:	4785                	li	a5,1
-> > ffffffff800180ac:	179a                	slli	a5,a5,0x26
-> > ffffffff800180ae:	00f53533          	sltu	a0,a0,a5
-> > ffffffff800180b2:	0141                	addi	sp,sp,16
-> > ffffffff800180b4:	8082                	ret
-> > 
-> > only 12 instruction!! For refernece, before the patch, the access(addr,
-> > 1) needs 32 instructions.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  arch/riscv/Kconfig                  | 24 ++++++++++++++++++++++++
-> >  arch/riscv/include/asm/pgtable-64.h | 12 ++++++++++++
-> >  arch/riscv/mm/init.c                | 10 ++++++++++
-> >  3 files changed, 46 insertions(+)
-> > 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index e9476b8cbeb0..4cdb1e3f34be 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -602,6 +602,30 @@ config RISCV_ISA_SSQOSID
-> >  	  cache partitioning scheme and use the MCID to track how much
-> >  	  cache a process, or a group of processes, is using.
-> >  
-> > +config RISCV_ISA_SV48
-> > +	bool "Page-Based 48-bit Virtual-Memory System"
-> > +	depends on 64BIT && NONPORTABLE
-> > +	default y
-> 
-> I don't understand how you've got this set up here.
-> If this is genuinely non-portable, then you should not set the default to
-> enabled. However, I'm not really sure that this is actually non-portable
-> at all....
-> 
-> > +	help
-> > +	  Add support for the Page-Based 48-bit Virtual-Memory System.
-> > +
-> > +	  Enable this option for systems for which a 39-bit virtual address
-> > +	  space is insufficient. But if 39-bit is enough, disabling this
-> > +	  option will result in smaller kernel size and slighly better
-> > +	  performance.
-> > +
-> > +config RISCV_ISA_SV57
-> > +	bool "Page-Based 57-bit Virtual-Memory System"
-> > +	depends on 64BIT && NONPORTABLE
-> > +	default y
-> > +	help
-> > +	  Add support for the Page-Based 57-bit Virtual-Memory System.
-> > +
-> > +	  Enable this option for systems for which a 48-bit virtual address
-> > +	  space is insufficient. But if 48-bit is enough, disabling this
-> > +	  option will result in smaller kernel size and slighly better
-> > +	  performance.
-> > +
-> >  config RISCV_ISA_SVPBMT
-> >  	bool "Svpbmt extension support for supervisor mode page-based memory types"
-> >  	depends on 64BIT && MMU
-> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> > index 7e30ec0e9f6c..f2d29da93eea 100644
-> > --- a/arch/riscv/include/asm/pgtable-64.h
-> > +++ b/arch/riscv/include/asm/pgtable-64.h
-> > @@ -16,21 +16,33 @@ extern bool _pgtable_l5_enabled;
-> >  #ifdef USE_EARLY_PGTABLE_LEVELS
-> >  static __always_inline bool pgtable_l5_enabled(void)
-> >  {
-> > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV57))
-> > +		return false;
-> > +
-> >  	return _pgtable_l5_enabled;
-> >  }
-> >  
-> >  static __always_inline bool pgtable_l4_enabled(void)
-> >  {
-> > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV48))
-> > +		return false;
-> > +
-> >  	return _pgtable_l4_enabled;
-> >  }
-> >  #else
-> >  static __always_inline bool pgtable_l4_enabled(void)
-> >  {
-> > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV48))
-> > +		return false;
-> > +
-> >  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV48);
-> >  }
-> >  
-> >  static __always_inline bool pgtable_l5_enabled(void)
-> >  {
-> > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV57))
-> > +		return false;
-> > +
-> >  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV57);
-> >  }
-> >  #endif
-> 
-> ...because the code here won't enable sv57 etc if not supported...
-> 
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index 2a2402d79bc4..90bb85c5f167 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -844,6 +844,16 @@ static __init void set_satp_mode(uintptr_t dtb_pa)
-> >  
-> >  	kernel_map.page_offset = PAGE_OFFSET_L5;
-> >  
-> > +	/* Fall back to Sv48 if Sv57 is unsupported on non-portable systems */
-> > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV57) &&
-> > +			satp_mode_limit == 0)
-> > +		satp_mode_limit = SATP_MODE_48;
-> 
-> ...and neither does the code here.
-> 
-> > Introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE, so that
-> > the embedded platforms can choose the best option themselves, while
-> > still keep the feature of unified one kernel Image for all SV39, SV48
-> > and SV57.
-> 
-> NONPORTABLE is what you're meant to depend on when the kernel that gets
-> built cannot run on platforms without the feature.
-
-The reason I put these two Kconfig options under NONPORTABLE is: all
-distributions won't enable NONPORTABLE for their defconfig, and I guess
-the distributions want to kept unified one kernel Image for all SV39,
-SV48 and SV57.
-
-I have no preference whether move them out of NONPORTABLE or not.
-> 
-> > +
-> > +	/* Fall back to Sv39 if Sv48 is unsupported on non-portable systems */
-> > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_ISA_SV48) &&
-> > +			satp_mode_limit == SATP_MODE_48)
-> > +		satp_mode_limit = SATP_MODE_39;
-> > +
-> >  	if (satp_mode_limit == SATP_MODE_48) {
-> >  		disable_pgtable_l5();
-> >  	} else if (satp_mode_limit == SATP_MODE_39) {
-> > -- 
-> > 2.53.0
-> > 
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RGVhciBhbGwsCgpJIGhhdmUgZG9uZSBzb21lIHNtYWxsIHByb2dyZXNzIG9uIHRoYXQgaXNzdWUu
+IEhlbHAgaXMgc3RpbGwgd2FudGVkIGFuZCAKd291bGQgYmUgYXBwcmVjaWF0ZWQuCgpPbiAyMDI2
+LTA4LTMwIDIyOjUyLCBBdXJlbGllbiBKYXJubyB3cm90ZToKPiBEZWFyIGFsbCwKPiAKPiBGb3Ig
+dGhlIGxhc3Qgd2Vla3MsIEkgaGF2ZSBiZWVuIHRyYWNraW5nIGEgcmFuZG9tIG1lbW9yeSBjb3Jy
+dXB0aW9uIGFuZAo+IHJlbGF0aXZlbHkgcmFyZSBvbiBTcGFjZW1pVCBLMSAoQmFuYW5hIFBpIEYz
+IGFuZCBNaWxrLVYgSnVwaXRlcikuIEl0IAo+IHN0YXJ0ZWQgdXBncmFkaW5nIHRvIGdsaWJjIDIu
+NDMsIHdoaWNoIGRvZXMgbWVtc2V0KCkgdGhyb3VnaCB2ZWN0b3IgCj4gaW5zdHJ1Y3Rpb25zLiAg
+SXQgaXMgcmVwcm9kdWNpYmxlIHVzaW5nIHRoZSBEZWJpYW4gNy4xLjctMX5icG8xMysxIAo+IGtl
+cm5lbCwgYnV0IEkgaGF2ZSBhbHNvIGJlZW4gYWJsZSB0byByZXByb2R1Y2UgaXQgd2l0aCBhIHZh
+bmlsbGEgNy4yLjIgCj4ga2VybmVsLCB1c2luZyBhIHNpbWlsYXIgY29uZmlndXJhdGlvbiB0byB0
+aGUgRGViaWFuIGtlcm5lbC4gVGhlIGJvYXJkIAo+IHVzZXMgT3BlblNCSSAxLjkgYW5kIHRoZSB2
+ZW5kb3IgVS1Cb290LgoKSSBoYXZlIGJlZW4gYWJsZSB0byBydWxlIG91dCBPcGVuU0JJIGZyb20g
+dGhlIGlzc3VlLCBJIGhhdmUgY2hlY2tlZCAKdGhlcmUgaXMgbm90IHRyYXAgdG9wIE9wZW5TQkkg
+d2hlbiB0aGUgcHJvYmxlbSBoYXBwZW5zLgoKPiBUeXBpY2FsbHkgaXQgbWFuaWZlc3RzIGl0c2Vs
+ZiB3aXRoIHRoZSBmb2xsb3dpbmcga2luZCBvZiBlcnJvciwgd2hlbiAKPiBydW5uaW5nIGcrKyBm
+cm9tIEdDQyAxNiBhcyBwYXJ0IG9mIGJ1aWxkaW5nIHNvZnR3YXJlIChlLmcuIE9wZW5KREssIAo+
+IEJsZW5kZXIsIERvbGZpbiwgUXQ2KTogICAKPiAKPiBBc3NlbWJsZXIgbWVzc2FnZXM6Cj4ge3N0
+YW5kYXJkIGlucHV0fToyODQ1ODg6IEVycm9yOiB1bmtub3duIHBzZXVkby1vcDogYC51bGViMScK
+PiB7c3RhbmRhcmQgaW5wdXR9OjI4NDU4ODogRXJyb3I6IHVucmVjb2duaXplZCBvcGNvZGUgYMO/
+w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/D
+v8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/
+w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/D
+v8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/
+w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w7/Dv8O/w792bDg3NCcKPiAKPiBUaGUgYnJv
+a2VuIGNoYXJzIGFyZSAweGZmIGFuZCBpdCBzZWVtcyB0aGVyZSBhcmUgYWx3YXlzIDI0MCAoYnV0
+IHdpdGggCj4gcG9vciBzdGF0aXN0aWNzKS4gU29tZXRpbWVzIGl0IGluc3RlYWQgY2F1c2VzIGEg
+R0NDIElDRSBpbnN0ZWFkLgoKSSBoYXZlIGlkZW50aWZpZWQgdGhhdCB0aGUgMHhmZiBjb21lcyBm
+cm9tIHRoZSBwb2lzb25pbmcgZG9uZSBmb3IgdjAgaW4KX19yaXNjdl92X3ZzdGF0ZV9kaXNjYXJk
+KCksIHdoaWNoIHNob3VsZCBvbmx5IGhhcHBlbiBmb3IgYSBzeXNjYWxsLiAKSW5kZWVkIGNoYW5n
+aW5nIHRoZSB2YWx1ZSB0byBkaWZmZXJlbnQgb25lcyBwcm9wYWdhdGVzIHRvIHRoZSBhYm92ZSAK
+ZXJyb3IgbWVzc2FnZS4KCkZ1cnRoZXJtb3JlIEkgaGF2ZSBmb3VuZCB0aGF0IGNoYW5naW5nIENP
+TkZJR19SSVNDVl9JU0FfVl9QUkVFTVBUSVZFIApkb2Vzbid0IGNoYW5nZSBhbnl0aGluZywgYW5k
+IHRoYXQgY2hhbmdpbmcgUklTQ1ZfSVNBX1ZfVUNPUFlfVEhSRVNIT0xEIApjaGFuZ2VzIHRoZSBu
+dW1iZXIgb2YgYnJva2VuIGJ5dGVzLgoKRGlzYWJsaW5nIHRoZSB2ZWN0b3JlZCB1c2VyIGNvZGUg
+ZW50aXJlbHkgd2l0aCB0aGUgZm9sbG93aW5nIHBhdGNoIHNlZW1zCnRvIHByZXZlbnQgdGhlIGlz
+c3VlIChvciBtYWtlIGl0IHN1ZmZpY2llbnRseSByYXJlIHRoYXQgSSBoYXZlIG5vdCAKZW5jb3Vu
+dGVyZWQgaXQpOgoKLS0tIGEvYXJjaC9yaXNjdi9saWIvcmlzY3Zfdl9oZWxwZXJzLmMKKysrIGIv
+YXJjaC9yaXNjdi9saWIvcmlzY3Zfdl9oZWxwZXJzLmMKQEAgLTI1LDcgKzI1LDcgQEAgYXNtbGlu
+a2FnZSBpbnQgZW50ZXJfdmVjdG9yX3VzZXJjb3B5KHZvaWQgKmRzdCwgdm9pZCAqc3JjLCBzaXpl
+X3QgbiwKICAgICAgICBzaXplX3QgcmVtYWluLCBjb3BpZWQ7CiAKICAgICAgICAvKiBza2lwIGhh
+c192ZWN0b3IoKSBjaGVjayBiZWNhdXNlIGl0IGhhcyBiZWVuIGRvbmUgYnkgdGhlIGFzbSAgKi8K
+LSAgICAgICBpZiAoIW1heV91c2Vfc2ltZCgpKQorICAgICAgIGlmICghbWF5X3VzZV9zaW1kKCkg
+fHwgdHJ1ZSkKICAgICAgICAgICAgICAgIGdvdG8gZmFsbGJhY2s7CiAKICAgICAgICBrZXJuZWxf
+dmVjdG9yX2JlZ2luKCk7CgpPdmVyYWxsLCB3aGlsZSB0aGUgY29ycnVwdGlvbiBoYXBwZW5zIHJh
+bmRvbWx5LCB0aGUgY29ycnVwdGlvbiBpdHNlbGYgCnNlZW1zIHRvIGJlIGRldGVybWluaXN0aWMs
+IGFuZCB0aGUgZGF0YSBzb3VyY2Ugb2YgdGhlIGNvcnJ1cHRpb24gaXMgCmlkZW50aWZpZWQuIEJ1
+dCBJIGRvbid0IHVuZGVyc3RhbmQgaG93IHRob3NlIHZhbHVlcyBwcm9wYWdhdGUgdG8gdXNlciAK
+c3BhY2UuIEl0IGlzIG5vdCBjbGVhciB0byBtZSBpZiBpdCBpcyBhIGJ1ZyBzb21ld2hlcmUgaW4g
+dGhlIGNvbnRleHQgCnN3aXRjaGluZyBjb2RlLCBvciBhIGJ1ZyBpbiBfX2FzbV92ZWN0b3JfdXNl
+cmNvcHlfc3VtX2VuYWJsZWQgZml4dXAgCmNvZGUsIHdpdGggdGhlIHZhbHVlcyBqdXN0IGJlaW5n
+IHRoZSBvbmUgYXQgdGhlIGVudHJ5IG9mIHRoZSBmdW5jdGlvbi4KQWxzbyBJIGNhbid0IGNvbXBs
+ZXRlbHkgcnVsZSBvdXQgYSBDUFUgYnVnLgoKPiBVc2luZyBnbGliYyAyLjQ0IGluc3RlYWQgb2Yg
+Z2xpYmMgMi40Mywgd2hpY2ggZG9lcyBhIGxvdCBvZiBzdHJpbmcgCj4gb3BlcmF0aW9ucyB0aHJv
+dWdoIHZlY3RvciBpbnN0cnVjdGlvbnMsIGluY3JlYXNlcyB0aGUgcHJvYmFiaWxpdHkgdG8gCj4g
+aGF2ZSBjb3JydXB0aW9uLCBtYWtlcyBpdCBhIGJpdCBtb3JlIHJlcHJvZHVjaWJsZSwgYnV0IGl0
+IGFsd2F5cyBzZWVtcyAKPiB0byBtYW5pZmVzdCBhcyBhIEdDQyBJQ0UuIEl0IHR5cGljYWxseSBo
+YXBwZW5zIHdpdGhpbmcgb25lIGhvdXIgd2hlbiAKPiBydW5uaW5nIG9uIHRoZSA4IGNvcmVzIGlu
+c3RlYWQgb2YgZXZlcnkgMSBvciAyIGRheXMuIEZyb20gdGhlcmUgSSBoYXZlIAo+IGJlZW4gYWJs
+ZSB0byBkZXRlcm1pbmUgdGhlIGZvbGxvd2luZyB0aGluZ3M6CgpJIGhhdmUgc3RvcHBlZCB1c2lu
+ZyBnbGliYyAyLjQ0IGFzIGEgcmVwcm9kdWNlciwgYW5kIGl0IGdlbmVyYXRlIApkaWZmZXJlbnQg
+dHlwZSBvZiBjcmFzaGVzLCBhbmQgdGhlcmUgY291bGQgYmUgYW5vdGhlciBzZXQgb2YgYnVncyBv
+biB0b3AgCm9mIHRoZSBvbmUgSSBhbSB0cnlpbmcgdG8gaWRlbnRpZnkuIFRoaXMgaG93ZXZlciBt
+ZWFucyBpdCB0YWtlcyBhIGxvdCBvZiAKdGltZSB0byB0ZXN0IGFueSBjaGFuZ2UuCiAKPiAtIERp
+c2FibGluZyB2ZWN0b3IgaW5zdHJ1Y3Rpb25zIChieSBwYXRjaGluZyB0aGUgRFRCIHRvIHJlbW92
+ZSAidiIsIAo+ICAgInp2aGYiIGFuZCAienZ0ayIpIGZpeGVzIHRoZSBpc3N1ZQo+IAo+IC0gRGlz
+YWJsaW5nIFRIUCAoYnkgc2V0dGluZyAvc3lzL2tlcm5lbC9tbS90cmFuc3BhcmVudF9odWdlcGFn
+ZS9lbmFibGVkIAo+ICAgdG8gbmV2ZXIgaW5zdGVhZCBvZiBhbHdheXMpIGFsc28gc2VlbXMgdG8g
+Zml4IHRoZSBpc3N1ZS4gS2VlcGluZyBpdCAKPiAgIGVuYWJsZWQgd2l0aCBkZWZyYWc9bmV2ZXIg
+b3IgdXNlX3plcm9fcGFnZT0wIGRvZXNuJ3QgY2hhbmdlIGFueXRoaW5nLgoKSSBkb24ndCB0aGlu
+ayB0aGlzIGlzIGEgZ29vZCBkaXJlY3Rpb24sIG15IGltcHJlc3Npb24gaXMgdGhhdCBpdCBqdXN0
+IApjaGFuZ2VzIHRpbWluZyBhIGJpdCwgd2hpY2gganVzdCBoaWRlIHRoZSBpc3N1ZSwgb3IgcmVx
+dWlyZSBkaWZmZXJlbnQgCmNvbmRpdGlvbiB0byB0cmlnZ2VyIGl0LgoKUmVnYXJkcwpBdXJlbGll
+biAKCi0tIApBdXJlbGllbiBKYXJubyAgICAgICAgICAgICAgICAgICAgICAgICAgR1BHOiA0MDk2
+Ui8xREREOEM5QgphdXJlbGllbkBhdXJlbDMyLm5ldCAgICAgICAgICAgICAgICAgICAgIGh0dHA6
+Ly9hdXJlbDMyLm5ldAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
