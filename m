@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72BEC79FA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 09:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C796C79FAD
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 09:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=828KCJG4TaxtT/dLYBixe1lEfvyhmtKaWO6vjaLfD2M=; b=dagq0/y12swxKy
-	6UOgBOJbRyLsEzHom1D5biwyE7tTs4kxiEd+Vm3Bts5bs2+zZ00xE2OhXT7FkfAsSRvvEoAVio0Hq
-	edvSmzZwMGG0YiHXuPEdtFver+AAU6q1AJh6I+sFXmTGIZTWpRgK2sp4vnd0zOfVSh7An4NJHRefe
-	g+wkXeEDdZzuGkwcBms8HRCIeWUKJ5wLx+e6da6eJ/Acv0nvhgqvP44dlLY5PK6qjnrZMh4dhc3Bf
-	+GCNL9GzQYICq3pi/jzfINy6qE94yJhtx6DqDA0010ceLFWQTgxFnACq7BSxnkfZJSDhZuZo4iUer
-	vcvWMGPseEIkIxt5xplg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HeiZjtk92lvNU9AJVonGRR8zCRPjc2ACxxloysAffNI=; b=ZBt5gckC278xrY
+	e80/3czU1cUQ0yZEaoIcT44zev+pUQcvbiyh20V4A1hYo1g24+unF04D3TWTV+eJ1ARjYYd9vYJZD
+	I3yxMA3v1SoCXXmCc6RoCrbApZO7H0F/41UjY2IAMkyF8DMrwyighEgxDoXQ3MIyb6ZEbA4EFjA31
+	2ckPXi4A+rGHf1VYPwu+V1nw9M4/eiY5SG+5++Zc+WAUC+eWfDNDhLSMuCw8NrVpd/ynPUMLAP71+
+	nsX1IsDOsEh3wDGx7fhjEQ0FM3O5AVRrxQf2Wv7UNwU4y+3P6+Dv1ociVDl0y6ClKA/u+0s8jzB5y
+	ix9J8sgiZY5pCegQLv1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sSX-00000008fQO-3wQS;
-	Tue, 08 Sep 2026 09:49:45 +0000
+	id 1x3sSY-00000008fQU-0Azs;
+	Tue, 08 Sep 2026 09:49:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3sSW-00000008fOz-3yE4
+	id 1x3sSX-00000008fP9-0gwC
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 08 Sep 2026 09:49:44 +0000
+	Tue, 08 Sep 2026 09:49:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=xz739aXXIMUSh9Rjzk6Ups/xX8HvpqZMo6mX55mUgiw=; b=Cv503Y18nKIi/Rlm4QlYziyVpm
-	T+J0+gakBmtWZSUfPxg8C+TlQqh6+/cKcGRj9dF7xbC3Hq0rwGi6Niyqgi2LGfqoQ9m0UHCRkrSaJ
-	jAD5UlYEHv4WqWbNNNhJIlS2vqq/chHm04tJ2Y3S7Lo/xg8MUsOFIU8sRK6OYHIqLBxtT84Fm0C2J
-	jm/CxgmsnAjFv9hrz5TToNOG8LtRrOhEL4ma2yCwdnmVJ0bQbsD5j0/z0zKnAV3ylvwufOj05lDSg
-	JPxoqWJ+lUHI60G2kJspBvZ/CJliswqyzLdxWOcVby5ew4SjDPKSJ+7wxunxPl0xrKWvmqLvXHwg0
-	blzcoasQ==;
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=ThDT4tVj+YPojmgqj2lbcYBtKEEAUeWWPDjR4MEplgU=; b=i7m+56HOqDs+/GJJbnmthQwmqM
+	e8RBYC4HThmd4C2pTBQIN62c8JGL6vfBR7C70IQ7/3tuiIhDmuznDeHikHYM1XcH8N7tkeiymvU3h
+	i6WEP18crconLg4y4BacDZKLhb6Z9ayid6pkBfYfHAJAC4ivB1QLI0afEKVRSko29XBFUr+37JWbK
+	HDbKlzqsd9WaqOBDLo7sddyJJOYnPeF3RnvfFH68d0pXnkazKZxWn9W/9prkGNkL4X/uSOKm7MjVr
+	5kcU22SS7OIRNSZSATpzLrgIjLQdsVS/W7+9M1wZ81EY8ejv4e145a9hSzECEKAj+s4/DcKok9CCq
+	WWYLmvaQ==;
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3sSO-0000000HE3D-2GWl
+	id 1x3sSN-0000000HE2w-1tNn
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 09:49:43 +0000
+	Tue, 08 Sep 2026 09:49:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1788860938;
-	bh=xz739aXXIMUSh9Rjzk6Ups/xX8HvpqZMo6mX55mUgiw=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=BZQpFhBKrpEmq+z7kLQvLtc+IIRkkQHXeuldzS4UdYDIscDq63QiLB2l/LWYwPsLp
-	 0PaPNIzgay0cgApWPg31dwlTHxkCogKgSzytyGNAiZ50pOrIj/XlFwWD+qrK0CC4kp
-	 HKaU3/svgR+3MrtskG/5LfppTitUNO/kaTLhC9iU=
-X-QQ-mid: zesmtpgz5t1788860929tfc1f0512
-X-QQ-Originating-IP: 0x2hsZIjGcymUws19v1bVA6FVvDkhR+5jRKxV4RIAaA=
+	s=mxsw2412; t=1788860932;
+	bh=ThDT4tVj+YPojmgqj2lbcYBtKEEAUeWWPDjR4MEplgU=;
+	h=From:Subject:Date:Message-Id:MIME-Version:To;
+	b=VqmP1CVJhHOV5Zce0Aqt5WsKEEcy7mKqmOWGUzAx4QEeuRmU/MjK4LsexYNEzYoIF
+	 BySZ7pW4p/ogSWfi3hrIcWasfYBU+Et6Y0XpFDDPyfr1Z6e4PppjyUzQfNdVuQyyeb
+	 lAO1rNUpHecC5oIIgTUYKWv7OA3WFxDCo9UiNMAA=
+X-QQ-mid: zesmtpgz5t1788860923t90e5fe56
+X-QQ-Originating-IP: qSRbQhLZ1bovcmOa+a9gCuzdjVIHFFNrdZXd0PpfhGM=
 Received: from LT-PANJUNZHONG.dc.com ( [120.237.158.181])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 08 Sep 2026 17:48:47 +0800 (CST)
+	id ; Tue, 08 Sep 2026 17:48:38 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12305366414733721363
-EX-QQ-RecipientCnt: 21
+X-BIZMAIL-ID: 15635221017366424496
+EX-QQ-RecipientCnt: 23
 From: Junzhong Pan <panjunzhong@linux.spacemit.com>
-Date: Tue, 08 Sep 2026 17:48:39 +0800
-Subject: [PATCH v2 2/9] dt-bindings: usb: ci-hdrc-usb2: require clocks and
- resets for spacemit,k1-usb2
+Subject: [PATCH v2 0/9] Add SpacemiT K1 USB2.0 controllers support
+Date: Tue, 08 Sep 2026 17:48:37 +0800
+Message-Id: <20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com>
 MIME-Version: 1.0
-Message-Id: <20260908-b4-spacemit-k1-usb2-v2-2-f07342ffa051@linux.spacemit.com>
-References: <20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com>
-In-Reply-To: <20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com>
+X-B4-Tracking: v=1; b=H4sIAPXZn2oC/32NwQ6CMBBEf4Xs2SV0FS2e/A/DAcpWNkohLRAM4
+ d+tJF49vsnMmxUCe+EA12QFz7ME6V0EOiRg2so9GKWJDJTROdOKsD5hGCrDnYz4VDiFmrC4VI0
+ 1pI9NriEuB89Wlt16LyO3Esbev/eTWX3T/75ZYYaWtLFUcE5U317ipiX9FVPTd1Bu2/YBjlrKX
+ r8AAAA=
+X-Change-ID: 20260812-b4-spacemit-k1-usb2-97adfc283d58
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
@@ -77,41 +79,43 @@ Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
  spacemit@lists.linux.dev, Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
  Ze Huang <huang.ze@linux.dev>, 
- Junzhong Pan <panjunzhong@linux.spacemit.com>
+ Junzhong Pan <panjunzhong@linux.spacemit.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Peter Chen <peter.chen@kernel.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788860920; l=1019;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788860920; l=2304;
  i=panjunzhong@linux.spacemit.com; s=20260306; h=from:subject:message-id;
- bh=fxBkl8UN4tRnHVfp02q8VLqsFWTrQ8bgE6+rw+AmQcc=;
- b=m9KV9hF+XPbk6pI2SQLmdRaoo+k5YOn76xXHv40m1eGF7TS79E9DYA13F62LsJEopGJ1VIzZE
- eJypALXD3B9DNBfj7eep76NJFSjWVboQnfidFtnmSNIy4TaQ4N5X1Pa
+ bh=Di+zPYQrmx8YPR59j7x1NjBpZu1CpEk8kjenbyRJxG8=;
+ b=RD4yw5F0Pyp1Qj+JzsXRr6wgCoagoFelv/EpLdhpqhHNSdFXA+Jv68ADUaBHx4ZzsgTC79/HS
+ JEBrKktHRY5AfsGXmUjUNADFx4eM8m5Ku1M02trwG6K2UywQ8ukhPc8
 X-Developer-Key: i=panjunzhong@linux.spacemit.com; a=ed25519;
  pk=bY08BOg2T9H93/jG8fEE/tVmdXoQQMp9M2rtzPFoyJg=
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
-X-QQ-XMAILINFO: NZER9JwiPlooc+kbkAUnjfuov5yGG/9rElozlcxjprHHd5t1LvUhHpiD
-	bdciiFHPQQdIeozqHbvSSIzuwsvwbyX5uP/VIBbyGFoE/ANdpw3CVs6GQ7ykIZa8OnSqR+m
-	y1oEguF1BE23M+eedJGvTAY3hA7M60NX/K2s4w0FJ20vbmo22a5ebb7JR2dIeZmxV6kz8QI
-	jwmIL7SitiBHMyHvmT7bgFQ2yeGfoRoeAop+hOrFQHrH7vI4OWcu0XtIXwRdEmd37VbpwMR
-	AiLH6QSELtAd2fmT1UE/22E0YAGEhVLOBfzrPzqLZIqzrSXyZjhWGtat5aXwQCx7kdgQIF9
-	66KFUKyVT3uwZJ/D/BWlKWqpWZWxe0+uX4OvEo7Z2M0CvxDTFm7teddIOrE+tb0GbfEimsd
-	s+nS4Wu4CWdQ69mkTT0JFzEv56ffriAizU0ELPLlomgXOye6Jg0mE74JUaioenURzjdnfbq
-	5j2VCvtgqhFhzVgTuGDpc7hxdiWfAnxHK0QcyXHECxcX9iQnuQssiGHzU2z5k8q/u93DOf7
-	MtcBJEbnIB5wm5zpC4QkgAtqOAN/+vMNzmQWTQV5CLtO3R4yhcG5/t8ny3qrV/dhImH04+e
-	LX08fQQjSrpWpJYTcjb1s8G1VsX7ynQhppgBUcxLa+MHeS8yXkRoL0Xnlc3BjmIWil7MNeg
-	Vk9L2ruQhGwjJNdufhfDCj1g2amrplYqTrScTsTCJ3TLz0Mp8Fn372oT4nCSpf7/oZoLXZu
-	yAIvPKV9QwSfI6Hp0WCZ3QHdrk8Et0oM+4/tG0qqjblNTVh4NpDYsUmP38Z7Has0vlYsusE
-	6a09gCuyU2/rszy5XOpO3LlCQ9SmL5AKj8FMwkeeAqC4Pt011wYCkt3BwtzIl41azVe+Dlx
-	L4HzvW+6sEc1+4MiuzqP0X0xKFar3zdGGtJ4+duSf5li8i7keWn2B7Mrsdg8wtctoyAP5rS
-	WpjS0Zyq8T0zdq/AxDA8PFgTlV1xS3GjP+Qe/wS+mK0NXMXSojrSu+FTube0j1j21//XQ5k
-	8wL2o9PnoQGStmS8qiBCRA5j1JcMRy91fSeQJYTtkMfuyvHM7QwCJtpuFwkt6ok0WPDQ6Nn
-	NyBOYrbC4a7kPZ4IkAatYoJlDOo3M+XakTXpwqWAOFjORGV9ofQSbIfAq9wyDY/jsiMH/2q
-	SMVxCILvGTZSIHqktV1kQnT0Umo3wKlp2TIrZHByG+2+9zRHYVpldco6qA==
+X-QQ-XMAILINFO: ONNzAaE3j5jCWVEMxszg/KhjL+fl4/m8t7hSIqyUQleacN9ECcdzr5Rd
+	Qw4Rd8XDTpaOVWQ/c85sdrzvt3UcoyacVgpKCMKlNvmMQIt72KTDc9fVeeCt8lsBd7Pv7b1
+	IPbTW8mcCSV8HRl06tjzz1Bd8iuRYzaOBL5yoUkEnhvqvVfZ0W1UUimkkDQsJFoMsSwuFtU
+	ODK3rjToAPpzZmdzQ76TNjDxPDO8rAFdVkg+A80Tv4SpD6okC2ZseMohmsWssWmttHbWiRi
+	vaSUZbFtd55agxr9y8nZiyih+pHA0FxvtqFmtXxJXFpAz+flZUXl+rg/xHsXN1mtMwldQ2h
+	7Z/CSifOkRobaUdvwJ7B7ZjOay+pETnZnG5O0X0L08md3FWSdKOykTWaQ5GGLFlQnfX7ZD3
+	6pvuARfoKcX1oVdKbYoIl/aApCkBGl1vbSNTMkSSeDxrTbMpVZ7D3jowI1Z34AW2ETa3nlA
+	M5AvcboSwCTqcE1GCt8GlOHQ9h8w7E7aFgrik/CL1gsJzQcl6kui7UWxmGD/wqYE5c5/Hdv
+	5Rxb9rLaFXNrIlgoawV7zluDOKy8qP5gO45xaZKQps1AB5j8nfbW1yJdGAP/Gdz4w0sTUXx
+	yjFkOYPiXVYneAeKXHDqg6iSGHQQou4eKwxOQGCh0OTvwNQE6gNezrQp5acJcwE56yglHap
+	MrO1QO//AtFB663s9kDyKhhf1HAy2jj1JM5W9PyDNBFPSKbSUGlxsHpRIrjGSH+aWVF29jL
+	wJQsXjndCtJasOLhNtVNJvV0Z6E1eoFqDV/XFjp4C65BnOoxX5kei+/36ceuiJu4B+6syQX
+	m5wHEAs3aamVgysBp2dS5HQjwrNMCOGWsY2vc2MEoWuiHqajfHmNwUn0hohYWkZi7TDQFk2
+	qHm6pLbJx+o4j/XkkMLfYYSMeE5dkWGLhulmMGZBdVNYoKacnE2MnvoAVu0WwDIX7kpVx0g
+	UdiGw4JiDBiZEuDVoXoRiWc9BF5e3t8Ah52n4yJKWbL+P/+n+hiN8EupfiJzSp0sm+PbrfZ
+	1ZKYZWziiw1SH2lL5b9t320Lg9aPBJzB+kJoSNUERlsaPWQPryBt6aWdOUk+xmrnmQ3Ip1q
+	+8iQpDTDkDNElpqhClBsR1+f2Yy4Y7t/K//lZf35tpuKN8/fvccoADmABKUSSzQDo/q+F6U
+	f+D/EjP1EoJVBfoRwwPfnazRyaG7dAf4qW/6GVb/iYHS+pj5DQ+kS1yL17EocrvmyOgHPef
+	s4/FHD2k=
 X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_104939_008920_0FB08B32 
-X-CRM114-Status: UNSURE (   7.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260908_104939_007212_7E79CCB1 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,42 +132,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Chipidea USB2 Controller on SpacemiT K1 requires 1 clock and 1 reset to
-work, add constraints for it.
+The SpacemiT K1 SoC has two USB2.0 controllers, one has Dual-Role
+support, but the hardware has no internal OTG registers, the other is
+Host only. These controllers are compatible with Chipidea USB2 driver
+with some flags set and reset control support.
+
+This series is based on 7.3-rc1 and has been tested on Banana Pi F3
+development board.
+
+A self-powered USB device/hub is needed to test the host function of the
+dual-role controller on Banana Pi F3, a MINI-PCIe USB2.0 module (a
+cellular module e.g.) is needed to test the host only controller.
 
 Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
 ---
- Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Changes in v2:
+- rebase on 7.3-rc1 and collect tags
+- reorder the usbphy and usb nodes in k1-bananapi-f3
+- add constraint for spacemit,k1-usb2 in dt-binding
+- add OrangePi RV2 device-tree change
+- use devm_clk_get_optional_enabled() for driver according to sashiko's advice
+- Link to v1: https://lore.kernel.org/r/20260812-b4-spacemit-k1-usb2-v1-0-f28cf29e522b@linux.spacemit.com
 
-diff --git a/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml b/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml
-index 6f8d88a0681d..5c2b7eb1a6ff 100644
---- a/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml
-+++ b/Documentation/devicetree/bindings/usb/ci-hdrc-usb2.yaml
-@@ -114,6 +114,20 @@ allOf:
-           maxItems: 2
-         clock-names:
-           maxItems: 2
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: spacemit,k1-usb2
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 1
-+        resets:
-+          minItems: 1
-+      required:
-+        - clocks
-+        - resets
- 
- unevaluatedProperties: false
- 
+---
+Junzhong Pan (9):
+      dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible
+      dt-bindings: usb: ci-hdrc-usb2: require clocks and resets for spacemit,k1-usb2
+      usb: chipidea: usb2: use devm_clk_get_optional_enabled()
+      usb: chipidea: usb2: add optional reset support
+      usb: chipidea: usb2: add SpacemiT K1 support
+      riscv: dts: spacemit: add USB2.0 controller nodes for K1
+      riscv: dts: spacemit: enable USB2.0 controllers on BananaPi F3
+      riscv: dts: spacemit: enable USB2.0 controllers on OrangePi RV2
+      riscv: defconfig: enable ChipIdea USB controller support
 
+ .../devicetree/bindings/usb/ci-hdrc-usb2.yaml      | 15 ++++++++
+ arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    | 16 +++++++++
+ arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts   | 28 +++++++++++++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi               | 40 ++++++++++++++++++++++
+ arch/riscv/configs/defconfig                       |  4 +++
+ drivers/usb/chipidea/ci_hdrc_usb2.c                | 30 +++++++++-------
+ 6 files changed, 121 insertions(+), 12 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260812-b4-spacemit-k1-usb2-97adfc283d58
+
+Best regards,
 -- 
-2.34.1
+Junzhong Pan <panjunzhong@linux.spacemit.com>
 
 
 _______________________________________________
