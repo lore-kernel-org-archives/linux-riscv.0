@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47607C79F82
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 20:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51FAC79FAD
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 20:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dCKfTBF92sm3cXE44/hIDTFD5GxcjpN8TwhxUaIlmpQ=; b=XRgL6J1K7csRi4
-	T/qG5bW0yMIdk5A05KmFFIVm4kxI2XJHw5w1y/6IqM+YX7uNYoJyt0GOrkhhxw6aM9u7dvZjFa1ZA
-	onc2S71GZCzGv1tkgWMFfHrQptinqqnxwWLm25DJ+gUWXjowkShEfcp8ViRXdwwgZsaXGkVgbdr9d
-	Dd9MSW+7AcRD86JF3uJbnTUxBQjU+Ur1ODaDF6hbT7YZhRThaJb8f50TD8DVfw5eQCwKIbzmgab8u
-	RfERTm4frrPAyeurWpJrhTb9KXUsP4rZEa6y9ZzBgACmISHb3lwV79bp7cP5Ip88hP4/Ah9TApwJg
-	w4f7G5Vb+Vsn6Z1zeyKA==;
+	List-Owner; bh=sdv9YonaOnINW5ddrCaYrNWaNu6cv2Aa/cuXiPATSYQ=; b=dXOsTYDQ0imBCT
+	AEHGuhk5DYuD/cD7ixXf08q1t67o1Bvrqv+ZNTHeqS75rvFywRvS0XScr8Hu5Bc5PjJVdRcLGiJut
+	6UcJbO5PXu9R3m2silRgRqerhC069I8F2iR23uoJ/NasuPGnq+EmcrVTldP2FaUd1lzIVT0scbA1R
+	cs/X5+DPUnDGtewNZviIKLwDdx4hHVa15ZAzct51IBC/hBNjQBoSbp1a8xk0x72mVXUYeqBVW4SGB
+	VxPBPg1ETUkqys7zavhL75RJhRUi5P8irK9EBi4CHXxIgAjmPjQCspjyzv+8kmM7h2VYUZwNnimxD
+	lS9QiS9drsIDADju2VeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42rF-0000000AEjI-3BPw;
-	Tue, 08 Sep 2026 20:55:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x42rT-0000000AEod-0kz3;
+	Tue, 08 Sep 2026 20:56:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42rD-0000000AEi4-2LoK;
-	Tue, 08 Sep 2026 20:55:55 +0000
+	id 1x42rO-0000000AEn9-3yPl;
+	Tue, 08 Sep 2026 20:56:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4ECA3407BB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8E0E041318;
+	Tue,  8 Sep 2026 20:56:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC0FF1F00A3E;
 	Tue,  8 Sep 2026 20:55:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 769721F00A3A;
-	Tue,  8 Sep 2026 20:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788900955;
-	bh=Y87Ru0xfYAGxRwASt8W2uZE0vluulQEq4vWCkr2qehk=;
+	s=k20260515; t=1788900966;
+	bh=JQp99GofxJEXpnCPDFs13IBgEN0wkowoaUfRuslLHtk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=QyylYyUh712yA+wXv0MkQw/+SKQgxmL401+ubHQJwu+ZIzBE8vWqhj+V4R6TMaiHM
-	 Y60hJq5rQ3/d9d5CNityd7xig6O+4487SsyyzAbI5j9JWEqg1fBPN4mW7Y0xf3E57W
-	 oEGnEeBaKJnD4+eeJylQ06J8g6mUkNnGrMBWzpyf+bPrZStFN+yY63wBlvPS6YeupJ
-	 SmNBcrI1XpyFQx9QaXKXWXDETpxFWmsyd/pCLcfeZuXv9msSqXrxIyTaDgz7ecm0jm
-	 QsJMlDs7cKdvveUp91Za2I0LitMt5Y1sCLbcdrH1DKRVcK09/RvD8ADXffWwOfymjH
-	 IyU9PE5QiiKvw==
+	b=InM9gDQiTbJiLhrjldb108eNIcHHYnfr54iP2707in33IvvcvzT32e13zxqAfc3vr
+	 c/o8qzoDOEzC2sUY4L9m7p9Iy0a+N/yxAIcKGyVzKsbNldffmvBzzGDz/4Fv2mmdAP
+	 dmTNcpxtGuNSZ+WHrNagdNsgqbpS+UAtloxY/lO9F3aHGVJIX6D/lU2dFb8TWFQmBc
+	 VUO6c2HW4PzfZqTZ0J4aT1ohM3QN/F772Wx4FJNZtfzLBvVsmLLVIRX8vJg7VaYkqE
+	 j9pCh07MAqWmCNAEccDkQzy7pJe8U6JgGmn5rxH9mQsPmugr0ls99c46FCyad+3Gnv
+	 t7nr7kK3XOUxQ==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 08 Sep 2026 21:55:02 +0100
-Subject: [PATCH 02/23] scripts/mksysmap: fix escape of '$' in the __pi_
- pattern
+Date: Tue, 08 Sep 2026 21:55:03 +0100
+Subject: [PATCH 03/23] kallsyms: index symbols by token to speed up table
+ compression
 MIME-Version: 1.0
-Message-Id: <20260908-build-speedup-v1-2-5dc1ac01672d@kernel.org>
+Message-Id: <20260908-build-speedup-v1-3-5dc1ac01672d@kernel.org>
 References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
 In-Reply-To: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
 To: Linus Torvalds <torvalds@linux-foundation.org>, 
@@ -82,12 +82,12 @@ Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, 
  "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1197; i=ljs@kernel.org;
- h=from:subject:message-id; bh=pcsijpekNt+DxklwcjLik4aRG5CCfOXcviThDorMTJE=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIWlJker97TJDyrb4PQ+6XPvAN8LNze3ZELTohu0v29J
- yLUj39BRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACZy/i0jw08mn4fvXq4u+Fa8
- i/Fq9u+vctwXl2RL3vaT5v0085vVum2MDK9+Kl4Xyq24lPJZ8b3/vJj9veGOjkp52yRuKrG/+/v
- 8BhsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10123; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=AdYautbMzzj34OfFQGbA/YGqCu4yxRtSGWlFBnNeFJ0=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIWlJmeP3TQbr+Iw8cGp9lcErX3nfS2PosobhJOVbf8u
+ aK7cfbXjlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAEzEzYLhD/+kEss0/X8dQv6s
+ GT+9WoQ+7mi2s3i9seg57+WQuPSgyYwMPxYLljNoLMnxWCBgp/CQv/nNmUsJX23TDJxzztX3+J/
+ mAgA=
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -106,45 +106,309 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit b18b047002b7 ("kbuild: change scripts/mksysmap into sed script")
-converted scripts/mksysmap from a shell script to a sed script.
+The kallsyms program compresses symbols by figuring out the most commonly
+used substrings in all of the input symbols then uses special character
+codes to represent them.
 
-However an error was made - escaping of '$' required \\ escaping in shell
-but only \ in a sed script.
+For instance, 0xf7 might end up representing "write_", then every single
+symbol that contains "write_" can use 0xf7 as a shorthand and save 5 bytes
+each time.
 
-This was mostly corrected in commit 7a6c355b55c0 ("scripts/mksysmap: Fix
-escape chars '$'"), but this fix missed arm64 PIE namespace local symbols
-like __pi_$x and __pi_$d which appear in System.mapand /proc/kallsyms:
+'Special' character codes are any byte value that is not used in any
+symbol, either due to being an invalid character, or not being present in
+any symbol (e.g. if no symbol contains 'z', then 'z' can be used as special
+character).
 
-$ grep __pi_\\$ /proc/kallsyms | sort -u
-0000000000000000 d __pi_$d
-0000000000000000 t __pi_$x
+It does this by first figuring out which special characters are available
+in insert_real_symbols_in_table(), then iterating through every available
+special character, counting how many times each pair of adjacent characters
+appear in symbols in build_initial_token_table().
 
-Fix the escaping properly.
+These adjacent pairs are known as 'tokens'.
 
-Fixes: b18b047002b7 ("kbuild: change scripts/mksysmap into sed script")
+Token counts are initially obtained by build_initial_token_table(), then
+optimize_result() calls find_best_token() to determine the token that
+appeared the most number of times and assigns it the next special
+character.
 
-No measurable change in build time.
+Finally, optimize_result() calls compress_symbols() to replace every token
+in every symbol with its special character, which updates token_profit[] as
+it does so.
+
+This process is repeated for each remaining available special character,
+with tokens now perhaps containing previously assigned special
+characters (e.g. if 'wr' was assigned 0x80, then the token representing
+'wri' would be '\x80i').
+
+This compresses that token by 50% in each symbol it appears in (two bytes
+are now represented by one) and thus by repeatedly doing this kallsyms
+obtains good symbol compression.
+
+However, compress_symbols() is seriously inefficient - it iterates through
+EVERY symbol for EVERY special character assignment, i.e. ~256 *
+nr_symbols.
+
+Modern x86-64 kernels, for instance, have ~158,000 symbols, so millions of
+iterations are performed, most of which are entirely unnecessary (tokens
+don't appear in most symbols).
+
+In practice kallsyms spends half its runtime doing this, two or three times
+per vmlinux link step.
+
+Fix this by tracking which symbols each token appears in token_syms[], and
+only compress symbols which actually need to be updated.
+
+Each time a token is compressed that token can no longer appear in any
+symbol, so that token_syms[] entry can be freed.
+
+However new token_syms[] entries must be created for each new token
+containing the assigned special character, but this is bounded by the
+number of replacements in the symbol which is very small.
+
+In testing on an x86-64 platform using clang, each kallsyms invocation
+dropped from 0.59s to 0.33s with CONFIG_KALLSYMS_ALL set and from 0.38s to
+0.22s without it set.
+
+The data was carefully checked and verified to be byte-for-byte identical
+for six symbol sets (two vmlinux passes, vmlinux.o, three userspace
+binaries) with all option combinations.
+
+As part of this change, additionally refactor the code to be a little
+easier to follow.
+
+kallsyms runs two or three times on the serial tail of every build that
+links vmlinux, no-op builds do not link and are unchanged.
+
+Whole build, 128-thread Threadripper 9980X, best of N runs:
+
+                                         before   after     delta
+                                         -------------------------------
+  x86 defconfig, touch mm/vma.c, gcc       11.4s    10.8s    -0.55s (-5%)
+  x86 defconfig, touch mm/vma.c, clang     11.4s    10.7s    -0.66s (-6%)
+  x86 defconfig, clean, gcc                30.3s    29.5s    -0.80s (-3%)
+  x86 defconfig, clean, clang              30.3s    29.7s    -0.62s (-2%)
+  x86 allmodconfig, touch mm/vma.c, gcc    46.2s    45.3s    -0.91s (-2%)
+  x86 allmodconfig, touch mm/vma.c, clang  44.2s    42.9s     -1.3s (-3%)
 
 Assisted-by: LLM
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- scripts/mksysmap | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ scripts/kallsyms.c | 138 +++++++++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 124 insertions(+), 14 deletions(-)
 
-diff --git a/scripts/mksysmap b/scripts/mksysmap
-index 56a8b8bbdb37..856b26ba2ac0 100755
---- a/scripts/mksysmap
-+++ b/scripts/mksysmap
-@@ -35,7 +35,7 @@
- / __efistub_/d
+diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
+index 494852ade6d8..350d118c3b9e 100644
+--- a/scripts/kallsyms.c
++++ b/scripts/kallsyms.c
+@@ -58,12 +58,47 @@ static unsigned int table_size, table_cnt;
+ static int all_symbols;
+ static int pc_relative;
  
- # arm64 local symbols in PIE namespace
--/ __pi_\\$/d
-+/ __pi_\$/d
- / __pi_\.L/d
++/* A dynamic array of symbols, encoded by symbol index. */
++struct sym_arr {
++	unsigned int *sym_indexes;
++	unsigned int cnt, cap;
++};
++
+ static int token_profit[0x10000];
++static struct sym_arr token_syms[0x10000];
  
- # arm64 local symbols in non-VHE KVM namespace
+ /* the table that holds the result of the compression */
+ static unsigned char best_table[256][2];
+ static unsigned char best_table_len[256];
+ 
++static unsigned int sym_arr_last(const struct sym_arr *arr)
++{
++	return arr->cnt ? arr->sym_indexes[arr->cnt - 1] : UINT_MAX;
++}
++
++static void sym_arr_maybe_expand(struct sym_arr *arr)
++{
++	if (arr->cap > arr->cnt)
++		return;
++
++	arr->cap = arr->cap ? arr->cap * 2 : 16;
++	arr->sym_indexes = xrealloc(arr->sym_indexes,
++				    arr->cap * sizeof(*arr->sym_indexes));
++}
++
++static void sym_arr_add(struct sym_arr *arr, unsigned int sym_idx)
++{
++	sym_arr_maybe_expand(arr);
++	arr->sym_indexes[arr->cnt++] = sym_idx;
++}
++
++static void sym_arr_free(struct sym_arr *arr)
++{
++	free(arr->sym_indexes);
++	arr->sym_indexes = NULL;
++	arr->cnt = 0;
++	arr->cap = 0;
++}
+ 
+ static void usage(void)
+ {
+@@ -458,6 +493,15 @@ static void write_src(void)
+ 	printf("\n");
+ }
+ 
++static unsigned int token_index(unsigned char first, unsigned char second)
++{
++	return first + (second << 8);
++}
++
++static unsigned int sym_token_index(const unsigned char *symbol, int first_idx)
++{
++	return token_index(symbol[first_idx], symbol[first_idx + 1]);
++}
+ 
+ /* table lookup compression functions */
+ 
+@@ -467,7 +511,7 @@ static void learn_symbol(const unsigned char *symbol, int len)
+ 	int i;
+ 
+ 	for (i = 0; i < len - 1; i++)
+-		token_profit[ symbol[i] + (symbol[i + 1] << 8) ]++;
++		token_profit[sym_token_index(symbol, i)]++;
+ }
+ 
+ /* decrease the count for all the possible tokens in a symbol */
+@@ -476,16 +520,76 @@ static void forget_symbol(const unsigned char *symbol, int len)
+ 	int i;
+ 
+ 	for (i = 0; i < len - 1; i++)
+-		token_profit[ symbol[i] + (symbol[i + 1] << 8) ]--;
++		token_profit[sym_token_index(symbol, i)]--;
++}
++
++static void token_add_symbol(unsigned int token_idx, unsigned int sym_idx)
++{
++	struct sym_arr *arr = &token_syms[token_idx];
++
++	/* Symbol indexes kept in sorted order, check for duplicate. */
++	if (sym_arr_last(arr) == sym_idx)
++		return;
++
++	sym_arr_add(arr, sym_idx);
++}
++
++static void symbol_index_all_tokens(const unsigned char *symbol, int len,
++				    unsigned int sym_idx)
++{
++	int i;
++
++	for (i = 0; i < len - 1; i++) {
++		const unsigned int token_idx = sym_token_index(symbol, i);
++
++		token_add_symbol(token_idx, sym_idx);
++	}
++}
++
++/*
++ * The symbol just got compressed. The only parts of the symbol that changed
++ * meaningfully are those containing the newly assigned compressed char, so
++ * index those.
++ */
++static void symbol_index_new_tokens(const unsigned char *symbol, int len,
++				    unsigned int sym_idx, int compressed_chr)
++{
++	int i;
++
++	for (i = 0; i < len - 1; i++) {
++		const unsigned int token_idx = sym_token_index(symbol, i);
++
++		if (symbol[i] == compressed_chr ||
++		    symbol[i + 1] == compressed_chr)
++			token_add_symbol(token_idx, sym_idx);
++	}
+ }
+ 
+-/* do the initial token count */
+ static void build_initial_token_table(void)
+ {
+ 	unsigned int i;
+ 
+ 	for (i = 0; i < table_cnt; i++)
+ 		learn_symbol(table[i]->sym, table[i]->len);
++
++	/*
++	 * The initial occurrence counts tell us exactly how much memory should
++	 * be reserved for each token's symbol array.
++	 */
++	for (i = 0; i < ARRAY_SIZE(token_syms); i++) {
++		const int nr_syms = token_profit[i];
++
++		if (!nr_syms)
++			continue;
++
++		token_syms[i].cap = nr_syms;
++		token_syms[i].sym_indexes =
++			xmalloc(nr_syms * sizeof(unsigned int));
++	}
++
++	/* For every symbol, index every token -> symbol it is present in. */
++	for (i = 0; i < table_cnt; i++)
++		symbol_index_all_tokens(table[i]->sym, table[i]->len, i);
+ }
+ 
+ static unsigned char *find_token(unsigned char *str, int len,
+@@ -502,27 +606,30 @@ static unsigned char *find_token(unsigned char *str, int len,
+ 
+ /* replace a given token in all the valid symbols. Use the sampled symbols
+  * to update the counts */
+-static void compress_symbols(const unsigned char *str, int idx)
++static void compress_symbols(const unsigned char *str, int compressed_chr)
+ {
+-	unsigned int i, len, size;
++	const unsigned int token_idx = sym_token_index(str, 0);
++	struct sym_arr *arr = &token_syms[token_idx];
++	unsigned int sym_idx, j, len, size;
+ 	unsigned char *p1, *p2;
+ 
+-	for (i = 0; i < table_cnt; i++) {
++	/* Iterate through all symbols this token is found in and compress. */
++	for (j = 0; j < arr->cnt; j++) {
++		sym_idx = arr->sym_indexes[j];
+ 
+-		len = table[i]->len;
+-		p1 = table[i]->sym;
++		len = table[sym_idx]->len;
++		p1 = table[sym_idx]->sym;
+ 
+-		/* find the token on the symbol */
+ 		p2 = find_token(p1, len, str);
+ 		if (!p2) continue;
+ 
+ 		/* decrease the counts for this symbol's tokens */
+-		forget_symbol(table[i]->sym, len);
++		forget_symbol(table[sym_idx]->sym, len);
+ 
+ 		size = len;
+ 
+ 		do {
+-			*p2 = idx;
++			*p2 = compressed_chr;
+ 			p2++;
+ 			size -= (p2 - p1);
+ 			memmove(p2, p2 + 1, size);
+@@ -536,11 +643,14 @@ static void compress_symbols(const unsigned char *str, int idx)
+ 
+ 		} while (p2);
+ 
+-		table[i]->len = len;
++		table[sym_idx]->len = len;
+ 
+-		/* increase the counts for this symbol's new tokens */
+-		learn_symbol(table[i]->sym, len);
++		learn_symbol(table[sym_idx]->sym, len);
++		symbol_index_new_tokens(table[sym_idx]->sym, len, sym_idx,
++					compressed_chr);
+ 	}
++
++	sym_arr_free(arr); /* No symbol contains this token any more. */
+ }
+ 
+ /* search the token with the maximum profit */
 
 -- 
 2.55.0
