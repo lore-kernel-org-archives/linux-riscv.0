@@ -4,91 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993A3C79FA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 21:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53802C79F82
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 21:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wHyVzEdi9M4Vnrsl1NkGIQurApsxVWSyD3bMx1ftTSE=; b=4ucoVf1gnQGEMa
-	Xh5v7xk2xIMLLq/SXVOIqYiu+5rwpJ4bfbT8dt0VMFzdxZp/5OPDpaOyEBhqQkXWkHoMP64A9jVgy
-	fmnoPEDne1DpZ/8hGavdsjv4EtFOOzuIJmwiyZymdqOpNRKI12IMx1EjovlAfDWXeSIwMXqGTogsT
-	sWqBYrLDvIUc7ag3RaEBATDOYvcm1m/KQabmvTTpBxSsN777cLeX0nVHkKtGbLhbepOlraxQehEo2
-	LKmSFFBe6XVJo/Gr1UQFIo31+HF2p/QC4fCPEqR89kGFzv2QxV7Fc3UvqWAIOaJ5h8Kgg4NAzOJxl
-	wfhuMPIWopERZC72RdPA==;
+	List-Owner; bh=G4zV9LU/28ICNVfUJeTJcQdrf8CTf7tPVurZg9lUhjI=; b=X9BoQORA/eZQVF
+	8r9S5/Sjy9vvlz9JYqbncIwSjMzg5zb7tuS2oGS73Su8JVQSxfQKCNR065DMKs98OkIF+0837HQVT
+	eeQmHY+dsvj3WAcGYKx6BH2dNKybD0FgYa9x84hltTP8OEQ0pb8qRYEHGzn5j05ouWdAZ0PG6EvRa
+	5TqhONY3cd+HhSPvjyKvHwuc90ViqM8fY8h6LJJ+7lSAbI0npPfEvHT/n3PqxVDpLt2kqNgucDn3m
+	7FGm6tVYN43e7v+TiOAT64JCsKj6T2TWDLgJmGAoCgHPH1RJz5cftfRK819ZyEjHfxvyNWqBakUso
+	r3BaFiNjKdcotpskN4qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42v3-0000000AGwA-0cO6;
-	Tue, 08 Sep 2026 20:59:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x431W-0000000AHhd-3718;
+	Tue, 08 Sep 2026 21:06:34 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42v1-0000000AGvU-2byb;
-	Tue, 08 Sep 2026 20:59:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5DF904097B;
-	Tue,  8 Sep 2026 20:59:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8613E1F00A3A;
-	Tue,  8 Sep 2026 20:59:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788901191;
-	bh=8qApsahOXbBIqOceZevDiK3r7godzpGwnSgF9lGt9lA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=MdO7GGCn0+KpMxsISFASdD9dBeQiWmdJV6zH6t4gzZ5v/IkbEVIfcTsiIALXNtNLj
-	 dFKVRsqLpM4VxR9/cgaCaaIM8If6JAXGEv7nzSsfCRev6+enJY4RHrDFyU7NHQ5Qvp
-	 xOoik+kf2au/vKN9QZt/hbZQRAsBSK1fRwamdkGXQIrTgIHSfo5GeIVS91y7sTeNAs
-	 RMryxLxJ9s2KHaRhVjS7PJ7AQyWgKEtnuhencnKFV7WGH+LmQdpFNF0YkmKpDJWnO7
-	 38B+TFNamLP1eHAQtxCYJp3TkHMPKvdowdf0jA/KR6oeDesYCBg+6wnzjzvIKo4VyJ
-	 t9x2EB5VjgNtA==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 08 Sep 2026 21:55:23 +0100
-Subject: [PATCH 23/23] kbuild: use pigz for gzip compression if available
+	id 1x431U-0000000AHgu-3VOY
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Sep 2026 21:06:34 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49b392ccaacso75462565e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Sep 2026 14:06:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788901590; cv=none;
+        d=google.com; s=arc-20260327;
+        b=lb5L4Aq9RifxlhPxRqUBr+Y7I0C4X1i+Cvp6USjCXt7ly+KTgS4uevf6PzWEl961f4
+         iXRhrOihG42qID5Fezs7OCzUQKvY66KiM03NgKatu928g/YnJJFT10A+UNaFwKKAWITd
+         MsGglcdDZP/uOf48NJbg5jTkB+I9TeiJB9NDNWEFAkfZhfG4bc/yZLKG9noeGXrOdDxu
+         V1ql8SFwreXUpiV2U9L+cYpHQ/MsixCd6C/Pc/VvJkAn9+LYISXLJi+nF4Lwz0Nu7MNU
+         LUBsu734P8lFsp0BCIUb57zXSORxTvEHJwloW+w7aY16cwHDc9W2BejlJLJ7jhZVzdxJ
+         UEnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/CB3Vtp7eYFgiX1lhWfAP6WjiIrj8nFLFrnLp7SXQSY=;
+        fh=y4DmF7lQfFiVs3KCE95/9r840SSpM9+8B9bXqOawzZU=;
+        b=DWQUeC3ZvTjEU4cDmJM8/Z1KP228tNvFNyGg753FUCBNmsFvsGIQRd1phKulSxCC1i
+         rTc+eByDzd/COw6D6+sXOt+kjLu3v96m67npDjKLBvIa5hWWepaiEPtviscugonkdGay
+         UX+COjf1b+UAbMJ/TZ+e6+l1x/bgsX/+1QuyIAQEPiPnxhJwDwtMcaO81xLl7ilQCrpm
+         lG0voMXDvnCnkT8NdFFQTUJppMaYMRNBawIPl57rxwNACBMItVPK/5vNZ1kkOYcZOZd4
+         fPGrKJhZhk+V7vZQmYilQBv4xVr2Wd03l7Dccg1y4hS9GaayiivKXeu8HH/5mg0pj6ji
+         szUA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788901590; x=1789506390; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/CB3Vtp7eYFgiX1lhWfAP6WjiIrj8nFLFrnLp7SXQSY=;
+        b=N6T9VOjxtFmzHrBuxbMps7Apq8OLalh4p8OKPOwVrZJaIQ0VDsIOnCtOcsOxeQHhuW
+         bDYvsmw4Y5j914Nwq0qs91RATupMg4dMCEP9EMgD0qDXSoEB0QSRnjymQ5DL4lRf1RmV
+         j6Af30xVA0zQKODqelLtZlERaFj6PEWBpVPfA6sW+0vo8lvyliXl2IUCzSvFrw7wriN7
+         MBiZWBEL1WUhkbseuygxT7bVrq6KsZ+08N9+Sx0dC2VBq0DmQ4fpYZxojfQye6ki78LD
+         d4BOsarPi8TiQttzA3Ot+xLXJDNVg7nmTICt3vHZDFK06dkqOE7BliztYjE7IssE968O
+         UbDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788901590; x=1789506390;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/CB3Vtp7eYFgiX1lhWfAP6WjiIrj8nFLFrnLp7SXQSY=;
+        b=XvOH4jPi/m/NTln3OSxgvv5WwulDfw9gho+aFPRCVpIcSCGV22xSWDoStkDyyuboKq
+         RFIotnvdsbPj3rUfiSwo+OKiFdiBziZyZXYPLRlBRkfvvotymU0q2opwx965fmuk8iIq
+         bzjwPiJeEj66nk1Jvlbs3dT8jSd2x56a1hC9o/h0+rMNLT6bQsLKhzrhwxHW7U/TrimW
+         36xUVhW1iho54k/zjzWJiX9x8/DHO3gdp8Z0N+BK2+Ni2AJq0sDbDPG7l/TvkVaUT47e
+         1Iw4E7M5fSE9nwMJ4FkaChDPp7AnEvwk67EEBOTWFcusnqzfIGxFg1SOkQmsUU2YKfKQ
+         B54A==
+X-Forwarded-Encrypted: i=1; AKwUvBzqznZ9niXfHupsAcN178h3j22xNblPmhpBM7mRtKGJ0qde0Hp4aJLaG6Dw3Vm0iILZLU+UkCU76PQ1yw==@lists.infradead.org
+X-Gm-Message-State: AFuF++khGP15THRL3Pla12SwE4B4QnLyQI6YQrxGPWSKKhFr4Lhu+sYT
+	VogPf4cvS++YrPJ8zM0rERS7h14yQSdhgybMcWEwhFcdRRUxR+UVpgb6XG3+kwGgy5hr4MM2+yT
+	Barrgcc5ekVQPATcB24POAjLTDIc9qdDOSaNKDsBC
+X-Gm-Gg: AYBFou20eekxyUNt1R5f6SrjYA8TH6EJgtnokmgLZDpEXhi+Rhbxt1hHjwU7An0eAwW
+	uRFspeGLXxjKJMoZ2/Din5ZEspfBXSphe8EzAbQNS1dKIGA2nzoLNb2Ch8+50cIu0zoKViNAfJM
+	N9OyjbUgjU0SA5EQLXYBzD6TobZAeFUeYbcegO/ceZaYxMJL2+XvzaBmsmSwaJfYqD70p2JIw3N
+	rlrhkxQy9qi6i+3Jj3jhSzao2DxKQW9C/birOiR1SnQMM8Qn/AmFfcZlfMvjSxU9UtlRIw3o9QC
+	2DaTGsyKN6BTT9jLJECVA2IwevgMJ2n52OymxbfDsk47xAfPv+bpoTpX6qLClOTPwyVhpgXmAqN
+	lx8nFKOAEq9naRhnto22i+sJnQ3bJn1AT+TIcOReddL7hfYlwT2WyBZmo
+X-Received: by 2002:a05:600c:6091:b0:49c:eb17:cf3b with SMTP id
+ 5b1f17b1804b1-49cf8252497mr286154405e9.8.1788901589479; Tue, 08 Sep 2026
+ 14:06:29 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20260908-build-speedup-v1-23-5dc1ac01672d@kernel.org>
 References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
 In-Reply-To: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>, 
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Ard Biesheuvel <ardb@kernel.org>, 
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
- linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4672; i=ljs@kernel.org;
- h=from:subject:message-id; bh=/cGfZoMmr7KpIZ+1dXwGv9v2Wc3LWJWwGs5e7Tz+VNE=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIWlFnOe8Tg5bZ6llWidBaDf//HKzIea68pJ4U1fnOvK
- UmZvHdqRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACZykJuR4eic7LZFB/flfLzG
- vKvj/Y0bez9vyL3NYrPz78pFPrkRJjoM/x2cp17LlWRaKbL+v5h5m22pf93yr542HzPtHxn9vL9
- kHisA
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Tue, 8 Sep 2026 14:06:18 -0700
+X-Gm-Features: AcwNN1Vne6n6eJi0vjoX52mygVY2Bf7Bhttyek2fKXqRHQxDJ8Lg5WpFcLyZtjc
+Message-ID: <CAKwvOdmdFdW8=y+s5NLoNeKz4LVbmW8tr+JqJ26wqYFJDdARFQ@mail.gmail.com>
+Subject: Re: [PATCH 00/23] kbuild: significantly speed up kernel builds
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Nathan Chancellor <nathan@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Nicolas Schier <nsc@kernel.org>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
+	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+	Jens Axboe <axboe@kernel.dk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_140632_890242_A09BDDF3 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,134 +134,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The gzip step of a kernel build is very lengthily, especially for larger
-builds such as allmodconfig.
-
-gzip itself cannot be run in parallel, however an alternative tool exists
-that can, providing the same feature set as gzip itself - pigz - which
-works as a drop-in replacement.
-
-On a 128-core Threadripper, gzip -9 of a 36 MiB x86-64 vmlinux.bin takes
-1.6s, and with pigz it takes 0.09s, so the performance increase is
-significant.
-
-It is already possible to specify the KGZIP environmental variable to make
-use of pigz, however it seems sensible to make use of pigz if it is
-available.
-
-Therefore default to using pigz if it is available on the system upon which
-the kernel is being built, otherwise fall back to gzip.
-
-The output is byte-for-byte identical between pigz/gzip invocations, but
-gzip and pigz do not produce the same stream as one another.
-
-Therefore, for reproducible builds, the same set of tools should be used.
-
-This seems to already be an implicit requirement in any case, but update
-the reproducible build documentation to make this clear.
-
-Also update the kbuild documentation to reflect the change.
-
-Every x86 build ends with the compression of vmlinux.bin, 36MB for
-defconfig and over 200MB for allmodconfig, no-op builds are unchanged.
-
-Whole build, 128-thread Threadripper 9980X, best of N runs:
-
-                                         before   after     delta
-                                         -------------------------------
-  x86 defconfig, touch mm/vma.c, gcc        7.4s     5.4s     -2.0s (-27%)
-  x86 defconfig, touch mm/vma.c, clang      6.6s     4.9s     -1.7s (-26%)
-  x86 defconfig, clean, gcc                26.2s    24.4s     -1.8s (-7%)
-  x86 defconfig, clean, clang              25.8s    24.3s     -1.5s (-6%)
-  x86 allmodconfig, touch mm/vma.c, gcc    23.7s    15.3s     -8.4s (-35%)
-  x86 allmodconfig, touch mm/vma.c, clang  22.1s    15.2s     -6.9s (-31%)
-  x86 allmodconfig, clean, gcc            291.4s   275.2s     -16.2s (-6%)
-  x86 allmodconfig, clean, clang          278.3s   265.7s     -12.6s (-5%)
-
-Link: https://zlib.net/pigz/
-Assisted-by: LLM
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- Documentation/kbuild/kbuild.rst              | 13 +++++++++++++
- Documentation/kbuild/reproducible-builds.rst | 16 ++++++++++++++++
- Makefile                                     |  2 +-
- 3 files changed, 30 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/kbuild/kbuild.rst b/Documentation/kbuild/kbuild.rst
-index 5a9013bacfb7..ebfc2319d6da 100644
---- a/Documentation/kbuild/kbuild.rst
-+++ b/Documentation/kbuild/kbuild.rst
-@@ -110,6 +110,19 @@ HOSTLDLIBS
- ----------
- Additional libraries to link against when building host programs.
- 
-+KGZIP
-+-----
-+The gzip compressor used for the compressed kernel image, compressed
-+modules and packaging.
-+
-+If unset, it defaults to pigz (a parallel implementation of gzip) if available,
-+otherwise gzip.
-+
-+KBZIP2, KLZOP, LZMA, LZ4, XZ, ZSTD
-+----------------------------------
-+The compressor programs for the other formats. Each defaults to the program
-+of the same name.
-+
- .. _userkbuildflags:
- 
- USERCFLAGS
-diff --git a/Documentation/kbuild/reproducible-builds.rst b/Documentation/kbuild/reproducible-builds.rst
-index bc1eb82211df..b95586df2cb5 100644
---- a/Documentation/kbuild/reproducible-builds.rst
-+++ b/Documentation/kbuild/reproducible-builds.rst
-@@ -76,6 +76,22 @@ include generated files.  You should ensure the source tree is
- pristine by running ``make mrproper`` or ``git clean -d -f -x`` before
- building a source package.
- 
-+Compression tools
-+-----------------
-+
-+The compressed kernel image, compressed modules and packages are produced
-+using the binary specified by the environment variable ``KGZIP`` (described
-+in Documentation/kbuild/kbuild.rst).
-+
-+This variable defaults to ``pigz`` if installed (a parallel implementation
-+of gzip), or ``gzip`` otherwise.
-+
-+The generated output between two invocations of identical builds with
-+either of the default tools will be byte-for-byte equivalent.
-+
-+However, for reproducible builds, ensure the same tool is used on all build
-+hosts, as different tools may generate different output from one another.
-+
- Module signing
- --------------
- 
-diff --git a/Makefile b/Makefile
-index 3805f72428cb..5cb819034372 100644
---- a/Makefile
-+++ b/Makefile
-@@ -561,7 +561,7 @@ PERL		= perl
- PYTHON3		= python3
- CHECK		= sparse
- BASH		= bash
--KGZIP		= gzip
-+KGZIP		:= $(if $(shell command -v pigz 2>/dev/null),pigz,gzip)
- KBZIP2		= bzip2
- KLZOP		= lzop
- LZMA		= lzma
-
--- 
-2.55.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBTZXAgOCwgMjAyNiBhdCAxOjU14oCvUE0gTG9yZW56byBTdG9ha2VzIChBUk0pIDxs
+anNAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBBIHR5cGljYWwga2VybmVsIGJ1aWxkIGNvbnNpc3Rz
+IG9mIGEgZnJ1c3RyYXRpbmdseSBsYXJnZSBhbW91bnQgb2YgdGltZQo+IHNwZW50IHN0dWNrIGlu
+IHNpbmdsZS10aHJlYWRlZCBib3R0bGVuZWNrcy4KPgo+IEl0IHR1cm5zIG91dCB0aGF0IHRoZXJl
+J3MgYSBsb3Qgd2UgY2FuIGRvIGFib3V0IHRoaXMgYW5kIGRvaW5nIHNvCj4gc2lnbmlmaWNhbnRs
+eSBpbXBhY3RzIGtlcm5lbCBidWlsZCB0aW1lcy4KCgo+IEZ1bmRhbWVudGFsbHkgdGhlIHNlcmll
+cyBpbXByb3ZlcyBidWlsZCB0aW1lcyBieSBwYXJhbGxlbGlzaW5nCj4gc2luZ2xlLXRocmVhZGVk
+IHRhc2tzIGFzIG11Y2ggYXMgcG9zc2libGUgYW5kIGltcHJvdmluZyB0aGUgZWZmaWNpZW5jeSBv
+Zgo+IGNvZGUgdXNlZCBpbiB0aGUgYnVpbGQgcHJvY2Vzcy4KCkNvb2whICBJIGhhdmUgbm90IHJl
+dmlld2VkIHRoaXMgcGF0Y2ggc2VyaWVzLCBidXQgYW0gc3VwcG9ydGl2ZSBvZgpzb2x2aW5nIHRo
+ZSBwcm9ibGVtLCBzaW5jZSBJIGRvIHJlY2FsbCB0aGlzIGJlaW5nIGFuIGlzc3VlOwoKaS5lLiBp
+dCBhbHdheXMgYW5ub3llZCBtZSB0aGF0IGRlc3BpdGUgaGF2ZSBhIDEyOCBjb3JlIG1hY2hpbmUs
+IG11Y2gKb2YgdGhlIGJ1aWxkIGlzIHNlcXVlbnRpYWwhICBIYXZpbmcgYWxsIHRob3NlIGNvcmVz
+IGFuZCBub3Qgc2F0dXJhdGluZwp0aGVtIGR1cmluZyBhIGJ1aWxkIHdhcyBhbHdheXMgc29tZXRo
+aW5nIEkgbm90aWNlZCAodXN1YWxseSBoYXZlCnN5c3RlbSBtb25pdG9yIGFsd2F5cyBzaG93aW5n
+IHN5c3RlbSBsb2FkLCBhbHdheXMpIGJ1dCBuZXZlciBoYWQgdGltZQp0byBsb29rIGludG8uCgpJ
+dCB3b3VsZCBiZSBjb29sIGlmIHlvdXIgTExNIGNvdWxkIGdlbmVyYXRlIGFueSB2aXN1YWxpemF0
+aW9ucyBvZgp3aGF0J3MgZ29pbmcgb24gZHVyaW5nIGEgYnVpbGQ/IFNlZWluZyB3aGF0J3Mgc2Vy
+aWFsIHZzIHBhcmFsbGVsaXplZAppbiBwZXJoYXBzIHVzZWZ1bC4gUGFydGljdWxhcmx5IHdoZW4g
+eW91IGNhbiBjb21wYXJlIHRoZSBiZWZvcmUgdnMKYWZ0ZXIuCi0tIApUaGFua3MsCn5OaWNrIERl
+c2F1bG5pZXJzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
