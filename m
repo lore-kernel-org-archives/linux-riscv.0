@@ -4,66 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E278C79F82
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 13:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EEBAC79F99
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 13:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bb1QFMPZiL6wynJJ5bIPs1B6fOBFTP/kFcK0fci8BEQ=; b=HMu88HfIeTvemZ
-	QsZm+1+eUpSaFQk/JBBH1VPW7xWFJkHm+OQBGFo2hbVyZJE184Vxa3b/4WvWWy3bjSd7G65w6v5pU
-	Rg8Z7EpcPLueWm8ueJ1EnZfv/82ZR3fRIT0W0eW8fX5tFqMRzTwyghaZfxzhm//3B+idmPhyVZCsz
-	uLGpjBFKjTm85Jpe9S4vyqysb5atEP+w9WSKHClDYn2t27wWWsLiHDn5RLC71W1qPR3JeLCpnzeWw
-	b2ogxgRdH17XHrP4KubW4rwOhqGwkmBhp/lQln4fFb+7EFdyXxkriG1kn69ysg9690cRGIuXVVq2C
-	RLrdhblYTjXtVDTeLm2w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9VMzOoN4A525ppBiwJ30k6OKFYnPekaIc6FjQgGFTIk=; b=kU4htjc7Nm05O1UMYEre1lZIwo
+	jUG6yabgPF0AP28IatNk0BSRQpTPqsiH0hFWfYt/56daNOoxVrdzVuYljC1xxg7KJV/5Y/aXYHxdT
+	0rQBtkW9kxJOWWxZXOgWwhQ/RwqYHrelJibH1vbU/YYdOcIS2nXEEcSX+yD+ghjz10JslHVBG5D2x
+	Sr+oBGbkSN+pLMmMQeOYh5qPkOIAzlhmNUJK2YTbixUWBG6EtFYkXqOSKyjBsrKhOyINkqRBrq/hS
+	Tm880p+XauoEGyaFerXv9LhaJQvSaY6htAAKA67FI7zYsyusUvWUQ1Qa9WLNz6sN8xClh3rxJR5Px
+	9xttDytA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vZ3-000000096xV-2kAK;
-	Tue, 08 Sep 2026 13:08:41 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1x3vcK-000000097YC-3Cwq;
+	Tue, 08 Sep 2026 13:12:04 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3vZ0-000000096wn-3mCr
+	id 1x3vcD-000000097WY-26uw
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 13:08:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1788872913; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=lZOJZ1eXA52ShReNf9dL+c4a3gllm4PudhUTHQNpfUI=;
-	b=r9ZOx5PGf0NRmLJOUPdvc7WFOcP18Qr8g4ttnw0niASlGqGtRI63Jfhkm1iJfukT3mEOCGkwH2ak6dzhMenPJ5iYdLGkBRvKaliuSWGsSzR+vl6eYZB6ULIb20kTOtfyXgfEP7hq+b+k7sGFryFbjJgwUDszvNKWYygvqZZFa5U=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0XAbablx_1788872910;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XAbablx_1788872910 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 08 Sep 2026 21:08:32 +0800
-From: fangyu.yu@linux.alibaba.com
-To: andrew.jones@oss.qualcomm.com
-Cc: anup@brainfault.org,
-	fangyu.yu@linux.alibaba.com,
-	iommu@lists.linux.dev,
-	jgg@nvidia.com,
-	jgg@ziepe.ca,
-	joro@8bytes.org,
-	kevin.tian@intel.com,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	robin.murphy@arm.com,
-	tglx@kernel.org,
-	tjeznach@rivosinc.com,
-	tomasz.jeznach@linux.dev,
-	will@kernel.org
-Subject: Re: [PATCH v5 00/17] iommu/riscv: Enable MSI remapping, IOMMU_DMA and VFIO
-Date: Tue,  8 Sep 2026 21:08:28 +0800
-Message-Id: <20260908130828.14195-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20260831145943.313726-1-andrew.jones@oss.qualcomm.com>
-References: <20260831145943.313726-1-andrew.jones@oss.qualcomm.com>
-MIME-Version: 1.0
+	Tue, 08 Sep 2026 13:12:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1788873093;
+	bh=xbA3TJsJKFl8Kye8hJSzoPXYOQ/DZQR1Qmu9u203Sag=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=V1ymYYim0b2xlbpkNBUwv2iB62l+6jTcz1WgsL+mmSmi0qRXgtczPwQuS/SOn247d
+	 GhYk4H+YDGJz8DMNu2qimhIeUMZGkNjalyT06m4SNJ68H75lJA71Tallsj0S0tPCY2
+	 /jqL4GYasmkuVWtoRB00KlCRiCMy52t/kAxhfWXQ=
+X-QQ-mid: esmtpgz13t1788873086t4e5a1872
+X-QQ-Originating-IP: SQ6UZhO9IynKB/MfyOlZNAjrd1G0saGKWG5F9GK05qg=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 08 Sep 2026 21:11:23 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16403462046792618605
+EX-QQ-RecipientCnt: 21
+Mime-Version: 1.0
+Date: Tue, 08 Sep 2026 21:11:21 +0800
+Message-Id: <DL9YL0LLHMTG.22MRAFNKYSNI5@linux.spacemit.com>
+Cc: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>, "Ze Huang" <huang.ze@linux.dev>
+Subject: Re: [PATCH v2 7/9] riscv: dts: spacemit: enable USB2.0 controllers
+ on BananaPi F3
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Junzhong Pan" <panjunzhong@linux.spacemit.com>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Yixun Lan" <dlan@kernel.org>, "Xu Yang" <xu.yang_2@nxp.com>, "Peng Fan"
+ <peng.fan@nxp.com>, "Peter Chen" <peter.chen@kernel.org>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com> <20260908-b4-spacemit-k1-usb2-v2-7-f07342ffa051@linux.spacemit.com>
+In-Reply-To: <20260908-b4-spacemit-k1-usb2-v2-7-f07342ffa051@linux.spacemit.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: MgB4ni1IX5Y96eK3iLLnCijDMVbexrO00FsP9GXePlsZjvfqPVd7eiQe
+	hoSV7u9cK6Nd5kS5bOrEo76ZXzbyPloYsIS32iRvUr0voxHfV+bwOOF1xFEvGOxP8xbf0a7
+	fglZzUfDyVqKNn9iYkEc1VGem7kXsg8uXpofqa2j+S4lIi1yhPpmPV0xSoLJAkLWVsV9uig
+	ULYV5R5FQ/7tiKtPKZxAexC0Qi6jE5+5gUjXw1zdv5Hrkj5ir0Pqf9UwZeMURO4zTq7dkgh
+	7uFjhGK/kKbhu9ODGyPbA9NsREodOF8nBwwztJKvSLmMClZc50i8BpvdcmAZN0VoKFyhZjI
+	TuXyyGLktzCx4AKBWzxCN3ICBzVqWvwY0wqt7e9IjeE7EY3rUJCyrKBPipvrzJkSTcw/jND
+	8Jj8O/zCoz4p0KA9wtXCM9nLaAmofXuYvVnf9cyojSXgQUQWiPNod4Fwl264HCs1hna+d8V
+	2vWza1Uj/Y4KOSTLBpF78VOM0HPOOSQoiJOgEwk3mwqL5/WDwUYsC5ns0jru2pP6H/AP7z1
+	i9AbYz52HRoFOoKN9n+LA1VzYPdUTEIStZ+Vbgj7K/Su1nDofGE33p7bn1oXqZAeZmg8VPf
+	9NkLO+ZgNzya+bbAyI6hf7+HAyA2DczDU8jqKxiu7aokqSRnRLhzuS26RmKsuFI/L4mK2rw
+	uoBDbSRaKidNCRk+xE+42oWPJpi/EY0eS0AzL5jpuDBZs/TVRBCBOZN0OWyH5ZnNRjVLQoY
+	urgkgPjuzClfpDOGDAryGDBRLY3Ijqh+gJNSfCtfsReiDWKXZ58hv+Dr+ba0VitutiYO4WE
+	D+FT9UdPQW/ID9UFouZ9ZRGjHD6is3zDXErhYZrTd6iEzqfU/60O08ib0EBheTMu0+pPZaC
+	ajOLs+6A9sxzRTVQKBuwLe4frmETzSrY5/z9IXNktyE8J1VmwcxtKKr9puNY7fH/4Fux/8I
+	yZoPgAKcIqQ8YC4darkKAcvPq9thIcANFTzMEeFkuydjhCT4mMdgV7WvN+poRsKIKTmUfBR
+	XDvBcLQu4KeD8C+x1qWcE1fAIpIrAR9c9vRN2yUijAoQVLkE9DGh+3zxrFKiKahw53LREG8
+	wutdnl/Qo+al0opfxA8BuastEvpvp30hIx8aT9/zA7qNXCUl4JVdqk=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_060839_104209_CEDAC5BA 
-X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-CacheID: sfid-20260908_061158_542502_7672AAEA 
+X-CRM114-Status: UNSURE (   7.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,83 +100,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6984164323093566126=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->This series adds MSI remapping for IMSIC so a device's MSI target gets
->translated the same way its DMA does, allowing RISC-V to enable IOMMU_DMA
->and paging domains by default.
->
->v1[1] used get_resv_regions() with IOMMU_RESV_DIRECT_RELAXABLE to identity
->map IMSIC pages, but that was rejected as only a workaround. v2 through
->v4[2] instead introduced a RISC-V IOMMU IRQ domain which pre-mapped every
->possible IMSIC target and maintained a domain-local PA-to-IOVA table. The
->v4 discussion with Jason identified a simpler way to handle the RISC-V
->requirement that the MSI target address changes with interrupt affinity:
->extend the existing iommu_dma_prepare_msi() model to prepare an ordered
->list of MSI targets as one contiguous IOVA range. v5 is a complete redesign
->around that approach.
->
->The IMSIC driver now builds an array containing the supervisor IMSIC page
->for every possible CPU, indexed by logical CPU number. When allocating an
->IRQ, it passes the complete array to iommu_dma_prepare_msi_list(). The new
->API maps the ordered physical address list into one contiguous IOVA range
->through either DMA-IOMMU or iommufd, then caches the base IOVA and mapping
->granule in the MSI descriptor. MSI composition can therefore select the
->target for the current CPU with simple arithmetic, including during an
->affinity change, without allocating memory or consulting IOMMU-owned state
->in atomic context.
->
->DMA-IOMMU extends its existing per-page MSI cache to recognize and reuse
->complete ranges. iommufd grows its software-MSI bitmap on demand, bounds
->allocations to the reserved MSI window, and prepares, installs, rolls back,
->and replays a range as one unit. This keeps the descriptor's contiguous
->IOVA valid across iommufd paging-domain replacement without exposing a
->partially installed range.
->
->Unlike v4, v5 has no RISC-V IOMMU IRQ domain, no domain-local IMSIC mapping
->table, and no IOMMU lookup during MSI composition. The IMSIC IRQ domain
->owns the target list and message composition, while the IOMMU layers only
->provide the mappings. Devices which do not need IOMMU MSI translation keep
->using physical MSI addresses through the same IMSIC path.
->
->The series also carries the remaining plumbing needed for RISC-V PCIe
->device assignment through VFIO/KVM: the RISC-V IOMMU reports DMA
->cache-coherency capability for coherent devices, VFIO type1 and KVM_VFIO
->are enabled for RISC-V, defconfig enables IOMMUFD/VFIO as modules with cdev
->support, and the generic VFIO/iommufd selftests can be built for RISC-V.
->The RISC-V IOMMU specification does not provide MSI data validation, so
->VFIO device assignment requires the applicable allow_unsafe_interrupts=1
->module parameter. Direct MSI routing to guest interrupt files (irqbypass)
->is not yet supported by this series and will be posted separately on top.
->
+--===============6984164323093566126==
+Content-Type: multipart/signed;
+ boundary=0c6c867a118613367d54fc38d42f6b057468feb5ed531f17b32862ca5431;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
 
-Hi Andrew:
+--0c6c867a118613367d54fc38d42f6b057468feb5ed531f17b32862ca5431
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-I tested this on riscv64 QEMU with an emulated NVMe device and e1000e
-network adapter. The fio and iperf3 tests both completed successfully,
-and the interrupt status was as expected.
+On Tue Sep 8, 2026 at 5:48 PM +08, Junzhong Pan wrote:
+> On BananaPi F3, usb2_0 is connected to a Type-C connector at device
+> mode by default. This port have no VBUS supply capability, thus host
+> mode only works with self-powered device or hub. User could switch the
+> role in sysfs.
+>
+> And the usb2_1 is connected to the USB2.0 pins of the Mini PCIe slot to
+> support cellular modules.
+>
+> Tested-by: Ze Huang <huang.ze@linux.dev>
+> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-For this series
-Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+--=20
+Troy Mitchell
 
->LLM-based coding assistants were used during development for code
->exploration, patch review, test execution, and drafting and editing
->commit messages and this cover letter. I reviewed and finalized all
->resulting code and text. Per-patch Assisted-by tags are omitted in
->light of ongoing discussions about simplifying coding-assistant
->attribution.
->
->Thanks,
->drew
->
->[1] https://lore.kernel.org/all/20260508212339.381933-1-andrew.jones@oss.qualcomm.com/
->[2] https://lore.kernel.org/all/20260820214150.545737-1-andrew.jones@oss.qualcomm.com/
->
+
+--0c6c867a118613367d54fc38d42f6b057468feb5ed531f17b32862ca5431
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCaqAJeQ0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQvJnUA/1+zbNPo3KJYIYHyUpwaaZBC3MD2ZHifgIIMyl6N
+MnoIAPkBT7qj4aYXw4R5MJLRsNt8mascl2c28wQq1NY3we9oBg==
+=poA0
+-----END PGP SIGNATURE-----
+
+--0c6c867a118613367d54fc38d42f6b057468feb5ed531f17b32862ca5431--
+
+
+--===============6984164323093566126==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6984164323093566126==--
+
