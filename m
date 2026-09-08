@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C829CC79F82
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 19:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24601C79F99
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 20:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8f+H6g1mfGUS5p8UAkwOTgGE8fg0fULXRK0OcDrBj4=; b=O4be2IOqAaIuvqZnHelgc+roSj
-	1gyHF/7rNsYqTzkxqB0xQRDOxCEyEY0iZMDNYbcYtBu6WXba60768aAGz3G0sSr8uZwgevRDcHgHV
-	xJR5p7pZz4AGU8jgReX+QLZaRkrXQQJL5rAy6YkkDRCNOJezZDs5uKzSUu6d33AgZly+EEABXAYfr
-	jnTK5BQ016oe6GlEmqfMpaMuHia/5Gtqx/Zg+zWc8yYKm0tISyt8KzK33398meTww3TF4XUknCIsS
-	XtUdUL2i/YKQ0tRcfX9AQtFuo9QS/oQ7Q/xcmVGLFN4yZV71dq3fimtC+E3iOl+GgmHBBUJ0heYYA
-	sZUKph1A==;
+	bh=8+JmME0ElKXRJ87UxjGg6st0PRGp4/hVSV4nAXi6wv4=; b=gvyQTGsP8amV3BcOtj384VwtmK
+	i+MRX8eKvWKJ52NJvXctAN8cAr7bmsyZt1bvcy/sQ52KbH81ZALciIx/omK8ENuu6QhU52A048OFY
+	XUuNUBtxR379UsLLDY2OK9LDMTPlDpPznV/PKca+CouTk6QyIjBMGRwQkUcXJxlGyCob0p0RSULfV
+	NXBLPAltADotupHs37oZ+QhL67iGSdTssMHmfY+Uyv5JjwmX7kvww71SVbFbAIu9bCodKE5lHCEMP
+	TnZAPuM8Kw3pWsSU6kWLauviREovj2BVdsYTE/uGipfeLUnS5pIccBrJfODpXDCNtEJnh4ekp6FOO
+	SHUowGDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x41ww-0000000A7PT-0iMo;
-	Tue, 08 Sep 2026 19:57:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x425P-0000000A8gT-1ZRn;
+	Tue, 08 Sep 2026 20:06:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x41wv-0000000A7PH-0iJl
+	id 1x425N-0000000A8gG-1eUI
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 19:57:45 +0000
+	Tue, 08 Sep 2026 20:06:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B66A601DE;
-	Tue,  8 Sep 2026 19:57:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E5D61F00A3A;
-	Tue,  8 Sep 2026 19:57:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 28CBD4012A;
+	Tue,  8 Sep 2026 20:06:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDAE61F00A3D;
+	Tue,  8 Sep 2026 20:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788897464;
-	bh=XxjewhJfqVpvWK6lHZafiM2N3F3gmrUHu3yO9NDfuVM=;
+	s=k20260515; t=1788897989;
+	bh=7lK58BGvbT+0KFsfL00ur7tIOSKYjNnYpM36ZLoBwxw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ibk2TJ6AbCxCsNWmuVZMcTtt6wy6QTlt3liWJWEP4L3QXPPMIE+9dFMtvkZpghZCs
-	 bLmZu9TI38oA/GHd6FJYaIlPILyWBpnZcXTDkEWjOCZzh79A40Pgo/9hJkBSjfw+8x
-	 AVDSFoiga0rQqQpdV9qZP9zAy5XmoSQ+jbD/4OXPJGiMl4Pcak2EUdYKJ3W3k8P5eQ
-	 rN4GTGN2/EqohEFv2erx0mSwRWxx8/NXzWsI55FZ1cmdd39FcKJioimQJNSSOKpcV7
-	 MDVJB55itJxTCSzoN4kXDgWYfzccyudPWHjZJlVZTxfxROFeDma5YK23FSFR2MU1AR
-	 m6w8l/BtTNXtw==
-Date: Tue, 8 Sep 2026 20:57:39 +0100
+	b=duPYE1XmufUDIvM963zEHdnWYrnlHMl5CNEYCKBx5IX5+RbuTsWEd7rhrP0WMbqNq
+	 WSZsT5ANJf0+Srhu3FLjfA4vSjn0cSm89fRj5f/9/HOD7R3DoGsRjswAdbtkWzuPIk
+	 GHBChwMesKv4Qs+U/woQKb6nIJzMpCU7OB/m8LRSScdanIRsFsSB0Pcm74hlBHs5/8
+	 3NCICDrZCR1Ka4q8qT+/yBg0B/br0i3pgBw5lWPUr8hgHl81Q4DrBzOlKeckUykNj6
+	 dFbYbJ8P48q5O81Hkgnv99PSBR55ytmR1RiXhNy9sDeDvoAaT3H4akABOHS8Ns8ZVS
+	 Kw/BcrSUmisyw==
+Date: Tue, 8 Sep 2026 21:06:22 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>, Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Keguang Zhang <keguang.zhang@gmail.com>, linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v7 03/21] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0-pinctrl
-Message-ID: <20260908-annually-catfight-39e3a1543274@spud>
-References: <20260831113514.66382-1-changhuang.liang@starfivetech.com>
- <20260831113514.66382-4-changhuang.liang@starfivetech.com>
+	Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [PATCH v5 0/8] Add StarFive JHB100 syscon modules
+Message-ID: <20260908-plaything-clutter-a72865edd110@spud>
+References: <20260828095608.19955-1-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20260831113514.66382-4-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260828095608.19955-1-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,90 +78,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5301543811189186148=="
+Content-Type: multipart/mixed; boundary="===============8066619318384781713=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5301543811189186148==
+--===============8066619318384781713==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aKnMEl9aGObXvGYC"
+	protocol="application/pgp-signature"; boundary="XrPUIry8dt0NQeQF"
 Content-Disposition: inline
 
---aKnMEl9aGObXvGYC
+--XrPUIry8dt0NQeQF
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Aug 31, 2026 at 04:34:56AM -0700, Changhuang Liang wrote:
-> diff --git a/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> new file mode 100644
-> index 000000000000..6d8f5516a178
-> --- /dev/null
-> +++ b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-> +/*
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + *
-> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-> + */
-> +
-> +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
-> +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
-> +
-> +/* sys0 pad numbers */
-> +#define PADNUM_SYS0_GPIO_A0				0
-> +#define PADNUM_SYS0_GPIO_A1				1
-> +#define PADNUM_SYS0_GPIO_A2				2
-> +#define PADNUM_SYS0_GPIO_A3				3
+On Fri, Aug 28, 2026 at 02:56:00AM -0700, Changhuang Liang wrote:
+> StarFive JHB100 has many syscon modules, as listed below:
+> - pcieep0_ecsr_syscon	(PCIe endpoint 0 externel syscon)
+> - pcieep1_ecsr_syscon
+> - host0_syscon		(Host0 syscon)
+> - host1_syscon
+> - husb0_syscon		(Host USB 0 syscon)
+> - husb1_syscon
+> - husbd0_syscon		(Host USB device 0 syscon)
+> - husbd1_syscon
+> - husbcmn_syscon	(Host USB common syscon)
+> - gpu0_syscon		(GPU0 syscon)
+> - gpu1_syscon
+> - b2h_syscon		(BMC to Host syscon)
+> - h2b_syscon		(Host to BMC syscon)
+> - vout_syscon		(Video output syscon)
+> - pcierp_ecsr_syscon	(PCIe root port externel syscon)
+> - pcierp_syscon		(PCIe root port syscon)
+> - usb_syscon
+> - npu_syscon
+> - per0_syscon		(Peripheral 0 syscon)
+> - per1_syscon
+> - per2_syscon
+> - per3_syscon
+> - sys0_syscon		(System 0 syscon)
+> - sys1_syscon
+> - sys2_syscon
+> - strap_syscon
+> - sfc0_filter_syscon	(SFC0 filter syscon)
+> - sfc1_filter_syscon
+> - sfc2_filter_syscon
+>=20
+> Some syscon modules contain PLL, reset, and socinfo nodes
+>=20
+> This series depends on the series:
+> https://lore.kernel.org/all/20260807112923.191627-1-changhuang.liang@star=
+fivetech.com/
 
-Krzysztof's point [1] about these still stands. Pad indices aren't bindings.
-Sure, your driver and your dts both might want to use these but that
-doesn't make them a binding. For that to be the case, they need to
-effectively be made up numbers - like how clocks are often listed with
-numbers from 0 into the dozens or hundreds, when that may or may not
-correlate with actual bits in registers, e.g. indices 0-31 in a clock
-binding might be in register 1 and then 32-63 are in register 2. There's
-no need for a binding here to assign meanings to numbers, because the
-meanings are assigned by the hardware itself - index 0 for SYS0 *is* A0,
-because that's how the hardware is designed.
+I tried to apply the soc patches, but they depend on this so I can't.
+Can you get someone from Starfive, ideally one of the listed clock
+maintainers, to review that series?
 
-Were the numbers to run continuously, so that we had
+If you look here, about half the patches are missing a review:
+https://patchwork.kernel.org/project/lei-conor/list/?series=3D1142160
 
-#define JHB100_PADNUM_A0	0
-#define JHB100_PADNUM_A1	1
-#define JHB100_PADNUM_A2	2
-#define JHB100_PADNUM_A3	3
-#define JHB100_PADNUM_A4	4
-and so on down to
-#define JHB100_PADNUM__D0	1234
+If you do that, I'll try to sort out getting a PR sent to the clock
+folks for it and figuring out how these bits can go on top.
 
-then it would be a binding, because we're assigning a meaning to 1234
-that's not something determined by the hardware.
-
-FWIW, I'm happy to have the unchanged starfive,jhb100-pinctrl.h sit in
-arch/riscv/boot/dts/starfive, because the defines are helpful - but as
-things stand I think Krzysztof is right.
-
-Cheers,
+Thanks,
 Conor.
 
-1 - https://lore.kernel.org/all/ZQ4PR01MB1202123864865439817E1549F2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn/
-
---aKnMEl9aGObXvGYC
+--XrPUIry8dt0NQeQF
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaqBosgAKCRB4tDGHoIJi
-0vUdAQDJk08iDuO2c5CqqTqe3Bbt2Jm+La/0mzM38iV/S+1uSQEAsuTsnqzv5q51
-I8rlyu+04nDW1cZlwp1+dPzjMdDQAAY=
-=GoqV
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaqBqvgAKCRB4tDGHoIJi
+0pcXAP9wGUx5B0ugAlKrI+SAFNcGs2S5MjPe4f3L4H5VI0pZPAEAs3hu83T9jjU1
+QBx5LgX5pS+DNjwx5P2Effhh0mKzIgQ=
+=h5Z6
 -----END PGP SIGNATURE-----
 
---aKnMEl9aGObXvGYC--
+--XrPUIry8dt0NQeQF--
 
 
---===============5301543811189186148==
+--===============8066619318384781713==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -169,5 +168,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5301543811189186148==--
+--===============8066619318384781713==--
 
