@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 494B5C79FAE
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 21:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 314C2C79FA1
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 21:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ylGVvMKPF8sIHcj4+Azwt6i8pxZxZuBZK5JYZ4/IwII=; b=ogPpJCaIlqEfxd
-	eVzSqYA38o+dCFk/zcw6YaLmRqQ8zC2EzPfF/Fbz1ukXfaLSjmWuG90sbde3KIdvRmXM4AF+6udFF
-	NbUnGKUrgb3iMC+wRza1gXO1j7j88y+v9z5Bm1aKLM1B85A601W02zrnWHEdID5WeqxVbGdP4LmsV
-	egi6nPFFjGBynz7n6Hn8L8hg9hE+SO72WhbbrowBPO6odZ5uz1r6lpdElCru7e69brxuRX0SrQbj8
-	8la3kLAR4AVTKoDehq7M/RcahArMUj0+sxbj5GPjLgRQXgGlG/b9FRt2k9UPRa0XKxxCWXPzKrrwl
-	t2dwBlqtk+ho6wXUQzYA==;
+	List-Owner; bh=Rv8gWCjsrAeLM6D6Ap0xi1wKiPOvIyXYUJ04kBNsFnA=; b=Oj9ir5mtSdRtV0
+	Vku/ixoAtV+Ru7eQc0bg540ycuJMSfQ2M1YVi4Kyz3M3pEvdLvOM+sjSfh2ckvOT07TAbkgqlvcDD
+	9FFb2HpCXPeqAmHhhPZQ0rLFrc7/FgXTbnDR2Hx2uN0c8yTBRMsbIp4T5OjFmDtpsFKO517qdYkCz
+	R6e1yp/3pPk4htQbpOxdL0uELj2A//Ln1Fg5DHLVWqUpcPZzz+m0YpdlX4CCXuHdhc8GmCh1DKcH3
+	GLcxXoF2iwVte6SMtHm8/tKR2l4G4FBSYAB7eMkr5y/aHnQYnd8uoMGTVxOOWGpW1vYJpcvvyKptC
+	izEVbu/3HhZ0BDKPfRgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x43AU-0000000AIdn-312v;
-	Tue, 08 Sep 2026 21:15:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x43L1-0000000AJNN-1HkA;
+	Tue, 08 Sep 2026 21:26:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x43AS-0000000AIdP-3MHz;
-	Tue, 08 Sep 2026 21:15:48 +0000
+	id 1x43L0-0000000AJMg-2Fad
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Sep 2026 21:26:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54B69601F9;
-	Tue,  8 Sep 2026 21:15:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E1EB1F00A3A;
-	Tue,  8 Sep 2026 21:15:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1788902147;
-	bh=eVg9GefJyoXHHA5a69mXqnQLyloUJ4YxIPGGpLvgyr0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=S61FQutZ9GAkmusTuBm8tba1mRd5os9NdWI1OcYUdnUCilKfQqRFUpY9X0910S1CM
-	 WZ7yUO067yRvIkgkaa3uP271RNhAevtq90hMdQ5fuv0628aYooJ26Y2LotuEU39MiY
-	 QQuRFXCkF1Dzu+58mWFPPcGHJySDbzaovnewoTOY=
-Date: Tue, 8 Sep 2026 14:15:43 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, Baolin
- Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett"
- <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts
- <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song
- <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif
- <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Guo Ren
- <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Dinh Nguyen <dinguyen@kernel.org>, Simon Schuster
- <schuster.simon@siemens-energy.com>, Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne
- <shorne@gmail.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, Rich
- Felker <dalias@libc.org>, John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, Russell King <linux@armlinux.org.uk>, Vineet Gupta
- <vgupta@kernel.org>, Michal Simek <monstr@monstr.eu>, Chris Zankel
- <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, Will Deacon
- <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick
- Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
- "David S. Miller" <davem@davemloft.net>, Andreas Larsson
- <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>,
- Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland
- <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
- <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Helge
- Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
- Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, Anton Ivanov
- <anton.ivanov@cambridgegreys.com>, Johannes Berg
- <johannes@sipsolutions.net>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin"
- <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka
- <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan
- <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jason Gunthorpe
- <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>, Peter Xu
- <peterx@redhat.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org,
- linux-arch@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-alpha@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
- linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, Qi Zheng
- <qi.zheng@linux.dev>
-Subject: Re: [PATCH v2 00/12] mm: make userland page table freeing RCU-safe
-Message-Id: <20260908141543.8180b60400d38b70d249949b@linux-foundation.org>
-In-Reply-To: <20260908-rcu-pagetable-freeing-v2-0-1f60b64e878e@kernel.org>
-References: <20260908-rcu-pagetable-freeing-v2-0-1f60b64e878e@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	by sea.source.kernel.org (Postfix) with ESMTP id DCEE6414C5;
+	Tue,  8 Sep 2026 21:26:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AA531F00A3A;
+	Tue,  8 Sep 2026 21:26:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788902801;
+	bh=r7oXq7kQmvGrmahMesk9V21u+Tvbyn0bdt0fECmuQw4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=XcifVot1V0tarr2602NXXFI0SYUsusVKlimRqu/6B+nq9jSyBxoCgQZxbenS1BFJt
+	 thOcBOQhQkxPfXMMIxX+xk2sdEZOb5eHcB7pv3uL2D7uxEqs5FghpFH+lySBTlrBYz
+	 6y35N/UAgBk/WSrIxc38+I0Wly+UW/hGDc0ghe7Bb8qCFf5LIc4lz17hXwKXQ5q5OT
+	 L5nEBNyInARoqc8Wf6ZUi98/kg8waQmgeu5SLfSacZsp4IpXMCKXCBAexL1dOKzslu
+	 jPZ5kLnBmde7mVwRpLxM+wx+3SFWoNTGOhKdoiEIpO6iwBTEGGTZa5mPg72F8JKret
+	 3bcB1oyG/qcyA==
+From: Yixun Lan <dlan@kernel.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Guodong Xu <docular.xu@gmail.com>,
+	Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Yixun Lan <dlan@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: spacemit: k3: Drop guest properties from M-level IMSIC
+Date: Tue,  8 Sep 2026 21:26:36 +0000
+Message-ID: <178890272613.280426.9372174994457180272.b4-ty@b4>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260729-k3-mimsic-fix-v1-1-368c0aec04b9@pigmoral.tech>
+References: <20260729-k3-mimsic-fix-v1-1-368c0aec04b9@pigmoral.tech>
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,32 +80,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2026 13:32:09 +0100 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 
-> The majority of architectures in the kernel defer page table freeing until
-> an RCU grace period has elapsed, this series converts all remaining
-> architectures to do so too and eliminates CONFIG_MMU_GATHER_RCU_TABLE_FREE
-> altogether.
+On Wed, 29 Jul 2026 00:40:15 +0800, Junhui Liu wrote:
+> The mimsic node describes the machine-level IMSIC, whose MMIO region is
+> 0x10000 (64 KiB) for all 8 harts. However, the node also specifies
+> riscv,guest-index-bits = <6>, and per the AIA specification the
+> per-hart stride is 2^(guest-index-bits + 12) bytes when guest interrupt
+> files exist, i.e. 2^(6 + 12) = 256 KiB per hart and 2 MiB for all 8
+> harts. The described region cannot hold even a single hart's files, so
+> the node contradicts itself. OpenSBI enforces exactly this constraint in
+> imsic_data_check() and rejects the node with -EINVAL, preventing the
+> M-level IMSIC from initializing:
 > 
-> This is important because it enables safe lockless page table walking under
-> RCU alone.
-> 
-> Doing so allows for reduced lock contention, avoids lock ordering concerns
-> and enables fast, efficient and correct page table walking as a result.
-> 
-> Additionally it removes a bunch of code and architecture-specific behaviour
-> which is always a beneficial thing to do.
+> [...]
 
-Thanks.  It's early and unreviewed, but this is mainly an
-if-it-compiles-its-good thing, so I'll add it for exposure to the
-build/checker universe.
+Applied, thanks!
 
-> However some arches required extra attention - sh-X2, m68k-motorola and
-> sparc32.
+[1/1] riscv: dts: spacemit: k3: Drop guest properties from M-level IMSIC
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=01e2f07c44fc46180bdb10e70506f8acf44a53dd
 
-OK.  Please lmk later if you think additional reviewer/tester attention
-is desirable in these areas.
-
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
