@@ -4,61 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949DDC79F82
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 11:41:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326DAC79FA1
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 11:49:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Date:In-Reply-To:Mime-Version:Cc:
-	References:Message-Id:Subject:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t+vCtizTXWwmAH6SktKhJELP1dNmzsQERb5l33qkI4c=; b=JkXPTU87XKkgEi
-	d/zW7B9IyLr51cSmz/vDJWkmwJt4u+hoUX8uYftfKBgGZdTbJ+b+a5IXmxLne0DkEUSd9GgtpkudD
-	A6LAdfCvG4A1wceo72JTb+Wtdl/53oOxvsAjgXKQBW6xHqmrVNXmfSX8r1DM0nRh7fX1LNR3wN/Hi
-	EQfq7Bz68ruaGF1Ug9XsUyW479RNRBECQowCG9a1BWYc5+/CmxtGsN3Npmiu2mPO3pqCc+dDqiPG7
-	RN50WjlH5u8PvbapU3Z5EtWbLhusKe6xfihVW5oUmxctjYLVQ1uVdqkDKVFA20eHFi4w3JNYn7JHv
-	b0QwcENYlOGbwTCgtjEg==;
+	List-Owner; bh=s2sOfCH8TyzsohaxpZRPwN5EG4FGOtQQf4IDu2CNkNA=; b=0GPlQs8pTnNTTr
+	bG0xWZn3T2+4+YqNCocDL+KllMjvtkIzghWJpesgf+qyQy0m8j9Z8FfcsreAAZ+iyjV8SEmvqZda8
+	BDe6CoughmUR+9PMl9cyk74X3ETSyjZaE+e9b28CTj2xqmViDGumJhGwQQNQEMyIzaN8x+5NqCDCr
+	4jkdww3i6qSgPTjyYcvBt8c/b3of7X9xkHsEwaMcnFzp2wTN5x9vygSAoq7gS4N36x5d0LKjlk6jB
+	jO3Qa2CZVKUQonfb+5RCAKqviJ62IJTto1fIl/+MfW+PRhYy8PPo1OJTYTTXIkd5sPuDayFtD64bK
+	N5qWy3IGQrCIV6wBCc0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uCu-00000008uMR-1PSY;
-	Tue, 08 Sep 2026 11:41:44 +0000
-Received: from va-2-38.ptr.blmpb.com ([209.127.231.38])
+	id 1x3uJo-00000008vjj-000w;
+	Tue, 08 Sep 2026 11:48:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3uCr-00000008uLX-1JLU
-	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 11:41:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604151535; d=picoheart.com; t=1788867689; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=jyG3J7ip9YpK/4a7tMbQUZEK+nzdPG60JkaDryl20Ms=;
- b=iQm8jnxNNcMXcL9DwqhFxtLcJgadAjZauDbgP6M0EhvDQ6xCTby89AObrvrFMQCpf2dEWf
- 0JuBohzlgTgzxdW26Uju14l1aRrR91sBaVER7u5r8U105mJ5Mbv6J8NAwHJpMqWikFt5GX
- o802Gwrk43+9OFllb6Qn8CxObbyGLKxkxHq/gcGTBW0IeRdgJ1aqugmYVFAElLK7GCiy+v
- NWJ4t8WD2LHiGQH2r1TRd8+jFqbnpsCyIm7RDV9l41qTsTEyrPgV1/t9JL2VDaTOi9iLYm
- qsJ6J5odLe4e4ZJfcM+2NI2Ytp6QJ/OFzsReggYm4A52unU3RZxyFKtnNPsg4g==
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Subject: Re: [PATCH v3 5/5] riscv: errata: picoheart: Add workaround for AMOCASQ errata
-Message-Id: <faa5620e-741e-4a95-8c22-79651a3b19bf@picoheart.com>
-References: <20260907072149.72031-1-yang.yicong@picoheart.com> <20260907072149.72031-6-yang.yicong@picoheart.com> <20260907-wiring-paramount-33df8fcf7c35@spud>
-Cc: <yang.yicong@picoheart.com>, <pjw@kernel.org>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>, 
-	<wangruikang@iscas.ac.cn>, <ganboing@gmail.com>, <alex@ghiti.fr>, 
-	<andrew.jones@oss.qualcomm.com>, <cleger@meta.com>, 
-	<geshijian@picoheart.com>, <niehaitao@picoheart.com>, 
-	<cuiyunhui@bytedance.com>
-Mime-Version: 1.0
-Received: from [100.86.221.254] ([58.250.106.106]) by smtp.feishu.cn with ESMTPS; Tue, 08 Sep 2026 19:41:26 +0800
-In-Reply-To: <20260907-wiring-paramount-33df8fcf7c35@spud>
-Content-Language: en-US
-Date: Tue, 8 Sep 2026 19:41:24 +0800
-X-Lms-Return-Path: <lba+26a9ff467+2bf0e2+lists.infradead.org+yang.yicong@picoheart.com>
-To: "Conor Dooley" <conor@kernel.org>
+	id 1x3uJm-00000008vjG-3J1J;
+	Tue, 08 Sep 2026 11:48:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 389C44072C;
+	Tue,  8 Sep 2026 11:48:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C5B91F00A3D;
+	Tue,  8 Sep 2026 11:48:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788868130;
+	bh=E3fsDMUp6iZPwqWolrjkrZvy70fQS6FinWdQXIMSMow=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=D4yNB+iHgYWM2xH5dEAI8mPSRYWnnNFm5P6il2ewjQLawqqHvZ0iRVtiPpend37Ov
+	 BVgRiJpLfeZphjBvLOtdJquXE28iPZ5jAq9L3m73yktY98VNQiyduG1fGDmCvwVCFb
+	 OvLVA5AbLLz20lLr4HCl1/Zo5X94Rj/pLMSJKZwrZUn0ZKKRR25TKJf8kMmj58VhYa
+	 5EFv/GYUk2Cp8uy7bb9mBwcWZI3nmjTc/K2o4v2pW1t25PbkazcJ2hQMXvqOr6CMwB
+	 BUgOfOJLNEmKpyPmA+NEmQzK8n1wSEEyA1X9FSj7HVQHwoVA4qOIzR04Pl5WRk30g8
+	 HA2wuKBfwd1Vg==
+Message-ID: <d379aae2-4249-4c6a-a748-5419d4f74f34@kernel.org>
+Date: Tue, 8 Sep 2026 13:48:36 +0200
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_044141_576821_2BD92432 
-X-CRM114-Status: GOOD (  31.84  )
+Subject: Re: [PATCH v3 4/6] mm/vmalloc: make set_area_direct_map HUGE_VMAP
+ friendly
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Brendan Jackman <brendan.jackman@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ loongarch@lists.linux.dev
+References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-4-949b64a9f755@kernel.org>
+ <2b0f5877-e71a-4824-adeb-5af2dd8b0269@kernel.org>
+ <ap_tjOTR48tja_8e@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
+ ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
+ AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
+ 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
+ g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
+ ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
+ 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
+ /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
+ jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
+ DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
+ HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
+ 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
+ LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <ap_tjOTR48tja_8e@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,227 +138,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On 9/7/26 11:44 PM, Conor Dooley wrote:
-> On Mon, Sep 07, 2026 at 03:21:49PM +0800, Yicong Yang wrote:
->> Some Picoheart CPUs implement Zacas extension but lack support
->> for AMOCASQ PMA attribute. Thus makes the CASQ instruction de
->> facto unavailable. Since currently no ways to retrieve the PMA
->> information and the riscv kernel will declare cmpxchg128 support
->> if platform declare support of Zacas, the use of cmpxchg128 will
->> lead to PMA violation and crash the kernel. Add the errata
->> workaround to disable the use of cmpxchg128 on the affected CPUs.
+On 9/8/26 13:12, Mike Rapoport wrote:
+> On Tue, Sep 08, 2026 at 12:41:48PM +0200, David Hildenbrand (Arm) wrote:
+>> On 9/3/26 11:28, Mike Rapoport (Microsoft) wrote:
+>>> set_area_direct_map() always updates direct map alias permissions in
+>>> single page increments.
+>>>
+>>> For HUGE_VMAP areas it's suboptimal. Not only the loop in
+>>> set_area_direct_map() needlessly has more iterations (e.g times 512 on
+>>> x86), but it also causes fragmentation of the direct map that could be
+>>> avoided for the HUGE_VMAP areas populated with large pages.
+>>>
+>>> All pages in an area are always of the same order: either same-order
+>>> large pages when VM_ALLOW_HUGE_VMAP is set and all huge pages were
+>>> successfully allocated, or order-0 page when VM_ALLOW_HUGE_VMAP is
+>>> cleared or when huge pages allocation fails and fallback path is taken.
+>>>
+>>> Instead of updating the direct map permissions for every order-0 page in
+>>> an area, use the area's page_order as the loop increment and update the
+>>> large pages in one call to set_direct_map_{invalid,default}_noflush().
+>>>
+>>> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>>> ---
+>>>  mm/vmalloc.c | 13 ++++++++-----
+>>>  1 file changed, 8 insertions(+), 5 deletions(-)
+>>>
+>>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+>>> index 5506b180f5c27..6ed6c160abed7 100644
+>>> --- a/mm/vmalloc.c
+>>> +++ b/mm/vmalloc.c
+>>> @@ -3367,12 +3367,15 @@ static inline void set_area_direct_map(const struct vm_struct *area,
+>>>  				       int (*set_direct_map)(struct page *page,
+>>>  							     unsigned int nr))
+>>>  {
+>>> -	unsigned long i;
+>>> +	unsigned int nr = (1U << vm_area_page_order(area));
+>>> +
+>>> +	for (unsigned long i = 0; i < area->nr_pages; i += nr) {
+>>> +		if (page_address(area->pages[i])) {
+>>> +			int err = set_direct_map(area->pages[i], nr);
 >>
->> Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
->> ---
->>  arch/riscv/Kconfig.errata            | 12 ++++++++++++
->>  arch/riscv/errata/picoheart/errata.c | 22 ++++++++++++++++++++++
->>  arch/riscv/include/asm/cmpxchg.h     |  2 +-
->>  arch/riscv/include/asm/cpufeature.h  |  8 ++++++++
->>  arch/riscv/kernel/cpufeature.c       | 13 ++++++++++++-
->>  5 files changed, 55 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
->> index 8ce5c0314321..16e37391d596 100644
->> --- a/arch/riscv/Kconfig.errata
->> +++ b/arch/riscv/Kconfig.errata
->> @@ -176,4 +176,16 @@ config ERRATA_PICOHEART_CBO_CLEAN
->>  
->>  	   If you don't know what to do here, say "Y".
->>  
->> +config ERRATA_PICOHEART_AMOCASQ
->> +	bool "Apply Picoheart AMOCASQ errata"
->> +	depends on ERRATA_PICOHEART && RISCV_ISA_ZACAS
->> +	default y
->> +	help
->> +	  Some Picoheart CPUs implement the Zacas extension but lack support
->> +	  for AMOCASQ PMA attribute. Thus makes the CASQ instruction de facto
->> +	  unavailable. Enable this errata workaround to disable the use of
->> +	  CASQ in the kernel (cmpxchg128).
->> +
->> +	  If you don't know what to do here, say "Y".
->> +
->>  endmenu # "CPU errata selection"
->> diff --git a/arch/riscv/errata/picoheart/errata.c b/arch/riscv/errata/picoheart/errata.c
->> index 21480d19c084..0fb4cb41ab03 100644
->> --- a/arch/riscv/errata/picoheart/errata.c
->> +++ b/arch/riscv/errata/picoheart/errata.c
->> @@ -174,10 +174,32 @@ static void picoheart_errata_probe_cbo_clean(unsigned int stage,
->>  	static_branch_enable(&has_picoheart_cbo_clean_errata);
->>  }
->>  
->> +static void picoheart_errata_probe_amocasq(unsigned int stage,
->> +					   unsigned long archid,
->> +					   unsigned long impid)
->> +{
->> +	if (!IS_ENABLED(CONFIG_ERRATA_PICOHEART_AMOCASQ))
->> +		return;
->> +
->> +	if (stage != RISCV_ALTERNATIVES_BOOT)
->> +		return;
->> +
->> +	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZACAS) ||
->> +	    !riscv_isa_extension_available(NULL, ZACAS))
->> +		return;
->> +
->> +	if (archid != 0x804a555049544552 || impid != 0x100)
->> +		return;
->> +
->> +	static_branch_disable(&cpus_support_cmpxchg128);
->> +}
->> +
->>  static u32 picoheart_errata_probe(unsigned int stage, unsigned long archid,
->>  				  unsigned long impid)
->>  {
->>  	picoheart_errata_probe_cbo_clean(stage, archid, impid);
->> +	picoheart_errata_probe_amocasq(stage, archid, impid);
->> +
->>  	return 0;
->>  }
->>  
->> diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
->> index 662e160b0522..e231e9619eee 100644
->> --- a/arch/riscv/include/asm/cmpxchg.h
->> +++ b/arch/riscv/include/asm/cmpxchg.h
->> @@ -329,7 +329,7 @@
->>  
->>  #if defined(CONFIG_64BIT) && defined(CONFIG_RISCV_ISA_ZACAS) && defined(CONFIG_TOOLCHAIN_HAS_ZACAS)
->>  
->> -#define system_has_cmpxchg128()        riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS)
->> +#define system_has_cmpxchg128	system_has_cmpxchg128
->>  
->>  union __u128_halves {
->>  	u128 full;
->> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
->> index 739fcc84bf7b..f9d95cbf5abd 100644
->> --- a/arch/riscv/include/asm/cpufeature.h
->> +++ b/arch/riscv/include/asm/cpufeature.h
->> @@ -164,4 +164,12 @@ static inline bool cpu_supports_indirect_br_lp_instr(void)
->>  		riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFILP));
->>  }
->>  
->> +DECLARE_STATIC_KEY_FALSE(cpus_support_cmpxchg128);
->> +
->> +static inline bool system_has_cmpxchg128(void)
->> +{
->> +	return riscv_has_extension_unlikely(RISCV_ISA_EXT_ZACAS) &&
->> +	       static_branch_likely(&cpus_support_cmpxchg128);
->> +}
->> +
->>  #endif
->> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->> index b56d149cf4ed..f73ce43df626 100644
->> --- a/arch/riscv/kernel/cpufeature.c
->> +++ b/arch/riscv/kernel/cpufeature.c
->> @@ -46,6 +46,9 @@ struct riscv_isainfo hart_isa[NR_CPUS];
->>  
->>  u32 thead_vlenb_of;
->>  
->> +/* All the CPUs supports cmpxchg128 (CASQ*). */
->> +DEFINE_STATIC_KEY_FALSE(cpus_support_cmpxchg128);
->> +
->>  /**
->>   * riscv_isa_extension_base() - Get base extension word
->>   *
->> @@ -317,6 +320,14 @@ static int riscv_cfiss_validate(const struct riscv_isa_ext_data *data,
->>  	return 0;
->>  }
->>  
->> +static int riscv_ext_zacas_validate(const struct riscv_isa_ext_data *data,
->> +				    const unsigned long *isa_bitmap)
->> +{
->> +	static_branch_enable(&cpus_support_cmpxchg128);
+>> Do we really expect some pages to have a directmap and others not?
 > 
-> A validate callback is meant to determine whether or not the extension
-> can be used, it's not there for people to add arbitrary code, partially
-> because each validate callback runs multiple times and may change state
-> depending on what happens with other extensions. E.g. a validate
-> callback may pass on the first iteration but fail on the second because
-> a dependant extension later in the list fails. In practice, this might
-> not ever affect Zacas, and doesn't at the moment, but this sort of code
-> should not be added to validate callbacks.
-
-agree that this doesn't match the validate callback function perfectly.
-the motivation here is to split a separate control for cmpxchg128
-then the suffered platform can disable it in the errata code. though all
-the AMOCAS.{W,D,Q} are included by Zacas, the PMA attribute is separated
-as AMOCASW, AMOCASD, AMOCASQ. so I suppose the right validation here
-is to check whether the AMOCASQ is supported, similar to how the Zicbom
-is enabled according to a valid riscv_cbom_block_size. But unfortunately
-there's no starndard way to retrieve the PMA attributes currently.
-
+> Every page in the area can be allocated separately and
+> __vmalloc_area_node() has
 > 
-> To be honest, I'd rather just turn the extension off entirely on this
-> platform rather than make everyone suffer.
-
-it's too brutal to disable the entire Zacas. we'll lose the performance
-benefit from the users of cmpxchg and if clear it in the isa bitmap, it'll
-be unavailable to the userspace. considering the kernel already provides
-the system_has_cmpxchg128() for checking, we can limit it to cmpxchg128 only.
-
-> The errata probe functions run after extension detection but before
-> patching, so could we just clear the Zacas bit in the isa bitmap?
+> 	if (!(gfp_mask & (GFP_DMA | GFP_DMA32)))
+> 		gfp_mask |= __GFP_HIGHMEM;
 > 
+> so generally speaking yes :)
 
-maybe not, as from _apply_alternatives() the errata probe/patch is performed
-after the patching. so it's too late to clear the isa bitmap as the patching
-is already done...
+Ah, I was thinking in terms of HUGE_VMAP, because there we sure would expect
+all-or-nothing, right?
 
-what about something like below to add an errata alternative to disable
-the cmpxchg128 only on the suffered platforms? this will limit the
-change only to system_has_cmpxchg128() and won't bother others:
+-- 
+Cheers,
 
-#define system_has_cmpxchg128 system_has_cmpxchg128
-static __always_inline bool system_has_cmpxchg128(void)
-{
-	if (!IS_ENABLED(CONFIG_RISCV_ALTERNATIVE))
-		return riscv_isa_extension_available(NULL, ZACAS);
-
-	/* The vendor erratum overrides the standard Zacas alternative. */
-	asm goto(ALTERNATIVE_2(
-			"nop",
-			"j %l[l_yes]",
-			STANDARD_EXT, RISCV_ISA_EXT_ZACAS, 1,
-			"nop",
-			PICOHEART_VENDOR_ID, ERRATA_PICOHEART_AMOCASQ,
-			CONFIG_ERRATA_PICOHEART_AMOCASQ)
-		: : : : l_yes);
-	
-	return false;
-l_yes:
-	return true;
-}
-
-Thanks.
-
-
-> Cheers,
-> Conor.
-> 
->> +
->> +	return 0;
->> +}
->> +
->>  static const unsigned int riscv_a_exts[] = {
->>  	RISCV_ISA_EXT_ZAAMO,
->>  	RISCV_ISA_EXT_ZALRSC,
->> @@ -544,7 +555,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
->>  	__RISCV_ISA_EXT_DATA(za64rs, RISCV_ISA_EXT_ZA64RS),
->>  	__RISCV_ISA_EXT_DATA(zaamo, RISCV_ISA_EXT_ZAAMO),
->>  	__RISCV_ISA_EXT_DATA(zabha, RISCV_ISA_EXT_ZABHA),
->> -	__RISCV_ISA_EXT_DATA(zacas, RISCV_ISA_EXT_ZACAS),
->> +	__RISCV_ISA_EXT_DATA_VALIDATE(zacas, RISCV_ISA_EXT_ZACAS, riscv_ext_zacas_validate),
->>  	__RISCV_ISA_EXT_DATA(zalasr, RISCV_ISA_EXT_ZALASR),
->>  	__RISCV_ISA_EXT_DATA(zalrsc, RISCV_ISA_EXT_ZALRSC),
->>  	__RISCV_ISA_EXT_DATA(zawrs, RISCV_ISA_EXT_ZAWRS),
->> -- 
->> 2.50.1 (Apple Git-155)
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+David
 
 _______________________________________________
 linux-riscv mailing list
