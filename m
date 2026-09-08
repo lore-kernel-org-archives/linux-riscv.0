@@ -4,60 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6198EC79F99
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 14:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD6D4C79F99
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 14:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mf24MGP6Rt0H83LM+dfpy+GXeQwqaPkt4eDyK2dBThA=; b=fep+3xf9OsygTmTibO7/QbJ3Xa
-	oXdMun5w5c1PZ/Cr+4MuWxJZDJeucKvHwRe4wy0aFE8DXTvO2dhxKpmeqij5OC1Ilv4duK1GCgYdg
-	Kb+IehpKAqWvUC81BTm1fpEInjHRhfRtvt1MjB6gSqOWxfTo2MnAiTwtMGiuY3I8nMFp+Mx9qbkwj
-	qMh0Uc8aB+8wHEAYRw8f7GZvglDeyeg9HYoEfoIjWEWQuY2+Q7jvxrPHE9ghsEYAfu8Ov3veeYT6v
-	BFFOoWychelf+bDCvo29aZXYGSG5g9bDeVN4DjccbYoxw8alr0lfaMTvuvCHbkjkYOo4/JCAbw1Mo
-	rKwIf95w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6OD75HhpASRDIHiCtdO2bgK5Fxtr6ny9zlgLlwJJhsQ=; b=tscK4K0/Pcla/K
+	EeFfteCWY7Nr0fKhldon2ej9L/1EpsJR4R5XjK8let715/9fk90t8+wKUfKToV5oRKdzkozBRpX9C
+	95CE9tfqim89T3Jcl8SI/kQR6D75FPz+PkJvs76VqDSqOJB/6EITAbxz8OM9kbyRv1YGlytV2FtOg
+	GZOLsCClvY0ljPwhKPno7qiSn6w2yR84P1HiAo0WgDOnR+NHtpGIK8UnTxMWR6Pn1swWunK+Ttf7g
+	vhiL1uNWevycAHZQAiZm0THSQw2INNkaC01DcUFjZhCZopq2aFL7HX4I3G3tY2766K3IXm4vTXbRo
+	ULO9wnS5AJ4LeE62aZDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wdU-00000009Frs-2sCP;
-	Tue, 08 Sep 2026 14:17:20 +0000
-Received: from out-126.mta0.migadu.com ([2001:41d0:1004:224b::7e] helo=mta0.migadu.com)
+	id 1x3wmA-00000009Gi3-3gGu;
+	Tue, 08 Sep 2026 14:26:18 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3wdQ-00000009Fqg-0gQF
-	for linux-riscv@lists.infradead.org;
-	Tue, 08 Sep 2026 14:17:19 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=AtllziWAEBylwDOWuicoRwDn5AZurYw0+Fy/xhiHsj0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788877029; v=1; x=1789481829;
- b=Tz8t8nLj+OIB9JqmyuLa1vS3oBTrhaxt6P2PAJreFOoYu6Tliy+E1/xloyjhW5CtYLpocr1G
- VU03NoMwczbXQQvEWGEtnGPIb5g7QOeRlgJt1P+boVVKma+6hmj9P/sLJRseFA4jmuWJ8vtuw69
- BUuQWaZSBwq5/2w1LsugUhkg=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta10.migadu.com with ESMTPS id a34898e233871779;
-	Tue, 08 Sep 2026 14:17:09 +0000
-X-Mizu-Trace-ID: a34898e233871779
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
-Date: Tue, 08 Sep 2026 22:16:56 +0800
-Message-Id: <DL9ZZ8F7HTZT.1IUMD1ECSOZXL@linux.dev>
-Cc: <linux-usb@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>, "Troy
- Mitchell" <troy.mitchell@linux.dev>
-Subject: Re: [PATCH v2] usb: dwc3: core: resume xHCI child on runtime resume
- in host mode
-From: "Troy Mitchell" <troy.mitchell@linux.dev>
-To: "Junzhong Pan" <panjunzhong@linux.spacemit.com>, "Thinh Nguyen"
- <Thinh.Nguyen@synopsys.com>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260908-resume-xhci-v1-1-aca107602e9c@linux.spacemit.com>
-In-Reply-To: <20260908-resume-xhci-v1-1-aca107602e9c@linux.spacemit.com>
+	id 1x3wm2-00000009GgV-22j7;
+	Tue, 08 Sep 2026 14:26:17 +0000
+Date: Tue, 8 Sep 2026 16:26:00 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1788877566;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3bG7xzyOLgkq/hT1vQoL2+37rRIngeN99Zi6O3p/t1Q=;
+	b=ibCJ1vTaf2PfeTeGGS4CPdeCQlmt6p7aLY7mIyests6CYT2a6E4Mjbx9HP5VcqSFIGIDN5
+	lQzNq4LeidtkfT+EysNyxDj3JNRd+SkiSObbBLZntgveQTRfZuO3v/L3jsJBVUb2BH8YCM
+	7vKdLixe7hXeDeAfmTR73MLoheT6qddEqn0zSpdo08XfzCFSXasPoLv5PXY5oZ4uUtuuhQ
+	ue9dInv7mMssJZ5SEhI8zG40m/o1XMobx0JA0bqLkrd6i/I6QO8W9g5ozGh5HmdlKJSK+H
+	nBg3aR8ypjomfwqNmYevI/XWRU18YkOzSNQOVFvzM7BNe1wvopfv0uHl4KPu0w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1788877566;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3bG7xzyOLgkq/hT1vQoL2+37rRIngeN99Zi6O3p/t1Q=;
+	b=dujpHxA7PKpeJCyeZiOagFVHrYS6MiqrupOYGFJ0EP4mlmR+jdnMRKg1XsL53yLYA37pen
+	ASTs5tXfWZYBIDDw==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Andy Lutomirski <luto@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Miguel Ojeda <ojeda@kernel.org>, 
+	Alex Gaynor <alex.gaynor@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Christophe Leroy <chleroy@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Nicolas Schier <nsc@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, linux-mm@kvack.org, 
+	linux-um@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
+	linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	Jan Stancek <jstancek@redhat.com>, Arnaldo Carvalho de Melo <acme@redhat.com>, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v5 02/24] x86/elf, um/x86/elf: Move relocation constants
+ to UAPI
+Message-ID: <20260908161740-0d79e592-87a6-43c5-9174-84ce1904e639@linutronix.de>
+References: <20260908-vdso-absolute-reloc-v5-0-3a93791af1cf@linutronix.de>
+ <20260908-vdso-absolute-reloc-v5-2-3a93791af1cf@linutronix.de>
+ <20260908135513.GAaqATwXHcQD7plnH-@fat_crate.local>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260908135513.GAaqATwXHcQD7plnH-@fat_crate.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_071716_348529_6885D5F9 
-X-CRM114-Status: GOOD (  30.32  )
+X-CRM114-CacheID: sfid-20260908_072611_279207_AACAC4A2 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,140 +101,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8429958156058613700=="
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8429958156058613700==
-Content-Type: multipart/signed;
- boundary=a7ff6faabc94381f35eb70cb994205d1a66fcd018b82abba28681d1ee3fa;
- micalg=pgp-sha512; protocol="application/pgp-signature"
+On Tue, Sep 08, 2026 at 06:55:13AM -0700, Borislav Petkov wrote:
+> On Tue, Sep 08, 2026 at 08:33:36AM +0200, Thomas Wei=DFschuh wrote:
+> > These constants are useful for cross-platform userspace, for example to
+> > process ELF files during kernel cross-compilation.
+> > =
 
---a7ff6faabc94381f35eb70cb994205d1a66fcd018b82abba28681d1ee3fa
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+> > Move them from the kernel-private architecture-specific header to the U=
+API.
+> =
 
-On Tue Sep 8, 2026 at 10:01 PM +08, Junzhong Pan wrote:
-> USB controller runtime suspend halts the controller on disconnection.
-> It relies on platforms with custom connection notification to start
-> the controller again.
->
-> The host branch of dwc3_runtime_resume() does nothing currently. There
-> are two paths that can trigger a runtime resume of the dwc3 core in
-> host mode:
->
-> (a) Wake lands on the xHCI child (DT platforms, e.g. Qualcomm, i.MX8MP)
->     A platform wakeup IRQ fires and the glue handler calls
->     pm_runtime_resume(&xhci->dev). Runtime PM walks upward, resumes
->     the dwc3 parent first, then resumes xHCI. Both wake correctly.
->
-> (b) Wake lands on the dwc3 parent (ACPI platforms)
->     When an ACPI Notify(ACPI_NOTIFY_DEVICE_WAKE) targets the dwc3
->     parent device -- for example via a Generic Event Device on a
->     hardware-reduced platform where dwc3 is enumerated as an ACPI
->     device without a glue driver -- the ACPI core turns this into
->     pm_request_resume(dwc3_dev). Runtime PM does not propagate resume
->     downward, so the xHCI child stays suspended. Root hub polling is
->     never re-armed, and a device plugged in while suspended is silently
->     dropped.
->
-> This patch fills in the host branch to cover case (b) by requesting an
-> async resume of the xHCI child so xhci_resume() can restore the port
-> state machine and re-arm root hub polling. Glue drivers in case (a)
-> resume xHCI directly, an extra call introduced by this change, but
-> runtime PM can serialize those requests and skip device already active,
-> so the extra resume call is safe. Those calls can be replaced with
-> resume calls to dwc3 device later.
->
-> Tested on SpacemiT K3 Pico-ITX, covering both wakeup paths: an ACPI
-> boot with a GED device notifying the dwc3 node (HID 808622B7), and a
-> DT boot with a modified dwc3-generic-plat driver exposing a wakeup IRQ
-> similar to dwc3-qcom.c and dwc3-imx8mp.c. This is not validation on
-> actual Qualcomm or i.MX8MP hardware, changing those drivers would still
-> need platform-specific testing.
->
-> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Assisted-by: Opencode:claude-opus-5
-> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
-> ---
-> Changes since RFC:
-> - add Assisted-By tag and collect tag
-> - refine the commit message and comments as suggested
->
-> Link to RFC: https://lore.kernel.org/linux-usb/20260811090817.109350-1-pa=
-njunzhong@linux.spacemit.com/
-> ---
->  drivers/usb/dwc3/core.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->
-> diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-> index fd5c2cd36c59..76883dc6184c 100644
-> --- a/drivers/usb/dwc3/core.c
-> +++ b/drivers/usb/dwc3/core.c
-> @@ -2739,6 +2739,18 @@ int dwc3_runtime_resume(struct dwc3 *dwc)
->  		}
->  		break;
->  	case DWC3_GCTL_PRTCAP_HOST:
-> +		/*
-> +		 * Only the xHCI child's resume re-arms root hub polling, which
-> +		 * is what rediscovers a device plugged in while suspended.
-> +		 * Runtime PM doesn't resume children, so request it here.
-> +		 * Keep it asynchronous to avoid waiting for the parent's resume
-> +		 * callback to finish from inside it. Glue drivers may also
-> +		 * resume xHCI directly, but runtime PM will serialize those
-> +		 * requests and skips an already-active device.
-> +		 */
-> +		if (dwc->xhci)
-> +			pm_request_resume(&dwc->xhci->dev);
-> +		break;
-Could we also check a parent-only resume with no USB wake event? For
-example, reading the DWC3 debugfs lsp_dump file calls
-pm_runtime_resume_and_get(dwc->dev). With both devices suspended, this
-change would wake xHCI too.
+> Why UAPI?
+> =
 
-Would both devices return to autosuspend after the read and still
-detect a subsequent plug-in? This would help cover the non-wakeup
-case.
->  	default:
->  		/* do nothing */
->  		break;
->
-> ---
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> change-id: 20260908-resume-xhci-0fa34ff9b332
->
-> Best regards,
+> Why not include/linux/ ?
+
+The existing, generic ELF definitions are there.
+The ELF stuff in include/linux/ is highly specific to Linux.
+
+Also later in the patchset I want to expose the definitions to the
+tools/ build. Exposing generic UAPI definitions to tools/ is a much
+easier sell than include/linux/.
 
 
---=20
-Troy Mitchell
-
-
---a7ff6faabc94381f35eb70cb994205d1a66fcd018b82abba28681d1ee3fa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCaqAY2CEcdHJveS5taXRj
-aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC93lQEAnfUXUqFGj8nw
-pq/QcoMwv8/AZglrFri8AwmbKiziyQ0BALR07IvfqVq06ZjfzBNg2XwB0u4Kf28m
-MbT8XWa53wIE
-=yhFf
------END PGP SIGNATURE-----
-
---a7ff6faabc94381f35eb70cb994205d1a66fcd018b82abba28681d1ee3fa--
-
-
---===============8429958156058613700==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thomas
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8429958156058613700==--
-
