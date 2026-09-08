@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79E9C88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64015C982DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t3MEhCI5GQX+TRfUgjsm7jwOR+kok76pU5riawBRhKY=; b=swIFZAcVHwi1CZ
-	d+F6nQ4gFpzBeGFbRnnhpzikZwn1Oom8sU1Dc9GYAuIIa2BrOFDNgSLPPmbu+jIBRg87RvC2BkUsM
-	R9pjCqdCDwflwzjWSDwWviw6UvP77NCHHH+BlUHDVw042OYlFjfpeCrZ8lUIdaNsDlJ+fXruByqex
-	ecVknLdKwannzffMbC7dj1cf4WpilsI3um1BPogRG5/Jh15DfdVtmWUeHuD3DDG/F/E4CLjyuOUxT
-	qQv7PuaEB+7VttNpem9czNjvVBoG7rhaIrmDw3/6G86Sracae0FLoXoJt3DFo4fkw1DGwFt6FZ3AA
-	IeRwaFA9uL+Rh8wtpKMA==;
+	List-Owner; bh=XEUVHBtjkr+cS80BDxJWGIGLFnYap4uxzaVqr+MFTSQ=; b=wzWWwzTHsKqfDX
+	CU2qSx5sw4utcUH6RrEwbjRUeanr1gt1nGd9Qd3Lpz6/ySaRGI3D6P8wOMv28Djz1EFUqFi3mFefR
+	3+WSgS+gy/B6oH+zKTXqXCsclXmEtoVovN3iFZtDlVUpO00jdFsnqPbQKQJ60iFPHNe9TNPGJ2rLK
+	KMW3MmR+oqsaqMCpESDCZlIhDSpQrTSoXQWG7PeYWJJE5h9fRsB6FGchsNg9vqlW6u0N9K4s+0Azt
+	z0WoZjqarMAvON7dAdWoj+bGjK264nHrWii9ljDGeBWp0dYPKUrLnUDceZ3mpyC0qHQsoF9lXIedY
+	4ckjLackg+pw9LZ9/A3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Lfr-0000000Co3r-2Pn4;
-	Thu, 17 Sep 2026 23:37:51 +0000
+	id 1x7Lft-0000000CoBL-3JDt;
+	Thu, 17 Sep 2026 23:37:53 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x42Hc-0000000AAtb-3pIB;
-	Tue, 08 Sep 2026 20:19:08 +0000
+	id 1x42JS-0000000ABBh-3oz2;
+	Tue, 08 Sep 2026 20:21:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9114A410A5;
-	Tue,  8 Sep 2026 20:19:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24A591F00A3D;
-	Tue,  8 Sep 2026 20:18:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 999014196D;
+	Tue,  8 Sep 2026 20:21:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81F2A1F00A3D;
+	Tue,  8 Sep 2026 20:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788898748;
-	bh=FbEvWuDC6KaxDOww6JLm5X1oq7s2JCzdjzk0eBTVi0U=;
+	s=k20260515; t=1788898862;
+	bh=MOMisn73rdVVhY8+AjzvTNNmNUkAEb20IWBzE7CPZUU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=eDQVool74u3R99HSJksfg4E6VCtzriXHrEyCkfjQ1niwYx+UC8+Dsfy5lwYjKsIPb
-	 Vr16xsKoNO5jH7kh6huZwni1KTmC/ghoWdEBKx6uk4pQq3nPgEity85rzzv9qcwlAj
-	 dpJV5HKFsHyBN0Mg2e+wo3xEXW/+IiStJuJk6Nmx0Ed0I7GfguW6fZEnYknPoUcxyf
-	 I9lftfdTtyj/99phmNKxq8hBgGe+bpOsgpplhSPrbLkBoYE10PcW4m/GGtF1Fii82U
-	 4Twq2k27k8iXsJwfAe9fJhVKtsGGdlhriaq28zCfSbuNfgWehlGXzEmTiSvqoQgvCb
-	 UoLw3xy21fkAA==
+	b=AEp1REBGH+pakt3xHUNX2JKqVONYzgzvgZGlCes8VpWTcWPNIU+TMTKT2sVwlEKVf
+	 3d3HkthAX1FMsxxuYzx8BEFXz0VIq1fV7vOp89w+HJFBkSkxQzPGw8pf6KjunCOEha
+	 aAStY4j8dulgMJGDKYfg6byPl0UaLo7QmScwkKnJQEb6SoGID7WBqLjmi9Q6nJiQDi
+	 mFJrZqwN9amg72vbTmq5g4P0vaGZ3NaK3J55pnKuUo/GxMyGPJDy7MEpcYr2/8hWSF
+	 tX/1SpYavP4hBrQt3jwlo8PTcuszTSW3joN1et5kS8WFYzcq8/vxvnduS3NkwS0fQ2
+	 k0/tNEa3pZ2VQ==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 08 Sep 2026 21:01:39 +0100
-Subject: [PATCH 35/39] mm: avoid use of VMA_SPECIAL_FLAGS in
- migrate_vma_setup()
+Date: Tue, 08 Sep 2026 21:01:43 +0100
+Subject: [PATCH 39/39] mm/vma: introduce and use vma[_flags]_can_gup()
 MIME-Version: 1.0
-Message-Id: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-35-dacf19cce22b@kernel.org>
+Message-Id: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-39-dacf19cce22b@kernel.org>
 References: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-0-dacf19cce22b@kernel.org>
 In-Reply-To: <20260908-b4-mmap-prepare-vma-flag-sanify-v1-0-dacf19cce22b@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Xu Xin <xu.xin16@zte.com.cn>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>
@@ -63,12 +62,12 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
  fuse-devel@lists.linux.dev, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1631; i=ljs@kernel.org;
- h=from:subject:message-id; bh=12r+57hlfcUqhp52wOQ04zakYjCIf/s1O/YwMYeI4F0=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIWZG7jCeze+rfw/4PHHTccRG7fL22KjHd1CnPmn5pWu
- fDZD1/ujlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAEzEjoPhv+vf5xN38/9hWm2t
- mHX0lEm47FnZn9LTj6R7X/fRu7O4bicjw8vq3cy3Ntzf+HKn2T3291cOxxwQtdUSWfWD6VvhzvN
- t/kwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6584; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=kPVMWaJCwo1lhrTWXad/wqA8hcD1f6brZZ1kpIuur1c=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIWZG6vmyVSwLU385PLJLOsm8wrPI48vnjnyrRcyfpXr
+ QZ5rW9tO0pZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCR5KWMDE9+ar3kPPvQ5u7F
+ 6lzR+P7LZzmWGP6c93zVo4ye57oHDxox/BU80L30947zd/l2STndnSQ2b77G82v3+VnlD9utDXp
+ utJEDAA==
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-Mailman-Approved-At: Thu, 17 Sep 2026 16:37:27 -0700
@@ -88,51 +87,189 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now we have the expressive vma_is_kernel_owned() and vma_is_fixed_mapping()
-predicates, use them to determine whether to proceed with migration. This
-drops the VMA_IO_BIT test, which is safe as only kernel-owned mappings may
-set it.
+GUP cannot be used for VMAs which set VMA_IO_BIT - because memory-mapped
+I/O must not be accessed on the user's behalf - or VMA_PFNMAP_BIT - because
+PFN maps have no folios which the kernel is permitted to access.
 
-hugetlb mappings remain excluded, as they are fixed mappings.
+Rather than keeping these checks open-coded, abstract them to
+vma_flags_can_gup() and its VMA wrapper vma_can_gup().
+
+This is useful as there are a number of additional places within the kernel
+that need to check whether a mapping can be accessed via GUP.
+
+Therefore, update all such occurrences.
+
+While here, drop a reference to 'special' and replace a use of the
+deprecated VMA flags API in vma_dump_size().
 
 No functional change intended.
 
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- mm/migrate_device.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ fs/coredump.c      |  4 ++--
+ include/linux/mm.h | 29 +++++++++++++++++++++++++++++
+ mm/gup.c           |  7 +++----
+ mm/hmm.c           |  3 +--
+ mm/memory.c        | 14 ++++++++------
+ mm/mempolicy.c     |  3 ++-
+ 6 files changed, 45 insertions(+), 15 deletions(-)
 
-diff --git a/mm/migrate_device.c b/mm/migrate_device.c
-index b9c453c28795..b74c0ae42768 100644
---- a/mm/migrate_device.c
-+++ b/mm/migrate_device.c
-@@ -739,19 +739,21 @@ static void migrate_vma_unmap(struct migrate_vma *migrate)
-  */
- int migrate_vma_setup(struct migrate_vma *args)
- {
-+	const struct vm_area_struct *vma = args->vma;
- 	long nr_pages = (args->end - args->start) >> PAGE_SHIFT;
+diff --git a/fs/coredump.c b/fs/coredump.c
+index fb21fb6703dd..9f729c594c47 100644
+--- a/fs/coredump.c
++++ b/fs/coredump.c
+@@ -1616,8 +1616,8 @@ static unsigned long vma_dump_size(struct vm_area_struct *vma,
+ 		return 0;
+ 	}
  
- 	args->start &= PAGE_MASK;
- 	args->end &= PAGE_MASK;
--	if (!args->vma || vma_test_any_mask(args->vma, VMA_SPECIAL_FLAGS) ||
--	    vma_is_dax(args->vma))
-+	if (!vma)
-+		return -EINVAL;
-+	if (vma_is_kernel_owned(vma) || vma_is_fixed_mapping(vma) ||
-+	    vma_is_dax(vma))
- 		return -EINVAL;
- 	if (nr_pages <= 0)
- 		return -EINVAL;
--	if (args->start < args->vma->vm_start ||
--	    args->start >= args->vma->vm_end)
-+	if (args->start < vma->vm_start || args->start >= vma->vm_end)
- 		return -EINVAL;
--	if (args->end <= args->vma->vm_start || args->end > args->vma->vm_end)
-+	if (args->end <= vma->vm_start || args->end > vma->vm_end)
- 		return -EINVAL;
- 	if (!args->src || !args->dst)
- 		return -EINVAL;
+-	/* Do not dump I/O mapped devices or special mappings */
+-	if (vma->vm_flags & VM_IO)
++	/* Do not dump memory-mapped I/O, which may have side effects on read. */
++	if (vma_test(vma, VMA_IO_BIT))
+ 		return 0;
+ 
+ 	/* By default, dump shared memory if mapped from an anonymous file. */
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index b5784685272a..1902d4c77481 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -1777,6 +1777,35 @@ static inline bool vma_is_persistent(const struct vm_area_struct *vma)
+ 	return vma_flags_is_persistent(&vma->flags);
+ }
+ 
++/**
++ * vma_flags_can_gup() - Do the specified VMA flags permit GUP to access the
++ * mapping's pages?
++ * @flags: The VMA flags to test.
++ *
++ * GUP cannot access pages belonging to mappings whose pages are not permitted
++ * to be accessed (VMA_PFNMAP_BIT) and must not manipulate or provide access to
++ * memory-mapped I/O ranges to users (VMA_IO_BIT).
++ *
++ * Returns: true if GUP may access pages from the mapping, otherwise false.
++ */
++static inline bool vma_flags_can_gup(const vma_flags_t *flags)
++{
++	return !vma_flags_test_any(flags, VMA_IO_BIT, VMA_PFNMAP_BIT);
++}
++
++/**
++ * vma_can_gup() - May GUP obtain pages from @vma?
++ * @vma: The VMA to test.
++ *
++ * See vma_flags_can_gup() for details.
++ *
++ * Returns: true if GUP may access pages from the mapping, otherwise false.
++ */
++static inline bool vma_can_gup(const struct vm_area_struct *vma)
++{
++	return vma_flags_can_gup(&vma->flags);
++}
++
+ /**
+  * vma_kernel_pagesize - Default page size granularity for this VMA.
+  * @vma: The user mapping.
+diff --git a/mm/gup.c b/mm/gup.c
+index 66b306911703..f4d0cfcb602b 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -1204,7 +1204,7 @@ static int check_vma_flags(struct vm_area_struct *vma, unsigned long gup_flags)
+ 	int foreign = (gup_flags & FOLL_REMOTE);
+ 	bool vma_anon = vma_is_anonymous(vma);
+ 
+-	if (vm_flags & (VM_IO | VM_PFNMAP))
++	if (!vma_can_gup(vma))
+ 		return -EFAULT;
+ 
+ 	if ((gup_flags & FOLL_ANON) && !vma_anon)
+@@ -1955,7 +1955,7 @@ int __mm_populate(unsigned long start, unsigned long len, int ignore_errors)
+ 		 * range with the first VMA. Also, skip undesirable VMA types.
+ 		 */
+ 		nend = min(end, vma->vm_end);
+-		if (vma->vm_flags & (VM_IO | VM_PFNMAP))
++		if (!vma_can_gup(vma))
+ 			continue;
+ 		if (nstart < vma->vm_start)
+ 			nstart = vma->vm_start;
+@@ -2017,8 +2017,7 @@ static long __get_user_pages_locked(struct mm_struct *mm, unsigned long start,
+ 			break;
+ 
+ 		/* protect what we can, including chardevs */
+-		if ((vma->vm_flags & (VM_IO | VM_PFNMAP)) ||
+-		    !(vm_flags & vma->vm_flags))
++		if (!vma_can_gup(vma) || !(vm_flags & vma->vm_flags))
+ 			break;
+ 
+ 		if (pages) {
+diff --git a/mm/hmm.c b/mm/hmm.c
+index 2f1e98c6b644..e9569b82a1f0 100644
+--- a/mm/hmm.c
++++ b/mm/hmm.c
+@@ -595,8 +595,7 @@ static int hmm_vma_walk_test(unsigned long start, unsigned long end,
+ 	struct hmm_range *range = hmm_vma_walk->range;
+ 	struct vm_area_struct *vma = walk->vma;
+ 
+-	if (!(vma->vm_flags & (VM_IO | VM_PFNMAP)) &&
+-	    vma->vm_flags & VM_READ)
++	if (vma_can_gup(vma) && vma_test(vma, VMA_READ_BIT))
+ 		return 0;
+ 
+ 	/*
+diff --git a/mm/memory.c b/mm/memory.c
+index 9a38c7d4cc40..cb56d67b17ca 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -2417,11 +2417,11 @@ static bool vm_mixed_zeropage_allowed(struct vm_area_struct *vma)
+ 	 * be problematic as soon as the zeropage gets replaced by a different
+ 	 * page due to vma->vm_ops->pfn_mkwrite, because what's mapped would
+ 	 * now differ to what GUP looked up. FSDAX is incompatible to
+-	 * FOLL_LONGTERM and VM_IO is incompatible to GUP completely (see
+-	 * check_vma_flags).
++	 * FOLL_LONGTERM and memory-mapped I/O is incompatible to GUP completely
++	 * (see vma_can_gup()).
+ 	 */
+ 	return vma->vm_ops && vma->vm_ops->pfn_mkwrite &&
+-	       (vma_is_fsdax(vma) || vma->vm_flags & VM_IO);
++	       (vma_is_fsdax(vma) || vma_test(vma, VMA_IO_BIT));
+ }
+ 
+ static int validate_page_before_insert(struct vm_area_struct *vma,
+@@ -7116,7 +7116,8 @@ int follow_pfnmap_start(struct follow_pfnmap_args *args)
+ 	if (unlikely(address < vma->vm_start || address >= vma->vm_end))
+ 		goto out;
+ 
+-	if (!(vma->vm_flags & (VM_IO | VM_PFNMAP)))
++	/* Only mappings GUP cannot handle are followed here. */
++	if (vma_can_gup(vma))
+ 		goto out;
+ retry:
+ 	pgdp = pgd_offset(mm, address);
+@@ -7310,8 +7311,9 @@ static int __access_remote_vm(struct mm_struct *mm, unsigned long addr,
+ 			}
+ 
+ 			/*
+-			 * Check if this is a VM_IO | VM_PFNMAP VMA, which
+-			 * we can access using slightly different code.
++			 * GUP failed, perhaps because this is a mapping it
++			 * cannot handle (see vma_can_gup()) - such mappings may
++			 * provide access via vm_ops->access() instead.
+ 			 */
+ 			bytes = 0;
+ #ifdef CONFIG_HAVE_IOREMAP_PROT
+diff --git a/mm/mempolicy.c b/mm/mempolicy.c
+index aeb99c5933cb..ed444061631c 100644
+--- a/mm/mempolicy.c
++++ b/mm/mempolicy.c
+@@ -2011,7 +2011,8 @@ SYSCALL_DEFINE5(get_mempolicy, int __user *, policy,
+ 
+ bool vma_migratable(struct vm_area_struct *vma)
+ {
+-	if (vma->vm_flags & (VM_IO | VM_PFNMAP))
++	/* Pages which GUP cannot obtain cannot be migrated either. */
++	if (!vma_can_gup(vma))
+ 		return false;
+ 
+ 	/*
 
 -- 
 2.55.0
