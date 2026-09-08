@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B16C79F82
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 09:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943E7C79F82
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Sep 2026 09:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oMtayZT1DDXYurzzjhTg+5ngV0MBVqZuigH1w5Y0G0U=; b=hDuH3a/GqpXBzf
-	cTfm2VczwF+gFvRl6UiSACx38hoJ8pypemKef9XuIqYtO3RuAjvltH8mmkO5t/LfdO0GHVSAQNpgx
-	qkHPYHX9eDS8Sokl3V7edtXv0sMLRvXUzG+MpSA3YmJ1VhuXjQHs5T2bBwzw0jcEM/MC6Wq8iHjDM
-	Rd0pDT4qzQpaxyEtS6n/dvW5wSa2Ab7PKWtTqW+D4nOexGURgruOqQ0L62ddQ2COhep6RWaxqKzS4
-	YzfQIS1YH5uWjq0Jjpr7/iMiaC+JTs/camF7oNySXyAAgQkj3zW682Ey7GKmfr4JUgV0TKbWUXQ2b
-	CIUpkQ3AADjm8o77mRGg==;
+	List-Owner; bh=AzAL4RswvuGWQ94hIt7d071ykhX9zRgYgmeCTdY4t8w=; b=hgiKMVY6TOSU1Z
+	yElaDjJ5nTjV6yISWdczq+U1xT/mrU5VV8S/fPwM5z4t5fymfyPOC6rla96eqTCywvtQO8BQUfd4a
+	9Kr9CrVrhrTJaQ64rcq1RQvzINZsH0G6d3Jp28l+tslSyHB+J1UD6EQw6VLsDs+H47fDSrTN1JLy2
+	lvj3hd257RAdeSG6pOHqwfOSc6aMNIqjfEsobaqBqiia1fsm0I3omBg938wUEQVhOTEbDjnd81q0F
+	yMfrQtvwp5y9GoH9ZI23Zf/udyr79DXPT8GYcePEAsxq/GTNxD9ljyIj0tcj2F4oaMfVATR2WH+Yh
+	Ftpu3GmtKU57EzOFSFKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3s1N-00000008YIT-05H9;
-	Tue, 08 Sep 2026 09:21:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3sGq-00000008dDX-44r3;
+	Tue, 08 Sep 2026 09:37:40 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3s1L-00000008YIE-0v38;
-	Tue, 08 Sep 2026 09:21:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5366660A97;
-	Tue,  8 Sep 2026 09:21:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36E861F00A3A;
-	Tue,  8 Sep 2026 09:21:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788859298;
-	bh=4k7jM/SARicUfiyID/Zb58FTA6TVrqfjgQqXrSbBJmY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Xn9XtBCzNs8WX9mak5mpG8XRdy2i0zrbMydZ5LMlt1Qe6xYAL3LuxfUX8Atn2wQI5
-	 1axnL/wqewpo705igfKNy8cNCn9+Zo3sUO5bgJKNWeixiHCJ40tMpOcHYPd0ztKnwc
-	 thks3bDKvUFN5YfpBP21ImCqeVd4BuB9bshirgyOkT8qYPLl5IHF7GtOgYNVJtKM5z
-	 OWEfgEV7HLlzD0xSV0FLDhASxeMC0R5k+YiWCZlY18vuOZyNV5jOxZq4lBnvbHCbuK
-	 MWgRGux7fP8nPYbQvR4llwvXew14x5qlJam3L6qpRO9Kd3dID9dgWciFsi7Ok948U+
-	 EV4LzEuy2wGQQ==
-Message-ID: <9a27f318-2ab0-4f5e-8e87-daaa85dbc297@kernel.org>
-Date: Tue, 8 Sep 2026 11:21:20 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 16/24] powerpc/elf: Add 32-bit REL16 relocation
- definitions
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Andy Lutomirski <luto@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, Kees Cook <kees@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Nicolas Schier <nsc@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, linux-mm@kvack.org, linux-um@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
- linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org,
- linux-kbuild@vger.kernel.org, Jan Stancek <jstancek@redhat.com>,
- Arnaldo Carvalho de Melo <acme@redhat.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
+	id 1x3sGn-00000008dBf-1Uka;
+	Tue, 08 Sep 2026 09:37:38 +0000
+Date: Tue, 8 Sep 2026 11:37:32 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1788860254;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M4bnahwswymvE5nOIFxOjV/veHxRfM8mUS2vFlMphLI=;
+	b=F99r3XWuTQu1aQaZj3Rg35vrK+Vh4xoW6esYP08KsnkTB5yxRHFlAX+DCSQ9MmE/ytdjCY
+	bT6ZSwlbgz0Tp/9QlaRm9xj6k6x+gQowVBcql48kgWTi7EY8hoPzlCmCwOwmHC8SxOCa3J
+	0icgZeoQJU6KNJO4gOL3qhihZkDuWn/jnlOBCrvGJD7o4Fnl7C36ruhip68Y+2nMvnOAVX
+	9XoGZlIvgcOwA32mE4o6lEcMBu1d9f3urtNxvC6vBsxPGt/e/3MpqOApvFdmwEjj/Zakfp
+	dC6HHcg6MFdoR4Ez1Du4OVqzN/fIOPQmWkTrSXFlU1lEDS+2M+h55TuuwKLKTg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1788860254;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M4bnahwswymvE5nOIFxOjV/veHxRfM8mUS2vFlMphLI=;
+	b=Eal5NKMa9KoeM279byQBbEfyeEmUQxO7LFbQVe68UMo95PO7FvduzWF1IqJWwbafV544s9
+	HhGMsegsgfpaGqBA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Andy Lutomirski <luto@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Boqun Feng <boqun@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-mm@kvack.org, linux-um@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Jan Stancek <jstancek@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@redhat.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v5 11/24] tools headers UAPI: Sync ELF headers with the
+ kernel sources
+Message-ID: <20260908113701-7b7e8e99-81cd-40b3-8a33-f316defe6f45@linutronix.de>
 References: <20260908-vdso-absolute-reloc-v5-0-3a93791af1cf@linutronix.de>
- <20260908-vdso-absolute-reloc-v5-16-3a93791af1cf@linutronix.de>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260908-vdso-absolute-reloc-v5-16-3a93791af1cf@linutronix.de>
+ <20260908-vdso-absolute-reloc-v5-11-3a93791af1cf@linutronix.de>
+ <06996199-5255-41d0-ba6a-ebeca57f61da@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <06996199-5255-41d0-ba6a-ebeca57f61da@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_023737_537754_8C7F9A7B 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +100,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpMZSAwOC8wOS8yMDI2IMOgIDA4OjMzLCBUaG9tYXMgV2Vpw59zY2h1aCBhIMOpY3JpdMKgOgo+
-IFRoZXNlIGFyZSB1c2VkIGJ5IHVzZXJzcGFjZSBhbmQgYXJlIG5lY2Vzc2FyeSBmb3IgdGhlIHZk
-c29jaGVjayB0b29sLgo+IFRoZXkgc2hhcmUgdGhlIG51bWJlcnMgd2l0aCB0aGVpciA2NC1iaXQg
-dmFyaWFudHMuCj4gCj4gQWxzbyB1cGRhdGUgdGhlIGNvcHkgaW4gdG9vbHMvIHNvIHRoZXkgY2Fu
-IGJlIHVzZWQgYnkgdmRzb2NoZWNrLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFRob21hcyBXZWnDn3Nj
-aHVoIDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRlPgoKUmV2aWV3ZWQtYnk6IENocmlz
-dG9waGUgTGVyb3kgKENTIEdST1VQKSA8Y2hsZXJveUBrZXJuZWwub3JnPgoKPiAtLS0KPiAgIGlu
-Y2x1ZGUvdWFwaS9saW51eC9lbGYtci5oICAgICAgIHwgNyArKysrKystCj4gICB0b29scy9pbmNs
-dWRlL3VhcGkvbGludXgvZWxmLXIuaCB8IDcgKysrKysrLQo+ICAgMiBmaWxlcyBjaGFuZ2VkLCAx
-MiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9pbmNsdWRl
-L3VhcGkvbGludXgvZWxmLXIuaCBiL2luY2x1ZGUvdWFwaS9saW51eC9lbGYtci5oCj4gaW5kZXgg
-NzJmYzkwNDVhNWQ0Li4xNzA4ODg0MjI0MDAgMTAwNjQ0Cj4gLS0tIGEvaW5jbHVkZS91YXBpL2xp
-bnV4L2VsZi1yLmgKPiArKysgYi9pbmNsdWRlL3VhcGkvbGludXgvZWxmLXIuaAo+IEBAIC0xODIs
-OCArMTgyLDEzIEBACj4gICAjZGVmaW5lIFJfUFBDX0dPVF9EVFBSRUwxNl9ISQk5MyAvKiBoYWxm
-MTYqCShzeW0rYWRkKUBnb3RAZHRwcmVsQGggKi8KPiAgICNkZWZpbmUgUl9QUENfR09UX0RUUFJF
-TDE2X0hBCTk0IC8qIGhhbGYxNioJKHN5bSthZGQpQGdvdEBkdHByZWxAaGEgKi8KPiAgIAo+ICsj
-ZGVmaW5lIFJfUFBDX1JFTDE2CQkyNDkKPiArI2RlZmluZSBSX1BQQ19SRUwxNl9MTwkJMjUwCj4g
-KyNkZWZpbmUgUl9QUENfUkVMMTZfSEkJCTI1MQo+ICsjZGVmaW5lIFJfUFBDX1JFTDE2X0hBCQky
-NTIKPiArCj4gICAvKiBrZWVwIHRoaXMgdGhlIGxhc3QgZW50cnkuICovCj4gLSNkZWZpbmUgUl9Q
-UENfTlVNCQk5NQo+ICsjZGVmaW5lIFJfUFBDX05VTQkJMjUzCj4gICAKPiAgIC8qIFBvd2VyUEM2
-NCByZWxvY2F0aW9ucyBkZWZpbmVkIGJ5IHRoZSBBQklzICovCj4gICAjZGVmaW5lIFJfUFBDNjRf
-Tk9ORSAgICBSX1BQQ19OT05FCj4gZGlmZiAtLWdpdCBhL3Rvb2xzL2luY2x1ZGUvdWFwaS9saW51
-eC9lbGYtci5oIGIvdG9vbHMvaW5jbHVkZS91YXBpL2xpbnV4L2VsZi1yLmgKPiBpbmRleCA3MmZj
-OTA0NWE1ZDQuLjE3MDg4ODQyMjQwMCAxMDA2NDQKPiAtLS0gYS90b29scy9pbmNsdWRlL3VhcGkv
-bGludXgvZWxmLXIuaAo+ICsrKyBiL3Rvb2xzL2luY2x1ZGUvdWFwaS9saW51eC9lbGYtci5oCj4g
-QEAgLTE4Miw4ICsxODIsMTMgQEAKPiAgICNkZWZpbmUgUl9QUENfR09UX0RUUFJFTDE2X0hJCTkz
-IC8qIGhhbGYxNioJKHN5bSthZGQpQGdvdEBkdHByZWxAaCAqLwo+ICAgI2RlZmluZSBSX1BQQ19H
-T1RfRFRQUkVMMTZfSEEJOTQgLyogaGFsZjE2Kgkoc3ltK2FkZClAZ290QGR0cHJlbEBoYSAqLwo+
-ICAgCj4gKyNkZWZpbmUgUl9QUENfUkVMMTYJCTI0OQo+ICsjZGVmaW5lIFJfUFBDX1JFTDE2X0xP
-CQkyNTAKPiArI2RlZmluZSBSX1BQQ19SRUwxNl9ISQkJMjUxCj4gKyNkZWZpbmUgUl9QUENfUkVM
-MTZfSEEJCTI1Mgo+ICsKPiAgIC8qIGtlZXAgdGhpcyB0aGUgbGFzdCBlbnRyeS4gKi8KPiAtI2Rl
-ZmluZSBSX1BQQ19OVU0JCTk1Cj4gKyNkZWZpbmUgUl9QUENfTlVNCQkyNTMKPiAgIAo+ICAgLyog
-UG93ZXJQQzY0IHJlbG9jYXRpb25zIGRlZmluZWQgYnkgdGhlIEFCSXMgKi8KPiAgICNkZWZpbmUg
-Ul9QUEM2NF9OT05FICAgIFJfUFBDX05PTkUKPiAKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Sep 08, 2026 at 10:56:58AM +0200, Christophe Leroy (CS GROUP) wrote:
+> Le 08/09/2026 =E0 08:33, Thomas Wei=DFschuh a =E9crit=A0:
+> > Pick up changes from the UAPI ELF header files.
+> > This picks up general changes to elf.h, elf-em.h which was forgotten
+> > previously and the new elf-r.h.
+> > =
+
+> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> > =
+
+> > ---
+> > Cc: Arnaldo Carvalho de Melo <acme@redhat.com>
+> > ---
+> >   tools/include/uapi/linux/elf-em.h |  71 ++++
+> >   tools/include/uapi/linux/elf-r.h  | 696 +++++++++++++++++++++++++++++=
++++++++++
+> >   tools/include/uapi/linux/elf.h    | 112 +++++-
+> >   3 files changed, 868 insertions(+), 11 deletions(-)
+> > =
+
+> =
+
+> > diff --git a/tools/include/uapi/linux/elf.h b/tools/include/uapi/linux/=
+elf.h
+> > index 5834b83d7f9a..88bdcbb526c1 100644
+> > --- a/tools/include/uapi/linux/elf.h
+> > +++ b/tools/include/uapi/linux/elf.h
+> =
+
+> > @@ -312,7 +323,7 @@ typedef struct elf64_phdr {
+> >   #define SHN_ABS		0xfff1
+> >   #define SHN_COMMON	0xfff2
+> >   #define SHN_HIRESERVE	0xffff
+> > -
+> > +
+> =
+
+> Getting the following warning when applying this series with 'b4 shazam'.
+> =
+
+> /home/chleroy/linux-powerpc/.git/rebase-apply/patch:846: trailing
+> whitespace.
+> =
+
+> Seems to come from here.
+
+That's also present in include/uapi/linux/elf.h.
+I'll add a fix for that, too.
+
+> =
+
+> >   typedef struct elf32_shdr {
+> >     Elf32_Word	sh_name;
+> >     Elf32_Word	sh_type;
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
