@@ -4,94 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34D0C79FAD
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 06:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2968CC79FAD
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 06:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kM+SfKQiDv/M5RSX2xlhNlRvmNWOgx3B7nK0sD7UaBQ=; b=JulBPBxXby4N24
-	8fMpff/0VECD9kewanPX9TmgguauxWimwXsR5bzEkAFOkvu0SO9x+yvsHhUil5jAlePH7ohmloD6v
-	R15kR2gdYNa5xzRWTLTRgk/hLj6yJRrz//P9ixtKhB0EBbgnfMSjlDEpffGSnLG3iWi+AwZ5fgTHr
-	c3ZrY2UsktOB9rJ+UTuPY/oJw24vP9BqXqFtORwkAzyPqJfDDgSCOAK6y8PhRgOfmu5HJhlKlF3IW
-	q6F63Iy9T3ivgLwJtEpZMjEZTdQiJBCUpDb5YQNQ54R42rD1hxGAVbrSxkUeOgJi1Uu2yPcQyT73A
-	Zk2KuMaWlEXGSyC2t01A==;
+	List-Owner; bh=jNDAK1l7B4Ry7HGYYe73pWkFN07niLsI20/OdnBqW3g=; b=BVKZV89k9VGaMQ
+	YJl+qSG9KwM2LmjFth68kVC0UalQqXpJWMfMHH5Wd8Wb3cvPrdJ8okEC0meqCwwuZtcw7slBG40p7
+	V917rF4OX4khzJ4TRObdoOmHXGOkqF2F9d7KozZU2746SZlADvOKQhoetngDChI8DDu9SH2pxe4Cj
+	H+yOkTIyLY7v2cAhluGgvp85B/VgFwhxBDfBIErqLRhrgvpCwt3Fu4gWasqDiCdqzjz9PIC3bXWBQ
+	sjO9XoLni9D6OZohnKBRoGKUfi8iN97x8qkG1+Jx8EpPwgL0rEXyYTtI09C7qOTrC1RLfUKjM5uFN
+	bhtqppc9/gT+RWM7ns/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BLh-0000000Apdc-2GsH;
-	Wed, 09 Sep 2026 05:59:57 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1x4BPI-0000000Apw3-0eDe;
+	Wed, 09 Sep 2026 06:03:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BLe-0000000ApcX-23zY;
-	Wed, 09 Sep 2026 05:59:56 +0000
-Date: Wed, 9 Sep 2026 07:59:51 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1788933591;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XfBuOKvuia8jKU4jKhI6ImQ24+OP+x2lVvStL9kHB6c=;
-	b=CMEIGvTJ+RpDUpaQX63YOGpF9L1xMeGi9s7P9EumAFOOXvZhDn04zc5cDcznjmEwFWcMKn
-	aV3mh9HSsioEvvDCuqmuPhxAz0EDxVz5FVZWfmObWfXRSybwQ1ZxDVQ4z0tJ5bj8HKl6QH
-	2LpCD9FeG6rAkLbfiSKloV9FiP1FFipkSzlhBo3Zplknr1ofEEQBBTOoi2c+qR7w1FFuf1
-	oLRZ1Ohqd/R7qrq1gOVWGdmCLZlvGzRsKpGh6crrwVT4V1hNIEeMZP96qZ+DAKQJ/Yh6qb
-	V/ykB9y+Wc32WJFwaNxXjYic0iDsUwgblz+2Yps3KMILiE5BRXmRKCLGA9EuDw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1788933591;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XfBuOKvuia8jKU4jKhI6ImQ24+OP+x2lVvStL9kHB6c=;
-	b=VonGHAfqnQoueeh6Hl3Lomphhnqa2H/lUyc5Ke65gvgt5gNmjnE70KZBPhdx4hgXdpJF0U
-	tvpV+04d2I30q5AQ==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Borislav Petkov <bp@alien8.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Andy Lutomirski <luto@kernel.org>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Christophe Leroy <chleroy@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Nicolas Schier <nsc@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, linux-mm@kvack.org, 
-	linux-um@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
-	linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	Jan Stancek <jstancek@redhat.com>, Arnaldo Carvalho de Melo <acme@redhat.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v5 02/24] x86/elf, um/x86/elf: Move relocation constants
- to UAPI
-Message-ID: <20260909075156-06ff671c-ab7b-47d8-aaa3-588b570888bc@linutronix.de>
-References: <20260908-vdso-absolute-reloc-v5-0-3a93791af1cf@linutronix.de>
- <20260908-vdso-absolute-reloc-v5-2-3a93791af1cf@linutronix.de>
- <20260908135513.GAaqATwXHcQD7plnH-@fat_crate.local>
- <20260908161740-0d79e592-87a6-43c5-9174-84ce1904e639@linutronix.de>
- <20260908151238.GBaqAl5iKb64meuPJl@fat_crate.local>
+	id 1x4BPF-0000000Apvv-0AlQ
+	for linux-riscv@lists.infradead.org;
+	Wed, 09 Sep 2026 06:03:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 30A9160207;
+	Wed,  9 Sep 2026 06:03:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E873D1F00A3D;
+	Wed,  9 Sep 2026 06:03:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788933815;
+	bh=haPdEZpp+cqsQIMNTEqsXgMDal7mY9IjuG8Msg3Fc1I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=IObT8R6ZUcNF3PqkRrC/NfhRw8ik7iq59ieIkrpuMbDDVSEY8WeFiamkXKR3+8Y7y
+	 Is1dmshqunrZSGMUSSRfaYJKWWEkgpPY+Mi4fOZMdoyKDL95DOIvAeJ0WeZTLwIrri
+	 kBzpiC4hfYtaIbM+QGsGd0UiWCMjncGAsDb1O1eyNmqUgYTif+gE1IBEbF60K53EV+
+	 MQatEpE+BgXVSqWwIZ/kM58fwoQpZBH5B/l3/8YobvIZ80N/KmJHTNCSs5HvXYpO5v
+	 ZxeOXgwsjFqo654nOQjQvy711x2uAsK4u8aiFahXC1LBwg3mt0mirbnoK4zgHjQBZK
+	 engUOpEeAhvPw==
+Message-ID: <95b7ad43-9c68-4830-a35c-7cb29ca9b75f@kernel.org>
+Date: Wed, 9 Sep 2026 08:03:25 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260908151238.GBaqAl5iKb64meuPJl@fat_crate.local>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_225954_677991_3BCBBB68 
-X-CRM114-Status: GOOD (  12.77  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 03/21] dt-bindings: pinctrl: Add
+ starfive,jhb100-sys0-pinctrl
+To: Changhuang Liang <changhuang.liang@starfivetech.com>,
+ Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>
+Cc: "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
+References: <20260829025720.23915-1-changhuang.liang@starfivetech.com>
+ <20260829025720.23915-4-changhuang.liang@starfivetech.com>
+ <f474f659-8234-4dfb-85cc-06d2cc295107@kernel.org>
+ <ZQ4PR01MB1202DDBD0436E8F580EB6575F2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <ac4c6b24-02c7-4dc3-89e4-45aa335255d3@kernel.org>
+ <ZQ4PR01MB120205984FB23C0776BD0D0AF2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+ <08c6dad7-8b0d-4daf-908e-5af875306f0f@kernel.org>
+ <ZQ4PR01MB1202123864865439817E1549F2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <ZQ4PR01MB1202123864865439817E1549F2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +125,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 08:12:38AM -0700, Borislav Petkov wrote:
-> On Tue, Sep 08, 2026 at 04:26:00PM +0200, Thomas Wei=DFschuh wrote:
-> > The existing, generic ELF definitions are there.
-> > The ELF stuff in include/linux/ is highly specific to Linux.
-> =
+On 30/08/2026 10:57, Changhuang Liang wrote:
+> Hi, Krzysztof
+> 
+> Thanks for the review.
+> 
+>> On 30/08/2026 10:42, Changhuang Liang wrote:
+>>> Hi, Krzysztof
+>>>
+>>> Thanks for the review.
+>>>
+>>>> On 30/08/2026 03:29, Changhuang Liang wrote:
+>>>>> Hi, Krzysztof
+>>>>>
+>>>>> Thanks for the review.
+>>>>>
+>>>>>> On 29/08/2026 04:57, Changhuang Liang wrote:
+>>>>>>> +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+>>>>>>> +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+>>>>>>> +
+>>>>>>> +/* sys0 pad numbers */
+>>>>>>> +#define PADNUM_SYS0_GPIO_A0				0
+>>>>>>> +#define PADNUM_SYS0_GPIO_A1				1
+>>>>>>> +#define PADNUM_SYS0_GPIO_A2				2
+>>>>>>> +#define PADNUM_SYS0_GPIO_A3				3
+>>>>>>
+>>>>>> I could not find how your driver uses these, so are you sure it's a
+>>>>>> binding constant for the SW?
+>>>>>
+>>>>> Yes, these are not used in the driver, but in PATCH 6/8/10/12, etc.,
+>>>>> some definitions for other GPIOs are still used. Therefore, I have
+>>>>> uniformly defined them in the binding, and they will be provided to
+>>>>> the
+>>>> device tree for use later.
+>>>>
+>>>> I am confused. The driver in these patches 6/8/10/12 does include the
+>>>> header but does not use them. Why do you include unused headers? Or
+>>>> what is exactly the use?
+>>>
+>>> I'm sorry, I missed one thing. Actually, the current patches
+>> 4/6/8/10/12/14/16/18/20 all use this:
+>>>
+>>> For example, in patch 4:
+>>>
+>>> static const struct jhb100_pinctrl_func_maps jhb100_func_maps_sys0[] = {
+>>> 	{ .func = "auxpwrgood",		.val = 1 },
+>>> 	{ .func = "gpio",		.val = 0,
+>>> 	  .max_pin =
+>> JHB100_FUNC_MAPS_MAX_PIN(PADNUM_SYS0_GPIO_A2) },
+>>> 	{ .func = "gpio",		.val = 1,
+>>> 	  .max_pin =
+>> JHB100_FUNC_MAPS_MAX_PIN(PADNUM_SYS0_GPIO_A3) },
+>>> 	{ .func = "hbled",		.val = 1 },
+>>> 	{ .func = "pe2rst_out",		.val = 0 },
+>>> };
+>>>
+>>> These definitions are used in `struct jhb100_pinctrl_func_maps` or `struct
+>> pinvref_desc`.
+>>
+>> OK, I was looking for PADNUM_SYS0_GPIO_A0.
+>>
+>> Why do you need unused constants? The constants in binding headers are
+>> interface between DTS and drivers, not hardware values. You do not need to
+>> store there hardware values, so what is the benefit of defining
+>> PADNUM_SYS0_GPIO_A0? Why can't PADNUM_SYS0_GPIO_A2 start at index
+>> 0?
+> 
+> Here, it is also provided for use by the device tree later. For example:
+> 
+> 	auxpowergood0_pins: auxpowergood0-grp {
+> 		auxpowergood0-pins {
+> 			pins = <PADNUM_SYS0_GPIO_A0>;
+> 			function = "auxpwrgood";
+> 			input-enable;
+> 		};
+> 	};
+> 
+> 	auxpowergood1_pins: auxpowergood1-grp {
+> 		auxpowergood1-pins {
+> 			pins = <PADNUM_SYS0_GPIO_A1>;
+> 			function = "auxpwrgood";
+> 			input-enable;
+> 		};
+> 	};
+> 
+> The pins property corresponds to the specific GPIO offset, so PADNUM_SYS0_GPIO_A2 cannot start at index 0.
 
-> And putting them in UAPI casts them in stone. I wouldn't want to maintain=
- them
-> forever if not necessary.
+Did you even read my reply? Or you just respond whatever to tick the
+checkbox of responding to maintainer?
 
-These names and numbers are defined by the architectures' ELF specification=
-s.
-They are already cast in stone. For example see Table 4.9 of [0].
-Changing them would break compilers, linkers, loaders and more or less every
-existing ELF binary.
+AGAIN:
+"You do not need to store there hardware values"
 
-> > Also later in the patchset I want to expose the definitions to the
-> > tools/ build. Exposing generic UAPI definitions to tools/ is a much
-> > easier sell than include/linux/.
-> =
+Do you understand the term ABI between software and DTS? Is in this term
+anything about your actual hardware numbers? No.
 
-> tools/ *copies* kernel headers on a "they're needed" basis. No need to put
-> anything in UAPI for that.
-> =
-
-> It's even written down: tools/include/uapi/README
-
-That is the documentation for the tools UAPI headers.
-
-Also we already have other, closely related, ELF constants in the UAPI,
-see {,tools/}include/uapi/linux/elf{,-em}.h.
-
-[0] https://gitlab.com/x86-psABIs/x86-64-ABI/-/jobs/artifacts/master/raw/x8=
-6-64-ABI/abi.pdf?job=3Dbuild
-
-
-Thomas
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
