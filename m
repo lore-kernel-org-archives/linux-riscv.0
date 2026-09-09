@@ -4,89 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB76C79FB9
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 08:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8FDC79F8C
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 09:15:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DM/w/Dr11afIbtbh4p4pKif47aNOlMczsCGSNEwVl+g=; b=OB0nT70LzQ5jBu
-	aPECWxKuSQ6nraahqjN2PbGPfKFgR6mB7emZzKIPl2yRiNBiE3fAsKwb6M/TlQaFGEOyinSnxN+gX
-	55MceiYoUZ3MGIHUoMc3Dh0hKNAw9tlI/FOo2TQCagN9stS1VWE/Fawe5wx81W+K2c1qNTcktU6m0
-	SpZe+5klnqWoxBuhKvV01cYIoFfgrPRt1uaktm9N5NzhixYLfFAZvl4V60JlgSmh+oiNYklzgs27D
-	euenGhG7ShvvroGP2CA9+7APi/qcGTBFKB4KjK8J8yRVDBXgkrMaYF24XOt1CON5pw/kNAZSsYF3I
-	t9mBq1CF8/IX3xZhRr5A==;
+	List-Owner; bh=vyqbuj1QsJ0Ju3M94CQBxv27O31YUOdGIulGwtPJ7K0=; b=LKs8MmC4BLwdiM
+	KaEBEzgYyEaepU6sfwNif2bAo5/lkdOQ0AdIS3fGSNFvBSQ1Da8x/zOr4H892+1iZMugxQDR2q49U
+	i81pKSOKzTtxVbgkFMAZOOJYCY+XJ0RGtua3OiSmp386i1VdF41SotxP3Zdo5NEY7jhSbj1ulX4Wa
+	bN7qZHgWTVT9vxDrurOejEV7BksNwsv32xTzu8g6L3LmtQlbNsEAGOs8Q5fgqQgHeZnOg1GzcMx0Z
+	39D1pYRI+GaKT3C9mYbsVltXog+Q/jgfYh3Uulo3YLaU0fgfIdwbyrld74H5Fk7vA8Q70Lr+jQRg+
+	onu8Jp7Cxk0a9AABNS+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4E2D-0000000BAyR-0NXc;
-	Wed, 09 Sep 2026 08:52:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4EP5-0000000BGEL-3ii1;
+	Wed, 09 Sep 2026 09:15:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4E1l-0000000BAG5-2qsv;
-	Wed, 09 Sep 2026 08:51:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZBW+NNY2SjZx2bEP4psBPmVHnHPr59CeSsptOJzPpxM=; b=nvJ/plsbqRDkfN/6X4kR/EHW8l
-	dNAD4StTRZ3JNtT5HnLITAKLKazsMFR9w1bphOlrSmi8pKYYIvzwje3ETANU+bz1oVKshXhRknfT2
-	VnBcz1bBzBgQuZgwsfQmmAvSiFg6aN2jt5c3ceKWfz/rrU8edq3uwJrcS2USbkpk4jUk1uOU7OgkZ
-	2aIfsYGprXV0oOW2xjHndLIphII7zFZIUJC/Zbc+R1VxJdYK1kp2YkqW3RWiGP27ZUSBlAITgPIrN
-	fHI0F3hfNYuGnHPkJ7hoPADE1rN7Czgyj2hGC43TlfzsRhV8gMsSx0utOl+kzX6mGtUsZNEg76oXr
-	k7t2HkVQ==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4E1g-00000000wHW-2weJ;
-	Wed, 09 Sep 2026 08:51:32 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1788943883;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZBW+NNY2SjZx2bEP4psBPmVHnHPr59CeSsptOJzPpxM=;
-	b=HRqxeHQrnXZFu+IW6nd8K+TY+LCZR9HvX+RpxOvhst2wYQkKsTY3WEghL3CDlSZ/UMJ9U+
-	qClsqE3u5gtUnsC+c/J5mpb5IIBe4D5+R8+ZJApFLO4luQIonxDru0UGAZnWLOoDos0UY1
-	vPT7y7D7QRsVuT9MzxZuIdVqpLUhNiLz72FSqYdSxj2RShBxyjgY5PXTSdirYSX0zl29Ep
-	EGgrqvBqFnaiWkZo8bzs+n3/0umIANXltxdYplWWoqUmTpi5wgqV0Bfh9XTtj3hddbI1/r
-	uYB7p+q3cj1Ew5ADSyyWHuTBSTecRPxvOHhuDBoHmxit+YMutvt6FfKiABLETA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1788943883;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZBW+NNY2SjZx2bEP4psBPmVHnHPr59CeSsptOJzPpxM=;
-	b=jHrgCIP/rO/bPwnh+S3RCGy4iJMaIq/Mlhlf+7l8900BurZmy7j2ykoB99Wxkh8OyfH0Dc
-	9C9dta5dCibWzWDA==
-Date: Wed, 09 Sep 2026 10:51:18 +0200
-Subject: [PATCH 05/15] vdso: Delete asm-generic/vdso/vsyscall.h
+	id 1x4EP4-0000000BGCw-09D3
+	for linux-riscv@lists.infradead.org;
+	Wed, 09 Sep 2026 09:15:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 486DE4321F;
+	Wed,  9 Sep 2026 09:15:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74B211F00A3E;
+	Wed,  9 Sep 2026 09:15:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788945337;
+	bh=WMLhSTvOXcO1Feh9yCp+cQisLkpmflOTkHs5UzK+oYo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SU92HqNh27RS6YRNx26Rs+KYJrFRZUsd9ZpJBSwjLvvGAKmebEX02zlaZjgEfI0hm
+	 UPu4YVa0ehEwEaragBV4dqOPpoQ2oUyrQwP69ZMTVZLTpdqjlmQGv88tuHESgRRx8g
+	 i7CyQbm7kgQhdULCEkAl4+mJCL79I/AN0ukKr9R00tM6HjSMMw+wqm3iqHhKIgpu2K
+	 slQ1kJEMXHMacSmqRlp2nrsFk4QnnCUxsnpeqV0lRxUejY31L2T9c6ZVOVQnDS0k5g
+	 jxLoUETYrDmNjon+2rEmqnpWaOeWbpmKN/tpxVZ1JyXn66/+yoovsc/Lrqi3XvzDXU
+	 AJrEhuNBKrVNA==
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 8E752198003A;
+	Wed,  9 Sep 2026 05:15:16 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Wed, 09 Sep 2026 05:15:32 -0400
+X-ME-Sender: <xms:pCOhapxWpL0GHjdR-LbSmt6pcF7cQoj_8cQ33xSeM7XCtFENM-sJEw>
+    <xme:pCOharWahP24PRQXVvE8eeNQnV55db4J_vp16cj_Z8GibP0d05qa3LF6G7CXPobAn
+    HafKDVhWfjWxnJEZOfi_ZDCv10ZgG4I_C318m3ajUCuz5cvYfve_vGy>
+X-ME-Received: <xmr:pCOhat43rLqB-KpS4v-iRR2MbmJvziGj4K3533xcWcE-RHBMlP2xBju_wd0>
+X-ME-Proxy-Cause: dmFkZTFpC8WONluUuvc7dpKb99eg92DQ33MSjEt2sNv2fC237wiMixhMca33e2LldrnTRH
+    U75C+KLC/q/LoK5zKzpXIyjFwS1b+E/++uY5aiYodIxAbg9BZ6O3CC6cd1SXYaFEulw8KR
+    jAI6ffm11DtQZdknyCWUWVFfuLXw2xt2y4TrUuW5CEhhTR/K3eTVLpp8QK1B0crMmfDXeu
+    uwu487939XxAxC04N1S97FZttc+sKd0M0bqZu5+zU/yY2Z2X+w/t7eOM75eiUIDwrFyGW9
+    VO3+XGBW9eUcOQwzMaEf6se6jBI4E1kU1BTvjozT7XN+z/WzRNjCEoYCcDV/y4SRQAjlN1
+    UJij+//6ITDtj0vpJtsxh3nZgt0K5pHTh0hy5Hu48Cov+xYJKliDjhUO5TEvuCAqjsq3SO
+    OxyGdCaNbHBZZb7IXgcT+pITOfdPxsCPlJyBoTr8Le9pMNL/ZTHnXi+/DIJXF17DMcWZIh
+    YM5LVoGds+47feWKyzGfEzTv1rFYfFtyh3h/v0wuQgBr2xOdBApwONTAMblqFbOLbUS27j
+    NPYBYul31i/zyEEbO83Lgkbp30doOoaMXPcKhFs3Rw8N2hrubUNjgoPgAP5Spz0uSYcxe2
+    FDFitH4FhEvRxWxK0irW8E1NKmcImw4MXKQVOJjCI5K3tVhOemySCLVfbAmA
+X-ME-Proxy: <xmx:pCOhajUqd18ClRcyZhFPHIYrAAp0-S3k_bVdXd6KZXOebWFu8gPWvw>
+    <xmx:pCOhaj7UC-S4UPOWxzOF-A3gNv5YI2PWLCUOMVoriXtNaMxfx7RKrw>
+    <xmx:pCOhaqmC_kf4Hp2GOeEHEjH5DxULoNK2H7t84K4BezfXKcQz_belGg>
+    <xmx:pCOhalZ7HrNwAby95sPa7N21RVub9YHPEGD6aBYbpelxVLHh1XK2sw>
+    <xmx:pCOhauEse5Mk8Ax8FZCi-GcbyLxH-H4DbMf7YweCkQjDO4jCkVmia0fm>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 9 Sep 2026 05:15:14 -0400 (EDT)
+Date: Wed, 9 Sep 2026 10:15:13 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ 	David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
+ 	Baolin Wang <baolin.wang@linux.alibaba.com>,
+ "Liam R. Howlett" <liam@infradead.org>,
+ 	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, 	Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, 	Usama Arif <usama.arif@linux.dev>,
+ Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>,
+ 	Geert Uytterhoeven <geert@linux-m68k.org>,
+ Dinh Nguyen <dinguyen@kernel.org>,
+ 	Simon Schuster <schuster.simon@siemens-energy.com>,
+ Jonas Bonn <jonas@southpole.se>,
+ 	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>,
+ 	Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Rich Felker <dalias@libc.org>,
+ 	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Paul Walmsley <pjw@kernel.org>, 	Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, 	Alexandre Ghiti <alex@ghiti.fr>,
+ Russell King <linux@armlinux.org.uk>, 	Vineet Gupta <vgupta@kernel.org>,
+ Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>,
+ 	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>,
+ 	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Nick Piggin <npiggin@gmail.com>, 	Peter Zijlstra <peterz@infradead.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ 	Andreas Larsson <andreas@gaisler.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ 	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
+ 	Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ 	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ 	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ 	Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ 	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ 	Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ 	Sven Schnelle <svens@linux.ibm.com>,
+ Richard Weinberger <richard@nod.at>,
+ 	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>,
+ 	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, 	Arnd Bergmann <arnd@arndb.de>,
+ Vlastimil Babka <vbabka@kernel.org>, 	Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, 	Michal Hocko <mhocko@suse.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, 	John Hubbard <jhubbard@nvidia.com>,
+ Peter Xu <peterx@redhat.com>, linux-mm@kvack.org,
+ 	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, 	linux-m68k@lists.linux-m68k.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ 	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ 	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org,
+ sparclinux@vger.kernel.org, 	linux-alpha@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ 	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, 	linux-um@lists.infradead.org,
+ Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>
+Subject: Re: [PATCH v2 11/12] mm: make userland page table freeing RCU-safe
+Message-ID: <aqEivRP0LmJZcgEx@thinkstation>
+References: <20260908-rcu-pagetable-freeing-v2-0-1f60b64e878e@kernel.org>
+ <20260908-rcu-pagetable-freeing-v2-11-1f60b64e878e@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20260909-vdso-asm-generic-vsyscall-h-v1-5-63ae856cc659@linutronix.de>
-References: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
-In-Reply-To: <20260909-vdso-asm-generic-vsyscall-h-v1-0-63ae856cc659@linutronix.de>
-To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, 
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
- sparclinux@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788943875; l=6201;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=qhKDToRtVgE1seQYerDld7q7s7MqJPXIzQ2BawbRJ8w=;
- b=OFttGqDPceoM6rX7XNSrPCjOJ1o8w2sSyCuFYpcv3XLXp44msE1jDwBI83tyjyEjgR8ippMic
- gm8o53XdU8YBqTvJMqR0P/K8MUsjnsBFmjsyYIwE5HEwFngYTWSn65B
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_095129_095713_4295E971 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20260908-rcu-pagetable-freeing-v2-11-1f60b64e878e@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,117 +151,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UmVjZW50IHJlZmFjdG9yaW5nIGhhdmUgbWFkZSB0aGUgaGVhZGVyIGVtcHR5LgoKUmVtb3ZlIGl0
-IGFuZCBpdHMgbWVudGlvbnMuCgpBbHNvIHRoYXQgaGVhZGVyIHdhcyBuZXZlciBhIHJlYWwgYXNt
-LWdlbmVyaWMgaGVhZGVyIGFueXdheXMuCkl0IGhhZCBubyByZWFzb24gdG8gYmUgaW4gdGhlIGFz
-bS1nZW5lcmljIGRpcmVjdG9yeS4KClNpZ25lZC1vZmYtYnk6IFRob21hcyBXZWnDn3NjaHVoIDx0
-aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRlPgotLS0KIE1BSU5UQUlORVJTICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICB8ICAxIC0KIGFyY2gvYXJtL2luY2x1ZGUvYXNtL3Zkc28v
-dnN5c2NhbGwuaCAgICAgICB8ICAzIC0tLQogYXJjaC9hcm02NC9pbmNsdWRlL2FzbS92ZHNvL3Zz
-eXNjYWxsLmggICAgIHwgIDMgLS0tCiBhcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS92ZHNvL3Zz
-eXNjYWxsLmggfCAgMyAtLS0KIGFyY2gvbWlwcy9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgg
-ICAgICB8ICAzIC0tLQogYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL3Zkc28vdnN5c2NhbGwuaCAg
-IHwgIDMgLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vdnN5c2NhbGwuaCAgICAgfCAg
-MyAtLS0KIGFyY2gvczM5MC9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmggICAgICB8ICAzIC0t
-LQogYXJjaC9zcGFyYy9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmggICAgIHwgIDIgLS0KIGFy
-Y2gveDg2L2luY2x1ZGUvYXNtL3Zkc28vdnN5c2NhbGwuaCAgICAgICB8ICAzIC0tLQogaW5jbHVk
-ZS9hc20tZ2VuZXJpYy92ZHNvL3ZzeXNjYWxsLmggICAgICAgIHwgMTAgLS0tLS0tLS0tLQogMTEg
-ZmlsZXMgY2hhbmdlZCwgMzcgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvTUFJTlRBSU5FUlMg
-Yi9NQUlOVEFJTkVSUwppbmRleCA1NjJhY2UxNzI1OTQuLjIxYzU5MGRkMjhiNiAxMDA2NDQKLS0t
-IGEvTUFJTlRBSU5FUlMKKysrIGIvTUFJTlRBSU5FUlMKQEAgLTExMDY0LDcgKzExMDY0LDYgQEAg
-TToJVmluY2Vuem8gRnJhc2Npbm8gPHZpbmNlbnpvLmZyYXNjaW5vQGFybS5jb20+CiBMOglsaW51
-eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnCiBTOglNYWludGFpbmVkCiBUOglnaXQgZ2l0Oi8vZ2l0
-Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3RpcC90aXAuZ2l0IHRpbWVycy92
-ZHNvCi1GOglpbmNsdWRlL2FzbS1nZW5lcmljL3Zkc28vdnN5c2NhbGwuaAogRjoJaW5jbHVkZS9s
-aW51eC92ZHNvX2RhdGFzdG9yZS5oCiBGOglpbmNsdWRlL2xpbnV4L3Zkc29fdGltZS5oCiBGOglp
-bmNsdWRlL3Zkc28vCmRpZmYgLS1naXQgYS9hcmNoL2FybS9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNj
-YWxsLmggYi9hcmNoL2FybS9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKaW5kZXggZmYxYzcy
-OWFmMDVmLi4xNGYyZWE5ZDg2NDAgMTAwNjQ0Ci0tLSBhL2FyY2gvYXJtL2luY2x1ZGUvYXNtL3Zk
-c28vdnN5c2NhbGwuaAorKysgYi9hcmNoL2FybS9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgK
-QEAgLTE0LDkgKzE0LDYgQEAgdm9pZCBfX2FyY2hfc3luY192ZHNvX3RpbWVfZGF0YShzdHJ1Y3Qg
-dmRzb190aW1lX2RhdGEgKnZkYXRhKQogfQogI2RlZmluZSBfX2FyY2hfc3luY192ZHNvX3RpbWVf
-ZGF0YSBfX2FyY2hfc3luY192ZHNvX3RpbWVfZGF0YQogCi0vKiBUaGUgYXNtLWdlbmVyaWMgaGVh
-ZGVyIG5lZWRzIHRvIGJlIGluY2x1ZGVkIGFmdGVyIHRoZSBkZWZpbml0aW9ucyBhYm92ZSAqLwot
-I2luY2x1ZGUgPGFzbS1nZW5lcmljL3Zkc28vdnN5c2NhbGwuaD4KLQogI2VuZGlmIC8qICFfX0FT
-U0VNQkxZX18gKi8KIAogI2VuZGlmIC8qIF9fQVNNX1ZEU09fVlNZU0NBTExfSCAqLwpkaWZmIC0t
-Z2l0IGEvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmggYi9hcmNoL2FybTY0
-L2luY2x1ZGUvYXNtL3Zkc28vdnN5c2NhbGwuaAppbmRleCAzZjNjOGViNzRlMmUuLjdkOWQ2YmRk
-NThiMiAxMDA2NDQKLS0tIGEvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgK
-KysrIGIvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKQEAgLTE5LDkgKzE5
-LDYgQEAgdm9pZCBfX2FyY2hfdXBkYXRlX3Zkc29fY2xvY2soc3RydWN0IHZkc29fY2xvY2sgKnZj
-KQogfQogI2RlZmluZSBfX2FyY2hfdXBkYXRlX3Zkc29fY2xvY2sgX19hcmNoX3VwZGF0ZV92ZHNv
-X2Nsb2NrCiAKLS8qIFRoZSBhc20tZ2VuZXJpYyBoZWFkZXIgbmVlZHMgdG8gYmUgaW5jbHVkZWQg
-YWZ0ZXIgdGhlIGRlZmluaXRpb25zIGFib3ZlICovCi0jaW5jbHVkZSA8YXNtLWdlbmVyaWMvdmRz
-by92c3lzY2FsbC5oPgotCiAjZW5kaWYgLyogIV9fQVNTRU1CTEVSX18gKi8KIAogI2VuZGlmIC8q
-IF9fQVNNX1ZEU09fVlNZU0NBTExfSCAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9sb29uZ2FyY2gvaW5j
-bHVkZS9hc20vdmRzby92c3lzY2FsbC5oIGIvYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20vdmRz
-by92c3lzY2FsbC5oCmluZGV4IDU1OGViOWRmZGE1Mi4uZGI2NTM3ODA1MTlkIDEwMDY0NAotLS0g
-YS9hcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKKysrIGIvYXJjaC9s
-b29uZ2FyY2gvaW5jbHVkZS9hc20vdmRzby92c3lzY2FsbC5oCkBAIC02LDkgKzYsNiBAQAogCiAj
-aW5jbHVkZSA8dmRzby9kYXRhcGFnZS5oPgogCi0vKiBUaGUgYXNtLWdlbmVyaWMgaGVhZGVyIG5l
-ZWRzIHRvIGJlIGluY2x1ZGVkIGFmdGVyIHRoZSBkZWZpbml0aW9ucyBhYm92ZSAqLwotI2luY2x1
-ZGUgPGFzbS1nZW5lcmljL3Zkc28vdnN5c2NhbGwuaD4KLQogI2VuZGlmIC8qICFfX0FTU0VNQkxF
-Ul9fICovCiAKICNlbmRpZiAvKiBfX0FTTV9WRFNPX1ZTWVNDQUxMX0ggKi8KZGlmZiAtLWdpdCBh
-L2FyY2gvbWlwcy9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmggYi9hcmNoL21pcHMvaW5jbHVk
-ZS9hc20vdmRzby92c3lzY2FsbC5oCmluZGV4IDBmMDYxYTliYWJkMS4uZjAxYWIyZTE1YzA4IDEw
-MDY0NAotLS0gYS9hcmNoL21pcHMvaW5jbHVkZS9hc20vdmRzby92c3lzY2FsbC5oCisrKyBiL2Fy
-Y2gvbWlwcy9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKQEAgLTgsOSArOCw2IEBACiAKICNp
-bmNsdWRlIDx2ZHNvL2RhdGFwYWdlLmg+CiAKLS8qIFRoZSBhc20tZ2VuZXJpYyBoZWFkZXIgbmVl
-ZHMgdG8gYmUgaW5jbHVkZWQgYWZ0ZXIgdGhlIGRlZmluaXRpb25zIGFib3ZlICovCi0jaW5jbHVk
-ZSA8YXNtLWdlbmVyaWMvdmRzby92c3lzY2FsbC5oPgotCiAjZW5kaWYgLyogIV9fQVNTRU1CTEVS
-X18gKi8KIAogI2VuZGlmIC8qIF9fQVNNX1ZEU09fVlNZU0NBTExfSCAqLwpkaWZmIC0tZ2l0IGEv
-YXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL3Zkc28vdnN5c2NhbGwuaCBiL2FyY2gvcG93ZXJwYy9p
-bmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKaW5kZXggYmVlMThlODY2MGEwLi42YTY1MTBmYTgy
-MTcgMTAwNjQ0Ci0tLSBhL2FyY2gvcG93ZXJwYy9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgK
-KysrIGIvYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL3Zkc28vdnN5c2NhbGwuaApAQCAtNiw5ICs2
-LDYgQEAKIAogI2luY2x1ZGUgPGFzbS92ZHNvX2RhdGFwYWdlLmg+CiAKLS8qIFRoZSBhc20tZ2Vu
-ZXJpYyBoZWFkZXIgbmVlZHMgdG8gYmUgaW5jbHVkZWQgYWZ0ZXIgdGhlIGRlZmluaXRpb25zIGFi
-b3ZlICovCi0jaW5jbHVkZSA8YXNtLWdlbmVyaWMvdmRzby92c3lzY2FsbC5oPgotCiAjZW5kaWYg
-LyogIV9fQVNTRU1CTEVSX18gKi8KIAogI2VuZGlmIC8qIF9BU01fUE9XRVJQQ19WRFNPX1ZTWVND
-QUxMX0ggKi8KZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby92c3lzY2Fs
-bC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKaW5kZXggNTU4ZWI5
-ZGZkYTUyLi5kYjY1Mzc4MDUxOWQgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-dmRzby92c3lzY2FsbC5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby92c3lzY2Fs
-bC5oCkBAIC02LDkgKzYsNiBAQAogCiAjaW5jbHVkZSA8dmRzby9kYXRhcGFnZS5oPgogCi0vKiBU
-aGUgYXNtLWdlbmVyaWMgaGVhZGVyIG5lZWRzIHRvIGJlIGluY2x1ZGVkIGFmdGVyIHRoZSBkZWZp
-bml0aW9ucyBhYm92ZSAqLwotI2luY2x1ZGUgPGFzbS1nZW5lcmljL3Zkc28vdnN5c2NhbGwuaD4K
-LQogI2VuZGlmIC8qICFfX0FTU0VNQkxFUl9fICovCiAKICNlbmRpZiAvKiBfX0FTTV9WRFNPX1ZT
-WVNDQUxMX0ggKi8KZGlmZiAtLWdpdCBhL2FyY2gvczM5MC9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNj
-YWxsLmggYi9hcmNoL3MzOTAvaW5jbHVkZS9hc20vdmRzby92c3lzY2FsbC5oCmluZGV4IGIwMGFj
-ZWM4ZGRiYy4uYzc0YzMwN2MzMjBjIDEwMDY0NAotLS0gYS9hcmNoL3MzOTAvaW5jbHVkZS9hc20v
-dmRzby92c3lzY2FsbC5oCisrKyBiL2FyY2gvczM5MC9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxs
-LmgKQEAgLTgsOSArOCw2IEBACiAjaW5jbHVkZSA8dmRzby9kYXRhcGFnZS5oPgogI2luY2x1ZGUg
-PGFzbS92ZHNvLmg+CiAKLS8qIFRoZSBhc20tZ2VuZXJpYyBoZWFkZXIgbmVlZHMgdG8gYmUgaW5j
-bHVkZWQgYWZ0ZXIgdGhlIGRlZmluaXRpb25zIGFib3ZlICovCi0jaW5jbHVkZSA8YXNtLWdlbmVy
-aWMvdmRzby92c3lzY2FsbC5oPgotCiAjZW5kaWYgLyogIV9fQVNTRU1CTEVSX18gKi8KIAogI2Vu
-ZGlmIC8qIF9fQVNNX1ZEU09fVlNZU0NBTExfSCAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9zcGFyYy9p
-bmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmggYi9hcmNoL3NwYXJjL2luY2x1ZGUvYXNtL3Zkc28v
-dnN5c2NhbGwuaAppbmRleCA4YmZlNzAzZmVkYzUuLmIwOGUwYmQ1ZTMwOSAxMDA2NDQKLS0tIGEv
-YXJjaC9zcGFyYy9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKKysrIGIvYXJjaC9zcGFyYy9p
-bmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKQEAgLTUsNiArNSw0IEBACiAKICNkZWZpbmUgX19W
-RFNPX1BBR0VTIDQKIAotI2luY2x1ZGUgPGFzbS1nZW5lcmljL3Zkc28vdnN5c2NhbGwuaD4KLQog
-I2VuZGlmIC8qIF9BU01fU1BBUkNfVkRTT19WU1lTQ0FMTF9IICovCmRpZmYgLS1naXQgYS9hcmNo
-L3g4Ni9pbmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmggYi9hcmNoL3g4Ni9pbmNsdWRlL2FzbS92
-ZHNvL3ZzeXNjYWxsLmgKaW5kZXggNGFhMzExYTkyM2YyLi41NzU5OGRiODc2M2IgMTAwNjQ0Ci0t
-LSBhL2FyY2gveDg2L2luY2x1ZGUvYXNtL3Zkc28vdnN5c2NhbGwuaAorKysgYi9hcmNoL3g4Ni9p
-bmNsdWRlL2FzbS92ZHNvL3ZzeXNjYWxsLmgKQEAgLTE0LDkgKzE0LDYgQEAKICNpbmNsdWRlIDx2
-ZHNvL2RhdGFwYWdlLmg+CiAjaW5jbHVkZSA8YXNtL3ZndG9kLmg+CiAKLS8qIFRoZSBhc20tZ2Vu
-ZXJpYyBoZWFkZXIgbmVlZHMgdG8gYmUgaW5jbHVkZWQgYWZ0ZXIgdGhlIGRlZmluaXRpb25zIGFi
-b3ZlICovCi0jaW5jbHVkZSA8YXNtLWdlbmVyaWMvdmRzby92c3lzY2FsbC5oPgotCiAjZW5kaWYg
-LyogIV9fQVNTRU1CTEVSX18gKi8KIAogI2VuZGlmIC8qIF9fQVNNX1ZEU09fVlNZU0NBTExfSCAq
-LwpkaWZmIC0tZ2l0IGEvaW5jbHVkZS9hc20tZ2VuZXJpYy92ZHNvL3ZzeXNjYWxsLmggYi9pbmNs
-dWRlL2FzbS1nZW5lcmljL3Zkc28vdnN5c2NhbGwuaApkZWxldGVkIGZpbGUgbW9kZSAxMDA2NDQK
-aW5kZXggY2ZiNzQwZTgyY2I1Li4wMDAwMDAwMDAwMDAKLS0tIGEvaW5jbHVkZS9hc20tZ2VuZXJp
-Yy92ZHNvL3ZzeXNjYWxsLmgKKysrIC9kZXYvbnVsbApAQCAtMSwxMCArMCwwIEBACi0vKiBTUERY
-LUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCAqLwotI2lmbmRlZiBfX0FTTV9HRU5FUklDX1ZT
-WVNDQUxMX0gKLSNkZWZpbmUgX19BU01fR0VORVJJQ19WU1lTQ0FMTF9ICi0KLSNpZm5kZWYgX19B
-U1NFTUJMRVJfXwotCi0KLSNlbmRpZiAvKiAhX19BU1NFTUJMRVJfXyAqLwotCi0jZW5kaWYgLyog
-X19BU01fR0VORVJJQ19WU1lTQ0FMTF9IICovCgotLSAKMi41NS4wCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, Sep 08, 2026 at 01:32:20PM +0100, Lorenzo Stoakes (ARM) wrote:
+> Now every architecture has been converted to support
+> CONFIG_MMU_GATHER_RCU_TABLE_FREE, this configuration option no longer makes
+> any sense to keep around.
+> 
+> Therefore remove it, and remove all the dead code that existed for
+> !CONFIG_MMU_GATHER_RCU_TABLE_FREE architectures previously.
+> 
+> Additionally, CONFIG_MMU_GATHER_TABLE_FREE is no longer necessary, as all
+> architectures instead use CONFIG_HAVE_ARCH_TLB_REMOVE_TABLE when a custom
+> __tlb_remove_table() is required, so remove this too.
+> 
+> A number of architectures only enabled CONFIG_MMU_GATHER_RCU_TABLE_FREE if
+> CONFIG_MMU was set, however the mmu_gather logic only actually does
+> something meaningful if CONFIG_MMU is set (mmu_gather.c is only compiled in
+> this case, for instance).
+> 
+> As a result, there's no need to gate any of this logic on CONFIG_MMU
+> explicitly.
+> 
+> CONFIG_PT_RECLAIM however does have a strict dependency on CONFIG_MMU, so
+> make this dependency explicit.
+> 
+> Additionally, correct comments to remove references to non-RCU page table
+> gathering and make it clear that this is not 'semi-RCU', nor has it been
+> since commit 1fb3d8c20bfa ("mm/mmu_gather: replace IPI with
+> synchronize_rcu() when batch allocation fails").
+> 
+> With this change in place the kernel policy is now that all page tables are
+
+You missed s/all/userspace/ from v1.
+
+> freed after an RCU grace period, and thus it is now safe to unconditionally
+> perform page table walks under RCU, safe in the knowledge that page tables
+> will not be freed underneath the walker.
+
+
+> @@ -151,24 +148,15 @@
+>   *  This might be useful if your architecture has size specific TLB
+>   *  invalidation instructions.
+>   *
+> - *  MMU_GATHER_TABLE_FREE
+> - *
+> - *  This provides tlb_remove_table(), to be used instead of tlb_remove_page()
+> - *  for page directores (__p*_free_tlb()).
+> - *
+> - *  Useful if your architecture has non-page page directories.
+> + *  Page directories (__p*_free_tlb()) are always freed via tlb_remove_table(),
+> + *  after an RCU grace period (see mm/mmu_gather.c).
+>   *
+> - *  When used, an architecture is expected to provide __tlb_remove_table() or
+> - *  use the generic __tlb_remove_table(), which does the actual freeing of these
+> - *  pages.
+> + * This serialises against software page-table walkers, including architectures
+> + * which do not use IPIs for remote TLB invalidates.
+
+Indentation is broken.
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
