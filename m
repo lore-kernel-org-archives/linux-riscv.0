@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2968CC79FAD
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 06:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27831C79FAD
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 06:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jNDAK1l7B4Ry7HGYYe73pWkFN07niLsI20/OdnBqW3g=; b=BVKZV89k9VGaMQ
-	YJl+qSG9KwM2LmjFth68kVC0UalQqXpJWMfMHH5Wd8Wb3cvPrdJ8okEC0meqCwwuZtcw7slBG40p7
-	V917rF4OX4khzJ4TRObdoOmHXGOkqF2F9d7KozZU2746SZlADvOKQhoetngDChI8DDu9SH2pxe4Cj
-	H+yOkTIyLY7v2cAhluGgvp85B/VgFwhxBDfBIErqLRhrgvpCwt3Fu4gWasqDiCdqzjz9PIC3bXWBQ
-	sjO9XoLni9D6OZohnKBRoGKUfi8iN97x8qkG1+Jx8EpPwgL0rEXyYTtI09C7qOTrC1RLfUKjM5uFN
-	bhtqppc9/gT+RWM7ns/Q==;
+	List-Owner; bh=AXwCNpZ1KV0vnCzadRBmzcAlXihuwVV7G7zsNnBagPg=; b=XteQMrBbmFgTlk
+	K11/u6yKURBq6BhQwusTPt3p9itEeEju5GK6JcY6kXcp6v1x1npK1pEUaE916pPpv25rQd7XPPCjW
+	6r/11ABtKorBcvhVM6hmgYSPzEGsY1GXM7gx5hPUq9K9rxhvb5UA9jbgs/vuq85w9ndWPSl7pp+ik
+	rNwAf0+ybGxq5o9Gj+dJwJ7incc2kGA2XKUyilu/JmGZCxZCw/IVD5//bGNIPQA8E1E0qGVkVJgyF
+	EGCtlUmEWlC+SFmz2rogjbL6Ms7yc1LRGK8a1fDbbdqYP7T5Z4j4M5aOde/EQcot1wbSL8ICPs98Q
+	AAXtJ6mkh1vXzW9TWRwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BPI-0000000Apw3-0eDe;
-	Wed, 09 Sep 2026 06:03:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4BQA-0000000Aq30-1KSt;
+	Wed, 09 Sep 2026 06:04:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BPF-0000000Apvv-0AlQ
+	id 1x4BQ8-0000000Aq2l-2mHi
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Sep 2026 06:03:38 +0000
+	Wed, 09 Sep 2026 06:04:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 30A9160207;
-	Wed,  9 Sep 2026 06:03:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E873D1F00A3D;
-	Wed,  9 Sep 2026 06:03:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 224FC41A58;
+	Wed,  9 Sep 2026 06:04:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF5E41F00A3D;
+	Wed,  9 Sep 2026 06:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788933815;
-	bh=haPdEZpp+cqsQIMNTEqsXgMDal7mY9IjuG8Msg3Fc1I=;
+	s=k20260515; t=1788933872;
+	bh=isJaBRt4+7vgFblnXXtCLLe0euKIIKG1pPi/hZituCo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IObT8R6ZUcNF3PqkRrC/NfhRw8ik7iq59ieIkrpuMbDDVSEY8WeFiamkXKR3+8Y7y
-	 Is1dmshqunrZSGMUSSRfaYJKWWEkgpPY+Mi4fOZMdoyKDL95DOIvAeJ0WeZTLwIrri
-	 kBzpiC4hfYtaIbM+QGsGd0UiWCMjncGAsDb1O1eyNmqUgYTif+gE1IBEbF60K53EV+
-	 MQatEpE+BgXVSqWwIZ/kM58fwoQpZBH5B/l3/8YobvIZ80N/KmJHTNCSs5HvXYpO5v
-	 ZxeOXgwsjFqo654nOQjQvy711x2uAsK4u8aiFahXC1LBwg3mt0mirbnoK4zgHjQBZK
-	 engUOpEeAhvPw==
-Message-ID: <95b7ad43-9c68-4830-a35c-7cb29ca9b75f@kernel.org>
-Date: Wed, 9 Sep 2026 08:03:25 +0200
+	b=f3uzYmBPLlGPkh+Vzv5v7f9TbfVD6RB6KQfnyLGnEd14hxeXJLLiWd6LXKoSWMhva
+	 UsgHWSpQHAGZxtOucNLjnWAdseyaWCvBLrHKXO35wRjr5QveEYF3zb+v9xM8Dsj9Ku
+	 cthz8OAwKm3MR0X9I0DO5d+E1NYwZsH1c7Vssq55Vh0w97KVJdRvmsVgEBG1fuylrb
+	 TRjbuv/nWAnlEs5KdkPE4RNs8jEgHJTiJqYEny1ntoJDDmwRjn+ee5iJ593k9iPKgy
+	 2k3pyqZaX71WuFP1OOxQ+G+pew7Y0Lt6kOaJhOD+4rObaQG+QjAvv04mpiKNUvI7c9
+	 vAWHO5ca2aIIg==
+Message-ID: <2a7df56a-eace-49d4-b0a0-001d14967358@kernel.org>
+Date: Wed, 9 Sep 2026 08:04:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 03/21] dt-bindings: pinctrl: Add
+Subject: Re: [PATCH v7 03/21] dt-bindings: pinctrl: Add
  starfive,jhb100-sys0-pinctrl
 To: Changhuang Liang <changhuang.liang@starfivetech.com>,
  Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -55,19 +55,11 @@ To: Changhuang Liang <changhuang.liang@starfivetech.com>,
  Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
  Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
  Philipp Zabel <p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>
-Cc: "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-References: <20260829025720.23915-1-changhuang.liang@starfivetech.com>
- <20260829025720.23915-4-changhuang.liang@starfivetech.com>
- <f474f659-8234-4dfb-85cc-06d2cc295107@kernel.org>
- <ZQ4PR01MB1202DDBD0436E8F580EB6575F2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <ac4c6b24-02c7-4dc3-89e4-45aa335255d3@kernel.org>
- <ZQ4PR01MB120205984FB23C0776BD0D0AF2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
- <08c6dad7-8b0d-4daf-908e-5af875306f0f@kernel.org>
- <ZQ4PR01MB1202123864865439817E1549F2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+References: <20260831113514.66382-1-changhuang.liang@starfivetech.com>
+ <20260831113514.66382-4-changhuang.liang@starfivetech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <ZQ4PR01MB1202123864865439817E1549F2AA2@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
+In-Reply-To: <20260831113514.66382-4-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,100 +122,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/08/2026 10:57, Changhuang Liang wrote:
-> Hi, Krzysztof
-> 
-> Thanks for the review.
-> 
->> On 30/08/2026 10:42, Changhuang Liang wrote:
->>> Hi, Krzysztof
->>>
->>> Thanks for the review.
->>>
->>>> On 30/08/2026 03:29, Changhuang Liang wrote:
->>>>> Hi, Krzysztof
->>>>>
->>>>> Thanks for the review.
->>>>>
->>>>>> On 29/08/2026 04:57, Changhuang Liang wrote:
->>>>>>> +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
->>>>>>> +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
->>>>>>> +
->>>>>>> +/* sys0 pad numbers */
->>>>>>> +#define PADNUM_SYS0_GPIO_A0				0
->>>>>>> +#define PADNUM_SYS0_GPIO_A1				1
->>>>>>> +#define PADNUM_SYS0_GPIO_A2				2
->>>>>>> +#define PADNUM_SYS0_GPIO_A3				3
->>>>>>
->>>>>> I could not find how your driver uses these, so are you sure it's a
->>>>>> binding constant for the SW?
->>>>>
->>>>> Yes, these are not used in the driver, but in PATCH 6/8/10/12, etc.,
->>>>> some definitions for other GPIOs are still used. Therefore, I have
->>>>> uniformly defined them in the binding, and they will be provided to
->>>>> the
->>>> device tree for use later.
->>>>
->>>> I am confused. The driver in these patches 6/8/10/12 does include the
->>>> header but does not use them. Why do you include unused headers? Or
->>>> what is exactly the use?
->>>
->>> I'm sorry, I missed one thing. Actually, the current patches
->> 4/6/8/10/12/14/16/18/20 all use this:
->>>
->>> For example, in patch 4:
->>>
->>> static const struct jhb100_pinctrl_func_maps jhb100_func_maps_sys0[] = {
->>> 	{ .func = "auxpwrgood",		.val = 1 },
->>> 	{ .func = "gpio",		.val = 0,
->>> 	  .max_pin =
->> JHB100_FUNC_MAPS_MAX_PIN(PADNUM_SYS0_GPIO_A2) },
->>> 	{ .func = "gpio",		.val = 1,
->>> 	  .max_pin =
->> JHB100_FUNC_MAPS_MAX_PIN(PADNUM_SYS0_GPIO_A3) },
->>> 	{ .func = "hbled",		.val = 1 },
->>> 	{ .func = "pe2rst_out",		.val = 0 },
->>> };
->>>
->>> These definitions are used in `struct jhb100_pinctrl_func_maps` or `struct
->> pinvref_desc`.
->>
->> OK, I was looking for PADNUM_SYS0_GPIO_A0.
->>
->> Why do you need unused constants? The constants in binding headers are
->> interface between DTS and drivers, not hardware values. You do not need to
->> store there hardware values, so what is the benefit of defining
->> PADNUM_SYS0_GPIO_A0? Why can't PADNUM_SYS0_GPIO_A2 start at index
->> 0?
-> 
-> Here, it is also provided for use by the device tree later. For example:
-> 
-> 	auxpowergood0_pins: auxpowergood0-grp {
-> 		auxpowergood0-pins {
-> 			pins = <PADNUM_SYS0_GPIO_A0>;
-> 			function = "auxpwrgood";
-> 			input-enable;
-> 		};
-> 	};
-> 
-> 	auxpowergood1_pins: auxpowergood1-grp {
-> 		auxpowergood1-pins {
-> 			pins = <PADNUM_SYS0_GPIO_A1>;
-> 			function = "auxpwrgood";
-> 			input-enable;
-> 		};
-> 	};
-> 
-> The pins property corresponds to the specific GPIO offset, so PADNUM_SYS0_GPIO_A2 cannot start at index 0.
+On 31/08/2026 13:34, Changhuang Liang wrote:
+> diff --git a/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> new file mode 100644
+> index 000000000000..6d8f5516a178
+> --- /dev/null
+> +++ b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + *
+> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
+> + */
+> +
+> +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+> +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+> +
+> +/* sys0 pad numbers */
+> +#define PADNUM_SYS0_GPIO_A0				0
+> +#define PADNUM_SYS0_GPIO_A1				1
 
-Did you even read my reply? Or you just respond whatever to tick the
-checkbox of responding to maintainer?
-
-AGAIN:
-"You do not need to store there hardware values"
-
-Do you understand the term ABI between software and DTS? Is in this term
-anything about your actual hardware numbers? No.
+No improvements and you did not really address my comment. You just
+replied with whatever not related statement.
 
 Best regards,
 Krzysztof
