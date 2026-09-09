@@ -4,114 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3660C79FB6
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 14:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B82C79FB6
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 14:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nA8twZ0MzT4qwzU71BrxMwsDEcYAsbQd87UCcp4pxy8=; b=IX04Nm2yFLtJ67
-	rY/66pkGHHewhBKajPU8UqTkqGo3NdsqugCCK/kX2i2gk4Qk6WdLsgDhIa5OROt7LfV2dL4Egehlp
-	DqbI2PANpmxxVBzzG9JqOWuha2k2i3vRHqJjlhUBpsJYXh37q/MVCLl/OYzxe4wbKp5yTGlSHEvyz
-	6/1h723IBNuRco8/MIpSrhbYrbqhBlD/kd5O1/9VHI7yFczRCXzOPgpGdEkHVWmr0Sesdk02cwP9P
-	SLfIv6y/X35Li9kyWVXV73KbbU9NwyCHWlj8B6qCptOojUUqU2Ae5XtbSaei6GOW6kYwR7+/K6xRD
-	BnzGK8IQNvc85nmZeMrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nA/+9zsKcbPAD5zYb4AAiw4kgvVUke7PGJUPty2kHIQ=; b=UKbyLkHhDs/Z2UXGWi/qdZLbwv
+	zt31URO1oQfRErRnuC8BOtXVbcNWywvxdAyL5wmp3PFju5nvMbPt2WbxrllsMDjyWpM3HhvLbL5NC
+	cN4Kn8fW1usASkgB6GfwEFFEbJsf9Z7sju3tsGn8d72M9OeHbBq4tocGUDb2edJlmmcrOA2ZPFikJ
+	s2inDerH6nfPPLC+7OKURaTHK1VwvB+7z6HefS7pOcSeQZFseM7xY98Febho6tPORdfYWJphHYDqi
+	ARy9k+mnmA1JOtKLD99gh34moWCxAH0n/2lr96RDrUj80ggHETKtMUFwltsqnbTT4rDrv6mdDOVcu
+	lTGePqXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JUb-0000000C1UI-02QW;
-	Wed, 09 Sep 2026 14:41:41 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1x4JVL-0000000C1eD-15mF;
+	Wed, 09 Sep 2026 14:42:27 +0000
+Received: from fuchsia.ash.relay.mailchannels.net ([23.83.222.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JUY-0000000C1TO-3jiS
-	for linux-riscv@lists.infradead.org;
-	Wed, 09 Sep 2026 14:41:39 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-3a33307ecd9so64274471fa.2
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2026 07:41:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1788964897; x=1789569697; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tG9J5Co/VVYH+Cridb4B9lUnRMf0qj5TUZQIt0oEj84=;
-        b=axX5czIgNEkRw+E0/Z9LVlHoEg1grWOwGZq/wmZVckltGIMMccpYRu6qEPEjBmCSno
-         MKbsTesVu2bjxwj+D6dZns1y+nRuaVVD9C1gWkmevSDRfit8MV5bQ/TmaG9H/yc6NC1M
-         tVTmLFM9eSoG9u5Uc+Zbj0xzXza44ChgjWs+w=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788964897; x=1789569697;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=tG9J5Co/VVYH+Cridb4B9lUnRMf0qj5TUZQIt0oEj84=;
-        b=cOQPSeYME2jCy27n/e+WRgmCyqP52RUgS9VDkJ7GInpJ0z1WKsT4l89juFueyFsgkL
-         +AzFcCYaj9UvfC8cGRFGvh+ES05JvoH1Mxesmvv4OvZjiEPQybTESXtBw4OP5mBZmhie
-         t7PetQ7bRGrGv4DAVGpPqYizUgfJ7peKu0vR5ynfjB9su+XndsIgWfupnQL5UDZ0OtJF
-         s/GtcjjAV9KDb55blVoeL/Fq0sjgKiEjNpdsk1QY6qgd900sEq9nVduGV3C3wqn02g4O
-         Sjk2JrW4ucljqKv6L5NfUfnra8d4tiv7Q0SfHfj3hODH6dejpKqHf/rSbNRaQF7nDh26
-         hiaA==
-X-Forwarded-Encrypted: i=1; AKwUvBywBH8slbbM7Ul4YOvEXCFChquygGwUyV5lDqNz6pr3IJwsrRitE1KsA9VRGe+YlyyCGsiWbksH4gznwQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++ku5WDwD0tvW1UdzBib05GQVbgDFi8duLqzxukrgEjvpnDsGNux
-	wMtcbJb5pm0EpN19v7k6T0RrGFNzoEZoCk2OLCGRYkO+E7PvfDLAYuAV7US2xt5+m6mJQyqFGmf
-	jGFvttEs=
-X-Gm-Gg: AYBFou13bL2RQw0MZTpA4K+Z1yVy8APYcUVgVYXhKc/KtDZwwnb6RBqfFDWkTi0WzdP
-	ujS+6nCYHo89QBuV7CSi7xGSLg5a0ai5yyHIiJMEXABTgbNQMqYKiSlXPOZktXy5cbscNzfkiCt
-	QzqipGr6AtXlvV5mZVvCh/Hds2KHOTuhl9o8O/LPYK4wGNnWSVh8uzTMUvsKlIoqknfFqg5MJvx
-	48JrK4A/dr8r3s6EYvMjJM5xMlQlxEFW7pskIhlxfEaxuyASkDpnVbc9VsxiLc8mNUFl+C70WIq
-	ba3QOqKt517vC6cYRjLWpAEqTpuBLV/AjoaeBK4zKSM3eLkI4FLBiAVCDOgXHfUarNA019Ipjur
-	O9lNNaFUOw8+i5tKC9s/CYUZqAJxI1BNZTwurn9P4BSzn8FHqMqSAt5LMdjWVWP474iRuADqEFL
-	eF+TG2NbZSkyY+6BUbRNCQExQcV9C7/hJ9zr/fAUIi9tb688TIODZ6PVP0oFLMbECX9dxtnNdC/
-	1j4SLdJnUXeM4KEEArQQkF1HMd4hwQw81dv0ebJ8iGzE6+F
-X-Received: by 2002:a05:651c:a342:b0:3a3:7681:6d5f with SMTP id 38308e7fff4ca-3a3768174b4mr43570321fa.23.1788964896587;
-        Wed, 09 Sep 2026 07:41:36 -0700 (PDT)
-Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com. [209.85.167.53])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a464106771sm39619721fa.29.2026.09.09.07.41.36
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 09 Sep 2026 07:41:36 -0700 (PDT)
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5b2b92065ffso5546492e87.1
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2026 07:41:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx9mbhIzd4wF0U52EL5wjgKGFPZWk9MCvU4cLKOgBO91mie2LD9n0St9T2TPuOcNxVqZxkdYO00cwsJYg==@lists.infradead.org
-X-Received: by 2002:a05:6402:208a:b0:6a7:ee56:615d with SMTP id
- 4fb4d7f45d1cf-6a7ee5662fbmr12667373a12.31.1788964533277; Wed, 09 Sep 2026
- 07:35:33 -0700 (PDT)
+	id 1x4JVI-0000000C1cr-34pw;
+	Wed, 09 Sep 2026 14:42:26 +0000
+X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 120F062DD6;
+	Wed, 09 Sep 2026 14:42:22 +0000 (UTC)
+Received: from pdx1-sub0-mail-a221.dreamhost.com (100-98-23-243.trex-nlb.outbound.svc.cluster.local [100.98.23.243])
+	(Authenticated sender: dreamhost)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 88DDB6076E;
+	Wed, 09 Sep 2026 14:42:21 +0000 (UTC)
+X-Sender-Id: dreamhost|x-authsender|dave@stgolabs.net
+X-MC-Relay: Neutral
+X-MC-Copy: exfiltrated-credentials
+X-MailChannels-SenderId: dreamhost|x-authsender|dave@stgolabs.net
+X-MailChannels-Auth-Id: dreamhost
+X-Snatch-Lyrical: 0b04b30310ebea96_1788964941824_3137234964
+X-MC-Loop-Signature: 1788964941824:2690914385
+X-MC-Ingress-Time: 1788964941824
+Received: from pdx1-sub0-mail-a221.dreamhost.com (pop.dreamhost.com
+ [64.90.62.162])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.98.23.243 (trex/8.0.2);
+	Wed, 09 Sep 2026 14:42:21 +0000
+Received: from offworld (unknown [76.167.199.67])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dave@stgolabs.net)
+	by pdx1-sub0-mail-a221.dreamhost.com (Postfix) with ESMTPSA id 4hg3Rw6vl6z4B;
+	Wed,  9 Sep 2026 07:42:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=stgolabs.net;
+	s=dreamhost; t=1788964941;
+	bh=Jr708C+OdKwurqD/3tHEG44yCZ9vqTl5wcV58I/iSjE=;
+	h=Date:From:To:Cc:Subject:Content-Type;
+	b=XBHn1dsfd+8/MBQinAtKtsRidjDN/6oTcDlu2qDAMPGjDEx0k37VlLWYP6iOJZzXs
+	 9MjiICmOIraf2mi1x0eoERex4Z4SdHbWSRZyXRnH1z3EEsFA5BrVArnB2gCZ013/dP
+	 jrT0Ly68h7IvCCsgDrLre5jD7f3bL0jinqCszot69OwJOY1QyV2NjzF2UOx7gIqpZL
+	 Qq8ou5kum5iKDN0cuYSiGt1Dw+BapFr8+GHLTBBAPj7yKTedOOqkNUWPX7Tc/yq58T
+	 8JowJKaSZ3J0j6NnbvP6VwD7o/kOLnOOeumlJwuKZje4hxJ2YKlNEw2QAVYFQ6mqLW
+	 KMK1X3PHWhrsA==
+Date: Wed, 9 Sep 2026 07:42:18 -0700
+From: Davidlohr Bueso <dave@stgolabs.net>
+To: anup@brainfault.org, atish.patra@linux.dev
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH] riscv/kvm: Only context-switch senvcfg where it exists
+Message-ID: <20260909144218.ddzml7u6vjbbzxnf@offworld>
+References: <20260827211209.2871124-1-dave@stgolabs.net>
 MIME-Version: 1.0
-References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org> <20260908-build-speedup-v1-4-5dc1ac01672d@kernel.org>
-In-Reply-To: <20260908-build-speedup-v1-4-5dc1ac01672d@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 9 Sep 2026 07:35:16 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wgryL8XqjFcO=EQwKdqNn51BANiv16QiqYKCUdXxDQBmg@mail.gmail.com>
-X-Gm-Features: AcwNN1VOdEagBQA5D63IF5vfBaLV4II6ehpTsThafIib6q5kHaeURBrIxknkBpc
-Message-ID: <CAHk-=wgryL8XqjFcO=EQwKdqNn51BANiv16QiqYKCUdXxDQBmg@mail.gmail.com>
-Subject: Re: [PATCH 04/23] kallsyms: output binary data to speed output and
- kallsyms assembly
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
-	Jens Axboe <axboe@kernel.dk>
+Content-Disposition: inline
+In-Reply-To: <20260827211209.2871124-1-dave@stgolabs.net>
+User-Agent: NeoMutt/20220429
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_074138_959008_C125A6A2 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20260909_074224_973824_D5D0AA5C 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,58 +91,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I'm finally going through this series, because I do care about build
-speed, so I love the concept.
+ping?
 
-However, I haven't actually applied it and tried it, I'm just reading
-the patches.
+On Thu, 27 Aug 2026, Davidlohr Bueso wrote:
 
-And this one triggered something:
-
-On Tue, 8 Sept 2026 at 13:56, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
+>senvcfg arrived in privileged spec 1.12, but H-capable cores on a
+>1.11 base exist, ie: sifive P500 (ESWIN EIC7700X) implements the
+>hypervisor extension yet has no senvcfg. KVM swaps the CSR
+>unconditionally on every vCPU entry, panicing the host upon a guest
+>executing its first instruction:
 >
-> kallsyms generates an assembly file that consists mostly of .byte entries
-> containing compressed names, token strings and name-sorted sequence
-> numbers.
+>  Oops - illegal instruction [#1]
+>  Modules linked in: kvm
+>  CPU: 2 UID: 0 PID: 127 Comm: qemu-system-ris Not tainted 7.2.0-kvm73bug+ #4 PREEMPTLAZY
+>  Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2024.01 01/01/2024
+>  epc : kvm_riscv_vcpu_enter_exit+0x26/0xcf8 [kvm]
+>   ra : kvm_arch_vcpu_ioctl_run+0x4ce/0x5a6 [kvm]
+>  status: 0000000200000100 badaddr: 0000000010a797f3 cause: 0000000000000002
+>  [<ffffffff01df432e>] kvm_riscv_vcpu_enter_exit+0x26/0xcf8 [kvm]
+>  [<ffffffff01deb3b0>] kvm_arch_vcpu_ioctl_run+0x4ce/0x5a6 [kvm]
+>  [<ffffffff01dd7914>] kvm_vcpu_ioctl+0x180/0x5e4 [kvm]
+>  [<ffffffff8025702e>] __riscv_sys_ioctl+0x84/0x9a
+>  [<ffffffff80dfdc72>] do_trap_ecall_u+0x1d8/0x38a
+>  [<ffffffff80e08644>] handle_exception+0x168/0x174
+>  Code: 84aa 892e b703 8887 1773 1067 3023 16e5 b783 8907 (97f3) 10a7
 >
-> For an x86-64 build with 158k symbols that is a 37 MiB .S file which takes
-> 0.57s to assemble each of the two to three times it is built over a kernel
-> build.
-
-It strikes me that this is clearly a bit faster, but it still seems to
-be not really fixing the underlying silliness of that code.
-
-Wouldn't it be much better to actually create an object file directly?
-Afaik, the *only* think we ever do with that kallsyms-generated file
-is to immediately assemble it into an object file, because the actual
-asm file is useless to anybody.
-
-And we already require libelf as part of the build, and we already
-kind of do things like that with gendwarfksyms.
-
-Don't get my wrong: I think going through an asm file was very much
-the right thing originally: not every architecture used ELF in the
-first place, and when scripting things like this the current situation
-makes 100% sense.
-
-And no sane human wants to deal with this kind of grotty detail and
-spend the effort on writing an ELF file writer.
-
-But when there's a LLM that was used to find these things and help fix
-them up, and it's something this mechanical and the result really
-isn't ever human-readable and never has been, I feel like the obvious
-step would be to just ask the little helper bot to switch the whole
-kallsyms to using libelf-devel and writing an object file directly.
-
-I don't think anybody has any deep emotional ties to the current
-kallsyms code and that horrific step of the kernel build, do they?
-
-               Linus
+>Touch the CSR only when RISCV_ISA_EXT_XLINUXENVCFG is set, similar
+>to __switch_to_envcfg() as well as other swaps conditional on
+>their extentions.
+>
+>Fixes: db3c01c7a308 ("RISCV: KVM: Add senvcfg context save/restore")
+>Signed-off-by: Davidlohr Bueso <dave@stgolabs.net>
+>---
+> arch/riscv/kvm/vcpu.c | 6 ++++--
+> 1 file changed, 4 insertions(+), 2 deletions(-)
+>
+>diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+>index e062ca19f9d8..0c2d58db13ab 100644
+>--- a/arch/riscv/kvm/vcpu.c
+>+++ b/arch/riscv/kvm/vcpu.c
+>@@ -773,7 +773,8 @@ static __always_inline void kvm_riscv_vcpu_swap_in_guest_state(struct kvm_vcpu *
+> 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+>
+> 	vcpu->arch.host_scounteren = csr_swap(CSR_SCOUNTEREN, csr->scounteren);
+>-	vcpu->arch.host_senvcfg = csr_swap(CSR_SENVCFG, csr->senvcfg);
+>+	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_XLINUXENVCFG))
+>+		vcpu->arch.host_senvcfg = csr_swap(CSR_SENVCFG, csr->senvcfg);
+> 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
+> 		vcpu->arch.host_sstateen0 = csr_swap(CSR_SSTATEEN0, smcsr->sstateen0);
+> 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFISS))
+>@@ -787,7 +788,8 @@ static __always_inline void kvm_riscv_vcpu_swap_in_host_state(struct kvm_vcpu *v
+> 	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
+>
+> 	csr->scounteren = csr_swap(CSR_SCOUNTEREN, vcpu->arch.host_scounteren);
+>-	csr->senvcfg = csr_swap(CSR_SENVCFG, vcpu->arch.host_senvcfg);
+>+	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_XLINUXENVCFG))
+>+		csr->senvcfg = csr_swap(CSR_SENVCFG, vcpu->arch.host_senvcfg);
+> 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
+> 		smcsr->sstateen0 = csr_swap(CSR_SSTATEEN0, vcpu->arch.host_sstateen0);
+> 	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFISS))
+>-- 
+>2.39.5
+>
+>
+>-- 
+>kvm-riscv mailing list
+>kvm-riscv@lists.infradead.org
+>http://lists.infradead.org/mailman/listinfo/kvm-riscv
 
 _______________________________________________
 linux-riscv mailing list
