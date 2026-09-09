@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD3BC79FB7
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 19:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5AEC79FB7
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 19:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O1mwIs/w8bx3V2PvRLRM01TW1m4IOMa81QUe8l2fsH0=; b=PBJYZ8wcMBEf0m
-	1RecJW3nWMF+EDTAYS7igZ7kke83KFlqlVZ0drDbJdumurYw61++tLDRpiblwY9QH3VuVrJBPTobu
-	q9BgQT7i/V6ncKJpgHktt2l24J5ASSbswROVw2xNCkAsWgi1axDCYGvS26SJAg/L+GIvojWKRR9e3
-	3dMWm0KdMnxPds4A+vqDG8LW2R2vkBraC1haKOGPka4+cuWEmw9IAq4aKbkHcoL9X0eSEZVjaiGWR
-	nfGipI/ZlgvZ92Knjc98ZvDRgUzgsJujIsKgLgKEYMFPskRzN6vMncFkoyZEsXP5oNWb8WnOq/pdi
-	tfqSY9VhUccKA1oJF9Xg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bj633sAO+1ZE0vJ46HuXsimLKedvqbi5eeitm9+DgPw=; b=exF29jwVhJd0TA
+	pXYRdGC+WGl7yB2TMBYY6P2I23kHXnoLTySCz2BjMoPBRGfkZLpIC1tjLxNyujhkLInRRzJuFJfre
+	bizJ//Fz/FoFCPkQDF2NNdT/sJSBuzC34CTmVF1tA9B2dgBMrjiJcwKX+x3Q2vScMeGqUkvroAxg2
+	KZal95DOgulIXAmZnEibEzz9SVjXk3OZFdxTMli0/+YRzzCjBXic8TNOQ/DLhqq3u8CrbtX84/xFQ
+	9zMAoG6WZhI0/SGn3bxFlKx0J1BgMbZKT72KgQktQPYi+J2Fz8U2zmI8ooefLarJkk7kQqhvl583Y
+	T36Tj84VmGOXIyahHFBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Noa-0000000CgqF-3wgh;
-	Wed, 09 Sep 2026 19:18:36 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1x4Ntz-0000000ChNR-0g6X;
+	Wed, 09 Sep 2026 19:24:11 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4NoX-0000000CgpT-41iP
+	id 1x4Ntv-0000000ChMc-2rEz
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Sep 2026 19:18:35 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-49d0b98d6d0so42035355e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2026 12:18:33 -0700 (PDT)
+	Wed, 09 Sep 2026 19:24:09 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-498028b3d5eso59534015e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2026 12:24:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788981512; x=1789586312; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cQp1h+Nea1dCnGwxCQ5G9ZglVlG59gCPu/u14By/urM=;
-        b=FrTMLBDy58cMhDAK87FCi/9uVBa7hKvkqB789yMtIuGV9SrD/ygXo2OFPIrGKsExXa
-         QXZ6r5EpBcdW/reE2BaqzadWyZblsEkhpeo9VrY17y6ScrXutJZ3njeyyuSAlmbxBUMn
-         zHdRoLE3UXIVfiQ5fgs9qHucqCEPYXHNcvKOZ6BYbq8sqtWvLIuBXggx6um9s1t5I9xQ
-         TNode+G6QWfQrgXOSa20bkySbNK1V73BrBW/KOIqiHeLpicd46HraQc5r8vpWoBb385g
-         dhHT3dXqpNPNUBuYcMvl9Gi6Sr4ylWiJsWYcK70JAqeKufEgkBrlXiB4WDFWJ0W480WD
-         TLeg==
+        d=gmail.com; s=20251104; t=1788981845; x=1789586645; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=juSntAU8rs/3fLNwoSR5HtlpUx6UI0vk4BclFthIHvc=;
+        b=IbiVZL5Luy3ysD3myRqKaUojh9SESlM1Wf1x8ndBea6MzHAp0nBSkN9gzhhrB48pW2
+         wBrFvsOYsmOCYQKZ95RUvHidRl1IspSUefP03OTytETullU4E5XcVGfziVsyB0+UoDtq
+         rMamfC9x+j3dXZuWOGudE+Yg8nRbOPcZqMw2d6g02O3soURbTt2H7KzMBXiN1hA1JXQd
+         TaDL0VbD9qXQLV5WhagKQsEEmWxxnA3A5Gd2f2VRHJXAX6Hl7QVJZvoL7fyt/8LVV+Cy
+         clbSsf7NJKIoRbOMp5dAJO6wAyUoYJ9sKgZnqA1wHDsh0ou+Cf5wL3baIbmE4Zz11T/w
+         fBdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788981512; x=1789586312;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cQp1h+Nea1dCnGwxCQ5G9ZglVlG59gCPu/u14By/urM=;
-        b=S6xKtjQ1pTwHlNL531GojRtMjRJ8HMyI04l/f3H8OZjRMD2iTMkR1Osod3+9RUdLOg
-         jwN1vChVXNkg9P8NLcTJ/zgDpOOIeMb+cFjXvBrdOYC9JC0YdZheyesN6Gm2EvQBjzwk
-         u7WPhT3RFDB18af4sFmrdtEVGrF8HRT2V+UVRUce3IRSmdlsYDe5z4z18Equ9UtROipt
-         ur1oRhXIPdgdO/9IfGOWiepIUHQeSfyJWNAFxvPjCOpDI0jigv2s5dqiF4YR82NHp7wb
-         YlhAphn7yggqL0NoTqGBUmJY0VQV2Oo4qtM2+8SsvV/35v86Aj/jzHHvHgYcDX4+mDL1
-         kFKw==
-X-Forwarded-Encrypted: i=1; AKwUvBxmkfhuCOKGtZps63e+WG+Kwoc76AEess9AgF/Su8PWq5L8sDVJAkjNtdgqHOkHVkoFh84bzPflQDHQFw==@lists.infradead.org
-X-Gm-Message-State: AFuF++mHfbr3uWJExmDQlUATVz1JG65+rZwOhxarTz381FhlHZlYdewz
-	CK8gLIt1Wplq89YtRImC3VXJvVdTjMFzFyhWYApNRyjhOftTtII4rQbW
-X-Gm-Gg: AYBFou1A0rtQbSXC2UP3rCpzkzUVGEDF+zPsfu0vNCetbJRJeeTonuoa+O1RBUXQFXE
-	AgNpGMX3zYuIW42bIWI02uTEJC0f9KE6tEqCtzC5rF6qAGooHcReU+G+lpbKF49GvA0AStdekgW
-	cJr3BIRgn2BiyLPt2OjBOHR/R8mfQD5IQ3tx0oh2ZgVAJXldQ8pCMAeUvwzt1+b7amls7W7mALH
-	Jfi85RaFF/8+JHoxn/QUuSXpE2teTPS4/2PQpyzTCo5KgPaziPgNDDBDGkp8B/ciA8brN8nrmZK
-	yecawqdjZW8WID5IQ0EYxY+hMEdWAOs267JlnjbK+nSmcrzdsfImHEFLEZDbAXsSFx0iHsKE4B+
-	YnmelSf6m3GM60SjFpaA8z21/IOIaZESyX/srqqk6QVIuiQi35zn7xUAGNXzA8NC3EWI2AmtK78
-	1pd6FqYoph4e5gzRplYhsZy8Gcoi761ikQ8UenFDxpA+Sr4m37eLteNvubylV3IbovNhOLB1WRp
-	knOlK8WYjaOdTxT+DLR4Bg0O3EFO5c6byyhUWpqU/I=
-X-Received: by 2002:a05:600c:628c:b0:49c:e1cd:536 with SMTP id 5b1f17b1804b1-49d17a8745bmr144560705e9.12.1788981511672;
-        Wed, 09 Sep 2026 12:18:31 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788981845; x=1789586645;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=juSntAU8rs/3fLNwoSR5HtlpUx6UI0vk4BclFthIHvc=;
+        b=R23aZYnHS1n119Zr31bJNLU0Do3Xpx5eyKJ8qVeoUbI4CB7SnJMTvggj++2/mybCwN
+         UN/vPXE2S1eiA9+GLDDHa8mTc7BEqeg/Lue7byGzPBW9PY6N1qY///7TX50ZvZP4tT44
+         BVUAJigz9OfiIPZtPKG6mHDRW9hMhqS8XH5Z12LsFcSk84g0TC1J9xZONuSKm4zyIX6O
+         lHO8lm8Lo8CnnfrtboG4gRKgbc/+AzDjOxEwYcpng2uQAX9RHLH+E81cgzhZy4EhrbfB
+         /pCsaSA80U2npXlj9Ct+MMXNw40vggyBj+K40FYN5ywKL+iRCAXg42yNuLHB/AUFwzjK
+         OhOw==
+X-Forwarded-Encrypted: i=1; AKwUvBwuALH+9fUi4q0kSeoo6pBGcoDNpMvZM3DrP7hZv8LnizXDhLCgwhCoPNTkZJ6VpmLJP33dG+PfmtBwvg==@lists.infradead.org
+X-Gm-Message-State: AFuF++l/Yu7gR+WCZb4WFPzJLQiY83c0eAfWeR+MTVoEcKhJTbMW9xEG
+	ZnR31MkXQeLTa/D7mUlfJUJ1UG38ryzvFbKKoveeCDmg26kCxpSvlilG
+X-Gm-Gg: AYBFou3T7svb5dHaAAP2wuTe3zUqhFn4KqNf5pxicTVU9RWpiULS8+G/FjSeC9RswCH
+	1zAhJ3GrrBNwbPzKaRSpt+FzFzLflEZYOiLtYZJ1Qx5nZ1LUAS+gucMbT0RiG6zrEHmchcBVllP
+	D/uMiMa4NJot+5bn/tiLua1r9vWMN3KSIINm8m6n8voXHXI90ZATSHUUSeOKZLpbhG4F7+gwaR+
+	m7EjyvVEsvRVKkziu37IHfjJQiRwAnmkmDR3N292Wb6ecIp6zTjfPnyRvZJqe1t6jYjY4UGe4JB
+	dEdEZmnQVTzUqMotI/+kVhNw9NN2SF+jOWNeF97teUq+XTQPWS4wsEdQJ5ibnEtMk20/EniAt/Z
+	fzjDJGkBaTlsh7uz2BxuWyMEGOiL9u45e3rNbMJX134Cz5y9E57v67+T9a2c447jqo0+TfxVF7N
+	TzqKS2tE/rZsa6GLiqpIUB+ya3RU3ggnCIMyDdlMGWMg2hGnnizpkfJlNGHiV+0RON2MKAn76tl
+	cQoEEDI8IpaI9P23ACrnkedTPrTR+9gdDqExM8i8Pk=
+X-Received: by 2002:a05:600c:3b18:b0:49c:fa21:1c8a with SMTP id 5b1f17b1804b1-49cfa211d97mr316363405e9.31.1788981845342;
+        Wed, 09 Sep 2026 12:24:05 -0700 (PDT)
 Received: from localhost.localdomain (mob-31-26-103-238.net.vodafone.it. [31.26.103.238])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-49d20fce7a7sm164538455e9.4.2026.09.09.12.18.26
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-49d26bf9490sm10925625e9.9.2026.09.09.12.24.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 12:18:29 -0700 (PDT)
+        Wed, 09 Sep 2026 12:24:03 -0700 (PDT)
 From: Oleg Keri <okerixx@gmail.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Beata Michalska <beata.michalska@arm.com>,
 	Sumit Gupta <sumitg@nvidia.com>,
+	Beata Michalska <beata.michalska@arm.com>,
 	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
 	Russell King <linux@armlinux.org.uk>,
 	Paul Walmsley <pjw@kernel.org>,
@@ -93,17 +90,16 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] arm64: topology: fix arch_freq_get_on_cpu() overflow above 4.19 GHz
-Date: Wed,  9 Sep 2026 21:18:16 +0200
-Message-ID: <178898149654.33757.7826789084252321894@gmail.com>
+	linux-pm@vger.kernel.org,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: [PATCH v2 0/2] arm64/cpufreq: report and track frequencies above 4.19 GHz
+Date: Wed,  9 Sep 2026 21:23:49 +0200
+Message-ID: <20260909192351.33910-1-okerixx@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260909113625.000063be@oss.qualcomm.com>
-References: <20260909113625.000063be@oss.qualcomm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_121834_005943_3D4A08C2 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260909_122407_739710_9F54BFA0 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,22 +116,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Good point - that reads much better than reusing scale as scratch.  Taken
-for v2:
+The Snapdragon X2 Elite (Glymur) is the first arm64 laptop part I have
+seen whose boost OPP, 4723200 kHz, sits above 4194304 kHz.  Two
+independent problems become visible there, both of which make the
+kernel believe a boosted CPU is running slower than it is.
 
-	scale = arch_scale_freq_capacity(cpu);
-	freq = (scale * arch_scale_freq_ref(cpu)) >> SCHED_CAPACITY_SHIFT;
+Patch 1 fixes an overflow in arch_freq_get_on_cpu(): the u64 product of
+the frequency scale and the reference frequency is truncated to
+unsigned int before being shifted back down, which wraps for any
+reference frequency above 2^32 / SCHED_CAPACITY_SCALE = 4194304 kHz.
 
-Same semantics, and it makes it obvious that both the multiply and the
-shift stay in 64 bits and only the final value is narrowed - which is the
-whole point of the fix.
+Patch 2 makes capacity_freq_ref follow the boost state.  It is latched
+once on CPUFREQ_CREATE_POLICY, and boost frequencies are excluded from
+policy->cpuinfo.max_freq while boost is off, so on a machine that boots
+with boost disabled it keeps the sustained maximum forever.  On arm64
+that saturates the AMU frequency scale at SCHED_CAPACITY_SCALE, so the
+scheduler cannot distinguish a boosted CPU from one at the sustained
+maximum, and arch_freq_get_on_cpu() cannot report above it.
 
-Agreed on leaving arch_scale_freq_capacity() out of the expression too.
-This file is arm64 only, so unsigned long is 64 bits and it would be safe
-here, but it stops being self-evident to the reader and the cast that
-would make it evident is worse than keeping the temporary.
+The order matters: patch 2 is what raises capacity_freq_ref past
+4194304 kHz on this machine, so patch 1 has to land with or before it.
 
-Thanks for the review.
+Measured on a Lenovo Yoga Slim 7x Gen 11 (Glymur, 4032000 kHz
+sustained, 4723200 kHz boost), pinning a policy to a single OPP and
+timing a fixed workload on one of its CPUs:
+
+  requested OPP    time     cpuinfo_avg_freq
+  ---------------------------------------------------------
+  4032000 kHz      2.011s   4031325   (0.02% low)
+  4723200 kHz      1.726s    524283   before
+  4723200 kHz      1.726s   4032000   with patch 1 only
+  4723200 kHz      1.726s   4718587   with both  (0.10% low)
+
+The timings never change: 2.011 / 1.726 = 1.165 against a frequency
+ratio of 4723200 / 4032000 = 1.171, so the hardware was running at the
+requested frequency throughout.  Only the kernel's view of it was wrong.
+
+Note that cpuinfo_cur_freq still reports 4032000 kHz at the boost OPP
+on this machine.  That is a separate path -- scmi_dvfs_freq_get()
+asking firmware for the current performance level -- with no clamp in
+the kernel, and it is not addressed here.
+
+Changes in v2:
+- Patch 1: fold the multiply and the shift into a single expression, as
+  suggested, instead of reusing the u64 scale variable as scratch.  Same
+  semantics - the multiply and the shift both stay in u64 and only the
+  final value is narrowed to the unsigned int - but it reads better.
+  Suggested-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+- Patch 2: unchanged.
+- Link to v1: https://lore.kernel.org/all/cover.1788712186.git.okerixx@gmail.com/
+
+
+Oleg Keri (2):
+  arm64: topology: fix arch_freq_get_on_cpu() overflow above 4.19 GHz
+  cpufreq: update capacity_freq_ref when the boost state changes
+
+ arch/arm/include/asm/topology.h   |  1 +
+ arch/arm64/include/asm/topology.h |  1 +
+ arch/arm64/kernel/topology.c      |  3 +--
+ arch/riscv/include/asm/topology.h |  1 +
+ drivers/base/arch_topology.c      | 19 +++++++++++++------
+ drivers/cpufreq/cpufreq.c         |  2 ++
+ include/linux/arch_topology.h     |  1 +
+ include/linux/cpufreq.h           |  7 +++++++
+ 8 files changed, 27 insertions(+), 8 deletions(-)
+
+-- 
+2.55.0
+
+
+base-commit: df2908090cda368b01ff43709f51890076c56157
 
 _______________________________________________
 linux-riscv mailing list
