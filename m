@@ -4,113 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3D5C79FB7
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 15:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF496C79FB6
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 15:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wsQxeataSgI1hIEvQc+pqas0ebTroZiokhjJXMC/YGE=; b=LpH1fxKKMaGBU+
-	EU6Ey+SQvVhAkp93H7CfxvW/KxB1LFjkogWHaxV1vAOlkwKEVZWpr09TklmbBu1XOwJ39i5xFk1HB
-	lL6S0GHAlb0OaftydksuvK5FoQnWkU3m0jP/9xRRLs6xI2Oy63mazQRjugr82EfJ4Ar7A1LwXgUAV
-	T/6qK+w2zqMnsrEak661mqi0qe0n/Y2BGhQGwNpiAQlXqSqzF9QWm9a9RCWZdoBtz21C4rNOicmrr
-	VsREn/z1Ys9noJ/2Dlk6zeYifyM5dtcWAn2nvWkoxLdvKVs5E5kX7V1Z8Icvh5LCZTG8ThlROhSXa
-	9HAcomTwA+B/k+V9WK3A==;
+	List-Owner; bh=XWVWoTFknYPlvKXP7bQbnHxGDL4HhNnMampmiDIbC/E=; b=joVg81MdqWx4FE
+	JaOIhQt7Pc4Z+nP1Q96Y5lB/4CkBDyKgf1J3oZ8yjyLxJSjTMPWxT1n5eteb7J8Rte3kbPzBAiNIw
+	QNwPnYCM6JPIv+tQcTSmU97Lh9TJ113/WJBHJrxCPGAJwy7wCTVOetmHjZzk6pg7P1/h4X4b4cIG6
+	lbXnk9clCCyW8c2Dynrww3rQnrhADr+AtudxF9iICl2trxnEUHplVZ+kcbn/vIYRnnejEnMEmYT5c
+	zfOL70ZwAJLaNi8O8YRT2ncGzeLJO3WQhNcmCTslG06pPTzHlnMC9bPBz90wVfT5OfYHpcaCk4TX0
+	YG/yXskAox+BIWInHJlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JtV-0000000C5er-2yfQ;
-	Wed, 09 Sep 2026 15:07:25 +0000
-Received: from mail-ej2-x10.google.com ([2a00:1450:4864:34::10])
+	id 1x4K76-0000000C7xh-2zGK;
+	Wed, 09 Sep 2026 15:21:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4JtS-0000000C5e6-3K6G
+	id 1x4K75-0000000C7x7-0sAp
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Sep 2026 15:07:24 +0000
-Received: by mail-ej2-x10.google.com with SMTP id a640c23a62f3a-c254f70553dso56662966b.0
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2026 08:07:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1788966441; x=1789571241; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9JHU6Yr48iRYl83IyQpODgW1j4SilTECHHS/aRaqSbs=;
-        b=WCQjfutKubyHjumYCWVED5AiDMt4BppqjYTHGuyhY6S7HaFiGQlSb08CUB84yusVMG
-         cbcNoFlXv7vQwETvIwBrQvFPALCMgk2+RE96HzwYWw91X1V/VZmtiH5KYq3jUp2fW5zr
-         Ubl+0+QbFFIPz/ghki9N0LM1dZ4pqnsvVTHDY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788966441; x=1789571241;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=9JHU6Yr48iRYl83IyQpODgW1j4SilTECHHS/aRaqSbs=;
-        b=Wr3twPTNMmZVUILCipi90WXMZYxAAD8GNAb+sQ2MTQ5Z3SWJXe4fpQ1HJLDnBChTO+
-         MlNfk7vl84bzWR0dYCjuzWh1RNgGBI3Nj+fDCsRvKoW9myor726r7tUaKOdNolivgBPk
-         xeJnIQ+BKLKlXgb+BoVw/v/1teSo8M1qFUzAKnIZ/ebAWQwTdSM4NkykQwLFyc12VeAa
-         AXXtLVPZ8y8ydru+YUYjW+Aci/XxYmSR8QQ7EHDT2Oc9oAO20Jsqlnu0anWiUflxDltG
-         +ncbU+siap3OfNMNIv7QuxdRTxg4Tq8jy+h5j7Uj4okyXHTu/Z3eyjIAXZ1hB5E70ia3
-         Lwbg==
-X-Forwarded-Encrypted: i=1; AKwUvBwnefgK6ECRvX9q+vVQJKg5gbpxjD7NgRjqmJjY2t7XBWVr6x0p92R6w3oXPJOO67sspaJry7b75EUejg==@lists.infradead.org
-X-Gm-Message-State: AFuF++m6mncVvjV4KiktTBncZjEIkfa/hurb+s7gLgVYmUf4Vv/ILUpF
-	j7kSvCUjTYVGhAbDObi0EDcxqKWNMQcsGk5qZodj9+jZvVZqjTDIqzPZRrd5wIkjL9kn9SyFyXe
-	fTiOcQ5ZCwm1e
-X-Gm-Gg: AYBFou27FVjHkLBDXQf+kKN/Xobvhr4xHOgV1KcjT5xU1morclA/k0NUTP+29YL1xz0
-	6rYMqGu+QPJthkC1emjJzIV7VeYrrG1QVJachpBMI+EOUXTSS86e0TYVXU3pnlkP1J6n9MnpCsG
-	N1tL8HQpbQvVS4dyWjuuAsPNF2PLcxI9nqg6pF02JDdcLWDtK6eLcM2kbDxAAohVhV85lvb3euZ
-	m1u/KjYW7zhsWkz1lnXDkbxikUc0jYPBfzvcKUVpfbaPkwSjnqc5orVh4DZAOien3k4/EINv9U2
-	v9QppAL9gLGvjvmrOqx+HHSC91dt3ZXIrO7FG5HBbFv8WhyUkAufxOc1IkFxHChUWiVUto7hn8l
-	+JxaCl2He8XL7qjKn/s2LIFX3yzfPbABPnXPRKHtJlWBaSlK/TWCp50r1vN/IB2OIcST2Marzhz
-	AQurKXUNQU7RhOjMR675hqLOhp4vEIA4twTaFvMQ6aQA5233LCuFgvPjKt5ZaTb9iUNQSEK5mCH
-	49CmT16W0QHVdkYBe8Y7U2NbLK+ywEQBxw0ZDp3
-X-Received: by 2002:a17:907:3909:b0:c25:23d:5295 with SMTP id a640c23a62f3a-c29419f58bcmr65764466b.17.1788966440646;
-        Wed, 09 Sep 2026 08:07:20 -0700 (PDT)
-Received: from mail-ed2-x10.google.com (mail-ed2-x10.google.com. [2a00:1450:4864:33::10])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c28e9aec296sm506608766b.28.2026.09.09.08.07.20
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 09 Sep 2026 08:07:20 -0700 (PDT)
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a6249b76a8so521944a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2026 08:07:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBx4iEWjDfcJ2T7SFbgTuSvFKb06NmF2XNaHgeCEjocbSzf8DaDD2Rc+DqjT3VfyF6qfkVr7TyxgX0h9rA==@lists.infradead.org
-X-Received: by 2002:a17:907:728f:b0:c25:8e4f:6d84 with SMTP id
- a640c23a62f3a-c2941868b12mr66185066b.2.1788966011712; Wed, 09 Sep 2026
- 08:00:11 -0700 (PDT)
+	Wed, 09 Sep 2026 15:21:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F155841772;
+	Wed,  9 Sep 2026 15:21:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A28601F00A3A;
+	Wed,  9 Sep 2026 15:21:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788967286;
+	bh=rNUvA2/lQtpBECQm6efuKE8jX/o1YQk5zTI6Hl7HK0o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RhDaHzT6GUcF2HWTvpoJElGyNMHmJSDgj1ko7bu6VBsyOE23dRHeBuzp/IgJicJLu
+	 SGssZIMoPGM1cmma2sCr6OUn5ao0t3y4wT8vW9jgt/7g4u0yywdrNV8WKXFO1h/B3x
+	 C/K7+4UXXEdkONlAsqWBc8rN8RsfJaB4RxlA/LC68yqVsvl1mYV5CUymKi+zQM2n6F
+	 GZKZOYNThfxdR3AYELn4ch3N8BdwMOn68fPG97UFAyaIMK8cbqTV9GZF5tx2uSeXlw
+	 nkscrSqXojNmTocE240Fn9la0KKT+WwJPW74gKw6ZXckSdxuj91xMNTmrkRrRjq2dS
+	 LVExWNenhvauQ==
+Date: Wed, 9 Sep 2026 23:01:37 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com
+Subject: Re: [PATCH v2 3/5] riscv: support early isa ext and use it to
+ optimize pgtable_l4|l5_enabled
+Message-ID: <aqF00YcBdJIupeJr@xhacker>
+References: <20260907151437.7603-1-jszhang@kernel.org>
+ <20260907151437.7603-4-jszhang@kernel.org>
+ <20260907-smashup-darn-93d1ee105a57@spud>
+ <ap-EZ-rb7RJ5ykmG@xhacker>
+ <20260908-baggie-tripping-c2cee6bb4947@spud>
+ <aqCeaXYJEdW78PMV@xhacker>
+ <aqFHr3BWR0XhxMsv@squawk>
 MIME-Version: 1.0
-References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org> <20260908-build-speedup-v1-15-5dc1ac01672d@kernel.org>
-In-Reply-To: <20260908-build-speedup-v1-15-5dc1ac01672d@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 9 Sep 2026 07:59:55 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wgAWpVHmR74jC7sbSJGQEHyaaN0awNfSz_SjPv3VGSYYA@mail.gmail.com>
-X-Gm-Features: AcwNN1XmVo334b1UP-lcj3CPx7zvteJ2HddEJqKkfbem-zQh2qUu9HycJHabLtk
-Message-ID: <CAHk-=wgAWpVHmR74jC7sbSJGQEHyaaN0awNfSz_SjPv3VGSYYA@mail.gmail.com>
-Subject: Re: [PATCH 15/23] modpost: emit module descriptors as assembly
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
-	Jens Axboe <axboe@kernel.dk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_080722_856689_9E45CC14 
-X-CRM114-Status: GOOD (  20.20  )
+Content-Disposition: inline
+In-Reply-To: <aqFHr3BWR0XhxMsv@squawk>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,63 +83,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 8 Sept 2026 at 13:58, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
->
-> modpost generates a descriptor for every module in the form of a
-> <module>.mod.c file with .modinfo strings, the __this_module descriptor,
-> exported symbol tables and (with CONFIG_MODVERSIONS set), the CRC of
-> imported symbols.
->
-> These files are compiled like any other kernel C file with all of the
-> -include preamble, as well as including linux/module.h, header dependencies
-> generated by fixdep of a few hundred headers, an objtool run and if LTO is
-> being performed, a link is performed to generate native code.
+On Wed, Sep 09, 2026 at 12:49:09PM +0100, Conor Dooley wrote:
+> On Wed, Sep 09, 2026 at 07:46:49AM +0800, Jisheng Zhang wrote:
+> > > > This assumes SV48 and SV57 are the only "early" users, but
+> > > > other ISA ext may also need "early", who knows. So if future some extensions
+> > > > need the "early", the code is ready, the author doesn't need to care about
+> > > > the isa filling at all.
+> > > > 
+> > > > So I prefer my patch as is. What's your opinion?
+> > > 
+> > > We're about decade into the port being merged and this is the only thing
+> > 
+> > but the isa extension alternative is not, it was introduced by me three
+> > years ago. But no matter how many years, 
+> > 
+> > > behaving in this way. I don't think the code in this patch is worth it on
+> > > the off chance that something else comes along. If it does, we can
+> > 
+> > this makes sense. Let me cook a new version
+> > 
+> > > always fish this implementation back up and use it.
+> > 
+> > > 
+> > > I'd also like to differentiate this code from "needing early", because
+> > > this is about populating the information early in the extension bitmap,
+> > > rather than about actually needing the information. There's no advantage
+> > 
+> > the code after arch/riscv/mm/init.c but before mmu on needs the
+> > bitmap informaion when pgtable_l5|l4_enabled() is called (w/o
+> > USE_EARLY_PGTABLE_LEVELS)
+> 
+> Oh, I must have missed something then, I didn't realise you were
+> patching the alternatives early - I thought you were skipping them until
+> the information became available at the normal time. Sorry bout that.
 
-This kind of triggers the same reaction as the kallsyms code: I think
-not including <linux/module.h> is probably the biggest win in this
-all, and precomputing the offsets of the (few) structures that modpost
-uses then makes the whole end result fairly trivial in raw asm.
 
-Fine.
+Aha, your suggestion about the simplifying the isa bitmap filling
+still works.
 
-BUT.
+> 
+> How bad is the damage btw, if you implement pgtable_l5_enabled() as
+> 
+> static __always_inline bool pgtable_l5_enabled(void)
+> {
+> 	if (riscv_has_extension_likely(RISCV_ISA_EXT_SV57))
+> 		return true;
+> 
+> 	return _pgtable_l5_enabled;
+> }
+> 
+> ? It shouldn't be too bad since it should get expanded to stuff like
+> 
+> 	if (riscv_has_extension_likely(RISCV_ISA_EXT_SV57) || _pgtable_l5_enabled)
+> 
+> by the compiler. I wonder if you can do this and get rid of
+> USE_EARLY_PGTABLE_LEVELS entirely, since the unpatched alternative
+> should return false?
 
-You end up with things like this instead:
+I know why you want this. AIUI, the early patched alternative is
+still needed outside arch/riscv/mm/init.c but before mmu on. For
+example, on a SV57 capable platform, the set_satp_mode() will detect
+pgtable cap correctly, then _pgtable_l5_enabled = true and
+_pgtable_l4_enabled = true, then any pgtable_l5|l4_enabled() calling
+outside init.c but before mmu on also expects true. so we need to set
+the isa bitmap so that latter apply_early_boot_alternatives() can
+correctly patch .text section for us.
 
-> diff --git a/scripts/mod/module-offsets.c b/scripts/mod/module-offsets.c
+BTW, the USE_EARLY_PGTABLE_LEVELS is stolen from the x86 world, see
+its USE_EARLY_PGTABLE_L5 ;)
 
-where it generates a header file for those asm scripts so that the asm
-generation can do things like
+> 
+> Cheers,
+> Conor.
+> 
+> (btw, I am kinda unavailable til the 22nd, so sorry if I take some time
+> to reply here or to a new revision)
 
-        buf_printf(buf, "\t.size __this_module, %d\n",
-MOD_SIZEOF_struct_module);
+I just sent out v3, could you plz kindly review it when convenient
 
-etc.
+> 
+> > 
+> > > gained, as far as I can tell, by setting this early and it only makes
+> > > the code more complicated.
+> > > 
+> > 
 
-But I - again - get the feeling that this is all going through AS as a
-silly way to generate an object file, and that there really isn't any
-obvious advantage to that side quest.
 
-Becuase no human ever wants to see that asm file, and it's no more
-legible than generating the object file directly would have been.
-
-So I get the feeling that it would again be more natural to just
-generate the object file directly when all those files really end up
-being are a few symbol definitions and a couple of fixed structures
-(is there anything but the magic "__this_module" thing and the modinfo
-unique ID thing?)
-
-And again - I feel like nobody sane would want to write that code. I
-certainly don't. But if this was at least partly automated anyway,
-going that extra step might not be all that horrific.
-
-I'll also be honest: part of why I do these suggestions is that I do
-think it would be faster to skip the intermediate assembler step, but
-a big part of it is that I don't love the random turds our build
-creates. Getting rid of the *.mod.c files would be a cleanup of our
-strange build.
-
-             Linus
 
 _______________________________________________
 linux-riscv mailing list
