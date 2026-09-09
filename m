@@ -4,108 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27831C79FAD
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 06:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F717C79FAD
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 06:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AXwCNpZ1KV0vnCzadRBmzcAlXihuwVV7G7zsNnBagPg=; b=XteQMrBbmFgTlk
-	K11/u6yKURBq6BhQwusTPt3p9itEeEju5GK6JcY6kXcp6v1x1npK1pEUaE916pPpv25rQd7XPPCjW
-	6r/11ABtKorBcvhVM6hmgYSPzEGsY1GXM7gx5hPUq9K9rxhvb5UA9jbgs/vuq85w9ndWPSl7pp+ik
-	rNwAf0+ybGxq5o9Gj+dJwJ7incc2kGA2XKUyilu/JmGZCxZCw/IVD5//bGNIPQA8E1E0qGVkVJgyF
-	EGCtlUmEWlC+SFmz2rogjbL6Ms7yc1LRGK8a1fDbbdqYP7T5Z4j4M5aOde/EQcot1wbSL8ICPs98Q
-	AAXtJ6mkh1vXzW9TWRwA==;
+	List-Owner; bh=1ZP5TJCS7KJ2+7vaVBkGbFkQV7gwJXl2BNTezPLgHg4=; b=eZPvOI71pqc5SF
+	aaEuQjbncqrnXdxMLau7WiM2nW4T+GHkDGA2LW5Q6w8WBZTGXJbxPns4DR9JP8YElQhTeB56c24pi
+	jWw5nBmBgjl0k4VUm7aZUwPQwf9inU7hmXyr5JQntmKf197gPtHivd8UMAVFfbZnerlDm4nwlSLIO
+	/rpr31RodZvXqlq7VhvJn8naQWWFk+9PqEFyAeZNbxscK+jKGxbVzi0AggALDu/xd4rtqSdGEQk/f
+	q9TEL9hm/iMiXvecyCfQzF/rzZCYOt1phvjJw1fXxcI+UxCawm66iQVJ9netVb1xTAMPAtjBW4jd5
+	3Loblp+u+M4hMgMyqvaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BQA-0000000Aq30-1KSt;
-	Wed, 09 Sep 2026 06:04:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4BUf-0000000Aqam-3tMH;
+	Wed, 09 Sep 2026 06:09:15 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4BQ8-0000000Aq2l-2mHi
-	for linux-riscv@lists.infradead.org;
-	Wed, 09 Sep 2026 06:04:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 224FC41A58;
-	Wed,  9 Sep 2026 06:04:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF5E41F00A3D;
-	Wed,  9 Sep 2026 06:04:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788933872;
-	bh=isJaBRt4+7vgFblnXXtCLLe0euKIIKG1pPi/hZituCo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=f3uzYmBPLlGPkh+Vzv5v7f9TbfVD6RB6KQfnyLGnEd14hxeXJLLiWd6LXKoSWMhva
-	 UsgHWSpQHAGZxtOucNLjnWAdseyaWCvBLrHKXO35wRjr5QveEYF3zb+v9xM8Dsj9Ku
-	 cthz8OAwKm3MR0X9I0DO5d+E1NYwZsH1c7Vssq55Vh0w97KVJdRvmsVgEBG1fuylrb
-	 TRjbuv/nWAnlEs5KdkPE4RNs8jEgHJTiJqYEny1ntoJDDmwRjn+ee5iJ593k9iPKgy
-	 2k3pyqZaX71WuFP1OOxQ+G+pew7Y0Lt6kOaJhOD+4rObaQG+QjAvv04mpiKNUvI7c9
-	 vAWHO5ca2aIIg==
-Message-ID: <2a7df56a-eace-49d4-b0a0-001d14967358@kernel.org>
-Date: Wed, 9 Sep 2026 08:04:23 +0200
+	id 1x4BUb-0000000Aqa6-3S9u;
+	Wed, 09 Sep 2026 06:09:12 +0000
+Date: Wed, 9 Sep 2026 08:09:07 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1788934147;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Fsx+E+IxhTgqrNd5fDNEdWA4P4WjUu/zI9gxcY2gf1k=;
+	b=Ba8CFyueZIBv0OelbgTnQd8Liev5J1UqmQNZMlTvb9O8KcOJJTdoaB2ThyVqE1f8eVdkpB
+	wTE4Lfz5SmplS9gum8fRJfjedlxYamdPBHVJ2zN0PmVQ/fAuza+eRyHTaqNl21luZW5FSV
+	7mSECa3gWtr+fP2KkXm6iC1JdfB5MAxu3Qk/bZ7DsXkgsNE6bOUj/o8lxR1BIYweICcdVu
+	Fm6yt/eraobBg9c2pGNyeS88edKZbZQw3VCce9fTmXPsolJkOwKGjp5YqUwJX6x49ccs+s
+	3BERlZcIkDcJWAolf/r7TyPPNGX94YB/SldI2jSo7Dc4KeV5buIEb4c2Lh26vA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1788934147;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Fsx+E+IxhTgqrNd5fDNEdWA4P4WjUu/zI9gxcY2gf1k=;
+	b=fAJ6G75LaW8nnqqa43BRDYqlP7QW6Q+nfq2qssYjtogHzBntGBNA7rR18bMVBCUfwB7vq4
+	TycChAiSqeQsMbBw==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Andy Lutomirski <luto@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Boqun Feng <boqun@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-mm@kvack.org, linux-um@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Jan Stancek <jstancek@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@redhat.com>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v5 17/24] powerpc/vdso: Enable the vdsocheck tool
+Message-ID: <20260909080124-ef171c1a-83ff-486b-b632-8613011a5a97@linutronix.de>
+References: <20260908-vdso-absolute-reloc-v5-0-3a93791af1cf@linutronix.de>
+ <20260908-vdso-absolute-reloc-v5-17-3a93791af1cf@linutronix.de>
+ <7c9f6ec3-5886-41ea-8803-d81019321d29@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 03/21] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0-pinctrl
-To: Changhuang Liang <changhuang.liang@starfivetech.com>,
- Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Philipp Zabel <p.zabel@pengutronix.de>, Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-References: <20260831113514.66382-1-changhuang.liang@starfivetech.com>
- <20260831113514.66382-4-changhuang.liang@starfivetech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260831113514.66382-4-changhuang.liang@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <7c9f6ec3-5886-41ea-8803-d81019321d29@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260908_230910_164567_7B6E7DC4 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,32 +102,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 31/08/2026 13:34, Changhuang Liang wrote:
-> diff --git a/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> new file mode 100644
-> index 000000000000..6d8f5516a178
-> --- /dev/null
-> +++ b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-> +/*
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + *
-> + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-> + */
-> +
-> +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
-> +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
-> +
-> +/* sys0 pad numbers */
-> +#define PADNUM_SYS0_GPIO_A0				0
-> +#define PADNUM_SYS0_GPIO_A1				1
+On Tue, Sep 08, 2026 at 04:41:09PM +0200, Christophe Leroy (CS GROUP) wrote:
+(...)
 
-No improvements and you did not really address my comment. You just
-replied with whatever not related statement.
+> > diff --git a/arch/powerpc/kernel/vdso/Makefile b/arch/powerpc/kernel/vdso/Makefile
+> > index 368759f81708..ca20b91b4373 100644
+> > --- a/arch/powerpc/kernel/vdso/Makefile
+> > +++ b/arch/powerpc/kernel/vdso/Makefile
+> > @@ -81,9 +81,9 @@ targets += vdso64.lds
+> >   CPPFLAGS_vdso64.lds += -P -C
+> >   # link rule for the .so file, .lds has to be first
+> > -$(obj)/vdso32.so.dbg: $(obj)/vdso32.lds $(obj-vdso32) $(obj)/vgettimeofday-32.o $(obj)/vgetrandom-32.o $(obj)/crtsavres-32.o FORCE
+> > +$(obj)/vdso32.so.dbg: $(obj)/vdso32.lds $(obj-vdso32) $(obj)/vgettimeofday-32.o $(obj)/vgetrandom-32.o $(obj)/crtsavres-32.o $(vdsocheck) FORCE
+> >   	$(call if_changed,vdso32ld_and_check)
+> > -$(obj)/vdso64.so.dbg: $(obj)/vdso64.lds $(obj-vdso64) $(obj)/vgettimeofday-64.o $(obj)/vgetrandom-64.o FORCE
+> > +$(obj)/vdso64.so.dbg: $(obj)/vdso64.lds $(obj-vdso64) $(obj)/vgettimeofday-64.o $(obj)/vgetrandom-64.o $(vdsocheck) FORCE
+> >   	$(call if_changed,vdso64ld_and_check)
+> >   # assembly rules for the .S files
+> > diff --git a/lib/vdso/check/vdsocheck.rs b/lib/vdso/check/vdsocheck.rs
+> > index e45a1fbc6829..429bdcd65818 100644
+> > --- a/lib/vdso/check/vdsocheck.rs
+> > +++ b/lib/vdso/check/vdsocheck.rs
+> > @@ -69,6 +69,33 @@ fn allowed_relocations_for_machine(machine: u16) -> Option<AllowedRelocations<'s
+> >               ..Default::default()
+> >           }
+> >           .into(),
+> > +        bindings::EM_PPC => AllowedRelocations {
+> > +            in_object_file: &[
+> > +                bindings::R_PPC_REL24,
+> 
+> Not sure this is correct, see commit 42ed6d56ade2 ("powerpc/vdso: Block
+> R_PPC_REL24 relocations")
 
-Best regards,
-Krzysztof
+(...)
+
+The mentioned commit prevents the relocation in the final vDSO,
+while my patch allows it in the intermediate object files.
+In the final vDSO no relocations are accepted whatsovever.
 
 _______________________________________________
 linux-riscv mailing list
