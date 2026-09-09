@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E0EC79F8C
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 10:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E8DC79FB6
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 11:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:From:To:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lKbD4XZn7r3/Ilh8xPTDt87Kxe2lIe5IIPSW9SPd7fw=; b=aPfvqDo4Dkep21
-	YKAi/ug4LQENutGYRIgUphEMADgEcZspBDRevHdHQN9BXJRFxyAUkiJkhp3p5MAxm1vT5k7jqrqlE
-	qQvFNnmxpCpbjKB+fwrfO5YiuRioNy7kBwBBkj8zjtJNuOkqyTZD5tn3j6aNVUzUuiXr5xot0perV
-	5LGs/+sYc439tXyYuWp4kPZGJqBHScxU4JOtfUfIumNd7uDVVhtCxMvoR02xWvFyk1K1p7gyAxRCH
-	lPjEr6lFlo8o90kMx6e0kb7/XrPEByVnLWqiUsX3TmuDJfT6Ye4VXyybw4wSdJ7bwvbgWvXm68EjS
-	00HYXDcqG/ecwE+6G7jA==;
+	List-Owner; bh=gZ0JNM03q5udONV8fFAPSaEdkoF0kEdXxm/fTrNpeyM=; b=0tdPI645y6+mlS
+	R+zuXJ7jrIfqHhtF/Z3Xys9ooffkVLIbmhZUWnVvuKHZVAvkMgledf8HCQGy8+sbTix3siwsYe5HZ
+	whusTZD68IwDdWqr+is5ShdFAtImYwmgvhxtAdp71n0YONkDCWWKYI+KSp1vmfP0xderpXIUof2N7
+	iNqq2OEn9GIx+mZduGYUY8qoK4Qr6KpWq09vhNP4bqqdb4T66GkzryyEh/tUUQvdElk1hrNYt9c62
+	E6795XF70CYzto7Z2348fjhRfiL+NR9/bmaA5nl0aMNEkWp9qYeannUiTcr+/Xhw6c9MhAn5zJWWz
+	p3DK3qk/RbYn6IT+5THw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FSB-0000000BP4Y-0S7F;
-	Wed, 09 Sep 2026 10:22:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4GA9-0000000BWQX-0pd2;
+	Wed, 09 Sep 2026 11:08:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4FS9-0000000BP45-2ZbJ
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 09 Sep 2026 10:22:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:To:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=cErN04XR2kGv1i2GRA/Gp+JKA/qXMFpcoKDT3eXGf48=; b=B+QPOPO97T9KkWlCXg1CJAcMdZ
-	yA1XUeGldCL5OkO0YN7+ZTE3+tQQUDmaob9ELjsihJnyjIxqbTleAcsQL0E8Vrj73xnBM3z/vO6eY
-	rqwiEZ3/BgvmhB/bsvYBYGLZKr8B3weS9A7MPq4XPbTcdA4JwnnguPi4BjZQePswN+V1+i0GsVQvk
-	nfuq5KHqzARCq2nEhxvrgYxgLJCGRNUXKR/inGaQm3V34yrh8QsQmc+gYkv4dTTDzgTx8iuE4vab3
-	1dngfhVKLqBiXB8BtqpMYnY1ftsDpfH2HoohGQ5vHtcjK9ugobA+6k7Mcg6yjsHlJ1A7/K+uQJOWd
-	BlDoGmNQ==;
-Received: from mail-43166.protonmail.ch ([185.70.43.166])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4FS6-000000013rW-1Vu5
-	for linux-riscv@lists.infradead.org;
-	Wed, 09 Sep 2026 10:22:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1788949360; x=1789208560;
-	bh=cErN04XR2kGv1i2GRA/Gp+JKA/qXMFpcoKDT3eXGf48=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=FyZ5TvMuM3Xxv5Uzhar57D+/F/CzbQI9Nc7boZjPQ6zKjeTnMXkpNyBP7JbAk+bz/
-	 q87GN3qkrPsh1ksLlzQBUNR1zoF7toF94y+UZQcH7gkMNVfAx7WuX2WqtjsyXoUnPw
-	 eSLBsKpAMAWXivq0KUr3IsQdh8ETLkW8Y8JqBFnLmNtmmWuuApOv6Vr/Xvk255Wh7u
-	 NqrFComiGwqy/7YMvXKEfuvq+yDiVGQmWKKbv1wX9fnHmUoYeZrm4v7Ig+C9PdRmfI
-	 yYIR7L8jXMECk5SfckftB0rSpEtgOduxZPyUm+yeG06lBUgdWoT6jAthkIQOmPoYMh
-	 qC+n7EC8R2fEw==
-Date: Wed, 09 Sep 2026 10:22:33 +0000
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-From: =?utf-8?Q?Bj=C3=B6rn_Baron?= <bjorn3_gh@protonmail.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng
-	<boqun@kernel.org>, Gary Guo <gary@garyguo.net>, Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
-Subject: Re: [PATCH 20/23] kbuild: rust: parallelise rustc front end
-Message-ID: <t8iID_-Rgtrxxg-f1ZfdOg1xmm7YedvOT4pgDFEXKxoIeu29-JooZ3SSlbze088O0kLSOdgP7xN_Bo9Xm_lO1x51Gd-gIgT-tFPfwM_gCEw=@protonmail.com>
-In-Reply-To: <20260908-build-speedup-v1-20-5dc1ac01672d@kernel.org>
-References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org> <20260908-build-speedup-v1-20-5dc1ac01672d@kernel.org>
-Feedback-ID: 27884398:user:proton
-X-Pm-Message-ID: 6e566d54cdb8b110ebbfb62f2bd2ea449ab508ec
+	id 1x4GA7-0000000BWQ6-04No;
+	Wed, 09 Sep 2026 11:08:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B6D7601FD;
+	Wed,  9 Sep 2026 11:08:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4F9D1F00AC4;
+	Wed,  9 Sep 2026 11:07:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788952097;
+	bh=n4mPQZ86gp5FDwQ4tHqlyfsOtYqdqNDLvVyVaC4A/Fo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QaTpJ5ovoTiEG+gXq4D4QRjJgrK/QkDaAvE4t9yf2p1CDXfWR+kPkM4RvUM0qdfPJ
+	 YQ3u5ytOfaVK2InZ/CGWXhSaMh2xZGgB5cMzAuvnJWAkL0XnASM+7IEN4Mh5mQR/v/
+	 23xVaM73u8uzFcGxU4t1Ngaq+BDhm428o54Sxl6mcGruZx3hwkdRUas8xhLW+8np6o
+	 1FCSepWEU5Qtr1gN3/1lPqwwWSfxlmy6GHgFq4rT9aBoF8CazzfpBWEzsvaBIQ/txk
+	 czLEOp1wjtukmiYmMeK+KJpQGgy7iNAEV7FZIokob8wTGUUDEcjvf9Oxi9V03vXvLr
+	 Iqy39qtZl8jxA==
+Date: Wed, 9 Sep 2026 12:07:52 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Simon Schuster <schuster.simon@siemens-energy.com>, Jonas Bonn <jonas@southpole.se>, 
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Russell King <linux@armlinux.org.uk>, 
+	Vineet Gupta <vgupta@kernel.org>, Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
+	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>, 
+	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>
+Subject: Re: [PATCH v2 00/12] mm: make userland page table freeing RCU-safe
+Message-ID: <aqE-ABWDmw26OGK2@gremlin>
+References: <20260908-rcu-pagetable-freeing-v2-0-1f60b64e878e@kernel.org>
+ <aqEl9zv8M_o1yW62@thinkstation>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_112250_682040_67E93EC3 
-X-CRM114-Status: GOOD (  13.80  )
+Content-Disposition: inline
+In-Reply-To: <aqEl9zv8M_o1yW62@thinkstation>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,44 +108,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, September 8th, 2026 at 22:59, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
+On Wed, Sep 09, 2026 at 10:26:03AM +0100, Kiryl Shutsemau wrote:
+> On Tue, Sep 08, 2026 at 01:32:09PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > The majority of architectures in the kernel defer page table freeing until
+> > an RCU grace period has elapsed, this series converts all remaining
+> > architectures to do so too and eliminates CONFIG_MMU_GATHER_RCU_TABLE_FREE
+> > altogether.
+>
+> Apart from few nitpicks, the patchset looks good to me:
+>
+> Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
 
-> Use the -Zthreads option to have rustc perform builds in parallel. This has
-> been available since rust 1.84 (rust-lang/rust#132282), and the kernel
-> requires rust 1.85 or above.
-> 
-> [..]
-> 
-> Generated output was confirmed byte-for-byte identical.
+Thanks! :)
 
-There are still several known reproducibility issues for the parallel
-frontend[1] and at least until fairly recently there were also deadlock
-issues and incorrect errors[2], so I would not recommend enabling it without
-an explicit request from the user. Perhaps even only allow it on nightly
-rustc for now, then you don't need to check which of the two spellings of
-the flag is supported.
+>
+> --
+>   Kiryl Shutsemau / Kirill A. Shutemov
 
-By the way, currently backend parallelism is entirely disabled due to the
-usage of --emit obj (which forces -Ccodegen-units=1). For -O2/3 builds
-enabling backend parallelism may have a bigger impact than frontend
-parallelism. And it would make incremental compilation for rustc a lot more
-effective as editing a single function would no longer need to codegen all
-functions in a crate again, only those inside the same codegen unit.
-Getting it working would require using --emit link to produce rlibs and
-then linking those rlibs in the place of the raw object files. Rlibs are
-just static libraries containing some extra rustc specific info that will
-be ignored by the linker (no guarantees about this, but there are no
-guarantees --emit obj can be linked without missing symbols either and I
-don't know of any reason why we would change it right now. It would hurt
-compile times due to needing to repackage all rlibs before rustc runs
-linking.). I tried implementing this a couple of years ago, but back then
-if I recall correctly either binutils ar or llvm-ar was unable to produce a
-thin archive referencing members of another archive like Kbuild expects to
-do. I'm not familiar enough with Kbuild to know how to skip the thin
-archive production.
-
-Link: https://github.com/rust-lang/rust/issues/?q=is%3Aissue%20state%3Aopen%20label%3AA-parallel-compiler [1]
-Link: https://github.com/rust-lang/rust/issues/?q=is%3Aissue%20state%3Aclosed%20label%3AA-parallel-compiler [2]
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
