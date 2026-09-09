@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E37C79FB6
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 11:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A05EC79FB6
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 11:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xZYl8UtVvpE9Cz6/OjKYeUtCg1JA+ALJuRymk+ZDKxI=; b=IKU3eBG65i6NX3
-	MC2jfbGa9MPaNVJw93uB0JKJQa4gxHOmqrRvTyCkGIuiPbxZ/cnx+KYJwHtFH063ecieu2zasBgX+
-	XHdDt8moE9+ygaP4gTKgGrvi/yGTpKh/zBjHk2Ap8olo0q5R+xh4uEOh0SH7iTPD0e0M1aFhWfRqW
-	ZxO9U4m2ZRriBLw2R6j70KfvOZxD5uYQ2eUxcA1Afypv+lbdMEb0k6mMuW0m4J6Fs+kllgYlvCBby
-	7tZdFPhDpkgiI1HJ7sDd79HV1IXOWK3xmDpOaECxyM97PXYxiJ8yb37So6sTejI9dpXOtILdarF5B
-	cP6sg0XBk65oCAdJLYvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FjF9m4LG7Phin7m2Dsu98Jefo9mo9hvoog4QIHf3HAE=; b=sPqiazWVw+5q2MzJjesFx3U3pL
+	cxoO7/rplKgMQxtFUGCvZcjG6+P1768dJBQ4Tc3sT8lbNEvHzQuzaFXXL8tiOk8L+HhMT9VJA3gbT
+	gmzzEV2jpIPOqYufTLYBNCTnYJXHIBM7I00xM57Jn8RCBY7T0pqBLDlK7e3IuauHkT11Wmsds2FSQ
+	Q28yCUWU/DDoEkfbaxsuZIyrYHlAOXAVsDkzJx4HXKd7TrRvSwWFcTiHasUMN7Vf+IUUXvl3xpKJy
+	vy1OVUSudWq0lr6r9/Bqvt3V6LLCF05y29E4QcGUw3FWp9Z3r+r6XBd8eKNmrpYHv3fKr9QbAiSVV
+	mxYK1fjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4GQW-0000000BYzm-3J78;
-	Wed, 09 Sep 2026 11:25:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4Gnv-0000000BcmH-2yqj;
+	Wed, 09 Sep 2026 11:49:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4GQU-0000000BYzG-1hgI;
-	Wed, 09 Sep 2026 11:25:15 +0000
+	id 1x4Gnu-0000000Bclw-3oOz
+	for linux-riscv@lists.infradead.org;
+	Wed, 09 Sep 2026 11:49:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 08BF160211;
-	Wed,  9 Sep 2026 11:25:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA8571F00A3D;
-	Wed,  9 Sep 2026 11:24:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F56D406A9;
+	Wed,  9 Sep 2026 11:49:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72DE71F00A3E;
+	Wed,  9 Sep 2026 11:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788953112;
-	bh=inNJzZhlDskfV4tobMRa6NUvX+KktI2JxAaJsuypEcU=;
+	s=k20260515; t=1788954566;
+	bh=nhGbwomjQ4cV6eZMtHYxkXFToUqnimfxR1ZcZ83JK9I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YCsVcikzxNnvBT0Y3c5qUMcZq6CnjiF9LAucMz9KUDz/X8rycnl20TJiMBuTV44C6
-	 ciuJ5X0Mary0o+RdhTl8tWHSISMo1lGTn+IXwhIQfs7dZg1NC//UvrgDFVVFH2BXXg
-	 wGSvIxQ/NBgeVTkoO77PEhxG5tF/kt0hk770YdbvA7jzYldeFCi6gaAA3Ie47dGZ4o
-	 rDioSU8ROD/U0Ex4wV585kl0B6XRkVhfL48+PBTUa/l0vXguhxnOvt9I9np0ualYy6
-	 L7k5zESC+bnaJX5hWbMNkzgmSv0XEtgXO0Eiy5hQl/cIt/eJwNjq2z/FZB7YFfjxHL
-	 0pO6lgM9ge/7g==
-Date: Wed, 9 Sep 2026 12:24:48 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Brian Cain <bcain@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Simon Schuster <schuster.simon@siemens-energy.com>, 
-	Jonas Bonn <jonas@southpole.se>, Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
-	Stafford Horne <shorne@gmail.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	Rich Felker <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>, 
-	Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
-	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, 
-	Peter Zijlstra <peterz@infradead.org>, "David S. Miller" <davem@davemloft.net>, 
-	Andreas Larsson <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>, 
-	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
-	linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>
-Subject: Re: [PATCH v2 00/12] mm: make userland page table freeing RCU-safe
-Message-ID: <aqFBXNYGa5cktCeJ@gremlin>
-References: <20260908-rcu-pagetable-freeing-v2-0-1f60b64e878e@kernel.org>
- <20260908141543.8180b60400d38b70d249949b@linux-foundation.org>
+	b=JSEMhmz8nqDCAneBXqOH4+OwbdOIeKdrU3fXMEIw52zPCiBL1g1He1lgqT7kNH0q6
+	 s2LoBtGINKTvpIfvZLRo0EnsVaumy4+mG5faUBD2WHUHHGj9oeC4Ybirqw0vI1u2yV
+	 1sLnilXIBy253x+UtDscbgLxmbYTfrJ9UnSqwQzeI583XAH1pAYAdIYxthMQ9/Vyri
+	 lpmK++Nu1JuvZgJVtjXitseCTcuBKC9aDPKtq+Cewp9esjIGMAytLOYVGBsVM7Y2x1
+	 +KghMpqjoEGRCwq4D4g/kNoQ8q9Ki2SgDT7x9zTr1PtBfLx/CAbuysSTTHXdVTcn1K
+	 U9cWohCesrGeA==
+Date: Wed, 9 Sep 2026 12:49:09 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com
+Subject: Re: [PATCH v2 3/5] riscv: support early isa ext and use it to
+ optimize pgtable_l4|l5_enabled
+Message-ID: <aqFHr3BWR0XhxMsv@squawk>
+References: <20260907151437.7603-1-jszhang@kernel.org>
+ <20260907151437.7603-4-jszhang@kernel.org>
+ <20260907-smashup-darn-93d1ee105a57@spud>
+ <ap-EZ-rb7RJ5ykmG@xhacker>
+ <20260908-baggie-tripping-c2cee6bb4947@spud>
+ <aqCeaXYJEdW78PMV@xhacker>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260908141543.8180b60400d38b70d249949b@linux-foundation.org>
+In-Reply-To: <aqCeaXYJEdW78PMV@xhacker>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,53 +76,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4356346545221057053=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 02:15:43PM -0700, Andrew Morton wrote:
-> On Tue, 08 Sep 2026 13:32:09 +0100 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
->
-> > The majority of architectures in the kernel defer page table freeing until
-> > an RCU grace period has elapsed, this series converts all remaining
-> > architectures to do so too and eliminates CONFIG_MMU_GATHER_RCU_TABLE_FREE
-> > altogether.
-> >
-> > This is important because it enables safe lockless page table walking under
-> > RCU alone.
-> >
-> > Doing so allows for reduced lock contention, avoids lock ordering concerns
-> > and enables fast, efficient and correct page table walking as a result.
-> >
-> > Additionally it removes a bunch of code and architecture-specific behaviour
-> > which is always a beneficial thing to do.
->
-> Thanks.  It's early and unreviewed, but this is mainly an
-> if-it-compiles-its-good thing, so I'll add it for exposure to the
-> build/checker universe.
+--===============4356346545221057053==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="loqWGgo4+1JPEZ8Z"
+Content-Disposition: inline
 
-Yeah largely, and I have done additional testing for cases which need it.
+--loqWGgo4+1JPEZ8Z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
-> > However some arches required extra attention - sh-X2, m68k-motorola and
-> > sparc32.
->
-> OK.  Please lmk later if you think additional reviewer/tester attention
-> is desirable in these areas.
+On Wed, Sep 09, 2026 at 07:46:49AM +0800, Jisheng Zhang wrote:
+> > > This assumes SV48 and SV57 are the only "early" users, but
+> > > other ISA ext may also need "early", who knows. So if future some ext=
+ensions
+> > > need the "early", the code is ready, the author doesn't need to care =
+about
+> > > the isa filling at all.
+> > >=20
+> > > So I prefer my patch as is. What's your opinion?
+> >=20
+> > We're about decade into the port being merged and this is the only thing
+>=20
+> but the isa extension alternative is not, it was introduced by me three
+> years ago. But no matter how many years,=20
+>=20
+> > behaving in this way. I don't think the code in this patch is worth it =
+on
+> > the off chance that something else comes along. If it does, we can
+>=20
+> this makes sense. Let me cook a new version
+>=20
+> > always fish this implementation back up and use it.
+>=20
+> >=20
+> > I'd also like to differentiate this code from "needing early", because
+> > this is about populating the information early in the extension bitmap,
+> > rather than about actually needing the information. There's no advantage
+>=20
+> the code after arch/riscv/mm/init.c but before mmu on needs the
+> bitmap informaion when pgtable_l5|l4_enabled() is called (w/o
+> USE_EARLY_PGTABLE_LEVELS)
 
-Only really the fancier sparc32 setup which can't be emulated [there's a call
-out in the cover for that one!] :) though sashiko found an issue with that that
-is now fixed.
+Oh, I must have missed something then, I didn't realise you were
+patching the alternatives early - I thought you were skipping them until
+the information became available at the normal time. Sorry bout that.
 
-The other two I boot tested locally under emulation with no issues :)
+How bad is the damage btw, if you implement pgtable_l5_enabled() as
 
->
+static __always_inline bool pgtable_l5_enabled(void)
+{
+	if (riscv_has_extension_likely(RISCV_ISA_EXT_SV57))
+		return true;
 
---
-Cheers, Lorenzo
+	return _pgtable_l5_enabled;
+}
+
+? It shouldn't be too bad since it should get expanded to stuff like
+
+	if (riscv_has_extension_likely(RISCV_ISA_EXT_SV57) || _pgtable_l5_enabled)
+
+by the compiler. I wonder if you can do this and get rid of
+USE_EARLY_PGTABLE_LEVELS entirely, since the unpatched alternative
+should return false?
+
+Cheers,
+Conor.
+
+(btw, I am kinda unavailable til the 22nd, so sorry if I take some time
+to reply here or to a new revision)
+
+>=20
+> > gained, as far as I can tell, by setting this early and it only makes
+> > the code more complicated.
+> >=20
+>=20
+
+--loqWGgo4+1JPEZ8Z
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaqFHrwAKCRB4tDGHoIJi
+0kNPAPwKsnb0Nigb9+J8Zf+WnE3OeDqGa6cRZBx1CwuUwS95SAD+JgfTl9+MD1xz
+AC0FTNoNkfZCoO5UpNQ2PytnNp5KDQY=
+=XopZ
+-----END PGP SIGNATURE-----
+
+--loqWGgo4+1JPEZ8Z--
+
+
+--===============4356346545221057053==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4356346545221057053==--
+
