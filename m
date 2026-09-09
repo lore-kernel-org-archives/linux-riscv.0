@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A86C79FB7
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 20:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 100E8C79FBB
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 21:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Q8UEBQNxTKPJ7uP+ulND/QmjJc29SNHMs8Adv4sbFc=; b=FC1HHjZ+zRXRah
-	/q6HFfVWfgN+tjFbPmmxpl8vddIlIMcZZkMVnmDh33SZ5ON6CR22Zj6lh9YJWooiXTcge00CnXYTg
-	Ek9TPjsIu3SXjxyjwn1odZMwbrGJLJUk9F0xrJ5Phn8JzMdN4k5isvj92aJYbzcLgZkWJ4x+vQBBw
-	Hnu1M2scyjnOIAIHrDE1iMJwVGOAmrfY5zKR+HxNze9UYLpFLvFzJiORCyul4ZGyR2rVj4CxfZxd2
-	HBILQ6GcCvvhwMXzZthpBO/tsifs+hWC1ezMijHXEN5TSsRZlJObPdqbCEOfVhkRbIlaVvT6RxBHr
-	jI63k5I8Nlf8LDV0F92Q==;
+	List-Owner; bh=BwV52nSyWOKNE67hPMdcNJzQZ1PbHReb/jnjL0NEKFA=; b=bLXmCT2+UBXip3
+	/W9c0zgKCrz6QcHl/7jDYIHqEUiCk31Hoi14DRqxQy+nxcxRvg8Yf9Oc9cRtxTJXqTWwpf6Bslpuu
+	+tmTY3WEdClXY4Ej6ABFzaDTKczxvrPHCxzeYbYGp8P1GE6Wop4U0NknSko7hhu+Xa3Zyn/fnDLrc
+	5vFs61Fj2/r6R3hctYKtjlZK1943KCrRCRYkm5n9dcfYwUb4zfNO5IR1x0iasYe8Uw4KQwTPn8Hnc
+	VLOssJVyMa+djTKgenUJFsZh8rKL2K2N6c6A7p+EJnevVV35lqa37ZOTwZHi6CJBROQY1IV8W3C7c
+	wzkK0QmiXEzaWtZIRm0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4OTt-0000000CmIy-39uI;
-	Wed, 09 Sep 2026 20:01:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4OTq-0000000CmHl-1Q5j;
-	Wed, 09 Sep 2026 20:01:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB42B1570;
-	Wed,  9 Sep 2026 13:01:07 -0700 (PDT)
-Received: from [10.211.55.7] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BAF703F7B4;
-	Wed,  9 Sep 2026 13:01:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=foss.arm.com; s=main;
-	t=1788984071; bh=rNi5YhSEeETSE5FQBog3k1r0aviOJOf+s/njOtyxBZE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HnL3iTWUzI5pHllYz6CCHmcPV3JTw+s6qzHZZToyX8cY0TBKM130vVtUdiL2JwN+G
-	 /8IMNBhLGf6IMvg5JAecf3/j2SujtIhDOIUmv1SnU6JOhvLB1iobKgEx/gCGbaofGy
-	 u6UNzBwtszGomEhOE5GTTi+QO1cB/EndPZx3QVr4=
-Message-ID: <c5367968-0e0d-4583-8ac9-efb3bb5b2983@foss.arm.com>
-Date: Wed, 9 Sep 2026 15:01:10 -0500
+	id 1x4PsP-0000000CtBp-16jY;
+	Wed, 09 Sep 2026 21:30:41 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x4PsL-0000000CtBF-3X4n
+	for linux-riscv@lists.infradead.org;
+	Wed, 09 Sep 2026 21:30:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788989438; x=1820525438;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=JlB3epDNkYuRu77ShtvE8KAnaQZhj6gdzdWXG9fRPU0=;
+  b=TR0JFn0sMi2Zw+E8JrJpIKfEVaI8idg6pt48FOZc7Gl0w0eFmaDwJ3pB
+   6dPQas4T9fRC8zrrxy78xSyRt5D3hcROkCBVaZ5S2X/5I9kRSYyXpGhol
+   jpS/uYphrNT/sm6zSsFSsLbJUu2P1IFIsVqPXECLyivwHUCZiYwzzEQxz
+   yh+1Z5AtevdI45QsTnzwDha8dpMhdQFCl+mi3ii3oqNU4uJxW4oDo+1IM
+   YxrQJCz8Gb+kh0490ZNrPkYzd2HklbRrxa3xiaW0qRu+jV+yPe07Uq5Mt
+   wi8TZLA+P83Hyy14ceJT2jNlg8hOr6zUPN8qKPNiPLFZRjTk9JnTWYYGZ
+   Q==;
+X-CSE-ConnectionGUID: yvPFJn0hRYi1SGRxOzoMaw==
+X-CSE-MsgGUID: QDZRzaNWS+ehwGnPTIgokw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11900"; a="100088564"
+X-IronPort-AV: E=Sophos;i="6.25,271,1779174000"; 
+   d="scan'208";a="100088564"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Sep 2026 14:30:36 -0700
+X-CSE-ConnectionGUID: 3GHb/vWtSmaPylVHsJVXoQ==
+X-CSE-MsgGUID: boGQXGgZRRWdDtxkaJ8RNw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,271,1779174000"; 
+   d="scan'208";a="265236508"
+Received: from lkp-server01.sh.intel.com (HELO a3e91e2cf319) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 09 Sep 2026 14:30:33 -0700
+Received: from kbuild by a3e91e2cf319 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x4PsE-000000000y8-08by;
+	Wed, 09 Sep 2026 21:30:30 +0000
+Date: Thu, 10 Sep 2026 05:30:19 +0800
+From: kernel test robot <lkp@intel.com>
+To: Rui Qi <qirui.001@bytedance.com>, palmer@dabbelt.com, pjw@kernel.org,
+	aou@eecs.berkeley.edu, alex@ghiti.fr
+Cc: oe-kbuild-all@lists.linux.dev, Rui Qi <qirui.001@bytedance.com>,
+	Deepak Gupta <debug@rivosinc.com>, Kees Cook <kees@kernel.org>,
+	Charles Mirabile <cmirabil@redhat.com>,
+	Drew Fustini <fustini@kernel.org>, Martin Kaiser <martin@kaiser.cx>,
+	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv: crash: Add crash hotplug support
+Message-ID: <202609100553.E6HUYviI-lkp@intel.com>
+References: <20260908125155.1777895-1-qirui.001@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Shadow Stack Locking Semantics between arch's
-To: Mark Brown <broonie@kernel.org>,
- "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: Jesse Huang <jesse.huang@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- linux-arm-kernel@lists.infradead.org,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- linux-hardening@vger.kernel.org, linux-api@vger.kernel.org,
- dave.hansen@linux.intel.com, rick.p.edgecombe@intel.com, debug@rivosinc.com,
- andrew@sifive.com, kito.cheng@sifive.com
-References: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
- <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
- <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
- <0ef9f4ab-4c9f-4089-bed3-f7726ec97804@foss.arm.com>
- <522bcf96-499c-491b-aaf0-34e6bbd42929@sirena.org.uk>
-Content-Language: en-US
-From: Bill Roberts <bill.roberts@foss.arm.com>
-In-Reply-To: <522bcf96-499c-491b-aaf0-34e6bbd42929@sirena.org.uk>
+Content-Disposition: inline
+In-Reply-To: <20260908125155.1777895-1-qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_130114_509692_A9B7A598 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260909_143037_926197_D364B2F9 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,35 +88,212 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pj4+PiB1bnNpZ25lZCBsb25nIGxvY2tlZCA9IDB4MjsgLy8gS2VybmVsIFRhc2sgU3RhdGUgLT4g
-TE9DSyBXUklURQo+Pj4+IHVuc2lnbmVkIGxvbmcgY3VyX3ZhbCA9IDB4MzsgLy8gS2VybmVsIFRh
-c2sgU3RhdGUgLT4gV1JJVEUgYW5kIFNIQURPV1NUQUNLCj4+Pj4gRU5BQkxFRAo+Pj4+IHVuc2ln
-bmVkIGxvbmcgbmV3X3ZhbCA9IDB4MDsgLy8gVXNlcnNwYWNlIEZlYXR1cmUgQ2hhbmdlIHZpYSBz
-eXNjYWxsIC0+Cj4+Pj4gRElTQUJMRQo+Pj4+IHwgeDg2LTY0IHwgcmlzYy12IHwgYXJtNjQgfAo+
-Pj4+IHwgLS0tLS0tLS0tLSB8IC0tLS0tLS0tIHwgLS0tLS0tLS0tIHwKPj4+PiB8IFdvcmtzwqAg
-fCBGYWlsc8KgIHwgRmFpbHPCoCDCoCDCoHwKPj4+IEkgd291bGQgbm90IGhhdmUgZXhwZWN0ZWQg
-dGhhdCBjb21iaW5hdGlvbiB0byB3b3JrIGF0IGFsbCB3aXRoIHRoZQo+Pj4gcHJjdGwoKSAoYXMg
-b3Bwb3NlZCB0byBhcmNoX3ByY3RsKCkpIGludGVyZmFjZSBUQkgsIGlmIHlvdSd2ZSBsb2NrZWQK
-Pj4+IHdyaXRlIG9uIHlvdSBzaG91bGRuJ3QgYmUgYWJsZSB0byBkaXNhYmxlIGl0LiAgVGhlIHJl
-YXNvbiB0aGF0IHdvcmtzIG9uCj4+PiB4ODYgYXQgdGhlIG1pbnV0ZSBpcyB0aGF0IGZvciB4ODYg
-eW91IGNhbiBvbmx5IGNoYW5nZSBvbmUgYml0IGF0IGEgdGltZQo+Pj4gc28gdGhlIG5ldyB2YWx1
-ZSB3aGVuIGRpc2FibGluZyBpcyBlZmZlY3RpdmVseSAweDIsIG5vdCAweDAuCj4+IFllcywgdGhp
-cyBpcyBleGFjdGx5IHdoYXQgSSBhbSBwb2ludGluZyBvdXQuIEltcGxlbWVudGF0aW9uIGFzaWRl
-LCBpcyB0aGF0Cj4+IHRoZSBiZWhhdmlvciB3ZSB3YW50Pwo+IEl0IHNlZW1zIG1vcmUgaGVscGZ1
-bCB0byBzdXBwb3J0IGNoYW5naW5nIG1vcmUgdGhhbiBvbmUgYml0IGF0IG9uY2UuCisgUmljayBp
-biAidG8iLCBJIHdhbnQgaGltIHRvIHdlaWdoIGluIGFzIHdlbGwuCgpJIHRoaW5rIHdlJ3JlIHN0
-aWxsIG1pc2NvbW11bmljYXRpbmcuwqAgVGhlIGlzc3VlIGlzLCB0aGF0IGluIHRoZSBjdXJyZW50
-CmludGVyZmFjZSBmb3IgeDg2IHZpYSBhcmNoX3ByY3RsLCB3aGljaCBpcyBvbmUgYml0IGF0IGEg
-dGltZSwgdGhlIGV4cGxpY2l0CmxvY2tpbmcgb2Ygd3JpdGUgY2FuIGJlIHVuZG9uZSB2aWEgdHVy
-bmluZyBvZmYgdGhlIHNoYWRvdyBzdGFjay4gU2hvdWxkCnRoYXQgc3VjY2VlZCwgb3Igc2hvdWxk
-IHRoYXQgZmFpbCBzaW5jZSBpdCBpbXBsaWNpdGx5IHR1cm5zIG9mZiB3cml0ZT8gClNob3VsZAp3
-ZSBwcmVzZXJ2ZSB0aGF0IGFzIHdlIHBvcnQgdG8gcHJjdGw/IFNob3VsZCB3ZSBjaGFuZ2UgdGhh
-dCBpbiB4ODYKYXJjaF9wcmN0bCwgd2FzIHRoYXQgaW50ZW5kZWQ/CgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Rui,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on kees/for-next/kspp]
+[also build test ERROR on linus/master kees/for-next/pstore v7.3-rc2 next-20260909]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Rui-Qi/riscv-crash-Add-crash-hotplug-support/20260908-205143
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git for-next/kspp
+patch link:    https://lore.kernel.org/r/20260908125155.1777895-1-qirui.001%40bytedance.com
+patch subject: [PATCH] riscv: crash: Add crash hotplug support
+config: riscv-randconfig-r071-20260910 (https://download.01.org/0day-ci/archive/20260910/202609100553.E6HUYviI-lkp@intel.com/config)
+compiler: clang version 21.1.8 (https://github.com/llvm/llvm-project 2078da43e25a4623cab2d0d60decddf709aaea28)
+smatch: v0.5.0-9187-g5189e3fb
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260910/202609100553.E6HUYviI-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202609100553.E6HUYviI-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   In file included from kernel/crash_reserve.c:12:
+   In file included from include/linux/kexec.h:38:
+>> arch/riscv/include/asm/kexec.h:79:45: warning: declaration of 'struct kimage' will not be visible outside of this function [-Wvisibility]
+      79 | void arch_crash_handle_hotplug_event(struct kimage *image, void *arg);
+         |                                             ^
+   arch/riscv/include/asm/kexec.h:82:39: warning: declaration of 'struct kimage' will not be visible outside of this function [-Wvisibility]
+      82 | int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags);
+         |                                       ^
+   2 warnings generated.
+--
+   In file included from kernel/kexec.c:13:
+   In file included from include/linux/kexec.h:38:
+>> arch/riscv/include/asm/kexec.h:79:45: warning: declaration of 'struct kimage' will not be visible outside of this function [-Wvisibility]
+      79 | void arch_crash_handle_hotplug_event(struct kimage *image, void *arg);
+         |                                             ^
+   arch/riscv/include/asm/kexec.h:82:39: warning: declaration of 'struct kimage' will not be visible outside of this function [-Wvisibility]
+      82 | int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags);
+         |                                       ^
+>> kernel/kexec.c:138:61: error: incompatible pointer types passing 'struct kimage *' to parameter of type 'struct kimage *' [-Werror,-Wincompatible-pointer-types]
+     138 |         if ((flags & KEXEC_ON_CRASH) && arch_crash_hotplug_support(image, flags))
+         |                                                                    ^~~~~
+   arch/riscv/include/asm/kexec.h:82:47: note: passing argument to parameter 'image' here
+      82 | int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags);
+         |                                               ^
+   2 warnings and 1 error generated.
+--
+   In file included from kernel/crash_core.c:14:
+   In file included from include/linux/kexec.h:38:
+>> arch/riscv/include/asm/kexec.h:79:45: warning: declaration of 'struct kimage' will not be visible outside of this function [-Wvisibility]
+      79 | void arch_crash_handle_hotplug_event(struct kimage *image, void *arg);
+         |                                             ^
+   arch/riscv/include/asm/kexec.h:82:39: warning: declaration of 'struct kimage' will not be visible outside of this function [-Wvisibility]
+      82 | int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags);
+         |                                       ^
+>> kernel/crash_core.c:718:34: error: incompatible pointer types passing 'struct kimage *' to parameter of type 'struct kimage *' [-Werror,-Wincompatible-pointer-types]
+     718 |         arch_crash_handle_hotplug_event(image, arg);
+         |                                         ^~~~~
+   arch/riscv/include/asm/kexec.h:79:53: note: passing argument to parameter 'image' here
+      79 | void arch_crash_handle_hotplug_event(struct kimage *image, void *arg);
+         |                                                     ^
+   2 warnings and 1 error generated.
+--
+   In file included from arch/riscv/kernel/crash.c:8:
+   In file included from include/linux/kexec.h:38:
+>> arch/riscv/include/asm/kexec.h:79:45: warning: declaration of 'struct kimage' will not be visible outside of this function [-Wvisibility]
+      79 | void arch_crash_handle_hotplug_event(struct kimage *image, void *arg);
+         |                                             ^
+   arch/riscv/include/asm/kexec.h:82:39: warning: declaration of 'struct kimage' will not be visible outside of this function [-Wvisibility]
+      82 | int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags);
+         |                                       ^
+>> arch/riscv/kernel/crash.c:18:5: error: conflicting types for 'arch_crash_hotplug_support'
+      18 | int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags)
+         |     ^
+   arch/riscv/include/asm/kexec.h:83:36: note: expanded from macro 'arch_crash_hotplug_support'
+      83 | #define arch_crash_hotplug_support arch_crash_hotplug_support
+         |                                    ^
+   arch/riscv/include/asm/kexec.h:82:5: note: previous declaration is here
+      82 | int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags);
+         |     ^
+>> arch/riscv/kernel/crash.c:53:6: error: conflicting types for 'arch_crash_handle_hotplug_event'
+      53 | void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
+         |      ^
+   arch/riscv/include/asm/kexec.h:80:41: note: expanded from macro 'arch_crash_handle_hotplug_event'
+      80 | #define arch_crash_handle_hotplug_event arch_crash_handle_hotplug_event
+         |                                         ^
+   arch/riscv/include/asm/kexec.h:79:6: note: previous declaration is here
+      79 | void arch_crash_handle_hotplug_event(struct kimage *image, void *arg);
+         |      ^
+   2 warnings and 2 errors generated.
+
+
+vim +/arch_crash_hotplug_support +18 arch/riscv/kernel/crash.c
+
+    17	
+  > 18	int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags)
+    19	{
+    20	#ifdef CONFIG_KEXEC_FILE
+    21		if (image->file_mode)
+    22			return 1;
+    23	#endif
+    24		/*
+    25		 * For the kexec_load() syscall path, the user space kexec tool
+    26		 * needs to indicate that the elfcorehdr segment is excluded from
+    27		 * SHA verification by setting the appropriate flags.
+    28		 */
+    29		return (kexec_flags & KEXEC_UPDATE_ELFCOREHDR ||
+    30			kexec_flags & KEXEC_CRASH_HOTPLUG_SUPPORT);
+    31	}
+    32	
+    33	unsigned int arch_crash_get_elfcorehdr_size(void)
+    34	{
+    35		unsigned int sz;
+    36	
+    37		/* kernel_map, VMCOREINFO and maximum CPUs */
+    38		sz = 2 + CONFIG_NR_CPUS;
+    39		if (IS_ENABLED(CONFIG_MEMORY_HOTPLUG))
+    40			sz += CONFIG_CRASH_MAX_MEMORY_RANGES;
+    41		sz *= sizeof(Elf64_Phdr);
+    42		return sz;
+    43	}
+    44	
+    45	/**
+    46	 * arch_crash_handle_hotplug_event() - Handle hotplug elfcorehdr changes
+    47	 * @image: a pointer to kexec_crash_image
+    48	 * @arg: struct memory_notify handler for memory hotplug case and
+    49	 *       NULL for CPU hotplug case.
+    50	 *
+    51	 * Prepare the new elfcorehdr and replace the existing elfcorehdr.
+    52	 */
+  > 53	void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
+    54	{
+    55		void *elfbuf = NULL, *old_elfcorehdr;
+    56		unsigned long mem, memsz;
+    57		unsigned long elfsz = 0;
+    58	
+    59		/*
+    60		 * As crash_prepare_elf64_headers() has already described all
+    61		 * possible CPUs, there is no need to update the elfcorehdr
+    62		 * for additional CPU changes.
+    63		 */
+    64		if ((image->file_mode || image->elfcorehdr_updated) &&
+    65			((image->hp_action == KEXEC_CRASH_HP_ADD_CPU) ||
+    66			(image->hp_action == KEXEC_CRASH_HP_REMOVE_CPU)))
+    67			return;
+    68	
+    69		/*
+    70		 * Create the new elfcorehdr reflecting the changes to CPU and/or
+    71		 * memory resources.
+    72		 */
+    73		if (crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
+    74			pr_err("unable to create new elfcorehdr");
+    75			goto out;
+    76		}
+    77	
+    78		/*
+    79		 * Obtain address and size of the elfcorehdr segment, and
+    80		 * check it against the new elfcorehdr buffer.
+    81		 */
+    82		mem = image->segment[image->elfcorehdr_index].mem;
+    83		memsz = image->segment[image->elfcorehdr_index].memsz;
+    84		if (elfsz > memsz) {
+    85			pr_err("update elfcorehdr elfsz %lu > memsz %lu",
+    86				elfsz, memsz);
+    87			goto out;
+    88		}
+    89	
+    90		/*
+    91		 * Copy new elfcorehdr over the old elfcorehdr at destination.
+    92		 */
+    93		old_elfcorehdr = kmap_local_page(pfn_to_page(mem >> PAGE_SHIFT));
+    94		if (!old_elfcorehdr) {
+    95			pr_err("mapping elfcorehdr segment failed\n");
+    96			goto out;
+    97		}
+    98	
+    99		/*
+   100		 * Temporarily invalidate the crash image while the
+   101		 * elfcorehdr is updated.
+   102		 */
+   103		xchg(&kexec_crash_image, NULL);
+   104		memcpy_flushcache(old_elfcorehdr, elfbuf, elfsz);
+   105		xchg(&kexec_crash_image, image);
+   106		kunmap_local(old_elfcorehdr);
+   107		pr_debug("updated elfcorehdr\n");
+   108	
+   109	out:
+   110		vfree(elfbuf);
+   111	}
+   112	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
