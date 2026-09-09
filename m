@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A806DC79FAD
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 11:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E37C79FB6
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 11:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tz8vArbILfkx5Og8nDhtpbCo1wcy175w35L3b2AExsg=; b=dcofT27GUsTAd0PNAxL4NXie/S
-	6cu/WwLqTYikb9SB7LJeCwGK+DWwIYLNohEPuM7px9O04nM1TtUn7m5N6KQ4FPlceAl498Mzooby7
-	T/NVCuS+FyqUhZnnHsARW3fRPryi92XpBY4GoAksgthwX6TstyR8OLcU6RUWo4zQJmcoKGtR3S3I3
-	FdbVZy3uHyWr9Iqaz5QsiYaJvr0iLe7JP7suhiEc1gbq/1Lskh5kdvHQ98g0PRZXT8L5Uj66LGErF
-	da07vDTWxGDqMYMHbMm26iRuTcZca3JBoEkYLY/tHBAxElmMXtYYQev2QSzos4/6nvWWM4oTf0bzx
-	ekylFJ8w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xZYl8UtVvpE9Cz6/OjKYeUtCg1JA+ALJuRymk+ZDKxI=; b=IKU3eBG65i6NX3
+	MC2jfbGa9MPaNVJw93uB0JKJQa4gxHOmqrRvTyCkGIuiPbxZ/cnx+KYJwHtFH063ecieu2zasBgX+
+	XHdDt8moE9+ygaP4gTKgGrvi/yGTpKh/zBjHk2Ap8olo0q5R+xh4uEOh0SH7iTPD0e0M1aFhWfRqW
+	ZxO9U4m2ZRriBLw2R6j70KfvOZxD5uYQ2eUxcA1Afypv+lbdMEb0k6mMuW0m4J6Fs+kllgYlvCBby
+	7tZdFPhDpkgiI1HJ7sDd79HV1IXOWK3xmDpOaECxyM97PXYxiJ8yb37So6sTejI9dpXOtILdarF5B
+	cP6sg0XBk65oCAdJLYvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4GAX-0000000BWZF-2QGI;
-	Wed, 09 Sep 2026 11:08:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4GQW-0000000BYzm-3J78;
+	Wed, 09 Sep 2026 11:25:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4GAV-0000000BWYz-3fWb
-	for linux-riscv@lists.infradead.org;
-	Wed, 09 Sep 2026 11:08:43 +0000
+	id 1x4GQU-0000000BYzG-1hgI;
+	Wed, 09 Sep 2026 11:25:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC3E841804;
-	Wed,  9 Sep 2026 11:08:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9557A1F00A3A;
-	Wed,  9 Sep 2026 11:08:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 08BF160211;
+	Wed,  9 Sep 2026 11:25:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA8571F00A3D;
+	Wed,  9 Sep 2026 11:24:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788952122;
-	bh=XDF6EUNBfqF92NXMVALDMNh+97LM2dme+iORskOBx2w=;
+	s=k20260515; t=1788953112;
+	bh=inNJzZhlDskfV4tobMRa6NUvX+KktI2JxAaJsuypEcU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oc/3Q5OXuZzFrpZbMUc9s0AL5QWt1ffnpkl+XPubY0HjwJCMrfrIN7KqwJkF0iGCg
-	 7NwA7545HMZQkbDbKhF7rjkuVurGqkCj59UaplbHeJoUYIwsXuXln3uKjK8HaByv76
-	 h0NHWbA0f3i2rp64NIhHsGp95bUit01xSHvMBB/0PHh0953navTSoeWFlk9aDsufAq
-	 ImDyiIBchNf37mGGrvU1zGxt2gMe9efvuLAb3/Bbqk1bbeKgauqsiLuCXgwW3xLbnA
-	 XUxWIKmMq5hMZ5smHAz0RVFQR3g8CWnrIS0EvvVGB2gx4rezUMhgmXUtaNFR1aKKSC
-	 wbVQyE4Jsq2cA==
-Date: Wed, 9 Sep 2026 12:08:36 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: Re: [PATCH v2 4/5] riscv: RISCV_ISA_SV48 and RISCV_ISA_SV57 under
- NONPORTABLE
-Message-ID: <aqE-NPNy1qnSJc7o@squawk>
-References: <20260907151437.7603-1-jszhang@kernel.org>
- <20260907151437.7603-5-jszhang@kernel.org>
- <20260907-backless-theatrics-f19e489bc63f@spud>
- <ap-FtoTqMCnNACJN@xhacker>
- <20260908-deflector-degree-ceca18036811@spud>
- <aqCe6T8QKtJcLHiM@xhacker>
+	b=YCsVcikzxNnvBT0Y3c5qUMcZq6CnjiF9LAucMz9KUDz/X8rycnl20TJiMBuTV44C6
+	 ciuJ5X0Mary0o+RdhTl8tWHSISMo1lGTn+IXwhIQfs7dZg1NC//UvrgDFVVFH2BXXg
+	 wGSvIxQ/NBgeVTkoO77PEhxG5tF/kt0hk770YdbvA7jzYldeFCi6gaAA3Ie47dGZ4o
+	 rDioSU8ROD/U0Ex4wV585kl0B6XRkVhfL48+PBTUa/l0vXguhxnOvt9I9np0ualYy6
+	 L7k5zESC+bnaJX5hWbMNkzgmSv0XEtgXO0Eiy5hQl/cIt/eJwNjq2z/FZB7YFfjxHL
+	 0pO6lgM9ge/7g==
+Date: Wed, 9 Sep 2026 12:24:48 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Brian Cain <bcain@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Simon Schuster <schuster.simon@siemens-energy.com>, 
+	Jonas Bonn <jonas@southpole.se>, Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+	Stafford Horne <shorne@gmail.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+	Rich Felker <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>, 
+	Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
+	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>, 
+	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>
+Subject: Re: [PATCH v2 00/12] mm: make userland page table freeing RCU-safe
+Message-ID: <aqFBXNYGa5cktCeJ@gremlin>
+References: <20260908-rcu-pagetable-freeing-v2-0-1f60b64e878e@kernel.org>
+ <20260908141543.8180b60400d38b70d249949b@linux-foundation.org>
 MIME-Version: 1.0
-In-Reply-To: <aqCe6T8QKtJcLHiM@xhacker>
+Content-Disposition: inline
+In-Reply-To: <20260908141543.8180b60400d38b70d249949b@linux-foundation.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,281 +103,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2050547522572082313=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2050547522572082313==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1+RHUK1obFa6miaX"
-Content-Disposition: inline
+On Tue, Sep 08, 2026 at 02:15:43PM -0700, Andrew Morton wrote:
+> On Tue, 08 Sep 2026 13:32:09 +0100 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+>
+> > The majority of architectures in the kernel defer page table freeing until
+> > an RCU grace period has elapsed, this series converts all remaining
+> > architectures to do so too and eliminates CONFIG_MMU_GATHER_RCU_TABLE_FREE
+> > altogether.
+> >
+> > This is important because it enables safe lockless page table walking under
+> > RCU alone.
+> >
+> > Doing so allows for reduced lock contention, avoids lock ordering concerns
+> > and enables fast, efficient and correct page table walking as a result.
+> >
+> > Additionally it removes a bunch of code and architecture-specific behaviour
+> > which is always a beneficial thing to do.
+>
+> Thanks.  It's early and unreviewed, but this is mainly an
+> if-it-compiles-its-good thing, so I'll add it for exposure to the
+> build/checker universe.
 
---1+RHUK1obFa6miaX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yeah largely, and I have done additional testing for cases which need it.
 
-On Wed, Sep 09, 2026 at 07:48:57AM +0800, Jisheng Zhang wrote:
-> On Tue, Sep 08, 2026 at 02:07:27PM +0100, Conor Dooley wrote:
-> > On Tue, Sep 08, 2026 at 11:49:10AM +0800, Jisheng Zhang wrote:
-> > > On Mon, Sep 07, 2026 at 05:21:11PM +0100, Conor Dooley wrote:
-> > > > On Mon, Sep 07, 2026 at 11:14:36PM +0800, Jisheng Zhang wrote:
-> > > > > In last commit, we have optimized the pgtable_l4|l5_enabled with =
-isa
-> > > > > extension alternative mechanism, thus a typical access_ok(addr, 1=
-);
-> > > > > is compiled as:
-> > > > >=20
-> > > > > ffffffff8001dd30:	1141                	addi	sp,sp,-16
-> > > > > ffffffff8001dd32:	e022                	sd	s0,0(sp)
-> > > > > ffffffff8001dd34:	e406                	sd	ra,8(sp)
-> > > > > ffffffff8001dd36:	0800                	addi	s0,sp,16
-> > > > > ffffffff8001dd38:	00000013          	nop
-> > > > > ffffffff8001dd3c:	02a0006f          	j	ffffffff8001dd66 <foo+0x3e>
-> > > > > ffffffff8001dd40:	60a2                	ld	ra,8(sp)
-> > > > > ffffffff8001dd42:	6402                	ld	s0,0(sp)
-> > > > > ffffffff8001dd44:	57fd                	li	a5,-1
-> > > > > ffffffff8001dd46:	83a1                	srli	a5,a5,0x8
-> > > > > ffffffff8001dd48:	00a7b533          	sltu	a0,a5,a0
-> > > > > ffffffff8001dd4c:	00154513          	xori	a0,a0,1
-> > > > > ffffffff8001dd50:	0141                	addi	sp,sp,16
-> > > > > ffffffff8001dd52:	8082                	ret
-> > > > > ...
-> > > > > ffffffff8001dd64:	bfe1                	j	ffffffff8001dd3c <foo+0x=
-14>
-> > > > > ffffffff8001dd66:	0180006f          	j	ffffffff8001dd7e <foo+0x56>
-> > > > > ffffffff8001dd6a:	60a2                	ld	ra,8(sp)
-> > > > > ffffffff8001dd6c:	6402                	ld	s0,0(sp)
-> > > > > ffffffff8001dd6e:	57fd                	li	a5,-1
-> > > > > ffffffff8001dd70:	83c5                	srli	a5,a5,0x11
-> > > > > ffffffff8001dd72:	00a7b533          	sltu	a0,a5,a0
-> > > > > ffffffff8001dd76:	00154513          	xori	a0,a0,1
-> > > > > ffffffff8001dd7a:	0141                	addi	sp,sp,16
-> > > > > ffffffff8001dd7c:	8082                	ret
-> > > > > ffffffff8001dd7e:	60a2                	ld	ra,8(sp)
-> > > > > ffffffff8001dd80:	6402                	ld	s0,0(sp)
-> > > > > ffffffff8001dd82:	57fd                	li	a5,-1
-> > > > > ffffffff8001dd84:	83e9                	srli	a5,a5,0x1a
-> > > > > ffffffff8001dd86:	00a7b533          	sltu	a0,a5,a0
-> > > > > ffffffff8001dd8a:	00154513          	xori	a0,a0,1
-> > > > > ffffffff8001dd8e:	0141                	addi	sp,sp,16
-> > > > > ffffffff8001dd90:	8082                	ret
-> > > > >=20
-> > > > > As can be seen, different branches for SV39/SV48/SV57 are still t=
-here,
-> > > > > since access_ok() sits at hot code path, why not reduce the code =
-size
-> > > > > to optimize to make the instruction cache happy?
-> > > > >=20
-> > > > > Introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE, so=
- that
-> > > > > the embedded platforms can choose the best option themselves, whi=
-le
-> > > > > still keep the feature of unified one kernel Image for all SV39, =
-SV48
-> > > > > and SV57.
-> > > > >=20
-> > > > > Before the patch, vmlinux built with pure RISCV64 defconfig
-> > > > >    text    data     bss     dec     hex filename
-> > > > > 13439437   6790446  483221 20713104 13c0e90 /tmp/old/vmlinux
-> > > > >=20
-> > > > > After the patch, vmlinux built with pure RISCV64 defconfig:
-> > > > >    text    data     bss     dec     hex filename
-> > > > > 13314445   6787934  466837 20569216 139dc80 /tmp/new/vmlinux
-> > > > >=20
-> > > > > .text section is reduced by 122KB!
-> > > > >=20
-> > > > > And after the patch, typical access_ok(addr, 1) is compiled as:
-> > > > > ffffffff8001809a:	1141                	addi	sp,sp,-16
-> > > > > ffffffff8001809c:	e022                	sd	s0,0(sp)
-> > > > > ffffffff8001809e:	e406                	sd	ra,8(sp)
-> > > > > ffffffff800180a0:	0800                	addi	s0,sp,16
-> > > > > ffffffff800180a2:	00000013          	nop
-> > > > > ffffffff800180a6:	60a2                	ld	ra,8(sp)
-> > > > > ffffffff800180a8:	6402                	ld	s0,0(sp)
-> > > > > ffffffff800180aa:	4785                	li	a5,1
-> > > > > ffffffff800180ac:	179a                	slli	a5,a5,0x26
-> > > > > ffffffff800180ae:	00f53533          	sltu	a0,a0,a5
-> > > > > ffffffff800180b2:	0141                	addi	sp,sp,16
-> > > > > ffffffff800180b4:	8082                	ret
-> > > > >=20
-> > > > > only 12 instruction!! For refernece, before the patch, the access=
-(addr,
-> > > > > 1) needs 32 instructions.
-> > > > >=20
-> > > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > > > ---
-> > > > >  arch/riscv/Kconfig                  | 24 ++++++++++++++++++++++++
-> > > > >  arch/riscv/include/asm/pgtable-64.h | 12 ++++++++++++
-> > > > >  arch/riscv/mm/init.c                | 10 ++++++++++
-> > > > >  3 files changed, 46 insertions(+)
-> > > > >=20
-> > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > > index e9476b8cbeb0..4cdb1e3f34be 100644
-> > > > > --- a/arch/riscv/Kconfig
-> > > > > +++ b/arch/riscv/Kconfig
-> > > > > @@ -602,6 +602,30 @@ config RISCV_ISA_SSQOSID
-> > > > >  	  cache partitioning scheme and use the MCID to track how much
-> > > > >  	  cache a process, or a group of processes, is using.
-> > > > > =20
-> > > > > +config RISCV_ISA_SV48
-> > > > > +	bool "Page-Based 48-bit Virtual-Memory System"
-> > > > > +	depends on 64BIT && NONPORTABLE
-> > > > > +	default y
-> > > >=20
-> > > > I don't understand how you've got this set up here.
-> > > > If this is genuinely non-portable, then you should not set the defa=
-ult to
-> > > > enabled. However, I'm not really sure that this is actually non-por=
-table
-> > > > at all....
-> > > >=20
-> > > > > +	help
-> > > > > +	  Add support for the Page-Based 48-bit Virtual-Memory System.
-> > > > > +
-> > > > > +	  Enable this option for systems for which a 39-bit virtual add=
-ress
-> > > > > +	  space is insufficient. But if 39-bit is enough, disabling this
-> > > > > +	  option will result in smaller kernel size and slighly better
-> > > > > +	  performance.
-> > > > > +
-> > > > > +config RISCV_ISA_SV57
-> > > > > +	bool "Page-Based 57-bit Virtual-Memory System"
-> > > > > +	depends on 64BIT && NONPORTABLE
-> > > > > +	default y
-> > > > > +	help
-> > > > > +	  Add support for the Page-Based 57-bit Virtual-Memory System.
-> > > > > +
-> > > > > +	  Enable this option for systems for which a 48-bit virtual add=
-ress
-> > > > > +	  space is insufficient. But if 48-bit is enough, disabling this
-> > > > > +	  option will result in smaller kernel size and slighly better
-> > > > > +	  performance.
-> > > > > +
-> > > > >  config RISCV_ISA_SVPBMT
-> > > > >  	bool "Svpbmt extension support for supervisor mode page-based m=
-emory types"
-> > > > >  	depends on 64BIT && MMU
-> > > > > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/inc=
-lude/asm/pgtable-64.h
-> > > > > index 7e30ec0e9f6c..f2d29da93eea 100644
-> > > > > --- a/arch/riscv/include/asm/pgtable-64.h
-> > > > > +++ b/arch/riscv/include/asm/pgtable-64.h
-> > > > > @@ -16,21 +16,33 @@ extern bool _pgtable_l5_enabled;
-> > > > >  #ifdef USE_EARLY_PGTABLE_LEVELS
-> > > > >  static __always_inline bool pgtable_l5_enabled(void)
-> > > > >  {
-> > > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_=
-ISA_SV57))
-> > > > > +		return false;
-> > > > > +
-> > > > >  	return _pgtable_l5_enabled;
-> > > > >  }
-> > > > > =20
-> > > > >  static __always_inline bool pgtable_l4_enabled(void)
-> > > > >  {
-> > > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_=
-ISA_SV48))
-> > > > > +		return false;
-> > > > > +
-> > > > >  	return _pgtable_l4_enabled;
-> > > > >  }
-> > > > >  #else
-> > > > >  static __always_inline bool pgtable_l4_enabled(void)
-> > > > >  {
-> > > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_=
-ISA_SV48))
-> > > > > +		return false;
-> > > > > +
-> > > > >  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV48);
-> > > > >  }
-> > > > > =20
-> > > > >  static __always_inline bool pgtable_l5_enabled(void)
-> > > > >  {
-> > > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_=
-ISA_SV57))
-> > > > > +		return false;
-> > > > > +
-> > > > >  	return riscv_has_extension_likely(RISCV_ISA_EXT_SV57);
-> > > > >  }
-> > > > >  #endif
-> > > >=20
-> > > > ...because the code here won't enable sv57 etc if not supported...
-> > > >=20
-> > > > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > > > index 2a2402d79bc4..90bb85c5f167 100644
-> > > > > --- a/arch/riscv/mm/init.c
-> > > > > +++ b/arch/riscv/mm/init.c
-> > > > > @@ -844,6 +844,16 @@ static __init void set_satp_mode(uintptr_t d=
-tb_pa)
-> > > > > =20
-> > > > >  	kernel_map.page_offset =3D PAGE_OFFSET_L5;
-> > > > > =20
-> > > > > +	/* Fall back to Sv48 if Sv57 is unsupported on non-portable sys=
-tems */
-> > > > > +	if (IS_ENABLED(CONFIG_NONPORTABLE) && !IS_ENABLED(CONFIG_RISCV_=
-ISA_SV57) &&
-> > > > > +			satp_mode_limit =3D=3D 0)
-> > > > > +		satp_mode_limit =3D SATP_MODE_48;
-> > > >=20
-> > > > ...and neither does the code here.
-> > > >=20
-> > > > > Introduce RISCV_ISA_SV48 and RISCV_ISA_SV57 under NONPORTABLE, so=
- that
-> > > > > the embedded platforms can choose the best option themselves, whi=
-le
-> > > > > still keep the feature of unified one kernel Image for all SV39, =
-SV48
-> > > > > and SV57.
-> > > >=20
-> > > > NONPORTABLE is what you're meant to depend on when the kernel that =
-gets
-> > > > built cannot run on platforms without the feature.
-> > >=20
-> > > The reason I put these two Kconfig options under NONPORTABLE is: all
-> > > distributions won't enable NONPORTABLE for their defconfig, and I gue=
-ss
-> > > the distributions want to kept unified one kernel Image for all SV39,
-> > > SV48 and SV57.
-> > >=20
-> > > I have no preference whether move them out of NONPORTABLE or not.
-> >=20
-> > Oh right I think I made a mistake in my understanding of what's going on
-> > here.
-> >=20
-> > If you turn on NONPORTABLE (but not these new options) then you only get
-> > sv39 support. I think what you should do to make the behaviour of these
-> > options clearer is invert them.
->=20
-> hmm, other ISA ext Kconfig options are not inverted, so I prefer moving
-> SV48|57 out of NONPORTABLE and make them y by default.
+>
+> > However some arches required extra attention - sh-X2, m68k-motorola and
+> > sparc32.
+>
+> OK.  Please lmk later if you think additional reviewer/tester attention
+> is desirable in these areas.
 
-Sure, that works for me.
+Only really the fancier sparc32 setup which can't be emulated [there's a call
+out in the cover for that one!] :) though sashiko found an issue with that that
+is now fixed.
 
---1+RHUK1obFa6miaX
-Content-Type: application/pgp-signature; name=signature.asc
+The other two I boot tested locally under emulation with no issues :)
 
------BEGIN PGP SIGNATURE-----
+>
 
-iHUEARYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaqE+NAAKCRB4tDGHoIJi
-0pygAP94MA882BBSMKWMgXUcJwenSA75SIeqIoXo+xpl9NsSJQD8CTBp0ycVz6e9
-v6FSwwqinix5gIm+sHYi0ktbxFPUIgE=
-=RTlc
------END PGP SIGNATURE-----
-
---1+RHUK1obFa6miaX--
-
-
---===============2050547522572082313==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2050547522572082313==--
-
