@@ -4,131 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D4DC79F82
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 01:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC9CC79F82
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2026 02:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N2Si4rgWz5ihD8b63UFgEr5eJ1wR0qXhO6ivcCRrifE=; b=oeExQexbtiJ9cF
-	pyzy0kXAl4/bTwOGCzN0fBIfus/TFFRrwly177SrAy5qtbXfpC73mBWQKv1jN1eIOdMnfHRxv/xu6
-	dXQYaVZkcXCMoGPGdayJ8lVe4nhgb1Htz29hd4xdKq5SV3F9R4e+ha+Mx7cfyD5TDZ2cV19eSSTIl
-	KlPhQ/Gtn7veUzJDc1ghWqXt1O+rSkZUlFH1w+IkAVCgvYCPQu6WCUeNonGk19SgAv8jfB4sKxV1c
-	OgZ6Q2pfE3ZwNFAewPAbcFOecOouc6H3zado3TE9G5yziPcaNiaNHz2eldmsh7gZmyMHrxiJm+jgw
-	v7wQ4m/2wD2xby9xUEbA==;
+	List-Owner; bh=aZSLjM8Yy/otrLufjkjaTYUs5BcAMD9B0nWK8E1G9Aw=; b=vjHb3pit4bccYt
+	GRVDJ4qjDv+WqLXl+j5tcacyEeYKoJaQ833aDbts/CRCsMaNYyvGcJtP30SJI7oJExMaMg6ml76gQ
+	tN93S+IwcX5Ec03tcp8OhRKg3k+rNDQbhjeAiT2uW8CjSfMvmLSoOaHDAYt997c6DhMltOvtFkmOb
+	Xk5PBrmcdLYyRXJti/WsHg8yGuZJtHPodOo2ZtQnZ/WfoW8l2Pi1/LNoOu+7XHrNc1HWZA41nNkPH
+	MLIZMgJwaXmnG8ki7GKN7HeZPS8lH1q692Q2Hdj/4/lG99k/wTWzpYNbTTPtKOozRkyvTecdQdZaP
+	S4WIgHLvI0eRUFZi1mhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x47M2-0000000Aciv-3f97;
-	Wed, 09 Sep 2026 01:44:02 +0000
-Received: from mail-sh0chn02on2070f.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::70f] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1x47oU-0000000Aelh-3SPu;
+	Wed, 09 Sep 2026 02:13:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x47Lz-0000000AciG-1lA6
+	id 1x47oS-0000000AelY-2k0k
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Sep 2026 01:44:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=TK3qbEcSr6BAFcOg0IDnyf2CywUGFRc0xR8vQmQy604U+WUs22LrF6I70EVZutP/6vd5koYeFRnDBLcS1Eb8Mk/HuJMbD8nsqKyG85AYVi16IYs9u3e2dcFJDscCyzFU1+qq8ZeB6BmkPCHgFJHQiCB6WJ+Spf2l9ArOzxXJw/DW6EPnJUlWNLpdkNMVVaHlNJgtRNBM/nyZjnwAjdmoCLGZ0HPYrP1lN0Bd4E9HJdq64nx/p6ugRm7S1MMP3hixQOmdjensMu64cAJhEkW7pFuT0l2LbNtfPC8JT9Xp5A7LZ+kDZhtP6LH8sCI4cUxbzUMG1JPmtm8KeOFcCCJN+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=91IBFkekoyrjI+nDmQJA4wLRF4Be374Ak/3DGItdEi8=;
- b=HUimvhHFsHpcvNQiUQSHmAWk5WqqqrAlUOi/5s9n50zYYr0LXeZ81tvkPB2F4mYU8/aHXTrBnCcKOYQAqGpHqnJ4jHd+aIIkdz6iR6IFoIx1Dah8p/lUk67kH4b6pXYCiNlwzHAWNhYJ4JCi8f5g2VahX9jxoY45424iwYdfKke07gJpKnk8oR2PLgrya5iePUM4JSBsyfZpB5ueFgcC3fuOIsdEXGwoOeetu1Xj1Zr1K4yjDY5nuD1B8t/pVjNiQ/eVyN9vprFbxwZpcGrX1IEY4iKgxtG0c/XwO2zjyilHcFLOXfxY2fINhulDt7T/k8qx7JnP4DonAHEEVBWsLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1220.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:14::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.18; Wed, 9 Sep
- 2026 01:43:20 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0339.017; Wed, 9 Sep 2026 01:43:20 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
+	Wed, 09 Sep 2026 02:13:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 251CE601FD;
+	Wed,  9 Sep 2026 02:13:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 629F01F00A3A;
+	Wed,  9 Sep 2026 02:13:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788920002;
+	bh=aj7lS4wbLim438IKRoJg6uP0XjtEK8zqH0TnLDS7ljM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DOyiux90L4WR4WXBcnBSN8C+56L0qkvN3MzL1Yz66twQXHTaFpr9ydMEJ3wtJx9Se
+	 FwOJlpQnoA9ty19of931FX9pnQRvoqH7erIJU7kqrIapmzaaqfhgPS7/Nrq/JTxSma
+	 BczN+nn0rxUP98dq7RRXWYcLv1vwn2aQpo9yYhGTCLCzSZWz9XXYNlw/qRhzzclKuk
+	 0l3g7p6lelhrreTYyiZxFL5DXjzM+ZWslbavFaOGubsZC52bapl6l/WMsIA9sxj7tA
+	 V8uIUpXOzMBhfOazJPsKK9KyxxKK+2c1UZIiAbQT/PJduEhkBHr/zsvuACEMfcyLHv
+	 VrZ18rFEPWieQ==
+Date: Wed, 9 Sep 2026 02:13:20 +0000
+From: Yixun Lan <dlan@kernel.org>
 To: Conor Dooley <conor@kernel.org>
-CC: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, Lianfeng Ouyang
-	<lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v7 03/21] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0-pinctrl
-Thread-Topic: [PATCH v7 03/21] dt-bindings: pinctrl: Add
- starfive,jhb100-sys0-pinctrl
-Thread-Index: AQHdOTzS/Ezb1OmSwkyNoZ30RtNkILbFJiCAgABglEA=
-Date: Wed, 9 Sep 2026 01:43:20 +0000
-Message-ID: <ZQ4PR01MB1202F0B2A4BB3D370C82D523F2B02@ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn>
-References: <20260831113514.66382-1-changhuang.liang@starfivetech.com>
- <20260831113514.66382-4-changhuang.liang@starfivetech.com>
- <20260908-annually-catfight-39e3a1543274@spud>
-In-Reply-To: <20260908-annually-catfight-39e3a1543274@spud>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1220:EE_
-x-ms-office365-filtering-correlation-id: fc801271-77aa-4eda-79c8-08df0e13ba7c
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|4143699003|10067099003|18002099003|22082099003|56012099006|38070700021;
-x-microsoft-antispam-message-info: JF/bDqvZ9OFs5F7pJNV+sY6MBcTng4rhZY00XJp25GGA2E7UyONHhIIC4vuyC6BQGbCcPN1FUFh5nTXvHva5TzeAwhvpyPbbMnuT4D4/1sa/pgp513w2PRuQWdmSoIpmf8eFcvfyyzFt5OBH1gor1E8u1jInpQ4DXniWQXDvAik/qd09Zd8sAZNhmW6oNSFA7BJMtojan3D0KlCf4E8VPXdpnz5HhJsyFbpvT/we9PgbF67hVvDH7vtcHvDYn9XdPuxbhOXe0pr9VzS4CUJ1Gq/wFucpB9+jlUY945YnQR1TsTIvJkjSqnMe+ytjTxV4Rp1qANqrhMwOVvDt2izarFLF6v3uJayysJOlhou14M/qsD8sv/YYBefNz0gsznpJhFnk6KK1Rq30qEGTFb4AiG/mOcLf6W9bdD3x5oMc91ZqjRSkybMqi6Dr8zV7akWTF0TqnmfO3CDEbxYmPN15G/bNxoGIGdm7EcS0ZwisXx9ATIzq4n5eBbCbkrQQykZT5gkTVp0AUQ1gUZk2JqoqKXroI5PCBKK3mX2+NZyrx6/hXL1oQFHYgoZ9kLBvcUIL
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(4143699003)(10067099003)(18002099003)(22082099003)(56012099006)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?wwhS1HLCjM0fXs2odjqCIeoIFOZF/piN9xx7Hk3TcGdvQ2yMRjXY2DSxqEFm?=
- =?us-ascii?Q?GayWBN9zRi9Md4TqeyWnojw24H546ECCqsxOKtmyYEsanIibRZyMBFkGqRm0?=
- =?us-ascii?Q?1QN+CVg2FSLGvmF/FMJuwH3lFhwTxWoqJNwXSWXraSxK+25OsgJ4+gtSnQiD?=
- =?us-ascii?Q?vTbFnhFXDdXhca75BTq+UWWGlwj0ypxBuTLcpAbEDq3lJNfuU9i6n7Hvr6sy?=
- =?us-ascii?Q?5CkvrBxqt3a9m2n5Tv7+DcyHI3WbFTQK8jnWYIjzy7g+v9m6PI5dl68fxFK9?=
- =?us-ascii?Q?ipl11AyxslKSM06QBH/hJ8SDTUgszt2UGKhkZItP/3/VGvJN8FXNr2oRJZdf?=
- =?us-ascii?Q?3ydzAPNdvfgM1RLJkb5zeYSgmds7cTJU1d9KtgCcqNECsjikDRlvvOKGqyly?=
- =?us-ascii?Q?CymKLNuq9tda/hFnG42AgzlBz6CWcthgWzW28fKoA28yCCJbiIVXNc6TuqH5?=
- =?us-ascii?Q?Weq1ieZ04YIRrH48wno+q9DavrqCLyPyGPgVcepyXbJ3k4A1obryEOXYkhv+?=
- =?us-ascii?Q?uv5u42ZdD1Nb0oCbLGDnKN9KFcmD8UvQjAW+wlCIfgm57rbvcbWZiTmrFrW5?=
- =?us-ascii?Q?ZHkCgi9v8ERCgmiDY/T1LV57zQxOrsQebjGYRFGQgziRXt84SkK9E3ewdi06?=
- =?us-ascii?Q?jc0IXHCzHWUxxrANaVNRZC65Z4hcpGQS1cxPlSCIoCsElN1/frWNNj1bHSUY?=
- =?us-ascii?Q?Y6xGLCLG0bdF7w+M9b5smVPNaVf9HmEfQsl40O0NRnk2xQV8B7Rpsm/+4jd6?=
- =?us-ascii?Q?OQfxzsEX1gvmegqZOT6YTEYw61reB8kRvNwxvw1MKzt5e4cSX52IlhsR3J/C?=
- =?us-ascii?Q?hh8bu7VdWn0YdGcfoCXT/zI6KuIrrQxzjm3/svqUi7Z4XgTbB4h93WgSyuqr?=
- =?us-ascii?Q?rEowQb+nlQvkYlzNM9Ex9/8tABIxuj0Vx5BKSpTyYAQL78+CwwRnTCeEaXMU?=
- =?us-ascii?Q?J3RaMW7s6HK5fxSzEEJ2+vigAtH2jQz5t76xjQRFhqjrap6aaNxyVHMPd5UW?=
- =?us-ascii?Q?5E6xG2cKV2w01HqaxxX3DiuDH//3w8jgkZ3IZHfvycNu6Ap9d3LW+pP8xB0r?=
- =?us-ascii?Q?iePaayc8fXGehv87Sgt9Hth9lDYWOR0oVaAmnmoK16abCCmYVwm8sFVAiIlO?=
- =?us-ascii?Q?atCoeSBv/Q50jfqZZdqAYmBfZMi+W8xgGNmJ5XqfJoVV0t7IK/LtR6z1pYDl?=
- =?us-ascii?Q?XEYtAEUZP5siQV/nPfuTGlxnNxhvSzm5f8+pren6BOKl+RQoYZdFJ9MXCew+?=
- =?us-ascii?Q?f/KNo3CbCCRXrcPjq+D1y0rkfP6iioP/tGnERMGz6tvKeWz4jill9/AuIR0m?=
- =?us-ascii?Q?gcDM80tpbF2epGUIlaBjm4L2hsstVK2JX3Op9CnVOLCPyt/C6xhiNvbVn28H?=
- =?us-ascii?Q?d01oxaPripj0yP08iGNSlH4cn3bpvclOBUXTsaU8SpTG1cuPOl22EHK2t0sq?=
- =?us-ascii?Q?f+RH6SW2lq6+u6xWVd4AFNOA8uw4HZgh9MfktsJcjrj80YliG0LwA3c/WxwC?=
- =?us-ascii?Q?JKV4DQG8SdBLSwNRkOGNQv66uVENWelnvkn6dsL0G9Xwza72Ln/sbeA+3FdM?=
- =?us-ascii?Q?e8Ux6NnvDSyAM9CU3qRgBDSw7RZ+bwZNBMZgxMbjWvANE/1I52A7MSKxNXu0?=
- =?us-ascii?Q?Wtl6o6YHo3c4SnpiAVm9Bu4L7aOUM0TrzXMnLUsj0LFYUVKWDiBqM/zygCY6?=
- =?us-ascii?Q?MIjLirHMNrzvEQVQI5QxMPYMTFTRW2S5HrYZkhF+Vyec6eQHLbXbQN1KxK/D?=
- =?us-ascii?Q?8QzSXBPujtSNqHPlS3RRWaCKYxcP+jk=3D?=
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	Jennifer Berringer <jberring@redhat.com>,
+	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] scsi: ufs: spacemit: dt-bindings: Add UFS
+ controller for K3 SoC
+Message-ID: <20260909021320-GKG2330@kernel.org>
+References: <20260908-08-k3-ufs-support-v4-0-22aa2bd97d3b@kernel.org>
+ <20260908-08-k3-ufs-support-v4-1-22aa2bd97d3b@kernel.org>
+ <20260908-carnival-curve-5762bb5cdb92@spud>
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc801271-77aa-4eda-79c8-08df0e13ba7c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Sep 2026 01:43:20.4710
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0oKCA7QqJKk0yhIurZh5BUS9es2JH4Y4kCrV4pn8pAijfa+N4SnpCA2F5x2dpDkViUizVVqvWIN8cPzCyX+m6dKUA0sR7I2wy1V8Vyv0j7hWvHL6s67TgghlmOEcSfv1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1220
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260908_184359_461689_283AC66E 
-X-CRM114-Status: GOOD (  26.08  )
+Content-Disposition: inline
+In-Reply-To: <20260908-carnival-curve-5762bb5cdb92@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,76 +86,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Conor
+Hi Conor,
 
-Thanks for the review.
-
-> On Mon, Aug 31, 2026 at 04:34:56AM -0700, Changhuang Liang wrote:
-> > diff --git a/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> > b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
+On 18:59 Tue 08 Sep     , Conor Dooley wrote:
+> On Tue, Sep 08, 2026 at 07:42:03AM +0000, Yixun Lan wrote:
+> > Document the compatible for UFS (Universal Flash Storage) Host Controller
+> > which found in SpacemiT K3 SoC chip. Its features are listed below:
+> > 
+> > - Compliant with MIPI UniPro v1.61 specification.
+> > - Compliant with M-PHY v3.0 specification.
+> > - Compliant with UFS HCI v2.1 specification.
+> > - Supports up to 2 Tx and 2 Rx lanes, up to HS-GEAR3 5.8 Gbps per lane.
+> > - Supports standard low-power hibernate to reduce power consumption.
+> > 
+> > Signed-off-by: Yixun Lan <dlan@kernel.org>
+> > ---
+> >  .../devicetree/bindings/ufs/spacemit,k3-ufshc.yaml | 56 ++++++++++++++++++++++
+> >  1 file changed, 56 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.yaml b/Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.yaml
 > > new file mode 100644
-> > index 000000000000..6d8f5516a178
+> > index 000000000000..dda533c852e8
 > > --- /dev/null
-> > +++ b/include/dt-bindings/pinctrl/starfive,jhb100-pinctrl.h
-> > @@ -0,0 +1,17 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
-> > +/*
-> > + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> > + *
-> > + * Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-> > + */
+> > +++ b/Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.yaml
+> > @@ -0,0 +1,56 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/ufs/spacemit,k3-ufshc.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > > +
-> > +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
-> > +#define __DT_BINDINGS_PINCTRL_STARFIVE_JHB100_H__
+> > +title: SpacemiT K3 SoC UFS Host Controller
 > > +
-> > +/* sys0 pad numbers */
-> > +#define PADNUM_SYS0_GPIO_A0				0
-> > +#define PADNUM_SYS0_GPIO_A1				1
-> > +#define PADNUM_SYS0_GPIO_A2				2
-> > +#define PADNUM_SYS0_GPIO_A3				3
+> > +maintainers:
+> > +  - Yixun Lan <dlan@kernel.org>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: spacemit,k3-ufshc
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 2
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: aclk
+> > +      - const: ref_clk
 > 
-> Krzysztof's point [1] about these still stands. Pad indices aren't bindings.
-> Sure, your driver and your dts both might want to use these but that doesn't
-> make them a binding. For that to be the case, they need to effectively be
-> made up numbers - like how clocks are often listed with numbers from 0 into
-> the dozens or hundreds, when that may or may not correlate with actual bits
-> in registers, e.g. indices 0-31 in a clock binding might be in register 1 and then
-> 32-63 are in register 2. There's no need for a binding here to assign meanings
-> to numbers, because the meanings are assigned by the hardware itself - index
-> 0 for SYS0 *is* A0, because that's how the hardware is designed.
-> 
-> Were the numbers to run continuously, so that we had
-> 
-> #define JHB100_PADNUM_A0	0
-> #define JHB100_PADNUM_A1	1
-> #define JHB100_PADNUM_A2	2
-> #define JHB100_PADNUM_A3	3
-> #define JHB100_PADNUM_A4	4
-> and so on down to
-> #define JHB100_PADNUM__D0	1234
-> 
-> then it would be a binding, because we're assigning a meaning to 1234 that's
-> not something determined by the hardware.
-> 
-> FWIW, I'm happy to have the unchanged starfive,jhb100-pinctrl.h sit in
-> arch/riscv/boot/dts/starfive, because the defines are helpful - but as things
-> stand I think Krzysztof is right.
+> It's the usual refrain here, about having "clk" in clock names.
+> "axi" and "ref" perhaps?
+Yes, it's axi clock, I agree and will adjust in next version
 
-For the current series, the drivers also use some definitions from the binding. In 
-the next version, should the macro definitions be directly placed in their respective 
-pinctrl-starfive-jhb100-<domain>.c files?
-
+> Otherwise, looks fine to me.
 > 
-> Cheers,
-> Conor.
-> 
-> 1 -
-> https://lore.kernel.org/all/ZQ4PR01MB1202123864865439817E1549F2AA2
-> @ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn/
+Ok, thanks
 
-Best Regards,
-Changhuang
-
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
