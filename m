@@ -4,114 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F68BC79FB7
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 06:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D084AC79FB7
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 06:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
+	In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+8pusbwoIGigkg8y7ou4F2opUvPXEYq0LAqvz/2ogqc=; b=lX3Qa+ICfAKgUd
-	0J2nTYIhDK/PsX9Q9FZveKwKR5Z+ARWlhi/fkCVNl8dcpmOap1obR/DnU/bRINK+5Y/AUQdI/IDIE
-	U6YKbOYfVjJYmhQ6PBdHTGWDfEXnKhPeH4OQot81JMapMIys9rndbpgGc6FrD24Wc8Q5Rl+Z4Nrba
-	gbBBlHkfMA2ELRaA07lENS6RM7GdFEhX+iezNwhuoXNqSVACOSPFpaxyGLl/K37yYq959/s9Mw+4t
-	kS9Gfda1c3Ifh6UWDF+30hXTAAtIBtkhXTzMeTFQV+UihjqWmJ35f1U5aszRaQOll8kL5x5c7+pV2
-	QpBAzNEKSdpQ8poTHEsQ==;
+	List-Owner; bh=z8ATFl5AuTkFj5KMV+HTwYEOfXewGnWJRjls/9hzMSA=; b=m5Xu65APxA1+GU
+	TubdQeGgVfcxgaf++OJUWr3FDv5lblzG2TuXCebNWVepAMmGWXrBkCoPFvpxf+tbS6T4xO74kVpyl
+	eCQvO1d5H+Y1ELWt9T/2/2zM8xZuNvONhDpQ8tAZeef5Tzb9ZtjKRx4MhCUuQW0GDU4SroMneL1Xw
+	7DQZ3dMFEO3u0rJI07+NdGQMvIBGNROBaoIhiPVbALDADr0CeHN2cfalN3xuR/eXcmYK1/vxlSs5B
+	OdWUcfOBpQEk+0/eOLYfUk/hSgPc38VLcLC6Wp3EG96ZlGf1pRd7VAFi4hAw2Lns9eDlVGiCNHarC
+	+P/6pXoAjB3ZeTAdPeSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4YK9-0000000DWHH-1dGw;
-	Thu, 10 Sep 2026 06:31:53 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1x4YMz-0000000DWfJ-0btA;
+	Thu, 10 Sep 2026 06:34:49 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4YK6-0000000DWGQ-2oMU
+	id 1x4YMv-0000000DWe4-0Gvu
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Sep 2026 06:31:51 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-38759bcd877so7240957a91.2
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2026 23:31:50 -0700 (PDT)
+	Thu, 10 Sep 2026 06:34:46 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2ceab75934dso64933755ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2026 23:34:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789021910; x=1789626710; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1toCXFJJyIGT7Bi3z+gvDkztm6+uDMf7He5yX/dqQdk=;
-        b=OsWgRTYJ43HQA7ibdund2efDhndrmOFVmj242c/zth+F6X1lJgtCYdQRPFBucotGUz
-         CX8KAOU5Y7SY1Z4C2ZGE0Kku6h6VPs5IV3W7mDICOhi/tp9B7idFzf2IL70BgtdVpYBW
-         mGzSZqBuPiaIXN6tv+qgcG67Xg8KdrjAclo9hEvPfkB9UujZhefTGSt++CLjN58kM2RR
-         /VXcRD5C/A94x3bXuwLEI3WGGK4ukMud9iw1bpggFCcuSy65nLqV2zq227GaRt/T3Y3l
-         riHflYHL+doLhF92eG0W++2JA3Oi9zpcG25DUSjTRYdxxo1/UkOIaqpC4dkwBcCk10Xl
-         jIlA==
+        d=gmail.com; s=20251104; t=1789022084; x=1789626884; darn=lists.infradead.org;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=/uaCqa1UBzrB4l/x0ktWW2Ji3uA4tmOrYEYh+8w3GLM=;
+        b=jcHLg3DLryz/LmqgqW6DgVA9xbuIk/1iNGYkocVjPj+3mFYXrtbAAHvFE0t37u0+az
+         3soVBwmYt4/qTfQtdeJVDCOpblbg5G6Gs2V9jhtWlM+ZyzVPbad4NhotF4bKwTcUkpV5
+         EMwJ9uAWGy7VjUrE82Y6IhuDUtJLbY+Qv+epkov9euJCTwJ2gRl4Hu4oBj0w6y/b4/kQ
+         Uy2pk7zg/RUHHLv2v1VrujmFNG1u9yz+cnrYEwaajit71h/cCb8aB+ANZISWJpYHfedI
+         XrE6F0gXy15T05tGrau4PwDAzEDOld3wnzAe61hy9Ed9PE5obt2mRV8PysT5jTxCfu4i
+         /cSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789021910; x=1789626710;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=1toCXFJJyIGT7Bi3z+gvDkztm6+uDMf7He5yX/dqQdk=;
-        b=JIsjctHzYcfsePABshw1xnC8hQ0Y1BV9N1OmcIGvxKO0ApgsBTfe4lMlwp5Sc7fZNv
-         DPBB50NPP8hmf96ThWFTxXxdAOsb8yF1WX29SP8RWj9/sAWNlFxzydSeVQtcIgpa224A
-         0qsLnJj8zKhq42kZrYT51w/8ReFth/AW48SpzxlJy63AMtHfIStsW3a1eCXeJ8qBGusU
-         zP5cC0ixcnwqv4gpDgxKBDcU0nTcwvhdAHEJnzJrnMP/qgdkoirjv6BQoBy3pkTiYm3b
-         ZZvCrBUVzQwr3zVf/KcsXC25e2BrcxK6AcWk6cTsl5ZaDjGCzGSx2asMOuIAUfJIiCBR
-         3P3w==
-X-Forwarded-Encrypted: i=1; AKwUvBymCCOvKB9+5z0CSDcppBlx9k+bRZRyeDAtPmzXgfSJ9+CGxNKhnOEm5nyTgq1T/zwlrR8LL4ZWNFkxjA==@lists.infradead.org
-X-Gm-Message-State: AFuF++m9IeBm5V9FkyMtcJk2mRSHXJwS8CEinrc65Y6m3cfWe6lsyBuM
-	YxLb230Ujka61DbLJ9KFHP94wwVwh5+VrnQC1y1SwmhDNhWPXsAZCgmr
-X-Gm-Gg: AYBFou2Zidqx6uWFjz2FdHFo+0cBfsFUbagRCMnksYnEDgR5sEzqY8CWgnym4mCCwby
-	ZiXSAdYOgGiveDA+5Qrc0dyGggDl5ZdX6zvBBxDJotvs+l1jguCqf+CnUc7uDwutSAM/xObPtbc
-	dR983aHBu+f+UPDN3u8HRcaDsuhAL7R2N7nx0sd+SqOZ+MD+vAZwsw0Z1m8/xS26jVVhf7HgA8Y
-	LH/SMWVL8nd+SDi7o5cxAidsOImNBKt1DU4CA6rU+dOaSsRyw+/biKXXOTg5U1VGHxjRB4Qo1Q2
-	cb/cPiGwiO5IpyJfOW1GWrdcBAMbtmI8BvM7ZRjm8xETqm9Ixzoi7KnRzFxfgSM8A/WJj4Zl+Sh
-	3+dm4WVqbVMAFYWWADbY3B6Pwgtdf+L8YoFdmYSOTTLosoXif5H3uQXfpIvOUJWhupkW02ssFMG
-	zLAkVS2xikJl0RwinxnikbX4Fm/BiFAbEOkanDb0gzAskymb7c6CB84IeAmLNBmpo53rwj5FoFH
-	1Gc0CoOifWG+OXqU4ZpO+UE2vCrXDRb+nL5iRxwjCc=
-X-Received: by 2002:a17:90b:258d:b0:396:4c63:7193 with SMTP id 98e67ed59e1d1-39b261323e0mr64061526a91.11.1789021909725;
-        Wed, 09 Sep 2026 23:31:49 -0700 (PDT)
-Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([129.41.58.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39d7e834319sm2507639a91.10.2026.09.09.23.31.29
+        d=1e100.net; s=20251104; t=1789022084; x=1789626884;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/uaCqa1UBzrB4l/x0ktWW2Ji3uA4tmOrYEYh+8w3GLM=;
+        b=m3cf4qFKRR+uNOHxb9NeZOIEPz7yP+sOpO9oFdmkD3qpAL8uOiueuIxGgsWEiiCvM6
+         f1L0bcCq2C13D/9DkeVRPzPVngEPvPclNO9W7OmdmHnD4pC4ZXCEVl2uYqTp6ILDAM9j
+         5538J26oSrNrLGMrnwn5O5MMvwqued/zs/SeAImRHS2XiUPQ6HwL+L/e5vh9jOtJVI7b
+         JfVc8GkbtADbsiiTfPy+YSG9JOkM7pC3sOGDpNjxk4DZHptTJqcMjxvdlJRHCyQMWdm3
+         ZynUFytpYEvT6purKAbSS4T76WPqcNR4T6/6+vLvqOSVySDYTYjIEY4vvIaRZz3zv5hn
+         pYRA==
+X-Forwarded-Encrypted: i=1; AKwUvBzcGZm3kowPEDB6g9Lt93uSqWD6uW22uuydmmi2D2/WBDVN2TDpEV8/UTliSjUAvsvdp9KnZaoXeFYZZQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++nUU3rtbCAr0YlBbcn4SlA/muc08ZVkajL01e+O6/T9uEAX5BpM
+	eHJmsxhb8a86m8yFBYg7TTtTSaWQP+svuy7UGVWKGCmPcAAXQXd2o7yI
+X-Gm-Gg: AYBFou2/JBEd3knvR6UaD9lcHeUMz2Bct8rtNTS6dAVbLmrHspsz6L3F0f2HX71HMgG
+	t0HbesCFmnZR3o23JsC9JAfEqDkjzrgaUKBFhUBIsmpNDesld1ZpTo4MrD1VxSy2O7Kv6CttVeG
+	j2/xuDN2OHh3BKzdWpaF75jU/9K3hKxpj2D1pC+a8YDLR2bnFbFDwWQ3rkeXftYgw9jNqCYG2Yd
+	mPrVSYqqrqAPiUJphoLbqT56mUeQxY2JdL56BrxbaCZ982on7fvw+0RfInjayAkwlpWnD9PEHPJ
+	IHWijZGFVljJcJD/55Dqup2JW6YaD712MK7PPVjXy5UvXHmmueAwwY4OTd6AZfpAe/qHgw+JEZp
+	EoQtDEiXvY7nFGhXj9NvApd6Arv6m8ZaNqme2pz+VEJd7rSpX6PcbolHxRS/xwbHOEKGMhZNVgK
+	g+uldLl2hqtEIVYOmtsun6hubJtTGljtQgPwvzHuH34Pf55V0Awr76y9CyCFPssA1nfzj43KhMi
+	N1qDBiVVid1cjDzVJBtc7D8vWjsCzeqQdu8JTE9gAXBQSX9+SCIzE0=
+X-Received: by 2002:a17:90b:57d0:b0:395:4de0:b78f with SMTP id 98e67ed59e1d1-39b260d28eamr57429977a91.1.1789022083690;
+        Wed, 09 Sep 2026 23:34:43 -0700 (PDT)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33987ccf483sm10434389eec.20.2026.09.09.23.34.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Sep 2026 23:31:49 -0700 (PDT)
-Date: Thu, 10 Sep 2026 12:01:26 +0530
-From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
-To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Andy Lutomirski <luto@kernel.org>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Richard Weinberger <richard@nod.at>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Christophe Leroy <chleroy@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Nicolas Schier <nsc@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, linux-mm@kvack.org, 
-	linux-um@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
-	linux-mips@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	Jan Stancek <jstancek@redhat.com>, Arnaldo Carvalho de Melo <acme@redhat.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v5 01/24] elf, uapi: Add a header for relocation constants
-Message-ID: <aqJOscgnnevybiKO@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
-References: <20260908-vdso-absolute-reloc-v5-0-3a93791af1cf@linutronix.de>
- <20260908-vdso-absolute-reloc-v5-1-3a93791af1cf@linutronix.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260908-vdso-absolute-reloc-v5-1-3a93791af1cf@linutronix.de>
+        Wed, 09 Sep 2026 23:34:42 -0700 (PDT)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, Nicholas Piggin <npiggin@gmail.com>
+Subject: Re: [PATCH v2 06/20] KVM: selftests: Extend page allocator to support naturally aligned allocations
+In-Reply-To: <20260902164123.2546762-7-seanjc@google.com>
+Date: Thu, 10 Sep 2026 10:57:06 +0530
+Message-ID: <fqzh1xsl.ritesh.list@gmail.com>
+References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-7-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_233150_715627_091D77D8 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20260909_233445_100875_E24ACC2C 
+X-CRM114-Status: UNSURE (   6.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,64 +92,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 08:33:35AM +0200, Thomas Wei=DFschuh wrote:
-> While the numeric constants for relocations are architecture specific,
-> it is still useful to get access to them from other architectures.
-> Also the definitions are useful for userspace in general.
-> For example tools processing elf files during a kernel cross-compilation
-> can make use of them.
-> =
+Sean Christopherson <seanjc@google.com> writes:
 
-> Introduce a dedicated header for them, similar to the elf-em.h header.
-> For now the header is empty but it will be filled step by step in
-> upcomming commits.
-> =
+> Extend the page allocator to support naturally aligned allocations, as some
+> flavors of PowerPC page tables require multiple guest pages per table, and
+> those tables need to be naturally aligned.
+>
 
-> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> ---
->  include/uapi/linux/elf-r.h | 5 +++++
->  include/uapi/linux/elf.h   | 1 +
->  2 files changed, 6 insertions(+)
-> =
+That's true.
 
-> diff --git a/include/uapi/linux/elf-r.h b/include/uapi/linux/elf-r.h
-> new file mode 100644
-> index 000000000000..2c382c8a4807
-> --- /dev/null
-> +++ b/include/uapi/linux/elf-r.h
-> @@ -0,0 +1,5 @@
-> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-> +#ifndef _UAPI_LINUX_ELF_R_H
-> +#define _UAPI_LINUX_ELF_R_H
-> +
-> +#endif /* _UAPI_LINUX_ELF_R_H */
-> diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-> index ee30dcd80901..b3e312255552 100644
-> --- a/include/uapi/linux/elf.h
-> +++ b/include/uapi/linux/elf.h
-> @@ -4,6 +4,7 @@
->  =
+> Take care to align the potential base address *inside* the retry loop, i.e.
+> the base needs to be (re)aligned on every attempt.
+>
+> Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
->  #include <linux/types.h>
->  #include <linux/elf-em.h>
-> +#include <linux/elf-r.h>
->  =
+Thanks for sharing the changes. Looks good to me.
 
->  /* 32-bit ELF base types. */
->  typedef __u32	Elf32_Addr;
-> =
-
-> -- =
-
-> 2.55.0
-> =
-
-Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
+Feel free to add:
+Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
