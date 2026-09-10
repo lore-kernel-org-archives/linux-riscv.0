@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A021AC79FB9
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 04:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E637C79FB9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 05:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
-	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wp6BlHUawkMo1ViO1cXjbSLEE7d1BoBBXXWwd94nYP0=; b=XZb7OXQPWxUOHd
-	whCiKMG7cjDwEgpLj3IICn1pQ96sXWUe/RBfB7Apm0vZc9RpkDsjn/KaD8OO0jZB+EZ48ZEkEnPsP
-	/OBVVEFBkj/QFmvfQDvBel6BHCN/3UU8zHgW/rWe/nMqltJBlMh/8mViDgh0oRXJYcYTn+TaRYFzb
-	Fp12J/BrBMDS1FVuXJmD4SVU5F+SCWnmyVKmV3LxRhdne5fxfuzWl1E4vvemjV2Kag0j42162uA1t
-	qUmVPPu7+JU5IVvBbGdq6Q0Uqs+CqHPQ9WaklwV0qMLV620YDXO+YXOi4D98EjyPnGUldF13stTr3
-	umwXtNUKEYQ6r0Ki5FFg==;
+	List-Owner; bh=u0LXEGyXTHhgDUZerYP0IbBKed2nLeMDhQJo/X0USKE=; b=RTvONF+foHaj2e
+	7UaKT2SY26k3eWN3z3uIUIcFpC0Cb8V1O4rVGeKAzH5DD7LfjwQR7pZVBRgEIq9ScbmLMn/3YvKB+
+	8BXg004b5YBPqvDMxik3MUcz/ZrlKXKOpgXLndceUdXu/o85lGzrTHmyGa+N2Gg8awrxGiqTcM5Vb
+	QX1P81GEsAR78tcMqhGpoH9+aAcT+5V4jLpOcHM7eMr03dmeqKH8RWgMVXm+fz7N1SJ2OSHZIN3Q/
+	+z1gaCZRtum2siYGqi1ISF/PS86QUZqn08RLjaj2XWkEZXXR7u24y8pJcwbVGO+KKjwKqAeYLnVXi
+	WaQoUwoqyalM5ceEPC7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4WHV-0000000DM9f-32N3;
-	Thu, 10 Sep 2026 04:21:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4Xbc-0000000DTRs-3Lri;
+	Thu, 10 Sep 2026 05:45:52 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4WHU-0000000DM8F-0VLm;
-	Thu, 10 Sep 2026 04:21:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86FBB601EF;
-	Thu, 10 Sep 2026 04:20:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E21F11F00899;
-	Thu, 10 Sep 2026 04:20:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789014059;
-	bh=cMnHIsMT3Av8PvHpH9hpF6YHkNFuphcbfvagp11LhEI=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=LOau81+Dv/xKL32e2arFIbHaGoSgQpb+AI2gkMiaJCJaeihtQd5swFCINh0NS/fXY
-	 27Kt0zTV6Qx+rt+tNM7e3LiacUYitVE3VbDUYt4fK3CxkqLOWV8xMZnj9b0EZaaydq
-	 x0ITEU+kRT6oChGTaf5tWJyEVskqbznIU/K9ReMlsMJoT3+t8D3HQePN+NPTwG2FxI
-	 UlvQCa33hH+CiLDyMyotExom0wtrjvND/SnFBGLN8IV1HUDxDHY5+PXIS4qVzJlL8i
-	 oScYkSwU5i3KJoGevo7zXbKO++vOgA/m63IBuYnGKTZQPikQrdB4KNGx3nNtljAEQZ
-	 HAum+WwKel+ig==
+	id 1x4Xbb-0000000DTRM-0I2k
+	for linux-riscv@lists.infradead.org;
+	Thu, 10 Sep 2026 05:45:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1789019110; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AkQWj5X2/WfkO6AuIy0TCQ1tG9312gOD3opHqvuSuXenAlsy6sjD8nEWUM6u/OxbXtSB7rcldEYAOYPoLVUDRc3tNkihEMnZYibMnkYG4XrnYV0wNB1Igh2Eo/Zw8VVBx4QtiYQvhe3grL3qBDxP4SVeMQuEcg7+mDfob1QDJ2o=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1789019110; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=gSn3Fj7xFgo+r0eHxl6g7t6RSpvjjOk+wb4fUejubdY=; 
+	b=AUn5a2goTpVrQ8O17s8qeAvcAcpm9jWzPaN0TbprNnbB9r3ctPRCjjKZ3MKeIKWvfS271CSpRJ2O26M9Aa4xMRlxnIx4qhGruvbBHgCpGLGFdeNB7kbfDviPssfXPgqhKrhEvl5YyFB5gVisclvKa2Sh56s3OBL8e8Rp795XK0o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789019110;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=gSn3Fj7xFgo+r0eHxl6g7t6RSpvjjOk+wb4fUejubdY=;
+	b=BViIfc2jSXaV5qCndq2qxXIi/yhYpkr2fIHGSTQY7C4N4AQCC9L6shvguAwLLpa0
+	j0qgMZqfiWXFbLn3PMCzSfWmSGbsBCDRA1/uHBlxujS0Pjg/14q42l7vJdoewV+jxAJ
+	CnuNfTLwDFbsmRBBK0fKAAGmWU47BjYfznWfx104=
+Received: by mx.zohomail.com with SMTPS id 1789019108502587.6996467974229;
+	Wed, 9 Sep 2026 22:45:08 -0700 (PDT)
+Date: Thu, 10 Sep 2026 05:44:50 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Frank Li <Frank.Li@nxp.com>, Niklas Cassel <cassel@kernel.org>,
+	Sherry Sun <sherry.sun@nxp.com>, Arnd Bergmann <arnd@arndb.de>,
+	Christian Bruel <christian.bruel@foss.st.com>,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+	Senchuan Zhang <zhangsenchuan@eswincomputing.com>,
+	Alex Elder <elder@riscstar.com>,
+	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
+	Randolph Lin <randolph@andestech.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Vidya Sagar <vidyas@nvidia.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>, Yao Zi <me@ziyao.cc>
+Subject: Re: [PATCH v5 1/6] PCI: spacemit-k1: Add device data support
+Message-ID: <aqJDvogeo3avWWQ3@pie>
+References: <20260907112606.465778-1-inochiama@gmail.com>
+ <20260907112606.465778-2-inochiama@gmail.com>
+ <ap_i5Pw4nVB4LZ-7@ashevche-desk.local>
+ <aqESGs3_BxOd4PYg@inochi.infowork>
 MIME-Version: 1.0
-Subject: Re: [PATCH 23/23] kbuild: use pigz for gzip compression if
- available
-From: Nathan Chancellor <nathan@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Ard Biesheuvel <ardb@kernel.org>, 
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
- linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
- linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
-In-Reply-To: <20260908-build-speedup-v1-23-5dc1ac01672d@kernel.org>
-References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
- <20260908-build-speedup-v1-23-5dc1ac01672d@kernel.org>
-Date: Wed, 09 Sep 2026 21:19:12 -0700
-Message-Id: <178901395293.3971858.15429964442902485180.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2892; i=nathan@kernel.org;
- h=from:subject:message-id; bh=Q9fpS3QOis8VywAZ/qxPoy8tzjaMXYquN4IKUkvKQhc=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDFmL9I9/nfxO72ppzjS5mYt/nszesc/yM3fFVJtNm524b
- /7wEcje1VHKwiDGxSArpshS/Vj1uKHhnLOMN05NgpnDygQyhIGLUwAmEsnAyPDvwIes2Wk3VQ7X
- VDzfe5qnb6OioMqiD+w2Ts4O2huWrlBj+Gf3oltEibvv7B0LRkems/f6hV3mWe7U3JB5ZYXFtSs
- /DzEAAA==
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+Content-Disposition: inline
+In-Reply-To: <aqESGs3_BxOd4PYg@inochi.infowork>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/289.6.0
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260909_224551_327669_0B8183C3 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,74 +111,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> The gzip step of a kernel build is very lengthily, especially for larger
-> builds such as allmodconfig.
+On Wed, Sep 09, 2026 at 04:00:33PM +0800, Inochi Amaoto wrote:
+> On Tue, Sep 08, 2026 at 01:26:44PM +0300, Andy Shevchenko wrote:
+> > On Mon, Sep 07, 2026 at 07:26:00PM +0800, Inochi Amaoto wrote:
+> > > To reuse the K1 PCIe driver logic for K3 PCIe controller, add device
+> > > data to handle the K1 specific logic and make room for the incoming
+> > > logic for K3.
+> > 
+> > ...
+> > 
+> > >  static int k1_pcie_probe(struct platform_device *pdev)
+> > >  {
+> > > +	const struct k1_pcie_device_data *data;
+> > >  	struct device *dev = &pdev->dev;
+> > >  	struct k1_pcie *k1;
+> > >  	int ret;
+> > >  
+> > > +	data = device_get_match_data(dev);
+> > > +	if (!data)
+> > > +		return -ENODEV;
+> > 
+> > It's better to use -ENODATA which will help to distinguish from other ENODEV
+> > cases (which are more often to happen).
+> > 
 > 
-> gzip itself cannot be run in parallel, however an alternative tool exists
-> that can, providing the same feature set as gzip itself - pigz - which
-> works as a drop-in replacement.
-> 
-> On a 128-core Threadripper, gzip -9 of a 36 MiB x86-64 vmlinux.bin takes
-> 1.6s, and with pigz it takes 0.09s, so the performance increase is
-> significant.
-> 
-> It is already possible to specify the KGZIP environmental variable to make
-> use of pigz, however it seems sensible to make use of pigz if it is
-> available.
-> 
-> Therefore default to using pigz if it is available on the system upon which
-> the kernel is being built, otherwise fall back to gzip.
-> 
-> The output is byte-for-byte identical between pigz/gzip invocations, but
-> gzip and pigz do not produce the same stream as one another.
-> 
-> Therefore, for reproducible builds, the same set of tools should be used.
-> 
-> This seems to already be an implicit requirement in any case, but update
-> the reproducible build documentation to make this clear.
-> 
-> Also update the kbuild documentation to reflect the change.
-> 
-> Every x86 build ends with the compression of vmlinux.bin, 36MB for
-> defconfig and over 200MB for allmodconfig, no-op builds are unchanged.
-> 
-> Whole build, 128-thread Threadripper 9980X, best of N runs:
-> 
->                                          before   after     delta
->                                          -------------------------------
->   x86 defconfig, touch mm/vma.c, gcc        7.4s     5.4s     -2.0s (-27%)
->   x86 defconfig, touch mm/vma.c, clang      6.6s     4.9s     -1.7s (-26%)
->   x86 defconfig, clean, gcc                26.2s    24.4s     -1.8s (-7%)
->   x86 defconfig, clean, clang              25.8s    24.3s     -1.5s (-6%)
->   x86 allmodconfig, touch mm/vma.c, gcc    23.7s    15.3s     -8.4s (-35%)
->   x86 allmodconfig, touch mm/vma.c, clang  22.1s    15.2s     -6.9s (-31%)
->   x86 allmodconfig, clean, gcc            291.4s   275.2s     -16.2s (-6%)
->   x86 allmodconfig, clean, clang          278.3s   265.7s     -12.6s (-5%)
-> 
-> Link: https://zlib.net/pigz/
-> Assisted-by: LLM
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-...
-> diff --git a/Makefile b/Makefile
-> index a0d29dee81d7..efa6a2d77e6b 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -561,7 +561,7 @@ PERL		= perl
->  PYTHON3		= python3
->  CHECK		= sparse
->  BASH		= bash
-> -KGZIP		= gzip
-> +KGZIP		:= $(if $(shell command -v pigz 2>/dev/null),pigz,gzip)
+> OK, thanks
 
-This should be '?=', right? Sashiko also notes a concern around parallel
-module installation with gzip module compression since there is no
-thread limitation, which could bring a little risk to doing this by
-default? Might not be that big of a deal though?
+Honestly, I don't think this should even happen, since every compatible
+supported by the driver carries its own of_match_data, and failing to
+do so is obviously a driver bug, so I think this branch could be
+dropped.
 
--- 
-Cheers,
-Nathan
+> > >  	k1 = devm_kzalloc(dev, sizeof(*k1), GFP_KERNEL);
+> > >  	if (!k1)
+> > >  		return -ENOMEM;
+> > 
+> > -- 
+> > With Best Regards,
+> > Andy Shevchenko
+> > 
+> > 
+> 
 
+Best regards,
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
