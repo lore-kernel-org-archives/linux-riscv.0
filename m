@@ -4,92 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E36CC79F9F
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 16:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78295C79FBF
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 19:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=i0uZA03GSIgM2IMc1zjsyCZddgaAacMLF0R9zjhv+z0=; b=uRdlbwTjMnpMKRedVWLpeq+CxB
-	j397l+UbOryLhGQes7alCJB+ZRCm15zNBMbxK9TKvxI7QdHB4sl3UT8tsJXKshC4kEKTaHwdek6L3
-	hlSatUH5fjbMN8eatAXO/wm2fmJb3QtxgDFzAOws+JqP/DPZGKhh+19WIgws/9unUb/FrY9EeH/69
-	X1AL3gd9bjKpASHdcb3K8rdcf2kAzdwaj7/6/456lV2pfcdha4GvkIKGHtvBTSEphpz251n4BWTon
-	RhdDr5UhOcMf/Y1SDFiRi+vzPo5UAR6OCtg2EVXHYEOOi4xIshXUtn3DfxRC88KUhHWtRI3m0Yi5U
-	iZSZzHnA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bZ8A0tY23TdVKS8dJeSTv3O8yJi1uKheCGKst0tDDy8=; b=Q5k1C5P+5kBQ2k
+	Y6lbZPZ3Rw4e3zL9qleo2+Bw8P3zoVB+77BuHtudwlpUXUf0mvrGzPtEgRmOS6ieJr+nC5uDmBLez
+	lFyIH5zDt3kfZXea1q1hbLqhQV+vSyZ9+liAEkBIafNzH2gSDaSqtqvftWSFFyGnuzJtGDyoEH3ei
+	jx8hcMLKh7i32DUaQErCl6btiN7d364R9MPUz93Gu0EHkbg9M/H3Fz1jdewxCA5T9LxqmxohVIhYN
+	yZgQVm/4+1vcEMzWJCEKZ9QsZHiGZj6Pm78UtI+5Qz+zxkLJSnEefeyAV3LrYEvaPtE56kLVgEWKl
+	1CIZnr5kO4sbxTUSXmsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hZU-0000000EwEv-2H9k;
-	Thu, 10 Sep 2026 16:24:20 +0000
-Received: from mail-pj1-x1047.google.com ([2607:f8b0:4864:20::1047])
+	id 1x4k0j-0000000FDlA-25bW;
+	Thu, 10 Sep 2026 19:00:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4hZR-0000000EwE2-26lO
-	for linux-riscv@lists.infradead.org;
-	Thu, 10 Sep 2026 16:24:18 +0000
-Received: by mail-pj1-x1047.google.com with SMTP id 98e67ed59e1d1-38e1118e4abso12191347a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 09:24:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1789057456; x=1789662256; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0rpxpcs9OXB4KnER7qZ3x6F/Alg7K5WCZ24dhH70660=;
-        b=YklsOATpwj9/qVdOgdOloV7SH9awByVgDf02RzpTZqXLWUtAsABHSrfZ+qdHmAoYGA
-         0eC7dcxzP+i8kprS3JX7vOJXOehnncHPpZ71Du2r2/xdBvpn6F+yPF1Y/sgSrh0VtRSG
-         9uNd9cjbWkvfGopIb4UEHmXCwfUYh8WLJdUHCG3c0bnDAxjy3ZefiqBqAAM/nlsU4yav
-         /1AzNsRpudPZ+A1lZuz9ka1OUMQ099qAxlMOskJArxMmsD4IMLcKPloTHejFIp5l13+E
-         6JpXa0xY18s2+sq0XKvcV1IjbSNnucLfgH3vTfPeSzLehYaxjCk7i/1eYPyZ0PUiNLRz
-         E7/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789057456; x=1789662256;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0rpxpcs9OXB4KnER7qZ3x6F/Alg7K5WCZ24dhH70660=;
-        b=ZpN1gLJELfxCgFTU83UipkRYcBVCUWzO1hwvn6gCVNDC3SYZpI+l+kq3zKlbqFuwz0
-         k6lEOHEeK4g4huEq2ILPwAFxfJVdar0leJCLSv7m0T18UnXxnNK349hBnct+VS+wJZME
-         0I75mLBjV+i/V/HidOk5B4BQE3ufoFZCzy7Rl0AJGqpAOvPTAKfzL/71ai2x3+jAXorY
-         dOY35eSjnhPlqQil59qd2opKcoILWtGKMZQJwOXOgxi4gPCnw9MZsFQwOZe3I2JqFsTd
-         G/8G07YZIkETNE2mBPdhjRVGXtjfj8FDX0TvigTAvzRcf9uygPLJrKQkUSwEqdAoEmZf
-         uQeQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx+IFufyUD6Z8mIoDaeO3TKzirWh9g2PGcepsuehmnw/eObZtdRBMhf4nX9QuLm9ITEqhe9mbv5O8vdmg==@lists.infradead.org
-X-Gm-Message-State: AFuF++k2U7Lmu2kpmPoMR7VqSHYyDkLpsJMeNeUVcFtCNsVh+c8ZebfW
-	ygg+JTQwsoRy/gAkoKqDYYdf2coBvcGnUY/kXwEQUM88Y5FuGbyIK5OoIVTqwX8EKDivMm92JWP
-	krGg4UA==
-X-Received: from pjye16.prod.google.com ([2002:a17:90a:ee10:b0:39b:9a0e:78cd])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:d644:b0:398:9c00:29ec
- with SMTP id 98e67ed59e1d1-39b26245cfcmr66792937a91.20.1789057455320; Thu, 10
- Sep 2026 09:24:15 -0700 (PDT)
-Date: Thu, 10 Sep 2026 09:24:14 -0700
-In-Reply-To: <5x0d1hj1.ritesh.list@gmail.com>
-Mime-Version: 1.0
-References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-13-seanjc@google.com>
- <5x0d1hj1.ritesh.list@gmail.com>
-Message-ID: <aqLZrk6m3NgugzBU@google.com>
-Subject: Re: [PATCH v2 12/20] KVM: selftests: Add APIs to override memory
- region types with custom memslots
-From: Sean Christopherson <seanjc@google.com>
-To: Ritesh Harjani <ritesh.list@gmail.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, 
-	David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
-	Nicholas Piggin <npiggin@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_092417_533846_2167C787 
-X-CRM114-Status: GOOD (  17.92  )
+	id 1x4k0h-0000000FDk2-15u0;
+	Thu, 10 Sep 2026 19:00:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id CC90F447C0;
+	Thu, 10 Sep 2026 19:00:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 156B11F0089D;
+	Thu, 10 Sep 2026 19:00:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789066834;
+	bh=adpUAXMLWlwls3uA0tHpuBpUMbpToZc2bhx+dPqey8c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Uo6MJqkiza5YQp8bmOAnZZ7Clc3G4MCqQgdKfnCBsPBugXp/06M0nPAXCsmC8NpwI
+	 sXIcCQcWDcUKPDlMwiuyrKxmuiuj/of1ACyYxanR5qSG8LOCML5FtrJ7/T429DaAEq
+	 GG8p/bKvaUOzzKlZEPxAneoX1o5Lz0hX6QrC4vPGMGXR55tnZVsvE81ITy6gcMjJ6w
+	 TmQiePj48cDDpnvMR3NrRqPFm7ZLv+5rKuhm0n1HGvXyj7T7UNuJOoVs00l/jQxE1w
+	 /8HTbwN9Hd38NoU2MTSbv3XawJfpUUhnYe9+RygWi0HdpC0JEr7CWkIpFzGtKzdaYQ
+	 vCh3f4bpTQdnA==
+From: Nicolas Schier <nsc@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Alexey Gladkov <legion@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Nicolas Schier <nsc@kernel.org>,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Jens Axboe <axboe@kernel.dk>
+Subject: Re: [PATCH 02/23] scripts/mksysmap: fix escape of '$' in the __pi_ pattern
+Date: Thu, 10 Sep 2026 21:00:16 +0200
+Message-ID: <178906667522.724141.8105989008359153155.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260908-build-speedup-v1-2-5dc1ac01672d@kernel.org>
+References: <20260908-build-speedup-v1-2-5dc1ac01672d@kernel.org>
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,78 +117,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026, Ritesh Harjani wrote:
-> Sean Christopherson <seanjc@google.com> writes:
+On Tue, 08 Sep 2026 21:55:02 +0100, Lorenzo Stoakes (ARM) wrote:
+> Commit b18b047002b7 ("kbuild: change scripts/mksysmap into sed script")
+> converted scripts/mksysmap from a shell script to a sed script.
 > 
-> > Add and use APIs to override memory region types instead of open coding the
-> > logic in tests, partly to dedup test code, but mostly to add some amount of
-> > protection against conflicting overrides.  This will allow converting more
-> > tests to override memory regions without taking on too much risk of bugs in
-> > the long term, e.g. due to silently overriding a region multiple times.
-> >
-> > Deliberately "unroll" the loops in __vm_create() and the CMMA test's
-> > create_main_memslot() to avoid filling all memslots in anticipation of
-> > adding an "extra" memslot that is for test use and *only* test use, i.e.
-> > shouldn't be configured by core library code.
-> >
-> > Converting tests to overriding memory regions will allow taking the region
-> > type instead of the raw memslot in the physical page allocator APIs.
-> >
+> However an error was made - escaping of '$' required \\ escaping in shell
+> but only \ in a sed script.
 > 
-> May I suggest few changes in the naming of these APIs:
+> This was mostly corrected in commit 7a6c355b55c0 ("scripts/mksysmap: Fix
+> escape chars '$'"), but this fix missed arm64 PIE namespace local symbols
+> like __pi_$x and __pi_$d which appear in System.mapand /proc/kallsyms:
 > 
-> static inline void vm_override_mem_region(struct kvm_vm *vm,
-> 					      enum kvm_mem_region_type type,
-> 					      u32 slot)
-> {
-> 	TEST_ASSERT(vm->memslots[type] == KVM_INVALID_MEMSLOT,
-> 		    "Memory region type '%u' was already overridden with slot=%u",
-> 		    type, vm->memslots[type]);
-> 
-> 	vm->memslots[type] = slot;
-> }
-> 
-> static inline void vm_override_add_mem_region_flags(struct kvm_vm *vm,
-> 					    enum kvm_mem_region_type type,
-> 					    enum vm_mem_backing_src_type src_type,
-> 					    gpa_t gpa, u32 slot, u64 npages,
-> 					    u32 flags)
-> {
-> 	vm_override_mem_region(vm, type, slot);
-> 	vm_userspace_mem_region_add(vm, src_type, gpa, slot, npages, flags);
-> }
-> 
-> static inline void vm_override_add_mem_region(struct kvm_vm *vm,
-> 					  enum kvm_mem_region_type type,
-> 					  enum vm_mem_backing_src_type src_type,
-> 					  gpa_t gpa, u32 slot, u64 npages)
-> {
-> 	vm_override_add_mem_region_flags(vm, type, src_type, gpa, slot, npages, 0);
-> }
-> 
-> Those "_add_" and "_flags" in the function names easily gives away
-> the difference in the APIs, rather than differentiating via "__".
+> [...]
 
-I am strongly against postfixes like "_flags".  We do use postfixes for the VM
-creation APIs, e.g. vm_create_barebones(), vm_create_with_vcpus(), etc., but only
-because there are so many possible combinations that differentiating through
-underscores is completely infeasible (unless we forced callers to regurgitate
-huge amounts of boilerplace and/or had an absurd number of params), and because
-the collection of APIs is tree-like, as opposed to a single linear chain of APIs.
+Applied to kbuild/linux.git (kbuild-fixes-unstable), thanks!
 
-For this, there is a much more finite set of possibilities, and the set of APIs
-is a direct liner chain (no underscores => __ => ____).
+[02/23] scripts/mksysmap: fix escape of '$' in the __pi_ pattern
+        https://git.kernel.org/kbuild/c/b99d1f50
 
-I agree that not capturing that {,__}vm_override_mem_region() adds a userspace
-memory region isn't ideal, but due to the term "memory region" already being
-somewhat overloaded, I don't want to have "add" in the name as I think that will
-make it harder to differentiate between the "enum kvm_mem_region_type" APIs and
-the "userspace memory region" APIs.
+Please look out for regression or issue reports or other follow up
+comments, as they may result in the patch/series getting dropped,
+reverted or modified (e.g. trailers).
 
-And IMO it's totally fine for a function name to express what the API does at a
-higher level, without capturing the exact operations in explicit detail.  E.g.
-__vm_create() (and even ____vm_create()) obviously does a lot more than literally
-KVM_VM_CREATE.
+The patch is applied to the kbuild-fixes-unstable branch and accepted
+pending wider testing in linux-next and any post-commit review; it will
+generally be moved to the kbuild-fixes branch within about a week if no
+issues are found.
+
+Best regards,
+-- 
+Nicolas
+
 
 _______________________________________________
 linux-riscv mailing list
