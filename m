@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE31EC79FB7
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 07:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA13C79FB9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 07:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwqATXCxKkIbv25okecMV4BbZgEQwk7DyOZNbS7ats4=; b=zpy61KWtqZGKmUuuPXscXfhmSv
-	5cSRAh9xtHGxX/MRPozlpw4RyxkrA2gCojD8TXR7Su5fYLuJbohZcu7vWUiHi7G1whOpGG61cYGsw
-	8AZ8YJfJ03h7AH+5wyfjPGNz5QlJmgX+x71kOcYBuumnWXCFM4zo2fBiWEOPQzxrbCbwzauO5mnUz
-	V7EoNyN4KYBVFBe5Z1hNeePuboI3OzDiT64zOdUf7dq0SgMymSo7iUaeh6gCdKHqxZGOG403Yplvn
-	2uegIohiOPzSRCoOGymsb7dgUryx32QXF/f3rSQamTv+MJ3FoKarnpa53GmD3vLS/KQeXPKSqLN6E
-	do6IAkmg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6BRohu9tboCF344uDEasRqDF/h/8M/fhxJhQBS3C988=; b=qfGcilQA5tCnrl
+	SpexFmFFaS+4uufZj96EhjxMG/X/sXWr1c3rKl99F/xDfaVunXNc7zNULbdHpp4uGJmdTXny80LoB
+	BLJ/0eRYCTIaB3P+8gXeoj/UCDT41rKZ90viFW+vx62UXKvQWLRnTQjzipuJ45USJmVI1kQEenAty
+	IyRLc4jJ3VaNPDINXmQTJODzGLNMHww4cG3whP5iBgQezC5Ln1Thsm2KGow8BvW9l/aC0aYJaYlE3
+	M945tx1qoolnNi3r0KXRevOQg4NN0/Iyw0hzlKb7brxV5RYNDZj+f3MMNyJH2vTS+Ekk2OwKp8Ktq
+	VvZsixJ0f/AAGDgojQSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ZDl-0000000DdHQ-2ne9;
-	Thu, 10 Sep 2026 07:29:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x4ZKw-0000000De9c-0Sou;
+	Thu, 10 Sep 2026 07:36:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4ZDk-0000000DdHG-0ufW
+	id 1x4ZKu-0000000De9S-3CAx
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Sep 2026 07:29:20 +0000
+	Thu, 10 Sep 2026 07:36:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C5D5416EE;
-	Thu, 10 Sep 2026 07:29:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9E611F0089E;
-	Thu, 10 Sep 2026 07:29:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 836C3409B2;
+	Thu, 10 Sep 2026 07:36:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8140E1F000FF;
+	Thu, 10 Sep 2026 07:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789025359;
-	bh=u3R7KOyofrS0wRSjak8aNV75X2Czsw9QjnW4+38O/ZQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MY03GOetu5SKBp9nkWTrxqdG7Jl6/NG2Hl+PUb+xVMhfRY77IW+ocH4B48v9OlZH+
-	 2jNjsuE5l7TpMAH4tErFkuASZJQp1s4gqxabcfqFAipFRFLnJoAF9of4isP7Umzi7X
-	 Br84MtRcqTzhRIQx94sSrFT2GUsb/WfFTvrliT9WRrtFns/42kuCEHMX+eQj6SGnZj
-	 6SKyKJyXMZFLIO/MXaq1HQg5I1fUaIXvYvH2imSIKOP1ZdPpYtxN5Nzhby8vBAnpSq
-	 IKWJdVIggpp6it5npUAN6DPsZWIKMJdRJSMqtDQcP+//G3+4DT/6tHCVZ5uOWCi/vM
-	 lQfu9E+dLqOeg==
-Date: Thu, 10 Sep 2026 09:29:14 +0200
-From: Joel Granados <joel.granados@kernel.org>
-To: Mauricio Faria de Oliveira <mfo@igalia.com>
-Cc: Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nsc@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, kernel-dev@igalia.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, fsverity@lists.linux.dev, 
-	keyrings@vger.kernel.org, bpf@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, netdev@vger.kernel.org, linux-wpan@vger.kernel.org, 
-	lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org, coreteam@netfilter.org, 
-	linux-sctp@vger.kernel.org, linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org, 
-	bridge@lists.linux.dev, mptcp@lists.linux.dev, rds-devel@oss.oracle.com, 
-	virtualization@lists.linux.dev
-Subject: Re: [PATCH RFC v3 00/13] sysctl: add module aliases
-Message-ID: <uufwu7rqyxf7h55lgavcwrnylnq5gdbd7o5d7mfugrxpblds2d@adra5c2z22gg>
-References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
- <bpnqwggtidgiec5akns3fa5edbsvl7xf55dxabtwng2xspy4pn@ue554aii2ngk>
- <53155340c897560bfc67e61ba9568fd6@igalia.com>
- <mokz5pdtwswkyab4byfq7q7m6ac2g6ceoi6jflyxmaszaibzqa@su6m4kamtdpy>
- <b1a6cec17e7c828fcebe310ca2a0d25b@igalia.com>
- <rywhz6soawf5dzyui5g7dnbufsgpxr7ma7honuhejwgncemzrm@f32at7hl6ugm>
- <6e93af907298022f077126f1be7bd386@igalia.com>
+	s=k20260515; t=1789025804;
+	bh=N8H5Y7b1qMwZuFef2QciYQi6Mlqrglt14h/cSL2EZ0s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=i8wIqyynC1WW5Ne7bNtG8OS/iVwy3UVXPoMVLaYWQsUsWKVHdSZDkNTUkeRsW4qJR
+	 uOG6DvuvMJKd1zVu3keBfLb7JQpOyHFzzYtI0GNOgERZivQI8Q9QZwEexTnbv3vNTL
+	 hoB6paCbWHqvHzl982ak9AfTIsnaIhBf9o1AVB0jklkGUEsVO6moB/Gf6FLSlPi08c
+	 l+grrOCEWhXQnJcif0ukTwkjt3LrV0zihGjjpYP6BPznz2Zd0CU07+x89HjHmQaolk
+	 QeCWbUcisLxkU99rUawEW8NF+tzxqehUbneK3liIWZDLPuv49MRL+ECOU97ryz2fQV
+	 2Tpjpz+GyABQQ==
+Message-ID: <0605f2ed-32a1-492d-850e-d1080007b4bc@kernel.org>
+Date: Thu, 10 Sep 2026 09:36:34 +0200
 MIME-Version: 1.0
-In-Reply-To: <6e93af907298022f077126f1be7bd386@igalia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2] powerpc/bug: Add ARCH_WARN_ASM and refactor
+ _EMIT_BUG_ENTRY for Rust support
+To: "Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>,
+ maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, ojeda@kernel.org,
+ boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com,
+ lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com,
+ tmgross@umich.edu, dakr@kernel.org, daniel.almeida@collabora.com,
+ tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev,
+ linkmauve@linkmauve.fr, linuxppc-dev@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ rust-for-linux@vger.kernel.org
+Cc: FUJITA Tomonori <tomo@flapping.org>
+References: <20260910071252.1950488-2-mkchauras@gmail.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <20260910071252.1950488-2-mkchauras@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,121 +74,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8780243247902649495=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8780243247902649495==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fccfp65dlmdatj3e"
-Content-Disposition: inline
-
-
---fccfp65dlmdatj3e
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Sep 09, 2026 at 02:29:30PM -0300, Mauricio Faria de Oliveira wrote:
-> On 2026-09-09 11:07, Joel Granados wrote:
-> > On Fri, Sep 04, 2026 at 02:45:23PM -0300, Mauricio Faria de Oliveira wr=
-ote:
-> >> On 2026-09-04 10:41, Joel Granados wrote:
-> >> > On Thu, Aug 20, 2026 at 06:22:13PM -0300, Mauricio Faria de Oliveira=
- wrote:
-> >> >> On 2026-08-20 09:51, Joel Granados wrote:
-> >> >> > On Wed, Aug 19, 2026 at 03:16:13PM -0300, Mauricio Faria de Olive=
-ira wrote:
-> >> >> >> This series adds 'sysctl:' aliases to modules that register sysc=
-tl tables; e.g.:
-> > <... snip ...>
-> >> > use the correct call moving forward?
-> >>=20
-> >> This scheme currently covers all modules, AFAIK, as it is wrapped in t=
-he
-> >> functions that register sysctl tables.
-> >>=20
-> >> On moving forward: usage of such functions in a way that breaks a
-> >> requirement of this series (e.g., failing to specify the template
-> >> table/path parameter(s), or not having constant initializers) hits a
-> >> build error, as the requirements are actually from the compiler.
-> >>=20
-> >> >> I guess that a different design could use MODULE_SYSCTL_TABLE() as
-> >> >> MODULE_DEVICE_TABLE(), declared per table instead of wrapped into
-> >> >> register sysctl functions.
-> >> >> However, it seems to require moving the value of the path argument =
-(or
-> >> >> its template) into the macro and still referencing it in the functi=
-on
-> >> >> (or its instantiation of the template), which adds obfuscation, to =
-all
-> >> >> callers.=20
-> >> >>=20
-> >> >> What do you think?
-> >> > It might be that having it inside the module subsys is more work, bu=
-t I
-> >> > believe that there is the right place to have it. I still don't see =
-that
-> >> > adding a module specific arg to the sysctl register is a good thing.
-> >>=20
-> >> Ok, cool. I can work on a different design.
-> >>=20
-> >> Please just let me know whether you are OK with the remaining (above),
-> >> and I'll be happy to tackle this.
-> >=20
-> > What is "the remaining"?
->=20
-> I meant the rest of the email, addressing the points/questions you
-> raised.
-
-* The dependency on a sysctl path to load a module still is
-  backwards to me. It should be: I need feature A, I load modules
-  M{1,2,3} for A and I set sysctl S{1,2,3...}. Not sure why sysctl tools
-  do it the other way around.
-
-* The fact that the invariance is in the sysctl path and not the module
-  identifier maybe points to a deeper issue.=20
-
-* I still believe that this is better placed outside the sysctl
-  subsys as it does not cater solely to module loading.
-
-Best
-
-
-
-
---fccfp65dlmdatj3e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmqiXEIACgkQupfNUreW
-QU+Jpgv/QNMzfwgyYS5bGcjcIdeGmbwPVB4niFRMrcLkDpeUPt2bAuU2q0Si+c2j
-8ZRwIaAx22BLUNWWDpobcza7W5C1A17rIR76XCMUnFSb0n/IWP5htK0UHazibk/r
-s8lxhIQXP5lQAHUSyOaKXEqmO60aWL/VkIxb+qJe3ThcHSESPRVQxL56e054d/fG
-0Hh+/ckA3Yy8AAKkaF1Q52F6thgEqtHKMSNZkdp+XN3Q+IQHRUGULXvXeTgvp4QY
-u5WK/w8RJz5+KQwW6//kpXBCY9uVado45tRrFS/H0fClXF6ovdXuTK169krtJi92
-qouie+C4qFsAjPRGPOQjOYXmCIa8/sKwsArW4CmTg0J9WN3BwQxJksy0jWqaxULM
-xRPx9OxYsSrYZGglZitaJMnNQnc+X20/vQ4lBotfmrMPdUgSrMAzOHO0AcFXBUs9
-s1DSQoFZe+/Kg4RCkGzgk55VbnT0V81UPFbcYx6yuyjb+yZWoTMUpHy8Q47//r54
-Y5lWmFsv
-=Y70+
------END PGP SIGNATURE-----
-
---fccfp65dlmdatj3e--
-
-
---===============8780243247902649495==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8780243247902649495==--
-
+CgpMZSAxMC8wOS8yMDI2IMOgIDA5OjEyLCBNdWtlc2ggS3VtYXIgQ2hhdXJhc2l5YSAoSUJNKSBh
+IMOpY3JpdMKgOgo+IFRoZSBSdXN0IGtlcm5lbCBpbmZyYXN0cnVjdHVyZSBnZW5lcmF0ZXMgaW5s
+aW5lIGFzbSBmb3IgV0FSTigpIHZpYQo+IEFSQ0hfV0FSTl9BU00oZmlsZSwgbGluZSwgZmxhZ3Ms
+IHNpemUpLCBleHBhbmRpbmcgaXQgdGhyb3VnaCBhIEMKPiBwcmVwcm9jZXNzb3IgcGFzcyAoZ2Vu
+ZXJhdGVkX2FyY2hfd2Fybl9hc20ucnMuUykgdG8gcHJvZHVjZSBhbgo+IGFyY2gtc3BlY2lmaWMg
+YXNtIHRlbXBsYXRlIHN0cmluZyBmb3IgdXNlIGluIFJ1c3QncyBjb3JlOjphcmNoIG1hY3Jvcy4K
+PiAKPiBwb3dlcnBjIGN1cnJlbnRseSBsYWNrcyBBUkNIX1dBUk5fQVNNIGFuZCBBUkNIX1dBUk5f
+UkVBQ0hBQkxFLCBjYXVzaW5nCj4gUnVzdCBidWlsZHMgdG8gZmFpbCBvbiBwb3dlcnBjIHdpdGgK
+PiBgYGAKPiBlcnJvcjogbm8gcnVsZXMgZXhwZWN0ZWQgYEFSQ0hfV0FSTl9BU01gCj4gICAgIC0t
+PiAvaG9tZS9saW5rbWF1dmUvZGV2L2xpbnV4L3dpaS9ydXN0L2tlcm5lbC9nZW5lcmF0ZWRfYXJj
+aF93YXJuX2FzbS5yczoxOjI4Cj4gICAgICB8Cj4gICAgMSB8IDo6a2VybmVsOjpjb25jYXRfbGl0
+ZXJhbHMhKEFSQ0hfV0FSTl9BU00oIntmaWxlfSIsICJ7bGluZX0iLCAie2ZsYWdzfSIsICJ7c2l6
+ZX0iKSkKPiAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgXl5eXl5eXl5eXl5eXiBu
+byBydWxlcyBleHBlY3RlZCB0aGlzIHRva2VuIGluIG1hY3JvIGNhbGwKPiAgICAgIHwKPiAgICAg
+Ojo6IC4uL3J1c3Qva2VybmVsL2xpYi5yczoyNzk6MQo+ICAgICAgfAo+IDI3OSB8IG1hY3JvX3J1
+bGVzISBjb25jYXRfbGl0ZXJhbHMgewo+ICAgICAgfCAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tIHdoZW4gY2FsbGluZyB0aGlzIG1hY3JvCj4gICAgICB8Cj4gICAgICA9IG5vdGU6IHdoaWxl
+IHRyeWluZyB0byBtYXRjaCBzZXF1ZW5jZSBzdGFydAo+IAo+IGVycm9yOiBubyBydWxlcyBleHBl
+Y3RlZCBgQVJDSF9XQVJOX1JFQUNIQUJMRWAKPiAgICAgLS0+IC9ob21lL2xpbmttYXV2ZS9kZXYv
+bGludXgvd2lpL3J1c3Qva2VybmVsL2dlbmVyYXRlZF9hcmNoX3JlYWNoYWJsZV9hc20ucnM6MToy
+OAo+ICAgICAgfAo+ICAgIDEgfCA6Omtlcm5lbDo6Y29uY2F0X2xpdGVyYWxzIShBUkNIX1dBUk5f
+UkVBQ0hBQkxFKQo+ICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICBeXl5eXl5eXl5e
+Xl5eXl5eXl5eIG5vIHJ1bGVzIGV4cGVjdGVkIHRoaXMgdG9rZW4gaW4gbWFjcm8gY2FsbAo+ICAg
+ICAgfAo+ICAgICA6OjogLi4vcnVzdC9rZXJuZWwvbGliLnJzOjI3OToxCj4gICAgICB8Cj4gMjc5
+IHwgbWFjcm9fcnVsZXMhIGNvbmNhdF9saXRlcmFscyB7Cj4gICAgICB8IC0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0gd2hlbiBjYWxsaW5nIHRoaXMgbWFjcm8KPiAgICAgIHwKPiAgICAgID0g
+bm90ZTogd2hpbGUgdHJ5aW5nIHRvIG1hdGNoIHNlcXVlbmNlIHN0YXJ0Cj4gCj4gZXJyb3I6IGFi
+b3J0aW5nIGR1ZSB0byAyIHByZXZpb3VzIGVycm9ycwo+IGBgYAo+IAo+IFJlZmFjdG9yIF9FTUlU
+X0JVR19FTlRSWSB0byBhY2NlcHQgZXhwbGljaXQgKGZpbGUsIGxpbmUsIGZsYWdzKSBzdHJpbmcK
+PiBhcmd1bWVudHMgcmF0aGVyIHRoYW4gcmVseWluZyBvbiBwb3NpdGlvbmFsIGFzbSBvcGVyYW5k
+IHJlZmVyZW5jZXMKPiAoJTAsICUxLCAlMiwgJTMpLiBUaGlzIGFsbG93cyB0aGUgbWFjcm8gdG8g
+YmUgY29tcG9zZWQgYXMgYSBwbGFpbgo+IHN0cmluZyBjb25jYXRlbmF0aW9uLCB3aGljaCBpcyBy
+ZXF1aXJlZCBmb3IgQVJDSF9XQVJOX0FTTSB3aGVyZSBubyBhc20KPiBvcGVyYW5kIGNvbnRleHQg
+ZXhpc3RzLgoKRm9yIGEgY2xlYW5lciBfRU1JVF9CVUdfRU5UUlkoKSBtYWNybywgc2hvdWxkbid0
+IGl0IGFsc28gcGFzcyB0aGUgbGFiZWwgCndoZXJlIHRoZSB0cmFwIHNpdHMgYXMgYSBtYWNybyBh
+cmd1bWVudCBpbnN0ZWFkIG9mIGJsaW5kbHkgcmVseWluZyBvbiBpdCAKYmVpbmcgMTogPwoKQ2hy
+aXN0b3BoZQoKPiAKPiBNb3ZlIHRoZSAub3JnIGFuZCAucHJldmlvdXMgZGlyZWN0aXZlcyBvdXQg
+b2YgX0VNSVRfQlVHX0VOVFJZIGFuZCBpbnRvCj4gdGhlIEJVR19FTlRSWSgpIGNhbGwgc2l0ZSB0
+byBwcmVzZXJ2ZSBleGlzdGluZyBiZWhhdmlvdXIgd2hpbGUgZW5hYmxpbmcKPiBBUkNIX1dBUk5f
+QVNNIHRvIHN1cHBseSBpdHMgb3duIHNpemUgb3BlcmFuZCBpbmRlcGVuZGVudGx5Lgo+IAo+IEFk
+ZCBBUkNIX1dBUk5fUkVBQ0hBQkxFIGFzIGFuIGVtcHR5IGRlZmluZSwgbWF0Y2hpbmcgdGhlIGFy
+bTY0Cj4gY29udmVudGlvbiwgaW5kaWNhdGluZyB0aGF0IG5vIGFkZGl0aW9uYWwgcmVhY2hhYmls
+aXR5IGFubm90YXRpb24gaXMKPiBuZWVkZWQgYWZ0ZXIgYSBXQVJOIG9uIHBvd2VycGMuCj4gCj4g
+VGhpcyBicmluZ3MgcG93ZXJwYyBpbnRvIGxpbmUgd2l0aCB4ODYsIGFybTY0LCBzMzkwLCBhbmQg
+cmlzY3YsIGFsbCBvZgo+IHdoaWNoIGFscmVhZHkgZGVmaW5lIEFSQ0hfV0FSTl9BU00gYW5kIEFS
+Q0hfV0FSTl9SRUFDSEFCTEUuCj4gCj4gUmVwb3J0ZWQtYnk6IEZVSklUQSBUb21vbm9yaSA8dG9t
+b0BmbGFwcGluZy5vcmc+Cj4gQ2xvc2VzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvYW5H
+NjdRNlk1OWtEcWgtY0BkZXNrdG9wCj4gRml4ZXM6IDczYjc0MWFkYjI2NCAoInJ1c3Q6IEFkZCBQ
+b3dlclBDIHN1cHBvcnQiKQo+IFNpZ25lZC1vZmYtYnk6IE11a2VzaCBLdW1hciBDaGF1cmFzaXlh
+IChJQk0pIDxta2NoYXVyYXNAZ21haWwuY29tPgo+IC0tLQo+IENoYW5nZWxvZzoKPiBWMSAtPiBW
+MjoKPiAtIGNvbW1pdCBtZXNzYWdlIG5vdyBoYXMgZXJyb3IsIGZpeGVzIHRhZyBhbmQgY2xvc2Vz
+IHRhZwo+IAo+ICAgYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL2J1Zy5oIHwgMjggKysrKysrKysr
+KysrKysrKy0tLS0tLS0tLS0tLQo+ICAgMSBmaWxlIGNoYW5nZWQsIDE2IGluc2VydGlvbnMoKyks
+IDEyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Bvd2VycGMvaW5jbHVkZS9h
+c20vYnVnLmggYi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vYnVnLmgKPiBpbmRleCAwZGI0ODk3
+N2M3MGMuLjhhYmEzOWUwY2YyNiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Bvd2VycGMvaW5jbHVkZS9h
+c20vYnVnLmgKPiArKysgYi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20vYnVnLmgKPiBAQCAtMzIs
+MzQgKzMyLDM4IEBACj4gICAjZW5kaWYgLyogdmVyYm9zZSAqLwo+ICAgCj4gICAjZWxzZSAvKiAh
+X19BU1NFTUJMRVJfXyAqLwo+IC0vKiBfRU1JVF9CVUdfRU5UUlkgZXhwZWN0cyBhcmdzICUwLCUx
+LCUyLCUzIHRvIGJlIEZJTEUsIExJTkUsIGZsYWdzIGFuZAo+IC0gICBzaXplb2Yoc3RydWN0IGJ1
+Z19lbnRyeSksIHJlc3BlY3RpdmVseSAqLwo+ICAgI2lmZGVmIENPTkZJR19ERUJVR19CVUdWRVJC
+T1NFCj4gLSNkZWZpbmUgX0VNSVRfQlVHX0VOVFJZCQkJCVwKPiArI2RlZmluZSBfRU1JVF9CVUdf
+RU5UUlkoZmlsZSwgbGluZSwgZmxhZ3MpCVwKPiAgIAkiLnNlY3Rpb24gX19idWdfdGFibGUsXCJh
+d1wiXG4iCQlcCj4gICAJIjI6CS40Ynl0ZSAxYiAtIC5cbiIJCVwKPiAtCSIJLjRieXRlICUwIC0g
+LlxuIgkJXAo+IC0JIgkuc2hvcnQgJTEsICUyXG4iCQlcCj4gLQkiLm9yZyAyYislM1xuIgkJCQlc
+Cj4gLQkiLnByZXZpb3VzXG4iCj4gKwkiCS40Ynl0ZSAiIGZpbGUgIiAtIC5cbiIJCVwKPiArCSIJ
+LnNob3J0ICIgbGluZSAiLCAiIGZsYWdzICJcbiIKPiAgICNlbHNlCj4gLSNkZWZpbmUgX0VNSVRf
+QlVHX0VOVFJZCQkJCVwKPiArI2RlZmluZSBfRU1JVF9CVUdfRU5UUlkoZmlsZSwgbGluZSwgZmxh
+Z3MpCVwKPiAgIAkiLnNlY3Rpb24gX19idWdfdGFibGUsXCJhd1wiXG4iCQlcCj4gICAJIjI6CS40
+Ynl0ZSAxYiAtIC5cbiIJCVwKPiAtCSIJLnNob3J0ICUyXG4iCQkJXAo+IC0JIi5vcmcgMmIrJTNc
+biIJCQkJXAo+IC0JIi5wcmV2aW91c1xuIgo+ICsJIgkuc2hvcnQgIiBmbGFncyAiXG4iCj4gICAj
+ZW5kaWYKPiAgIAo+ICAgI2RlZmluZSBCVUdfRU5UUlkoY29uZF9zdHIsIGluc24sIGZsYWdzLCAu
+Li4pCQlcCj4gICAJX19hc21fXyBfX3ZvbGF0aWxlX18oCQkJCVwKPiAgIAkJIjE6CSIgaW5zbiAi
+XG4iCQkJXAo+IC0JCV9FTUlUX0JVR19FTlRSWQkJCQlcCj4gKwkJX0VNSVRfQlVHX0VOVFJZKCIl
+MCIsICIlMSIsICIlMiIpCVwKPiArCQkiLm9yZyAyYislM1xuIgkJCQlcCj4gKwkJIi5wcmV2aW91
+c1xuIgkJCQlcCj4gICAJCTogOiAiaSIgKFdBUk5fQ09ORElUSU9OX1NUUihjb25kX3N0cikgX19G
+SUxFX18pLCAiaSIgKF9fTElORV9fKSwJXAo+ICAgCQkgICJpIiAoZmxhZ3MpLAkJCQlcCj4gICAJ
+CSAgImkiIChzaXplb2Yoc3RydWN0IGJ1Z19lbnRyeSkpLAlcCj4gICAJCSAgIyNfX1ZBX0FSR1Nf
+XykKPiAgIAo+ICsjZGVmaW5lIEFSQ0hfV0FSTl9BU00oZmlsZSwgbGluZSwgZmxhZ3MsIHNpemUp
+CQlcCj4gKwkJIjE6CXR3aSAzMSwgMCwgMFxuIgkJCVwKPiArCQlfRU1JVF9CVUdfRU5UUlkoZmls
+ZSwgbGluZSwgZmxhZ3MpCVwKPiArCQkiLm9yZyAyYisiIHNpemUgIlxuIgkJCVwKPiArCQkiLnBy
+ZXZpb3VzXG4iCj4gKwo+ICsjZGVmaW5lIEFSQ0hfV0FSTl9SRUFDSEFCTEUKPiArCj4gICAvKgo+
+ICAgICogQlVHX09OKCkgYW5kIFdBUk5fT04oKSBkbyB0aGVpciBiZXN0IHRvIGNvb3BlcmF0ZSB3
+aXRoIGNvbXBpbGUtdGltZQo+ICAgICogb3B0aW1pc2F0aW9ucy4gSG93ZXZlciBkZXBlbmRpbmcg
+b24gdGhlIGNvbXBsZXhpdHkgb2YgdGhlIGNvbmRpdGlvbgoKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
