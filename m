@@ -4,89 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130D8C79FB6
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 01:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28438C79FB7
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 03:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:Subject:Cc:To:From:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WqKVERKhWnVMnR91hE/aK8nN8Jm6ZniV4J04vcBZwiw=; b=e/XhTGue16vJ5h57pYzx955aD4
-	dDVOBWasowaw074LttHr2VMu4y4S6Iu/ATI1wpohgaVb8J2CtoN+vEb3znyaowP5wt9NqHMnykRcA
-	oKCVyB7BoFpq7aGY2VjMhtIwu6FRv5Nfy4LrBx81kBNChmKxbjKPPqFVtY90om4JJPH4GBarapfXu
-	lRssmHO1J8cL84c+hZ2nx8tbWjgzmdK3CG7u4LztSUiUxRl0fre+G+3ndes79u8U8dwjA6esfmxSB
-	3MrRyjEVMImTTVWF5/hWySJ1eD8kq+UFEmGixZkHLRbwyMzMvtNcmCIu6La5LkK/XZh5xpppWtVtc
-	xaRrKptw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Subject:From:Cc:Message-Id
+	:Date:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tpCWqDGM5dQ0qQm4suaOMh99bqkWLWqqCgcXoQH8ftQ=; b=BpD4xMJA89xr2s
+	XYAJGnhjfUJG7fcByFRhJVl1ervJ/5jTI5bjYx9w4hAuRvYbp+H3pcKktvEehNP7QIlZbi4XPF8MZ
+	0tCnXM5EW+mAPMJwJ9opOo+5OWDVhYqIhvj9wpEz8bjOcvzjlxiCGNDQWOu2v931qvJdj/LV1SGbF
+	BnGrNTA08T3SroTgVo98VAmsC9RsrQMfIzEFhY4nsQeNIRlgdzYqqj7UUIeYjurI5XgvydSTDJJCr
+	1Obb9wKlwD2QWzAuKgq6wKjxe+Bk4ZLZnuLoh622668MkGzuief9WDvEZ8Cg+oPn1N4T+qfUyJNHv
+	Yn6A5lpfdF+QAmsEOtfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Tex-0000000DBqf-0hq2;
-	Thu, 10 Sep 2026 01:33:03 +0000
-Received: from smtp-usa1.onexmail.com ([52.205.10.60])
+	id 1x4VR2-0000000DHXG-27w4;
+	Thu, 10 Sep 2026 03:26:48 +0000
+Received: from va-1-114.ptr.blmpb.com ([209.127.230.114])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Teq-0000000DBnR-1LO2
+	id 1x4VQz-0000000DHWb-1gCO
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Sep 2026 01:33:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1789003960;
-	bh=JRLAWTIhqaaecsAukWfEk30ICvbbdNAr1t0TIDEE89s=;
-	h=Mime-Version:Date:Message-Id:From:To:Subject;
-	b=ILqw91YpOSY14+c8I7VK8ruo6YRhT7Am77O0aUoQRK3PGTB4zzQ9nAg9i6CT12w2T
-	 1S8+BNAVnCpA8jyIuMt2kQcIQkmXXcYS3fuKZCsC+3hl5Rd8GgtRypSV+IHTZb590q
-	 lDgZxKgJHfc1spEpNMTtcndXAfrhvU9Ld5+zYZo8=
-X-QQ-mid: esmtpgz15t1789003953t3e8991ed
-X-QQ-Originating-IP: e+6YXafASxPf1eSSOf6GAwmVakYdPq8Bw8GPT1vxgas=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 10 Sep 2026 09:32:31 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11798593259033511261
-EX-QQ-RecipientCnt: 20
+	Thu, 10 Sep 2026 03:26:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1789010795; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=HaweDL7Mt0Kz8Nqxsbbq/5mN6UCAfT1ipg31lZ821wg=;
+ b=MeTGtajlxnWK7pS+yraybhbO5UO3z1aEKzSYwBRt3FXJEZWp+3WqrjxqRpl+9YaXM1TvHe
+ 3NjNbduTsP7CWlKTExV/RTzCjrRRLu50KYBsSAjAvjqF6HJ9hixA1nP9vVWZfzFPwKp/n5
+ SLOC0IxHcW6ukbp2ucuP62/97EA7N1r43qTqfiKRdjr3DAPc1YzQ50QGo8xXtIgYfrWYWY
+ qT/B9HrrLUi+5AxpBhMOafy+CyZKO836VlSJ2CrftkIbzhNS8W93utdlKy1SHnl5RmX+t9
+ V1lNAoTkhl9jy5RDz294IBaxz6d2MJ147rI/VP38p+O6gSpn/lVqlSz4Codxjw==
+X-Mailer: git-send-email 2.20.1
+To: <palmer@dabbelt.com>, <pjw@kernel.org>, <aou@eecs.berkeley.edu>, 
+	<alex@ghiti.fr>
+Date: Thu, 10 Sep 2026 11:26:19 +0800
+Message-Id: <20260910032619.2477279-1-qirui.001@bytedance.com>
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
+Cc: <qirui.001@bytedance.com>, <debug@rivosinc.com>, <martin@kaiser.cx>, 
+	<mindal@semihalf.com>, <fustini@kernel.org>, <kees@kernel.org>, 
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+From: "Rui Qi" <qirui.001@bytedance.com>
+Subject: [PATCH v2] riscv: crash: Add crash hotplug support
 Mime-Version: 1.0
-Date: Thu, 10 Sep 2026 09:32:28 +0800
-Message-Id: <DLB8Z04I9AJ5.14D1ET3LMEICL@linux.spacemit.com>
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, "Liam Girdwood"
- <lgirdwood@gmail.com>, "Mark Brown" <broonie@kernel.org>, "Jaroslav Kysela"
- <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>, "Yixun Lan"
- <dlan@kernel.org>, "Jinmei Wei" <weijinmei@linux.spacemit.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>
-Cc: <linux-sound@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
- <devicetree@vger.kernel.org>, "Arnd Bergmann" <arnd@arndb.de>
-Subject: Re: [PATCH v2] riscv: dts: spacemit: k3: add i2s0-i2s5 nodes
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260910-kx-i2s-dts-v2-1-91f5376c899d@linux.spacemit.com>
- <20260909172639.BCDE91F000FF@smtp.kernel.org>
-In-Reply-To: <20260909172639.BCDE91F000FF@smtp.kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NwZEY09ZZGEZVvqf8+YezEAmM5w3WON858kCV+075xnJtCMxOzbXSBlq
-	yqTq2sJ1xcR802fNLAUOVHhMYcQlsWLqIy2z7x9UD1Zc3hx/ofGmS9FNlWt/oOoPvLo/8xO
-	SaX1fmnY2r7HCGU/l8KVYmOAb7wU8hfdRVUBqxEZ+9ncVdkWTIXqPjM/bZS+Q5SjuQIH1iA
-	N7uKC5xQlv2C8hSidNKXHD/KjTzwyrE1xvquwnV/JM+fjEhmuVsowvYAgsjSE/rGAGtY8hf
-	uBDRKTVnBUnmLl6FLf5xVw6KQKwPYbEqLoCBKMqQGHzcOFfwX+kqDC1F9iOFhdihl7dhASv
-	C10ujbWeT/2r9M9asl3DblFWHYSz6W6HDlMGdwmfAhAXbMGcqPjqaX1z7FW0P+FQfia404P
-	PI8K/4wqj1eOgsEkb3c61nw1UTnVPE3aCvt1/IVBECeu31l8z5DIhzqpUS9P/Zi1ur0dJ3i
-	umYWf3iH8Ugr7vypSsu/wDs1UPOaiHBHwdBlMk/77Bmcsa9UhJ6aX367NZFAUF/GCVs2OIZ
-	82Ic/q6Sbx1QRinOdGd6TxZCAcT5K5jbVcS/0c17skiZAS+yLpONik4k86J9m0lwdYyqFfp
-	KnLBU7r29s26S0Dgg3nvQp+rD8YjKiMVeh//ddvxybjlLuvYX0GIV/3BdqHpk9M1pQk2heK
-	4KerA4UU5MSx1PQ0vkoYdBBMHeLE+voTo24UR8LDWI52RIb0PI64TuySpuXLiZe2XoXk5X5
-	zdyIZXrm6cEp516N/U/INu3228f2H9PNKi/mJKSsFtIQNqUC/QbQ/nHRgTPYujs7aaPLvp6
-	ZSjScuOshIpI+9Anw0pBu1J/3pE8FqhcbdkSgKb6Mj3SUS1ZbXix95U/F/EYm1xXle4lDxz
-	8yFq+w7Vy4j/GTCeSE0c5rCXK7eeRZkIP9/b9xtnZXJxOzEmdWpqxxWs1OJks18jiEosxmB
-	1XwiOduVvGN4G4AhjJAqsa74s/BVyQhuzhCs8+0rtH6oBJiVt8LRhmkbddo6uDQuTq6cYK7
-	JdDuTmbqzcWxK1qnTMvchhF7T414zMOXq1YFOuV4TbGP3V/xKXa89oGeG13SVJMxETX31HB
-	yc6IfAOOATC5G7zwkxzhWqe6cwk0XIbdwluooxwh3pdelAKeWjYR/DVXj1jNQCclg==
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
+X-Lms-Return-Path: <lba+26aa2236a+a646a1+lists.infradead.org+qirui.001@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_183257_237018_825DB21B 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260909_202645_647538_C12DC260 
+X-CRM114-Status: GOOD (  23.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,101 +64,236 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1605446414625619603=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1605446414625619603==
-Content-Type: multipart/signed;
- boundary=11bbd86e82698157b531ee79da7e296696d006f746390c3a0d4a79aa529a;
- micalg=pgp-sha512; protocol="application/pgp-signature"
+When CPUs or memory are hot-plugged on a running system, the crash
+dump's elfcorehdr -- which describes the available CPUs and memory to
+the capture kernel -- must be kept in sync, otherwise a crash after a
+hotplug event would produce a vmcore that does not reflect the current
+system topology.
 
---11bbd86e82698157b531ee79da7e296696d006f746390c3a0d4a79aa529a
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Enable crash hotplug for RISC-V by selecting
+ARCH_SUPPORTS_CRASH_HOTPLUG and providing the three architecture hooks
+invoked through the override macros in <asm/kexec.h>:
 
+  arch_crash_hotplug_support() reports whether an image supports the
+  mechanism; arch_crash_get_elfcorehdr_size() sizes the segment for
+  NR_CPUS and, with memory hotplug, CRASH_MAX_MEMORY_RANGES;
+  arch_crash_handle_hotplug_event() rebuilds the elfcorehdr through the
+  crash_prepare_headers() helper and writes it over the old segment.
 
-On Thu Sep 10, 2026 at 1:26 AM +08, sashiko-bot wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential issu=
-e(s) to consider:
-> - [Low] The newly added I2S device tree nodes use hardcoded magic numbers=
- for DMA channels instead of the available hardware macros from `k3-pdma.h`=
-.
-> --
->
-> commit 8163a94c4a6b08c0fea00752b0853d3f434a12d1
-> Author: Troy Mitchell <troy.mitchell@linux.spacemit.com>
->
-> riscv: dts: spacemit: k3: add i2s0-i2s5 nodes
->
-> Add the six SSPA-based I2S controller nodes for the K3 SoC.
-> i2s0 and i2s2-i2s5 each have a dedicated per-controller sysclk
-> divider, so they use the published 7-clock layout.
->
-> Link: https://lore.kernel.org/all/20260721-kx-i2s-dts-v1-0-d22cb6cfaab5@l=
-inux.spacemit.com/
->
->> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/=
-spacemit/k3.dtsi
->> index c3f2dce0969c0..f2ff9f02249c3 100644
->> --- a/arch/riscv/boot/dts/spacemit/k3.dtsi
->> +++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
->
-> [ ... ]
->
->> @@ -1140,6 +1140,85 @@ uart10: serial@d401f000 {
->>  			status =3D "disabled";
->>  		};
->> =20
->> +		i2s0: i2s@d4026000 {
->> +			compatible =3D "spacemit,k3-i2s";
->> +			reg =3D <0x0 0xd4026000 0x0 0x30>;
->> +			clocks =3D <&syscon_mpmu CLK_MPMU_I2S0_SYSCLK>,
->> +				 <&syscon_apbc CLK_APBC_I2S0_BCLK>,
->> +				 <&syscon_apbc CLK_APBC_I2S0_BUS>,
->> +				 <&syscon_apbc CLK_APBC_I2S0>,
->> +				 <&syscon_mpmu CLK_MPMU_I2S0_SYSCLK_DIV>,
->> +				 <&syscon_mpmu CLK_MPMU_I2S_SYSCLK>,
->> +				 <&syscon_mpmu CLK_MPMU_I2S_BCLK>;
->> +			clock-names =3D "sysclk", "bclk", "bus", "func",
->> +				      "sysclk_div", "c_sysclk", "c_bclk";
->> +			dmas =3D <&pdma 21>, <&pdma 22>;
->
-> [Severity: Low]
-> Could this use the available hardware macros from k3-pdma.h instead of
-> hardcoded magic numbers, such as <&pdma K3_PDMA_SSPA0_TX>,
-> <&pdma K3_PDMA_SSPA0_RX>?
-Yes, will fix in the next version.
+The elfcorehdr is copied with memcpy_flushcache(), matching the x86
+implementation; on RISC-V this currently expands to a plain memcpy()
+and will benefit automatically once the architecture provides a
+flushcache backend. The implementation otherwise follows the x86 crash
+hotplug model.
 
+Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+Tested-by: Rui Qi <qirui.001@bytedance.com>
 
---=20
-Troy Mitchell
+---
+Changes in v2:
+- Add a forward declaration of struct kimage before the crash hotplug
+  prototypes in <asm/kexec.h> to fix a build breakage.
 
+Testing performed:
 
---11bbd86e82698157b531ee79da7e296696d006f746390c3a0d4a79aa529a
-Content-Type: application/pgp-signature; name="signature.asc"
+Verified that kdump was loaded before each panic, then triggered a
+sysrq panic under each of the following hotplug states:
 
------BEGIN PGP SIGNATURE-----
+  - CPU1 offline only
+  - one memory block offline only
+  - two CPUs offline
+  - two memory blocks offline
+  - CPU and memory offline, held for 60 s before panic
 
-iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCaqIIrA0caUB0cm95LXku
-b3JnAAoJEJgJ74D5MzQvKIoBALwKLoo7uuF39mKvybSqI95DC3y1EIi91MJWsMzL
-lcWYAP98Y3nrDXnshzSwNi8LYPiY6ALW3eKvkhvPGtofCXnNAQ==
-=1jI+
------END PGP SIGNATURE-----
+Each case produced a valid vmcore that could be opened with the crash
+tool. At panic time the observed state matched expectations: offline
+CPUs were reflected in __cpu_online_mask, and offline memory blocks
+appeared as MEM_OFFLINE. kdump worked correctly across all tested CPU
+and memory hotplug offline scenarios.
+---
+ arch/riscv/Kconfig             |   3 +
+ arch/riscv/include/asm/kexec.h |  13 ++++
+ arch/riscv/kernel/Makefile     |   1 +
+ arch/riscv/kernel/crash.c      | 113 +++++++++++++++++++++++++++++++++
+ 4 files changed, 130 insertions(+)
+ create mode 100644 arch/riscv/kernel/crash.c
 
---11bbd86e82698157b531ee79da7e296696d006f746390c3a0d4a79aa529a--
-
-
---===============1605446414625619603==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index ab7ca8f57420..123a6862dc10 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -1133,6 +1133,9 @@ config ARCH_DEFAULT_CRASH_DUMP
+ config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+ 	def_bool CRASH_RESERVE
+ 
++config ARCH_SUPPORTS_CRASH_HOTPLUG
++	def_bool y
++
+ config COMPAT
+ 	bool "Kernel support for 32-bit U-mode"
+ 	default 64BIT
+diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
+index b9ee8346cc8c..e218835eb10c 100644
+--- a/arch/riscv/include/asm/kexec.h
++++ b/arch/riscv/include/asm/kexec.h
+@@ -75,4 +75,17 @@ int load_extra_segments(struct kimage *image, unsigned long kernel_start,
+ 			unsigned long cmdline_len);
+ #endif
+ 
++#ifdef CONFIG_CRASH_HOTPLUG
++struct kimage;
++
++void arch_crash_handle_hotplug_event(struct kimage *image, void *arg);
++#define arch_crash_handle_hotplug_event arch_crash_handle_hotplug_event
++
++int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags);
++#define arch_crash_hotplug_support arch_crash_hotplug_support
++
++unsigned int arch_crash_get_elfcorehdr_size(void);
++#define crash_get_elfcorehdr_size arch_crash_get_elfcorehdr_size
++#endif
++
+ #endif
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index ebe1c3588177..d0a5d442110f 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -111,6 +111,7 @@ obj-$(CONFIG_KGDB)		+= kgdb.o
+ obj-$(CONFIG_KEXEC_CORE)	+= kexec_relocate.o crash_save_regs.o machine_kexec.o
+ obj-$(CONFIG_KEXEC_FILE)	+= kexec_elf.o kexec_image.o machine_kexec_file.o
+ obj-$(CONFIG_CRASH_DUMP)	+= crash_dump.o
++obj-$(CONFIG_CRASH_HOTPLUG)	+= crash.o
+ obj-$(CONFIG_VMCORE_INFO)	+= vmcore_info.o
+ 
+ obj-$(CONFIG_JUMP_LABEL)	+= jump_label.o
+diff --git a/arch/riscv/kernel/crash.c b/arch/riscv/kernel/crash.c
+new file mode 100644
+index 000000000000..fe5a4b306aae
+--- /dev/null
++++ b/arch/riscv/kernel/crash.c
+@@ -0,0 +1,113 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * RISC-V crash hotplug support
++ *
++ * Copyright (C) 2025 Bytedance Ltd.
++ */
++
++#include <linux/kexec.h>
++#include <linux/crash_core.h>
++#include <linux/mm.h>
++#include <linux/vmalloc.h>
++
++#ifdef CONFIG_CRASH_HOTPLUG
++
++#undef pr_fmt
++#define pr_fmt(fmt) "crash hp: " fmt
++
++int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags)
++{
++#ifdef CONFIG_KEXEC_FILE
++	if (image->file_mode)
++		return 1;
++#endif
++	/*
++	 * For the kexec_load() syscall path, the user space kexec tool
++	 * needs to indicate that the elfcorehdr segment is excluded from
++	 * SHA verification by setting the appropriate flags.
++	 */
++	return (kexec_flags & KEXEC_UPDATE_ELFCOREHDR ||
++		kexec_flags & KEXEC_CRASH_HOTPLUG_SUPPORT);
++}
++
++unsigned int arch_crash_get_elfcorehdr_size(void)
++{
++	unsigned int sz;
++
++	/* kernel_map, VMCOREINFO and maximum CPUs */
++	sz = 2 + CONFIG_NR_CPUS;
++	if (IS_ENABLED(CONFIG_MEMORY_HOTPLUG))
++		sz += CONFIG_CRASH_MAX_MEMORY_RANGES;
++	sz *= sizeof(Elf64_Phdr);
++	return sz;
++}
++
++/**
++ * arch_crash_handle_hotplug_event() - Handle hotplug elfcorehdr changes
++ * @image: a pointer to kexec_crash_image
++ * @arg: struct memory_notify handler for memory hotplug case and
++ *       NULL for CPU hotplug case.
++ *
++ * Prepare the new elfcorehdr and replace the existing elfcorehdr.
++ */
++void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
++{
++	void *elfbuf = NULL, *old_elfcorehdr;
++	unsigned long mem, memsz;
++	unsigned long elfsz = 0;
++
++	/*
++	 * As crash_prepare_elf64_headers() has already described all
++	 * possible CPUs, there is no need to update the elfcorehdr
++	 * for additional CPU changes.
++	 */
++	if ((image->file_mode || image->elfcorehdr_updated) &&
++		((image->hp_action == KEXEC_CRASH_HP_ADD_CPU) ||
++		(image->hp_action == KEXEC_CRASH_HP_REMOVE_CPU)))
++		return;
++
++	/*
++	 * Create the new elfcorehdr reflecting the changes to CPU and/or
++	 * memory resources.
++	 */
++	if (crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
++		pr_err("unable to create new elfcorehdr");
++		goto out;
++	}
++
++	/*
++	 * Obtain address and size of the elfcorehdr segment, and
++	 * check it against the new elfcorehdr buffer.
++	 */
++	mem = image->segment[image->elfcorehdr_index].mem;
++	memsz = image->segment[image->elfcorehdr_index].memsz;
++	if (elfsz > memsz) {
++		pr_err("update elfcorehdr elfsz %lu > memsz %lu",
++			elfsz, memsz);
++		goto out;
++	}
++
++	/*
++	 * Copy new elfcorehdr over the old elfcorehdr at destination.
++	 */
++	old_elfcorehdr = kmap_local_page(pfn_to_page(mem >> PAGE_SHIFT));
++	if (!old_elfcorehdr) {
++		pr_err("mapping elfcorehdr segment failed\n");
++		goto out;
++	}
++
++	/*
++	 * Temporarily invalidate the crash image while the
++	 * elfcorehdr is updated.
++	 */
++	xchg(&kexec_crash_image, NULL);
++	memcpy_flushcache(old_elfcorehdr, elfbuf, elfsz);
++	xchg(&kexec_crash_image, image);
++	kunmap_local(old_elfcorehdr);
++	pr_debug("updated elfcorehdr\n");
++
++out:
++	vfree(elfbuf);
++}
++
++#endif /* CONFIG_CRASH_HOTPLUG */
+-- 
+2.20.1
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1605446414625619603==--
-
