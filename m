@@ -4,145 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C2EC88E48
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 10:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F787C79FB9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 10:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1QHHo9xk18M47wukHoCCT6rY9t7+GwdypZVTWPGTlEI=; b=kkDAhCKEi2FQxs
-	AjjIpCiuU7cyv6hVK2uCWvlRvt/M+q5NiDhQabN5TAwHL4s94wBkTTJYAEqO7dEgd2DtNxH8PNR6m
-	evc2CCL820sbLwjoLz/t3IorOXH+Di3GOcec/UXOcYJHzURRceW1vyTbtB9T8fTsYuFLZ9i7PSEWc
-	iWftpUzGytrVIavBhT8Db5NLAppUO+M99/H/FHSfm5jJmCQgByfOLCSnaeIQWmFMs6z/1034DBPHQ
-	A4P7+BlhE4Kmy+D9dWUYbYeS59h8AeGJ+0bNfTbterG8mggspPriN6RMJ8ncH/bxmZ3VcG8c7o0Qa
-	IjnA5XdquF/lpBEdO8zw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GAZ4GO43x/DFa122oNf0geZ+1OW+UElIOiYsQ3dAGwY=; b=hwhYO0Lb1n/8DN
+	g2MRAz9LfWtBFYpnX85aYO2pYaatvFqwf5bF6/hlC35MVeDDmBjXphcCfzd8AlSv5aV/a2vOZ5cBs
+	CvKW9tWPYNPZ0deo1dTckSyAfVj2E6hCY91FTSB0BmDY7Jfw36AUhsE2dqOBE99c7my8NneFQkUuq
+	geZyPmryDQO4wfLxXDNOTJKwXZzHowCpatj+EG48NEuV1AnvnB7soWxfBWrZ7QpWFyw0BVq5hI63V
+	2rKH9+AHOAuDINS+Q4wT5Y+sy3ffA1WjjogYBHg3/tVul1BW3TbF6a3RKxTz8P3RCv9JWM3jtPB3C
+	QlqSVg7KPSkkGoPC5FGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4beF-0000000DyDi-3fFN;
-	Thu, 10 Sep 2026 10:04:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4bio-0000000E0MH-2h2l;
+	Thu, 10 Sep 2026 10:09:34 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4beD-0000000DyA2-2RUH
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 10 Sep 2026 10:04:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=yUn2xAGOCfWMJiSKI7j6fKt6bM8M2vYky96CfNfzDwQ=; b=IUUJQHn6O4N3ERtmnczXDYW7ZS
-	Brt9Kj7U5mGTMDkoalHDzV3tiGp9R3wpPX4MH3SWGYtZ4TRN+9h2a3E+UHQyKOmcQex+qIBBvwMJR
-	Asi9GUmxVBnwWF8msvvrJAzS9NZgMOKAVfRzqfqLNt+1OHPDXLRNkJ/Qio5GbnP3MgP9q9OMFA4X6
-	gMEUwaddy5NFLrTnUBTwU5IL4H0NOJj+qjZh3iKi13fXptPD2tT0zRgXrzv+ahZmCQ8fkLGrcdvk+
-	ylT891G5WmXJiYmwDxlzcu7IF1Jak+Xpxz+KqHxhw7ATU6QPenPU2w2sT0vDVamepFWO89hx2EAkQ
-	aJDotV1g==;
-Received: from mail-bjschn02on2107.outbound.protection.partner.outlook.cn ([139.219.17.107] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4beA-00000002IW4-2QZF
+	id 1x4bil-0000000E0LT-1sKa
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Sep 2026 10:04:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=N/4zhBgih/HtZsSEQZvV7KtEEZAkSQkweRHuldyKw1/LpBV/9FFsOXdmpdjAe7iWg3NmE0JdAd+npWX77xt6K7+j7qkqliZUgw7dCypibdg17sriEr1ESs7oIE7/3b9qKOPJwm8YRf1KcrV9sM0S/bkRUMuJWu4pbJviiZdDMYf3IehwBoxzlWl2XTsEHaCy2JmzGZqPlj8xVFtAar7PporMsde8T6eGGZQ8iUu0F0ymbtOvZYtgXFR4GmIf3XzVmpQh/FMBeE0dEOFVByyjDc5liLWAwqw2Le3FjM1PrxGU05XnERFXx4R1NO/9XvWy1LKotRdi3piz6N+sQEY5yg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yUn2xAGOCfWMJiSKI7j6fKt6bM8M2vYky96CfNfzDwQ=;
- b=F9l8Z8oU4FXX/AXj4CipoyV/shsNi5ITtl0Sv48r23TkOUe2DOyHfu8PPA75TJV3DNvOb5VAGHrzGeb9gOPkvVO/I9tPCRWTYGXbjHNY1FjiLqnAOIyOLTz3JZZNAMUgmHa89ujkXr6VeWciJC1oVC5U+6+WicjFhQFyHPaAY7RjIQse3dBU8G2ZSO/m1ex0DVphfHAaLi4CWKiohNTlhoIxTELav9vGY7Iz9BBdFMgsk9rbRSo+WkVxF6iZu2025XIz7kL2k+ItJ/g6PYX9hKMtbXCXSaAe3tvEcNUniauEuGtpKgjufTlPCoJdVtsLNkSd1P+LcPVcDuLn7/J6SA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6) by ZQ4PR01MB1233.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:13::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Thu, 10 Sep
- 2026 10:04:19 +0000
-Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- ([fe80::e7d4:256c:b066:850d]) by
- ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
- with mapi id 15.21.0339.017; Thu, 10 Sep 2026 10:04:19 +0000
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org,
+	Thu, 10 Sep 2026 10:09:32 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so138944a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 03:09:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789034970; x=1789639770; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=v5leu8y8+SZGo99Bk+YLh7ZmObofNLoxXT8B8pxE/vs=;
+        b=Oyo4NWrSZGPVCqp/ymoli6mKRw542X4O9YeJGJIydPfS4qwkSUGjDEMBedVWuIE2Vo
+         eP6/PvxGtuqE4OOlo663SYW5EhFDf/8st9n3Utv/0gTA7w0DZfzN13brEgUSMryfF4w2
+         yf/4OrFAGijuI/JEQxmwNGesqYWdJv7JguQPsJS7sG2hHMj/KWG/nd38nBBYhGTLpsu1
+         9M2aEIzrMdHg/3LVGJp4agEUvPswbUZcYsBO7TzZLR/cb8gaKwD0RC+BiFVRwqRulgVO
+         fBP39k3oMVsnE+0eij5ZCUuMwXf8gVYDAxlfcth9sDEFDdLu0i3HIgSUebL2xCEvNijG
+         A8mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789034970; x=1789639770;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=v5leu8y8+SZGo99Bk+YLh7ZmObofNLoxXT8B8pxE/vs=;
+        b=ZiTBONJh5P6d1cKucp+UkSSvrignBvULBQET60nhO7TezuA6xBIZdpyzC5I6ZZOkfA
+         F0ineQIc7vltv0UPna9P/+bowP9EX2r/18vgs9ovD4dasvNkNZPSt2LbQVq3cKEY4FFn
+         UZ2XLau9eiJmnEPs27t8UBhd9a6W/zevOfMZKszhyjOlKlMg0CO2NFITOnIJ+I5FJy6n
+         73dVTpr1pzXZDiow4/CvByLWGwH24cieGIgMSeP86UH+8DR+jcKKQpYlB8mrGSjIEloJ
+         w+4jCZuXLzhXmpy0d+Bizw6tJoi9lmNzhBLhU89rRpMFYAUElNVK8KOCaZ+pAGjMD96X
+         y4Hg==
+X-Forwarded-Encrypted: i=1; AKwUvBwdk2GeEm4wN/olSi7rd6iOzvon8L5thhkBDBzyqECyRZblr8bskI6DSGhW1XjuqvmmsYJR0JohdXKcpQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++kqmOwnDsi78kQjpDsmyXceUALmQSuOrxWjhgW80r1KadWRL8lj
+	TAe7V4QrfJMNmDpakSMTK071RlHiyAYMEhg4/n6dWC5zyZtjZ+NS3YcT
+X-Gm-Gg: AYBFou1n/S5JGK4nAtiTQgSOqFpubKb/fnZUygHTF6/04pmIyls14ojnaqDQBAqm61+
+	hjwTtEkWDlMhsArBhlbNkCVc0LKnXvKtUwYSTvsoCmdqWB5vIH1DBro9JFQoYAy+NGV8SCedoKt
+	5eIulhRF+H7PKfu0G7Vh4bW5rsyOdfGdrih1N9qk1rz4FYlgqTOotsLYAw9B1kbCo4xQa898QL9
+	cu3APiR9RDc18LpD8Kj6/lBNXWEzStrtvuQHxlnyCFEPmYxFBcPHmtEF2p445lsUVNpb0Cit7O3
+	sgEW9/wVTrWvoTFcmt7Slu1X8+XH4OByN/inH+QqKN1yGks4CkM6rgtEbSQ8jVwY7XR/vJIuLGk
+	i8k2w0c0S8TQl9VmqXnYThptESvuT/g/wXk4y80a8+VBlUg81UBdEM98LEICEljZyiG//r9mNFL
+	ZZJKShdDi9ThjhYAh9UBKinPDsZ49XyF5QgVzF/g1cxEcWjsgmZJw3PxsfSUsnE+fu1iRNS2i0B
+	ie5uYmWcQXAbsj9cC7rOtdEoGC/Qy5DssT+z9RnykGPO20xn/8qjqZC8y2oEFRV
+X-Received: by 2002:a17:90b:33c1:b0:398:9bd1:3214 with SMTP id 98e67ed59e1d1-39b262dfa81mr56515343a91.21.1789034970472;
+        Thu, 10 Sep 2026 03:09:30 -0700 (PDT)
+Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.bl1-in.ibm.com ([129.41.58.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39bae60b23csm3460207a91.0.2026.09.10.03.09.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 03:09:29 -0700 (PDT)
+From: "Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>
+To: maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	chleroy@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	ojeda@kernel.org,
+	boqun@kernel.org,
+	gary@garyguo.net,
+	bjorn3_gh@protonmail.com,
+	lossin@kernel.org,
+	a.hindborg@kernel.org,
+	aliceryhl@google.com,
+	tmgross@umich.edu,
+	dakr@kernel.org,
+	daniel.almeida@collabora.com,
+	tamird@kernel.org,
+	acourbot@nvidia.com,
+	work@onurozkan.dev,
+	mkchauras@gmail.com,
+	linkmauve@linkmauve.fr,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: [PATCH v8 05/22] dt-bindings: pinctrl: Add starfive,jhb100-sys0h-pinctrl
-Date: Thu, 10 Sep 2026 03:03:40 -0700
-Message-Id: <20260910100357.130134-6-changhuang.liang@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260910100357.130134-1-changhuang.liang@starfivetech.com>
-References: <20260910100357.130134-1-changhuang.liang@starfivetech.com>
-X-ClientProxiedBy: ZQ0PR01CA0035.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:2::21) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:17::6)
+	rust-for-linux@vger.kernel.org
+Cc: FUJITA Tomonori <tomo@flapping.org>
+Subject: [PATCH V3] powerpc/bug: Add ARCH_WARN_ASM and refactor _EMIT_BUG_ENTRY for Rust support
+Date: Thu, 10 Sep 2026 15:38:02 +0530
+Message-ID: <20260910100801.2159785-2-mkchauras@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1233:EE_
-X-MS-Office365-Filtering-Correlation-Id: 96f0f314-b3eb-4e14-a566-08df0f22de80
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|23010399003|6133799003|56012099006|3023799007|10067099003|22082099003|18002099003|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: 6V2HEtfTNb6UT3DC3dZm3aChc3TEKeaV76bSOlujx0Wju4GPlD5t14YBaGbr12GMjQK4/6Zvvdy/JoSVpIBkGcs8i+V6gOtYKCpOeTlEgAhKb3qtIeOUOIi60BbanbrEmT+vJB95+yCiFVCF9UDmm8hgveGnnV/lQBbo5ORQn1Pcg7fhAM4SZhRhG/TJfrEpLjwIntVnuKJ4sK/KofW7DlVyieiaXk+XW8dPWZ7qN/VkuHABMGbpkEJ/HBSQGmNRCB+E8ZkbzMVUHMtmA/lCLYTVE2PaskmctuBJ9rUTjkR8462lK8kN/FkD63+bDktIiAE1t4Wq3KmiJvaMskiv7FHKAT7+sbw/lnpPHQbK1VRm9YCc7FuZ6LQy7bWZM9AXVq986/GLwZepVIW8oXHdPgozZEjxnEG/uDwAfkSaQ9TpuP+R45+k1PrZt2oO8V6iVubu6VUaXe0lBqIikTId+v6IKu9StAaIg/x6MrQ3vy+ARmRnTXFujbdAgP9armZMDokmLR1/Gu9v9qqJr9MIuT80Tr/7wbOTMl9GFxUyybggusBJpq0qdOvdk4QBov6i6mlfsCZt9iKuEiq0S2s3Fw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(23010399003)(6133799003)(56012099006)(3023799007)(10067099003)(22082099003)(18002099003)(38350700014)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FzADSBtETrNNX/HAVG5KLA85mYAJHHnFxf693Pmn7dL4NxBnEPp2sVobS0ma?=
- =?us-ascii?Q?kouW/hZnrAT6SSIVqWDlmDWILaG15dBYeSRWNxtH3vFOLu9+bX4ytKXZ3rR7?=
- =?us-ascii?Q?kAXCMqnyZaPJsdmjBA52nJ7XzlV/SQWBa5GvpaCjCLWvzkKofLM3zDnnLnan?=
- =?us-ascii?Q?f4ylIPaEk1Mq2vJsHV+2726/LPBVL4DYkdzikkGjwvBcOxbv0qpP4fQ35PgN?=
- =?us-ascii?Q?OH5dGrKz7NuxQx3JNZl0XvF8CLWtswZeXobuNOjxZbO1iV0KQIwHPcYjJUzs?=
- =?us-ascii?Q?DU7NkPjv0hR3l6rs1y8y0jtF8F00YT8v8xm7wL/MFFNmyQ7Sr/qN3F6faB1C?=
- =?us-ascii?Q?XxDYASTDmrQzH/tmXLf8BWj2HSG0ce7N89G9DTu8KneiJ0ZliKktdbo9h0fu?=
- =?us-ascii?Q?bn2PzYY8L9HVlwnaBiFrfD9YYyql70pHDGiWLvSvpOjDUxMHxPQRblEPM9AF?=
- =?us-ascii?Q?Vy7+nl8d12RjqenppdtC/2e7whwwa9+22GRuRiPF4ghubkATscGmN900zTZV?=
- =?us-ascii?Q?gBRlTpWamPtCsYbiV6POLvrbLf14WLIRfUrJ/oeMm2bX5Wunu+BuMv4mk/46?=
- =?us-ascii?Q?b27H7rYnmMNrlJzuDl2633lDZaWzwu00tWZr7kbRETi0CTZ1IzOmHXKxGOuK?=
- =?us-ascii?Q?NUKiDONyhFVLSX68HbPbHp11xxHcwDNdL62rYvUDeQe+vfanl3qNWh0fZRg2?=
- =?us-ascii?Q?mD0LSbKNNFXbOU/OaoMe3oiPUWAedZZORp+/qc+0alXg4bTS5vEd/Bwq6Gl8?=
- =?us-ascii?Q?Ut2DqiCIs4d3Z57R9dq9MjDbaPtZId8xNaRPRkwmK5Zx2iXihooAeqD3ibSw?=
- =?us-ascii?Q?/KuFN1zDHLVtEb9O8/IXIdJ6nmSe72ODVkUjTZMnjtshgTdYcdiI4dgRN/LR?=
- =?us-ascii?Q?sQ2S2cscgD723zVPeAhjOOe5QE2WzOmLhNQGTX89ALVdI6+63ogslnyQH5mm?=
- =?us-ascii?Q?Hk1KcsV1NQJFgfzAwWr8clEXXHmxWomf76YATsbNsfwtc3OhNdivP17yi+AO?=
- =?us-ascii?Q?4DK8EetKD3poixCWY0yBRXxjO1qXmvULrbj7SKNMgtEzp1vlyuhClqJUcYLW?=
- =?us-ascii?Q?cq+1ABc/3PzHubERfsNNwGOXlMX3iogTODxnGQBUVnAc67vQpBhWpmvWiwBX?=
- =?us-ascii?Q?ywTh5+CmVOritnrgsKxhexwp1IQciMnl9m9GZORttie9J/Gnl65TZg0PD9Ts?=
- =?us-ascii?Q?3PDn5y0kG2wVAyjqnphHADRt2Vle8O7fMa1S5Fs8v3I1YGhlmfIDUK7ak9HO?=
- =?us-ascii?Q?uc6wQqw/6AJbY7OqCWET7AXQq/8OXbDbKvgcZeFAFIkoAyo0LR57K6sJapVq?=
- =?us-ascii?Q?1D3W7ZNPa5gACCBEkG5rXSQX6DWcvX0urLOufFOSWry7svd9I7xlYhbHppHo?=
- =?us-ascii?Q?nTYFiSiAND7F5eddga+4ToRa/Jd+L7Hg74691vabX0+DjfsKwzsjFPBPh0zn?=
- =?us-ascii?Q?rgynF3W1wxwZ2oJ+6n4h+t7Ze+LvcIhUKn4ZOYqesSK3ETzC1uIAmSBCEetJ?=
- =?us-ascii?Q?L1rydXX4W0cjhZ5GbIZXigQfSGWBrj94X+E9BhMehqo0VgFEr8lQpR8a2nlk?=
- =?us-ascii?Q?GlVIjNSvff0u+uRJLHeMtrwdKy7qdIZ7ooq4RSyaf0OAQ0ab9WXIzuURrFoc?=
- =?us-ascii?Q?CTdiXRma6fcJasQNBAFrozLIjXZVk3yOUUHYd7lcWGTWbwvNA1HFPl2Ihzk3?=
- =?us-ascii?Q?RDV5Hl+/qCpP7D6DmfQT+4RzKWwdE1/4tvq9ECkiHl0tBtP2p9NnzCdHfUkv?=
- =?us-ascii?Q?F3XUnz6fq1sP5f7/y9sX2LwaToVoSvA8z5ym6GuvJkr672kCDGyt?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 96f0f314-b3eb-4e14-a566-08df0f22de80
-X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 10:04:14.7399
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mQ685PWzS+IOa8qOk9r9lFuBYNO2GixCJwZTf+XrvPFV8ScO5aB6HuikkV7Ok/qDIwkkUiPL7S3cLscr0vCZqEdywdY8oZ4pH0HXdqpuwteNO3xNQAGBaI0nSqmb3OAs
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1233
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_110446_747587_455D6BD9 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260910_030931_492970_A3AC8518 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,185 +122,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl bindings for StarFive JHB100 SoC System-0 host(sys0h) pinctrl
-controller.
+The Rust kernel infrastructure generates inline asm for WARN() via
+ARCH_WARN_ASM(file, line, flags, size), expanding it through a C
+preprocessor pass (generated_arch_warn_asm.rs.S) to produce an
+arch-specific asm template string for use in Rust's core::arch macros.
 
-Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+powerpc currently lacks ARCH_WARN_ASM and ARCH_WARN_REACHABLE, causing
+Rust builds to fail on powerpc with
+```
+error: no rules expected `ARCH_WARN_ASM`
+   --> /home/linkmauve/dev/linux/wii/rust/kernel/generated_arch_warn_asm.rs:1:28
+    |
+  1 | ::kernel::concat_literals!(ARCH_WARN_ASM("{file}", "{line}", "{flags}", "{size}"))
+    |                            ^^^^^^^^^^^^^ no rules expected this token in macro call
+    |
+   ::: ../rust/kernel/lib.rs:279:1
+    |
+279 | macro_rules! concat_literals {
+    | ---------------------------- when calling this macro
+    |
+    = note: while trying to match sequence start
+
+error: no rules expected `ARCH_WARN_REACHABLE`
+   --> /home/linkmauve/dev/linux/wii/rust/kernel/generated_arch_reachable_asm.rs:1:28
+    |
+  1 | ::kernel::concat_literals!(ARCH_WARN_REACHABLE)
+    |                            ^^^^^^^^^^^^^^^^^^^ no rules expected this token in macro call
+    |
+   ::: ../rust/kernel/lib.rs:279:1
+    |
+279 | macro_rules! concat_literals {
+    | ---------------------------- when calling this macro
+    |
+    = note: while trying to match sequence start
+
+error: aborting due to 2 previous errors
+```
+
+To add ARCH_WARN_ASM, _EMIT_BUG_ENTRY first needs to be refactored.
+The old definition was a bare macro with no parameters, relying on
+positional asm operand references (%0-%3), hardcoding the backward
+reference to local label 1b, and including .org/.previous directives
+inline. That made it impossible to compose as a plain string outside of
+an asm operand context, and left an invisible contract that callers must
+always emit their trap at label 1:.
+
+Refactor _EMIT_BUG_ENTRY to take explicit (label, file, line, flags)
+string arguments via string concatenation. This removes the dependency
+on asm operand numbering and makes the trap label an explicit argument,
+so the caller's intent is visible at the call site and a future caller
+using a different label cannot silently produce a wrong bug table entry.
+
+Move the .org and .previous directives out of _EMIT_BUG_ENTRY and into
+each call site, so BUG_ENTRY() can still pass sizeof(struct bug_entry)
+as an asm operand while ARCH_WARN_ASM can supply its own size string
+independently.
+
+Add ARCH_WARN_REACHABLE as an empty define, matching the arm64
+convention, indicating that no additional reachability annotation is
+needed after a WARN on powerpc.
+
+This brings powerpc into line with x86, arm64, s390, and riscv, all of
+which already define ARCH_WARN_ASM and ARCH_WARN_REACHABLE.
+
+Reported-by: FUJITA Tomonori <tomo@flapping.org>
+Closes: https://lore.kernel.org/all/anG67Q6Y59kDqh-c@desktop
+Fixes: 73b741adb264 ("rust: Add PowerPC support")
+Signed-off-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
 ---
- .../starfive,jhb100-sys0h-pinctrl.yaml        | 162 ++++++++++++++++++
- 1 file changed, 162 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0h-pinctrl.yaml
+Changelog:
+V2 -> V3:
+ - Add label argument in _EMIT_BUG_ENTRY
+V2: https://lore.kernel.org/all/20260910071252.1950488-2-mkchauras@gmail.com
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0h-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0h-pinctrl.yaml
-new file mode 100644
-index 000000000000..bfbd36928d7c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0h-pinctrl.yaml
-@@ -0,0 +1,162 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/starfive,jhb100-sys0h-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+V1 -> V2:
+- commit message now has error, fixes tag and closes tag
+V1: https://lore.kernel.org/all/20260819084825.969116-1-mkchauras@gmail.com
+
+ arch/powerpc/include/asm/bug.h | 36 +++++++++++++++++++---------------
+ 1 file changed, 20 insertions(+), 16 deletions(-)
+
+diff --git a/arch/powerpc/include/asm/bug.h b/arch/powerpc/include/asm/bug.h
+index 0db48977c70c..df2183c35945 100644
+--- a/arch/powerpc/include/asm/bug.h
++++ b/arch/powerpc/include/asm/bug.h
+@@ -32,34 +32,38 @@
+ #endif /* verbose */
+ 
+ #else /* !__ASSEMBLER__ */
+-/* _EMIT_BUG_ENTRY expects args %0,%1,%2,%3 to be FILE, LINE, flags and
+-   sizeof(struct bug_entry), respectively */
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+-#define _EMIT_BUG_ENTRY				\
+-	".section __bug_table,\"aw\"\n"		\
+-	"2:	.4byte 1b - .\n"		\
+-	"	.4byte %0 - .\n"		\
+-	"	.short %1, %2\n"		\
+-	".org 2b+%3\n"				\
+-	".previous\n"
++#define _EMIT_BUG_ENTRY(label, file, line, flags)	\
++	".section __bug_table,\"aw\"\n"			\
++	"2:	.4byte " label "b - .\n"		\
++	"	.4byte " file " - .\n"			\
++	"	.short " line ", " flags "\n"
+ #else
+-#define _EMIT_BUG_ENTRY				\
+-	".section __bug_table,\"aw\"\n"		\
+-	"2:	.4byte 1b - .\n"		\
+-	"	.short %2\n"			\
+-	".org 2b+%3\n"				\
+-	".previous\n"
++#define _EMIT_BUG_ENTRY(label, file, line, flags)	\
++	".section __bug_table,\"aw\"\n"			\
++	"2:	.4byte " label "b - .\n"		\
++	"	.short " flags "\n"
+ #endif
+ 
+ #define BUG_ENTRY(cond_str, insn, flags, ...)		\
+ 	__asm__ __volatile__(				\
+ 		"1:	" insn "\n"			\
+-		_EMIT_BUG_ENTRY				\
++		_EMIT_BUG_ENTRY("1", "%0", "%1", "%2")	\
++		".org 2b+%3\n"				\
++		".previous\n"				\
+ 		: : "i" (WARN_CONDITION_STR(cond_str) __FILE__), "i" (__LINE__),	\
+ 		  "i" (flags),				\
+ 		  "i" (sizeof(struct bug_entry)),	\
+ 		  ##__VA_ARGS__)
+ 
++#define ARCH_WARN_ASM(file, line, flags, size)		\
++		"1:	twi 31, 0, 0\n"			\
++		_EMIT_BUG_ENTRY("1", file, line, flags)	\
++		".org 2b+" size "\n"			\
++		".previous\n"
 +
-+title: StarFive JHB100 System-0 Host Pin Controller
++#define ARCH_WARN_REACHABLE
 +
-+description: |
-+  Pinctrl bindings for JHB100 RISC-V SoC from StarFive Technology Ltd.
-+
-+  The JHB100 SoC has 13 pinctrl domains - sys0, sys0h, sys1, sys2, per0, per1,
-+  per2, per2pok, per3, adc0, adc1, emmc, and vga.
-+  This document provides an overview of the "sys0h" pinctrl domain.
-+
-+  The "sys0h" domain has a pin controller which provides
-+  - function selection for GPIO pads.
-+  - GPIO pad configuration.
-+  - GPIO interrupt handling.
-+
-+  In the SYS0H Pin Controller, there are 12 multi-function GPIO_PADs. Each of
-+  them can be multiplexed to different hardware blocks through function
-+  selection. Each iopad has a maximum of up to 4 functions - 0, 1, 2, and 3.
-+  Function 0 is the default function which is generally the GPIO function
-+  (or occasionally, it can be a peripheral signal).
-+  Functions 1, 2, and 3 are the alternate functions or peripheral signals that
-+  can be routed to the iopad. The function selection can be carried out by
-+  writing the function number to the iopad function select register.
-+
-+  Each iopad is configurable with parameters such as input-enable, internal
-+  pull-up/pull-down bias, drive strength, schmitt trigger, slew rate, input
-+  debounce nanoseconds.
-+
-+maintainers:
-+  - Changhuang Liang <changhuang.liang@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: starfive,jhb100-sys0h-pinctrl
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-controller: true
-+
-+  '#interrupt-cells':
-+    const: 2
-+
-+  gpio-controller: true
-+
-+  '#gpio-cells':
-+    const: 2
-+
-+  gpio-ranges: true
-+
-+  gpio-line-names: true
-+
-+patternProperties:
-+  '-grp$':
-+    type: object
-+    additionalProperties: false
-+    patternProperties:
-+      '-pins$':
-+        type: object
-+        description: |
-+          A pinctrl node should contain at least one subnode representing the
-+          pinctrl groups available in the domain. Each subnode will list the
-+          pins it needs, and how they should be configured, with regard to
-+          function selection, bias, input enable/disable, input schmitt
-+          trigger enable/disable, slew-rate, input debounce nanoseconds and
-+          drive-strength.
-+        allOf:
-+          - $ref: /schemas/pinctrl/pincfg-node.yaml
-+          - $ref: /schemas/pinctrl/pinmux-node.yaml
-+        additionalProperties: false
-+
-+        properties:
-+          pins:
-+            description:
-+              The list of IOs that properties in the pincfg node apply to.
-+
-+          function:
-+            description:
-+              A string containing the name of the function to mux for these
-+              pins.
-+            enum: [ espi, espi_reset, espi0_vw, espi1_vw, gpio, scap_trigger ]
-+
-+          bias-disable: true
-+
-+          bias-pull-down:
-+            type: boolean
-+
-+          bias-pull-up:
-+            type: boolean
-+
-+          drive-strength:
-+            enum: [ 2, 4, 8, 12 ]
-+
-+          drive-strength-microamp:
-+            enum: [ 2000, 4000, 8000, 12000 ]
-+
-+          input-debounce-ns:
-+            minimum: 0
-+            maximum: 10485680
-+            description:
-+              Debounce time in nanoseconds. The hardware counts in 80 ns
-+              stages with a 17-bit counter, so the maximum is 10485680 ns.
-+          input-disable: true
-+
-+          input-enable: true
-+
-+          input-schmitt-enable: true
-+
-+          input-schmitt-disable: true
-+
-+          slew-rate:
-+            enum: [ 0, 1 ]
-+            default: 0
-+            description: |
-+                0: slow
-+                1: fast
-+required:
-+  - compatible
-+  - reg
-+  - resets
-+  - interrupts
-+  - interrupt-controller
-+  - '#interrupt-cells'
-+  - gpio-controller
-+  - '#gpio-cells'
-+  - gpio-ranges
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pinctrl_sys0h: pinctrl@13080800 {
-+            compatible = "starfive,jhb100-sys0h-pinctrl";
-+            reg = <0x0 0x13080800 0x0 0x800>;
-+            resets = <&sys0crg 3>;
-+            interrupts = <57>;
-+            interrupt-controller;
-+            #interrupt-cells = <2>;
-+            gpio-controller;
-+            #gpio-cells = <2>;
-+            gpio-ranges = <&pinctrl_sys0h 0 0 12>;
-+        };
-+    };
+ /*
+  * BUG_ON() and WARN_ON() do their best to cooperate with compile-time
+  * optimisations. However depending on the complexity of the condition
 -- 
-2.25.1
+2.55.0
 
 
 _______________________________________________
