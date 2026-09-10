@@ -4,76 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431B4C79F9F
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 11:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB000C88E42
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 11:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
+	In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yfbP8hX323yl9VdHdYrmlyN8enmrdWgMyjntEip2e04=; b=TMkGMgj+xkdDVs
-	xCfHaOYIFH0I45ZYDleTA1iwuNHSolZDS5zGAfnLuut8KQ/27498OmRwPW0g4SYZCwUDTKNOiEsEd
-	7j8LfvzdFhRzpNILnweCbOlCuSKlCXsWiCP5vRwryjdV06u3bTbhIomtJLV3HoW/OwSK1lQf8a5ML
-	G3cBhrAzPhPHeMq2hriZxceXtNUpqlQkKY84GpPijh7Qm4ZWq6suIkbl66VTru39xSIf2CiKBBAv6
-	pXO7LXEymWCYecKII5vOXABK90KP2bfUaxuKboV2oQNcO9m8ccvco23XwNMna1D3vUIkrAGHJ1jB1
-	uIe+GUTCd7b3vr7i17Vw==;
+	List-Owner; bh=wdGBr+zEuZ+3IMIOH+YSXDz/cFb4Jxs6mA7ZCG/b/yI=; b=dlWeE1fUczo1Fw
+	hnHAqPjjYd405SeSH4p3YhVpDXT2ImDhudBdKhRl6C+vHZsmXYOmU3xzbYaUN51RZlCxT7pAuMl8S
+	HCQq96uEf5lfhRsYnbu7L419V9WUZBN2DuGp+1z6/TM5qXU/BctFSdAtiBj1Qpo239yQxa74o5Eq6
+	fNA0zrYEI19JVVG0j6NYoFyye4CfZJMTzy/jnLcyqtP7BZ6XdzEk05nIdKNoIJAnNlyJZqxc45TC1
+	XL5uD91z6KT7rhYnzm00oNbRzfiDx+jvKMZ79itjSaKpqcGw+AXzOr7X+VeYxUVC31brW/WuaKpiB
+	e9cO0ENZVgNUcoaRNDww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cVi-0000000E83v-4Bla;
-	Thu, 10 Sep 2026 11:00:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4cVn-0000000E87l-1BNf;
+	Thu, 10 Sep 2026 11:00:11 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cVh-0000000E82S-1PFe;
-	Thu, 10 Sep 2026 11:00:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2ACD241E51;
-	Thu, 10 Sep 2026 11:00:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B6E31F00898;
-	Thu, 10 Sep 2026 10:59:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789038003;
-	bh=rH49KjocGWRkJ+AZJQhcm2lj6KEBkusUet19acjfj5c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XBG2Xis6aC2x/TFiRhgODNHYxMsm9AepijpQMJLiqGJS2lxSLsxOf+CTbdiEH9Fg7
-	 WR7MjDDhyRRBUsOFpbxeN9nm4odVyTHdNN2h+M+AOb8VZsSMhCIMfBNtqb9j7yhu9F
-	 9E80Yd1DWtWvPL6hdktW9e+aJ2MKlEz3IxuD82KF3or9xnpT5GRh28m13ae5AzDEdK
-	 GTqk0D/qMhaSfCzPZ3Hq7mA6hZajZ8baL4mU1jblluQrILkPVl0XG54BRP+o8PpLFb
-	 bQvtujHLityCH1kc2rr1NQxKpn+fgba64Qzq43EdmJc41t6NlWX1VyB1G1BN+80GJ1
-	 G6CWH17PIcZJQ==
-Date: Thu, 10 Sep 2026 11:59:48 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nicolas Schier <nsc@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
-Subject: Re: [PATCH 09/23] kbuild: do not allocate .modinfo in vmlinux
-Message-ID: <aqKNKBt2RX-cFKtP@gremlin>
-References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
- <20260908-build-speedup-v1-9-5dc1ac01672d@kernel.org>
- <178901395291.3971858.229822965899686230.b4-review@b4>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <178901395291.3971858.229822965899686230.b4-review@b4>
+	id 1x4cVk-0000000E84k-1MsM
+	for linux-riscv@lists.infradead.org;
+	Thu, 10 Sep 2026 11:00:10 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-3964dfb5b9aso8195049a91.1
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 04:00:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789038007; x=1789642807; darn=lists.infradead.org;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=NSugWeaGjWWxPTsA0WEUYFCIdkRuKo99PwV/yfMvTEg=;
+        b=U1Aw0CqQvxQGuc8x2nM+IKJ9zkzgfAhvCpwiO2BotjcoFUas+XPnIVzqIo0GS19PA8
+         M70e+LRKUEvgiyQJdg+hpYci04UVMmVZ2GhvbfaB6QQZpDvYnEhadl+ElEE6jFelwOD/
+         2Pb69B3VolBVHEuRBLzmWyCeAOHuUVL2vcLC782DxbEk31CgcGMSTmpFGDMDQv7UOiN2
+         ANloE9Xjh3i7Dh1Cnt4w5gmpfKH1pPRH8ny8IcXGCtrlGqH5cWfoSV0DVHDt/QtKuZwu
+         rm4YNqN/NdohxcBqLEusvox1OOHZeo+12liZr+A8TJbyAhQAxQ+1L9BAej2cZvNqTskD
+         g24g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789038007; x=1789642807;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NSugWeaGjWWxPTsA0WEUYFCIdkRuKo99PwV/yfMvTEg=;
+        b=HUIrHXfwPpcu/CvivwZv+q9BVYUqwLCrEC0TwwFDk+WkwS/nKc8Sd9okjcpMShimgd
+         DG9hJW7fIYx8ebRxNpmRw3gyzO8gB+qdiNL/iB96NK5Qc2uPZPdhd6jpzbLsRcAK6/r1
+         iLHAWrMF14mbroBVDbThivqiiPBzfxFa80+DtLo7vn3O78lnQ3avL/sJ3I2ULUl3F2fC
+         lcEN9c3EZHarpgJos5F+VZQbgfmL/Zzn6q91V3AEft+IRDmIZ/1v2T0afoD6e0l7EP+b
+         xc4lYCOlDMJWcrwKb+qs8psXi6SgxLn2VdHf6GJYUZvbE/VT62lYFpPKqsSgyd5iXCso
+         RMaw==
+X-Forwarded-Encrypted: i=1; AKwUvBxDc8a+/G0tFEchMoNa1HDWkXPaFhKpqj7A+wlmf2Lt2wiooUQ4OkfdaMf9q664aH5HZra6BpLKDAR6pw==@lists.infradead.org
+X-Gm-Message-State: AFuF++nvr2jOSfjtTn0ZuBUcVeSza/D+0KYrbG1T0Z0Tw/zRBAXsAwTE
+	HOB3VZ9rDwp4PBG8BBran71yE5D2/XNXnavSfsIpp8q2sz00f3MxmcWE
+X-Gm-Gg: AYBFou3MXIFc/KaNtj3z5ZtlHoTHgGVxi9ZkuGqbwQtosIE6C6d8eID0K8nDPIKWf0i
+	ZJb2YeNwo3MNikKrTvNd2i8XBsrHWJ8292koDeeubvuEe92F7FBPwpRCQ2JotZL6/S+B8a71HyW
+	PvqKhGMNC0bAMBb1HEXaICvmFfyBsDw/KAQQrgD17IvRuqzEFlYR5u3vsyi+pldTo0wvy0H+VHn
+	rEjwRs/x9XaXF4f0OSjR31uZsAx1+u6RvknEVoEJ00VnIcvPexwdnLIsNWcGol4q8BRdG/o16/v
+	HMlXF/DDs8SsteCtRLPB+VQJEn9l+g7fQJQyfU91KxwlJ8QVYvXO2N8DsNAiKH7Fd4ji0K6mJG1
+	Ph63HD6x2oFC/4AMZizthLbGqAb2aNw+tMH7AWhfMpyXuDpOKiENnW+qjSsWFu17RELqDDmMXHy
+	+zJDD2slM2OJKEINTs0x3gFoNtxK8r8fbW+lHdvwfnsrsKaDERAU6kzJwzlbXWiBWOdY6IzmCvF
+	VdKdxX2LJGwab9DIfxrm7v50nnsU46fXLm7B7tmKKnGy5OXDHoFAIk=
+X-Received: by 2002:a17:90b:3ec5:b0:398:9c00:29ed with SMTP id 98e67ed59e1d1-39b26277673mr58529054a91.21.1789038006053;
+        Thu, 10 Sep 2026 04:00:06 -0700 (PDT)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-143243f780csm46703778c88.13.2026.09.10.03.59.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 04:00:05 -0700 (PDT)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, Nicholas Piggin <npiggin@gmail.com>
+Subject: Re: [PATCH v2 08/20] KVM: selftests: Use the innermost page allocator API in the memslot perf test
+In-Reply-To: <20260902164123.2546762-9-seanjc@google.com>
+Date: Thu, 10 Sep 2026 16:25:00 +0530
+Message-ID: <bja51im3.ritesh.list@gmail.com>
+References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-9-seanjc@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_040008_562387_EBB65AA5 
+X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,128 +92,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 09:19:12PM -0700, Nathan Chancellor wrote:
-> > Commit 3e86e4d74c04 ("kbuild: keep .modinfo section in vmlinux.unstripped")
-> > placed MODULE_INFO() strings in the .modinfo section in vmlinux.unstripped,
-> > however it left the section allocatable, so it gets assigned an address and
-> > on arm64, arm and riscv, the section is tagged as PT_LOAD.
-> >
-> > This is useless as the data is ultimately stripped anyway.
-> >
-> > Doing this results in a lot of unnecessary work - each pass copies the
-> > whole file, 450 MIB with relocations for an x86 allmodconfig build and 250
-> > MiB for an arm64 allmodconfig build.
-> >
-> > This adds ~0.7s on the serial tail of every build for arm64 and ~0.2s for
-> > x86 (the tail is single-threaded work done after parallel work has
-> > finished).
-> >
-> > Nothing requires .modinfo to exist at an address, so fix this by using
-> > --dump-section which prevents the allocation.
-> >
-> > Image, bzImage, System.map and modules.builtin.modinfo are unchanged and
-> > the stripped vmlinux differs only in its program headers.
-> >
-> > The objcopy passes are on the serial tail of every build that links
-> > vmlinux, no-op builds are unchanged.
-> >
-> > Whole build, 128-thread Threadripper 9980X, best of N runs:
-> >
-> >                                          before   after     delta
-> >                                          -------------------------------
-> >   x86 defconfig, touch mm/vma.c, gcc        8.9s     8.8s    -0.16s (-2%)
-> >   x86 defconfig, touch mm/vma.c, clang      8.1s     7.9s    -0.20s (-2%)
-> >   x86 defconfig, clean, gcc                27.6s    27.5s    -0.13s (0%)
-> >   x86 defconfig, clean, clang              27.2s    27.0s    -0.18s (-1%)
-> >   x86 allmodconfig, touch mm/vma.c, gcc    42.0s    41.6s    -0.40s (-1%)
-> >
-> > Assisted-by: LLM
-> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> >
-> > diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-> > index b2988aa12f66..7be9e0321867 100644
-> > --- a/include/asm-generic/vmlinux.lds.h
-> > +++ b/include/asm-generic/vmlinux.lds.h
-> > @@ -855,7 +855,7 @@
-> >  		KLP_SYMID
-> >
-> >  #define MODINFO								\
-> > -		.modinfo : { *(.modinfo) . = ALIGN(8); }
-> > +		.modinfo (INFO) : { *(.modinfo) . = ALIGN(8); }
-> >
-> >  #ifdef CONFIG_GENERIC_BUG
-> >  #define BUG_TABLE							\
-> > diff --git a/scripts/Makefile.vmlinux b/scripts/Makefile.vmlinux
-> > index 4b54aaeca65d..1fc7a0ca8eaf 100644
-> > --- a/scripts/Makefile.vmlinux
-> > +++ b/scripts/Makefile.vmlinux
-> > @@ -90,11 +90,9 @@ remove-section-$(CONFIG_ARCH_VMLINUX_NEEDS_RELOCS) += '.rel.*'
-> >
-> >  remove-symbols := -w --strip-unneeded-symbol='__mod_device_table__*'
-> >
-> > -# To avoid warnings: "empty loadable segment detected at ..." from GNU objcopy,
-> > -# it is necessary to remove the PT_LOAD flag from the segment.
-> > +# none of the removed sections is allocated, so no segment is left empty
+Sean Christopherson <seanjc@google.com> writes:
+
+> Use the quad-underscores physical page allocator API in the memslot perf
+> test in anticipation of converting the outer versions to take the memory
+> region type instead of the raw memslot.  Stating the obvious, the memslot
+> perf test creates and allocates from multiple memslots, and so can't use
+> MEM_REGION_TEST_DATA to communicate which region/slot to allocate from.
 >
-> I think we could just drop this comment, I don't think it is
-> particularly helpful
-
-Ack!
-
->
-> >  quiet_cmd_strip_relocs = OBJCOPY $@
-> > -      cmd_strip_relocs = $(OBJCOPY) $(patsubst %,--set-section-flags %=noload,$(remove-section-y)) $< $@; \
-> > -                         $(OBJCOPY) $(addprefix --remove-section=,$(remove-section-y)) $(remove-symbols) $@
-> > +      cmd_strip_relocs = $(OBJCOPY) $(addprefix --remove-section=,$(remove-section-y)) $(remove-symbols) $< $@
-> >
-> >  targets += vmlinux
-> >  vmlinux: vmlinux.unstripped FORCE
-> > @@ -103,21 +101,11 @@ vmlinux: vmlinux.unstripped FORCE
-> >  # modules.builtin.modinfo
-> >  # ---------------------------------------------------------------------------
-> >
-> > -# .modinfo in vmlinux.unstripped is aligned to 8 bytes for compatibility with
-> > -# tools that expect vmlinux to have sufficiently aligned sections but the
-> > -# additional bytes used for padding .modinfo to satisfy this requirement break
-> > -# certain versions of kmod with
-> > -#
-> > -#   depmod: ERROR: kmod_builtin_iter_next: unexpected string without modname prefix
-> > -#
-> > -# Strip the trailing padding bytes after extracting .modinfo to comply with
-> > -# what kmod expects to parse.
-> > +# use --dump-section to include non-allocated sections
->
-> Same thing here, I am not sure anyone will question '--dump-section'
-> here. Otherwise, this seems reasonable. I was curious about the $@.tmp
-> until I read the objcopy manual but that probably is not worth a
-> comment.
-
-Ack too.
-
->
-> I can probably take this one faster than the rest if you want to put it
-> early in the stack since it is pretty low hanging fruit and earlier it
-> gets exposure to -next, the better.
-
-Sure sounds good, the sooner we get these in -next the better.
-
-I was planning to go through feedback/sashiko (+ give a bit more time for people
-to respond) before doing a v2, but I guess you could put this to -next as-is,
-given v2 will just be stripping comments here (as it stands anyway!)
-
->
-> --
-> Cheers,
-> Nathan
+> No functional change intended.
 >
 
---
-Cheers, Lorenzo
+Agreed with the reasoning. LGTM.
+
+Please feel free to add:
+Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
