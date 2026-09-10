@@ -4,47 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEBFFC79F9F
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 11:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E24C79F9F
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 11:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
+	In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/2b8SLABZCiZX++Bvi/iQDb6MHIgedW++Fs7hhr4EvI=; b=fZGRUaelq08tNV
-	RPUWfXRKKoBw0Jh9rRLwiKN0BczFD+2jUrWSHi6nrCOPVFZD93HNMR7+nE6IGFqe+X4DT+oV8Cedq
-	DeOe8SZBzn3HdQw5CLfrl9OhVpHGonoClpOUb2QywKAMR2nmlxY4GXpqFUPpaEt1kxBgeLZAjN3Em
-	5CHzK9F+AvP0oy0vjdjRThLxI2q6bOV91j9H2UwFHH0lUxxt1LEl8YwbG3ihK5S1Hb5tb3xhkMEBZ
-	BMXzdV52no9l152i+63kkO8Hydtzp/LZPSUchoFRj0oEfWwph6iiQhBWn9+TPup4VE3xUp66JE9HW
-	vymStZxippDZOMyNWILQ==;
+	List-Owner; bh=Gqrkq0SxFP3G0DwUALek2AlT7fANiaHwvjgnB8WZRcM=; b=dzOmG+AM4TG8eg
+	qj2GADcpMmaAAzjTZWjn3JMWKMGZS3UU2eUR7DFAlafojNHrxuO2ogDrgjs2FlHXKeCVqtBIwgTFN
+	IwwGQMHTvDAb5ZehPKmLoJIf9Z23H2h3a5yMUFjYfYuCYQqF7o8LDeAYB2XXAv8Fp37zQFGtHSy2Z
+	RNa0NX/KIHFQ8PyVog2htbsI7iVLWGvPXA3OvKMZiO4eVESGHVqpA7mNA4PDECRriNZ4lrxkXK4XD
+	0iw6gzvw1UgDLsZlUrS33yNCPlkzT/vTNiQEAbJXmkoPtMOrzfU0lULlMFSm8sJ1kHE0avTaMO+Lq
+	7s0p4DREqS49jLOxRrlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cv7-0000000ECPM-0tur;
-	Thu, 10 Sep 2026 11:26:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4cws-0000000ECrG-2ZGR;
+	Thu, 10 Sep 2026 11:28:10 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cv5-0000000ECOU-1W4h;
-	Thu, 10 Sep 2026 11:26:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A0735600C8;
-	Thu, 10 Sep 2026 11:26:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2633C1F000FF;
-	Thu, 10 Sep 2026 11:26:14 +0000 (UTC)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: linux-pci@vger.kernel.org, Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-tegra@vger.kernel.org
-In-Reply-To: <20260810124315.433448-1-vladimir.oltean@nxp.com>
-References: <20260810124315.433448-1-vladimir.oltean@nxp.com>
-Subject: Re: [PATCH v9 0/3] PCI prerequisites for PHY consumer/provider
- split
-Message-Id: <178903957471.12380.4841684625788511364.b4-ty@b4>
-Date: Thu, 10 Sep 2026 13:26:14 +0200
-MIME-Version: 1.0
-X-Mailer: b4 0.15.2
+	id 1x4cwp-0000000ECpe-3aQo
+	for linux-riscv@lists.infradead.org;
+	Thu, 10 Sep 2026 11:28:09 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-4b28d7c729fso4777614b6e.0
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 04:28:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789039687; x=1789644487; darn=lists.infradead.org;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=Rdvn6SlWN1pYD61UCQmrt7vWGIUZg8DLzgLld4sc614=;
+        b=pmqvuGVD4kDnZOM4VF8RLqiA7VQzj6moZH1ck1wRL11iW7H6dETDP1/CMsZrYpe3a5
+         3BGXodmD573GRK4XuK7KxmZACPWw9RT+Ee6BYijpe8cZ12auHoR1VFgSYI9aNf8XdHBm
+         wmi3QSneXCs7uxf7mXEyf8Df4yyK0lC4XUZD6G0akaFvEAeKBV8Uc0vX8Y9D/5Wp/Bs3
+         +cMFPWM+YMo5L5s40MU+fzVAbitcgox7SSvvXBYxyEiTe9mr9RD02UbU+Tr2lYM7d0x4
+         Qzx3ybefaFUNCH3P80Pj66p7PcbZRqrT2LBRaqKHcXg1ia77cds87DddcGjpzeca6BRZ
+         Wi3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789039687; x=1789644487;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Rdvn6SlWN1pYD61UCQmrt7vWGIUZg8DLzgLld4sc614=;
+        b=PSiUB5NP2I9R8kl2O3yrF8jPeOFbYjql/n7V6G7yA7DqRJ5DyEbgVpUgA5hDa9Y6UB
+         v8zP1TZ3Fky6sNVurO2qyld+p4j9XKQV9hnWhfgnQ4IhyWTEc5HIegAmRdS363bjBPt/
+         P9AKSU9+dHZ1nEsK+hWop939kLbnoJpCplwNgjguP5/gKHTmHF5WyYmse/3ymyRys8E6
+         aNhLfQPqjQCY0TtpnuZcfK2vP0XVePKt1FoEYR6ClDDgXenEsJ9CNwv7yQdns6smaK6s
+         FOwYpUBhV+IlPVEL0NICBRkw+/1jXZSTJl0CyYo4cYJW15DApJCzAlLa/uu3vU4M5fA9
+         062Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzBOahdT5bNfozxXInp53qSmwGoWaQJqYi57gnWgL5wAO11R0+xfYi68wPLuQWZT9tA+fsZm35cgetY4w==@lists.infradead.org
+X-Gm-Message-State: AFuF++nXYPcqLXImgTIZ4Rc7tyL2hoLEhiwEMJLS6wHnoTbL1rjxX5bM
+	YZG9/oGve6X4TJ3qj2ElqeCXWgTJIIOTRhC8y7GZWZgSaNSSiCKSx9MV
+X-Gm-Gg: AYBFou0KQpu4n79zrxmsiNvRu91hE8fa4BI5zZs9a0GegGflICFii36KZoR8ajM2tWm
+	3fLf3Y41pwXQdFvFR0F85wNXMHvZ01WJO5MeU7xmgERzs6oMldURAdJ7Gpnm77yCOdbgpFN31dr
+	Odlz5RmcYdka+GvQTHb+MF9xIHBM3awbr9A4Pb/oSUtdVDJPUWyhUxa4XuteDIXKKhGUu+dySDI
+	V+eob9mJ06bgh3eXf0ZPiYEtxkDo4l/e7LL9rM9IviIyggnYkXDUMbcXosbMDDL3VZIcvHOPgbN
+	8yqpKl6wV3JdZ/ZDK08ns6KRcQPh8N8dSb977MfzL7nlgadXZUO8bm9izeWO2CWMHU1oY2W4rza
+	vzsYt/5vExV3CkjxRLWAfDcSkLaqkoKlNb2GTBTRTcK+F2pW65pcPu1oe1ojTvKPPzzWgUANJvO
+	M6leMUnEyf2N4ThcYCvHRRwvIIqFT3Y4K+6RHpsrKEsVC5fxZl2LDlD4Ex5ujgHJmFEtjSi1H7N
+	Q3frH54LeheydCfBdnmSO06tnju71BIIF3kERNyfPtqUU+pqz/u3rerOqbb9uFz2g==
+X-Received: by 2002:a05:6808:f09:b0:4b2:8ee8:8a38 with SMTP id 5614622812f47-4b95db6da80mr27637088b6e.0.1789039686755;
+        Thu, 10 Sep 2026 04:28:06 -0700 (PDT)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14332405e92sm49398440c88.8.2026.09.10.04.27.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 04:28:05 -0700 (PDT)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, Nicholas Piggin <npiggin@gmail.com>
+Subject: Re: [PATCH v2 18/20] KVM: selftests: Use TEST_ASSERT(), not assert(), in vm_get_mem_region()
+In-Reply-To: <20260902164123.2546762-19-seanjc@google.com>
+Date: Thu, 10 Sep 2026 16:57:29 +0530
+Message-ID: <4ifx1h3y.ritesh.list@gmail.com>
+References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-19-seanjc@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_042807_901250_4FBF1965 
+X-CRM114-Status: UNSURE (   4.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,26 +92,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIE1vbiwgMTAgQXVnIDIwMjYgMTU6NDM6MTIgKzAzMDAsIFZsYWRpbWlyIE9sdGVhbiB3cm90
-ZToKPiAiW1BBVENIIHY4IHBoeS1uZXh0IDAwLzMxXSBTcGxpdCBHZW5lcmljIFBIWSBjb25zdW1l
-ciBhbmQgcHJvdmlkZXIgQVBJIgo+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXBoeS8y
-MDI2MDUwNTEwMDUyMy4xOTIyMzg4LTEtdmxhZGltaXIub2x0ZWFuQG54cC5jb20vCj4gYmVjYW1l
-IHVubWFuYWdlYWJseSBsYXJnZSBmb3IgYSBzaW5nbGUgcGF0Y2ggc2VyaWVzIGFuZCBuZWVkcyB0
-byBiZQo+IHNwbGl0IHBlciBzdWJzeXN0ZW0uCj4gCj4gSGVyZSBhcmUgdGhlIHBhdGNoZXMgcGVy
-dGFpbmluZyB0byBQQ0kgZXh0cmFjdGVkIG91dCBvZiB0aGUgbGFyZ2VyCj4gc2VyaWVzLgo+IAo+
-IFsuLi5dCgpBcHBsaWVkLCB0aGFua3MhCgpbMS8zXSBQQ0k6IGNhZGVuY2U6IFByZXNlcnZlIGFs
-bCBlcnJvciBjb2RlcyBpbiBjZG5zX3BsYXRfcGNpZV9wcm9iZSgpCiAgICAgIGNvbW1pdDogZGEw
-Y2VjMGQ4ZjA4YmY0MTlhYTc2YmNlNDlhNjljMTBjMzFhYzRhOQpbMi8zXSBQQ0k6IEFkZCBtaXNz
-aW5nIGhlYWRlcnMgdHJhbnNpdGl2ZWx5IGluY2x1ZGVkIGJ5IDxsaW51eC9waHkvcGh5Lmg+CiAg
-ICAgIGNvbW1pdDogODFhY2UzZDc1YzJmY2E0NzdlOTUwMzVjOTlkODI2ZWZhZmIyYWQ5ZgpbMy8z
-XSBQQ0k6IFJlbW92ZSBkZXZpY2UgbGlua3MgdG8gUEhZCiAgICAgIGNvbW1pdDogOWE5ZDE4NTQ3
-ZGRjOTdhNzNkNWQ5MGNmZjRkNWFlZjkwYmQ4YzE1ZAoKQmVzdCByZWdhcmRzLAotLSAK4K6u4K6j
-4K6/4K614K6j4K+N4K6j4K6p4K+NIOCumuCupOCuvuCumuCuv+CuteCuruCvjQoKCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Sean Christopherson <seanjc@google.com> writes:
+
+> Use a proper selftests TEST_ASSERT() in vm_get_mem_region() so that bad
+> input is guaranteed to fail the test, and with the standard error message
+> format.
+>
+
+LGTM. Feel free to add:
+Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
