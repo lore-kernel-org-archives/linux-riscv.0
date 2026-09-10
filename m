@@ -4,106 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E612C79FB9
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 13:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B16D4C79FB9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 13:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mJcoS1iScUDwYXqXEZLppxfo0c/8zhN34L0wetHOkn8=; b=ri18b2jh8Alob3
-	3eFgrhRXP36ywxrbzaYbEq4L2kJjfAtrsGW1UEQLwvN/yF9UlsUhF5abmv2UVdUjyuevXdg/hzO6P
-	3RBN0nkrOWhGa10e/lgkHl6WhF+t/8/Nr9nRvJ0JHhFF2tMLjZlsB6fhY7ySQ3CL9qGa6+2D+mWii
-	tTR5Z9bvY4ITs67vfnfVrCi6QlLIYv2yQWWVZsy62yl6zXH+RFEv4Jb1s2tXRPPevz7m0uBYdlmpb
-	NCef7BGisB/VmpTk2KSE/r3rpL4gm5R+gddaInxPBMm9afMoOS7vQh1rsf8UM88l8Ie54pEcDHMyA
-	6KPLx7h6H6jh8gX8FinQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H1N9YWfPGxvHkxseeiPZ7SrAl5T9P9Hj3+C8aP/Av1Q=; b=1/Jglfs7nym8/4
+	6OR8Qi4omtv6wdcdg+YKmqYig4fIeaveL5458+v9fVh9byChUU7LNkGhtZJHNDd0mabzR2baW2SJ8
+	PaMAY5MlZXJPyVv1V4fpPMFzsvvl1Ton7Mm1FqmIact7h7dlGmIN0q0sbCiBs9eWAPX3Jp9VVWX0Q
+	/DaPVOXyQX+5JVyhrokCLZJpUcIiORlnr3sSeF4KUQgB31vOPi6k+uYqeP6Ifwi7uM5/kEf73mR1D
+	WnI7znpAG2P+kIjvxb7/czVPL0T45IUOxbfIlajgCGM9LAJXSQaTvjdntpQJo6sR5OCHMJpBkHnoG
+	ETqEpb21lBqLwu1Q/F6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eu6-0000000ETvz-2CNj;
-	Thu, 10 Sep 2026 13:33:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x4fJ7-0000000EXcx-3flH;
+	Thu, 10 Sep 2026 13:59:17 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eu5-0000000ETvX-1Vbd
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 10 Sep 2026 13:33:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=ceaTla6FiiLBfg3RPB4HvVU4vj1Kt+j0ZZ10PrWg9a8=; b=n+AeAI4SgAmxXultm/DUSww1UG
-	CxsJQXuJ9cnYCjdlX71WiLYoyCWQ5U3KIXJXLPYrwLyEgcKUtC8ULmdCf7dzLaMN21Y5D7DtKSQGg
-	2cfR8tg/X2cdHOaEO5enHH9LLKA0nmva15ynNLuTdAfhUC06+oOS8dT225UF54EBNM1t4IiTeD9wZ
-	M1OlcIwirVMm9KaF3XVUhYw866pUs8+KRIMxKLBgckjkwJc8sTIzAwNCkGFA3yk/40mp2koKc3ZUc
-	SmTYZdl4as1V5cu7ERb0HlAlhnJzQ6yMMIYj7/rHL1ZX12NUxQyt0AyogMHZXhGtRIJaJE21lqHJc
-	ZiNO9NdA==;
-Received: from mail-oo2-x02.google.com ([2607:f8b0:4864:31::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x4eu2-00000002XW1-14Et
+	id 1x4fJ3-0000000EXc0-46sA
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Sep 2026 13:33:24 +0000
-Received: by mail-oo2-x02.google.com with SMTP id 006d021491bc7-6bd3ee01a0dso999324eaf.0
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 06:33:21 -0700 (PDT)
+	Thu, 10 Sep 2026 13:59:16 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-4834977ae75so1297686f8f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 06:59:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789048751; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MLWy93AqdxuEgxCgHsC4ZJ4F9bic3zNmQfM36udVICIvatdsZEoxHlpvxZ1RgdRTi1
+         Kc5XsK9yE6Q6KJYNlTZAi/JRJXiZzvWNtvL1Wcl1qxqjHH7cjn9VC33MJJMK4W9O3Waf
+         id+bd3yYx3G+zWlfIGlgDZIFzTDTCMDuIE+plmca0IcmBmeHiuEDw3Gj5cYM8oBGknCB
+         rDgDxqJaOaghaEG/xBFyB/Gsws3gedwtf/Zp8beWCZ4mJ1QjlmcHADLKFjDWKDsNNzDW
+         LwEdNXj6+/2BJCHGcQwS6/jU97bPzfp0sH6z/QGzJMHhA9prtMyfqMYiwwBHDKc2cPdN
+         hM6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ntUgUOcZUM5+aK8XwHOyZhsMc69vpZvSuPPgaYDDMnc=;
+        fh=hQJSBMuG8vtwbKOxnETQ8wXX7NbfW3kvW+RgHVSjubk=;
+        b=HRbTvadtfHcRLw7bbkHzYoAPd+xmoKwRq1t//TBLqc56o+7dZ6D+eE0kBu9DWo2Fo0
+         yI95WGmedCMsVD3KNPfHqJStvbsnROd8a/9L6/7l2zTNVou8Ky0JK5XWl8qS5QeypzVw
+         mUV4pGp+INAumUVLGXi0VRTmeWEiOtwBwG3q8txbri08R4Zj/ePy26t2REIZdpqp2u9f
+         nGLgNGtD4kkZJ78KKyBljQLQL8+IODhSlo1aZuXH5oc5KVzDgUZDo8rHZ28+wLcvQ9EH
+         GvH+Fb8FtDr+S6L7P/1f13LXwtsxqjTOxqYyuIxmPeT3fLMjaKQ7s/vwlXH1rEzSCi9C
+         ptkA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789047200; x=1789652000; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ceaTla6FiiLBfg3RPB4HvVU4vj1Kt+j0ZZ10PrWg9a8=;
-        b=Qm7f6qEVVPZY+VQ9bWA7PNlGk1hODXFvTADgJMA6PMqjwvne5KjDP1ufVTPcyaGGVW
-         YvCybO7OQL7HGSXRtgVVaszhzGzDnXaKEG7H+7zjAZdfeqebFV/9dmiQ8AENm9uuM+ZL
-         5kVpQPe+hoPWeo0RmAAplZosH2XK/h5W1npGXDTSc7PYOC2BgNedMPf4mgsGEHGm6dLB
-         gvMdCSu50A6NAn6mq+AoL4rA+Eo0nFwz+t1LUiAvmPlpu9SDa7ragdEhJzUP6VS92D4/
-         c2uxcfS7z/YdlBGhYMaEzxJ4U/0Bqj1FIsY1S2Ak1trIRpYd4/zVrhi3qMym2PncDOCT
-         xu5w==
+        d=brainfault.org; s=google; t=1789048751; x=1789653551; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ntUgUOcZUM5+aK8XwHOyZhsMc69vpZvSuPPgaYDDMnc=;
+        b=E6ddSNUMxaQaFcbERIZ7Uoz+ajwXdNpZ5UZWqXm4x9FYbzYhSHjof7jiur47/fKZ4X
+         G1hnEQX3psly0fD+roMRfO4EP0lB2Q1NsmdputaLy3XIwSIZp+FeF8i2r2y/OUF6vsVO
+         r3g/eAuXIWBf+HpW1MgCXUvKNKlhHAclvxHPyeu3yvluv5YhQ2/Nh6IlJGZei0PnSOE3
+         Ri5NHEm80HUvIEznvo4jI/ptQghwr4WZLLiE4/a3QCkXqsn/oGmJgIcwD2SQ7igWzj4i
+         pEWYI99fBiWXSTe+f4WlgcBUDJnalY4KnAEOy7dwMu4+3dmdq9eZM/7LP1+RPS48/fwh
+         t/tQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789047200; x=1789652000;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ceaTla6FiiLBfg3RPB4HvVU4vj1Kt+j0ZZ10PrWg9a8=;
-        b=fKBSYXECEu5flY1bgoxu6iu8DD0k2LstXSzxyTFMFVMgBzB4ubZWX73FUd7g3yQKnS
-         QMa56wdD+9WXppk5r8bzSDSFxGlF9eRlXdILoFzcUbDLL4b/s79W1wIHqu5KoZ1TNMs2
-         FgDbiMiesT1ahQl0Ytquh+b5Y19jKYp8aSqs+ScpwtWWnmECduDsTfdjH/83Gvr6UX1L
-         ckGXtYzoTJIiO5AN9Sma0ohOKIQaIRAd13G8KEU/9N/2uSStk1Q13o/eL5UkQlJ/0FSW
-         NMNWrm1ZbZ1dmTATGrua8x9+r1NZSWXUjtXY87KDSRjuc7UJRc+gowKSSFJOFNtXKxJl
-         gheQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwBth1EpcBhft3n2N98Jb3t1s1wW+xr7VB6C+JDdX7MRHscpjXeXk0hzRV9zC6J1tNcQS7yqjnE75Ancg==@lists.infradead.org
-X-Gm-Message-State: AFuF++mmUYCY4vdGaOAVXXm6oMJg5ePsvkjyWZi38uZQDC/N861C+yDy
-	s2R7kn0qTIsV1GwYsR/aRyqFYOhuXGKt69rDJXwYCDq3ENnG4rMKOCLd
-X-Gm-Gg: AYBFou0qhcczSDGhz2nfcBnkJk5bpd0Inmj31ZEY0VDcYVfiWXpy8MDyeKExCSjnCsu
-	CtUIHvcPhzwLUpvzxINv7xqUZP87PCV+wxGze2GXvOdYXhzdV1Lk7Q+IRw99EqCtu3apQNr/JbA
-	4fehdo+jCrwZUmexeabI4ALNPO4kfrwIOGjZD78/bolskEJpjlp4q8tijeYS5KT27ZVye5aoWlS
-	lZobrF0tCoI6jl/Td9yPL/e7vHRpntqXAiYztnB267HPtiwCzRpbMtOidvxb491IHElK7ivvMUP
-	Czgu3X1kSPr/C1l2LHANLO9xiXxn0du8P+qMhux8kPaFfHjLUuxIv6ZEiQ2OswWblmyvReRV6KT
-	NSVmXLLV6Fy+2+WHpw+WRGYby73iVWpQHqw+Q1STe0XjKEmRc0fD/WOnRSUlpineWjoMR0rLcGK
-	sa8iTqQEuQ4GzJgzNt97S3MmtB0i/TsSM585tm7Fn03I6CU8BDFLqQ/E3CmXqV2vrjJz7Jy4DtO
-	A0/dTiRP5Cu
-X-Received: by 2002:a4a:e842:0:b0:6b0:ab1f:ec0c with SMTP id 006d021491bc7-6b6fd1cc120mr22896747eaf.34.1789047199406;
-        Thu, 10 Sep 2026 06:33:19 -0700 (PDT)
-Received: from wenlongli.debian ([179.253.249.103])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3396e7e477csm21837545eec.29.2026.09.10.06.33.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 06:33:18 -0700 (PDT)
-From: Wenlong Li <wenlongli486@gmail.com>
-To: Anup Patel <anup@brainfault.org>,
-	kvm-riscv@lists.infradead.org
-Cc: Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Quan Zhou <zhouquan@iscas.ac.cn>,
-	kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] RISC-V: KVM: Avoid synchronous IPIs on VMID rollover
-Date: Thu, 10 Sep 2026 21:33:00 +0800
-Message-ID: <20260910133300.956555-1-wenlongli486@gmail.com>
-X-Mailer: git-send-email 2.47.3
+        d=1e100.net; s=20251104; t=1789048751; x=1789653551;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ntUgUOcZUM5+aK8XwHOyZhsMc69vpZvSuPPgaYDDMnc=;
+        b=DJjqcRDBHb/fyf7u7w9q3Ko1kqdN7TFqvQVTThTlCJkeYPgCf0QVdxlH85j9uKVIT1
+         dF4ViNie2HQkceO5qf3YOKTUOehhnFtI1JN44ynYN08dsVsW3EkZIg2x6qeUBcyg+c/t
+         DsyIm7X5GPOjFbN+AYRxItJGVzbT45GXcVfTTOUS1XuaLP37SgE3IwGiGjdEHsIwXOrF
+         rpvjKXztfFGQnp1y/U3oTOVAZlC1WKQtnHycGwzLsYitHXC3hindkd0SbV6YedOIMsZ5
+         ggj4mVsA3dDgk26htHJGMyiTDzMsEsm3ujtBkvOyFMiLEb/WbN2eoFGZTHYvV5TJqe/c
+         pa6A==
+X-Forwarded-Encrypted: i=1; AKwUvBzTgmjEPRC3DNNLid5Yx3FaJm8hmVLaQV1RvWSGO6M6JZjr0qjxUzvMDYwtYQ4pomDFHDrzFAwd1zBmmA==@lists.infradead.org
+X-Gm-Message-State: AFuF++mc6RQfC7YqGuybCh7cnyBsBKeTltGS0hfMG453ay1iNKKsCVk+
+	XVeXMkKB/un/wKqFr4sLPQZrhrWEG37qGkwrNqo0TGupsn2ZbpeATB5NGDNKyFT2b2z+4/l94YV
+	pgkMaNolcxKcuxV0+BjXiOk94oU603Qa4s0yoESGzUA==
+X-Gm-Gg: AYBFou3w+UEX2dubrdEAqdv7SQ3HhbGO4J63DdXKF9VTnNecmpwNYUjL1AL5hJ+6+DR
+	pVU9NYQ4AE5WkoeudqaV+3ZZ+Z7zRpnpSFrbSpgs+TqkyenpBILIzSS4V0QPzuynKqM1S0wDJdm
+	1GZ3TpxgVuvwKEcdctLJmylfl9zyaR1/049c6xyL4ZUsRAh0gDGDt8iuhraW6yMVy7b9UG4L1W0
+	ChhQShKf2nkYo8RkefbfA+bjngw4zfiZfj0IswIuIpZg4C08+SXk5SpVQP5rpUY5QINZiepnyA7
+	Fl4AqM6Zp1GqK36ywuvuPWe/8GYiiT7QZU43789meP1Gn1RAskYlL0p5UojBRXFM3BP7CYkJnzy
+	APy0i24wcy/ySbsifDggy+7t4W5jIB09uN9BvGzX7dt6u5uZcTHLS4AQzNxx8cHCwiDj5U0tK2g
+	==
+X-Received: by 2002:a05:6000:402c:b0:485:acfd:4fa2 with SMTP id
+ ffacd0b85a97d-485acfd572dmr20259573f8f.28.1789048750919; Thu, 10 Sep 2026
+ 06:59:10 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260810051544.3953925-1-xb@ultrarisc.com> <20260810051544.3953925-2-xb@ultrarisc.com>
+In-Reply-To: <20260810051544.3953925-2-xb@ultrarisc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 10 Sep 2026 19:28:58 +0530
+X-Gm-Features: AcwNN1VoynwwDilW3Qq5_YgkFrLdSifis-TkUfgosx4SiSWNhFsAD_CF6I0IGk8
+Message-ID: <CAAhSdy16n_zWBudDS0_E8xK=mhKBOvLMz00SRWnY0ArDkJF=qw@mail.gmail.com>
+Subject: Re: [RESEND PATCH 1/2] RISC-V: KVM: Release unused page after MMU invalidation
+To: Xie Bo <xb@ultrarisc.com>
+Cc: kvm-riscv@lists.infradead.org, Atish Patra <atish.patra@linux.dev>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_143322_604980_D98BCE29 
-X-CRM114-Status: GOOD (  24.13  )
+X-CRM114-CacheID: sfid-20260910_065914_043680_30FE000C 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,757 +117,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current VMID rollover path synchronously invokes HFENCE.GVMA on
-all online CPUs using on_each_cpu_mask(). This sends IPIs to remote
-CPUs and causes a vCPU running in guest mode on a targeted CPU to exit.
-The rollover path then waits for all CPUs to complete their local TLB
-flushes before VMID allocation can continue.
-
-Make VMID rollover lazy to remove this cross-CPU synchronization.
-
-Track active and reserved software VMIDs for each possible CPU. On
-rollover, preserve hardware VMIDs that may still have stale
-translations, clear the active VMID, and mark a local TLB flush
-pending for each CPU.
-
-Do not send IPIs or otherwise force remote vCPUs to exit during
-rollover. Instead, when a CPU next activates a VMID before guest
-entry, perform the pending local HFENCE.GVMA and only then publish
-the new active VMID.
-
-Perform VMID activation after preemption is disabled in the guest
-entry path. This keeps the per-CPU active VMID and pending flush state
-associated with the same CPU that subsequently enters guest mode.
-
-Keep reserved hardware VMIDs unavailable to the bitmap allocator
-while stale translations associated with them may still exist. This
-prevents a hardware VMID from being reused prematurely after a
-generation rollover.
-
-Represent a software VMID as a generation combined with a hardware
-VMID, and extract only the hardware VMID when programming HGATP or
-issuing VMID-specific fences.
-
-Reserve hardware VMID 0. Disable VMID allocation when the hardware
-VMID space is too small to retain one reserved VMID per possible CPU
-while still leaving a VMID available for a new allocation.
-
-Invalidate the per-CPU VMID bookkeeping when virtualization is
-disabled, so stale G-stage translations are flushed before the CPU
-next enters a guest.
-
-This removes IPIs and remote CPU synchronization from the VMID
-rollover path, avoiding VM exits caused solely by VMID exhaustion on
-another CPU.
-
-Tested on QEMU with two host CPUs and the VMID width temporarily
-forced to 2 bits. Repeated rollover, protection against premature VMID
-reuse, activation-versus-rollover stress, and vCPU migration were
-exercised with multiple concurrent guests without guest failures or
-host warnings.
-
-Assisted-by: YuanSheng:deepseek-v4-pro
-Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Wenlong Li <wenlongli486@gmail.com>
----
- arch/riscv/include/asm/kvm_gstage.h |   5 +-
- arch/riscv/include/asm/kvm_vmid.h   |  26 ++-
- arch/riscv/kvm/main.c               |  12 +-
- arch/riscv/kvm/mmu.c                |   5 +-
- arch/riscv/kvm/tlb.c                |   9 +-
- arch/riscv/kvm/vcpu.c               |   4 +-
- arch/riscv/kvm/vcpu_sbi_replace.c   |   4 +-
- arch/riscv/kvm/vcpu_sbi_v01.c       |   6 +-
- arch/riscv/kvm/vmid.c               | 347 ++++++++++++++++++++++++----
- 9 files changed, 348 insertions(+), 70 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
-index aaf080ba1b77..7a295e106005 100644
---- a/arch/riscv/include/asm/kvm_gstage.h
-+++ b/arch/riscv/include/asm/kvm_gstage.h
-@@ -8,7 +8,7 @@
- #define __RISCV_KVM_GSTAGE_H_
- 
- #include <linux/kvm_types.h>
--
-+#include <asm/kvm_vmid.h>
- struct kvm_gstage {
- 	struct kvm *kvm;
- 	unsigned long flags;
-@@ -108,7 +108,8 @@ static inline void kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *
- {
- 	gstage->kvm = kvm;
- 	gstage->flags = 0;
--	gstage->vmid = READ_ONCE(kvm->arch.vmid.vmid);
-+	gstage->vmid = kvm_riscv_gstage_vmid_hwid(
-+			atomic_long_read(&kvm->arch.vmid.id));
- 	gstage->pgd = kvm->arch.pgd;
- 	gstage->pgd_levels = kvm->arch.pgd_levels;
- }
-diff --git a/arch/riscv/include/asm/kvm_vmid.h b/arch/riscv/include/asm/kvm_vmid.h
-index db61b0525a8d..78811ab7dba0 100644
---- a/arch/riscv/include/asm/kvm_vmid.h
-+++ b/arch/riscv/include/asm/kvm_vmid.h
-@@ -6,21 +6,39 @@
- #ifndef __RISCV_KVM_VMID_H_
- #define __RISCV_KVM_VMID_H_
- 
-+#include <linux/atomic.h>
- #include <linux/kvm_types.h>
- 
- struct kvm_vmid {
- 	/*
--	 * Writes to vmid_version and vmid happen with vmid_lock held
--	 * whereas reads happen without any lock held.
-+	 * Software VMID:
-+	 *
-+	 *   [ generation | hardware VMID ]
-+	 *
-+	 * Only the low hardware VMID bits may be written to HGATP
-+	 * or used as a hardware fence VMID.
- 	 */
--	unsigned long vmid_version;
--	unsigned long vmid;
-+	atomic_long_t id;
- };
- 
- void __init kvm_riscv_gstage_vmid_detect(void);
- unsigned long kvm_riscv_gstage_vmid_bits(void);
-+
-+int __init kvm_riscv_gstage_vmid_alloc_init(void);
-+void kvm_riscv_gstage_vmid_alloc_free(void);
-+
- int kvm_riscv_gstage_vmid_init(struct kvm *kvm);
-+
-+unsigned long kvm_riscv_gstage_vmid_hwid(unsigned long vmid);
-+
- bool kvm_riscv_gstage_vmid_ver_changed(struct kvm_vmid *vmid);
-+
- void kvm_riscv_gstage_vmid_update(struct kvm_vcpu *vcpu);
- 
-+/*
-+ * Invalidate the current CPU's fast-path VMID state while preserving
-+ * the old identity conservatively in reserved_vmids.
-+ */
-+void kvm_riscv_gstage_vmid_cpu_invalidate(void);
-+
- #endif
-diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-index 89568ccce01d..d6c6be4df61b 100644
---- a/arch/riscv/kvm/main.c
-+++ b/arch/riscv/kvm/main.c
-@@ -16,7 +16,7 @@
- #include <asm/kvm_nacl.h>
- #include <asm/sbi.h>
- #include <asm/kvm_vcpu_vector.h>
--
-+#include <asm/kvm_vmid.h>
- static DEFINE_PER_CPU(bool, kvm_riscv_virtualization_enabled);
- 
- DEFINE_STATIC_KEY_FALSE(kvm_riscv_vsstage_tlb_no_gpa);
-@@ -84,6 +84,7 @@ int kvm_arch_enable_virtualization_cpu(void)
- 
- void kvm_arch_disable_virtualization_cpu(void)
- {
-+	kvm_riscv_gstage_vmid_cpu_invalidate();
- 	kvm_riscv_aia_disable();
- 	kvm_riscv_csr_cleanup();
- 	kvm_riscv_nacl_disable();
-@@ -112,6 +113,7 @@ static int kvm_riscv_cpu_pm_notifier(struct notifier_block *self, unsigned long
- 		 * is enabled on this CPU.
- 		 */
- 		if (__this_cpu_read(kvm_riscv_virtualization_enabled)) {
-+			kvm_riscv_gstage_vmid_cpu_invalidate();
- 			kvm_riscv_aia_pm_enter();
- 			kvm_riscv_csr_cleanup();
- 		}
-@@ -130,6 +132,7 @@ static struct notifier_block kvm_riscv_cpu_pm_nb = {
- static void kvm_riscv_teardown(void)
- {
- 	kvm_riscv_aia_exit();
-+	kvm_riscv_gstage_vmid_alloc_free();
- 	kvm_riscv_nacl_exit();
- 	kvm_riscv_v_exit();
- 	kvm_unregister_perf_callbacks();
-@@ -181,8 +184,15 @@ static int __init riscv_kvm_init(void)
- 
- 	kvm_riscv_gstage_vmid_detect();
- 
-+	rc = kvm_riscv_gstage_vmid_alloc_init();
-+	if (rc) {
-+		kvm_riscv_nacl_exit();
-+		return rc;
-+	}
-+
- 	rc = kvm_riscv_aia_init();
- 	if (rc && rc != -ENODEV) {
-+		kvm_riscv_gstage_vmid_alloc_free();
- 		kvm_riscv_nacl_exit();
- 		return rc;
- 	}
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 6035b5ec9503..db49fac8e9af 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -15,7 +15,7 @@
- #include <linux/sched/signal.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_nacl.h>
--
-+#include <asm/kvm_vmid.h>
- static bool __read_mostly eager_page_split = true;
- module_param(eager_page_split, bool, 0644);
- 
-@@ -799,10 +799,11 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_arch *ka = &vcpu->kvm->arch;
-+	unsigned long vmid = atomic_long_read(&ka->vmid.id);
- 	unsigned long hgatp = kvm_riscv_gstage_mode(ka->pgd_levels)
- 			      << HGATP_MODE_SHIFT;
- 
--	hgatp |= (READ_ONCE(ka->vmid.vmid) << HGATP_VMID_SHIFT) & HGATP_VMID;
-+	hgatp |= (kvm_riscv_gstage_vmid_hwid(vmid) << HGATP_VMID_SHIFT) & HGATP_VMID;
- 	hgatp |= (ka->pgd_phys >> PAGE_SHIFT) & HGATP_PPN;
- 
- 	ncsr_write(CSR_HGATP, hgatp);
-diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
-index 2ae34632cdcb..36678aeb64ef 100644
---- a/arch/riscv/kvm/tlb.c
-+++ b/arch/riscv/kvm/tlb.c
-@@ -224,7 +224,7 @@ void kvm_riscv_local_tlb_sanitize(struct kvm_vcpu *vcpu)
- 	 * entries by VMID whenever underlying Host CPU changes for a VCPU.
- 	 */
- 
--	vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
-+	vmid = kvm_riscv_gstage_vmid_hwid(atomic_long_read(&vcpu->kvm->arch.vmid.id));
- 	kvm_riscv_local_hfence_gvma_vmid_all(vmid);
- 
- 	/*
-@@ -244,7 +244,7 @@ void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu)
- void kvm_riscv_tlb_flush_process(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_vmid *v = &vcpu->kvm->arch.vmid;
--	unsigned long vmid = READ_ONCE(v->vmid);
-+	unsigned long vmid = kvm_riscv_gstage_vmid_hwid(atomic_long_read(&v->id));
- 
- 	if (kvm_riscv_nacl_available())
- 		nacl_hfence_gvma_vmid_all(nacl_shmem(), vmid);
-@@ -255,7 +255,7 @@ void kvm_riscv_tlb_flush_process(struct kvm_vcpu *vcpu)
- void kvm_riscv_hfence_vvma_all_process(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_vmid *v = &vcpu->kvm->arch.vmid;
--	unsigned long vmid = READ_ONCE(v->vmid);
-+	unsigned long vmid = kvm_riscv_gstage_vmid_hwid(atomic_long_read(&v->id));
- 
- 	if (kvm_riscv_nacl_available())
- 		nacl_hfence_vvma_all(nacl_shmem(), vmid);
-@@ -533,6 +533,7 @@ int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 nr_pages)
- {
- 	kvm_riscv_hfence_gvma_vmid_gpa(kvm, -1UL, 0,
- 				       gfn << PAGE_SHIFT, nr_pages << PAGE_SHIFT,
--				       PAGE_SHIFT, READ_ONCE(kvm->arch.vmid.vmid));
-+				       PAGE_SHIFT, kvm_riscv_gstage_vmid_hwid(
-+						atomic_long_read(&kvm->arch.vmid.id)));
- 	return 0;
- }
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index e062ca19f9d8..85542c1a5ec3 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -943,14 +943,14 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 			continue;
- 		ret = 1;
- 
--		kvm_riscv_gstage_vmid_update(vcpu);
--
- 		ret = kvm_riscv_check_vcpu_requests(vcpu);
- 		if (ret <= 0)
- 			continue;
- 
- 		preempt_disable();
- 
-+		kvm_riscv_gstage_vmid_update(vcpu);
-+
- 		/* Update AIA HW state before entering guest */
- 		ret = kvm_riscv_vcpu_aia_update(vcpu);
- 		if (ret <= 0) {
-diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-index 506a510b6bff..84ba5ce4131e 100644
---- a/arch/riscv/kvm/vcpu_sbi_replace.c
-+++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-@@ -104,7 +104,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
- 		kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_FENCE_I_SENT);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA:
--		vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
-+		vmid = kvm_riscv_gstage_vmid_hwid(atomic_long_read(&vcpu->kvm->arch.vmid.id));
- 		if ((cp->a2 == 0 && cp->a3 == 0) || cp->a3 == -1UL)
- 			kvm_riscv_hfence_vvma_all(vcpu->kvm, hbase, hmask, vmid);
- 		else
-@@ -113,7 +113,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
- 		kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_SENT);
- 		break;
- 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID:
--		vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
-+		vmid = kvm_riscv_gstage_vmid_hwid(atomic_long_read(&vcpu->kvm->arch.vmid.id));
- 		if ((cp->a2 == 0 && cp->a3 == 0) || cp->a3 == -1UL)
- 			kvm_riscv_hfence_vvma_asid_all(vcpu->kvm, hbase, hmask,
- 						       cp->a4, vmid);
-diff --git a/arch/riscv/kvm/vcpu_sbi_v01.c b/arch/riscv/kvm/vcpu_sbi_v01.c
-index de544ea3f28d..e38794838ca4 100644
---- a/arch/riscv/kvm/vcpu_sbi_v01.c
-+++ b/arch/riscv/kvm/vcpu_sbi_v01.c
-@@ -88,14 +88,16 @@ static int kvm_sbi_ext_v01_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		if (cp->a7 == SBI_EXT_0_1_REMOTE_FENCE_I)
- 			kvm_riscv_fence_i(vcpu->kvm, hbase, hmask);
- 		else if (cp->a7 == SBI_EXT_0_1_REMOTE_SFENCE_VMA) {
--			vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
-+			vmid = kvm_riscv_gstage_vmid_hwid(
-+				   atomic_long_read(&vcpu->kvm->arch.vmid.id));
- 			if (cp->a1 == 0 && cp->a2 == 0)
- 				kvm_riscv_hfence_vvma_all(vcpu->kvm, hbase, hmask, vmid);
- 			else
- 				kvm_riscv_hfence_vvma_gva(vcpu->kvm, hbase, hmask, cp->a1,
- 							  cp->a2, PAGE_SHIFT, vmid);
- 		} else {
--			vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
-+			vmid = kvm_riscv_gstage_vmid_hwid(
-+				   atomic_long_read(&vcpu->kvm->arch.vmid.id));
- 			if (cp->a1 == 0 && cp->a2 == 0)
- 				kvm_riscv_hfence_vvma_asid_all(vcpu->kvm, hbase, hmask,
- 							       cp->a3, vmid);
-diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
-index c15bdb1dd8be..05819e4f7cb5 100644
---- a/arch/riscv/kvm/vmid.c
-+++ b/arch/riscv/kvm/vmid.c
-@@ -6,11 +6,15 @@
-  *     Anup Patel <anup.patel@wdc.com>
-  */
- 
-+#include <linux/bitmap.h>
- #include <linux/bitops.h>
- #include <linux/cpumask.h>
- #include <linux/errno.h>
- #include <linux/err.h>
- #include <linux/module.h>
-+#include <linux/percpu.h>
-+#include <linux/preempt.h>
-+#include <linux/slab.h>
- #include <linux/smp.h>
- #include <linux/kvm_host.h>
- #include <asm/csr.h>
-@@ -18,26 +22,54 @@
- #include <asm/kvm_tlb.h>
- #include <asm/kvm_vmid.h>
- 
--static unsigned long vmid_version = 1;
--static unsigned long vmid_next;
-+static atomic_long_t vmid_generation;
-+static unsigned long *vmid_map;
- static unsigned long vmid_bits __ro_after_init;
--static DEFINE_SPINLOCK(vmid_lock);
-+static unsigned long vmid_cur_idx = 1;
-+
-+static DEFINE_RAW_SPINLOCK(vmid_lock);
-+
-+static DEFINE_PER_CPU(atomic_long_t, active_vmids);
-+static DEFINE_PER_CPU(unsigned long, reserved_vmids);
-+
-+static cpumask_t tlb_flush_pending;
-+
-+#define VMID_FIRST_VERSION	(1UL << vmid_bits)
-+#define NUM_VMIDS		VMID_FIRST_VERSION
-+#define VMID_HW_MASK		(NUM_VMIDS - 1)
-+
-+static bool vmid_gen_match(unsigned long vmid)
-+{
-+	return !((vmid ^ atomic_long_read(&vmid_generation)) >> vmid_bits);
-+}
-+
-+unsigned long kvm_riscv_gstage_vmid_hwid(unsigned long vmid)
-+{
-+	if (!vmid_bits)
-+		return 0;
-+
-+	return vmid & VMID_HW_MASK;
-+}
- 
- void __init kvm_riscv_gstage_vmid_detect(void)
- {
--	/* Figure-out number of VMID bits in HW */
-+	/* Figure out the number of VMID bits supported by hardware. */
- 	csr_write(CSR_HGATP, (kvm_riscv_gstage_mode(kvm_riscv_gstage_max_pgd_levels) <<
--			      HGATP_MODE_SHIFT) | HGATP_VMID);
-+		   HGATP_MODE_SHIFT) | HGATP_VMID);
- 	vmid_bits = csr_read(CSR_HGATP);
- 	vmid_bits = (vmid_bits & HGATP_VMID) >> HGATP_VMID_SHIFT;
- 	vmid_bits = fls_long(vmid_bits);
- 	csr_write(CSR_HGATP, 0);
- 
--	/* We polluted local TLB so flush all guest TLB */
-+	/* Flush the local guest TLB after probing HGATP. */
- 	kvm_riscv_local_hfence_gvma_all();
- 
--	/* We don't use VMID bits if they are not sufficient */
--	if ((1UL << vmid_bits) < num_possible_cpus())
-+	/*
-+	 * VMID 0 is reserved.  During rollover every possible CPU may
-+	 * reserve one hardware VMID, and we still need at least one VMID
-+	 * available for a new allocation.
-+	 */
-+	if (vmid_bits && NUM_VMIDS - 1 <= num_possible_cpus())
- 		vmid_bits = 0;
- }
- 
-@@ -46,80 +78,293 @@ unsigned long kvm_riscv_gstage_vmid_bits(void)
- 	return vmid_bits;
- }
- 
-+int __init kvm_riscv_gstage_vmid_alloc_init(void)
-+{
-+	int cpu;
-+
-+	if (!vmid_bits)
-+		return 0;
-+
-+	vmid_map = bitmap_zalloc(NUM_VMIDS, GFP_KERNEL);
-+	if (!vmid_map)
-+		return -ENOMEM;
-+
-+	vmid_cur_idx = 1;
-+
-+	/* Hardware VMID 0 is reserved. */
-+	__set_bit(0, vmid_map);
-+
-+	atomic_long_set(&vmid_generation, VMID_FIRST_VERSION);
-+
-+	for_each_possible_cpu(cpu) {
-+		atomic_long_set(&per_cpu(active_vmids, cpu), 0);
-+		per_cpu(reserved_vmids, cpu) = 0;
-+	}
-+
-+	/*
-+	 * Every CPU performs an initial local invalidation before its
-+	 * first VMID activation.
-+	 */
-+	cpumask_copy(&tlb_flush_pending, cpu_possible_mask);
-+
-+	return 0;
-+}
-+
-+void kvm_riscv_gstage_vmid_alloc_free(void)
-+{
-+	bitmap_free(vmid_map);
-+	vmid_map = NULL;
-+}
-+
- int kvm_riscv_gstage_vmid_init(struct kvm *kvm)
- {
--	/* Mark the initial VMID and VMID version invalid */
--	kvm->arch.vmid.vmid_version = 0;
--	kvm->arch.vmid.vmid = 0;
-+	atomic_long_set(&kvm->arch.vmid.id, 0);
- 
- 	return 0;
- }
- 
- bool kvm_riscv_gstage_vmid_ver_changed(struct kvm_vmid *vmid)
- {
-+	unsigned long id;
-+
- 	if (!vmid_bits)
- 		return false;
- 
--	return unlikely(READ_ONCE(vmid->vmid_version) !=
--			READ_ONCE(vmid_version));
-+	id = atomic_long_read(&vmid->id);
-+
-+	return unlikely(!vmid_gen_match(id));
- }
- 
--static void __local_hfence_gvma_all(void *info)
-+/*
-+ * Called with vmid_lock held after vmid_generation has already been
-+ * advanced.
-+ *
-+ * No remote CPU is interrupted here.  Instead, preserve every VMID
-+ * which may still be used by a CPU and queue a local invalidation for
-+ * that CPU's next VMID activation.
-+ */
-+static void flush_context(void)
- {
--	kvm_riscv_local_hfence_gvma_all();
-+	unsigned long vmid;
-+	int cpu;
-+
-+	bitmap_zero(vmid_map, NUM_VMIDS);
-+	__set_bit(0, vmid_map);
-+
-+	for_each_possible_cpu(cpu) {
-+		vmid = atomic_long_xchg(&per_cpu(active_vmids, cpu), 0);
-+
-+		/*
-+		 * The CPU may already have been caught by an earlier rollover
-+		 * without performing another activation since then.  In that
-+		 * case reserved_vmids is the only record of the old context.
-+		 */
-+		if (!vmid)
-+			vmid = per_cpu(reserved_vmids, cpu);
-+
-+		if (vmid)
-+			__set_bit(kvm_riscv_gstage_vmid_hwid(vmid),
-+				  vmid_map);
-+
-+		per_cpu(reserved_vmids, cpu) = vmid;
-+	}
-+
-+	cpumask_copy(&tlb_flush_pending, cpu_possible_mask);
-+}
-+
-+/*
-+ * Update every reserved copy of an old software VMID.
-+ *
-+ * Do not stop after the first match: the same VM may have been active
-+ * on more than one CPU when rollover occurred.
-+ */
-+static bool check_update_reserved_vmid(unsigned long old_vmid,
-+				       unsigned long new_vmid)
-+{
-+	bool hit = false;
-+	int cpu;
-+
-+	for_each_possible_cpu(cpu) {
-+		if (per_cpu(reserved_vmids, cpu) == old_vmid) {
-+			per_cpu(reserved_vmids, cpu) = new_vmid;
-+			hit = true;
-+		}
-+	}
-+
-+	return hit;
-+}
-+
-+/*
-+ * Allocate/promote a software VMID.
-+ *
-+ * vmid_lock must be held by the caller.
-+ */
-+static unsigned long new_vmid_locked(struct kvm_vmid *kvm_vmid)
-+{
-+	unsigned long vmid = atomic_long_read(&kvm_vmid->id);
-+	unsigned long generation = atomic_long_read(&vmid_generation);
-+	unsigned long new_vmid;
-+
-+	if (vmid) {
-+		new_vmid = generation |
-+			   kvm_riscv_gstage_vmid_hwid(vmid);
-+
-+		/*
-+		 * The old VMID is still protected by one or more CPUs.
-+		 * Keep the same hardware VMID and only promote generation.
-+		 */
-+		if (check_update_reserved_vmid(vmid, new_vmid))
-+			return new_vmid;
-+
-+		/*
-+		 * The VM had a VMID in an older generation.  Reuse the same
-+		 * hardware number if it has not already been claimed.
-+		 */
-+		if (!__test_and_set_bit(
-+			    kvm_riscv_gstage_vmid_hwid(vmid), vmid_map))
-+			return new_vmid;
-+	}
-+
-+	/*
-+	 * Find a free VMID in the current generation.
-+	 */
-+	vmid = find_next_zero_bit(vmid_map, NUM_VMIDS, vmid_cur_idx);
-+	if (vmid != NUM_VMIDS)
-+		goto set_vmid;
-+
-+	/*
-+	 * No free VMID.  Start a new generation, preserve all CPU-local
-+	 * users, and defer each CPU's flush until its next activation.
-+	 */
-+	generation = atomic_long_add_return(VMID_FIRST_VERSION,
-+					    &vmid_generation);
-+	flush_context();
-+
-+	/*
-+	 * NUM_VMIDS - 1 > num_possible_cpus(), therefore rollover must
-+	 * leave at least one allocatable hardware VMID.
-+	 */
-+	vmid = find_next_zero_bit(vmid_map, NUM_VMIDS, 1);
-+
-+set_vmid:
-+	__set_bit(vmid, vmid_map);
-+	vmid_cur_idx = vmid;
-+
-+	return generation | vmid;
- }
- 
- void kvm_riscv_gstage_vmid_update(struct kvm_vcpu *vcpu)
- {
--	unsigned long i;
-+	struct kvm_vmid *kvm_vmid = &vcpu->kvm->arch.vmid;
-+	atomic_long_t *active;
- 	struct kvm_vcpu *v;
--	struct kvm_vmid *vmid = &vcpu->kvm->arch.vmid;
-+	unsigned long flags;
-+	unsigned long vmid;
-+	unsigned long old_active_vmid;
-+	unsigned long i;
-+	unsigned int cpu;
-+	bool vmid_changed = false;
- 
--	if (!kvm_riscv_gstage_vmid_ver_changed(vmid))
-+	if (!vmid_bits)
- 		return;
- 
--	spin_lock(&vmid_lock);
-+	/*
-+	 * active_vmids and tlb_flush_pending are per-CPU admission state.
-+	 * They must refer to the same CPU for the complete activation.
-+	 */
-+	preempt_disable();
-+
-+	cpu = smp_processor_id();
-+	active = this_cpu_ptr(&active_vmids);
-+
-+	vmid = atomic_long_read(&kvm_vmid->id);
-+	old_active_vmid = atomic_long_read(active);
- 
- 	/*
--	 * We need to re-check the vmid_version here to ensure that if
--	 * another vcpu already allocated a valid vmid for this vm.
-+	 * Fast path.
-+	 *
-+	 * The cmpxchg races with flush_context()'s xchg on the same
-+	 * per-CPU atomic.  Either this activation is captured by rollover,
-+	 * or rollover clears active first and the cmpxchg fails.
- 	 */
--	if (!kvm_riscv_gstage_vmid_ver_changed(vmid)) {
--		spin_unlock(&vmid_lock);
--		return;
-+	if (old_active_vmid &&
-+	    vmid_gen_match(vmid) &&
-+	    atomic_long_cmpxchg(active, old_active_vmid, vmid) ==
-+	    old_active_vmid)
-+		goto out;
-+
-+	raw_spin_lock_irqsave(&vmid_lock, flags);
-+
-+	/*
-+	 * Re-read under the allocator lock because another vCPU of this VM
-+	 * may already have promoted or allocated the shared VMID.
-+	 */
-+	vmid = atomic_long_read(&kvm_vmid->id);
-+
-+	if (!vmid_gen_match(vmid)) {
-+		vmid = new_vmid_locked(kvm_vmid);
-+		atomic_long_set(&kvm_vmid->id, vmid);
-+		vmid_changed = true;
- 	}
- 
--	/* First user of a new VMID version? */
--	if (unlikely(vmid_next == 0)) {
--		WRITE_ONCE(vmid_version, READ_ONCE(vmid_version) + 1);
--		vmid_next = 1;
-+	/*
-+	 * Even if another vCPU already updated the shared VMID, this CPU
-+	 * must still discharge its own rollover flush obligation.
-+	 */
-+	if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
-+		kvm_riscv_local_hfence_gvma_all();
- 
--		/*
--		 * We ran out of VMIDs so we increment vmid_version and
--		 * start assigning VMIDs from 1.
--		 *
--		 * This also means existing VMIDs assignment to all Guest
--		 * instances is invalid and we have force VMID re-assignement
--		 * for all Guest instances. The Guest instances that were not
--		 * running will automatically pick-up new VMIDs because will
--		 * call kvm_riscv_gstage_vmid_update() whenever they enter
--		 * in-kernel run loop. For Guest instances that are already
--		 * running, we force VM exits on all host CPUs using IPI and
--		 * flush all Guest TLBs.
--		 */
--		on_each_cpu_mask(cpu_online_mask, __local_hfence_gvma_all,
--				 NULL, 1);
-+	/*
-+	 * Publish the CPU-local active identity only after the required
-+	 * local invalidation is complete.
-+	 */
-+	atomic_long_set(active, vmid);
-+
-+	raw_spin_unlock_irqrestore(&vmid_lock, flags);
-+
-+	/*
-+	 * A new software VMID may contain a different hardware VMID, so
-+	 * request an HGATP update for every vCPU in the VM.
-+	 */
-+	if (vmid_changed) {
-+		kvm_for_each_vcpu(i, v, vcpu->kvm)
-+			kvm_make_request(KVM_REQ_UPDATE_HGATP, v);
- 	}
- 
--	vmid->vmid = vmid_next;
--	vmid_next++;
--	vmid_next &= (1 << vmid_bits) - 1;
-+out:
-+	preempt_enable();
-+}
-+
-+/*
-+ * CPU virtualization/CSR state is being discarded.
-+ *
-+ * Withdraw fast-path eligibility, but conservatively preserve the last
-+ * identity instead of making its hardware VMID immediately reusable.
-+ */
-+void kvm_riscv_gstage_vmid_cpu_invalidate(void)
-+{
-+	unsigned long flags;
-+	unsigned long vmid;
-+	unsigned int cpu;
- 
--	WRITE_ONCE(vmid->vmid_version, READ_ONCE(vmid_version));
-+	if (!vmid_bits)
-+		return;
- 
--	spin_unlock(&vmid_lock);
-+	lockdep_assert_preemption_disabled();
-+
-+	cpu = smp_processor_id();
-+
-+	raw_spin_lock_irqsave(&vmid_lock, flags);
-+
-+	vmid = atomic_long_xchg(this_cpu_ptr(&active_vmids), 0);
-+
-+	if (vmid)
-+		per_cpu(reserved_vmids, cpu) = vmid;
-+
-+	/*
-+	 * If active was already zero, retain the old reserved entry.
-+	 */
-+	cpumask_set_cpu(cpu, &tlb_flush_pending);
- 
--	/* Request G-stage page table update for all VCPUs */
--	kvm_for_each_vcpu(i, v, vcpu->kvm)
--		kvm_make_request(KVM_REQ_UPDATE_HGATP, v);
-+	raw_spin_unlock_irqrestore(&vmid_lock, flags);
- }
--- 
-2.47.3
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBdWcgMTAsIDIwMjYgYXQgMTA6NDbigK9BTSBYaWUgQm8gPHhiQHVsdHJhcmlzYy5j
+b20+IHdyb3RlOgo+Cj4gSWYgYW4gTU1VIGludmFsaWRhdGlvbiByYWNlcyB3aXRoIGEgRy1zdGFn
+ZSBmYXVsdCwgdGhlIGZhdWx0IGhhbmRsZXIgc2tpcHMKPiBpbnN0YWxsaW5nIHRoZSBwYWdlIGJ1
+dCBsZWF2ZXMgcmV0IHNldCB0byB6ZXJvLiBBcyBhIHJlc3VsdCwKPiBrdm1fcmVsZWFzZV9mYXVs
+dGluX3BhZ2UoKSB0cmVhdHMgdGhlIHBhZ2UgYXMgdXNlZCBhbmQgY2FuIHVubmVjZXNzYXJpbHkK
+PiBtYXJrIGl0IGRpcnR5Lgo+Cj4gVHJhY2sgdGhlIGludmFsaWRhdGlvbiByZXRyeSBzZXBhcmF0
+ZWx5IGFuZCByZWxlYXNlIHRoZSBwYWdlIGFzIHVudXNlZCwKPiB3aGlsZSBwcmVzZXJ2aW5nIHRo
+ZSBleGlzdGluZyByZXR1cm4gdmFsdWUgc28gdGhhdCB0aGUgdkNQVSByZXRyaWVzIHRoZQo+IGZh
+dWx0Lgo+Cj4gRml4ZXM6IDJlZDkwY2IwOTM4YSAoIktWTTogUklTQy1WOiBSZXRyeSBmYXVsdCBp
+ZiB2bWFfbG9va3VwKCkgcmVzdWx0cyBiZWNvbWUgaW52YWxpZCIpCj4gQ2M6IHN0YWJsZUB2Z2Vy
+Lmtlcm5lbC5vcmcKPiBTaWduZWQtb2ZmLWJ5OiBYaWUgQm8gPHhiQHVsdHJhcmlzYy5jb20+CgpM
+R1RNLgoKUmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpRdWV1
+ZWQgdGhpcyBhcyBhIGZpeCBmb3IgTGludXgtNy4zLXJjWAoKVGhhbmtzLApBbnVwCgoKPiAtLS0K
+PiAgYXJjaC9yaXNjdi9rdm0vbW11LmMgfCA4ICsrKysrKy0tCj4gIDEgZmlsZSBjaGFuZ2VkLCA2
+IGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9rdm0vbW11LmMgYi9hcmNoL3Jpc2N2L2t2bS9tbXUuYwo+IGluZGV4IDYwMzViNWUuLmQxODlm
+ZDUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0vbW11LmMKPiArKysgYi9hcmNoL3Jpc2N2
+L2t2bS9tbXUuYwo+IEBAIC02MjcsNiArNjI3LDcgQEAgaW50IGt2bV9yaXNjdl9tbXVfbWFwKHN0
+cnVjdCBrdm1fdmNwdSAqdmNwdSwgc3RydWN0IGt2bV9tZW1vcnlfc2xvdCAqbWVtc2xvdCwKPiAg
+ICAgICAgIGludCByZXQ7Cj4gICAgICAgICBrdm1fcGZuX3QgaGZuOwo+ICAgICAgICAgYm9vbCBp
+c19odWdldGxiOwo+ICsgICAgICAgYm9vbCB1bnVzZWQgPSBmYWxzZTsKPiAgICAgICAgIGJvb2wg
+d3JpdGFibGU7Cj4gICAgICAgICB1bnNpZ25lZCBpbnQgdm1hX3BhZ2VzaGlmdDsKPiAgICAgICAg
+IGdmbl90IGdmbiA9IGdwYSA+PiBQQUdFX1NISUZUOwo+IEBAIC03MTksOCArNzIwLDEwIEBAIGlu
+dCBrdm1fcmlzY3ZfbW11X21hcChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsIHN0cnVjdCBrdm1fbWVt
+b3J5X3Nsb3QgKm1lbXNsb3QsCj4KPiAgICAgICAgIHdyaXRlX2xvY2soJmt2bS0+bW11X2xvY2sp
+Owo+Cj4gLSAgICAgICBpZiAobW11X2ludmFsaWRhdGVfcmV0cnkoa3ZtLCBtbXVfc2VxKSkKPiAr
+ICAgICAgIGlmIChtbXVfaW52YWxpZGF0ZV9yZXRyeShrdm0sIG1tdV9zZXEpKSB7Cj4gKyAgICAg
+ICAgICAgICAgIHVudXNlZCA9IHRydWU7Cj4gICAgICAgICAgICAgICAgIGdvdG8gb3V0X3VubG9j
+azsKPiArICAgICAgIH0KPgo+ICAgICAgICAgLyoKPiAgICAgICAgICAqIENoZWNrIGlmIHdlIGFy
+ZSBiYWNrZWQgYnkgYSBUSFAgYW5kIHRodXMgdXNlIGJsb2NrIG1hcHBpbmcgaWYKPiBAQCAtNzQz
+LDcgKzc0Niw4IEBAIGludCBrdm1fcmlzY3ZfbW11X21hcChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUs
+IHN0cnVjdCBrdm1fbWVtb3J5X3Nsb3QgKm1lbXNsb3QsCj4gICAgICAgICAgICAgICAgIGt2bV9l
+cnIoIkZhaWxlZCB0byBtYXAgaW4gRy1zdGFnZVxuIik7Cj4KPiAgb3V0X3VubG9jazoKPiAtICAg
+ICAgIGt2bV9yZWxlYXNlX2ZhdWx0aW5fcGFnZShrdm0sIHBhZ2UsIHJldCAmJiByZXQgIT0gLUVF
+WElTVCwgd3JpdGFibGUpOwo+ICsgICAgICAga3ZtX3JlbGVhc2VfZmF1bHRpbl9wYWdlKGt2bSwg
+cGFnZSwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bnVzZWQgfHwgKHJldCAm
+JiByZXQgIT0gLUVFWElTVCksIHdyaXRhYmxlKTsKPiAgICAgICAgIHdyaXRlX3VubG9jaygma3Zt
+LT5tbXVfbG9jayk7Cj4gICAgICAgICByZXR1cm4gcmV0Owo+ICB9Cj4KCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
