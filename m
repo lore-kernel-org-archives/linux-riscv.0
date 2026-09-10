@@ -4,117 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D246C79FB9
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 12:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 682A2C79F9F
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 13:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aJC+Dblp6l63kqtO5dPN04jG0G5yN08zqPQTr2hjHFw=; b=qJ3TjhNCyaq6J/
-	UtMDXtSDOLBhwUwXP6ZH3iK+4TtSwacPyBHqphxJHh6Hw4JGGyrxCJKcMTeKquOa/9aLj8Fb00GnS
-	mLCksrjZOOE5uvrl6kuM4xnAgHVoymXZeTUaoacUHCKhr/ww/IpAsAbfeyNGdV5UhDsnVG7FsKdEV
-	pMnJogP/9broEQcz0//zBe0d2y6Pr0cOlb4dx43mnuSEM9TVEx6lPnj8XGdnGuguN7wRJS+4KugHt
-	PCTIbtqNSfjsw2IczWXnKjLm4gglK11L6i6eNURH2did7riQCqveO1HS2ZB1PKBNX7h8lMG9PvPzx
-	T7uzuVlV2Z5HKoGuJCCg==;
+	List-Owner; bh=cPsWsgt17hfjw9P+r5WggHeVlNMITDn/eKtWaA07/zI=; b=kHlbZ1j+pZOSid
+	wSxfM30qANWR3hDZmfzTJkClZvhLte9D/06MEPG8XjWIH03TWNV8QnFVmQQzyugnBV3JBhUYYalRH
+	uQ88gYB9eZu5yQPa8vweom9OstsDIL7oHh0/aD67nv2LAj7vhTf4dnw8GXvsg1dyWha2HuCSe+vqB
+	OoItEKO/87w/KyjaWYLoVqxwHLMs9BeTX9T03GMh/7f6MssFp+3YWoYBH1/Pd5ZEzCSboidsUIWrg
+	qbw07BRgokirEqNGfEyb0yGB8mB1L2lZ91FqkFbuNKoIdFNg1eYAmS1StfKqaigY1fH1OK2AxrpjU
+	UjcyebyYV1hIUA/W1y9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eGv-0000000ENjV-0hUE;
-	Thu, 10 Sep 2026 12:52:57 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1x4ePx-0000000EQ3B-41ib;
+	Thu, 10 Sep 2026 13:02:17 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4eGt-0000000ENie-02KK
+	id 1x4ePu-0000000EQ2U-49Nq
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Sep 2026 12:52:56 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4957eefd361so55447365e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 05:52:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1789044773; x=1789649573; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ei/562soKHFJqkSdXuQm6X1dYNc/yFpT8LphVTPsPBs=;
-        b=NuXWSKnjXp42acgkMe+BFTQN1PEDMjkW4z9KxXivCV4xxcCfqafQJxc0cdw37J6k49
-         9KUL/+fl05lcSQPjGEY/YB81ReqHLhRVl9WuEAlvV2Q9A/D6XC21DlIGG69fjYOsLu+A
-         pB5I+/BhmbDNExQtIKhS+8CWK2kfzVO+T9x7+fRKZUaA6UXp7osMxA4o7uKnQKo286Uw
-         +POOj7HQYmryT2O8bS1mNdfmoX4QkPfHACA9VME1R3a7Ri2rmqKTCrxTADwJxmWlprO9
-         q1C4qCy2RM2k8MZmY432qVwqTrjLnEodonPWnJahsS/OXH54pJAqYx5uD8Xf5ss85Gqy
-         ePPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789044773; x=1789649573;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ei/562soKHFJqkSdXuQm6X1dYNc/yFpT8LphVTPsPBs=;
-        b=WbSO1cd9dw0FlBghnUPgUeidTz6Hu1EMSgukRCasV6qsx4zCDhyI7mDo48bmAEFZj7
-         PrVLECOCcAx04fDWj1TBQU0dtG9EPeCq9ZQQEsn8gmggLtrts9C+VADmlWVnja/xFmh2
-         hqNoRQOrg6cXB6WGgRCzqEHrUUv23FF1afZks2fHjW6n+h9SwYj21O3nNKaExP9QP52O
-         5Taq03R8DCSqjuKzqj6f7FhUAIlR8NDwoo6mHisrDXKFDYVQmvYqWBcOBqRlgkm5nTKQ
-         jZYXSBhtKqxMHacT8FBw+YEOndQjGDmdqImmCHS34lCIhcpfdUp3B24eBc7rVrIGntrw
-         AQDg==
-X-Forwarded-Encrypted: i=1; AKwUvBzYRKSs6iKwxzT5/wLfCdn2n9kb57B/DdeDw5LWRP078NHVjEyVx3PM41RpBMhyGLPDk1p2z8VnMvxLmQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++khp3bLNNoRr6KOK7niQKVIh9DlLK/M7Zcb6UG5zbbq+gofu2bs
-	nQ/1OYx6akuYzR+70e6MDgaPPld/WBUBRltCF07AhCMKGS0MnZgQNDot5sn7gbe8cbk=
-X-Gm-Gg: AYBFou0KbEgsVACc4wQyNhqC4xO8DwCBVoxGauDOrtOkz7HukkleTuAQGPeW4EIyTqC
-	ux25HHNnGaKCElJkPtAzCzkeUWtqDPL6qMEhCn0xFZUSNi+dCbpp51qXy//cqsJdSWBeLQu+m62
-	MgWadtiLjkL1B+VmmijmiZKa1yw7SYXBN3cT58FtHRRfBdSa2PCB9DKv4Jt2MFAL0V2z6KiFOKq
-	aNaESPZoPb39VoimVy0Mz2TQiqoAbd+LXAvG4rUjDozyp8IHh7BDHhC2xIluvovYp9dcQ+n6kIO
-	wXCPZLEYaywEMQKlzF++ics50Pww3Xq/dHYpWpM+SE+PLYB4iHOZHK1U+FSIjBzsfhEk3yjqv7B
-	gvv1EiAYUXHPw0I9u9F93zj0swRvwgbzY/ozXF0+7X97EIOujiy17lfTDkDy808Tz6rwSmqk+PD
-	XeleVnjGBdwGoD2jlbthKv/ZpNA6O/poNSdLn+SErqUYA7MZiExU6JW7Kqt5whxOPWyXTmV7V7F
-	120ModERzLdddevss1ReY+7eY1w1p/rl8Q=
-X-Received: by 2002:a05:600c:620d:b0:49c:fc6e:a3d6 with SMTP id 5b1f17b1804b1-49cfc6ea731mr404244015e9.21.1789044772934;
-        Thu, 10 Sep 2026 05:52:52 -0700 (PDT)
-Received: from ?IPV6:2a07:de40:8100:0:89a9:fd0e:583d:4a53? ([2001:af0:8000:1409:193:86:92:181])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d20fce7a7sm286173185e9.4.2026.09.10.05.52.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Sep 2026 05:52:52 -0700 (PDT)
-Message-ID: <434a7a10-d83e-4402-be91-816bbbc15bb7@suse.com>
-Date: Thu, 10 Sep 2026 14:52:50 +0200
+	Thu, 10 Sep 2026 13:02:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1789045318; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lHpaTgX2lR6byZhp3HNgrrg+eHsQoyKnpEOL3YjMpvnsDvc50yZBRpsUFirnmc3qQNzMBLtd4JF/+VyFIFaEEEvcyNStjT/dvbFKppFL3+VsOwdz5ibYeSnl//2mEY9Pg77ECz1T8ItGgeVP0uT+X6uJrfPWfUJvpGro2xi+8qA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1789045318; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=45nffq/Zr2o5JdVjGW3q6mmCc+x5WnknLVPkYUCAZq4=; 
+	b=M7pZyTw5EtUm8IBdgFL7EicITtLG3RKxLGTFXRICT3osAtIpgk4cQjURjZwvvhLIEDLN8QI0NIeV7kqjhSUiXUP8QhJRpBdo6M+b22se7hRcT1n3nQJG7C+GzmjXh3jlbjptcDpI/+zfvXNxISu+Yi2g6r7ocZtiQFxvysEO1hk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789045318;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=45nffq/Zr2o5JdVjGW3q6mmCc+x5WnknLVPkYUCAZq4=;
+	b=ATru7tAnfYYtc0DMIMF6ID7+HJHOYpLIN/MZ6uzWOyq7Jhx+dbM2xD8jzSlLBZM5
+	XMY3BB7iJvqxpMkHygNJRTo1N+miXigrshtfW+MbItPWjPx4sKbW5nYfRi4m57ACH/t
+	HoL4nkg/jo8Pqs80yfNrFu/bOsZm3Z4vGFt9vdeU=
+Received: by mx.zohomail.com with SMTPS id 1789045316428631.4804164269831;
+	Thu, 10 Sep 2026 06:01:56 -0700 (PDT)
+Date: Thu, 10 Sep 2026 13:01:30 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Yixun Lan <dlan@kernel.org>, Alex Elder <elder@riscstar.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Haylen Chu <heylenay@4d2.org>
+Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Yao Zi <me@ziyao.cc>
+Subject: Re: [PATCH 2/5] clk: spacemit: make MIX rate selection consistent
+Message-ID: <aqKqKkXbTkcS-pnY@pie>
+References: <20260909-spacemit-pll-init-v1-0-b3065ad5a4ac@linux.spacemit.com>
+ <20260909-spacemit-pll-init-v1-2-b3065ad5a4ac@linux.spacemit.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 13/23] modpost: hash module source per-file, not per-byte
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
- linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
- linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
-References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
- <20260908-build-speedup-v1-13-5dc1ac01672d@kernel.org>
-Content-Language: en-US
-From: Petr Pavlu <petr.pavlu@suse.com>
-In-Reply-To: <20260908-build-speedup-v1-13-5dc1ac01672d@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20260909-spacemit-pll-init-v1-2-b3065ad5a4ac@linux.spacemit.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/289.29.40
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_055255_068546_6FA709B4 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20260910_060215_073726_BF3C65DA 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,41 +88,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/8/26 10:55 PM, Lorenzo Stoakes (ARM) wrote:
-> modpost spends a long time md4 hashing module source at a per-byte
-> granularity.
+On Wed, Sep 09, 2026 at 10:07:02PM +0800, Troy Mitchell wrote:
+> CCF passes the selected parent's rate to set_rate(). Searching other
+> parents at that point can produce a divider for a different source,
+> making the programmed rate disagree with CCF's selection.
 > 
-> Fix this by doing this hashing per-file instead by accumulating a per-file
-> buffer in parse_file().
+> Restrict divider selection to the supplied parent rate and use the same
+> rounding as divider_recalc_rate(). Track the best error separately so
+> low-rate requests do not leave the initial zero-Hz candidate selected.
+> Skip zero-rate parents and have determine_rate() reject requests when no
+> usable parent exists.
 > 
-> All 11,189 .mod.c files and Module.symvers were confirmed to be identical
-> with this change applied.
-> 
-> This is especially impactful for allmodconfig incremental builds (where
-> CONFIG_MODULE_SRCVERSION_ALL is set).
-> 
-> Whole build, 128-thread Threadripper 9980X, best of N runs:
-> 
->                                          before   after     delta
->                                          -------------------------------
->   x86 allmodconfig, touch mm/vma.c, gcc    40.6s    38.2s     -2.4s (-6%)
->   x86 allmodconfig, touch mm/vma.c, clang  36.2s    35.0s     -1.2s (-3%)
-> 
-> Assisted-by: LLM
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Fixes: 1b72c59db0ad ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 > ---
->  scripts/mod/sumversion.c | 56 +++++++++++++++++++++++++++++++++++++-----------
->  1 file changed, 44 insertions(+), 12 deletions(-)
+>  drivers/clk/spacemit/ccu_mix.c | 27 +++++++++++++++++++++------
+>  1 file changed, 21 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/clk/spacemit/ccu_mix.c b/drivers/clk/spacemit/ccu_mix.c
+> index a8b407049bf4d..da3c5685d4f65 100644
+> --- a/drivers/clk/spacemit/ccu_mix.c
+> +++ b/drivers/clk/spacemit/ccu_mix.c
+> @@ -107,22 +107,27 @@ ccu_mix_calc_best_rate(struct clk_hw *hw, unsigned long rate,
+>  	struct ccu_mix *mix = hw_to_ccu_mix(hw);
+>  	unsigned int parent_num = clk_hw_get_num_parents(hw);
+>  	struct ccu_div_config *div = &mix->div;
+> -	u32 div_max = 1 << div->width;
+>  	unsigned long best_rate = 0;
+> +	unsigned long best_delta = ULONG_MAX;
+>  
+>  	for (int i = 0; i < parent_num; i++) {
+>  		struct clk_hw *parent = clk_hw_get_parent_by_index(hw, i);
+>  		unsigned long parent_rate;
+> +		u32 div_max = 1 << div->width;
 
-Support for the module srcversion is being removed in "module: remove
-MODULE_VERSION() and srcversion" [1] and scripts/mod/sumversion.c should
-be gone completely.
+div_max should be invariant across iterations. Is there a reason moving
+it inside the loop?
 
-[1] https://lore.kernel.org/linux-modules/20260731-module_ver_remove-v2-0-c9163858f382@linuxfoundation.org/
+>  		if (!parent)
+>  			continue;
+>  
+>  		parent_rate = clk_hw_get_rate(parent);
+> +		if (!parent_rate)
+> +			continue;
+>  
+>  		for (int j = 1; j <= div_max; j++) {
+> -			unsigned long tmp = DIV_ROUND_CLOSEST_ULL(parent_rate, j);
+> +			unsigned long tmp = DIV_ROUND_UP_ULL(parent_rate, j);
+> +			unsigned long delta = abs_diff(tmp, rate);
+>  
+> -			if (abs(tmp - rate) < abs(best_rate - rate)) {
+> +			if (delta < best_delta) {
+> +				best_delta = delta;
+>  				best_rate = tmp;
+>  
+>  				if (div_val)
 
--- 
-Thanks,
-Petr
+Regards,
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
