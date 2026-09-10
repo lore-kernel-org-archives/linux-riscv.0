@@ -4,140 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A01F5C79FBF
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 10:30:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884E0C79FB9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 10:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eRY29y8M7Ui0zn2ZzJlh47TMarB4SuWJH1nRLoYqa94=; b=MgKo3du2DsTOyg
-	ehyLISZJ0/g389GzBfZMolGMFZychmzYNWPzWaCvm07l+REoIajswGkvK1CZeFqSVTtCY3GGEmHhl
-	SgpuPwBg1SpPZNyG72qxyw/BYTB92nglgPZ4QlzBU4Abz1IRSRDpANfWLxqVhQQhXxqZNqnfeUM1h
-	QExFrFVbPTKHTlnM99hEhMuYpW/1GPO3F7XLmVK4LKfbSKh+kvMZLEhMIGSECuQ8+QLTv5kJFMrNd
-	vBGjBVy1TqHjcDTwMwKnB7LCOt93MS8HKQeMIrmJBC4z2YCfshrukhFqWTFdgOsERh4BDFlm+5ReP
-	nHLlAeK7pWx83jGKxOyw==;
+	List-Owner; bh=SKv+LtSHCebn87Irmqe1v4WAwJxuEm0P1ZsC30fOdUo=; b=Tt+0JqRwct0tZH
+	gcv+aWm6fPDjVc/kJFQSr0riqhp5sIK5xmlM0rWX7La/+MG8A8w2NofxwxZZjPif7CxXJ4sIltreT
+	mypC7j1a04wggQCOBEw6MsIf79l4dfFBj1x8BsPc4xuHPz/271YYD1ugNLdxyuIubKi2U6bc0kkcG
+	2eUafpU/lJBs3TSwXkTriGyPEsW7Nn3EtH2fVgrjbg32Ctg/fOR6ksu8Nnwf1rIJ23K6QBK45Wz/f
+	wrXQ+Y7tkdZ9sPsZ9bGPVWuQW6jnr7pr4DBwFysYNWd12KzH2jZUrlsrd9K+PkVwNi8kZVy9S5RcC
+	kouU48B89qHMfZeXlR2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4c2r-0000000E3yu-1IAb;
-	Thu, 10 Sep 2026 10:30:17 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1x4c5b-0000000E4qh-0tv7;
+	Thu, 10 Sep 2026 10:33:07 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4c2U-0000000E3h6-1HlV;
-	Thu, 10 Sep 2026 10:29:55 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68A91QMg576514;
-	Thu, 10 Sep 2026 10:29:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=2v8eQT
-	UiODkYCwW7fpRiVtvLEmXAN0QDrnYnUVfQNEQ=; b=cbBoC1WUvLIsh/Wj2cLPT2
-	vjPz/azRP2Hrwlumw/k42MGAwm24W5evh90rCcbAHhlhipSVKSOfLluTbJtU1jt6
-	Gx1m/p9cwc1yahl/k90Whze96rIxuzGLAWsoacYf1NXRxuNSdY2iIbvv9apQVJlc
-	UMZI8mcGuPuZuBg96KgDjH1Pcigve3p2ynl7rfqYTHLKARJK6yDYgZPAH82YY4WR
-	VAl1DJdg2jJ4oqrX3R8i38RcGwTWjtRRHNdV+FyDZlZBQqoJbTTQnBWLJIHA7E6v
-	y6sCElhwjdI/2YfJdtQKBJsmaGNvwQ7+69t6sq49a5r086FtooX5B8DWFJH5dewg
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gkd8n3wd8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Sep 2026 10:29:37 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 68AAQC9K004763;
-	Thu, 10 Sep 2026 10:29:36 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gkcr33uj1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Sep 2026 10:29:36 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68AATWNH43188604
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 10 Sep 2026 10:29:32 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 878092004D;
-	Thu, 10 Sep 2026 10:29:32 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 00B2F2004F;
-	Thu, 10 Sep 2026 10:29:30 +0000 (GMT)
-Received: from p-imbrenda (unknown [9.111.48.108])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Thu, 10 Sep 2026 10:29:29 +0000 (GMT)
-Date: Thu, 10 Sep 2026 12:25:31 +0200
-From: Claudio Imbrenda <imbrenda@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Paolo
- Bonzini <pbonzini@redhat.com>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>,
-        Bibo
- Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-        Anup Patel
- <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt
- <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Christian
- Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank
- <frankja@linux.ibm.com>,
-        Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
- <joey.gouly@arm.com>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Suzuki K
- Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Atish
- Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
-        David
- Hildenbrand <david@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org,
-        Itaru Kitayama <itaru.kitayama@fujitsu.com>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Ritesh Harjani <ritesh.list@gmail.com>
-Subject: Re: [PATCH v2 09/20] KVM: selftests: Use the innermost page
- allocator API in s390's IRQ routing test
-Message-ID: <20260910122531.499b565b@p-imbrenda>
-In-Reply-To: <20260902164123.2546762-10-seanjc@google.com>
-References: <20260902164123.2546762-1-seanjc@google.com>
-	<20260902164123.2546762-10-seanjc@google.com>
-Organization: IBM
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	id 1x4c5Y-0000000E4pb-1WlS
+	for linux-riscv@lists.infradead.org;
+	Thu, 10 Sep 2026 10:33:05 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49ccfae359fso58503085e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 03:33:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789036382; x=1789641182; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mRawg4Z5mHetwl9Q1bHnfv9ACubJE6CgvdpEZZ5c2ZM=;
+        b=ZFjPjNVX5oYxmkNajGjHXafM/MVD+ek4ydnMexp6iA5x7ADDeTgRVtgyPvAzvuc3bt
+         DHVWrB37/ofB/36blYhw1+U1TR0A7CnNjFbSHlscm6uCN/cu6vDjqOaoY2WespjnWBz1
+         krhclo7BmnXgE7jRV/AdvsdZxCRpqlGqSdX6rn1awjnrzydJ47hcAPa5kSc5uOLU2A7D
+         z1MKQcv7NtM0u25lchuxpkSRxZ2WiC398ONtNrtqCATLSu02KuQAaa8KK22wBGKvwi2M
+         j5qgfk1yNj7VoMQlZLELmeEpBQj19lCmU3ymPii/dhnPyvPRDeWwIS8+0Iyc0CeLJssN
+         Vcpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789036382; x=1789641182;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mRawg4Z5mHetwl9Q1bHnfv9ACubJE6CgvdpEZZ5c2ZM=;
+        b=URNeKjY8tNmq4AGyIbOgP6jWW8cDsyPl3isMAyfBSewoAQowcx2YzCu60eMX3uwmbp
+         Fvg4UtqJ4TW2hE/GdSmg5Y/AKzlWckMky23InxKVsrzA5veW6rDGbxFVUkBpQkEZJ4XV
+         buQt3XlasvzN5YWPdWqcxNrGxRCQeyZZh9IGKXaA6WdVLGEOINVxy7seCV3FIYNqlWS3
+         u/mv11Al7fy2MCSJ3In/pZ1eun8cIfz6pIFGIOe0kZrF0knfKYkMORnHKyimOE9C5CN3
+         SXYelyDxcDTAM5fqwlgEyEZ/SnhhPbUDmzl8TU9QQJ3NYoolNKCDjQVh4Oy4Mp+fzCg+
+         q2Ng==
+X-Forwarded-Encrypted: i=1; AKwUvBzSnfIEVW3fNLHWypU3IQioiL4kecgPy08Y19ozUEVHAb+Y3afa7DDW8XYfI7cxYXb4QzZcbJXTr+a19g==@lists.infradead.org
+X-Gm-Message-State: AFuF++lLw4RvWRFZi52OhR0cEJ5X18cztpGMWexNvyMJApBpWXztuF3W
+	RpnTqjjydBNzGTi45Q2PSASqZmyGn+4BDqFEfZjAoil8J10O6uxwws1A
+X-Gm-Gg: AYBFou0UE6fab2w8u7EyUsHFH63fAHmTpncxY+CyHlUVnMKYXQwaeSX9ojJhcKbzrpG
+	nVaJZKwFFbeaPKoZikPfJEmn1L7F9D6SdN8W1rx3HlhfE0h0sysrekS+so/evy9EN69ham+WvKi
+	k2eVq0ztxLmFuvjrXnJoHj2n8JxzmNaa67mzpywSexpyJK9Rc0CivRiVC0OImvW8LpQ4yZq6Rba
+	nUsub1MSl2iTnRTLGcaKgp/iTjvMMPq74Yj29LyHek2H9fLwjkYUAw3P41P7sfubiBBfa+Sqapi
+	OFPwEfOvQRSxwURF5YamK8oIT/FA5Ke/v8IXYY9VJtxeayMFcv6bKbbMBG50iS7waaYNQooqJIM
+	wNGofAo1UkLaRvaGoV632nviiWjADcFzQtHHm+1XVGyx2FneaPFGTOB+LX4MPCy/TJb3v+5MDv+
+	RDh6nauigfH4u8JI2asxvAtRuBLA3iZO6/+A94TdlmiDSfhamNHznW9A18IZjejxxLz3Mtd8T89
+	tSk9W0/f/Ak5VOO5VgZfeMtg1nCfXUg6pjb
+X-Received: by 2002:a05:600c:4f43:b0:49c:fc6c:be0b with SMTP id 5b1f17b1804b1-49cffd457a4mr308628235e9.17.1789036382123;
+        Thu, 10 Sep 2026 03:33:02 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d26bfd04fsm60049095e9.10.2026.09.10.03.33.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 03:33:01 -0700 (PDT)
+Date: Thu, 10 Sep 2026 11:32:59 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Nathan Chancellor
+ <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Nick Desaulniers
+ <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, Justin Stitt
+ <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, Alexey
+ Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin"
+ <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+ <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, Ilias Apalodimas
+ <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun
+ Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, =?UTF-8?B?QmrDtnJu?=
+ Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl
+ <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, Danilo Krummrich
+ <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, Tamir
+ Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>,
+ Onur =?UTF-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet
+ <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
+ linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
+ linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
+Subject: Re: [PATCH 17/23] modpost: perform srcversion hashing in parallel
+Message-ID: <20260910113259.743b9686@pumpkin>
+In-Reply-To: <20260908-build-speedup-v1-17-5dc1ac01672d@kernel.org>
+References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
+	<20260908-build-speedup-v1-17-5dc1ac01672d@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=NMVAaE6g c=1 sm=1 tr=0 ts=6aa28691 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=1XWaLZrsAAAA:8
- a=omOdbC7AAAAA:8 a=VnNF1IyMAAAA:8 a=ncMTWhVeLHM-VX_LCFkA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: Se5IIme47yOD2YBAO0JHuYpxPj7OtfZR
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEwMDExNSBTYWx0ZWRfX5cTAuBi1pOw0
- eCaNg8ALKS6/QFSqT//okMnY45ig0qLvL0qlinYgrlkvM4y8dox1QEYYRVq1DSN5ZnVPcloYMzz
- qzTs+Pk68w6UnwFc5Fcytw4kHMzGKU9lWP8PiUAG2m+ymP9PrpTKt4qGBIczpWCt8vrcJ127ixD
- 9cOEVmc3sD09VEDPEv4MbzyTBatBFAjMRySMq6Z7uKPsboCi1kWWNEaH0zm6HKcEagQuJAm1OpN
- tu1bwMh0zrZb1QtvY69KWvjYeUgL88ocCGgFWt5Kn7w04RiWEPHkblVyBo+h7CTLU/NVbmG19Go
- YqhGsu0rcwe7fP7uzCqijdqHBfQYTU+Kf++VDwhvVRuQKgfW9isJuHzl54TDJJgLK0PXPFqBZzf
- 9fLBbTJ21IPM+xgRHVm03S/vZUCBKv5qnjJ6iLnNIWb5KV5w5oRjKx9vfb5EpXDcGmx6NAjtmbx
- 3eggPh0QRJRm864ZYpA==
-X-Proofpoint-ORIG-GUID: EeWyQkeZUCSSRdpkHyS1LNqruiFVZs4W
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEwMDExNSBTYWx0ZWRfX6mMimO+EDNf/
- eJupQqfyq8zKgx+xjT0vGZK4TqN7lyOx+e+F0dUZro+XG34zrPAU7eBBA1hL2I4JHSa/bG9nlqQ
- X7lB6vw5V56GrdX2vG0c4Pn1Yf68Y1c=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-10_03,2026-09-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 clxscore=1015 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 adultscore=0 suspectscore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609100115
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_032954_390528_9B0DB8B0 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20260910_033304_457315_D95AB78F 
+X-CRM114-Status: GOOD (  34.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,40 +127,221 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed,  2 Sep 2026 09:41:12 -0700
-Sean Christopherson <seanjc@google.com> wrote:
+On Tue, 08 Sep 2026 21:55:17 +0100
+"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 
-> Use the quad-underscores page allocator in s390's IRQ routing test in
-> anticipation of dropping the @min_gpa param from the primary APIs.
+> modpost does a lot of single-threaded work hashing files from each object's
+> .cmd file.
 > 
-> Note, it's not entirely clear that the test *needs* to use a very magical
-> @min_gpa, i.e. it's possible a more elegant solution exists.  But that's a
-> problem for a different day.
+> This makes the build slower than it needs to be, so do this work in
+> parallel.
 > 
-> No functional change intended.
+> This is egregious for allmodconfig builds - for instance x86-64 can end up
+> opening 200,000 files individually and hashing them all serially.
 > 
-> Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-
-Acked-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
-
+> Parallelise this operation by maintaining a thread pool for the hashing
+> work.
+> 
+> Combined with the per-file hashing commit this cuts modpost's run time
+> nearly in half for an allmodconfig build.
+> 
+> Module.symvers and every *.mod.S are byte for byte the same.
+> 
+> modpost is on the serial tail of every allmodconfig build, however
+> defconfig does not set CONFIG_MODULE_SRCVERSION_ALL and is unchanged.
+> 
+> Whole build, 128-thread Threadripper 9980X, best of N runs:
+> 
+>                                          before   after     delta
+>                                          -------------------------------
+>   x86 allmodconfig, touch mm/vma.c, gcc    33.4s    30.2s     -3.2s (-10%)
+>   x86 allmodconfig, touch mm/vma.c, clang  31.1s    28.1s     -3.0s (-10%)
+> 
+> Assisted-by: LLM
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 > ---
->  tools/testing/selftests/kvm/s390/irq_routing.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  scripts/mod/Makefile     |  1 +
+>  scripts/mod/modpost.c    | 72 ++++++++++++++++++++++++++++++++++++++++++++++--
+>  scripts/mod/modpost.h    |  2 ++
+>  scripts/mod/sumversion.c |  3 +-
+>  4 files changed, 74 insertions(+), 4 deletions(-)
 > 
-> diff --git a/tools/testing/selftests/kvm/s390/irq_routing.c b/tools/testing/selftests/kvm/s390/irq_routing.c
-> index f3839284ac08..cd26cc1aed80 100644
-> --- a/tools/testing/selftests/kvm/s390/irq_routing.c
-> +++ b/tools/testing/selftests/kvm/s390/irq_routing.c
-> @@ -36,7 +36,7 @@ static void test(void)
->  	};
+> diff --git a/scripts/mod/Makefile b/scripts/mod/Makefile
+> index fbd5099e0441..fdd486184f9c 100644
+> --- a/scripts/mod/Makefile
+> +++ b/scripts/mod/Makefile
+> @@ -5,6 +5,7 @@ hostprogs-always-y	+= modpost mk_elfconfig
+>  always-y		+= empty.o
 >  
->  	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-> -	mem = vm_phy_pages_alloc(vm, 2, 4096 * 42, 0);
-> +	mem = ____vm_phy_pages_alloc(vm, 2, 4096 * 42, 0, false, false);
+>  modpost-objs	:= modpost.o file2alias.o sumversion.o symsearch.o
+> +HOSTLDLIBS_modpost := -lpthread
 >  
->  	routing = kvm_gsi_routing_create();
->  	routing->nr = 1;
+>  devicetable-offsets-file := devicetable-offsets.h
+>  
+> diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+> index 550ccd753ed8..882169e51851 100644
+> --- a/scripts/mod/modpost.c
+> +++ b/scripts/mod/modpost.c
+> @@ -16,6 +16,7 @@
+>  #include <fnmatch.h>
+>  #include <stdio.h>
+>  #include <ctype.h>
+> +#include <pthread.h>
+>  #include <string.h>
+>  #include <limits.h>
+>  #include <stdbool.h>
+> @@ -1717,8 +1718,7 @@ static void read_symbols(const char *modname)
+>  	if (!mod->is_vmlinux) {
+>  		version = get_modinfo(&info, "version");
+>  		if (version || all_versions)
+> -			get_src_version(mod->name, mod->srcversion,
+> -					sizeof(mod->srcversion) - 1);
+> +			mod->need_srcversion = true;
+>  	}
+>  
+>  	parse_elf_finish(&info);
+> @@ -1736,6 +1736,72 @@ static void read_symbols(const char *modname)
+>  	}
+>  }
+>  
+> +static struct module **srcversion_mods;
+> +static unsigned int nr_srcversion_mods, next_srcversion_mod;
+> +
+> +static bool get_next_src_version(void)
+> +{
+> +	struct module *mod;
+> +	unsigned int idx;
+> +
+> +	idx = __sync_fetch_and_add(&next_srcversion_mod, 1);
+
+When I've done this is the past, adding 'a few' items was faster
+because it reduced the contention on the counter.
+(Although there were probably some very cheap 'actions'.)
+
+> +	if (idx >= nr_srcversion_mods)
+> +		return false;
+> +	mod = srcversion_mods[idx];
+> +
+> +	get_src_version(mod->name, mod->srcversion,
+> +			sizeof(mod->srcversion) - 1);
+> +	return true;
+> +}
+> +
+> +static void *srcversion_worker(void *arg)
+> +{
+> +	while (get_next_src_version())
+> +		;
+
+I don't think the extra function call helps.
+
+> +
+> +	return NULL;
+> +}
+> +
+> +static void hash_srcversions(void)
+> +{
+> +	unsigned int i = 0;
+> +	struct module *mod;
+> +	pthread_t *threads;
+> +	long nr_threads;
+> +
+> +	list_for_each_entry(mod, &modules, list)
+> +		if (mod->need_srcversion)
+> +			nr_srcversion_mods++;
+> +
+> +	if (!nr_srcversion_mods)
+> +		return;
+> +
+> +	srcversion_mods = xmalloc(nr_srcversion_mods * sizeof(*srcversion_mods));
+> +
+> +	list_for_each_entry(mod, &modules, list)
+> +		if (mod->need_srcversion)
+> +			srcversion_mods[i++] = mod;
+> +
+> +	nr_threads = sysconf(_SC_NPROCESSORS_ONLN);
+
+One thread per cpu is probably a few to many.
+It might be worth adding a command line parameter for the 'max threads'.
+Possibly with -n meaning 'all but n'.
+
+> +	nr_threads = nr_threads < 1 ? 1 : nr_threads; /* On error assume 1. */
+> +	if (nr_threads > nr_srcversion_mods)
+> +		nr_threads = nr_srcversion_mods;
+> +
+> +	sumversion_init();
+> +	threads = xmalloc(nr_threads * sizeof(*threads));
+> +	for (i = 0; i < nr_threads; i++) {
+> +		if (pthread_create(&threads[i], NULL, srcversion_worker, NULL)) {
+> +			perror("pthread_create");
+> +			exit(1);
+> +		}
+> +	}
+
+The main code can call srcversion_worker() here.
+
+David
+
+> +	for (i = 0; i < nr_threads; i++)
+> +		pthread_join(threads[i], NULL);
+> +
+> +	free(threads);
+> +	free(srcversion_mods);
+> +}
+> +
+>  static void read_symbols_from_files(const char *filename)
+>  {
+>  	FILE *in = stdin;
+> @@ -2729,6 +2795,8 @@ int main(int argc, char **argv)
+>  	if (files_source)
+>  		read_symbols_from_files(files_source);
+>  
+> +	hash_srcversions();
+> +
+>  	list_for_each_entry(mod, &modules, list) {
+>  		keep_no_trim_symbols(mod);
+>  
+> diff --git a/scripts/mod/modpost.h b/scripts/mod/modpost.h
+> index d5f6d82837d5..10d5f8f2f293 100644
+> --- a/scripts/mod/modpost.h
+> +++ b/scripts/mod/modpost.h
+> @@ -127,6 +127,7 @@ struct module {
+>  	bool has_init;
+>  	bool has_cleanup;
+>  	char	     srcversion[25];
+> +	bool need_srcversion;
+>  	// Missing namespace dependencies
+>  	struct list_head missing_namespaces;
+>  	// Actual imported namespaces
+> @@ -213,6 +214,7 @@ void handle_moddevtable(struct module *mod, struct elf_info *info,
+>  			Elf_Sym *sym, const char *symname);
+>  
+>  /* sumversion.c */
+> +void sumversion_init(void);
+>  void get_src_version(const char *modname, char sum[], unsigned sumlen);
+>  
+>  /* from modpost.c */
+> diff --git a/scripts/mod/sumversion.c b/scripts/mod/sumversion.c
+> index 5501d6aa0bea..4521b92ef868 100644
+> --- a/scripts/mod/sumversion.c
+> +++ b/scripts/mod/sumversion.c
+> @@ -249,7 +249,7 @@ static int parse_comment(const char *file, unsigned long len)
+>  /* FIXME: Handle .s files differently (eg. # starts comments) --RR */
+>  static bool stop_char[256];
+>  
+> -static void sumversion_init(void)
+> +void sumversion_init(void)
+>  {
+>  	static bool done;
+>  	int chr;
+> @@ -402,7 +402,6 @@ static int parse_source_files(const char *objfile, struct md4_ctx *md)
+>  				     line, strerror(errno));
+>  				goto out_file;
+>  			}
+> -
+>  		}
+>  
+>  	}
+> 
 
 
 _______________________________________________
