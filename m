@@ -4,157 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 149C6C79FB6
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 00:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7530BC79FB7
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 01:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ItEI3JubA5/Cn+SpH3PZjsQ+yC79mSlYurYP5R6F7pQ=; b=Ej0W6VGaBydET7
-	GuFl47aH+Zr2QhMHQClJwOMqwxv/I3y+nDAW1roNFNQ2zVUpfTow6iDQxChhqj3P+uidcEOTxERHB
-	0vzaFDpjdQNzAKKr3RHSueH3rV2/Fjn/JOYyyZCGLTyyjpUajvWRqbUJR7rghiDVIqVpwK1NUiY0W
-	TXR/uZWo6KOq0WF8dGvggwtxEWVjPWzrsUH1bbb7Ih9io2lJIgWD2oKH/TO+JabmyOZepLFMU9ALY
-	+d22a76q5ZMvb1+laC9bheeJB8ysVQoFMuM4QVb4k21MN+/mErFAPTN1ELqsmA2zuaBsYNDw/eJn+
-	tV9TtONHt/6jebIvV14A==;
+	List-Owner; bh=2YNJzsiC9/IteNlaKmrdCSjuFvkcxbsccysdoElpu3E=; b=vNveBadGakZGVD
+	wQCag/gYnUh0Pg7nDbi8eFa7b92s910Bw+xPw9hlW0xOV2fOdKAOxbLBqOEZ4WuIwn+eHnoxTNxUS
+	lETd2lisDrgQYdOLzKCSRuFgzbheMPL5qoCll+4bFLH6tApxehIi8JstriIGCPLRlaQCuFZblJ6AM
+	WUmFRRaxXhGz6V4Hmrq7WjucpClubUI1ehvFyQkjarwjSqUszIR3EvXMOcunH51MLAqRXOYN+iNXz
+	WByIpxJmytf0NS7LHksr6xD6hKwziioyiesMq6SoXazWgW0+Li3bAjc6makpba27aAnJUrBf4XJpC
+	m7RubdoCpSXcEM1AQUFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Sx8-0000000D9AT-32ql;
-	Thu, 10 Sep 2026 00:47:46 +0000
-Received: from mail-francesouthazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d207::1] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1x4TG2-0000000D9xz-0xel;
+	Thu, 10 Sep 2026 01:07:18 +0000
+Received: from mail-northeuropeazon11011041.outbound.protection.outlook.com ([52.101.65.41] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4Sx4-0000000D9A5-2LrK
+	id 1x4TFz-0000000D9wq-49vT
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Sep 2026 00:47:45 +0000
+	Thu, 10 Sep 2026 01:07:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XDePL7quqIYm/sVPboD/G8qqruFuOGIAJhVvHV6J7auHQG5sQ0ISPrYYuLUGKRszfbFksD9NFCoee3QosxKaaV+u9P4AFDCswhvPLkG6+doWRfdSDQpt7rbg7Ztt1V4UvJTa1fAZBsBbKddfymMo12/frSqOwA2HwV0C+q5OhUcHFmNDEoqeM49b4vwiWkRjj6xJV4/sDrSAEJYpOLnOkJ0MrbbfVq+BAUx6JngZ0DV5OR/d8tlVPlyel/2d+JhTZNVLtzcLihIRhCWECwORjYmf3jekYItXzbQ7dPYOml1XGlJPTRDdUTrEmLK4rcnc5pNQlAkqYR76Rn3ZVLSaFg==
+ b=J19kjzGVWNFvxss4nvgNo5fyjQZPeM1EwwSYdO7sFgK97NhubDMUuktmFLzCNmi5rLBLm4LwHqDeV78h+mEHbQSzqZmBthQ1kuyMBhjydOlOG66lXK0H1PZEeLZE0cZTmsc0457eVlU6mY6TwPpyBAvBnCyt6vpL0WoA57k2FOYX+FlkZrwxYsaGFTvc7FVDXNdjFDhGBZkdgY6XAe7wQ1BmhD9NWI3oEYk+01hBpwmidw2QWaZyQ3ywxBkEZ2SdBbmJI/y93cOE+bi8peSwYQbmK0y206AnxAy+Qb3u0OGv1DZD3QliBlq6pb8NKg/zxgZQ/f455f4RSfA15WoA5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hZM408lgly2Ads8t79bOUsRZQq/HhMsIvp0O/OOqDJI=;
- b=fxRpwlRDMtQ98c1p+TI8xbn91QIUeg9b0Wu6meHVEEnYRP6nX3nzoQluSUrI+l3ll99KH3PFrOrh3YGlFqTPRoVunselk7dxL/25M7B1oz6wxLp/1Z5cm4DvV5ErjwEc44zkO9vIuusVtIzJbBCx+JyZ9/8iEg1NmU6DX8gehcJK97ZYLfTKRW7mQo9qAkC0IC+FydOqHZ6ZmnD0YAJYWdR33oek1/U1Z8XBrb74OFo+ojiYenDLWnusrAAE4AxSf0aCA9vqZI3FOh2ajbWRysKWJbNJwaBCMmlGsmy4Avusj9KjQR7PLDk3l1O4azLeabn6nmlxdN2ICXRZz2FYSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=HOTMAIL.CO.UK;
- s=selector1;
+ bh=1wBHkAJvdIIJWzdnjTOnh4Q/SX8HAevTJeyGoY0b83Y=;
+ b=NJhNnKq96OUHUySwMI1/rCMkRuGAVKYRhyz5IcSUHz8k8iSMZnPY+z1WZt506R3mDBqW7EPt03en3W+UxDe1FMfJGE9JFYG55yRLYOuN75aYeN7rFbumS8KY4FlcTD0GHV2/1oRu/F9p66j3jkzOEMu91OgkGNQj1GOpBvcmMCHhglqtASyqwmH1u9WZ/te3kcnQ3kQTALOkHwIIUokMHW7ym/OHLTSvs5BPjpUBq2jFa1x0niQ0ea6sa/iXSsnG1vb9l4xIZEu2X/260RgPrGNvo/myIPwGsxqvm5XfCQBfRz/3r2HQy6T1+CzAIGrKWmkstXF2nPzqGywwhow4OQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hZM408lgly2Ads8t79bOUsRZQq/HhMsIvp0O/OOqDJI=;
- b=mFHNHc8/izNqr7d5XpGJOjPjQop7tgXF8MGdhDfHt5H4CkXJH7tc1yweQ6QuJSF72PtycQzbPsQ4TfIYzMkBeN/Przz6tML2E/j2NPRN1PzWK5ikk63uoauhlmbPSD0nAijrfTvdkFyeMrxhCM3YnjUkPPukmVEspzYbmh+GLO3MusgYt4c1gVbYwHqTJeTxne5/XTYI3fygo0JdtXeSdyb/dvFeonCZwcB8OGF2KgtzPnDwcAV6STN2mH80h7ApwlRWt8VSmVE2AYdKrqJtlWwqSIl6CrBp+zRo/Tj+joXgJ5LiOY6POBCsL6HTX/eQyJAWOqfUjdWWWLltUolbtQ==
-Received: from AS8P251MB0001.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:344::22)
- by AM9P251MB0110.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:415::15) with
- Microsoft SMTP Server (version=TLS1_2,
+ bh=1wBHkAJvdIIJWzdnjTOnh4Q/SX8HAevTJeyGoY0b83Y=;
+ b=HQHh+4AGDiOoFXUWtxOYFqfcycSvtzB9rTERaPLt5Mt/l5y7EMerrGXRE236gmQDHn/qG6D7Pzp9eDytYiGD5+IR2cfbohowSENP4w1xaIevrd9hZPU9jxgICfFku/g8xlOND4G4gSTiuDGpOEx8Z+bBGgGQ9kcvUIdT7NcXzBmmOhsfYN+ALqP+j9iWZaDEpX8mhMKZMQmn+pn5F124j3/kZ/4qxTxWcF6++b8w4+wlwYqrdVtq5FNstW3Mx0jK/iOpqjcr7O4k31O2hBK22evhLxaw2yhpTiCA+BRt3V/BF+G6fOlvDeT0S/5aGT7ft4wxFFb6qmx/wAx2Es/nfw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
+ (2603:10a6:102:4ab::13) by GV2PR04MB11739.eurprd04.prod.outlook.com
+ (2603:10a6:150:2fc::18) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Thu, 10 Sep
- 2026 00:47:36 +0000
-Received: from AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
- ([fe80::2952:d4d0:4ba:8352]) by AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
- ([fe80::2952:d4d0:4ba:8352%3]) with mapi id 15.21.0406.007; Thu, 10 Sep 2026
- 00:47:36 +0000
-From: Aamir Ahmed <elb12345@hotmail.co.uk>
-To: "Gustavo A. R. Silva" <gustavo@embeddedor.com>,
-	Drew Fustini <dfustini@oss.tenstorrent.com>,
-	Joel Stanley <jms@oss.tenstorrent.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>
-Cc: Aamir Ahmed <elb12345@hotmail.co.uk>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Kees Cook <kees@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
+ 2026 01:07:12 +0000
+Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
+ ([fe80::80e9:ab1c:dbc4:6930]) by PA3PR04MB11203.eurprd04.prod.outlook.com
+ ([fe80::80e9:ab1c:dbc4:6930%3]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
+ 01:07:12 +0000
+From: marouene.boubakri@oss.nxp.com
+To: Jens Wiklander <jens.wiklander@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>
+Cc: Sumit Garg <sumit.garg@linaro.org>,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] clk: tenstorrent: Assign .num before accessing .hws
-Date: Thu, 10 Sep 2026 01:47:31 +0100
-Message-ID: <AS8P251MB000160067A8B595BB9D743E8C8BF2@AS8P251MB0001.EURP251.PROD.OUTLOOK.COM>
-X-Mailer: git-send-email 2.53.0.windows.1
-In-Reply-To: <ce401b42-9dfb-4c8e-9051-7ba08c107382@embeddedor.com>
-References: <AS8P251MB00013BD9A093C06D2D60E10EC8B42@AS8P251MB0001.EURP251.PROD.OUTLOOK.COM> <ce401b42-9dfb-4c8e-9051-7ba08c107382@embeddedor.com>
-X-ClientProxiedBy: LO4P123CA0121.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:192::18) To AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
- (2603:10a6:20b:344::22)
-X-Microsoft-Original-Message-ID: <20260910004731.32818-1-elb12345@hotmail.co.uk>
+	op-tee@lists.trustedfirmware.org,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+Subject: [RFC PATCH v1 1/6] mailbox: riscv-sbi-mpxy: add riscv_sbi_mpxy_mbox_call() for hart-local requests
+Date: Thu, 10 Sep 2026 03:20:52 +0200
+Message-Id: <20260910012057.106966-2-marouene.boubakri@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260910012057.106966-1-marouene.boubakri@oss.nxp.com>
+References: <20260910012057.106966-1-marouene.boubakri@oss.nxp.com>
+X-ClientProxiedBy: PH8PR15CA0022.namprd15.prod.outlook.com
+ (2603:10b6:510:2d2::19) To PA3PR04MB11203.eurprd04.prod.outlook.com
+ (2603:10a6:102:4ab::13)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8P251MB0001:EE_|AM9P251MB0110:EE_
-X-MS-Office365-Filtering-Correlation-Id: d23f1479-d026-452a-d9b9-08df0ed51ba1
-X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799012|5072599009|6090799003|25010399006|51005399006|37011999003|19110799012|24021099003|23021999003|55001999006|25031999004|8060799015|19061999003|26104999009|3412199025|440099028|40105399003|2607281247196008|1710799026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TnlDc1RHbzM5RGFXNmlvcTdGS2VEbGwwYlIxWE1vYyt5QTU0M0pwaGovZjFU?=
- =?utf-8?B?b2huSS90VUxjYitzSDN2bE4vb3hNUmdlRGZnSFBwVEQ4ZytRUHpkVHVKOTJp?=
- =?utf-8?B?NmJnV1p4Z2xWbUNObkw5Ny9TMmVIc1dGT2x2UUNnWHlKOTI3NmgvM0FwWFgx?=
- =?utf-8?B?SHRUNWRxdWVrZVpVdHRQZ1QwcjA2clNzdUg0RmhzaVhQSHh1Y0RsdXFsV2Nt?=
- =?utf-8?B?SmRTRTRxTzhiSVFCYzlPYXFPOUIveWkvOWxvNHF3UU55S0NlSktLb1NzTVh3?=
- =?utf-8?B?c1hDUUlhajI4M2NxMGRBVnpuYXFKTTE2am51U3c0OG9pZDl4WEVuNXBQZExF?=
- =?utf-8?B?WHZNTis3a3Q5empTQ2pwOVRrQ1VEemZ2aW1KWDl0TVA1aGczRmhNYTRKZ1Jj?=
- =?utf-8?B?OEgvV1Z2SkN0UGhIL0w4UW01RVBUejQxbG5JbDdoVXVWMWN5ZXB0Tm5FREZj?=
- =?utf-8?B?OWtBa1V6aEZ1YnJGRXBmSEhUUzlkbDF5LzJKZXZQU1dEWWo0b01TTS9DRVBQ?=
- =?utf-8?B?SXlxOVdYeUhKa203Z0JUUkU3dUVQZ1gvU2MwU2N5WXN6TXRSY1Yxd1lqRFU5?=
- =?utf-8?B?clNhRGpvbkw3VDhmbXErenMrdCtKTzZFSHgvbjZmMW1PTFJkSnhLU1pEN1Qx?=
- =?utf-8?B?SUo3RStJVm5ZU0doOXdyTDFubTlKTUR5RDlTWTZLL3R1U2Nvazl4aGU5UHp0?=
- =?utf-8?B?WnF3SDRqV1hIUDF0TElnRllxZE5STjN5NmRxQ1daSGNCZEpwczJxMXN6VmdF?=
- =?utf-8?B?M1F3dFF5K2FUdWRBVkhpeGR5NEZyRzJGMFJTWkptMkI2bmp3b0JHdEhhR2pI?=
- =?utf-8?B?bTBwSnNLRGJRK0NCYW9xMXVHazJScDlURE5WTzBYRTB0cnFCS2F5WlFUS2k1?=
- =?utf-8?B?SWYvRzF2VCs5eTFUVFdWb0dEbHRPQldjUzdQVnBhdWsxQWg0MkN0RldKVDQv?=
- =?utf-8?B?WmVWZHVaSEZ0QTU0NEdVMjZjMTBqWGNzeThEQTVYQTFKaXhkSittWE1CSmpp?=
- =?utf-8?B?NFQ0OENWVEo0bGRTUVFtbWE4bkpwSFQrcVFGekMrSEcyR3VMLy9DbmgzWGhy?=
- =?utf-8?B?Qk5RekxjQXhDeFI0NDM4ZDl0eUVMQ0tXSExtNThNdmczVU5YUW5WK0ljY2Y1?=
- =?utf-8?B?amxHVUVmaE1JWGVJajA1NFRRUzFOTDVlWUNTTXVnelZNb3R0NC9vVW9hdUF0?=
- =?utf-8?B?RWE1SWU2TXRPWmhZVU5Eb2I3ZU1tOHF5cDZubEZnK3o2SndKeGxiWEhFcW9J?=
- =?utf-8?B?MC9xUkJydVcwVVRyd3ZZOFFRWGZ2a25oL0kwcXZFQ2xBUnRvT2QrV1dvMEhx?=
- =?utf-8?B?QVh4OFN0bzIzbWNDNk04UVVtSVpIU09rejV4SytJYkxKVnB5T3dTdVBOcXdO?=
- =?utf-8?B?emN1SnFKbU1XVUNYSHhkbWxFWDUzMzBZVnF4ZzZYTXNBWWEwcWdiZGVsZ3Bu?=
- =?utf-8?B?SVRkYnJ1UFZZZmdYYWlsZTRCdVhMS0ozVC9uUzF6OWpsY2M3VVJGTldoMklE?=
- =?utf-8?Q?itd7w42bAt6eSD1KmWCOGLE4H6s?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bVk0MDFDdk56a0pZSkxya2FBaWFWMDUrdnJFWWRXWHg4NVlORDN0QWhvWXdX?=
- =?utf-8?B?YjNTbWZsdEYzUmp0TjdKYkVRWFR2RFpBaGdFR2NsdXd5SCtMLy9UdGh5OUJY?=
- =?utf-8?B?ZCtjL2h3YXZibGRhL0x4R0k1UTVEQUZ1Zm9OSUFsREtvVGUvcWJZV0JuWUZK?=
- =?utf-8?B?d0wyREhtS1diUHJjN2hCUGRmVkZxMmt5ekphVlFLeEdBVkxuNG02VEZOaDM0?=
- =?utf-8?B?MDhqcThqK0VXbzJVRkFoWmJ0N1dYVzJUU2hNZStuekFMTTBMeFhBb3FLTVJC?=
- =?utf-8?B?QlF6RVUyd0xlc1BBN21McHd0cG5uUUk1Ly9UU0JDQ1RyMFhBMmwweGZocGZ3?=
- =?utf-8?B?RmV1RlN1U3ZzU01QRXU2Tyt3NFdHMVRhNkorRTRLcENPdHM0NWlIU2UrQnM3?=
- =?utf-8?B?QjhFWmFzQzVzeWNuRkRoTC9GaDdaQWtTMFVhaTYweW1qQTNGNzdWZzR3ZWJL?=
- =?utf-8?B?bnUzR0J0aXRqdTU4TzhGTXpTeUFJNFR2Zlo2UW0rQUtsZjlLL3VuOVFFZ0Y4?=
- =?utf-8?B?YWQ0THFhY3psazVZYlpwNWJ3am5YRW1KdzFsdlJDbXlhMTBVekYyVHYzTEx5?=
- =?utf-8?B?MmYxMU5HQmVmTmJpM1IvMjZ2YzlJdDIzN3ZNR3MvN042UGxBRE1zS04zSFdZ?=
- =?utf-8?B?eGE4aVhYeHUyVWVlaWszSlZmQk1xSCtsVytKQXF6T3R0SjArcjRWZlhEQUZt?=
- =?utf-8?B?alppcGFSWWxRWE4ycDF3NlhFVjRYTXF3SmZnbTJrTDNnVzZadGRlK3ZObTBu?=
- =?utf-8?B?dnF0aFIvLzIxQWdOSHRSUVFBMVZnRXpZMEF6c0FuRWRCOEx4bWRzNVdsM2lk?=
- =?utf-8?B?cUVQa0ExUUdMTjhmRE11UWtsZjl0WmJSb0krZXRQNU41NmZXM21wek1JNm9p?=
- =?utf-8?B?REJPSW1xVWF1VE44ajFSR0hWWmEwNWtIWlpqeThRZU5HYUtURzd1ZXN6Skhy?=
- =?utf-8?B?ZzBFRFNidTlxUE9jd2E1TUR0RERmUWV3bnN5SDU2dy9YRzg5bjJFOE8vVHZC?=
- =?utf-8?B?KzNmb29HRDJFaTI2UFNJUDAzM3FDb3ZTZHVVTHVJVXBwSXZGM2thcG1wMkVD?=
- =?utf-8?B?QnJOV0k0RE45dTlUdDlxSGxSWHl5ZEJZUzMwWTM4Z0o4SWZHSzQxVmJxT3Q3?=
- =?utf-8?B?MUxSMjM1RW9JS1JFa2dVMHFiM2d3NG9mU1IrUGJJMTE1S0VGbFdNeHdqY0pW?=
- =?utf-8?B?V1BwWUVUM25BZmtXMjJHbUZoRHZNd3JHL1BhQ2UzWnFVSGl0aDVSWWVHbFAz?=
- =?utf-8?B?MTl6NEZoeStmdjYyemtKNlhkRk9ONkVhUDZxSndpWWpLeFh5U29HUFN5cTQr?=
- =?utf-8?B?M0t0RWg4MXFRQWozMytHYmJYSmlpV204TDdDMXpHNWZGbHNtMDgyRGg3TDB2?=
- =?utf-8?B?azBsT3B3QW1YRHdpYjl6dHpPRHlFWUYxMzU0eXZ4ZE42Q1NjYXp5WjVnYS9i?=
- =?utf-8?B?UnBPbm1vTnBRdUpaWUExNjRMaUo0YStHMm5CZXFsc0hMRUdaaUhZcjFuaHZ2?=
- =?utf-8?B?REN6dGs4dDFOTGJMeDVPT1B4K3ZOakMyNkJ1dHNjYkQyVk4rSTJpRTY1eTY5?=
- =?utf-8?B?bGJBeVNMWWl2RFdPcCt6RmdESyswTGttcm52WkJtNzMzNng1MENRbnJ5aDRx?=
- =?utf-8?B?VVhGSHB4Q0V4T2VrdWtWb0Z6R1g3aDVlU3R1dVFuNTBaM1J0OGdXSmI2Sitw?=
- =?utf-8?B?Uk1sMzQzeTJYWlFPTDU1cDJKZGZCSmUrTmpPaGxPdDNodWFUZVZ3M3htSlFr?=
- =?utf-8?B?WEtkMTVVREpoYlRZTTFSWXVPMzN2K3JWMU9oUDFwLzliL1VsRDczOFpmL2VH?=
- =?utf-8?B?ZTh5akFLSXlDTnpwdit0MlVKV2VNWUpHSDdIamQ5eHlyak5XYVpLMi9PdC9q?=
- =?utf-8?B?NjFMWjgvSWdmc1JrMjRFSXpUb29HaURla09RbTI0a040R2xtenFzbWR2Qmwv?=
- =?utf-8?Q?IvDj+zps25/16mJWYb49pAeyMdAR8dOD?=
-X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-fe3f5.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: d23f1479-d026-452a-d9b9-08df0ed51ba1
-X-MS-Exchange-CrossTenant-AuthSource: AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
+X-MS-TrafficTypeDiagnostic: PA3PR04MB11203:EE_|GV2PR04MB11739:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed65af90-6dcd-4daf-dc0b-08df0ed7d849
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|23010399003|6133799003|18002099003|22082099003|56012099006|3023799007|10067099003|5023799004|11063799006;
+X-Microsoft-Antispam-Message-Info: k+gg6N9QbFBqMr9DKBcdcJXWql0xvuIUIG2gtOpLRhHrUqXDz34a+FWj7NQMg5F5tiqTaNdPJbG0I1eYo4baruv0rs2RDsDSOJMRNwGDtIfdO963saYjx0a/ZcDA4jL3Qe8nPgX6BBoQSW3YxRTgcI7PiTiDYfOOTn4B0RbWSkPRiS+u7Oigo0GTj8WGK8XkfOqcX6ZgW9StCFvmLmGTsgMDRSFPdBHFH0aZpyTj6UyAcnoRbFmr9+brlDPRuxtnopd2zW/3z3YJdbpNPK+L2+hMh5o7HThCQ32ARPHacPisJpzquj9tu5Aumaftc/Q/+qiipdxY6qrQFPojx7qAcmFdTv1GgH/7AfkbDE85woql39wfq0EeT0QlkXbntVPMsWL26tEZp3IScV3aFuu0W/Fj3U6VpC4YlJXcS485VkmkIed6lPIkfB1k7XNVyNatCcqRVL3dKpZkuTipaqzolETw1MPIZsgYUn+oUYpJnU6N7fDp1SOxzV9S+/ta5Yh+yfP3gALfKS7b0oUVnAJhFVsAfp7djicvg4tOKj6Icz+w4MDhkf7iWeft7Tj2iCA93rVI7d7qTV6tvyoVnQjkphRsiuK0tGfe89QVVxZFSLN90o9dRH1YJ4yIyo1MgzNe52Tt2XKxImUcLMGf5/XCQ6BXjY64lnMVhF8TwIAjdLc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(23010399003)(6133799003)(18002099003)(22082099003)(56012099006)(3023799007)(10067099003)(5023799004)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CHV7EB1q4862tzyvNnFfp1t4eXOt7q9zTy0r1lgb8zCYAUXqupEwr56fVlR2?=
+ =?us-ascii?Q?7IErbI3UlA5jHc2xvvIsW+MteQHyRIaym0Ly+5/nQp06o1+/fU2kjjDryRR2?=
+ =?us-ascii?Q?jSnpVGklUAcfpC20rnpZnRbDRJxHl+PslvUPm99BVKTOQStn6M0B5eEAt2D+?=
+ =?us-ascii?Q?Fs9KUVAKCVYS28UyXljoNl0i2g3gqDbahDNqT/7TM23W44gznSqkNDQFf6iU?=
+ =?us-ascii?Q?N6Jc/Z90Jh7JBgpA2r2ZPATJgjRK7v93O6by7ZJbaLj+DjPWlGj8xjHoWjRD?=
+ =?us-ascii?Q?MRVagOEzQ5oOBg+GwjjFh6XjWPOO7bQgysiuuUQzET1hNxmzacCJTXabHbu/?=
+ =?us-ascii?Q?NlGDqrSxXafGbfgmoX58xHBVfLlDxvslPWjdXd+0zdNInMSeaeR0bAuy1qaX?=
+ =?us-ascii?Q?yeT7ObcSjMruOVYn86DtAqOGp5mAXCMNxPbAGAO5NdZF2TKBtjcRrPU1jJK6?=
+ =?us-ascii?Q?bU3xt8Wb4+zub7VvgwMQ9eXK/opF0Ebcdr9zC/imum+gcnp3/tK0/FeUxzId?=
+ =?us-ascii?Q?GKBHiabI5i41wSQa5hVNSO2TAPqSMZds6vx5TrVT0tOngRVMSCBUBjVCf8s+?=
+ =?us-ascii?Q?7kvQhBvlEyw8lzZdvCKDwAtHMN+u6biG+mIlBTkC3XLRLbqOm0DAGcw3UaR+?=
+ =?us-ascii?Q?16okXErXG7djC2m5sEnzC3k41hkx3A0nGZxwX2TVkGctD6LcDutnOxFEqNKE?=
+ =?us-ascii?Q?FIL7zPhc8kjvlpc3cmuSWfppKscrd3l32aib7nHoD34R2N4FhLw2GAswNutx?=
+ =?us-ascii?Q?dygTrwWriZWfvZTmVlFzaBVvo3+rHdBf8KBWXmK7DgubSKCr8yrQcSeSui0X?=
+ =?us-ascii?Q?sfIztcYNoR2kYnRmWYfB7yqK6H3BOBvw3AdlfkHQnY65SheaLet108nrUcjJ?=
+ =?us-ascii?Q?fkCsjwKActiFJyaQF5abE4VbAjUQ1H+GDbaMt/79vbEe6rXdNOWXOaYaFukT?=
+ =?us-ascii?Q?C6w/T8mGl+9gnf779hJbhBFpNB6B8/yW/TxG1WwxfWY0W7RFJctlW3q9OqZa?=
+ =?us-ascii?Q?AHPrCwqI650iGgqO2xQIe1W44PR6XlOfoldqc4eewx24SJi5hfFsHa9dREeE?=
+ =?us-ascii?Q?OEDaajb7yzWm6vESyMd8HZOQtKkC+cGG7H1EVb22t6Q3AVYO5MJJiVdyqn5Q?=
+ =?us-ascii?Q?NOPhqiyCyX5wU31CHls7jpncUc123ifpk4+4i5+7zeHRqSMI+v1baVgUT132?=
+ =?us-ascii?Q?kkZ/Mt8Jxc6RF0qaxGbzoSVh7mhbtIKkkHnTQwEfTM7HlcOYZklpoK0g7Q3p?=
+ =?us-ascii?Q?pAvSZuwK0irSQ35nHcoxzgfUnEvaY/7PkzCQ8rii9s7Bsi1YC+NyU3StNlfM?=
+ =?us-ascii?Q?qawaawSDvcfWJDNDcmfPJXC3DSffl2yri5Y5mpIBKBcDToVvqZwTigNOUJwt?=
+ =?us-ascii?Q?ENMn4EmOGvMXNhUNfwP6qIRuQRLxe79ljz/mDTRZTdm2hpJrPa+yJ+FedoEm?=
+ =?us-ascii?Q?pcPS8PemDIb+YP4zoGrMXZDl66ZU/uUBkAIbBQ2OiBWodSp5uUOc2U8Iv1OJ?=
+ =?us-ascii?Q?06F2neFLiKvLQ2AKMB+M/eU82sjq3a3k8NTd7agd/sEVT2kb3avJH5LFncRj?=
+ =?us-ascii?Q?Q8Gwl1XNBHwPnmpjNiiaiVC/oFe7KrmyVW1MjCuSL08JTyASU7AeK4LHHmyi?=
+ =?us-ascii?Q?R9lh6oZr1fxYFXwjphp7q4qUkRyKRWItfL1FhP7acM/vUNwzyoeAGNdgZYAx?=
+ =?us-ascii?Q?qftmilsORKSG1FNoTaEVbag0fLR4Fv337kv4Ypfydgk2bmVR7hzLDkskFehN?=
+ =?us-ascii?Q?Hz0VCVoP0m8IN6blSVbkrQMAp/Gf2WBTKDDYYsOxbD9Dyl+rOdW/M3lBkuRA?=
+X-MS-Exchange-AntiSpam-MessageData-1: MafBKdVg32DbsA==
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed65af90-6dcd-4daf-dc0b-08df0ed7d849
+X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11203.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 00:47:36.7048
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 01:07:12.0406
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9P251MB0110
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eqLADqi5UpEQm+XH3XEqlyNONCHwC7scjMEEh2e6+JbUdJ261uozFkLRv5PkblWzsAD0edDKS5l8LTsiqusSaDG4+IeqgXu+0SOpToijz4XIk6LAAGouBStMMSSCVCVo5dhcBKc469LQttqt6ymw2w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11739
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_174742_609239_5A49FC92 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260909_180716_035664_BA1AAC23 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,20 +150,166 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 11:56:12AM +0200, Gustavo A. R. Silva wrote:
-> Looks like variable num_clks can be removed entirely, and just do:
->
-> clk_data->num = data->num;
+From: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
 
-Yes - it is only read once and data is const.
+An SBI MPXY message send is not queued in a hardware mailbox: it is an
+ecall executed on the calling hart with the calling hart's shared memory
+which returns once the SBI implementation has processed the message.
+For most RPMI service groups that means forwarding the message to a
+platform microcontroller, which takes a bounded time. Some message
+protocols are instead processed on the calling hart itself, for example
+when the SBI implementation forwards the message to another supervisor
+domain and switches the hart to it until it responds (this is the model
+of the TEE service group of RPMI v2.0, where TEE_CALL runs the target
+TEE on the hart of the caller). Such processing is unbounded and
+depends on interrupts reaching the other domain so that it can yield.
 
-Thanks for reviewing, and thanks Anirudh for testing. For the redundant
-variable, since this has a stable Cc, perhaps we can keep the diff
-minimal here and I can send the cleanup as a follow-up once it lands?
+Sending such messages through mbox_send_message() is not an option: the
+mailbox core calls the controller send_data() callback from msg_submit()
+with the channel spinlock held and interrupts disabled. Every hart would
+then serialize on a single spinlock, spinning with interrupts disabled
+for the whole duration of a message processed on another hart, while
+the calling hart would run the other domain with the channel lock held.
 
-Kind Regards
+Add riscv_sbi_mpxy_mbox_call() which performs the RPMI transfer directly
+in the calling context, bypassing the mailbox core queue and channel
+lock. The channel must still be requested through the mailbox core so
+that its ownership is tracked. Local interrupts are disabled around the
+ecall since the per-hart shared memory is also used from hard interrupt
+context by mbox_send_message() users such as the RPMI system MSI
+irqchip; calls from different harts proceed in parallel because each
+hart has its own shared memory.
 
-Aamir A.
+Signed-off-by: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+---
+ MAINTAINERS                                 |  1 +
+ drivers/mailbox/riscv-sbi-mpxy-mbox.c       | 60 +++++++++++++++++++++
+ include/linux/mailbox/riscv-sbi-mpxy-mbox.h | 23 ++++++++
+ 3 files changed, 84 insertions(+)
+ create mode 100644 include/linux/mailbox/riscv-sbi-mpxy-mbox.h
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c392ded53..44860f991 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23581,6 +23581,7 @@ F:	drivers/clk/clk-rpmi.c
+ F:	drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+ F:	drivers/mailbox/riscv-sbi-mpxy-mbox.c
+ F:	include/linux/mailbox/riscv-rpmi-message.h
++F:	include/linux/mailbox/riscv-sbi-mpxy-mbox.h
+ 
+ RISC-V SPACEMIT SoC Support
+ M:	Yixun Lan <dlan@kernel.org>
+diff --git a/drivers/mailbox/riscv-sbi-mpxy-mbox.c b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+index ea69c6b6b..2c80e6fd1 100644
+--- a/drivers/mailbox/riscv-sbi-mpxy-mbox.c
++++ b/drivers/mailbox/riscv-sbi-mpxy-mbox.c
+@@ -12,6 +12,7 @@
+ #include <linux/irqchip/riscv-imsic.h>
+ #include <linux/mailbox_controller.h>
+ #include <linux/mailbox/riscv-rpmi-message.h>
++#include <linux/mailbox/riscv-sbi-mpxy-mbox.h>
+ #include <linux/minmax.h>
+ #include <linux/mm.h>
+ #include <linux/module.h>
+@@ -719,6 +720,65 @@ static const struct mbox_chan_ops mpxy_mbox_ops = {
+ 	.shutdown = mpxy_mbox_shutdown,
+ };
+ 
++/**
++ * riscv_sbi_mpxy_mbox_call() - Send an RPMI message directly on an MPXY channel
++ * @chan: SBI MPXY mailbox channel owned by the caller
++ * @msg: RPMI message of type RPMI_MBOX_MSG_TYPE_SEND_WITH_RESPONSE or
++ *       RPMI_MBOX_MSG_TYPE_SEND_WITHOUT_RESPONSE
++ *
++ * An SBI MPXY message send is not queued anywhere: it is an ecall executed
++ * on the calling hart, using the calling hart's shared memory, which only
++ * returns once the SBI implementation has processed the message. For some
++ * message protocols that processing is unbounded because it runs on the
++ * calling hart itself, for example when the SBI implementation forwards
++ * the message to another supervisor domain and switches the hart to it
++ * until it responds (the RPMI TEE service group's TEE_CALL does this).
++ *
++ * Such messages must not go through mbox_send_message(): the mailbox core
++ * invokes the controller send_data() callback with the channel spinlock
++ * held and interrupts disabled, which would serialize all harts on a single
++ * lock and keep interrupts disabled on the calling hart for the whole
++ * duration of the call.
++ *
++ * This helper bypasses the mailbox core queue and channel lock and performs
++ * the transfer directly in the calling context. Only local interrupts are
++ * disabled around the ecall, because the per-hart shared memory can be used
++ * from hard interrupt context through mbox_send_message() by other clients.
++ * Calls from different harts run concurrently since each hart has its own
++ * shared memory.
++ *
++ * The caller must own @chan through mbox_request_channel() (or a variant of
++ * it) so that no other client can use the channel, and must not use
++ * mbox_send_message() on it concurrently.
++ *
++ * Return: 0 on success or a negative error code.
++ */
++int riscv_sbi_mpxy_mbox_call(struct mbox_chan *chan,
++			     struct rpmi_mbox_message *msg)
++{
++	struct mpxy_mbox_channel *mchan;
++	unsigned long flags;
++
++	if (!chan || !chan->cl || !chan->mbox || !msg)
++		return -EINVAL;
++	if (chan->mbox->ops != &mpxy_mbox_ops)
++		return -EINVAL;
++	if (msg->type != RPMI_MBOX_MSG_TYPE_SEND_WITH_RESPONSE &&
++	    msg->type != RPMI_MBOX_MSG_TYPE_SEND_WITHOUT_RESPONSE)
++		return -EINVAL;
++
++	mchan = chan->con_priv;
++	if (mchan->attrs.msg_proto_id != SBI_MPXY_MSGPROTO_RPMI_ID)
++		return -EOPNOTSUPP;
++
++	local_irq_save(flags);
++	mpxy_mbox_send_rpmi_data(mchan, msg);
++	local_irq_restore(flags);
++
++	return msg->error;
++}
++EXPORT_SYMBOL_GPL(riscv_sbi_mpxy_mbox_call);
++
+ /* ====== MPXY platform driver ===== */
+ 
+ static void mpxy_mbox_msi_write(struct msi_desc *desc, struct msi_msg *msg)
+diff --git a/include/linux/mailbox/riscv-sbi-mpxy-mbox.h b/include/linux/mailbox/riscv-sbi-mpxy-mbox.h
+new file mode 100644
+index 000000000..4fb7b04cd
+--- /dev/null
++++ b/include/linux/mailbox/riscv-sbi-mpxy-mbox.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/* Copyright 2026 NXP */
++
++#ifndef _LINUX_RISCV_SBI_MPXY_MBOX_H_
++#define _LINUX_RISCV_SBI_MPXY_MBOX_H_
++
++#include <linux/errno.h>
++
++struct mbox_chan;
++struct rpmi_mbox_message;
++
++#if IS_ENABLED(CONFIG_RISCV_SBI_MPXY_MBOX)
++int riscv_sbi_mpxy_mbox_call(struct mbox_chan *chan,
++			     struct rpmi_mbox_message *msg);
++#else
++static inline int riscv_sbi_mpxy_mbox_call(struct mbox_chan *chan,
++					   struct rpmi_mbox_message *msg)
++{
++	return -ENODEV;
++}
++#endif
++
++#endif /* _LINUX_RISCV_SBI_MPXY_MBOX_H_ */
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
