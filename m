@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFD9C79FB7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE611C79FB6
 	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 01:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5XyASl4sBhivg/vSr95klYETYBbov2N1Oq9Z5Q+Ngcs=; b=4qswCC4uK5vAZ8
-	SXaehWq7KmDSVmHZSjeGaV9JjvQX7wek3nu9eyEjhnJhnJsAWlEMEmZx1zJ8h/U76n5gshaU3wa8/
-	GmRG7j+lXGgYkzxf3AzTB54newTb45TwybxgxblHSg5OCNsDN8vph+r1o7v1y1SpSl0PSHE29q8o9
-	zKDzKIkZr6RlUXZI0cjlWtoIO/De08Y9bksgubUvBd9KalowoP2zuh1MY6f9lvzwVKLMrVzZRMWEI
-	5/kQnYhwe3kb1MuZBEUys294rlD0fOXENLGX3J82griEmkmGtbjZPa98k/9uq1DZNACAvgFxMU8Or
-	6iQcsZPxuzvYnjcr6omQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UQNC+nvpWvvv4IOn/ercxFTIOBsuBsKKyehq20FJmYU=; b=rTNvj7QgY0NJsh
+	EFbe/IePwjKju+EAuZMrAfiqecj733j9bjzk0xx3bnUHHexh0rsUkXF5gDSgGxlirV0onC4z7ofdU
+	LKY6q5bn8rFr2t6Gq+w/AfqcG9mNRVDWXXAap66BSTg4VASzTiZLYZ7ovbgzVCKQW1mivJrN7PEJ/
+	rFaNKvQ3BhX5niebWE6g6TVZBF+GOVBLEGj0FDg/7Kf282NVDOMAupCjceMPd1aVzogVh08+MtcjP
+	KWfOEIzGWqAhg6ERJtHr/3myEVggIgnt4Sx+XdY1RGeAemKfIjdKUOr1+DzNYzAenDyzoqXQEzccc
+	eobSvzcJDQ/SyRAoSF6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4TG1-0000000D9xk-0Y2P;
-	Thu, 10 Sep 2026 01:07:17 +0000
-Received: from mail-northeuropeazon11011041.outbound.protection.outlook.com ([52.101.65.41] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x4TGA-0000000D9zz-1iZO;
+	Thu, 10 Sep 2026 01:07:26 +0000
+Received: from mail-norwayeastazon11013046.outbound.protection.outlook.com ([40.107.159.46] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4TFx-0000000D9wq-430w
+	id 1x4TG8-0000000D9yr-1MoG
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Sep 2026 01:07:15 +0000
+	Thu, 10 Sep 2026 01:07:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EfuQ6H+Sg8N6B5JAzYBKlb+rlZ+YM7bIlc/hmclc2+mnuzVYuX/ghdGCgni6MT1ehKJUoWJiU7knFc3N2jZIoPVD8LirzY29Wz6PdWNf6ZYG9aim9jD5sz24SA3eGyiOKSgrIbJTnYHueSEXYYMNkdROSitsZhPHyU09u8dW7gpSYEP/Qd594Z2MkfKsn8mR9grS2Nw7KL0k03YwQPgBqNU5ZJ7D/9cZW7iHsPJlrNzuz8qL1wWbJVmpifZLdnnI3s5gc4nbh2yDLTUi066mcYQWiEAQWC8Y9ykzrYaoc7N9DdjUYDM49wwR7fylCtcauuX57rUngjkwGaHHxd7CIQ==
+ b=zF04ZuWWrI5Fsy9QLU42oG7VKYrjPQWtfVHw06hSxzv5O0br3QASSrAwSlb7PqQpanyeDp/xLzvvKwmGlAzADd2osfouWDOd8noOcwjDCH3TOkjFG/XHv5puqjDR50kO4CXFkWRxRWz5qAbfLbRpdbjvy6aJST7CgFUg00sBVDpHADN5K/eWXK0fgy0Dr8F3WMoBpe5TiAU8RVFtiDsmH3QyHsN8eWGIeCtcOkC+gniQZKX+QrrgCnnO3WqHy6vB5P1n1IBMMtXo/VP33WtLynK1WkIpBe9pM4ImI5CGhMZ4dh5CPIn0dV4Al2Bs21ktOaAATXqxM2pUkOB2k3nXTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QGN7LcnBM97XktJVqW9gD6ISYKox8s5VA6hBgJrr2ZQ=;
- b=v85UGhjD+ucXw4b6ZEA2mm/0Z+V2WkR2/VVgBaJ/581GOxnQIvK/44mff65LNn74OOn0xCcB83+wmNC9pMkG2MTdmOMKmNPlE51Hrqg162E9RCAPy/z3mNzLfqxQWE+D8ste2n9jc9OySSiez+AVnYS/2JtM4xPkRIOCZ21gbxNG8pZTbMJSb7XSg6Ioszh8fPJY3xv0DybhZ6IRwH7lZExWIJ4yHi0FGaW71HIM7cPh9BWDoGCjLoRYJwPMLhAlbruX0sDTzrD0x8Ouvra9yOmMFhxPc+KP06D+0AahJSX/eJ/LHPd3Ekgrxql7MXfFtbGxtwZnavP+nGiKdXfgwQ==
+ bh=D6y89+xMjeRtb8fCd6GgEbugywJry8uMqjJxY4/BrP8=;
+ b=Ipv7zeq5Gj7dBmwwQfTkev+QF9F2BfK8kecMXrkdNUbFXAvm260gbmPbUo+MWGyWZ7elZEba4lbq/mwusecNqGOOweyIf12HIX1X/XFXcaazJrA/iCHura9jhLr3BsMHlwvEHUPWtgW6LGgU3TKr208rFE6+n9HXNUJHhGhXkkW2560dtvBoznca3ji6OUJvgkZyBJtg/Y3wO/LKAwma+fxOw5zIrxkTe5Aziyv/uVMxYjidZKQK7MYEAmddXrBRmPBJqy73CIDiMealGOxI/QDPtkmcQvb1uHZx/5p2INB20x4srM0Ux2B0nog7Kc7YfdWerxWgiQ9D3YAds4AGyw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QGN7LcnBM97XktJVqW9gD6ISYKox8s5VA6hBgJrr2ZQ=;
- b=VS5iTiYWz/6tEox4HSAwWSbCSQC25k0ruQ1PwMSQGPTtkTvO73a+kdYbQU63fV/FUzGDKma5DWYiBiQ0gP1OFFtQXK/7zaclyuBtBMsWCGbYR8Ycfz9g4hF+nvO0UNbDRPLTAFm8jQLnxbt2OxCOiRx6aH5JY8ct7trTcXKD4+dmXONqwjS5UcQwSgQvYyub4ju9UGQ6LQGm+Fqse4dWhfuS+XnWtlxBIqfQPKtW9ONG5+8NfcdJCvAqq6uTKnXamOe8dps2pgwAqgJOoRkM4N7TfZofkfNQRjw/5cUtvZVCehGFR0Wy0pUutlip2bwvfERjTIlihyGUX2wBUFkwBA==
+ bh=D6y89+xMjeRtb8fCd6GgEbugywJry8uMqjJxY4/BrP8=;
+ b=loRZd+I3jt4nWgtCpGwpGhj2ukhi2AYF5uViT438xrg6LkuQ1ScOE/kvV5hjWq8eKPlX7y9uvZ4vIDOUet81wObwAiAYzstq272OHwjV2tXporWukpd4o74wc1/b3nalYUerKUssYRTaIcQdwOZd6ha9AC3NZ+A/n9yvw2j6pYnm05aFzyqpmiFXgu2/zHL4RmDZp2WUFcXwDcY02P4wbpXKFsbiHnMqRaUNE/tDovk2Egffa994513ZLmw+EWa3vZZUQi+o6pbFIt0zb3kr6MRqwzNTU2tejsoenbXiv9cUaeDRa+V70HwqydqTuETBuUYfW1IwUQ8OS3cK9bMxSA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
  (2603:10a6:102:4ab::13) by GV2PR04MB11739.eurprd04.prod.outlook.com
  (2603:10a6:150:2fc::18) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.7; Thu, 10 Sep
- 2026 01:07:06 +0000
+ 2026 01:07:18 +0000
 Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
  ([fe80::80e9:ab1c:dbc4:6930]) by PA3PR04MB11203.eurprd04.prod.outlook.com
  ([fe80::80e9:ab1c:dbc4:6930%3]) with mapi id 15.21.0406.005; Thu, 10 Sep 2026
- 01:07:06 +0000
+ 01:07:18 +0000
 From: marouene.boubakri@oss.nxp.com
 To: Jens Wiklander <jens.wiklander@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -70,68 +70,70 @@ Cc: Sumit Garg <sumit.garg@linaro.org>,
 	linux-doc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Marouene Boubakri <marouene.boubakri@oss.nxp.com>
-Subject: [RFC PATCH v1 0/6] tee: optee: RISC-V support over the RPMI TEE service group
-Date: Thu, 10 Sep 2026 03:20:51 +0200
-Message-Id: <20260910012057.106966-1-marouene.boubakri@oss.nxp.com>
+Subject: [RFC PATCH v1 2/6] tee: optee: select the SMC ABI conduit from the firmware node match data
+Date: Thu, 10 Sep 2026 03:20:53 +0200
+Message-Id: <20260910012057.106966-3-marouene.boubakri@oss.nxp.com>
 X-Mailer: git-send-email 2.34.1
-X-ClientProxiedBy: PH8PR07CA0038.namprd07.prod.outlook.com
- (2603:10b6:510:2cf::18) To PA3PR04MB11203.eurprd04.prod.outlook.com
+In-Reply-To: <20260910012057.106966-1-marouene.boubakri@oss.nxp.com>
+References: <20260910012057.106966-1-marouene.boubakri@oss.nxp.com>
+X-ClientProxiedBy: PH8PR15CA0024.namprd15.prod.outlook.com
+ (2603:10b6:510:2d2::9) To PA3PR04MB11203.eurprd04.prod.outlook.com
  (2603:10a6:102:4ab::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PA3PR04MB11203:EE_|GV2PR04MB11739:EE_
-X-MS-Office365-Filtering-Correlation-Id: 173ebbcf-8204-4875-2b22-08df0ed7d4ab
+X-MS-Office365-Filtering-Correlation-Id: a97823e2-7d59-4dfb-a47b-08df0ed7dbe4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|23010399003|6133799003|18002099003|56012099006|3023799007|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info: d6khGMaO7EDs2N4TeMFj1yTTxwpGB+gh9si0B+y55AdCLrWR+wZ7upMjlLFh/G/F1Yx/3E+2kZlXWeXfRsVSGa59LgxbjwarIwnSggj7+Us8lhTQALmiFkc92HrYAr0AoPSGyFTntZ42H/OapM1rXYiWs/CHiMDMXd0KteZViuD7Zr8F5cyZoyzuhKKt1/sDGiEuFmsMse0lrzRsDnhCGRZe00ctIhwHIqZgO5gUQtqi+z2sHX754MQOzmLZ5hUv01ti+WCNWcNI27M4eBJJLlEhTZsEhuWxPWryqbQXRrVONYE68jvcAvZWQpu1VI2aWWcdb4UDiRJJfnlAmsiIkd0/d+965GG9kTnHdvWNR7lbHi37HEscmTVLx3sMAS93EuqtgRErCKEKmBF/PHjRP/aIF9oMzx54lePy+l8P5ZvVpwgWiy65j6jchDLEruBjBO/mge1pkJM8Yn8uC9sr3/T6dfQFUKUWrCo5ww++yR/E/SfcPrGvuQ1tEyiCPoiLD/WTNrV+vkxu7aip2BpYkfLJArEtYMlbBdO4oOSlUy9+Fa84s4w/DVSrV6zfToDDnMw0/4Y4wZ/5TVQEGL4/bRmywDhCikh97bwc/6a13WXPzRPBAVMlTPfoufs+OuzU
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(23010399003)(6133799003)(18002099003)(56012099006)(3023799007)(10067099003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|23010399003|6133799003|18002099003|22082099003|56012099006|10067099003|5023799004|11063799006;
+X-Microsoft-Antispam-Message-Info: SN3Oy+vzIc929JLSzp5iIiTLOmcefY/CcpRrQlHOptrnuwIYjNxxirua8hyg7IYnJ1ceE16A59w1ZorDZcQtApw6WeqNTD4yWq6ZH98ZsoMoHayY5QOn9vARYRSUk0AjgQK52+5eeS+shT2zBJ5PBziyKdVOGZyiiI/mIoME1ynQaX5/VFeOB83+z5GmkzZ4/pLR58zdwEKpVUbemeggh/1L4EpCi7uTm7i99qY0nqaRyInkvByuOydGsT843YNvGuQ/l5OTgkEZqSyTS6YnMGFcTqeUiRQcRV/0c1SCSJIDWPlaNEl/yNN62zUDsmt6IPj8JwkUg0pJfVIhMsB6JHfrTSgpj1UX9YkDkBVh6AcUCg+VszlYVvXdtLRGjw9HaLnveyPJay8sb0576Amb37BFplarlgD6mtF1p2S4jg5CTCSNpeMoO4pp6GqzS5tW37+n5POfXEtMpKnbggRMh2N3ELlmI3rdOXSSQyn2SYd72392cHs9fIrdRcMNNYEFiWVy5tjmHDwh7AWSrcDaxGIJpkWsS9zpMGCZCPTatiqpjaxgfn8DIJQCym2n1UfKzCbtC5hGzq2eCL5ySF2fHFFyEIj6IAC8hFWLKsX6WXD7QvHhaI9AsIP+yKA+LHjpHuX8W33wymeDpH9ziYKUcP8rwFV0GJYg17Xc2dRb2i0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(23010399003)(6133799003)(18002099003)(22082099003)(56012099006)(10067099003)(5023799004)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?TY2H15wv6HJVqbT9667ic6hSok30FsbL/8R50jcUtm9qzGyhp3QS4omgvEw3?=
- =?us-ascii?Q?5/7J0IowpYZ25NcCCpnrj2VJFDnbLYwY5oizs+YjTQRWWCO8RJn2xn/c0SKG?=
- =?us-ascii?Q?4n5Y1YdtjIWUy4okkfEJ0f+l4Lkd+hcI2LuD8r8OTCWWsT04yJ0of4alH5DK?=
- =?us-ascii?Q?snc6ChddOFQZZQOn2h+AiyzAkwqRRxQnlt/Jpa1kBfDzBhIZS4LIgOZQr0xV?=
- =?us-ascii?Q?nfa9UjfZNvQahVKejav+r9l1vds8TgbWU8LlgWf72TEwcpkHwU6gnhgQ07US?=
- =?us-ascii?Q?/Mvmi8GSBtUdAlE7BnXYMaHma28DStL2E4hVnDQEWZ07a5aF+pmDtsgfWmZq?=
- =?us-ascii?Q?WJUgQu7XKoPkOP9POay1Xt0KRV9PI7CI8rSEgm5WgxVI41OaxZWQ42PcqRTX?=
- =?us-ascii?Q?P21UbaOITjaw+1RjPv4vA1GdFfedVsNpM8WSX3nRkNrNVJ9yZRMuYJA3Z8MC?=
- =?us-ascii?Q?yCBFdkQIPL/3HQFiFI+/97pbfnlpwU2pQOs1ISnPibVRYmTjSHzmFcDGvKMQ?=
- =?us-ascii?Q?dmykHYz40phC/Zf4XXzLA3NOaWuY3d/hmUIEgzNMnYCzJ9yVcMgWqscjZRRz?=
- =?us-ascii?Q?w7Lf3IiDMmDwgMATIdGK84vGGXds9qiVdk7jaODzMBclYZV6FTa/3+NGhsXd?=
- =?us-ascii?Q?T8M4cDO9YeLMEXzqlcwSfcgbj7EWoGtD5aiJeDXMTraAkSYi+uZ3kf4o5aiN?=
- =?us-ascii?Q?BCxLgSTQdGFXvlzYmudyzF9vnpShKz3n9LoPV10no4J3btqaYVTjlEncnhwk?=
- =?us-ascii?Q?k2FGBZp3x/vOJlF/roL6DMBvWDGekDk4fLEKBhbTbuuxTbh/kf/wswWn3DtG?=
- =?us-ascii?Q?5CjpX8/ec3ZhMTq2N3SS1KVXFCr6LY/1/R+XvPP5pUjL5SjWWjE62dOq21cJ?=
- =?us-ascii?Q?TLHTYBoB5B2/q9agzS2rR5rZuamNE9Faaucouagoo1bI+wBfDT0q2ZHJ7bIF?=
- =?us-ascii?Q?6vWDpigQs4XreeeVMrri1F0F0gyPvdhOb3NfqNbco85do6eL2WxvpOWD+qzq?=
- =?us-ascii?Q?Mq0V/zVOvkxpyXKRwsdv/ayOIuLagg71qireAQ1YQihZG0+HcWNABdjKLB6d?=
- =?us-ascii?Q?OgFKK3GVw98maGyN0OviOa/0fzcyi0xx09lSPwWw7CLVq6HZ0E+EWzmIU7ph?=
- =?us-ascii?Q?w6bKBhDSfkvzgB8AVDT6RS1CTROzmOuF28C3OKlC7Rk6zmJ1lRw/5cR5XwGl?=
- =?us-ascii?Q?ee8Ko5dpkg8Z4KlxXuCifgpvo/mMk7VrP4fYqh47Su9odp14TXsEUrBESKx0?=
- =?us-ascii?Q?+JudMTyzGz9fdqNIYDcSVPB3PzeGQnn9C5QAw3UhBa7wK31quLqTpn8/V3DV?=
- =?us-ascii?Q?/3UCt9gk9iRpHNkSSCqc+Eew96bZey2uOrEU1+fO1SINNaUsKUXjIvQMTa2W?=
- =?us-ascii?Q?MSPsoGoSQ1t/YsXHY1K/ub/sDo4pkYrbVw+b5uepndBMM8lv+l/O1QUMB1si?=
- =?us-ascii?Q?RgFrzOYOs70suL06KIublmk8K8EzmMGyCwFXm0P20TyanUBYbR3LaVS+nLCo?=
- =?us-ascii?Q?MAE0DVffRtH07KgO+fKApLa5+FuRZKyGRHnMCVAtMUMr973yeqH291NynCks?=
- =?us-ascii?Q?gz5Axf2KlptMLuNYOUWT9SgnZ0Q2UIv6+pox+lBTyFk6RVtDB+vdl4BV84SZ?=
- =?us-ascii?Q?IdQXL2XciggAuHZ3oAV+Bbofs+CgvYD7uaMg3ivIhObfV00MmkieFT0IB/Zt?=
- =?us-ascii?Q?BuoKeKNttT7jftO3kt9ak6ZJ2cCOTkR5vh7KvD1G71agsSTFCZ0YdbzQGnWN?=
- =?us-ascii?Q?BqwVRcWsa791dVQ5pV6EtWtcvtyKaS1mKz5TL+p093oqP0JGoTqgWh0+syDy?=
-X-MS-Exchange-AntiSpam-MessageData-1: FBP0BswDTRcDnA==
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AbUrKUgc/VDZ7Rk6xYfFq5XDh0fxupF3GoWi1FID4oHzc2c0jbsLCT7jk7Vo?=
+ =?us-ascii?Q?GMNpWFVBC1T+uv9VYqHJnjnJAqxgECabSOzHc0GXWUEu0I9iuywjF3GDpWgs?=
+ =?us-ascii?Q?xbew6+54qbAco2Dh/4BS2/7thppajZRaFhAbO9nzH7b/RtLXdeG8lEDiIq0Q?=
+ =?us-ascii?Q?VZyAQg5O12edNLv6QuCSHs0jgA5Usa6XpLvPOQRtBr4dezTxW0wcTV5+7Qql?=
+ =?us-ascii?Q?g/JcyK/+CijZFi3+QgWU7Sd87i5azdFK76TECt/or1QQHsPqHKn3OxuJeCAS?=
+ =?us-ascii?Q?ccwJt1OdHAafCxP7rOcWkJpL4ssSdwBYHlU8gfG68MaHhwSriyRWJKmAVO+O?=
+ =?us-ascii?Q?knnG1EMobGLKoR0cAciIxY3w5EYJTufBBlZ4DLeRWH0Gso7UTcxPDVf+kBER?=
+ =?us-ascii?Q?YhH4WCz+G0dw4nbMh3Xfpb/RK62GCWcxsyBeDMcw2zBiGXcqwho4FvYg2mgK?=
+ =?us-ascii?Q?1V9KCwh6uyWBaOiFsQ3/4VAD1VISp/d1eClRQwvd9Xtbcgb+KuL14swuP4o6?=
+ =?us-ascii?Q?XD7DKSaFKEYEdvK7/6lL6kskRYkgmKopA/8lMqvXMmz4ZtC79Fj/xaoeaTQc?=
+ =?us-ascii?Q?cNi8BDe4DjC9xoe9z7Eastn6OcmteE6fQIqtGSWjmwEJiDYf7WFsMATGNVin?=
+ =?us-ascii?Q?03LvHpY5ntD8+RZOrH1FnrYyFLmDHzxgoH14EW6Ior6LrKr98tYUu9+KXBNg?=
+ =?us-ascii?Q?ucoUqvjOKmV/22fLBVxwHJUjbO5EKRjpkn5d2BQD1xkhCe6XzPjlKg/3Q0mR?=
+ =?us-ascii?Q?CUtF+d2ghP0nCSU0FORkui19xOydV4m4VmF/6UgRFsojy8rFK7u9IBBysLHW?=
+ =?us-ascii?Q?VBppBg55hh44AER6i4ePspOwcDhW6hXp3lwUreXrEdGiwkLSOTTXwhYsW1fp?=
+ =?us-ascii?Q?NLJwwUxlaCak9kdYnI7A59v0kX2tUydZMVc0wuCEj5j9E3l6KC1xvoXH3I7L?=
+ =?us-ascii?Q?0KU4gB4KYXAbD/76tKc9mOvab1pyMwtsVUzieObMdRhyLEmGp9T3Kp1t2p7B?=
+ =?us-ascii?Q?TN9/sG0ukzX6oaW+gws9hf8yYgNGOGjyHjwgQdXrWe2DX41Nhy7ULWZATUq/?=
+ =?us-ascii?Q?sn0hTSBA/iSxEZFfJZDVm83eopDNDGwcvtzGBw5BheLUnMnUUyJkSsGHbR7J?=
+ =?us-ascii?Q?O8UgZWcFOcUgpwd79AixqdXa0CcrCy3fO+KH7abRoUDb3h/tM80BZGEiByg3?=
+ =?us-ascii?Q?P8ndD2haovYJeBLiGS/zRZaZ9lffrI+4ORnIccafqMtKOVJK7M86XbatzCeH?=
+ =?us-ascii?Q?IpoqkJu7rOe7NLhMUFEQVq292pbQaVE52c5M9ojKUrURxnPgCgFaC0N+oZ5A?=
+ =?us-ascii?Q?jeNJAhU22QoG9q6DqeUJmb89gJZgs9BeQGt9tCKTBgz6scyVzWk/IAhSTPth?=
+ =?us-ascii?Q?AsDlX5DIQZrmJ0Sx0WzYTeHF4UJNKUzrTIcvUNuWwnWbLqG+BOdnrU2Z1mcH?=
+ =?us-ascii?Q?mKuENT/uP88odKIUJ7BKHAuOhxl/QapNvB2S/saSxljBVLh8FcNj0HWgr+Cb?=
+ =?us-ascii?Q?gjfxFeyHRmzghpV2CuNPlu1VLW8u74MoubvjhlonN+bWUrF6z3+qGz+AfH6b?=
+ =?us-ascii?Q?wXNkgoPe4hF5jnpHyqLgtGkFx/2JqDm/YoaMWD5+hNRJssBkYBkIkQVyg0eJ?=
+ =?us-ascii?Q?xpZsZ1kScTKHvYB+i8AyxRQ5lG+g41mgawOsqPWKdt/6Gr70b3/zO95biMin?=
+ =?us-ascii?Q?nv+V3NNuWQoydmpgmpOOFHqJ7KFe63xldSH4PBX8iE6paD46182OWV1WJPow?=
+ =?us-ascii?Q?nzGa6ne81DrEmwRoqg7PmCMybgu2TeH391SvfBVP6wvzE/QzKZcYEmZYY3oo?=
+X-MS-Exchange-AntiSpam-MessageData-1: 476KDskKwWZF9w==
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 173ebbcf-8204-4875-2b22-08df0ed7d4ab
+X-MS-Exchange-CrossTenant-Network-Message-Id: a97823e2-7d59-4dfb-a47b-08df0ed7dbe4
 X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11203.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 01:07:06.1505
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2026 01:07:18.0905
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WtlUe5KE0joQyhzc+SisoEU2F7SKrKkvWho//IDrzzn+MH5tPLV4UGuC/5OKvyJAemkp/4Pxy+Z3qDZmjsUitCMw+PLG3l5+GL8JTvgdsXlF3GFudbXvTQBDZt5Lhmggio8xXYTw2j+fOP2VxT6ZyQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: xl2Lj1hEe356kDfGWCn5s6plaLpg3EmSXTDgi6YTVSQsaztZo578yF7eAcVf3Jycj//Nxbo1/IRL7VCbEoWJYEQtzZUD6UbImuxFn+oXx2hkBENqUy/7WGePDA/C8plAi/XFgQXMap2lLkm85lIRsw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11739
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260909_180714_155169_B7188B58 
-X-CRM114-Status: GOOD (  30.61  )
+X-CRM114-CacheID: sfid-20260909_180724_372287_202F9D60 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,144 +152,103 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
 
-On RISC-V, OP-TEE runs as a supervisor domain isolated from Linux by the
-M-mode firmware. There is no SMC or HVC instruction: the firmware has to
-switch the calling hart between the two domains, and the way Linux asks
-for that switch has to come from the RISC-V specifications rather than
-from an ad-hoc SBI extension.
+The SMC ABI is defined in terms of register arguments and return values
+and does not depend on how they reach secure world: smc_abi.c already
+abstracts the conduit behind optee_invoke_fn, only its selection is
+hard-wired to the SMCCC "method" property of the "linaro,optee-tz" node.
 
-This series adds RISC-V support to the OP-TEE driver by carrying the
-existing SMC ABI over the TEE service group of the RISC-V Platform
-Management Interface (RPMI) [1], sent with the SBI Message Proxy (MPXY)
-extension of SBI v3.0 [2] through the in-tree MPXY mailbox driver. Each
-invocation of the SMC ABI becomes a TEE_CALL request whose service data
-holds the register arguments a0-a7, and whose service response holds
-the return values a0-a3. The M-mode firmware implementing the service
-group (the "RPMI TEE framework") switches the calling hart to the OP-TEE
-domain until OP-TEE responds, so a TEE_CALL behaves like an SMC: it runs
-on the calling hart and returns when OP-TEE completes the call, requests
-an RPC or yields on a foreign interrupt. The SMC ABI, the message
-protocol, RPCs, dynamic and static shared memory and notifications are
-unchanged, which is why the conduit lives next to the SMCCC one in
-smc_abi.c instead of being a new ABI like ffa_abi.c.
+Introduce struct optee_smc_conduit carried by the match data of the
+firmware node, move the SMCCC specific wrappers and the "method"
+property parsing into the SMCCC conduit and build that conduit only
+when the architecture provides SMCCC (__arm_smccc_hvc() has no stub
+when CONFIG_HAVE_ARM_SMCCC is not set).
 
-Specification status, and how the series is split:
+This prepares for a conduit that carries the SMC ABI over RISC-V RPMI
+messages. No functional change on Arm.
 
-The TEE service group (SERVICEGROUP_ID 0x0010) is part of RPMI v2.0,
-which is in development: it was added to the main branch of the
-specification repository in June 2026 [3] and is not in the released
-RPMI v1.0. Everything in this series that depends on it is kept in the
-last three patches, which are RFC until RPMI v2.0 is frozen as required
-by Documentation/arch/riscv/patch-acceptance.rst:
+Signed-off-by: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+---
+ drivers/tee/optee/smc_abi.c | 32 +++++++++++++++++++++++++++++---
+ 1 file changed, 29 insertions(+), 3 deletions(-)
 
-- patches 1-3 only rely on SBI v3.0 MPXY and RPMI v1.0 as already
-  supported by the kernel, and on existing OP-TEE driver internals.
-  They are meant to be mergeable on their own;
-
-- patches 4-6 add the RPMI v2.0 TEE service group definitions, the
-  binding and the conduit. They implement TEE_CALL as specified; the
-  only OP-TEE specific parts are the content of the service data and
-  service response, which the specification leaves to the service, and
-  the OP-TEE API UID used as service UUID.
-
-Why this conduit rather than the alternatives:
-
-- A raw ecall to a "TEE" SBI extension, as used by the current OP-TEE OS
-  RISC-V port and by the RISE reference firmware, relies on an EID that
-  does not exist in the SBI specification and on returning four values
-  from an ecall, which the SBI calling convention does not allow.
-
-- The RPMI MANAGEMENT_MODE service group (RPMI v1.0) is defined for UEFI
-  PI Management Mode communication and its data is the MM communication
-  buffer; carrying the OP-TEE message protocol in it would go against
-  the specification's intent and collide with its intended users.
-
-- An implementation specific service group (0x8000-0xFFFF) is allowed by
-  RPMI v1.0 but would not be a generic OP-TEE conduit.
-
-The one non-obvious part is patch 1. An MPXY message send is an ecall on
-the calling hart, using per-hart shared memory, which returns once the
-message has been processed. With TEE_CALL that is when OP-TEE has
-finished running on that hart, which can take an arbitrarily long time.
-Sending such messages with mbox_send_message() would execute OP-TEE from
-within msg_submit() with the mailbox channel spinlock held and
-interrupts disabled, serializing every hart on that lock. Patch 1 adds
-riscv_sbi_mpxy_mbox_call() to the MPXY mailbox driver, which performs
-the transfer directly in the calling context with only local interrupts
-disabled (the per-hart shared memory is also used from hard interrupt
-context by mbox_send_message() users). Harts proceed in parallel since
-each one has its own shared memory. The channel is still requested
-through the mailbox core so that its ownership is tracked. Opinions on
-whether this belongs in the MPXY driver, or whether the MPXY shared
-memory handling should move to a core helper usable by several drivers,
-are welcome.
-
-Endpoint identifiers: the framework assigns an identifier to every REE
-and TEE. The only way for an endpoint to learn them without firmware
-help is the optional TEE_PROBE_SYSTEM service, whose response is CBOR
-encoded and cannot be parsed in the kernel, so the binding carries the
-REE and OP-TEE identifiers as properties that the firmware is expected
-to fix up in the device tree. Feedback on this is welcome too.
-
-Known gaps:
-
-- The framework side (OpenSBI: TEE_CALL forwarding through domain
-  context switching) and the messaging return path of the OP-TEE OS
-  RISC-V port are being upstreamed separately.
-
-- The service group defines no notification events; OP-TEE asynchronous
-  notifications on RISC-V are left for later and OP-TEE OS does not
-  advertise them on this conduit.
-
-- The byte order of the SERVICE UUID field is not specified by RPMI;
-  this series uses the RFC 4122 order. The memory parcel services of the
-  service group are not used, secure world accesses registered pages
-  directly as with the SMC conduit.
-
-Testing: built for riscv64 (defconfig plus TEE/OP-TEE, both built-in and
-as modules) and for arm64 (defconfig plus OP-TEE and FF-A) with W=1 at
-every step of the series, plus dt_binding_check. [TODO before posting:
-describe the runtime testing done on QEMU virt with the OpenSBI and
-OP-TEE OS changes mentioned above, e.g. xtest results.]
-
-[1] https://github.com/riscv-non-isa/riscv-rpmi/releases
-[2] https://github.com/riscv-non-isa/riscv-sbi-doc/releases
-[3] https://github.com/riscv-non-isa/riscv-rpmi/commits/main/src/srvgrp-tee.adoc
-
-
-Marouene Boubakri (6):
-  mailbox: riscv-sbi-mpxy: add riscv_sbi_mpxy_mbox_call() for hart-local
-    requests
-  tee: optee: select the SMC ABI conduit from the firmware node match
-    data
-  tee: optee: teach the memory type check about RISC-V page attributes
-  mailbox: riscv-rpmi-message: add TEE service group definitions
-  dt-bindings: firmware: add OP-TEE over the RISC-V RPMI TEE service
-    group
-  tee: optee: add a RISC-V conduit over the RPMI TEE service group
-
- .../bindings/firmware/linaro,optee-rpmi.yaml  |  79 +++++++
- Documentation/tee/op-tee.rst                  |  18 +-
- MAINTAINERS                                   |   2 +
- drivers/mailbox/riscv-sbi-mpxy-mbox.c         |  60 ++++++
- drivers/tee/Kconfig                           |   2 +-
- drivers/tee/optee/Kconfig                     |  11 +-
- drivers/tee/optee/Makefile                    |   1 +
- drivers/tee/optee/call.c                      |   8 +
- drivers/tee/optee/optee_private.h             |   3 +
- drivers/tee/optee/optee_rpmi.h                |  69 ++++++
- drivers/tee/optee/rpmi_conduit.c              | 203 ++++++++++++++++++
- drivers/tee/optee/smc_abi.c                   |  41 +++-
- include/linux/mailbox/riscv-rpmi-message.h    |  25 +++
- include/linux/mailbox/riscv-sbi-mpxy-mbox.h   |  23 ++
- 14 files changed, 538 insertions(+), 7 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/firmware/linaro,optee-rpmi.yaml
- create mode 100644 drivers/tee/optee/optee_rpmi.h
- create mode 100644 drivers/tee/optee/rpmi_conduit.c
- create mode 100644 include/linux/mailbox/riscv-sbi-mpxy-mbox.h
-
-
-base-commit: 50d05c7c76c96b90462f24debacca971d2e86713
+diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
+index b8a2bdac3..221939f72 100644
+--- a/drivers/tee/optee/smc_abi.c
++++ b/drivers/tee/optee/smc_abi.c
+@@ -1464,6 +1464,20 @@ optee_config_shm_memremap(optee_invoke_fn *invoke_fn, void **memremaped_shm)
+ 	return rc;
+ }
+ 
++/*
++ * struct optee_smc_conduit - conduit used to invoke the SMC ABI
++ * @init:	probes the conduit and returns the function invoking the
++ *		SMC ABI through it, or an ERR_PTR() on failure
++ *
++ * The SMC ABI is defined in terms of register arguments and return values
++ * (see optee_smc.h) but does not depend on how they reach secure world. A
++ * conduit is selected by the compatible string of the OP-TEE firmware node.
++ */
++struct optee_smc_conduit {
++	optee_invoke_fn *(*init)(struct device *dev);
++};
++
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ /* Simple wrapper functions to be able to use a function pointer */
+ static void optee_smccc_smc(unsigned long a0, unsigned long a1,
+ 			    unsigned long a2, unsigned long a3,
+@@ -1483,7 +1497,7 @@ static void optee_smccc_hvc(unsigned long a0, unsigned long a1,
+ 	arm_smccc_hvc(a0, a1, a2, a3, a4, a5, a6, a7, res);
+ }
+ 
+-static optee_invoke_fn *get_invoke_func(struct device *dev)
++static optee_invoke_fn *optee_smccc_conduit_init(struct device *dev)
+ {
+ 	const char *method;
+ 
+@@ -1503,6 +1517,11 @@ static optee_invoke_fn *get_invoke_func(struct device *dev)
+ 	return ERR_PTR(-EINVAL);
+ }
+ 
++static const struct optee_smc_conduit optee_smccc_conduit = {
++	.init = optee_smccc_conduit_init,
++};
++#endif
++
+ /* optee_remove - Device Removal Routine
+  * @pdev: platform device information struct
+  *
+@@ -1728,6 +1747,7 @@ static int optee_protmem_pool_init(struct optee *optee)
+ 
+ static int optee_probe(struct platform_device *pdev)
+ {
++	const struct optee_smc_conduit *conduit;
+ 	optee_invoke_fn *invoke_fn;
+ 	struct tee_shm_pool *pool = ERR_PTR(-EINVAL);
+ 	struct optee *optee = NULL;
+@@ -1741,7 +1761,11 @@ static int optee_probe(struct platform_device *pdev)
+ 	u32 sec_caps;
+ 	int rc;
+ 
+-	invoke_fn = get_invoke_func(&pdev->dev);
++	conduit = device_get_match_data(&pdev->dev);
++	if (!conduit)
++		return -ENODEV;
++
++	invoke_fn = conduit->init(&pdev->dev);
+ 	if (IS_ERR(invoke_fn))
+ 		return PTR_ERR(invoke_fn);
+ 
+@@ -1956,7 +1980,9 @@ static int optee_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct of_device_id optee_dt_match[] = {
+-	{ .compatible = "linaro,optee-tz" },
++#ifdef CONFIG_HAVE_ARM_SMCCC
++	{ .compatible = "linaro,optee-tz", .data = &optee_smccc_conduit },
++#endif
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, optee_dt_match);
 -- 
 2.43.0
 
