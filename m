@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF21C79FB9
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 11:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65BBC79FB9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2026 11:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W9RtQqanG4X7piEn8bSZA9OnvQQ3aWQSyuW0U9Dcdto=; b=swMk2M863nADm0
-	mXMud6Nv9kPz2HNXEgW8zXTFQTQPvw/D7aXtd9lA3Hi78Ftn422OQ9Q1kAI2qxx9ZoM0GRyqWeskH
-	XLQQFxuW72Acf7B+S1fXPj6IYRGLmmR8otwKFXXv/exc7pv2mzreQJubGhx8EfYOXqm5c/ojUNP/r
-	vknhT9tkZGvLQ4YoTR8nem/xQPm53L583Kc32qo16kXDj0OGzX0/z3Cm3ECEtSuMZWSZsIAd9Cbbg
-	vpOceMwtOnMITo7nKKYxiy2R04l5ZqPJFSkXBpzRFvhAeaQydi0w/ZBTijKCvRaBLaPK7J9e1vwHL
-	sR+EugNotAtLPOPQsWTg==;
+	List-Owner; bh=akw//HGstmwLae6oUCuTdQlaKY1sGkb2TcVAOh7/73w=; b=jNhleJQ+OM2rEM
+	ASPDN5obg2HdxRI0GYK3oSTBc5bjrgnsqBY06yW/R04gDYPqFiGNlqhVhLpHa6QkZPaH37a+lC08W
+	K7r8CHzK6hMMW8HVt3bR1RTyjUnV9zxaWc5iZiweCXQqgbJJOv1PO/3EIbAgJOzH8vfCWiymrIjax
+	sV0pXWE1YKHkKO4XAtwG4R7x3CpAM+RfywTUQh5usNgnKyzkWnHSgNhEWAfhVqImXZVhCcBbe9G2p
+	22JsQ42IzZp5WYJ76z/n0CxPflk5MgO/0K+rVEbK9zrlYUsLK/Rg7MndcRqlL06k0l44lNUyno7TM
+	E59xdtutNgefFbWe4mug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cb1-0000000E9Xh-2YsO;
-	Thu, 10 Sep 2026 11:05:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4cbu-0000000E9kk-3sZV;
+	Thu, 10 Sep 2026 11:06:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4cb0-0000000E9XD-2UDx;
-	Thu, 10 Sep 2026 11:05:34 +0000
+	id 1x4cbt-0000000E9jn-07Yn;
+	Thu, 10 Sep 2026 11:06:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0FFE941FE2;
-	Thu, 10 Sep 2026 11:05:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D0541F000FF;
-	Thu, 10 Sep 2026 11:05:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4FE3E600C8;
+	Thu, 10 Sep 2026 11:06:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A6A41F000FF;
+	Thu, 10 Sep 2026 11:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789038333;
-	bh=9YZk2wCzZD7ud7nbBKJ04FWJsPn8EDTK/gTOXxFQNOk=;
+	s=k20260515; t=1789038388;
+	bh=aSzot3DdFbH1bRFQSRCfhn2f59lhOlsZ9OER6ann7aY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=O9P4brTBs+SaRO9GQMBGP55ozrj8eS/wvn34kbSVOVVvQGSv+4hQWqHtjF2Onz9AN
-	 /ZlxWsqUVNcxSq+6K2ChEbK2QSC0ahYV+IaDzTtpnV5KIEA34pSjHKM/7MiMMaRg4N
-	 6NGjbWhVcr++iGsRLdFZbdsf/hVDhqjrx8QWxMfTYgWBo7qhIU0H+PuySBwNV8ZW74
-	 Z7DtwGRBvklEoKCi+kEiUWK8uvvtvZFWP+zSaQfmwL4UlRv+cX3UlhBnZjUnzZtiEi
-	 0Jq8KHz8OyRyjw2fZOKgZ3v9cRudaLuE0woLzUhit0+rbKiNXIUYldYZPMLGJ25LzP
-	 fQeVdpHeQUxsA==
-Message-ID: <4b9f8ff1-8b9d-45f5-9012-b648d6e16689@kernel.org>
-Date: Thu, 10 Sep 2026 13:05:18 +0200
+	b=mQv2gG38DwhMioaZmlIihIcjXe1Of5Jx+44aRzTJ7yCvrfUER/jT5PGZkk3aEJsQz
+	 llwtEXey3grPl6cC3wlGm0pKh6qiIagIhA1kT8ncfBECmjszoV3jvYwo3C6HRpyKYJ
+	 IxzMP1ztXCx65ZtCGuluQ74gXB0ikTuy5CMNpTKt7Hj3lc7snpjLPDVvVz8o7RGfpK
+	 aMLsUAPj5Lib6dfiMXITwQJqBXtJOt5KnkAYdW/HPKreE6hr86GiEVwcrUvadtTDp0
+	 sgyMRboqSRuMrQQ78cLql5iy2T3CcddcS2Apy/HsfrlAkalTppILCGhN2j6p3nJWkH
+	 RwmkTeY7ro+aQ==
+Message-ID: <10eb16d9-df86-4116-9b54-4327bb1d55bd@kernel.org>
+Date: Thu, 10 Sep 2026 13:06:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v3 12/21] mm/pgtable: redefine PGTABLE_LEVEL enum with
- ascend order from PGD
+Subject: Re: [PATCH RFC v3 14/21] x86: mm: carve out the generic compile-time
+ folded pgtable case in effective_prot()
 To: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
  Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
  Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
@@ -77,7 +77,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-openrisc@vger.kernel.org
 References: <20260902-dummy_ptxp3-v3-0-5d8f5b17c25c@arm.com>
- <20260902-dummy_ptxp3-v3-12-5d8f5b17c25c@arm.com>
+ <20260902-dummy_ptxp3-v3-14-5d8f5b17c25c@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -124,7 +124,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260902-dummy_ptxp3-v3-12-5d8f5b17c25c@arm.com>
+In-Reply-To: <20260902-dummy_ptxp3-v3-14-5d8f5b17c25c@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,20 +142,20 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 9/2/26 13:56, Yeoreum Yun wrote:
-> The PGTABLE_LEVEL enum values appear to be ordered in the opposite direction
-> from their intended usage.
+> The behaviour of pXdp_get() will change with generic compile-time folded
+> page tables. To prepare for that, rework effective_prot() to ignore any
+> folded page tables entries, as it will unconditionally get called by
+> ptdump core with pXd_val(pXdp_get()), and the value for folded entries
+> really should be ignored.
 > 
-> Intuitively, higher page table levels should have smaller enum values,
-> but PTE is currently assigned 0.
+> For this, introduce mm_first_pgtable_level() to identify the first real
+> page-table level, move mm_pXd_folded() in !__ASSEMBLER__ and
+> update effective_prot with higher_prot only when the current entry is not
+> folded nor the first level.
 > 
-> For consistency and cleanup, reverse the enum value ordering.
-> 
-> Since there is no current user relies on these numbers to be ascending from
-> PTE->PGD, so it can be changed to be ascending from PGD->PTE, in the
-> direction of the page table walk.
+> There should be no functional change.
 > 
 > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
 
 Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
