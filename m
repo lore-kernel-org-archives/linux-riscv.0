@@ -4,106 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96260C79FA1
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 06:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058C8C88E42
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 06:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bTIknYAjb+iwOYUCvPhsLURInoExiB8hlDWSQKt+YBk=; b=Kw51R+rknHRCKh
-	NRSG0dUsJ8BwgP/vmcZohhS85vgDqKPYOqVMe/PXZ8LSjL55dc23FrRYjOy64C3wuwM4hVih9xr4F
-	KHpO5ZwbY0cp3ywymmTVVs3qizpH7Q+DObUhySpEFi1sHpKVV5vOou+w+JT6fs/lyB/G23JE+qCl8
-	zGfbUgtfjF4cdGg3pWutvJ1uT60hQAf8MCT2sEppZT5hBH92fuoIBMF8+Qjt3lQLLCGqq1vm8Ycb0
-	WDp3pdlMX2uq7FrW4sbznxf9rh417xc8h6GTyg6rfixrD2mUXWBBzZi4cZObZ2o+awiXphPRiDu8/
-	/2ikqOostqyxJ8GH0QPg==;
+	List-Owner; bh=oLW9HOrQR2Z17hcvmUkbqf3rkYDu0yhAFOGDYXhbsZs=; b=uKZCxr4z6l01Xe
+	hsRtTk96j+QKN+6U8XYymcu3qCNSo+dwMFT/AdKa+ZeU9AOpWpG5vqcy8HeRKhAShb3Iz6BMTLcfG
+	FJabFW2I7nJECtNjelMw8QLfT+pDEkan5vdGojejaKcNq0Z1PFnbcIqPrmFpKvp6cRChdbFKByprZ
+	w2zXGDF/jV5/R37DKtWYVOpuUUD53msRtFuGE0GQUyZyoTMVe27L3MJ9/E5v6o7AMmo9zxttFlfJU
+	jtGkROM4xYJOOAjjEwnHFug3ByskETX1tx3ECc7cFl4e0Khl0YtKUBQ9ArgDoNM0Qoi6ur4ZaTNkg
+	5hSoR2Vn4aK7KykHKzqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4umi-0000000FvvX-1BnJ;
-	Fri, 11 Sep 2026 06:30:52 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1x4vBg-0000000FyJA-3n2y;
+	Fri, 11 Sep 2026 06:56:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4umf-0000000FvuX-1Fwr
+	id 1x4vBe-0000000FyIe-3vSr
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Sep 2026 06:30:50 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cc149372c14so454947a12.1
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 23:30:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1789108248; x=1789713048; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Db3wlFQ7tWb65H2cUA6T2ug5PcDOcaldDbKEP2DhiPU=;
-        b=CIAbQZi73nHZh31FbV8r89pQcMP8E1yHkMilJBlcdjml7tM0TbVItS4uQ48/ylFX/E
-         RfoAk7rH9zgdujFhtR8ch34MK5nuo9oQn8yYN5TO+sICk45pvYfwNGJz+I+UWaUVXDwB
-         U/sJS0fNH9v+pFy7JjyIOp7bwqoe692T161qIzA8Vrz8abtZtmrn3i5RLpIHk7HCP202
-         N+M59ptfAj11QlbijJkJ0iQZTwdmF58X6iZ+/5L8xjl/bNcf8ypNWkSPAqkGUkcZj6PP
-         oSCyjyz8ekyREsPLVAi558Y3dm25fUTsGkR09Mq8QZ7yaeQq3E3BKB+sjdCKK2pFKvOM
-         4k2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789108248; x=1789713048;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Db3wlFQ7tWb65H2cUA6T2ug5PcDOcaldDbKEP2DhiPU=;
-        b=p+ZzOoHp6Z3VkdcyvGmH7HBnxQ1qiU3CU4bdkW+NBAHr98g9Rve6go12GmduNSDLIs
-         OKnX6wksKIehjZrC7Ok7Hqi0Ylx/tVe82hYOVJhXRmadRs4WIsX/O1xUjaQeJ4whXK3D
-         6yH8clxtLvLtaR5xlqyQSr+Rlc3w4ZBh1Jut0JSnmxsAeMbEH9A9qLAtz1kCBLpI794N
-         eRZLgDtOj6WxgIMhsQaHyicobSXtetwJ+RZLHnMbup+9FXePnP97CjHasnPlVxhi20pW
-         2rZZTOZzJD0gPiJfzNieKJ90LrMjZQxpIqt75J4EjN/cV1/tW0jVLLlGJjja6M5nkSFS
-         CPkw==
-X-Forwarded-Encrypted: i=1; AKwUvByoyQmC/Z3DWtEEOUV+5q4ccFDOYdr2LcG0zzbx8WssCgfcxWgrGE3lGFiPpsGfXclIFSrypzBjesL6yQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++lnI6C40WhUxR6V4GSk5aNluS78BxBGSDNCq6w9GjUjhQQmc2NT
-	Sa96q5+aCMRm5iatKGXdBC3SJ+CdoKxewtFRp4UA7eUObVqJ8dqSK//xhuUOjfq2XZk=
-X-Gm-Gg: AYBFou2cZEJY1cRS2LGDkJGQJ3YKG/VPOohMotwTVqVspR/uW0pdmELYoLW6gc/iAp6
-	pwAtX0njAvjAaL46+J/a+rO7IUGrep02K0U3xv4ek0SMzfmUftl8mWG52uHzSW2huO7FnkQ48Tk
-	SzYJ3iEND0y2hv9U8tJG6OBuWthQCauxzVYEFvLhXhInHkHtUP4ryyPP2kLh7wJ5CrvlhcGTZPp
-	CwLkWTzHFEUM+AwdHk91h63g+ph05Dnz3OD2Bkjj2nElQl6H6CApCEMiv7MIn9zfjbzuqcTDlWA
-	O9+1vUbwn2P04b9vpghm4N52K1dB8ZkmkrelOdANitddSdUOfJuSzsELIxC/XmPWnhHhgNqsYi1
-	OjZR0ixkalwU2gxWn6LHWHv9Ql1lsYpEZtP2mSf48Jdv8VY3+JXvWjL6JGE4z9lUaAIKV8GWx8q
-	x52TtepRIgEZLYyc818F6Zj8aQWrHNyG5m7+JlfD/qauII67vk55LtfR8opD1iufQGJXvsPE9n1
-	W3dkBOllE4=
-X-Received: by 2002:a05:6a20:3c8d:b0:3d4:52bd:b89d with SMTP id adf61e73a8af0-3daed3c168emr5513943637.23.1789108248408;
-        Thu, 10 Sep 2026 23:30:48 -0700 (PDT)
-Received: from sw04.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33baf0ea9a1sm331152eec.8.2026.09.10.23.30.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Sep 2026 23:30:48 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: tomasz.jeznach@linux.dev,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	mark.rutland@arm.com,
-	andrew.jones@oss.qualcomm.com,
-	guoren@kernel.org,
-	david.laight.linux@gmail.com,
-	zhangzhanpeng.jasper@bytedance.com,
-	yang.yicong@picoheart.com,
-	nutty.liu@hotmail.com,
-	iommu@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Cc: Zong Li <zong.li@sifive.com>,
-	Chen Pei <cp0613@linux.alibaba.com>,
-	Fangyu Yu <fangyu.yu@linux.alibaba.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v10 2/2] iommu/riscv: create a auxiliary device for HPM
-Date: Thu, 10 Sep 2026 23:30:42 -0700
-Message-ID: <20260911063043.916844-3-zong.li@sifive.com>
-X-Mailer: git-send-email @GIT_VERSION@
-In-Reply-To: <20260911063043.916844-1-zong.li@sifive.com>
-References: <20260911063043.916844-1-zong.li@sifive.com>
+	Fri, 11 Sep 2026 06:56:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 624FF60202
+	for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2026 06:56:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 195261F0089D
+	for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2026 06:56:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789109798;
+	bh=8vc/xDWnQFzx1CI8QRvR+U52l8TSGE5NUTd3IlCDLPQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Cv8nTb4EWYG0Cl1WjvfZKsufMAVlP0Gedoscwr8lkqfY8YWphAh94m714SYfuAXMA
+	 FU6s5uyGiPWuh1AHy4gNO91mJOkrxBTzcL9mzDSHtZ5/GqJjWa7DJhJn7h6ZwfKz4r
+	 xqjy+WPmqxjFnypKCpvDPiJxiqr+SEnvzLwwxl6LXGrAFtlvs2I0rs6/rYn/lsVVh0
+	 euC7i5kH6jCSrSUfYES4tvHyofZFzfVMiEW1CN7OvDt3ney8cFwZrieBb56LdIuWD/
+	 zYllR1ZGr51eFpG6TJU9OMZZs5xdpSZ46NtS6AJtCXjOt1Ore8Z89sYTmYu2ICI6aH
+	 10AZmmLDC9gWA==
+Received: by mail-wr2-f12.google.com with SMTP id ffacd0b85a97d-482f62ccdb1so145832f8f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 23:56:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxk9Nk1rkVJh/n/pGPcOCWh3SiuY3Bbx2RIQde9pvkPNB3RsBKzn0xwOcjrTEP1g3gs4tt83luk8TyW9w==@lists.infradead.org
+X-Gm-Message-State: AFuF++m4EvZq7+gWGZnpNsu9cl6eSTw2vVfy8fnrSQbg4ys4fzouGq/7
+	hOAYm9JuKqAMc85ZEF9aJezl1QXuJTpiT/bglfwZEn6o6JTmPOG7ByMCZUfUo/17F6sTPZYaKfB
+	PrvJC0TbViHo8D2zPkc1ACYeVZTdYVnw=
+X-Received: by 2002:a05:6000:2404:b0:486:ec88:95ca with SMTP id
+ ffacd0b85a97d-486ec889612mr3706963f8f.12.1789109796605; Thu, 10 Sep 2026
+ 23:56:36 -0700 (PDT)
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_233049_340148_503220A3 
-X-CRM114-Status: GOOD (  13.65  )
+References: <20260908-riscv-vector-asm-fix-v1-1-147f314efb2b@linux.dev>
+In-Reply-To: <20260908-riscv-vector-asm-fix-v1-1-147f314efb2b@linux.dev>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 11 Sep 2026 14:56:24 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRn4keG=peEKkncgdsu=RLP3N0Ev6cO7mzXg-J48R+bEg@mail.gmail.com>
+X-Gm-Features: AcwNN1W7oAcQyKXUOitVQI1nGzO90U5LsLKofTdxYWn-2h9HJHlgkOexcvKkbvw
+Message-ID: <CAJF2gTRn4keG=peEKkncgdsu=RLP3N0Ev6cO7mzXg-J48R+bEg@mail.gmail.com>
+Subject: Re: [PATCH] riscv: vector: Fix data pointer constraints in context save/restore
+To: Troy Mitchell <troy.mitchell@linux.dev>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andybnac@gmail.com>, 
+	Vincent Chen <vincent.chen@sifive.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Greentime Hu <greentime.hu@sifive.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Conor Dooley <conor.dooley@microchip.com>, 
+	Kevin Zhang <zhangmeng.kevin@linux.spacemit.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,112 +80,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Create an auxiliary device for HPM when the IOMMU supports a
-hardware performance monitor.
-
-Tested-by: Chen Pei <cp0613@linux.alibaba.com>
-Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
-Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Yicong Yang <yang.yicong@picoheart.com>
-Suggested-by: Samuel Holland <samuel.holland@sifive.com>
-Signed-off-by: Zong Li <zong.li@sifive.com>
----
- drivers/iommu/riscv/Kconfig |  1 +
- drivers/iommu/riscv/iommu.c | 37 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 38 insertions(+)
-
-diff --git a/drivers/iommu/riscv/Kconfig b/drivers/iommu/riscv/Kconfig
-index b86e5ab94183..8025bf0fb67f 100644
---- a/drivers/iommu/riscv/Kconfig
-+++ b/drivers/iommu/riscv/Kconfig
-@@ -10,6 +10,7 @@ config RISCV_IOMMU
- 	select GENERIC_PT
- 	select IOMMU_PT
- 	select IOMMU_PT_RISCV64
-+	select AUXILIARY_BUS
- 	help
- 	  Support for implementations of the RISC-V IOMMU architecture that
- 	  complements the RISC-V MMU capabilities, providing similar address
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index cec3ddd7ab10..7f619971bb70 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -14,6 +14,7 @@
- 
- #include <linux/acpi.h>
- #include <linux/acpi_rimt.h>
-+#include <linux/auxiliary_bus.h>
- #include <linux/compiler.h>
- #include <linux/crash_dump.h>
- #include <linux/init.h>
-@@ -48,6 +49,9 @@
- static DEFINE_IDA(riscv_iommu_pscids);
- #define RISCV_IOMMU_MAX_PSCID		(BIT(20) - 1)
- 
-+/* IOMMU PMU auxiliary device id allocation namespace. */
-+static DEFINE_IDA(riscv_iommu_pmu_ida);
-+
- /* Device resource-managed allocations */
- struct riscv_iommu_devres {
- 	void *addr;
-@@ -565,6 +569,36 @@ static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
- 	return IRQ_HANDLED;
- }
- 
-+/*
-+ * IOMMU Hardware performance monitor
-+ */
-+static void riscv_iommu_pmu_id_free(void *data)
-+{
-+	ida_free(&riscv_iommu_pmu_ida, (unsigned long)data);
-+}
-+
-+static int riscv_iommu_hpm_enable(struct riscv_iommu_device *iommu)
-+{
-+	struct auxiliary_device *auxdev;
-+	int id, ret;
-+
-+	id = ida_alloc(&riscv_iommu_pmu_ida, GFP_KERNEL);
-+	if (id < 0)
-+		return id;
-+
-+	ret = devm_add_action_or_reset(iommu->dev, riscv_iommu_pmu_id_free,
-+				       (void *)(unsigned long)id);
-+	if (ret)
-+		return ret;
-+
-+	auxdev = __devm_auxiliary_device_create(iommu->dev, "riscv-iommu",
-+						"pmu", iommu, id);
-+	if (!auxdev)
-+		return -ENODEV;
-+
-+	return 0;
-+}
-+
- /* Lookup and initialize device context info structure. */
- static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
- 						 unsigned int devid)
-@@ -1613,6 +1647,9 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
- 		goto err_remove_sysfs;
- 	}
- 
-+	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM)
-+		riscv_iommu_hpm_enable(iommu);
-+
- 	return 0;
- 
- err_remove_sysfs:
--- 
-2.43.7
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBTZXAgOCwgMjAyNiBhdCA5OjAz4oCvUE0gVHJveSBNaXRjaGVsbCA8dHJveS5taXRj
+aGVsbEBsaW51eC5kZXY+IHdyb3RlOgo+Cj4gVGhlIHN0YW5kYXJkIHZlY3RvciBzYXZlL3Jlc3Rv
+cmUgYXNtIGFkdmFuY2VzIGRhdGFwIGJ1dCBkZWNsYXJlcyBpdCBhcwo+IGlucHV0LW9ubHkuIEFu
+IGlubGluZWQgY2FsbGVyIHJldXNpbmcgdGhlIG9yaWdpbmFsIHBvaW50ZXIgbWF5IHRoZXJlZm9y
+ZQo+IHVzZSB0aGUgYWR2YW5jZWQgYWRkcmVzcyBpbnN0ZWFkLgo+Cj4gRGVjbGFyZSBkYXRhcCBh
+cyByZWFkLXdyaXRlIHNvIHRoZSBjb21waWxlciBjYW4gcHJlc2VydmUgdGhlIG9yaWdpbmFsCj4g
+cG9pbnRlciB3aGVuIG5lZWRlZC4KPgo+IEZpeGVzOiAwM2MzZmNkOTk0MWEgKCJyaXNjdjogSW50
+cm9kdWNlIHN0cnVjdC9oZWxwZXJzIHRvIHNhdmUvcmVzdG9yZSBwZXItdGFzayBWZWN0b3Igc3Rh
+dGUiKQo+IFNpZ25lZC1vZmYtYnk6IFRyb3kgTWl0Y2hlbGwgPHRyb3kubWl0Y2hlbGxAbGludXgu
+ZGV2Pgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oIHwgNCArKy0tCj4g
+IDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCj4KPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZWN0b3IuaCBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vdmVjdG9yLmgKPiBpbmRleCBmZmZlNzJhNzcyMDgwLi5jN2ZkNmQ1MGE3YTQ3IDEw
+MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVjdG9yLmgKPiArKysgYi9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oCj4gQEAgLTIzMCw3ICsyMzAsNyBAQCBzdGF0aWMg
+aW5saW5lIHZvaWQgX19yaXNjdl92X3ZzdGF0ZV9zYXZlKHN0cnVjdCBfX3Jpc2N2X3ZfZXh0X3N0
+YXRlICpzYXZlX3RvLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICJhZGQgICAgICAgICAgICAl
+MSwgJTEsICUwXG5cdCIKWWVzLCAlMSBpcyBtb2RpZmllZC4gR29vZCBjYXRjaCEKClJldmlld2Vk
+LWJ5OiBHVU8gUmVuIChYdWFuVGllKSA8Z3VvcmVuQGtlcm5lbC5vcmc+CgpQUzoKRG9uJ3QgZm9y
+Z2V0ICJpZiAoaGFzX3h0aGVhZHZlY3RvcigpKSB7IiBwYXJ0LCB0aHggOikKCj4gICAgICAgICAg
+ICAgICAgICAgICAgICAgInZzZTgudiAgICAgICAgIHYyNCwgKCUxKVxuXHQiCj4gICAgICAgICAg
+ICAgICAgICAgICAgICAgIi5vcHRpb24gcG9wXG5cdCIKPiAtICAgICAgICAgICAgICAgICAgICAg
+ICA6ICI9JnIiICh2bCkgOiAiciIgKGRhdGFwKSA6ICJtZW1vcnkiKTsKPiArICAgICAgICAgICAg
+ICAgICAgICAgICA6ICI9JnIiICh2bCksICIrciIgKGRhdGFwKSA6IDogIm1lbW9yeSIpOwo+ICAg
+ICAgICAgfQo+ICAgICAgICAgcmlzY3Zfdl9kaXNhYmxlKCk7Cj4gIH0KPiBAQCAtMjY2LDcgKzI2
+Niw3IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3Jpc2N2X3ZfdnN0YXRlX3Jlc3RvcmUoc3RydWN0
+IF9fcmlzY3Zfdl9leHRfc3RhdGUgKnJlc3RvcmVfCj4gICAgICAgICAgICAgICAgICAgICAgICAg
+ImFkZCAgICAgICAgICAgICUxLCAlMSwgJTBcblx0Igo+ICAgICAgICAgICAgICAgICAgICAgICAg
+ICJ2bGU4LnYgICAgICAgICB2MjQsICglMSlcblx0Igo+ICAgICAgICAgICAgICAgICAgICAgICAg
+ICIub3B0aW9uIHBvcFxuXHQiCj4gLSAgICAgICAgICAgICAgICAgICAgICAgOiAiPSZyIiAodmwp
+IDogInIiIChkYXRhcCkgOiAibWVtb3J5Iik7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgOiAi
+PSZyIiAodmwpLCAiK3IiIChkYXRhcCkgOiA6ICJtZW1vcnkiKTsKPiAgICAgICAgIH0KPiAgICAg
+ICAgIF9fdnN0YXRlX2Nzcl9yZXN0b3JlKHJlc3RvcmVfZnJvbSk7Cj4gICAgICAgICByaXNjdl92
+X2Rpc2FibGUoKTsKPgo+IC0tLQo+IGJhc2UtY29tbWl0OiBjZWU5Mzk1YWNkODA0M2JlMDY0NGIy
+NWMzNGJmYTg2NjIzZjJiOTM1Cj4gY2hhbmdlLWlkOiAyMDI2MDkwOC1yaXNjdi12ZWN0b3ItYXNt
+LWZpeC0yN2VkMzY2MjM5MzQKPgo+IEJlc3QgcmVnYXJkcywKPiAtLQo+IFRyb3kgTWl0Y2hlbGwg
+PHRyb3kubWl0Y2hlbGxAbGludXguZGV2Pgo+CgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
