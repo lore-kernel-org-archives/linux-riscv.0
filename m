@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058C8C88E42
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 06:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198ABC88E45
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 07:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oLW9HOrQR2Z17hcvmUkbqf3rkYDu0yhAFOGDYXhbsZs=; b=uKZCxr4z6l01Xe
-	hsRtTk96j+QKN+6U8XYymcu3qCNSo+dwMFT/AdKa+ZeU9AOpWpG5vqcy8HeRKhAShb3Iz6BMTLcfG
-	FJabFW2I7nJECtNjelMw8QLfT+pDEkan5vdGojejaKcNq0Z1PFnbcIqPrmFpKvp6cRChdbFKByprZ
-	w2zXGDF/jV5/R37DKtWYVOpuUUD53msRtFuGE0GQUyZyoTMVe27L3MJ9/E5v6o7AMmo9zxttFlfJU
-	jtGkROM4xYJOOAjjEwnHFug3ByskETX1tx3ECc7cFl4e0Khl0YtKUBQ9ArgDoNM0Qoi6ur4ZaTNkg
-	5hSoR2Vn4aK7KykHKzqg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=GeNMEXA8dLtI5NqluNpMIHgA+CL59NcTVFIzvBdA2u8=; b=i1v4T+9VGetiGMb8nJx1mYAznZ
+	QaLboXSQE7kAn0/LBQSpQTjhXUaGdwmWyBQexEBBn6H6lu4y8vVWQdaTKDaVUrIKziSbywDJQOm11
+	PgDrAaSf4lIE+NDGpzyU+kiqUaN6zjJNNrTw/Bh8S6+xE92D8WUGiOxwVFUVhePy+i27TeegCuf7W
+	BZIeuBswrVCCcpFS+L4vPNHa7DFdblQ/swSm9DJwXZUYlaXMyDrDogLak0hvT0LqYcKk1HN1UUka7
+	w7/j5g0lRGyFtnrgcEJmGSkiR30omLiqDZkoJK5lXEQvcJd5HwD7QMKETo64h8kr4Dpqh4jnJXDHx
+	JczD4noQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vBg-0000000FyJA-3n2y;
-	Fri, 11 Sep 2026 06:56:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x4vJ3-0000000FzO5-0YG0;
+	Fri, 11 Sep 2026 07:04:17 +0000
+Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4vBe-0000000FyIe-3vSr
+	id 1x4vJ0-0000000FzNT-2GD8
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Sep 2026 06:56:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 624FF60202
-	for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2026 06:56:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 195261F0089D
-	for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2026 06:56:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789109798;
-	bh=8vc/xDWnQFzx1CI8QRvR+U52l8TSGE5NUTd3IlCDLPQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Cv8nTb4EWYG0Cl1WjvfZKsufMAVlP0Gedoscwr8lkqfY8YWphAh94m714SYfuAXMA
-	 FU6s5uyGiPWuh1AHy4gNO91mJOkrxBTzcL9mzDSHtZ5/GqJjWa7DJhJn7h6ZwfKz4r
-	 xqjy+WPmqxjFnypKCpvDPiJxiqr+SEnvzLwwxl6LXGrAFtlvs2I0rs6/rYn/lsVVh0
-	 euC7i5kH6jCSrSUfYES4tvHyofZFzfVMiEW1CN7OvDt3ney8cFwZrieBb56LdIuWD/
-	 zYllR1ZGr51eFpG6TJU9OMZZs5xdpSZ46NtS6AJtCXjOt1Ore8Z89sYTmYu2ICI6aH
-	 10AZmmLDC9gWA==
-Received: by mail-wr2-f12.google.com with SMTP id ffacd0b85a97d-482f62ccdb1so145832f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2026 23:56:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxk9Nk1rkVJh/n/pGPcOCWh3SiuY3Bbx2RIQde9pvkPNB3RsBKzn0xwOcjrTEP1g3gs4tt83luk8TyW9w==@lists.infradead.org
-X-Gm-Message-State: AFuF++m4EvZq7+gWGZnpNsu9cl6eSTw2vVfy8fnrSQbg4ys4fzouGq/7
-	hOAYm9JuKqAMc85ZEF9aJezl1QXuJTpiT/bglfwZEn6o6JTmPOG7ByMCZUfUo/17F6sTPZYaKfB
-	PrvJC0TbViHo8D2zPkc1ACYeVZTdYVnw=
-X-Received: by 2002:a05:6000:2404:b0:486:ec88:95ca with SMTP id
- ffacd0b85a97d-486ec889612mr3706963f8f.12.1789109796605; Thu, 10 Sep 2026
- 23:56:36 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260908-riscv-vector-asm-fix-v1-1-147f314efb2b@linux.dev>
-In-Reply-To: <20260908-riscv-vector-asm-fix-v1-1-147f314efb2b@linux.dev>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 11 Sep 2026 14:56:24 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRn4keG=peEKkncgdsu=RLP3N0Ev6cO7mzXg-J48R+bEg@mail.gmail.com>
-X-Gm-Features: AcwNN1W7oAcQyKXUOitVQI1nGzO90U5LsLKofTdxYWn-2h9HJHlgkOexcvKkbvw
-Message-ID: <CAJF2gTRn4keG=peEKkncgdsu=RLP3N0Ev6cO7mzXg-J48R+bEg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: vector: Fix data pointer constraints in context save/restore
-To: Troy Mitchell <troy.mitchell@linux.dev>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andybnac@gmail.com>, 
-	Vincent Chen <vincent.chen@sifive.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Greentime Hu <greentime.hu@sifive.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Conor Dooley <conor.dooley@microchip.com>, 
-	Kevin Zhang <zhangmeng.kevin@linux.spacemit.com>
+	Fri, 11 Sep 2026 07:04:15 +0000
+Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2dcfed75f77so8096445ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2026 00:04:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1789110253; x=1789715053; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=v4log2b7lXSyNC0NL5JxC6rtxmWq5NdYaV3uhGWFgpQ=;
+        b=nOtYjXqoykjWAdsYEPIMvNZjPLnd7R9H9Vqn5h0jCLuFB8Y3yTqtO7F/PSxJMfz4iK
+         jf0SAW1fjOWywcL+Gg7XPjkQ9eKkLUYwO02tjzNCorYhBBJ+C26wjAwVQHfrPgKNT7lI
+         kQBoneY5LyZJ3RiZcSsRlnDaUX/15uV9qLtRZ+f/tJtpDSBZUtws+HrJ1y1eoAOJTzZJ
+         wSa2DBAT6aDC+gvrj02/+xw1gCyLHBVPDLZBD41cSphwmv7+8YJ6bXgc4OZvTIA7KqeX
+         myA/24LOrB3EhneDvSEXaapWc0rzppXv2jaFc7o2HB4j2h4YorvTYaJ6H87WpVFQnDl3
+         w4pA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789110253; x=1789715053;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=v4log2b7lXSyNC0NL5JxC6rtxmWq5NdYaV3uhGWFgpQ=;
+        b=sS9GXK6x0V/dgyRB8ixFhimBj6QzItpyQpwaWikTS0d2PGmfADnZmqhsfuDtvdZD/o
+         De4eiqNl2KNw5rzeNAmQHSwGR0ovw6hrNnzdM2DRxwHlHQqso3L58jqVAzVInIi+aI3U
+         czwwuOTZvolp4njXU855WTCosLMUFFdZ/6ujaH21sBuWja/6oV276L9qWaUkF+g+IheO
+         p1MiZGuTSDcuzw4AcJjzwjdazuYYwDhgytS+gxLI1Byuvo5EqSILot/Bb4MzFYTvT4gS
+         Lb4oW6XnjSYVNoR/066UxoKE8uHts5dZq19H7wUvNQPyGoUe9PWjXOwImmk859bxY0qO
+         Ehyw==
+X-Forwarded-Encrypted: i=1; AKwUvByTTPfw4/RkpopSEouaV+v2mPLa9xhcZO4Ru34Kilw0gJty/lIhM69TIlL9EFTwAn9ZtGv3rtxwci3dcg==@lists.infradead.org
+X-Gm-Message-State: AFuF++kAU8MZwmsIYDQXEkuMCevJNXXFhysVKyZi2z9snFoDP2HUdjci
+	ms7nNkw4ASpqLUAkmxVyl3SDQ4Zbu3L/cpmaFW48P8btDwrrwmkpDoCC5biDt2I6qw9lKDUZVd2
+	7
+X-Received: from plbmm11.prod.google.com ([2002:a17:903:a0b:b0:2db:34ec:27e6])
+ (user=morbo job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2983:b0:2db:257c:9fd5
+ with SMTP id d9443c01a7336-2dd2a35dd2bmr69446655ad.16.1789110252766; Fri, 11
+ Sep 2026 00:04:12 -0700 (PDT)
+Date: Fri, 11 Sep 2026 07:03:40 +0000
+In-Reply-To: <20260911070346.801948-1-morbo@google.com>
+Mime-Version: 1.0
+References: <20260911070346.801948-1-morbo@google.com>
+X-Mailer: git-send-email 2.55.0.1032.g73a4cd73de-goog
+Message-ID: <20260911070346.801948-3-morbo@google.com>
+Subject: [PATCH 2/7] x86/word-at-a-time: Instrument load_unaligned_zeropad()
+From: Bill Wendling <morbo@google.com>
+To: linux-kernel@vger.kernel.org
+Cc: Bill Wendling <morbo@google.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Kees Cook <kees@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Peter Collingbourne <peter@pcc.me.uk>, linux-arch@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, x86@kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_000414_587352_D1ADD354 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +92,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgOCwgMjAyNiBhdCA5OjAz4oCvUE0gVHJveSBNaXRjaGVsbCA8dHJveS5taXRj
-aGVsbEBsaW51eC5kZXY+IHdyb3RlOgo+Cj4gVGhlIHN0YW5kYXJkIHZlY3RvciBzYXZlL3Jlc3Rv
-cmUgYXNtIGFkdmFuY2VzIGRhdGFwIGJ1dCBkZWNsYXJlcyBpdCBhcwo+IGlucHV0LW9ubHkuIEFu
-IGlubGluZWQgY2FsbGVyIHJldXNpbmcgdGhlIG9yaWdpbmFsIHBvaW50ZXIgbWF5IHRoZXJlZm9y
-ZQo+IHVzZSB0aGUgYWR2YW5jZWQgYWRkcmVzcyBpbnN0ZWFkLgo+Cj4gRGVjbGFyZSBkYXRhcCBh
-cyByZWFkLXdyaXRlIHNvIHRoZSBjb21waWxlciBjYW4gcHJlc2VydmUgdGhlIG9yaWdpbmFsCj4g
-cG9pbnRlciB3aGVuIG5lZWRlZC4KPgo+IEZpeGVzOiAwM2MzZmNkOTk0MWEgKCJyaXNjdjogSW50
-cm9kdWNlIHN0cnVjdC9oZWxwZXJzIHRvIHNhdmUvcmVzdG9yZSBwZXItdGFzayBWZWN0b3Igc3Rh
-dGUiKQo+IFNpZ25lZC1vZmYtYnk6IFRyb3kgTWl0Y2hlbGwgPHRyb3kubWl0Y2hlbGxAbGludXgu
-ZGV2Pgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oIHwgNCArKy0tCj4g
-IDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCj4KPiBkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZWN0b3IuaCBiL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vdmVjdG9yLmgKPiBpbmRleCBmZmZlNzJhNzcyMDgwLi5jN2ZkNmQ1MGE3YTQ3IDEw
-MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVjdG9yLmgKPiArKysgYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oCj4gQEAgLTIzMCw3ICsyMzAsNyBAQCBzdGF0aWMg
-aW5saW5lIHZvaWQgX19yaXNjdl92X3ZzdGF0ZV9zYXZlKHN0cnVjdCBfX3Jpc2N2X3ZfZXh0X3N0
-YXRlICpzYXZlX3RvLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICJhZGQgICAgICAgICAgICAl
-MSwgJTEsICUwXG5cdCIKWWVzLCAlMSBpcyBtb2RpZmllZC4gR29vZCBjYXRjaCEKClJldmlld2Vk
-LWJ5OiBHVU8gUmVuIChYdWFuVGllKSA8Z3VvcmVuQGtlcm5lbC5vcmc+CgpQUzoKRG9uJ3QgZm9y
-Z2V0ICJpZiAoaGFzX3h0aGVhZHZlY3RvcigpKSB7IiBwYXJ0LCB0aHggOikKCj4gICAgICAgICAg
-ICAgICAgICAgICAgICAgInZzZTgudiAgICAgICAgIHYyNCwgKCUxKVxuXHQiCj4gICAgICAgICAg
-ICAgICAgICAgICAgICAgIi5vcHRpb24gcG9wXG5cdCIKPiAtICAgICAgICAgICAgICAgICAgICAg
-ICA6ICI9JnIiICh2bCkgOiAiciIgKGRhdGFwKSA6ICJtZW1vcnkiKTsKPiArICAgICAgICAgICAg
-ICAgICAgICAgICA6ICI9JnIiICh2bCksICIrciIgKGRhdGFwKSA6IDogIm1lbW9yeSIpOwo+ICAg
-ICAgICAgfQo+ICAgICAgICAgcmlzY3Zfdl9kaXNhYmxlKCk7Cj4gIH0KPiBAQCAtMjY2LDcgKzI2
-Niw3IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3Jpc2N2X3ZfdnN0YXRlX3Jlc3RvcmUoc3RydWN0
-IF9fcmlzY3Zfdl9leHRfc3RhdGUgKnJlc3RvcmVfCj4gICAgICAgICAgICAgICAgICAgICAgICAg
-ImFkZCAgICAgICAgICAgICUxLCAlMSwgJTBcblx0Igo+ICAgICAgICAgICAgICAgICAgICAgICAg
-ICJ2bGU4LnYgICAgICAgICB2MjQsICglMSlcblx0Igo+ICAgICAgICAgICAgICAgICAgICAgICAg
-ICIub3B0aW9uIHBvcFxuXHQiCj4gLSAgICAgICAgICAgICAgICAgICAgICAgOiAiPSZyIiAodmwp
-IDogInIiIChkYXRhcCkgOiAibWVtb3J5Iik7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgOiAi
-PSZyIiAodmwpLCAiK3IiIChkYXRhcCkgOiA6ICJtZW1vcnkiKTsKPiAgICAgICAgIH0KPiAgICAg
-ICAgIF9fdnN0YXRlX2Nzcl9yZXN0b3JlKHJlc3RvcmVfZnJvbSk7Cj4gICAgICAgICByaXNjdl92
-X2Rpc2FibGUoKTsKPgo+IC0tLQo+IGJhc2UtY29tbWl0OiBjZWU5Mzk1YWNkODA0M2JlMDY0NGIy
-NWMzNGJmYTg2NjIzZjJiOTM1Cj4gY2hhbmdlLWlkOiAyMDI2MDkwOC1yaXNjdi12ZWN0b3ItYXNt
-LWZpeC0yN2VkMzY2MjM5MzQKPgo+IEJlc3QgcmVnYXJkcywKPiAtLQo+IFRyb3kgTWl0Y2hlbGwg
-PHRyb3kubWl0Y2hlbGxAbGludXguZGV2Pgo+CgoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+load_unaligned_zeropad() is implemented as inline asm plus an
+exception table entry on every architecture, so the compiler never
+sees the actual memory access and cannot emit KASAN/KCSAN
+instrumentation for it.
+
+Resurrect the instrumentation that was lost when migrating from
+read_word_at_a_time() by renaming load_unaligned_zeropad() to
+arch_load_unaligned_zeropad() and adding a common instrumented
+load_unaligned_zeropad() in the new
+asm-generic/word-at-a-time-instrumented.h, pulled in from the bottom
+of asm/word-at-a-time.h. This mirrors the existing
+arch_atomic_*()/atomic_*() split in linux/atomic/atomic-instrumented.h,
+where the arch_* version is the raw, uninstrumented primitive and the
+plain name is the instrumented one everyone should call.
+
+The wrapper is __always_inline, so it compiles down to exactly the
+same inline asm as before plus instrument_read() -- confirmed via
+objdump that no calls or relocations to load_unaligned_zeropad(),
+instrument_read(), or the KASAN/KCSAN check functions remain when
+KASAN and KCSAN are both disabled.
+
+Convert x86 to the new split here. Follow-up patches convert the
+remaining architectures (arm64, arm, riscv, s390, powerpc) that
+implement load_unaligned_zeropad().
+
+Fixes: d94c12bd97d5 ("string: Add load_unaligned_zeropad() code path to sized_strscpy()")
+Assisted-by: Claude:claude-sonnet-5
+Signed-off-by: Bill Wendling <morbo@google.com>
+---
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Kees Cook <kees@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Peter Collingbourne <peter@pcc.me.uk>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: x86@kernel.org
+---
+ arch/x86/include/asm/word-at-a-time.h         |  4 ++-
+ .../asm-generic/word-at-a-time-instrumented.h | 25 +++++++++++++++++++
+ 2 files changed, 28 insertions(+), 1 deletion(-)
+ create mode 100644 include/asm-generic/word-at-a-time-instrumented.h
+
+diff --git a/arch/x86/include/asm/word-at-a-time.h b/arch/x86/include/asm/word-at-a-time.h
+index 422a47746657..483d27dc96b2 100644
+--- a/arch/x86/include/asm/word-at-a-time.h
++++ b/arch/x86/include/asm/word-at-a-time.h
+@@ -67,7 +67,7 @@ static inline unsigned long find_zero(unsigned long mask)
+  * and the next page not being mapped, take the exception and
+  * return zeroes in the non-existing part.
+  */
+-static inline unsigned long load_unaligned_zeropad(const void *addr)
++static inline unsigned long arch_load_unaligned_zeropad(const void *addr)
+ {
+ 	unsigned long ret;
+ 
+@@ -81,4 +81,6 @@ static inline unsigned long load_unaligned_zeropad(const void *addr)
+ 	return ret;
+ }
+ 
++#include <asm-generic/word-at-a-time-instrumented.h>
++
+ #endif /* _ASM_WORD_AT_A_TIME_H */
+diff --git a/include/asm-generic/word-at-a-time-instrumented.h b/include/asm-generic/word-at-a-time-instrumented.h
+new file mode 100644
+index 000000000000..8a66d53bf538
+--- /dev/null
++++ b/include/asm-generic/word-at-a-time-instrumented.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_GENERIC_WORD_AT_A_TIME_INSTRUMENTED_H
++#define _ASM_GENERIC_WORD_AT_A_TIME_INSTRUMENTED_H
++
++#include <linux/instrumented.h>
++
++/*
++ * Each arch's asm/word-at-a-time.h defines arch_load_unaligned_zeropad()
++ * as inline asm plus an exception table entry, so the compiler never sees
++ * the actual memory access and cannot emit KASAN/KCSAN instrumentation
++ * for it. Provide the common, instrumented load_unaligned_zeropad() that
++ * every caller uses by wrapping the arch version with instrument_read().
++ *
++ * This is marked __always_inline, and arch_load_unaligned_zeropad() is
++ * itself a tiny inline-asm-only function, so this compiles down to the
++ * same inline asm as before plus instrument_read() (which itself compiles
++ * to nothing when KASAN and KCSAN are both disabled) -- no actual call.
++ */
++static __always_inline unsigned long load_unaligned_zeropad(const void *addr)
++{
++	instrument_read(addr, 1);
++	return arch_load_unaligned_zeropad(addr);
++}
++
++#endif /* _ASM_GENERIC_WORD_AT_A_TIME_INSTRUMENTED_H */
+-- 
+2.47.3
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
