@@ -4,100 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DE2C88E4C
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 08:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE127C88E4C
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 08:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
+	To:Mime-Version:Message-Id:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TZXPJX7oSvpt2+JtB4hsgT2gvKvZRmfsLDht51/C3bg=; b=3MkB7MLOSZuTE9
-	6Vdd6Yswc6QSpP8Og93xvoRajseAlnkWHy/GZIiHe6ekxLnmQ34ypsUKCNxo5Y0j6bSHgPyzXfHib
-	0tDllX5dIRUn4mMsYLNtYDKAGUTMGKu4apUHKS/alG1frZ1J5Y0Xj1MjSl+Yx1D/aA1dKmJy9RO5t
-	TP7RXsJ7Eeg1H4QmIUVA5wZsgVTB72fgPTipChLiFl1MUBWpmC4jogUc+LUxmW26pekdlRiT10toP
-	mLDAOO7uCOY9b5Y3tyCNSoNPL961qOppUhySQ/nO+KXL/zcvYLa8zsC4n7uNxMI9dK6myp5kYMiPi
-	QB6K9ydaOGK8mP/S0Xfw==;
+	List-Owner; bh=dJ5Qtkx1aZ0ls2hVRzng4rF7S40kui8x7o1E3Kr5tZw=; b=mfSS6Q2vceKbFX
+	lrgGtbGQGeazQ6lChpU98UxcVDBE5kT2CeeocfcoKGl0HKCOqRO4F20iTLK7RKSLNbKOJ65KaaZEp
+	E5ibZh7brYXZ77xfDs0ne3xo5EiHH3UGGEvlc8ccwgPCxEBpVnT3d1Mu48CNm7ln6UysL3nU+dZPY
+	GgNm+/wxqmF+ZUcy1L6ki5+4h84LLdecM+YWXMQ03122WhqQm6j6P/WU8f/OdW++zVTLmuXZ0MeTi
+	HO9EUDqZllCq81Y4VUlIOrmHSD3vVnjs7id/sALgTTQBruYo3KMupuuoqpYSdON/vjlr5kdpKK26A
+	RfuH/f4wDkwXhnCGajmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4wrB-0000000GALr-17xZ;
-	Fri, 11 Sep 2026 08:43:37 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1x4x1k-0000000GBdi-0eVt;
+	Fri, 11 Sep 2026 08:54:32 +0000
+Received: from va-1-111.ptr.blmpb.com ([209.127.230.111])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4wr6-0000000GALP-2OUH
+	id 1x4x1h-0000000GBdO-0yhq
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Sep 2026 08:43:34 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-cc147d86bebso831148a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2026 01:43:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789116211; x=1789721011; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=S7nbu7B+bglE3m9s/GZRfFOgm8cRTpe/a1+eyVcACJU=;
-        b=QIblIExT9jxZfiG/+mVQdZJOWAXLXRss+HJUdozwBWRxMDnt+Zv9yaDTogUl2OIhRu
-         X8HpZCClfC/N/nYiyKUkaGdR4eE2W/gKG0u1vSw5Mk3XOZ8ACqD7hIwrOlttQHEkNAyG
-         yNN11R7dFEsONeMjcVEKgQqwKnKEgf35u+dcD3duoxJyr/NVuBNSLUjSItVfZuJ799aj
-         Vf+R0HMsKO7NB0eQRhT6KmLkMAAqJStzff4dWXg/noEQVuXBqw4/+/Hoofo6EPMXy/tF
-         22Ws08bh7VWoqwiW1mfcN8GRf538eDNIQAWnXO1UAb54myoB2j6ewT6ZaAInAUsqKydF
-         Pz0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789116211; x=1789721011;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S7nbu7B+bglE3m9s/GZRfFOgm8cRTpe/a1+eyVcACJU=;
-        b=UytDxKMkODOpjizi1sXVQf6AYusvBpEaBiS1kXT0pe1iJbX6bSmS875BPXarDdMIEz
-         EM98pTLCKxOXKCg8YDL4NBm9uaIa9mYbn5yuBkZpMiu7vIVXfGBCa3UT9/zLJ+sh4ydn
-         KSylAiHC1C5Py1w1IolYJjbtjxeHxw415GIHL9RK4qrgBzFzZlFjI95TBY2knosJxVdB
-         1JuZkjkBg2JVkulD2RgtghV0KIr5lNRuVYOCi/UbUNe0YMLxs5pGzDNkYeoJ7XznE8A/
-         Bvqff6uOvTzokEEsjNFhkyrwB5M+00lJ4rKEkNnkNuxDH7lY4MLjYe7SxAZxX0xSxzzb
-         XHKA==
-X-Forwarded-Encrypted: i=1; AKwUvBwvEKlkIg+7R4tG53sCXJ/he8xMCtLCWsl2POh66goNpmZWREQ2ZdoyvDS00wWThDfL6+EL4PrXQ26fpg==@lists.infradead.org
-X-Gm-Message-State: AFuF++kU0tDqtQo6C1q4IZMrLmdWAaH4fhL4r+YF1gKQXGHgsrMUZoZY
-	9GlKmtUQ94AoTrSKcrSRyeelf8ymLJneECSubPsrlogAHfjc5O3kP8YH
-X-Gm-Gg: AYBFou2Jdqm4UCjZRR4FYU1EuBJw9xI2ukMKl3PJRLHzF243XWuc3XES7caqDqBkG3N
-	A4p8IW7p17MubzN80/NlY1gSmym9xXJtIiwyI6HdkuNrGy38m37R5q2eH2tlKPh8npyfkblw5wG
-	e7KFFiJImzk8E8yW27g6RgrOdrj+9EicMNSO7sd7GJxhz8hv21EMvUApiwpUYK7n8MwdDmaOYt0
-	g7xyGEQ//O3NGGuUEEXUk4nKMkyoRxevdpGkKQ8o/OiKZsng7rvnRrN1gyQlRcloRosYPdg3QLI
-	mAmhA5pn5V4ruHZU+Z6kClu0+DPlk2xKv09Q+l19Pr4J/uciDc4f6i2FJrI0OBbin6dpGGxrqrN
-	FrHI/a/TtS77YXqPrb4EnuRbeInYF3JMFAXXPd/FxteQ7FVzdJwSz+4iFuyyd7lMTzxWgCqX4hv
-	BJagQkBXiWNX54KC7FMZJLHx+jb0TIQDmiP4o/V6RMTRWdVjux1co64/z6bePP1H6ekHqWrglxo
-	Q==
-X-Received: by 2002:a05:6300:6cd2:10b0:3da:e57d:4a79 with SMTP id adf61e73a8af0-3dae57d4be8mr3715040637.13.1789116211210;
-        Fri, 11 Sep 2026 01:43:31 -0700 (PDT)
-Received: from [192.168.0.13] ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc4c657156bsm813945a12.21.2026.09.11.01.43.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Sep 2026 01:43:30 -0700 (PDT)
-Message-ID: <0f82c603-0ddd-4d01-bf48-56d0ffcd29b0@gmail.com>
-Date: Fri, 11 Sep 2026 01:43:15 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/6] spacemit: k3: Replace bad CLINT node with ACLINT
- nodes
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner
- <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Inochi Amaoto <inochiama@outlook.com>, Radu Rendec <radu@rendec.net>,
- Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
- Guodong Xu <docular.xu@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20260909-k3-aclint-v2-0-7931e5bc86ad@pigmoral.tech>
-Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20260909-k3-aclint-v2-0-7931e5bc86ad@pigmoral.tech>
+	Fri, 11 Sep 2026 08:54:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1789116859; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=ll6mGsQ0NP/yiMN03dJvbR4RMY0hZg71ZwyOyHA0XNw=;
+ b=kbj+ZeOr8Zky2fPkoD0pBRRkvfkcwZ08VVIV2G2+QMf0//Y5huajrCzOgEQZTeixqVYcTM
+ G6rk8yBz4zIRZiOwiGgtiC7kdLWTZwrd0Doy8PqvpG5My2nk5A41XMc/QinJ7djOG10v2P
+ UnVgtRkfY2B8WwfwwyM3ofrIa2gcZc7YECvKcXrkfJUNsnlfyFU4QgvHh1YO7Zl9up6rKT
+ WxCdw+KT7alMlN06NijVDYQW32f938A9HXiqLTCWDqznyS8OxehaVBojIZG9kEvp7gmpC7
+ wz3UdOgBHGGtwLzIb2sQH2zDQpfYyU9Jqedup21dV9jAE3Iu9YnThMhDowaacQ==
+Date: Fri, 11 Sep 2026 16:54:00 +0800
+Message-Id: <20260911085359.95227-2-qirui.001@bytedance.com>
+Mime-Version: 1.0
+To: "Himanshu Chauhan" <himanshu.chauhan@oss.qualcomm.com>
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
+	<qingfang.deng@linux.dev>, <alex@ghiti.fr>, <aou@eecs.berkeley.edu>, 
+	<palmer@dabbelt.com>, <pjw@kernel.org>, <shuah@kernel.org>, 
+	<thecharlesjenkins@gmail.com>, <jtaubepe@redhat.com>
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
+X-Lms-Return-Path: <lba+26aa3c1b9+1d4d0a+lists.infradead.org+qirui.001@bytedance.com>
+References: <20260803134913.2013674-2-himanshu.chauhan@oss.qualcomm.com>
+X-Mailer: git-send-email 2.52.0
+From: "Rui Qi" <qirui.001@bytedance.com>
+Subject: Re: [PATCH v6 1/5] riscv: Introduce support for hardware break/watchpoints
+In-Reply-To: <20260803134913.2013674-2-himanshu.chauhan@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_014332_624744_AA853A2B 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20260911_015429_366504_C5661DF3 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,115 +67,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Junhui,
+Hi Himanshu,
 
-Thanks for your patch. This would give me more clarity while reviewing
-the OpenSBI patchset from Troy, and I was wondering why Troy sent this
-https://lore.kernel.org/opensbi/20260908-ipi-clear-all-v1-1-b1bd5d016eb6@linux.dev/T/#u
+While testing this series on a platform exposing type-6 triggers, I hit a
+failure that seems related to the mcontrol6 timing/hit semantics.
 
-Now it's much clearer -- K3 has two ways to do IPI, ACLINT and IMSIC.
+The current execute breakpoint path demuxes the event only by comparing
+the programmed breakpoint address with regs->epc:
 
-One thing that may help us further: Can you clarify on the exact meaning
-of "M-mode only"? OpenSBI would use PMP to protect those MSWI/MTIMER
-regions, so I wonder if you meant that it's enforced by the PMP settings,
-or it's *actually* enforced by the device itself (or fabric)? AFAIK, to
-achieve this, the device must have a way to distinguish the privilege-
-level of the CPU at the time it initiated the MMIO request. Hence, the
-core must be putting the privilege level as some kind of attribute in the
-MMIO request. Is that the case in k3? Can you confirm with SpacemiT?
+    if (bp->address == args->regs->epc)
+        perf_bp_event(event, args->regs);
 
-On 9/8/26 09:28, Junhui Liu wrote:
-> When testing OpenSBI with the upstream Device Tree, the CLINT controller
-> failed to function properly with the irqchip.riscv_imsic_noipi boot
-> parameter:
-> 
->    Platform IPI Device         : aclint-mswi
->    Platform Timer Device       : aclint-mtimer @ 24000000Hz
->    
->    Domain0 Region03            : 0x00000000e081c000-0x00000000e081ffff M: (I,R,W) S/U: ()
->    
->    [    0.091014] smp: Bringing up secondary CPUs ...
->    [   10.104917] CPU1 failed to report alive state
->    [   20.118689] CPU2 failed to report alive state
->    [   30.132288] CPU3 failed to report alive state
->    [   40.145953] CPU4 failed to report alive state
->    [   50.159604] CPU5 failed to report alive state
->    [   60.173212] CPU6 failed to report alive state
->    [   70.186981] CPU7 failed to report alive state
->    [   70.191411] smp: Brought up 1 node, 1 CPU
-> 
-> Through exploring and testing, I discovered that the K3 actually
-> provides all three complete ACLINT components, and subsequent
-> confirmation with the vendor yielded the following information:
-> 
-> The ACLINT controllers are mapped to two physical memory regions:
-> secure (0xf1810000-0xf1820000) and non-secure (0xe0810000-0xe0820000),
-> with varying accessibility per controller and execution mode:
-> 
-> +---------+--------+------------------------+-----------------------+
-> | Offset  | Module | Secure Region          | Non-Secure Region     |
-> +---------+--------+------------------------+-----------------------+
-> | +0x0000 | MSWI   | 0xf1810000-0xf1813fff  | 0xe0810000-0xe0813fff |
-> |         |        | (M-mode only)          | (Inaccessible)        |
-> +---------+--------+------------------------+-----------------------+
-> | +0x4000 | MTIMER | 0xf1814000-0xf181bfff  | 0xe0814000-0xe081bfff |
-> |         |        | (M-mode only)          | (Inaccessible)        |
-> +---------+--------+------------------------+-----------------------+
-> | +0xc000 | SSWI   | 0xf181c000-0xf181ffff  | 0xe081c000-0xe081ffff |
-> |         |        | (M-mode only if efused)| (M/S-mode Accessible) |
-> +---------+--------+------------------------+-----------------------+
-> 
-> Taking these constraints into account, we choose the secure region
-> (0xf1810000-0xf181bfff) for the M-mode ACLINT components (MSWI and
-> MTIMER), and the non-secure region (0xe081c000-0xe081ffff) for the
-> S-mode SSWI component.
-> 
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
-> Changes in v2:
-> - Drop the generic riscv,aclint-* fallback compatibles and use only
->    SpacemiT K3-specific compatibles.
-> - Match spacemit,k3-aclint-sswi directly in the SSWI driver.
-> - Squash the ACLINT MSWI and MTIMER DT additions into the patch that
->    replaces the incorrect CLINT node.
-> - Link to v1: https://patch.msgid.link/20260729-k3-aclint-v1-0-aef88614d3a5@pigmoral.tech
-> 
-> ---
-> Junhui Liu (6):
->        dt-bindings: timer: thead,c900-aclint-mtimer: Add SpacemiT K3
->        dt-bindings: interrupt-controller: thead,c900-aclint-mswi: Add SpacemiT K3
->        dt-bindings: interrupt-controller: thead,c900-aclint-sswi: Add SpacemiT K3
->        dt-bindings: timer: sifive,clint: Deprecate spacemit,k3-clint
->        irqchip/aclint-sswi: Add support for SpacemiT K3
->        riscv: dts: spacemit: k3: Replace incorrect CLINT node with ACLINT nodes
-> 
->   .../thead,c900-aclint-mswi.yaml                    |  1 +
->   .../thead,c900-aclint-sswi.yaml                    |  5 +--
->   .../devicetree/bindings/timer/sifive,clint.yaml    |  5 ++-
->   .../bindings/timer/thead,c900-aclint-mtimer.yaml   |  1 +
->   arch/riscv/boot/dts/spacemit/k3.dtsi               | 37 ++++++++++++++++------
->   drivers/irqchip/irq-aclint-sswi.c                  |  1 +
->   6 files changed, 37 insertions(+), 13 deletions(-)
-> ---
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> change-id: 20260729-k3-aclint-94ca9d3f818f
-> 
-> Best regards,
-> --
-> Junhui Liu <junhui.liu@pigmoral.tech>
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+On our platform the execute trigger did fire, but the breakpoint
+exception was reported with EPC pointing to the next instruction. For
+example, the trigger was installed at 0x1062e, while the trap came in
+with epc=0x10632. As a result the handler did not call perf_bp_event()
+and the breakpoint selftest timed out.
 
-Bo
+This does not look like an instruction-size matching issue. The trigger
+itself matched. The problem is that the kernel identifies the matching
+execute trigger only by EPC equality.
+
+For mcontrol6, I think the driver also needs to be careful about the
+Sdtrig version exposed by tinfo. With tinfo.version > 0, bit 20 of
+mcontrol6 is no longer the old timing bit, and hit1/hit0 encode the
+fire timing. The series currently still defines/clears
+RISCV_DBTR_MC6_TIMING_BIT and, for watchpoints, only checks
+RISCV_DBTR_MC6_HIT_BIT. The execute path does not use hit information
+at all.
+
+Would it make sense to make the type-6 path version-aware, or otherwise
+avoid relying solely on regs->epc == bp->address?
+
+Thanks,
 
 _______________________________________________
 linux-riscv mailing list
