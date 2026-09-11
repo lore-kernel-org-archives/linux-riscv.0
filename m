@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 759A0C88E53
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 20:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD021C88E4D
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 20:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yCTCc89enr/6MdGpqx3Uog/7caIcufqdI7TBWoTKTMM=; b=ocpKswkFVHLhfp
-	hi5wY0Ybz6+jMOHqoaz68HYXZTLJrLoiG8wzTCiCvAdPOEoQ9vEWL+jEKGAFw1H81D9RwqcNW7OzE
-	pbRsUei7prl2QisCLa6CSOLd4rbuhL7Bpitq4HN22XcIz2nJsUrpl8/vS3vwqzhTWn4YbY1KHz7VY
-	ZfH6ucNTEnKLEXYAGdRlSELuB1K2YyqNjnFKOXobPTUujGOu5F+/ALctCy8F2WD1POAT4LAQ3rm4u
-	kGJY6Wg+iWY8URzOSTrLdCz89wfjzuVj08isty/wmhySocSpQiwU4vDrO3W+6g8zi/wXZIrPzlQBn
-	j4upLH/w1Ke96V+zjgQQ==;
+	List-Owner; bh=fWIcsdTqdQxhxM3lVAspCXM4nLFf1he9obfxGioGmr0=; b=N8a0Qknw3EM0Eb
+	svJLrm7WFTTov3gMjibH3vZdW96ojEaMlMqtYm8KrcKhN/Fm4tfEqu9vLfTZykPlnUnE9uw7WijDY
+	R1DNrKqoOvhnkkJw/aoGc85BNfc5tjpRDM8QgSVwRMNw1IDZRgXh5Ey6cTQcAn8oOu+oJct4u2X0a
+	f3/XYg++137ijDzS3fGmRG0en9ezPX3ZVAmUCMZOKC+DQSEEy8RQhUBPbN6t6mWPlF4SyPB8sulRI
+	DuIbY2BtUx0WeK1BQlEuLbNeoTQO6tqjvVTT1IQv2UFdvDmM8pmZjzUwrbqDcjmiPT2evoYz7A7nl
+	BYjsXFjI55I6nI3kD4/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x57om-000000005Zm-3NBI;
-	Fri, 11 Sep 2026 20:25:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x57pk-000000005ij-41Bj;
+	Fri, 11 Sep 2026 20:26:52 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x57ol-000000005Za-2fv1
+	id 1x57pi-000000005hw-2ibq
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Sep 2026 20:25:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 06E0743A2C;
-	Fri, 11 Sep 2026 20:25:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8A7D1F00898;
-	Fri, 11 Sep 2026 20:25:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789158350;
-	bh=zs6IpTeCkOFuPIwx2qA8uFPMR9hOsbr1wK0dg4OkG6I=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=YAfYmrlEp0dpeLYk+BTMudVIqg4WCZZQuelaq49bcFx+2sbNzy8QK3OUQ4p9aPEtK
-	 TUY7fQbr895JLqi8IlMg6wnFVk10LMGvsE4CegR6/uux9n47Kp7ed4a7vNPkYOVJOh
-	 bUj0DhyRF/VH0GR30sQSxEc6olvMpF2yEyTyFdmq91kPNQSe/K3Tmd7mv6zG0hPmO+
-	 uxUvUmYJ3TzkH8mV0Tg3CuOruE71puRweG+a4jT23j1XyGSHwZZS45N/eoPh6+S4po
-	 aLhxCrw1jcYYjY4//7Ex3YEbA99RjS8NoLZu+MvKTM52exviFckjEPtPACJrDbztte
-	 MCZDx8oHmDWiQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0B183924451;
-	Fri, 11 Sep 2026 20:24:48 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V updates for v7.3-rc3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <bca66c44-faf3-27b1-daec-1fe594804354@kernel.org>
-References: <bca66c44-faf3-27b1-daec-1fe594804354@kernel.org>
-X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
-X-PR-Tracked-Message-Id: <bca66c44-faf3-27b1-daec-1fe594804354@kernel.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.3-rc3
-X-PR-Tracked-Commit-Id: b94cec5761d22624d109d859467d7d4ce0a1b88b
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 827751b699b79a6e569983359c02dce67f81b94c
-Message-Id: <178915828749.3095760.8641038885777827919.pr-tracker-bot@kernel.org>
-Date: Fri, 11 Sep 2026 20:24:47 +0000
-To: Paul Walmsley <pjw@kernel.org>
-Cc: torvalds@linux-foundation.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	Fri, 11 Sep 2026 20:26:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=RQUxerwlfjpNkbFLTsfSSVxb37P6Hyp9X6vIryYqvRA=; b=msk4qN0RoRa3WBcE9nfXWl6Gel
+	Zw3+5cCg8qQEfjPdKTkAqmaYB3Q+QjohsVJE9VN7I9RwG3SVLBrOc+ndi/ruOs/yw8Ee+fxo26S5Z
+	6hiQvRgOOBYi6ygSffwYEkISuuOvRgVD+ScKocJNM9ZvYYEgh6SFG1Cu1tvizQsLZz3fy0PFzfN29
+	rmkZz6Nb11UF56MLVUnFxEL9kWvvDuUR6fSHv7vA2a8z9Zi2r41dQ+K4YQXPOEZJnzL0wDvmBDfL8
+	fizRx+bXgLkkElrgbnFma9f7IMYWFU3Dhws51tS5ItVfYXgILskAreyMFdn8bS3e8HN6Mj0JQXuOO
+	10FXgY6g==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1x57pP-000000099ni-13MJ;
+	Fri, 11 Sep 2026 22:26:31 +0200
+Date: Fri, 11 Sep 2026 22:26:30 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Jennifer Berringer <jberring@redhat.com>,
+	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/3] Add UFS Host driver support for SpacemiT K3 SoC
+Message-ID: <aqRj9kjkDOUPup1f@aurel32.net>
+Mail-Followup-To: Yixun Lan <dlan@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	Jennifer Berringer <jberring@redhat.com>,
+	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+References: <20260908-08-k3-ufs-support-v4-0-22aa2bd97d3b@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260908-08-k3-ufs-support-v4-0-22aa2bd97d3b@kernel.org>
+User-Agent: Mutt/2.4.1 (2026-07-04)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_132650_713491_11B9A3B0 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,24 +98,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 11 Sep 2026 11:55:00 -0600 (MDT):
+Hi Yixun,
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.3-rc3
+On 2026-09-08 07:42, Yixun Lan wrote:
+> This series try to add UFS support for SpacemiT K3 SoC, the controller
+> components consists of System Bus Interface Unit, UFS Host Controller
+> Interface, UFS Transport Protocol Layer, UFS Host Registers, Device
+> Management Entity (DME), Transport Layer, Network Layer, Data Link
+> Layer, PHY Adapter Layer, and M-PHY Interface. A more detail functional
+> block diagram can be found in SpacemiT website, chapter 9.7.3 [1]
+> 
+> One known issue is that the device will occasionally raise BKOPS interrupt
+> when doing some high load test, log from dmesg shows
+> 
+> [  806.710763] ufshcd-spacemit c0e00000.ufshc: ufshcd_bkops_exception_event_handler: device raised urgent BKOPS exception for bkops status 1
+> 
+> Link: https://spacemit.com/community/document/info?nodepath=hardware/key_stone/k3/k3_docs/k3_usermanual/09_memory_storage.md&lang=en [1]
+> Signed-off-by: Yixun Lan <dlan@kernel.org>
+> ---
+> Changes in v4:
+> - fix clock and reset settings
+> - drop function which retrieve value of tx_lanes
+> - propagate return error of ufs_spacemit_dme_set()
+> - check return value ufs_spacemit_check_hibern8()
+> - drop call to ufshcd_vops_phy_initialization()
+> - handle compiling warning if CONFIG_OF not enabled
+>  add __maybe_unused to ufs_spacemit_of_match
+> - Link to v3: https://patch.msgid.link/20260806-08-k3-ufs-support-v3-0-037fb322acdb@kernel.org
+> 
+> Changes in v3:
+> - collect tags
+> - fix dt-binding warning reported-by sashiko
+> - fix low freq in opp-2 table
+> - fix err checking in check_hibern8()
+> - propagate err code in link_startup_notify()
+> - update documents for event_notify()
+> - ufs clock driver is merged into v7.3-rc1, update cover letter
+> - Link to v2: https://patch.msgid.link/20260725-08-k3-ufs-support-v2-0-45036a2a2418@kernel.org
+> 
+> Changes in v2:
+> - fix missing interrupts property
+> - move ufs node to k3-com260.dtsi
+> - convert freq-table-hz to operating-points-v2
+> - rework reset_control, fix header and drop global variable
+> - drop dump_host_regs() debug interface
+> - converge and refactor dme_set() operations
+> - massive reduce of busy delay() loops
+> - drop vendor specific hce_enable_notify(), fallback to default
+> - drop unused member from struct ufs_spacemit_host
+> - add COMPILE_TEST support to Kconfig
+> - comment style fix
+> - Link to v1: https://patch.msgid.link/20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org
+> 
+> ---
+> Yixun Lan (3):
+>       scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC
+>       scsi: ufs: spacemit: k3: Add UFS Host Controller driver
+>       riscv: dts: spacemit: k3: Add UFS support
+> 
+>  .../devicetree/bindings/ufs/spacemit,k3-ufshc.yaml |  56 ++
+>  arch/riscv/boot/dts/spacemit/k3-com260.dtsi        |   4 +
+>  arch/riscv/boot/dts/spacemit/k3-pico-itx.dts       |   4 +
+>  arch/riscv/boot/dts/spacemit/k3.dtsi               |  22 +
+>  drivers/ufs/host/Kconfig                           |  12 +
+>  drivers/ufs/host/Makefile                          |   1 +
+>  drivers/ufs/host/ufs-spacemit.c                    | 678 +++++++++++++++++++++
+>  drivers/ufs/host/ufs-spacemit.h                    |  79 +++
+>  8 files changed, 856 insertions(+)
+> ---
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> change-id: 20260605-08-k3-ufs-support-c8b308e415e2
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/827751b699b79a6e569983359c02dce67f81b94c
+Thanks for this new version. Patches 2-3 are:
 
-Thank you!
+Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+
+Regards
+Aurelien
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
