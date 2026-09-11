@@ -4,94 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F03C88E53
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 17:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D0FC88E4D
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 17:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pbkh2ui9Km8u7t0akOTY2BdwPPTNyhTxND59crbt2zQ=; b=48lUHVvUXl7wD/
-	xrviBymUTKsziQDCkPv1JIvWy/0122GV8svf2ei34f+76OgfJR0TPhXIUiubO5/wVlCp8BpR5hXFP
-	0PZg7Adrvculv6AeLfOx83SKvZtspd+YKQsZc3u4gudR/PgF6t2nnjmVslhH0Y8q2PfKOxJ+yxOCn
-	tXr4268WCZAmvK2UiJM8jm4o1ChUOe22dYyD65GZIrfS7cbCuZeWqYq6sog2iTs7lfbZSxS2nbjk8
-	bBUoTh26+ZuNslEpYK9JkD7/hJAkK70tyljkr8D7s675+y+RkSvQjSU2Nr0Hzsb0gdYnKlIgFNB6P
-	RPUc840GgDKacZL7l5nQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1aA1fBjsdMfr/rrE6EnVpWasVLzm85avaYYuU31/wu4=; b=ZyI8Jvqg4Yn5yU
+	WsLOg16I72oB93nMMgAXT5WfGRaEICNFxAgSYp2yqe6sSDNwXjTJ1msc3prNamK6/PYn6a/UvbyJ/
+	pXhUNYepsnbG05mWhgefEihXbcfuMPJ6hPcaz9u4Tgrfrfj9cjYre36VSDqeaNs931uPi4RQYDR95
+	E17vCkrR1AQ9iw0xGDCbRHZbumgVqmmKHAURZ6boaWTfVH9glBjVf2TMHaCSYzJbtZIUlltVWjLhY
+	F0zFxX3i8NjikzXy46ObWp5L1HXeuaal7wRiYrSr0fA9DmWE9hBn+Yh9tzyanbnubNASez3WOa2Cs
+	LVUF2TbtQQBo9at+za3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x55EJ-0000000HNJz-3ZGM;
-	Fri, 11 Sep 2026 17:40:03 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1x55Sx-0000000HOf1-36B3;
+	Fri, 11 Sep 2026 17:55:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x55EH-0000000HNJA-0gTM
+	id 1x55Sw-0000000HOea-1rwW
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Sep 2026 17:40:02 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-86927f9ba4dso1230116b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2026 10:40:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789148400; x=1789753200; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wl3IKortcFpGKddT3RAr007iJEhPfwcrwYUS/tqDJm4=;
-        b=dTjKePpIFOJ/YmibQjKfbG5cY0MfCUtLrF2B8wtk8h0BkWh1P2aKyfS0XDlETkENIH
-         i7pK7OAfQfs9MUTmQ4mMt/wATZqHYDRd97OHshEh6IfjfXJjNgmCCilDCn+I68y8zf5U
-         ofyAbXeIGfSbN28udwmY4I3ImbXkEUb5RRjjd2xUuuexFvMtf4FFOgpPbyWkJw2Kl+Kf
-         9kls16CJiMOhJj5wOkoVHcW/xB7dZaTdoQzGWiPXIBc8Pkuv7g9aknAUnKjCanE/VfPG
-         y6pfOzxXwAoZoJU6hchkospB9Hhwj1FKJuauCCE559oT3xJCwCVRmM4NfjDioPV5HJCc
-         u6OA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789148400; x=1789753200;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=wl3IKortcFpGKddT3RAr007iJEhPfwcrwYUS/tqDJm4=;
-        b=LxUAQNtRA4BPcqQ+TlgXMj+O22w4xThPCdmu2kSePt4GNQcxv++CH85qC9XFMNgQiZ
-         yqhWvj8HyKeOfKBt2DsvXF8oVS63XEduK10e6p+uCpeZOrch1Ya5QJIwuWwiMhV4DA4l
-         +zezusG7UGi0wW7Mlb/AF5oEU5iJK55RFAnkMEDMO8HmH/dsEUN1JAHPgxPM22QEVR3W
-         Sh5jvDIYVZQSzF5ozw485KNXcfi7y72/eu42+WHc1UAoZk3cUQkK/H5QAtil+h9e9ATq
-         y3/pHVWj9PNoIkYLrK7Gp2P24oJYUQRC1hulZVFV615cCIaWSB6OdHB+vUwak+YdA+7z
-         veFQ==
-X-Forwarded-Encrypted: i=1; AKwUvBz3M2yAJhkjFYDeQHdHJVsP4K49X+Rq+60L4EEo3glzI24Lb2a7AbjmY1Oq8FBOXEdBJZx0n17qEqEm7A==@lists.infradead.org
-X-Gm-Message-State: AFuF++mf3Wyb6XFSUeQJ4uF0xX+KmDPhPZvNtGcsIjlD6HA4XGtgrSId
-	4sV17Epn1P7o5kXX4btql5LksMfz9UUuyeWUiVSGu4Xz1yOUjVqgSu5Y
-X-Gm-Gg: AYBFou2CfqmfhUP71XRa1eE2MKEGN65NK74Op3Pltllkrpq9lsRvHGPVHydWgXIJVni
-	W6fBrXwGPyUD4ci1QVdHaqYiUGHDdfPtpdAhmLKQB2Ni5GT8LtI+rRgBrpA2gTRWFyM7pXQM9IH
-	kJMIlpEJ/wlZ1vnTcNFmfmkQVrNSG89EYvjjvS9EAKa5jVSGXaPg1ITdpuov6yh5eGR6fGN6k0R
-	+zTfk+30J45nbA+kxxKCTkGuuTo8nmvY4v/kty7kf/t5hVawI2qFxX27d5QFNL9sTuFDXdGio0b
-	Z8pacJopH0s+XQy12Je1LzhUjTyUDVLIApJodq2s1A/doR+voX3hR+QgJDtiFeFfVuDSCZOpLbc
-	mXePqPNaeB7b7B2PlBMtf7aKc9WuIN/jSFjvGVt1GT+sixVcf9g0tu+i7dDH27YWWpHE3AF3ru6
-	FlfDF/4dXE2srjEbQwLcdNFwGIHEiVqW3P2xPC5cEpxGrjTts29zmtB8xLBLG09grwZ79FE5Yq2
-	ag03HFtrO/fxcFb5akC1bBHCcr8h5bKzi0nNe6Dx5qSbw==
-X-Received: by 2002:a05:6a00:28c3:b0:848:62ab:7b7 with SMTP id d2e1a72fcca58-86b3011a6efmr8754763b3a.16.1789148399726;
-        Fri, 11 Sep 2026 10:39:59 -0700 (PDT)
-Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([106.51.165.23])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86b29bb9ecesm1428361b3a.43.2026.09.11.10.39.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Sep 2026 10:39:59 -0700 (PDT)
-Date: Fri, 11 Sep 2026 23:09:48 +0530
-From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
-	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com, dvyukov@google.com, 
-	vincenzo.frascino@arm.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, kees@kernel.org, amachhiw@linux.ibm.com, ritesh.list@gmail.com, 
-	robh@kernel.org, sayalip@linux.ibm.com, linuxppc-dev@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-riscv@lists.infradead.org, 
-	linux-hardening@vger.kernel.org, Venkat Rao Bagalkote <venkat88@linux.ibm.com>
-Subject: Re: [PATCH] powerpc/kasan: require memintrinsic prefix support for
- KASAN
-Message-ID: <aqOrCdvUB5lFjNsS@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
-References: <20260908064948.999530-1-mkchauras@gmail.com>
- <b3b1fa5a-c836-447f-a658-ad66183c23c5@kernel.org>
+	Fri, 11 Sep 2026 17:55:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A59DF60008;
+	Fri, 11 Sep 2026 17:55:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 425FA1F000FF;
+	Fri, 11 Sep 2026 17:55:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789149309;
+	bh=mx1VD96zTqT0AQiq7dvnFqx6ZSHKVSEUXQ2om8YbJ1w=;
+	h=Date:From:To:cc:Subject;
+	b=NvYqL2z5Suz4N31t/rXfTf9J7Dppgh/KezmYN61YLHO0jfhv+zeQ51XpksZf2pvgx
+	 unciZHYVeZk+820/LRYzirG3I6ziv9OlkthedGeLX+CeXp5Pmir6v95Gyze+SnCAUq
+	 lgkKE779nFB1onz1HVY/dHy74/JrBivfVGw3t0jnPG+D9QBWQn9HQEfiiBi+TO2Ij6
+	 56Wa9/9XTG38ORGwvYRWpvfBxyPepkUFXuUeOiRZASpKQJNgp0zUYxUu5Vvlzz55L+
+	 cIV/pamiE+daQAf8UbdP2Ez0RZ4SH6IlDQGkqfDVALwp6NFXpEdZc+FWfYEh+NYIbD
+	 H5MEGNNHoyv1w==
+Date: Fri, 11 Sep 2026 11:55:00 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: torvalds@linux-foundation.org
+cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] RISC-V updates for v7.3-rc3
+Message-ID: <bca66c44-faf3-27b1-daec-1fe594804354@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b3b1fa5a-c836-447f-a658-ad66183c23c5@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_104001_213784_811D5FB4 
-X-CRM114-Status: GOOD (  26.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,96 +60,193 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMDgsIDIwMjYgYXQgMTE6NTk6MTRBTSArMDIwMCwgQ2hyaXN0b3BoZSBMZXJv
-eSAoQ1MgR1JPVVApIHdyb3RlOgo+IAo+ClsuLi5dCj4gPiAtLS0gYS9hcmNoL3Bvd2VycGMvaW5j
-bHVkZS9hc20va2FzYW4uaAo+ID4gKysrIGIvYXJjaC9wb3dlcnBjL2luY2x1ZGUvYXNtL2thc2Fu
-LmgKPiA+IEBAIC0yLDIwICsyLDE3IEBACj4gPiAgICNpZm5kZWYgX19BU01fS0FTQU5fSAo+ID4g
-ICAjZGVmaW5lIF9fQVNNX0tBU0FOX0gKPiA+IC0jaWYgZGVmaW5lZChDT05GSUdfS0FTQU4pICYm
-ICFkZWZpbmVkKENPTkZJR19DQ19IQVNfS0FTQU5fTUVNSU5UUklOU0lDX1BSRUZJWCkKPiA+IC0j
-ZGVmaW5lIF9HTE9CQUxfS0FTQU4oZm4pCQkJXAo+ID4gLQlfR0xPQkFMKGZuKTsJCQkJXAo+ID4g
-LQlfR0xPQkFMKF9fIyNmbikKPiA+IC0jZGVmaW5lIF9HTE9CQUxfVE9DX0tBU0FOKGZuKQkJCVwK
-PiA+IC0JX0dMT0JBTF9UT0MoZm4pOwkJCVwKPiA+IC0JX0dMT0JBTF9UT0MoX18jI2ZuKQo+ID4g
-LSNkZWZpbmUgRVhQT1JUX1NZTUJPTF9LQVNBTihmbikJCQlcCj4gPiAtCUVYUE9SVF9TWU1CT0wo
-X18jI2ZuKQo+ID4gLSNlbHNlIC8qIENPTkZJR19LQVNBTiAmJiAhQ09ORklHX0NDX0hBU19LQVNB
-Tl9NRU1JTlRSSU5TSUNfUFJFRklYICovCj4gPiArLyoKPiA+ICsgKiBwb3dlcnBjIHJlcXVpcmVz
-IENDX0hBU19LQVNBTl9NRU1JTlRSSU5TSUNfUFJFRklYIHdoZW5ldmVyIEtBU0FOIGlzCj4gPiAr
-ICogZW5hYmxlZCAoc2VlIFBQQ19DQ19IQVNfS0FTQU5fTUVNSU5UUklOU0lDX1BSRUZJWCBpbiBh
-cmNoL3Bvd2VycGMvS2NvbmZpZyksCj4gPiArICogc28gdGhlIGNvbXBpbGVyIGFsd2F5cyBlbWl0
-cyBfX2FzYW5fbWVtKigpIGF0IGluc3RydW1lbnRlZCBjYWxsIHNpdGVzIGFuZAo+ID4gKyAqIGJh
-cmUgbWVtKigpIGluc2lkZSBfX25vX3Nhbml0aXplX2FkZHJlc3MgLyBub2luc3RyIGNvZGUuICBU
-aGUgb2xkIGR1YWwKPiA+ICsgKiBlbnRyeS1wb2ludCB0cmljayAoX0dMT0JBTF9LQVNBTiBlbWl0
-dGluZyBib3RoIG1lbXNldCBhbmQgX19tZW1zZXQpIGlzCj4gPiArICogdGhlcmVmb3JlIG5ldmVy
-IG5lZWRlZC4KPiA+ICsgKi8KPiAKPiBUaGlzIGV4cGxhbmF0aW9uIGJlbG9uZ3MgdG8gdGhlIGNv
-bW1pdCBtZXNzYWdlIG5vdCB0byB0aGUgc291cmNlIGNvZGUuCj4gCkhleSBDaHJpc3RvcGhlLAoK
-U3VyZSBpJ2xsIG1vdmUgdGhpcyBhbmQgcmVzdCBhaGVhZC4KClsuLi5dCj4gPiBkaWZmIC0tZ2l0
-IGEvYXJjaC9wb3dlcnBjL2tlcm5lbC9jcHV0YWJsZS5jIGIvYXJjaC9wb3dlcnBjL2tlcm5lbC9j
-cHV0YWJsZS5jCj4gPiBpbmRleCA2ZjY4MDFkYTlkYzEuLjQ0MTE1ZjkwNGMyYyAxMDA2NDQKPiA+
-IC0tLSBhL2FyY2gvcG93ZXJwYy9rZXJuZWwvY3B1dGFibGUuYwo+ID4gKysrIGIvYXJjaC9wb3dl
-cnBjL2tlcm5lbC9jcHV0YWJsZS5jCj4gPiBAQCAtMzYsOCArMzYsOCBAQCB2b2lkIF9faW5pdCBz
-ZXRfY3VyX2NwdV9zcGVjKHN0cnVjdCBjcHVfc3BlYyAqcykKPiA+ICAgCXQgPSBQVFJSRUxPQyh0
-KTsKPiA+ICAgCS8qCj4gPiAtCSAqIHVzZSBtZW1jcHkoKSBpbnN0ZWFkIG9mICp0ID0gKnMgc28g
-dGhhdCBHQ0MgcmVwbGFjZXMgaXQKPiA+IC0JICogYnkgX19tZW1jcHkoKSB3aGVuIEtBU0FOIGlz
-IGFjdGl2ZQo+ID4gKwkgKiB1c2UgbWVtY3B5KCkgaW5zdGVhZCBvZiAqdCA9ICpzIHNvIHRoYXQg
-dGhlIGNvbXBpbGVyIHJlcGxhY2VzIGl0Cj4gPiArCSAqIGJ5IF9fYXNhbl9tZW1jcHkoKSB3aGVu
-IEtBU0FOIGlzIGFjdGl2ZQo+ID4gICAJICovCj4gCj4gRG9lcyB0aGUgaW5pdGlhbCBwcm9ibGVt
-IHN0aWxsIGV4aXN0IHdpdGggdGhlIG5ldyBfX2FzYW5fbWVtY3B5KCkgYXBwcm9hY2ggPwo+IElm
-IG5vdCB0aGUgY29tbWVudCBzaG91bGQgYmUgcmVtb3ZlZC4KPiAKSGV5IENocmlzdG9waGUsCgpU
-aGFua3MgZm9yIHBvaW50aW5nIGl0IG91dCwgaSB0b29rIGEgZGVlcGVyIGxvb2sgaW50byB0aGlz
-LCBoZXJlJ3MgbXkKdW5kZXJzdGFuZGluZyBvbiBpdC4KCk9uIFBvd2VyUEMgZHVyaW5nIHZlcnkg
-ZWFybHkgYm9vdCB0aGUga2VybmVsIGlzIGxvYWRlZCBieSB0aGUKYm9vdGxvYWRlci9maXJtd2Fy
-ZSBhdCBzb21lIHBoeXNpY2FsIGFkZHJlc3MsIGJ1dCB0aGUga2VybmVsIHdhcyBsaW5rZWQKZXhw
-ZWN0aW5nIGl0IHRvIHJ1biBhdCBLRVJORUxCQVNFKHZpcnR1YWwgYWRkcmVzcyBsaWtlCjB4YzAw
-MDAwMDAwMDAwMDAwMCkuIFRoZSBNTVUgbWFwcGluZyB0aGF0IG1ha2VzIHRoYXQgdmlydHVhbCBh
-ZGRyZXNzCnZhbGlkIGhhc24ndCBiZWVuIHNldCB1cCB5ZXQuIFNvIGZhciBmb3IgYSB3aW5kb3cg
-b2YgZWFybHkgYm9vdCwgY29kZSBpcwpleGVjdXRpbmcgYXQgdGhlIHBoeXNpY2FsIGxvYWQgYWRk
-cmVzcyB3aGlsZSBhbGwgc3ltYm9sIGFkZHJlc3NlcyBpbiB0aGUKYmluYXJ5IHJlZmVyIHRvIHRo
-ZSB2aXJ0dWFsIGxpbmtlZCBhZGRyZXNzLiByZWxvY19vZmZzZXQoKSBjb21wdXRlcyB0aGUKZ2Fw
-IGJldHdlZW4gdGhlc2UgdHdvIGFuZCBQVFJSRUxPQyBhcHBsaWVzIGl0IHRvIGFueSBwb2ludGVy
-LgoKU28gUFRSUkVMT0MoJnRoZV9jcHVfc3BlYykgZ2l2ZXMgdGhlIHBoeXNpY2FsIGFkZHJlc3Mg
-d2hlcmUgdGhlIHN0cnVjdAphY3R1YWxseSBsaXZlcyBpbiBtZW1vcnkgcmlnaHQgbm93LCBub3Qg
-d2hlcmUgdGhlIGxpbmtlciB0aGlua3MgaXQgbGl2ZXMuCgpXaHkgKnQgPSAqcyB3b3VsZCBiZSB3
-cm9uZz8KCkluIHNldF9jdXJfY3B1X3NwZWM6CgpzdHJ1Y3QgY3B1X3NwZWMgKnQgPSAmdGhlX2Nw
-dV9zcGVjOyAgLy8gbGlua2VkICh2aXJ0dWFsKSBhZGRyZXNzCnQgPSBQVFJSRUxPQyh0KTsgICAg
-ICAgICAgICAgICAgICAgICAvLyBwaHlzaWNhbCBhZGRyZXNzIOKAlCB3aGVyZSBpdCBhY3R1YWxs
-eSBpcwptZW1jcHkodCwgcywgc2l6ZW9mKCp0KSk7ICAgICAgICAgICAgLy8gY29weSBpbnRvIHRo
-ZSByaWdodCBwbGFjZQoKSWYgeW91IHdyb3RlICp0ID0gKnMgaW5zdGVhZCwgdGhlIGNvbXBpbGVy
-IGdlbmVyYXRlcyBhIHN0cnVjdCBhc3NpZ25tZW50LgpGb3IgYSBsYXJnZSBzdHJ1Y3QgbGlrZSBj
-cHVfc3BlYywgR0NDIGlzIGZyZWUgdG8gaW1wbGVtZW50IHRoYXQgaG93ZXZlcgppdCBsaWtlcyDi
-gJQgaW5jbHVkaW5nIGVtaXR0aW5nIGEgY2FsbCB0byBtZW1jcHkoKS4gQnV0IGNydWNpYWxseSwg
-YSAKY29tcGlsZXItZ2VuZXJhdGVkIG1lbWNweSBjYWxsIHJlc29sdmVzIHRocm91Z2ggdGhlIEdP
-VC9QTFQgb3IgZGlyZWN0CnN5bWJvbCDigJQgd2hpY2ggcG9pbnRzIHRvIHRoZSBsaW5rZWQgdmly
-dHVhbCBhZGRyZXNzIG9mIG1lbWNweSwgbm90IHRoZQpwaHlzaWNhbCBhZGRyZXNzLiBBdCB0aGlz
-IHBvaW50IGluIGJvb3QsIGNhbGxpbmcgdGhyb3VnaCB0aGUgd3JvbmcKYWRkcmVzcyB3b3VsZCBq
-dW1wIHRvIGdhcmJhZ2Ugb3IgYW4gdW5tYXBwZWQgcGFnZS4KCm1lbWNweSh0LCBzLCBzaXplb2Yo
-KnQpKSB3cml0dGVuIGV4cGxpY2l0bHkgaXMgZGlmZmVyZW50OiB0IGlzIGFscmVhZHkKdGhlIGNv
-cnJlY3RlZCBwaHlzaWNhbCBhZGRyZXNzLCBzIHBvaW50cyBpbnRvIHRoZSBjcHVfc3BlY3MgdGFi
-bGUgd2hpY2gKaGFzIGFsc28gYmVlbiBQVFJSRUxPQydkLiBUaGUgZXhwbGljaXQgY2FsbCBnb2Vz
-IHRocm91Z2ggdGhlIG5vcm1hbAplYXJseS1ib290IGNhbGwgbWVjaGFuaXNtIHdoaWNoIGlzIHNh
-ZmUuCgpUaGUgb3JpZ2luYWwgY29tbWVudCBzYWlkOgoKInVzZSBtZW1jcHkoKSBpbnN0ZWFkIG9m
-ICp0ID0gKnMgc28gdGhhdCBHQ0MgcmVwbGFjZXMgaXQgYnkgX19tZW1jcHkoKQp3aGVuIEtBU0FO
-IGlzIGFjdGl2ZSIKClRoaXMgd2FzIGFkZGVkIGJlY2F1c2UgdW5kZXIgdGhlIG9sZCBLQVNBTiBz
-Y2hlbWUKKCFDQ19IQVNfS0FTQU5fTUVNSU5UUklOU0lDX1BSRUZJWCksIEtBU0FOIG92ZXJyb2Rl
-IHRoZSBtZW1zZXQvbWVtY3B5CmxpbmtlciBzeW1ib2xzIGdsb2JhbGx5IHdpdGggQyB3cmFwcGVy
-cyB0aGF0IGNhbGxlZCBrYXNhbl9jaGVja19yYW5nZSgpLgpJZiB0aGUgY29tcGlsZXIgdHVybmVk
-ICp0ID0gKnMgaW50byBhbiBpbXBsaWNpdCBtZW1jcHkoKSwgdGhhdCB3b3VsZCBoaXQKdGhlIEtB
-U0FOIHdyYXBwZXIg4oCUIGNhbGxpbmcga2FzYW5fY2hlY2tfcmFuZ2UoKSBhdCBhIHBvaW50IGlu
-IGVhcmx5IGJvb3QKd2hlcmUgdGhlIEtBU0FOIHNoYWRvdyBpc24ndCBtYXBwZWQgeWV0LCBjYXVz
-aW5nIGEgY3Jhc2guCgpXcml0aW5nIG1lbWNweSh0LCBzLCBzaXplb2YoKnQpKSBleHBsaWNpdGx5
-IG1hZGUgR0NDIGVtaXQgX19tZW1jcHkoKQoodGhlIHJhdyBhc3NlbWJseSBhbGlhcyBleHBvc2Vk
-IGJ5IF9HTE9CQUxfS0FTQU4pIGluc3RlYWQgb2YgdGhlCktBU0FOLXdyYXBwZWQgbWVtY3B5KCks
-IGJ5cGFzc2luZyB0aGUgc2hhZG93IGNoZWNrLgoKVGhhdCB3YXMgdGhlIHNlY29uZGFyeSByZWFz
-b24uIFRoZSBwcmltYXJ5IHJlYXNvbiB0aGF0IHQgaXMgYQpQVFJSRUxPQy1hZGp1c3RlZCBwaHlz
-aWNhbCBwb2ludGVyIGFuZCB0aGUgY29weSBtdXN0IGdvIHRocm91Z2ggaXQKY29ycmVjdGx5IHdh
-cyBuZXZlciBzdGF0ZWQuCgpTbyB0aGUgS0FTQU4gY29tbWVudCBpcyBub3QgcmVxdWlyZWQgYnV0
-IGkgdGhpbmsgd2Ugc3RpbGwgbmVlZCB0byBzdGF0ZQp3aHkgbWVtY3B5IGlzIHJlcXVpcmVkLiBG
-b3IgUFRSUkVMT0MgYWRqdXN0bWVudCwgY29tbWVudCBzaG91bGQgcmVmbGVjdAp0aGF0LgoKSSds
-bCB1cGRhdGUgdGhlIGNvbW1lbnQgYW5kIGNvbW1pdCBtZXNzYWdlIGFuZCBzZW5kIG91dCBhIG5l
-dyB2ZXJzaW9uLgoKUmVnYXJkcywKTXVrZXNoCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Linus,
+
+Please pull these RISC-V updates for v7.3-rc3.  From a RISC-V point of 
+view, there's one notable fix here, reverting an earlier bogus fix to the 
+pointer masking code.  Fortunately the practical impact appears to be 
+small.
+
+
+- Paul
+
+The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
+
+  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.3-rc3
+
+for you to fetch changes up to b94cec5761d22624d109d859467d7d4ce0a1b88b:
+
+  riscv: skip software algning code for HAVE_EFFICIENT_UNALIGNED_ACCESS (2026-09-02 11:47:08 -0600)
+
+----------------------------------------------------------------
+RISC-V updates for v7.3-rc3
+
+- Revert a bad fix, likely LLM-generated, in the pointer masking code
+  that confused the RISC-V hardware pointer masking implementation
+  with the Linux kernel tagged address feature
+
+- Fix unexpected faults caused by kprobe instruction slot writes when
+  !CONFIG_STRICT_MODULE_RWX
+
+- Fix unexpected faults on minimal configurations during runtime code
+  patching on !CONFIG_STRICT_MODULE_RWX systems
+
+- Fix a misplaced variable clear causing incorrect reuse of previous
+  values in the RISC-V hardware feature probing code
+
+- Fix two bugs in the PMU SBI perf code on rv32: use BIT_ULL rather
+  than BIT on 64-bit masks; and use a bitmap rather than an unsigned
+  long on a quantity that can exceed 32 bits
+
+And a few miscellaneous cleanups:
+
+- Avoid a potential dereference-before-NULL-pointer-check bug in the
+  PMU SBI perf driver
+
+- Simplify the rv32 bug table code by using
+  CONFIG_GENERIC_BUG_RELATIVE_POINTERS (following x86 and PPC)
+
+- Report the RISC-V standard ISA extensions Z[v]fhmin when support is
+  claimed for the superset RISC-V standard ISA extensions Z[v]fh; and
+  simplify our FPU test code to only check for the presence of the D
+  extension
+
+- Use an existing kernel string helper in place of some open-coded
+  code in kernel/usercfi.c
+
+- Fix some yamllint issues in the RISC-V DT bindings for CPUs
+
+- Convert one use of __ASSEMBLY__ to __ASSEMBLER__ that snuck into the
+  RISC-V CFI selftest code
+
+- Update the translation for the simplified Chinese translation of the
+  RISC-V kernel patch acceptance policy
+
+----------------------------------------------------------------
+Andy Chiu (2):
+      riscv: hwprobe: initialize pair->value in hwprobe_one_pair()
+      riscv: skip software algning code for HAVE_EFFICIENT_UNALIGNED_ACCESS
+
+Dmitry Antipov (1):
+      riscv: use string helper in setup_global_riscv_enable()
+
+Ivy Lopez (1):
+      riscv: hwprobe: simplify has_fpu() to check D extension only
+
+Jia Wang (1):
+      dt-bindings: riscv: cpus: Fix yamllint style issues
+
+JinRui (1):
+      riscv: report Zfhmin/Zvfhmin when Zfh/Zvfh are present
+
+Jisheng Zhang (1):
+      riscv: bug: Make RV32 use GENERIC_BUG_RELATIVE_POINTERS
+
+Samuel Holland (1):
+      Revert "riscv: Reset pmm when PR_TAGGED_ADDR_ENABLE is not set"
+
+Thomas Huth (1):
+      kselftest/riscv: Replace __ASSEMBLY__ with __ASSEMBLER__
+
+Xiaofeng Yuan (2):
+      riscv: mm: make EXECMEM_KPROBES writable without CONFIG_STRICT_MODULE_RWX
+      riscv: patch: skip fixmap mapping when kernel text is already writable
+
+Xixin Liu (3):
+      perf: RISC-V: use BIT_ULL for u64 overflow masks
+      perf: RISC-V: store available counter mask as bitmap
+      perf: RISC-V: check cpu_hw_evt before dereference in overflow IRQ
+
+Yukai Wu (1):
+      docs/zh_CN: Update arch/riscv/patch-acceptance.rst translation
+
+ Documentation/arch/riscv/hwprobe.rst               |  8 +-
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |  8 +-
+ .../zh_CN/arch/riscv/patch-acceptance.rst          | 46 +++++++---
+ arch/riscv/Kconfig                                 |  2 +-
+ arch/riscv/include/asm/bug.h                       |  5 --
+ arch/riscv/include/asm/switch_to.h                 |  4 +-
+ arch/riscv/kernel/cpufeature.c                     | 20 ++++-
+ arch/riscv/kernel/patch.c                          |  2 +
+ arch/riscv/kernel/process.c                        |  4 +-
+ arch/riscv/kernel/sys_hwprobe.c                    |  5 +-
+ arch/riscv/kernel/usercfi.c                        |  5 +-
+ arch/riscv/lib/uaccess.S                           |  5 +-
+ arch/riscv/mm/init.c                               |  4 +-
+ drivers/perf/riscv_pmu_legacy.c                    |  5 +-
+ drivers/perf/riscv_pmu_sbi.c                       | 98 +++++++++++++++-------
+ include/linux/perf/riscv_pmu.h                     |  2 +-
+ tools/testing/selftests/riscv/cfi/cfi_rv_test.h    |  2 +-
+ tools/testing/selftests/riscv/hwprobe/hwprobe.c    | 20 ++++-
+ 18 files changed, 170 insertions(+), 75 deletions(-)
+
+vmlinux size differences in bytes (from cee9395acd80):
+   text  data   bss      dec     hex  filename                             
+   -496   +96     .     -400    -190  vmlinux.defconfig.gcc-16             
+   +260   +64     .     +324    +144  vmlinux.nosmp_defconfig.gcc-16       
+   +148   +64     .     +212     +d4  vmlinux.rv32_defconfig.gcc-16        
+   +448   +64     .     +512    +200  vmlinux.rv32_nosmp_defconfig.gcc-16  
+    -84     .     .      -84     -54  vmlinux.nommu_virt_defconfig.gcc-16  
+   -204   +64     .     -140     -8c  vmlinux.defconfig.clang-20           
+   -196   +96     .     -100     -64  vmlinux.nosmp_defconfig.clang-20     
+   +288   +96   +64     +448    +1c0  vmlinux.rv32_defconfig.clang-20      
+   +312   +96     .     +408    +198  vmlinux.rv32_nosmp_defconfig.clang-20
+    -72   +64     .       -8      -8  vmlinux.nommu_virt_defconfig.clang-20
+   -460   +96     .     -364    -16c  vmlinux.defconfig.gcc-15             
+   -156   +96     .      -60     -3c  vmlinux.nosmp_defconfig.gcc-15       
+   +132   +96     .     +228     +e4  vmlinux.rv32_defconfig.gcc-15        
+   +168   +96     .     +264    +108  vmlinux.rv32_nosmp_defconfig.gcc-15  
+    -76   +64     .      -12      -c  vmlinux.nommu_virt_defconfig.gcc-15  
+   -556   +64     .     -492    -1ec  vmlinux.defconfig.gcc-14             
+   +224   +96     .     +320    +140  vmlinux.nosmp_defconfig.gcc-14       
+   +132   +64     .     +196     +c4  vmlinux.rv32_defconfig.gcc-14        
+   +112   +64     .     +176     +b0  vmlinux.rv32_nosmp_defconfig.gcc-14  
+    -76   +64     .      -12      -c  vmlinux.nommu_virt_defconfig.gcc-14  
+   -144   +96     .      -48     -30  vmlinux.defconfig.clang-19           
+   -148   +64     .      -84     -54  vmlinux.nosmp_defconfig.clang-19     
+   +360   +96    +8     +464    +1d0  vmlinux.rv32_defconfig.clang-19      
+   +356   +96    +8     +460    +1cc  vmlinux.rv32_nosmp_defconfig.clang-19
+    -76   +64     .      -12      -c  vmlinux.nommu_virt_defconfig.clang-19
+   -524   +96     .     -428    -1ac  vmlinux.defconfig.gcc-13             
+   +184   +96     .     +280    +118  vmlinux.nosmp_defconfig.gcc-13       
+   +196   +96     .     +292    +124  vmlinux.rv32_defconfig.gcc-13        
+   +164   +96     .     +260    +104  vmlinux.rv32_nosmp_defconfig.gcc-13  
+    -76     .     .      -76     -4c  vmlinux.nommu_virt_defconfig.gcc-13  
+   -180   +96     .      -84     -54  vmlinux.defconfig.clang-18           
+   -168   +64     .     -104     -68  vmlinux.nosmp_defconfig.clang-18     
+   +324   +96    +8     +428    +1ac  vmlinux.rv32_defconfig.clang-18      
+   +344   +96    +8     +448    +1c0  vmlinux.rv32_nosmp_defconfig.clang-18
+    -68     .     .      -68     -44  vmlinux.nommu_virt_defconfig.clang-18
+   -588   +96     .     -492    -1ec  vmlinux.defconfig.gcc-12             
+   -148   +96     .      -52     -34  vmlinux.nosmp_defconfig.gcc-12       
+   +120   +64     .     +184     +b8  vmlinux.rv32_defconfig.gcc-12        
+    +96   +64     .     +160     +a0  vmlinux.rv32_nosmp_defconfig.gcc-12  
+    -60     .     .      -60     -3c  vmlinux.nommu_virt_defconfig.gcc-12  
+   -164   +96     .      -68     -44  vmlinux.defconfig.clang-17           
+   -160   +96     .      -64     -40  vmlinux.nosmp_defconfig.clang-17     
+   +340  +128    +8     +476    +1dc  vmlinux.rv32_defconfig.clang-17      
+   +296   +96    +8     +400    +190  vmlinux.rv32_nosmp_defconfig.clang-17
+    -76     .     .      -76     -4c  vmlinux.nommu_virt_defconfig.clang-17
+   -204   +96     .     -108     -6c  vmlinux.defconfig.gcc-11             
+   -184   +96     .      -88     -58  vmlinux.nosmp_defconfig.gcc-11       
+   +168   +64     .     +232     +e8  vmlinux.rv32_defconfig.gcc-11        
+   +176   +64     .     +240     +f0  vmlinux.rv32_nosmp_defconfig.gcc-11  
+    -72   +64     .       -8      -8  vmlinux.nommu_virt_defconfig.gcc-11  
+   -900     .     .     -900    -384  vmlinux.allnoconfig.gcc-15           
+-131064  +548  +128  -130388  -1fd54  vmlinux.allmodconfig.gcc-15          
+   -908     .     .     -908    -38c  vmlinux.allnoconfig.clang-19         
+ -57552  +144   -64   -57472   -e080  vmlinux.allmodconfig.clang-19        
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
