@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A45CC88E40
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 03:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB03C79FA1
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 04:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q//d0cfyn+ZZQzBQ74wL2+UQNrpt8DpbqgqEXcCdDIc=; b=Mjo0/9CEAHRUPO
-	f2+e26kMSX+Ck67GfeSlYX6GIZ9iU1LezC/wenw0Kq86hzYW+r0nt7fMPO8VukyU8GR6mjnxWBA6U
-	U/uKqdAQiBc2eexg/ScOb93Smi8qIUjd/HrQ2IkbuRRpNV39hRYXbT573lbtzWrBpIjQEj+uKE87K
-	UDSENpONEiH19LDw+WB94vYl7bpsp7IeDK6Tan0wMPJ4YUr94c4dRoTRnm2OjO4UuMaY0soIWHEiO
-	L1ioYn7VsG41Ry+2qoemWDi+l1VtRQ6t+9HPBm8NKFUCMfPcdetW9VJPu4dndZ0JkEknpdpHGdwPI
-	6+Mfmwga9UJUEegggVgw==;
+	List-Owner; bh=Z0GAMMcQHMEHd5RBWguVnFpvIjUaN1NHYf+IKqj3WnE=; b=qxagyKFwXlK2bW
+	Ec1SzMchZBPdtvkmnc2nmgH2QQrewU8kchHQj0j36tLUezwXO1p6cjeVNoEQrzkoKI3sLT89coHGF
+	jgXHMd9QobzlkOGx+z1DP7R/zPlCd1GInqtwsXW4RZiG1Yi5T2t/SulTrroGgxSdIbsbyFofMX2fr
+	xwzwn3Ks/KTao48EIWDGJq6OMmWhoGTbibKm80jl+zEPr7sHngpeIvnRW7LJAF83dB198M1NY5x/e
+	yGpFfG5/rm3rBJ4dY76GSTUK63MBwVZHXhHX/NuBWyZfB3Bq96zC025lXwLLSgLqPXeLcez2APCfM
+	zZ6GXEh7IpIYoyMt2DCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4rwH-0000000FlWZ-0dNJ;
-	Fri, 11 Sep 2026 03:28:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4sw0-0000000Fof3-2FpC;
+	Fri, 11 Sep 2026 04:32:20 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4rwF-0000000FlTi-2ZhR;
-	Fri, 11 Sep 2026 03:28:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 57B2941724;
-	Fri, 11 Sep 2026 03:28:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A6EA1F00893;
-	Fri, 11 Sep 2026 03:28:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789097311;
-	bh=JqgSoIBESDHLyR7I67daLRSr3Iyho5ADiCyaj7jEfiU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KNRZ9go1qR8L7JRb9Xn3RhWpeR8GUiFEVCXwjQ82DsyIfAayNiE8/5RN45cUt1Zqi
-	 8OMUYuVX/CpqposqTctGjdM+wf+x1T/6rysS/QuaBbfqLiA8bXNNK1odnylHZReKX9
-	 A6q1lNPCitZ97TLfkNkQIEAznSUwT8V3IQ6m/OTLVFZFkYuu+LcUWju489LHfveTY0
-	 ZiQz31TI+rPNLUBXmBvB+OXL7u/IfV+WdkytlAJosNU0dPl2z5bJW1unnvAPGyb9iJ
-	 mKe3jw3PIVq6Fm6Pde8OTQzYqgxNfrS+8gJBm9xjKDmIcFOQLeBcR16N4oItKnShAX
-	 RiCd0Oj1cQbrg==
-From: "GUO Ren (XuanTie)" <guoren@kernel.org>
-Date: Fri, 11 Sep 2026 03:27:14 +0000
-Subject: [PATCH v2 6/6] media: mtk-vpu: rename IPI_MAX to IPI_VPU_MAX
+	id 1x4svw-0000000Foe4-2S9G
+	for linux-riscv@lists.infradead.org;
+	Fri, 11 Sep 2026 04:32:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=YKpfvW0m7fMGPwroikXgrjlEkqn9S1O/EG9PiSNdpjs=; 
+	b=f4AKmI0SRdE8F+kpVQXiub5fRB7v/nIJ2L3G5tkE0IFsgd3K5CaDIQI3l0p6UZbJ2mO3DjrYlbi
+	mwMOSsi1YjJvikFFyKFw84u7aOz8+H3rMWlPaKAxz6HCbmXt6Ks7qZfJyo/9beOxaupITxz4wWd54
+	j2YL0NVc9k8WR4GaxdmtC9sUVr/uqoFmjw63bokCWOsuCmOTimCzaqm6zyJFLcH1qWw9BprNSOn41
+	XtLLUsVM8HzahjPISNGoNcffLAgI4iKEBcI61DQnEo3QcG9qnDnm5rG7I0BmJ7ej8pNVX5IXlAWyJ
+	qIwseeWShWs2Q0+zzrLpuBeXusz+FN1H6SPQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1x4svP-0000000CtQw-0BeT;
+	Fri, 11 Sep 2026 12:31:44 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 11 Sep 2026 14:31:43 +1000
+Date: Fri, 11 Sep 2026 14:31:43 +1000
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Alex Ousherovitch <aousherovitch@rambus.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>,
+	Shuah Khan <shuah@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org,
+	Joel Wittenauer <Joel.Wittenauer@cryptography.com>,
+	linux-api@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Thi Nguyen <thin@rambus.com>
+Subject: Re: [PATCH v4 04/19] crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
+Message-ID: <aqOEL-YUVFuThcmf@gondor.apana.org.au>
+References: <20260825221539.255951-1-aousherovitch@rambus.com>
+ <20260825221539.255951-5-aousherovitch@rambus.com>
 MIME-Version: 1.0
-Message-Id: <20260911-ipi_max-v2-6-a77826ff189e@kernel.org>
-References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
-In-Reply-To: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Anup Patel <anup@brainfault.org>, Tiffany Lin <tiffany.lin@mediatek.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Yunfei Dong <yunfei.dong@mediatek.com>, 
- Minghsiu Tsai <minghsiu.tsai@mediatek.com>, 
- Houlong Wei <houlong.wei@mediatek.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Nathan Chancellor <nathan@kernel.org>, 
- "GUO Ren (XuanTie)" <guoren@kernel.org>
-X-Mailer: b4 0.16.0
+Content-Disposition: inline
+In-Reply-To: <20260825221539.255951-5-aousherovitch@rambus.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260910_213217_427506_0E5DD26E 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,109 +86,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The last enumerator of this driver's firmware IPI id list is a bound
-for the VPU mailbox protocol, not a generic host IPI limit. Follow the
-existing naming in this header: IPI_VPU_INIT already carries a VPU
-prefix, so the terminator should match.
+On Tue, Aug 25, 2026 at 03:15:23PM -0700, Alex Ousherovitch wrote:
+>
+> +/*
+> + * .update -- buffer incoming data, submit full blocks to HW.
 
-The same convention is used by the SCP IPI enum, which ends with a
-prefixed SCP_IPI_MAX rather than a bare IPI_MAX.
+Please drop block buffering in new drivers.  The Crypto API handles
+this for you.  Take a look at the aspeed driver for an example.
 
-Rename IPI_MAX to IPI_VPU_MAX and update the descriptor table bounds
-and range checks. No functional change.
-
-Link: https://lore.kernel.org/linux-riscv/20260908222349.GA2324870@ax162
-Cc: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
----
- drivers/media/platform/mediatek/vpu/mtk_vpu.c | 12 ++++++------
- drivers/media/platform/mediatek/vpu/mtk_vpu.h |  4 ++--
- 2 files changed, 8 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-index 8d8319f0cd22..b3e9f8c4ab7a 100644
---- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-+++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-@@ -211,7 +211,7 @@ struct mtk_vpu {
- 	struct vpu_regs reg;
- 	struct vpu_run run;
- 	struct vpu_wdt wdt;
--	struct vpu_ipi_desc ipi_desc[IPI_MAX];
-+	struct vpu_ipi_desc ipi_desc[IPI_VPU_MAX];
- 	struct share_obj __iomem *recv_buf;
- 	struct share_obj __iomem *send_buf;
- 	struct device *dev;
-@@ -221,7 +221,7 @@ struct mtk_vpu {
- 	struct mutex vpu_mutex; /* for protecting vpu data data structure */
- 	u32 wdt_refcnt;
- 	wait_queue_head_t ack_wq;
--	bool ipi_id_ack[IPI_MAX];
-+	bool ipi_id_ack[IPI_VPU_MAX];
- };
- 
- static inline void vpu_cfg_writel(struct mtk_vpu *vpu, u32 val, u32 offset)
-@@ -296,7 +296,7 @@ int vpu_ipi_register(struct platform_device *pdev,
- 		return -EPROBE_DEFER;
- 	}
- 
--	if (id < IPI_MAX && handler) {
-+	if (id < IPI_VPU_MAX && handler) {
- 		ipi_desc = vpu->ipi_desc;
- 		ipi_desc[id].name = name;
- 		ipi_desc[id].handler = handler;
-@@ -319,7 +319,7 @@ int vpu_ipi_send(struct platform_device *pdev,
- 	unsigned long timeout;
- 	int ret = 0;
- 
--	if (id <= IPI_VPU_INIT || id >= IPI_MAX ||
-+	if (id <= IPI_VPU_INIT || id >= IPI_VPU_MAX ||
- 	    len > sizeof(send_obj->share_buf) || !buf) {
- 		dev_err(vpu->dev, "failed to send ipi message\n");
- 		return -EINVAL;
-@@ -748,7 +748,7 @@ static void vpu_ipi_handler(struct mtk_vpu *vpu)
- 	s32 id = readl(&rcv_obj->id);
- 
- 	memcpy_fromio(data, rcv_obj->share_buf, sizeof(data));
--	if (id < IPI_MAX && ipi_desc[id].handler) {
-+	if (id < IPI_VPU_MAX && ipi_desc[id].handler) {
- 		ipi_desc[id].handler(data, readl(&rcv_obj->len),
- 				     ipi_desc[id].priv);
- 		if (id > IPI_VPU_INIT) {
-@@ -934,7 +934,7 @@ static int mtk_vpu_probe(struct platform_device *pdev)
- #ifdef CONFIG_DEBUG_FS
- 	debugfs_remove(vpu_debugfs);
- #endif
--	memset(vpu->ipi_desc, 0, sizeof(struct vpu_ipi_desc) * IPI_MAX);
-+	memset(vpu->ipi_desc, 0, sizeof(struct vpu_ipi_desc) * IPI_VPU_MAX);
- vpu_mutex_destroy:
- 	mutex_destroy(&vpu->vpu_mutex);
- disable_vpu_clk:
-diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.h b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-index 3951547e9ec5..44ab631ec904 100644
---- a/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-+++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-@@ -49,7 +49,7 @@ typedef void (*ipi_handler_t) (void *data,
-  *			 handle VP8 video encoder job,, and vice versa.
-  * @IPI_MDP:		 The interrupt from vpu is to notify kernel to
-  *			 handle MDP (Media Data Path) job, and vice versa.
-- * @IPI_MAX:		 The maximum IPI number
-+ * @IPI_VPU_MAX:	 The maximum VPU IPI number
-  */
- 
- enum ipi_id {
-@@ -60,7 +60,7 @@ enum ipi_id {
- 	IPI_VENC_H264,
- 	IPI_VENC_VP8,
- 	IPI_MDP,
--	IPI_MAX,
-+	IPI_VPU_MAX,
- };
- 
- /**
-
+Cheers,
 -- 
-2.43.0
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
