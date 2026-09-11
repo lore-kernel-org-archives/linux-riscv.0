@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B40C88E40
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 03:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FDFC88E41
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 03:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3PGjZ141cVBEjShvKLGxbAcH9fxvX6uDlRW43QoRd4E=; b=MnKQQ9ku40ta9K
-	ZLSOadQT64Qq4ExErFjtBuTQtv3bQlk2U9E4dao61h7eO/0yN6Gu+CwAoKC7mzSZujHPG2FosYG7A
-	LuLgLBye1TOxr2bJY2I0Ug8+GsPWNI2IK6ddibEj5xTL2B02F1RSU4/TFuDjbkUungEXoxC5MSIsD
-	r8cuSxaAVtj0ZKeluO9iXP80pKWu/9qI8N7hKPHfoevY1+6wylaliJJWeZFJpS76wFciQZJInM/pM
-	mHtr1gLFyDfbIcUWDcn+Tu/OPnvV+GWy20INTPNMnWHLjEn1Db5WSQ4NsWm0LxLpXgIiO2c+oG0N9
-	ZlgI7kkNVKAzKioSid6w==;
+	List-Owner; bh=4VWrqtSIyYt38OdtnhA6NwiqZCBYMMwCCpAVqDTUE8M=; b=Ywp7eamfk/9eJ1
+	6SQJTVwiVob4GruEAtMIA7/pKKu4/X4RvKS9VHXemOOu4Xz6WHnmRwyaeWqxD8xsSjXwOz8SBQfpH
+	9n+ljf77l3F9w2Ugy7CFSontsF02FS9T7o2+SA/TZdIlXxbtn3+3SppvZFcE2Z44fK/paj4ehiGrr
+	fbd8EDaNAFwjmAyZ3kWKFtRRf9S24lCQAC3aOu+MdnkI7i+4mK+EYylWMPQp9HctbGq8bc9okadhz
+	LknEkFxJ0lLleAl8m48OT6Shg1clP//ybOB7vknvke8AAZ0VN3/cmA/wTRyYNjUs6TERdrTh6LoyE
+	5ogeFifRAX6ivbGDQ17w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4rw0-0000000FlB0-1tS4;
-	Fri, 11 Sep 2026 03:28:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x4rw6-0000000FlIV-31FG;
+	Fri, 11 Sep 2026 03:28:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4rvy-0000000Fl8Z-1egW;
-	Fri, 11 Sep 2026 03:28:14 +0000
+	id 1x4rw5-0000000FlGR-0pdt;
+	Fri, 11 Sep 2026 03:28:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2641541724;
+	by tor.source.kernel.org (Postfix) with ESMTP id A02FA601F0;
+	Fri, 11 Sep 2026 03:28:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BF6A1F00899;
 	Fri, 11 Sep 2026 03:28:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 590191F00893;
-	Fri, 11 Sep 2026 03:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789097294;
-	bh=+YGz+V8i2Tas85KJKYFj/ybAdrkKvSaeyZci6zxQyQQ=;
+	s=k20260515; t=1789097300;
+	bh=2A7ZXlaUgzKlIRf43CRGlNeTsk8uPGumps0WoOKIcXc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=HFNmoNtOHiD/49OInUi9e/bZQ1UbPM0ExRcVg9AKDluhZRnAG1dDxIba74yMLwGDS
-	 IX2A4YA3Af+gCFmT60GN5cFBQkX5Ts2SffqmqcPEuS2a1SkwVQ7mRtrzS/wv44sDVS
-	 pmQ1XiHuopOGzAVwhW6g1JWvDrbhQHPqo8rBDtOvJZi9LT8iVK+Ee7/q2b83gKIbLw
-	 BzGzFn8lm05/31D/jwodF6Ef5ZCFD7Uh/w69XLF87atZ5JprmfKRcKE+Q/F/NgZ5jn
-	 veTzZBnvvOkLdoDYuWyX50x1UlJOhTGXQ/t9IQv5vXuKCHsuVl0mXLCtUs8Le1Lkq8
-	 KRehITOdW5YEw==
+	b=MuyGIa+L/7cRt+s9yK++OGfB5nWowDjYEv1WlWuvCKsgNWQptCipSm14Izdt6MC44
+	 grmDwu0q2rrcHBigQ50y3j2QnUciLRSgV+xV4+N+HHLeTvz93vGTIUuENqTcr3DWXp
+	 T/m88xKj/K/GHQQpaTnDH4HJ0dWbCC1BSIHrM6LIpKVERDQMQnWHgHCcCzLEwVQPm9
+	 prwZ5cRFWxgzvHrYATZv6clkE82Cj/q7GUish2stIk4jOwiSiEN+TRGVCIR7hbpdT1
+	 +esHCjSrskLUiRyY/LLVcYTQQagknazLYF1ApB+n5khIhE8fviQ/4DRmWoo8hN09QF
+	 HG5HVnk7OkGVw==
 From: "GUO Ren (XuanTie)" <guoren@kernel.org>
-Date: Fri, 11 Sep 2026 03:27:11 +0000
-Subject: [PATCH v2 3/6] clocksource: clint: Use IPI_MAX for IPI muxing
+Date: Fri, 11 Sep 2026 03:27:12 +0000
+Subject: [PATCH v2 4/6] irqchip/aclint-sswi: Use IPI_MAX for IPI muxing
 MIME-Version: 1.0
-Message-Id: <20260911-ipi_max-v2-3-a77826ff189e@kernel.org>
+Message-Id: <20260911-ipi_max-v2-4-a77826ff189e@kernel.org>
 References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
 In-Reply-To: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
 To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -80,36 +80,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Replace the hard-coded BITS_PER_BYTE with IPI_MAX now that the
-constant is exported from riscv asm/smp.h.
+Replace the hard-coded BITS_PER_BYTE with IPI_MAX now that the constant
+is exported from riscv asm/smp.h.
 
 Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
 ---
- drivers/clocksource/timer-clint.c | 4 ++--
+ drivers/irqchip/irq-aclint-sswi.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
-index 0bdd9d7ec545..e56eee7e3781 100644
---- a/drivers/clocksource/timer-clint.c
-+++ b/drivers/clocksource/timer-clint.c
-@@ -243,7 +243,7 @@ static int __init clint_timer_init_dt(struct device_node *np)
+diff --git a/drivers/irqchip/irq-aclint-sswi.c b/drivers/irqchip/irq-aclint-sswi.c
+index ca06efd86fa1..5e010fc401f7 100644
+--- a/drivers/irqchip/irq-aclint-sswi.c
++++ b/drivers/irqchip/irq-aclint-sswi.c
+@@ -138,7 +138,7 @@ static int __init aclint_sswi_probe(struct fwnode_handle *fwnode)
  	}
  
- #ifdef CONFIG_SMP
--	rc = ipi_mux_create(BITS_PER_BYTE, clint_send_ipi);
-+	rc = ipi_mux_create(IPI_MAX, clint_send_ipi);
- 	if (rc <= 0) {
+ 	/* Register SSWI irq and handler */
+-	virq = ipi_mux_create(BITS_PER_BYTE, aclint_sswi_ipi_send);
++	virq = ipi_mux_create(IPI_MAX, aclint_sswi_ipi_send);
+ 	if (virq <= 0) {
  		pr_err("unable to create muxed IPIs\n");
- 		rc = (rc < 0) ? rc : -ENODEV;
-@@ -251,7 +251,7 @@ static int __init clint_timer_init_dt(struct device_node *np)
- 	}
+ 		irq_dispose_mapping(sswi_ipi_virq);
+@@ -152,7 +152,7 @@ static int __init aclint_sswi_probe(struct fwnode_handle *fwnode)
+ 			  aclint_sswi_starting_cpu,
+ 			  aclint_sswi_dying_cpu);
  
- 	irq_set_chained_handler(clint_ipi_irq, clint_ipi_interrupt);
--	riscv_ipi_set_virq_range(rc, BITS_PER_BYTE);
-+	riscv_ipi_set_virq_range(rc, IPI_MAX);
- 	clint_clear_ipi();
- #endif
+-	riscv_ipi_set_virq_range(virq, BITS_PER_BYTE);
++	riscv_ipi_set_virq_range(virq, IPI_MAX);
  
+ 	return 0;
+ }
 
 -- 
 2.43.0
