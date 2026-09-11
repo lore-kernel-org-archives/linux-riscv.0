@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A64C88E4A
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 10:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA7AC88E4C
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 11:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F4x9m6MfZZbd9Thijg6MtNgFPEJEbbcePMocZ7IyJVw=; b=fBpFflg2+bwjU0
-	pfc2JG7Y6fcDJF7ERMRB7EZvwxP3emr/pILFBWd4vKgRaY1090w0wMTM9tCjf7p/7C55Ut7omtc57
-	P+yh8hzr032JO2nRiDP/nmXmQ9xDShzxr7E6QCJluUB5/+ScPM5ChPpwNqT4zIp4QXQRIs1RR81qq
-	ZegqEmtFvvFjgHEKAe76GxarVpttShXPqM33HXNOrlj9YiYc6KG3Qyldfk9b/dkbtDsS7kzJrURRU
-	2SjNjZ8SXVvei8cOX4uK33iTllzjUwswn6lUQcA6QxwE31BON7+Bx4VG42NmPUArbLOKXl0s8GNJM
-	J1nj0hK7hNlCKnWSFhOQ==;
+	List-Owner; bh=jmNnEJyEb7By8NrH5x/ExpEGEBP7lhzEgoVMiOdw0uY=; b=V6el8GSSUhYW6q
+	lp+/hAfgMHe83dBrCSgmkJ0IOc7ccXKoDV1XyeAwEbZQiKJcy5i1M7LKDhRrpJVVDbhYBBYvitrXP
+	qNE8LJ/or6h0E+8Cd1TzYmQ1AW1t4GwipxbR+HGHPdGgFI7ZxbGkJ35qDLWurOmgvbnZgVrjqZApp
+	vQaflf1zyvKPPx6R0CtTvZNgsxfFNw4nfU3Vym4gQ6A60wctgcnlrRNf7y4FMYf9RRuUmfQyirSHN
+	5TDHNrf1xoo5P7LSYYmDMmAg4a+5077hMP+E2KZmOuZfsXzBnFhEQTt/CfDjXzQoAo0XGA6Ym+uRe
+	oPin4tgHBSIpfJ3fmJhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4yov-0000000GQRJ-0pOs;
-	Fri, 11 Sep 2026 10:49:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x4z3A-0000000GSgv-2Gv2;
+	Fri, 11 Sep 2026 11:04:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4yoq-0000000GQQI-3aEN;
-	Fri, 11 Sep 2026 10:49:20 +0000
+	id 1x4z38-0000000GSgZ-1FGk;
+	Fri, 11 Sep 2026 11:04:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F3EDB60A57;
-	Fri, 11 Sep 2026 10:49:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E43CD1F000FF;
-	Fri, 11 Sep 2026 10:49:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 68FD46025A;
+	Fri, 11 Sep 2026 11:04:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23C031F000FF;
+	Fri, 11 Sep 2026 11:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789123759;
-	bh=2cS6Zi4iecA8/WRpl/dxFtp9Ml8fWtC6CKWWl6oDTEs=;
+	s=k20260515; t=1789124645;
+	bh=alqEY8dnDva6F4/EFxAYV7W6BWJYz3u01M3s7WRVjzU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WiXwnb2bSPhVBOFtwAV2PFncYRx1awBTnuFlQ929vhtJg6Ka9nuJywA2UGoNQmwWT
-	 IF7VzTnkK0hQ56wEqlH1C7sBB7dByg96e1nOE8TDugDVKYL7Dgi+T4m1GMD4dkNAMU
-	 vbA8xiRKOsb/KHI9sBAcXY4DzjflLSnNBKL661TkUMxJcAvYXKJpq0G4KWqqRYUkdh
-	 KmKA/KF2Z0EwVAu0MQjRTlmTBYJviSRdTL1PF/wrBy9aEQjDqqdqjpm0E82HpTR+mr
-	 iCvw8Z7TKGWaZPG2ZZWkYqIkLDJXno4xA8YcegZLEWJ8MBXXr/EpyWXUtHfOzi0T0g
-	 gyeooq1pbSMtQ==
-Date: Fri, 11 Sep 2026 11:49:05 +0100
+	b=d3GL+lR19THU5SBCGyL+xEEr0naqO1SarQ3qNZC9ZLWdENLkTSVMcdRDJoBzhxjhG
+	 F+mcqlc8tU9Nm4Czy07P+0FLLJIN0s2o/fiJpxlOsJuGYK3NBsPtufEkgYbjPywuo+
+	 3X0HRzYV9KBUy+5i0WEOecFyiSRN3gMD8CsMexCB1Bkfnf9mlgpjH53Ora7YXXXb2j
+	 oRVHuibhURwT2w+2ijqiHEWUqzrwoDoAbffw9LNgtabmhIIT7LrAOwtMqfhqmRWE4D
+	 ZD5rSVLb3kSPGR2AELWg6xCb14S7tv6go7sz2k/htC6UQ6DmekxUeeAjRtIHnumI8M
+	 gfjXtM3jHVpOg==
+Date: Fri, 11 Sep 2026 12:03:51 +0100
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: David Laight <david.laight.linux@gmail.com>
+To: Nathan Chancellor <nathan@kernel.org>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Nicolas Schier <nsc@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
 	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
 	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
@@ -67,14 +66,14 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	llvm@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
 	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
-Subject: Re: [PATCH 17/23] modpost: perform srcversion hashing in parallel
-Message-ID: <aqPcXcJVif1SLrDF@gremlin>
+Subject: Re: [PATCH 23/23] kbuild: use pigz for gzip compression if available
+Message-ID: <aqPdP_0eh0OYY6gZ@gremlin>
 References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
- <20260908-build-speedup-v1-17-5dc1ac01672d@kernel.org>
- <20260910113259.743b9686@pumpkin>
+ <20260908-build-speedup-v1-23-5dc1ac01672d@kernel.org>
+ <178901395293.3971858.15429964442902485180.b4-review@b4>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260910113259.743b9686@pumpkin>
+In-Reply-To: <178901395293.3971858.15429964442902485180.b4-review@b4>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,229 +90,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I'm likely going to be dropping this patch from the series:
-
-https://lore.kernel.org/linux-modules/20260731-module_ver_remove-v2-0-c9163858f382@linuxfoundation.org/
-
-I don't really agree with the points below but not really worth getting into if
-the patch is going away :)
-
-On Thu, Sep 10, 2026 at 11:32:59AM +0100, David Laight wrote:
-> On Tue, 08 Sep 2026 21:55:17 +0100
-> "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
->
-> > modpost does a lot of single-threaded work hashing files from each object's
-> > .cmd file.
+On Wed, Sep 09, 2026 at 09:19:12PM -0700, Nathan Chancellor wrote:
+> > The gzip step of a kernel build is very lengthily, especially for larger
+> > builds such as allmodconfig.
 > >
-> > This makes the build slower than it needs to be, so do this work in
-> > parallel.
+> > gzip itself cannot be run in parallel, however an alternative tool exists
+> > that can, providing the same feature set as gzip itself - pigz - which
+> > works as a drop-in replacement.
 > >
-> > This is egregious for allmodconfig builds - for instance x86-64 can end up
-> > opening 200,000 files individually and hashing them all serially.
+> > On a 128-core Threadripper, gzip -9 of a 36 MiB x86-64 vmlinux.bin takes
+> > 1.6s, and with pigz it takes 0.09s, so the performance increase is
+> > significant.
 > >
-> > Parallelise this operation by maintaining a thread pool for the hashing
-> > work.
+> > It is already possible to specify the KGZIP environmental variable to make
+> > use of pigz, however it seems sensible to make use of pigz if it is
+> > available.
 > >
-> > Combined with the per-file hashing commit this cuts modpost's run time
-> > nearly in half for an allmodconfig build.
+> > Therefore default to using pigz if it is available on the system upon which
+> > the kernel is being built, otherwise fall back to gzip.
 > >
-> > Module.symvers and every *.mod.S are byte for byte the same.
+> > The output is byte-for-byte identical between pigz/gzip invocations, but
+> > gzip and pigz do not produce the same stream as one another.
 > >
-> > modpost is on the serial tail of every allmodconfig build, however
-> > defconfig does not set CONFIG_MODULE_SRCVERSION_ALL and is unchanged.
+> > Therefore, for reproducible builds, the same set of tools should be used.
+> >
+> > This seems to already be an implicit requirement in any case, but update
+> > the reproducible build documentation to make this clear.
+> >
+> > Also update the kbuild documentation to reflect the change.
+> >
+> > Every x86 build ends with the compression of vmlinux.bin, 36MB for
+> > defconfig and over 200MB for allmodconfig, no-op builds are unchanged.
 > >
 > > Whole build, 128-thread Threadripper 9980X, best of N runs:
 > >
 > >                                          before   after     delta
 > >                                          -------------------------------
-> >   x86 allmodconfig, touch mm/vma.c, gcc    33.4s    30.2s     -3.2s (-10%)
-> >   x86 allmodconfig, touch mm/vma.c, clang  31.1s    28.1s     -3.0s (-10%)
+> >   x86 defconfig, touch mm/vma.c, gcc        7.4s     5.4s     -2.0s (-27%)
+> >   x86 defconfig, touch mm/vma.c, clang      6.6s     4.9s     -1.7s (-26%)
+> >   x86 defconfig, clean, gcc                26.2s    24.4s     -1.8s (-7%)
+> >   x86 defconfig, clean, clang              25.8s    24.3s     -1.5s (-6%)
+> >   x86 allmodconfig, touch mm/vma.c, gcc    23.7s    15.3s     -8.4s (-35%)
+> >   x86 allmodconfig, touch mm/vma.c, clang  22.1s    15.2s     -6.9s (-31%)
+> >   x86 allmodconfig, clean, gcc            291.4s   275.2s     -16.2s (-6%)
+> >   x86 allmodconfig, clean, clang          278.3s   265.7s     -12.6s (-5%)
 > >
+> > Link: https://zlib.net/pigz/
 > > Assisted-by: LLM
 > > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> > ---
-> >  scripts/mod/Makefile     |  1 +
-> >  scripts/mod/modpost.c    | 72 ++++++++++++++++++++++++++++++++++++++++++++++--
-> >  scripts/mod/modpost.h    |  2 ++
-> >  scripts/mod/sumversion.c |  3 +-
-> >  4 files changed, 74 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/scripts/mod/Makefile b/scripts/mod/Makefile
-> > index fbd5099e0441..fdd486184f9c 100644
-> > --- a/scripts/mod/Makefile
-> > +++ b/scripts/mod/Makefile
-> > @@ -5,6 +5,7 @@ hostprogs-always-y	+= modpost mk_elfconfig
-> >  always-y		+= empty.o
-> >
-> >  modpost-objs	:= modpost.o file2alias.o sumversion.o symsearch.o
-> > +HOSTLDLIBS_modpost := -lpthread
-> >
-> >  devicetable-offsets-file := devicetable-offsets.h
-> >
-> > diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-> > index 550ccd753ed8..882169e51851 100644
-> > --- a/scripts/mod/modpost.c
-> > +++ b/scripts/mod/modpost.c
-> > @@ -16,6 +16,7 @@
-> >  #include <fnmatch.h>
-> >  #include <stdio.h>
-> >  #include <ctype.h>
-> > +#include <pthread.h>
-> >  #include <string.h>
-> >  #include <limits.h>
-> >  #include <stdbool.h>
-> > @@ -1717,8 +1718,7 @@ static void read_symbols(const char *modname)
-> >  	if (!mod->is_vmlinux) {
-> >  		version = get_modinfo(&info, "version");
-> >  		if (version || all_versions)
-> > -			get_src_version(mod->name, mod->srcversion,
-> > -					sizeof(mod->srcversion) - 1);
-> > +			mod->need_srcversion = true;
-> >  	}
-> >
-> >  	parse_elf_finish(&info);
-> > @@ -1736,6 +1736,72 @@ static void read_symbols(const char *modname)
-> >  	}
-> >  }
-> >
-> > +static struct module **srcversion_mods;
-> > +static unsigned int nr_srcversion_mods, next_srcversion_mod;
-> > +
-> > +static bool get_next_src_version(void)
-> > +{
-> > +	struct module *mod;
-> > +	unsigned int idx;
-> > +
-> > +	idx = __sync_fetch_and_add(&next_srcversion_mod, 1);
+> ...
+> > diff --git a/Makefile b/Makefile
+> > index a0d29dee81d7..efa6a2d77e6b 100644
+> > --- a/Makefile
+> > +++ b/Makefile
+> > @@ -561,7 +561,7 @@ PERL		= perl
+> >  PYTHON3		= python3
+> >  CHECK		= sparse
+> >  BASH		= bash
+> > -KGZIP		= gzip
+> > +KGZIP		:= $(if $(shell command -v pigz 2>/dev/null),pigz,gzip)
 >
-> When I've done this is the past, adding 'a few' items was faster
-> because it reduced the contention on the counter.
-> (Although there were probably some very cheap 'actions'.)
+> This should be '?=', right? Sashiko also notes a concern around parallel
+
+Actually make KGZIP=foo will override this still. But it doesn't take an
+environment variable for make -e.
+
+However, that's consistent with other variables there like KBZIP2 etc.
+
+Probably the wording in the docs should be tweaked!
+
+> module installation with gzip module compression since there is no
+> thread limitation, which could bring a little risk to doing this by
+> default? Might not be that big of a deal though?
+
+Yeah, will modify so it single threads for things that aren't vmlinux on
+respin!
+
 >
-> > +	if (idx >= nr_srcversion_mods)
-> > +		return false;
-> > +	mod = srcversion_mods[idx];
-> > +
-> > +	get_src_version(mod->name, mod->srcversion,
-> > +			sizeof(mod->srcversion) - 1);
-> > +	return true;
-> > +}
-> > +
-> > +static void *srcversion_worker(void *arg)
-> > +{
-> > +	while (get_next_src_version())
-> > +		;
->
-> I don't think the extra function call helps.
->
-> > +
-> > +	return NULL;
-> > +}
-> > +
-> > +static void hash_srcversions(void)
-> > +{
-> > +	unsigned int i = 0;
-> > +	struct module *mod;
-> > +	pthread_t *threads;
-> > +	long nr_threads;
-> > +
-> > +	list_for_each_entry(mod, &modules, list)
-> > +		if (mod->need_srcversion)
-> > +			nr_srcversion_mods++;
-> > +
-> > +	if (!nr_srcversion_mods)
-> > +		return;
-> > +
-> > +	srcversion_mods = xmalloc(nr_srcversion_mods * sizeof(*srcversion_mods));
-> > +
-> > +	list_for_each_entry(mod, &modules, list)
-> > +		if (mod->need_srcversion)
-> > +			srcversion_mods[i++] = mod;
-> > +
-> > +	nr_threads = sysconf(_SC_NPROCESSORS_ONLN);
->
-> One thread per cpu is probably a few to many.
-> It might be worth adding a command line parameter for the 'max threads'.
-> Possibly with -n meaning 'all but n'.
->
-> > +	nr_threads = nr_threads < 1 ? 1 : nr_threads; /* On error assume 1. */
-> > +	if (nr_threads > nr_srcversion_mods)
-> > +		nr_threads = nr_srcversion_mods;
-> > +
-> > +	sumversion_init();
-> > +	threads = xmalloc(nr_threads * sizeof(*threads));
-> > +	for (i = 0; i < nr_threads; i++) {
-> > +		if (pthread_create(&threads[i], NULL, srcversion_worker, NULL)) {
-> > +			perror("pthread_create");
-> > +			exit(1);
-> > +		}
-> > +	}
->
-> The main code can call srcversion_worker() here.
->
-> David
->
-> > +	for (i = 0; i < nr_threads; i++)
-> > +		pthread_join(threads[i], NULL);
-> > +
-> > +	free(threads);
-> > +	free(srcversion_mods);
-> > +}
-> > +
-> >  static void read_symbols_from_files(const char *filename)
-> >  {
-> >  	FILE *in = stdin;
-> > @@ -2729,6 +2795,8 @@ int main(int argc, char **argv)
-> >  	if (files_source)
-> >  		read_symbols_from_files(files_source);
-> >
-> > +	hash_srcversions();
-> > +
-> >  	list_for_each_entry(mod, &modules, list) {
-> >  		keep_no_trim_symbols(mod);
-> >
-> > diff --git a/scripts/mod/modpost.h b/scripts/mod/modpost.h
-> > index d5f6d82837d5..10d5f8f2f293 100644
-> > --- a/scripts/mod/modpost.h
-> > +++ b/scripts/mod/modpost.h
-> > @@ -127,6 +127,7 @@ struct module {
-> >  	bool has_init;
-> >  	bool has_cleanup;
-> >  	char	     srcversion[25];
-> > +	bool need_srcversion;
-> >  	// Missing namespace dependencies
-> >  	struct list_head missing_namespaces;
-> >  	// Actual imported namespaces
-> > @@ -213,6 +214,7 @@ void handle_moddevtable(struct module *mod, struct elf_info *info,
-> >  			Elf_Sym *sym, const char *symname);
-> >
-> >  /* sumversion.c */
-> > +void sumversion_init(void);
-> >  void get_src_version(const char *modname, char sum[], unsigned sumlen);
-> >
-> >  /* from modpost.c */
-> > diff --git a/scripts/mod/sumversion.c b/scripts/mod/sumversion.c
-> > index 5501d6aa0bea..4521b92ef868 100644
-> > --- a/scripts/mod/sumversion.c
-> > +++ b/scripts/mod/sumversion.c
-> > @@ -249,7 +249,7 @@ static int parse_comment(const char *file, unsigned long len)
-> >  /* FIXME: Handle .s files differently (eg. # starts comments) --RR */
-> >  static bool stop_char[256];
-> >
-> > -static void sumversion_init(void)
-> > +void sumversion_init(void)
-> >  {
-> >  	static bool done;
-> >  	int chr;
-> > @@ -402,7 +402,6 @@ static int parse_source_files(const char *objfile, struct md4_ctx *md)
-> >  				     line, strerror(errno));
-> >  				goto out_file;
-> >  			}
-> > -
-> >  		}
-> >
-> >  	}
-> >
+> --
+> Cheers,
+> Nathan
 >
 
 --
