@@ -4,51 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D0FC88E4D
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 17:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC658C88E4D
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 18:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1aA1fBjsdMfr/rrE6EnVpWasVLzm85avaYYuU31/wu4=; b=ZyI8Jvqg4Yn5yU
-	WsLOg16I72oB93nMMgAXT5WfGRaEICNFxAgSYp2yqe6sSDNwXjTJ1msc3prNamK6/PYn6a/UvbyJ/
-	pXhUNYepsnbG05mWhgefEihXbcfuMPJ6hPcaz9u4Tgrfrfj9cjYre36VSDqeaNs931uPi4RQYDR95
-	E17vCkrR1AQ9iw0xGDCbRHZbumgVqmmKHAURZ6boaWTfVH9glBjVf2TMHaCSYzJbtZIUlltVWjLhY
-	F0zFxX3i8NjikzXy46ObWp5L1HXeuaal7wRiYrSr0fA9DmWE9hBn+Yh9tzyanbnubNASez3WOa2Cs
-	LVUF2TbtQQBo9at+za3g==;
+	List-Owner; bh=JajPqUAXkFjUKxM7f91vEzJBmFK2WRYnKOmL2bVptBs=; b=nQEhq81knLZgqx
+	Wh6WMVnKVBxKrmQPmoNLf8slru/uhHKfVe0Ai4xqS5zeNqSVctLt2/y/YG8qDE8A34LV8p69nlFed
+	I7CCKh2f3dwbpRtnpKMi/cIPkLLT/3A5ZnZAfergeOFIV52wV7YnfDwAI6dskdKyKpoVB8iRko0T9
+	GUrZuInDIlcHfQrXZ0DT1FwO4me7MZaEF9btdgi2nKqi+8RvPCZ1QOdVm9486rnbQUZcNU/ok394r
+	jOXzWmeaoulamlVX4FB1bW0BdV4fsWl78thHf8wP2izil1jvh1egfjU/SLlxgYsOtc4YpNPr1BPMV
+	NCwAKWtm//iyB7MKy39g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x55Sx-0000000HOf1-36B3;
-	Fri, 11 Sep 2026 17:55:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x55eE-0000000HPTo-46Qn;
+	Fri, 11 Sep 2026 18:06:50 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x55Sw-0000000HOea-1rwW
+	id 1x55eC-0000000HPTG-0Y4F
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Sep 2026 17:55:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A59DF60008;
-	Fri, 11 Sep 2026 17:55:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 425FA1F000FF;
-	Fri, 11 Sep 2026 17:55:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789149309;
-	bh=mx1VD96zTqT0AQiq7dvnFqx6ZSHKVSEUXQ2om8YbJ1w=;
-	h=Date:From:To:cc:Subject;
-	b=NvYqL2z5Suz4N31t/rXfTf9J7Dppgh/KezmYN61YLHO0jfhv+zeQ51XpksZf2pvgx
-	 unciZHYVeZk+820/LRYzirG3I6ziv9OlkthedGeLX+CeXp5Pmir6v95Gyze+SnCAUq
-	 lgkKE779nFB1onz1HVY/dHy74/JrBivfVGw3t0jnPG+D9QBWQn9HQEfiiBi+TO2Ij6
-	 56Wa9/9XTG38ORGwvYRWpvfBxyPepkUFXuUeOiRZASpKQJNgp0zUYxUu5Vvlzz55L+
-	 cIV/pamiE+daQAf8UbdP2Ez0RZ4SH6IlDQGkqfDVALwp6NFXpEdZc+FWfYEh+NYIbD
-	 H5MEGNNHoyv1w==
-Date: Fri, 11 Sep 2026 11:55:00 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: torvalds@linux-foundation.org
-cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] RISC-V updates for v7.3-rc3
-Message-ID: <bca66c44-faf3-27b1-daec-1fe594804354@kernel.org>
+	Fri, 11 Sep 2026 18:06:49 +0000
+Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccda24a3so67699a91.0
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2026 11:06:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789150007; x=1789754807; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Jo2uzj/N171DScFnL7iq1Y1nF9wLs6WiaF8JUd+T4Ro=;
+        b=J4tzAVmi1Z8PkCYsuE8iV5f4H1bwIHrR66R9NMkf691VwBgCQRE+AkP4lHpCXYJKJL
+         So/CC2lm8LFlVwco6l9953tplqTQAAAH9C6+74HHqeO2pnBjqt43Y1Aymbd+XmSJL6wH
+         tIjb6qKIg2LhO4gYoYQGAB9RRrcGuZVq89ZXR6BK90qHEwI5lWtWtnZarF0anCglxnmc
+         ftOBK4PK62ldieMlARPsGWmrdjZi6qmVNdPSydln5CdFVDr4Dp/zgu/43ZEqacp1kEK6
+         1sHkQAs0HsSN6u6laP1lmd7JEw30R05B70zaRmJ6lYMBRCGDerTT/MgXZdtCcUTtE9FE
+         MB9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789150007; x=1789754807;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Jo2uzj/N171DScFnL7iq1Y1nF9wLs6WiaF8JUd+T4Ro=;
+        b=kX64opknUOioV3EVX3kT5jQ0CYBdkccGlopCB6ivWL2CMxCKhpyLQahS6RSUnZk3+V
+         sGTzotauOg4UVYfDuk2rx4FV6JIOU8DEp6dxkPbTMp5jO2OgSvHOsZqc9V4udHWc1uHA
+         TbEfEYaD3zYzE8S95N9su+4ZXQ58Q6lA792GNDyPtEO9YHzjnNpd9qZh2R7PNFwkywri
+         xxgtS6nHYMiHKteowl1kYwsCQRo3SDmwibJl4+WBxr51vQY7czCDBtMNL8vlfzbXvoFW
+         3m6eSrG4a1h9nbyMjvqmIZo0ConKEjsEWlPhkiOxR4mQxujEeKWiWvUf3GPVspQl+NFR
+         yVBw==
+X-Forwarded-Encrypted: i=1; AKwUvByHAsZ0vZOjxgpmqCbNGa52oeBym2N20vjH4upLltY16kUbHA3DHmhRazTnPE+OkjFhen+0H4c1d7A5/Q==@lists.infradead.org
+X-Gm-Message-State: AFuF++mLWRRdNkHewtQ6rWyaoCT1GJSU+hgJzPNDH+hL+5DdfTZHQWos
+	tSAf8QVvfqhQsldeAjvtrH3O2s26t75UW55rUFpYV9u+8vVyI0z6tPJw
+X-Gm-Gg: AYBFou2iE9yuUNBaW014DVOcffx+9biw+yyhavXGUjrGfNLQxTMEQr5D5LD1pvJjqlN
+	xKPKR+G8sm+JrbWrbSjRyyVQbPZvbMbFB1tVLpH3q+PE6G289+OXZh9mIDQjFqOHmSajL+6g0zY
+	8U/8WLGZQeP3cSsaohVWmteys2YUsgFV3jwnX+PnOiM3P3o5rd9j1FVO8oOB4t3uxBBYSkYCKGX
+	vWa+FXTKgmZDJxR/vgLWI7+nSgnEIXSN2L0UJvHTAoIQRkuJa5wC7gYWCzDX38F2mQ0qSGtKe3+
+	a2Iexi1JQg0dHgwUxhFcU9vOpfDaY/cuAXoWDxbFzfXvcAnNqisSX3hdAX6yP/j4Le0QDrLWYMs
+	19yq6bTBMTG8KEIVRS8t8FPX0AjzQMKg521ZI1gY923mZBn/ULIfeEIg7Ud/AcVPbnNW0ogK61l
+	29V4sB3+hrUuCzkN4vQ8Vj7XuB28fa1GoxX3DCuQbywoklAPNwriQewo9a/h+w8rsJPwLGIuCpZ
+	YeNfMgi8id+2sOGwedMtJQhSkmqzezhK1eoeSAfCZxVSJ4jTE4=
+X-Received: by 2002:a17:90b:4fc9:b0:37f:e326:6557 with SMTP id 98e67ed59e1d1-39d9bbfc338mr9687313a91.4.1789150006816;
+        Fri, 11 Sep 2026 11:06:46 -0700 (PDT)
+Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com.com ([106.51.165.23])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14365b759d0sm8806721c88.7.2026.09.11.11.06.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Sep 2026 11:06:46 -0700 (PDT)
+From: "Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>
+To: maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	chleroy@kernel.org,
+	ryabinin.a.a@gmail.com,
+	glider@google.com,
+	andreyknvl@gmail.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	kees@kernel.org,
+	mkchauras@gmail.com,
+	ritesh.list@gmail.com,
+	amachhiw@linux.ibm.com,
+	mahesh@linux.ibm.com,
+	nikhilks@linux.ibm.com,
+	robh@kernel.org,
+	sayalip@linux.ibm.com,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	linux-riscv@lists.infradead.org,
+	linux-hardening@vger.kernel.org
+Cc: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+Subject: [PATCH V2] powerpc/kasan: require memintrinsic prefix support for KASAN
+Date: Fri, 11 Sep 2026 23:35:37 +0530
+Message-ID: <20260911180536.3234640-2-mkchauras@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260911_110648_185381_1F15A1AC 
+X-CRM114-Status: GOOD (  30.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,186 +121,257 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linus,
+powerpc unconditionally selects GENERIC_ENTRY. The GENERIC_ENTRY
+infrastructure relies on the compiler emitting __asan_mem*() calls at
+instrumented mem*() sites rather than plain memset/memcpy/memmove, so
+that entry/exit paths calling those functions are not instrumented.
 
-Please pull these RISC-V updates for v7.3-rc3.  From a RISC-V point of 
-view, there's one notable fix here, reverting an earlier bogus fix to the 
-pointer masking code.  Fortunately the practical impact appears to be 
-small.
+This assumption is encoded in two places:
 
+  mm/kasan/shadow.c:
+    #if !defined(CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX) &&
+        !defined(CONFIG_GENERIC_ENTRY)
 
-- Paul
+  include/linux/fortify-string.h:
+    #if !defined(CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX) &&
+        !defined(CONFIG_GENERIC_ENTRY)
 
-The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
+When GENERIC_ENTRY is set, both guards suppress the C wrappers for
+memset/memcpy/memmove and the __underlying_mem*() redirections. This
+is only safe when the compiler supports the prefixed __asan_mem*()
+intrinsics. On older toolchains (e.g. GCC 9) that lack this support,
+plain mem*() calls from instrumented code fall through to the raw
+assembly implementations in mem_64.S / copy_32.S, completely bypassing
+the KASAN shadow check.
 
-  Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
+Other arches with GENERIC_ENTRY (x86, s390, loongarch, riscv) do not
+hit this because their CI toolchains are always new enough to support
+the prefix flag.
 
-are available in the Git repository at:
+Background: the !GENERIC_ENTRY guard was introduced by commit 69d4c0d32186
+("entry, kasan, x86: Disallow overriding mem*() functions", Peter Zijlstra,
+Jan 2023). The root problem is that the KASAN C wrappers override the
+linker symbol memset/memcpy/memmove globally, so any call from noinstr or
+__no_sanitize_address code (e.g. irqentry_enter/irqentry_exit) would still
+reach the KASAN shadow-check wrapper -- at a point where KASAN invariants
+may not hold. The compiler prefix approach (Marco Elver, Feb 2023,
+commit 51287dcb00cc) solves this by having the compiler emit __asan_memset
+at instrumented call sites and bare memset inside __no_sanitize_address
+functions, splitting the decision at code-generation time rather than at
+link time.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux tags/riscv-for-linus-7.3-rc3
+A manual C-level override cannot replicate this split: a single linker
+symbol cannot be made to resolve differently depending on the caller.
 
-for you to fetch changes up to b94cec5761d22624d109d859467d7d4ce0a1b88b:
+x86 also placed its raw memset/memcpy/memmove implementations in
+.noinstr.text (same commit, 69d4c0d32186), which is the other half of
+the fix: noinstr callers hit the raw assembly directly, safely bypassing
+KASAN. PowerPC has not done this. Placing mem_64.S / memcpy_64.S /
+copy_32.S implementations in .noinstr.text would be the complementary
+long-term fix that could re-enable KASAN on older toolchains, but it
+requires care around linker stub overflow on large PPC64 kernels (the
+same reason powerpc uses NOKPROBE_SYMBOL rather than noinstr for its
+interrupt handlers -- see the comment in asm/interrupt.h). That work
+is left as a follow-up.
 
-  riscv: skip software algning code for HAVE_EFFICIENT_UNALIGNED_ACCESS (2026-09-02 11:47:08 -0600)
+For now, introduce PPC_CC_HAS_KASAN_MEMINTRINSIC_PREFIX, an arch-local
+compiler probe that mirrors the same check as CC_HAS_KASAN_MEMINTRINSIC_PREFIX
+in lib/Kconfig.kasan but lives outside the 'if KASAN' block to avoid a
+recursive dependency (CC_HAS_KASAN_MEMINTRINSIC_PREFIX depends on KASAN
+which depends on HAVE_ARCH_KASAN). Gate the three HAVE_ARCH_KASAN selects
+on this new symbol so that KASAN is not offered as a config option on
+toolchains that cannot support it correctly with GENERIC_ENTRY.
 
-----------------------------------------------------------------
-RISC-V updates for v7.3-rc3
+Since KASAN on powerpc now unconditionally implies
+CC_HAS_KASAN_MEMINTRINSIC_PREFIX, the old !CC_HAS_KASAN_MEMINTRINSIC_PREFIX
+code paths in asm/kasan.h and asm/string.h are dead. Clean them up:
 
-- Revert a bad fix, likely LLM-generated, in the pointer masking code
-  that confused the RISC-V hardware pointer masking implementation
-  with the Linux kernel tagged address feature
+- asm/kasan.h: remove the dual-entry-point variant of _GLOBAL_KASAN /
+  _GLOBAL_TOC_KASAN / EXPORT_SYMBOL_KASAN that emitted both memset and
+  __memset as entry points to the same assembly. These aliases were only
+  needed so the C KASAN wrappers in shadow.c could call __memset() to
+  reach raw memory ops; with the compiler prefix approach those wrappers
+  are not used for mem* on powerpc.
 
-- Fix unexpected faults caused by kprobe instruction slot writes when
-  !CONFIG_STRICT_MODULE_RWX
+- asm/string.h: remove the separate __memset/__memcpy/__memmove symbol
+  declarations and the memset/memcpy/memmove macro redirections for
+  uninstrumented files that were needed on old toolchains. Simplify the
+  CONFIG_KASAN block to just the three #define aliases (still used by
+  shadow.c as raw backends to bypass KASAN checking).
 
-- Fix unexpected faults on minimal configurations during runtime code
-  patching on !CONFIG_STRICT_MODULE_RWX systems
+- cputable.c, prom_init.c: the original comments said "use memcpy() so
+  GCC emits __memcpy() under KASAN". The real reason is that these run
+  pre-relocation: the destination pointer is PTRRELOC-adjusted to its
+  current physical address, and the kernel is loaded at a different
+  address than it was linked at. A struct assignment (*t = *s) may cause
+  the compiler to emit an implicit memcpy() call that resolves through
+  the unrelocated virtual symbol address -- before the MMU mapping is set
+  up -- jumping to garbage. An explicit memcpy(t, ...) uses the already-
+  corrected pointer and is safe. Update the comments accordingly.
 
-- Fix a misplaced variable clear causing incorrect reuse of previous
-  values in the RISC-V hardware feature probing code
+Reported-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+Closes: https://lore.kernel.org/all/96dae110-f79b-4e54-8a9b-514369019b5d@linux.ibm.com
+Tested-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+Signed-off-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
+---
+Changelog:
 
-- Fix two bugs in the PMU SBI perf code on rv32: use BIT_ULL rather
-  than BIT on 64-bit masks; and use a bitmap rather than an unsigned
-  long on a quantity that can exceed 32 bits
+V1 -> V2:
+	- Comments reworded
+	- Commit message reworded
+V1: https://lore.kernel.org/all/20260908064948.999530-1-mkchauras@gmail.com
 
-And a few miscellaneous cleanups:
+ arch/powerpc/Kconfig              | 10 +++++++---
+ arch/powerpc/include/asm/kasan.h  | 11 -----------
+ arch/powerpc/include/asm/string.h | 21 +--------------------
+ arch/powerpc/kernel/cputable.c    | 14 +++++++++++---
+ arch/powerpc/kernel/prom_init.c   | 10 ++++++----
+ 5 files changed, 25 insertions(+), 41 deletions(-)
 
-- Avoid a potential dereference-before-NULL-pointer-check bug in the
-  PMU SBI perf driver
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 2580e27e4328..b27ed9739eea 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -7,6 +7,10 @@ config CC_HAS_ELFV2
+ config CC_HAS_PREFIXED
+ 	def_bool PPC64 && $(cc-option, -mcpu=power10 -mprefixed)
+ 
++config PPC_CC_HAS_KASAN_MEMINTRINSIC_PREFIX
++	def_bool (CC_IS_CLANG && $(cc-option,-fsanitize=kernel-address -mllvm -asan-kernel-mem-intrinsic-prefix=1)) || \
++		 (CC_IS_GCC && $(cc-option,-fsanitize=kernel-address --param asan-kernel-mem-intrinsic-prefix=1))
++
+ config CC_HAS_PCREL
+ 	# Clang has a bug (https://github.com/llvm/llvm-project/issues/62372)
+ 	# where pcrel code is not generated if -msoft-float, -mno-altivec, or
+@@ -220,9 +224,9 @@ config PPC
+ 	select HAVE_ARCH_HUGE_VMAP		if PPC_RADIX_MMU || PPC_8xx
+ 	select HAVE_ARCH_JUMP_LABEL
+ 	select HAVE_ARCH_JUMP_LABEL_RELATIVE
+-	select HAVE_ARCH_KASAN			if PPC32 && PAGE_SHIFT <= 14
+-	select HAVE_ARCH_KASAN			if PPC_RADIX_MMU
+-	select HAVE_ARCH_KASAN			if PPC_BOOK3E_64
++	select HAVE_ARCH_KASAN			if PPC32 && PAGE_SHIFT <= 14 && PPC_CC_HAS_KASAN_MEMINTRINSIC_PREFIX
++	select HAVE_ARCH_KASAN			if PPC_RADIX_MMU && PPC_CC_HAS_KASAN_MEMINTRINSIC_PREFIX
++	select HAVE_ARCH_KASAN			if PPC_BOOK3E_64 && PPC_CC_HAS_KASAN_MEMINTRINSIC_PREFIX
+ 	select HAVE_ARCH_KASAN_VMALLOC		if HAVE_ARCH_KASAN
+ 	select HAVE_ARCH_KCSAN
+ 	select HAVE_ARCH_KFENCE			if ARCH_SUPPORTS_DEBUG_PAGEALLOC
+diff --git a/arch/powerpc/include/asm/kasan.h b/arch/powerpc/include/asm/kasan.h
+index a690e7da53c2..d62756b87ba4 100644
+--- a/arch/powerpc/include/asm/kasan.h
++++ b/arch/powerpc/include/asm/kasan.h
+@@ -2,20 +2,9 @@
+ #ifndef __ASM_KASAN_H
+ #define __ASM_KASAN_H
+ 
+-#if defined(CONFIG_KASAN) && !defined(CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX)
+-#define _GLOBAL_KASAN(fn)			\
+-	_GLOBAL(fn);				\
+-	_GLOBAL(__##fn)
+-#define _GLOBAL_TOC_KASAN(fn)			\
+-	_GLOBAL_TOC(fn);			\
+-	_GLOBAL_TOC(__##fn)
+-#define EXPORT_SYMBOL_KASAN(fn)			\
+-	EXPORT_SYMBOL(__##fn)
+-#else /* CONFIG_KASAN && !CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX */
+ #define _GLOBAL_KASAN(fn)	_GLOBAL(fn)
+ #define _GLOBAL_TOC_KASAN(fn)	_GLOBAL_TOC(fn)
+ #define EXPORT_SYMBOL_KASAN(fn)
+-#endif /* CONFIG_KASAN && !CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX */
+ 
+ #ifndef __ASSEMBLER__
+ 
+diff --git a/arch/powerpc/include/asm/string.h b/arch/powerpc/include/asm/string.h
+index 1981bd4036b5..72b5c93a2b84 100644
+--- a/arch/powerpc/include/asm/string.h
++++ b/arch/powerpc/include/asm/string.h
+@@ -29,29 +29,10 @@ extern void * memchr(const void *,int,__kernel_size_t);
+ void memcpy_flushcache(void *dest, const void *src, size_t size);
+ 
+ #ifdef CONFIG_KASAN
+-/* __mem variants are used by KASAN to implement instrumented meminstrinsics. */
+-#ifdef CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX
++/* Used by mm/kasan/shadow.c as raw backends to bypass KASAN checking. */
+ #define __memset memset
+ #define __memcpy memcpy
+ #define __memmove memmove
+-#else /* CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX */
+-void *__memset(void *s, int c, __kernel_size_t count);
+-void *__memcpy(void *to, const void *from, __kernel_size_t n);
+-void *__memmove(void *to, const void *from, __kernel_size_t n);
+-#ifndef __SANITIZE_ADDRESS__
+-/*
+- * For files that are not instrumented (e.g. mm/slub.c) we
+- * should use not instrumented version of mem* functions.
+- */
+-#define memcpy(dst, src, len) __memcpy(dst, src, len)
+-#define memmove(dst, src, len) __memmove(dst, src, len)
+-#define memset(s, c, n) __memset(s, c, n)
+-
+-#ifndef __NO_FORTIFY
+-#define __NO_FORTIFY /* FORTIFY_SOURCE uses __builtin_memcpy, etc. */
+-#endif
+-#endif /* !__SANITIZE_ADDRESS__ */
+-#endif /* CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX */
+ #endif /* CONFIG_KASAN */
+ 
+ #ifdef CONFIG_PPC64
+diff --git a/arch/powerpc/kernel/cputable.c b/arch/powerpc/kernel/cputable.c
+index 6f6801da9dc1..233b5c650d1e 100644
+--- a/arch/powerpc/kernel/cputable.c
++++ b/arch/powerpc/kernel/cputable.c
+@@ -36,8 +36,12 @@ void __init set_cur_cpu_spec(struct cpu_spec *s)
+ 
+ 	t = PTRRELOC(t);
+ 	/*
+-	 * use memcpy() instead of *t = *s so that GCC replaces it
+-	 * by __memcpy() when KASAN is active
++	 * Use memcpy() instead of *t = *s because t is a PTRRELOC-adjusted
++	 * pointer and this code runs before the MMU mapping is established.
++	 * A struct assignment is a compiler-generated aggregate copy whose
++	 * implementation is not under our control in relocation-sensitive code;
++	 * memcpy() ensures the adjusted pointer is explicitly passed to the
++	 * copy routine.
+ 	 */
+ 	memcpy(t, s, sizeof(*t));
+ 
+@@ -55,7 +59,11 @@ static struct cpu_spec * __init setup_cpu_spec(unsigned long offset,
+ 
+ 	/*
+ 	 * Copy everything, then do fixups. Use memcpy() instead of *t = *s
+-	 * so that GCC replaces it by __memcpy() when KASAN is active
++	 * because t is a PTRRELOC-adjusted pointer and this code runs before
++	 * the MMU mapping is established. A struct assignment is a
++	 * compiler-generated aggregate copy whose implementation is not under
++	 * our control in relocation-sensitive code; memcpy() ensures the
++	 * adjusted pointer is explicitly passed to the copy routine.
+ 	 */
+ 	memcpy(t, s, sizeof(*t));
+ 
+diff --git a/arch/powerpc/kernel/prom_init.c b/arch/powerpc/kernel/prom_init.c
+index eb9f556b0937..d6d7f1ede319 100644
+--- a/arch/powerpc/kernel/prom_init.c
++++ b/arch/powerpc/kernel/prom_init.c
+@@ -1363,10 +1363,12 @@ static void __init prom_check_platform_support(void)
+ 				       "ibm,arch-vec-5-platform-support");
+ 
+ 	/*
+-	 * First copy the architecture vec template
+-	 *
+-	 * use memcpy() instead of *vec = *vec_template so that GCC replaces it
+-	 * by __memcpy() when KASAN is active
++	 * First copy the architecture vec template. Use memcpy() instead of
++	 * a struct assignment because this code runs before the MMU mapping
++	 * is established. A struct assignment is a compiler-generated
++	 * aggregate copy whose implementation is not under our control in
++	 * relocation-sensitive code; memcpy() ensures the adjusted pointer
++	 * is explicitly passed to the copy routine.
+ 	 */
+ 	memcpy(&ibm_architecture_vec, &ibm_architecture_vec_template,
+ 	       sizeof(ibm_architecture_vec));
+-- 
+2.55.0
 
-- Simplify the rv32 bug table code by using
-  CONFIG_GENERIC_BUG_RELATIVE_POINTERS (following x86 and PPC)
-
-- Report the RISC-V standard ISA extensions Z[v]fhmin when support is
-  claimed for the superset RISC-V standard ISA extensions Z[v]fh; and
-  simplify our FPU test code to only check for the presence of the D
-  extension
-
-- Use an existing kernel string helper in place of some open-coded
-  code in kernel/usercfi.c
-
-- Fix some yamllint issues in the RISC-V DT bindings for CPUs
-
-- Convert one use of __ASSEMBLY__ to __ASSEMBLER__ that snuck into the
-  RISC-V CFI selftest code
-
-- Update the translation for the simplified Chinese translation of the
-  RISC-V kernel patch acceptance policy
-
-----------------------------------------------------------------
-Andy Chiu (2):
-      riscv: hwprobe: initialize pair->value in hwprobe_one_pair()
-      riscv: skip software algning code for HAVE_EFFICIENT_UNALIGNED_ACCESS
-
-Dmitry Antipov (1):
-      riscv: use string helper in setup_global_riscv_enable()
-
-Ivy Lopez (1):
-      riscv: hwprobe: simplify has_fpu() to check D extension only
-
-Jia Wang (1):
-      dt-bindings: riscv: cpus: Fix yamllint style issues
-
-JinRui (1):
-      riscv: report Zfhmin/Zvfhmin when Zfh/Zvfh are present
-
-Jisheng Zhang (1):
-      riscv: bug: Make RV32 use GENERIC_BUG_RELATIVE_POINTERS
-
-Samuel Holland (1):
-      Revert "riscv: Reset pmm when PR_TAGGED_ADDR_ENABLE is not set"
-
-Thomas Huth (1):
-      kselftest/riscv: Replace __ASSEMBLY__ with __ASSEMBLER__
-
-Xiaofeng Yuan (2):
-      riscv: mm: make EXECMEM_KPROBES writable without CONFIG_STRICT_MODULE_RWX
-      riscv: patch: skip fixmap mapping when kernel text is already writable
-
-Xixin Liu (3):
-      perf: RISC-V: use BIT_ULL for u64 overflow masks
-      perf: RISC-V: store available counter mask as bitmap
-      perf: RISC-V: check cpu_hw_evt before dereference in overflow IRQ
-
-Yukai Wu (1):
-      docs/zh_CN: Update arch/riscv/patch-acceptance.rst translation
-
- Documentation/arch/riscv/hwprobe.rst               |  8 +-
- Documentation/devicetree/bindings/riscv/cpus.yaml  |  8 +-
- .../zh_CN/arch/riscv/patch-acceptance.rst          | 46 +++++++---
- arch/riscv/Kconfig                                 |  2 +-
- arch/riscv/include/asm/bug.h                       |  5 --
- arch/riscv/include/asm/switch_to.h                 |  4 +-
- arch/riscv/kernel/cpufeature.c                     | 20 ++++-
- arch/riscv/kernel/patch.c                          |  2 +
- arch/riscv/kernel/process.c                        |  4 +-
- arch/riscv/kernel/sys_hwprobe.c                    |  5 +-
- arch/riscv/kernel/usercfi.c                        |  5 +-
- arch/riscv/lib/uaccess.S                           |  5 +-
- arch/riscv/mm/init.c                               |  4 +-
- drivers/perf/riscv_pmu_legacy.c                    |  5 +-
- drivers/perf/riscv_pmu_sbi.c                       | 98 +++++++++++++++-------
- include/linux/perf/riscv_pmu.h                     |  2 +-
- tools/testing/selftests/riscv/cfi/cfi_rv_test.h    |  2 +-
- tools/testing/selftests/riscv/hwprobe/hwprobe.c    | 20 ++++-
- 18 files changed, 170 insertions(+), 75 deletions(-)
-
-vmlinux size differences in bytes (from cee9395acd80):
-   text  data   bss      dec     hex  filename                             
-   -496   +96     .     -400    -190  vmlinux.defconfig.gcc-16             
-   +260   +64     .     +324    +144  vmlinux.nosmp_defconfig.gcc-16       
-   +148   +64     .     +212     +d4  vmlinux.rv32_defconfig.gcc-16        
-   +448   +64     .     +512    +200  vmlinux.rv32_nosmp_defconfig.gcc-16  
-    -84     .     .      -84     -54  vmlinux.nommu_virt_defconfig.gcc-16  
-   -204   +64     .     -140     -8c  vmlinux.defconfig.clang-20           
-   -196   +96     .     -100     -64  vmlinux.nosmp_defconfig.clang-20     
-   +288   +96   +64     +448    +1c0  vmlinux.rv32_defconfig.clang-20      
-   +312   +96     .     +408    +198  vmlinux.rv32_nosmp_defconfig.clang-20
-    -72   +64     .       -8      -8  vmlinux.nommu_virt_defconfig.clang-20
-   -460   +96     .     -364    -16c  vmlinux.defconfig.gcc-15             
-   -156   +96     .      -60     -3c  vmlinux.nosmp_defconfig.gcc-15       
-   +132   +96     .     +228     +e4  vmlinux.rv32_defconfig.gcc-15        
-   +168   +96     .     +264    +108  vmlinux.rv32_nosmp_defconfig.gcc-15  
-    -76   +64     .      -12      -c  vmlinux.nommu_virt_defconfig.gcc-15  
-   -556   +64     .     -492    -1ec  vmlinux.defconfig.gcc-14             
-   +224   +96     .     +320    +140  vmlinux.nosmp_defconfig.gcc-14       
-   +132   +64     .     +196     +c4  vmlinux.rv32_defconfig.gcc-14        
-   +112   +64     .     +176     +b0  vmlinux.rv32_nosmp_defconfig.gcc-14  
-    -76   +64     .      -12      -c  vmlinux.nommu_virt_defconfig.gcc-14  
-   -144   +96     .      -48     -30  vmlinux.defconfig.clang-19           
-   -148   +64     .      -84     -54  vmlinux.nosmp_defconfig.clang-19     
-   +360   +96    +8     +464    +1d0  vmlinux.rv32_defconfig.clang-19      
-   +356   +96    +8     +460    +1cc  vmlinux.rv32_nosmp_defconfig.clang-19
-    -76   +64     .      -12      -c  vmlinux.nommu_virt_defconfig.clang-19
-   -524   +96     .     -428    -1ac  vmlinux.defconfig.gcc-13             
-   +184   +96     .     +280    +118  vmlinux.nosmp_defconfig.gcc-13       
-   +196   +96     .     +292    +124  vmlinux.rv32_defconfig.gcc-13        
-   +164   +96     .     +260    +104  vmlinux.rv32_nosmp_defconfig.gcc-13  
-    -76     .     .      -76     -4c  vmlinux.nommu_virt_defconfig.gcc-13  
-   -180   +96     .      -84     -54  vmlinux.defconfig.clang-18           
-   -168   +64     .     -104     -68  vmlinux.nosmp_defconfig.clang-18     
-   +324   +96    +8     +428    +1ac  vmlinux.rv32_defconfig.clang-18      
-   +344   +96    +8     +448    +1c0  vmlinux.rv32_nosmp_defconfig.clang-18
-    -68     .     .      -68     -44  vmlinux.nommu_virt_defconfig.clang-18
-   -588   +96     .     -492    -1ec  vmlinux.defconfig.gcc-12             
-   -148   +96     .      -52     -34  vmlinux.nosmp_defconfig.gcc-12       
-   +120   +64     .     +184     +b8  vmlinux.rv32_defconfig.gcc-12        
-    +96   +64     .     +160     +a0  vmlinux.rv32_nosmp_defconfig.gcc-12  
-    -60     .     .      -60     -3c  vmlinux.nommu_virt_defconfig.gcc-12  
-   -164   +96     .      -68     -44  vmlinux.defconfig.clang-17           
-   -160   +96     .      -64     -40  vmlinux.nosmp_defconfig.clang-17     
-   +340  +128    +8     +476    +1dc  vmlinux.rv32_defconfig.clang-17      
-   +296   +96    +8     +400    +190  vmlinux.rv32_nosmp_defconfig.clang-17
-    -76     .     .      -76     -4c  vmlinux.nommu_virt_defconfig.clang-17
-   -204   +96     .     -108     -6c  vmlinux.defconfig.gcc-11             
-   -184   +96     .      -88     -58  vmlinux.nosmp_defconfig.gcc-11       
-   +168   +64     .     +232     +e8  vmlinux.rv32_defconfig.gcc-11        
-   +176   +64     .     +240     +f0  vmlinux.rv32_nosmp_defconfig.gcc-11  
-    -72   +64     .       -8      -8  vmlinux.nommu_virt_defconfig.gcc-11  
-   -900     .     .     -900    -384  vmlinux.allnoconfig.gcc-15           
--131064  +548  +128  -130388  -1fd54  vmlinux.allmodconfig.gcc-15          
-   -908     .     .     -908    -38c  vmlinux.allnoconfig.clang-19         
- -57552  +144   -64   -57472   -e080  vmlinux.allmodconfig.clang-19        
 
 _______________________________________________
 linux-riscv mailing list
