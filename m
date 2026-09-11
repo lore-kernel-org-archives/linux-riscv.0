@@ -4,89 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16F39C88E4C
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 09:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46DE1C88E4C
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 10:17:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OHWEsVPK9tO3ANwyWB6EssWXzbxl3e68S4WbZXk1f3s=; b=Als/O3bhFCZUmY
-	6VJy7C0Sf3jB7jUTtY8QAbhuSsf4fMhPDHqBJ5j+Bt8jixEFD3G8XvImTzXmALHk657R8ss+ArRfO
-	I1Ugxk/A7M89G8lZJncXEYdjC1usZ0P/2cghqqxPNgVkpQJoR0HuFh6txT1VA5q8v8SS3iGIU/u6F
-	pEoebwIG3HUmdfsPi34O7f4CbNnUVboo269EJ7PWdsG9wLT77VxuBHIFvnvhOSYNEZ2chpTDyTLbY
-	P5REcCnGBOgwDgwmwD78MU0bZkRMs3EYhXFbUVQV3CaqoFgARV70jd5Vd+Y9L2pCGxuWMhWIFBO41
-	SCWFdr3StqMVlZkyv1QQ==;
+	List-Owner; bh=Nad7hzu2vGHPNgRSlnkPiOLjUpg5CucCQn51tPC8/XU=; b=IUDVI1e9xQV9b8
+	VXTVNBQgG7gtDP6wErNCrpsZ/Dzgn97yUAqIa9oIWGP+pcgBa/LTLtMtHJDzPj3MeiDF1Akfs8Gav
+	IWxp69tl8d/8jA2D2jpRbGKwYAX410T2ouvHDCcDBrd0Um9z0hU5W0pM9L+2BD2RfW7wGofCP3JHT
+	KCOeSThZ9s3mUMOc4kZ8sIM8qkWriBaugyqer2eKWqVVFKNrVpzYBWMJI/O27JtruzPusMGW6A42e
+	PkZHPUUtWsquvlLDcKfFFh2ZFyvYeHj7uRHgeQ1knO9OIaFc5PCfe1kR9+y5tkZUSPANXj4f9iJfn
+	uInJoh9li60aXD9pn4NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xtn-0000000GIrU-2IFz;
-	Fri, 11 Sep 2026 09:50:23 +0000
-Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
+	id 1x4yJX-0000000GLiK-2TtB;
+	Fri, 11 Sep 2026 10:16:59 +0000
+Received: from mail-sh0chn02on20730.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::730] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4xtj-0000000GIqQ-3iAM
+	id 1x4yJU-0000000GLeI-141r
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Sep 2026 09:50:22 +0000
-Received: by mail-pj2-x10.google.com with SMTP id 98e67ed59e1d1-396ccda24afso521373a91.3
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2026 02:50:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789120219; x=1789725019; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lpZ/UQ4AkTJ61oeiBTSNoMmIV3BY5yM55iesC2dqb20=;
-        b=sIuOLdnzg8tv2BEC1iC42Kc/e02gEV7d4F7dk9gO+DN59CWYrok/OH2/KoUqHUn8jQ
-         7XyQIZv0q2UWCi14NZYk37j2PsNH8LI9mpHAjZP+dUW9ysLerbTslJXlpNZZCLY3cFiH
-         9oPhTkDZvXEq90kfhM5qH/fFWYFa6s26nkHU3tYFLBjQd7rUSgQt3x5Ztlb/mmM/uIF7
-         MFQWUz7wZc8DlxwCGumNB9LjKbJsNjdPO5DugDE1zFcunikgTbpIjDXa84tAZpzj08d5
-         q0XMIVrCJBzPNm2/RkOdfoXFFOK0Dx7+PMaMHwKJCbWSADRmEPX7hET7SPi9fXEsGuO9
-         +FiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789120219; x=1789725019;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lpZ/UQ4AkTJ61oeiBTSNoMmIV3BY5yM55iesC2dqb20=;
-        b=JUvOHT6vSVIBCWROD/PeetnSY8ZvQxzW2mA50UpMmZ63NoZuxk3kqQ6qKUIzazqVBJ
-         q01sqxDcWYGDZ/9RcOY/ZJF4cGt4tSQoAFiT1YVK5pa3APhA1PqGwbHhk771EzJt4lOd
-         MkTFXU6W4ELMM7Ba9/EO6z6qWo5K663mZyPAXRDLrJTDvCsY9F3PXVhyRc7W5fuXeDPV
-         pJdjaur4ca2/g3PmNUhWkn8OzbYD58vD4T+y8Tae6gCJ4ecSeHqhSrTego8xtzsnfhBz
-         4ifFylY4SgXORu1sYtIWD+m/OlH+y7U7iO90XRZbVmfcdzaWsDA9Lt4j3n5s97Ut0/w7
-         WGxg==
-X-Forwarded-Encrypted: i=1; AKwUvBx4YfPMFjY4jAeEXK2n7oPhurYc/z2NBi2u5yqtID1slazqwlVookGt0oTPRa7Eit/wTbDNVGn/gYW9NQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++npgz7AnIPogLYjf2PUbokq6YRqY3Z3zuu3VF2gaskptLmmG6t5
-	aX5Co7BEN5fbslrA492JvBN+8Lf8ups38J9rM9sMhCaevh4vQY86RlOg
-X-Gm-Gg: AYBFou3si9aQ5GnibTfbNX2I8FnXJiJd1PkYvwfagXlU9Ae13PWQ9kdjd0Md01iNgd1
-	raEYJgzyVPZfpanOme0BBozSanGDc0xZqgbvep0+k+qLbhUymDQDn3w1OLb6mtzbEXeRkAbETS1
-	Dn9gJQBZ9DWbVfmTNGzgTss0nEbkRSKNai8luYpMqFwzOOkc58m6A9oRaxu20eXxTXR7ArhrKqM
-	w04p3M8HJG3U37tWM1Dsckk57CI2fnlFK6dz7sWzita4+LrT/jdSQ1o53ZTJbvpVKFEZoXvmW7o
-	pcAJBURUaoeb3RWeFdU7IZWmMn1/B/2qjf5GXjQrfRcMeNLxUl3q5FeFTKJVZ8nN+OioPUlmhfB
-	Pqn/k2wFkIS2rAbDSE75hjejJF/1DMyS8ReatXSgzRLlKhZsTuqcujf/LDmNQzud7Y2bNrY2Sse
-	q3RIoDV2W4etj+BKvaxh90jgXd6zzIDybHCZhqYnaHBEEelkjBRsQ2cW/lQ0GSBaNBIPvmYA/s
-X-Received: by 2002:a17:90b:164a:b0:399:1b64:e0d7 with SMTP id 98e67ed59e1d1-39d9c20c6f3mr4635407a91.19.1789120218848;
-        Fri, 11 Sep 2026 02:50:18 -0700 (PDT)
-Received: from [192.168.0.13] ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39da6016718sm1766700a91.15.2026.09.11.02.50.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Sep 2026 02:50:18 -0700 (PDT)
-Message-ID: <4ad187c9-44ae-461a-a29e-2531f0906a1b@gmail.com>
-Date: Fri, 11 Sep 2026 02:50:17 -0700
+	Fri, 11 Sep 2026 10:16:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=G1+Owny/rdGOR0wERoNNPucbToRSXab3XqAyT9CAD45t5rx/TbZY9/OPmR7Cl7xlAMvnrsngw2NUG8Pj/ZauLWcy7cpoVSr79s5UCeXu+nsdmtDufL295RDwQqIxtnfoDp85lveCFy2xNcCJ0RoAhAnRST/Q4QzUQ49/h9ZjkArnFZEzyBUV7CcO1+9DnZiCKjZWkWeEDyZND/cXKTFWnFNteZ2tjhwgoE3+eEHZ/K/URhjfmZwe+0kaw0EEx0m9moPhyDp9bwgkzESjyP/smVoNkLEt4Ud45SDy4fQ3q7AHJbY2RPbABHPh2RIAgpn48z/P6rcnHv0+gRb721yVXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gdpCjoELuJH6Snuka5/GIFNUp5Vgj/T7skGqEKMnGJk=;
+ b=mZUlVoNVifvXQFgxTYOnwkZ8RJpXrMjA5jWNaam+y0BVnToXR6JCJ56FoRJaVHoVI9rySOwFrr1ItPiqW1UlbAyAxPAk8bNEXo8XnDC/0KLRf9lNYkSjhseuDcvlzPJhzaunH8eABmRjIj2bAgAt715GeccRF16Crev5+xcmDVEMok0jg70Ra4W8igGjfmYw1bqiEohJNKTLi9GfSROMoYv3UDmTnbb1Ug7wHgo2cgXE99YjFwYEWwAdiAXRbGc09tGXwRxSe56hL1ksrd2TiU7+XGyVhL/fyvebq/E4TUZVIX4XdCpWlfxtq9DWy9sQCjOoYWszKS722emKKZOByg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1283.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:15::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.18; Fri, 11 Sep
+ 2026 10:16:13 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0382.016; Fri, 11 Sep 2026 10:16:13 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: hal.feng@starfivetech.com
+Cc: aou@eecs.berkeley.edu,
+	conor@kernel.org,
+	devicetree@vger.kernel.org,
+	emil.renner.berthing@canonical.com,
+	krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	p.zabel@pengutronix.de,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robh@kernel.org,
+	ukleinek@kernel.org,
+	changhuang.liang@starfivetech.com
+Subject: [RESEND v22 1/3] dt-bindings: pwm: opencores: Update compatibles, examples and maintainers
+Date: Fri, 11 Sep 2026 03:16:05 -0700
+Message-Id: <20260911101605.146710-1-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260810030714.48100-2-hal.feng@starfivetech.com>
+References: <20260810030714.48100-2-hal.feng@starfivetech.com>
+X-ClientProxiedBy: NT0PR01CA0008.CHNPR01.prod.partner.outlook.cn (10.2.10.13)
+ To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn (10.2.3.102)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv/kvm: Only context-switch senvcfg where it exists
-To: Davidlohr Bueso <dave@stgolabs.net>, anup@brainfault.org,
- atish.patra@linux.dev
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org
-References: <20260827211209.2871124-1-dave@stgolabs.net>
-Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20260827211209.2871124-1-dave@stgolabs.net>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1283:EE_
+X-MS-Office365-Filtering-Correlation-Id: 94badc74-8b1c-433a-0bb8-08df0fedb55d
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|23010399003|1800799024|10067099003|3023799007|22082099003|18002099003|56012099006|38350700014;
+X-Microsoft-Antispam-Message-Info: 1DZqilnFcoIYiMcrfAFGQvNMJSfcL3omuBbqVSYVLiMajl4i9f0/vyO7Gxth3fkY1ax5H9NI8YiFVYg8zB+JSaPcYwD/8TW3ML46boJYuWF3Au+xxowv/emw17SgnHkVznk6F4/L1+nyqMHvnwS3Mt+9v6oUK/wCeppsn7q74/9rjbNmRW5n6l99OmTDQh9+L6d6JVxTgGAWxbnJrF4LaoDnOD5g8z98oAtR60lJ1yH0/lFb3CxxtrpzQw2EssIZzoA8sZ480BNjI0KzGgZ0EIk7dv45HSn/DO0Rf2R0a19lhSC6g0ANU7o7LC1c96E9+1QGOmOSPdBk0y8L7qVtSKsY0p9NjuOQSOV+LwEZ0XnhUFIhxtisVfxI61loVljngCA8X/3yZ9mfLjXb19nTQmCefn3Gf9fA4XIeIq0+uBYd9aqCmoofedj9IabBC1RBRArHTBx6gIFpF8psW01LMyggOmwpgbe9sRPrU3FBmHF1zvc8XGm7+tHEI1puC64ltlmHQ6GcglFU1qRdkfSxOfN0Fy8lLPpNEATPR+aonP/wrkxAdO45ahAmJDiWftEv
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(23010399003)(1800799024)(10067099003)(3023799007)(22082099003)(18002099003)(56012099006)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5zsXFJmNUMq7SRK1GzdmoLYxilk5u/PiwMH56ZLDN3KXDkxJd3wOotvilD48?=
+ =?us-ascii?Q?QWX6hEemmMgKzjw2TXCgqj5KBbebc8skfN/srU1tZ5QI2R7DDGvjsuzbhZAp?=
+ =?us-ascii?Q?h1/zqIqTX14LMXEjVXJlQDquc11inGpbxPSkFl7lE667dxmdeeqAnmGaLMUL?=
+ =?us-ascii?Q?EkK562CwjfQRPTHTHz47mg7aRzwenVFYpzM6SG65TRhvRJA0CnZGszyvMWXs?=
+ =?us-ascii?Q?MyCWaF5531ILvcTMIuniHdoQQItRFQEzYkHd+NbHsm8FagGD0GdnqrKIIHTE?=
+ =?us-ascii?Q?iKVXotybw7gnJyou1jjLAlCNVevK5tZpQjoKu6/UNvD7TeynmxAEijJjvJSB?=
+ =?us-ascii?Q?dQzhuBfg76ttvZ53FPb9se/Z6EGG65Tn+c25t44Cm/NsHr5WoqXv0cMlBML/?=
+ =?us-ascii?Q?kN+fK/KHsGQ+nNQK/pnIkJufTBE4vJHny9lF2jF+3RZbP19yzw8trFlTswDY?=
+ =?us-ascii?Q?Xef5vkJHE2O/Sn8OEIaIvW0/7V2elUPN1bzYfMAkrp9tESO3rj791Qws/NmS?=
+ =?us-ascii?Q?BZCaI65o8jc2tyzFFLSlG7WBHYCKz2Q6pgDM+xMq/I9hlrFlqEVmtG77JpGj?=
+ =?us-ascii?Q?7KlnJeYaNGc/aMxYtNAnnyE3VemxMJI8F0CmlHsC+VzXhuDFDyuqXxVPGqYb?=
+ =?us-ascii?Q?kfPGuElK1rKQVuwwZKMZsVBRjoMmu9sMHi/vS7K2EKQbBL6trsW4CX3p4NGP?=
+ =?us-ascii?Q?KvngK5t+or8SUuYZycmytVvccVuweiyYxQ/CU5ASHpo57TDcREp5g6PMDhEK?=
+ =?us-ascii?Q?Hd89sofuURDUNmZG3hIJceLF6viDgDuKIuaI/qXs9GQujcT0ptT/9a7Ngu9k?=
+ =?us-ascii?Q?Uy1o9ilaGg5mQ6bGBmu9XsD523tUWv6NqwOaNdmiRUg/PMsJif/Lfl0cbpx+?=
+ =?us-ascii?Q?cqasrEYPn7n1oGOmG4s5aXmWt/aj0zT0WYJDFH6V7HcPm21T5HDtny84oVVI?=
+ =?us-ascii?Q?XJitGC7LV+gDzo+27891YvlSm8N66Y43WZYI6oYydnEL365iiOU2EuTYnst8?=
+ =?us-ascii?Q?ZtcX0c1trhrZEreFKiCZPlK3RklHMyqPMnOgQz2I+FeJPsctsjMCVuddN8hV?=
+ =?us-ascii?Q?XtZKHlfa3axQV2EGQbX0yNOHUKh80Rjw2w3cZoZ1gO5NlUP+dGv8UzSR/YyE?=
+ =?us-ascii?Q?r9z1vKIasdUpe+t9C3yZllKPQn2Wt5fDh7q2SofYuMts9ia/X7X8ShOLw6kh?=
+ =?us-ascii?Q?js0Idp2eNw0cMzj6AWykC1s9G2rzVM1f2D8kR3aonU29Xf8Bar45kZPJZ3zu?=
+ =?us-ascii?Q?fTCw+BFNzYCteoDqEccC/nSX99R1Fx46tZmsH3qV4QXGvnzro2kdn6yPIma1?=
+ =?us-ascii?Q?z5oj8yfp9/Z/+NEUAcex7X2l5vhYLAHr1FdDx7g9Qt0nLNiL3Z4VeD4QUH/h?=
+ =?us-ascii?Q?EGhb8WLpaA0A4+Lon3weVNyLJ1GZiJmJOLxETXtfhkNLV147KXeFK5g8yFCB?=
+ =?us-ascii?Q?+JVFdPJIKvQkDPXOOUXc84H/rwV7TSgv48Db6XLF/kmlvH1TfiiZ96EQT7fp?=
+ =?us-ascii?Q?h60QDF/ylZoukyygM62I5I8iZhZdeEe4fVCMHGB/0yniVp1Oo87eAP2mQuNL?=
+ =?us-ascii?Q?5F/l7h1fEK0yFNf+EXSMaN6SQZaz822ye99ObZkzkY0SpQVm+Rd/u00nkomQ?=
+ =?us-ascii?Q?4IlEbo+crCSdnF5Izw/owkSCEebNTLQMU8h+RAZynQ2rNFoccEQn+q8CnDhO?=
+ =?us-ascii?Q?h3pUucycIlb3OExesHhwm6iASzznx5MfCzokud+5SBi/uarY5vGsgSJtpez4?=
+ =?us-ascii?Q?b8XAAyEuRJJ4v+rMPKF/AaZ6DM2TC/RKn4uJc4aA1Ow82YXIxJvo?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94badc74-8b1c-433a-0bb8-08df0fedb55d
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2026 10:16:13.5922
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wRcDelnLYH85MKID+jlcWO7X/T8nebifobTA6+lFtMs+PefOvZlXVo4LeEjOTmdRdvDHDF7KyXNsoFJ2m8xPPDvwahZLgcWZjoSorPpmOLiIUdgQS6aXpFEAgAUpNGWP
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1283
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260911_025020_953903_0A3C8B54 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20260911_031656_325653_88CB41B0 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,93 +136,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Davidlohr,
+Hello Conor,
 
-Thanks for attempting to fix this long standing issue on P550. While
-you are at it, can you add the conditional write of henvcfg as well?
-P550 lacks both henvcfg and senvcfg, so needs to avoid touch either
-of them. Be ware that the vendor's OpenSBI carries a patch to silently
-ignore the access of h/senvcfg:
-https://github.com/sifiveinc/meta-sifive/commit/942256244c61517d375d9359577dafeb04e258e8
+Sorry to bother you. I discussed it with Hal, and I will pick up this series
+later to add PWM support for JHB100.
 
-However, this patch is just wrong -- it doesn't set return values
-properly; it doesn't check for previous privilege levels...
-
-You can just use the latest upstream OpenSBI, where I've contributed the
-EIC7700/P550 support code, and get rid of all these vendor shenanigans.
-I've thought about doing a proper emulation of henvcfg/senvcfg and hard-
-wire them to 0 in OpenSBI, but later it's deemed not spec compliant --
-if henvcfg is available, then FIOM bits must be writable.
-
-Thus, you are doing the right thing avoiding accessing them in HS mode.
-Please add the henvcfg handling, and I can help testing it. It should be
-a pretty simple change.
-
-Bo
-
-
-On 8/27/26 14:12, Davidlohr Bueso wrote:
-> senvcfg arrived in privileged spec 1.12, but H-capable cores on a
-> 1.11 base exist, ie: sifive P500 (ESWIN EIC7700X) implements the
-> hypervisor extension yet has no senvcfg. KVM swaps the CSR
-> unconditionally on every vCPU entry, panicing the host upon a guest
-> executing its first instruction:
-> 
->    Oops - illegal instruction [#1]
->    Modules linked in: kvm
->    CPU: 2 UID: 0 PID: 127 Comm: qemu-system-ris Not tainted 7.2.0-kvm73bug+ #4 PREEMPTLAZY
->    Hardware name: Unknown Unknown Product/Unknown Product, BIOS 2024.01 01/01/2024
->    epc : kvm_riscv_vcpu_enter_exit+0x26/0xcf8 [kvm]
->     ra : kvm_arch_vcpu_ioctl_run+0x4ce/0x5a6 [kvm]
->    status: 0000000200000100 badaddr: 0000000010a797f3 cause: 0000000000000002
->    [<ffffffff01df432e>] kvm_riscv_vcpu_enter_exit+0x26/0xcf8 [kvm]
->    [<ffffffff01deb3b0>] kvm_arch_vcpu_ioctl_run+0x4ce/0x5a6 [kvm]
->    [<ffffffff01dd7914>] kvm_vcpu_ioctl+0x180/0x5e4 [kvm]
->    [<ffffffff8025702e>] __riscv_sys_ioctl+0x84/0x9a
->    [<ffffffff80dfdc72>] do_trap_ecall_u+0x1d8/0x38a
->    [<ffffffff80e08644>] handle_exception+0x168/0x174
->    Code: 84aa 892e b703 8887 1773 1067 3023 16e5 b783 8907 (97f3) 10a7
-> 
-> Touch the CSR only when RISCV_ISA_EXT_XLINUXENVCFG is set, similar
-> to __switch_to_envcfg() as well as other swaps conditional on
-> their extentions.
-> 
-> Fixes: db3c01c7a308 ("RISCV: KVM: Add senvcfg context save/restore")
-> Signed-off-by: Davidlohr Bueso <dave@stgolabs.net>
+> Remove the jh8100 compatible since the JH8100 SoC has been canceled and
+> will not be released. Add the jhb100 compatible to replace it.
+>
+> Change the register size in examples to 0x10, since an OpenCores PTC IP
+> has only 4 32-bit registers: CNTR, HRC, LRC and CTRL.
+>
+> I will maintain this pwm module in place of William.
+>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Fixes: 2529085831b0 ("dt-bindings: pwm: Add bindings for OpenCores PWM Controller")
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 > ---
->   arch/riscv/kvm/vcpu.c | 6 ++++--
->   1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index e062ca19f9d8..0c2d58db13ab 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -773,7 +773,8 @@ static __always_inline void kvm_riscv_vcpu_swap_in_guest_state(struct kvm_vcpu *
->   	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
->   
->   	vcpu->arch.host_scounteren = csr_swap(CSR_SCOUNTEREN, csr->scounteren);
-> -	vcpu->arch.host_senvcfg = csr_swap(CSR_SENVCFG, csr->senvcfg);
-> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_XLINUXENVCFG))
-> +		vcpu->arch.host_senvcfg = csr_swap(CSR_SENVCFG, csr->senvcfg);
->   	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
->   		vcpu->arch.host_sstateen0 = csr_swap(CSR_SSTATEEN0, smcsr->sstateen0);
->   	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFISS))
-> @@ -787,7 +788,8 @@ static __always_inline void kvm_riscv_vcpu_swap_in_host_state(struct kvm_vcpu *v
->   	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
->   
->   	csr->scounteren = csr_swap(CSR_SCOUNTEREN, vcpu->arch.host_scounteren);
-> -	csr->senvcfg = csr_swap(CSR_SENVCFG, vcpu->arch.host_senvcfg);
-> +	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_XLINUXENVCFG))
-> +		csr->senvcfg = csr_swap(CSR_SENVCFG, vcpu->arch.host_senvcfg);
->   	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
->   		smcsr->sstateen0 = csr_swap(CSR_SSTATEEN0, vcpu->arch.host_sstateen0);
->   	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICFISS))
+>  Documentation/devicetree/bindings/pwm/opencores,pwm.yaml | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> index 52a59d245cdb..42c5d2b6326d 100644
+> --- a/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> +++ b/Documentation/devicetree/bindings/pwm/opencores,pwm.yaml
+> @@ -7,7 +7,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  title: OpenCores PWM controller
+>
+>  maintainers:
+> -  - William Qiu <william.qiu@starfivetech.com>
+> +  - Hal Feng <hal.feng@starfivetech.com>
+>
+>  description:
+>    The OpenCores PTC ip core contains a PWM controller. When operating in PWM
+> @@ -23,7 +23,7 @@ properties:
+>        - enum:
+>            - starfive,jh7100-pwm
+>            - starfive,jh7110-pwm
+> -          - starfive,jh8100-pwm
+> +          - starfive,jhb100-pwm
+>        - const: opencores,pwm-v1
+>
 
+Compared with the JH7110 PWM, the JHB100 PWM has been modified. The JH7110 PWM
+is inverted polarity by default, which is consistent with the design of
+opencores,pwm-v1, but the JHB100 PWM has been modified to normal polarity,
+so it no longer conforms to the design of opencores,pwm-v1. Therefore, I plan
+to revise the binding here again:
+
+properties:
+  compatible:
+    oneOf:
+      - items:
+          - enum:
+              - starfive,jh7100-pwm
+              - starfive,jh7110-pwm
+          - const: opencores,pwm-v1
+      - const: starfive,jhb100-pwm
+
+Do you think this makes sense?
+
+>    reg:
+> @@ -49,7 +49,7 @@ examples:
+>    - |
+>      pwm@12490000 {
+>          compatible = "starfive,jh7110-pwm", "opencores,pwm-v1";
+> -        reg = <0x12490000 0x10000>;
+> +        reg = <0x12490000 0x10>;
+>          clocks = <&clkgen 181>;
+>          resets = <&rstgen 109>;
+>          #pwm-cells = <3>;
+> --
+
+Best Regards,
+Changhuang
 
 _______________________________________________
 linux-riscv mailing list
