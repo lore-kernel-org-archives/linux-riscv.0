@@ -4,86 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5DDC88E40
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 02:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC90C88E4A
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2026 02:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:Cc:To:From:Subject:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7pej06iikAWLWFCHHb4Cau9YLdC22JgQZLt+LAMGrEk=; b=QexC844aIdvyeYLofdgrkowxNf
-	gRyjQeaNgD609Mr2bra7DYU6GRB/CCChNnm5eDb5wSxs/shwVaIsRqrJXVWsv1qkOxZeBkAbYwx8G
-	wh3RknJ4ooQDcHJqnp981kDqEZT5lWkHguf+TN0MtYQmIEOa4LgIFBJSm/MP0S3AOQB86MJqf3cHL
-	T5+Hy3PA5WwlbQM9vmZQJElX0jYZGqRGrciy+HInPyIfSRnT790Uq/X428cve/6AZLZhy5iTJILaK
-	HDn1tnKYtFYdLuGqMovEbGR+fhDV+G3WkMkUssMVEm3ON8iyOJOvJeVVR3PV+lRvuK+HNexnh135C
-	MnuoKvAw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yfUCirwou5/2vdZ/HeUG2bxLIgNvr4UviGKKWxhgCcc=; b=a4oair8kjn1h8M
+	2RlYG4I6953ycQVtsewsx+KFFkKYLyIcR+Da84JaRfQvsPMxcioKb9Jn8l4XVP4m8qXJjpVdQKFKC
+	UQe34T9cqSW2AWa0BOv+Fpz1nyjr7gGeMPviMGhoMbK7hEXunSUBKyEyYelx0BR5SpvsUwZB79w6/
+	sy5kJvJin/MfBUztMsqg099zb9o6kHWGUoSob8GcKiEldNshsWDMbEWhKF0D46BYJwU+xZqZzElJb
+	KRdbgrzThDWRDczou/2WSjQOdnrA3rxqYMfs704xyF3tswm5vakmBFbAAVEYd7a1VG5/XOCDVksYV
+	FonWr2tqSF/dXbnz3E9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4qc4-0000000FgWk-3ULj;
-	Fri, 11 Sep 2026 02:03:36 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1x4qh6-0000000FglE-3AZJ;
+	Fri, 11 Sep 2026 02:08:48 +0000
+Received: from esa12.hc1455-7.c3s2.iphmx.com ([139.138.37.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x4qc1-0000000FgVb-23J7
-	for linux-riscv@lists.infradead.org;
-	Fri, 11 Sep 2026 02:03:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1789092180;
-	bh=p4+ap8iN4dSSeNIC2F+epq8WIYVdpPuH33P0vIVK/GU=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=ciCR84JG8J45yBUMsDQsuJUMc6ABdMe+Z2YL6pHg+/rt9iwLkcOBEnQ++YAoT8y90
-	 TVyUMKVYB80dNJLA9W/ZVz46y6lV5uoehYp2uCwYx+9B/g4N9U4o9826wF3uUb4igI
-	 KMhiDlJ0VKJDgnRJJj+xcTzBRMLJ36BOuSVRfSOs=
-X-QQ-mid: esmtpsz19t1789092172t4f8b07e9
-X-QQ-Originating-IP: aSvGHA2+aoIKS3fHxwTlfYEZdf0xYuWX7HM/PfxhtbM=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 11 Sep 2026 10:02:50 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10264822679062085663
-EX-QQ-RecipientCnt: 13
-Mime-Version: 1.0
-Date: Fri, 11 Sep 2026 10:02:47 +0800
-Message-Id: <DLC48RE9YAU6.1YO47FZILOUWJ@linux.spacemit.com>
-Subject: Re: [PATCH 4/5] clk: spacemit: reject rate changes to running
- firmware PLLs
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Yao Zi" <me@ziyao.cc>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>, "Stephen Boyd" <sboyd@kernel.org>,
- "Brian Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
- <jbrunet+clk@baylibre.com>, "Yixun Lan" <dlan@kernel.org>, "Alex Elder"
- <elder@riscstar.com>, "Inochi Amaoto" <inochiama@outlook.com>, "Haylen Chu"
- <heylenay@4d2.org>
-Cc: <linux-clk@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260909-spacemit-pll-init-v1-0-b3065ad5a4ac@linux.spacemit.com> <20260909-spacemit-pll-init-v1-4-b3065ad5a4ac@linux.spacemit.com> <aqKxMmgpFLE3CmQ8@pie>
-In-Reply-To: <aqKxMmgpFLE3CmQ8@pie>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: ND42uzdxTIzrAUXRIQvKYrDAXR9xjCPK2SxrDkBOF/Ht8IhQa4fdQXo5
-	siNFl6sCpD4Cnn7FqEYx8IacMqqy26AJrkNM2hMaoH1URoLv46oyJYlo/JtxHQ4zT48UXaw
-	o6+6Wc6TwK+SZrxKTnG5LQw6oTRn9SiuhMpsA5bT6dnNOxMZLPDR1tZMIO8PLNeKm7rQB1A
-	Bea/gsjFkFeDoQqcYaymbudKKXnpL488FCdo/BqHBzH43kzPv2DeBgSKkmVDQ+ZwTQo5fAu
-	D0z76ghwqxsKdvf5eprwylYrnObBBQ93vRKJFFtjpGbKqRxRSyD003LhPubrhDjtKAjeACj
-	EJ4QXfL2RZH0gbBkw2tr68zTzfHa4EkaaGNpYR1tTBVQ1fJkDP0dzl51Eb6Z2ljo+TTzio/
-	2C7crv0vxaG5T7xtWOL2DhfSkch4JglXeZK2uZpEBeHB7u2BBwmEOhkygXledXvSwG6wvGk
-	KZVy20AafBQ/2+GHQK+jDcZ8NoAmZmLu5QWJ4KSXUS3pbzSw0a+9pXulN4cUqQO4tm5ogx+
-	jIQIg7tz/LXOW0Grq4lbwASWrtZIb9I4FohidJXd096q9s3bQzpms9+pd4ylJpnvbtI9xf9
-	S6JirXSa1uN3riJFxMqru7lIVAEjNcDUKXMEKAF7JrBHxiRzxo5zl3Rql4K96ZEMbgyVgFy
-	B3nOGaU6ccxpwISJMt6wNyUeSKUAxOx+UkgYfbUaD7vFTrhnMvMztlfY6c+XBCgygpe1LJC
-	pfoplvrxti0sqLro5HFCNBUghn7JSbRM/VvblNpJ27DrbBOY0UCu5dM8oOTKrbjQHqvpOCT
-	F+ApYaqBIM6BCkOxh1Kx39N0zM0NHeOmdxoF9e50xq9POgTHalifb2gZu+VJ5iQ5+MeS4ah
-	esXFaXh6WasB1LivaAImsXrfAriehAZwcnwLMTrKPP9wAPfaWGPEuhcxIHHTCNjJlpBnM0g
-	lwQxfP4R36xKBFiB3u1umhVTeIgiA3xR27o+gLzOGpowxaDFLWf3WW53Bq3/ZMaVVZTNycp
-	jlK55kkRPNIebTzd4bXGRZbYw6PYaLoVNC7lEYAFKpveAhZ2D5id8rn2c6gl0=
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
+	id 1x4qh3-0000000Fgk8-171I;
+	Fri, 11 Sep 2026 02:08:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1789092525; x=1820628525;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=AaXl/L7lLDt00UQl/RtkISnRqi4t27mRDo6Utp1VaFI=;
+  b=oNtLqRpJK73GqGvX35mLQdFJ1qg7ufjUdpO704FNSn2jSnw0hUiAUt6h
+   GUoyW4U5rh1t8a8ci5vfcL/HsDJyEAbu5WwPBWT6Rv0OJ1lB/MlZcSdxb
+   MqQSCVqMWofEvEnn1/Hc2+8AOuvlXAhq8b6tDU5yxzJXL79u3zXW38eCN
+   LaofY9uhlhEaG0x0nd0CluzJj27MSbmmqRsRP3eW3J++zh+wYY0lFGA7M
+   BzxFGkbgkjjkrVea46VnfouegPa0HuKz2a1e3ec9/opP8lBB1SnpAz79x
+   o7NUObI/QpZLqHlglxwNQiv7tBxT/Dl70U8WH8bvhHmamyufQGD4dZVZC
+   g==;
+X-CSE-ConnectionGUID: BBEbD1LxSieqD4MfS6ffeQ==
+X-CSE-MsgGUID: 3IMWLGJpRVaF9ufQFFAOQA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11901"; a="232394148"
+X-IronPort-AV: E=Sophos;i="6.27,96,1786978800"; 
+   d="scan'208";a="232394148"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Sep 2026 11:08:41 +0900
+Received: from az2uksmgm2.o.css.fujitsu.com (unknown [10.151.22.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 05511821129;
+	Fri, 11 Sep 2026 02:08:41 +0000 (UTC)
+Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id AF3391800254;
+	Fri, 11 Sep 2026 02:08:40 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmom2.o.css.fujitsu.com (Postfix) with ESMTPS id 7F15A14000E9;
+	Fri, 11 Sep 2026 02:08:31 +0000 (UTC)
+Date: Fri, 11 Sep 2026 11:08:28 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Ritesh Harjani <ritesh.list@gmail.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>
+Subject: Re: [PATCH v2 12/20] KVM: selftests: Add APIs to override memory
+ region types with custom memslots
+Message-ID: <aqNinDKVoKUSNwXe@sm-arm-grace07>
+References: <20260902164123.2546762-1-seanjc@google.com>
+ <20260902164123.2546762-13-seanjc@google.com>
+ <5x0d1hj1.ritesh.list@gmail.com>
+ <aqLZrk6m3NgugzBU@google.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <aqLZrk6m3NgugzBU@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260910_190333_991006_7C544EE6 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260910_190845_796279_89BE3361 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +113,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1864990435581113427=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1864990435581113427==
-Content-Type: multipart/signed;
- boundary=215ee3cf27d68f54324eca2221f65eb243d448b430723bfe53a69c3edd9e;
- micalg=pgp-sha512; protocol="application/pgp-signature"
+On Thu, Sep 10, 2026 at 09:24:14AM -0700, Sean Christopherson wrote:
+> On Thu, Sep 10, 2026, Ritesh Harjani wrote:
+[...]
+> > May I suggest few changes in the naming of these APIs:
+> > 
+> > static inline void vm_override_mem_region(struct kvm_vm *vm,
+> > 					      enum kvm_mem_region_type type,
+> > 					      u32 slot)
+> > {
+> > 	TEST_ASSERT(vm->memslots[type] == KVM_INVALID_MEMSLOT,
+> > 		    "Memory region type '%u' was already overridden with slot=%u",
+> > 		    type, vm->memslots[type]);
+> > 
+> > 	vm->memslots[type] = slot;
+> > }
+> > 
+> > static inline void vm_override_add_mem_region_flags(struct kvm_vm *vm,
+> > 					    enum kvm_mem_region_type type,
+> > 					    enum vm_mem_backing_src_type src_type,
+> > 					    gpa_t gpa, u32 slot, u64 npages,
+> > 					    u32 flags)
+> > {
+> > 	vm_override_mem_region(vm, type, slot);
+> > 	vm_userspace_mem_region_add(vm, src_type, gpa, slot, npages, flags);
+> > }
+> > 
+> > static inline void vm_override_add_mem_region(struct kvm_vm *vm,
+> > 					  enum kvm_mem_region_type type,
+> > 					  enum vm_mem_backing_src_type src_type,
+> > 					  gpa_t gpa, u32 slot, u64 npages)
+> > {
+> > 	vm_override_add_mem_region_flags(vm, type, src_type, gpa, slot, npages, 0);
+> > }
+> > 
+> > Those "_add_" and "_flags" in the function names easily gives away
+> > the difference in the APIs, rather than differentiating via "__".
+> 
+> I am strongly against postfixes like "_flags".  We do use postfixes for the VM
+> creation APIs, e.g. vm_create_barebones(), vm_create_with_vcpus(), etc., but only
+> because there are so many possible combinations that differentiating through
+> underscores is completely infeasible (unless we forced callers to regurgitate
+> huge amounts of boilerplace and/or had an absurd number of params), and because
+> the collection of APIs is tree-like, as opposed to a single linear chain of APIs.
+> 
+> For this, there is a much more finite set of possibilities, and the set of APIs
+> is a direct liner chain (no underscores => __ => ____).
+> 
+> I agree that not capturing that {,__}vm_override_mem_region() adds a userspace
+> memory region isn't ideal, but due to the term "memory region" already being
+> somewhat overloaded, I don't want to have "add" in the name as I think that will
+> make it harder to differentiate between the "enum kvm_mem_region_type" APIs and
+> the "userspace memory region" APIs.
+> 
+> And IMO it's totally fine for a function name to express what the API does at a
+> higher level, without capturing the exact operations in explicit detail.  E.g.
+> __vm_create() (and even ____vm_create()) obviously does a lot more than literally
+> KVM_VM_CREATE.
 
---215ee3cf27d68f54324eca2221f65eb243d448b430723bfe53a69c3edd9e
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+As I have been looking at the direct liner chain of vm_create() for some
+time, I agree with Sean. To create with a non-default guest mode ID, we have to
+start with those underscored functions, but I still prefer short function
+names.
 
-On Thu Sep 10, 2026 at 9:31 PM +08, Yao Zi wrote:
-> On Wed, Sep 09, 2026 at 10:07:04PM +0800, Troy Mitchell wrote:
->> CLK_SET_RATE_GATE only protects clocks prepared through CCF. A PLL left
->> running by firmware can have a zero prepare count, so this flag alone
->> cannot prevent set_rate() from reprogramming a live PLL.
->
-> Would it be a better idea to simply turn off the PLL before reprogramming=
-,
-> since protected by CLK_SET_RATE_GATE, re-programming never happens when
-> the PLL is required by downstream? This also seems to be simpler.
-Then assigned-clock-rates on the PLL provider node? I tested this
-on K3: .set_rate() was called during provider registration, with PLL3's
-prepare count still zero while the CPUs were running on it. Disabling
-PLL3 hung the board. CLK_SET_RATE_GATE therefore does not protect users
-that CCF has not yet accounted for.
-
-
---=20
-Troy Mitchell
-
-
---215ee3cf27d68f54324eca2221f65eb243d448b430723bfe53a69c3edd9e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCaqNhRw0caUB0cm95LXku
-b3JnAAoJEJgJ74D5MzQvFiQA/1yR1e1N5dqm/JjKEw3dfM8yjqKmhTeY4evjauQO
-6r/JAQC+EVD4ZL95QJzBkQT+HKp2w5tll5d/gI8NIB1sW9JeDg==
-=Z8ol
------END PGP SIGNATURE-----
-
---215ee3cf27d68f54324eca2221f65eb243d448b430723bfe53a69c3edd9e--
-
-
---===============1864990435581113427==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Itaru.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1864990435581113427==--
-
