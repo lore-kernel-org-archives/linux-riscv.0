@@ -4,48 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B38C79FB6
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2026 06:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55190C79FB6
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2026 06:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AOQopDIAOin5i5/vVeyhE+fWI7naxwvPPisdBvm7JvM=; b=OZh6rbIeZhpsZ7
-	m62CSuUC8MUPPFvDENbdfeVAZq0o7JAgotGi4yYl4eumjyP0JwEeHxMxLB7CuTFmL6562KaiK/hJ/
-	viM2r9k9iazcFhjIhqmZuv+xMNI9ehL4k/afHS5V7hulw5UaQMWlDuH/FxuYMiNJLhqs+qdV9+qst
-	zAZVx8yxPpDDIDt28o89SFNvcnGcsGfRoO6zYhfa6lnipA842E2J0psaFKGMkJ1e6xXpu9ESx5tKL
-	CIW2BUe+SkYOYtFAcgPXY+yI9TQMlyZoreTzUs5XYL+N4hWimRSq09VXr83S1Z3h2MUO1MGPwyX4j
-	K+5Gst1kv6Hkvn2PslOw==;
+	List-Owner; bh=ANG+DIhbma5fQL6aI61GtD9KxPnKfffGAQx6xX57M+M=; b=QpuhqIRHd99UJU
+	Iz6Yz/1IsJls2qw1FIqc3b/SfJurfpLtQX9/Rnz+YBQvecvlChy0HLqceB52wblOGPuzkQKJeL/q1
+	b35pz6KJVQa7ihsRu7H0M4oz0od1E4eT4gBBkKEqAqx7Gni7UkW1PdeKwb336bbc6UDUK6GAHluIE
+	ole6wFkEtBGmGT+NwC8IxC3doST23fEf5CSlU88TOqAXDkk/IfiaTHPtIufbb4gvpl3Gy0udnX9ke
+	sK0/A1qv8J28X4vqFVl+kGCA3HUL4DQy8iHnr4N5bWP3/4OVmF2JYt4P0mL7ZVGFUxtcN5Ww/vXQn
+	HfWkQrCwrfHbFrM1mXYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5HTo-00000000aiA-40LL;
-	Sat, 12 Sep 2026 06:44:52 +0000
+	id 1x5HaD-00000000ayo-0sJw;
+	Sat, 12 Sep 2026 06:51:29 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5HTn-00000000ahr-1pSf;
-	Sat, 12 Sep 2026 06:44:51 +0000
+	id 1x5HaC-00000000ay6-0iQj;
+	Sat, 12 Sep 2026 06:51:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4A8C6600D4;
-	Sat, 12 Sep 2026 06:44:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43D3F1F000FF;
-	Sat, 12 Sep 2026 06:44:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 277BC600D4;
+	Sat, 12 Sep 2026 06:51:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F80C1F00899;
+	Sat, 12 Sep 2026 06:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789195489;
-	bh=KxaeJYmz4IdI2IIHmqchQdajHKy6Zs771P/FPguuVpg=;
+	s=k20260515; t=1789195886;
+	bh=Z84vkdbwNxegmhKm0R2xQmDE2xY7DFVW66Efhf6koos=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N2Bi/5zE6FzP7AovVq0ROouwmcr2zpuMYJ/ewjhq59jZqei0S8amk2jxC+/ZgjWP3
-	 AaptvB9VAe75PdStlXkwI7l0RBz8KeqgNl0kz8LaX+a7d1yKSshQvXTkAouGOOpcDC
-	 TRW3uqQNZuzDEMe3zlQPptV7QN2T6eFI88tLETBhUCOrdX8ZVRvO4lhBbrOURfPKfP
-	 kDNyvjYJbYySIJtdnNEwgU1kLZtxQxsTd4EQsWGkC5BWh2pEuCBuG2VqiU6REavtIb
-	 cGh8BTVzx6Xl6W38We3zbRZWqORKPwWtkab+G5KjlOinAcw5F32Mq3vdvWXFklGJDy
-	 4fUlbAi0mw5jg==
-Date: Fri, 11 Sep 2026 23:44:37 -0700
+	b=DYvw6gsoELRpV5Zk+nFitNkGdpp3UJB0K40yABvAnHcpoDfpPU0Nq4c5Fiym6+0tc
+	 Cv9OSGENrXpxlFgyuf6k53fnSRr+CmYeI6T6dJ6P5Ml/WDOnei5VdVHvF4JPU7Y9ZF
+	 5XiwvX9GNoeUHljzvqtQcPHoj5XT+gy3TmoVjlkgJsImc24jZiABBSRchLj4l7jRX5
+	 02pnk5YMkj3u2wVrYE80CAwP/0lZ2djYSOyK4f0OtAFLXwnQ56nGXE4inKKI93Xkuz
+	 Kc1RWE9iupig6wVtHR44XSzmGtQLiEKLs8565qMeUCMRwBOnPY0xceyW6RZujvW/kn
+	 2ocP8MdjyhWMw==
+Date: Fri, 11 Sep 2026 23:51:14 -0700
 From: Nathan Chancellor <nathan@kernel.org>
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Bill Wendling <morbo@google.com>,
@@ -83,14 +82,15 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
 	Jens Axboe <axboe@kernel.dk>
-Subject: Re: [PATCH 00/23] kbuild: significantly speed up kernel builds
-Message-ID: <20260912064437.GB2002951@ax162>
+Subject: Re: [PATCH 12/23] kbuild: avoid re-running compiler and linker probes
+Message-ID: <20260912065114.GC2002951@ax162>
 References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
- <a4167b18-f1ea-48bb-9287-210bdd4f35eb@broadcom.com>
- <aqPlUt6aIvof2LcM@gremlin>
+ <20260908-build-speedup-v1-12-5dc1ac01672d@kernel.org>
+ <178901395292.3971858.13236774094648272066.b4-review@b4>
+ <aqPW1FsBVYHSWl1r@gremlin>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aqPlUt6aIvof2LcM@gremlin>
+In-Reply-To: <aqPW1FsBVYHSWl1r@gremlin>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,42 +107,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 11, 2026 at 12:28:34PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Wed, Sep 09, 2026 at 02:58:59PM -0700, Florian Fainelli wrote:
-> > On 9/8/26 13:55, Lorenzo Stoakes (ARM) wrote:
-> > > A typical kernel build consists of a frustratingly large amount of time
-> > > spent stuck in single-threaded bottlenecks.
-> > >
-> > > It turns out that there's a lot we can do about this and doing so
-> > > significantly impacts kernel build times.
-> > >
-> > > This series makes allmodconfig builds up to 36% faster, incremental builds
-> > > up to ~70% faster, and noop builds up to ~90% faster.
-> > >
-> > > Builds are faster across the board on every device I tested.
-> > >
-> > > Machines used for perf testing:
-> > >
-> > > * Threadripper -   x86, AMD Threadripper 9980X, 64 cores, 128 threads
-> > > * EPYC         -   x86, 2 socket EPYC 9754, 256 cores, 512 threads
-> > > * M2           - arm64, 2022 M2 macbook pro, 8 cores, 8 threads
-> > >                          (4 perf, 4 efficiency)
-> >
-> > My AMD EPYC 9454P server shows an improvement in the order of 13% using the
-> > arm64's defconfig and make -j97. Thanks for doing this!
+On Fri, Sep 11, 2026 at 11:26:36AM +0100, Lorenzo Stoakes (ARM) wrote:
+> It feels like init is the right place, having actual substantive Kconfig entries
+> in scripts/ feels a bit weird.
+
+Yeah, that is valid.
+
+> I can add an extra patch to move existing entries over before adding these in in
+> the next patch?
+
+Yes, sounds perfect.
+
+> > I also worry about backsliding and growing cc-option checks. Should we
+> > update the documentation to state that it is preferrable for these
+> > checks to live in Kconfig so that they can be properly cached?
 > 
-> Nice thanks! Good to confirm others are seeing the benefits :)
+> Yeah makes sense. I can add a patch to update the docs too?
 
-I see similar gains on an 80-core Ampere Altra system
-
-  6h 21m 42s -> 5h 31m 15s (-13.22%)
-
-and a 32-core AMD system.
-
-  3h 38m 55s -> 3h 13m 18s (-11.7%)
-
-The build matrices were different between machines but it is good to see
-similar numbers across different environments.
+Yeah, sounds good to me!
 
 -- 
 Cheers,
