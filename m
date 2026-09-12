@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A116C88E53
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2026 11:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D38EC88E53
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2026 14:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=efEJx9J1aS7Me7NQWsYdF/ncXLebJYPsSRVqku5VzPw=; b=qbggiMEBLBAdYB
-	hp+ueNi5qs2qfP9SB09eOOkHlWzEp3VZKb30GFs4YAuWfCA2W+jUK290JqC28e0QZtoBTUBeuLZax
-	B+FKhPXXibKG6bZ7lGK1/dd43FTnsgmPmrxcZRTdtaZ42rucdSFSW6HZz5dkYzRqww3FJQeVv16UV
-	TGuoLXgtDfDY9XHzK8zGDjlrVhqn4spEWSlc5o1c/qeI6JrJXRjdNfr48VmyB3LWVTpxpW57LjZSN
-	o231WMJN0Ej2dZBZV72F3MPcO59KtNc7W1bL2k1NxBfjeMSwen9/4eVdIS+xpkoG3i9S/Hwchxa/V
-	WuTe8GSFksB82OFo/Gaw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=0ax262+krrR91YlDaO1xEfK2VK5/TrGoA1lae7g+lGE=; b=WiRae4nI4Qam4q
+	ufSifUU6rizaLa1ONFfABy4FTgZOk9c8Vpo/KrEFJ+q8JZVI9cRJ0oSD3SWyaaeKCVG2WyzL5UnYN
+	4slppCjp6wPFROG3bj7CWv3T9wB3gb/7MQZxlZCx4mQbpz3RFa5zFScMs2MnLTXTILhS5X+m30AUJ
+	zRXTLLBFp2LOva+Fkuyz+ZEQqBTLCFNgUTj50xFIJY8D3ez/4o4CbkB8RXyo0r1gY+ToAYBL++WvX
+	bINr32btQOmoOu1dQGLVmaRKSz92FqtDI5g6q2qZsk6k67hAsrpX+IECzEFGYzWNoiPKuwvJpBV8H
+	TP9NTSF+HEfOWon4UHGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5MGL-00000000qn0-0tHp;
-	Sat, 12 Sep 2026 11:51:17 +0000
-Received: from smtp5-g21.free.fr ([2a01:e0c:1:1599::14])
+	id 1x5OJ0-00000000vIw-3YJB;
+	Sat, 12 Sep 2026 14:02:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5MGH-00000000qmT-3GcI;
-	Sat, 12 Sep 2026 11:51:15 +0000
-Received: from [IPV6:2a01:e0a:125c:c670:72c:339f:43cb:52bb] (unknown [IPv6:2a01:e0a:125c:c670:72c:339f:43cb:52bb])
-	(Authenticated sender: ydroneaud@free.fr)
-	by smtp5-g21.free.fr (Postfix) with ESMTPSA id E93ED6012F;
-	Sat, 12 Sep 2026 13:50:01 +0200 (CEST)
-Message-ID: <4e447b33-574e-425e-bc92-2b728128cf18@droneaud.fr>
-Date: Sat, 12 Sep 2026 13:50:00 +0200
+	id 1x5OIz-00000000vIg-2QLD;
+	Sat, 12 Sep 2026 14:02:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B732A601F1;
+	Sat, 12 Sep 2026 14:02:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 424521F00898;
+	Sat, 12 Sep 2026 14:02:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789221728;
+	bh=HhkQLlPB59P0XClAYNcVy9iMiNOvmVp4sSejcGpryII=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=eQxmc4al0/OBE1frFyBPWrBQeC8rqLIOOFpOZ1Eh0/sVTb5pVrusuo+fUb3jR1S8c
+	 iCeDUxE85eohxy69nT/S7tpQcSvSegbQ7TprbePLCJf5w+afOkgXJ++9Eip5QKqaJX
+	 40VWN89atDSA/gAiV6anwIQO2gV/tE2mcF2kHChHcQK7Q2WkKbOcex/5hjNYo68t6N
+	 Kb+HgNFEg+MlUa5SI2CIPu8He30HwygovEJqDyRaZr0EAjXTpUZYg+cK/aMk73Cbmv
+	 zA/ZzF4MzI+qos/s6ZWYyX4HuuJkO2t/a5rvFBuT7uWS6oZjx0povsrmy32HQuvVNn
+	 KfqOnvm9pDI4Q==
+Date: Sat, 12 Sep 2026 09:02:07 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-tegra@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Felix Gu <ustc.gu@gmail.com>
+Subject: Re: [PATCH v9 3/3] PCI: Remove device links to PHY
+Message-ID: <20260912140207.GA655851@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 17/23] modpost: perform srcversion hashing in parallel
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
- linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
-References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
- <20260908-build-speedup-v1-17-5dc1ac01672d@kernel.org>
-Content-Language: fr-FR, en-US, en-GB
-From: Yann Droneaud <yann@droneaud.fr>
-In-Reply-To: <20260908-build-speedup-v1-17-5dc1ac01672d@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260912_045113_978703_61B68CDC 
-X-CRM114-Status: GOOD (  15.25  )
+Content-Disposition: inline
+In-Reply-To: <20260912113944.cfs6tebsv2eqctvw@skbuf>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +72,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpMZSAwOC8wOS8yMDI2IMOgIDIyOjU1LCBMb3JlbnpvIFN0b2FrZXMgKEFSTSkgYSDDqWNy
-aXTCoDoKPiBtb2Rwb3N0IGRvZXMgYSBsb3Qgb2Ygc2luZ2xlLXRocmVhZGVkIHdvcmsgaGFzaGlu
-ZyBmaWxlcyBmcm9tIGVhY2ggb2JqZWN0J3MKPiAuY21kIGZpbGUuCj4KPiBUaGlzIG1ha2VzIHRo
-ZSBidWlsZCBzbG93ZXIgdGhhbiBpdCBuZWVkcyB0byBiZSwgc28gZG8gdGhpcyB3b3JrIGluCj4g
-cGFyYWxsZWwuCgoKSWYgeW91J3JlIGdvaW5nIHBhcmFsbGVsLCBpdCB3b3VsZCBiZSBuaWNlciB0
-byBkbyBpdCB1bmRlciBtYWtlJ3MgCmpvYnNlcnZlciBzdXBlcnZpc2lvbi4KCgo+IFRoaXMgaXMg
-ZWdyZWdpb3VzIGZvciBhbGxtb2Rjb25maWcgYnVpbGRzIC0gZm9yIGluc3RhbmNlIHg4Ni02NCBj
-YW4gZW5kIHVwCj4gb3BlbmluZyAyMDAsMDAwIGZpbGVzIGluZGl2aWR1YWxseSBhbmQgaGFzaGlu
-ZyB0aGVtIGFsbCBzZXJpYWxseS4KPgo+IFBhcmFsbGVsaXNlIHRoaXMgb3BlcmF0aW9uIGJ5IG1h
-aW50YWluaW5nIGEgdGhyZWFkIHBvb2wgZm9yIHRoZSBoYXNoaW5nCj4gd29yay4KPgo+IENvbWJp
-bmVkIHdpdGggdGhlIHBlci1maWxlIGhhc2hpbmcgY29tbWl0IHRoaXMgY3V0cyBtb2Rwb3N0J3Mg
-cnVuIHRpbWUKPiBuZWFybHkgaW4gaGFsZiBmb3IgYW4gYWxsbW9kY29uZmlnIGJ1aWxkLgo+Cj4g
-TW9kdWxlLnN5bXZlcnMgYW5kIGV2ZXJ5ICoubW9kLlMgYXJlIGJ5dGUgZm9yIGJ5dGUgdGhlIHNh
-bWUuCj4KPiBtb2Rwb3N0IGlzIG9uIHRoZSBzZXJpYWwgdGFpbCBvZiBldmVyeSBhbGxtb2Rjb25m
-aWcgYnVpbGQsIGhvd2V2ZXIKPiBkZWZjb25maWcgZG9lcyBub3Qgc2V0IENPTkZJR19NT0RVTEVf
-U1JDVkVSU0lPTl9BTEwgYW5kIGlzIHVuY2hhbmdlZC4KPgo+IFdob2xlIGJ1aWxkLCAxMjgtdGhy
-ZWFkIFRocmVhZHJpcHBlciA5OTgwWCwgYmVzdCBvZiBOIHJ1bnM6Cj4KPiAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZWZvcmUgICBhZnRlciAgICAgZGVsdGEKPiAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tCj4gICAgeDg2IGFsbG1vZGNvbmZpZywgdG91Y2ggbW0vdm1hLmMsIGdj
-YyAgICAzMy40cyAgICAzMC4ycyAgICAgLTMuMnMgKC0xMCUpCj4gICAgeDg2IGFsbG1vZGNvbmZp
-ZywgdG91Y2ggbW0vdm1hLmMsIGNsYW5nICAzMS4xcyAgICAyOC4xcyAgICAgLTMuMHMgKC0xMCUp
-Cj4KPiBBc3Npc3RlZC1ieTogTExNCj4gU2lnbmVkLW9mZi1ieTogTG9yZW56byBTdG9ha2VzIChB
-Uk0pIDxsanNAa2VybmVsLm9yZz4KPiAtLS0KPiAgIHNjcmlwdHMvbW9kL01ha2VmaWxlICAgICB8
-ICAxICsKPiAgIHNjcmlwdHMvbW9kL21vZHBvc3QuYyAgICB8IDcyICsrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKystLQo+ICAgc2NyaXB0cy9tb2QvbW9kcG9zdC5o
-ICAgIHwgIDIgKysKPiAgIHNjcmlwdHMvbW9kL3N1bXZlcnNpb24uYyB8ICAzICstCj4gICA0IGZp
-bGVzIGNoYW5nZWQsIDc0IGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pCj4KClJlZ2FyZHMu
-CgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sat, Sep 12, 2026 at 02:39:44PM +0300, Vladimir Oltean wrote:
+> Hi Bjorn,
+> 
+> On Fri, Sep 11, 2026 at 05:12:09PM -0500, Bjorn Helgaas wrote:
+> > [+cc Felix, author of device link leak fixes]
+> > 
+> > On Mon, Aug 10, 2026 at 03:43:15PM +0300, Vladimir Oltean wrote:
+> > > This is practically a full revert of commit
+> > > 7a4db656a635 ("PCI: dra7xx: Create functional dependency between PCIe and PHY")
+> > > and a partial revert of the device link pieces from commits
+> > > dfb80534692d ("PCI: cadence: Add generic PHY support to host and EP drivers")
+> > > 49229238ab47 ("PCI: keystone: Cleanup PHY handling")
+> > 
+> > Can we split this into three commits (dra7xx, cadence, keystone)?
+> > This combined commit is applied on the pci/controller/misc branch, and
+> > then we have conflicts between that branch and
+> > pci/controller/dwc-dra7xx.
+> > 
+> > I think if we split this into three separate commits, we can apply the
+> > dra7xx one on pci/controller/dwc-dra7xx and drop Felix's device link
+> > leak fixes below so we don't clutter the git history with conflict
+> > resolutions or irrelevant commits:
+> > 
+> >   https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=2b9a036b568c ("PCI: dra7xx: Fix device link leak when devm_phy_get() fails")
+> > 
+> >   https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=bdfdf654b4b2 ("PCI: dra7xx: Fix device links leak when dra7xx_pcie_enable_phy() fails")
+> 
+> Isn't this patch already merged in pci/next as
+> https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?id=9a9d18547ddc97a73d5d90cff4d5aef90bd8c15d
+> ?
+
+Yes, it is, but until Linus pulls it, the PCI tree is a draft subject
+to revision.  IMO the git history will be much cleaner.  The end
+result will be the same but we won't have conflict resolutions and
+fixes to code that was removed.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
