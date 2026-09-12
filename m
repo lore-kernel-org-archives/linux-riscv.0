@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B48B2C88E56
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2026 22:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769E0C88E53
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2026 23:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wBL4odbNk8gZAKrvK6ebjZOgGYGXp+ba9fW+yX2T7JM=; b=CxcMRKSsLcJHS3
-	1IX6uxtXMAF2BM+xYVl59mho11hVAzGw2N8AWaaZFAV4mtSnozcOkO84BjUBwNiLc200l2MA5sgtr
-	860Bo4Pm0TwRYhY61fTef5OMWBfmY9gYL6kZaHvWZ1EADhg+SnOM0WMqRLJ6a5WHN67rLjc+Ocyna
-	xmUOWnpHADNZuHKkDoEGt3BG4gvfkkzH2ScXDfgXpthIo7GpQvXaZGFAML2rFAA0ywd8V/giuR0Xt
-	/wHmpPLbSSp+giiBcAj37JH3pEeiAT8qKXbeASU3GEo2f9QJQKLtbcir+Y0sW+3auxjunP7nCGmem
-	kD27YZ50+s5ti1IE2JUg==;
+	List-Owner; bh=5s7J0GtEfWfFPskxFn3MA5IzQPmPkqB13AfO8mgG2ko=; b=GDZcbrzssLOxiY
+	Aw0o7N2rOGZg4m/DVFksqGICD3hAtZzsakobVDmQKdlVvAqDQXtF9t9iuJ4TF8vLPjI3l1fipRGk0
+	t3LNoJ62xueeRETf8KjPd7xZ9wiZ3KxCyIjOX8KTyW5Xw2fku+Ch3qq0hBJTzkXNWf/X67YDXmNbc
+	nqXzPrpKOHzdOQMnrSW/u3nDl984SHRLqnKbPkCITVB6mS2263I81t0StuAzFm351nEL7LIXhF5uu
+	prcTosqjaGcXEgKh2PPXMkC6xB2bkOUzHOVd3Al5+VIL2kI+BYjsab0dEzdDigJXeKM28XVPhwPtj
+	zDbKOuBU4l7epDfnR2YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5WVZ-00000001GQq-19cW;
-	Sat, 12 Sep 2026 22:47:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x5XK8-00000001HJC-02ZK;
+	Sat, 12 Sep 2026 23:39:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5WVX-00000001GQg-0Mp7;
-	Sat, 12 Sep 2026 22:47:39 +0000
+	id 1x5XK6-00000001HIp-1N7p;
+	Sat, 12 Sep 2026 23:39:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1ABA60008;
-	Sat, 12 Sep 2026 22:47:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7215B1F000FF;
-	Sat, 12 Sep 2026 22:47:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5E16543998;
+	Sat, 12 Sep 2026 23:39:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F43D1F000FF;
+	Sat, 12 Sep 2026 23:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789253257;
-	bh=YTs0RHzOBARO9Zxd/72JxEwAoUlFgRlD7PJM9ViCXyc=;
+	s=k20260515; t=1789256393;
+	bh=IwGn1I+rAy33y7oqaqvyvQbpwgIGskjqTBVWKdDUb9w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=e4ZfcMFmvfYKUh71LAPoMcJrwB+EauX2idSlHvlrc7/TcwWF4y4so18J/fbY5lXYi
-	 R7U55xnaXLAON7/zdmlPVdNgwj6zPMq1L2fBY8yKvOCgRckwkR0KzQNa2gxGw7uFfA
-	 wm2T2BsSDlRNJ4H1wIXuFyyLsOUX42JzfBTZ57ZX668HEN5yhgzUyOYlE/vi9rRF1e
-	 wxNzTDgBlwyw4kYH+U2DPdRNeBPA1JL+8gr8GbujAgHSSmzPofsMXi7mlmK5MX4lQM
-	 Q9YMH4vqdH97Z9EK53Aaj452z+/sBIpyi8GFKK13J3KjBc/JY1me3oHi5xO3iHRUE4
-	 jKTcBOzWYivwQ==
-Date: Sat, 12 Sep 2026 15:47:33 -0700
+	b=TFwkGY+GHCJrSxsgOvjVPO4RtJHqXtY6NmWLDm51LwYQ61/GgP9YWvhSmINFXEMdP
+	 GMN5nuq9/1oJNcIfvA0sK5kouCUnAKf3af81PiqZukOojdg1bLGQjQc+Ed/8Mt31Th
+	 jAL7jF5k9P0Kv4FKPk8MNtZEhOFdyJEAMrUUQUa7KPl0OrltmB7H1H+Y845mJps4IB
+	 OcJhLmKUZEJblr7IYgkdp35SMbUDqAiqtNxT9W6hklmhwzbALX1KGR7RHoA67+ndyO
+	 ZYVcADiRjh3JK+nRFFh1roZJYSjp9Cyh/eG1OHlRjW6frqE4YLALy+cR48xc2ZtUP8
+	 VPCgchE2iZZiw==
+Date: Sat, 12 Sep 2026 16:39:49 -0700
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
@@ -67,14 +67,14 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
 	Jens Axboe <axboe@kernel.dk>
-Subject: Re: [PATCH 18/23] objtool: cache relocations and function dead end
- state, do less work
-Message-ID: <aqW4klkDI2P0aUn5@jpoimboe>
+Subject: Re: [PATCH 19/23] objtool: decode instructions and resolve branch
+ targets in parallel
+Message-ID: <aqXXF6otLbLtnhWw@jpoimboe>
 References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
- <20260908-build-speedup-v1-18-5dc1ac01672d@kernel.org>
+ <20260908-build-speedup-v1-19-5dc1ac01672d@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260908-build-speedup-v1-18-5dc1ac01672d@kernel.org>
+In-Reply-To: <20260908-build-speedup-v1-19-5dc1ac01672d@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,84 +91,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 08, 2026 at 09:55:18PM +0100, Lorenzo Stoakes (ARM) wrote:
-> Whole build, 128-thread Threadripper 9980X, best of N runs:
-> 
->                                          before   after     delta
->                                          -------------------------------
->   x86 defconfig, touch mm/vma.c, gcc        8.4s     8.1s    -0.28s (-3%)
->   x86 defconfig, touch mm/vma.c, clang      7.5s     7.1s    -0.41s (-5%)
->   x86 defconfig, clean, gcc                27.1s    26.8s    -0.34s (-1%)
->   x86 defconfig, clean, clang              26.6s    26.2s    -0.40s (-1%)
->   x86 allmodconfig, touch mm/vma.c, gcc    30.2s    28.4s     -1.8s (-6%)
->   x86 allmodconfig, touch mm/vma.c, clang  28.1s    26.0s     -2.1s (-7%)
-
-Nice!
-
-> @@ -305,7 +305,15 @@ static bool __dead_end_function(struct objtool_file *file, struct symbol *func,
->  
->  static bool dead_end_function(struct objtool_file *file, struct symbol *func)
->  {
-> -	return __dead_end_function(file, func, 0);
-> +	if (!func)
-> +		return false;
+On Tue, Sep 08, 2026 at 09:55:19PM +0100, Lorenzo Stoakes (ARM) wrote:
+> +/* Only an object this large, e.g. vmlinux.o, is decoded on several threads. */
+> +#define DECODE_THREADED_MIN_TEXT	SZ_8M
+> +/* Only decoding and the branch passes are threaded, so more gains nothing. */
+> +#define DECODE_MAX_THREADS		16
+> +#define DECODE_RANGES_PER_THREAD	4
 > +
-> +	if (!func->dead_end_known) {
-> +		func->dead_end = __dead_end_function(file, func, 0);
-> +		func->dead_end_known = 1;
+> +/*
+> + * sec_offset_hash() keys on OFFSET_STRIDE windows, so the instructions of a
+> + * window share a chain and buckets beyond one per window would sit empty.
+> + */
+> +#define INSN_HASH_BYTES_PER_BUCKET	OFFSET_STRIDE
+> +#define INSN_HASH_MIN_BITS		10
+> +
+> +static unsigned long total_text_size(struct objtool_file *file)
+> +{
+> +	unsigned long size = 0;
+> +	struct section *sec;
+> +
+> +	for_each_sec(file->elf, sec)
+> +		if (is_text_sec(sec))
+> +			size += sec_size(sec);
+> +
+> +	return size;
+> +}
+> +
+> +static int alloc_insn_hash(struct objtool_file *file, unsigned long text_size)
+> +{
+> +	const unsigned long nr_buckets = text_size / INSN_HASH_BYTES_PER_BUCKET;
+> +	const int bits = ilog2(nr_buckets);
+> +
+> +	file->insn_hash_bits = max(INSN_HASH_MIN_BITS, bits);
+> +	file->insn_hash = calloc(1UL << file->insn_hash_bits,
+> +				 sizeof(*file->insn_hash));
+> +	if (!file->insn_hash) {
+> +		ERROR_GLIBC("calloc");
+> +		return -1;
 > +	}
 > +
-> +	return func->dead_end;
->  }
-
-This bit seems like it should be a separate patch.  Though actually, it
-can just be dropped as I have something similar brewing:
-
-  https://lore.kernel.org/9d4b8ccfed745ac47a954aa2e1de62a85197122d.1788899473.git.jpoimboe@kernel.org
-
-> -struct reloc *find_reloc_by_dest(const struct elf *elf, struct section *sec, unsigned long offset)
-> +/* Should never be invoked, provided as a backstop. */
-> +static struct reloc *find_reloc_linear(struct section *rsec,
-> +				       unsigned long offset, unsigned int len)
->  {
-> -	return find_reloc_by_dest_range(elf, sec, offset, 1);
-> +	struct reloc *reloc, *first = NULL;
+> +	if (opts.stats)
+> +		printf("insn_hash_bits: %d\n", file->insn_hash_bits);
 > +
-> +	WARN("%s: linear scan for sec %s with %u relocs at offset %lu len %u",
-> +	     __func__, rsec->name, sec_num_entries(rsec), offset, len);
+> +	return 0;
+> +}
 
-Won't this be triggered for sections created with
-elf_create_rela_section()?  I don't see where they set rsec->hashed.
+The dynamic insn hash sizing should probably be its own patch.  It's a
+standalone improvement, and much more obviously correct compared to the
+rest of patch.  I suspect it will make a big difference on allyesconfig.
 
-> @@ -1147,6 +1307,28 @@ static int read_relocs(struct elf *elf)
->  
->  		rsec->base->rsec = rsec;
->  
-> +		/* DWARF relocs are never looked up. */
-> +		if (is_dwarf_section(rsec->base))
-> +			continue;
-> +		if (reloc_sec_in_order(rsec)) {
-> +			rsec->sorted = true;
-> +			continue;
-> +		}
-> +
-> +		rsec->hashed = true;
-> +		nr_hashed += sec_num_entries(rsec);
-> +	}
-
-Hm, I'm not sure whether hashing is even still needed, as compilers
-generally emit sorted relocs.
-
-> @@ -1592,6 +1799,7 @@ static int elf_alloc_reloc(struct elf *elf, struct section *rsec)
->  	}
->  
->  	rsec->nr_alloc_relocs = nr_alloc;
-> +	copy_reloc_cache_to_hash(elf, rsec, nr_relocs_old);
-
-Not all relocation appends go through this allocation code path.
-It can return earlier in this function if the space has already been
-allocated previously.  So this call probably belongs in
-elf_create_reloc().
+The rest of the patch looks ok to me, though it needs to be reviewed
+very carefully (which I haven't done yet).  I'd like to see a Sashiko
+review (I wasn't able to find these patches on sashiko.dev for some
+reason).
 
 -- 
 Josh
