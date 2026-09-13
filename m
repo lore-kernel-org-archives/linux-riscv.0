@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E688FC88E5C
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Sep 2026 19:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B91BEC88E63
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Sep 2026 19:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9AiHk6DUxjoQvnfw3+MCpnmsbPKk9lqrOoqihs4ohws=; b=QtYUrDU88NM32k
-	5SN20UKej8FoN4lZ20HN25xLypp6TSTGcZZUMuzOSKBus/GKdE8xp0EJR96MEBVeDF8NBpYfhmeTS
-	fjaWBqjRkGhlovbDycUxTH/L1dJ6t+G3KyNcMdibczuHEm6Ik0AqHB6xL3yG9jzTHGu7WG2uRYs4L
-	neDYJeUFFa98EA8ocFjKsH5bpnx6mo+7ZXFYd77J+68JWc9Ve+yPBzPSdbKy235G3CcnIsF/VrB9r
-	HFJ6OjSn/Ab0fnbSaeDI7QjJZh8hcYDAsWLQJ1ex/pOPPzkY/AwOa4FArtUBhSVMf5lWPD0WHeN7P
-	DwuIFUSHaaMTu0tw9qwg==;
+	List-Owner; bh=3GBMPFJedMKhgoH021QbAXMJ6zNNt577IQ5M3DpTnS4=; b=ccrv47Bc5SNOct
+	zVi1q+RyGPdcjKoRSyhHV0HcHWUKCpwVaWAY/brbhnXKpwwzTWGowh/gZQQVnA7aK0O6pvxM9d8p7
+	oX/n0RRGXFi7NumZOtDM3H/hwR/BTdqknA0B2gB3S0AlmefqlNrzjbAh1rbS42soxMbtMfXs2h0ut
+	QlG4xEU+7mtcA2qPaM/wwQjvgs+Lh/Ddc2xbUvUWi0YChzaOJ4uOFB3JQcCrvpIJe8SyNZceqtAkG
+	x3ksvHzkeHeskx03TF03BA5NFqGEh/VfdTu1MQHchbE4lm+E8YX0GhTp5+UDsx8tByk2bv9Dj42JV
+	DSwOo5IYbRIu5NrUkzQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5pxo-00000001zia-1WhE;
-	Sun, 13 Sep 2026 19:34:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x5qGd-000000020Xa-1Xxr;
+	Sun, 13 Sep 2026 19:53:35 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5pxl-00000001ziG-3lYh;
-	Sun, 13 Sep 2026 19:34:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A14BE60FAB;
-	Sun, 13 Sep 2026 19:34:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D1431F000FF;
-	Sun, 13 Sep 2026 19:33:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789328044;
-	bh=TAc05xvgn4LKDrgbz0GLZNdUmWjvRTBn7gzs88HyjCU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=doV3JQJncRbnUY2eEWrDW4AdrECsCyPYHDG1VByES6rKjnzl81FXpw2DcYXgziOW/
-	 nMJBkmNScb9f1ENw6Bjgf/a1No+jBwmIt2dT3iQevY1tZwlMrN6H5sFlHfvKs7tzfV
-	 WJ3soUXFBJa89Fv6+4LRFkc2g4e/IiKpktf4IDbQe/o0+oXGLX8qdBKOZAnZ9xRO6N
-	 LtOrIQ9Fl6Sma7vkpBWKyjpX/WlZO3pNnbeBWskijXbt/0ypclVD35UHKaKnVHeJVy
-	 0B5OFfDlcjYZ3s+Gy/wRv99Wvu9JpCAFrKlh5/7HYFNVRMX6gnd392A6XiHgiMicFK
-	 KCwPvRaRCG52g==
-Date: Sun, 13 Sep 2026 20:33:50 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nicolas Schier <nsc@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
-Subject: Re: [PATCH 06/23] kbuild: only emit vmlinux relocations when required
-Message-ID: <aqb6G026mVrnnDm8@gremlin>
-References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
- <20260908-build-speedup-v1-6-5dc1ac01672d@kernel.org>
- <178901395291.3971858.16666031836463650276.b4-review@b4>
+	id 1x5qGa-000000020WM-0yzs;
+	Sun, 13 Sep 2026 19:53:33 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id B5817CD5BC;
+	Sun, 13 Sep 2026 22:53:23 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro B5817CD5BC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1789329207;
+	bh=OxeU5Su/M8erJsaUWOmS2EmM0zS643DtJmSk63z/Z00=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=bPrxv5ZxzllOQiy2krKFOjC+n45BHyruI8wXJWW2dWXRr4DcLu0qSRf6d6pHLDx2g
+	 jWcfuKvfm4R5fkihNP2bYAGlMPiEKu2EReiVm/sDrL/7gpXNRKBB7aWno9BxyE0PIx
+	 eJ2WBtrgtJF/6pZnjqFQwwsDO/KmzOaIx0fkVSU/CK9rK96UEIEpRCrZ3RBw/9RO7M
+	 dIG3X6gzczLJWO2ggvEASF+KnDy8M/wU/ZXNb4/e4nVlCj9JFDbH5mUjxdeheYhNPH
+	 IQWdrYEJBtqEOV1SW3KVrCuI7RGRLTeehLAl+p9Cvbyg6Rh5mmTzHhmbRZNO4iAJKh
+	 MCi83qnwm1Cog==
+Message-ID: <81f0bf10b41dff85872487ab68c750471b7c2f89.camel@rendec.net>
+Subject: Re: [PATCH v2 0/6] riscv: Make IPI_MAX visible and use it
+ consistently
+From: Radu Rendec <radu@rendec.net>
+To: Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt	 <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti	 <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas
+ Gleixner	 <tglx@kernel.org>, Anup Patel <anup@brainfault.org>, Tiffany Lin	
+ <tiffany.lin@mediatek.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
+ Yunfei Dong <yunfei.dong@mediatek.com>, Minghsiu Tsai
+ <minghsiu.tsai@mediatek.com>, Houlong Wei	 <houlong.wei@mediatek.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,  Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, "tip-bot2 for GUO Ren (XuanTie)"
+	 <tip-bot2@linutronix.de>, Nathan Chancellor <nathan@kernel.org>
+Date: Sun, 13 Sep 2026 15:53:22 -0400
+In-Reply-To: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
+References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <178901395291.3971858.16666031836463650276.b4-review@b4>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260913_125332_454579_DD9480F6 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,123 +77,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 09:19:12PM -0700, Nathan Chancellor wrote:
-> > A kernel build consists of more than one linking pass on vmlinux.o and
-> > vmlinux, at minimum two, and with CONFIG_KALLSYMS and BTF enabled on x86-64
-> > for example there are 5 such stages.
-> >
-> > For architectures that build their own relocation tables (x86, riscv, mips,
-> > s390), vmlinux is linked with the --emit-relocs parameter specified.
-> >
-> > However, this is only required on the final vmlinux link.
-> >
-> > Symbol tables of trial links preceding it don't need it because they
-> > already check that System.map matches kallsyms symbols on each build.
-> >
-> > GNU ld is slow at emitting relocation tables, so this results in a
-> > reduction in build time.
-> >
-> > Whole build, 128-thread Threadripper 9980X, best of N runs:
-> >
-> >                                          before   after     delta
-> >                                          -------------------------------
-> >   x86 defconfig, touch mm/vma.c, gcc        9.8s     9.4s    -0.43s (-4%)
-> >   x86 defconfig, clean, gcc                28.6s    28.1s    -0.47s (-2%)
-> >   x86 allmodconfig, touch mm/vma.c, gcc    44.0s    42.7s     -1.3s (-3%)
-> >
-> > Note that this has little impact on LLVM ld which performs this operation
-> > more efficiently.
-> >
-> > Assisted-by: LLM
-> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> >
-> > diff --git a/Makefile b/Makefile
-> > index 9bd226726358..de095b11e20a 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -1266,8 +1266,10 @@ LDFLAGS_vmlinux += --orphan-handling=$(CONFIG_LD_ORPHAN_WARN_LEVEL)
-> >  endif
-> >
-> >  ifneq ($(CONFIG_ARCH_VMLINUX_NEEDS_RELOCS),)
-> > -LDFLAGS_vmlinux	+= --emit-relocs --discard-none
-> > +LDFLAGS_vmlinux	+= --discard-none
-> > +LDFLAGS_vmlinux_relocs := --emit-relocs
-> >  endif
-> > +export LDFLAGS_vmlinux_relocs
-> >
-> >  # Align the architecture of userspace programs with the kernel
-> >  USERFLAGS_FROM_KERNEL := --target=%
-> > diff --git a/scripts/Makefile.vmlinux b/scripts/Makefile.vmlinux
-> > index fcae1e432d9a..4b54aaeca65d 100644
-> > --- a/scripts/Makefile.vmlinux
-> > +++ b/scripts/Makefile.vmlinux
-> > @@ -64,7 +64,8 @@ ARCH_POSTLINK := $(wildcard $(srctree)/arch/$(SRCARCH)/Makefile.postlink)
-> >
-> >  # Final link of vmlinux with optional arch pass after final link
-> >  cmd_link_vmlinux =							\
-> > -	$< "$(LD)" "$(KBUILD_LDFLAGS)" "$(LDFLAGS_vmlinux)" "$@";	\
-> > +	$< "$(LD)" "$(KBUILD_LDFLAGS)" "$(LDFLAGS_vmlinux)" "$@"	\
-> > +	   "$(LDFLAGS_vmlinux_relocs)";					\
-> >  	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
-> >
-> >  targets += vmlinux.unstripped .vmlinux.export.o
-> > diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> > index 970ca10f8fa9..09c5222ccb94 100755
-> > --- a/scripts/link-vmlinux.sh
-> > +++ b/scripts/link-vmlinux.sh
-> > @@ -32,6 +32,7 @@ LD="$1"
-> >  KBUILD_LDFLAGS="$2"
-> >  LDFLAGS_vmlinux="$3"
-> >  VMLINUX="$4"
-> > +LDFLAGS_vmlinux_relocs="$5"
-> >
-> >  is_enabled() {
-> >  	grep -q "^$1=y" include/config/auto.conf
-> > @@ -96,6 +97,11 @@ vmlinux_link()
-> >  		ldflags="${ldflags} ${wl}--strip-debug"
-> >  	fi
-> >
-> > +	# Only the final link actually requires the relocations.
-> > +	if [ "${output}" = "${VMLINUX}" ] && [ -n "${LDFLAGS_vmlinux_relocs}" ]; then
-> > +		ldflags="${ldflags} ${wl}${LDFLAGS_vmlinux_relocs}"
-> > +	fi
-> > +
->
-> We don't use LDFLAGS_vmlinux_relocs anywhere else, so do we even need
-> this whole dance to just end up with the equivalent of
->
->   if [ "${output}" = "${VMLINUX}" ] && is_enabled CONFIG_ARCH_VMLINUX_NEEDS_RELOCS; then
->     ldflags="${ldflags} ${wl}--emit-relocs"
->   fi
->
-> which would make this diff much simpler?
-
-Nice, big simplification then :) fixed up for v2.
-
->
-> That being said, Sashiko makes a comment that may be relevant, have not
-> verified though:
->
->   https://sashiko.dev/#/message/20260908-build-speedup-v1-6-5dc1ac01672d@kernel.org
-
-Yeah checked and not relevant :) I cc'd you on my
-mostly-for-my-own-record-keeping reply to sashiko on that one :)
-
->
-> --
-> Cheers,
-> Nathan
->
-
---
-Cheers, Lorenzo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAyMDI2LTA5LTExIGF0IDAzOjI3ICswMDAwLCBHdW8gUmVuIHdyb3RlOgo+IFRoaXMg
+c2VyaWVzIHJlbW92ZXMgdGhlIGltcGxpY2l0IGFzc3VtcHRpb24gdGhhdCBSSVNDLVYgc3VwcG9y
+dHMgZXhhY3RseQo+IGVpZ2h0IElQSSBtZXNzYWdlIHR5cGVzLgo+IAo+IEN1cnJlbnRseSwgdGhl
+IFNCSSwgQ0xJTlQgYW5kIEFDTElOVCBTU1dJIElQSSBwcm92aWRlcnMgdXNlCj4gQklUU19QRVJf
+QllURSB3aGVuIHNpemluZyB0aGUgZ2VuZXJpYyBJUEkgbXV4LCB3aGlsZSBJTVNJQyBjYXJyaWVz
+IGEKPiBzZXBhcmF0ZSBJTVNJQ19OUl9JUEkgZGVmaW5pdGlvbiBzZXQgdG8gOC4gVGhlc2UgdmFs
+dWVzIGhhcHBlbiB0byBtYXRjaAo+IElQSV9NQVggdG9kYXksIGJ1dCBuZWl0aGVyIGlzIHRoZSBw
+cm9wZXIgc291cmNlIG9mIHRydXRoIGZvciB0aGUgbnVtYmVyCj4gb2YgUklTQy1WIElQSSBtZXNz
+YWdlIHR5cGVzLgo+IAo+IE1vdmUgZW51bSBpcGlfbWVzc2FnZV90eXBlIHRvIGFzbS9zbXAuaCBz
+byBJUEkgcHJvdmlkZXJzIGNhbiB1c2UgSVBJX01BWAo+IGRpcmVjdGx5LCB0aGVuIHJlcGxhY2Ug
+dGhlIEJJVFNfUEVSX0JZVEUgYW5kIElNU0lDX05SX0lQSSB1c2VzIHdpdGgKPiBJUElfTUFYLgo+
+IAo+IFRoaXMgYWxzbyBtYWtlcyBhZGRpbmcgZnV0dXJlIFJJU0MtViBJUEkgbWVzc2FnZSB0eXBl
+cyBpbmRlcGVuZGVudCBvZgo+IHRoZSBjdXJyZW50IGVpZ2h0LWVudHJ5IGFzc3VtcHRpb24uCj4g
+Cj4gQSBmb2xsb3ctdXAgcGF0Y2ggcmVuYW1lcyB0aGUgTWVkaWFUZWsgVlBVIG1haWxib3ggdGVy
+bWluYXRvciBmcm9tCj4gSVBJX01BWCB0byBJUElfVlBVX01BWC4gVGhhdCB0b2tlbiBiZWxvbmdz
+IHRvIHRoZSBWUFUgZmlybXdhcmUgSVBJIGlkCj4gZW51bSBhbmQgc2hvdWxkIGZvbGxvdyB0aGUg
+c2FtZSBwcmVmaXhlZCBjb252ZW50aW9uIGFzIElQSV9WUFVfSU5JVAo+IChhbmQgU0NQX0lQSV9N
+QVggb24gdGhlIFNDUCBzaWRlKSwgaW5zdGVhZCBvZiByZXVzaW5nIHRoZSBnZW5lcmljCj4gSVBJ
+X01BWCBuYW1lLgo+IAo+IC0tLQo+IEdVTyBSZW4gKFh1YW5UaWUpICg0KToKPiDCoMKgwqDCoMKg
+IGNsb2Nrc291cmNlOiBjbGludDogVXNlIElQSV9NQVggZm9yIElQSSBtdXhpbmcKPiDCoMKgwqDC
+oMKgIGlycWNoaXAvYWNsaW50LXNzd2k6IFVzZSBJUElfTUFYIGZvciBJUEkgbXV4aW5nCj4gwqDC
+oMKgwqDCoCBpcnFjaGlwL2ltc2ljOiBVc2UgSVBJX01BWCBpbnN0ZWFkIG9mIElNU0lDX05SX0lQ
+SQo+IMKgwqDCoMKgwqAgbWVkaWE6IG10ay12cHU6IHJlbmFtZSBJUElfTUFYIHRvIElQSV9WUFVf
+TUFYCj4gCj4gdGlwLWJvdDIgZm9yIEdVTyBSZW4gKFh1YW5UaWUpICgyKToKPiDCoMKgwqDCoMKg
+IHJpc2N2OiBzbXA6IE1vdmUgZW51bSBpcGlfbWVzc2FnZV90eXBlIHRvIGFzbS9zbXAuaAo+IMKg
+wqDCoMKgwqAgcmlzY3Y6IHNiaTogVXNlIElQSV9NQVggZm9yIFNCSSBJUEkgbXV4aW5nCgpJIGFt
+IGNvbmZ1c2VkLiBUaG9tYXMgbWVyZ2VkIHlvdXIgZW50aXJlIHYxIHNlcmllcyBhIHdlZWsgYmVm
+b3JlIChzZWUKdGhlIGluZGl2aWR1YWwgcmVwbGllcyBmcm9twqB0aXAtYm90MkBsaW51dHJvbml4
+LmRlKS4gV2h5IGFyZSB5b3UKc2VuZGluZyB2Mj8KClBhdGNoIDYgd2FzIG5vdCBpbmNsdWRlZCBp
+biB2MSAoYnV0IGl0J3MgY2xlYXJseSByZWxhdGVkKSwgc28gcGVyaGFwcwp5b3UgbWVhbnQgdG8g
+c2VuZCBvbmx5IHRoaXMgb25lIGFzIGEgc2VwYXJhdGUgcGF0Y2g/CgpBbHNvOgogKiBUaGUgY292
+ZXIgbGV0dGVyIHNob3VsZCBpbmNsdWRlIGEgY2hhbmdlbG9nLCBpbmRpY2F0aW5nIHdoYXQgY2hh
+bmdlcwogICB3ZXJlIG1hZGUgaW4gZWFjaCB2ZXJzaW9uIGNvbXBhcmVkIHRvIHRoZSBwcmV2aW91
+cyBvbmUuCiAqIFBhdGNoZXMgMSBhbmQgMiBjYXJyeSBhICJGcm9tOiIgdGFnIHRoYXQgYXR0cmli
+dXRlcyBhdXRob3JzaGlwIHRvCiAgIHRpcC1ib3QyLCB3aGljaCBpcyB3cm9uZyAoaWYgdGhlc2Ug
+cGF0Y2hlcyB3ZXJlIHRvIGJlIGFwcGxpZWQpLgoKPiAKPiDCoGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vc21wLmjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMTIgKysrKysrKysr
+KysrCj4gwqBhcmNoL3Jpc2N2L2tlcm5lbC9zYmktaXBpLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgfMKgIDQgKystLQo+IMKgYXJjaC9yaXNjdi9rZXJuZWwvc21wLmPCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDEyIC0tLS0tLS0tLS0t
+LQo+IMKgZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1jbGludC5jwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIHzCoCA0ICsrLS0KPiDCoGRyaXZlcnMvaXJxY2hpcC9pcnEtYWNsaW50LXNzd2kuY8Kg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgNCArKy0tCj4gwqBkcml2ZXJzL2lycWNoaXAvaXJx
+LXJpc2N2LWltc2ljLWVhcmx5LmPCoMKgwqDCoMKgwqAgfMKgIDQgKystLQo+IMKgZHJpdmVycy9p
+cnFjaGlwL2lycS1yaXNjdi1pbXNpYy1zdGF0ZS5owqDCoMKgwqDCoMKgIHzCoCAxIC0KPiDCoGRy
+aXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvdnB1L210a192cHUuYyB8IDEyICsrKysrKy0t
+LS0tLQo+IMKgZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay92cHUvbXRrX3ZwdS5oIHzC
+oCA0ICsrLS0KPiDCoDkgZmlsZXMgY2hhbmdlZCwgMjggaW5zZXJ0aW9ucygrKSwgMjkgZGVsZXRp
+b25zKC0pCj4gLS0tCj4gYmFzZS1jb21taXQ6IDA4ZGY4ODQxMzZmMWMxMTk3YmFiMmEyNzgxNDQw
+NGZkMzI5ZDlhYWMKPiBjaGFuZ2UtaWQ6IDIwMjYwOTExLWlwaV9tYXgtZmY3MWVlYWRmNmZkCj4g
+Cj4gQmVzdCByZWdhcmRzLAo+IC0twqAgCj4gR1VPIFJlbiAoWHVhblRpZSkgPGd1b3JlbkBrZXJu
+ZWwub3JnPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
