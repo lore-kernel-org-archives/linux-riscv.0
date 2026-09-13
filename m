@@ -4,160 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C5AC88E5C
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Sep 2026 18:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BC5C88E63
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Sep 2026 18:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xgHC9+MFr5IXHjYO1YcyQ7AGfm7SRFmz9T9E8l9dsZI=; b=sEoQIuqtetKB00
-	EsQiB4V4T/hBGkI6eboK2L5foKdUR4B3SizxqSjH7H08w7ZH/Xp4uabKRVlUPbuOKGORYF7WJ4IKv
-	OMBXqeHOROqsoPeTuBrhhqgViWSk6s3jtnRJM3AH3nBPMN61SJyy5DhrVN1rwAVVlMhPNl97NAYRS
-	ZSQkOsYWUOAr85T8JD/JlytMbaABdPIDHrpQVpHBQNFruHsoVoLWjem7Oq3K7/bnom61zPVOdUZaL
-	hfqbGRO2y8T8+rAFbORMhAZQQgZcycnv8j8rYuHbXxQ9UYJqpov1wqM1haCUxBuOXTdmyMW6/aVpv
-	do4p8+nRxonGZTIpL+HQ==;
+	List-Owner; bh=kZ4ylp4JWnZIJ7FRuv/0XCkQyfD5GN2n/LUsrezQbd0=; b=CRH0OdPXLmcsOF
+	DWucVOaeE3r1WhKaWA6CTilME64p3GXO21vUUTD/Kra6u1vThustuAiNX/5QI0O/EUZW/DNjIXzvL
+	rsMLOTDiLjSUSecXwld36swuPezbpc58OPfASNgQniGjCPqr5nlGVeMe8rLF0eRx1hPM5yelaIreV
+	w1xQ9NGjNLLmIvAXIiv8gdOOfBgVJIlKBgn5/8N3CVNUeSIWS1q/7EdRQA5dmlrHA5ktahqjnroWE
+	MXf7NVUxzARjYHbmgvr3FHY5hoIFzBIi/p6RzIGibsgF/8s32gwmsspMAc5I34YZZrmJxIxfykMjh
+	JaOzbAWIA/Px1nQ+yDtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5ot9-00000001uNS-3YHO;
-	Sun, 13 Sep 2026 18:25:15 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x5ozS-00000001uvN-2zjm;
+	Sun, 13 Sep 2026 18:31:46 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5ot7-00000001uMl-165M
-	for linux-riscv@lists.infradead.org;
-	Sun, 13 Sep 2026 18:25:14 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68DI2beW2450902
-	for <linux-riscv@lists.infradead.org>; Sun, 13 Sep 2026 18:25:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	GkLKYhzdmWx8ASPEw+bfyEGrvJszZcX0ihy3/m9xYe4=; b=KJB0+VLID+cSRmJc
-	EIWHRn+VH954/zglrkOFq0tU03iOMtCk3ZmbQ1nHHCR7xGASsfHWNfQzFHb6SL8F
-	hB3ePZ9kXc70wJrEGbmCVFCaTZxBtAWG9i+7hs/u4fTdvL7KmApI8X6QgmazBr21
-	XFrx8wSTeIMym88Phf2iEdH/oPL/dSa/JBqgjxS3IyII/CBoFp5JGZ74Et9K3lgw
-	rorHUMAZYOvgZ1fSFTdMKjSjX4cn0XaH9S/qLAaEMuW9JF3ufYY3whAgKr9Im115
-	er5/s5kUXytHDQdXAOqKKibQnyFR2fLZGvu6YZmoPcODjCylab61rPc68nsMLyFJ
-	8FSXRg==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gmy9d3v8b-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Sun, 13 Sep 2026 18:25:11 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc21bc2923fso2492338a12.2
-        for <linux-riscv@lists.infradead.org>; Sun, 13 Sep 2026 11:25:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789323911; x=1789928711; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=GkLKYhzdmWx8ASPEw+bfyEGrvJszZcX0ihy3/m9xYe4=;
-        b=Q57eqZaDbkegmuZvDFXt33OiS8KWyv4hQaB9ves3l+iu7rh+W5EubAcRy6aoOZcbJa
-         vh85Ig3rGuFnRM4dljoyVcBRbpjjKg++zqjsdiKwX4fy82NLkWR3+vAb4ivfhzRbLmnF
-         KcQLJTH4++9g+EaONftE4dQJd//nRSRHs4le74Y0KwSqNaYJ48P2WbBVEp1bx3QNgOCF
-         eFHQPZG5R9V4H40XAMcN7EmOQWlXTQ2nm5kFxzyVDoxPJhAnYL+oVvMwtLuPSVm+pSfV
-         wDPsOtdNTPUPuWZeMFA6TPGtMKMLdti1pWiSPr5ZqVCnzlLFS31vo/nOurnkbwicp4gy
-         6zfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789323911; x=1789928711;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GkLKYhzdmWx8ASPEw+bfyEGrvJszZcX0ihy3/m9xYe4=;
-        b=FMviNjGHw3vQ41QOHP9BvsPXyR1ljCaRLZK9J7jbbHUG0etM6/QqCcyxDM3uFGEG4J
-         DoDgByvE3dRQdqt0C1hsZl+2t8bbBzQWkCrlSZs4lMNOPiZt+feGjBwAvymu3T7aQIzN
-         BgQosRAIGJG1vdEjE9VDXOxeOhbL3ja5oEyCKRKOqn/wJlKf5/BOMCVvPOUKz3oRRwin
-         CeJytwMVLbWQUekoOmCeWaAJo0K+wtu7Xe8cxxDMc3rSuW5RGRMjO5oD52KK2H8LSEaF
-         Ms8Yjth6PmqNd5r8CSVdGKweakarr/s2RPuc41dz49szdH3tYVRcsOzqLuvA9pqidR4k
-         1ulw==
-X-Forwarded-Encrypted: i=1; AKwUvBzxq5e+KeJfQIMJ337hewB71mOrIg0XeqNjXubpnOVY/xM1F+24waf8VyjC6Lb1Rqi2yREMWt6IvAdETg==@lists.infradead.org
-X-Gm-Message-State: AFuF++kOVCrz6uOYMgBaiOOLa9zFHqLavDAp0uuUrqfgwlyB2MtzJNZY
-	MM0EZbsQFrnQFTbw2k2LFNmrcu41c4+9Uml/wzJkybmCwCptctOGuPVDF3ee9VUyf5Y+9ehzqsj
-	oQfkNpNcxzDRcnoh8LJxALJn3SBnN8AzZRmln9VEzZXT1sa2w0Z3S3GSKrCQ/2JVceDxAA4U=
-X-Gm-Gg: AYBFou3byzvCK31HuEeVbgdMzNZaSfiEE2AK7YgbeR5xAfwn1vCk+u9BdxgMy+2Fw9q
-	GgNyeVrCnb/KFWJK3sTvp6DOT1OgZ6GzbWoy7Hfl5/0mijXM0eVfxrxzYtByskSsLtI7xkwHehU
-	CvWOaq+EvfzZLSpEgsAVJ3NsM7lorZ+PrbC8wmruoTBuCdwMBLQSh2kaCU/dJYLeTTKAQkidMy7
-	km7c9d1kI94BeutePs1evQh25Kp1QJT9jC5NbrnCXFVzNHgXYDSl02IGt8PxeWo1eDjGNynVmeT
-	WM58az6C1f4s6wJx1ZXgZ3pvcpHA3gF6XTnxfBDa8UlUA3Z3D3etx7XukwnjQ0dT1cJkZlVKQpX
-	Q0nk=
-X-Received: by 2002:a05:6a21:6016:b0:3cc:9618:f51a with SMTP id adf61e73a8af0-3db0e0ea40amr13919545637.8.1789323910650;
-        Sun, 13 Sep 2026 11:25:10 -0700 (PDT)
-X-Received: by 2002:a05:6a21:6016:b0:3cc:9618:f51a with SMTP id adf61e73a8af0-3db0e0ea40amr13919502637.8.1789323910173;
-        Sun, 13 Sep 2026 11:25:10 -0700 (PDT)
-Received: from localhost ([155.117.96.35])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33ba4cf72dbsm23050289eec.3.2026.09.13.11.25.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 13 Sep 2026 11:25:09 -0700 (PDT)
-Mime-Version: 1.0
-Date: Mon, 14 Sep 2026 02:24:58 +0800
-Message-Id: <DLEEDV17BW1I.2QLKNNOLNOTGS@oss.qualcomm.com>
-Cc: <dri-devel@lists.freedesktop.org>, <linux-riscv@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <spacemit@lists.linux.dev>,
-        <linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-        <linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v2 00/17] drm/spacemit: add SpacemiT K3 display support
-From: "Ze Huang" <ze.huang@oss.qualcomm.com>
-To: <codykang.hk@gmail.com>, "David Airlie" <airlied@gmail.com>,
-        "Simona
- Vetter" <simona@ffwll.ch>,
-        "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>,
-        "Maxime Ripard" <mripard@kernel.org>,
-        "Thomas Zimmermann" <tzimmermann@suse.de>,
-        "Rob Herring" <robh@kernel.org>,
-        "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-        "Conor Dooley"
- <conor+dt@kernel.org>, "Yixun Lan" <dlan@kernel.org>,
-        "Vinod Koul"
- <vkoul@kernel.org>,
-        "Neil Armstrong" <neil.armstrong@linaro.org>,
-        "Haylen
- Chu" <heylenay@4d2.org>,
-        "Michael Turquette" <mturquette@baylibre.com>,
-        "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney" <bmasney@redhat.com>,
-        "Philipp Zabel" <p.zabel@pengutronix.de>,
-        "Paul Walmsley" <pjw@kernel.org>,
-        "Palmer Dabbelt" <palmer@dabbelt.com>,
-        "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
-        "Yao Zi" <me@ziyao.cc>,
-        =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-        "Guodong
- Xu" <docular.xu@gmail.com>
-X-Mailer: aerc 0.22.0.r10.g73f20125
-References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
-In-Reply-To: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTEzMDI1OSBTYWx0ZWRfX93GlP+ZYKs28
- bbGaTno7aQ7nXnt6RSuj6y0YczwjuwLKoESRfzcDUt9U0tW7g3YBw9pcsZfx9y6hLByuxZLRFRr
- 6FwDr9kVKPGb4GG9v5Ow40/6RB0QLHM=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTEzMDI1OSBTYWx0ZWRfXxg362FyPcuOl
- jZgCrEmTOdEk2E3008Hdjqx4zIvvDKQ+Xmxj6fd2gRQ0q9rdu1RpsWO0K2O5oC67UWOiVYc2Dyr
- QZf74sUr0cc7+zgQBaPX7fmPInUmzQvrsVSaldJLnXD2PB2OQDxF/Wh0Lme5T/+WLt0svr9J9P/
- +GGEM7KeohWYFX8s2sC/O5kSi7SwE1SgmAlHFb8snAI5SiY0Q7YtblXsj9bBaroB7CrTPwYPFaN
- prW00XjZtQqQfmZvNQsqHKcPoYSfcObcVj2lC7CBlE6lp/imQ9MVEIz4gqrAmUae17waIG+77Bg
- GBNCbhjufL1MYDrbA7oq41ldQqYW3TRel0T/3sEWig52PgXykrhj5sKrgFiDo97ISCU4H3xKW/H
- Q70EwVmtytM7dcOdpg8hompguUWwOiyDv5fCtARYcKkssi7jrrknD5OLb9YR9mAASE9N7OKRZtt
- HpXiMzQCr1fwMnpldmA==
-X-Authority-Analysis: v=2.4 cv=IOSXmQvG c=1 sm=1 tr=0 ts=6aa6ea87 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=Ilsi1XWDFcrB9FjxRIUvHg==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=rqWh80hda8-QOrsfWKMA:9 a=QEXdDO2ut3YA:10
- a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-ORIG-GUID: VMZackLmicPBwM_5VLQqxQHWtQXXwdIf
-X-Proofpoint-GUID: VMZackLmicPBwM_5VLQqxQHWtQXXwdIf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-13_06,2026-09-11_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 malwarescore=0 phishscore=0 adultscore=0 suspectscore=0
- priorityscore=1501 lowpriorityscore=0 impostorscore=0 clxscore=1011
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609130259
+	id 1x5ozP-00000001urZ-0HaC;
+	Sun, 13 Sep 2026 18:31:45 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id AAD2ACF9C9;
+	Sun, 13 Sep 2026 21:31:33 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro AAD2ACF9C9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1789324295;
+	bh=9dER/J/8MdqEP/M3Ls+38r00y1seRCBppFrIe7sL3Ak=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=YcbeyvW7sSnnTfZTr/uCbcnFTlenGpzO6ymRZncRXn46x5A4ETMeyTu1u76htinxb
+	 HNHqDW2pA2lRL/+B2wINBujBetFK7t8nC33MvgFUaud2K1lH65XirYDPGFGST8KBg0
+	 P/Yqj8zKBqNjaNnkjfdpGsyVrylFggefTJykvBAdpRuuzNA/ZzXuia19AL3vHJvZ+R
+	 ehkm+GzmviHEaV5QJJM2J4q7lpReWTj/n+ksNLXKSwgzFCTpHC3oyE9Ncbl2b0ADvv
+	 7B4ICR/9eRUXKwBAvUdwCoetgsY8bJI3OLvb7LsQISqBExAXXfOQSHi6iCtfeyMRox
+	 2WGKHRSqJDAsQ==
+Message-ID: <159c52926a01c84a24d039b234bd1d3450fe5a9c.camel@rendec.net>
+Subject: Re: [PATCH 02/14] irqchip: fix typos in comments
+From: Radu Rendec <radu@rendec.net>
+To: Hemanth Selam <hemanth.selam@gmail.com>, Thomas Gleixner
+ <tglx@kernel.org>,  Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,  Paul
+ Walmsley	 <pjw@kernel.org>, Samuel Holland <samuel.holland@sifive.com>,
+ Linus Walleij	 <linusw@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org
+Date: Sun, 13 Sep 2026 14:31:32 -0400
+In-Reply-To: <20260907065328.32009-1-hemanth.selam@gmail.com>
+References: <20260907065328.32009-1-hemanth.selam@gmail.com>
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_112513_311189_1A02C689 
-X-CRM114-Status: GOOD (  30.49  )
+X-CRM114-CacheID: sfid-20260913_113143_289585_5D96CC90 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,101 +69,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun Aug 9, 2026 at 9:14 PM CST, Cody Kang via B4 Relay wrote:
-> This series adds display support for the SpacemiT K3 [2], a RISC-V SoC:
-> a new DRM driver, a new PHY driver and three new bindings.
->
-> The display path is three blocks deep:
->
->   Saturn DPU -> Innosilicon DP/eDP controller -> Innosilicon DP PHY
->
-> In v2, two major improvements:
->
-> - Module unload is now robust.
-> - The bindings now require the controller's output port (port@1).
->
-> The rest of the v2 changes please see below, with details in each patch's
-> changelog.
->
-> Sashiko AI review contributed total review comments: 57 items, which I
-> accepted: 14 items.
->
-> v2 repeated the full v1 test matrix on both boards, in built-in and
-> modular configurations, plus the new module load/unload rounds.
->
-> The v1 cover letter follows below, unchanged, to provide some backgroud
-> (I can remove them from cover letter in next version):
->
-> The Saturn DPU is SpacemiT's own display processing unit. It has a private
-> address translation unit and a command-list composer that replays a batch
-> of register writes when a flush is latched. It exposes one CRTC with one
-> primary plane. The K3 instantiates two DPUs, one per display path.
->
-> The DPU driver arrives as five staged patches to keep each one a
-> reasonable size. The driver only becomes buildable with that last patch.
-> Bisect safe.
->
-> The DP/eDP controller and its PHY are Innosilicon IP, also two instances
-> of each. An instance behaves as embedded DisplayPort or as external
-> DisplayPort purely according to what its output port is wired to, so the
-> bindings do not distinguish them. The PHY's registers are interleaved
-> with the controller's inside one MMIO window, which is why it is
-> described as a child node and shares the controller's regmap.
->
-> The pixel clock is generated by the DP PHY's PLL, and the SoC's APMU
-> pixel-clock mux takes that PLL as an input. Rather than let the display
-> driver reach into PHY registers, the PHY registers its PLL as a clock
-> provider and the APMU mux is parented to it through the clock framework.
-> That is what patches 2, 4, 5 and 6 are for, and it is also what keeps the
-> APMU and the DP/eDP controller out of a devicetree provider cycle.
->
-> As a first posting of the K3 display subsystem, this patchset supports:
-> a single primary plane per CRTC, linear RGB scanout (no plane scaling,
-> rotation, YUV or writeback). It does not support DSI, DSC or DP audio,
-> and link rates are capped at HBR2.
->
-> Based on drm-misc-next at commit 5b9af25f2d0b ("accel/ivpu: Remove
-> unnecessary min_t()/max_t() usage"), v7.2-rc2 based.
->
-> Testing this series needs a SpacemiT u-boot carrying display support
-> [1]. SpacemiT expects to add that support into an official u-boot
-> release in August 2026.
->
-> Tested on two K3 boards:
->
->   - Pico-ITX: an eDP panel and an external DisplayPort monitor.
->   - CoM260-IFX: DisplayPort only, no eDP.
->
-> Note: The eDP panel DTS enablement is not part of this series; a separate
->       series will follow showing how eDP can be verified.
->
-> What was run on both boards, with modetest from libdrm and with kmscube:
->
->   - modetest -s, looped over 1920x1080, 1280x720 and 3840x2160
->     on DisplayPort and 2560x1600 on eDP
->   - kmscube, on each head and on both at once
->   - hot-plug and sink swap on the DisplayPort connector
-
-Hi Cody,
-
-Tested the series on a K3 Pico-ITX (mainline v7.3-rc2 + these patches,
-display drivers built in). On the DisplayPort output:
-
-- modetest -s: 1920x1080 and 1280x720 OK (native 2560x1440 as well);
-3840x2160 not tested: my monitor has no such mode.
-- kmscube: OK.
-- hot-plug: unplug/replug detected, output re-enables fine.
-
-Tested with the stock vendor U-Boot (2022.10); DP works fine with it.
-
-Tested-by: Ze Huang <ze.huang@oss.qualcomm.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAyMDI2LTA5LTA3IGF0IDEyOjIzICswNTMwLCBIZW1hbnRoIFNlbGFtIHdyb3RlOgo+
+IEZpeCB0eXBvcyBpbiBjb21tZW50cywgcmVwb3J0ZWQgYnkgc2NyaXB0cy9jaGVja3BhdGNoLnBs
+IHVzaW5nIHRoZQo+IG1pc3NwZWxsaW5nIGxpc3QgaW4gc2NyaXB0cy9zcGVsbGluZy50eHQuwqAg
+T25seSB0b3VjaGVzIGNvbW1lbnRzLCBubyBjb2RlCj4gY2hhbmdlcy4KPiAKPiBBc3Npc3RlZC1i
+eTogQ3Vyc29yOmNsYXVkZS1vcHVzLTUKPiBTaWduZWQtb2ZmLWJ5OiBIZW1hbnRoIFNlbGFtIDxo
+ZW1hbnRoLnNlbGFtQGdtYWlsLmNvbT4KPiAtLS0KPiDCoGRyaXZlcnMvaXJxY2hpcC9pcnEtbXRr
+LWNpcnEuY8KgwqDCoCB8IDIgKy0KPiDCoGRyaXZlcnMvaXJxY2hpcC9pcnEtc2lmaXZlLXBsaWMu
+YyB8IDIgKy0KPiDCoGRyaXZlcnMvaXJxY2hpcC9pcnEtdmljLmPCoMKgwqDCoMKgwqDCoMKgIHwg
+MiArLQo+IMKgMyBmaWxlcyBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0p
+CgpUaGUgY2hhbmdlcyBsb29rIGdvb2QsIGJ1dCBpbiBteSBvcGluaW9uIHNob3VsZCBiZSBzcGxp
+dCBpbnRvIDMKZGlmZmVyZW50IHBhdGNoZXMsIG9uZSBwZXIgZHJpdmVyLCBhbmQgZ3JvdXBlZCBp
+bnRvIGEgc2VyaWVzLiBOb3QgdGhhdAppdCBtYXR0ZXJzIHRvbyBtdWNoIGluIHRoaXMgcGFydGlj
+dWxhciBjYXNlICh3aGVyZSBvbmx5IGNvbW1lbnRzIGFyZQp0b3VjaGVkKSwgYnV0IGl0J3MgY29t
+bW9uIHByYWN0aWNlIGluIHRoZSBMaW51eCBrZXJuZWwgZGV2ZWxvcG1lbnQuCgpUaGVyZSBhcmUg
+bXVsdGlwbGUgcmVhc29ucy4gVGhlIG1haW4gb25lIGlzIHRoYXQgZGlmZmVyZW50IGRyaXZlcnMg
+Y2FuCmJlIHJldmlld2VkL21haW50YWluZWQgYnkgZGlmZmVyZW50IHBlb3BsZSwgYW5kIHBhdGNo
+ZXMgdG8gdGhlbSBtYXkgYmUKcGlja2VkIHVwIHZpYSBkaWZmZXJlbnQgKEdpdCkgbWFpbnRhaW5l
+ciB0cmVlcy4gQWxzbywgc29tZSBjb21wYW5pZXMKc2VsZWN0aXZlbHkgcG9ydCBwYXRjaGVzIGFn
+YWluc3Qgc3BlY2lmaWMgZHJpdmVycyB0byB0aGUga2VybmVsIHRyZWVzCnRoZXkgbWFpbnRhaW4u
+Cgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAvaXJxLW10ay1jaXJxLmMgYi9kcml2ZXJz
+L2lycWNoaXAvaXJxLW10ay1jaXJxLmMKPiBpbmRleCA5MTRkMWQ2MzlmZTMuLmQzMGMzNGNlMGY1
+NiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLW10ay1jaXJxLmMKPiArKysgYi9k
+cml2ZXJzL2lycWNoaXAvaXJxLW10ay1jaXJxLmMKPiBAQCAtMjQ3LDcgKzI0Nyw3IEBAIHN0YXRp
+YyBpbnQgbXRrX2NpcnFfc3VzcGVuZCh2b2lkICpkYXRhKQo+IMKgCQl3cml0ZWxfcmVsYXhlZCht
+YXNrLCByZWcpOwo+IMKgCX0KPiDCoAo+IC0JLyogc2V0IGVkZ2Vfb25seSBtb2RlLCByZWNvcmQg
+ZWRnZS10cmlnZ2VyZCBpbnRlcnJ1cHRzICovCj4gKwkvKiBzZXQgZWRnZV9vbmx5IG1vZGUsIHJl
+Y29yZCBlZGdlLXRyaWdnZXJlZCBpbnRlcnJ1cHRzICovCj4gwqAJLyogZW5hYmxlIGNpcnEgKi8K
+PiDCoAlyZWcgPSBtdGtfY2lycV9yZWcoY2lycV9kYXRhLCBDSVJRX0NPTlRST0wpOwo+IMKgCXZh
+bHVlID0gcmVhZGxfcmVsYXhlZChyZWcpOwo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAv
+aXJxLXNpZml2ZS1wbGljLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXNpZml2ZS1wbGljLmMKPiBp
+bmRleCA1YjBkYWMxMDQ4MTQuLmE3Y2RkYWRkZGY0MCAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL2ly
+cWNoaXAvaXJxLXNpZml2ZS1wbGljLmMKPiArKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXNpZml2
+ZS1wbGljLmMKPiBAQCAtNDUyLDcgKzQ1Miw3IEBAIHN0YXRpYyBpcnFfaHdfbnVtYmVyX3QgY3Ax
+MDBfZ2V0X2h3aXJxKHN0cnVjdCBwbGljX2hhbmRsZXIgKmhhbmRsZXIsIHZvaWQgX19pb21lCj4g
+wqAJCXJldHVybiAwOwo+IMKgCj4gwqAJLyoKPiAtCSAqIEludGVycnVwdHMgZGVsaWV2ZXJlZCB0
+byBoYXJkd2FyZSBzdGlsbCBiZWNvbWUgcGVuZGluZywgYnV0IG9ubHkKPiArCSAqIEludGVycnVw
+dHMgZGVsaXZlcmVkIHRvIGhhcmR3YXJlIHN0aWxsIGJlY29tZSBwZW5kaW5nLCBidXQgb25seQo+
+IMKgCSAqIGludGVycnVwdHMgdGhhdCBhcmUgYm90aCBwZW5kaW5nIGFuZCBlbmFibGVkIGNhbiBi
+ZSBjbGFpbWVkLgo+IMKgCSAqIENsZWFyaW5nIHRoZSBlbmFibGUgYml0IGZvciBhbGwgaW50ZXJy
+dXB0cyBidXQgdGhlIGZpcnN0IHBlbmRpbmcKPiDCoAkgKiBvbmUgYXZvaWRzIGEgaGFyZHdhcmUg
+YnVnIHRoYXQgb2NjdXJzIGR1cmluZyByZWFkIGZyb20gdGhlIGNsYWltCj4gZGlmZiAtLWdpdCBh
+L2RyaXZlcnMvaXJxY2hpcC9pcnEtdmljLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXZpYy5jCj4g
+aW5kZXggZTM4MTA0YzUwNjRlLi42MDdlMzI4NGY3MDAgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9p
+cnFjaGlwL2lycS12aWMuYwo+ICsrKyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtdmljLmMKPiBAQCAt
+NDc4LDcgKzQ3OCw3IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBfX3ZpY19pbml0KHZvaWQgX19pb21l
+bSAqYmFzZSwgaW50IHBhcmVudF9pcnEsIGludCBpcnFfc3RhcnQsCj4gwqAvKioKPiDCoCAqIHZp
+Y19pbml0KCkgLSBpbml0aWFsaXNlIGEgdmVjdG9yZWQgaW50ZXJydXB0IGNvbnRyb2xsZXIKPiDC
+oCAqIEBiYXNlOiBpb21lbSBiYXNlIGFkZHJlc3MKPiAtICogQGlycV9zdGFydDogc3RhcnRpbmcg
+aW50ZXJydXB0IG51bWJlciwgbXVzdCBiZSBtdWxpcGxlIG9mIDMyCj4gKyAqIEBpcnFfc3RhcnQ6
+IHN0YXJ0aW5nIGludGVycnVwdCBudW1iZXIsIG11c3QgYmUgbXVsdGlwbGUgb2YgMzIKPiDCoCAq
+IEB2aWNfc291cmNlczogYml0bWFzayBvZiBpbnRlcnJ1cHQgc291cmNlcyB0byBhbGxvdwo+IMKg
+ICogQHJlc3VtZV9zb3VyY2VzOiBiaXRtYXNrIG9mIGludGVycnVwdCBzb3VyY2VzIHRvIGFsbG93
+IGZvciByZXN1bWUKPiDCoCAqLwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
