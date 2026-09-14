@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2CDC88E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 08:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81AA1C88E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 09:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S7Aoag52kg9g5NEL+ZUhfEMIj9r4erkwnSWS6MJQ7LA=; b=Asuav0lkauy6+/
-	eViR9v1x19MNOTg2C8iP/B/tWEaSSWdJlwIR/8FRJnZye7UN9Er8uSEd8bSbXDEIHCfxT5/eOet3o
-	H7L2acWHanbVqc/4zO+3Y2Ip2xeDIvNX1M1BnAUJjRonnI/C7roLDf7OzDOS3kjNQ4n5QXws1hqzz
-	QpzBlEQGcC/hII+vqJ8AaTDcqn/qDIAtdeqAmvmuJICmqhUnHIbDwPFPEVezqL//wZWY7kybLTcMb
-	D5+ieS9d6m2gs5m5oylJmbUV/s5++RgGK72xVHO+jbygb1kM2YZs7p1NksMD1MdVeBO3zkGjnsFLV
-	KxAaRkLV/4WJ8ngA82JA==;
+	List-Owner; bh=CxoPW5Fa8vGrZLR/tfC1+6nTAqEyRnkX1V/9F0FVVpQ=; b=k1Dpge+AgbTyTd
+	2WWF9Cw2y0aKHw9wQ8v1e24a7Rzvje2JekCF23e9zVDlNSvWTuGjuZyPDjVCBeL/+82RMo/npz4cY
+	LgwqTsEf+ztTQwGqvSGI+fruSKZteN/vy7GxgmcSrV5x3G57nDs1BEZNBBWY0Q1WVbvvq4squzka4
+	QEPmmcPdkSLKDLhL+sgav8r6MDZS1RzNRFwHfc3NCnSxKpOIZVWlmCR9K3WI8GB3IlreTETkdXrqs
+	HSliGQIZutCAlBt/Fnv3dE9+KFn5Nl8Fyuq59kDcaWx94x6M7vmKIFQPQVlNeGMEtzLs+FsVyiWfg
+	21MRMla+zrLH8I1vfldQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62Vg-00000002qRl-0BWW;
-	Mon, 14 Sep 2026 08:57:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x62hn-00000002sJb-0obq;
+	Mon, 14 Sep 2026 09:10:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62Ve-00000002qRP-1B9E;
-	Mon, 14 Sep 2026 08:57:54 +0000
+	id 1x62hl-00000002sJ6-3CaM
+	for linux-riscv@lists.infradead.org;
+	Mon, 14 Sep 2026 09:10:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0CD444343D;
-	Mon, 14 Sep 2026 08:57:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 787DC1F000FF;
-	Mon, 14 Sep 2026 08:57:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 38C9660008
+	for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2026 09:10:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E639D1F00893
+	for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2026 09:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789376273;
-	bh=U1K11A9+RHasMnoG3wmtnu891cbuAryY4EeC4FZJwns=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=advzK3GeU+AhH/w8zqSqeooS4JmzOok/9Ne52l7+V6aQ4xdJG/jTmyMoxQuE3m95V
-	 laE2LueDRdWJiQ6g6RwMHTi/WqxyJSM1Ifapd0SIx6U62DcUQTTKw+RFEz+Iy9UB6r
-	 0Gh1LH17vZszJk9MrhF5NL/W54R4sZvqTQAfTWqifeIKyRfSoxaJr16KHPm54Q8QqJ
-	 Cm/VHV524fjvDtfToVtDeFI6BZoYgmdR7hrbHtzZcvVfZTBMUIHVPIwR5mxCsABlLk
-	 DX0HrLqfi9TqsSv8JBv8bH17v2suBWU80P9duFOYDfteVYainLvUDfcSMTixwlA5hb
-	 xeb+9i3bkQC/A==
-Date: Mon, 14 Sep 2026 09:57:43 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>
-Subject: Re: [PATCH 04/23] kallsyms: output binary data to speed output and
- kallsyms assembly
-Message-ID: <aqe2XF_TOUk2nRFg@gremlin>
-References: <20260908-build-speedup-v1-0-5dc1ac01672d@kernel.org>
- <20260908-build-speedup-v1-4-5dc1ac01672d@kernel.org>
- <CAHk-=wgryL8XqjFcO=EQwKdqNn51BANiv16QiqYKCUdXxDQBmg@mail.gmail.com>
- <aqewl-H-IzjIt8uD@gremlin>
+	s=k20260515; t=1789377024;
+	bh=eM8Qgu6NYAz2KlTImTDOnkezDzsEl+drhOjvzifcCQs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=bwb8EdQWtZKUS2/yJtWLuwv9QwqPg93d6fuTfQAb4ASCrf8mRwtheWC3cG+EouNaH
+	 tOd8adCxSXUCsBpa2nVR+Uv70mQ1SC8865r8L6lullZlQTXo51dlZyOzXMcIjQgMHf
+	 6j0O0mV/gpICV5vFu8Fr0SMRYv/5RtnlYI/OFAEnIvJoU1PHx/euzneVDydZ5LuPM9
+	 W8+T1ZO/lGVkvsgQ7u6FUUPT/MJFnhdof0OK3kzZm7wbChMsSQ9GnafpzPaDAXJ6eM
+	 51/JWrxXKnMiwzVTsMWHRnfTG85NPZrKYlVE4w5C0Cb9JfS05LeZaK8l6xkJUiWKMg
+	 O8o2Kxl7o0ohw==
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b5e4f16f13so1672984e87.2
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2026 02:10:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwffgVSR9LuQNuJ0B1mmg4sXuMmqzd8I6v7byhsvw00HsASKtN1sXSRiU8chVnzKSUmkusHcVGBOQN1TQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++nTXLy4gJT/2MamjvVbj4MLuJSsMhHo7YjvBQjy9PCYt4Qldd5A
+	Vb6VMKsqn/YpP7McBp/mJyRJ5ssoF9TvxflGY5+L8guv4o6SY8piyLdShHSo3h7tL7wThnNVMRp
+	OEuSQAZ5OTKzF9e6c2b1ZeInwQE/DlVE=
+X-Received: by 2002:a05:6512:1389:b0:5b4:ab2f:5bd5 with SMTP id
+ 2adb3069b0e04-5b8ae68c4d8mr760395e87.8.1789377023628; Mon, 14 Sep 2026
+ 02:10:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aqewl-H-IzjIt8uD@gremlin>
+References: <20260831105056.756259-5-conor@kernel.org>
+In-Reply-To: <20260831105056.756259-5-conor@kernel.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 14 Sep 2026 11:10:10 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=F5efmf+b8wvNRcBq3ORB03f+Zue5A5NiaMP=Deu5vAg@mail.gmail.com>
+X-Gm-Features: AcwNN1UxwLBklInMTDkL86Qeyshy5Z5cOuZdxURaH6Lw5kZs_qB3HVR-u2maOv8
+Message-ID: <CAD++jL=F5efmf+b8wvNRcBq3ORB03f+Zue5A5NiaMP=Deu5vAg@mail.gmail.com>
+Subject: Re: [PATCH v1 0/3] pinctrl: mpfs-mssio: three fixes
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-gpio@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Valentina.FernandezAlanis@microchip.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +75,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 09:39:26AM +0100, Lorenzo Stoakes (ARM) wrote:
-> ...BUT, can definitely put
-> those remaining .long entries in the binary too so the assembly is
-> absolutely minimal.
->
-> LLM says there's 200k of those, so does seem worthwhile, I'll do that for
-> v2!
-
-OK, correction, it turns out this isn't possible :) LLM found commit
-a081b5789255 ("kallsyms: Get rid of kallsyms relative base") which makes every
-offset a relocation against _text, which means these have to be kept in the
-assembly separately.
-
-It takes .18s to parse those ~200k lines so it's not really a big deal :)
-
-In any case it's not a huge time sink on build so it's no big deal to keep this
-as it is.
-
->
-> >
-> >                Linus
->
-> --
-> Cheers, Lorenzo
-
---
-Cheers, Lorenzo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsCgpPbiBNb24sIEF1ZyAzMSwgMjAyNiBhdCAxMjo1MeKAr1BNIENvbm9yIERvb2xl
+eSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6CgooLi4uKQo+IENvbm9yIERvb2xleSAoMyk6Cj4g
+ICBwaW5jdHJsOiBtcGZzLW1zc2lvOiBmaXggd2hpdGVzcGFjZSBpbiBkZWJ1Z2ZzIG91dHB1dAoK
+QXBwbGllZCBmb3IgbmV4dC4KCj4gICBwaW5jdHJsOiBtcGZzLW1zc2lvOiBmaXggd2lkdGggb2Yg
+dW51c2VkIGJhbmsgdm9sdGFnZSBzZXR0aW5nCj4gICBwaW5jdHJsOiBtcGZzLW1zc2lvOiB1c2Ug
+Y29ycmVjdCByZWdtYXAgZnVuY3Rpb24gdG8gc2V0IGJhbmsgdm9sdGFnZQoKQXBwbGllZCBmb3Ig
+Zml4ZXMuCgpTb3JyeSBmb3Igc2xvd25lc3Mgb24gbXkgc2lkZSA6LwoKWW91cnMsCkxpbnVzIFdh
+bGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
