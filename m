@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C3FC88E77
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 13:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D05C88E72
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 13:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GmjnLYYm9dBZ+8PlsRRL6TKeYqPMOZBWD23Y7c06UGg=; b=HqqKnBl2zYeyEH
-	E1U8ws4hHyGwr+1i2WRxS0nEec2UmJTemybF1XPUPnGB8JbN4zHlgUMZoZs0qx7goRafGfmBhD+m1
-	BxN42InmJijg4fWnggZHwZ+uiN2Wq5h1XEb39QixloNpXL0fdCvIILfO0VCyzSNhT0zZ4t2DHimor
-	Cxt8BThe6E/kW9Wsr6+3th5NnLDA5/q6IHIPjHt1DOSyMgHNir6yG/SUTPy1UQqhq5ik6i7f+tYyy
-	6uTm46dfLfTxHM/AD7jqGdh5/e057V5/xEh4AwTpBmnMmj71voQtBcsIbIX9VHkZzbiQwwshFwQqs
-	MIIS5fLRTbRhSOidCGQg==;
+	List-Owner; bh=kHHp9q4uUR6MGbRUMQfnkW7epNuMyT1orxg+sy+ihqk=; b=bkwEhlOdN/2odm
+	3OKS5Pds4J2C7IB0TwCdlkhDWUpinlUgW/E/x3+dV4JlRVaZMGB2gHXjqx+UhOfmyt/k9R0XAFR9Y
+	72EruH+qSatuWHpahzBPHmOBWizgbpGyGZKuvQC8pUtgJYflGGva0B3UwO896JLgWlyXyjr9NP/gA
+	APNtrIkGnwwkuAcmKRgVaq353L2VAuCQRsDjF/XM5s+7igJHEPpRQqPhLUqZ3r0tJs43eZpHAGnwh
+	ycbzCciXWFEUMXCIv4RG/1V9+HCMJU9NArvnkAnDGSm28WO0fAe2ZIAdiDDdwp9aHqAI+i5HyktbY
+	MWDSYWIP8edGWJ/mhpkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67AH-00000003sgj-1D8j;
-	Mon, 14 Sep 2026 13:56:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x67AP-00000003smh-1EDj;
+	Mon, 14 Sep 2026 13:56:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67AF-00000003sfB-1XcG
+	id 1x67AG-00000003sfp-20Dg
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Sep 2026 13:56:07 +0000
+	Mon, 14 Sep 2026 13:56:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8F9343D93;
-	Mon, 14 Sep 2026 13:56:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 80BBBC2BD01;
-	Mon, 14 Sep 2026 13:56:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 978636020C;
+	Mon, 14 Sep 2026 13:56:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4533BC2BD05;
+	Mon, 14 Sep 2026 13:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789394166;
-	bh=NG0zcPrpuUrHqJArNTKYUb+/7+gQImfZBXI+QFiTCFI=;
+	s=k20201202; t=1789394167;
+	bh=NpwJIzzpHmKVMpGC8mQxI88Y9BcNMyyRRDBxtKSmyTw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=aSP8eS0cnkVnk02fHxWD0m6A4C0cYkf2cmZ7d+OWcIq7X8b/lZBrb/pLOihmPsd/T
-	 YSEEAhV//pOiPp6dvHtzKmD6/H62Pr8rPopv+rbTD20ydbxlYYS3yYOjUQn1LHjl6F
-	 RDacv2sij70ev26NnjFDP95AmMBivj2Py5xqkCRbKZpZLG0MFF93mufJJQf3KorXly
-	 3gailyrxhypzQViLLiDpzecQa29NiX2IQpQLOQ0j/AbTOgVo7cdAzkUuH/I49K9ilf
-	 bztWoDwsLE7bl9gbKUag+CT8O2X7nShntvBoSjx/mEliNp9OFDgSzgbJwwlxfHE5R7
-	 dqphOwJWhdU6w==
+	b=UrE7F281X8zYPQ4AGzp0JkRCCEWh7E6YyJ4NgebLTtQAFIzfw27Wl15fbsUy0YM0x
+	 VvjPzjbKDte0TAU27tqqq+g9nMt6r3Fu+Ax15PfOmtIXElRL4m6slxGDQDVyVj6XGy
+	 B9Arfh0FDA9OuD4KkXwnR/ecjBsV+IcVuvzJqkqG8aQYBK9IdaljGwJyfRMwAWLeQA
+	 pvEJeyUnKQ1uBv2CE7pE1twj5qe6rqDv/SLvIvGYhYfJD8CxmzbTNnoRl2In/luHSI
+	 dgMoxcnTyQR8jr45AlJ2mIUDSY1h5gzGlPyxsHGhWmPaA6VFK45ifqe00CZzRcBfbo
+	 PGo0u2To39+2w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 65185C88E70;
-	Mon, 14 Sep 2026 13:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2AF63C88E78;
+	Mon, 14 Sep 2026 13:56:07 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Mon, 14 Sep 2026 15:55:51 +0200
-Subject: [PATCH 3/9] dt-bindings: riscv: Add MIPS Boston board compatible
+Date: Mon, 14 Sep 2026 15:55:57 +0200
+Subject: [PATCH 9/9] riscv: defconfig: Enable GF SoCs
 MIME-Version: 1.0
-Message-Id: <20260914-p8700-dts-v1-3-3267f14ebce1@htecgroup.com>
+Message-Id: <20260914-p8700-dts-v1-9-3267f14ebce1@htecgroup.com>
 References: <20260914-p8700-dts-v1-0-3267f14ebce1@htecgroup.com>
 In-Reply-To: <20260914-p8700-dts-v1-0-3267f14ebce1@htecgroup.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -66,11 +66,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
  Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789394164; l=1403;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789394164; l=643;
  i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=tHtPPite2sONqkkfk86N/TwZq1aosKXIXhSFvR7Duso=;
- b=4xcc9rb7EAWmZYMvfru0693dtlF9DrEifQUIycCT0YkGnWl3JuqAG1qMk2mmlbRPKtqQ+3mXv
- zQ0bHk6gJMSBgalImaA1FbxpVCwpTdzNifGoImPQB9jtec18F0X+aoY
+ bh=ckrLYxO/o55vtvQsoEYaC2ibzDfEj23B4ST0fzSv/OU=;
+ b=6kklmDzo+zlV9/ocsf66KcL0PYcAytiTWmKOWykSPgWKwfy0umiG7jFG5AguVWOHwTewK8bLv
+ VsnxyKh0KoBCTqTm0/kx/44MMpXtIYVOGx1dMpOmQSIAVS4sNqYnn1R
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
@@ -95,48 +95,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
-Document the MIPS Boston board compatible with a P8700 bitfile.
+Build the MIPS P8700 Boston dtb by default.
 
-Co-developed-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
 Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 ---
- Documentation/devicetree/bindings/riscv/gf.yaml | 27 +++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/gf.yaml b/Documentation/devicetree/bindings/riscv/gf.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..060910c9b04f482aee6f08f8f72232acbad118bb
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/gf.yaml
-@@ -0,0 +1,27 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/gf.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: GlobalFoundries MIPS SoC-based boards
-+
-+maintainers:
-+  - Djordje Todorovic <djordje.todorovic@htecgroup.com>
-+  - Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-+
-+description:
-+  GlobalFoundries MIPS SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - description: Boston FPGA development board with a MIPS P8700 bitfile
-+        items:
-+          - const: gf,mips-p8700-boston
-+
-+additionalProperties: true
-+
-+...
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 04ae305d5511bb0760247f50d4b69b1e3a00527b..eeac96a0ec878a2d0aa0887d7a7ce71207774a23 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -25,6 +25,7 @@ CONFIG_PROFILING=y
+ CONFIG_ARCH_ANDES=y
+ CONFIG_ARCH_ANLOGIC=y
+ CONFIG_ARCH_ESWIN=y
++CONFIG_ARCH_GF=y
+ CONFIG_ARCH_MICROCHIP=y
+ CONFIG_ARCH_SIFIVE=y
+ CONFIG_ARCH_SOPHGO=y
 
 -- 
 2.43.0
