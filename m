@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B4FC88E6A
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 09:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0ED5C88E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 09:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l9/lhVbuLlJ0H7YZiDV8IJNKx15nADAp5BI5lsNDsnI=; b=l2iSCJ/fcD8E4F
-	GWqcGnAaVU9URwJOWq/OaXc96g0pTVG8V+wpGeD8913IebaK9FbFvuBvGT14JbpzI0UAitmqh6TUm
-	v6UkfLt+UENR+AssxtsQYmy/a8hnbEH2n7Ftdg9vZUfqBXW8HqSQQjrOfdcRR3fliYNQSi6Zg3gcE
-	he/v8BrgYU+6Ka2zuysimDvV8t/PQvRi32gWNLTzAfqv+YjyvDr0Lf5gTQktNkSXBoW0cWbR2RvVx
-	LLpiV0SYIwPbyUdmrmkaTGcXySehBYrV8fVKdTceMQLSNVG/Qhv1w0/xIGgO3zQLstK/ZRUNIbZ7A
-	MgSw3awMZAxGx5XYkdrg==;
+	List-Owner; bh=UymK0l+wXKT8ZvqD5sSeBb2oMu8VqqgRu9qfNF5SylI=; b=Ma7UFH0Z3BQmNu
+	J2k43zBOo8/2yG5M31Ttn09V5G0golF8oHs+E2APHQypXqYOzhivGqqUVud8rm0omOyKHFOALFQdi
+	G6Bmf3Waq9TK/Z+Q+XQxLvNrLrU0MNS4siSJE1kMM6KpSVIjpzYxMSA0L9lOP3c2ToYmOdBlbl9iv
+	6jtBrT2tBPjJsGxp0TrkTMcBrHTLj+bheGwSt0W79SeMxDb4nGJdEPTc9Qqov06W3suZec9hxUTmU
+	r6p6y8ni/WGPFp2ct8VrHk7alt4A/IRzo121wbj3yDP0cpkd31wOd2D2CnsHL1ntTOP7TdYqEr9Z0
+	2xUvRs4w96sSO1beh4gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62xr-00000002wrA-2XTE;
-	Mon, 14 Sep 2026 09:27:03 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1x62xt-00000002wsP-3JwD;
+	Mon, 14 Sep 2026 09:27:06 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62xn-00000002wny-2KI8
+	id 1x62xr-00000002wpA-05Aw
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Sep 2026 09:27:02 +0000
+	Mon, 14 Sep 2026 09:27:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1789378018; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=LEtjDojkW0StONXmozHIm/bJ7xi86aarazNel8UTP5g=;
-	b=LHt4O1QsC2b/10u+LhnwEZyR6Uyo4IdKotw28c6E8PTzpYfV2TP+d4kVTb434ueAg02MWz44gK8ucC9fHcjmRmJeFqPpQ2hA7Pu9wLngassgNLctEi2c0niKszXC0E5Ng7EZEqvL5GhFs5POROjvGMf+fOMZ9XS1ltJsSNGQvFo=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R791e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0XAuO-n8_1789378014;
-Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XAuO-n8_1789378014 cluster:ay36)
+	t=1789378021; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=jYjFQWHS7zv+XprgIgV3x6FJiEuRmhHyfb5LEr80eCs=;
+	b=i8r8UpHA7n83OVKbEGQW69I7yiO3HbNaB53aua/mFu9SXmjZEEVo4DoHzvTomW+Tz6tW/irMUFLiaDCro+aKZVPhpHBa56Bm6WLXtPc1G51ffLoS83cWx81hVb+L6TForVLerHfCdN/jMytBzln1m7kTiP/NbQ6RjTIGGv0oHyM=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0XAuO-nk_1789378017;
+Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XAuO-nk_1789378017 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 14 Sep 2026 17:26:56 +0800
+          Mon, 14 Sep 2026 17:26:58 +0800
 From: Shuai Xue <xueshuai@linux.alibaba.com>
 To: palmer@dabbelt.com,
 	pjw@kernel.org,
@@ -71,16 +71,16 @@ Cc: alex@ghiti.fr,
 	linux-perf-users@vger.kernel.org,
 	live-patching@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v6 2/7] riscv: stacktrace: disable KASAN and KCOV instrumentation for stacktrace.o
-Date: Mon, 14 Sep 2026 17:26:43 +0800
-Message-Id: <20260914092648.51254-3-xueshuai@linux.alibaba.com>
+Subject: [PATCH v6 3/7] riscv: ftrace: always preserve s0 in dynamic ftrace register frame
+Date: Mon, 14 Sep 2026 17:26:44 +0800
+Message-Id: <20260914092648.51254-4-xueshuai@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
 References: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_022659_760346_4FAC6A69 
-X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-CacheID: sfid-20260914_022703_368733_351ED8F3 
+X-CRM114-Status: UNSURE (   7.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,46 +100,60 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Wang Han <wanghan@linux.alibaba.com>
 
-KASAN records stack traces for every alloc/free, which means it walks
-the unwinder very frequently. Instrumenting the stack trace collection
-code itself adds substantial overhead and makes the traces themselves
-noisier.
+struct __arch_ftrace_regs declares s0 unconditionally, and both
+ftrace_regs_get_frame_pointer() and ftrace_partial_regs() read it
+unconditionally. But the SAVE_ABI_REGS / RESTORE_ABI_REGS macros in
+mcount-dyn.S only stored s0 under HAVE_FUNCTION_GRAPH_FP_TEST
+(CONFIG_FUNCTION_GRAPH_TRACER && CONFIG_FRAME_POINTER). With
+CONFIG_FRAME_POINTER=n the slot held whatever was on the stack before,
+so any callback going through ftrace_partial_regs() saw a garbage
+regs->s0. RISC-V kernels default to FRAME_POINTER=y, which is why this
+has not bitten in practice.
 
-KCOV instruments every basic-block edge. The unwinder is a hot path,
-especially with KASAN enabled, so KCOV instrumentation has the same kind
-of cost and noise problem here.
+Save and restore s0 unconditionally in the dynamic ftrace ABI register
+frame. This fixes the latent garbage-s0 case, brings the dynamic ftrace
+path in line with the static _mcount path (mcount.S SAVE_ABI_STATE
+already saves s0 unconditionally), and matches the frame layout already
+documented in the comment above SAVE_ABI_REGS. It is also a prerequisite
+for the upcoming reliable unwinder, which reads
+ftrace_regs_get_frame_pointer(fregs) directly.
 
-Mark stacktrace.o as not KASAN- or KCOV-instrumented, matching the x86
-treatment of its stack unwinding code. RISC-V keeps the relevant unwinder
-code in stacktrace.o, so a single translation-unit annotation covers the
-equivalent scope. This is a prerequisite preference for the upcoming
-reliable unwinder, but the change is valid on its own.
+The cost is one extra REG_S/REG_L pair per traced call, negligible
+compared to the overall ftrace cost; the existing FREGS_SIZE_ON_STACK
+already reserved the slot, so no extra stack space is used.
 
 Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
 Assisted-by: Qoder:Qwen-3.8-MAX-Preview
 Signed-off-by: Wang Han <wanghan@linux.alibaba.com>
 Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
 ---
- arch/riscv/kernel/Makefile | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/riscv/kernel/mcount-dyn.S | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index ebe1c3588177b..bf4645bb52403 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -44,6 +44,12 @@ CFLAGS_REMOVE_return_address.o	= $(CC_FLAGS_FTRACE)
- CFLAGS_REMOVE_sbi_ecall.o = $(CC_FLAGS_FTRACE)
- endif
- 
-+# When KASAN is enabled, a stack trace is recorded for every alloc/free, which
-+# can significantly impact performance. Avoid instrumenting the stack trace
-+# collection code to minimize this impact.
-+KASAN_SANITIZE_stacktrace.o := n
-+KCOV_INSTRUMENT_stacktrace.o := n
-+
- always-$(KBUILD_BUILTIN) += vmlinux.lds
- 
- obj-y	+= head.o
+diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
+index 082fe0b0e3c08..26c55fba8fec7 100644
+--- a/arch/riscv/kernel/mcount-dyn.S
++++ b/arch/riscv/kernel/mcount-dyn.S
+@@ -85,9 +85,7 @@
+ 	addi	sp, sp, -FREGS_SIZE_ON_STACK
+ 	REG_S	t0,  FREGS_EPC(sp)
+ 	REG_S	x1,  FREGS_RA(sp)
+-#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+ 	REG_S	x8,  FREGS_S0(sp)
+-#endif
+ 	REG_S	x6,  FREGS_T1(sp)
+ #ifdef CONFIG_CC_IS_CLANG
+ 	REG_S	x7,  FREGS_T2(sp)
+@@ -113,9 +111,7 @@
+ 	.macro RESTORE_ABI_REGS
+ 	REG_L	t0, FREGS_EPC(sp)
+ 	REG_L	x1, FREGS_RA(sp)
+-#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+ 	REG_L	x8, FREGS_S0(sp)
+-#endif
+ 	REG_L	x6,  FREGS_T1(sp)
+ #ifdef CONFIG_CC_IS_CLANG
+ 	REG_L	x7,  FREGS_T2(sp)
 -- 
 2.39.3
 
