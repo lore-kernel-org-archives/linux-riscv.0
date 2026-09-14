@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D358DC982D0
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CBD0C982D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cmcPGL6akmVkWlfXt+4FVNrrIXCtuzHHnUoaw20Luzc=; b=GF7CuJrvnC5AFx
-	eo794CgilqxoGv62vg6bism2/KMbBjTU0BW68vPQ/xAKtmF69j0mOGvQfCzKvLYI2Z+vkTzdJmzFg
-	eXmzm981VEgqP92FFy8blxRa14GSanpLGJ2ViBAfLkaYvMl1C8TD4/QBwQTPNXLh0ECgLEBkoJJHo
-	z1K6E4qpQk+OwsSgoonT16AJFVwsoSxxmbShNrvHyhqD0I3sqpHOoLT/OC4GzkldZEUC7agTT98re
-	FK+mh1oE42bQYLli4iUvgjBHb/WqySxZBRu4+Fdm1PFgnK1LVljyz2PzprEBOcK823wNTuaNC8Djm
-	BSEtZ8Ju3GcI7GG8qKmQ==;
+	List-Owner; bh=8nLK93ns+dJgo5icwr52Q8QBOfOAb0+i1wRuBOo/pkc=; b=KOGF0Gr6+K24mO
+	2f7oUmQlGM9Cr5aiyvnBMA70JECTCFUwy08swUPpl3RGypVgTmOwWOPqgHCTwz2dCjFiyDxfIP7Pi
+	snNfHDM5fwaH8M9+VIcL4gUXqNUOctE9xeOqkSBAvnJnMBB7H92qoZfvtBOqZok1RFsiePSsAGMg/
+	Z7aHjE+TQ6RmlF0Z2I/3OJWRe9HFCqbv3olKeTc8cyx9YG4kV3eCIH4NyvjZZORExBeyCpxq6lW2e
+	a50Z3+U/2h/VlKijGC6vPfHWmOGqJnxxIOb8M6n4kIagQ+OLhwIYY5bwl3TCCEAuBjUI6t8MOmZ/K
+	V3dK9ccBiHHT+3kj96Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Lgn-0000000Cqqg-2jLv;
-	Thu, 17 Sep 2026 23:38:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7Lgv-0000000CrAa-11Lo;
+	Thu, 17 Sep 2026 23:38:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68H8-000000046g1-2buc;
-	Mon, 14 Sep 2026 15:07:18 +0000
+	id 1x68IS-0000000476A-3dHv;
+	Mon, 14 Sep 2026 15:08:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0390C60252;
-	Mon, 14 Sep 2026 15:07:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 900991F00893;
-	Mon, 14 Sep 2026 15:06:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DFC542E38;
+	Mon, 14 Sep 2026 15:08:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E7DC1F000FF;
+	Mon, 14 Sep 2026 15:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789398437;
-	bh=uXoP7KZkJndcQGjeTZtASZtk39J3Stk4EQblO5zGMq8=;
+	s=k20260515; t=1789398520;
+	bh=FhSwIhda5SwYvYTkOqlzzzYcm2yovY5S5sJ87DUE+qE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=JP4elXwiAFA0FtwbVJkNWUu4T0Hzo9hzF4qxtFcaZGI2BYyYdJ7emz+yKFI5FfxNH
-	 0cT3grCiQLAEsYrA9SpcqTxYQH9Q4a3S72QM2jhXwMERUNnVU4TEqv7+ODjKLX1vRo
-	 yt78e2/7GRJ18TnOwJcTwkytfEF13UQDVzvzQUo0m7DDBUxxiQTcXZzEtoEHTnuzx8
-	 OIXXD+w5mukAKrvguVJb40RZkdv9UXSob5Khh05J4FZEOaDaVTPsjUeprqvPXGLHih
-	 dcrtIQoFwJbxwgqJG2d7R7GWAZRzLeleOwml/wW15s5ZmWirPRc81EXEt9jwEys+BS
-	 HH5yA6sYVVYZw==
+	b=UziRXkB8qeSmqlpvH0/NIIVjVlvQFMtZLRcgdF/oXLW1jALG9rz68famtPGxfLLRs
+	 ji+y6RHPJeqximzqtvzaSgpAc4uXtBs/AMiDNlmrLZ47tNoBw3/ehPBq1GU+cLbJs4
+	 PtV0usZP8WfROMhRCoKLEls1iPIULSzemQVda7uTFDM5Zth9eIIe+IOt5/gcqWaics
+	 +A/fYodcbCpRBT8PQwbnjmpnErJp/wDNYP0A5jHhXz0HpAeGt1EUKsfw2qVCWjvnMu
+	 tvLS7QNxc97ZPr5o+qhHhw0Avm/Rxv7LXwKdr3G/PyVf9ypPArUlzvdv7RdyeZfcoP
+	 7xyKOl+2eOqxQ==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Mon, 14 Sep 2026 15:57:37 +0100
-Subject: [PATCH v2 17/40] mm/vma: add and use vma_[flags]_is_fixed_mapping
+Date: Mon, 14 Sep 2026 15:57:40 +0100
+Subject: [PATCH v2 20/40] HSI: cmt_speech: convert mmap hook to
+ mmap_prepare, refactor
 MIME-Version: 1.0
-Message-Id: <20260914-b4-mmap-prepare-vma-flag-sanify-v2-17-7d9781ed5361@kernel.org>
+Message-Id: <20260914-b4-mmap-prepare-vma-flag-sanify-v2-20-7d9781ed5361@kernel.org>
 References: <20260914-b4-mmap-prepare-vma-flag-sanify-v2-0-7d9781ed5361@kernel.org>
 In-Reply-To: <20260914-b4-mmap-prepare-vma-flag-sanify-v2-0-7d9781ed5361@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
@@ -62,12 +63,12 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
  fuse-devel@lists.linux.dev, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5182; i=ljs@kernel.org;
- h=from:subject:message-id; bh=UgNv55sIQWtamT8dsOv1+a458wZvL5aAIbvGVpSsXcA=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJWcG/4ss6jauPjR1W3XHfeXDyzsi1zaUK7y6omzwY7x
- qXCcx8Jd5SyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAiAS8YGfb3Fi4wvSL9oEAl
- 8Et56Paz2xear5/+in/Xl63mtz7IftvOyHDp3AxndUfDwss2HXXlTUw72UUPcK+63vts4rzEy3J
- /ynkB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2632; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=GNn4/WHo/gNb5sHnp4BEq122HpiBRxK72Bb5u1n+58g=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJWcG8s77svu6u5dsuErBTja8a37zyVSJt9796Z3YtK6
+ 7f33TQM6ShlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBE3LIZGU5fWS/bJcm2O/Xy
+ 19eHU4M1av5JSFhFFIbqtl6SL6jXfcnwP/iD4rvg+8YGP2rkw57pN8j0rTiv4WXNP6/xgxPXg6j
+ PrAA=
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-Mailman-Approved-At: Thu, 17 Sep 2026 16:37:29 -0700
@@ -87,146 +88,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This determines whether a VMA cannot be expanded or merged because what
-they mapped was determined to be a set size at mmap time.
+Use the mmap_prepare in favour of the deprecated mmap hook as part of the
+work to convert one to another.
 
-This typically refers to kernel-owned mappings, however VMA_DONTEXPAND_BIT
-is not reliably set alongside VMA_PFNMAP_BIT or VMA_MIXEDMAP_BIT, so we
-must explicitly test for this for now.
+Since this is simply a refcounted kernel page that has been allocated, it
+should not be marked VM_IO and should be inserted using the kernel page
+insertion mechanism, so convert it to do this instead.
 
-We also explicitly test for VMA_PFNMAP_BIT as VMA_DONTEXPAND_BIT may not be
-set for VMA_PFNMAP_BIT's despite the one implying the other.
-
-Use this predicate in vma_flags_can_merge() and in check_prep_vma() in the
-mremap logic testing to see if mremap() can expand the VMA. The criteria
-for khugepaged and MADV_COLLAPSE eligibility in
-__thp_vma_allowable_orders() are precisely those for mergeability, so use
-vma_can_merge() there (with an expanded comment).
-
-This obviates the need for the VM_NO_KHUGEPAGED mask, so remove it.
-
-Hugetlb VMAs remain excluded from khugepaged as hugetlbfs always sets
-VMA_DONTEXPAND_BIT.
-
-No functional change intended.
+Use the VMA descriptor's private data field as a scratch buffer to store
+the page in - this stays valid throughout the kernel page mapping
+operation.
 
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- include/linux/mm.h | 39 +++++++++++++++++++++++++++++++++++----
- mm/huge_memory.c   | 11 +++++++----
- mm/mremap.c        |  5 ++---
- 3 files changed, 44 insertions(+), 11 deletions(-)
+ drivers/hsi/clients/cmt_speech.c | 33 +++++++++------------------------
+ 1 file changed, 9 insertions(+), 24 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index cab29d6e15c1..ca598e5f9715 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -600,9 +600,6 @@ enum {
- #define VMA_REMAP_FLAGS mk_vma_flags(VMA_IO_BIT, VMA_PFNMAP_BIT,	\
- 				     VMA_DONTEXPAND_BIT, VMA_DONTDUMP_BIT)
- 
--/* This mask prevents VMA from being scanned with khugepaged */
--#define VM_NO_KHUGEPAGED (VM_SPECIAL | VM_HUGETLB)
--
- /* This mask defines which mm->def_flags a process can inherit its parent */
- #define VM_INIT_DEF_MASK	VM_NOHUGEPAGE
- 
-@@ -1650,6 +1647,40 @@ static inline bool vma_is_kernel_owned(const struct vm_area_struct *vma)
- 	return vma_flags_is_kernel_owned(&vma->flags);
+diff --git a/drivers/hsi/clients/cmt_speech.c b/drivers/hsi/clients/cmt_speech.c
+index 7226677ebde7..801697b74d4f 100644
+--- a/drivers/hsi/clients/cmt_speech.c
++++ b/drivers/hsi/clients/cmt_speech.c
+@@ -1084,22 +1084,6 @@ static void cs_hsi_stop(struct cs_hsi_iface *hi)
+ 	kfree(hi);
  }
  
-+/**
-+ * vma_flags_is_fixed_mapping() - Do the specified VMA flags indicate that this
-+ * is a fixed mapping that cannot be expanded or merged?
-+ * @flags: The VMA flags to test.
-+ *
-+ * Fixed mappings are those whose size is set at the point of mmap (for
-+ * instance, a kernel-owned mapping of a fixed range of memory), and thus
-+ * cannot be expanded or merged.
-+ *
-+ * Returns: true if the flags indicate a fixed mapping.
-+ */
-+static inline bool vma_flags_is_fixed_mapping(const vma_flags_t *flags)
-+{
-+	/*
-+	 * VMA_PFNMAP_BIT should imply VMA_DONTEXPAND_BIT, but some callers set
-+	 * only the former.
-+	 */
-+	return vma_flags_test_any(flags, VMA_PFNMAP_BIT, VMA_DONTEXPAND_BIT);
-+}
-+
-+/**
-+ * vma_is_fixed_mapping() - Is this VMA a fixed mapping that cannot be
-+ * expanded or merged?
-+ * @vma: The VMA to test.
-+ *
-+ * See vma_flags_is_fixed_mapping() for a description of this property.
-+ *
-+ * Returns: true if the VMA maps a fixed mapping.
-+ */
-+static inline bool vma_is_fixed_mapping(const struct vm_area_struct *vma)
-+{
-+	return vma_flags_is_fixed_mapping(&vma->flags);
-+}
-+
- /**
-  * vma_flags_can_merge() - Do the specified VMA flags permit the VMA to be
-  * merged with another?
-@@ -1671,7 +1702,7 @@ static inline bool vma_flags_can_merge(const vma_flags_t *flags)
- 	if (vma_flags_is_kernel_owned(flags))
- 		return false;
- 	/* VMA explicitly marked as being unmergeable. */
--	if (vma_flags_test(flags, VMA_DONTEXPAND_BIT))
-+	if (vma_flags_is_fixed_mapping(flags))
- 		return false;
+-static vm_fault_t cs_char_vma_fault(struct vm_fault *vmf)
+-{
+-	struct cs_char *csdata = vmf->vma->vm_private_data;
+-	struct page *page;
+-
+-	page = virt_to_page((void *)csdata->mmap_base);
+-	get_page(page);
+-	vmf->page = page;
+-
+-	return 0;
+-}
+-
+-static const struct vm_operations_struct cs_char_vm_ops = {
+-	.fault	= cs_char_vma_fault,
+-};
+-
+ static int cs_char_fasync(int fd, struct file *file, int on)
+ {
+ 	struct cs_char *csdata = file->private_data;
+@@ -1256,18 +1240,19 @@ static long cs_char_ioctl(struct file *file, unsigned int cmd,
+ 	return r;
+ }
  
- 	return true;
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index 4cd917f77f3f..4d0acd9a1099 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -212,11 +212,14 @@ unsigned long __thp_vma_allowable_orders(struct vm_area_struct *vma,
- 		return in_pf ? orders : 0;
+-static int cs_char_mmap(struct file *file, struct vm_area_struct *vma)
++static int cs_char_mmap_prepare(struct vm_area_desc *desc)
+ {
+-	if (vma->vm_end < vma->vm_start)
+-		return -EINVAL;
++	struct file *file = desc->file;
++	struct cs_char *csdata = file->private_data;
++	struct page **pages = (struct page **)&desc->private_data;
  
- 	/*
--	 * khugepaged special VMA and hugetlb VMA.
--	 * Must be checked after dax since some dax mappings may have
--	 * VM_MIXEDMAP set.
-+	 * khugepaged moves data from VMAs once collapsed, after they have been
-+	 * faulted in, relying on refaulting for file-backed memory.
-+	 *
-+	 * Kernel-owned mappings cannot be reliably reconstructed from page
-+	 * faults, and fixed mappings (including hugetlb) may not be marked as
-+	 * kernel-owned - precisely the mappings which cannot be merged.
- 	 */
--	if (!in_pf && !smaps && (vm_flags & VM_NO_KHUGEPAGED))
-+	if (!in_pf && !smaps && !vma_can_merge(vma))
- 		return 0;
- 
- 	/*
-diff --git a/mm/mremap.c b/mm/mremap.c
-index 7c368440fafe..ed19b47c2caf 100644
---- a/mm/mremap.c
-+++ b/mm/mremap.c
-@@ -1788,8 +1788,7 @@ static int check_prep_vma(struct vma_remap_struct *vrm)
- 		return -EINVAL;
- 	}
- 
--	if ((vrm->flags & MREMAP_DONTUNMAP) &&
--	    vma_test_any(vma, VMA_DONTEXPAND_BIT, VMA_PFNMAP_BIT))
-+	if ((vrm->flags & MREMAP_DONTUNMAP) && vma_is_fixed_mapping(vma))
+-	if (vma_pages(vma) != 1)
++	if (vma_desc_pages(desc) != 1)
  		return -EINVAL;
  
- 	/*
-@@ -1827,7 +1826,7 @@ static int check_prep_vma(struct vma_remap_struct *vrm)
- 	if (pgoff + (new_len >> PAGE_SHIFT) < pgoff)
- 		return -EINVAL;
+-	vm_flags_set(vma, VM_IO | VM_DONTDUMP | VM_DONTEXPAND);
+-	vma->vm_ops = &cs_char_vm_ops;
+-	vma->vm_private_data = file->private_data;
++	vma_desc_set_flags(desc, VMA_DONTDUMP_BIT, VMA_DONTEXPAND_BIT);
  
--	if (vma_test_any(vma, VMA_DONTEXPAND_BIT, VMA_PFNMAP_BIT))
-+	if (vma_is_fixed_mapping(vma))
- 		return -EFAULT;
++	*pages = virt_to_page((void *)csdata->mmap_base);
++	mmap_action_map_kernel_pages_full(desc, pages);
+ 	return 0;
+ }
  
- 	if (!mlock_future_ok(mm, vma_test(vma, VMA_LOCKED_BIT), vrm->delta))
+@@ -1353,7 +1338,7 @@ static const struct file_operations cs_char_fops = {
+ 	.write		= cs_char_write,
+ 	.poll		= cs_char_poll,
+ 	.unlocked_ioctl	= cs_char_ioctl,
+-	.mmap		= cs_char_mmap,
++	.mmap_prepare	= cs_char_mmap_prepare,
+ 	.open		= cs_char_open,
+ 	.release	= cs_char_release,
+ 	.fasync		= cs_char_fasync,
 
 -- 
 2.55.0
