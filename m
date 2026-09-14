@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4C8C88E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 11:57:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99226C88E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 12:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+8MZjULpB0WcoG/qNLVg4pazP+backpI46D0UJn4AfI=; b=r6dx5a2pQqOybi
-	Z3Juja4JtGGWEx6fn/gNyPJzbWN5E/V+GU1p4MErz7vjOj/v5eXSuihD9Vxfv0m+T2oSKLxG3Kbtc
-	4UBcwjBHXY89DnZ6BioPIY1ghCSNWb0xScYVWCrYeI+laG+NBA+JOpOzc6bCLlawkpHY+IA39vT7h
-	nXKUSM+I0muR3Pclldnmp+m+yEv/kq0WdszyZeGJ3qf0lueFkyCo7kYTg1oASrLN/6FjJ4UjeLsH4
-	RZD2dwd+2ZZjCUZ8lwO77OpQfXUGSZMI7yH/yEKXkPjM2BThJ5KY9w1RMz8SD3OUhBifzuGbzy2F/
-	A0on6zuapNlzCmPfLIAg==;
+	List-Owner; bh=V/TZ6+CLYMHzoTR5pLHgL7DkGTgSVmMcPaGw6/WRi1E=; b=NxbsJ/izFwHZ/V
+	INnUioVCh/qNO1gu5Jc238hXoRKeqIpxULPYU20iByq5npNnGjI9fipZmNFL5zbte9zb+7zDI5ovf
+	SAynlUe6sLWfGLxQZzDoZMbdMsDxy83X9jI4CBfQ+bL+zlYZOrd9I8wU+NGmQ2LeXmzgO9c6zbQkC
+	4XQ4rU0KlR36xVcR9cTc5pXIv5dEsN4XdkI3lqIM9dgbbYn2N8ek55kq0FS11IUVSOLy9Sn91rrGq
+	ryF+JXbbKErpU6Nv0QP03UzLERyA0WKPp1SHmEHdegs2vO3y3VqYpjQtveF+zQ/ZVDHNPny5fHhvo
+	dl9n4OHCAXoMqPhY8PIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65Ix-00000003Prr-2TFO;
-	Mon, 14 Sep 2026 11:56:59 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1x660T-00000003bDJ-1f8w;
+	Mon, 14 Sep 2026 12:41:57 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x65IX-00000003Pfa-28gT
+	id 1x660O-00000003bC0-48Ev
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Sep 2026 11:56:56 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-853f8c34ba4so4253583b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2026 04:56:33 -0700 (PDT)
+	Mon, 14 Sep 2026 12:41:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789386992; x=1789991792; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6cZnP6MDZU5vZQxpJOfJKbElTvy88Q385dtzTC3MYtw=;
-        b=U2453eS4CUvS3w6/9/qTaIVyv0hGXGw4AvzBDcq4AKTVK8SeY5xOkpu6NukMcIKd/C
-         mBzyDgX1ywopnDbapieoAC8idM06MWVZznQdyzFKu3s2MW3KbzMfG6xWQDMMy1tfxbwr
-         kATUxypO2ad1D00H7M/VuZSdf9rNofkFn5B7/a7Jydz1WV9wtteAdzuuNRFI0OWBzZec
-         IyrMrrqqgnZCzqVuQmwlOUKF9Re41A8w+0++GpsskxJUyy96C1SRxtCSQ2BdeUDYpq5x
-         4K45A4y0b9pscTQ2rfJQeJVIUvgiXuVd0M+y/SVuo7y8gUyMmamz7gGIKW2uCTf9uiXm
-         /ncg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789386992; x=1789991792;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6cZnP6MDZU5vZQxpJOfJKbElTvy88Q385dtzTC3MYtw=;
-        b=HGOakVaeolmrrhJI67o5WZn5/ogU95gRkuqGOYo3NO+okKg9C/drmhFKR6W3AewXRd
-         vYreIjcU7phZtNOPfTn20djXSJKnfN5jqyJvNGkwtS62KwzoF5zkTJHg3GNPOyoVS0Il
-         vL8fhcCz40dP3VfbCDOPJDPm9WUaPuwlW6KcVJNdIRIsFX8yLdljNyTvG8kbSjd1skon
-         tHRNNZKxPAUJHKfUtQO6wcT9PnvayOL7sovx4Ah6EmXQf5pSeHyv7ah7uhcxTBbadzKL
-         /v8+RYywAv0SGyfuhpc/18nVe75h1sI2G0gB+wmKkcJJXXXE0ShAozC+CqSY6X1xJShh
-         IcCw==
-X-Forwarded-Encrypted: i=1; AKwUvByH2lKu4VvVude1nwINLmTj90mlTquxvwQd0B+SJhStf9jAyYBTlIyev09YFW/7R+MnVFwGAtN/1D3KYg==@lists.infradead.org
-X-Gm-Message-State: AFuF++kCglCRLG4K5oTDpYia8CyeueS3q3nwN1vLzIOXbBIt0666AEmj
-	o2/jMdLeJ5BrqSsTeHIz/g6ob4dSizWMSpaxK7LkodH2l0lPn05MRnvSUc/RORLIHNk=
-X-Gm-Gg: AYBFou1Egissq99Wg+fxCr0oY1YEBvCAjChVzxH2caEfgtlFFkVIsi2cZmm6R6i7IN3
-	yUFwaNHzukXLAwoyepo7fXCy92WB+N/6qIvUFxttd3WmNMWaZbFsn/v75/jBy/kkhiGZF6zheGz
-	3Uuu4U6wPUr5kpOw/r9q5EzRz3rFM9vJBe5/hkRB95liTP95JqHqSxz5J91RY+Z94j/OIvmYl47
-	a58TPggHG7cGH0avEwzO7F22q+bkHQJCh/r6QgUT2EA862l+yqlPbqgAbice8lgpj4GLdwkueLT
-	qNWqzo+zo+frwWHjHFnjlMAjtEPpqX2Vis3M8bZkDepxOTmvyokb0o2M0ZD06ZlTsI8Ibz/95ud
-	n3bVwbVlzYc2QhTlIgpWStdO4MeQSs0IYCNsqhyygmrWuJUSpSfRB2aRhi1/6ycY4mKQvpJa5sG
-	YXdbplJdILE66tc/hWTLXWpWkIpk3zY72bc7pxFJTnsBqTlOfllpA3d+SFjGflozh8b3gg9V3ir
-	cNG1IXMZx5Of4aXCRmO1RZGLuWNi9SlioZkgD0zGMvPOZ+9u6EfJbPqDtdFPOA=
-X-Received: by 2002:a05:6a00:44c8:b0:857:726d:270c with SMTP id d2e1a72fcca58-86f866b8c0fmr5070563b3a.24.1789386992211;
-        Mon, 14 Sep 2026 04:56:32 -0700 (PDT)
-Received: from 56e-726.realtek.com.tw (61-219-240-249.hinet-ip.hinet.net. [61.219.240.249])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86cc50c786bsm2729281b3a.41.2026.09.14.04.56.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 04:56:31 -0700 (PDT)
-From: Wei-Jie Hung <imbigking12@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Mike Rapoport <rppt@kernel.org>,
-	Xiaofeng Yuan <xiaofengmian@163.com>,
-	Klara Modin <klara@kasm.eu>,
+	d=linux.alibaba.com; s=default;
+	t=1789389711; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=hIAsTxK/GIeXWZKEGVKhB2wTz6FiK3T/cw3O4+RN5Q8=;
+	b=aHcq0NQLl/YY/LPYV5LuNhyot+78WLoIWEqhVf3K9dttHMucwpjhnXBlmKqLYQlePOllP5ngPGo+zFmSoeRfXGFnptvF8UG3HHBIm/pFBGAGuD1188LWNpqY7o7fjBoD/Jy6eXfylMj5dSEVTG+F0He5xW/u3d+eCQq7NeOFTj4=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0XAwBJDu_1789389705;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XAwBJDu_1789389705 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 14 Sep 2026 20:41:50 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	irogers@google.com,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	adrian.hunter@intel.com,
+	james.clark@linaro.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	guoren@kernel.org
+Cc: linux-perf-users@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Wei-Jie Hung <imbigking12@gmail.com>
-Subject: [PATCH] riscv: patch: fix handling of bpf-jit execmem addresses
-Date: Mon, 14 Sep 2026 19:56:07 +0800
-Message-ID: <20260914115607.350097-1-imbigking12@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] perf riscv: Add perf_regs_load and enable the dwarf unwind test
+Date: Mon, 14 Sep 2026 20:41:45 +0800
+Message-ID: <20260914124145.1257-1-cp0613@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_045633_634460_82995217 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20260914_054153_591242_033D5F97 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,108 +79,287 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 8718e5a3090b ("riscv: patch: skip fixmap mapping when kernel text
-is already writable") gated the core_kernel_text() branch of patch_map()
-on CONFIG_STRICT_KERNEL_RWX, and explicitly left the vmalloc branch
-unchanged. That branch has a separate problem.
+riscv has no arch level perf test: tests/builtin-test.c only picks up
+arch_tests[] for x86, arm64 and powerpc64, tests/Build only builds the
+generic dwarf unwind test driver for x86, arm, arm64 and powerpc, and
+arch/riscv/tests/ did not exist. "Test dwarf unwind" was therefore never
+registered on riscv, even though DWARF is the only reliable way to walk a
+riscv user stack -- the arch callchain code walks frame pointers only --
+and both unwinders already support riscv, elfutils libdw generically and
+libunwind through util/libunwind-arch/libunwind-riscv.c.
 
-That branch only creates a temporary writable fixmap alias when
-CONFIG_STRICT_MODULE_RWX is enabled, and otherwise assumes the target is
-directly writable and returns the address unchanged. That assumption no
-longer holds: bpf_prog_pack_alloc calls set_memory_rox() on every pack
-unconditionally in alloc_new_pack(), independently of any
-CONFIG_STRICT_*_RWX option, so BPF text in the vmalloc area is read-only
-regardless of what CONFIG_STRICT_MODULE_RWX says.
+Add perf_regs_load() and the arch unwind sample helper modelled on the
+arm64 ones, and wire riscv into the two gates. The x1..x31 slots of enum
+perf_event_riscv_regs match the hardware registers one to one, and
+PERF_REG_RISCV_PC is filled with ra so that unwinding starts at the
+caller.
 
-With CONFIG_STRICT_MODULE_RWX=n, patch_map() returns the read-only
-address directly, the subsequent copy_to_kernel_nofault() takes a
-page fault and returns -EFAULT. bpf_arch_text_copy() turns that into
--EINVAL, which propagates through bpf_jit_binary_pack_finalize() to the
-WARN_ON() in bpf_int_jit_compile() and leaves the program un-JITed.
-
-Note that BPF cannot be fixed the way kprobes was in
-commit bdc46e507b59 ("riscv: mm: make EXECMEM_KPROBES writable without
-CONFIG_STRICT_MODULE_RWX"). EXECMEM_BPF is already PAGE_KERNEL, i.e.
-writable at allocation time; the read-only mapping is established
-afterwards by generic code in alloc_new_pack(), which arch code cannot
-influence. The only place this can be handled is patch_map().
-
-This is the same problem that was fixed on arm64 by commit b1480ed230ac
-("arm64: patching: fix handling of execmem addresses"), and the fix is
-the same: CONFIG_EXECMEM is what actually tracks whether the vmalloc
-area can hold executable memory that needs a temporary alias to be
-written. CONFIG_BPF_JIT, CONFIG_KPROBES and CONFIG_MODULES all select
-it.
-
-Note that this is not limited to CONFIG_MODULES=n. Unlike arm64, riscv
-selects CONFIG_ARCH_OPTIONAL_KERNEL_RWX, so CONFIG_STRICT_MODULE_RWX can
-be disabled with CONFIG_MODULES=y as well, and the bug is reachable in
-that configuration too.
-
-The !CONFIG_MMU build is unaffected: it has its own __patch_insn_set()
-and __patch_insn_write() implementations and never calls patch_map().
-
-Fixes: 2c9e5d4a0082 ("bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of")
-Signed-off-by: Wei-Jie Hung <imbigking12@gmail.com>
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
 ---
-Based on riscv/fixes (b94cec5761d2).
 
-Reproduced on qemu-system-riscv64 -M virt with CONFIG_BPF_JIT=y,
-CONFIG_BPF_JIT_ALWAYS_ON=y and CONFIG_STRICT_MODULE_RWX=n. 
-ptp_classifier_init() builds a cBPF filter from sock_init(), 
-so the failure happens during boot without any userspace involved:
+Tested on riscv64 (QEMU virt, kernel 6.18, rv64gcv userspace) with both
+the libdw and the libunwind unwinder, and in both callchain orders. All
+eight expected frames resolve, including the one in libc:
 
-  WARNING: arch/riscv/net/bpf_jit_core.c:156 at bpf_int_jit_compile+0x3dc/0x43e
-  Call Trace:
-   bpf_int_jit_compile+0x3dc/0x43e
-   __bpf_prog_select_runtime+0xec/0x186
-   bpf_prog_select_runtime+0x12/0x1a
-   bpf_prepare_filter+0x368/0x46a
-   bpf_prog_create+0x66/0x90
-   ptp_classifier_init+0x3e/0x60
-   sock_init+0xc4/0xe6
-   do_one_initcall+0x78/0x14a
+  # ./perf test -v "dwarf unwind"
+   71: Test dwarf unwind                                     : Ok
 
-  kernel BUG at net/core/ptp_classifier.c:227!
-  Kernel panic - not syncing: Fatal exception in interrupt
+  got: test__dwarf_unwind 0x555593375c45, expecting test__dwarf_unwind
+  got: test_dwarf_unwind__krava_1 0x555593375b7f, expecting test_dwarf_unwind__krava_1
+  got: test_dwarf_unwind__krava_2 0x555593375b43, expecting test_dwarf_unwind__krava_2
+  got: test_dwarf_unwind__krava_3 0x555593375aff, expecting test_dwarf_unwind__krava_3
+  got: bsearch 0x7fff9aad575b, expecting bsearch
+  got: test_dwarf_unwind__compare 0x555593375a5d, expecting test_dwarf_unwind__compare
+  got: test_dwarf_unwind__thread 0x555593375939, expecting test_dwarf_unwind__thread
+  got: test__arch_unwind_sample 0x5555933788a0, expecting test__arch_unwind_sample
 
-The BUG_ON() is reached because CONFIG_BPF_JIT_ALWAYS_ON=y turns the
-silent interpreter fallback into -ENOTSUPP. With
-CONFIG_BPF_JIT_ALWAYS_ON=n the failure is silent: writing 1 to
-/proc/sys/net/core/bpf_jit_enable and loading any program reproduces the
-same warning, but the program simply falls back to the interpreter and
-the kernel keeps running.
+The libunwind build links libunwind-riscv.so.8, so the riscv specific
+remote unwinder in util/libunwind-arch/libunwind-riscv.c is what runs.
 
-Tested with CONFIG_BPF_JIT=y:
-  - CONFIG_MODULES=n, CONFIG_BPF_JIT_ALWAYS_ON=y:
-    panics before this patch, boots after
-  - CONFIG_MODULES=y, CONFIG_STRICT_MODULE_RWX=n,
-    CONFIG_BPF_JIT_ALWAYS_ON=y: same panic before this patch, boots after
-  - CONFIG_BPF_JIT_ALWAYS_ON=n: the warning above is emitted when a
-    program is loaded from userspace before this patch, and gone after
-  - riscv defconfig (CONFIG_STRICT_MODULE_RWX=y): unaffected, boots
-    before and after
-  - kprobes (kretprobe on __riscv_sys_openat via kprobe_events):
-    works before and after this patch
+A build with DWARF unwinding disabled was checked too: it still links,
+arch_tests[] degrades to the NULL only array, and the test is simply
+absent from "perf test list".
 
- arch/riscv/kernel/patch.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/perf/arch/riscv/Build                |  1 +
+ tools/perf/arch/riscv/include/arch-tests.h |  9 +++
+ tools/perf/arch/riscv/include/perf_regs.h  |  2 +
+ tools/perf/arch/riscv/tests/Build          |  4 ++
+ tools/perf/arch/riscv/tests/arch-tests.c   | 10 ++++
+ tools/perf/arch/riscv/tests/dwarf-unwind.c | 64 ++++++++++++++++++++++
+ tools/perf/arch/riscv/tests/regs_load.S    | 58 ++++++++++++++++++++
+ tools/perf/tests/Build                     |  2 +-
+ tools/perf/tests/builtin-test.c            |  3 +-
+ 9 files changed, 151 insertions(+), 2 deletions(-)
+ create mode 100644 tools/perf/arch/riscv/include/arch-tests.h
+ create mode 100644 tools/perf/arch/riscv/tests/Build
+ create mode 100644 tools/perf/arch/riscv/tests/arch-tests.c
+ create mode 100644 tools/perf/arch/riscv/tests/dwarf-unwind.c
+ create mode 100644 tools/perf/arch/riscv/tests/regs_load.S
 
-diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-index 2239c28981bc..2b5adf01c550 100644
---- a/arch/riscv/kernel/patch.c
-+++ b/arch/riscv/kernel/patch.c
-@@ -48,7 +48,7 @@ static __always_inline void *patch_map(void *addr, const unsigned int fixmap)
- 		if (!IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
- 			return addr;
- 		phys = __pa_symbol(addr);
--	} else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX)) {
-+	} else if (IS_ENABLED(CONFIG_EXECMEM)) {
- 		struct page *page = vmalloc_to_page(addr);
+diff --git a/tools/perf/arch/riscv/Build b/tools/perf/arch/riscv/Build
+index e63eabc2c8f4..12ebc65ea7a3 100644
+--- a/tools/perf/arch/riscv/Build
++++ b/tools/perf/arch/riscv/Build
+@@ -1 +1,2 @@
+ perf-util-y += util/
++perf-test-y += tests/
+diff --git a/tools/perf/arch/riscv/include/arch-tests.h b/tools/perf/arch/riscv/include/arch-tests.h
+new file mode 100644
+index 000000000000..2b3834a5ddbb
+--- /dev/null
++++ b/tools/perf/arch/riscv/include/arch-tests.h
+@@ -0,0 +1,9 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef ARCH_TESTS_H
++#define ARCH_TESTS_H
++
++struct test_suite;
++
++extern struct test_suite *arch_tests[];
++
++#endif
+diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
+index af7a1b47bf66..30cfd3f63eb5 100644
+--- a/tools/perf/arch/riscv/include/perf_regs.h
++++ b/tools/perf/arch/riscv/include/perf_regs.h
+@@ -8,6 +8,8 @@
+ #include <linux/types.h>
+ #include "../../../../arch/riscv/include/uapi/asm/perf_regs.h"
  
- 		BUG_ON(!page);
++void perf_regs_load(u64 *regs);
++
+ #define PERF_REGS_MASK	((1ULL << PERF_REG_RISCV_MAX) - 1)
+ #define PERF_REGS_MAX	PERF_REG_RISCV_MAX
+ 
+diff --git a/tools/perf/arch/riscv/tests/Build b/tools/perf/arch/riscv/tests/Build
+new file mode 100644
+index 000000000000..bd15c6bbc1b2
+--- /dev/null
++++ b/tools/perf/arch/riscv/tests/Build
+@@ -0,0 +1,4 @@
++perf-test-y += regs_load.o
++perf-test-$(CONFIG_DWARF_UNWIND) += dwarf-unwind.o
++
++perf-test-y += arch-tests.o
+diff --git a/tools/perf/arch/riscv/tests/arch-tests.c b/tools/perf/arch/riscv/tests/arch-tests.c
+new file mode 100644
+index 000000000000..756706a09609
+--- /dev/null
++++ b/tools/perf/arch/riscv/tests/arch-tests.c
+@@ -0,0 +1,10 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "tests/tests.h"
++#include "arch-tests.h"
++
++struct test_suite *arch_tests[] = {
++#ifdef HAVE_DWARF_UNWIND_SUPPORT
++	&suite__dwarf_unwind,
++#endif
++	NULL,
++};
+diff --git a/tools/perf/arch/riscv/tests/dwarf-unwind.c b/tools/perf/arch/riscv/tests/dwarf-unwind.c
+new file mode 100644
+index 000000000000..e981b21f918d
+--- /dev/null
++++ b/tools/perf/arch/riscv/tests/dwarf-unwind.c
+@@ -0,0 +1,64 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <string.h>
++#include "perf_regs.h"
++#include "thread.h"
++#include "map.h"
++#include "maps.h"
++#include "event.h"
++#include "debug.h"
++#include "tests/tests.h"
++
++#define STACK_SIZE 8192
++
++static int sample_ustack(struct perf_sample *sample,
++		struct thread *thread, u64 *regs)
++{
++	struct stack_dump *stack = &sample->user_stack;
++	struct map *map;
++	unsigned long sp;
++	u64 stack_size, *buf;
++
++	buf = malloc(STACK_SIZE);
++	if (!buf) {
++		pr_debug("failed to allocate sample uregs data\n");
++		return -1;
++	}
++
++	sp = (unsigned long) regs[PERF_REG_RISCV_SP];
++
++	map = maps__find(thread__maps(thread), (u64)sp);
++	if (!map) {
++		pr_debug("failed to get stack map\n");
++		free(buf);
++		return -1;
++	}
++
++	stack_size = map__end(map) - sp;
++	map__put(map);
++	stack_size = stack_size > STACK_SIZE ? STACK_SIZE : stack_size;
++
++	memcpy(buf, (void *) sp, stack_size);
++	stack->data = (char *) buf;
++	stack->size = stack_size;
++	return 0;
++}
++
++int test__arch_unwind_sample(struct perf_sample *sample,
++		struct thread *thread)
++{
++	struct regs_dump *regs = perf_sample__user_regs(sample);
++	u64 *buf;
++
++	buf = calloc(PERF_REGS_MAX, sizeof(u64));
++	if (!buf) {
++		pr_debug("failed to allocate sample uregs data\n");
++		return -1;
++	}
++
++	perf_regs_load(buf);
++	regs->abi  = PERF_SAMPLE_REGS_ABI;
++	regs->regs = buf;
++	regs->mask = PERF_REGS_MASK;
++
++	return sample_ustack(sample, thread, buf);
++}
+diff --git a/tools/perf/arch/riscv/tests/regs_load.S b/tools/perf/arch/riscv/tests/regs_load.S
+new file mode 100644
+index 000000000000..703bbf3374a6
+--- /dev/null
++++ b/tools/perf/arch/riscv/tests/regs_load.S
+@@ -0,0 +1,58 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#include <linux/linkage.h>
++
++/*
++ * Fill the u64 array 'regs' at the slots of enum perf_event_riscv_regs:
++ * x1..x31 map one-to-one onto PERF_REG_RISCV_RA..PERF_REG_RISCV_T6, and the
++ * stride stays 8 bytes on RV32 because the slots are u64 and the caller
++ * zeroes them.
++ *
++ * PERF_REG_RISCV_PC is filled with ra, the return address of the call to
++ * this function, so that unwinding starts at the caller rather than here.
++ */
++
++#if __riscv_xlen == 64
++#define REG_S	sd
++#else
++#define REG_S	sw
++#endif
++
++#define STR_REG(r)	REG_S x##r, 8 * r(a0)
++
++	.text
++	.type perf_regs_load,%function
++SYM_FUNC_START(perf_regs_load)
++	STR_REG(1)
++	STR_REG(2)
++	STR_REG(3)
++	STR_REG(4)
++	STR_REG(5)
++	STR_REG(6)
++	STR_REG(7)
++	STR_REG(8)
++	STR_REG(9)
++	STR_REG(10)
++	STR_REG(11)
++	STR_REG(12)
++	STR_REG(13)
++	STR_REG(14)
++	STR_REG(15)
++	STR_REG(16)
++	STR_REG(17)
++	STR_REG(18)
++	STR_REG(19)
++	STR_REG(20)
++	STR_REG(21)
++	STR_REG(22)
++	STR_REG(23)
++	STR_REG(24)
++	STR_REG(25)
++	STR_REG(26)
++	STR_REG(27)
++	STR_REG(28)
++	STR_REG(29)
++	STR_REG(30)
++	STR_REG(31)
++	REG_S ra, 0(a0)
++	ret
++SYM_FUNC_END(perf_regs_load)
+diff --git a/tools/perf/tests/Build b/tools/perf/tests/Build
+index 66944a4f4968..c457504e052d 100644
+--- a/tools/perf/tests/Build
++++ b/tools/perf/tests/Build
+@@ -72,7 +72,7 @@ perf-test-y += tool_pmu.o
+ perf-test-y += subcmd-help.o
+ perf-test-y += kallsyms-split.o
+ 
+-ifeq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc))
++ifeq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc riscv))
+ perf-test-$(CONFIG_DWARF_UNWIND) += dwarf-unwind.o
+ endif
+ 
+diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
+index 4d0784b16723..a0478dd3e9cc 100644
+--- a/tools/perf/tests/builtin-test.c
++++ b/tools/perf/tests/builtin-test.c
+@@ -67,7 +67,8 @@ static const char *workload_control;
+  * dependent on the initialization, as such GCC with LTO complains of
+  * conflicting definitions with a weak symbol.
+  */
+-#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__)
++#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || \
++	defined(__powerpc64__) || defined(__riscv)
+ extern struct test_suite *arch_tests[];
+ #else
+ static struct test_suite *arch_tests[] = {
 -- 
-2.43.0
+2.50.1
 
 
 _______________________________________________
