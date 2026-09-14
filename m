@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10660C88E64
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 03:12:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22AAC88E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 03:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=a3oq8oiLasUfv4Xq1RrhXx3sEXcUF02LGaaAT8t2WW8=; b=VASi4Dw4Wz0NUN
-	JYCSIK0bYw4CkuWubEn0iMfDKULumU8UCWzmYi5kqRMmGDZyHOy+L8ZsPRSKu5E+0/l9aHazxIa/N
-	7EkK3u5kHTKQ3n1nLIkCU/6WeLq/ZfBTr/CDax00GfaO1EZ/C2Zgdv1Jb3jEc4fmTE5dTFXIi3tkB
-	Zv2ykodXzSsAK3FhY7H0VesYHrVdyckbnWu9AetwXvhZinnocp4jggWKqAIvy6HI0Yh3o+/10grko
-	KizzB6LsKzbbyraOENEt72UjuvsyguL5awA9uC+bTuNRBkbh8NTRybu+2OsPsvGID5ltnVJ3jZKAi
-	kTfpGfAbFJIduTKYZgNg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZWBJ2j4tNvGH3ATuMX0e28qFzLWH59eokY8Ahb6deNI=; b=Qjn3COQNc8L8AJ
+	aUnDx9X+fWz23Mjx2//99Ycf1Kd4BLXqRl2I7rlZMwDXPGI+A8jd1k6QzszFAKSNPH4jtCW7JU3aM
+	dVmzxjMTw6zYUCD5IF1FULQVesWtynYK9S1aBd6BOzYZd6Jn84+VhvN9+ZywnMUTReDAvz5vM+y8Q
+	VrSPYDm2uni/Z7ja96fI8AjJWy5ewoSZVextXgeqKuiJ3xxkGE9EB5UBSSr8CE9tzEoK/jVtBEfkA
+	2573XdWtZSkfvrIHE86yQjWOxXRZANwGj4QgAeiZctrj+WIAAXjVcRuUbgC2HUXa6tpeOcKfkgFfE
+	nysG7nclzJGvQmjSdVhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5x7K-00000002FRy-3G8q;
-	Mon, 14 Sep 2026 03:12:26 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x5xUZ-00000002HHc-0Y1b;
+	Mon, 14 Sep 2026 03:36:27 +0000
+Received: from mail-pz2-f43.google.com ([74.125.228.43])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x5x7F-00000002FRI-3sJ6;
-	Mon, 14 Sep 2026 03:12:25 +0000
-Received: from k3-03 (unknown [159.226.43.8])
-	by APP-05 (Coremail) with SMTP id zQCowABn0Tv4ZadqJ0crCA--.15303S2;
-	Mon, 14 Sep 2026 11:11:59 +0800 (CST)
-From: Tan Chi <tanchi25@mails.ucas.ac.cn>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>,
-	kvm-riscv@lists.infradead.org
-Cc: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Tan Chi <tanchi25@mails.ucas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] RISC-V: KVM: Fix HSM hart status error propagation
-Date: Mon, 14 Sep 2026 11:11:46 +0800
-Message-ID: <20260914031146.446157-1-tanchi25@mails.ucas.ac.cn>
-X-Mailer: git-send-email 2.53.0
+	id 1x5xUU-00000002HGy-3e9l
+	for linux-riscv@lists.infradead.org;
+	Mon, 14 Sep 2026 03:36:24 +0000
+Received: by mail-pz2-f43.google.com with SMTP id d2e1a72fcca58-85469d249c5so1458684b3a.3
+        for <linux-riscv@lists.infradead.org>; Sun, 13 Sep 2026 20:36:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789356981; cv=none;
+        d=google.com; s=arc-20260327;
+        b=fpR/XoYKrBED6QuRFE7onKDvZqeeVDwARYlMt4jHRpQYESi+0JUeX91md1IvFqiPxm
+         FWWeKywQBaicuCyfydGo9ez5YDZZN6BvU+J2+g3idYXJsr9sJcJrWjUIGMOjvu4/suo3
+         EWGiepjtDLzeTRARVvAGXFWjQd0ED9lpUej1Nkh2atU/gjZWSVDGA6KH0QOjVFkPeHmz
+         sKcw46cCpy333CxdvCMkt9pHspei+qD7bhasyhdV321Kp6C6aC30d6niqI+ndO+LDEOW
+         3+mlwBQm8R5DOpgtMKtQxpeYplO3mTOiUOTs1TBgnaxnlrCv+qsDWuSbyzwY4LMh7aod
+         bA1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=lrOlBTsBy6V2c/KtLotGt9eMOXZDQ5WGDkpgU93EhdM=;
+        fh=9kF778L9gHBp5Tupbrizr/gEwYw2v2ejXwt0vTPHNOo=;
+        b=l4t28UO4Lk1q3tjAIkN/H83+IzqdiwfwzDWMsHm+Xvm4VrmES/FrQhkzeJs4FKSID5
+         Hd0pixBsKdkNnoAMFX82PZvb4IyqaYAxMiD4YyaylXgbbBGNiZdoWVEp5q2T+qSBEvZO
+         CTqAs68PTPGzh96DD5LX8vucViMRMMNPI/zls6ohIQcmfDl7y6f9gutAmIB1TwNmgq4x
+         HsRp+l13s2g6VXlLR/7+sLnE/5Isi7gp1GwxwWaHO+2vjxFlhb/MjtrDfwtG7LmNdD7J
+         sHrnkqb9suYMHll3i1OhW+jGHs7HfwzycbMBF/do1jS2a8jOdDa9xEAHbEuOxWPshU+0
+         QgZQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789356981; x=1789961781;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=lrOlBTsBy6V2c/KtLotGt9eMOXZDQ5WGDkpgU93EhdM=;
+        b=FHxxnaKm0T7fSOSu8FlopvQjKE9B37ipDHivyhHila4nMfyGYRCrZyoPvBERpkXgiG
+         RJwnTg5Ini0wL+QSOE9FYPO+jHDWZ5d86w50WgvEB5CUuv0QA3u904bmX+ypWiYryluo
+         iNMRoora+edgxQuaCnG220FJvuwu0b/E/50pkmOXCJKk21H1tuXm9KQrY6d7Y1kIxlwz
+         ASCW/WhUVJc+v4AS9aFEW34XzJz/ZjhLkbCigzH45hghsspfRltrHwerTUIcFB8+4zqe
+         iq9xQHUd3amYNbXbnvCSjb2GaVzE8M9WBMrCufA9JHQg/0qBzQfZ0boFz7O0y96hucLw
+         uxQA==
+X-Forwarded-Encrypted: i=1; AKwUvBzYHZ4Tk0UwotQ7joB1YR3sDCffa3dUMz1BnYgHX1ASY6mR+xdw7+XYpeCNaicvpd86MfGIgElBoHZqxA==@lists.infradead.org
+X-Gm-Message-State: AFuF++nVaIiJltbMmx8pjw8T3Ei2wOrKb6r7S5Bj7DevfZIb09b6fROM
+	izJ41pCGtjtwc0cvsw2IlGBiGhbPVWvAxgNPku70kfbqAFOBF4KIwk1M/9Ns7ZeoKAGf741vVuA
+	PbwpUmUWR5MQTi48oveTZJ5wwFU2mUt8=
+X-Gm-Gg: AYBFou3NwubSHdzR9jgMPguN46173Xkt6tHWCZbVwa1AqSQ4Ayccmi2FaPEw5M2JkTh
+	gDAFiUV2ZHAX4NbrwaCzKa28XdwQTsP4IJtGJ+0z3UN49V40zrxcQS2EJLKjGn16C8mE7j5Tw1V
+	xvgfwWrjmlPc7w0jRy8oZfJS86yfBeoW0OBwEOn0vTrqhlKZ4IticCxq269nQ8/owHMGk3j6V0v
+	KON0pblSfFIC+2WMhtvyFCFR12QFKGyRA4bLb4P59p90qANcz1C/iuL0hfAIeZP4e13cog/aJf5
+	pfUAy8AfBSe3quZktho4eNp6bh9Ymi7CXP2J399sG59hasDXur0vACc=
+X-Received: by 2002:a05:6a00:6017:b0:868:9662:5137 with SMTP id
+ d2e1a72fcca58-86f8394024fmr1998067b3a.11.1789356981117; Sun, 13 Sep 2026
+ 20:36:21 -0700 (PDT)
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowABn0Tv4ZadqJ0crCA--.15303S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ur47GF48ZrWrZrW8JFWxtFb_yoW8Xr4rpr
-	ZrGa1DurWFkFy0gasFya1q9FW5uFsagrnakw1kKw4Fv3yjvFW5Xr4vg34aqry5Aa48Wr1I
-	9FWYqF90v3Z8Ja7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUP014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
-	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67
-	AK6r48MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAF
-	wI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc4
-	0Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AK
-	xVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr
-	1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjfb15UU
-	UUU==
-X-Originating-IP: [159.226.43.8]
-X-CM-SenderInfo: pwdquxrlsvqzpdlo2hpxfd2hldfou0/
+References: <20260828145152578tXQPUG9lxxgbJjmfpuaQz@zte.com.cn>
+In-Reply-To: <20260828145152578tXQPUG9lxxgbJjmfpuaQz@zte.com.cn>
+From: Michael Neuling <mikey@neuling.org>
+Date: Mon, 14 Sep 2026 13:36:08 +1000
+X-Gm-Features: AcwNN1X9lJnTm0DPIb5MBEAosgvXhCjDs0HstYSNYdtIGTJiXdup_FJi7fswjtQ
+Message-ID: <CAEjGV6zvz6h-2qWDFJ5kUr0y6CBFK6Rr4NCaJnDnNPN_mLymiw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: lib: Fix ZBB strnlen wrap-around regression on
+ huge counts
+To: shao.mingyin@zte.com.cn
+Cc: pjw@kernel.org, jiangfeng@kylinos.cn, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, zhang.yue5@zte.com.cn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260913_201222_648154_103E7868 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260913_203622_920697_44CB2FD5 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +106,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kvm_sbi_hsm_vcpu_get_status() returns SBI_ERR_INVALID_PARAM when
-the requested hart does not exist. However, the HART_STATUS case
-returns from the SBI handler without storing this error in
-retdata->err_val.
+> From: Shao Mingyin <shao.mingyin@zte.com.cn>
+>
+> commit 5d588c684833 ("riscv: lib: Fix ZBB strnlen reading past count
+> boundary") computes the aligned scan boundary from the last valid byte
+> (s + count - 1).  When count is huge (e.g. SIZE_MAX, which FORTIFY
+> strcat/strlcat pass when the destination size is not known at compile
+> time), s + count wraps around and the aligned boundary lands before s.
+> The pre-loop guard "bgeu t0, t4, 2f" then always exits for aligned
+> strings of 8 or more characters, and strnlen() returns 8 instead of
+> the real length.
+>
+> This silently truncates strings built by fortified strcat: the dm
+> sysfs name attribute shows "live-bas" instead of "live-base", the
+> truncated name pollutes the udev database, and blivet/anaconda (as
+> well as LVM/dm-crypt/multipath userspace) break on RISC-V systems.
+>
+> Detect the wrap-around and saturate the boundary to the top of the
+> address space, making the scan equivalent to strlen().  Normal counts
+> are unaffected.
 
-As a result, a guest querying the status of a non-existent hart
-observes SBI_SUCCESS instead of SBI_ERR_INVALID_PARAM.
+Nice catch
 
-Use the common SBI error handling path for HART_STATUS after
-saving a valid hart state in retdata->out_val. This preserves
-the returned error when kvm_sbi_hsm_vcpu_get_status() fails.
+> Fixes: 5d588c684833 ("riscv: lib: Fix ZBB strnlen reading past count boundary")
 
-Fixes: bae0dfd74e01 ("RISC-V: KVM: Modify SBI extension handler to return SBI error code")
-Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Signed-off-by: Tan Chi <tanchi25@mails.ucas.ac.cn>
----
- arch/riscv/kvm/vcpu_sbi_hsm.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+I believe this issue also affects original strnlen implementation, so
+this should actually be:
+  Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
+The text in the commit needs to be fixed also.
 
-diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-index f26207f84bab..06a15629c26b 100644
---- a/arch/riscv/kvm/vcpu_sbi_hsm.c
-+++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-@@ -95,9 +95,9 @@ static int kvm_sbi_ext_hsm_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		ret = kvm_sbi_hsm_vcpu_get_status(vcpu);
- 		if (ret >= 0) {
- 			retdata->out_val = ret;
--			retdata->err_val = 0;
-+			ret = 0;
- 		}
--		return 0;
-+		break;
- 	case SBI_EXT_HSM_HART_SUSPEND:
- 		switch (lower_32_bits(cp->a0)) {
- 		case SBI_HSM_SUSPEND_RET_DEFAULT:
+> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
 
-base-commit: df2908090cda368b01ff43709f51890076c56157
--- 
-2.53.0
+Other than the above:
+Acked-By: Michael Neuling <mikey@neuling.org>
 
+> ---
+>  arch/riscv/lib/strnlen.S | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>
+> diff --git a/arch/riscv/lib/strnlen.S b/arch/riscv/lib/strnlen.S
+> index a8911605c248..2451289ed0f9 100644
+> --- a/arch/riscv/lib/strnlen.S
+> +++ b/arch/riscv/lib/strnlen.S
+> @@ -87,9 +87,19 @@ strnlen_zbb:
+>          * Aligned boundary.  Use the address of the last valid byte
+>          * (s + count - 1) to avoid loading a word past the count
+>          * boundary in the loop below.  count == 0 is handled above.
+> +        *
+> +        * Saturate the boundary when s + count wraps around (very large
+> +        * counts, e.g. SIZE_MAX passed by FORTIFY strcat/strlcat with a
+> +        * destination whose size is unknown at compile time).  Without
+> +        * this, the wrapped boundary lands before s and the pre-loop
+> +        * guard below always exits, returning a truncated length.
+> +        * Saturating makes the scan equivalent to strlen().
+>          */
+>         add     t4, a0, a1
+>         addi    t4, t4, -1
+> +       bgeu    t4, a0, 1f
+> +       li      t4, -1
+> +1:
+>         andi    t4, t4, -SZREG
+>
+>         /* Get the first word.  */
+> --
+> 2.27.0
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
