@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC018C88E6A
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 09:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD7EC88E6A
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 09:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DFt75Qn3GeUvKMfCuKHM/GF5or+n9CU/BCSoc9lNze4=; b=HaZWlXvBksZzka
-	9TaO+EXtkXZSBQ9Rs8Z7gNvSwCG2P4DJKPw16jkn8jt0jm8wGhnnfAFxikNAx3U78Zn+qrSgouOZ4
-	3WSNQYBNVGgMCcRbNPuOML3JZp/oWR0kr+Vafzf+0IUDO8G0bmh70HHw6GhFyiKK+noje0z0HZ1HQ
-	qJScgHoH5kseOCOI/vp2aNLN7LXXU7JmTZW+yTaA4T3lcKCRBg45saG1vH1g+DgMhZllRMlOEuBFO
-	8D36SReynp1mjnIblNFLTN2AsVK2DQ4EP8uDQOCU/9c8C1/DZ4SdT707pkuD08Jhmqa7yfWffLlB8
-	ct3V+O3aMaEQkUgCzhYQ==;
+	List-Owner; bh=rOfX2U4iQ0eGW84yTpclv7htKftb0efjNA7d7CpscuU=; b=ASKACF91Q4BXOh
+	Y3d/vwkLLYy6lMnUAfQmQaZpcLoc4yxKkbwGTsMrLXhKcl8S52uCcz2hrzisp2YzGkJo6rYp9cHJA
+	ke68F9oLllneHJrFnvuAeqoIWfF7nYZ+8ryeB0wdEG38c+c82xdKmS4Y1U2A4UbX2H7Wh9Lii6Xik
+	Se+tiabTOEXfEOrJXhQzvktVP6i84YXNVyUS2b2i62jXTadvNzHQ3ZdGJUMTJjrMNRVmkG5pHC0YX
+	WKWpNA6d/QKm/egIFkh55Oqwj6f3BY+DWJ4UaI2/68oQZrOQoeS6aJWJ4hdIaFnK3ztZOPkB7M1Gr
+	JsnQH0Z5MR9nZ8P5XSKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62tT-00000002uLc-0EoK;
-	Mon, 14 Sep 2026 09:22:31 +0000
+	id 1x62td-00000002uPJ-1nsf;
+	Mon, 14 Sep 2026 09:22:41 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62tQ-00000002uKx-4BIj;
-	Mon, 14 Sep 2026 09:22:29 +0000
+	id 1x62tZ-00000002uO2-0iXX;
+	Mon, 14 Sep 2026 09:22:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 17D7760142;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B4D4601DB;
+	Mon, 14 Sep 2026 09:22:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C9081F000FF;
 	Mon, 14 Sep 2026 09:22:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B04D81F00898;
-	Mon, 14 Sep 2026 09:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789377747;
-	bh=uki1B8//a8y/AGrwtR+zPRw8RRYXCi63rXRxRzPghWk=;
+	s=k20260515; t=1789377756;
+	bh=kGOn+Eyh5EbYfN97Nj1fX4pq3G8j0Vy2K55dfmdAeOE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=B/q9/7+gFTFhtmGHio65Z1lr1T0aniQW7+V5KkGCIpOnfYp2DDzANQ2Yr1/C/Mo8D
-	 JqzDf2qIPZWxaiKcADAeKEAA8oA6EPXRge6i+lbMHWFkeqdjmIRA9tCgNpH8SIcKZf
-	 XYBqgC6C4rjQ7O2mIzgrO+PBF62oQmp/fSBkbB9fEykj9vD5vXFYkLKJWtRdmoJilA
-	 /RhTAnfgkcQLlMCLm9ESA6ZWpXaHsHctGl22pJ28StRSk2J5pJS/a9//dVemOHemnO
-	 Cn0m+0kuToiklAGjiUr8ZmY5ML+T0/SnAi59g/EyVbtrio3di0Xp30s2h5YxwnkSzi
-	 X/wdy+csDFksw==
+	b=dzsUJ2iFp5i9Ducomx5sv1364qhdd+RhQg6Kk/XOjUj9iVGQlwL4pSJ3dFfH0eZz+
+	 pcMzMwP/EMLvNJm3N2jyrG8h54giOPK+RBL82nZyuEb6dYtRpOWMopMhYlabt/O42D
+	 6upUUaRHv9V7UCDKdwglbUn6noPKfZsGMLpLwCxb+4YmGIyAyPOuJKRKICYnr0+7nX
+	 a4mjGi9USfpxk0UMwAg1yDvWtYW7roBoMK0p4J+C/6Z3IL6GbfWoul5wOXuyMtT0nU
+	 Mdcp8Y2liP5tCW+DIakI1FLsYmKKful1yCJiu9RQeAIu4++25IZtrtdGToSOdOH8Kn
+	 36MjUDdsZT0ug==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Mon, 14 Sep 2026 10:22:00 +0100
-Subject: [PATCH v2 01/21] kbuild: do not allocate .modinfo in vmlinux
+Date: Mon, 14 Sep 2026 10:22:01 +0100
+Subject: [PATCH v2 02/21] kallsyms: index symbols by token to speed up
+ table compression
 MIME-Version: 1.0
-Message-Id: <20260914-build-speedup-v2-1-39817ec5db23@kernel.org>
+Message-Id: <20260914-build-speedup-v2-2-39817ec5db23@kernel.org>
 References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
 In-Reply-To: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
 To: Linus Torvalds <torvalds@linux-foundation.org>, 
@@ -82,12 +83,12 @@ Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, 
  linux-hardening@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4498; i=ljs@kernel.org;
- h=from:subject:message-id; bh=l1vzsOfhsFZq93BiP7aFzUsiv0IMtDncs4AVYzcTaZE=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKW79lfuEmqJ1P2d9sOF0aJnatYutPNu6/s8KrbfKvqx
- tWS1xu8O0pZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCR404Mf4Wcwmz+ntDJlS+b
- tSTiz2aOJxesX3k0h57kaX9x8/jkmycZ/hdwT4reL3PLJL3WafbuU8+mKswLdmSzW2Ce/HaiQ28
- ZGysA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10123; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=zbRPUYikjG0pj4tnd7o4NOVhRtKN6z8Aq2ACsXCdP64=;
+ b=kA0DAAoWz53NioHifxQByyZiAGqnvL+gFagUft8jiOP5BpM+0UrIyfEE+fbBm0MQ8Nc3JYa7M
+ 4h1BAAWCgAdFiEE5/QXv1IUVp6J0E9Gz53NioHifxQFAmqnvL8ACgkQz53NioHifxRimAD+OPRs
+ FyQpJ9BFVkisG8wOvWyNsgc0Vn9dj0yYgxU6LlkBAOF7gd05TDdpExCjx1seu8qYWczQLyYxfe0
+ 8om5IQkgH
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -106,102 +107,309 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 3e86e4d74c04 ("kbuild: keep .modinfo section in vmlinux.unstripped")
-placed MODULE_INFO() strings in the .modinfo section in vmlinux.unstripped,
-however it left the section allocatable, so it gets assigned an address and
-on arm64, arm and riscv, the section is tagged as PT_LOAD.
+The kallsyms program compresses symbols by figuring out the most commonly
+used substrings in all of the input symbols then uses special character
+codes to represent them.
 
-This is useless as the data is ultimately stripped anyway.
+For instance, 0xf7 might end up representing "write_", then every single
+symbol that contains "write_" can use 0xf7 as a shorthand and save 5 bytes
+each time.
 
-Doing this results in a lot of unnecessary work - each pass copies the
-whole file, 450 MIB with relocations for an x86 allmodconfig build and 250
-MiB for an arm64 allmodconfig build.
+'Special' character codes are any byte value that is not used in any
+symbol, either due to being an invalid character, or not being present in
+any symbol (e.g. if no symbol contains 'z', then 'z' can be used as special
+character).
 
-This adds ~0.7s on the serial tail of every build for arm64 and ~0.2s for
-x86 (the tail is single-threaded work done after parallel work has
-finished).
+It does this by first figuring out which special characters are available
+in insert_real_symbols_in_table(), then iterating through every available
+special character, counting how many times each pair of adjacent characters
+appear in symbols in build_initial_token_table().
 
-Nothing requires .modinfo to exist at an address, so fix this by using
---dump-section which prevents the allocation.
+These adjacent pairs are known as 'tokens'.
 
-Image, bzImage, System.map and modules.builtin.modinfo are unchanged and
-the stripped vmlinux differs only in its program headers.
+Token counts are initially obtained by build_initial_token_table(), then
+optimize_result() calls find_best_token() to determine the token that
+appeared the most number of times and assigns it the next special
+character.
 
-The objcopy passes are on the serial tail of every build that links
-vmlinux, no-op builds are unchanged.
+Finally, optimize_result() calls compress_symbols() to replace every token
+in every symbol with its special character, which updates token_profit[] as
+it does so.
+
+This process is repeated for each remaining available special character,
+with tokens now perhaps containing previously assigned special
+characters (e.g. if 'wr' was assigned 0x80, then the token representing
+'wri' would be '\x80i').
+
+This compresses that token by 50% in each symbol it appears in (two bytes
+are now represented by one) and thus by repeatedly doing this kallsyms
+obtains good symbol compression.
+
+However, compress_symbols() is seriously inefficient - it iterates through
+EVERY symbol for EVERY special character assignment, i.e. ~256 *
+nr_symbols.
+
+Modern x86-64 kernels, for instance, have ~158,000 symbols, so millions of
+iterations are performed, most of which are entirely unnecessary (tokens
+don't appear in most symbols).
+
+In practice kallsyms spends half its runtime doing this, two or three times
+per vmlinux link step.
+
+Fix this by tracking which symbols each token appears in token_syms[], and
+only compress symbols which actually need to be updated.
+
+Each time a token is compressed that token can no longer appear in any
+symbol, so that token_syms[] entry can be freed.
+
+However new token_syms[] entries must be created for each new token
+containing the assigned special character, but this is bounded by the
+number of replacements in the symbol which is very small.
+
+In testing on an x86-64 platform using clang, each kallsyms invocation
+dropped from 0.59s to 0.33s with CONFIG_KALLSYMS_ALL set and from 0.38s to
+0.22s without it set.
+
+The data was carefully checked and verified to be byte-for-byte identical
+for six symbol sets (two vmlinux passes, vmlinux.o, three userspace
+binaries) with all option combinations.
+
+As part of this change, additionally refactor the code to be a little
+easier to follow.
+
+kallsyms runs two or three times on the serial tail of every build that
+links vmlinux, no-op builds do not link and are unchanged.
 
 Whole build, 128-thread Threadripper 9980X, best of N runs:
 
                                          before   after     delta
                                          -------------------------------
-  x86 defconfig, touch mm/vma.c, gcc       11.2s    11.1s    -0.15s (-1%)
-  x86 defconfig, touch mm/vma.c, clang     11.3s    11.1s    -0.19s (-2%)
-  x86 defconfig, clean, gcc                32.5s    32.3s    -0.16s (-1%)
-  x86 defconfig, clean, clang              34.5s    34.2s    -0.26s (-1%)
-  x86 allmodconfig, touch mm/vma.c, gcc    40.1s    39.7s    -0.44s (-1%)
+  x86 defconfig, touch mm/vma.c, gcc       11.1s    10.6s    -0.53s (-5%)
+  x86 defconfig, touch mm/vma.c, clang     11.1s    10.5s    -0.64s (-6%)
+  x86 defconfig, clean, gcc                32.3s    31.3s     -1.0s (-3%)
+  x86 defconfig, clean, clang              34.2s    33.3s    -0.89s (-3%)
+  x86 allmodconfig, touch mm/vma.c, gcc    39.7s    38.7s     -1.0s (-3%)
+  x86 allmodconfig, touch mm/vma.c, clang  40.3s    39.1s     -1.3s (-3%)
 
 Assisted-by: LLM
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- include/asm-generic/vmlinux.lds.h |  2 +-
- scripts/Makefile.vmlinux          | 22 ++++------------------
- 2 files changed, 5 insertions(+), 19 deletions(-)
+ scripts/kallsyms.c | 138 +++++++++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 124 insertions(+), 14 deletions(-)
 
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index b2988aa12f66..7be9e0321867 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -855,7 +855,7 @@
- 		KLP_SYMID
+diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
+index 494852ade6d8..350d118c3b9e 100644
+--- a/scripts/kallsyms.c
++++ b/scripts/kallsyms.c
+@@ -58,12 +58,47 @@ static unsigned int table_size, table_cnt;
+ static int all_symbols;
+ static int pc_relative;
  
- #define MODINFO								\
--		.modinfo : { *(.modinfo) . = ALIGN(8); }
-+		.modinfo (INFO) : { *(.modinfo) . = ALIGN(8); }
++/* A dynamic array of symbols, encoded by symbol index. */
++struct sym_arr {
++	unsigned int *sym_indexes;
++	unsigned int cnt, cap;
++};
++
+ static int token_profit[0x10000];
++static struct sym_arr token_syms[0x10000];
  
- #ifdef CONFIG_GENERIC_BUG
- #define BUG_TABLE							\
-diff --git a/scripts/Makefile.vmlinux b/scripts/Makefile.vmlinux
-index fcae1e432d9a..88881826335c 100644
---- a/scripts/Makefile.vmlinux
-+++ b/scripts/Makefile.vmlinux
-@@ -89,11 +89,8 @@ remove-section-$(CONFIG_ARCH_VMLINUX_NEEDS_RELOCS) += '.rel.*'
+ /* the table that holds the result of the compression */
+ static unsigned char best_table[256][2];
+ static unsigned char best_table_len[256];
  
- remove-symbols := -w --strip-unneeded-symbol='__mod_device_table__*'
++static unsigned int sym_arr_last(const struct sym_arr *arr)
++{
++	return arr->cnt ? arr->sym_indexes[arr->cnt - 1] : UINT_MAX;
++}
++
++static void sym_arr_maybe_expand(struct sym_arr *arr)
++{
++	if (arr->cap > arr->cnt)
++		return;
++
++	arr->cap = arr->cap ? arr->cap * 2 : 16;
++	arr->sym_indexes = xrealloc(arr->sym_indexes,
++				    arr->cap * sizeof(*arr->sym_indexes));
++}
++
++static void sym_arr_add(struct sym_arr *arr, unsigned int sym_idx)
++{
++	sym_arr_maybe_expand(arr);
++	arr->sym_indexes[arr->cnt++] = sym_idx;
++}
++
++static void sym_arr_free(struct sym_arr *arr)
++{
++	free(arr->sym_indexes);
++	arr->sym_indexes = NULL;
++	arr->cnt = 0;
++	arr->cap = 0;
++}
  
--# To avoid warnings: "empty loadable segment detected at ..." from GNU objcopy,
--# it is necessary to remove the PT_LOAD flag from the segment.
- quiet_cmd_strip_relocs = OBJCOPY $@
--      cmd_strip_relocs = $(OBJCOPY) $(patsubst %,--set-section-flags %=noload,$(remove-section-y)) $< $@; \
--                         $(OBJCOPY) $(addprefix --remove-section=,$(remove-section-y)) $(remove-symbols) $@
-+      cmd_strip_relocs = $(OBJCOPY) $(addprefix --remove-section=,$(remove-section-y)) $(remove-symbols) $< $@
+ static void usage(void)
+ {
+@@ -458,6 +493,15 @@ static void write_src(void)
+ 	printf("\n");
+ }
  
- targets += vmlinux
- vmlinux: vmlinux.unstripped FORCE
-@@ -102,21 +99,10 @@ vmlinux: vmlinux.unstripped FORCE
- # modules.builtin.modinfo
- # ---------------------------------------------------------------------------
++static unsigned int token_index(unsigned char first, unsigned char second)
++{
++	return first + (second << 8);
++}
++
++static unsigned int sym_token_index(const unsigned char *symbol, int first_idx)
++{
++	return token_index(symbol[first_idx], symbol[first_idx + 1]);
++}
  
--# .modinfo in vmlinux.unstripped is aligned to 8 bytes for compatibility with
--# tools that expect vmlinux to have sufficiently aligned sections but the
--# additional bytes used for padding .modinfo to satisfy this requirement break
--# certain versions of kmod with
--#
--#   depmod: ERROR: kmod_builtin_iter_next: unexpected string without modname prefix
--#
--# Strip the trailing padding bytes after extracting .modinfo to comply with
--# what kmod expects to parse.
- quiet_cmd_modules_builtin_modinfo = GEN     $@
--      cmd_modules_builtin_modinfo = $(cmd_objcopy); \
--                                    sed -i 's/\x00\+$$/\x00/g' $@; \
--                                    chmod -x $@
--
--OBJCOPYFLAGS_modules.builtin.modinfo := -j .modinfo -O binary
-+      cmd_modules_builtin_modinfo = $(OBJCOPY) -O binary -j .modinfo --dump-section .modinfo=$@ $< $@.tmp; \
-+                                    rm -f $@.tmp; \
-+                                    sed -i 's/\x00\+$$/\x00/g' $@
+ /* table lookup compression functions */
  
- targets += modules.builtin.modinfo
- modules.builtin.modinfo: vmlinux.unstripped FORCE
+@@ -467,7 +511,7 @@ static void learn_symbol(const unsigned char *symbol, int len)
+ 	int i;
+ 
+ 	for (i = 0; i < len - 1; i++)
+-		token_profit[ symbol[i] + (symbol[i + 1] << 8) ]++;
++		token_profit[sym_token_index(symbol, i)]++;
+ }
+ 
+ /* decrease the count for all the possible tokens in a symbol */
+@@ -476,16 +520,76 @@ static void forget_symbol(const unsigned char *symbol, int len)
+ 	int i;
+ 
+ 	for (i = 0; i < len - 1; i++)
+-		token_profit[ symbol[i] + (symbol[i + 1] << 8) ]--;
++		token_profit[sym_token_index(symbol, i)]--;
++}
++
++static void token_add_symbol(unsigned int token_idx, unsigned int sym_idx)
++{
++	struct sym_arr *arr = &token_syms[token_idx];
++
++	/* Symbol indexes kept in sorted order, check for duplicate. */
++	if (sym_arr_last(arr) == sym_idx)
++		return;
++
++	sym_arr_add(arr, sym_idx);
++}
++
++static void symbol_index_all_tokens(const unsigned char *symbol, int len,
++				    unsigned int sym_idx)
++{
++	int i;
++
++	for (i = 0; i < len - 1; i++) {
++		const unsigned int token_idx = sym_token_index(symbol, i);
++
++		token_add_symbol(token_idx, sym_idx);
++	}
++}
++
++/*
++ * The symbol just got compressed. The only parts of the symbol that changed
++ * meaningfully are those containing the newly assigned compressed char, so
++ * index those.
++ */
++static void symbol_index_new_tokens(const unsigned char *symbol, int len,
++				    unsigned int sym_idx, int compressed_chr)
++{
++	int i;
++
++	for (i = 0; i < len - 1; i++) {
++		const unsigned int token_idx = sym_token_index(symbol, i);
++
++		if (symbol[i] == compressed_chr ||
++		    symbol[i + 1] == compressed_chr)
++			token_add_symbol(token_idx, sym_idx);
++	}
+ }
+ 
+-/* do the initial token count */
+ static void build_initial_token_table(void)
+ {
+ 	unsigned int i;
+ 
+ 	for (i = 0; i < table_cnt; i++)
+ 		learn_symbol(table[i]->sym, table[i]->len);
++
++	/*
++	 * The initial occurrence counts tell us exactly how much memory should
++	 * be reserved for each token's symbol array.
++	 */
++	for (i = 0; i < ARRAY_SIZE(token_syms); i++) {
++		const int nr_syms = token_profit[i];
++
++		if (!nr_syms)
++			continue;
++
++		token_syms[i].cap = nr_syms;
++		token_syms[i].sym_indexes =
++			xmalloc(nr_syms * sizeof(unsigned int));
++	}
++
++	/* For every symbol, index every token -> symbol it is present in. */
++	for (i = 0; i < table_cnt; i++)
++		symbol_index_all_tokens(table[i]->sym, table[i]->len, i);
+ }
+ 
+ static unsigned char *find_token(unsigned char *str, int len,
+@@ -502,27 +606,30 @@ static unsigned char *find_token(unsigned char *str, int len,
+ 
+ /* replace a given token in all the valid symbols. Use the sampled symbols
+  * to update the counts */
+-static void compress_symbols(const unsigned char *str, int idx)
++static void compress_symbols(const unsigned char *str, int compressed_chr)
+ {
+-	unsigned int i, len, size;
++	const unsigned int token_idx = sym_token_index(str, 0);
++	struct sym_arr *arr = &token_syms[token_idx];
++	unsigned int sym_idx, j, len, size;
+ 	unsigned char *p1, *p2;
+ 
+-	for (i = 0; i < table_cnt; i++) {
++	/* Iterate through all symbols this token is found in and compress. */
++	for (j = 0; j < arr->cnt; j++) {
++		sym_idx = arr->sym_indexes[j];
+ 
+-		len = table[i]->len;
+-		p1 = table[i]->sym;
++		len = table[sym_idx]->len;
++		p1 = table[sym_idx]->sym;
+ 
+-		/* find the token on the symbol */
+ 		p2 = find_token(p1, len, str);
+ 		if (!p2) continue;
+ 
+ 		/* decrease the counts for this symbol's tokens */
+-		forget_symbol(table[i]->sym, len);
++		forget_symbol(table[sym_idx]->sym, len);
+ 
+ 		size = len;
+ 
+ 		do {
+-			*p2 = idx;
++			*p2 = compressed_chr;
+ 			p2++;
+ 			size -= (p2 - p1);
+ 			memmove(p2, p2 + 1, size);
+@@ -536,11 +643,14 @@ static void compress_symbols(const unsigned char *str, int idx)
+ 
+ 		} while (p2);
+ 
+-		table[i]->len = len;
++		table[sym_idx]->len = len;
+ 
+-		/* increase the counts for this symbol's new tokens */
+-		learn_symbol(table[i]->sym, len);
++		learn_symbol(table[sym_idx]->sym, len);
++		symbol_index_new_tokens(table[sym_idx]->sym, len, sym_idx,
++					compressed_chr);
+ 	}
++
++	sym_arr_free(arr); /* No symbol contains this token any more. */
+ }
+ 
+ /* search the token with the maximum profit */
 
 -- 
 2.55.0
