@@ -4,48 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0943BC88E6F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 17:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E8AC88E6F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 18:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5Er27pdpy//pfbfooytKnz0odwpaJwEVsKNAXW0jmUc=; b=aHUZIt3GXNpFDe
-	O8lxtgou6LCYQGiy2ebUn2Au4pbAkHMt26nh7I4VDJE12gYLMXfcax1f8/GcPqQLzsQ7M6moI0wLJ
-	KdKQ+V8eIvrt+XkDRoJDWPM9HZ1Z8s4EfH5fqJ+s80mh3AmWY2PTXP2KuRPjGRFgDV4ELxtOeU+ff
-	Io5t6swNfPFGQp6E80UpbBHkY9OZ7DtRpDNMyNQ6BZ8QkNWUIIxP8Wu48EM2OsPSS9Um/69ToGtC+
-	7PaywrWBOQ3XjKnDsNghcnYMElil2NV5QUsUuP0C96Ct/dRVgIvqSClvZi+/tInlqnjBClDpl2fNd
-	nKahSExHDAj4MogxHEuQ==;
+	List-Owner; bh=1hFTmDtatwZc/qEmGGG5mAVl5dYvofpnc/zEQ+784kw=; b=nm7yctm13QNtk9
+	f7/scUz3ZJ4pveZhoh+QbXBdeO49Uk1pQbEnXoM1sFynSu0gliAbQ7IzKWPvzHvlj9oOOgFvBLzss
+	vDRAf/q0tLCa8z/E2c29u/IWK0774hnrZYhOXK7dgXcL8alAD8pwNb7J57+RbVN3h7yQMOXBU/Zxz
+	SaxtfK1oX09AsZEV5TC2ULR/FNH65kS8NiGxVHsiDG/E6rxuZXaLcVUtv8VX8mTW7hn5JeL589VIC
+	0fyXRzZh2mk9X8XaQwF6MK4QahdiF9Mn3iu4dUu07MKCpBkYPvZQijuRJSi1K1hlgTIsTJtjWgUWV
+	kOxSpR3K8rV3ZBBbsOUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Aox-00000004PJS-03JS;
-	Mon, 14 Sep 2026 17:50:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6Ayl-00000004Q0v-17E3;
+	Mon, 14 Sep 2026 18:00:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Aou-00000004PJA-2xX1;
-	Mon, 14 Sep 2026 17:50:20 +0000
+	id 1x6Ayj-00000004Q0V-1ah9;
+	Mon, 14 Sep 2026 18:00:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1002143E41;
-	Mon, 14 Sep 2026 17:50:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D61DA1F00898;
-	Mon, 14 Sep 2026 17:50:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 128CF60142;
+	Mon, 14 Sep 2026 18:00:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0B891F00893;
+	Mon, 14 Sep 2026 18:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789408219;
-	bh=e67qZ3QCn2L8qyNk+mdAvO35N1up2MXWgPivIgLpess=;
+	s=k20260515; t=1789408827;
+	bh=NXbbt1iUoauMs+fLO9RzZKe19lkdH+Cr594Dnv6SVKQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VzhPxfhrNGwUFy/l2g4I81wR8gE/J718KmUtsDuY/Uh6uBvIcRmhC5kc8HQt0wGA2
-	 brpSBw73lF6qYAafp2WUtJU+3pucoX4YyQOUUaz9p4ygq6pNrUXZIMlbn4gYEXsohf
-	 bhstkaAV1y+GgJQzeladwBwQ4/xbaBeFfcoyFp0d/FdRjbO+4+HbiFSpuQoczjcEfw
-	 sBB7VEeWFU/QcEEEiSjFBYIgF300IaDeV+5AG/C7MAsOZOlCW1sCy8cOGc/cQRr7qT
-	 VvtxBqcopXv4rrKOLi6jWjhgFHFOUqy4WC82WwOIBmeDMhNiG05AJMZ2nPVLgOKFOD
-	 KhM7mBnSCMeuA==
-Date: Mon, 14 Sep 2026 10:50:19 -0700
+	b=ODZLqWaYMLu9jeAppJFzYzDYbmDcJaGKcKFa9maRrc6IVgd+L6cfnoF+W8eb4TyYP
+	 VBuHxSYqLE0IKj4JLNPRHFMrajD3oqPR0Hli5WItdUw2yzXh5Fs1Z4z4Pk7XJ9ltAI
+	 lK9ar1JcXgrjYpleMvYP9gD/0aeoVIW9MHRWXi6H63l0hudVVU0iyu3NXARJ9wAmpg
+	 Ta47EUvAsb1kOr/kor+xnCOr7kifair0OdB5MBceq0djdxtfuvb8ncAwhxJHq7rgYO
+	 0kgGIOgELBX9Z2bS9EIKYMvoB7j/ksCVXBCRHVF9/hI3IZndRa3knP+m3HefHNC/k0
+	 1UIcN90vCw8zQ==
+Date: Mon, 14 Sep 2026 11:00:27 -0700
 From: Kees Cook <kees@kernel.org>
-To: "H. Peter Anvin" <hpa@zytor.com>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nsc@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
@@ -56,7 +55,8 @@ Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
 	Borislav Petkov <bp@alien8.de>,
 	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Arnd Bergmann <arnd@arndb.de>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -85,16 +85,13 @@ Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
 	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 21/21] kbuild: use pigz for gzip compression if
- available
-Message-ID: <202609141049.4B795585A@keescook>
+Subject: Re: [PATCH v2 14/21] kbuild: batch module finalisation
+Message-ID: <202609141056.6AE2C82E@keescook>
 References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
- <20260914-build-speedup-v2-21-39817ec5db23@kernel.org>
- <202609140844.FA7E848A@keescook>
- <BCCCC1E7-25B7-4A8D-BDFC-D5D1FA295F6C@zytor.com>
+ <20260914-build-speedup-v2-14-39817ec5db23@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <BCCCC1E7-25B7-4A8D-BDFC-D5D1FA295F6C@zytor.com>
+In-Reply-To: <20260914-build-speedup-v2-14-39817ec5db23@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,44 +108,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 09:49:50AM -0700, H. Peter Anvin wrote:
-> On September 14, 2026 9:39:07 AM PDT, Kees Cook <kees@kernel.org> wrote:
-> [...]
-> >diff --git a/tools/lib/python/jobserver.py b/tools/lib/python/jobserver.py
-> >index 0b1ffdf9f7a3..fc38c5020b22 100755
-> >--- a/tools/lib/python/jobserver.py
-> >+++ b/tools/lib/python/jobserver.py
-> >@@ -29,6 +29,11 @@ $claim child to do the actual work.
-> > The end goal here is to keep the total number of build tasks under the
-> > limit established by the initial ``make -j$n_proc`` call.
-> > 
-> >+Setting the ``SINGLE_THREADED`` environment variable skips the reservation
-> >+entirely and runs the command with ``PARALLELISM=1``. This is meant for callers
-> >+that run many short commands in parallel themselves, where each one should use
-> >+only the job slot it already holds.
-> >+
-> > See:
-> >     https://www.gnu.org/software/make/manual/html_node/POSIX-Jobserver.html#POSIX-Jobserver
-> > """
-> >@@ -68,6 +73,13 @@ class JobserverExec:
-> >         self.is_open = True  # We only try once
-> >         self.claim = None
-> >         #
-> >+        # SINGLE_THREADED asks for no reservation at all: the command runs
-> >+        # with PARALLELISM=1, using only the slot its caller already holds.
-> >+        #
-> >+        if os.environ.get('SINGLE_THREADED'):
-> >+            self.claim = 1
-> >+            return
-> >+        #
-> >         # Check the make flags for "--jobserver=R,W"
-> >         # Note that GNU Make has used --jobserver-fds and --jobserver-auth
-> >         # so this handles all of them.
-> >
-> 
-> If we are going to add dependencies, can we add *any* scripting language that is less stone tablet than POSIX awk?
+On Mon, Sep 14, 2026 at 10:22:13AM +0100, Lorenzo Stoakes (ARM) wrote:
+> Module finalisation on allmodconfig builds consists of a large number of
+> very short-lived jobs, and the make job dispatcher cannot possibly dispatch
+> jobs fast enough.
 
-What are you referring to here? The jobserver logic is all Python.
+This "cannot possibly" sounds like a weird LLM language intensifier. I'd
+rather a concrete description of the problem, not this kind of
+(redundant?) vagueness.
+
+> [...]
+> Fix this by splitting modules.order into chunks of 128 at a time, run in
+> parallel.
+
+Why "128"? This seems tied to the 128-thread test machine, but ends up
+getting hard-coded, but this choice of value needs some rationale, IMO.
 
 -- 
 Kees Cook
