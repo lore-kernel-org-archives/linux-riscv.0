@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467E4C88E75
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 13:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62282C88E75
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 13:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WFJcdUs7ijHxdsxiuKOMrt1HijBk+IqNWDu759/dhmw=; b=uX1bshfLTCMnK1
-	13OoybJIEaGFJA6Geo6pr4EBuzMQQXSMzkce7lqG6OznzL0GFxSfGHjpVAv/Sp3Xl8ef2PLfm77OO
-	ullcixlG0xwDxNG1H+J7NK9Wgr3ndYvBZb0ROCMoMxVwe1bxBU/CQMhJanP/j8g/gzSsJpaGiejFm
-	AK/83+d19wxdiM0hg2FwsmJvK7/bdo3AT4Pui0XF0iamZkkclR4Yd564Bg2DhQjs4ycmZYaHf6tUa
-	eVMWkJPfG3cXj+YrWVXJUPv1nuiY65K2FA1f3mvMo+0zQcUBnk03J1EB6Xi86BxbMR4VBg9IU79ff
-	j/i6C9jzhJTk8goPE7pg==;
+	List-Owner; bh=a2IlJkATcykZAgkD2J0lLOUZK+2/Elxmb3GDkUvb8Cc=; b=SnOK8pinm8IhFy
+	ies+FGwjs+Tf6PGFoH36tFVxu9u9XXIkmGprCtR248fuPgBNS0HFcQTJ2yaDUBnmPW1VwzXr7vFeJ
+	IlFqwkLkrYJZdMMXhhZHv4YufrfGOLFDunurdKKMH3StvGBFePGShoXWehdAJVPFvgUIkTICP7pvA
+	jTLkOBraGYJV7LUXDBNSQeKhs2xzNynX8JBrG8iNBoif7bI+aT/bWWb5J5n69m96Vq0ZYL5LCgaPP
+	MKThKDeOzsF5mNGL9Y6Qz/P2uMWyLXYWZVLkuIOA4KpWJJCrvpYzCLORIrNoaAYXN2u8gSdPJDlmm
+	77kF+wadIzveY+mL8PUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67AH-00000003sh8-39ZU;
+	id 1x67AH-00000003sgo-1i1T;
 	Mon, 14 Sep 2026 13:56:09 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67AF-00000003sfe-3Mls
+	id 1x67AF-00000003sfe-2nIk
 	for linux-riscv@lists.infradead.org;
 	Mon, 14 Sep 2026 13:56:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4653443DEE;
-	Mon, 14 Sep 2026 13:56:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 244AAC2BCB8;
-	Mon, 14 Sep 2026 13:56:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D3A6443D64;
+	Mon, 14 Sep 2026 13:56:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B10B5C2BD00;
+	Mon, 14 Sep 2026 13:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789394167;
-	bh=TI6Y15jK2WMpO29t4KxW6iYgnJvRaN1hre64+unrls0=;
+	s=k20201202; t=1789394166;
+	bh=H88R8D2yBEpmvpGWUbzHlGqiXdsK5APs1RfBjdRvVgM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=SWCAcz+bE6QBe1jss6bpNT9GHXXM7uGMMa6CvNsGzvYFRKGoWhEgCQMdxHInnpC1c
-	 z8ug/Dq41gwk93CcT1TvhsTlNFmuJoQ7UrnenEeZL58U34uertlOI6MFSB4sHFsD5q
-	 BJHzRs8Wo+Y8YvA/zy8Yw43pyV9bxO9wCWf4hcdl5tNtYxVy3U6DjpK0MEi960B7/k
-	 G0qkCcog3zC1XXv8vMEaqWmr+EpoIl/rA6AltAgsHSi1hRxYreQu3dCk2/lu+JJdlq
-	 2pe+OZHMhcHrh2OnUHWcCBe2WI+rFQKZI8ph9TtKSU47S02ms4MKimEFG710hHX6HB
-	 VEjeiKkB8TV6Q==
+	b=qeewrU8w0XLDazi5K4DRGQfKH54os/0xFquFkhtLjkFzFrolc48MQGq5y2P06vpMf
+	 kAeXXASlNVLAPetaijsTKmz5JpVhZHZSKIizKWz+wwV1tN7YE9hLlqg0ZGEhGb42mN
+	 aozHG67PiOmgYODPBsAtx9tvkeXp7M9mZwJXrEP+WpEO22xfq6zvVtyAIADxEDNXvi
+	 xyLY9ZwOtfMVXC1y+S5eGr5Ja5kG7u+FUGiuQtRqaLIhnbgy8bRMkvoZni7esGxrZv
+	 78rgls1UsjnaGkCl/iCMXJDuyqol42S07nyknhV3Ego2CCsF/ZuubxjuuYZu4NqVEh
+	 zn3QyNeVGCT/g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 06997C88E72;
-	Mon, 14 Sep 2026 13:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9917BC88E72;
+	Mon, 14 Sep 2026 13:56:06 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Mon, 14 Sep 2026 15:55:56 +0200
-Subject: [PATCH 8/9] riscv: dts: gf: Initial support for the P8700 Boston
- board
+Date: Mon, 14 Sep 2026 15:55:53 +0200
+Subject: [PATCH 5/9] dt-bindings: interrupt-controller: Add MIPS P8700
+ ACLINT MSWI
 MIME-Version: 1.0
-Message-Id: <20260914-p8700-dts-v1-8-3267f14ebce1@htecgroup.com>
+Message-Id: <20260914-p8700-dts-v1-5-3267f14ebce1@htecgroup.com>
 References: <20260914-p8700-dts-v1-0-3267f14ebce1@htecgroup.com>
 In-Reply-To: <20260914-p8700-dts-v1-0-3267f14ebce1@htecgroup.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,11 +67,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
  Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789394164; l=12458;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789394164; l=2394;
  i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=sdKgjEvUZZC8ghjKq0mA+IWSifHHew1uS0qIbTFq0Zo=;
- b=eCS9CDGlBSaLwX04m02bgLCpgxbKPkhAzCqPlL4F9bEU4rjHqrmqDCPXU8Bzg/o1qNezlm5SL
- VR3Ux3RFmBkABkCRYg0z7KKzkVIet9TltRC2Fmf0Ql4feDSBqTm52KW
+ bh=d6dCUSpFr/wHwlyABy937JZmuMEa5B5i8Du3V+WGvRU=;
+ b=/CK+7BpY2QEZwNjyCeVxDPxAdvJb8B+L1XLb3ovHEhU/AAcNGfbaoNr5qYc7dKzjrvvqjF5gS
+ 9i9e+eTcC1HCfeO68b+1EqPs+F600EQRxdEx2cyEs8zcUkYaL6wuIze
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
@@ -96,447 +96,79 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
-Add initial device tree for the MIPS P8700 and the device tree
-for the Boston FPGA development board with a MIPS P8700 bitfile.
+Document the aclint mswi compatible for the MIPS P8700 and
+introduce the 'riscv,hart-indexes' property,
+used to address the sparse MIPS P8700 harts.
 
-Add related Makefile and KCONFIG changes.
-
-Co-developed-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
 Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 ---
- arch/riscv/Kconfig.socs                 |   6 +
- arch/riscv/boot/dts/Makefile            |   1 +
- arch/riscv/boot/dts/gf/Makefile         |   2 +
- arch/riscv/boot/dts/gf/p8700-boston.dts | 135 ++++++++++++++++++
- arch/riscv/boot/dts/gf/p8700.dtsi       | 241 ++++++++++++++++++++++++++++++++
- 5 files changed, 385 insertions(+)
+ .../thead,c900-aclint-mswi.yaml                    | 34 ++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 429e0758930687c742c4dd09603e71e90dc096a2..78b0a0076feb14ebdafc4b7f0fa1be3aa416d415 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -18,6 +18,12 @@ config ARCH_ESWIN
- 	  This enables support for ESWIN SoC platform hardware,
- 	  including the ESWIN EIC7700 SoC.
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
+index 62fd220e126e650e3800d8eee2a749fdbbde6108..47c04943eb0c793467aaa5570776605cae0eadfd 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
+@@ -17,6 +17,8 @@ properties:
+               - sophgo,sg2042-aclint-mswi
+               - sophgo,sg2044-aclint-mswi
+           - const: thead,c900-aclint-mswi
++      - items:
++          - const: gf,mips-p8700-aclint-mswi
+       - items:
+           - enum:
+               - anlogic,dr1v90-aclint-mswi
+@@ -29,6 +31,14 @@ properties:
+     minItems: 1
+     maxItems: 4095
  
-+config ARCH_GF
-+	bool "GlobalFoundries SoCs"
-+	help
-+	  This enables support for GlobalFoundries SoC platform hardware,
-+	  including the MIPS P8700.
++  riscv,hart-indexes:
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    minItems: 1
++    maxItems: 4095
++    description:
++      A list of hart indexes that the MSWI device uses to address each hart
++      that is mentioned in the "interrupts-extended"
 +
- config ARCH_MICROCHIP_POLARFIRE
- 	def_bool ARCH_MICROCHIP
+ additionalProperties: false
  
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index 69d8751fb17c803f0efb8003e111ee24144c222b..5d8d55c4cf9d0b17f2a8744aa17526819e6c277a 100644
---- a/arch/riscv/boot/dts/Makefile
-+++ b/arch/riscv/boot/dts/Makefile
-@@ -4,6 +4,7 @@ subdir-y += andes
- subdir-y += anlogic
- subdir-y += canaan
- subdir-y += eswin
-+subdir-y += gf
- subdir-y += microchip
- subdir-y += renesas
- subdir-y += sifive
-diff --git a/arch/riscv/boot/dts/gf/Makefile b/arch/riscv/boot/dts/gf/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..180d7cc7f5cf87e48e2219f9ac9882828ca62016
---- /dev/null
-+++ b/arch/riscv/boot/dts/gf/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_ARCH_GF) += p8700-boston.dtb
-diff --git a/arch/riscv/boot/dts/gf/p8700-boston.dts b/arch/riscv/boot/dts/gf/p8700-boston.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..b829899592aeed5f1cfe3323e755410de07dbdb8
---- /dev/null
-+++ b/arch/riscv/boot/dts/gf/p8700-boston.dts
-@@ -0,0 +1,135 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Copyright (C) 2025 MIPS
-+ *
-+ * Boston FPGA development board with a MIPS P8700 bitfile.
-+ */
+ required:
+@@ -36,6 +46,19 @@ required:
+   - reg
+   - interrupts-extended
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: gf,mips-p8700-aclint-mswi
++    then:
++      required:
++        - riscv,hart-indexes
++    else:
++      properties:
++        riscv,hart-indexes: false
 +
-+/dts-v1/;
+ examples:
+   - |
+     interrupt-controller@94000000 {
+@@ -46,4 +69,15 @@ examples:
+                             <&cpu4intc 3>;
+       reg = <0x94000000 0x00010000>;
+     };
 +
-+#include "p8700.dtsi"
-+
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/* Clock frequency (in Hz) of the FPGA bitfile */
-+#define BITFILE_FREQ	25000000
-+
-+/ {
-+	model = "MIPS P8700 Boston";
-+	compatible = "gf,mips-p8700-boston";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	cpus {
-+		timebase-frequency = <BITFILE_FREQ>;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x80000000>;
-+	};
-+
-+	pci2: pci@14000000 {
-+		compatible = "xlnx,axi-pcie-host-1.00.a";
-+		device_type = "pci";
-+		reg = <0x14000000 0x2000000>;
-+
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		#interrupt-cells = <1>;
-+
-+		interrupt-parent = <&aplic_s0>;
-+		interrupts = <7 IRQ_TYPE_LEVEL_HIGH>;
-+
-+		ranges = <0x02000000 0 0x16000000
-+			  0x16000000 0 0x100000>;
-+
-+		bus-range = <0x00 0xff>;
-+
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0 0 0 1 &pci2_intc 1>,
-+				<0 0 0 2 &pci2_intc 2>,
-+				<0 0 0 3 &pci2_intc 3>,
-+				<0 0 0 4 &pci2_intc 4>;
-+
-+		pci2_intc: interrupt-controller {
-+			interrupt-controller;
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+		};
-+
-+		pci2_root@0,0 {
-+			compatible = "pci10ee,7021", "pci-bridge";
-+			reg = <0x00000000 0 0 0 0>;
-+
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+
-+			eg20t_bridge@1,0,0 {
-+				compatible = "pci8086,8800", "pci-bridge";
-+				reg = <0x00010000 0 0 0 0>;
-+
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+
-+				eg20t_mac@2,0,1 {
-+					compatible = "pci8086,8802",
-+						     "intel,pch-gbe";
-+					reg = <0x00020100 0 0 0 0>;
-+					phy-reset-gpios = <&eg20t_gpio 6 1>;
-+				};
-+
-+				eg20t_gpio: eg20t_gpio@2,0,2 {
-+					compatible = "pci8086,8803",
-+						     "intel,eg20t-gpio";
-+					reg = <0x00020200 0 0 0 0>;
-+
-+					gpio-controller;
-+					#gpio-cells = <2>;
-+				};
-+
-+				eg20t_i2c@2,12,2 {
-+					compatible = "pci8086,8817";
-+					reg = <0x00026200 0 0 0 0>;
-+
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					rtc@68 {
-+						compatible = "st,m41t81s";
-+						reg = <0x68>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+
-+	uart0: serial@17ffe000 {
-+		compatible = "ns16550a";
-+		reg = <0x17ffe000 0x1000>;
-+		reg-shift = <2>;
-+		reg-io-width = <4>;
-+
-+		interrupt-parent = <&aplic_s0>;
-+		interrupts = <4 IRQ_TYPE_LEVEL_HIGH>;
-+
-+		clock-frequency = <BITFILE_FREQ>;
-+	};
-+
-+	lcd: lcd@17fff000 {
-+		compatible = "img,boston-lcd";
-+		reg = <0x17fff000 0x8>;
-+	};
-+
-+	flash@18000000 {
-+		compatible = "cfi-flash";
-+		reg = <0x18000000 0x8000000>;
-+		bank-width = <2>;
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/gf/p8700.dtsi b/arch/riscv/boot/dts/gf/p8700.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..ba1854df5201bc4a6ca26868811834a7847dc624
---- /dev/null
-+++ b/arch/riscv/boot/dts/gf/p8700.dtsi
-@@ -0,0 +1,241 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Copyright (C) 2025 MIPS
-+ */
-+
-+/dts-v1/;
-+
-+/ {
-+	#address-cells = <1>;
-+	#size-cells = <1>;
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "gf,mips-p8700", "riscv";
-+			reg = <0x0>;
-+			mmu-type = "riscv,sv39";
-+			riscv,cbom-block-size = <64>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-+					       "zicntr", "zicsr", "zifencei",
-+					       "zihpm", "zba", "zbb",
-+					       "xmipsexectl";
-+
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu1: cpu@1 {
-+			device_type = "cpu";
-+			compatible = "gf,mips-p8700", "riscv";
-+			reg = <0x1>;
-+			mmu-type = "riscv,sv39";
-+			riscv,cbom-block-size = <64>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-+					       "zicntr", "zicsr", "zifencei",
-+					       "zihpm", "zba", "zbb",
-+					       "xmipsexectl";
-+
-+			cpu1_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu2: cpu@10 {
-+			device_type = "cpu";
-+			compatible = "gf,mips-p8700", "riscv";
-+			reg = <0x10>;
-+			mmu-type = "riscv,sv39";
-+			riscv,cbom-block-size = <64>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-+					       "zicntr", "zicsr", "zifencei",
-+					       "zihpm", "zba", "zbb",
-+					       "xmipsexectl";
-+
-+			cpu2_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu3: cpu@11 {
-+			device_type = "cpu";
-+			compatible = "gf,mips-p8700", "riscv";
-+			reg = <0x11>;
-+			mmu-type = "riscv,sv39";
-+			riscv,cbom-block-size = <64>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-+					       "zicntr", "zicsr", "zifencei",
-+					       "zihpm", "zba", "zbb",
-+					       "xmipsexectl";
-+
-+			cpu3_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu4: cpu@20 {
-+			device_type = "cpu";
-+			compatible = "gf,mips-p8700", "riscv";
-+			reg = <0x20>;
-+			mmu-type = "riscv,sv39";
-+			riscv,cbom-block-size = <64>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-+					       "zicntr", "zicsr", "zifencei",
-+					       "zihpm", "zba", "zbb",
-+					       "xmipsexectl";
-+
-+			cpu4_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu5: cpu@21 {
-+			device_type = "cpu";
-+			compatible = "gf,mips-p8700", "riscv";
-+			reg = <0x21>;
-+			mmu-type = "riscv,sv39";
-+			riscv,cbom-block-size = <64>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-+					       "zicntr", "zicsr", "zifencei",
-+					       "zihpm", "zba", "zbb",
-+					       "xmipsexectl";
-+
-+			cpu5_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu6: cpu@30 {
-+			device_type = "cpu";
-+			compatible = "gf,mips-p8700", "riscv";
-+			reg = <0x30>;
-+			mmu-type = "riscv,sv39";
-+			riscv,cbom-block-size = <64>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-+					       "zicntr", "zicsr", "zifencei",
-+					       "zihpm", "zba", "zbb",
-+					       "xmipsexectl";
-+
-+			cpu6_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+
-+		cpu7: cpu@31 {
-+			device_type = "cpu";
-+			compatible = "gf,mips-p8700", "riscv";
-+			reg = <0x31>;
-+			mmu-type = "riscv,sv39";
-+			riscv,cbom-block-size = <64>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-+					       "zicntr", "zicsr", "zifencei",
-+					       "zihpm", "zba", "zbb",
-+					       "xmipsexectl";
-+
-+			cpu7_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#interrupt-cells = <1>;
-+			};
-+		};
-+	};
-+
-+	soc: soc {
-+		compatible = "simple-bus";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		mtimer0: timer@16108050 {
-+			compatible = "gf,mips-p8700-aclint-mtimer";
-+			reg = <0x16108050 0x8>,
-+			      <0x16154000 0x7ff8>;
-+			reg-names = "mtime", "mtimecmp";
-+			interrupts-extended = <&cpu0_intc 7>, <&cpu1_intc 7>,
-+					      <&cpu2_intc 7>, <&cpu3_intc 7>,
-+					      <&cpu4_intc 7>, <&cpu5_intc 7>,
-+					      <&cpu6_intc 7>, <&cpu7_intc 7>;
-+		};
-+
-+		aplic_m0: interrupt-controller@16140000 {
-+			compatible = "gf,mips-p8700-aplic", "riscv,aplic";
-+			reg = <0x16140000 0x8000>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupts-extended = <&cpu0_intc 11>, <&cpu1_intc 11>,
-+					      <&cpu2_intc 11>, <&cpu3_intc 11>,
-+					      <&cpu4_intc 11>, <&cpu5_intc 11>,
-+					      <&cpu6_intc 11>, <&cpu7_intc 11>;
-+			riscv,num-sources = <53>;
-+			riscv,hart-indexes = <0x00 0x01 0x10 0x11
-+					      0x20 0x21 0x30 0x31>;
-+			riscv,children = <&aplic_s0>;
-+			riscv,delegation = <&aplic_s0 1 53>;
-+		};
-+
-+		mswi0: mswi@16150000 {
-+			compatible = "gf,mips-p8700-aclint-mswi";
-+			reg = <0x16150000 0x4000>;
-+			interrupts-extended = <&cpu0_intc 3>, <&cpu1_intc 3>,
-+					      <&cpu2_intc 3>, <&cpu3_intc 3>,
-+					      <&cpu4_intc 3>, <&cpu5_intc 3>,
-+					      <&cpu6_intc 3>, <&cpu7_intc 3>;
-+			riscv,hart-indexes = <0x00 0x01 0x10 0x11
-+					      0x20 0x21 0x30 0x31>;
-+		};
-+
-+		aplic_s0: interrupt-controller@16160000 {
-+			compatible = "gf,mips-p8700-aplic", "riscv,aplic";
-+			reg = <0x16160000 0x8000>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupts-extended = <&cpu0_intc 9>, <&cpu1_intc 9>,
-+					      <&cpu2_intc 9>, <&cpu3_intc 9>,
-+					      <&cpu4_intc 9>, <&cpu5_intc 9>,
-+					      <&cpu6_intc 9>, <&cpu7_intc 9>;
-+			riscv,num-sources = <53>;
-+			riscv,hart-indexes = <0x00 0x01 0x10 0x11
-+					      0x20 0x21 0x30 0x31>;
-+		};
-+
-+		sswi0: interrupt-controller@1616c000 {
-+			compatible = "gf,mips-p8700-aclint-sswi",
-+				     "mips,p8700-aclint-sswi";
-+			reg = <0x1616c000 0x4000>;
-+			interrupt-controller;
-+			#interrupt-cells = <0>;
-+			interrupts-extended = <&cpu0_intc 1>, <&cpu1_intc 1>,
-+					      <&cpu2_intc 1>, <&cpu3_intc 1>,
-+					      <&cpu4_intc 1>, <&cpu5_intc 1>,
-+					      <&cpu6_intc 1>, <&cpu7_intc 1>;
-+			riscv,hart-indexes = <0x00 0x01 0x10 0x11
-+					      0x20 0x21 0x30 0x31>;
-+		};
-+	};
-+};
++  - |
++    mswi@16150000 {
++      compatible = "gf,mips-p8700-aclint-mswi";
++      reg = <0x16150000 0x4000>;
++      interrupts-extended = <&cpu1intc 3>,
++                            <&cpu2intc 3>,
++                            <&cpu3intc 3>,
++                            <&cpu4intc 3>;
++      riscv,hart-indexes = <0x0 0x1 0x10 0x11>;
++    };
+ ...
 
 -- 
 2.43.0
