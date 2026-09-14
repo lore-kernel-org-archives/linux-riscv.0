@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB4DC88E6F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 19:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C572DC88E72
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 19:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k9jEs142vy25AYC3xbwoHaDIyne6dP/r63mPmOd5u8c=; b=kZ9tthWc2IMvzY
-	jrai/74YIQ8+LrGjpyfc69p8uN5U0OUmiqWV/VPzeMxkM31p6+JSVBe+C0aqzCMJbTtrvXGtu/f4r
-	R80Dxhz/JwlFtolxM0YBqyso6dY6uG9XmKHPIpsMPLGss+qzDmO9FyS57ovJX7ASlWXfAscVR5ySM
-	++jXkGTBbjvU0MLx7fsqqk3gFj9q3TYvQ+bMMKUFPH840XKVK76zKj+zZaO2TUViwtTWSjIa6tnCH
-	0gstqPVlWn+dHVYzE7C3L58aLY4wiNyjNX/U9+xe3+vcM0+EqbUY5r6BP3Q7LLL0s2yyQWcPJcm3J
-	VjcCu4nMYrU1+V8P7yKg==;
+	List-Owner; bh=Y7xBj+Qtx/zouZDs1EXL5AFXAxadeYGJ/UIUlcRBO0U=; b=ihlYp+4wHa8sVy
+	dcDJgttNslhVvNUc9kRkWECttotoB6clqiFW8Rks8PfEhdGVomEwL/HhIoK/WVL30w8KFvnmX1DsC
+	rsAQHE8ovYG/AGqHsOauEYrKlkWoWj2ffmVRXZ4VRqevyRoDjU24K6v6lI4CdHHpXtVISt7GlNNGe
+	UvqI1T+Zmx6Pguay3/xGWq+H8ciOO1puvVC2/avSACIm+9MyVNSAJ8iltVTICxeQ8koIsclFTugEw
+	Uonr17hdQO5YcBajADFq6ltwHjhmLcrYbzra1UDqUZ7U1nmUvXAfEV+Q3ETRSbzWmsVe84chSutMD
+	a0kCxbABVs2byCX3qV+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6CVB-00000004XZ3-3NOs;
-	Mon, 14 Sep 2026 19:38:05 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1x6CVz-00000004Xov-1nt8;
+	Mon, 14 Sep 2026 19:38:55 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6CV7-00000004XYD-2ju1;
-	Mon, 14 Sep 2026 19:38:04 +0000
+	id 1x6CVq-00000004Xkq-0vAr;
+	Mon, 14 Sep 2026 19:38:47 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260914193754euoutp02981281706c8e3139fb5b93cfbd25526a~VRyqJA0Bb0156301563euoutp02C;
-	Mon, 14 Sep 2026 19:37:54 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260914193754euoutp02981281706c8e3139fb5b93cfbd25526a~VRyqJA0Bb0156301563euoutp02C
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260914193842euoutp01953e61d38ec40643bc4d7157964f6df4~VRzWra7uK0314903149euoutp01E;
+	Mon, 14 Sep 2026 19:38:42 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260914193842euoutp01953e61d38ec40643bc4d7157964f6df4~VRzWra7uK0314903149euoutp01E
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789414675;
-	bh=5quPaYobLEbeMOu5MqGjHlx1gGO6GYM4Ci77INCJQLA=;
+	s=mail20170921; t=1789414722;
+	bh=l4wDoWVeNywfcIR5L4rg3J/vDfSoW2zWF07vjDkO78A=;
 	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=TZKarI6Fzswot9c4aVXuInO0XRxf9GfzbOMlt7onjkVzeL1ZbqAInBvs4atJ/oDi0
-	 AUtj/OANEEt5ewm+9Sk6Wb7zy4Ml9/IM+VLkFU4eqSkZba+0uuGUKYDcVqnkJKj0Lt
-	 oxPYASnd7d7htQ9OwYLZimxgp4UXzR/izU9JOwv4=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260914193754eucas1p1c5e933b8753ce6d75f7c5f34e3bb72d6~VRypvtokG2298422984eucas1p1x;
-	Mon, 14 Sep 2026 19:37:54 +0000 (GMT)
+	b=WTY8xEi6jJOa1gLnOSUBPvlQpMk4v2dS5Nlb2zkZtStSIF1Pr3VZihsDFbmaj+Y4h
+	 48ffokqJfJoWOeBrkZRq1liliRT+IYnxf1/b09yAMsjlsgBoE69rhThGKgRG7auZzS
+	 XuVmAtFsH2iSO/zueW7kE3R3lnmCSs0qp5222L1M=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260914193842eucas1p27f2871f925584e946f2bb24c04b38b90~VRzWUs-Iu3205232052eucas1p2N;
+	Mon, 14 Sep 2026 19:38:42 +0000 (GMT)
 Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260914193752eusmtip20be6a60002305f9f5bc9e993970a2799~VRynuwkCl0478104781eusmtip2P;
-	Mon, 14 Sep 2026 19:37:52 +0000 (GMT)
-Message-ID: <782506ab-70b8-40a0-98f6-239e74351c1e@samsung.com>
-Date: Mon, 14 Sep 2026 21:37:52 +0200
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260914193840eusmtip1c6e3388713b55ee3f14ee6a855ba8b6e~VRzUiiOIx1812818128eusmtip1N;
+	Mon, 14 Sep 2026 19:38:40 +0000 (GMT)
+Message-ID: <fcfdd9da-8425-4cf9-94ba-23b06cd06185@samsung.com>
+Date: Mon, 14 Sep 2026 21:38:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/19] dt-bindings: display: verisilicon: Add
- starfive,jh7110-dc8200
+Subject: Re: [PATCH v3 18/19] riscv: dts: starfive: jh7110: Update DT for
+ display subsystem
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
 	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
@@ -80,19 +80,19 @@ Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
 	Zheng <zhengxingda@iscas.ac.cn>
 Content-Language: en-US
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20260910-amorphous-vigilant-jaybird-d65c4f@quoll>
-X-CMS-MailID: 20260914193754eucas1p1c5e933b8753ce6d75f7c5f34e3bb72d6
+In-Reply-To: <20260910-determined-fantastic-seriema-3ff701@quoll>
+X-CMS-MailID: 20260914193842eucas1p27f2871f925584e946f2bb24c04b38b90
 X-Msg-Generator: CA
-X-RootMTR: 20260904132719eucas1p1c900149ffa1b8771aca238e6441482ee
+X-RootMTR: 20260904132743eucas1p1e02218d3fb38af95c3dd4bfa24904cab
 X-EPHeader: CA
-X-CMS-RootMailID: 20260904132719eucas1p1c900149ffa1b8771aca238e6441482ee
+X-CMS-RootMailID: 20260904132743eucas1p1e02218d3fb38af95c3dd4bfa24904cab
 References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
-	<CGME20260904132719eucas1p1c900149ffa1b8771aca238e6441482ee@eucas1p1.samsung.com>
-	<20260904-jh7110-clean-send-v3-6-484f9ae72715@samsung.com>
-	<20260910-amorphous-vigilant-jaybird-d65c4f@quoll>
+	<CGME20260904132743eucas1p1e02218d3fb38af95c3dd4bfa24904cab@eucas1p1.samsung.com>
+	<20260904-jh7110-clean-send-v3-18-484f9ae72715@samsung.com>
+	<20260910-determined-fantastic-seriema-3ff701@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_123801_961307_C73FDBF9 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20260914_123846_525192_CAF2C1C2 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,31 +111,47 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 9/10/26 10:34, Krzysztof Kozlowski wrote:
-> On Fri, Sep 04, 2026 at 03:27:07PM +0200, Michal Wilczynski wrote:
->> The JH7110 embeds a DC8200. The binding requires an SoC specific
->> compatible ahead of the generic one, so add the JH7110 to the enum.
->>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> ---
->>  Documentation/devicetree/bindings/display/verisilicon,dc.yaml | 1 +
->>  1 file changed, 1 insertion(+)
+On 9/10/26 10:37, Krzysztof Kozlowski wrote:
+> On Fri, Sep 04, 2026 at 03:27:19PM +0200, Michal Wilczynski wrote:
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> index 9c3e4598747eb5541effe697044484715569a285..0f981f4c89586269b987be8591037c9461e04703 100644
+>> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> @@ -290,12 +290,6 @@ gmac1_rmii_refin: gmac1-rmii-refin-clock {
+>>  		#clock-cells = <0>;
+>>  	};
+>>  
+>> -	hdmitx0_pixelclk: hdmitx0-pixel-clock {
+>> -		compatible = "fixed-clock";
+>> -		clock-output-names = "hdmitx0_pixelclk";
+>> -		#clock-cells = <0>;
+>> -	};
+>> -
+>>  	i2srx_bclk_ext: i2srx-bclk-ext-clock {
+>>  		compatible = "fixed-clock";
+>>  		clock-output-names = "i2srx_bclk_ext";
+>> @@ -352,6 +346,13 @@ tdm_ext: tdm-ext-clock {
+>>  		#clock-cells = <0>;
+>>  	};
+>>  
+>> +	xin24m: xin24m {
 > 
-> And this one must be before patch #5 or switch in your patch #5 to
-> compatibles-style for children, instead of $ref (see some recent
-> display/msm/*mdss* bindings like sm8750).
+> Other clocks are called foo-clock, so follow this as well (even though
+> it does not follow recommended practice of clock-foo, but at least some
+> consistency).
+
+will rename to to xin24m-clock
+
 > 
 > Best regards,
 > Krzysztof
-
-Thanks, I think I can do both for the v4.
-
 > 
 > 
 
 Best regards,
 -- 
 Michal Wilczynski <m.wilczynski@samsung.com>
+
 
 _______________________________________________
 linux-riscv mailing list
