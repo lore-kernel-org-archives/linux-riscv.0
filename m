@@ -4,79 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93192C88E72
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 15:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FDC1C88E72
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 15:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vU9Cpagf/di5FDo2TiW+TvkWYfeLTMCfD0oUI95KeJ0=; b=vTcnb7ARGLvl3y
-	+Wo4mGjdYNsrQLzFNPK69AyitbhBcXQnyDcvhb95B79c35qF3xhgVQQ+H/xOVGD1IebWPROoaFQOb
-	+lngo5v3FJQ95Vo0+t/zah9WMbz+wBzxCSa5zAx4PtIRiFrebb2Ooggv4y5/Rw5NTbhPGLS2cSb78
-	MQM2aXubbcE/0fBqS855x8WL/8TvERQjQOwCbtLyLNdEfiDXB1KKR2fa6UPs6MEBEY2GQDI+f5ekK
-	Pm+ZHBdb7p1m2A81DpFGZPYD03RDKii1fwi6oJyZOS4AmmYGF1g0WbDNWuUnfEP/QTVwKafpFB7g/
-	plhmSZu+PVGYKNllaqTQ==;
+	List-Owner; bh=AIxzUYLCVI3o6WuC+gj7wNi8CwB22v5KuzbEfSZkOHg=; b=Hh/KVGUAl3Cosd
+	mjMwt+PA9nqF9S+QGsxlxEh8FZWzl6RqajrXrgxSXXI7VtWHxu8khRqun5pMbq0TKhYW1hBemmuVS
+	mBajNiKc+V6465L6ZOd5aRnmGeTfhPiQvVjkhdI7d7V8Uhbast2p+azbZiVAm0j4ew5LB3bB4egFq
+	fccAz+y2hDM2ZJAthFIoFtsH1n8LU9ZlLoFIlAdHMguE+8iC3yHGCoaarcw9XsTpcV5L+U7P1mWj/
+	w5n2mhL03BQGtYYkGG74BwsPS6/sl6ZqmDaWAaBud19wuBPGi0Viljcj2MwcejmHrLRCcwsf14HQt
+	8wlchR7KtlRLhsI/QXOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68YD-000000049LO-1zKI;
-	Mon, 14 Sep 2026 15:24:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x68Zv-000000049ef-3bj0;
+	Mon, 14 Sep 2026 15:26:43 +0000
+Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68YC-000000049L6-0u7g;
-	Mon, 14 Sep 2026 15:24:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5ECB660142;
-	Mon, 14 Sep 2026 15:24:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D28771F000FF;
-	Mon, 14 Sep 2026 15:24:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789399495;
-	bh=WL86cKdk/ZUM1qTOZj4B+L+bc1frQqDRCUlhlSxv/JQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=D6by0sBSuPsWnPY/q+3+4xxuX6qvTRutko6G8MFgm2Cgx7icFf77LFko08xgOogFa
-	 Q7hoHM9IO7d/MfeE/M35aFQUHhgNS8dCHhTb2vdRWWhepoRdkSG+3aIrGEpcO2uL1O
-	 SGeyDR+u4PbiXRNjfxFaz4YYPqI/uqF6Q1hTc37azbSMl2Z+PG2xV7V/wVVpLW1+5N
-	 jKCFeGb0EYtA5i/SCA7hk6dbkuVRO9cq3VEyZas+X47IL8Eijo12e4khM0fl5mUJV2
-	 Hg+16wB7QyUOYfGnlM4ppjr1ZK+lmVnEEdNmQ/oqGVaJ3hUpBtr7eI85g02Pn16I33
-	 zLHsGFg95m+vg==
-Date: Mon, 14 Sep 2026 16:24:41 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: John Stoffel <john@stoffel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 11/21] kbuild: avoid re-running compiler and linker
- probes
-Message-ID: <aqgRXk6DXyAah488@gremlin>
-References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
- <20260914-build-speedup-v2-11-39817ec5db23@kernel.org>
- <27304.3198.867048.379684@quad.stoffel.home>
+	id 1x68Zt-000000049da-00wQ
+	for linux-riscv@lists.infradead.org;
+	Mon, 14 Sep 2026 15:26:43 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d90ba1d807so30379565ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2026 08:26:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789399599; x=1790004399; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JSZQy8BrbphsTuB3PP3GNkS6dKaTus6BUKVlBhlcQXk=;
+        b=WLixHfMHBi/6GZlZiZewcEI020Q6RnijvzoZGh6zwnSh4I9ZfBjmuDtrfMLD/dIR4+
+         1mqYrmNoCwj2Nf9DWE0CkFbm1+wIuc6l0nmKLyRW8liahQ/Whfx+xVUDD7WgsHS17etb
+         xjW+SQOTpx9GadUN4rbXQk8NAJYqMmFrzct2Y6Te1h0hV3gnFUv635MlA69r3Cm2UXuH
+         jk1vEOU1OaXJD8WdQLfoBCsadaWCX9cf8RIayYoW9rgkOGYyyToQjKq66GPL+nZxUXiM
+         ESDYWnOjfE7VovnP3+RC7xJTm0HDGiweKKEk8dAI8nXmcosJ+Aa0YQpGjdfBwVvMWfHD
+         MyXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1789399599; x=1790004399;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JSZQy8BrbphsTuB3PP3GNkS6dKaTus6BUKVlBhlcQXk=;
+        b=n8NuZBYoP+izjMxCoOAC2MxJ9gHB5Yi4VmNwYeCQb9olyBNxngGvc993LOsNGg1gIV
+         2mG3X9U3jSGY4EdAfoVdpZ/b4V604r2CStyobIQw05NuhI/ey2i+ilhoJUUwg5mspMie
+         ez5ISI6cqkjvUl75ufq0WJ6ejFgMHmjHLAZtjPhFKCbSIM/fupBGB2ZsNRqug44JLJwj
+         xDPxo9elIFyA7wdmJM4cEMV948k5kNfxb1Df92uWQsGW5tRLH3+jNGtkePwLXTKbepyy
+         PBL+Bd/sCImYHHCseC0jcB1CMTk0FI7SXAipVqui+2w6cYoO7tKz8LMgw6UcuGypd00b
+         kM7A==
+X-Forwarded-Encrypted: i=1; AKwUvBzjW2RZXgJB6kg+NVmx+ujQTNtcXkq+EQOuwdQoyyqbBpOI3AGpIlOUDgdg2ch2jZQ+NfUQ0DZ8Fp/lrw==@lists.infradead.org
+X-Gm-Message-State: AFuF++kWIRGUTvMl58eB9bZIqpQOCLlAUvRWTaKkgDWQVrPFy8wzNuQr
+	rRveWjEJgSLeGMVR5cKpsYiVyVm+HBSzHuGhMyHRp1XolnjAJmdnuRSPPs+D0pzy
+X-Gm-Gg: AYBFou07IuybAZUjDf1B8Zr5IZpQanJqPsvyIBG2vn6kucUIV1RfS0FUb/RIBa0VSlV
+	d1TuI3gScW5Yr4Y3Jsff1BMXj5dY6H3X8UQ6PVTRxdjiBPuhgOduiU52mgzmLQwpHrmVXmGUcR5
+	j5Ui0zsnMg0vUsjrJ4rTZU8g5EGRDfkOIzHn5f3RUGDE4qgGDqbio0gqzj6C1bjZpwL7Nu2eEH5
+	BRoObUZeX0+pvX7PxTKjuU3/a5x9DaM8LD3aoSvkKVWjUPaXKW35Ol2r5PNSBI2mHz8rHAeVB+c
+	uhuUppD3Yv2tUdESgdKbnqeBEQgTK28NfNJZ2QX050KEsunbLbirfG0JDwb1CgAPRJbw3y1aEZ9
+	UXzNt0gAaGbkwe8ZRB/Ty46b6AdJHcSyUHsOgihXm3r0MuNhLzMMnkD7o/XS5FS/CHUVIRj5d/Y
+	VEVweUA1ObSp/QOUgkzIzQXoXKkVzgjHNRmKWUhVecv844UIEfpCJu/NUmEsaq2vwKEPjb+JHv8
+	G+JRIs63VKi
+X-Received: by 2002:a17:903:35c6:b0:2db:73fc:b57f with SMTP id d9443c01a7336-2dd6c6c0cc0mr59735695ad.10.1789399599255;
+        Mon, 14 Sep 2026 08:26:39 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd2cfdc15esm51211505ad.66.2026.09.14.08.26.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Sep 2026 08:26:37 -0700 (PDT)
+Date: Mon, 14 Sep 2026 08:26:36 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Troy Mitchell <troy.mitchell@linux.dev>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yixun Lan <dlan@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v5 1/6] dt-bindings: vendor-prefixes: Add Sensylink
+Message-ID: <35ea8534-5446-40fc-b1a7-72a115bc40b6@roeck-us.net>
+References: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
+ <20260914-ctl2301-v5-1-b44b81cd2c3c@linux.dev>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <27304.3198.867048.379684@quad.stoffel.home>
+In-Reply-To: <20260914-ctl2301-v5-1-b44b81cd2c3c@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_082641_043174_C124E55E 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,63 +112,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 11:02:22AM -0400, John Stoffel wrote:
-> >>>>> "Lorenzo" == Lorenzo Stoakes (ARM) <ljs@kernel.org> writes:
->
-> > Each kernel make invocation begins with ~30 compiler and linker runs each
-> > of which performs duplicate probe for a number of compiler and linker
-> > options.
->
-> > This is useless work - the compiler and its version is known, so use these
-> > to determine which options are available, once.
->
-> > A convention already exists for this - CC_HAS_xxx, LD_HAS_xxx in Kconfig
-> > files (for example, CC_HAS_COUNTED_BY), so convert these probes to Kconfig
-> > options where appropriate.
->
-> > This change avoids a sublte issue with ppc32 (big endian) - clang doesn't
->                        ^^^^^^
->
-> subtle
+On Mon, Sep 14, 2026 at 04:03:53PM +0800, Troy Mitchell wrote:
+> Add the vendor prefix for Sensylink Microelectronics.
+> 
+> Link: https://en.sensylink.com/
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
 
-Oops!
+Applied.
 
-I love that I ran this through AI review several times and it missed
-something as simple as this :)
-
->
-> > accept -fno-stack-clash-protection on this sub-target, so keep this option
-> > in the Makefile.
->
-> > With gcc and clang, defconfig and allmodconfig, the recorded command
-> > lines are unchanged, a build with nothing to do rebuilds nothing and W=1
-> > continues to function correctly.
->
-> > Doing this improves all builds, but has a particularly positive impact on
-> > no-op builds (builds where nothing has changed).
->
-> > Whole build, 128-thread Threadripper 9980X, best of N runs:
->
-> >                                          before   after     delta
-> >                                          -------------------------------
-> >   x86 defconfig, no-op make, gcc           0.78s    0.60s    -0.18s (-23%)
-> >   x86 defconfig, no-op make, clang         0.94s    0.66s    -0.28s (-30%)
-> >   x86 defconfig, touch mm/vma.c, gcc        8.6s     8.5s    -0.16s (-2%)
-> >   x86 defconfig, touch mm/vma.c, clang      8.0s     7.7s    -0.24s (-3%)
-> >   x86 defconfig, clean, clang              29.8s    29.4s    -0.37s (-1%)
-> >   x86 allmodconfig, no-op make, gcc        12.9s    12.7s    -0.23s (-2%)
-> >   x86 allmodconfig, no-op make, clang      14.2s    13.9s    -0.29s (-2%)
-> >   x86 allmodconfig, touch mm/vma.c, clang  32.2s    31.9s    -0.30s (-1%)
->
-> Are these deltas just per-patch, but cumulative with all the previous
-> patches applied?
->
-
-Per-patch. I let the threadripper do builds for a LONG time to accumulate
-these... :)
-
---
-Cheers, Lorenzo
+Thanks,
+Guenter
 
 _______________________________________________
 linux-riscv mailing list
