@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9370C88E6F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 18:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB4DC88E6F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 19:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hhg10/pA9XWVsAoy3wK2fVb4NEqRA1J2Z/MwBnBiulA=; b=SFPZL09B0h/Ziy
-	+cnXcpuwIlu/Z0dgzQjCaorpJpakamXkAzQ5zh+1DzwAmcRnA399/UekKD6vGn50pqRv13UqRzxgb
-	qvEsZkQh+6qpG09JtlvbO20osg0a2+7Y10/ddcQpM4OamZu+FKs70yVykJd6ZUp5GeOdRgJGONdhA
-	xRtyYcJJir//XmUaEmfzlt1zFXinVjXbEGu6FhOlPVJXhnA1jFlQdd5k1OzOJBYjHlnOx6zOwD1fW
-	C1DNXhQzngRbpAC8WXHoyAqq1FfNm+w2bbcbmEM+HKeOduCMZgFyDSccnI48FMv4tAEx3teACnxJm
-	c0aZda0tB9gD+BN94XMw==;
+	List-Owner; bh=k9jEs142vy25AYC3xbwoHaDIyne6dP/r63mPmOd5u8c=; b=kZ9tthWc2IMvzY
+	jrai/74YIQ8+LrGjpyfc69p8uN5U0OUmiqWV/VPzeMxkM31p6+JSVBe+C0aqzCMJbTtrvXGtu/f4r
+	R80Dxhz/JwlFtolxM0YBqyso6dY6uG9XmKHPIpsMPLGss+qzDmO9FyS57ovJX7ASlWXfAscVR5ySM
+	++jXkGTBbjvU0MLx7fsqqk3gFj9q3TYvQ+bMMKUFPH840XKVK76zKj+zZaO2TUViwtTWSjIa6tnCH
+	0gstqPVlWn+dHVYzE7C3L58aLY4wiNyjNX/U9+xe3+vcM0+EqbUY5r6BP3Q7LLL0s2yyQWcPJcm3J
+	VjcCu4nMYrU1+V8P7yKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Bej-00000004TGN-2SRp;
-	Mon, 14 Sep 2026 18:43:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6CVB-00000004XZ3-3NOs;
+	Mon, 14 Sep 2026 19:38:05 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Beh-00000004TFz-3oix;
-	Mon, 14 Sep 2026 18:43:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C69860252;
-	Mon, 14 Sep 2026 18:43:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCFB61F000FF;
-	Mon, 14 Sep 2026 18:43:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789411430;
-	bh=bo6GJLiDf9mVwm6AXXi7iuVJHoavl3dsdCOXGh6V4XE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=G0/xHYvAtQ4HOxtFGJbJlA22cMjDZl+N56G9hsoC0tQv8qT6/15zEdvADlDxeYuQh
-	 ae8Q6N4X+AKq3TVZGTbZs+4oj+vIEXo4zgpz9hevYG1TM/+/i/QF6MM11pZBxxyVq0
-	 vraPPnQ7ZUCWXbPqXPeQbWc8N1vmP5oiVA5uoJav1ICknNtIaaUdkQaW70pDvAs5vE
-	 974HTKmZo3bFjISiUMqs3buCdhMg059Qh11CETtTBafCHxBYrVccHqoUfj37NZD6rk
-	 zB9+I7SuAegOhvn9/uOVYU9JJ+Kw272HbWhBcTsqzySDRKTHj2bpbmSHp8inaUBp/U
-	 YZD68D5G/qndA==
-Date: Mon, 14 Sep 2026 11:43:50 -0700
-From: Kees Cook <kees@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alexey Gladkov <legion@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 00/21] kbuild: significantly speed up kernel builds
-Message-ID: <202609141139.AEF875252@keescook>
-References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
- <202609140833.88C0E16E50@keescook>
- <aqg5nvRy9nuvC78L@gremlin>
+	id 1x6CV7-00000004XYD-2ju1;
+	Mon, 14 Sep 2026 19:38:04 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260914193754euoutp02981281706c8e3139fb5b93cfbd25526a~VRyqJA0Bb0156301563euoutp02C;
+	Mon, 14 Sep 2026 19:37:54 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260914193754euoutp02981281706c8e3139fb5b93cfbd25526a~VRyqJA0Bb0156301563euoutp02C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1789414675;
+	bh=5quPaYobLEbeMOu5MqGjHlx1gGO6GYM4Ci77INCJQLA=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=TZKarI6Fzswot9c4aVXuInO0XRxf9GfzbOMlt7onjkVzeL1ZbqAInBvs4atJ/oDi0
+	 AUtj/OANEEt5ewm+9Sk6Wb7zy4Ml9/IM+VLkFU4eqSkZba+0uuGUKYDcVqnkJKj0Lt
+	 oxPYASnd7d7htQ9OwYLZimxgp4UXzR/izU9JOwv4=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260914193754eucas1p1c5e933b8753ce6d75f7c5f34e3bb72d6~VRypvtokG2298422984eucas1p1x;
+	Mon, 14 Sep 2026 19:37:54 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260914193752eusmtip20be6a60002305f9f5bc9e993970a2799~VRynuwkCl0478104781eusmtip2P;
+	Mon, 14 Sep 2026 19:37:52 +0000 (GMT)
+Message-ID: <782506ab-70b8-40a0-98f6-239e74351c1e@samsung.com>
+Date: Mon, 14 Sep 2026 21:37:52 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aqg5nvRy9nuvC78L@gremlin>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 06/19] dt-bindings: display: verisilicon: Add
+ starfive,jh7110-dc8200
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+	Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, Philipp
+	Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Hal
+	Feng <hal.feng@starfivetech.com>, Michael Turquette
+	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
+	<bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley
+	<conor@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+	<alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>, Brian Masney
+	<bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	mfd@lists.linux.dev, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20260910-amorphous-vigilant-jaybird-d65c4f@quoll>
+X-CMS-MailID: 20260914193754eucas1p1c5e933b8753ce6d75f7c5f34e3bb72d6
+X-Msg-Generator: CA
+X-RootMTR: 20260904132719eucas1p1c900149ffa1b8771aca238e6441482ee
+X-EPHeader: CA
+X-CMS-RootMailID: 20260904132719eucas1p1c900149ffa1b8771aca238e6441482ee
+References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
+	<CGME20260904132719eucas1p1c900149ffa1b8771aca238e6441482ee@eucas1p1.samsung.com>
+	<20260904-jh7110-clean-send-v3-6-484f9ae72715@samsung.com>
+	<20260910-amorphous-vigilant-jaybird-d65c4f@quoll>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_123801_961307_C73FDBF9 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,49 +109,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 07:25:28PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Mon, Sep 14, 2026 at 08:41:39AM -0700, Kees Cook wrote:
-> > Did you try Clang CONFIG_LTO=y builds?
+
+
+On 9/10/26 10:34, Krzysztof Kozlowski wrote:
+> On Fri, Sep 04, 2026 at 03:27:07PM +0200, Michal Wilczynski wrote:
+>> The JH7110 embeds a DC8200. The binding requires an SoC specific
+>> compatible ahead of the generic one, so add the JH7110 to the enum.
+>>
+>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>> ---
+>>  Documentation/devicetree/bindings/display/verisilicon,dc.yaml | 1 +
+>>  1 file changed, 1 insertion(+)
 > 
-> I tried a CONFIG_LTO_CLANG_THIN in order to check that the *.mod.S stuff
-> worked correctly, all working correctly.
-
-Okay, thanks! I did the same just now too. It seems to be just fine.
-
-> I can try to get some profiling numbers for thin and full if you want?
-
-Mostly I wanted to know if it worked still, and I guess for profiling,
-I'd want to make sure it didn't regress how long it took to build. :)
-
-> Well I rewrote the majority of them, so this is a stinging critique of my
-> commit message writing I guess :)
-
-Oops! Sorry. I'll go through them again, but I felt like the objtool
-commit logs were very long, but perhaps it is justified. ;)
-
-> (N.B. I have had feedback like that on a fair few human-written commit
-> messages of mine lately so there might be some validity to that ;)
-
-And as I said, I get told I'm often too terse, so perhaps my sensing
-here is broken. :P
-
-> > One area I think might solved via an LLM is the 3-pass kallsyms stuff.
-> > If we could get a deterministic kallsyms build in 1 pass, that would be
-> > very nice. A lot of people have tried, but it has eluded upstreaming.
+> And this one must be before patch #5 or switch in your patch #5 to
+> compatibles-style for children, instead of $ref (see some recent
+> display/msm/*mdss* bindings like sm8750).
 > 
-> "going from three passes to one would save around 8s on an allmodconfig
-> build and 2 to 3s on defconfig, out of tails that are currently roughly 25s
-> and 8s." says the LLM :) so that actually does seem worthwhile.
+> Best regards,
+> Krzysztof
 
-It's what I'm always staring at when I do incrementals. ;)
+Thanks, I think I can do both for the v4.
 
-> But I think best as a follow up?
+> 
+> 
 
-Yeah, I would imagine it'd be separate. (I think a few of these sets of
-changes could be landed separately too, like the pigz work.)
-
+Best regards,
 -- 
-Kees Cook
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
