@@ -4,110 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E15C88E6F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 20:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3942C88E73
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 21:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Cc:From:Subject:References:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4wNqe0taOrX76GIXBlBgRxO9368pa/iToy12OjWHLNs=; b=g14YMELW9/1zhn
-	5IAusSTbjmQESDd/PwfJslrAwcmvZ0l4tfMkkuaoaiX7J4nVKe6f+z4xEg6QDo0e9oVNYg3u8Rqfr
-	sN9M4ZAC6lfkSnr/yu54JIfNbfTuXF9u6Ny2fA7v9EHKp4N8xvDLGHGiAfD42WullpUpkVujm0a9n
-	TDnNvjjYDD8955EaD+qEn2F8ED7SYrz2i8yyjRRmRtp8//hJreCySltm264q9gPsXWaCyeU89lzRb
-	zC4cZBGB7N5wINuF8LQRjot2ICamiOpbu7JbGs+TPn9jBQDyhTNEkJVUaGuPRUu8uoPN1tD3rFXZZ
-	lM+QOQbQsSd30CdQ0v0w==;
+	List-Owner; bh=AomWjSzofXaTDJrC2WoGpMoGajQBOL8BGduueoUgdcQ=; b=DUhkQAAOuNb/aJ
+	prygzc/iaZAqIcxlMyGXlOQQ/oXGpavy+3jNM6yVWQyqLL7mzw3Zm/7a9qzZRi2oJrr5oMppADON7
+	6V3HY5XfTquxzlbkl+tLKG89ebHCg1PLVcfkYEAF/kaFXV/EH3WiVNLcRk93ZE7opkHySCLgj4RzW
+	wr62BGQ5IVpq5rWOl3pet+sgHEirjqgDXkk8QCe6RFXjvGklD3b2NU07FAoKfzALEtpfKdw+LUoXd
+	ZmGp+PlkDsKgFrqbIlcXDYUMcbZInxR8kbAbF98rwaC0yPL9/aPutOBe2DPOI3q9R9oLS/FGRFaFc
+	Ug9/enZCJe6uG7fNmSPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6D6i-00000004Zy7-2mnj;
-	Mon, 14 Sep 2026 20:16:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6Dox-00000004eKL-11I3;
+	Mon, 14 Sep 2026 21:02:35 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6D6g-00000004Zxv-3HGz;
-	Mon, 14 Sep 2026 20:16:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:Cc:From:Subject:References:To:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=/OeoI3I3mTzQeIpxNN1ihFr58i9zgH7dzRy93a4mRvc=; b=ls+AyxUBDKbSxqMzX4Os4rtaGN
-	Gj7rten2UgFjPWEj2pIA2NPOmpvoiAAuwsHdM8wDM1qjg03djFvYn74uiGdt6cSHa23y3a4qczwO1
-	RPSJ5qYr6lWTjDvAmF954TuPULsHXPS3XIyZi3v/AE7mL76jZsBt66HY73EmAQt1c//oUNOUjInL5
-	RE8FA7w+fci5o1BRDuQxeGCTcJ2WHDw3UOu7EjlPrFT/UxhWglo4RQLcC8rxokzaS/YVDDFYhDDBv
-	A+fwNRtEOdHs00wt1j5ZQyrZTZVpnoPazQJMJsduYWSFhp4ONHN4hSDeqUaFu0JyHAopGnnveiNa+
-	1MiafP9w==;
-Received: from mout.web.de ([212.227.17.11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6D6c-00000005zip-3xe1;
-	Mon, 14 Sep 2026 20:16:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1789416979; x=1790021779; i=markus.elfring@web.de;
-	bh=/OeoI3I3mTzQeIpxNN1ihFr58i9zgH7dzRy93a4mRvc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:References:
-	 Subject:From:Cc:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=j9/unOnZmsYOZQaZn/CSzRNc1Rnp9KNTNoKf2sDDXWeetqJA4kudVuANVAjc3U+T
-	 Y2Oj7Vy8UIGVMbS3icYOJdFuZbJ+a+oAG8z1dzoXhxjTqUSSKYd+oe3jUKtJevWJH
-	 32beGnzmMrcq2p6oVX47PpNW6Vm1zYfTo+mISpffL0i/LFPp0thBP69j5ScXJvURP
-	 e8Q+fVXq67KQTeMkxiVetwEjQ+zLe8hN9JaDGpPSthBlW7Jg71vsvIUHtzXaKbBPZ
-	 h0lCTuaQg8UlNHsJwW4cC7B3HRZ3YWr6eTihikW8XDT3qmzEqEBzR0wzuPlP6i2NZ
-	 FrSN4u3m/LzdY7hUAQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MQPdr-1xSOoN451V-00JQAd; Mon, 14
- Sep 2026 22:16:19 +0200
-Message-ID: <cda4d320-599d-41c8-a37f-827688b552f9@web.de>
-Date: Mon, 14 Sep 2026 22:16:12 +0200
+	id 1x6Dos-00000004eHW-3S9p;
+	Mon, 14 Sep 2026 21:02:33 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260914210223euoutp0232f0813c7657236ff92e65a4f265b42c~VS8afgsQQ2818028180euoutp02V;
+	Mon, 14 Sep 2026 21:02:23 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260914210223euoutp0232f0813c7657236ff92e65a4f265b42c~VS8afgsQQ2818028180euoutp02V
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1789419743;
+	bh=JH7rxlQZ0+nRwrQxylBU7gkca4+zlyVrnpLiQJx/SLY=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=rUuWsUYYKAojChsYja+6EWNcL3qZVqZ74VO/OCeiK0hiMLACAh/M0UmD0XSAxCoHG
+	 vSk4ivL+UidbpjFeDgdzT/RJTrutLygyep0taUKbTv7kkeL/mZ4tQaw3nSg72hvI4X
+	 b5HtClGVkvgjAGxjh4kyW31zAJs+/N2OOGl4BUZc=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260914210222eucas1p278d9f9996cf56dd8c531811edd3c5c82~VS8aCtH-63167031670eucas1p2k;
+	Mon, 14 Sep 2026 21:02:22 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260914210220eusmtip22564f1bf2f1e653328b6ed505c100cc9~VS8YOBrF41559115591eusmtip2b;
+	Mon, 14 Sep 2026 21:02:20 +0000 (GMT)
+Message-ID: <071901ef-57f3-456f-af5b-a8c99a0a7dd3@samsung.com>
+Date: Mon, 14 Sep 2026 23:02:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-To: Lorenzo Stoakes <ljs@kernel.org>, linux-kbuild@vger.kernel.org,
- x86@kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Courbot <acourbot@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Alexey Gladkov <legion@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Andreas Hindborg <a.hindborg@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Benno Lossin <lossin@kernel.org>,
- Bill Wendling <morbo@google.com>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Boqun Feng <boqun@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Danilo Krummrich <dakr@kernel.org>, Dave Hansen
- <dave.hansen@linux.intel.com>, Gary Guo <gary@garyguo.net>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, "H. Peter Anvin"
- <hpa@zytor.com>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Ingo Molnar <mingo@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Justin Stitt <justinstitt@google.com>,
- Kees Cook <kees@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>,
- Mark Rutland <mark.rutland@arm.com>, Masahiro Yamada <masahiroy@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Nicolas Schier <nsc@kernel.org>,
- =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Randy Dunlap <rdunlap@infradead.org>,
- Tamir Duberstein <tamird@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Trevor Gross <tmgross@umich.edu>, Will Deacon <will@kernel.org>
-References: <20260914-build-speedup-v2-3-39817ec5db23@kernel.org>
-Subject: Re: [PATCH v2 03/21] kallsyms: output binary data to speed output and
- kallsyms assembly
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
- linux-arch@vger.kernel.org, llvm@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- David Laight <david.laight.linux@gmail.com>, Jens Axboe <axboe@kernel.dk>
-In-Reply-To: <20260914-build-speedup-v2-3-39817ec5db23@kernel.org>
-X-Provags-ID: V03:K1:UV/hp/4O9Al1JA5dTapA8AqqYlEBVdnaBiPcklvQQOmNbR3yH96
- /cth1YvwYjx9HrzsLAFAgcScfqO1fM8cECg0vpVzvgsTSLWOsnKtCtDWgHSAxmsJN42U31Z
- tyyRDmkN/0gioE+WXTzaXA7jWlyc63ChkjbgNLAXt0BZX2k1IVyEgXJIqLWL9twwTJyPy9/
- Bhd9JtolM6wojkon7/5dQ==
-UI-OutboundReport: notjunk:1;M01:P0:dCZXeIx/2xM=;gC9Cv1SxlpXQPRDs9MJcrBP54Gy +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
+Subject: Re: [PATCH v3 00/19] drm: starfive: jh7110: Enable display
+ subsystem
+To: Joshua Peisach <jpeisach@ubuntu.com>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss
+	<rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Heiko Stuebner
+	<heiko@sntech.de>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	mfd@lists.linux.dev, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
+	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
+	Zheng <zhengxingda@iscas.ac.cn>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <DL6MO1P17KSW.1DKQ6HW2U2ZCK@ubuntu.com>
+X-CMS-MailID: 20260914210222eucas1p278d9f9996cf56dd8c531811edd3c5c82
+X-Msg-Generator: CA
+X-RootMTR: 20260904132708eucas1p1adfa26ef0fe5109eca63a3aeadf74915
+X-EPHeader: CA
+X-CMS-RootMailID: 20260904132708eucas1p1adfa26ef0fe5109eca63a3aeadf74915
+References: <CGME20260904132708eucas1p1adfa26ef0fe5109eca63a3aeadf74915@eucas1p1.samsung.com>
+	<20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
+	<DL6MO1P17KSW.1DKQ6HW2U2ZCK@ubuntu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_211647_264414_3D3A7AEF 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20260914_140231_565206_6EE3308B 
+X-CRM114-Status: GOOD (  34.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,38 +103,272 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-4oCmCj4gKysrIGIvc2NyaXB0cy9rYWxsc3ltcy5jCuKApgo+IEBAIC00MTMsMjYgKzQzOCwyNCBA
-QCBzdGF0aWMgdm9pZCB3cml0ZV9zcmModm9pZCkKPiAgCQkvKiBFbmNvZGUgbGVuZ3RoIHdpdGgg
-VUxFQjEyOC4gKi8KPiAgCQlpZiAodGFibGVbaV0tPmxlbiA8PSAweDdGKSB7Cj4gIAkJCS8qIE1v
-c3Qgc3ltYm9scyB1c2UgYSBzaW5nbGUgYnl0ZSBmb3IgdGhlIGxlbmd0aC4gKi8KPiAtCQkJcHJp
-bnRmKCJcdC5ieXRlIDB4JTAyeCIsIHRhYmxlW2ldLT5sZW4pOwo+ICsJCQlmcHV0Yyh0YWJsZVtp
-XS0+bGVuLCBvdXRfYmluX2ZpbGUpOwo+ICAJCQlvZmYgKz0gdGFibGVbaV0tPmxlbiArIDE7Cj4g
-IAkJfSBlbHNlIHsKPiAgCQkJLyogIkJpZyIgc3ltYm9scyB1c2UgdHdvIGJ5dGVzLiAqLwo+IC0J
-CQlwcmludGYoIlx0LmJ5dGUgMHglMDJ4LCAweCUwMngiLAo+IC0JCQkJKHRhYmxlW2ldLT5sZW4g
-JiAweDdGKSB8IDB4ODAsCj4gLQkJCQkodGFibGVbaV0tPmxlbiA+PiA3KSAmIDB4N0YpOwo+ICsJ
-CQlmcHV0YygodGFibGVbaV0tPmxlbiAmIDB4N0YpIHwgMHg4MCwgb3V0X2Jpbl9maWxlKTsKPiAr
-CQkJZnB1dGMoKHRhYmxlW2ldLT5sZW4gPj4gNykgJiAweDdGLCBvdXRfYmluX2ZpbGUpOwo+ICAJ
-CQlvZmYgKz0gdGFibGVbaV0tPmxlbiArIDI7Cj4gIAkJfQo+IC0JCWZvciAoayA9IDA7IGsgPCB0
-YWJsZVtpXS0+bGVuOyBrKyspCj4gLQkJCXByaW50ZigiLCAweCUwMngiLCB0YWJsZVtpXS0+c3lt
-W2tdKTsKPiArCQlmd3JpdGUodGFibGVbaV0tPnN5bSwgMSwgdGFibGVbaV0tPmxlbiwgb3V0X2Jp
-bl9maWxlKTsKPiAgCj4gIAkJLyoKPiAgCQkgKiBOb3cgdGhhdCB3ZSB3cm90ZSBvdXQgdGhlIGNv
-bXByZXNzZWQgc3ltYm9sIG5hbWUsIHJlc3RvcmUgdGhlCj4gLQkJICogb3JpZ2luYWwgbmFtZSBh
-bmQgcHJpbnQgaXQgaW4gdGhlIGNvbW1lbnQuCj4gKwkJICogb3JpZ2luYWwgbmFtZSBmb3IgdGhl
-IGNvbW1lbnRzIGJlbG93Lgo+ICAJCSAqLwo+ICAJCWV4cGFuZF9zeW1ib2wodGFibGVbaV0tPnN5
-bSwgdGFibGVbaV0tPmxlbiwgYnVmKTsKPiAgCQlzdHJjcHkoKGNoYXIgKil0YWJsZVtpXS0+c3lt
-LCBidWYpOwo+IC0JCXByaW50ZigiXHQvKiAlcyAqL1xuIiwgdGFibGVbaV0tPnN5bSk7Cj4gIAl9
-Cj4gKwl3cml0ZV9pbmNiaW4ob3V0X2Jpbl9uYW1lLCBiaW5fc3RhcnQsIGJpbl9wb3Mob3V0X2Jp
-bl9maWxlKSk7Cj4gIAlwcmludGYoIi5zaXplIGthbGxzeW1zX25hbWVzLCAuIC0ga2FsbHN5bXNf
-bmFtZXNcbiIpOwo+ICAJcHJpbnRmKCJcbiIpOwo+ICAK4oCmCgpJIHN1Z2dlc3QgdG8gYXZvaWQg
-cmV0dXJuIHZhbHVlIGlnbm9yYW5jZSBhIGJpdCBtb3JlLgpodHRwczovL2NtdS1zZWkuZ2l0aHVi
-LmlvL3NlY3VyZS1jb2Rpbmctc3RhbmRhcmRzL3NlaS1jZXJ0LWMtY29kaW5nLXN0YW5kYXJkL3J1
-bGVzL2Vycm9yLWhhbmRsaW5nLWVyci9lcnIzMy1jLwpodHRwczovL2N3ZS5taXRyZS5vcmcvZGF0
-YS9kZWZpbml0aW9ucy8yNTIuaHRtbAoKUmVnYXJkcywKTWFya3VzCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+On 9/4/26 17:13, Joshua Peisach wrote:
+> On Fri Sep 4, 2026 at 9:27 AM EDT, Michal Wilczynski wrote:
+>> This series enables the display subsystem on the StarFive JH7110.
+>>
+>> The dom_vout block holds the display controller (dc8200), the clock
+>> generator (voutcrg) and the HDMI IP, all inside PD_VOUT. The HDMI IP is
+>> a single register block containing both the controller and the PHY, and
+>> it has a circular clock dependency with voutcrg:
+>>
+>>   - the HDMI controller needs pclk/mclk/bclk from voutcrg
+>>   - voutcrg needs the pixel clock for its dc8200 pixel MUXes, and that
+>>     clock is generated by the HDMI PHY
+>>
+>> The loop only exists if the HDMI block is treated as one device. The
+>> PHY's reference clock is xin24m, not a voutcrg output, so splitting the
+>> node into a parent plus phy and controller children gives deferred probe
+>> a linear order: hdmi-phy, then voutcrg, then hdmi-controller.
+>>
+>> The parent maps the register block and owns the regmap its two children
+>> share. Everything in the region sits behind one NoC port whose clock and
+>> reset gate access to it, inside PD_VOUT, so the vout subsystem node from
+>> the RFC is back and owns those for as long as any child exists.
+>>
+>> Patch 10 adds a .mode_valid platform op to inno-hdmi.
+>> inno_hdmi_bridge_mode_valid() checks the pixel clock against
+>> hdmi->refclk, but that clock only exists where a "ref" clock is
+>> described. The JH7110 gets its pixel clock from the PHY, so refclk is
+>> NULL and the check was skipped: unsupported modes were advertised, the
+>> modeset then "succeeded" because the atomic enable path cannot fail, and
+>> the display stayed blank.
+>>
+>> Patches 15-17 drop the PHY duplication from the RFC. The JH7110 has the
+>> same Innosilicon PHY as the RK3328, offset by 0x100 because it sits
+>> behind the controller in the shared register block. Patch 15 factors out
+>> the pre-PLL config format, table lookup, determine_rate, recalc_rate and
+>> the pre-PLL programming; patch 16 moves Rockchip onto it; patch 17 adds
+>> the JH7110 driver. Pixel clock tables, post-PLL and analog config stay
+>> SoC specific.
+>>
+>> Patch 16 should be a no-op for Rockchip - same writes, same order, same
+>> values - and RK3228, whose pre-PLL is at different addresses, keeps its
+>> own register code and shares only the lookup. I have no Rockchip
+>> hardware, so it is build tested only (arm and riscv). A Tested-by would
+>> help.
+>>
+>> The dc8200 driver, th1520 reset controller and inno-hdmi bridge that the
+>> RFC listed as prerequisites are all upstream now, so there are no
+>> out-of-tree dependencies.
+>>
+>> Testing
+>> =======
+>>
+>> Tested on a VisionFive 2 v1.3B using modetest.
+>>
+>> All 42 modes the sink advertises work, with nothing in dmesg. Pixel
+>> clocks run from 25.175 MHz (640x480@59.94) up to 297 MHz
+>> (4096x2160@30), including 3840x2160 and the full 1920x1080 and 1280x720
+>> rate families.
+>>
+>> The four modes the RFC reported as broken work now too: 2560x1440@59.95,
+>> 2048x1080@60.00, 2048x1080@24.00 and 720x400@70.08.
+>>
+>> Before patch 10, four of the advertised modes failed: 1680x1050@59.95
+>> (146.250 MHz), 1400x1050@59.98 (121.750), 1152x864@59.97 (81.768) and
+>> 1280x768@60.35 (80.140). Those pixel clocks are not in the PHY pre-PLL
+>> table, so clk_set_rate() returned -EINVAL and the screen stayed black
+>> while userspace saw a successful modeset. They are rejected in
+>> .mode_valid now; the other refresh rates of those resolutions still work.
+>>
+>> Every commit builds for riscv, and the Rockchip PHY also for arm.
+>>
+>> Notes
+>> =====
+>>
+>> The JH7110 has no central MAINTAINERS entry and maintainership is
+>> fragmented, so patch 19 adds one for the display subsystem and I am
+>> happy to help maintain it. The new PHY library lives under drivers/phy/,
+>> already covered by the generic PHY framework entry.
+>>
+>> checkpatch warns "does MAINTAINERS need updating?" on the patches adding
+>> files, because that entry comes in patch 19.
+>>
+>> Thanks to Icenowy Zheng for the dc8200 driver and for explaining how the
+>> SoC and the display pipeline fit together.
+>>
+>> Thanks also to Dominique Belhachemi, who got rid of the vout-subsystem
+>> wrapper and helped with the testing, to Maud Spierings for testing on a
+>> Framework 13 panel, and to Graham Markall for testing
+>> the JH7110 display patches independently and writing up the results:
+>> https://protect2.fireeye.com/v1/url?k=a5921a01-fa0e332b-a593914e-000babe598f7-ab8e6a05d613c342&q=1&e=c355ba5a-20ba-4b45-870e-7415c4405787&u=https%3A%2F%2Fbig-grey.co.uk%2F2026%2F01%2F26%2Ftesting-starfive-jh7110-display-controller-patches%2F
+>>
+>> Link to v1: https://lore.kernel.org/all/20251108-jh7110-clean-send-v1-0-06bf43bb76b1@samsung.com/
+>>
+>> ---
+>> Changes in v3:
+>> - Brought back the vout subsystem node and driver, now owning the NoC
+>>   bus clock, its reset and PD_VOUT for the whole region, with dc8200,
+>>   the HDMI block, the syscon and voutcrg as its children (Icenowy Zheng).
+>> - Fixed a hard hang when the bridge is built as a module: the PHY's
+>>   .is_prepared read a register in the window gated by the controller's
+>>   system clock, so clk_disable_unused() wedged the CPU before the
+>>   controller had bound. The op is gone; the framework uses the software
+>>   prepare count instead. (Marek Szyprowski)
+>> - The HDMI controller now programs the display mux in dom_vout_syscon
+>>   from the port graph rather than inheriting whatever the bootloader
+>>   left, with a phandle to the syscon (Icenowy Zheng).
+>> - The register access clock is named "pclk" to match the existing
+>>   inno-hdmi binding, so the generic driver no longer picks up the pixel
+>>   clock. Previously it held the pre-PLL powered from probe and sized the
+>>   DDC divider from the wrong rate.
+>> - Dropped the clk suffixes and the single-entry -names properties from
+>>   the bindings (Conor Dooley). mclk and bclk keep their names: per TRM
+>>   5.3 they are the HDMI audio clocks, not module and bus clocks, so the
+>>   descriptions say that instead.
+>> - Replaced patternProperties with plain properties in the hdmi-subsystem
+>>   binding (Conor Dooley).
+>> - dc8200 gets an SoC specific compatible, and inherits dma-noncoherent
+>>   from the subsystem bus node, so it validates against verisilicon,dc.
+>> - Added the pre-PLL entry for the Framework 13 panel and fixed two
+>>   devicetree whitespace nits (Maud Spierings).
+>> - select REGMAP_MMIO, CLK_SET_RATE_NO_REPARENT on the dc8200 pixel MUXes
+>>   so clk_set_rate() cannot reroute them, and inno-hdmi register reads
+>>   return 0 instead of stack garbage when regmap_read() fails.
+>> - phy: rockchip: dropped the local pre-PLL lookup wrapper and the 28 now
+>>   unused RK3328 pre-PLL macros, and restored the VCO debug output, this
+>>   time in the shared helper so both drivers get it (Jonas Karlman).
+>> - Rebased onto v7.3-rc1.
+>> - Link to v2: https://lore.kernel.org/r/20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com
+>>
+>> Changes since the RFC:
+>> - Dropped the vout-subsystem wrapper driver and its binding, along with
+>>   the patch relaxing the voutcrg binding; genpd handles PD_VOUT per
+>>   node.
+>> - Renamed the compatible to starfive,jh7110-hdmi-subsystem, dropping
+>>   "mfd" as a Linux term (Conor Dooley).
+>> - Absolute $refs in the bindings, unused example labels dropped, and the
+>>   examples deduplicated between parent and children (Conor Dooley).
+>> - Added the .mode_valid platform operation (patch 7).
+>> - Split the inno-hdmi rework into a mechanical probe/bind split (patch
+>>   4)
+>>   and the regmap-from-parent change (patch 5). struct inno_hdmi is no
+>>   longer exported; no platform glue dereferences it.
+>> - Replaced the duplicated PHY driver with a shared Innosilicon library
+>>   and moved Rockchip onto it (patches 11-13).
+>> - Fixed pre-PLL lock detection, which masked the status read with the
+>>   register address instead of the lock bit.
+>> - Fixed a pixel clock refcount underflow: enable returns early on
+>>   failure while disable tore down unconditionally.
+>> - voutcrg patch reduced to adding CLK_SET_RATE_PARENT to the two dc8200
+>>   pixel MUXes.
+>> - Rebased onto v7.2.
+>>
+>> ---
+>> Michal Wilczynski (19):
+>>       dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
+>>       dt-bindings: display: bridge: Add starfive,jh7110-inno-hdmi-controller
+>>       dt-bindings: mfd: Add starfive,jh7110-hdmi-subsystem
+>>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-syscon
+>>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-subsystem
+>>       dt-bindings: display: verisilicon: Add starfive,jh7110-dc8200
+>>       drm/bridge: inno-hdmi: Split probe out of bind
+>>       drm/bridge: inno-hdmi: Allow the register map to come from a parent
+>>       drm/bridge: inno-hdmi: Add .disable platform operation
+>>       drm/bridge: inno-hdmi: Add .mode_valid platform operation
+>>       soc: starfive: Add jh7110-hdmi-subsystem driver
+>>       soc: starfive: Add jh7110-vout-subsystem driver
+>>       clk: starfive: jh7110-vout: Allow pixel clock rate propagation
+>>       drm/bridge: starfive: Add JH7110 HDMI controller driver
+>>       phy: Add common Innosilicon HDMI PHY helpers
+>>       phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
+>>       phy: starfive: Add jh7110-inno-hdmi-phy driver
+>>       riscv: dts: starfive: jh7110: Update DT for display subsystem
+>>       MAINTAINERS: Add StarFive JH7110 display subsystem entry
+>>
+>>  .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++
+>>  .../bindings/display/verisilicon,dc.yaml           |   1 +
+>>  .../mfd/starfive,jh7110-hdmi-subsystem.yaml        |  95 ++++
+>>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
+>>  .../soc/starfive/starfive,jh7110-syscon.yaml       |   6 +
+>>  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 100 ++++
+>>  MAINTAINERS                                        |  13 +
+>>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 121 ++++-
+>>  arch/riscv/boot/dts/starfive/jh7110.dtsi           | 102 +++-
+>>  drivers/clk/starfive/clk-starfive-jh7110-vout.c    |   6 +-
+>>  drivers/gpu/drm/bridge/Kconfig                     |  11 +
+>>  drivers/gpu/drm/bridge/Makefile                    |   1 +
+>>  drivers/gpu/drm/bridge/inno-hdmi.c                 |  84 ++-
+>>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c          | 318 +++++++++++
+>>  drivers/phy/Kconfig                                |   8 +
+>>  drivers/phy/Makefile                               |   1 +
+>>  drivers/phy/phy-inno-hdmi.c                        | 298 +++++++++++
+>>  drivers/phy/rockchip/Kconfig                       |   1 +
+>>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 165 +-----
+>>  drivers/phy/starfive/Kconfig                       |  20 +
+>>  drivers/phy/starfive/Makefile                      |   1 +
+>>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 579 +++++++++++++++++++++
+>>  drivers/soc/Kconfig                                |   1 +
+>>  drivers/soc/Makefile                               |   1 +
+>>  drivers/soc/starfive/Kconfig                       |  43 ++
+>>  drivers/soc/starfive/Makefile                      |   3 +
+>>  drivers/soc/starfive/jh7110-hdmi-subsystem.c       |  74 +++
+>>  drivers/soc/starfive/jh7110-vout-subsystem.c       |  83 +++
+>>  include/drm/bridge/inno_hdmi.h                     |  10 +-
+>>  include/linux/phy/inno-hdmi-phy.h                  |  85 +++
+>>  30 files changed, 2227 insertions(+), 174 deletions(-)
+>> ---
+>> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+>> change-id: 20251031-jh7110-clean-send-7d2242118026
+>>
+>> Best regards,
+> 
+> So as a kernel newbie, and someone who happens to have this device,
+> it's nice to see it here.
+> 
+> It looks good to me, just a few questions:
+> 
+> - One patch mentioned in a comment "the docs" - is there documentation
+> for the device?
+
+TRM describing the hardware. It's available online [1].
+
+[1] - https://doc-en.rvspace.org/JH7110/TRM/
+
+> 
+> - There are multiple pieces, like the hdmi and vout subsystem, and also
+> the inno helpers. Should those be separate patches? I honestly don't
+> have enough experience (or authority) to suggest doing so.
+
+They already are: the hdmi subsystem is patch 11, the vout subsystem
+patch 12 and the Innosilicon helpers patch 15. They go out as one
+series because they depend on each other - the DT in patch 18 needs all
+three drivers - and the tree has to build at every commit, so they
+cannot land separately.
+
+
+> 
+> 
+> I thought this would be great as a possible driver I could do to learn
+> kernel dev.. looks like I was very wrong. Great work, and hopefully
+> in the future I get my hands on some device that needs a driver to be
+> written for it.
+> 
+> I'm at university, once my board gets mailed from home I'll be able to
+> test. For now,
+
+Thanks for the review, I have picked up your Reviewed-by on the patches
+that did not change in v4. A Tested-by once your board arrives would be
+very welcome.
+
+
+> 
+> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+> 
+
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
