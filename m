@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FDC1C88E72
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 15:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA7DC88E72
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 15:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AIxzUYLCVI3o6WuC+gj7wNi8CwB22v5KuzbEfSZkOHg=; b=Hh/KVGUAl3Cosd
-	mjMwt+PA9nqF9S+QGsxlxEh8FZWzl6RqajrXrgxSXXI7VtWHxu8khRqun5pMbq0TKhYW1hBemmuVS
-	mBajNiKc+V6465L6ZOd5aRnmGeTfhPiQvVjkhdI7d7V8Uhbast2p+azbZiVAm0j4ew5LB3bB4egFq
-	fccAz+y2hDM2ZJAthFIoFtsH1n8LU9ZlLoFIlAdHMguE+8iC3yHGCoaarcw9XsTpcV5L+U7P1mWj/
-	w5n2mhL03BQGtYYkGG74BwsPS6/sl6ZqmDaWAaBud19wuBPGi0Viljcj2MwcejmHrLRCcwsf14HQt
-	8wlchR7KtlRLhsI/QXOA==;
+	List-Owner; bh=gLcCKCf49YLdM/ow4CEKjYJtHRFitCWrCMwjltquwSg=; b=o2b5dwPTIfeRBj
+	JpjIak3Fnskt7xQGyk90tcy5sdOeQ4X0rl60DU3QgIzl/AduS2fWAd5HgsmMeqkpmmMDbS5og/2jX
+	64PVf/w/u7iXbtIeDoRcbaz15WVWC9Isp6q5iKJVvjKA2Pb8WlOTEGNZAJYJfWo+Rk5M0UvpnWHKW
+	FL8c1VGh5mZJMOy2PloYwIP7SBAB5pI3iXOt7qkLHnmsIh3eN34NLRMuwE2BYYZOWfrxzUeMoIen0
+	D8N1THN/+t+f51KAkuvRN1guMHnunxU6YXjezLrv4DEwh18nk5H0SJ5s7JZmCoeHh7uq8/c07Gqmo
+	hq4cBF6BxcanwxMpXbJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68Zv-000000049ef-3bj0;
-	Mon, 14 Sep 2026 15:26:43 +0000
+	id 1x68aL-000000049lN-0SBm;
+	Mon, 14 Sep 2026 15:27:09 +0000
 Received: from mail-pj2-x10.google.com ([2607:f8b0:4864:39::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68Zt-000000049da-00wQ
+	id 1x68aI-000000049kL-2mwL
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Sep 2026 15:26:43 +0000
-Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d90ba1d807so30379565ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2026 08:26:39 -0700 (PDT)
+	Mon, 14 Sep 2026 15:27:07 +0000
+Received: by mail-pj2-x10.google.com with SMTP id d9443c01a7336-2d747eb79fbso12859475ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2026 08:27:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789399599; x=1790004399; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1789399626; x=1790004426; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:sender:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=JSZQy8BrbphsTuB3PP3GNkS6dKaTus6BUKVlBhlcQXk=;
-        b=WLixHfMHBi/6GZlZiZewcEI020Q6RnijvzoZGh6zwnSh4I9ZfBjmuDtrfMLD/dIR4+
-         1mqYrmNoCwj2Nf9DWE0CkFbm1+wIuc6l0nmKLyRW8liahQ/Whfx+xVUDD7WgsHS17etb
-         xjW+SQOTpx9GadUN4rbXQk8NAJYqMmFrzct2Y6Te1h0hV3gnFUv635MlA69r3Cm2UXuH
-         jk1vEOU1OaXJD8WdQLfoBCsadaWCX9cf8RIayYoW9rgkOGYyyToQjKq66GPL+nZxUXiM
-         ESDYWnOjfE7VovnP3+RC7xJTm0HDGiweKKEk8dAI8nXmcosJ+Aa0YQpGjdfBwVvMWfHD
-         MyXw==
+        bh=1rv9xIW83dIFufmAMVUXAe8Zj75CE5o/0qI0POtGfBo=;
+        b=XQVGzZZ2tRwhiXkfHsSS3m5j5EKMO8/gANy3rgrwUTKOOYFb95Aq5ho8D7SWO1lPr2
+         IbUWKEEjlKE5+dnCc73zK/FmDOTNm93KK8AODIV79MxC3qWql/8hifXbvRAP2V9/3etN
+         qNc6ICK+5b0z2RPEXYA0CGYInOy3S3yeB/p14JTIWLiwtsm/+9Jgjmx+YowFAzRAAOW+
+         GaYQM11nDlkpoBf7O05fp0jf31uq4UuBMfTiwzgLdyjCmuFu/jNJkYjI15foiXuocR0p
+         gExmvKiTk7RsCnKzBsxNxq/Zkin7lJZ/R6fOhGy9R68m6FCSEUewcGXyai1T7lHuXG+0
+         LIrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1789399599; x=1790004399;
+        d=1e100.net; s=20251104; t=1789399626; x=1790004426;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=JSZQy8BrbphsTuB3PP3GNkS6dKaTus6BUKVlBhlcQXk=;
-        b=n8NuZBYoP+izjMxCoOAC2MxJ9gHB5Yi4VmNwYeCQb9olyBNxngGvc993LOsNGg1gIV
-         2mG3X9U3jSGY4EdAfoVdpZ/b4V604r2CStyobIQw05NuhI/ey2i+ilhoJUUwg5mspMie
-         ez5ISI6cqkjvUl75ufq0WJ6ejFgMHmjHLAZtjPhFKCbSIM/fupBGB2ZsNRqug44JLJwj
-         xDPxo9elIFyA7wdmJM4cEMV948k5kNfxb1Df92uWQsGW5tRLH3+jNGtkePwLXTKbepyy
-         PBL+Bd/sCImYHHCseC0jcB1CMTk0FI7SXAipVqui+2w6cYoO7tKz8LMgw6UcuGypd00b
-         kM7A==
-X-Forwarded-Encrypted: i=1; AKwUvBzjW2RZXgJB6kg+NVmx+ujQTNtcXkq+EQOuwdQoyyqbBpOI3AGpIlOUDgdg2ch2jZQ+NfUQ0DZ8Fp/lrw==@lists.infradead.org
-X-Gm-Message-State: AFuF++kWIRGUTvMl58eB9bZIqpQOCLlAUvRWTaKkgDWQVrPFy8wzNuQr
-	rRveWjEJgSLeGMVR5cKpsYiVyVm+HBSzHuGhMyHRp1XolnjAJmdnuRSPPs+D0pzy
-X-Gm-Gg: AYBFou07IuybAZUjDf1B8Zr5IZpQanJqPsvyIBG2vn6kucUIV1RfS0FUb/RIBa0VSlV
-	d1TuI3gScW5Yr4Y3Jsff1BMXj5dY6H3X8UQ6PVTRxdjiBPuhgOduiU52mgzmLQwpHrmVXmGUcR5
-	j5Ui0zsnMg0vUsjrJ4rTZU8g5EGRDfkOIzHn5f3RUGDE4qgGDqbio0gqzj6C1bjZpwL7Nu2eEH5
-	BRoObUZeX0+pvX7PxTKjuU3/a5x9DaM8LD3aoSvkKVWjUPaXKW35Ol2r5PNSBI2mHz8rHAeVB+c
-	uhuUppD3Yv2tUdESgdKbnqeBEQgTK28NfNJZ2QX050KEsunbLbirfG0JDwb1CgAPRJbw3y1aEZ9
-	UXzNt0gAaGbkwe8ZRB/Ty46b6AdJHcSyUHsOgihXm3r0MuNhLzMMnkD7o/XS5FS/CHUVIRj5d/Y
-	VEVweUA1ObSp/QOUgkzIzQXoXKkVzgjHNRmKWUhVecv844UIEfpCJu/NUmEsaq2vwKEPjb+JHv8
-	G+JRIs63VKi
-X-Received: by 2002:a17:903:35c6:b0:2db:73fc:b57f with SMTP id d9443c01a7336-2dd6c6c0cc0mr59735695ad.10.1789399599255;
-        Mon, 14 Sep 2026 08:26:39 -0700 (PDT)
+        bh=1rv9xIW83dIFufmAMVUXAe8Zj75CE5o/0qI0POtGfBo=;
+        b=k+yu0mpSRgKihL0SVSPGly2tgMJFYtMTmV9PYiIGtMc9KZIhM1F1b2e+fsZDlLU4oJ
+         7IN5Y5KpJsMPh3y3o+rHGVMauUgWglxYOvIGrjEPh6hzYspFhh4rdiUMJ01A5z1Rjsaw
+         vYwvQ8kJmznEhpNZb3IPy3K2Odh2anaaQ4ASzCu0V0SGltrJrx+rZY7hhjPOa/yaxJMP
+         JYUCHP42CnY+63Lbwr8P5my57WPaAh4ZxO72ZVNUN2Shf7XJCZXjkLNZpg5BYxtvs5dy
+         HFq9vn1MXonv4Y/sa9XWRrfbpRL+8eCw/Q3+LTLs6kMITWggHnS5i+7DGB39iBpp50z3
+         vy/Q==
+X-Forwarded-Encrypted: i=1; AKwUvBxagj984j/QcRJGbS+w6bmcNkL7lJC4gFcQOQLKiRaPAQXjauH1LahO/zYda9LTaYLcJDkf7kIcKpMaSg==@lists.infradead.org
+X-Gm-Message-State: AFuF++mNsU1CkqUnDf2GlV5mvF8OwGEXuigxpQiypFecNH+qljZUHHJe
+	UmZtslJJU/ZWqHoyxGhBUkPxQEmovMrG0QF23WT+U6WNicseO3xL+8NG
+X-Gm-Gg: AYBFou2JeRXwSJyY+QO4Uul3FrlO9m3lVcfGN4fzPo6F64ol3YEOxHoYiHsTrTlRx+q
+	2wjNzENgcFJQsGX3KnT2M5xmm+o+GuSZ6eLbxUVg48upt+FGI78jkgVFIwzfFOJKF+cl3jZaq8W
+	0nA1luRJysyIIB0hadl11FzhsMYj13eZdXhD4TAD7Z0MezC+UiBDsDOTbLUGSFSOV0Vnqj0ZRqE
+	nShKGEvLkzBWp2SlfZllSOYqPU+9uKpTNrh+FWjF8qz3uJGshmx7r3g6KQCN3QQMQ+pO6xkrDsg
+	9l8CO4mpfKbhpwbdQBUzAUG8q8Il31SC9BhZ7ZFtoDpyrTqNOprDhNBEwtO/3I2VBZFbW+r4qiK
+	sh8suKykGe8D5sJFr1XqPq87TtqKcr/D7T/STDjFJcb77o4rOorTNtPp6fd/0iDCH17YWvIkG44
+	nlj4Hgx6nIE/6NqPqJUfg+dGm4SCwwB9N4mHssRG19a2Tnz/HnHzMFd5FneZc8amCMAtIUoLA8Z
+	3RJliO86BE5
+X-Received: by 2002:a17:902:fc4b:b0:2db:257c:9fd5 with SMTP id d9443c01a7336-2dd6c70df7dmr77776255ad.16.1789399625921;
+        Mon, 14 Sep 2026 08:27:05 -0700 (PDT)
 Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd2cfdc15esm51211505ad.66.2026.09.14.08.26.37
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dd2cfc56b1sm51774945ad.54.2026.09.14.08.27.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Sep 2026 08:26:37 -0700 (PDT)
-Date: Mon, 14 Sep 2026 08:26:36 -0700
+        Mon, 14 Sep 2026 08:27:04 -0700 (PDT)
+Date: Mon, 14 Sep 2026 08:27:03 -0700
 From: Guenter Roeck <linux@roeck-us.net>
 To: Troy Mitchell <troy.mitchell@linux.dev>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -85,16 +85,17 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
 	linux-doc@vger.kernel.org,
 	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v5 1/6] dt-bindings: vendor-prefixes: Add Sensylink
-Message-ID: <35ea8534-5446-40fc-b1a7-72a115bc40b6@roeck-us.net>
+Subject: Re: [PATCH v5 2/6] dt-bindings: hwmon: Move LM63 family to a
+ dedicated binding
+Message-ID: <f9a4679b-52f3-45ea-b451-26c27dbebf1e@roeck-us.net>
 References: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
- <20260914-ctl2301-v5-1-b44b81cd2c3c@linux.dev>
+ <20260914-ctl2301-v5-2-b44b81cd2c3c@linux.dev>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260914-ctl2301-v5-1-b44b81cd2c3c@linux.dev>
+In-Reply-To: <20260914-ctl2301-v5-2-b44b81cd2c3c@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_082641_043174_C124E55E 
-X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-CacheID: sfid-20260914_082706_721694_C02A41A2 
+X-CRM114-Status: UNSURE (   8.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,11 +113,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 04:03:53PM +0800, Troy Mitchell wrote:
-> Add the vendor prefix for Sensylink Microelectronics.
+On Mon, Sep 14, 2026 at 04:03:54PM +0800, Troy Mitchell wrote:
+> Move the National Semiconductor LM63, LM64, and LM96163 compatibles out
+> of trivial-devices.yaml and into a dedicated binding. Describe their
+> integrated fan control and preserve the optional interrupt used by the
+> ALERT output. Permit use as thermal cooling devices via #cooling-cells.
 > 
-> Link: https://en.sensylink.com/
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
 
 Applied.
