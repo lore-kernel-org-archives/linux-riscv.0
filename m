@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C572DC88E72
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 19:39:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09246C88E73
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 19:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y7xBj+Qtx/zouZDs1EXL5AFXAxadeYGJ/UIUlcRBO0U=; b=ihlYp+4wHa8sVy
-	dcDJgttNslhVvNUc9kRkWECttotoB6clqiFW8Rks8PfEhdGVomEwL/HhIoK/WVL30w8KFvnmX1DsC
-	rsAQHE8ovYG/AGqHsOauEYrKlkWoWj2ffmVRXZ4VRqevyRoDjU24K6v6lI4CdHHpXtVISt7GlNNGe
-	UvqI1T+Zmx6Pguay3/xGWq+H8ciOO1puvVC2/avSACIm+9MyVNSAJ8iltVTICxeQ8koIsclFTugEw
-	Uonr17hdQO5YcBajADFq6ltwHjhmLcrYbzra1UDqUZ7U1nmUvXAfEV+Q3ETRSbzWmsVe84chSutMD
-	a0kCxbABVs2byCX3qV+A==;
+	List-Owner; bh=QtrfER2R1t3NEA0/mc0ByZOBfw2tJcA+C4Z898ziJyA=; b=jXhZs4/dkB6Cce
+	wSlYcLxseFOz7y59edV7G7fUoAbxslL6UK9nIACHRZwfKL1bQoyA+GICu/qXNL3/rYzpiiOaDg8hk
+	iRZrAhXsfMrLTUSjUQinxaoptJjsVukuQknj8JlumiyZTkOZ/xG0Tcdx/grgIaRmHuKUj8OTgGEbF
+	5e2pWhqHKGxOcdJ9xJpSnK3tgJJRonQYsCrxw2I+NxA61tLCc2n9KDq2cjcjYbBN+IjhHoHAAJWBG
+	b431RAgBTDNcE1R/VXEud1zIyg5539YUvlTLp0PyYk0RsIC3Aw7HPxxbtT1uKqcBLhLtwG55MNAeZ
+	cw7qZq5cKDXOcXZrEE5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6CVz-00000004Xov-1nt8;
-	Mon, 14 Sep 2026 19:38:55 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1x6CbE-00000004YHE-0gI5;
+	Mon, 14 Sep 2026 19:44:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6CVq-00000004Xkq-0vAr;
-	Mon, 14 Sep 2026 19:38:47 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260914193842euoutp01953e61d38ec40643bc4d7157964f6df4~VRzWra7uK0314903149euoutp01E;
-	Mon, 14 Sep 2026 19:38:42 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260914193842euoutp01953e61d38ec40643bc4d7157964f6df4~VRzWra7uK0314903149euoutp01E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789414722;
-	bh=l4wDoWVeNywfcIR5L4rg3J/vDfSoW2zWF07vjDkO78A=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=WTY8xEi6jJOa1gLnOSUBPvlQpMk4v2dS5Nlb2zkZtStSIF1Pr3VZihsDFbmaj+Y4h
-	 48ffokqJfJoWOeBrkZRq1liliRT+IYnxf1/b09yAMsjlsgBoE69rhThGKgRG7auZzS
-	 XuVmAtFsH2iSO/zueW7kE3R3lnmCSs0qp5222L1M=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260914193842eucas1p27f2871f925584e946f2bb24c04b38b90~VRzWUs-Iu3205232052eucas1p2N;
-	Mon, 14 Sep 2026 19:38:42 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260914193840eusmtip1c6e3388713b55ee3f14ee6a855ba8b6e~VRzUiiOIx1812818128eusmtip1N;
-	Mon, 14 Sep 2026 19:38:40 +0000 (GMT)
-Message-ID: <fcfdd9da-8425-4cf9-94ba-23b06cd06185@samsung.com>
-Date: Mon, 14 Sep 2026 21:38:40 +0200
+	id 1x6CbC-00000004YGy-1sJH;
+	Mon, 14 Sep 2026 19:44:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE4D042D92;
+	Mon, 14 Sep 2026 19:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 606951F000FF;
+	Mon, 14 Sep 2026 19:44:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789415057;
+	bh=dEVqT/wbNr31VyaEi+ztvayta7Xn2Rd4Y437aZNZCvc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MSVXXg/qNgC9jq49BVmWZXFQh+9kpMKjQO+QRQUfSbv6WEMmHAyi1VR8/qhBIc5Mk
+	 FfzjtS+MXmB1xdh0Yyyh/Fjgp0ghmpwSXzQ0HEfDW+auxGwVSYmxpW4HB3r7VPvk5x
+	 ErOLy9eT8sBkMrdbsQGLv17beikH75L4sttmQL+HW5l2DD14MHccpS79cnl93N3Kgj
+	 YcoOTrNJBTL7kKo32pNKgOEHALdfPOmaxCkbBoOVpON2WHEvSq+bZqYcfQk2AIBKMG
+	 u5i84u03A14NXZUXVTa7uw2gHUp7GtggszhR53KXX6mdi43GlMuW9bZTSp2IMAiwQt
+	 MtZMVAIfFDB2g==
+Date: Mon, 14 Sep 2026 12:44:13 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, 
+	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
+	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+	Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 15/21] objtool: cache relocations, do less work
+Message-ID: <aqhLhVMkNzf_4oJw@jpoimboe>
+References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
+ <20260914-build-speedup-v2-15-39817ec5db23@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 18/19] riscv: dts: starfive: jh7110: Update DT for
- display subsystem
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
-	Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, Philipp
-	Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Hal
-	Feng <hal.feng@starfivetech.com>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
-	<bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley
-	<conor@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>, Brian Masney
-	<bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20260910-determined-fantastic-seriema-3ff701@quoll>
-X-CMS-MailID: 20260914193842eucas1p27f2871f925584e946f2bb24c04b38b90
-X-Msg-Generator: CA
-X-RootMTR: 20260904132743eucas1p1e02218d3fb38af95c3dd4bfa24904cab
-X-EPHeader: CA
-X-CMS-RootMailID: 20260904132743eucas1p1e02218d3fb38af95c3dd4bfa24904cab
-References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
-	<CGME20260904132743eucas1p1e02218d3fb38af95c3dd4bfa24904cab@eucas1p1.samsung.com>
-	<20260904-jh7110-clean-send-v3-18-484f9ae72715@samsung.com>
-	<20260910-determined-fantastic-seriema-3ff701@quoll>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_123846_525192_CAF2C1C2 
-X-CRM114-Status: GOOD (  14.16  )
+Content-Disposition: inline
+In-Reply-To: <20260914-build-speedup-v2-15-39817ec5db23@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,49 +91,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 14, 2026 at 10:22:14AM +0100, Lorenzo Stoakes (ARM) wrote:
+> +static struct reloc *find_reloc_sorted(struct section *rsec,
+>  				       unsigned long offset, unsigned int len)
+>  {
+> -	struct reloc *reloc, *r = NULL;
+> -	struct section *rsec;
+> -	unsigned long o;
+> +	struct reloc *relocs = rsec->relocs;
+> +	const unsigned int nr_relocs = sec_num_entries(rsec);
+> +	const unsigned long cache_idx = reloc_cache_index(offset);
+> +	unsigned int reloc_idx, i;
+>  
+> -	rsec = sec->rsec;
+> -	if (!rsec)
+> +	if (cache_idx >= reloc_cache_nr_windows(rsec))
+> +		return NULL;
+> +
+> +	reloc_idx = rsec->reloc_cache[cache_idx];
+> +
+> +	/*
+> +	 * Scan through all relocations covered by cache entry to find the
+> +	 * first at or after offset. Relocations are sorted by offset.
+> +	 */
+> +	for (i = reloc_idx; i < nr_relocs; i++) {
+> +		struct reloc *reloc = &relocs[i];
+> +		const unsigned long curr_offset = reloc_offset(reloc);
+> +
+> +		if (curr_offset >= offset)
+> +			break;
+> +
+> +		reloc_idx++;
+> +	}
+> +
+> +	/* Nothing found, or the first candidate lies beyond the range. */
+> +	if (reloc_idx >= nr_relocs ||
+> +	    reloc_offset(&relocs[reloc_idx]) >= offset + len)
+>  		return NULL;
+>  
+> +	/* If there are duplicate entries, return the last. */
 
+Hm, for consistency with the others, shouldn't this be returning the
+*first* match?
 
-On 9/10/26 10:37, Krzysztof Kozlowski wrote:
-> On Fri, Sep 04, 2026 at 03:27:19PM +0200, Michal Wilczynski wrote:
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> index 9c3e4598747eb5541effe697044484715569a285..0f981f4c89586269b987be8591037c9461e04703 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> @@ -290,12 +290,6 @@ gmac1_rmii_refin: gmac1-rmii-refin-clock {
->>  		#clock-cells = <0>;
->>  	};
->>  
->> -	hdmitx0_pixelclk: hdmitx0-pixel-clock {
->> -		compatible = "fixed-clock";
->> -		clock-output-names = "hdmitx0_pixelclk";
->> -		#clock-cells = <0>;
->> -	};
->> -
->>  	i2srx_bclk_ext: i2srx-bclk-ext-clock {
->>  		compatible = "fixed-clock";
->>  		clock-output-names = "i2srx_bclk_ext";
->> @@ -352,6 +346,13 @@ tdm_ext: tdm-ext-clock {
->>  		#clock-cells = <0>;
->>  	};
->>  
->> +	xin24m: xin24m {
-> 
-> Other clocks are called foo-clock, so follow this as well (even though
-> it does not follow recommended practice of clock-foo, but at least some
-> consistency).
+> +/* If there are multiple matches, return the first one in the range. */
+> +struct reloc *find_reloc_by_dest_range(const struct elf *elf, struct section *sec,
+> +				       unsigned long offset, unsigned int len)
+>  {
+> -	return !strncmp(sec->name, ".debug_", 7);
+> +	struct section *rsec = sec->rsec;
+> +
+> +	if (!rsec)
+> +		return NULL;
+> +
+> +	if (rsec->sorted)
+> +		return find_reloc_sorted(rsec, offset, len);
+> +
+> +	if (rsec->hashed)
+> +		return find_reloc_hash(elf, rsec, offset, len);
+> +
+> +	return find_reloc_linear(rsec, offset, len);
 
-will rename to to xin24m-clock
+I'm not sure there's much benefit in having two fallbacks (hashed +
+linear) instead of one.  If the vast majority of reloc sections are
+sorted, then hopefully a single (linear) fallback would be fine,
+assuming no major performance regressions.  That would help contain the
+complexity.
 
-> 
-> Best regards,
-> Krzysztof
-> 
-> 
+BTW, I found another initialization bug: klp-post-link.c uses
+elf_create_section() to create a reloc section, so it missing the
+initialization of rsec->hashed in elf_create_rela_section().  But that's
+moot if we just get rid of the hashing.
 
-Best regards,
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
-
+Josh
 
 _______________________________________________
 linux-riscv mailing list
