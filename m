@@ -4,50 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC5A2C88E50
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 08:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962F1C88E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 08:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w+kJdD5wS4gxRGZrko1trpGHd5fDTKgiQSkRa/39osY=; b=bXWOO+UrFvEjAu
-	UCdcpDHqT1g0pUx+GnQni/xVhrZNOFvL3eH1AHxCnn4sZb3AMEu2b7JVfn46ebp0zldQB1N2cugaf
-	G9FEFh3y4Fnm5rTeicLCAtLvpbDjYaMpLJlOJVttMMNEVV5ybo08zHoYrk3cDiXjdX2eZCCiIVJLH
-	F7D8lJlY79+cT6xC75+kQ+RmbJOA+xXbbp8uO0zfVyIxuz3z4X28DH43Xuaz8LtTKwPyFq+3GarKp
-	TYI69lO2WtpBgc//B7NvhK24ZFLJEwYogUvab60CptNjRgEC37aRN1KRHifQzL2EO6oHKKVVUOm80
-	fBJajyR9mYDazLBMyzgQ==;
+	List-Owner; bh=rY6wc8kH/Og0B/u0wGSptAeN2s41++mkubVb2dupeNs=; b=ZI0MM1ke8s3uUG
+	bbvzi1c0XYwRRWE9S4ZDM3xgMhn6TKBp+VuRJFLjVtDtNewheKj2NMbvDMxNa8nHsgAko/K4HBBOl
+	ZHmJ5ZGgGqQpBPE4BbpTjxaRo2gTnGLeVwGAL9bAL4NAQ5rsma2NzTPhavRoverWhMfQXZvaEyT/s
+	z6WDiURR9scK0avoHYDiDuHk1fo05fbOib+dTJw/InJbHcSdHENrzcExUTxpaZ2jzD4U9U5D50F4g
+	9L3pUJfHAFpTnoPG9QwA9z34XUUFnQ0t7tacymr6hPIlo5vXB4LlP9DSb1wzNsZHLbTbdyk56Ze7V
+	2gMYE3puYSwMSxnK+tfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61g7-00000002eQj-0k4x;
-	Mon, 14 Sep 2026 08:04:39 +0000
-Received: from out-42.mta0.migadu.com ([2001:41d0:1004:224b::2a] helo=mta0.migadu.com)
+	id 1x61v3-00000002hoq-2bt1;
+	Mon, 14 Sep 2026 08:20:05 +0000
+Received: from out-21.mta0.migadu.com ([2001:41d0:1004:224b::15] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x61g5-00000002ePg-1Oo5
+	id 1x61uy-00000002hne-3s9x
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Sep 2026 08:04:38 +0000
+	Mon, 14 Sep 2026 08:20:03 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=T2TbIB10b98M8VFnbRgkYEzSgOl2JI73PuH/i08J044=;
+DKIM-Signature: a=rsa-sha256; bh=U7vTt2iELlQ0EEFdakKRfkx0wSobYgfSFzBqINVEnHs=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789373075; v=1; x=1789977875;
- b=Zblgm2PKALYugzvDRWf9IF9Ys3ClEX0rguv1i5JhO9h6K74DCAigiTHanIx+nWPDoYQSkMnT
- ATW0hppLcOrT9TFoTCaDTlF4bNvPQwKCQv1iaF1LcSLYQNIiKYGmorpQvFXCz+OOFpL6IfZgRSk
- Gm3HahWM5ryVROBJmLYQQmvM=
+ t=1789373998; v=1; x=1789978798;
+ b=UK7DmuMDV0VPrT5MmKknXCqLYrMAI/3rY1tOmAtZZL5XIAOpbl7EE374D19gQGnOPXE4LDgv
+ k2Um6ED2NATlrru+MbYUXcGbZXWmtV+f7di7ZqQ2yq5HRFNxc317ZO30E23i79Ks0cePx8El0No
+ AqMVoFOZDQSWY5YN844+v+L4=
 X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by mta11.migadu.com with ESMTPS id 95a8c5560b05925a;
-	Mon, 14 Sep 2026 08:04:35 +0000
-X-Mizu-Trace-ID: 95a8c5560b05925a
+Received: by mta12.migadu.com with ESMTPS id 85b6144fd9a19aa4;
+	Mon, 14 Sep 2026 08:19:58 +0000
+X-Mizu-Trace-ID: 85b6144fd9a19aa4
 X-Migadu-Flow: FLOW_OUT
 From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Mon, 14 Sep 2026 16:03:54 +0800
-Subject: [PATCH v5 2/6] dt-bindings: hwmon: Move LM63 family to a dedicated
- binding
+Date: Mon, 14 Sep 2026 16:18:03 +0800
+Subject: [PATCH v5 3/6] dt-bindings: hwmon: Add Sensylink CTF2301
 MIME-Version: 1.0
-Message-Id: <20260914-ctl2301-v5-2-b44b81cd2c3c@linux.dev>
-References: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
-In-Reply-To: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
+Message-Id: <20260914-ctl2301-v5-3-522def70acb4@linux.dev>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Guenter Roeck <linux@roeck-us.net>, 
  Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
@@ -61,18 +58,21 @@ Cc: Troy Mitchell <troy.mitchell@linux.dev>, devicetree@vger.kernel.org,
  linux-doc@vger.kernel.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3142;
+In-Reply-To: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
+References: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1686;
  i=troy.mitchell@linux.dev; h=from:subject:message-id;
- bh=T2TbIB10b98M8VFnbRgkYEzSgOl2JI73PuH/i08J044=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFnLVxXsZdHWM1131i9na/d5B/8zkZlcXyN4dvLkb4zS8
- tuY6Di9o5SFQYyLQVZMkaX7Ac+2Ap8o2wKBQl+YOaxMIEMYuDgFYCJOHYwMJ4p2KnTLf+Y67L/0
- 98ub2scOzst+xPbF6Gzqb9cem/elkxgZFkW//RqtkzO/f+tWR0duw+u3r5Qt3RK6eOLEwOiSVgZ
- DDgA=
+ bh=U7vTt2iELlQ0EEFdakKRfkx0wSobYgfSFzBqINVEnHs=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFnL1x76eWbBXPl7F+xPi/5g/Tg77+OZHetkKg7IdR5t6
+ xb8IHrIsqOUhUGMi0FWTJGl+wHPtgKfKNsCgUJfmDmsTCBDGLg4BWAiJy8y/GRMuGXty6XuH9Lj
+ l1CYWmXifsWjbZ64w4c5n+eXKc85fIKRYV76CZb9U913eTW3f6nbbRjNZHAsTkhQ5u5be+9lVud
+ 2MgEA
 X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
  fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_010437_525058_03C4EDA9 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260914_012001_122150_A4B873A8 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,98 +89,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the National Semiconductor LM63, LM64, and LM96163 compatibles out
-of trivial-devices.yaml and into a dedicated binding. Describe their
-integrated fan control and preserve the optional interrupt used by the
-ALERT output. Permit use as thermal cooling devices via #cooling-cells.
+Add the Sensylink CTF2301 temperature sensor and fan controller to the
+LM63 family binding. The chip follows the LM63 register model and can
+provide a thermal cooling device when #cooling-cells is present.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Do not provide a national,lm63 fallback because the CTF2301 is not fully
+compatible with LM63. It uses different conversion-rate encodings,
+extended local-temperature registers, additional fan lookup table
+entries, and device-specific PWM and ALERT/TACH configuration. An older
+LM63 driver would therefore not operate the device correctly.
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
 ---
- .../devicetree/bindings/hwmon/national,lm63.yaml   | 53 ++++++++++++++++++++++
- .../devicetree/bindings/trivial-devices.yaml       |  6 ---
- 2 files changed, 53 insertions(+), 6 deletions(-)
+ Documentation/devicetree/bindings/hwmon/national,lm63.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/hwmon/national,lm63.yaml b/Documentation/devicetree/bindings/hwmon/national,lm63.yaml
-new file mode 100644
-index 0000000000000..f2e0993cfbef3
---- /dev/null
+index f2e0993cfbef3..4c8d0a15fbd12 100644
+--- a/Documentation/devicetree/bindings/hwmon/national,lm63.yaml
 +++ b/Documentation/devicetree/bindings/hwmon/national,lm63.yaml
-@@ -0,0 +1,53 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/hwmon/national,lm63.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: LM63-compatible temperature sensors with integrated fan control
-+
-+maintainers:
-+  - Guenter Roeck <linux@roeck-us.net>
-+
-+description: |
-+  The LM63 family provides local and remote temperature monitoring together
-+  with fan speed monitoring and PWM fan control. Supported devices include
-+  the National Semiconductor LM63, LM64 and LM96163.
-+
-+allOf:
-+  - $ref: hwmon-common.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - national,lm63
-+      - national,lm64
-+      - national,lm96163
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  "#cooling-cells":
-+    const: 2
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        temperature-sensor@4c {
-+            compatible = "national,lm63";
-+            reg = <0x4c>;
-+            #cooling-cells = <2>;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
-index 2de8eb09cb7d1..e46912ba2fd66 100644
---- a/Documentation/devicetree/bindings/trivial-devices.yaml
-+++ b/Documentation/devicetree/bindings/trivial-devices.yaml
-@@ -368,16 +368,10 @@ properties:
-           - mps,mpq82d00
-             # Murata D1U74T-W power supply unit
-           - murata,d1u74t
--            # Temperature sensor with integrated fan control
--          - national,lm63
--            # Temperature sensor with integrated fan control
--          - national,lm64
-             # Temperature sensor
-           - national,lm95235
-             # Temperature sensor
-           - national,lm95245
--            # Temperature sensor with integrated fan control
--          - national,lm96163
-             # Serial Interface ACPI-Compatible Microprocessor System Hardware Monitor
-           - national,lm80
-             # Serial Interface ACPI-Compatible Microprocessor System Hardware Monitor
+@@ -12,7 +12,8 @@ maintainers:
+ description: |
+   The LM63 family provides local and remote temperature monitoring together
+   with fan speed monitoring and PWM fan control. Supported devices include
+-  the National Semiconductor LM63, LM64 and LM96163.
++  the National Semiconductor LM63, LM64 and LM96163, and the Sensylink
++  CTF2301.
+ 
+ allOf:
+   - $ref: hwmon-common.yaml#
+@@ -23,6 +24,7 @@ properties:
+       - national,lm63
+       - national,lm64
+       - national,lm96163
++      - sensylink,ctf2301
+ 
+   reg:
+     maxItems: 1
 
 -- 
 2.55.0
