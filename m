@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23F5C88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61604C982D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=25N9G06nWnUDqwEH3e14fqZ+oSECd6lyemKaeqQYGaQ=; b=fHTetk+WoPezJ/
-	0jtNXBIgOiRevaFtFVuGtfvh7cg5dNEQ+g8S8VEO2yHbsqyqXUsbi0v5GYHcySoTMv9uFJ2T+XjyI
-	9xcYALVUt7rQXhVOt+PlVGiq+Tb/AMqz7TIJzN7MknsEBbM0KahdgOyhk0Ymry1nWCGZH9/iX+MFr
-	Ankn5hNV3ZxjfQrEA2qQND5vGC3L5AVk2f9QWUSq/denptrvUa+Ua0M+63/IA7kdXVa3ShOjtD7fD
-	1/VMclqDeVOdLH3bu8eC6CkZrh21DXjYcU0NfeC8dGQ/Kp7V97KG7DfcYmr6f1PCLgmxhgRYNBh1a
-	ppNYAV5lFYFLZlAHugiw==;
+	List-Owner; bh=5niMpX+xINkL+gqFCKbwMel7EeYNPHWss1MrGSz4HME=; b=YpE86D6FsKWLJk
+	VRGtTE4K3o60oGe9WmsSNY2xOcWTlVdchZa18E9mrkJ85V8fyelPhmpYUfG7S0EmtSO7BOcZh6VA9
+	OWbWPo/oz+3HsaEz20lo3n1Q1HGkcac9Jn3IpUbimfKv6Q8ovOT5erBQD008IviSY8+6Id3dWEh3p
+	ozTpyjbwTaiv1hDZG+FnCWkOGVvdGsePr+wxukYCJHa2FS2XaKxyJ1rOCFeiXoln1dkPIgE2wfYGN
+	++pC9hpYNWcysgDd+I6KS8MUZBkop16G9leH5P6MPWF3x23Bm8BC2R/OVJaEwAwZvUIinS7uEXRXo
+	MYRVah3AUrIi78fnXDTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7LhK-0000000Cs62-2IHr;
-	Thu, 17 Sep 2026 23:39:22 +0000
+	id 1x7LhT-0000000CsNq-13vF;
+	Thu, 17 Sep 2026 23:39:31 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x68MU-000000047hj-0WgX;
-	Mon, 14 Sep 2026 15:12:50 +0000
+	id 1x68Oh-000000048FZ-4C0t;
+	Mon, 14 Sep 2026 15:15:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8AA2760252;
-	Mon, 14 Sep 2026 15:12:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 048671F00893;
-	Mon, 14 Sep 2026 15:12:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E42260252;
+	Mon, 14 Sep 2026 15:15:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D25111F00899;
+	Mon, 14 Sep 2026 15:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789398769;
-	bh=tN13W6jwJWnvYLjX7TO8ZRd5JDwmaJZiUPNzCgrQU0E=;
+	s=k20260515; t=1789398907;
+	bh=1/40s6lyT9bZpyR+Yy0EbDmmnq6isDZhtDSiJykjXkI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=jFlaAQin+oAtoOa1M4DSIw9dAIP1iSZp2pLTn+auqN0GfEe/JXNztKg+WFdsuRXfI
-	 OUTf1CRcPeeG0tlNXiyIn+ZRVBA3x7SlMgG8LtvwO5vUMvTfQI4bBiWBDGu07spVOD
-	 e7GAN02gmQHUG23bXpH6nR0nzNnP0g/RoYb84GuB3Jk5EPN4xZtGjiUrTZfUrFDUqJ
-	 kkuAbhmPIfk9VWrrttWwXpUM5QybzXe5cyFv2kPQ2BVvWg772oGhx4ttklCTr0HF87
-	 27T/S546CBgS/61ZqCKpm/cYHyWDlc8cN/7UD4xGKx1IrSSIaGX5F/ymgfh5m8Vujg
-	 l+3f9hpvKA0dw==
+	b=O4g8EomuSoGBr7JylEOBMDOs3EdIDMAHiNHZiNGz+WkNkHzqvkLnkveyns92XmSaK
+	 wAzE3bORHhTGKcAQe5Hf8hb/+VQbrptzz+7CpdpSbhSF6Ak9fW+WiMgHW7pdBriEZb
+	 x1qYzxdun1eTBlP+f0tcdbxD/mcC8XDF9QvwLAItTu+ZCl8rGQ1ivKpjUoQLjAVuve
+	 TQkUIu+X2Hd82kd+orGw8xK7SiE5bY3VPKvliUth4R5/IbejZhi62XqkkKwt+1y25p
+	 0sHJHkcCeG+Ri3Wx73Wf7lYpasYmVxZfDSV/Zm9zNWhuwtzQWZm1Wt5g7T4j79mhUw
+	 wlQ58L1roQOOg==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Mon, 14 Sep 2026 15:57:49 +0100
-Subject: [PATCH v2 29/40] mm: drop some redundant checks around hugetlb
- VMAs
+Date: Mon, 14 Sep 2026 15:57:54 +0100
+Subject: [PATCH v2 34/40] mm: eliminate VMA_SPECIAL_FLAGS usage when
+ hugetlb explicitly tested
 MIME-Version: 1.0
-Message-Id: <20260914-b4-mmap-prepare-vma-flag-sanify-v2-29-7d9781ed5361@kernel.org>
+Message-Id: <20260914-b4-mmap-prepare-vma-flag-sanify-v2-34-7d9781ed5361@kernel.org>
 References: <20260914-b4-mmap-prepare-vma-flag-sanify-v2-0-7d9781ed5361@kernel.org>
 In-Reply-To: <20260914-b4-mmap-prepare-vma-flag-sanify-v2-0-7d9781ed5361@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
@@ -63,15 +63,15 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
  fuse-devel@lists.linux.dev, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2730; i=ljs@kernel.org;
- h=from:subject:message-id; bh=2GAQjO/s/Bk0fyt5AOQ4Ez3Tt7coS55V2FI+CqksX6E=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJWcG8y9Upv+BalpReh8y7L8R+HfP1fb9OdlmuZmH81p
- en+ufO0o5SFQYyLQVZMkeX5F/H9QSJh8zov+LvBzGFlAhnCwMUpABNZWcTI8ML48+2lyXeydx9e
- 6+7IyxZnVHwvST++88aidzfFfmhPX8nI0CY7MX4J7wnG2+f2mn++Ze5/7dKk/PiaX+uq/rOVF1h
- OYgQA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2543; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=eDLmjh2bzHIv4YAPniXBvBcmDHaqL2K0F9inIsPpqyE=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJWcG822Cv1Qqjn/738q/w2imubyv2Yroc8Xc7CMn2BK
+ M+FzX1/O0pZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCRmd8YGY4+iF7kaBlja2M/
+ has0996Dzf52ZxQyGKu113QtjUpWUWZkaM0/pbGovvL7i22q23s3Cwn6htf/l/mc5GKntH3nROa
+ L3AA=
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
-X-Mailman-Approved-At: Thu, 17 Sep 2026 16:37:30 -0700
+X-Mailman-Approved-At: Thu, 17 Sep 2026 16:37:31 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,80 +88,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adjust code which inadvertently perform redundant checks on hugetlb VMAs
-and clean them up:
+It is now an invariant that VMA_IO_BIT is not set except by kernel-owned
+mappings, so each existing VMA_SPECIAL_FLAGS test need only test for
+VMA_DONTEXPAND_BIT, VMA_PFNMAP_BIT and VMA_MIXEDMAP_BIT.
 
-* hugetlb VMAs have VMA_DONTEXPAND_BIT set so a VMA_SPECIAL_FLAGS check
-  suffices. (migrate_vma_setup() regains an explicit hugetlb test later in
-  the series, once VMA_SPECIAL_FLAGS is removed.)
+This is precisely a test for a kernel-owned or fixed mapping.
 
-* hugetlb VMAs unconditionally set vma->vm_ops, so they are never
-  anonymous.
+Update a number of callsites which already explicitly handle hugetlb
+mappings.
 
-* hugetlb VMAs do not set VMA_PFNMAP_BIT so checking for this is redundant.
+vma_supports_mlock() and ksm_compatible() also explicitly bail on droppable
+mappings - detecting kernel-owned, fixed or droppable mappings is handled
+by vma_is_persistent(), so in these cases use this predicate.
 
-While we're here also drop a VM_BUG_ON() which the simplified check above
-makes unreachable, and use the new VMA flag API.
+should_skip_vma() tests for locked, kernel-owned or fixed memory (having
+already excluded hugetlb mappings) so simply test for those there.
 
 No functional change intended.
 
-Acked-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- arch/arm64/kvm/mmu.c         | 4 +---
- drivers/gpu/drm/drm_gpusvm.c | 3 +--
- mm/migrate_device.c          | 4 ++--
+ mm/internal.h | 4 +---
+ mm/ksm.c      | 4 +---
+ mm/vmscan.c   | 3 ++-
  3 files changed, 4 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index a7968f8d24bf..3c1240ffc38d 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1463,14 +1463,12 @@ static int get_vma_page_shift(struct vm_area_struct *vma, unsigned long hva)
+diff --git a/mm/internal.h b/mm/internal.h
+index 1b6153013061..83a4ba52aaeb 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -1111,9 +1111,7 @@ static inline struct file *maybe_unlock_mmap_for_io(struct vm_fault *vmf,
+ 
+ static inline bool vma_supports_mlock(const struct vm_area_struct *vma)
  {
- 	unsigned long pa;
+-	if (vma_test_any_mask(vma, VMA_SPECIAL_FLAGS))
+-		return false;
+-	if (vma_test_single_mask(vma, VMA_DROPPABLE))
++	if (!vma_is_persistent(vma))
+ 		return false;
+ 	if (vma_is_dax(vma) || vma_is_hugetlb(vma))
+ 		return false;
+diff --git a/mm/ksm.c b/mm/ksm.c
+index 624f37975e12..f80372bfd4b2 100644
+--- a/mm/ksm.c
++++ b/mm/ksm.c
+@@ -747,9 +747,7 @@ static bool ksm_compatible(const struct file *file, vma_flags_t vma_flags)
+ 	if (vma_flags_test_any(&vma_flags, VMA_SHARED_BIT, VMA_MAYSHARE_BIT,
+ 			       VMA_HUGETLB_BIT))
+ 		return false;
+-	if (vma_flags_test_single_mask(&vma_flags, VMA_DROPPABLE))
+-		return false;
+-	if (vma_flags_test_any_mask(&vma_flags, VMA_SPECIAL_FLAGS))
++	if (!vma_flags_is_persistent(&vma_flags))
+ 		return false;
+ 	if (file_is_dax(file))
+ 		return false;
+diff --git a/mm/vmscan.c b/mm/vmscan.c
+index 12ed3388ee41..09ff20c3df5b 100644
+--- a/mm/vmscan.c
++++ b/mm/vmscan.c
+@@ -3477,7 +3477,8 @@ static int should_skip_vma(unsigned long start, unsigned long end, struct mm_wal
+ 	if (!vma_has_recency(vma))
+ 		return true;
  
--	if (vma_is_hugetlb(vma) && !(vma->vm_flags & VM_PFNMAP))
-+	if (vma_is_hugetlb(vma))
- 		return huge_page_shift(hstate_vma(vma));
+-	if (vma->vm_flags & (VM_LOCKED | VM_SPECIAL))
++	if (vma_test(vma, VMA_LOCKED_BIT) || vma_is_kernel_owned(vma) ||
++	    vma_is_fixed_mapping(vma))
+ 		return true;
  
- 	if (!(vma->vm_flags & VM_PFNMAP))
- 		return PAGE_SHIFT;
- 
--	VM_BUG_ON(vma_is_hugetlb(vma));
--
- 	pa = (vma->vm_pgoff << PAGE_SHIFT) + (hva - vma->vm_start);
- 
- #ifndef __PAGETABLE_PMD_FOLDED
-diff --git a/drivers/gpu/drm/drm_gpusvm.c b/drivers/gpu/drm/drm_gpusvm.c
-index a1d4989b0b61..fab34fea99c2 100644
---- a/drivers/gpu/drm/drm_gpusvm.c
-+++ b/drivers/gpu/drm/drm_gpusvm.c
-@@ -1141,8 +1141,7 @@ drm_gpusvm_range_find_or_insert(struct drm_gpusvm *gpusvm,
- 	 * limitations. If/when migrate_vma_* add more support, this logic will
- 	 * have to change.
- 	 */
--	migrate_devmem = ctx->devmem_possible &&
--		vma_is_anonymous(vas) && !vma_is_hugetlb(vas);
-+	migrate_devmem = ctx->devmem_possible && vma_is_anonymous(vas);
- 
- 	chunk_size = drm_gpusvm_range_chunk_size(gpusvm, notifier, vas,
- 						 fault_addr, gpuva_start,
-diff --git a/mm/migrate_device.c b/mm/migrate_device.c
-index c38cbaaef5a4..b9c453c28795 100644
---- a/mm/migrate_device.c
-+++ b/mm/migrate_device.c
-@@ -743,8 +743,8 @@ int migrate_vma_setup(struct migrate_vma *args)
- 
- 	args->start &= PAGE_MASK;
- 	args->end &= PAGE_MASK;
--	if (!args->vma || vma_is_hugetlb(args->vma) ||
--	    (args->vma->vm_flags & VM_SPECIAL) || vma_is_dax(args->vma))
-+	if (!args->vma || vma_test_any_mask(args->vma, VMA_SPECIAL_FLAGS) ||
-+	    vma_is_dax(args->vma))
- 		return -EINVAL;
- 	if (nr_pages <= 0)
- 		return -EINVAL;
+ 	if (vma == get_gate_vma(vma->vm_mm))
 
 -- 
 2.55.0
