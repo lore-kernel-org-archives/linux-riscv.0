@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C5D4C88E75
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C3FC88E77
 	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 13:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,45 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
 	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=45hI/mfbLZqkszgq9zkwVQ8NKTtsBca+7+inzanguj4=; b=3iAdv2+Zqgj7Cw
-	AKoqm3sQag0a3/tvQ0iok/9yjis/nhZEtFVRdoSrlvo5kw3M3bnyV1MMQefNv+7vhWAjwnQswHQnS
-	V2NHFBgN6bSrMopgMqk+MYc1TbKvBSw+LpRrBr/ouEsIcEpUkNTUqO4OGOr5K8i1qGsxDs/KhwYrL
-	jPS50CUNRfvadYNwEQyLWwLxzvw3Wuuc+DLH+8aepLwyEErSQz9fZXgnd6PumXcYF2dml1DuLa1cy
-	a8nGW08v+8PmutRoFCuuf/LEXYgu+yeCzLqP9VwLlzLyM3ISU4clJHEW5bHgX4w/zLjqKAkfKsQqg
-	eviXxMO9oirsSbqQHEMQ==;
+	List-Owner; bh=GmjnLYYm9dBZ+8PlsRRL6TKeYqPMOZBWD23Y7c06UGg=; b=HqqKnBl2zYeyEH
+	E1U8ws4hHyGwr+1i2WRxS0nEec2UmJTemybF1XPUPnGB8JbN4zHlgUMZoZs0qx7goRafGfmBhD+m1
+	BxN42InmJijg4fWnggZHwZ+uiN2Wq5h1XEb39QixloNpXL0fdCvIILfO0VCyzSNhT0zZ4t2DHimor
+	Cxt8BThe6E/kW9Wsr6+3th5NnLDA5/q6IHIPjHt1DOSyMgHNir6yG/SUTPy1UQqhq5ik6i7f+tYyy
+	6uTm46dfLfTxHM/AD7jqGdh5/e057V5/xEh4AwTpBmnMmj71voQtBcsIbIX9VHkZzbiQwwshFwQqs
+	MIIS5fLRTbRhSOidCGQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67AH-00000003shD-3zi1;
-	Mon, 14 Sep 2026 13:56:10 +0000
+	id 1x67AH-00000003sgj-1D8j;
+	Mon, 14 Sep 2026 13:56:09 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x67AF-00000003sfg-3h4X
+	id 1x67AF-00000003sfB-1XcG
 	for linux-riscv@lists.infradead.org;
 	Mon, 14 Sep 2026 13:56:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1887043DE1;
-	Mon, 14 Sep 2026 13:56:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EA933C2BD04;
+	by sea.source.kernel.org (Postfix) with ESMTP id A8F9343D93;
+	Mon, 14 Sep 2026 13:56:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 80BBBC2BD01;
 	Mon, 14 Sep 2026 13:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1789394167;
-	bh=feMAIChGgZWfq9i+/AJEqb+Uj9SH6mGtmZ5aQlZQHEY=;
+	s=k20201202; t=1789394166;
+	bh=NG0zcPrpuUrHqJArNTKYUb+/7+gQImfZBXI+QFiTCFI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ljd0L+/jPoReQDlyfSvmhT2jQE5f1C+5nMkCqjepM/74/pJ4MSjsd6Lw/YVsZklyY
-	 Riq1xE9Ah+rzeDGSEWgr1TRVH+qoE6U/e4ohWXlmgskhyZQekGaMBLhoG9Mv5t/uiv
-	 /2AtOhi9+PlmThCrbVjql/AQpTwbH7whntW8vnC8VfyhzMFflIdVolsUmJH4AuDptC
-	 FxlElNlARyskdAJUFakNzAzKv7phBnPoEJtEsk0wfcmwMAsEa5g8YEL5QCYn7vx+bx
-	 QlV+yQPTxoTi2xoOSHkod3Xadq1NNY199z8db4hbt4VLxJFTT/tyOZ09LLvitknRBF
-	 +dCJmt/hkbTww==
+	b=aSP8eS0cnkVnk02fHxWD0m6A4C0cYkf2cmZ7d+OWcIq7X8b/lZBrb/pLOihmPsd/T
+	 YSEEAhV//pOiPp6dvHtzKmD6/H62Pr8rPopv+rbTD20ydbxlYYS3yYOjUQn1LHjl6F
+	 RDacv2sij70ev26NnjFDP95AmMBivj2Py5xqkCRbKZpZLG0MFF93mufJJQf3KorXly
+	 3gailyrxhypzQViLLiDpzecQa29NiX2IQpQLOQ0j/AbTOgVo7cdAzkUuH/I49K9ilf
+	 bztWoDwsLE7bl9gbKUag+CT8O2X7nShntvBoSjx/mEliNp9OFDgSzgbJwwlxfHE5R7
+	 dqphOwJWhdU6w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D45BBC88E73;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65185C88E70;
 	Mon, 14 Sep 2026 13:56:06 +0000 (UTC)
 From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Date: Mon, 14 Sep 2026 15:55:55 +0200
-Subject: [PATCH 7/9] dt-bindings: interrupt-controller:
- thead,c900-aclint-sswi: Add MIPS P8700 gf compatible
+Date: Mon, 14 Sep 2026 15:55:51 +0200
+Subject: [PATCH 3/9] dt-bindings: riscv: Add MIPS Boston board compatible
 MIME-Version: 1.0
-Message-Id: <20260914-p8700-dts-v1-7-3267f14ebce1@htecgroup.com>
+Message-Id: <20260914-p8700-dts-v1-3-3267f14ebce1@htecgroup.com>
 References: <20260914-p8700-dts-v1-0-3267f14ebce1@htecgroup.com>
 In-Reply-To: <20260914-p8700-dts-v1-0-3267f14ebce1@htecgroup.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,11 +66,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
  Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1789394164; l=1111;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789394164; l=1403;
  i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
- bh=WFsJFX8KbR9cAkA42pWDMyhUYcejxHY2wNhnlUtG9bs=;
- b=Y7p8yYv9zwnZFtrXTS2MrDg97xIcAaHrIiLL96HI0AQv1uDO2SVRXXJx1FZDMMtkpgsUOM0Og
- C41uzxDrVQLDtZAhRn0Vff+6OL7NlwO/Gug92lvhiUE32V0HhaDp3ec
+ bh=tHtPPite2sONqkkfk86N/TwZq1aosKXIXhSFvR7Duso=;
+ b=4xcc9rb7EAWmZYMvfru0693dtlF9DrEifQUIycCT0YkGnWl3JuqAG1qMk2mmlbRPKtqQ+3mXv
+ zQ0bHk6gJMSBgalImaA1FbxpVCwpTdzNifGoImPQB9jtec18F0X+aoY
 X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
  pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
 X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
@@ -96,28 +95,48 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
-Add a new compatible for the MIPS P8700 ACLINT SSWI, with the "gf"
-vendor prefix. The original compatible is left as is.
+Document the MIPS Boston board compatible with a P8700 bitfile.
 
+Co-developed-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
+Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
 Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 ---
- .../bindings/interrupt-controller/thead,c900-aclint-sswi.yaml          | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/devicetree/bindings/riscv/gf.yaml | 27 +++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
-index d02c6886283af790d75357f77a714558f68bb7d1..6c79d7b7058a64bb39141d565f0a6304365991f2 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-sswi.yaml
-@@ -30,6 +30,9 @@ properties:
-           - const: thead,c900-aclint-sswi
-       - items:
-           - const: mips,p8700-aclint-sswi
-+      - items:
-+          - const: gf,mips-p8700-aclint-sswi
-+          - const: mips,p8700-aclint-sswi
-       - items:
-           - enum:
-               - anlogic,dr1v90-aclint-sswi
+diff --git a/Documentation/devicetree/bindings/riscv/gf.yaml b/Documentation/devicetree/bindings/riscv/gf.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..060910c9b04f482aee6f08f8f72232acbad118bb
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/gf.yaml
+@@ -0,0 +1,27 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/gf.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: GlobalFoundries MIPS SoC-based boards
++
++maintainers:
++  - Djordje Todorovic <djordje.todorovic@htecgroup.com>
++  - Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
++
++description:
++  GlobalFoundries MIPS SoC-based boards
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - description: Boston FPGA development board with a MIPS P8700 bitfile
++        items:
++          - const: gf,mips-p8700-boston
++
++additionalProperties: true
++
++...
 
 -- 
 2.43.0
