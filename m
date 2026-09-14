@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5681CC88E6A
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 09:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC645C88E64
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 09:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gp2m2KOK/WyoYWXWr9os1kxS/jVKvVtyWdk0JsXBP8M=; b=Omx7TCdlnkaXg5
-	i1/s36DI+Kv4tb7o0AI3QDkANu/9FaJ2GvPUOgHQtKCabVYFySr8dduTqgHwPz2Z/U8gb9cFYwLty
-	OMPgNjU66cTTmr8gwopgY7IG+PFRUmxu8ytnTqL+fjhocackWr/2Zo47y1U8aeyRH7+8oT1nUm6oc
-	bFXpJzdWUalq0iVnP+eWPQFkPkRuz4csMJ5FR8B4rYOeYsbg4j1j0g87YWVKzdIwxmkpZQcN9IbVo
-	/MzD1AedrNllbSEb6RTQyHpTimSLbfStUsZoE3MKh2jwHaFiePBZnBw3AFew4U9zqbBkW5TqFauR7
-	nIj1snn5DAtG8SVO6fOA==;
+	List-Owner; bh=FNlDG4ko+68j4R2eD2W/Lz+2eihhs7HqHjICkOttDno=; b=3n+hUQZ7HxaDV3
+	oTqtmYQytragKKtTJue0yFCNkOYjrACfmg6yPftQSFLUdIwio+Ezfy2Z1R0hDwPjMRm/3jQj5L+7z
+	gvQjtPF6a2B6m6lBHOT1nAejQtgl7CbVc+Lrg2VGnr0DvU6/Mhjo0jVMFiL65X86WgsVltnsjsyNH
+	lvVOf9Jy2NEBuyQjdfxIzTpz+xTvEvv/4PUdm4eHKuNCY2gKSclEdHu/y5WRM9BtBjyCV4KBsJm9S
+	RhTlSd1hIvuBXphNXFJZIZrZrK7zKogtjSDyc2jk9nO59KQ5Of/coa8y7EhZIEgtDktDcOB7KqwCW
+	PyMnU4JzboaTcgQZhbjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62vv-00000002w1g-0I2g;
-	Mon, 14 Sep 2026 09:25:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x62w3-00000002w9X-2Dg6;
+	Mon, 14 Sep 2026 09:25:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62vt-00000002w00-2OZk;
-	Mon, 14 Sep 2026 09:25:01 +0000
+	id 1x62w1-00000002w88-2T3I;
+	Mon, 14 Sep 2026 09:25:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 026E8601DE;
-	Mon, 14 Sep 2026 09:25:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99BE61F0089C;
-	Mon, 14 Sep 2026 09:24:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 53325412CA;
+	Mon, 14 Sep 2026 09:25:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1719C1F000FF;
+	Mon, 14 Sep 2026 09:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789377900;
-	bh=RpyglNkLvgtO+g1zDJNpkY3JopuChXGi3ttcKAuST+8=;
+	s=k20260515; t=1789377909;
+	bh=BrlNkQjajCTYtK/0VUvnkvC1qlFkobRRHOKgdjMHKiQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=U3APckzcNb8JbHUrZoRsUAYzbb2c1GG3R21FSCiQl7qGnktoxcrbO5lQ1vnZIHOt0
-	 UgAQtI9JIL23r52AaC8GHgQ5spR1CSkcKSTLzuob6H2/KGNx04h8NLIzGN0PTe1qab
-	 WmLKdME1iAZ4rlIMc38H/Twr1zbJf2hLQUXRLpfyh9bucU1GUncLmAKCjUcpgbsoJH
-	 q5xzRSbX30gawk84mxWqQGyD0RpF9V0RRW4691rZWARXSTa8YrRAfa4NpBuMWp08np
-	 5N1M1ikxC7g5MsACM4LVKuNGTbLb1d81V1Elb0+sRCQfhcLoqIdkmPMymr6ajsVPvd
-	 phDdRui2DdyRQ==
+	b=NsIMdKxy98N/H3Dv7Jm5dwcAH3rU3qKcgtMTqWC5aOqG/79Ku1S7053jhXPjO1GOe
+	 BENW0BXs9GTknnygAH57skCp9k2TKp6bMThT3HPg1Jwfj/+/DlW4lIupqQakE6N2ou
+	 HwUtR9XyctBcCTSW+YVIRnpfMmkxKCI0Db3WoykX9kmTusUOcqYPmBfWSqYQQ25vr7
+	 QF+QoBDQ9cF4aZBdzTp6scI03W9KdLkSLRyF2Wd2kiW5m1XFp1FRDCArIUMlc5E2uX
+	 s4lUFDRcPNJYPSoVh+vOU8pMaIN8jPVQql97FdSsg3O3D8z43uQRPO+H6kdTwiBiuC
+	 9lwD+6rTUWUQw==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Mon, 14 Sep 2026 10:22:18 +0100
-Subject: [PATCH v2 19/21] rust: make exports.o depend on the headers
- generated for it
+Date: Mon, 14 Sep 2026 10:22:19 +0100
+Subject: [PATCH v2 20/21] kbuild: build rust crates in parallel with the
+ rest of the build
 MIME-Version: 1.0
-Message-Id: <20260914-build-speedup-v2-19-39817ec5db23@kernel.org>
+Message-Id: <20260914-build-speedup-v2-20-39817ec5db23@kernel.org>
 References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
 In-Reply-To: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
 To: Linus Torvalds <torvalds@linux-foundation.org>, 
@@ -83,12 +83,12 @@ Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, 
  linux-hardening@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1286; i=ljs@kernel.org;
- h=from:subject:message-id; bh=kx145CbsbOZNlrJo3YNnQ6X8zzclemP0tqvdTYAGrNw=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKW7zlkoemU35h/acemw+aTIx/+ZZy6y/DfZ4m925e/k
- ft8ZaukQUcpC4MYF4OsmCLL8y/i+4NEwuZ1XvB3g5nDygQyhIGLUwAmIvuIkeHRkV/PN5sz5D0q
- vFnKZfCRT1ErvnOmu0BJ1cYTZ3Y8PeLB8N9/3XuJuy1rmbb97z242mYK94ozySlyMl27Nh30fly
- 8PoMHAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3937; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=U8w1OGEcGqTMBPLphginjIg33e6IZ3iD6ELzUkggRcc=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKW7znUdeSZgKug8g+TzJd8HvMWV2Rf8hDK/Xxwt63o4
+ i9umxhEOkpZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjCRY7MZGVbw/koLm8IpfHxz
+ sP1k7j3N/+/riklvc7JekSEX4Sg2K5CRYVNkjXtpIucRh60pW9cyJXzyt2Lc3pr2geux89PWZ/n
+ 8vAA=
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -107,38 +107,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-rust/exports.c includes the exports_*_generated.h listing the symbols of
-the core, bindings, kernel and helpers objects, but this is not expressed
-in its Makefile.
+When CONFIG_RUST is specified make prepare builds all of the rust
+components before descending into the tree.
 
-This worked previously because the headers are always-y targets, and make
-prepare built all of the rust crates first, which is an implicit
-dependency.
+This means nothing can be done until all of these are compiled, resulting
+in a stall at the start of every clean CONFIG_RUST build.
 
-Fix this as it is a dependency of the subsequent commit.
+This also implicitly slows down every rust-capable LLVM allmodconfig build
+as this enables the CONFIG_RUST option.
+
+Fix this by allowing rust crates to be built alongside the C code.
+
+Remove the rust build from the make prepare step, then establish a
+dependency between rust code located elsewhere in the tree upon rust
+components contained in rust/.
+
+Do this by establishing a top-level list of directories containing rust
+code, KBUILD_RUST_DIRS, upon which the dependency is expressed.
+
+Finally, ensure that no rust code is located elsewhere and fail the build
+if any is found to ensure that nothing is missed in future.
+
+Care is taken to ensure the rust/ dependency is also established for any
+module being built to account for external rust modules which rely upon it.
+
+Care is taken to ensure that external rust modules can still be built
+against the tree - make modules_prepare ... (where ... are other goals)
+will build rust/ first.
+
+Every Rust and C object was confirmed to be byte-for-byte identical after
+this change.
+
+Whole build, 128-thread Threadripper 9980X, best of N runs:
+
+                                         before   after     delta
+                                         -------------------------------
+  x86 defconfig+RUST, clean                36.5s    32.6s     -3.9s (-11%)
+  x86 allmodconfig, clean                 297.0s   278.3s    -18.7s (-6%)
 
 Assisted-by: LLM
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- rust/Makefile | 5 +++++
- 1 file changed, 5 insertions(+)
+ Kbuild                 |  5 +++++
+ Makefile               | 11 ++++++++++-
+ scripts/Makefile.build |  5 ++++-
+ 3 files changed, 19 insertions(+), 2 deletions(-)
 
-diff --git a/rust/Makefile b/rust/Makefile
-index da1a7409d984..74d21ae6f383 100644
---- a/rust/Makefile
-+++ b/rust/Makefile
-@@ -728,6 +728,11 @@ endef
- $(obj)/helpers/helpers.o: $(src)/helpers/helpers.c $(recordmcount_source) FORCE
- 	+$(call if_changed_rule,rust_cc_library)
- 
-+# The exported symbol lists are generated from the crates' objects.
-+$(obj)/exports.o: $(obj)/exports_core_generated.h \
-+    $(obj)/exports_bindings_generated.h $(obj)/exports_kernel_generated.h \
-+    $(if $(CONFIG_RUST_INLINE_HELPERS),,$(obj)/exports_helpers_generated.h)
+diff --git a/Kbuild b/Kbuild
+index a6a0192dea08..9670556059dd 100644
+--- a/Kbuild
++++ b/Kbuild
+@@ -115,3 +115,8 @@ obj-$(CONFIG_NET)	+= net/
+ obj-y			+= virt/
+ obj-y			+= $(ARCH_DRIVERS)
+ obj-$(CONFIG_DRM_HEADER_TEST)	+= include/
 +
- # Disable symbol versioning for exports.o to avoid conflicts with the actual
- # symbol versions generated from Rust objects.
- $(obj)/exports.o: private skip_gendwarfksyms = 1
++# Rust code elsewhere in the tree depends upon rust/.
++ifdef CONFIG_RUST
++$(KBUILD_RUST_DIRS): | rust
++endif
+diff --git a/Makefile b/Makefile
+index 4ef504c1ace2..790ef23c5e8a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1429,11 +1429,14 @@ prepare0: archprepare
+ 	$(Q)$(MAKE) $(build)=. prepare
+ 	$(Q)$(MAKE) $(build)=scripts/mod
+ 
++ifdef CONFIG_RUST
++export KBUILD_RUST_DIRS := drivers lib mm samples
++endif
++
+ # All the preparing..
+ prepare: prepare0
+ ifdef CONFIG_RUST
+ 	+$(Q)$(CONFIG_SHELL) $(srctree)/scripts/rust_is_available.sh
+-	$(Q)$(MAKE) $(build)=rust
+ endif
+ 
+ PHONY += remove-stale-files
+@@ -1760,6 +1763,12 @@ modules: modules_prepare
+ # Target to prepare building external modules
+ modules_prepare: prepare
+ 	$(Q)$(MAKE) $(build)=scripts scripts/module.lds
++ifdef CONFIG_RUST
++# Ensure rust/ is built before any external rust module which will rely upon it.
++ifneq ($(filter modules_prepare,$(MAKECMDGOALS)),)
++	$(Q)$(MAKE) $(build)=rust
++endif
++endif
+ 
+ endif # CONFIG_MODULES
+ 
+diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+index b9093b39cc2f..77351d6006fa 100644
+--- a/scripts/Makefile.build
++++ b/scripts/Makefile.build
+@@ -360,8 +360,11 @@ quiet_cmd_rustc_o_rs = $(RUSTC_OR_CLIPPY_QUIET) $(quiet_modtag) $@
+ 		$(cmd_ld_single)) \
+ 	$(cmd_objtool)
+ 
++rust-dir-ok = $(or $(KBUILD_EXTMOD),$(filter rust $(KBUILD_RUST_DIRS),$(firstword $(subst /, ,$@))))
++
++# Ensure that any rust code located elsewhere from rust/ is listed in KBUILD_RUST_DIRS.
+ define rule_rustc_o_rs
+-	$(call cmd_and_fixdep,rustc_o_rs)
++	$(if $(rust-dir-ok),,$(error $@: Rust code in a directory not listed in KBUILD_RUST_DIRS, see the top Makefile))$(call cmd_and_fixdep,rustc_o_rs)
+ 	$(call cmd,gen_objtooldep)
+ endef
+ 
 
 -- 
 2.55.0
