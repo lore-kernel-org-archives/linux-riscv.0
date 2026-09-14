@@ -4,93 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2090C88E6A
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 09:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD16C88E6A
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 09:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aXhu+9CI5wIgwVqdislMtyf0l800vJqgTD4U8RfsTPI=; b=daWm5Nhg/E8FDU
-	Ey4DX81r+2UUpZRcx//c09kCv5ScEXtyjM5ybm81CDKc4Tfv0KDzNB3cFfurZthcPtBBjMWVqr0EN
-	Hf3DQ/WTmx9K8+rpePbOfAIzY5GdRCh1PNDJn5uy2e5e04vqtpF+lpUXfr0beifEBjGjGPqAbQZCo
-	T9hlKV+Zokg/hT5gwDnqJCflQiSIZta2t6hVykK66Gh+es68CP7gAQueSbqeie9nfVDRc/3HC0S+j
-	PKCGOOi4C0CWDTjCaEdB6w8csX8bkcfAFYvJ9gPiZ5KDGKIYhb9HFqUplxtsA0JVcVmTdMfRwqmGh
-	efhqRYo3Po5LdlMe75sw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zN43leOZPPZtOb2oMTY9J2TPwyBS7PLw5dBzHSP+024=; b=jIqMsVT4rcGa7e
+	8cu3SuNHMfJUWUA96fX524XMquGYTyorvjSw35DwSxmkbzAVnm5SaYtsZ+oxNAYOEZw3JJ3pRke9x
+	C+GTd9oRGR2osjuMhaZ0q+McmPEZvOcIDbqTci8H1utyG20XDfv2aAc6JSyi95tped/+gVQmNWqTn
+	svGJnWq6IRIsHNwM8r7Mb2zPycFAiispYywSRstRf8jz87RN1GtnMbe1iLtRG7s3qIrCZGdA3H/U/
+	E6T4PSjcFQOQHyfQwyEJsIt+Gd+81Pj03gLJCFm7IvJR4jV3tnVJ0jgKX8qszTBUi+jGZbJetExGs
+	9lIdeortnTmaTtnJrzvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62wC-00000002wGq-1rUh;
-	Mon, 14 Sep 2026 09:25:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x62xn-00000002wo0-1Iat;
+	Mon, 14 Sep 2026 09:26:59 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x62wA-00000002wF6-2CCo;
-	Mon, 14 Sep 2026 09:25:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1438601DB;
-	Mon, 14 Sep 2026 09:25:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9291F1F00893;
-	Mon, 14 Sep 2026 09:25:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789377917;
-	bh=MlHxyJY4HAa/6VNWaILQ/yCa4l1lTL7VmN2BOtdjyCg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=NactYzSqVtEBr8OHpwOtVkFw5kxseKF3YcaZG8wVn1eLJj62D5ttndc5JuTVpSZb7
-	 QDbb3RreMSkIfnOTzv6pQqNvIVUkZVlXHSvJ312gkgM5sehMVfK90hRuLW6qcv4eta
-	 OV2nqkzEWV526oBEvYWw9vgUIJOjryqeXVk0ZF27iHcosnu9O6k/QdKx/lPl/2x97D
-	 kncuHUTQBgnqlDV5ZYDTJwF41btSavfUYgxwP8Bwvn89dagzdZG+yi78TWX6pYW+QP
-	 DllhYEpcTK+de9iM2AT209f/K8c+bPM8ehIImodv0mOA5YR4jq3f0ZuROr6dm+GpbI
-	 oFZSxnflXLVcw==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Mon, 14 Sep 2026 10:22:20 +0100
-Subject: [PATCH v2 21/21] kbuild: use pigz for gzip compression if
- available
+	id 1x62xi-00000002wn5-3O2F
+	for linux-riscv@lists.infradead.org;
+	Mon, 14 Sep 2026 09:26:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1789378013; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=P8sYn4OtnNWo+w2hJIg0kIU0ugjITLBiiIHDjl7eYks=;
+	b=odbYtClVXrsFIzs2aUvmmmGYlpcgatdh7tPjlLOBOup0YNl8bZDc4ApFuY/EPeb48izp8F4ccRv1fGqOHRFxs3nMHC82Ht8uMRR8EYU1iBJ/WiPxZ8N5tvxH5ZjiQ8bsClItuFOZsznJcLR03vR7r+dZVQscin1yZPZ/nDmnPo4=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=34;SR=0;TI=SMTPD_---0XAuO-lA_1789378009;
+Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XAuO-lA_1789378009 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 14 Sep 2026 17:26:51 +0800
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+To: palmer@dabbelt.com,
+	pjw@kernel.org,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	oleg@redhat.com,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mark.rutland@arm.com,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	james.clark@linaro.org,
+	jpoimboe@kernel.org,
+	jikos@kernel.org,
+	mbenes@suse.cz,
+	pmladek@suse.com,
+	joe.lawrence@redhat.com,
+	shuah@kernel.org,
+	mpdesouza@suse.com,
+	oliver.yang@linux.alibaba.com,
+	zhuo.song@linux.alibaba.com,
+	xueshuai@linux.alibaba.com,
+	jkchen@linux.alibaba.com,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	live-patching@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH v6 0/7] riscv: Add reliable stack unwinding for livepatch
+Date: Mon, 14 Sep 2026 17:26:41 +0800
+Message-Id: <20260914092648.51254-1-xueshuai@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Message-Id: <20260914-build-speedup-v2-21-39817ec5db23@kernel.org>
-References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
-In-Reply-To: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>, 
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Ard Biesheuvel <ardb@kernel.org>, 
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
- linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, 
- linux-hardening@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5694; i=ljs@kernel.org;
- h=from:subject:message-id; bh=i4Q5FyYbPndNo8fJS+kn8FrZCIOZYFQdzUc223QKkJ8=;
- b=kA0DAAoWz53NioHifxQByyZiAGqnvMKhMxKk7nhnTotN8bFtS5mi2KGLdyf4BR2mUrrr2HgKo
- oh1BAAWCgAdFiEE5/QXv1IUVp6J0E9Gz53NioHifxQFAmqnvMIACgkQz53NioHifxTdcAEAgxQT
- 3P1Mksw674GaGcJ3ObMt8+QNeMwgQ/URc1cuwUAA/2r9twxzcl7zW9cuqgQgIpT5Cxv77pTPS/E
- IZxIBN/EB
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_022656_359277_D9C1D830 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,149 +96,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The gzip step of a kernel build is very lengthily, especially for larger
-builds such as allmodconfig.
+Hi,
 
-gzip itself cannot be run in parallel, however an alternative tool exists
-that can, providing the same feature set as gzip itself - pigz - which
-works as a drop-in replacement.
+This is v6 of the RISC-V reliable stack unwinding series for livepatch.
+Wang Han has left our team, so I am taking over this series from now on.
 
-On a 128-core Threadripper, gzip -9 of a 36 MiB x86-64 vmlinux.bin takes
-1.6s, and with pigz it takes 0.09s, so the performance increase is
-significant.
+The series adds explicit frame-record metadata, preserves the frame
+pointer through dynamic ftrace, and replaces the open-coded stack walker
+with a conservative frame-pointer based unwinder. It then enables the
+RISC-V livepatch capability and adds the syscall-wrapper selftest prefix.
 
-It is already possible to specify KGZIP on the make command line to make
-use of pigz, however it seems sensible to make use of pigz if it is
-available.
+Changes since v5:
+* Rebase onto the current riscv/for-next; no functional changes.
+* Fold in the tags collected from the v5 thread:
+  - Reviewed-by: Shuai Xue on 2/7, 3/7, 4/7 and 6/7
+  - Acked-by: Miroslav Benes on 7/7
+* Add my sign-off as the new sender.
 
-Therefore default to using pigz if it is available on the system upon which
-the kernel is being built, otherwise fall back to gzip.
+Since the patches are otherwise identical to v5, the v5 validation
+results still apply. For reference, from the v5 cover letter:
+* Built Linux 7.2.0-rc6 with riscv64-unknown-linux-gnu-gcc 15.2.0
+  and binutils 2.46.
+* Standard livepatch configuration built successfully, including
+  Image, vmlinux, modules, compile_commands.json and GDB scripts.
+* CONFIG_IRQ_STACKS=n variant linked successfully with GCC.
+* QEMU 8.2.2, 1 CPU: livepatch selftests PASS: 7, SKIP: 1,
+  FAIL: 0; ftrace function graph 3 passed, 0 failed, 3 unsupported.
+* QEMU 8.2.2, 4 CPUs: livepatch selftests PASS: 7, SKIP: 1,
+  FAIL: 0; ftrace function graph 3 passed, 0 failed, 3 unsupported.
+* No BUG, WARNING, Oops, panic, unreliable stack or Call Trace found
+  by the validation log scans. Expected negative livepatch errors are
+  part of the selftests.
 
-Modules are compressed one per make job at install time, so a parallel
-compressor gains nothing there and with -jN would run N times the core
-count in threads. Limit pigz to a single thread for module compression.
+v5 was posted in early August and has been quiet since then. I would
+appreciate it if the series could be considered for the upcoming merge
+window. Happy to address any remaining feedback.
 
-The output is byte-for-byte identical between pigz/gzip invocations, but
-gzip and pigz do not produce the same stream as one another.
+Base:
+riscv/for-next 77ae27fd98f3 ("Merge tag 'printk-for-7.3' of git://git.kernel.org/pub/scm/linux/kernel/git/printk/linux")
 
-Therefore, for reproducible builds, the same set of tools should be used.
+Previous versions:
+v5: https://lore.kernel.org/r/20260804103626.2803112-1-wanghan@linux.alibaba.com
+v4 RESEND: https://lore.kernel.org/r/20260629072713.3273743-1-wanghan@linux.alibaba.com
+v3: https://lore.kernel.org/r/cover.194d76e3a15b.v3.riscv-livepatch.wanghan@linux.alibaba.com
+v2: https://lore.kernel.org/r/20260528082310.1994388-1-wanghan@linux.alibaba.com
+v1: https://lore.kernel.org/r/20260527123530.2593918-1-wanghan@linux.alibaba.com
 
-This seems to already be an implicit requirement in any case, but update
-the reproducible build documentation to make this clear.
+Assisted-by: Qoder:Qwen-3.8-MAX-Preview
 
-Also update the kbuild documentation to reflect the change.
+Wang Han (7):
+  riscv: stacktrace: Add frame record metadata
+  riscv: stacktrace: disable KASAN and KCOV instrumentation for
+    stacktrace.o
+  riscv: ftrace: always preserve s0 in dynamic ftrace register frame
+  riscv: stacktrace: introduce stack-bound tracking helpers
+  riscv: stacktrace: switch to frame-pointer based unwinder
+  riscv: Kconfig: enable HAVE_RELIABLE_STACKTRACE and HAVE_LIVEPATCH
+  selftests/livepatch: Add RISC-V syscall wrapper prefix
 
-Every x86 build ends with the compression of vmlinux.bin, 36MB for
-defconfig and over 200MB for allmodconfig, no-op builds are unchanged.
+ arch/riscv/Kconfig                            |   4 +
+ arch/riscv/include/asm/ptrace.h               |   9 +
+ arch/riscv/include/asm/stacktrace.h           |  67 ++-
+ arch/riscv/include/asm/stacktrace/common.h    | 159 +++++
+ arch/riscv/include/asm/stacktrace/frame.h     |  53 ++
+ arch/riscv/kernel/Makefile                    |   6 +
+ arch/riscv/kernel/asm-offsets.c               |   6 +
+ arch/riscv/kernel/entry.S                     |  39 +-
+ arch/riscv/kernel/ftrace.c                    |   6 +-
+ arch/riscv/kernel/head.S                      |  23 +
+ arch/riscv/kernel/mcount-dyn.S                |   4 -
+ arch/riscv/kernel/perf_callchain.c            |   2 +-
+ arch/riscv/kernel/process.c                   |  33 +-
+ arch/riscv/kernel/stacktrace.c                | 561 +++++++++++++++---
+ .../livepatch/test_modules/test_klp_syscall.c |   2 +
+ 15 files changed, 868 insertions(+), 106 deletions(-)
+ create mode 100644 arch/riscv/include/asm/stacktrace/common.h
+ create mode 100644 arch/riscv/include/asm/stacktrace/frame.h
 
-Whole build, 128-thread Threadripper 9980X, best of N runs:
-
-                                         before   after     delta
-                                         -------------------------------
-  x86 defconfig, touch mm/vma.c, gcc        7.7s     6.0s     -1.7s (-22%)
-  x86 defconfig, touch mm/vma.c, clang      6.9s     5.4s     -1.5s (-21%)
-  x86 defconfig, clean, gcc                28.2s    26.3s     -1.8s (-6%)
-  x86 defconfig, clean, clang              28.7s    27.2s     -1.5s (-5%)
-  x86 allmodconfig, touch mm/vma.c, gcc    23.7s    15.4s     -8.3s (-35%)
-  x86 allmodconfig, touch mm/vma.c, clang  22.5s    15.6s     -7.0s (-31%)
-  x86 allmodconfig, clean, gcc            294.1s   278.6s     -15.5s (-5%)
-  x86 allmodconfig, clean, clang          283.9s   266.8s     -17.1s (-6%)
-
-Link: https://zlib.net/pigz/
-Assisted-by: LLM
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- Documentation/kbuild/kbuild.rst              | 15 +++++++++++++++
- Documentation/kbuild/reproducible-builds.rst | 16 ++++++++++++++++
- Makefile                                     |  2 +-
- scripts/Makefile.modinst                     |  4 +++-
- 4 files changed, 35 insertions(+), 2 deletions(-)
-
-diff --git a/Documentation/kbuild/kbuild.rst b/Documentation/kbuild/kbuild.rst
-index 9b2b127676c3..ebfc2945ac03 100644
---- a/Documentation/kbuild/kbuild.rst
-+++ b/Documentation/kbuild/kbuild.rst
-@@ -110,6 +110,21 @@ HOSTLDLIBS
- ----------
- Additional libraries to link against when building host programs.
- 
-+KGZIP
-+-----
-+The gzip compressor used for the compressed kernel image, compressed
-+modules and packaging.
-+
-+Defaults to pigz (a parallel implementation of gzip) if it is available,
-+otherwise gzip. Set ``KGZIP=`` on the make command line to use another
-+program. Modules are compressed one per make job, so pigz is limited to a
-+single thread there.
-+
-+KBZIP2, KLZOP, LZMA, LZ4, XZ, ZSTD
-+----------------------------------
-+The compressor programs for the other formats. Each defaults to the program
-+of the same name.
-+
- .. _userkbuildflags:
- 
- USERCFLAGS
-diff --git a/Documentation/kbuild/reproducible-builds.rst b/Documentation/kbuild/reproducible-builds.rst
-index bc1eb82211df..ec0135da4464 100644
---- a/Documentation/kbuild/reproducible-builds.rst
-+++ b/Documentation/kbuild/reproducible-builds.rst
-@@ -76,6 +76,22 @@ include generated files.  You should ensure the source tree is
- pristine by running ``make mrproper`` or ``git clean -d -f -x`` before
- building a source package.
- 
-+Compression tools
-+-----------------
-+
-+The compressed kernel image, compressed modules and packages are produced
-+using the program named by the make variable ``KGZIP`` (described in
-+Documentation/kbuild/kbuild.rst).
-+
-+It defaults to ``pigz`` if installed (a parallel implementation of gzip),
-+or ``gzip`` otherwise.
-+
-+The generated output between two invocations of identical builds with
-+either of the default tools will be byte-for-byte equivalent.
-+
-+However, for reproducible builds, ensure the same tool is used on all build
-+hosts, as different tools may generate different output from one another.
-+
- Module signing
- --------------
- 
-diff --git a/Makefile b/Makefile
-index 790ef23c5e8a..38c0cdc9f591 100644
---- a/Makefile
-+++ b/Makefile
-@@ -561,7 +561,7 @@ PERL		= perl
- PYTHON3		= python3
- CHECK		= sparse
- BASH		= bash
--KGZIP		= gzip
-+KGZIP		:= $(if $(shell command -v pigz 2>/dev/null),pigz,gzip)
- KBZIP2		= bzip2
- KLZOP		= lzop
- LZMA		= lzma
-diff --git a/scripts/Makefile.modinst b/scripts/Makefile.modinst
-index 9ba45e5b32b1..58dafec8f910 100644
---- a/scripts/Makefile.modinst
-+++ b/scripts/Makefile.modinst
-@@ -145,8 +145,10 @@ endif
- #
- # Compression
- #
-+# Modules are compressed in parallel by make itself, so keep the compressor
-+# single-threaded when it is pigz.
- quiet_cmd_gzip = GZIP    $@
--      cmd_gzip = $(KGZIP) -n -f $<
-+      cmd_gzip = $(KGZIP) $(if $(filter pigz,$(notdir $(firstword $(KGZIP)))),-p 1) -n -f $<
- quiet_cmd_xz = XZ      $@
-       cmd_xz = $(XZ) --check=crc32 --lzma2=dict=1MiB -f $<
- quiet_cmd_zstd = ZSTD    $@
-
+base-commit: 77ae27fd98f3b9ab376239051ec7f9ee34c2c072
 -- 
-2.55.0
+2.39.3
 
 
 _______________________________________________
