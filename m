@@ -4,130 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66808C88E79
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 17:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0943BC88E6F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 17:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tYVdUBJD1l/8hqwZiBH8bMsDSVTvD7KtJrQRInPqylU=; b=k6dYDvvSQlbsIt
-	Yj9X3hVIRUJwKhVdfZmUkarxkCgG6ODhSyDkll99tFmAWljXriOjHGZqy+3gVefVIj2ZfMOSscW95
-	suclaK9A3zjiRZ58z3tb3NOtPvIDRFIyue/QTJurNKE0Ky84jFlAAueuLnLfNJn4QUFaTO6FSBfXc
-	fZ/ewOaEBAiYnnOwZLwCLfjDlYXjqoKyk/IctPfZff7MVlDkTo+fVy0EYmDiohsV+yhMVXBIf8ESq
-	6bagsulR7eIQbcTVXvoFARa411HDLJ7tM+2Gu66ssaq1P36ucPMiYgaL2f5sUJ5yqzPUQNKJOYo9x
-	83U6fdmthe35GA2aK+LQ==;
+	List-Owner; bh=5Er27pdpy//pfbfooytKnz0odwpaJwEVsKNAXW0jmUc=; b=aHUZIt3GXNpFDe
+	O8lxtgou6LCYQGiy2ebUn2Au4pbAkHMt26nh7I4VDJE12gYLMXfcax1f8/GcPqQLzsQ7M6moI0wLJ
+	KdKQ+V8eIvrt+XkDRoJDWPM9HZ1Z8s4EfH5fqJ+s80mh3AmWY2PTXP2KuRPjGRFgDV4ELxtOeU+ff
+	Io5t6swNfPFGQp6E80UpbBHkY9OZ7DtRpDNMyNQ6BZ8QkNWUIIxP8Wu48EM2OsPSS9Um/69ToGtC+
+	7PaywrWBOQ3XjKnDsNghcnYMElil2NV5QUsUuP0C96Ct/dRVgIvqSClvZi+/tInlqnjBClDpl2fNd
+	nKahSExHDAj4MogxHEuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Aft-00000004OKs-1uTY;
-	Mon, 14 Sep 2026 17:41:01 +0000
-Received: from mail-westeuropeazon11013014.outbound.protection.outlook.com ([52.101.72.14] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x6Aox-00000004PJS-03JS;
+	Mon, 14 Sep 2026 17:50:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Afq-00000004OJq-0kit
-	for linux-riscv@lists.infradead.org;
-	Mon, 14 Sep 2026 17:40:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a5n9u8rOhfDd4lzJ4KMUpsVAJBItBgrmt7YZq/dr3lkQdYi9Gn4NMapptjZj3JlJFCwNRUZL8lt82QCDREazTRxvCdVlaNfOyiQgq4XnU4UbLEurX3mViJx+PX1Wm4hYjdziSgFPYgNFJzrU0/3TTcQ0R0d+WKRNy4m8m//OL1nvmUEM9DYxr1g7JynlPhgm78z9uNpgnNY5P3YlEBvp8NUpyEoglBSXu0gByDGsSv8JdBVp3uf1FI/9XGS2Nxlh/yDmq+OjFDxET/byyqf6KspvssIdORClVjfV/OWwBJxLDtoqckJtijahFeYXKTbi45dJ7z7LuKAexNoo9+eCew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6V87UpBZfaqoXOQXvuyD76WQ8rqyKMLq+4qzSKgTnOg=;
- b=vKA0HR+GS7k1q/DIDF1eADLHyMH4CTBdyJ2Fm1yGnq4EAgVpzTEIpCvKA9EIhpaYU0PAPK1pMBUfSBnbh9Ykp9E98gNgQP42XKiY8MbOl0MLIrm5Bpl8vYdRoj+A0FgVDTpn1PkNatOav7mIr1KCoGCzXQWGEe+m0kl5y1YscBRl7VpGuaURj/YfWnZSc34GGz7geVkC9HdjnxHsuic/hTu3YRha9gTSWsrH0JwWJRczVgPhS3cIlr+h7GvBtMEaeP8xHTrGMg5YWUEbQQ88Zx7fVbORhiwDhcywzHESq7MLhGlWPZ3GN0tDxGTQmlSea3DSN/j+QBveYG7CQMhCDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6V87UpBZfaqoXOQXvuyD76WQ8rqyKMLq+4qzSKgTnOg=;
- b=KvRKheCnrueof41fhNIvBBEA4a7w7CRBhPwiEkMOK6JYVpQuLyEO8T03rCeNkOxutI6R2huMSABHrlo7bQ45VKrS6qOP31yqVLvM1L+HQeJROGEaWwpyjmX2+Udey6SQJHF0uJpIDQ55j5ntUrwtJiMBY9xzFfnrMEEohdVQLXXAcYwg4uinwS4R6XzMusLLVmw0+lkngeOHjecnZEgmre7W6L/EIUoSBq0s+C2a8ljTq9PSJ9K0nVNwvQTf3hHS0YhlsEf+pV5UpN+Tfrsw2HfXiKFGUVAVziOCX+ihpaFNqPg9WJ+zWlOYxp5tcUl/4/DPrKPtwVu5mFN6mZM2GA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
- (2603:10a6:102:4ab::13) by MMZPR04MB447860.eurprd04.prod.outlook.com
- (2603:10a6:190:55::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Mon, 14 Sep
- 2026 17:40:54 +0000
-Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
- ([fe80::80e9:ab1c:dbc4:6930]) by PA3PR04MB11203.eurprd04.prod.outlook.com
- ([fe80::80e9:ab1c:dbc4:6930%3]) with mapi id 15.21.0406.007; Mon, 14 Sep 2026
- 17:40:54 +0000
-From: marouene.boubakri@oss.nxp.com
-To: Jens Wiklander <jenswi@kernel.org>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-riscv@lists.infradead.org
-Cc: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
-Subject: [PATCH 2/3] tee: optee: add an RPMI ABI placeholder
-Date: Mon, 14 Sep 2026 19:54:34 +0200
-Message-Id: <20260914175435.118303-3-marouene.boubakri@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260914175435.118303-1-marouene.boubakri@oss.nxp.com>
-References: <20260914175435.118303-1-marouene.boubakri@oss.nxp.com>
-X-ClientProxiedBy: CYXPR03CA0035.namprd03.prod.outlook.com
- (2603:10b6:930:d2::15) To PA3PR04MB11203.eurprd04.prod.outlook.com
- (2603:10a6:102:4ab::13)
+	id 1x6Aou-00000004PJA-2xX1;
+	Mon, 14 Sep 2026 17:50:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1002143E41;
+	Mon, 14 Sep 2026 17:50:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D61DA1F00898;
+	Mon, 14 Sep 2026 17:50:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789408219;
+	bh=e67qZ3QCn2L8qyNk+mdAvO35N1up2MXWgPivIgLpess=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VzhPxfhrNGwUFy/l2g4I81wR8gE/J718KmUtsDuY/Uh6uBvIcRmhC5kc8HQt0wGA2
+	 brpSBw73lF6qYAafp2WUtJU+3pucoX4YyQOUUaz9p4ygq6pNrUXZIMlbn4gYEXsohf
+	 bhstkaAV1y+GgJQzeladwBwQ4/xbaBeFfcoyFp0d/FdRjbO+4+HbiFSpuQoczjcEfw
+	 sBB7VEeWFU/QcEEEiSjFBYIgF300IaDeV+5AG/C7MAsOZOlCW1sCy8cOGc/cQRr7qT
+	 VvtxBqcopXv4rrKOLi6jWjhgFHFOUqy4WC82WwOIBmeDMhNiG05AJMZ2nPVLgOKFOD
+	 KhM7mBnSCMeuA==
+Date: Mon, 14 Sep 2026 10:50:19 -0700
+From: Kees Cook <kees@kernel.org>
+To: "H. Peter Anvin" <hpa@zytor.com>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Alexey Gladkov <legion@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 21/21] kbuild: use pigz for gzip compression if
+ available
+Message-ID: <202609141049.4B795585A@keescook>
+References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
+ <20260914-build-speedup-v2-21-39817ec5db23@kernel.org>
+ <202609140844.FA7E848A@keescook>
+ <BCCCC1E7-25B7-4A8D-BDFC-D5D1FA295F6C@zytor.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA3PR04MB11203:EE_|MMZPR04MB447860:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5f9d794b-23d5-4d5c-295d-08df128753a5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|19092799006|1800799024|23010399003|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: SVjsaVLRtGfG3jMlcpNRL+5JZwNAC0+9cNfvLAsd1sKucxuipTdj51l+yADDSnrNp6bCw33NUFRN4UTwuM0s704MAfGZT2JlQDZdO7r59fGGIfZIBhD4s/vO0x1a1hOR9my4lv6qvE4HvTgYBKqs2Href9KghHcVl9BIxFXpQ6HDgIxebDsIl9c3oheu9QIsIemj8UUWAwmZMyRMFM+gw47pBEdMKAtTEgCPjRtEPg1pYKphfH9C2iwQq0vJ08Bxjsa5ABng/zv7unMI/cTkeXBDzEJH8PRTLuYXk0QEJfiyZgdezAGogGI90zMC5JyhFo/VBZRSLP/5jgeGT8I3JMn1VQDwJq7s9Ix10QGH7AzNzs7x28NCJTZdN4/Ddyw8+iIPEU5cV5z0G7LyG7aUaZZ4zHuBuz1FVYG2pUaHWijRwkbyXzRxIUR58pNmHEET9CBQ+042PcXfGtHY8xWCNJ11mvXNH/JNx50rYDnryJAT9a7uevPQg4IYuGBNHYBp4SDsrAxfEl3uCmDA6pkI3ZqbmYesbookKSjiBlILEYub3aaYvUvGVGQ3iir4TxBy4BMbGbGqolUYnKTuh2zA6Gfk4TKa6idceY4KvLpEwcMcDgzbN6WqK/AttXm+0oxGyzC77218Wod7C5SuafdQ9XuXMjBGjZgAm6VPJYjooYk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(19092799006)(1800799024)(23010399003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QtHXA5RftgNLwfGvLMdPU/5BKdq5KFTqydFN5EOtfPpcHhV2Y2AIXIuUkO6K?=
- =?us-ascii?Q?M3SSxYGadL46VHk4eb6O5ulhEzxRBqv2zE1DSk7lLXJr1BnyuWN0ssQPrXbA?=
- =?us-ascii?Q?6IFAddfXWlP+urcK3DsPUhDuaXQtF+uJV7PrELM73w4OzyBGoYhMy+k6YkKQ?=
- =?us-ascii?Q?d8ocz9qf2FOeE6fDVVsaO+KD4UCczrugMvuvdD1eI8bvHmbgXKYrgYcE3Tlu?=
- =?us-ascii?Q?cNU+hbArveT3/tNi8hWDalqwXeWXTKeAH50bcSmHD9FhKEWmVNOZJVugNyiP?=
- =?us-ascii?Q?tVOrFmGVj51AaVMyCeI39+Ytuw6eRNzHYI8lXkQR3Z49fQyNdEmT9zDJu685?=
- =?us-ascii?Q?zjnGnFxWQyhqSHZEW/eztxyRHc5vVlL6DBcgUfnHofKsZOSsTst484gjtSmb?=
- =?us-ascii?Q?7C7v5mTJyNb4l77BL07xagp1+WjPmCBSCeQRlLT6MnOqnzH6DpM04YlTg5r4?=
- =?us-ascii?Q?MKsYGnUozGl8rEkhA9nHdzrNpQA0FmEH9U/UEEyn3OihojzZ6kQ3KvNOrTiV?=
- =?us-ascii?Q?N8I+GpIVPJhtgifEMvMrUuGUES7v490SdWZRt2VuXxmlqV/jgmakbTWtmmbO?=
- =?us-ascii?Q?yuYwAxDAs9kerAe4y47qvx7m0/oOPpz8se3/8P9vaZ0Q4yM/mcgj8gcu0oSX?=
- =?us-ascii?Q?RDhrc1YsKwEkI6pLFaaeIKaMCYIEvOug7reTQk9ifS6tJbFDAfBIPyzsHWUE?=
- =?us-ascii?Q?4YXzqF2hKiJaYy0QjZUXNNCuPC1Y5WilwUhhRIPq3rtBb8B/RSP1esUL7oXs?=
- =?us-ascii?Q?/1kfzI8TXt+rcpBUjgVoMZRfUFc/I0MyJGb66JDx31EsdcR9VgqdJ5FdIJF+?=
- =?us-ascii?Q?YTSqb35Re7IJdQty8lawYehH/SbVGB8Nt2K0jfdzWfgIn2SWIyNSP2ITPW9Y?=
- =?us-ascii?Q?6ZitBWywpSi/I3HVD2F+2vGe9yXjAooHhIA8i7+L2F+M8nc6+G4W3BSCuJIf?=
- =?us-ascii?Q?v52OmxNy1xG/rx7mfOpaOFlTVqJ6QPAs5LioqjiotVW8EMKSUSGj/Qua1eZL?=
- =?us-ascii?Q?PssU5f1NMln+ZMyqwjaGyrOezDoLSclN+837+IOyV1ATA8c4jFKIE0zcQDeQ?=
- =?us-ascii?Q?fX8tsnBIUyQ6kfih1XeNPT/jMwUDZpqClu7k7Hx0PZxGPDolcPhUpA7Sp9Jg?=
- =?us-ascii?Q?Am7FyijCNyLFtDXEz5i3leyTrnn9YN55Dsa6/hwuXDjlq2KRTxnSLNRCOp8+?=
- =?us-ascii?Q?F2xjQNQ/T1aX/7FzBn+CHsyR2iR3BjedNL7pbk8s27U7hwz2JQn1kF1HXeVz?=
- =?us-ascii?Q?KH4xL+K/En5HfP6MnMwwnuQSJhvSQaNy9AWe7gqU/+JgC8KqL4htjL/AgvKY?=
- =?us-ascii?Q?fEOVGcbwlCPPK4QxCQYO+eHfU4eX/yCSxItpOAlG/zEDUcoWcu1UMykQnT1l?=
- =?us-ascii?Q?hV82WRm4LlrNUs7bPxSCO/3uOOjljaQCdWRcuatvxfeMBsaiyOKg1lBwtjv1?=
- =?us-ascii?Q?Ptf+Vd+FADFPSV6rxN6XGIbJBT1jYOGFTEdEt+/igC8lU5Ovh1V4AzjBx8VL?=
- =?us-ascii?Q?DKOF8dZAd2c0sTHSco3uOiSAWqFFIcZH/WsmzwAjoNieZS5VYjWYY/uTNkPL?=
- =?us-ascii?Q?r3HaXsL5Q6LVwQxkfnOGo0SNbx9jm+/uej4dhtdiAaaiyqFzvJtElWtVwI4p?=
- =?us-ascii?Q?LZOBJITl4hlz1gYWZi48sAyKxNDefN6NY0zl1o6apT23W1g8AGaNqLj2KuUT?=
- =?us-ascii?Q?uue8jELaZdQCrAG5/ozHirO2oacS5Ut91ITtBkcNFUMjXg2fKYq6uDsmtZsA?=
- =?us-ascii?Q?pV8go6Ef2uAI2tFJSlKPL4lo0AVm0+c1g/RPKiWD2nlKYaz80WXz/eu3OHw/?=
-X-MS-Exchange-AntiSpam-MessageData-1: GSODr/YpbzZYlQ==
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f9d794b-23d5-4d5c-295d-08df128753a5
-X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11203.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2026 17:40:54.4246
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RD2iobO5OPD93lE0aXaKxkh3wY/5dnhdOrHwLLDNba7gYj94EAjbbIiydERkjyvXvYv5ruCv0wZ9NcwnGelQwjFEmTj6BYK6zYEMrDGJ0c4wESmqw+TFgKICnLbUfBfa8q574rV8xK+lPv0g6And2A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MMZPR04MB447860
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_104058_228480_582AE730 
-X-CRM114-Status: GOOD (  18.64  )
+Content-Disposition: inline
+In-Reply-To: <BCCCC1E7-25B7-4A8D-BDFC-D5D1FA295F6C@zytor.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,150 +111,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+On Mon, Sep 14, 2026 at 09:49:50AM -0700, H. Peter Anvin wrote:
+> On September 14, 2026 9:39:07 AM PDT, Kees Cook <kees@kernel.org> wrote:
+> [...]
+> >diff --git a/tools/lib/python/jobserver.py b/tools/lib/python/jobserver.py
+> >index 0b1ffdf9f7a3..fc38c5020b22 100755
+> >--- a/tools/lib/python/jobserver.py
+> >+++ b/tools/lib/python/jobserver.py
+> >@@ -29,6 +29,11 @@ $claim child to do the actual work.
+> > The end goal here is to keep the total number of build tasks under the
+> > limit established by the initial ``make -j$n_proc`` call.
+> > 
+> >+Setting the ``SINGLE_THREADED`` environment variable skips the reservation
+> >+entirely and runs the command with ``PARALLELISM=1``. This is meant for callers
+> >+that run many short commands in parallel themselves, where each one should use
+> >+only the job slot it already holds.
+> >+
+> > See:
+> >     https://www.gnu.org/software/make/manual/html_node/POSIX-Jobserver.html#POSIX-Jobserver
+> > """
+> >@@ -68,6 +73,13 @@ class JobserverExec:
+> >         self.is_open = True  # We only try once
+> >         self.claim = None
+> >         #
+> >+        # SINGLE_THREADED asks for no reservation at all: the command runs
+> >+        # with PARALLELISM=1, using only the slot its caller already holds.
+> >+        #
+> >+        if os.environ.get('SINGLE_THREADED'):
+> >+            self.claim = 1
+> >+            return
+> >+        #
+> >         # Check the make flags for "--jobserver=R,W"
+> >         # Note that GNU Make has used --jobserver-fds and --jobserver-auth
+> >         # so this handles all of them.
+> >
+> 
+> If we are going to add dependencies, can we add *any* scripting language that is less stone tablet than POSIX awk?
 
-On RISC-V there is no SMC Calling Convention: OP-TEE runs in a domain
-isolated by the M-mode firmware and is reached through the RISC-V
-Platform Management Interface (RPMI), carried on an SBI Message Proxy
-(MPXY) channel.
+What are you referring to here? The jobserver logic is all Python.
 
-Add the skeleton of an RPMI ABI next to the SMC and FF-A ABIs so that
-the build plumbing is in place: an OPTEE_RPMI_ABI option, built when the
-MPXY mailbox driver is enabled, rpmi_abi.c and its registration from the
-driver core. The transport itself is not implemented yet, so
-optee_rpmi_abi_register() fails with -EOPNOTSUPP and the driver keeps
-probing through its other ABIs only.
-
-Signed-off-by: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
----
- drivers/tee/optee/Kconfig         |  8 ++++++++
- drivers/tee/optee/Makefile        |  1 +
- drivers/tee/optee/core.c          |  8 ++++++--
- drivers/tee/optee/optee_private.h | 13 +++++++++++++
- drivers/tee/optee/rpmi_abi.c      | 23 +++++++++++++++++++++++
- 5 files changed, 51 insertions(+), 2 deletions(-)
- create mode 100644 drivers/tee/optee/rpmi_abi.c
-
-diff --git a/drivers/tee/optee/Kconfig b/drivers/tee/optee/Kconfig
-index 50d2051f7f20..0eaedb34673d 100644
---- a/drivers/tee/optee/Kconfig
-+++ b/drivers/tee/optee/Kconfig
-@@ -9,6 +9,14 @@ config OPTEE
- 	  This implements the OP-TEE Trusted Execution Environment (TEE)
- 	  driver.
- 
-+config OPTEE_RPMI_ABI
-+	bool
-+	depends on OPTEE && RISCV_SBI_MPXY_MBOX
-+	default y
-+	help
-+	  Reach OP-TEE through the RISC-V Platform Management Interface
-+	  (RPMI) carried on an SBI Message Proxy (MPXY) channel.
-+
- config OPTEE_INSECURE_LOAD_IMAGE
- 	bool "Load OP-TEE image as firmware"
- 	default n
-diff --git a/drivers/tee/optee/Makefile b/drivers/tee/optee/Makefile
-index 183cdde1ac04..a588f6f4cb2f 100644
---- a/drivers/tee/optee/Makefile
-+++ b/drivers/tee/optee/Makefile
-@@ -9,6 +9,7 @@ optee-objs += supp.o
- optee-objs += device.o
- optee-$(CONFIG_HAVE_ARM_SMCCC) += smc_abi.o
- optee-$(CONFIG_ARM_FFA_TRANSPORT) += ffa_abi.o
-+optee-$(CONFIG_OPTEE_RPMI_ABI) += rpmi_abi.o
- 
- # for tracing framework to find optee_trace.h
- CFLAGS_smc_abi.o := -I$(src)
-diff --git a/drivers/tee/optee/core.c b/drivers/tee/optee/core.c
-index a52c1f498b99..42a8bcab0cb8 100644
---- a/drivers/tee/optee/core.c
-+++ b/drivers/tee/optee/core.c
-@@ -220,6 +220,7 @@ void optee_remove_common(struct optee *optee)
- 
- static int smc_abi_rc;
- static int ffa_abi_rc;
-+static int rpmi_abi_rc;
- static bool intf_is_regged;
- 
- static int __init optee_core_init(void)
-@@ -245,9 +246,10 @@ static int __init optee_core_init(void)
- 
- 	smc_abi_rc = optee_smc_abi_register();
- 	ffa_abi_rc = optee_ffa_abi_register();
-+	rpmi_abi_rc = optee_rpmi_abi_register();
- 
--	/* If both failed there's no point with this module */
--	if (smc_abi_rc && ffa_abi_rc) {
-+	/* If all failed there's no point with this module */
-+	if (smc_abi_rc && ffa_abi_rc && rpmi_abi_rc) {
- 		if (IS_REACHABLE(CONFIG_RPMB)) {
- 			rpmb_interface_unregister(&rpmb_class_intf);
- 			intf_is_regged = false;
-@@ -268,6 +270,8 @@ static void __exit optee_core_exit(void)
- 
- 	if (!smc_abi_rc)
- 		optee_smc_abi_unregister();
-+	if (!rpmi_abi_rc)
-+		optee_rpmi_abi_unregister();
- 	if (!ffa_abi_rc)
- 		optee_ffa_abi_unregister();
- }
-diff --git a/drivers/tee/optee/optee_private.h b/drivers/tee/optee/optee_private.h
-index 94a4f251f5cf..5b57d69f1f34 100644
---- a/drivers/tee/optee/optee_private.h
-+++ b/drivers/tee/optee/optee_private.h
-@@ -463,5 +463,18 @@ static inline void optee_ffa_abi_unregister(void)
- {
- }
- #endif
-+#if IS_ENABLED(CONFIG_OPTEE_RPMI_ABI)
-+int optee_rpmi_abi_register(void);
-+void optee_rpmi_abi_unregister(void);
-+#else
-+static inline int optee_rpmi_abi_register(void)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline void optee_rpmi_abi_unregister(void)
-+{
-+}
-+#endif
- 
- #endif /*OPTEE_PRIVATE_H*/
-diff --git a/drivers/tee/optee/rpmi_abi.c b/drivers/tee/optee/rpmi_abi.c
-new file mode 100644
-index 000000000000..01d08892eb55
---- /dev/null
-+++ b/drivers/tee/optee/rpmi_abi.c
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright 2026 NXP
-+ *
-+ * OP-TEE ABI over the RISC-V Platform Management Interface (RPMI),
-+ * carried on an SBI Message Proxy (MPXY) channel.
-+ *
-+ * This is a placeholder: the transport is not implemented yet, so the
-+ * ABI never registers and the driver only probes through its other ABIs.
-+ */
-+
-+#include <linux/errno.h>
-+
-+#include "optee_private.h"
-+
-+int optee_rpmi_abi_register(void)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+void optee_rpmi_abi_unregister(void)
-+{
-+}
 -- 
-2.43.0
-
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
