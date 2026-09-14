@@ -4,95 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8810C88E73
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 21:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605E5C88E77
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2026 22:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jjBosXOiidQKjXJMsc3WuS/Da/VLAc7iEhN7OKR4uMM=; b=ZiRyFlAw3vmR0E
-	AgLBisFXtPeLsDMdN8+U0yRQrJaVFp6cyIFx+Hg0KwDab/zg+9Fui1YQCtGZPUaqvYeEaY0AaHpfz
-	6UCUsJB/bJNT8N6kro2EFbhj3CDM11RybAOvCMRfHyedPC6SRjL5BJ6jburCJLvbokINJ493D4ZE0
-	QzLG2a1svIoJZ3Y+39XRk/LthW/76olUE9eez/3yzAwtqf8GJyi03PKdvljHI5D4yZaPitlhu9Qqj
-	JEjy4p2dK5cF5/zrNX6/MugSO13Eox695IkFQ1UdJS4Q5TxnC4qu1ibdHnTH2X9NN/rm1aHRr5KW/
-	xqnvEJ/4jrTwarjLurrw==;
+	List-Owner; bh=xMfdPrnw0lKJ7kut7uuetnEck9exhpeEiMYHAGJpZfE=; b=PWjV5eIL+HuHln
+	I03fUeLjJkuZ2or+f5TtQKzDUj8meJJJZPaibs803ySkg+qBGoEpY+C3BlX/6bMnSsTb+/ByrJ62F
+	6sIWe1QehgWUtARCsbcGxlnCnGs9bEP+yl4SThV65oG8flzMm8WUhQu5uX4gXRKcd4noAtbSsMYAm
+	DiFPLNhOwN0IcDgpuwOWoSMsgw1el+R7l7bwTqe6DLi8Pqe22/eyNXvy6+Gf61wFtaQQhqCsqZvM6
+	XSAXrxa5KstqPfHkci3lTL9S+Jl9Bv5kEhT3d9K9HjkvHwTom1/cDDVBpJP0M1x4t3MEnHys1bL48
+	vH9C0oA5Yb3Txn69INqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6EXA-00000004jyA-0Gj5;
-	Mon, 14 Sep 2026 21:48:16 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1x6F51-00000004mOD-1suY;
+	Mon, 14 Sep 2026 22:23:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6EX7-00000004jx6-1nWw;
-	Mon, 14 Sep 2026 21:48:14 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260914214810euoutp014ff49e2223f4f8180019e91812fcef1f~VTkYr5QQQ2280222802euoutp01a;
-	Mon, 14 Sep 2026 21:48:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260914214810euoutp014ff49e2223f4f8180019e91812fcef1f~VTkYr5QQQ2280222802euoutp01a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789422490;
-	bh=8TZkNginDFdnLOsvcdP/UiXA2NQy9Wjc4iv1hpjrasw=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=r6dkOUFApQ564cxrtN6rYxMjd083iQt0SKXIDHMTQyQ0Mhmm64sSk4IoJORV1eqDM
-	 QYXEUTE7eiweJHOaotoScvkRvvVhhyccmhjrLm6mWzskoNeiwiCS487fkuQf3uSB2x
-	 plKJ9L78cQ7/WjdWCkYYu5h6jd0G1h5vmx8OTtAA=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260914214809eucas1p1f9f9e91cd4f4d15fbe6b7489db12b126~VTkXpQxDx0077300773eucas1p1l;
-	Mon, 14 Sep 2026 21:48:09 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260914214806eusmtip22f86fc473aa0bd24e8d3cad7225a6972~VTkVfsV9Z2978529785eusmtip2x;
-	Mon, 14 Sep 2026 21:48:06 +0000 (GMT)
-Message-ID: <b4c80c88-9235-4ad0-bc23-53dddddfadb3@samsung.com>
-Date: Mon, 14 Sep 2026 23:48:06 +0200
+	id 1x6F50-00000004mNf-1q2l;
+	Mon, 14 Sep 2026 22:23:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id AAE0D6025F;
+	Mon, 14 Sep 2026 22:23:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63F201F00893;
+	Mon, 14 Sep 2026 22:23:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789424593;
+	bh=RRU+yJML1OMM4sdrHKCW6nAyxyoRhK5ooyzt6zbz5EA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mhzzpIjt8ICc0v+9pwXJLGyUo6/4W86Z9Rd1H/nQJGbazdtLE1Dircqquu9iu2efd
+	 FnFEeSd8Y2RIPZ43wFwVrX43cYp0Sv0pszmycH5HIWO/hHXzN2FQTBI+CgVh2fEhcA
+	 cUizGTL1e5OKK9RyZcUuVM/i59uYEOlNvO23SwXcgW0vdOz7OPrXqcIdhhOxvIGRhW
+	 LW1F5LwtIFv6MXdFHdRieN3hkXyESVONyHVUaDYgtKSVnwmy7eQOpON9jAxZSjHiQV
+	 s+POBLypUYfj7pp2JnzJxWrCGyqwD5qAJWYkgMf0hOCyAO/85IzEZcyDiU9jgtmViX
+	 DSFJ+F+2XszCA==
+Date: Mon, 14 Sep 2026 15:23:09 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, 
+	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
+	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+	Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 15/21] objtool: cache relocations, do less work
+Message-ID: <aqhmhmgrnN3Mw8yG@jpoimboe>
+References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
+ <20260914-build-speedup-v2-15-39817ec5db23@kernel.org>
+ <aqhLhVMkNzf_4oJw@jpoimboe>
+ <CAHk-=wiB9MX7vBDQ+WHTUVfSYubLhR-PbABewscqTsxRhg-LbQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/19] drm/bridge: starfive: Add JH7110 HDMI
- controller driver
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
-	Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, Philipp
-	Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Hal
-	Feng <hal.feng@starfivetech.com>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
-	<bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley
-	<conor@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>, Brian Masney
-	<bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <15741677-7f2c-4190-b77f-a496643593c6@rock-chips.com>
-X-CMS-MailID: 20260914214809eucas1p1f9f9e91cd4f4d15fbe6b7489db12b126
-X-Msg-Generator: CA
-X-RootMTR: 20260904132735eucas1p2c898afe4a4c6e957a7b9eedff321a6dc
-X-EPHeader: CA
-X-CMS-RootMailID: 20260904132735eucas1p2c898afe4a4c6e957a7b9eedff321a6dc
-References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
-	<CGME20260904132735eucas1p2c898afe4a4c6e957a7b9eedff321a6dc@eucas1p2.samsung.com>
-	<20260904-jh7110-clean-send-v3-14-484f9ae72715@samsung.com>
-	<15741677-7f2c-4190-b77f-a496643593c6@rock-chips.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_144813_751628_9454EEAB 
-X-CRM114-Status: GOOD (  25.31  )
+Content-Disposition: inline
+In-Reply-To: <CAHk-=wiB9MX7vBDQ+WHTUVfSYubLhR-PbABewscqTsxRhg-LbQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,116 +93,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/7/26 05:51, Chaoyi Chen wrote:
-> Hello Michal,
+On Mon, Sep 14, 2026 at 01:06:37PM -0700, Linus Torvalds wrote:
+> Talking about "getting rid of the hashing": the instruction hashing is
+> obviously a big deal judging by the hash size expansion in that other
+> patch.
 > 
-> On 9/4/2026 9:27 PM, Michal Wilczynski wrote:
->> Add the HDMI controller (bridge) driver for the StarFive JH7110.
->>
->> This driver binds to the starfive,jh7110-inno-hdmi-controller node.
->> It gets its shared regmap from its parent and its register access,
->> module and bus clocks from voutcrg. It consumes the pixel clock and the
->> PHY from its hdmi_phy sibling.
->>
->> The driver calls the generic inno_hdmi_probe function and passes the
->> shared regmap to it, registering as a DRM bridge. The .enable hook is
->> responsible for setting the PHY's pixel clock rate via clk_set_rate()
->> and powering on the PHY via phy_power_on().
->>
->> The DC8200 has two panels, each exposing a DP and a DPI interface, and a
->> mux in the video output system controller picks which of them drives the
->> HDMI transmitter. Program that mux from the port graph rather than
->> relying on whatever the bootloader left behind, taking the panel from the
->> remote port number and the interface from the remote endpoint number.
->>
->> The generic driver holds the clock it looks up as the register access
->> clock enabled for its lifetime, and derives the DDC divider from that
->> clock's rate, so point it at the system clock. Naming the pixel clock
->> there instead would keep the PHY pre-PLL powered from probe onwards and
->> size the divider from the wrong rate.
->>
->> The PHY can only generate the discrete set of pixel clocks described by
->> its pre-PLL table, so .mode_valid rejects any mode clk_round_rate()
->> cannot satisfy. Without it such a mode would be advertised to userspace
->> and the modeset would appear to succeed while the display stayed blank.
->>
->> .enable returns early when the rate is unsupported or the PHY fails to
->> power on, so track whether the pixel clock was actually enabled and let
->> .disable tear down only what was brought up, otherwise the clock
->> refcount underflows.
->>
->> The clocks and the reset are torn down through devm rather than from
->> .remove, so that they outlive the bridge that inno_hdmi_probe() adds with
->> devm_drm_bridge_add(). Releasing them in .remove runs before devres
->> unwinds and would leave the bridge registered with its clocks already
->> gated.
->>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> ---
->>  drivers/gpu/drm/bridge/Kconfig            |  11 ++
->>  drivers/gpu/drm/bridge/Makefile           |   1 +
->>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c | 318 ++++++++++++++++++++++++++++++
->>  3 files changed, 330 insertions(+)
->>
-
-[snip]
-
->> +static enum drm_mode_status
->> +inno_hdmi_starfive_mode_valid(struct device *dev,
->> +			      const struct drm_display_mode *mode)
->> +{
->> +	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
->> +	unsigned long pixelclk = mode->clock * 1000;
->> +	long rounded;
->> +
->> +	/*
->> +	 * The PHY can only generate the discrete set of pixel clocks described
->> +	 * by its pre-PLL table, and clk_round_rate() fails for anything else.
->> +	 * Reject those modes here: without this the modeset would appear to
->> +	 * succeed while the PHY never produces a signal.
->> +	 */
->> +	rounded = clk_round_rate(ctrl->clks[CLK_PCLK].clk, pixelclk);
->> +	if (rounded < 0 || rounded != pixelclk)
->> +		return MODE_NOCLOCK;
->> +
+> Do we actually look up all instructions by hash in the first place?
+> From a quick glance, it looks like almost every user of "find_insn()"
+> is looking for just certain *kinds* of instructions: calls, branches,
+> returns, endbr.  And branch targets.
 > 
-> Using "if (rounded != pixelclk)" would be ok.
-
-Thanks will fix.
-
+> Maybe stack updates? I didn't check.
 > 
->> +	return MODE_OK;
->> +}
->> +
-
-[snip]
-
->> +/*
->> + * The DC8200 has two panels, each exposing a DP and a DPI interface, and a mux
->> + * in dom_vout_syscon picks which of them drives the HDMI transmitter. Derive
->> + * the mux setting from the port graph: the remote port number selects the
->> + * DC8200 panel, and the remote endpoint number the interface on that panel
->> + * (0 for DPI, 1 for DP). Both drive 8-bit RGB, the only format this driver
->> + * currently produces.
->> + */
->> +static int stf_inno_hdmi_setup_mux(struct device *dev)
->> +{
->> +	struct device_node *ep, *remote;
+> Yet we seem to hash them all - even if they are just some random
+> ALU-only instruction that is in the middle of a function and never a
+> target of anything and has no impact on any code flow.
 > 
-> Using "struct device_node *ep __free(device_node)" can help you simplify
-> the processing of resource release.
+> So the question becomes: do we actually need to hash those
+> instructions at all? Are they ever actually looked up?
 > 
-
-Sure, thanks !
-
+> I don't know this codebase at all, so maybe that's just a really
+> stupid question. Feel free to look at me condescendinly, shake your
+> head and say "Poor Linus has lost the plot".
 > 
+> [ And yes, I see that whole "next_insn_same_sec()" thing, which
+> obviously *does* look up all the instructions when you iterate over
+> that function, but it strikes me that using a hash table for that is a
+> bit strange when the natural way to do it would be with juyst a
+> "struct instruction *next" field instead.. ]
+> 
+> So if hashing was such a big deal that it showed up clearly on
+> profiles, maybe the answer isn't just a "make the hash table larger".
+> If a "next" field were to not only make the hash table much smaller,
+> but also mean that next_insn_same_{func,sec}() would become a "follow
+> one pointer", mayeb hashing would become rather cheaper?
+> 
+> Stupid? Or maybe "not completely stupid, but too painful to change"?
 
-Best regards,
+The find_insn() in next_insn_same_sec() is a bit odd, that was itself
+part of a performance optimization, but yes, a 'next' pointer could be
+used instead.  Though, IIRC, that instruction struct is the biggest
+overall user of memory, and it just barely fits inside a cache line
+boundary, which we do take advantage of by putting them in adjacent
+blocks.
+
+But as you alluded to, find_insn() has a lot more users beyond just
+next_insn_same_sec(), like finding jump targets, alternatives, annotated
+instructions, and quite a bit more.  Determining in advance which subset
+of instructions need to be hashed is likely somewhere between "too
+painful to change" and "not feasible" IMO.
+
+There might be more efficient ways to structure the considerable amount
+of data, like replacing "struct instruction" with "struct basic_block"
+or so, but it's hard to know whether that would be a net positive.
+
+At least the current design is a somewhat tolerable balance of
+CPU/memory usage and maintainability.  Peter and I already fixed most of
+the major performance issues, so I'm not overly motivated to squeeze the
+last remaining juice of performance, especially if it's going to hurt
+maintainability (maintainer bandwidth is also a precious resource).
+
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
-
+Josh
 
 _______________________________________________
 linux-riscv mailing list
