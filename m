@@ -4,101 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A499BC88E75
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 03:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40431C88E53
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 03:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=t9tY3cKmfDFOU2lvvK/8Lb1yFEV09I6p2981YTrih24=; b=Wp6D+X7JnoaA6u
-	8U0I1Gdtmg85GISxjBYjzT5T5wg+l1ZBYHWqRVW5XdD9ubF7zBt/v+O4LZRp0B/AomTT0epCHflWc
-	t7xqvsJniZvaIBbFYueyat6SjxC/atMGdM+it/ZfcT7nT+njDe6Z+rv0ZzJuBmDjzPaCp+jld+60m
-	52yHXIZscH66roAOGKGUvulf1Bu8vHWhAYZLNhCtdMtzwloJrJgSo0SLSet38bxfhowlWhQ34hNpM
-	zvV0aHDGerHJiKV8IxKYA7zmmnGVHy654O7qI4yj5Xq/dT8IQJesUlRwnV7UaHRRui5Yqd54kxc2+
-	SLWNHkqZYnKXWrpewIfA==;
+	List-Owner; bh=mxTXgIUKcr3tSpBhew3hx6kDHjiVSHHJosEmuuDo5q8=; b=MwerRWpXr/zeDF
+	eKGpJThnilgoLzbuDQPkw2v2THubinv8DIjebJUsWD4CRMQpiqOV5Uv7/Sr/eOblAzz4UJ6Bc/AXU
+	llCCTMBh9tTb/Cl1qlfrxfv2+xFFNDDDKhdao/isIkEO7Txy0ffWRgRlOAKb1jawBDHdKzQZ0MbV9
+	ptRmyjNejEigkwY3/g5tIVOWsSa1l3TY8W9JeLk23kiC58ZVpTZT1hytDhusNzeeyjXrgCYKCBkcR
+	DBfX+f9dyM2McArKttfDXPdMjSb0FmeWkesM+a2Y7p4TZ9a6yR8NCFOHwU2kmUjtfhpUZoodr5/sR
+	zwFOCU5ICIQ1HQnc6akg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6JmA-000000056ta-2RI3;
-	Tue, 15 Sep 2026 03:24:06 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1x6Jqd-000000057LW-3Zax;
+	Tue, 15 Sep 2026 03:28:43 +0000
+Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Jm6-000000056sh-0n28
-	for linux-riscv@lists.infradead.org;
-	Tue, 15 Sep 2026 03:24:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1789442610;
-	bh=+KM03T8OGIZhi2BqLXpm7IJJnWeUR9grGqkJDXgV+ZU=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=Iud2nV9yIjWXsC9eO9TTAm4Ie0DzM7Uwn84UVbNAoFhCzQj84mNxam57sUhn4ASrk
-	 lEeI+9ZrY9wLO/HwlmSidVCDbVe93PiXq8p+o7IDBDg9r7bvzafLP/n/utp5aJhc4d
-	 hyh2o3xMBIQljYtPz1RLKgyivi2exMLiaz4OD/II=
-X-QQ-mid: esmtpgz13t1789442604ta8410a15
-X-QQ-Originating-IP: YDAfJmTNnMvZ98ZdmVApthJYDm0OKpmCC9H6p5FzFzg=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 15 Sep 2026 11:23:20 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 9021882996448671646
-EX-QQ-RecipientCnt: 20
-From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Date: Tue, 15 Sep 2026 11:23:16 +0800
-Subject: [PATCH v3] riscv: dts: spacemit: k3: add i2s0-i2s5 nodes
+	id 1x6JqZ-000000057Ix-2knL;
+	Tue, 15 Sep 2026 03:28:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1789442914; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=KEnYjPH9sIY7wU+k5WAIIK2/axmvXp5XB0Al/sd5JkQ=;
+	b=uBqucqUfoCZ9+to+1cYA9D0lTooPD4TCqg3QaU4xiom5sgdQDWgj4KGYxj8L2b+gdbtnRPHR8DK6UE1zLsc7+ABRKwnOqD4SI+GNeH4gxFe6fTg8MAjaWJCB9Qc1k/8R4mWR+EGs9rnoRpV01MCtxVsPCWwmD7e2xqnJifExURg=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=26;SR=0;TI=SMTPD_---0XB.uvMv_1789442910;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XB.uvMv_1789442910 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 15 Sep 2026 11:28:32 +0800
+From: fangyu.yu@linux.alibaba.com
+To: tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	baolu.lu@linux.intel.com,
+	jroedel@suse.de,
+	zong.li@sifive.com,
+	andrew.jones@oss.qualcomm.com,
+	anup@brainfault.org,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	atish.patra@linux.dev,
+	skhawaja@google.com,
+	vasant.hegde@amd.com,
+	joerg.roedel@amd.com
+Cc: fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org
+Subject: [RFC PATCH v4 00/10] iommu/riscv: Add hardware dirty tracking for second-stage domains
+Date: Tue, 15 Sep 2026 11:28:19 +0800
+Message-Id: <20260915032828.11250-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-Message-Id: <20260915-kx-i2s-dts-v3-1-cf0b90882a97@linux.spacemit.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22Oyw6CMBBFf4V07RA6CFhX/odxQUvRUXnYFoIh/
- LsFTNTE5ZncOfeOzGpD2rJ9MDKje7LU1B7iTcDUJa/PGqjwzDDCNEp5ArcBCC0UzgLHOEu3Ski
- UyPxDa3RJwyI7nla2nbxq5WbDO2H0o/Mt7hO7kHWNeS4Tej5f17YM+XdbzyGCAlHJVJV5LpPDn
- epuCG2bK12RC1VTsdnX48chePTjQOAgeJn44WonRPHXMU3TCz3dSmUYAQAA
-X-Change-ID: 20260615-kx-i2s-dts-123764c9b2b2
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Yixun Lan <dlan@kernel.org>, Jinmei Wei <weijinmei@linux.spacemit.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-sound@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7360;
- i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
- bh=KcpwYBN0v656aVhl3ztGJR39bksr+UoOydPaQj0fhEc=;
- b=owGbwMvMwCU2g/N9w09jE33G02pJDFkrdqkdDy0OUw1rl/P06Hur9bs460/uf/d3d1ebKmtP/
- 67zd8POjlIWBjEuBlkxRZbuBzzbCnyibAsECn1h5rAygQxh4OIUgImcqWb4K2Gvtpbr1NzWNLU9
- C45uDZpW9e/ZlY8sq7drb2eZsnz9hCcM/2wmlPRF3VPfe2e2efBUsWmtV7JmfLF6aNbjvPHk3Ds
- Cl/kA
-X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
- fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MKlHOMKcIlKnQ82dFtogqWWkJgxNOIWo7YV/P2a3/PQVfNwuFDBExamU
-	+urEiiY2XiZ0XCeIuni37PdTQC40v833t1E8lGsEK1HOS9zCXh8gdyL02EY5C15iQn48wCv
-	daJ6D7yN8Qf4+PFcgwh07aiWjz5hqOXDTAxhOnWanN5LbixUZaIGPgVH/V8YsjJ5Kli80G8
-	fYTMkxDiQdQhMOSf/o3UM35jqvCU59XMQtlRX5yhm9aGgxsYqhJKfrQHHFl1ChODr0qmi2q
-	WRUYbhHh+LXLe1WJDjRSQIRbo1Su5e1fcWjvOkMOE/AshW5DMXZ22s3SSNUJ7MJInfWXUDW
-	qVII48tZQWJNoPy1JOBaCRyia/HsCxlLAxLeVXkpxvlPRcfZRqxwNwSEdlNF0oRo6GJELzQ
-	WUuiA1CApXVPkQt4FqMNroiHTwAEaR27JkviAzm+9/oQSnNQfLjUfE4aXqYZcvt11vPap4U
-	QdbKDVIQNZhvBn6Tubo+VCSDwxnpla6yMLsBn25jkxw4e1RJjj0XY+l+QmAc11u6qRaDrHw
-	H4LgvsxD3wzwQoqKHo2rN7v+Ne4bxWVn4YopohrNwWrXgwLKdMERuVi3vvKu+aFfd4w+4dT
-	FWC8XETSj3gawDVtVmELNVJDQHlKwjc1Pkrex0E/glkKZwT6HplNB3+VFFr40c6MQs9Rjgi
-	c0/GznTBl5pEAEgksuB4kDifO5F5qYiQbEIT5FNCtD2DTmaxwbdipDzfAAFcNPknNJx9c4G
-	75tZIKVeHuwUjG6dJVL4z7R79GwpMin1oPlvdWi2sd9+QImytqZjsx5ZhY4QZ5cj8zVxfFN
-	/KNE0XQyEEtBuAw0fqjl3/hBL8lmOVenc1sYXg7a36w+4hp6xL6farrwjHqZfbBOf3gbPc9
-	OkQps5ua2bL74+nLI1ULDnRHW/ayhI/B5HhO0VgDd2U8byOUO1E/MjSsc6EDc78MF4W9WZj
-	pv9Gt8pMadaDqDMU5zCsTAJCa37z4NrbkOBHyY++Vaqhm7M2DHq7CxSSG/xOGmBm+MpDXU6
-	spOwyU2lItlCq/pvJx3tOpncU5H6JXWfHiwO33XZwqqeHiLijBIvlSO9AEf5E3g3HlCjPtr
-	TDd60ZEtho4QKlrtnKyAIn+vei73asxom4OLrHGJpvDR5hfxb3nVG9sADGJv/l5i9KTACDR
-	Y/KdwYZ7JJFEv0ulEKinVPLZ6j3b8TGVUhm+baLa2uEsKgA=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_202403_142782_EB709371 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20260914_202840_188238_0F24E476 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,212 +81,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the six SSPA-based I2S controller nodes for the K3 SoC.
-
-i2s0 and i2s2-i2s5 each have a dedicated per-controller sysclk
-divider, so they use the published 7-clock layout (sysclk, bclk, bus,
-func, sysclk_div, c_sysclk, c_bclk).
-
-i2s1 uses 6 clocks (sysclk, bclk, bus, func, c_sysclk, c_bclk) because
-its sysclk is driven directly by a DDN (ISCCR0) and has no separate
-divider stage.
-
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Reviewed-by: Yixun Lan <dlan@kernel.org>
----
-The DTS patch was applied as cd01c677869a and reverted by
-1f5d8228ca2c because the SoC DT branch lacked CLK_MPMU_I2S_SYSCLK.
-The clock binding, clock driver and ASoC dependencies are now all
-included in v7.3-rc1, so this submission has no cross-tree dependencies.
-
-Arnd requested resubmission after -rc1:
-https://lore.kernel.org/all/cec87950-f0e1-49f8-9a2c-f8b87b460da2@app.fastmail.com/
----
-Changes in v3:
-- Replace numeric DMA request IDs for I2S0-I2S5 with the existing
-  K3_PDMA_SSPA*_TX/RX macros from k3-pdma.h, as suggested by Sashiko.
-  The DMA request IDs and TX/RX ordering are unchanged.
-- Link to v2: https://patch.msgid.link/20260910-kx-i2s-dts-v2-1-91f5376c899d@linux.spacemit.com
-
-Changes in v2:
-- Rebase onto v7.3-rc1, which includes all prerequisite clock changes.
-- Drop the already merged ASoC clock-name fix (4c69d04958ec) and
-  six-clock binding update (ec926b3bcb49); retain only the DTS patch.
-- Resolve the insertion conflict with the new SPI nodes by placing
-  I2S0-I2S3 before SPI0/SPI1 and I2S4-I2S5 after them, in address order.
-  The I2S node contents are unchanged from v1.
-- Carry Yixun Lan's Reviewed-by from v1.
-- Link to v1: https://lore.kernel.org/all/20260721-kx-i2s-dts-v1-0-d22cb6cfaab5@linux.spacemit.com/
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Yixun Lan <dlan@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-To: Albert Ou <aou@eecs.berkeley.edu>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: devicetree@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org
-Cc: spacemit@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org
----
- arch/riscv/boot/dts/spacemit/k3.dtsi | 119 +++++++++++++++++++++++++++++++++++
- 1 file changed, 119 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
-index c3f2dce0969c0..75782caeaaa85 100644
---- a/arch/riscv/boot/dts/spacemit/k3.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
-@@ -1140,6 +1140,85 @@ uart10: serial@d401f000 {
- 			status = "disabled";
- 		};
- 
-+		i2s0: i2s@d4026000 {
-+			compatible = "spacemit,k3-i2s";
-+			reg = <0x0 0xd4026000 0x0 0x30>;
-+			clocks = <&syscon_mpmu CLK_MPMU_I2S0_SYSCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S0_BCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S0_BUS>,
-+				 <&syscon_apbc CLK_APBC_I2S0>,
-+				 <&syscon_mpmu CLK_MPMU_I2S0_SYSCLK_DIV>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_SYSCLK>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_BCLK>;
-+			clock-names = "sysclk", "bclk", "bus", "func",
-+				      "sysclk_div", "c_sysclk", "c_bclk";
-+			dmas = <&pdma K3_PDMA_SSPA0_TX>, <&pdma K3_PDMA_SSPA0_RX>;
-+			dma-names = "tx", "rx";
-+			resets = <&syscon_apbc RESET_APBC_I2S0>;
-+			#sound-dai-cells = <0>;
-+
-+			status = "disabled";
-+		};
-+
-+		i2s1: i2s@d4026800 {
-+			compatible = "spacemit,k3-i2s";
-+			reg = <0x0 0xd4026800 0x0 0x30>;
-+			clocks = <&syscon_mpmu CLK_MPMU_I2S1_SYSCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S1_BCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S1_BUS>,
-+				 <&syscon_apbc CLK_APBC_I2S1>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_SYSCLK>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_BCLK>;
-+			clock-names = "sysclk", "bclk", "bus", "func",
-+				      "c_sysclk", "c_bclk";
-+			dmas = <&pdma K3_PDMA_SSPA1_TX>, <&pdma K3_PDMA_SSPA1_RX>;
-+			dma-names = "tx", "rx";
-+			resets = <&syscon_apbc RESET_APBC_I2S1>;
-+			#sound-dai-cells = <0>;
-+
-+			status = "disabled";
-+		};
-+
-+		i2s2: i2s@d4027000 {
-+			compatible = "spacemit,k3-i2s";
-+			reg = <0x0 0xd4027000 0x0 0x30>;
-+			clocks = <&syscon_mpmu CLK_MPMU_I2S2_SYSCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S2_BCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S2_BUS>,
-+				 <&syscon_apbc CLK_APBC_I2S2>,
-+				 <&syscon_mpmu CLK_MPMU_I2S2_SYSCLK_DIV>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_SYSCLK>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_BCLK>;
-+			clock-names = "sysclk", "bclk", "bus", "func",
-+				      "sysclk_div", "c_sysclk", "c_bclk";
-+			dmas = <&pdma K3_PDMA_SSPA2_TX>, <&pdma K3_PDMA_SSPA2_RX>;
-+			dma-names = "tx", "rx";
-+			resets = <&syscon_apbc RESET_APBC_I2S2>;
-+			#sound-dai-cells = <0>;
-+
-+			status = "disabled";
-+		};
-+
-+		i2s3: i2s@d4027800 {
-+			compatible = "spacemit,k3-i2s";
-+			reg = <0x0 0xd4027800 0x0 0x30>;
-+			clocks = <&syscon_mpmu CLK_MPMU_I2S3_SYSCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S3_BCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S3_BUS>,
-+				 <&syscon_apbc CLK_APBC_I2S3>,
-+				 <&syscon_mpmu CLK_MPMU_I2S3_SYSCLK_DIV>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_SYSCLK>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_BCLK>;
-+			clock-names = "sysclk", "bclk", "bus", "func",
-+				      "sysclk_div", "c_sysclk", "c_bclk";
-+			dmas = <&pdma K3_PDMA_SSPA3_TX>, <&pdma K3_PDMA_SSPA3_RX>;
-+			dma-names = "tx", "rx";
-+			resets = <&syscon_apbc RESET_APBC_I2S3>;
-+			#sound-dai-cells = <0>;
-+
-+			status = "disabled";
-+		};
-+
- 		spi0: spi@d4040000 {
- 			compatible = "spacemit,k3-spi", "spacemit,k1-spi";
- 			reg = <0x0 0xd4040000 0x0 0x30>;
-@@ -1170,6 +1249,46 @@ spi1: spi@d4040800 {
- 			status = "disabled";
- 		};
- 
-+		i2s4: i2s@d4041000 {
-+			compatible = "spacemit,k3-i2s";
-+			reg = <0x0 0xd4041000 0x0 0x30>;
-+			clocks = <&syscon_mpmu CLK_MPMU_I2S4_SYSCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S4_BCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S4_BUS>,
-+				 <&syscon_apbc CLK_APBC_I2S4>,
-+				 <&syscon_mpmu CLK_MPMU_I2S4_SYSCLK_DIV>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_SYSCLK>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_BCLK>;
-+			clock-names = "sysclk", "bclk", "bus", "func",
-+				      "sysclk_div", "c_sysclk", "c_bclk";
-+			dmas = <&pdma K3_PDMA_SSPA4_TX>, <&pdma K3_PDMA_SSPA4_RX>;
-+			dma-names = "tx", "rx";
-+			resets = <&syscon_apbc RESET_APBC_I2S4>;
-+			#sound-dai-cells = <0>;
-+
-+			status = "disabled";
-+		};
-+
-+		i2s5: i2s@d4041800 {
-+			compatible = "spacemit,k3-i2s";
-+			reg = <0x0 0xd4041800 0x0 0x30>;
-+			clocks = <&syscon_mpmu CLK_MPMU_I2S5_SYSCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S5_BCLK>,
-+				 <&syscon_apbc CLK_APBC_I2S5_BUS>,
-+				 <&syscon_apbc CLK_APBC_I2S5>,
-+				 <&syscon_mpmu CLK_MPMU_I2S5_SYSCLK_DIV>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_SYSCLK>,
-+				 <&syscon_mpmu CLK_MPMU_I2S_BCLK>;
-+			clock-names = "sysclk", "bclk", "bus", "func",
-+				      "sysclk_div", "c_sysclk", "c_bclk";
-+			dmas = <&pdma K3_PDMA_SSPA5_TX>, <&pdma K3_PDMA_SSPA5_RX>;
-+			dma-names = "tx", "rx";
-+			resets = <&syscon_apbc RESET_APBC_I2S5>;
-+			#sound-dai-cells = <0>;
-+
-+			status = "disabled";
-+		};
-+
- 		syscon_mpmu: system-controller@d4050000 {
- 			compatible = "spacemit,k3-syscon-mpmu";
- 			reg = <0x0 0xd4050000 0x0 0x10000>;
-
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260615-kx-i2s-dts-123764c9b2b2
-
-Best regards,
---  
-Troy Mitchell <troy.mitchell@linux.spacemit.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+CgpUaGUgUklTQy1W
+IElPTU1VIGFyY2hpdGVjdHVyZSBkZWZpbmVzIGFuIEFNT19IV0FEIGNhcGFiaWxpdHkgKEhhcmR3
+YXJlCkFjY2Vzcy9EaXJ0eSB1cGRhdGUpIHRoYXQgYWxsb3dzIHRoZSBJT01NVSB0byBhdG9taWNh
+bGx5IHNldCB0aGUgQS9EIGJpdHMKaW4gc2Vjb25kLXN0YWdlIFBURXMgb24gRE1BIGFjY2Vzcy4g
+IFdoZW4gREMudGMuR0FERSBpcyBhc3NlcnRlZCwgdGhlIElPTU1VCmF1dG9ub21vdXNseSBzZXRz
+IEQgb24gdGhlIGZpcnN0IHdyaXRlIHRvIGEgcGFnZSBtYXBwZWQgYnkgYW4gaW9oZ2F0cApkb21h
+aW4uICBUaGlzIHNlcmllcyB3aXJlcyB0aGF0IGNhcGFiaWxpdHkgdXAgdG8gdGhlIGlvbW11ZmQg
+ZGlydHktdHJhY2tpbmcKaW50ZXJmYWNlIChJT01NVV9IV1BUX1NFVF9ESVJUWV9UUkFDS0lORyAv
+IElPTU1VX0hXUFRfR0VUX0RJUlRZX0JJVE1BUCkgYW5kCnJlcG9ydHMgSU9NTVVfQ0FQX0RJUlRZ
+X1RSQUNLSU5HLgoKRGVzaWduIG5vdGVzCi0tLS0tLS0tLS0tLQoKKiBUaGUgZmVhdHVyZSBpcyBz
+Y29wZWQgdG8gc2Vjb25kLXN0YWdlIChpb2hnYXRwKSBkb21haW5zIG9ubHk7IHRoZXNlIGFyZQog
+IHRoZSBkb21haW5zIGNyZWF0ZWQgZm9yIEtWTSAvIFZGSU8gZGV2aWNlIHBhc3MtdGhyb3VnaCB3
+aGVuIHVzZXJzcGFjZQogIGFsbG9jYXRlcyBhbiBIV1BUIHdpdGggSU9NTVVfSFdQVF9BTExPQ19O
+RVNUX1BBUkVOVCBvcgogIElPTU1VX0hXUFRfQUxMT0NfRElSVFlfVFJBQ0tJTkcuICBGaXJzdC1z
+dGFnZSAoaW9zYXRwKSBkb21haW5zIGFyZSBub3QKICB0b3VjaGVkIGJ5IHRoaXMgc2VyaWVzLgoK
+KiBUaGUgcGFnZS10YWJsZSBzaWRlIHBsdWdzIGludG8gdGhlIGV4aXN0aW5nIGdlbmVyaWNfcHQg
+ZGlydHkgaG9vawogIGZyYW1ld29yayAoYW1kdjEgLyB2dGRzcyBzdHlsZSkuICBSSVNDLVYgYWRk
+cyB0aGUgdGhyZWUgcmVxdWlyZWQgUFRFCiAgb3BzIOKAkyBpc193cml0ZV9kaXJ0eSAvIG1ha2Vf
+d3JpdGVfY2xlYW4gLyBtYWtlX3dyaXRlX2RpcnR5LgoKVGVzdGluZwotLS0tLS0tCgoqIFRlc3Qg
+b24gUUVNVSBSSVNDLVYsIGEgbnZtZSBhbmQgYW4gZTEwMDBlIGRldmljZSB3YXMgcGFzc2VkIHRo
+cm91Z2gKICB0byBhbiBMMiBndWVzdCB2aWEgdmZpby1wY2kgKyBpb21tdWZkLgoKKiBnZW5lcmlj
+X3B0IEtVbml0OiB0aGUgZXhpc3RpbmcgdGVzdF9kaXJ0eSBjYXNlIG5vdyBydW5zIGFuZCBwYXNz
+ZXMgZm9yCiAgdGhlIFJJU0MtViA2NC1iaXQgZm9ybWF0LgoKRm9sbG93LXVwIHdvcmsKLS0tLS0t
+LS0tLS0tLS0KKiBCdWlsZCBhIGRlZGljYXRlZCBlbmQtdG8tZW5kIHRlc3QgY2FzZSB0aGF0IGRy
+aXZlcyB0aGUgZnVsbCBmbG93CiAgKEhXUFRfQUxMT0Mgd2l0aCBESVJUWV9UUkFDS0lORyAtPiBh
+dHRhY2ggLT4gSU9BU19NQVAgLT4gZ2VuZXJhdGUgcmVhbAogIERNQSAtPiBTRVRfRElSVFlfVFJB
+Q0tJTkcgLT4gR0VUX0RJUlRZX0JJVE1BUCAtPiB2ZXJpZnkgYml0bWFwIGFnYWluc3QKICBleHBl
+Y3RlZCBJT1ZBIGZvb3RwcmludCkgc28gdGhhdCB0aGUgYmVoYXZpb3VyIGNhbiBiZSByZWdyZXNz
+aW9uLXRlc3RlZAogIGJleW9uZCB0aGUgS1VuaXQgUFRFLWxldmVsIGNvdmVyYWdlLgoKKiBJZiBw
+b3NzaWJsZSwgcmViYXNlIGFuZCByZXRlc3Qgb24gdG9wIG9mIHRoZSB1cGRhdGVkICJpb21tdSBp
+cnFieXBhc3MiCiAgcGF0Y2hzZXQuCgotLS0KQ2hhbmdlcyBpbiB2NCAoSmFzb24ncyBzdWdnZXN0
+aW9ucyk6CiAgICAtIFJlYmFzZWQgdGhlIHNlcmllcyBvbiB0b3Agb2YgWzFdIGFuZCBbMl0uCiAg
+ICAtIERyb3AgdGhlIFJJU0MtVi1zcGVjaWZpYyBwdF9udW1faXRlbXNfbGcyKCkgdG9wLWxldmVs
+IHNwZWNpYWwgY2FzZS4KICAgIC0gVmFsaWRhdGUgcGFnZS10YWJsZSBhZGRyZXNzIHdpZHRocyBi
+eSB0cmFuc2xhdGlvbiBzdGFnZTogYWNjZXB0IG9ubHkKICAgICAgU3YzOS9TdjQ4L1N2NTcgd2lk
+dGhzIGZvciBmaXJzdC1zdGFnZSB0YWJsZXMgYW5kIG9ubHkgU3YzOXg0L1N2NDh4NC8KICAgICAg
+U3Y1N3g0IHdpZHRocyBmb3Igc2Vjb25kLXN0YWdlIHRhYmxlcy4KICAgIC0gUmVwbGFjZSB0aGUg
+YWxpYXNlZCBmaXJzdC1zdGFnZS9zZWNvbmQtc3RhZ2UgTU9ERSB1bmlvbiB3aXRoCiAgICAgIGlu
+ZGVwZW5kZW50IEZTQy9JT1NBVFAgYW5kIElPSEdBVFAgTU9ERSBmaWVsZHMuCiAgICAtIEFkZCBw
+dF9kaXJ0eV9zdXBwb3J0ZWQoKSB0byByZXN0cmljdCBSSVNDLVYgZ2VuZXJpY19wdCBkaXJ0eSB0
+cmFja2luZwogICAgICB0byBzZWNvbmQtc3RhZ2UgdGFibGVzLgogICAgLSBMaW5rIHRvIHYzOgog
+ICAgICBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI2MDgyMTEzMjc0OS44
+MjA3MC0xLWZhbmd5dS55dUBsaW51eC5hbGliYWJhLmNvbS8KQ2hhbmdlcyBpbiB2MyAoQW5kcmV3
+IEpvbmVzJ3Mgc3VnZ2VzdGlvbnMpOgogICAgLSBSZWJhc2VkIHRoZSBzZXJpZXMgb24gdG9wIG9m
+IEFuZHJldyBKb25lcycgZ2VuZXJpY19wdCBSSVNDLVYgc3VwcG9ydGVkCiAgICAgIGZlYXR1cmUg
+bWFzayBmaXgsIHdoaWNoIGFkZHMgUFRfRkVBVF9SSVNDVl9TVlBCTVQgdG8gdGhlIHN1cHBvcnRl
+ZCBmZWF0dXJlCiAgICAgIHNldC4KICAgIC0gQWRkZWQgUFRfRkVBVF9SSVNDVl9TMiB0byB0aGUg
+UklTQy1WIGdlbmVyaWNfcHQgc3VwcG9ydGVkIGZlYXR1cmUgbWFzayBhbmQKICAgICAgS1VuaXQg
+ZmVhdHVyZSBtYXRyaXguCiAgICAtIEtlcHQgUFRfRkVBVF9TSUdOX0VYVEVORCBvbmx5IGZvciBm
+aXJzdC1zdGFnZSBSSVNDLVYgS1VuaXQgY29uZmlnczsgc2Vjb25kCiAgICAgIHN0YWdlIGNvbmZp
+Z3Mgbm93IHVzZSBQVF9GRUFUX1JJU0NWX1MyIHdpdGhvdXQgc2lnbi1leHRlbnNpb24gc2VtYW50
+aWNzLgogICAgLSBTcGxpdCBSSVNDLVYgSU9NTVUgY2FwYWJpbGl0eSBjaGVja3MgaW50byBmaXJz
+dC1zdGFnZSBGU0MgYW5kIHNlY29uZC1zdGFnZQogICAgICBJT0hHQVRQIGhlbHBlcnMuCiAgICAt
+IFVwZGF0ZWQgc2Vjb25kLXN0YWdlIHBhZ2luZyBkb21haW4gc2V0dXAgdG8gdXNlIEdQQSB3aWR0
+aHMgNDEvNTAvNTkgYW5kIHRvCiAgICAgIGF2b2lkIFBUX0ZFQVRfU0lHTl9FWFRFTkQuCiAgICAt
+IExpbmsgdG8gdjI6CiAgICAgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIw
+MjYwNTA3MTEzNzA2LjExNDAwLTEtZmFuZ3l1Lnl1QGxpbnV4LmFsaWJhYmEuY29tLwpDaGFuZ2Vz
+IGluIHYyIChKYXNvbidzIHN1Z2dlc3Rpb25zKToKICAgIC0gSW50cm9kdWNlZCBhIHNpbmdsZSBQ
+VF9GRUFUX1JJU0NWX1MyOiBzZWNvbmQtc3RhZ2Ugc2VsZWN0aW9uIGlzIGRyaXZlbgogICAgICBw
+dXJlbHkgYnkgdGhpcyBmZWF0dXJlIGJpdC4KICAgIC0gU3dpdGNoZWQgZnJvbSBkeW5hbWljIERD
+LnRjLkdBREUgdG9nZ2xpbmcgdG8gc3RhdGljIHByZS1lbmFibGUuCiAgICAtIGRvbWFpbl9hbGxv
+Y19wYWdpbmdfZmxhZ3M6IGZvbGxvdyB0aGUgc3dpdGNoL2Nhc2UgZGVzaWduIGZyb20gb3RoZXIK
+ICAgICAgZHJpdmVycy4KICAgIC0gRHJvcCBJT01NVV9DQVBfREVGRVJSRURfRkxVU0ggaW4gcmlz
+Y3ZfaW9tbXVfY2FwYWJsZS4KICAgIC0gUmVtb3ZlIHRoZSAuaHdfaW5mby1yZWxhdGVkIHBhdGNo
+LgogICAgLSBMaW5rIHRvIHYxOgogICAgICBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1y
+aXNjdi8yMDI2MDQyODEzMTM1OS4zNDg3Mi0xLWZhbmd5dS55dUBsaW51eC5hbGliYWJhLmNvbS8K
+ClsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1pb21tdS8xLXYyLTU2M2VlNjM4ODZm
+MCsxMjA5LWlvbW11cHRfYXJtdjhfamdnQG52aWRpYS5jb20vClsyXSBodHRwczovL2xvcmUua2Vy
+bmVsLm9yZy9saW51eC1pb21tdS8yMDI2MDgxODA5MjQ0NC40Mjc1NS0xLWFuZHJldy5qb25lc0Bv
+c3MucXVhbGNvbW0uY29tLwoKRmFuZ3l1IFl1ICg2KToKICBpb21tdXB0OiBBZGQgUklTQy1WIFNl
+Y29uZC1zdGFnZSAoaW9oZ2F0cCkgcGFnZSB0YWJsZSBzdXBwb3J0CiAgaW9tbXVwdDogQWRkIFJJ
+U0MtViBkaXJ0eSB0cmFja2luZyBQVEUgb3BzCiAgaW9tbXUvcmlzY3Y6IEFkZCBkb21haW5fYWxs
+b2NfcGFnaW5nX2ZsYWdzIGZvciBzZWNvbmQtc3RhZ2UgZG9tYWluCiAgaW9tbXUvcmlzY3Y6IFBy
+ZS1lbmFibGUgR0FERSBmb3Igc2Vjb25kLXN0YWdlIGRvbWFpbnMKICBpb21tdS9yaXNjdjogQWRk
+IGRpcnR5IHRyYWNraW5nIHN1cHBvcnQgZm9yIHNlY29uZC1zdGFnZSBkb21haW5zCiAgaW9tbXUv
+cmlzY3Y6IEFkZCBJT1RJTlZBTC5HVk1BIGFmdGVyIHVwZGF0aW5nIEREVC9QRFQgZW50cmllcwoK
+VG9tYXN6IEplem5hY2ggKDIpOgogIGlvbW11L3Jpc2N2OiByZXBvcnQgaW9tbXUgY2FwYWJpbGl0
+aWVzCiAgUklTQy1WOiBLVk06IEVuYWJsZSBLVk1fVkZJTyBpbnRlcmZhY2VzIG9uIFJJU0MtViBh
+cmNoCgpab25nIExpICgyKToKICBpb21tdS9yaXNjdjogdXNlIGRhdGEgc3RydWN0dXJlIGluc3Rl
+YWQgb2YgaW5kaXZpZHVhbCB2YWx1ZXMKICBpb21tdS9yaXNjdjogc3VwcG9ydCBHU0NJRCBhbmQg
+R1ZNQSBpbnZhbGlkYXRpb24gY29tbWFuZAoKIGFyY2gvcmlzY3Yva3ZtL0tjb25maWcgICAgICAg
+ICAgICAgICAgICAgICAgIHwgICAyICsKIGRyaXZlcnMvaW9tbXUvZ2VuZXJpY19wdC9mbXQvaW9t
+bXVfcmlzY3Y2NC5jIHwgICAyICstCiBkcml2ZXJzL2lvbW11L2dlbmVyaWNfcHQvZm10L3Jpc2N2
+LmggICAgICAgICB8IDE1OCArKysrKysrKysrKy0tCiBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11
+LWJpdHMuaCAgICAgICAgICAgICB8ICAgNyArCiBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMg
+ICAgICAgICAgICAgICAgICB8IDIyNCArKysrKysrKysrKysrKystLS0tCiBpbmNsdWRlL2xpbnV4
+L2dlbmVyaWNfcHQvY29tbW9uLmggICAgICAgICAgICB8ICAgNCArCiBpbmNsdWRlL2xpbnV4L2dl
+bmVyaWNfcHQvaW9tbXUuaCAgICAgICAgICAgICB8ICAxMSArCiA3IGZpbGVzIGNoYW5nZWQsIDMz
+NiBpbnNlcnRpb25zKCspLCA3MiBkZWxldGlvbnMoLSkKCi0tIAoyLjUwLjEKCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
