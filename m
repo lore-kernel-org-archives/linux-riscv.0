@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2148C88E75
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 03:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC9EC88E75
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 03:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TkBdgs/lTd6aZjoZbHBitqfgoU1+5MCwZ17s4cvfMTQ=; b=3yqUUr4iC0sgMQ
-	EO1f+IUCx8G5yjdlaRXWlPfSAudkxTolBayMzwQgE4wNU2pptBnThZ6BNKvUwFnPdRP4foBggitZ+
-	IPQr3Ru31xgUCPhbh4IQsxnjzjFFbQE0KqIpYt6OXkZUzDb1Qa5Bz38i2Rp4pRdvISJTqi4HTht6v
-	SQg2mZHhieZ5xJJfnj1Z7oilir3Aar557oH6z/8sTY0dLrRNkYooc+QOZbYP/yBENosO17Un+VuRd
-	dshwUHGsf3NV3ch1PudXrxntAmhSgABg3W2lKGTxokbF1TkNFl15vd3gVFC0G2R3l4z3+SAPkg+Uo
-	QO61pxEJ26nC0HDNaEyQ==;
+	List-Owner; bh=o3Y1201EIJDosCtINbi8pHpN4wfFo1So7057ZiVXyF0=; b=EOB3dBsV3Zux4X
+	2ntXTDsis8/nN2EjVeAU1FFLqLi+bAUpMmTnMNoGO/9lXMVniORQAVjBugZp3eMvwCrk4osy7oAiA
+	jddHKgvPjTb4hmV2bX5oIhYZ0gHkqvAUkIGHuJ0MDGDduqQ+Kr4izMR9SBKM4x2laHpxvFM0C1Wg+
+	2iUbG0sbFc0yNanKU/jWxTjS9roQ3ysXuug1rpc83hkO0Ciqm3pxbRR2b05dMQ9xMMeg3PNuoqFd5
+	bZitJk6yVXfe+iwZ4kfKd2JxZ2pgQuanNm4tA7qhGmxnnIsfmCpE2N7jMQrlRiM/xKHne6WgBxIIL
+	Mg98p4/wXIiBeer58Gpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Jqg-000000057Nj-0PWp;
-	Tue, 15 Sep 2026 03:28:46 +0000
+	id 1x6Jqo-000000057XR-2JqW;
+	Tue, 15 Sep 2026 03:28:54 +0000
 Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Jqb-000000057JI-2ee4;
-	Tue, 15 Sep 2026 03:28:42 +0000
+	id 1x6Jqj-000000057SB-45CZ;
+	Tue, 15 Sep 2026 03:28:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1789442916; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=vV2Y5T1kVnTXHiV+qTqs8GbZEVnLFhK5H2hev57N6Io=;
-	b=gAkeWCFUHZ3rFcp4f4D325IjRULrl/pFfrR0H0i7WPBxVb3z1RJKTacURCXRsBoChBJ7lpQ8NoOd++BnvbC2GOlZ/CZ/vdh19Q/8dfaAl9v1Art6QMOl3oinq9likhyNGoX9xzsJcqxlnkIVFspQknnJO5SQ/SZBy/PInjsVMYA=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=26;SR=0;TI=SMTPD_---0XB.uvNY_1789442913;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XB.uvNY_1789442913 cluster:ay36)
+	t=1789442928; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=LCjuUl5Vg31ifAecAxqfu+fj9ihDR4CFl7OLN0cLKZ4=;
+	b=klDlAS35C1I0yfbm9XyZ5pfzKREHfh3AWfRCjU+41K+NCxOGWEppi65x1jfKrhdhXxoUOSLAvT3jFBonQnGZejk+JGoPX0H1dsP99I9J3XJaBgLlS800CZdi/qQjXaGhiEyDHdCCJg/Fza++wKBn63V3u/qBPBC/+eezDyMGmEk=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=26;SR=0;TI=SMTPD_---0XB.uvRg_1789442925;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XB.uvRg_1789442925 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 15 Sep 2026 11:28:34 +0800
+          Tue, 15 Sep 2026 11:28:46 +0800
 From: fangyu.yu@linux.alibaba.com
 To: tomasz.jeznach@linux.dev,
 	joro@8bytes.org,
@@ -62,16 +62,16 @@ Cc: fangyu.yu@linux.alibaba.com,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org
-Subject: [RFC PATCH v4 01/10] iommupt: Add RISC-V Second-stage (iohgatp) page table support
-Date: Tue, 15 Sep 2026 11:28:20 +0800
-Message-Id: <20260915032828.11250-2-fangyu.yu@linux.alibaba.com>
+Subject: [RFC PATCH v4 07/10] iommu/riscv: Add domain_alloc_paging_flags for second-stage domain
+Date: Tue, 15 Sep 2026 11:28:26 +0800
+Message-Id: <20260915032828.11250-8-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260915032828.11250-1-fangyu.yu@linux.alibaba.com>
 References: <20260915032828.11250-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_202841_838868_6467A175 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20260914_202850_176247_8158178C 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,227 +90,160 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 
-Add support for Sv39x4/Sv48x4/Sv57x4 Second-stage page tables used by
-the RISC-V IOMMU iohgatp register. The x4 root page table is 16 KiB
-instead of the usual 4 KiB, covering 2 extra GPA bits (hw_max_vasz_lg2
-= 41/50/59).
+Replace .domain_alloc_paging with .domain_alloc_paging_flags so callers
+can pass allocation flags to select the appropriate page-table type.
+
+When IOMMU_HWPT_ALLOC_NEST_PARENT or IOMMU_HWPT_ALLOC_DIRTY_TRACKING is
+set in @flags, allocate a second-stage (iohgatp) domain.
+
+When @flags is 0 the behaviour is identical to the previous
+domain_alloc_paging: first-stage (iosatp) domain.
 
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- drivers/iommu/generic_pt/fmt/iommu_riscv64.c |   2 +-
- drivers/iommu/generic_pt/fmt/riscv.h         | 109 +++++++++++++++----
- include/linux/generic_pt/common.h            |   4 +
- include/linux/generic_pt/iommu.h             |  11 ++
- 4 files changed, 102 insertions(+), 24 deletions(-)
+ drivers/iommu/riscv/iommu.c | 94 +++++++++++++++++++++++++++----------
+ 1 file changed, 69 insertions(+), 25 deletions(-)
 
-diff --git a/drivers/iommu/generic_pt/fmt/iommu_riscv64.c b/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
-index 1bb74114fb02..fa61839e5599 100644
---- a/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
-+++ b/drivers/iommu/generic_pt/fmt/iommu_riscv64.c
-@@ -8,7 +8,7 @@
- 	(BIT(PT_FEAT_SIGN_EXTEND) | BIT(PT_FEAT_FLUSH_RANGE) | \
- 	 BIT(PT_FEAT_RISCV_SVNAPOT_64K) |                      \
- 	 BIT(PT_FEAT_DETAILED_GATHER) |                        \
--	 BIT(PT_FEAT_RISCV_SVPBMT))
-+	 BIT(PT_FEAT_RISCV_SVPBMT) | BIT(PT_FEAT_RISCV_S2))
- #define PT_FORCE_ENABLED_FEATURES BIT(PT_FEAT_DETAILED_GATHER)
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 99f05f1db35b..16779877351b 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1358,25 +1358,21 @@ static const struct iommu_domain_ops riscv_iommu_paging_domain_ops = {
+ 	.flush_iotlb_all = riscv_iommu_iotlb_flush_all,
+ };
  
- #include "iommu_template.h"
-diff --git a/drivers/iommu/generic_pt/fmt/riscv.h b/drivers/iommu/generic_pt/fmt/riscv.h
-index ae9a76514416..d4445e463fa9 100644
---- a/drivers/iommu/generic_pt/fmt/riscv.h
-+++ b/drivers/iommu/generic_pt/fmt/riscv.h
-@@ -37,7 +37,16 @@ enum {
- 	PT_MAX_OUTPUT_ADDRESS_LG2 = 34,
- 	PT_MAX_TOP_LEVEL = 1,
- #else
--	PT_MAX_VA_ADDRESS_LG2 = 57,
-+	/*
-+	 * PT_MAX_VA_ADDRESS_LG2 is the upper bound accepted by the generic
-+	 * pt_iommu_init() range check.  It must cover both first-stage and
-+	 * second-stage (G-stage) modes:
-+	 *
-+	 *   First-stage  (fsc/iosatp): Sv39=39, Sv48=48, Sv57=57
-+	 *   Second-stage (iohgatp):    Sv39x4=41, Sv48x4=50, Sv57x4=59
-+	 *
-+	 */
-+	PT_MAX_VA_ADDRESS_LG2 = 59,
- 	PT_MAX_OUTPUT_ADDRESS_LG2 = 56,
- 	PT_MAX_TOP_LEVEL = 4,
- #endif
-@@ -126,6 +135,12 @@ riscvpt_entry_num_contig_lg2(const struct pt_state *pts)
- 
- static inline unsigned int riscvpt_num_items_lg2(const struct pt_state *pts)
+-static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
++static struct iommu_domain *
++riscv_iommu_domain_alloc_paging_flags(struct device *dev, u32 flags,
++				      const struct iommu_user_data *user_data)
  {
-+	/*
-+	 * It is not allowed to call pt_num_items_lg2() at the top level, this
-+	 * API restriction is specifically an optimization avoid overheads
-+	 * dealing with concatenated tables here.
-+	 */
-+	PT_WARN_ON(pts->level == pts->range->top_level);
- 	return PT_TABLEMEM_LG2SZ - ilog2(sizeof(u64));
- }
- #define pt_num_items_lg2 riscvpt_num_items_lg2
-@@ -261,20 +276,41 @@ riscvpt_iommu_fmt_init(struct pt_iommu_riscv_64 *iommu_table,
- 		       const struct pt_iommu_riscv_64_cfg *cfg)
- {
- 	struct pt_riscv *table = &iommu_table->riscv_64pt;
--
--	switch (cfg->common.hw_max_vasz_lg2) {
--	case 39:
--		pt_top_set_level(&table->common, 2);
--		break;
--	case 48:
--		pt_top_set_level(&table->common, 3);
--		break;
--	case 57:
--		pt_top_set_level(&table->common, 4);
--		break;
--	default:
--		return -EINVAL;
-+	unsigned int top_level;
-+
-+	if (pt_feature(&table->common, PT_FEAT_RISCV_S2)) {
-+		/* Second-stage (iohgatp): Sv39x4 / Sv48x4 / Sv57x4. */
-+		switch (cfg->common.hw_max_vasz_lg2) {
-+		case 41:
-+			top_level = 2;
-+			break;
-+		case 50:
-+			top_level = 3;
-+			break;
-+		case 59:
-+			top_level = 4;
-+			break;
-+		default:
-+			return -EINVAL;
-+		}
-+	} else {
-+		/* First-stage (fsc/iosatp): Sv39 / Sv48 / Sv57. */
-+		switch (cfg->common.hw_max_vasz_lg2) {
-+		case 39:
-+			top_level = 2;
-+			break;
-+		case 48:
-+			top_level = 3;
-+			break;
-+		case 57:
-+			top_level = 4;
-+			break;
-+		default:
-+			return -EINVAL;
-+		}
- 	}
-+
-+	pt_top_set_level(&table->common, top_level);
- 	table->common.max_oasz_lg2 =
- 		min(PT_MAX_OUTPUT_ADDRESS_LG2, cfg->common.hw_max_oasz_lg2);
- 	return 0;
-@@ -292,30 +328,57 @@ riscvpt_iommu_fmt_hw_info(struct pt_iommu_riscv_64 *table,
- 	PT_WARN_ON(top_phys & ~PT_TOP_PHYS_MASK);
+ 	struct pt_iommu_riscv_64_cfg cfg = {};
+ 	struct riscv_iommu_domain *domain;
+ 	struct riscv_iommu_device *iommu;
+ 	int ret;
++	const u32 supported_flags = IOMMU_HWPT_ALLOC_DIRTY_TRACKING |
++				    IOMMU_HWPT_ALLOC_NEST_PARENT;
  
+-	iommu = dev_to_iommu(dev);
+-	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57) {
+-		cfg.common.hw_max_vasz_lg2 = 57;
+-	} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48) {
+-		cfg.common.hw_max_vasz_lg2 = 48;
+-	} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39) {
+-		cfg.common.hw_max_vasz_lg2 = 39;
+-	} else {
+-		dev_err(dev, "cannot find supported page table mode\n");
+-		return ERR_PTR(-ENODEV);
+-	}
+-	cfg.common.hw_max_oasz_lg2 = 56;
++	if (flags & ~supported_flags)
++		return ERR_PTR(-EOPNOTSUPP);
++	if (user_data)
++		return ERR_PTR(-EOPNOTSUPP);
+ 
+ 	domain = kzalloc_obj(*domain);
+ 	if (!domain)
+@@ -1384,12 +1380,13 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
+ 
+ 	INIT_LIST_HEAD_RCU(&domain->bonds);
+ 	spin_lock_init(&domain->lock);
++	iommu = dev_to_iommu(dev);
++	cfg.common.hw_max_oasz_lg2 = 56;
  	/*
--	 * See Table 3. Encodings of iosatp.MODE field" for DC.tx.SXL = 0:
--	 *  8 = Sv39 = top level 2
--	 *  9 = Sv38 = top level 3
--	 *  10 = Sv57 = top level 4
-+	 * Both first-stage (fsc/iosatp) and second-stage (iohgatp) share the
-+	 * same MODE numeric values for a given top level:
-+	 *   top_level 2 -> MODE 8  (Sv39 / Sv39x4)
-+	 *   top_level 3 -> MODE 9  (Sv48 / Sv48x4)
-+	 *   top_level 4 -> MODE 10 (Sv57 / Sv57x4)
-+	 *
-+	 * See "Table 3. Encodings of iosatp.MODE field" (DC.tc.SXL = 0) and
-+	 * "Table 2. Encoding of iohgatp.MODE field" in the RISC-V IOMMU spec.
+ 	 * 6.4 IOMMU capabilities [..] IOMMU implementations must support the
+ 	 * Svnapot standard extension for NAPOT Translation Contiguity.
  	 */
--	info->fsc_iosatp_mode = top_range->top_level + 6;
-+	if (pt_feature(&table->riscv_64pt.common, PT_FEAT_RISCV_S2))
-+		info->iohgatp_mode = top_range->top_level + 6;
-+	else
-+		info->fsc_iosatp_mode = top_range->top_level + 6;
+-	cfg.common.features = BIT(PT_FEAT_SIGN_EXTEND) |
+-			      BIT(PT_FEAT_FLUSH_RANGE) |
++	cfg.common.features = BIT(PT_FEAT_FLUSH_RANGE) |
+ 			      BIT(PT_FEAT_RISCV_SVNAPOT_64K) |
+ 			      BIT(PT_FEAT_DETAILED_GATHER);
+ 	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SVPBMT)
+@@ -1397,19 +1394,66 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
+ 	domain->riscvpt.iommu.nid = dev_to_node(iommu->dev);
+ 	domain->domain.ops = &riscv_iommu_paging_domain_ops;
+ 
+-	domain->pscid = ida_alloc_range(&riscv_iommu_pscids, 1,
+-					RISCV_IOMMU_MAX_PSCID, GFP_KERNEL);
+-	if (domain->pscid < 0) {
+-		riscv_iommu_free_paging_domain(&domain->domain);
+-		return ERR_PTR(-ENOMEM);
++	switch (flags) {
++	case 0:
++		cfg.common.features |= BIT(PT_FEAT_SIGN_EXTEND);
++		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57) {
++			cfg.common.hw_max_vasz_lg2 = 57;
++		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48) {
++			cfg.common.hw_max_vasz_lg2 = 48;
++		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39) {
++			cfg.common.hw_max_vasz_lg2 = 39;
++		} else {
++			ret = -ENODEV;
++			goto err_free;
++		}
++		domain->pscid = ida_alloc_range(&riscv_iommu_pscids, 1,
++						RISCV_IOMMU_MAX_PSCID, GFP_KERNEL);
++		if (domain->pscid < 0) {
++			ret = -ENOMEM;
++			goto err_free;
++		}
++		break;
++	case IOMMU_HWPT_ALLOC_NEST_PARENT:
++	case IOMMU_HWPT_ALLOC_DIRTY_TRACKING:
++	case IOMMU_HWPT_ALLOC_DIRTY_TRACKING | IOMMU_HWPT_ALLOC_NEST_PARENT:
++		/*
++		 * Second-stage (iohgatp) page table for KVM VFIO device
++		 * pass-through and dirty tracking. The GPA space is 2 bits
++		 * wider than the corresponding first-stage VA space (x4 root
++		 * page table), so hw_max_vasz_lg2 values are 41/50/59.
++		 */
++		if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57X4) {
++			cfg.common.hw_max_vasz_lg2 = 59;
++		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV48X4) {
++			cfg.common.hw_max_vasz_lg2 = 50;
++		} else if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV39X4) {
++			cfg.common.hw_max_vasz_lg2 = 41;
++		} else {
++			ret = -ENODEV;
++			goto err_free;
++		}
++		domain->gscid = ida_alloc_range(&riscv_iommu_gscids, 1,
++						RISCV_IOMMU_MAX_GSCID, GFP_KERNEL);
++		if (domain->gscid < 0) {
++			ret = -ENOMEM;
++			goto err_free;
++		}
++		cfg.common.features |= BIT(PT_FEAT_RISCV_S2);
++		break;
++	default:
++		ret = -EOPNOTSUPP;
++		goto err_free;
+ 	}
+ 
+ 	ret = pt_iommu_riscv_64_init(&domain->riscvpt, &cfg, GFP_KERNEL);
+-	if (ret) {
+-		riscv_iommu_free_paging_domain(&domain->domain);
+-		return ERR_PTR(ret);
+-	}
++	if (ret)
++		goto err_free;
+ 	return &domain->domain;
++
++err_free:
++	riscv_iommu_free_paging_domain(&domain->domain);
++	return ERR_PTR(ret);
  }
- #define pt_iommu_fmt_hw_info riscvpt_iommu_fmt_hw_info
  
- #if defined(GENERIC_PT_KUNIT)
- static const struct pt_iommu_riscv_64_cfg riscv_64_kunit_fmt_cfgs[] = {
--	[0] = { .common.features = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
-+	/* First-stage (fsc/iosatp): Sv39 / Sv48 / Sv57 */
-+	[0] = { .common.features = BIT(PT_FEAT_SIGN_EXTEND) |
-+				      BIT(PT_FEAT_RISCV_SVNAPOT_64K),
- 		.common.hw_max_oasz_lg2 = 56,
- 		.common.hw_max_vasz_lg2 = 39 },
--	[1] = { .common.features = 0,
-+	[1] = { .common.features = BIT(PT_FEAT_SIGN_EXTEND),
- 		.common.hw_max_oasz_lg2 = 56,
- 		.common.hw_max_vasz_lg2 = 48 },
--	[2] = { .common.features = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
-+	[2] = { .common.features = BIT(PT_FEAT_SIGN_EXTEND) |
-+				      BIT(PT_FEAT_RISCV_SVNAPOT_64K),
- 		.common.hw_max_oasz_lg2 = 56,
- 		.common.hw_max_vasz_lg2 = 57 },
-+	/*
-+	 * Second-stage (iohgatp): Sv39x4 / Sv48x4 / Sv57x4.
-+	 */
-+	[3] = { .common.features = BIT(PT_FEAT_RISCV_S2) |
-+				      BIT(PT_FEAT_RISCV_SVNAPOT_64K),
-+		.common.hw_max_oasz_lg2 = 56,
-+		.common.hw_max_vasz_lg2 = 41 },
-+	[4] = { .common.features = BIT(PT_FEAT_RISCV_S2),
-+		.common.hw_max_oasz_lg2 = 56,
-+		.common.hw_max_vasz_lg2 = 50 },
-+	[5] = { .common.features = BIT(PT_FEAT_RISCV_S2) |
-+				      BIT(PT_FEAT_RISCV_SVNAPOT_64K),
-+		.common.hw_max_oasz_lg2 = 56,
-+		.common.hw_max_vasz_lg2 = 59 },
- };
- #define kunit_fmt_cfgs riscv_64_kunit_fmt_cfgs
-+/* Sign extension is only valid for first-stage configs, not S2. */
- enum {
--	KUNIT_FMT_FEATURES = BIT(PT_FEAT_RISCV_SVNAPOT_64K),
-+	KUNIT_FMT_FEATURES = BIT(PT_FEAT_SIGN_EXTEND) |
-+			     BIT(PT_FEAT_RISCV_SVNAPOT_64K) |
-+			     BIT(PT_FEAT_RISCV_S2),
- };
- #endif
- 
-diff --git a/include/linux/generic_pt/common.h b/include/linux/generic_pt/common.h
-index 07ef1c8341a4..f2e130c2b804 100644
---- a/include/linux/generic_pt/common.h
-+++ b/include/linux/generic_pt/common.h
-@@ -197,6 +197,10 @@ enum {
- 	 * Support Svpbmt extension: encode page-based memory type (PBMT) in PTEs.
- 	 */
- 	PT_FEAT_RISCV_SVPBMT,
-+	/*
-+	 * Using second-stage / iohgatp address translation.
-+	 */
-+	PT_FEAT_RISCV_S2,
- 
- };
- 
-diff --git a/include/linux/generic_pt/iommu.h b/include/linux/generic_pt/iommu.h
-index dd0edd02a48a..2eed9b78f56c 100644
---- a/include/linux/generic_pt/iommu.h
-+++ b/include/linux/generic_pt/iommu.h
-@@ -328,7 +328,18 @@ struct pt_iommu_riscv_64_cfg {
- 
- struct pt_iommu_riscv_64_hw_info {
- 	u64 ppn;
-+	/*
-+	 * First-stage (fsc/iosatp) MODE encoding:
-+	 *   8 = Sv39, 9 = Sv48, 10 = Sv57
-+	 * Used to program DC.fsc.iosatp.MODE.
-+	 */
- 	u8 fsc_iosatp_mode;
-+	/*
-+	 * Second-stage (iohgatp) MODE encoding:
-+	 *   8 = Sv39x4, 9 = Sv48x4, 10 = Sv57x4
-+	 * Used to program DC.iohgatp.MODE.
-+	 */
-+	u8 iohgatp_mode;
- };
- 
- IOMMU_FORMAT(riscv_64, riscv_64pt);
+ static int riscv_iommu_attach_blocking_domain(struct iommu_domain *iommu_domain,
+@@ -1544,7 +1588,7 @@ static const struct iommu_ops riscv_iommu_ops = {
+ 	.identity_domain = &riscv_iommu_identity_domain,
+ 	.blocked_domain = &riscv_iommu_blocking_domain,
+ 	.release_domain = &riscv_iommu_blocking_domain,
+-	.domain_alloc_paging = riscv_iommu_alloc_paging_domain,
++	.domain_alloc_paging_flags = riscv_iommu_domain_alloc_paging_flags,
+ 	.device_group = riscv_iommu_device_group,
+ 	.probe_device = riscv_iommu_probe_device,
+ 	.release_device	= riscv_iommu_release_device,
 -- 
 2.50.1
 
