@@ -4,80 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7A5C88E75
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 07:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C9CC88E75
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 07:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ScngMTfs7bIhDzX00/D8G36E56ptg5gPw8B9nNaytgA=; b=e9rhViYtuyIqmH
-	0APFxb/Q7I5vTC/pLoJdsjZJY1s1Ovc/aJo4C2+/M+NB0umhSheokw1zYqNKP8yNx49ttB7yYJ038
-	fPa2XT0ShXYmJ6LZn/PKF0wR8+dOYMNqWhCGMhHyVi31ULqB7X10Ep0v9sw/ki3z2bqrN5yVo6SPC
-	6dsCRYQqcK6pwW30AWGWwpxWTJ2dPuqv2egCV0xXjnUr7kZoFE6tZq3JKCWw7t/f6Q0U80a+H/4k7
-	8iC0gOHXdbF6Wve7GkfkAHJZ3PuO1eogGF+noQaHvbyNiSeIF3/WYZsAaHIq6FjlVXEvJmrrJ5jgS
-	pw1ydNpnMUFpGk7RxWnA==;
+	List-Owner; bh=4Fj2emmL1QiJEEUSgELaVPSoMpVFNGG0KXeVsuhYXSk=; b=ueet/ZqqsPoqIz
+	cBGnZ2EnElMLEGiBXDoGkcUm0JWWkOcpWiLJHKAJ3wEJ6uxv30lLzJ85cEbUum4cW+XLOgbx3biqw
+	bX2s81UmlctNEnqDGY9g81wr/Yf9+S9P27w+FX4XWaIUQ0q42diPPtq9fQ14aUlly2T7NGwU4hEuR
+	NPLoZwgINkhqXFrC5CZQyGBBkHK+ufL8GoL1oS9YBBGkkKz6eKKEcN9sFKGZn/Avgrg/0ymcI9Ui4
+	JBIyPB2vFP9zA9AMI2euZF1PF4h0fXrVtCytm5ZyES9QUN6Iq14Rrnf7vL0wZpKMT77zKEbzKVtAs
+	XuIS5P+pWB3oaH4J3aFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NZu-00000005T2j-1NFx;
-	Tue, 15 Sep 2026 07:27:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6Ne8-00000005TaD-43tX;
+	Tue, 15 Sep 2026 07:32:04 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6NZt-00000005T2X-1u3S
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 15 Sep 2026 07:27:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Subject:Cc:To:From:
-	Mime-Version:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=8dWGJguqNXT288QH6fgmtiYyECq28McotSfgHmCeocQ=; b=jeeSaWnJD1HP5siKDN9zKyf3WR
-	8VuQVeeVxGUnvdZNjQnCk4ap7/ve5bigRDY/Cad1GSYKSI4HOoj+nFjvtYzZC+y5jDEQeULsVMSwW
-	mSY883jOeMDw5KS91WOuvc0By2fO23LY74PQ5vKfD2GsY3BBXQlQDe2H3D4mfJgkHchQhS7JDPklh
-	D3UKdA9l/Cj4uthrVDnzPNhG4dqldCJi1kKefgrASX2qbbsLEDgeI37hh8hK4iLpdSaqP9OSMGI3y
-	qhLF+7GI43fwg0oq7wHdLFJ00+EPTktOKpIVWS83uncTXQc87YqcnN78lNLFsDNS7y80sP/mlOjEW
-	8HvdCm+Q==;
-Received: from mxct.zte.com.cn ([183.62.165.209])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6NZd-00000006Mte-2MzK
+	id 1x6NdD-00000005TV9-2joF
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Sep 2026 07:27:28 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4hkYVw5BXdz4x69s;
-	Tue, 15 Sep 2026 15:27:04 +0800 (CST)
-Received: from xaxapp04.zte.com.cn ([10.99.98.157])
-	by mse-fl2.zte.com.cn with SMTP id 68F7Qsdi053927;
-	Tue, 15 Sep 2026 15:26:54 +0800 (+08)
-	(envelope-from shao.mingyin@zte.com.cn)
-Received: from mapi (xaxapp04[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Tue, 15 Sep 2026 15:26:56 +0800 (CST)
-X-Zmail-TransId: 2afb6aa8f34035a-cfb46
-X-Mailer: Zmail v1.0
-Message-ID: <20260915152656708z04s4oSYY2BGj34F36RZa@zte.com.cn>
-Date: Tue, 15 Sep 2026 15:26:56 +0800 (CST)
-Mime-Version: 1.0
-From: <shao.mingyin@zte.com.cn>
-To: <pjw@kernel.org>, <mikey@neuling.org>
-Cc: <jiangfeng@kylinos.cn>, <pjw@kernel.org>, <palmer@dabbelt.com>,
-        <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <mikey@neuling.org>, <zhang.yue5@zte.com.cn>,
-        <david.laight.linux@gmail.com>, <qingfang.deng@linux.dev>
-Subject: =?UTF-8?B?W1BBVENIIHY0XSByaXNjdjogbGliOiBGaXggWkJCIHN0cm5sZW4gd3JhcC1hcm91bmQgcmVncmVzc2lvbiBvbsKgaHVnZSBjb3VudHM=?=
-X-MAIL: mse-fl2.zte.com.cn 68F7Qsdi053927
-X-TLS: YES
-X-ENVELOPE-SENDER: shao.mingyin@zte.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Tue, 15 Sep 2026 15:27:04 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AA8F348.000/4hkYVw5BXdz4x69s
+	Tue, 15 Sep 2026 07:32:03 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68F7SBYc3263595;
+	Tue, 15 Sep 2026 08:30:52 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=dk201812; bh=fRNJt0AS2s0bmHy9+1Wpf3w
+	aF0oHCu+6NWprJ5UDI9g=; b=M4tlVxKggabXNxLJEmuozYXD0dS5639D+sh4Qg2
+	/M1HnAUm/7qlTNzVL1xfA/1wqFY6wqwO4epmIm76LPhuy4+wCIcTD6WZ+z6Q+uUM
+	HXziUvoaPatfffAinh9Q++n84ILd3rUnAG2+ZKvAZ6hnyULHow3o3+qJkUq2nXWx
+	6/bLVfRznV/aymwMJjEy1ORqY673XIaTolETmqrqsMXDQlSPjvvszd27UpiipPz8
+	EKXuXa30PWXpwNxEQvcsAnbbcXnnnx6EnH5IpUcIspcyJi8HgQXfr59JZQrI1WAd
+	ix19OfBL+ODGkShOSymIGCZnV/3DfBAj93e2iGOGkQPLwOw==
+Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4gmw0q23c2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 15 Sep 2026 08:30:52 +0100 (BST)
+Received: from [127.0.1.1] (172.25.5.88) by HHMAIL01.hh.imgtec.org
+ (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 15 Sep
+ 2026 08:30:50 +0100
+From: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Date: Tue, 15 Sep 2026 10:30:42 +0300
+Subject: [PATCH v2] drm/imagination: Manage FW VM context from its init and
+ fini callbacks
+MIME-Version: 1.0
+Message-ID: <20260915-b4-upstream-manage-fw-vm-context-from-init-and-fini-v2-1-c9cb43667143@imgtec.com>
+X-B4-Tracking: v=1; b=H4sIACH0qGoC/6WOQQ7CIBBFr2JYOwZQibryHsYFnQ46JkADFDVN7
+ y7VI7j7L3n5/08iU2LK4rSaRKLKmWNooNcrgXcbbgTcNxZaaiMPSkK3g3HIJZH14G2wzXBPqB4
+ whkKvAi5FDxy4gA09uJZAHffY91IhGila85DI8eu7ern+OI/dg7AsU4tx51xien9vVbV4/z2oC
+ hRoNFofaWtoT2f2t0K4wejFdZ7nDzb1LVcJAQAA
+X-Change-ID: 20260810-b4-upstream-manage-fw-vm-context-from-init-and-fini-195cdd01cc60
+To: Alessio Belle <alessio.belle@imgtec.com>,
+        Luigi Santivetti
+	<luigi.santivetti@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>
+CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        "Brajesh
+ Gupta" <brajesh.gupta@imgtec.com>,
+        Alexandru Dadu <alexandru.dadu@imgtec.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789457450; l=6458;
+ i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
+ bh=wis1y2leDS3yLg78oRg2pViZyXbUSkczoiYkjBNdENU=;
+ b=uKMPHLS0DyWAz5sBn3Ur6J7h/GTqgU/aek84HhzqyGcmoLZhHzpIOmeg22jG2akvZvsl7JTae
+ rK5kLJKHAHTAZpP6xAKe3OaJSU/mnDeGGTLip6JxFhzNNAOrX9FJMFt
+X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
+ pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
+X-Originating-IP: [172.25.5.88]
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE1MDEwNiBTYWx0ZWRfX8smui4uzZAsh
+ IXMNLx7ht0XGznm68tTK2Vve5l3My+fvIpGUx4RexBB5QdgeFks5kGD1qUQps/ZPifRDiagbn9d
+ 8uz/AkUFyBVHVaotlOQduJCV/K2hcaTYLJF/Jnwk1Itxlwpne3eKszKXPwuAP1gkYY4k/DUL7Jo
+ CMN3dWmdmG58kGNraKCgYFW9PICk5wmTPQbyJRqohl+JswMWZcheWNtZ3xy3FQIbajgPG3LHG7w
+ 4udrv8z1fK7Xs2Ww0FHSQ372Hlbqg5GUMs/lpmY+LNooDEwljs1zvJQ1QjkXYAMIslTX/LvQQoF
+ eRU8d96gYUCLieK1FzpQY1BlIGSsRf31BbgvcleoHikC/M7EbXiopkxAFvhZj+iNYnRn1XnWpuU
+ gfMAZ0Kcend77CDJnwGF91KR/59PeYIBmd3gzswX3PeRlEJT0rXDHbtCyuaN3dsavqaWLVVVWSK
+ U3uiLhAXqSpNqZarAxg==
+X-Authority-Analysis: v=2.4 cv=c8M+0h9l c=1 sm=1 tr=0 ts=6aa8f42c cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=YP7Kpn5otooA:10 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
+ a=bC-a23v3AAAA:8 a=r_1tXGB3AAAA:8 a=QyXUC8HyAAAA:8 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=_O3DOGVWAAAA:8 a=e5mUnYsNAAAA:8 a=JfrnYn6hAAAA:8
+ a=pq3Wg1XxJzrTNXcWAXAA:9 a=QEXdDO2ut3YA:10 a=FO4_E8m0qiDe52t0p3_H:22
+ a=t8nPyN_e6usw4ciXM-Pk:22 a=2TKV-7w1aU1AVAwN0oqT:22 a=Vxmtnl_E_bksehYqCbjh:22
+ a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-ORIG-GUID: swSY0G-qtMr705ozNuILUNtzDg4aSgHz
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE1MDEwNiBTYWx0ZWRfXwSYFnBPF2Vkp
+ qcYZXgqQ+DX+129oo4yASB/vnNraG/BjtfIK0utq+bRGwtvfZymWfEQbS4GfHrWJ1oMrAHio8gO
+ wqG0Ptyru9CGGJaXT91YXA8iNptsEfg=
+X-Proofpoint-GUID: swSY0G-qtMr705ozNuILUNtzDg4aSgHz
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_082726_473564_4943FDF1 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20260915_003109_030387_3A568E08 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,99 +125,202 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Shao Mingyin <shao.mingyin@zte.com.cn>
+From: Alessio Belle <alessio.belle@imgtec.com>
 
-The aligned scan boundary is derived from the last valid byte,
-(s + count - 1).  When count is huge (e.g. SIZE_MAX, which FORTIFY
-strcat/strlcat pass when the destination size is not known at compile
-time), s + count wraps around and the boundary lands before s, so the
-ZBB path returns a bogus length.  The original implementation
-(5ba15d419fab) had the same wrap-around in its (s + count) & ~7
-boundary computation; after 5d588c684833 the wrapped boundary is caught
-by the pre-loop guard "bgeu t0, t4, 2f", which then always exits for
-aligned strings of 8 or more characters and strnlen() returns 8
-instead of the real length.
+While the MIPS firmware virtual memory context is created and destroyed
+from within the MIPS firmware init and fini callbacks, the META and
+RISC-V firmware contexts are created and destroyed from within blocks
+right before or after those callbacks.
 
-This silently truncates strings built by fortified strcat: the dm
-sysfs name attribute shows "live-bas" instead of "live-base", the
-truncated name pollutes the udev database, and blivet/anaconda (as
-well as LVM/dm-crypt/multipath userspace) break on RISC-V systems.
+Match the logic for all firmware processors by moving those blocks to
+the META and RISC-V init and fini callbacks.
 
-Detect the wrap-around and saturate the boundary to the top of the
-address space, making the scan equivalent to strlen().  The saturation
-clamps the increment to ~s, so it stays branchless and wrap-free:
-
-	s + min(count - 1, ~s) == saturating_add(s, count - 1)
-
-Normal counts are unaffected.
-
-Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
-Cc: stable@vger.kernel.org
-Suggested-by: David Laight <david.laight.linux@gmail.com>
-Suggested-by: Qingfang Deng <qingfang.deng@linux.dev>
-Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
-Acked-by: Michael Neuling <mikey@neuling.org>
+Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
+Reviewed-by: Brajesh Gupta <brajesh.gupta@imgtec.com>
+Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
 ---
-Changes in v4:
-- Use Zbb minu to clamp the increment (addi/not/minu/add): one
-  instruction less than the sltu/mask/or sequence and no extra
-  register (Qingfang Deng).  Clobbers stays t0-t4.
-
-Changes in v3:
-- Replace the taken branch in the saturation with a branchless
-  sltu/mask/or sequence (David Laight).
-- Update the Clobbers list for the additional t5 register.
-- Michael's Acked-by is kept: the patch semantics are unchanged, only
-  the saturation sequence is branchless now.
-
 Changes in v2:
-- Point Fixes: at the original implementation (5ba15d419fab) and reword
-  the commit message accordingly: the wrap-around exists since the
-  original implementation, 5d588c684833 only changed how it surfaces
-  (Michael Neuling).
-- Add Acked-by from Michael Neuling.
+- Added Signed-off-by and Reviewed-by lines in the commit message.
+- Link to v1: https://patch.msgid.link/20260810-b4-upstream-manage-fw-vm-context-from-init-and-fini-v1-1-2c6229e36e5e@imgtec.com
 
-v3: https://lore.kernel.org/all/20260914162123230u1y1M4UHrO8E-cU-opJ_7@zte.com.cn/
-v2: https://lore.kernel.org/all/20260914145205778-sZJbZc1D-XBfWRXO2f-o@zte.com.cn/
-v1: https://lore.kernel.org/all/20260828145152578tXQPUG9lxxgbJjmfpuaQz@zte.com.cn/
+To: Alessio Belle <alessio.belle@imgtec.com>
+To: Luigi Santivetti <luigi.santivetti@imgtec.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+To: David Airlie <airlied@gmail.com>
+To: Simona Vetter <simona@ffwll.ch>
+To: Paul Walmsley <pjw@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: imagination@lists.freedesktop.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+---
+ drivers/gpu/drm/imagination/pvr_device.c   | 25 +------------------------
+ drivers/gpu/drm/imagination/pvr_fw.c       |  6 ++----
+ drivers/gpu/drm/imagination/pvr_fw.h       |  2 +-
+ drivers/gpu/drm/imagination/pvr_fw_meta.c  | 12 ++++++++++++
+ drivers/gpu/drm/imagination/pvr_fw_riscv.c | 12 ++++++++++++
+ 5 files changed, 28 insertions(+), 29 deletions(-)
 
- arch/riscv/lib/strnlen.S | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/lib/strnlen.S b/arch/riscv/lib/strnlen.S
-index a8911605c248..5b3bbf0a3098 100644
---- a/arch/riscv/lib/strnlen.S
-+++ b/arch/riscv/lib/strnlen.S
-@@ -87,9 +87,25 @@ strnlen_zbb:
- 	 * Aligned boundary.  Use the address of the last valid byte
- 	 * (s + count - 1) to avoid loading a word past the count
- 	 * boundary in the loop below.  count == 0 is handled above.
-+	 *
-+	 * Saturate the boundary when s + count would wrap around (very
-+	 * large counts, e.g. SIZE_MAX passed by FORTIFY strcat/strlcat
-+	 * with a destination whose size is unknown at compile time).
-+	 * Without this, the wrapped boundary lands before s and the
-+	 * pre-loop guard below always exits, returning a truncated
-+	 * length.
-+	 *
-+	 * Clamping the increment to ~s (== SIZE_MAX - s) keeps the
-+	 * computation branchless and wrap-free:
-+	 *
-+	 *     s + min(count - 1, ~s) == saturating_add(s, count - 1)
-+	 *
-+	 * Saturating makes the scan equivalent to strlen().
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index 54fe4180c73c..35eaa54f75ed 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -697,25 +697,7 @@ pvr_device_gpu_init(struct pvr_device *pvr_dev)
+ 	if (err)
+ 		return err;
+ 
+-	if (pvr_dev->fw_dev.processor_type != PVR_FW_PROCESSOR_TYPE_MIPS) {
+-		pvr_dev->kernel_vm_ctx = pvr_vm_create_context(pvr_dev, false);
+-		if (IS_ERR(pvr_dev->kernel_vm_ctx))
+-			return PTR_ERR(pvr_dev->kernel_vm_ctx);
+-	}
+-
+-	err = pvr_fw_init(pvr_dev);
+-	if (err)
+-		goto err_vm_ctx_put;
+-
+-	return 0;
+-
+-err_vm_ctx_put:
+-	if (pvr_dev->fw_dev.processor_type != PVR_FW_PROCESSOR_TYPE_MIPS) {
+-		pvr_vm_context_put(pvr_dev->kernel_vm_ctx);
+-		pvr_dev->kernel_vm_ctx = NULL;
+-	}
+-
+-	return err;
++	return pvr_fw_init(pvr_dev);
+ }
+ 
+ /**
+@@ -726,11 +708,6 @@ static void
+ pvr_device_gpu_fini(struct pvr_device *pvr_dev)
+ {
+ 	pvr_fw_fini(pvr_dev);
+-
+-	if (pvr_dev->fw_dev.processor_type != PVR_FW_PROCESSOR_TYPE_MIPS) {
+-		WARN_ON(!pvr_vm_context_put(pvr_dev->kernel_vm_ctx));
+-		pvr_dev->kernel_vm_ctx = NULL;
+-	}
+ }
+ 
+ /**
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
+index 850a3ec8e775..58ee51cd65df 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.c
++++ b/drivers/gpu/drm/imagination/pvr_fw.c
+@@ -1029,8 +1029,7 @@ pvr_fw_init(struct pvr_device *pvr_dev)
+ err_mm_takedown:
+ 	drm_mm_takedown(&fw_dev->fw_mm);
+ 
+-	if (fw_dev->defs->fini)
+-		fw_dev->defs->fini(pvr_dev);
++	fw_dev->defs->fini(pvr_dev);
+ 
+ 	return err;
+ }
+@@ -1063,8 +1062,7 @@ pvr_fw_fini(struct pvr_device *pvr_dev)
+ 
+ 	drm_mm_takedown(&fw_dev->fw_mm);
+ 
+-	if (fw_dev->defs->fini)
+-		fw_dev->defs->fini(pvr_dev);
++	fw_dev->defs->fini(pvr_dev);
+ }
+ 
+ /**
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
+index 3390c84e4fd3..4b25291135b6 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.h
++++ b/drivers/gpu/drm/imagination/pvr_fw.h
+@@ -86,7 +86,7 @@ struct pvr_fw_defs {
+ 	 * FW processor specific finalisation.
+ 	 * @pvr_dev: Target PowerVR device.
+ 	 *
+-	 * This function is optional.
++	 * This function is mandatory.
  	 */
--	add	t4, a0, a1
--	addi	t4, t4, -1
-+	addi	t4, a1, -1	/* count - 1 */
-+	not	t1, a0		/* SIZE_MAX - s */
-+	minu	t4, t4, t1	/* clamp, so s + t4 can never wrap */
-+	add	t4, a0, t4	/* saturated s + count - 1 */
- 	andi	t4, t4, -SZREG
+ 	void (*fini)(struct pvr_device *pvr_dev);
+ 
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+index 9ff03bc60a08..6c5dc711e81e 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+@@ -500,9 +500,20 @@ pvr_meta_init(struct pvr_device *pvr_dev)
+ {
+ 	pvr_fw_heap_info_init(pvr_dev, ROGUE_FW_HEAP_META_SHIFT, 0);
+ 
++	pvr_dev->kernel_vm_ctx = pvr_vm_create_context(pvr_dev, false);
++	if (IS_ERR(pvr_dev->kernel_vm_ctx))
++		return PTR_ERR(pvr_dev->kernel_vm_ctx);
++
+ 	return 0;
+ }
+ 
++static void
++pvr_meta_fini(struct pvr_device *pvr_dev)
++{
++	WARN_ON(!pvr_vm_context_put(pvr_dev->kernel_vm_ctx));
++	pvr_dev->kernel_vm_ctx = NULL;
++}
++
+ static u32
+ pvr_meta_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
+ {
+@@ -550,6 +561,7 @@ pvr_meta_irq_clear(struct pvr_device *pvr_dev)
+ 
+ const struct pvr_fw_defs pvr_fw_defs_meta = {
+ 	.init = pvr_meta_init,
++	.fini = pvr_meta_fini,
+ 	.fw_process = pvr_meta_fw_process,
+ 	.vm_map = pvr_meta_vm_map,
+ 	.vm_unmap = pvr_meta_vm_unmap,
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_riscv.c b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+index fc13d483be9a..58bacc522e72 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_riscv.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+@@ -103,9 +103,20 @@ pvr_riscv_init(struct pvr_device *pvr_dev)
+ {
+ 	pvr_fw_heap_info_init(pvr_dev, ROGUE_FW_HEAP_RISCV_SHIFT, 0);
+ 
++	pvr_dev->kernel_vm_ctx = pvr_vm_create_context(pvr_dev, false);
++	if (IS_ERR(pvr_dev->kernel_vm_ctx))
++		return PTR_ERR(pvr_dev->kernel_vm_ctx);
++
+ 	return 0;
+ }
+ 
++static void
++pvr_riscv_fini(struct pvr_device *pvr_dev)
++{
++	WARN_ON(!pvr_vm_context_put(pvr_dev->kernel_vm_ctx));
++	pvr_dev->kernel_vm_ctx = NULL;
++}
++
+ static u32
+ pvr_riscv_get_fw_addr_with_offset(struct pvr_fw_object *fw_obj, u32 offset)
+ {
+@@ -154,6 +165,7 @@ pvr_riscv_irq_clear(struct pvr_device *pvr_dev)
+ 
+ const struct pvr_fw_defs pvr_fw_defs_riscv = {
+ 	.init = pvr_riscv_init,
++	.fini = pvr_riscv_fini,
+ 	.fw_process = pvr_riscv_fw_process,
+ 	.vm_map = pvr_riscv_vm_map,
+ 	.vm_unmap = pvr_riscv_vm_unmap,
 
- 	/* Get the first word.  */
--- 
-2.27.0
+---
+base-commit: e55fead22ff9ee047ab9f1903860c4b43043514e
+change-id: 20260810-b4-upstream-manage-fw-vm-context-from-init-and-fini-195cdd01cc60
+
+Best regards,
+--  
+Alexandru Dadu <alexandru.dadu@imgtec.com>
+
 
 _______________________________________________
 linux-riscv mailing list
