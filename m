@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2EE0C88E7F
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 15:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C265C88E7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 15:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hhxAtogdB5tCYJwOceleF8jAUxkv71FZCcPnl62HKss=; b=T/spJHwA6dp9Mt
-	gjkzEkrFVoky+GzS2SIuonyx+BHKWVDXHNZVsePXo6MqX7DNs+Tf1A8fiT7+3AC28VnSoN9ehbzOq
-	ovpt1zMiNhOwS2z/wGWWhT1JRB1CXuLt4sFMbaTgTcNJuZL3jZlltdJL8AsPx7W1ysiFxXK7RWgRS
-	iKD4t/gP2u0TPzSeRnpiqmgBh2YI6VXNUryLdaYrSA4KygeMmaN3Uzm0aXjIW/sbC03uiwKkbVZyG
-	UYicwp/LbiFGfBqhNwAJ6xXG8L1tt8T57JY3+cui27AeSj9NjcOGyc3zk6Am+ugElfRISn305HnnU
-	6n7/j7MQv/ghtv83GJHg==;
+	List-Owner; bh=D2UuECmikgK1xg4cUVJt034a8GUL3VnXWxGUcrffSUw=; b=TrImgJ/t1bJB56
+	VGIO3s7FXyEy2uVUbFa6U9EHmhx74KKuEoTrKQuDoFLPSZPAkRPAZ9TwVK3HlN32HhpLkj1/BUZlP
+	0C+Lbiy3uRZOrfhwirokCnZiwenhNSeM5td0rjn9IsJDJfs6gXBe4AKPTEv/2NPbCPt6kIAduCzSP
+	NjpB2U+qEDsJjxowuAx3vAhetT3icEANbSXhiKw+xCcFIcKBc0DxhUL0JUDr1uLoVfu1OwQ1QKRgo
+	11oUdOxFg6BZfI7PR7yAs1rh7nDKiuRZ29uhlYqNxbZlsxoFNehcLDE/L1wOOJzizHvEsSHTgJZ/E
+	X5XPk63sP73cUduCQAXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6V93-00000007AhK-3kcW;
-	Tue, 15 Sep 2026 15:32:29 +0000
+	id 1x6V9L-00000007B0O-0CNW;
+	Tue, 15 Sep 2026 15:32:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6V8x-00000007Aah-3jdY;
-	Tue, 15 Sep 2026 15:32:24 +0000
+	id 1x6V8z-00000007AcW-13Qy;
+	Tue, 15 Sep 2026 15:32:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=References:Content-Type:Cc:To:
 	In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=krjhFSRUjjcodVOjvmoECQPfmzBFrbf2f9ZT/pSJOz8=; b=fP8StvC6SzRHej9CCjMAqvF4zD
-	AcGPeefdBJWhRycL3BXdeIqhI5vuku7oJyFBFV5fDsJrdrSW0Z+BhlISkOkpHrQZlXF4F3S9NejtP
-	fgDF6fim+2w36YKTHcKFHa2XOFR9hYai9edVooMrvvsfNN6nFeCO5Z4AUsqHzVroco4tcDaBpntZW
-	dHmIYZjaxZKSEVbeI2Ilem+kHFXp/FDOoP6T4AlLccDH+OqsMzEuoO49BsRBgBpFUxfIQt7s9DHO9
-	+yGzy5kVvElLglBh08gvvM564y7+o/CYnBdSWsxfhWlMc5jUChkI0lUd58aETqMMXyj1YTtKxbWv0
-	BTJWStHw==;
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	bh=ejZOLWZBqVvE+aJiQH4w7G9Km7AK2Bodk8g1HgypfSM=; b=D+WqOnwHaqVCHqNeh3WeGF5BH1
+	DJV62vY+KbZYjW5QieTrmwgKbbhWKsMuwqpFbNYQgd2xVRQx8CSRSK4UO3PC3MHAJrfKMspxa/rNX
+	sALMa/PiHDmLFjsauythcA10TTVD/JCSylS86sld4TW4xc/T29u8dxiKVe9f3sWtWW/OY7u15ohUz
+	PKxyVVnEeGw1QJ278jaVHPmByYTWrAnXhWcA1MiM9YhUmY4/OtoC0sSzxflSP8aWPsGr8Kq4Ha9VN
+	EpGlZLh+aN0zc9dqEVv5TsFWhcXR6k2Oh2c0Z5UjxnWew33FsjRtDcUbXdhVHLryl8Zhct8oZwQ7w
+	MYGK3q5w==;
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6V8u-00000006wWD-3PeF;
-	Tue, 15 Sep 2026 15:32:22 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260915153215euoutp01f6a41b1c13a34f9a2128aa823aa5ebb6~ViFdSE2CA0097300973euoutp01c;
-	Tue, 15 Sep 2026 15:32:15 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260915153215euoutp01f6a41b1c13a34f9a2128aa823aa5ebb6~ViFdSE2CA0097300973euoutp01c
+	id 1x6V8v-00000006wXB-46z7;
+	Tue, 15 Sep 2026 15:32:24 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260915153220euoutp024b0df39da8d94f57de13bfae694851a3~ViFiQ9n050392803928euoutp02a;
+	Tue, 15 Sep 2026 15:32:20 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260915153220euoutp024b0df39da8d94f57de13bfae694851a3~ViFiQ9n050392803928euoutp02a
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789486335;
-	bh=krjhFSRUjjcodVOjvmoECQPfmzBFrbf2f9ZT/pSJOz8=;
+	s=mail20170921; t=1789486340;
+	bh=ejZOLWZBqVvE+aJiQH4w7G9Km7AK2Bodk8g1HgypfSM=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=W53K8ELKFpEAxnCP1RILam1PxVQ2gEEA+7eKnxtYbc7sX9T5MUJkJTSO+un9vBInQ
-	 zpOKLHFKU/nfy7ckAnG0F/bdt3z6LoS+0mIOY1185dkqX2l+0P1qhcL1Jawf3fVeBV
-	 9MNEP2PKXh2SjuGmIsaZdfYv/uaWF/6UQ7z+NqO8=
+	b=Wd08AOwR/A+BGb2Pwf6AeDhBuomsub9VgkDTgu5pVaVWEt2cdiEVfIoHt/tM0mgWC
+	 AWxQXzye4LBgqKiXioZxJsIJg+Hi02rW5k96kL+5egu+dDvF4rGkh5nyDEOfaSzOp5
+	 DtVldbkoosB+wmtCs3AXo/7L+9N5578bikgqwTGc=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125~ViFctveW01216312163eucas1p2Q;
-	Tue, 15 Sep 2026 15:32:14 +0000 (GMT)
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260915153220eucas1p1f5b0e03015500d9d66db8993426c8734~ViFh556ML1215512155eucas1p1O;
+	Tue, 15 Sep 2026 15:32:20 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260915153213eusmtip1506e9aac16998b42934c3838840ebe79~ViFbDT1fr0419704197eusmtip1z;
-	Tue, 15 Sep 2026 15:32:13 +0000 (GMT)
+	20260915153218eusmtip1a67d7df51779cea51b9ccba9edfd3c9d~ViFgQLW9c0616306163eusmtip1b;
+	Tue, 15 Sep 2026 15:32:18 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 15 Sep 2026 17:32:09 +0200
-Subject: [PATCH v4 01/20] dt-bindings: phy: Add
- starfive,jh7110-inno-hdmi-phy
+Date: Tue, 15 Sep 2026 17:32:12 +0200
+Subject: [PATCH v4 04/20] dt-bindings: soc: starfive: Add
+ starfive,jh7110-vout-syscon
 MIME-Version: 1.0
-Message-Id: <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com>
+Message-Id: <20260915-jh7110-clean-send-v4-4-f0e4fd6f2cc8@samsung.com>
 In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
 To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
 	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
@@ -95,16 +95,16 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
 	<u.kleine-koenig@baylibre.com>,  Michal Wilczynski
 	<m.wilczynski@samsung.com>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+X-CMS-MailID: 20260915153220eucas1p1f5b0e03015500d9d66db8993426c8734
 X-Msg-Generator: CA
-X-RootMTR: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+X-RootMTR: 20260915153220eucas1p1f5b0e03015500d9d66db8993426c8734
 X-EPHeader: CA
-X-CMS-RootMailID: 20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125
+X-CMS-RootMailID: 20260915153220eucas1p1f5b0e03015500d9d66db8993426c8734
 References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com>
+	<CGME20260915153220eucas1p1f5b0e03015500d9d66db8993426c8734@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_163220_911321_688F2AFF 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260915_163222_098299_0187B8A2 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,74 +121,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
+The video output subsystem has its own system controller, documented as
+dom_vout_syscon. Among other things it holds the mux that selects which
+DC8200 output drives the HDMI transmitter, so the HDMI controller needs
+to reach it.
 
-This device is a child of the starfive,jh7110-hdmi-subsystem node. It
-functions as both a PHY provider for the controller and as a clock
-provider for the variable pixel clock (hdmi_pclk), which it generates
-from its refoclk.
-
-Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- .../phy/starfive,jh7110-inno-hdmi-phy.yaml         | 49 ++++++++++++++++++++++
- 1 file changed, 49 insertions(+)
+ .../devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml         | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..f838fcc238ec7db0a8e794234bdceec36cb6d9e7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
-@@ -0,0 +1,49 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/starfive,jh7110-inno-hdmi-phy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 Innosilicon INNO HDMI PHY
-+
-+maintainers:
-+  - Michal Wilczynski <m.wilczynski@samsung.com>
-+
-+description:
-+  The PHY portion of the StarFive JH7110 INNO HDMI IP.
-+
-+properties:
-+  compatible:
-+    const: starfive,jh7110-inno-hdmi-phy
-+
-+  clocks:
-+    maxItems: 1
-+    description: Reference oscillator.
-+
-+  '#clock-cells':
-+    const: 0
-+
-+  '#phy-cells':
-+    const: 0
-+
-+required:
-+  - compatible
-+  - clocks
-+  - '#clock-cells'
-+  - '#phy-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  # Shown as a child of the HDMI subsystem node; see
-+  # Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
-+  # for the full node.
-+  - |
-+    phy {
-+        compatible = "starfive,jh7110-inno-hdmi-phy";
-+        #clock-cells = <0>;
-+        clocks = <&xin24m>;
-+        #phy-cells = <0>;
-+    };
-+
-+...
+diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+index 0039319e91fe6e6aadc4300114626348e4dfb7ce..cf9b657d0e8a3ed5c5688336fee4123e14a2ac58 100644
+--- a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
++++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+@@ -24,6 +24,7 @@ properties:
+           - enum:
+               - starfive,jh7110-aon-syscon
+               - starfive,jh7110-stg-syscon
++              - starfive,jh7110-vout-syscon
+           - const: syscon
+ 
+   reg:
 
 -- 
 2.34.1
