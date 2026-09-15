@@ -4,63 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80C5BC88E72
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 00:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F7EC88E72
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 01:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=duQIFLi8jnlu4CxZMYUdzgwEjGDovnIO0hA68pKBlNM=; b=EnSJB+FCNl4GwV
-	dYUqRs4fJ3QnuC/to9iBY8imAjGYp1FHjwezDIQU2PFC9YyR9iGYXvr67ABfmcPUNty0zRrbgfiiT
-	X5ds6TYtve7QhdENjiDDj6rfSK//QTRe/j2yFqh10bKEPuxmhkC/0t7HsO8YWaVk2TnCykYIlDe7s
-	h+t/pWqAceSEu51QNOM+fZu2bRCQcxXz6RVtJvWHCzCxgVE5m6miaHRxdn6t+FA2edgE+FFbLtPJ6
-	BejTxpUdvVl/030rzelDiHpL1y/l78AWbrLqSBwUc5CPTU803Xxa1lfDtNInIjVJ3Sq0jEwexZGSH
-	NXP/7Me5XSdkg29TJ1xw==;
+	List-Owner; bh=vU8WT+pLwPu4QF3SMAjzH96MIT/w9pVByxiqSHUq55c=; b=4rgdJtFBfdeE6M
+	G/ZHxZ8ozpuF3Eox+EuRHYCOHqjuTVVIBP0nIojjXl7GbfkFL0x5Shc86/25G3e4IEEWzpuQl3AZx
+	sHGXQoFx8dW686LKHPk1M612JZqYLrPO1lSqzfL//vVRBjO9WEZqcX7ROR9OpJ9JNsAqbfyGgMWFj
+	aOy3sxCW5fiT6DHrfkK/dFvikZoESFgMbLiIU39AdPmERrAv1vGxxhfX60KdhKuQJUkR1TwIoUQgt
+	MyYPLetz75f/xxv32AP3Y+6mHyP1DxCmoeDns3v7wAjRYvG1hsAeuSt3tD5nO/RuGgRDQkGtMHeHg
+	XsJ5vPxCwJuWuRb7NfPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6HUu-00000004voG-1iKa;
-	Tue, 15 Sep 2026 00:58:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6HZN-00000004w0g-2DkB;
+	Tue, 15 Sep 2026 01:02:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6HUs-00000004vo1-1oGh
+	id 1x6HZM-00000004w0Y-0Q8s
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Sep 2026 00:58:06 +0000
+	Tue, 15 Sep 2026 01:02:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0A484020B;
-	Tue, 15 Sep 2026 00:58:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 068CA1F000FF;
-	Tue, 15 Sep 2026 00:58:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 862D9404C5;
+	Tue, 15 Sep 2026 01:02:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DC761F000FF;
+	Tue, 15 Sep 2026 01:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789433885;
-	bh=GbaWcVbQPLTkAyQjGB58ukYMT/b3NDN5HpI68gRI0Sk=;
+	s=k20260515; t=1789434163;
+	bh=6m2Vn4oZUUn29f+mAvG/SuewpQoePvWx0aBZ7BrrDh8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oY2nyQYaQNNVunkf6kYhibDQUJHf2epLugfl0kk5T5CG29CsC4eEnj592ZLpWoaWM
-	 s+edCt8FCAKYqHZw/5g3CxF9WPmbx4ic85eHdUsIAWPUkMAqpm3ynA0zVVORFtVkzz
-	 vmsa/hTou0iwPGF8eZ5AUL2B2AdCZ1p3t4mDfum1tEoxUxDE5WiQgO7Jt04syCyfAD
-	 R/9iZJhVcdhIO+kL7cPhqxh2yU2rp3R9sSEXkKpZuK85VBWKisi3Ff6Hskhx7UVDlu
-	 KbhTnvAT984dIYqdj/O0VQjIM6heI5fhhchyu2E1XJVka0bp9YwrKulwndcATqfzB0
-	 xa5GCG1coJ9zQ==
+	b=ZiSxcM2XpscYGx5F1oqvPR8ScoSZMyzPtT9JPlN7MN+l5nxGiXgH4c9PA/XUon1RI
+	 +LWC9u7VH2wHvzY0TtJDeCq04o/u1mpSRF5ACE6Q3DUqssKQBBsaBIU/McO4T50r/b
+	 HwDi8XUBGt6f3NAdHTA+Fakl1Hgtn7HqhfGO5O0Rjt8yGN3mY4os7AvKGg77sPsXpq
+	 qApjuIxNJ/ZZOWCiUkA6HW9CMuwoU19LsO1xVInYaCUG+ryGfnTG+mps0UrIdoqzcD
+	 zitfaB+NUsfq8JtP5IKi9gEfqy9ZRIQ8YfyWSX7tr8eMi+DlHc+zgH74hI8xtEO4CS
+	 4vZaUbe0olfkw==
 From: Yixun Lan <dlan@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Yixun Lan <dlan@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH 1/1] riscv: dts: spacemit: enable onboard eeprom for OrangePi
-Date: Tue, 15 Sep 2026 00:58:00 +0000
-Message-ID: <178943386049.3673953.206218142747797275.b4-ty@b4>
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] MAINTAINERS: Add Troy Mitchell as a SpacemiT SoC reviewer
+Date: Tue, 15 Sep 2026 01:02:38 +0000
+Message-ID: <178943401819.3674983.18276114310523066796.b4-ty@b4>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260901080010.95040-1-amadeus@jmu.edu.cn>
-References: <20260901080010.95040-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20260906-spacemit-add-reviewer-v1-1-b2ebba238ec5@linux.spacemit.com>
+References: <20260906-spacemit-add-reviewer-v1-1-b2ebba238ec5@linux.spacemit.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,28 +72,14 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 01 Sep 2026 16:00:10 +0800, Chukun Pan wrote:
-> Enable the i2c2 bus and add the connected GT24C02B EEPROM.
-> 
-> [   6.766] TlvInfo Header:
-> [   6.766]    Id String:    TlvInfo
-> [   6.769]    Version:      1
-> [   6.772]    Total Length: 38
-> [   6.775] TLV Name             Code Len Value
-> [   6.779] -------------------- ---- --- -----
-> [   6.783] Base MAC Address     0x24   6 .....
-> [   6.788] MAC Addresses        0x2A   2 2
-> [   6.792] Product Name         0x21  15 x1_orangepi-r2s
-> [   6.797] Unknown              0x41   1  0x01
-> [   6.801] CRC-32               0xFE   4 0xE5A74B18
-> [   6.806] Checksum is valid.
-> 
-> [...]
+On Sun, 06 Sep 2026 21:29:08 +0800, Troy Mitchell wrote:
+> Add myself as a reviewer to help review patches for SpacemiT RISC-V SoC
+> support.
 
 Applied, thanks!
 
-[1/1] riscv: dts: spacemit: enable onboard eeprom for OrangePi
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=ac436e6879f5bf25e971d80f96f9392b61ff54c6
+[1/1] MAINTAINERS: Add Troy Mitchell as a SpacemiT SoC reviewer
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=3215a35fac45165506e86de212306c5d0e73eaf9
 
 Best regards,
 -- 
