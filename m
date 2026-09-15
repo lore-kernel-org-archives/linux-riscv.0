@@ -4,57 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F7EC88E72
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 01:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ACF4C88E75
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 01:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vU8WT+pLwPu4QF3SMAjzH96MIT/w9pVByxiqSHUq55c=; b=4rgdJtFBfdeE6M
-	G/ZHxZ8ozpuF3Eox+EuRHYCOHqjuTVVIBP0nIojjXl7GbfkFL0x5Shc86/25G3e4IEEWzpuQl3AZx
-	sHGXQoFx8dW686LKHPk1M612JZqYLrPO1lSqzfL//vVRBjO9WEZqcX7ROR9OpJ9JNsAqbfyGgMWFj
-	aOy3sxCW5fiT6DHrfkK/dFvikZoESFgMbLiIU39AdPmERrAv1vGxxhfX60KdhKuQJUkR1TwIoUQgt
-	MyYPLetz75f/xxv32AP3Y+6mHyP1DxCmoeDns3v7wAjRYvG1hsAeuSt3tD5nO/RuGgRDQkGtMHeHg
-	XsJ5vPxCwJuWuRb7NfPA==;
+	List-Owner; bh=tYKltASlU4VfxxeJjZtUacjNa5ZyiV+8V7Sczu7/TVA=; b=oSSSudEKYK5l2B
+	qtJ5d7Ro4+kb2yxab9Pbni0Cio/4xTiDjVFTjb7OfFAs9iKkga6Ysez++FcG53ktCMwKAAJ/7TxXN
+	fPHOQMms9CgonSobd4lAdLP3MOhApCKh+HHpkq/lkzm18WskmWXaOvsskoSn4Mi0VJ1CHtW6a1LsG
+	/x3nCORTV+8T24lJoO+XDMvQibUjmfgwns8wORX7ZemwpxpJazzwkKfznyzriOrE94pKdk8IRWXKJ
+	YaSB4NX07CXUdIQ9EUt+82yFM9pjO+/UBsA0cQc5iT7sGx7zP7TTJa2iIMWajtioQV4NsvPDpA1jM
+	lJ1v5Ruh1hJlShhdaPCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6HZN-00000004w0g-2DkB;
-	Tue, 15 Sep 2026 01:02:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x6II0-00000004yaS-3Mpf;
+	Tue, 15 Sep 2026 01:48:52 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6HZM-00000004w0Y-0Q8s
+	id 1x6IHx-00000004ya4-3Ngu
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Sep 2026 01:02:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 862D9404C5;
-	Tue, 15 Sep 2026 01:02:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DC761F000FF;
-	Tue, 15 Sep 2026 01:02:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789434163;
-	bh=6m2Vn4oZUUn29f+mAvG/SuewpQoePvWx0aBZ7BrrDh8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZiSxcM2XpscYGx5F1oqvPR8ScoSZMyzPtT9JPlN7MN+l5nxGiXgH4c9PA/XUon1RI
-	 +LWC9u7VH2wHvzY0TtJDeCq04o/u1mpSRF5ACE6Q3DUqssKQBBsaBIU/McO4T50r/b
-	 HwDi8XUBGt6f3NAdHTA+Fakl1Hgtn7HqhfGO5O0Rjt8yGN3mY4os7AvKGg77sPsXpq
-	 qApjuIxNJ/ZZOWCiUkA6HW9CMuwoU19LsO1xVInYaCUG+ryGfnTG+mps0UrIdoqzcD
-	 zitfaB+NUsfq8JtP5IKi9gEfqy9ZRIQ8YfyWSX7tr8eMi+DlHc+zgH74hI8xtEO4CS
-	 4vZaUbe0olfkw==
-From: Yixun Lan <dlan@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Yixun Lan <dlan@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] MAINTAINERS: Add Troy Mitchell as a SpacemiT SoC reviewer
-Date: Tue, 15 Sep 2026 01:02:38 +0000
-Message-ID: <178943401819.3674983.18276114310523066796.b4-ty@b4>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260906-spacemit-add-reviewer-v1-1-b2ebba238ec5@linux.spacemit.com>
-References: <20260906-spacemit-add-reviewer-v1-1-b2ebba238ec5@linux.spacemit.com>
+	Tue, 15 Sep 2026 01:48:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hJgASDMavUxljAt4em20pHcjj/6JOw5GWFZLQHeNXpQNY75Wjp5uGOdxsldV7gGhuEKoNi9qemYDd8JjHbBq/1Mnp7OeJbUL3+V1rVQY7Gx1Jrftt3BUzKHtpSciG1xkNcO2wtUHIqdpvIkPGZ7lYnkVQkGIUOvptdtlpKnOjA5fd7sU1rb8cOOiJDz6xmMNmNElRVNqMB1X9nMgn/A+J+EPeEPW4szwmHijQzMPyPUNY3Gvj5ZstoEH+jdW8Zrqf0yfh4t2lqIgrl6nhyk3HMKIeulpK6bsJwvKLBHGVgRalV5qxWpdqB4LfJQc5DjJCuz8KI84rVIL8xxp1eFQ1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GIynHDBc94pDEmU9/s8YYPjSVA1qnHxkbVhY2g4lxws=;
+ b=ATwdG4LiscimCyJ+2PQ5uUJ4dRk9i66dOIMghHqAhr8Rk+hKgvWW2u3/3nRmxvDPqeMKPOrLH/kPbhsSKz7pU+qL77aj4DmGZ7uN2w7f8Qa8ULxgNxG+eHCIir2EOji3ryc59igN9vlBAO93p5XdT8fH/BD3yuV4tfIneN1Eb8MpekIs2DhK8PjgSUCakQ/IDOrg6N4802ziPjWiBRrSJYpuuSlsxWNz4os+bRkaXQHDdBoa6v9KxnzZu7EoY9Zy/cEJApNjV4zWhHO+U5iTsMEgN25awtzxQKiyAhj+HC3a83dBYtyy6/OfcEHQ2GvLaOmh9KfSEAgg+Zo2XBdWkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GIynHDBc94pDEmU9/s8YYPjSVA1qnHxkbVhY2g4lxws=;
+ b=XRYpUH3PN6monLA5+DO7CrGhnXOSAur+m8MpbEwnsobiRHI5ZHCPuvCiYTlQYvONdA3P8fTKJ7nl+4L9W30vu2EnxpJ/8yi34SQbFSoOFCmS5Fs8OzjaHOTU8oaft+82wtSWa9AFPNlVzj5n0UmyXpwWcE4k1ljM+k8lwkHCkWwSmG8LO8l1YdDHmbrXWd064FsBh33ijFDJmpUeMy/ozO4yRMKT+7Ug+IF3g0wuo8HunqHOsxRWZPuwhqn/cvFDMDsbgWDlyR+kp3lZcOlcTzI6Wuus5SEoEFKDrPzm8pvOYSSp/gAtW8Pvp8KwaWzPrbh/1Wc0/HvRxsskrIevZg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
+ (2603:10a6:102:4ab::13) by PAXPR04MB9328.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b6::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Tue, 15 Sep
+ 2026 01:48:43 +0000
+Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
+ ([fe80::80e9:ab1c:dbc4:6930]) by PA3PR04MB11203.eurprd04.prod.outlook.com
+ ([fe80::80e9:ab1c:dbc4:6930%3]) with mapi id 15.21.0406.007; Tue, 15 Sep 2026
+ 01:48:43 +0000
+From: marouene.boubakri@oss.nxp.com
+To: Jens Wiklander <jenswi@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-riscv@lists.infradead.org
+Cc: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+Subject: [PATCH v2] tee: optee: prepare the driver for RISC-V
+Date: Tue, 15 Sep 2026 04:02:32 +0200
+Message-Id: <20260915020235.507302-1-marouene.boubakri@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260914175435.118303-4-marouene.boubakri@oss.nxp.com>
+References: <20260914175435.118303-4-marouene.boubakri@oss.nxp.com>
+X-ClientProxiedBy: CY5PR17CA0055.namprd17.prod.outlook.com
+ (2603:10b6:930:12::26) To PA3PR04MB11203.eurprd04.prod.outlook.com
+ (2603:10a6:102:4ab::13)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA3PR04MB11203:EE_|PAXPR04MB9328:EE_
+X-MS-Office365-Filtering-Correlation-Id: 450664a6-27ae-4835-bfd8-08df12cb792c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|19092799006|6133799003|22082099003|18002099003|3023799007|10067099003|56012099006|11063799006|5023799004;
+X-Microsoft-Antispam-Message-Info: h7kpcykv2RgkiWXsBXc1qkjJvepjpZYaU1NtefV0WBhzlM6msuGqzS8ytEwWjAH/l+477T20QbSemHkHJvVgjXndXpUqm6fByAAf0+p9Es+vjVg9U6YEV6v4/DonP30eAXWQd0lj8UQ8mFo7S4zyxhjAN3N6R250uouoy3GX6hPhjs0c2YMlNCSuDBgEx6yjEs/eBNDyuVWV/oXdFceEuc1OYaP6m+csVhANDynDFLGtnFg08HOWJ49I6vcpDt4zraOF01euFAKPl7ttjF/ovJgPpE0MaWbbo9+JPaUMv9DxrKVJfoq2HZbvyyWkQRU91ah8dgliYxzFarFY85/3mjsfJihjo8JR6nVuRZeq+xpTwhDKdfp/oYwt2Rn+t7Rj9A92tErXvrzCM4eeWl0moPS2LZVINqOaQFLMWSP4/5Qjw6GzPVJGZDyyR/UI5dirFOtdnvcmGsjXznFh54MNhEVsviQgL+Q8zw/ITs50N65Tf6CQTuAy5dduWd5GIKBF4I42Rj/1Kc91qJd+jxXGlWZ/xD/qCdW5D3ZHy9OXeqfh9/KBFRlKFLMBGojVAnQ4zgmj0rujwEsVLVupjexzxJD+SBLwzBsmtAjCTiLsd+WVte+bQ6OOr6NTSKFzgvh0if77YmF63zs5fgUDR3o9dHBzCQxzsyiDWkuX9UKKGQY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(19092799006)(6133799003)(22082099003)(18002099003)(3023799007)(10067099003)(56012099006)(11063799006)(5023799004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BPNOZd+i02Bf5nmfwNPjNMsRB+/ZGef5lZN4hjRj3StqttHjtAol6qI07mQe?=
+ =?us-ascii?Q?1KCDXhWmd0pVND4xkehZwqg8/se4OKK7YJEbqv0njNsG16KjKWD5jqo7LAeo?=
+ =?us-ascii?Q?jgTbNQ3IYoIuYAFlq7K0bLORrwrXdkUY8W+HRHcC5eTIGhLFfDbtYYc7FU4F?=
+ =?us-ascii?Q?2gkXeRxJB6W1ooAAFNmXnYWL47elIMofAg49/CZE2ipRDzm83xhd6jvCaJEw?=
+ =?us-ascii?Q?YglfeqAqqAYKhZKcKb1OOQpGCEFTJbGXmUXqO6EQhSx8fIabFq829m1o0rsW?=
+ =?us-ascii?Q?KpTDZSyCE5rxWU7lL+EjnklGUt0w77IY+V6cjyvdaU83vODgP5AO79hRyHb8?=
+ =?us-ascii?Q?OzkG1Q9EAStQmOwzWjJXqCmQSpXmyYlJr1/ym3HlobLjM3YcnmnrAeqzOIp5?=
+ =?us-ascii?Q?G15o1X/IeXpZbQoU9Pv4o/r/PYqxFThNFe8+hFUjam+vNuKGWaQ51cU3Ko49?=
+ =?us-ascii?Q?93kS/pNzqS+GqJAJUf0EAzaGB3I0MOQeRBOX6+6J5nz/jimloYi6CXm18WBQ?=
+ =?us-ascii?Q?qFoobteo18LlELGmiip8pKNCxVGJZesniXf2ngxmrboceT/mRiPAvtpAEoPM?=
+ =?us-ascii?Q?4O4sGATrr4T3zbFfGMX8ny56F1zuzQGTNFsuwq3RUnfnN0WxeIsYXIDLpZTJ?=
+ =?us-ascii?Q?zPe0ZtIf+iqQA/SC44eW4z1Wk6dYyQ+WXLCzH598e/xFNP4xeglZN2AYh/zN?=
+ =?us-ascii?Q?/afp9+gF11sL8GS370CvWwbbrhenGhYF6e3ty4MAUxKWEyk6ikBLNB5BnK+k?=
+ =?us-ascii?Q?Zny4m/d3GFZHVDGg3uX6ngktZPjhVlQLpeBd3hJmP21ek+ep9xrcbqGO3VGl?=
+ =?us-ascii?Q?n+X5zWU46SsBt3/jDChYKc3wahm1GK0fomMqYFPfaODPPZg/RXJMgNOSHRjt?=
+ =?us-ascii?Q?Ie1j7QX0xOZkkH2Np7hL6qTAgrWCouWwASlTwXt87Szgk5TKNUbzl7UAFRY+?=
+ =?us-ascii?Q?Dd/f5a2pH5QP4rebWfHv6StoJFkp0XVAT7zHIhHL8LG7iBIyb20jRIzL4LIF?=
+ =?us-ascii?Q?coMhuEh1Kz9EjH07ioLuErrRaNtbmP0ce5swMGseGZhnM9QUeIzj2RlBJgm7?=
+ =?us-ascii?Q?dC6JgDX/X/ZCTKNripAhlHVCfLFlm6XyPK8odTrZR6jAlzCjTo8hz90028xf?=
+ =?us-ascii?Q?NCvh8Uz1uJbbdWawpqsRtGAThcFp4p3YMPNx507TSxqm6t7/9wrrRpKOYu6f?=
+ =?us-ascii?Q?kYYwliqigXMVssA6a7kI8IQRBhplTjTGQsuqm3xjrPd+itVby0TX/1Gr7R0k?=
+ =?us-ascii?Q?E8tN2stHCZNndOyNSbsJ1K06ojWfYlMT9MyzRqfzMWayYVu3Yfy3inyuI+aT?=
+ =?us-ascii?Q?Vb5vziuAEDAQVMAOcVmx67mvkAcQgXlIBSxTYQN+JxTQ2twUs2tISFthfFBS?=
+ =?us-ascii?Q?tIof0Ceolh/n7vQuMntBRNSHSTy7ph4VEwMQS6l73ed2F84JQ0e86S3REYeK?=
+ =?us-ascii?Q?/T1sbzzT4JgTBmDOKMlGq3qrseAKB85ZZEYs6CI0gQ8cdo9Ms9sk9LosJWcL?=
+ =?us-ascii?Q?sy7isSs9dq/uji/4GLftSj4ktY4q6lYOn/P45ZAlDry8QX2aqC6RrNVRNJGW?=
+ =?us-ascii?Q?pAnyivd3jo9lX7fbl+7l4MvF80NHBs1dDbiL6JUaXU9P3zXTPIlOl/xmG+CC?=
+ =?us-ascii?Q?06Q6IKHyj5KZ7POC8pdEGYEylCdTmRVXBwNeqnIXIwSONC/4KlWiWb0Qkbo9?=
+ =?us-ascii?Q?S2rmn/KGFc+aV97NUEhyw5WGJRg01XgXWvP6bVYewZZGG70ixoR/AH+k+ey9?=
+ =?us-ascii?Q?DfS+IghAfdgfoz02/0fGbKjDD4tJPp7oy2O57ag1plbZAOrtU4NPxOY+dM2/?=
+X-MS-Exchange-AntiSpam-MessageData-1: TQP8m2QWt5KS8w==
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 450664a6-27ae-4835-bfd8-08df12cb792c
+X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11203.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2026 01:48:43.3727
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aDI9MSJWNJ9xmQOyBLJim579e+/uWs1gGtl0C/fskkR69QuwlN32ku7SGWGXuvbwYjzRAmI5AUXKt157+CwYdvwuNQdBrbJXYVJIROnbtWTyNNhV5Tq9/vz87EDh+UfHW6Oj10IGAscaxwrxGf8PkA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9328
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260914_184850_344077_2C1207EB 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,19 +144,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
 
-On Sun, 06 Sep 2026 21:29:08 +0800, Troy Mitchell wrote:
-> Add myself as a reviewer to help review patches for SpacemiT RISC-V SoC
-> support.
+The OP-TEE driver reaches OP-TEE through the SMC ABI or the FF-A ABI,
+both specific to Arm, and the TEE subsystem and the OP-TEE driver
+depend on HAVE_ARM_SMCCC. On RISC-V there is no SMC instruction: OP-TEE
+runs in a domain isolated by the M-mode firmware and is reached through
+the RISC-V Platform Management Interface (RPMI), carried on an SBI
+Message Proxy (MPXY) channel, for which Linux already has a mailbox
+driver.
 
-Applied, thanks!
+This series only puts the build plumbing in place for a third ABI next
+to the SMC and FF-A ones:
 
-[1/1] MAINTAINERS: Add Troy Mitchell as a SpacemiT SoC reviewer
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=3215a35fac45165506e86de212306c5d0e73eaf9
+- patch 1 builds the Arm-specific code of the driver only on Arm:
+  smc_abi.c when HAVE_ARM_SMCCC is set and ffa_abi.c when
+  ARM_FFA_TRANSPORT is enabled, with stubs for their registration
+  otherwise. The SMCCC header, the SMC and FF-A specific types and the
+  SMC RPC register parameters in optee_private.h are kept under the
+  same conditions, so that nothing Arm-specific is left in the common
+  part of the driver;
 
-Best regards,
+- patch 2 adds an RPMI ABI placeholder: an OPTEE_RPMI_ABI option built
+  when the MPXY mailbox driver is enabled, rpmi_abi.c and its
+  registration from the driver core. The transport is not implemented,
+  so the registration fails with -EOPNOTSUPP;
+
+- patch 3 lets the TEE subsystem and the OP-TEE driver be enabled on
+  RISC-V, and teaches the memory type check of the driver about the
+  RISC-V page attributes, without which the driver does not build
+  there. It is kept separate as it changes the dependencies of the
+  subsystem-wide TEE menu.
+
+There is no functional change. On Arm, OPTEE still depends on
+HAVE_ARM_SMCCC and the SMC and FF-A ABIs are built whenever they can be
+registered. On RISC-V the driver builds without any Arm-specific code
+but no ABI registers, so it does not load. The RPMI transport will be
+implemented on top of this in a separate series.
+
+Testing: Tested with the configurations below, riscv64 and arm64,
+built-in and as modules, and W=1 at every step of the series.
+
+  - riscv64, minimal config + CONFIG_TEE=y CONFIG_OPTEE=y
+  - riscv64, minimal config + CONFIG_TEE=m CONFIG_OPTEE=m
+  - arm64, minimal config + CONFIG_OPTEE=y CONFIG_ARM_FFA_TRANSPORT=y
+  - arm64, minimal config + CONFIG_OPTEE=y CONFIG_ARM_FFA_TRANSPORT=m
+  - arm64, minimal config + CONFIG_OPTEE=y CONFIG_ARM_FFA_TRANSPORT=n
+
+Marouene Boubakri (3):
+  tee: optee: build the Arm-specific code only on Arm
+  tee: optee: add an RPMI ABI placeholder
+  tee: optee: allow enabling the driver on RISC-V
+
+ drivers/tee/Kconfig               |  2 +-
+ drivers/tee/optee/Kconfig         | 10 +++++-
+ drivers/tee/optee/Makefile        |  5 +--
+ drivers/tee/optee/call.c          |  8 +++++
+ drivers/tee/optee/core.c          |  8 +++--
+ drivers/tee/optee/notif.c         |  1 -
+ drivers/tee/optee/optee_private.h | 52 ++++++++++++++++++++++++++++++-
+ drivers/tee/optee/rpmi_abi.c      | 23 ++++++++++++++
+ 8 files changed, 101 insertions(+), 8 deletions(-)
+ create mode 100644 drivers/tee/optee/rpmi_abi.c
+
 -- 
-Yixun Lan <dlan@kernel.org>
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
