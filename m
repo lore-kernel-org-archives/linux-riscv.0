@@ -4,65 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97EE3C88E73
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 09:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1972C88E73
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 09:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ty0Mb4gCr1JukFYI/bjXSCUnj0buJrJFbjZiuYoHqxA=; b=tqtIStufBoXrfJ
-	s3SrLxBBPxHkE/eO5MtBf7HUnm312XSv+H8pDYN1jp1O+sq/3kfw88G/dWsN+v19DPjzy9wnXlIFe
-	7xA5xh8B+LivaSJpr+O7t5YMo04Fnjz40+hpVU5izyegfYOfg+4FqD4b2jwOe2P5Rhtd0SS7pERPb
-	5oH1XlJcJHIfaiCH9I5mmjGNO9z0ZYcFqfO0XgQ6ahmV82LGr4zUaAJQpT1x2gFbd9c/dYvbrTXo5
-	s3uFYjbTaEeXrKRqfs6Bb1qODbAkySeH45djqWkEphS+/v6Og7oDj9tCik57IcgOSUC8PwC6iTwsS
-	GspsXfR0CFLarY71/3Uw==;
+	List-Owner; bh=0pv/uatvypKsdDPfYQV3LzohjxQSLi3SaD6wbsu5zaE=; b=WeL+SN9CRKd7jb
+	yrPjxECzXn5w6tpNBgjOhKSHqWZseSRbbTkMmUt+mhBzdmz0Ba/B6wlq6vfKbQER96UAc4W/x8ui7
+	GlCbsiHuawbdFxBxStO/+6E9Qb4wMFco/7iVKyXehoOdM2cOQu675g7p1cszEoK60y6wmPI4Z+m+/
+	QmzNl8zthX6aYDoyHr/gD/tiSsJr9CuoVTrkLf7bkkhdlj+fmlw586pIfJ2qiPI95zGc4jVPzxPmc
+	XqmS5uzNCTf5VLkcnYw6ykbMKZA5zl3GCt0L7FRf57xVJKKgnuRzBaPGDBXnfoYdELxW4/kuoDI+U
+	wNvQoKyeS2ZZRlz0EXmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6P6I-00000005jiA-3y18;
-	Tue, 15 Sep 2026 09:05:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6P6T-00000005jmo-0cdE;
+	Tue, 15 Sep 2026 09:05:25 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6P6H-00000005jhn-0olN
+	id 1x6P6Q-00000005jlH-0jyR
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Sep 2026 09:05:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE74344415;
-	Tue, 15 Sep 2026 09:05:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1876F1F000FF;
-	Tue, 15 Sep 2026 09:05:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789463112;
-	bh=DJ0y64alg7jGYdmLdKrHS632yEcH2PEJo6faH44x4cU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JOmntclhVD5AGN4cYEQa6rgCkMfFEXrRaYFqUBZbQ8f4ogIEybqKN4tGn8UpWi49/
-	 YsUNjkl0/8sAv4SUgDrSMUckib1MqTiVA24YdqbSyZEB8jEHdn+ui+P21Ob478ONXE
-	 cK5c+CW4I0nqFreZIMp8bm/qa1lyZFQC4Bt2l2eIBntnBNtzF0R4UJDy/koOM0JkBH
-	 x5cLquISXKUrmsQ599V6spaFG3prgfqiqRuoHlNlMbNmoPZBDxPYrnlkrU9gIrOG4l
-	 lAtt7U+RYboJicMyBeVofxR613HxXjxqr0iqPZ1GJDzDpJr92EFGWE0q5Pqa0O+W7v
-	 EJC29/N/KFu6Q==
-Date: Tue, 15 Sep 2026 09:05:10 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Troy Mitchell <troy.mitchell@linux.dev>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v5 6/6] riscv: dts: spacemit: Add CTF2301 on K3 CoM260
-Message-ID: <20260915090510-GKB266329@kernel.org>
-References: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
- <20260914-ctl2301-v5-6-522def70acb4@linux.dev>
+	Tue, 15 Sep 2026 09:05:23 +0000
+Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc1cea50db3so1678648a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Sep 2026 02:05:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789463121; x=1790067921; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dRlgQjCaKIy4dVemjk8uAj0nWBn95cwji7bMZ4jS6zE=;
+        b=X5Uk1waL4JwHLwGGY2qJsBgWGOiBy88szQLvyJvWnpQe+S4E7suyE+6PBL4KdFz+JL
+         YFVPIf4kq7MLdUz75L9al7h6MJDg8su+i/DPhpyfmAzGdOq7uDnZy2r8FDOmpSaqFRCR
+         7Cz4dnaH/tFJAPcIof63jI0OVm5a3jcas2GzSXdv8FMzBr5tY9h5Ztt0Hf/sox5gCn0f
+         +zemEzV75AeUfXFOgIPNEbUzr/cL6loODqLUL7f3RpXDP5tIjUdYVeoO8ZyHu8o5LPar
+         v1x13sFbkLPRGSq/Xxh7hd3cViwLL0rxiXhY5TBpt9VDbbG4tYxmzzMJrV0dZeAqGJlX
+         sS+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789463121; x=1790067921;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dRlgQjCaKIy4dVemjk8uAj0nWBn95cwji7bMZ4jS6zE=;
+        b=DcopEqztgkErOdcwXGlDqWzRsx4RX1ue0P3v+suye7jhvwHZltjR840SeOREzPjUDo
+         fhlqIRbS2f64dGHqCEoylYWSgtKAuzvtWg6Ja5GREse+ZHnF4Di7XN739/WFYGsbszcX
+         oxuShM4xXnr5lCeOgZKyPJdMjEuStP8GxREaabfq58YSKO6GdrIQ5f+C53YwiwPn5tMp
+         diS3PNn3c00HLmWTPyItHIyg5EPO8FizBuMZe62YWa1U4DIhrnYhBDbiNFSe+9WdThK7
+         HCeGt3w5iruNxYW8uf9zdltUhDNfqgl94xgXHllyzObx4NFF17WAsWqNcl9hRtWJl2Le
+         djgQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwvVRn/7W+SOLmSxJD8+KxiWAtqKosXvzMWox1ADceUAjr7CltV4cB9zcaHAFr5T14NHlM6xi0YG6kUhQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++kXoVa7znfaXWXnmrNetC4eUh5dnlQMOdY8XuAQUkz6+Apw03dJ
+	6dg6wJ7vUWAW72VUdtYbL+NKCad99Ago07bWE1JfR7u+zyfAtaPtzpHu
+X-Gm-Gg: AYBFou01rHoj5ZjXKmFDgXtGiZTQbjKuNhfwwEIKwHcpwI63dYjmq5v//+NtqBZazwn
+	rCASyMeqjkoDwfY1inzumvCqkshqBwsn7tkipTDxDhAROLMplxNdTU3WDn4zXS8VjKj0NBsBMV9
+	blEbg92Mk3TzkLI4kdoPeYyrfNno9k4Tg86Ahn9GZ12OGSOT0m0THzb+6q1kZXqFQoRlS/teKcr
+	L/b7v/ttbN9dvqoYMwC7BF5SGv/GCL8kW59VNgJFJv3QkwyGq9fAs7MPIYEmrlTHyHN60C+pZi+
+	fjWRF/zCHU3ebmAzo0zj7y7ckyWb7gyeXUpfbEQVkKCJtSY+W1UtOCopiORjUmc79n1JuaP0wd0
+	FPdFS+Dh9nSj/+mEK9BoPnia5t7wnMpy2KKMMMl4Ac5+gfGIujJPyGigFz4UbsZUquqfug2hvna
+	Tz2UJzOkTMIK6NlKtAjk9mD3SY30fstSQnxeUGf11Ih2XdIKMGoHHIjZ0ETxuKUcIO0YAhk8Dok
+	VXUOwUISjAHutxECHn9XYcj+kH8v5wS7PP+e/zk1prc4R6KG6dWeg==
+X-Received: by 2002:a05:6a20:430e:b0:3d3:ad3c:49a6 with SMTP id adf61e73a8af0-3db4061f449mr14643678637.20.1789463121439;
+        Tue, 15 Sep 2026 02:05:21 -0700 (PDT)
+Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.bl1-in.ibm.com ([129.41.58.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc4c65a8120sm6495512a12.30.2026.09.15.02.05.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 02:05:21 -0700 (PDT)
+From: "Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>
+To: maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	chleroy@kernel.org,
+	ojeda@kernel.org,
+	boqun@kernel.org,
+	gary@garyguo.net,
+	bjorn3_gh@protonmail.com,
+	lossin@kernel.org,
+	a.hindborg@kernel.org,
+	aliceryhl@google.com,
+	tmgross@umich.edu,
+	dakr@kernel.org,
+	daniel.almeida@collabora.com,
+	tamird@kernel.org,
+	acourbot@nvidia.com,
+	work@onurozkan.dev,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	mkchauras@gmail.com,
+	ynorov@nvidia.com,
+	david@davidgow.net,
+	joelagnelf@nvidia.com,
+	fujita.tomonori@gmail.com,
+	linkmauve@linkmauve.fr,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev
+Cc: FUJITA Tomonori <tomo@flapping.org>
+Subject: [PATCH V5 1/2] powerpc/bug: Add ARCH_WARN_ASM and refactor _EMIT_BUG_ENTRY for Rust support
+Date: Tue, 15 Sep 2026 14:34:52 +0530
+Message-ID: <20260915090453.1227034-2-mkchauras@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260915090453.1227034-1-mkchauras@gmail.com>
+References: <20260915090453.1227034-1-mkchauras@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260914-ctl2301-v5-6-522def70acb4@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260915_020522_220311_99DE7D2F 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,59 +134,141 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy,
+The Rust kernel infrastructure generates inline asm for WARN() via
+ARCH_WARN_ASM(file, line, flags, size), expanding it through a C
+preprocessor pass (generated_arch_warn_asm.rs.S) to produce an
+arch-specific asm template string for use in Rust's core::arch macros.
 
+powerpc currently lacks ARCH_WARN_ASM and ARCH_WARN_REACHABLE, causing
+Rust builds to fail on powerpc with
+```
+error: no rules expected `ARCH_WARN_ASM`
+   --> /home/linkmauve/dev/linux/wii/rust/kernel/generated_arch_warn_asm.rs:1:28
+    |
+  1 | ::kernel::concat_literals!(ARCH_WARN_ASM("{file}", "{line}", "{flags}", "{size}"))
+    |                            ^^^^^^^^^^^^^ no rules expected this token in macro call
+    |
+   ::: ../rust/kernel/lib.rs:279:1
+    |
+279 | macro_rules! concat_literals {
+    | ---------------------------- when calling this macro
+    |
+    = note: while trying to match sequence start
 
-On 16:18 Mon 14 Sep     , Troy Mitchell wrote:
-> Enable I2C6 on the K3 CoM260 module and describe the Sensylink
-> CTF2301 temperature sensor and fan controller at address 0x4c.
-> 
-> Override the I2C6 pin power source at board level because the IO rail
-> voltage is board-specific.
-> 
-> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
-> ---
->  arch/riscv/boot/dts/spacemit/k3-com260.dtsi | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
-> 
+error: no rules expected `ARCH_WARN_REACHABLE`
+   --> /home/linkmauve/dev/linux/wii/rust/kernel/generated_arch_reachable_asm.rs:1:28
+    |
+  1 | ::kernel::concat_literals!(ARCH_WARN_REACHABLE)
+    |                            ^^^^^^^^^^^^^^^^^^^ no rules expected this token in macro call
+    |
+   ::: ../rust/kernel/lib.rs:279:1
+    |
+279 | macro_rules! concat_literals {
+    | ---------------------------- when calling this macro
+    |
+    = note: while trying to match sequence start
 
-Reviewed-by: Yixun Lan <dlan@kernel.org>
+error: aborting due to 2 previous errors
+```
 
-> diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-> index 37627963a6492..92dea86397798 100644
-> --- a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-> @@ -58,6 +58,23 @@ serial-number {
->  	};
->  };
->  
-> +&i2c6_1_cfg {
-> +	i2c6-1-pins {
-> +		power-source = <3300>;
-> +	};
-> +};
-> +
-> +&i2c6 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c6_1_cfg>;
-> +	status = "okay";
-> +
-> +	temperature-sensor@4c {
-> +		compatible = "sensylink,ctf2301";
-> +		reg = <0x4c>;
-> +	};
-> +};
-> +
->  &i2c8 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&i2c8_cfg>;
-> 
-> -- 
-> 2.55.0
-> 
+To add ARCH_WARN_ASM, _EMIT_BUG_ENTRY first needs to be refactored.
+The old definition was a bare macro with no parameters, relying on
+positional asm operand references (%0-%3), hardcoding the backward
+reference to local label 1b, and including .org/.previous directives
+inline. That made it impossible to compose as a plain string outside of
+an asm operand context, and left an invisible contract that callers must
+always emit their trap at label 1:.
 
+Refactor _EMIT_BUG_ENTRY to take explicit (bug_entry, trap, file, line, flags)
+string arguments via string concatenation. This removes the dependency
+on asm operand numbering and makes the labels an explicit argument,
+so the caller's intent is visible at the call site and a future caller
+using a different label cannot silently produce a wrong bug table entry.
+
+Move the .org and .previous directives out of _EMIT_BUG_ENTRY and into
+each call site, so BUG_ENTRY() can still pass sizeof(struct bug_entry)
+as an asm operand while ARCH_WARN_ASM can supply its own size string
+independently.
+
+Add ARCH_WARN_REACHABLE as an empty define, matching the arm64
+convention, indicating that no additional reachability annotation is
+needed after a WARN on powerpc.
+
+Reported-by: FUJITA Tomonori <tomo@flapping.org>
+Closes: https://lore.kernel.org/all/anG67Q6Y59kDqh-c@desktop
+Fixes: 73b741adb264 ("rust: Add PowerPC support")
+Signed-off-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
+---
+ arch/powerpc/include/asm/bug.h | 46 ++++++++++++++++++----------------
+ 1 file changed, 25 insertions(+), 21 deletions(-)
+
+diff --git a/arch/powerpc/include/asm/bug.h b/arch/powerpc/include/asm/bug.h
+index 0db48977c70c..bf31ee1e902a 100644
+--- a/arch/powerpc/include/asm/bug.h
++++ b/arch/powerpc/include/asm/bug.h
+@@ -32,34 +32,38 @@
+ #endif /* verbose */
+ 
+ #else /* !__ASSEMBLER__ */
+-/* _EMIT_BUG_ENTRY expects args %0,%1,%2,%3 to be FILE, LINE, flags and
+-   sizeof(struct bug_entry), respectively */
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+-#define _EMIT_BUG_ENTRY				\
+-	".section __bug_table,\"aw\"\n"		\
+-	"2:	.4byte 1b - .\n"		\
+-	"	.4byte %0 - .\n"		\
+-	"	.short %1, %2\n"		\
+-	".org 2b+%3\n"				\
+-	".previous\n"
++#define _EMIT_BUG_ENTRY(bug_entry, trap, file, line, flags)	\
++	".section __bug_table,\"aw\"\n"				\
++	#bug_entry ":	.4byte " #trap " - .\n"			\
++	"		.4byte " file " - .\n"			\
++	"		.short " line ", " flags "\n"
+ #else
+-#define _EMIT_BUG_ENTRY				\
+-	".section __bug_table,\"aw\"\n"		\
+-	"2:	.4byte 1b - .\n"		\
+-	"	.short %2\n"			\
+-	".org 2b+%3\n"				\
+-	".previous\n"
++#define _EMIT_BUG_ENTRY(bug_entry, trap, file, line, flags)	\
++	".section __bug_table,\"aw\"\n"				\
++	#bug_entry ":	.4byte " #trap " - .\n"			\
++	"		.short " flags "\n"
+ #endif
+ 
+-#define BUG_ENTRY(cond_str, insn, flags, ...)		\
+-	__asm__ __volatile__(				\
+-		"1:	" insn "\n"			\
+-		_EMIT_BUG_ENTRY				\
++#define BUG_ENTRY(cond_str, insn, flags, ...)			\
++	__asm__ __volatile__(					\
++		"1:	" insn "\n"				\
++		_EMIT_BUG_ENTRY(2, 1b, "%0", "%1", "%2")	\
++		".org 2b+%3\n"					\
++		".previous\n"					\
+ 		: : "i" (WARN_CONDITION_STR(cond_str) __FILE__), "i" (__LINE__),	\
+-		  "i" (flags),				\
+-		  "i" (sizeof(struct bug_entry)),	\
++		  "i" (flags),					\
++		  "i" (sizeof(struct bug_entry)),		\
+ 		  ##__VA_ARGS__)
+ 
++#define ARCH_WARN_ASM(file, line, flags, size)			\
++		"1:	twi 31, 0, 0\n"				\
++		_EMIT_BUG_ENTRY(2, 1b, file, line, flags)	\
++		".org 2b+" size "\n"				\
++		".previous\n"
++
++#define ARCH_WARN_REACHABLE
++
+ /*
+  * BUG_ON() and WARN_ON() do their best to cooperate with compile-time
+  * optimisations. However depending on the complexity of the condition
 -- 
-Yixun Lan (dlan)
+2.55.0
+
 
 _______________________________________________
 linux-riscv mailing list
