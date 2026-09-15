@@ -4,135 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1EDC88E53
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 08:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7310C88E53
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 09:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=c6k+bHiib82N87KHXjN2vDS7hsfGT8dz/hd35GNCNKs=; b=guI5Wc8d1yaFjVLa01WsmByyMx
-	87GRALGYrgvbyf3ruS6Jd5oRa9oaY8jN5S+duhR3oUibWUwDMWz5EWTWEBy4+i0jDsmXQzY4fYM2a
-	wJhCzDipFiB1Y89ORfmQrfMrGxWwXg32KzaJvDQ21+BeMH1JNyjuXL+UzHN73FeZmikm5JEpAtsy2
-	6yyybAgCNdlOC+ZerHvf2Zy+DKnQqLb4J3K5ovZlNoOKK9rUk7iUTHGp/Rn1rp7D5Ry2Y+sNssSC7
-	roZLcfcxWBJD+PuR1f6NEfwl4JKRsJddpRMIgB69QevR1cTtL7ktWBk2Qw6/eaUbPNXNeNPbnLLOQ
-	UinnUH9Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=G4pHhw639qG2C5Kgc53HOfMCGnX48JIWRCf+fAX0p/k=; b=x39lzhy9qIchfq
+	Ho7Eu8K8Iy/8X5ait9osAr/n6THqu3Ff5vVOvm7s+MpCQkz9qqdnel6sEr7ZhHaS3MiZcsPtebUW3
+	chKpdioLteg3cG9400orLbcFFSuNYu7Y3be47PwLfI7ZLsTbGN4sk4DZseWCer25tARfjSDfYv6at
+	KIhI2v6X0KfloFp2JLMtaczUlwvYTiztHIhxmlHFzcwVEzdmWOrZtfKOqqoj2yeEiN18WHzcimqzm
+	Ki3n7b5D5mlQfRGP9MIWK965AK1OhhD7j6BYlCe6AwpZhX7jbqpeMOeJmidkPGHUX+M8/xwF/cboC
+	61LND1nIr5XGWSco1PsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6OwA-00000005hfC-2qSQ;
-	Tue, 15 Sep 2026 08:54:46 +0000
-Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
+	id 1x6P5h-00000005jXA-2sGi;
+	Tue, 15 Sep 2026 09:04:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Ow6-00000005heF-2IBm;
-	Tue, 15 Sep 2026 08:54:44 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailflow.phl.internal (Postfix) with ESMTP id 0CFA21380347;
-	Tue, 15 Sep 2026 04:54:35 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Tue, 15 Sep 2026 04:54:40 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1789462475;
-	 x=1789469675; bh=l+Dca6AU7f0s7A11m75QKiePhth6dKEUN646ZUyOcxw=; b=
-	Xody1oJNWEMViAMOHPbGMbFFJWDXAlekhcwJV2SoNNjV3Itz044FXU72K/NOTqui
-	dGNVaAbLlZulA5UBbJ7XisJ4/Tvb8vxRSHZgr1rg86rZaW2N6A20pRXX6CjuJFzZ
-	qN4XhD+zqJj7G6GzdewHzc9Ub5bvOnhXRm5+AIgWAw6aKT926nad1Knuxbpc675A
-	AzTOl0hJn/NZF15+dJYlH0kXOE9oaDD1dkmsAcj8fBTRb96rHKlGhQLyQSuMNDH/
-	4VAddWv+NRh+YnPkx2GOowIODOGAueKi2AxYNKtoPrv0OBaFTazekFo9yS6tBLOp
-	1Q82whhHv8fjGkGI4JpxpA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789462475; x=
-	1789469675; bh=l+Dca6AU7f0s7A11m75QKiePhth6dKEUN646ZUyOcxw=; b=F
-	r6fJyQZ3B1K5YtWjMoTp/fRKQnkOGDNwUteDe4nSuymkyvq2WsfTel5mLEsiIniB
-	Q8Mg3SaUa+hsdJwDYad3RVOHqY6wVuGBbRMXj+q0YdMMGPUOsGRVwT87zBxsoxES
-	RO9e/Kk1iPvbMNYiJPlnyVnmhvk9iZJMC0Hl8RMrWAZ2w+CFpRVPeszShBh7jyY4
-	8pafu94pmoPvJ37O6z8ACe0BUJ66rCCYt+VIRpYGoi+zNkUwBU0gu7mu7AArH7H1
-	kfhRzCurvSNdhnOouyFcmOZ/aEYZowpWKOguKfCcIqTeATR2Y52GrsDRnY4YlRT8
-	4mvRCMtRoq3C+WpdMDmrA==
-X-ME-Sender: <xms:vgepagxIogvlk792euZsMnA2AD-07upm7o1gQScllFz15_5556isuA>
-    <xme:vgepavFIcm_1MvsAOmz2-JbwyBuNZNrMJpYsNzJOlp3FsY8ocFhn_i6RRbVtbI_xh
-    1ZW5w582V70b24GHPa0lC4s3Vi_hKlkZoAkL5CnvbECiIVQRZ2bC7IS>
-X-ME-Proxy-Cause: dmFkZTFl07Cd2pNoRIcz+Y9DRXa9I+CAUbyY73IeYUKFyinqRYJWqvWva9WPMlSrUtrXXQ
-    4Ce7uDNbLSoFWkhxcsl23fov82rHUN8DJQrUSxcE/UGH5WEDUUFVVGsxSlX9y1C16y1ikq
-    1Hzd/K8lu3qfyVrj+2Esn9a+9urCLgaUn1/Hd12DOGJvXPGzYSt8nJENaQptMkY/jEyE+u
-    S9faTEM6ZNXS1Rhf+11JTufpU/muQclYTOYI+iNfCTdQIpuxlsrqU2hRdRCR3my42gTIci
-    foRjjuFQi3I4plLW/2yjK9qsVn6rhO1nfI17QxL4uXxeeZVrN1VwQjZE4ge9q8fo1rM0X9
-    rhiOoth3vgfsKc6+FhKiMgmD69qMeWJU5dx0D71/c9CvyFGUfnl5G7No2fZi2vJmcmsWv/
-    +UST0qDeQsCHTDbJGGyedoSdHZ7/3mF5Q1wzNjHqpNnUUAF7MF/RhXwaQA8Qj3bpXpRWZk
-    WM2pUx2qPAmh1y6xmTh8nd0xCpzZHILt4JYJprl0AWZ62t80PI4UgOxCQLgGPoRTb8KlzB
-    7SSwnrEvKdcy0NSaAHG069l+OP4bVIt5jLLqs+Vt+azYtoLHe7W+0DYJTzaj831I7mO2gR
-    af3uM0A9HNtxo2qLYSmTeYYtjD/xXjNAVQ8rRDyPxRvaGwqUBq2NMVTlab5g
-X-ME-Proxy: <xmx:xAepagJ83hBWhUGi-qVtm002tZ6nTUV_OQ9QV71wb8cZ5sDkjqBMPA>
-    <xmx:xAeparBNN9LUMZgDPwhes7U75oqanecICHjUTVaE1k1UIFiw3-JoVg>
-    <xmx:xAepajlQfJFGq9Ujz61CsXpfe6X8ZyU-XYpSbmHIXAFjLrnSj5AGjA>
-    <xmx:xAepanETL89xwgdJrVvqYbWpq6B3LGj8dODqxwt8wrzrZnsIIpowVw>
-    <xmx:ywepaiFG3kexiM5eVna2DP0CZbgBhmkObpO3qC-5-C8A-WnmgHPjeTq->
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 268F432A0081; Tue, 15 Sep 2026 04:54:22 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1x6P5g-00000005jWp-2hRR
+	for linux-riscv@lists.infradead.org;
+	Tue, 15 Sep 2026 09:04:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EA74432AD;
+	Tue, 15 Sep 2026 09:04:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CACD1F000FF;
+	Tue, 15 Sep 2026 09:04:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789463075;
+	bh=zthCAJeSZpEWPywmDOQWxavC456glJ2WFVFFKTOL7DI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RtmCRRAb0iFKzgb5tVG5KbJPE3N6ACkkgtVipfBxrrxmkoMSm8j7V+eoz0JHfsAHE
+	 pkSvL8oei6rjfNcYglnAMRlAq8oKUvWELGIyVYNB1k6G2wAXv8/TFiWLmSlgvdhT/k
+	 9HGg3xxik7+XXJQIe7dX/88QUeOCBuEqsnSxJuSVw1frBVSdSRP9nL4EDQTDp/7xCs
+	 48HS/twhh9xHhd1IpQVAtZnmREbtJNUJoXCVbk/TOEUnoL8Io4CvLdY6slPLXpcfcR
+	 DfWUs8mkVwVFYIsVxevsOSQ+GYKrs8bXVRGzUUl41h0DZLd22nT6Q4CCPhoz657mlO
+	 bs5UPlNikpRpA==
+Date: Tue, 15 Sep 2026 09:04:33 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.dev>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v5 5/6] riscv: dts: spacemit: Add K3 I2C6 pinctrl state
+Message-ID: <20260915090433-GKA266329@kernel.org>
+References: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
+ <20260914-ctl2301-v5-5-522def70acb4@linux.dev>
 MIME-Version: 1.0
-X-ThreadId: AGrkui6Nx9zw
-Date: Tue, 15 Sep 2026 10:53:51 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>,
- "Kees Cook" <kees@kernel.org>
-Cc: "Lorenzo Stoakes" <ljs@kernel.org>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Nicolas Schier" <nsc@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>,
- "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>,
- "Masahiro Yamada" <masahiroy@kernel.org>,
- "Alexey Gladkov" <legion@kernel.org>,
- "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- "Josh Poimboeuf" <jpoimboe@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>,
- "Gary Guo" <gary@garyguo.net>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- "Benno Lossin" <lossin@kernel.org>,
- "Andreas Hindborg" <a.hindborg@kernel.org>,
- "Alice Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>,
- "Danilo Krummrich" <dakr@kernel.org>,
- "Daniel Almeida" <daniel.almeida@collabora.com>,
- "Tamir Duberstein" <tamird@kernel.org>,
- "Alexandre Courbot" <acourbot@nvidia.com>,
- =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- "Jonathan Corbet" <corbet@lwn.net>,
- "Randy Dunlap" <rdunlap@infradead.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
- Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
- "Jens Axboe" <axboe@kernel.dk>, linux-hardening@vger.kernel.org
-Message-Id: <7646eb0c-7c4a-4ec2-9562-66a74c4d9858@app.fastmail.com>
-In-Reply-To: <CAHk-=whB0X28MNAg71it=1SfFyV7rB+PK3qajpRyWoxXHW81fw@mail.gmail.com>
-References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
- <202609140833.88C0E16E50@keescook>
- <CAHk-=whB0X28MNAg71it=1SfFyV7rB+PK3qajpRyWoxXHW81fw@mail.gmail.com>
-Subject: Re: [PATCH v2 00/21] kbuild: significantly speed up kernel builds
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_015443_035680_79D6684C 
-X-CRM114-Status: GOOD (  11.88  )
+Content-Disposition: inline
+In-Reply-To: <20260914-ctl2301-v5-5-522def70acb4@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,34 +79,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026, at 17:53, Linus Torvalds wrote:
-> On Mon, 14 Sept 2026 at 08:41, Kees Cook <kees@kernel.org> wrote:
->>
->> One area I think might solved via an LLM is the 3-pass kallsyms stuff.
->> If we could get a deterministic kallsyms build in 1 pass, that would be
->> very nice. A lot of people have tried, but it has eluded upstreaming.
->
-> Even the three-pass one hasn't apparently always been entirely
-> deterministic. We've had random reports over the years of it failing
-> in some circumstances.
+Hi Troy,
 
-This tends to break whenever a linker (rather than the compiler) starts
-creating a new type of symbols that show up in pass 2.
+On 16:18 Mon 14 Sep     , Troy Mitchell wrote:
+> Add the K3 I2C6 pinctrl state used by boards that route I2C6 to pads 7
+> and 8. Use a 25 mA drive strength, which is supported for both K3 IO
+> voltage domains, and leave board-specific IO voltage selection to board
+> files.
+> 
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+> ---
+>  arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-> Maybe we've fixed it all, or maybe the failures just go imperceptibly
-> rare. Regardless, it has definitely been fragile.
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+> index 6482d24be1394..cb4f4f4e33aff 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
+> @@ -101,6 +101,17 @@ i2c2-1-pins {
+>  		};
+>  	};
+>  
+> +	/omit-if-no-ref/
+> +	i2c6_1_cfg: i2c6-1-cfg {
+> +		i2c6-1-pins {
+> +			pinmux = <K3_PADCONF(7, 6)>,	/* i2c6 scl */
+> +				 <K3_PADCONF(8, 6)>;	/* i2c6 sda */
+> +
+> +			bias-pull-up = <0>;
+> +			drive-strength = <25>;
+> +		};
+> +	};
+> +
+>  	/omit-if-no-ref/
+>  	i2c8_cfg: i2c8-cfg {
+>  		i2c8-pins {
+> 
+> -- 
+> 2.55.0
+> 
 
-The rate seems to be once every few years, looking at the list
-of exceptions added to scripts/kallsyms.c (now scripts/mksysmap):
-
-efe6e3068067 ("kallsyms: fix nonconverging kallsyms table with lld")
-516d980f8541 ("scripts/kallsyms: skip ppc compiler stub *.long_branch.* / *.plt_branch.*")
-b9b74be163a2 ("ARM: 8555/1: kallsyms: ignore ARM mode switching veneers")
-
-I'm sure there are other instances on architectures that get less
-build coverage.
-
-     Arnd
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
