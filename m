@@ -4,97 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B3BBC88E7F
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 16:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCD2C88E75
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 16:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2/FGGnAn7w7sq7e0RC1Dt/qRgc0jXiXNmiCmNbf2LEU=; b=N5TR5aAUmZgLkA
-	pXaToIvzrAimiyYSARkLwlBSuaerd9YQ+/bHSeiGhp/s/+8CtMc0oTHAvABmsZ1IIvx1UBKaLYimi
-	HGOHuAdbyYMrvwWMf9LmBNsAkegqTJTnv4jzOb5rugP0C7z2KP++naKK6FPCYaEnGRlNS7QZ3bhl9
-	R7hBzLLmdy+82opjit3tNGjBX2CdAt8AVOsGCRazpblz6fd9U8Ri19WhBFSZo9THZ0qlrApYC6BRM
-	VtHK31UJGaJ49g6FjPQHKz7wmFloSwlu7Rejs1Lp4NtzgKkhTLxM/zw7jwXu6K2ducImXMBvADDov
-	L6aFn7qZltHdEVVzcJww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/VIhq+1LeMf8lkp6JNGd9KH9BhNjbmf5m25r/CIA10A=; b=NISuXQYP6kTNaMztdhclYmv3hr
+	qSgCl5XcQ+Ggbz2CKjKFh+JSSczntoeZWwNKWhuSdpt8vxLR2CdTRTHiDzlVPjdvUqxtffDt5osnW
+	2zTwlsXhTwB5zsW83V/grQUzaFvJjPgosy4Z11szjWnDw46av1ExKhXA3rTRe9LRMI4IcUY6oVhMA
+	rTIlGwsf2gr7mXMWnJ6eYUwnf2GStuICcLnBgU0lFK+X12Oc5gzqAGDOXv04RlCHaMF6MVVap5EMM
+	DriBHrt6yGdFf8myyzjQ1SU+TrBnnfyipwqmC/wybBMiwHXxo8cSrRuQGuINtVr00SwUCgBpvEE3e
+	ImOmIN8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WO5-00000007Umk-1Qwf;
-	Tue, 15 Sep 2026 16:52:05 +0000
+	id 1x6WOZ-00000007Uvt-2rOs;
+	Tue, 15 Sep 2026 16:52:35 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6WO3-00000007UmC-0zR8;
-	Tue, 15 Sep 2026 16:52:03 +0000
+	id 1x6WOW-00000007Uv2-0Ypz
+	for linux-riscv@lists.infradead.org;
+	Tue, 15 Sep 2026 16:52:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72F3C602BE;
-	Tue, 15 Sep 2026 16:52:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01E231F000FF;
-	Tue, 15 Sep 2026 16:52:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F152602BA;
+	Tue, 15 Sep 2026 16:52:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB07D1F000FF;
+	Tue, 15 Sep 2026 16:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789491122;
-	bh=AAegg1HqQc2zlyPsCFndE7BU31mvGmt6H10k5+2dIJY=;
+	s=k20260515; t=1789491151;
+	bh=ypzeoRTb6xYEsb/0WCuvTZKzTa2DaEvHlXj54ddwHQY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=I2gPH+LFzLYZALBDt0ClbZdP2ilKcDCHRUfiBdPm3idQOsDqpB7q84aLX1rNrpsIi
-	 wqf4NIRZrAMGKEqi89jARH+zbeojQb+KDUw89DWC124dgGma0vkuOyh7VKF0jaex++
-	 b57xMMAACGyAnBWTbpAotn+pMoUc4jo98m/cRL6VnMgiAuTr01RxuVn3RxfhUqUF2V
-	 HDTTUD4Q37fkbMXjP61re8NqNAxmKlEzdXEOYIYEP0ixfcH/BkcKa66oKfC9x6HBgf
-	 1HGcQYQ/iY9/7C56XCgwfGL8/S8XFNbJezbtToRJkfqoCvtrHQsII7a2j185CneqPi
-	 WT5WUhI+hl6tw==
-Date: Tue, 15 Sep 2026 09:52:01 -0700
-From: Kees Cook <kees@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alexey Gladkov <legion@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	b=cuDOM1nNDsxtF7PlFuKdms5h3NHvIeOPwqUQNtOl5kbk9O5dbaHIR/RrEzZUyG/3i
+	 qSeL1n5WZRN1ll37KYIKax7VZLddYiaN5mCgEA+o5Jyf4GNB5aC/E77HsxtUsnI0Nl
+	 TizghtMccZece/nmMV3joeDyInkBxIB4OBAn5L2KplAWNR6bK5s1N1tafFN5vdesA0
+	 mzBUc/1bIzzXDMQsb27ampVmHD+ZSaxXeuOhxBtBRcKTAhYKq3nIPvhi6hW3nkeHk/
+	 x8tY7cksKZJULwkgj3LWM16v3X62dPLE/HyWNWZe9O8tqegycyv7ZTSrdYI+6t4ilu
+	 /oyUBJKLv7xuw==
+Date: Tue, 15 Sep 2026 17:52:23 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Guodong Xu <guodong.xu@oss.qualcomm.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 20/21] kbuild: build rust crates in parallel with the
- rest of the build
-Message-ID: <202609150951.73C4F16EFB@keescook>
-References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
- <20260914-build-speedup-v2-20-39817ec5db23@kernel.org>
- <202609141133.7CA979C89@keescook>
- <aqkv9SqIdh0qKPFc@gremlin>
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+	Chen Wang <chen.wang@linux.dev>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	devicetree@vger.kernel.org, spacemit@lists.linux.dev,
+	sophgo@lists.linux.dev, linux-kselftest@vger.kernel.org,
+	Palmer Dabbelt <palmer@sifive.com>,
+	Andy Chiu <tchiu@tenstorrent.com>,
+	Florian Weimer <fweimer@redhat.com>,
+	Peter Bergner <bergner@oss.tenstorrent.com>,
+	Zihong Yao <zihong.plct@isrc.iscas.ac.cn>,
+	Mark Harris <mark.hsj@gmail.com>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>
+Subject: Re: [PATCH v7 09/11] riscv: cpufeature: Introduce ISA bases bitmap
+ and rva23u64 detection
+Message-ID: <20260915-widget-defiling-e22497c228cc@spud>
+References: <20260915-rva23u64-hwprobe-v2-v7-0-aa35ebd9ae96@oss.qualcomm.com>
+ <20260915-rva23u64-hwprobe-v2-v7-9-aa35ebd9ae96@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aqkv9SqIdh0qKPFc@gremlin>
+In-Reply-To: <20260915-rva23u64-hwprobe-v2-v7-9-aa35ebd9ae96@oss.qualcomm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +85,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1279572502035014031=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 12:58:10PM +0100, Lorenzo Stoakes (ARM) wrote:
-> Since this _still_ gives you a significant speed up on bigger boxes, I think
-> it's fine as-is.
-> 
-> The LLM says a fix for this would need significant work - a cross-instance lock
-> and an on-demand rust/ build. So I think best as a follow-up?
+--===============1279572502035014031==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="HzK562KHekWwgPYZ"
+Content-Disposition: inline
 
-Sure! And I defer to the Rust folks on all of this. I just wanted to
-note the possibly unintended behavioral change there. Thanks for
-examining it!
+--HzK562KHekWwgPYZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Kees Cook
+On Tue, Sep 15, 2026 at 03:15:35AM -0400, Guodong Xu wrote:
+> Introduce a per-hart and host-wide bitmap of conformant ISA "bases"
+> (named profile-class sets such as IMA and RVA23U64), computed at init
+> time by riscv_init_isa_bases().
+>=20
+> Register riscv_init_isa_bases() as an arch_initcall. That is late
+> enough that core_initcall(tagged_addr_init) has probed senvcfg.PMM and
+> populated have_user_pmlen_*; without that ordering,
+> riscv_have_user_pmlen(7) would still return its default false and the
+> RVA23U64 detection path would always bail. It is also early enough that
+> arch_initcall_sync(init_hwprobe_vdso_data) finds the bases populated
+> when it snapshots the hwprobe values into the vDSO data page.
+>=20
+> Consider this as the cache that subsequent consumers (hwprobe's
+> RVA23U64 base behavior bit, /proc/cpuinfo's "isa bases" lines, etc.)
+> can read without recomputing, which keeps them consistent with
+> each other.
+>=20
+> Signed-off-by: Andrew Jones <andrew.jones@oss.qualcomm.com>
+> Signed-off-by: Guodong Xu <guodong.xu@oss.qualcomm.com>
+
+Something is wrong here with the signoffs here, Drew's probably missing
+either authorship or a Co-developed-by tag?
+
+--HzK562KHekWwgPYZ
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaql3xwAKCRB4tDGHoIJi
+0j7yAP91eT382HzKXLp423gHB51yfWxN+iAs4R+MhBlF05j5GwEA5GjMcnOJVD8Y
+sEFBqUBTL8evUR1CilJLWuZxaN1wQAU=
+=myHc
+-----END PGP SIGNATURE-----
+
+--HzK562KHekWwgPYZ--
+
+
+--===============1279572502035014031==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1279572502035014031==--
+
