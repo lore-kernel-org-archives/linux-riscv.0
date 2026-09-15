@@ -4,107 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E94CEC88E7F
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 15:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B64C88E7F
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 15:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a4IooutwpioPfHOVl1HmW+Z6diafu8Nc8lh8R4GQLXU=; b=bpC53YibDBZ68K
-	qNfXHo60OrmA3hdZB5paLrs2Yp6iVOccEZNB+rRRXEVrVilIoESi9r475j+on2sfWEWW2TlvDkM0Q
-	loHPeymNZ8SaTeWnGEfr0MLObd4dDMsekpGXqfXp5CKUH29udPoV30JAzCGqi9CAk0KfjIqJQ+XgU
-	fyPttsPbrRejolaV4MaZTACOGNCUtjMm1f3m9uZPnI6cmb82W+8S3BDEmMDBF4IwKaJKm184d6cKu
-	3cWqZ3Khl5xXI+ImgeDsOwsZQvAEVd5hzi1WkJXY+vvrLVEoI3DEUEb4J3jPxH7jL31q+2B+gNVa7
-	Ig1BuyiAbkioCiwn//IA==;
+	List-Owner; bh=h4lYaQXCoMJkBIw7ZpryApvJv7T8RRMYxePh+f/eEFo=; b=HrEtemFCXaO/FW
+	frpYXfhxn4T7XJRmblDgeurCxUGl2XK1Xvvii7SCfBF0XZCoNbC1fsUx2O7eQnauGRqB37AoFljw9
+	AJo+ewYgpTxIzppWveQulfgR00nOZ1/y9XvOU2++MuoIje5wiaeBC4vUXl79IhkgZ9WOk3FVZHSEa
+	7mGnRXKFW6VClGTWFY74OWJwZBa8auCBl5RrqT/xRlcHmPbCEcAsGhco7y/pDQ+9G3lpX6ctBrwdE
+	8NfPKPpd+2s51HGkFlfn2dK9AaBUq9oe0fNtiU9doIFdOvmgAPztBDtiawQ7znjrBTZQwk2//BSwA
+	Lne7yLyShFeAqLDTdIIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6VAm-00000007DYr-0JvI;
-	Tue, 15 Sep 2026 15:34:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x6VG3-00000007G15-46C0;
+	Tue, 15 Sep 2026 15:39:43 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6V9T-00000007B7x-1IKN;
-	Tue, 15 Sep 2026 15:32:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:Cc:To:
-	In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=5VJr9vBmbACanL0MeXx4ma5BlMfN70MxN8Z8af1jAN8=; b=DVerkXoTY4uryxQZSyLeDQGjy7
-	immSycx8x0P1WAk+CX8VcV4U+9E1NlIPPsAlSWKMyXK1BZ7rM3J/wqh2zmgbqNfLMfIldKyWhcWoc
-	zZVQf0DlSt2FFcaljVNay5/Vh3uCKJdAdqYDX1ns1DRvO8RNJFRPdthjT6xrqqqchEo081aDZsQQB
-	6AlyyRQ6s0vbGR/lDV93Dld0NVwyunYEwRj0MfE50LwkVscvi3+AKJIeIN1N60RVDYQLM0Q+2EbY/
-	92HpIIQEkXaJjhP+e2g5Uilk1f3o+Ay04W4VU5VZTzDiIxIBQeH6GJIazT0oqkQn6FRcVB4SGTvKQ
-	imIWZNMQ==;
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x6V9Q-00000006wgD-0kiE;
-	Tue, 15 Sep 2026 15:32:54 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260915153251euoutp02084125f938320b2f7a85111b008d57c9~ViF_sja9S0483104831euoutp02V;
-	Tue, 15 Sep 2026 15:32:51 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260915153251euoutp02084125f938320b2f7a85111b008d57c9~ViF_sja9S0483104831euoutp02V
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1789486371;
-	bh=5VJr9vBmbACanL0MeXx4ma5BlMfN70MxN8Z8af1jAN8=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=TbL4tjHB3FlMrYe92qC+NybVosVgaDcvWJfq2ZNFthYqUgBvSrdrWpSttXsWTIAiN
-	 jj9qXzq5SaDUQy/UITupzA5ZlwmNWj9+fHFBeoSIer90sZgh2kCWvy2Da3l93Wi3wT
-	 7gI0Zkmzo2ogOIboFW6nnJiI7BIfKnAdBQ/CpQsQ=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857~ViF9fvU4I1454914549eucas1p2X;
-	Tue, 15 Sep 2026 15:32:50 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260915153248eusmtip1ff29e81b00d983d86a6897dddbc876f8~ViF74X4zS0616306163eusmtip1e;
-	Tue, 15 Sep 2026 15:32:48 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 15 Sep 2026 17:32:28 +0200
-Subject: [PATCH v4 20/20] MAINTAINERS: Add StarFive JH7110 display subsystem
- entry
+	id 1x6VG1-00000007G0O-2isA
+	for linux-riscv@lists.infradead.org;
+	Tue, 15 Sep 2026 15:39:43 +0000
+X-PTX-Original-Recipient: dlan@kernel.org
+X-PTX-Original-Recipient: docular.xu@gmail.com
+X-PTX-Original-Recipient: pjw@kernel.org
+X-PTX-Original-Recipient: palmer@dabbelt.com
+X-PTX-Original-Recipient: aou@eecs.berkeley.edu
+X-PTX-Original-Recipient: alex@ghiti.fr
+X-PTX-Original-Recipient: linux-kernel@vger.kernel.org
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-PTX-Original-Recipient: spacemit@lists.linux.dev
+X-PTX-Original-Recipient: elder@riscstar.com
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 127DD2059C8;
+	Tue, 15 Sep 2026 17:39:33 +0200 (CEST)
+Message-ID: <7f227c6bc72eb93096e77e6158e394b79801e997.camel@pengutronix.de>
+Subject: Re: [PATCH v2] MAINTAINERS: add entry for SpacemiT reset controller
+ driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yixun Lan <dlan@kernel.org>, Guodong Xu <docular.xu@gmail.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-kernel@vger.kernel.org, 	linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev, Alex Elder	 <elder@riscstar.com>
+Date: Tue, 15 Sep 2026 17:39:32 +0200
+In-Reply-To: <20260910213442-GKE2346@kernel.org>
+References: <20260603-b4-spacemit-reset-maintainers-v2-1-db0716d43a7f@gmail.com>
+	 <62e1781e127176294088cee9c120b3173359ec4b.camel@pengutronix.de>
+	 <my7qwtgrgph43hjxwmjm5hkeuxltlqjntnj5zdo7xqlrfrlffx@fp4mt7phdor4>
+	 <43ce274d284a4f94815ec25f5ca0604f.docular.xu@gmail.com>
+	 <20260910213442-GKE2346@kernel.org>
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Message-Id: <20260915-jh7110-clean-send-v4-20-f0e4fd6f2cc8@samsung.com>
-In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
-	Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>,  Robert Foss <rfoss@kernel.org>,  Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,  Luca Ceresoli
-	<luca.ceresoli@bootlin.com>,  Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,  Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>,  Philipp Zabel <p.zabel@pengutronix.de>, 
-	Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
-	<hal.feng@starfivetech.com>,  Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Paul
-	Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,  Jerome
-	Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org,  Marek Szyprowski
-	<m.szyprowski@samsung.com>,  Maud Spierings <maud_spierings@murena.io>, 
-	Graham Markall <hello@big-grey.co.uk>,  Icenowy Zheng
-	<zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Joshua Peisach <jpeisach@ubuntu.com>,  =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>,  Michal Wilczynski
-	<m.wilczynski@samsung.com>
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857
-X-Msg-Generator: CA
-X-RootMTR: 20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857
-X-EPHeader: CA
-X-CMS-RootMailID: 20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
-	<CGME20260915153250eucas1p2132ca4040b3c35a3aed471cb816b7857@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_163252_314075_B4E8EBB7 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260915_083941_835867_C7453D48 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,45 +78,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The JH7110 display subsystem spans a PHY driver, a DRM bridge driver,
-a parent device and their bindings, and has no existing maintainer entry.
+On Do, 2026-09-10 at 21:34 +0000, Yixun Lan wrote:
+> Hi Guodong, Philipp,
+> 
+> On 10:09 Thu 10 Sep     , Guodong Xu wrote:
+> > Hi Philipp,
+> > 
+> > On 2026-08-07 19:51, Guodong Xu wrote:
+> > > On 2026-06-03 09:34, Philipp Zabel wrote:
+> > > [ ... ]
+> > > > Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
+> > > 
+> > > Gentle ping. All tags on this one are collected:
+> > > 
+> > > Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
+> > > Reviewed-by: Yixun Lan <dlan@kernel.org>
+> > > Acked-by: Alex Elder <elder@riscstar.com>
+> > > 
+> > > Could you take it through the reset tree when convenient?
+> > 
+> > Second ping. This is a MAINTAINERS-only change and carries your
+> > Acked-by, plus Reviewed-by from Yixun and Acked-by from Alex.
+> > 
+> > If it is easier for you, I'd like to ask Yixun whether it could go
+> > through the SpacemiT SoC tree instead. Unless you object, I'd suggest
+> > we go that way if it has not been picked up by 2026-09-17.
+> > 
+> Sounds a good plan, let's give Philipp some time to respond, if he still
+> unable to proceed by that time, then I will pick it.. just want to avoid
+>  collision that both of us picked accidently..
 
-Add an entry covering them so patches reach someone who can review them.
+Please feel free to pick it up into the SpacemiT SoC tree.
 
-Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- MAINTAINERS | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index c2414447892c24d58595059ca27b18775919ac12..3706b5787a25de7acba023bc4049f0fcdd078672 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -26072,6 +26072,19 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/starfive,jh7110-dwmac.yaml
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
- 
-+STARFIVE JH7110 DISPLAY SUBSYSTEM
-+M:	Michal Wilczynski <m.wilczynski@samsung.com>
-+R:	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml
-+F:	Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
-+F:	Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
-+F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-vout-subsystem.yaml
-+F:	drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
-+F:	drivers/phy/starfive/phy-jh7110-inno-hdmi.c
-+F:	drivers/soc/starfive/jh7110-hdmi-subsystem.c
-+F:	drivers/soc/starfive/jh7110-vout-subsystem.c
-+
- STARFIVE JH7110 DPHY RX DRIVER
- M:	Jack Zhu <jack.zhu@starfivetech.com>
- M:	Changhuang Liang <changhuang.liang@starfivetech.com>
-
--- 
-2.34.1
-
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
