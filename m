@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11BE3C88E75
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 03:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32021C982C3
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 03:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V9PkkqPfN0iMwuCXT6VJUhQmsZBaWzVLCamcOmnDfoM=; b=sPhY0Y3pJ4ry3h
-	rN/xlKoTtp0unMk1pTSb/zqrCFc5NmGQN/JJmo+udaz5S5KY9zl9AXKNO2PvGctluhSkNQcksxRB1
-	RgaLD6Egi4a/hnlJvwuCOvv8E4y0eVFjfSj8UEZ7kamuE382JOwRefzVk1ZZgUBEgEbQPfoZuVf8P
-	+Lt2OPgShbWTvV+hJ2uZSc0lYjHxUa1cOj3BmLObcmXbSLmRgvDOD43wmJyQag2tPTuY7TLctVfeI
-	aMd3Mcz5K3smiG5dsYjfDbeOZqzgdXG6SxZbpT+0Xk/KWYUDZQOieNVGKcdGnXGBAKLcU83r/Dzp1
-	33ojT0iodbY+c7SN2MRw==;
+	List-Owner; bh=m0Tg8Z4QTIGCc33ymtbJrN/eh5UtZzRu/NIkOf6Uj44=; b=Q8ht1OeqiR0PvY
+	ZorhJE4xV+8QOJST0dvJDYTHoMc5OymH1dCrTO8jad7kx9IaHWpdqj+dtjLlGCpVePP2BMO0iy0KI
+	cSNPpBfyQrMQjAzUAfeQ0+O3wJO+ulWlLjJPaWg7iyJn7IibMjLHS1Q231L/Z5MNaVQqkYM/PxRfH
+	QlTVOfb8dOc/HQzL38k9D3SMrRNNc06Y4mwqRgCmNGVQ8BmPR15Ro18SAyjfwq53OK6xZ45Ctu+jg
+	eLVV3YwYTTCBH5VQoabi6VGwfRQ5aJthSAo4QlMAxAQx/cqEr9UC3x47otKt4P+GiO+bPttezCqzN
+	urCfNGzjRdvfEzc+LcSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Jqd-000000057L5-2mDw;
-	Tue, 15 Sep 2026 03:28:43 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1x6Jqg-000000057O6-1RJV;
+	Tue, 15 Sep 2026 03:28:46 +0000
+Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6Jqa-000000057JN-0xAA;
-	Tue, 15 Sep 2026 03:28:41 +0000
+	id 1x6Jqc-000000057Ju-1mqm;
+	Tue, 15 Sep 2026 03:28:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1789442918; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=Sy7Dz8kDPuI6hXGm4YE8UuMimPAELhzLRPTNDzmDeE8=;
-	b=M+bqySTMZg3SEV8UMqjcOi/mUclyaCr+Mlh9LUsvmVOMEz9NMYhGg2IgMuvAgxCB8lhMjUr4vTgty43q5YHAtnNPLKNRC3eBhZX1q8o8otMs5QZzt87RXoEmaD/hXlFXbZHkVF7SUU22WjkTVRq94kolY3wRa+Qqq48XeXNOsqY=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=26;SR=0;TI=SMTPD_---0XB.uvON_1789442915;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XB.uvON_1789442915 cluster:ay36)
+	t=1789442920; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=WPil3eixt8ucg6uFY2jx9kjdOYj5Ua6FKNTjPbzjrB8=;
+	b=k60vBco09JFKWyfh3iQFMKRvjimbxSNmgk6hyFqXayvEq36anPpGtjDCtYTXw9mCiY8XNIQAagC4LtFMpFqwhtidehJkMsGoHrSZ+/4biFmplEQcgDR9ZaPh8ApZ8h6iIq8oeCYXX47Bt31jY1w7BPPn4/NKDHEmVUt4e3r3QM4=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0XB.uvOm_1789442917;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XB.uvOm_1789442917 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 15 Sep 2026 11:28:36 +0800
+          Tue, 15 Sep 2026 11:28:38 +0800
 From: fangyu.yu@linux.alibaba.com
 To: tomasz.jeznach@linux.dev,
 	joro@8bytes.org,
@@ -61,17 +61,18 @@ Cc: fangyu.yu@linux.alibaba.com,
 	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org
-Subject: [RFC PATCH v4 02/10] iommupt: Add RISC-V dirty tracking PTE ops
-Date: Tue, 15 Sep 2026 11:28:21 +0800
-Message-Id: <20260915032828.11250-3-fangyu.yu@linux.alibaba.com>
+	kvm-riscv@lists.infradead.org,
+	Tomasz Jeznach <tjeznach@rivosinc.com>
+Subject: [RFC PATCH v4 03/10] iommu/riscv: report iommu capabilities
+Date: Tue, 15 Sep 2026 11:28:22 +0800
+Message-Id: <20260915032828.11250-4-fangyu.yu@linux.alibaba.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20260915032828.11250-1-fangyu.yu@linux.alibaba.com>
 References: <20260915032828.11250-1-fangyu.yu@linux.alibaba.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260914_202840_414568_47CC8A2A 
-X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-CacheID: sfid-20260914_202842_621148_E775FA13 
+X-CRM114-Status: UNSURE (   7.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,85 +90,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+From: Tomasz Jeznach <tjeznach@rivosinc.com>
 
-Implement the three dirty-tracking hooks required by the generic page
-table framework for the RISC-V format:
+Report RISC-V IOMMU capabilities required by VFIO subsystem
+to enable PCIe device assignment.
 
-  pt_entry_is_write_dirty():
-    Check the D bit (bit 7) in the PTE.
-
-  pt_entry_make_write_clean():
-    Clear the D bit across the full contiguous range.
-
-  pt_entry_make_write_dirty():
-    Atomically set D via try_cmpxchg64() on a single PTE.
-
+Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
 Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
 ---
- drivers/iommu/generic_pt/fmt/riscv.h | 49 ++++++++++++++++++++++++++++
- 1 file changed, 49 insertions(+)
+ drivers/iommu/riscv/iommu.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/iommu/generic_pt/fmt/riscv.h b/drivers/iommu/generic_pt/fmt/riscv.h
-index d4445e463fa9..2f4838eb44af 100644
---- a/drivers/iommu/generic_pt/fmt/riscv.h
-+++ b/drivers/iommu/generic_pt/fmt/riscv.h
-@@ -223,6 +223,55 @@ static inline void riscvpt_attr_from_entry(const struct pt_state *pts,
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index cec3ddd7ab10..a6c8307e82ea 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1422,6 +1422,16 @@ static struct iommu_group *riscv_iommu_device_group(struct device *dev)
+ 	return generic_device_group(dev);
  }
- #define pt_attr_from_entry riscvpt_attr_from_entry
  
-+/*
-+ * Dirty tracking: RISC-V PTEs use D (bit 7) as the hardware dirty bit.
-+ * When Svnapot 64K is active a leaf entry spans 16 consecutive PTEs; we
-+ * must check / clear all of them so that no dirty indication is lost.
-+ */
-+static inline bool riscvpt_entry_is_write_dirty(const struct pt_state *pts)
++static bool riscv_iommu_capable(struct device *dev, enum iommu_cap cap)
 +{
-+	unsigned int num_contig_lg2 = riscvpt_entry_num_contig_lg2(pts);
-+	const pt_riscv_entry_t *tablep =
-+		pt_cur_table(pts, pt_riscv_entry_t) +
-+		log2_set_mod(pts->index, 0, num_contig_lg2);
-+	const pt_riscv_entry_t *end = tablep + log2_to_int(num_contig_lg2);
-+
-+	for (; tablep != end; tablep++)
-+		if (READ_ONCE(*tablep) & RISCVPT_D)
-+			return true;
-+	return false;
++	switch (cap) {
++	case IOMMU_CAP_CACHE_COHERENCY:
++		return true;
++	default:
++		return false;
++	}
 +}
-+#define pt_entry_is_write_dirty riscvpt_entry_is_write_dirty
 +
-+static inline void riscvpt_entry_make_write_clean(struct pt_state *pts)
-+{
-+	unsigned int num_contig_lg2 = riscvpt_entry_num_contig_lg2(pts);
-+	pt_riscv_entry_t *tablep =
-+		pt_cur_table(pts, pt_riscv_entry_t) +
-+		log2_set_mod(pts->index, 0, num_contig_lg2);
-+	pt_riscv_entry_t *end = tablep + log2_to_int(num_contig_lg2);
-+
-+	for (; tablep != end; tablep++)
-+		WRITE_ONCE(*tablep, READ_ONCE(*tablep) & ~(pt_riscv_entry_t)RISCVPT_D);
-+}
-+#define pt_entry_make_write_clean riscvpt_entry_make_write_clean
-+
-+static inline bool riscvpt_entry_make_write_dirty(struct pt_state *pts)
-+{
-+	pt_riscv_entry_t *tablep =
-+		pt_cur_table(pts, pt_riscv_entry_t) + pts->index;
-+	pt_riscv_entry_t new = pts->entry | RISCVPT_D;
-+
-+	return try_cmpxchg64(tablep, &pts->entry, new);
-+}
-+#define pt_entry_make_write_dirty riscvpt_entry_make_write_dirty
-+
-+static inline bool riscvpt_dirty_supported(struct pt_common *common)
-+{
-+	return pt_feature(common, PT_FEAT_RISCV_S2);
-+}
-+#define pt_dirty_supported riscvpt_dirty_supported
-+
- /* --- iommu */
- #include <linux/generic_pt/iommu.h>
- #include <linux/iommu.h>
+ static int riscv_iommu_of_xlate(struct device *dev, const struct of_phandle_args *args)
+ {
+ 	return iommu_fwspec_add_ids(dev, args->args, 1);
+@@ -1483,6 +1493,7 @@ static void riscv_iommu_release_device(struct device *dev)
+ 
+ static const struct iommu_ops riscv_iommu_ops = {
+ 	.of_xlate = riscv_iommu_of_xlate,
++	.capable = riscv_iommu_capable,
+ 	.identity_domain = &riscv_iommu_identity_domain,
+ 	.blocked_domain = &riscv_iommu_blocking_domain,
+ 	.release_domain = &riscv_iommu_blocking_domain,
 -- 
 2.50.1
 
