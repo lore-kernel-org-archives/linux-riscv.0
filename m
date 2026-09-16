@@ -4,65 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6560CC88E5C
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 07:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948A3C88E77
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 07:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=l2yVpGiaxvhHlniTrzFPB56wvkH09+FVOBfoxoN0gIg=; b=l/IloyZyfSj9Ti
-	V9xI1Z/lmyD1wBlREOHCss4V/4pN6SjWiLc8OdBtG0Z3AAQQKVwXhrSYiN7uk8KcS786BI5YuMJjI
-	x52hyLN1Sv5EwjvUIcH30I5IcnXUjAHyRHn2Pm25mMg1L9CUPPT0eBF4Rmbeo4IEN3q8EbmofDmlb
-	Hzsu6GAxVafQXW4y68qG9nzKLtJVEKl0rc5mzZwitzClikeEU8AucRPefL4Ti2F11S0luXctu0MSk
-	kTESzF1YBxqhAXGNgIIIwpVIqjOmocDINjgcsxu//28+X3sniXcIVDJqW13VCg7qr6K+wdhUB1lu9
-	9sPoaibuTTqig1EQvp3w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bzwcEvv9vh2AyGihlkcz6Cyv0PgEl/yL8zoVM7zuLKU=; b=UHJ5RwxsnHv+aW
+	f3a6n8dBSyA3HyLfBTgfggy/xILDyxbwcjV6bK/FFPswSjMhEYqAdcbeJNJHOVYlmx0v90WqYG7Z8
+	bhfQWHVLO8asmKjXozAxoxF0GUFk6qdOAsHX8AQz32e75ZJGBOZR+PJunoIewUNQgrMDR8IVQiEH/
+	Qi68J2OWt5N/8dZYsIx6OGPXWseV1Aux39Z8w/jd+yn1h/tXkjFA4lXvooRPiQLu9ijRaKS8zYwU8
+	73w1rlu+c4q9UCBEHr7v64bO0otLlk22LwqvNbDa9xmQKXEnIme96qkuAK02qm4LK7y6E5WWO0COr
+	dShTalMUxzaGBWF9YMUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kCA-00000008bNy-0J9R;
-	Wed, 16 Sep 2026 07:36:42 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1x6kIL-00000008c5W-0r9S;
+	Wed, 16 Sep 2026 07:43:05 +0000
+Received: from mail-uksouthazon11021085.outbound.protection.outlook.com ([52.101.95.85] helo=LO2P265CU024.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6kC6-00000008bMF-05Qr
-	for linux-riscv@lists.infradead.org;
-	Wed, 16 Sep 2026 07:36:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1789544188; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=5N6y73todGFEjw3G4hd08Cd9oQ/mDIgtZzl2iNBZx1c=;
-	b=c+qUPlNI1jdxZLLQqEZeJRMXdvItqItUcPweYEjQRJn0sN+anwuT8JBA2B8YUwMw2WAnSj52Gn0ZX/VnxrMef0qIx9NeoBMJyFcmM85buk/Fup5cecwPfjtjNgf0Tg3j4SZjcSD8jcbpc4u+KV/Uvc99csVpHsU9wQHAsm4A6O8=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0XB4BNXs_1789544182;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XB4BNXs_1789544182 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 16 Sep 2026 15:36:27 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	irogers@google.com,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	adrian.hunter@intel.com,
-	james.clark@linaro.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	guoren@kernel.org
-Cc: linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] perf riscv: Add perf_regs_load and enable the dwarf unwind test
-Date: Wed, 16 Sep 2026 15:36:21 +0800
-Message-ID: <20260916073622.1045-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
+	id 1x6kIG-00000008c3y-0bMb;
+	Wed, 16 Sep 2026 07:43:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TbHt1n3zySRQfvlGIyk03z+HoezNtSOgPUCTanPiGuCAjB0Y5AHx+9NbHbsXTDp6zw+fBtvGoBLTxszUv13zX0jH8yb6gIQEjIycxWsbjNS+UgzxUffx3jwX/nqHpo6aDZy1FdiRsXMj52i7ccN8xAviU9iCQZPs8bKrx2Lm/uDk5tjKYjqdqJQVxr0JuzvUA6rC9feojHgVnwhY5v1LXyts6ikM4aH+V8KLQcX+l2Jo5F2ww8+e3Y2RxspdFMv53sz4IhueewNEZYqBkLETmiUMqcyv9jkSCaiFjVm/Lj5CPTCSczuCCIXLI8/gf4n3hHMgfVRi+95/UOHng/9mqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7YBDxjuOhCIm+gGU+HHAa2pWA+FCSpxxwTwV6nJlKwQ=;
+ b=HPAejlxy7yLGorKKjwisR/8s1vkjFbI24IYrLsaJTQNfSmTwLzArFZQimgsaAl+4085MM0wPRfDAq9OuF05qaGj7oW50a5wYvN9DEWN5bABHKjvwQeWontsFkDlhX+giD09EHcYkikODLGiuFfUxHlll3s6SSNdDmel8yLSMWFs91v29vKIGGy947GUEj2Tf8IDEHmuhLvTWcSWKjBfxiQI9J8lfUbuvD7zG0/SGGU/B5Nlexwp8NLK+hM4WxUQs84zbI/2N+AJ7Kh4KwvQsDVwvdyp9Mb54II2miF64P+OXoIH0sCIZ3KydKjmKG1HbxOVZlyiX/+RCC27LKv6eaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7YBDxjuOhCIm+gGU+HHAa2pWA+FCSpxxwTwV6nJlKwQ=;
+ b=cHpV1+ZRbnI+Dr9jft6gBWb/uUDI5Xd9McZMBL3/nLtBUcaDEtONPJYRZonVolKDH9F/X4C2wyHLKnqevB4g0ypPaIv0M5CPHbjRBBZbGMlnSk5mWjsHGgGoIJGmxqLUxzxRfhB9dC1sufxuZFJ22bOcN6P4v0sAhV6dHpyMpJQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4ab::19)
+ by CW1P265MB8420.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:26f::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.13; Wed, 16 Sep
+ 2026 07:42:51 +0000
+Received: from LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::f60b:1537:68d7:4fc1]) by LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::f60b:1537:68d7:4fc1%4]) with mapi id 15.21.0406.012; Wed, 16 Sep 2026
+ 07:42:49 +0000
+Date: Wed, 16 Sep 2026 08:42:41 +0100
+Message-Id: <DLGKLQ9LJPBG.3QU14CCO1Y6Q@garyguo.net>
+Cc: "Linus Torvalds" <torvalds@linux-foundation.org>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Nick Desaulniers"
+ <ndesaulniers@google.com>, "Bill Wendling" <morbo@google.com>, "Justin
+ Stitt" <justinstitt@google.com>, "Masahiro Yamada" <masahiroy@kernel.org>,
+ "Alexey Gladkov" <legion@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave
+ Hansen" <dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
+ <hpa@zytor.com>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
+ <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, "Arnd Bergmann" <arnd@arndb.de>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Mark Rutland"
+ <mark.rutland@arm.com>, "Ard Biesheuvel" <ardb@kernel.org>, "Ilias
+ Apalodimas" <ilias.apalodimas@linaro.org>, "Josh Poimboeuf"
+ <jpoimboe@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>, "Miguel
+ Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>, "Gary Guo"
+ <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Trevor Gross" <tmgross@umich.edu>, "Danilo Krummrich" <dakr@kernel.org>,
+ "Daniel Almeida" <daniel.almeida@collabora.com>, "Tamir Duberstein"
+ <tamird@kernel.org>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, "Jonathan Corbet"
+ <corbet@lwn.net>, "Randy Dunlap" <rdunlap@infradead.org>, "Gustavo A. R.
+ Silva" <gustavoars@kernel.org>, <linux-kbuild@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>,
+ <linux-riscv@lists.infradead.org>, <linux-arch@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-efi@vger.kernel.org>,
+ <rust-for-linux@vger.kernel.org>, <linux-doc@vger.kernel.org>, "Jens Axboe"
+ <axboe@kernel.dk>, <linux-hardening@vger.kernel.org>
+Subject: Re: [PATCH v2 20/21] kbuild: build rust crates in parallel with the
+ rest of the build
+From: "Gary Guo" <gary@garyguo.net>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, "Kees Cook" <kees@kernel.org>
+X-Mailer: aerc 0.22.0
+References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
+ <20260914-build-speedup-v2-20-39817ec5db23@kernel.org>
+ <202609141133.7CA979C89@keescook> <aqkv9SqIdh0qKPFc@gremlin>
+In-Reply-To: <aqkv9SqIdh0qKPFc@gremlin>
+X-ClientProxiedBy: LO4P123CA0472.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1a8::9) To LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:4ab::19)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOAP265MB8560:EE_|CW1P265MB8420:EE_
+X-MS-Office365-Filtering-Correlation-Id: 33a7bc71-b9bd-4a79-7118-08df13c61b9a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|10067099003|18002099003|6133799003|4143699003|56012099006|22082099003;
+X-Microsoft-Antispam-Message-Info: 0efAcLjKSZs0H6OPnmEIAnSUgmlBnis60nffkIETUknOAxVN9DQx2ALCeedu9DtBaqYYheg2uPeZdQH4I1VVeOuKcE1HVLGxlZ8Ca+h1nWDvv0anmd2samMyEN+JfNo7UDcjK5v2tlEebf/gYFhZJXBuiS3ZnDsaYC36ne7/rt9NWts2FKU8R73GkBeMEqlCfdO2BduFgiQeZMfJUkDFcVErnbLl9/dUCA1t85nBy1Ot/5Air6pqow1N4olTxkYI0xIW7Cjy83Z6GSzgrYy88HXDwYPuqbV8FWXEK9Jj1qeSI9XQj0LtUU2oOuXrXGozqZr1DvUKd1APK9giYav0mpS8I+XoWVp66CJpTp8ia5ScwozGqFeinupQ3QloVq0Kv4WtD54riy+Vn3w5Ne2SLWtjruqtajv2xMpNbobAtwvXXxOhixR53mgXTKpeyyp92pSyrn2jRHaclPMV+v9wKTTMXfpKoh5VQ2c4mzMygmhOXVb0F8rFwgYtamAwW260J05kGFVnWa3a99ao9VuJJy0twO1h+3Mv3uF1WvS07cmswnlyqWlsXY/Sjpo5fqb7Eqgfw52/2clInS5kgh0BUBNaY9aicWI83KXCg5eMbdUlJCMNS6vpmp2QOrcstDZ2bTkrr7jWJ7YNUNlCeM6IYeYLSNgQT10X6McwpYWt2Lc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(10067099003)(18002099003)(6133799003)(4143699003)(56012099006)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?anpBT21UMEg2K2FMTUlqSHlEZnBaTnh3MGc1Ry9KbWNSaDBFUmVZd1plL3N4?=
+ =?utf-8?B?V0VPZVRmZERzNktlRjBsbDJBSjR0T055aW10cXJkWDRhQkNxQ0t0TmhZcDdo?=
+ =?utf-8?B?ZzJmS2xTRWJGVkdDVEJubXYxcTliYVhMVGc1UEVKSkxjR0NLZVFFZnhyL0pk?=
+ =?utf-8?B?Ym00RlYrK3dSRWxUOUdSekQ4dEk3ZWlPRWhKNEorUzIybEJiQzRFc0I4eTBB?=
+ =?utf-8?B?M3o2Njlqc3RyQ1h5NW44ZFpzODdYd0xiM0YvbzR6SzYyMVpJeFJ5TXQzN3ht?=
+ =?utf-8?B?TkgySHF0TFJPZDlNbFIvdm5yY0ZYZ2lRTnl5WHJNSXAwTHdrNCtCdTRpY0pQ?=
+ =?utf-8?B?bldZTDlyWmIwYTE0K2lYNG5kMXZTVUI2eTZITExOS3J2Y0FlZ1phenFCN0Fn?=
+ =?utf-8?B?WUtaYXpVYVAwRm8zdC8vN2NWOEx2NERhVW1VUW93RGkwS09ZbTcyNXMyek41?=
+ =?utf-8?B?RndYL2dJTFJ0ZnhYWTFZQ3ppS0hnL20yTDQ1M3dkQUZtUTI1OFk1UVNseXdZ?=
+ =?utf-8?B?cG1PVjlpTkdFZTdYZ1RRSVl3ZnZGSlAzbi8yNjhvOVY4a1A4TzRDMllaaWlq?=
+ =?utf-8?B?OE4vZnlRbVJ1czYxMUxHcCtsU0FUTkdoVW5sK09lME1KTDhTRFRJak9IVXBq?=
+ =?utf-8?B?N0JEZ29tUFdPeS9qV3NGRUs5QnpvU3ZvSENCYkliUllwc1pJRklHcHVtR2kv?=
+ =?utf-8?B?UzB5ejdIcjJiVnNOS2JFVUQvdU9kZUZJMjRJYUNINVdyd0EyRUJtZmxET3V3?=
+ =?utf-8?B?OVZlZ3EwU0R6Z1dvWkdqZ1JySnRNUDZkUlRGQk53djNyL3E1NGVILy9ndWc4?=
+ =?utf-8?B?NVlKV0Q5d09lQnBmY3dHVTBXbWFCcVVoVlN2ZjNUUDJzUVFLUXA4YzJYbXdZ?=
+ =?utf-8?B?UEd4c1hROVQzdlY2dEJKUk9SK3ZaeHBPd3NmUU9kbFBENjViUmUzZ1N6Y1ZL?=
+ =?utf-8?B?UWtRTWtncnk1NDRqck16b1hYUXUwRkR5NG1iUG5ERjlnRVVUMWx6djBzS0Q0?=
+ =?utf-8?B?ODVXdzV3bU1BMERXTzlsekxIZzFYVmQvNEFPcnJ5TURoUzU1KzhkeGtGZUIz?=
+ =?utf-8?B?dHVnbW9ubTk2b0pveFhBOXJkUWNFaWorWkZ4T3RJWERDWGVZVWc5YnJOa0dv?=
+ =?utf-8?B?WXFVWEhLV04yMVYwSFBMczBWazIvdC9NM2U5NFNWSFJIaGlpdE5uTGk2eVZI?=
+ =?utf-8?B?WkkzSXlQWW1GbU9LK2xJV3pwVmpYQjZWNzMvRFQwd2dva1JVSk83eTN6aFZs?=
+ =?utf-8?B?U0lIMzVjK1gyWjEwZUtCcXF1RHdLREh1THdhRjF6S1Zwcmt3cXVDY25BaktH?=
+ =?utf-8?B?OWM1NTBNU1RvaFVWTjFpbFNoZFBybXBid3ZFOTUxaEtNSE81Zk1jNE9iZUJa?=
+ =?utf-8?B?RVp2TnMwcGdVY1JPLzBUdis1cTU5RW10U285Q2JwdHZGZWppVXp1Yzh1dkkr?=
+ =?utf-8?B?cmw3NEJtV0ExUEVlblkzZkNOTHo2am5HKzA3aEFWUkNycEw0Umw5WTAzRU9t?=
+ =?utf-8?B?MkU3d0t6aHBNcEFGbVVUV01SaGJFVUU0QlkraGpUczFNVkZSVmhIT2tTRDFI?=
+ =?utf-8?B?b2pnYkd4Y3dXeXNtUEp0eXZmeUQyQXBDQTRNeGZsenJsblg4M0VuTE8rcC8r?=
+ =?utf-8?B?bXllL05yWjB4YmRLUFFacmhnTDkyKzB5ODc2bzNZNnZKNzY1MXdOdVZVdmZW?=
+ =?utf-8?B?azVXTzJKNUczR054U3FNWmlCYXFNamhMejdSSlhkV00yYjh2cHZ1QXRZcG51?=
+ =?utf-8?B?SVYxSFQrcVRIcUlFK0VqeFd2Z3h4SlBsdHM4OUdDVFBrNTVSeGVyeW85Nzk0?=
+ =?utf-8?B?ajdpV2pYQmJoSVptZFFHd0lxcW5tUkhSR2VXQjRBakE1VWJ3Yk9PYTBmdW5m?=
+ =?utf-8?B?Yk1WcjliOVlibzg3Wjh1OWtsZGl6Z0UzQzEyTXY4TXQvMHFReWloVFBwZ0xn?=
+ =?utf-8?B?ZUxmY1l3WW5lLzBqZXAyR21hU05sN1NCUUNaTFIySDllcnRMZWcwYjBjS0NJ?=
+ =?utf-8?B?OFJWRllpa1oybEV2azFWMXF4S1pXZzhhSGJlS3FXOWhvdnNBSDJXTU1KOUpI?=
+ =?utf-8?B?clJXMGZzbHJ6TlJSZWZ4aUxLbVVjdDI5MGFCYnhHdWpVbTYyeVQ4dXEwUHpP?=
+ =?utf-8?B?NVpLU2pWS3U2MkMyU1pEMWNueXRvKzc0Qi9lQXZkS096NmJ5TmVKREFtTjBV?=
+ =?utf-8?B?SFhRbytBeXVHOVRjN0ZLc2x1YWFlMWxLcGJrVlR0WFh2ZEc1SG85V2NtYm1E?=
+ =?utf-8?B?amdjbjN5UkVwV0xidi9FQ0tDSFQwZSt6cEtyeUVQWE50b3FXQnIzRU9mOEZ4?=
+ =?utf-8?Q?LTGTr34OJWIwy2BNht?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 33a7bc71-b9bd-4a79-7118-08df13c61b9a
+X-MS-Exchange-CrossTenant-AuthSource: LOAP265MB8560.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2026 07:42:49.8723
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mS2Ijo/VLzsu75PkDXsh+naN/jpUaLkDSjvC68+B8bpYEOpQMXNhug4S+gsg51cq0rQx3LWvs9S8UNkphCt3Jw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CW1P265MB8420
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_003638_947703_D6FD2B27 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20260916_004300_196870_DB717DF9 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,294 +174,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv has no arch level perf test: tests/builtin-test.c only picks up
-arch_tests[] for x86, arm64 and powerpc64, tests/Build only builds the
-generic dwarf unwind test driver for x86, arm, arm64 and powerpc, and
-arch/riscv/tests/ did not exist. "Test dwarf unwind" was therefore never
-registered on riscv, even though DWARF is the only reliable way to walk a
-riscv user stack -- the arch callchain code walks frame pointers only --
-and both unwinders already support riscv, elfutils libdw generically and
-libunwind through util/libunwind-arch/libunwind-riscv.c.
+On Tue Sep 15, 2026 at 12:58 PM BST, Lorenzo Stoakes (ARM) wrote:
+> On Mon, Sep 14, 2026 at 11:37:54AM -0700, Kees Cook wrote:
+>> On Mon, Sep 14, 2026 at 10:22:19AM +0100, Lorenzo Stoakes (ARM) wrote:
+>> > +# Rust code elsewhere in the tree depends upon rust/.
+>> > +ifdef CONFIG_RUST
+>> > +$(KBUILD_RUST_DIRS): | rust
+>> > +endif
+>> > [...]
+>> > +export KBUILD_RUST_DIRS := drivers lib mm samples
+>>
+>> Doesn't this make all of drivers/, lib/, mm/ and samples/ wait for rust/?
+>> That's a lot of stall: drivers/ is most of the tree. I think then a
+>> CONFIG_RUST build has most of its C work waiting on the rust chain;
+>> only the other top-level directories start early? This didn't create new
+>> build delays for those configurations?
+>
+> Yeah good point.
+>
+> For a defconfig+rust clean build on 128 threads the other top-level directories
+> were done at ~14s while rust ran to ~18.6s, so there was 4-5 of idle.
+>
+> However the patch improves things by net -3.9s regardless.
+>
+> This is really only a big box issue though. With fewer threads the rest of the
+> tree takes longer so it has no impact on the build.
+>
+> (An aside - this kind of trade-off is what the series is all about really - the
+>  'serial tail' - i.e. the single threaded stuff that _overlaps_ the end of the
+>  build is what slows you down.)
+>
+> Since this _still_ gives you a significant speed up on bigger boxes, I think
+> it's fine as-is.
+>
+> The LLM says a fix for this would need significant work - a cross-instance lock
+> and an on-demand rust/ build. So I think best as a follow-up?
 
-Add perf_regs_load() and the arch unwind sample helper modelled on the
-arm64 ones, and wire riscv into the two gates. The x1..x31 slots of enum
-perf_event_riscv_regs match the hardware registers one to one, and
-PERF_REG_RISCV_PC is filled with ra so that unwinding starts at the
-caller.
+If we do it we're basically reinventing a new build system. Not saying that
+Kbuild isn't one already :)
 
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-Reviewed-by: Ian Rogers <irogers@google.com>
----
-
-Changes since v1:
-- Add explicit #include <stdlib.h> per Ian Rogers' review.
-- Add Reviewed-by: Ian Rogers <irogers@google.com>
-
-Tested on riscv64 (QEMU virt, kernel 6.18, rv64gcv userspace) with both
-the libdw and the libunwind unwinder, and in both callchain orders. All
-eight expected frames resolve, including the one in libc:
-
-  # ./perf test -v "dwarf unwind"
-   71: Test dwarf unwind                                     : Ok
-
-  got: test__dwarf_unwind 0x555593375c45, expecting test__dwarf_unwind
-  got: test_dwarf_unwind__krava_1 0x555593375b7f, expecting test_dwarf_unwind__krava_1
-  got: test_dwarf_unwind__krava_2 0x555593375b43, expecting test_dwarf_unwind__krava_2
-  got: test_dwarf_unwind__krava_3 0x555593375aff, expecting test_dwarf_unwind__krava_3
-  got: bsearch 0x7fff9aad575b, expecting bsearch
-  got: test_dwarf_unwind__compare 0x555593375a5d, expecting test_dwarf_unwind__compare
-  got: test_dwarf_unwind__thread 0x555593375939, expecting test_dwarf_unwind__thread
-  got: test__arch_unwind_sample 0x5555933788a0, expecting test__arch_unwind_sample
-
-The libunwind build links libunwind-riscv.so.8, so the riscv specific
-remote unwinder in util/libunwind-arch/libunwind-riscv.c is what runs.
-
-A build with DWARF unwinding disabled was checked too: it still links,
-arch_tests[] degrades to the NULL only array, and the test is simply
-absent from "perf test list".
-
-
- tools/perf/arch/riscv/Build                |  1 +
- tools/perf/arch/riscv/include/arch-tests.h |  9 +++
- tools/perf/arch/riscv/include/perf_regs.h  |  2 +
- tools/perf/arch/riscv/tests/Build          |  4 ++
- tools/perf/arch/riscv/tests/arch-tests.c   | 10 ++++
- tools/perf/arch/riscv/tests/dwarf-unwind.c | 65 ++++++++++++++++++++++
- tools/perf/arch/riscv/tests/regs_load.S    | 58 +++++++++++++++++++
- tools/perf/tests/Build                     |  2 +-
- tools/perf/tests/builtin-test.c            |  3 +-
- 9 files changed, 152 insertions(+), 2 deletions(-)
- create mode 100644 tools/perf/arch/riscv/include/arch-tests.h
- create mode 100644 tools/perf/arch/riscv/tests/Build
- create mode 100644 tools/perf/arch/riscv/tests/arch-tests.c
- create mode 100644 tools/perf/arch/riscv/tests/dwarf-unwind.c
- create mode 100644 tools/perf/arch/riscv/tests/regs_load.S
-
-diff --git a/tools/perf/arch/riscv/Build b/tools/perf/arch/riscv/Build
-index e63eabc2c8f4..12ebc65ea7a3 100644
---- a/tools/perf/arch/riscv/Build
-+++ b/tools/perf/arch/riscv/Build
-@@ -1 +1,2 @@
- perf-util-y += util/
-+perf-test-y += tests/
-diff --git a/tools/perf/arch/riscv/include/arch-tests.h b/tools/perf/arch/riscv/include/arch-tests.h
-new file mode 100644
-index 000000000000..2b3834a5ddbb
---- /dev/null
-+++ b/tools/perf/arch/riscv/include/arch-tests.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef ARCH_TESTS_H
-+#define ARCH_TESTS_H
-+
-+struct test_suite;
-+
-+extern struct test_suite *arch_tests[];
-+
-+#endif
-diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
-index af7a1b47bf66..30cfd3f63eb5 100644
---- a/tools/perf/arch/riscv/include/perf_regs.h
-+++ b/tools/perf/arch/riscv/include/perf_regs.h
-@@ -8,6 +8,8 @@
- #include <linux/types.h>
- #include "../../../../arch/riscv/include/uapi/asm/perf_regs.h"
- 
-+void perf_regs_load(u64 *regs);
-+
- #define PERF_REGS_MASK	((1ULL << PERF_REG_RISCV_MAX) - 1)
- #define PERF_REGS_MAX	PERF_REG_RISCV_MAX
- 
-diff --git a/tools/perf/arch/riscv/tests/Build b/tools/perf/arch/riscv/tests/Build
-new file mode 100644
-index 000000000000..bd15c6bbc1b2
---- /dev/null
-+++ b/tools/perf/arch/riscv/tests/Build
-@@ -0,0 +1,4 @@
-+perf-test-y += regs_load.o
-+perf-test-$(CONFIG_DWARF_UNWIND) += dwarf-unwind.o
-+
-+perf-test-y += arch-tests.o
-diff --git a/tools/perf/arch/riscv/tests/arch-tests.c b/tools/perf/arch/riscv/tests/arch-tests.c
-new file mode 100644
-index 000000000000..756706a09609
---- /dev/null
-+++ b/tools/perf/arch/riscv/tests/arch-tests.c
-@@ -0,0 +1,10 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "tests/tests.h"
-+#include "arch-tests.h"
-+
-+struct test_suite *arch_tests[] = {
-+#ifdef HAVE_DWARF_UNWIND_SUPPORT
-+	&suite__dwarf_unwind,
-+#endif
-+	NULL,
-+};
-diff --git a/tools/perf/arch/riscv/tests/dwarf-unwind.c b/tools/perf/arch/riscv/tests/dwarf-unwind.c
-new file mode 100644
-index 000000000000..fe0c32ea0e05
---- /dev/null
-+++ b/tools/perf/arch/riscv/tests/dwarf-unwind.c
-@@ -0,0 +1,65 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <stdlib.h>
-+#include <string.h>
-+#include "perf_regs.h"
-+#include "thread.h"
-+#include "map.h"
-+#include "maps.h"
-+#include "event.h"
-+#include "debug.h"
-+#include "tests/tests.h"
-+
-+#define STACK_SIZE 8192
-+
-+static int sample_ustack(struct perf_sample *sample,
-+		struct thread *thread, u64 *regs)
-+{
-+	struct stack_dump *stack = &sample->user_stack;
-+	struct map *map;
-+	unsigned long sp;
-+	u64 stack_size, *buf;
-+
-+	buf = malloc(STACK_SIZE);
-+	if (!buf) {
-+		pr_debug("failed to allocate sample uregs data\n");
-+		return -1;
-+	}
-+
-+	sp = (unsigned long) regs[PERF_REG_RISCV_SP];
-+
-+	map = maps__find(thread__maps(thread), (u64)sp);
-+	if (!map) {
-+		pr_debug("failed to get stack map\n");
-+		free(buf);
-+		return -1;
-+	}
-+
-+	stack_size = map__end(map) - sp;
-+	map__put(map);
-+	stack_size = stack_size > STACK_SIZE ? STACK_SIZE : stack_size;
-+
-+	memcpy(buf, (void *) sp, stack_size);
-+	stack->data = (char *) buf;
-+	stack->size = stack_size;
-+	return 0;
-+}
-+
-+int test__arch_unwind_sample(struct perf_sample *sample,
-+		struct thread *thread)
-+{
-+	struct regs_dump *regs = perf_sample__user_regs(sample);
-+	u64 *buf;
-+
-+	buf = calloc(PERF_REGS_MAX, sizeof(u64));
-+	if (!buf) {
-+		pr_debug("failed to allocate sample uregs data\n");
-+		return -1;
-+	}
-+
-+	perf_regs_load(buf);
-+	regs->abi  = PERF_SAMPLE_REGS_ABI;
-+	regs->regs = buf;
-+	regs->mask = PERF_REGS_MASK;
-+
-+	return sample_ustack(sample, thread, buf);
-+}
-diff --git a/tools/perf/arch/riscv/tests/regs_load.S b/tools/perf/arch/riscv/tests/regs_load.S
-new file mode 100644
-index 000000000000..703bbf3374a6
---- /dev/null
-+++ b/tools/perf/arch/riscv/tests/regs_load.S
-@@ -0,0 +1,58 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <linux/linkage.h>
-+
-+/*
-+ * Fill the u64 array 'regs' at the slots of enum perf_event_riscv_regs:
-+ * x1..x31 map one-to-one onto PERF_REG_RISCV_RA..PERF_REG_RISCV_T6, and the
-+ * stride stays 8 bytes on RV32 because the slots are u64 and the caller
-+ * zeroes them.
-+ *
-+ * PERF_REG_RISCV_PC is filled with ra, the return address of the call to
-+ * this function, so that unwinding starts at the caller rather than here.
-+ */
-+
-+#if __riscv_xlen == 64
-+#define REG_S	sd
-+#else
-+#define REG_S	sw
-+#endif
-+
-+#define STR_REG(r)	REG_S x##r, 8 * r(a0)
-+
-+	.text
-+	.type perf_regs_load,%function
-+SYM_FUNC_START(perf_regs_load)
-+	STR_REG(1)
-+	STR_REG(2)
-+	STR_REG(3)
-+	STR_REG(4)
-+	STR_REG(5)
-+	STR_REG(6)
-+	STR_REG(7)
-+	STR_REG(8)
-+	STR_REG(9)
-+	STR_REG(10)
-+	STR_REG(11)
-+	STR_REG(12)
-+	STR_REG(13)
-+	STR_REG(14)
-+	STR_REG(15)
-+	STR_REG(16)
-+	STR_REG(17)
-+	STR_REG(18)
-+	STR_REG(19)
-+	STR_REG(20)
-+	STR_REG(21)
-+	STR_REG(22)
-+	STR_REG(23)
-+	STR_REG(24)
-+	STR_REG(25)
-+	STR_REG(26)
-+	STR_REG(27)
-+	STR_REG(28)
-+	STR_REG(29)
-+	STR_REG(30)
-+	STR_REG(31)
-+	REG_S ra, 0(a0)
-+	ret
-+SYM_FUNC_END(perf_regs_load)
-diff --git a/tools/perf/tests/Build b/tools/perf/tests/Build
-index 66944a4f4968..c457504e052d 100644
---- a/tools/perf/tests/Build
-+++ b/tools/perf/tests/Build
-@@ -72,7 +72,7 @@ perf-test-y += tool_pmu.o
- perf-test-y += subcmd-help.o
- perf-test-y += kallsyms-split.o
- 
--ifeq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc))
-+ifeq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc riscv))
- perf-test-$(CONFIG_DWARF_UNWIND) += dwarf-unwind.o
- endif
- 
-diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-index 4d0784b16723..a0478dd3e9cc 100644
---- a/tools/perf/tests/builtin-test.c
-+++ b/tools/perf/tests/builtin-test.c
-@@ -67,7 +67,8 @@ static const char *workload_control;
-  * dependent on the initialization, as such GCC with LTO complains of
-  * conflicting definitions with a weak symbol.
-  */
--#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__)
-+#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || \
-+	defined(__powerpc64__) || defined(__riscv)
- extern struct test_suite *arch_tests[];
- #else
- static struct test_suite *arch_tests[] = {
--- 
-2.50.1
+Best,
+Gary
 
 
 _______________________________________________
