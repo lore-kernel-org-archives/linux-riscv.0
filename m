@@ -4,81 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81619C88E77
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 14:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B4DC88E77
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 14:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	From:Subject:Cc:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RVnSwqdWJ5N0qkeIlPRt3wlIzZA1YhirSv5HZ7oV5nQ=; b=WmRyrhAO+s1oba
-	o71ZJfAKtZxFeSewivC7AAArTObKwvK3rUEp2pgQ8W/B1aQ+kG6j/V1Upq9mdaDCeDsbktyZgSTWg
-	Xgzp9DyARnvogIpDPb/x1p34kZqrTI0HzVWr6R3pgoBnnPgSVHD2eEGw8EgQgBCy/Zc5Es9XUpH1F
-	V+V3KMIzYKEAtxiKSFl1J80Br7I/Unza4y9X+bKSFE97aRQVeUdYHK58WSd4AEw3Mf4nOEzjPL8n7
-	bIc1ZTSK78LLs7QOFPF6/vei4CyPY6A/UzWZAOxcLb4ttEkqPNZO4grgg24qCrJyUnK3scMx0cPgQ
-	9dJGa01NFtOIZAG7MBoA==;
+	List-Owner; bh=vL621364cCRsws7xIykCIdKsy4sx4NuEj9SbHF2saso=; b=v3lJZZHiJV96Te
+	IGFIQ6ShTpqJVRJ3wzFXUrN7utTxwplnTreIyNv0EHOtyVtKaILeO4VDrNU0k8vgSf4ROs1g2l4IZ
+	UghdwwWgABzAM7TmDWN1OBA20W+xlD0VEdKjqa63Lg8rIpJCShvPeftj5cUPDbEukHt0JdtOvNp04
+	plXaxEO1ZzZziCcX+Lc6Ncr5qbY99qK79uoF5gQy1f7Ymn6VZzFy4FoKsOisMRyWMzrzLZ3EHY5HV
+	F8J3XPBbB+JQg2Ia/qt2cN0AdBb1ivONrRj081Ej3uQOPExlSecL3UZEzFnnyZjtmI5kpvMFSat2R
+	2RoUQeqSHbmP+uqH2yEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qFj-00000009Ma5-2V8t;
-	Wed, 16 Sep 2026 14:04:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x6qIB-00000009MoR-2RO0;
+	Wed, 16 Sep 2026 14:07:19 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6qFh-00000009MZl-1z6i;
-	Wed, 16 Sep 2026 14:04:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1EDD602D0;
-	Wed, 16 Sep 2026 14:04:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C72A01F000FF;
-	Wed, 16 Sep 2026 14:04:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789567484;
-	bh=4p4hgcvw6kWcyC6EnxN9LbmyJCJrpBQ7Z3d+76JOY14=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QEqrNXj4hIJ+yI04UbRRbzBwkfAPGXGTc0IPJzRUfJ08hVbqxoA11qyOaeocRMZze
-	 QMDTNlNgZ7H/6jCbW4jc7XIIj+3crpYh6RQPGu/2+kV+9chxN+NMfi19lT+PZsz3q6
-	 kJeTiFOZocvpahWB6/2aLwybCEhF1VgXISs4r9MysIyyIWac/3X2Q1aqa9WzRyv759
-	 cq+oXi0EGQRTc0SkQkEwyDO6JX4YcPiIFG/z5UYYYaSOeB4TcDU3wzHNgcPxPEuoeH
-	 jyMHgQXRuDCjNHXLen/ynlZVk+jaxndcRdCxn72EKgpqHgdOxG8Z/1xMe2pcVmDJv5
-	 uz3X+qN5sZ83w==
-Date: Wed, 16 Sep 2026 15:04:30 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
-	Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 20/21] kbuild: build rust crates in parallel with the
- rest of the build
-Message-ID: <aqqhzqgYV5MTYAzo@gremlin>
-References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
- <20260914-build-speedup-v2-20-39817ec5db23@kernel.org>
- <202609141133.7CA979C89@keescook>
- <aqkv9SqIdh0qKPFc@gremlin>
- <202609150951.73C4F16EFB@keescook>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <202609150951.73C4F16EFB@keescook>
+	id 1x6qI7-00000009Mnb-49im
+	for linux-riscv@lists.infradead.org;
+	Wed, 16 Sep 2026 14:07:18 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfout.phl.internal (Postfix) with ESMTP id 7F760EC00D8;
+	Wed, 16 Sep 2026 10:07:12 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-03.internal (MEProxy); Wed, 16 Sep 2026 10:07:12 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1789567632;
+	 x=1789654032; bh=Be2o5M1d9xljHYCRtuNcdhNIc/2it5l8BznRP32aB+E=; b=
+	deAxxL2qOz3i3Nk280cG2SuqAGf0LERKkb+BKPxddkO2Uggd14mT0texUPBovaEQ
+	U9mx9skBudy7DVI5XFPEjTyPgiSnnY3sR3Dgvrv+O/16UiOhJpQbUmhbPwfxvaiO
+	Oo8i04bkxS0tZmGyjWNJu9Bcwo70WPSy1ft7ZIUoYMH8uk0L4LoPSdTu0aoGe2vT
+	Lf7CpUcdN1ceH8IqpBf9efrfO4dIN+Diz+X/7yX+ZNEJ/VFyZvUMjzyE7HZ+atjS
+	fGxoGE8k3Xdz6d0H9qxYVFk67YMdFy0QFZAFT9hpWLyg2iURMGbHhvG2swWodIrW
+	gSeGT8jxhQmJo+m5IjNkkA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789567632; x=
+	1789654032; bh=Be2o5M1d9xljHYCRtuNcdhNIc/2it5l8BznRP32aB+E=; b=u
+	sEP3hhL2wPucrF8g4+DIgHERL4yiNo6RMR+5ANpjRjwcKSnlQ3R58oi1A8Wijzbh
+	Ted5NbSc2V2q7tpOYpaanPrrlGd68k0Y9e+rVTBpFozJl6r9Uqx5ky5uhS4C2RvU
+	ZNu8ggu04ssOSbPoKG5n0EzmPr8wvbdHcQCxfhUK9TaVtLPL5FJlhEQ8v0BryiIO
+	BlDytGlGtgF5TMO40x/a8WNJMBTdYRW9+UO60IyjEj4Fj/P/S9CCco4eL1wq6lXg
+	i2W4wwRkO7kjyQANlP0Z7Z2g8RMfEeGfeMUiQTruTI9GiaFAXte0R4sA+wOv3kDv
+	GVVnR/wmp/IXy9rjwK/kg==
+X-ME-Sender: <xms:jqKqaoYvkYmOg-UJ8gtDH_R0lw7h0d696x39Mb-7Rccp6FxNPpl1hg>
+    <xme:jqKqaipBCGaf_mmfFFtSl_0CdNJHhURYGZk1dNaV6O_B2pEre-0gVZ6Nj-lSD0mSm
+    1hZS9Zw2ah39vt68pOVLR8-3kN5SHricV5oniqmw8-oDieVE0PBRxAy>
+X-ME-Received: <xmr:jqKqavIPKJmgiv_-NDObdJrhZDHjGPG2qs4Yb5KxqLe2MhMfvE2nWxF4QNlO6MMR4R4qA_ki09qaAcSA5KlLseq3>
+X-ME-Proxy-Cause: dmFkZTE24MkS2sB+Rva6s7htY7NC2fdYq4QMZ8DzKsYXOVhrbIfPJcjFGqD8XD9xFUbpzK
+    T8v9MWKCaUPHHVWOdP0Ph3S9vCuzfzvk0UHCjo89hw+hw6yCwrmrMh2jlvplimDpg9mX5W
+    YhumFteGV+Z0jP5x0bAG7YSoLN5yg0xx9AhfBWUqkivBDuW0btCAIIIBjteGEFXAIH2CKq
+    3Xw31wPUpiXBNFegLxJKTpF8ooPmFeH/zfQPNCPE/Yf4R6lW7Xg2opzmbbNczjzmxaZtiG
+    e9if0bFXi+w0RveLM37dEX04I+oZmJ7BC5eGY934whHgua1iPsiYlsb2yu1pD7BcHl+FK8
+    utjsVakpuqQQ1RG/gYGD1xK4i0ykb5u26Z4udx1f4krPFu1gANlPh7NuZm4TWvxkFOUFOu
+    fpnbyfYjIcFoFu5thzd+Jb0sGTJoUqc4mcpwMeHSZMNRxKYuDcHaMv89MyAGNgY6sHT4Sw
+    qyXbRdqJLvhHyDb9CgVIVNWck0tpyr45fSXja/hGhvQXLvBC+9iaM2fNXLdVMh61RHhOsm
+    VTK4la9FOWe0yRop/SLJqUma9repZGnmq/JqZ70bv6cbSiFpGa3srvc8j2u5VstCXQNvas
+    ExDBOTIO2wiP+DNRmJXsFiTYl3RjyJ0E7U7O4Irjvs+6S4HOLmJSspbWI3vg
+X-ME-Proxy: <xmx:jqKqatZua1_v_2U74D2H352410OtvMkZOOHh_YB04rdXM_nF9yCfQQ>
+    <xmx:jqKqamoh3-SJPZp8WCuojHZxYa0aIPpJQMm8Uw9Iv3Eb17mkCzDDUA>
+    <xmx:jqKqagCV_cIiXEvUUKpEe4U4zmWLe76izJJea4qeCB-FLIJ863oOZA>
+    <xmx:jqKqakl3h2L8Fhaayd568-d0y1cvRztxIK7CK2FB1ZP2wMH0ZV5YeQ>
+    <xmx:kKKqahgpoohVyElPk3Kl7S5wiU-zRx3U0PwO4IVEUFMbPx0ga3aJWMbB>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 16 Sep 2026 10:07:02 -0400 (EDT)
+Date: Wed, 16 Sep 2026 23:06:58 +0900 (JST)
+Message-Id: <20260916.230658.2266384286281034372.tomo@flapping.org>
+To: mkchauras@gmail.com
+Cc: maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+ chleroy@kernel.org, ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org,
+ aliceryhl@google.com, tmgross@umich.edu, dakr@kernel.org,
+ daniel.almeida@collabora.com, tamird@kernel.org, acourbot@nvidia.com,
+ work@onurozkan.dev, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, nathan@kernel.org,
+ ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
+ ynorov@nvidia.com, david@davidgow.net, joelagnelf@nvidia.com,
+ fujita.tomonori@gmail.com, linkmauve@linkmauve.fr,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ llvm@lists.linux.dev
+Subject: Re: [PATCH V5 2/2] rust: kernel: Add KUnit tests for powerpc
+ ARCH_WARN_ASM bug table emission
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <20260915090453.1227034-3-mkchauras@gmail.com>
+References: <20260915090453.1227034-1-mkchauras@gmail.com>
+	<20260915090453.1227034-3-mkchauras@gmail.com>
+Mime-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_070716_312710_CD7A91E1 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,37 +115,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset="iso-2022-jp"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 09:52:01AM -0700, Kees Cook wrote:
-> On Tue, Sep 15, 2026 at 12:58:10PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > Since this _still_ gives you a significant speed up on bigger boxes, I think
-> > it's fine as-is.
-> >
-> > The LLM says a fix for this would need significant work - a cross-instance lock
-> > and an on-demand rust/ build. So I think best as a follow-up?
->
-> Sure! And I defer to the Rust folks on all of this. I just wanted to
+On Tue, 15 Sep 2026 14:34:53 +0530
+"Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com> wrote:
 
-Yes indeed as do I :)
+> Verify that the __bug_table entry emitted by ARCH_WARN_ASM has a correct
+> bug_addr displacement ― i.e. the '1b' label reference in _EMIT_BUG_ENTRY
+> resolves to the trap instruction ― by calling find_bug() with the exact
+> virtual address of the twi instruction, mirroring what the real powerpc
+> trap handler does.
+> 
+> The trap address is captured at link time via a .dc.a 1b relocation placed
+> in .data by the global_asm! block. global_asm! is used instead of asm!
+> because LLVM eliminates asm! blocks in dead branches; global_asm! is
+> file-scope and always emitted. BUG_KUNIT_TRAP_ADDR is defined as a .global
+> symbol directly on the .dc.a word so the linker relocation lands on it ―
+> a Rust static initialized to zero would end up in BSS where relocations are
+> not applied.
+> 
+> .dc.a emits a pointer-width word (4 bytes on ppc32, 8 bytes on ppc64),
+> so BUG_KUNIT_TRAP_ADDR is declared as usize on the Rust side, making the
+> tests correct on both ppc32 and ppc64. The global_asm! block is split into
+> two cfg-gated variants (CONFIG_PPC64 / !CONFIG_PPC64) to select the right
+> .balign since concat!() only accepts literals.
+> 
+> Five tests are included in the rust_kernel_bug_powerpc suite:
+> 
+>   bug_entry_found         - find_bug() returns non-NULL for the trap address,
+>                             proving the bug_addr displacement is correct
+>   bug_entry_is_warning    - the emitted entry has BUGFLAG_WARNING set
+>   bug_entry_file          - bug_get_file_line() returns the correct source
+>                             file (requires CONFIG_DEBUG_BUGVERBOSE)
+>   bug_entry_line          - the recorded line number is non-zero, confirming
+>                             the {line} operand was substituted correctly
+>                             (requires CONFIG_DEBUG_BUGVERBOSE)
+>   bug_entry_addr_is_in_text - kernel_text_address() confirms the trap address
+>                             lies in kernel text, not data or zero
+> 
+> The suite is named rust_kernel_bug_powerpc and the Kconfig option
+> CONFIG_RUST_BUG_POWERPC_KUNIT_TEST depends on PPC && GENERIC_BUG,
+> covering both ppc32 and ppc64.
+> 
+> Tested on ppc64le (ltcfujiaac-lp3, 7.3.0-rc1+): pass:5 fail:0 skip:0.
+> Tested on ppc32 Book3S (QEMU mac99 G4, chrp32_defconfig): pass:5 fail:0 skip:0.
+> Tested on ppc64le (QEMU pseries, pseries_le_defconfig): pass:5 fail:0 skip:0.
+> 
+> Signed-off-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
+> ---
+>  rust/kernel/Kconfig.test |  13 +++
+>  rust/kernel/bug.rs       | 209 +++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 222 insertions(+)
 
-I _think_ this change should be a lot more viable than the -Zthreads one
-though :)
+I think that testing warn_on!, in particular that the right address is
+put in the bug entry, is a good idea.
 
-> note the possibly unintended behavioral change there. Thanks for
-> examining it!
+I'd prefer such a test to work on every architecture. This one depends on
+details of powerpc's ARCH_WARN_ASM, such as the '1b' label. KUnit has a
+warning suppression API. A test can call warn_on! inside a suppression
+block and check that one warning was counted. The counter is only
+incremented after find_bug() found the entry, so a wrong address is caught
+too.
 
-No worries!
-
->
-> --
-> Kees Cook
-
---
-Cheers, Lorenzo
+I'll send a patch for that shortly.
 
 _______________________________________________
 linux-riscv mailing list
