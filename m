@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9409FC88E5C
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 08:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939F8C88E77
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 08:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YqGVvelCOAYXPYzA2JD2qzasF1WCUWvs4RwFhrCEa3g=; b=R0gAv194Y17tdK
-	iMtiuo2aD74RA9Od+pZ7ih7R8OWSPcIRnQ/aav6uY+J/zXi6ZFFBR8fAelbfXNfSLKq+DlJMRkylC
-	06fMUeqKYEz2Nf2oCvpm4/aCW0rrQOCWNU8iGK24g2uAED1pWKL9oOR5Np77/uzSA1VbNY8l8Xxfj
-	5seyYSX42FHQKGDj2UWyrEpJwwGJuXAw4qMbGlOURRpMbOJ2QsCydZGNFa6XlRv8RROo4t4J8bYBm
-	nwvujJ8fG7LjLTn2600sP6oO5UGI5nnXhn6LywZd6+P4ck/blqBL4maF8PS657qwYoiYL4Z2GGVXl
-	0UBldqS+zEac2eMxauSw==;
+	List-Owner; bh=SFJB1bGfXONsK+W8+f6C2CEfKkfi+4Ut+7JGQx2uIQU=; b=wy7/eUlYy7OYSa
+	F0qAbMgIRLLk/Quvm+OaXs9CCWBF92vC48rIQUIOLURGv9vAvkEi6kBuBNPiwFWGqipZtIj8fJknU
+	+83CQ/gvTa5WBNUUh7HQsDmkTsxxV6msmhPUWz+EMat+VVJEQZnxQt0hv+D6yqawyLwHn9FyFHBa+
+	H7GCnBogiWRYH+swuvw0q7sZxFdbZyGAr/F6l++G4dB542SZdwWWwDrD0wj5lCh1d3PK9Eh8cFPM9
+	Y4T16euXKnY2zlSI3KENr1VkrTs6FScjqcmzaWhfxhMNtvQ6A74GnXdmKHaZ5VM4Vdb2UqZjDYNfP
+	mDY7tBcAIEm+QGLcCZVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6l9Y-00000008jG3-1YWE;
-	Wed, 16 Sep 2026 08:38:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x6lHs-00000008lSG-1HeB;
+	Wed, 16 Sep 2026 08:46:40 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6l9U-00000008jFt-2EQG
+	id 1x6lHo-00000008lR8-0ssy
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Sep 2026 08:38:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E44A942ACD;
-	Wed, 16 Sep 2026 08:37:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D0B71F000FF;
-	Wed, 16 Sep 2026 08:37:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789547879;
-	bh=/ZVRl7Y1YIACUYiiu0izSYuEQsygi4uHz7Xju5KXuwQ=;
-	h=From:To:Cc:Subject:Date;
-	b=OkW4r6XnEuLZt8f+qeI1RNfMhekNjYfaGPS2go2IHp6Jcr8isnpn9NaVU9LLDPdrk
-	 dT5YGgBBobi/ivVZGZzflNUSvVjluFaE6wrn+Vqw2+XrcamktGC8TDNt6uZpNR/dFL
-	 Qjr//c12wbrEOBAw/2Qqp50mx3Lx7LVDnuaj86B41Pg1a6Z5lTnphItVJt9R4F94tX
-	 LeIh8E4tlCTWvMlsiSDMIpzaY5ktJnpzWdcncZWNKbIc63DFr+U9wrifJKtJQj4ItU
-	 BMMaIbcOx+jiwE+dGuk8w75FV6epimz9KCw8mgJWSc88Xin4v737WTNLqL4CM6FZbh
-	 tfnzZeHJgEpsA==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Nathan Chancellor <nathan@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Aleksandar Rikalo <arikalo@gmail.com>,
-	Djordje Todorovic <djordje.todorovic@htecgroup.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Nam Cao <namcao@linutronix.de>,
-	Jia Wang <wangjia@ultrarisc.com>,
-	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
-	Drew Fustini <dfustini@oss.tenstorrent.com>,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Wed, 16 Sep 2026 08:46:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1789548393; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=N3n3rQBeS6FpGNd3MFEz1+uFhqUAbR6xzDiLD6tDy8Q=;
+	b=eDDqCH85M41rKNh+ho+89eKWgThNE18SMI4N1KUFWxYdIPyAdYdmDxG7cSln6kw6csb+DMFXqaKh6//LGS1+S1iI0YMfFVQGSjLT4uEFn0BtCa3qArMPDLboomCBeSsoltiEvD92ETZFQDewhxCQC916fIoejhqvt3zH5v9V7eY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0XB4PTcx_1789548387;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XB4PTcx_1789548387 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 16 Sep 2026 16:46:31 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	irogers@google.com,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	adrian.hunter@intel.com,
+	james.clark@linaro.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	guoren@kernel.org
+Cc: linux-perf-users@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: [PATCH] riscv: limit sifive errata to CONFIG_64BIT
-Date: Wed, 16 Sep 2026 10:37:21 +0200
-Message-ID: <20260916083752.47310-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] perf riscv: Add perf_regs_load and enable the dwarf unwind test
+Date: Wed, 16 Sep 2026 16:46:26 +0800
+Message-ID: <20260916084626.1166-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260916_014636_972483_82EC24D1 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +79,299 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+riscv has no arch level perf test: tests/builtin-test.c only picks up
+arch_tests[] for x86, arm64 and powerpc64, tests/Build only builds the
+generic dwarf unwind test driver for x86, arm, arm64 and powerpc, and
+arch/riscv/tests/ did not exist. "Test dwarf unwind" was therefore never
+registered on riscv, even though DWARF is the only reliable way to walk a
+riscv user stack -- the arch callchain code walks frame pointers only --
+and both unwinders already support riscv, elfutils libdw generically and
+libunwind through util/libunwind-arch/libunwind-riscv.c.
 
-There are two errata for this vendor, and they both individually depend on
-CONFIG_64BIT already. However, an 32-bit allmodconfig produces this warning
-from clang for a condition that can never be true.
+Add perf_regs_load() and the arch unwind sample helper modelled on the
+arm64 ones, and wire riscv into the two gates. The x1..x31 slots of enum
+perf_event_riscv_regs match the hardware registers one to one, and
+PERF_REG_RISCV_PC is filled with ra so that unwinding starts at the
+caller.
 
-arch/riscv/errata/sifive/errata.c:29:14: error: result of comparison of constant 9223372036854775815 with expression of type 'unsigned long' is always true [-Werror,-Wtautological-constant-out-of-range-compare]
-   29 |         if (arch_id != 0x8000000000000007 ||
-      |             ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~
-arch/riscv/errata/sifive/errata.c:42:14: error: result of comparison of constant 9223372036854775815 with expression of type 'unsigned long' is always true [-Werror,-Wtautological-constant-out-of-range-compare]
-   42 |         if (arch_id != 0x8000000000000007 && arch_id != 0x1)
-      |             ~~~~~~~ ^  ~~~~~~~~~~~~~~~~~~
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+Reviewed-by: Ian Rogers <irogers@google.com>
 ---
- arch/riscv/Kconfig.errata | 2 +-
- arch/riscv/Kconfig.socs   | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-index 3c945d086c7d..38ade0ea4e9c 100644
---- a/arch/riscv/Kconfig.errata
-+++ b/arch/riscv/Kconfig.errata
-@@ -46,7 +46,7 @@ config ERRATA_MIPS_P8700_PAUSE_OPCODE
+Changes since v2:
+- Add explicit #include <string.h> in arch/riscv/tests/arch-tests.c for the
+  NULL terminator, matching the other arch copies.
+
+Changes since v1:
+- Add explicit #include <stdlib.h> in arch/riscv/tests/dwarf-unwind.c per
+  Ian Rogers' review.
+- Add Reviewed-by: Ian Rogers <irogers@google.com>
+
+Tested on riscv64 (QEMU virt, kernel 6.18, rv64gcv userspace) with both
+the libdw and the libunwind unwinder, and in both callchain orders. All
+eight expected frames resolve, including the one in libc:
+
+  # ./perf test -v "dwarf unwind"
+   71: Test dwarf unwind                                     : Ok
+
+  got: test__dwarf_unwind 0x555593375c45, expecting test__dwarf_unwind
+  got: test_dwarf_unwind__krava_1 0x555593375b7f, expecting test_dwarf_unwind__krava_1
+  got: test_dwarf_unwind__krava_2 0x555593375b43, expecting test_dwarf_unwind__krava_2
+  got: test_dwarf_unwind__krava_3 0x555593375aff, expecting test_dwarf_unwind__krava_3
+  got: bsearch 0x7fff9aad575b, expecting bsearch
+  got: test_dwarf_unwind__compare 0x555593375a5d, expecting test_dwarf_unwind__compare
+  got: test_dwarf_unwind__thread 0x555593375939, expecting test_dwarf_unwind__thread
+  got: test__arch_unwind_sample 0x5555933788a0, expecting test__arch_unwind_sample
+
+The libunwind build links libunwind-riscv.so.8, so the riscv specific
+remote unwinder in util/libunwind-arch/libunwind-riscv.c is what runs.
+
+A build with DWARF unwinding disabled was checked too: it still links,
+arch_tests[] degrades to the NULL only array, and the test is simply
+absent from "perf test list".
+
+ tools/perf/arch/riscv/Build                |  1 +
+ tools/perf/arch/riscv/include/arch-tests.h |  9 +++
+ tools/perf/arch/riscv/include/perf_regs.h  |  2 +
+ tools/perf/arch/riscv/tests/Build          |  4 ++
+ tools/perf/arch/riscv/tests/arch-tests.c   | 11 ++++
+ tools/perf/arch/riscv/tests/dwarf-unwind.c | 65 ++++++++++++++++++++++
+ tools/perf/arch/riscv/tests/regs_load.S    | 58 +++++++++++++++++++
+ tools/perf/tests/Build                     |  2 +-
+ tools/perf/tests/builtin-test.c            |  3 +-
+ 9 files changed, 153 insertions(+), 2 deletions(-)
+ create mode 100644 tools/perf/arch/riscv/include/arch-tests.h
+ create mode 100644 tools/perf/arch/riscv/tests/Build
+ create mode 100644 tools/perf/arch/riscv/tests/arch-tests.c
+ create mode 100644 tools/perf/arch/riscv/tests/dwarf-unwind.c
+ create mode 100644 tools/perf/arch/riscv/tests/regs_load.S
+
+diff --git a/tools/perf/arch/riscv/Build b/tools/perf/arch/riscv/Build
+index e63eabc2c8f4..12ebc65ea7a3 100644
+--- a/tools/perf/arch/riscv/Build
++++ b/tools/perf/arch/riscv/Build
+@@ -1 +1,2 @@
+ perf-util-y += util/
++perf-test-y += tests/
+diff --git a/tools/perf/arch/riscv/include/arch-tests.h b/tools/perf/arch/riscv/include/arch-tests.h
+new file mode 100644
+index 000000000000..2b3834a5ddbb
+--- /dev/null
++++ b/tools/perf/arch/riscv/include/arch-tests.h
+@@ -0,0 +1,9 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef ARCH_TESTS_H
++#define ARCH_TESTS_H
++
++struct test_suite;
++
++extern struct test_suite *arch_tests[];
++
++#endif
+diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
+index af7a1b47bf66..30cfd3f63eb5 100644
+--- a/tools/perf/arch/riscv/include/perf_regs.h
++++ b/tools/perf/arch/riscv/include/perf_regs.h
+@@ -8,6 +8,8 @@
+ #include <linux/types.h>
+ #include "../../../../arch/riscv/include/uapi/asm/perf_regs.h"
  
- config ERRATA_SIFIVE
- 	bool "SiFive errata"
--	depends on RISCV_ALTERNATIVE
-+	depends on RISCV_ALTERNATIVE && 64BIT
- 	help
- 	  All SiFive errata Kconfig depend on this Kconfig. Disabling
- 	  this Kconfig will disable all SiFive errata. Please say "Y"
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 429e07589306..cecbce0c4983 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -34,6 +34,7 @@ config ARCH_RENESAS
- config ARCH_SIFIVE
- 	bool "SiFive SoCs"
- 	select ERRATA_SIFIVE
-+	depends on 64BIT
- 	help
- 	  This enables support for SiFive SoC platform hardware.
++void perf_regs_load(u64 *regs);
++
+ #define PERF_REGS_MASK	((1ULL << PERF_REG_RISCV_MAX) - 1)
+ #define PERF_REGS_MAX	PERF_REG_RISCV_MAX
  
+diff --git a/tools/perf/arch/riscv/tests/Build b/tools/perf/arch/riscv/tests/Build
+new file mode 100644
+index 000000000000..bd15c6bbc1b2
+--- /dev/null
++++ b/tools/perf/arch/riscv/tests/Build
+@@ -0,0 +1,4 @@
++perf-test-y += regs_load.o
++perf-test-$(CONFIG_DWARF_UNWIND) += dwarf-unwind.o
++
++perf-test-y += arch-tests.o
+diff --git a/tools/perf/arch/riscv/tests/arch-tests.c b/tools/perf/arch/riscv/tests/arch-tests.c
+new file mode 100644
+index 000000000000..ad16b4f8f63e
+--- /dev/null
++++ b/tools/perf/arch/riscv/tests/arch-tests.c
+@@ -0,0 +1,11 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <string.h>
++#include "tests/tests.h"
++#include "arch-tests.h"
++
++struct test_suite *arch_tests[] = {
++#ifdef HAVE_DWARF_UNWIND_SUPPORT
++	&suite__dwarf_unwind,
++#endif
++	NULL,
++};
+diff --git a/tools/perf/arch/riscv/tests/dwarf-unwind.c b/tools/perf/arch/riscv/tests/dwarf-unwind.c
+new file mode 100644
+index 000000000000..fe0c32ea0e05
+--- /dev/null
++++ b/tools/perf/arch/riscv/tests/dwarf-unwind.c
+@@ -0,0 +1,65 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <stdlib.h>
++#include <string.h>
++#include "perf_regs.h"
++#include "thread.h"
++#include "map.h"
++#include "maps.h"
++#include "event.h"
++#include "debug.h"
++#include "tests/tests.h"
++
++#define STACK_SIZE 8192
++
++static int sample_ustack(struct perf_sample *sample,
++		struct thread *thread, u64 *regs)
++{
++	struct stack_dump *stack = &sample->user_stack;
++	struct map *map;
++	unsigned long sp;
++	u64 stack_size, *buf;
++
++	buf = malloc(STACK_SIZE);
++	if (!buf) {
++		pr_debug("failed to allocate sample uregs data\n");
++		return -1;
++	}
++
++	sp = (unsigned long) regs[PERF_REG_RISCV_SP];
++
++	map = maps__find(thread__maps(thread), (u64)sp);
++	if (!map) {
++		pr_debug("failed to get stack map\n");
++		free(buf);
++		return -1;
++	}
++
++	stack_size = map__end(map) - sp;
++	map__put(map);
++	stack_size = stack_size > STACK_SIZE ? STACK_SIZE : stack_size;
++
++	memcpy(buf, (void *) sp, stack_size);
++	stack->data = (char *) buf;
++	stack->size = stack_size;
++	return 0;
++}
++
++int test__arch_unwind_sample(struct perf_sample *sample,
++		struct thread *thread)
++{
++	struct regs_dump *regs = perf_sample__user_regs(sample);
++	u64 *buf;
++
++	buf = calloc(PERF_REGS_MAX, sizeof(u64));
++	if (!buf) {
++		pr_debug("failed to allocate sample uregs data\n");
++		return -1;
++	}
++
++	perf_regs_load(buf);
++	regs->abi  = PERF_SAMPLE_REGS_ABI;
++	regs->regs = buf;
++	regs->mask = PERF_REGS_MASK;
++
++	return sample_ustack(sample, thread, buf);
++}
+diff --git a/tools/perf/arch/riscv/tests/regs_load.S b/tools/perf/arch/riscv/tests/regs_load.S
+new file mode 100644
+index 000000000000..703bbf3374a6
+--- /dev/null
++++ b/tools/perf/arch/riscv/tests/regs_load.S
+@@ -0,0 +1,58 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#include <linux/linkage.h>
++
++/*
++ * Fill the u64 array 'regs' at the slots of enum perf_event_riscv_regs:
++ * x1..x31 map one-to-one onto PERF_REG_RISCV_RA..PERF_REG_RISCV_T6, and the
++ * stride stays 8 bytes on RV32 because the slots are u64 and the caller
++ * zeroes them.
++ *
++ * PERF_REG_RISCV_PC is filled with ra, the return address of the call to
++ * this function, so that unwinding starts at the caller rather than here.
++ */
++
++#if __riscv_xlen == 64
++#define REG_S	sd
++#else
++#define REG_S	sw
++#endif
++
++#define STR_REG(r)	REG_S x##r, 8 * r(a0)
++
++	.text
++	.type perf_regs_load,%function
++SYM_FUNC_START(perf_regs_load)
++	STR_REG(1)
++	STR_REG(2)
++	STR_REG(3)
++	STR_REG(4)
++	STR_REG(5)
++	STR_REG(6)
++	STR_REG(7)
++	STR_REG(8)
++	STR_REG(9)
++	STR_REG(10)
++	STR_REG(11)
++	STR_REG(12)
++	STR_REG(13)
++	STR_REG(14)
++	STR_REG(15)
++	STR_REG(16)
++	STR_REG(17)
++	STR_REG(18)
++	STR_REG(19)
++	STR_REG(20)
++	STR_REG(21)
++	STR_REG(22)
++	STR_REG(23)
++	STR_REG(24)
++	STR_REG(25)
++	STR_REG(26)
++	STR_REG(27)
++	STR_REG(28)
++	STR_REG(29)
++	STR_REG(30)
++	STR_REG(31)
++	REG_S ra, 0(a0)
++	ret
++SYM_FUNC_END(perf_regs_load)
+diff --git a/tools/perf/tests/Build b/tools/perf/tests/Build
+index 66944a4f4968..c457504e052d 100644
+--- a/tools/perf/tests/Build
++++ b/tools/perf/tests/Build
+@@ -72,7 +72,7 @@ perf-test-y += tool_pmu.o
+ perf-test-y += subcmd-help.o
+ perf-test-y += kallsyms-split.o
+ 
+-ifeq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc))
++ifeq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc riscv))
+ perf-test-$(CONFIG_DWARF_UNWIND) += dwarf-unwind.o
+ endif
+ 
+diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
+index 4d0784b16723..a0478dd3e9cc 100644
+--- a/tools/perf/tests/builtin-test.c
++++ b/tools/perf/tests/builtin-test.c
+@@ -67,7 +67,8 @@ static const char *workload_control;
+  * dependent on the initialization, as such GCC with LTO complains of
+  * conflicting definitions with a weak symbol.
+  */
+-#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__)
++#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || \
++	defined(__powerpc64__) || defined(__riscv)
+ extern struct test_suite *arch_tests[];
+ #else
+ static struct test_suite *arch_tests[] = {
 -- 
-2.53.0
+2.50.1
 
 
 _______________________________________________
