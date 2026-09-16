@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA11C982C1
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 16:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5760C982C1
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 17:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UwlVIBrSjwpIG7J52KALUL254iTG28SF046Y2romhuQ=; b=crK4HVlsCJTnvN
-	sTzKK3Y/rr3w0Zb0tDiWGxwEmNO45hjxjQumoKjZHHcX8UYNdL4Ve3lDLFp3cB0VcBIjE2ugpq8p8
-	0rm6MzvaNIexHrII+Pvv/bKb0B0hxjrzJpncpDkkLa6qod3udX4Ige2Jr2jdeaNNA/5LRqw0BZVu0
-	NbLw08zu6kdA++dchl/QCMRQyxAchMW2ZOJR7p70ykA6kN1VtYo51kDZ9E2FA04YZIWuXPgokMMn/
-	mLwXo7VStbEOKZsOm3H9hxyD+zMKnU/zvWYsSv/88FxeMhL5mVxVrj2asEYMUMsNdLVXi+++j1FMp
-	S9N3PVs/J5eEUC+Fc6Xg==;
+	List-Owner; bh=WZEBK2vGdw8RI+BI6m4AAxGJd5PMiuyjCNUKwn5wd2A=; b=oLtY7UxtaBTNW/
+	8uQTl+EyI/l+if69MVG9A2QqlhFCwTXQx+XQLd0PAkGWERBbCD7WV98oAS8OL7z/A7GoHAeS+7Hp7
+	VvJu9jRS9AtJdqLWR0idnT+TqZYJWZIhTBWhv9QOp/kZIfpMOXhsWfsBlyTbeiQ5c2xWDz7iJLnMJ
+	yFHPCCXgvZwaqrv5lZFAmO6ELT95Ngu1Ztv+yuInxUsmquHFMeZJy/asQCghgqT2wM5KTljuTZ9bg
+	iBKgS6Sy+8qNDqEV6VF/DTtzXR00+ROjCGu2Gcj/h3E1TeAJ9kQ+zRoqCYxgRcFpRzESEkBATKYsw
+	6AshevI6/y+UYK0zXZ6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sTB-00000009jHF-2usE;
-	Wed, 16 Sep 2026 16:26:49 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1x6szb-00000009oxq-0oe0;
+	Wed, 16 Sep 2026 17:00:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6sT8-00000009jGQ-40Wn
-	for linux-riscv@lists.infradead.org;
-	Wed, 16 Sep 2026 16:26:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=yoAeTRTh0GroYZP/sXmvaOQSkoa3dgKrLu2uFbFrXCA=; b=JNyglAw6hJJA6CBUPLi/mrxM0l
-	rdDH3hKaTjUDvoJS/4sTPH/B5i4E+u5nf05r9TNc9rpfjHgw+2PH3ZSq3F1oEE5pR/+toQGrYmOtP
-	d1t6nuOugXZCVLehFxAdBhaSHpDE6lCZDYFf3dqr/Mq+faIeKUIcUEg8FdQYXn0AvlTHZRwmys/a6
-	P/iWd5yuvUKuocOahpLyrMHfS2x4Qt97xrUxNSDIn7CxaF3I9f3BnebSp+M0YIz7PenYxpbexwcbq
-	2QraS9bXI20zZgfLwhJe0aUCi2De7x4O0Xp+i+OfxBKTq20tQg9aZTezRNRQnsmbBF8njtxUwuDQP
-	8zhyNQOQ==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1x6sSn-0000000FfA5-3Vzq;
-	Wed, 16 Sep 2026 18:26:25 +0200
-Date: Wed, 16 Sep 2026 18:26:25 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Jennifer Berringer <jberring@redhat.com>,
-	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/3] scsi: ufs: spacemit: k3: Add UFS Host Controller
- driver
-Message-ID: <aqrDMVMMtTfVVu8X@aurel32.net>
-Mail-Followup-To: Yixun Lan <dlan@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	Jennifer Berringer <jberring@redhat.com>,
-	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-References: <20260916-08-k3-ufs-support-v5-0-1f5d71f1027d@kernel.org>
- <20260916-08-k3-ufs-support-v5-2-1f5d71f1027d@kernel.org>
+	id 1x6szZ-00000009oxQ-2ekq;
+	Wed, 16 Sep 2026 17:00:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 46BE4600CB;
+	Wed, 16 Sep 2026 17:00:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4114D1F000FF;
+	Wed, 16 Sep 2026 16:59:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789578016;
+	bh=JNZtWdKCogaGrWtyvhM6z027Qg7RFwkG7Shw9zuVQhE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PmVw4wXS/r9CpHfAOn2amzHMwnGPXSnlrGas83Xpi7dsydIKsArkblukiVIHwBAY6
+	 ubpGfFGa7kqrykL1Pa6q3MkO4GKMCQQXpCmITVG/PeoahA3HJxtDyVnKBlsOT5y6Mm
+	 wozpolIxCIhxuWjx0aQRah90ZewUiZ9k5Elj1dLiF8CCivxp3p7w6OaDY/5H9Oq45S
+	 O6mv0zYlNEHZcdRLCgzvK/ZrOJVz1jz48dKYZvJ7Oi+o5KCdWId8DKOgPiN8pVOlBz
+	 jm/9rlekEwQE9XCQ+GkKAffM26w81NuZfKTTB+nUUF3sGMC9I2pcmKHTHWSj4DPFxw
+	 A9hfwpouwGpWQ==
+Date: Wed, 16 Sep 2026 17:59:52 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Brian Cain <bcain@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Simon Schuster <schuster.simon@siemens-energy.com>, 
+	Jonas Bonn <jonas@southpole.se>, Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+	Stafford Horne <shorne@gmail.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+	Rich Felker <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>, 
+	Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
+	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>, 
+	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>
+Subject: Re: [PATCH v3 01/12] mm/huge_memory: zap deposited page tables after
+ an RCU grace period
+Message-ID: <aqrAflIQbwcNKlQL@gremlin>
+References: <20260911-rcu-pagetable-freeing-v3-0-7b8c86103821@kernel.org>
+ <20260911-rcu-pagetable-freeing-v3-1-7b8c86103821@kernel.org>
+ <467b6599-b73a-4f58-a29a-b6c6d1ffc3a5@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260916-08-k3-ufs-support-v5-2-1f5d71f1027d@kernel.org>
-User-Agent: Mutt/2.4.1 (2026-07-04)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_092647_133510_C077D34E 
-X-CRM114-Status: GOOD (  28.48  )
+In-Reply-To: <467b6599-b73a-4f58-a29a-b6c6d1ffc3a5@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,238 +110,161 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yixun,
+On Wed, Sep 16, 2026 at 04:42:04PM +0200, David Hildenbrand (Arm) wrote:
+> On 9/11/26 21:36, Lorenzo Stoakes (ARM) wrote:
+> > When an anonymous mapping is collapsed for THP, a PTE page table is
+> > 'deposited' with the installed PMD entry.
+>
+> Right. Or when we allocate an anon THP.
 
-On 2026-09-16 02:59, Yixun Lan wrote:
-> SpacemiT K3 SoC consist of UFS (Universal Flash Storage) Host Controller
-> which has features compatible with JEDEC UFS 2.2, MIPI UniPro v1.61 and
-> M-PHY v3.0 standard.
-> 
-> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
-> Tested-by: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
->  drivers/ufs/host/Kconfig        |  12 +
->  drivers/ufs/host/Makefile       |   1 +
->  drivers/ufs/host/ufs-spacemit.c | 688 ++++++++++++++++++++++++++++++++++++++++
->  drivers/ufs/host/ufs-spacemit.h |  79 +++++
->  4 files changed, 780 insertions(+)
-> 
-> diff --git a/drivers/ufs/host/Kconfig b/drivers/ufs/host/Kconfig
-> index ff170c0b6da0..6146872fcecc 100644
-> --- a/drivers/ufs/host/Kconfig
-> +++ b/drivers/ufs/host/Kconfig
-> @@ -132,6 +132,18 @@ config SCSI_UFS_VARIABLE_SG_ENTRY_SIZE
->  	bool
->  	default y if SCSI_UFS_EXYNOS && SCSI_UFS_CRYPTO
->  
-> +config SCSI_UFS_SPACEMIT
-> +	tristate "SpacemiT UFS controller driver"
-> +	depends on SCSI_UFSHCD_PLATFORM && (ARCH_SPACEMIT || COMPILE_TEST)
-> +	help
-> +	  This selects the SpacemiT specific additions to UFSHCD platform driver.
-> +	  UFS host on SpacemiT needs some vendor specific configuration before
-> +	  accessing the hardware which includes PHY configuration and vendor
-> +	  specific registers.
-> +
-> +	  Select this if you have UFS controller on SpacemiT chipset.
-> +	  If unsure, say N.
-> +
->  config SCSI_UFS_SPRD
->  	tristate "Unisoc specific hooks to UFS controller platform driver"
->  	depends on SCSI_UFSHCD_PLATFORM && (ARCH_SPRD || COMPILE_TEST)
-> diff --git a/drivers/ufs/host/Makefile b/drivers/ufs/host/Makefile
-> index 7d8db67eb23c..a3c447b8fc21 100644
-> --- a/drivers/ufs/host/Makefile
-> +++ b/drivers/ufs/host/Makefile
-> @@ -13,6 +13,7 @@ obj-$(CONFIG_SCSI_UFS_HISI) += ufs-hisi.o
->  obj-$(CONFIG_SCSI_UFS_MEDIATEK) += ufs-mediatek.o
->  obj-$(CONFIG_SCSI_UFS_RENESAS) += ufs-renesas.o
->  obj-$(CONFIG_SCSI_UFS_ROCKCHIP) += ufs-rockchip.o
-> +obj-$(CONFIG_SCSI_UFS_SPACEMIT) += ufs-spacemit.o
->  obj-$(CONFIG_SCSI_UFS_SPRD) += ufs-sprd.o
->  obj-$(CONFIG_SCSI_UFS_TI_J721E) += ti-j721e-ufs.o
->  obj-$(CONFIG_SCSI_UFS_AMD_VERSAL2) += ufs-amd-versal2.o ufshcd-dwc.o
-> diff --git a/drivers/ufs/host/ufs-spacemit.c b/drivers/ufs/host/ufs-spacemit.c
-> new file mode 100644
-> index 000000000000..179e6edb2ac2
-> --- /dev/null
-> +++ b/drivers/ufs/host/ufs-spacemit.c
-> @@ -0,0 +1,688 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2026 SpacemiT (Hangzhou) Technology Co. Ltd
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset.h>
-> +#include <linux/slab.h>
-> +
-> +#include <ufs/ufshcd.h>
-> +#include <ufs/ufshci.h>
-> +#include <ufs/ufs_quirks.h>
-> +#include <ufs/unipro.h>
-> +
-> +#include "ufshcd-pltfrm.h"
-> +#include "ufs-spacemit.h"
-> +
-> +/* PA Layer Gettable and settable M-PHY Specific Attributes */
-> +#define PA_TXHSG1SYNCLENGTH		0x1552
-> +#define PA_TXHSG1PREPARELENGTH		0x1553
-> +#define PA_TXHSG2SYNCLENGTH		0x1554
-> +#define PA_TXHSG2PREPARELENGTH		0x1555
-> +#define PA_TXHSG3SYNCLENGTH		0x1556
-> +#define PA_TXHSG3PREPARELENGTH		0x1557
-> +#define PA_TXMK2EXTENSION		0x155A
-> +#define PA_PEERSCRAMBLING		0x155B
-> +#define PA_TXSKIP			0x155C
-> +#define PA_TXSKIPPERIOD			0x155D
-> +#define PA_PEER_TX_LCC_ENABLE		0x155F
-> +
-> +#define PA_SCRAMBLING			0x1585
-> +#define PA_MK2EXTENSIONGUARDBAND	0x15AB
-> +
-> +/* Special TX/RX Configuration Attributes */
-> +#define RX_LS_PRE_LEN_CAP		0x008D
-> +#define RX_LANE_HB8_BKDOOR_ATTR		0x00F4
-> +#define RX_PWRM_CLOSURE_LEN_CAP		0x008E
-> +#define RX_MIN_STALL_CAP		0x0088
-> +#define RX_LANE_SOF_BKDOOR_ATT		0x00F2
-> +#define RX_GARBAGE_COUNT_OFFSET		0x00F2
-> +
-> +/* Special analog register */
-> +#define ANA_EQ_CTRL_REG_ATTR		0x00CD
-> +#define ANA_HSGEAR_CTRL_ATTR		0x00C1
-> +
-> +/*
-> + * Keep UFS ACLK at a lower parent rate (409.6MHz) for stable init.
-> + * This mirrors the "ufs-low-aclk-freq" change from the other environment.
-> + */
-> +#define UFS_ACLK_LOW_FREQ_HZ		409600000UL
+That case doesn't interact with page walking though, as they're
+just-allocated right?
 
-You probably want to rename that to AXI, although here it's not that 
-important.
+Am focusing on collapse case for that reason rather than listing all
+possible places deposit can happen.
 
-> +
-> +/* PHY register magic values */
-> +#define MPHY_PU_ALL			0x87f
-> +#define MPHY_PU_WITH_HB8_RESET		0xb7f
-> +#define MPHY_DEVICE_REFCLK_OE		BIT(8)
-> +#define MPHY_DEVICE_HW_RESET		BIT(0)
-> +
-> +#define MPHY_PLL_LOCK_BIT		BIT(31)
-> +#define MPHY_PLL_LOCK_TIMEOUT_US	10000
-> +
-> +/* FSM states */
-> +#define FSM_STATE_HIBERN8		0x1
-> +#define FSM_STATE_ACTIVE		0x3
-> +#define FSM_STATE_LS_BURST		0x5
-> +
-> +#define VENDOR_DUMP_BUF_SIZE		2048
-> +#define VENDOR_MAX_OFFSET		0xE0
-> +
-> +/* M-PHY FSM states */
-> +#define MPHY_RX_FSM_STATE	0xC1
-> +#define MPHY_TX_FSM_STATE	0x41
-> +
-> +static int ufs_spacemit_dme_set(struct ufs_hba *hba,
-> +				const struct ufshcd_dme_attr_val *v, int n)
-> +{
-> +	int ret = 0;
-> +	int attr_node = 0;
-> +
-> +	for (attr_node = 0; attr_node < n; attr_node++) {
-> +		ret = ufshcd_dme_set(hba, v[attr_node].attr_sel,
-> +				     v[attr_node].mib_val);
-> +
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int ufs_spacemit_check_hibern8(struct ufs_hba *hba)
-> +{
-> +	u32 tx_fsm_val_0 = 0;
-> +	u32 tx_fsm_val_1 = 0;
-> +	int retries = DIV_ROUND_UP(HBRN8_POLL_TOUT_MS * 1000, 100);
-> +	int err = 0;
-> +
-> +	do {
-> +		err = ufshcd_dme_get(hba,
-> +				     UIC_ARG_MIB_SEL(MPHY_TX_FSM_STATE,
-> +						     UIC_ARG_MPHY_TX_GEN_SEL_INDEX(0)),
-> +				     &tx_fsm_val_0);
-> +		if (err)
-> +			break;
-> +
-> +		err = ufshcd_dme_get(hba,
-> +				     UIC_ARG_MIB_SEL(MPHY_TX_FSM_STATE,
-> +						     UIC_ARG_MPHY_TX_GEN_SEL_INDEX(1)),
-> +				     &tx_fsm_val_1);
-> +		if (err || (tx_fsm_val_0 == TX_FSM_HIBERN8 &&
-> +			    tx_fsm_val_1 == TX_FSM_HIBERN8))
-> +			break;
-> +
-> +		usleep_range(100, 200);
-> +	} while (--retries > 0);
-> +
-> +	if (err) {
-> +		dev_err(hba->dev, "%s: unable to get TX_FSM_STATE, err %d\n",
-> +			__func__, err);
-> +	} else if (tx_fsm_val_0 != TX_FSM_HIBERN8 ||
-> +		   tx_fsm_val_1 != TX_FSM_HIBERN8) {
-> +		err = -ETIMEDOUT;
-> +		dev_err(hba->dev,
-> +			"%s: invalid TX_FSM_STATE, lane0 = %u, lane1 = %u\n",
-> +			__func__, tx_fsm_val_0, tx_fsm_val_1);
-> +	}
-> +
-> +	return err;
-> +}
-> +
-> +static u32 ufs_spacemit_get_sys1clk_1us(struct ufs_hba *hba)
-> +{
-> +	struct ufs_clk_info *clki, *ufs_aclk = NULL;
-> +	struct list_head *head = &hba->clk_list_head;
-> +	unsigned long rate_hz = 0;
-> +
-> +	if (!list_empty(head)) {
-> +		list_for_each_entry(clki, head, list) {
-> +			if (clki->name && !strcmp(clki->name, "aclk") && clki->clk) {
+>
+> >
+> > This is done in order that a split can be performed without needing to
+> > allocate additional memory.
+> >
+> > The freeing occurs in zap_deposited_table() and is done directly without
+> > any delay via pte_free().
+> >
+> > This is currently not a problem as existing page table walks are protected
+> > by the mmap or anon rmap lock.
+>
+> Or VMA lock?
 
-On the other hand, you definitely want to rename this one to "axi" to 
-match the device tree change. Right now the whole patchset just doesn't 
-work.
+Yup indeed, can update on respin/ask Andrew to add VMA lock here.
 
-> +				ufs_aclk = clki;
-> +				break;
-> +			}
-> +		}
-> +	}
-> +
-> +	if (ufs_aclk && ufs_aclk->clk)
-> +		rate_hz = clk_get_rate(ufs_aclk->clk);
-> +
-> +	if (!rate_hz)
-> +		return 0;
-> +
-> +	return DIV_ROUND_CLOSEST(rate_hz, 1000000);
-> +}
+>
+> >
+> > However this becomes problematic in a future where RCU-only page table
+> > walkers exist, as there is nothing to prevent a page table walker that
+> > started the walk prior to collapse having its PTE table freed underneath
+> > it.
+>
+>
+> Wait, but wouldn't it be really problematic to punch a page table that is still
 
-Regards
-Aurelien
+Punch? You mean deposit?
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+> being walked into the deposited list where it can just be allocated from another
+> PMD->PTE split?
+
+In general, RCU-only page table walkers are _only_ guaranteed that the page
+tables are not freed from underneath them, as per the cover letter:
+
+	"As a result, page table walks can now be performed safely under RCU without
+	 any risk of page tables being freed underneath a walker.
+
+	However, this is the only guarantee that this work provides - page table
+	walkers must still ensure that page table entries are as expected
+	throughout."
+
+So this series doesn't actually have to answer that :)
+
+But a PTE PTL -> pmd_same() check will flag anything like that,
+a.k.a. pte_offset_map_lock().
+
+The RCU lock replaces stablisation on stuff other than VMA/mmap or rmap
+lock.
+
+If the walker needs to be sure the PTE is actually valid and belongs to the
+expected walk then further is required.
+
+Alternatively (like GUP-fast) if you wanted to avoid locking at all, IRQs
+off would be required paired with the tlb_remove_table_sync_one() in
+collapse_huge_page().
+
+Another strategy could be used I guess with looped checks but it gets a bit
+sketchy with timing etc.
+
+But actually maybe we can avoid all that...
+
+>
+> Note that pgtable_trans_huge_withdraw() just dequeues *some* PTE page table in
+> the list attached to the PMD table.
+>
+> Something is odd here.
+
+...Since this code path already allocates (the huge folio), so allocation
+here isn't an issue (as long as done outside of lcosk), why not have it
+also allocate a new PTE to deposit and RCU-free the existing PTE instead?
+
+That eliminates the one place in the kernel (afaik) where a
+page-table-walker-visible table can just get yoinked over somewhere else.
+
+Then a lockless PMD check works.
+
+E.g. something like the below?
+
+diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+index f49a6710933b..d9cb6b406ebb 100644
+--- a/mm/khugepaged.c
++++ b/mm/khugepaged.c
+@@ -1293,7 +1293,7 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
+ 	LIST_HEAD(compound_pagelist);
+ 	pmd_t *pmd, _pmd;
+ 	pte_t *pte = NULL;
+-	pgtable_t pgtable;
++	pgtable_t pgtable = NULL;
+ 	struct folio *folio;
+ 	spinlock_t *pmd_ptl, *pte_ptl;
+ 	enum scan_result result = SCAN_FAIL;
+@@ -1310,6 +1310,12 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
+ 		goto out_nolock;
+ 	}
+
++	if (is_pmd_order(order)) {
++		pgtable = pte_alloc_one(mm);
++		if (!pgtable)
++			goto out_nolock;
++	}
++
+ 	mmap_read_lock(mm);
+ 	result = hugepage_vma_revalidate(mm, pmd_addr, /*expect_anon=*/ true,
+ 					 &vma, cc, order);
+@@ -1433,8 +1439,8 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
+ 	spin_lock(pmd_ptl);
+ 	VM_WARN_ON_ONCE(!pmd_none(*pmd));
+ 	if (is_pmd_order(order)) {
+-		pgtable = pmd_pgtable(_pmd);
+ 		pgtable_trans_huge_deposit(mm, pmd, pgtable);
++		pgtable = NULL;
+ 		map_anon_folio_pmd_nopf(folio, pmd, vma, pmd_addr);
+ 	} else {
+ 		/*
+@@ -1453,6 +1459,9 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
+ 	}
+ 	spin_unlock(pmd_ptl);
+
++	if (is_pmd_order(order))
++		pte_free_defer(mm, pmd_pgtable(_pmd));
++
+ 	folio = NULL;
+
+ 	result = SCAN_SUCCEED;
+@@ -1463,6 +1472,8 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
+ 		anon_vma_unlock_write(vma->anon_vma);
+ 	mmap_write_unlock(mm);
+ out_nolock:
++	if (pgtable)
++		pte_free(mm, pgtable);
+ 	if (folio)
+ 		folio_put(folio);
+ 	trace_mm_collapse_huge_page(mm, result == SCAN_SUCCEED, result, order);
+
+
+>
+> --
+> Cheers,
+>
+> David
+
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
