@@ -4,65 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939F8C88E77
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 08:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D22E0C88E5C
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 10:12:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SFJB1bGfXONsK+W8+f6C2CEfKkfi+4Ut+7JGQx2uIQU=; b=wy7/eUlYy7OYSa
-	F0qAbMgIRLLk/Quvm+OaXs9CCWBF92vC48rIQUIOLURGv9vAvkEi6kBuBNPiwFWGqipZtIj8fJknU
-	+83CQ/gvTa5WBNUUh7HQsDmkTsxxV6msmhPUWz+EMat+VVJEQZnxQt0hv+D6yqawyLwHn9FyFHBa+
-	H7GCnBogiWRYH+swuvw0q7sZxFdbZyGAr/F6l++G4dB542SZdwWWwDrD0wj5lCh1d3PK9Eh8cFPM9
-	Y4T16euXKnY2zlSI3KENr1VkrTs6FScjqcmzaWhfxhMNtvQ6A74GnXdmKHaZ5VM4Vdb2UqZjDYNfP
-	mDY7tBcAIEm+QGLcCZVQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5WqFHXh0uciz8roxl3N6a9DxWeMHRWCYX6pRFWv0UHs=; b=yNp6jR1SqNraOu
+	KGDxbF+Xv0Toxiy11aSF3kS934L9hZ5DbK9NEH7EtMKkztXwkv3lKp9qa6ZY8u9YWcceN8gf5AqrB
+	q3UB54FMQUgDa/Q/x4ZuuBnAuFqUevL7njhIUBSxjJOrFEuOaWy/abmDuJ1BLdZRxA4vfG+V09OFS
+	aujhp8h+tclO3Xv559JHh6dThw8Jfp6jgPjSPbWpPcggKFpdXKnBl/Qjcu0BEAw2nhIlLh645+YeR
+	JC/coO4L1I78bJCG+NbXtrYclq7auY1oSxWWZcdBRLw06nMym3z1eQ3O/5QjoxObdtro7X/9V0JPo
+	syQR0cY1lzR7ei7uhLpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lHs-00000008lSG-1HeB;
-	Wed, 16 Sep 2026 08:46:40 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1x6md0-00000008wZe-2dRJ;
+	Wed, 16 Sep 2026 10:12:34 +0000
+Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6lHo-00000008lR8-0ssy
+	id 1x6mcx-00000008wYJ-2xrJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Sep 2026 08:46:38 +0000
+	Wed, 16 Sep 2026 10:12:33 +0000
+Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49b912d8239so4822215e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Sep 2026 03:12:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789553550; cv=none;
+        d=google.com; s=arc-20260327;
+        b=J3LUtuR2wjpCW+VjmKrCoogGd+SdoVy8KKFN2EqQ1FbS0cr6UOs1P/hjPSogSjME7k
+         HQkg/K7L6kinlf4C4Nr4Qfmsj3EUNZWTtcR0Ubdx7iMKJK5H33xFMfwLSKOiJbkC4aS3
+         dgxxyQLhk2eU3b86myQ8jI//IrKipoa63q10sSIj19G21ONgmjBS5ZCTXqnJ/Zl5qeRL
+         SD2wdclDtbfV7vO0e1JYA023TFkbQlQ6bd7c1ImHynDGZSQpprZ3uPEJ4Kj/eRXSDUwN
+         QFuBBHXg2h1FgdTBTimBD/tyfuGdrd/WHsW/fG13Oiiv9yo4/1rZja448GebScvb0U1l
+         RcHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=VMvnu6Q+bhTIDoi1lbqTiSXnAgA138OR2uRiPsRsuJs=;
+        fh=J7Ul+9tbEsPvf/jqC/EYTIOgEHE0hQ7ffMiXvOTTunE=;
+        b=Hi67lixEopMFMHqnkwwK2op/cxR+WYeXFGgJMtxToojgJCVjVXm1nXFGtPp8hz4x80
+         xUMzwvJfqMXXQ+XkvY3upkD0KcrcjOJAa8LcK8s+0tNpRXwjNM5CzNN+lFRO2SS4MFRz
+         nZ0C48aUU4PSqrFm3ZkLAwfFDK+5cB6Q5/VSdr2qsTCcXGUEvG2nPB7mkiXJTVEBUfks
+         9nmbM5mWk9wJJu/d7FF6hz1Fn+wKv+P8Xm+bzn7ymbI7qecxUhBFTeOi7b+3I4wAMmxM
+         X+d6tNhYQjoFqzDKwCLTMqCQNedtURcF3QixndKkScZvDNSg4LXQrDn4rPWx01BNaX9X
+         YoTw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1789548393; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=N3n3rQBeS6FpGNd3MFEz1+uFhqUAbR6xzDiLD6tDy8Q=;
-	b=eDDqCH85M41rKNh+ho+89eKWgThNE18SMI4N1KUFWxYdIPyAdYdmDxG7cSln6kw6csb+DMFXqaKh6//LGS1+S1iI0YMfFVQGSjLT4uEFn0BtCa3qArMPDLboomCBeSsoltiEvD92ETZFQDewhxCQC916fIoejhqvt3zH5v9V7eY=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0XB4PTcx_1789548387;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XB4PTcx_1789548387 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 16 Sep 2026 16:46:31 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	irogers@google.com,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	adrian.hunter@intel.com,
-	james.clark@linaro.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	guoren@kernel.org
-Cc: linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] perf riscv: Add perf_regs_load and enable the dwarf unwind test
-Date: Wed, 16 Sep 2026 16:46:26 +0800
-Message-ID: <20260916084626.1166-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
+        d=brainfault.org; s=google; t=1789553550; x=1790158350; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=VMvnu6Q+bhTIDoi1lbqTiSXnAgA138OR2uRiPsRsuJs=;
+        b=M0mNlqYPLnpFsm1NsOsr9iMNRRDkvHsE27aOonJXLfVe3r0/gdSKrXQXC4n1eTewkm
+         MyEMqyGuVOqO6lQ+JYF64gbP9iae86QC9kAWquwqEj+JBh1fv0XpllXl/2ndX/wi+vVs
+         iZFvQmSffwh6bbv1CjcApU9VH5brucB5Earbcgi1RmYqi4sTeZlMD9gCxqPyKZjM2KdZ
+         iAoZ3psZfZlwtRRat2cruJS/s4QnFwkcltaUNI5BlS7zUccecWV80tyKRoda90jV4gIk
+         wZVY3qEl+rk/VtBPLQi1vBqr/ZNkXXT2BSDrNaIYey10+lbC08YzoEksMjlG69wv4RtG
+         35XA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789553550; x=1790158350;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VMvnu6Q+bhTIDoi1lbqTiSXnAgA138OR2uRiPsRsuJs=;
+        b=y3U9gYG8svShC73mh0azfl5cz5m31lo0AfGBG/0L4GqAI86pm6CcPHoSwoM19b2RYm
+         B5ulWy7R29vZzouLmt8unPOK0X+QnScgKUmNdjkryFHAFtDxVHhC36mW911LKABGMpha
+         +mqxeFouuyg1thhD5weKerO2+dnLKW4pQ7uHniJ8wNkYMymq01NmjeB/619lZSRCNws2
+         FyJFi3CPvO9/oXFgJELtROI/Zy1xzXs/LpgfdN5PJOJhTN3bnu/nJiXER4kxn8weGBD+
+         R2CTr14K8C/vPKl9q3Rc9FxM8A5G3Ct4cHgdLgSZUD/vYz2Rw5bjylJ8/LjB1PZOp8rz
+         XL7A==
+X-Forwarded-Encrypted: i=1; AKwUvBwpdaskgKiczuqA6iRfFqHgN/MPgluJpG6GH3WY8fwU4PwSGrDXMj1EExOdtaSKbCfb13VCmdeOfrkAQw==@lists.infradead.org
+X-Gm-Message-State: AFuF++mMZ9o2Ww2C0yzU624rbiAbHSKP9+FPVHN8mskJL1i9trWZyON9
+	kihHOeZtsnDi1FLY7dnb5HBlsEVApWdNMIMfoR3u2WBIPyU8kLc4m54f4fjQv6R0b3FU2Q7UXng
+	Q4rXY01M6miuOikDOnWbb0l5pcnbLH+LVFDloCTr7qQ==
+X-Gm-Gg: AYBFou0N+6CCiPGuMW4DNypQaMlDLhNywSPQUll6oUjWXmAoWEc97xHoJHIfCRZmDHH
+	AFWBswlEb/8Wuw7T7FqrIFoHPRfuPSxu8WPCBdJjcKoiUepFrVm7agyqOORA2Q3fAHVgc8MlUcb
+	iOr351j/GwgeIxUpn1YklB4eX7QyoDdvgC9mtnggC54DPnDWazxpuSKj7dUeoWVRA8L1mON4v9Q
+	7AWIb3JvAvhBW0ksC3/QlfP5oSa0SwGdZ34uOkVAOO/+OgmPj8MvgmffRfoVBZc9Tjb8dYMVm/S
+	zrOTA9fsuJZ6vKbC5hmYebhTiomnEO9u/x2pak36TpUOwDAgib+sr+ig41zVcabWQ42q0gcxhu4
+	XRl0S9m49H3RvBJ6I2JIq9kbaT5MaiFLUAqZwtrqHyiTpZKMwBSTOMXEjxRxMNh3ZMUXgabfv9o
+	U=
+X-Received: by 2002:a05:600c:1986:b0:49c:d019:70c5 with SMTP id
+ 5b1f17b1804b1-49ea528e2f5mr24120835e9.0.1789553548884; Wed, 16 Sep 2026
+ 03:12:28 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260912-rpmi-tee-service-grp-dev-v1-0-1d1d35c2a859@oss.qualcomm.com>
+ <20260912-rpmi-tee-service-grp-dev-v1-5-1d1d35c2a859@oss.qualcomm.com>
+In-Reply-To: <20260912-rpmi-tee-service-grp-dev-v1-5-1d1d35c2a859@oss.qualcomm.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 16 Sep 2026 15:42:16 +0530
+X-Gm-Features: AcwNN1XhJcdypVFFKePBGQrRcccPnauqo1pQsJ8HQwZetdLhE4E6-eyGGrD9-yI
+Message-ID: <CAAhSdy3Or_uDWuQniUGguc9AwL8smF6XHhJ0kizFOJKJ0N+9OA@mail.gmail.com>
+Subject: Re: [PATCH RFC 5/5] dt-bindings: tee: add RISC-V RPMI TEE transport
+To: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
+Cc: Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Rahul Pathak <rahul@summations.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-arm-msm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, op-tee@lists.trustedfirmware.org, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_014636_972483_82EC24D1 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20260916_031231_789898_BFE1C5D3 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,307 +119,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv has no arch level perf test: tests/builtin-test.c only picks up
-arch_tests[] for x86, arm64 and powerpc64, tests/Build only builds the
-generic dwarf unwind test driver for x86, arm, arm64 and powerpc, and
-arch/riscv/tests/ did not exist. "Test dwarf unwind" was therefore never
-registered on riscv, even though DWARF is the only reliable way to walk a
-riscv user stack -- the arch callchain code walks frame pointers only --
-and both unwinders already support riscv, elfutils libdw generically and
-libunwind through util/libunwind-arch/libunwind-riscv.c.
-
-Add perf_regs_load() and the arch unwind sample helper modelled on the
-arm64 ones, and wire riscv into the two gates. The x1..x31 slots of enum
-perf_event_riscv_regs match the hardware registers one to one, and
-PERF_REG_RISCV_PC is filled with ra so that unwinding starts at the
-caller.
-
-Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
-Reviewed-by: Ian Rogers <irogers@google.com>
----
-
-Changes since v2:
-- Add explicit #include <string.h> in arch/riscv/tests/arch-tests.c for the
-  NULL terminator, matching the other arch copies.
-
-Changes since v1:
-- Add explicit #include <stdlib.h> in arch/riscv/tests/dwarf-unwind.c per
-  Ian Rogers' review.
-- Add Reviewed-by: Ian Rogers <irogers@google.com>
-
-Tested on riscv64 (QEMU virt, kernel 6.18, rv64gcv userspace) with both
-the libdw and the libunwind unwinder, and in both callchain orders. All
-eight expected frames resolve, including the one in libc:
-
-  # ./perf test -v "dwarf unwind"
-   71: Test dwarf unwind                                     : Ok
-
-  got: test__dwarf_unwind 0x555593375c45, expecting test__dwarf_unwind
-  got: test_dwarf_unwind__krava_1 0x555593375b7f, expecting test_dwarf_unwind__krava_1
-  got: test_dwarf_unwind__krava_2 0x555593375b43, expecting test_dwarf_unwind__krava_2
-  got: test_dwarf_unwind__krava_3 0x555593375aff, expecting test_dwarf_unwind__krava_3
-  got: bsearch 0x7fff9aad575b, expecting bsearch
-  got: test_dwarf_unwind__compare 0x555593375a5d, expecting test_dwarf_unwind__compare
-  got: test_dwarf_unwind__thread 0x555593375939, expecting test_dwarf_unwind__thread
-  got: test__arch_unwind_sample 0x5555933788a0, expecting test__arch_unwind_sample
-
-The libunwind build links libunwind-riscv.so.8, so the riscv specific
-remote unwinder in util/libunwind-arch/libunwind-riscv.c is what runs.
-
-A build with DWARF unwinding disabled was checked too: it still links,
-arch_tests[] degrades to the NULL only array, and the test is simply
-absent from "perf test list".
-
- tools/perf/arch/riscv/Build                |  1 +
- tools/perf/arch/riscv/include/arch-tests.h |  9 +++
- tools/perf/arch/riscv/include/perf_regs.h  |  2 +
- tools/perf/arch/riscv/tests/Build          |  4 ++
- tools/perf/arch/riscv/tests/arch-tests.c   | 11 ++++
- tools/perf/arch/riscv/tests/dwarf-unwind.c | 65 ++++++++++++++++++++++
- tools/perf/arch/riscv/tests/regs_load.S    | 58 +++++++++++++++++++
- tools/perf/tests/Build                     |  2 +-
- tools/perf/tests/builtin-test.c            |  3 +-
- 9 files changed, 153 insertions(+), 2 deletions(-)
- create mode 100644 tools/perf/arch/riscv/include/arch-tests.h
- create mode 100644 tools/perf/arch/riscv/tests/Build
- create mode 100644 tools/perf/arch/riscv/tests/arch-tests.c
- create mode 100644 tools/perf/arch/riscv/tests/dwarf-unwind.c
- create mode 100644 tools/perf/arch/riscv/tests/regs_load.S
-
-diff --git a/tools/perf/arch/riscv/Build b/tools/perf/arch/riscv/Build
-index e63eabc2c8f4..12ebc65ea7a3 100644
---- a/tools/perf/arch/riscv/Build
-+++ b/tools/perf/arch/riscv/Build
-@@ -1 +1,2 @@
- perf-util-y += util/
-+perf-test-y += tests/
-diff --git a/tools/perf/arch/riscv/include/arch-tests.h b/tools/perf/arch/riscv/include/arch-tests.h
-new file mode 100644
-index 000000000000..2b3834a5ddbb
---- /dev/null
-+++ b/tools/perf/arch/riscv/include/arch-tests.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef ARCH_TESTS_H
-+#define ARCH_TESTS_H
-+
-+struct test_suite;
-+
-+extern struct test_suite *arch_tests[];
-+
-+#endif
-diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arch/riscv/include/perf_regs.h
-index af7a1b47bf66..30cfd3f63eb5 100644
---- a/tools/perf/arch/riscv/include/perf_regs.h
-+++ b/tools/perf/arch/riscv/include/perf_regs.h
-@@ -8,6 +8,8 @@
- #include <linux/types.h>
- #include "../../../../arch/riscv/include/uapi/asm/perf_regs.h"
- 
-+void perf_regs_load(u64 *regs);
-+
- #define PERF_REGS_MASK	((1ULL << PERF_REG_RISCV_MAX) - 1)
- #define PERF_REGS_MAX	PERF_REG_RISCV_MAX
- 
-diff --git a/tools/perf/arch/riscv/tests/Build b/tools/perf/arch/riscv/tests/Build
-new file mode 100644
-index 000000000000..bd15c6bbc1b2
---- /dev/null
-+++ b/tools/perf/arch/riscv/tests/Build
-@@ -0,0 +1,4 @@
-+perf-test-y += regs_load.o
-+perf-test-$(CONFIG_DWARF_UNWIND) += dwarf-unwind.o
-+
-+perf-test-y += arch-tests.o
-diff --git a/tools/perf/arch/riscv/tests/arch-tests.c b/tools/perf/arch/riscv/tests/arch-tests.c
-new file mode 100644
-index 000000000000..ad16b4f8f63e
---- /dev/null
-+++ b/tools/perf/arch/riscv/tests/arch-tests.c
-@@ -0,0 +1,11 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
-+#include "tests/tests.h"
-+#include "arch-tests.h"
-+
-+struct test_suite *arch_tests[] = {
-+#ifdef HAVE_DWARF_UNWIND_SUPPORT
-+	&suite__dwarf_unwind,
-+#endif
-+	NULL,
-+};
-diff --git a/tools/perf/arch/riscv/tests/dwarf-unwind.c b/tools/perf/arch/riscv/tests/dwarf-unwind.c
-new file mode 100644
-index 000000000000..fe0c32ea0e05
---- /dev/null
-+++ b/tools/perf/arch/riscv/tests/dwarf-unwind.c
-@@ -0,0 +1,65 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <stdlib.h>
-+#include <string.h>
-+#include "perf_regs.h"
-+#include "thread.h"
-+#include "map.h"
-+#include "maps.h"
-+#include "event.h"
-+#include "debug.h"
-+#include "tests/tests.h"
-+
-+#define STACK_SIZE 8192
-+
-+static int sample_ustack(struct perf_sample *sample,
-+		struct thread *thread, u64 *regs)
-+{
-+	struct stack_dump *stack = &sample->user_stack;
-+	struct map *map;
-+	unsigned long sp;
-+	u64 stack_size, *buf;
-+
-+	buf = malloc(STACK_SIZE);
-+	if (!buf) {
-+		pr_debug("failed to allocate sample uregs data\n");
-+		return -1;
-+	}
-+
-+	sp = (unsigned long) regs[PERF_REG_RISCV_SP];
-+
-+	map = maps__find(thread__maps(thread), (u64)sp);
-+	if (!map) {
-+		pr_debug("failed to get stack map\n");
-+		free(buf);
-+		return -1;
-+	}
-+
-+	stack_size = map__end(map) - sp;
-+	map__put(map);
-+	stack_size = stack_size > STACK_SIZE ? STACK_SIZE : stack_size;
-+
-+	memcpy(buf, (void *) sp, stack_size);
-+	stack->data = (char *) buf;
-+	stack->size = stack_size;
-+	return 0;
-+}
-+
-+int test__arch_unwind_sample(struct perf_sample *sample,
-+		struct thread *thread)
-+{
-+	struct regs_dump *regs = perf_sample__user_regs(sample);
-+	u64 *buf;
-+
-+	buf = calloc(PERF_REGS_MAX, sizeof(u64));
-+	if (!buf) {
-+		pr_debug("failed to allocate sample uregs data\n");
-+		return -1;
-+	}
-+
-+	perf_regs_load(buf);
-+	regs->abi  = PERF_SAMPLE_REGS_ABI;
-+	regs->regs = buf;
-+	regs->mask = PERF_REGS_MASK;
-+
-+	return sample_ustack(sample, thread, buf);
-+}
-diff --git a/tools/perf/arch/riscv/tests/regs_load.S b/tools/perf/arch/riscv/tests/regs_load.S
-new file mode 100644
-index 000000000000..703bbf3374a6
---- /dev/null
-+++ b/tools/perf/arch/riscv/tests/regs_load.S
-@@ -0,0 +1,58 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <linux/linkage.h>
-+
-+/*
-+ * Fill the u64 array 'regs' at the slots of enum perf_event_riscv_regs:
-+ * x1..x31 map one-to-one onto PERF_REG_RISCV_RA..PERF_REG_RISCV_T6, and the
-+ * stride stays 8 bytes on RV32 because the slots are u64 and the caller
-+ * zeroes them.
-+ *
-+ * PERF_REG_RISCV_PC is filled with ra, the return address of the call to
-+ * this function, so that unwinding starts at the caller rather than here.
-+ */
-+
-+#if __riscv_xlen == 64
-+#define REG_S	sd
-+#else
-+#define REG_S	sw
-+#endif
-+
-+#define STR_REG(r)	REG_S x##r, 8 * r(a0)
-+
-+	.text
-+	.type perf_regs_load,%function
-+SYM_FUNC_START(perf_regs_load)
-+	STR_REG(1)
-+	STR_REG(2)
-+	STR_REG(3)
-+	STR_REG(4)
-+	STR_REG(5)
-+	STR_REG(6)
-+	STR_REG(7)
-+	STR_REG(8)
-+	STR_REG(9)
-+	STR_REG(10)
-+	STR_REG(11)
-+	STR_REG(12)
-+	STR_REG(13)
-+	STR_REG(14)
-+	STR_REG(15)
-+	STR_REG(16)
-+	STR_REG(17)
-+	STR_REG(18)
-+	STR_REG(19)
-+	STR_REG(20)
-+	STR_REG(21)
-+	STR_REG(22)
-+	STR_REG(23)
-+	STR_REG(24)
-+	STR_REG(25)
-+	STR_REG(26)
-+	STR_REG(27)
-+	STR_REG(28)
-+	STR_REG(29)
-+	STR_REG(30)
-+	STR_REG(31)
-+	REG_S ra, 0(a0)
-+	ret
-+SYM_FUNC_END(perf_regs_load)
-diff --git a/tools/perf/tests/Build b/tools/perf/tests/Build
-index 66944a4f4968..c457504e052d 100644
---- a/tools/perf/tests/Build
-+++ b/tools/perf/tests/Build
-@@ -72,7 +72,7 @@ perf-test-y += tool_pmu.o
- perf-test-y += subcmd-help.o
- perf-test-y += kallsyms-split.o
- 
--ifeq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc))
-+ifeq ($(SRCARCH),$(filter $(SRCARCH),x86 arm arm64 powerpc riscv))
- perf-test-$(CONFIG_DWARF_UNWIND) += dwarf-unwind.o
- endif
- 
-diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-index 4d0784b16723..a0478dd3e9cc 100644
---- a/tools/perf/tests/builtin-test.c
-+++ b/tools/perf/tests/builtin-test.c
-@@ -67,7 +67,8 @@ static const char *workload_control;
-  * dependent on the initialization, as such GCC with LTO complains of
-  * conflicting definitions with a weak symbol.
-  */
--#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__)
-+#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || \
-+	defined(__powerpc64__) || defined(__riscv)
- extern struct test_suite *arch_tests[];
- #else
- static struct test_suite *arch_tests[] = {
--- 
-2.50.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBTZXAgMTIsIDIwMjYgYXQgMzo0NeKAr1BNIEFtaXJyZXphIFphcnJhYmkKPGFtaXJy
+ZXphLnphcnJhYmlAb3NzLnF1YWxjb21tLmNvbT4gd3JvdGU6Cj4KPiBBZGQgYSBkZXZpY2UtdHJl
+ZSBiaW5kaW5nIGZvciB0aGUgT1AtVEVFIFJJU0MtViB0cmFuc3BvcnQgdXNpbmcgdGhlIFJQTUkK
+PiBURUUgc2VydmljZSBncm91cCBvdmVyIFNCSSBNUFhZLgo+Cj4gRGVzY3JpYmUgb25lIG1haWxi
+b3ggY2hhbm5lbCBwZXIgaGFydCBhbmQgYW4gb3B0aW9uYWwgaW50ZXJydXB0IHVzZWQgYXMKPiB0
+aGUgYXZhaWxhYmlsaXR5IGRvb3JiZWxsIGZvciBhc3luY2hyb25vdXMgbm90aWZpY2F0aW9ucy4K
+Pgo+IEFkZCB0aGUgYmluZGluZyB0byB0aGUgZXhpc3RpbmcgT1AtVEVFIE1BSU5UQUlORVJTIGVu
+dHJ5Lgo+Cj4gU2lnbmVkLW9mZi1ieTogQW1pcnJlemEgWmFycmFiaSA8YW1pcnJlemEuemFycmFi
+aUBvc3MucXVhbGNvbW0uY29tPgo+IC0tLQo+ICAuLi4vYmluZGluZ3MvdGVlL3Jpc2N2LHJwbWkt
+bXB4eS10ZWUueWFtbCAgICAgICAgICB8IDY1ICsrKysrKysrKysrKysrKysrKysrKysKPiAgTUFJ
+TlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMSArCj4g
+IDIgZmlsZXMgY2hhbmdlZCwgNjYgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL0RvY3Vt
+ZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy90ZWUvcmlzY3YscnBtaS1tcHh5LXRlZS55YW1s
+IGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3RlZS9yaXNjdixycG1pLW1weHkt
+dGVlLnlhbWwKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uOGY2
+ZmYzMTNmZDQyCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJl
+ZS9iaW5kaW5ncy90ZWUvcmlzY3YscnBtaS1tcHh5LXRlZS55YW1sCj4gQEAgLTAsMCArMSw2NSBA
+QAo+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAoR1BMLTIuMC1vbmx5IE9SIEJTRC0yLUNs
+YXVzZSkKPiArIyBDb3B5cmlnaHQgKGMpIFF1YWxjb21tIFRlY2hub2xvZ2llcywgSW5jLiBhbmQv
+b3IgaXRzIHN1YnNpZGlhcmllcy4KPiArJVlBTUwgMS4yCj4gKy0tLQo+ICskaWQ6IGh0dHA6Ly9k
+ZXZpY2V0cmVlLm9yZy9zY2hlbWFzL3RlZS9yaXNjdixycG1pLW1weHktdGVlLnlhbWwjCj4gKyRz
+Y2hlbWE6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9tZXRhLXNjaGVtYXMvY29yZS55YW1sIwo+ICsK
+PiArdGl0bGU6IFJJU0MtViBSUE1JIFRFRSBzZXJ2aWNlIGdyb3VwIGJhc2VkIG1lc3NhZ2UgcHJv
+eHkKPiArCj4gK21haW50YWluZXJzOgo+ICsgIC0gQW1pcnJlemEgWmFycmFiaSA8YW1pcnJlemEu
+emFycmFiaUBvc3MucXVhbGNvbW0uY29tPgo+ICsKPiArZGVzY3JpcHRpb246IHwKPiArICBUaGUg
+UklTQy1WIFBsYXRmb3JtIE1hbmFnZW1lbnQgSW50ZXJmYWNlIChSUE1JKSBbMV0gZGVmaW5lcyBh
+IG1lc3NhZ2luZwo+ICsgIHByb3RvY29sIHdoaWNoIGlzIG1vZHVsYXIgYW5kIGV4dGVuc2libGUu
+IFRoZSBzdXBlcnZpc29yIHNvZnR3YXJlIGNhbgo+ICsgIHNlbmQvcmVjZWl2ZSBSUE1JIG1lc3Nh
+Z2VzIHZpYSB0aGUgU0JJIE1QWFkgZXh0ZW5zaW9uIFsyXSBvciBzb21lIGRlZGljYXRlZAo+ICsg
+IHN1cGVydmlzb3ItbW9kZSBSUE1JIHRyYW5zcG9ydC4KPiArCj4gKyAgVGhlIFJQTUkgc3BlY2lm
+aWNhdGlvbiBbMV0gZGVmaW5lcyBhIFRFRSBzZXJ2aWNlIGdyb3VwIHdoaWNoIGlzIHRoZSBSSVND
+LVYKPiArICBhbmFsb2cgb2YgQXJtIEZGLUE6IE9QLVRFRSBhbmQgdGhlIHJpY2ggZXhlY3V0aW9u
+IGVudmlyb25tZW50IChSRUUsIGkuZS4KPiArICBMaW51eCkgYXJlIHBlZXIgZW5kcG9pbnRzIGFu
+ZCB0aGUgUlBNSSBmcmFtZXdvcmsgKG1hY2hpbmUgbW9kZSBmaXJtd2FyZSkKPiArICBtZWRpYXRl
+cyBldmVyeSBtZXNzYWdlLiBFbnRlcmluZyBPUC1URUUgb24gYSBoYXJ0IHJ1bnMgaXQgb24gdGhh
+dCBoYXJ0IHVudGlsCj4gKyAgaXQgcmVzcG9uZHMsIHNvIHRoZSBTQkkgaW1wbGVtZW50YXRpb24g
+cHJvdmlkZXMgb25lIFNCSSBNUFhZIGNoYW5uZWwgcGVyCj4gKyAgaGFydDsgYWxsIG9mIHRoZW0g
+YXJlIGxpc3RlZCwgaW4gaGFydCBvcmRlciwgb24gYSBzaW5nbGUgbm9kZS4KPiArCj4gKyAgPT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQo+ICsgIFJlZmVyZW5jZXMK
+PiArICA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Cj4gKwo+ICsg
+IFsxXSBSSVNDLVYgUGxhdGZvcm0gTWFuYWdlbWVudCBJbnRlcmZhY2UgKFJQTUkpIHYxLjAgKG9y
+IGhpZ2hlcikKPiArICAgICAgaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2LW5vbi1pc2EvcmlzY3Yt
+cnBtaS9yZWxlYXNlcwo+ICsKPiArICBbMl0gUklTQy1WIFN1cGVydmlzb3IgQmluYXJ5IEludGVy
+ZmFjZSAoU0JJKSB2My4wIChvciBoaWdoZXIpCj4gKyAgICAgIGh0dHBzOi8vZ2l0aHViLmNvbS9y
+aXNjdi1ub24taXNhL3Jpc2N2LXNiaS1kb2MvcmVsZWFzZXMKPiArCj4gK3Byb3BlcnRpZXM6Cj4g
+KyAgY29tcGF0aWJsZToKPiArICAgIGNvbnN0OiByaXNjdixycG1pLW1weHktdGVlCj4gKwo+ICsg
+IG1ib3hlczoKPiArICAgIG1pbkl0ZW1zOiAxCj4gKyAgICBkZXNjcmlwdGlvbjoKPiArICAgICAg
+T25lIFNCSSBNUFhZIGNoYW5uZWwgaW1wbGVtZW50aW5nIHRoZSBSUE1JIFRFRSBzZXJ2aWNlIGdy
+b3VwIHBlciBoYXJ0LAo+ICsgICAgICBsaXN0ZWQgaW4gdGhlIHNhbWUgb3JkZXIgYXMgdGhlIENQ
+VSBub2Rlcy4KCkkgYW0gbm90IHN1cmUgd2h5IHlvdSBuZWVkIHNlcGFyYXRlIE1QWFkgY2hhbm5l
+bCBwZXIgaGFydC4gVGhlIE1QWFkgc2hhcmVkCm1lbW9yeSBpcyBhbHJlYWR5IHBlci1oYXJ0IHdo
+ZXJlYXMgdGhlIE1QWFkgY2hhbm5lbCB3aWxsIGJlIGRvbWFuIHNwZWNpZmljCmZvciBURUUuCgpB
+bHNvLCBmb3IgdGhpcyBiaW5kaW5nIHJlZmVyZXJyaW5nIHRvIG9ubHkgbWFpbGJveCBjaGFubmVs
+IGlzCnN1ZmZpY2llbnQuIFRoZSB1bmRlcmx5aW5nCm1lY2hhbmlzbSB0byBzZW5kIFJQTUkgbWVz
+c2FnZXMgaXMgYWJzdHJhY3RlZCBhd2F5IGJ5IHRoZSBtYWlsYm94IGNvbnRyb2xsZXIKZHJpdmVy
+LgoKPiArCj4gKyAgaW50ZXJydXB0czoKPiArICAgIG1heEl0ZW1zOiAxCj4gKyAgICBkZXNjcmlw
+dGlvbjoKPiArICAgICAgQXZhaWxhYmlsaXR5IGRvb3JiZWxsIHJhaXNlZCBieSBPUC1URUUgdG8g
+c2lnbmFsIGFzeW5jaHJvbm91cwo+ICsgICAgICBub3RpZmljYXRpb25zIG92ZXIgdGhlIFJQTUkg
+VEVFIHNpZ25hbCBidXMuIE9wdGlvbmFsOyB3aGVuIGFic2VudAo+ICsgICAgICBhc3luY2hyb25v
+dXMgbm90aWZpY2F0aW9uIGlzIGRpc2FibGVkLgo+ICsKPiArcmVxdWlyZWQ6Cj4gKyAgLSBjb21w
+YXRpYmxlCj4gKyAgLSBtYm94ZXMKPiArCj4gK2FkZGl0aW9uYWxQcm9wZXJ0aWVzOiBmYWxzZQo+
+ICsKPiArZXhhbXBsZXM6Cj4gKyAgLSB8Cj4gKyAgICB0ZWUgewo+ICsgICAgICAgIGNvbXBhdGli
+bGUgPSAicmlzY3YscnBtaS1tcHh5LXRlZSI7CgpUaGlzIG11c3QgYmUgInJpc2N2LHJwbWktdGVl
+IiBiYXNlZCBvbiBhYm92ZSBjb21tZW50cy4KCj4gKyAgICAgICAgbWJveGVzID0gPCZtcHh5X21i
+b3ggMHgxMCAweDA+LCA8Jm1weHlfbWJveCAweDExIDB4MD47CgpMaWtlIG1lbnRpb25lZCBhYm92
+ZSwgb25seSBvbmUgbWFpbGJveCBjaGFubmVsIGlzIHN1ZmZpY2llbnQuCgo+ICsgICAgfTsKPiAr
+Li4uCj4gZGlmZiAtLWdpdCBhL01BSU5UQUlORVJTIGIvTUFJTlRBSU5FUlMKPiBpbmRleCAyMDdh
+NmUyZGI3MGMuLjdkMGU1NTAwODViMiAxMDA2NDQKPiAtLS0gYS9NQUlOVEFJTkVSUwo+ICsrKyBi
+L01BSU5UQUlORVJTCj4gQEAgLTIwNTc3LDYgKzIwNTc3LDcgQEAgTTogICAgICBKZW5zIFdpa2xh
+bmRlciA8amVuc3dpQGtlcm5lbC5vcmc+Cj4gIEw6ICAgICBvcC10ZWVAbGlzdHMudHJ1c3RlZGZp
+cm13YXJlLm9yZyAobW9kZXJhdGVkIGZvciBub24tc3Vic2NyaWJlcnMpCj4gIFM6ICAgICBNYWlu
+dGFpbmVkCj4gIEY6ICAgICBEb2N1bWVudGF0aW9uL0FCSS90ZXN0aW5nL3N5c2ZzLWJ1cy1vcHRl
+ZS1kZXZpY2VzCj4gK0Y6ICAgICBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGVl
+L3Jpc2N2LHJwbWktbXB4eS10ZWUueWFtbAo+ICBGOiAgICAgZHJpdmVycy90ZWUvb3B0ZWUvCj4K
+PiAgT1AtVEVFIFJBTkRPTSBOVU1CRVIgR0VORVJBVE9SIChSTkcpIERSSVZFUgo+Cj4gLS0KPiAy
+LjM0LjEKPgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
