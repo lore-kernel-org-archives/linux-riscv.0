@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 543CEC88E75
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 02:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE7FC88E77
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 02:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HZoEY0IiUVpWGIbP55bFQyzsSF1ioy+LhicK5zzcxZ0=; b=V/mALJwbZe4K6y
-	jajXJFDtgzQE9WopRrbZg1cmuO4ifdHg+WNRv8iEq1vDbO+bV6Wwy5qbf15CFNFys28uFnoyuR5dc
-	SIBeKfyBauPDL5eHEFT3sGOZgw9TXJy4Ns1adOYmQsXEF16MjF2Mj1r3eqwQ1xIBQKcf2qDdb/0tF
-	Arg1w4Bfgn0by6WdLZQEKKCYu6PZNCHtE6hCkzHrb4azqHhVLXYvF/UI2TDMLIu9PXwx38XbaFGMF
-	1jGLUwMeKc0EqYBVdWh37KK+d9C5BSE+wLC/1uQ8ZJxb1zJ83sWWZdTwODSLec/f3XORKwa2lDbBa
-	TIW0UGI0JBxabLJUfPaw==;
+	List-Owner; bh=LIv0q9/pDskPRRAtOhdGwZcuUwzwtnvygAO4UdpIoC8=; b=LgrdrSuPjKU59h
+	9lzA1YdIZ+Zm0LZ61c8CyJKjpAoKvTHDPdNXHx9gpTiRoEhr1mq0pwlU52TT6nQZj20EjDoI5vm2E
+	OP0UOiPzKGgLJK7C9uUCZwK3++r7YEw8C6ukIOoy3ZlwC+o3hRXIGVvvAmj96nEf1aFWaeb8kSKv/
+	6GJkn5QVnmyqCgX3rls1YwHnN0A4El5JLZeqn7sFXEfksdnunILE66LPQsC/QDKiHyMJGE/ydeRCI
+	BtjF/GRJPVvdWSfv+PFJXx7u54oyAZy9Nw/9PVViVL4ZOEaY8dq4iWvj7/XJciBm6RKjRF6T6lMGI
+	LhO1Mks/61i/q1pABPEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6exv-00000008B3c-04FH;
-	Wed, 16 Sep 2026 02:01:39 +0000
+	id 1x6fHI-00000008BbE-3F8b;
+	Wed, 16 Sep 2026 02:21:40 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6exs-00000008B33-2kIR;
-	Wed, 16 Sep 2026 02:01:36 +0000
+	id 1x6fHD-00000008Bb6-3r7C
+	for linux-riscv@lists.infradead.org;
+	Wed, 16 Sep 2026 02:21:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CDE3560214;
-	Wed, 16 Sep 2026 02:01:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E999D1F00893;
-	Wed, 16 Sep 2026 02:01:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1789524094;
-	bh=Kq4nX0CZWZvbBl1ewxdrR8njTtxJd2HKKhLZ4yZoin4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HA4IrxR+bH6KFYi5TWsVFFRj5NN/KsmXWn+L2rcKXslNm+h4O1+C0Mz1TX/mnbSd5
-	 wNlo1vs7L/RwOu/p4JC+a32HO1/edlho+RmyG7M/c8w2xQw4dUW63KjVSNntMUP6xo
-	 zHIhd6HWzSLYzzfxhv0JalmDYIqgVcBuZA1Pa2/U=
-Date: Tue, 15 Sep 2026 19:01:31 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, Baolin
- Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett"
- <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts
- <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song
- <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif
- <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Guo Ren
- <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Dinh Nguyen <dinguyen@kernel.org>, Simon Schuster
- <schuster.simon@siemens-energy.com>, Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne
- <shorne@gmail.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, Rich
- Felker <dalias@libc.org>, John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
- Ghiti <alex@ghiti.fr>, Russell King <linux@armlinux.org.uk>, Vineet Gupta
- <vgupta@kernel.org>, Michal Simek <monstr@monstr.eu>, Chris Zankel
- <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, Will Deacon
- <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick
- Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
- "David S. Miller" <davem@davemloft.net>, Andreas Larsson
- <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>,
- Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland
- <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
- <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Helge
- Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
- Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, Anton Ivanov
- <anton.ivanov@cambridgegreys.com>, Johannes Berg
- <johannes@sipsolutions.net>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin"
- <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka
- <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan
- <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jason Gunthorpe
- <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>, Peter Xu
- <peterx@redhat.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org,
- linux-arch@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-alpha@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
- linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, Qi Zheng
- <qi.zheng@linux.dev>
-Subject: Re: [PATCH v3 00/12] mm: make userland page table freeing RCU-safe
-Message-Id: <20260915190131.adee185f2ce04a8ec821489c@linux-foundation.org>
-In-Reply-To: <20260911-rcu-pagetable-freeing-v3-0-7b8c86103821@kernel.org>
-References: <20260911-rcu-pagetable-freeing-v3-0-7b8c86103821@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	by tor.source.kernel.org (Postfix) with ESMTP id 98C9160142;
+	Wed, 16 Sep 2026 02:21:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAEA71F00893;
+	Wed, 16 Sep 2026 02:21:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789525293;
+	bh=6iZpbiSb4G9jkRUzim4PlL0w2d6FuhKtW16yMIePUAQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=fkXwgn5kT/wpo4YAVu8dzupK9isF8sj7jvcAxaPFpC3c0r41RXGkAIYO4fiGIGQxi
+	 /zMlg5IIlq7sG6WvXcXTrSSoaZrriObn3gMUgjMKmDDGoMImcRZiLjBukExfFtsIS+
+	 dbeXvck5IWBDAO+nZYwjpAI8sY2Dp7Hz0RbiBI64Hj0WWSY06f5W+rLlftPw/b3lM5
+	 tT+gJIBw18r1hCRWHXzvgodBzjksvuJotopgNHjKpSg8puEcxpwgIF3zDUJXKQX5Se
+	 WC3NauaIUgMmSCSbhW3kIRw3QX1WQXOTzgkU2uuxNJDKw/bA1s1wQ0Z8KqlQrMI9p2
+	 TVVOdjv+twtPw==
+From: Yixun Lan <dlan@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Guodong Xu <docular.xu@gmail.com>
+Cc: Yixun Lan <dlan@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Alex Elder <elder@riscstar.com>
+Subject: Re: [PATCH v2] MAINTAINERS: add entry for SpacemiT reset controller driver
+Date: Wed, 16 Sep 2026 02:21:27 +0000
+Message-ID: <178952516873.3915021.10661869021397268088.b4-ty@b4>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260603-b4-spacemit-reset-maintainers-v2-1-db0716d43a7f@gmail.com>
+References: <20260603-b4-spacemit-reset-maintainers-v2-1-db0716d43a7f@gmail.com>
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,55 +77,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Sep 2026 20:36:47 +0100 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 
-> The majority of architectures in the kernel defer page table freeing until
-> an RCU grace period has elapsed, this series converts all remaining
-> architectures to do so too and eliminates CONFIG_MMU_GATHER_RCU_TABLE_FREE
-> altogether.
+On Wed, 03 Jun 2026 06:26:11 -0400, Guodong Xu wrote:
+> Add a MAINTAINERS entry for the SpacemiT reset controller driver
+> (drivers/reset/spacemit/) and its reset-ID header. I intend to
+> maintain it: the K1 and K3 instances now, and future SpacemiT SoCs
+> that reuse the common code.
 
-Thanks, I've updated mm.git's mm-unstable branch to this version.
+Applied, thanks!
 
-> v3:
-> * Added Kiryl's tag to series (thanks! :)
-> * Corrected commit message, comment indentation in 11/12 as per Kiryl.
-> * Corrected 12/12 documentation as per Kiryl.
+[1/1] MAINTAINERS: add entry for SpacemiT reset controller driver
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=bd81fd41a70811d3423f2701e9ce85a003175d7b
 
-Here's how v3 altered mm.git:
-
-
- Documentation/mm/process_addrs.rst |    4 ++--
- include/asm-generic/tlb.h          |    4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
---- a/Documentation/mm/process_addrs.rst~b
-+++ a/Documentation/mm/process_addrs.rst
-@@ -541,8 +541,8 @@ We establish basic locking rules when in
-   after an RCU grace period has elapsed. However, any entry found must be
-   revalidated after the page table lock is taken (such as the
-   :c:func:`!pmd_same` recheck performed by :c:func:`!pte_offset_map_lock`)
--  before it is acted upon. Changing an entry always requires the page table
--  lock.
-+  before it is acted upon. Changing an entry requires the page table
-+  lock and one of the locks that excludes teardown (mmap or VMA lock).
- * Reads from and writes to page table entries must be *appropriately*
-   atomic. See the section on atomicity below for details.
- * Populating previously empty entries requires that the mmap or VMA locks are
---- a/include/asm-generic/tlb.h~b
-+++ a/include/asm-generic/tlb.h
-@@ -151,8 +151,8 @@
-  *  Page directories (__p*_free_tlb()) are always freed via tlb_remove_table(),
-  *  after an RCU grace period (see mm/mmu_gather.c).
-  *
-- * This serialises against software page-table walkers, including architectures
-- * which do not use IPIs for remote TLB invalidates.
-+ *  This serialises against software page-table walkers, including architectures
-+ *  which do not use IPIs for remote TLB invalidates.
-  *
-  *  An architecture is expected to provide __tlb_remove_table() (see
-  *  HAVE_ARCH_TLB_REMOVE_TABLE) or use the generic __tlb_remove_table(), which
-_
-
+Best regards,
+-- 
+Yixun Lan <dlan@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
