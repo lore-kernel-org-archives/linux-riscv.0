@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E3C7C88E75
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 19:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 410C2C88E7D
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2026 19:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VhtExj0B4PHtmW3ZI/mn36VNNCP7JH829fKFDK3gUNc=; b=bL5OSSD0HUls9j
-	BIYr479jQ8cnSBHFKU6QNkbnkOgXZL2Lv2nP50jjA4pGxIi68pKn5sm4BlcxqH2+qqG1V1P3pARZu
-	HKEctWwtQEw36GJOLvBz8U/980XyDvmJrplOtjxuXQ5TK6iJ55DKIhrOvWkNQCzR4FbveCglW3fH1
-	50WnHUH5KRE42G1AmqZvo+17R7QWuvMxeAjb5Fvl7lhE0X2TlRolbQq4+HnAW6veD8fsUd6g/p629
-	R6p7UahEsKliIzt2q3HEcR3T8BZbzD5HInnBomU5oxz1OTI+2fUJCLGfV/o9SAPsipGSFbepL8iR8
-	3xuUVyx1VwSFFCqKpT9g==;
+	List-Owner; bh=PwzoAEycvvD/V4adH5jcWjNx1lLHRuC4o+R8QlhcMXg=; b=mTuZ5KHkjZAFTc
+	XtIRN+5bzOzV3s248zjjYyxU0GReTDI1HdRMXuAqI4M99uLhKJlU1eNLtWWbD6/DouaxUKKIgsXPZ
+	LjN3leg1iKvt1abGm/7kGJktjWnaesRJE+cThu1fIzldCp1rcZXmCu/wcbZdtG+WHalQ5kfcm8FO5
+	XaMTYdllLh0p8TMT8VlBvWzy/ewERYgB6Q9NHA/UGURz28u/fXMZpEQz026T0Yd/tL61TuGIbr2tD
+	KyNtYx784xrljyW37GX7ErR+7jl4NRVawAM6IE0Abj38cbjJlYvYhCksaBXXufMfXiyQN9G8WXhqd
+	uoLuOkqvMo0Zs+TZnCDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6YoW-00000007qy5-3LFJ;
-	Tue, 15 Sep 2026 19:27:32 +0000
+	id 1x6YoZ-00000007qzJ-0JnX;
+	Tue, 15 Sep 2026 19:27:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6YoU-00000007qwH-0sB5
+	id 1x6YoV-00000007qws-1Lya
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Sep 2026 19:27:31 +0000
+	Tue, 15 Sep 2026 19:27:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 196C51D70;
-	Tue, 15 Sep 2026 12:27:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83D6F1E2F;
+	Tue, 15 Sep 2026 12:27:26 -0700 (PDT)
 Received: from fedora (LJ9QCPV96V.austin.arm.com [10.118.150.127])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20E5B3F7B4;
-	Tue, 15 Sep 2026 12:27:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 822263F7B4;
+	Tue, 15 Sep 2026 12:27:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789500448; bh=kQobSU13+1T4Eb+Wc+7tqzcmzwiCmaiuTxp/pmx+5T8=;
+	t=1789500450; bh=tfLtN7emaScceSendHcvj4vevvhH9YU4i43q4QRnbSg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ja9jHWhTFSvF5HTXPHDwnGwEGch/zJSHzX3U0/eRHMLw2og1mpmSc16CKFsCztXqN
-	 ZqEeCJu3wSZ14D36F0SLeeaa8eytkO8Aj6rBVPfz7pUtxFK5HpY5tRBjkLb5GxVzBS
-	 wcQXSiJsTk3OIQLPTeDlbIF10uoqc8h61kQI4/Cc=
+	b=oAV9jrzpv61i9XqlwyK8Tr35madnlcmJOkQwiz3LOIJO+KTlXB6DejNIpBKw2IAiJ
+	 AcDYpZeJkmkLcuWJOZzsladM9o00MM52VNSplnGP8KDcxDS38wlxaB2Ir0/SWW3ZT3
+	 n6WzHH7veUMQlahO3iyuNMb7e3ARx13bjGMEdhwQ=
 From: Bill Roberts <bill.roberts@arm.com>
 To: "H. Peter Anvin" <hpa@zytor.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -57,16 +57,16 @@ Cc: bpf@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Bill Roberts <bill.roberts@arm.com>
-Subject: [PATCH v4 3/6] selftests/x86: add shadow stack lock test
-Date: Wed, 16 Sep 2026 04:52:21 -0500
-Message-ID: <20260916095224.1533971-4-bill.roberts@arm.com>
+Subject: [PATCH v4 5/6] selftests/x86: support header files in extra-files
+Date: Wed, 16 Sep 2026 04:52:23 -0500
+Message-ID: <20260916095224.1533971-6-bill.roberts@arm.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260916095224.1533971-1-bill.roberts@arm.com>
 References: <20260916095224.1533971-1-bill.roberts@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_122730_296633_3B36AEBC 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20260915_122731_455245_01647B06 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,79 +83,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a test that locks the shadow stack write bit and then attempts to
-disable write. The disable should fail with EPERM since it's in a locked
-state. This also preserves the write bit being set for the whole test
-suite as well as preserving the ability to unlock at the end.
+The Makefile dependencies do not include header files, and adding header
+files to extra-files calls will cause the header to be passed to the
+compiler to compile, which is not what we want. So filter out .h files
+from EXTRA_FILES but keep them for the target's prerequisites.
 
 Signed-off-by: Bill Roberts <bill.roberts@arm.com>
 ---
- .../testing/selftests/x86/test_shadow_stack.c | 39 +++++++++++++++++++
- 1 file changed, 39 insertions(+)
+ tools/testing/selftests/x86/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/x86/test_shadow_stack.c b/tools/testing/selftests/x86/test_shadow_stack.c
-index b52c5420c137..72e7329d89d7 100644
---- a/tools/testing/selftests/x86/test_shadow_stack.c
-+++ b/tools/testing/selftests/x86/test_shadow_stack.c
-@@ -1060,6 +1060,24 @@ int test_ptrace(void)
- 	return 1;
- }
+diff --git a/tools/testing/selftests/x86/Makefile b/tools/testing/selftests/x86/Makefile
+index 75315f1190d6..ac181b065f37 100644
+--- a/tools/testing/selftests/x86/Makefile
++++ b/tools/testing/selftests/x86/Makefile
+@@ -114,7 +114,7 @@ endif
+ # the dependencies ("header3.h"), because clang, unlike gcc, will not accept
+ # header files as an input to the compiler invocation.
+ define extra-files
+-$(OUTPUT)/$(1): EXTRA_FILES := $(2)
++$(OUTPUT)/$(1): EXTRA_FILES := $(filter-out %.h,$(2))
+ $(OUTPUT)/$(1): $(2)
+ endef
  
-+static int test_locking(void)
-+{
-+
-+	if (ARCH_PRCTL(ARCH_SHSTK_LOCK, ARCH_SHSTK_WRSS)) {
-+		printf("[FAIL]\tCould not lock Shadow stack write\n");
-+		return 1;
-+	}
-+
-+	if (ARCH_PRCTL(ARCH_SHSTK_DISABLE, ARCH_SHSTK_WRSS) != -EPERM) {
-+		printf("[FAIL]\tCould change Shadow stack write after lock\n");
-+		return 1;
-+	}
-+
-+	printf("[OK]\tShadow stack locking\n");
-+
-+	return 0;
-+}
-+
- int main(int argc, char *argv[])
- {
- 	int ret = 0;
-@@ -1079,12 +1097,33 @@ int main(int argc, char *argv[])
- 		return 1;
- 	}
- 
-+	/* Note: test_shadow_stack_lock() needs write enabled */
- 	if (ARCH_PRCTL(ARCH_SHSTK_ENABLE, ARCH_SHSTK_WRSS)) {
- 		printf("[SKIP]\tCould not enable WRSS\n");
- 		ret = 1;
- 		goto out;
- 	}
- 
-+	unsigned long status = 0;
-+
-+	if (ARCH_PRCTL(ARCH_SHSTK_STATUS, &status)) {
-+		printf("[FAIL]\tCould not get Shadow stack status\n");
-+		ret = 1;
-+		goto out;
-+	}
-+
-+	if (status != (ARCH_SHSTK_WRSS|ARCH_SHSTK_SHSTK)) {
-+		printf("[FAIL]\tStatus not as expected, got 0x%lx status, wanted: 0x%llx\n",
-+			status, (ARCH_SHSTK_WRSS|ARCH_SHSTK_SHSTK));
-+		ret = 1;
-+		goto out;
-+	}
-+
-+	if (test_locking()) {
-+		ret = 1;
-+		goto out;
-+	}
-+
- 	/* Should have succeeded if here, but this is a test, so double check. */
- 	if (!get_ssp()) {
- 		printf("[FAIL]\tShadow stack disabled\n");
 -- 
 2.55.0
 
