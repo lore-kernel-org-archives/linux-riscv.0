@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE44AC88E77
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 00:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11991C88E77
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2026 00:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:
-	Subject:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+gqzeDLojqpJ2AMkckZyt2fzdd2M3cKsSR7FpVVHUzg=; b=mmE5Dp6/X5WvzY
-	YeifbiS4QaF9cLSfpIAbZZXs/x3wW+RuDAb+A4NyDBvgtkXs99kRMMt5JX0sibJycdyXYWpU0WeE6
-	q8WT5PceDrJBiVp1PZZOE1T0bvs7y2y5W3hps7ybsNvmV1p320B3u3bF7bq39wk7suCUGyYYhTkwa
-	ujeokz8IwYOltJRxwNxXlL4VkhtvqNxwA/r9WXPnX/JhdxqCCIXA+44itH/ITSiNcoYuebtXRj4qE
-	3y6wJxpAOLTtCcwVM9LFAGvMx4Tw6Xf+y4iXQ0WOQrpm9TBGWCPyFSDykHlBI/NaDnrymZNaKH7Z9
-	OOFfx4smB4yvwOkqGd2w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:Cc:Message-Id
+	:Date:Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MUYh2FLG66vWktTALHZdPRpadIqI+m0pXnpV50zMd7g=; b=t6WrNRyMcQeAY96bFVdxKnnUbg
+	kN8L5EL2gxEJmdBJvPl5D37ebMEU/u/2D2oDqYPYvz3nEIURZ1x0Q+mV0A9utgyxrSlI2587sRie0
+	9Mlt2MnBEygWVWq7jTHw0evxAWs+xyuoXQrc0hbuk+G3WwfK0+2fZcScVuQIeEQDRWulWmY+O2Yek
+	5X968yOdoOAHJXUs0isqqaac9aOKdx1ThdpzFg6zr7IeK/PhrhQO4RMWRh7Pn58Y1vbN8iq629xbY
+	os1eQ808xHfVlDCh3KIhtCB2gGJLTgXC2vk6ehTfmPK8SoxPk9XkStnfIdmUiHcK8N76IJngVqxOj
+	5pEkpI/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dhw-000000087xk-08Ni;
-	Wed, 16 Sep 2026 00:41:04 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1x6dmP-000000088BX-3F9v;
+	Wed, 16 Sep 2026 00:45:41 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x6dht-000000087xF-0jHE
+	id 1x6dmM-0000000889v-1nSf
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Sep 2026 00:41:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:Message-ID:Subject:Cc:To
-	:From:Date:MIME-Version:From:Reply-To;
-	bh=NheJufshGj64fhQKNC2c1j1k0ck6W8lDGbWhTay9uUc=; b=sOZbLu5ewE2w8rWxU4D/CswcOx
-	vscT/TR8V1ChxhajcNhxsAxXX1GdIm1/RSRx7ubFcr0dhqE/e/Aer1+4AVYBL2AlOv1C4Q4APfSgV
-	bRUb14/0B5DwqRLMIYou200gkuWYkYtB9Mb8rQ6eSfBtDTDYS7QqI4UH9SzM8KxR8GhZrq7sMc/Bd
-	DSCwoISx0sN0zEwd5oiMfAhueKhCXJO8CRKnmS91PYW62IzBRAnIGt97wWKyLxiNvisbUFbYC3vBs
-	gLqbtDk2oQLAcdruS5xD7b4sKxqWd7Y/XGluJ1o57LoXxm07Kd4Y5Oari8tZ2vtnzM3eg77XVBp+Z
-	mnfwUndg==;
-Received: from maestria.local.igalia.com ([192.168.10.14] helo=mail.igalia.com)
-	by fanzine2.igalia.com with esmtps 
-	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1x6dhc-002hgB-1A; Wed, 16 Sep 2026 02:40:43 +0200
-Received: from webmail.service.igalia.com ([192.168.21.45])
-	by mail.igalia.com with esmtp (Exim)
-	id 1x6dha-0087zL-Kq; Wed, 16 Sep 2026 02:40:43 +0200
-Received: from localhost ([127.0.0.1] helo=webmail.igalia.com)
-	by webmail.service.igalia.com with esmtp (Exim 4.98.2)
-	(envelope-from <mfo@igalia.com>)
-	id 1x6dha-00000002ADJ-2w79;
-	Wed, 16 Sep 2026 02:40:42 +0200
-MIME-Version: 1.0
-Date: Tue, 15 Sep 2026 21:40:42 -0300
-From: Mauricio Faria de Oliveira <mfo@igalia.com>
-To: Joel Granados <joel.granados@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nsc@kernel.org>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- kernel-dev@igalia.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, fsverity@lists.linux.dev,
- keyrings@vger.kernel.org, bpf@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-kbuild@vger.kernel.org,
- netdev@vger.kernel.org, linux-wpan@vger.kernel.org,
- lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org,
- coreteam@netfilter.org, linux-sctp@vger.kernel.org,
- linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org,
- bridge@lists.linux.dev, mptcp@lists.linux.dev, rds-devel@oss.oracle.com,
- virtualization@lists.linux.dev
-Subject: Re: [PATCH RFC v3 00/13] sysctl: add module aliases
-In-Reply-To: <uufwu7rqyxf7h55lgavcwrnylnq5gdbd7o5d7mfugrxpblds2d@adra5c2z22gg>
-References: <20260819-sysctl-module-aliases-v3-0-aab90569365d@igalia.com>
- <bpnqwggtidgiec5akns3fa5edbsvl7xf55dxabtwng2xspy4pn@ue554aii2ngk>
- <53155340c897560bfc67e61ba9568fd6@igalia.com>
- <mokz5pdtwswkyab4byfq7q7m6ac2g6ceoi6jflyxmaszaibzqa@su6m4kamtdpy>
- <b1a6cec17e7c828fcebe310ca2a0d25b@igalia.com>
- <rywhz6soawf5dzyui5g7dnbufsgpxr7ma7honuhejwgncemzrm@f32at7hl6ugm>
- <6e93af907298022f077126f1be7bd386@igalia.com>
- <uufwu7rqyxf7h55lgavcwrnylnq5gdbd7o5d7mfugrxpblds2d@adra5c2z22gg>
-Message-ID: <cdc75421500371a8839fe5347af5c103@igalia.com>
-X-Sender: mfo@igalia.com
+	Wed, 16 Sep 2026 00:45:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: To: From: Subject: Cc: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1789519537;
+ bh=s2V8BnF8h+8Uq8u8VZxp/reb7V9zH1peGA2ahNF542Q=;
+ b=Pxx776bfW1+2ZdTaYbZlDgkjlwRqhKWofchq906tjZUda0RIekILj3cAuJn3C5IH3bIf8L/B/
+ rpGfG1kpp+ocZ2nkuepeUZVz413+gXyB3hbha4/O29N7gA5kg/ON71OQy898hfSCA3eJb54Y5pQ
+ RxEiMtFhCkRcNZIhRMkO6UofWv9FflDO9MbPo68bNrnIyS22QAPJr18kjI4m8gEqFwtlIUpXKah
+ VME5uh9noumA+U4fdkeQ6ngsklAUKx7B46wsLLVcrsZdOvCvVslEeCvEHB3LW30FSVN+r+YYz90
+ gqxVnX2krWRVohhVQCf+/pSPmn6U9C+8F6BZ3vdTT2Dw==
+X-Forward-Email-ID: 6aa9e69076866d48a84e7189
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.14.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
+Date: Tue, 15 Sep 2026 20:45:01 -0400
+Message-Id: <DLGBPXP4F8E0.9X0QMZ9GFQVF@ubuntu.com>
+Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <mfd@lists.linux.dev>, <linux-clk@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+ "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maud Spierings"
+ <maud_spierings@murena.io>, "Graham Markall" <hello@big-grey.co.uk>,
+ "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Chaoyi Chen"
+ <chaoyi.chen@rock-chips.com>, "Joshua Peisach" <jpeisach@ubuntu.com>,
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
+ subsystem
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Michal Wilczynski" <m.wilczynski@samsung.com>, "Vinod Koul"
+ <vkoul@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca
+ Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "Lee Jones" <lee@kernel.org>,
+ "Andy Yan" <andy.yan@rock-chips.com>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>, "Emil Renner Berthing" <kernel@esmil.dk>, "Hal
+ Feng" <hal.feng@starfivetech.com>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Dominique Belhachemi" <db@domibel.de>,
+ "Brian Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
+ <jbrunet+clk@baylibre.com>
+X-Mailer: aerc 0.21.0
+References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com> <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260915_174101_232879_77264CCA 
-X-CRM114-Status: GOOD (  30.79  )
+X-CRM114-CacheID: sfid-20260915_174538_471796_41BA0189 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,97 +97,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="Flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-10 04:29, Joel Granados wrote:
-> On Wed, Sep 09, 2026 at 02:29:30PM -0300, Mauricio Faria de Oliveira wrote:
->> On 2026-09-09 11:07, Joel Granados wrote:
->> > On Fri, Sep 04, 2026 at 02:45:23PM -0300, Mauricio Faria de Oliveira wrote:
->> >> On 2026-09-04 10:41, Joel Granados wrote:
->> >> > On Thu, Aug 20, 2026 at 06:22:13PM -0300, Mauricio Faria de Oliveira wrote:
->> >> >> On 2026-08-20 09:51, Joel Granados wrote:
->> >> >> > On Wed, Aug 19, 2026 at 03:16:13PM -0300, Mauricio Faria de Oliveira wrote:
->> >> >> >> This series adds 'sysctl:' aliases to modules that register sysctl tables; e.g.:
->> > <... snip ...>
->> >> > use the correct call moving forward?
->> >>
->> >> This scheme currently covers all modules, AFAIK, as it is wrapped in the
->> >> functions that register sysctl tables.
->> >>
->> >> On moving forward: usage of such functions in a way that breaks a
->> >> requirement of this series (e.g., failing to specify the template
->> >> table/path parameter(s), or not having constant initializers) hits a
->> >> build error, as the requirements are actually from the compiler.
->> >>
->> >> >> I guess that a different design could use MODULE_SYSCTL_TABLE() as
->> >> >> MODULE_DEVICE_TABLE(), declared per table instead of wrapped into
->> >> >> register sysctl functions.
->> >> >> However, it seems to require moving the value of the path argument (or
->> >> >> its template) into the macro and still referencing it in the function
->> >> >> (or its instantiation of the template), which adds obfuscation, to all
->> >> >> callers.
->> >> >>
->> >> >> What do you think?
->> >> > It might be that having it inside the module subsys is more work, but I
->> >> > believe that there is the right place to have it. I still don't see that
->> >> > adding a module specific arg to the sysctl register is a good thing.
->> >>
->> >> Ok, cool. I can work on a different design.
->> >>
->> >> Please just let me know whether you are OK with the remaining (above),
->> >> and I'll be happy to tackle this.
->> >
->> > What is "the remaining"?
->> 
->> I meant the rest of the email, addressing the points/questions you
->> raised.
-> 
-> * The dependency on a sysctl path to load a module still is
->   backwards to me. It should be: I need feature A, I load modules
->   M{1,2,3} for A and I set sysctl S{1,2,3...}. Not sure why sysctl tools
->   do it the other way around.
+On Tue Sep 15, 2026 at 11:32 AM EDT, Michal Wilczynski wrote:
+>
+> Testing
+> =======
+>
+> Tested on a VisionFive 2 v1.3B using modetest.
 
-Right, but note:
-- the feature may, or may not, be built as a module (unknown to sysctl
-tool).
-- there is no simple way to identify which module provides a sysctl,
-today.
+I.. got nothing. I did have to manually modprobe the modules, but
+unless I am doing something wrong.. I didn't get anything and modetest
+just gave -2.
 
-Let's compare this with device-id module aliases: userspace doesn't know
-whether a driver is built-in or a module, but it can load the module, if
-any, based on the device-id, not the module name.
+> ---
+> Michal Wilczynski (20):
+>       dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
+>       dt-bindings: display: bridge: Add starfive,jh7110-inno-hdmi-controller
+>       dt-bindings: mfd: Add starfive,jh7110-hdmi-subsystem
+>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-syscon
+>       dt-bindings: display: verisilicon: Add starfive,jh7110-dc8200
+>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-subsystem
+>       drm/bridge: inno-hdmi: Split probe out of bind
+>       drm/bridge: inno-hdmi: Allow the register map to come from a parent
+>       drm/bridge: inno-hdmi: Add .disable platform operation
+>       drm/bridge: inno-hdmi: Add .mode_valid platform operation
+>       drm/bridge: inno-hdmi: Make the PHY configuration table optional
+>       soc: starfive: Add jh7110-hdmi-subsystem driver
+>       soc: starfive: Add jh7110-vout-subsystem driver
+>       clk: starfive: jh7110-vout: Allow pixel clock rate propagation
+>       drm/bridge: starfive: Add JH7110 HDMI controller driver
+>       phy: Add common Innosilicon HDMI PHY helpers
+>       phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
+>       phy: starfive: Add jh7110-inno-hdmi-phy driver
+>       riscv: dts: starfive: jh7110: Update DT for display subsystem
+>       MAINTAINERS: Add StarFive JH7110 display subsystem entry
+>
+>  .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++
+>  .../bindings/display/verisilicon,dc.yaml           |   1 +
+>  .../mfd/starfive,jh7110-hdmi-subsystem.yaml        |  95 ++++
+>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
+>  .../soc/starfive/starfive,jh7110-syscon.yaml       |   1 +
+>  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 218 ++++++++
+>  MAINTAINERS                                        |  13 +
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 121 ++++-
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi           | 105 +++-
+>  drivers/clk/starfive/clk-starfive-jh7110-vout.c    |   6 +-
+>  drivers/gpu/drm/bridge/Kconfig                     |  11 +
+>  drivers/gpu/drm/bridge/Makefile                    |   1 +
+>  drivers/gpu/drm/bridge/inno-hdmi.c                 | 112 +++-
+>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c          | 297 +++++++++++
+>  drivers/phy/Kconfig                                |   8 +
+>  drivers/phy/Makefile                               |   1 +
+>  drivers/phy/phy-inno-hdmi.c                        | 298 +++++++++++
+>  drivers/phy/rockchip/Kconfig                       |   1 +
+>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 168 +-----
+>  drivers/phy/starfive/Kconfig                       |  20 +
+>  drivers/phy/starfive/Makefile                      |   1 +
+>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 579 +++++++++++++++++++++
+>  drivers/soc/Kconfig                                |   1 +
+>  drivers/soc/Makefile                               |   1 +
+>  drivers/soc/starfive/Kconfig                       |  43 ++
+>  drivers/soc/starfive/Makefile                      |   3 +
+>  drivers/soc/starfive/jh7110-hdmi-subsystem.c       |  73 +++
+>  drivers/soc/starfive/jh7110-vout-subsystem.c       |  82 +++
+>  include/drm/bridge/inno_hdmi.h                     |  10 +-
+>  include/linux/phy/inno-hdmi-phy.h                  |  85 +++
+>  30 files changed, 2337 insertions(+), 188 deletions(-)
+> ---
+> base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+> change-id: 20251031-jh7110-clean-send-7d2242118026
+>
+> Best regards,
 
-> * The fact that the invariance is in the sysctl path and not the module
->   identifier maybe points to a deeper issue.
+By the way, something weird happenined while I applied the patches
+using git am. Somehow, some were out of order. The 10th patch
+adding .mode_valid tried to be applied before .disable even though
+in the series, the order is correctly set? git would obviously
+fail because the .disable entry did not exist in the header, so I had
+to manually put those in.
 
-It does seem that the invariance in the sysctl path is correct, as that
-doesn't change with the variable of whether the code is built-in or a
-module.
-
-A similar comparison with device-id module aliases applies, IIUIC.
-
-> * I still believe that this is better placed outside the sysctl
->   subsys as it does not cater solely to module loading.
-
-Understood; your point about a module-specific argument in sysctl
-register functions precisely confirmed that this approach is misplaced.
-
-I'll try a different design, more similar to MODULE_DEVICE_TABLE().
-Maybe the only requirement from sysctl is for struct
-ctl_table.procname's offset to be zero (for file2alias). And apparently
-something with the path string in a table declaration macro. We'll see.
-
-Thanks again for reviewing and providing constructive feedback. That's
-very appreciated.
-
-> 
-> Best
-
--- 
-Mauricio
+I guess it's possible that something went wrong here? I personally
+pulled the mailbox from the lore.kernel.org mbox.gz file.
 
 _______________________________________________
 linux-riscv mailing list
