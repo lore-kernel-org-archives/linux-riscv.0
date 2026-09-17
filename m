@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8CB3C88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 17:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BF8C982D2
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 18:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ejcm17Jubs4wUZ3wiXj8nfxGGSE9e7zpmhxxA76ErUM=; b=U6igyoUTVasCOE
-	ksLumXl8UdZ2cthSSXmY32/UD8qdHb9NSrzHzpcSXE2o5YKhqtgXNsgedzIca/F8PfMIFy3OQeM97
-	WM80GGc6CIez/kAQQjkNt0Y9f4YOd8ATN4+rcrn0OJb81ULC4Bko0nlgXrO47QYny0hW2GLxdR0IO
-	OpuDArsu2bJwPuHPAl7axIzmubcZknRens8rw8Qz7Hpm7tjX57eBCqUIUqquYKsQfbv+Pa6RK2UJr
-	Sns8N9eD4J74kgkF24UzS2vZKMYiMruhXbS0ryxzPdMP+VY7aGXFMgbloa8oCsJ+kMDShMiesb8b/
-	F/cPn/3haV53TozEBwmA==;
+	List-Owner; bh=+Nl3iA1Sb1IXFMLWFEdEt2AAUNaCuv3peCgC1/F0p2o=; b=jVKWuFGtk7NpAt
+	r0pPrS3qRgdXOilgnXtEvQck9ej9eRo5wb7Cqlgs55W1oskildMBwNqegKJ0RJoBHmXowVXFoiVuL
+	mCHLq68m59Jum4sQMlqrtWV7knj3s/hGvptaI1ui/lzuohp/R4H7J2s/3gLKoVJ69R/tqQ1620RUs
+	wv5mywfBJP7yM/GWtMFL4buI1a+1ktm7qlUVj0WhqBy7CeVOzKAftjRcOqPNbkDaClJ9hyHgECKBk
+	99NBhJySKicmmm9kygInFiX66GSxtAYZJ/cxlBL8MeozGK7t90F7W91L0x2qrD4NW4K/D1DkDKIkc
+	jTBeqoaQ3ZA8TjeYtVvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GEH-0000000C80F-1shI;
-	Thu, 17 Sep 2026 17:49:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7GPd-0000000C9us-1W92;
+	Thu, 17 Sep 2026 18:00:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GEF-0000000C7zz-1Ekz;
-	Thu, 17 Sep 2026 17:48:59 +0000
+	id 1x7GPb-0000000C9uP-1DGB;
+	Thu, 17 Sep 2026 18:00:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F08624394A;
-	Thu, 17 Sep 2026 17:48:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 532FE1F00893;
-	Thu, 17 Sep 2026 17:48:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 61C626022F;
+	Thu, 17 Sep 2026 18:00:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACBF31F00893;
+	Thu, 17 Sep 2026 18:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789667338;
-	bh=cLEPRaYpBPlArN2n02K1AD2Rlu0XR0AJhYbLviaj3qM=;
+	s=k20260515; t=1789668042;
+	bh=bDkA9Is1Jx1AOE6Tvx2VWAovPxbpbhANimFsfanmC0s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eD0v9cqdgBAUzVJbc7kjrlV3qCR0kIq2aRz9aYFnLytwcEsSYKq8AluHxvetYtYbi
-	 7A6jDrDOhHLKiWdG/zGXUSUrGGkmq+2NIdJAoBC2vo5dyhN1GmVOMBkqW/TPCnu09T
-	 plevC+hdjuYu0ZTywktA34FPhUC0ZkyRHQilYNmJKdi01T+gMm7Twyn6vHwCwevFb6
-	 DHdLJMHYPF08eGJb8lwsYjrxI+26lBYj0DabQZJg1vueFR/rhEtITeWNNSCYgkbGci
-	 pS1y+BJjp4iJElZdF0b2xnd9QHQ60hebn+u/fyQRTVmo1T8bOtLHQas6z1jrLhmj07
-	 Iu0V34hWVATXA==
-Date: Thu, 17 Sep 2026 18:48:43 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
-	Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 05/20] kbuild: only emit vmlinux relocations when
- required
-Message-ID: <aqwnmGawAQWDI25v@gremlin>
-References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
- <20260917-build-speedup-v3-5-9ecf4163ff36@kernel.org>
- <202609171039.A9B14A02A@keescook>
+	b=LVkG09HqfsKZmJFS9qmt6OvQIdIMnn38+xzlPNcI19TxAJDAVqDvcv13mx5RhiTJF
+	 BLFpnR+BysQpygTq/jJME04w/nYC6JbWWyngMv/UqyKfFg/XRgx7vghrbUABrl1xVa
+	 gzPWxiGrTTasJL7YDq+byQVo+FUUD/WjlOUBbOLR/Xd71lWSaRrldlsJicJcKWYeHS
+	 hiIJQAirnKUCBG3M/4JbVZfqSp+8BFzJVS57Tp/RKVgvNfoJF+cer2fMfEtKfCDQB9
+	 69UFkPdaOAPFuQu79OdO6zaHZJVHecxL8QaqbdLDMo5FenvMFzH+F34vu3f36Eukda
+	 OZliUmPKbP87Q==
+Date: Thu, 17 Sep 2026 23:30:37 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Daniel Matyas <matyasdaniel006@gmail.com>
+Cc: Lee Jones <lee@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Ulf Hansson <ulfh@kernel.org>, Liang Yang <liang.yang@amlogic.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	Ray Jui <ray.jui@broadcom.com>,
+	Scott Branden <scott.branden@broadcom.com>,
+	Atish Patra <atishp@rivosinc.com>, Shawn Guo <shawn.guo@linaro.org>,
+	Dmitry Osipenko <digetx@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
+	Okan Sahin <Okan.Sahin@analog.com>, devicetree@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
+	linux-rtc@vger.kernel.org, Ricard Wanderlof <ricardw@axis.com>,
+	patches@opensource.cirrus.com, Lukas Wunner <lukas@wunner.de>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Eugen Hristev <ehristev@kernel.org>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-hwmon@vger.kernel.org, linux-iio@vger.kernel.org,
+	linux@analog.com, linux-input@vger.kernel.org,
+	chrome-platform@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: Expand flow lists to block lists
+Message-ID: <aqwqxSxqg7aRjchE@parshuram>
+References: <20260917144028.459053-1-matyasdaniel006@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <202609171039.A9B14A02A@keescook>
+In-Reply-To: <20260917144028.459053-1-matyasdaniel006@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,101 +109,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 10:41:50AM -0700, Kees Cook wrote:
-> On Thu, Sep 17, 2026 at 05:06:15PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > A kernel build consists of more than one linking pass on vmlinux.o and
-> > vmlinux, at minimum two, and with CONFIG_KALLSYMS and BTF enabled on x86-64
-> > for example there are 5 such stages.
-> >
-> > For architectures that build their own relocation tables (x86, riscv, mips,
-> > s390), vmlinux is linked with the --emit-relocs parameter specified.
-> >
-> > However, this is only required on the final vmlinux link.
-> >
-> > Symbol tables of trial links preceding it don't need it because they
-> > already check that System.map matches kallsyms symbols on each build.
-> >
-> > GNU ld is slow at emitting relocation tables, so this results in a
-> > reduction in build time.
-> >
-> > Whole build, 128-thread Threadripper 9980X, best of N runs:
-> >
-> >                                          before   after     delta
-> >                                          -------------------------------
-> >   x86 defconfig, touch mm/vma.c, gcc        9.5s     9.1s    -0.42s (-4%)
-> >   x86 defconfig, clean, gcc                30.1s    29.5s    -0.59s (-2%)
-> >   x86 allmodconfig, touch mm/vma.c, gcc    37.2s    35.8s     -1.4s (-4%)
-> >
-> > Note that this has little impact on LLVM ld which performs this operation
-> > more efficiently.
-> >
-> > Assisted-by: LLM
-> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> > ---
-> >  Makefile                | 2 +-
-> >  scripts/link-vmlinux.sh | 5 +++++
-> >  2 files changed, 6 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/Makefile b/Makefile
-> > index 0f1b80100b47..dd4c10afbb7f 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -1263,7 +1263,7 @@ LDFLAGS_vmlinux += --orphan-handling=$(CONFIG_LD_ORPHAN_WARN_LEVEL)
-> >  endif
-> >
-> >  ifneq ($(CONFIG_ARCH_VMLINUX_NEEDS_RELOCS),)
-> > -LDFLAGS_vmlinux	+= --emit-relocs --discard-none
-> > +LDFLAGS_vmlinux	+= --discard-none
-> >  endif
->
-> Nit: I think a comment here is worth adding, like in link-vmlinux.sh.
-> They're separate files, and it's kind of weird that ...NEEDS_RELOCS
-> doesn't actually add --emit-relocs here unless you go find how
-> --emit-relocs is used later.
+On 17-09-26, 17:40, Daniel Matyas wrote:
+> Running dt_bindings_check returned:
+> [error] string value is redundantly quoted with any quotes (quoted-strings)
+> 
+> The files used quotation marks in flow lists because the strings had
+> commas and these commas were interpreted as separators. Convert flow
+> style lists to block style lists, so that there is no problems with the
+> commas.
 
-Ack will add!
+Acked-by: Vinod Koul <vkoul@kernel.org>
 
->
-> >
-> >  # Align the architecture of userspace programs with the kernel
-> > diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> > index 970ca10f8fa9..ed5ff97c0667 100755
-> > --- a/scripts/link-vmlinux.sh
-> > +++ b/scripts/link-vmlinux.sh
-> > @@ -96,6 +96,11 @@ vmlinux_link()
-> >  		ldflags="${ldflags} ${wl}--strip-debug"
-> >  	fi
-> >
-> > +	# Only the final link actually requires the relocations.
-> > +	if [ "${output}" = "${VMLINUX}" ] && is_enabled CONFIG_ARCH_VMLINUX_NEEDS_RELOCS; then
-> > +		ldflags="${ldflags} ${wl}--emit-relocs"
-> > +	fi
-> > +
-> >  	if [ -n "${generate_map}" ];  then
-> >  		ldflags="${ldflags} ${wl}-Map=vmlinux.map"
-> >  	fi
->
-> But yeah, otherwise, another "don't generate something that doesn't get
-> used" improvement. :)
 
-Yes :) it's funny how simple a lot of these changes are
-
-- Don't do work you don't need to
-- Cache stuff so you don't have to look it up again (a variant on the first
-  one)
-- Do other work at the same time
-
->
-> Reviewed-by: Kees Cook <kees@kernel.org>
-
-Thanks!
-
->
-> --
-> Kees Cook
-
---
-Cheers, Lorenzo
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
