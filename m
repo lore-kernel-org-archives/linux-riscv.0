@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 535F4C88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 18:07:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D2FC982D2
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 18:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sqGxmGSWDyi1wkiMM/1yzqfJZEtpPYRlbyTWyyo6J+M=; b=EnZr9LxjIh9wsX
-	jXFIzx2qftBBDcI9OADLwODrbcq6vzznUsuV6y6+VlTjrWlPckrbPZb+aXRIgFFDMpwW7zWQutnBt
-	0J49xOpKGgfgNkTyGHJeyVSdi6OTOXf6m5yjvvBAqZDLUm1O/hIPmruY89vVBm0ORtRCH9fu69tm4
-	A204xzhufmjIu8BkvhdDiMTTJvj1NDy/3fUChKzZvzwgLIf7hwk37bBq5/r7GSaXvRI9ImOcDFvqK
-	suJPigk5CfOsVmoZnEWT55WiOSv1FrRILosNTQxJ3x/AnALMnVdhyxdfSATiwRSv1P8Gl12le1Azq
-	qQFTeDpfomUVS6RTUv8w==;
+	List-Owner; bh=BR/2+2I1EPqAMd436TDI/heFSThbQGhDpHW6SAZIikc=; b=P+qOLz0ASID/DM
+	OJdAtR2AlJJTgX8Ph7dQrciP+LVvOZVlDM+McIA6mzs0pyym2/JjrfCBjqRNYiwAjiRYVGA5T6/ki
+	Kg7RElmMrab2XLLBToqG/T28YiLD/LtbVcZhY884YCEH+F6R2l+zfEQ6u+lANx7Hgve3nVUFfrAbP
+	HVc5h4VlD8eC6HDo346wgHA6BZudl/eo28nxXSutUhFCvl+Hz386KDfUgGaVMYw+T63toZZteFb3s
+	AT22eA/MdhsuLHvgFzwKQ+mAdNnLUX4HgJ5Jqc4vp+wr5F+6yRJZHfTclW9IHKry2+Z2AI5FFMRlu
+	599du2X7seGxDNQWM8eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GWD-0000000CAmH-1jVe;
-	Thu, 17 Sep 2026 18:07:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GWC-0000000CAm6-0gR4;
-	Thu, 17 Sep 2026 18:07:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 84B7040AD6;
-	Thu, 17 Sep 2026 18:07:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A6921F00893;
-	Thu, 17 Sep 2026 18:07:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789668451;
-	bh=viQgRYHIEFe0k/ff14IbY6lVzAdW1zkXbr9bUlMI+rg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bMn7ORv1g80cagRJ3YCff/5zL4g3PXxuA1qi00EmB4bZvEFGoi4CJ4yHb+g9s6BbQ
-	 3MrWL5Y4JWcSM7AeU+paNQHYmuTYxoDJzvW4h9OLrKwcawgkhMWH4Efhh/dfUkxWb3
-	 rYb58mAO4E8oasOIIFZNouqnWjg0yADb00w7b0W3R0tDx1yZ4V4NOVL+pNgEieEYxc
-	 IB5HpeREfzlaN1Jr0ZNb6M9MqvnYIfgvDKlU7ECCSpNnKCbvEJJFqQcG7j1U7jfuEJ
-	 MNf2LAr/lKaT/2t1mIHT1mcvP8VMQcadrPLWdnTAkAPwr1qXe0+GS5yOrN6tHG6bDy
-	 0ontRWLXZSnWg==
-Date: Thu, 17 Sep 2026 11:07:31 -0700
-From: Kees Cook <kees@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alexey Gladkov <legion@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 07/20] kallsyms: reimplement mksysmap in C
-Message-ID: <202609171046.146CAE972B@keescook>
-References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
- <20260917-build-speedup-v3-7-9ecf4163ff36@kernel.org>
+	id 1x7GaD-0000000CBMY-1bJO;
+	Thu, 17 Sep 2026 18:11:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7GaA-0000000CBL5-3OHs;
+	Thu, 17 Sep 2026 18:11:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D27B1476;
+	Thu, 17 Sep 2026 11:11:32 -0700 (PDT)
+Received: from [10.57.7.135] (unknown [10.57.7.135])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 07D443F86F;
+	Thu, 17 Sep 2026 11:11:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789668695; bh=TMD2k65kuIFXRf0q/E0tlyDyciozaJKv/LfOROsWlhU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oz67M4YS9vKX95bPOvJjG/6IahhL31r2yGk7O81dt+sjjN414ZuuZ1xCMa2au/gHH
+	 rXUcqtwGrQvFQ85FYRDPTsgIv5sPS9YSZzFPZz/TWW1k7YQuQdJ0UPTrn4SrhDiV3s
+	 CGukra9E2ILOT0R0PDF2smG+O2IyEGDjkvUSbT20=
+Message-ID: <d299f7c5-6c71-499a-b8cd-aa69c4c81dd1@arm.com>
+Date: Thu, 17 Sep 2026 20:11:22 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260917-build-speedup-v3-7-9ecf4163ff36@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/6] set_memory: add number of pages parameter to
+ set_direct_map APIs
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Brendan Jackman <brendan.jackman@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@kernel.org>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ loongarch@lists.linux.dev
+References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_111138_930599_A917B954 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,404 +93,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 05:06:17PM +0100, Lorenzo Stoakes (ARM) wrote:
-> mksysmap is a sed script consisting of 30 patterns which link-vmlinux.sh
-> uses to generate *.syms files, and which kallsyms is then called against to
-> generate *.kallsyms files, with the final vmlinux build ultimately
-> generating System.map.
-> 
-> For an x86-64 allmodconfig build, this involves three nm runs over a 250
-> MiB file and half a million lines written and read each time - 0.5s per
-> pass for llvm-nm, and 0.2s for GNU nm, with parsing on top of that.
-> 
-> This is unnecessary, instead have kallsyms simply read the ELF file
-> directly making use of the existing elf-parse library in scripts/.
-> 
-> This changes kallsyms such that its input is no longer the output from nm,
-> but rather an ELF file.
-> 
-> However, if the input file is empty, it outputs an empty table, which
-> retains the same behaviour on first pass that the build system expects.
-> 
-> System.map is byte-identical to nm | mksysmap for GNU nm and llvm-nm on
-> two x86 configurations each, and for llvm-nm on arm64, arm, s390 and
-> loongarch defconfigs, so are the kallsyms tables of every pass.
-> 
-> Relinking vmlinux, link steps included:
-> 
->                         before    after
->   allmodconfig clang     9.1s     7.9s
->   allmodconfig gcc       7.8s     7.6s
->   defconfig clang        3.7s     3.0s
->   defconfig gcc          3.5s     3.4s
-> 
-> Whole build, 128-thread Threadripper 9980X, best of N runs:
-> 
->                                          before   after     delta
->                                          -------------------------------
->   x86 defconfig, touch mm/vma.c, gcc        9.1s     8.6s    -0.43s (-5%)
->   x86 defconfig, touch mm/vma.c, clang      9.0s     8.0s     -1.1s (-12%)
->   x86 defconfig, clean, gcc                29.5s    28.9s    -0.64s (-2%)
->   x86 defconfig, clean, clang              31.2s    29.8s     -1.4s (-5%)
->   x86 allmodconfig, touch mm/vma.c, gcc    35.8s    35.0s    -0.77s (-2%)
->   x86 allmodconfig, touch mm/vma.c, clang  35.8s    33.7s     -2.0s (-6%)
-> 
-> Assisted-by: LLM
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+On 03/09/2026 11:28, Mike Rapoport (Microsoft) wrote:
+> When set_direct_map APIs were introduced by the commit d253ca0c3865
+> ("x86/mm/cpa: Add set_direct_map_*() functions") the single page
+> parameter made sense because the initial callers (vmalloc and
+> hibernation) had sets of unsorted struct pages that required changes of
+> their mappings in the direct map.
+>
+> Since there is an increasing demand for direct map manipulation and it
+> is also desirable to be able to update larger physically contiguous
+> mappings, for example an entire large folio, extend set_direct_map APIs
+> to receive number of pages parameter.
+>
+> As there is still only a handful of callers, change the existing
+> functions directly and update all the call sites rather than adding
+> wrappers for single page case.
+>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
->  scripts/Makefile          |   4 +-
->  scripts/kallsyms-sysmap.c | 269 ++++++++++++++++++++++++++++++++++++++++++++++
->  scripts/kallsyms.c        | 162 ++++++++++++++++------------
->  scripts/kallsyms.h        |  44 ++++++++
->  scripts/link-vmlinux.sh   |  15 +--
->  scripts/mksysmap          |  94 ----------------
->  6 files changed, 415 insertions(+), 173 deletions(-)
-> 
-> diff --git a/scripts/Makefile b/scripts/Makefile
-> index 3434a82a119f..d46932113b5f 100644
-> --- a/scripts/Makefile
-> +++ b/scripts/Makefile
-> @@ -3,7 +3,7 @@
->  # scripts contains sources for various helper programs used throughout
->  # the kernel for the build process.
+>  arch/arm64/include/asm/set_memory.h     | 4 ++--
+>  arch/arm64/mm/pageattr.c                | 8 ++++----
+>  arch/loongarch/include/asm/set_memory.h | 4 ++--
+>  arch/loongarch/mm/pageattr.c            | 8 ++++----
+>  arch/riscv/include/asm/set_memory.h     | 4 ++--
+>  arch/riscv/mm/pageattr.c                | 8 ++++----
+>  arch/s390/include/asm/set_memory.h      | 4 ++--
+>  arch/s390/mm/pageattr.c                 | 8 ++++----
+>  arch/x86/include/asm/set_memory.h       | 4 ++--
+>  arch/x86/mm/pat/set_memory.c            | 8 ++++----
+>  include/linux/set_memory.h              | 6 ++++--
+>  kernel/power/snapshot.c                 | 4 ++--
+>  mm/secretmem.c                          | 6 +++---
+>  mm/vmalloc.c                            | 5 +++--
+>  14 files changed, 42 insertions(+), 39 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
+> index 90f61b17275e1..b07fd4e026eac 100644
+> --- a/arch/arm64/include/asm/set_memory.h
+> +++ b/arch/arm64/include/asm/set_memory.h
+> @@ -11,8 +11,8 @@ bool can_set_direct_map(void);
 >  
-> -hostprogs-always-$(CONFIG_KALLSYMS)			+= kallsyms
-> +hostprogs-always-y				+= kallsyms
->  hostprogs-always-$(BUILD_C_RECORDMCOUNT)		+= recordmcount
->  hostprogs-always-$(CONFIG_BUILDTIME_TABLE_SORT)		+= sorttable
->  hostprogs-always-$(CONFIG_ASN1)				+= asn1_compiler
-> @@ -13,6 +13,7 @@ hostprogs-always-$(CONFIG_RUST_KERNEL_DOCTESTS)		+= rustdoc_test_builder
->  hostprogs-always-$(CONFIG_RUST_KERNEL_DOCTESTS)		+= rustdoc_test_gen
->  hostprogs-always-$(CONFIG_TRACEPOINTS)			+= tracepoint-update
+>  int set_memory_valid(unsigned long addr, int numpages, int enable);
 >  
-> +kallsyms-objs := kallsyms.o kallsyms-sysmap.o elf-parse.o
->  sorttable-objs := sorttable.o elf-parse.o
->  tracepoint-update-objs := tracepoint-update.o elf-parse.o
->  
-> @@ -30,6 +31,7 @@ rustdoc_test_builder-rust := y
->  rustdoc_test_gen-rust := y
->  
->  HOSTCFLAGS_tracepoint-update.o = -I$(srctree)/tools/include
-> +HOSTCFLAGS_kallsyms-sysmap.o = -I$(srctree)/tools/include
->  HOSTCFLAGS_elf-parse.o = -I$(srctree)/tools/include
->  HOSTCFLAGS_sorttable.o = -I$(srctree)/tools/include
->  HOSTLDLIBS_sorttable = -lpthread
-> diff --git a/scripts/kallsyms-sysmap.c b/scripts/kallsyms-sysmap.c
-> new file mode 100644
-> index 000000000000..64b2e11d0344
-> --- /dev/null
-> +++ b/scripts/kallsyms-sysmap.c
-> @@ -0,0 +1,269 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Obtain symbols from vmlinux for usage by kallsyms. Replaces mksysmap.
-> + *
-> + * To retain compatibility, it provides the same output as nm, only faster.
-> + */
-> +
-> +#include <ctype.h>
-> +#include <stdio.h>
-> +#include <stdlib.h>
-> +#include <string.h>
-> +#include <xalloc.h>
-> +
-> +#include "elf-parse.h"
-> +#include "kallsyms.h"
-> +
-> +/* The mapped file and its symbol table. */
-> +struct elf_file {
-> +	void *base;
-> +	size_t size;
-> +	const char *shdrs;
-> +	unsigned int shnum, shentsize;
-> +	const char *shstrtab;
-> +	Elf_Shdr *symtab;
-> +	const char *strtab;
-> +	size_t nr_syms;
-> +};
-> +
-> +/* What mksysmap dropped from System.map, by name. */
-> +static const char *const sysmap_omit_prefixes[] = {
-> +	"$", ".L", "__efistub_", "__pi_$", "__pi_.L", "__kvm_nvhe_$",
-> +	"__kvm_nvhe_.L", "__kcfi_typeid_", "__kvm_nvhe___kcfi_typeid_",
-> +	"__pi___kcfi_typeid_", "__crc_", "__kstrtab_", "__kstrtabns_",
-> +	"__mod_device_table__",
-> +};
+> -int set_direct_map_invalid_noflush(struct page *page);
+> -int set_direct_map_default_noflush(struct page *page);
+> +int set_direct_map_invalid_noflush(struct page *page, unsigned int numpages);
+> +int set_direct_map_default_noflush(struct page *page, unsigned int numpages);
 
-I really think these need to be 1 per line with the comments from
-scripts/mksysmap retained. It's going to be changed over time, and we
-want to be able to review the rationale for entries without having to
-dig through commit history.
+I don't have a strong opinion on whether to call the argument nr or
+numpages, but we might as well be consistent across archs :)
 
-> +static const char *const sysmap_omit_suffixes[] = {
-> +	"_from_arm", "_from_thumb", "_veneer",
-> +};
-> +static const char *const sysmap_omit_names[] = {
-> +	"L0", "_SDA_BASE_", "_SDA2_BASE_",
-> +};
+Aside from that:
 
-Same for these 2 tables.
-
-> +
-> +/* __<alnum>*Thunk_: the linker's range extension thunks on arm. */
-> +static bool is_range_thunk(const char *name)
-> +{
-> +	const char *p;
-> +
-> +	if (!string_starts_with(name, "__"))
-> +		return false;
-> +	for (p = name + 2; isalnum((unsigned char)*p); p++)
-> +		;
-> +	return p - name >= 7 && *p == '_' && strncmp(p - 5, "Thunk", 5) == 0;
-> +}
-> +
-> +/* __UNIQUE_ID_modinfo_<n>: the MODULE_INFO() strings of built-in code. */
-> +static bool is_modinfo_id(const char *name)
-> +{
-> +	static const char prefix[] = "__UNIQUE_ID_modinfo_";
-> +	const char *p;
-> +
-> +	if (!string_starts_with(name, prefix))
-> +		return false;
-> +	for (p = name + strlen(prefix); isdigit((unsigned char)*p); p++)
-> +		;
-> +	return !*p;
-> +}
-
-I'm less excited about these "open coded" regular expression matches.
-Having to do this feels like it'll make future exceptions annoying to
-add. Can't there be another class of table that is just regular
-expressions? It is probably faster to keep the prefix/suffix/exact
-tables as-is, but is_range_thunk() and is_modinfo_id() just feel clunky
-compared to the more expressive re, e.g. r'^__UNIQUE_ID_modinfo[0-9]*$'
-
-> +static bool sysmap_omits(const char *name, char type)
-> +{
-> +	size_t i;
-> +
-> +	/* Absolute, undefined and debugging symbols. */
-> +	if (type == 'a' || type == 'N' || type == 'U' || type == 'w')
-> +		return true;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(sysmap_omit_prefixes); i++)
-> +		if (string_starts_with(name, sysmap_omit_prefixes[i]))
-> +			return true;
-> +	for (i = 0; i < ARRAY_SIZE(sysmap_omit_suffixes); i++)
-> +		if (string_ends_with(name, sysmap_omit_suffixes[i]))
-> +			return true;
-> +	for (i = 0; i < ARRAY_SIZE(sysmap_omit_names); i++)
-> +		if (strcmp(name, sysmap_omit_names[i]) == 0)
-> +			return true;
-> +
-> +	return is_range_thunk(name) || is_modinfo_id(name) ||
-> +	       strstr(name, ".long_branch.") || strstr(name, ".plt_branch.");
-
-And then mixing data-driven search with in-line patterns I don't like.
-The .long_branch. and .plt_branch. matches should be in a new "any
-position" table, IMO.
-
-> +/* nm's letter for a symbol defined in a section, as BFD classifies it. */
-> +static char section_symbol_type(Elf_Shdr *shdr, const char *secname)
-> +{
-> +	static const char *const debug_prefixes[] = {
-> +		".debug", ".zdebug", ".gnu.debuglto_.debug_",
-> +		".gnu.linkonce.wi.", ".line", ".stab",
-> +	};
-
-I worry about maintenance overhead on this: are we going to have to
-chase changes to "nm" when other debug prefixes get added here?
-
-> +	const uint64_t flags = shdr_flags(shdr);
-> +	size_t i;
-> +
-> +	if (flags & SHF_EXECINSTR)
-> +		return 't';
-> +	if (flags & SHF_ALLOC) {
-> +		if (shdr_type(shdr) == SHT_NOBITS)
-> +			return 'b';
-> +		return flags & SHF_WRITE ? 'd' : 'r';
-> +	}
-> +	for (i = 0; i < ARRAY_SIZE(debug_prefixes); i++)
-> +		if (string_starts_with(secname, debug_prefixes[i]))
-> +			return 'N';
-> +	if (shdr_type(shdr) != SHT_NOBITS && !(flags & SHF_WRITE))
-> +		return 'n';
-> +	return '?';
-
-And to that end: instead of "?" shouldn't this fail hard when a section
-symbol type is unknown to the tool?
-
-> +}
-> +
-> +/* The letter nm prints for a symbol, or 0 for one it leaves out. */
-> +static char elf_symbol_type(const struct elf_file *elf, Elf_Sym *sym)
-> +{
-> +	unsigned int bind = sym_bind(sym), type = sym_type(sym);
-> +	unsigned int shndx = sym_shndx(sym);
-> +	Elf_Shdr *shdr;
-> +	char c;
-> +
-> +	if (type == STT_SECTION || type == STT_FILE)
-> +		return 0;
-> +	if (shndx == SHN_COMMON)
-> +		return 'C';
-> +	if (shndx == SHN_UNDEF) {
-> +		if (bind == STB_WEAK)
-> +			return type == STT_OBJECT ? 'v' : 'w';
-> +		return 'U';
-> +	}
-> +	if (type == STT_GNU_IFUNC)
-> +		return 'i';
-> +	if (bind == STB_WEAK)
-> +		return type == STT_OBJECT ? 'V' : 'W';
-> +	if (bind == STB_GNU_UNIQUE)
-> +		return 'u';
-> +	if (bind != STB_GLOBAL && bind != STB_LOCAL)
-> +		return '?';
-> +
-> +	if (shndx == SHN_ABS) {
-> +		c = 'a';
-> +	} else if (shndx < elf->shnum) {
-> +		shdr = elf_section(elf, shndx);
-> +		c = section_symbol_type(shdr, elf_section_name(elf, shdr));
-> +	} else {
-> +		return '?';
-
-Same concerns...
-
-> +	}
-> +
-> +	return bind == STB_GLOBAL ? toupper(c) : c;
-> +}
-> +
-> +/* nm -n order: by address, then by name. */
-> +static int compare_symbols(const void *a, const void *b)
-> +{
-> +	const struct sysmap_symbol *sa = a, *sb = b;
-> +
-> +	if (sa->addr != sb->addr)
-> +		return sa->addr < sb->addr ? -1 : 1;
-> +	return strcmp(sa->name, sb->name);
-> +}
-> +
-> +static void elf_open(struct elf_file *elf, const char *path)
-> +{
-> +	Elf_Ehdr *ehdr;
-> +	unsigned int i;
-> +
-> +	elf->base = elf_map_ro(path, &elf->size, (1 << ET_EXEC) | (1 << ET_DYN));
-> +	if (!elf->base)
-> +		exit(EXIT_FAILURE);
-> +
-> +	ehdr = elf->base;
-> +	elf->shdrs = (const char *)elf->base + ehdr_shoff(ehdr);
-> +	elf->shnum = ehdr_shnum(ehdr);
-> +	elf->shentsize = ehdr_shentsize(ehdr);
-> +	elf->shstrtab = (const char *)elf->base +
-> +			shdr_offset(elf_section(elf, ehdr_shstrndx(ehdr)));
-> +
-> +	for (i = 0; i < elf->shnum && !elf->symtab; i++)
-> +		if (shdr_type(elf_section(elf, i)) == SHT_SYMTAB)
-> +			elf->symtab = elf_section(elf, i);
-> +
-> +	if (!elf->symtab) {
-> +		fprintf(stderr, "%s: no symbol table\n", path);
-> +		exit(EXIT_FAILURE);
-> +	}
-> +
-> +	elf->strtab = (const char *)elf->base +
-> +		      shdr_offset(elf_section(elf, shdr_link(elf->symtab)));
-> +	elf->nr_syms = shdr_size(elf->symtab) / shdr_entsize(elf->symtab);
-> +}
-
-These 2 functions kind of feel like they should live in elfparse instead?
-
-> +
-> +/* The symbols "nm -n | mksysmap" would list, in that order. */
-> +static struct sysmap_symbol *elf_read_symbols(const struct elf_file *elf,
-> +					   size_t *nr_kept)
-> +{
-> +	struct sysmap_symbol *syms = xmalloc(elf->nr_syms * sizeof(*syms));
-> +	size_t i, n = 0;
-> +
-> +	for (i = 1; i < elf->nr_syms; i++) {
-> +		Elf_Sym *sym = elf_symbol(elf, i);
-> +		const char *name = elf->strtab + sym_name(sym);
-> +		char type = elf_symbol_type(elf, sym);
-> +
-> +		if (!type || sysmap_omits(name, type))
-> +			continue;
-> +
-> +		syms[n].addr = sym_value(sym);
-> +		syms[n].name = name;
-> +		syms[n].type = type;
-> +		n++;
-> +	}
-> +
-> +	qsort(syms, n, sizeof(*syms), compare_symbols);
-> +	*nr_kept = n;
-> +	return syms;
-> +}
-
-And this one too, with maybe a "maybe_omit" callback passed in so this
-mksysmap could pass sysmap_omits in as?
-
-> -static void read_map(const char *in)
-> +static void add_table_entry(struct sym_entry *sym)
->  {
-> -	FILE *fp;
-> -	struct sym_entry *sym;
-> -	char *buf = NULL;
-> -	size_t buflen = 0;
-> +	sym->seq = table_cnt;
->  
-> -	fp = fopen(in, "r");
-> -	if (!fp) {
-> -		perror(in);
-> -		exit(1);
-> +	if (table_cnt >= table_size) {
-> +		table_size += 10000;
-> +		table = xrealloc(table, sizeof(*table) * table_size);
-
-I realize this is just moving logic around, but traditional xrealloc
-loop uses doubling. I think this was linear only because it wanted to
-jump-start the initial allocation size to 10000 entries. Could be:
-
-	table_size = table_size ? table_size * 2 : 10000;
-
-But maybe even that initial allocation number should be bumped up?
-
-> [...]
-> +	if (optind + 1 == argc) {
-> +		read_elf(in, sysmap_out);
-> +		if (fclose(sysmap_out)) {
-
-This needs to check ferror() too.
-
-> +			perror(sysmap);
-> +			exit(EXIT_FAILURE);
-> +		}
-> +		return 0;
-> +	}
-> +
->  	out_bin_name = argv[optind + 1];
->  	out_bin_file = fopen(out_bin_name, "w");
->  	if (!out_bin_file) {
-> @@ -852,7 +868,11 @@ int main(int argc, char **argv)
->  		exit(EXIT_FAILURE);
->  	}
->  
-> -	read_map(argv[optind]);
-> +	read_elf(in, sysmap_out);
-> +	if (sysmap_out && fclose(sysmap_out)) {
-
-Same: this needs to check ferror() too.
-
-
--Kees
-
--- 
-Kees Cook
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
 _______________________________________________
 linux-riscv mailing list
