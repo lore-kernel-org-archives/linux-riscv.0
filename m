@@ -4,64 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA65EC982D0
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 09:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 281E3C982D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 09:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H6culk7rX1HFQHrpMX1ZYbNijfdABDeoY6HHxi0MAk8=; b=XR0yEarx+J/y5K
-	dQeFxqIBr/wpZud3Fg74zu6W4h8yd79iTo3qdBFWqpKO9cdXt/jrkvTjf+MxC6i4hzrh2Rj73IgeH
-	MWKKF0CUoL5UQ0mvUgyTXuXvYk+ymwCAOv31DAy9H18kZbiPUK9FFAe11x6WUxaaphH3HBxE1zyIw
-	9P06OKGYKu972uPn4cvdFqPFQtgN9EgReL4KmrRRL+4wfUw+OE+bkfP4D1CyMW3gzNLTcPA75KfS3
-	NwYogb3Fk0GLQTMt7aFYDI0HG46tCzzicfflrlIwlyFHvS3lnGyb82rYk4OQREnUICRCYd11hY3Dz
-	jTbixbPj1h5vFR1X14bw==;
+	List-Owner; bh=nJU60R1k3SPiRvO1alotaJDo2JsvrJFNleqrZRHnbR8=; b=IlpHhcbpb9+C2Z
+	om0PoMoTtnu/y4e2WSWcdB7sOfGmySae7CQwsT5yZvpeS8h3/lcQBTEYqCNm1vuQAvTSPyrdoNrYb
+	d+jQGM3oXFcBA+de0ENf1PgFd9zxE9PEDfbUfnMwLytGuTv3GF/18v3RGiUYxuCeJ5u6UCKNUGXI2
+	twhagoCaXDWJepyqh4/QD7ljxGMGTvrueUO+Use9H6M0XLKpMIW7r/lemtumhFTs4YK01RkgcRsgW
+	RQ3Hj3QR5KtlZzvtiCdBh5oWxLX+6TvcjYqq7HH19uf0oIOL8VFQJJbHutlUWnBYHTJa1o2ONjBXq
+	hlDp4m18ekt5ATKCIGkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x789I-0000000AxhI-3sOI;
-	Thu, 17 Sep 2026 09:11:20 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1x78Ro-0000000B0er-0Jl3;
+	Thu, 17 Sep 2026 09:30:28 +0000
+Received: from smtpbgeu1.qq.com ([52.59.177.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x789F-0000000Axg8-364u
+	id 1x78Ri-0000000B0ct-2Awa
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Sep 2026 09:11:19 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hlqSV3hhHz1T4Mc;
-	Thu, 17 Sep 2026 16:59:22 +0800 (CST)
-Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id 625914057F;
-	Thu, 17 Sep 2026 17:11:05 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
- (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 17 Sep
- 2026 17:11:04 +0800
-Message-ID: <ac3b17af-c6bb-4e91-b9bb-6cf2d43f8107@hisilicon.com>
-Date: Thu, 17 Sep 2026 17:11:03 +0800
+	Thu, 17 Sep 2026 09:30:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1789637355;
+	bh=kh9FyDnReQmtz6IMuEQBtcbP+r397Btkd/rmaYc+gLw=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=y8FnOiY2RBpzY37JE5y9OgzVnxfAybp55r0tO+PHwFleJucQF+f1DWvdS3Ow2HRy9
+	 A+Q5sClgfQmo4rViePByOdHzPltih/JyBoPs+2N1ci1sLLL5VGtEhQOZ/Pa68zt8dB
+	 Zke3NjQDB0IdKK63NjVpLrQREAzjUpnBgR+Xa7AM=
+X-QQ-mid: zesmtpgz5t1789637353tb8e1e7ef
+X-QQ-Originating-IP: C98l85GMVeVm74OzyvqEngGdoJc+3+/o61Zp27O1UR4=
+Received: from [127.0.0.1] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 17 Sep 2026 17:29:09 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16510952149240529869
+Message-ID: <BA4ECE62CC750889+2da1a0db-8500-4332-8954-e9f126604258@linux.spacemit.com>
+Date: Thu, 17 Sep 2026 17:29:09 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] ACPI: RISC-V: CPPC: Implement cpc_read_ffh_fb_ctrs()
-To: Yufan Dou <douyufan@picoheart.com>, Sunil V L <sunilvl@ventanamicro.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	<linux-acpi@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <yuchao.46@picoheart.com>, <yang.yicong@picoheart.com>,
-	<lihuisong@picoheart.com>, <geshijian@picoheart.com>,
-	<wang.yechao255@zte.com.cn>
-References: <20260902083450.2348-1-douyufan@picoheart.com>
- <20260909071541.1545-1-douyufan@picoheart.com>
-Content-Language: en-US
-From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <20260909071541.1545-1-douyufan@picoheart.com>
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemf200017.china.huawei.com (7.202.181.10)
+Subject: Re: [PATCH v5 07/14] gtrace: Add function to copy into perf AUX
+ buffer
+To: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <pjw@kernel.org>, Greg KH <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Ian Rogers <irogers@google.com>
+Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Alexandre Ghiti
+ <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Mayuresh Chitale <mchitale@gmail.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atish.patra@linux.dev>,
+ Andrew Jones <andrew.jones@oss.qualcomm.com>,
+ Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260810152223.3946743-1-mayuresh.chitale@oss.qualcomm.com>
+ <20260810152223.3946743-8-mayuresh.chitale@oss.qualcomm.com>
+From: Zane Leung <liangzhen@linux.spacemit.com>
+In-Reply-To: <20260810152223.3946743-8-mayuresh.chitale@oss.qualcomm.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: M7SN0LSU40tUJ2gKkD7ZcfK2Pbm+XSPpWIIIZnp3fWXvPGlLZbsK9IPb
+	jt6fW3eU7YfW8vg3W5BMeTrKHC0MuPN5EYR7jfjoUihxNQBHZf0dEBVlq6Sv/sUsWRgzbpV
+	IvKUbSftPw07P84CNrJP+c7BOe6ijILNNd9Nn4nlabSsVV9NETdY9goR6Z7PRqQjrqzDpIb
+	JX8HGSuME7f7ld/ED2Nelon0iNs9zkWZI1wZPFeJIDQEn0My3qv0GzRfA1dHdT4f7qBgAee
+	eDmttcIziCKP67ZIEdXvRMjU2WjWpm+P+nQya5qwumQMme9hdl1b9VBxiNUVTJFrSrDFHvI
+	CuYRcgjAHVDEwOVdt3job0y8PYOZGh7s8iByIz7ZnIliesgndrSJRSlZ5GgEhSHuxed4ZyL
+	XE77DBU9unxcatusVnMpbwhgGCwgCU0vCGfX6VKrKq3hZLUoTjqYSH2Lk4sIDihkTRW8Ojo
+	yf5FnowVDhAZXLQxws5lhFrMVXPlp97wL8/aDml01XPofHgwqyo55JySFMGI4bgPT40w6fL
+	QfVv3Z9VIkFUueBUQUcocxgjHTEiS2nEJZdTW6aqsxX1tN0tKiyKJpxJhJWpU7K5n/62dm8
+	JTsq98AULHDmfdKyhB/39EL0d6SrDa3E7YR0F8tLZBhmAg+vpdffK7Hns5AUL2qSU4VCIHf
+	ZgAKhgFX2TGyWQ2tZcbQpyDEqj9NCUxg66j6g6J/FpFMsNrWk+zbkkaldx0RSpnF0x9GLZW
+	VGMn7UnfqaUC3dkEPvAr2MAGhLPC6B9h1w+Eiab2DRLrqpD7V7wTCzHI/K1Ew6wL9cS5CGE
+	zd6U1u1vZczI3gshEMcXQfqa2A+Xq8UinclPObTASd97spM5fJSPRLDlufHf0ICz/xU8ODh
+	6yZu02fxUI7qAwP7eJ34EAsfZFTuHKKUH1jBtfckbuPUtn6Z/5CM36YPLp9rpQt0/VMauni
+	kFfFBfxvnAedbGS8hh306jcsTi6yefy8mACTuChqKnN922U8gzjYsXVUYIqBjWtOUZPE5KE
+	4uRSTekA==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_021118_145770_8CB01367 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20260917_023023_350273_3B03593B 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,81 +107,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 8/10/2026 11:22 PM, Mayuresh Chitale wrote:
 
-
-On 9/9/2026 3:15 PM, Yufan Dou wrote:
-> On RISC-V, reading FFH feedback counters on a remote hart through
-> cpc_read_ffh() requires a separate IPI for each register.
-> cppc_get_perf_ctrs() therefore samples the delivered and reference
-> counters in two separate IPIs. Variation in the delay between these
-> reads distorts the delivered/reference ratio and thus the frequency
-> reported by cpufreq.
-> 
-> Implement cpc_read_ffh_fb_ctrs() to read both counters back-to-back
-> in a single callback on the target hart. For remote reads, this
-> reduces two IPIs to one and narrows the separation between the
-> counter samples. Support CSR-type, SBI-type and mixed-type pairs.
-> Pairing SBI reads does not reduce the number of SBI calls, but
-> still avoids a separate IPI for each counter.
-> 
-> Factor the execution-context handling into cppc_ffh_read_on_cpu(),
-> shared by cpc_read_ffh() and cpc_read_ffh_fb_ctrs(). CPPC frequency
-> invariance (FIE) reads non-PCC counters directly from the scheduler
-> tick, with local interrupts disabled. Unconditionally rejecting
-> such reads prevents the frequency scale from being updated.
-> 
-> Following arm64's counters_read_on_cpu(), invoke the callback
-> directly when interrupts are disabled and the target is the current
-> CPU. Reject remote reads in that context. Otherwise, use
-> smp_call_function_single() and propagate its return value before
-> accessing the callback results.
-> 
-> Frequency accuracy testing used CSR-type delivered and reference
-> counters, with CPU1 kept busy by:
-> 
->   # stress-ng --cpu 1 --taskset 1
-> 
-> On a CPU with cpuinfo_max_freq of 3000000 kHz:
-> 
-> Before:
-> 
->   Maximum observed cpuinfo_cur_freq: 3201369 kHz
->   Maximum observed deviation:        +201369 kHz (+6.71%)
-> 
-> After:
-> 
->   Maximum observed cpuinfo_cur_freq: 3009646 kHz
->   Maximum observed deviation:          +9646 kHz (+0.32%)
-> 
-> The maximum observed deviation from cpuinfo_max_freq decreased
-> by 95.2%.
-> 
-> Additional testing covered the CPPC FIE tick path and SBI-type
-> FFH register reads.
-> 
-> Co-developed-by: Yicong Yang <yang.yicong@picoheart.com>
-> Signed-off-by: Yicong Yang <yang.yicong@picoheart.com>
-> Signed-off-by: Yufan Dou <douyufan@picoheart.com>
-> Reviewed-by: Sunil V L <sunilvl@oss.qualcomm.com>
-LGTM, thanks!
-Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com> 
+> From: Anup Patel <anup.patel@oss.qualcomm.com>
+>
+> The RISC-V trace ramsink will need a mechanism to copy trace data
+> into the perf AUX buffer. Add gtrace_path_copyto_auxbuf() function
+> and corresponding trace driver callback copyto_auxbuf() for this
+> purpose.
+>
+> Co-developed-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+> Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+> Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
 > ---
-> Changes in v2:
-> - Support SBI-type and mixed-type counter pairs in a single callback
->   on the target hart, reducing remote reads to one IPI.
-> - Factor out cppc_ffh_read_on_cpu() for both FFH read interfaces.
->   Allow local reads with interrupts disabled and reject remote reads
->   in that context, following arm64's counters_read_on_cpu().
-> - Propagate synchronous cross-CPU call errors in cpc_read_ffh().
-> - Test the CPPC FIE tick path and SBI-type FFH register reads.
-> 
-> v1:
-> https://lore.kernel.org/all/20260902083450.2348-1-douyufan@picoheart.com/
-> 
->  drivers/acpi/riscv/cppc.c | 102 ++++++++++++++++++++++++++++++++++++--
->  1 file changed, 97 insertions(+), 5 deletions(-)
-> 
-[ ... ]
+>  drivers/hwtracing/gtrace/gtrace-core.c | 22 ++++++++++++++++++++++
+>  include/linux/gtrace.h                 | 24 ++++++++++++++++++++++++
+>  2 files changed, 46 insertions(+)
+>
+> diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
+> index 6ff1b3087947..53a3679ba69f 100644
+> --- a/drivers/hwtracing/gtrace/gtrace-core.c
+> +++ b/drivers/hwtracing/gtrace/gtrace-core.c
+> @@ -626,6 +626,28 @@ int gtrace_path_stop(struct gtrace_path *path)
+>  }
+>  EXPORT_SYMBOL_GPL(gtrace_path_stop);
+>  
+> +int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
+> +			      struct gtrace_perf_auxbuf *buf,
+> +			      size_t *bytes_copied, u64 *format)
+> +{
+> +	const struct gtrace_driver *gtdrv;
+> +	struct gtrace_component *comp;
+> +	struct gtrace_path_node *node;
+> +
+> +	list_for_each_entry(node, &path->comp_list, head) {
+> +		comp = node->comp;
+> +		gtdrv = to_gtrace_driver(comp->dev.driver);
+> +		if (!gtdrv->copyto_auxbuf)
+> +			continue;
+> +
+> +		*bytes_copied = gtdrv->copyto_auxbuf(comp, buf, format);
+> +		return 0;
+> +	}
+> +
+> +	return -EOPNOTSUPP;
+> +}
+> +EXPORT_SYMBOL_GPL(gtrace_path_copyto_auxbuf);
+
+Is it really necessary to introduce `gtrace_path_copyto_auxbuf`? The buffer copy logic should be
+exclusive to the sink component.
+A cleaner approach would be to delegate this directly to the sink instance:
+```
+struct gtrace_component *sink = gtrace_path_sink(path);
+size = sink->copyto_auxbuf(sink, &event_data->buf, &format);
+```
+
+> +
+>  struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
+>  				       struct gtrace_component *sink,
+>  				       enum gtrace_component_mode mode)
+> diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
+> index 78e2ead3db8e..bc82814e2738 100644
+> --- a/include/linux/gtrace.h
+> +++ b/include/linux/gtrace.h
+> @@ -257,9 +257,30 @@ void gtrace_destroy_path(struct gtrace_path *path);
+>  int gtrace_path_start(struct gtrace_path *path);
+>  int gtrace_path_stop(struct gtrace_path *path);
+>  
+> +/**
+> + * struct gtrace_perf_auxbuf - Representation of the perf AUX buffer.
+> + * @length:   Size of the AUX buffer.
+> + * @nr_pages: Number of pages of the AUX buffer.
+> + * @base:     Start address of AUX buffer.
+> + * @pos:      Position in the AUX buffer to commit traced data.
+> + */
+> +struct gtrace_perf_auxbuf {
+> +	size_t length;
+> +	int nr_pages;
+> +	void *base;
+> +	long pos;
+> +};
+> +
+> +int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
+> +			      struct gtrace_perf_auxbuf *buf,
+> +			      size_t *bytes_copied, u64 *format);
+> +
+>  /**
+>   * struct gtrace_driver - Representation of a trace driver.
+>   * @id_table:      Table to match components handled by the driver.
+> + * @copyto_auxbuf: Callback to copy data into perf AUX buffer. The driver
+> + *                 reports the PMU specific trace format of the copied data
+> + *                 via @format (see PERF_AUX_FLAG_PMU_FORMAT_TYPE_MASK).
+>   * @start:         Callback to start tracing.
+>   * @stop:          Callback to stop tracing.
+>   * @probe:         Driver probe() function.
+> @@ -270,6 +291,9 @@ int gtrace_path_stop(struct gtrace_path *path);
+>   */
+>  struct gtrace_driver {
+>  	const struct gtrace_component_id *id_table;
+> +	size_t			(*copyto_auxbuf)(struct gtrace_component *comp,
+> +						 struct gtrace_perf_auxbuf *buf,
+> +						 u64 *format);
+>  	int			(*start)(struct gtrace_component *comp);
+>  	int			(*stop)(struct gtrace_component *comp);
+>  	int			(*probe)(struct gtrace_component *comp);
 
 _______________________________________________
 linux-riscv mailing list
