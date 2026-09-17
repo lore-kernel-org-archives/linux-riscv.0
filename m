@@ -4,55 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 494C7C982C1
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 02:05:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE866C982CC
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 02:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:From:References:In-Reply-To:
-	Date:Mime-Version:To:Message-Id:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y2U3NW/gJLgm133UFdHZRfoLvYFhjRx/zILVFQJ7h28=; b=qFbi+culmO/hkk
-	8H3nz5PV1VEfhDROLNZJOg1cJBj9W+VcgaIbqsq1QM1fnqWam9ra1DIGb7TCcTJBGP8cJED8cctRZ
-	jb8Lj6aC7k5FG/4ViO4aRxC0OAI9XkrKK0kC1hHe4oF+UG/2iVnjehbQiXzJw3sfKRLHEfrF53n5v
-	42Yix5Iez+HTFi0tZBtBa6hRDecC8OOiu3HTsg7/OxypgtyhBjXWIB0TYH6OTKgkZrda1TeouXGu4
-	sv/otoXlqylMDXRB2xVyBm5EvJn5jsrKXh77L5uY8jUTSFjRUU6I/3LxlS7a4ndZwxxIsoUw6FBqg
-	bfxA/0ryhUtO0Gas/Btg==;
+	List-Owner; bh=7i+xtn8dpDWh1moFndovnRi22ohTdNxhJc9Cr/BMczA=; b=pc9LxAdmKFAKBa
+	JLpbceG8m1PNWmJaM1OtjA58LtoTF2otaFeeBDpCnQTwrAF34iR4HVw+MYg0cNDlEq2vuM5psbk44
+	mauazDP0aR/WL8jT+Sp0tF8LpKN0Xi9NDIBn3y1eXM2JcXgFQ7VeVn8ItpYwho3eJzyY4yDOhpZ5p
+	MZwWUlUdCe/fkKmlNk151g5WTlXCw4t2UyZ3EhgoOJI2pnYLryL5x280mFzsm9Mm23CjTFYEh42tM
+	oQn6w5pGO6w4hWFG9lG9wGbwFJPVTSjQ8gx7FENlcAX9XTVCZEttQyafWl5MfS1k9nRw9XLMLc+wT
+	+KWHGrgdQW9Ld2rT4idQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x71Ui-0000000ARqs-0M3U;
-	Thu, 17 Sep 2026 02:05:00 +0000
-Received: from va-2-39.ptr.blmpb.com ([209.127.231.39])
+	id 1x72IG-0000000AV3I-17e6;
+	Thu, 17 Sep 2026 02:56:12 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x71Uf-0000000ARqW-10NI
-	for linux-riscv@lists.infradead.org;
-	Thu, 17 Sep 2026 02:04:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1789610690;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=MDsxntRODNgCNG5JeXxth+hLjZlO+v0hDLmbatGO5VY=;
- b=mTqXAqnWaPFcsNiK+cyRsvkef7ovWgv/a91kjHhwtxxi0rz3WkmSgPKAb9tPxHu4cvsg7l
- WPqFKWE/8rrtTXoJZ5FGUQ362TxDT/psZkJIsZAKOPWWFGkRbrWYHDAQdmQ+m3jhw7Tac5
- V/UNueXEyE6eo7zK849y6ndNjtaInWuCCW7TqHQj4/ttpXgOdl33IsGTJtehb2FhwIPSUK
- gETRKnwLg048G5crunUBk+XxN/Lnl7dBwwPNDK1oHRgQ+gnEW+et2Ww+ZjQIziI9UKsYCj
- eFIeEizEg48VTZFN0XvxwJ2KlPenZi2TBoPJF8d88unoRFxVZ8eySU+wuSuTtA==
-Message-Id: <9d469f95-73b4-4a0a-9c35-80a655a53225@lanxincomputing.com>
-User-Agent: Mozilla Thunderbird
-To: <sunilvl@oss.qualcomm.com>
-Mime-Version: 1.0
-Received: from [127.0.0.1] ([123.120.5.129]) by smtp.feishu.cn with ESMTPS; Thu, 17 Sep 2026 10:04:37 +0800
-Content-Language: en-US
-Date: Thu, 17 Sep 2026 10:04:34 +0800
-X-Original-From: BillXiang <xiangwencheng@lanxincomputing.com>
-X-Lms-Return-Path: <lba+26aab4ab7+2805b8+lists.infradead.org+xiangwencheng@lanxincomputing.com>
-In-Reply-To: <CAB19ukHfFXmuPEaWdNPvFRkvMGpDQfVEpCHfqsHL20tpBytQRA@mail.gmail.com>
-References: <20260916112545.887461-1-xiangwencheng@lanxincomputing.com> <CAB19ukHfFXmuPEaWdNPvFRkvMGpDQfVEpCHfqsHL20tpBytQRA@mail.gmail.com>
-From: "BillXiang" <xiangwencheng@lanxincomputing.com>
-Subject: Re: [PATCH] riscv: iommu: ask for ACS to be enabled
+	id 1x72ID-0000000AV2V-1M0z;
+	Thu, 17 Sep 2026 02:56:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1789613765; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=/Y6Uh+LvQ8rP9w60VuF19J58tyBySgKuwMUmFXQ+Wl4=;
+	b=OhVB0CubxpRG0Y2QQbwTMPsB0Odqwur3OCA/XBo3iCb7Ar81Z02dkCC1x2CIJNW2A7Xmg7FpmMIyf/FkjLeFRid+Db4rc175hgbLSmqveYtfU0Dln9cWvmpAKJ7lR+NesXiSI9AU4TYXmvMa7Ut/HYK3icWgv0suMNGpS8UPKXc=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R291e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=27;SR=0;TI=SMTPD_---0XB6NTcz_1789613759;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XB6NTcz_1789613759 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 17 Sep 2026 10:56:02 +0800
+From: fangyu.yu@linux.alibaba.com
+To: tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	baolu.lu@linux.intel.com,
+	jroedel@suse.de,
+	zong.li@sifive.com,
+	andrew.jones@oss.qualcomm.com,
+	anup@brainfault.org,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	atish.patra@linux.dev,
+	skhawaja@google.com,
+	vasant.hegde@amd.com,
+	gsh517025@gmail.com,
+	joerg.roedel@amd.com
+Cc: fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org
+Subject: [RFC PATCH v4 10/10] iommu/riscv: Add IOTINVAL.GVMA after updating DDT/PDT entries
+Date: Thu, 17 Sep 2026 10:54:46 +0800
+Message-Id: <20260917025446.4070-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20260915032828.11250-1-fangyu.yu@linux.alibaba.com>
+References: <20260915032828.11250-1-fangyu.yu@linux.alibaba.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260916_190457_354199_B661E8CF 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260916_195609_655635_B0CA2160 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,27 +85,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, tjeznach@rivosinc.com, alex@ghiti.fr, rafael@kernel.org, guoren@linux.alibaba.com, linux-kernel@vger.kernel.org, luxu.kernel@bytedance.com, linux-acpi@vger.kernel.org, iommu@lists.linux.dev, palmer@dabbelt.com, jgg@nvidia.com, pjw@kernel.org, linux-riscv@lists.infradead.org, lenb@kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOS8xNi8yMDI2IDg6MTggUE0sIFN1bmlsIFYgTCB3cm90ZToKPiBPbiBXZWQsIFNlcCAxNiwg
-MjAyNiBhdCA1OjE14oCvUE0gQmlsbFhpYW5nCj4gPHhpYW5nd2VuY2hlbmdAbGFueGluY29tcHV0
-aW5nLmNvbT4gd3JvdGU6Cj4+Cj4+IE1ha2Ugc3VyZSBBQ1Mgd2lsbCBiZSBlbmFibGVkIGR1cmlu
-ZyBQQ0kgcHJvYmUKPj4KPj4gU2lnbmVkLW9mZi1ieTogQmlsbFhpYW5nIDx4aWFuZ3dlbmNoZW5n
-QGxhbnhpbmNvbXB1dGluZy5jb20+Cj4+IC0tLQo+PiAgIGRyaXZlcnMvYWNwaS9yaXNjdi9yaW10
-LmMgfCAxICsKPj4gICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykKPj4KPj4gZGlmZiAt
-LWdpdCBhL2RyaXZlcnMvYWNwaS9yaXNjdi9yaW10LmMgYi9kcml2ZXJzL2FjcGkvcmlzY3Yvcmlt
-dC5jCj4+IGluZGV4IGU0NTM4ZmE2YzJjOC4uMzBkMmQwMjExZDVlIDEwMDY0NAo+PiAtLS0gYS9k
-cml2ZXJzL2FjcGkvcmlzY3YvcmltdC5jCj4+ICsrKyBiL2RyaXZlcnMvYWNwaS9yaXNjdi9yaW10
-LmMKPj4gQEAgLTUyNSw0ICs1MjUsNSBAQCB2b2lkIF9faW5pdCByaXNjdl9hY3BpX3JpbXRfaW5p
-dCh2b2lkKQo+Pgo+PiAgICAgICAgICAgICAgICAgIHJldHVybjsKPj4gICAgICAgICAgfQo+PiAr
-ICAgICAgIHBjaV9yZXF1ZXN0X2FjcygpOwo+PiAgIH0KPj4KPiBUaGVyZSBpcyBhbHJlYWR5IGEg
-cGF0Y2ggaW4gdGhlIG1haWxpbmcgbGlzdCBmb3IgdGhpcy4KPiAKPiBodHRwczovL2xrbWwub3Jn
-L2xrbWwvMjAyNi85LzMvMTkzMAo+IAo+IFRoYW5rcywKPiBTdW5pbAoKVGhhbmsgeW91IGZvciBw
-b2ludGluZyB0aGF0IG91dC4gUGxlYXNlIGp1c3QgaWdub3JlIG15IGNvbW1pdC4KCi0tCkJpbGxY
-aWFuZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+
+Previously, only IOTINVAL.VMA was issued, which is insufficient for
+second-stage address translation consistency.
+
+Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+---
+ drivers/iommu/riscv/iommu.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 41b593def1f5..e848a7f97771 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -1153,12 +1153,15 @@ static void riscv_iommu_iodir_iotinval(struct riscv_iommu_device *iommu,
+ 		/*
+ 		 * else: IOTINVAL.VMA with GV=1,AV=PSCV=0,and
+ 		 * GSCID=DC.iohgatp.GSCID
+-		 *
++		 */
++		riscv_iommu_cmd_send(iommu, &cmd);
++		/*
+ 		 * IOTINVAL.GVMA with GV=1,AV=0,and
+ 		 * GSCID=DC.iohgatp.GSCID
+-		 * TODO: For now, the Second-Stage feature have not yet been merged,
+-		 * also issue IOTINVAL.GVMA once second-stage support is merged.
+ 		 */
++		riscv_iommu_cmd_inval_gvma(&cmd);
++		riscv_iommu_cmd_inval_set_gscid(&cmd,
++			FIELD_GET(RISCV_IOMMU_DC_IOHGATP_GSCID, iohgatp));
+ 	}
+ 	riscv_iommu_cmd_send(iommu, &cmd);
+ }
+-- 
+2.50.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
