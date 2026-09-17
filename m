@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4DCAC88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 12:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7F4C982D1
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 13:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KfkYluddrjzyZnFQFrOsFYDIHzYHRD3t2u7rzaHsZeE=; b=CiNWbdWStNBL+J
-	u2W/eEY9i6d1x3/ym5xVN8Y80QcxOpGSmEfvUtYok6AN0PqZTiec6RT0SnbUYgUdPZvWGlRCFptqw
-	GIATAB9Tbeck6OTlBWmsVF5gG7KwGTeIntseSdPwsrCbrIGODveUF5gQF1H1F/pA8utRO0CjFumXb
-	5KYL2pLOZDpu36OSJgo6Xo/RES1XZ9qsFAsD8slozFaiJGUXQ5tUdP43LPqmYHSskXqEyNionM+NT
-	Bdk1oD25bkAnr7kkapFm1ATNMSGU02LMDlwZ125/VBlxfqd8xZKxC3bRie7Z2WxFvfvKpnYU4d2oW
-	mSkFVrO9YRxydAPIg1ng==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gxOMmZF6pL+umzIKa1lPhb2iwDZkMjQVIcjwQ7WcXWo=; b=A5nWqmt+yQH+B6
+	RDATrVMBCFnyOZBLoRs17ZSfY9b48TY7ar3+ExNWkDIT+op1pltfS4Ftio9GM67ZPUxidB8I/BhMc
+	bTg0Ct7SPw2WwO+Zh3GLlXq+cPjGeJPOewHUkj9IQnqalxEzO0LMb7t9qnURzVinpmaWtZb0nt1HG
+	BBdVBzbdUIs4WR+/7lJAts7OCN91NxJ+DqzmJIoA0WxS6gfJizV+/JEpUpRATfQg3Z6WE6bZ/vPou
+	rbhkPtNaSTgCDXbzIvmcbrrQoI1jhlYaBRmppbQ8cLooNdF3iOMFcOL583gdFXiXoRKBnSMUdX4gS
+	wvK/gWdJe0kPbvrkliAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B6H-0000000BGpQ-0hAq;
-	Thu, 17 Sep 2026 12:20:25 +0000
-Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7B6C-0000000BGoa-2je7;
-	Thu, 17 Sep 2026 12:20:23 +0000
-Received: from E0002472LT.eswin.cn (unknown [10.12.96.78])
-	by app2 (Coremail) with SMTP id TQJkCgBXbaD82qtq+5iDAA--.55770S2;
-	Thu, 17 Sep 2026 20:20:14 +0800 (CST)
-From: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atish.patra@linux.dev>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-Subject: [PATCH] RISC-V: KVM: Fix IPI delivery for out-of-order vcpu_id
-Date: Thu, 17 Sep 2026 20:20:12 +0800
-Message-Id: <20260917122012.2577-1-yuanxiaofeng@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
+	id 1x7Bjl-0000000BMGs-1FCJ;
+	Thu, 17 Sep 2026 13:01:13 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7Bji-0000000BMFY-1Uwi
+	for linux-riscv@lists.infradead.org;
+	Thu, 17 Sep 2026 13:01:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789650067;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kVKdgmi+8pcFasq/0rsQQ87M1qfknQkQcXTRjGslQCE=;
+	b=dfFYNjjVX/LBiegpLu2EtL177DpFzS1f7QgSqpYhwd78h/9fuXUAd52TsFen0p7P5eywdC
+	7U2msVDH6yIf7409cN7Dqp1NuB5dzMF1CjU3QIM36v2XKBXhuBvo+q5HNNKto+v0mQazKi
+	eL/AMtK6biSp9MrcT6/5kjdfxK90ijA=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-650-Bl9d6JHjN9um_ceeDEz29w-1; Thu, 17 Sep 2026 09:01:06 -0400
+X-MC-Unique: Bl9d6JHjN9um_ceeDEz29w-1
+X-Mimecast-MFC-AGG-ID: Bl9d6JHjN9um_ceeDEz29w_1789650065
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-49e6c17ec1dso9967175e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 17 Sep 2026 06:01:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789650065; x=1790254865;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kVKdgmi+8pcFasq/0rsQQ87M1qfknQkQcXTRjGslQCE=;
+        b=EoPoDQNXkOHtXEDHyRkq0Wv8jcAkKPbynDROm0r6jrOfFTBjnTdti+Bb43kMW/Kd29
+         5gT7FVcGJre/X6uWDuc+vCDQFKOsrdrJUu/zCtlM5qtVpUabQDWBEGAm7P7/1AfNMPkk
+         TMdcd3HFgGMd37ij1nyTAXmlwLDrYbKlmUUvnuvW9Bg/vPuX4T7V56ZoUPNZtCMqebnD
+         fGQeAdZRTCSzM8t257KVgXWUgbwVf3WK6sOjUaxLDLeHnQhWiGN4unlH8fRBzILUEWd5
+         Ld8rMbJcDpLkVcPYt460DV/jEudLqPlieGAyHPU3qIDTkYmRRjxNChNUmfmrRFpJvnsJ
+         GKpA==
+X-Forwarded-Encrypted: i=1; AKwUvBwzQ+OpZPQCQv9YmDWrPbgaE9frGmyAJ1UJoCF7esjBWaq1F/GiRTumQ6jilALH2cuKXjayBWWsPF6e3A==@lists.infradead.org
+X-Gm-Message-State: AFuF++mrr5pscbsLD0zYms/F7lGZE9yql1fvkJbOEd+08GttWAhXvIMd
+	nVeanYeWQbXtKr1BOZdLx2hc1pIaox1L4So6Pi4dE0OxSuXYZTyrPCaoBLf/bTjHC9gcCm7eS1S
+	FYj603QEEdMFBOWyuY+yiExhnL0NmYkS9GPRHlbmcNcrUR5ApotgYqhXad04qjxg2W8TCM7Zl/3
+	oedIQbLXedL0zAlANEdbuB5WOlWnZD+NzniaXNhGHrw4KT9esW3hJ16oU=
+X-Gm-Gg: AYBFou1bcjX+8sbF7HJGahGQ8Lwvx9MeKNRvxTpj7jBpE7AHunYqSAIVtkCfAWISQbP
+	09+qpz0WyOkff+Iaz/pIK6Efi2GsptHmPyUU8UKpMsk7mryWXcwgYBimCoDSMO04CfgV+jL1HuQ
+	urK7sUw4kf271rUXDAUkPdK759J3maIAB/2QsP3+s5Jpff0QP4cDuRpd/JwBe5InCAqgc3jECcq
+	mwdazfJ59hvtQSFSQ==
+X-Received: by 2002:a05:600c:674a:b0:49f:bd3c:bc1b with SMTP id 5b1f17b1804b1-49fbd3cbce8mr39240655e9.22.1789650064757;
+        Thu, 17 Sep 2026 06:01:04 -0700 (PDT)
+X-Received: by 2002:a05:600c:674a:b0:49f:bd3c:bc1b with SMTP id
+ 5b1f17b1804b1-49fbd3cbce8mr39239915e9.22.1789650064232; Thu, 17 Sep 2026
+ 06:01:04 -0700 (PDT)
 MIME-Version: 1.0
-X-CM-TRANSID: TQJkCgBXbaD82qtq+5iDAA--.55770S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CFyftF13GrW7Ar17ZrWDurg_yoW8KFyrpF
-	WDKrn8ZrZ5JF1UK3yUtwsrurySvr4kKa1rZr97J3yFkr1Yvr1rZr4vka47Cry5JF9YqF1F
-	yrZ0qF1kuFn0yFUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUva14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	tVW8ZwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2
-	IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v2
-	6r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2
-	IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv
-	67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyT
-	uYvjfUoWlkDUUUU
-X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAQENE2qqxK88TgABsG
+References: <20260917062306.46978-1-min_halo@163.com>
+In-Reply-To: <20260917062306.46978-1-min_halo@163.com>
+From: Jesse Taube <jtaubepe@redhat.com>
+Date: Thu, 17 Sep 2026 09:00:52 -0400
+X-Gm-Features: AcwNN1X7pTf9zf7-_RrERJT_XeD7bvpIhJKNMsqd-FNmPRKmwewQD6boNViraSM
+Message-ID: <CADRr4beOuFxa4A+CCLC8MFAALKBUptLaVANvDb6ZS42m_UMrbQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: hwprobe: use _BITULL() rather than BIT() in MIPS
+ vendor uapi header
+To: Zongmin Zhou <min_halo@163.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Zongmin Zhou <zhouzongmin@kylinos.cn>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: w_m8ZccIzzLYeCDohosQZomAb5UG5nx0jO21Bb1i0nU_1789650065
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_052021_173323_E990DDD8 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260917_060110_480416_CAEFD118 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,73 +102,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI IPI handler walks vCPUs with kvm_for_each_vcpu(), which
-iterates by vcpu_idx (creation order) rather than vcpu_id order.
-Since vcpu_id can be assigned out of order by userspace, a vCPU whose
-hart_bit falls outside the XLEN-bit hart_mask range may be reached
-before vCPUs the mask actually targets. In that case the handler jumps
-to "done" and stops sending IPIs, leaving valid target vCPUs without
-an interrupt.
-
-Replace the early "goto done" with "continue" so vCPUs outside the
-hart_mask range are skipped without aborting the loop.
-
-Reproduced with a minimal userspace VMM driving KVM inside a QEMU
-(RISC-V virt) guest: three vCPUs are created with ids 100, 0, 1 (in
-creation order) and sbi_send_ipi(hart_mask=bit0, hbase=0) is called
-from vcpu_id 1. Before this change the IPI is dropped and the ecall
-returns SBI_ERR_INVALID_PARAM; with this change the IPI is delivered
-and the ecall returns SBI_SUCCESS.
-
-Fixes: 0611f78f83c9 ("riscv: KVM: Fix SBI IPI error generation")
-Cc: stable@vger.kernel.org
-Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-Signed-off-by: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
----
- arch/riscv/kvm/vcpu_sbi_replace.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-index 506a510b6..c2f1f7f26 100644
---- a/arch/riscv/kvm/vcpu_sbi_replace.c
-+++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-@@ -64,8 +64,17 @@ static int kvm_sbi_ext_ipi_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			if (tmp->vcpu_id < hbase)
- 				continue;
- 			hart_bit = tmp->vcpu_id - hbase;
-+			/*
-+			 * kvm_for_each_vcpu() walks kvm->vcpus[] by
-+			 * vcpu_idx, i.e. the creation order, which has
-+			 * nothing to do with the vcpu_id (hart id) space
-+			 * that the SBI IPI operates on. vcpu_ids need not
-+			 * increase along the iteration, so harts outside
-+			 * the hart_mask window must be skipped instead of
-+			 * aborting the loop.
-+			 */
- 			if (hart_bit >= __riscv_xlen)
--				goto done;
-+				continue;
- 			if (!(hmask & (1UL << hart_bit)))
- 				continue;
- 		}
-@@ -76,7 +85,6 @@ static int kvm_sbi_ext_ipi_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 		kvm_riscv_vcpu_pmu_incr_fw(tmp, SBI_PMU_FW_IPI_RCVD);
- 	}
- 
--done:
- 	if (hbase != -1UL && (hmask ^ sentmask))
- 		retdata->err_val = SBI_ERR_INVALID_PARAM;
- 
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBTZXAgMTcsIDIwMjYgYXQgMzo1NOKAr0FNIFpvbmdtaW4gWmhvdSA8bWluX2hhbG9A
+MTYzLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBab25nbWluIFpob3UgPHpob3V6b25nbWluQGt5bGlu
+b3MuY24+Cj4KPiBCSVQoKSBpcyBhIGtlcm5lbC1pbnRlcm5hbCBtYWNybyB0aGF0IGlzIG5vdCBh
+dmFpbGFibGUgdG8gdXNlcnNwYWNlLCBidXQKPiB0aGUgTUlQUyB2ZW5kb3IgZXh0ZW5zaW9uIHVh
+cGkgaGVhZGVyIHVzZXMgaXQgd2l0aG91dCBkZWZpbmluZyBvcgo+IGluY2x1ZGluZyBpdC4gQW55
+IHVzZXJzcGFjZSBwcm9ncmFtIHRoYXQgaW5jbHVkZXMgdGhpcyBoZWFkZXIgYW5kIHVzZXMKPiBS
+SVNDVl9IV1BST0JFX1ZFTkRPUl9FWFRfWE1JUFNFWEVDVEwgZmFpbHMgdG8gYnVpbGQuCgpNYXli
+ZSBDQyBzdGFibGU/Cgo+Cj4gVXNlIF9CSVRVTEwoMCkgZnJvbSBsaW51eC9jb25zdC5oIGluc3Rl
+YWQsIHdoaWNoIGtlZXBzIHRoZSB2YWx1ZSBhdCAxLAo+IHNvIHRoZXJlIGlzIG5vIEFCSSBjaGFu
+Z2UuCj4KPiBGaXhlczogYmI0YjBmOGExYmNiICgicmlzY3Y6IGh3cHJvYmU6IEFkZCBNSVBTIHZl
+bmRvciBleHRlbnNpb24gcHJvYmluZyIpCj4gU2lnbmVkLW9mZi1ieTogWm9uZ21pbiBaaG91IDx6
+aG91em9uZ21pbkBreWxpbm9zLmNuPgoKUmV2aWV3ZWQtYnk6IEplc3NlIFRhdWJlIDxqdGF1YmVw
+ZUByZWRoYXQuY29tPgoKPiAtLS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL3ZlbmRv
+ci9taXBzLmggfCA0ICsrKy0KPiAgMSBmaWxlIGNoYW5nZWQsIDMgaW5zZXJ0aW9ucygrKSwgMSBk
+ZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS92
+ZW5kb3IvbWlwcy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL3ZlbmRvci9taXBzLmgK
+PiBpbmRleCBlNjVhYjI2OGIyNjUuLmEzMWMyM2FmZTc0ZiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvdWFwaS9hc20vdmVuZG9yL21pcHMuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS91YXBpL2FzbS92ZW5kb3IvbWlwcy5oCj4gQEAgLTEsMyArMSw1IEBACj4gIC8qIFNQRFgt
+TGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wIFdJVEggTGludXgtc3lzY2FsbC1ub3RlICovCj4K
+PiAtI2RlZmluZSBSSVNDVl9IV1BST0JFX1ZFTkRPUl9FWFRfWE1JUFNFWEVDVEwgICBCSVQoMCkK
+PiArI2luY2x1ZGUgPGxpbnV4L2NvbnN0Lmg+Cj4gKwo+ICsjZGVmaW5lIFJJU0NWX0hXUFJPQkVf
+VkVORE9SX0VYVF9YTUlQU0VYRUNUTCAgIF9CSVRVTEwoMCkKClRoaXMgY2hhbmdlcyB0aGUgdHlw
+ZSBmcm9tIGB1bnNpZ25lZCBsb25nYCB0byBgdW5zaWduZWQgbG9uZyBsb25nYCwgdGhvdWdoIHRo
+ZQp0eXBlIHdoZW4gcGFzc2VkIHRvIGBod3Byb2JlYCBpcyBgdW5zaWduZWQgbG9uZyBsb25nYCBz
+byBpdCBkb2Vzbid0CmJyZWFrIGFueXRoaW5nLgoKVGhhbmtzLApKZXNzZSBUYXViZQoKPiAtLQo+
+IDIuMzQuMQo+Cj4KPiBObyB2aXJ1cyBmb3VuZAo+ICAgICAgICAgICAgICAgICBDaGVja2VkIGJ5
+IEhpbGxzdG9uZSBOZXR3b3JrIEFudGlWaXJ1cwo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4KCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
