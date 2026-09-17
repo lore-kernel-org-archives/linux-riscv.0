@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36542C982D5
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 13:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C58C88E72
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 14:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YYW3dp3Ng90gs5uWVN3FnZANFECAv5x5d5nql+ziokA=; b=BPRhBlFWWsZ3jl
-	nLHYS581yJ7Kg7VM/Gx3lNlXRnNV93JuP0RHqjozfJKm0H2lfFPgAiajCaGJ/RLt0A+zvICla8LLL
-	RybyJCAoMVLDE3yGyFTB0yNRvpFgYdiXznmQDc5gCyn7v6iBWy9JfCCcOnizzKzmlCpEX7qDM/4jN
-	7/9yd/gP9X07MR8T06YOTdp309B19CjKiPsUXFikZMbMEy1GuXs4GGH5yUvgHNXo2A3ne+Oz7aMaP
-	RiXKd2kLbDwlJ82v/tGv98QihIKkflON4XSnDCu2N4CbijrwmkhV/EOXE0sUR/SgnprAi3mX8eqPG
-	K9Tc5l0wAo1isY0k4AAQ==;
+	List-Owner; bh=LjzNM3IhA2AprRGi6317TahWOGVnbaSeDXCANwktaI4=; b=VWVC1DxI6uGEaY
+	unFXtTiEqGisTqWWegQv7g/hCcQZlhgTO7AK2SIWnzjklvAMBiFkTAHxccKptD/oTjzozkJyfi5/e
+	abLxZlXdkBBF1YpLyNkDbExyzwH4AYWhUhjZobh/7OtX7/HmDFNFZQtLLejVp2svfCnJnb+JK09OJ
+	ikLbWEDYsj9EG0c7kD5URMAuhz9YpI5UxqOVbsLkOny++ifGw9nfKok7nSTFKl01xOzJZJa8Lp2/J
+	T3+XpaMrAP4fpTD3KwD8IeiySoeO+aRTEKE4U/QvKgMplnXf0ogRACzh8cm+DEL3wE17lSGxaz1Xc
+	CEhuL84Zw3IIr3wzXOyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7C5C-0000000BORQ-1fKm;
-	Thu, 17 Sep 2026 13:23:22 +0000
-Received: from angie.orcam.me.uk ([78.133.224.34])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7C59-0000000BOR1-0380
+	id 1x7D7N-0000000BXFY-0JXO;
+	Thu, 17 Sep 2026 14:29:41 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7D7H-0000000BXD2-3unJ
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Sep 2026 13:23:20 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id F1AF992009E; Thu, 17 Sep 2026 15:23:15 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id EE31D92009B;
-	Thu, 17 Sep 2026 14:23:15 +0100 (BST)
-Date: Thu, 17 Sep 2026 14:23:15 +0100 (BST)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Conor Dooley <conor@kernel.org>
-cc: aleksa.paunovic@htecgroup.com, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Alexandre Ghiti <alex@ghiti.fr>, 
-    Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
-    Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@kernel.org>, 
-    Radu Rendec <radu@rendec.net>, Inochi Amaoto <inochiama@outlook.com>, 
-    Daniel Lezcano <daniel.lezcano@kernel.org>, devicetree@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-    Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: Re: [PATCH 3/9] dt-bindings: riscv: Add MIPS Boston board
- compatible
-In-Reply-To: <20260915-woof-ducktail-5e2f52bc5762@spud>
-Message-ID: <alpine.DEB.2.21.2609171254060.15569@angie.orcam.me.uk>
-References: <20260914-p8700-dts-v1-0-3267f14ebce1@htecgroup.com> <20260914-p8700-dts-v1-3-3267f14ebce1@htecgroup.com> <20260915-woof-ducktail-5e2f52bc5762@spud>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	Thu, 17 Sep 2026 14:29:38 +0000
+Received: from [127.0.1.1] (unknown [223.166.93.127])
+	by APP-05 (Coremail) with SMTP id zQCowABHtD5A+atqNnqCCA--.4692S4;
+	Thu, 17 Sep 2026 22:29:26 +0800 (CST)
+From: Han Gao <gaohan@iscas.ac.cn>
+Date: Thu, 17 Sep 2026 22:29:20 +0800
+Subject: [PATCH 2/4] spi: sg2044-nor: Honor SPI clock limits
 MIME-Version: 1.0
+Message-Id: <20260917-fix-sg204xspi-v1-2-5c95dac429a8@iscas.ac.cn>
+References: <20260917-fix-sg204xspi-v1-0-5c95dac429a8@iscas.ac.cn>
+In-Reply-To: <20260917-fix-sg204xspi-v1-0-5c95dac429a8@iscas.ac.cn>
+To: Mark Brown <broonie@kernel.org>, Longbin Li <looong.bin@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
+ Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Han Gao <rabenda.cn@gmail.com>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.14.2
+X-CM-TRANSID: zQCowABHtD5A+atqNnqCCA--.4692S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxCw1fCryrGrWDXryDZr4UCFg_yoW5GFy5pa
+	17u3W5tr4rKFsrGr4fJw13X3yay34S9a4jk347K348AFs8uw1UAFW8JFy3XFW3JFyayFyv
+	vF4xZr15CrsFq3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmY14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
+	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
+	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
+	6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
+	IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIev
+	Ja73UjIFyTuYvjTRRCJPDUUUU
+X-Originating-IP: [223.166.93.127]
+X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiBgkNDGqr888NVAAAsq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_062319_217548_3148A591 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20260917_072936_354012_42F722E1 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,28 +87,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Sep 2026, Conor Dooley wrote:
+The fixed divider ignores device and operation clock limits. Calculate
+the divider before each transfer so SCK does not exceed either limit.
 
-> > +    oneOf:
-> > +      - description: Boston FPGA development board with a MIPS P8700 bitfile
-> 
-> I'm not convinced that this is specific enough at all.
-> I have absolutely no idea from this description if there's even a
-> specific FPGA involved here - this could mean a bitstream used on an Altera
-> platform or a Xilinx one, with totally different contents.
-> I'm only happy with FPGA bitstream content being supported if it is
-> versioned strictly and matches with some clear and obvious releases from
-> the vendor. I cannot even find this board by googling it, let alone find
-> clear information about what this could correspond to.
+Fixes: de16c322eefb ("spi: sophgo: add SG2044 SPI NOR controller driver")
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+---
+ drivers/spi/spi-sg2044-nor.c | 35 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
- This stuff has been around for a decade now; cf. commit 6e62a888029b 
-("MIPS: generic: Support MIPS Boston development boards").  Public 
-resources have been scarce.  Here's the best one I could track down: 
-<https://training.mips.com/cps_mips/Examples/MD00901_Boot-MIPS_Example_Boot_Code_for_MIPS_Cores.pdf>.  
-Expect disappointment, but at least there's a photo of the platform (p. 
-142).
+diff --git a/drivers/spi/spi-sg2044-nor.c b/drivers/spi/spi-sg2044-nor.c
+index ff026ca0f76635fee959d7502f457d43dbec0706..f2a1074f68477cc6611fae09c5db7aaa405edf39 100644
+--- a/drivers/spi/spi-sg2044-nor.c
++++ b/drivers/spi/spi-sg2044-nor.c
+@@ -385,6 +385,29 @@ static ssize_t sg2044_spifmc_trans_reg(struct sg2044_spifmc *spifmc,
+ 	return 0;
+ }
+ 
++static int sg2044_spifmc_set_speed(struct sg2044_spifmc *spifmc,
++				   unsigned int speed_hz)
++{
++	unsigned long rate = clk_get_rate(spifmc->clk);
++	u64 div;
++	u32 reg;
++
++	if (!rate || !speed_hz)
++		return -EINVAL;
++
++	/* SCK = HCLK / (2 * (SckDiv + 1)); round down the resulting SCK. */
++	div = DIV_ROUND_UP_ULL(rate, 2ULL * speed_hz);
++	if (div > SPIFMC_CTRL_SCK_DIV_MASK + 1)
++		return -EINVAL;
++
++	reg = readl(spifmc->io_base + SPIFMC_CTRL);
++	reg &= ~SPIFMC_CTRL_SCK_DIV_MASK;
++	reg |= div - 1;
++	writel(reg, spifmc->io_base + SPIFMC_CTRL);
++
++	return 0;
++}
++
+ static int sg2044_spifmc_exec_op(struct spi_mem *mem,
+ 				 const struct spi_mem_op *op)
+ {
+@@ -395,11 +418,18 @@ static int sg2044_spifmc_exec_op(struct spi_mem *mem,
+ 
+ 	mutex_lock(&spifmc->lock);
+ 
++	ret = sg2044_spifmc_set_speed(spifmc, op->max_freq ?
++				    min(op->max_freq, mem->spi->max_speed_hz) :
++				    mem->spi->max_speed_hz);
++	if (ret)
++		goto out_unlock;
++
+ 	if (op->addr.nbytes == 0)
+ 		ret = sg2044_spifmc_trans_reg(spifmc, op);
+ 	else
+ 		ret = sg2044_spifmc_trans(spifmc, op);
+ 
++out_unlock:
+ 	mutex_unlock(&spifmc->lock);
+ 
+ 	return ret;
+@@ -409,6 +439,10 @@ static const struct spi_controller_mem_ops sg2044_spifmc_mem_ops = {
+ 	.exec_op = sg2044_spifmc_exec_op,
+ };
+ 
++static const struct spi_controller_mem_caps sg2044_spifmc_mem_caps = {
++	.per_op_freq = true,
++};
++
+ static void sg2044_spifmc_init(struct sg2044_spifmc *spifmc)
+ {
+ 	u32 tran_csr;
+@@ -459,6 +493,7 @@ static int sg2044_spifmc_probe(struct platform_device *pdev)
+ 	ctrl->bits_per_word_mask = SPI_BPW_MASK(8);
+ 	ctrl->auto_runtime_pm = false;
+ 	ctrl->mem_ops = &sg2044_spifmc_mem_ops;
++	ctrl->mem_caps = &sg2044_spifmc_mem_caps;
+ 	ctrl->mode_bits = SPI_RX_DUAL | SPI_TX_DUAL | SPI_RX_QUAD | SPI_TX_QUAD;
+ 
+ 	ret = devm_mutex_init(dev, &spifmc->lock);
 
-  Maciej
+-- 
+2.47.3
+
 
 _______________________________________________
 linux-riscv mailing list
