@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B369BC982D9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23B8C982DC
 	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lwx2Ei6viruZmN7tIZjrAGUeNteLogyoIkkkFTv3YYw=; b=Ej8O/j+0XKH78U
-	nt3Wd2xCFBxBQzS9Jo2ABs8gfYcQ4m/hCCYbe0ENPpDf1vu6hT9F6ROau8uOceOdhyeDgBfdzCemo
-	VyMRFCXLcPX98pEDEvnysjNU52lIFQaqaIQmsVFiZw2p2+tdvawi/YZBWBYmwyZmUkj+3ubPnEKoM
-	yjnLCmNeqKkhQLWVLeibtyQ1pq9OpQflsPcWi5YbcNyNKQBMuYfzqoYvaqyaYz658bdcVlZM6yzsA
-	+e8kIkEu8+qKmig8WcwIEcL1gnQdrF2xxjZozC9zu1XEN8mnSAEdvVc12u9R0Bw60/KTcxO9FwCk/
-	QVgdrr5UeDw06B7NgZMQ==;
+	List-Owner; bh=6kZE1uyP0ruIA+5lau13Dx3wPD1gM9xmpxojF3U7kv0=; b=E5gETuxnlQ7vz2
+	ivETPe9EpBzdvRWu5V5P8ZIKlZxcOqbw2Ch6Thwz+gNlKGitUrkOtYR6mtbABEKxGqcixeMVagtaT
+	xfdbTyI4N8oNLbLFXZMxmW7hNYwCSAu7rpJ/komKo1YCBljkz4Bw0QbqJ1y7l4l2RSsMNWgZ9cNR0
+	MGT7kiuc5i7BsJ8XCAb0XrHSB9TiOMDSMvpFwcnuWMOoZqd58rxAJAlo6HQrRxfUAtZSdjTrBO3k9
+	YoSAgwWGcikUZoQVTrBynPw5BKeCNV+Rn5NPuwEfBJIt2LO2o8CdaG3LqsrOQ3S6dG6F72b2/meGB
+	eT2yaG5NtcjolZ3E+wTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Lkp-0000000CvH8-4AKg;
-	Thu, 17 Sep 2026 23:42:59 +0000
+	id 1x7Lks-0000000CvJG-1uAQ;
+	Thu, 17 Sep 2026 23:43:02 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7F4N-0000000Bvj8-2hbw;
-	Thu, 17 Sep 2026 16:34:43 +0000
+	id 1x7F5q-0000000Bw70-2Pmu;
+	Thu, 17 Sep 2026 16:36:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C18B6601EF;
-	Thu, 17 Sep 2026 16:34:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B430A1F00898;
-	Thu, 17 Sep 2026 16:34:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EC77760210;
+	Thu, 17 Sep 2026 16:36:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C17581F00893;
+	Thu, 17 Sep 2026 16:35:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789662882;
-	bh=vZ2BcQjAwuwkC6/1VounDnE32rIC0Hjr2OUSnxyIkA8=;
+	s=k20260515; t=1789662973;
+	bh=2vUpjFSCSmyvMLIG1AQYKTdJJ8/j63OLmVWWNJsaBsI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=HrTjhgWc4//TyGo0MLAC3WMKB3trg0Da9llQBlNoG2CpnsE0E+nakCyji8mxZQpme
-	 VxHtk/idNgtQHfSor0Csyd9oGbaEoBYWo5jU9iNQ8ixYYL7YholnWwWdjJ4ajhiULo
-	 Rt8HXHFM9s9qJkcNIEd9WiyFvrIxm8Ob2Yziy+8eirXWq3iHf+8bU1EthZuZAvWGTz
-	 XibJ9IjZMVpXZBSOt2SVbDtXwXstrt0FCqmIib4HPGqMeXtQTPrE7Dj694QH14hQGs
-	 VddhDCAHjtM8xo5QTvEBLv6Je7pdirLDgUavvQkghweAOYclDKp41x5BVF7eVbvUlz
-	 2c2X7fiXPR9PQ==
+	b=BKmVmgXTSV0XK9j329Mx2rNtj/mOZsQ702ImyF+y7INTlqGVHbqkyjZl/ysBTl5EP
+	 gj4PlSgHckU+9Pve8h8w0EFiLo2s1POYm1WQ6ZJIv0t3oyKUNtY69jV0bu64AmEo5O
+	 V0fPEBosooqc3oZ0+ihMx3lb2lRUCgQT1d7LpA/vdctXRoKAfgIOW6HQfWNqsX6Zuz
+	 HU8kgEhybiwnMKasm2ZGwrIDPO/b6mZtifZAbnghS86qSdsbjW34N95Ae8fFKQrJiR
+	 6CfRv/sQNyiaU3DjmC1dGS9agHrzJLjuaKC9h5X83sT4B3tFptwbXa2jMl3AFBn/ZF
+	 DBbFm1lN94l3Q==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Thu, 17 Sep 2026 17:22:32 +0100
-Subject: [PATCH v3 23/40] mm/mlock: clear VMA_LOCKED_MASK over mmap
- callback
+Date: Thu, 17 Sep 2026 17:22:35 +0100
+Subject: [PATCH v3 26/40] mm: remove VMA_IO_BIT check in
+ vma[_flags]_is_kernel_owned()
 MIME-Version: 1.0
-Message-Id: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-23-4583d8a23bca@kernel.org>
+Message-Id: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-26-4583d8a23bca@kernel.org>
 References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
 In-Reply-To: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>
@@ -63,12 +63,12 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, 
  fuse-devel@lists.linux.dev, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2686; i=ljs@kernel.org;
- h=from:subject:message-id; bh=LP2OVTJBUZHnaHZyV54sJNvm4xxGiJDQinrnPbsdCWM=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLWCB86ImDlv7d0LV9pyYYSnTXehbNvS6Z4eWg9PxvNf
- 6c17ItuRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACZSpcPwT/Gqj2rCgy9S2gsd
- lH2dxR687NLN9Zwt0l65W7fT43ykNCNDR/dUtWOr0gLXbTrNuv1CZ2Dqc3WLVGmxJ92z5f9UPAr
- kBQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6787; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=/qhYfBPmYatz10Dgxqp/JH08Wu0JRVlKPSmSPF2nv0s=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLWCB+atPhJ882XD+fevmR+ytni7IOK95u3HTe9sG/rX
+ Z95gpnX7naUsjCIcTHIiimyPP8ivj9IJGxe5wV/N5g5rEwgQxi4OAVgIrMMGBlW876vVtoX2Ljv
+ lI3TOWd+hVWp5fELHzNoP7uiY2X8bnYyw/8sCeMZzvFTKux3FlXwVSqqHhAXOX3Vwmit4pFCBYm
+ mZGYA
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-Mailman-Approved-At: Thu, 17 Sep 2026 16:37:31 -0700
@@ -88,83 +88,176 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently there's a confusing mess around VMA_LOCKED_BIT and
-VMA_LOCKONFAULT_BIT.
+We have now made it such that every driver which sets VMA_IO_BIT marks it
+as kernel-owned.
 
-It is permitted for drivers to set any flags they like, with the VMA
-already possessing lock flags.
+However, vma_flags_is_kernel_owned() currently checks for VMA_IO_BIT. This
+was a product of drivers previously marking a range as kernel-owned by
+setting VMA_IO_BIT alone.
 
-This results in the absurd situation of a VMA possessing both
-VMA_SPECIAL_FLAGS and VMA_LOCKED_MASK flags, which is not permitted.
+Fix this by removing the VMA_IO_BIT check in vma_flags_is_kernel_owned(),
+and update mmap_validate_vma_flags() to use vma_flags_is_kernel_owned()
+rather than open-coding the VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT check.
 
-This has resulted in mlock_vma_folio() having a very silly check for this
-scenario to work around it.
+This change means that vma[_flags]_can_merge() doesn't check VMA_IO_BIT any
+longer (which is now redundant) as it calls vma_flags_is_kernel_owned().
 
-There is no need for this - just clear the flags before invoking the hook
-and reinstate them afterwards if they are required.
+Now that the predicate means precisely VMA_PFNMAP_BIT or VMA_MIXEDMAP_BIT,
+also use it at the other sites which open-code that pair, so the intent is
+stated rather than the flags, with no functional change:
 
-Nothing relies upon this being set during the mmap operation.
+zap_special_vma_range() only zaps kernel-owned mappings, as drivers use it
+to tear down ranges they established themselves.
 
-mmap_prepare is unaffected by this so requires no fix.
+The mprotect() arch PFN modification check applies to kernel-owned
+mappings, which may map PFNs without struct pages.
+
+NUMA balancing skips VM_MIXEDMAP mappings having already excluded VM_IO
+and VM_PFNMAP mappings via vma_migratable(), so it skips exactly the
+kernel-owned mappings - say so.
+
+Finally, update the VMA userland merge 'special' flag tests to no longer
+assert that VMA_IO_BIT prevents merge as VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT
+now suffices.
 
 Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- mm/internal.h |  9 +--------
- mm/vma.c      | 14 ++++++++++++++
- 2 files changed, 15 insertions(+), 8 deletions(-)
+ include/linux/mm.h              |  3 +--
+ kernel/sched/fair.c             |  2 +-
+ mm/memory.c                     |  6 +++---
+ mm/mprotect.c                   |  3 +--
+ mm/vma.c                        |  2 +-
+ tools/testing/vma/include/dup.h |  3 +--
+ tools/testing/vma/tests/merge.c | 10 ++--------
+ 7 files changed, 10 insertions(+), 19 deletions(-)
 
-diff --git a/mm/internal.h b/mm/internal.h
-index b81fce5fe510..b2c6c9435021 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -971,14 +971,7 @@ void mlock_folio(struct folio *folio);
- static inline void mlock_vma_folio(struct folio *folio,
- 				struct vm_area_struct *vma)
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index ca598e5f9715..4b6aa0b47b00 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -1630,8 +1630,7 @@ static inline bool vma_is_shared_maywrite(const struct vm_area_struct *vma)
+  */
+ static inline bool vma_flags_is_kernel_owned(const vma_flags_t *flags)
  {
--	/*
--	 * The VM_SPECIAL check here serves two purposes.
--	 * 1) VM_IO check prevents migration from double-counting during mlock.
--	 * 2) Although mmap_region() and mlock_fixup() take care that VM_LOCKED
--	 *    is never left set on a VM_SPECIAL vma, there is an interval while
--	 *    file->f_op->mmap() is using vm_insert_page(s), when VM_LOCKED may
--	 *    still be set while VM_SPECIAL bits are added: so ignore it then.
--	 */
-+	/* The VM_IO check prevents migration from double-counting during mlock. */
- 	if (unlikely((vma->vm_flags & (VM_LOCKED|VM_SPECIAL)) == VM_LOCKED))
- 		mlock_folio(folio);
+-	return vma_flags_test_any(flags, VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT,
+-				  VMA_IO_BIT);
++	return vma_flags_test_any(flags, VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT);
  }
+ 
+ /**
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 8dff37059faf..a71f0ab79bcd 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -4212,7 +4212,7 @@ static void task_numa_work(struct callback_head *work)
+ 
+ 	for (; vma; vma = vma_next(&vmi)) {
+ 		if (!vma_migratable(vma) || !vma_policy_mof(vma) ||
+-			is_vm_hugetlb_page(vma) || (vma->vm_flags & VM_MIXEDMAP)) {
++			is_vm_hugetlb_page(vma) || vma_is_kernel_owned(vma)) {
+ 			trace_sched_skip_vma_numa(mm, vma, NUMAB_SKIP_UNSUITABLE);
+ 			continue;
+ 		}
+diff --git a/mm/memory.c b/mm/memory.c
+index 45b21bb04a18..1e6cd2e50408 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -2343,19 +2343,19 @@ void zap_vma_range(struct vm_area_struct *vma, unsigned long address,
+ }
+ 
+ /**
+- * zap_special_vma_range - zap all page table entries in a special vma range
++ * zap_special_vma_range - zap all page table entries in a kernel-owned VMA
+  * @vma: the vma covering the range to zap
+  * @address: starting address of the range to zap
+  * @size: number of bytes to zap
+  *
+  * This function does nothing when the provided address range is not fully
+- * contained in @vma, or when the @vma is not VM_PFNMAP or VM_MIXEDMAP.
++ * contained in @vma, or when @vma is not kernel-owned.
+  */
+ void zap_special_vma_range(struct vm_area_struct *vma, unsigned long address,
+ 		unsigned long size)
+ {
+ 	if (!range_in_vma(vma, address, address + size) ||
+-	   !(vma->vm_flags & (VM_PFNMAP | VM_MIXEDMAP)))
++	   !vma_is_kernel_owned(vma))
+ 		return;
+ 
+ 	zap_vma_range(vma, address, size);
+diff --git a/mm/mprotect.c b/mm/mprotect.c
+index 2888ee638d87..fe32fd87cf5c 100644
+--- a/mm/mprotect.c
++++ b/mm/mprotect.c
+@@ -783,8 +783,7 @@ mprotect_fixup(struct vma_iterator *vmi, struct mmu_gather *tlb,
+ 	 * uncommon case, so doesn't need to be very optimized.
+ 	 */
+ 	if (arch_has_pfn_modify_check() &&
+-	    vma_flags_test_any(&old_vma_flags, VMA_PFNMAP_BIT,
+-			       VMA_MIXEDMAP_BIT) &&
++	    vma_flags_is_kernel_owned(&old_vma_flags) &&
+ 	    !vma_flags_test_any_mask(&new_vma_flags, VMA_ACCESS_FLAGS)) {
+ 		pgprot_t new_pgprot = vm_get_page_prot(newflags);
+ 
 diff --git a/mm/vma.c b/mm/vma.c
-index 1dec10946918..1db8b218fe64 100644
+index 56a0cd154419..0bc3651abe13 100644
 --- a/mm/vma.c
 +++ b/mm/vma.c
-@@ -2607,6 +2607,11 @@ static int __mmap_new_file_vma(struct mmap_state *map,
- 	if (!map->vm_file->f_op->mmap)
- 		return 0;
+@@ -2787,7 +2787,7 @@ static int mmap_validate_vma_flags(const vma_flags_t *flags)
+ 		return -EINVAL;
+ #endif
  
-+	/*
-+	 * Driver-specified flags may make the lock flags invalid, so clear
-+	 * VMA_LOCKED_MASK and reinstate it afterwards if appropriate.
-+	 */
-+	vma_clear_flags_mask(vma, VMA_LOCKED_MASK);
- 	error = mmap_file(vma->vm_file, vma);
- 	map->vm_file = vma->vm_file;
+-	if (!vma_flags_test_any(flags, VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT)) {
++	if (!vma_flags_is_kernel_owned(flags)) {
+ 		/* Only kernel-owned mappings may set VMA_IO_BIT. */
+ 		if (WARN_ON_ONCE(vma_flags_test(flags, VMA_IO_BIT)))
+ 			return -EINVAL;
+diff --git a/tools/testing/vma/include/dup.h b/tools/testing/vma/include/dup.h
+index b8b1462ca710..97d3bf6cd5b7 100644
+--- a/tools/testing/vma/include/dup.h
++++ b/tools/testing/vma/include/dup.h
+@@ -1667,8 +1667,7 @@ static inline bool file_is_dev_zero(const struct file *file)
  
-@@ -2623,6 +2628,15 @@ static int __mmap_new_file_vma(struct mmap_state *map,
- 		return error;
- 	}
+ static inline bool vma_flags_is_kernel_owned(const vma_flags_t *flags)
+ {
+-	return vma_flags_test_any(flags, VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT,
+-				  VMA_IO_BIT);
++	return vma_flags_test_any(flags, VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT);
+ }
  
-+	/* If VMA flags still valid for locked mask, reinstate. */
-+	if (vma_supports_mlock(vma)) {
-+		const vma_flags_t mask =
-+			vma_flags_and_mask(&map->vma_flags,
-+					   VMA_LOCKED_MASK);
-+
-+		vma_set_flags_mask(vma, mask);
-+	}
-+
- 	map->vma_flags = vma->flags;
+ static inline bool vma_is_kernel_owned(const struct vm_area_struct *vma)
+diff --git a/tools/testing/vma/tests/merge.c b/tools/testing/vma/tests/merge.c
+index acaab282939c..b26f1a66a170 100644
+--- a/tools/testing/vma/tests/merge.c
++++ b/tools/testing/vma/tests/merge.c
+@@ -496,17 +496,11 @@ static bool test_vma_merge_special_flags(void)
+ 		.mm = &mm,
+ 		.vmi = &vmi,
+ 	};
+-	vma_flag_t special_flags[] = { VMA_IO_BIT, VMA_DONTEXPAND_BIT,
++	vma_flag_t special_flags[] = { VMA_DONTEXPAND_BIT,
+ 		VMA_PFNMAP_BIT, VMA_MIXEDMAP_BIT };
+-	vma_flags_t all_special_flags = EMPTY_VMA_FLAGS;
+ 	int i;
+ 	struct vm_area_struct *vma_left, *vma;
  
- 	return 0;
+-	/* Make sure there aren't new VM_SPECIAL flags. */
+-	for (i = 0; i < ARRAY_SIZE(special_flags); i++)
+-		vma_flags_set(&all_special_flags, special_flags[i]);
+-	ASSERT_FLAGS_SAME_MASK(&all_special_flags, VMA_SPECIAL_FLAGS);
+-
+ 	/*
+ 	 * 01234
+ 	 * AAA
+@@ -520,7 +514,7 @@ static bool test_vma_merge_special_flags(void)
+ 	 * 01234
+ 	 * AAA*
+ 	 *
+-	 * This should merge if not for the VM_SPECIAL flag.
++	 * This should merge if not for the 'special' flag.
+ 	 */
+ 	vmg_set_range(&vmg, 0x3000, 0x4000, 3, vma_flags);
+ 	for (i = 0; i < ARRAY_SIZE(special_flags); i++) {
 
 -- 
 2.55.0
