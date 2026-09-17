@@ -4,67 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0310C982D2
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 21:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83A05C982D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 23:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DleovBHL/V1NErjdTyH1o8B4CVJM09RT0/dAQDL6C/0=; b=ce+aSGvzXt4Zwg
-	3RjXnc4MyuRXAhx+NCEFnk81NWw/HGoWmaghd5hVAmkY85KTWDzfdyWRjbcrfpqmtCJwEje2N3LvI
-	tRIaskqMDj3HfXP229mW4+DS83GaUvJCl7xADHOuSj85K9rn8P+PorZPWjp4oIvC3GrS2u500ScU5
-	+EfaTCx8oOZnQsYnCfUlb3R8WAmasUIsMpZoe0ITuuU5pQJEEhijy50GPCbc7kLDuKi3/lBKK5E78
-	bS2KWAHvvVXvu92mI40K6j77HIKwbfjhvHrJUek/l7kXo1OX6WEJaTetQ3SXy+Gbtck36RFKXpr3R
-	rOIcs8ON1yoW0R30QEWg==;
+	List-Owner; bh=Pie83fyV5CD7lZYPu7UWnQiCo6dEdfVDuFBHAh5VIZI=; b=UyQ0sm6WwbWa1x
+	ek7e6O8o/5MiwEqUFt9qNXNAQTI26Jz/kx2HWbjlUt58l6Uts3NqeGMdOC5W1Ge18qp2A1fv28U0C
+	6qBuupblb7PiW5p4My2TElt7dukR+IQbwV/n0YoGBJZUKEWYC+b0fEDneYJsdsWxHif+51j36TGhX
+	HM0zih2fgDL1023z8YOmu+EZCLB14jEX2RTkpAtkaOXcwwAiMIguX9xfHI89RUsE1SOQ5IhDvnP+r
+	77UA8+k9ThpztevNmKsDNShrarhUGuSFlM9ymLyKr4bcmVk/0rOVuD6HOLTDDSF4+fGkmcA2uLMWJ
+	1r9RgrcVzyBC5DlWyGXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K6E-0000000Cc8O-0rZU;
-	Thu, 17 Sep 2026 21:56:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7L51-0000000Cj7t-0OEf;
+	Thu, 17 Sep 2026 22:59:47 +0000
+Received: from mail-southcentralusazon11022140.outbound.protection.outlook.com ([40.93.195.140] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7K6C-0000000Cc74-3xHO;
-	Thu, 17 Sep 2026 21:56:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 016B060202;
-	Thu, 17 Sep 2026 21:56:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 681611F000FF;
-	Thu, 17 Sep 2026 21:56:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789682215;
-	bh=kuBtV4+7ALBPAyy2nomafqxqzWcbcsqKb3dSOrzTp7c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bE+Lz4BpzH5TSV1jWou2OBtlqHsC//L3WyTj9bXi6va6c8nZfLJ4ol68JuU+o3r2M
-	 TAu2icEvroIVO5OuYcPgJYCAhNQXTzOAIclO3FED1OglGnXQvoVgXQi9NkcPaNCm7C
-	 NxCHhu8wntvOtj4LO509qvBQvss+eZM34/jEYGD2HXc7uGKovRY4ujMtUk30a4EgKF
-	 zPD0eqlpLObbbLfAP2BCbHPLwLZz0rgjBIedFlBVM78LXQPEzVbz5SKMMk3kZSKLLI
-	 Ww16aNzudepZDNF3jG6O0DxZCUHUXGJHhXcE+1AZc6MCWnHl/xvccdOs6+sET6/9Sd
-	 Dca8d8QUwinxQ==
-Date: Thu, 17 Sep 2026 16:56:53 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Wandun Chen <chenwandun1@gmail.com>
-Cc: m.szyprowski@samsung.com, hpa@zytor.com, chenhuacai@kernel.org,
-	pasha.tatashin@soleen.com, devicetree@vger.kernel.org,
-	linux-mm@kvack.org, tglx@kernel.org, robin.murphy@arm.com,
-	kernel@xen0n.name, mingo@redhat.com, saravanak@kernel.org,
-	loongarch@lists.linux.dev, dave.hansen@linux.intel.com,
-	will@kernel.org, akpm@linux-foundation.org, rppt@kernel.org,
-	iommu@lists.linux.dev, mark.rutland@arm.com, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, pjw@kernel.org,
-	linux-kernel@vger.kernel.org, baoquan.he@linux.dev,
-	aou@eecs.berkeley.edu, kexec@lists.infradead.org,
-	pratyush@kernel.org, linux-arm-kernel@lists.infradead.org,
-	ruirui.yang@linux.dev, catalin.marinas@arm.com, bp@alien8.de,
-	palmer@dabbelt.com, x86@kernel.org
-Subject: Re: [PATCH v6 08/10] of: reserved_mem: mark /reserved-memory entries
- with MEMBLOCK_NODUMP
-Message-ID: <178968221332.3991643.14928206071521736133.robh@kernel.org>
-References: <20260902073116.802752-1-chenwandun1@gmail.com>
- <20260902073116.802752-9-chenwandun1@gmail.com>
+	id 1x7L4y-0000000Cj5P-0KIm
+	for linux-riscv@lists.infradead.org;
+	Thu, 17 Sep 2026 22:59:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tN7lqNyT+fSwOn3yvdhQ1MhzORs4dr7a27u8Mk0l0pNOe56qAFA/dMA2oiq7l/FrDSIblf3Zb51zbALKmWr43LerOlfxBFoZcuITXasqIHzI21sSXZlsV62aGS9NAgrTsKN4Rzvz077xCc2hm2wWC+sZdN1uRORnAMrvinnwhNhUaTl5GApK4H1eNs+uOolHAqwJxyNg8K2obJfZQYeAIw1jb4boFvEmNes3yEoZRj7AUTSisCelLmi+Q4DzI1+/WP/7zyCtNEaAgXX0JTyv1/BEJKseBDxVYIs8Jb/JQgJ3S4lwihQ8X1oXlQcVaCrV06aHwFL7dEsujFT8xrGWHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qZtj1DDYvUW8oiuad6xKilGPwnsefmueMCv1X6ZHsLk=;
+ b=omCukHw0omDdvc/FnRvqTbvyv0hLV4PHVzKrvS2SoI/VuPBbhdjfh2KEzhgjpMsmZJ+CDpFg5yTzgq4YXFpA8T3VSPJhXksNu3olkxqbJcaFC6BGrRDutxoy41lItpbgkl28kOKtQySDKZFa6u8KZZclFQwxZgioKPd/OYJEHwEKFZhqeIDIyKiHwEfg7mjNIFEcgtTF+UA7UuB4Gr1VpSAAVc30x+iY7kCotNteP42pK0I6C7NhCs+YvvwBNNAD+BO3WcxUykKWyoTABn94T8NdbI+UEFPnKuiqwh+JwbcbcjwJ+axBfC2yCPLggDGE/vdXpPQLf2Jwr5g//Jqp/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 192.86.86.210) smtp.rcpttodomain=cryptography.com smtp.mailfrom=rambus.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=rambus.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qZtj1DDYvUW8oiuad6xKilGPwnsefmueMCv1X6ZHsLk=;
+ b=DgLhoNRAjEYqCT1Yh6eottyjeyrPtcKB7dc5ztdI3f62vtl6HKCZneub3u7e+xvNV915lmytEBQoQENcCqhPxJmLWPxTf+xOGxNcyMVONR/7fZFFbvptEEcKTRlRJplahNKZU47l5RD/UPfNonDYg6+gWfthfpVoegENXCHzLul634Ag5bItV0nfeLGPkZ+Om8t/asyq0eO4xF7lcM1WmQY7BRElbyaJpEVjP8Oil4eYQA+tTrUFmQ6uOYXwcN4QkhPM9f7vjdHtMCuBCgDBBkHY0hfRQl1tgJIACivjIk8f0FDAxIqJ+PUf2SxNmdHYmyHeuaRQKNSAwO9du6ZSQg==
+Received: from CYZPR20CA0020.namprd20.prod.outlook.com (2603:10b6:930:a2::25)
+ by LV2PR04MB994088.namprd04.prod.outlook.com (2603:10b6:408:426::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.13; Thu, 17 Sep
+ 2026 22:59:37 +0000
+Received: from BN7PEPF00000096.namprd03.prod.outlook.com
+ (2603:10b6:930:a2:cafe::3a) by CYZPR20CA0020.outlook.office365.com
+ (2603:10b6:930:a2::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.428.11 via Frontend Transport; Thu,
+ 17 Sep 2026 22:59:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 192.86.86.210)
+ smtp.mailfrom=rambus.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=rambus.com;
+Received-SPF: Pass (protection.outlook.com: domain of rambus.com designates
+ 192.86.86.210 as permitted sender) receiver=protection.outlook.com;
+ client-ip=192.86.86.210; helo=hqxsv-psmtppxy02.rambus.com; pr=C
+Received: from hqxsv-psmtppxy02.rambus.com (192.86.86.210) by
+ BN7PEPF00000096.mail.protection.outlook.com (10.167.245.74) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.451.8
+ via Frontend Transport; Thu, 17 Sep 2026 22:59:35 +0000
+Received: from hqxsv-cmdev3-aousherovitch.rambus.com (hqn-lb-int-float.rambus.com [10.12.20.20])
+	by hqxsv-psmtppxy02.rambus.com (Postfix) with ESMTP id AF665180174C;
+	Thu, 17 Sep 2026 22:59:32 +0000 (UTC)
+From: Alex Ousherovitch <aousherovitch@rambus.com>
+To: Albert Ou <aou@eecs.berkeley.edu>,
+	Alex Ousherovitch <aousherovitch@rambus.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>,
+	Shuah Khan <shuah@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org,
+	Joel Wittenauer <Joel.Wittenauer@cryptography.com>,
+	linux-api@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Thi Nguyen <thin@rambus.com>
+Subject: [PATCH v5 19/19] MAINTAINERS: add Rambus CryptoManager Hub (CMH)
+Date: Thu, 17 Sep 2026 15:59:28 -0700
+Message-ID: <20260917225929.2494111-20-aousherovitch@rambus.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20260917225929.2494111-1-aousherovitch@rambus.com>
+References: <20260917225929.2494111-1-aousherovitch@rambus.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260902073116.802752-9-chenwandun1@gmail.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF00000096:EE_|LV2PR04MB994088:EE_
+X-MS-Office365-Filtering-Correlation-Id: 964510c7-5de6-4dc5-601d-08df150f5805
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|23010399003|36860700016|921020|22082099003|18002099003|10067099003|56012099006|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info: pUDXKUYtUCTFsYnP9goUQSr0v3JVyjqRFL99iRK+JkwrRCtgGjs92tMZDyEXigWkeIJ4Vt5xwxdSYgutuoE5hwNVHguenMof/enl2c+mS9y4Xkv3srydVJfxaOAwsuu0gMV+/+HBnodhmFGchZAIBwHgZCBYxaUJpFquoeGARRQpBP8kESof6TRG95vIGCRu/ymTHNcT7MB4miAUJCwxSoz4p5U8QsJfOk9C2NjTV7QK0w2y2MeLyMKJ0px1WeHK6gifibbdx7Y8UFS75QyOJ3Kx+36dQiRUMwZZ0Vh4aRwL5NKmMmo9EIJ1BfPE9uquDICbAUhCjnQI9CUs9cB9/xmYgw7ItJY6eDowi8iGPWBZfmZsvSaXSLUT6yGhOv2VCrcDWabUQFG3Y+DqPFGi7jyG7ilRvGE6QKQQ6KApuKghM0aaOe/1yZsilvNsMttnlQyf0I5Fo2SERMYUwlUKjTOmrMI7BpWXXJT8f5jTtm1HeRhW2RoZGuRDaPebMAbjQaTCbWdC0vzWsSCDGCV2F6PHFZo00vvWoUMOoknRnKHzpboXj1cEciNEJcSLcbWDUkOfLyQFJ9TlavRqvW/XSG00PAudNBegCTiXT2vBNwc2oTofsme8ImhpHEr2JvmCybru0XLHS+iAn1aAnx15faHWOqoE7V0cmuMHUq18yTW2y/5/9Q2zCZT0FXx99PGw5qjSgQ56kS0Wu+izatzxhIXgMqOsV1XzgU0OafHwfyCkm+I+75KrWIS/x5SyQWcI
+X-Forefront-Antispam-Report: CIP:192.86.86.210;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hqxsv-psmtppxy02.rambus.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(23010399003)(36860700016)(921020)(22082099003)(18002099003)(10067099003)(56012099006)(11063799006)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ZgEPzbraCTw6w66xnMD0x5AiIA/VwZPibwGcutr14/tn7C7f8fgdNjInAmu4SJzvyfqETlKrAgwSjmstkx7UfddGr2p+Iy8YnXPuxoWbOaEJiVK4X6/QPQukdTQZoZLH7NVjIjBiHjNlRdgO/Aa5IaKJM7K6cVs1IWufjthV4fLF5SHEwOtgYbbiEKDmy97zqhkQRwGNBjkm2v85Nb67odQHMjv2ldkK0If/Tu/VjNkz4UrXnv/GyKq/ORY1KwU5ZTrTfV00xGZ4npM21pfx9eTcAWrjbsBoaahqdEwfLDpaIoB9aH354zJU888FOUptXStMXyE52+3QQZl0nR7RaXU08qQg6MSmbV3TRbbhj79DpFhRjlHX94wg4vKl5nNGDgyBj7qAYepvJqk3EkTx4EdLWnGh+x72eR/Yfs8oL1xWLtc+BxPION3JaBKIyGrv
+X-OriginatorOrg: rambus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 22:59:35.3656
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 964510c7-5de6-4dc5-601d-08df150f5805
+X-MS-Exchange-CrossTenant-Id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bd0ba799-c2b9-413c-9c56-5d1731c4827c;Ip=[192.86.86.210];Helo=[hqxsv-psmtppxy02.rambus.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF00000096.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR04MB994088
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_155944_146302_4AD23101 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,26 +138,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add MAINTAINERS entry for the Rambus CryptoManager Hub (CMH) hardware
+crypto accelerator driver under drivers/crypto/cmh/.
 
-On Wed, 02 Sep 2026 15:31:14 +0800, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
-> 
-> Mark non-dumpable reserved-memory regions with MEMBLOCK_NODUMP so
-> kdump can omit them from the vmcore.
-> 
-> The marking is guarded by CONFIG_CRASH_DUMP so non-kdump kernels do not
-> pay the cost of splitting memblock.memory entries at NODUMP boundaries.
-> 
-> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-> ---
->  drivers/of/fdt.c             |  1 +
->  drivers/of/of_private.h      |  1 +
->  drivers/of/of_reserved_mem.c | 15 +++++++++++++++
->  3 files changed, 17 insertions(+)
-> 
+Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
+Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
+---
+ MAINTAINERS | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c3bcdcaa9b92..9e7bcc4ba834 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22760,6 +22760,23 @@ L:	linux-wireless@vger.kernel.org
+ S:	Maintained
+ F:	drivers/net/wireless/ralink/
+ 
++RAMBUS CRYPTOMANAGER HUB (CMH) HARDWARE CRYPTO ACCELERATOR
++M:	Alex Ousherovitch <aousherovitch@rambus.com>
++M:	Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
++R:	Joel Wittenauer <Joel.Wittenauer@cryptography.com>
++R:	Thi Nguyen <thin@rambus.com>
++L:	linux-crypto@vger.kernel.org
++S:	Maintained
++F:	Documentation/ABI/testing/cmh-mgmt
++F:	Documentation/ABI/testing/debugfs-driver-cmh
++F:	Documentation/ABI/testing/sysfs-driver-cmh
++F:	Documentation/crypto/device_drivers/cmh.rst
++F:	Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml
++F:	Documentation/userspace-api/ioctl/cmh_mgmt.rst
++F:	drivers/crypto/cmh/
++F:	include/uapi/linux/cmh_mgmt_ioctl.h
++F:	tools/testing/selftests/drivers/crypto/cmh/
++
+ RAMDISK RAM BLOCK DEVICE DRIVER
+ M:	Jens Axboe <axboe@kernel.dk>
+ S:	Maintained
+-- 
+2.43.7
 
 
 _______________________________________________
