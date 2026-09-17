@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01ECDC982D6
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 14:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F17C88E72
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 14:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q9GZA+vfGiJNyTfDnKe+IakkxeiCdLrEX6RrKs2XyAQ=; b=iBXmnZBFhjCZH1
-	BbrAReulaur1JfVWuB+IHZRbhqvg1+YUf/IYjuuCz3ytg/CggCjPSu6udn8Y5UAmt1dmmEt65FEiv
-	l5TSqVBMrHzuyxpP607rcJCn02qgSLbKn9lQg9Seu67jWXKZ4M/f79rNDJcJ49HaR+VoXuoPFRSPm
-	Hl80xwmJ4WBidSo7A5CwSjwJFjn3oSIqo3bSO1HZuhgXJH34ub//cQXL14w8W/oHmEVPQImbpJchW
-	b2qxTjjRV2JBvLHw1FAS3fb0kpxazD6MJfC0vJGETNPnk5sO+toO1GFQR3Q/B3C4fi5PI3ZVN1rdr
-	1osY1I0MN44w3kWatx2A==;
+	List-Owner; bh=D0myfJBz2MfQcgKu1dmt5nR3F34vszgp8AhPQtbHn5s=; b=hhXoaULihTTEwv
+	efoaQt9FH8wNZP5htCfFcleGm8Z5IFrZBOy1Up1ONnY29CwF3VcTwfbtsPvI39ICzUS4OQ7lQK4y8
+	QwZpd7n2IsvMu7AWIYQCcfW8XVLNcSZT/cMHDHyR1qsbCjAEIhunu/jGJFTH0c51KzyPZIxKb6UwJ
+	uLRgkM05oNKJTN7TlSfomrAmbxHkHy0vjj/cYUMcSTk0Gi32qShJESlTWhYX96kUv8IGA7QsJe6E8
+	0MuhJL+Oz/5DENW2iEvChzadxfZB77PL7PG7Qbinubg3EYkjrYIx5hsZstGb/WZMfrSGuyNjvuXAp
+	f1FbnKkHaZsN8j6cxvDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7D7K-0000000BXFB-40RH;
-	Thu, 17 Sep 2026 14:29:38 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1x7DAk-0000000BY3b-0B41;
+	Thu, 17 Sep 2026 14:33:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7D7H-0000000BXD4-3tz2
-	for linux-riscv@lists.infradead.org;
-	Thu, 17 Sep 2026 14:29:37 +0000
-Received: from [127.0.1.1] (unknown [223.166.93.127])
-	by APP-05 (Coremail) with SMTP id zQCowABHtD5A+atqNnqCCA--.4692S3;
-	Thu, 17 Sep 2026 22:29:26 +0800 (CST)
-From: Han Gao <gaohan@iscas.ac.cn>
-Date: Thu, 17 Sep 2026 22:29:19 +0800
-Subject: [PATCH 1/4] spi: sg2044-nor: Return transfer errors
+	id 1x7DAh-0000000BY3J-15mN;
+	Thu, 17 Sep 2026 14:33:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A194D60204;
+	Thu, 17 Sep 2026 14:33:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F561F000FF;
+	Thu, 17 Sep 2026 14:32:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789655586;
+	bh=I2ExORUgMX+BoF88CQ1iPiIm+UZCCdszdxXlk48uD6I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=h4w3XnKm6CpCBPP6zxny3WxSdq5eHBOnoxot5LhCUHJeGcoeuU7IaQSIAvaInWz8g
+	 oHRzCzcN2u5rXZnA8BwBN5B5MY03vwci3WigqJqDc1kf6T86OrB4ddM/4HDTZZQWoV
+	 MP2s55Oe1E1FrVud9JJWXPXpFBCgyVUhIsI7VkIlePqbXJN52WONNSdUfXggIJ9j0N
+	 U5i9lY0iDsScv6yl2/amtlJJYtlYjnw9GuXokt+SVh3xhwljkgeUCImquvwQHO3LCD
+	 gu2VPG0CaGQHuN2mxx+azKf+oE90lG4FG0Nkd1LvBYZbZPRFv6nU4BhGP3iIyXfp05
+	 vN8bbHIolSSrQ==
+Date: Thu, 17 Sep 2026 15:32:50 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nicolas Schier <nsc@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
+	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
+	Randy Dunlap <rdunlap@infradead.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, Linux-Arch <linux-arch@vger.kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 21/21] kbuild: use pigz for gzip compression if
+ available
+Message-ID: <aqv5_utZj5Ma76OD@gremlin>
+References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
+ <20260914-build-speedup-v2-21-39817ec5db23@kernel.org>
+ <202609151758.BA5732348@keescook>
+ <081b2b60-e295-4cd7-b201-d996a88c5f28@app.fastmail.com>
+ <202609160809.78E97DC34F@keescook>
 MIME-Version: 1.0
-Message-Id: <20260917-fix-sg204xspi-v1-1-5c95dac429a8@iscas.ac.cn>
-References: <20260917-fix-sg204xspi-v1-0-5c95dac429a8@iscas.ac.cn>
-In-Reply-To: <20260917-fix-sg204xspi-v1-0-5c95dac429a8@iscas.ac.cn>
-To: Mark Brown <broonie@kernel.org>, Longbin Li <looong.bin@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
- Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Han Gao <rabenda.cn@gmail.com>, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
- Han Gao <gaohan@iscas.ac.cn>
-X-Mailer: b4 0.14.2
-X-CM-TRANSID: zQCowABHtD5A+atqNnqCCA--.4692S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7uFW5Aw4rCF45ZrW5Aw43ZFb_yoW8ZF4Dpa
-	47ua1Utr1rKa1UAF4fJ3W7Xayay34fKa4UK347Kw1fZF4DZ3WUJF40vFyfXFy3tFy2qr1q
-	vF42vry5Cr1DK37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm014x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
-	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0x
-	vEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVj
-	vjDU0xZFpf9x0pR75rsUUUUU=
-X-Originating-IP: [223.166.93.127]
-X-CM-SenderInfo: xjdrxt3q6l2u1dvotugofq/1tbiDAMNDGqr9nAGswAAs8
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_072936_352028_DAE3AC87 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <202609160809.78E97DC34F@keescook>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,68 +95,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The transfer helpers return errors, but both dispatchers discard them.
-Return these errors to the SPI memory layer instead of reporting success.
+On Wed, Sep 16, 2026 at 08:27:09AM -0700, Kees Cook wrote:
+> On Wed, Sep 16, 2026 at 08:38:33AM +0200, Arnd Bergmann wrote:
+> > On Wed, Sep 16, 2026, at 03:06, Kees Cook wrote:
+> > > On Mon, Sep 14, 2026 at 10:22:20AM +0100, Lorenzo Stoakes (ARM) wrote:
+> > >
+> > > Makefile:
+> > >
+> > > KPGZIP	:= $(if $(shell command -v pigz 2>/dev/null),$(PYTHON3)
+> > > $(abs_srctree)/scripts/jobserver-exec
+> > > $(abs_srctree)/scripts/parallel-gzip,gzip)
+> > >
+> > > and the same scripts/parallel-gzip:
+> > >
+> > > 	#!/bin/sh
+> > > 	exec pigz -p ${PARALLELISM:-1} "$@"
+> > >
+> > > And then replace the /boot/ KGZIP uses with KPGZIP. Then we don't need
+> > > to change modules, config_data, new users, nor cmd_gzip, etc, which all
+> > > continue to use the regular KGZIP and the "use python" part for the
+> > > KPGZIP case becomes is a 1-time cost?
+> >
+> > Nice, I like the idea and this this will work. I didn't know about
+> > scripts/jobserver-exec, but this does seem like a perfect fit.
+> >
+> > I checked the other compression tools we support, and found that
+> > zstd is another one that has built-in support for parallel
+> > compression, so we probably want to have it there as well.
+>
+> Follow-up idea:
+>
+> Having to make a dedicated wrapper script to use jobserver-exec is a bit
+> clunky, so maybe the ergonomics need to be improved there slightly?
+> Maybe we can add a simple template thingy to
+> tools/lib/python/jobserver.py's "run" to replace, say, '%PARALLELISM%'
+> automatically, then it becomes:
+>
+> KPGZIP	:= $(if $(shell command -v pigz 2>/dev/null),$(PYTHON3) \
+> 		$(abs_srctree)/scripts/jobserver-exec \
+> 		pigz -p %PARALLELISM%
 
-Fixes: de16c322eefb ("spi: sophgo: add SG2044 SPI NOR controller driver")
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
----
- drivers/spi/spi-sg2044-nor.c | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+Nice, that seems like a good little cleanup will fold that in, do some checks
+then send the v3 out soon :)
 
-diff --git a/drivers/spi/spi-sg2044-nor.c b/drivers/spi/spi-sg2044-nor.c
-index f3bcb8a1b92bb1ceee298fa0b720f55f22cf20c3..ff026ca0f76635fee959d7502f457d43dbec0706 100644
---- a/drivers/spi/spi-sg2044-nor.c
-+++ b/drivers/spi/spi-sg2044-nor.c
-@@ -307,15 +307,15 @@ static ssize_t sg2044_spifmc_tran_cmd(struct sg2044_spifmc *spifmc,
- 	return 0;
- }
- 
--static void sg2044_spifmc_trans(struct sg2044_spifmc *spifmc,
--				const struct spi_mem_op *op)
-+static int sg2044_spifmc_trans(struct sg2044_spifmc *spifmc,
-+			       const struct spi_mem_op *op)
- {
- 	if (op->data.dir == SPI_MEM_DATA_IN)
--		sg2044_spifmc_read(spifmc, op);
-+		return sg2044_spifmc_read(spifmc, op);
- 	else if (op->data.dir == SPI_MEM_DATA_OUT)
--		sg2044_spifmc_write(spifmc, op);
-+		return sg2044_spifmc_write(spifmc, op);
- 	else
--		sg2044_spifmc_tran_cmd(spifmc, op);
-+		return sg2044_spifmc_tran_cmd(spifmc, op);
- }
- 
- static ssize_t sg2044_spifmc_trans_reg(struct sg2044_spifmc *spifmc,
-@@ -389,19 +389,20 @@ static int sg2044_spifmc_exec_op(struct spi_mem *mem,
- 				 const struct spi_mem_op *op)
- {
- 	struct sg2044_spifmc *spifmc;
-+	int ret;
- 
- 	spifmc = spi_controller_get_devdata(mem->spi->controller);
- 
- 	mutex_lock(&spifmc->lock);
- 
- 	if (op->addr.nbytes == 0)
--		sg2044_spifmc_trans_reg(spifmc, op);
-+		ret = sg2044_spifmc_trans_reg(spifmc, op);
- 	else
--		sg2044_spifmc_trans(spifmc, op);
-+		ret = sg2044_spifmc_trans(spifmc, op);
- 
- 	mutex_unlock(&spifmc->lock);
- 
--	return 0;
-+	return ret;
- }
- 
- static const struct spi_controller_mem_ops sg2044_spifmc_mem_ops = {
+>
+> -Kees
+>
+> --
+> Kees Cook
 
--- 
-2.47.3
-
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
