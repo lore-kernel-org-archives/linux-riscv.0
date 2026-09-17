@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 281E3C982D0
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 09:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38280C982D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 09:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nJU60R1k3SPiRvO1alotaJDo2JsvrJFNleqrZRHnbR8=; b=IlpHhcbpb9+C2Z
-	om0PoMoTtnu/y4e2WSWcdB7sOfGmySae7CQwsT5yZvpeS8h3/lcQBTEYqCNm1vuQAvTSPyrdoNrYb
-	d+jQGM3oXFcBA+de0ENf1PgFd9zxE9PEDfbUfnMwLytGuTv3GF/18v3RGiUYxuCeJ5u6UCKNUGXI2
-	twhagoCaXDWJepyqh4/QD7ljxGMGTvrueUO+Use9H6M0XLKpMIW7r/lemtumhFTs4YK01RkgcRsgW
-	RQ3Hj3QR5KtlZzvtiCdBh5oWxLX+6TvcjYqq7HH19uf0oIOL8VFQJJbHutlUWnBYHTJa1o2ONjBXq
-	hlDp4m18ekt5ATKCIGkg==;
+	List-Owner; bh=L8TCTqFU3L8e7mykmkpoHrNoVzAT8LzHTnuye8XW8l8=; b=1CAv3q/m9M1TCX
+	CrpKE89Ib5KvdqFcmz3t1W08k8Ay1HItIbjmZv0Nzvaugo1yhvgLIMnT7GiQPSj/TQFosCxG7YIIJ
+	FMGPzOY0H4KRWdNNqXyVaYB5P+Ho51nLG25OVVw7X4We6ggwxJQfKHN6c2IatsHoW7whpO07UFp9q
+	VLydrpCvxP7D3zDY2i7wyxbfrrkaBu0HWM7LxxtKSN+vik7V9Q/ojkguO3esz8jUwwyL0peCMr5Dl
+	aYZSm3k2T57EvfIDruzLr32edt6WiAGH9+IevcL5Srs8zxU8kGEculehdRavtY8Nw0xIRGHXebjKp
+	7dD/wZa/PcmPDSBUTx6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78Ro-0000000B0er-0Jl3;
-	Thu, 17 Sep 2026 09:30:28 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x78Ri-0000000B0ct-2Awa
-	for linux-riscv@lists.infradead.org;
-	Thu, 17 Sep 2026 09:30:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1789637355;
-	bh=kh9FyDnReQmtz6IMuEQBtcbP+r397Btkd/rmaYc+gLw=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=y8FnOiY2RBpzY37JE5y9OgzVnxfAybp55r0tO+PHwFleJucQF+f1DWvdS3Ow2HRy9
-	 A+Q5sClgfQmo4rViePByOdHzPltih/JyBoPs+2N1ci1sLLL5VGtEhQOZ/Pa68zt8dB
-	 Zke3NjQDB0IdKK63NjVpLrQREAzjUpnBgR+Xa7AM=
-X-QQ-mid: zesmtpgz5t1789637353tb8e1e7ef
-X-QQ-Originating-IP: C98l85GMVeVm74OzyvqEngGdoJc+3+/o61Zp27O1UR4=
-Received: from [127.0.0.1] ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 17 Sep 2026 17:29:09 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16510952149240529869
-Message-ID: <BA4ECE62CC750889+2da1a0db-8500-4332-8954-e9f126604258@linux.spacemit.com>
-Date: Thu, 17 Sep 2026 17:29:09 +0800
+	id 1x78sZ-0000000B3Lh-30yl;
+	Thu, 17 Sep 2026 09:58:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x78sW-0000000B3KZ-1bXo;
+	Thu, 17 Sep 2026 09:58:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E7CA91476;
+	Thu, 17 Sep 2026 02:57:58 -0700 (PDT)
+Received: from [10.57.74.102] (unknown [10.57.74.102])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD88E3F7B4;
+	Thu, 17 Sep 2026 02:57:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789639082; bh=VXqLon1IWeQzTI8dDj4hKxc7saHoW6A0Hg3046jh/QI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vja3M8VABVOrmZ2ChYzc/upsrhetTGKhEnf/pEqYK+HiSbSu/clHPeW+o3eKoIK4Z
+	 0+Wx3stikCeAmbXeqVmEvNHb/v78HBmo4ovtzTcV7kdJ1PuFCDwMqvcvyMeHDTyFTu
+	 Uj8E/utZDL2YEdMx2GCJKyelvgXqlKah9PS1wewY=
+Message-ID: <f8b0745c-d265-4112-90fe-79a08ad01553@arm.com>
+Date: Thu, 17 Sep 2026 11:57:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 07/14] gtrace: Add function to copy into perf AUX
- buffer
-To: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, Greg KH <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Ian Rogers <irogers@google.com>
-Cc: Anup Patel <anup.patel@oss.qualcomm.com>, Alexandre Ghiti
- <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Mayuresh Chitale <mchitale@gmail.com>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atish.patra@linux.dev>,
- Andrew Jones <andrew.jones@oss.qualcomm.com>,
- Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260810152223.3946743-1-mayuresh.chitale@oss.qualcomm.com>
- <20260810152223.3946743-8-mayuresh.chitale@oss.qualcomm.com>
-From: Zane Leung <liangzhen@linux.spacemit.com>
-In-Reply-To: <20260810152223.3946743-8-mayuresh.chitale@oss.qualcomm.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: M7SN0LSU40tUJ2gKkD7ZcfK2Pbm+XSPpWIIIZnp3fWXvPGlLZbsK9IPb
-	jt6fW3eU7YfW8vg3W5BMeTrKHC0MuPN5EYR7jfjoUihxNQBHZf0dEBVlq6Sv/sUsWRgzbpV
-	IvKUbSftPw07P84CNrJP+c7BOe6ijILNNd9Nn4nlabSsVV9NETdY9goR6Z7PRqQjrqzDpIb
-	JX8HGSuME7f7ld/ED2Nelon0iNs9zkWZI1wZPFeJIDQEn0My3qv0GzRfA1dHdT4f7qBgAee
-	eDmttcIziCKP67ZIEdXvRMjU2WjWpm+P+nQya5qwumQMme9hdl1b9VBxiNUVTJFrSrDFHvI
-	CuYRcgjAHVDEwOVdt3job0y8PYOZGh7s8iByIz7ZnIliesgndrSJRSlZ5GgEhSHuxed4ZyL
-	XE77DBU9unxcatusVnMpbwhgGCwgCU0vCGfX6VKrKq3hZLUoTjqYSH2Lk4sIDihkTRW8Ojo
-	yf5FnowVDhAZXLQxws5lhFrMVXPlp97wL8/aDml01XPofHgwqyo55JySFMGI4bgPT40w6fL
-	QfVv3Z9VIkFUueBUQUcocxgjHTEiS2nEJZdTW6aqsxX1tN0tKiyKJpxJhJWpU7K5n/62dm8
-	JTsq98AULHDmfdKyhB/39EL0d6SrDa3E7YR0F8tLZBhmAg+vpdffK7Hns5AUL2qSU4VCIHf
-	ZgAKhgFX2TGyWQ2tZcbQpyDEqj9NCUxg66j6g6J/FpFMsNrWk+zbkkaldx0RSpnF0x9GLZW
-	VGMn7UnfqaUC3dkEPvAr2MAGhLPC6B9h1w+Eiab2DRLrqpD7V7wTCzHI/K1Ew6wL9cS5CGE
-	zd6U1u1vZczI3gshEMcXQfqa2A+Xq8UinclPObTASd97spM5fJSPRLDlufHf0ICz/xU8ODh
-	6yZu02fxUI7qAwP7eJ34EAsfZFTuHKKUH1jBtfckbuPUtn6Z/5CM36YPLp9rpQt0/VMauni
-	kFfFBfxvnAedbGS8hh306jcsTi6yefy8mACTuChqKnN922U8gzjYsXVUYIqBjWtOUZPE5KE
-	4uRSTekA==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
+Subject: Re: [PATCH v3 2/2] cpufreq: update capacity_freq_ref when the boost
+ state changes
+To: Oleg Keri <okerixx@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Sumit Gupta <sumitg@nvidia.com>,
+ Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+ Beata Michalska <beata.michalska@arm.com>,
+ Russell King <linux@armlinux.org.uk>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, driver-core@lists.linux.dev,
+ linux-pm@vger.kernel.org, jonathan.cameron@oss.qualcomm.com,
+ sibi.sankar@oss.qualcomm.com
+References: <20260910063440.4677-1-okerixx@gmail.com>
+ <20260910063440.4677-3-okerixx@gmail.com>
+Content-Language: en-GB
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+In-Reply-To: <20260910063440.4677-3-okerixx@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_023023_350273_3B03593B 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20260917_025804_598836_EF6877CE 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,110 +83,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/10/2026 11:22 PM, Mayuresh Chitale wrote:
+On 10.09.26 08:34, Oleg Keri wrote:
+> capacity_freq_ref is latched from policy->cpuinfo.max_freq by
+> init_cpu_capacity_callback() on CPUFREQ_CREATE_POLICY, and never
+> updated afterwards.
+> 
+> cpufreq_frequency_table_cpuinfo() excludes CPUFREQ_BOOST_FREQ entries
+> while boost is disabled, so on a system that boots with boost off the
+> latched value is the non-boost maximum.  Enabling boost later raises
+> policy->cpuinfo.max_freq but leaves capacity_freq_ref behind.
+> 
+> Two things then go wrong on arm64, where the AMU drives frequency
+> invariance.  amu_scale_freq_tick() caps the computed scale at
+> SCHED_CAPACITY_SCALE, so a CPU running above capacity_freq_ref
+> saturates at 1024: the scheduler cannot tell a boosted CPU from one at
+> the sustained maximum, and utilisation is underestimated.  And
 
-> From: Anup Patel <anup.patel@oss.qualcomm.com>
->
-> The RISC-V trace ramsink will need a mechanism to copy trace data
-> into the perf AUX buffer. Add gtrace_path_copyto_auxbuf() function
-> and corresponding trace driver callback copyto_auxbuf() for this
-> purpose.
->
-> Co-developed-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-> Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
-> Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
-> ---
->  drivers/hwtracing/gtrace/gtrace-core.c | 22 ++++++++++++++++++++++
->  include/linux/gtrace.h                 | 24 ++++++++++++++++++++++++
->  2 files changed, 46 insertions(+)
->
-> diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
-> index 6ff1b3087947..53a3679ba69f 100644
-> --- a/drivers/hwtracing/gtrace/gtrace-core.c
-> +++ b/drivers/hwtracing/gtrace/gtrace-core.c
-> @@ -626,6 +626,28 @@ int gtrace_path_stop(struct gtrace_path *path)
->  }
->  EXPORT_SYMBOL_GPL(gtrace_path_stop);
->  
-> +int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
-> +			      struct gtrace_perf_auxbuf *buf,
-> +			      size_t *bytes_copied, u64 *format)
-> +{
-> +	const struct gtrace_driver *gtdrv;
-> +	struct gtrace_component *comp;
-> +	struct gtrace_path_node *node;
-> +
-> +	list_for_each_entry(node, &path->comp_list, head) {
-> +		comp = node->comp;
-> +		gtdrv = to_gtrace_driver(comp->dev.driver);
-> +		if (!gtdrv->copyto_auxbuf)
-> +			continue;
-> +
-> +		*bytes_copied = gtdrv->copyto_auxbuf(comp, buf, format);
-> +		return 0;
-> +	}
-> +
-> +	return -EOPNOTSUPP;
-> +}
-> +EXPORT_SYMBOL_GPL(gtrace_path_copyto_auxbuf);
+IMHO, this is where the concept of 'cpufreq pressure' on CPU capacity
+comes in.
 
-Is it really necessary to introduce `gtrace_path_copyto_auxbuf`? The buffer copy logic should be
-exclusive to the sink component.
-A cleaner approach would be to delegate this directly to the sink instance:
-```
-struct gtrace_component *sink = gtrace_path_sink(path);
-size = sink->copyto_auxbuf(sink, &event_data->buf, &format);
-```
+The cpu_capacity value is calculated based on highest_perf.	(1)
 
-> +
->  struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
->  				       struct gtrace_component *sink,
->  				       enum gtrace_component_mode mode)
-> diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
-> index 78e2ead3db8e..bc82814e2738 100644
-> --- a/include/linux/gtrace.h
-> +++ b/include/linux/gtrace.h
-> @@ -257,9 +257,30 @@ void gtrace_destroy_path(struct gtrace_path *path);
->  int gtrace_path_start(struct gtrace_path *path);
->  int gtrace_path_stop(struct gtrace_path *path);
->  
-> +/**
-> + * struct gtrace_perf_auxbuf - Representation of the perf AUX buffer.
-> + * @length:   Size of the AUX buffer.
-> + * @nr_pages: Number of pages of the AUX buffer.
-> + * @base:     Start address of AUX buffer.
-> + * @pos:      Position in the AUX buffer to commit traced data.
-> + */
-> +struct gtrace_perf_auxbuf {
-> +	size_t length;
-> +	int nr_pages;
-> +	void *base;
-> +	long pos;
-> +};
-> +
-> +int gtrace_path_copyto_auxbuf(struct gtrace_path *path,
-> +			      struct gtrace_perf_auxbuf *buf,
-> +			      size_t *bytes_copied, u64 *format);
-> +
->  /**
->   * struct gtrace_driver - Representation of a trace driver.
->   * @id_table:      Table to match components handled by the driver.
-> + * @copyto_auxbuf: Callback to copy data into perf AUX buffer. The driver
-> + *                 reports the PMU specific trace format of the copied data
-> + *                 via @format (see PERF_AUX_FLAG_PMU_FORMAT_TYPE_MASK).
->   * @start:         Callback to start tracing.
->   * @stop:          Callback to stop tracing.
->   * @probe:         Driver probe() function.
-> @@ -270,6 +291,9 @@ int gtrace_path_stop(struct gtrace_path *path);
->   */
->  struct gtrace_driver {
->  	const struct gtrace_component_id *id_table;
-> +	size_t			(*copyto_auxbuf)(struct gtrace_component *comp,
-> +						 struct gtrace_perf_auxbuf *buf,
-> +						 u64 *format);
->  	int			(*start)(struct gtrace_component *comp);
->  	int			(*stop)(struct gtrace_component *comp);
->  	int			(*probe)(struct gtrace_component *comp);
+In case you start with 'boost == 0' nominal_perf might might be lower
+than highest_perf.
+
+cpufreq_update_pressure() calculates this value:
+
+cpufreq_pressure = Cmax * (1 - fcapped - fmax)			(2)
+
+[ fcapped = policy->max, fmax = capacity_freq_ref ]
+
+Example on RADXA Orion 06 CPU10:
+
+$ grep . /sys/devices/system/cpu/cpu10/acpi_cppc/*
+...
+/sys/devices/system/cpu/cpu10/acpi_cppc/highest_perf:7876
+/sys/devices/system/cpu/cpu10/acpi_cppc/lowest_freq:800
+/sys/devices/system/cpu/cpu10/acpi_cppc/lowest_nonlinear_perf:2520
+/sys/devices/system/cpu/cpu10/acpi_cppc/lowest_perf:2520
+/sys/devices/system/cpu/cpu10/acpi_cppc/nominal_freq:2500
+/sys/devices/system/cpu/cpu10/acpi_cppc/nominal_perf:6600   <-- hacked
+/sys/devices/system/cpu/cpu10/acpi_cppc/reference_perf:1000
+...
+
+# cat /sys/devices/system/cpu/cpu10/cpu_capacity	<-- (1)
+984
+
+# cat /sys/devices/system/cpu/cpu10/cpufreq/boost
+0
+
+dmesg (added log)
+
+[    8.065337] cpufreq_update_pressure(): policy->related_cpus=[10-11]
+policy->max=2500000 pressure=173			<-- (2)
+
+# echo 1 > /sys/devices/system/cpu/cpufreq/boost
+
+# cat /sys/devices/system/cpu/cpu10/cpufreq/boost
+1
+
+dmesg (added log)
+
+[38137.194134] cpufreq_update_pressure(): policy->related_cpus=[10-11]
+policy->max=3031666 pressure=0				<-- (2)
+
+The task scheduler gets informed via:
+
+get_actual_cpu_capacity(int cpu)
+
+  capacity = arch_scale_cpu_capacity(cpu);
+
+  capacity -= max(hw_load_avg(cpu_rq(cpu)), cpufreq_get_pressure(cpu));
+                                            ^^^^^^^^^^^^^^^^^^^^
+  return capacity;
+
+[...]
 
 _______________________________________________
 linux-riscv mailing list
