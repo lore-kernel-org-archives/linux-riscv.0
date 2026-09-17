@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EE2C982D2
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 17:27:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DACC88E72
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 17:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hSJKXH954ZFZQ2pMAh/qjlIy6RSCMT9cJdB03VPSzMo=; b=pAJdLvTfW0CAnR
-	y5b7gEbrrJCwDSRgWiErIkgOCkprHeYZw5ibLyYyi2XKj6iR7si4owoxwPtJooqTPMn1ORn5dVDqy
-	Aii2IOeWuw/EClURmq5+FETgWhUwEj+J609ip6ii60ZI11sVnemuzBA8CWQJg7j/0n0l1I6R3K0Zg
-	ttC25MYplFN0AVUcDPQJKlJpKAzjUtnCCtWRH5rqp7HPKkzzghLNa7TMkLRVAkqwGdLuScBbA6dMS
-	o92puG3j7eqBHVgsKop7FAnLoq5VMkHMTBdA1SaWw9iUuV7nURUNH8qFCWoKpTMRA4WcBAUjqPxAE
-	TNjxJ3cXlMau2aBPfDBw==;
+	List-Owner; bh=GsL9RIp97C0Qxagnr7v/5ZGqplv/6DtdiXurcXPMBuw=; b=MCUi1kiEU3E+EA
+	WW/ebFfX/4qFyQsjl/lvUAipQzBVCzaABiIy1VGuYDBi6jjKqDnJEDaP7pk95UcbZcdA4VU9yqsvN
+	hsa80qBEADWYKYoIItCqSb0AJaug3L9EOkGtjhigdsixd9IO1lqpYPOzrP+wIOw1Yj0l8a0fMn0rC
+	ZpbqsVamzaYr/LTpqblbvmtsWI2I2qyjwRpz/tTgRjv6dRJsd3okofGzb4iT7+9jsevHqvaLGIPUh
+	sCDICUKGbS320F1eqqi6rEGwSja3h0L4Ixvena8/SMHf4th3XHy/YpAr7U5Mhf6okkn1nMQ5ZXaZs
+	Vsd9oYTXNyLoYUBmHqwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FtY-0000000C5Kg-2phC;
-	Thu, 17 Sep 2026 17:27:36 +0000
+	id 1x7G1o-0000000C63z-39YC;
+	Thu, 17 Sep 2026 17:36:08 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FtX-0000000C5KM-0BtE;
-	Thu, 17 Sep 2026 17:27:35 +0000
+	id 1x7G1n-0000000C63n-14ID;
+	Thu, 17 Sep 2026 17:36:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 37F616022F;
-	Thu, 17 Sep 2026 17:27:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6ACF1F00893;
-	Thu, 17 Sep 2026 17:27:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C711601FF;
+	Thu, 17 Sep 2026 17:36:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35B581F00893;
+	Thu, 17 Sep 2026 17:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789666052;
-	bh=qMtpgJuTFFb3pSh+VD0JmC7P3/MrF5Y7JmPuGW1JHOg=;
+	s=k20260515; t=1789666566;
+	bh=A6BEPHfJejrl2NMcgOgt++Vj4JDcXR1qLSxmja4QVCQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IKcDKMZp+ekNzsJWMv6ovbqCcUdMVOZ6MpkZcYayhKvAzV/c9ClPKNnre38GDO1dP
-	 VnUSB2NySbj0dzneUmt3pEDLT5bQcZzSnv2wWgRFQfbkywnOoydZxU0Fr3fXchDfM+
-	 X2W63kMbGbKmAF4/O+OGA5Py1tGRoL8F3H9HK41uSJlirs05rf7OQz9kYeUuNQab31
-	 /puM/JcNmprsid2hI9cqCt/rE31IWuwsMruvrzyf1LRUn6ltb6gw3/tiPWIJbxOlgq
-	 ZYgG+gfi+WPmnkiu9l/cZnTZCInU5er2bu9blhiS1YcACr8Q+pi1Vz/rYoY+ZwTY9w
-	 qdLoJ1G9LuZRg==
-Date: Thu, 17 Sep 2026 10:27:32 -0700
+	b=FA9DCRPWrubMAvnERnORM+6SiKp9G+5NEqmT8NLgc4cw8+dM5yUrexfPpKjZLgq2G
+	 T6oWf4KbCUmdYWp4a6Ywf8JfoTGT19RAZu31rQshkBuXwW7VLXnDk/VYLMkCmg4K8R
+	 bM8vXaHND7xJmLktiCGijMcbFy419jIeCIc8G471IqC7MEqrUuNGmUAmdXUYx9OW5W
+	 5Zu1pDrZCZsqA61toqo4ozSI8k4UMSZNJ+1guH3onThUccGMN57qEZxQVdY3A8ZVro
+	 LoH28RiDHXGljskteGln8hIsDd8zLZeDNYpFqe/qobZNYHPFWTpnkMXfzmbQSQAFNV
+	 i6cs5n/Bksa6A==
+Date: Thu, 17 Sep 2026 10:36:06 -0700
 From: Kees Cook <kees@kernel.org>
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>,
@@ -85,14 +85,14 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 02/20] kallsyms: index symbols by token to speed up
- table compression
-Message-ID: <202609171019.5DD874E@keescook>
+Subject: Re: [PATCH v3 03/20] kallsyms: output binary data to speed output
+ and kallsyms assembly
+Message-ID: <202609171034.703D529782@keescook>
 References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
- <20260917-build-speedup-v3-2-9ecf4163ff36@kernel.org>
+ <20260917-build-speedup-v3-3-9ecf4163ff36@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260917-build-speedup-v3-2-9ecf4163ff36@kernel.org>
+In-Reply-To: <20260917-build-speedup-v3-3-9ecf4163ff36@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,69 +109,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 05:06:12PM +0100, Lorenzo Stoakes (ARM) wrote:
-> diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
-> index 494852ade6d8..350d118c3b9e 100644
-> --- a/scripts/kallsyms.c
-> +++ b/scripts/kallsyms.c
-> @@ -58,12 +58,47 @@ static unsigned int table_size, table_cnt;
->  static int all_symbols;
->  static int pc_relative;
->  
-> +/* A dynamic array of symbols, encoded by symbol index. */
-> +struct sym_arr {
-> +	unsigned int *sym_indexes;
-> +	unsigned int cnt, cap;
-> +};
-> +
->  static int token_profit[0x10000];
-> +static struct sym_arr token_syms[0x10000];
+On Thu, Sep 17, 2026 at 05:06:13PM +0100, Lorenzo Stoakes (ARM) wrote:
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Nit: since you're refactoring too, can 0x10000 be a #define so it's not
-open-coded 3 places? (find_best_token() uses the value too, though
-arguably it should actually just use ARRAY_SIZE(token_profit) instead).
-
-> [...]
-> -static void compress_symbols(const unsigned char *str, int idx)
-> +static void compress_symbols(const unsigned char *str, int compressed_chr)
->  {
-> -	unsigned int i, len, size;
-> +	const unsigned int token_idx = sym_token_index(str, 0);
-> +	struct sym_arr *arr = &token_syms[token_idx];
-> +	unsigned int sym_idx, j, len, size;
->  	unsigned char *p1, *p2;
->  
-> -	for (i = 0; i < table_cnt; i++) {
-> +	/* Iterate through all symbols this token is found in and compress. */
-> +	for (j = 0; j < arr->cnt; j++) {
-> +		sym_idx = arr->sym_indexes[j];
->  
-> -		len = table[i]->len;
-> -		p1 = table[i]->sym;
-> +		len = table[sym_idx]->len;
-> +		p1 = table[sym_idx]->sym;
->  
-> -		/* find the token on the symbol */
-
-Why drop this comment? It's a little redundant to "find_token", but I
-always question comment _removal_ when it's not solving an inaccuracy.
-
-> [...]
-> @@ -536,11 +643,14 @@ static void compress_symbols(const unsigned char *str, int idx)
->  
->  		} while (p2);
->  
-> -		table[i]->len = len;
-> +		table[sym_idx]->len = len;
->  
-> -		/* increase the counts for this symbol's new tokens */
-
-Same question here: the comment is still valid?
-
-Otherwise, looks good to me.
+A clear win. :)
 
 Reviewed-by: Kees Cook <kees@kernel.org>
-
 
 -- 
 Kees Cook
