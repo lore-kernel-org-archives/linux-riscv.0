@@ -4,95 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49405C982D6
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 14:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29019C88E72
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 15:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F/4GPf5RN31Ji5+DAuoG2yht1QnoIe6N/u6kH1QruN0=; b=RrWF6PH+YtColHDYA8+dBoLn1/
-	HKK/cNmpTVS1T08Aod3w1HvmzsZbLFNP1XSnT5DM20gK139FPQlarBou6RTV+UIKmDg9otFRvL1NR
-	Vw79GcEeOb3qr0XYIwxw7zb4QGvJphSUMxZ3gAZRT20dSNI937RvOTNoslTlFV1pYjBXkK7POZTDN
-	/8ilO+LTr7v9g9bFnjqvndeD+wZGmGGL2h8yxPJ9+FmbJPDa+B1BlZL5noIWmYB3ZrTwdR15syMNK
-	j/9G7/Qj80fGT63SRVQEI4L83GEaKVN6nQ8i0okbPEcKoPZ5/wNekSpciH4Fm+Z9d6g/FRzyThtB4
-	+/rPFRWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VhUlUCINDo0Wav2eUJ6sADecRps2vS2v/msTwYpywcU=; b=uLyZheEnePuUvE
+	BFQ2RQCiIAMhEQgf8CWIy2vBmk9yewxLtGtwVEipi2Ho1qnvRUYimCil2DFxqNcvCjPk86w3Tjh7h
+	HfP5/FJAreoDiEKsJ1QBGu3Seyv6ix2611OXwv6FJ6tzdCNzC+QqccjuVuY3Ky8zfSKQnMLmRvDzG
+	De5hcBMkj4u0MzDcMIJUj8wvGF4JV0NLk4RsAD8NOYzyYTzXrhENE2tDBqMFzfKED81z049qHH8bX
+	I+jxdhO0doAs9LP5J0bAiR+5zixC1JI46GJ2EQmSVsbNtFzYIKh7zZu+7N4zAEe+AvO1AiXQQJlvN
+	wmzAG4m/ziNy9Gr55cqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DZW-0000000BcJh-3T1u;
-	Thu, 17 Sep 2026 14:58:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7Dgi-0000000Bd2o-2EqO;
+	Thu, 17 Sep 2026 15:06:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7DZU-0000000BcJ3-0dyH;
-	Thu, 17 Sep 2026 14:58:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 96EA9403C5;
-	Thu, 17 Sep 2026 14:58:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 860661F000FF;
-	Thu, 17 Sep 2026 14:58:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789657123;
-	bh=Pf5LWvewJuTGwbuVcqvqZ/vgiaSwk27Npsb0/AK2Dn0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dqQA5MjqLMIkvuYS4AGF0Rd4vtXoWxYqlWUBftO/79PmF4lvyTsgfLnsB8vSGifvH
-	 +OYVr89bgdfTyiqlagk1US7i3L8yyMYnAS1dDKXVMJsT2BIEG1dgT+viTahJ1rAIA3
-	 TYcHiUlAxxS26oQLU2l1i/6ZqW4ZIwHDk6IczaQxVj5A/l9fr91Z4YBGtIfRnX1M5N
-	 0V0wbAfTG9zSthlEuAVPvpTZBief1uzxA7Ugpd4Bg2kCBxj37nSGgk/eOAdmEZiafi
-	 RjYqqpwuTXxHV6CAJkC47g+Uezbe4bbAWp9UX+W/76vyliPo6Hxh2LB7yNpw8ldfTh
-	 tHT+i1Hf2qunA==
-Date: Thu, 17 Sep 2026 15:58:31 +0100
-From: Mark Brown <broonie@kernel.org>
+	id 1x7Dgh-0000000Bd2T-2q75
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 17 Sep 2026 15:06:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=/OfWtIewPY5C/r0HMIf+o2IIttSmiKU4y8rC/hzPssc=; b=mfsZkXWnHLGf3LMvO0jQNzI8J6
+	wjBSuykVb33x5sd92aVc+t1C3Yz28ScwMA0o68CWPlG0fQymRGHElljbLgtJW9oI8Ae4dMUD1XDiu
+	Pv68vtMdLOpMkeMHsd33O/81B7kzDJGU8AjAZAYOdtfREOAY/yXKEywNzd/XE+e+GPZVnbcbtHI4a
+	g4WHX/it2C5KucMYt8a6Qvkx8fupqwPXqDv4GlbCU+2VE8+tDwEgix8S0jbssxZ51KMPbFm2+xHu3
+	z0lS2keHOWSvNbdpi4BAkL6iquid5KdBTbzLaWPhE5rfLFOHtCsWYCH07YPD/koxum+AsJfaQaeas
+	zylRzy0A==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x7Dge-00000008ybz-2cXH
+	for linux-riscv@lists.infradead.org;
+	Thu, 17 Sep 2026 15:06:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 634831A0934;
+	Thu, 17 Sep 2026 15:05:59 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 26C255FAA3;
+	Thu, 17 Sep 2026 15:05:59 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C35C211C7B08C;
+	Thu, 17 Sep 2026 17:05:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1789657549; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=/OfWtIewPY5C/r0HMIf+o2IIttSmiKU4y8rC/hzPssc=;
+	b=ngBXbn7/ts81Rynz7n5bSN7vmTTpu4edcR52tEjvtmzV0mtJnaTqQaaGTaP6UXbcZcuttd
+	OmHSxedWnPBXZuzpLcrjJddURZ4iBxRQxqWuUXqCtPjgw44XdjtUZzeb4ixeueEh/Pjs3x
+	/eWz9LcI5bxvgzjpghmVc+XOtR8IQ3BUPB6X/utwtHLYoy1NQVdzrmV/b3RW+jMtn6MkTh
+	+P+X9EUacmGoXpVXdFe93bfZwrZ5ww11hjFw5RlJwwEHjnY4K+Lzz34RW8ywCr6zBFQl5u
+	wZSqY+rp+UjM2V2g8x9tD4szg7BX2Co1MnCeqc+BhGY2Fm25gVBYVqzQV44emw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Daniel Matyas <matyasdaniel006@gmail.com>
-Cc: Lee Jones <lee@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Ulf Hansson <ulfh@kernel.org>, Liang Yang <liang.yang@amlogic.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jose Abreu <joabreu@synopsys.com>, Ray Jui <ray.jui@broadcom.com>,
-	Scott Branden <scott.branden@broadcom.com>,
-	Atish Patra <atishp@rivosinc.com>, Shawn Guo <shawn.guo@linaro.org>,
-	Dmitry Osipenko <digetx@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
-	Okan Sahin <Okan.Sahin@analog.com>, devicetree@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
-	linux-rtc@vger.kernel.org, Ricard Wanderlof <ricardw@axis.com>,
-	patches@opensource.cirrus.com, Lukas Wunner <lukas@wunner.de>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Eugen Hristev <ehristev@kernel.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-iio@vger.kernel.org,
-	linux@analog.com, linux-input@vger.kernel.org,
-	chrome-platform@lists.linux.dev, linux-riscv@lists.infradead.org
+Cc: Lee Jones <lee@kernel.org>,  =?utf-8?Q?Andr=C3=A9?= Draszik
+ <andre.draszik@linaro.org>,
+  Ulf Hansson <ulfh@kernel.org>,  Liang Yang <liang.yang@amlogic.com>,
+  Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Neil Armstrong <neil.armstrong@linaro.org>,  Kevin
+ Hilman <khilman@baylibre.com>,  Jerome Brunet <jbrunet@baylibre.com>,
+  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,  Andrew Lunn
+ <andrew+netdev@lunn.ch>,  "David S. Miller" <davem@davemloft.net>,  Eric
+ Dumazet <edumazet@google.com>,  Jakub Kicinski <kuba@kernel.org>,  Paolo
+ Abeni <pabeni@redhat.com>,  Bjorn Helgaas <bhelgaas@google.com>,  Lorenzo
+ Pieralisi <lpieralisi@kernel.org>,  Krzysztof =?utf-8?Q?Wilczy=C5=84ski?=
+ <kwilczynski@kernel.org>,  Manivannan Sadhasivam <mani@kernel.org>,  Ray
+ Jui <rjui@broadcom.com>,  Scott Branden <sbranden@broadcom.com>,  Broadcom
+ internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,  Will
+ Deacon <will@kernel.org>,  Mark Rutland <mark.rutland@arm.com>,  Vinod
+ Koul <vkoul@kernel.org>,  Thierry Reding <thierry.reding@kernel.org>,
+  Jonathan Hunter <jonathanh@nvidia.com>,  Liam Girdwood
+ <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,  Jose Abreu
+ <joabreu@synopsys.com>,  Ray Jui <ray.jui@broadcom.com>,  Scott Branden
+ <scott.branden@broadcom.com>,  Atish Patra <atishp@rivosinc.com>,  Shawn
+ Guo <shawn.guo@linaro.org>,  Dmitry Osipenko <digetx@gmail.com>,  Thierry
+ Reding <thierry.reding@gmail.com>,  Ibrahim Tilki
+ <Ibrahim.Tilki@analog.com>,  Okan Sahin <Okan.Sahin@analog.com>,
+  devicetree@vger.kernel.org,  Paul Walmsley <paul.walmsley@sifive.com>,
+  Palmer Dabbelt <palmer@sifive.com>,  Conor Dooley <conor@kernel.org>,
+  linux-rtc@vger.kernel.org,  Ricard Wanderlof <ricardw@axis.com>,
+  patches@opensource.cirrus.com,  Lukas Wunner <lukas@wunner.de>,  Chunfeng
+ Yun <chunfeng.yun@mediatek.com>,  Eugen Hristev <ehristev@kernel.org>,
+  dri-devel@lists.freedesktop.org,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  linux-hwmon@vger.kernel.org,
+  linux-iio@vger.kernel.org,  linux@analog.com,
+  linux-input@vger.kernel.org,  chrome-platform@lists.linux.dev,
+  linux-riscv@lists.infradead.org
 Subject: Re: [PATCH] dt-bindings: Expand flow lists to block lists
-Message-ID: <1c1d5c42-0e0e-4dcd-ae73-bfdd8f586eba@sirena.org.uk>
+In-Reply-To: <20260917144028.459053-1-matyasdaniel006@gmail.com> (Daniel
+	Matyas's message of "Thu, 17 Sep 2026 17:40:28 +0300")
 References: <20260917144028.459053-1-matyasdaniel006@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 17 Sep 2026 17:05:33 +0200
+Message-ID: <87tsnnj4ua.fsf@bootlin.com>
 MIME-Version: 1.0
-In-Reply-To: <20260917144028.459053-1-matyasdaniel006@gmail.com>
-X-Cookie: Whip it, whip it good!
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_160608_771013_68A265AA 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,62 +117,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6891542565333395557=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 17/09/2026 at 17:40:28 +03, Daniel Matyas <matyasdaniel006@gmail.com> wrote:
 
---===============6891542565333395557==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="T1VRYF8LKqrA2gy5"
-Content-Disposition: inline
-
-
---T1VRYF8LKqrA2gy5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Sep 17, 2026 at 05:40:28PM +0300, Daniel Matyas wrote:
 > Running dt_bindings_check returned:
-> [error] string value is redundantly quoted with any quotes (quoted-string=
-s)
->=20
+> [error] string value is redundantly quoted with any quotes (quoted-strings)
+>
 > The files used quotation marks in flow lists because the strings had
 > commas and these commas were interpreted as separators. Convert flow
 > style lists to block style lists, so that there is no problems with the
 > commas.
+>
+> Signed-off-by: Daniel Matyas <matyasdaniel006@gmail.com>
 
-Acked-by: Mark Brown <broonie@kernel.org>
-
---T1VRYF8LKqrA2gy5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqsABYACgkQJNaLcl1U
-h9DUEgf+KPueghXAo1OPJ9ovWXvqrLAw+P7bHJYXzsGs7WHDWdxwhOYO2uR6gAfg
-8ZLb9ylPNNZ9AHlpFJwRURFngp67uFQIhifh/bIF3gaKwbwL86mvOBPF3wPpmgxl
-1yM9fToilQFgliR8Psbmzp8M7JNF2cjGI8/u+jxSwIRan1J4OsJQF53lS4dDfQdS
-UBJH8NzSkebpER/lT+MemvfK6Tu9r+cdcZWtOq4gW/45KhDrRJLolCArFGD0Lb41
-rtqnAjBP2boqFZt7lCaTVN7dCODYgk6d0f8gVbeTBSEHwiJIRhp33VGLWnzSopjb
-8cth11XidrgPdnhuks7ie7L3odf4/Q==
-=kDOk
------END PGP SIGNATURE-----
-
---T1VRYF8LKqrA2gy5--
-
-
---===============6891542565333395557==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Acked-by: Miquel Raynal <miquel.raynal@bootlin.com> # MTD
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6891542565333395557==--
-
