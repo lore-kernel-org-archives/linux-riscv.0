@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D57C88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 17:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 161BCC982D2
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 17:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w7Uo6w9rL3NCy57qsomtUdeRRJzKM4UwZmkhlpjaX4M=; b=z4WyXYdIYCYM8e
-	KTl4VYhrFMzsdQfTV5qCoOfZVs+LnGvYu7T3HuZUXucUMNcfKGuA0wL9Z6rCthgAVj4BZWlhsq6kH
-	CnzczU+jBXbj1gmMVyuvj+M9DCk+fWQJa0e6KJvrDy1b38CmeYudf4crZj6eWItPcUYfmC9ujGxF5
-	UklEyP9qVGGD+lLQh1Mi2+89ZnOBDIX6JrmeFcLMEXP55aeLihNt2wGVFnv0rDZk+Wnx3EffB84a/
-	CMEp6qXEvT9Nvi4wCuMOasbTeg4Pi/umfcq4t00Pkp6tGnbCAJMuNjG5qHi6A9tM5tJugMdxGoBEB
-	zptzhG6aWartnrvLrNTw==;
+	List-Owner; bh=/XTkWkDomIvFZ5kqMF79pPNJjWocdUqH6HkraiLUCKI=; b=OCRmkEQY93gFpX
+	Qzw5AoPqhnq0LJFjQ3TgLs7LxWrlgC+OOMI9bhIfPXfwpLlrCOnZjdbUbj8V6MDYAJW8hZD6A7Mwx
+	tLQG+/dDWh66fAZNxlpdJcC0S098iCM3W/GAdyE2Fl9IbnzIMmzI8BPnjJ0zds+BtGXYQdPFiGMhG
+	8q3J+iP61YoGnZAGBhzN0inJL4icaL72eHjRQsO5TOH/Ygx5agNSwhJEugSGNanHMgd4bT8J5JdZA
+	9zuTuCYLMt0tf5/zS4RwJfbwABPwcjM1RTLrXGJALE8swwnLibriGAT4mT5IrkZHF3lb6RM7FHRvc
+	9+iwtc8cIES7MH/NNy1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FUV-0000000C1ff-1rSK;
-	Thu, 17 Sep 2026 17:01:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7FYH-0000000C2Dh-27we;
+	Thu, 17 Sep 2026 17:05:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FUT-0000000C1ev-0qVG;
-	Thu, 17 Sep 2026 17:01:41 +0000
+	id 1x7FYF-0000000C2D6-3e76;
+	Thu, 17 Sep 2026 17:05:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EDD66020A;
-	Thu, 17 Sep 2026 17:01:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9C7F1F000FF;
-	Thu, 17 Sep 2026 17:01:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 287E742B9D;
+	Thu, 17 Sep 2026 17:05:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFA4D1F00893;
+	Thu, 17 Sep 2026 17:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789664500;
-	bh=cMuDnpqJUB2Uf77ZbSuAlr2PpXfKCDvn1QWiL0hTFpE=;
+	s=k20260515; t=1789664735;
+	bh=9T6Ai0DaSY41m9xsiEy+SvRmsf3fqO2EjjY5HGGOdHY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jjMFDSGyVlsre2OTckTLEm8iZBL2xUblNcOIL6hTWSU7fqk30T66IbsSK2lBLpw99
-	 Li0P7WzjAKSSjpIhMssr2/0fCf0fePT4FXZNY5GuZ/FcFSms6av9+BT1r6C06UZ0B9
-	 YyiYY8EBcVeOnXLjcd6vPNwWKdPZ7Ojf8w/cOCKB6I8RSa3RsWc+cc2xiueU4LSg6Y
-	 mTS14dGRBrFfm6udeioEHK9A/Qe+EJHHb6efM8/5J03WRPVZuuozRUxr+mqbzw8IWB
-	 vGGCU1Scz8EtSVp7LCMJD1RAOQFIbsQ3d9+6UsobnTpT5OVJDcELlyNi8o09hYdcU3
-	 9Sr5bwOZ7smLA==
-Date: Thu, 17 Sep 2026 10:01:39 -0700
+	b=a1oY5QbBgj0PgVTxIAleOAevncrWdI0JjDRKRIjUk+L7L0Qclrqrv/W6tH1fiTwbn
+	 jcLKeMW+4oZiygidx8l8R1v9pjrdcr2hgTaP4n61WG3Jjoiyn1z8s1izXab8yOTxSx
+	 rZj6mayKixcNOV1Q1vLTDtSa1iiLwGhudrq1Jj1HJGFGF6LPjeLei7ldBzZZlateWj
+	 XYA33AViCuP9r6hvgJjnNStdeSBGzmCJzcD39hRRcu+RkgR28pi1TEFEoen/Bj8J0w
+	 MCd1iy582tIarlE019Chz91CYupTlf7jXjPVYiBjYrBPmrVjc+STbQYOjEkXJpI0Lz
+	 0BMVtVLMfj2zQ==
+Date: Thu, 17 Sep 2026 10:05:34 -0700
 From: Kees Cook <kees@kernel.org>
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>,
@@ -85,13 +85,13 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
 	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 14/20] kbuild: batch module finalisation
-Message-ID: <202609171000.CD7797EA3@keescook>
+Subject: Re: [PATCH v3 01/20] kbuild: do not allocate .modinfo in vmlinux
+Message-ID: <202609171002.8C0C739@keescook>
 References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
- <20260917-build-speedup-v3-14-9ecf4163ff36@kernel.org>
+ <20260917-build-speedup-v3-1-9ecf4163ff36@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260917-build-speedup-v3-14-9ecf4163ff36@kernel.org>
+In-Reply-To: <20260917-build-speedup-v3-1-9ecf4163ff36@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,50 +108,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 05:06:24PM +0100, Lorenzo Stoakes (ARM) wrote:
-> With the .mod.S change in place, module finalisation on allmodconfig builds
-> consists of a large number of very short-lived jobs.
-> 
-> For allmodconfig x86-64 this can be on the order of ~22,000 jobs of a few
-> milliseconds in duration each.
-> 
-> Each job entails processing ~22k .cmd files, so the combination of heavy
-> overhead and small individual job results in a lot of unnecessary and
-> repeated work even with all cores being utilised.
-> 
-> The solution is to batch by a number of jobs. Determining which value makes
-> sense was done empirically.
-> 
-> On a 128-thread threadripper box doing an allmodconfig build, best of
-> 2, *.ko, *.mod.o deleted each time:
-> 
->     modules per chunk    instances    wall
->     -----------------    ---------    ------
->                     1        11171    10.22s
->                     2         5586     6.72s
->                     4         2793     4.97s
->                     8         1397     4.26s
->                    16          699     4.05s
->                    32          350     4.05s
->                    64          175     4.07s
->                   128           88     4.05s
->                   256           44     4.03s
->                   512           22     4.18s
-> 
-> Wall time flattens for 16-256 module batches.
-> 
-> A slower/lower core machine will do better with fewer modules-per-batch, a
-> faster/higher core machine will do better with more modules-per-batch.
-> 
-> Therefore, take the midpoint which works in the most margin in either
-> direction - 128 modules per batch.
+On Thu, Sep 17, 2026 at 05:06:11PM +0100, Lorenzo Stoakes (ARM) wrote:
+> +      cmd_modules_builtin_modinfo = $(OBJCOPY) -O binary -j .modinfo --dump-section .modinfo=$@ $< $@.tmp; \
+> +                                    rm -f $@.tmp; \
+> +                                    sed -i 's/\x00\+$$/\x00/g' $@
 
-This is easy to tweak, so if we get negative feedback on this for
-smaller machines, it's an easy fix.
-
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-
-Reviewed-by: Kees Cook <kees@kernel.org>
+Oh, I just noticed this. I don't think the .tmp is needed. You can just
+use /dev/null for the outfile here: no need to write anything unused to
+disk; seems to work for binutils and llvm's objcopy.
 
 -- 
 Kees Cook
