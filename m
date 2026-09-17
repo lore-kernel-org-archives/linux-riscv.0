@@ -4,146 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A23B3C88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 20:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 241BBC982D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 20:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DqnoCavpkEvTwuSOIHG+KWes8tIEyTCbdyfSgcf9D4k=; b=SJJjUVrYGZEcYt
-	KE5uYA1UcvlSEJ2Isv9jO+8MHmQlHD2Pr9EPKIAD/Hi5/Iay/u3q2obbEDG7yYMZ75uFvjHXKLTLT
-	xQw4ssKNknFiXt6bzpwlFkY52nWAzfHwAczeIIByolB+46DwVHcdGyQ3fLZ9prnc/ZmxTeQuJhJfY
-	lJMIZ7TX6d7iLyPgWyfEdLvMmXU6GslBdG7eZ6CK7eYU5Gbv8GA9EjZfiWvrcWabzlPbPg0KK/lHU
-	w5KndyQa6Wt2+QoPgTirCAWMA0EwYP0jMtv6iGkXXcbIB9ZuwaoMQSp6a9K7rSAfY73+shh7/F8K0
-	NFicOw292LEaj7wK5ixg==;
+	List-Owner; bh=GSRLkiIEduC2gs+Z/F3sHZEG4HHaHxj0kx84ha0NjOM=; b=QbAdf0CtfweObq
+	PK2/WZH8moyp5PfluduwqIqZ5B1S71Wgjc4Rf0c02SxqJixIdas4mRaQ4XLzImxpcW6pSw5AStoSh
+	hJY8Vx9DhvztJI7RolnqvyAVNMRblkdH+SFXlLIij4qGQNhWE/ngHa7wI0SlBEB742b1fCHwrylz6
+	tSlilrb1ex0RyM51W2LQHTdFgg4l8K9OavcSLg6w1tHnpxjnAWFQ1M7ZmQVYb7khEHsPTTPkjkxJk
+	qeSzW4Fi4vULq4D/SZpOQVL4N1Yq4bSghJN1SjIsUiSaShOa8Gv6DPo1dAFz+ijBwms3Jxg0vZhHx
+	wKoUat23q8t9Yl45fyLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7J3q-0000000CUky-0GGj;
-	Thu, 17 Sep 2026 20:50:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x7JCb-0000000CVln-2S3o;
+	Thu, 17 Sep 2026 20:59:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7J3n-0000000CUhE-36Kl
-	for linux-riscv@lists.infradead.org;
-	Thu, 17 Sep 2026 20:50:24 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68HH5IXp1007166
-	for <linux-riscv@lists.infradead.org>; Thu, 17 Sep 2026 20:50:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8YpNY/Bau2C9H4OXWV+XfoUZdnr4CV3FIhXIPLaLRpw=; b=bDMSa4iSiT8ItOZL
-	qDlgE27bojSoam9G3l2wvgy1LHpWPkfn/+L27JL7XSP8tIMNBAM+VShnfQHvx7Sx
-	HklycHyYEAS+3ywN8aA4DhZgIuPY9gcZiWa+ZsZWTxoYqwzkYWakBN/wBGvr3ExG
-	UXvuMj/DMufQL1miacolNxE7jnHau+Fc4lsKaoVMm8hC1WEMYUL4bDNwOx/mmfIM
-	WFqRC3Nxyqq5aUKNEqWDCMW9/M2bY8K7PCsh1b3z0cIefy6TcappZDautpQo2jPe
-	GeupFN0+uoSdyO2Obeczcr4nrwTxCH7Z/yd85WiPhbNaIMSqp7chdUYyaDhQP7Yx
-	j0JWsg==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4grjttse6j-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 17 Sep 2026 20:50:22 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-936aa34873bso7792485a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 17 Sep 2026 13:50:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1789678222; x=1790283022; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8YpNY/Bau2C9H4OXWV+XfoUZdnr4CV3FIhXIPLaLRpw=;
-        b=d9/q0GUW1/SGZgjRAaaAmysPhh5hqrDNgaCIo46/59PGgqdbYI9NDv+4cdmntB2IE/
-         ChE42kRm6QEbADbJ6glyXkZ7wsQBYYs/ls40PPlWuzhmOzxbH3hnZR0XLo0tuRg9/CbO
-         UJEHJB0VSf2i+rp/teYrNDo5l94uMYpP5LlIKvNxcpjx4unVoialxfP0uDjer/EU+W4C
-         wh2aCvR6wazKiyc2PW7OozWJ3AzXDWbCFTwHtncr2bKaIl+a6pKdQpgrs8hO64SvDGTl
-         zMl8bjQzcZORjSpOZjr7Und+6uHqagWWyBh9d45Nz/F4obqqffff86ofZFg07bjNUBcR
-         zjag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789678222; x=1790283022;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8YpNY/Bau2C9H4OXWV+XfoUZdnr4CV3FIhXIPLaLRpw=;
-        b=ClQfIn1QlnYrg7bnt2xGsHEtJbCIkUcj8pB2JAPufg3ZW964WEQNvd4ykSFOEN5y1t
-         4a1T9P/IzXhkG7HuHUUrUmKEUZZvLvMeWac3tqWqlf0TCZe6HrR7zYdybeEf/FdrhYSi
-         OySz4Eo2ltf99en/Ra9D7RNkVZDPdocQ/Wm/84Tw1Yr1GzDHaCiDahab3yV2ZOBa03Al
-         AKk695WHWBW+Wupa0ZXI/9MkzaxiWnADGA2Dh7Zsx0H91GBWmq1MpOoC64jpjjizIRan
-         wjXX3HVwG0RHFvZAF25DGkXR0QQPVj9mdAOXIdSLMHZUkxri8DNJ4ziZb3UV2x7Pa2O/
-         7xRw==
-X-Forwarded-Encrypted: i=1; AKwUvBy8gTPXgwU4PccfNo/9I6jZKeOCZYGys84toQKO/ZUz2Ek1clF9B4D5JodXMcs4djyOD9S4anNW3psYvg==@lists.infradead.org
-X-Gm-Message-State: AFuF++lsp0aY2QGlISfg4ytaW19t6CxvW61Isa0rq7j71Wiiuoe0ifrO
-	Z8weHVt3WdbvxJ9W4Z8cOiJgaObsw13HAmPEEM2qSaM7Sf3QzX2KcBFXztq2J9Z44dyGExmEDLa
-	S3bqIUVwIKk7zZEkXLq+YBg1CGjQjvUTjppY8VForzHUqaDCS0rGyAKRGOtzXADlnBpYYam4=
-X-Gm-Gg: AYBFou1pgDBLMhLG7warslOB1Smu3w2hrrVpdKe9MqiXNir5v/YDeu6SPHpOJ7MS/qK
-	QJkhetpSSUBnHkQxl7VND7nz+Qw25iBc4HJyTcZ8L/mVZiOCe3HL7pGvibGJJorDVBfnTK9l5Ra
-	WN0FX1BpnDeWjEnKorHlQ1nkbN/IIb9urgpQcOn0AqZz/ppwtpAyhPWF9npKB5OXXhrm9bUoT+v
-	1I1Ujx8+HiseKoFCTeuBhDvPA0Xtn8jCv1pUT+0N2ZpzvmJB/BDvr0i1CuW2oOLMmwJvKgBd0rE
-	Q4yBSq3VZLlft4U1Mxy7Y2gE9bWav1dK8yFiSq9T+iDUSHQWvEunNJJfR0+PD4blt5EDI+qj+m1
-	4PjhwnbcAotRIBta0wi4kXKF7eea8NsAFW6aEHTjX99YbE0Oq30GfJA==
-X-Received: by 2002:a05:6a20:4306:b0:3d3:adbf:777d with SMTP id adf61e73a8af0-3dd8c4cc8b8mr304652637.25.1789677513390;
-        Thu, 17 Sep 2026 13:38:33 -0700 (PDT)
-X-Received: by 2002:a05:6a20:4306:b0:3d3:adbf:777d with SMTP id adf61e73a8af0-3dd8c4cc8b8mr304613637.25.1789677512941;
-        Thu, 17 Sep 2026 13:38:32 -0700 (PDT)
-Received: from [10.73.236.146] (pat_11.qualcomm.com. [192.35.156.11])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33c00ede586sm14590388eec.10.2026.09.17.13.38.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Sep 2026 13:38:32 -0700 (PDT)
-Message-ID: <71568eb6-8123-4ed3-a2d3-4e33e4880bf4@oss.qualcomm.com>
-Date: Thu, 17 Sep 2026 13:38:31 -0700
+	id 1x7JCZ-0000000CVle-12yq;
+	Thu, 17 Sep 2026 20:59:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 905C54322C;
+	Thu, 17 Sep 2026 20:59:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 654E71F00893;
+	Thu, 17 Sep 2026 20:59:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789678766;
+	bh=jCN23Z098/jrBfz0bmrygNbGxnLmKn6q7+PuR1I0LGk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K1iJnrT5zwIrpIGfCXw3tperSIg5wg+ccx1MerSVNbZKcKAO2Wen+D59D8D5DLJnc
+	 iF217QvkXDUQ+4iHuY8eEUZ7yL8xlYISWkK8SQeYTnqwssMCw1OEbjQgFp9u0lgKvJ
+	 pqHbYnMRym6T6Hhf9CzyK6P9da+oWQN2sQ93SDO+FC20DvtsVGBsMi2ArzaNwg5bVk
+	 UJIdWn+vHQPYc8juD9NnTa5TnDl/Bw97Dt4DPOYHw8xO/jPT0st5vqM2dTssTOnZXI
+	 gyAXZsmWH+tHCCKaZqYgmKl++M7jkh48ll258Xjdsminj3GIfk0yO8jAHheJBA5Nip
+	 ltqEn+yZO5xpw==
+Date: Thu, 17 Sep 2026 13:59:26 -0700
+From: Kees Cook <kees@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Alexey Gladkov <legion@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 09/20] kbuild: implement and use depcheck to check
+ dependency timestamps
+Message-ID: <202609171229.31BB336E1@keescook>
+References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
+ <20260917-build-speedup-v3-9-9ecf4163ff36@kernel.org>
+ <202609171117.35BFDCC13@keescook>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 1/5] optee: riscv: add RPMI TEE service group
- transport
-To: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>,
-        Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Rahul Pathak <rahul@summations.net>, Anup Patel <anup@brainfault.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        op-tee@lists.trustedfirmware.org, linux-riscv@lists.infradead.org,
-        devicetree@vger.kernel.org
-References: <20260912-rpmi-tee-service-grp-dev-v1-0-1d1d35c2a859@oss.qualcomm.com>
- <20260912-rpmi-tee-service-grp-dev-v1-1-1d1d35c2a859@oss.qualcomm.com>
- <a9d9aac7-cb2d-46fe-a220-40f61f615b89@oss.qualcomm.com>
- <786a1460-c660-4de7-bb07-debdbd6a4661@oss.qualcomm.com>
-Content-Language: en-US
-From: Trilok Soni <trilokkumar.soni@oss.qualcomm.com>
-In-Reply-To: <786a1460-c660-4de7-bb07-debdbd6a4661@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTE3MDI5OSBTYWx0ZWRfX9F+Jo8nbze6B
- U+LeYV8rAI+wjPLlp7s6NOTARbZAIyi5Dx7bpIZlYyNCu9m4HwPEhupIiFtWvSJS1mIxilAIUaI
- LKkFDwic9g0GXZflfqHrQANuRp9V2iKcWzyvo8hqZHVcwFGrDJaB9U+pGk3EXqaADHge9+nfW5f
- iQube80s2UnmGPnpmj5miRGNmxDG7VDQjZv0amLnN3EdURYgDYSjJqJ5MQBVjsLUHBNI10VocSH
- GpCSmjpkDB5uK3e6fYbQ2ltg/F8Wl6vMqpxmPUoA7upJFDYltg9og0eG5CAmUKbw6BPfi5nkJOD
- HAVslxz6NGqf2lS5PocYpeFsX3bgnyRnqXdSxravy1lNx2D4qbCQ1x3kpObXgI1NiWENLpHOuzc
- zpzNizX6+hN52Z7MTVks9T/osF28twnNRa6xCG4qG7U5vhgAeddOIrzDfDWtVJJHYQPf5Xg86aX
- sD3CfF/neRJQzFLFoew==
-X-Proofpoint-ORIG-GUID: cW8AoVTEzSVl7lOrcYECVlu49Px3dZyS
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTE3MDI5OSBTYWx0ZWRfX5Hg5UkQVs62w
- sx2KLqcZWbOLyxZUspRHTCS+zdH/O8lOSw4fmGJnpPCpm6GamGYacbhHvQZgcHtP8VLBs3bFPhh
- 9QzveIeyz+cZ7aj8l/m7sBvmy0WH/ik=
-X-Authority-Analysis: v=2.4 cv=IP2XmQvG c=1 sm=1 tr=0 ts=6aac528e cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=ZdW6uxA9NKXbfdqeeS2OGA==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=5Hg3Q6Ij0jR0fJQLcq8A:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-GUID: cW8AoVTEzSVl7lOrcYECVlu49Px3dZyS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-17_04,2026-09-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 priorityscore=1501 suspectscore=0 malwarescore=0
- adultscore=0 lowpriorityscore=0 impostorscore=0 spamscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609170299
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_135023_825418_402C0078 
-X-CRM114-Status: GOOD (  25.16  )
+Content-Disposition: inline
+In-Reply-To: <202609171117.35BFDCC13@keescook>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,116 +110,191 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/16/2026 2:23 PM, Amirreza Zarrabi wrote:
-> Hi Trilok,
-> 
-> On 9/16/2026 3:30 PM, Trilok Soni wrote:
->> On 9/12/2026 3:15 AM, Amirreza Zarrabi wrote:
->>> Add an OP-TEE transport for RISC-V using the RPMI TEE service group over
->>> the SBI MPXY mailbox framework.
->>>
->>> Request one mailbox channel per hart and use the channel corresponding to
->>> the current CPU when issuing a TEE request. Probe the RPMI TEE service
->>> group and required memory-sharing capabilities before registering the
->>> transport.
->>>
->>> This provides the basic transport and discovery support needed by the
->>> following patches.
->>>
->>> Signed-off-by: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
->>> ---
->>>  drivers/tee/optee/Makefile                 |   1 +
->>>  drivers/tee/optee/core.c                   |   8 +-
->>>  drivers/tee/optee/optee_private.h          |  34 ++++
->>>  drivers/tee/optee/optee_riscv.c            | 312 +++++++++++++++++++++++++++++
->>>  drivers/tee/optee/optee_riscv.h            | 141 +++++++++++++
->>>  include/linux/mailbox/riscv-rpmi-message.h |   1 +
->>>  6 files changed, 495 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/tee/optee/Makefile b/drivers/tee/optee/Makefile
->>> index ad7049c1c107..925b8ec7ef68 100644
->>> --- a/drivers/tee/optee/Makefile
->>> +++ b/drivers/tee/optee/Makefile
->>> @@ -9,6 +9,7 @@ optee-objs += supp.o
->>>  optee-objs += device.o
->>>  optee-objs += smc_abi.o
->>>  optee-objs += ffa_abi.o
->>> +optee-$(CONFIG_RISCV_SBI_MPXY_MBOX) += optee_riscv.o
->>>  
->>>  # for tracing framework to find optee_trace.h
->>>  CFLAGS_smc_abi.o := -I$(src)
->>> diff --git a/drivers/tee/optee/core.c b/drivers/tee/optee/core.c
->>> index a52c1f498b99..63f1725e646e 100644
->>> --- a/drivers/tee/optee/core.c
->>> +++ b/drivers/tee/optee/core.c
->>> @@ -220,6 +220,7 @@ void optee_remove_common(struct optee *optee)
->>>  
->>>  static int smc_abi_rc;
->>>  static int ffa_abi_rc;
->>> +static int riscv_abi_rc;
->>>  static bool intf_is_regged;
->>>  
->>>  static int __init optee_core_init(void)
->>> @@ -245,9 +246,10 @@ static int __init optee_core_init(void)
->>>  
->>>  	smc_abi_rc = optee_smc_abi_register();
->>>  	ffa_abi_rc = optee_ffa_abi_register();
->>> +	riscv_abi_rc = optee_riscv_abi_register();
->>
->> Isn't it growing rapidly now? We have two register calls for the ARM,
->> one for the RISC-V. One more region specific ISA I am aware of and it
->> may have op-tee support in future? It is time we fix this logic
->> in the better way. 
->>
->>
->>>  
->>> -	/* If both failed there's no point with this module */
->>> -	if (smc_abi_rc && ffa_abi_rc) {
->>> +	/* If all failed there's no point with this module */
->>> +	if (smc_abi_rc && ffa_abi_rc && riscv_abi_rc) {
->>
->> This is started looking ugly in my opinion. 
->>
->>>  		if (IS_REACHABLE(CONFIG_RPMB)) {
->>>  			rpmb_interface_unregister(&rpmb_class_intf);
->>>  			intf_is_regged = false;
->>> @@ -270,6 +272,8 @@ static void __exit optee_core_exit(void)
->>>  		optee_smc_abi_unregister();
->>>  	if (!ffa_abi_rc)
->>>  		optee_ffa_abi_unregister();
->>> +	if (!riscv_abi_rc)
->>> +		optee_riscv_abi_unregister();
->>>  }
->>>  module_exit(optee_core_exit);
->>>  
->>> diff --git a/drivers/tee/optee/optee_private.h b/drivers/tee/optee/optee_private.h
->>> index aefe1e6f5689..8d22d65e087b 100644
->>> --- a/drivers/tee/optee/optee_private.h
->>> +++ b/drivers/tee/optee/optee_private.h
->>> @@ -171,6 +171,31 @@ struct optee_ffa {
->>>  	struct work_struct notif_work;
->>>  };
->>>  
->>> +/**
->>> + * struct optee_riscv - RPMI TEE communication struct
->>
->> do we need to name it optee_riscv? we don't use optee_arm anywhere in this
->> code I believe. 
->>
->> More later...
->>
-> 
-> The naming convention, and even the file structure, will change in v2.
-> This RFC currently mirrors the _internal_ FF-A implementation, which is neither
-> required nor ideal. We are moving away from that structure.
+On Thu, Sep 17, 2026 at 11:42:50AM -0700, Kees Cook wrote:
+> On Thu, Sep 17, 2026 at 05:06:19PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > This can be done faster in C, so implement scripts/basic/depcheck to do so.
+> >
+> > It does as little work as possible, reading the .cmd files from a
+> > directory's targets and running stat on each dependency only a single time.
+>
+> Doesn't this run the risk of missing transitive deps?
+>
+> C.cmd:	C.o depends on A.c and B.c and B.h
+> B.cmd:	B.h depends on B.data and B.script
+>
+> depcheck looks at C.o and B.h's times and is happy so it drops C.cmd file,
+> but then see B.script has changed compared to B.h, so it keeps B.cmd,
+> and then the build runs and doesn't have the C.o dep list any more,
+> and C.o goes unbuilt?
+>
+> Also, I don't think this handles if_changed commands at all? The kbuild
+> rebuild condition is timestamps plus if_changed's command-line check.
 
-Thanks. 
+tl;dr: I spent way too long looking at this. I think my conclusion is
+"Hm, this makes some cases of missed Makefile deps on generated files
+harder to find, but there don't *appear* to be any obviously wrong
+instances of this in the tree."
 
-I also don't like the growing registration calls and complicated "&&" checks
-above. 
+Long version:
 
----Trilok Soni
+There does appear to be a problem in the case of generated targets where
+the Makefile deps are build-order correct but lack explicit deps. As
+in, a clean build generates the needed dependencies due to some prior
+explicit Makefile rule dependency, and a later source-level "#include"
+for the generated file exists (and the build doesn't fail since the
+included file got generated before the source that "#include"d it got
+built), and then the normal dep tracking (-Wp,-MMD,... -> .cmd) catches
+it and any direct changes to that dep would normally get noticed going
+forward on incremental builds.
 
+However, with the depcheck .cmd pruning, changes to transitive deps
+(either via file contents or Kconfig options) will go unnoticed during
+incremental builds without that explicit dep (but stock doesn't miss
+it). Though actually it's kind of worse because it'll get noticed on
+rebuild #N+1 for N level of transitive depth, so something will break,
+and then you build again, and the changes from 2 builds ago suddenly
+get rebuilt...
+
+I think you maybe encountered an instance of this in your series, too,
+but it got exposed due to a clean build no longer having the ordering
+correct:
+https://lore.kernel.org/lkml/20260917-build-speedup-v3-18-9ecf4163ff36@kernel.org/
+
+See the trailing diff for a demo:
+
+
+  git apply demo.diff
+  make O=b defconfig
+  # simulate a earlier-stage header generation...
+  make O=b lib/byfile_anchor.o lib/byconf_anchor.o
+  make O=b lib/
+
+  # trigger 1: the header's input file changes
+  echo FROMFILE-two > lib/byfile_gen.in
+  make O=b lib/
+
+  # trigger 2: a Kconfig value changes; no file is touched
+  ./scripts/config --file b/.config --set-str LOCALVERSION -demo2
+  make O=b lib/
+
+  # what each object ended up holding
+  strings b/lib/byfile_anchor.o | grep FROMFILE-    # FROMFILE-two   both trees
+  strings b/lib/byfile_victim.o | grep FROMFILE-    # FROMFILE-two   stock
+                                                    # FROMFILE-one   patched  <-- stale
+
+  strings b/lib/byconf_anchor.o | grep CONF-        # CONF--demo2    both trees
+  strings b/lib/byconf_victim.o | grep CONF-        # CONF--demo2    stock
+                                                    # CONF-          patched  <-- stale
+
+
+This means adding depcheck would silently expose any current (and future)
+missing explicit deps on generated files where those files get generated
+by either an earlier build stage or an earlier rule. :(
+
+I went looking for the kind of missed Makefile dep for a generated file,
+and while it's not a very grep-able condition, I did look at stuff that
+fell into include/generated/, but it's safe due to the prepare/archprepare
+ordering AFAICT. So then I looked at places where -I had $(obj) added to
+it, and all of those seemed to have explicit Makefile deps too. Well, all
+except for arch/x86/boot/compressed/sev-handle-vc.c which includes
+"../../lib/inat.c" but that seems safe today due to ordering from
+arch/x86/lib/ being needed before arch/x86/boot/compressed/.
+
+So, yeah, it makes me nervous, and it may make incremental builds less
+idempotent. But I can't really find extant problems and the demo is
+slightly contrived, but not exactly an impossible situation.
+
+-Kees
+
+
+diff --git a/lib/Makefile b/lib/Makefile
+index dfab958327c5c..aed0bd9eb7d6a 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -350,3 +350,36 @@ CONTEXT_ANALYSIS_test_context-analysis.o := y
+ obj-$(CONFIG_CONTEXT_ANALYSIS_TEST) += test_context-analysis.o
+ 
+ subdir-$(CONFIG_FORTIFY_SOURCE) += test_fortify
++
++# --- depcheck demo ---
++obj-y += byfile_anchor.o byfile_victim.o byconf_anchor.o byconf_victim.o
++
++quiet_cmd_byfile = GENFILE $@
++      cmd_byfile = printf '\#define BYFILE_STR "%s"\n' "$$(cat $<)" > $@
++
++quiet_cmd_byconf = GENCONF $@
++      cmd_byconf = printf '\#define BYCONF_STR "CONF-%s"\n' '$(CONFIG_LOCALVERSION)' > $@
++
++# Regenerated when its input file changes.
++$(obj)/byfile_gen.h: $(src)/byfile_gen.in FORCE
++	$(call if_changed,byfile)
++
++# No input file: regenerated only when its command line changes, which here
++# means when CONFIG_LOCALVERSION changes. No file is touched.
++$(obj)/byconf_gen.h: FORCE
++	$(call if_changed,byconf)
++
++targets += byfile_gen.h byconf_gen.h
++
++# The anchors declare the dependency. That is what generates the headers on
++# a clean build: fixdep only records a header once the object has compiled
++# successfully, so on a first build there is no .cmd file to rely on. The
++# victims include the same headers without declaring them, so the only
++# record of that edge is the deps_ list in their .cmd files.
++$(obj)/byfile_anchor.o: $(obj)/byfile_gen.h
++$(obj)/byconf_anchor.o: $(obj)/byconf_gen.h
++
++CFLAGS_byfile_anchor.o += -I$(obj)
++CFLAGS_byfile_victim.o += -I$(obj)
++CFLAGS_byconf_anchor.o += -I$(obj)
++CFLAGS_byconf_victim.o += -I$(obj)
+diff --git a/lib/byconf_anchor.c b/lib/byconf_anchor.c
+new file mode 100644
+index 0000000000000..8035eaa352a3b
+--- /dev/null
++++ b/lib/byconf_anchor.c
+@@ -0,0 +1,3 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "byconf_gen.h"
++const char byconf_anchor_marker[] = BYCONF_STR;
+diff --git a/lib/byconf_victim.c b/lib/byconf_victim.c
+new file mode 100644
+index 0000000000000..285a8de8bdf6e
+--- /dev/null
++++ b/lib/byconf_victim.c
+@@ -0,0 +1,3 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "byconf_gen.h"
++const char byconf_victim_marker[] = BYCONF_STR;
+diff --git a/lib/byfile_anchor.c b/lib/byfile_anchor.c
+new file mode 100644
+index 0000000000000..9ea0b8ad55963
+--- /dev/null
++++ b/lib/byfile_anchor.c
+@@ -0,0 +1,3 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "byfile_gen.h"
++const char byfile_anchor_marker[] = BYFILE_STR;
+diff --git a/lib/byfile_gen.in b/lib/byfile_gen.in
+new file mode 100644
+index 0000000000000..7da9e5e0cd83c
+--- /dev/null
++++ b/lib/byfile_gen.in
+@@ -0,0 +1 @@
++FROMFILE-one
+diff --git a/lib/byfile_victim.c b/lib/byfile_victim.c
+new file mode 100644
+index 0000000000000..763c5ef8f1514
+--- /dev/null
++++ b/lib/byfile_victim.c
+@@ -0,0 +1,3 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "byfile_gen.h"
++const char byfile_victim_marker[] = BYFILE_STR;
+
+
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
