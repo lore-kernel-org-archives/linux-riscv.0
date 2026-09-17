@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E69C88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 16:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C84C982D7
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 16:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KQjAuU/MBa8pkYmryEvSDcwN0Vdi94rl/OxuGz0gkU4=; b=v9VmXUa0pXxuNh
-	vIqtd9Wh5+VcMVaXdQnQ24lAYvqcSEX4Ri/JNqvNgGKp4w7Z5LtZ/dnfj7IcBid3ISnmbS4VC1YqF
-	UxEYbMk6MRdSZlQohjNEKwXq7jcgGotu10J3LmMurWRZPmtA8/lPgQNJzbMW4vzgHxtGuHGdZ4bCK
-	mpRwt7sQ6qz2QGmdWfhtZIHRgRW0jYvKvrs09rcvFa72VPEaZjMVvn/ZJlvRFqngIIBtjk25p9pyJ
-	d7cB7tuM6NxX6lCervvRjrs2uECXkqYAD4ISTzbW7BMi53DKE88ZCRtZhPQFJDHCtU/Blh69QUHYH
-	l6hxdpAEJXke13gnnmPw==;
+	List-Owner; bh=+xGO/6nkPf6a1CoEgomSNoqYmDwDCfgOq7UuQwcGvfk=; b=48BSJj2tr0u5n6
+	2XIBnTsQVtl8FRo/SeY9KK3kHFbMKfMX0bg4WRs40B8iao36+NGA4Vp1wDCuBFCUGXM0teQ0Fmxsw
+	0a5Pz3woeQQWvTnL+P+ynBjP2zQXcKME82IAheh7845I4hOSO+HqHsFe4wuFETRH1lLr/ZG0zpPTZ
+	cpb9BYCjklxQV1A2Hgr6zKKFJE+PDLO7K66QlLxUgFflPwU48nwM8cXJNZoxxq5hZm8O5G7TJ0Oqt
+	x3UY/otwLflny69ULWikPquklfsf3wTOrFwM4ij7y4O9mGRv3aZ+/HFxb5Ea/6xCUJJwGoryY7nR5
+	TEq1UGT77lna0AKY+TIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EZf-0000000Bnxg-43Pz;
-	Thu, 17 Sep 2026 16:02:59 +0000
+	id 1x7Ecg-0000000BoNW-37ZS;
+	Thu, 17 Sep 2026 16:06:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EZd-0000000Bnwb-3QW7;
-	Thu, 17 Sep 2026 16:02:59 +0000
+	id 1x7Ecb-0000000BoM1-40CW;
+	Thu, 17 Sep 2026 16:06:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 676491476;
-	Thu, 17 Sep 2026 09:02:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 723D01476;
+	Thu, 17 Sep 2026 09:05:57 -0700 (PDT)
 Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0676E3F7B4;
-	Thu, 17 Sep 2026 09:02:50 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0930A3F86F;
+	Thu, 17 Sep 2026 09:05:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1789660976; bh=oTSpkmkdrCN17NbG/BBwkxPXVynnbNeoywXS03zePeY=;
+	t=1789661161; bh=9mcxnDc8qxIpxmpk6T3Tp+BnQwg+ATLN/zS0rC02bj4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S2fxmt5n7wqW8D4QzBKWm8vc57hZzAXsLdw9Jtmn7fDwYuUkUjAjjz0iYC6XiR0tu
-	 9uTMew8t9VAK7rJOxWX62e/iXJau/fZJ5mkD/AXyBAM4cL0DOiEE+aa31dFygWVPu6
-	 NIHL5WfGiIh7klKkEub7eNcTGfyNDO5DXPYwmJRI=
-Date: Thu, 17 Sep 2026 17:02:48 +0100
+	b=iSTmFOj/SjkZUclQCqE4zTW0vk94VTD2VbErQFckNg1Hf9DqR+Wb+AcjT1kbXrZTY
+	 9NCVL8hRLjredBc9QRerBZnnZDifRLrHjsitRjiaswGzll4lpHF3AB6KbXTdEHKJsU
+	 MLwoOZ4/t3+aNJhsyRfmX7PHIpukuOpzzytXFkiM=
+Date: Thu, 17 Sep 2026 17:05:53 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
@@ -76,17 +76,17 @@ Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
 	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	x86@kernel.org
-Subject: Re: [PATCH v4 3/5] dma: swiotlb: Centralize memory-encryption pool
- sizing
-Message-ID: <aqwPKO80ZEn0cqa7@arm.com>
+Subject: Re: [PATCH v4 4/5] dma: swiotlb: Add an overridable architecture
+ pool opt-out
+Message-ID: <aqwP4ZKugUpFezV7@arm.com>
 References: <20260914070135.313337-1-aneesh.kumar@kernel.org>
- <20260914070135.313337-4-aneesh.kumar@kernel.org>
+ <20260914070135.313337-5-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260914070135.313337-4-aneesh.kumar@kernel.org>
+In-Reply-To: <20260914070135.313337-5-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_090257_931819_14EB26CB 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20260917_090602_036011_65CDFBF4 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +103,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2026 at 12:31:32PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> +/**
-> + * swiotlb_adjusted_size() - get the prospective adjusted SWIOTLB size
-> + *
-> + * Return the size that confidential-computing guest sizing would select for
-> + * the default pool, without changing the configured SWIOTLB size. An
-> + * explicit swiotlb= size is always preserved. An explicit area count is
-> + * included in the size calculation. Automatic area sizing is initialized
-> + * later from the running kernel's possible CPU map and any resulting size
-> + * adjustment is therefore not reflected in the returned size.
-> + */
-> +unsigned long __init swiotlb_adjusted_size(void)
-> +{
-> +	unsigned long nslabs, size = swiotlb_size_or_default();
-> +
-> +	if (swiotlb_default_size_changed() ||
-> +	    !cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
-> +		return size;
-> +	/*
-> +	 * For SEV and TDX and CCA, all DMA has to occur via
-> +	 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
-> +	 * happen without changing device drivers. However, depending on
-> +	 * the workload being run, the default 64MB of SWIOTLB may not be
-> +	 * enough and SWIOTLB may run out of buffers for DMA, resulting in
-> +	 * I/O errors and/or performance degradation especially with high
-> +	 * I/O workloads.
-> +	 *
-> +	 * Adjust the default size of SWIOTLB using a percentage of guest
-> +	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
-> +	 * memory is allocated from low memory, ensure that the adjusted
-> +	 * size is within the limits of low available memory.
+On Mon, Sep 14, 2026 at 12:31:33PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index be3962a33fc6..ef7a776ee508 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -20,6 +20,8 @@ struct scatterlist;
+>  #define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
+>  /* Initialize a default-sized pool that requires architecture remapping. */
+>  #define SWIOTLB_INIT_REMAP		(1 << 3)
+> +/* Do not initialize a pool unless SWIOTLB is explicitly required. */
+> +#define SWIOTLB_INIT_FORCE_DISABLE	(1 << 4)
 
-Nit: if SWIOTLB_ANY is passed, do we still allocate only from low
-memory? I think this comment made sense on x86 but it's not valid for
-s390, pseries with the changes so far.
-
-Otherwise:
+Nit: maybe better as SWIOTLB_INIT_DEFAULT_OFF. "Force" sounds too
+drastic and it can be overridden on the command line to re-enable.
 
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
