@@ -4,190 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2F1C88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 15:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0424EC88E72
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 15:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=VrGhToATDUlDqOnItyZZxyZg37EKGxnn8b3W+a5+K6U=; b=3ottkcUV1bjapKE3TeZgoObaJ8
-	f2ioxEKGHpqnx5qTxQvq8UVFQAhXH677OLow6CwUXDAuUhoSJABvguTsKa6rr3AQn3l1h7FNkOAs1
-	0Zw+JucOiVzO1gYAWm0YKWcyjlcPpyHPs5PP0C8zpsWHVY6li243X8gXpRGvAjH0iTV6X3BeuCBQI
-	5bVRLwiHulur+dIqY+wRz7nn5/jZ3P4ZTFY4RQLpgUOO7Hk6I355SKNg2mNXhr68nRX2MCybqDKCt
-	Jfiq1hNj5pH/5PjrknyAsZWON3hZEQZQVqbJ4O7SAH27xh/oy9HcJE8ZbwodKKwkQxH4PvnXRNqPB
-	mmFVCeyQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JRK08Qh/DNckKCJvjZYztOLrm00u5TJUcSYC0xRNcLc=; b=zl0ykCQInNvlA0
+	cYNI6IlEpNETrPqLPeDWbD4Yg4MP46/NXJv8uobk4O/aPko0fvC8jc7JHTywHFljT3PttQ6vkzHXs
+	mlqTFTLzyXlfjye1WiBOcmFTweuviMj9gDpeiYUuXnaEuGQpCpNNno7jC2/IsoE2VADF8aSvvfDEi
+	bv47eX3a88d47vluQyPIFxdSUZq3p52dWGh4xH3B5qwhGy6zDvx0TYSC+ujSUqpqKoaF24n7hEGJ9
+	OvxB6dSzR2+8ZQmTdd9N483yh7Nd4OP/XCaYN8OzPNnJkup03IJTMi/liAVOTalkTGcXwVxDFZ8yZ
+	qZ6BWEb0Z1260nxtJyxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EBZ-0000000Bhsb-0PeG;
-	Thu, 17 Sep 2026 15:38:05 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7EBW-0000000Bhre-3Gzc
-	for linux-riscv@lists.infradead.org;
-	Thu, 17 Sep 2026 15:38:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1789659482; x=1821195482;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=M0L6NhlPed5B+lXS7qti+BrUl0GGOUCAHHUjcxmKa0s=;
-  b=OGmcArbFcCa5H+uwxBBWo00JzfPu7bokx7MBamKnLdP//gvfBRbrT863
-   bRtiwQiu9c7RWO6dm5yZPukkdjKqBfpz1+CCNgG7AoEySWw4JFzjcvIpz
-   rJAKgQDXyoYOvHU7JXUmxLVbBhpbhR80hsSzLaoel5CwG1GwNCvGnEzJ/
-   ElJW/gQK3pYRrUM6dZQjUieHsF5laAg1S8A5zsgykKxrfIYe0jTNS30Rg
-   EZ8cVJxh+l/JR52EgEqPHRVrLH1hpmF4PLDb0L+iQJ/iI9y7ilVgQwon2
-   JfstHjrgwFGJnDwtkhQGFo8OuxB9oiZxgANe1DBQ+ldnFEyfnYhtm/v1k
-   Q==;
-X-CSE-ConnectionGUID: 6yIeM+VyQO2lHzC/mURXAA==
-X-CSE-MsgGUID: 29sQfaPPRyWnaU0qdGWobw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11905"; a="90113743"
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="90113743"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 08:38:01 -0700
-X-CSE-ConnectionGUID: l3PpzXNeRD+nsAgrcug3HQ==
-X-CSE-MsgGUID: Pv1BuW1oS3qW3arx/golxg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,103,1787036400"; 
-   d="scan'208";a="2297943"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa013.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2026 08:37:59 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 17 Sep 2026 08:37:59 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46 via Frontend Transport; Thu, 17 Sep 2026 08:37:59 -0700
-Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.69) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 17 Sep 2026 08:37:57 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uNrgofp0dPq3JCFkL++tiOZIQ6BgyMHR6tqUteNbYyUmH0ymlJ2U9F5rSdIKDZ2UR1Vxz/CSNCHAp5odOXkk67xwUoJ+Q9kpix6zOUPTkZKbyiqZhIy0vpK1NG5tTva/hetW5PFZ47ZjfBv4z85HQ7pHdZJqyKh0iGWxg8b/eOScM3l8hWHxuoRdpZZlRWBYBc6lEW8fMwrhyH71u4+nxWosZUtp9sZpLttf+iCLJHL3BX51aoNh6/DBtZw/H3T96gNWN9vFzLd7227j5v+WCfRiH4V2l97eRAV723H1SwY8CYvZhf6yOvkR/A01b+JMqBsiuUqjsEbZ0E+KvOGn8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WIIQlPteX91Ad72+iib8dalFF0aBot5esUNfxDf9qs8=;
- b=IfbXUP3wzLm4Z24/UxrGqZgfGlMQSp9fdgPfSIqCQWocKRQ50vy/trRdb1BL0QqEfwNoqUM5eE1c1La3rTT/Tyyo3xW/HDvsTkXG8EPmgMKVvSXK5NK4GmxOIImKzEHy8F27JN204i/NiXHPhfYWtsYM/H8VaQzbopPKQiJdCsntGvIC11tFozLGsfocnQVYIWXmmrWySAroqL0GNbLd7cRaJCx+vTWy5AML3U0zHTpxhD/fUQcTLfVc4Cls6msXz7wud72fCXHqcoiTf6mettiNOxRUonnxJ54KutMvsVaR9/TnjxkYh0N6YIQyyabYsDxYkAbgEc7XExmvAJGqLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by SJ2PR11MB7502.namprd11.prod.outlook.com (2603:10b6:a03:4d3::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.12; Thu, 17 Sep
- 2026 15:37:47 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0428.011; Thu, 17 Sep 2026
- 15:37:47 +0000
-Message-ID: <8230dae2-2cb0-4b46-8cec-dc4e281d4e4a@intel.com>
-Date: Thu, 17 Sep 2026 08:37:43 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/5] riscv_cbqri: resctrl: Add cache allocation via
- capacity block mask
-To: Drew Fustini <fustini@kernel.org>, Adrien Ricciardi
-	<aricciardi@baylibre.com>, Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra
-	<atishp@rivosinc.com>, Atish Patra <atish.patra@linux.dev>, Babu Moger
-	<babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>, Borislav Petkov
-	<bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>, Conor Dooley
-	<conor.dooley@microchip.com>, Conor Dooley <conor+dt@kernel.org>, Dave Hansen
-	<dave.hansen@linux.intel.com>, Dave Martin <Dave.Martin@arm.com>, Fenghua Yu
-	<fenghuay@nvidia.com>, Gong Shuai <gong.shuai@sanechips.com.cn>, Gong Shuai
-	<gsh517@gmail.com>, <guo.wenjia23@zte.com.cn>, James Morse
-	<james.morse@arm.com>, =?UTF-8?Q?Kornel_Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, <liu.qingtao2@zte.com.cn>, "Liu
- Zhiwei" <zhiwei_liu@linux.alibaba.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>, Peter Newman <peternewman@google.com>,
-	=?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, Rob Herring
-	<robh@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, "Sebastian
- Andrzej Siewior" <bigeasy@linutronix.de>, Tony Luck <tony.luck@intel.com>,
-	Vasudevan Srinivasan <vasu@rivosinc.com>, Ved Shanbhogue <ved@rivosinc.com>,
-	Weiwei Li <liwei1518@gmail.com>, yunhui cui <cuiyunhui@bytedance.com>,
-	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<x86@kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-rt-devel@lists.linux.dev>, <linux-doc@vger.kernel.org>
-References: <20260901-dfustini-atl-sc-cbqri-dt-v7-0-ca2935d85622@kernel.org>
- <20260901-dfustini-atl-sc-cbqri-dt-v7-2-ca2935d85622@kernel.org>
-From: Reinette Chatre <reinette.chatre@intel.com>
-Content-Language: en-US
-In-Reply-To: <20260901-dfustini-atl-sc-cbqri-dt-v7-2-ca2935d85622@kernel.org>
-X-ClientProxiedBy: MW4PR03CA0115.namprd03.prod.outlook.com
- (2603:10b6:303:b7::30) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	id 1x7EKl-0000000BkFE-3gIe;
+	Thu, 17 Sep 2026 15:47:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7EKj-0000000BkEY-0E94;
+	Thu, 17 Sep 2026 15:47:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA9981476;
+	Thu, 17 Sep 2026 08:47:25 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 91A183F7B4;
+	Thu, 17 Sep 2026 08:47:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789660049; bh=G4HWLVNXzhSCswJXl+GAJjZ5dE9EPV7jBwWTmIkK6T0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jujJeTkRY9cy1NiL8rY70s3FzxqxUPmYtddnwYMekhhHo/JoTCrFo6hMKOk9rLuOm
+	 twsIKR3Ht2HCoURivfSghdsivEyGC4q6zt9yB8X/Lo5a+tO7z6Y8Zh38KNsuDkXoA+
+	 03JZSCS3IMQ44FpHgVwMp+OhHuQl0PQKLatASQKE=
+Date: Thu, 17 Sep 2026 16:47:20 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v4 2/5] dma: swiotlb: Centralize minimal pool sizing
+Message-ID: <aqwLiHQb71hU8cEy@arm.com>
+References: <20260914070135.313337-1-aneesh.kumar@kernel.org>
+ <20260914070135.313337-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|SJ2PR11MB7502:EE_
-X-MS-Office365-Filtering-Correlation-Id: 434bbff8-eec6-4737-7064-08df14d19fd5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|366016|376014|1800799024|921020|4143699003|56012099006|10067099003|11063799006|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: n9hBf8W+S0IIJ3eDJVJ4h0Uh31aBGV0cFuw0UbKmhyNCRDfR5SqpNA3nafcWu+bIxJmNInWzsYdlRAawwOXssL6Y+NO5kXBNwa5Cydyme31MdSb33a8LYs+X+aicGbc177wv9lwf76oTAAikcr30AUMHzv/OYtKV6oCKpXWV08ACOPNf6MEdODP5ecfv1CKrDtfKKB3tl6q1L75lMoKhFkOHwovb2QyqPK4Abi44QbKBoxv9xAeI0dKZzl/88KvPClWRPJL0rspHGgWWzUTyJhitYFisLy6ANV1bEmai4vFvwzC9kIU2YsPVEZNS4WEmN5dkP+syuJ7pAE7CbZ2MfMOcMLGvg3G6tQKKNESvP/tNsMMVm/IWR4q432Y+ivm9Im15+qIK1G9QYim3Vtv/utQmVyo/7ysJB+DV7bJavOy4ftpMqR7ii1zvthPkhoe/ioyM8gsTjCjLPYV2Sz3oT0OMnPHY0YXkJspuvHtiU0vKrzWrf97NbxiPTI0qonAUg/2hIJX/XvpgsvqDePr8ikPDqjO60CT917r/VfwehFegCxMS20QYwwapnULJE/dj+wQPbdJBGUUG8hVIICDISn6Fkpceqscqok+1o2XYzU6XwbRooSy2gex/nRvn43fdCWeeKl/pB11eBt1CNujyWYQ+iBXMLhtL/gayl6M1vKxdCdvjI8IKhMZS2E7/PZL3GlRZa7iV4gqaINdTxNyJ6g==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(366016)(376014)(1800799024)(921020)(4143699003)(56012099006)(10067099003)(11063799006)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q1pQdDNGZWcyMWZlMElYdVZmRkhkTGNodkVCVlRacUZZMkR4QzFIdGU4R2lG?=
- =?utf-8?B?dndkTWN1aVZ0dFp2NmJGOUk2SmpEd0dxenk1MXhxbGM2dWMxSVAyWkhabmRB?=
- =?utf-8?B?OGF3SFU5OGZKZzlrNHlOMXRhRnBvTk5obDVrYTBqWDFFUTNYeU1PQ2FPZkNs?=
- =?utf-8?B?c25pZFl6a2Z5Ri9YdXkwQmN1Z3cwWTdYZnJwdTgvSnkxU0ZncWdsa1BkOGpU?=
- =?utf-8?B?cWFzZCtyNncxYzA2OGNpdFpwSGwySm1EVlFEc1haazZJeFB3UDZxUXRiSk5V?=
- =?utf-8?B?RG1wODFlbVFNSUxML3piM0VBbGF3QnkzbVNiVlFINTZuM2NYTHdvOEZPVnZX?=
- =?utf-8?B?VnRORUdCQXpmQTF6Z2pFNzhleitWY3NZeEUyZDhiNGxOOGtuVGx1ZjZ2UXpo?=
- =?utf-8?B?elo0L2RhODQzUkxOd0NMTkl4b2FyZHNxQlVKQjZZMnZaam5tSzQ3WWRBVHhq?=
- =?utf-8?B?MHdhSmRlL3NXTkp4V2wrNkxkbVNsK1hsR05sMVlqM1d1c0JtL1p4MTVYbGZi?=
- =?utf-8?B?MWsvdUUvam5DY1VCUVdnRndNaGMwNnlHdDZINCtQOE1Ca2ZmaCtUQ0hjb0Uy?=
- =?utf-8?B?VTFseFNTd0RTNzY0c0hsMUhvOUJLdWJOMXoxZmtXQmdMakxDMFpHOUN4aUw4?=
- =?utf-8?B?ekVWT1JYRncxNWdVVks2V21NZkhmSmt1MHZUVy9idjVlUitQV3ppTGo4bXNx?=
- =?utf-8?B?QXNtUDVlR3ZTd1dDVGh1VjJSbDVlWjVuZ1JDSHRjVE5IRDg4T2RjdTZFaGoz?=
- =?utf-8?B?NzFCUnRzZVVDNXdoeDNuSFQxdjlGWjBVcGFHbHMzdzdDWHA5TXp1REtHZTF2?=
- =?utf-8?B?bVB5SUltNk03YVQ4S1YvTWNRZXJxUEVGRUJaeGd6Sm1PQUtFMXUxVThQQjFK?=
- =?utf-8?B?RXh1TGtpa05uVEsvNGMxS3cyTjU3ZnlGRXZMY2NTTll1UHFqNmtrbm5Ic0hB?=
- =?utf-8?B?TUJoZVN5TjJwRFlqcmRYZm9qQ01WU290WTFQUGxReGVaWWtnb3VvbFp3T0hy?=
- =?utf-8?B?cmt6NHNiYks1VkovdVQ1MGIxWFA4ekhuNmxUamJhZkZySFZNcDQ0Q3Z0eFl3?=
- =?utf-8?B?K0R3VEZId3FPNjFUSW83S0pON3hqT0tOVi9RcXVXMVA5a2pwSWxFUE0rS3J4?=
- =?utf-8?B?V1paVEFsMW11Y0lFSTd3Y1RFWHlLVHovS2lHSTlIa2RjK2dEcVkvcWhWbXlD?=
- =?utf-8?B?dVFiVjVWZ3lZNWUxUWdPRnliRzdMUGoraTJ6WC9CTnMwWHpHS2tXU21BYnVM?=
- =?utf-8?B?RkVEdjVEbkpZMGhNcXFTdGpWd0hKMmx5WEk1cXBrSkhwMEJiNjR1bXYzREdi?=
- =?utf-8?B?NXZlV3Z5dWNlRzZBWmpOaTU3YTZhQngralJNRGI3MG52dTRmVDZENmFJY2dj?=
- =?utf-8?B?RkFhYTRCaUU5MW1MQUpYYjV0WmtuandjcXdsSm41VHdPMmxid2c4aUxuV3VC?=
- =?utf-8?B?UDZJcVNUbUJYUVQ5SkFtSmMza0UwM2NZU1hwNnV4NER3QjFmc1RRQ25rUHBB?=
- =?utf-8?B?VGRRWld5NEtjOWtBaXNjOWl3d3lVNUt3SzVDTDVoTFlyWjNHUTJzYVdyaWo5?=
- =?utf-8?B?RGFJZ0VweUNHVkpXZGNFZElXY2pQMVAvZVpPWUFRY3pvNXAyN1U0MHhuUWRk?=
- =?utf-8?B?cWtKd2R3RHZPd0NMQU01TG9QQlMrTkN4dEhhMGJja3poVHJOa0pFSlZhVFVu?=
- =?utf-8?B?c3BJNnpRb2N4WFJQQmRvVmIvQ3JwNU9MVUd4aGFJZ2x0cUx3RXlLOGFtVzg2?=
- =?utf-8?B?RDZHVy9kT3FUbWlVci95VmNmakVJaTU0ZUgwY2hKak9tbmFtTmwrM1U2TXJX?=
- =?utf-8?B?UFBubngyTk8wTkhNd1ViZ2pHZXA4K3FjSCtsK2R2MkFhVFJMVjRzTmJ2eHBr?=
- =?utf-8?B?OVpPVDlDckpvdzdjQWpVTUdmaFBvb0RrVERXZmdYN2M4SVpUaDNXSGt3ZlhR?=
- =?utf-8?B?QURUY0FZcTVURzJQa3FNOW5OMnhlNnFlWGNJNi9wOTR6dm93WnQ5UXROK0xZ?=
- =?utf-8?B?Z1lNeEdvWVQxVUFXQzdWQVA1VlFlU1VPYmt3L2dQN21GTUpsMzdRcFBYMGxL?=
- =?utf-8?B?NFNTSEVna1FDd2N3QmtqWXc4b3J2WFVSSWpDWlJLS1hLait6dEdtVUVvU21w?=
- =?utf-8?B?cURHRWRPWnVlWjUxYTBkZDBMVitIM2pNVGVVUGFNNWJTTm5xOUp5d3JwNDRw?=
- =?utf-8?B?SkRqTXl0aElwK256SVdGSUlnMU4ycTZXa1l4QVg0OFhFcUc4dytUUXN3VGlF?=
- =?utf-8?B?YnhWY08vQVUwb0VKcWViRlVoRmlSdDd2ZEIwNlltaW5iZGZlZlJET0hLMHpK?=
- =?utf-8?B?MFhKcTFaTzEyU3FNNi91QWVzZ2tJSXJTN0kwcFg2M29wM3c2b3FDcVZYWThD?=
- =?utf-8?Q?jNz4BmtfdFIHtqkI=3D?=
-X-Exchange-RoutingPolicyChecked: T0OhKUaalr3dSNvtJVNpks8cabGENJyAZ3NzMgfBCM7mhe+QGrovkE3zBrpeeg/WrSRDgv9gLBpZkcc2wq0DCZTLoU5mGWhtc5ZgCLhSxqPQC5lcncp2jv+AnciBsTVcq3HR9lZ16ZINpgffd7PeUFTDOFd0q5z8VWsuekrFnxLjc/iBWW4ZB4V3l/MWwpZy/NsVSLELeR725qQDzCLYXmqxDn58Hl6ZbjEnvQsGfcfa4Dy8Punf1hgIjkWzRGKrLWF3hK0elNQj+i+oL4lOgI2hghu31OCZEz9H1eymQePCtAj7u5RcBmF4L2xGQRY8LL7ejTDgKUiZfjHStsQ9NA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 434bbff8-eec6-4737-7064-08df14d19fd5
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2026 15:37:47.5117
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ADLnF5ki2JC4EpCdR+3gPZC8Pg04nBXYWfRrXqePVAH1+yQ1zUjmhfPSBUpmms7q9CEY88LNsZYEW1OqF6P7j1FMVouTt/lvttutgK1ax6o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR11MB7502
-X-OriginatorOrg: intel.com
+Content-Disposition: inline
+In-Reply-To: <20260914070135.313337-3-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_083802_890288_E650212A 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20260917_084733_180701_713C1B05 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -204,46 +102,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Drew,
+On Mon, Sep 14, 2026 at 12:31:31PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> NOTE: We lose the RISC-V SWIOTLB_ANY setting in this patch. It will be
+> reinstated in a follow-up patch where we make SWIOTLB_ANY redundant.
 
-On 9/1/26 3:31 PM, Drew Fustini wrote:
-> resctrl exposes a single cap set per rid, so when more than one capacity
-> controller backs a cache level they must agree on those caps. A level
-> whose controllers disagree is left unexposed. Other levels are
-> unaffected.
-If I understand correctly, while attempting to translate to resctrl terms,
-this means that a cache resource with several domains may support different
-capacity masks in the domains?
+[...]
 
-I believe the "single cap set per rid" you refer to is
-/sys/fs/resctrl/info/L3/cbm_mask and /sys/fs/resctrl/info/L2/cbm_mask that
-exposes a single capacity bitmask representing the maximum allocation.
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index e0e4c103d603..734712230f35 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -165,31 +165,11 @@ static void print_vm_layout(void) { }
+>  
+>  void __init arch_mm_preinit(void)
+>  {
+> -	bool swiotlb = max_pfn > PFN_DOWN(dma32_phys_limit) &&
+> -		       memblock_start_of_DRAM() < dma32_phys_limit;
+>  	unsigned int swiotlb_flags = SWIOTLB_VERBOSE;
+>  #ifdef CONFIG_FLATMEM
+>  	BUG_ON(!mem_map);
+>  #endif /* CONFIG_FLATMEM */
+>  
+> -	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb &&
+> -	    dma_cache_alignment != 1) {
+> -		/*
+> -		 * No 32-bit DMA bouncing needed (either all DRAM is within
+> -		 * the 32-bit limit, or it all starts above it), but
+> -		 * kmalloc() buffers whose sizes are not cache-line-aligned
+> -		 * still require bouncing for non-coherent DMA.  Use
+> -		 * SWIOTLB_ANY so that the buffer can be allocated from high
+> -		 * memory when DRAM starts above dma32_phys_limit.  Allocate
+> -		 * ~1 MB per 1 GB of RAM.
+> -		 */
+> -		unsigned long size =
+> -			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
+> -		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
+> -		swiotlb = true;
+> -		swiotlb_flags |= SWIOTLB_ANY;
+> -	}
 
-As you know, resctrl is in the process of changing the way in which schema
-formats are described. The most recent PoC [1] added new bitmap description
-files but it kept a single value "max" file to describe the highest allocation
-possible for a bitmap schema.
+Does it break the bisectability for risc-v? IIUC this undoes commit
+cfca5a48b03f until patch 5. Basically if there's no low memory and no
+SWIOTLB_ANY passed, memblock_alloc_low() will fail.
 
-To support asymmetrical cache instances it looks like changing the interface
-to describe the maximum per domain (instead of one global value) could address
-the gap?
+I think we could preserve SWIOTLB_ANY until patch 5. Or it might be
+simpler to move patches 2 and 3 at the end (I haven't tried).
 
-For example, if there is a hypothetical system with two L2 cache instances, one
-with a 0xFF max CBM and the other with a 0XF max CBM then resctrl could expose it
-as:
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index aa19e81ae544..90e0bfd0715c 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -304,6 +304,11 @@ unsigned long swiotlb_size_or_default(void)
+>  	return default_nslabs << IO_TLB_SHIFT;
+>  }
+>  
+> +static bool __init swiotlb_default_size_changed(void)
+> +{
+> +	return default_nslabs != IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT;
+> +}
 
-	# cat /sys/fs/resctrl/info/L2/schemata/L2/max
-	0=ff;1=f
+I mentioned before in passing
+(https://lore.kernel.org/all/ann6noRzoPLL9kDY@arm.com/), if one sets
+swiotlb= to the default size, it will go unnoticed. I know it's an
+existing issue but we might as well fix it now with a bool that tells us
+the swiotlb size was forced/changed.
 
-The schemata file currently and will continue to display the allocations per domain.
-
-resctrl will need more changes to support different CBM per domain internally and
-until then all these CBMs will be the same, but adding this change to user interface now
-may set resctrl up to support these systems in the future?
-
-Reinette
-
-[1] https://lore.kernel.org/lkml/d258a32f-12d5-464d-abe9-4720fb3e44b3@intel.com/
+-- 
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
