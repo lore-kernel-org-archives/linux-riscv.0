@@ -4,115 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C977FC982D2
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 17:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA99C982D2
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 17:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TCN04V7AfCChGaHmjgx0JpUQ3Qku4Fhas5Ym+C8BF6Q=; b=MfJDtQEIoDXucl
-	Isx7hNH4CwD5iY1myaopcP/gzb7rCLi0cwrPmiTExpzqLHaFxGUsCzaXnvWiDL/a51cyYC4eiTm6L
-	xKxmY3+iY05/nnyAl1C+y+M1Brvn+UyecBTu1+31rDsI/5ZO0UnEH5nk0B5Ph1cF3sLezMPgPttCh
-	oz14shRwRb8rEkyHFsiUYfaXAPsMD/A09YSdYCebj0q6w9THBPQvGv3558Twfiho/XaoejGFSpWkd
-	iQkUs0/emSjHm2/iocnU4ZVb8y5R9VhjP9amD5oos2Ef+W1wmKsI7kdRWwJxGyn0alvwlUXt80HlH
-	OmzfSw8g6+pzhhv4qqpg==;
+	List-Owner; bh=QI0uFIzZPkgtJt53V6hgdOUujBw6BeExba6fsnvwGMI=; b=ywudpnAVlT6oAv
+	X8Vm7Qm/aLuo9jpUy9aDCS0O9WK1QYQPJ79jOPSxl88Ky/sellQDZJjE9IPUUrg1HVNumWuLw3O1O
+	arQsB58HtLB59UgTLJrEVlh0bmqLFs4UmycrAlJYaPTUFCZi1piOLKKFuLYN2aOOHZHQviGNtvT9i
+	jWPpccWLz0JTEnWJR0jTsJguRJ2dvXzYo6P9Dyj3SZnBv3oGf6lB15M9rk/qa/+8GTLYlngN09eak
+	wTnQT+Io7R0Lw4UArH+s462TKwV6aYrOYMtHLRUNNauJyDE9Zh7IinN7dqa/wmt5LlcaFCzFaiK5H
+	Xexcd2WH2Fj2RDC31Yuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7FiA-0000000C44x-2WKO;
-	Thu, 17 Sep 2026 17:15:50 +0000
-Received: from mail-ed2-x0f.google.com ([2a00:1450:4864:33::f])
+	id 1x7FoQ-0000000C4kp-3SUZ;
+	Thu, 17 Sep 2026 17:22:18 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Fi8-0000000C43a-09fw
-	for linux-riscv@lists.infradead.org;
-	Thu, 17 Sep 2026 17:15:49 +0000
-Received: by mail-ed2-x0f.google.com with SMTP id 4fb4d7f45d1cf-6a6056c2064so1574195a12.2
-        for <linux-riscv@lists.infradead.org>; Thu, 17 Sep 2026 10:15:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1789665346; x=1790270146; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iCKe0geuwZYO+S2TeH6s+a22CWM7gde8UuWVtmH3l0g=;
-        b=BtgA5S5VVdmBW+9JX70/LoGXt/vfQitgGmjvJUct1xuAY0iBrLD5nxgCQtaLw5mT99
-         b6LquY1tzoLJy4c5s5jhXaZVohVWgQIZnEdpOXx73qUOKBqAGn/+btP8l025P/4LCFOk
-         ctbcV1e9RuhEkhUelhqQaYaxd7/m7eexhZqFM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789665346; x=1790270146;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=iCKe0geuwZYO+S2TeH6s+a22CWM7gde8UuWVtmH3l0g=;
-        b=idpVxgHl+S9fWHkzmSi5BmrUwPZVMskS4N9Jpwkc+hg9iW+SfaRbE7pxH59PyjXBv1
-         xCKy/L9klb81ayl26UGVYVJQvIluQFeSAzERNdycZ4NWBH4U3UUgpBHkGAHS5Bnrbm+Y
-         CYkMSClkQ5cu4h67cy/U2A19nFU8GsoweDtzfPx6Aa93K4359CrKzKdDb0lgTuO16OFd
-         Q5gaWhImAuIol8U5XaNvxF7CO+XfUCuRo2XtxebY1P5e0+VGwh6l5mYYvIT8ocRYUtFH
-         fcj7BtwNBsb00DbFKGS3RL0z6F4/X8pqlkPt2JnVI960ZOCIfQ1s12HBwwS3clRTrKgl
-         q1Tw==
-X-Forwarded-Encrypted: i=1; AKwUvBwM6xSZw/6L7gBDmiTj0N0KEhzhorNV8ERJUSs0NeXxxKlVL+mjooEI+j8Zw5IMFqQ1XwUsJsEmQg8U3A==@lists.infradead.org
-X-Gm-Message-State: AFuF++m7SQV1EmrsTheOa42ZhTsCcPXGG1L3q0VHbK+OVSUyKXRfpKd6
-	Kj+oaQKccIImOsk9JfCSvKinKyhCb4QkVhIqmeX9X6Pmr2pbc6MoUj3eKXM2uxYbtyPRyLAL9ck
-	sJJ510D8=
-X-Gm-Gg: AYBFou0+GXmgWt8xLIYKihSfx/rapIrgNb6HbbwZLoDVeSZQrdzrLBlMK0pIgQxL6Cj
-	HjnRgW7Ut1VW/w7DBbL7ucJHC1oitREUQm6KpJki43I3A/DVMfAMbwe7VAstgJi1K9Unm/wmd2K
-	OEGZ0ZOroj56odnFQYD1QKAXtwbcJbul13tWcEUX8AXmwMdxagGPuaJQRv6by1Xh8zv7NfzURzB
-	7RhYPEk+h7rtwykqkag6kQuvWEj6d6HGrSa0eTUqoj92RK6y8HLp7L+bIL7IiJtWeZCrrg9Wo67
-	qjtggcrQ4IQ4ToEflutdis7awNL9M/MEof0R4OWZjRIkrguEWVWdhMTWiZfkRmFZsicAb1ZK6i6
-	IFMu0MF4jyaqoVRMiXjGmISkBBKyTKPhVnvB1cpeQmh6AYqals5pDNrzTVFsA5YIASOKlxKv1wV
-	asFnIJs/rVOzEHmXymP/gwaPftKro6q75z64ipbZjxwCy1jTCSP/8jCAhvKvVQAxQuaJaaKcTLg
-	k+w9Jqdhw9L2VQa0Yef8+Vq1Wwnzj9uWI05C0F5lbgLjVbSGg==
-X-Received: by 2002:a05:6402:3242:b0:6a6:4004:4ae6 with SMTP id 4fb4d7f45d1cf-6aa22236b94mr4581698a12.5.1789665345681;
-        Thu, 17 Sep 2026 10:15:45 -0700 (PDT)
-Received: from mail-ej2-f12.google.com (mail-ej2-f12.google.com. [74.125.228.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6aa1d257a35sm3933267a12.15.2026.09.17.10.15.44
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Sep 2026 10:15:44 -0700 (PDT)
-Received: by mail-ej2-f12.google.com with SMTP id a640c23a62f3a-c254fa650c8so188504766b.0
-        for <linux-riscv@lists.infradead.org>; Thu, 17 Sep 2026 10:15:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxNNGrGybNndgUp62PGffMDO1zCVlrn/j3ndJWKXLA4t2K0cwwMvjMuyO6clcOzo+/Y7bWAwWg2RWi1rQ==@lists.infradead.org
-X-Received: by 2002:a17:907:c1f:b0:c12:e178:9e68 with SMTP id
- a640c23a62f3a-c29e5237e9amr501417166b.19.1789665344119; Thu, 17 Sep 2026
- 10:15:44 -0700 (PDT)
+	id 1x7FoM-0000000C4jQ-321R;
+	Thu, 17 Sep 2026 17:22:17 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260917172208euoutp0150132b34809348820d8ba580cbf71ba6~WK399rJ9Y0164201642euoutp01M;
+	Thu, 17 Sep 2026 17:22:08 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260917172208euoutp0150132b34809348820d8ba580cbf71ba6~WK399rJ9Y0164201642euoutp01M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1789665728;
+	bh=0WtKtiSzYCp277IiLimE78OZqsRgc7cWGLsFATmTw1E=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=VOxLMdss8ZyVY8BfR85gXrDrglNJ8tt+tRyIRy34jspUqU6Tu6fH7k4IIRxxxXpHz
+	 tavqrMHAweRf1Js/R3ZW2sD9k5Czxee/0C9FYVHtvUe/S5KKtnbQdi/kswqFi00MoB
+	 ulGFKEi5ek5Q3N8AhJ1OxMwZsSONTxYMV+bMrihk=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260917172208eucas1p2a1f43f12fe05dd5a7cb640c4cec85744~WK39uT1rB0077700777eucas1p2z;
+	Thu, 17 Sep 2026 17:22:08 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260917172206eusmtip266a4da637fbe5ad68f6836811ac14898~WK38DTFaD3000830008eusmtip2I;
+	Thu, 17 Sep 2026 17:22:06 +0000 (GMT)
+Message-ID: <136d6789-2f0c-4a91-ab2d-de3a3f119d5d@samsung.com>
+Date: Thu, 17 Sep 2026 19:22:05 +0200
 MIME-Version: 1.0
-References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
-In-Reply-To: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 17 Sep 2026 10:15:26 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wjwtJQPW+MRAkQCcSGA1EZWehxBTUiEUUhdACCNHSKvTQ@mail.gmail.com>
-X-Gm-Features: AcwNN1VkAmOFPymjE_dcKSWc6Q8Z4LvlbW-9yRGSGQmATfVxYq3jdlUQ82g4gXM
-Message-ID: <CAHk-=wjwtJQPW+MRAkQCcSGA1EZWehxBTUiEUUhdACCNHSKvTQ@mail.gmail.com>
-Subject: Re: [PATCH v3 00/20] kbuild: significantly speed up kernel builds
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
-	Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
+ subsystem
+To: Joshua Peisach <jpeisach@ubuntu.com>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss
+	<rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
+	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
+	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, Jerome
+	Brunet <jbrunet+clk@baylibre.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	mfd@lists.linux.dev, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Marek Szyprowski
+	<m.szyprowski@samsung.com>, Maud Spierings <maud_spierings@murena.io>,
+	Graham Markall <hello@big-grey.co.uk>, Icenowy Zheng
+	<zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <DLGBPXP4F8E0.9X0QMZ9GFQVF@ubuntu.com>
+X-CMS-MailID: 20260917172208eucas1p2a1f43f12fe05dd5a7cb640c4cec85744
+X-Msg-Generator: CA
+X-RootMTR: 20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61
+X-EPHeader: CA
+X-CMS-RootMailID: 20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61
+References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com>
+	<20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+	<DLGBPXP4F8E0.9X0QMZ9GFQVF@ubuntu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_101548_192984_89BA6E04 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260917_102215_362316_7E0EC3D9 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,23 +107,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Sept 2026 at 09:06, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
->
->                 == defconfig FULL build ==
->
->                         before    after     delta
->                       ----------------------------------
-> Threadripper, gcc        32.5s    26.3s     -6.1s (-19%)
-> Threadripper, clang      34.5s    27.2s     -7.3s (-21%)
-> EPYC, gcc                28.7s    20.6s     -8.1s (-28%)
-> EPYC, clang              39.8s    32.2s     -7.6s (-19%)
-> M2, gcc                 519.3s   512.4s     -6.9s (-1%)
-> M2, clang               634.5s   569.4s    -65.1s (-10%)
 
-There's something odd going on with that M2 gcc build. Why is it such
-an odd duck?
 
-             Linus
+On 9/16/26 02:45, Joshua Peisach wrote:
+> On Tue Sep 15, 2026 at 11:32 AM EDT, Michal Wilczynski wrote:
+>>
+>> Testing
+>> =======
+>>
+>> Tested on a VisionFive 2 v1.3B using modetest.
+> 
+> I.. got nothing. I did have to manually modprobe the modules, but
+> unless I am doing something wrong.. I didn't get anything and modetest
+> just gave -2.
+
+Hmm have you also changed the DTB not just the kernel and the modules
+(you can also built in everything).
+
+Also note modetest needs -M verisilicon.
+
+If that is not it, could you send "dmesg | grep -iE
+'verisilicon|inno|hdmi|vout'" and "ls /sys/class/drm/"?
+
+> 
+>> ---
+>> Michal Wilczynski (20):
+>>       dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
+>>       dt-bindings: display: bridge: Add starfive,jh7110-inno-hdmi-controller
+>>       dt-bindings: mfd: Add starfive,jh7110-hdmi-subsystem
+>>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-syscon
+>>       dt-bindings: display: verisilicon: Add starfive,jh7110-dc8200
+>>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-subsystem
+>>       drm/bridge: inno-hdmi: Split probe out of bind
+>>       drm/bridge: inno-hdmi: Allow the register map to come from a parent
+>>       drm/bridge: inno-hdmi: Add .disable platform operation
+>>       drm/bridge: inno-hdmi: Add .mode_valid platform operation
+>>       drm/bridge: inno-hdmi: Make the PHY configuration table optional
+>>       soc: starfive: Add jh7110-hdmi-subsystem driver
+>>       soc: starfive: Add jh7110-vout-subsystem driver
+>>       clk: starfive: jh7110-vout: Allow pixel clock rate propagation
+>>       drm/bridge: starfive: Add JH7110 HDMI controller driver
+>>       phy: Add common Innosilicon HDMI PHY helpers
+>>       phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
+>>       phy: starfive: Add jh7110-inno-hdmi-phy driver
+>>       riscv: dts: starfive: jh7110: Update DT for display subsystem
+>>       MAINTAINERS: Add StarFive JH7110 display subsystem entry
+>>
+>>  .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++
+>>  .../bindings/display/verisilicon,dc.yaml           |   1 +
+>>  .../mfd/starfive,jh7110-hdmi-subsystem.yaml        |  95 ++++
+>>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
+>>  .../soc/starfive/starfive,jh7110-syscon.yaml       |   1 +
+>>  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 218 ++++++++
+>>  MAINTAINERS                                        |  13 +
+>>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 121 ++++-
+>>  arch/riscv/boot/dts/starfive/jh7110.dtsi           | 105 +++-
+>>  drivers/clk/starfive/clk-starfive-jh7110-vout.c    |   6 +-
+>>  drivers/gpu/drm/bridge/Kconfig                     |  11 +
+>>  drivers/gpu/drm/bridge/Makefile                    |   1 +
+>>  drivers/gpu/drm/bridge/inno-hdmi.c                 | 112 +++-
+>>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c          | 297 +++++++++++
+>>  drivers/phy/Kconfig                                |   8 +
+>>  drivers/phy/Makefile                               |   1 +
+>>  drivers/phy/phy-inno-hdmi.c                        | 298 +++++++++++
+>>  drivers/phy/rockchip/Kconfig                       |   1 +
+>>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 168 +-----
+>>  drivers/phy/starfive/Kconfig                       |  20 +
+>>  drivers/phy/starfive/Makefile                      |   1 +
+>>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 579 +++++++++++++++++++++
+>>  drivers/soc/Kconfig                                |   1 +
+>>  drivers/soc/Makefile                               |   1 +
+>>  drivers/soc/starfive/Kconfig                       |  43 ++
+>>  drivers/soc/starfive/Makefile                      |   3 +
+>>  drivers/soc/starfive/jh7110-hdmi-subsystem.c       |  73 +++
+>>  drivers/soc/starfive/jh7110-vout-subsystem.c       |  82 +++
+>>  include/drm/bridge/inno_hdmi.h                     |  10 +-
+>>  include/linux/phy/inno-hdmi-phy.h                  |  85 +++
+>>  30 files changed, 2337 insertions(+), 188 deletions(-)
+>> ---
+>> base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
+>> change-id: 20251031-jh7110-clean-send-7d2242118026
+>>
+>> Best regards,
+> 
+> By the way, something weird happenined while I applied the patches
+> using git am. Somehow, some were out of order. The 10th patch
+> adding .mode_valid tried to be applied before .disable even though
+> in the series, the order is correctly set? git would obviously
+> fail because the .disable entry did not exist in the header, so I had
+> to manually put those in.
+> 
+> I guess it's possible that something went wrong here? I personally
+> pulled the mailbox from the lore.kernel.org mbox.gz file.
+
+I would recommend using b4 shazam instead
+
+> 
+
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
