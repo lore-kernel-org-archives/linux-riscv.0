@@ -4,108 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29019C88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 15:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D066C88E72
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 15:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VhUlUCINDo0Wav2eUJ6sADecRps2vS2v/msTwYpywcU=; b=uLyZheEnePuUvE
-	BFQ2RQCiIAMhEQgf8CWIy2vBmk9yewxLtGtwVEipi2Ho1qnvRUYimCil2DFxqNcvCjPk86w3Tjh7h
-	HfP5/FJAreoDiEKsJ1QBGu3Seyv6ix2611OXwv6FJ6tzdCNzC+QqccjuVuY3Ky8zfSKQnMLmRvDzG
-	De5hcBMkj4u0MzDcMIJUj8wvGF4JV0NLk4RsAD8NOYzyYTzXrhENE2tDBqMFzfKED81z049qHH8bX
-	I+jxdhO0doAs9LP5J0bAiR+5zixC1JI46GJ2EQmSVsbNtFzYIKh7zZu+7N4zAEe+AvO1AiXQQJlvN
-	wmzAG4m/ziNy9Gr55cqQ==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
+	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aUuJHTibjCt/+aQxkWDTO5meTsGPNjo2gqzkheGdMcE=; b=QNpA5qKn6wA41d
+	M7E6mttquSLZvd0rWeVLcl/So8GrWV2G/o5Yd38SAIP7gGJqSpC2VWOZrrWMeKtiI4Pu7i0x3MQhf
+	nUE0V5vTVJF+v0MwS/pSHBqyIrvNxM9geco6m7WZ7B3aqelk39mIH3Zo1rBEn2xravgHv/z26MUFK
+	VXw3dIVU1f/uLObHOV4uWCKyuh1WhERLhLQKSv6VC3wZZerHiYqYXE22/L8vWnaOK0qgx2L3RyR7q
+	i2PxsHwrs6IRIhzRmfKpQd6H1kogI3voHcX1I4o6F5vkzPlrMzT81nNtCXcYzcwvoqrhCx/xKP1qc
+	khAA6eYE9ihNw4/CATvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Dgi-0000000Bd2o-2EqO;
-	Thu, 17 Sep 2026 15:06:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x7DhK-0000000Bd7i-2kep;
+	Thu, 17 Sep 2026 15:06:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7Dgh-0000000Bd2T-2q75
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 17 Sep 2026 15:06:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/OfWtIewPY5C/r0HMIf+o2IIttSmiKU4y8rC/hzPssc=; b=mfsZkXWnHLGf3LMvO0jQNzI8J6
-	wjBSuykVb33x5sd92aVc+t1C3Yz28ScwMA0o68CWPlG0fQymRGHElljbLgtJW9oI8Ae4dMUD1XDiu
-	Pv68vtMdLOpMkeMHsd33O/81B7kzDJGU8AjAZAYOdtfREOAY/yXKEywNzd/XE+e+GPZVnbcbtHI4a
-	g4WHX/it2C5KucMYt8a6Qvkx8fupqwPXqDv4GlbCU+2VE8+tDwEgix8S0jbssxZ51KMPbFm2+xHu3
-	z0lS2keHOWSvNbdpi4BAkL6iquid5KdBTbzLaWPhE5rfLFOHtCsWYCH07YPD/koxum+AsJfaQaeas
-	zylRzy0A==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x7Dge-00000008ybz-2cXH
+	id 1x7DhJ-0000000Bd7V-3BnZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 17 Sep 2026 15:06:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 634831A0934;
-	Thu, 17 Sep 2026 15:05:59 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 26C255FAA3;
-	Thu, 17 Sep 2026 15:05:59 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C35C211C7B08C;
-	Thu, 17 Sep 2026 17:05:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1789657549; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=/OfWtIewPY5C/r0HMIf+o2IIttSmiKU4y8rC/hzPssc=;
-	b=ngBXbn7/ts81Rynz7n5bSN7vmTTpu4edcR52tEjvtmzV0mtJnaTqQaaGTaP6UXbcZcuttd
-	OmHSxedWnPBXZuzpLcrjJddURZ4iBxRQxqWuUXqCtPjgw44XdjtUZzeb4ixeueEh/Pjs3x
-	/eWz9LcI5bxvgzjpghmVc+XOtR8IQ3BUPB6X/utwtHLYoy1NQVdzrmV/b3RW+jMtn6MkTh
-	+P+X9EUacmGoXpVXdFe93bfZwrZ5ww11hjFw5RlJwwEHjnY4K+Lzz34RW8ywCr6zBFQl5u
-	wZSqY+rp+UjM2V2g8x9tD4szg7BX2Co1MnCeqc+BhGY2Fm25gVBYVqzQV44emw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Daniel Matyas <matyasdaniel006@gmail.com>
-Cc: Lee Jones <lee@kernel.org>,  =?utf-8?Q?Andr=C3=A9?= Draszik
- <andre.draszik@linaro.org>,
-  Ulf Hansson <ulfh@kernel.org>,  Liang Yang <liang.yang@amlogic.com>,
-  Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Neil Armstrong <neil.armstrong@linaro.org>,  Kevin
- Hilman <khilman@baylibre.com>,  Jerome Brunet <jbrunet@baylibre.com>,
-  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,  Andrew Lunn
- <andrew+netdev@lunn.ch>,  "David S. Miller" <davem@davemloft.net>,  Eric
- Dumazet <edumazet@google.com>,  Jakub Kicinski <kuba@kernel.org>,  Paolo
- Abeni <pabeni@redhat.com>,  Bjorn Helgaas <bhelgaas@google.com>,  Lorenzo
- Pieralisi <lpieralisi@kernel.org>,  Krzysztof =?utf-8?Q?Wilczy=C5=84ski?=
- <kwilczynski@kernel.org>,  Manivannan Sadhasivam <mani@kernel.org>,  Ray
- Jui <rjui@broadcom.com>,  Scott Branden <sbranden@broadcom.com>,  Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,  Will
- Deacon <will@kernel.org>,  Mark Rutland <mark.rutland@arm.com>,  Vinod
- Koul <vkoul@kernel.org>,  Thierry Reding <thierry.reding@kernel.org>,
-  Jonathan Hunter <jonathanh@nvidia.com>,  Liam Girdwood
- <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,  Jose Abreu
- <joabreu@synopsys.com>,  Ray Jui <ray.jui@broadcom.com>,  Scott Branden
- <scott.branden@broadcom.com>,  Atish Patra <atishp@rivosinc.com>,  Shawn
- Guo <shawn.guo@linaro.org>,  Dmitry Osipenko <digetx@gmail.com>,  Thierry
- Reding <thierry.reding@gmail.com>,  Ibrahim Tilki
- <Ibrahim.Tilki@analog.com>,  Okan Sahin <Okan.Sahin@analog.com>,
-  devicetree@vger.kernel.org,  Paul Walmsley <paul.walmsley@sifive.com>,
-  Palmer Dabbelt <palmer@sifive.com>,  Conor Dooley <conor@kernel.org>,
-  linux-rtc@vger.kernel.org,  Ricard Wanderlof <ricardw@axis.com>,
-  patches@opensource.cirrus.com,  Lukas Wunner <lukas@wunner.de>,  Chunfeng
- Yun <chunfeng.yun@mediatek.com>,  Eugen Hristev <ehristev@kernel.org>,
-  dri-devel@lists.freedesktop.org,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  linux-hwmon@vger.kernel.org,
-  linux-iio@vger.kernel.org,  linux@analog.com,
-  linux-input@vger.kernel.org,  chrome-platform@lists.linux.dev,
-  linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: Expand flow lists to block lists
-In-Reply-To: <20260917144028.459053-1-matyasdaniel006@gmail.com> (Daniel
-	Matyas's message of "Thu, 17 Sep 2026 17:40:28 +0300")
-References: <20260917144028.459053-1-matyasdaniel006@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 17 Sep 2026 17:05:33 +0200
-Message-ID: <87tsnnj4ua.fsf@bootlin.com>
+	Thu, 17 Sep 2026 15:06:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1EA5E601EF;
+	Thu, 17 Sep 2026 15:06:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C0A38C2BCB3;
+	Thu, 17 Sep 2026 15:06:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1789657608;
+	bh=m690kogDyu7hEq5rE+qNvmrqllsL1HhFUGXt+9aZM+o=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=PH8OXzT5kc9mszX5MMos6Y+iHSKOXms6kId4eFa+J6ykoaqsX3iyckReKv579j/qf
+	 knN/o33VuA+usXttvmPAOJx/gYcP95z9HdQbn/8PEepdRnwCk3zTeLCNnJCyg9anL2
+	 GlKTLsNjJuY7vysqnU2TkQQl0Sj8fL36fUPfjsxF3D/T5SVtFBhHkMGcm9hEvWp75R
+	 VqVBR0/3/uVndJvDaGSGfCT3PU9CBira4kSxgH6Q6mcJV538oiPnPizHC+3/Jg1Aes
+	 bIo+DcKT5/FRtg9GAOVOr5Q7gRVQ2CyfPuKJDRBkrDSNkyukMMsmXLMjFKHNr9BvVo
+	 sOtqahCUu9f/Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9819DC982D7;
+	Thu, 17 Sep 2026 15:06:48 +0000 (UTC)
+From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
+Date: Thu, 17 Sep 2026 17:06:39 +0200
+Subject: [PATCH v3] riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with
+ mips.pause
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_160608_771013_68A265AA 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <20260917-p8700-wfi-v3-1-ada4b0584712@htecgroup.com>
+X-B4-Tracking: v=1; b=H4sIAP4BrGoC/12PQW7DIBBFr2KxLtGATcBWVOUeURcYDzFSHVwgt
+ FGUuxfblZp2+Ue8x/93EjE4jKSr7iRgdtH5Swn1S0XMqC9npG4omXDge2iYoLOSAPTTOtqCqns
+ 2KDlwTsr7OaB1X6vr9Fby6GLy4baqM1uum0Uw9mTJjDIKbVtMDKyx/DgmNOfgr/PO+Ikspsx/6
+ T2oZ5oXWkq0RjaitfXwn35sxQJ+XMu2tLUjE8ao121ddVi1isGPFnV4v9He+7R1E6bRGtQgAOx
+ f++uyutcRaQmTS12V5a6mwdTl38c3JO3WFlsBAAA=
+X-Change-ID: 20260415-p8700-wfi-9083b1d87d22
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789657607; l=8514;
+ i=aleksa.paunovic@htecgroup.com; s=20250806; h=from:subject:message-id;
+ bh=n0m09g/GIUzyP9cpXaZLszGSi2479dLawQiQ5FMQ/B0=;
+ b=9EQhNV70uI3AeYCwTKNiw70eH5fxlScnkdc8BUwsJf/+gNz2Xus7IHLr9P5N0U6TrGhSZmMFV
+ tbgzon/sn+LAhKPWlgKQQ9uRH4eQL0kmfswnK1E4PYF/Bhml7r3nneK
+X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
+ pk=Dn4KMnDdgyhlXJNspQQrlHJ04i7/irG29p2H27Avd+8=
+X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250806
+ with auth_id=476
+X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,24 +85,244 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: aleksa.paunovic@htecgroup.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2026 at 17:40:28 +03, Daniel Matyas <matyasdaniel006@gmail.com> wrote:
+From: Djordje Todorovic <djordje.todorovic@htecgroup.com>
 
-> Running dt_bindings_check returned:
-> [error] string value is redundantly quoted with any quotes (quoted-strings)
->
-> The files used quotation marks in flow lists because the strings had
-> commas and these commas were interpreted as separators. Convert flow
-> style lists to block style lists, so that there is no problems with the
-> commas.
->
-> Signed-off-by: Daniel Matyas <matyasdaniel006@gmail.com>
+The MIPS P8700 has bugs with the WFI instruction. A WFI instruction
+after a mispredicted branch can result in erroneous address
+translation on the MIPS P8700. MIPS has not published an erratum
+for this.
 
-Acked-by: Miquel Raynal <miquel.raynal@bootlin.com> # MTD
+The workaround uses the RISC-V alternatives framework to patch all WFI
+instructions with the MIPS P8700 pause opcode (0x00501013)
+at runtime when running on P8700 hardware.
+
+Two call sites are patched:
+ - arch/riscv/kernel/head.S: secondary hart parking loop
+ - arch/riscv/include/asm/processor.h: wait_for_interrupt()
+
+Signed-off-by: Djordje Todorovic <djordje.todorovic@htecgroup.com>
+Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+---
+This patch was tested on QEMU configured with eight P8700 harts,
+as well as on the MIPS Boston board, configured with a single P8700 CPU.
+Errata application was tested by disassembling with GDB on QEMU
+and inserting an illegal instruction on the Boston board.
+Correctness was tested with a combination of kselftests
+and torture tests (rcu, locktorture), along with coremark testing.
+
+This patch depends on 'riscv: Add support for early boot errata application on
+MIPS chips' [1].
+
+Links:
+[1] https://lore.kernel.org/linux-riscv/20260810-p8700-early-boot-v1-1-5c4aa08d500f@htecgroup.com/
+---
+Changes in v3:
+- Rebase onto the early boot patch (linked in [1])
+- Expand the errata comment with additional information about PAUSE instruction latency.
+- Link to v2: https://lore.kernel.org/r/20260608-p8700-wfi-v2-1-77efc7459f3d@htecgroup.com
+
+Changes in v2:
+- Replace .insn with .4byte in ALT_WFI macro
+- Add explanatory comments
+- Link to v1: https://lore.kernel.org/r/20260511-p8700-wfi-v1-1-099b1d10fcf2@htecgroup.com
+---
+ arch/riscv/Kconfig.errata                    | 11 +++++++++
+ arch/riscv/errata/mips/errata.c              | 17 +++++++++++++
+ arch/riscv/include/asm/errata_list.h         | 37 ++++++++++++++++++++++++++++
+ arch/riscv/include/asm/errata_list_vendors.h |  5 ++--
+ arch/riscv/include/asm/processor.h           |  3 ++-
+ arch/riscv/kernel/head.S                     |  4 ++-
+ 6 files changed, 73 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index 45f3a4a7c9e234e1dc95ff4595a91922ce6176d1..7e7f784a6194bc3c4cdab5fde559e4f37f784dc2 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -45,6 +45,17 @@ config ERRATA_MIPS_P8700_PAUSE_OPCODE
+ 
+ 	   If you are not using the P8700 processor, say n.
+ 
++config ERRATA_MIPS_P8700_WFI
++	bool "Replace WFI with mips.pause for MIPS P8700"
++	depends on ERRATA_MIPS && 64BIT
++	default n
++	help
++	   The RISCV MIPS P8700 has bugs with the WFI instruction.
++	   This errata replaces all WFI instructions with the MIPS
++	   P8700 pause opcode to avoid these issues.
++
++	   If you are not using the P8700 processor, say n.
++
+ config ERRATA_SIFIVE
+ 	bool "SiFive errata"
+ 	depends on RISCV_ALTERNATIVE
+diff --git a/arch/riscv/errata/mips/errata.c b/arch/riscv/errata/mips/errata.c
+index ac9a12d0a30c9d2bf5d4920d5f6e9d2ed22fe0e5..6e715552745011d0b719d78199290490e19d6d2f 100644
+--- a/arch/riscv/errata/mips/errata.c
++++ b/arch/riscv/errata/mips/errata.c
+@@ -27,6 +27,20 @@ static inline bool errata_probe_pause(unsigned int stage)
+ 	return true;
+ }
+ 
++static inline bool errata_probe_wfi(unsigned int stage)
++{
++	if (!IS_ENABLED(CONFIG_ERRATA_MIPS_P8700_WFI))
++		return false;
++
++	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++		return false;
++
++	return true;
++}
++
+ static u32 mips_errata_probe(unsigned int stage)
+ {
+ 	u32 cpu_req_errata = 0;
+@@ -34,6 +48,9 @@ static u32 mips_errata_probe(unsigned int stage)
+ 	if (errata_probe_pause(stage))
+ 		cpu_req_errata |= BIT(ERRATA_MIPS_P8700_PAUSE_OPCODE);
+ 
++	if (errata_probe_wfi(stage))
++		cpu_req_errata |= BIT(ERRATA_MIPS_P8700_WFI);
++
+ 	return cpu_req_errata;
+ }
+ 
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 6694b5ccdcf85cfe7e767ea4de981b34f2b17b04..6fdb445c0f45430e5bdd9a8e1382c6f63efe6323 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -25,6 +25,16 @@ ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),			\
+ 	    __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),	\
+ 	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
+ 	    CONFIG_ERRATA_SIFIVE_CIP_453)
++
++#ifdef CONFIG_ERRATA_MIPS_P8700_WFI
++#define ALT_WFI								\
++ALTERNATIVE("wfi; .rept 7; nop; .endr;",				\
++	".rept 8; .4byte 0x00501013; .endr;", MIPS_VENDOR_ID,		\
++	ERRATA_MIPS_P8700_WFI, CONFIG_ERRATA_MIPS_P8700_WFI)
++#else
++#define ALT_WFI	wfi
++#endif
++
+ #else /* !__ASSEMBLER__ */
+ 
+ #define ALT_SFENCE_VMA_ASID(asid)					\
+@@ -53,6 +63,33 @@ asm(ALTERNATIVE(	\
+ 	: /* no inputs */	\
+ 	: "memory")
+ 
++#ifdef CONFIG_ERRATA_MIPS_P8700_WFI
++/*
++ * A WFI instruction after a mispredicted branch can result in erroneous address translation
++ * on the MIPS P8700.
++ * The number of MIPS_PAUSE instructions required was determined by measuring
++ * Coremark performance on a one-core, two-hart configuration. Eight PAUSE instructions matched
++ * the latency of a single WFI instruction.
++ * Usually, the maximum number of cycles per PAUSE instruction is 63. Exceptionally, if the hart's
++ * LR reservation bit is set, the maximum number of cycles is extended to 255
++ * (and the hart is woken up once it is cleared). This case should not affect the patched sites.
++ */
++#define ALT_RISCV_WFI()										\
++asm volatile(ALTERNATIVE(									\
++		"wfi\n" /* Original RISC-V wfi insn */						\
++		__nops(7),									\
++		".rept 8;" MIPS_PAUSE ".endr;\n", /* Replacement: mips.pause for P8700 */	\
++		MIPS_VENDOR_ID, /* Vendor ID to match */					\
++		ERRATA_MIPS_P8700_WFI, /* patch_id */						\
++		CONFIG_ERRATA_MIPS_P8700_WFI)							\
++		: /* no outputs */								\
++		: /* no inputs */								\
++		: "memory")
++#else
++#define ALT_RISCV_WFI()		\
++	__asm__ __volatile__ ("wfi")
++#endif
++
+ /*
+  * _val is marked as "will be overwritten", so need to set it to 0
+  * in the default case.
+diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
+index ec7eba3734371a2d8b68fbd4cbd88a8e7135a413..4505317a6b949be602f507547fc9cd495c923e32 100644
+--- a/arch/riscv/include/asm/errata_list_vendors.h
++++ b/arch/riscv/include/asm/errata_list_vendors.h
+@@ -22,8 +22,9 @@
+ #endif
+ 
+ #ifdef CONFIG_ERRATA_MIPS
+-#define	ERRATA_MIPS_P8700_PAUSE_OPCODE 0
+-#define	ERRATA_MIPS_NUMBER 1
++#define ERRATA_MIPS_P8700_PAUSE_OPCODE 0
++#define ERRATA_MIPS_P8700_WFI 1
++#define ERRATA_MIPS_NUMBER 2
+ #endif
+ 
+ #endif /* ASM_ERRATA_LIST_VENDORS_H */
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 812517b2cec1350f741849c1c56a35027321ef50..c65c2314206d7d958a1e52cd81b18a8142a6e1a8 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -17,6 +17,7 @@
+ #include <asm/alternative-macros.h>
+ #include <asm/hwcap.h>
+ #include <asm/usercfi.h>
++#include <asm/errata_list.h>
+ 
+ #define arch_get_mmap_end(addr, len, flags)			\
+ ({								\
+@@ -176,7 +177,7 @@ extern unsigned long __get_wchan(struct task_struct *p);
+ 
+ static inline void wait_for_interrupt(void)
+ {
+-	__asm__ __volatile__ ("wfi");
++	ALT_RISCV_WFI();
+ }
+ 
+ extern phys_addr_t dma32_phys_limit;
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index f6a8ca49e6277c39b634b3b7d5c248ffa1a0b310..1631fd6bc786b81c9c63e5e38217108ddbde47cd 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -15,6 +15,8 @@
+ #include <asm/image.h>
+ #include <asm/scs.h>
+ #include <asm/usercfi.h>
++#include <asm/alternative.h>
++#include <asm/errata_list.h>
+ #include "efi-header.S"
+ 
+ __HEAD
+@@ -189,7 +191,7 @@ secondary_start_sbi:
+ 	 *  - receive an early trap, before setup_trap_vector finished
+ 	 *  - fail in smp_callin(), as a successful one wouldn't return
+ 	 */
+-	wfi
++	ALT_WFI
+ 	j .Lsecondary_park
+ 
+ .align 2
+
+---
+base-commit: c2cd463d6ee7d55a3ec0719d93c49ff99022d58f
+change-id: 20260415-p8700-wfi-9083b1d87d22
+prerequisite-message-id: <20260810-p8700-early-boot-v1-1-5c4aa08d500f@htecgroup.com>
+prerequisite-patch-id: d530f62a25369e72a6ead97617c437b1fca1b276
+
+Best regards,
+-- 
+Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+
+
 
 _______________________________________________
 linux-riscv mailing list
