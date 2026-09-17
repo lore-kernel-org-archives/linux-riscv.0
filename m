@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B03AC88E72
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 18:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44B5C982D2
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2026 18:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z2wKuQ2tPoT0UxstMlwIiiYDFlZ4SSSGJtvMWYd1tUk=; b=lVv8HHxcrHQtwC
-	rk8BaMoalrOA1jRq492Dc7a+dvfwTevnTwu8RQzgvlTNel85z40ha9RS/hd6BX4V787sJvzbDZ8Gf
-	xRlql38sSKsWTEoQYPER0k148pAmUim+jBh3MlNH/3wqZTKYFGlUqzX6QKztL04CSDVKwVRivHTsP
-	4oQzMMXQsIVZUPpoepNDD++7jb1Qq43pIe0QG5moAngSsR3EZOjEM9zS/d6tBthlbX3ZaN9GTVSHa
-	IwoxqptoFnd4vTlftOYo/YDMX4A9tKccyvx7xMW53W69F5LEnP+nHhmpjRLOTx9J89CqIl382yKUb
-	RAauhF3tMreQgchtF+WA==;
+	List-Owner; bh=RH/hTvEniDcaqlt/maC1VQaPYjBh8zdFX8QiEUGb4dc=; b=1n8oUSMo/ySfDy
+	y5w4dnMQKPc7VJNRx9ku6yybMVasWWtBQaFXEeXKWDVpiRPL+7KfTbKCuPf/LIsJSNrt0RvhxvmFI
+	glMj+RxRCeKupIgHURIKLko0aEWio0lwkXHpZvF6qD3Mw7dZXA5haEfgPmyzUISdHHsZFjdOEhlcm
+	RUISvKTuNc7jMGYaSWrinNfA3njSoIMpfJTCajCQQS8K4YiCfGpODt2Eay6HbVyrIP3Mi6mbqo/A0
+	liDcPXn2Wb62oq8AYjYVqU2oC1GesWg+UJqqSGXfQDtEV3kcBbq6gjOU2hKo8AdCOojLM/NgI3yfE
+	jXrThu80c8Rtasz//1bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GaQ-0000000CBRF-1zqL;
-	Thu, 17 Sep 2026 18:11:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7GaE-0000000CBN7-2dDB;
-	Thu, 17 Sep 2026 18:11:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36AED41317;
-	Thu, 17 Sep 2026 18:11:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06FBB1F0089A;
-	Thu, 17 Sep 2026 18:11:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789668702;
-	bh=KivQhtsO8a4itzEQWZwvcU0vaLM0EC3b+zcpo+5cxFA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Yd1VSsrews+KOBN0uKtnIdnZ1G8CVssbrPM08Gw35Vri29zJuBn5FKU3BGM09J/YT
-	 ez6WOpuKLqbRXy2mEU+yrWFZWOdLsOGEJHcrg46gtRII0MYNvTU3ZpBSIkgm5fqeG7
-	 DtoigLn0myERRymKYpPutd36aESFAKs1EljepOhcZI3BUu+T65G/uepm2XbWi722Pe
-	 N0THyeTnDWjGILEUOpLpk+HIUgicl8OAvLhrVHsTfJjVAK9blGwpgqF4FxzR4jEvX6
-	 KfzLy+gnOGm8DLjpR827SCTwuDWK1Y8RXPONMg1MDxP5t06lQbpC94vGwhZr8tuY/W
-	 zK0rO7XmGemMg==
-Date: Thu, 17 Sep 2026 11:11:41 -0700
-From: Kees Cook <kees@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alexey Gladkov <legion@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 08/20] kbuild: cache list, composite object state per
- object
-Message-ID: <202609171110.438BC7477A@keescook>
-References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
- <20260917-build-speedup-v3-8-9ecf4163ff36@kernel.org>
+	id 1x7GaX-0000000CBUt-38W2;
+	Thu, 17 Sep 2026 18:12:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x7GaL-0000000CBPj-3T0d;
+	Thu, 17 Sep 2026 18:11:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63D881F37;
+	Thu, 17 Sep 2026 11:11:45 -0700 (PDT)
+Received: from [10.57.7.135] (unknown [10.57.7.135])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F8A43F86F;
+	Thu, 17 Sep 2026 11:11:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789668709; bh=H66u+La3BKMWWXlFlTrVsuKaNwpwzDBaFVCwWt2d404=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iCgIs5dzYG7snhIRdFqpGaSsJVsl0ixJWXw9PoPyfIlhokN/8nNvOsj2UbtDvKCha
+	 Tp3HrxbmHWFO2gKUtSM+qK7ECcnPdfRqQfxj3IWzJmi4UrHCG0lAtw2aUeVU8zBH/z
+	 czy4xKGN1iHjasunQcaQVI2fOrM8IYWtnSzeyYgY=
+Message-ID: <a45bb08d-cfe3-4d65-bda5-421f14347d23@arm.com>
+Date: Thu, 17 Sep 2026 20:11:41 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260917-build-speedup-v3-8-9ecf4163ff36@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/6] mm/vmalloc: constify vm parameter of
+ get_vm_area_page_order()
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Brendan Jackman <brendan.jackman@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@kernel.org>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ loongarch@lists.linux.dev
+References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-3-949b64a9f755@kernel.org>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-3-949b64a9f755@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_111149_912482_69F4C485 
+X-CRM114-Status: UNSURE (   7.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,22 +94,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 05:06:18PM +0100, Lorenzo Stoakes (ARM) wrote:
-> Fix the issue by caching this data and looking it up instead of getting it
-> over and over again.
+On 03/09/2026 11:28, Mike Rapoport (Microsoft) wrote:
+> get_vm_area_page_order() and vm_area_page_order() do not need to modify
+> struct vm_struct passed to them.
+>
+> Constify the parameter.
+>
+> Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-Nit: I would describe this as "calculate these once". It _is_ caching,
-but I think with Makefiles there is an implication the "caching" means
-"write to disk". But maybe that's just me.
-
-> This has a particularly large impact on allmodconfig builds.
-
-Love it. :)
-
-Reviewed-by: Kees Cook <kees@kernel.org>
-
--- 
-Kees Cook
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
 _______________________________________________
 linux-riscv mailing list
