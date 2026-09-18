@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE75C982D0
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 01:08:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3794DC982D0
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 01:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gE03/dffETUJq3NKp9XnXEkTtPDro5fEyGXY4tDWNMk=; b=cVso1KIyW9BZAU
-	ezpBCl/kIH+Udvq5g32t/CcxofkZqC4N1KYxSd84DUEGU/aqcrtCbLq5rFEL605OFoJqpymC9i9EU
-	liYHWXNoMwPEdjYoHd6BWoCTkLMgVhcGjOk0bHZz0ErbWYBN1Zth0V1FG3Hw2ILsFum2tU8OAM+VA
-	pzfevLIUXH3dyOLfJq9IVJbTFFmN6OhWRoKJhEWTpXcoV7U5YNpF3z1vY1uU+VjqYP0PMUMYs3vUZ
-	D6tSVY3V5shAgMVSsyUeG1j+XAf/efqOOEeUUt6ZF3za1dXaYFb7DgjFuldKAQ6LRZbodbcjb0+4n
-	M7uIz0eXlQ4+EcKSGbZg==;
+	List-Owner; bh=XQhdcyaF130McofDEmQjV5I7wwJ7SPYJfhSrFsLGQM0=; b=ap+o67/MC2IbY1
+	V79bNtqPiz2Z8gVKV48C2scCGCpwUJU6JQdSsycVJXKdPNsliuP8R8gp4FcBlhYMQhHNJ1AEiLyEC
+	Ye7uoLhspHe+Au4YWnCFxkX5vhTjrWBSp8fjHjsLl6d68c8svos3ggRxpnNj1JdzHrZbhf8agaZyb
+	kKUZXfEBndPpRjuppcomtznDGH9JwAOwvVh5uz2F8OnfBUJGx0fFKtshMSzLQo0/RZWMTF0m1CitM
+	TAIh8reW7b+aEsUkC93ko8CNeMyysC9T/r688oQh2KJ/0o6TzLAjnsvefBZCW2eajMWz2ajyyv2g1
+	mCoJdGNP8z8ljJUAHZaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7N4q-0000000D6ju-3wUQ;
-	Fri, 18 Sep 2026 01:07:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x7NH8-0000000D89L-0Hd1;
+	Fri, 18 Sep 2026 01:20:26 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7N4p-0000000D6jM-1t4C;
-	Fri, 18 Sep 2026 01:07:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED5E4419AB;
-	Fri, 18 Sep 2026 01:07:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58B681F00893;
-	Fri, 18 Sep 2026 01:07:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789693662;
-	bh=4K9MjrbYytfjUKZsWDZQNZLjwWqitvV2RncrKp6V+PA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=k5cWkWseKfeadwsaVPXCsS8lvGsd+tdSmPOrVtqEMbk75KqTkD4zy+7En6LhD2ywa
-	 DaRsd83TwV0mOIZho690nEmO3idWB8XQkIziKwCh0GcwjjjU70EpJbTmEi/cF0GuaP
-	 /7/pXwyCpUq0e7QXW37qfDqLOT7I2G7zCvNO2mNiHwQarbF5EybADwKGrWUy41EbBI
-	 zTDD9URKYYpbd/eKGmEPGtH9D9AREbGz+aRY2dyE64e+faqRl2rwDc8cmsA58OEqGc
-	 WurYI1M8cJohHT6NtQSs49BdhFIdDtVANA86k0AT2mqjHWvvHIV+ycSb20M+TACXFn
-	 um2yh7n0v+EZQ==
-Date: Thu, 17 Sep 2026 18:07:29 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alexey Gladkov <legion@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 10/20] kbuild: move the toolchain checks into
- init/Kconfig.toolchain
-Message-ID: <20260918010729.GB1585590@ax162>
-References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
- <20260917-build-speedup-v3-10-9ecf4163ff36@kernel.org>
- <202609171149.6454DC6@keescook>
+	id 1x7NH4-0000000D88X-2GFd
+	for linux-riscv@lists.infradead.org;
+	Fri, 18 Sep 2026 01:20:24 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=hNVRr0M80noRKxyWstwDdP10shu7MYTQxvymByKOzhw=;
+	b=vEz/9fxhFxK7TmUgnStNTZng0XNGGickUIHsjQzIWdJQ6lq70+BdUIahbmUx5KGMByz3QEUY4
+	pnJBlEPCcb0qWZRJT0VHauQC9arBG97jVYvXZ5Y74i4oR3w/4tOO/EAZzjvcFvQ2ZB24XQrsVx5
+	LA1Tg4Huzo6RmpNclavdNhs=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hmDzW1nKYzLlSh;
+	Fri, 18 Sep 2026 09:09:11 +0800 (CST)
+Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
+	by mail.maildlp.com (Postfix) with ESMTPS id EC6A64057A;
+	Fri, 18 Sep 2026 09:20:10 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemf100007.china.huawei.com
+ (7.202.181.221) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 18 Sep
+ 2026 09:20:10 +0800
+Message-ID: <c28917c2-4715-4c70-a2d3-582ca641e1d6@huawei.com>
+Date: Fri, 18 Sep 2026 09:20:09 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <202609171149.6454DC6@keescook>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: patch: fix handling of bpf-jit execmem addresses
+To: Wei-Jie Hung <imbigking12@gmail.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+CC: Alexandre Ghiti <alex@ghiti.fr>, Mike Rapoport <rppt@kernel.org>, Xiaofeng
+ Yuan <xiaofengmian@163.com>, Klara Modin <klara@kasm.eu>,
+	<linux-riscv@lists.infradead.org>, <bpf@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260914115607.350097-1-imbigking12@gmail.com>
+Content-Language: en-US
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <20260914115607.350097-1-imbigking12@gmail.com>
+X-Originating-IP: [10.67.110.68]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemf100007.china.huawei.com (7.202.181.221)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260917_182023_234346_E71759C3 
+X-CRM114-Status: GOOD (  30.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,50 +76,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 11:53:13AM -0700, Kees Cook wrote:
-> On Thu, Sep 17, 2026 at 05:06:20PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > Move them into their own file, sourced from the top of init/Kconfig, so
-> > that the next commit can add to them without growing init/Kconfig further.
-> > 
-> > No functional change.
-> > 
-> > Assisted-by: LLM
-> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> > ---
-> >  init/Kconfig           | 197 +-----------------------------------------------
-> >  init/Kconfig.toolchain | 198 +++++++++++++++++++++++++++++++++++++++++++++++++
-> >  2 files changed, 199 insertions(+), 196 deletions(-)
+
+On 2026/9/14 19:56, Wei-Jie Hung wrote:
+> Commit 8718e5a3090b ("riscv: patch: skip fixmap mapping when kernel text
+> is already writable") gated the core_kernel_text() branch of patch_map()
+> on CONFIG_STRICT_KERNEL_RWX, and explicitly left the vmalloc branch
+> unchanged. That branch has a separate problem.
 > 
-> Yeah, totally right to move to a separate file. I think, however, I
-> would prefer this wasn't in init/ though. Kbuild uses scripts/ as its
-> Makefile.$topic dumping ground, and Kconfig.include also lives there. To
-> me, this new file should be scripts/Kconfig.toolchain instead. And
-> arguably, this should be included by the top-level Kconfig rather than
-> init/Kconfig...
+> That branch only creates a temporary writable fixmap alias when
+> CONFIG_STRICT_MODULE_RWX is enabled, and otherwise assumes the target is
+> directly writable and returns the address unchanged. That assumption no
+> longer holds: bpf_prog_pack_alloc calls set_memory_rox() on every pack
+> unconditionally in alloc_new_pack(), independently of any
+> CONFIG_STRICT_*_RWX option, so BPF text in the vmalloc area is read-only
+> regardless of what CONFIG_STRICT_MODULE_RWX says.
 > 
-> I defer to kbuild folks, though.
+> With CONFIG_STRICT_MODULE_RWX=n, patch_map() returns the read-only
+> address directly, the subsequent copy_to_kernel_nofault() takes a
+> page fault and returns -EFAULT. bpf_arch_text_copy() turns that into
+> -EINVAL, which propagates through bpf_jit_binary_pack_finalize() to the
+> WARN_ON() in bpf_int_jit_compile() and leaves the program un-JITed.
+> 
+> Note that BPF cannot be fixed the way kprobes was in
+> commit bdc46e507b59 ("riscv: mm: make EXECMEM_KPROBES writable without
+> CONFIG_STRICT_MODULE_RWX"). EXECMEM_BPF is already PAGE_KERNEL, i.e.
+> writable at allocation time; the read-only mapping is established
+> afterwards by generic code in alloc_new_pack(), which arch code cannot
+> influence. The only place this can be handled is patch_map().
+> 
+> This is the same problem that was fixed on arm64 by commit b1480ed230ac
+> ("arm64: patching: fix handling of execmem addresses"), and the fix is
+> the same: CONFIG_EXECMEM is what actually tracks whether the vmalloc
+> area can hold executable memory that needs a temporary alias to be
+> written. CONFIG_BPF_JIT, CONFIG_KPROBES and CONFIG_MODULES all select
+> it.
+> 
+> Note that this is not limited to CONFIG_MODULES=n. Unlike arm64, riscv
+> selects CONFIG_ARCH_OPTIONAL_KERNEL_RWX, so CONFIG_STRICT_MODULE_RWX can
+> be disabled with CONFIG_MODULES=y as well, and the bug is reachable in
+> that configuration too.
+> 
+> The !CONFIG_MMU build is unaffected: it has its own __patch_insn_set()
+> and __patch_insn_write() implementations and never calls patch_map().
+> 
+> Fixes: 2c9e5d4a0082 ("bpf: remove CONFIG_BPF_JIT dependency on CONFIG_MODULES of")
+> Signed-off-by: Wei-Jie Hung <imbigking12@gmail.com>
+> ---
+> Based on riscv/fixes (b94cec5761d2).
+> 
+> Reproduced on qemu-system-riscv64 -M virt with CONFIG_BPF_JIT=y,
+> CONFIG_BPF_JIT_ALWAYS_ON=y and CONFIG_STRICT_MODULE_RWX=n.
+> ptp_classifier_init() builds a cBPF filter from sock_init(),
+> so the failure happens during boot without any userspace involved:
+> 
+>    WARNING: arch/riscv/net/bpf_jit_core.c:156 at bpf_int_jit_compile+0x3dc/0x43e
+>    Call Trace:
+>     bpf_int_jit_compile+0x3dc/0x43e
+>     __bpf_prog_select_runtime+0xec/0x186
+>     bpf_prog_select_runtime+0x12/0x1a
+>     bpf_prepare_filter+0x368/0x46a
+>     bpf_prog_create+0x66/0x90
+>     ptp_classifier_init+0x3e/0x60
+>     sock_init+0xc4/0xe6
+>     do_one_initcall+0x78/0x14a
+> 
+>    kernel BUG at net/core/ptp_classifier.c:227!
+>    Kernel panic - not syncing: Fatal exception in interrupt
+> 
+> The BUG_ON() is reached because CONFIG_BPF_JIT_ALWAYS_ON=y turns the
+> silent interpreter fallback into -ENOTSUPP. With
+> CONFIG_BPF_JIT_ALWAYS_ON=n the failure is silent: writing 1 to
+> /proc/sys/net/core/bpf_jit_enable and loading any program reproduces the
+> same warning, but the program simply falls back to the interpreter and
+> the kernel keeps running.
+> 
+> Tested with CONFIG_BPF_JIT=y:
+>    - CONFIG_MODULES=n, CONFIG_BPF_JIT_ALWAYS_ON=y:
+>      panics before this patch, boots after
+>    - CONFIG_MODULES=y, CONFIG_STRICT_MODULE_RWX=n,
+>      CONFIG_BPF_JIT_ALWAYS_ON=y: same panic before this patch, boots after
+>    - CONFIG_BPF_JIT_ALWAYS_ON=n: the warning above is emitted when a
+>      program is loaded from userspace before this patch, and gone after
+>    - riscv defconfig (CONFIG_STRICT_MODULE_RWX=y): unaffected, boots
+>      before and after
+>    - kprobes (kretprobe on __riscv_sys_openat via kprobe_events):
+>      works before and after this patch
+> 
+>   arch/riscv/kernel/patch.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> index 2239c28981bc..2b5adf01c550 100644
+> --- a/arch/riscv/kernel/patch.c
+> +++ b/arch/riscv/kernel/patch.c
+> @@ -48,7 +48,7 @@ static __always_inline void *patch_map(void *addr, const unsigned int fixmap)
+>   		if (!IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
+>   			return addr;
+>   		phys = __pa_symbol(addr);
+> -	} else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX)) {
+> +	} else if (IS_ENABLED(CONFIG_EXECMEM)) {
+>   		struct page *page = vmalloc_to_page(addr);
+>   
+>   		BUG_ON(!page);
 
-We talked about this previously:
-
-  https://lore.kernel.org/aqPW1FsBVYHSWl1r@gremlin/
-
-I do feel like scripts/ is a better location given that these are really
-things internal to Kbuild but I also see where Lorenzo is coming from
-that scripts/ is a little weird for this to live for discoverability,
-especially if we want people to put checks here instead of in a Makefile
-directly. To be honest, it would be kind of nice to separate the Kbuild
-parts of scripts into their own directory to make it clear what Kbuild
-uses versus what users/contributors should use but that is obviously too
-big of a project to tackle as a prerequisite for this.
-
--- 
-Cheers,
-Nathan
+Reviewed-by: Pu Lehui <pulehui@huawei.com>
+Tested-by: Pu Lehui <pulehui@huawei.com>
 
 _______________________________________________
 linux-riscv mailing list
