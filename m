@@ -4,99 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006CBC982D9
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 10:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2B4C982DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 13:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6npbjvkllV9YC4pCteZNB7mug61oaM/JdtwtJBNAukI=; b=xtiFEjVHq7WjWH
-	NVykVGRygyXf69IhifKwuG/mIlaGTGs82aqzcJkLJbOFcjRwKH2rUzlvrA+sM+sWqvjMoIM9NEqS6
-	brBfzrh/j0h9nia00f0lL71gU8VU+aYHVzcsHH6NjB1O3+q7yXvEP48kHYeouRg5c02lvqsEUFiuI
-	JAAq51nERK9fIcRQ8QUOMe5+m46nEYjoJf/YIHSuILCJpln3weOVj45PtyPNrvWJFcxfwm3S0goN2
-	85cxP7vkpKaL1hGKwi+mbgoJ9l1eytu7sK66tYhO3qMNur++8HLJopzOM2LCvpQj/gWjP9GdydKOn
-	pq1fLaf8hCBALYFuUVaw==;
+	List-Owner; bh=UtAXIXoNZG4SQzBfoBj20ATO5s32SX97rKKfGD4AcSs=; b=ZGfz6SGxhHLu44
+	CSlzoo9hNjNCIzod5cQJWSNng3Fps5XEftZ8U8KC7Ne5LJYZIj4Pi3iSNYOoNbw/ddTGFRiUJwXvo
+	OWiVomNlQHq5P3WRjPxMakP8hwdxYswi4WDsrsL1QZcLpbjCAQ520jACW/qnTDwkm+Ud39+hvHPxD
+	nIBoMC2W4gRw/kLV9H54S3jf+6y+sugVEJg43XsPQ6A705F1MPH96hRdcgNTjNA8m7xRCiPf95AEz
+	OvVu1nTh2uiqJoUg7Al5sas0y9KG+LQF0bYOat2xD1hSRL1VjvOVmwHyiMU66aj335xF5FqYm5Rsz
+	9nKeNkEfEdMxtU7u+3Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7WE4-0000000E9kL-01dF;
-	Fri, 18 Sep 2026 10:53:52 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1x7YKq-0000000ERgX-0eCH;
+	Fri, 18 Sep 2026 13:09:00 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7WDy-0000000E9j4-12nH
+	id 1x7YKm-0000000EReO-3Y3n
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Sep 2026 10:53:48 +0000
-Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-2caced6038eso4986795ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Sep 2026 03:53:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789728825; x=1790333625; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TAR8zhCOEVqWXPt6vBsjOMeeQmFuBz9UsZFbgyML5lo=;
-        b=NP/AXqZEBj4qh+4CQoloMtTZi3ddfXJFlqPMZ0oDBg7PkRd+q6vW4a50xIMU9kbhmX
-         BNr9EX5qrPfvt0AeaeVCKF2xI+kog61j0KQy1ZSq9RtEbunjGBnfJpQ8zc6SoicDKZpj
-         cjcDaez3qtzhqDD3cKBKerPbK6KbDqNXNoF8sN4R1Wq7L3A2GEuWD+QnYDAR4V+/5t3s
-         m76eNR5thSI4VkiH22Ki2teykprAAAX5Fb/CsNNJLimbdgLgTNtB/giTaIg9GWan+ISr
-         ua+RlZU6+F6gImvNbMEzI2JNWJY51dRLkTvq+VUJpgFGm1e9MSXZhVfm9+sMIWGaltOK
-         K9og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789728825; x=1790333625;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TAR8zhCOEVqWXPt6vBsjOMeeQmFuBz9UsZFbgyML5lo=;
-        b=WD1PDWhL9NAq6T9RUwqV5X/2YnJ2SDQ2SG9V5wseX5fm9RKMqcSSb+WjucYeYfVhhl
-         g9oWzjD8KM421TNjeSgzViW+FimV2kfjwVy9CMwkxI7H6nMdYCGIFij60HI2yDlU3x/K
-         0aPoasXna+q6d3kYq3My/QfwNkVfxkbuHBA9mcvKmnK2r15o9e3zPU5Vr9Ij1jQWumdA
-         U82/CVbpTvYBISHNDTzrjO0LjMju/9FM/AS+A5eHYkU7NQIiScBZ6CQ0gj4eMZBeWyfz
-         iETCj52RZuPdxl4ZWs4IBl7d6R73/C7978x/HypI5DiTQPYPH5Ti+c8mx2o5qPLsgPQN
-         glMw==
-X-Forwarded-Encrypted: i=1; AKwUvBwJ8wrw6ZLnZJEXUoht1YVpVRiwm30dVso/YeCHQjiBvJSB74hW2DkupsnZjcqbyUVyQIBIsjoWu9aZrg==@lists.infradead.org
-X-Gm-Message-State: AFuF++mWileUuNpwzd/GrVCNkTgFxoOi07a9M3IdYRL8Q9fhBj/q5lYC
-	Dno8iFDQZGpCtn263Pc6NgOW75wAp0rBu9RmtHz06LPwnJEjjtwp1sWU
-X-Gm-Gg: AYBFou2fjQnfhWa4fqaSc296Gg0OY4oQlysZGTN4fjrXtMwUMYwVwhiPIAvumTHl8Ta
-	c0YjWHBqvb0kN3zUu2VC990Gef6rC4ZK8mTVO/Tx7VqCnS8mPe/KRXLk2+eRMxaO0pDsgrVDDvs
-	kRiUXB0DWAJ0qsE5EWE2SuClgwdzfihjFetfaPZq2X5mYPEnEl3j76BAVXfmnfXkiaqbrpqPyH/
-	ifqrYZkmkKmfXHEzd5xUlWwevCMnsp1J1A7X6ghUajQqKRoUMGE0tRPtCi3VHpHuYuISCFqVyP0
-	ZeSJfRqPnsMi54c2rWfNAO5EewApvYJd4H2D6+AUbuBjlVDhraDW90L+n/k8s4oEP9zUi8nBrqK
-	EgS7e5ABzxNQW/V8wIJp1CWun8NGeLsj2h9Lx40d/XfkROy5ukQe1O739klks+roDqOufllGPnw
-	pdbzDymcZ7W4asRfKCHrUO0b/7rPiT5k9Qe04FQJhEBkX8dnp8IpdZu4P6ZDedrx/wzuzRUqZqc
-	qBG2g==
-X-Received: by 2002:a17:902:cecc:b0:2d8:d4d2:d139 with SMTP id d9443c01a7336-2dd9ca3f088mr93269015ad.21.1789728825328;
-        Fri, 18 Sep 2026 03:53:45 -0700 (PDT)
-Received: from [10.125.112.20] ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddb7525b2asm5835555ad.19.2026.09.18.03.53.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Sep 2026 03:53:44 -0700 (PDT)
-Message-ID: <1a47d5de-fb68-4c10-a199-f0d274689cdc@gmail.com>
-Date: Fri, 18 Sep 2026 18:53:32 +0800
+	Fri, 18 Sep 2026 13:08:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1789736891;
+	bh=NQe6SZgHq4C4c6OQq2uMfbITwyQfNYkJdzaj8xFvJOc=;
+	h=Message-ID:Date:MIME-Version:Subject:From:To;
+	b=xX/3VMkXeLVct2CRmn7s3IC86SMJ52tDryTAqVBBTa1I4VteOqRzwsA4VpwbEuRFC
+	 J/ft3pmxbICWOpZ6SkTVbmsbA+V1WfzUuU4C6sAx8m/zv8NBn+pCFTLVGKXjHOxilv
+	 51yu+aurAp3ctXXl4brslJRsRIfCG4vaeBNhpCVw=
+X-QQ-mid: esmtpgz10t1789736884tec6452b8
+X-QQ-Originating-IP: /kb2l/F6wfwX8gp1SErJ3II9mxlSeQDT2AtxmCa3Ox0=
+Received: from [192.168.1.100] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 18 Sep 2026 21:08:02 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4423648668496576874
+Message-ID: <768D38E96246550E+b63978f5-b8e9-4d3d-883c-f36d79c5da12@linux.spacemit.com>
+Date: Fri, 18 Sep 2026 21:08:02 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/10] kdump: reduce vmcore size and capture time
-To: Baoquan He <baoquan.he@linux.dev>
-Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- robh@kernel.org, saravanak@kernel.org, akpm@linux-foundation.org,
- rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
- m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
- alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev, robin.murphy@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
- iommu@lists.linux.dev
-References: <20260902073116.802752-1-chenwandun1@gmail.com>
- <aqzznOgILX2pZg7b@fedora>
+Subject: Re: [PATCH v2] usb: dwc3: core: resume xHCI child on runtime resume
+ in host mode
+From: Junzhong Pan <panjunzhong@linux.spacemit.com>
+To: Troy Mitchell <troy.mitchell@linux.dev>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+References: <20260908-resume-xhci-v1-1-aca107602e9c@linux.spacemit.com>
+ <DL9ZZ8F7HTZT.1IUMD1ECSOZXL@linux.dev>
+ <566DD22E9074C793+eaef8bb4-9602-4f76-8915-6e322387c7aa@linux.spacemit.com>
 Content-Language: en-US
-From: Wandun <chenwandun1@gmail.com>
-In-Reply-To: <aqzznOgILX2pZg7b@fedora>
+In-Reply-To: <566DD22E9074C793+eaef8bb4-9602-4f76-8915-6e322387c7aa@linux.spacemit.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: N3IC8um5pMyYrZwY7k9TsmuVrmQNfWebr+tcl7GFf2AAzA/WrkqSyTx3
+	ABl/IpOwNtjjsVFfRUolns4krHjF6EuY0zPEKD/gJnt5DEI1WI2PiUDNIE/B/fI5pV8AuUb
+	EaXnWLrmSBMmKGecGjrRjWQoTqFaIzZTLG5JK64CRLM9D9PJ9geUWL/9W05zGRm0lKwiXEj
+	FnfdjJrH6pN/UC/zhsPCHJwLr6mPkiqK7ZwD3RVu63A1R05ByNhG2PD+KKmMcy0hnmDbFqF
+	DH+lJw9vCQ8CwE5U9HnYd6cJbmSMNBUAjw3L0eDgBMOhRg3iaONoPuhk+HnbMphbX2gd8ts
+	gI+ev3w7y45Jm37rMNk4bQwFrZbVfgS1mx+EWCUYWFocucSXoyGyn24ssd4oDICkETq13up
+	X25JrYEUnGkgr2pOB1LwPEcO0LsOm0j8uDmGR12LuB3JFQCHa1fAeNIKBdIbdE3iSi6JORs
+	P0XI+U/H5QEbkuET/XZLO09m+98P45Ana3SpQiP+YMTo3f2J0idt+2oSzRsUgsN06wAjBla
+	QsnequfsZQy1GRm7iBhSPmt/0bI+fJmhf9IaRFHNjXn0kvrQomXb1DLkbpG5Jo2eXMJ88HV
+	rP/uA9FNmnLZg5Yip+iF4i7yonGizS0V7fhRotgN/WRmOdqg7+JA3D1Z4cG/r8Ves9kVbEh
+	DNHBtW3X/oFHqIee28qG9w9zMPc6ynHm5icJe15wM99otUYGMaXC9ah9ZRJtGcnshQN2PBU
+	fO2omI+1Z4LLy6jDsscS/xRuU6TfL4rw/6/HjuN2IzJt6s1DOFsamwtaY++tM7iReAdvh0f
+	hVGDUBoFV+4xjoPCQbxHzqEo9Neab9SBcC1MsXUnrFIqrykPn35KG6O3PipkNvLOT3gbLSP
+	r09XcLligjVDy4TyU2AMPmAm5//5Shpjb8H80HZJK1WGtvVXspcFu19+MGpk9vqCMFz1seA
+	qcKoj7an33CJnvQJJI2qo1TxE6dcQxk8M8cvBn6dpNHne6AnGZxeYVMHesH2dCheGcRR1O6
+	Jn9+DF+/yetdA5QQX4RQ8aZ4ECBWyJKOx9syN2Xyqod5qSuWfd
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_035346_296122_397EDD32 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260918_060857_625008_4E18CF5B 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,52 +93,145 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA5LzE4LzI2IDE2OjE3LCBCYW9xdWFuIEhlIHdyb3RlOgo+IE9uIDA5LzAyLzI2IGF0IDAz
-OjMxcG0sIFdhbmR1biBDaGVuIHdyb3RlOgo+PiBGcm9tOiBXYW5kdW4gQ2hlbiA8Y2hlbndhbmR1
-bkBsaXhpYW5nLmNvbT4KPj4KPiAuLi5zbmlwLi4uIAo+PiBBQ1BJIHN5c3RlbXMgYWxyZWFkeSBm
-aWx0ZXIgcmVzZXJ2ZWQgbWVtb3J5IG91dCBvZiB0aGUgdm1jb3JlIHRocm91Z2gKPj4gdGhlaXIg
-ZXhpc3RpbmcgcGF0aDsgb25seSBEVC1iYXNlZCBzeXN0ZW1zIGN1cnJlbnRseSBmYWlsIHRvIGZp
-bHRlciB0aGVzZQo+PiByZWdpb25zLCB3aGljaCBpcyB3aGF0IHRoaXMgc2VyaWVzIGFkZHJlc3Nl
-cy4gVGhlIGZsYWcgbGl2ZXMgaW4gbWVtYmxvY2sKPj4gaXRzZWxmIHJhdGhlciB0aGFuIGluIGEg
-RFQtb25seSBzdHJ1Y3R1cmUsIHNvIHRoZSBtZWNoYW5pc20gaXMgZ2VuZXJpYyBhbmQKPiAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIH5+fgo+IFRoZSBwYXRjaHNldCBpdHNlbGYgbG9va3MgZ29vdCB0byBtZSwgd2hpbGUgSSBh
-bSBjb25jZXJuZWQgaWYgaXQncwo+IHJlYWxseSBnZW5lcmljLiBJIHJhaXNlZCB0aGF0IGluIHN1
-Yi10aHJlYWQgdGFsa2luZyB3aXRoIFdhbmR1bi4gSW1hZ2luZQo+IEkgdHJpZWQgdG8gZXhjbHVk
-ZSBtYW55IGRyaXZlciByZWdpb25zIGFuZCBzcGxpdCBtZW1ibG9jayByZWdpb25zIGludG8KPiBo
-dW5kcmVkcywgY21hIGNvdWxkIHllbGwgb3V0OiBjbWFfZGVjbGFyZV9jb250aWd1b3VzX211bHRp
-KCk/CgpBcmUgeW91IGNvbmNlcm5lZCB0aGF0IHNldHRpbmcgdGhlIE1FTUJMT0NLX05PRFVNUCBm
-bGFnIGNvdWxkIHNwbGl0IGEgbWVtYmxvY2sKcmVnaW9uIGludG8gbWFueSBzbWFsbGVyIHJlZ2lv
-bnMsIHdoaWNoIG1pZ2h0IHRoZW4gcHJldmVudApjbWFfZGVjbGFyZV9jb250aWd1b3VzX211bHRp
-KCkgZnJvbSBzYXRpc2Z5aW5nIGEgbXVsdGktcmFuZ2UgYWxsb2NhdGlvbj8KSWYgc28sIElJQ1Ug
-SSBkb27igJl0IHRoaW5rIHRoYXQgYXBwbGllcyBoZXJlLgoKTUVNQkxPQ0tfTk9EVU1QIGlzIGN1
-cnJlbnRseSBvbmx5IHNldCBvbiBtZW1vcnkgdGhhdCBoYXMgYWxyZWFkeSBiZWVuIHJlc2VydmVk
-LgpUaGVzZSByZWdpb25zIGFyZSBleGNsdWRlZCB3aGVuIGl0ZXJhdGluZyBvdmVyIGZyZWUgbWVt
-b3J5LCBzbyBtYXJraW5nIHRoZW0gTk9EVU1QCmRvZXMgbm90IGluY3JlYXNlIHRoZSBudW1iZXIg
-b2YgZnJlZSByZWdpb25zIHNlZW4gYnkgQ01BLgoKCkJlZm9yZSBtYXJraW5nIE5PRFVNUDoKCiAg
-bWVtYmxvY2subWVtb3J5OiAgICBbIGZyZWUgXSBbIHJlc2VydmVkIF0gWyBmcmVlIF0KICBtZW1i
-bG9jay5yZXNlcnZlZDogICAgICAgICAgIFsgcmVzZXJ2ZWQgXQoKTm93LCBmb3IgbWVtYmxvY2su
-bWVtb3J5LCBpdCBpcyBvbmUgcmVnaW9uIHRoYXQgY29udGFpbnMgZnJlZSBhbmQgcmVzZXJ2ZWQg
-bWVtb3J5LgoKCkFmdGVyIG1hcmtpbmcgdGhlIHJlc2VydmVkIHJlZ2lvbiBOT0RVTVA6CgogIG1l
-bWJsb2NrLm1lbW9yeTogICAgWyBmcmVlIF0gWyAgTk9EVU1QICBdIFsgZnJlZSBdCiAgbWVtYmxv
-Y2sucmVzZXJ2ZWQ6ICAgICAgICAgICBbIHJlc2VydmVkIF0KCmZvciBtZW1ibG9jay5tZW1vcnks
-IGl0IHNwbGl0cyBpbnRvIDMgcmVnaW9ucywgMiBmcmVlIHJlZ2lvbnMsIDEgbm9kdW1wIHJlZ2lv
-bi4KCkFsdGhvdWdoIHRoZSBtZW1ibG9jay5tZW1vcnkgYXJyYXkgbWF5IGJlIHNwbGl0IGludGVy
-bmFsbHksIGl0IGRvZXMgbm90IGNyZWF0ZSBhZGRpdGlvbmFsCmZyZWUgcmFuZ2VzIGZvciBjbWFf
-ZGVjbGFyZV9jb250aWd1b3VzX211bHRpKCkgdG8gcHJvY2Vzcy4KCgo+IAo+IElNSE8sIHdpdGhk
-cmF3aW5nIHRoZSBjbGFpbSBjYW4gZml4IHRoZSBuaXQgY29uY2Vybi4gSWYgSSBhbSB3cm9uZywK
-PiBwbGVhc2UgaGVscCBwb2ludCBpdCBvdXQgdG8gbGV0IG1lIGxlYXJuIG1vcmUuCgpJIHdpbGwg
-cmV2aXNlIHRoaXMgZGVzY3JpcHRpb24gdG8gYXZvaWQgYW55IG1pc3VuZGVyc3RhbmRpbmcuCgpC
-ZXN0IHJlZ2FyZHMsCldhbmR1bgoKCj4gCj4gVGhhbmtzCj4gQmFvcXVhbgo+IAo+PiBib3RoIEFD
-UEkgYW5kIERUIHN5c3RlbXMgY2FuIGJlbmVmaXQgZnJvbSBpdCAoc3VnZ2VzdGVkIGJ5IFJvYiwg
-dGhhbmtzKSBbMV0uCj4+Cj4+IFNpbmNlIHRoZSByZXNlcnZlZCBtZW1vcnkgcmVnaW9ucyBhcmUg
-ZmlsdGVyZWQgb3V0LCB0aGUgdm1jb3JlIGlzCj4+IHNtYWxsZXIgaW4gc2l6ZSBhbmQgZmFzdGVy
-IHRvIHByb2R1Y2UuIAo+Pgo+IC4uLnNuaXAuLi4KCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 9/9/2026 8:28 PM, Junzhong Pan wrote:
+> On 9/8/2026 10:16 PM, Troy Mitchell wrote:
+>> On Tue Sep 8, 2026 at 10:01 PM +08, Junzhong Pan wrote:
+>>> USB controller runtime suspend halts the controller on disconnection.
+>>> It relies on platforms with custom connection notification to start
+>>> the controller again.
+>>>
+>>> The host branch of dwc3_runtime_resume() does nothing currently. There
+>>> are two paths that can trigger a runtime resume of the dwc3 core in
+>>> host mode:
+>>>
+>>> (a) Wake lands on the xHCI child (DT platforms, e.g. Qualcomm, i.MX8MP)
+>>>     A platform wakeup IRQ fires and the glue handler calls
+>>>     pm_runtime_resume(&xhci->dev). Runtime PM walks upward, resumes
+>>>     the dwc3 parent first, then resumes xHCI. Both wake correctly.
+>>>
+>>> (b) Wake lands on the dwc3 parent (ACPI platforms)
+>>>     When an ACPI Notify(ACPI_NOTIFY_DEVICE_WAKE) targets the dwc3
+>>>     parent device -- for example via a Generic Event Device on a
+>>>     hardware-reduced platform where dwc3 is enumerated as an ACPI
+>>>     device without a glue driver -- the ACPI core turns this into
+>>>     pm_request_resume(dwc3_dev). Runtime PM does not propagate resume
+>>>     downward, so the xHCI child stays suspended. Root hub polling is
+>>>     never re-armed, and a device plugged in while suspended is silently
+>>>     dropped.
+>>>
+>>> This patch fills in the host branch to cover case (b) by requesting an
+>>> async resume of the xHCI child so xhci_resume() can restore the port
+>>> state machine and re-arm root hub polling. Glue drivers in case (a)
+>>> resume xHCI directly, an extra call introduced by this change, but
+>>> runtime PM can serialize those requests and skip device already active,
+>>> so the extra resume call is safe. Those calls can be replaced with
+>>> resume calls to dwc3 device later.
+>>>
+>>> Tested on SpacemiT K3 Pico-ITX, covering both wakeup paths: an ACPI
+>>> boot with a GED device notifying the dwc3 node (HID 808622B7), and a
+>>> DT boot with a modified dwc3-generic-plat driver exposing a wakeup IRQ
+>>> similar to dwc3-qcom.c and dwc3-imx8mp.c. This is not validation on
+>>> actual Qualcomm or i.MX8MP hardware, changing those drivers would still
+>>> need platform-specific testing.
+>>>
+>>> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+>>> Assisted-by: Opencode:claude-opus-5
+>>> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+>>> ---
+>>> Changes since RFC:
+>>> - add Assisted-By tag and collect tag
+>>> - refine the commit message and comments as suggested
+>>>
+>>> Link to RFC: https://lore.kernel.org/linux-usb/20260811090817.109350-1-panjunzhong@linux.spacemit.com/
+>>> ---
+>>>  drivers/usb/dwc3/core.c | 12 ++++++++++++
+>>>  1 file changed, 12 insertions(+)
+>>>
+>>> diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+>>> index fd5c2cd36c59..76883dc6184c 100644
+>>> --- a/drivers/usb/dwc3/core.c
+>>> +++ b/drivers/usb/dwc3/core.c
+>>> @@ -2739,6 +2739,18 @@ int dwc3_runtime_resume(struct dwc3 *dwc)
+>>>  		}
+>>>  		break;
+>>>  	case DWC3_GCTL_PRTCAP_HOST:
+>>> +		/*
+>>> +		 * Only the xHCI child's resume re-arms root hub polling, which
+>>> +		 * is what rediscovers a device plugged in while suspended.
+>>> +		 * Runtime PM doesn't resume children, so request it here.
+>>> +		 * Keep it asynchronous to avoid waiting for the parent's resume
+>>> +		 * callback to finish from inside it. Glue drivers may also
+>>> +		 * resume xHCI directly, but runtime PM will serialize those
+>>> +		 * requests and skips an already-active device.
+>>> +		 */
+>>> +		if (dwc->xhci)
+>>> +			pm_request_resume(&dwc->xhci->dev);
+>>> +		break;
+>> Could we also check a parent-only resume with no USB wake event? For
+>> example, reading the DWC3 debugfs lsp_dump file calls
+>> pm_runtime_resume_and_get(dwc->dev). With both devices suspended, this
+>> change would wake xHCI too.
+>>
+> 
+> Thanks for pointing out, I did missed those paths before, I will do some
+> investigation and testing on the two non-wakeup path:debugfs attr access
+> and the dwc3_set_mode() path then report back.
+> 
+
+I looked into this on real hardware. There are two paths where the
+resume is unnecessary:
+
+(1) debugfs read: it briefly resumes xhci, then both devices go back
+to autosuspend. Harmless, though unnecessary.
+
+(2) __dwc3_set_mode() while suspended in host mode: when a DRD
+controller is suspended in host mode and user or a role-switch consumer
+calls set_mode(), dwc3 is resumed first and the xhci removal follows.
+But pm_request_resume() only queues work, and the unregister path
+calls cancel_work_sync() before freeing the device, so the request
+is either cancelled or completes beforehand. In my testing, the PM
+core simply bails out with -EINVAL on pm_request_resume(&dwc->xhci->dev),
+and the removal completes fine.
+
+I think yes there will be more extra calls here but they don't break
+things, I didn't reproduce any failure. It seems difficult to get rid
+of them since there are no good conditions to judge.
+
+If we want to avoid these more extras, maybe those platform who need
+this feature can just let glue driver (dwc3-generic-plat.c or another)
+handle the ACPI probe and the wakeup (like qcom/imx8mp) together for
+the case(a) platform mentioned before instead of reusing the current
+8080:22B7 ACPI probe path in dwc3/core.c .
+
+Thinh, do you have any thought on that?  I'm fine with either approach.
+
+>> Would both devices return to autosuspend after the read and still
+>> detect a subsequent plug-in? This would help cover the non-wakeup
+>> case.
+>>>  	default:
+>>>  		/* do nothing */
+>>>  		break;
+>>>
+>>> ---
+>>> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+>>> change-id: 20260908-resume-xhci-0fa34ff9b332
+>>>
+>>> Best regards,
+>>
+>>
+> 
+> 
+> 
+> 
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
