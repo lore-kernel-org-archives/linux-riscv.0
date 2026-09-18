@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E10C982D8
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 23:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0282C982D8
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 23:39:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zXan5IVliMFq8Bxf0Wfp6V0/cD0dwG+k9Ayyt5fRm3k=; b=WTgoj4vcXs/QXP
-	oqzLosixvnjkcuKIq1zrGIzdZUT92vWxUOl8BTg+cuYi5Qaik+PrDozo5Z3VlOeaI+4FoMHTNSPUy
-	IspjzF4E+EBaIHHNuk/Cl+fCLdBQ5PuWA2ybhV5bleYTnJe35HXRo8do9i87DOQPqgTKwJZD09ala
-	a7ATDXy2sPLYlcqwT4ygBBNEeAyeorUCjBlFh/9JkVYQuuzV0hydFepL5vLnGUQEnx1YbIP1xHask
-	MUKLJ93/3qlwaAWlPsbvNWHbRa++eenIv8wrEnMbh2cBISXtsoSFDP2cWZES38/6vgsDNd6AmubOZ
-	sRQQePFgHZnTOWWnOsFA==;
+	List-Owner; bh=tPR5OJbsBVmmVllaeCEOz2i4r8ygX1DrBnPkQEi5qiE=; b=Apryc2FlI0Vd+x
+	QuIdNtsgHU4NyjwJ5R7bSm9Caek/TTeZm73tYk9f+/NeVOXMaJwF2sf0svnvm8hIggCT5Zftzpn35
+	5AMBYSgFSaH7knQ1RUgHMVhKNxOYBUV6U2nhnWJaMBS9Q02s1ixzsxx+mcMyTO6Q0vZxmWTjddhxQ
+	L6m7CpB2ra/RYD8KBuu3RSzZ320W9lLVhlTzp/tENlpLbc8nYQ5BPeBSoP/FO/QzzU8FnDGRauzKn
+	Epe+DtAImpnTnOmhF9qmSyfR8bO8uSQbP7vliCDttOT9E+rBnu/E+hVQWlF9EdTzdmXrZPNkPh9rE
+	Ddu9mxZJ5gZtfF/rqGJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7i95-0000000Fhac-2nmw;
-	Fri, 18 Sep 2026 23:37:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7iAi-0000000FhpW-3fyH;
+	Fri, 18 Sep 2026 23:39:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7i94-0000000FhaV-2VNL
+	id 1x7iAh-0000000FhpO-2L9Z
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Sep 2026 23:37:30 +0000
+	Fri, 18 Sep 2026 23:39:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56DA96053B;
-	Fri, 18 Sep 2026 23:37:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43BB41F000FF;
-	Fri, 18 Sep 2026 23:37:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 914646053B;
+	Fri, 18 Sep 2026 23:39:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DED41F000FF;
+	Fri, 18 Sep 2026 23:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789774649;
-	bh=5XuFo9Hku9AH+B9//W0dXYAF+SnmgYlyyyq0dIrSUxY=;
+	s=k20260515; t=1789774750;
+	bh=Gzczy9Oh/Ctdwjy86C+yXfHBllDVWWkUhPIAU447dO8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LcBNvofM9VVzSc1HZsyvbKKWDImSzsKjs1JoIFMhkVKhOurf+nocUiTUxYqHqPH0v
-	 ksBYpb+4DQZuz5SejlfcCX075n3TEtdysB5WyUFebSZwGLfT4CHBRGjHm9Kdzit9+d
-	 sm/jZ4kvNyfB9D4OINqYSmA/N8Rj5mndSGLYBoLdo2O5hFGIXAhSFlapCLNfr55FO8
-	 NRgWHoUGLyrP+WvaN5kq6yMQ9JpfEXuCKzsrvPJr6Mjb+GkZRgZFWQNwnmpeslH+7K
-	 VfLao/VxMG23wBsuEQHr2y9yZp4y0x2HuIabylG0LoraDsKysqG+osfCv6ReVmtTxr
-	 j6Q9ViDirWiEA==
+	b=nJZwv+BFbzCoE1zegouQhnbxI2cUDm7aLsjAusRLPTrOEv07wWyCwiQrOc8n3Thq5
+	 SqLUTStwImmtB37FjJVuFpZ3epW2hgwiBjkotEXBrm1Ie5pGHH5NSIvcF9LmJ9LbNj
+	 yNJsGvoIvzc3KNY4MuPWybXnXusR/w51+6NIQT0oAyvEW+HHR1GjOPfh+VrFWR1Kb2
+	 cvO9hIPy7OvUL9vLggPEsDhiyddaCYL+uqT+esi4pP27zNdxzmTIeDFsLo2h593xSz
+	 vNLp/ywP2+F2nX968ilS32gS3haupyRRzPw/xawEwqCaq/5+SW9Ynw4kInIhvvge4w
+	 AqH5Ch2G6DpfA==
 From: Yixun Lan <dlan@kernel.org>
-To: Rob Herring <robh@kernel.org>,
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Jinmei Wei <weijinmei@linux.spacemit.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Troy Mitchell <troy.mitchell@linux.dev>
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>
 Cc: Yixun Lan <dlan@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
+	linux-sound@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
-	linux-doc@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Jean Delvare <jdelvare@suse.de>
-Subject: Re: (subset) [PATCH v5 0/6] hwmon: (lm63) Add Sensylink CTF2301 support
-Date: Fri, 18 Sep 2026 23:37:22 +0000
-Message-ID: <178977450889.1115058.13731797621841664029.b4-ty@b4>
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v3] riscv: dts: spacemit: k3: add i2s0-i2s5 nodes
+Date: Fri, 18 Sep 2026 23:39:02 +0000
+Message-ID: <178977466389.1115729.2520600398672212403.b4-ty@b4>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
-References: <20260914-ctl2301-v5-0-b44b81cd2c3c@linux.dev>
+In-Reply-To: <20260915-kx-i2s-dts-v3-1-cf0b90882a97@linux.spacemit.com>
+References: <20260915-kx-i2s-dts-v3-1-cf0b90882a97@linux.spacemit.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,29 +87,23 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 14 Sep 2026 16:03:52 +0800, Troy Mitchell wrote:
-> Sensylink CTF2301 is a system-level thermal management solution chip.
+On Tue, 15 Sep 2026 11:23:16 +0800, Troy Mitchell wrote:
+> Add the six SSPA-based I2S controller nodes for the K3 SoC.
 > 
-> The CTF2301 is an I2C/SMBus compatible device featuring:
->   - One local temperature sensor with +/-0.5 degree C accuracy and
->     0.0625 degree C resolution.
->   - One remote temperature sensor for external diode-connected
->     transistors, offering +/-1 degree C accuracy and 0.125 degree C
->     resolution (temperature range: -40 degree C to +125 degree C).
->   - An integrated PWM fan controller capable of operating in two modes:
->       1. Direct-DCY: Open-loop direct duty cycle control.
->       2. Auto-Temp: Closed-loop automatic fan speed control based on
->          measured temperature.
->   - A 1-channel fan speed monitor (TACH input) for RPM measurement.
+> i2s0 and i2s2-i2s5 each have a dedicated per-controller sysclk
+> divider, so they use the published 7-clock layout (sysclk, bclk, bus,
+> func, sysclk_div, c_sysclk, c_bclk).
+> 
+> i2s1 uses 6 clocks (sysclk, bclk, bus, func, c_sysclk, c_bclk) because
+> its sysclk is driven directly by a DDN (ISCCR0) and has no separate
+> divider stage.
 > 
 > [...]
 
 Applied, thanks!
 
-[5/6] riscv: dts: spacemit: Add K3 I2C6 pinctrl state
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=97bd8165a3f734fe97664e186406686bfa34f42f
-[6/6] riscv: dts: spacemit: Add CTF2301 on K3 CoM260
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=ad17d98848df3907d6732673a139e9ed832b547d
+[1/1] riscv: dts: spacemit: k3: add i2s0-i2s5 nodes
+      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=c37ee906b45bc06782fa1b69f3a53bace67ace66
 
 Best regards,
 -- 
