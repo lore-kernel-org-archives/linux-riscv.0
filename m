@@ -4,95 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7A1C982DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 21:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04CD1C982D8
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 21:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zc3/zDOf9B4xKcyiWxo+3n5FqjJ6b/uuuB8bk73lyZw=; b=gRPlTK6I+ORgJj
-	kScMKKQsmiIk6i1G2lLHHFyhxQn/IfRuBLNieFDqCx85+8OuksuM7j76Y5TRNjSYpTEh1zO/YTQls
-	9Fm7bIaFGScXs6qa+xA9UK+BhBwM2cmFT25+qaTLIyf5MuEJLt3ifZn3XtBjUR2ZlwwbyZXhQu6n4
-	byqFq/IrhEwivEvUcFufELPWmWMwWGMRXpx/uQc1igRo1LibfNbYTDGSaGawWt4fuHuOQDLPcznpq
-	50Xj7rPuytiB3DSx6G2pyoSF4O5nukGUNxlY4A5BQFrkpn/98KH94nP9nmFS8SrcKdxAEpV3HJiN8
-	aPyXWzbqyEAhNbahKTng==;
+	List-Owner; bh=7Decqp7HZur+oX9Zjb8J7ogMMm0f+qlMXO6XI7pKPpA=; b=NjAwxBQYKnBGpn
+	mn1DIiSVsMmSPtv9ZJ6niQaErEX+LqhiVr8ZRa/6/+sKhC8PL+BREr1mz7KewxQArKU+RNTBRQ/1D
+	eiU0un3NJlwsk5gCjbSZiOw33vPq93MUtJ7W7wxfZFa4aP0WOL3cDZe9EVKk6rAcbAOl/sy7UgwXL
+	UD2fmzp+hGIQl9Be7+mSJBohKM+Fs7wbfAL8ggdG2OIZGyyXaRV+R1YM9Og0cwEgw+428dxRYZ2WO
+	jrtMvocnom0MHarYZUH+M6YVUzjZkcYjpZGv0DdiBvvZ7J6523rhU/c3Me/Wx006vxjcK4ZqfNYHA
+	jCBhX4gOne7UuzitFKzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7gWf-0000000Faf8-0LaP;
-	Fri, 18 Sep 2026 21:53:45 +0000
-Received: from mail-yx2-x10.google.com ([2607:f8b0:4864:41::10])
+	id 1x7gWj-0000000Fajo-0pO9;
+	Fri, 18 Sep 2026 21:53:49 +0000
+Received: from mail-yx2-x11.google.com ([2607:f8b0:4864:41::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7gWc-0000000Fac2-0asO
+	id 1x7gWg-0000000Faft-0jOt
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Sep 2026 21:53:43 +0000
-Received: by mail-yx2-x10.google.com with SMTP id 00721157ae682-85d43ac8d1fso9525267b3.0
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Sep 2026 14:53:41 -0700 (PDT)
+	Fri, 18 Sep 2026 21:53:47 +0000
+Received: by mail-yx2-x11.google.com with SMTP id 00721157ae682-85d43ac8d1dso9211777b3.3
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Sep 2026 14:53:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1789768421; x=1790373221; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1789768425; x=1790373225; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=oEXCys1egtrJWNG4V0XIzeEvAvq00TLjC1iN777eSzk=;
-        b=AO7zb/sII/AAAjxFfEkZlhYEQiZXDoQvZykNNzIS9jbgBNvAl1ifZFjOf+hZ1UCfnM
-         IxWCIiJ0Tndl1tRoTjfkuwyHZMZWqvEbMV+4xeRi5zGPmA7VotMucL0XtBVSrHSUqW1p
-         qBIhuhGURVB9qpJLrL3Hw3TmYWLvXzcvy4EorZrJwcUxtxGOKLGmhUFCXWFAvcG0IE/Z
-         awkkYvfAdCT/lKJu//SZX8ddXxMhh6qT34zXY2vMFfBwxUmUYRz4P794RNpkLCF4e+HY
-         e0FXbKnITPu7AMFTOf+b3+9fsMTFE0zAk7zPpphBV0j2Opo+cB/ObknBLnvEzPfiFEs+
-         /pXA==
+        bh=l6RjwvGRDg27ocREeTOqI1wUrMM7x8CPcnaq9HAsmCs=;
+        b=d76BDqwoVnnINgZRmoH8RHG9qiE96KpwntXBdDGYPqYmoAHzH37e2wakAlKPmCUVVX
+         wnqm7UaU69LGesvUOn06m4hPyIZhss0QIpWIJ5P8v0xs0QNadpCiQFo8SPqmm7h7O52O
+         B5XPGoL3v3KVNwxW2iu0l1JtvCrLnvdxQVJE5b7cf34LHzwAnkUptjvnE5BNPcMB+Xr2
+         X0atuipiIsFqRyQBHJUH7hX0W9CUF4G+munS0mJhCKKRjc08Tk8JQvg/QZ/8541AJ5Pa
+         TfJO52oUB7X9Mp3QbIPqVKuatsPnLHsJrSEDBAQjmGZBdyus/NStSHmEZpr9ecizqq/o
+         SLHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789768421; x=1790373221;
+        d=1e100.net; s=20260707; t=1789768425; x=1790373225;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oEXCys1egtrJWNG4V0XIzeEvAvq00TLjC1iN777eSzk=;
-        b=xjjvi1XUsDo7zOzGKEdPiCvDF6MfL+T3rMmbmxnIpU0ooJqnbICyfE7J28rJjFJ8Hg
-         OfaoVIpLx++xc4CIIG/IW2ji0e1rPXeHE6CU+hxJgj4fMEcI95HnpfQOLB5BG715IJAn
-         4xVUplDFJLmHWxW24hNBjz6LlA2Q2pGCqHr6ry9BxO4ECGE74/HjXWdODiQrLYB9EcUu
-         iBAXCS2/ROb5YAFLhD2LMrFwWu1S3FjBlQgJo43tli9q5TCcdmp9ziiHkefTEcKalaP8
-         cvHyQ11gQK24B9+LI5ctxtsZ5RyPdk2teABP9UEwLeYePZCeD/Gab5wao4pvAqsTcnQe
-         Q84Q==
-X-Forwarded-Encrypted: i=1; AKwUvByExY/GkDx1+UW0jmQTCGc3ybcSKB52Q8ei2tCgiFSD2oI5kpZ962Iz7iWzvhMUn3hIh5xHMZl56G/JYw==@lists.infradead.org
-X-Gm-Message-State: AFuF++nYQZxo29k0cxxvHNXe9o52Tnjbl/QNiTHuTxYxUAsIFcyxTZcY
-	Dg9nb467dBhHxyKXE3DgwwqJTuZwTucY6knJBxkr+kH+MxVEhCmW48zXGYquIbZyk1E=
-X-Gm-Gg: AYBFou0/W9WYMpT+NBjv6AXB4kwEFNQpEg1wC0g48VU5gwvHGkDSBSO+P6lgh4O5Tqw
-	ELuyvZTQQrD8Olz2Nw4HGKfWU9J60E4CEerj3meKGyqRmMN20VM2eAZd6Nj+tINUDfR0vkltY63
-	Pc8SLhoL8r0TmpyYchYMo3CnG9kB3YAmRYonNGYYEN6tIUaEHeH8CbfzK35Bjf4ciRgSO5TboT6
-	RIrFIFVmi6Vls8kO9QDfcYrP2t2xxjz2UpR1grRWKxb9bhdbM0aOhfv0VY48SUEMGYyDn2D8euO
-	R7+KLfloOJGA3uTAHThUw0yID8CPv8RdrFdK0MNIpbUMMkSKp2JZT/KlaMAtQFEnruqRb4WmUwM
-	L9XdRc42wfuAKuH0qw+6ZKwF5ECgYZ8v4Inc9Q5+1pnAJxDFP74xB7fbD5Z+Qb7urHFw000b+Ob
-	DITqpYmXkroXpcB0+v7l/IvSOvFLXFa2FQqym/NbHo9mAUei3WlAhYUmrnCMIYlLgHyhAybp0Xh
-	+hd4GQredOIglvRETE7WTEXQ5Oy/Vwf8BZn5Iq59o92ROY=
-X-Received: by 2002:a05:690c:a605:b0:877:6e47:19b1 with SMTP id 00721157ae682-89733f0c7aamr11234547b3.30.1789768421148;
-        Fri, 18 Sep 2026 14:53:41 -0700 (PDT)
+        bh=l6RjwvGRDg27ocREeTOqI1wUrMM7x8CPcnaq9HAsmCs=;
+        b=jxVHCQf4hI36e9HLKu/lgHzygMdDkHjO8TNIjL7yz+3V+AUd34Mg0Y/HwdIAdZEXBE
+         B4Zzb32GmwCQ8KPMMaqsJFtmn6PZwUr0wyAqx3q9taKXJk6llbTcjdXL4KnrXKiP1rOI
+         jLrU5m3+xKMmvTzbuLU52GZiv8BCbayeDUHYLm3ih4XJGwdsvyCFn12MzowaZAShwE1G
+         255uX0geQonzSd6IBE9CTJyLxl5aoEtKmeZojOO3IigkNOftBxNI5iXe7wUEvntICtoz
+         YsxmMZ3Q7JfP8DqlG3fvVemB0f9Kh0U6lHo1U4rBF3WFW9Z22i3h4hR9Dq0y0vngX1Np
+         kxtg==
+X-Forwarded-Encrypted: i=1; AKwUvBxbsUhVdzO7l9EDA5Oa0OjBKIribtkVedh/mRU7f2n+pZjOWgUpfZIFtRjyuIwvqSG3A/gaoIVvtWj9tA==@lists.infradead.org
+X-Gm-Message-State: AFuF++lQYHZLJbCNq/MWO6h8pgT9ah3E0s6EI9/7uZD49el34urBMy9I
+	AE73nb8XsYDakRHzctSWWrM1FR2Sjp1KDeQ9DQNw6TULVynqx1t+mgspOsf8HOE1dGY=
+X-Gm-Gg: AYBFou028Wwc3zOCzJMvbm4gSDG+u7OO9Fs3MBXHd2NgGpWzjnThqhjUMrjJHbtZhbs
+	dwiQPPP9NQ6+mV+3N/+rk+7bHPN5zF+8KebSrdpxW/CWVK3YXu6YhMzhXYOkb/BQHM58+c0OkVT
+	S/JMbyYtruyY9la3aPokj/CsCCgpy5zVvMp6ZEB7o7eHQM45aAQO77i+q3crVpIGZiodZ/OWuhz
+	FJhRmWC+E4MfUOXfLcuixICY4Dm9cP3zrTSnVxMlw4ExQxifC1rdJiTiC46Q4Vqo4ryGvKW2GRp
+	OlDVwxHA/YI2wyZoYl55QLzCzZy7+A9IW3YCa2aY/XbbpVZVLKgA0a8wY9wFxzLoNr2NzGuGS2s
+	Rt69EXahJw5pY8NhPI1fpqdWPH6TW6VUYwqrzyN04V9soffRor52tfP62Kd9cNSllsxjdbyaWsu
+	7xrUdzc+CXSpMZlkGVShZPPJH8Rg41UzbhEbZ/A/hvxsFLpWyJ8lJZr/yn6xgaSXpd6c+lCMkFp
+	HIQo+vSxhAEHl+7KBoYMlBrP6iv6mdYp4UdtFHsIoHy2FA=
+X-Received: by 2002:a05:690c:338c:b0:858:d554:79e4 with SMTP id 00721157ae682-89732c65189mr15001397b3.20.1789768425133;
+        Fri, 18 Sep 2026 14:53:45 -0700 (PDT)
 Received: from lima-default.tail89d63.ts.net ([12.55.13.134])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-89a45d8fb3csm4017757b3.13.2026.09.18.14.53.40
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-89a45d8fb3csm4017757b3.13.2026.09.18.14.53.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 14:53:40 -0700 (PDT)
+        Fri, 18 Sep 2026 14:53:44 -0700 (PDT)
 From: Andy Chiu <tchiu@tenstorrent.com>
 To: Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
+	Oleg Nesterov <oleg@redhat.com>,
 	linux-riscv@lists.infradead.org
 Cc: andybnac@gmail.com,
-	daichengrong <daichengrong@iscas.ac.cn>,
 	Andy Chiu <tchiu@tenstorrent.com>,
+	Sergey Matyukevich <geomatsi@gmail.com>,
+	gdb@sourceware.org,
 	dfustini@oss.tenstorrent.com,
 	greentime.hu@sifive.com,
 	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH v6 5/8] riscv: clarify vector state semantics on syscall and context switch
-Date: Fri, 18 Sep 2026 16:51:19 -0500
-Message-ID: <20260918215154.2481482-6-tchiu@tenstorrent.com>
+	daichengrong <daichengrong@iscas.ac.cn>,
+	Deepak Gupta <debug@rivosinc.com>
+Subject: [PATCH v6 6/8] riscv: vector: adjust ptrace and signal behavior for INITIAL state
+Date: Fri, 18 Sep 2026 16:51:20 -0500
+Message-ID: <20260918215154.2481482-7-tchiu@tenstorrent.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260918215154.2481482-1-tchiu@tenstorrent.com>
 References: <20260918215154.2481482-1-tchiu@tenstorrent.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_145342_231189_0C150D69 
-X-CRM114-Status: GOOD (  19.77  )
+X-CRM114-CacheID: sfid-20260918_145346_237282_35D70B09 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,185 +112,178 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: daichengrong <daichengrong@iscas.ac.cn>
+The last patch introduced the INITIAL vector state to avoid saving and
+restoring vector registers across syscall boundaries. However, this
+optimization did not fully account for the ptrace and signal handling
+interfaces.
 
-The RISC-V vector specification states that executing a system call
-causes all caller-saved vector registers (v0-v31, vl, vtype) and vstart
-to become unspecified.
+As a result, two issues emerged:
+1. Ptrace reads at syscall stop could observe stale, non-nulled
+   registers.
+2. Modifications to the ucontext through signal interface during a
+   syscall stop would be overwritten by the vector discaring macro.
 
-Currently, after calling riscv_v_vstate_discard(), the vector state
-may still be marked as DIRTY, which can mislead the context switch
-logic into treating the registers as containing valid user data.
+This patch introduces riscv_v_ucontext_save() to synchronize these
+paths with the INITIAL state:
 
-This patch clarifies and tightens the kernel-side semantics:
+- Ptrace reads during a syscall stop now explicitly execute the hardware
+  discard macro and return the discarded state to prevent data leaks.
+- Ptrace writes (PTRACE_SETREGSET) during a syscall stop are silently
+  dropped (returning 0). Returning an error like EINVAL would break
+  debbugers like GDB, which disables the optional regset on receiving
+  such error.
+- Signal handling (rt_sigreturn) now honor user-space modifications to
+  the vector context (for user-space thread schedulers).
 
-1. On syscall entry, the kernel checks the vector state via sstatus
-   and set it to INIT if not already, indicating that the vector
-   registers no longer contain meaningful user data. Context
-   invalidation is required on restore.
-
-   If the state is already set to INIT, it means that the user has not
-   touched vector since the last invalidation. So no further action is
-   required on restore.
-
-2. During context switch, the vector state is saved only if the state is
-   DIRTY. (no change)
-
-3. On restore, if invalidation is required, the vector registers are
-   overwritten with a known initial value and the state is set to INIT.
-
-Performance improvements on Blackhole x280:
-
-Latency of getpid() with different status.VS upon syscall entry in ns:
-status.VS	Before Patch	After Patch	Improvement
-DIRTY		235.9		242.4		+6.5 (+2.7%) # regress
-INIT		234.8		174.4		-60.4 (-25.7%)
-OFF		178.2		174.5		-3.7 (-2.1%)
-
-Context switch latencies in us:
-Metric		Before Patch	After Patch	Improvement
-Mean Latency	14.19		11.62		-2.57 (-18.1%)
-Median Latency	13.51		11.01		-2.50 (-18.5%)
-Max Latency	27.76		21.92		-5.84 (-21.0%)
-Min Latency	8.99		8.12		-0.87 (-9.7%)
-
-The metrics on context switch latencies are obtained by running the
-following command 100 times:
-$ taskset 0x2 ./lat_ctx_v -N 10000 -s 512 2
-
-The program lat_ctx_v is a modified lat_ctx where benchmark processes
-(parent/child) do a `vsetvli` to dirtify VS before making each write
-syscall.
-
-Signed-off-by: daichengrong <daichengrong@iscas.ac.cn>
-Co-developed-by: Andy Chiu <tchiu@tenstorrent.com>
+CC: Sergey Matyukevich <geomatsi@gmail.com>
+CC: gdb@sourceware.org
 Signed-off-by: Andy Chiu <tchiu@tenstorrent.com>
 ---
-Changelog v4:
- - Provide performance meassurement (Olof)
- - Aggregate riscv_v_{enable,disable} for better performance (reduces to
-   ~240 ns/call when the user touches vector)
- - Do not invalidate again if user doesn't touch vector
 Changelog v3:
- - rename vstate_on to vstate_init to prevent confusion
- - set context as clean at first-use trap to return zero'ed context
- - reduce context nulling operations by defering __vstate_discard to
-   exit_to_user_mode_prepare.
+ - new patch since v3
 ---
- arch/riscv/include/asm/vector.h | 44 +++++++++++++++++++--------------
- arch/riscv/kernel/vector.c      |  2 +-
- 2 files changed, 26 insertions(+), 20 deletions(-)
+ arch/riscv/include/asm/vector.h |  2 ++
+ arch/riscv/kernel/ptrace.c      | 13 ++++++------
+ arch/riscv/kernel/signal.c      | 11 ++++++----
+ arch/riscv/kernel/vector.c      | 37 +++++++++++++++++++++++++++++++++
+ 4 files changed, 53 insertions(+), 10 deletions(-)
 
 diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index b9538ebd85be..61cd0848f661 100644
+index 61cd0848f661..1cc37d40cf79 100644
 --- a/arch/riscv/include/asm/vector.h
 +++ b/arch/riscv/include/asm/vector.h
-@@ -40,6 +40,15 @@
- 	_res;								\
- })
+@@ -61,6 +61,7 @@ void riscv_v_thread_free(struct task_struct *tsk);
+ void __init riscv_v_setup_ctx_cache(void);
+ void riscv_v_thread_alloc(struct task_struct *tsk);
+ void __init update_regset_vector_info(unsigned long size);
++void riscv_v_ucontext_save(struct task_struct *tsk);
  
-+#define __riscv_v_vstate_check_gt(_val, TYPE) ({			\
-+	bool _res;							\
-+	if (has_xtheadvector())						\
-+		_res = ((_val) & SR_VS_THEAD) > SR_VS_##TYPE##_THEAD;	\
-+	else								\
-+		_res = ((_val) & SR_VS) > SR_VS_##TYPE;			\
-+	_res;								\
-+})
-+
- extern unsigned long riscv_v_vsize;
- int riscv_v_setup_vsize(void);
- bool insn_is_vector(u32 insn_buf);
-@@ -100,7 +109,7 @@ static inline void riscv_v_vstate_off(struct pt_regs *regs)
- 	regs->status = __riscv_v_vstate_or(regs->status, OFF);
- }
- 
--static inline void riscv_v_vstate_on(struct pt_regs *regs)
-+static inline void riscv_v_vstate_init(struct pt_regs *regs)
+ static inline u32 riscv_v_flags(void)
  {
- 	regs->status = __riscv_v_vstate_or(regs->status, INITIAL);
- }
-@@ -293,16 +302,6 @@ static inline void __riscv_v_vstate_discard(void)
- 		: "=&r" (vl) : "r" (vtype_inval));
- }
- 
--static inline void riscv_v_vstate_discard(struct pt_regs *regs)
--{
--	if (riscv_v_vstate_query(regs)) {
--		riscv_v_enable();
--		__riscv_v_vstate_discard();
--		riscv_v_disable();
--		__riscv_v_vstate_dirty(regs);
--	}
--}
--
- static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
- 				       struct pt_regs *regs)
- {
-@@ -317,20 +316,26 @@ static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstate,
- static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vstate,
- 					  struct pt_regs *regs)
- {
--	if (riscv_v_vstate_query(regs)) {
--		riscv_v_enable();
-+	riscv_v_enable();
-+	if (__riscv_v_vstate_check(regs->status, INITIAL))
-+		__riscv_v_vstate_discard();
-+	else if (__riscv_v_vstate_check(regs->status, CLEAN))
- 		__riscv_v_vstate_restore(vstate, vstate->datap);
--		riscv_v_disable();
--		__riscv_v_vstate_clean(regs);
--	}
-+	riscv_v_disable();
- }
- 
- static inline void riscv_v_vstate_set_restore(struct task_struct *task,
- 					      struct pt_regs *regs)
- {
--	if (riscv_v_vstate_query(regs)) {
-+	if (riscv_v_vstate_query(regs))
- 		set_tsk_thread_flag(task, TIF_RISCV_V_DEFER_RESTORE);
--		riscv_v_vstate_on(regs);
-+}
-+
-+static inline void riscv_v_vstate_discard(struct pt_regs *regs)
-+{
-+	if (__riscv_v_vstate_check_gt(regs->status, INITIAL)) {
-+		riscv_v_vstate_set_restore(current, regs);
-+		riscv_v_vstate_init(regs);
- 	}
- }
- 
-@@ -401,6 +406,7 @@ static inline void __switch_to_vector(struct task_struct *prev,
- 			riscv_preempt_v_set_restore(next);
- 		}
- 	} else {
-+		/* VS is never DIRTY at this point, there's no need to alter vstate here */
- 		riscv_v_vstate_set_restore(next, task_pt_regs(next));
- 	}
- }
-@@ -426,7 +432,7 @@ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
- #define riscv_v_vstate_restore(vstate, regs)	do {} while (0)
- #define __switch_to_vector(__prev, __next)	do {} while (0)
- #define riscv_v_vstate_off(regs)		do {} while (0)
--#define riscv_v_vstate_on(regs)			do {} while (0)
-+#define riscv_v_vstate_init(regs)		do {} while (0)
- #define riscv_v_thread_free(tsk)		do {} while (0)
- #define  riscv_v_setup_ctx_cache()		do {} while (0)
+@@ -438,6 +439,7 @@ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
  #define riscv_v_thread_alloc(tsk)		do {} while (0)
+ #define get_cpu_vector_context()		do {} while (0)
+ #define put_cpu_vector_context()		do {} while (0)
++#define riscv_v_ucontext_save(tsk)		do {} while (0)
+ #define riscv_v_vstate_set_restore(task, regs)	do {} while (0)
+ 
+ #endif /* CONFIG_RISCV_ISA_V */
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index f336a183667e..9276485b6cac 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -109,11 +109,7 @@ static int riscv_vr_get(struct task_struct *target,
+ 	 * Ensure the vector registers have been saved to the memory before
+ 	 * copying them to membuf.
+ 	 */
+-	if (target == current) {
+-		get_cpu_vector_context();
+-		riscv_v_vstate_save(&current->thread.vstate, task_pt_regs(current));
+-		put_cpu_vector_context();
+-	}
++	riscv_v_ucontext_save(target);
+ 
+ 	ptrace_vstate.vstart = vstate->vstart;
+ 	ptrace_vstate.vl = vstate->vl;
+@@ -222,13 +218,18 @@ static int riscv_vr_set(struct task_struct *target,
+ 	int ret;
+ 	struct __riscv_v_ext_state *vstate = &target->thread.vstate;
+ 	struct __riscv_v_regset_state ptrace_vstate;
++	struct pt_regs *regs = task_pt_regs(target);
+ 
+ 	if (!(has_vector() || has_xtheadvector()))
+ 		return -EINVAL;
+ 
+-	if (!riscv_v_vstate_query(task_pt_regs(target)))
++	if (!riscv_v_vstate_query(regs))
+ 		return -ENODATA;
+ 
++	/* Silently drop the modification to tracee as no vreg lives across a syscall */
++	if (__riscv_v_vstate_check(regs->status, INITIAL))
++		return 0;
++
+ 	/* Copy rest of the vstate except datap */
+ 	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &ptrace_vstate, 0,
+ 				 sizeof(struct __riscv_v_regset_state));
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index 59784dc117e4..0da352310b84 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -89,9 +89,7 @@ static long save_v_state(struct pt_regs *regs, void __user *sc_vec)
+ 	/* datap is designed to be 16 byte aligned for better performance */
+ 	WARN_ON(!IS_ALIGNED((unsigned long)datap, 16));
+ 
+-	get_cpu_vector_context();
+-	riscv_v_vstate_save(&current->thread.vstate, regs);
+-	put_cpu_vector_context();
++	riscv_v_ucontext_save(current);
+ 
+ 	/* Copy everything of vstate but datap. */
+ 	err = __copy_to_user(&state->v_state, &current->thread.vstate,
+@@ -121,9 +119,14 @@ static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
+ 	/*
+ 	 * Mark the vstate as clean prior performing the actual copy,
+ 	 * to avoid getting the vstate incorrectly clobbered by the
+-	 *  discarded vector state.
++	 * discarded vector state.
++	 *
++	 * This also allows user to modify vregs through the signal
++	 * interface at a syscall stop. e.g. to support user space
++	 * context switching.
+ 	 */
+ 	riscv_v_vstate_set_restore(current, regs);
++	__riscv_v_vstate_clean(regs);
+ 
+ 	/* Copy everything of __sc_riscv_v_state except datap. */
+ 	err = __copy_from_user(&current->thread.vstate, &state->v_state,
 diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-index b112166d51e9..4eef51f6d432 100644
+index 4eef51f6d432..6fd541f5d5cb 100644
 --- a/arch/riscv/kernel/vector.c
 +++ b/arch/riscv/kernel/vector.c
-@@ -221,7 +221,7 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
- 		return true;
- 	}
+@@ -29,6 +29,43 @@ static struct kmem_cache *riscv_v_kernel_cachep;
+ unsigned long riscv_v_vsize __read_mostly;
+ EXPORT_SYMBOL_GPL(riscv_v_vsize);
  
--	riscv_v_vstate_on(regs);
-+	__riscv_v_vstate_clean(regs);
- 	riscv_v_vstate_set_restore(current, regs);
- 
- 	return true;
++/*
++ * Context memory is not coherent to register when sstatus.vs is set to INITIAL. This function
++ * take the INITIAL state into consideration and reflect the nulled state into context memory.
++ * Assume the target task is not actively running when tsk != current
++ */
++void riscv_v_ucontext_save(struct task_struct *tsk)
++{
++	struct __riscv_v_ext_state *vstate = &tsk->thread.vstate;
++	struct pt_regs *regs = task_pt_regs(tsk);
++
++	/*
++	 * Do not set vstate as clean when it is INITIAL, otherwise we lose track of the nulled
++	 * state in ptrace.
++	 */
++	if (tsk == current) {
++		get_cpu_vector_context();
++		if (__riscv_v_vstate_check(regs->status, INITIAL)) {
++			riscv_v_enable();
++			__riscv_v_vstate_discard();
++			__riscv_v_vstate_save(vstate, vstate->datap);
++			riscv_v_disable();
++		} else {
++			riscv_v_vstate_save(vstate, regs);
++		}
++		put_cpu_vector_context();
++	} else if (__riscv_v_vstate_check(regs->status, INITIAL)) {
++		/*
++		 * If we are not current and VS == INITIAL, null out the context memory for tsk
++		 * using kernel mode vector.
++		 */
++		kernel_vector_begin();
++		__riscv_v_vstate_discard();
++		__riscv_v_vstate_save(vstate, vstate->datap);
++		kernel_vector_end();
++	}
++}
++
+ int riscv_v_setup_vsize(void)
+ {
+ 	unsigned long this_vsize;
 -- 
 2.43.0
 
