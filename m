@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE117C982D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 22:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 297E2C982D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 23:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EJ6VWEgjJ5MgAwSivuvpVOwwfDsFOB/Sos3+oOM6Qq8=; b=YQ4uYS6yvsi68Z
-	j+UPcKUcbZMXmhYJ/J9usqVHEPDsqklh/mkW4QrNaXRwztVIVeQubVnzrbS4PI3A6r3Y7y313Npbp
-	vqqtkUeL/COVZHAyKE+VUuPd1IBFOiPDvnTRnIV8hFr8Dy4AJWxQ//CmKbTPxwfUV70ZKvL7+14Iz
-	hSzMMm5jS8vR+KO/Z4OnwNrDpeXcK+QStXLCGFyQYJuuz6uGygnW7pU9FRZF1mjptzXOy1mpzccFT
-	+2ZIToSeE29c5RjhTyviyIwuOYPETOaSIixX+vuOT2bXULo5GRH8gr+sFOm9Rx1AOTujbnOWLjSUf
-	ieVAmqocied90zLloKpA==;
+	List-Owner; bh=CKvGsvic0tIOiuv1hRqQ2wVqsK8CAv+Y7bOxpvSgAFE=; b=Lf07cPE3wfaNnj
+	BR8e0CoCV0KDRngiTXXaCPhsqUqC2WcTX9pcDELnKcgkyEM+egRZpUpB1GdizYcDKSTx4XkKNegh9
+	GTN/MfrTsNnLazYAYg9gkLt1RSwyiTkvu04C6UvcOHfiQ8zEDKQDdf591tftx0LQcgJfjAQQHEeE8
+	lZHN5CrTpRmoqvkPSx4dWbtm2ddITSZfI7kFszpH7UBGkkrH3MZRaJUBm7TBDGkjKho1sZD2h8Vfy
+	u66cllwQc5G2apjl3ZHiwWbdLlxXcpTSFCIXJUH25U4k4kmWgCcPaPkahs8acGBan50sCQNgw+ahQ
+	R0jInkbCn7BvfjPhpvyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hTN-0000000Ffjs-0G1W;
-	Fri, 18 Sep 2026 22:54:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7hZv-0000000FgKk-2UmQ;
+	Fri, 18 Sep 2026 23:01:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7hTL-0000000Ffjm-1PsF
+	id 1x7hZu-0000000FgKX-0AM2
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Sep 2026 22:54:23 +0000
+	Fri, 18 Sep 2026 23:01:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B7D51411F4;
-	Fri, 18 Sep 2026 22:54:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28B6A1F000FF;
-	Fri, 18 Sep 2026 22:54:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 884E7439F0;
+	Fri, 18 Sep 2026 23:01:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC5DF1F000FF;
+	Fri, 18 Sep 2026 23:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789772062;
-	bh=U2ut8MhnRGde+NfAcK9tBoxoZW+uYmB+NXxOZV866LM=;
+	s=k20260515; t=1789772469;
+	bh=SN+cGtUcaDOXnci0UtnpePkFtN0EYV845cfIYt8n+7E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nN7BFoNw6F/IbGjupqiEg686x1ieDl+PNAXWEQ2ZK4xMOdalGfksWHFGjYN7Kh0pn
-	 uq2sgX7VZVO3fQkWFycevHoFSaCVvstQqSY/3ZlZiKoFqahsQ833l1upwArzaWteHh
-	 6CIsnKs5u9DPrwOsVV4GTDEthYAqKNvjXKJcl2RCVQF2RChnZKD43c5RkmVnRJarH4
-	 XlDhfN4H7RSgZWX027u3gQlL8EDD/ZqPp7gtGmFh4QfozmAMt92ieJEBEahdZ29EcV
-	 CgPEwsLK8P7xkzoT/O0zWnBmfalJoEXiqB8+3IRonk3ZfK2EJZ2ei4FrAOlCsBzqZj
-	 wc6s9o/5pWauQ==
-Date: Fri, 18 Sep 2026 22:54:20 +0000
+	b=flOQ3ytxsAwXtDjXhE3lWkmvTLpnoqeZnMIlinf02PTdQ/+E+iC2gVenIoyWSuxsE
+	 FTrW7YLcU0pbEkpirrU3rBgWvqjWKqK6xJDqrOyE2jm6AQ3wKwUcp8xMt4fdUcX4s9
+	 dFp2juVIjMsWyfL59WOGGaxe7ncOAAiyz9htdiLLJHq8zg14+sWu9xUJp/25J/crGC
+	 bEMi+7ix4GhbCw7iS/nhy0HDIrhIMZIyg9QDiK51Ith0JsQxRw5oIv3khqUKIaukB8
+	 VrDey+9KvV+4hsLEOPVB5etPhj/tGIarpF/D3Jz/i4tONxYP0GSOW6yy/UVZQ3DyL1
+	 /9r9IfDXxIWEQ==
+Date: Fri, 18 Sep 2026 23:01:07 +0000
 From: Yixun Lan <dlan@kernel.org>
-To: Andre Heider <a.heider@gmail.com>
-Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH 0/3] riscv: dts: spacemit: add cpu scaling for 3 boards
-Message-ID: <20260918225420-GKB297024@kernel.org>
-References: <20260804133236.205668-1-a.heider@gmail.com>
- <ac94820c-5e34-4f07-91de-d08e1d4ef629@gmail.com>
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH 2/3] pmdomain: spacemit: Add power domain driver
+Message-ID: <20260918230107-GKC297024@kernel.org>
+References: <20260918-04-k3-pm-support-v1-0-0acd2b36b96f@kernel.org>
+ <20260918-04-k3-pm-support-v1-2-0acd2b36b96f@kernel.org>
+ <a4359efeee2220903a05a2383a651ec8ec7284b7.camel@icenowy.me>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ac94820c-5e34-4f07-91de-d08e1d4ef629@gmail.com>
+In-Reply-To: <a4359efeee2220903a05a2383a651ec8ec7284b7.camel@icenowy.me>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,33 +71,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
-
-On 11:18 Fri 18 Sep     , Andre Heider wrote:
-> Hi,
-> 
-> friendly ping, anything left for me to do here?
-> 
-
-Not really, I will handle them shortly, there is one minor
-issue, will fix it while applying (no need sending new)..
-
-WARNING: please, no spaces at the start of a line
-#33: FILE: arch/riscv/boot/dts/spacemit/k1-orangepi-rv2.dts:87:
-+       cpu-supply = <&buck1_0v9>;$
-
-
-Thanks for the ping (and sorry for the delay)..
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSWNlbm93eSwgCgpPbiAxNzowMCBGcmkgMTggU2VwICAgICAsIEljZW5vd3kgWmhlbmcgd3Jv
+dGU6Cj4g5ZyoIDIwMjYtMDktMTjkupTnmoQgMDI6NDAgKzAwMDDvvIxZaXh1biBMYW7lhpnpgZPv
+vJoKPiA+IMKgIFNwYWNlbWlUJ3MgUE1VIChQb3dlciBNYW5hZ2VtZW50IFVuaXQpIGNvbnNpc3Qg
+b2Ygc2V2ZXJhbCBwb3dlcgo+ID4gZG9tYWlucwo+ID4gd2hpY2ggY2FuIGJlIG1hbmFnZWQgaW5k
+ZXBlbmRlbnRseSwgZGVwZW5kaW5nIG9uIGRpZmZlcmVudAo+ID4gYXBwbGljYXRpb24KPiA+IHNj
+ZW5hcmlvLCBlYWNoIGRvbWFpbiBjYW4gYmUgcG93ZXJlZCBvbi9vZmYgZm9yIHNhdmluZyBwb3dl
+ci4KPiA+IAo+ID4gwqAgVGhlIGRyaXZlciBpcyBpbXBsZW1lbnRlZCBiYXNlZCBvbiBMaW51eCBH
+ZW5lcmljIFBNIERvbWFpbgo+ID4gZnJhbWV3b3JrLgo+ID4gRnJvbSBhIGhhcmR3YXJlIHBlcnNw
+ZWN0aXZlLCBlaXRoZXIgb2YgdHdvIGRpc3RpbmN0IHBvd2VyLW9uCj4gPiBzZXF1ZW5jZXMKPiA+
+IGFyZSBzdXBwb3J0ZWQsIGluIHNvZnR3YXJlIG1vZGUgKFNXIG1vZGUpLCB0aGUgZHJpdmVyIGlz
+IHJlc3BvbnNpYmxlCj4gPiBmb3IKPiA+IGNvbnRyb2xsaW5nIHRoZSBzdGF0ZXMgb2YgYml0cyBz
+dWNoIGFzIHNsZWVwMSwgc2xlZXAyLCBpc29sYXRpb24gYW5kCj4gPiBwd3Jfc3RhdGUsIHdoaWxl
+IGluIGhhcmR3YXJlIG1vZGUgKEhXIG1vZGUpLCB0aGUgUE1VIGhhcmR3YXJlIHdpbGwKPiA+IGNv
+bXBsZXRlCj4gPiB0aGUgc2VxdWVuY2UgYXV0b21hdGljYWxseSB3aXRob3V0IHJlcXVpcmluZyBz
+b2Z0d2FyZSBpbnRlcnZlbnRpb24uCj4gCj4gSSB0aGluayB0aGVyZSBhbHNvIGV4aXN0cyBzb2x1
+dGlvbnMgZm9yIEszIHRoYXQgdXNlcyBSUE1JIHBvd2VyCj4gZG9tYWlucywgYW5kIGxldCB0aGVp
+ciBFU09TIGZpcm13YXJlIHRvIGFjY2VzcyB0aGUgaGFyZHdhcmUuCj4gClllcywgSSdtIGF3YXJl
+IG9mIHRoYXQKCj4gV2hhdCdzIHRoZSByZWxhdGlvbnNoaXAgb2YgdGhpcyBpbXBsZW1lbnRhdGlv
+biB3aXRoIHRoZSBFU09TCj4gaW1wbGVtZW50YXRpb24/IFNob3VsZCB0aGUgRVNPUyBwYXJ0IGJl
+IGRpc2FibGVkIHRvIHVzZSB0aGlzCj4gaW1wbGVtZW50YXRpb24/Cj4gCkkgc2hvdWxkIHNheSwg
+aXQncyBhIG11dHVhbGx5IGV4Y2x1c2l2ZSBzb2x1dGlvbiwgc28geWVzLCB0aGUgRVNPUyBwYXJ0
+CnNob3VsZCBiZSBkaXNhYmxlZCBpbiBvcmRlciB0byB1c2UgdGhpcyB2ZXJzaW9uCgpUaGUgbW90
+aXZhdGlvbiBvZiB0aGlzIHBhdGNoIGlzIHRyeWluZyB0byBzdXBwb3J0IGRybS9kaXNwbGF5IGRy
+aXZlcidzClBNIHJlcXVpcmVtZW50LCB3aGlsZSBhdm9pZCBnb2luZyB3aXRoIHZlbmRvcidzIGNv
+bXBsaWNhdGVkIFJQTUkgc29sdXRpb24Kd2hpY2ggaXNuJ3QgbWFpbmxpbmUgcmVhZHkKCi0tIApZ
+aXh1biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
