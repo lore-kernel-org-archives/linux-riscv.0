@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53887C982D8
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 18:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9C1C982D8
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 18:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y6EPjHu2b/04hOuXZVeldQ06gPxuLvK+fnfsJbAsXmM=; b=zGqimK+BHFAbY4
-	qDxJ8LqnN4CQU4pXb0g8LnapXq1U53/4kFm3Sn5IXG8xfa1NTFZw2cQuSinbwCDZxn5YwlLA2pd93
-	9U+zzmWpMJhIXicmk75mQ1Nw+BUFICPgzzBdw0OQOn/Igr/aROdKKSR7nBwA13F7oc0saPBQVMZTo
-	6YaRKKUFYmHGv76AwtU2a2cZL5uxXCo4e40g+asEls5jBvX9RjOl7sm+GcNJahbcMjwx/0xwK1mXb
-	5hwi9OlX8/AfL5E+h/g4Ttigb/sczPFQXNpKdYyV4f7Zf7iOfhrijSvz8f4HI2wW8wf7SaqyE1QsI
-	lkMCD9N1HSPWfFszsZFA==;
+	List-Owner; bh=phSm8eoqnTw4cIOeXb90A8fiqSShCiRBP/KmOI/JyXg=; b=4WXsnBLBIAxGi1
+	zWLpRpfjPfXruxLK8eroZ63GqIDL9uSTSI624MkVzUfLXoHV4hIYErAHeVBLZMi93KP7GMOcV1v/e
+	HyBvb8zHYGaYe6AHEHTlp/MZkEvhE/f8/5GAnl9J7nsqfbrY5rQKi1toWAPEz+LjswGnpbnO7bySM
+	j5UPXvKnvP/bkidTfbArNMEiFwNRA9u9n0paOEO7Aj9GTcqwIsa47DsJulY7yI8JfdjfgyvBe42rV
+	euLiyKaa71w2B1qP3HIIPr0rKiAdJOAmGFAw+GDsJB9Ne/bGqBTe/JKqTaAP/WlaR6WMDM1iKfFt6
+	WBFPD1ikqBS92BRqSb7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dUY-0000000FKfE-41et;
-	Fri, 18 Sep 2026 18:39:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x7dUn-0000000FKhB-0DXu;
+	Fri, 18 Sep 2026 18:39:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7dUY-0000000FKf6-0x3M
+	id 1x7dUm-0000000FKgs-1EbP
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Sep 2026 18:39:22 +0000
+	Fri, 18 Sep 2026 18:39:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E640602CC;
-	Fri, 18 Sep 2026 18:39:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C4031F000FF;
-	Fri, 18 Sep 2026 18:39:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B0DA8438C4;
+	Fri, 18 Sep 2026 18:39:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BAC01F00898;
+	Fri, 18 Sep 2026 18:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789756761;
-	bh=tgCEktcQJoxCeJhLRkq5qXUfMLe9HnPT4SzjBVt4WRA=;
+	s=k20260515; t=1789756775;
+	bh=xTQETUzTDt6e+MU4I+eP6rVfZVdsGsIww6yfCzUatU4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Y/OQRWZJ7FlnbIjkfl0OTtQ9oLlmEVh1Zr5sjicMQXTBiEHl/dmql8zCOFr3GLm3Z
-	 ENiTfVPF77aRZow5NH5uRfA3sjzFnrsu9q3uPXr2x3Z/6BaL/pgn9d+eNCL3mo7w/3
-	 8kUR6ZYI1C3iv6wDOB1nlCiJ2LI3/qzFF2foofjcD57sjWLDo/a8TVlt+Rl14wXG7u
-	 dyZt8nkQqQvm8OEJXIyBBS7QVq5oX11StZyCP2OS6SSvDjjAYM0h7yPvATaJQlBjMU
-	 lV3n/vpDfMWZA9LKL6noDZW25IDxqyRoAsYUzBAsYFV1SnpT2jhOQRmg+dQF0nlHPU
-	 PTrN3cz1QMWHw==
-Date: Fri, 18 Sep 2026 13:39:19 -0500
-From: Rob Herring <robh@kernel.org>
+	b=Eo7QJoRq2YI9PHxFEbM4CrTtiV0ZWT/EDzfBk/v0St46Pcp4miQxRZ5Tl0jEPOcrT
+	 0jyxNfynvSwpqJKhi8cfMiElglT/ALBxne2HBbmIYkjZ1AklKCvugXWsjIP31V088g
+	 GDgFLbFSZoMz9+PQVkpB2sE9c79pgTT1Hmo3Q1iZxojN4zL8J76jVZ0lYyMP/E86Ks
+	 ifg6lLftK4qXFqILfOAxEfnZXaw6OUdidTsTCxzXtuV9KMYbM+u92knVizMhoiXRMi
+	 UlkIUytGEd3qbp+Clu3aPvpKjVlNELm2YvLTfXCzpGK5XvuYSfG2Gw7wN13A0QQNET
+	 lGzbwpBdQNkzg==
+Date: Fri, 18 Sep 2026 13:39:33 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Changhuang Liang <changhuang.liang@starfivetech.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Cc: Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <pjw@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Bartosz Golaszewski <brgl@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Philipp Zabel <p.zabel@pengutronix.de>,
 	linux-riscv@lists.infradead.org,
-	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>
-Subject: Re: [PATCH v8 09/22] dt-bindings: pinctrl: Add
- starfive,jhb100-sys2-pinctrl
-Message-ID: <20260918183919.GA1346263-robh@kernel.org>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
+	Linus Walleij <linusw@kernel.org>
+Subject: Re: [PATCH v8 13/22] dt-bindings: pinctrl: Add
+ starfive,jhb100-per1-pinctrl
+Message-ID: <178975664744.1339867.1072081982014838266.robh@kernel.org>
 References: <20260910100357.130134-1-changhuang.liang@starfivetech.com>
- <20260910100357.130134-10-changhuang.liang@starfivetech.com>
+ <20260910100357.130134-14-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260910100357.130134-10-changhuang.liang@starfivetech.com>
+In-Reply-To: <20260910100357.130134-14-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,17 +80,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 10, 2026 at 03:03:44AM -0700, Changhuang Liang wrote:
-> Add pinctrl bindings for StarFive JHB100 SoC System-2(sys2) pinctrl
+
+On Thu, 10 Sep 2026 03:03:48 -0700, Changhuang Liang wrote:
+> Add pinctrl bindings for StarFive JHB100 SoC Peripheral-1(per1) pinctrl
 > controller.
 > 
 > Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
 > ---
->  .../pinctrl/starfive,jhb100-sys2-pinctrl.yaml | 165 ++++++++++++++++++
->  1 file changed, 165 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys2-pinctrl.yaml
+>  .../pinctrl/starfive,jhb100-per1-pinctrl.yaml | 178 ++++++++++++++++++
+>  1 file changed, 178 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-per1-pinctrl.yaml
+> 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
