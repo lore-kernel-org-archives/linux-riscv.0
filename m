@@ -4,67 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79D1C982D2
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 01:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC60C982D0
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 01:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kOZXSilyt5k4xGFGayOEPETewqqVxfgOtz3zbihikKQ=; b=RGpuzWydjf0MMf
-	GX4ojwhj/3jdCqIdPfLSc/WdQuVgA6E77zvOUtzVVhj1A6YVwbKENEHaraxGhXY7X3Aptghcw3FGH
-	Dy6K/xAPBqZpeFgTEJKFX5Isw5LejHlcWt5IGjqxunB+6QRHwEBz19GYTi2XS02xK4yunxQkWx/X9
-	Nfc32Xg6bqeLDyACMk9XsVJATm2teSfSK9qGHlxXXc7bnDfo3Ubu6F5IfWUGrxdbYsZzzXFGxUkU2
-	4xep/tEE8Yahw/AizVY/LodbzPmyJvfnAnLv3DdVM4V/hViMGbpMMWGH4zaYP6rmlcT3+KYsA0ZSw
-	Be5uH4YjK3ygu4xabVSw==;
+	List-Owner; bh=0xo+WZOFtpLasml2XogHPIEzZqJMiCvKe8us2lvjj+E=; b=t6FOhHSuAqJoU1
+	gQnH7RazDB2gu+1FQYoXr9ua5xvVhTSHj2xj4WQztO1iKCb+xW0GEUswc5JeRrjG44uas7h6A5Isc
+	2MK5TGLIxVU+ykDaSVBQ0c5XcUmQd1+ARr5eSMwkdMKY5uC6+3vxDO1Qv2UHvM41BIKEblnH4z0RE
+	sT0X3rV96tcbuuaydcXTp+t64avJvTcSldDc8Tuu55auFnK1G/qo4PYzsZE5IkaK2xgiHXYW6qrz7
+	tEfXYTaA6CnqOHsRIO0+dicGHgS5I4sCWbeo4WjkSzIGTzfIjqxvItDyo5FJa8iCMUMwd27YxJd0O
+	DOJvgCeDsRnWAXcSf5Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7NI3-0000000D8Ip-29gl;
-	Fri, 18 Sep 2026 01:21:23 +0000
-Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
+	id 1x7NIH-0000000D8Oz-2dKE;
+	Fri, 18 Sep 2026 01:21:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7NI0-0000000D8Gz-1BEf;
-	Fri, 18 Sep 2026 01:21:21 +0000
-Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
-	by mail.mindbit.ro (Postfix) with ESMTPSA id 76870D0766;
-	Fri, 18 Sep 2026 04:21:14 +0300 (EEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 76870D0766
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
-	s=default; t=1789694477;
-	bh=69bnCVQM5n3sV/AN5VtraQEwkW0YanBMdQC8pbKcydM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=ax2GgqebXNR2R2lP+6/CijC3VqGvyDb08ILb0eZ6Ema1QmO+nzkiVt/qRo7PjqTGp
-	 omF5ojiR+tFY2fkhlBSOfp1uhXyFE5u1MkIs/42ovtNJ+0FF/txHSbBXiE5YlIqqXz
-	 7ZfxK8+GnM/1UaO/A/wiJz4RukrOPn8ziE+7vEOamYCHnXcUjxPRGUakAtZoryriXd
-	 hzMZ+JCt9n9yC1f1spnVcwlt9shjLNaDYXtF4nrnK/oHV7gCM1A9PdtfQYADHAkmYd
-	 vd+8dsupfkAL9T2QqNdP05m/gXaJ7VZc2W+030SRS9tXyKQrP6cko254BVWIod5kye
-	 4hJvIM4Oow2Kw==
-Message-ID: <2b23ecf7ae8baf0266c3701060858abec901a71c.camel@rendec.net>
-Subject: Re: [PATCH v2 6/6] media: mtk-vpu: rename IPI_MAX to IPI_VPU_MAX
-From: Radu Rendec <radu@rendec.net>
-To: "GUO Ren (XuanTie)" <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>,  Daniel Lezcano
- <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Anup Patel
- <anup@brainfault.org>,  Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT
- Chen <andrew-ct.chen@mediatek.com>, Yunfei Dong	
- <yunfei.dong@mediatek.com>, Minghsiu Tsai <minghsiu.tsai@mediatek.com>, 
- Houlong Wei <houlong.wei@mediatek.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Nathan Chancellor <nathan@kernel.org>
-Date: Thu, 17 Sep 2026 21:21:12 -0400
-In-Reply-To: <20260911-ipi_max-v2-6-a77826ff189e@kernel.org>
-References: <20260911-ipi_max-v2-0-a77826ff189e@kernel.org>
-	 <20260911-ipi_max-v2-6-a77826ff189e@kernel.org>
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1x7NID-0000000D8Mw-2JqS;
+	Fri, 18 Sep 2026 01:21:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2CAB042AF2;
+	Fri, 18 Sep 2026 01:21:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E5521F000FF;
+	Fri, 18 Sep 2026 01:21:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789694493;
+	bh=PKIVsNOUBkTvWGBthw3StTS5zUBeSADLiIKEQwT9Z1M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aJLTUh8bOmPHIIxbkbTasFPdsby/oj73sfuTs4fHyGjyvO9eay/V8HiFzZVHQ9ZV1
+	 xScG95SmWMyTQLGruGQJM+5ibJCFfHGrAZvF8tTaT82cV5L8vFiCmuej5Ycx/vR/R9
+	 fLy7vVqGyzYP3I4HTgQwiPOxQccMssXco3Ji+DXMnMgHtXRnAk3Y1jiUlALO8D9xJa
+	 zBkdOQYcJ5J9kV47pIeFFXFnrrnL30ex+XvCZs+1CPOq2mehWVhq0nAs9O01FJR9UL
+	 u1/MxWsUZtUrnDJPBmwCl06z+VFrvV8GJi6qiyPK0fq3IA271K+oCOl9VN2o+oJH1Q
+	 FHWIBkcvwIYtg==
+Date: Thu, 17 Sep 2026 18:21:19 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Alexey Gladkov <legion@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 11/20] kbuild: avoid re-running compiler and linker
+ probes
+Message-ID: <20260918012119.GC1585590@ax162>
+References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
+ <20260917-build-speedup-v3-11-9ecf4163ff36@kernel.org>
+ <202609171154.BEA5134F7@keescook>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_182120_500381_04614E31 
-X-CRM114-Status: GOOD (  20.22  )
+Content-Disposition: inline
+In-Reply-To: <202609171154.BEA5134F7@keescook>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,82 +105,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMDI2LTA5LTExIGF0IDAzOjI3ICswMDAwLCBHVU8gUmVuIChYdWFuVGllKSB3cm90
-ZToKPiBUaGUgbGFzdCBlbnVtZXJhdG9yIG9mIHRoaXMgZHJpdmVyJ3MgZmlybXdhcmUgSVBJIGlk
-IGxpc3QgaXMgYSBib3VuZAo+IGZvciB0aGUgVlBVIG1haWxib3ggcHJvdG9jb2wsIG5vdCBhIGdl
-bmVyaWMgaG9zdCBJUEkgbGltaXQuIEZvbGxvdyB0aGUKPiBleGlzdGluZyBuYW1pbmcgaW4gdGhp
-cyBoZWFkZXI6IElQSV9WUFVfSU5JVCBhbHJlYWR5IGNhcnJpZXMgYSBWUFUKPiBwcmVmaXgsIHNv
-IHRoZSB0ZXJtaW5hdG9yIHNob3VsZCBtYXRjaC4KPiAKPiBUaGUgc2FtZSBjb252ZW50aW9uIGlz
-IHVzZWQgYnkgdGhlIFNDUCBJUEkgZW51bSwgd2hpY2ggZW5kcyB3aXRoIGEKPiBwcmVmaXhlZCBT
-Q1BfSVBJX01BWCByYXRoZXIgdGhhbiBhIGJhcmUgSVBJX01BWC4KPiAKPiBSZW5hbWUgSVBJX01B
-WCB0byBJUElfVlBVX01BWCBhbmQgdXBkYXRlIHRoZSBkZXNjcmlwdG9yIHRhYmxlIGJvdW5kcwo+
-IGFuZCByYW5nZSBjaGVja3MuIE5vIGZ1bmN0aW9uYWwgY2hhbmdlLgo+IAo+IExpbms6IGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjYwOTA4MjIyMzQ5LkdBMjMyNDg3MEBh
-eDE2Mgo+IENjOiBOYXRoYW4gQ2hhbmNlbGxvciA8bmF0aGFuQGtlcm5lbC5vcmc+Cj4gU2lnbmVk
-LW9mZi1ieTogR1VPIFJlbiAoWHVhblRpZSkgPGd1b3JlbkBrZXJuZWwub3JnPgo+IC0tLQo+IMKg
-ZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay92cHUvbXRrX3ZwdS5jIHwgMTIgKysrKysr
-LS0tLS0tCj4gwqBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL3ZwdS9tdGtfdnB1Lmgg
-fMKgIDQgKystLQo+IMKgMiBmaWxlcyBjaGFuZ2VkLCA4IGluc2VydGlvbnMoKyksIDggZGVsZXRp
-b25zKC0pCj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsv
-dnB1L210a192cHUuYyBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvdnB1L210a192
-cHUuYwo+IGluZGV4IDhkODMxOWYwY2QyMi4uYjNlOWY4YzRhYjdhIDEwMDY0NAo+IC0tLSBhL2Ry
-aXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvdnB1L210a192cHUuYwo+ICsrKyBiL2RyaXZl
-cnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvdnB1L210a192cHUuYwo+IEBAIC0yMTEsNyArMjEx
-LDcgQEAgc3RydWN0IG10a192cHUgewo+IMKgCXN0cnVjdCB2cHVfcmVncyByZWc7Cj4gwqAJc3Ry
-dWN0IHZwdV9ydW4gcnVuOwo+IMKgCXN0cnVjdCB2cHVfd2R0IHdkdDsKPiAtCXN0cnVjdCB2cHVf
-aXBpX2Rlc2MgaXBpX2Rlc2NbSVBJX01BWF07Cj4gKwlzdHJ1Y3QgdnB1X2lwaV9kZXNjIGlwaV9k
-ZXNjW0lQSV9WUFVfTUFYXTsKPiDCoAlzdHJ1Y3Qgc2hhcmVfb2JqIF9faW9tZW0gKnJlY3ZfYnVm
-Owo+IMKgCXN0cnVjdCBzaGFyZV9vYmogX19pb21lbSAqc2VuZF9idWY7Cj4gwqAJc3RydWN0IGRl
-dmljZSAqZGV2Owo+IEBAIC0yMjEsNyArMjIxLDcgQEAgc3RydWN0IG10a192cHUgewo+IMKgCXN0
-cnVjdCBtdXRleCB2cHVfbXV0ZXg7IC8qIGZvciBwcm90ZWN0aW5nIHZwdSBkYXRhIGRhdGEgc3Ry
-dWN0dXJlICovCj4gwqAJdTMyIHdkdF9yZWZjbnQ7Cj4gwqAJd2FpdF9xdWV1ZV9oZWFkX3QgYWNr
-X3dxOwo+IC0JYm9vbCBpcGlfaWRfYWNrW0lQSV9NQVhdOwo+ICsJYm9vbCBpcGlfaWRfYWNrW0lQ
-SV9WUFVfTUFYXTsKPiDCoH07Cj4gwqAKPiDCoHN0YXRpYyBpbmxpbmUgdm9pZCB2cHVfY2ZnX3dy
-aXRlbChzdHJ1Y3QgbXRrX3ZwdSAqdnB1LCB1MzIgdmFsLCB1MzIgb2Zmc2V0KQo+IEBAIC0yOTYs
-NyArMjk2LDcgQEAgaW50IHZwdV9pcGlfcmVnaXN0ZXIoc3RydWN0IHBsYXRmb3JtX2RldmljZSAq
-cGRldiwKPiDCoAkJcmV0dXJuIC1FUFJPQkVfREVGRVI7Cj4gwqAJfQo+IMKgCj4gLQlpZiAoaWQg
-PCBJUElfTUFYICYmIGhhbmRsZXIpIHsKPiArCWlmIChpZCA8IElQSV9WUFVfTUFYICYmIGhhbmRs
-ZXIpIHsKPiDCoAkJaXBpX2Rlc2MgPSB2cHUtPmlwaV9kZXNjOwo+IMKgCQlpcGlfZGVzY1tpZF0u
-bmFtZSA9IG5hbWU7Cj4gwqAJCWlwaV9kZXNjW2lkXS5oYW5kbGVyID0gaGFuZGxlcjsKPiBAQCAt
-MzE5LDcgKzMxOSw3IEBAIGludCB2cHVfaXBpX3NlbmQoc3RydWN0IHBsYXRmb3JtX2RldmljZSAq
-cGRldiwKPiDCoAl1bnNpZ25lZCBsb25nIHRpbWVvdXQ7Cj4gwqAJaW50IHJldCA9IDA7Cj4gwqAK
-PiAtCWlmIChpZCA8PSBJUElfVlBVX0lOSVQgfHwgaWQgPj0gSVBJX01BWCB8fAo+ICsJaWYgKGlk
-IDw9IElQSV9WUFVfSU5JVCB8fCBpZCA+PSBJUElfVlBVX01BWCB8fAo+IMKgCcKgwqDCoCBsZW4g
-PiBzaXplb2Yoc2VuZF9vYmotPnNoYXJlX2J1ZikgfHwgIWJ1Zikgewo+IMKgCQlkZXZfZXJyKHZw
-dS0+ZGV2LCAiZmFpbGVkIHRvIHNlbmQgaXBpIG1lc3NhZ2VcbiIpOwo+IMKgCQlyZXR1cm4gLUVJ
-TlZBTDsKPiBAQCAtNzQ4LDcgKzc0OCw3IEBAIHN0YXRpYyB2b2lkIHZwdV9pcGlfaGFuZGxlcihz
-dHJ1Y3QgbXRrX3ZwdSAqdnB1KQo+IMKgCXMzMiBpZCA9IHJlYWRsKCZyY3Zfb2JqLT5pZCk7Cj4g
-wqAKPiDCoAltZW1jcHlfZnJvbWlvKGRhdGEsIHJjdl9vYmotPnNoYXJlX2J1Ziwgc2l6ZW9mKGRh
-dGEpKTsKPiAtCWlmIChpZCA8IElQSV9NQVggJiYgaXBpX2Rlc2NbaWRdLmhhbmRsZXIpIHsKPiAr
-CWlmIChpZCA8IElQSV9WUFVfTUFYICYmIGlwaV9kZXNjW2lkXS5oYW5kbGVyKSB7Cj4gwqAJCWlw
-aV9kZXNjW2lkXS5oYW5kbGVyKGRhdGEsIHJlYWRsKCZyY3Zfb2JqLT5sZW4pLAo+IMKgCQkJCcKg
-wqDCoMKgIGlwaV9kZXNjW2lkXS5wcml2KTsKPiDCoAkJaWYgKGlkID4gSVBJX1ZQVV9JTklUKSB7
-Cj4gQEAgLTkzNCw3ICs5MzQsNyBAQCBzdGF0aWMgaW50IG10a192cHVfcHJvYmUoc3RydWN0IHBs
-YXRmb3JtX2RldmljZSAqcGRldikKPiDCoCNpZmRlZiBDT05GSUdfREVCVUdfRlMKPiDCoAlkZWJ1
-Z2ZzX3JlbW92ZSh2cHVfZGVidWdmcyk7Cj4gwqAjZW5kaWYKPiAtCW1lbXNldCh2cHUtPmlwaV9k
-ZXNjLCAwLCBzaXplb2Yoc3RydWN0IHZwdV9pcGlfZGVzYykgKiBJUElfTUFYKTsKPiArCW1lbXNl
-dCh2cHUtPmlwaV9kZXNjLCAwLCBzaXplb2Yoc3RydWN0IHZwdV9pcGlfZGVzYykgKiBJUElfVlBV
-X01BWCk7Cj4gwqB2cHVfbXV0ZXhfZGVzdHJveToKPiDCoAltdXRleF9kZXN0cm95KCZ2cHUtPnZw
-dV9tdXRleCk7Cj4gwqBkaXNhYmxlX3ZwdV9jbGs6Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWVk
-aWEvcGxhdGZvcm0vbWVkaWF0ZWsvdnB1L210a192cHUuaCBiL2RyaXZlcnMvbWVkaWEvcGxhdGZv
-cm0vbWVkaWF0ZWsvdnB1L210a192cHUuaAo+IGluZGV4IDM5NTE1NDdlOWVjNS4uNDRhYjYzMWVj
-OTA0IDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvdnB1L210
-a192cHUuaAo+ICsrKyBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvdnB1L210a192
-cHUuaAo+IEBAIC00OSw3ICs0OSw3IEBAIHR5cGVkZWYgdm9pZCAoKmlwaV9oYW5kbGVyX3QpICh2
-b2lkICpkYXRhLAo+IMKgICoJCQkgaGFuZGxlIFZQOCB2aWRlbyBlbmNvZGVyIGpvYiwsIGFuZCB2
-aWNlIHZlcnNhLgo+IMKgICogQElQSV9NRFA6CQkgVGhlIGludGVycnVwdCBmcm9tIHZwdSBpcyB0
-byBub3RpZnkga2VybmVsIHRvCj4gwqAgKgkJCSBoYW5kbGUgTURQIChNZWRpYSBEYXRhIFBhdGgp
-IGpvYiwgYW5kIHZpY2UgdmVyc2EuCj4gLSAqIEBJUElfTUFYOgkJIFRoZSBtYXhpbXVtIElQSSBu
-dW1iZXIKPiArICogQElQSV9WUFVfTUFYOgkgVGhlIG1heGltdW0gVlBVIElQSSBudW1iZXIKPiDC
-oCAqLwo+IMKgCj4gwqBlbnVtIGlwaV9pZCB7Cj4gQEAgLTYwLDcgKzYwLDcgQEAgZW51bSBpcGlf
-aWQgewo+IMKgCUlQSV9WRU5DX0gyNjQsCj4gwqAJSVBJX1ZFTkNfVlA4LAo+IMKgCUlQSV9NRFAs
-Cj4gLQlJUElfTUFYLAo+ICsJSVBJX1ZQVV9NQVgsCj4gwqB9Owo+IMKgCj4gwqAvKioKClJldmll
-d2VkLWJ5OiBSYWR1IFJlbmRlYyA8cmFkdUByZW5kZWMubmV0PgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Sep 17, 2026 at 12:26:48PM -0700, Kees Cook wrote:
+> On Thu, Sep 17, 2026 at 05:06:21PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > Each kernel make invocation begins with ~30 compiler and linker runs each
+> > of which performs duplicate probe for a number of compiler and linker
+> > options.
+> > 
+> > This is useless work - the compiler and its version is known, so use these
+> > to determine which options are available, once.
+> > 
+> > A convention already exists for this - CC_HAS_xxx, LD_HAS_xxx in Kconfig
+> > files (for example, CC_HAS_COUNTED_BY), so convert these probes to Kconfig
+> > options where appropriate.
+> 
+> Yeah, I agree about the rationale here.
+> 
+> It does, however, now drive a long-time annoyance of mine to the top of
+> mind: the repetition of the compiler command-line options in two places:
+> the Kconfig and the Makefile. I dislike that pattern so much that I really
+> really worked hard to use cc-option instead where ever I possibly could
+> (though it continued to add to my growing concern about the repetition
+> of running those checks all the time, so I'm motivated to see something
+> like what you have here actually land).
+> 
+> But I would really like to find a way to avoid the duplication. It's
+> fragile and it's weird and it's split across 2 files that don't always
+> have an obvious relationship. I really don't like it. And with it being
+> used for things that are "detected" (i.e. not part of always required
+> builds), that fragility means typos may go unnoticed, etc.
+> 
+> We've had a need for some kind of kconfig "append to a list" logic that
+> we've been working around in places, e.g. include/linux/lsm_count.h for
+> how "count the list of enabled LSMs" got dealt with. If we could have
+> had:
+> 
+> config LSM_LIST
+> 	list
+> 	separator " "
+> 
+> config SECURITY_SELINUX
+> 	...
+> 	append_to LSM_LIST
+> 	...
+> 
+> We could just parse CONFIG_LSM_LIST directly. And I think we can do the
+> same with this:
+> 
+> config CC_OPTION_LIST
+> 	list
+> 	separator " "
+> 
+> config CC_OPTION_ZERO_INIT_PADDING_BITS
+> 	string
+> 	default "$(cc-option-bit,-fzero-init-padding-bits=all)"
+> 	append_to CC_OPTION_LIST
+> 
+> And the dump all of it into the Makefile in one via CONFIG_CC_OPTION_LIST
+> 
+> (And we'd need to implement ld-option-bit. Though really I think
+> cc-option-bit should be renamed to cc-option-str or something)
+> 
+> But even without the new "list" Kconfig type, it'd be nicer to use the
+> cc-option-bit string default method and dump all the newly created
+> CC_OPTION_... strings into the makefile manually. The "append_to" idea
+> could be a follow-up.
+
+While we could certainly try to cook something like this up, we could
+also avoid the split across two files by just defining the flags in
+Kconfig directly and using them in the Makefile through their symbol,
+like we already do for -Wimplicit-fallthrough. For example, instead of
+
+  config CC_HAS_STRICT_FLEX_ARRAYS
+      def_bool $(cc-option,-fstrict-flex-arrays=3)
+
+  KBUILD_CFLAGS += $(if $(CONFIG_CC_HAS_STRICT_FLEX_ARRAYS),-fstrict-flex-arrays=3)
+
+We would just do
+
+  config CC_STRICT_FLEX_ARRAYS
+      string
+      default "-fstrict-flex-arrays=3" if $(cc-option,-fstrict-flex-arrays=3)
+
+  KBUILD_CFLAGS += $(CONFIG_CC_STRICT_FLEX_ARRAYS)
+
+While we still get the duplication (and we could look at getting rid of
+it with your cc-option-str idea or whatever), it is at least contained
+to the same location, so out of sync issues should be much rarer. I do
+diff Kconfigs so this might make certain issues with checks a little bit
+more obvious if something changes on the compiler side.
+
+-- 
+Cheers,
+Nathan
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
