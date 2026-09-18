@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F93EC982D8
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 17:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B58C982D8
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 18:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6PWa/kODD9aF/khqXa5p8oFypv9eaxQj0ZAuBltfVWg=; b=kvgTSCg+Us8/Wr
-	qSKKZXIoif93UjN37FsOX1x6DZoKVxrEM/HlmyuRGLipRtMx6KKvl+FiMvdKhDbSFDImzbt9WoWH1
-	sLpgVxwyF7MoCeM4xovnDjkiCXM0oN6uQdS1qpI1lZVE3nyPdxLx0UKmOKmirZ+xbWkaSc7js+Jb8
-	Xb3Ne70hLlrpsLKuJj/BK8c/Zdqn/+K1ms122GLPDpRW86DsKG1AYWYkrXykopfVjIb55sz2iSs0l
-	ke7jzkiypv32aqhBjYzOzKTLOz3mwoiOOuinE0q3vROeBrcR5ZxCIQoa3MaLKivkycd9kQXqFJVVH
-	3k/fiBfGsCL+ZEkP7UmQ==;
+	List-Owner; bh=DyA+RkRww7Ye9L4kH5ym48e2qB5OiFkRs4mgZx1gSm8=; b=zRztVTO4JCYM7W
+	Gg4BzLvKUJIFU9ciKzkLzWnvVwo++zVgBPErYO/vvUJmZJlJz+Vz9nEs2uRpgIg7YMhzYMz5WHjxm
+	nErYNwZqlZE9c0YEojRn5/gwXQ0vCEySPAwEEP0xFZ9ruN/em1IlR/loSJj5XV9MN0Ky420VydJMu
+	SiItSTK0kNg8i72Iz8pkeab/Z21eGUZxw4PJMDZstN1KksoNQS5k1GO7yMCTbxKGVsd7irsTVS8qt
+	ccojGJgu6o050TlFmuVXqRfChwDnh0rsOuDI5FsxvhZEAUMbN/VDC9I3injhYVuzImO46opx5O/hf
+	ft2Jd5crGPGF0jDrwOxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7cZs-0000000FCxB-1V7E;
-	Fri, 18 Sep 2026 17:40:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x7dQt-0000000FKHA-2ER6;
+	Fri, 18 Sep 2026 18:35:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7cZp-0000000FCwX-2KT0
+	id 1x7dQr-0000000FKGT-3Sqm
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Sep 2026 17:40:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1789753242;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UtUsYSimD6K1xLItLoYKB1WWd1TCjyyOy2jIzUuov2s=;
-	b=KuBMhv5UoWq/btEbzcpWvOCJ0J2G4jTk5YVFWjH2n0V41WAP2ce4T9FWmifKoi9BwpxQoe
-	c0SHrASpCHAAKG6ZHApVagd0myDQRQbW4FckxCjgfspZ/lxSIHOcvIfpIguNFCL+0qfc2o
-	HysTn9BF2OD3BCymu9XHliL4Fw6RCIY=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-574-B-uxa2VKPF2C46FEUD95Og-1; Fri, 18 Sep 2026 13:40:41 -0400
-X-MC-Unique: B-uxa2VKPF2C46FEUD95Og-1
-X-Mimecast-MFC-AGG-ID: B-uxa2VKPF2C46FEUD95Og_1789753240
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c26012cd0so18936841cf.0
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Sep 2026 10:40:41 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789753240; x=1790358040;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UtUsYSimD6K1xLItLoYKB1WWd1TCjyyOy2jIzUuov2s=;
-        b=qW01VkZ2Yn+7dZwTFUjIxOJkf5EvtXeKU7NRbKNb5K+EBaA0YBZM04ecvwhMW7nWH3
-         sBnCyesyDhAUeDyZqAxieIRAMJzFk1PeibFZGUmgRhGrnVOiux4Z0DsLQEJorx4GEiRq
-         552T91nySVpc0lzqbXgaym1T3VZELnI1CObslWJlljPwIugEZ3PnC6ysovqN5go/m6Cf
-         HvDjng95nwIJXlVVGxfw7rJngyXJyOqBuuXnjdOqxhl8RjrCG2cTWlxIUDHGMgwQSUfQ
-         ++Ojpw+K30AhZnoE0kFO3MIObqm8atiYIcXF/2fzbO68LRQbILhQSLTcALqC/M9ggPmf
-         bbzg==
-X-Forwarded-Encrypted: i=1; AKwUvBzCbvkkDFop6IrXy71W5DNF/tylG7Hk3WUgCC7vLXfIqB0k4YmFTq4p8A49n4alt65NEjsbl5zlYPhGYA==@lists.infradead.org
-X-Gm-Message-State: AFuF++k04sw4+PkTetUye/26+Yb46Zma8n9fvpxFDkKUpGaZcYmJh8SJ
-	jSqA95qowfJLkEyh3dhdJyv2DTa54bIbiURLs9E0fpyIY/Ug5MhtYPpbyx74C138tLGhqRZT0A6
-	V8nbnUFWvkkTanhTmUy64eqJC9rRc9MuSLH9maLZuJ8s/g3PPmJQU0vgz8Xs8h2n9RuSToQ==
-X-Gm-Gg: AYBFou19Myol7cDJ5lCmrik78QJN9Jj6eXxdIb6C4z8OW+SmXdb4xF0veamxE0euf2M
-	9hGWL3Yq/SdgBVEyKhv2d9duo6WMxBay4iwV96S0jt4W1pOPAKPUPAyCH76m514nLAFWInnsmYl
-	/jJimQB0VsqzNcfW+CfOZUFNXtAcEexYORUqmmdVBcG9yYoKErKcKH4/gFHx0o1i9RRHfAaX3bU
-	lT02Vz2BFYiao8ZXBOxiwy/XradzuJUOTJgcurBDc3E8TGFo9fe1Jk7uUiHYwn91i4tzwrmqNxA
-	lleeWdHxFAk/401t22aCZBY6uHVANJZLIfbHBuJnQQIgdidgYr7/TYC42nI1+L9VkT3meRVqNE5
-	ibfn5x5pYRLwz23HjQOqxDYQDf6YbDCX++yQ=
-X-Received: by 2002:a05:622a:8cc:b0:532:9add:cdda with SMTP id d75a77b69052e-5329e3d11b0mr50950941cf.63.1789753240031;
-        Fri, 18 Sep 2026 10:40:40 -0700 (PDT)
-X-Received: by 2002:a05:622a:8cc:b0:532:9add:cdda with SMTP id d75a77b69052e-5329e3d11b0mr50950411cf.63.1789753239363;
-        Fri, 18 Sep 2026 10:40:39 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532ae730a9fsm2075781cf.20.2026.09.18.10.40.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Sep 2026 10:40:38 -0700 (PDT)
-Date: Fri, 18 Sep 2026 13:40:36 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
-	linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [GIT PULL] clk: spacemit: Fixes for v7.3
-Message-ID: <aq13lDqmJjfDn4zI@redhat.com>
-References: <20260915004456-KYC0593228@kernel.org>
+	Fri, 18 Sep 2026 18:35:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DF43B6053B;
+	Fri, 18 Sep 2026 18:35:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6336C1F000FF;
+	Fri, 18 Sep 2026 18:35:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789756532;
+	bh=zL3zf/Mxv25j31UU57durVN7+v90+sc0FJoRGvW0bLM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=O+aaC1EhcNhwSVV6edxB8w7RjETC+qhUgcUbhqETv1XF4VnvSt22MYjSZkh4W2PnF
+	 ++bdTsPpa2BSkhqIQAIkuZv3miG+fwxi33gbZyv9vdtgil8GTIopbAnFSpD9G+8GLJ
+	 EMPM4TvwIvTeaqAacnKCs31+x9SgQVkj6PklT1NK2ghTud++y3nPQ4ajJB4bs2wrah
+	 7kPfDugWq/2nTH6ysSmdIF5Me/dbx2Lcj/MrbUtGarWhZaC2wMxE62l+4+RsOnijOK
+	 MauJY+TyCxZnyeXyr3dHIZzj84MPibUg7B8Gtr41ia5/b+HAuKv0Vg9WuTYiabca3H
+	 mTe7xvgb0UTrg==
+Date: Fri, 18 Sep 2026 13:35:30 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Changhuang Liang <changhuang.liang@starfivetech.com>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org,
+	Linus Walleij <linusw@kernel.org>,
+	Lianfeng Ouyang <lianfeng.ouyang@starfivetech.com>,
+	devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-gpio@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>
+Subject: Re: [PATCH v8 03/22] dt-bindings: pinctrl: Add
+ starfive,jhb100-sys0-pinctrl
+Message-ID: <178975652969.1333472.11106750466244695151.robh@kernel.org>
+References: <20260910100357.130134-1-changhuang.liang@starfivetech.com>
+ <20260910100357.130134-4-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20260915004456-KYC0593228@kernel.org>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: mLynlX2PgHBU1GXnE65u_PHjwYwLXhcYFYIfSGYIBBA_1789753240
-X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_104045_669515_BCA97B22 
-X-CRM114-Status: GOOD (  12.08  )
+In-Reply-To: <20260910100357.130134-4-changhuang.liang@starfivetech.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,31 +80,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026 at 12:54:54AM +0000, Yixun Lan wrote:
-> Hi Stephen,
-> 
->    Please pull SpacemiT's clock Fixes for v7.3. This solve an issue
-> that will trigger PLL clock closed due to the frequency not available
-> in kernel side, a shutdown of PLL will cause the system hang.
-> 
-> 
-> Yixun Lan
-> 
-> The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
-> 
->   Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
-> 
-> are available in the Git repository at:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/ tags/spacemit-clk-fixes-for-7.3-1
-> 
-> for you to fetch changes up to d558af8ee0bb1b2e88e696be84adb93cf2b7be6f:
-> 
->   clk: spacemit: k3: add CPU PLL rate tables (2026-09-15 00:09:55 +0000)
 
-Pulled into clk-fixes.
+On Thu, 10 Sep 2026 03:03:38 -0700, Changhuang Liang wrote:
+> Add pinctrl bindings for StarFive JHB100 SoC System-0(sys0) pinctrl
+> controller.
+> 
+> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> ---
+>  .../pinctrl/starfive,jhb100-sys0-pinctrl.yaml | 164 ++++++++++++++++++
+>  1 file changed, 164 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jhb100-sys0-pinctrl.yaml
+> 
 
-Brian
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
 _______________________________________________
