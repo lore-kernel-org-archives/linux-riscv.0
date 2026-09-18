@@ -4,108 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7541C982D8
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 17:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F93EC982D8
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 17:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5WB1gMKBJk+TRWBjJBBhUpPLrcrpsJ9OWETZOajatBc=; b=kVUT3QM9zTmhsp
-	cjA95jV9Np8axNJbfJsjFeSXNLCWUjDeKgFiHcb8XHCISSJbLV/CaO/ty+uYDjD1e+5sV8A+Di/lJ
-	mCdM9fii8LCGW7Be0MIOC1LmisJYF2T4t9iMDOAatwdsnwGKD+pZDzK28J3m58DZTiHqerlekXakh
-	95HvFgPG+vlV3H1N78zaQQahs8AOnqPJxHKFfkXgtteMLWxC7uU5tRkm2wJkF6PJ0slZpEaqObYj5
-	s9h8AAJODV5KvNa4AMSNK13iMwD1v8tgZbaBaVHhprCtj2UoEM7OURkKkcYNX1gk5n+SQpWDYa3aw
-	xT0q0UeDBhUU2Oo1Qacw==;
+	List-Owner; bh=6PWa/kODD9aF/khqXa5p8oFypv9eaxQj0ZAuBltfVWg=; b=kvgTSCg+Us8/Wr
+	qSKKZXIoif93UjN37FsOX1x6DZoKVxrEM/HlmyuRGLipRtMx6KKvl+FiMvdKhDbSFDImzbt9WoWH1
+	sLpgVxwyF7MoCeM4xovnDjkiCXM0oN6uQdS1qpI1lZVE3nyPdxLx0UKmOKmirZ+xbWkaSc7js+Jb8
+	Xb3Ne70hLlrpsLKuJj/BK8c/Zdqn/+K1ms122GLPDpRW86DsKG1AYWYkrXykopfVjIb55sz2iSs0l
+	ke7jzkiypv32aqhBjYzOzKTLOz3mwoiOOuinE0q3vROeBrcR5ZxCIQoa3MaLKivkycd9kQXqFJVVH
+	3k/fiBfGsCL+ZEkP7UmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7c5n-0000000F9Dm-0EUt;
-	Fri, 18 Sep 2026 17:09:43 +0000
-Received: from mail.avm.de ([212.42.244.120])
+	id 1x7cZs-0000000FCxB-1V7E;
+	Fri, 18 Sep 2026 17:40:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7c5j-0000000F9BU-1sIR;
-	Fri, 18 Sep 2026 17:09:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fritz.com; s=mail;
-	t=1789751370; bh=cLlatevR+/SpRjJpDb9SSz0QigrGJ3OmsCk/osE+jMY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LQDSykd56gacw5EUr8bpoLQSK3PfoaLuuC+KH3NaLr+bO3vedzncsIsvEL2wV1fqd
-	 gmWI7Zw16BgOxN3OIKVzm/BQpgKm+TpurMQeXv2DgUKJqFB5e9pKB2ISPJQnD8b0xs
-	 hzOdst7knXiA9+BT0NItt7lSx8A+6xCMhT9pHjaKRsUugAQRL0X+r5ZOEq072FgkCF
-	 VDVZlzGrsltxUhermvWhle++FjWRW88AE/unZ/zHVIF2ppwE2ajBJiv1H4eD0kJlUf
-	 t7EPQZmpXwEAxhONfiGhcbqVAyZsHUnSJyclki+4aaiuEBh9UsURcDAv9U9EOlPmby
-	 XpoWmvL0V5Ing==
-Received: from [2001:bf0:244:244::78] (helo=mail.avm.de)
-	by mail.avm.de with ESMTP (eXpurgate 4.57.1)
-	(envelope-from <n.schier@fritz.com>)
-	id 6aad704a-0449-7f0000032729-7f000001b198-1
-	for <multiple-recipients>; Fri, 18 Sep 2026 19:09:30 +0200
-Received: from mail-auth.fritz.com (unknown [IPv6:2001:bf0:244:244::78])
-	by mail.avm.de (Postfix) with ESMTPS;
-	Fri, 18 Sep 2026 19:09:30 +0200 (CEST)
-Date: Fri, 18 Sep 2026 19:09:30 +0200
-From: Nicolas Schier <n.schier@fritz.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alexey Gladkov <legion@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 01/20] kbuild: do not allocate .modinfo in vmlinux
-Message-ID: <20260918-meek-spectral-nightingale-53d88d@l-nschier-aarch64>
-References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
- <20260917-build-speedup-v3-1-9ecf4163ff36@kernel.org>
- <202609170950.480F90A28@keescook>
- <20260918005142.GA1585590@ax162>
+	id 1x7cZp-0000000FCwX-2KT0
+	for linux-riscv@lists.infradead.org;
+	Fri, 18 Sep 2026 17:40:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1789753242;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UtUsYSimD6K1xLItLoYKB1WWd1TCjyyOy2jIzUuov2s=;
+	b=KuBMhv5UoWq/btEbzcpWvOCJ0J2G4jTk5YVFWjH2n0V41WAP2ce4T9FWmifKoi9BwpxQoe
+	c0SHrASpCHAAKG6ZHApVagd0myDQRQbW4FckxCjgfspZ/lxSIHOcvIfpIguNFCL+0qfc2o
+	HysTn9BF2OD3BCymu9XHliL4Fw6RCIY=
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
+ [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-574-B-uxa2VKPF2C46FEUD95Og-1; Fri, 18 Sep 2026 13:40:41 -0400
+X-MC-Unique: B-uxa2VKPF2C46FEUD95Og-1
+X-Mimecast-MFC-AGG-ID: B-uxa2VKPF2C46FEUD95Og_1789753240
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c26012cd0so18936841cf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Sep 2026 10:40:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789753240; x=1790358040;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UtUsYSimD6K1xLItLoYKB1WWd1TCjyyOy2jIzUuov2s=;
+        b=qW01VkZ2Yn+7dZwTFUjIxOJkf5EvtXeKU7NRbKNb5K+EBaA0YBZM04ecvwhMW7nWH3
+         sBnCyesyDhAUeDyZqAxieIRAMJzFk1PeibFZGUmgRhGrnVOiux4Z0DsLQEJorx4GEiRq
+         552T91nySVpc0lzqbXgaym1T3VZELnI1CObslWJlljPwIugEZ3PnC6ysovqN5go/m6Cf
+         HvDjng95nwIJXlVVGxfw7rJngyXJyOqBuuXnjdOqxhl8RjrCG2cTWlxIUDHGMgwQSUfQ
+         ++Ojpw+K30AhZnoE0kFO3MIObqm8atiYIcXF/2fzbO68LRQbILhQSLTcALqC/M9ggPmf
+         bbzg==
+X-Forwarded-Encrypted: i=1; AKwUvBzCbvkkDFop6IrXy71W5DNF/tylG7Hk3WUgCC7vLXfIqB0k4YmFTq4p8A49n4alt65NEjsbl5zlYPhGYA==@lists.infradead.org
+X-Gm-Message-State: AFuF++k04sw4+PkTetUye/26+Yb46Zma8n9fvpxFDkKUpGaZcYmJh8SJ
+	jSqA95qowfJLkEyh3dhdJyv2DTa54bIbiURLs9E0fpyIY/Ug5MhtYPpbyx74C138tLGhqRZT0A6
+	V8nbnUFWvkkTanhTmUy64eqJC9rRc9MuSLH9maLZuJ8s/g3PPmJQU0vgz8Xs8h2n9RuSToQ==
+X-Gm-Gg: AYBFou19Myol7cDJ5lCmrik78QJN9Jj6eXxdIb6C4z8OW+SmXdb4xF0veamxE0euf2M
+	9hGWL3Yq/SdgBVEyKhv2d9duo6WMxBay4iwV96S0jt4W1pOPAKPUPAyCH76m514nLAFWInnsmYl
+	/jJimQB0VsqzNcfW+CfOZUFNXtAcEexYORUqmmdVBcG9yYoKErKcKH4/gFHx0o1i9RRHfAaX3bU
+	lT02Vz2BFYiao8ZXBOxiwy/XradzuJUOTJgcurBDc3E8TGFo9fe1Jk7uUiHYwn91i4tzwrmqNxA
+	lleeWdHxFAk/401t22aCZBY6uHVANJZLIfbHBuJnQQIgdidgYr7/TYC42nI1+L9VkT3meRVqNE5
+	ibfn5x5pYRLwz23HjQOqxDYQDf6YbDCX++yQ=
+X-Received: by 2002:a05:622a:8cc:b0:532:9add:cdda with SMTP id d75a77b69052e-5329e3d11b0mr50950941cf.63.1789753240031;
+        Fri, 18 Sep 2026 10:40:40 -0700 (PDT)
+X-Received: by 2002:a05:622a:8cc:b0:532:9add:cdda with SMTP id d75a77b69052e-5329e3d11b0mr50950411cf.63.1789753239363;
+        Fri, 18 Sep 2026 10:40:39 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532ae730a9fsm2075781cf.20.2026.09.18.10.40.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 10:40:38 -0700 (PDT)
+Date: Fri, 18 Sep 2026 13:40:36 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [GIT PULL] clk: spacemit: Fixes for v7.3
+Message-ID: <aq13lDqmJjfDn4zI@redhat.com>
+References: <20260915004456-KYC0593228@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20260915004456-KYC0593228@kernel.org>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: mLynlX2PgHBU1GXnE65u_PHjwYwLXhcYFYIfSGYIBBA_1789753240
+X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
-In-Reply-To: <20260918005142.GA1585590@ax162>
-Organization: FRITZ! Technology GmbH
-x-ms-reactions: disallow
-X-purgate-ID: 149429::1789751370-2AFCB965-576FC76A/0/0
-X-purgate-type: clean
-X-purgate-size: 2436
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-pfmilter: host: postfix-mx-01  mail-id: C2325A07EE  external: no
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_100939_922403_16C40ADB 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20260918_104045_669515_BCA97B22 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,68 +114,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 05:51:42PM -0700, Nathan Chancellor wrote:
-[...]
+On Tue, Sep 15, 2026 at 12:54:54AM +0000, Yixun Lan wrote:
+> Hi Stephen,
 > 
-> From 008046b33ef4b476048e3ddb2c679a453254e535 Mon Sep 17 00:00:00 2001
-> From: Nathan Chancellor <nathan@kernel.org>
-> Date: Thu, 17 Sep 2026 17:29:53 -0700
-> Subject: [PATCH] kbuild: Remove alignment on .modinfo section
+>    Please pull SpacemiT's clock Fixes for v7.3. This solve an issue
+> that will trigger PLL clock closed due to the frequency not available
+> in kernel side, a shutdown of PLL will cause the system hang.
 > 
-> Commit d50f21091358 ("kbuild: align modinfo section for Secureboot
-> Authenticode EDK2 compat") aligned .modinfo because it appeared in the
-> x86_64 compressed kernel image after commit 3e86e4d74c04 ("kbuild: keep
-> .modinfo section in vmlinux.unstripped"), breaking boot.
 > 
-> Commit 8678591b4746 ("kbuild: Split .modinfo out from ELF_DETAILS")
-> properly addresses .modinfo appearing in unexpected contexts like
-> compressed images by moving it out of ELF_DETAILS and explicitly
-> specifying its location in every architecture's vmlinux linker script or
-> discarding it where it may appear elsewhere.
+> Yixun Lan
 > 
-> Effectively revert commit d50f21091358 ("kbuild: align modinfo section
-> for Secureboot Authenticode EDK2 compat") and its follow up fix,
-> commit a26a6c93edfe ("kbuild: Strip trailing padding bytes from
-> modules.builtin.modinfo"), as they are no longer necessary in the
-> current tree. This simplifies future cleanups.
+> The following changes since commit cee9395acd8043be0644b25c34bfa86623f2b935:
 > 
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
-
-[...]
+>   Linux 7.3-rc1 (2026-08-30 13:34:40 -0700)
 > 
-> Then this patch becomes much more obvious (at least to me)
+> are available in the Git repository at:
 > 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/ tags/spacemit-clk-fixes-for-7.3-1
+> 
+> for you to fetch changes up to d558af8ee0bb1b2e88e696be84adb93cf2b7be6f:
+> 
+>   clk: spacemit: k3: add CPU PLL rate tables (2026-09-15 00:09:55 +0000)
 
-Yes, thanks.  Looks good to me and I think it's a good idea to apply 
-that patch first.
+Pulled into clk-fixes.
 
-for Nathans patch:  Reviewed-by: Nicolas Schier <n.schier@fritz.com>
+Brian
 
-
-[ Lorenzo's patch, updated by Nathan ]
-[...]
-> diff --git a/scripts/Makefile.vmlinux b/scripts/Makefile.vmlinux
-> index 6833b517cacb..95b523fe4f9e 100644
-> --- a/scripts/Makefile.vmlinux
-> +++ b/scripts/Makefile.vmlinux
-
-[...]
-> @@ -103,10 +100,7 @@ vmlinux: vmlinux.unstripped FORCE
->  # ---------------------------------------------------------------------------
->  
->  quiet_cmd_modules_builtin_modinfo = GEN     $@
-> -      cmd_modules_builtin_modinfo = $(cmd_objcopy); \
-> -                                    chmod -x $@
-> -
-> -OBJCOPYFLAGS_modules.builtin.modinfo := -j .modinfo -O binary
-> +      cmd_modules_builtin_modinfo = $(OBJCOPY) -O binary -j .modinfo --dump-section .modinfo=$@ $< /dev/null
-
-By shifting from "$(cmd_objcopy)" to "$(OBJCOPY) + args", 
-$(OBJCOPYFLAGS) is dropped.  It this by intention?
-
-Kind regards,
-Nicolas
 
 _______________________________________________
 linux-riscv mailing list
