@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 281F9C982D2
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 00:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24D6C982D0
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 00:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:Message-Id
-	:Date:Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQdSOM8cAGEiuAveJlESn0lx0s0Vpv1/xTPbLvD5Fgo=; b=q9vZbj13lMxwbFUzFWvRFBv+s0
-	mXX17B4TJglmhXnufEtiBiPERRa+3p+rOFs4rVuBlc4oZ2w+lmTSxsgU5nHj9qaoZGB3UqF4LsGOp
-	vFdqlYb/BjHoF9xaJyaSIT3CEMBmdzrFJdojvY4IYiNi59oftybZqygxYatkAr6+d+mADWqt4G5B+
-	RNsQVwD29IOIJrQHvxNJn8Vru0EYloqBOSThl3WFsvIRwWwVKuETc0EzCnZfgnBIwH3r2oG66v+gO
-	wozEL3Rx8B5hVwCDbzj4hvJKsfayOl2DzUM2Tv90dJ2Fd/gRUS5HGSqpuUzgtzqOOy9nMXNVtfDGp
-	j2wvOVfA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1DQfNldYNE63O0meL+FoW9j02qP8sSfuyjS7RTLbL2g=; b=0PnyMRTEpMH0/l
+	kTLh1Jg5WNgn3fVufQ7bfrTmGe7A2GNqF2eZ0xvjOodKflTDe7GQPkau8W2Mvmk+xh5y4bFOYWrGo
+	btukp3OhVH9bayGj42tEW1MuR54vnuIlqKYxyquJrlzOyfaiWgk027iYRJ9jp9Cfe7BG5euOI/o8f
+	PX5KHMvF3O+xaBG5C89ZtXMqMdmbIFezKR+74DsmyY+2ijIPlDWCXbg49hcpp5GmY9e6BtPa+HPNs
+	VQkzIJe3aVeRbBckEt2rOcbkgRI7RSKz4v8vpnAeTvX7MBu50LbUCrh38LC2f3YzPubT7yzvwPkwW
+	l67bcF1qF151O7hqJKvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7McL-0000000D3BB-1ErZ;
-	Fri, 18 Sep 2026 00:38:17 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1x7Mpb-0000000D4i3-2p3d;
+	Fri, 18 Sep 2026 00:51:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7McI-0000000D39n-0xWX
-	for linux-riscv@lists.infradead.org;
-	Fri, 18 Sep 2026 00:38:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
- h=In-Reply-To: References: Cc: To: From: Subject: Message-Id: Date:
- Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
- s=fe-953a8a3ca9; t=1789691893;
- bh=8QgXkkNdHre4C26c9GV+NpL0QV5WDefYsihE2tDLo6E=;
- b=uxFggGXJ4xAJ9b6IaAJd+UlvvnArndDMelAh7toaVbABlFzGBS+NT3Ub4nAX5mARAoIHQEBpY
- bJ5SBStdQec9oCsyDF8XLizqjIjgpn1RFqBIGdBL8TnwppXUQskDVYiUptY8JKWWZZB53so/ei4
- +P6owSkvwjnJGNeXqfonBn+MUwTN/f2tL5UkDjY66D3j/s3kUS54YWiJyDHTKD7FliXVtzwxW50
- w6BrKLqRmOezwohinQL5vV+VBcfS0qi3hyXyEiciEW3chl38lV27ZgphOC3fntCV1PKhkPPQds9
- 6eQy1+q9OCeWHeE36eJUF6Yt4JSIVM8jNo0vBldsRljw==
-X-Forward-Email-ID: 6aac871042fb3e762f6d18f9
-X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.14.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Mime-Version: 1.0
-Date: Thu, 17 Sep 2026 20:34:18 -0400
-Message-Id: <DLI0QTP0NUHS.DAFYGACKWKWO@ubuntu.com>
-Subject: Re: [PATCH v4 01/20] dt-bindings: phy: Add
- starfive,jh7110-inno-hdmi-phy
-From: "Joshua Peisach" <jpeisach@ubuntu.com>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Michal Wilczynski"
- <m.wilczynski@samsung.com>
-Cc: "Vinod Koul" <vkoul@kernel.org>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Robert Foss"
- <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Luca Ceresoli" <luca.ceresoli@bootlin.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "Lee
- Jones" <lee@kernel.org>, "Andy Yan" <andy.yan@rock-chips.com>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, "Emil Renner Berthing" <kernel@esmil.dk>,
- "Hal Feng" <hal.feng@starfivetech.com>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Dominique Belhachemi" <db@domibel.de>,
- "Brian Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
- <jbrunet+clk@baylibre.com>, <linux-phy@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <mfd@lists.linux.dev>,
- <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
- "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maud Spierings"
- <maud_spierings@murena.io>, "Graham Markall" <hello@big-grey.co.uk>,
- "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Chaoyi Chen"
- <chaoyi.chen@rock-chips.com>, "Joshua Peisach" <jpeisach@ubuntu.com>,
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-X-Mailer: aerc 0.21.0
-References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
- <CGME20260915153214eucas1p2b548f3236ef98fb0cbf320e397420125@eucas1p2.samsung.com> <20260915-jh7110-clean-send-v4-1-f0e4fd6f2cc8@samsung.com> <20260917-mutant-chamois-of-competence-46ca77@quoll>
-In-Reply-To: <20260917-mutant-chamois-of-competence-46ca77@quoll>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260917_173814_277679_EB297F24 
-X-CRM114-Status: GOOD (  18.51  )
+	id 1x7MpZ-0000000D4hi-1ghm;
+	Fri, 18 Sep 2026 00:51:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F140600AA;
+	Fri, 18 Sep 2026 00:51:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8230E1F000FF;
+	Fri, 18 Sep 2026 00:51:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789692716;
+	bh=yA3lnuWenPZEpso8xNSQIX74GwmYPRWoEfZxEhdIfSk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mjvcDNB+okGYr3dG66y+BvYzLyk0Onz7snwgPiHEVmAvBEJJwHw3WccyPGdgVFjU2
+	 rEg9+TLd1v6ZQ+iEXqwp0QgnThtFX7Dq2unDSzTMGTzq4PkqgguUjCNyXb43sSeX0e
+	 xoHcVWgQm/BtOLlmWyOaxMoNLBZppCZIsiqpFvdpnut93RwJMNLKXu6zUzBIuaLfnk
+	 AIMVDnbM2rpFb+17dsTiKOTWoOV3DvZ/JxSGvXYcnwe6gPK9BPBn1YGr8OvYz0l4m1
+	 0urx7Cu8e7QeOh0SKCLMYfAw8CVZi9Z6zPuV7CleGYmLskIgGw8DRe+dfsdW4PfqWB
+	 iK6YY6+jsUF8g==
+Date: Thu, 17 Sep 2026 17:51:42 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Kees Cook <kees@kernel.org>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+	Nicolas Schier <nsc@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Alexey Gladkov <legion@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 01/20] kbuild: do not allocate .modinfo in vmlinux
+Message-ID: <20260918005142.GA1585590@ax162>
+References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
+ <20260917-build-speedup-v3-1-9ecf4163ff36@kernel.org>
+ <202609170950.480F90A28@keescook>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <202609170950.480F90A28@keescook>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,57 +103,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="Flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu Sep 17, 2026 at 2:51 AM EDT, Krzysztof Kozlowski wrote:
-> On Tue, Sep 15, 2026 at 05:32:09PM +0200, Michal Wilczynski wrote:
->> Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
->> 
->> This device is a child of the starfive,jh7110-hdmi-subsystem node. It
->> functions as both a PHY provider for the controller and as a clock
->> provider for the variable pixel clock (hdmi_pclk), which it generates
->> from its refoclk.
->> 
->> Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
->
-> While I appreciate other people looking at this, I don't think review
-> here applies. It was a blanket tag, given to the entire series, with
-> exception that it is from newbie, thus I want to ask: was this binding
-> REALLY reviewed by Joshua?
->
-> Are the rest of the patches actually reviewed or just "looks good to
-> me"? I see no comments from Joshua on v3, v2 and v1, which is usual sign
-> of doing review.
->
->
-I commented on v3 saying that I would test if I could. I don't just
-throw "Reviewed-by" on everything I look at.
+On Thu, Sep 17, 2026 at 09:52:32AM -0700, Kees Cook wrote:
+> On Thu, Sep 17, 2026 at 05:06:11PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > -# .modinfo in vmlinux.unstripped is aligned to 8 bytes for compatibility with
+> > -# tools that expect vmlinux to have sufficiently aligned sections but the
+> > -# additional bytes used for padding .modinfo to satisfy this requirement break
+> > -# certain versions of kmod with
+> > -#
+> > -#   depmod: ERROR: kmod_builtin_iter_next: unexpected string without modname prefix
+> > -#
+> > -# Strip the trailing padding bytes after extracting .modinfo to comply with
+> > -# what kmod expects to parse.
+> 
+> This comment still seems useful here (afaict the stripping is still
+> happening with the "sed"). Maybe better to leave it, or future readers
+> are left wondering what the sed is for?
 
-If anything, I've been trying to be more honest in reviews, and only
-review ones that I actually care about[1].
+Thanks for bringing this up. I think we can actually get rid of that sed
+and comment altogether. It was added by
 
-If reviewing patches isn't a good way for newbies to start getting
-familiar with the kernel code (especially a NEW driver), then I don't
-know what is.
+  a26a6c93edfe ("kbuild: Strip trailing padding bytes from modules.builtin.modinfo")
 
-And to be clear, I'm not using a LLM to review. I am using actual
-intelligence. For the JH7110 PR specifically, I did actually go through
-and review each commit, because I wanted to learn what was happening
-and why. Actually, that's why I asked where the data sheet was[2].
+to fix
 
-So if you really want to, drop the Reviewed-by tag. And if it makes
-you feel better, I'll leave the series alone.
+  d50f21091358 ("kbuild: align modinfo section for Secureboot Authenticode EDK2 compat")
 
--Josh
+but I do not think that this alignment is needed anymore since I
+properly fixed Dimitri's issue in
 
-[1] I won't be reviewing PRs around devicetree since I'm not confident
-(or frankly, interested) in it at this point. https://lore.kernel.org/all/DL94TU52KBMO.2HAKJMJXV2CPE@ubuntu.com/
+  8678591b4746 ("kbuild: Split .modinfo out from ELF_DETAILS")
 
-[2] Michal giving me the hardware info:
-https://lore.kernel.org/all/071901ef-57f3-456f-af5b-a8c99a0a7dd3@samsung.com/
+So I think we could go with something like
+
+From 008046b33ef4b476048e3ddb2c679a453254e535 Mon Sep 17 00:00:00 2001
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Thu, 17 Sep 2026 17:29:53 -0700
+Subject: [PATCH] kbuild: Remove alignment on .modinfo section
+
+Commit d50f21091358 ("kbuild: align modinfo section for Secureboot
+Authenticode EDK2 compat") aligned .modinfo because it appeared in the
+x86_64 compressed kernel image after commit 3e86e4d74c04 ("kbuild: keep
+.modinfo section in vmlinux.unstripped"), breaking boot.
+
+Commit 8678591b4746 ("kbuild: Split .modinfo out from ELF_DETAILS")
+properly addresses .modinfo appearing in unexpected contexts like
+compressed images by moving it out of ELF_DETAILS and explicitly
+specifying its location in every architecture's vmlinux linker script or
+discarding it where it may appear elsewhere.
+
+Effectively revert commit d50f21091358 ("kbuild: align modinfo section
+for Secureboot Authenticode EDK2 compat") and its follow up fix,
+commit a26a6c93edfe ("kbuild: Strip trailing padding bytes from
+modules.builtin.modinfo"), as they are no longer necessary in the
+current tree. This simplifies future cleanups.
+
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ include/asm-generic/vmlinux.lds.h |  2 +-
+ scripts/Makefile.vmlinux          | 10 ----------
+ 2 files changed, 1 insertion(+), 11 deletions(-)
+
+diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+index b2988aa12f66..26201821ea7f 100644
+--- a/include/asm-generic/vmlinux.lds.h
++++ b/include/asm-generic/vmlinux.lds.h
+@@ -855,7 +855,7 @@
+ 		KLP_SYMID
+ 
+ #define MODINFO								\
+-		.modinfo : { *(.modinfo) . = ALIGN(8); }
++		.modinfo : { *(.modinfo) }
+ 
+ #ifdef CONFIG_GENERIC_BUG
+ #define BUG_TABLE							\
+diff --git a/scripts/Makefile.vmlinux b/scripts/Makefile.vmlinux
+index fcae1e432d9a..6833b517cacb 100644
+--- a/scripts/Makefile.vmlinux
++++ b/scripts/Makefile.vmlinux
+@@ -102,18 +102,8 @@ vmlinux: vmlinux.unstripped FORCE
+ # modules.builtin.modinfo
+ # ---------------------------------------------------------------------------
+ 
+-# .modinfo in vmlinux.unstripped is aligned to 8 bytes for compatibility with
+-# tools that expect vmlinux to have sufficiently aligned sections but the
+-# additional bytes used for padding .modinfo to satisfy this requirement break
+-# certain versions of kmod with
+-#
+-#   depmod: ERROR: kmod_builtin_iter_next: unexpected string without modname prefix
+-#
+-# Strip the trailing padding bytes after extracting .modinfo to comply with
+-# what kmod expects to parse.
+ quiet_cmd_modules_builtin_modinfo = GEN     $@
+       cmd_modules_builtin_modinfo = $(cmd_objcopy); \
+-                                    sed -i 's/\x00\+$$/\x00/g' $@; \
+                                     chmod -x $@
+ 
+ OBJCOPYFLAGS_modules.builtin.modinfo := -j .modinfo -O binary
+-- 
+
+Then this patch becomes much more obvious (at least to me)
+
+diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+index 26201821ea7f..a6730d34e8c6 100644
+--- a/include/asm-generic/vmlinux.lds.h
++++ b/include/asm-generic/vmlinux.lds.h
+@@ -855,7 +855,7 @@
+ 		KLP_SYMID
+ 
+ #define MODINFO								\
+-		.modinfo : { *(.modinfo) }
++		.modinfo (INFO) : { *(.modinfo) }
+ 
+ #ifdef CONFIG_GENERIC_BUG
+ #define BUG_TABLE							\
+diff --git a/scripts/Makefile.vmlinux b/scripts/Makefile.vmlinux
+index 6833b517cacb..95b523fe4f9e 100644
+--- a/scripts/Makefile.vmlinux
++++ b/scripts/Makefile.vmlinux
+@@ -89,11 +89,8 @@ remove-section-$(CONFIG_ARCH_VMLINUX_NEEDS_RELOCS) += '.rel.*'
+ 
+ remove-symbols := -w --strip-unneeded-symbol='__mod_device_table__*'
+ 
+-# To avoid warnings: "empty loadable segment detected at ..." from GNU objcopy,
+-# it is necessary to remove the PT_LOAD flag from the segment.
+ quiet_cmd_strip_relocs = OBJCOPY $@
+-      cmd_strip_relocs = $(OBJCOPY) $(patsubst %,--set-section-flags %=noload,$(remove-section-y)) $< $@; \
+-                         $(OBJCOPY) $(addprefix --remove-section=,$(remove-section-y)) $(remove-symbols) $@
++      cmd_strip_relocs = $(OBJCOPY) $(addprefix --remove-section=,$(remove-section-y)) $(remove-symbols) $< $@
+ 
+ targets += vmlinux
+ vmlinux: vmlinux.unstripped FORCE
+@@ -103,10 +100,7 @@ vmlinux: vmlinux.unstripped FORCE
+ # ---------------------------------------------------------------------------
+ 
+ quiet_cmd_modules_builtin_modinfo = GEN     $@
+-      cmd_modules_builtin_modinfo = $(cmd_objcopy); \
+-                                    chmod -x $@
+-
+-OBJCOPYFLAGS_modules.builtin.modinfo := -j .modinfo -O binary
++      cmd_modules_builtin_modinfo = $(OBJCOPY) -O binary -j .modinfo --dump-section .modinfo=$@ $< /dev/null
+ 
+ targets += modules.builtin.modinfo
+ modules.builtin.modinfo: vmlinux.unstripped FORCE
+--
+
+Thoughts?
+
+-- 
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
