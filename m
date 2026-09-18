@@ -4,99 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B0EDC982D2
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 08:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754A5C982D2
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 08:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dJkG5Z2buig3QEtq1NstoCq2k9Y88GAfCDFC8T94kzA=; b=mf0CYd3yrEb96k
-	hggsyIWQeLqyadqcjVqnjEmUQXbHQY1ReDx8hAWd64Fv6npNgPFZbqpl6lU1us0sUUmzxVGFLgzIT
-	PoIM9wBKl0cXuhVmBC/gGZthzpudnOT3Wi1vdvc71C3SjP1d71Fam25227EggbnOb6/1t4eoITnUT
-	Nn+T7KCqT0ov5nHRLa25ntU6eZibk6y6lo96sHtaLT4myo/RsE6eAc12GKTeVibRUzqta1byRH19I
-	D1jejIoDissCFflo9N2McSSLfuSTFA7hkwFO8XjGJ+D/qG3g0fB7DeWPV/JxCHVBuCC5G0NKYzwdH
-	o5uRN1+hWf7yzBYCYSgA==;
+	List-Owner; bh=Mszx4xOGElprT1vtKYLP5Z7LDhWtADbekq5GnKa1A34=; b=Xb02dk+EcBvIbs
+	s1126uWXz0GZyubz1heC9G9Fsrm9NhzTQMdBExNievYxo8rcu9VfPIJuEWcVnFm1/Yf4zaLeyqDw5
+	uaIXt3E8cqmY/iLFqNYVQE/cP68Ir88nEvhyfUxgWZtXdrOjA8AFxhTFPK2x0AexRBRjU/jHfxyd7
+	yF6uEcZHznM/XDG+ZZDwbdB4Smksgy4vVlkpdwWPb/rUHctAl1f29gWEh4CJWvYsQtfFea/MKuCy3
+	3lMl36OijUoZWaINyTpO4TOdQHYqAMyrAH7cHBnAOiGkfoThvj66f6ubbeXbr4XToulmWCJqzKCIN
+	AaQ1lB1Q77LI0poG8XOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TrV-0000000DnNu-14c7;
-	Fri, 18 Sep 2026 08:22:25 +0000
-Received: from mail-pj2-x03.google.com ([2607:f8b0:4864:39::3])
+	id 1x7TtD-0000000Dnqh-3bNB;
+	Fri, 18 Sep 2026 08:24:12 +0000
+Received: from mail-ej2-x0f.google.com ([2a00:1450:4864:34::f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7TrT-0000000DnMk-0I80
+	id 1x7TtB-0000000Dnpi-227Q
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Sep 2026 08:22:24 +0000
-Received: by mail-pj2-x03.google.com with SMTP id d9443c01a7336-2db39df9c51so2172775ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Sep 2026 01:22:22 -0700 (PDT)
+	Fri, 18 Sep 2026 08:24:10 +0000
+Received: by mail-ej2-x0f.google.com with SMTP id a640c23a62f3a-c264788fd58so66690366b.1
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Sep 2026 01:24:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789719742; x=1790324542; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CjigVRuOlpSLvwuFF0kw47lERwh/eIzaGM/o/mwNyVQ=;
-        b=d9X7dCgp/1FgRlrz76jBkf7xRHIUUF7dTBVvfhKKJSRwIO3HU4Lo+FoLT0C7K+U8zj
-         Y/GEt+alM6pXsL5UmmFqZGiv/8FoXgx5ZLck9Kxs9KsaW3T+fQewjFEtQot8FM+0zm2L
-         uvNncanWuVTB/sjvfWis3riFp+U3h1BQ2di3gvJjlY+vl8SPMmKgEycn0ilgU+xeVLvn
-         fdIYEpHdu8As3zI2uTNuLbXhAO7eWG7SISOH97bL6WTQ4AQ5iULP4ghXrsDS5Ncq0g/n
-         LoSO7q0g1/QbrBo4mbKWerw1qJh/BQQwQkDrrzdG3sdGx7Gbo6/SCnahcO2w6ff5xrCK
-         okGw==
+        d=linaro.org; s=google; t=1789719846; x=1790324646; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=0ORtPf5rfrOcpgyi/FO05MAHQySi4ZeH+yKwjJ5NuVg=;
+        b=t/EFtHKZv2cvIZHFrD98mIBmfpw3BS7m1XA1BygYuay8nm5vP8r+9+gpWy9tbfP4W2
+         b6z8Cbln/a8iyqs4qGAaqSOn3QBxWxF3//YFZwVqs9sP3r/d4Mh0GnJxInqbDan8aZXr
+         qCudPPbUfa/vIm88G/bYBg1mNo48/0Wwa56K1scRJX9El/J0msojTFnNYKRmTihQ9kBC
+         FRao2vImFwm/qkVCcqw+BmcWdmRk6v+flAK7LE9MEoXbnQtdPhBJxV0T0sz8aaDutVMD
+         LeTcnNtyHECGvkATbhPTXr3t5FzUmYY3doRKtCxQR/dreKA7JfwU9omGm9m9dkIAkizd
+         q4rA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789719742; x=1790324542;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CjigVRuOlpSLvwuFF0kw47lERwh/eIzaGM/o/mwNyVQ=;
-        b=VUHjWqdaY2KRBMcbWge35i5MLUAOAPoaSmnBkkak5vvL8MN9fKDHyWYl/jYf56996/
-         hHeQtfRvBmeHARSoNeBYC/+CRTMplChNGlXoyEOzPjZuzvCFqHRnflUBsw6YoT5aAuX2
-         jopGKzJZ4nvyuw7YneMK0KyI00+e1t6Qh0BbI15YLr5qpkfpWmmpW66Zc/MJwiNPskdQ
-         glbeU5Bid+649WweqTDQfCWEjBTaPWgZP135iKvWNAel0NdjxpVq7EaT5yjSces5Cx6u
-         wW9ke9fjGyneSvUOrIEszqzxTRcwkqMDACxYEcRNUuGzxhLM5GNYQsGip68VOp5egZcB
-         R2LQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwbwTLIMUsV442mSjPvCjE998ZcOlC+HCQfxw9APs5avdq9gSbUJvB5m5TySE/MobFjnWgH7tkJLLswPg==@lists.infradead.org
-X-Gm-Message-State: AFuF++kyTnbk8atFxrF2FR+X49jw8u+zLP7++FsZ3PlI6fBcZ6S+85oi
-	XOVPbcpvoXdS9F1GVD51ox+x0i81asR+CFguNhRLsbH4QFw3hQG3Rkhq
-X-Gm-Gg: AYBFou1KdOZj/Ad/sAc1eIfZ2oOU2KxKcCgtdDYjrbuc5i1Vnkk+rAjYDyg3CP4IVDy
-	935xA4J2b+yTU5hnLH5BLHVWAVPEo2A3eKaWqd1netpV7ik89KuQo9Iuf2u7GUHFPW5JJeaDH7r
-	PtEHDje6wm3tCRGsRpY7Rmyrp6dljV3qAS1iR6MrEwRvsW4hoIGY+upxM/rpErjkaCLdp8X5C+O
-	53AGpH5spkimsib5hwa7LG4NLR4carjolnoRDIvk0H/27a6FJf0hkgPgo2fYlrvEX3Yk8qRCSAl
-	xh8BQ4Qeos2A5HHidq2/NqYX2vo7nirWNpUWHASlk9vk58wKghy6PjYP9vsh/oi91gDt3UsWNnM
-	QmFRJSJ5gIZ2agz5/c1W9He9AjIjLIClRB5vvwM1VCDoBSwEgI566x5Gzgg1AlXTDMvfEfh5/EX
-	fpkCn+ZOVJXZy3UVRlQ850fqGVBN/M4veMRXe9+ZoI/0QEls9QGMFpzNoU3/CdS833PrJ3/JkiG
-	AXBbw==
-X-Received: by 2002:a05:6a00:4196:b0:874:708d:b637 with SMTP id d2e1a72fcca58-874df800839mr3426122b3a.35.1789719741686;
-        Fri, 18 Sep 2026 01:22:21 -0700 (PDT)
-Received: from [10.125.112.20] ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc5c50e79f1sm541488a12.30.2026.09.18.01.22.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Sep 2026 01:22:20 -0700 (PDT)
-Message-ID: <bc6cf467-84d1-40a0-b570-1b5256a6e2e2@gmail.com>
-Date: Fri, 18 Sep 2026 16:22:03 +0800
+        d=1e100.net; s=20260707; t=1789719846; x=1790324646;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0ORtPf5rfrOcpgyi/FO05MAHQySi4ZeH+yKwjJ5NuVg=;
+        b=d8C1wBK6LQHnWZnZonv4+wzkmapofdZn4TSA8REWMIkKjHdiH2bV0WD3C9HTu6Uk4J
+         QW4e9c4kuJ8wHKRa1VAr5QIJwNwBvcj/sQAQILB9BMGlbc/Gh9pVUm3Lz5TEHJKKZU5/
+         WF6o6WR2Jxgzfv4C5+14Ih4MYkz2nk5bYjV8EmU0ZjysFyrocs6vZMkJflDGOqCExyhl
+         GdRjSbisbco2WaURfZdH/FcukHn82I5yZTENeSyGIVtroPIr/+n8j7dYaBiEn8oPrJuv
+         Tk3M1SPlTQQfS851QEZt0YerSLA2zLVILSSjsnVf0DQyzQCj8xJW1u01EKHFBNa58YqS
+         ulNw==
+X-Forwarded-Encrypted: i=1; AKwUvBzCDdC76fab25SvyZYTvgJRK67oSFaW7pk13e8XKaWvPIAYx2liH4z2MTsjiBDN2nD4phptmBNPDDAMWw==@lists.infradead.org
+X-Gm-Message-State: AFuF++kzzNQOyPj6yOV/AORPqrCg7/abnSOuUA31qqMg1nPsOz327dV/
+	9GoBGPUmY79v4F7jDAk8SZNFRCpmviuHHxKXgaRjTzCHPpgZ22oeoMtAOZj6HkkQe04=
+X-Gm-Gg: AYBFou16xIW/8I6Z/EatsSOcQZCxNBLJ4Eefmqn5D6sb/mrsPtwbsb/lnQ21ynB0hDO
+	LSvNoEKn4Zt5ZAUNX2Sg/P3ECl9PLRyUY3wuvY1MBNnOZMZ2TOABy6UPY8CNP22LsCs8/OSfGNf
+	8WEtujHZFyvBQaF37inwpEok2Tl89gl3jBdCDYPO1Fep2kEjifrnRWtutDxHTitDzwlLnvU29Bg
+	5KlgrqbVedHNpuM3VDv1cOSMGVZ+BGyaV1eaBRPISOqTYos7hQKVr0yih9umifpwJNy6Ne+Qg9H
+	z+9tdC0QlBVxTezdanSwGFUP+VjeBdqI+NJrPkag9UG/v3tUSqlhrX34eWpc7O+EkscwsvYPZmA
+	9q3XLnwYdFJjdpeIssdhsq/fJ8Q9Cpx6XDzYT6dREp9IOnLhfVXnDns3LAN7/aS/9Yi9LfEX8I0
+	uyWnPgK5JbOefZ8sKTfJWwYdbF56V6sS+0KNk02W2uLu0ELdIe0dLe0dfnO50S/pjtBCUrCBJxb
+	h8=
+X-Received: by 2002:a17:907:72c7:b0:c26:3190:296b with SMTP id a640c23a62f3a-c2a15e7df89mr192409366b.48.1789719845848;
+        Fri, 18 Sep 2026 01:24:05 -0700 (PDT)
+Received: from draszik.lan ([109.255.181.4])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2a1bbc6aafsm33384266b.51.2026.09.18.01.24.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 01:24:05 -0700 (PDT)
+Message-ID: <b567cb05cf1508be7474e2874d267d8e8a09e49c.camel@linaro.org>
+Subject: Re: [PATCH] dt-bindings: Expand flow lists to block lists
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Daniel Matyas <matyasdaniel006@gmail.com>, Lee Jones <lee@kernel.org>, 
+ Ulf Hansson <ulfh@kernel.org>, Liang Yang <liang.yang@amlogic.com>, Miquel
+ Raynal	 <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Kevin Hilman	 <khilman@baylibre.com>, Jerome
+ Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller"	 <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski	 <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Bjorn Helgaas	 <bhelgaas@google.com>, Lorenzo
+ Pieralisi <lpieralisi@kernel.org>, Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=	
+ <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Ray Jui	
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Broadcom
+ internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Will
+ Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,  Vinod Koul
+ <vkoul@kernel.org>, Thierry Reding <thierry.reding@kernel.org>, Jonathan
+ Hunter	 <jonathanh@nvidia.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark
+ Brown	 <broonie@kernel.org>
+Cc: Jose Abreu <joabreu@synopsys.com>, Ray Jui <ray.jui@broadcom.com>, Scott
+ Branden <scott.branden@broadcom.com>, Atish Patra <atishp@rivosinc.com>,
+ Shawn Guo	 <shawn.guo@linaro.org>, Dmitry Osipenko <digetx@gmail.com>,
+ Thierry Reding	 <thierry.reding@gmail.com>, Ibrahim Tilki
+ <Ibrahim.Tilki@analog.com>, Okan Sahin <Okan.Sahin@analog.com>,
+ devicetree@vger.kernel.org, Paul Walmsley	 <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley	 <conor@kernel.org>,
+ linux-rtc@vger.kernel.org, Ricard Wanderlof <ricardw@axis.com>, 
+	patches@opensource.cirrus.com, Lukas Wunner <lukas@wunner.de>, Chunfeng Yun
+	 <chunfeng.yun@mediatek.com>, Eugen Hristev <ehristev@kernel.org>, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org, 
+	linux-iio@vger.kernel.org, linux@analog.com, linux-input@vger.kernel.org, 
+	chrome-platform@lists.linux.dev, linux-riscv@lists.infradead.org
+Date: Fri, 18 Sep 2026 09:25:27 +0100
+In-Reply-To: <20260917144028.459053-1-matyasdaniel006@gmail.com>
+References: <20260917144028.459053-1-matyasdaniel006@gmail.com>
+User-Agent: Evolution 3.56.2-9 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/10] memblock: introduce MEMBLOCK_NODUMP flag
-To: Baoquan He <baoquan.he@linux.dev>
-Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- robh@kernel.org, saravanak@kernel.org, akpm@linux-foundation.org,
- rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
- m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
- alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev, robin.murphy@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
- iommu@lists.linux.dev
-References: <20260902073116.802752-1-chenwandun1@gmail.com>
- <20260902073116.802752-7-chenwandun1@gmail.com> <aqzxavL91icLw-Xv@fedora>
-Content-Language: en-US
-From: Wandun <chenwandun1@gmail.com>
-In-Reply-To: <aqzxavL91icLw-Xv@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_012223_118274_1450A67A 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20260918_012409_534749_1DECFF21 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,124 +126,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/18/26 16:08, Baoquan He wrote:
-> On 09/02/26 at 03:31pm, Wandun Chen wrote:
->> From: Wandun Chen <chenwandun@lixiang.com>
->>
->> Add MEMBLOCK_NODUMP to mark regions that should be excluded from
->> kdump vmcores.
->>
->> The flag is meant for reserved memory that carries no data useful for
->> crash analysis. Reusable reserved regions such as CMA may hold useful
->> data, so these regions must not be marked MEMBLOCK_NODUMP. Subsequent
->> patches wire this up for /reserved-memory and /memreserve/ entries.
->>
->> Suggested-by: Rob Herring <robh@kernel.org>
->> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
->> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
->> ---
->>  include/linux/memblock.h |  9 +++++++++
->>  mm/memblock.c            | 16 ++++++++++++++++
->>  2 files changed, 25 insertions(+)
->>
->> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
->> index d62db9e776cf..b2fcf11fba2b 100644
->> --- a/include/linux/memblock.h
->> +++ b/include/linux/memblock.h
->> @@ -52,6 +52,8 @@ extern unsigned long long max_possible_pfn;
->>   * kernel that we know is good to use. It is the only memory that
->>   * allocations may happen from in this phase.
->>   * @MEMBLOCK_RSRV_HUGETLB: memory is reserved for hugetlb pages
->> + * @MEMBLOCK_NODUMP: exclude from kdump vmcore. It carries no data useful
->> + * for crash analysis (e.g. firmware carveouts).
->>   */
->>  enum memblock_flags {
->>  	MEMBLOCK_NONE		= 0x0,	/* No special request */
->> @@ -63,6 +65,7 @@ enum memblock_flags {
->>  	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
->>  	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
->>  	MEMBLOCK_RSRV_HUGETLB	= 0x80, /* memory reserved for hugetlb pages */
->> +	MEMBLOCK_NODUMP		= 0x100,/* exclude from kdump vmcore */
->>  };
->>  
->>  /**
->> @@ -160,6 +163,7 @@ int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
->>  int memblock_reserved_mark_kern(phys_addr_t base, phys_addr_t size);
->>  int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size);
->>  int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size);
->> +int memblock_mark_nodump(phys_addr_t base, phys_addr_t size);
->>  
->>  void memblock_free(void *ptr, size_t size);
->>  void reset_all_zones_managed_pages(void);
->> @@ -306,6 +310,11 @@ static inline bool memblock_is_kho_scratch(struct memblock_region *m)
->>  	return m->flags & MEMBLOCK_KHO_SCRATCH;
->>  }
->>  
->> +static inline bool memblock_is_nodump(struct memblock_region *m)
->> +{
->> +	return m->flags & MEMBLOCK_NODUMP;
->> +}
->> +
->>  int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
->>  			    unsigned long  *end_pfn);
->>  void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
->> diff --git a/mm/memblock.c b/mm/memblock.c
->> index f2952d725c10..2e87f39826dd 100644
->> --- a/mm/memblock.c
->> +++ b/mm/memblock.c
->> @@ -1204,6 +1204,21 @@ __init int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
->>  				    MEMBLOCK_KHO_SCRATCH);
->>  }
->>  
->> +/**
->> + * memblock_mark_nodump - Mark a memory region with flag MEMBLOCK_NODUMP.
->> + * @base: the base phys addr of the region
->> + * @size: the size of the region
->> + *
->> + * Mark the region as not to be included in crash dumps.
->> + *
->> + * Return: 0 on success, -errno on failure.
->> + */
->> +int __init_memblock memblock_mark_nodump(phys_addr_t base, phys_addr_t size)
->       ~~~~~~~~~~~~~~^
-> Is it impossible to use at runtime even thought it claims to be generic?
-It is currently only used during initialization, so I added __init_memblock.
-
-If other modules need to use this function in the future, this annotation can
-be removed.
-
-Best regards,
-Wandun>
-> 
->> +{
->> +	return memblock_setclr_flag(&memblock.memory, base, size, 1,
->> +				    MEMBLOCK_NODUMP);
->> +}
->> +
->>  static bool should_skip_region(struct memblock_type *type,
->>  			       struct memblock_region *m,
->>  			       int nid, int flags)
->> @@ -2887,6 +2902,7 @@ static const char * const flagname[] = {
->>  	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
->>  	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
->>  	[ilog2(MEMBLOCK_RSRV_HUGETLB)] = "RSV_HUGETLB",
->> +	[ilog2(MEMBLOCK_NODUMP)] = "NODUMP",
->>  };
->>  
->>  static int memblock_debug_show(struct seq_file *m, void *private)
->> -- 
->> 2.43.0
->>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAyMDI2LTA5LTE3IGF0IDE3OjQwICswMzAwLCBEYW5pZWwgTWF0eWFzIHdyb3RlOgo+
+IFJ1bm5pbmcgZHRfYmluZGluZ3NfY2hlY2sgcmV0dXJuZWQ6Cj4gW2Vycm9yXSBzdHJpbmcgdmFs
+dWUgaXMgcmVkdW5kYW50bHkgcXVvdGVkIHdpdGggYW55IHF1b3RlcyAocXVvdGVkLXN0cmluZ3Mp
+Cj4gCj4gVGhlIGZpbGVzIHVzZWQgcXVvdGF0aW9uIG1hcmtzIGluIGZsb3cgbGlzdHMgYmVjYXVz
+ZSB0aGUgc3RyaW5ncyBoYWQKPiBjb21tYXMgYW5kIHRoZXNlIGNvbW1hcyB3ZXJlIGludGVycHJl
+dGVkIGFzIHNlcGFyYXRvcnMuIENvbnZlcnQgZmxvdwo+IHN0eWxlIGxpc3RzIHRvIGJsb2NrIHN0
+eWxlIGxpc3RzLCBzbyB0aGF0IHRoZXJlIGlzIG5vIHByb2JsZW1zIHdpdGggdGhlCj4gY29tbWFz
+Lgo+IAo+IFNpZ25lZC1vZmYtYnk6IERhbmllbCBNYXR5YXMgPG1hdHlhc2RhbmllbDAwNkBnbWFp
+bC5jb20+Cj4gLS0tCgpBY2tlZC1ieTogQW5kcsOpIERyYXN6aWsgPGFuZHJlLmRyYXN6aWtAbGlu
+YXJvLm9yZz4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
