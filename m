@@ -4,88 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69253C982DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 15:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC75C982D8
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2026 16:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:Cc:Message-Id
-	:Date:Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OYBxd7TYYxXFvzFYjraAoMVMrpKQoK7mjjKTuh7txiw=; b=zoO4b6QxYaWH6XydqJK+fxEiTB
-	xP0OXClKQclhoNhyCGLQUGr3EYtZgcxP8HgDD0xAN2f7XaMmBL+w2TTaxXocr//3FZzPwjb36hh6Q
-	QEDiuxLW+W1MqgX8CcF7y5G4Wg4DAO3zh+/qobHTOzOH8R4dLWn+f0eBZCXTHO1KLLPeuSviUS2HG
-	hgONULu/WW4BrAeyvyUAV8cpf6RIetxn8RKP8SjLkMV9wgP0Mq/zEo4fPmY1XqqMVsNZiN+tVnh0h
-	vDgtN6OIO+fz0+7pL8JfoKui1rhPobfWeM+yNplBiwimcnPesXLnHyemJsKaqBof7N0nE5Uun7QS6
-	d4HDc/pQ==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HGsY9NZyTPYnK7tEcUBGozfHd/YPp7wG0cW++k8vagE=; b=uzFB/zFJ0LVjAY
+	Q2ivOjOsE46YINhlOjhtzXSP57e8rKfdpXy2cKWoOQcwheNLYJ0kjDheorPMQ3FQ0NqBBNmnyddq3
+	yd5676Plcv6VXmvvpjCZR1kFt/Kj/L1cnB6eyI7qNuOLIJwaqUScl2QC2r1cdUlNGcneDHA6RLcn+
+	I1sDh6N8ysFhJFxUeE4SNnMU5OIIO+eHpgMsBp1O9H6TzdNqZo3qx/OCZ616uTc3hPTzxJt4LG98F
+	wU6zIjiiTYOTA2B6SAlGAbSiKgctijBPBrSD9JwaJpdWRiJ7xShf2gF7KaiRuM2KzH//Gnupj4nw5
+	ilTEAqLuCAGpCx42PZOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aaL-0000000EtWe-12bV;
-	Fri, 18 Sep 2026 15:33:09 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1x7b99-0000000Ey9Y-03CK;
+	Fri, 18 Sep 2026 16:09:07 +0000
+Received: from mail-pj2-x05.google.com ([2607:f8b0:4864:39::5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7aaD-0000000EtTe-3T6M
+	id 1x7b96-0000000Ey8u-3qpn
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Sep 2026 15:33:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
- h=In-Reply-To: References: To: From: Subject: Cc: Message-Id: Date:
- Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
- s=fe-953a8a3ca9; t=1789745580;
- bh=WtQrZyaQlO+mtHmYw2SBSJxPWTjmzlVgI7Rp9b5tPg4=;
- b=ldxBSWsfj2jgBwIahVtK6wfb0yMfc+oHlano5WllFM3kNZqu4xFldgJcayXHv7UhliwB+uOtM
- JVSWE5jRLxRUgBrigZPxz0crLvvsKNIwNlW6b9c79NHiSKURYfNWKl0us3uqMC3HdB/WmQCGQ9u
- FOQ5IIUnuemOQph3htwNJQjWYIritvdQblFK4F9jWL42WSy7JajdwPWKUTYdqIDnsTl6QpMdqSv
- 6Xk7sLb3ORuMXNP061BSyZk+eOPA8pYqjf2Npcq1tSFUraLKQ76/DbTOMJ1uZOo+lIsF1upu9np
- lO1VU8FHtzKGGrv0EgDJCWgu1MnGPAQMJnSuuJNKFiUw==
-X-Forward-Email-ID: 6aad59a12df78bc22ddeff38
-X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.14.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Mime-Version: 1.0
-Date: Fri, 18 Sep 2026 11:32:45 -0400
-Message-Id: <DLIJUQCKB76W.3RHK9KPO5JSOZ@ubuntu.com>
-Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <mfd@lists.linux.dev>, <linux-clk@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
- "Marek Szyprowski" <m.szyprowski@samsung.com>, "Maud Spierings"
- <maud_spierings@murena.io>, "Graham Markall" <hello@big-grey.co.uk>,
- "Icenowy Zheng" <zhengxingda@iscas.ac.cn>, "Chaoyi Chen"
- <chaoyi.chen@rock-chips.com>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
- <u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH v4 00/20] drm: starfive: jh7110: Enable display
- subsystem
-From: "Joshua Peisach" <jpeisach@ubuntu.com>
-To: "Michal Wilczynski" <m.wilczynski@samsung.com>, "Joshua Peisach"
- <jpeisach@ubuntu.com>, "Vinod Koul" <vkoul@kernel.org>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Robert Foss"
- <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Luca Ceresoli" <luca.ceresoli@bootlin.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "Lee
- Jones" <lee@kernel.org>, "Andy Yan" <andy.yan@rock-chips.com>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, "Emil Renner Berthing" <kernel@esmil.dk>,
- "Hal Feng" <hal.feng@starfivetech.com>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Dominique Belhachemi" <db@domibel.de>,
- "Brian Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
- <jbrunet+clk@baylibre.com>
-X-Mailer: aerc 0.21.0
-References: <CGME20260915153213eucas1p148f013af239a334fc78cdc249c0f8a61@eucas1p1.samsung.com> <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com> <DLGBPXP4F8E0.9X0QMZ9GFQVF@ubuntu.com> <136d6789-2f0c-4a91-ab2d-de3a3f119d5d@samsung.com>
-In-Reply-To: <136d6789-2f0c-4a91-ab2d-de3a3f119d5d@samsung.com>
+	Fri, 18 Sep 2026 16:09:06 +0000
+Received: by mail-pj2-x05.google.com with SMTP id d9443c01a7336-2d942de6574so7099925ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Sep 2026 09:09:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789747743; x=1790352543; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=sTFwCwuuJBdUqXmrDgIcnP3ObUsaQ9UCrGTYomH04hg=;
+        b=T+XpI8ONZpw9nbk9e/1fnwVIPTldXbTmcMchqQoxXSL4+zCPCEAFhG10L980AMFs6j
+         W+vrjvdYSOYf4/PyhD+iWP9qdKyEhMgfJZBeZET29pV8cYaWWzGdNVCD77wt//uQGaQP
+         7dgX6oWAq9YCaNQis/y/iOxPKmpwzy2X3cDAPxxkaDpxzBvKMblbJkbTnII01j4jU7lA
+         ZSDaXQUUCi8eEyZFZAJWK9zACNaEPVux4iQtGLDiHgB7ByIAiorJ06mWpP043v5xEshL
+         EkRkxSXBdx1jfS38fdcHncuAn2+U/E4gNyVrM2ZsK1PhMocWhSGc6koyDW/OliF83GR9
+         0OOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789747743; x=1790352543;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sTFwCwuuJBdUqXmrDgIcnP3ObUsaQ9UCrGTYomH04hg=;
+        b=M0TsugSzjLVXP1MM3wF9gUXuHZ6vgOoNhj8XxmvQg+eF0s6F6LIUKb/lvWv8ZZCObT
+         1RgzMBowA1XqBrNt1v/uqizqN2kOe9mJL1zOupAE0bixLtSTgh3ov3HUMJ4sVa11b9a6
+         OXnMNhMzGlbu5m1kEFQDeRHnyZb2DXKvLyIBaj+M4cM2dZrqY2jNJvOIRRxW4+9Uu3nz
+         9U346ragQhkL3rbf9r7EnxGz63Xp8Bp956OqjC55Btj17BNmndoFhi1CDD/y1BBaugGG
+         9CITtzlbEfsb4X2vyUHx3PiRldK+MbEI5z1Sin98TR5ccK7+U2ncbv3OUE+E4LzCthR3
+         X69A==
+X-Forwarded-Encrypted: i=1; AKwUvBzusa1LoHT0nzdcPDrE/W/YZJTZEx6b09KuWf6uzaVIsJg9iOxt2nJ9UaH7CHzK3FPbRnyxFRc2dl2K/w==@lists.infradead.org
+X-Gm-Message-State: AFuF++kxJfuO7VW91KHMfKoIJCrK2/+Nu2mRw+MGN6gQh1kfuk913dvi
+	jXCpi64O8lca+LFsJ2oVnNxrSkQOV+iJRbMxk0bCoy3HGypqPP0OivZq
+X-Gm-Gg: AYBFou19aJnFjB+35qP0rKbe7dDU1YP5zgT0bW46w/Eu74/XmAEYuW/k3B2ewWfKldY
+	2j3N42nS0ZBbEEmpcfGcxl9QvQj/4A+MN1gxoHPTK5wOZk/0u/CCcAhvAz3bs1p/A829YxuIfCd
+	ZOTNQoZmP6ZlDMyLWhrsL2NzvYzdoyYozX+qD1FDYh1xOGTXf/1JwSnNdbL9W9lP3EaQtWxyDMf
+	GOU89BJo2oqjLiSyTAm7motusZiYVHGTFgbcx0u1gJO37BOKP+cMPq/GJnH+PapgzmAoDmzRVWQ
+	gDnfkXoFPQtV5uTePNXr+pMUeml+tnkq9L+CXeEzavW0gljwr6CuE9rn3rhT3GMKWXYcwMf9lwt
+	tmxWH+ScvNHeWGHBIDmj2/VwGKA2gGwuwRkdx6II7yuUFB9pxKKITdOKuA2dimxu3D/+TuIkadr
+	nrSQGDjrvxcTG2dha1bZ/4qizoM/qcUPPAZMBYgsaeGynUnoG5PUB0hH1xSaJmp+6xrR6HapEXT
+	L1QBA8WXnlIrG0odg==
+X-Received: by 2002:a17:902:ea0c:b0:2dd:c100:7ccb with SMTP id d9443c01a7336-2ddc1007e5cmr1279195ad.71.1789747742619;
+        Fri, 18 Sep 2026 09:09:02 -0700 (PDT)
+Received: from [192.168.50.100] ([111.199.57.13])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ddb76025afsm10835745ad.73.2026.09.18.09.08.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Sep 2026 09:09:01 -0700 (PDT)
+Message-ID: <6d1bfb10-fd04-4e4e-895d-55c16fcea13f@gmail.com>
+Date: Sat, 19 Sep 2026 00:08:53 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v4 04/10] iommu/riscv: use data structure instead of
+ individual values
+To: fangyu.yu@linux.alibaba.com
+Cc: guoren@kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+ tomasz.jeznach@linux.dev, joro@8bytes.org, will@kernel.org,
+ robin.murphy@arm.com, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, baolu.lu@linux.intel.com,
+ jroedel@suse.de, zong.li@sifive.com, andrew.jones@oss.qualcomm.com,
+ anup@brainfault.org, jgg@nvidia.com, jgg@ziepe.ca, kevin.tian@intel.com,
+ atish.patra@linux.dev, skhawaja@google.com, vasant.hegde@amd.com,
+ joerg.roedel@amd.com, gong.shuai@sanechips.com.cn
+References: <20260915032828.11250-1-fangyu.yu@linux.alibaba.com>
+ <20260915032828.11250-5-fangyu.yu@linux.alibaba.com>
+From: Gong Shuai <gsh517025@gmail.com>
+In-Reply-To: <20260915032828.11250-5-fangyu.yu@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_083301_911534_CBC5B951 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20260918_090905_008110_BEC98C99 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,129 +106,124 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="Flowed"
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu Sep 17, 2026 at 1:22 PM EDT, Michal Wilczynski wrote:
->
->
-> On 9/16/26 02:45, Joshua Peisach wrote:
->> On Tue Sep 15, 2026 at 11:32 AM EDT, Michal Wilczynski wrote:
->>>
->>> Testing
->>> =======
->>>
->>> Tested on a VisionFive 2 v1.3B using modetest.
->> 
->> I.. got nothing. I did have to manually modprobe the modules, but
->> unless I am doing something wrong.. I didn't get anything and modetest
->> just gave -2.
->
-> Hmm have you also changed the DTB not just the kernel and the modules
-> (you can also built in everything).
->
-Yes (I didn't built-in everything, but I did make sure the DTB was
-copied and flash-kernel was run)
+Hi Fangyu,
 
-> Also note modetest needs -M verisilicon.
->
+On 9/15/2026 11:28 AM, fangyu.yu@linux.alibaba.com wrote:
+> From: Zong Li <zong.li@sifive.com>
+> 
+> The parameter will be increased when we need to set up more
+> bit fields in the device context. Use a data structure to
+> wrap them up.
+> 
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+> ---
+>   drivers/iommu/riscv/iommu.c | 27 +++++++++++++++++----------
+>   1 file changed, 17 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index a6c8307e82ea..c5b6214ee672 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -1165,7 +1165,7 @@ static void riscv_iommu_iodir_iotinval(struct riscv_iommu_device *iommu,
+>    * interim translation faults.
+>    */
+>   static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+> -				     struct device *dev, u64 fsc, u64 ta)
+> +				     struct device *dev, struct riscv_iommu_dc *new_dc)
+>   {
+>   	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
+>   	struct riscv_iommu_dc *dc;
+> @@ -1204,10 +1204,10 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+>   	for (i = 0; i < fwspec->num_ids; i++) {
+>   		dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
+>   		tc = READ_ONCE(dc->tc);
+> -		tc |= ta & RISCV_IOMMU_DC_TC_V;
+> +		tc |= new_dc->ta & RISCV_IOMMU_DC_TC_V;
 
-"failed to open device 'versilicon' with busid '(null)': No such file
-or directory"
+According to SPEC 3.1.3.3, the "V bit" does not exist in DC.ta.
+This should be a convention from when the iodir_update() function
+did not yet use `struct riscv_iommu_dc` as a parameter, using bit 0
+of DC.ta to indicate that the DC is valid. Now that iodir_update()
+receives the complete dc, it can directly access DC.tc.V, so this
+convention should no longer be necessary and will cause confusion.
+
+>   
+> -		WRITE_ONCE(dc->fsc, fsc);
+> -		WRITE_ONCE(dc->ta, ta & RISCV_IOMMU_PC_TA_PSCID);
+> +		WRITE_ONCE(dc->fsc, new_dc->fsc);
+> +		WRITE_ONCE(dc->ta, new_dc->ta & RISCV_IOMMU_PC_TA_PSCID);
+
+`RISCV_IOMMU_PC_*` should be replaced with `RISCV_IOMMU_DC_*` for
+readability. There are several other similar places in this file
+that are unrelated to Process Context or PASID but use the *PC* macros.
 
 
-> If that is not it, could you send "dmesg | grep -iE
-> 'verisilicon|inno|hdmi|vout'" and "ls /sys/class/drm/"?
->
-the dmesg output:
+Thanks,
+Shuai
 
-[    0.090950] /soc/display-subsystem@29400000/hdmi@29590000/controller: Fixed dependency cycle(s) with /soc/display-subsystem@29400000/display@29400000
-[    0.091029] /soc/display-subsystem@29400000/display@29400000: Fixed dependency cycle(s) with /soc/display-subsystem@29400000/hdmi@29590000/controller
-[    0.104227] /hdmi-connector: Fixed dependency cycle(s) with /soc/display-subsystem@29400000/hdmi@29590000/controller
-[    0.104272] /soc/display-subsystem@29400000/hdmi@29590000/controller: Fixed dependency cycle(s) with /hdmi-connector
-
-
-/sys/class/drm only contains the file "version"
-
--Josh
-
->> 
->>> ---
->>> Michal Wilczynski (20):
->>>       dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
->>>       dt-bindings: display: bridge: Add starfive,jh7110-inno-hdmi-controller
->>>       dt-bindings: mfd: Add starfive,jh7110-hdmi-subsystem
->>>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-syscon
->>>       dt-bindings: display: verisilicon: Add starfive,jh7110-dc8200
->>>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-subsystem
->>>       drm/bridge: inno-hdmi: Split probe out of bind
->>>       drm/bridge: inno-hdmi: Allow the register map to come from a parent
->>>       drm/bridge: inno-hdmi: Add .disable platform operation
->>>       drm/bridge: inno-hdmi: Add .mode_valid platform operation
->>>       drm/bridge: inno-hdmi: Make the PHY configuration table optional
->>>       soc: starfive: Add jh7110-hdmi-subsystem driver
->>>       soc: starfive: Add jh7110-vout-subsystem driver
->>>       clk: starfive: jh7110-vout: Allow pixel clock rate propagation
->>>       drm/bridge: starfive: Add JH7110 HDMI controller driver
->>>       phy: Add common Innosilicon HDMI PHY helpers
->>>       phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
->>>       phy: starfive: Add jh7110-inno-hdmi-phy driver
->>>       riscv: dts: starfive: jh7110: Update DT for display subsystem
->>>       MAINTAINERS: Add StarFive JH7110 display subsystem entry
->>>
->>>  .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++
->>>  .../bindings/display/verisilicon,dc.yaml           |   1 +
->>>  .../mfd/starfive,jh7110-hdmi-subsystem.yaml        |  95 ++++
->>>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
->>>  .../soc/starfive/starfive,jh7110-syscon.yaml       |   1 +
->>>  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 218 ++++++++
->>>  MAINTAINERS                                        |  13 +
->>>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 121 ++++-
->>>  arch/riscv/boot/dts/starfive/jh7110.dtsi           | 105 +++-
->>>  drivers/clk/starfive/clk-starfive-jh7110-vout.c    |   6 +-
->>>  drivers/gpu/drm/bridge/Kconfig                     |  11 +
->>>  drivers/gpu/drm/bridge/Makefile                    |   1 +
->>>  drivers/gpu/drm/bridge/inno-hdmi.c                 | 112 +++-
->>>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c          | 297 +++++++++++
->>>  drivers/phy/Kconfig                                |   8 +
->>>  drivers/phy/Makefile                               |   1 +
->>>  drivers/phy/phy-inno-hdmi.c                        | 298 +++++++++++
->>>  drivers/phy/rockchip/Kconfig                       |   1 +
->>>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 168 +-----
->>>  drivers/phy/starfive/Kconfig                       |  20 +
->>>  drivers/phy/starfive/Makefile                      |   1 +
->>>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 579 +++++++++++++++++++++
->>>  drivers/soc/Kconfig                                |   1 +
->>>  drivers/soc/Makefile                               |   1 +
->>>  drivers/soc/starfive/Kconfig                       |  43 ++
->>>  drivers/soc/starfive/Makefile                      |   3 +
->>>  drivers/soc/starfive/jh7110-hdmi-subsystem.c       |  73 +++
->>>  drivers/soc/starfive/jh7110-vout-subsystem.c       |  82 +++
->>>  include/drm/bridge/inno_hdmi.h                     |  10 +-
->>>  include/linux/phy/inno-hdmi-phy.h                  |  85 +++
->>>  30 files changed, 2337 insertions(+), 188 deletions(-)
->>> ---
->>> base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
->>> change-id: 20251031-jh7110-clean-send-7d2242118026
->>>
->>> Best regards,
->> 
->> By the way, something weird happenined while I applied the patches
->> using git am. Somehow, some were out of order. The 10th patch
->> adding .mode_valid tried to be applied before .disable even though
->> in the series, the order is correctly set? git would obviously
->> fail because the .disable entry did not exist in the header, so I had
->> to manually put those in.
->> 
->> I guess it's possible that something went wrong here? I personally
->> pulled the mailbox from the lore.kernel.org mbox.gz file.
->
-> I would recommend using b4 shazam instead
->
->> 
->
-> Best regards,
+>   		/* Update device context, write TC.V as the last step. */
+>   		dma_wmb();
+>   		WRITE_ONCE(dc->tc, tc);
+> @@ -1288,22 +1288,22 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+>   	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>   	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+>   	struct pt_iommu_riscv_64_hw_info pt_info;
+> -	u64 fsc, ta;
+> +	struct riscv_iommu_dc dc = {0};
+>   
+>   	pt_iommu_riscv_64_hw_info(&domain->riscvpt, &pt_info);
+>   
+>   	if (!riscv_iommu_pt_supported(iommu, pt_info.fsc_iosatp_mode))
+>   		return -ENODEV;
+>   
+> -	fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, pt_info.fsc_iosatp_mode) |
+> +	dc.fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, pt_info.fsc_iosatp_mode) |
+>   	      FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, pt_info.ppn);
+> -	ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
+> +	dc.ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
+>   	     RISCV_IOMMU_PC_TA_V;
+>   
+>   	if (riscv_iommu_bond_link(domain, dev))
+>   		return -ENOMEM;
+>   
+> -	riscv_iommu_iodir_update(iommu, dev, fsc, ta);
+> +	riscv_iommu_iodir_update(iommu, dev, &dc);
+>   	riscv_iommu_bond_unlink(info->domain, dev);
+>   	info->domain = domain;
+>   
+> @@ -1378,9 +1378,12 @@ static int riscv_iommu_attach_blocking_domain(struct iommu_domain *iommu_domain,
+>   {
+>   	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>   	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+> +	struct riscv_iommu_dc dc = {0};
+> +
+> +	dc.fsc = RISCV_IOMMU_FSC_BARE;
+>   
+>   	/* Make device context invalid, translation requests will fault w/ #258 */
+> -	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, 0);
+> +	riscv_iommu_iodir_update(iommu, dev, &dc);
+>   	riscv_iommu_bond_unlink(info->domain, dev);
+>   	info->domain = NULL;
+>   
+> @@ -1400,8 +1403,12 @@ static int riscv_iommu_attach_identity_domain(struct iommu_domain *iommu_domain,
+>   {
+>   	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>   	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+> +	struct riscv_iommu_dc dc = {0};
+> +
+> +	dc.fsc = RISCV_IOMMU_FSC_BARE;
+> +	dc.ta = RISCV_IOMMU_PC_TA_V;
+>   
+> -	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, RISCV_IOMMU_PC_TA_V);
+> +	riscv_iommu_iodir_update(iommu, dev, &dc);
+>   	riscv_iommu_bond_unlink(info->domain, dev);
+>   	info->domain = NULL;
+>   
 
 
 _______________________________________________
