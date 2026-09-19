@@ -4,133 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAE8C982D7
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 07:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D75C982CC
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 07:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oLJAxmiIdrFabV2GIQA49avktBDI8HSVfDU9lMMM/D4=; b=fEzZ6j6zMVj2Q3
-	qBM53fChXhDtp5Xb79P+wjmnbNGQVfGXRZpsXnbAAle26hQz8slcHvj+zDg+ZauKWttd3VLKa3JVw
-	KWvuAusvWtSlV5LvlFP+UTSwxbrjSVCEuTMmBCVhYmzRMI+9PbBYz7FkrGc6369mnWe6eFWr1n27K
-	2LPN4Q5giOccUcmWcWAkl8nwv5+VK2LooTBRXSLS8sA+vXnVuGKw7DiBGHPJ9ZlXhoLYvLq3/wlhl
-	ht8lbVMYSyxiqZYpvoTybyF/ceJoGeLDG4lTOLKptBgWtFoJIgQ6PdXXxUEwahcWspofqCK8isZKh
-	eQmSQOocn9xFF779YgOQ==;
+	List-Owner; bh=LZu+HElWDMzLvMV+z1Yz7ItHs8KSIHINhe0j09+gBQA=; b=H2D7ip9NSZqwK+
+	Q61UQL7iH2wjdF3cHdKo+mkBpdwAH8qXqHAlQx7O3p+08CaWl63G21KOF1gfdgb4dkpaD7qSbDFv1
+	0IMA7TPUDbiwdR3Fz/lHkcK7V99pzEi6HpHX0hrm9jcz5uR9iQ9e37VEok88tCA7KM0T+NhVSgDXB
+	0dIHajyluGUSPERliXhabpYHbaP0/xwdU8exSvK5SrUt8C/XN2A9Rf4y/QduKvpjZQYnVfx2jDU6l
+	TRRke3aAUJGcEwY1YXqnzswsPaNa8Uxx1rYi3a6an04oHpyEWnjU6dGsnzzLJ/qN7ow4gx3XCCYsD
+	PXmjAt9sS4zI4W9/7zNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7pBT-0000000G2Dn-2etZ;
-	Sat, 19 Sep 2026 07:08:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x7pEX-0000000G2WY-2ikc;
+	Sat, 19 Sep 2026 07:11:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7pBS-0000000G2De-1LIb;
-	Sat, 19 Sep 2026 07:08:26 +0000
+	id 1x7pEW-0000000G2VA-03jm;
+	Sat, 19 Sep 2026 07:11:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9D8D4343B;
-	Sat, 19 Sep 2026 07:08:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC9F41F000FF;
-	Sat, 19 Sep 2026 07:08:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD9CD402DD;
+	Sat, 19 Sep 2026 07:11:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F3261F000FF;
+	Sat, 19 Sep 2026 07:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789801705;
-	bh=uhaSLRWxWnpOZ1hMGZ3P8vEzC790v0CsHkY9724kydk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=BCh+Q1fkXZMtjVafQ5YGFV+h5db354VNq/ELCWyC4KkM9EOKXmUTlqgi+ma1wXozp
-	 DftsecIquMnGZU/bn7dlqfHB0SFowcKCtqYqFYBKKfUSA8s3K9Rsk5SMYPxnV+DeBV
-	 Y5Sj2gXory2ScdEG5Sx21lZEfxqdEdqZ9ssZyQau7j9QTMvL/H4vwGIsnSHVVKjlqr
-	 r41sO26J5aU+9ztpXEn5Q6cqRxLTKJH0TIlovq31RymcWsd+tEVLn+dCLOvNd83tjr
-	 uc83mnTCusi1VsH/mO2vViF+aXTvauBuk/3UmRhVl0wbrNfua+U/YMiqJx6DLrDv5O
-	 AiKJ0In7NVj/A==
-Message-ID: <457bb3d5-1d73-4acb-9ef0-4e40de6bdc94@kernel.org>
-Date: Sat, 19 Sep 2026 09:08:04 +0200
+	s=k20260515; t=1789801895;
+	bh=bEP94n9v3wLAo85N51UgdrheAoXFz2CprleV4BZJMM8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=F4W1bQei0WbJqW4r8EVplbGGhiwx7NXzD9fjTAJz1nnroqL5YVOgqQUiArkdtmHyr
+	 W9CUxLppulp2QWgWTUWbd/dAehRrSW/lkzZ8oqUe3f2GoaBZ9mxErL6fLMqXM7hUoW
+	 pflbnHmqkcZuRmlsQGGEHcLyopvAXc13ZfvUKI6JKD4iUk+a26j861qNbyRs7NwWAe
+	 5rxSiPFeIPanXD5TpncL4/J1QB4XlrZSZXGeFurkupyx3dvKksXmU0uWgTWfiWByEt
+	 kIY5KOkGCC+OaHU6gMgpAmJdMdOpQb8sI62v9yK0E5VZLKYJBnSZK7nFcRXx41rwCe
+	 CYxurd2l460hw==
+Date: Sat, 19 Sep 2026 10:11:24 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Baoquan He <baoquan.he@linux.dev>
+Cc: Wandun Chen <chenwandun1@gmail.com>, catalin.marinas@arm.com,
+	will@kernel.org, chenhuacai@kernel.org, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	x86@kernel.org, robh@kernel.org, saravanak@kernel.org,
+	akpm@linux-foundation.org, pasha.tatashin@soleen.com,
+	pratyush@kernel.org, m.szyprowski@samsung.com, mark.rutland@arm.com,
+	kernel@xen0n.name, alex@ghiti.fr, hpa@zytor.com,
+	ruirui.yang@linux.dev, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, kexec@lists.infradead.org,
+	linux-mm@kvack.org, iommu@lists.linux.dev
+Subject: Re: [PATCH v6 06/10] memblock: introduce MEMBLOCK_NODUMP flag
+Message-ID: <aq41nFRPtRWTQ7cK@kernel.org>
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+ <20260902073116.802752-7-chenwandun1@gmail.com>
+ <aqzxavL91icLw-Xv@fedora>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: Expand flow lists to block lists
-To: Daniel Matyas <matyasdaniel006@gmail.com>, Lee Jones <lee@kernel.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Ulf Hansson <ulfh@kernel.org>, Liang Yang <liang.yang@amlogic.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Vinod Koul <vkoul@kernel.org>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>
-Cc: Jose Abreu <joabreu@synopsys.com>, Ray Jui <ray.jui@broadcom.com>,
- Scott Branden <scott.branden@broadcom.com>, Atish Patra
- <atishp@rivosinc.com>, Shawn Guo <shawn.guo@linaro.org>,
- Dmitry Osipenko <digetx@gmail.com>, Thierry Reding
- <thierry.reding@gmail.com>, Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
- Okan Sahin <Okan.Sahin@analog.com>, devicetree@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
- linux-rtc@vger.kernel.org, Ricard Wanderlof <ricardw@axis.com>,
- patches@opensource.cirrus.com, Lukas Wunner <lukas@wunner.de>,
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Eugen Hristev
- <ehristev@kernel.org>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hwmon@vger.kernel.org, linux-iio@vger.kernel.org, linux@analog.com,
- linux-input@vger.kernel.org, chrome-platform@lists.linux.dev,
- linux-riscv@lists.infradead.org
-References: <20260917144028.459053-1-matyasdaniel006@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260917144028.459053-1-matyasdaniel006@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <aqzxavL91icLw-Xv@fedora>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,22 +81,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2026 16:40, Daniel Matyas wrote:
-> Running dt_bindings_check returned:
-> [error] string value is redundantly quoted with any quotes (quoted-strings)
-> 
-> The files used quotation marks in flow lists because the strings had
-> commas and these commas were interpreted as separators. Convert flow
-> style lists to block style lists, so that there is no problems with the
-> commas.
-> 
-> Signed-off-by: Daniel Matyas <matyasdaniel006@gmail.com>
+On Fri, Sep 18, 2026 at 04:08:10PM +0800, Baoquan He wrote:
+> On 09/02/26 at 03:31pm, Wandun Chen wrote:
+> > From: Wandun Chen <chenwandun@lixiang.com>
+> > 
+> > Add MEMBLOCK_NODUMP to mark regions that should be excluded from
+> > kdump vmcores.
+> > 
+> > The flag is meant for reserved memory that carries no data useful for
+> > crash analysis. Reusable reserved regions such as CMA may hold useful
+> > data, so these regions must not be marked MEMBLOCK_NODUMP. Subsequent
+> > patches wire this up for /reserved-memory and /memreserve/ entries.
+> > 
+> > Suggested-by: Rob Herring <robh@kernel.org>
+> > Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+> > Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+> > ---
+> >  include/linux/memblock.h |  9 +++++++++
+> >  mm/memblock.c            | 16 ++++++++++++++++
+> >  2 files changed, 25 insertions(+)
+> > 
+> > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> > index d62db9e776cf..b2fcf11fba2b 100644
+> > --- a/include/linux/memblock.h
+> > +++ b/include/linux/memblock.h
+> > @@ -52,6 +52,8 @@ extern unsigned long long max_possible_pfn;
+> >   * kernel that we know is good to use. It is the only memory that
+> >   * allocations may happen from in this phase.
+> >   * @MEMBLOCK_RSRV_HUGETLB: memory is reserved for hugetlb pages
+> > + * @MEMBLOCK_NODUMP: exclude from kdump vmcore. It carries no data useful
+> > + * for crash analysis (e.g. firmware carveouts).
+> >   */
+> >  enum memblock_flags {
+> >  	MEMBLOCK_NONE		= 0x0,	/* No special request */
+> > @@ -63,6 +65,7 @@ enum memblock_flags {
+> >  	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+> >  	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
+> >  	MEMBLOCK_RSRV_HUGETLB	= 0x80, /* memory reserved for hugetlb pages */
+> > +	MEMBLOCK_NODUMP		= 0x100,/* exclude from kdump vmcore */
+> >  };
+> >  
+> >  /**
+> > @@ -160,6 +163,7 @@ int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
+> >  int memblock_reserved_mark_kern(phys_addr_t base, phys_addr_t size);
+> >  int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size);
+> >  int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size);
+> > +int memblock_mark_nodump(phys_addr_t base, phys_addr_t size);
+> >  
+> >  void memblock_free(void *ptr, size_t size);
+> >  void reset_all_zones_managed_pages(void);
+> > @@ -306,6 +310,11 @@ static inline bool memblock_is_kho_scratch(struct memblock_region *m)
+> >  	return m->flags & MEMBLOCK_KHO_SCRATCH;
+> >  }
+> >  
+> > +static inline bool memblock_is_nodump(struct memblock_region *m)
+> > +{
+> > +	return m->flags & MEMBLOCK_NODUMP;
+> > +}
+> > +
+> >  int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
+> >  			    unsigned long  *end_pfn);
+> >  void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
+> > diff --git a/mm/memblock.c b/mm/memblock.c
+> > index f2952d725c10..2e87f39826dd 100644
+> > --- a/mm/memblock.c
+> > +++ b/mm/memblock.c
+> > @@ -1204,6 +1204,21 @@ __init int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
+> >  				    MEMBLOCK_KHO_SCRATCH);
+> >  }
+> >  
+> > +/**
+> > + * memblock_mark_nodump - Mark a memory region with flag MEMBLOCK_NODUMP.
+> > + * @base: the base phys addr of the region
+> > + * @size: the size of the region
+> > + *
+> > + * Mark the region as not to be included in crash dumps.
+> > + *
+> > + * Return: 0 on success, -errno on failure.
+> > + */
+> > +int __init_memblock memblock_mark_nodump(phys_addr_t base, phys_addr_t size)
+>       ~~~~~~~~~~~~~~^
+> Is it impossible to use at runtime even thought it claims to be generic?
 
-Ignore this patch. Daniel sent it THREE times, so we need to respond
-three times that it is wrong.
+This should only happen at boot.
 
-Best regards,
-Krzysztof
+Allowing modifications of memblock properties in runtime is a can of worms
+I don't want to open.
+ 
+> > +{
+> > +	return memblock_setclr_flag(&memblock.memory, base, size, 1,
+> > +				    MEMBLOCK_NODUMP);
+> > +}
+> > +
+> >  static bool should_skip_region(struct memblock_type *type,
+> >  			       struct memblock_region *m,
+> >  			       int nid, int flags)
+> > @@ -2887,6 +2902,7 @@ static const char * const flagname[] = {
+> >  	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
+> >  	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
+> >  	[ilog2(MEMBLOCK_RSRV_HUGETLB)] = "RSV_HUGETLB",
+> > +	[ilog2(MEMBLOCK_NODUMP)] = "NODUMP",
+> >  };
+> >  
+> >  static int memblock_debug_show(struct seq_file *m, void *private)
+> > -- 
+> > 2.43.0
+> > 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
