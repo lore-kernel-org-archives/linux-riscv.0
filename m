@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC84C982D7
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 15:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7971BC982D7
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 16:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iNyYblVD5YWqzj2W927pdxef5onTRanDy51kEDL5qVw=; b=e7VcJGNRVTO+fV
-	xm7+9ZTVZbaArCBE4Tow4O45puxXTdXij4n08C32eawsnE+hIxdF/N0fJ3qPGNo5ADcLDG9RVHVhs
-	488fZbvMs8CfJdKe+XAkn2cDzuUPJ2Dpt4oTvM5gwo5GR1Drkhbb21oaoAAAyap4Fg/BRtB3wktPX
-	BXlymlrxaD+rNPvT5Bc1vJmzbHI0nlQF0kqm9OSRkCGen0x+PlrZJUf1vFQbFMlENI0D9Q5qQy4qj
-	WsWtS+qN0AqUoqFt/Zl0O4dOQmfMCoNGsAdSV4Lwo0NJ/Vk0rWazKfWM+3rGyzbwPVIoQcYsRZ+wB
-	glbwnNKooVVmGFbR1sDg==;
+	List-Owner; bh=0xo9ADYWqDJ0UyvT5QSFUKwqKDjCk3nKQz6LcXL6GYw=; b=ySE/LFMOs4BEOc
+	dmUJgSHJJEGyirKf68hTyieIZ5TDc/7+lQYjlzlHUasydtxSa2AA/uEe8AUAjpdpx+XkuvhbZjP7G
+	C4nik4O5aFYbG1uJZ2y1jqHEK42keRIwQsd5GMWEguHWkYAYqvo3Fq2+SlHjeBEWtQUZbqMpx89cV
+	vaKtfpYBbd3t8DwV6pj07r/jWgahJjK/AbeZDht+THBkvZVr47bJ0KhqGxKYLVnrrh2vZikDP4oti
+	9lI/yQ9Szn/muefx5QBXZf78BWzQNafQgN9TZnuYa0UFeF2NTvN7SflZneGa3p36cBOucIal5il5Z
+	YVIolqSylpwRPhbCOBwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7wbb-0000000GQO0-0VPh;
-	Sat, 19 Sep 2026 15:03:55 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1x7xrU-0000000GVLt-0hE7;
+	Sat, 19 Sep 2026 16:24:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7wbY-0000000GQN7-01qg
-	for linux-riscv@lists.infradead.org;
-	Sat, 19 Sep 2026 15:03:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1789830197;
-	bh=h1WOIRQT0KOUkcpfRIFqCd28qtTzI5G/vlfaczFIm3g=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=LJCz3//X8xRrUo89TOHgWfPuoJ0VGyCmvcr/BZHHqWcTJZh+/JohCHDyo0FvMYxDP
-	 2F5qlyuwaunP2SH074Fzmm9HdClY/BqpZYHSEdQvw9CfBwDHB6RcF6f6ajpcloRPRh
-	 rx+FRkHlITkMOZZXQ2eKgA4Cfh7XUCzGliOcIvhY=
-X-QQ-mid: zesmtpgz3t1789830190tfdeff35d
-X-QQ-Originating-IP: PioUM+UFfuxBWzMSzeGzTOV311erig4aklwdlIG29mE=
-Received: from [192.168.1.100] ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 19 Sep 2026 23:03:09 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11224281374008946119
-Message-ID: <B8C4C8F589E42A31+60fc3495-33cf-498d-be73-5165b69947c8@linux.spacemit.com>
-Date: Sat, 19 Sep 2026 23:03:09 +0800
+	id 1x7xrS-0000000GVLY-1gD0;
+	Sat, 19 Sep 2026 16:24:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2FBD560AA4;
+	Sat, 19 Sep 2026 16:24:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F33B1F000FF;
+	Sat, 19 Sep 2026 16:24:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789835060;
+	bh=sk1uiA0a3uJ6Mh7cOavRLqQqvYzmfEooA+BMJDeb3vA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kE9RYjXFkYKOrnh9EFwiMwo0P5krC4j9biK6rNG6z10jldKfON6pzXrEk3KWR5MOy
+	 EFwCSkBWdZ+yWNgpSqRCMJnezINNnDqV5DpOPbo6kWNK/nRr4DmQP31RgHW75DXW9A
+	 E9gQriwoo4WnXNgMC0SCg2Upmh1Ipk51mPV5Q8OlODKolgzgVAfrfW7h7p15JHQulG
+	 58Mby4tgH3oD1vkvQOaV4+fkkxH30Ilgm8b4ytgNoSe4zEENF1cYKguWQLOVM4hzS3
+	 81MeFEGe7Tro3lAUItvsm+kq5s4dlY+yelHdEpMF9b70rcWG1ju2Z2nJDtfJRpmons
+	 TX4vv5x4ywAuQ==
+Date: Sat, 19 Sep 2026 17:24:06 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
+	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
+	Randy Dunlap <rdunlap@infradead.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+	Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 07/20] kallsyms: reimplement mksysmap in C
+Message-ID: <aq6zQng28spcTD88@gremlin>
+References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
+ <20260917-build-speedup-v3-7-9ecf4163ff36@kernel.org>
+ <202609171046.146CAE972B@keescook>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] usb: dwc3: core: resume xHCI child on runtime resume
- in host mode
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: Troy Mitchell <troy.mitchell@linux.dev>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "spacemit@lists.linux.dev" <spacemit@lists.linux.dev>
-References: <20260908-resume-xhci-v1-1-aca107602e9c@linux.spacemit.com>
- <DL9ZZ8F7HTZT.1IUMD1ECSOZXL@linux.dev>
- <566DD22E9074C793+eaef8bb4-9602-4f76-8915-6e322387c7aa@linux.spacemit.com>
- <768D38E96246550E+b63978f5-b8e9-4d3d-883c-f36d79c5da12@linux.spacemit.com>
- <aq3kF_zdTPwkOuZI@vbox>
-Content-Language: en-US
-From: Junzhong Pan <panjunzhong@linux.spacemit.com>
-In-Reply-To: <aq3kF_zdTPwkOuZI@vbox>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
-X-QQ-XMAILINFO: NK1jrlzPMOAHF4ymU020VItJtHFV8okpJbkhvAN7RM7l2nuD8ifA7snX
-	7QWZh+nTpo7fE8AEb3M24m7SEp++4+Mw1jsXGH3CY+FyMupaQt8xiPhBVT20weIWgGk7O2x
-	omJfTm/BQ/c70faubX+VEcpGbPsHoWflZ65cA0JYaeTVnbl14FqhVpj8zqYAtmyynHAJ+dV
-	ber6RhcQshV+HR3Z3JoGYcYPVZvYAF/vmsGxXwUlulrqq26M3p0pclgxgdkqSntOlQK9t5r
-	W0V1/dNztjTdcYL5HLCj6DxEZRgtIITnXDtK79qY3kZXVZ7BmN1P04suFh6FLELoTHoUFMp
-	+hmJpWCNqeLF2jK9DGQC5lQrEBD6b6qox3+PUerxO3Jaw2cLecla5+Hyq6oLsMPV3D//gXs
-	QX8kKPcQ5Wkia9mQLB3etFkwd3tZn+f82MB7R3wflDN8G3fzrHMMDHM8Xs0k7nIxkKja8a5
-	KsWS2y1/ZNSUSL/9q2DS6wA/97kzTmdI+pdHB29pEAKpj27RD+ZEq3B8acatWXx1BtUO9rb
-	0P8xiWr2n0zSg6aHoO4EbhrZFYzKkEA3b0OPKrmyhEiGCLVRSOM0mjwN+ThD+gG+Lh87dTB
-	WPiG9/fX+4yDapNhQWEqS4+JU9kuKhBrFRSmm77CiLu8lfp30tBHTLLQNjfNQEnWLTvPsuE
-	QiiOhA9sZCfVCyXnKFmku5sRfDxvhXXRKTZSHBPX/uXFM96Zn3dJD2pLjyccyIKgVS6hoOd
-	IoI75dqPp15LnryGLpJeHwndGvL+FNKvfImkIQjVn3a38H+ym7bEn/U0l6lSilHCaP5Q8/d
-	svD6ao406n1AYJ9pXDrwHKWBka4mSNgLeRAzVRPMpgnWlVbgWlTRJA1hBYHEKwoaymN3lsb
-	lM9OmFy9uG3G1uNhQKxEbAfs48RAcFwhOTuxlcWRihaPZ0HsNZwMvPk7qJI50v3o0IRDkvt
-	4+WRNfVM5iwOpTWC7kOqsBU2tZ1UqrYHnEF2wQ1hwMwwNAwe7aloJ9dQAnerHqnZN+UtwC4
-	BxsmuA4CBs3amt8OTCTMeD8QuJSsNkuBkYCwCm2TTdhjuUnzCS/cC6Ef4dBU6BIca20arnb
-	vU6WKfgTHHGR2MoZV0Okz2wQxTe2AZkIg==
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_080352_888126_FBB81343 
-X-CRM114-Status: GOOD (  31.02  )
+Content-Disposition: inline
+In-Reply-To: <202609171046.146CAE972B@keescook>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,140 +92,458 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/19/2026 9:51 AM, Thinh Nguyen wrote:
-> On Fri, Sep 18, 2026, Junzhong Pan wrote:
->> On 9/9/2026 8:28 PM, Junzhong Pan wrote:
->>> On 9/8/2026 10:16 PM, Troy Mitchell wrote:
->>>> On Tue Sep 8, 2026 at 10:01 PM +08, Junzhong Pan wrote:
->>>>> USB controller runtime suspend halts the controller on disconnection.
->>>>> It relies on platforms with custom connection notification to start
->>>>> the controller again.
->>>>>
->>>>> The host branch of dwc3_runtime_resume() does nothing currently. There
->>>>> are two paths that can trigger a runtime resume of the dwc3 core in
->>>>> host mode:
->>>>>
->>>>> (a) Wake lands on the xHCI child (DT platforms, e.g. Qualcomm, i.MX8MP)
->>>>>     A platform wakeup IRQ fires and the glue handler calls
->>>>>     pm_runtime_resume(&xhci->dev). Runtime PM walks upward, resumes
->>>>>     the dwc3 parent first, then resumes xHCI. Both wake correctly.
->>>>>
->>>>> (b) Wake lands on the dwc3 parent (ACPI platforms)
->>>>>     When an ACPI Notify(ACPI_NOTIFY_DEVICE_WAKE) targets the dwc3
->>>>>     parent device -- for example via a Generic Event Device on a
->>>>>     hardware-reduced platform where dwc3 is enumerated as an ACPI
->>>>>     device without a glue driver -- the ACPI core turns this into
->>>>>     pm_request_resume(dwc3_dev). Runtime PM does not propagate resume
->>>>>     downward, so the xHCI child stays suspended. Root hub polling is
->>>>>     never re-armed, and a device plugged in while suspended is silently
->>>>>     dropped.
->>>>>
->>>>> This patch fills in the host branch to cover case (b) by requesting an
->>>>> async resume of the xHCI child so xhci_resume() can restore the port
->>>>> state machine and re-arm root hub polling. Glue drivers in case (a)
->>>>> resume xHCI directly, an extra call introduced by this change, but
->>>>> runtime PM can serialize those requests and skip device already active,
->>>>> so the extra resume call is safe. Those calls can be replaced with
->>>>> resume calls to dwc3 device later.
->>>>>
->>>>> Tested on SpacemiT K3 Pico-ITX, covering both wakeup paths: an ACPI
->>>>> boot with a GED device notifying the dwc3 node (HID 808622B7), and a
->>>>> DT boot with a modified dwc3-generic-plat driver exposing a wakeup IRQ
->>>>> similar to dwc3-qcom.c and dwc3-imx8mp.c. This is not validation on
->>>>> actual Qualcomm or i.MX8MP hardware, changing those drivers would still
->>>>> need platform-specific testing.
->>>>>
->>>>> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
->>>>> Assisted-by: Opencode:claude-opus-5
->>>>> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
->>>>> ---
->>>>> Changes since RFC:
->>>>> - add Assisted-By tag and collect tag
->>>>> - refine the commit message and comments as suggested
->>>>>
->>>>> Link to RFC: https://urldefense.com/v3/__https://lore.kernel.org/linux-usb/20260811090817.109350-1-panjunzhong@linux.spacemit.com/__;!!A4F2R9G_pg!fG8BhOaAiW3KsJBgmdcmOIKvYAFkNqYGGmoZn0ktdqp55U4q4kO1wKNFeAJ7YaGKoEWpwzyZAWYtypcFTR6doz7Ny1H6LQS2$ 
->>>>> ---
->>>>>  drivers/usb/dwc3/core.c | 12 ++++++++++++
->>>>>  1 file changed, 12 insertions(+)
->>>>>
->>>>> diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
->>>>> index fd5c2cd36c59..76883dc6184c 100644
->>>>> --- a/drivers/usb/dwc3/core.c
->>>>> +++ b/drivers/usb/dwc3/core.c
->>>>> @@ -2739,6 +2739,18 @@ int dwc3_runtime_resume(struct dwc3 *dwc)
->>>>>  		}
->>>>>  		break;
->>>>>  	case DWC3_GCTL_PRTCAP_HOST:
->>>>> +		/*
->>>>> +		 * Only the xHCI child's resume re-arms root hub polling, which
->>>>> +		 * is what rediscovers a device plugged in while suspended.
->>>>> +		 * Runtime PM doesn't resume children, so request it here.
->>>>> +		 * Keep it asynchronous to avoid waiting for the parent's resume
->>>>> +		 * callback to finish from inside it. Glue drivers may also
->>>>> +		 * resume xHCI directly, but runtime PM will serialize those
->>>>> +		 * requests and skips an already-active device.
->>>>> +		 */
->>>>> +		if (dwc->xhci)
->>>>> +			pm_request_resume(&dwc->xhci->dev);
->>>>> +		break;
->>>> Could we also check a parent-only resume with no USB wake event? For
->>>> example, reading the DWC3 debugfs lsp_dump file calls
->>>> pm_runtime_resume_and_get(dwc->dev). With both devices suspended, this
->>>> change would wake xHCI too.
->>>>
->>>
->>> Thanks for pointing out, I did missed those paths before, I will do some
->>> investigation and testing on the two non-wakeup path:debugfs attr access
->>> and the dwc3_set_mode() path then report back.
->>>
->>
->> I looked into this on real hardware. There are two paths where the
->> resume is unnecessary:
->>
->> (1) debugfs read: it briefly resumes xhci, then both devices go back
->> to autosuspend. Harmless, though unnecessary.
->>
->> (2) __dwc3_set_mode() while suspended in host mode: when a DRD
->> controller is suspended in host mode and user or a role-switch consumer
->> calls set_mode(), dwc3 is resumed first and the xhci removal follows.
->> But pm_request_resume() only queues work, and the unregister path
->> calls cancel_work_sync() before freeing the device, so the request
->> is either cancelled or completes beforehand. In my testing, the PM
->> core simply bails out with -EINVAL on pm_request_resume(&dwc->xhci->dev),
->> and the removal completes fine.
->>
->> I think yes there will be more extra calls here but they don't break
->> things, I didn't reproduce any failure. It seems difficult to get rid
->> of them since there are no good conditions to judge.
->>
->> If we want to avoid these more extras, maybe those platform who need
->> this feature can just let glue driver (dwc3-generic-plat.c or another)
->> handle the ACPI probe and the wakeup (like qcom/imx8mp) together for
->> the case(a) platform mentioned before instead of reusing the current
->> 8080:22B7 ACPI probe path in dwc3/core.c .
->>
->> Thinh, do you have any thought on that?  I'm fine with either approach.
->>
-> 
-> Troy brought up a good point. It may be "harmless" in the sense that it
-> doesn't prevent the device from functioning, but it unnecessarily
-> resumes xhci for other dwc3 runtime resume paths. We shouldn't apply
-> this generically to all platforms.
-> 
-> Please drop my Acked-by for now until we find a better solution.
-> 
-> I think handling the wakeup through a glue driver like qcom as you
-> suggested may be a better approach.> 
+On Thu, Sep 17, 2026 at 11:07:31AM -0700, Kees Cook wrote:
+> On Thu, Sep 17, 2026 at 05:06:17PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > mksysmap is a sed script consisting of 30 patterns which link-vmlinux.sh
+> > uses to generate *.syms files, and which kallsyms is then called against to
+> > generate *.kallsyms files, with the final vmlinux build ultimately
+> > generating System.map.
+> >
+> > For an x86-64 allmodconfig build, this involves three nm runs over a 250
+> > MiB file and half a million lines written and read each time - 0.5s per
+> > pass for llvm-nm, and 0.2s for GNU nm, with parsing on top of that.
+> >
+> > This is unnecessary, instead have kallsyms simply read the ELF file
+> > directly making use of the existing elf-parse library in scripts/.
+> >
+> > This changes kallsyms such that its input is no longer the output from nm,
+> > but rather an ELF file.
+> >
+> > However, if the input file is empty, it outputs an empty table, which
+> > retains the same behaviour on first pass that the build system expects.
+> >
+> > System.map is byte-identical to nm | mksysmap for GNU nm and llvm-nm on
+> > two x86 configurations each, and for llvm-nm on arm64, arm, s390 and
+> > loongarch defconfigs, so are the kallsyms tables of every pass.
+> >
+> > Relinking vmlinux, link steps included:
+> >
+> >                         before    after
+> >   allmodconfig clang     9.1s     7.9s
+> >   allmodconfig gcc       7.8s     7.6s
+> >   defconfig clang        3.7s     3.0s
+> >   defconfig gcc          3.5s     3.4s
+> >
+> > Whole build, 128-thread Threadripper 9980X, best of N runs:
+> >
+> >                                          before   after     delta
+> >                                          -------------------------------
+> >   x86 defconfig, touch mm/vma.c, gcc        9.1s     8.6s    -0.43s (-5%)
+> >   x86 defconfig, touch mm/vma.c, clang      9.0s     8.0s     -1.1s (-12%)
+> >   x86 defconfig, clean, gcc                29.5s    28.9s    -0.64s (-2%)
+> >   x86 defconfig, clean, clang              31.2s    29.8s     -1.4s (-5%)
+> >   x86 allmodconfig, touch mm/vma.c, gcc    35.8s    35.0s    -0.77s (-2%)
+> >   x86 allmodconfig, touch mm/vma.c, clang  35.8s    33.7s     -2.0s (-6%)
+> >
+> > Assisted-by: LLM
+> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> > ---
+> >  scripts/Makefile          |   4 +-
+> >  scripts/kallsyms-sysmap.c | 269 ++++++++++++++++++++++++++++++++++++++++++++++
+> >  scripts/kallsyms.c        | 162 ++++++++++++++++------------
+> >  scripts/kallsyms.h        |  44 ++++++++
+> >  scripts/link-vmlinux.sh   |  15 +--
+> >  scripts/mksysmap          |  94 ----------------
+> >  6 files changed, 415 insertions(+), 173 deletions(-)
+> >
+> > diff --git a/scripts/Makefile b/scripts/Makefile
+> > index 3434a82a119f..d46932113b5f 100644
+> > --- a/scripts/Makefile
+> > +++ b/scripts/Makefile
+> > @@ -3,7 +3,7 @@
+> >  # scripts contains sources for various helper programs used throughout
+> >  # the kernel for the build process.
+> >
+> > -hostprogs-always-$(CONFIG_KALLSYMS)			+= kallsyms
+> > +hostprogs-always-y				+= kallsyms
+> >  hostprogs-always-$(BUILD_C_RECORDMCOUNT)		+= recordmcount
+> >  hostprogs-always-$(CONFIG_BUILDTIME_TABLE_SORT)		+= sorttable
+> >  hostprogs-always-$(CONFIG_ASN1)				+= asn1_compiler
+> > @@ -13,6 +13,7 @@ hostprogs-always-$(CONFIG_RUST_KERNEL_DOCTESTS)		+= rustdoc_test_builder
+> >  hostprogs-always-$(CONFIG_RUST_KERNEL_DOCTESTS)		+= rustdoc_test_gen
+> >  hostprogs-always-$(CONFIG_TRACEPOINTS)			+= tracepoint-update
+> >
+> > +kallsyms-objs := kallsyms.o kallsyms-sysmap.o elf-parse.o
+> >  sorttable-objs := sorttable.o elf-parse.o
+> >  tracepoint-update-objs := tracepoint-update.o elf-parse.o
+> >
+> > @@ -30,6 +31,7 @@ rustdoc_test_builder-rust := y
+> >  rustdoc_test_gen-rust := y
+> >
+> >  HOSTCFLAGS_tracepoint-update.o = -I$(srctree)/tools/include
+> > +HOSTCFLAGS_kallsyms-sysmap.o = -I$(srctree)/tools/include
+> >  HOSTCFLAGS_elf-parse.o = -I$(srctree)/tools/include
+> >  HOSTCFLAGS_sorttable.o = -I$(srctree)/tools/include
+> >  HOSTLDLIBS_sorttable = -lpthread
+> > diff --git a/scripts/kallsyms-sysmap.c b/scripts/kallsyms-sysmap.c
+> > new file mode 100644
+> > index 000000000000..64b2e11d0344
+> > --- /dev/null
+> > +++ b/scripts/kallsyms-sysmap.c
+> > @@ -0,0 +1,269 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Obtain symbols from vmlinux for usage by kallsyms. Replaces mksysmap.
+> > + *
+> > + * To retain compatibility, it provides the same output as nm, only faster.
+> > + */
+> > +
+> > +#include <ctype.h>
+> > +#include <stdio.h>
+> > +#include <stdlib.h>
+> > +#include <string.h>
+> > +#include <xalloc.h>
+> > +
+> > +#include "elf-parse.h"
+> > +#include "kallsyms.h"
+> > +
+> > +/* The mapped file and its symbol table. */
+> > +struct elf_file {
+> > +	void *base;
+> > +	size_t size;
+> > +	const char *shdrs;
+> > +	unsigned int shnum, shentsize;
+> > +	const char *shstrtab;
+> > +	Elf_Shdr *symtab;
+> > +	const char *strtab;
+> > +	size_t nr_syms;
+> > +};
+> > +
+> > +/* What mksysmap dropped from System.map, by name. */
+> > +static const char *const sysmap_omit_prefixes[] = {
+> > +	"$", ".L", "__efistub_", "__pi_$", "__pi_.L", "__kvm_nvhe_$",
+> > +	"__kvm_nvhe_.L", "__kcfi_typeid_", "__kvm_nvhe___kcfi_typeid_",
+> > +	"__pi___kcfi_typeid_", "__crc_", "__kstrtab_", "__kstrtabns_",
+> > +	"__mod_device_table__",
+> > +};
+>
+> I really think these need to be 1 per line with the comments from
+> scripts/mksysmap retained. It's going to be changed over time, and we
+> want to be able to review the rationale for entries without having to
+> dig through commit history.
 
-Ok, got it. I agree the glue driver is a better approach.
-I'll go that direction and drop your Acked-by in any future revision.
+Ack, done for v4.
 
-> Thanks,
-> Thinh
+>
+> > +static const char *const sysmap_omit_suffixes[] = {
+> > +	"_from_arm", "_from_thumb", "_veneer",
+> > +};
+> > +static const char *const sysmap_omit_names[] = {
+> > +	"L0", "_SDA_BASE_", "_SDA2_BASE_",
+> > +};
+>
+> Same for these 2 tables.
 
-Best regards,
-Junzhong
+Ack, done for v4.
 
+>
+> > +
+> > +/* __<alnum>*Thunk_: the linker's range extension thunks on arm. */
+> > +static bool is_range_thunk(const char *name)
+> > +{
+> > +	const char *p;
+> > +
+> > +	if (!string_starts_with(name, "__"))
+> > +		return false;
+> > +	for (p = name + 2; isalnum((unsigned char)*p); p++)
+> > +		;
+> > +	return p - name >= 7 && *p == '_' && strncmp(p - 5, "Thunk", 5) == 0;
+> > +}
+> > +
+> > +/* __UNIQUE_ID_modinfo_<n>: the MODULE_INFO() strings of built-in code. */
+> > +static bool is_modinfo_id(const char *name)
+> > +{
+> > +	static const char prefix[] = "__UNIQUE_ID_modinfo_";
+> > +	const char *p;
+> > +
+> > +	if (!string_starts_with(name, prefix))
+> > +		return false;
+> > +	for (p = name + strlen(prefix); isdigit((unsigned char)*p); p++)
+> > +		;
+> > +	return !*p;
+> > +}
+>
+> I'm less excited about these "open coded" regular expression matches.
+> Having to do this feels like it'll make future exceptions annoying to
+> add. Can't there be another class of table that is just regular
+> expressions? It is probably faster to keep the prefix/suffix/exact
+> tables as-is, but is_range_thunk() and is_modinfo_id() just feel clunky
+> compared to the more expressive re, e.g. r'^__UNIQUE_ID_modinfo[0-9]*$'
+
+I don't think it's too much of an issue, the two cases like this aren't too
+many lines of code, it seems a bit overkill, and I think that'd be the only
+use of regex here?
+
+If a new pattern like this turns up it's easy enough to revisit it.
+
+>
+> > +static bool sysmap_omits(const char *name, char type)
+> > +{
+> > +	size_t i;
+> > +
+> > +	/* Absolute, undefined and debugging symbols. */
+> > +	if (type == 'a' || type == 'N' || type == 'U' || type == 'w')
+> > +		return true;
+> > +
+> > +	for (i = 0; i < ARRAY_SIZE(sysmap_omit_prefixes); i++)
+> > +		if (string_starts_with(name, sysmap_omit_prefixes[i]))
+> > +			return true;
+> > +	for (i = 0; i < ARRAY_SIZE(sysmap_omit_suffixes); i++)
+> > +		if (string_ends_with(name, sysmap_omit_suffixes[i]))
+> > +			return true;
+> > +	for (i = 0; i < ARRAY_SIZE(sysmap_omit_names); i++)
+> > +		if (strcmp(name, sysmap_omit_names[i]) == 0)
+> > +			return true;
+> > +
+> > +	return is_range_thunk(name) || is_modinfo_id(name) ||
+> > +	       strstr(name, ".long_branch.") || strstr(name, ".plt_branch.");
+>
+> And then mixing data-driven search with in-line patterns I don't like.
+> The .long_branch. and .plt_branch. matches should be in a new "any
+> position" table, IMO.
+
+Ack done for v4 in sysmap_omit_patterns[].
+
+>
+> > +/* nm's letter for a symbol defined in a section, as BFD classifies it. */
+> > +static char section_symbol_type(Elf_Shdr *shdr, const char *secname)
+> > +{
+> > +	static const char *const debug_prefixes[] = {
+> > +		".debug", ".zdebug", ".gnu.debuglto_.debug_",
+> > +		".gnu.linkonce.wi.", ".line", ".stab",
+> > +	};
+>
+> I worry about maintenance overhead on this: are we going to have to
+> chase changes to "nm" when other debug prefixes get added here?
+
+It mirrors what BFD has and it hasn't changed for years so I think it's
+fine :)
+
+>
+> > +	const uint64_t flags = shdr_flags(shdr);
+> > +	size_t i;
+> > +
+> > +	if (flags & SHF_EXECINSTR)
+> > +		return 't';
+> > +	if (flags & SHF_ALLOC) {
+> > +		if (shdr_type(shdr) == SHT_NOBITS)
+> > +			return 'b';
+> > +		return flags & SHF_WRITE ? 'd' : 'r';
+> > +	}
+> > +	for (i = 0; i < ARRAY_SIZE(debug_prefixes); i++)
+> > +		if (string_starts_with(secname, debug_prefixes[i]))
+> > +			return 'N';
+> > +	if (shdr_type(shdr) != SHT_NOBITS && !(flags & SHF_WRITE))
+> > +		return 'n';
+> > +	return '?';
+>
+> And to that end: instead of "?" shouldn't this fail hard when a section
+> symbol type is unknown to the tool?
+
+It mirrors what nm does (as with the rest of the code obv.) which prints
+'?' rather than failing, and that's never caused an issue, failling hard
+here would turn what wasn't a build failure into one so I think best to
+leave as-is?
+
+>
+> > +}
+> > +
+> > +/* The letter nm prints for a symbol, or 0 for one it leaves out. */
+> > +static char elf_symbol_type(const struct elf_file *elf, Elf_Sym *sym)
+> > +{
+> > +	unsigned int bind = sym_bind(sym), type = sym_type(sym);
+> > +	unsigned int shndx = sym_shndx(sym);
+> > +	Elf_Shdr *shdr;
+> > +	char c;
+> > +
+> > +	if (type == STT_SECTION || type == STT_FILE)
+> > +		return 0;
+> > +	if (shndx == SHN_COMMON)
+> > +		return 'C';
+> > +	if (shndx == SHN_UNDEF) {
+> > +		if (bind == STB_WEAK)
+> > +			return type == STT_OBJECT ? 'v' : 'w';
+> > +		return 'U';
+> > +	}
+> > +	if (type == STT_GNU_IFUNC)
+> > +		return 'i';
+> > +	if (bind == STB_WEAK)
+> > +		return type == STT_OBJECT ? 'V' : 'W';
+> > +	if (bind == STB_GNU_UNIQUE)
+> > +		return 'u';
+> > +	if (bind != STB_GLOBAL && bind != STB_LOCAL)
+> > +		return '?';
+> > +
+> > +	if (shndx == SHN_ABS) {
+> > +		c = 'a';
+> > +	} else if (shndx < elf->shnum) {
+> > +		shdr = elf_section(elf, shndx);
+> > +		c = section_symbol_type(shdr, elf_section_name(elf, shdr));
+> > +	} else {
+> > +		return '?';
+>
+> Same concerns...
+
+See above
+
+>
+> > +	}
+> > +
+> > +	return bind == STB_GLOBAL ? toupper(c) : c;
+> > +}
+> > +
+> > +/* nm -n order: by address, then by name. */
+> > +static int compare_symbols(const void *a, const void *b)
+> > +{
+> > +	const struct sysmap_symbol *sa = a, *sb = b;
+> > +
+> > +	if (sa->addr != sb->addr)
+> > +		return sa->addr < sb->addr ? -1 : 1;
+> > +	return strcmp(sa->name, sb->name);
+> > +}
+> > +
+> > +static void elf_open(struct elf_file *elf, const char *path)
+> > +{
+> > +	Elf_Ehdr *ehdr;
+> > +	unsigned int i;
+> > +
+> > +	elf->base = elf_map_ro(path, &elf->size, (1 << ET_EXEC) | (1 << ET_DYN));
+> > +	if (!elf->base)
+> > +		exit(EXIT_FAILURE);
+> > +
+> > +	ehdr = elf->base;
+> > +	elf->shdrs = (const char *)elf->base + ehdr_shoff(ehdr);
+> > +	elf->shnum = ehdr_shnum(ehdr);
+> > +	elf->shentsize = ehdr_shentsize(ehdr);
+> > +	elf->shstrtab = (const char *)elf->base +
+> > +			shdr_offset(elf_section(elf, ehdr_shstrndx(ehdr)));
+> > +
+> > +	for (i = 0; i < elf->shnum && !elf->symtab; i++)
+> > +		if (shdr_type(elf_section(elf, i)) == SHT_SYMTAB)
+> > +			elf->symtab = elf_section(elf, i);
+> > +
+> > +	if (!elf->symtab) {
+> > +		fprintf(stderr, "%s: no symbol table\n", path);
+> > +		exit(EXIT_FAILURE);
+> > +	}
+> > +
+> > +	elf->strtab = (const char *)elf->base +
+> > +		      shdr_offset(elf_section(elf, shdr_link(elf->symtab)));
+> > +	elf->nr_syms = shdr_size(elf->symtab) / shdr_entsize(elf->symtab);
+> > +}
+>
+> These 2 functions kind of feel like they should live in elfparse instead?
+
+Ack, updated this and patch 4 to share code for v4!
+
+>
+> > +
+> > +/* The symbols "nm -n | mksysmap" would list, in that order. */
+> > +static struct sysmap_symbol *elf_read_symbols(const struct elf_file *elf,
+> > +					   size_t *nr_kept)
+> > +{
+> > +	struct sysmap_symbol *syms = xmalloc(elf->nr_syms * sizeof(*syms));
+> > +	size_t i, n = 0;
+> > +
+> > +	for (i = 1; i < elf->nr_syms; i++) {
+> > +		Elf_Sym *sym = elf_symbol(elf, i);
+> > +		const char *name = elf->strtab + sym_name(sym);
+> > +		char type = elf_symbol_type(elf, sym);
+> > +
+> > +		if (!type || sysmap_omits(name, type))
+> > +			continue;
+> > +
+> > +		syms[n].addr = sym_value(sym);
+> > +		syms[n].name = name;
+> > +		syms[n].type = type;
+> > +		n++;
+> > +	}
+> > +
+> > +	qsort(syms, n, sizeof(*syms), compare_symbols);
+> > +	*nr_kept = n;
+> > +	return syms;
+> > +}
+>
+> And this one too, with maybe a "maybe_omit" callback passed in so this
+> mksysmap could pass sysmap_omits in as?
+
+This is pretty specific to this code so I think makes less sense to port
+this.
+
+>
+> > -static void read_map(const char *in)
+> > +static void add_table_entry(struct sym_entry *sym)
+> >  {
+> > -	FILE *fp;
+> > -	struct sym_entry *sym;
+> > -	char *buf = NULL;
+> > -	size_t buflen = 0;
+> > +	sym->seq = table_cnt;
+> >
+> > -	fp = fopen(in, "r");
+> > -	if (!fp) {
+> > -		perror(in);
+> > -		exit(1);
+> > +	if (table_cnt >= table_size) {
+> > +		table_size += 10000;
+> > +		table = xrealloc(table, sizeof(*table) * table_size);
+>
+> I realize this is just moving logic around, but traditional xrealloc
+> loop uses doubling. I think this was linear only because it wanted to
+> jump-start the initial allocation size to 10000 entries. Could be:
+>
+> 	table_size = table_size ? table_size * 2 : 10000;
+
+Ack, done for v4!
+
+>
+> But maybe even that initial allocation number should be bumped up?
+
+Not sure it's really worth it with doubling in place, better to assume less
+and use more I think, and the time taken for the realloc should be minimal
+in comparison to the run as a whole.
+
+>
+> > [...]
+> > +	if (optind + 1 == argc) {
+> > +		read_elf(in, sysmap_out);
+> > +		if (fclose(sysmap_out)) {
+>
+> This needs to check ferror() too.
+
+Ack, done for v4!
+
+>
+> > +			perror(sysmap);
+> > +			exit(EXIT_FAILURE);
+> > +		}
+> > +		return 0;
+> > +	}
+> > +
+> >  	out_bin_name = argv[optind + 1];
+> >  	out_bin_file = fopen(out_bin_name, "w");
+> >  	if (!out_bin_file) {
+> > @@ -852,7 +868,11 @@ int main(int argc, char **argv)
+> >  		exit(EXIT_FAILURE);
+> >  	}
+> >
+> > -	read_map(argv[optind]);
+> > +	read_elf(in, sysmap_out);
+> > +	if (sysmap_out && fclose(sysmap_out)) {
+>
+> Same: this needs to check ferror() too.
+
+Ack, done for v4!
+
+>
+>
+> -Kees
+>
+> --
+> Kees Cook
+
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
