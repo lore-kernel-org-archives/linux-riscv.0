@@ -4,76 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D32C982CC
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 06:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAE8C982D7
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 07:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lWzs7xwLSAbi6vgYngtTX1vtkQYV3jlyw+6Fa4izEqk=; b=p71hqDDVSSe4zX
-	3vLRacmOWL81tUxxAl+LzFOQo5AzPC/moMbHbQ69Futpzb5+lGsR4zD3KnXJ05AfjtnJ45RGca55s
-	NGAzfrgxUhO216zbrTBkogQ3fDpMDqSvtZgWQcBjeOtVovQq1fgwL775oZS4L2VinnfCdHkE4CMTr
-	p6+PfwcTwLnHRuD3ZtEG1gHYAKm0UusU37jV56exHU7DlSs5q088iL9tSNzLrnOtxPkBqI3gff4sk
-	PMEog2TKm6iFFgHfZPpZGcnyQmp0eyEi/975omvXBTCka7ieyQwbVJhXifSv1kTAdSr0lj7Cphmjm
-	j5lfVEEvmFD3NABPPmyw==;
+	List-Owner; bh=oLJAxmiIdrFabV2GIQA49avktBDI8HSVfDU9lMMM/D4=; b=fEzZ6j6zMVj2Q3
+	qBM53fChXhDtp5Xb79P+wjmnbNGQVfGXRZpsXnbAAle26hQz8slcHvj+zDg+ZauKWttd3VLKa3JVw
+	KWvuAusvWtSlV5LvlFP+UTSwxbrjSVCEuTMmBCVhYmzRMI+9PbBYz7FkrGc6369mnWe6eFWr1n27K
+	2LPN4Q5giOccUcmWcWAkl8nwv5+VK2LooTBRXSLS8sA+vXnVuGKw7DiBGHPJ9ZlXhoLYvLq3/wlhl
+	ht8lbVMYSyxiqZYpvoTybyF/ceJoGeLDG4lTOLKptBgWtFoJIgQ6PdXXxUEwahcWspofqCK8isZKh
+	eQmSQOocn9xFF779YgOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7p14-0000000G1cs-1kJV;
-	Sat, 19 Sep 2026 06:57:42 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1x7pBT-0000000G2Dn-2etZ;
+	Sat, 19 Sep 2026 07:08:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7p12-0000000G1bH-1MsP
-	for linux-riscv@lists.infradead.org;
-	Sat, 19 Sep 2026 06:57:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1789801056; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=n0F7k2w7VW6EWRhehL503C5goS+g4WXzxQE1Q4WSeMcZ+SQl7TquN8jk00yDaVGfLMt3jcgxPkMCYT6epgtsum8G+FleBEB6sfNASLvZlI7J0xwExrn5RfPKD5Co/m+AJhu3ctQnekwVCx+wbCqWDYXIduZDDmJrGJEczDy3BaY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1789801056; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=IdHUg8gZsKG1eK8ddv1bf9KJVpCAWuDGitsqS71bHqY=; 
-	b=ThHCOdSDW8ZX5mkA+xL47/XC7XYpL4AAmOIDWiiFybZoQzXC/GpScqKEh2XcyEIMR0NLnEnzajJvO0datpLfesDwUZCjZuQLA3Xg5cTF7J8ATHEq+0CqcPOLnUOf+FUauSwN1ZTPd977GgONqIN2kLTvC5mtK0qqkpA/JP5G0no=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789801056;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=IdHUg8gZsKG1eK8ddv1bf9KJVpCAWuDGitsqS71bHqY=;
-	b=ii9TMd7W+t3husvchZhqJ+OsMxmnNSPDkkHH35pmcrXxz1jtG0VBgw04RG/CPffG
-	EtF2EUDlWt3+eSLSRsK3pfz3Lkaci+ytI9aJnRMgVa+r5CyreYK3T15dNet90fxsrMG
-	47vnjaI8QVajUlMYCIPGILNj66aJMJmxYjHTJ9UwPF5CWP8QKkvDcnbdW/vF1XFxQC2
-	x8zMxNuZl6a3gN/eFMXGhbexkCAIqx0fAYFeLlvJHEdGmzmFw5y4w1H5ZBv2G9lp5n2
-	7UNQEErodd2Q9XoQdKxbVI+i/M62M1htkrjo3VQK2FN0DRgZOz2kS4Wsrj6zNNuZPW/
-	vy0rGsNWbg==
-Received: by smtp.zohomail.com with SMTPS id 1789801054439855.651129720259;
-	Fri, 18 Sep 2026 23:57:34 -0700 (PDT)
-Message-ID: <33b33b2b79763d410bc2e5b4ef46c305aaf6f7c8.camel@icenowy.me>
-Subject: Re: [PATCH 2/3] pmdomain: spacemit: Add power domain driver
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Yixun Lan <dlan@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
-Date: Sat, 19 Sep 2026 14:57:28 +0800
-In-Reply-To: <20260918230107-GKC297024@kernel.org>
-References: <20260918-04-k3-pm-support-v1-0-0acd2b36b96f@kernel.org>
-	 <20260918-04-k3-pm-support-v1-2-0acd2b36b96f@kernel.org>
-	 <a4359efeee2220903a05a2383a651ec8ec7284b7.camel@icenowy.me>
-	 <20260918230107-GKC297024@kernel.org>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.58.3 
+	id 1x7pBS-0000000G2De-1LIb;
+	Sat, 19 Sep 2026 07:08:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B9D8D4343B;
+	Sat, 19 Sep 2026 07:08:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC9F41F000FF;
+	Sat, 19 Sep 2026 07:08:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1789801705;
+	bh=uhaSLRWxWnpOZ1hMGZ3P8vEzC790v0CsHkY9724kydk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=BCh+Q1fkXZMtjVafQ5YGFV+h5db354VNq/ELCWyC4KkM9EOKXmUTlqgi+ma1wXozp
+	 DftsecIquMnGZU/bn7dlqfHB0SFowcKCtqYqFYBKKfUSA8s3K9Rsk5SMYPxnV+DeBV
+	 Y5Sj2gXory2ScdEG5Sx21lZEfxqdEdqZ9ssZyQau7j9QTMvL/H4vwGIsnSHVVKjlqr
+	 r41sO26J5aU+9ztpXEn5Q6cqRxLTKJH0TIlovq31RymcWsd+tEVLn+dCLOvNd83tjr
+	 uc83mnTCusi1VsH/mO2vViF+aXTvauBuk/3UmRhVl0wbrNfua+U/YMiqJx6DLrDv5O
+	 AiKJ0In7NVj/A==
+Message-ID: <457bb3d5-1d73-4acb-9ef0-4e40de6bdc94@kernel.org>
+Date: Sat, 19 Sep 2026 09:08:04 +0200
 MIME-Version: 1.0
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_235740_428647_56294C3D 
-X-CRM114-Status: GOOD (  20.76  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: Expand flow lists to block lists
+To: Daniel Matyas <matyasdaniel006@gmail.com>, Lee Jones <lee@kernel.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Ulf Hansson <ulfh@kernel.org>, Liang Yang <liang.yang@amlogic.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Vinod Koul <vkoul@kernel.org>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: Jose Abreu <joabreu@synopsys.com>, Ray Jui <ray.jui@broadcom.com>,
+ Scott Branden <scott.branden@broadcom.com>, Atish Patra
+ <atishp@rivosinc.com>, Shawn Guo <shawn.guo@linaro.org>,
+ Dmitry Osipenko <digetx@gmail.com>, Thierry Reding
+ <thierry.reding@gmail.com>, Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
+ Okan Sahin <Okan.Sahin@analog.com>, devicetree@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@sifive.com>, Conor Dooley <conor@kernel.org>,
+ linux-rtc@vger.kernel.org, Ricard Wanderlof <ricardw@axis.com>,
+ patches@opensource.cirrus.com, Lukas Wunner <lukas@wunner.de>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Eugen Hristev
+ <ehristev@kernel.org>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-iio@vger.kernel.org, linux@analog.com,
+ linux-input@vger.kernel.org, chrome-platform@lists.linux.dev,
+ linux-riscv@lists.infradead.org
+References: <20260917144028.459053-1-matyasdaniel006@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260917144028.459053-1-matyasdaniel006@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +142,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjYtMDktMTjkupTnmoQgMjM6MDEgKzAwMDDvvIxZaXh1biBMYW7lhpnpgZPvvJoKPiBI
-aSBJY2Vub3d5LCAKPiAKPiBPbiAxNzowMCBGcmkgMTggU2VwwqDCoMKgwqAgLCBJY2Vub3d5IFpo
-ZW5nIHdyb3RlOgo+ID4g5ZyoIDIwMjYtMDktMTjkupTnmoQgMDI6NDAgKzAwMDDvvIxZaXh1biBM
-YW7lhpnpgZPvvJoKPiA+ID4gwqAgU3BhY2VtaVQncyBQTVUgKFBvd2VyIE1hbmFnZW1lbnQgVW5p
-dCkgY29uc2lzdCBvZiBzZXZlcmFsIHBvd2VyCj4gPiA+IGRvbWFpbnMKPiA+ID4gd2hpY2ggY2Fu
-IGJlIG1hbmFnZWQgaW5kZXBlbmRlbnRseSwgZGVwZW5kaW5nIG9uIGRpZmZlcmVudAo+ID4gPiBh
-cHBsaWNhdGlvbgo+ID4gPiBzY2VuYXJpbywgZWFjaCBkb21haW4gY2FuIGJlIHBvd2VyZWQgb24v
-b2ZmIGZvciBzYXZpbmcgcG93ZXIuCj4gPiA+IAo+ID4gPiDCoCBUaGUgZHJpdmVyIGlzIGltcGxl
-bWVudGVkIGJhc2VkIG9uIExpbnV4IEdlbmVyaWMgUE0gRG9tYWluCj4gPiA+IGZyYW1ld29yay4K
-PiA+ID4gRnJvbSBhIGhhcmR3YXJlIHBlcnNwZWN0aXZlLCBlaXRoZXIgb2YgdHdvIGRpc3RpbmN0
-IHBvd2VyLW9uCj4gPiA+IHNlcXVlbmNlcwo+ID4gPiBhcmUgc3VwcG9ydGVkLCBpbiBzb2Z0d2Fy
-ZSBtb2RlIChTVyBtb2RlKSwgdGhlIGRyaXZlciBpcwo+ID4gPiByZXNwb25zaWJsZQo+ID4gPiBm
-b3IKPiA+ID4gY29udHJvbGxpbmcgdGhlIHN0YXRlcyBvZiBiaXRzIHN1Y2ggYXMgc2xlZXAxLCBz
-bGVlcDIsIGlzb2xhdGlvbgo+ID4gPiBhbmQKPiA+ID4gcHdyX3N0YXRlLCB3aGlsZSBpbiBoYXJk
-d2FyZSBtb2RlIChIVyBtb2RlKSwgdGhlIFBNVSBoYXJkd2FyZQo+ID4gPiB3aWxsCj4gPiA+IGNv
-bXBsZXRlCj4gPiA+IHRoZSBzZXF1ZW5jZSBhdXRvbWF0aWNhbGx5IHdpdGhvdXQgcmVxdWlyaW5n
-IHNvZnR3YXJlCj4gPiA+IGludGVydmVudGlvbi4KPiA+IAo+ID4gSSB0aGluayB0aGVyZSBhbHNv
-IGV4aXN0cyBzb2x1dGlvbnMgZm9yIEszIHRoYXQgdXNlcyBSUE1JIHBvd2VyCj4gPiBkb21haW5z
-LCBhbmQgbGV0IHRoZWlyIEVTT1MgZmlybXdhcmUgdG8gYWNjZXNzIHRoZSBoYXJkd2FyZS4KPiA+
-IAo+IFllcywgSSdtIGF3YXJlIG9mIHRoYXQKPiAKPiA+IFdoYXQncyB0aGUgcmVsYXRpb25zaGlw
-IG9mIHRoaXMgaW1wbGVtZW50YXRpb24gd2l0aCB0aGUgRVNPUwo+ID4gaW1wbGVtZW50YXRpb24/
-IFNob3VsZCB0aGUgRVNPUyBwYXJ0IGJlIGRpc2FibGVkIHRvIHVzZSB0aGlzCj4gPiBpbXBsZW1l
-bnRhdGlvbj8KPiA+IAo+IEkgc2hvdWxkIHNheSwgaXQncyBhIG11dHVhbGx5IGV4Y2x1c2l2ZSBz
-b2x1dGlvbiwgc28geWVzLCB0aGUgRVNPUwo+IHBhcnQKPiBzaG91bGQgYmUgZGlzYWJsZWQgaW4g
-b3JkZXIgdG8gdXNlIHRoaXMgdmVyc2lvbgo+IAo+IFRoZSBtb3RpdmF0aW9uIG9mIHRoaXMgcGF0
-Y2ggaXMgdHJ5aW5nIHRvIHN1cHBvcnQgZHJtL2Rpc3BsYXkKPiBkcml2ZXIncwo+IFBNIHJlcXVp
-cmVtZW50LCB3aGlsZSBhdm9pZCBnb2luZyB3aXRoIHZlbmRvcidzIGNvbXBsaWNhdGVkIFJQTUkK
-PiBzb2x1dGlvbgo+IHdoaWNoIGlzbid0IG1haW5saW5lIHJlYWR5CgpJcyB0aGlzIGEgbG9uZy10
-ZXJtIHNvbHV0aW9uLCBvciBhIHRlbXBvcmFyeSBvbmU/CgpJZiBpdCdzIGEgdGVtcG9yYXJ5IGNv
-bmZsaWN0aW5nIG9uZSwgSSBkb24ndCB0aGluayBpdCdzIHdvcnRoIHBpY2tpbmcKYXQgYWxsLgoK
-VGhhbmtzLApJY2Vub3d5CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+On 17/09/2026 16:40, Daniel Matyas wrote:
+> Running dt_bindings_check returned:
+> [error] string value is redundantly quoted with any quotes (quoted-strings)
+> 
+> The files used quotation marks in flow lists because the strings had
+> commas and these commas were interpreted as separators. Convert flow
+> style lists to block style lists, so that there is no problems with the
+> commas.
+> 
+> Signed-off-by: Daniel Matyas <matyasdaniel006@gmail.com>
+
+Ignore this patch. Daniel sent it THREE times, so we need to respond
+three times that it is wrong.
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
