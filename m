@@ -4,106 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F60C982DA
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 11:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A19C982D8
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 13:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=89/22NkYmoKyGurNW86Hc/muVggVnshdEvulVHenRXA=; b=gu9IUmG1WpSE4n
-	SDXHfrSG9X9qGDhA3yy8eed/nLuWfTQviPQAzOZQ3AGIWD+wCBmRia6nXLzM1ySfgZIQS+JlgKlH9
-	CSyfCpiHsdkubdswtIzn3amwgaxHd+3Dth+s/GZ+PXk5QC4usbH2cnUI8ZTigRFYkNRibewpedPEE
-	Ad6jFUU7bpbQV+Npl1/6LSJEGK3gaOvw8PaM5NL82Jz6dtHyQsLjZwtnzazIoWllxU6ct/gBnTCYM
-	ANHPeoVcQeCWZr1uFjEnRpsaNLEe67ARYcgSmFcsCnpO1BDiQUy4upWJChA+i/BMcuH0tZBe2QXDh
-	Q1e3b0VQREwdpMKanYTw==;
+	List-Owner; bh=ubu/yA81N2tQe2M1OccxWTONEHLy61HtmehBgt/+JfU=; b=vNcMuum1KuW7O9
+	CLTTaFxq7o8BraEHEgrrq33g85UNqjUH8QI/wE+LqK6QR2QsVIdFIkfKkkF/E9eNUrs5Sjh/Z6hk7
+	BThbLtpv5SaIWvnErxCI0T7dRDcaxAc9iPG9ryGQLZtYiAO0e7oZSP7funDPo7yBHUTc9YF0yYY9y
+	E9z9Ka0LelN/in0oJHQnol8mXggCIHAeJco2n24+0fw1juL/nQHPb3/vviALGGmv+HJXTL1HlZGan
+	NDzb2lMfAgLEdw2kO1ORvpK1BC2PSIeix1dsSbnRLFZx2WYlJl8pwcg+AC2odWtxli5DM+jeYZSb4
+	z5AvFtm4n8eDMcwdbkaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ti1-0000000GEEs-2S7n;
-	Sat, 19 Sep 2026 11:58:21 +0000
-Received: from mail-oi2-x0f.google.com ([2607:f8b0:4864:32::f])
+	id 1x7vYI-0000000GLi6-4B4d;
+	Sat, 19 Sep 2026 13:56:27 +0000
+Received: from sender5-op-o12.zoho.com ([165.173.182.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7thy-0000000GEEV-3WOi
+	id 1x7vYG-0000000GLhc-1Pdh
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Sep 2026 11:58:19 +0000
-Received: by mail-oi2-x0f.google.com with SMTP id 46e09a7af769-7fccd4c3f36so1210797a34.3
-        for <linux-riscv@lists.infradead.org>; Sat, 19 Sep 2026 04:58:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1789819097; cv=none;
-        d=google.com; s=arc-20260327;
-        b=miGAvhg3Q5vcug59gamoHZczRfI8o8cbm92WB5gkyBamkKkDVnqgZIOpXFlaf3qdr1
-         S6D0ZWR73LowaZtBcdYw3vR/46UJwo+Nu3o+wTZHDAXsRcd7zp/zfQnwo3P3w8eEiRbq
-         GV8O9IQR+M6tpj3MGAZJA6gVne0Aeu7MC/egzfCci/o9jUFH90itXAA1cSIo77+BSnxe
-         vvoegw8GgqT2/5F6RsCdEZfu6CmvRp00jXnYkkXIVB0PdN6u2rA2L6XoclyG+Fx1GTL7
-         TnuUOCwrUruMDVd2GGgjVWFyQDPlaDyhOAzQ7xL2nssdloRef9NzaSnqO6cjsTCo1YRg
-         SnXg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ud3FeOiOvyS8WWg6t16DeAqz++YfSh94BtVybhYysAU=;
-        fh=seoTxy94AwaZekzFvbMVGrP8KuUeqlSOIoJWLy3+nqE=;
-        b=INaXK+LLdC+0lK7GqKWMWZqGXBJBvtkxB3s6T6COKU5p3w4fD4+oUU2vvZGG08rqv8
-         voMBoYa0KsRn03SJYvlLTvV8OtkGWg7aAC2DoZcIK1o1qouXl8oNsE3KFlJnIWwYWhff
-         +RbGDMuBxQ4RiGzqUU36+84JV72aueso79DzPevY/2NjBaLHAfGdY8ktvg7x/L+pTb+G
-         rLONzvRe2TFz00IISkkV799aaTQC8lPAySzxpkhzRBfBqGyu5Xuwsz8eM3iKj3Mm8rHL
-         2NPt+Jv0+Yk96e8vLu8POsfzuX0aJb8oayxbusFUvPiYzyaUHX3I5yUsZvdK+2EE30sf
-         0xAQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1789819097; x=1790423897; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ud3FeOiOvyS8WWg6t16DeAqz++YfSh94BtVybhYysAU=;
-        b=Dvq+R6TWyNJJbxa4JoBZYNm2vxnsFxjXchT08/A9U09A5Wu+PWzrR0hhs97CQw1SEb
-         wJy/Z4fWqFhFrlRivnoa1Ln7Jhh0X2ukQgm5narSD7Gswj57mm1YxtIaSqHCVmx3KnyT
-         CiqH0HWUBR5Vozioqx2BUj0usiVCVM1kWHPax1NISBkikbDCk4m80bnArtHOFZG8FZ8W
-         F1lU7mGhCPVn3iB+TlwYQXwWlgGSOveKJVjvBLJLxGxuRSDaq9KBO8RU1tvZsIERz1CO
-         dJ/Ri0S2J3HYBnHZ1wtpuOeUZ52E88R7de0VycgR9uNjiTbyOoyvSJmxyMxeMNvmUNuN
-         RkYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1789819097; x=1790423897;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ud3FeOiOvyS8WWg6t16DeAqz++YfSh94BtVybhYysAU=;
-        b=T1VQPO8QZkXq/7DwokAjyh0mYFzMRyAUe5Oc02nwts+CFeqNPwBjhaEEn25Inncd92
-         y9Fy/NCEr650pueHl7PDM8sAxTNEJJYNTLG98NdWz3xm55CKsvVqQKKaljgkvci7CKFH
-         3erEfs5XXN4pjnLjsQ7INGCOUzAYGAt8ZsxYkqokId12kuD5eCXgg0GQHTe9l6QvrLRk
-         nWnx51+tk3V1WPdePlMb21fFr3I0OC3kkluYYUuB76ng42ABYkF0vYlkVzugEro9xlxX
-         n+vNy+w/sWoEaw9QE0/bdtPNMH89wj1L+Zq0jvU/bDpYCo0Vk481qxMUo/jk6oW1CHVR
-         2OPA==
-X-Forwarded-Encrypted: i=1; AKwUvBysIBm4HYCcTH/Q7QiwWR3k98CHyZTnhsDsq99aJZlwfx7VsFPAW28poWOLb0+m6wZ7NDtsklLJ7cLUOA==@lists.infradead.org
-X-Gm-Message-State: AFuF++mwDjGAVPnZo1wVA+qxSAodYk7khoj9v2U2yeMuXLVzxrCjE9f8
-	GpYD2LnrjVKKpB1PKjWK9s2A+BD9mZbd273FGuK8hMj/HPAi9vqw38899i2PZpxMCI0VcCvqumb
-	veLb481QOMaxWqpESeXqG7eij3kNXZUm7iQ==
-X-Gm-Gg: AYBFou1bn62SvXMgrF+AoDZ2SepBiCp9s+RwnlPc+WRHnrJzvQ4UIvllDlPJ3FBiwUD
-	COjamzeoNI8BSltqizJKoapYnn9ppSj/tcshbZkttsu0EdQJsay76ZyexbVvk+Xn0YI4wVMjhDW
-	Im5FagxoKmoDN/44tMm5ht1wO1h84VCnGZZR7LIOkN1LNIdcMbPfE2kzMdoWOdTbQlJTZTAh/uf
-	JbnHHdasBUVFOGWbaWY1tMhNhcTYJ9Uxx8Oh2FgiQToAL2QUmuZYSQ6YLZmfa0Eno790KBtkDwJ
-	kp/SdhI5SAXmQnKCBOyAreyooZzkm7s2RgS/65U4PjXzgW7AqlwPeh3vRYb6Fij1FITM9O3YJdS
-	VCwUml97d3wbLfj2fYhPmughzOE0VeZzQu+tqPA==
-X-Received: by 2002:a05:6830:442b:b0:806:1728:aed9 with SMTP id
- 46e09a7af769-80ddff5b5e3mr6811507a34.5.1789819097212; Sat, 19 Sep 2026
- 04:58:17 -0700 (PDT)
+	Sat, 19 Sep 2026 13:56:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1789826181; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lxJtI0f5J52eBI0jkXF+fCjjktZihnJal+2wxXAFeJeMr7hA4MNnFTo6o7kTkRNxQ9sqToreVpEPJMb6lDHMXWiWt/Sn5mBpdBc1J3gk9PEdZSjUnBDNXPKWHqFzKw9omeR5d/bUaRiFN5/hABtXZ21lbuaepN05CPHYQk65/9E=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1789826181; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=yhX14Zjrs1T1LKc/UQ3XM5yVsTmDWG/q39PuOw4fZkw=; 
+	b=Ni5XsT26yJfRAbsYM5mTkdiCmtEN0MPSyQgGGYkdqtjQGGnc21MbM+O/BVfJ3jYagernbGAQeD5YURO+kitKwVeKiAdJOWWxpUWNo0BSW+8gwsx6A+7EjkikN+lXDdsHV+sOMpr3r5h6Bo0wRXt5s3mFiZ8tvVdKSL1M8n5IrQA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789826181;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=yhX14Zjrs1T1LKc/UQ3XM5yVsTmDWG/q39PuOw4fZkw=;
+	b=e8k+DUqK8L0f/XjRqQOdi0HQ/UI5S1Gu7O3c6Lg1eNJdymP25Cp1kkckNIXJ4pr1
+	qQueD0jICa932JYSArNLhRFepAzNl6pGdZTXd3w6qJMMSm78hNB94PTGtRILf0Ca2WW
+	6Vs7//Uin5WcuhlDsPpYPyp4iteilNXakZ5/Tq/wyJL1wjJl0K9NoM0w2PRem4k8kYg
+	Jd04Owgb8RpA96d6og4yDllg9edyQhblplh/pBgVE0Q9/B1Qvio9RdwKVhrUGVSpZGY
+	AfLA55XW4Ak/PiTIhfoHKjyxKa5zdkMrzrYRe4/laVg/IN4ov9FipAwjd6YPLxBdP45
+	ZL2yKzRZRA==
+Received: by smtp.zohomail.com with SMTPS id 1789826179625358.0297920384029;
+	Sat, 19 Sep 2026 06:56:19 -0700 (PDT)
+Message-ID: <8301abce221e33d827053c54a64aed05f3227f7f.camel@icenowy.me>
+Subject: Re: [PATCH 2/3] pmdomain: spacemit: Add power domain driver
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Yixun Lan <dlan@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Date: Sat, 19 Sep 2026 21:56:12 +0800
+In-Reply-To: <20260919095936-GKA322102@kernel.org>
+References: <20260918-04-k3-pm-support-v1-0-0acd2b36b96f@kernel.org>
+	 <20260918-04-k3-pm-support-v1-2-0acd2b36b96f@kernel.org>
+	 <a4359efeee2220903a05a2383a651ec8ec7284b7.camel@icenowy.me>
+	 <20260918230107-GKC297024@kernel.org>
+	 <33b33b2b79763d410bc2e5b4ef46c305aaf6f7c8.camel@icenowy.me>
+	 <20260919095936-GKA322102@kernel.org>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-References: <20260902-07-k3-sdhci-fix-v1-6-b15c5d0f64fd@kernel.org>
- <20260907155300.1411173-1-alan.tseng.cs@gmail.com> <CABdCQ=Mi3M8vGCYjURicNWy-Bh22qN199jOdHA5rEfTzui2b_A@mail.gmail.com>
-In-Reply-To: <CABdCQ=Mi3M8vGCYjURicNWy-Bh22qN199jOdHA5rEfTzui2b_A@mail.gmail.com>
-From: alan <alan.tseng.cs@gmail.com>
-Date: Sat, 19 Sep 2026 19:58:05 +0800
-X-Gm-Features: AcwNN1UZXEwsL9Pov5f9xi5w8glGlreCvMt_9qTwCiXunjbXeU4yHhZxeZNHtl4
-Message-ID: <CACwt7EYh9+MZHC7Qn910iOxvnjd42u_NoSX3+YpjQCxCxtY=6Q@mail.gmail.com>
-Subject: Re: [PATCH 6/7] mmc: sdhci-of-k1: Improve RX tuning window
-To: Iker Pedrosa <ikerpedrosam@gmail.com>
-Cc: dlan@kernel.org, adrian.hunter@intel.com, ulfh@kernel.org, 
-	long.wan@linux.spacemit.com, linux-mmc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_045818_887318_904FE337 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260919_065624_440060_150FDCE8 
+X-CRM114-Status: GOOD (  28.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,44 +87,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 15, 2026, Iker Pedrosa wrote:
-> A jump from a minimum window size of 3 to 50 delay codes is quite dramatic.
-> Could you clarify how 50 was chosen? Is there a specific hardware specification,
-> phy datasheet recommendation, or test dataset across multiple boards that
-> justifies this exact number?
-
-50 is not my number; Yixun would need to answer where it comes from. What
-I can add is what the vendor driver does. In SpacemiT's sdhci-of-k1x.c
-(bianbu linux-6.6), the defaults when DT says nothing are:
-
-  #define RX_TUNING_WINDOW_THRESHOLD 80
-  #define RX_TUNING_DLINE_REG 0x09
-
-The Jupiter DT overrides both together: spacemit,rx_dline_reg = <0> and
-spacemit,rx_tuning_limit = <50>. So 50 is what the vendor pairs with the
-finer delay-line step, not a standalone default. That makes the 5/7 ->
-6/7 dependency concrete rather than theoretical.
-
-I also need to correct what I said earlier. The current driver already
-centres on the widest passing window; the "< 3" check only decides when
-to give up with -EIO. Raising it to 50 does not change which window is
-selected, only whether tuning fails. The 1- and 5-code windows I reported
-were never the widest in their boot (the widest was 74 or more each
-time), so they do not show the old threshold picking a bad window.
-
-On the form: spacemit,sdhci.yaml has no such property, so a DT knob
-would need a binding change. A compile-time default, with DT override
-if the binding maintainers accept it, still seems the lower-risk option.
-
-Thanks,
-Hung-Chun
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjYtMDktMTnlha3nmoQgMDk6NTkgKzAwMDDvvIxZaXh1biBMYW7lhpnpgZPvvJoKPiBI
+aSBJY2Vub3d5LAo+IAo+IE9uIDE0OjU3IFNhdCAxOSBTZXDCoMKgwqDCoCAsIEljZW5vd3kgWmhl
+bmcgd3JvdGU6Cj4gPiDlnKggMjAyNi0wOS0xOOS6lOeahCAyMzowMSArMDAwMO+8jFlpeHVuIExh
+buWGmemBk++8mgo+ID4gPiBIaSBJY2Vub3d5LCAKPiA+ID4gCj4gPiA+IE9uIDE3OjAwIEZyaSAx
+OCBTZXDCoMKgwqDCoCAsIEljZW5vd3kgWmhlbmcgd3JvdGU6Cj4gPiA+ID4g5ZyoIDIwMjYtMDkt
+MTjkupTnmoQgMDI6NDAgKzAwMDDvvIxZaXh1biBMYW7lhpnpgZPvvJoKPiA+ID4gPiA+IMKgIFNw
+YWNlbWlUJ3MgUE1VIChQb3dlciBNYW5hZ2VtZW50IFVuaXQpIGNvbnNpc3Qgb2Ygc2V2ZXJhbAo+
+ID4gPiA+ID4gcG93ZXIKPiA+ID4gPiA+IGRvbWFpbnMKPiA+ID4gPiA+IHdoaWNoIGNhbiBiZSBt
+YW5hZ2VkIGluZGVwZW5kZW50bHksIGRlcGVuZGluZyBvbiBkaWZmZXJlbnQKPiA+ID4gPiA+IGFw
+cGxpY2F0aW9uCj4gPiA+ID4gPiBzY2VuYXJpbywgZWFjaCBkb21haW4gY2FuIGJlIHBvd2VyZWQg
+b24vb2ZmIGZvciBzYXZpbmcgcG93ZXIuCj4gPiA+ID4gPiAKPiA+ID4gPiA+IMKgIFRoZSBkcml2
+ZXIgaXMgaW1wbGVtZW50ZWQgYmFzZWQgb24gTGludXggR2VuZXJpYyBQTSBEb21haW4KPiA+ID4g
+PiA+IGZyYW1ld29yay4KPiA+ID4gPiA+IEZyb20gYSBoYXJkd2FyZSBwZXJzcGVjdGl2ZSwgZWl0
+aGVyIG9mIHR3byBkaXN0aW5jdCBwb3dlci1vbgo+ID4gPiA+ID4gc2VxdWVuY2VzCj4gPiA+ID4g
+PiBhcmUgc3VwcG9ydGVkLCBpbiBzb2Z0d2FyZSBtb2RlIChTVyBtb2RlKSwgdGhlIGRyaXZlciBp
+cwo+ID4gPiA+ID4gcmVzcG9uc2libGUKPiA+ID4gPiA+IGZvcgo+ID4gPiA+ID4gY29udHJvbGxp
+bmcgdGhlIHN0YXRlcyBvZiBiaXRzIHN1Y2ggYXMgc2xlZXAxLCBzbGVlcDIsCj4gPiA+ID4gPiBp
+c29sYXRpb24KPiA+ID4gPiA+IGFuZAo+ID4gPiA+ID4gcHdyX3N0YXRlLCB3aGlsZSBpbiBoYXJk
+d2FyZSBtb2RlIChIVyBtb2RlKSwgdGhlIFBNVSBoYXJkd2FyZQo+ID4gPiA+ID4gd2lsbAo+ID4g
+PiA+ID4gY29tcGxldGUKPiA+ID4gPiA+IHRoZSBzZXF1ZW5jZSBhdXRvbWF0aWNhbGx5IHdpdGhv
+dXQgcmVxdWlyaW5nIHNvZnR3YXJlCj4gPiA+ID4gPiBpbnRlcnZlbnRpb24uCj4gPiA+ID4gCj4g
+PiA+ID4gSSB0aGluayB0aGVyZSBhbHNvIGV4aXN0cyBzb2x1dGlvbnMgZm9yIEszIHRoYXQgdXNl
+cyBSUE1JIHBvd2VyCj4gPiA+ID4gZG9tYWlucywgYW5kIGxldCB0aGVpciBFU09TIGZpcm13YXJl
+IHRvIGFjY2VzcyB0aGUgaGFyZHdhcmUuCj4gPiA+ID4gCj4gPiA+IFllcywgSSdtIGF3YXJlIG9m
+IHRoYXQKPiA+ID4gCj4gPiA+ID4gV2hhdCdzIHRoZSByZWxhdGlvbnNoaXAgb2YgdGhpcyBpbXBs
+ZW1lbnRhdGlvbiB3aXRoIHRoZSBFU09TCj4gPiA+ID4gaW1wbGVtZW50YXRpb24/IFNob3VsZCB0
+aGUgRVNPUyBwYXJ0IGJlIGRpc2FibGVkIHRvIHVzZSB0aGlzCj4gPiA+ID4gaW1wbGVtZW50YXRp
+b24/Cj4gPiA+ID4gCj4gPiA+IEkgc2hvdWxkIHNheSwgaXQncyBhIG11dHVhbGx5IGV4Y2x1c2l2
+ZSBzb2x1dGlvbiwgc28geWVzLCB0aGUKPiA+ID4gRVNPUwo+ID4gPiBwYXJ0Cj4gPiA+IHNob3Vs
+ZCBiZSBkaXNhYmxlZCBpbiBvcmRlciB0byB1c2UgdGhpcyB2ZXJzaW9uCj4gPiA+IAo+ID4gPiBU
+aGUgbW90aXZhdGlvbiBvZiB0aGlzIHBhdGNoIGlzIHRyeWluZyB0byBzdXBwb3J0IGRybS9kaXNw
+bGF5Cj4gPiA+IGRyaXZlcidzCj4gPiA+IFBNIHJlcXVpcmVtZW50LCB3aGlsZSBhdm9pZCBnb2lu
+ZyB3aXRoIHZlbmRvcidzIGNvbXBsaWNhdGVkIFJQTUkKPiA+ID4gc29sdXRpb24KPiA+ID4gd2hp
+Y2ggaXNuJ3QgbWFpbmxpbmUgcmVhZHkKPiA+IAo+ID4gSXMgdGhpcyBhIGxvbmctdGVybSBzb2x1
+dGlvbiwgb3IgYSB0ZW1wb3Jhcnkgb25lPwo+ID4gCj4gRm9yIHVwc3RyZWFtLCBJJ2Qgc2F5IHdl
+IHByb2JhYmx5IHdpbGwgc3RpY2sgdG8gdGhpcyBzb2x1dGlvbiBmb3IKPiBsb25nIHRpbWUsIHdv
+bid0IHNheSBpdCAnZm9yZXZlcicsIHNlZSBjb21tZW50IGJlbG93Li4KPiAKPiA+IElmIGl0J3Mg
+YSB0ZW1wb3JhcnkgY29uZmxpY3Rpbmcgb25lLCBJIGRvbid0IHRoaW5rIGl0J3Mgd29ydGgKPiA+
+IHBpY2tpbmcKPiA+IGF0IGFsbC4KPiA+IAo+IFdlbGwsIGNoZWNrZWQgY3VycmVudCBMaW51eCBr
+ZXJuZWwgc3RhdHVzLCB0aGVyZSBpcyBubyBSUE1JIFBNCj4gc29sdXRpb24gCj4gaW1wbGVtZW50
+ZWQgYWx0aG91Z2ggdGhlcmUgaXMgZG9jdW1lbnRhdGlvbiBpbiByaXNjdi1ycG1pIHNwZWNbMV0K
+CkkgaGF2ZSBzZWVuIHBlbmRpbmcgcGF0Y2ggZm9yIGl0IHdpdGggbXVsdGlwbGUgcmV2aXNpb25z
+IFsxXSwgdGhlIGR0CmJpbmRpbmcgaXMgZXZlbiBhbHJlYWR5IEFDS2VkIGJ5IENvbm9yLCBzbyBJ
+IHRoaW5rIGl0J3Mgbm90IGEgYmlnCnByb2JsZW0gaGVyZS4KClRoYW5rcywKSWNlbm93eQoKWzFd
+IDIwMjYwOTAzMDkyMzQ3LjYyMDA2MC0xLWpvc2h1YS55ZW9uZ0BzdGFyZml2ZXRlY2guY29tCgo+
+IAo+IE9uIHRoZSBvdGhlciBoYW5kLCBJIHNlZSBubyBwcm9ibGVtIHRvIHN3aXRjaCB0byBSUE1J
+IHNvbHV0aW9uIG9uY2UKPiBpdAo+IGJlY2FtZSBtYXR1cmUsIGl0J3MgdmVyeSBzaW1pbGFyIHRv
+IHR3byBzb2x1dGlvbiBvZiBjbG9jayBDTEtfQ0NVIHZzCj4gQ0xLX1JQTUkuLiAKPiAKPiBMaW5r
+Ogo+IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jpc2N2LXJwbWkvYmxvYi9tYWlu
+L3NyYy9zcnZncnAtZGV2aWNlLXBvd2VyLmFkb2MKPiDCoFsxXQoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
