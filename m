@@ -4,69 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA9FC982D8
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 00:06:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DCBC982D8
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 00:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xnzVngdVCXFh4dyvf5GqdiCf8G7kd33SJaJpihOgaBQ=; b=njFoxC0VTCUnYP
-	06jGRwpApuw6+j9H5UllWC+5TrqPGjGVWEA/huhJMDXaCUOEKR3JMiaJr6HPR4nuzp005zK6j4idf
-	4ratCsUYap+s8IV9A0+7iuwdHJm88xrEvZ3voK5P2DBe9bcgfCUZDfsyE1yxvR37GAr+B94p/htNO
-	P75cNfjnR+hIAhDiAFd6bqzHY4vVzuZkFuGIN435RMNdTBoscuXhyYRobe/C1b3DlOGKzBbYDU//9
-	udwQSsHsXnPBKL/+YhnJKSrswhdFiBc9+8PhFZGyQ6RABE+jYahgxs7CdnMfHBv/PzN1iRGDTHsgN
-	02B0DZN7qeM7l79LK1Ig==;
+	List-Owner; bh=73FojDuDFX1+IEL2WH0dVAfFKIsQooQui17pMCsWVGE=; b=h3lF4wpdhTYq+V
+	z6hnJNSK7N83nLMJxyIh4xaDx4yCb3RxaJ8G9dGYqyj3FWiciySRn4MppGoYaDMWQigiGyYhUEPSi
+	NeyjF/ATRgLOrO7xXtupOpk3/fi2Tnn0/4c6ZYB3cs5E4wDYQBuiM4hZbYGgJz6i7TtnFo1zIXb6B
+	b5n6Waul8xaGko0zF6Vh9a9UoMosNR09QxEqjwpLT6vRIF9sd7P0zDl89h4iXCpzXN5LqbWNo9uGi
+	PUJgWkoAFK9YY9rRgjwRGkQWJZht9GWjcVQwhulJ8oiIiDbKG+w9TwgRqnhI2qgJA9GQiziBU6jIh
+	5Mi9ArS8JChuJV74RkSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7iav-0000000FjBw-0o9G;
-	Sat, 19 Sep 2026 00:06:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7jES-0000000Fmz7-1HNm;
+	Sat, 19 Sep 2026 00:47:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ias-0000000FjBq-3rFO
+	id 1x7jER-0000000Fmyx-44Ip
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Sep 2026 00:06:14 +0000
+	Sat, 19 Sep 2026 00:47:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 08B1A6053B;
-	Sat, 19 Sep 2026 00:06:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24DD11F000FF;
-	Sat, 19 Sep 2026 00:06:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E0B76053B;
+	Sat, 19 Sep 2026 00:47:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35B681F000FF;
+	Sat, 19 Sep 2026 00:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789776373;
-	bh=K0LdpFbLfSrouSaQWx1WxcGgOL0IJnEb3kf1PZZgOz4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WHt/yal8851lJexzW7Zy1gfBoxenPxj+oanpo5DnIn0n4Oos8HUsmE9MfIR3dsQcE
-	 K58rNv0O+N3L7LHXmDecDWZoSAHhDLc+blEDv4Y5Etsr8OmkRFldnxLM5QMgIMV+ve
-	 dKErdN+nziQzGs0QVUoYVvCql5PSIY33Gf/GvL2mGdBkAtjUCzj5219XQxBT41xgBk
-	 KXjAQiJ/AsVEqAXW9C8IeIGHK1B7BS6FBZRXmfoQiBGktfsYyV5QEk9cJajBXA60AA
-	 pBLi29QnIR3q+RwCILttXqBKCWTVLTz9pLrJjWaiJU0nzyM/NYbN3XzaruSGTac8Um
-	 u4UEtm1cJDdcA==
-Date: Sat, 19 Sep 2026 00:06:11 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>, Guodong Xu <docular.xu@gmail.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Bo Gan <ganboing@gmail.com>
-Subject: Re: [PATCH v3 5/6] irqchip/aclint-sswi: Add support for SpacemiT K3
-Message-ID: <20260919000611-GKF297024@kernel.org>
-References: <20260918-k3-aclint-v3-0-cf4fd4050e14@pigmoral.tech>
- <20260918-k3-aclint-v3-5-cf4fd4050e14@pigmoral.tech>
+	s=k20260515; t=1789778826;
+	bh=0+tRIUSk/vz1y8ca3AElj8USwRZtbN01B6VHqlMiGYs=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=TUIfR5GPGnxk8JG0Y0+CMgb86/tByNuCgghAHDo2YgtZKCh6Rf8mHSb/oOAk+V+5A
+	 IWM9EBnSpzq1+jQCedXGyY6nb/9qAUv/kYyZtSIikJuvdGLDkaURny7YsTQsCkt8nF
+	 QtknLanwlcXaSv3qhj4cOGSoeliqqAly6FqDBppJSvaGWa9UAbMwMJrOy+jDVNX/vx
+	 9gJmgYW6Ln161BJ78d6m1qLVjjErl8tjCvdW984+GujP0YeAtuM0jjxD/wzCK+rMrJ
+	 8Sptfn1eiXBvR65P79iXCIl3NdoiY6DWjNU2naQnND/+CXgb4ph2Q0WYOzxmUGRYHR
+	 qg/IhqLwabtwA==
+Date: Fri, 18 Sep 2026 18:47:02 -0600 (MDT)
+From: Paul Walmsley <pjw@kernel.org>
+To: Zongmin Zhou <min_halo@163.com>
+cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    Zongmin Zhou <zhouzongmin@kylinos.cn>
+Subject: Re: [PATCH] riscv: hwprobe: use _BITULL() rather than BIT() in MIPS
+ vendor uapi header
+In-Reply-To: <20260917062306.46978-1-min_halo@163.com>
+Message-ID: <795bd810-d382-3b80-bd3b-041b6742fe93@kernel.org>
+References: <20260917062306.46978-1-min_halo@163.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260918-k3-aclint-v3-5-cf4fd4050e14@pigmoral.tech>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +70,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas Gleixner, Radu Rendec
+On Thu, 17 Sep 2026, Zongmin Zhou wrote:
 
-On 00:29 Fri 18 Sep     , Junhui Liu wrote:
-> Add a match entry for the spacemit,k3-aclint-sswi compatible. The K3
-> SSWI device requires no special handling and can use the existing
-> generic ACLINT SSWI initialization function.
+> From: Zongmin Zhou <zhouzongmin@kylinos.cn>
 > 
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->  drivers/irqchip/irq-aclint-sswi.c | 1 +
->  1 file changed, 1 insertion(+)
+> BIT() is a kernel-internal macro that is not available to userspace, but
+> the MIPS vendor extension uapi header uses it without defining or
+> including it. Any userspace program that includes this header and uses
+> RISCV_HWPROBE_VENDOR_EXT_XMIPSEXECTL fails to build.
 > 
-Ping irqchip subsystem maintainer, how do you expect to handle this patch?
-There are some dependencies between dt-binding, the driver and DTS file..
+> Use _BITULL(0) from linux/const.h instead, which keeps the value at 1,
+> so there is no ABI change.
+> 
+> Fixes: bb4b0f8a1bcb ("riscv: hwprobe: Add MIPS vendor extension probing")
+> Signed-off-by: Zongmin Zhou <zhouzongmin@kylinos.cn>
 
-Would it be ok if I take it together via SpacemiT SoC tree? and probably with
-your Acked-by? Thanks
+Thanks, queued for v7.3-rc.
 
-> diff --git a/drivers/irqchip/irq-aclint-sswi.c b/drivers/irqchip/irq-aclint-sswi.c
-> index ca06efd86fa1..d3ef2cd3b5c5 100644
-> --- a/drivers/irqchip/irq-aclint-sswi.c
-> +++ b/drivers/irqchip/irq-aclint-sswi.c
-> @@ -179,6 +179,7 @@ static int __init generic_aclint_sswi_early_probe(struct device_node *node,
->  }
->  IRQCHIP_DECLARE(mips_p8700_sswi, "mips,p8700-aclint-sswi", generic_aclint_sswi_early_probe);
->  IRQCHIP_DECLARE(nuclei_ux900_sswi, "nuclei,ux900-aclint-sswi", generic_aclint_sswi_early_probe);
-> +IRQCHIP_DECLARE(spacemit_k3_sswi, "spacemit,k3-aclint-sswi", generic_aclint_sswi_early_probe);
->  
->  /* THEAD variant */
->  #define THEAD_C9XX_CSR_SXSTATUS			0x5c0
-> 
-> -- 
-> 2.55.0
-> 
 
--- 
-Yixun Lan (dlan)
+- Paul
 
 _______________________________________________
 linux-riscv mailing list
