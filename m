@@ -4,42 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88221C982D8
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 03:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9257C982CC
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 03:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Message-Id:Date:Subject:
-	References:In-Reply-To:Cc:From:To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:From:References:Subject:To
+	:In-Reply-To:Message-Id:Date:Cc:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=buM+Fdck4AkIJf13VKdNrpXWiPpHiUwGQq/gcLu2yxA=; b=p2pd01gOoQTPa7
-	RvHm9wY4ffDJbpvaW/wnTN/TX1O2DYG7yDiI6W5ttfP9Gd1hpUK3acKBatcK4f/b4US4vPzRjKKAd
-	tKde5ZNZQmvFbsfUmNqOmXS7Blwcbx01ijTgkIeGIvuO/yRxKW6ZW2FqfJ+I/nG6iYkRiegQoJgx9
-	JX/O1hq47wDah9kyvgiHipApb0Gay3gv/+JnlKf6fBjk7tiQMgCrh3sPgu6+uv/0dQyR8qMlnfIzm
-	KP8LvlOPDWPiTtTkKcQZmXnOCIk1TqCUYrn4qWFfBdLiSOa5KFTIhoSfnRJJXoCZFNUCpCXyu8Rap
-	Qxt7zpbDrqICUOryCaFg==;
+	List-Owner; bh=GcdCQ4aIJQ2a/J/mcFGSSdlIPFSHcd/NyqGrb3evuUU=; b=owlGY40mGXvo0n
+	VQFU0sFVjfhgLRdcPQ0dIl7p+c67Ian7Ic4ljSsO4FoEi9UvQamoINomRwPMtZz55MUIZIo+8U1c3
+	+vNWGsd9HrnxUzeOA1s4nNEqCAiuPUK4jM1F/b1d1ivzFzfswVXJZwImq9EeERcdT4n+zT36hmV2H
+	3DvIz34V9C3R4BHBSK+tKvpLCZhr+ZCVTKKrCGbuifNY0/N/Z0hgKRdEBrIrNX4vliAGUwssviPnS
+	6VHTYwe9EI/Vt4YkkOeNGPpVIWfxXv3WfMzQXS5Zu4OY7bIEMSv24gDIs5z5Uzi1uklWLPAVkv3xx
+	wLOTo0vJGp9dPULsu3oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7ltv-0000000Fv8q-0GAW;
-	Sat, 19 Sep 2026 03:38:07 +0000
-Received: from va-1-113.ptr.blmpb.com ([209.127.230.113])
+	id 1x7luB-0000000FvBZ-0zil;
+	Sat, 19 Sep 2026 03:38:23 +0000
+Received: from va-1-112.ptr.blmpb.com ([209.127.230.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7lts-0000000Fv7d-3pft
+	id 1x7lu8-0000000FvAP-3goj
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Sep 2026 03:38:06 +0000
+	Sat, 19 Sep 2026 03:38:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1789789080; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1789789094; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=sgWKI1y5XLT4ulSXwOPuxJWMC/sDZ6Am6sYFd61oFM8=;
- b=dW7JjkzYUWJgkk1vQ06fHqA2F4cq4wT+s/L3qae+mme89lZGfoB0NQV7qRfFOErEPHFqRO
- bGYBwNKoVjlL4mlc6zFxmMI+jkySodTqytiaQNyknFgYsKaq88aONSEzsy3fI6z3WFqxka
- IumFdHIDrwJKQMIO9CiJIoTzYkaL4w0uJXSDa4E8cD7xrIF60F7LDvIX31KRtvR24eR89q
- 2Gure92PBt2n/B5jO7NpK7wtV4dq9AqD+clrrqzoi3V6xLizrvId82+StKlPXPWbTlANzF
- DpMlj9NyeZ0S3Qjqd54eWvYvMelLq7vff8XcyefqrUPVlhGARhspq7XNqG6beg==
-To: <rostedt@goodmis.org>
-X-Mailer: git-send-email 2.20.1
-From: "Rui Qi" <qirui.001@bytedance.com>
+ bh=W8TBtJ6IM0md7XKM9TP3O7DHtc171bBY9OmQaBcVFCE=;
+ b=PGTbCAW35qyxcV9R1LO8ShDtOsRomtefiAAZDmkg91ttmLOf5mkL2VWkLz5IR0RcZBffy/
+ f6lFI51BT2EyvxdSADsrMat261lG2l9vmJ4kdAQ5KsRTmOPNEULHZqg5z/Q/iSyWOHYT1h
+ 87DyTCmxYtvpAQac0OZ0QmPficJlro5n0RQ4863JJfPbFSR9Lij2egFp+MaQTBJkiw0NrT
+ 8lP7FmvmjVPPaBlSfuHzwgp9h1HXnTPJDUiR2vmV3DybG1vGwwEJQsRc4S6gxr8q0WJNAe
+ rkF9pttzyzsc63vkdRDgOSOX5ZgAT1qtBI9RoPQXLmY/sCedOYkfKvQXoaqPLw==
 Cc: "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
 	=?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
 	"Chunyan Zhang" <zhangchunyan@iscas.ac.cn>, 
@@ -51,17 +48,20 @@ Cc: "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
 	"Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>, 
 	"Palmer Dabbelt" <palmer@dabbelt.com>, "Paul Walmsley" <pjw@kernel.org>, 
 	"Song Shuai" <suagrfillet@gmail.com>
+Date: Sat, 19 Sep 2026 11:37:26 +0800
+Message-Id: <20260919033726.1361382-3-qirui.001@bytedance.com>
 X-Original-From: Rui Qi <qirui.001@bytedance.com>
-X-Lms-Return-Path: <lba+26aae0397+346754+lists.infradead.org+qirui.001@bytedance.com>
+X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20260919033726.1361382-1-qirui.001@bytedance.com>
+To: <rostedt@goodmis.org>
+Subject: [PATCH 2/2] riscv: ftrace: Use frame CFA for function graph retp
 References: <20260919033726.1361382-1-qirui.001@bytedance.com>
-Subject: [PATCH 1/2] ftrace: Clarify function graph retp identity
-Date: Sat, 19 Sep 2026 11:37:25 +0800
-Message-Id: <20260919033726.1361382-2-qirui.001@bytedance.com>
+From: "Rui Qi" <qirui.001@bytedance.com>
+X-Lms-Return-Path: <lba+26aae03a4+e0d7e5+lists.infradead.org+qirui.001@bytedance.com>
 Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260918_203805_027941_15DC1E01 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260918_203820_989367_9A459B97 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +78,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ftrace_graph_ret_addr() does not dereference retp. It compares the value
-against the retp saved by function_graph_enter*() to find the matching
-graph return entry.
+RISC-V dynamic function graph tracing currently uses &fregs->ra for two
+different purposes. As the parent argument, it is the temporary slot where
+ftrace_caller saved the incoming ra. Reading that slot and replacing it
+with return_to_handler is correct, because ftrace_caller reloads the slot
+into the hardware ra register before returning to the traced function.
 
-Update the documentation to describe retp as a return location identity.
-Most architectures use the stack return address slot, but an architecture
-may use another stable frame identity as long as its graph entry path and
-unwinder use the same value.
+It is wrong to save the same address as the function graph retp. The retp
+is not used to patch the return address later; ftrace_graph_ret_addr()
+uses it as a lookup key for the shadow stack entry. Once ftrace_caller
+returns, its temporary fregs frame is gone. Later stack unwinding finds
+return_to_handler in the traced function's own frame, so the unwinder
+cannot match a key that points back into the vanished ftrace_caller frame.
 
+This also breaks function_get_true_parent_ip(), which looks up the
+original parent with ftrace_regs_get_stack_pointer(fregs). On RISC-V that
+is the saved entry SP, not &fregs->ra, so ftrace_graph_ret_addr() cannot
+match the graph return entry.
+
+Use the frame CFA as the RISC-V graph retp identity instead. The static
+_mcount path derives it from &frame->ra, the dynamic ftrace path uses the
+saved entry SP, and the frame-pointer unwinder uses the same CFA when
+recovering graph return addresses.
+
+Fixes: 35e61e8827ee ("riscv: ftrace: Make function graph use ftrace directly")
 Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 ---
- kernel/trace/fgraph.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/ftrace.c     | 10 ++++++++--
+ arch/riscv/kernel/stacktrace.c |  2 +-
+ 2 files changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
-index ed455b53513b..f95e2a9ed352 100644
---- a/kernel/trace/fgraph.c
-+++ b/kernel/trace/fgraph.c
-@@ -946,7 +946,7 @@ unsigned long ftrace_graph_top_ret_addr(struct task_struct *task)
-  * @task: The task the unwinder is being executed on
-  * @idx: An initialized pointer to the next stack index to use
-  * @ret: The current return address (likely pointing to return_handler)
-- * @retp: The address on the stack of the current return location
-+ * @retp: The identity of the current return location
-  *
-  * This function can be called by stack unwinding code to convert a found stack
-  * return address (@ret) to its original value, in case the function graph
-@@ -959,7 +959,10 @@ unsigned long ftrace_graph_top_ret_addr(struct task_struct *task)
-  * will be assigned that location so that if called again, it will continue
-  * where it left off.
-  *
-- * @retp is a pointer to the return address on the stack.
-+ * @retp is compared against the value saved by function_graph_enter*().
-+ * It is usually the address of the return address on the stack, but may
-+ * be another stable frame identity as long as the graph entry code and
-+ * the unwinder use the same value.
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index be8b68514417..faad2608216f 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -229,11 +229,16 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+ #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+ /*
+  * Most of this function is copied from arm64.
++ *
++ * Use the frame CFA as the RISC-V graph return address identity: static
++ * _mcount derives it from &frame->ra, dynamic ftrace uses the saved entry
++ * SP, and the unwinder tracks the same value when walking frame records.
   */
- unsigned long ftrace_graph_ret_addr(struct task_struct *task, int *idx,
- 				    unsigned long ret, unsigned long *retp)
+ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
+ 			   unsigned long frame_pointer)
+ {
+ 	unsigned long return_hooker = (unsigned long)&return_to_handler;
++	unsigned long *retp = parent + 1;
+ 	unsigned long old;
+ 
+ 	if (unlikely(atomic_read(&current->tracing_graph_pause)))
+@@ -245,7 +250,7 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
+ 	 */
+ 	old = *parent;
+ 
+-	if (!function_graph_enter(old, self_addr, frame_pointer, parent))
++	if (!function_graph_enter(old, self_addr, frame_pointer, retp))
+ 		*parent = return_hooker;
+ }
+ 
+@@ -256,6 +261,7 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+ 	unsigned long return_hooker = (unsigned long)&return_to_handler;
+ 	unsigned long frame_pointer = arch_ftrace_regs(fregs)->s0;
+ 	unsigned long *parent = &arch_ftrace_regs(fregs)->ra;
++	unsigned long *retp = (unsigned long *)arch_ftrace_regs(fregs)->sp;
+ 	unsigned long old;
+ 
+ 	if (unlikely(atomic_read(&current->tracing_graph_pause)))
+@@ -267,7 +273,7 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+ 	 */
+ 	old = *parent;
+ 
+-	if (!function_graph_enter_regs(old, ip, frame_pointer, parent, fregs))
++	if (!function_graph_enter_regs(old, ip, frame_pointer, retp, fregs))
+ 		*parent = return_hooker;
+ }
+ #endif /* CONFIG_DYNAMIC_FTRACE */
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index c7555447149b..96fb7d29ebb1 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -88,7 +88,7 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 			fp = READ_ONCE_TASK_STACK(task, frame->fp);
+ 			pc = READ_ONCE_TASK_STACK(task, frame->ra);
+ 			pc = ftrace_graph_ret_addr(task, &graph_idx, pc,
+-						   &frame->ra);
++						   (unsigned long *)sp);
+ 			if (pc >= (unsigned long)handle_exception &&
+ 			    pc < (unsigned long)&ret_from_exception_end) {
+ 				if (unlikely(!fn(arg, pc)))
 -- 
 2.20.1
 
