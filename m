@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A206C982D8
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 14:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC84C982D7
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 15:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c4YIvbmtzy+ry2p2gmer6BrI5XAAxSzlEwcyiULLdKA=; b=nKPI4kSsokkdZt
-	LqToyqmxyKICiOvscxoWBhQ3AtsH6QZe68jQOap2I8xDGsYHZa4aJ4zjDekiaX1OVB/BaxRrHkt2n
-	NmZg7GStmaIPLkvRIqk++Cy/ZVWWD8Vd0Mk9kCop6F+/KQHlXmgF+fpH3VIOoVFSyRynq0gOHxDsf
-	oMDcIcs8+DdF4XIf4n3Dq8g0SHZ0uE09Kv7jcbe3jlxW1c74k8o6vKNKXiQt5Jnq769SF+rKoAvQs
-	TAwqZuvQH+AMq+6LghEz6rSXADolZq5ABwLZnjos4/SLTdcN7xCnJqZuJYsuwfdcTbAClWhhDsGUG
-	DVbWB7wUO0VedxxVjmbQ==;
+	List-Owner; bh=iNyYblVD5YWqzj2W927pdxef5onTRanDy51kEDL5qVw=; b=e7VcJGNRVTO+fV
+	xm7+9ZTVZbaArCBE4Tow4O45puxXTdXij4n08C32eawsnE+hIxdF/N0fJ3qPGNo5ADcLDG9RVHVhs
+	488fZbvMs8CfJdKe+XAkn2cDzuUPJ2Dpt4oTvM5gwo5GR1Drkhbb21oaoAAAyap4Fg/BRtB3wktPX
+	BXlymlrxaD+rNPvT5Bc1vJmzbHI0nlQF0kqm9OSRkCGen0x+PlrZJUf1vFQbFMlENI0D9Q5qQy4qj
+	WsWtS+qN0AqUoqFt/Zl0O4dOQmfMCoNGsAdSV4Lwo0NJ/Vk0rWazKfWM+3rGyzbwPVIoQcYsRZ+wB
+	glbwnNKooVVmGFbR1sDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7wMf-0000000GOxb-1KnA;
-	Sat, 19 Sep 2026 14:48:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x7wbb-0000000GQO0-0VPh;
+	Sat, 19 Sep 2026 15:03:55 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x7wMd-0000000GOx7-2ZvG;
-	Sat, 19 Sep 2026 14:48:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EAD0660AA4;
-	Sat, 19 Sep 2026 14:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F34C71F000FF;
-	Sat, 19 Sep 2026 14:48:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789829305;
-	bh=o1ZQ7MH5wDXQsKPIVArWrFcpJvDeJlfsiVlJBRwpoXM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lm2k/vQkpX7W0rWLi5B6K5eTJR1tZUnSWZJ1Ng+jIx3YZF9kLqPaBrTmlJSsCX9nh
-	 EuvRaBKJEEywI1N9lA1+7Ys7i3UdEigSw0oiv6tq1drO2Ro5ZD/N6xNN/PdGENyiry
-	 OQze/hFxIhrCHYmcl3+sCa2wi/yoXq0DmLmIj16j+oHTE4uRFAk74RVtHyd4ldYTZf
-	 IvdGdbPsJQiKDu0USoB8Ug/yRfNtvtJou/1NlysRZYAbRYTkXoHFZkW/B/7TV1HbsP
-	 RKA2Vfq/eOWP6HnxXeDQnh98UFWvAUENLTjQPoGih+Xd6pZ8oFkDU/0ix1EBwESNRN
-	 EJSaX1urbuaAw==
-Date: Sat, 19 Sep 2026 15:48:11 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Nicolas Schier <n.schier@fritz.com>
-Cc: Kees Cook <kees@kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
-	Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 08/20] kbuild: cache list, composite object state per
- object
-Message-ID: <aq6gjULjd5uP-AVA@gremlin>
-References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
- <20260917-build-speedup-v3-8-9ecf4163ff36@kernel.org>
- <202609171110.438BC7477A@keescook>
- <20260918-godlike-devious-perch-707bf6@l-nschier-aarch64>
+	id 1x7wbY-0000000GQN7-01qg
+	for linux-riscv@lists.infradead.org;
+	Sat, 19 Sep 2026 15:03:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1789830197;
+	bh=h1WOIRQT0KOUkcpfRIFqCd28qtTzI5G/vlfaczFIm3g=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=LJCz3//X8xRrUo89TOHgWfPuoJ0VGyCmvcr/BZHHqWcTJZh+/JohCHDyo0FvMYxDP
+	 2F5qlyuwaunP2SH074Fzmm9HdClY/BqpZYHSEdQvw9CfBwDHB6RcF6f6ajpcloRPRh
+	 rx+FRkHlITkMOZZXQ2eKgA4Cfh7XUCzGliOcIvhY=
+X-QQ-mid: zesmtpgz3t1789830190tfdeff35d
+X-QQ-Originating-IP: PioUM+UFfuxBWzMSzeGzTOV311erig4aklwdlIG29mE=
+Received: from [192.168.1.100] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sat, 19 Sep 2026 23:03:09 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11224281374008946119
+Message-ID: <B8C4C8F589E42A31+60fc3495-33cf-498d-be73-5165b69947c8@linux.spacemit.com>
+Date: Sat, 19 Sep 2026 23:03:09 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260918-godlike-devious-perch-707bf6@l-nschier-aarch64>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] usb: dwc3: core: resume xHCI child on runtime resume
+ in host mode
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Troy Mitchell <troy.mitchell@linux.dev>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "spacemit@lists.linux.dev" <spacemit@lists.linux.dev>
+References: <20260908-resume-xhci-v1-1-aca107602e9c@linux.spacemit.com>
+ <DL9ZZ8F7HTZT.1IUMD1ECSOZXL@linux.dev>
+ <566DD22E9074C793+eaef8bb4-9602-4f76-8915-6e322387c7aa@linux.spacemit.com>
+ <768D38E96246550E+b63978f5-b8e9-4d3d-883c-f36d79c5da12@linux.spacemit.com>
+ <aq3kF_zdTPwkOuZI@vbox>
+Content-Language: en-US
+From: Junzhong Pan <panjunzhong@linux.spacemit.com>
+In-Reply-To: <aq3kF_zdTPwkOuZI@vbox>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: NK1jrlzPMOAHF4ymU020VItJtHFV8okpJbkhvAN7RM7l2nuD8ifA7snX
+	7QWZh+nTpo7fE8AEb3M24m7SEp++4+Mw1jsXGH3CY+FyMupaQt8xiPhBVT20weIWgGk7O2x
+	omJfTm/BQ/c70faubX+VEcpGbPsHoWflZ65cA0JYaeTVnbl14FqhVpj8zqYAtmyynHAJ+dV
+	ber6RhcQshV+HR3Z3JoGYcYPVZvYAF/vmsGxXwUlulrqq26M3p0pclgxgdkqSntOlQK9t5r
+	W0V1/dNztjTdcYL5HLCj6DxEZRgtIITnXDtK79qY3kZXVZ7BmN1P04suFh6FLELoTHoUFMp
+	+hmJpWCNqeLF2jK9DGQC5lQrEBD6b6qox3+PUerxO3Jaw2cLecla5+Hyq6oLsMPV3D//gXs
+	QX8kKPcQ5Wkia9mQLB3etFkwd3tZn+f82MB7R3wflDN8G3fzrHMMDHM8Xs0k7nIxkKja8a5
+	KsWS2y1/ZNSUSL/9q2DS6wA/97kzTmdI+pdHB29pEAKpj27RD+ZEq3B8acatWXx1BtUO9rb
+	0P8xiWr2n0zSg6aHoO4EbhrZFYzKkEA3b0OPKrmyhEiGCLVRSOM0mjwN+ThD+gG+Lh87dTB
+	WPiG9/fX+4yDapNhQWEqS4+JU9kuKhBrFRSmm77CiLu8lfp30tBHTLLQNjfNQEnWLTvPsuE
+	QiiOhA9sZCfVCyXnKFmku5sRfDxvhXXRKTZSHBPX/uXFM96Zn3dJD2pLjyccyIKgVS6hoOd
+	IoI75dqPp15LnryGLpJeHwndGvL+FNKvfImkIQjVn3a38H+ym7bEn/U0l6lSilHCaP5Q8/d
+	svD6ao406n1AYJ9pXDrwHKWBka4mSNgLeRAzVRPMpgnWlVbgWlTRJA1hBYHEKwoaymN3lsb
+	lM9OmFy9uG3G1uNhQKxEbAfs48RAcFwhOTuxlcWRihaPZ0HsNZwMvPk7qJI50v3o0IRDkvt
+	4+WRNfVM5iwOpTWC7kOqsBU2tZ1UqrYHnEF2wQ1hwMwwNAwe7aloJ9dQAnerHqnZN+UtwC4
+	BxsmuA4CBs3amt8OTCTMeD8QuJSsNkuBkYCwCm2TTdhjuUnzCS/cC6Ef4dBU6BIca20arnb
+	vU6WKfgTHHGR2MoZV0Okz2wQxTe2AZkIg==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260919_080352_888126_FBB81343 
+X-CRM114-Status: GOOD (  31.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,31 +103,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2026 at 09:51:26PM +0200, Nicolas Schier wrote:
-> On Thu, Sep 17, 2026 at 11:11:41AM -0700, Kees Cook wrote:
-> > On Thu, Sep 17, 2026 at 05:06:18PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > > Fix the issue by caching this data and looking it up instead of getting it
-> > > over and over again.
-> >
-> > Nit: I would describe this as "calculate these once". It _is_ caching,
-> > but I think with Makefiles there is an implication the "caching" means
-> > "write to disk". But maybe that's just me.
+On 9/19/2026 9:51 AM, Thinh Nguyen wrote:
+> On Fri, Sep 18, 2026, Junzhong Pan wrote:
+>> On 9/9/2026 8:28 PM, Junzhong Pan wrote:
+>>> On 9/8/2026 10:16 PM, Troy Mitchell wrote:
+>>>> On Tue Sep 8, 2026 at 10:01 PM +08, Junzhong Pan wrote:
+>>>>> USB controller runtime suspend halts the controller on disconnection.
+>>>>> It relies on platforms with custom connection notification to start
+>>>>> the controller again.
+>>>>>
+>>>>> The host branch of dwc3_runtime_resume() does nothing currently. There
+>>>>> are two paths that can trigger a runtime resume of the dwc3 core in
+>>>>> host mode:
+>>>>>
+>>>>> (a) Wake lands on the xHCI child (DT platforms, e.g. Qualcomm, i.MX8MP)
+>>>>>     A platform wakeup IRQ fires and the glue handler calls
+>>>>>     pm_runtime_resume(&xhci->dev). Runtime PM walks upward, resumes
+>>>>>     the dwc3 parent first, then resumes xHCI. Both wake correctly.
+>>>>>
+>>>>> (b) Wake lands on the dwc3 parent (ACPI platforms)
+>>>>>     When an ACPI Notify(ACPI_NOTIFY_DEVICE_WAKE) targets the dwc3
+>>>>>     parent device -- for example via a Generic Event Device on a
+>>>>>     hardware-reduced platform where dwc3 is enumerated as an ACPI
+>>>>>     device without a glue driver -- the ACPI core turns this into
+>>>>>     pm_request_resume(dwc3_dev). Runtime PM does not propagate resume
+>>>>>     downward, so the xHCI child stays suspended. Root hub polling is
+>>>>>     never re-armed, and a device plugged in while suspended is silently
+>>>>>     dropped.
+>>>>>
+>>>>> This patch fills in the host branch to cover case (b) by requesting an
+>>>>> async resume of the xHCI child so xhci_resume() can restore the port
+>>>>> state machine and re-arm root hub polling. Glue drivers in case (a)
+>>>>> resume xHCI directly, an extra call introduced by this change, but
+>>>>> runtime PM can serialize those requests and skip device already active,
+>>>>> so the extra resume call is safe. Those calls can be replaced with
+>>>>> resume calls to dwc3 device later.
+>>>>>
+>>>>> Tested on SpacemiT K3 Pico-ITX, covering both wakeup paths: an ACPI
+>>>>> boot with a GED device notifying the dwc3 node (HID 808622B7), and a
+>>>>> DT boot with a modified dwc3-generic-plat driver exposing a wakeup IRQ
+>>>>> similar to dwc3-qcom.c and dwc3-imx8mp.c. This is not validation on
+>>>>> actual Qualcomm or i.MX8MP hardware, changing those drivers would still
+>>>>> need platform-specific testing.
+>>>>>
+>>>>> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+>>>>> Assisted-by: Opencode:claude-opus-5
+>>>>> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+>>>>> ---
+>>>>> Changes since RFC:
+>>>>> - add Assisted-By tag and collect tag
+>>>>> - refine the commit message and comments as suggested
+>>>>>
+>>>>> Link to RFC: https://urldefense.com/v3/__https://lore.kernel.org/linux-usb/20260811090817.109350-1-panjunzhong@linux.spacemit.com/__;!!A4F2R9G_pg!fG8BhOaAiW3KsJBgmdcmOIKvYAFkNqYGGmoZn0ktdqp55U4q4kO1wKNFeAJ7YaGKoEWpwzyZAWYtypcFTR6doz7Ny1H6LQS2$ 
+>>>>> ---
+>>>>>  drivers/usb/dwc3/core.c | 12 ++++++++++++
+>>>>>  1 file changed, 12 insertions(+)
+>>>>>
+>>>>> diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+>>>>> index fd5c2cd36c59..76883dc6184c 100644
+>>>>> --- a/drivers/usb/dwc3/core.c
+>>>>> +++ b/drivers/usb/dwc3/core.c
+>>>>> @@ -2739,6 +2739,18 @@ int dwc3_runtime_resume(struct dwc3 *dwc)
+>>>>>  		}
+>>>>>  		break;
+>>>>>  	case DWC3_GCTL_PRTCAP_HOST:
+>>>>> +		/*
+>>>>> +		 * Only the xHCI child's resume re-arms root hub polling, which
+>>>>> +		 * is what rediscovers a device plugged in while suspended.
+>>>>> +		 * Runtime PM doesn't resume children, so request it here.
+>>>>> +		 * Keep it asynchronous to avoid waiting for the parent's resume
+>>>>> +		 * callback to finish from inside it. Glue drivers may also
+>>>>> +		 * resume xHCI directly, but runtime PM will serialize those
+>>>>> +		 * requests and skips an already-active device.
+>>>>> +		 */
+>>>>> +		if (dwc->xhci)
+>>>>> +			pm_request_resume(&dwc->xhci->dev);
+>>>>> +		break;
+>>>> Could we also check a parent-only resume with no USB wake event? For
+>>>> example, reading the DWC3 debugfs lsp_dump file calls
+>>>> pm_runtime_resume_and_get(dwc->dev). With both devices suspended, this
+>>>> change would wake xHCI too.
+>>>>
+>>>
+>>> Thanks for pointing out, I did missed those paths before, I will do some
+>>> investigation and testing on the two non-wakeup path:debugfs attr access
+>>> and the dwc3_set_mode() path then report back.
+>>>
+>>
+>> I looked into this on real hardware. There are two paths where the
+>> resume is unnecessary:
+>>
+>> (1) debugfs read: it briefly resumes xhci, then both devices go back
+>> to autosuspend. Harmless, though unnecessary.
+>>
+>> (2) __dwc3_set_mode() while suspended in host mode: when a DRD
+>> controller is suspended in host mode and user or a role-switch consumer
+>> calls set_mode(), dwc3 is resumed first and the xhci removal follows.
+>> But pm_request_resume() only queues work, and the unregister path
+>> calls cancel_work_sync() before freeing the device, so the request
+>> is either cancelled or completes beforehand. In my testing, the PM
+>> core simply bails out with -EINVAL on pm_request_resume(&dwc->xhci->dev),
+>> and the removal completes fine.
+>>
+>> I think yes there will be more extra calls here but they don't break
+>> things, I didn't reproduce any failure. It seems difficult to get rid
+>> of them since there are no good conditions to judge.
+>>
+>> If we want to avoid these more extras, maybe those platform who need
+>> this feature can just let glue driver (dwc3-generic-plat.c or another)
+>> handle the ACPI probe and the wakeup (like qcom/imx8mp) together for
+>> the case(a) platform mentioned before instead of reusing the current
+>> 8080:22B7 ACPI probe path in dwc3/core.c .
+>>
+>> Thinh, do you have any thought on that?  I'm fine with either approach.
+>>
+> 
+> Troy brought up a good point. It may be "harmless" in the sense that it
+> doesn't prevent the device from functioning, but it unnecessarily
+> resumes xhci for other dwc3 runtime resume paths. We shouldn't apply
+> this generically to all platforms.
+> 
+> Please drop my Acked-by for now until we find a better solution.
+> 
+> I think handling the wakeup through a glue driver like qcom as you
+> suggested may be a better approach.> 
 
-Ack!
+Ok, got it. I agree the glue driver is a better approach.
+I'll go that direction and drop your Acked-by in any future revision.
 
->
-> +1
->
-> Reviewed-by: Nicolas Schier <n.schier@fritz.com>
+> Thanks,
+> Thinh
 
-And thanks! (also to Kees :)
+Best regards,
+Junzhong
 
->
-> --
-> Nicolas
-
---
-Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
