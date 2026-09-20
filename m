@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 496D7C982DF
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 03:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E85C982DF
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 03:18:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5J5dv9L0VxRyvfewUiQJFZC9VSpfcis5lwqUEwuGrIA=; b=gDVKSkQ15BvVm6
-	OVvtK4GYhKBUaMaW2zR3MVuyBzRfEJskGltfOvAfQ7QNPYcaq77SWw6dLgVH9x+5q6SXtLlAtAaNX
-	rd+Lwk2Z6fgHm/7WAKbcSmCLwXmlpOqnhUkstGqK5C9/k9tlPeiaF0JQIAmj/uMMP0EolQgfxO7bO
-	Cj1wI47/SZTB+4bGqY9Y7j6PcnWUnoqwDbBMNKY9mUIxMck9D40QTlzSVIkVzjUirSNabr6GV0DPU
-	u5FND5JkctxwTXSIrhdLzSOkQwNTzt286yfuGY017n3rv6J7Buu79S8mQ6MKUcFmJ5vzZFyJFGdOT
-	TCq/3GhVjaK0aSyXeCtw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=35aa9YjdxmG5eOZDKnYmbXTVAfZ01R/KbkdiLxAOtYk=; b=jWdYKQn4N8hjMD
+	6+kQupa4pleYNpf2blVL0vSSAjUos8a7x9kIu9zUZE8xrVp2qGOaP7mMRGaWc88cbnA4Iigy4AoMc
+	iN91FCWVulST5wE+R29n2zt+aIkgjhtp8kzuGTBvtwdS3XBZ8p4+NgIh7jL5MOy6Tx3kE816T0aGp
+	ZVFvaRdLckXfCsbf8wD/xy4RS0YaHXYwJw+jt5e4heoZJ5m1yU1Wp5jGBoXYEpN9D1ONlmmgbGUMW
+	JC9zjA0jA1/XGNMWyuix3AwojSrOf/GmbtOFEbwlh+1DE06ktuckoNgJDg5ZwKWsA3k04+CRoo1n7
+	XL22lWK5TmZ7qqxT1ZwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x87zK-0000000Gmpy-43gf;
-	Sun, 20 Sep 2026 03:13:10 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1x884d-0000000Gn3j-2s8n;
+	Sun, 20 Sep 2026 03:18:39 +0000
+Received: from out-79.mta1.migadu.com ([95.215.58.79] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x87zH-0000000GmpQ-3J2R;
-	Sun, 20 Sep 2026 03:13:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1789873984; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
-	bh=LHI1NO5JOiIuDGqpEcnCt7eW+JpawOKMKxw6jmu4FBU=;
-	b=AhQtYMOFkjDvbUg9dmr3r/BsoOeqxYWy2rTtKYfhXoj+OlbTgv5oybb1ouxlzfeMJHd2hlt3NySN5MzH44sbpoZhfuBczjgLmG74Mt0sHIXOHyo4v2ZwWlrn6Wh90b7pE1rR5YJJjMS4GFRUHTmwrRVQSCe+1QTuJrAlOOTtFu0=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0XBErlvu_1789873979;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XBErlvu_1789873979 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sun, 20 Sep 2026 11:13:01 +0800
-From: fangyu.yu@linux.alibaba.com
-To: gsh517025@gmail.com
-Cc: alex@ghiti.fr,
-	andrew.jones@oss.qualcomm.com,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	baolu.lu@linux.intel.com,
-	fangyu.yu@linux.alibaba.com,
-	gong.shuai@sanechips.com.cn,
-	guoren@kernel.org,
-	iommu@lists.linux.dev,
-	jgg@nvidia.com,
-	jgg@ziepe.ca,
-	joerg.roedel@amd.com,
-	joro@8bytes.org,
-	jroedel@suse.de,
-	kevin.tian@intel.com,
-	kvm-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	robin.murphy@arm.com,
-	skhawaja@google.com,
-	tomasz.jeznach@linux.dev,
-	vasant.hegde@amd.com,
-	will@kernel.org,
-	zong.li@sifive.com
-Subject: Re: [RFC PATCH v4 08/10] iommu/riscv: Pre-enable GADE for second-stage domains 
-Date: Sun, 20 Sep 2026 11:12:59 +0800
-Message-Id: <20260920031259.20950-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <90826872-1374-49e4-832d-555abf8e8369@gmail.com>
-References: <90826872-1374-49e4-832d-555abf8e8369@gmail.com>
+	id 1x884b-0000000Gn2m-0ImC
+	for linux-riscv@lists.infradead.org;
+	Sun, 20 Sep 2026 03:18:39 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=vM1h2IEpNOC/A2qB1FfARCsAhtN479Y/HyUIKeMHG6k=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789874312; v=1; x=1790479112;
+ b=d5nxm7hbYFGm3jJSrVKH78Sha5QwmWPUbTfPrObP5CP46keqPV/+7pgJPQcL/V8B7XiIo5lp
+ V2bf3Oc9lnKgSITG93lPXlUOSjpOpVGyERnArQwwOUr8C3C+Di6S9rIkl0eOXCCYLvlktGVIRPn
+ /nLGCRMJWOVeZir090xr17oY=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by mta12.migadu.com with ESMTPS id c54495dbf87a1f9f;
+	Sun, 20 Sep 2026 03:18:30 +0000
+X-Mizu-Trace-ID: c54495dbf87a1f9f
+X-Migadu-Flow: FLOW_OUT
+From: Troy Mitchell <troy.mitchell@linux.dev>
+Subject: [PATCH RFC 0/3] riscv: Add explicit die-level CPU topology
+Date: Sun, 20 Sep 2026 11:18:01 +0800
+Message-Id: <20260920-riscv-die-topology-rfc-v1-0-071c0bf61d5f@linux.dev>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQrCQAwAv1JyNhCXUlivgg/wKj3YNFsj0i1JL
+ Urp3131OAMzK7iYisOhWsFkUdc8FtjvKuDbdRwEtS8MgUJDkWo0dV6wV8E5T/mRhzdaYmSimBq
+ pO4kBSjyZJH39xhc4n47Q/qU/u7vw/F3Ctn0AhUKEwn8AAAA=
+X-Change-ID: 20260904-riscv-die-topology-rfc-c009f6e4be92
+To: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ driver-core@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.dev>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2811;
+ i=troy.mitchell@linux.dev; h=from:subject:message-id;
+ bh=vM1h2IEpNOC/A2qB1FfARCsAhtN479Y/HyUIKeMHG6k=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDFnrA2rf16yXPsr1c5Owe8Qb/aCSDWZXO6SW2x+4pVufb
+ 7Xnmn1YRykLgxgXg6yYIkv3A55tBT5RtgUChb4wc1iZQIYwcHEKwESc6hgZns1KTuyX82luTG9y
+ rZmhKLy76sHKM+/ye/yOy6lEyCotYPhfIv6nuyivTWH6a/ftzUdSQo+YN+/dsvbLtNn2Ki+THSo
+ 5AA==
+X-Developer-Key: i=troy.mitchell@linux.dev; a=openpgp;
+ fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_201308_010756_012BA7CA 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20260919_201837_407116_1D39D97B 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +86,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PkhpIEZhbmd5dSwKPgo+T24gOS8xNS8yMDI2IDExOjI4IEFNLCBmYW5neXUueXVAbGludXguYWxp
-YmFiYS5jb20gd3JvdGU6Cj4+IEZyb206IEZhbmd5dSBZdSA8ZmFuZ3l1Lnl1QGxpbnV4LmFsaWJh
-YmEuY29tPgo+Pgo+PiBQcmUtZW5hYmxlIFJJU0NWX0lPTU1VX0RDX1RDX0dBREUgaW4gdGhlIGRl
-dmljZSBjb250ZXh0IHdoZW4KPj4gYXR0YWNoaW5nIGEgc2Vjb25kLXN0YWdlIGRvbWFpbiwgaWYg
-dGhlIElPTU1VIHN1cHBvcnRzIEFNT19IV0FELgo+Pgo+PiBTb2Z0d2FyZSBwcmUtcG9wdWxhdGVz
-IHNlY29uZC1zdGFnZSBwYWdlIHRhYmxlcyB3aXRoIEQgc2V0LCBzbwo+PiBlbmFibGluZyBHQURF
-IGJ5IGRlZmF1bHQgZG9lcyBub3QgY2hhbmdlIG5vcm1hbCBiZWhhdmlvci4gV2hlbgo+PiBkaXJ0
-eSB0cmFja2luZyBpcyBlbmFibGVkLCBpb21tdWZkIGNsZWFycyB0aGUgcHJlLXNldCBEIGJpdHMg
-YW5kCj4+IEdBREUgYmVjb21lcyBuZWNlc3NhcnkgZm9yIGhhcmR3YXJlIHRvIHVwZGF0ZSB0aGUg
-ZGlydHkgYml0IG9uCj4+IHdyaXRlIGFjY2Vzcy4KPj4KPj4gVGhpcyBhdm9pZHMgdG9nZ2xpbmcg
-R0FERSBkeW5hbWljYWxseSBhbmQga2VlcHMgZGV2aWNlIGNvbnRleHQKPj4gc2V0dXAgY29uc2lz
-dGVudCB3aXRoIHNlY29uZC1zdGFnZSBkb21haW4gYXR0YWNobWVudC4KPj4KPj4gU2lnbmVkLW9m
-Zi1ieTogRmFuZ3l1IFl1IDxmYW5neXUueXVAbGludXguYWxpYmFiYS5jb20+Cj4+IC0tLQo+PiAg
-IGRyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYyB8IDIgKysKPj4gICAxIGZpbGUgY2hhbmdlZCwg
-MiBpbnNlcnRpb25zKCspCj4+Cj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lvbW11L3Jpc2N2L2lv
-bW11LmMgYi9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMKPj4gaW5kZXggMTY3Nzk4NzczNTFi
-Li5mMDFmZDRlMmY4NDAgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUu
-Ywo+PiArKysgYi9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMKPj4gQEAgLTEzMzAsNiArMTMz
-MCw4IEBAIHN0YXRpYyBpbnQgcmlzY3ZfaW9tbXVfYXR0YWNoX3BhZ2luZ19kb21haW4oc3RydWN0
-IGlvbW11X2RvbWFpbiAqaW9tbXVfZG9tYWluLAo+PiAgIAkJCUZJRUxEX1BSRVAoUklTQ1ZfSU9N
-TVVfRENfSU9IR0FUUF9NT0RFLCBwdF9pbmZvLmlvaGdhdHBfbW9kZSkgfAo+PiAgIAkJCUZJRUxE
-X1BSRVAoUklTQ1ZfSU9NTVVfRENfSU9IR0FUUF9HU0NJRCwgZG9tYWluLT5nc2NpZCkgfAo+PiAg
-IAkJCUZJRUxEX1BSRVAoUklTQ1ZfSU9NTVVfRENfSU9IR0FUUF9QUE4sIHB0X2luZm8ucHBuKTsK
-Pj4gKwkJaWYgKGlvbW11LT5jYXBzICYgUklTQ1ZfSU9NTVVfQ0FQQUJJTElUSUVTX0FNT19IV0FE
-KQo+PiArCQkJZGMudGMgfD0gUklTQ1ZfSU9NTVVfRENfVENfR0FERTsKCkhpIFNodWFpOgoKPgo+
-SSBtaWdodCBiZSBtaXNzaW5nIHNvbWV0aGluZywgYnV0IEkgZG9uJ3Qgc2VlIGhvdyB0aGUgR0FE
-RSBiaXQgc2V0Cj5oZXJlIHJlYWNoZXMgdGhlIGhhcmR3YXJlIElPTU1VIERDLiBJbiByaXNjdl9p
-b21tdV9pb2Rpcl91cGRhdGUoKQo+KGluIHBhdGNoIDA0LzEwKSwgaXQgbG9va3MgbGlrZSBvbmx5
-IHRoZSBWIGJpdCBpcyB0YWtlbjoKPgo+CXRjID0gUkVBRF9PTkNFKGRjLT50Yyk7Cj4JdGMgfD0g
-bmV3X2RjLT50YSAmIFJJU0NWX0lPTU1VX0RDX1RDX1Y7Cj4JLi4uCj4JV1JJVEVfT05DRShkYy0+
-dGMsIHRjKTsKPgoKWW914oCZcmUgcmlnaHQg4oCUIHRoaXMgaXMgYSByZWFsIGlzc3VlLgoKR0FE
-RSB3YXMgYmVpbmcgc2V0IGluIHRoZSBzb2Z0d2FyZS1zaWRlIGRjLCBidXQgaXQgd2FzIG5vdApw
-cm9wYWdhdGVkIGludG8gdGhlIGhhcmR3YXJlIERDIGluIHJpc2N2X2lvbW11X2lvZGlyX3VwZGF0
-ZSgpLgoKSSBoYXZlIGFscmVhZHkgZml4ZWQgdGhpcyBpbiBteSBsb2NhbCB0cmVlLCBhbmQgSeKA
-mWxsIGluY2x1ZGUgdGhlCmNoYW5nZSBpbiB0aGUgbmV4dCB2ZXJzaW9uIG9mIHRoZSBwYXRjaHNl
-dDoKICAgIHRjICY9IH5SSVNDVl9JT01NVV9EQ19UQ19HQURFOwogICAgdGMgfD0gbmV3X2RjLT50
-YyAmIFJJU0NWX0lPTU1VX0RDX1RDX0dBREU7CiAgICB0YyB8PSBuZXdfZGMtPnRhICYgUklTQ1Zf
-SU9NTVVfRENfVENfVjsKCj5JIHNhdyB0aGF0IHlvdSBtZW50aW9uZWQgeW91IHRlc3RlZCBpdCBv
-biBRRU1VLiBBcyBmYXIgYXMgSSBrbm93LAo+bWFpbmxpbmUgUUVNVSBoYXMgbm90IHlldCBkZWNs
-YXJlZCB0aGUgQU1PX0hXQUQgY2FwYWJpbGl0eS4gQ291bGQKPnlvdSBjbGFyaWZ5IHdoZXRoZXIg
-eW91IHVzZWQgYSBtb2RpZmllZCBRRU1VIGZvciB0aGlzIHRlc3Q/Cj4KCkkgdXNlZCBtYWlubGlu
-ZSBRRU1VLCBub3QgYSBtb2RpZmllZCBvbmUuCgpJbiBRRU1VLCBJIG9ubHkgdGVzdGVkIHRoZSBz
-ZWNvbmQtc3RhZ2UgcGF0aCB3aXRoIGEKVk0gdXNpbmcgZGV2aWNlIHBhc3N0aHJvdWdoLgoKSSBk
-aWQgbm90IHRlc3QgdGhlIGRpcnR5LWxvZyByZWxhdGVkIHBhcnQgdGhlcmUsCnNvIHRoYXQgcGF0
-aCBjYW5ub3QgYmUgY292ZXJlZCB0aGVyZS4KClRoYXQgaXMgd2h5IEkgbm90ZWQgaW4gdGhlIFRP
-RE8gdGhhdCBJIHdpbGwgYnVpbGQgYQpkZWRpY2F0ZWQgdGVzdCBjYXNlIGZvciBkaXJ0eSBsb2cg
-aGFuZGxpbmcgbGF0ZXIuCgpUaGFua3MsCkZhbmd5dQoKPlRoYW5rcywKPlNodWFpCj4KPj4gICAJ
-fSBlbHNlIHsKPj4gICAJCWlmICghcmlzY3ZfaW9tbXVfZnNjX3N1cHBvcnRlZChpb21tdSwgcHRf
-aW5mby5mc2NfaW9zYXRwX21vZGUpKQo+PiAgIAkJCXJldHVybiAtRU5PREVWOwoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+The generic arch_topology model has no die level. Systems with multiple
+dies in one package must flatten their clusters or report each die as a
+separate package, losing the die or package boundary.
+
+This RFC adds a die ID and sibling mask to arch_topology, parses optional
+dieN nodes in DT cpu-map, and exposes die topology through sysfs on RISC-V.
+Clusters can be numbered independently within each die.
+
+The RISC-V sysfs behavior is:
+
+  - An explicit dieN node supplies a non-negative die ID within its package
+    and a die sibling mask. RISC-V exposes die_id, die_cpus, and
+    die_cpus_list.
+  - A DT without dieN keeps die_id at -1 and creates no die sysfs files.
+    Package and cluster parsing is unchanged.
+  - ACPI die discovery is not implemented. The ACPI and fallback paths
+    also leave die_id at -1 and create no die sysfs files.
+
+The DT parser is shared by arm64 and RISC-V, so both record dieN nodes
+internally. Only RISC-V exposes the die sysfs files in this series. If you
+think I should enable this for arm64 as well, please let me know.
+
+The sysfs visibility hook defaults to visible on other architectures,
+including powerpc configurations that report die_id as -1. Their existing
+sysfs behavior is unchanged.
+
+The dieN hierarchy is a proposed extension to the DT cpu-map binding.
+This RFC does not include a schema update. I'd like feedback on the
+topology model and sysfs interface before sending the binding update.
+
+Does placing dieN between socket and cluster make sense? I'd also
+appreciate feedback on keeping unspecified dies at -1 and on the sysfs
+visibility hook.
+
+Tested with W=1 builds of the affected objects for RISC-V, arm64, and ARM,
+and with a complete RISC-V Image build. On a 32-CPU QEMU virt guest, a DT
+describing one package with two dies, four clusters per die, and four
+cores per cluster exposed the expected IDs and masks and updated them
+across CPU offline/online. The same guest with a legacy DT exposed no die
+sysfs files while retaining package and cluster topology.
+
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+---
+Troy Mitchell (3):
+      arch_topology: Add a die level to CPU topology
+      arch_topology: Parse die nodes in /cpu-map
+      riscv: topology: Expose explicit CPU die topology
+
+ arch/riscv/include/asm/topology.h |  4 +++
+ drivers/base/arch_topology.c      | 68 +++++++++++++++++++++++++++++++--------
+ drivers/base/topology.c           | 28 +++++++++++++++-
+ include/linux/arch_topology.h     |  2 ++
+ include/linux/topology.h          |  3 ++
+ 5 files changed, 91 insertions(+), 14 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260904-riscv-die-topology-rfc-c009f6e4be92
+
+Best regards,
+--  
+Troy Mitchell <troy.mitchell@linux.dev>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
