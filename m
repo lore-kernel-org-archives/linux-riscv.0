@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C5CC982D7
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 01:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F16D5C982CC
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 03:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K+mv+4fOyZZVwxVkjL0e7RaxqG23w7whnqVCvLZP8V8=; b=5BfVjmzy4so4nz
-	EZVvPf9BMlYGHyUSeJz/H1aPRbNbaRaLBjmoe8mquqZgAunUPUsIc+Fl/sNd2jHIqByHmiZh3wq/G
-	VU3feFU8ghImLZ6z1DLFqUJhRrai9BosFQOshIMHPC+J5NV2AtWdqknXpsaWncPnbm3lCrkTtSaHu
-	on6v/YrjgW+HgU02cvmez41/Zaj0Zzp6hyBcnsaVa6gdHLO8yhFX2dBjp3XQkFfS17mkplP2jWEgZ
-	ctIU0JVKtlRwVAYGuqNa4IMAZJMRnfLPFR+EBhZW+yaFiBe+P8opIQrdebW2qnz6Li8sXII3/bFs4
-	VeVeXO7m8MoYbvI+XbKg==;
+	List-Owner; bh=q3yBkuCi3IPMSykpVT5Eo1Okqo6su39Y3ejYDbzvv8k=; b=pvNayz190Le9Xp
+	lDBwEYC4nbVLsssKKsbyUEKLkdFcHouk6H5x9f81crSZJdmu0M0mkDw7f8oydwIIr/m5otqvbqQhr
+	jUFC6T5R59WnuJGeNaLeQMbhL1aOmGWv/g+XzdkX6gC7JfvIarG2+rlrkoRHTQ3SsGhJS8/tEUbtD
+	8NygF+84fXERAP8f3HuYF7SdZp0JmXrzuJDsgjaN+qZrmm+p4JzYQ/xJ+CV5pn+FPq2tVPIaSB7Qu
+	5rE92GMgvDANuq0EtkQN0Z/aCKjxqlz69XgVkrEjMLVinLuttOkwcXt6WKAz8rVgKUSOMst/OyGtI
+	FJ0V3rP2aFVK/lVoiZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x86bJ-0000000Gjjp-2AGD;
-	Sun, 20 Sep 2026 01:44:17 +0000
-Received: from out-56.mta1.migadu.com ([95.215.58.56] helo=mta1.migadu.com)
+	id 1x87vK-0000000GmbE-1ciG;
+	Sun, 20 Sep 2026 03:09:02 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x86bE-0000000Gjj6-0SM1
-	for linux-riscv@lists.infradead.org;
-	Sun, 20 Sep 2026 01:44:14 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=hMzUJFmtAt/DEQg8/nIuJR2E2yIQzqBmNStsr9v2FW0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789868647; v=1; x=1790473447;
- b=fVW8QFVcpcjx1uT9H2pAlIY7rSGcd+kEWp4902AMYYthYtG+Jvvy8yuXeSmOWgAHPnfb66z1
- j120FZXbLfuUf3j4nXzTpPh6YBNhTrpylCQJ4b8ptmA/JPPZZAdgTTbx6G72Vlgcx+1bCSGVpkI
- U219+tJIVacGcmAX32zN2wjQ=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 1c465c973ef91055;
-	Sun, 20 Sep 2026 01:44:07 +0000
-X-Mizu-Trace-ID: 1c465c973ef91055
-X-Migadu-Flow: FLOW_OUT
-From: Qingfang Deng <qingfang.deng@linux.dev>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Qingfang Deng <qingfang.deng@linux.dev>,
+	id 1x87vH-0000000Gmal-0vUx;
+	Sun, 20 Sep 2026 03:09:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1789873732; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=wjTZldjz1iDULhUhQBqLiB6G8Q6aBj6HV95v1HhDU/I=;
+	b=gExHY8ZrIbPkCBq5tkvhbf+TKX3wt7XedjOfd5sJQGt94Reb8tKXdo/7OPu5g/LVRyKJGQTutoQ/0h010hBqHqcvAUA0QGjKplZnOq+xjkmDqIj4WqaZHYu5ijOt+GbV2E/gJdXztQPFjleUX/pangHkW9DH3nyaFxPc18uDC50=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R461e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0XBErkLX_1789873726;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XBErkLX_1789873726 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sun, 20 Sep 2026 11:08:48 +0800
+From: fangyu.yu@linux.alibaba.com
+To: gsh517025@gmail.com
+Cc: alex@ghiti.fr,
+	andrew.jones@oss.qualcomm.com,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	baolu.lu@linux.intel.com,
+	fangyu.yu@linux.alibaba.com,
+	gong.shuai@sanechips.com.cn,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	joerg.roedel@amd.com,
+	joro@8bytes.org,
+	jroedel@suse.de,
+	kevin.tian@intel.com,
+	kvm-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: linux-arch@vger.kernel.org
-Subject: [PATCH v2 2/3] riscv: use generic MMIO accessors
-Date: Sun, 20 Sep 2026 09:43:50 +0800
-Message-ID: <20260920014357.7069-2-qingfang.deng@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260920014357.7069-1-qingfang.deng@linux.dev>
-References: <20260920014357.7069-1-qingfang.deng@linux.dev>
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	skhawaja@google.com,
+	tomasz.jeznach@linux.dev,
+	vasant.hegde@amd.com,
+	will@kernel.org,
+	zong.li@sifive.com
+Subject: Re: [RFC PATCH v4 04/10] iommu/riscv: use data structure instead of individual values
+Date: Sun, 20 Sep 2026 11:08:46 +0800
+Message-Id: <20260920030846.20403-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <6d1bfb10-fd04-4e4e-895d-55c16fcea13f@gmail.com>
+References: <6d1bfb10-fd04-4e4e-895d-55c16fcea13f@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260919_184412_921736_E6DBF4EB 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20260919_200900_090985_B5713664 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,180 +90,150 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V implements its raw MMIO loads and stores in inline assembly and
-duplicates the generic ordered and relaxed accessors.
+>Hi Fangyu,
+>
+>On 9/15/2026 11:28 AM, fangyu.yu@linux.alibaba.com wrote:
+>> From: Zong Li <zong.li@sifive.com>
+>>
+>> The parameter will be increased when we need to set up more
+>> bit fields in the device context. Use a data structure to
+>> wrap them up.
+>>
+>> Signed-off-by: Zong Li <zong.li@sifive.com>
+>> Signed-off-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+>> ---
+>>   drivers/iommu/riscv/iommu.c | 27 +++++++++++++++++----------
+>>   1 file changed, 17 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+>> index a6c8307e82ea..c5b6214ee672 100644
+>> --- a/drivers/iommu/riscv/iommu.c
+>> +++ b/drivers/iommu/riscv/iommu.c
+>> @@ -1165,7 +1165,7 @@ static void riscv_iommu_iodir_iotinval(struct riscv_iommu_device *iommu,
+>>    * interim translation faults.
+>>    */
+>>   static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+>> -				     struct device *dev, u64 fsc, u64 ta)
+>> +				     struct device *dev, struct riscv_iommu_dc *new_dc)
+>>   {
+>>   	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
+>>   	struct riscv_iommu_dc *dc;
+>> @@ -1204,10 +1204,10 @@ static void riscv_iommu_iodir_update(struct riscv_iommu_device *iommu,
+>>   	for (i = 0; i < fwspec->num_ids; i++) {
+>>   		dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
+>>   		tc = READ_ONCE(dc->tc);
+>> -		tc |= ta & RISCV_IOMMU_DC_TC_V;
+>> +		tc |= new_dc->ta & RISCV_IOMMU_DC_TC_V;
+>
+>According to SPEC 3.1.3.3, the "V bit" does not exist in DC.ta.
+>This should be a convention from when the iodir_update() function
+>did not yet use `struct riscv_iommu_dc` as a parameter, using bit 0
+>of DC.ta to indicate that the DC is valid. Now that iodir_update()
+>receives the complete dc, it can directly access DC.tc.V, so this
+>convention should no longer be necessary and will cause confusion.
+>
 
-Use asm-generic/mmio.h for these accessors and retain the RISC-V barrier
-hooks. This preserves the ordering and MMIOWB tracking while allowing
-the compiler to emit the native-width loads and stores.
+Hi Shuai:
 
-Assisted-by: Codex:gpt-6-astra
-Signed-off-by: Qingfang Deng <qingfang.deng@linux.dev>
----
-v2: split asm-generic/io.h to fix M-mode build
+Thanks for the clarification.
 
-v1: https://lore.kernel.org/linux-riscv/20250530032252.3092502-1-dqfext@gmail.com/
----
- arch/riscv/include/asm/mmio.h | 123 +---------------------------------
- 1 file changed, 3 insertions(+), 120 deletions(-)
+My understanding is that `ta` here is used as a
+combined concept, not only for `DC.ta`, but also
+for `PC.ta` in this flow.
 
-diff --git a/arch/riscv/include/asm/mmio.h b/arch/riscv/include/asm/mmio.h
-index 06cadfd7a237..715470551c42 100644
---- a/arch/riscv/include/asm/mmio.h
-+++ b/arch/riscv/include/asm/mmio.h
-@@ -1,7 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0-only */
- /*
-- * {read,write}{b,w,l,q} based on arch/arm64/include/asm/io.h
-- *   which was based on arch/arm/include/io.h
-+ * RISC-V memory-mapped I/O ordering.
-  *
-  * Copyright (C) 1996-2000 Russell King
-  * Copyright (C) 2012 ARM Ltd.
-@@ -11,92 +10,7 @@
- #ifndef _ASM_RISCV_MMIO_H
- #define _ASM_RISCV_MMIO_H
- 
--#include <linux/types.h>
- #include <asm/fence.h>
--#include <asm/mmiowb.h>
--
--/* Generic IO read/write.  These perform native-endian accesses. */
--#define __raw_writeb __raw_writeb
--static inline void __raw_writeb(u8 val, volatile void __iomem *addr)
--{
--	asm volatile("sb %0, 0(%1)" : : "r" (val), "r" (addr));
--}
--
--#define __raw_writew __raw_writew
--static inline void __raw_writew(u16 val, volatile void __iomem *addr)
--{
--	asm volatile("sh %0, 0(%1)" : : "r" (val), "r" (addr));
--}
--
--#define __raw_writel __raw_writel
--static inline void __raw_writel(u32 val, volatile void __iomem *addr)
--{
--	asm volatile("sw %0, 0(%1)" : : "r" (val), "r" (addr));
--}
--
--#ifdef CONFIG_64BIT
--#define __raw_writeq __raw_writeq
--static inline void __raw_writeq(u64 val, volatile void __iomem *addr)
--{
--	asm volatile("sd %0, 0(%1)" : : "r" (val), "r" (addr));
--}
--#endif
--
--#define __raw_readb __raw_readb
--static inline u8 __raw_readb(const volatile void __iomem *addr)
--{
--	u8 val;
--
--	asm volatile("lb %0, 0(%1)" : "=r" (val) : "r" (addr));
--	return val;
--}
--
--#define __raw_readw __raw_readw
--static inline u16 __raw_readw(const volatile void __iomem *addr)
--{
--	u16 val;
--
--	asm volatile("lh %0, 0(%1)" : "=r" (val) : "r" (addr));
--	return val;
--}
--
--#define __raw_readl __raw_readl
--static inline u32 __raw_readl(const volatile void __iomem *addr)
--{
--	u32 val;
--
--	asm volatile("lw %0, 0(%1)" : "=r" (val) : "r" (addr));
--	return val;
--}
--
--#ifdef CONFIG_64BIT
--#define __raw_readq __raw_readq
--static inline u64 __raw_readq(const volatile void __iomem *addr)
--{
--	u64 val;
--
--	asm volatile("ld %0, 0(%1)" : "=r" (val) : "r" (addr));
--	return val;
--}
--#endif
--
--/*
-- * Unordered I/O memory access primitives.  These are even more relaxed than
-- * the relaxed versions, as they don't even order accesses between successive
-- * operations to the I/O regions.
-- */
--#define readb_cpu(c)		({ u8  __r = __raw_readb(c); __r; })
--#define readw_cpu(c)		({ u16 __r = le16_to_cpu((__force __le16)__raw_readw(c)); __r; })
--#define readl_cpu(c)		({ u32 __r = le32_to_cpu((__force __le32)__raw_readl(c)); __r; })
--
--#define writeb_cpu(v, c)	((void)__raw_writeb((v), (c)))
--#define writew_cpu(v, c)	((void)__raw_writew((__force u16)cpu_to_le16(v), (c)))
--#define writel_cpu(v, c)	((void)__raw_writel((__force u32)cpu_to_le32(v), (c)))
--
--#ifdef CONFIG_64BIT
--#define readq_cpu(c)		({ u64 __r = le64_to_cpu((__force __le64)__raw_readq(c)); __r; })
--#define writeq_cpu(v, c)	((void)__raw_writeq((__force u64)cpu_to_le64(v), (c)))
--#endif
- 
- /*
-  * Relaxed I/O memory access primitives. These follow the Device memory
-@@ -105,27 +19,7 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
-  * write) with all other I/O memory accesses to the same peripheral. Since the
-  * platform specification defines that all I/O regions are strongly ordered on
-  * channel 0, no explicit fences are required to enforce this ordering.
-- */
--/* FIXME: These are now the same as asm-generic */
--#define __io_rbr()		do {} while (0)
--#define __io_rar()		do {} while (0)
--#define __io_rbw()		do {} while (0)
--#define __io_raw()		do {} while (0)
--
--#define readb_relaxed(c)	({ u8  __v; __io_rbr(); __v = readb_cpu(c); __io_rar(); __v; })
--#define readw_relaxed(c)	({ u16 __v; __io_rbr(); __v = readw_cpu(c); __io_rar(); __v; })
--#define readl_relaxed(c)	({ u32 __v; __io_rbr(); __v = readl_cpu(c); __io_rar(); __v; })
--
--#define writeb_relaxed(v, c)	({ __io_rbw(); writeb_cpu((v), (c)); __io_raw(); })
--#define writew_relaxed(v, c)	({ __io_rbw(); writew_cpu((v), (c)); __io_raw(); })
--#define writel_relaxed(v, c)	({ __io_rbw(); writel_cpu((v), (c)); __io_raw(); })
--
--#ifdef CONFIG_64BIT
--#define readq_relaxed(c)	({ u64 __v; __io_rbr(); __v = readq_cpu(c); __io_rar(); __v; })
--#define writeq_relaxed(v, c)	({ __io_rbw(); writeq_cpu((v), (c)); __io_raw(); })
--#endif
--
--/*
-+ *
-  * I/O memory access primitives.  Reads are ordered relative to any following
-  * Normal memory read and delay() loop.  Writes are ordered relative to any
-  * prior Normal memory write.  The memory barriers here are necessary as RISC-V
-@@ -136,17 +30,6 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
- #define __io_bw()	RISCV_FENCE(w, o)
- #define __io_aw()	mmiowb_set_pending()
- 
--#define readb(c)	({ u8  __v; __io_br(); __v = readb_cpu(c); __io_ar(__v); __v; })
--#define readw(c)	({ u16 __v; __io_br(); __v = readw_cpu(c); __io_ar(__v); __v; })
--#define readl(c)	({ u32 __v; __io_br(); __v = readl_cpu(c); __io_ar(__v); __v; })
--
--#define writeb(v, c)	({ __io_bw(); writeb_cpu((v), (c)); __io_aw(); })
--#define writew(v, c)	({ __io_bw(); writew_cpu((v), (c)); __io_aw(); })
--#define writel(v, c)	({ __io_bw(); writel_cpu((v), (c)); __io_aw(); })
--
--#ifdef CONFIG_64BIT
--#define readq(c)	({ u64 __v; __io_br(); __v = readq_cpu(c); __io_ar(__v); __v; })
--#define writeq(v, c)	({ __io_bw(); writeq_cpu((v), (c)); __io_aw(); })
--#endif
-+#include <asm-generic/mmio.h>
- 
- #endif /* _ASM_RISCV_MMIO_H */
--- 
-2.43.0
+The `V` bit is only initialized when `ta` is first
+set up, so the current usage still follows the
+original design, without changing most of the
+existing logic.
 
+The original code also has comments describing
+this behavior.
+
+Thanks,
+Fangyu
+
+>>
+>> -		WRITE_ONCE(dc->fsc, fsc);
+>> -		WRITE_ONCE(dc->ta, ta & RISCV_IOMMU_PC_TA_PSCID);
+>> +		WRITE_ONCE(dc->fsc, new_dc->fsc);
+>> +		WRITE_ONCE(dc->ta, new_dc->ta & RISCV_IOMMU_PC_TA_PSCID);
+>
+>`RISCV_IOMMU_PC_*` should be replaced with `RISCV_IOMMU_DC_*` for
+>readability. There are several other similar places in this file
+>that are unrelated to Process Context or PASID but use the *PC* macros.
+>
+
+My understanding is similar to the `ta` case: `fsc`
+likely refers to both `dc.fsc` and `pc.fsc` in this
+path, since some of their fields share the same bit
+layout.
+
+If we want to rename these for readability, I think
+that should be done in a separate patch set, rather
+than as part of this one.
+
+>
+>Thanks,
+>Shuai
+>
+>>   		/* Update device context, write TC.V as the last step. */
+>>   		dma_wmb();
+>>   		WRITE_ONCE(dc->tc, tc);
+>> @@ -1288,22 +1288,22 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+>>   	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>>   	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+>>   	struct pt_iommu_riscv_64_hw_info pt_info;
+>> -	u64 fsc, ta;
+>> +	struct riscv_iommu_dc dc = {0};
+>>
+>>   	pt_iommu_riscv_64_hw_info(&domain->riscvpt, &pt_info);
+>>
+>>   	if (!riscv_iommu_pt_supported(iommu, pt_info.fsc_iosatp_mode))
+>>   		return -ENODEV;
+>>
+>> -	fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, pt_info.fsc_iosatp_mode) |
+>> +	dc.fsc = FIELD_PREP(RISCV_IOMMU_PC_FSC_MODE, pt_info.fsc_iosatp_mode) |
+>>   	      FIELD_PREP(RISCV_IOMMU_PC_FSC_PPN, pt_info.ppn);
+>> -	ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
+>> +	dc.ta = FIELD_PREP(RISCV_IOMMU_PC_TA_PSCID, domain->pscid) |
+>>   	     RISCV_IOMMU_PC_TA_V;
+>>
+>>   	if (riscv_iommu_bond_link(domain, dev))
+>>   		return -ENOMEM;
+>>
+>> -	riscv_iommu_iodir_update(iommu, dev, fsc, ta);
+>> +	riscv_iommu_iodir_update(iommu, dev, &dc);
+>>   	riscv_iommu_bond_unlink(info->domain, dev);
+>>   	info->domain = domain;
+>>
+>> @@ -1378,9 +1378,12 @@ static int riscv_iommu_attach_blocking_domain(struct iommu_domain *iommu_domain,
+>>   {
+>>   	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>>   	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+>> +	struct riscv_iommu_dc dc = {0};
+>> +
+>> +	dc.fsc = RISCV_IOMMU_FSC_BARE;
+>>
+>>   	/* Make device context invalid, translation requests will fault w/ #258 */
+>> -	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, 0);
+>> +	riscv_iommu_iodir_update(iommu, dev, &dc);
+>>   	riscv_iommu_bond_unlink(info->domain, dev);
+>>   	info->domain = NULL;
+>>
+>> @@ -1400,8 +1403,12 @@ static int riscv_iommu_attach_identity_domain(struct iommu_domain *iommu_domain,
+>>   {
+>>   	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>>   	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+>> +	struct riscv_iommu_dc dc = {0};
+>> +
+>> +	dc.fsc = RISCV_IOMMU_FSC_BARE;
+>> +	dc.ta = RISCV_IOMMU_PC_TA_V;
+>>
+>> -	riscv_iommu_iodir_update(iommu, dev, RISCV_IOMMU_FSC_BARE, RISCV_IOMMU_PC_TA_V);
+>> +	riscv_iommu_iodir_update(iommu, dev, &dc);
+>>   	riscv_iommu_bond_unlink(info->domain, dev);
+>>   	info->domain = NULL;
+>>
 
 _______________________________________________
 linux-riscv mailing list
