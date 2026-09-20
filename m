@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD3A5C982DA
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 14:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E620DC982D8
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 15:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hIrtvDPALOew6bSI8TPSYTDA0EAF85A4bbYj+H9578I=; b=EoQizG6vdxIaYA
-	ZKik+jJ0NwmvwtgF0hirTDIU9+fp1Tw28l+DLok2nmRvT6hY3+dvZR9lGYstDPcwshQ5i5iQ1Q63v
-	53PV8s3IEEErPTxzAEUfTtDneANHnG1VWi59HGrHBVGikR3iEwLjcet92J+XGwsADsr3d7VlmTv32
-	05qGWiMJNuyunNEWsCtu6RT+10yT6COzegdxPw0KFqLV9cEQYtZtZEyVQrJl4gKhA62FTINQSW9qV
-	lydMVSytemdhautL/8ZPHe+VseC2MFb+Qc2E3uLl65TleQSfWsH3nAKbYp/uRg2cLSooAjAbgFf/i
-	fKawsuHh0zRwaltIS2iw==;
+	List-Owner; bh=2S+6GKhlvoW/CRSjTt1eY7B8lCrzEtN2uLjrpd4Mxo4=; b=OUuTg/Vc3txotO
+	d3TxMxqxIGuhZAtMVA62Nhe+SicWKgZuh/S4R7Xxmsf7y1KZQL17eyvIwviUuzbm/IKgoPlUgbaxN
+	fqiUFDqct5ky/A7aAWH5Gd4aYZ9KqBjN6hBqx3c9SMmnq9Tr7aHeX3lZXXkLQD7D2rawi4sYQdvbk
+	+5FqgVhlt0zwP95cC7CAVKkGVnubPjDmEfSFx1OlinWjrwSw8vl4lKEJrNvhKeXlqr9JdSnY0aU4G
+	huL+YV6eNiHHNNUNXxBcJdMfH5cOU7wtXp7k6nxTM+GF45P6771q9AEsDR42EvjPQK114AXscpsJn
+	9E6ij9+YvIIwYkvrsaGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8IEc-0000000HZ5V-44qP;
-	Sun, 20 Sep 2026 14:09:38 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8IEZ-0000000HZ52-3umq;
-	Sun, 20 Sep 2026 14:09:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=AG
-	E9c1/porG2izzS8SPc2PiwypiPAK95cO8USS9ZWFY=; b=lJWOQCliLQezrg10LY
-	tOjRAdPOCYSBiT/i/7K0JOiXHZby1NnEtU3UnwySxSHBMnUr9R+kghymBI9v22os
-	dpY3cAKNbfY/MSQmNxe2d63FW7QCi2YzLUoIRubMWIpnOwuXVXaJuk5Szg+gnODM
-	VHrzOo+CDpnkf1vjt/dHEF1Vg=
-Received: from 1.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgCXDz7g6K9q0orGAQ--.60300S2;
-	Sun, 20 Sep 2026 22:08:38 +0800 (CST)
-From: Can Qi <qican5708@163.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Can Qi <qican5708@163.com>,
-	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH v2] KVM: riscv: Free detached G-stage page tables outside mmu_lock
-Date: Sun, 20 Sep 2026 22:08:31 +0800
-Message-Id: <20260920140831.75097-1-qican5708@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260920123117.49830-1-qican5708@163.com>
-References: <20260920123117.49830-1-qican5708@163.com>
+	id 1x8JEk-000000002mM-2thL;
+	Sun, 20 Sep 2026 15:13:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8JEh-000000002kx-2ITD;
+	Sun, 20 Sep 2026 15:13:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22EA61650;
+	Sun, 20 Sep 2026 08:13:38 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 36F293F632;
+	Sun, 20 Sep 2026 08:13:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789917221; bh=SSUGOkvZlKcwT3YQ7ugwa08tm7XRyK2mRxan7tsBq9A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=uBDAHjhBHkkPwi628BqqIFlQ+INGYryGrQdUfxjc10DPsc6erfmlXh9zJcVrJ3Li5
+	 YhNz8u7RxpgHCmj7AHjpjl57NcWuDNc0lyXiuRMvqgpYvzjvoVqGlHBEcIljCTNcjO
+	 4XmJx/k8MUIg6BaZ9K3VisgZGammxqfukhfY/ERA=
+Date: Sun, 20 Sep 2026 17:08:46 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp
+ Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano
+ <enzo.adriano.code@gmail.com>
+Subject: Re: [PATCH v3 8/8] clk: sunxi-ng: a733: Add reset lines
+Message-ID: <20260920170846.087bd42d@ryzen.lan>
+In-Reply-To: <20260905-a733-clk-v3-8-50f238f39c78@pigmoral.tech>
+References: <20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech>
+	<20260905-a733-clk-v3-8-50f238f39c78@pigmoral.tech>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-X-CM-TRANSID: PygvCgCXDz7g6K9q0orGAQ--.60300S2
-X-Coremail-Antispam: 1Uf129KBjvAXoW3KF1kWF4UKr47Cw1Utw18Krg_yoW8Zr13to
-	W0ya1rWF48u340yFWjyw1UtFyjq3yvkrZruF15XFWYqFyUZ348uryUKrZ8Ja4agr1UWFyf
-	ZFyfXry7XF18G3Zrn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjTRq_M3UUUUU
-X-CM-SenderInfo: ptlft0avxqmqqrwthudrp/xtbCzQb5t2qv6OaI4wAA3l
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_070936_404385_96BE9C35 
-X-CRM114-Status: GOOD (  22.75  )
+X-CRM114-CacheID: sfid-20260920_081347_851182_E522F557 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,556 +81,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kvm_riscv_mmu_free_pgd() currently walks the entire G-stage address
-space and recursively frees lower-level page-table pages while holding
-mmu_lock for write. Teardown of a large VM can therefore hold mmu_lock
-for a long time.
+On Sat, 05 Sep 2026 00:45:37 +0800
+Junhui Liu <junhui.liu@pigmoral.tech> wrote:
 
-Detach the active G-stage root under mmu_lock and free the detached tree
-after dropping the lock. Make live G-stage users acquire the active root
-under mmu_lock, and make walkers that drop and reacquire the lock verify
-that the root is still active before continuing.
+Hi,
 
-Before freeing the detached tree, quiesce guest and host HLV/HLVX
-hardware users using KVM_REQ_OUTSIDE_GUEST_MODE and the
-READING_SHADOW_PAGE_TABLES protocol. Prevent a detached root from being
-reinstalled in HGATP or used for guest entry, and request invalidation
-of stale G-stage translations for the old VMID.
+> Add the reset lines for the Allwinner A733 SoC. These reset control bits
+> are integrated into the Bus Gate Reset (BGR) registers, typically
+> sharing the same register address with their corresponding bus clock
+> gates. Integrate them into the main CCU driver using the existing
+> sunxi-ng ccu_reset framework, allowing the CCU to also function as a
+> reset controller for the SoC.
+> 
+> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 
-Free only page-table pages from the detached tree and periodically call
-cond_resched() while walking it.
+Many thanks, my comments have all been addressed:
 
-Also replace the KVM-wide split page cache with a per-operation cache.
-The huge-page split path can drop mmu_lock while topping up its cache or
-rescheduling, so keeping the cache local avoids sharing its lifetime
-with G-stage teardown.
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 
-Assisted-by: LLM
-Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Can Qi <qican5708@163.com>
----
-Changes in v2:
+Cheers,
+Andre
 
-- Keep mmu_lock held across the complete HLV/HLVX access.
-- Restore local IRQs before read_unlock() to avoid a PREEMPT_RT warning.
-
- arch/riscv/include/asm/kvm_gstage.h |   9 +-
- arch/riscv/include/asm/kvm_host.h   |   1 -
- arch/riscv/kvm/gstage.c             |  37 ++++++++
- arch/riscv/kvm/mmu.c                | 138 ++++++++++++++--------------
- arch/riscv/kvm/vcpu.c               |  10 +-
- arch/riscv/kvm/vcpu_exit.c          |  16 ++++
- 6 files changed, 139 insertions(+), 72 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
-index aaf080ba1b77..b5a9563754d0 100644
---- a/arch/riscv/include/asm/kvm_gstage.h
-+++ b/arch/riscv/include/asm/kvm_gstage.h
-@@ -87,6 +87,8 @@ bool kvm_riscv_gstage_wp_pt_masked(struct kvm_gstage *gstage, gfn_t base_gfn,
- 
- void kvm_riscv_gstage_mode_detect(void);
- 
-+void kvm_riscv_gstage_free(struct kvm_gstage *gstage);
-+
- static inline unsigned long kvm_riscv_gstage_mode(unsigned long pgd_levels)
- {
- 	switch (pgd_levels) {
-@@ -104,13 +106,18 @@ static inline unsigned long kvm_riscv_gstage_mode(unsigned long pgd_levels)
- 	}
- }
- 
--static inline void kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *kvm)
-+static inline bool kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *kvm)
- {
-+	lockdep_assert_held(&kvm->mmu_lock);
-+	if (!kvm->arch.pgd)
-+		return false;
-+
- 	gstage->kvm = kvm;
- 	gstage->flags = 0;
- 	gstage->vmid = READ_ONCE(kvm->arch.vmid.vmid);
- 	gstage->pgd = kvm->arch.pgd;
- 	gstage->pgd_levels = kvm->arch.pgd_levels;
-+	return true;
- }
- 
- #endif
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index a30600579231..2ab999f75151 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -86,7 +86,6 @@ struct kvm_arch {
- 	pgd_t *pgd;
- 	phys_addr_t pgd_phys;
- 	unsigned long pgd_levels;
--	struct kvm_mmu_memory_cache pgd_split_page_cache;
- 
- 	/* Guest Timer */
- 	struct kvm_guest_timer timer;
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index e5002cb9cbef..5ab3c4ba5a6a 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -414,6 +414,37 @@ bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 	return flush;
- }
- 
-+/* The caller has detached this tree and quiesced its hardware users. */
-+static void gstage_free_level(pte_t *ptep, u32 level, unsigned long nr_entries,
-+			      unsigned int *processed)
-+{
-+	pte_t pte, *child;
-+	unsigned long i;
-+
-+	for (i = 0; i < nr_entries; i++) {
-+		pte = ptep_get(&ptep[i]);
-+		if (level && pte_val(pte) && !gstage_pte_leaf(&pte)) {
-+			child = (pte_t *)gstage_pte_page_vaddr(pte);
-+			gstage_free_level(child, level - 1, PTRS_PER_PTE, processed);
-+			put_page(virt_to_page(child));
-+		}
-+		/* Leaf PFNs belong to the guest backing memory, not this tree. */
-+		if (++*processed == PTRS_PER_PTE) {
-+			*processed = 0;
-+			cond_resched();
-+		}
-+	}
-+}
-+
-+void kvm_riscv_gstage_free(struct kvm_gstage *gstage)
-+{
-+	unsigned int processed = 0;
-+
-+	gstage_free_level((pte_t *)gstage->pgd, gstage->pgd_levels - 1,
-+			  PTRS_PER_PTE << kvm_riscv_gstage_pgd_xbits, &processed);
-+	free_pages((unsigned long)gstage->pgd, get_order(kvm_riscv_gstage_pgd_size));
-+}
-+
- bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 				  gpa_t start, gpa_t size, bool may_block)
- {
-@@ -426,6 +457,12 @@ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 	bool flush = false;
- 
- 	while (addr < end) {
-+		/* cond_resched_rwlock_write() may have let teardown detach us. */
-+		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) &&
-+		    (!gstage->kvm->arch.pgd ||
-+		     gstage->pgd != gstage->kvm->arch.pgd))
-+			break;
-+
- 		found_leaf = kvm_riscv_gstage_get_leaf(gstage, addr, &ptep, &ptep_level);
- 		ret = gstage_level_to_page_size(gstage, ptep_level, &page_size);
- 		if (ret)
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 6035b5ec9503..2d7ad70ff765 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -26,12 +26,11 @@ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
- 	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
- 	write_unlock(&kvm->mmu_lock);
- 	if (flush)
- 		kvm_flush_remote_tlbs_memslot(kvm, memslot);
-@@ -44,7 +43,7 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- 	pgprot_t prot;
- 	unsigned long pfn;
- 	phys_addr_t addr, end;
--	unsigned long pgd_levels = kvm->arch.pgd_levels;
-+	unsigned long pgd_levels = kvm_riscv_gstage_max_pgd_levels;
- 	struct kvm_mmu_memory_cache pcache = {
- 		.gfp_custom = (in_atomic) ? GFP_ATOMIC | __GFP_ACCOUNT : 0,
- 		.gfp_zero = __GFP_ZERO,
-@@ -52,8 +51,6 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- 	struct kvm_gstage_mapping map;
- 	struct kvm_gstage gstage;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
--
- 	end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
- 	pfn = __phys_to_pfn(hpa);
- 	prot = pgprot_noncached(PAGE_WRITE);
-@@ -72,7 +69,10 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- 			goto out;
- 
- 		write_lock(&kvm->mmu_lock);
--		ret = kvm_riscv_gstage_set_pte(&gstage, &pcache, &map);
-+		if (kvm_riscv_gstage_init(&gstage, kvm))
-+			ret = kvm_riscv_gstage_set_pte(&gstage, &pcache, &map);
-+		else
-+			ret = -EFAULT;
- 		write_unlock(&kvm->mmu_lock);
- 		if (ret)
- 			goto out;
-@@ -88,12 +88,11 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
- {
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
- 	write_unlock(&kvm->mmu_lock);
- 
- 	if (flush)
-@@ -101,14 +100,12 @@ void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
- 					    size >> PAGE_SHIFT);
- }
- 
--static bool need_topup_split_caches_or_resched(struct kvm *kvm, int count)
-+static bool need_topup_split_cache(struct kvm *kvm,
-+				   struct kvm_mmu_memory_cache *cache, int count)
- {
--	struct kvm_mmu_memory_cache *cache;
--
- 	if (need_resched() || rwlock_needbreak(&kvm->mmu_lock))
- 		return true;
- 
--	cache = &kvm->arch.pgd_split_page_cache;
- 	return kvm_mmu_memory_cache_nr_free_objects(cache) < count;
- }
- 
-@@ -116,7 +113,8 @@ static bool mmu_split_huge_pages(struct kvm_gstage *gstage,
- 				 phys_addr_t start, phys_addr_t end)
- {
- 	struct kvm *kvm = gstage->kvm;
--	struct kvm_mmu_memory_cache *pcache = &kvm->arch.pgd_split_page_cache;
-+	struct kvm_mmu_memory_cache cache = { .gfp_zero = __GFP_ZERO };
-+	struct kvm_mmu_memory_cache *pcache = &cache;
- 	phys_addr_t addr = ALIGN_DOWN(start, PMD_SIZE);
- 	phys_addr_t last_flush_gfn = addr >> PAGE_SHIFT;
- 	int count = gstage->pgd_levels;
-@@ -126,7 +124,7 @@ static bool mmu_split_huge_pages(struct kvm_gstage *gstage,
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 
- 	while (addr < end) {
--		if (need_topup_split_caches_or_resched(kvm, count)) {
-+		if (need_topup_split_cache(kvm, pcache, count)) {
- 			if (flush) {
- 				kvm_flush_remote_tlbs_range(kvm, last_flush_gfn,
- 					  (addr >> PAGE_SHIFT) - last_flush_gfn);
-@@ -141,19 +139,22 @@ static bool mmu_split_huge_pages(struct kvm_gstage *gstage,
- 			if (ret) {
- 				kvm_err("Failed to toup split page cache\n");
- 				write_lock(&kvm->mmu_lock);
--				return flush;
-+				break;
- 			}
- 			write_lock(&kvm->mmu_lock);
- 		}
- 
--		if (!kvm->arch.pgd)
--			return flush;
-+		if (!kvm->arch.pgd || gstage->pgd != kvm->arch.pgd)
-+			break;
- 
- 		flush |= kvm_riscv_gstage_split_huge(gstage, pcache, addr, 0, false);
- 
- 		addr += PMD_SIZE;
- 	}
- 
-+	write_unlock(&kvm->mmu_lock);
-+	kvm_mmu_free_memory_cache(pcache);
-+	write_lock(&kvm->mmu_lock);
- 	return flush;
- }
- 
-@@ -167,7 +168,8 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return;
- 
- 	kvm_riscv_gstage_wp_pt_masked(&gstage, base_gfn, mask);
- 
-@@ -205,12 +207,11 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
- 	gpa_t gpa = slot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t size = slot->npages << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
- 	write_unlock(&kvm->mmu_lock);
- 	if (flush)
- 		kvm_flush_remote_tlbs_range(kvm, gpa >> PAGE_SHIFT,
-@@ -224,12 +225,11 @@ static void mmu_split_memory_region(struct kvm *kvm, int slot)
- 	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = mmu_split_huge_pages(&gstage, start, end);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = mmu_split_huge_pages(&gstage, start, end);
- 	write_unlock(&kvm->mmu_lock);
- 
- 	if (flush)
-@@ -334,12 +334,10 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- 	struct kvm_gstage gstage;
- 	bool flush;
- 
--	if (!kvm->arch.pgd)
--		return false;
--
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return false;
- 	flush = kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
- 					     (range->end - range->start) << PAGE_SHIFT,
- 					     range->may_block);
-@@ -356,12 +354,10 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
- 
--	if (!kvm->arch.pgd)
--		return false;
--
- 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return false;
- 	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
- 				       &ptep, &ptep_level))
- 		return false;
-@@ -376,12 +372,10 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
- 
--	if (!kvm->arch.pgd)
--		return false;
--
- 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return false;
- 	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
- 				       &ptep, &ptep_level))
- 		return false;
-@@ -563,12 +557,12 @@ static bool kvm_riscv_mmu_dirty_log_write_fault_fast(struct kvm *kvm,
- 	bool dirty_marked = false;
- 	bool ret;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
- 	mmu_seq = kvm->mmu_invalidate_seq;
- 
- 	read_lock(&kvm->mmu_lock);
- 
--	if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
-+	if (!kvm_riscv_gstage_init(&gstage, kvm) ||
-+	    mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
- 		ret = false;
- 		goto out_unlock;
- 	}
-@@ -639,8 +633,6 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	struct kvm_gstage gstage;
- 	struct page *page;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
--
- 	/* Setup initial state of output mapping */
- 	memset(out_map, 0, sizeof(*out_map));
- 
-@@ -649,7 +641,7 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 		return 0;
- 
- 	/* We need minimum second+third level pages */
--	ret = kvm_mmu_topup_memory_cache(pcache, kvm->arch.pgd_levels);
-+	ret = kvm_mmu_topup_memory_cache(pcache, kvm_riscv_gstage_max_pgd_levels);
- 	if (ret) {
- 		kvm_err("Failed to topup G-stage cache\n");
- 		return ret;
-@@ -719,6 +711,11 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 
- 	write_lock(&kvm->mmu_lock);
- 
-+	ret = -EFAULT;
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		goto out_unlock;
-+
-+	ret = 0;
- 	if (mmu_invalidate_retry(kvm, mmu_seq))
- 		goto out_unlock;
- 
-@@ -764,7 +761,6 @@ int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- 	kvm->arch.pgd = page_to_virt(pgd_page);
- 	kvm->arch.pgd_phys = page_to_phys(pgd_page);
- 	kvm->arch.pgd_levels = kvm_riscv_gstage_max_pgd_levels;
--	kvm->arch.pgd_split_page_cache.gfp_zero = __GFP_ZERO;
- 
- 	return 0;
- }
-@@ -772,41 +768,45 @@ int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- {
- 	struct kvm_gstage gstage;
--	void *pgd = NULL;
--	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	if (kvm->arch.pgd) {
--		kvm_riscv_gstage_init(&gstage, kvm);
--		flush = kvm_riscv_gstage_unmap_range(&gstage, 0UL,
--			kvm_riscv_gstage_gpa_size(kvm->arch.pgd_levels), false);
--		pgd = READ_ONCE(kvm->arch.pgd);
--		kvm->arch.pgd = NULL;
--		kvm->arch.pgd_phys = 0;
--		kvm->arch.pgd_levels = 0;
-+	if (!kvm_riscv_gstage_init(&gstage, kvm)) {
-+		write_unlock(&kvm->mmu_lock);
-+		return;
- 	}
-+	/* Live walkers must acquire mmu_lock and check the active root. */
-+	WRITE_ONCE(kvm->arch.pgd, NULL);
-+	kvm->arch.pgd_phys = 0;
-+	kvm->arch.pgd_levels = 0;
- 	write_unlock(&kvm->mmu_lock);
- 
--	if (flush)
--		kvm_flush_remote_tlbs(kvm);
--
--	if (pgd)
--		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
-+	/* Quiesce hardware users before freeing the detached page tables. */
-+	kvm_make_all_cpus_request(kvm, KVM_REQ_OUTSIDE_GUEST_MODE);
- 
--	kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
-+	/*
-+	 * Request an old-VMID HFENCE. Queue-full fallback can flush the current
-+	 * VMID, so the hardware quiescing above protects the tree lifetime.
-+	 */
-+	kvm_riscv_hfence_gvma_vmid_all(kvm, -1UL, 0, gstage.vmid);
-+	kvm_riscv_gstage_free(&gstage);
- }
- 
- void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_arch *ka = &vcpu->kvm->arch;
--	unsigned long hgatp = kvm_riscv_gstage_mode(ka->pgd_levels)
--			      << HGATP_MODE_SHIFT;
--
--	hgatp |= (READ_ONCE(ka->vmid.vmid) << HGATP_VMID_SHIFT) & HGATP_VMID;
--	hgatp |= (ka->pgd_phys >> PAGE_SHIFT) & HGATP_PPN;
-+	unsigned long hgatp = 0;
-+
-+	/* Serialize the root snapshot and HGATP install against root detach. */
-+	read_lock(&vcpu->kvm->mmu_lock);
-+	if (ka->pgd) {
-+		hgatp = kvm_riscv_gstage_mode(ka->pgd_levels) << HGATP_MODE_SHIFT;
-+		hgatp |= (READ_ONCE(ka->vmid.vmid) << HGATP_VMID_SHIFT) & HGATP_VMID;
-+		hgatp |= (ka->pgd_phys >> PAGE_SHIFT) & HGATP_PPN;
-+	}
- 
- 	ncsr_write(CSR_HGATP, hgatp);
- 
- 	if (!kvm_riscv_gstage_vmid_bits())
- 		kvm_riscv_local_hfence_gvma_all();
-+	read_unlock(&vcpu->kvm->mmu_lock);
- }
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index e062ca19f9d8..35bf948bd451 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -708,6 +708,7 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-  *
-  * Return: 1 if we should enter the guest
-  *	    0 if we should exit to userspace
-+ *	    negative error code if guest entry is no longer possible
-  */
- static int kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
- {
-@@ -755,6 +756,12 @@ static int kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
- 			return 0;
- 	}
- 
-+	/* A detached G-stage must not be reused after processing its HFENCE. */
-+	if (!READ_ONCE(vcpu->kvm->arch.pgd)) {
-+		kvm_riscv_mmu_update_hgatp(vcpu);
-+		return -EIO;
-+	}
-+
- 	return 1;
- }
- 
-@@ -980,7 +987,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		/* Update HVIP CSR for current CPU */
- 		kvm_riscv_update_hvip(vcpu);
- 
--		if (kvm_riscv_gstage_vmid_ver_changed(&vcpu->kvm->arch.vmid) ||
-+		if (!READ_ONCE(vcpu->kvm->arch.pgd) ||
-+		    kvm_riscv_gstage_vmid_ver_changed(&vcpu->kvm->arch.vmid) ||
- 		    kvm_request_pending(vcpu) ||
- 		    xfer_to_guest_mode_work_pending()) {
- 			vcpu->mode = OUTSIDE_GUEST_MODE;
-diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-index 88e0c369b354..144b9f71f0a1 100644
---- a/arch/riscv/kvm/vcpu_exit.c
-+++ b/arch/riscv/kvm/vcpu_exit.c
-@@ -90,7 +90,20 @@ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
- 	register unsigned long ttmp asm("a1");
- 	unsigned long flags, val, tmp, old_stvec, old_hstatus;
- 
-+	/*
-+	 * Prevent G-stage teardown while HLV/HLVX can walk the page tables.
-+	 * The active-root check prevents a new walk from starting after detach.
-+	 */
-+	read_lock(&vcpu->kvm->mmu_lock);
-+	if (!vcpu->kvm->arch.pgd) {
-+		read_unlock(&vcpu->kvm->mmu_lock);
-+		trap->scause = EXC_LOAD_GUEST_PAGE_FAULT;
-+		trap->stval = guest_addr;
-+		return 0;
-+	}
- 	local_irq_save(flags);
-+	/* Publish the hardware walk before accessing guest memory. */
-+	smp_store_mb(vcpu->mode, READING_SHADOW_PAGE_TABLES);
- 
- 	old_hstatus = csr_swap(CSR_HSTATUS, vcpu->arch.guest_context.hstatus);
- 	old_stvec = csr_swap(CSR_STVEC, (ulong)&__kvm_riscv_unpriv_trap);
-@@ -146,7 +159,10 @@ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
- 	csr_write(CSR_STVEC, old_stvec);
- 	csr_write(CSR_HSTATUS, old_hstatus);
- 
-+	/* Complete all HLV/HLVX accesses before publishing OUTSIDE. */
-+	smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
- 	local_irq_restore(flags);
-+	read_unlock(&vcpu->kvm->mmu_lock);
- 
- 	return val;
- }
--- 
-2.34.1
+> ---
+>  drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 126 +++++++++++++++++++++++++++++++++
+>  1 file changed, 126 insertions(+)
+> 
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+> index c124b09855c0..b7fc2cfc626c 100644
+> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+> @@ -19,6 +19,7 @@
+>  #include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
+>  
+>  #include "ccu_common.h"
+> +#include "ccu_reset.h"
+>  
+>  #include "ccu_div.h"
+>  #include "ccu_gate.h"
+> @@ -2183,11 +2184,136 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
+>  	.num	= CLK_FANOUT3 + 1,
+>  };
+>  
+> +static const struct ccu_reset_map sun60i_a733_ccu_resets[] = {
+> +	[RST_BUS_ITS_PCIE0]		= { 0x574, BIT(16) },
+> +	[RST_BUS_IOMMU0_SYS]		= { 0x58c, BIT(16) },
+> +	[RST_BUS_MSI_LITE0_AHB]		= { 0x594, BIT(16) },
+> +	[RST_BUS_MSI_LITE0_MBUS]	= { 0x594, BIT(17) },
+> +	[RST_BUS_MSI_LITE1_AHB]		= { 0x59c, BIT(16) },
+> +	[RST_BUS_MSI_LITE1_MBUS]	= { 0x59c, BIT(17) },
+> +	[RST_BUS_MSI_LITE2_AHB]		= { 0x5a4, BIT(16) },
+> +	[RST_BUS_MSI_LITE2_MBUS]	= { 0x5a4, BIT(17) },
+> +	[RST_BUS_IOMMU1_SYS]		= { 0x5b4, BIT(16) },
+> +	[RST_BUS_DMA0]			= { 0x704, BIT(16) },
+> +	[RST_BUS_DMA1]			= { 0x70c, BIT(16) },
+> +	[RST_BUS_SPINLOCK]		= { 0x724, BIT(16) },
+> +	[RST_BUS_MSGBOX]		= { 0x744, BIT(16) },
+> +	[RST_BUS_PWM0]			= { 0x784, BIT(16) },
+> +	[RST_BUS_PWM1]			= { 0x78c, BIT(16) },
+> +	[RST_BUS_DBG]			= { 0x7a4, BIT(16) },
+> +	[RST_BUS_SYSDAP]		= { 0x7ac, BIT(16) },
+> +	[RST_BUS_TIMER0]		= { 0x850, BIT(16) },
+> +	[RST_BUS_DE0]			= { 0xa04, BIT(16) },
+> +	[RST_BUS_DI]			= { 0xa24, BIT(16) },
+> +	[RST_BUS_G2D]			= { 0xa44, BIT(16) },
+> +	[RST_BUS_EINK]			= { 0xa6c, BIT(16) },
+> +	[RST_BUS_DE_SYS]		= { 0xa74, BIT(16) },
+> +	[RST_BUS_VE_ENC0]		= { 0xa8c, BIT(16) },
+> +	[RST_BUS_VE_DEC0]		= { 0xa8c, BIT(18) },
+> +	[RST_BUS_CE]			= { 0xac4, BIT(16) },
+> +	[RST_BUS_CE_SYS]		= { 0xac4, BIT(17) },
+> +	[RST_BUS_NPU_CORE]		= { 0xb04, BIT(16) },
+> +	[RST_BUS_NPU_AXI]		= { 0xb04, BIT(17) },
+> +	[RST_BUS_NPU_AHB]		= { 0xb04, BIT(18) },
+> +	[RST_BUS_NPU_SRAM]		= { 0xb04, BIT(19) },
+> +	[RST_BUS_GPU0]			= { 0xb24, BIT(16) },
+> +	[RST_BUS_DRAM0]			= { 0xc0c, BIT(16) },
+> +	[RST_BUS_NAND0]			= { 0xc8c, BIT(16) },
+> +	[RST_BUS_MMC0]			= { 0xd0c, BIT(16) },
+> +	[RST_BUS_MMC1]			= { 0xd1c, BIT(16) },
+> +	[RST_BUS_MMC2]			= { 0xd2c, BIT(16) },
+> +	[RST_BUS_MMC3]			= { 0xd3c, BIT(16) },
+> +	[RST_BUS_UFS_AHB]		= { 0xd8c, BIT(16) },
+> +	[RST_BUS_UFS_AXI]		= { 0xd8c, BIT(17) },
+> +	[RST_BUS_UFS_PHY]		= { 0xd8c, BIT(18) },
+> +	[RST_BUS_UFS_CORE]		= { 0xd8c, BIT(19) },
+> +	[RST_BUS_UART0]			= { 0xe00, BIT(16) },
+> +	[RST_BUS_UART1]			= { 0xe04, BIT(16) },
+> +	[RST_BUS_UART2]			= { 0xe08, BIT(16) },
+> +	[RST_BUS_UART3]			= { 0xe0c, BIT(16) },
+> +	[RST_BUS_UART4]			= { 0xe10, BIT(16) },
+> +	[RST_BUS_UART5]			= { 0xe14, BIT(16) },
+> +	[RST_BUS_UART6]			= { 0xe18, BIT(16) },
+> +	[RST_BUS_I2C0]			= { 0xe80, BIT(16) },
+> +	[RST_BUS_I2C1]			= { 0xe84, BIT(16) },
+> +	[RST_BUS_I2C2]			= { 0xe88, BIT(16) },
+> +	[RST_BUS_I2C3]			= { 0xe8c, BIT(16) },
+> +	[RST_BUS_I2C4]			= { 0xe90, BIT(16) },
+> +	[RST_BUS_I2C5]			= { 0xe94, BIT(16) },
+> +	[RST_BUS_I2C6]			= { 0xe98, BIT(16) },
+> +	[RST_BUS_I2C7]			= { 0xe9c, BIT(16) },
+> +	[RST_BUS_I2C8]			= { 0xea0, BIT(16) },
+> +	[RST_BUS_I2C9]			= { 0xea4, BIT(16) },
+> +	[RST_BUS_I2C10]			= { 0xea8, BIT(16) },
+> +	[RST_BUS_I2C11]			= { 0xeac, BIT(16) },
+> +	[RST_BUS_I2C12]			= { 0xeb0, BIT(16) },
+> +	[RST_BUS_SPI0]			= { 0xf04, BIT(16) },
+> +	[RST_BUS_SPI1]			= { 0xf0c, BIT(16) },
+> +	[RST_BUS_SPI2]			= { 0xf14, BIT(16) },
+> +	[RST_BUS_SPIF]			= { 0xf1c, BIT(16) },
+> +	[RST_BUS_SPI3]			= { 0xf24, BIT(16) },
+> +	[RST_BUS_SPI4]			= { 0xf2c, BIT(16) }, /* From the vendor kernel. */
+> +	[RST_BUS_GPADC0]		= { 0xfc4, BIT(16) },
+> +	[RST_BUS_THS0]			= { 0xfe4, BIT(16) },
+> +	[RST_BUS_IRRX]			= { 0x1004, BIT(16) },
+> +	[RST_BUS_IRTX]			= { 0x100c, BIT(16) },
+> +	[RST_BUS_LRADC]			= { 0x1024, BIT(16) },
+> +	[RST_BUS_SGPIO]			= { 0x1064, BIT(16) }, /* From the vendor kernel. */
+> +	[RST_BUS_LPC]			= { 0x1084, BIT(16) }, /* From the vendor kernel. */
+> +	[RST_BUS_I2SPCM0]		= { 0x120c, BIT(16) },
+> +	[RST_BUS_I2SPCM1]		= { 0x121c, BIT(16) },
+> +	[RST_BUS_I2SPCM2]		= { 0x122c, BIT(16) },
+> +	[RST_BUS_I2SPCM3]		= { 0x123c, BIT(16) },
+> +	[RST_BUS_I2SPCM4]		= { 0x124c, BIT(16) },
+> +	[RST_BUS_SPDIF]			= { 0x128c, BIT(16) },
+> +	[RST_BUS_DMIC]			= { 0x12cc, BIT(16) },
+> +	[RST_USB_PHY0]			= { 0x1300, BIT(30) },
+> +	[RST_BUS_OHCI0]			= { 0x1304, BIT(16) },
+> +	[RST_BUS_EHCI0]			= { 0x1304, BIT(20) },
+> +	[RST_BUS_OTG]			= { 0x1304, BIT(24) },
+> +	[RST_USB_PHY1]			= { 0x1308, BIT(30) },
+> +	[RST_BUS_OHCI1]			= { 0x130c, BIT(16) },
+> +	[RST_BUS_EHCI1]			= { 0x130c, BIT(20) },
+> +	[RST_BUS_USB2]			= { 0x135c, BIT(16) },
+> +	[RST_BUS_PCIE_PWRUP]		= { 0x138c, BIT(16) },
+> +	[RST_BUS_PCIE]			= { 0x138c, BIT(17) },
+> +	[RST_BUS_SERDES]		= { 0x13c4, BIT(16) },
+> +	[RST_BUS_GMAC0]			= { 0x141c, BIT(16) },
+> +	[RST_BUS_GMAC0_AXI]		= { 0x141c, BIT(17) },
+> +	[RST_BUS_GMAC1]			= { 0x142c, BIT(16) }, /* From the vendor kernel. */
+> +	[RST_BUS_GMAC1_AXI]		= { 0x142c, BIT(17) }, /* From the vendor kernel. */
+> +	[RST_BUS_TCON_LCD0]		= { 0x1504, BIT(16) },
+> +	[RST_BUS_TCON_LCD1]		= { 0x150c, BIT(16) },
+> +	[RST_BUS_TCON_LCD2]		= { 0x1514, BIT(16) }, /* From the vendor kernel. */
+> +	[RST_BUS_LVDS0]			= { 0x1544, BIT(16) },
+> +	[RST_BUS_LVDS1]			= { 0x154c, BIT(16) },
+> +	[RST_BUS_DSI0]			= { 0x1584, BIT(16) },
+> +	[RST_BUS_DSI1]			= { 0x158c, BIT(16) },
+> +	[RST_BUS_TCON_TV0]		= { 0x1604, BIT(16) },
+> +	[RST_BUS_TCON_TV1]		= { 0x160c, BIT(16) },
+> +	[RST_BUS_EDP]			= { 0x164c, BIT(16) },
+> +	[RST_BUS_HDMI_MAIN]		= { 0x168c, BIT(16) },
+> +	[RST_BUS_HDMI_SUB]		= { 0x168c, BIT(17) },
+> +	[RST_BUS_HDMI_HDCP]		= { 0x168c, BIT(18) },
+> +	[RST_BUS_DPSS_TOP0]		= { 0x16c4, BIT(16) },
+> +	[RST_BUS_DPSS_TOP1]		= { 0x16cc, BIT(16) },
+> +	[RST_BUS_VIDEO_OUT0]		= { 0x16e4, BIT(16) },
+> +	[RST_BUS_VIDEO_OUT1]		= { 0x16ec, BIT(16) },
+> +	[RST_BUS_LEDC]			= { 0x1704, BIT(16) },
+> +	[RST_BUS_DSC]			= { 0x1744, BIT(16) },
+> +	[RST_BUS_CSI]			= { 0x1844, BIT(16) },
+> +	[RST_BUS_VIDEO_IN]		= { 0x1884, BIT(16) },
+> +	[RST_BUS_APB2JTAG]		= { 0x1c04, BIT(16) },
+> +};
+> +
+>  static const struct sunxi_ccu_desc sun60i_a733_ccu_desc = {
+>  	.ccu_clks	= sun60i_a733_ccu_clks,
+>  	.num_ccu_clks	= ARRAY_SIZE(sun60i_a733_ccu_clks),
+>  
+>  	.hw_clks	= &sun60i_a733_hw_clks,
+> +
+> +	.resets		= sun60i_a733_ccu_resets,
+> +	.num_resets	= ARRAY_SIZE(sun60i_a733_ccu_resets),
+>  };
+>  
+>  static const u32 pll_regs[] = {
+> 
 
 
 _______________________________________________
