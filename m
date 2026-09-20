@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481A5C982DA
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 12:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03017C982DA
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 12:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GTn/3RYF15BjyoLkbVFD6KHP223VVdUavscsWFipGrE=; b=k/2zAmQZemIX0w
-	KgPvVOMYcBiYyM33zuLI+DM276a/WZWwFgPrYzJ61LtdFkX5RDK3bzodz1h/Yer/C3nZULGJA0/Fj
-	IXbrrWnsN82/up5Bfwx5Qd7JQSqb+Bvv5BF9V4QOOuO3rrVH+pNQ3jJgbwLZvr3JzaqtLDeHfDTFT
-	IX/WBr+ctG8/sdlEMS8Nf/ujHyW0GYikG3DEjPo3Y4+IrnYupQWn3Nz3oah2c1w2ulxnWw9CwHz8R
-	2qVdI5Dh22D6pEJ71Y+NF4V6KOxM5dK4L5EiIS3W/eDpSayrpes2dU/h1v7joyH9nwtVLt0PSBEFN
-	2ZFY6SeQdr805eJdhoiw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YBrb+dbIUDFOfp1ECL4jspFMSroZJ4whTCQpp8DFQco=; b=xiTQgGdxEIyTJh
+	UTiy8Rgdabrn0/9HteQdpunF1IPPIQxFuZmiCePOxm6Z+V+Ywc2OdIFnXHpLpWPmO8oyHrT10Des9
+	EhrqTYpf9+o6pQpkTFLQMXjYb09DyaJDBUJ1qr9xRIHOVSMryJatxi2DmB7rUdFGneRkMJ2g8a8n8
+	642YbBxSA2xWGM2Q3myh4sZkiGh6RXxeKjPO0s9Xy89IkwWCCLP2nf0ybP4A/X4n2mxKkSJU1hnPQ
+	j2XpwLhZp7YCXKO3AhGADxIVq24n4F6qskOEl+J5ULtHgXsF8oKjbk8SBaIPs0Tgyj8EwVnpQ+L0I
+	AbkoBYsFrkClc/iI65XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8GkC-0000000HRyl-0xZO;
-	Sun, 20 Sep 2026 12:34:08 +0000
-Received: from mail-8140.vip.163.com ([60.191.81.40])
+	id 1x8H6L-0000000HTQa-1ylX;
+	Sun, 20 Sep 2026 12:57:01 +0000
+Received: from sender5-op-o12.zoho.com ([165.173.182.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Gk9-0000000HRxp-2gW2;
-	Sun, 20 Sep 2026 12:34:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Cx
-	MGd0WTbVLDgOPJnESCby703Me2LvakzaHmXu61E0c=; b=kzO2RQT8yDnpDPcIZ1
-	xQWTHSoO2IsHX9t8aG6LeaNgZzzQdiZzmBQYnfJwL73qWmqb06nn7eBD4p0Bhtos
-	HBvrSchxj+G3+urfuUubXEHvAnInVCFzXRuqnyJo9mYWQokXBy+d3QwpPKYp07uF
-	6jTwFnxscWwtBKgMqRWKTyqeM=
-Received: from 1.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgDnz94W0q9qtTi9AQ--.38818S2;
-	Sun, 20 Sep 2026 20:31:34 +0800 (CST)
-From: Can Qi <qican5708@163.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atish.patra@linux.dev>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Can Qi <qican5708@163.com>,
-	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH] KVM: riscv: Free detached G-stage page tables outside mmu_lock
-Date: Sun, 20 Sep 2026 20:31:17 +0800
-Message-Id: <20260920123117.49830-1-qican5708@163.com>
-X-Mailer: git-send-email 2.34.1
+	id 1x8H6I-0000000HTQ8-1bnN
+	for linux-riscv@lists.infradead.org;
+	Sun, 20 Sep 2026 12:57:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1789909015; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=aq7A9Ku7sPPQETsjMz/bX3oEKPwQdEfvMXRiyo0CpXIfRL4cyHw+nUVT+nQZrGAnCjeBPPXAtPJalrZKZQT7MTI0Xt3F2PlAor6GNCqxnHQBr7HLd0eQ+TSN4/IaArEiDkHf4rd4sYLi8ARsaPqnoBeNKsm2UEw76PGzX2nx4Vs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1789909015; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=3H8e5lr2CI5Zj1piZtErIUeaQlBLdh6/qN12kvnqJWY=; 
+	b=A9FqKxLdxyZaVz69SLLprFLZNjUsgIkZic3cdfg1wQX/lOHKCI/J7zkF0ZvNx64CkUuTvxWuXi2grpeFVEJz+ZAeKGPlU7D9GUFFeVnukpE4dwICWMVh22v8BSlQA5AlLp3pusc91ckIASDyU9qt7TNnpUuYlALg1LTZEpRLhZI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789909015;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=3H8e5lr2CI5Zj1piZtErIUeaQlBLdh6/qN12kvnqJWY=;
+	b=WuBYqW+4KysyPzo/LPYQwk43ldX6G3jhawey9f+cF0dxMLWoFq1+BwohJNIZhh5c
+	i6BWbf862bvRdtTCskY2j04m5ywWGVwRw+ZKP3F+Wbw1qOqda4FaguPhc4/55Xl7jbh
+	hpoGR+krsBFxCOU5PwiXhdOFBYeOjMitdN5nZXqDV/H1QrLN1jf2gDn95LHvZJ/zLhD
+	vsukTj5PkvJBW6dQA8mLRXfnaNIe33Dbbp2gR3lHJjfDWbGFWWjjZkFy3gsLg/MOeGG
+	KPJSdoXamHeiSf2Kx7LsLvJgMNNtKR6Q3EQOzPfyAv0DlVFIDA891Qn1PA700jkEc+m
+	smqUWlZi6w==
+Received: by smtp.zohomail.com with SMTPS id 17899090136091008.2562742156387;
+	Sun, 20 Sep 2026 05:56:53 -0700 (PDT)
+Message-ID: <56e5f32102c67575ded8af9e81a06dc9f1dcf0ee.camel@icenowy.me>
+Subject: Re: [PATCH 2/3] pmdomain: spacemit: Add power domain driver
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Yixun Lan <dlan@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Ulf
+ Hansson <ulfh@kernel.org>,  Paul Walmsley	 <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou	 <aou@eecs.berkeley.edu>, Alexandre Ghiti
+ <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Date: Sun, 20 Sep 2026 20:56:44 +0800
+In-Reply-To: <20260918-04-k3-pm-support-v1-2-0acd2b36b96f@kernel.org>
+References: <20260918-04-k3-pm-support-v1-0-0acd2b36b96f@kernel.org>
+	 <20260918-04-k3-pm-support-v1-2-0acd2b36b96f@kernel.org>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-X-CM-TRANSID: PigvCgDnz94W0q9qtTi9AQ--.38818S2
-X-Coremail-Antispam: 1Uf129KBjvAXoW3KF1kWF4UKr47Cw1Utw18Krg_yoW8Cw4xJo
-	WIya1rWF48u340yFWjyw1UtFyjq3yvkrZruF15XFWYqF1UZw18uryUKrZ8Ja4agr1UWFyf
-	ZFyfXry7XF18G3Zrn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjTR7fHUUUUUU
-X-CM-SenderInfo: ptlft0avxqmqqrwthudrp/xtbCzgZEAmqv0iZlpwAA39
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_053405_992897_A4E1F3D1 
-X-CRM114-Status: GOOD (  22.11  )
+X-CRM114-CacheID: sfid-20260920_055658_484691_CF16EA49 
+X-CRM114-Status: GOOD (  29.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,558 +83,287 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-kvm_riscv_mmu_free_pgd() currently walks the entire G-stage address
-space and recursively frees lower-level page-table pages while holding
-mmu_lock for write. Teardown of a large VM can therefore hold mmu_lock
-for a long time.
-
-Detach the active G-stage root under mmu_lock and free the detached tree
-after dropping the lock. Make live G-stage users acquire the active root
-under mmu_lock, and make walkers that drop and reacquire the lock verify
-that the root is still active before continuing.
-
-Before freeing the detached tree, quiesce guest and host HLV/HLVX
-hardware users using KVM_REQ_OUTSIDE_GUEST_MODE and the
-READING_SHADOW_PAGE_TABLES protocol. Prevent a detached root from being
-reinstalled in HGATP or used for guest entry, and request invalidation
-of stale G-stage translations for the old VMID.
-
-Free only page-table pages from the detached tree and periodically call
-cond_resched() while walking it.
-
-Also replace the KVM-wide split page cache with a per-operation cache.
-The huge-page split path can drop mmu_lock while topping up its cache or
-rescheduling, so keeping the cache local avoids sharing its lifetime
-with G-stage teardown.
-
-Assisted-by: LLM
-Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Signed-off-by: Can Qi <qican5708@163.com>
----
- arch/riscv/include/asm/kvm_gstage.h |   9 +-
- arch/riscv/include/asm/kvm_host.h   |   1 -
- arch/riscv/kvm/gstage.c             |  37 ++++++++
- arch/riscv/kvm/mmu.c                | 138 ++++++++++++++--------------
- arch/riscv/kvm/vcpu.c               |  10 +-
- arch/riscv/kvm/vcpu_exit.c          |  16 ++++
- 6 files changed, 139 insertions(+), 72 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm/kvm_gstage.h
-index aaf080ba1b77..b5a9563754d0 100644
---- a/arch/riscv/include/asm/kvm_gstage.h
-+++ b/arch/riscv/include/asm/kvm_gstage.h
-@@ -87,6 +87,8 @@ bool kvm_riscv_gstage_wp_pt_masked(struct kvm_gstage *gstage, gfn_t base_gfn,
- 
- void kvm_riscv_gstage_mode_detect(void);
- 
-+void kvm_riscv_gstage_free(struct kvm_gstage *gstage);
-+
- static inline unsigned long kvm_riscv_gstage_mode(unsigned long pgd_levels)
- {
- 	switch (pgd_levels) {
-@@ -104,13 +106,18 @@ static inline unsigned long kvm_riscv_gstage_mode(unsigned long pgd_levels)
- 	}
- }
- 
--static inline void kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *kvm)
-+static inline bool kvm_riscv_gstage_init(struct kvm_gstage *gstage, struct kvm *kvm)
- {
-+	lockdep_assert_held(&kvm->mmu_lock);
-+	if (!kvm->arch.pgd)
-+		return false;
-+
- 	gstage->kvm = kvm;
- 	gstage->flags = 0;
- 	gstage->vmid = READ_ONCE(kvm->arch.vmid.vmid);
- 	gstage->pgd = kvm->arch.pgd;
- 	gstage->pgd_levels = kvm->arch.pgd_levels;
-+	return true;
- }
- 
- #endif
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index a30600579231..2ab999f75151 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -86,7 +86,6 @@ struct kvm_arch {
- 	pgd_t *pgd;
- 	phys_addr_t pgd_phys;
- 	unsigned long pgd_levels;
--	struct kvm_mmu_memory_cache pgd_split_page_cache;
- 
- 	/* Guest Timer */
- 	struct kvm_guest_timer timer;
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index e5002cb9cbef..5ab3c4ba5a6a 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -414,6 +414,37 @@ bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 	return flush;
- }
- 
-+/* The caller has detached this tree and quiesced its hardware users. */
-+static void gstage_free_level(pte_t *ptep, u32 level, unsigned long nr_entries,
-+			      unsigned int *processed)
-+{
-+	pte_t pte, *child;
-+	unsigned long i;
-+
-+	for (i = 0; i < nr_entries; i++) {
-+		pte = ptep_get(&ptep[i]);
-+		if (level && pte_val(pte) && !gstage_pte_leaf(&pte)) {
-+			child = (pte_t *)gstage_pte_page_vaddr(pte);
-+			gstage_free_level(child, level - 1, PTRS_PER_PTE, processed);
-+			put_page(virt_to_page(child));
-+		}
-+		/* Leaf PFNs belong to the guest backing memory, not this tree. */
-+		if (++*processed == PTRS_PER_PTE) {
-+			*processed = 0;
-+			cond_resched();
-+		}
-+	}
-+}
-+
-+void kvm_riscv_gstage_free(struct kvm_gstage *gstage)
-+{
-+	unsigned int processed = 0;
-+
-+	gstage_free_level((pte_t *)gstage->pgd, gstage->pgd_levels - 1,
-+			  PTRS_PER_PTE << kvm_riscv_gstage_pgd_xbits, &processed);
-+	free_pages((unsigned long)gstage->pgd, get_order(kvm_riscv_gstage_pgd_size));
-+}
-+
- bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 				  gpa_t start, gpa_t size, bool may_block)
- {
-@@ -426,6 +457,12 @@ bool kvm_riscv_gstage_unmap_range(struct kvm_gstage *gstage,
- 	bool flush = false;
- 
- 	while (addr < end) {
-+		/* cond_resched_rwlock_write() may have let teardown detach us. */
-+		if (!(gstage->flags & KVM_GSTAGE_FLAGS_LOCAL) &&
-+		    (!gstage->kvm->arch.pgd ||
-+		     gstage->pgd != gstage->kvm->arch.pgd))
-+			break;
-+
- 		found_leaf = kvm_riscv_gstage_get_leaf(gstage, addr, &ptep, &ptep_level);
- 		ret = gstage_level_to_page_size(gstage, ptep_level, &page_size);
- 		if (ret)
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 6035b5ec9503..2d7ad70ff765 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -26,12 +26,11 @@ static void mmu_wp_memory_region(struct kvm *kvm, int slot)
- 	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = kvm_riscv_gstage_wp_range(&gstage, start, end);
- 	write_unlock(&kvm->mmu_lock);
- 	if (flush)
- 		kvm_flush_remote_tlbs_memslot(kvm, memslot);
-@@ -44,7 +43,7 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- 	pgprot_t prot;
- 	unsigned long pfn;
- 	phys_addr_t addr, end;
--	unsigned long pgd_levels = kvm->arch.pgd_levels;
-+	unsigned long pgd_levels = kvm_riscv_gstage_max_pgd_levels;
- 	struct kvm_mmu_memory_cache pcache = {
- 		.gfp_custom = (in_atomic) ? GFP_ATOMIC | __GFP_ACCOUNT : 0,
- 		.gfp_zero = __GFP_ZERO,
-@@ -52,8 +51,6 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- 	struct kvm_gstage_mapping map;
- 	struct kvm_gstage gstage;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
--
- 	end = (gpa + size + PAGE_SIZE - 1) & PAGE_MASK;
- 	pfn = __phys_to_pfn(hpa);
- 	prot = pgprot_noncached(PAGE_WRITE);
-@@ -72,7 +69,10 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- 			goto out;
- 
- 		write_lock(&kvm->mmu_lock);
--		ret = kvm_riscv_gstage_set_pte(&gstage, &pcache, &map);
-+		if (kvm_riscv_gstage_init(&gstage, kvm))
-+			ret = kvm_riscv_gstage_set_pte(&gstage, &pcache, &map);
-+		else
-+			ret = -EFAULT;
- 		write_unlock(&kvm->mmu_lock);
- 		if (ret)
- 			goto out;
-@@ -88,12 +88,11 @@ int kvm_riscv_mmu_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
- void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
- {
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
- 	write_unlock(&kvm->mmu_lock);
- 
- 	if (flush)
-@@ -101,14 +100,12 @@ void kvm_riscv_mmu_iounmap(struct kvm *kvm, gpa_t gpa, unsigned long size)
- 					    size >> PAGE_SHIFT);
- }
- 
--static bool need_topup_split_caches_or_resched(struct kvm *kvm, int count)
-+static bool need_topup_split_cache(struct kvm *kvm,
-+				   struct kvm_mmu_memory_cache *cache, int count)
- {
--	struct kvm_mmu_memory_cache *cache;
--
- 	if (need_resched() || rwlock_needbreak(&kvm->mmu_lock))
- 		return true;
- 
--	cache = &kvm->arch.pgd_split_page_cache;
- 	return kvm_mmu_memory_cache_nr_free_objects(cache) < count;
- }
- 
-@@ -116,7 +113,8 @@ static bool mmu_split_huge_pages(struct kvm_gstage *gstage,
- 				 phys_addr_t start, phys_addr_t end)
- {
- 	struct kvm *kvm = gstage->kvm;
--	struct kvm_mmu_memory_cache *pcache = &kvm->arch.pgd_split_page_cache;
-+	struct kvm_mmu_memory_cache cache = { .gfp_zero = __GFP_ZERO };
-+	struct kvm_mmu_memory_cache *pcache = &cache;
- 	phys_addr_t addr = ALIGN_DOWN(start, PMD_SIZE);
- 	phys_addr_t last_flush_gfn = addr >> PAGE_SHIFT;
- 	int count = gstage->pgd_levels;
-@@ -126,7 +124,7 @@ static bool mmu_split_huge_pages(struct kvm_gstage *gstage,
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 
- 	while (addr < end) {
--		if (need_topup_split_caches_or_resched(kvm, count)) {
-+		if (need_topup_split_cache(kvm, pcache, count)) {
- 			if (flush) {
- 				kvm_flush_remote_tlbs_range(kvm, last_flush_gfn,
- 					  (addr >> PAGE_SHIFT) - last_flush_gfn);
-@@ -141,19 +139,22 @@ static bool mmu_split_huge_pages(struct kvm_gstage *gstage,
- 			if (ret) {
- 				kvm_err("Failed to toup split page cache\n");
- 				write_lock(&kvm->mmu_lock);
--				return flush;
-+				break;
- 			}
- 			write_lock(&kvm->mmu_lock);
- 		}
- 
--		if (!kvm->arch.pgd)
--			return flush;
-+		if (!kvm->arch.pgd || gstage->pgd != kvm->arch.pgd)
-+			break;
- 
- 		flush |= kvm_riscv_gstage_split_huge(gstage, pcache, addr, 0, false);
- 
- 		addr += PMD_SIZE;
- 	}
- 
-+	write_unlock(&kvm->mmu_lock);
-+	kvm_mmu_free_memory_cache(pcache);
-+	write_lock(&kvm->mmu_lock);
- 	return flush;
- }
- 
-@@ -167,7 +168,8 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return;
- 
- 	kvm_riscv_gstage_wp_pt_masked(&gstage, base_gfn, mask);
- 
-@@ -205,12 +207,11 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
- 	gpa_t gpa = slot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t size = slot->npages << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = kvm_riscv_gstage_unmap_range(&gstage, gpa, size, false);
- 	write_unlock(&kvm->mmu_lock);
- 	if (flush)
- 		kvm_flush_remote_tlbs_range(kvm, gpa >> PAGE_SHIFT,
-@@ -224,12 +225,11 @@ static void mmu_split_memory_region(struct kvm *kvm, int slot)
- 	phys_addr_t start = memslot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t end = (memslot->base_gfn + memslot->npages) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
--	bool flush;
--
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	flush = mmu_split_huge_pages(&gstage, start, end);
-+	if (kvm_riscv_gstage_init(&gstage, kvm))
-+		flush = mmu_split_huge_pages(&gstage, start, end);
- 	write_unlock(&kvm->mmu_lock);
- 
- 	if (flush)
-@@ -334,12 +334,10 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- 	struct kvm_gstage gstage;
- 	bool flush;
- 
--	if (!kvm->arch.pgd)
--		return false;
--
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return false;
- 	flush = kvm_riscv_gstage_unmap_range(&gstage, range->start << PAGE_SHIFT,
- 					     (range->end - range->start) << PAGE_SHIFT,
- 					     range->may_block);
-@@ -356,12 +354,10 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
- 
--	if (!kvm->arch.pgd)
--		return false;
--
- 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return false;
- 	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
- 				       &ptep, &ptep_level))
- 		return false;
-@@ -376,12 +372,10 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	u64 size = (range->end - range->start) << PAGE_SHIFT;
- 	struct kvm_gstage gstage;
- 
--	if (!kvm->arch.pgd)
--		return false;
--
- 	WARN_ON(size != PAGE_SIZE && size != PMD_SIZE && size != PUD_SIZE);
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		return false;
- 	if (!kvm_riscv_gstage_get_leaf(&gstage, range->start << PAGE_SHIFT,
- 				       &ptep, &ptep_level))
- 		return false;
-@@ -563,12 +557,12 @@ static bool kvm_riscv_mmu_dirty_log_write_fault_fast(struct kvm *kvm,
- 	bool dirty_marked = false;
- 	bool ret;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
- 	mmu_seq = kvm->mmu_invalidate_seq;
- 
- 	read_lock(&kvm->mmu_lock);
- 
--	if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
-+	if (!kvm_riscv_gstage_init(&gstage, kvm) ||
-+	    mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
- 		ret = false;
- 		goto out_unlock;
- 	}
-@@ -639,8 +633,6 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 	struct kvm_gstage gstage;
- 	struct page *page;
- 
--	kvm_riscv_gstage_init(&gstage, kvm);
--
- 	/* Setup initial state of output mapping */
- 	memset(out_map, 0, sizeof(*out_map));
- 
-@@ -649,7 +641,7 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 		return 0;
- 
- 	/* We need minimum second+third level pages */
--	ret = kvm_mmu_topup_memory_cache(pcache, kvm->arch.pgd_levels);
-+	ret = kvm_mmu_topup_memory_cache(pcache, kvm_riscv_gstage_max_pgd_levels);
- 	if (ret) {
- 		kvm_err("Failed to topup G-stage cache\n");
- 		return ret;
-@@ -719,6 +711,11 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
- 
- 	write_lock(&kvm->mmu_lock);
- 
-+	ret = -EFAULT;
-+	if (!kvm_riscv_gstage_init(&gstage, kvm))
-+		goto out_unlock;
-+
-+	ret = 0;
- 	if (mmu_invalidate_retry(kvm, mmu_seq))
- 		goto out_unlock;
- 
-@@ -764,7 +761,6 @@ int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- 	kvm->arch.pgd = page_to_virt(pgd_page);
- 	kvm->arch.pgd_phys = page_to_phys(pgd_page);
- 	kvm->arch.pgd_levels = kvm_riscv_gstage_max_pgd_levels;
--	kvm->arch.pgd_split_page_cache.gfp_zero = __GFP_ZERO;
- 
- 	return 0;
- }
-@@ -772,41 +768,45 @@ int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- {
- 	struct kvm_gstage gstage;
--	void *pgd = NULL;
--	bool flush = false;
- 
- 	write_lock(&kvm->mmu_lock);
--	if (kvm->arch.pgd) {
--		kvm_riscv_gstage_init(&gstage, kvm);
--		flush = kvm_riscv_gstage_unmap_range(&gstage, 0UL,
--			kvm_riscv_gstage_gpa_size(kvm->arch.pgd_levels), false);
--		pgd = READ_ONCE(kvm->arch.pgd);
--		kvm->arch.pgd = NULL;
--		kvm->arch.pgd_phys = 0;
--		kvm->arch.pgd_levels = 0;
-+	if (!kvm_riscv_gstage_init(&gstage, kvm)) {
-+		write_unlock(&kvm->mmu_lock);
-+		return;
- 	}
-+	/* Live walkers must acquire mmu_lock and check the active root. */
-+	WRITE_ONCE(kvm->arch.pgd, NULL);
-+	kvm->arch.pgd_phys = 0;
-+	kvm->arch.pgd_levels = 0;
- 	write_unlock(&kvm->mmu_lock);
- 
--	if (flush)
--		kvm_flush_remote_tlbs(kvm);
--
--	if (pgd)
--		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
-+	/* Quiesce hardware users before freeing the detached page tables. */
-+	kvm_make_all_cpus_request(kvm, KVM_REQ_OUTSIDE_GUEST_MODE);
- 
--	kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
-+	/*
-+	 * Request an old-VMID HFENCE. Queue-full fallback can flush the current
-+	 * VMID, so the hardware quiescing above protects the tree lifetime.
-+	 */
-+	kvm_riscv_hfence_gvma_vmid_all(kvm, -1UL, 0, gstage.vmid);
-+	kvm_riscv_gstage_free(&gstage);
- }
- 
- void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_arch *ka = &vcpu->kvm->arch;
--	unsigned long hgatp = kvm_riscv_gstage_mode(ka->pgd_levels)
--			      << HGATP_MODE_SHIFT;
--
--	hgatp |= (READ_ONCE(ka->vmid.vmid) << HGATP_VMID_SHIFT) & HGATP_VMID;
--	hgatp |= (ka->pgd_phys >> PAGE_SHIFT) & HGATP_PPN;
-+	unsigned long hgatp = 0;
-+
-+	/* Serialize the root snapshot and HGATP install against root detach. */
-+	read_lock(&vcpu->kvm->mmu_lock);
-+	if (ka->pgd) {
-+		hgatp = kvm_riscv_gstage_mode(ka->pgd_levels) << HGATP_MODE_SHIFT;
-+		hgatp |= (READ_ONCE(ka->vmid.vmid) << HGATP_VMID_SHIFT) & HGATP_VMID;
-+		hgatp |= (ka->pgd_phys >> PAGE_SHIFT) & HGATP_PPN;
-+	}
- 
- 	ncsr_write(CSR_HGATP, hgatp);
- 
- 	if (!kvm_riscv_gstage_vmid_bits())
- 		kvm_riscv_local_hfence_gvma_all();
-+	read_unlock(&vcpu->kvm->mmu_lock);
- }
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index e062ca19f9d8..35bf948bd451 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -708,6 +708,7 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-  *
-  * Return: 1 if we should enter the guest
-  *	    0 if we should exit to userspace
-+ *	    negative error code if guest entry is no longer possible
-  */
- static int kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
- {
-@@ -755,6 +756,12 @@ static int kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
- 			return 0;
- 	}
- 
-+	/* A detached G-stage must not be reused after processing its HFENCE. */
-+	if (!READ_ONCE(vcpu->kvm->arch.pgd)) {
-+		kvm_riscv_mmu_update_hgatp(vcpu);
-+		return -EIO;
-+	}
-+
- 	return 1;
- }
- 
-@@ -980,7 +987,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		/* Update HVIP CSR for current CPU */
- 		kvm_riscv_update_hvip(vcpu);
- 
--		if (kvm_riscv_gstage_vmid_ver_changed(&vcpu->kvm->arch.vmid) ||
-+		if (!READ_ONCE(vcpu->kvm->arch.pgd) ||
-+		    kvm_riscv_gstage_vmid_ver_changed(&vcpu->kvm->arch.vmid) ||
- 		    kvm_request_pending(vcpu) ||
- 		    xfer_to_guest_mode_work_pending()) {
- 			vcpu->mode = OUTSIDE_GUEST_MODE;
-diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-index 88e0c369b354..da3308a3d020 100644
---- a/arch/riscv/kvm/vcpu_exit.c
-+++ b/arch/riscv/kvm/vcpu_exit.c
-@@ -90,7 +90,21 @@ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
- 	register unsigned long ttmp asm("a1");
- 	unsigned long flags, val, tmp, old_stvec, old_hstatus;
- 
-+	/*
-+	 * Prevent G-stage teardown while HLV/HLVX can walk the page tables.
-+	 * The active-root check prevents a new walk from starting after detach.
-+	 */
-+	read_lock(&vcpu->kvm->mmu_lock);
-+	if (!vcpu->kvm->arch.pgd) {
-+		read_unlock(&vcpu->kvm->mmu_lock);
-+		trap->scause = EXC_LOAD_GUEST_PAGE_FAULT;
-+		trap->stval = guest_addr;
-+		return 0;
-+	}
- 	local_irq_save(flags);
-+	/* Publish the hardware walk before dropping the root lifetime lock. */
-+	smp_store_mb(vcpu->mode, READING_SHADOW_PAGE_TABLES);
-+	read_unlock(&vcpu->kvm->mmu_lock);
- 
- 	old_hstatus = csr_swap(CSR_HSTATUS, vcpu->arch.guest_context.hstatus);
- 	old_stvec = csr_swap(CSR_STVEC, (ulong)&__kvm_riscv_unpriv_trap);
-@@ -146,6 +160,8 @@ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
- 	csr_write(CSR_STVEC, old_stvec);
- 	csr_write(CSR_HSTATUS, old_hstatus);
- 
-+	/* Complete all HLV/HLVX accesses before publishing OUTSIDE. */
-+	smp_store_release(&vcpu->mode, OUTSIDE_GUEST_MODE);
- 	local_irq_restore(flags);
- 
- 	return val;
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjYtMDktMTjkupTnmoQgMDI6NDAgKzAwMDDvvIxZaXh1biBMYW7lhpnpgZPvvJoKPiDC
+oCBTcGFjZW1pVCdzIFBNVSAoUG93ZXIgTWFuYWdlbWVudCBVbml0KSBjb25zaXN0IG9mIHNldmVy
+YWwgcG93ZXIKPiBkb21haW5zCj4gd2hpY2ggY2FuIGJlIG1hbmFnZWQgaW5kZXBlbmRlbnRseSwg
+ZGVwZW5kaW5nIG9uIGRpZmZlcmVudAo+IGFwcGxpY2F0aW9uCj4gc2NlbmFyaW8sIGVhY2ggZG9t
+YWluIGNhbiBiZSBwb3dlcmVkIG9uL29mZiBmb3Igc2F2aW5nIHBvd2VyLgo+IAo+IMKgIFRoZSBk
+cml2ZXIgaXMgaW1wbGVtZW50ZWQgYmFzZWQgb24gTGludXggR2VuZXJpYyBQTSBEb21haW4KPiBm
+cmFtZXdvcmsuCj4gRnJvbSBhIGhhcmR3YXJlIHBlcnNwZWN0aXZlLCBlaXRoZXIgb2YgdHdvIGRp
+c3RpbmN0IHBvd2VyLW9uCj4gc2VxdWVuY2VzCj4gYXJlIHN1cHBvcnRlZCwgaW4gc29mdHdhcmUg
+bW9kZSAoU1cgbW9kZSksIHRoZSBkcml2ZXIgaXMgcmVzcG9uc2libGUKPiBmb3IKPiBjb250cm9s
+bGluZyB0aGUgc3RhdGVzIG9mIGJpdHMgc3VjaCBhcyBzbGVlcDEsIHNsZWVwMiwgaXNvbGF0aW9u
+IGFuZAo+IHB3cl9zdGF0ZSwgd2hpbGUgaW4gaGFyZHdhcmUgbW9kZSAoSFcgbW9kZSksIHRoZSBQ
+TVUgaGFyZHdhcmUgd2lsbAo+IGNvbXBsZXRlCj4gdGhlIHNlcXVlbmNlIGF1dG9tYXRpY2FsbHkg
+d2l0aG91dCByZXF1aXJpbmcgc29mdHdhcmUgaW50ZXJ2ZW50aW9uLgoKVGhpcyBkcml2ZXIgaXMg
+dGVzdGVkIHRvIGJlIGFibGUgdG8gcG93ZXIgdXAgdGhlIEdQVSBvbiBTcGFjZW1pVCBLMywKaG93
+ZXZlciB0aGUgZm9sbG93aW5nIHdhcm5pbmcgYXBwZWFycyBpbiB0aGUga2VybmVsIGxvZzoKCmBg
+YApnZW5wZF9wcm92aWRlciBhdWRpbzogRmFpbCB0byBwb3dlci1vZmYgZG9tYWluOiAyCmBgYAoK
+KEJUVyBJIGJ1aWx0IGl0IGFzIGEgbW9kdWxlIHRvIHByZXZlbnQgd2hvbGUga2VybmVsIGJlaW5n
+IHJlYnVpbHQpCgpUaGFua3MsCkljZW5vd3kKCj4gCj4gU2lnbmVkLW9mZi1ieTogWWl4dW4gTGFu
+IDxkbGFuQGtlcm5lbC5vcmc+Cj4gLS0tCj4gwqBkcml2ZXJzL3BtZG9tYWluL0tjb25maWfCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDEgKwo+IMKgZHJpdmVycy9wbWRvbWFpbi9N
+YWtlZmlsZcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDEgKwo+IMKgZHJpdmVycy9w
+bWRvbWFpbi9zcGFjZW1pdC9LY29uZmlnwqDCoMKgwqDCoCB8wqAgMTUgKysKPiDCoGRyaXZlcnMv
+cG1kb21haW4vc3BhY2VtaXQvTWFrZWZpbGXCoMKgwqDCoCB8wqDCoCAxICsKPiDCoGRyaXZlcnMv
+cG1kb21haW4vc3BhY2VtaXQvcG1fZG9tYWlucy5jIHwgNDQ4Cj4gKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrCj4gwqA1IGZpbGVzIGNoYW5nZWQsIDQ2NiBpbnNlcnRpb25zKCspCj4g
+Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcG1kb21haW4vS2NvbmZpZyBiL2RyaXZlcnMvcG1kb21h
+aW4vS2NvbmZpZwo+IGluZGV4IDIzMDc2YWU5MGU2Ni4uMDYxMGFjZDAzMGY2IDEwMDY0NAo+IC0t
+LSBhL2RyaXZlcnMvcG1kb21haW4vS2NvbmZpZwo+ICsrKyBiL2RyaXZlcnMvcG1kb21haW4vS2Nv
+bmZpZwo+IEBAIC0xMyw2ICsxMyw3IEBAIHNvdXJjZSAiZHJpdmVycy9wbWRvbWFpbi9xY29tL0tj
+b25maWciCj4gwqBzb3VyY2UgImRyaXZlcnMvcG1kb21haW4vcmVuZXNhcy9LY29uZmlnIgo+IMKg
+c291cmNlICJkcml2ZXJzL3BtZG9tYWluL3JvY2tjaGlwL0tjb25maWciCj4gwqBzb3VyY2UgImRy
+aXZlcnMvcG1kb21haW4vc2Ftc3VuZy9LY29uZmlnIgo+ICtzb3VyY2UgImRyaXZlcnMvcG1kb21h
+aW4vc3BhY2VtaXQvS2NvbmZpZyIKPiDCoHNvdXJjZSAiZHJpdmVycy9wbWRvbWFpbi9zdC9LY29u
+ZmlnIgo+IMKgc291cmNlICJkcml2ZXJzL3BtZG9tYWluL3N0YXJmaXZlL0tjb25maWciCj4gwqBz
+b3VyY2UgImRyaXZlcnMvcG1kb21haW4vc3VueGkvS2NvbmZpZyIKPiBkaWZmIC0tZ2l0IGEvZHJp
+dmVycy9wbWRvbWFpbi9NYWtlZmlsZSBiL2RyaXZlcnMvcG1kb21haW4vTWFrZWZpbGUKPiBpbmRl
+eCBlYmM4MDJmMTNlYjkuLmJhMjViNDQ0ZTI2MyAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL3BtZG9t
+YWluL01ha2VmaWxlCj4gKysrIGIvZHJpdmVycy9wbWRvbWFpbi9NYWtlZmlsZQo+IEBAIC0xMSw2
+ICsxMSw3IEBAIG9iai15CQkJCQkrPSBxY29tLwo+IMKgb2JqLXkJCQkJCSs9IHJlbmVzYXMvCj4g
+wqBvYmoteQkJCQkJKz0gcm9ja2NoaXAvCj4gwqBvYmoteQkJCQkJKz0gc2Ftc3VuZy8KPiArb2Jq
+LXkJCQkJCSs9IHNwYWNlbWl0Lwo+IMKgb2JqLXkJCQkJCSs9IHN0Lwo+IMKgb2JqLXkJCQkJCSs9
+IHN0YXJmaXZlLwo+IMKgb2JqLXkJCQkJCSs9IHN1bnhpLwo+IGRpZmYgLS1naXQgYS9kcml2ZXJz
+L3BtZG9tYWluL3NwYWNlbWl0L0tjb25maWcKPiBiL2RyaXZlcnMvcG1kb21haW4vc3BhY2VtaXQv
+S2NvbmZpZwo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi40Yjky
+N2JlZWRjN2MKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvZHJpdmVycy9wbWRvbWFpbi9zcGFjZW1p
+dC9LY29uZmlnCj4gQEAgLTAsMCArMSwxNSBAQAo+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVy
+OiBHUEwtMi4wLW9ubHkKPiArCj4gK21lbnUgIlNwYWNlbWlUIFBNIERvbWFpbnMiCj4gKwo+ICtj
+b25maWcgU1BBQ0VNSVRfUE1fRE9NQUlOUwo+ICsJYm9vbCAiUE0gRG9tYWluIGRyaXZlciBmb3Ig
+U3BhY2VtaVQgU29DIgo+ICsJZGVwZW5kcyBvbiBQTQo+ICsJZGVwZW5kcyBvbiBPRgo+ICsJZGVw
+ZW5kcyBvbiBNRkRfU1lTQ09OCj4gKwlzZWxlY3QgUE1fR0VORVJJQ19ET01BSU5TCj4gKwloZWxw
+Cj4gKwnCoCBQTSBEb21haW4gZHJpdmVyIGZvciBTcGFjZW1pVCBTb0MuIFNheSBZIGlmIHlvdSB3
+YW50IHRvCj4gc3VwcG9ydAo+ICsJwqAgU3BhY2VtaVQgU29Dcy4KPiArCj4gK2VuZG1lbnUKPiBk
+aWZmIC0tZ2l0IGEvZHJpdmVycy9wbWRvbWFpbi9zcGFjZW1pdC9NYWtlZmlsZQo+IGIvZHJpdmVy
+cy9wbWRvbWFpbi9zcGFjZW1pdC9NYWtlZmlsZQo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5k
+ZXggMDAwMDAwMDAwMDAwLi41ZThhNzQwYmE0OTQKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvZHJp
+dmVycy9wbWRvbWFpbi9zcGFjZW1pdC9NYWtlZmlsZQo+IEBAIC0wLDAgKzEgQEAKPiArb2JqLSQo
+Q09ORklHX1NQQUNFTUlUX1BNX0RPTUFJTlMpCSs9IHBtX2RvbWFpbnMubwo+IGRpZmYgLS1naXQg
+YS9kcml2ZXJzL3BtZG9tYWluL3NwYWNlbWl0L3BtX2RvbWFpbnMuYwo+IGIvZHJpdmVycy9wbWRv
+bWFpbi9zcGFjZW1pdC9wbV9kb21haW5zLmMKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4
+IDAwMDAwMDAwMDAwMC4uZDU2M2U0ZTRlMjMyCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2RyaXZl
+cnMvcG1kb21haW4vc3BhY2VtaXQvcG1fZG9tYWlucy5jCj4gQEAgLTAsMCArMSw0NDggQEAKPiAr
+Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb25seQo+ICsvKgo+ICsgKiBTcGFj
+ZW1pdCBHZW5lcmljIHBvd2VyIGRvbWFpbiBzdXBwb3J0Lgo+ICsgKgo+ICsgKiBDb3B5cmlnaHQg
+KGMpIDIwMjYgU3BhY2VtaVQgVGVjaG5vbG9neSBDby4gTHRkCj4gKyAqLwo+ICsKPiArI2luY2x1
+ZGUgPGxpbnV4L2lvLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9lcnIuaD4KPiArI2luY2x1ZGUgPGxp
+bnV4L3BsYXRmb3JtX2RldmljZS5oPgo+ICsjaW5jbHVkZSA8bGludXgvcG1fZG9tYWluLmg+Cj4g
+KyNpbmNsdWRlIDxsaW51eC9vZl9wbGF0Zm9ybS5oPgo+ICsjaW5jbHVkZSA8bGludXgvcmVnbWFw
+Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9tZmQvc3lzY29uLmg+Cj4gKyNpbmNsdWRlIDxkdC1iaW5k
+aW5ncy9wb3dlci9zcGFjZW1pdCxrMS1wb3dlci5oPgo+ICsjaW5jbHVkZSA8ZHQtYmluZGluZ3Mv
+cG93ZXIvc3BhY2VtaXQsazMtcG93ZXIuaD4KPiArCj4gKyNkZWZpbmUgQVBNVV9QT1dFUl9TVEFU
+VVNfUkVHCTB4ZjAKPiArI2RlZmluZSBBUE1VX1BPV0VSX1RJTUVPVVRfVVMJMTAwMDAKPiArCj4g
+K3N0cnVjdCBzcGFjZW1pdF9wbV9kb21haW5fcGFyYW0gewo+ICsJaW50IHJlZ19wd3JfY3RybDsK
+PiArCWludCBiaXRfaHdfbW9kZTsKPiArCWludCBiaXRfc2xlZXAyOwo+ICsJaW50IGJpdF9zbGVl
+cDE7Cj4gKwlpbnQgYml0X2lzb2xhdGlvbjsKPiArCWludCBiaXRfYXV0b19wd3Jfb247Cj4gKwlp
+bnQgYml0X2h3X3B3cl9zdGF0Owo+ICsJaW50IGJpdF9wd3Jfc3RhdDsKPiArCWludCB1c2VfaHc7
+Cj4gKwljb25zdCBjaGFyICpuYW1lOwo+ICt9Owo+ICsKPiArc3RydWN0IHNwYWNlbWl0X3BtX2Rv
+bWFpbiB7Cj4gKwlzdHJ1Y3QgZ2VuZXJpY19wbV9kb21haW4gZ2VucGQ7Cj4gKwlpbnQgcG1faW5k
+ZXg7Cj4gKwljb25zdCBzdHJ1Y3Qgc3BhY2VtaXRfcG1fZG9tYWluX3BhcmFtICpwYXJhbTsKPiAr
+fTsKPiArCj4gK3N0cnVjdCBzcGFjZW1pdF9wbXUgewo+ICsJc3RydWN0IGRldmljZSAqZGV2Owo+
+ICsJc3RydWN0IGdlbnBkX29uZWNlbGxfZGF0YSBnZW5wZF9kYXRhOwo+ICsJc3RydWN0IHJlZ21h
+cCAqcmVnbWFwOwo+ICsJc3RydWN0IHNwYWNlbWl0X3BtX2RvbWFpbiAqKmRvbWFpbnM7Cj4gKwlp
+bnQgbnVtX2RvbWFpbnM7Cj4gK307Cj4gKwo+ICtzdHJ1Y3Qgc3BhY2VtaXRfcG1fb2ZfZGF0YSB7
+Cj4gKwlpbnQgbnVtX2RvbWFpbnM7Cj4gKwljb25zdCBzdHJ1Y3Qgc3BhY2VtaXRfcG1fZG9tYWlu
+X3BhcmFtICpwYXJhbTsKPiArfTsKPiArCj4gK3N0YXRpYyBzdHJ1Y3Qgc3BhY2VtaXRfcG11ICpn
+cG11Owo+ICsKPiArc3RhdGljIGludCBzcGFjZW1pdF9wZF9wb3dlcl9vZmYoc3RydWN0IGdlbmVy
+aWNfcG1fZG9tYWluICpkb21haW4pCj4gK3sKPiArCXN0cnVjdCBzcGFjZW1pdF9wbV9kb21haW4g
+KnNwZCA9IGNvbnRhaW5lcl9vZihkb21haW4sIHN0cnVjdAo+IHNwYWNlbWl0X3BtX2RvbWFpbiwg
+Z2VucGQpOwo+ICsJY29uc3Qgc3RydWN0IHNwYWNlbWl0X3BtX2RvbWFpbl9wYXJhbSAqcCA9IHNw
+ZC0+cGFyYW07Cj4gKwl1bnNpZ25lZCBpbnQgdmFsOwo+ICsJaW50IHJldDsKPiArCj4gKwlpZiAo
+IXNwZC0+cGFyYW0tPnVzZV9odykgewo+ICsJCXJlZ21hcF9jbGVhcl9iaXRzKGdwbXUtPnJlZ21h
+cCwgcC0+cmVnX3B3cl9jdHJsLAo+IEJJVChwLT5iaXRfaXNvbGF0aW9uKSk7Cj4gKwkJZnNsZWVw
+KDE1KTsKPiArCj4gKwkJdmFsID0gQklUKHAtPmJpdF9zbGVlcDEpIHwgQklUKHAtPmJpdF9zbGVl
+cDIpOwo+ICsJCXJlZ21hcF9jbGVhcl9iaXRzKGdwbXUtPnJlZ21hcCwgcC0+cmVnX3B3cl9jdHJs
+LAo+IHZhbCk7Cj4gKwkJZnNsZWVwKDE1KTsKPiArCj4gKwkJcmV0ID0gcmVnbWFwX3JlYWRfcG9s
+bF90aW1lb3V0KGdwbXUtPnJlZ21hcCwKPiArCQkJCQnCoMKgwqDCoMKgwqAKPiBBUE1VX1BPV0VS
+X1NUQVRVU19SRUcsCj4gKwkJCQkJwqDCoMKgwqDCoMKgIHZhbCwKPiArCQkJCQnCoMKgwqDCoMKg
+wqAgISh2YWwgJiBCSVQocC0KPiA+Yml0X3B3cl9zdGF0KSksCj4gKwkJCQkJwqDCoMKgwqDCoMKg
+IDUsCj4gKwkJCQkJwqDCoMKgwqDCoMKgCj4gQVBNVV9QT1dFUl9USU1FT1VUX1VTKTsKPiArCX0g
+ZWxzZSB7Cj4gKwkJdmFsID0gQklUKHAtPmJpdF9hdXRvX3B3cl9vbikgfCBCSVQocC0+Yml0X2h3
+X21vZGUpOwo+ICsJCXJlZ21hcF9jbGVhcl9iaXRzKGdwbXUtPnJlZ21hcCwgcC0+cmVnX3B3cl9j
+dHJsLAo+IHZhbCk7Cj4gKwkJZnNsZWVwKDE1KTsKPiArCj4gKwkJcmV0ID0gcmVnbWFwX3JlYWRf
+cG9sbF90aW1lb3V0KGdwbXUtPnJlZ21hcCwKPiArCQkJCQnCoMKgwqDCoMKgwqAKPiBBUE1VX1BP
+V0VSX1NUQVRVU19SRUcsCj4gKwkJCQkJwqDCoMKgwqDCoMKgIHZhbCwKPiArCQkJCQnCoMKgwqDC
+oMKgwqAgISh2YWwgJiBCSVQocC0KPiA+Yml0X2h3X3B3cl9zdGF0KSksCj4gKwkJCQkJwqDCoMKg
+wqDCoMKgIDUsCj4gKwkJCQkJwqDCoMKgwqDCoMKgCj4gQVBNVV9QT1dFUl9USU1FT1VUX1VTKTsK
+PiArCX0KPiArCj4gKwlpZiAocmV0KSB7Cj4gKwkJZGV2X2VycigmZG9tYWluLT5kZXYsICJGYWls
+IHRvIHBvd2VyLW9mZiBkb21haW46Cj4gJWRcbiIsCj4gKwkJCQlzcGQtPnBtX2luZGV4KTsKPiAr
+CQlyZXR1cm4gLUVCVVNZOwo+ICsJfQo+ICsKPiArCXJldHVybiAwOwo+ICt9Cj4gKwo+ICtzdGF0
+aWMgaW50IHNwYWNlbWl0X3BkX3Bvd2VyX29uKHN0cnVjdCBnZW5lcmljX3BtX2RvbWFpbiAqZG9t
+YWluKQo+ICt7Cj4gKwlzdHJ1Y3Qgc3BhY2VtaXRfcG1fZG9tYWluICpzcGQgPSBjb250YWluZXJf
+b2YoZG9tYWluLCBzdHJ1Y3QKPiBzcGFjZW1pdF9wbV9kb21haW4sIGdlbnBkKTsKPiArCWNvbnN0
+IHN0cnVjdCBzcGFjZW1pdF9wbV9kb21haW5fcGFyYW0gKnAgPSBzcGQtPnBhcmFtOwo+ICsJdW5z
+aWduZWQgaW50IHZhbDsKPiArCWludCByZXQgPSAwOwo+ICsKPiArCXJlZ21hcF9yZWFkKGdwbXUt
+PnJlZ21hcCwgQVBNVV9QT1dFUl9TVEFUVVNfUkVHLCAmdmFsKTsKPiArCj4gKwlpZiAoIXAtPnVz
+ZV9odyAmJiAodmFsICYgQklUKHAtPmJpdF9wd3Jfc3RhdCkpKSB7Cj4gKwkJdmFsID0gQklUKHAt
+PmJpdF9pc29sYXRpb24pOwo+ICsJCXJlZ21hcF9jbGVhcl9iaXRzKGdwbXUtPnJlZ21hcCwgcC0+
+cmVnX3B3cl9jdHJsLAo+IHZhbCk7Cj4gKwkJZnNsZWVwKDE1KTsKPiArCj4gKwkJdmFsID0gQklU
+KHAtPmJpdF9zbGVlcDEpIHwgQklUKHAtPmJpdF9zbGVlcDIpOwo+ICsJCXJlZ21hcF9jbGVhcl9i
+aXRzKGdwbXUtPnJlZ21hcCwgcC0+cmVnX3B3cl9jdHJsLAo+IHZhbCk7Cj4gKwkJZnNsZWVwKDE1
+KTsKPiArCj4gKwkJcmV0ID0gcmVnbWFwX3JlYWRfcG9sbF90aW1lb3V0KGdwbXUtPnJlZ21hcCwK
+PiArCQkJCQnCoMKgwqDCoMKgwqAKPiBBUE1VX1BPV0VSX1NUQVRVU19SRUcsCj4gKwkJCQkJwqDC
+oMKgwqDCoMKgIHZhbCwKPiArCQkJCQnCoMKgwqDCoMKgwqAgISh2YWwgJiBCSVQocC0KPiA+Yml0
+X3B3cl9zdGF0KSksCj4gKwkJCQkJwqDCoMKgwqDCoMKgIDUsCj4gKwkJCQkJwqDCoMKgwqDCoMKg
+Cj4gQVBNVV9QT1dFUl9USU1FT1VUX1VTKTsKPiArCX0KPiArCj4gKwlpZiAocC0+dXNlX2h3ICYm
+ICh2YWwgJiBCSVQocC0+Yml0X2h3X3B3cl9zdGF0KSkpIHsKPiArCQl2YWwgPSBCSVQocC0+Yml0
+X2F1dG9fcHdyX29uKSB8IEJJVChwLT5iaXRfaHdfbW9kZSk7Cj4gKwkJcmVnbWFwX2NsZWFyX2Jp
+dHMoZ3BtdS0+cmVnbWFwLCBwLT5yZWdfcHdyX2N0cmwsCj4gdmFsKTsKPiArCQlmc2xlZXAoMzAp
+Owo+ICsKPiArCQlyZXQgPSByZWdtYXBfcmVhZF9wb2xsX3RpbWVvdXQoZ3BtdS0+cmVnbWFwLAo+
+ICsJCQkJCcKgwqDCoMKgwqDCoAo+IEFQTVVfUE9XRVJfU1RBVFVTX1JFRywKPiArCQkJCQnCoMKg
+wqDCoMKgwqAgdmFsLAo+ICsJCQkJCcKgwqDCoMKgwqDCoCAhKHZhbCAmIEJJVChwLQo+ID5iaXRf
+aHdfcHdyX3N0YXQpKSwKPiArCQkJCQnCoMKgwqDCoMKgwqAgNSwKPiArCQkJCQnCoMKgwqDCoMKg
+wqAKPiBBUE1VX1BPV0VSX1RJTUVPVVRfVVMpOwo+ICsJfQo+ICsKPiArCWlmIChyZXQgPCAwKSB7
+Cj4gKwkJZGV2X2VycigmZG9tYWluLT5kZXYsICJwb3dlci1vZmYgZG9tYWluOiAlZCwKPiBlcnJv
+clxuIiwgc3BkLT5wbV9pbmRleCk7Cj4gKwkJcmV0dXJuIC1FQlVTWTsKPiArCX0KPiArCj4gKwlp
+ZiAoIXAtPnVzZV9odykgewo+ICsJCXJlZ21hcF9zZXRfYml0cyhncG11LT5yZWdtYXAsIHAtPnJl
+Z19wd3JfY3RybCwKPiBCSVQocC0+Yml0X3NsZWVwMSkpOwo+ICsJCWZzbGVlcCgyMCk7Cj4gKwo+
+ICsJCXZhbCA9IEJJVChwLT5iaXRfc2xlZXAyKSB8IEJJVChwLT5iaXRfc2xlZXAxKTsKPiArCQly
+ZWdtYXBfc2V0X2JpdHMoZ3BtdS0+cmVnbWFwLCBwLT5yZWdfcHdyX2N0cmwsIHZhbCk7Cj4gKwkJ
+ZnNsZWVwKDIwKTsKPiArCj4gKwkJcmVnbWFwX3NldF9iaXRzKGdwbXUtPnJlZ21hcCwgcC0+cmVn
+X3B3cl9jdHJsLAo+IEJJVChwLT5iaXRfaXNvbGF0aW9uKSk7Cj4gKwkJZnNsZWVwKDE1KTsKPiAr
+Cj4gKwkJcmV0ID0gcmVnbWFwX3JlYWRfcG9sbF90aW1lb3V0KGdwbXUtPnJlZ21hcCwKPiArCQkJ
+CQnCoMKgwqDCoMKgwqAKPiBBUE1VX1BPV0VSX1NUQVRVU19SRUcsCj4gKwkJCQkJwqDCoMKgwqDC
+oMKgIHZhbCwKPiArCQkJCQnCoMKgwqDCoMKgwqAgKHZhbCAmIEJJVChwLQo+ID5iaXRfcHdyX3N0
+YXQpKSwKPiArCQkJCQnCoMKgwqDCoMKgwqAgNSwKPiArCQkJCQnCoMKgwqDCoMKgwqAKPiBBUE1V
+X1BPV0VSX1RJTUVPVVRfVVMpOwo+ICsJfSBlbHNlIHsKPiArCQl2YWwgPSBCSVQocC0+Yml0X2F1
+dG9fcHdyX29uKSB8IEJJVChwLT5iaXRfaHdfbW9kZSk7Cj4gKwkJcmVnbWFwX3NldF9iaXRzKGdw
+bXUtPnJlZ21hcCwgcC0+cmVnX3B3cl9jdHJsLCB2YWwpOwo+ICsJCWZzbGVlcCgzMDApOwo+ICsK
+PiArCQlyZXQgPSByZWdtYXBfcmVhZF9wb2xsX3RpbWVvdXQoZ3BtdS0+cmVnbWFwLAo+ICsJCQkJ
+CcKgwqDCoMKgwqDCoAo+IEFQTVVfUE9XRVJfU1RBVFVTX1JFRywKPiArCQkJCQnCoMKgwqDCoMKg
+wqAgdmFsLAo+ICsJCQkJCcKgwqDCoMKgwqDCoCAodmFsICYgQklUKHAtCj4gPmJpdF9od19wd3Jf
+c3RhdCkpLAo+ICsJCQkJCcKgwqDCoMKgwqDCoCA1LAo+ICsJCQkJCcKgwqDCoMKgwqDCoAo+IEFQ
+TVVfUE9XRVJfVElNRU9VVF9VUyk7Cj4gKwl9Cj4gKwo+ICsJaWYgKHJldCA8IDApIHsKPiArCQlk
+ZXZfZXJyKCZkb21haW4tPmRldiwgInBvd2VyLW9uIGRvbWFpbjogJWQsCj4gZXJyb3JcbiIsIHNw
+ZC0+cG1faW5kZXgpOwo+ICsJCXJldHVybiAtRUJVU1k7Cj4gKwl9Cj4gKwo+ICsJcmV0dXJuIDA7
+Cj4gK30KPiArCj4gK3N0YXRpYyBib29sIHNwYWNlbWl0X3BtX2dldF9zdGF0ZShzdHJ1Y3Qgc3Bh
+Y2VtaXRfcG11ICpwbXUsCj4gKwkJCQnCoCBzdHJ1Y3Qgc3BhY2VtaXRfcG1fZG9tYWluICpwZCkK
+PiArewo+ICsJY29uc3Qgc3RydWN0IHNwYWNlbWl0X3BtX2RvbWFpbl9wYXJhbSAqcCA9IHBkLT5w
+YXJhbTsKPiArCXUzMiByZWcsIGJpdDsKPiArCj4gKwlyZWdtYXBfcmVhZChwbXUtPnJlZ21hcCwg
+QVBNVV9QT1dFUl9TVEFUVVNfUkVHLCAmcmVnKTsKPiArCj4gKwliaXQgPSBwLT51c2VfaHcgPyBC
+SVQocGQtPnBhcmFtLT5iaXRfaHdfcHdyX3N0YXQpIDoKPiArCQlCSVQocGQtPnBhcmFtLT5iaXRf
+cHdyX3N0YXQpOwo+ICsKPiArCXJldHVybiAhIShyZWcgJiBiaXQpOwo+ICt9Cj4gKwo+ICtzdGF0
+aWMgaW50IHNwYWNlbWl0X3BtX2FkZF9vbmVfZG9tYWluKHN0cnVjdCBzcGFjZW1pdF9wbXUgKnBt
+dSwgaW50Cj4gaWQsCj4gKwkJCQnCoMKgwqDCoMKgIGNvbnN0IHN0cnVjdAo+IHNwYWNlbWl0X3Bt
+X2RvbWFpbl9wYXJhbSAqcGFyYW0pCj4gK3sKPiArCXN0cnVjdCBzcGFjZW1pdF9wbV9kb21haW4g
+KnBkOwo+ICsKPiArCXBkID0gZGV2bV9remFsbG9jKHBtdS0+ZGV2LCBzaXplb2YoKnBkKSwgR0ZQ
+X0tFUk5FTCk7Cj4gKwlpZiAoIXBkKQo+ICsJCXJldHVybiAtRU5PTUVNOwo+ICsKPiArCXBkLT5w
+bV9pbmRleMKgwqDCoMKgwqDCoMKgID0gaWQ7Cj4gKwlwZC0+cGFyYW3CoMKgwqDCoMKgwqDCoMKg
+wqDCoCA9IHBhcmFtOwo+ICsJcGQtPmdlbnBkLm5hbWXCoMKgwqDCoMKgID0gcGFyYW0tPm5hbWU7
+Cj4gKwlwZC0+Z2VucGQucG93ZXJfb2ZmID0gc3BhY2VtaXRfcGRfcG93ZXJfb2ZmOwo+ICsJcGQt
+PmdlbnBkLnBvd2VyX29uwqAgPSBzcGFjZW1pdF9wZF9wb3dlcl9vbjsKPiArCj4gKwlwbV9nZW5w
+ZF9pbml0KCZwZC0+Z2VucGQsIE5VTEwsICFzcGFjZW1pdF9wbV9nZXRfc3RhdGUocG11LAo+IHBk
+KSk7Cj4gKwo+ICsJcG11LT5kb21haW5zW2lkXSA9IHBkOwo+ICsKPiArCXJldHVybiAwOwo+ICt9
+Cj4gKwo+ICtzdGF0aWMgdm9pZCBzcGFjZW1pdF9wbV9kb21haW5fY2xlYW51cChzdHJ1Y3Qgc3Bh
+Y2VtaXRfcG11ICpwbXUpCj4gK3sKPiArCWludCBpOwo+ICsKPiArCWZvciAoaSA9IDA7IGkgPCBw
+bXUtPm51bV9kb21haW5zOyBpKyspIHsKPiArCQlpZiAocG11LT5kb21haW5zW2ldKQo+ICsJCQlw
+bV9nZW5wZF9yZW1vdmUoJnBtdS0+ZG9tYWluc1tpXS0+Z2VucGQpOwo+ICsJfQo+ICt9Cj4gKwo+
+ICtzdGF0aWMgaW50IHNwYWNlbWl0X3BtX2RvbWFpbl9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2
+aWNlICpwZGV2KQo+ICt7Cj4gKwljb25zdCBzdHJ1Y3Qgc3BhY2VtaXRfcG1fb2ZfZGF0YSAqZGF0
+YTsKPiArCXN0cnVjdCBkZXZpY2UgKmRldiA9ICZwZGV2LT5kZXY7Cj4gKwlzdHJ1Y3Qgc3BhY2Vt
+aXRfcG11ICpwbXU7Cj4gKwlpbnQgZXJyLCBpOwo+ICsKPiArCWRhdGEgPSBkZXZpY2VfZ2V0X21h
+dGNoX2RhdGEoZGV2KTsKPiArCj4gKwlwbXUgPSBkZXZtX2t6YWxsb2MoZGV2LCBzaXplb2YoKnBt
+dSksIEdGUF9LRVJORUwpOwo+ICsJaWYgKCFwbXUpCj4gKwkJcmV0dXJuIC1FTk9NRU07Cj4gKwo+
+ICsJcG11LT5kZXYgPSBkZXY7Cj4gKwlwbXUtPm51bV9kb21haW5zID0gZGF0YS0+bnVtX2RvbWFp
+bnM7Cj4gKwo+ICsJcG11LT5yZWdtYXAgPSBzeXNjb25fcmVnbWFwX2xvb2t1cF9ieV9waGFuZGxl
+KGRldi0+b2Zfbm9kZSwKPiAic3BhY2VtaXQsYXBtdSIpOwo+ICsJaWYgKElTX0VSUihwbXUtPnJl
+Z21hcCkpCj4gKwkJcmV0dXJuIGRldl9lcnJfcHJvYmUoZGV2LCBQVFJfRVJSKHBtdS0+cmVnbWFw
+KSwKPiAiZmFpbGVkIHRvIGdldCBhcG11IHJlZ21hcFxuIik7Cj4gKwo+ICsJcG11LT5kb21haW5z
+ID0gZGV2bV9rY2FsbG9jKGRldiwgZGF0YS0+bnVtX2RvbWFpbnMsCj4gKwkJCQnCoMKgwqAgc2l6
+ZW9mKCpwbXUtPmRvbWFpbnMpLAo+IEdGUF9LRVJORUwpOwo+ICsJaWYgKCFwbXUtPmRvbWFpbnMp
+Cj4gKwkJcmV0dXJuIC1FTk9NRU07Cj4gKwo+ICsJZm9yIChpID0gMDsgaSA8IGRhdGEtPm51bV9k
+b21haW5zOyBpKyspIHsKPiArCQllcnIgPSBzcGFjZW1pdF9wbV9hZGRfb25lX2RvbWFpbihwbXUs
+IGksICZkYXRhLQo+ID5wYXJhbVtpXSk7Cj4gKwkJaWYgKGVycikgewo+ICsJCQlkZXZfZXJyKGRl
+diwgImZhaWxlZCB0byBhZGQgZG9tYWluICVkOgo+ICVkXG4iLCBpLCBlcnIpOwo+ICsJCQlnb3Rv
+IGVycl9vdXQ7Cj4gKwkJfQo+ICsJfQo+ICsKPiArCXBtdS0+Z2VucGRfZGF0YS5kb21haW5zwqDC
+oMKgwqAgPSAoc3RydWN0IGdlbmVyaWNfcG1fZG9tYWluCj4gKiopcG11LT5kb21haW5zOwo+ICsJ
+cG11LT5nZW5wZF9kYXRhLm51bV9kb21haW5zID0gZGF0YS0+bnVtX2RvbWFpbnM7Cj4gKwo+ICsJ
+ZXJyID0gb2ZfZ2VucGRfYWRkX3Byb3ZpZGVyX29uZWNlbGwoZGV2LT5vZl9ub2RlLCAmcG11LQo+
+ID5nZW5wZF9kYXRhKTsKPiArCWlmIChlcnIpIHsKPiArCQlkZXZfZXJyKGRldiwgImZhaWxlZCB0
+byBhZGQgcHJvdmlkZXI6ICVkXG4iLCBlcnIpOwo+ICsJCWdvdG8gZXJyX291dDsKPiArCX0KPiAr
+Cj4gKwlncG11ID0gcG11Owo+ICsKPiArCXJldHVybiAwOwo+ICsKPiArZXJyX291dDoKPiArCXNw
+YWNlbWl0X3BtX2RvbWFpbl9jbGVhbnVwKHBtdSk7Cj4gKwlyZXR1cm4gZXJyOwo+ICt9Cj4gKwo+
+ICtzdGF0aWMgY29uc3Qgc3RydWN0IHNwYWNlbWl0X3BtX2RvbWFpbl9wYXJhbSBrMV9kb21haW5f
+cGFyYW1zW10gPSB7Cj4gKwlbSzFfUE1ET01BSU5fVlBVXSA9IHsKPiArCQkucmVnX3B3cl9jdHJs
+CQk9IDB4YTgsCj4gKwkJLmJpdF9zbGVlcDIJCT0gMywKPiArCQkuYml0X3NsZWVwMQkJPSAyLAo+
+ICsJCS5iaXRfaXNvbGF0aW9uCQk9IDEsCj4gKwkJLmJpdF9wd3Jfc3RhdAkJPSAxLAo+ICsJCS5i
+aXRfaHdfcHdyX3N0YXQJPSA5LAo+ICsJCS5uYW1lCQkJPSAidnB1IiwKPiArCX0sCj4gKwlbSzFf
+UE1ET01BSU5fR1BVXSA9IHsKPiArCQkucmVnX3B3cl9jdHJsCQk9IDB4ZDAsCj4gKwkJLmJpdF9z
+bGVlcDIJCT0gMywKPiArCQkuYml0X3NsZWVwMQkJPSAyLAo+ICsJCS5iaXRfaXNvbGF0aW9uCQk9
+IDEsCj4gKwkJLmJpdF9wd3Jfc3RhdAkJPSAwLAo+ICsJCS5uYW1lCQkJPSAiZ3B1IiwKPiArCX0s
+Cj4gKwlbSzFfUE1ET01BSU5fTENEXSA9IHsKPiArCQkucmVnX3B3cl9jdHJsCQk9IDB4MzgwLAo+
+ICsJCS5iaXRfaHdfbW9kZQkJPSA0LAo+ICsJCS5iaXRfc2xlZXAyCQk9IDMsCj4gKwkJLmJpdF9z
+bGVlcDEJCT0gMiwKPiArCQkuYml0X2lzb2xhdGlvbgkJPSAxLAo+ICsJCS5iaXRfYXV0b19wd3Jf
+b24JPSAwLAo+ICsJCS5iaXRfcHdyX3N0YXQJCT0gNCwKPiArCQkuYml0X2h3X3B3cl9zdGF0CT0g
+MTIsCj4gKwkJLnVzZV9odwkJCT0gMSwKPiArCQkubmFtZQkJCT0gImxjZCIsCj4gKwl9LAo+ICsJ
+W0sxX1BNRE9NQUlOX0lTUF0gPSB7Cj4gKwkJLnJlZ19wd3JfY3RybAkJPSAweDM3YywKPiArCQku
+Yml0X2h3X21vZGUJCT0gNCwKPiArCQkuYml0X3NsZWVwMgkJPSAzLAo+ICsJCS5iaXRfc2xlZXAx
+CQk9IDIsCj4gKwkJLmJpdF9pc29sYXRpb24JCT0gMSwKPiArCQkuYml0X2F1dG9fcHdyX29uCT0g
+MCwKPiArCQkuYml0X3B3cl9zdGF0CQk9IDIsCj4gKwkJLmJpdF9od19wd3Jfc3RhdAk9IDEwLAo+
+ICsJCS5uYW1lCQkJPSAiaXNwIiwKPiArCX0sCj4gKwlbSzFfUE1ET01BSU5fQVVESU9dID0gewo+
+ICsJCS5yZWdfcHdyX2N0cmwJCT0gMHgzNzgsCj4gKwkJLmJpdF9od19tb2RlCQk9IDQsCj4gKwkJ
+LmJpdF9zbGVlcDIJCT0gMywKPiArCQkuYml0X3NsZWVwMQkJPSAyLAo+ICsJCS5iaXRfaXNvbGF0
+aW9uCQk9IDEsCj4gKwkJLmJpdF9hdXRvX3B3cl9vbgk9IDAsCj4gKwkJLmJpdF9wd3Jfc3RhdAkJ
+PSAzLAo+ICsJCS5iaXRfaHdfcHdyX3N0YXQJPSAxMSwKPiArCQkudXNlX2h3CQkJPSAxLAo+ICsJ
+CS5uYW1lCQkJPSAiYXVkaW8iLAo+ICsJfSwKPiArCVtLMV9QTURPTUFJTl9HTlNTXSA9IHsKPiAr
+CQkucmVnX3B3cl9jdHJsCQk9IDB4MTNjLAo+ICsJCS5iaXRfaHdfbW9kZQkJPSA0LAo+ICsJCS5i
+aXRfc2xlZXAyCQk9IDMsCj4gKwkJLmJpdF9zbGVlcDEJCT0gMiwKPiArCQkuYml0X2lzb2xhdGlv
+bgkJPSAxLAo+ICsJCS5iaXRfYXV0b19wd3Jfb24JPSAwLAo+ICsJCS5iaXRfcHdyX3N0YXQJCT0g
+NiwKPiArCQkuYml0X2h3X3B3cl9zdGF0CT0gMTQsCj4gKwkJLm5hbWUJCQk9ICJnbnNzIiwKPiAr
+CX0sCj4gKwlbSzFfUE1ET01BSU5fSERNSV0gPSB7Cj4gKwkJLnJlZ19wd3JfY3RybAkJPSAweDNm
+NCwKPiArCQkuYml0X2h3X21vZGUJCT0gNCwKPiArCQkuYml0X3NsZWVwMgkJPSAzLAo+ICsJCS5i
+aXRfc2xlZXAxCQk9IDIsCj4gKwkJLmJpdF9pc29sYXRpb24JCT0gMSwKPiArCQkuYml0X2F1dG9f
+cHdyX29uCT0gMCwKPiArCQkuYml0X3B3cl9zdGF0CQk9IDcsCj4gKwkJLmJpdF9od19wd3Jfc3Rh
+dAk9IDE1LAo+ICsJCS51c2VfaHcJCQk9IDEsCj4gKwkJLm5hbWUJCQk9ICJoZG1pIiwKPiArCX0s
+Cj4gK307Cj4gKwo+ICtzdGF0aWMgY29uc3Qgc3RydWN0IHNwYWNlbWl0X3BtX2RvbWFpbl9wYXJh
+bSBrM19kb21haW5fcGFyYW1zW10gPSB7Cj4gKwlbSzNfUE1ET01BSU5fVlBVXSA9IHsKPiArCQku
+Yml0X2F1dG9fcHdyX29uCT0gMCwKPiArCQkuYml0X2lzb2xhdGlvbgkJPSAxLAo+ICsJCS5iaXRf
+c2xlZXAxCQk9IDIsCj4gKwkJLmJpdF9zbGVlcDIJCT0gMywKPiArCQkuYml0X2h3X21vZGUJCT0g
+NCwKPiArCQkuYml0X3B3cl9zdGF0CQk9IDIsCj4gKwkJLmJpdF9od19wd3Jfc3RhdAk9IDksCj4g
+KwkJLnVzZV9odwkJCT0gMSwKPiArCQkucmVnX3B3cl9jdHJsCQk9IDB4YTgsCj4gKwkJLm5hbWUJ
+CQk9ICJ2cHUiLAo+ICsJfSwKPiArCVtLM19QTURPTUFJTl9HUFVdID0gewo+ICsJCS5iaXRfYXV0
+b19wd3Jfb24JPSAwLAo+ICsJCS5iaXRfaXNvbGF0aW9uCQk9IDEsCj4gKwkJLmJpdF9zbGVlcDEJ
+CT0gMiwKPiArCQkuYml0X3NsZWVwMgkJPSAzLAo+ICsJCS5iaXRfaHdfbW9kZQkJPSA0LAo+ICsJ
+CS5iaXRfcHdyX3N0YXQJCT0gMCwKPiArCQkuYml0X2h3X3B3cl9zdGF0CT0gOCwKPiArCQkudXNl
+X2h3CQkJPSAxLAo+ICsJCS5yZWdfcHdyX2N0cmwJCT0gMHhkMCwKPiArCQkubmFtZQkJCT0gImdw
+dSIsCj4gKwl9LAo+ICsJW0szX1BNRE9NQUlOX0FVRElPXSA9IHsKPiArCQkuYml0X2F1dG9fcHdy
+X29uCT0gMCwKPiArCQkuYml0X2lzb2xhdGlvbgkJPSAxLAo+ICsJCS5iaXRfc2xlZXAxCQk9IDIs
+Cj4gKwkJLmJpdF9zbGVlcDIJCT0gMywKPiArCQkuYml0X2h3X21vZGUJCT0gNCwKPiArCQkuYml0
+X3B3cl9zdGF0CQk9IDMsCj4gKwkJLnJlZ19wd3JfY3RybAkJPSAweDM3OCwKPiArCQkubmFtZQkJ
+CT0gImF1ZGlvIiwKPiArCX0sCj4gKwlbSzNfUE1ET01BSU5fTENEMF0gPSB7Cj4gKwkJLmJpdF9h
+dXRvX3B3cl9vbgk9IDAsCj4gKwkJLmJpdF9pc29sYXRpb24JCT0gMSwKPiArCQkuYml0X3NsZWVw
+MQkJPSAyLAo+ICsJCS5iaXRfc2xlZXAyCQk9IDMsCj4gKwkJLmJpdF9od19tb2RlCQk9IDQsCj4g
+KwkJLmJpdF9wd3Jfc3RhdAkJPSA0LAo+ICsJCS5iaXRfaHdfcHdyX3N0YXQJPSAxMiwKPiArCQku
+dXNlX2h3CQkJPSAxLAo+ICsJCS5yZWdfcHdyX2N0cmwJCT0gMHgzODAsCj4gKwkJLm5hbWUJCQk9
+ICJsY2QwIiwKPiArCX0sCj4gKwlbSzNfUE1ET01BSU5fTENEMV0gPSB7Cj4gKwkJLmJpdF9hdXRv
+X3B3cl9vbgk9IDAsCj4gKwkJLmJpdF9pc29sYXRpb24JCT0gMSwKPiArCQkuYml0X3NsZWVwMQkJ
+PSAyLAo+ICsJCS5iaXRfc2xlZXAyCQk9IDMsCj4gKwkJLmJpdF9od19tb2RlCQk9IDQsCj4gKwkJ
+LmJpdF9wd3Jfc3RhdAkJPSA1LAo+ICsJCS5iaXRfaHdfcHdyX3N0YXQJPSAxNSwKPiArCQkudXNl
+X2h3CQkJPSAxLAo+ICsJCS5yZWdfcHdyX2N0cmwJCT0gMHgzZjQsCj4gKwkJLm5hbWUJCQk9ICJs
+Y2QxIiwKPiArCX0sCj4gK307Cj4gKwo+ICtzdGF0aWMgY29uc3Qgc3RydWN0IHNwYWNlbWl0X3Bt
+X29mX2RhdGEgazFfb2ZfZGF0YSA9IHsKPiArCS5udW1fZG9tYWlucwk9IEFSUkFZX1NJWkUoazFf
+ZG9tYWluX3BhcmFtcyksCj4gKwkucGFyYW0JCT0gazFfZG9tYWluX3BhcmFtcywKPiArfTsKPiAr
+Cj4gK3N0YXRpYyBjb25zdCBzdHJ1Y3Qgc3BhY2VtaXRfcG1fb2ZfZGF0YSBrM19vZl9kYXRhID0g
+ewo+ICsJLm51bV9kb21haW5zCT0gQVJSQVlfU0laRShrM19kb21haW5fcGFyYW1zKSwKPiArCS5w
+YXJhbQkJPSBrM19kb21haW5fcGFyYW1zLAo+ICt9Owo+ICsKPiArc3RhdGljIGNvbnN0IHN0cnVj
+dCBvZl9kZXZpY2VfaWQgc3BhY2VtaXRfcG1fZG9tYWluX2R0X21hdGNoW10gPSB7Cj4gKwl7Cj4g
+KwkJLmNvbXBhdGlibGUgPSAic3BhY2VtaXQsazEtcG93ZXItY29udHJvbGxlciIsCj4gKwkJLmRh
+dGEgPSAmazFfb2ZfZGF0YSwKPiArCX0sCj4gKwl7Cj4gKwkJLmNvbXBhdGlibGUgPSAic3BhY2Vt
+aXQsazMtcG93ZXItY29udHJvbGxlciIsCj4gKwkJLmRhdGEgPSAmazNfb2ZfZGF0YSwKPiArCX0s
+Cj4gKwl7IC8qIHNlbnRpbmVsICovIH0KPiArfTsKPiArCj4gK3N0YXRpYyBzdHJ1Y3QgcGxhdGZv
+cm1fZHJpdmVyIHNwYWNlbWl0X3BtX2RvbWFpbl9kcml2ZXIgPSB7Cj4gKwkucHJvYmUgPSBzcGFj
+ZW1pdF9wbV9kb21haW5fcHJvYmUsCj4gKwkuZHJpdmVyID0gewo+ICsJCS5uYW1lwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgPSAic3BhY2VtaXQtcG0tZG9tYWluIiwKPiArCQkub2ZfbWF0Y2hfdGFibGUg
+PSBzcGFjZW1pdF9wbV9kb21haW5fZHRfbWF0Y2gsCj4gKwl9LAo+ICt9Owo+ICsKPiArYnVpbHRp
+bl9wbGF0Zm9ybV9kcml2ZXIoc3BhY2VtaXRfcG1fZG9tYWluX2RyaXZlcik7Cj4gK01PRFVMRV9E
+RVNDUklQVElPTigiU3BhY2VtaVQgR2VuZXJpYyBQb3dlciBEb21haW5zIGRyaXZlciIpOwo+ICtN
+T0RVTEVfTElDRU5TRSgiR1BMIik7CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
