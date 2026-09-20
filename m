@@ -4,98 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B11C982CC
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 08:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB17CC982D0
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 08:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=rHA4fT+OIo060ML6kVgW8eIoh1yO6gAVO2zmyIQQWtg=; b=R12tTiZixv19O+Dd2W5CTMFbSl
-	6nKpYLThHgj6Tv7jwjtLxiRBlcm1KUCh08xIWs4wD38IhZgAgStjQTM1yO6EG5vTmmQxixhsOVTXw
-	7B7uLZF5jkPqCH0kvH75U/cOkF3cXK7pR+d9HaF7bQN78OCQJV0L+EfBMraXE9Pmu0EleiaNsLahR
-	GO0kXw0Ad6Pfoat7+nd17vt/p9qMqN17lI1TTHDbCwKIlmf8aNAvOstUHNpGIOBAtdw0cFRvVdRrQ
-	xd3g0F0OSB7ATYK+SvZvSGn4UchOY9TWiIy+SGHYXQ5uz/SibIOeVGqttShK36JtMVDcuyDFQkEZq
-	WpgxAsiA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8xWOuH011fYa1LdyqYYvbKs9ExJ4HzTE9H6eSu7UgBo=; b=Lo7fczuyqo1ueB
+	SfjW8zrQkLeG1GzJsCDAFfAn3AK7MvPFQ2VjGtEHhwfSPLhdRygx+eKn3lJbYTsxRr6erRke7RP7W
+	2VAel/HA4QPnRAl6YemYljJbBLrMSWERuVxDS/EQ4AKOJJrzINxESosOLILksAgiErQElV3SbXxE5
+	WPQUQgsmQwv8qIM62gC0CH8ViXdlWEe5DKRlA0RdufvZ7SkiFHwaqBzOX36yG245dLAb/r0KU/iKf
+	RWRk1WIT+dM5upI4KzKdd8bYNR+aaOB4J2dky13uhMp/cC0f0CcDNogkArEHrCtkh9gplNCPkjnjA
+	IxqD++Bxzb26SUtr742Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Ces-0000000H5Ud-1hbI;
-	Sun, 20 Sep 2026 08:12:22 +0000
-Received: from fout-b6-smtp.messagingengine.com ([202.12.124.149])
+	id 1x8Crb-0000000H6X3-0LgG;
+	Sun, 20 Sep 2026 08:25:31 +0000
+Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Ceo-0000000H5U3-41Dq
+	id 1x8CrY-0000000H6WG-1SHq
 	for linux-riscv@lists.infradead.org;
-	Sun, 20 Sep 2026 08:12:20 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.stl.internal (Postfix) with ESMTP id 527631D0012E;
-	Sun, 20 Sep 2026 04:12:17 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Sun, 20 Sep 2026 04:12:18 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1789891936;
-	 x=1789978336; bh=LL0qgdhe5vMli4ptR7yDXLlZt6LsRjcxPU9ZpdkI4tY=; b=
-	FtAHhuKkKD6pDSefWJO4tHTdBArv0xim5+676BjUce4LvzFdT5k/f7nstJjLUsZ5
-	eSBJPIev4J7TBUcoZEV/XGNzYic6HKaA2aBis1hpZ90c0fVNsxafC8X81WycxVKu
-	/Iym0Fm/aauYgBPiW/4AlLfuk68VdtXK7/Wog+qPE3Q+v3LjChz2TStuUOPKs+z7
-	hdzUiZvrnik+vXXv2HUGIH5bU7JwcWDnCNgmLaPKDwzQEKyol/LpvpEDh7f/R6+t
-	KLONaCRR3ESO0MiEFawvF//WQBKnIlNoKzRQzATsMsCcNO8OsfMy9RLcfvoGRH6p
-	r7n467geiOHO523RvsT2wg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1789891936; x=
-	1789978336; bh=LL0qgdhe5vMli4ptR7yDXLlZt6LsRjcxPU9ZpdkI4tY=; b=Z
-	O+Poggah/fEUxEU4aRi0ONVwbbCKSi5PVXtSuLbq3yyQCAanFHs0qibrGxBav+k7
-	fxp1wBYc8m/GPVnf4ECUosBmCnqvVK4OBGo8ZO5k/Fs3Tvy2Fp5hFRcoNjp71x47
-	oupk9gM8pnyrCfKyeeXKN7XrsWTO0uPn9cplMdALXCq5ZNs9AUSu7bWeKv5uaCRD
-	vGGoyXLp1V7uDlJTg5h8cJt9AC76rb4b4EtsaYwyvCL66e0EAu7y7OUEMeEN00Nt
-	61heDzwdqn/xbQ6m8ng6Rk0HyN2lRLOl6tP+ahVX+O6sqk72r5ykW/AnL58dCU12
-	uOHezZMEcGwVff3cnXMlw==
-X-ME-Sender: <xms:W5WvapPVlHW0Nuup3YRwo8Qwe7ZY9qDua4cbRbN0lsAgC_-F2FUkqw>
-    <xme:W5WvamzVUwFiu_6pEdson3otpxfMOB4cdVXcKyH7iPHh8efNyuJqPoWvH3gAYNd03
-    NsigueRs_Is0CrRQU2IoGsS7V3c8HCIkYszfq7uoFneX_X0FYr3cfpq>
-X-ME-Proxy-Cause: dmFkZTGxVM+jdyBPEbuqysgbv4V1AYSc2Ze3wGifSpw4Bgx+yDL+YsLjJyo54AiVexC+Jn
-    cAZOxxbUj0gMMffbfvzLpGQrcLPne6J/xe7bch/w87sNfnn6sjUZipbZ4XfdaeZfvhc7aM
-    Qv1T2YbIfc73E9yd/7OAEjQUkBRT8qdLx8KXUQ+gss0vgKZWXNh8vXiHjagcKaIP2NEYor
-    sJfJVExLI++2Q/lRT61A8KYIIadCly5t9z6juvwWY+R+S9tIW4uOyUWPLQokeEogfCJPd7
-    n0eItv1KTsc6PPupwxDUztEjYgvO7WZcbVx3sAbDgrZ3HfrHfpt60CLaLEm68EtqxnvPm4
-    614ZEg+wXd8oxD455/wMbNBLo/usdmmF9q7LNLS3PsTXtvWp4imfPo4zMz5qXFcebaLOs3
-    TDsqXVBmfLKkPA6PYZeFMFoVs72ck16Z+8II/CYpGUGJd8NgaRdam66diGb3vtqNd5dc0g
-    6q3RFUexz1ZaSTF3MsR8M58d/rTe04PENI24ijrx82CIuWPykWu+/1UuH0TOEuKeDFOvb4
-    z6tvRw+SLdNZ9mzizDYzw0Hd8bfJWfUVX+Zv3zro3OAVFi2IRETTpKyG++Z3bR8gROxzZ8
-    RDHwX7iWuN8F2CwdwAAOyIj8xpEqkR7Q3qhI9IieOWBWQ7hi0+uBx30Sm7gg
-X-ME-Proxy: <xmx:XZWvauobGgoU8dBFQ7NzmlfXDgWf1utncw19YTEps6knhDIooSkUsg>
-    <xmx:XZWvahnUdnf2oCx_-caLB9mevZMgbyE8lW_pMkQvtxl3yAxGMbWT8Q>
-    <xmx:XZWvanf0slZD8F8D1OQQl9O89iw6gmPwM-pX2kJMfusxQfM-GhDlzw>
-    <xmx:XZWvatq2KlPZHyOMaNGCB2CTK-5OgcEyQYCySvolx4C9pnrPFIvuVg>
-    <xmx:YJWvaqWAICrOjGX-MOvkyhg6qkQVrKEvNKQYnQfOcgw0DYRNmmp_0W_V>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 6923732A0087; Sun, 20 Sep 2026 04:12:11 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sun, 20 Sep 2026 08:25:30 +0000
+Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-482f63546c3so1574684f8f.1
+        for <linux-riscv@lists.infradead.org>; Sun, 20 Sep 2026 01:25:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789892726; cv=none;
+        d=google.com; s=arc-20260327;
+        b=PsbIrzhBA4wI4o9llSRNQio7e+mHek6++T5wt947sipHxWCBVxxHUDuYMfEgipQD1K
+         FzysH2DVMtwl7R2Xc0nA4/rp288CALvEpM/bf0OzS666O5Y4BUJ+QLVclJ6H8gB+Wadb
+         LQ5ltD+mqUMx/GKrP05gBv6G93GX/w8Dy7mTahVtMDcGr8zwaG7nob5xtY3+HmSvXxmt
+         +lm46mtopAaoZcgeckgTYAAWT1b3fT+wKxEFsSSIrLN0T3FcblNFlucSeFDuOGUZ7sMD
+         kBX1AqkVenrFWjSZ2URgN4q1fICbITG1u23WnYaQ13i3n/qhq0SG7gXbnDA/OR1a1PUG
+         Jheg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=/v5NR7eNmP+HJUBTR1GLDXgKiaOepq2osnsCYiJw7Nw=;
+        fh=ybWVfEE0naupqbEoQpQznjmy6QQbizev29uCVp1qncA=;
+        b=CS5R084mxUa+H7g2pzOPy2HWP1ffw1cNXkOcr6Q2I35xvsjzuRVXG57MnNlKbvBvkN
+         vct8ItJEqmDFAKxqZVZHen2RHMYmIgECVe3LVYF1cHmQmp5kvV01u1Foe8194PErsbc5
+         yx20IJ738wfwfj+ysowu82Zi1DjhW2LFpRuLN4D9EyxEBKrbipbppyeyAdcsL0Em84+5
+         dTfO3yXq/GgwwZ2usujurtCIwZe0yDMiawhOAAfGxkzQY41hn8pihsCgLMKeRkC1pII3
+         Adq5bXgBEDiS+P9j77a+OdNWS69Ld46+bg9GGWxH7EYrOpKnDRxHhZD2J4GRgJYL8qsB
+         ZKUQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault.org; s=google; t=1789892726; x=1790497526; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/v5NR7eNmP+HJUBTR1GLDXgKiaOepq2osnsCYiJw7Nw=;
+        b=qLzfgZviAQVh43MQ4jVNW5518x6uwPPTt00DJr4De8U5OK9oCcTdW4ugD66YSrg/Mi
+         rFQPYHdKXUHa/P+3ziB6Gimhspv5mBb/5s7LF2h9cNW4ziZBHW5+ORWybfWxMnhCh8AO
+         8nWLQuuQGAYFTqmNunNTYTgvNKkeO4pg3lXyRwMpuw3cPD0/tKtr5uR0Xr11QJGovC62
+         AAP4725j3PqfHRToEAbqn+ErXPuvvjuxdRcb3fcZyVF0KmwIaL5FbHjW8fZc46aInEGN
+         4k37nRAKW0rZc7UvY40c39bt8hjsZ/rDGiEEPJirvC8hPUba3XFI+qQ3vog7/VyEn/wS
+         pzqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789892726; x=1790497526;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=/v5NR7eNmP+HJUBTR1GLDXgKiaOepq2osnsCYiJw7Nw=;
+        b=t5HRsx/od0agy6DDGSRfif8Ij8vvSq88lFWpxOABpWpVlt7+PXFkrG5jZZbLQ8BEid
+         DpzqpSJi6jYDHsQiYjFtbx4vj0POatB/sVWcvM1JowQhQKCAUklQBCFc+YBYBFNKcYmB
+         w8ZUUlRx/QW1oWv2FeRPJqKCHLQJRZRf1Qy3IVNUNEpMkQx5sCNuxpVDQaVJUtyOWPrq
+         l+GS48bhjo/e7Gf2WtMSFEjuVNQ3v2KiLsFiaMNhu2VVr0bW9hu9fhcP26Qvhn3E+Lc2
+         UruaKdT8ExZXuilGajA5yZdOZeV4Piez9euQANFws70MrlG8vMwyMgfhEVWUOzm2QfRi
+         G/Aw==
+X-Forwarded-Encrypted: i=1; AKwUvBwVh5IeotPM7F/tXJhDVPF3PGMGweMPd4ZclC4p+UiTPttt8nFeZLGK+KikKOgElPRp1L7J53WdEIrVgw==@lists.infradead.org
+X-Gm-Message-State: AFuF++nOB9SzJ7Fw/gJtHttKyGJYDADODD0XByeXYNMXenpbbGa5fkVN
+	MemU+BOM1pA4fj4LZ97zdugwFLJYKBHCE3+QFRr0kpOceMA1TW+IoAr3ETk6ql73oA5LpNCxZQj
+	fjnU+vjVH83mwV0wL9Vpq0oEugzIk0RyEQshY1lZYMA==
+X-Gm-Gg: AYBFou31wXM12vGkkeLDCqigZt5J0NHojWPssz838yRyq7s2uG+iV/xB/vrTr76Rtxt
+	vKx1dywhe9RjQI8aUoowXa0VnFwCvmm3WbqYZjD/aFkWAVsc5BGrF8X/JSV2Y1PQzs642ct/XzA
+	j/TlXY1ZDV5w0w5DADPXiCHTf8b6ifhq0svv2byefO1hzcVgM9OxhjPIiPw2YZ6HUQ5i//MikfA
+	M7V4+w9SXmH0iojga9IQPSA+8cq4UdILPEfKssz3ClMQ6wv7hmL/JoaIG+A8+mCfeA+dBo+Up91
+	NP6FxY1REckUXWg1V+ynM3KUuI9GALA6lrJMaC5xGpHzWvMRHFX9nJpQAts6UKgL9dN5gjhIdK3
+	NkvGWrdGw538wVdKcwS4YWIA+ybJfD5P1CZ6JNJcnkufpSaMKQDggykTGVAV20J8HjoqK2aWsSQ
+	==
+X-Received: by 2002:a05:6000:2c0b:b0:487:6f0:8658 with SMTP id
+ ffacd0b85a97d-4871e36d031mr10347126f8f.42.1789892725264; Sun, 20 Sep 2026
+ 01:25:25 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AzgOxjlYMeWB
-Date: Sun, 20 Sep 2026 10:11:51 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Qingfang Deng" <qingfang.deng@linux.dev>,
- "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Linux-Arch <linux-arch@vger.kernel.org>
-Message-Id: <eda11c76-681a-49c8-be6f-7d2b67f9ab81@app.fastmail.com>
-In-Reply-To: <20260920014357.7069-2-qingfang.deng@linux.dev>
-References: <20260920014357.7069-1-qingfang.deng@linux.dev>
- <20260920014357.7069-2-qingfang.deng@linux.dev>
-Subject: Re: [PATCH v2 2/3] riscv: use generic MMIO accessors
+From: Anup Patel <anup@brainfault.org>
+Date: Sun, 20 Sep 2026 13:55:14 +0530
+X-Gm-Features: AcwNN1VHoP9FKod9I1ZhoSlWxL2KyjBkIxPhBW5MLSbl95fW79rnRDNl-xpnew8
+Message-ID: <CAAhSdy2MbSq2eGDZfh_EKt2S3OUEn7tJRWUgvncPsWNVR7vqeg@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv fixes for 7.3 take #1
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Atish Patra <atish.patra@linux.dev>, Andrew Jones <andrew.jones@oss.qualcomm.com>, 
+	KVM General <kvm@vger.kernel.org>, 
+	"KVM RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_011219_045770_520A6C61 
-X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-CacheID: sfid-20260920_012528_406044_2A3B9104 
+X-CRM114-Status: UNSURE (   8.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,27 +118,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 20, 2026, at 03:43, Qingfang Deng wrote:
-> RISC-V implements its raw MMIO loads and stores in inline assembly and
-> duplicates the generic ordered and relaxed accessors.
->
-> Use asm-generic/mmio.h for these accessors and retain the RISC-V barrier
-> hooks. This preserves the ordering and MMIOWB tracking while allowing
-> the compiler to emit the native-width loads and stores.
->
-> Assisted-by: Codex:gpt-6-astra
-> Signed-off-by: Qingfang Deng <qingfang.deng@linux.dev>
+Hi Paolo,
 
-Your changelog does not explain why change it. Using inline asm is
-definitely the preferred way to defined the __raw_* helpers, so it
-would be better not to change that aspect, same as for the arm64
-patch.
+We have the following fixes for the 7.3 kernel:
+1) Synchronize hrtimer during VCPU teardown
+2) Fix the conversion between vsip and hvip values
+3) Serialize IMSIC attributes with vCPU migration
+4) Release unused page after MMU invalidation
+5) Propagate interrupted G-stage faults to KVM user-space
+6) Fix NACL hfence entry update order
+7) Fix sdata leak and stale snapshot_addr in PMU snapshot_set_shmem
+8) Preserve firmware counter value across PMU counter stop/start
+9) Report PMU snapshot write failure to the guest
+10) Fix perf-backed counter accounting across PMU stop and read
+11) Fix HSM hart status error propagation
 
-The other simplifications look good to me, those are the bits we
-definitely want to have common between architectures as much as
-possible.
+As you can see, the fixes are all over the place except quite
+few of them (4 fixes) focus only on SBI PMU extension.
 
-      Arnd
+Please pull.
+
+Regards,
+Anup
+
+The following changes since commit fd73f4a6659897191fa0d40695fe370925dd3780:
+
+  Linux 7.3-rc3 (2026-09-13 14:38:02 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-7.3-1
+
+for you to fetch changes up to 41e81f7e3ef96594fb840445343c0ee7723aa550:
+
+  RISC-V: KVM: Fix HSM hart status error propagation (2026-09-15 18:55:51 +0530)
+
+----------------------------------------------------------------
+KVM/riscv fixes for 7.3, take #1
+
+- Synchronize hrtimer during VCPU teardown
+- Fix the conversion between vsip and hvip values
+- Serialize IMSIC attributes with vCPU migration
+- Release unused page after MMU invalidation
+- Propagate interrupted G-stage faults to KVM user-space
+- Fix NACL hfence entry update order
+- Fix sdata leak and stale snapshot_addr in snapshot_set_shmem
+- Preserve firmware counter value across PMU counter stop/start
+- Report PMU snapshot write failure to the guest
+- Fix perf-backed counter accounting across PMU stop and read
+- Fix HSM hart status error propagation
+
+----------------------------------------------------------------
+Myeonghun Pak (1):
+      RISC-V: KVM: Synchronize hrtimer callback during teardown
+
+SeungJu Cheon (3):
+      RISC-V: KVM: Preserve firmware counter value across stop/start
+      RISC-V: KVM: Report snapshot write failure to the guest
+      RISC-V: KVM: Fix perf-backed counter accounting across stop and read
+
+Tan Chi (1):
+      RISC-V: KVM: Fix HSM hart status error propagation
+
+Xie Bo (3):
+      RISC-V: KVM: Serialize IMSIC attributes with vCPU migration
+      RISC-V: KVM: Release unused page after MMU invalidation
+      RISC-V: KVM: Propagate interrupted G-stage faults
+
+Yicong Yang (1):
+      RISC-V: KVM: Fix the conversion between vsip and hvip
+
+Zongmin Zhou (2):
+      KVM: riscv: Fix NACL hfence entry update order
+      RISC-V: KVM: Fix sdata leak and stale snapshot_addr in snapshot_set_shmem
+
+ arch/riscv/include/asm/csr.h       | 20 +++++++++++++++----
+ arch/riscv/kvm/aia_imsic.c         | 11 ++++++++--
+ arch/riscv/kvm/mmu.c               | 10 ++++++++--
+ arch/riscv/kvm/nacl.c              | 20 +++++++++++++++----
+ arch/riscv/kvm/vcpu.c              |  3 +--
+ arch/riscv/kvm/vcpu_exit.c         |  2 +-
+ arch/riscv/kvm/vcpu_onereg.c       |  8 +++-----
+ arch/riscv/kvm/vcpu_pmu.c          | 41 +++++++++++++++++++++++---------------
+ arch/riscv/kvm/vcpu_sbi_hsm.c      |  4 ++--
+ arch/riscv/kvm/vcpu_timer.c        |  5 ++++-
+ tools/arch/riscv/include/asm/csr.h | 20 +++++++++++++++----
+ 11 files changed, 101 insertions(+), 43 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
