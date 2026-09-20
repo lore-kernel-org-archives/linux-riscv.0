@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6877C982DA
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 13:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50EFEC982DA
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 13:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jLUMPKYrHhInwvVrHdEFJ2FYDr/NX95FvOUXZufYz6E=; b=yT9zIZ8VO+cQOO
-	b9S/BTRj3ZiTX9L9wP5nmi4cqh6J4DcnbP61KErIjggZL1/5efb4Q6O12RH2ff/Xfxva6ngZDAlbq
-	jbClblqhdmvyX4lLvNrVMTdup+gmzZPYMAu3t6Qbu53z03wYDasCPGWGC9JK0l8XTWOXF5Zzj/fwF
-	4yUQvIxA5GERe4wMapYOjZi8lUnwFp7MaLE2cugh3GiMZj4I9h761hn8LuqHDmzw1Srtnz+8Ea6jb
-	R3wlZE/XeZlgZoxMJL3RsiYc/0LpMybX9HGsZ2FVcAZObrukIb4xsvY/N+sY38mV7O1tTBmGHgI7I
-	V42Wuh7+FuqD6xS8f3qw==;
+	List-Owner; bh=RB55uX/ZmuZmjh/xDsWPHHv98JMvpzStiuTpvdA7Kr4=; b=36uuexPooKj0GK
+	5R+1NM6HcTzR0i9szl50b6dnG7Z/u0OlHb2FKnyMOLzDg7gKaubQ1W+BWnfnIjVX/qU3b14Dg7mio
+	ARVwI6fbQaNtzC8sOQLlu3I2GqCF7Xi/f5GUHhBH3jQt75G6RkaNT7CCQhjiKv8ZxJlmQ+6mga0IW
+	XBJH403JvRoGyrW4XXP/QDAQ0X+Z6loFqX36UxUuWf0b8W70dM+EZG31K3sXVB4oDRhMkiqGUOzEo
+	vvWSDlKvMWRA2dPdx0du68JMDWZdX2ZtCnp/YoAXStOhcQsGiwBm3Fqgrt2R5B1N8UF3EKYzv2A2o
+	VhYFjZCUiWuF15FlscHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8HGJ-0000000HU3l-2pHK;
-	Sun, 20 Sep 2026 13:07:19 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1x8HIz-0000000HU8h-06Db;
+	Sun, 20 Sep 2026 13:10:05 +0000
+Received: from mail-proxy49146.mail.163.com ([45.254.49.146])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8HGG-0000000HU3A-1cm3
+	id 1x8HIv-0000000HU7n-2MQO
 	for linux-riscv@lists.infradead.org;
-	Sun, 20 Sep 2026 13:07:18 +0000
+	Sun, 20 Sep 2026 13:10:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=hN
-	nb657Kpa7CCqjimnpKbxkMCn7r0L4fN9/W9GtbHuU=; b=goTjUqKVQ+HGtiN0MX
-	HdQ7buPyVYNdUPgPS5lMumhS2ql3/ld+CMRTX7JWy8CV+dCce9INxb0mnsMrAK2q
-	hr+9Xe0ZfPOwOQUtf0b4+8H5FimzoMGrMCI1J4U3RzeYGFQa/ykcvaIHyhOZt75m
-	+njbmicXHIBbF2XxtFy6sqGco=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=op
+	4ci3atcTIV+rqmbvDsOvrO6hoczewdGO7KOjT5po4=; b=EFXNjJyBfepMucnsNj
+	Q0yj3MFFrgQeDBSZo8ca0C9J8NjvzqMNtnrLIkUL8wTV0ZR43E0m8KO3dn7nNEFv
+	usG+2/B1Jm8omYNDMy/fy+dzzURWJAZoNqlrwM1/S/Ao9c7xT6ez1YsNXkyyMPiC
+	zrNEKSC4x49AdM1qKCMOvP7ew=
 Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgBXe05v2q9q+Hy_AQ--.59097S2;
-	Sun, 20 Sep 2026 21:06:56 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgDXpdSr2q9qh4vBAQ--.39985S2;
+	Sun, 20 Sep 2026 21:07:56 +0800 (CST)
 From: Pengpeng Hou <hppiscas@163.com>
-To: radu@rendec.net,
+To: anup@brainfault.org,
 	tglx@kernel.org
 Cc: Pengpeng Hou <hppiscas@163.com>,
-	Charles Mirabile <cmirabil@redhat.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <andrew.jones@oss.qualcomm.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Bjorn Topel <bjorn@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Lucas Zampieri <lzampier@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2] irqchip/sifive-plic: Avoid signed shift in interrupt enable mask
-Date: Sun, 20 Sep 2026 21:06:53 +0800
-Message-ID: <caplitmus-rv.v2.plic.87a8fc444de44e109889ba28703c76f3@163.com>
+	Radu Rendec <radu@rendec.net>
+Subject: [PATCH v2] irqchip/riscv-imsic: Reject overlapping group index fields
+Date: Sun, 20 Sep 2026 21:07:54 +0800
+Message-ID: <caplitmus-rv.v2.imsic.f2c0e5bdc627451c83deb0cf7eb8834a@163.com>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-X-CM-TRANSID: PygvCgBXe05v2q9q+Hy_AQ--.59097S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7uw4DuryxCFWrKryUWr4fAFb_yoW8Gw1xpF
-	W5W3yvyr4fKa1j9Fy5CF4fZFy5W3sxtrW2kFZ7W34IqryYq3WkuF429345ZFn8try7Ar1U
-	Cw4ftF45uFWkAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UjZX5UUUUU=
-X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbCxRFZImqv2nHWwgAA3V
+X-CM-TRANSID: PigvCgDXpdSr2q9qh4vBAQ--.39985S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tFWDCFWrKFWfKw48JryfXrb_yoW8uFW7pF
+	Z8GrW09ryUCay09rW2v3WvqFyFgwn7AFZ0gFWUAw43Wry2vFn7Was0y3yrXw1DGF4Sk34x
+	tF4YqryDGay8C3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UUpnPUUUUU=
+X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbC7gxoMWqv2qwIQQAA3B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_060716_910583_FB662EFE 
-X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-CacheID: sfid-20260920_061001_832591_DAD459DD 
+X-CRM114-Status: UNSURE (   9.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,39 +80,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-__plic_toggle() builds a 32-bit interrupt enable mask using a signed
-integer literal. A valid interrupt selecting bit 31 evaluates 1 << 31,
-which shifts a signed int into its sign bit.
+The IMSIC address layout places the group index above the page offset,
+guest index and HART index. imsic_parse_fwnode() checks the individual
+field widths and the upper end of the group field, but does not check
+that its lower end is above the other fields.
 
-Use BIT(), matching the equivalent mask construction in plic_irq_eoi().
-The resulting mask remains representable in u32 on both RV32 and RV64.
+Reject a nonzero group field whose shift overlaps the lower fields.
+Otherwise a firmware-supplied layout can assign the same address bit to
+different indices when MSI target addresses are constructed.
+
+Keep the existing upper-bound check unchanged. The new lower-bound
+check applies only when group index bits are present.
 
 The issue was found by our static-analysis tool.
 
-Fixes: 8237f8bc4f6e ("irqchip: add a SiFive PLIC driver")
+Fixes: 21a8f8a0eb35 ("irqchip: Add RISC-V incoming MSI controller early driver")
 Assisted-by: gpt 5
 Signed-off-by: Pengpeng Hou <hppiscas@163.com>
 ---
-Changes since v1: https://lore.kernel.org/r/20260825151000.1-plic-bit31-caplitmus-rv@iscas.ac.cn/
-- Fix the Fixes tag as requested by Radu; keep the code change unchanged.
-- Rebase on 518e5b794c06.
+Changes since v1: https://lore.kernel.org/r/caplitmus-rv.bc36e3a0ebcb4a01838171f27625004b.imsic-overlap@163.com/
+- Limit the change to the lower-bound check discussed with Anup.
+- Keep the existing upper-bound check unchanged.
+- Send this as a standalone patch, without the zero-width-group change.
+- Do not change APLIC configuration or require the earlier series.
 
- drivers/irqchip/irq-sifive-plic.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/irqchip/irq-riscv-imsic-state.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 5b0dac1..d3d4187 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -108,7 +108,7 @@ static int plic_irq_set_type(struct irq_data *d, unsigned int type);
- static void __plic_toggle(struct plic_handler *handler, int hwirq, int enable)
- {
- 	u32 __iomem *base = handler->enable_base;
--	u32 hwirq_mask = 1 << (hwirq % 32);
-+	u32 hwirq_mask = BIT(hwirq % 32);
- 	int group = hwirq / 32;
- 	u32 value;
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+index b8d1bbb..a7b241f 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.c
++++ b/drivers/irqchip/irq-riscv-imsic-state.c
+@@ -739,6 +739,14 @@ static int __init imsic_parse_fwnode(struct fwnode_handle *fwnode,
+ 		return -EINVAL;
+ 	}
  
++	/* Group index bits must not overlap guest and HART index bits. */
++	i = IMSIC_MMIO_PAGE_SHIFT + global->guest_index_bits +
++	    global->hart_index_bits;
++	if (global->group_index_bits && global->group_index_shift < i) {
++		pr_err("%pfwP: group index shift too small\n", fwnode);
++		return -EINVAL;
++	}
++
+ 	/* Sanity check group index shift */
+ 	i = global->group_index_bits + global->group_index_shift - 1;
+ 	if (i >= BITS_PER_LONG) {
 
 base-commit: 518e5b794c06c0f0eb40df3e202274a66202c137
 
