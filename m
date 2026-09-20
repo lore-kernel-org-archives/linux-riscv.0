@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2847C982D7
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Sep 2026 23:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C5CC982D7
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2026 01:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xDalRIdfA6dMgOJx3sSuathWPMMZwV8p4TL3vv9IDdI=; b=ECW/8K5rm01HL4
-	FK3wsLbR5lUEjnhXhqTeAeLBz3q81eetlP6Vtl8qJcTiDh4pKGNUit1VkZog1D69w9/qJ7ppE9xLv
-	RBX4NY6Rlqi62ziiEjQcR6ee+vsFs4K42bdbkcm3pEt0YnDAQ78pACIYLz4KjgMhBiTIsIaiCtYh3
-	Dg52Y2h4cePprVyuv93YfT4//2fRuF7I2TVWrfFjinMgvftJOUeBVZGmGMJj8aiVdH2wWb0ues3EU
-	5UmoOl3HqzGutyJ7ZlFlsRuiwM7FJ6W9UTRM31fgx0I4Ggm6MJ0dgpf3OVN6iCP6T4pLJ70SR0dMh
-	Pp99q4UVdXLVu6EMxlSA==;
+	List-Owner; bh=K+mv+4fOyZZVwxVkjL0e7RaxqG23w7whnqVCvLZP8V8=; b=5BfVjmzy4so4nz
+	EZVvPf9BMlYGHyUSeJz/H1aPRbNbaRaLBjmoe8mquqZgAunUPUsIc+Fl/sNd2jHIqByHmiZh3wq/G
+	VU3feFU8ghImLZ6z1DLFqUJhRrai9BosFQOshIMHPC+J5NV2AtWdqknXpsaWncPnbm3lCrkTtSaHu
+	on6v/YrjgW+HgU02cvmez41/Zaj0Zzp6hyBcnsaVa6gdHLO8yhFX2dBjp3XQkFfS17mkplP2jWEgZ
+	ctIU0JVKtlRwVAYGuqNa4IMAZJMRnfLPFR+EBhZW+yaFiBe+P8opIQrdebW2qnz6Li8sXII3/bFs4
+	VeVeXO7m8MoYbvI+XbKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x84FV-0000000Gfq2-3wCQ;
-	Sat, 19 Sep 2026 23:13:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x86bJ-0000000Gjjp-2AGD;
+	Sun, 20 Sep 2026 01:44:17 +0000
+Received: from out-56.mta1.migadu.com ([95.215.58.56] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x84FU-0000000Gfpw-2s5i
+	id 1x86bE-0000000Gjj6-0SM1
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Sep 2026 23:13:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9CDB3436F5;
-	Sat, 19 Sep 2026 23:13:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E960B1F000FF;
-	Sat, 19 Sep 2026 23:13:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789859615;
-	bh=2Sef/0wxyMwTpjYCRnlB9CgtNUDrbK2hMY8qeX5WdGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=agsW2GL4vTTRqpy7+o1jwke4n1/xbLd5GX9CLNxEpk/J+J6CA5r6gJkG1jKju+NPm
-	 wMOwUqTa8PrIQ5wkmYvByON9AH34njGzQIckoWUQPP6lfYsVH1JubRrXOdrW/fDw1f
-	 J2KFvOBBVO/gh08nduHOQAzcOQ9ftbLQRO7OVHCnjhE6vE1wWWV93XFIHgu/NnTaQy
-	 bwWdMoTMk2f5hcq3K2BvqZN+6n8vMasxFKOUFPoOB/yX3n73ayxbMRHE+cQ9UhK+Rg
-	 2as9+UFbBD1l4QEoqvsNfhlrtSmWN6j5jQbj2zLUJ0MnCtSxGzVIQUE/LcE7liMVkP
-	 JWzwOrSYgSyVg==
-Date: Sat, 19 Sep 2026 23:13:33 +0000
-From: Yixun Lan <dlan@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH 2/3] pmdomain: spacemit: Add power domain driver
-Message-ID: <20260919231333-GKB322102@kernel.org>
-References: <20260918-04-k3-pm-support-v1-0-0acd2b36b96f@kernel.org>
- <20260918-04-k3-pm-support-v1-2-0acd2b36b96f@kernel.org>
- <a4359efeee2220903a05a2383a651ec8ec7284b7.camel@icenowy.me>
- <20260918230107-GKC297024@kernel.org>
- <33b33b2b79763d410bc2e5b4ef46c305aaf6f7c8.camel@icenowy.me>
- <20260919095936-GKA322102@kernel.org>
- <8301abce221e33d827053c54a64aed05f3227f7f.camel@icenowy.me>
+	Sun, 20 Sep 2026 01:44:14 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=hMzUJFmtAt/DEQg8/nIuJR2E2yIQzqBmNStsr9v2FW0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1789868647; v=1; x=1790473447;
+ b=fVW8QFVcpcjx1uT9H2pAlIY7rSGcd+kEWp4902AMYYthYtG+Jvvy8yuXeSmOWgAHPnfb66z1
+ j120FZXbLfuUf3j4nXzTpPh6YBNhTrpylCQJ4b8ptmA/JPPZZAdgTTbx6G72Vlgcx+1bCSGVpkI
+ U219+tJIVacGcmAX32zN2wjQ=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 1c465c973ef91055;
+	Sun, 20 Sep 2026 01:44:07 +0000
+X-Mizu-Trace-ID: 1c465c973ef91055
+X-Migadu-Flow: FLOW_OUT
+From: Qingfang Deng <qingfang.deng@linux.dev>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Qingfang Deng <qingfang.deng@linux.dev>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org
+Subject: [PATCH v2 2/3] riscv: use generic MMIO accessors
+Date: Sun, 20 Sep 2026 09:43:50 +0800
+Message-ID: <20260920014357.7069-2-qingfang.deng@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260920014357.7069-1-qingfang.deng@linux.dev>
+References: <20260920014357.7069-1-qingfang.deng@linux.dev>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <8301abce221e33d827053c54a64aed05f3227f7f.camel@icenowy.me>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260919_184412_921736_E6DBF4EB 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,65 +70,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSWNlbm93eSwKCk9uIDIxOjU2IFNhdCAxOSBTZXAgICAgICwgSWNlbm93eSBaaGVuZyB3cm90
-ZToKPiDlnKggMjAyNi0wOS0xOeWFreeahCAwOTo1OSArMDAwMO+8jFlpeHVuIExhbuWGmemBk++8
-mgo+ID4gSGkgSWNlbm93eSwKPiA+IAo+ID4gT24gMTQ6NTcgU2F0IDE5IFNlcMKgwqDCoMKgICwg
-SWNlbm93eSBaaGVuZyB3cm90ZToKPiA+ID4g5ZyoIDIwMjYtMDktMTjkupTnmoQgMjM6MDEgKzAw
-MDDvvIxZaXh1biBMYW7lhpnpgZPvvJoKPiA+ID4gPiBIaSBJY2Vub3d5LCAKPiA+ID4gPiAKPiA+
-ID4gPiBPbiAxNzowMCBGcmkgMTggU2VwwqDCoMKgwqAgLCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+
-ID4gPiA+ID4g5ZyoIDIwMjYtMDktMTjkupTnmoQgMDI6NDAgKzAwMDDvvIxZaXh1biBMYW7lhpnp
-gZPvvJoKPiA+ID4gPiA+ID4gwqAgU3BhY2VtaVQncyBQTVUgKFBvd2VyIE1hbmFnZW1lbnQgVW5p
-dCkgY29uc2lzdCBvZiBzZXZlcmFsCj4gPiA+ID4gPiA+IHBvd2VyCj4gPiA+ID4gPiA+IGRvbWFp
-bnMKPiA+ID4gPiA+ID4gd2hpY2ggY2FuIGJlIG1hbmFnZWQgaW5kZXBlbmRlbnRseSwgZGVwZW5k
-aW5nIG9uIGRpZmZlcmVudAo+ID4gPiA+ID4gPiBhcHBsaWNhdGlvbgo+ID4gPiA+ID4gPiBzY2Vu
-YXJpbywgZWFjaCBkb21haW4gY2FuIGJlIHBvd2VyZWQgb24vb2ZmIGZvciBzYXZpbmcgcG93ZXIu
-Cj4gPiA+ID4gPiA+IAo+ID4gPiA+ID4gPiDCoCBUaGUgZHJpdmVyIGlzIGltcGxlbWVudGVkIGJh
-c2VkIG9uIExpbnV4IEdlbmVyaWMgUE0gRG9tYWluCj4gPiA+ID4gPiA+IGZyYW1ld29yay4KPiA+
-ID4gPiA+ID4gRnJvbSBhIGhhcmR3YXJlIHBlcnNwZWN0aXZlLCBlaXRoZXIgb2YgdHdvIGRpc3Rp
-bmN0IHBvd2VyLW9uCj4gPiA+ID4gPiA+IHNlcXVlbmNlcwo+ID4gPiA+ID4gPiBhcmUgc3VwcG9y
-dGVkLCBpbiBzb2Z0d2FyZSBtb2RlIChTVyBtb2RlKSwgdGhlIGRyaXZlciBpcwo+ID4gPiA+ID4g
-PiByZXNwb25zaWJsZQo+ID4gPiA+ID4gPiBmb3IKPiA+ID4gPiA+ID4gY29udHJvbGxpbmcgdGhl
-IHN0YXRlcyBvZiBiaXRzIHN1Y2ggYXMgc2xlZXAxLCBzbGVlcDIsCj4gPiA+ID4gPiA+IGlzb2xh
-dGlvbgo+ID4gPiA+ID4gPiBhbmQKPiA+ID4gPiA+ID4gcHdyX3N0YXRlLCB3aGlsZSBpbiBoYXJk
-d2FyZSBtb2RlIChIVyBtb2RlKSwgdGhlIFBNVSBoYXJkd2FyZQo+ID4gPiA+ID4gPiB3aWxsCj4g
-PiA+ID4gPiA+IGNvbXBsZXRlCj4gPiA+ID4gPiA+IHRoZSBzZXF1ZW5jZSBhdXRvbWF0aWNhbGx5
-IHdpdGhvdXQgcmVxdWlyaW5nIHNvZnR3YXJlCj4gPiA+ID4gPiA+IGludGVydmVudGlvbi4KPiA+
-ID4gPiA+IAo+ID4gPiA+ID4gSSB0aGluayB0aGVyZSBhbHNvIGV4aXN0cyBzb2x1dGlvbnMgZm9y
-IEszIHRoYXQgdXNlcyBSUE1JIHBvd2VyCj4gPiA+ID4gPiBkb21haW5zLCBhbmQgbGV0IHRoZWly
-IEVTT1MgZmlybXdhcmUgdG8gYWNjZXNzIHRoZSBoYXJkd2FyZS4KPiA+ID4gPiA+IAo+ID4gPiA+
-IFllcywgSSdtIGF3YXJlIG9mIHRoYXQKPiA+ID4gPiAKPiA+ID4gPiA+IFdoYXQncyB0aGUgcmVs
-YXRpb25zaGlwIG9mIHRoaXMgaW1wbGVtZW50YXRpb24gd2l0aCB0aGUgRVNPUwo+ID4gPiA+ID4g
-aW1wbGVtZW50YXRpb24/IFNob3VsZCB0aGUgRVNPUyBwYXJ0IGJlIGRpc2FibGVkIHRvIHVzZSB0
-aGlzCj4gPiA+ID4gPiBpbXBsZW1lbnRhdGlvbj8KPiA+ID4gPiA+IAo+ID4gPiA+IEkgc2hvdWxk
-IHNheSwgaXQncyBhIG11dHVhbGx5IGV4Y2x1c2l2ZSBzb2x1dGlvbiwgc28geWVzLCB0aGUKPiA+
-ID4gPiBFU09TCj4gPiA+ID4gcGFydAo+ID4gPiA+IHNob3VsZCBiZSBkaXNhYmxlZCBpbiBvcmRl
-ciB0byB1c2UgdGhpcyB2ZXJzaW9uCj4gPiA+ID4gCj4gPiA+ID4gVGhlIG1vdGl2YXRpb24gb2Yg
-dGhpcyBwYXRjaCBpcyB0cnlpbmcgdG8gc3VwcG9ydCBkcm0vZGlzcGxheQo+ID4gPiA+IGRyaXZl
-cidzCj4gPiA+ID4gUE0gcmVxdWlyZW1lbnQsIHdoaWxlIGF2b2lkIGdvaW5nIHdpdGggdmVuZG9y
-J3MgY29tcGxpY2F0ZWQgUlBNSQo+ID4gPiA+IHNvbHV0aW9uCj4gPiA+ID4gd2hpY2ggaXNuJ3Qg
-bWFpbmxpbmUgcmVhZHkKPiA+ID4gCj4gPiA+IElzIHRoaXMgYSBsb25nLXRlcm0gc29sdXRpb24s
-IG9yIGEgdGVtcG9yYXJ5IG9uZT8KPiA+ID4gCj4gPiBGb3IgdXBzdHJlYW0sIEknZCBzYXkgd2Ug
-cHJvYmFibHkgd2lsbCBzdGljayB0byB0aGlzIHNvbHV0aW9uIGZvcgo+ID4gbG9uZyB0aW1lLCB3
-b24ndCBzYXkgaXQgJ2ZvcmV2ZXInLCBzZWUgY29tbWVudCBiZWxvdy4uCj4gPiAKPiA+ID4gSWYg
-aXQncyBhIHRlbXBvcmFyeSBjb25mbGljdGluZyBvbmUsIEkgZG9uJ3QgdGhpbmsgaXQncyB3b3J0
-aAo+ID4gPiBwaWNraW5nCj4gPiA+IGF0IGFsbC4KPiA+ID4gCj4gPiBXZWxsLCBjaGVja2VkIGN1
-cnJlbnQgTGludXgga2VybmVsIHN0YXR1cywgdGhlcmUgaXMgbm8gUlBNSSBQTQo+ID4gc29sdXRp
-b24gCj4gPiBpbXBsZW1lbnRlZCBhbHRob3VnaCB0aGVyZSBpcyBkb2N1bWVudGF0aW9uIGluIHJp
-c2N2LXJwbWkgc3BlY1sxXQo+IAo+IEkgaGF2ZSBzZWVuIHBlbmRpbmcgcGF0Y2ggZm9yIGl0IHdp
-dGggbXVsdGlwbGUgcmV2aXNpb25zIFsxXSwgdGhlIGR0Cj4gYmluZGluZyBpcyBldmVuIGFscmVh
-ZHkgQUNLZWQgYnkgQ29ub3IsIHNvIEkgdGhpbmsgaXQncyBub3QgYSBiaWcKPiBwcm9ibGVtIGhl
-cmUuCj4gClRoYXQncyBleGFjdGx5IHdoYXQgSSBzYWlkIC0gaXQncyBub3QgbWF0dXJlLCBub3Qg
-c2F5aW5nIGl0J3MgcGVuZGluZwpwYXRjaCBmb3IgcmV2aWV3LCBidXQgZm9yIHdob2xlIHNvbHV0
-aW9uIHRoYXQgaW52b2x2ZSBMaW51eCBkcml2ZXIsCm9wZW5zYmkgYW5kIHVuZGVybHlpbmcgZmlt
-d2FyZSAoRVNPUykgLSB3aGljaCBub3QgdXBzdHJlYW0tZWQuLgoKVG8gbWFrZSBpdCBjbGVhciwg
-SSdtIG5vdCBnb2luZyB0byBwdXJzdWUgdGhlIFJQTUkgc29sdXRpb24sIGJ1dCBpZgpzb21lb25l
-IGluc2lzdCBhbmQgd2lsbGluZyB0byBzcGVuZCB0aGUgZWZmb3J0LCBwbGVhc2UgZmVlbCBmcmVl
-IHRvIHB1c2gKCi0tIApZaXh1biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+RISC-V implements its raw MMIO loads and stores in inline assembly and
+duplicates the generic ordered and relaxed accessors.
+
+Use asm-generic/mmio.h for these accessors and retain the RISC-V barrier
+hooks. This preserves the ordering and MMIOWB tracking while allowing
+the compiler to emit the native-width loads and stores.
+
+Assisted-by: Codex:gpt-6-astra
+Signed-off-by: Qingfang Deng <qingfang.deng@linux.dev>
+---
+v2: split asm-generic/io.h to fix M-mode build
+
+v1: https://lore.kernel.org/linux-riscv/20250530032252.3092502-1-dqfext@gmail.com/
+---
+ arch/riscv/include/asm/mmio.h | 123 +---------------------------------
+ 1 file changed, 3 insertions(+), 120 deletions(-)
+
+diff --git a/arch/riscv/include/asm/mmio.h b/arch/riscv/include/asm/mmio.h
+index 06cadfd7a237..715470551c42 100644
+--- a/arch/riscv/include/asm/mmio.h
++++ b/arch/riscv/include/asm/mmio.h
+@@ -1,7 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ /*
+- * {read,write}{b,w,l,q} based on arch/arm64/include/asm/io.h
+- *   which was based on arch/arm/include/io.h
++ * RISC-V memory-mapped I/O ordering.
+  *
+  * Copyright (C) 1996-2000 Russell King
+  * Copyright (C) 2012 ARM Ltd.
+@@ -11,92 +10,7 @@
+ #ifndef _ASM_RISCV_MMIO_H
+ #define _ASM_RISCV_MMIO_H
+ 
+-#include <linux/types.h>
+ #include <asm/fence.h>
+-#include <asm/mmiowb.h>
+-
+-/* Generic IO read/write.  These perform native-endian accesses. */
+-#define __raw_writeb __raw_writeb
+-static inline void __raw_writeb(u8 val, volatile void __iomem *addr)
+-{
+-	asm volatile("sb %0, 0(%1)" : : "r" (val), "r" (addr));
+-}
+-
+-#define __raw_writew __raw_writew
+-static inline void __raw_writew(u16 val, volatile void __iomem *addr)
+-{
+-	asm volatile("sh %0, 0(%1)" : : "r" (val), "r" (addr));
+-}
+-
+-#define __raw_writel __raw_writel
+-static inline void __raw_writel(u32 val, volatile void __iomem *addr)
+-{
+-	asm volatile("sw %0, 0(%1)" : : "r" (val), "r" (addr));
+-}
+-
+-#ifdef CONFIG_64BIT
+-#define __raw_writeq __raw_writeq
+-static inline void __raw_writeq(u64 val, volatile void __iomem *addr)
+-{
+-	asm volatile("sd %0, 0(%1)" : : "r" (val), "r" (addr));
+-}
+-#endif
+-
+-#define __raw_readb __raw_readb
+-static inline u8 __raw_readb(const volatile void __iomem *addr)
+-{
+-	u8 val;
+-
+-	asm volatile("lb %0, 0(%1)" : "=r" (val) : "r" (addr));
+-	return val;
+-}
+-
+-#define __raw_readw __raw_readw
+-static inline u16 __raw_readw(const volatile void __iomem *addr)
+-{
+-	u16 val;
+-
+-	asm volatile("lh %0, 0(%1)" : "=r" (val) : "r" (addr));
+-	return val;
+-}
+-
+-#define __raw_readl __raw_readl
+-static inline u32 __raw_readl(const volatile void __iomem *addr)
+-{
+-	u32 val;
+-
+-	asm volatile("lw %0, 0(%1)" : "=r" (val) : "r" (addr));
+-	return val;
+-}
+-
+-#ifdef CONFIG_64BIT
+-#define __raw_readq __raw_readq
+-static inline u64 __raw_readq(const volatile void __iomem *addr)
+-{
+-	u64 val;
+-
+-	asm volatile("ld %0, 0(%1)" : "=r" (val) : "r" (addr));
+-	return val;
+-}
+-#endif
+-
+-/*
+- * Unordered I/O memory access primitives.  These are even more relaxed than
+- * the relaxed versions, as they don't even order accesses between successive
+- * operations to the I/O regions.
+- */
+-#define readb_cpu(c)		({ u8  __r = __raw_readb(c); __r; })
+-#define readw_cpu(c)		({ u16 __r = le16_to_cpu((__force __le16)__raw_readw(c)); __r; })
+-#define readl_cpu(c)		({ u32 __r = le32_to_cpu((__force __le32)__raw_readl(c)); __r; })
+-
+-#define writeb_cpu(v, c)	((void)__raw_writeb((v), (c)))
+-#define writew_cpu(v, c)	((void)__raw_writew((__force u16)cpu_to_le16(v), (c)))
+-#define writel_cpu(v, c)	((void)__raw_writel((__force u32)cpu_to_le32(v), (c)))
+-
+-#ifdef CONFIG_64BIT
+-#define readq_cpu(c)		({ u64 __r = le64_to_cpu((__force __le64)__raw_readq(c)); __r; })
+-#define writeq_cpu(v, c)	((void)__raw_writeq((__force u64)cpu_to_le64(v), (c)))
+-#endif
+ 
+ /*
+  * Relaxed I/O memory access primitives. These follow the Device memory
+@@ -105,27 +19,7 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
+  * write) with all other I/O memory accesses to the same peripheral. Since the
+  * platform specification defines that all I/O regions are strongly ordered on
+  * channel 0, no explicit fences are required to enforce this ordering.
+- */
+-/* FIXME: These are now the same as asm-generic */
+-#define __io_rbr()		do {} while (0)
+-#define __io_rar()		do {} while (0)
+-#define __io_rbw()		do {} while (0)
+-#define __io_raw()		do {} while (0)
+-
+-#define readb_relaxed(c)	({ u8  __v; __io_rbr(); __v = readb_cpu(c); __io_rar(); __v; })
+-#define readw_relaxed(c)	({ u16 __v; __io_rbr(); __v = readw_cpu(c); __io_rar(); __v; })
+-#define readl_relaxed(c)	({ u32 __v; __io_rbr(); __v = readl_cpu(c); __io_rar(); __v; })
+-
+-#define writeb_relaxed(v, c)	({ __io_rbw(); writeb_cpu((v), (c)); __io_raw(); })
+-#define writew_relaxed(v, c)	({ __io_rbw(); writew_cpu((v), (c)); __io_raw(); })
+-#define writel_relaxed(v, c)	({ __io_rbw(); writel_cpu((v), (c)); __io_raw(); })
+-
+-#ifdef CONFIG_64BIT
+-#define readq_relaxed(c)	({ u64 __v; __io_rbr(); __v = readq_cpu(c); __io_rar(); __v; })
+-#define writeq_relaxed(v, c)	({ __io_rbw(); writeq_cpu((v), (c)); __io_raw(); })
+-#endif
+-
+-/*
++ *
+  * I/O memory access primitives.  Reads are ordered relative to any following
+  * Normal memory read and delay() loop.  Writes are ordered relative to any
+  * prior Normal memory write.  The memory barriers here are necessary as RISC-V
+@@ -136,17 +30,6 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
+ #define __io_bw()	RISCV_FENCE(w, o)
+ #define __io_aw()	mmiowb_set_pending()
+ 
+-#define readb(c)	({ u8  __v; __io_br(); __v = readb_cpu(c); __io_ar(__v); __v; })
+-#define readw(c)	({ u16 __v; __io_br(); __v = readw_cpu(c); __io_ar(__v); __v; })
+-#define readl(c)	({ u32 __v; __io_br(); __v = readl_cpu(c); __io_ar(__v); __v; })
+-
+-#define writeb(v, c)	({ __io_bw(); writeb_cpu((v), (c)); __io_aw(); })
+-#define writew(v, c)	({ __io_bw(); writew_cpu((v), (c)); __io_aw(); })
+-#define writel(v, c)	({ __io_bw(); writel_cpu((v), (c)); __io_aw(); })
+-
+-#ifdef CONFIG_64BIT
+-#define readq(c)	({ u64 __v; __io_br(); __v = readq_cpu(c); __io_ar(__v); __v; })
+-#define writeq(v, c)	({ __io_bw(); writeq_cpu((v), (c)); __io_aw(); })
+-#endif
++#include <asm-generic/mmio.h>
+ 
+ #endif /* _ASM_RISCV_MMIO_H */
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
