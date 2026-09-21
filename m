@@ -4,94 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C684BC982E6
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 16:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694E4C982E6
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 17:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FlDiOOvwOKNqzDH5aRIuNb5lqXVopyYmj8LB6F0ajCU=; b=WHoTm0YH1sL2Kx
-	vNZ8jAMIi4HKyZA9hWn6QrsE5HivPTtOaf1rAIAD6OHtNAuQeeDDiHurMiETSWjWXz04c79GzYEhu
-	DZwBmSC5upq8OeUrwvVMQvLcaguAL9dW3o31U4dLXh5XCKh+49qufVD1R1H4OKseD3q200tmtm1vN
-	0c49aHEyql+nNITXbcBORq5tTUgOkNnFlbxmOHrI3MZvJk3JsRd590VFtq/qmf5dlxaZaDcteh0U5
-	CGUjETDtENkmly13WYWKKnS38Vj1rRF9/Eojwp6L4ekNwR0foPjZedq6yNz8+woen60mcB29l0NbI
-	3XEuHufpxFJw4vG964Vg==;
+	List-Owner; bh=Ly2DyklRN/4857m3WbSWXVwafv/6x2+IPU4HqEFcySI=; b=zK+kg1KcsHLYW4
+	N8fewiPlRvIV9O6BFl6ziPlBnXCRXbBJxTzsvqRa+5waZ+1kglJhenX/M6DM/fmetsiB0uGGcAp3r
+	G8UmTvLJXshEZxZ2iJX/ZVRy1A6vZ/nv21wluFgb4fDX+d4LS8N0KWsUWL4IevUXW54RpeCzH5rNb
+	f51EIqTrDMXCbzo4cViub0D9oGlbKdFD7pWvBvc0N+w4nc1snWUaGjP2isjyKg5KurkMRc2Okc+15
+	upQKO0vvvbrPWoPMANx1PwVPssisbwX8YKgztDRdMxkVEvplgHIsxGkfNQD3KRcFEC4p7AFtAFx71
+	hdDAu2elp1iPcHh70tYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8hDS-00000002sls-0u95;
-	Mon, 21 Sep 2026 16:50:06 +0000
+	id 1x8i4a-000000031gX-0D2v;
+	Mon, 21 Sep 2026 17:45:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8hDP-00000002sl2-3j32;
-	Mon, 21 Sep 2026 16:50:04 +0000
+	id 1x8i4X-000000031dQ-0aVB
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 21 Sep 2026 17:44:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=9Hw49sKCrk0TxQWy4HKwk2Z7RruqtWeFijH78wRP870=; b=W/fdNxX02vixRdaiDSwdcGj9C6
-	gLXrODaitOzMy9U6MTVFedwCzG3uFDqvaT8/0TrM+zv9qmyGohdlc+ekWjKMM1kcbaQe+ifY295nc
-	Nfu9rG64FSvo5rMp6CcgHlPkC1ST/znl/OWg9sEyQRNNka3VVRM0vjZefhO5hymPsOqiUVnP4sd3T
-	3zFn/6CfhYsJP17aCW/cEI7c+IxVUiSmqgNn7nzoFCKGmKsuP+z9XNf3GSOSmIO8txtYMbpGbL5Qj
-	wzK9CiSx11DZj8NPZdCaYIuPSqM8n65Cq8TvA+YYj/sWfakk3lWMvwVWduVoHfKtLmzlAPrNZ0ZL8
-	YnYazToQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8hDM-0000000CaDP-0SHR;
-	Mon, 21 Sep 2026 16:50:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9584919F0;
-	Mon, 21 Sep 2026 09:49:53 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C3E73F9A2;
-	Mon, 21 Sep 2026 09:49:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790009397; bh=Wdg09chPpqQgC/K0e8SKRfjnjFGDVmMx8BswypSmTA0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XQmomevpZT09cy6cgr1kTzu2so5J171U16ite1cLw6tf7wJFB4IdlH5QxKz6sSd/4
-	 qRHE98CmDqCVVIr1K3Cv1yP6IMXAdywdYQoc3xBrma/fZL4DL86RO08+Hgqua4e3tA
-	 tpLMTY+ABzQMH+5gDW1Tr/akzSw8iQXUsL5/7yfc=
-Message-ID: <21180ec6-b9ad-43fd-9e52-51df644e1b93@arm.com>
-Date: Mon, 21 Sep 2026 17:49:42 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/6] dma: swiotlb: Centralize minimal pool sizing
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
- <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
- Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
- Huacai Chen <chenhuacai@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
-References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
- <20260921063628.362078-4-aneesh.kumar@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260921063628.362078-4-aneesh.kumar@kernel.org>
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=qeiicXWgTPk3n7JADXXm7zikz8BknOrQz3jHJRoDF6U=; b=h+2PdUvZTQxSVV9yeVvOMaPDvb
+	46jZVD9FmKm4xmvJ7V6rhx7u9bmlLkjHfiUCM/kdLZHXKL9z8IzHyq+vws5k/lh9KIf+l+bTQVE9n
+	YtToNHIF7xT7Lp71ioXapMrKjLYELeYPTsxFaVEda0ppaFBO46bt6s0nQdwB3gk377XokPsrHlaWz
+	rQVKt2aevOhMee1a3vcP2Y9fpSyVH2yFnsSUyN1lmyRvF0wnrz3KSHHzwUClP8KRAxcJ2Y/6HYHmp
+	JRttPqhQW9pPv0Zty9okk3A5RO1eUi4J5cY+LF91k/dyt/1soUe8SuQQq+3ZrZCvUX8T0/3ZvZVLU
+	PMd69SFA==;
+Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8i4U-0000000Cdpp-0mIJ
+	for linux-riscv@lists.infradead.org;
+	Mon, 21 Sep 2026 17:44:55 +0000
+Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-855315ccb64so3193418b3a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 10:44:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1790012692; x=1790617492; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=qeiicXWgTPk3n7JADXXm7zikz8BknOrQz3jHJRoDF6U=;
+        b=v2teOY9Ny9ESV88smd/ECUlWSQcazobThCD7U9JVgCMMDldH+Rvt2vL49rvaO6JJVI
+         QF6lmriS2VkdmdJN1egxrc4228/maupDZPnNL0O+Yz8Y/5KoDWFuDKKK9WuiECWobp7q
+         O4LpSwNDDzegA4WwDVWn8Fgp4a+y/yfZ2nM1Pos6FoZVKs3E09vi2ulyAq9T/d01BoWF
+         eyTQn1WwameV0BIXEB7us/0RRxb9f+/QoOiq5MF69bjYypAQ7cLl9xqyAR7mJsnX4OOt
+         Ut8X004urrCXIjoddzyG+ZaNlSb84QyN15ZazWv2GLQsn5SFIW0jjGyacHJIoCpKZwbw
+         cXlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790012692; x=1790617492;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qeiicXWgTPk3n7JADXXm7zikz8BknOrQz3jHJRoDF6U=;
+        b=Tesr+mvSj3WAwCYJra3rxQYPrjwRbf3wtnVBz5q9qH5peXnZUaKRqwxnSHESeNuWwa
+         rdh6DyVXGf+kpBKYVpRlWKMCR0coReR/oGfKLYpkbhRXmnyGrOsiXKA6FTtJi6W2VCfj
+         RM+AeA1WegLNyLQ0Nu8ryCOtrBxMoeW77YqLy/MtVhnSuHJKzKlg7y14SSawHrfivegt
+         /dCIcceMAjoMgkHvnYl2PuOtlgdbLE1ctocjS7PVn/iwJhoEasuBHycqltxP4TUbMMVC
+         P/na0OJhOnJnV0/TDBm8abASsfFjlVHOAOUOfA1XP78ZD7h2MEZzPE+urtG/V3QKLxNe
+         XjWg==
+X-Forwarded-Encrypted: i=1; AKwUvByiNe5e1QNa+q0bOaSWAOjCIMP+bllZL1vH3rEfARaZO9GOkuG8k5/MbKzmkCxtY8n+UyXEZI/T+hCoCw==@lists.infradead.org
+X-Gm-Message-State: AFuF++lKeVqmbcpNwUn0Z7u3aa3Ky0mQzqWKtXGvbVpB47vGEXREz6z4
+	kKwL0GLCYJO4J/NoeX3XI49WNfnAQ52XO6HZIumCJL5igD+lmU15h5sqwheqkwM6riBJ23Eiv6m
+	Ek2bEqw==
+X-Received: from pfw3.prod.google.com ([2002:a05:6a00:a263:b0:879:1348:bebf])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:1f06:b0:857:727c:a1f1
+ with SMTP id d2e1a72fcca58-874dddfa3acmr14506041b3a.19.1790012691865; Mon, 21
+ Sep 2026 10:44:51 -0700 (PDT)
+Date: Mon, 21 Sep 2026 10:44:42 -0700
+In-Reply-To: <20260921174445.911676-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20260921174445.911676-1-seanjc@google.com>
+X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
+Message-ID: <20260921174445.911676-5-seanjc@google.com>
+Subject: [PATCH v2 4/7] KVM: Protect all of kvm_vm_ioctl_create_vcpu() with kvm->lock
+From: Sean Christopherson <seanjc@google.com>
+To: Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe <rick.p.edgecombe@intel.com>
+Cc: Nicholas Piggin <npiggin@gmail.com>, Atish Patra <atish.patra@linux.dev>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Jean-Christophe Guillain <jean-christophe@guillain.net>, 
+	"=?UTF-8?q?Pawe=C5=82=20S?=" <spawel523@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_175000_678464_11C7B4A7 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20260921_184454_319354_B7786A40 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,115 +109,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
-> A default SWIOTLB pool used only for unaligned kmalloc bouncing can be
-> smaller than one required for limited DMA addressing. Arm64 and RISC-V
-> currently implement this sizing independently, using 1 MiB of SWIOTLB
-> space per GiB of RAM.
-> 
-> The SWIOTLB core now identifies this case with SWIOTLB_POOL_MINIMAL.
-> Size that policy in swiotlb_adjust_pool_size() and remove the
-> architecture-specific adjustments.
-> 
-> Explicit swiotlb= sizing remains unchanged because swiotlb_adjust_size()
-> preserves a user-configured size.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->   arch/arm64/mm/init.c | 11 -----------
->   arch/riscv/mm/init.c |  4 ----
->   kernel/dma/swiotlb.c | 11 ++++++++++-
->   3 files changed, 10 insertions(+), 16 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 7d51fb5f5a71..95075b5c8207 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -340,17 +340,6 @@ void __init arch_mm_preinit(void)
->   {
->   	unsigned int flags = SWIOTLB_VERBOSE;
->   
-> -	if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
-> -		/*
-> -		 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
-> -		 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
-> -		 */
-> -		unsigned long size =
-> -			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
-> -
-> -		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
-> -	}
-> -
->   	if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
->   		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
->   
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index e0e4c103d603..96856114b387 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -183,10 +183,6 @@ void __init arch_mm_preinit(void)
->   		 * memory when DRAM starts above dma32_phys_limit.  Allocate
->   		 * ~1 MB per 1 GB of RAM.
->   		 */
-> -		unsigned long size =
-> -			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
-> -		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
-> -		swiotlb = true;
->   		swiotlb_flags |= SWIOTLB_ANY;
->   	}
->   
-> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-> index 8f86deb25be2..f368a73f4ed0 100644
-> --- a/kernel/dma/swiotlb.c
-> +++ b/kernel/dma/swiotlb.c
-> @@ -483,9 +483,18 @@ static bool __init swiotlb_kmalloc_needs_bounce(void)
->   static void __init
->   swiotlb_adjust_pool_size(enum swiotlb_pool_policy policy)
->   {
-> +	if (swiotlb_default_size_changed())
-> +		return;
-> +
+When creating a vCPU, don't drop kvm->lock to when doing the bulk of actual
+vCPU creation, as allowing multiple vCPUs to be created in parallel adds
+significant complexity in KVM (as evidenced by the many related bugs), and
+all known VMMs fully serialize vCPU creation.  Remove all manually locking
+of kvm->lock from kvm_arch_vcpu_{post,}create() for obvious reasons.
 
-This appears to be entirely redundant, as ultimately the point of this 
-function is to call swiotlb_adjust_size() (if it does anything at all), 
-and the first thing that does is this same exact check. We hardly need 
-to micro-optimise short-circuiting a handful of arithmetic in a one-off 
-setup path, and it's convoluted enough as it is, so please try to avoid 
-redundancy that makes it even more confusing to follow.
+For many years, "everyone" has assumed that dropping kvm->lock was done for
+performance reasons optimization, e.g. to allow userspace to create all
+vCPUs concurrently for latency purposes.  But as above, no known VMM does
+that.  Looking at the history of this code, before commit 11ec28047118
+("KVM: Convert vm lock to a mutex"), kvm->lock was a spinlock.  I.e. KVM
+*had* to drop kvm->lock when doing the bulk of vCPU creation, otherwise KVM
+couldn't do normal memory allocations.  When kvm->lock got turned into a
+mutex for unrelated reasons, no one took advantage updated of the change to
+simplify vCPU creation.  And 19 years later, everyone just assumed that KVM
+continued to deal with the complexity for performance reasons.
 
->   	switch (policy) {
-> -	case SWIOTLB_POOL_MINIMAL:
-> +	case SWIOTLB_POOL_MINIMAL: {
-> +		unsigned long size;
-> +
-> +		/* Use 1MB per 1GB of RAM for kmalloc() bouncing. */
-> +		size = DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
-> +		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
->   		break;
+Furthermore, naively parallelizing vCPU creation in userspace is likely a
+net negative due to the overheads of task creation.  Unless a VMM carefully
+avoids the extra overhead related to parallelization, e.g. spawns each
+vCPU's thread before creating the vCPU, creating vCPUs concurrently is a
+net *negative* up until about ~64 vCPUs, after which the times are a wash.
 
-Similarly I think it would be clearer if we had a common 
-swiotlb_adjust_size() call at the end of the function, and then either 
-calculate a size or return early in each switch case as appropriate.
+The absolute speed of light _is_ faster if KVM doesn't hold kvm-lock, but
+at vCPU counts of ~16 or less, it's probably in the noise when considering
+total VM creation time, as the added latency is less than 1ms up until 16
+or so vCPUs.
 
-Furthermore, swiotlb_size_or_default() is awful IMO - and in fact after 
-this series we could perhaps clean it up entirely by making the size 
-implicit in swiotlb_init_late() - not to mention misleadingly redundant. 
-I'd say just open-code "default_nslabs << IO_TLB_SHIFT" like elsewhere 
-in the file, but in fact it may as well just be IO_TLB_DEFAULT_SIZE 
-(think about it...)
+On top of all that, KVM has had a *lot* of fatal bugs (most often found by
+syzkaller) related to vCPUs being created while trying to do per-VM
+operations (basically, see every flow that locks all vCPUs).  I.e. the
+parallel vCPU creation "support" is actively harmful as the only "use case"
+is for misbehaving userspace to exploit KVM bugs.
 
-Thanks,
-Robin.
+Serializing vCPU creation will allow reverting commit 97d65b544f48 ("KVM:
+Check for duplicate vcpu_id as early as possible"), which had "minor" math
+error: the worst case scenario isn't "256 bytes per VM", it's "256 unsigned
+longs per VM", i.e. 2048 bytes per VM, which doubles the size of each VM
+and pushes several architectures into order-1 allocations.
 
-> +	}
->   	case SWIOTLB_POOL_CC_GUEST:
->   		break;
->   	case SWIOTLB_POOL_NONE:
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/powerpc/kvm/book3s_hv.c |  2 --
+ arch/s390/kvm/s390/s390.c    |  5 +----
+ virt/kvm/kvm_main.c          | 22 +++++-----------------
+ 3 files changed, 6 insertions(+), 23 deletions(-)
+
+diff --git a/arch/powerpc/kvm/book3s_hv.c b/arch/powerpc/kvm/book3s_hv.c
+index 0409ac9e7b31..30f7095a156e 100644
+--- a/arch/powerpc/kvm/book3s_hv.c
++++ b/arch/powerpc/kvm/book3s_hv.c
+@@ -3058,7 +3058,6 @@ static int kvmppc_core_vcpu_create_hv(struct kvm_vcpu *vcpu)
+ 
+ 	init_waitqueue_head(&vcpu->arch.cpu_run);
+ 
+-	mutex_lock(&kvm->lock);
+ 	vcore = NULL;
+ 	err = -EINVAL;
+ 	if (cpu_has_feature(CPU_FTR_ARCH_300)) {
+@@ -3091,7 +3090,6 @@ static int kvmppc_core_vcpu_create_hv(struct kvm_vcpu *vcpu)
+ 			mutex_unlock(&kvm->arch.mmu_setup_lock);
+ 		}
+ 	}
+-	mutex_unlock(&kvm->lock);
+ 
+ 	if (!vcore)
+ 		return err;
+diff --git a/arch/s390/kvm/s390/s390.c b/arch/s390/kvm/s390/s390.c
+index eca4a4359ab2..cc628afbb850 100644
+--- a/arch/s390/kvm/s390/s390.c
++++ b/arch/s390/kvm/s390/s390.c
+@@ -3579,12 +3579,11 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 
+ void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
+ {
+-	mutex_lock(&vcpu->kvm->lock);
+ 	preempt_disable();
+ 	vcpu->arch.sie_block->epoch = vcpu->kvm->arch.epoch;
+ 	vcpu->arch.sie_block->epdx = vcpu->kvm->arch.epdx;
+ 	preempt_enable();
+-	mutex_unlock(&vcpu->kvm->lock);
++
+ 	if (!kvm_is_ucontrol(vcpu->kvm)) {
+ 		vcpu->arch.gmap = vcpu->kvm->arch.gmap;
+ 		sca_add_vcpu(vcpu);
+@@ -3757,13 +3756,11 @@ static int kvm_s390_vcpu_setup(struct kvm_vcpu *vcpu)
+ 
+ 	kvm_s390_vcpu_pci_setup(vcpu);
+ 
+-	mutex_lock(&vcpu->kvm->lock);
+ 	if (kvm_s390_pv_is_protected(vcpu->kvm)) {
+ 		rc = kvm_s390_pv_create_cpu(vcpu, &uvrc, &uvrrc);
+ 		if (rc)
+ 			kvm_s390_vcpu_unsetup_cmma(vcpu);
+ 	}
+-	mutex_unlock(&vcpu->kvm->lock);
+ 
+ 	return rc;
+ }
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 78cc090435be..c17cc8dd371b 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4165,6 +4165,8 @@ static int kvm_vm_ioctl_create_vcpu(struct kvm *kvm, unsigned long id)
+ 	struct kvm_vcpu *vcpu;
+ 	struct page *page;
+ 
++	guard(mutex)(&kvm->lock);
++
+ 	/*
+ 	 * KVM tracks vCPU IDs as 'int', be kind to userspace and reject
+ 	 * too-large values instead of silently truncating.
+@@ -4177,26 +4179,18 @@ static int kvm_vm_ioctl_create_vcpu(struct kvm *kvm, unsigned long id)
+ 	if (id >= KVM_MAX_VCPU_IDS)
+ 		return -EINVAL;
+ 
+-	mutex_lock(&kvm->lock);
+-	if (kvm->created_vcpus >= kvm->max_vcpus) {
+-		mutex_unlock(&kvm->lock);
++	if (kvm->created_vcpus >= kvm->max_vcpus)
+ 		return -EINVAL;
+-	}
+ 
+-	if (test_bit(id, kvm->vcpu_ids)) {
+-		mutex_unlock(&kvm->lock);
++	if (test_bit(id, kvm->vcpu_ids))
+ 		return -EEXIST;
+-	}
+ 
+ 	r = kvm_arch_vcpu_precreate(kvm, id);
+-	if (r) {
+-		mutex_unlock(&kvm->lock);
++	if (r)
+ 		return r;
+-	}
+ 
+ 	kvm->created_vcpus++;
+ 	__set_bit(id, kvm->vcpu_ids);
+-	mutex_unlock(&kvm->lock);
+ 
+ 	vcpu = kmem_cache_zalloc(kvm_vcpu_cache, GFP_KERNEL_ACCOUNT);
+ 	if (!vcpu) {
+@@ -4227,8 +4221,6 @@ static int kvm_vm_ioctl_create_vcpu(struct kvm *kvm, unsigned long id)
+ 			goto arch_vcpu_destroy;
+ 	}
+ 
+-	mutex_lock(&kvm->lock);
+-
+ 	if (WARN_ON_ONCE(kvm_get_vcpu_by_id(kvm, id))) {
+ 		r = -EEXIST;
+ 		goto unlock_vcpu_destroy;
+@@ -4267,7 +4259,6 @@ static int kvm_vm_ioctl_create_vcpu(struct kvm *kvm, unsigned long id)
+ 	atomic_inc(&kvm->online_vcpus);
+ 	mutex_unlock(&vcpu->mutex);
+ 
+-	mutex_unlock(&kvm->lock);
+ 	kvm_arch_vcpu_postcreate(vcpu);
+ 	kvm_create_vcpu_debugfs(vcpu);
+ 	return r;
+@@ -4278,7 +4269,6 @@ static int kvm_vm_ioctl_create_vcpu(struct kvm *kvm, unsigned long id)
+ 	xa_erase(&kvm->vcpu_array, vcpu->vcpu_idx);
+ unlock_vcpu_destroy:
+ 	vcpu->vcpu_idx = -1;
+-	mutex_unlock(&kvm->lock);
+ 	kvm_dirty_ring_free(&vcpu->dirty_ring);
+ arch_vcpu_destroy:
+ 	kvm_arch_vcpu_destroy(vcpu);
+@@ -4287,10 +4277,8 @@ static int kvm_vm_ioctl_create_vcpu(struct kvm *kvm, unsigned long id)
+ vcpu_free:
+ 	kmem_cache_free(kvm_vcpu_cache, vcpu);
+ vcpu_decrement:
+-	mutex_lock(&kvm->lock);
+ 	kvm->created_vcpus--;
+ 	__clear_bit(id, kvm->vcpu_ids);
+-	mutex_unlock(&kvm->lock);
+ 	return r;
+ }
+ 
+-- 
+2.55.0.1082.g2b9226bbc0-goog
 
 
 _______________________________________________
