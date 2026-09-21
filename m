@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63544C982F7
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 05:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DBFC982ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 05:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eVdTU86KMb1rnlPDjLkA57H8nZLAlusAa3ib8GECxo4=; b=ijS+BJHQUbIi/9
-	8X+/eYeIdbcZdabohffxhl1+0almCzTWvHOGl/kNfQaY9goJV51dsS/VngvRhOo/tTHi911eui5cJ
-	WL1YOEPuOQNsY+iVvLhR86HUrUFU8X8VEr78UEBlZXjcq+hBWSgE1L5DwUzzi0h/E/bt9myYxtsoV
-	ZbgDCcYoyXF1v68wsbrPdhzVkKUr03TVybfrps+lMmA1OyZStlOVfH4u0R4xT2EYX3ISC+5T8yttm
-	nSIWvGTDc++3Y9t6TLl16Jystw28L9BPANmaNmZ6E0LUdYCY4RRWaKamfNbRTZSmHOqnWs7M8Rikx
-	HCsWN2DumLz6cnttRSAQ==;
+	List-Owner; bh=9UceZlfMd6hzgzFN29i8x+rqVvdBO/HmUnQkY39jbhA=; b=oNZmqStFDjdCPD
+	WmyQVGke2TGLtvk2rxMNfE4lU5GA0TBKpBUZnobP3XidnZwTX8J7Naz3sFnFsDAJoPtH0kG3fqGjK
+	H5RnulQK2z+BNlwM/eD+2eLB5Um5cLYtYoDQZv1zyIA5XjDlxpFe70GLpTLKcglIVn9UYPKMNKzyL
+	IJVHu7NKOGaQlC0tTTTvnXOafMSCNk9l6/FKQ4U4Ow5YSsUKAwfkb+SIVNJeatRoYf6051oqPcowz
+	Dn/zKISkgMFz8YIDU4Z8OdsoaHC0P+UFey6RfWz4Q/Lpow2kJBmWOQITAlzH5/GttgrNB0DYtdPLX
+	7oLvnWEwB1frrH24bKBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8WNy-00000000tJn-19WV;
-	Mon, 21 Sep 2026 05:16:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8WNq-00000000tEn-3JqI
-	for linux-riscv@lists.infradead.org;
+	id 1x8WNq-00000000tFG-3zJD;
 	Mon, 21 Sep 2026 05:16:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8WNp-00000000tDx-2L0k
+	for linux-riscv@lists.infradead.org;
+	Mon, 21 Sep 2026 05:16:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3ED7360220;
-	Mon, 21 Sep 2026 05:16:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B26FB1F000FF;
+	by sea.source.kernel.org (Postfix) with ESMTP id 504C1448BE;
 	Mon, 21 Sep 2026 05:16:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1A6E1F00893;
+	Mon, 21 Sep 2026 05:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789967766;
-	bh=xrbxpAIudFXLQj0+9acngXmOgr6mUBsVSCepUOvq0KU=;
+	s=k20260515; t=1789967765;
+	bh=lwSKS6W6HhL1Ql1jfyigEqHpJBGpQYQ2rJqm5NzIuGE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=X48SLngoUJu+xvQlChDPm/opx1y8tBFRk2E8KAGZVoWao1w0+eZvYd/EhB5W2FUxN
-	 pFtHV/Z2PRjWXxQ03LIpqaRJVOpJ9M5hmnemuZyob5jOBmQNKuJY+8lMbfS5LsHATL
-	 JdhgbSZXOa6i4Td8mM3Nz2V0rmeCuMaDhmdEJBRcM9r5DblbFXiw734yuD1fIF7V6a
-	 aQFkPvv65XWZW4jbHYuPMV5xMB1I/CpVUZznO0Ywc2L7PewYrU4ZvqdO0jRKJkGh6a
-	 MMi0/5kbZzSV7Z3AeE2uT7Z2y5b0IzOFBA8rrs0fGUlV3bIWQutYqE72sunSTOXKqb
-	 EK3EWhWT517Yw==
+	b=hRQANaMgs17/6VSF0JU4mhvDouBHwJpPuIat0NoyyNtJhno0dv5U8+QUVYIeurOIo
+	 uZpVEU8Z+JkWDZAA9LMWzUchYta29mlppSkgjjIMk9ibnDqbCAvOp4XDQZEY9hv0zx
+	 zvOlojmxBE7PB4fUc0RrCcOaUjdX2cfpY1UB5tS81yCv26ylNp5BvlxMueHdLG7kjQ
+	 CF933MMbv7U4nBIhbLyUumJL8V1AgORpBwoY++X9gofyZdsuzlru2cqD9If805e5c7
+	 31fBSeABXpPJOX2HhtcvaUqS3jNmmfrlw7jnfa2IZGK6y4XAXQFutwXG+EEkiHSveU
+	 MsRM6mshCk1Gw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -51,9 +51,9 @@ Cc: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
 	linux-riscv@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 07/20] lib/crypto: x86/aes-xts: Add AES-NI optimization
-Date: Sun, 20 Sep 2026 22:08:53 -0700
-Message-ID: <20260921050910.296144-8-ebiggers@kernel.org>
+Subject: [PATCH 05/20] lib/crypto: x86/aes-cbc: Add AES-NI optimization
+Date: Sun, 20 Sep 2026 22:08:51 -0700
+Message-ID: <20260921050910.296144-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260921050910.296144-1-ebiggers@kernel.org>
 References: <20260921050910.296144-1-ebiggers@kernel.org>
@@ -74,237 +74,403 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Optimize the crypto library's AES-XTS support with AES-NI, making its
-performance be at least at parity with the "xts-aes-aesni" skcipher
-algorithm that it will supersede.
+Optimize the crypto library's AES-CBC and AES-CBC-CTS support with
+AES-NI, making their performance be at least at parity with the
+"cbc-aes-aesni" and "cts-cbc-aes-aesni" skcipher algorithms that they
+will supersede.
 
-The new assembly function is written from scratch to fit well into the
-crypto library and to be more consistent with aes-xts-avx-x86_64.S than
-the code in arch/x86/crypto/aesni-intel_asm.S that it will supersede.
-At a high level it is quite similar though, including doing 4 blocks per
-iteration and supporting 32-bit mode for parity with the old code.
-
-Note: the priority of xts-aes-lib is left unchanged at 110 temporarily.
-It will be increased when the AVX-optimized code is migrated too.
+The new assembly functions are written from scratch to fit well into the
+crypto library.  However, they are functionally very similar to the
+functions in arch/x86/crypto/aesni-intel_asm.S that they will supersede
+and are intended to provide parity with those -- including supporting
+32-bit mode, having the inner loops do 4 AES blocks per iteration, etc.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/x86/aes-aesni.S | 146 +++++++++++++++++++++++++++++++++++++
- lib/crypto/x86/aes.h       |  44 +++++++++++
- 2 files changed, 190 insertions(+)
+ crypto/aes.c               |   4 +-
+ lib/crypto/x86/aes-aesni.S | 246 +++++++++++++++++++++++++++++++++++++
+ lib/crypto/x86/aes.h       |  89 ++++++++++++++
+ 3 files changed, 337 insertions(+), 2 deletions(-)
 
+diff --git a/crypto/aes.c b/crypto/aes.c
+index 5a97dc812e8b..cc2cd6b08eee 100644
+--- a/crypto/aes.c
++++ b/crypto/aes.c
+@@ -625,7 +625,7 @@ static struct skcipher_alg skcipher_algs[] = {
+ 	{
+ 		.base.cra_name = "cbc(aes)",
+ 		.base.cra_driver_name = "cbc-aes-lib",
+-		.base.cra_priority = 110,
++		.base.cra_priority = IS_ENABLED(CONFIG_X86) ? 300 : 110,
+ 		.base.cra_blocksize = AES_BLOCK_SIZE,
+ 		.base.cra_ctxsize = sizeof(struct aes_key),
+ 		.base.cra_module = THIS_MODULE,
+@@ -651,7 +651,7 @@ static struct skcipher_alg skcipher_algs[] = {
+ 	{
+ 		.base.cra_name = "cts(cbc(aes))",
+ 		.base.cra_driver_name = "cts-cbc-aes-lib",
+-		.base.cra_priority = 110,
++		.base.cra_priority = IS_ENABLED(CONFIG_X86) ? 300 : 110,
+ 		.base.cra_blocksize = AES_BLOCK_SIZE,
+ 		.base.cra_ctxsize = sizeof(struct aes_key),
+ 		.base.cra_module = THIS_MODULE,
 diff --git a/lib/crypto/x86/aes-aesni.S b/lib/crypto/x86/aes-aesni.S
-index 24c53f1a144b..50f09ac6ef34 100644
+index fdb2917deb59..17da4d710574 100644
 --- a/lib/crypto/x86/aes-aesni.S
 +++ b/lib/crypto/x86/aes-aesni.S
-@@ -50,6 +50,17 @@
+@@ -58,6 +58,14 @@
+ 	// The AES round constants, used during key expansion
+ 	.long	0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36
  
- .section .rodata
- .p2align 4
-+.Lxts_gf_poly:
-+	// For XTS: a constant used when advancing the tweak by one block by
-+	// multiplying by the polynomial 'x' in GF(2^128).  The low 64 bits of
-+	// this value represent the polynomial x^7 + x^2 + x + 1; it is the
-+	// value that must be XOR'd into the low 64 bits of the tweak each time
-+	// a 1 is carried out of the high 64 bits.
-+	//
-+	// The high 64 bits of this value is just the internal carry bit that
-+	// exists when there's a carry out of the low 64 bits of the tweak.
-+	.quad	0x87, 1
++.Lcts_permute_table:
++	.byte	0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80
++	.byte	0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80
++	.byte	0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07
++	.byte	0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f
++	.byte	0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80
++	.byte	0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80
 +
- #ifdef __x86_64__
- .Lbswap_mask:
- 	// A mask for pshufb that byte-reflects the value.
-@@ -776,3 +787,138 @@ SYM_FUNC_START(aes_ctr64_crypt_aesni)
- 	RET
- SYM_FUNC_END(aes_ctr64_crypt_aesni)
- #endif // __x86_64__
+ .text
+ 
+ // In 32-bit mode, push certain callee-saved GPRs and optionally load function
+@@ -402,3 +410,241 @@ SYM_FUNC_END(aes_ecb_encrypt_aesni)
+ SYM_FUNC_START(aes_ecb_decrypt_aesni)
+ 	_ecb_crypt	0
+ SYM_FUNC_END(aes_ecb_decrypt_aesni)
 +
-+// Given a 128-bit XTS tweak in the xmm register \tweak, compute the next tweak
-+// (by multiplying by the polynomial 'x') and write it back to \tweak.
-+.macro	_next_tweak	tweak, tmp
-+	pshufd		$0x13, \tweak, \tmp
-+	paddq		\tweak, \tweak
-+	psrad		$31, \tmp
-+	pand		GF_POLY, \tmp
-+	pxor		\tmp, \tweak
-+.endm
-+
-+.macro	_aes_xts_crypt	enc
++// void aes_cbc_encrypt_aesni(u8 *dst, const u8 *src, long nblocks,
++//			      u8 iv[AES_BLOCK_SIZE],
++//			      const struct aes_enckey *key);
++SYM_FUNC_START(aes_cbc_encrypt_aesni)
 +	// Arguments
 +	.set	DST,		ARG0
 +	.set	SRC,		ARG1
 +	.set	NBLOCKS,	ARG2
-+	.set	NBLOCKS32,	ARG2_32	// Used for improved code density
-+	.set	TWEAK_PTR,	ARG3
++	.set	IV_PTR,		ARG3
 +	.set	KEY,		ARG4
 +
 +	// Other local variables
 +#ifdef __x86_64__
 +	.set	RNDKEY_PTR,	%r9
 +#else
-+	.set	RNDKEY_PTR,	TWEAK_PTR // TWEAK_PTR is clobbered and reloaded later.
++	.set	RNDKEY_PTR,	IV_PTR // IV_PTR is clobbered and reloaded later
 +#endif
 +	.set	NROUNDS,	TMP_32
++	.set	AESDATA0,	%xmm0
++	.set	PTEXT,		%xmm1
++	_prologue	uses_arg3=2, uses_arg4=2
++
++	movdqu		(IV_PTR), AESDATA0
++.p2align 5
++.Lcbc_enc_loop:
++	movdqu		(SRC), PTEXT
++	pxor		PTEXT, AESDATA0
++	_do_aes		1, 0
++	movdqu		AESDATA0, (DST)
++	add		$16, DST
++	add		$16, SRC
++	dec		NBLOCKS
++	jnz		.Lcbc_enc_loop
++
++	// Store the next IV.  On 32-bit, reload IV_PTR from stack first.
++	_reload_arg3
++	movdqu		AESDATA0, (IV_PTR)
++	_epilogue
++SYM_FUNC_END(aes_cbc_encrypt_aesni)
++
++// void aes_cbc_decrypt_aesni(u8 *dst, const u8 *src, long nblocks,
++//			      u8 iv[AES_BLOCK_SIZE],
++//			      const struct aes_key *key);
++SYM_FUNC_START(aes_cbc_decrypt_aesni)
++	// Arguments
++	.set	DST,		ARG0
++	.set	SRC,		ARG1
++	.set	NBLOCKS,	ARG2
++	.set	NBLOCKS32,	ARG2_32	// Used for improved code density
++	.set	IV_PTR,		ARG3
++	.set	KEY,		ARG4
++
++	// Other local variables
++#ifdef __x86_64__
++	.set	RNDKEY_PTR,	%r9
++#else
++	.set	RNDKEY_PTR,	IV_PTR // IV_PTR is clobbered and reloaded later
++#endif
++	.set	NROUNDS, TMP_32
 +	.set	AESDATA0,	%xmm0
 +	.set	AESDATA1,	%xmm1
 +	.set	AESDATA2,	%xmm2
 +	.set	AESDATA3,	%xmm3
-+	.set	GF_POLY,	%xmm4
-+	.set	RNDKEY,		%xmm5
-+	.set	TWEAK,		%xmm6
-+	.set	SAVED_TWEAK0,	%xmm7
++	.set	RNDKEY,		%xmm4
++	.set	IV,		%xmm5
++	.set	CTEXT0,		%xmm6
++	.set	CTEXT1,		%xmm7
 +#ifdef __x86_64__
-+	.set	SAVED_TWEAK1,	%xmm8
-+	.set	SAVED_TWEAK2,	%xmm9
++	.set	CTEXT2,		%xmm8
++	.set	CTEXT3,		%xmm9
 +#endif
-+
 +	_prologue	uses_arg3=2, uses_arg4=2
 +
-+	movdqu		(TWEAK_PTR), TWEAK
-+	movdqa		RODATA(.Lxts_gf_poly), GF_POLY
++	movdqu		(IV_PTR), IV
 +
 +	sub		$4, NBLOCKS
-+	jl		.Lxts_loop4_done\@
++	jl		.Lcbc_dec_loop4_done
++
 +.p2align 5
-+.Lxts_loop4\@:
-+	// Load the next four source blocks into AESDATA[0-3] and XOR them with
-+	// their tweaks, advancing the tweak three times in order to do so.
-+	// Save the four tweaks for later; on 64-bit they all fit into
-+	// registers, while on 32-bit two tweaks are spilled to DST.
-+.irp i, 0,1,2,3
-+	movdqu		\i*16(SRC), AESDATA\i
-+	pxor		TWEAK, AESDATA\i
-+  .if \i != 3
++.Lcbc_dec_loop4:
++	movdqu		0(SRC), AESDATA0
++	movdqu		16(SRC), AESDATA1
++	movdqu		32(SRC), AESDATA2
++	movdqu		48(SRC), AESDATA3
++	movdqa		AESDATA0, CTEXT0
++	movdqa		AESDATA1, CTEXT1
 +#ifdef __x86_64__
-+	movdqa		TWEAK, SAVED_TWEAK\i
-+#else
-+    .if \i == 0
-+	movdqa		TWEAK, SAVED_TWEAK0
-+    .else
-+	movdqu		TWEAK, (\i-1)*16(DST)
-+    .endif
++	movdqa		AESDATA2, CTEXT2
++	movdqa		AESDATA3, CTEXT3
 +#endif
-+	_next_tweak	TWEAK, RNDKEY
-+  .endif
-+.endr
-+
-+	// Encrypt or decrypt the blocks.
-+	_do_aes		\enc, 0,1,2,3
-+
-+	// XOR the blocks with the saved tweaks.
-+	pxor		SAVED_TWEAK0, AESDATA0
++	_do_aes		0, 0,1,2,3
++	pxor		IV, AESDATA0
++	pxor		CTEXT0, AESDATA1
++	pxor		CTEXT1, AESDATA2
 +#ifdef __x86_64__
-+	pxor		SAVED_TWEAK1, AESDATA1
-+	pxor		SAVED_TWEAK2, AESDATA2
++	pxor		CTEXT2, AESDATA3
++	movdqa		CTEXT3, IV
 +#else
-+	movdqu		0(DST), RNDKEY
-+	pxor		RNDKEY, AESDATA1
-+	movdqu		16(DST), RNDKEY
-+	pxor		RNDKEY, AESDATA2
++	movdqu		32(SRC), CTEXT0
++	pxor		CTEXT0, AESDATA3
++	movdqu		48(SRC), IV
 +#endif
-+	pxor		TWEAK, AESDATA3
-+
-+	// Store the encrypted or decrypted blocks.
-+.irp i, 0,1,2,3
-+	movdqu		AESDATA\i, \i*16(DST)
-+.endr
-+
-+	_next_tweak	TWEAK, RNDKEY
++	movdqu		AESDATA0, 0(DST)
++	movdqu		AESDATA1, 16(DST)
++	movdqu		AESDATA2, 32(DST)
++	movdqu		AESDATA3, 48(DST)
 +	add		$64, DST
 +	add		$64, SRC
 +	sub		$4, NBLOCKS
-+	jge		.Lxts_loop4\@
-+.Lxts_loop4_done\@:
++	jge		.Lcbc_dec_loop4
++.Lcbc_dec_loop4_done:
 +	add		$4, NBLOCKS32
-+	jz		.Lxts_done\@
++	jz		.Lcbc_dec_done
 +
-+.Lxts_loop1\@:
++.Lcbc_dec_loop1:
 +	movdqu		(SRC), AESDATA0
-+	pxor		TWEAK, AESDATA0
-+	_do_aes		\enc, 0
-+	pxor		TWEAK, AESDATA0
++	movdqa		AESDATA0, CTEXT0
++	_do_aes		0, 0
++	pxor		IV, AESDATA0
++	movdqa		CTEXT0, IV
 +	movdqu		AESDATA0, (DST)
-+	_next_tweak	TWEAK, RNDKEY
 +	add		$16, DST
 +	add		$16, SRC
 +	dec		NBLOCKS32
-+	jnz		.Lxts_loop1\@
++	jnz		.Lcbc_dec_loop1
 +
-+.Lxts_done\@:
-+	// Store the next tweak.  On 32-bit, reload TWEAK_PTR from stack first.
++.Lcbc_dec_done:
++	// Store the next IV.  On 32-bit, reload IV_PTR from stack first.
 +	_reload_arg3
-+	movdqu		TWEAK, (TWEAK_PTR)
++	movdqu		IV, (IV_PTR)
 +	_epilogue
-+.endm
++SYM_FUNC_END(aes_cbc_decrypt_aesni)
 +
-+// void aes_xts_encrypt_aesni(u8 *dst, const u8 *src, long nblocks,
-+//			      u8 tweak[AES_BLOCK_SIZE],
-+//			      const struct aes_key *key);
-+// void aes_xts_decrypt_aesni(u8 *dst, const u8 *src, long nblocks,
-+//			      u8 tweak[AES_BLOCK_SIZE],
-+//			      const struct aes_key *key);
++// void aes_cbc_cts_encrypt_aesni(u8 *dst, const u8 *src, long pn_len,
++//				  const u8 iv[AES_BLOCK_SIZE],
++//				  const struct aes_enckey *key);
 +//
-+// `tweak` must have already been encrypted by the tweak key; `key` is just the
-+// main key.  To allow incremental computation, `tweak` is updated to contain
-+// the next tweak.
-+SYM_FUNC_START(aes_xts_encrypt_aesni)
-+	_aes_xts_crypt	1
-+SYM_FUNC_END(aes_xts_encrypt_aesni)
-+SYM_FUNC_START(aes_xts_decrypt_aesni)
-+	_aes_xts_crypt	0
-+SYM_FUNC_END(aes_xts_decrypt_aesni)
++// Encrypt the last two blocks using the CS3 variant of ciphertext stealing.
++// 1 <= pn_len <= 16 gives the length of the last plaintext block (i.e. P_n) in
++// bytes, so in total this processes 17 to 32 bytes inclusive.
++SYM_FUNC_START(aes_cbc_cts_encrypt_aesni)
++	.set	DST,		ARG0
++	.set	SRC,		ARG1
++	.set	PN_LEN,		ARG2
++	.set	IV_PTR,		ARG3
++	.set	KEY,		ARG4
++	.set	RNDKEY_PTR,	IV_PTR	// Temporary register for _do_aes
++	.set	NROUNDS,	TMP_32	// Temporary register for _do_aes
++	.set	AESDATA0,	%xmm0
++	.set	AESDATA1,	%xmm1
++	.set	RNDKEY,		%xmm2
++	.set	LSHIFT_MASK,	%xmm3 // [0x80, 0x80, ...] + range(PN_LEN)
++	.set	RSHIFT_MASK,	%xmm4 // range(16-PN_LEN,16) + [0x80, 0x80, ...]
++	.set	IV,		%xmm5
++
++	_prologue	uses_arg3=2, uses_arg4=2
++
++	lea		RODATA(.Lcts_permute_table), TMP
++	movdqu		(TMP,PN_LEN), LSHIFT_MASK
++	sub		PN_LEN, TMP
++	movdqu		32(TMP), RSHIFT_MASK
++
++	// Load the last two plaintext blocks.  Last one is left-aligned.
++	movdqu		(SRC), AESDATA0
++	movdqu		(SRC,PN_LEN), AESDATA1
++
++	// Encrypt the second-from-last block.
++	movdqu		(IV_PTR), IV
++	pxor		IV, AESDATA0
++	_do_aes		1, 0
++
++	// Right-align the last block, then encrypt it.
++	pshufb		RSHIFT_MASK, AESDATA1
++	pxor		AESDATA0, AESDATA1
++	_do_aes		1, 1
++
++	// Store the last two ciphertext blocks.
++	pshufb		LSHIFT_MASK, AESDATA0
++	movdqu		AESDATA0, (DST,PN_LEN)
++	movdqu		AESDATA1, (DST)
++
++	_epilogue
++SYM_FUNC_END(aes_cbc_cts_encrypt_aesni)
++
++// void aes_cbc_cts_decrypt_aesni(u8 *dst, const u8 *src, long pn_len,
++//				  const u8 iv[AES_BLOCK_SIZE],
++//				  const struct aes_key *key);
++//
++// Decrypt the last two blocks using the CS3 variant of ciphertext stealing.
++// 1 <= pn_len <= 16 gives the length of the last plaintext block (i.e. P_n) in
++// bytes, so in total this processes 17 to 32 bytes inclusive.
++SYM_FUNC_START(aes_cbc_cts_decrypt_aesni)
++	.set	DST,		ARG0
++	.set	SRC,		ARG1
++	.set	PN_LEN,		ARG2
++	.set	IV_PTR,		ARG3
++	.set	KEY,		ARG4
++	.set	RNDKEY_PTR,	IV_PTR	// Temporary register for _do_aes
++	.set	NROUNDS,	TMP_32	// Temporary register for _do_aes
++	.set	RSHIFT_MASK,	%xmm0 // range(16-PN_LEN,16) + [0x80, 0x80, ...]
++	.set	LSHIFT_MASK,	%xmm1 // [0x80, 0x80, ...] + range(PN_LEN)
++	.set	AESDATA0,	%xmm2
++	.set	AESDATA1,	%xmm3
++	.set	RNDKEY,		%xmm4
++	.set	IV,		%xmm5
++
++	_prologue	uses_arg3=2, uses_arg4=2
++
++	lea		RODATA(.Lcts_permute_table), TMP
++	movdqu		(TMP,PN_LEN), LSHIFT_MASK
++	sub		PN_LEN, TMP
++	movdqu		32(TMP), RSHIFT_MASK
++	movdqu		(IV_PTR), IV
++
++	// Load the last two ciphertext blocks.  Last one is left-aligned.
++	movdqu		(SRC), AESDATA0
++	movdqu		(SRC,PN_LEN), AESDATA1
++
++	// Decrypt the second-from-last ciphertext block.
++	_do_aes		0, 0
++
++	// Recover and store the last plaintext block, left-aligned.
++	movdqa		AESDATA0, %xmm6
++	pshufb		LSHIFT_MASK, %xmm6
++	pxor		AESDATA1, %xmm6
++	movdqu		%xmm6, (DST,PN_LEN)
++
++	// Recover and store the second-from-last plaintext block.
++	// Note that pblendvb uses %xmm0 (RSHIFT_MASK) as an implicit operand.
++	pshufb		RSHIFT_MASK, AESDATA1
++	pblendvb	AESDATA0, AESDATA1
++	_do_aes		0, 1
++	pxor		IV, AESDATA1
++	movdqu		AESDATA1, (DST)
++
++	_epilogue
++SYM_FUNC_END(aes_cbc_cts_decrypt_aesni)
 diff --git a/lib/crypto/x86/aes.h b/lib/crypto/x86/aes.h
-index 685b43ce6ef0..def9799302c1 100644
+index 9ad4a84f0378..67a4178b7acd 100644
 --- a/lib/crypto/x86/aes.h
 +++ b/lib/crypto/x86/aes.h
-@@ -257,6 +257,50 @@ static bool aes_ctr_arch(u8 *dst, const u8 *src, size_t len,
+@@ -114,6 +114,95 @@ static bool aes_ecb_decrypt_arch(u8 *dst, const u8 *src, size_t len,
  }
- #endif /* CONFIG_CRYPTO_LIB_AES_CTR && CONFIG_X86_64 */
+ #endif /* CONFIG_CRYPTO_LIB_AES_ECB */
  
-+#if IS_ENABLED(CONFIG_CRYPTO_LIB_AES_XTS)
-+void aes_xts_encrypt_aesni(u8 *dst, const u8 *src, long nblocks,
-+			   u8 tweak[AES_BLOCK_SIZE], const struct aes_key *key);
-+void aes_xts_decrypt_aesni(u8 *dst, const u8 *src, long nblocks,
-+			   u8 tweak[AES_BLOCK_SIZE], const struct aes_key *key);
++#if IS_ENABLED(CONFIG_CRYPTO_LIB_AES_CBC)
++void aes_cbc_encrypt_aesni(u8 *dst, const u8 *src, long nblocks,
++			   u8 iv[AES_BLOCK_SIZE], const struct aes_enckey *key);
++void aes_cbc_decrypt_aesni(u8 *dst, const u8 *src, long nblocks,
++			   u8 iv[AES_BLOCK_SIZE], const struct aes_key *key);
++void aes_cbc_cts_encrypt_aesni(u8 *dst, const u8 *src, long pn_len,
++			       const u8 iv[AES_BLOCK_SIZE],
++			       const struct aes_enckey *key);
++void aes_cbc_cts_decrypt_aesni(u8 *dst, const u8 *src, long pn_len,
++			       const u8 iv[AES_BLOCK_SIZE],
++			       const struct aes_key *key);
 +
 +/* len is always a positive multiple of AES_BLOCK_SIZE here. */
-+static __always_inline bool
-+aes_xts_crypt_x86(u8 *dst, const u8 *src, size_t len, u8 tweak[AES_BLOCK_SIZE],
-+		  const struct aes_xts_key *key, bool cont, bool enc)
++#define aes_cbc_encrypt_arch aes_cbc_encrypt_arch
++static bool aes_cbc_encrypt_arch(u8 *dst, const u8 *src, size_t len,
++				 u8 iv[AES_BLOCK_SIZE],
++				 const struct aes_enckey *key)
 +{
-+	const long nblocks = len / AES_BLOCK_SIZE;
++	if (!static_branch_likely(&have_aesni) || unlikely(!irq_fpu_usable()))
++		return false;
++	kernel_fpu_begin();
++	aes_cbc_encrypt_aesni(dst, src, len / AES_BLOCK_SIZE, iv, key);
++	kernel_fpu_end();
++	return true;
++}
++
++/* len is always a positive multiple of AES_BLOCK_SIZE here. */
++#define aes_cbc_decrypt_arch aes_cbc_decrypt_arch
++static bool aes_cbc_decrypt_arch(u8 *dst, const u8 *src, size_t len,
++				 u8 iv[AES_BLOCK_SIZE],
++				 const struct aes_key *key)
++{
++	if (!static_branch_likely(&have_aesni) || unlikely(!irq_fpu_usable()))
++		return false;
++	kernel_fpu_begin();
++	aes_cbc_decrypt_aesni(dst, src, len / AES_BLOCK_SIZE, iv, key);
++	kernel_fpu_end();
++	return true;
++}
++
++/* len can be any value greater than AES_BLOCK_SIZE here. */
++#define aes_cbc_cts_encrypt_arch aes_cbc_cts_encrypt_arch
++static bool aes_cbc_cts_encrypt_arch(u8 *dst, const u8 *src, size_t len,
++				     u8 iv[AES_BLOCK_SIZE],
++				     const struct aes_enckey *key)
++{
++	const size_t cbc_blocks = (len - AES_BLOCK_SIZE - 1) / AES_BLOCK_SIZE;
++	const size_t pn_len = ((len - 1) % AES_BLOCK_SIZE) + 1;
 +
 +	if (!static_branch_likely(&have_aesni) || unlikely(!irq_fpu_usable()))
 +		return false;
 +
 +	kernel_fpu_begin();
-+	if (!cont)
-+		aes_encrypt_aesni(tweak, tweak, &key->tweak_key);
-+	if (enc)
-+		aes_xts_encrypt_aesni(dst, src, nblocks, tweak, &key->main_key);
-+	else
-+		aes_xts_decrypt_aesni(dst, src, nblocks, tweak, &key->main_key);
++	if (cbc_blocks) {
++		aes_cbc_encrypt_aesni(dst, src, cbc_blocks, iv, key);
++		dst += cbc_blocks * AES_BLOCK_SIZE;
++		src += cbc_blocks * AES_BLOCK_SIZE;
++	}
++	/* This part handles the final 17 to 32 bytes. */
++	aes_cbc_cts_encrypt_aesni(dst, src, pn_len, iv, key);
 +	kernel_fpu_end();
 +	return true;
 +}
 +
-+#define aes_xts_encrypt_arch aes_xts_encrypt_arch
-+static bool aes_xts_encrypt_arch(u8 *dst, const u8 *src, size_t len,
-+				 u8 tweak[AES_BLOCK_SIZE],
-+				 const struct aes_xts_key *key, bool cont)
++/* len can be any value greater than AES_BLOCK_SIZE here. */
++#define aes_cbc_cts_decrypt_arch aes_cbc_cts_decrypt_arch
++static bool aes_cbc_cts_decrypt_arch(u8 *dst, const u8 *src, size_t len,
++				     u8 iv[AES_BLOCK_SIZE],
++				     const struct aes_key *key)
 +{
-+	return aes_xts_crypt_x86(dst, src, len, tweak, key, cont, true);
-+}
++	const size_t cbc_blocks = (len - AES_BLOCK_SIZE - 1) / AES_BLOCK_SIZE;
++	const size_t pn_len = ((len - 1) % AES_BLOCK_SIZE) + 1;
 +
-+#define aes_xts_decrypt_arch aes_xts_decrypt_arch
-+static bool aes_xts_decrypt_arch(u8 *dst, const u8 *src, size_t len,
-+				 u8 tweak[AES_BLOCK_SIZE],
-+				 const struct aes_xts_key *key, bool cont)
-+{
-+	return aes_xts_crypt_x86(dst, src, len, tweak, key, cont, false);
++	if (!static_branch_likely(&have_aesni) || unlikely(!irq_fpu_usable()))
++		return false;
++
++	kernel_fpu_begin();
++	if (cbc_blocks) {
++		aes_cbc_decrypt_aesni(dst, src, cbc_blocks, iv, key);
++		dst += cbc_blocks * AES_BLOCK_SIZE;
++		src += cbc_blocks * AES_BLOCK_SIZE;
++	}
++	/* This part handles the final 17 to 32 bytes. */
++	aes_cbc_cts_decrypt_aesni(dst, src, pn_len, iv, key);
++	kernel_fpu_end();
++	return true;
 +}
-+#endif /* CONFIG_CRYPTO_LIB_AES_XTS */
++#endif /* CONFIG_CRYPTO_LIB_AES_CBC */
 +
  #define aes_mod_init_arch aes_mod_init_arch
  static void aes_mod_init_arch(void)
