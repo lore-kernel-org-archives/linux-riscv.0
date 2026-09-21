@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8EBC982EE
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 13:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA72DC982ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 13:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w25sgLfxXbR5jvr9z2wRMpI53EtoP0rY4xQrr7ZcE+w=; b=OisUL1q5CgePxH
-	hMW4L3DLcdmnvEa47ddaL3ljT2p82w1sakD0BrmA1tMeHTe7UsyXXIKmLddXKsVOqDzj9pBP8/DsJ
-	OLBTK0XRb6bBXIb9QFFJXhAsO/mkIEatjH6WB0qLrlRf9H7obIQCB3jCBgu84IQ7i7rIMP0SDNjTj
-	ZmyBWu1APE+Tb9C5PU3qToszeKDGIC0rpzOUom87Wgm8KqsY6fZQJuDnnX+iYcvsKrn49+rcDR5Kb
-	AG1BKlpMailHPRbFQ8UWg/F1rAxKPBSu1EEZPKjvQGp6+uCXZC+CEhOx7MGziRBhJh0AHf8zovtOY
-	70GxkL/eX41Cc8Wjilhw==;
+	List-Owner; bh=1QzxFUFvgF5e+x74NnMQWSPH9soz+I/xzCPBvIZukSE=; b=2Oy0iyrTBNc2XY
+	bZHdSS25maMFVmIpkPPF5YORmLevUugx+qqTfaAnChJGa89vRaaoQOlYcACtoJAmN5Kx51AXdM2lw
+	LyvDvLSS+cOWydX+Jd4l+CwxoaZM7MEsQisvUPeYR4XyX3ZYcu16AOdtZF5DyEWfzojxpUJZ1FTjJ
+	k6ysg1TMcm1IlD/H09YTzAQ7bOWCY/wklOF5NrvzTUxbV7eDtUa9MwpdPsPEs/z04sQHVXUwaLUO3
+	H7QgEHkzX11iTvl40mMgjmbyI12nt2MwiWYZ7zk+UVCe4jBP9nSKTuq+sgaR8eZuTucxSaQLX9xIi
+	NMPWi1aLvFkDlaPJWj0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8duB-00000002DbI-0izi;
-	Mon, 21 Sep 2026 13:17:59 +0000
-Received: from out-235.mta0.migadu.com ([2001:41d0:1004:224b::eb] helo=mta0.migadu.com)
+	id 1x8duJ-00000002Def-1CXX;
+	Mon, 21 Sep 2026 13:18:07 +0000
+Received: from out-168.mta1.migadu.com ([2001:41d0:203:375::a8] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8du8-00000002DaM-34Ur
+	id 1x8duF-00000002Dby-0sXw
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 13:17:57 +0000
+	Mon, 21 Sep 2026 13:18:06 +0000
 X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ueVOpPzYnMeot+dswpS82YrnsBHSSPYd5K+PQjCvvaY=;
+DKIM-Signature: a=rsa-sha256; bh=IN3u//Q3+OpLA8rMnVjE8v9xBIK2AikPADGADNf418I=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1789996674; v=1; x=1790601474;
- b=X/SjqYcJokzG5Jzyk6IVWxAXA+B4Xm2zy1fhXRgjy9ZEfXBQNe028meEjtHeHVkI9ZGDZo0U
- vBCYfFcQl7QxHlYUPwMhSmzQ9JxpQNVX7LiAOzX4bRqgCdd6x7u/k1nBG4zy91iUNa8YHVRUDCW
- AjTsvty9tppeRrskQ66c1STU=
+ t=1789996681; v=1; x=1790601481;
+ b=myA1+5KRkTOpFpgN9Q7qgN+XSlBivE/MVPxxYjs+yMiMagjddcNTGevuYj+9z2O5eA4TEJQt
+ X0YPrWdUw+XglWLP4iIDUMuTvTxoEvNYtoUhP968mOD6fsh+JU8gbRzxTXlARXkD5e7AQkcp5M7
+ 5HngVexuaiONVCvxe8lRki60=
 X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id f48b4f0c2c5289ef;
-	Mon, 21 Sep 2026 13:17:54 +0000
-X-Mizu-Trace-ID: f48b4f0c2c5289ef
+Received: by smtp.migadu.com with ESMTPS id 28b20bafde2dc762;
+	Mon, 21 Sep 2026 13:18:00 +0000
+X-Mizu-Trace-ID: 28b20bafde2dc762
 X-Migadu-Flow: FLOW_OUT
 From: Ye Liu <ye.liu@linux.dev>
-Date: Mon, 21 Sep 2026 21:17:22 +0800
-Subject: [PATCH v2 2/3] mm/vmalloc: fix vmalloc_dump_obj cross-zone VA
- lookup
+Date: Mon, 21 Sep 2026 21:17:23 +0800
+Subject: [PATCH v2 3/3] mm/vmalloc: skip vmalloc_dump_obj for non-vmalloc
+ addresses
 MIME-Version: 1.0
-Message-Id: <20260921-vmalloc_dump_obj-v2-2-73fceb3ed1c8@linux.dev>
+Message-Id: <20260921-vmalloc_dump_obj-v2-3-73fceb3ed1c8@linux.dev>
 References: <20260921-vmalloc_dump_obj-v2-0-73fceb3ed1c8@linux.dev>
 In-Reply-To: <20260921-vmalloc_dump_obj-v2-0-73fceb3ed1c8@linux.dev>
 To: Andrew Morton <akpm@linux-foundation.org>, 
@@ -56,8 +56,9 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Ye Liu <liuye@kylinos.cn>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_061756_921653_4E0515BF 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260921_061805_010985_940C75A3 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +77,35 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Ye Liu <liuye@kylinos.cn>
 
-vmalloc_dump_obj() searches only one vmap node (addr_to_node(addr)),
-but a vmalloc allocation may span multiple vmap zones.  The VA is
-stored in only one node's rb-tree (addr_to_node(va_start)), so an
-object pointer in a different zone than va_start maps to a different
-node and the search misses.  This affects any allocation larger than
-vmap_zone_size (64 KiB) on multi-CPU systems.
+vmalloc_dump_obj() unconditionally searches all vmap nodes even when
+called with a non-vmalloc address (e.g. a slab or stack pointer from
+mem_dump_obj()).  Add an is_vmalloc_or_module_addr() check at the
+entry to avoid the unnecessary per-node trylock and rb-tree traversal.
 
-Iterate all vmap nodes using for_each_vmap_node, like find_vmap_area()
-does, but with spin_trylock instead of spin_lock as this function can
-be called from atomic dump contexts (OOM, KASAN, RCU).
+Use is_vmalloc_or_module_addr() rather than is_vmalloc_addr() because
+module, BPF, and execmem allocations reside in MODULES_VADDR..MODULES_END
+on x86_64, arm64, and riscv -- outside VMALLOC_START..VMALLOC_END -- but
+are still tracked in the same vmap_nodes rb-tree.
 
 Signed-off-by: Ye Liu <liuye@kylinos.cn>
 ---
- mm/vmalloc.c | 24 ++++++++++++++++++------
- 1 file changed, 18 insertions(+), 6 deletions(-)
+ mm/vmalloc.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index df42d8a6f058..30c610f678dc 100644
+index 30c610f678dc..d8095b558365 100644
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
-@@ -5278,17 +5278,29 @@ bool vmalloc_dump_obj(void *object)
+@@ -5277,6 +5277,9 @@ bool vmalloc_dump_obj(void *object)
+ 	unsigned long addr;
  	unsigned long nr_pages;
  
- 	addr = PAGE_ALIGN_DOWN((unsigned long) object);
--	vn = addr_to_node(addr);
- 
--	if (!spin_trylock(&vn->busy.lock))
--		return false;
-+	/*
-+	 * A vmalloc allocation may span multiple vmap zones, so the
-+	 * node whose rb-tree holds the VA may differ from the node
-+	 * the address maps to.  Search all nodes.  Use trylock as
-+	 * this function can be called from atomic dump contexts.
-+	 */
-+	va = NULL;
-+	for_each_vmap_node(vn) {
-+		if (!spin_trylock(&vn->busy.lock))
-+			continue;
-+
-+		va = __find_vmap_area(addr, &vn->busy.root);
-+		if (va && va->vm)
-+			break;
- 
--	va = __find_vmap_area(addr, &vn->busy.root);
--	if (!va || !va->vm) {
- 		spin_unlock(&vn->busy.lock);
--		return false;
-+		va = NULL;
- 	}
- 
-+	if (!va)
++	if (!is_vmalloc_or_module_addr(object))
 +		return false;
 +
- 	vm = va->vm;
- 	addr = (unsigned long) vm->addr;
- 	caller = vm->caller;
+ 	addr = PAGE_ALIGN_DOWN((unsigned long) object);
+ 
+ 	/*
 
 -- 
 2.25.1
