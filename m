@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2269C982ED
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 12:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B06C982EE
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 12:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=itNN7hsfDDLCXjv9kg9sP5De67m57OmFnTWWp1STMtk=; b=JXUYtvqqC7s6wf
-	eMG2Go5tmX6LJ9XkDr5zsY4d5RIiXRJmiArcbvlUGOqEYe0H+QK23CZKAqfMlc6BgPDJ6o5LAEEzR
-	wZ3lySMXR/35Ee6szHcaLiFu+dclHaCWswogbFskuFUVd+e+gxyQVwiSnWEghl4XIBrx7giST57mm
-	gaqzByRprvq27ur7MA3ebZ8KLGd3r8Oz5GkaSdGcI86QfUPi8LkuMUvlukhCJDzgF59r8THotZQpy
-	l4jGNxpcTP///tm13MZSrfZ3kog/Cmo38uj6rtFK4e/gugaIApo9Ui7HThLh57b1cGxOz8aASz8tA
-	PbaRDL1dLtC4jxDwHagA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SigsO1JfEXByJ+QuU6z6j2hWuswt9tkzBOFvrMNqY+Q=; b=N+tsiKEV/yjj8L
+	6qf5E55OCkpTEAKio9yQMvG/MrUL1Q5aDt0fRHN3ERoKNvt0/nK55B+4rT637acxsBoVLBUQ4n1Bd
+	Wcr7/wTh/9U3hkLcvJCuWU35KuR7m7yeWw5QTvPn2DEzlNqoRPVILwRdZRSTDvhI4hzCX1RwrYDPA
+	oo5/ieONgTZC1yi9EaPzghJrxcGjtH18dNbPIbyYlJIoz1903LF8uVTpXliIrCFVvOCxZqf5WI/la
+	ZHJHrkOJQTtzj/N4LTKgYI3FBfAn6hIEF9UU7VDHS3zdVPiZx3Nj6DnykTdmZv1UL7gVjwYNswHU0
+	J5My3JvGh/+0Jc9Bhu4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dGb-000000025Dh-0q4Q;
-	Mon, 21 Sep 2026 12:37:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8dGi-000000025IP-1HjP;
+	Mon, 21 Sep 2026 12:37:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dGa-000000025Cq-3LFU
+	id 1x8dGg-000000025HC-3yqJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 12:37:04 +0000
+	Mon, 21 Sep 2026 12:37:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32F4F43DE9;
+	by sea.source.kernel.org (Postfix) with ESMTP id 52D5F43ED0;
+	Mon, 21 Sep 2026 12:37:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88A8C1F00893;
 	Mon, 21 Sep 2026 12:37:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EC6B1F0089C;
-	Mon, 21 Sep 2026 12:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789994224;
-	bh=mVyAaJeaChtzQ6OF0Z5CWn+l4xCID2ZJZHbDAUH1Op4=;
-	h=From:Subject:Date:To:Cc;
-	b=Cb3PSJDoFupnIoWd1GQH18R2JGcVBY1qlSvdhg0SUlsd91j6uKpsDGa9RYJSNTof+
-	 Rr4q0bQyAdKu5gB4++6Fnqdj6479DwoYyc00MFD96zfCWVFbrR9qYQ4TG1NMEJIEtn
-	 THOlLph1EH+UVECUYaqAerPkQs/bG0s7cYvKH5vDZ9mt1/oNJQkHQB/26gVuHVxP7g
-	 2y0oDaENCPQtXfwLKLuAFsYY0AYGJYf51lPnJCFWb1Gyw3WRTEp3nDhgmomE4Jf6Z4
-	 PlvElUPTAa4EQLNSbzf6IwPbFV5f6v4bwrNlKBSTxfrVyI3jsl8ijAP3zTlrc1gaFn
-	 dtebure/CcxeA==
+	s=k20260515; t=1789994230;
+	bh=hLnXXqweTbnZJWCTuUYvgYPdGMStjK8GuO3MeOUau+c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Uip5oA4TZ32/IGR8Z65C49tJkMnnH2KtXRYeVjjr/7s9VouOiP9ZyvbTLbu0O9asc
+	 bKi4ylIygzXeD+gM9GuPW6/rh7cEN0wGKJJbcjvOQjBcnlUF5D3aF7Ys//b2/ybr7E
+	 LT6nARwPm1dT3fPHndeuG++s6Uc/EcGZY3TMYkZGshPiQHWYtGY3ECwybWKlR7M/ZN
+	 Kq0WJy1cJWX1Uy2Ip8YwJeRGe9s+NsMuyKvHtpp6ZjlgZ1zw6kLF18WvbsIuqwOPNN
+	 +zr1XvSsIKz9iIRc99Txn+O33tNxOVSTjIzVwQ5Ku0zbJ067YPbDTUmmyu0AiUHImm
+	 SjR2wTj3/r7TQ==
 From: Yixun Lan <dlan@kernel.org>
-Subject: [PATCH v6 0/2] Add UFS Host driver support for SpacemiT K3 SoC
-Date: Mon, 21 Sep 2026 12:36:19 +0000
-Message-Id: <20260921-08-k3-ufs-support-v6-0-3479768a2299@kernel.org>
+Date: Mon, 21 Sep 2026 12:36:20 +0000
+Subject: [PATCH v6 1/2] scsi: ufs: spacemit: dt-bindings: Add UFS
+ controller for K3 SoC
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23QTW7DIBAF4KtErEs1DL/pqveougADCU1lW2Bbr
- SLfvThZJJVZPmneN6O5khJyCoW8Ha4khyWVNPQ1qJcD6c62PwWafM0EARUokBQMvXA6x0LLPI5
- DnmhnHAcTBJMBSe2NOcT0czM/Pu+5zO4rdNMGbRPnVKYh/96WLmybu/sasOEvjAJlVgnLrWNo4
- vsl5D58vw75RLYFCz4R2DpxqS4VEriyaFEwsyP4gzCgWgSvBHAdHUe0nXc7QjyIY+03CFGJWrb
- o/FF7vifkE8GaV8jtF1F6zSID1P4fsa7rH92GlxTRAQAA
-X-Change-ID: 20260605-08-k3-ufs-support-c8b308e415e2
+Message-Id: <20260921-08-k3-ufs-support-v6-1-3479768a2299@kernel.org>
+References: <20260921-08-k3-ufs-support-v6-0-3479768a2299@kernel.org>
+In-Reply-To: <20260921-08-k3-ufs-support-v6-0-3479768a2299@kernel.org>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
  Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -69,22 +66,22 @@ Cc: Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
  Yixun Lan <dlan@kernel.org>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3817; i=dlan@kernel.org;
- h=from:subject:message-id; bh=lQ7+ODtYODGQ2WtkpanJMBFN8HKPdBl6D6z2gi762NQ=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqsSTQ7e8a31139KrE6Adk1R3CN0MdH8LwlkJ+K
- Jedq922pfWJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCarEk0BsUgAAAAAAEAA5t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2268; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=AiT8cj2rv853GLF+9MtAXTIW3QiaNa+78JJABet2UUM=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBqsSTjf4y3beWQaLLl4LklqE7Rrbt9ZEalSEK/R
+ r5XHs361oqJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCarEk4xsUgAAAAAAEAA5t
  YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
  maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+0RjA/+MyuPt3j9QGkFqyVuGBTCm563VmObHNLZ+Gp4wQqw7qhirpiTQtdUr
- sOk74KSvNGTjl8lIWPxj9o1k9+MczqPH3HV1+UFzo5QIgzvRT+ww44xZj/Q1uUR+0/QREAfe+WQ
- CrK6/AkCnRFXoj+sb30JPxu9v4Nvgox3g1DkEUU0pkVIoWUzp8wy8b7AQo3x1wC0KE+HCHDAeJS
- twFcHOu+TVaRM2aWIGpyzSEmApg9CQHGYWgk2jyS+teXcPTSo1/GFDsrYsw3wbaQ/qeex4FzusJ
- nEFG8bhMClsYPsViE8IwIa9yB+Z5odVQkQMyKDQG6XKsS2X7RdnQY0v/aUqUYgrC2bh2xwwdRnf
- G22at6LJM4FRpIYfBkBsaRtRIUKIF6W4f6eMrpS3P9aEOg8ymV3s9grN+W4pH5KAPn+B6L5o02M
- qZ4A2IhFtu7pQ2Y/s7oKyZi3d0frB6YGzzXtsPR0KMBWxi1u9NMapRl+RbYe6zftRYJeXXS0N9J
- J9U5sKCLY3TVFBY41q33D3M+OghPczc43H0u/AoUUxbLA/K71ltoBeo0NWZdo9LECpU3ObL9SPg
- 7KDhQQsJ3As4yKvfmhfOWr1ABQzix4kNcFThMVNx+n/61d/lm2mQMuItv0WGc/NrEYn97SkAhLJ
- 37lcO4WDZUJVkFZec18GJJJf1LLNG0=
+ QACgkQMarqR1lNu+0FYA/6Awljrw+Shnhvqx2o2cgUfW8/HU2U7aU/VzsXumketJDJeRnfoou8k
+ Oba8yehkT2OyCWPoWCDFwzUrUqIFxlUN8hPZ/v4873+/WzB3z9TI/LHXEx9aqlqDWTjq2dLMPAF
+ UocXfcjHxUytMJOOFMj1CWFPfJpvAFoZ+zrFmBN0REI5LRTBysWDpF2NVBkMS1FUvs7+fNhA7Sx
+ 9l9wRBSnjEfZWmfXoCblVAJgBaYft7SYVcuBR9hdKfwi56eBdaqck7nXrWZ0rUL+HoBayw13DtN
+ OyNTVeQYgc4Z5Hm4d8aONGn10bxvdRitW5qYeUHTjeF7d5uUjirZ4RRjd0ziVsM4OS7KSHj7q6n
+ /NZKj6MoufPHB/v5oJc764vY0S3ZBtnC4WJ/7NyosPB7pIiLYqQIqUj7AY+WRVqTFigliOCbMaw
+ unM4Nh0mn/L8TfCN7B9XHuP+BN9iKD6q3PEpaCOWurOG0nQd92VRnPwPJRGxHEjMl7zSdHqpbrV
+ r/2nmKw+9DCv3W/wbHyevDErl8luh+FOTvMRfu0vY01zkizT1v9vVTYkBV1rYka/oOwaAtgu46G
+ x3u74Uqqag0XDZlXz3TzqRzufbQ9p+3jOomFIE04LSRm8rZbhpDPjZGfdnDAgrE+J98wovuA0GZ
+ aB3OQW0zJ/C4WUhnO/B7vB5pSkraug=
 X-Developer-Key: i=dlan@kernel.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -103,93 +100,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series try to add UFS support for SpacemiT K3 SoC, the controller
-components consists of System Bus Interface Unit, UFS Host Controller
-Interface, UFS Transport Protocol Layer, UFS Host Registers, Device
-Management Entity (DME), Transport Layer, Network Layer, Data Link
-Layer, PHY Adapter Layer, and M-PHY Interface. A more detail functional
-block diagram can be found in SpacemiT website, chapter 9.7.3 [1]
+Document the compatible for UFS (Universal Flash Storage) Host Controller
+which found in SpacemiT K3 SoC chip. Its features are listed below:
 
-The DTS patch has been dropped in this series [2], and will send
-in separate series once this patch accepted. For people who want to
-test UFS driver, please grab the DT patch from version v5 [3].
+- Compliant with MIPI UniPro v1.61 specification.
+- Compliant with M-PHY v3.0 specification.
+- Compliant with UFS HCI v2.1 specification.
+- Supports up to 2 Tx and 2 Rx lanes, up to HS-GEAR3 5.8 Gbps per lane.
+- Supports standard low-power hibernate to reduce power consumption.
 
-One known issue is that the device will occasionally raise BKOPS interrupt
-when doing some high load test, log from dmesg shows
-
-[  806.710763] ufshcd-spacemit c0e00000.ufshc: ufshcd_bkops_exception_event_handler: device raised urgent BKOPS exception for bkops status 1
-
-Link: https://spacemit.com/community/document/info?nodepath=hardware/key_stone/k3/k3_docs/k3_usermanual/09_memory_storage.md&lang=en [1]
-Link: https://lore.kernel.org/all/20260918-belligerent-succinct-kraken-7fa592@quoll/ [2]
-Link: https://lore.kernel.org/all/20260916-08-k3-ufs-support-v5-3-1f5d71f1027d@kernel.org/ [3]
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
-Changes in v6:
-- drop unused macro and dev_req_params
-- use global PX_xx macros
-- fix axi clock name
-- drop dts patch
-- collect tags
-- Link to v5: https://patch.msgid.link/20260916-08-k3-ufs-support-v5-0-1f5d71f1027d@kernel.org
+ .../devicetree/bindings/ufs/spacemit,k3-ufshc.yaml | 56 ++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-Changes in v5:
-- adjust clock names
-- add runtime power support
-- collect tags
-- Link to v4: https://patch.msgid.link/20260908-08-k3-ufs-support-v4-0-22aa2bd97d3b@kernel.org
+diff --git a/Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.yaml b/Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.yaml
+new file mode 100644
+index 000000000000..8512a81f1cc7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/ufs/spacemit,k3-ufshc.yaml
+@@ -0,0 +1,56 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/ufs/spacemit,k3-ufshc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K3 SoC UFS Host Controller
++
++maintainers:
++  - Yixun Lan <dlan@kernel.org>
++
++properties:
++  compatible:
++    const: spacemit,k3-ufshc
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: axi
++      - const: ref
++
++  resets:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - resets
++
++allOf:
++  - $ref: ufs-common.yaml
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/spacemit,k3-clocks.h>
++    #include <dt-bindings/reset/spacemit,k3-resets.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    ufs@c0e00000 {
++        compatible = "spacemit,k3-ufshc";
++        reg = <0xc0e00000 0x40000>;
++        clocks = <&syscon_apmu CLK_APMU_UFS_ACLK>,
++                 <&syscon_apmu CLK_APMU_UFS_REFCLK>;
++        clock-names = "axi", "ref";
++        resets = <&syscon_apmu RESET_APMU_UFS_ACLK>;
++        interrupts = <135 IRQ_TYPE_LEVEL_HIGH>;
++        lanes-per-direction = <2>;
++    };
 
-Changes in v4:
-- fix clock and reset settings
-- drop function which retrieve value of tx_lanes
-- propagate return error of ufs_spacemit_dme_set()
-- check return value ufs_spacemit_check_hibern8()
-- drop call to ufshcd_vops_phy_initialization()
-- handle compiling warning if CONFIG_OF not enabled
- add __maybe_unused to ufs_spacemit_of_match
-- Link to v3: https://patch.msgid.link/20260806-08-k3-ufs-support-v3-0-037fb322acdb@kernel.org
-
-Changes in v3:
-- collect tags
-- fix dt-binding warning reported-by sashiko
-- fix low freq in opp-2 table
-- fix err checking in check_hibern8()
-- propagate err code in link_startup_notify()
-- update documents for event_notify()
-- ufs clock driver is merged into v7.3-rc1, update cover letter
-- Link to v2: https://patch.msgid.link/20260725-08-k3-ufs-support-v2-0-45036a2a2418@kernel.org
-
-Changes in v2:
-- fix missing interrupts property
-- move ufs node to k3-com260.dtsi
-- convert freq-table-hz to operating-points-v2
-- rework reset_control, fix header and drop global variable
-- drop dump_host_regs() debug interface
-- converge and refactor dme_set() operations
-- massive reduce of busy delay() loops
-- drop vendor specific hce_enable_notify(), fallback to default
-- drop unused member from struct ufs_spacemit_host
-- add COMPILE_TEST support to Kconfig
-- comment style fix
-- Link to v1: https://patch.msgid.link/20260702-08-k3-ufs-support-v1-0-1a64a3ab128f@kernel.org
-
----
-Yixun Lan (2):
-      scsi: ufs: spacemit: dt-bindings: Add UFS controller for K3 SoC
-      scsi: ufs: spacemit: k3: Add UFS Host Controller driver
-
- .../devicetree/bindings/ufs/spacemit,k3-ufshc.yaml |  56 ++
- drivers/ufs/host/Kconfig                           |  12 +
- drivers/ufs/host/Makefile                          |   1 +
- drivers/ufs/host/ufs-spacemit.c                    | 649 +++++++++++++++++++++
- drivers/ufs/host/ufs-spacemit.h                    |  77 +++
- 5 files changed, 795 insertions(+)
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260605-08-k3-ufs-support-c8b308e415e2
-
-Best regards,
---  
-Yixun Lan <dlan@kernel.org>
+-- 
+2.55.0
 
 
 _______________________________________________
