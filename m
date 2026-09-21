@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41AAFC982ED
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 18:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087F5C982EE
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 19:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iF26fo5KqZEITz9JO669uHeXTWkND5Lb14xgzu1ZJUU=; b=44YZS01IxSJScr
-	NPdC1Lut/CNiajxZv0r1PJO+NUlBRIMiGbXh23BsZiC+Dh1eg7XONI59BTjTy7k7CPknkTOOKT/g0
-	5gYOpb0JnYxzacQWSKL48U32zK3/CajEYtKNwpokvJbc0a96gbYTf+e2w6lSDbgsj/U1fPLrLqfrU
-	tG/MzVcWiRHDG8N8pggx8W12ofEJqG+Cl1xn10NIUY6KeFECUCZA50Rs4h8NC35c0AHjaGSGwriJm
-	erUxbSG65cmjj3gjFdwb8Tm1/yREJYxyS1A3Q6YD2kiNAHqD5XwZi6Meah2gVcxLKxP70HhUozXE3
-	7g1EsVJuz0lv+UKHp8OQ==;
+	List-Owner; bh=c/vC2+S23lkXSafrKbk01KACKszAhmSWwtmn7LiYnCw=; b=h+WTG0kvOnisY/
+	RfyFmNkJ3odSipg15yMvar3iTTGc1uz2428ZT+TLLDPWNcu6plblLL2116WULczvB32YmEvyd9m79
+	KnZIwqTVq8sP+uZ+A40daEM9ep8om6N0TsIjnWcwLwgrm1rTouYKnDgcf4uacaA5WkgIADQJ4Jrcn
+	Fl/uHDCCfdf0A00Y4Sd8lWGyiaCifpzEi8PHE7j7ORD0vmp01UvIP27jFEAlzn2cTfPwQfqHhJJFC
+	umcyAaevrvMphtaSJeUz4DiLdFoQsr+AslJ5Qzle7Lpg5vHiIdl6wKFShYzulmN7wwv0882a3tVuo
+	GcPyMIWtNkd86TYKxk/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8jCl-00000003BSk-0D2R;
-	Mon, 21 Sep 2026 18:57:31 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1x8jgu-00000003EHu-3C4R;
+	Mon, 21 Sep 2026 19:28:40 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8jCj-00000003BS8-0zAz;
-	Mon, 21 Sep 2026 18:57:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=9czfARorSYkXhn7wtuTfT0BpH91+/rvPllJAwe14Ukg=; b=i07QEUr7FLrPNOasfEwFBQXlUm
-	R1FAx/bprujw+QWlcEP1wKK2utSRNCm6Mg8mI1/NCcBmOt+MIfycEGWY2mOLy3WjtOt9bAO6jeil5
-	ddfvZ4bYMZ+vykKvCJVEkNA1Ashmbg/kQxveGBb1l8ejcILd77zkYO70Lk1IsIo8OOvu+SR1lNSgi
-	wSm3i7/AVKsyc8U9vsa8i10CgDa/W+91OL6ReG9VjqtconeMcEWRBUIos9N2Iug5cAu6uPQrciUZC
-	P0JHDC3c+7azzmazJKmBqnrj9lYDDuScU6QAYzE/ubDDgwDXKcd1B6TvhcvGIi+8Jthe8rrPfPtFQ
-	unARWs7g==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8jCd-000000054KL-1SFt;
-	Mon, 21 Sep 2026 18:57:23 +0000
-Date: Mon, 21 Sep 2026 19:57:23 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Hongru Zhang <zhanghongru06@gmail.com>, akpm@linux-foundation.org,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, baohua@kernel.org,
-	surenb@google.com, david@kernel.org, liam@infradead.org,
-	mhocko@suse.com, rppt@kernel.org, shakeel.butt@linux.dev,
-	vbabka@kernel.org, zhaonanzhe@xiaomi.com, linux@armlinux.org.uk,
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org,
-	kernel@xen0n.name, loongarch@lists.linux.dev, maddy@linux.ibm.com,
-	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
-	linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com,
-	gerald.schaefer@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com,
-	linux-s390@vger.kernel.org, dave.hansen@linux.intel.com,
-	luto@kernel.org, peterz@infradead.org, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, x86@kernel.org, hpa@zytor.com,
-	Hongru Zhang <zhanghongru@xiaomi.com>
-Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
-Message-ID: <arF-E3Nsw9ZliH0t@casper.infradead.org>
-References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
- <arFYRAa-i7CIwmHL@gremlin>
+	id 1x8jgr-00000003EH1-0djE
+	for linux-riscv@lists.infradead.org;
+	Mon, 21 Sep 2026 19:28:39 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0E5A8C5CD60;
+	Mon, 21 Sep 2026 19:29:21 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B9F1E5FFB2;
+	Mon, 21 Sep 2026 19:28:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6433C103291F6;
+	Mon, 21 Sep 2026 21:28:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1790018910; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=2CJ7icff8JEtr2MIIttHYeL6xAW9xMU6iW5VZ8o8b1Y=;
+	b=tx63j8gtO2LTknEcJl2VsugMfHDV7JkN140eNtrYk1J+a7OmNqx7hOWnSycxNKn6WxA3rI
+	67IcochnkJqxkqTq9SmqcT3wVG2ztoIxlaNJrHsu+Jhut64wQu8jzet6X93DYSbtwIBgv1
+	AD/k/7vLqexg9YfgMWGfFOPwCZzrYxI0jGE0DYTe1iXzYUW4zmsaVRJN1XFRKGAc1Bc0BI
+	AYQ6I84cp+Tz5HM1tyM1/oiVahThYqQPhySlXEAPkj8HMlacfm719AU1bASL8ZrHNtgQ10
+	PnaYqYYaFCMb/xm5DKd4MMBsH0IjHQqw1rFjM6JM1CSxI1Y87QHpC6Cc/7j/4w==
+Date: Mon, 21 Sep 2026 21:28:28 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: conor.dooley@microchip.com, daire.mcnamara@microchip.com,
+	Manush Prajwal <manushprajwal555@gmail.com>
+Cc: linux-rtc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] rtc: mpfs: fix unchecked devm_clk_get() error pointer in
+ probe()
+Message-ID: <179001890274.248925.9854410688320328698.b4-ty@b4>
+References: <6a9d4b02.7d74b517.206c4c.75f8@mx.google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <arFYRAa-i7CIwmHL@gremlin>
+In-Reply-To: <6a9d4b02.7d74b517.206c4c.75f8@mx.google.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_122837_364559_0E9585A2 
+X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,201 +77,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 06:54:25PM +0100, Lorenzo Stoakes (ARM) wrote:
-> OK I finally got to this...
+On Sun, 06 Sep 2026 16:44:09 +0530, Manush Prajwal wrote:
+> devm_clk_get(&pdev->dev, "rtcref")'s return value was passed straight
+> into clk_get_rate() without checking it for an error first, unlike the
+> "rtc" clock a few lines above which is correctly checked with
+> IS_ERR(). clk_get_rate() only guards against a NULL clk, not an error
+> pointer:
+> 
+> 	if (!clk)
+> 		return 0;
+> 	...
+> 	rate = clk_core_get_rate_recalc(clk->core);
+> 
+> [...]
 
-Brave ;-)
+Applied, thanks!
 
-> I fear we're going to go round in circles on this/have endless revisions of
-> the same thing.
-> 
-> So 2 things the patch needs to answer, more or less right away:
-> 
-> 1. What are you actually optimising for?
-> 
-> 2. Where does the hurt happen?
-> 
-> Your patch does neither, then goes on to arm wave away all the complexity
-> and presents a 'simple' solution that I feel brushes a lot under the rug.
-> 
-> Answer to 1 is 'cold app startup time for a specific set of apps'
-> 2 is filemap_fault() AFAICT.
-> 
-> You should definitely be stating this upfront.
-> 
-> And I also seem to remember that zygote + multi-threaded apps = fork
-> blocking is part of the problem here, which is why there was push-back on
-> just holding the VMA lock over I/O.
-> 
-> Looking through filemap_fault() makes me want to cry and looking through
-> the other retry logic in the fault code makes me want to live on an island
-> with parakeets and coconuts forgetting any of this even exists...
+[1/1] rtc: mpfs: fix unchecked devm_clk_get() error pointer in probe()
+      https://git.kernel.org/abelloni/c/ac41b05d15db
 
-I think that's the right response.  It's why all the feedback from people
-who haven't even tried to follow the fault path (eg the session at LSFMM)
-is completely useless.  The fault path is WAY TOO COMPLEX.  I'll have
-more to say on this in two weeks at Plumbers.
+Best regards,
 
-> VM_FAULT_RETRY can mean a million different things:
-> 
-> 1. I dropped the lock and waited for the folio to be unlocked.
-> 
-> do_swap_page(), remove_device_exclusive_entry() -> folio_lock_or_retry()
-> 
-> 2. I dropped the lock to start I/O it may or may not be ready when you come
->    back.
-> 
-> filemap_fault() after do_sync_mmap_readahead() or page not uptodate
-> synchronous read with lock dropped <- what you are optimising for, or
-> shmem_falloc_wait() waiting for a hole punch.
-> 
-> The maybe_unlock_mmap_for_io() stuff.
-
-I think these two are the same case?  At least by my reading, case 2
-also waits for the folio to be unlocked (ie the read completed).
-do_sync_mmap_readahead() doesn't do that, but we then call
-__filemap_get_folio() which shuld return the appropriate folio,
-then we call __folio_lock_killable() or __folio_lock().
-
-> 3. I dropped the lock and nothing was waited for, OOM me on retry!
-> 
-> filemap_fault() allocation failure, gotta retry because we dropped the
-> lock!
-
-Oh, yeah, that's icky.  Hadn't even crawled onto my list of problems
-with this function.
-
-> 4. I can't do this under the VMA lock, use an mmap lock
-> 
-> vmf_can_call_fault(), any vm_ops without ->map_pages, __vmf_anon_prepare()
-> when mmap_read_trylock() lost, also hugetlb_fault() horror shows.
-> 
-> Also device-private swap entries.
-
-This one really is my fault / Suren's fault / your fault ;-)
-
-We should not have overloaded VM_FAULT_RETRY for this case.  We should
-have had a distinct VM_FAULT_NEEDS_MMAP_LOCK code.  But I am *scared*
-to try to separate the two at this point.  It was hard to make sure we
-got all the cases as we pushed it down, and now it's going to be worse.
-
-But I don't think that hugetlb_fault() deserves any stick here:
-         * We must check to release the per-VMA lock. __vmf_anon_prepare() in
-         * hugetlb_wp() is the only way ret can be set to VM_FAULT_RETRY.
-is the comment on the only two mentions of VM_FAULT_RETRY in hugetlb.
-
-I do have a plan to get rid of those two mentions actually ...
-but let's talk about in in Prague.
-
-> 5. Userfaultfd! Because of course!
-> 
-> Userspace has to do something.
-> 
-> handle_userfault() after sleeping for uffd handler, retry should succeed.
-> 
-> ctx->released -> yield to releasing thread.
-
-I find it really hard to reason about uffd.
-
-> 6. Fatal signal
-> 
-> Arch handlers rely on this, so retry also means 'check signals'. Fun.
-> 
-> 7. Some driver insanity
-> 
-> It means all things to all people. Used for waiting on stuff like
-> 
-> LLM says:
-> 
-> - TTM at drivers/gpu/drm/ttm/ttm_bo_vm.c:62 and 144, dma_resv contention
->   and GPU idle wait. Consumers in amdgpu, i915, nouveau, radeon and vmwgfx
->   re-derive "was the reservation unlocked" from ret == VM_FAULT_RETRY &&
->   !NOWAIT.
-> 
-> - xe_bo_cpu_fault_fastpath() at drivers/gpu/drm/xe/xe_bo.c:2021, where
->   RETRY is the default return value, including for "runtime PM not active".
-> 
-> - panthor at drivers/gpu/drm/panthor/panthor_gem.c:831 onwards, where
->   dma_resv_trylock() failure is RETRY and the same error is NOPAGE, SIGBUS
->   or RETRY depending on mmap_lock_held.
-> 
-> - sgx_vepc_fault() at arch/x86/kernel/cpu/sgx/virt.c:91, EBUSY from
->   __sgx_vepc_fault().  All of these call mmap_read_unlock() directly rather
->   than release_fault_lock(). They are only safe because none has
->   ->map_pages, so vmf_can_call_fault() bounces them before ->fault
->   runs. The VMA-lock design rests on that proxy.
-> 
-> So yeah. All that. Wow.
-> 
-> 8. Nothing!
-> 
-> LLM says:
-> 
->   - page_mkwrite() returns in fs/exfat/file.c:951 (inode_trylock lost),
-
-That's just wrong.  It turns the pagefault path into a spin on
-the inode lock!
-
->     fs/nfs/file.c:699, fs/netfs/buffered_write.c:576 and
->     fs/orangefs/inode.c:635 onwards, including the combination
->     VM_FAULT_LOCKED | VM_FAULT_RETRY.
-
-I think your AI is confused.  I don't see how nfs_vm_page_mkwrite()
-can return VM_FAULT_LOCKED | VM_FAULT_RETRY.  Nor netfs.  Orangefs
-is wrong and needs to be fixed ... once I figure out what it actually
-wants.
-
->     do_page_mkwrite() at mm/memory.c only
->     passes through ERROR and NOPAGE, and do_shared_fault() and
->     wp_page_shared() then ignore the returned value entirely. The write
->     fault completes as if page_mkwrite had succeeded.
-
-That's probably OK.  I think?
-
-> And maybe I'm missing some stuff too.
-
-There's also the VM_FAULT_COMPLETED insanity ...
-
-> But I worry a LOT more that it's just a HACK (and I know Barry was nice
-> about the idea and I appreciate it but I have to be honest).
-> 
-> Instead of dealing with any of the above, we just leave the mess in place +
-> just retry the operation under VMA because we happen to know, for this ONE
-> workload, it works out better.
-> 
-> And PROBABLY it doesn't add too much overhead to anything else.
-> 
-> SO.
-> 
-> I've written too much again, let's sum it up.
-> 
-> 1. WE HAVE TO DECIDE whether we want to accept the hack because it
->    helps in a known case and probably doesn't harm any other cases.
-> 
-> 2. WE HAVE TO FIX THIS DAMN MESS. Even if we take something like this WE
->    HAVE TO FIX IT.
-> 
-> I'm inclined to rip out the whole retry thing altogether one way or another
-> but I leave that to Matthew to figure out :)
-
-I think there's a bathtub with a baby in it over there ...
-
-There's considerable scope for simplification here.
-lock_folio_maybe_drop_mmap() makes my eyeballs bleed every time I look
-at it.  But we do need smoe kind of restart-the-fault mechanism.
-
-> If we decide we DO want the hack, then DEAR LORD can we not have this
-> horrible duplication across arches? I seem to remember you agreed to take
-> that out ([0]), and maybe it's pending what Matthew wants to do, but is
-> there not a way to avoid that?
-
-We desperately need to move more of the fault handling path out of the
-architectures.
-
-> I REALLY want to hear from Matthew on all this, I don't think we can move
-> ahead without his clear feedback.
-
-Thanks for dragging me back into this ;-)
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
