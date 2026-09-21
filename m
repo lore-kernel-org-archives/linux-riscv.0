@@ -4,58 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1838C982DA
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 05:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86781C982E1
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 05:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Wt7nEmlK7GWSj2rSvVen5DYunyzxy3o22bYxAY2cErU=; b=W9vy0NJaz8bfYE
-	PYQoGIGW/QMao8DW4rmtqSeE6T3Kx2CYBYkjp+ijTm9K248W0mzCu1pcAE5p3PI8pFhVtOqANeZw3
-	bnbN1xarKtE8nqJmGYaiVUpqvXKuvJyriQM4fNSRgcMWGMGhDPmfZttbzTFtK4M9SyDxDJhq0W0T0
-	7GgYAbiIdYv+0Qof9D5exXVyJ/ZJqOB6MDPENvRY5MNQAAGf5kNrsb3CzxwkTBf4ZhvdqlLwHL/n0
-	/b/8VP6pXAKhGm3yBSs5Ge4z9LsgYnsuwteSaoEIHe83wqH2vV7QWSGCE3Sp+20z+SA+Igc6f+pep
-	r7Qe3/q5rf2jHWXz+qig==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OPvTI8fV+p+KQQbC6+N1a9cR893fm1HZvGTi99GkCzc=; b=ByEYDpLwUfLZTx
+	5ncxflNjE+aQ8K/FVy8k3+loIW7d0uob4CFGPSPLayOW5EH/YUkxxdQcozKpD8tOFyCDg2Th3xyU3
+	tv6+6aCzqut1hdogmkXfQRDYbpMv4ChoYW+F9FRuXjEgiaolSNOeRpCfNBUflNI1HyTmtdKSRTdJr
+	1URiGdOUELvy0e1vaXLDFuC2JVpzTy92lqu+H2Vm/LE10TR2+k5F++RuljvezonhWTB81ZNe+I/iO
+	ilSyyXTiQ8EKsD7EOkulmJfwR3DBbUX0mMF0vzUdZckMSLrKNzUfViWz98dNy1vH+VUSwiNqqunB/
+	d02V1pcRRLUCiaOsZzdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8WNq-00000000tEm-1nrY;
-	Mon, 21 Sep 2026 05:16:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x8WOT-00000000twd-0PPp;
+	Mon, 21 Sep 2026 05:16:45 +0000
+Received: from mail-pz2-x10.google.com ([2607:f8b0:4864:3b::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8WNo-00000000tDs-2CKD
+	id 1x8WOQ-00000000trs-2qnT
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 05:16:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B3D840AB3;
-	Mon, 21 Sep 2026 05:16:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2319E1F000FF;
-	Mon, 21 Sep 2026 05:16:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789967763;
-	bh=qA1Ngc5R1c/XW8ryKGj2jFVjIRydVBq4U46bwGQ8ckw=;
-	h=From:To:Cc:Subject:Date;
-	b=SzHFdbW5HhOKhEH0gK7x4kemk2gUkrJzUQibnxaxO3vR04CVAhvkLwkhskDsL2tep
-	 4TJu77VCIkbRexn3pWixdiZPuP4hOngzzwCPAqvSVRhFxfqnO/SojTI9yYrfAkRgGY
-	 mTtA2K86p6HAonE/z7Dv0ba5RfqYOgxPMs3kIvjJYX5iUOU9KWFoUiiDjMk9lashYD
-	 CoXgRsOCF1GlcSiZtBgVeTvR9LGFY86q+TfLOKwCfpn3qh40r9RbRUHXJN0QtcUxqJ
-	 Lm3A+EDD9nWEzhdyuGIGsZbKN1ylnjmly1p2Y7YVQBo4MjQyR3vCnW3/wkFojQ2FDq
-	 9Ir89ZxwUXDEw==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	x86@kernel.org,
-	linux-riscv@lists.infradead.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 00/20] Migrate x86 and RISC-V accelerated AES modes into library
-Date: Sun, 20 Sep 2026 22:08:46 -0700
-Message-ID: <20260921050910.296144-1-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.55.0
+	Mon, 21 Sep 2026 05:16:44 +0000
+Received: by mail-pz2-x10.google.com with SMTP id 41be03b00d2f7-cc1cea34f01so2170433a12.1
+        for <linux-riscv@lists.infradead.org>; Sun, 20 Sep 2026 22:16:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1789967801; x=1790572601; darn=lists.infradead.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=7srlCwAy1xF9AsQpfjjd9v1D7/IGjTVIP88iEg8tDSk=;
+        b=PUXHtBsuGSlhj0OSCQn7d9cI4mpjmGNhUJ2r4/c9H1i+9QiaQq/evtnBby1jgJpkUH
+         MyqDY5VdSNR11x8LgREMBjD1rG8u2j9PW4HP9sNq9psjynfVHGRM3YiQ9mEFq3d5fCJo
+         7/7jBV+z0ckBkzyMYFTyBDzw60t7ICXF2XajDky1NvzFcss2cJ2pBaS2VBdOVcz9MYcb
+         DMc/t5CQ04aSmfq5HAXrXTTQ4EcZqzfaIkaIcJadGSRYfvVO+NPePbQuvL6Wil6hbi4l
+         GWK7QxOt0SwvDUvOUKPKHRM9LD4V1683a+Bta047j1ECwXV82c0Pn1cOZFvYf5vDSLqY
+         RavQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1789967801; x=1790572601;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7srlCwAy1xF9AsQpfjjd9v1D7/IGjTVIP88iEg8tDSk=;
+        b=sGhwaMIshLazG0/X5ky3A2CG0kIfQKGc+EeWHSXJEbFYBAyco7UJMsJ0vvrG0lgGhj
+         CjC1AO+FO0U49+etZ14qGpiq19urZeVSi9zU7CxFmkMG5rJ9wo1h8OiO7w5sT3cX6iN9
+         l/FV91u8OSdQFKnrFz29QKHNy2U8JN3lVPv6X+Bg/5N/tYtB7bX1R62WUcJpiDy+WPua
+         JmXf+YRvmdDEX4f+ZvEN5ALOXoDA6go/ZvRCu2LyKINzE9AxISVYCafCc5mPUz0OEuMD
+         GrTrOvEaq0/+SXl7U+jSn8fDkKlasj7Rfo0CLWPIKEFJnegAh3Tad0X4O6kjcKVCH/Ma
+         jXIQ==
+X-Gm-Message-State: AFuF++l9DvJDK8uq/od2AcGzh0+RAXp6hJjSQSCcouop9ur2CRmALUCm
+	s3rdBY/evYslwPOhb0MAdUN8wkkGBtl/clvcc67Y3EjfoRAZ84/TreaQ
+X-Gm-Gg: AYBFou3UaydstCH5Rr9CnpixFsZiU0MgOyGuz4Tv9EphNXQTDTZbVreTwu10IKHpc39
+	9Q2zilh8SVByawxIMqRSl1ujEitBwygSVimonuTwsrm0XpRoHvuyH4ukItOmv6u8lh9k6nFcj9H
+	gMjtes9wi94hS1Z2P/42a36ECFQymXgueFGw/Z6x6MGg+Q/pAiIYPXsCB7tOk72bTItvKRI6Pet
+	lUz/H4J/Qcv7+beBFqU2Ju/dZ7raQyr5bHBU1yAf3n1cHwPWrR6GcYFlpQPE2Bt48nncd+lR1BR
+	30/g3qGPnqrwEWe6BjnX51XpNPORUlKOyzXHdwMRS4klFjLLko+HYleCZseMwE/rSB/trHkEbDk
+	OU2slbBIDifvB8qQCOsIWDBwU8JCvMXFPXaWtAHdupUbhe5iSFRTtAfkowVVlz066mqk3RyRVIC
+	yXa9kmev/UGmi9kvq+X1XFzpK7QE029Zpwxwd3/dg8aO9piR1CXpTFx0DGaJQaf4UeQdMXzTItJ
+	bPlhB3nawvxaKvrCFzXhnWZhYIj1FJx0JdTAIxoI0tfwe3ZGcS5y+U88A==
+X-Received: by 2002:a17:90b:4a43:b0:39f:b29d:ba3e with SMTP id 98e67ed59e1d1-39fb29dc1efmr7820384a91.2.1789967801423;
+        Sun, 20 Sep 2026 22:16:41 -0700 (PDT)
+Received: from [192.168.10.146] ([67.174.242.98])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33c32f17dbdsm17114682eec.1.2026.09.20.22.16.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Sep 2026 22:16:40 -0700 (PDT)
 MIME-Version: 1.0
+Subject: Re: [PATCH v8 1/2] clocksource/drivers/timer-clint: Add ZICNTR
+ support
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+To: Jesse Taube <jtaubepe@redhat.com>
+In-Reply-To: <20260625134752.3107959-1-jtaubepe@redhat.com>
+References: <20260625134752.3107959-1-jtaubepe@redhat.com>
+Date: Sun, 20 Sep 2026 22:16:37 -0700
+Message-Id: <178996779709.23212.17122297709908983835.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1789967800; l=835;
+ i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
+ bh=IJXE/AAwLLrhFbKeRc/sXWo84V65ddEh+TuCXP7dNpQ=;
+ b=jcGPQvSH3J4vOJoQCuoWYGp03/nekB6xA5dqhb48baZTTERwaQyiyfyQtOVApCGjcF3r3hDCG
+ 5sSrzSSY6+4BODWmvljyUyZr79ekMF6uxiyH8PSgWUnJyf1oCrnOvE6
+X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
+ pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260920_221642_741889_2FB44822 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,97 +102,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <Mr.Bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series applies to v7.3-rc3.  It can also be retrieved from:
+> ZICNTR allows the CPU time to be read using CSRs, which used to be the
+> default. If ZICNTR is supported prefer using CSRs over MMIO.
+> The clint MMIO is covered in the RISC-V ACLINT spec [1], which has
+> not been ratified yet, where as the ZICNTR spec is ratified.
 
-    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-x86-riscv-v1
+It's actually stronger than that, the ACLINT spec has been rejected:
 
-Patch 1 is intended to be taken through libcrypto-fixes for 7.3.
-Patches 2-20 are intended to be taken through libcrypto-next for 7.4.
+https://riscv.atlassian.net/browse/RVS-3645
+https://riscv.atlassian.net/browse/RVS-4913
 
-This series migrates the x86 and RISC-V accelerated implementations of
-the AES modes ECB, CBC, CTS, CTR, XCTR, and XTS into lib/crypto/.
+> Using the CSRs also used to be the default, but was changed in
+> Commit d5be89a8d118 ("RISC-V: Resurrect the MMIO timer implementation
+> for M-mode systems") due to K210 not implementing rdtime in M-mode.
+> 
+> [1]: https://github.com/riscvarchive/riscv-aclint
+> Signed-off-by: Jesse Taube <jtaubepe@redhat.com>
+Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
-This makes the corresponding library APIs be properly accelerated on
-these architectures, while still accelerating crypto_skcipher as well
-(via the library-based code in crypto/aes.c).
-
-It removes a lot of redundant glue code, since crypto API boilerplate no
-longer needs to be duplicated per-architecture.
-
-Finally, it fixes the longstanding issue where these optimizations were
-disabled by default.
-
-In the case of RISC-V, this series handles all remaining AES code in
-arch/riscv/crypto/.  In the case of x86, AES-GCM is still left in
-arch/x86/crypto/ for now; it will be handled later.  Other architectures
-will be handled later as well.
-
-For various reasons, aesni-intel_asm.S (i.e. the x86-accelerated ECB,
-CBC, CTS, CTR, and XTS code that doesn't use AVX or VAES) is replaced
-with new functions written from scratch.  The other assembly functions
-are kept but are modified slightly for integration into the library.
-
-Eric Biggers (20):
-  crypto: aes - Fix undesired override of some optimized AES modes
-  lib/crypto: aes-xctr: Pass counter by value to aes_xctr_arch()
-  lib/crypto: x86/aes: Clean up aes-aesni.S in preparation for AES modes
-  lib/crypto: x86/aes-ecb: Add AES-NI optimization
-  lib/crypto: x86/aes-cbc: Add AES-NI optimization
-  lib/crypto: x86/aes-ctr: Add AES-NI optimization
-  lib/crypto: x86/aes-xts: Add AES-NI optimization
-  crypto: x86/aes-ecb - Remove superseded ECB skcipher
-  crypto: x86/aes-cbc - Remove superseded CBC skciphers
-  crypto: x86/aes-ctr - Remove superseded CTR skcipher
-  crypto: x86/aes-xts - Remove superseded XTS skcipher
-  lib/crypto: x86/aes-ctr: Migrate AVX-optimized code into library
-  lib/crypto: x86/aes-xts: Migrate AVX-optimized code into library
-  crypto: x86/aes - Drop superseded 32-bit build support
-  lib/crypto: riscv/aes: Copy aes-macros.S to library
-  lib/crypto: riscv/aes: Pass key struct to assembly code
-  lib/crypto: riscv/aes-ecb: Migrate optimized code into library
-  lib/crypto: riscv/aes-cbc: Migrate optimized code into library
-  lib/crypto: riscv/aes-ctr: Migrate optimized code into library
-  lib/crypto: riscv/aes-xts: Migrate optimized code into library
-
- arch/riscv/crypto/Kconfig                     |   15 -
- arch/riscv/crypto/Makefile                    |    4 -
- arch/riscv/crypto/aes-riscv64-glue.c          |  566 -------
- arch/riscv/crypto/aes-riscv64-zvkned.S        |  312 ----
- arch/x86/crypto/Kconfig                       |   11 +-
- arch/x86/crypto/Makefile                      |    8 +-
- arch/x86/crypto/aesni-intel_asm.S             | 1338 -----------------
- arch/x86/crypto/aesni-intel_glue.c            |  789 +---------
- crypto/aes.c                                  |   53 +-
- lib/crypto/Makefile                           |   14 +
- lib/crypto/aes.c                              |    6 +-
- .../crypto => lib/crypto/riscv}/aes-macros.S  |   25 +-
- .../riscv}/aes-riscv64-zvkned-zvbb-zvkg.S     |   96 +-
- .../crypto/riscv}/aes-riscv64-zvkned-zvkb.S   |   23 +-
- lib/crypto/riscv/aes-riscv64-zvkned.S         |  311 +++-
- lib/crypto/riscv/aes.h                        |  235 ++-
- lib/crypto/x86/aes-aesni.S                    |  823 +++++++++-
- .../crypto/x86}/aes-ctr-avx-x86_64.S          |   75 +-
- .../crypto/x86}/aes-xts-avx-x86_64.S          |  172 +--
- lib/crypto/x86/aes.h                          |  371 ++++-
- 20 files changed, 1824 insertions(+), 3423 deletions(-)
- delete mode 100644 arch/riscv/crypto/aes-riscv64-glue.c
- delete mode 100644 arch/riscv/crypto/aes-riscv64-zvkned.S
- delete mode 100644 arch/x86/crypto/aesni-intel_asm.S
- rename {arch/riscv/crypto => lib/crypto/riscv}/aes-macros.S (90%)
- rename {arch/riscv/crypto => lib/crypto/riscv}/aes-riscv64-zvkned-zvbb-zvkg.S (75%)
- rename {arch/riscv/crypto => lib/crypto/riscv}/aes-riscv64-zvkned-zvkb.S (93%)
- rename {arch/x86/crypto => lib/crypto/x86}/aes-ctr-avx-x86_64.S (92%)
- rename {arch/x86/crypto => lib/crypto/x86}/aes-xts-avx-x86_64.S (81%)
-
-
-base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
 -- 
-2.55.0
+- Charlie
 
 
 _______________________________________________
