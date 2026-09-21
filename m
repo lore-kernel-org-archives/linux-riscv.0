@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF1DC982E6
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 16:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44619C982ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 16:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
-	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BfFE033VJrqZ2Ih27G/Tri8fCbRrCwekx61U0Zjebr0=; b=Kx24zcJ01/7Lr5
-	juVQvfGj6bHokuHrJmL70Ne3bCd0gGmyvEyp9nhaD5pzK8hGrj+oGEpFNVolwz/7HLJYD0azZtNgH
-	rZpztsAD1KIo90r6qVZjOnxfkzcFmNkHjnaOBxYFOqhGkq5FSBTpkegdrT9w5D832/l6Uk01BrLHl
-	VWRmz9wTT6ohrNBIKOXi3Wdg+1MZ4zns8OeFCavG6+dDnx2ua+/d37Um68DYjFzLhK4teRbm04mDU
-	U5JmhNYVoxU8suu5zZgbxMiMwFLfvt0x/RjQPSK7gdmYKdNCMwA4BWImbvD0E00JynQytOB8Vf0gG
-	jEiWqd3EHPO0+SqtkS2w==;
+	List-Owner; bh=3aqw73U1+FxgmmfzQJSZXWJPALA1uLzJQggixAUKoyk=; b=jutRW51PB3zk6R
+	aYZDJ+eVWKiunn+Bi9W7JCxQhZv/0HDNZn4rZ56mnm1bAfv6RmvbIAbwStsebTxAGJoSYASEdcXa3
+	/JqW64/iTha7pGINF4qt8i5P4XzulCaSpAcFrSudcVhwgOhq6+5RDjmK4soCAeaIvIauj6BgulaaB
+	FbJzW7nlWDDsovjrByw+CkPB8RrHgJNfRjhVDhuKCu9ps3tTxJwZrSvYiw7JbVcgzKpL2aj0bunYy
+	bzc4MvNxv6CQ3KI9d7lDMzdOU/nJ+Bgr6T39WhmksmLnuLObMEcwB3RTcpT0AW6c0jRLNAbd/UOU8
+	Rjd5ozGbb8C2WgraGRJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gT0-00000002lKI-1eHG;
-	Mon, 21 Sep 2026 16:02:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gSy-00000002lK2-3qqT
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 16:02:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 60F1443D98
-	for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 16:02:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47D921F008A0
-	for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 16:02:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790006524;
-	bh=Eyf5HB7rWUuykO/B4yjrMsebEOm1V7kPMebLHZRCWQY=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=MHVHrTUhgy8RLJSB9PCb96C+TwYoxk9OPxsY3WYUd2k1pUPyfhn1jxqcnLx12ZXbI
-	 C0zH7D0SYWucL6sTXnsFxG2XnRXG505wid63EKjGDRqyp94l78SpU5yfs9I3E9s5nE
-	 WXbF+pUOvv4AWZMdfjgwUSRby/OgOgpSqHRAX4SKAvSMpyq/zbOFoLZ/kYDzgMjRgz
-	 ugE5ZMnEKTcPpmROkZHM0DRhibmf7XlTswHDYXcMj4LvmRsBFPTpqMURa/KDisRLaW
-	 zz4Rlsh2QivIdiY/m5H9SAaOTlKAURKON3hAb7WOVVqnwGQhoDyprV4XVucAJ/LMi/
-	 Hwii7b6VQc6sw==
-Received: by mail-lr2-f12.google.com with SMTP id 38308e7fff4ca-3a2ff00b8d8so25548491fa.1
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 09:02:04 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwgGc30T70Oxv0jaE2cTbE2LPrGeEp7Ad4xBBY1LtZBPZu73WpmortTSKptnh4PLBTX2wxZoxKUMuSMWA==@lists.infradead.org
-X-Gm-Message-State: AFuF++l65/NM2rZ1aIOLdb8D5qxkt7jVN/NjJXzQLdEP6j27lI6tYLQS
-	c0fSSdJWz84KZHyOdWGfkMLN4mBJQl5hHr+mO7zovR4AZCuV/U9Peq3QWnJLh+MFNdCeYoL2kS6
-	RcdW/+bDKd4Br8MQEWSlLVJGT2rQ2rLQ=
-X-Received: by 2002:a05:651c:1443:b0:3a5:afec:9cf9 with SMTP id
- 38308e7fff4ca-3a5fbf36939mr24677701fa.7.1790006522575; Mon, 21 Sep 2026
- 09:02:02 -0700 (PDT)
+	id 1x8glF-00000002oRS-3TR0;
+	Mon, 21 Sep 2026 16:20:59 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8gl0-00000002oNa-486R;
+	Mon, 21 Sep 2026 16:20:43 +0000
+Message-ID: <c0c67459-6b75-4bcd-b068-3752e23afbf6@infradead.org>
+Date: Mon, 21 Sep 2026 09:20:40 -0700
 MIME-Version: 1.0
-References: <20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech> <20260921-a733-clk-v4-2-9c184ebe9ac1@pigmoral.tech>
-In-Reply-To: <20260921-a733-clk-v4-2-9c184ebe9ac1@pigmoral.tech>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 22 Sep 2026 00:01:48 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66wbv2W1mcZ_WzKnkgiSYYm89LGR67gYAgsNgSFYw5mfg@mail.gmail.com>
-X-Gm-Features: AcwNN1WJSlHI-NjxkeeWhPwtNL0p2-F5vEq-B0J5BRudScG0IjIZ4ZswOa7ekVg
-Message-ID: <CAGb2v66wbv2W1mcZ_WzKnkgiSYYm89LGR67gYAgsNgSFYw5mfg@mail.gmail.com>
-Subject: Re: [PATCH v4 2/8] clk: sunxi-ng: sdm: Add dual patterns support
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, netdev@vger.kernel.org, 
-	Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano <enzo.adriano.code@gmail.com>, 
-	Andre Przywara <andre.przywara@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 21/21] Documentation: mm: clarify behaviour of
+ compile-time folded page tables
+To: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>,
+ Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Barry Song <baohua@kernel.org>,
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
+ Wei Xu <weixugc@google.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
+ Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-openrisc@vger.kernel.org
+References: <20260921-dummy_ptxp3-v1-0-cd40cf68242e@arm.com>
+ <20260921-dummy_ptxp3-v1-21-cd40cf68242e@arm.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260921-dummy_ptxp3-v1-21-cd40cf68242e@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,25 +77,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBTZXAgMjEsIDIwMjYgYXQgMTE6MznigK9QTSBKdW5odWkgTGl1IDxqdW5odWkubGl1
-QHBpZ21vcmFsLnRlY2g+IHdyb3RlOgo+Cj4gT24gbmV3ZXIgQWxsd2lubmVyIHBsYXRmb3JtcyBs
-aWtlIHRoZSBBNzMzLCB0aGUgU2lnbWEtRGVsdGEgTW9kdWxhdGlvbgo+IChTRE0pIGNvbnRyb2wg
-bG9naWMgaXMgbW9yZSBjb21wbGV4LiBUaGUgU0RNIGVuYWJsZSBiaXQsIHdoaWNoIHdhcwo+IHBy
-ZXZpb3VzbHkgbG9jYXRlZCBpbiB0aGUgUExMIHJlZ2lzdGVyLCBpcyBub3cgbW92ZWQgdG8gYSBz
-ZWNvbmQKPiBwYXR0ZXJuIHJlZ2lzdGVyIChQQVRURVJOMSkuCj4KPiBUbyBzdXBwb3J0IHRoaXMs
-IHJlbmFtZSB0aGUgZXhpc3RpbmcgInR1bmluZyIgbWVtYmVycyB0byAicGF0dGVybjAiIHRvCj4g
-YWxpZ24gd2l0aCB0aGUgZGF0YXNoZWV0LCBhbmQgaW50cm9kdWNlIHRoZSBfU1VOWElfQ0NVX1NE
-TV9EVUFMX1BBVAo+IG1hY3JvIHRvIHByb3ZpZGUgcGF0dGVybjEgcmVnaXN0ZXIgc3VwcG9ydC4g
-UmVsYXRlZCBvcGVyYXRpb25zIGFyZSBhbHNvCj4gdXBkYXRlZC4KPgo+IFRlc3RlZC1ieTogSmVy
-b21lIEJydW5ldCA8amJydW5ldEBiYXlsaWJyZS5jb20+Cj4gU2lnbmVkLW9mZi1ieTogSnVuaHVp
-IExpdSA8anVuaHVpLmxpdUBwaWdtb3JhbC50ZWNoPgoKUmV2aWV3ZWQtYnk6IENoZW4tWXUgVHNh
-aSA8d2Vuc0BrZXJuZWwub3JnPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+
+
+On 9/21/26 3:55 AM, Yeoreum Yun wrote:
+> From: "David Hildenbrand (Arm)" <david@kernel.org>
+> 
+> Compile-time folded page tables are not necessarily easy to understand, and even
+> people the were once familiar with the concept might need to refresh their memory.
+> 
+> Add proper documentation, including a nice diagram, for the current design.
+> Mention details about dummy functions, including the recently changed pXdp_get()
+> helpers.
+> 
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+
+Documentation/mm/page_tables.rst:197: WARNING: Bullet list ends without a blank line; unexpected unindent. [docutils]
+
+See below for a fix.
+
+> ---
+>  Documentation/mm/page_tables.rst | 84 +++++++++++++++++++++++++++++++++++-----
+>  1 file changed, 75 insertions(+), 9 deletions(-)
+> 
+> diff --git a/Documentation/mm/page_tables.rst b/Documentation/mm/page_tables.rst
+> index 126c876282509..84f2715c7de0a 100644
+> --- a/Documentation/mm/page_tables.rst
+> +++ b/Documentation/mm/page_tables.rst
+> @@ -143,15 +143,81 @@ pointers on each level is architecture-defined.::
+>  Page Table Folding
+>  ==================
+>  
+> -If the architecture does not use all the page table levels, they can be *folded*
+> -which means skipped, and all operations performed on page tables will be
+> -compile-time augmented to just skip a level when accessing the next lower
+> -level.
+> -
+> -Page table handling code that wishes to be architecture-neutral, such as the
+> -virtual memory manager, will need to be written so that it traverses all of the
+> -currently five levels. This style should also be preferred for
+> -architecture-specific code, so as to be robust to future changes.
+> +Not all architectures support 5-level page tables; while for some of them
+> +the exact number of supported page table levels is known at compile time,
+> +others can determine the number of page table levels at runtime based on
+> +hardware support and address space sizes.
+> +
+> +Generic page table walking code always assumes that 5 levels of page table
+> +exist. To make page table walking code not have to worry about that,
+> +`compile-time folding` and `runtime folding` of page tables are used.
+> +Compile-time folding is mostly handled in common code, whereas runtime folding
+> +is exclusively handled in architecture code.
+> +
+> +This description focuses on generic compile-time folded page tables; for
+> +architecture-specific variants, some details can vary, however, without
+> +affecting common page table walkers.
+> +
+> +When walking folded page tables, all upper page table levels up to the supported
+> +level are skipped in page table walkers: this is achieved by (a) treating
+> +entries in upper page table levels as present and pointing at a page table; and
+> +(b) having page table walkers cast the entry pointer to the next-level entry
+> +instead of dereferencing that table. From the perspective of a page table
+> +walker, the entry points at itself.
+> +
+> +Assuming compile-time folded 4-level page tables, to achieve (a), pgd_present()
+> +and pgd_leaf() are hard-coded to indicate a present page table entry that
+> +points at a page table, and to achieve (b) p4d_offset() and
+> +p4d_offset_lockless() simply cast the page table entry pointer to the next
+> +lower level.
+> +
+> +In the current design, this is further modeled by having the P4D have a
+> +single page table entry::
+> +
+> +        PGD
+> +  --> +------+          NOP4D
+> +      | ptr0 |-------> +------+           PUD
+> +      | ptr1 |-        | ptr0 |-------> +-----+
+> +      | ptr2 | \       +------+         | ptr |-------> ...
+> +      | ptr3 |  \                       | ptr |
+> +        ...      \                        ..
+> +                  \        NOP4D
+> +                   +----> +------+           PUD
+> +                          | ptr1 |-------> +-----+
+> +                          +------+         | ptr |-------> ...
+> +                                           | ptr |
+> +                                             ...
+> +
+> +Note that the arrows from PGD to NOP4D represent page-table-walker
+> +transitions, not pointers stored in the pgd entries.
+> +
+> +Using p4d as an example, `nop4d`/`p4d folded` translates to the following:
+> +
+> +- p4d is considered folded into pgd; both are operating on the same page
+> + table.
+
+     table.
+(add one more prefix space to align the indentation)
+
+> +
+> +- Most pgd_* helpers are hard-coded dummy functions that ignore the passed
+> +  pgd_t values entirely. Exceptions are pgd_val() and low-level helpers
+> +  set_pgd() + pgd_page_vaddr(), which effectively translate to set_p4d()/
+> +  p4d_pgtable() to keep existing arch code working.
+> +
+> +  Architectures must provide p4d_* helpers (unless further common
+> +  compile-time folding applies).
+> +
+> +- PTRS_PER_P4D is hard-coded to 1. Architectures must define PTRS_PER_PGD.
+> +
+> +To avoid reading a value that will never be used but cannot be entirely
+> +optimized out, compile-time folded page table code also makes pXdp_get()
+> +return a constant dummy value.
+> +
+> +In common code, this only affects pXd_val() when used for printing page
+> +table entries for debugging purposes. As we don't want architecture code
+> +that uses set_pXd(), pgd_page_vaddr() or pXd_pgtable() to accidentally
+> +operate on dummy values, the compiler will error out if it detects that the
+> +helpers are used with dummy values. For a folded level, pXd_page() must not
+> +be used and unconditionally triggers a compiler error. Architecture code must
+> +instead call the helpers on the proper first page table level: e.g., set_p4d()
+> +instead of set_pgd().
+>  
+>  
+>  MMU, TLB, and Page Faults
+> 
+
+-- 
+~Randy
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
