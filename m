@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AABDC982ED
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 12:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F012C982EE
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 12:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TUwGG0FXTGdkmcKenToyUVyve8YL8wqPT0h+Sv1QxAU=; b=BfEyQvYpB8f6KA
-	ptBn+uGFSABrWuZmdaeQwz62bhthcwmvz5qsAu48sOGAnmqkcwptxO3YpbH3WdAg9AQKOsni47Fdd
-	fp18rdGk0gR1Tf/73wtCJUr86CLLmReC83ctjqoU8MbOaCmfZLRoADG5Pi0AOZEMmvsiT8dO/fJ5J
-	LpzY70xutIgXy3IJsPxJcMPYwobs3EmZo1fyQhmi1S3omTxSD0dmq2DRriKq1PMZ2KspZr0C5h43l
-	UqJRhVqLxwrFrHUt/O/m0VOue7xzlcus10kZ/OdCtUIuVFUZ4hosI/WIy/Itfnit6QL7OWqdiuTeS
-	fTWk1njOb6wpxTjJHf8g==;
+	List-Owner; bh=U2kQkhWBF6D2DJFewxEvKPrfCuW3jlKEd3CIz5+RN3A=; b=i2QZ+pTiHj/3xQ
+	JOQ63tpHiGvu5n+/I1ItRHQs+NBCxiWMdNtchp+inE79RFwnu1rpJLOUZcX1suPYhdBueozkgaCY6
+	Cae+4sez0eOwanb55rzYXHggOF0GViRnNXDWygT8PytUqrYPvRdDCPOlZ+NSiOLGZ2tf/PJy7rH0y
+	xOnKA8pNbVuPqjso1qF0H2l0tml+4OYQO2yMtA2Se2iZfzSioYRBKCtrYySPSaaPgf1XiulmRuzGP
+	+yCtpn3wIJ+VIev91aP7WewEG60IFmdGOW1EoQ4ws6cUAbnw8kEgpL2Xwp0Fq1OOBEd0ILGPDxSN/
+	gBTt2NCXNSk2jQF1ibLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dSL-000000028br-3cQJ;
-	Mon, 21 Sep 2026 12:49:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8dSK-000000028bW-2ArH;
-	Mon, 21 Sep 2026 12:49:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72569600C8;
-	Mon, 21 Sep 2026 12:49:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27C9B1F000FF;
-	Mon, 21 Sep 2026 12:48:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789994951;
-	bh=jExRX4G5OIZIjwoiUOBNVln0eNxdFkmvZs010Fu3Un0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CYZuZoBSJafqz1gUdp9RzqB0IKQ+dGBhAKDxXduLxsehFa3rE/j7EwJk6mle0ok2S
-	 Kn2XKnlXlvc3M6Nkpk0J+ERuWqkHl3XjoR0AByqpMedzdifr/tERuEMOci5ntShoY0
-	 3BB6RqN0IBpdZ6In9mYJSndT9jm3ItxyBjkB2Bk61tsbkX2eUJaDIJuZnF1StwBNFd
-	 ekjNCgH2frChTpdzEIuOFt157B109FY9aD3KbpoaVJIEgrkXBSKpA1ixhaL2hjPlX3
-	 J+ML1u7s3cOiw6Hi6lg1BdAOYcCvaE9THduolTNeortqDnodKZHo9g8Iq5ttNwhQvH
-	 sfLBOM3SiOd6g==
-Date: Mon, 21 Sep 2026 13:48:56 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Petr Pavlu <petr.pavlu@suse.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 13/21] modpost: emit module descriptors as assembly
-Message-ID: <arEnCzzQa9XDd4LT@gremlin>
-References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
- <20260914-build-speedup-v2-13-39817ec5db23@kernel.org>
- <95baacfb-d8d9-4d2f-bc89-592df6f6f8e3@suse.com>
- <arEZrFmXeCO4hZpP@gremlin>
- <2b27bb4b-47e3-45ed-a26a-4b9de2b20542@suse.com>
+	id 1x8dTS-000000028oY-0sRR;
+	Mon, 21 Sep 2026 12:50:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8dTQ-000000028nf-0TjR;
+	Mon, 21 Sep 2026 12:50:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4588F176C;
+	Mon, 21 Sep 2026 05:50:15 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2AE03F86C;
+	Mon, 21 Sep 2026 05:50:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1789995018; bh=TQv7l9aU1HPhSsH6yPVKN6maCdi89qI1I+QaGJPz64U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A1SoKiy+LIZ9OZR6QAKSKC1Ux368ZuAKB18oX6607x3al7a+KRnZc9iDJhGX3ZePO
+	 aT176Jp0/eANP5NLj9yCAhkVS10FWvTpr9OikBj7j5132HFZWEeyUqhAkayVoeKSwu
+	 OMGqtJEAqxDVi+EZSvFdcDPrspc5Js6YggW/hMp0=
+Date: Mon, 21 Sep 2026 13:50:10 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v5 2/6] dma: swiotlb: Track whether the pool size was
+ explicitly set
+Message-ID: <arEoAq9mhsx2mt1P@arm.com>
+References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+ <20260921063628.362078-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <2b27bb4b-47e3-45ed-a26a-4b9de2b20542@suse.com>
+In-Reply-To: <20260921063628.362078-3-aneesh.kumar@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260921_055020_212713_5ED2C522 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,68 +104,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 02:36:30PM +0200, Petr Pavlu wrote:
-> On 9/21/26 1:57 PM, Lorenzo Stoakes (ARM) wrote:
-> > (note there's a v3 see [0])
-> >
-> > [0]: https://lore.kernel.org/linux-kbuild/20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org/
->
-> Thanks, I missed it.
->
-> > On Mon, Sep 21, 2026 at 01:25:09PM +0200, Petr Pavlu wrote:
-> >> On 9/14/26 11:22 AM, Lorenzo Stoakes (ARM) wrote:
-> >>> The sections were confirmed to be byte-for-byte identical to the C version
-> >>> produced - each of .modinfo, .gnu.linkonce.this_module, __ksymtab*,
-> >>> __ksymtab_strings, __kcrctab*, __kflagstab*, __versions,
-> >>> __version_ext_crcs, __version_ext_names and their relocations - for all
-> >>> 8,135 modules of a clang allmodconfig build with CONFIG_COMPILE_TEST off
-> >>> and CONFIG_MODVERSIONS, CONFIG_EXTENDED_MODVERSIONS and
-> >>> CONFIG_MODULE_SRCVERSION_ALL on, and for a sample built with gcc.
-> >>
-> >> Lowering the data to assembly loses debug information for __this_module,
-> >> specifically that it has type `struct module`. It might be worth
-> >
-> > No, it keeps it - every module includes linux/module.h, and the extern
-> > declaration of __this_module carries the type, so all of the stuff gdb
-> > needs (e.g. ptype, p & field access), DWARF etc. is all there in the same
-> > way as with .mod.c.
-> >
-> > Have confirmed locally.
->
-> An extern declaration alone shouldn't cause its name and type to be
-> included in debug information. They should appear only when the variable
-> is referenced by some code.
+On Mon, Sep 21, 2026 at 12:06:24PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> swiotlb_adjust_size() must not override a pool size supplied through the
+> swiotlb= command-line parameter.
+> 
+> Currently, it determines whether a size was supplied by comparing
+> default_nslabs with IO_TLB_DEFAULT_SIZE. This fails when the user
+> explicitly requests the compiled-in default size, allowing the request
+> to be overwritten by automatic pool sizing.
+> 
+> Record whether swiotlb= supplied a numeric size and add
+> swiotlb_default_size_changed() to query that state.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-Ack yeah sorry my mistake, I had the LLM check that and should have known
-better than to trust it without reviewing what it said (as I have done for
-the most part for everything in this series).
-
->
-> Testing with a simple module that previously referenced __this_module
-> only in .mod.c and in no other file, such as lib/test_module.c, shows
-> that the .ko no longer contains debug information for this variable.
->
-> I've verified this behavior with GCC 16 and Clang 19.
-
-Ack confirmed locally.
-
-Can put a fix in module-common.c.
-
-The LLM came up with a reference as an alternative:
-
-static struct module *const __this_module_dbg __used __section(".discard.this_module") = &__this_module;
-
-Would that work? Or should we go with your original suggestion? -
-
-__weak __section(".discard.this_module") struct module __this_module;
-
->
-> --
-> Cheers,
-> Petr
-
---
-Cheers, Lorenzo
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
 _______________________________________________
 linux-riscv mailing list
