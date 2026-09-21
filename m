@@ -4,117 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A89DC982ED
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 15:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20188C982ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 15:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pEdWYu3cLp27jWUWNYcxV8eU9f/B0CqzrfMHNsHw/gU=; b=ciPefTzybY0hBM
-	ManDk5OrbtHMOTXGF/BbasPo50mGOH9YfBa71GoYa6qIcES8h4MMQDNJCXppgGEqApAVH+KsWg79G
-	9q5KpWJOxQzYN8sQ8cAl4ZqQvx1KaskKXAIWjzeBehr1z6KQIPr0rFycqdze4MWEPXlE+jS86nF/G
-	/l+ytObKDGtbur+oKKPfzPS5MFkp7Yy/OBRoiFAm3mBPI83nAb7z1q+YOZyuJ62y8gqYz8Gw+MEfy
-	PQM1a8f+O0K/7n0IGi3fcvVeVpwkoHlkFWoghZ29YrrV0LikTPl3hltjDk5/afCCFa3eaqRX//a8B
-	HeTI7ykcDjnsmLVB5W8A==;
+	List-Owner; bh=uY4vwO3hnSJrYj6wITMauecy9v2tPCGEBmLZulUwqko=; b=d2kB6UQAtRIEBk
+	OPbPzIBcqJUO6qnHVAfEgGm9vVbrIMxzhdbH6DmM6Tm/iHw2raSd65sAj7ua+Gm8nDkuOkgXbPPy7
+	ebtLL2bTditeB1b8pQzfn0dHJXWQzQiWwqIId/VquzEfCzeck712p0aoMIMTk2Q7osdR7PICOef1w
+	OHNfrRSghgVr5iUh3h7ewUnEfDslsAljCOmQvQGre2iSuI2RBMl0YM8ROCtZrdSoFnFCI8g2R4w0s
+	Vehk3DfenXirOSzbylvjunKp/fWLnw3qVC45hEuXPfRDiiA2dJJ1caU1I0Kw8yskA+oipIdXSyKZx
+	/XiX38QkzDMA8xdpCHSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8feA-00000002Yc4-4AB3;
-	Mon, 21 Sep 2026 15:09:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8fe9-00000002YbR-3QPO
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 21 Sep 2026 15:09:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Tma9B921bFIX7nBVsJuVx65bgAYnceU5Vt0UE9WRrLE=; b=R76VNO4kmvFeNyfhtw2lrUkKXC
-	o07Kkgb3kLCQnENXKEszNkrRWptrxtN4R9Aut9JeQ6FQyjbT5alDV7cmJyeQHJUT+cPa2h6zJGm9B
-	6refmcGV4o/PB4ALWkBX9awHNdFcBJs0RQPkEUSP3PDCEdUYWfu7+7OOQ0qncpHv+53JUuCzTfllM
-	jP/iiXbrjYJg9iEUgPIh+l7C2Z85Ucfw/GApRmx/rjeJzpvyuVYm/04QfnQUMEkdnse5OxlKKhvp0
-	/g3DzXxR26mZ2QOu6z0ettrcifdKD2kJsOxwX7t7ThPdNg+S7D2NgNcoQS4b1+AiV08stUEoZ95jy
-	F3OGMidw==;
-Received: from mail-wm2-x11.google.com ([2a00:1450:4864:31::11])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8fdx-0000000CS9o-40v6
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 15:09:32 +0000
-Received: by mail-wm2-x11.google.com with SMTP id 5b1f17b1804b1-49e721b5503so31050645e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 08:09:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790003358; x=1790608158; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Tma9B921bFIX7nBVsJuVx65bgAYnceU5Vt0UE9WRrLE=;
-        b=ZFk+HNKqM7aArqfCCLsOqcjFNXQOkJCRpygfMkcwRYGdxlFhQdBBRjYsjF1YAzrxYT
-         fNKCmt+QNJtzd/W5WPXBLdREx8Y+1wSPamxwvINndkoBRoF18sUWnHcIlf9heoJJmRsx
-         nBv6A5Q7gFaaSnC0bYWbvhwNYXnQscRzQb68RG521+pDQC050N5+xYovA5eBUIV0/+U2
-         O5zoW+vnF4/cdWKTHTbCyEz+Pv63migXiq7tH6E5Y2EKw3atWfDL4XejWOXdBylHKlm1
-         O2b0WxZ2BAnXk/Hnn1mrdfOyFQU0anj+D5OMpKhD3xCphzr7xWD4eWX1BEy5S2Qx6WZA
-         7rxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790003358; x=1790608158;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Tma9B921bFIX7nBVsJuVx65bgAYnceU5Vt0UE9WRrLE=;
-        b=v/JiOMzfG1R7fUMTLT9+j7qgjIvsHtxkEKPTzMf0Gye0nnqqNxj8n4FhOaOhAbGSwE
-         tF1kWoZ7dLIQB4IXw+LdAvopuWzABp4N/sRIlTUgXRLtZ2TCnsZdtvPGuUp2VfB2bh/C
-         JtpcX1H+OQNmaAqOGWDpNSdAMH0GszSLNUUmnjfa+CpZyuaZvo+AJZfUfz1ZO9rE+RPJ
-         IYoZ8DPAP57bF5w6YkSRtI6y2kUU1HQ+PMnwcBv73SDPCvbv3lW6Av2vKj+N5Y22k4DR
-         5pwB4vH+4VhgMJXvtfd/IzEFvsEkR4eC3r8XmTsBHckLP00VUvKgUfeKDtfBnIATro51
-         ZwKQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwjsuoL3J0dMZsLwOKQTjPRF5h2TZaDzcqyIBieuxaH3FDDSKWQIZ3HlR44Isqv7GUmRZhaVtDp3jxX/w==@lists.infradead.org
-X-Gm-Message-State: AFuF++nk3795MSDASnXjMC9mqxVw88aLmjH6OIx+oC4qa0KEWsxAWXhf
-	qJe6gnogr1dytMF/vPUdk6twIcxUAZDIIOk5YpvRk2fp0xbxMgr4jYc/
-X-Gm-Gg: AYBFou1/aaXM/3AExkRnhVmYZWobZwDK9rr77V9WTMcN2PuVjTdRWSoCuYgj8fgqxo+
-	wTCs6up/Q67b6ewt54Yst4KsTT84S0VaH1YAYIhxln9lYIMS5s03ktV8Gc6apGtaUcOpOoyyUaQ
-	DbggH+Hi5K1Kwjn/u+RG2FHGwO1x53ufXJ0/0K7b29yOjKGHHJ1/CCkb5I7/kwXblSTaE0s8SCb
-	i/Gr3/ssKXoxyZ7rJACVWKIh4gBWzG+Dj7vNT1Xb8zlIZH32Wojedp3PBmW1Ecl2URrlYTGF9HI
-	33OhsGI/tSfHHP2U7KtNoUChIxB2cDq/wAX/MGSoicJQhX0uNbGrstFYnJ4r23qbpOJkAG9rUsW
-	xt6z+KkKv97QGrjJVL9BlOaaVoOyiXokU+Tzn7wrubR0HyvON18TPS+P1DmNKQcXCwRZ4ZL+y9p
-	TC+4f8SNVbGyC11IAop4NQHzHm2IFQ/3NTDXU6YqdFiiHl+3pjoBiVmm8PPuyYm5Ok5gEbdPg6g
-	eXzCizpfaYFgaa7gWaMdvsOryBInOjj84GXOxp83X2HfHB5+S6OZ5EqpVmakyVWxKMQlkirvC/4
-	7wCf+Ex45XBQMeSz
-X-Received: by 2002:a05:600c:3b04:b0:499:900c:9c69 with SMTP id 5b1f17b1804b1-49fc56aab52mr150433145e9.9.1790003358551;
-        Mon, 21 Sep 2026 08:09:18 -0700 (PDT)
-Received: from [192.168.0.233] (2a02-8388-e6ca-5780-e161-768d-5c97-84d0.cable.dynamic.v6.surfer.at. [2a02:8388:e6ca:5780:e161:768d:5c97:84d0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49fc56eff84sm255659435e9.1.2026.09.21.08.09.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Sep 2026 08:09:18 -0700 (PDT)
-From: Andrei Lalaev <andrey.lalaev@gmail.com>
-Date: Mon, 21 Sep 2026 17:09:00 +0200
-Subject: [PATCH 2/2] riscv: dts: sophgo: sg2002-milkv-duo256m: drop
- reserved memory node
+	id 1x8ftp-00000002bKf-0J2y;
+	Mon, 21 Sep 2026 15:25:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8fti-00000002bIO-3lSa;
+	Mon, 21 Sep 2026 15:25:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 467AE176C;
+	Mon, 21 Sep 2026 08:25:31 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4049D3F9A2;
+	Mon, 21 Sep 2026 08:25:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790004334; bh=zzx3mjbudK64AmYFt4zDvBW4IWB8i50rKocOK6Kc+dM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bJ6BTSYHKivo2/eRF9c4tWP/TAAVxpqB5Gki+6hqB70gMH9c6T0DN/7LvVp33NcYt
+	 fV1Z2JO0j2YRGDrhpnqtAy2GN69cKLeg4YLIjHpGCN+UjR/tG+22iBWPqhPA/ijEBI
+	 8cO8DvQWcF+Nt3XHK3carG/MXQkDFh2hAqfz/P4w=
+Message-ID: <4ef23d65-02d2-4187-904b-9d1665d8cff5@arm.com>
+Date: Mon, 21 Sep 2026 16:25:25 +0100
 MIME-Version: 1.0
-Message-Id: <20260921-sophgo-remove-coprocessor-node-v1-2-ace29446b327@gmail.com>
-References: <20260921-sophgo-remove-coprocessor-node-v1-0-ace29446b327@gmail.com>
-In-Reply-To: <20260921-sophgo-remove-coprocessor-node-v1-0-ace29446b327@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <chen.wang@linux.dev>, 
- Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Andrei Lalaev <andrey.lalaev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1790003355; l=930;
- i=andrey.lalaev@gmail.com; s=20260901; h=from:subject:message-id;
- bh=2hLVo973TL+IdDgfOfnl6vgwTnq6FuS1dy3gn60sYLo=;
- b=8vQxbbljLHi5ctbjXGnvpx0s7hUcmZwoEqChv9f7UFEt2WHJsgauYQxdmsMj3k2QtvPq4Px1E
- aqvlQO9Z73xCWko1NMLNcKEsCu4lGQsSo65J/OH2o+UPbItGZHFeTDN
-X-Developer-Key: i=andrey.lalaev@gmail.com; a=ed25519;
- pk=YHk+K3q98GV/1CigmrEAQ+Vc0o+GlFWt3j94jvrEh6o=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/6] dma: swiotlb: Centralize default pool policy
+ selection
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
+ <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+ <20260921063628.362078-2-aneesh.kumar@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260921063628.362078-2-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_160930_756213_56BA6676 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_082539_043753_70ACBF97 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,46 +90,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current FSBL can load firmware to any address and can also
-disable the coprocessor. Therefore, FSBL should modify the device
-tree at runtime. Remove the node accordingly.
+On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
+[...]
+> diff --git a/arch/powerpc/kernel/dma-swiotlb.c b/arch/powerpc/kernel/dma-swiotlb.c
+> index ba256c37bcc0..97fffa46f05a 100644
+> --- a/arch/powerpc/kernel/dma-swiotlb.c
+> +++ b/arch/powerpc/kernel/dma-swiotlb.c
+> @@ -14,8 +14,10 @@ unsigned int ppc_swiotlb_flags;
+>   
+>   void __init swiotlb_detect_4g(void)
+>   {
+> -	if ((memblock_end_of_DRAM() - 1) > 0xffffffff)
+> +	if ((memblock_end_of_DRAM() - 1) > 0xffffffff) {
+>   		ppc_swiotlb_enable = 1;
 
-Signed-off-by: Andrei Lalaev <andrey.lalaev@gmail.com>
----
- arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts | 11 -----------
- 1 file changed, 11 deletions(-)
+Nit: Perhaps it's beyond the functional scope of this patch, but I do 
+wonder if these <arch>_swiotlb_enable conditions become redundant and 
+could just be replaced with "if (<arch>_swiotlb_flags != 0)" too.
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts
-index a2797c0bd767..d4e86c15664e 100644
---- a/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2002-milkv-duo256m.dts
-@@ -36,17 +36,6 @@ led-0 {
- 			linux,default-trigger = "heartbeat";
- 		};
- 	};
--
--	reserved-memory {
--		#address-cells = <1>;
--		#size-cells = <1>;
--		ranges;
--
--		coprocessor_rtos: region@8fe00000 {
--			reg = <0x8fe00000 0x200000>;
--			no-map;
--		};
--	};
- };
- 
- &osc {
+> +		ppc_swiotlb_flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
+> +	}
+>   }
+>   
+>   static int __init check_swiotlb_enabled(void)
+[...]
+> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
+> index 75cf8f6ae8cd..0cff255827ba 100644
+> --- a/arch/x86/kernel/pci-dma.c
+> +++ b/arch/x86/kernel/pci-dma.c
+> @@ -44,8 +44,10 @@ static unsigned int x86_swiotlb_flags;
+>   static void __init pci_swiotlb_detect(void)
+>   {
+>   	/* don't initialize swiotlb if iommu=off (no_iommu=1) */
+> -	if (!no_iommu && max_possible_pfn > MAX_DMA32_PFN)
+> +	if (!no_iommu && max_possible_pfn > MAX_DMA32_PFN) {
+>   		x86_swiotlb_enable = true;
+> +		x86_swiotlb_flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
+> +	}
+>   
+>   	/*
+>   	 * Set swiotlb to 1 so that bounce buffers are allocated and used for
+> @@ -81,8 +83,10 @@ static void __init pci_xen_swiotlb_init(void)
+>   	if (!xen_swiotlb_enabled())
+>   		return;
+>   	x86_swiotlb_enable = true;
+> -	x86_swiotlb_flags |= SWIOTLB_ANY;
+> -	swiotlb_init_remap(true, x86_swiotlb_flags, xen_swiotlb_fixup);
+> +	/* Xen can use a SWIOTLB pool anywhere in directly mapped memory. */
+> +	x86_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
+> +	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP | SWIOTLB_ANY;
 
--- 
-2.55.0
+Similarly, I see how having a SWIOTLB_INIT_REMAP flag keeps 
+swiotlb_select_pool_policy() neat, but couldn't we technically already 
+infer that from the fact that a non-NULL remap function was passed?
 
+Nits aside, the overall change seems reasonable to me;
+
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
 _______________________________________________
 linux-riscv mailing list
