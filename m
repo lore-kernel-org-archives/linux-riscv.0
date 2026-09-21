@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A07D7C982EE
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 15:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF1DC982E6
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 16:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
+	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6ljF5VQJbLM5Wz1xaMnj06+Th6NPAMWM7HOnCK0lrO0=; b=hzrlBa/noBihUv
-	nw8KrN+Ry+Sj0aLjximlJaZkouBvNigd0+7nXBPeen6QxhqVnXERztgQkzI/rJ0ytIS+V849kgyvr
-	0Wju6gugATncQMwBa4z3y9fIqVXu/40e9uoxorH6xU+LLQqfb89GngVC/V/vEdED0gib5zcHxGv3B
-	ohTiu3wj38TkjHcdtG2ajz9sYK40P1BZS+wg5lZmQmcmmle1mu99rHkqGcdtYuuMribaMEczDo9hu
-	Qbxzrrjbb2ZTDYpfoxZ9xl7+Ft5SQ/NbptVNRB6I0tcmTEQ2iH7xKcOzmSybJ5joDnaOC4CF+BiaP
-	mIZYlH5EWdEZ8Dx6v4qA==;
+	List-Owner; bh=BfFE033VJrqZ2Ih27G/Tri8fCbRrCwekx61U0Zjebr0=; b=Kx24zcJ01/7Lr5
+	juVQvfGj6bHokuHrJmL70Ne3bCd0gGmyvEyp9nhaD5pzK8hGrj+oGEpFNVolwz/7HLJYD0azZtNgH
+	rZpztsAD1KIo90r6qVZjOnxfkzcFmNkHjnaOBxYFOqhGkq5FSBTpkegdrT9w5D832/l6Uk01BrLHl
+	VWRmz9wTT6ohrNBIKOXi3Wdg+1MZ4zns8OeFCavG6+dDnx2ua+/d37Um68DYjFzLhK4teRbm04mDU
+	U5JmhNYVoxU8suu5zZgbxMiMwFLfvt0x/RjQPSK7gdmYKdNCMwA4BWImbvD0E00JynQytOB8Vf0gG
+	jEiWqd3EHPO0+SqtkS2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gDU-00000002gDt-0tvD;
-	Mon, 21 Sep 2026 15:46:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8gT0-00000002lKI-1eHG;
+	Mon, 21 Sep 2026 16:02:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gDS-00000002gCQ-16Sh;
-	Mon, 21 Sep 2026 15:46:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=dSPBjOWn5CsFPyDGmxFlZSgrzmDQuJdpSbhAoe0g5MU=; b=QWp15F9+ZWrllC7Nz5KctSQ2ka
-	aTijCTynluzN5BPKmq58CSdTIDXXqeYpsMkQ0nb9pNCG+HjqTDyGpA2uCmw4AmOPxHHwPu+svBs50
-	IXTDV3IiwlsP6a990zwW3o+MY+DTJbFvJ5kJMWII93TuNZcoGd/KfW1hZTjYCayktZM0Kl5Qt3KRA
-	e/EOnkWPWzdckp9z8eyBicNoWKBzSUz2VGp0om0Ro5P6dL0X83jXYROhJE0d66FrgsHjQsF/JxTEw
-	ScR5QJvmvUDPA/BoBteP7Qmy4xUONuSdpBc0vN0BidaTUWbsMLrkFAf5xC5ohLGYwsmDQsdDoYT57
-	ud+rNwNQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8gDO-0000000CUmv-1aCV;
-	Mon, 21 Sep 2026 15:46:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2CE1C176C;
-	Mon, 21 Sep 2026 08:45:52 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5CD83F632;
-	Mon, 21 Sep 2026 08:45:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790005555; bh=cIKZrmFNDgxQa0qqmau+ZqQxkkl6FQkDRcq1dC9miXU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EoC0cuIQz6hLQwqx0QF1eocGbFHcONiXNcdsw4wKNlOhOiOhVhiSZSeViIz1bFPb7
-	 muOHOKkL6n9D40Sc0M8nsRMGJOPM/9pqWCmEHDGay46C0wCozVnJkI6euIIJu4A7eT
-	 wCKvl5TAYjrxpCiY2Dw1a5LcGTlG38H10QNCNR8Y=
-Message-ID: <94630348-d295-4424-9f6c-0dc3b8704077@arm.com>
-Date: Mon, 21 Sep 2026 16:45:36 +0100
+	id 1x8gSy-00000002lK2-3qqT
+	for linux-riscv@lists.infradead.org;
+	Mon, 21 Sep 2026 16:02:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 60F1443D98
+	for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 16:02:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47D921F008A0
+	for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 16:02:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790006524;
+	bh=Eyf5HB7rWUuykO/B4yjrMsebEOm1V7kPMebLHZRCWQY=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=MHVHrTUhgy8RLJSB9PCb96C+TwYoxk9OPxsY3WYUd2k1pUPyfhn1jxqcnLx12ZXbI
+	 C0zH7D0SYWucL6sTXnsFxG2XnRXG505wid63EKjGDRqyp94l78SpU5yfs9I3E9s5nE
+	 WXbF+pUOvv4AWZMdfjgwUSRby/OgOgpSqHRAX4SKAvSMpyq/zbOFoLZ/kYDzgMjRgz
+	 ugE5ZMnEKTcPpmROkZHM0DRhibmf7XlTswHDYXcMj4LvmRsBFPTpqMURa/KDisRLaW
+	 zz4Rlsh2QivIdiY/m5H9SAaOTlKAURKON3hAb7WOVVqnwGQhoDyprV4XVucAJ/LMi/
+	 Hwii7b6VQc6sw==
+Received: by mail-lr2-f12.google.com with SMTP id 38308e7fff4ca-3a2ff00b8d8so25548491fa.1
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 09:02:04 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwgGc30T70Oxv0jaE2cTbE2LPrGeEp7Ad4xBBY1LtZBPZu73WpmortTSKptnh4PLBTX2wxZoxKUMuSMWA==@lists.infradead.org
+X-Gm-Message-State: AFuF++l65/NM2rZ1aIOLdb8D5qxkt7jVN/NjJXzQLdEP6j27lI6tYLQS
+	c0fSSdJWz84KZHyOdWGfkMLN4mBJQl5hHr+mO7zovR4AZCuV/U9Peq3QWnJLh+MFNdCeYoL2kS6
+	RcdW/+bDKd4Br8MQEWSlLVJGT2rQ2rLQ=
+X-Received: by 2002:a05:651c:1443:b0:3a5:afec:9cf9 with SMTP id
+ 38308e7fff4ca-3a5fbf36939mr24677701fa.7.1790006522575; Mon, 21 Sep 2026
+ 09:02:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/6] dma: swiotlb: Track whether the pool size was
- explicitly set
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
- <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
- Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
- Huacai Chen <chenhuacai@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
-References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
- <20260921063628.362078-3-aneesh.kumar@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260921063628.362078-3-aneesh.kumar@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_164558_857117_EF524941 
-X-CRM114-Status: GOOD (  21.20  )
+References: <20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech> <20260921-a733-clk-v4-2-9c184ebe9ac1@pigmoral.tech>
+In-Reply-To: <20260921-a733-clk-v4-2-9c184ebe9ac1@pigmoral.tech>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 22 Sep 2026 00:01:48 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66wbv2W1mcZ_WzKnkgiSYYm89LGR67gYAgsNgSFYw5mfg@mail.gmail.com>
+X-Gm-Features: AcwNN1WJSlHI-NjxkeeWhPwtNL0p2-F5vEq-B0J5BRudScG0IjIZ4ZswOa7ekVg
+Message-ID: <CAGb2v66wbv2W1mcZ_WzKnkgiSYYm89LGR67gYAgsNgSFYw5mfg@mail.gmail.com>
+Subject: Re: [PATCH v4 2/8] clk: sunxi-ng: sdm: Add dual patterns support
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, netdev@vger.kernel.org, 
+	Jerome Brunet <jbrunet@baylibre.com>, Enzo Adriano <enzo.adriano.code@gmail.com>, 
+	Andre Przywara <andre.przywara@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,87 +84,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Reply-To: wens@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
-> swiotlb_adjust_size() must not override a pool size supplied through the
-> swiotlb= command-line parameter.
-> 
-> Currently, it determines whether a size was supplied by comparing
-> default_nslabs with IO_TLB_DEFAULT_SIZE. This fails when the user
-> explicitly requests the compiled-in default size, allowing the request
-> to be overwritten by automatic pool sizing.
-> 
-> Record whether swiotlb= supplied a numeric size and add
-> swiotlb_default_size_changed() to query that state.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->   kernel/dma/swiotlb.c | 9 ++++++++-
->   1 file changed, 8 insertions(+), 1 deletion(-)
-> 
-> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-> index aa19e81ae544..8f86deb25be2 100644
-> --- a/kernel/dma/swiotlb.c
-> +++ b/kernel/dma/swiotlb.c
-> @@ -107,6 +107,7 @@ static struct io_tlb_mem io_tlb_default_mem;
->   
->   static unsigned long default_nslabs = IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT;
->   static unsigned long default_nareas;
-> +static bool swiotlb_size_set __initdata;
-
-Nit: there are various ways and reasons that the size is set in general; 
-could this please be named something clearer, e.g. 
-"swiotlb_cmdline_size_set"?
-
->   /**
->    * struct io_tlb_area - IO TLB memory area descriptor
-> @@ -269,6 +270,7 @@ setup_io_tlb_npages(char *str)
->   		/* avoid tail segment of size < IO_TLB_SEGSIZE */
->   		default_nslabs =
->   			ALIGN(simple_strtoul(str, &str, 0), IO_TLB_SEGSIZE);
-> +		swiotlb_size_set = true;
->   	}
->   	if (*str == ',')
->   		++str;
-> @@ -304,6 +306,11 @@ unsigned long swiotlb_size_or_default(void)
->   	return default_nslabs << IO_TLB_SHIFT;
->   }
->   
-> +static bool __init swiotlb_default_size_changed(void)
-
-...and then do we really need a trivial wrapper function with the exact 
-same scope as the variable itself? (Plus the name is similarly confusing 
-as the places this is used are themselves potentially changing the 
-default size, if you consider "default" to mean "not explicitly 
-specified"...)
-
-With the naming improved,
-
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-
-> +{
-> +	return swiotlb_size_set;
-> +}
-> +
->   void __init swiotlb_adjust_size(unsigned long size)
->   {
->   	/*
-> @@ -311,7 +318,7 @@ void __init swiotlb_adjust_size(unsigned long size)
->   	 * architectures such as those supporting memory encryption to
->   	 * adjust/expand SWIOTLB size for their use.
->   	 */
-> -	if (default_nslabs != IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT)
-> +	if (swiotlb_default_size_changed())
->   		return;
->   
->   	default_nslabs = swiotlb_aligned_nslabs(size);
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBTZXAgMjEsIDIwMjYgYXQgMTE6MznigK9QTSBKdW5odWkgTGl1IDxqdW5odWkubGl1
+QHBpZ21vcmFsLnRlY2g+IHdyb3RlOgo+Cj4gT24gbmV3ZXIgQWxsd2lubmVyIHBsYXRmb3JtcyBs
+aWtlIHRoZSBBNzMzLCB0aGUgU2lnbWEtRGVsdGEgTW9kdWxhdGlvbgo+IChTRE0pIGNvbnRyb2wg
+bG9naWMgaXMgbW9yZSBjb21wbGV4LiBUaGUgU0RNIGVuYWJsZSBiaXQsIHdoaWNoIHdhcwo+IHBy
+ZXZpb3VzbHkgbG9jYXRlZCBpbiB0aGUgUExMIHJlZ2lzdGVyLCBpcyBub3cgbW92ZWQgdG8gYSBz
+ZWNvbmQKPiBwYXR0ZXJuIHJlZ2lzdGVyIChQQVRURVJOMSkuCj4KPiBUbyBzdXBwb3J0IHRoaXMs
+IHJlbmFtZSB0aGUgZXhpc3RpbmcgInR1bmluZyIgbWVtYmVycyB0byAicGF0dGVybjAiIHRvCj4g
+YWxpZ24gd2l0aCB0aGUgZGF0YXNoZWV0LCBhbmQgaW50cm9kdWNlIHRoZSBfU1VOWElfQ0NVX1NE
+TV9EVUFMX1BBVAo+IG1hY3JvIHRvIHByb3ZpZGUgcGF0dGVybjEgcmVnaXN0ZXIgc3VwcG9ydC4g
+UmVsYXRlZCBvcGVyYXRpb25zIGFyZSBhbHNvCj4gdXBkYXRlZC4KPgo+IFRlc3RlZC1ieTogSmVy
+b21lIEJydW5ldCA8amJydW5ldEBiYXlsaWJyZS5jb20+Cj4gU2lnbmVkLW9mZi1ieTogSnVuaHVp
+IExpdSA8anVuaHVpLmxpdUBwaWdtb3JhbC50ZWNoPgoKUmV2aWV3ZWQtYnk6IENoZW4tWXUgVHNh
+aSA8d2Vuc0BrZXJuZWwub3JnPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
