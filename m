@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D04C982FA
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 05:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1838C982DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 05:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fEjCO5YFZmCjsnS5nxxejVKpg7o1dyJrAh8dpXXM0kU=; b=DNYgDtw/OjbaRC
-	C3h8LYd/eBpIiBZ6Opx/b8muVwT1L7IPlxIH1GcnZyoM+DvY5QaQoRzHDKULFqv3ffDTwgqg+Od+/
-	kcigoGJrym7hFxrv/cWgbrJEaa9TRTLtN963m3KY5yfFskUyZeQ1mxN6SdzcZJGrzvNDTDFm7yeSd
-	CDSTiBWDRFlOMy34DOkt1Qnosrtn4WcU4OLu9BYfaHh4Zh8YlqxZ/PVvRJFplxVliE4jqwrAEpfVa
-	DL4zQwrKO3hrM7kQrFXiqmgluWgLpU6DeUwIkdQ1P/xpQYNvV72MqQUaVTU953mctH3wJ/c6OZ92I
-	5jx2JINqZVtMPi18VnmQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Wt7nEmlK7GWSj2rSvVen5DYunyzxy3o22bYxAY2cErU=; b=W9vy0NJaz8bfYE
+	PYQoGIGW/QMao8DW4rmtqSeE6T3Kx2CYBYkjp+ijTm9K248W0mzCu1pcAE5p3PI8pFhVtOqANeZw3
+	bnbN1xarKtE8nqJmGYaiVUpqvXKuvJyriQM4fNSRgcMWGMGhDPmfZttbzTFtK4M9SyDxDJhq0W0T0
+	7GgYAbiIdYv+0Qof9D5exXVyJ/ZJqOB6MDPENvRY5MNQAAGf5kNrsb3CzxwkTBf4ZhvdqlLwHL/n0
+	/b/8VP6pXAKhGm3yBSs5Ge4z9LsgYnsuwteSaoEIHe83wqH2vV7QWSGCE3Sp+20z+SA+Igc6f+pep
+	r7Qe3/q5rf2jHWXz+qig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8WO4-00000000tPk-1cUG;
-	Mon, 21 Sep 2026 05:16:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8WNq-00000000tEm-1nrY;
+	Mon, 21 Sep 2026 05:16:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8WNs-00000000tGB-444L
+	id 1x8WNo-00000000tDs-2CKD
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 05:16:09 +0000
+	Mon, 21 Sep 2026 05:16:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3DCA43C69;
-	Mon, 21 Sep 2026 05:16:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F3E41F0089A;
-	Mon, 21 Sep 2026 05:16:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B3D840AB3;
+	Mon, 21 Sep 2026 05:16:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2319E1F000FF;
+	Mon, 21 Sep 2026 05:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1789967768;
-	bh=ShajkHyOS9HMwDyE76SdTvTXI8joKtZkz+CVThGSWQU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fjHkWEA4BZBbPqGzXi1TJZSClKpl6a65mrBbJTmF+VOnXn5aEGgQKQ/HW2uJHhpmG
-	 BtiIA96RqU4///rnVGYJafW6DLvTLH7zPcLA4BDb+zYe0Mwveu6rsMlXkhDdQfCPXN
-	 FoVZYdChexVqEBAZKHiW6W9BCO7OmFKknPcrEc6akWD79BDPR8YLkWtKGG9PGSnJ0r
-	 Q8ZpsgXs0sXi9sG+o+odO1i1p1oUA6/QVVTy//PbnBg+V7h+m5MnzrbTfmBArgpEgk
-	 0slDqZ6sXwddif5zidaU2gRLhX2SYDH1uliZgVdREfZFSz8rVRZyOajTECs2hps348
-	 1RYpFF85sWxPg==
+	s=k20260515; t=1789967763;
+	bh=qA1Ngc5R1c/XW8ryKGj2jFVjIRydVBq4U46bwGQ8ckw=;
+	h=From:To:Cc:Subject:Date;
+	b=SzHFdbW5HhOKhEH0gK7x4kemk2gUkrJzUQibnxaxO3vR04CVAhvkLwkhskDsL2tep
+	 4TJu77VCIkbRexn3pWixdiZPuP4hOngzzwCPAqvSVRhFxfqnO/SojTI9yYrfAkRgGY
+	 mTtA2K86p6HAonE/z7Dv0ba5RfqYOgxPMs3kIvjJYX5iUOU9KWFoUiiDjMk9lashYD
+	 CoXgRsOCF1GlcSiZtBgVeTvR9LGFY86q+TfLOKwCfpn3qh40r9RbRUHXJN0QtcUxqJ
+	 Lm3A+EDD9nWEzhdyuGIGsZbKN1ylnjmly1p2Y7YVQBo4MjQyR3vCnW3/wkFojQ2FDq
+	 9Ir89ZxwUXDEw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -51,12 +51,10 @@ Cc: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
 	linux-riscv@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 14/20] crypto: x86/aes - Drop superseded 32-bit build support
-Date: Sun, 20 Sep 2026 22:09:00 -0700
-Message-ID: <20260921050910.296144-15-ebiggers@kernel.org>
+Subject: [PATCH 00/20] Migrate x86 and RISC-V accelerated AES modes into library
+Date: Sun, 20 Sep 2026 22:08:46 -0700
+Message-ID: <20260921050910.296144-1-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260921050910.296144-1-ebiggers@kernel.org>
-References: <20260921050910.296144-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,103 +72,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that the AES-NI and/or VAES accelerated implementations of AES-ECB,
-AES-CBC, AES-CBC-CTS, AES-CTR, AES-XCTR, and AES-XTS have been migrated
-into the "libaes" module in lib/crypto/ and enabled by default when the
-corresponding non-arch-specific options (e.g. CRYPTO_XTS) are enabled,
-the traditional "aesni-intel" module only has AES-GCM left.
+This series applies to v7.3-rc3.  It can also be retrieved from:
 
-That functionality is 64-bit only.  Therefore, aesni-intel no longer has
-any functionality on 32-bit.  Stop building it on 32-bit.
+    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git aes-lib-x86-riscv-v1
 
-Also update the help text to mention the generic options.
+Patch 1 is intended to be taken through libcrypto-fixes for 7.3.
+Patches 2-20 are intended to be taken through libcrypto-next for 7.4.
 
-To be clear: AES-NI accelerated AES-ECB, AES-CBC, AES-CBC-CTS, and
-AES-XTS remain fully supported in 32-bit x86 kernels via libaes.
+This series migrates the x86 and RISC-V accelerated implementations of
+the AES modes ECB, CBC, CTS, CTR, XCTR, and XTS into lib/crypto/.
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- arch/x86/crypto/Kconfig            |  7 ++++---
- arch/x86/crypto/Makefile           |  6 ++----
- arch/x86/crypto/aesni-intel_glue.c | 14 --------------
- 3 files changed, 6 insertions(+), 21 deletions(-)
+This makes the corresponding library APIs be properly accelerated on
+these architectures, while still accelerating crypto_skcipher as well
+(via the library-based code in crypto/aes.c).
 
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index d68b31fad508..9cb5176931aa 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -4,18 +4,19 @@ menu "Accelerated Cryptographic Algorithms for CPU (x86)"
- 
- config CRYPTO_AES_NI_INTEL
- 	tristate "Ciphers: AES, modes: GCM (AES-NI/VAES)"
-+	depends on 64BIT
- 	select CRYPTO_AEAD
- 	select CRYPTO_LIB_AES
- 	select CRYPTO_LIB_GF128MUL
- 	help
- 	  AEAD cipher: AES with GCM
- 
--	  Architecture: x86 (32-bit and 64-bit) using:
-+	  Architecture: x86_64 using:
- 	  - AES-NI (AES new instructions)
- 	  - VAES (Vector AES)
- 
--	  Some algorithm implementations are supported only in 64-bit builds,
--	  and some have additional prerequisites such as AVX2 or AVX512.
-+	  Note: this option no longer provides the accelerated XTS, CBC, CTR,
-+	  and ECB code.  For those just use CRYPTO_XTS, CRYPTO_CBC, etc.
- 
- config CRYPTO_BLOWFISH_X86_64
- 	tristate "Ciphers: Blowfish, modes: ECB, CBC"
-diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-index e05d6e2257d4..aba817fe64f5 100644
---- a/arch/x86/crypto/Makefile
-+++ b/arch/x86/crypto/Makefile
-@@ -40,10 +40,8 @@ obj-$(CONFIG_CRYPTO_AEGIS128_AESNI_SSE2) += aegis128-aesni.o
- aegis128-aesni-y := aegis128-aesni-asm.o aegis128-aesni-glue.o
- 
- obj-$(CONFIG_CRYPTO_AES_NI_INTEL) += aesni-intel.o
--aesni-intel-y := aesni-intel_glue.o
--aesni-intel-$(CONFIG_64BIT) += aes-gcm-aesni-x86_64.o \
--			       aes-gcm-vaes-avx2.o \
--			       aes-gcm-vaes-avx512.o
-+aesni-intel-y := aesni-intel_glue.o aes-gcm-aesni-x86_64.o \
-+		 aes-gcm-vaes-avx2.o aes-gcm-vaes-avx512.o
- 
- obj-$(CONFIG_CRYPTO_SM4_AESNI_AVX_X86_64) += sm4-aesni-avx-x86_64.o
- sm4-aesni-avx-x86_64-y := sm4-aesni-avx-asm_64.o sm4_aesni_avx_glue.o
-diff --git a/arch/x86/crypto/aesni-intel_glue.c b/arch/x86/crypto/aesni-intel_glue.c
-index 3f86c8997d7d..af52c442361f 100644
---- a/arch/x86/crypto/aesni-intel_glue.c
-+++ b/arch/x86/crypto/aesni-intel_glue.c
-@@ -37,8 +37,6 @@
- #include <linux/spinlock.h>
- #include <linux/static_call.h>
- 
--#ifdef CONFIG_X86_64
--
- /* The common part of the x86_64 AES-GCM key struct */
- struct aes_gcm_key {
- 	/* Expanded AES key and the AES key length in bytes */
-@@ -845,18 +843,6 @@ static void unregister_avx_algs(void)
- 	unregister_aeads(aes_gcm_algs_vaes_avx2);
- 	unregister_aeads(aes_gcm_algs_vaes_avx512);
- }
--#else /* CONFIG_X86_64 */
--static struct aead_alg aes_gcm_algs_aesni[0];
--
--static int __init register_avx_algs(void)
--{
--	return 0;
--}
--
--static void unregister_avx_algs(void)
--{
--}
--#endif /* !CONFIG_X86_64 */
- 
- static const struct x86_cpu_id aesni_cpu_id[] = {
- 	X86_MATCH_FEATURE(X86_FEATURE_AES, NULL),
+It removes a lot of redundant glue code, since crypto API boilerplate no
+longer needs to be duplicated per-architecture.
+
+Finally, it fixes the longstanding issue where these optimizations were
+disabled by default.
+
+In the case of RISC-V, this series handles all remaining AES code in
+arch/riscv/crypto/.  In the case of x86, AES-GCM is still left in
+arch/x86/crypto/ for now; it will be handled later.  Other architectures
+will be handled later as well.
+
+For various reasons, aesni-intel_asm.S (i.e. the x86-accelerated ECB,
+CBC, CTS, CTR, and XTS code that doesn't use AVX or VAES) is replaced
+with new functions written from scratch.  The other assembly functions
+are kept but are modified slightly for integration into the library.
+
+Eric Biggers (20):
+  crypto: aes - Fix undesired override of some optimized AES modes
+  lib/crypto: aes-xctr: Pass counter by value to aes_xctr_arch()
+  lib/crypto: x86/aes: Clean up aes-aesni.S in preparation for AES modes
+  lib/crypto: x86/aes-ecb: Add AES-NI optimization
+  lib/crypto: x86/aes-cbc: Add AES-NI optimization
+  lib/crypto: x86/aes-ctr: Add AES-NI optimization
+  lib/crypto: x86/aes-xts: Add AES-NI optimization
+  crypto: x86/aes-ecb - Remove superseded ECB skcipher
+  crypto: x86/aes-cbc - Remove superseded CBC skciphers
+  crypto: x86/aes-ctr - Remove superseded CTR skcipher
+  crypto: x86/aes-xts - Remove superseded XTS skcipher
+  lib/crypto: x86/aes-ctr: Migrate AVX-optimized code into library
+  lib/crypto: x86/aes-xts: Migrate AVX-optimized code into library
+  crypto: x86/aes - Drop superseded 32-bit build support
+  lib/crypto: riscv/aes: Copy aes-macros.S to library
+  lib/crypto: riscv/aes: Pass key struct to assembly code
+  lib/crypto: riscv/aes-ecb: Migrate optimized code into library
+  lib/crypto: riscv/aes-cbc: Migrate optimized code into library
+  lib/crypto: riscv/aes-ctr: Migrate optimized code into library
+  lib/crypto: riscv/aes-xts: Migrate optimized code into library
+
+ arch/riscv/crypto/Kconfig                     |   15 -
+ arch/riscv/crypto/Makefile                    |    4 -
+ arch/riscv/crypto/aes-riscv64-glue.c          |  566 -------
+ arch/riscv/crypto/aes-riscv64-zvkned.S        |  312 ----
+ arch/x86/crypto/Kconfig                       |   11 +-
+ arch/x86/crypto/Makefile                      |    8 +-
+ arch/x86/crypto/aesni-intel_asm.S             | 1338 -----------------
+ arch/x86/crypto/aesni-intel_glue.c            |  789 +---------
+ crypto/aes.c                                  |   53 +-
+ lib/crypto/Makefile                           |   14 +
+ lib/crypto/aes.c                              |    6 +-
+ .../crypto => lib/crypto/riscv}/aes-macros.S  |   25 +-
+ .../riscv}/aes-riscv64-zvkned-zvbb-zvkg.S     |   96 +-
+ .../crypto/riscv}/aes-riscv64-zvkned-zvkb.S   |   23 +-
+ lib/crypto/riscv/aes-riscv64-zvkned.S         |  311 +++-
+ lib/crypto/riscv/aes.h                        |  235 ++-
+ lib/crypto/x86/aes-aesni.S                    |  823 +++++++++-
+ .../crypto/x86}/aes-ctr-avx-x86_64.S          |   75 +-
+ .../crypto/x86}/aes-xts-avx-x86_64.S          |  172 +--
+ lib/crypto/x86/aes.h                          |  371 ++++-
+ 20 files changed, 1824 insertions(+), 3423 deletions(-)
+ delete mode 100644 arch/riscv/crypto/aes-riscv64-glue.c
+ delete mode 100644 arch/riscv/crypto/aes-riscv64-zvkned.S
+ delete mode 100644 arch/x86/crypto/aesni-intel_asm.S
+ rename {arch/riscv/crypto => lib/crypto/riscv}/aes-macros.S (90%)
+ rename {arch/riscv/crypto => lib/crypto/riscv}/aes-riscv64-zvkned-zvbb-zvkg.S (75%)
+ rename {arch/riscv/crypto => lib/crypto/riscv}/aes-riscv64-zvkned-zvkb.S (93%)
+ rename {arch/x86/crypto => lib/crypto/x86}/aes-ctr-avx-x86_64.S (92%)
+ rename {arch/x86/crypto => lib/crypto/x86}/aes-xts-avx-x86_64.S (81%)
+
+
+base-commit: fd73f4a6659897191fa0d40695fe370925dd3780
 -- 
 2.55.0
 
