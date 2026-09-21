@@ -4,101 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F132C982E6
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 17:45:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE977C982E6
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 17:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ea6cj+wZMf40P5p2dzA4GCq2IjXnzPXC13l66EiFc6c=; b=goVD5E0Qf6RyEB
-	QG5F3oK1MqjNGtIqB9TNmePooY4sRG9dLC+En8ExWx6tcd9SeDV2z3FGRHWgcaHyE2rX0yoTtJmD6
-	FCJ/dMWxjejcF7UQ7tCGv9npHZLaExxluZq2Lg27TCZ5YwpwjtTyWdFV/nNjvHTqFrzaiHnXm4JT5
-	Dh8em5s6J49w9wKxIEE2rFa+eI+OaHGXd6NMUWG47ilMuPx5PBOoiDjC9VTeEHYtw9zH2SXWd51hS
-	i9/Kl+StiXw6hE96eTzkojY/pinrE6l65Zu/Jyb3H9v3pyEQb/bs40ENvhiH98umYqOIOCU5a7iEM
-	30650BtjHTSgSGAB64jw==;
+	List-Owner; bh=sHGdZjOcK0YxzikW4K63pXOlXH8Z2SqGdln9hwEVWSQ=; b=BFdEtOb/pY8NLm
+	K8kiJNQy6P91Rhz2TVWqevvkNH6qjvpR9DMBOrqtTOfBvGyU6fS5bZYDrTbU0LWzEKtfcdBDU3dED
+	QnVVg36ZJKF05+1IpL2iHP/r7MAP0FLTAGGV1fLCSZYusuhUj9KqSskHcX5+SfexafaipyZd3sX75
+	Pw2ovncj1wHivWylLgUhCtR1m3xkPvL46i30mu/SrAhtQmEPEhH6uLf0kEBd7eLjAN/IoxO84t0yW
+	p2tfRP5YyLF8h8hy7jkSL5UgaTQER+NAjMib32rIS2BWvEub4b+RvFnfQouW8TlOAfUaLpYT+ZJJu
+	5wNvWX204UwDF/bahz5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8i4Z-000000031g7-34Eo;
-	Mon, 21 Sep 2026 17:44:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x8iDu-000000033aq-0jj6;
+	Mon, 21 Sep 2026 17:54:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8i4V-000000031cY-3BeM
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 21 Sep 2026 17:44:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Hyb3zhkpLvcha2XPZl3y4VqrXuYFCx4NQzeWMijbr/g=; b=NB7AVkYJoYekdLw7mSW6/PGs1I
-	g9/aN5P/6jK4YfIggx/Z0M7na5UK6go38jK+XlzFe9F3FApSTaqcvhC54MzD7oKMCOtx7v29vipXB
-	xd4EkOEAQ0FoR7LUv1Q8Ksp8gVHrk20J1V63/jdeAXGtyluhpfiaKP9o64Ov1+X+JS81v07VPFfKO
-	gn7m8B/fdhl0jwlYQVkZzyGVtLe9vcwZXWyiOW5lZ/9IudRzqpzJGx9+imImA2QPirzEI2G/Q4p0A
-	EyNjLrAOfVlAuhqViKoCs/+IHidQGTk+9BnJlt/XqqNgin0T24cIH0WFIFIjPtPFdWaxuBh5pbKEs
-	CK4nNmLg==;
-Received: from mail-pl1-x646.google.com ([2607:f8b0:4864:20::646])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8i4S-0000000CdoK-2tgB
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 17:44:54 +0000
-Received: by mail-pl1-x646.google.com with SMTP id d9443c01a7336-2db87f759c5so62960895ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 10:44:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1790012690; x=1790617490; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Hyb3zhkpLvcha2XPZl3y4VqrXuYFCx4NQzeWMijbr/g=;
-        b=o+TSgINKP2JmpZmGlfsVFzzsm7D+NermEnQctPhijMrn5k2d1mqx3YjNEfaqJd0xo2
-         /MPdjzabpC28UDWiDtAkBj9p59fj1vE5HfbWkSg715B8KWrZtlFyL2dp/Bb8WVNw4Z9R
-         THETFc+AsWGa+V2LsbVGaQnNs2zOtPH0ny15+qxC6SKulyC/O12pFBitlUdpWXSifmEC
-         7850rhzqUEaZ2l2Uc5rIS1XqFdK+Ztv6ySHbdRlQ/qmW6a6GhL5CRqC/x8iSUCoGI71a
-         Md+Rt+n3NSp+zhlnWXstGXRpy0l2jwTLqs7KIXcjnRliLlWXxiP4d+dQmfNN1Y2hGsCr
-         LA5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790012690; x=1790617490;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Hyb3zhkpLvcha2XPZl3y4VqrXuYFCx4NQzeWMijbr/g=;
-        b=cuaaEYL+kZtcmnUGMZ+qEPJoJ9QRV/ym+sMkPFhUIL5L7T4xycj9NZze7y+wFrJwc8
-         PNFNDP+6x89GuIn6Z+H2EmYVYm+nR5ONhzQAWVVJInNVw8A3Ja+/wL7P73Ue07R0Tb0T
-         JlMry/Gio4QWAE7XbntQthosy23gqPhTjhxCpKdrRADnIW4dt5P1+G/1Hsm8HFVam+A1
-         W13KCZ9PcBJPqDj8sWR+tFgDYpeT3VfB5irxgXnLi2DJb2qRFDUZVCNs6G0ntZo5rCSa
-         3y23ukvq78MBMuGiUa5L6ka4CL6y9cean9cDqJb/qszYRy5He/OYmaT4NO1A5NASL7yb
-         f2gA==
-X-Forwarded-Encrypted: i=1; AKwUvBxIc/8wRvsmOKVDPVLiRLdkvyrgdvRqCwLeXEiYLHKd6Z242c1r5kQohgaLT4BukoKl+JktY2wZrT43IA==@lists.infradead.org
-X-Gm-Message-State: AFuF++md1OjcnFJsP70KyITZDzw+N6uw5dFTWOHX7tR6MU2y440FlL5C
-	erL4yuQQ4NpP9BLQ6ji5eaS6iLuEwPs3/yD8jy1wG3JSKJZDk0QjD3/tch6EiXQ9sM1aIU41v1J
-	UW5P7KA==
-X-Received: from plaq21.prod.google.com ([2002:a17:903:2055:b0:2dd:1daa:a60c])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f54f:b0:2dd:c053:c207
- with SMTP id d9443c01a7336-2df560d81a4mr14415165ad.35.1790012689572; Mon, 21
- Sep 2026 10:44:49 -0700 (PDT)
-Date: Mon, 21 Sep 2026 10:44:40 -0700
-In-Reply-To: <20260921174445.911676-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20260921174445.911676-1-seanjc@google.com>
-X-Mailer: git-send-email 2.55.0.1082.g2b9226bbc0-goog
-Message-ID: <20260921174445.911676-3-seanjc@google.com>
-Subject: [PATCH v2 2/7] KVM: arm64: vgic: Rely on vCPU creation check in
- "trylock all vCPUs"
-From: Sean Christopherson <seanjc@google.com>
-To: Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Kiryl Shutsemau <kas@kernel.org>, Rick Edgecombe <rick.p.edgecombe@intel.com>
-Cc: Nicholas Piggin <npiggin@gmail.com>, Atish Patra <atish.patra@linux.dev>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Jean-Christophe Guillain <jean-christophe@guillain.net>, 
-	"=?UTF-8?q?Pawe=C5=82=20S?=" <spawel523@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_184452_856666_9EC9063D 
-X-CRM114-Status: GOOD (  12.59  )
+	id 1x8iDs-000000033aY-0roW;
+	Mon, 21 Sep 2026 17:54:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 77BD4417F7;
+	Mon, 21 Sep 2026 17:54:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 975B31F000FF;
+	Mon, 21 Sep 2026 17:54:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790013275;
+	bh=ZauDV3vJKUROsmCoqVdGrpQ07LaYoylUMtCQPyYKr3g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=j0lA4uFjJBcRY6wWftw6EMIqyMIJ3+NR7zrSfOF1Z9f/TpSIZ9Gh4y4jjvxmRONiM
+	 ObFuyLQ3ujm1yOOBV9KrS8elLJVfpjsktABH0b/F1q1DonDxSlGIPFvplEykYNyWru
+	 TlrUJIAlHIsRcMxf5Hseb1ckLHW5wBXYIPyvOsX2gRpDZsTqCte91cFQpVs3/uhjQy
+	 /uSJ4AgrDQbnh845s783rZmk0fA2Mnl9gEqoW27HOmlO9rUd44HaqIaFmOIhFLKK2U
+	 BjNB7hlhY1CcorgDW7hwVfGqMdkjLPpMfT+I78qw5XqoHtqO09h+yru8tFtvcXd+2y
+	 9NHxKZRfAtd9Q==
+Date: Mon, 21 Sep 2026 18:54:25 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Hongru Zhang <zhanghongru06@gmail.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, baohua@kernel.org, surenb@google.com, david@kernel.org, 
+	liam@infradead.org, mhocko@suse.com, rppt@kernel.org, shakeel.butt@linux.dev, 
+	vbabka@kernel.org, willy@infradead.org, zhaonanzhe@xiaomi.com, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	linux-arm-kernel@lists.infradead.org, chenhuacai@kernel.org, kernel@xen0n.name, 
+	loongarch@lists.linux.dev, maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com, 
+	chleroy@kernel.org, linuxppc-dev@lists.ozlabs.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, agordeev@linux.ibm.com, gerald.schaefer@linux.ibm.com, 
+	hca@linux.ibm.com, gor@linux.ibm.com, borntraeger@linux.ibm.com, 
+	svens@linux.ibm.com, linux-s390@vger.kernel.org, dave.hansen@linux.intel.com, 
+	luto@kernel.org, peterz@infradead.org, tglx@kernel.org, mingo@redhat.com, 
+	bp@alien8.de, x86@kernel.org, hpa@zytor.com, 
+	Hongru Zhang <zhanghongru@xiaomi.com>
+Subject: Re: [PATCH v6] mm: retry page faults once under the per-VMA lock
+Message-ID: <arFYRAa-i7CIwmHL@gremlin>
+References: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260911025613.1220845-1-zhanghongru@xiaomi.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,67 +76,212 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that KVM's APIs for locking all vCPUs return -EBUSY if vCPU creation is
-in-progress, drop the manual check for the same from vGIC creation, and
-update the comments accordingly.
+OK I finally got to this...
 
-Note, while KVM arm64 guards many vGIC operations with its arch-specific
-config_lock, holding kvm->lock is sufficient to guarantee a stable result
-for "is vCPU creation in-progress".  So, no functional change intended.
+I fear we're going to go round in circles on this/have endless revisions of
+the same thing.
 
-Note #2, the open coded check in vgic_init() is racy when called without
-kvm->lock held, e.g. via vgic_lazy_init().  I.e. that check needs to stay
-open coded to avoid triggering a lockdep assert.  Whether or not the race
-is "fine" is a problem for a different day.
+So 2 things the patch needs to answer, more or less right away:
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/arm64/kvm/vgic/vgic-init.c | 12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
+1. What are you actually optimising for?
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 4012df6002ea..a58575df36e9 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -97,6 +97,9 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 	/*
- 	 *  - Acquiring the vCPU mutex for every *online* vCPU to prevent
- 	 *    concurrent vCPU ioctls for vCPUs already visible to userspace.
-+	 *    This also ensures KVM isn't in the middle of creating a vCPU,
-+	 *    i.e. that there are no vCPUs that have been created but aren't
-+	 *    yet fully online.
- 	 */
- 	ret = -EBUSY;
- 	if (kvm_trylock_all_vcpus(kvm))
-@@ -105,18 +108,11 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 	/*
- 	 *  - Taking the config_lock which protects VGIC data structures such
- 	 *    as the per-vCPU arrays of private IRQs (SGIs, PPIs).
--	 */
--	mutex_lock(&kvm->arch.config_lock);
--
--	/*
--	 * - Bailing on the entire thing if a vCPU is in the middle of creation,
--	 *   dropped the kvm->lock, but hasn't reached kvm_arch_vcpu_create().
- 	 *
- 	 * The whole combination of this guarantees that no vCPU can get into
- 	 * KVM with a VGIC configuration inconsistent with the VM's VGIC.
- 	 */
--	if (kvm->created_vcpus != atomic_read(&kvm->online_vcpus))
--		goto out_unlock;
-+	mutex_lock(&kvm->arch.config_lock);
- 
- 	if (irqchip_in_kernel(kvm)) {
- 		ret = -EEXIST;
--- 
-2.55.0.1082.g2b9226bbc0-goog
+2. Where does the hurt happen?
 
+Your patch does neither, then goes on to arm wave away all the complexity
+and presents a 'simple' solution that I feel brushes a lot under the rug.
+
+Answer to 1 is 'cold app startup time for a specific set of apps'
+2 is filemap_fault() AFAICT.
+
+You should definitely be stating this upfront.
+
+And I also seem to remember that zygote + multi-threaded apps = fork
+blocking is part of the problem here, which is why there was push-back on
+just holding the VMA lock over I/O.
+
+Looking through filemap_fault() makes me want to cry and looking through
+the other retry logic in the fault code makes me want to live on an island
+with parakeets and coconuts forgetting any of this even exists...
+
+The retry logic is fu.. err.. ndamentally a total mess.
+
+Part of the problem is that each time this patch is respinned we lose
+context on what is a complicated istuation.
+
+VM_FAULT_RETRY can mean a million different things:
+
+1. I dropped the lock and waited for the folio to be unlocked.
+
+do_swap_page(), remove_device_exclusive_entry() -> folio_lock_or_retry()
+
+2. I dropped the lock to start I/O it may or may not be ready when you come
+   back.
+
+filemap_fault() after do_sync_mmap_readahead() or page not uptodate
+synchronous read with lock dropped <- what you are optimising for, or
+shmem_falloc_wait() waiting for a hole punch.
+
+The maybe_unlock_mmap_for_io() stuff.
+
+3. I dropped the lock and nothing was waited for, OOM me on retry!
+
+filemap_fault() allocation failure, gotta retry because we dropped the
+lock!
+
+4. I can't do this under the VMA lock, use an mmap lock
+
+vmf_can_call_fault(), any vm_ops without ->map_pages, __vmf_anon_prepare()
+when mmap_read_trylock() lost, also hugetlb_fault() horror shows.
+
+Also device-private swap entries.
+
+5. Userfaultfd! Because of course!
+
+Userspace has to do something.
+
+handle_userfault() after sleeping for uffd handler, retry should succeed.
+
+ctx->released -> yield to releasing thread.
+
+6. Fatal signal
+
+Arch handlers rely on this, so retry also means 'check signals'. Fun.
+
+7. Some driver insanity
+
+It means all things to all people. Used for waiting on stuff like
+
+LLM says:
+
+- TTM at drivers/gpu/drm/ttm/ttm_bo_vm.c:62 and 144, dma_resv contention
+  and GPU idle wait. Consumers in amdgpu, i915, nouveau, radeon and vmwgfx
+  re-derive "was the reservation unlocked" from ret == VM_FAULT_RETRY &&
+  !NOWAIT.
+
+- xe_bo_cpu_fault_fastpath() at drivers/gpu/drm/xe/xe_bo.c:2021, where
+  RETRY is the default return value, including for "runtime PM not active".
+
+- panthor at drivers/gpu/drm/panthor/panthor_gem.c:831 onwards, where
+  dma_resv_trylock() failure is RETRY and the same error is NOPAGE, SIGBUS
+  or RETRY depending on mmap_lock_held.
+
+- sgx_vepc_fault() at arch/x86/kernel/cpu/sgx/virt.c:91, EBUSY from
+  __sgx_vepc_fault().  All of these call mmap_read_unlock() directly rather
+  than release_fault_lock(). They are only safe because none has
+  ->map_pages, so vmf_can_call_fault() bounces them before ->fault
+  runs. The VMA-lock design rests on that proxy.
+
+So yeah. All that. Wow.
+
+8. Nothing!
+
+LLM says:
+
+  - page_mkwrite() returns in fs/exfat/file.c:951 (inode_trylock lost),
+    fs/nfs/file.c:699, fs/netfs/buffered_write.c:576 and
+    fs/orangefs/inode.c:635 onwards, including the combination
+    VM_FAULT_LOCKED | VM_FAULT_RETRY. do_page_mkwrite() at mm/memory.c only
+    passes through ERROR and NOPAGE, and do_shared_fault() and
+    wp_page_shared() then ignore the returned value entirely. The write
+    fault completes as if page_mkwrite had succeeded.
+
+And maybe I'm missing some stuff too.
+
+there's also places where retries are done which don't even involve
+VM_FAULT_RETRY like migration_entry_wait() and pte_same() mismatches and
+do_page_mkwrite() on truncation and some other places.
+
+I think any patch maybe doesn't have to have a massive essay but it DOES
+need to ack that three are a LOT of meanings and it's a TOTAL DISASTER.
+
+Your perf numbers look very artificial - you create situations where you
+KNOW from the code you'll get mmap lock contention, then have a lot of
+threads contend and gosh darn it, well the contention is really high! :)
+
+I mean - I feel like most of your perf numbers amount to 'contend locks
+gets us lock contention' - and are thus useless really?
+
+I think the bit that _matters_ is what you're actually after which is stuff
+like:
+
+> Tencent Video cold app launch time
+>
+> +-----------+----------+----------+--------+
+> | Statistic |  Vanilla |  Patched | Change |
+> +-----------+----------+----------+--------+
+> |    Mean   | 1,907 ms | 1,840 ms |  -3.5% |
+> +-----------+----------+----------+--------+
+> |  Maximum  | 3,023 ms | 2,851 ms |  -5.7% |
+> +-----------+----------+----------+--------+
+
+Which is not earth-shattering to me.
+
+Now, while the patch is _small_ it takes all of the above, all of the
+complexity, all of the bigger questions about how to solve this and
+compresses it down into 'just retry the VMA lock'.
+
+(I note that you change the tried logic subtly too which is another thing
+but never mind that).
+
+I worry that we're not doing the REAL work here and this is just shoving
+stuff under the rug for what look to be mediocre performance improvements
+in a very specific workload and costing a bunch of paths (albeit not common
+ones) pointless VMA lock retries.
+
+And I worry that maybe that actually _adds_ complexity by the back door a
+bit.
+
+But I worry a LOT more that it's just a HACK (and I know Barry was nice
+about the idea and I appreciate it but I have to be honest).
+
+Instead of dealing with any of the above, we just leave the mess in place +
+just retry the operation under VMA because we happen to know, for this ONE
+workload, it works out better.
+
+And PROBABLY it doesn't add too much overhead to anything else.
+
+SO.
+
+I've written too much again, let's sum it up.
+
+1. WE HAVE TO DECIDE whether we want to accept the hack because it
+   helps in a known case and probably doesn't harm any other cases.
+
+2. WE HAVE TO FIX THIS DAMN MESS. Even if we take something like this WE
+   HAVE TO FIX IT.
+
+I'm inclined to rip out the whole retry thing altogether one way or another
+but I leave that to Matthew to figure out :)
+
+
+If we decide we DO want the hack, then DEAR LORD can we not have this
+horrible duplication across arches? I seem to remember you agreed to take
+that out ([0]), and maybe it's pending what Matthew wants to do, but is
+there not a way to avoid that?
+
+ALSO. It seem we are subtly changing how the tried flag stuff works and
+that really needs to be considered carefully.
+
+And FINALLY if we DO do that, the patch message MUST be honest about the
+goals MUST state EXACTLY what it's trying to optimise, it MUST clearly
+state that in a comment or whatever where the code is.
+
+It must NOT wave its arms and pretend that it's some general solution for
+fault retries the way it does now. It feels like it's hiding what it's
+really intended for at that just adds yet more confusion to this mess.
+
+I REALLY want to hear from Matthew on all this, I don't think we can move
+ahead without his clear feedback.
+
+--
+Cheers, Lorenzo
+
+[0]:https://lore.kernel.org/linux-mm/20260709084752.147379-1-zhanghongru@xiaomi.com/
 
 _______________________________________________
 linux-riscv mailing list
