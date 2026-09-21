@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC95C982DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 03:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C305C982DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 03:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7EMrOP2AUwpxON1s+HZCBXZZ4g7deh/q9xhtgSKjngY=; b=wPeYIvgN64kvjR
-	w5g7EAvFVzet7oLJ0MicHpsbRZtX3OZK5AVgvqxLvRKDEBrAM9S3bva8pLnGriBRG2hDlR2QhBHkU
-	DQ/CMrDdqSDgkRLmvwRSn/kBd+SXn+bj2mSon3J9MNyb3eVdd78cNE2HYBWDyZFvLQVGDlh7Hv3ci
-	AUeQ7iejrEEENZ8INEOny70DzUT/ExeMwLIWYmpBdDTN2woV9Dsjsv1vFl64MR13PGDLbHDKOu0Gy
-	jluZrl8OYnCZe0hPyERSFIs/Swlw6Jdyf6Qcpx1i3Qfopq3ycF4ZH9DvY1jvYcme2iPleU8OAMkdf
-	045j0rSl38E7XdGFu1sA==;
+	List-Owner; bh=sBzlTRu2wmgkY2I+B6ka6QA2x48sELoNxX0HoTtp7nY=; b=mBFoUTm5pNj0Qr
+	HhbxmqzzKkW/w8GUSbg/Fe9/Boz35mVDiEThzWeuJIguUczBHq7sL0dfQko39zYa+L6hs1GeRG7/k
+	8XK7YdrpKq1lxK81CYShLKisro4zerxrprERqxdS17PB1istgAGIavWyAannce4YUGm5eFfCTY62M
+	gdauDsk/dIFl738ogPKPHF5EHQpzLKks9T5awn6YxoxV8oVZ0kEnDMlYVzycD/uBs//b+SLkwmzaj
+	UykGWaQWtNnqr3SlUxML7SMmFKwK5TE6LfB07GwbrodblqDfJOjoEThGriKn22qz0BwpB6oKgeKYb
+	sEtEZ/31CGezJ2zcriWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Usq-00000000mXT-0QRn;
-	Mon, 21 Sep 2026 03:40:00 +0000
+	id 1x8UuN-00000000mev-1EhW;
+	Mon, 21 Sep 2026 03:41:35 +0000
 Received: from sender6-op-o12.zoho.com ([165.173.180.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8Usn-00000000mX6-3Pk7
+	id 1x8UuL-00000000mea-1Bqv
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 03:39:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1789961995; cv=none; 
+	Mon, 21 Sep 2026 03:41:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1789962091; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=X5pwW2IjnPHpzmr5K7OAGIATf4tr1RmrHZShCHmkRnFB80eb0og99S3ptID2GyBSbzyK50lRChsuR19Or95NULFeQDe9NQCur4D69JIHRsBhvk2b6Glao7gcFhr5uKFS/KvyKbAGadw/NpVtvvwYgp035iHibnjJuh4p0CJAH9I=
+	b=eUpZbo6UGPiXN2S6WVP1wk0hx+PmToMYHyOYTTguBgJ4H9sVslZFlrxBnfQT4mM3Z5AZ7UOy3rZNvo17i3UdqfpsEgNaqu68X0/0JwomkhLkf2qjtxxXiGRxn37yIBJqRx2YqxUALC17XGIE2yqpJRIJ5jxeOc4Nu3E1+uny24o=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1789961995; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4w6Ld7u1Q8BK4R3B8dFoO9XD4j47BYZ7ETJ2PULMJOo=; 
-	b=jrPzwenixC18SQEbj/hawwd2Ab/GR2YJ4aN9WSpVlxJl6MQSEi1UIu935TXYXnnofGOQQxzq+AhuKZbm2O7rWZ6sYeH9VUrZ90j49X2NhFngYAIfOKslUIWQwc0Q8QzWTyWWoUUubdWr8RDX0dFrx2u/AGEc8EvsnP2TLeX4YLM=
+	t=1789962091; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ct1Y8laxYTB/3w6Vg9zeWZ4IUgz1j3gsDtqDeWDoQhE=; 
+	b=LlH1IOfz33DnRYAxx9I6GoXSqRBEmqI9o/RsJEmtsUKDnGaWqGJBG906d7dSp2Dj+BzNXlBX47SKvktceUb4Bzku5DCFlQn9RA02jMAwb8sNqFnlQdzNyNDPMBI4QM4pNsCCRKnx6aiBFxkdKiwrp0sPigjFXChVV/AedprbU9Q=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=icenowy.me;
 	spf=pass  smtp.mailfrom=uwu@icenowy.me;
 	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789961995;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1789962091;
 	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
 	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=4w6Ld7u1Q8BK4R3B8dFoO9XD4j47BYZ7ETJ2PULMJOo=;
-	b=HLTiSKnRBxDG+DPoUe3cXgKegVFcNOD0rXriszZDzV1/F8Q+FYh0Lq2R2pUHcb9Y
-	9HRcudk/GGPCRYxoArQ6deKisimm35MVSCMzGl8zVIa8o1Up0Gj0sNp2eqBpj8Ezxni
-	rxpwU46CgPRFJekJUgUrLvG8MJWm6gw1sNLPv51gORVjhjVfocygjLSwS5towg0HB3/
-	9qC9vaRbzWwaAFps2Kk2dNQUhskGeiCFFG5yzdHrSE2mI+RtR6S2PZEmv/dO26UU3ao
-	OATfGI2Xfc/CboFvOf3pwIRJ2yDLcnU6Vl7ukFXtXfPoldSOlngD64qK1vak5j+s/89
-	MzIRisP3Jw==
-Received: by smtp.zohomail.com with SMTPS id 1789961993543581.7356580542081;
-	Sun, 20 Sep 2026 20:39:53 -0700 (PDT)
-Message-ID: <8ac3815961bebc5065ecabbbaed3e9920d5cbba7.camel@icenowy.me>
+	bh=ct1Y8laxYTB/3w6Vg9zeWZ4IUgz1j3gsDtqDeWDoQhE=;
+	b=KKyxMWkr1Oqh8lrvqaWs7m1N6FzlBaoLhknnkzLltncc3AkkgB5WY2M96m6WIter
+	mYQMF5NjtFKuGpzN60dP7oDOTxsApCfGkLIJqLFG1nRZk/hDxeqtXJS8ZiYTSCdTslQ
+	m2rNeSh56U+5rJfMkxZpQnKZOzu83HvQDklD0/IPXjBGk/xm99NGA3HMl7CWXzC5B3R
+	wbMoy4euTn/gbWJYViQdBwhypOZCc/k9a3XHxwL/gWYQUQCAwZNFDLOtFKGmGyb7yHY
+	WpJKF0cvTBInpl0ITZfI6jSAncFGxZ+qI7g3Y+FaCzxwtFsWE0MUm995EQvAbc7AlWr
+	545ZoCVD/w==
+Received: by smtp.zohomail.com with SMTPS id 1789962090652102.41171456130746;
+	Sun, 20 Sep 2026 20:41:30 -0700 (PDT)
+Message-ID: <e96ddd73ca83f0d8b6f08ff63a14b5f0d1bcee57.camel@icenowy.me>
 Subject: Re: [PATCH 2/3] pmdomain: spacemit: Add power domain driver
 From: Icenowy Zheng <uwu@icenowy.me>
 To: Yixun Lan <dlan@kernel.org>
@@ -61,7 +61,7 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
  linux-pm@vger.kernel.org
-Date: Mon, 21 Sep 2026 11:39:47 +0800
+Date: Mon, 21 Sep 2026 11:41:25 +0800
 In-Reply-To: <20260921033540-GKG297024@kernel.org>
 References: <20260918-04-k3-pm-support-v1-0-0acd2b36b96f@kernel.org>
 	 <20260918-04-k3-pm-support-v1-2-0acd2b36b96f@kernel.org>
@@ -72,8 +72,8 @@ User-Agent: Evolution 3.58.3
 MIME-Version: 1.0
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260920_203957_930255_19F064EF 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20260920_204133_381997_630209E9 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,11 +116,11 @@ b3VwbGVkIHdpdGggcmNwdSBjb3JlLCB3aGljaCBtZWFucyBwb3dlciBvZmYgaXQgd2lsbAo+IGFs
 c28gc2h1dCBkb3duIHRoZSByY3B1LCBzbyB0aGUgcG93ZXIgc3dpdGNoIGN1cnJlbnRseSBpcyBj
 b25maWd1cmVkCj4gYXMgYWx3YXlzIG9uIGZyb20gc29mdHdhcmUgcGVyc3BlY3RpdmUsIGl0J3Mg
 dW5hYmxlIHRvIHBvd2VyLW9mZiBldmVuCj4gaW4gTGludXggb3IgcmNwdSBvbmNlIHN5c3RlbSB1
-cC4KClNob3VsZCB0aGUgR0VOUERfRkxBR19BTFdBWVNfT04gZmxhZyBiZSBhcHBsaWVkIG9udG8g
-dGhpcyBwb3dlciBkb21haW4KaWYgaXQncyBub3QgbWVhbnQgdG8gYmUgc2h1dCBkb3duPwoKVGhh
-bmtzLApJY2Vub3d5Cgo+IAo+IEkgd2lsbCBkcm9wIGF1ZGlvIHBvd2VyIGRvbWFpbiBjb250cm9s
-IGluIG5leHQgdmVyc2lvbgo+IAo+ID4gKEJUVyBJIGJ1aWx0IGl0IGFzIGEgbW9kdWxlIHRvIHBy
-ZXZlbnQgd2hvbGUga2VybmVsIGJlaW5nIHJlYnVpbHQpCj4gPiAKPiB0aGF0J3MgZmluZQoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+cC4KPiAKPiBJIHdpbGwgZHJvcCBhdWRpbyBwb3dlciBkb21haW4gY29udHJvbCBpbiBuZXh0IHZl
+cnNpb24KPiAKPiA+IChCVFcgSSBidWlsdCBpdCBhcyBhIG1vZHVsZSB0byBwcmV2ZW50IHdob2xl
+IGtlcm5lbCBiZWluZyByZWJ1aWx0KQo+ID4gCj4gdGhhdCdzIGZpbmUKCkluIHRoaXMgY2FzZSwg
+ZG8geW91IGNvbnNpZGVyIHRvIG1ha2UgdGhlIEtjb25maWcgb3B0aW9uIGluIHlvdXIgcGF0Y2gK
+dHJpc3RhdGUgaW5zdGVhZCBvZiBib29sPwoKVGhhbmtzLApJY2Vub3d5CgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
