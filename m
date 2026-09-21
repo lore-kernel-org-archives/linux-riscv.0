@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087F5C982EE
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 19:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB11C982ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 20:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c/vC2+S23lkXSafrKbk01KACKszAhmSWwtmn7LiYnCw=; b=h+WTG0kvOnisY/
-	RfyFmNkJ3odSipg15yMvar3iTTGc1uz2428ZT+TLLDPWNcu6plblLL2116WULczvB32YmEvyd9m79
-	KnZIwqTVq8sP+uZ+A40daEM9ep8om6N0TsIjnWcwLwgrm1rTouYKnDgcf4uacaA5WkgIADQJ4Jrcn
-	Fl/uHDCCfdf0A00Y4Sd8lWGyiaCifpzEi8PHE7j7ORD0vmp01UvIP27jFEAlzn2cTfPwQfqHhJJFC
-	umcyAaevrvMphtaSJeUz4DiLdFoQsr+AslJ5Qzle7Lpg5vHiIdl6wKFShYzulmN7wwv0882a3tVuo
-	GcPyMIWtNkd86TYKxk/Q==;
+	List-Owner; bh=f1EChfJar51B7k15LQ3BT1NQTLZNOAzhm+M3wGishIs=; b=VRSdHwWJG/r+KI
+	HiFZg4iBol+zVG6eneQaOmZs50zOftafNjvtzdJNxKthcaT7Dyz18pOTtjkg6VWotWl8WnRixowoE
+	ueOhQxAx1FYfzFlKuxwRT8g8qKtXckZqacKtAP4/s2lSAjkIyxJI7W3H5WzIO/3qGNVBoD4heznwX
+	9IC35qgjCekGX/vIqzjEMJooA/dDFeHkCLwn8t+KYA8qpgLokJwcsiYF9eHDUABraO0kwFMMqz755
+	5u7xvvb0jqoIQMtfngFUol0AzL9iksl453bGvS2DhZuLAihdJKWaXphrK6pDKmNO+rfTiIOLJop+Z
+	3PQ8Cc8bqH6LlFkpcD9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8jgu-00000003EHu-3C4R;
-	Mon, 21 Sep 2026 19:28:40 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8jgr-00000003EH1-0djE
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 19:28:39 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 0E5A8C5CD60;
-	Mon, 21 Sep 2026 19:29:21 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B9F1E5FFB2;
-	Mon, 21 Sep 2026 19:28:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6433C103291F6;
-	Mon, 21 Sep 2026 21:28:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1790018910; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=2CJ7icff8JEtr2MIIttHYeL6xAW9xMU6iW5VZ8o8b1Y=;
-	b=tx63j8gtO2LTknEcJl2VsugMfHDV7JkN140eNtrYk1J+a7OmNqx7hOWnSycxNKn6WxA3rI
-	67IcochnkJqxkqTq9SmqcT3wVG2ztoIxlaNJrHsu+Jhut64wQu8jzet6X93DYSbtwIBgv1
-	AD/k/7vLqexg9YfgMWGfFOPwCZzrYxI0jGE0DYTe1iXzYUW4zmsaVRJN1XFRKGAc1Bc0BI
-	AYQ6I84cp+Tz5HM1tyM1/oiVahThYqQPhySlXEAPkj8HMlacfm719AU1bASL8ZrHNtgQ10
-	PnaYqYYaFCMb/xm5DKd4MMBsH0IjHQqw1rFjM6JM1CSxI1Y87QHpC6Cc/7j/4w==
-Date: Mon, 21 Sep 2026 21:28:28 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: conor.dooley@microchip.com, daire.mcnamara@microchip.com,
-	Manush Prajwal <manushprajwal555@gmail.com>
-Cc: linux-rtc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] rtc: mpfs: fix unchecked devm_clk_get() error pointer in
- probe()
-Message-ID: <179001890274.248925.9854410688320328698.b4-ty@b4>
-References: <6a9d4b02.7d74b517.206c4c.75f8@mx.google.com>
+	id 1x8kbI-00000003L36-1j3o;
+	Mon, 21 Sep 2026 20:26:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x8kbD-00000003L2A-2pMx;
+	Mon, 21 Sep 2026 20:26:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E89C5176C;
+	Mon, 21 Sep 2026 13:26:45 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 19DCC3F632;
+	Mon, 21 Sep 2026 13:26:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790022409; bh=YR8KjfryI7McmdGWbe5RjCYF03qe877YQVcwQ4evUyE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZJQgJ1u3+XbrE14CRndMnlfvZodRjo8Owgd4VUfyb4ysv/TCeswI4E1slRGuH0ZC5
+	 gEB41b7eQMFvIpiPafng381AyyipSmuL+EUBfZkrewzD7VQyDMaw6gvMc8JJ8U+oLq
+	 2RkB+DvgV9b00Ftlc/0AMEXk2kIo1XjoleH7ftTk=
+Date: Mon, 21 Sep 2026 21:26:40 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	David Hildenbrand <david@kernel.org>,
+	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-openrisc@vger.kernel.org
+Subject: Re: [PATCH 21/21] Documentation: mm: clarify behaviour of
+ compile-time folded page tables
+Message-ID: <arGTAMyNaJVjKiuC@e129823.arm.com>
+References: <20260921-dummy_ptxp3-v1-0-cd40cf68242e@arm.com>
+ <20260921-dummy_ptxp3-v1-21-cd40cf68242e@arm.com>
+ <c0c67459-6b75-4bcd-b068-3752e23afbf6@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <6a9d4b02.7d74b517.206c4c.75f8@mx.google.com>
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <c0c67459-6b75-4bcd-b068-3752e23afbf6@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_122837_364559_0E9585A2 
-X-CRM114-Status: UNSURE (   7.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260921_132651_916086_BF2429C9 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +107,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 06 Sep 2026 16:44:09 +0530, Manush Prajwal wrote:
-> devm_clk_get(&pdev->dev, "rtcref")'s return value was passed straight
-> into clk_get_rate() without checking it for an error first, unlike the
-> "rtc" clock a few lines above which is correctly checked with
-> IS_ERR(). clk_get_rate() only guards against a NULL clk, not an error
-> pointer:
+Hi Randy,
+
 > 
-> 	if (!clk)
-> 		return 0;
-> 	...
-> 	rate = clk_core_get_rate_recalc(clk->core);
 > 
-> [...]
+> On 9/21/26 3:55 AM, Yeoreum Yun wrote:
+> > From: "David Hildenbrand (Arm)" <david@kernel.org>
+> > 
+> > Compile-time folded page tables are not necessarily easy to understand, and even
+> > people the were once familiar with the concept might need to refresh their memory.
+> > 
+> > Add proper documentation, including a nice diagram, for the current design.
+> > Mention details about dummy functions, including the recently changed pXdp_get()
+> > helpers.
+> > 
+> > Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> 
+> Documentation/mm/page_tables.rst:197: WARNING: Bullet list ends without a blank line; unexpected unindent. [docutils]
+> 
+> See below for a fix.
 
-Applied, thanks!
+[...]
 
-[1/1] rtc: mpfs: fix unchecked devm_clk_get() error pointer in probe()
-      https://git.kernel.org/abelloni/c/ac41b05d15db
+> > +Note that the arrows from PGD to NOP4D represent page-table-walker
+> > +transitions, not pointers stored in the pgd entries.
+> > +
+> > +Using p4d as an example, `nop4d`/`p4d folded` translates to the following:
+> > +
+> > +- p4d is considered folded into pgd; both are operating on the same page
+> > + table.
+> 
+>      table.
+> (add one more prefix space to align the indentation)
+> 
 
-Best regards,
+Thanks! I'll fix it!
 
+[...]
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Sincerely,
+Yeoreum Yun
 
 _______________________________________________
 linux-riscv mailing list
