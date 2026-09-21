@@ -4,99 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C0DC982E6
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 15:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A07D7C982EE
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 15:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9OkZ3J6LAVLXPZ37sOGiMbIjpnEDbAWHqkVQl4xHbWI=; b=uIT893pREL5cy0
-	JEKbwxEu1X/O+QVVEHkFU+yzCHXbk8DqfYJhWqPsfSWVPiZZHCaXzC0z1dlXn241wBHSQcqLzvNMD
-	bp8bcOZ62LkyiupdrPZMosQSyhOZriE4SwjxmEWfQxKRpNMM0SQf+hFtu7hVImhcVSo4hurX38AYm
-	TGMgTPaGKJiX6r2Ap+pdf/iaeZOnOJ2ZL+z95/qWnjkaxBWvaNFFnAguQMjkGl+jqRWcX0IfCqI27
-	oa6xEgMSk8h67O2s8dQQpRvOJD6AFsuYYtGkNPYscESY+89zdV1xFJC5Qt6f3TOKVxDE3F6nA7QAF
-	uEkr3B0cFJl6H1kxceyA==;
+	List-Owner; bh=6ljF5VQJbLM5Wz1xaMnj06+Th6NPAMWM7HOnCK0lrO0=; b=hzrlBa/noBihUv
+	nw8KrN+Ry+Sj0aLjximlJaZkouBvNigd0+7nXBPeen6QxhqVnXERztgQkzI/rJ0ytIS+V849kgyvr
+	0Wju6gugATncQMwBa4z3y9fIqVXu/40e9uoxorH6xU+LLQqfb89GngVC/V/vEdED0gib5zcHxGv3B
+	ohTiu3wj38TkjHcdtG2ajz9sYK40P1BZS+wg5lZmQmcmmle1mu99rHkqGcdtYuuMribaMEczDo9hu
+	Qbxzrrjbb2ZTDYpfoxZ9xl7+Ft5SQ/NbptVNRB6I0tcmTEQ2iH7xKcOzmSybJ5joDnaOC4CF+BiaP
+	mIZYlH5EWdEZ8Dx6v4qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8g8e-00000002fBk-0K1d;
-	Mon, 21 Sep 2026 15:41:04 +0000
+	id 1x8gDU-00000002gDt-0tvD;
+	Mon, 21 Sep 2026 15:46:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8g8R-00000002f0F-1qeg;
-	Mon, 21 Sep 2026 15:40:51 +0000
+	id 1x8gDS-00000002gCQ-16Sh;
+	Mon, 21 Sep 2026 15:46:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=7BY4eyEDv83L2PkDaqg4uoC/543zeM+MlzUqQFasA0Q=; b=BMgMB7ZoFmUkeqgcHnvRYJthjm
-	ZJ7St0MFguSXK5QUzLlO0biMj8IH6FCxatl7fgci8mpkO/yugb6bwIZzcLNFLE0SCwdoNRHgHIuMo
-	eSgheG9Qsk3oqPyh0a10Q0mvc5o8PJwgtMyaE8BB+D+/nfYAFnJmiCzDWq74Pc14oqUJmo6K2AxGL
-	TPJY2hCXW6o/zezPhn+Lv0D5JGqNjceHKjhNu7TL8PUbMju2WSR+IB2l7YWfeXsWP3MsZbWFK/IyH
-	AUR8tG6DQe21r8cpBfC1kNBbYW+8a8CcIqtAL5qgb4xPIka1yXd7LPDc7AXmjAxcb92nJL9M6MHyc
-	pJHC5IdQ==;
-Received: from sender5-op-o15.zoho.com ([165.173.182.15])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x8g8K-0000000CUN1-21p8;
-	Mon, 21 Sep 2026 15:40:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1790005218; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=YuVBBelKV4Ix25JYWYRhLjBQP7prQkog2wM+2+YXBzIYekIfqO9ZleMIVaH3xpEKlR9X33zu6bR6VmHGkbbBMsb4B4IkBMTD7dXoK396OcPn8q6vVqRfalvkWJbuO2WCgiz1EDEgbKpbTKabyB7Kz3Ldgf74+cMJmwMPL84T6sw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1790005218; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=7BY4eyEDv83L2PkDaqg4uoC/543zeM+MlzUqQFasA0Q=; 
-	b=Xhf/dmI8EE6e5ioajHFwIZZG0zT/RxEFBqgPbc8xyB1Br3sF2LD0z8NZ7+fvetyKzuJ0c0vmfZMsWeThBcM1uUXsfAX8uB89LC+IWmR9ch6WcDllFQAVcEom1ZsraoQ4x/EcCzjJS5F2YKLdPJIKus9mjC3H/KAbu4PXqkCduoI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1790005218;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=7BY4eyEDv83L2PkDaqg4uoC/543zeM+MlzUqQFasA0Q=;
-	b=BcWwnxYtUWjM1oH6RsI6qz7wMZunj4FHwQa6OzcZs16K+8E6Qd3vQnTWjxeI8tbe
-	h2DEqY6eDBaloWEyiEfqPnzWhjvuqZ34MNaOWysnuYxU+yi3jUiUjOokthpe1CWXSVW
-	oEuAaY5C3Cv7fTLhWZtL7H1hIW6X8M2dyuIBKtGI=
-Received: by smtp.zohomail.com with SMTPS id 1790005217373622.0735486405825;
-	Mon, 21 Sep 2026 08:40:17 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Mon, 21 Sep 2026 23:38:06 +0800
-Subject: [PATCH v4 8/8] clk: sunxi-ng: a733: Add reset lines
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=dSPBjOWn5CsFPyDGmxFlZSgrzmDQuJdpSbhAoe0g5MU=; b=QWp15F9+ZWrllC7Nz5KctSQ2ka
+	aTijCTynluzN5BPKmq58CSdTIDXXqeYpsMkQ0nb9pNCG+HjqTDyGpA2uCmw4AmOPxHHwPu+svBs50
+	IXTDV3IiwlsP6a990zwW3o+MY+DTJbFvJ5kJMWII93TuNZcoGd/KfW1hZTjYCayktZM0Kl5Qt3KRA
+	e/EOnkWPWzdckp9z8eyBicNoWKBzSUz2VGp0om0Ro5P6dL0X83jXYROhJE0d66FrgsHjQsF/JxTEw
+	ScR5QJvmvUDPA/BoBteP7Qmy4xUONuSdpBc0vN0BidaTUWbsMLrkFAf5xC5ohLGYwsmDQsdDoYT57
+	ud+rNwNQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8gDO-0000000CUmv-1aCV;
+	Mon, 21 Sep 2026 15:46:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2CE1C176C;
+	Mon, 21 Sep 2026 08:45:52 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5CD83F632;
+	Mon, 21 Sep 2026 08:45:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790005555; bh=cIKZrmFNDgxQa0qqmau+ZqQxkkl6FQkDRcq1dC9miXU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EoC0cuIQz6hLQwqx0QF1eocGbFHcONiXNcdsw4wKNlOhOiOhVhiSZSeViIz1bFPb7
+	 muOHOKkL6n9D40Sc0M8nsRMGJOPM/9pqWCmEHDGay46C0wCozVnJkI6euIIJu4A7eT
+	 wCKvl5TAYjrxpCiY2Dw1a5LcGTlG38H10QNCNR8Y=
+Message-ID: <94630348-d295-4424-9f6c-0dc3b8704077@arm.com>
+Date: Mon, 21 Sep 2026 16:45:36 +0100
 MIME-Version: 1.0
-Message-Id: <20260921-a733-clk-v4-8-9c184ebe9ac1@pigmoral.tech>
-References: <20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech>
-In-Reply-To: <20260921-a733-clk-v4-0-9c184ebe9ac1@pigmoral.tech>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
- Enzo Adriano <enzo.adriano.code@gmail.com>, 
- Andre Przywara <andre.przywara@arm.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7014;
- i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
- bh=b44Pff3uLY2lX+rbx/967AEIg8FwfREguwPl+xfrGq8=;
- b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLI2+jd73FJ+O+PFNVfFuvvLiqw93ptYWaf8u9IltSDp3
- 2u931f8OkpZGMS4GGTFFFm4/MX/WevwfDsi0HofZg4rE8gQBi5OAZjIogOMDP9+H5cM1zm6c+ev
- b/MeNAYtqJ0pknk6REN3Kp/4OvscWU5GhoVhjrP5fy1Zee1fTo57tKdVyzSbbta+A2t0MrUsS6f
- vZgIA
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
- fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/6] dma: swiotlb: Track whether the pool size was
+ explicitly set
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
+ <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+ <20260921063628.362078-3-aneesh.kumar@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260921063628.362078-3-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_164048_377523_A1869B2A 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20260921_164558_857117_EF524941 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,177 +104,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the reset lines for the Allwinner A733 SoC. These reset control bits
-are integrated into the Bus Gate Reset (BGR) registers, typically
-sharing the same register address with their corresponding bus clock
-gates. Integrate them into the main CCU driver using the existing
-sunxi-ng ccu_reset framework, allowing the CCU to also function as a
-reset controller for the SoC.
+On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
+> swiotlb_adjust_size() must not override a pool size supplied through the
+> swiotlb= command-line parameter.
+> 
+> Currently, it determines whether a size was supplied by comparing
+> default_nslabs with IO_TLB_DEFAULT_SIZE. This fails when the user
+> explicitly requests the compiled-in default size, allowing the request
+> to be overwritten by automatic pool sizing.
+> 
+> Record whether swiotlb= supplied a numeric size and add
+> swiotlb_default_size_changed() to query that state.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>   kernel/dma/swiotlb.c | 9 ++++++++-
+>   1 file changed, 8 insertions(+), 1 deletion(-)
+> 
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index aa19e81ae544..8f86deb25be2 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -107,6 +107,7 @@ static struct io_tlb_mem io_tlb_default_mem;
+>   
+>   static unsigned long default_nslabs = IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT;
+>   static unsigned long default_nareas;
+> +static bool swiotlb_size_set __initdata;
 
-Tested-by: Jerome Brunet <jbrunet@baylibre.com>
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
- drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 126 +++++++++++++++++++++++++++++++++
- 1 file changed, 126 insertions(+)
+Nit: there are various ways and reasons that the size is set in general; 
+could this please be named something clearer, e.g. 
+"swiotlb_cmdline_size_set"?
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-index 1543c2d3f305..cb4209dd8e76 100644
---- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-@@ -19,6 +19,7 @@
- #include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
- 
- #include "ccu_common.h"
-+#include "ccu_reset.h"
- 
- #include "ccu_div.h"
- #include "ccu_gate.h"
-@@ -2181,11 +2182,136 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
- 	.num	= CLK_FANOUT3 + 1,
- };
- 
-+static const struct ccu_reset_map sun60i_a733_ccu_resets[] = {
-+	[RST_BUS_ITS_PCIE0]		= { 0x574, BIT(16) },
-+	[RST_BUS_IOMMU0_SYS]		= { 0x58c, BIT(16) },
-+	[RST_BUS_MSI_LITE0_AHB]		= { 0x594, BIT(16) },
-+	[RST_BUS_MSI_LITE0_MBUS]	= { 0x594, BIT(17) },
-+	[RST_BUS_MSI_LITE1_AHB]		= { 0x59c, BIT(16) },
-+	[RST_BUS_MSI_LITE1_MBUS]	= { 0x59c, BIT(17) },
-+	[RST_BUS_MSI_LITE2_AHB]		= { 0x5a4, BIT(16) },
-+	[RST_BUS_MSI_LITE2_MBUS]	= { 0x5a4, BIT(17) },
-+	[RST_BUS_IOMMU1_SYS]		= { 0x5b4, BIT(16) },
-+	[RST_BUS_DMA0]			= { 0x704, BIT(16) },
-+	[RST_BUS_DMA1]			= { 0x70c, BIT(16) },
-+	[RST_BUS_SPINLOCK]		= { 0x724, BIT(16) },
-+	[RST_BUS_MSGBOX]		= { 0x744, BIT(16) },
-+	[RST_BUS_PWM0]			= { 0x784, BIT(16) },
-+	[RST_BUS_PWM1]			= { 0x78c, BIT(16) },
-+	[RST_BUS_DBG]			= { 0x7a4, BIT(16) },
-+	[RST_BUS_SYSDAP]		= { 0x7ac, BIT(16) },
-+	[RST_BUS_TIMER0]		= { 0x850, BIT(16) },
-+	[RST_BUS_DE0]			= { 0xa04, BIT(16) },
-+	[RST_BUS_DI]			= { 0xa24, BIT(16) },
-+	[RST_BUS_G2D]			= { 0xa44, BIT(16) },
-+	[RST_BUS_EINK]			= { 0xa6c, BIT(16) },
-+	[RST_BUS_DE_SYS]		= { 0xa74, BIT(16) },
-+	[RST_BUS_VE_ENC0]		= { 0xa8c, BIT(16) },
-+	[RST_BUS_VE_DEC0]		= { 0xa8c, BIT(18) },
-+	[RST_BUS_CE]			= { 0xac4, BIT(16) },
-+	[RST_BUS_CE_SYS]		= { 0xac4, BIT(17) },
-+	[RST_BUS_NPU_CORE]		= { 0xb04, BIT(16) },
-+	[RST_BUS_NPU_AXI]		= { 0xb04, BIT(17) },
-+	[RST_BUS_NPU_AHB]		= { 0xb04, BIT(18) },
-+	[RST_BUS_NPU_SRAM]		= { 0xb04, BIT(19) },
-+	[RST_BUS_GPU0]			= { 0xb24, BIT(16) },
-+	[RST_BUS_DRAM0]			= { 0xc0c, BIT(16) },
-+	[RST_BUS_NAND0]			= { 0xc8c, BIT(16) },
-+	[RST_BUS_MMC0]			= { 0xd0c, BIT(16) },
-+	[RST_BUS_MMC1]			= { 0xd1c, BIT(16) },
-+	[RST_BUS_MMC2]			= { 0xd2c, BIT(16) },
-+	[RST_BUS_MMC3]			= { 0xd3c, BIT(16) },
-+	[RST_BUS_UFS_AHB]		= { 0xd8c, BIT(16) },
-+	[RST_BUS_UFS_AXI]		= { 0xd8c, BIT(17) },
-+	[RST_BUS_UFS_PHY]		= { 0xd8c, BIT(18) },
-+	[RST_BUS_UFS_CORE]		= { 0xd8c, BIT(19) },
-+	[RST_BUS_UART0]			= { 0xe00, BIT(16) },
-+	[RST_BUS_UART1]			= { 0xe04, BIT(16) },
-+	[RST_BUS_UART2]			= { 0xe08, BIT(16) },
-+	[RST_BUS_UART3]			= { 0xe0c, BIT(16) },
-+	[RST_BUS_UART4]			= { 0xe10, BIT(16) },
-+	[RST_BUS_UART5]			= { 0xe14, BIT(16) },
-+	[RST_BUS_UART6]			= { 0xe18, BIT(16) },
-+	[RST_BUS_I2C0]			= { 0xe80, BIT(16) },
-+	[RST_BUS_I2C1]			= { 0xe84, BIT(16) },
-+	[RST_BUS_I2C2]			= { 0xe88, BIT(16) },
-+	[RST_BUS_I2C3]			= { 0xe8c, BIT(16) },
-+	[RST_BUS_I2C4]			= { 0xe90, BIT(16) },
-+	[RST_BUS_I2C5]			= { 0xe94, BIT(16) },
-+	[RST_BUS_I2C6]			= { 0xe98, BIT(16) },
-+	[RST_BUS_I2C7]			= { 0xe9c, BIT(16) },
-+	[RST_BUS_I2C8]			= { 0xea0, BIT(16) },
-+	[RST_BUS_I2C9]			= { 0xea4, BIT(16) },
-+	[RST_BUS_I2C10]			= { 0xea8, BIT(16) },
-+	[RST_BUS_I2C11]			= { 0xeac, BIT(16) },
-+	[RST_BUS_I2C12]			= { 0xeb0, BIT(16) },
-+	[RST_BUS_SPI0]			= { 0xf04, BIT(16) },
-+	[RST_BUS_SPI1]			= { 0xf0c, BIT(16) },
-+	[RST_BUS_SPI2]			= { 0xf14, BIT(16) },
-+	[RST_BUS_SPIF]			= { 0xf1c, BIT(16) },
-+	[RST_BUS_SPI3]			= { 0xf24, BIT(16) },
-+	[RST_BUS_SPI4]			= { 0xf2c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GPADC0]		= { 0xfc4, BIT(16) },
-+	[RST_BUS_THS0]			= { 0xfe4, BIT(16) },
-+	[RST_BUS_IRRX]			= { 0x1004, BIT(16) },
-+	[RST_BUS_IRTX]			= { 0x100c, BIT(16) },
-+	[RST_BUS_LRADC]			= { 0x1024, BIT(16) },
-+	[RST_BUS_SGPIO]			= { 0x1064, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LPC]			= { 0x1084, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_I2SPCM0]		= { 0x120c, BIT(16) },
-+	[RST_BUS_I2SPCM1]		= { 0x121c, BIT(16) },
-+	[RST_BUS_I2SPCM2]		= { 0x122c, BIT(16) },
-+	[RST_BUS_I2SPCM3]		= { 0x123c, BIT(16) },
-+	[RST_BUS_I2SPCM4]		= { 0x124c, BIT(16) },
-+	[RST_BUS_SPDIF]			= { 0x128c, BIT(16) },
-+	[RST_BUS_DMIC]			= { 0x12cc, BIT(16) },
-+	[RST_USB_PHY0]			= { 0x1300, BIT(30) },
-+	[RST_BUS_OHCI0]			= { 0x1304, BIT(16) },
-+	[RST_BUS_EHCI0]			= { 0x1304, BIT(20) },
-+	[RST_BUS_OTG]			= { 0x1304, BIT(24) },
-+	[RST_USB_PHY1]			= { 0x1308, BIT(30) },
-+	[RST_BUS_OHCI1]			= { 0x130c, BIT(16) },
-+	[RST_BUS_EHCI1]			= { 0x130c, BIT(20) },
-+	[RST_BUS_USB2]			= { 0x135c, BIT(16) },
-+	[RST_BUS_PCIE_PWRUP]		= { 0x138c, BIT(16) },
-+	[RST_BUS_PCIE]			= { 0x138c, BIT(17) },
-+	[RST_BUS_SERDES]		= { 0x13c4, BIT(16) },
-+	[RST_BUS_GMAC0]			= { 0x141c, BIT(16) },
-+	[RST_BUS_GMAC0_AXI]		= { 0x141c, BIT(17) },
-+	[RST_BUS_GMAC1]			= { 0x142c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GMAC1_AXI]		= { 0x142c, BIT(17) }, /* From the vendor kernel. */
-+	[RST_BUS_TCON_LCD0]		= { 0x1504, BIT(16) },
-+	[RST_BUS_TCON_LCD1]		= { 0x150c, BIT(16) },
-+	[RST_BUS_TCON_LCD2]		= { 0x1514, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LVDS0]			= { 0x1544, BIT(16) },
-+	[RST_BUS_LVDS1]			= { 0x154c, BIT(16) },
-+	[RST_BUS_DSI0]			= { 0x1584, BIT(16) },
-+	[RST_BUS_DSI1]			= { 0x158c, BIT(16) },
-+	[RST_BUS_TCON_TV0]		= { 0x1604, BIT(16) },
-+	[RST_BUS_TCON_TV1]		= { 0x160c, BIT(16) },
-+	[RST_BUS_EDP]			= { 0x164c, BIT(16) },
-+	[RST_BUS_HDMI_MAIN]		= { 0x168c, BIT(16) },
-+	[RST_BUS_HDMI_SUB]		= { 0x168c, BIT(17) },
-+	[RST_BUS_HDMI_HDCP]		= { 0x168c, BIT(18) },
-+	[RST_BUS_DPSS_TOP0]		= { 0x16c4, BIT(16) },
-+	[RST_BUS_DPSS_TOP1]		= { 0x16cc, BIT(16) },
-+	[RST_BUS_VIDEO_OUT0]		= { 0x16e4, BIT(16) },
-+	[RST_BUS_VIDEO_OUT1]		= { 0x16ec, BIT(16) },
-+	[RST_BUS_LEDC]			= { 0x1704, BIT(16) },
-+	[RST_BUS_DSC]			= { 0x1744, BIT(16) },
-+	[RST_BUS_CSI]			= { 0x1844, BIT(16) },
-+	[RST_BUS_VIDEO_IN]		= { 0x1884, BIT(16) },
-+	[RST_BUS_APB2JTAG]		= { 0x1c04, BIT(16) },
-+};
-+
- static const struct sunxi_ccu_desc sun60i_a733_ccu_desc = {
- 	.ccu_clks	= sun60i_a733_ccu_clks,
- 	.num_ccu_clks	= ARRAY_SIZE(sun60i_a733_ccu_clks),
- 
- 	.hw_clks	= &sun60i_a733_hw_clks,
-+
-+	.resets		= sun60i_a733_ccu_resets,
-+	.num_resets	= ARRAY_SIZE(sun60i_a733_ccu_resets),
- };
- 
- static const u32 pll_regs[] = {
+>   /**
+>    * struct io_tlb_area - IO TLB memory area descriptor
+> @@ -269,6 +270,7 @@ setup_io_tlb_npages(char *str)
+>   		/* avoid tail segment of size < IO_TLB_SEGSIZE */
+>   		default_nslabs =
+>   			ALIGN(simple_strtoul(str, &str, 0), IO_TLB_SEGSIZE);
+> +		swiotlb_size_set = true;
+>   	}
+>   	if (*str == ',')
+>   		++str;
+> @@ -304,6 +306,11 @@ unsigned long swiotlb_size_or_default(void)
+>   	return default_nslabs << IO_TLB_SHIFT;
+>   }
+>   
+> +static bool __init swiotlb_default_size_changed(void)
 
--- 
-2.55.0
+...and then do we really need a trivial wrapper function with the exact 
+same scope as the variable itself? (Plus the name is similarly confusing 
+as the places this is used are themselves potentially changing the 
+default size, if you consider "default" to mean "not explicitly 
+specified"...)
+
+With the naming improved,
+
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+
+> +{
+> +	return swiotlb_size_set;
+> +}
+> +
+>   void __init swiotlb_adjust_size(unsigned long size)
+>   {
+>   	/*
+> @@ -311,7 +318,7 @@ void __init swiotlb_adjust_size(unsigned long size)
+>   	 * architectures such as those supporting memory encryption to
+>   	 * adjust/expand SWIOTLB size for their use.
+>   	 */
+> -	if (default_nslabs != IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT)
+> +	if (swiotlb_default_size_changed())
+>   		return;
+>   
+>   	default_nslabs = swiotlb_aligned_nslabs(size);
 
 
 _______________________________________________
