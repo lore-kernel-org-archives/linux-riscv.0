@@ -4,113 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A88DC982E6
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 16:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C684BC982E6
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2026 16:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RSxLp4UbakCHROXMdFYn4G22OlRRzrJD+qL+FV8R3oU=; b=O0XlOH1o8mFcJJ
-	NYhQi3+y5tqOQbStGCjZ7ZVXfQ/5SbcKngx7haMaGwAlHFqCRX60bK1DYAk1EvKNHjC9NAjuEzFyC
-	CvXRt+YnSA4LH2/ZFQ+K4tN6rUavUISnYWAOycVVllcylIpkdbpu98pvlRh9Id1O9f1HJxsaLrBXq
-	WexWQqqalyC7huvji4Ewfv+2YPDnNEISnYFJt+FJNQ5IFbm+x+RAXFFg53KTVb8JZ0ssGmx8zlNO4
-	DIM/UgAuGCdsmkGEFR0Oh51Vwu5Lv3BIH825FDXTCaWTeDkmVm3YqL15DFeW3lnrqZ4NI1TllLv6r
-	GqfiEKJOrOQagpwus8Xw==;
+	List-Owner; bh=FlDiOOvwOKNqzDH5aRIuNb5lqXVopyYmj8LB6F0ajCU=; b=WHoTm0YH1sL2Kx
+	vNZ8jAMIi4HKyZA9hWn6QrsE5HivPTtOaf1rAIAD6OHtNAuQeeDDiHurMiETSWjWXz04c79GzYEhu
+	DZwBmSC5upq8OeUrwvVMQvLcaguAL9dW3o31U4dLXh5XCKh+49qufVD1R1H4OKseD3q200tmtm1vN
+	0c49aHEyql+nNITXbcBORq5tTUgOkNnFlbxmOHrI3MZvJk3JsRd590VFtq/qmf5dlxaZaDcteh0U5
+	CGUjETDtENkmly13WYWKKnS38Vj1rRF9/Eojwp6L4ekNwR0foPjZedq6yNz8+woen60mcB29l0NbI
+	3XEuHufpxFJw4vG964Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gpJ-00000002p5o-2QFd;
-	Mon, 21 Sep 2026 16:25:09 +0000
-Received: from mail-yx2-x11.google.com ([2607:f8b0:4864:41::11])
+	id 1x8hDS-00000002sls-0u95;
+	Mon, 21 Sep 2026 16:50:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8gpG-00000002p4q-1clq
-	for linux-riscv@lists.infradead.org;
-	Mon, 21 Sep 2026 16:25:08 +0000
-Received: by mail-yx2-x11.google.com with SMTP id 956f58d0204a3-66e50968489so2929498d50.0
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2026 09:25:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790007903; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kUXtQCQzy23DpXePn7xY5D6Gh7blVQWBlmwjURXAPNT6huNk3RnZtEhTJWjt5jXg/o
-         B1NZutyUD7t851RGQCktf7yp0L0/A1T3LDVIFam0D91JWrBS7ajVHJi+vKN8bp/VhwVe
-         ODp3ut7Sa5AM+3NZ47SVqDCMcybB4ajGBcUDKGIhIOerku4Ln3+vdedCzrslliRgjRNr
-         3Xqy1HfmqGM6NvlOc2T80Ylns+0/oku1BuzIfPyAImBLJGuBVe5ljX/ZbNa2J1YUpIug
-         pJsvM7ekI6vS17zhS1aS1D7xUd5jegqp98xnLuF0qGMe9/od+JrqS2VzVRcDM5amtjoL
-         wOgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=FscOTKf6GX9LsYtYTRZ38iEWAQ8+A7NhnQp2GLbb0QM=;
-        fh=mQKqlF6Hkyo/VnjVbsnXBpiFsmziMv7jUSZGI9wqX0w=;
-        b=lyGTOTDEOEylgY07VPU38vHOZWm8apyqDezacZLqw70eXk+3jHv9scVN85//PJjYWr
-         sAxYU1XkUjSmym8R0Qy9OB+8h8+Ru4ZyDxs5tKb5mV2VbsivFMjr5SBs+Xbn1xnWBfc3
-         XPqN+fic5FQV/GvHeYwN3O1oxXk8Np2kse4QLvFIshyVvP464g0NSJJMguMIkcbvNJkO
-         vTPM7wXi6jaK0tw85ucWdl2AIScY8TUGhcmHc1uipYHImoxLWcwW2ST9w44LCH7D9vXo
-         o2QGqWSECHNgP9Cc8RRYf4hq3y69yP6xg6itj2tL5Mb37pt9g5U+2+3jpnpCcGGzOwPA
-         Bgjg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790007903; x=1790612703; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=FscOTKf6GX9LsYtYTRZ38iEWAQ8+A7NhnQp2GLbb0QM=;
-        b=nOkIAJ05xBaMKEYAnnykxSrZ13PiUGMZNssfdBvtWI7AtkvuYHovI/TdSzEHwaKqoq
-         yPgdfZALLCKSd4A82jT1GaDuin/aCg24SLmkBpcmOLP0PLWEAHVvwcJRGOPHnm/8cBlc
-         Sb28/l/oMAw1hSX8QMaEpFGAQfQ3uOuJOI9W4E5z2Y5QxBuEpCluBP7U2NIR0vI8wFTN
-         xx0cuipEMlSitZE57BShAJNWwFVHNfvr1umj7KWWJqE8WWwUe/3Wfq3kXT5gpehTH8ss
-         D+ycrieS6ta5PUC0pcAQalx3yCm0FrJhTrzJ9UPKXn/mwjHXRgMIocEHUTx6en13heoa
-         EkOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790007903; x=1790612703;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FscOTKf6GX9LsYtYTRZ38iEWAQ8+A7NhnQp2GLbb0QM=;
-        b=s09MqwAg13PhrGK+5kV5JiTu1GHfBGVw97c249leeLkxx8UszSYDOgJvboJtm3kPVH
-         Z3p+XUEocya6gAFJ6gUOVfNlRftgiv9ELNMNUQBcSBVXmlJP8KyYpOZdsD1ucTkUXRZg
-         8YJYRCx4ft3gHN5dj5/VA9JtJNqMfNDaWLJZMrA5VKW/3/vItFEgEZ4DYoCn/rJCDJDE
-         hW2SHoFhmx63/RMsGX8xX7Nq2MAdyI1rdHw6VW84KVIEXTtvygDF72aMxhh0HcRvpuS4
-         hdg9qm8A7kg/cfNvNkBH8CaFEtKSmsa01/MoFtL3i8uX6+jHElzKNDe5FlTNDiss7OfZ
-         Oauw==
-X-Forwarded-Encrypted: i=1; AKwUvBzPAwXmwtAIYluQM4I8QQ+l+dBpmz/8OiU9ZtwbqWci3SyG1E7UFlzDphXMjwjeZRHle7V6fKQUgh5SUw==@lists.infradead.org
-X-Gm-Message-State: AFuF++nmgTTsAYgNi9gh01MeO/NAuE/QmK+AnfjhMd/dk9TXdjOi1kCe
-	uIkd4D//lU9SNnbhIswdDdnRjoDVVgJtMPre7acFHAmC4CmVtPjLPKxqTtivBxLDbpXNhRj1T4r
-	uOQ6dGhe6b0xZmNF5A13Z0jgE2hJOBpE=
-X-Gm-Gg: AYBFou27WpPk88YZPcI8KK24/ho/3YHqia/fKoaOrfNqh/b1ZISeTrJcAV/peiL61Bw
-	XqbyGJ8NQhFab5DzemO+5T+2qQGLFAo2LOtvUu4K1I9iIAMjcaWZ6F73v0EzLB9OMs13LvyvkyL
-	zjTrMek2AEZcCuQS2XrbIJ59kkn0J7aN4Dec0F673kNZwLkwfWMH02cGLo+xh5cFMnMG58FxNyL
-	2pSChNZt6nNVAzx+9UutBv52JfYRu3jT59eLlXQGxopsh0xfwHMe4Oninn06EbooQVQpAwbZ5R5
-	oGcxKCUreBn/hW22ZaPfB54kB+qRQ9DDmxc9ZtLfXXsvRzIR1qe81ScYJyg74l5AJYDxHpgZkkm
-	hsaP5KdrKJGaF1yzEDHbF5C8XHnWrG47fIH/7C9DjJnMtmMftHQhDLUBGPSIAieXFrK4n+mmR6z
-	/J59bR6KWgaXSFju5Oe6laqs0=
-X-Received: by 2002:a05:690e:c4e:b0:672:be40:5eaf with SMTP id
- 956f58d0204a3-672be40629dmr713487d50.54.1790007902724; Mon, 21 Sep 2026
- 09:25:02 -0700 (PDT)
+	id 1x8hDP-00000002sl2-3j32;
+	Mon, 21 Sep 2026 16:50:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=9Hw49sKCrk0TxQWy4HKwk2Z7RruqtWeFijH78wRP870=; b=W/fdNxX02vixRdaiDSwdcGj9C6
+	gLXrODaitOzMy9U6MTVFedwCzG3uFDqvaT8/0TrM+zv9qmyGohdlc+ekWjKMM1kcbaQe+ifY295nc
+	Nfu9rG64FSvo5rMp6CcgHlPkC1ST/znl/OWg9sEyQRNNka3VVRM0vjZefhO5hymPsOqiUVnP4sd3T
+	3zFn/6CfhYsJP17aCW/cEI7c+IxVUiSmqgNn7nzoFCKGmKsuP+z9XNf3GSOSmIO8txtYMbpGbL5Qj
+	wzK9CiSx11DZj8NPZdCaYIuPSqM8n65Cq8TvA+YYj/sWfakk3lWMvwVWduVoHfKtLmzlAPrNZ0ZL8
+	YnYazToQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x8hDM-0000000CaDP-0SHR;
+	Mon, 21 Sep 2026 16:50:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9584919F0;
+	Mon, 21 Sep 2026 09:49:53 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C3E73F9A2;
+	Mon, 21 Sep 2026 09:49:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790009397; bh=Wdg09chPpqQgC/K0e8SKRfjnjFGDVmMx8BswypSmTA0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XQmomevpZT09cy6cgr1kTzu2so5J171U16ite1cLw6tf7wJFB4IdlH5QxKz6sSd/4
+	 qRHE98CmDqCVVIr1K3Cv1yP6IMXAdywdYQoc3xBrma/fZL4DL86RO08+Hgqua4e3tA
+	 tpLMTY+ABzQMH+5gDW1Tr/akzSw8iQXUsL5/7yfc=
+Message-ID: <21180ec6-b9ad-43fd-9e52-51df644e1b93@arm.com>
+Date: Mon, 21 Sep 2026 17:49:42 +0100
 MIME-Version: 1.0
-References: <20260904195132.141068-1-sidchintamaneni@gmail.com> <DLKORFKGW8D8.XVSVVIH3Q6Q@gmail.com>
-In-Reply-To: <DLKORFKGW8D8.XVSVVIH3Q6Q@gmail.com>
-From: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
-Date: Mon, 21 Sep 2026 09:24:51 -0700
-X-Gm-Features: AcwNN1VSvI94aKmDMDlc9C_7_9UyySkBSsqPddt2OeIwAs5C5fHNExBLC9Hitxg
-Message-ID: <CAE5sdEgLFFcsQ8rpraQ4L-EvppqxUn+=ZdHFgker2Wd--EGL6g@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v1 0/7] Fix timed may_goto with private stacks
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, 
-	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
-	Anton Protopopov <a.s.protopopov@gmail.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, rlmenge@gmail.com, 
-	hargar@linux.microsoft.com, apais@microsoft.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/6] dma: swiotlb: Centralize minimal pool sizing
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
+ <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
+References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
+ <20260921063628.362078-4-aneesh.kumar@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260921063628.362078-4-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260921_092506_440595_AD33AD13 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20260921_175000_678464_11C7B4A7 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,60 +103,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PFNOSVA+Cgo+IEkgdGhpbmsgd2UgY2FuIGtlZXAgdGhpcyBmaXggbG9jYWwgdG8geDg2LiBXb3Vs
-ZCBiZSBsZXNzIGNodXJuIGluIHRoZSBlbmQuCj4KPiBUaGUgcHJvYmxlbSBpcyB0aGF0IHg4NiBz
-d2l0Y2hlcyB0aGUgQlBGIGZyYW1lIHBvaW50ZXIgZnJvbSBSQlAgdG8gUjkgZm9yCj4gcHJpdmF0
-ZSBzdGFja3MsIGJ1dCB0aGUgdHJhbXBvbGluZSBzdGlsbCB1c2VzIFJCUC4gYXJtNjQgYW5kIHBv
-d2VycGM2NCBrZWVwCj4gdXNpbmcgWDI1IGFuZCBSMzEgcmVzcGVjdGl2ZWx5IGZvciBib3RoIHN0
-YWNrIG1vZGVzLCBzbyB0aGVpciB0cmFtcG9saW5lcwo+IGFscmVhZHkgdXNlIHRoZSByaWdodCBm
-cmFtZSBwb2ludGVyLgo+Cj4gSW5zdGVhZCBvZiBjaGFuZ2luZyB0aGUgZ2VuZXJpYyBmaXh1cCwg
-Y2FuIHdlIHJlc29sdmUgdGhlIHBvaW50ZXIgaW4gdGhlIHg4NiBKSVQKPiB3aGVuIGVtaXR0aW5n
-IHRoZSBjYWxsIHRvIGFyY2hfYnBmX3RpbWVkX21heV9nb3RvKCk/IFdlIGFscmVhZHkga25vdyB3
-aGV0aGVyCj4gcHJpdl9mcmFtZV9wdHIgaXMgc2V0IHRoZXJlLiBSMTAgY29udGFpbnMgdGhlIG9m
-ZnNldCBwYXNzZWQgdGhyb3VnaCBCUEZfUkVHX0FYLAo+IHNvIHdlIGNhbiBlbWl0Ogo+Cj4gLyog
-UHJpdmF0ZSBzdGFjayAqLwo+IGxlYXEgKCVyOSwgJXIxMCksICVyMTAKPgo+IC8qIE5vcm1hbCBz
-dGFjayAqLwo+IGxlYXEgKCVyYnAsICVyMTApLCAlcjEwCj4KPiBUaGVuIHJlbW92ZSB0aGUgTEVB
-IGZyb20gdGhlIHg4NiB0cmFtcG9saW5lLCBhcyBwYXRjaCAyIGFscmVhZHkgZG9lcy4KPgoKbWFr
-ZSBzZW5zZSEgSSB0aG91Z2h0IHRoYXQgdGhlIHJlbWFpbmluZyBhcmNoJ3MgaGF2ZSBhIHNpbWls
-YXIgcHJpdmF0ZQpzdGFja3MgYXBwcm9hY2ggdG8geDg2LiBJJ2xsIGdpdmUgaXQgYSB0cnkgYW5k
-IHJlLXNwaW4gdGhlIHBhdGNoLgoKPiBUaGlzIGdpdmVzIGJwZl9jaGVja190aW1lZF9tYXlfZ290
-bygpIHRoZSBzYW1lIGFkZHJlc3MgdXNlZCBieSB0aGUgZ2VuZXJhdGVkCj4gbG9hZHMgYW5kIHN0
-b3JlczogdGhlIEJQRiBmcmFtZSBwb2ludGVyIHBsdXMgdGhlIGNvdW50ZXLigJlzIHN0YWNrIG9m
-ZnNldC4gRm9yCj4gbm9ybWFsIHN0YWNrcywgd2UganVzdCBtb3ZlIHRoZSBleGlzdGluZyBjYWxj
-dWxhdGlvbiBpbnRvIHRoZSBKSVQuIEZvciBwcml2YXRlCj4gc3RhY2tzLCB3ZSB1c2UgUjkgaW5z
-dGVhZCBvZiBSQlAsIHdoaWNoIGZpeGVzIHRoZSBtaXNtYXRjaC4KPgo+IFRoZSBleGlzdGluZyBz
-YXZlL3Jlc3RvcmUgb2YgUjkgYXJvdW5kIHRoZSBjYWxsIHNob3VsZCBzdGF5LiBXZSBhbHNvIGxl
-YXZlIFJCUAo+IGFsb25lLCBzaW5jZSBpdCBpcyBzdGlsbCBuZWVkZWQgZm9yIHRoZSBuYXRpdmUg
-ZnJhbWUgY2hhaW4gYW5kIHVud2luZGluZy4KPgo+IEkgaGF2ZW7igJl0IHRlc3RlZCB0aGlzIGFw
-cHJvYWNoLCBzbyBpdCBzdGlsbCBuZWVkcyBjaGVja2luZyB3aXRoIGJvdGggbm9ybWFsIGFuZAo+
-IHByaXZhdGUgc3RhY2tzLgo+Cj4gcHctYm90OiBjcgo+Cj4gPiBTaWRkaGFydGggQ2hpbnRhbWFu
-ZW5pICg3KToKPiA+ICAgYnBmOiBGaXggdGltZWQgbWF5X2dvdG8gc3RhY2sgcG9pbnRlciBmb3Ig
-cHJpdmF0ZSBzdGFja3MKPiA+ICAgYnBmLCB4ODY6IFVzZSByZXNvbHZlZCBwb2ludGVyIGZvciB0
-aW1lZCBtYXlfZ290bwo+ID4gICBicGYsIGFybTY0OiBVc2UgcmVzb2x2ZWQgcG9pbnRlciBmb3Ig
-dGltZWQgbWF5X2dvdG8KPiA+ICAgYnBmLCBwb3dlcnBjNjQ6IFVzZSByZXNvbHZlZCBwb2ludGVy
-IGZvciB0aW1lZCBtYXlfZ290bwo+ID4gICBicGYsIHJpc2N2OiBVc2UgcmVzb2x2ZWQgcG9pbnRl
-ciBmb3IgdGltZWQgbWF5X2dvdG8KPiA+ICAgYnBmLCBzMzkwOiBVc2UgcmVzb2x2ZWQgcG9pbnRl
-ciBmb3IgdGltZWQgbWF5X2dvdG8KPiA+ICAgc2VsZnRlc3RzL2JwZjogVGVzdCB0aW1lZCBtYXlf
-Z290byB3aXRoIHByaXZhdGUgc3RhY2tzCj4gPgo+ID4gIGFyY2gvYXJtNjQvbmV0L2JwZl90aW1l
-ZF9tYXlfZ290by5TICAgICAgICAgICB8IDEyICsrLS0tLS0tCj4gPiAgYXJjaC9wb3dlcnBjL25l
-dC9icGZfdGltZWRfbWF5X2dvdG8uUyAgICAgICAgIHwgIDggKystLS0KPiA+ICBhcmNoL3Jpc2N2
-L25ldC9icGZfdGltZWRfbWF5X2dvdG8uUyAgICAgICAgICAgfCAxMyArKysrLS0tLQo+ID4gIGFy
-Y2gvczM5MC9uZXQvYnBmX2ppdF9jb21wLmMgICAgICAgICAgICAgICAgICB8ICA2ICsrLS0KPiA+
-ICBhcmNoL3MzOTAvbmV0L2JwZl90aW1lZF9tYXlfZ290by5TICAgICAgICAgICAgfCAgOCArKy0t
-LQo+ID4gIGFyY2gveDg2L25ldC9icGZfdGltZWRfbWF5X2dvdG8uUyAgICAgICAgICAgICB8ICA2
-IC0tLS0KPiA+ICBrZXJuZWwvYnBmL2ZpeHVwcy5jICAgICAgICAgICAgICAgICAgICAgICAgICAg
-fCAxOSArKysrKystLS0tLS0KPiA+ICAuLi4vYnBmL3Byb2dzL3ZlcmlmaWVyX2JwZl9mYXN0Y2Fs
-bC5jICAgICAgICAgfCAzMCArKysrKysrKysrLS0tLS0tLS0tCj4gPiAgLi4uL3NlbGZ0ZXN0cy9i
-cGYvcHJvZ3MvdmVyaWZpZXJfbWF5X2dvdG9fMS5jIHwgMTcgKysrKysrLS0tLS0KPiA+ICAuLi4v
-YnBmL3Byb2dzL3ZlcmlmaWVyX3ByaXZhdGVfc3RhY2suYyAgICAgICAgfCAxOSArKysrKysrKysr
-KysKPiA+ICAxMCBmaWxlcyBjaGFuZ2VkLCA3NSBpbnNlcnRpb25zKCspLCA2MyBkZWxldGlvbnMo
-LSkKPiA+Cj4gPgo+ID4gYmFzZS1jb21taXQ6IGQ3NjE5MzRjOTQ4M2VjZGU5M2ZlOTlkODcwNTI4
-MmY3MTZkZmVlNTAKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
+> A default SWIOTLB pool used only for unaligned kmalloc bouncing can be
+> smaller than one required for limited DMA addressing. Arm64 and RISC-V
+> currently implement this sizing independently, using 1 MiB of SWIOTLB
+> space per GiB of RAM.
+> 
+> The SWIOTLB core now identifies this case with SWIOTLB_POOL_MINIMAL.
+> Size that policy in swiotlb_adjust_pool_size() and remove the
+> architecture-specific adjustments.
+> 
+> Explicit swiotlb= sizing remains unchanged because swiotlb_adjust_size()
+> preserves a user-configured size.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>   arch/arm64/mm/init.c | 11 -----------
+>   arch/riscv/mm/init.c |  4 ----
+>   kernel/dma/swiotlb.c | 11 ++++++++++-
+>   3 files changed, 10 insertions(+), 16 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 7d51fb5f5a71..95075b5c8207 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -340,17 +340,6 @@ void __init arch_mm_preinit(void)
+>   {
+>   	unsigned int flags = SWIOTLB_VERBOSE;
+>   
+> -	if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
+> -		/*
+> -		 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
+> -		 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
+> -		 */
+> -		unsigned long size =
+> -			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
+> -
+> -		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
+> -	}
+> -
+>   	if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
+>   		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
+>   
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index e0e4c103d603..96856114b387 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -183,10 +183,6 @@ void __init arch_mm_preinit(void)
+>   		 * memory when DRAM starts above dma32_phys_limit.  Allocate
+>   		 * ~1 MB per 1 GB of RAM.
+>   		 */
+> -		unsigned long size =
+> -			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
+> -		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
+> -		swiotlb = true;
+>   		swiotlb_flags |= SWIOTLB_ANY;
+>   	}
+>   
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index 8f86deb25be2..f368a73f4ed0 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -483,9 +483,18 @@ static bool __init swiotlb_kmalloc_needs_bounce(void)
+>   static void __init
+>   swiotlb_adjust_pool_size(enum swiotlb_pool_policy policy)
+>   {
+> +	if (swiotlb_default_size_changed())
+> +		return;
+> +
+
+This appears to be entirely redundant, as ultimately the point of this 
+function is to call swiotlb_adjust_size() (if it does anything at all), 
+and the first thing that does is this same exact check. We hardly need 
+to micro-optimise short-circuiting a handful of arithmetic in a one-off 
+setup path, and it's convoluted enough as it is, so please try to avoid 
+redundancy that makes it even more confusing to follow.
+
+>   	switch (policy) {
+> -	case SWIOTLB_POOL_MINIMAL:
+> +	case SWIOTLB_POOL_MINIMAL: {
+> +		unsigned long size;
+> +
+> +		/* Use 1MB per 1GB of RAM for kmalloc() bouncing. */
+> +		size = DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
+> +		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
+>   		break;
+
+Similarly I think it would be clearer if we had a common 
+swiotlb_adjust_size() call at the end of the function, and then either 
+calculate a size or return early in each switch case as appropriate.
+
+Furthermore, swiotlb_size_or_default() is awful IMO - and in fact after 
+this series we could perhaps clean it up entirely by making the size 
+implicit in swiotlb_init_late() - not to mention misleadingly redundant. 
+I'd say just open-code "default_nslabs << IO_TLB_SHIFT" like elsewhere 
+in the file, but in fact it may as well just be IO_TLB_DEFAULT_SIZE 
+(think about it...)
+
+Thanks,
+Robin.
+
+> +	}
+>   	case SWIOTLB_POOL_CC_GUEST:
+>   		break;
+>   	case SWIOTLB_POOL_NONE:
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
