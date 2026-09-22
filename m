@@ -4,97 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1A4C98302
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 17:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C4F7C98302
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 19:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YhbN3PL/BK1DBY9dISbBWcowvg9lIsQS+exQoKRET/8=; b=3sI5oBSISg5L1x
-	fyw0g8In5guwvHRegM/aU2v6sFkSDvZrNShDO9uBPhnx8HDjJetyIjn1J5uz/IJeWadGcDWya/IOH
-	MGQWwGKfdyTtgiBBbb3LB2iod65yKDiWDlIg0ELeKaHqcxoNo4+A1dzTQFKA+CBrC96xtMNHDIVF1
-	cDjtXnpZewybNy4aWUDFi2E5zzCdmyhaAXUQYDK7rB7OAVyw0VoBrkJz+nUXq26THtVrce4omypeH
-	eCjQ0teZ5gSTC7idGe+shKIN8VLTu2nx+EeQFV3d5UIG02XLB9GdooYUQz9k95QLdYPSP602xEDIw
-	g4DQJiEh2oHgYmFOYq2g==;
+	List-Owner; bh=OcMYJk151kJ4c/0mxewu1/ePbo4d+OkVRiAuK8fjEn8=; b=K86pqhQWy+HZfy
+	4FOJizZRTc4vVlhifQi9f+Kz/bN0dPUr23B00ktut5XgWJ1lvXTbwXXjMZjTlaBbNxjO+ImNE75cs
+	FqZIwfPfFSsDDui6t/roFo1bG2ZHZhpd2FAicL/7FyQzrUTHmP6tbQvjOczOZWV+t0h2dCF914oqI
+	xamFwvNo2nMJd1boqw9sImpiWILlhrzn89azl5/1nQTyFRpTMJjTK/adoCJpHcqSbQi4iwqNnc+ky
+	8CkVV2oodZFEVgNAgeOlkAE726AIy4eW2AwZOZ0V7rETF64jE2Rnc7LkVsh27CLM70ml4tDUHvsEv
+	wCFk1z/xGPMCqfiiwLmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94CY-00000006BSY-1a8x;
-	Tue, 22 Sep 2026 17:22:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x9612-00000006NLX-3DQH;
+	Tue, 22 Sep 2026 19:18:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x94CW-00000006BSB-1VpK;
-	Tue, 22 Sep 2026 17:22:40 +0000
+	id 1x9610-00000006NKn-12ca;
+	Tue, 22 Sep 2026 19:18:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EC096022B;
-	Tue, 22 Sep 2026 17:22:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04DCD1F000FF;
-	Tue, 22 Sep 2026 17:22:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B1A71401D6;
+	Tue, 22 Sep 2026 19:18:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AB921F00893;
+	Tue, 22 Sep 2026 19:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790097759;
-	bh=UNh8IajC2C7W4xAVN/5A4Te3DbNvUnFRUUUmja4mmRU=;
+	s=k20260515; t=1790104733;
+	bh=rG9jdeE1GgpZ721Ylayiu0WJux0e9upMn4hAQNazN1k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=F9l/h2sgeG6pItIpsl4UOUD5LPuOPYalAOj3lX7iN1SKQRQx/7vSe8Y8wJYuJaFa9
-	 tegjTwQVFA9hXGIt+1oJvFwKspvEmTZEeRl/rL3Z+1/vMB7N90Y9ljH8EiqVFiWGMa
-	 llb7G+u8p4G82Y3NfZpa4T6VyMnit/o1genoOGjAzyku0OZj1fvAIP0nPa5BRjaZ1s
-	 0LsiYA1bWAjQ698sUHV9gBhPhcHOkUs5jCvX2Aqi8QkSHyLlAciZyH7C9FEowKSWF8
-	 GvrRJLzG6nhqL2FhCQxRW0vNDBGCdIskECu8iSBeB5zhpcl0fRPI9Q5+bVasWrDLde
-	 t0gfKdsjFaNOA==
-Date: Tue, 22 Sep 2026 18:22:15 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Brian Cain <bcain@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Simon Schuster <schuster.simon@siemens-energy.com>, 
-	Jonas Bonn <jonas@southpole.se>, Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
-	Stafford Horne <shorne@gmail.com>, Rich Felker <dalias@libc.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Paul Walmsley <pjw@kernel.org>, 
+	b=nVZNMwZymUoYnWyP9PHedZApvviQf4Cvlsyp/06Z2xBBaXCbkfJh1lO8fG0QPlX5E
+	 9CbIKE3oQ3X5YPwWe1ZvPlL9d+D8/0kHepKHOdR3CyJBFJGMaDljbvuVYus4pjWJKP
+	 qGYOQBGbQDWJSkiTYQCy1L9lvKTdbg5G0OLyjJWqJA/VSlMLlMVLUapYFccALw2jP9
+	 hXmVSigBJMTg0tgCDzSp/ymC8iFI0b80Wa764Lnt6nrXofGRVGZ8AnqYl3ShLMmvR2
+	 vj2DahjSlvc6WSBMpR8dtdWGcJAc7tuOkrmINccYugToUbmJjd1TseNI0Woo4pazI2
+	 GCbNy1MCv7Q/w==
+Date: Wed, 23 Sep 2026 00:45:39 +0530
+From: Naveen N Rao <naveen@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Russell King <linux@armlinux.org.uk>, 
-	Vineet Gupta <vgupta@kernel.org>, Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
-	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, 
-	Peter Zijlstra <peterz@infradead.org>, "David S. Miller" <davem@davemloft.net>, 
-	Andreas Larsson <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>, 
-	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
-	linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>, 
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v4 00/12] mm: make userland page table freeing RCU-safe
-Message-ID: <arK4XnDTuFpwPV38@gremlin>
-References: <20260922-rcu-pagetable-freeing-v4-0-fe1ad1f1e303@kernel.org>
- <arKv4qbF04KB2WxQ@casper.infradead.org>
+	Paolo Bonzini <pbonzini@redhat.com>, Kiryl Shutsemau <kas@kernel.org>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Nicholas Piggin <npiggin@gmail.com>, 
+	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, x86@kernel.org, 
+	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Jean-Christophe Guillain <jean-christophe@guillain.net>, =?utf-8?B?UGF3ZcWC?= S <spawel523@gmail.com>
+Subject: Re: [PATCH v2 0/7] KVM: Serialize vCPU creation and revert vcpu_ids
+ tracking
+Message-ID: <arLSZuDixbzXrevV@blrnaveerao1>
+References: <20260921174445.911676-1-seanjc@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <arKv4qbF04KB2WxQ@casper.infradead.org>
+In-Reply-To: <20260921174445.911676-1-seanjc@google.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,32 +77,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2026 at 05:42:10PM +0100, Matthew Wilcox wrote:
-> On Tue, Sep 22, 2026 at 04:35:31PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > m68k-motorola required the biggest change - since RCU page table freeing
-> > uses call_rcu(), this means page table freeing can arise from softirq
-> > context.
-> >
-> > This was fixed with an IRQ-safe spin lock used in both get_pointer_table()
-> > and free_pointer_table().
->
-> You don't need to use an irq-safe spinlock for softirqs.  It does work,
-> but it's overkill since it disables hardirqs.  If you use spin_lock_bh(),
-> only softirqs are prevented from running (and it's safe to call
-> spin_lock_bh() when in softirq context, just like it's safe to call
-> spin_lock_irqsave() in hardirq or softirq context).
+On Mon, Sep 21, 2026 at 10:44:38AM -0700, Sean Christopherson wrote:
+> Serialize vCPU creation by holding kvm->lock for the entirety of
+> kvm_vm_ioctl_create_vcpu(), and then revert the now-redundant tracking adding
+> by commit 97d65b544f48 ("KVM: Check for duplicate vcpu_id as early as
+> possible").  I botched the math when justifying the vcpu_ids tracking; it's not
+> an extra 256 bytes, it's an extra 2048 bytes.  Roughly doubling the size of
+> "struct kvm" tripped x86's KVM_SANITY_CHECK_VM_STRUCT_SIZE, and obviously isn't
+> something we want to do in general.
+> 
+> The TL;DR of why it's a-ok to serialize vCPU creation is that no VMM actually
+> does parallel vCPU creation.  As with so many things, KVM's current behavior is
+> the result of decades-old cruft, not intentional, deliberate design.
+> 
+> Patches 1-3 are a tangentially related cleanups and bug fixes; I included them
+> here because holding kvm->lock for all of vCPU creation allows WARNing if KVM
+> attempts to lock all vCPUs if vCPU creation is in-progress (the caller must
+> hold kvm->lock).
+> 
+> v2:
+>  - Tweak patch 1's changelog to clarify that that only x86's manual checks are
+>    dropped. [Sashiko]
+>  - Add patches to convert additional arm64 and RISC-V usage to 
+>    kvm_is_vcpu_creation_in_progress(). [Sashiko]
+>  - Remove acquisition of kvm->lock from s390 and PPC vCPU creation flows.
+>    [Christian, Sashiko]
+>  - Add Jean-Christophe's Tested-by to the revert.
+> 
+> v1: https://lore.kernel.org/all/20260914181223.289061-1-seanjc@google.com
+> 
+> Sean Christopherson (7):
+>   KVM: Reject attempts to lock all vCPUs if vCPU creation is in-progress
+>   KVM: arm64: vgic: Rely on vCPU creation check in "trylock all vCPUs"
+>   KVM: RISC-V: Use kvm_is_vcpu_creation_in_progress() instead of
+>     open-coded equivalent
+>   KVM: Protect all of kvm_vm_ioctl_create_vcpu() with kvm->lock
+>   KVM: Move check for existing vCPU ID to the top of vCPU creation
+>   Revert "KVM: Check for duplicate vcpu_id as early as possible"
+>   KVM: WARN if vCPU creation is in-progress when locking all vCPUs
 
-Right yup, I know _bh() is fine for softirq, I think this was being overly
-cautious (for sparc32 you do actually need irq saving).
+This addresses the Secure TSC splat I reported previously:
+https://lore.kernel.org/all/apgj5l7DZGsScsNc@blrnaveerao1/
 
-But this is m68k :) functionally there's really not that much difference, and
-it's over very few instrucitons so the delta here is likely to be functionally
-little to nothing.
+I booted a SNP guest with Secure TSC enabled and didn't see any lockdep 
+reports. For what that's worth:
+Tested-by: Naveen N Rao (AMD) <naveen@kernel.org>
 
-If I need to respin again I'll fix it up!
 
---
-Cheers, Lorenzo
+- Naveen
+
 
 _______________________________________________
 linux-riscv mailing list
