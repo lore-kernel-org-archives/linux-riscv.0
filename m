@@ -4,85 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1FBC982F1
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 08:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A9CC982FF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 08:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	References:In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tDM2iHhH761OoWD/TibVDmmfuN2JDmFKbsR/iTzA9zA=; b=4obOkgeJwjffXgFnFbJEeLEnGM
-	4xnaOjcq6bnNopNHXzN6q+MKYtOcb8XWRgBf31pddrZoKzLxeLCaJ9s0U6dTBHyLRQnaU891Yg8UH
-	DPWnB0xjOKRmgkdclLZejo4D2w0AvqU/RRE340/qUJXXe2uJAmO8X0gD50Gg7ljMZO0Qfwxn6Z3nr
-	DHvXcgrPkAvc2IfbrJ60QhRbd510jAHfRcpaBxQENzgbq8kj4VC54yq7Ijd0/G1GYji9MZ4KBgj9V
-	E4WI7X7rbbeY8eWMoSdpuOMYGlVk3Simp5dHuJgYJGbu7pUCfwWjV0LtJO+hPIXqt2/GN3axZ1wni
-	Eckn89qA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	References:In-Reply-To:Cc:To:Subject:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KEy3lrKnANxVFtZy8L/m3XhXppKztMIanXBDOw/yPPY=; b=YrBPmbzvEr3lbs
+	qrpnOc44+kpcSI+NYtK2ErT2xKbgL+ADytm+TDz9RxtFSZmCZWxZpZmc0B8eZ7KBnH1xkNI/TC7+k
+	dp96gjJ0mpnh/Dgb3QpoNE/0LT0xHUp5S29QC7amrFiJem7+MJwMMHc3TElfTfVBJqtHRBqwS/oOy
+	Lvna+yp9k0+TkF6C62aG4/pJh7MaalJo8ucAJUbP9AAdDvvwCVcpZIIfN4lkJoj+57W9eL4NjNQct
+	oyK9vL14mpnLMEs8O0CqB9F5WhnSnJ5G4rQD6kbtl5oC/TeGvbxaRBtqggXErxIKR9YgUuR1cQrsS
+	cYerNv7Cru1GrNnB+zcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8wIt-00000004nBk-0hQn;
-	Tue, 22 Sep 2026 08:56:43 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
+	id 1x8wJB-00000004nQJ-2onA;
+	Tue, 22 Sep 2026 08:57:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8wIl-00000004mya-2tCs
-	for linux-riscv@lists.infradead.org;
-	Tue, 22 Sep 2026 08:56:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1790067344;
-	bh=QJyVwtKSewGzHI+ReObmC25SE/N8bNoOAYhfVLfu9jE=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=QuAio5tWBhg+BdgaEvpzXWtWYbNDIr5FEnoloENdWghduZWQ7S0CaL0WkBn+PAWn7
-	 qZAaSqS4SYIFw8GGiutUP2wQ9b2ziCunrPuW+uvx9R0LKUBJedEZmckB368D95OzJ2
-	 0wwpHBiKHlcCNHhSP6M0UpAT/ybc0OtjPhsrQPvY=
-X-QQ-mid: zesmtpsz7t1790067342tf3de2c6d
-X-QQ-Originating-IP: S9iYn0j528t5SWdRrrbA6iz1oreq6FD1VOr214a9x/Q=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 22 Sep 2026 16:55:40 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7129964714333372295
-EX-QQ-RecipientCnt: 14
-Mime-Version: 1.0
-Date: Tue, 22 Sep 2026 16:55:38 +0800
-Message-Id: <DLLPWUHF8WRQ.13YQTP32MG59Z@linux.spacemit.com>
-Cc: "Rob Herring" <robh@kernel.org>, "Paul Walmsley" <pjw@kernel.org>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Conor Dooley"
- <conor+dt@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <spacemit@lists.linux.dev>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>
-Subject: Re: [PATCH 1/1] riscv: dts: spacemit: set ETH MAC from eeprom for
- OrangePi
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Chukun Pan" <amadeus@jmu.edu.cn>, "Yixun Lan" <dlan@kernel.org>
-In-Reply-To: <20260920100000.3888256-1-amadeus@jmu.edu.cn>
-References: <20260920100000.3888256-1-amadeus@jmu.edu.cn>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OLsBWtCIHsg67aCHmB71aP9d79zNRwdmEAh/x94A3a6Tp7GCgtnNVY/a
-	GGy94m5i7wEBa+PI2kF5jtaPgma3Jw9T9v6RE672gzfaSmMcPBjhG+ahf036ookhbHoPH6h
-	M0aqlA/ksa1TatfS+t6PpBV73oxXdJFX9I6L5cwAEknxmHlEP16u3nFrNVDZIZy7UMMN6IV
-	CQlDyrHbzvTrFuKQ+FlTys5QX55dYSNT3lLbOAcaOVy+P9dyGfOYKDCDOJP+ggSLCiIJmK1
-	3WtnY5T5P0zDSdDUJmCRGKRci22G7ehtrQPCLZS8Ll2j/qjuV/vR8fpQrFk4OhsVk3EvuI6
-	UfQnBqjcQkQCxu9cRgHBtkBoFohi4a7aM7XggccvchvwswfpJh8quzPo3xqukXAMgwLalDX
-	EquMofPWnaAQd0hjmXUd+nW1Ya6+kFhfwclcBRJTfxgylszQIakHNYOH1KyZEGcb46Ys0pU
-	0Vog4d3XvBJ8QV8NiCrRXxkqcfalbZMHSl3nXquX+rTQY3vVYVXMpwamwb0kmUWaIugcN3r
-	MuagT5K+a84lBi6UvesMrszu4ylJBtkeyLPcV765VijNKFenvO5FEJ3GMYEtS9BV6POULCv
-	SNHeH1aVA5TD49KqZ1VwioPg2eRgXgmkXFZHjdobWua5XFZL/WqB2te28YZ1vaqElgyXHWp
-	cG1rebj2mO/V8Rj2lwGcZDM1B0n8hmJ5smij2wHUBHIRj6H5I4hGZKSQDaAsGGkCyzZt/oj
-	6BgzVg7HVV3M4zMgTmV2Ehji7tlRRwMWexziYDCoVzry1ykOY0y6trqmG96OsFfsDCMGWLw
-	Km9B1T87smOjGLNde1ysH6pE/L0Lljzk+gpvrbA/At0q33EDNeaIQ3l1n8IWEP2dG//v65U
-	I2v9wlxjVooROD9Z0Cy1zwt5m+A4/sCatNuigThgclt4Vg5Fv5tPH2KMW1wRnqERdJuWEJi
-	/jTN4g/ZCIWuzAq0Zj8Crc2fN4AT+OdhBijtxgS9b2NIoeQCRpsd7/+16g5uAteVHkXzm9q
-	4MrQW5bm8zZyaIRPZxF9sFDy81bwQ3Zi9kklffADEQzsgtCf6EMvY4uPLGZ6OScKvVL9OEE
-	A==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_015636_641470_71FDBBC7 
-X-CRM114-Status: GOOD (  11.05  )
+	id 1x8wJA-00000004nOt-2C3T;
+	Tue, 22 Sep 2026 08:57:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE3FF60200;
+	Tue, 22 Sep 2026 08:56:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D2B61F000FF;
+	Tue, 22 Sep 2026 08:56:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790067419;
+	bh=mB6ArwwQWi63lnnyZnmc+lp1xXlr6Q+TPr+ON6lhHYw=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=MNL3Xnb6CWnvvGBDK0J3Mn0L4qOeZ5nvv4L3x8jvkBkxrp+xGTSpgMrYwk4JgC2qV
+	 9snp/rxfK9DTTpliyaHgkmJRoQKO6yZng3MZ6TCOmCZ58SkJbHD1AciwzYV1jmDP9T
+	 weoFRPO5s+q4kbuS/2JkjIJQyufgbbc2Rqghndy+dE0HSygszhyyhX8NNsmW9OjjAj
+	 q+tsmsriKvocNa9XHt90euPbTjKxci4T0s7RA5tQyjpgnP73fjR4Hujl2c4Pj+FV14
+	 8I9/nRiLjvKtECSEKKdVfBZYG4utyvcEnX34gjuFlutbaLSf/Zs2/9fYZO95zimVOh
+	 hT83kc73npLCw==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v7 4/9] crash_core: replace for_each_mem_range() with
+ for_each_mem_region()
+To: robh@kernel.org, "Wandun Chen" <chenwandun1@gmail.com>, rppt@kernel.org, baoquan.he@linux.dev, m.szyprowski@samsung.com
+Cc: linux-kernel@vger.kernel.org, ruirui.yang@linux.dev, loongarch@lists.linux.dev, tglx@kernel.org, mingo@redhat.com, saravanak@kernel.org, iommu@lists.linux.dev, pratyush@kernel.org, conor+dt@kernel.org, dave.hansen@linux.intel.com, chenhuacai@kernel.org, aou@eecs.berkeley.edu, pjw@kernel.org, linux-arm-kernel@lists.infradead.org, pasha.tatashin@soleen.com, x86@kernel.org, akpm@linux-foundation.org, linux-riscv@lists.infradead.org, kexec@lists.infradead.org, hpa@zytor.com, palmer@dabbelt.com, alex@ghiti.fr, mark.rutland@arm.com, will@kernel.org, kernel@xen0n.name, catalin.marinas@arm.com, bp@alien8.de, robin.murphy@arm.com, linux-mm@kvack.org, devicetree@vger.kernel.org
+In-Reply-To: <20260922084256.1515554-5-chenwandun1@gmail.com>
+References: <20260922084256.1515554-1-chenwandun1@gmail.com>
+ <20260922084256.1515554-5-chenwandun1@gmail.com>
+Date: Tue, 22 Sep 2026 08:56:58 +0000
+Message-Id: <20260922085658.6D2B61F000FF@smtp.kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,103 +62,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7478914754122556570=="
+Reply-To: sashiko-reviews@lists.linux.dev
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7478914754122556570==
-Content-Type: multipart/signed;
- boundary=d72ad57d5253791581f049dab24561afb713182c6bd228dc2826c5d750c3;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Content-Transfer-Encoding: 7bit
-
---d72ad57d5253791581f049dab24561afb713182c6bd228dc2826c5d750c3
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-On Sun, Sep 20, 2026 at 06:00:00PM +0800, Chukun Pan wrote:
-> The EEPROM on the OrangePi R2S and OrangePi RV2 stores the MAC address.
-> Assign it to Ethernet, with eth1 having a MAC offset of 1. Remove the
-> Ethernet alias to avoid U-Boot patching incorrect MAC addresses.
->
-> [...]
->
-> --- a/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-orangepi-r2s.dts
-> @@ -16,8 +16,6 @@ aliases {
->  		i2c2 =3D &i2c2;
->  		i2c8 =3D &i2c8;
->  		serial0 =3D &uart0;
-> -		ethernet0 =3D &eth0;
-> -		ethernet1 =3D &eth1;
->  	};
-> =20
->  	chosen {
-
-Where do the incorrect MAC addresses come from? Linux prefers a valid
-DT MAC over NVMEM, allowing a bootloader override. Could we keep the
-aliases? Removing them also prevents intentional ethaddr/eth1addr
-overrides.
-
-> @@ -66,6 +64,8 @@ &emmc {
->  };
-> =20
->  &eth0 {
-> +	nvmem-cells =3D <&mac_address 0>;
-> +	nvmem-cell-names =3D "mac-address";
->  	phy-handle =3D <&rgmii0>;
->  	phy-mode =3D "rgmii-id";
->  	pinctrl-names =3D "default";
-> @@ -90,6 +90,8 @@ rgmii0: phy@1 {
->  };
-> =20
->  &eth1 {
-> +	nvmem-cells =3D <&mac_address 1>;
-> +	nvmem-cell-names =3D "mac-address";
->  	phy-handle =3D <&rgmii1>;
->  	phy-mode =3D "rgmii-id";
->  	pinctrl-names =3D "default";
-> @@ -129,7 +131,7 @@ eeprom@50 {
->  		nvmem-layout {
->  			compatible =3D "onie,tlv-layout";
-> =20
-> -			mac-address {
-> +			mac_address: mac-address {
->  				#nvmem-cell-cells =3D <1>;
->  			};
-> =20
-
-Have you tested with AT24 and ONIE TLV built as modules, including
-network-root boot? Without a bootloader-provided MAC, Ethernet probe
-may defer until these dependencies are available.
-
---=20
-Troy Mitchell
-
---d72ad57d5253791581f049dab24561afb713182c6bd228dc2826c5d750c3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCarJCig0caUB0cm95LXku
-b3JnAAoJEJgJ74D5MzQv2U8BAJ9HtLWnl55CiMGdaDRYSZReiOVteADUBzeJJoQK
-JuYEAQCgs2kWGxqs5Ilk5rGt22lx7egm/u1lHicDhhiCJ7SiAQ==
-=TcPt
------END PGP SIGNATURE-----
-
---d72ad57d5253791581f049dab24561afb713182c6bd228dc2826c5d750c3--
-
-
---===============7478914754122556570==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7478914754122556570==--
-
+PiBGcm9tOiBXYW5kdW4gQ2hlbiA8Y2hlbndhbmR1bkBsaXhpYW5nLmNvbT4KPiAKPiBmb3JfZWFj
+aF9tZW1fcmFuZ2UoKSBza2lwcyBNRU1CTE9DS19OT01BUCByZWdpb25zIGltcGxpY2l0bHkuIFN3
+aXRjaCB0aGUKPiB3ZWFrIGRlZmF1bHRzIHRvIGZvcl9lYWNoX21lbV9yZWdpb24oKSwgd2hpY2gg
+ZXhwb3NlcyBzdHJ1Y3QKPiBtZW1ibG9ja19yZWdpb24gYW5kIHBlci1yZWdpb24gZmxhZ3MsIGFu
+ZCBmaWx0ZXIgTk9NQVAgcmVnaW9ucyBleHBsaWNpdGx5Cj4gdmlhIHRoZSBuZXcgY3Jhc2hfc2hv
+dWxkX3NraXBfcmVnaW9uKCkgaGVscGVyLiBUaGlzIHByZXBhcmVzIGZvciBhCj4gc3Vic2VxdWVu
+dCBwYXRjaCB0byBleHRlbmQgdGhlIHNraXAgZmlsdGVyLgo+IAo+IE5vIGZ1bmN0aW9uYWwgY2hh
+bmdlLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFdhbmR1biBDaGVuIDxjaGVud2FuZHVuQGxpeGlhbmcu
+Y29tPgoKU2FzaGlrbyBoYXMgcmV2aWV3ZWQgdGhpcyBwYXRjaCBhbmQgZm91bmQgbm8gaXNzdWVz
+LiBJdCBsb29rcyBncmVhdCEKCi0tIApTYXNoaWtvIEFJIHJldmlldyDCtyBodHRwczovL3Nhc2hp
+a28uZGV2LyMvcGF0Y2hzZXQvMjAyNjA5MjIwODQyNTYuMTUxNTU1NC0xLWNoZW53YW5kdW4xQGdt
+YWlsLmNvbT9wYXJ0PTQKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
