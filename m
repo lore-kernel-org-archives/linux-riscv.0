@@ -4,87 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58C5C982F1
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 08:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5BBC982FA
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 08:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dHfpSWUCdA6F0gir3vA0OrMsY9Jv5TTEsYUum/XGYck=; b=j5LMI3AdFkFRvV
-	0ZEqtKm/pP80P8sh2G0Sd9dPdlCe6LLO6l4WktlDP9I24DNcTQZ1U/BYpzEmhEHuBifOmcNyjglIL
-	fYqFWfg7681712hNZp6zJnspR96PLLoEu/cCwlVu8YCsu1ef7zuTbN8uAtiw5JJvh4l17h4EZklr6
-	cD9i+gFjwaCXBWeeYzOfF0CVtzn6kA1IdgNhnzFLovJx1qH+HR6V5yXZJCz7+K+LL6u7MUwAemFi9
-	xyOycJa0sc3C4ppuIuhqRyeAJXTkyHjd/Wvle22S+zgyInbLomU6T4zuiBXfcHOYDArvcvmuXI+fa
-	obzCF8XkI40Um5tw28tA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:Subject:Cc:To:From:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8u98nsMqNS4PC7TnAMaM4vGx9kXFHBKujWvQq6KE6TM=; b=YQqs4Bn4SHT+wSKLC0oGpmAnLv
+	MEQ5jf9hWf6uQjkQCnKKhLRw/1fEhQhj4JfB5B35zRSfOfHUgcsrP4/0ynhIJvbvXOoHp5or90r2D
+	DW6LeCGgx4RRIbf4RCoRBOtWu5NlZIrj4FXEUsUAXU72OZNLOZWrT4ChwpbuLWyu6UHIsjCKr6uJn
+	axBbk+GApkIme92xoHH64uLfKD7xnKy75r+5M1+M5AifD5+lmo5Xi+iVF10gHfNJro/NTuSRTyoe3
+	zT0Hjy7462yfcu7e8utX/aCSXBSEs0A1YOpbPm/W0eNj3V5W3cJ8Tm2hJuqAqXXos9ylo8UcvdQPg
+	kNkd9dfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vWd-00000004cEJ-1hvL;
-	Tue, 22 Sep 2026 08:06:51 +0000
-Received: from smtpout6.mo540.mail-out.ovh.net ([51.210.91.55])
+	id 1x8vWm-00000004cHk-27O0;
+	Tue, 22 Sep 2026 08:07:00 +0000
+Received: from out-68.mta1.migadu.com ([2001:41d0:203:375::44] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8vWZ-00000004cCA-1E2J;
-	Tue, 22 Sep 2026 08:06:49 +0000
-Received: from director3.derp.mail-out.ovh.net (director3.derp.mail-out.ovh.net [79.137.60.223])
-	by mo540.mail-out.ovh.net (Postfix) with ESMTPS id 4hpt3B757rz41y9;
-	Tue, 22 Sep 2026 08:06:30 +0000 (UTC)
-Received: from director3.derp.mail-out.ovh.net (director3.derp.mail-out.ovh.net. [127.0.0.1])
-        by director3.derp.mail-out.ovh.net (inspect_sender_mail_agent) with SMTP
-        for <anup@brainfault.org>; Tue, 22 Sep 2026 08:06:30 +0000 (UTC)
-Received: from mta10.priv.ovhmail-u1.ea.mail.ovh.net (unknown [10.110.164.229])
-	by director3.derp.mail-out.ovh.net (Postfix) with ESMTPS id 4hpt3B5XYDz1xrq;
-	Tue, 22 Sep 2026 08:06:30 +0000 (UTC)
-Received: from guillain.net (unknown [10.1.6.5])
-	(Authenticated sender: jean-christophe@guillain.net)
-	by mta10.priv.ovhmail-u1.ea.mail.ovh.net (Postfix) with ESMTPSA id 9DC82781C5E;
-	Tue, 22 Sep 2026 08:06:27 +0000 (UTC)
-Authentication-Results: garm.ovh; auth=pass (GARM-97G002b68a12e8-2984-420b-a186-13f4c06436ba,
-                    1B11FA1B799B51260FD44711AD952BEFB0E4E6B4) smtp.auth=jean-christophe@guillain.net
-X-OVh-ClientIp: 78.242.244.78
-Message-ID: <792d9ce32849122eed7ecbed22e494f8b624dbc8.camel@guillain.net>
-Subject: Re: [PATCH v2 0/7] KVM: Serialize vCPU creation and revert vcpu_ids
- tracking
-From: Jean-Christophe Guillain <jean-christophe@guillain.net>
-To: Sean Christopherson <seanjc@google.com>, Madhavan Srinivasan	
- <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley	
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou	
- <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, Kiryl
- Shutsemau	 <kas@kernel.org>, Rick Edgecombe <rick.p.edgecombe@intel.com>
-Cc: Nicholas Piggin <npiggin@gmail.com>, Atish Patra
- <atish.patra@linux.dev>,  Alexandre Ghiti	 <alex@ghiti.fr>, Dave Hansen
- <dave.hansen@linux.intel.com>, 	linuxppc-dev@lists.ozlabs.org,
- kvm@vger.kernel.org, 	kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, x86@kernel.org, 
-	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
- =?UTF-8?Q?Pawe=C5=82?= S	 <spawel523@gmail.com>
-Date: Tue, 22 Sep 2026 10:06:21 +0200
-In-Reply-To: <20260921174445.911676-1-seanjc@google.com>
-References: <20260921174445.911676-1-seanjc@google.com>
-Autocrypt: addr=jean-christophe@guillain.net; prefer-encrypt=mutual;
- keydata=mDMEaEmXaBYJKwYBBAHaRw8BAQdA1qyia8WH1pu6T8sC99WNMyKXooD/SVqJXsJOcnIux
- w20N0plYW4tQ2hyaXN0b3BoZSBHdWlsbGFpbiA8amVhbi1jaHJpc3RvcGhlQGd1aWxsYWluLm5ldD
- 6IlgQTFgoAPhYhBDk2+TsBtH9ETCTubi9QTbKhgBdPBQJoSZdoAhsBBQkSzAMABQsJCAcCBhUKCQg
- LAgQWAgMBAh4BAheAAAoJEC9QTbKhgBdPrq0A/icNhFTYLybFWWq1B42UvJLGs18MNRiT5aLdFv3R
- DfHVAQCvzsLrC/qz4rOyIpDzeb0biOu3fiDTcyvV3kPiu3xTDA==
-User-Agent: Evolution 3.56.2-0+deb13u1 
-MIME-Version: 1.0
-x-ovh-tracer-id: 3964856524915166012
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTFDZ4aTcT5SDXmkd602DiweEYgHF4FHP6+h+Q5uvPOfv2ER677KLq0yDhnl+3VfAbnsOmXLuyCPgoyZr+w9DwEYKfDYBsM1GvNB9gelyvBoQQQ1jqTc2VOlb2ES0FKHAEw7Bf5L3b/fe3mquzvbn08slBRFk1e188EYwypcj9s9rZhNO1DYk1mNyKLKeRt/DoUs/s5cymBh82F89HDmI2s1tiBxl8Wr1ZXwxX2zpzSb0PWcSHMqCBDjPAX0FkgCGCL/d6Yl2HIHdXWeJZ1JhfYF+PvruQ1WnjYiU5EVPYFW5Zo8XyORZee15An39kaGtjsRNOOgUE821tWe0jwxcnL/tjXKv+5/16hfPHifvImMPOzEUyeotu4hT4k3MO1mBzM9bjPK0Ge53kXOvdvN3eWSkOwh8ZUiMnTCGvDRHsRriBTLNCO3iKxDfvbsDWv/YF3wOKcvuOaIbT6SyxgcR6Zc8bxUiTYj0J9TfGRfEygMeq2gXCwxFm4Y+Aziu2j67KCrej/IWQcCkXBxtUr8uMovq8EE3D1B62LwAyCKG6fisWjh7fTwVWm14s1BJb0nAGvHicc5WLjJ2cdeknhIvYm7noYy8dltGhFf1/cPZrsEYR1vNt6277gHUY5GuF77GUlPZsEjHlCZnrs5fQ2/CpblZ92YETQlFNm62zJweHxLHQ
-DKIM-Signature: a=rsa-sha256; bh=5sO9xaC3qdPyU5zJefRGniTGdXKpOQRu0LktrMQP//k=;
- c=relaxed/relaxed; d=guillain.net; h=From; s=ovhmo31693-selector1;
- t=1790064393; v=1;
- b=QI9ARexol+3F2NhB7XnQCuhvcc5KGGRTJIxVXLliegLGRWPuIPgrRFpRgA9uknVR1Sa4SESl
- T3akrQF/XJwaq5ayxpHCczXK7rf8R+Fd8bNhEQtvvz8sZG2GzLKnoMYc8/tco6QvHsYmJEvMafX
- TtAMbJ/mY7WfJEV981DGq880kXmXrZ/aOpclwoGPTzFqdFq8PEtlxEF7vC12hkkttTJ4mdNv8j9
- 1k/pZtD2YR+61OL9hGVtPm8aNlB9Dew1189gXVMM5E9fLxZeFwmZ9tObsD7JYAlWl/ETK3Snl8f
- bfD4os+o5BNLcSdyv+EzHZiBwWmh286ZdNL1qWQljiwiA==
+	id 1x8vWj-00000004cG5-2K7A
+	for linux-riscv@lists.infradead.org;
+	Tue, 22 Sep 2026 08:06:59 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=cB4FZPFGZEQzYGYS86n3W200daWOvuyV72CbgzKsGHs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790064415; v=1; x=1790669215;
+ b=Lvf9EUVmJhdRZQobQnfL0Rkgf4hnI5XohrOcCJbxr3bYMcUxXocm+zICEyADiWWJICZYnpcc
+ t+DfaU8uJP/oIdb9FQJzIoELY3aURKIi2NEu9hASzWjqRXz079D5QULozg59Glblsfx5wtqEybb
+ ZvlxYpHK12DA6kNqK1pVfESo=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by mta12.migadu.com with ESMTPS id 426168b88e5d5557;
+	Tue, 22 Sep 2026 08:06:55 +0000
+X-Mizu-Trace-ID: 426168b88e5d5557
+X-Migadu-Flow: FLOW_OUT
+Mime-Version: 1.0
+Date: Tue, 22 Sep 2026 16:06:50 +0800
+Message-Id: <DLLOVHIKRXPY.3AGBAPAM8F9WV@linux.dev>
+From: "Troy Mitchell" <troy.mitchell@linux.dev>
+To: "Sudeep Holla" <sudeep.holla@kernel.org>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Danilo Krummrich" <dakr@kernel.org>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon"
+ <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, <linux-kernel@vger.kernel.org>,
+ <driver-core@lists.linux.dev>, <linux-riscv@lists.infradead.org>,
+ <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>, "Troy
+ Mitchell" <troy.mitchell@linux.dev>
+Subject: Re: [PATCH RFC 2/3] arch_topology: Parse die nodes in /cpu-map
+In-Reply-To: <20260921-rational-frisky-jerboa-0f2ff0@sudeepholla>
+References: <20260920-riscv-die-topology-rfc-v1-0-071c0bf61d5f@linux.dev>
+ <20260920-riscv-die-topology-rfc-v1-2-071c0bf61d5f@linux.dev>
+ <20260921-rational-frisky-jerboa-0f2ff0@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_010648_211691_73F496DA 
-X-CRM114-Status: UNSURE (   5.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260922_010657_789074_59C6DE97 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,28 +75,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8427264741383964403=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+--===============8427264741383964403==
+Content-Type: multipart/signed;
+ boundary=2e2b99b56de2a9e6360ff5979e30d653e8172a1b1e603da005f3ee51c34d;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 7bit
 
-Just like for the first version, I tested the full V2 series with the
-configuration that originally triggered the build failure
-(CONFIG_DEBUG_KERNEL=n, CONFIG_KASAN=n).
+--2e2b99b56de2a9e6360ff5979e30d653e8172a1b1e603da005f3ee51c34d
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-The kernel builds successfully on adm64, and I booted the resulting
-kernel and started two QEMU/KVM VMs without any issues.
+> Where is the associated bindings ? Am I missing to check it in the series
+> or it is really missing ? It is essential to add any code using the bindi=
+ng.
 
-Tested-by: Jean-Christophe Guillain <jean-christophe@guillain.net>
+I left the binding out to get initial feedback on the topology model,
+but I agree it should be available for review alongside the code.
 
-Thanks again !
+The cpu-map binding lives in dt-schema. I have now opened a draft PR [1]
+with the proposed dieN hierarchy. The PR also links back to this kernel
+series.
 
-Cheers,
-Jean-Christophe Guillain
+> Also how does it align with ACPI implementation ? It is preferred to be
+> in parity here, so we need some binding there as well IMHO.
+
+This series does not implement ACPI die discovery and leaves die_id at
+-1 on that path. I agree that DT and ACPI should describe the same
+topology model.
+
+RISC-V does not define topology fields in hart IDs. PPTT can describe
+intermediate processor hierarchy nodes, but I could not find an explicit
+die indicator in the ACPI 6.6 processor-node flags. Is there an existing
+PPTT convention for identifying die boundaries that we should follow?
+
+Would it be acceptable to add DT support first, keeping ACPI die IDs
+unknown until that mapping is agreed, or should the ACPI mapping be
+defined as part of this RFC?
+
+Link: https://github.com/devicetree-org/dt-schema/pull/208 [1].
+
+--=20
+Troy Mitchell
+
+--2e2b99b56de2a9e6360ff5979e30d653e8172a1b1e603da005f3ee51c34d
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJcEABYKAD8WIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCarI3GiEcdHJveS5taXRj
+aGVsbEBsaW51eC5zcGFjZW1pdC5jb20ACgkQmAnvgPkzNC/dtgEAw8G9zoZFaHkE
+oAhSnQKlX8ec/LwA/1LdZjuOaqjDmOsBAIqD7X1Vd3GQdkDDrnwDkXKuMRP0FRGz
+9ZibisfJBz8N
+=lRK8
+-----END PGP SIGNATURE-----
+
+--2e2b99b56de2a9e6360ff5979e30d653e8172a1b1e603da005f3ee51c34d--
+
+
+--===============8427264741383964403==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8427264741383964403==--
+
