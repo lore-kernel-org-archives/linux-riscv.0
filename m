@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4ADC982FF
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 13:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E934DC982FF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 13:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/SkojRzSWeLzqD2dcsfgSDK8dN9liNcNPZZ/j21e1vA=; b=dcSG7mREP3OheO
-	H0RwZhtfadhdJy+WEOHzk0Jxn1PdnVNm/ukIJ/Vi4+CObnTuEw8Q4UUkgBO5lmfsqB9mTDHlqPV8x
-	xNoYqL9OtGR2uqudDSHD1zjjRyhmK7mLEtv9rN6Di8nj/BGn8M0H6xsHdH6STqqCdLdnXczJbCo+r
-	DxviH45tMveaIfSJa/k2iwaiCcSIQVyHc9Hi1s9TXEMtbj8HWOTlsYOXTUWxHft3CZ60tIYIfpmaf
-	EtTAmaTpEX9PLZ2xac76EHbnVQWnH52isnC3j2gzguOEm1eY2b1lO3afOuT5yWNJjJSe0bAS/FOrn
-	wv6iB/8bnut9E87pahAA==;
+	List-Owner; bh=G+XiLgpZQXKjIczwCh7d0by3RYf38tGwDn2TYVJY+h0=; b=XgK/Z9VdKuqjpI
+	EBenxTiuK8HTMKIPFc6FW/2OsRgCyCKv4hFRcN3IKw3iki70Of9/oOVSraypeu2Gd6BWGoPPRD8Fx
+	sjGv1YOidQmB5HrwDQOo5SadnLxDp4JxF+EKGAryyiJdqL3Kpy+51OcW1bbQRZMAWDlEq22gPgDNq
+	COZJBh0iYUzkKj2BvetiSo2jho2vSOfkpuXUXv5t0DWclQEVaD+Fubsvcm8RPMCPR/3VBY66li3YI
+	vpG602OLq9OrYMPge0CPNHu4zqn4nz0h0N9aiE/+6eJw7R6DnOPL17nwV2PA6h3RB2iP9dM72S483
+	Uqkx6/YMyHcY9zSOqgIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90Fg-00000005RW8-3rJC;
-	Tue, 22 Sep 2026 13:09:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x90gw-00000005YMa-1HXB;
+	Tue, 22 Sep 2026 13:37:50 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x90Ff-00000005RVJ-131o;
-	Tue, 22 Sep 2026 13:09:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 651E860DFD;
-	Tue, 22 Sep 2026 13:09:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 037D31F000FF;
-	Tue, 22 Sep 2026 13:09:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790082578;
-	bh=AgYRKeGx6YrxHo5tLOfYUAdJiIfBFhEsQpTA/20bgCU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MtUom7eBTFRpDBmC5PC16C5qIL5Ywu9NH+SE0K9c1jgXsItXNIbsoXLlqLDE9nyLi
-	 fD7w9uOE4hQ6p5C3WrqxT9iCd0Ti9bY1Yp11pFK8cfEu4cnBoF7cmLzyf7YGb6puUL
-	 ACqI1nfguAjSKdnRWZ4sCh5yWXK6a8eUMMQdhCtTvyURYIw0gBPNcz4vv6YhkLixLP
-	 tucoL78ZEps4VrU6pRz+AsOmtwsdrdrlTDmZVX01Ew2uILwbH/zWwnPkDwKfCO6QOS
-	 DpTalaKpOS69IVpTTWiDFgWTYeUf916M1x0zOQ/73Ce0EJamJnVZsGD0S0GuuSE19p
-	 nfnZlw89sqKgA==
-Date: Tue, 22 Sep 2026 14:09:22 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Petr Pavlu <petr.pavlu@suse.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	Gary Guo <gary@garyguo.net>, =?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 13/21] modpost: emit module descriptors as assembly
-Message-ID: <arJ9QwpjQq5Z512z@gremlin>
-References: <20260914-build-speedup-v2-0-39817ec5db23@kernel.org>
- <20260914-build-speedup-v2-13-39817ec5db23@kernel.org>
- <95baacfb-d8d9-4d2f-bc89-592df6f6f8e3@suse.com>
- <arEZrFmXeCO4hZpP@gremlin>
+	id 1x90gr-00000005YD6-3fuZ
+	for linux-riscv@lists.infradead.org;
+	Tue, 22 Sep 2026 13:37:49 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1790084248;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mvslMemEIQYmmgSSXmqQM0ksEJnRmaYS73vHFe+6v+0=;
+	b=uOOt1tLek33ASdST8Yp73mPMfjxRAhA6LrtLNjU6yUWCbokjxvS2s+0CAL/DWDDp10yFSG
+	ToK0/Y+RCiN63JbK/1XRlBr0CXRmqiuQnIRc5QLHQQuCfbFEqGKqIUrj+eRevxdKOwnXbI
+	FJxmQdk+nux3jx1NZagQETe00QPwUqPJlBjD38AkUUdqNoo/MkNrr3Qy+y2VIz8IkX9V1P
+	0yqeBmTRuJWVIBT0OeOu4YHzpMZMOCuT1uN/lsHaUuwIVEXEan7pZY8XAIIoRTQKtVR5KG
+	yujDPKNoYaUKVh4jV6pK83RPXPhtaM84OWtdUvg9tbzAMyBpsuwuEQE4zD7c9A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1790084248;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mvslMemEIQYmmgSSXmqQM0ksEJnRmaYS73vHFe+6v+0=;
+	b=18LxCme+fDfgzUn5Ao3SE31boe+hDT+mIs3XLqQ1LVMiaDa6X/gjpKPOUydP7Ak3Oy89Or
+	sCj78VykyBHC9fCw==
+To: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+Subject: Re: [PATCH v4 1/2] riscv: probes: reject kprobes inside LR/SC
+ sequences
+In-Reply-To: <20260828091202.1124-2-yuanxiaofeng@eswincomputing.com>
+References: <20260828091202.1124-1-yuanxiaofeng@eswincomputing.com>
+ <20260828091202.1124-2-yuanxiaofeng@eswincomputing.com>
+Date: Tue, 22 Sep 2026 15:37:27 +0200
+Message-ID: <87v77xe7ag.fsf@yellow.woof>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <arEZrFmXeCO4hZpP@gremlin>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_063746_062266_2FC1076A 
+X-CRM114-Status: GOOD (  25.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +78,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2026 at 12:57:57PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Mon, Sep 21, 2026 at 01:25:09PM +0200, Petr Pavlu wrote:
-> > If the <module>.mod.S files are fully self-contained and do not even use
-> > something like KBUILD_MODNAME, would it be possible to name them
-> > <module>.mod.s and skip the C preprocessor as well?
->
-> Ack will do for v4!
->
+Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com> writes:
+> kallsyms_lookup_size_offset() returns the offset of the probe from the
+> start of the enclosing symbol, which is used to find the function start.
+> If the probe address exactly matched a kallsyms symbol, that offset would
+> be 0 and the forward scan would be skipped, silently missing the LR/SC
+> sequence.
 
-Unfortunately this broke because the build passes flags that are only
-meaningful to the preprocessor (esp. on an LLVM=1 build) and
--Qunused-arguments was removed from kbuild in commit 8d9acfce3332 ("kbuild:
-Stop using '-Qunused-arguments' with clang") purposefully.
+...okay, that sounds like a problem.
 
-And some flags are needed and others not so keeping track of which is which
-just for this is asking for things to be fragile/break, esp. on the rando
-arches.
+> To avoid this, global labels should not be placed at interior
+> instructions of an LR/SC sequence.
 
-The win here isn't very much overall so I think I will revert this change
-for v4.
+"Should not be placed" by whom? Kernel developers, compilers? And how do
+we ensure that?
 
-(All your other requests have already been applied for v4 :)
+> In practice this is not a
+> restriction: LR/SC sequences are tight retry loops and generally do not
+> carry global labels inside them, so the enclosing function start is
+> resolved correctly and the forward scan proceeds as intended.
 
---
-Cheers, Lorenzo
+"Generally" not a problem is not good enough, sorry. It either is a
+problem and we must deal with it, or it is never a problem.
+
+I am not sure if labels will be placed between LR and SC. But a label on
+the LR instruction sounds entirely possible.
+
+What confuses me is that this case does not sound difficult to
+accommodate. Any reason why we should not or cannot do that?
+
+> +/*
+> + * A trap taken in the middle of an LR/SC sequence clears the load
+> + * reservation, so an SC following the probed instruction would always
+> + * fail and the enclosing retry loop would re-enter the breakpoint.
+> + * Reject probes inside such a sequence.
+> + *
+> + * A constrained LR/SC loop (Zalrsc) is at most 16 instructions and
+> + * must be contained in a 64-byte contiguous region of memory, so only
+> + * instructions within that window preceding the probe can open a
+> + * sequence containing it.  RISC-V instruction boundaries cannot be
+> + * recovered by walking backwards - a 32-bit instruction whose upper
+> + * halfword looks like a compressed instruction is ambiguous - so walk
+> + * forward from the function start, a known instruction boundary, up to
+> + * the probe address and track whether an LR is still outstanding.
+> + */
+> +#define MAX_ATOMIC_CONTEXT_SIZE	64
+
+Doesn't this mean we can walk for more than 16 instructions and
+therefore can have false rejection?
+
+> +static bool __kprobes riscv_probe_insn_in_atomic(unsigned long addr)
+> +{
+> +	unsigned long start, offset, pc;
+> +	bool in_atomic = false;
+> +
+> +	if (!kallsyms_lookup_size_offset(addr, NULL, &offset))
+> +		return false;
+> +
+> +	start = addr - offset;
+> +	pc = start;
+> +
+> +	while (pc < addr) {
+> +		u16 halfword = *(u16 *)pc;
+> +		unsigned int len = (halfword & 0x3) == 0x3 ? 4 : 2;
+
+We already have a macro to get the instruction length, please use that.
+
+And why do we need to separately load 16-bit 'halfword' here, and load
+32-bit 'insn' later on? Can't we use 'insn' for both usage?
+
+> +
+> +		if (addr - pc <= MAX_ATOMIC_CONTEXT_SIZE) {
+> +			if (len == 4) {
+> +				u32 insn = get_unaligned((u32 *)pc);
+> +
+> +				if (riscv_insn_is_lr(insn))
+> +					in_atomic = true;
+> +				else if (riscv_insn_is_sc(insn))
+> +					in_atomic = false;
+> +			}
+> +		}
+> +
+> +		pc += len;
+> +	}
+> +
+> +	return in_atomic;
+> +}
+> +
+>  int __kprobes arch_prepare_kprobe(struct kprobe *p)
+>  {
+>  	u16 *insn = (u16 *)p->addr;
+> @@ -79,6 +130,9 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+>  	if (!arch_check_kprobe((unsigned long)p->addr))
+>  		return -EILSEQ;
+>  
+> +	if (riscv_probe_insn_in_atomic((unsigned long)p->addr))
+> +		return -EINVAL;
+> +
+
+arch_check_kprobe() is already doing a walk. It probably is a good idea
+to merge this with that, to avoid walking twice.
+
+Nam
 
 _______________________________________________
 linux-riscv mailing list
