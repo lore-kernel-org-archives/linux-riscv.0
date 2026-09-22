@@ -4,122 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CC5C982FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 15:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87832C982FA
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 16:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cW6NuvMkYvqdHVWXVsOEgKcMuNg8xYVTeo0isWmaHI4=; b=hcD5Zs0+7lKW2c
-	cIWYHKZ8CXWZkop749V0RQnCxJ4DfAUJ695Dkmcu+at5/KuR1FPpGJVjmkdnbJQ0iiLFd9+qxZzaA
-	omBFspQ6hwsP3RaQT4tIVo1itd3IZBVe83p3TT9hnru8OvsDnOzYMI5/efhdjHuAgNZXh7rZ3dY2U
-	b3A9iTrTiO32dU0gf9+HC6gJnpqGu0IJXYaljuAlbQYwQg1fOMVl0xHEFPoOfwlNQdrNnxtI0FdoY
-	sjc09Lmt64oakz87O2ucvpYHon8naDm45L2QpKp2xXw0y9dCqbkGRR7r6qe9c10u2P2hxWSj0Mu+A
-	dw5K3z2iH5ZQXWRDu3/A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rzSlntgUXgncUIL0Sjgr+xF+GMWapxBVBFo4f/CQrKw=; b=omjB9R5uostvbr
+	QB1QHEqIlN2aaJ90o7ftCwwzHNkOng0URzSPdRNXrpYKqHLEI6G/fxRCWkbVit2xmLSJyU860t9H3
+	TP5FvlGvYcSFEIhK5pd8mSAP7vVlQMXeWp0aBZ3x/m1bNs/cApY7lZwYKiC7V+iRNmpBOuXit5uu/
+	rw8dI08WKiSlun1XlNB5P4XlyCPn0x0QJgd0t5o8ePCzRhj583dRhlC2Ijm2+wzCon29eKm7p+GZf
+	NPIMLnHjAK97aXHZ9rSv6Awq0CvymdaegOecrglZjb7lr0f9EFub3OuV5ZNT/daw0Z3r5edI8iTM1
+	vtgI/ocCGo52S1TnAgRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92cB-00000005uXU-21wz;
-	Tue, 22 Sep 2026 15:41:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x936u-000000060tL-0904;
+	Tue, 22 Sep 2026 16:12:48 +0000
+Received: from mail-sh0chn02on2098.outbound.protection.partner.outlook.cn ([139.219.146.98] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x92c9-00000005uVv-2Vzd;
-	Tue, 22 Sep 2026 15:41:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C97842AEE;
-	Tue, 22 Sep 2026 15:41:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C34FD1F0089A;
-	Tue, 22 Sep 2026 15:40:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790091661;
-	bh=M7feebBV+4w0SqCnHHPUA0WnsaaqlXi4RbYO862HspA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=jI1Gy7Ri0dwagnMGdXDueH8Vw/me/BZQMY1ZLvclBfYHE07TPWIYqEZKTOfDeKMM7
-	 WWEYNmjHnqF3lwoScgBfUCpcP4Vzmd31Iqmg0Sox8i0+b3EzEc/kGtknRiFqelROnJ
-	 wcbUogIVm7JOp0s23z9uLqzTc+N99mJYI/tD1tkVSdrEOCMZ8aSwT3rqdtSH2Hyz8Z
-	 bOYZ6vTeWolpG4Fwfi6cgaTCqHY7pSa4UY721VzOIhSOaCjXR8xijEU4EtkTdNMAxs
-	 dW8uW14KTDudI1kEbfNi0V+Sn1IfY0buJZpOX2Ea2f+GpSpPZYolfJ0Ii0rrzBB1ZY
-	 xFRhD3RYFSySA==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 22 Sep 2026 16:35:43 +0100
-Subject: [PATCH v4 12/12] mm: change the contract for free_pgtables(),
- update docs
+	id 1x936p-000000060sA-3mEU
+	for linux-riscv@lists.infradead.org;
+	Tue, 22 Sep 2026 16:12:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=C8TV29Rv8XmD6P5TQM1nEZ49cOdvlLgDKOKLQqjokHSjBe06+W8IUoJhptj0oYQb07oASgU0kh+djUqbF2mNI7QVAQFryQ81Op4/JWg+dXIjH3i8W9gkfiyyqKmEn9ZBgJvdlvjTB6Z1mWEiL//L8yt1PPNip75vIgF9LS70NrVujSfqjjGkRm+fI0IJ2lJt+xCuW4FFOdRijXMxet5OWBX6W0VuFEMWkYR3eDp+VWi+Trn16DVmHRTtFiUn29wojjrlqbYWUTNmhz9x40XE5xT/8GomSr+jvUviNYx9K0wY5ghlju8DfdwhGNogewY+icbC/NRosV9Ft9b5wGqx+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ICWaBtZrcnh2ocxdfxw5p6TYUnHn4H2K9gb85TXefFQ=;
+ b=C72Jl0Zb5UEMbdLxeOlPj98TfhNs3DMjIgJ1fXDSvYHtue2jJ0EuPYWFeuHpU1t7ECLvpIdf4JLkuLHoRt0UNXj5z70HIr2d/pvb50WYTNxFxpDEHwaNOqNdFz3IYS3UeP9LC1ph5+WJHidcllevyq3pBPrKokmwJUfL6GJIkbGM13mvcCYVOJGi/p6I0hFtxe9a1LqKjIWAuTjQ8GT/TmB5Gf6WQTkloLrAjrcaKRz/0FQmmD9Fl1nY2hHz/SyyRmr0w9OY1t4EGIfOYX3LPbYEd3nDWidJihcRPx+fXmMKBFq2JQ1BK121acozWrh+oUjvmPJ13ucRQm3fknXbjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:20::14) by SH0PR01MB0492.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:9::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.428.16; Tue, 22 Sep
+ 2026 16:12:32 +0000
+Received: from SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ ([fe80::435e:52b5:c524:459c]) by
+ SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn ([fe80::435e:52b5:c524:459c%3])
+ with mapi id 15.21.0428.015; Tue, 22 Sep 2026 16:12:32 +0000
+From: Joshua Yeong <joshua.yeong@starfivetech.com>
+To: broonie@kernel.org,
+	lgirdwood@gmail.com,
+	rahul@summations.net,
+	anup@brainfault.org,
+	lftan.linux@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	joshua.yeong@starfivetech.com,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] Add RISC-V RPMI voltage service support
+Date: Wed, 23 Sep 2026 00:11:51 +0800
+Message-ID: <20260922161156.1088153-1-joshua.yeong@starfivetech.com>
+X-Mailer: git-send-email 2.43.0
+X-ClientProxiedBy: BJXPR01CA0066.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:12::33) To SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:20::14)
 MIME-Version: 1.0
-Message-Id: <20260922-rcu-pagetable-freeing-v4-12-fe1ad1f1e303@kernel.org>
-References: <20260922-rcu-pagetable-freeing-v4-0-fe1ad1f1e303@kernel.org>
-In-Reply-To: <20260922-rcu-pagetable-freeing-v4-0-fe1ad1f1e303@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
- Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Dinh Nguyen <dinguyen@kernel.org>, 
- Simon Schuster <schuster.simon@siemens-energy.com>, 
- Jonas Bonn <jonas@southpole.se>, 
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
- Stafford Horne <shorne@gmail.com>, Rich Felker <dalias@libc.org>, 
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>, 
- Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
- Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
- Nick Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
- "David S. Miller" <davem@davemloft.net>, 
- Andreas Larsson <andreas@gaisler.com>, 
- Richard Henderson <richard.henderson@linaro.org>, 
- Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- WANG Xuerui <kernel@xen0n.name>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
- Johannes Berg <johannes@sipsolutions.net>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
- John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, 
- Shakeel Butt <shakeel.butt@linux.dev>, Jonathan Corbet <corbet@lwn.net>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
- linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, 
- linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org, 
- linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
- linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, 
- linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
- linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, 
- Qi Zheng <qi.zheng@linux.dev>, linux-doc@vger.kernel.org, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3290; i=ljs@kernel.org;
- h=from:subject:message-id; bh=d4o8BvEhvbpmkAFDsmC7e/OS16AthPkW67coZubsUt0=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI2Lci5KhCa0NC7PfzCodRL5yaIOr81TeH4vvJq5rn/a
- t8KJq161VHKwiDGxSArpsjy/Iv4/iCRsHmdF/zdYOawMoEMYeDiFICJdCYxMkyx61z519qF/Wrr
- nHyBV2IWzI+aa9tvzQh+L+iflK2mVczwz8bMcIvqx7JdNwMKJ/810e10aW9/OveN8PQ/uWtXX9B
- nZQMA
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SH0PR01MB0841:EE_|SH0PR01MB0492:EE_
+X-MS-Office365-Filtering-Correlation-Id: abe9269c-90be-4820-d05b-08df18c44eac
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|52116014|376014|7416014|1800799024|366016|10067099003|56012099006|3023799007|6133799003|18002099003|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: LfRwIjY83AjmASB56oOYJa2hsnQrkrX8zr6ysnxm85g7mRISizsjUmB/tcn6s5lrzIQ/CHYiXIcleGNdbtuVpBIGc023fWg9dnjv0MQaWTOUsLHidR+rqLoPbm+NULtGzvSibgAxcTSDRD7W8Xu4tNQ8P+rcbz5wlu7fqmtfRbtMLAoTeNWR8IcFftkKxi6inuFLGZqNTCrpBGfhkBHDJ5xRRGB/isCtr+2178N/7qdG0sA8mM+Q6zs9Cm6x/yB7/91Oae/6MHYtjlH/4fCOVXmiLZ+vIP2PGfgAoKPnBCShmGcZPysAwxoKfmbw45Y/ALLq8Ya/uTsQIJ25BhWcOpR7vmZ2ub8UJ5DiUESifebOKaSjDOpmkJCJNwAKOSnzKhy0A1KF7eY50XRxkuDj0UzZs3x/Mm3rnYIC0AE9HxRE1nOGMWBP6YNmeqKe8WeRGBT/cyURRBuXP9whp+64xvKYNcV+al/vOXhP6jZ5noqicbbQ3+l6qBLldOUMw/3VTjQfTVJrFCu2Of0Yv8t+syx7xW1z2j9PjXyeIwpLQCUadkleTSdGR8SSFUsZJyD7rnKbzQaB+xVA9R+21SG/ng==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(52116014)(376014)(7416014)(1800799024)(366016)(10067099003)(56012099006)(3023799007)(6133799003)(18002099003)(921020)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7FpsyvuF/2+3PbjUJB9WeeatU6cixgOPLb4hkFUy1uRRrr7h1LrkchtZg2Ry?=
+ =?us-ascii?Q?MylXiVodwuaGZ9N7w2NG21fo6HYjnQtJbgLuBFUDytJhuGEkwBbLeDp/glDf?=
+ =?us-ascii?Q?H4/EeRTPm/amiLzAb8ma8DyTnTL/vOO0Qj3oKbRX8Dlz8NIx+KGdp21mpC+1?=
+ =?us-ascii?Q?HUHdRpYMbAa6iLds6hP0B7Miy1eQN6KqsqpXJMLbL+nYlZWmpOVmJGdPsqZQ?=
+ =?us-ascii?Q?QkbtaOuypGf/F4/znW5rK6zWYEgAi2GA+xj5KhpTTSV0vtQM1cKB8/zbt+AE?=
+ =?us-ascii?Q?EdWupq5Qn4WXL1WzAN4q92xDPLXiTMHKCQIcxbow3HFPHT8h0hPJGZ3So8oL?=
+ =?us-ascii?Q?8pArOqflU7857X0BsEcF72tqBO/YUqjJ3lOuPfIV39TuapqGpH0ChkMYdRbw?=
+ =?us-ascii?Q?rfp+4MXTZVtnmt85CXJFznCTicYpiXp1FswKTK1Yfs0mt+CEFX4qRqHGQLSA?=
+ =?us-ascii?Q?XK1SRW27DVZJGYVZuTcyTK3Aq9C1jKSAJB2WPw8r7QWbAS1W5Vr2Y4y90BIx?=
+ =?us-ascii?Q?Acr0jQH5D5gLeJf/Oe6sOazGIGc/wR7Eay+Z5L/5gZhW7UPzgVXjDLfratEd?=
+ =?us-ascii?Q?KJ9/i1TSqlwn9855C7qbkSoythQgH2uQainFzdOmL9AN5Mz84/j761iTjWt/?=
+ =?us-ascii?Q?bfWJfYvhhxeWPZ61DGw2Zl4NUu2+tt39RaOCBEfoxmdp29yTypmxkl+cK78Y?=
+ =?us-ascii?Q?hhcZLeLmdQ0RYfyaHOYY+RllGEMxp2GOplWwTC3iB2kP/n4W7uGhkizOeRxN?=
+ =?us-ascii?Q?gkfEdlrPLwlp9G9dXZwOF0XfCcqlFlDMoHBHeJCGNa+eaI3ldX8n7Mo7m1Wf?=
+ =?us-ascii?Q?K0IfRrDO3fAVr1hwWu/0abyP2ie4TAm+Q0ROaAk0j6ZIxC0DlHnen5+elYab?=
+ =?us-ascii?Q?7iBAgv1k7ht/ydxKCYTOb2czSV+NXUgF8VHdz9riZDJBFMxI/PBr0mKN3V7C?=
+ =?us-ascii?Q?6tubG22DaLh1Gpirdt0PtHCIL8lgZP0r5k3cib780MwFxFd02K3tc8LNmDn1?=
+ =?us-ascii?Q?qyUUDmmvazo5YMkBDJOZ5b5jqKqmklpPXh38wDUqDnE6A9vgWh5s23R4z1VK?=
+ =?us-ascii?Q?YXDmDDYYmN9A2oBKVm+GCPgyNnxIkISo3ieFCnAM876I1z+QworOQx1WVOB8?=
+ =?us-ascii?Q?WPcwNPY0+U2AcSlZELAsa3FpALSjQCr7UTuLBgJNMrJ4++MxmItQkhxGb10o?=
+ =?us-ascii?Q?rPvEELCuWZODLHzvpNc83azcy92J7KcapzvUDkbr3yN/yhMK4f9LXSRRYLvh?=
+ =?us-ascii?Q?pMXyGS5U5EewHkdxSj+EEy5TafFvOmIH6K0E0gKJYp7CO8kUqTNLz/XWqENv?=
+ =?us-ascii?Q?RK53YXEwdjEP9UrvSwSWzpgG4aJRGTukVCSDNHH4e+Xt04lm9tBCs0FLMHHb?=
+ =?us-ascii?Q?4bVsLtWyC3v8aKhzirDjwsWFFcoM5+/fFmOULkdlDRuEby8AmrbZMByjKCJV?=
+ =?us-ascii?Q?ZpLQGFpn+F8E2nxmBvGvK0E4BZjz6lJ2zWFKlhhGuVWgnjULyRXRE0mb3zJT?=
+ =?us-ascii?Q?n5MJjTRcvl2oUBZBz5DNLatLzHACC3HnVtpPvkVjG2l9+ktyee9e0isw8kCN?=
+ =?us-ascii?Q?W5QACIZcc5QkLhXqbw2bPGZVlINU5DHYQPf/p6E1WyKWh7Gkd5NkVmACA3bd?=
+ =?us-ascii?Q?nIaIUYNw1Lv61jPWvdr4RCoAuo8VrTTYh7oOsOLDxpFwT9oegHRcZKrCoJuc?=
+ =?us-ascii?Q?zGrqZCy/XYeoQfYT7d/DPbmD6VDU9YD4O6JgV5V5OAT1SpzbmZv8fAKZKdzl?=
+ =?us-ascii?Q?bzftecJzZedPdLAJcIm3DlW/uiXE/7Y=3D?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: abe9269c-90be-4820-d05b-08df18c44eac
+X-MS-Exchange-CrossTenant-AuthSource: SH0PR01MB0841.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2026 16:12:32.5949
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /zAIYFURnjSVLbvX7ANIRN2z9tZ0KDDJTZsOsMJsBG6A5qfsmVZceJOtSgUPKWGqCe4lvGPOQhRlXDU2Dk6rDJdlYN6SRro6K6I0yFOlubM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SH0PR01MB0492
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260922_091243_948025_AA1DC205 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,71 +141,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that page tables are freed after an RCU grace period, it is safe for
-read-only page table walkers to walk page table ranges that are being
-concurrently torn down, provided the mm is kept alive via mmgrab().
+The RISC-V Platform Management Interface (RPMI) specification defines a
+modular and extensible messaging protocol between the supervisor software
+and a platform microcontroller (PuC). Among the service groups it defines
+is the voltage service group (service group ID 0x00007), which allows the
+supervisor to enumerate the voltage domains managed by the PuC, query
+their attributes and supported levels, switch them on and off, and
+get/set their voltage level.
 
-It is however unsafe for writers to do so, as they must obtain an
-appropriate lock to do so safely.
+This series adds supervisor-side support for that service group:
 
-Update the pte_offset_map_lock()'s comment block to reflect this.
+ - DT bindings for the regulator controller exposed to the supervisor
+   ("riscv,rpmi-voltage") and for the SBI MPXY channel that the SBI
+   implementation uses to expose the service group to the supervisor
+   ("riscv,rpmi-mpxy-voltage"). The name, level format, supported
+   levels and always-on capability of each domain are discovered at
+   runtime, so none of them is described in DT. A consumer names a
+   domain either through a "<name>-supply" phandle to a child of the
+   optional "regulators" container, whose "reg" is the RPMI DOMAIN_ID,
+   or by DOMAIN_ID alone through "voltage-domains" against the
+   provider's "#voltage-domain-cells". A child may also give the
+   board's regulator-min-microvolt and regulator-max-microvolt, which
+   the PuC has no way to express.
 
-Similarly update the process addresses documentation.
+ - A regulator driver, drivers/regulator/riscv-rpmi-regulator.c, which
+   talks to the PuC over an SBI MPXY mailbox channel. At probe it
+   checks the RPMI and service group versions, queries
+   VOLT_GET_NUM_DOMAINS, then for each domain VOLT_GET_ATTRIBUTES and
+   VOLT_GET_SUPPORTED_LEVELS and registers it as a regulator. Both
+   level formats the specification defines are supported: discrete
+   levels become a voltage table and linear (min, max, step) ranges
+   become linear ranges. The constraints are built from the discovered
+   levels and the always-on flag, with the transition latency as the
+   settling time, and a DT child can only narrow them. Enable and
+   disable go through VOLT_SET_CONFIG and voltage selection through
+   VOLT_SET_LEVEL and VOLT_GET_LEVEL.
 
-Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- Documentation/mm/process_addrs.rst |  6 ++++++
- mm/pgtable-generic.c               | 15 +++++++++++----
- 2 files changed, 17 insertions(+), 4 deletions(-)
+   The regulator core only follows "<name>-supply", so the driver
+   exports devm_rpmi_voltage_supply_alias(), which resolves a
+   "voltage-domains" entry and registers a supply alias for it. From
+   then on the consumer and the OPP core on its behalf, uses the
+   regulator API as for any other supply. fw_devlink does not know the
+   property, so such a consumer is not ordered after the provider and
+   defers until the provider has registered its domains.
 
-diff --git a/Documentation/mm/process_addrs.rst b/Documentation/mm/process_addrs.rst
-index a7296f251799..b1f4f44d75eb 100644
---- a/Documentation/mm/process_addrs.rst
-+++ b/Documentation/mm/process_addrs.rst
-@@ -537,6 +537,12 @@ We establish basic locking rules when interacting with page tables:
- * When changing a page table entry the page table lock for that page table
-   **must** be held, except if you can safely assume nobody can access the page
-   tables concurrently (such as on invocation of :c:func:`!free_pgtables`).
-+* Page tables may be *walked* under RCU alone, as page tables are freed only
-+  after an RCU grace period has elapsed. However, any entry found must be
-+  revalidated after the page table lock is taken (such as the
-+  :c:func:`!pmd_same` recheck performed by :c:func:`!pte_offset_map_lock`)
-+  before it is acted upon. Changing an entry requires the page table
-+  lock and one of the locks that excludes teardown (mmap or VMA lock).
- * Reads from and writes to page table entries must be *appropriately*
-   atomic. See the section on atomicity below for details.
- * Populating previously empty entries requires that the mmap or VMA locks are
-diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
-index b91b1a98029c..a127e3e8f9b9 100644
---- a/mm/pgtable-generic.c
-+++ b/mm/pgtable-generic.c
-@@ -385,10 +385,17 @@ pte_t *pte_offset_map_rw_nolock(struct mm_struct *mm, pmd_t *pmd,
-  * Note: "RO" / "RW" expresses the intended semantics, not that the *kmap* will
-  * be read-only/read-write protected.
-  *
-- * Note that free_pgtables(), used after unmapping detached vmas, or when
-- * exiting the whole mm, does not take page table lock before freeing a page
-- * table, and may not use RCU at all: "outsiders" like khugepaged should avoid
-- * pte_offset_map() and co once the vma is detached from mm or mm_users is zero.
-+ * Note that free_pgtables(), used after unmapping detached vmas or when exiting
-+ * the whole mm, does not take a page table lock before freeing a page table.
-+ *
-+ * As page table freeing itself is RCU-safe, page table readers can safely run
-+ * concurrently with page table teardown.
-+ *
-+ * However, writers CANNOT as, without a lock being held, nothing prevents
-+ * concurrent teardown.
-+ *
-+ * Also note that the PGD itself is freed at mmdrop() time, not under RCU - so
-+ * the walker must keep the mm alive either by pinning the mm or the VMA.
-  */
- pte_t *pte_offset_map_lock(struct mm_struct *mm, pmd_t *pmd,
- 			   unsigned long addr, spinlock_t **ptlp)
+ - A MAINTAINERS update adding the driver and its bindings to the RPMI
+   device power entry, renamed "RISC-V RPMI DEVICE POWER AND VOLTAGE
+   DRIVERS".
 
--- 
-2.55.0
+The series has a prerequisite: the RPMI device power series ("Add
+RISC-V RPMI device power service support"), which has been applied for
+next:
 
+  https://lists.infradead.org/pipermail/linux-riscv/2026-September/099498.html
+
+Patch 2 needs it for include/linux/mailbox/riscv-rpmi-message.h, where
+the voltage service group definitions are added next to the device
+power ones that series introduces. Patch 3 also extends the MAINTAINERS
+entry it adds. The base-commit and prerequisite-patch-id lines below
+identify the tree the series applies to.
+
+Testing
+=======
+
+The series was tested under QEMU with the RPMI voltage service
+implemented in firmware.
+
+Components:
+
+ - OpenSBI: v1.9
+   https://github.com/riscv-software-src/opensbi
+
+ - QEMU: the RPMI-enabled tree at
+   https://github.com/yeongjoshua/qemu/tree/rpmi-v11.1.0
+
+Kernel config: enable CONFIG_REGULATOR_RISCV_RPMI (default y on RISC-V
+when MAILBOX is enabled) along with the SBI MPXY mailbox driver.
+
+Run with:
+
+  qemu-system-riscv64 \
+      -M virt -m 2G -smp 4 \
+      -bios fw_dynamic.bin \
+      -kernel Image \
+      -M rpmi=true \
+      -nographic \
+      -initrd rootfs-busybox.cpio \
+      -append "root=/dev/ram rw console=ttyS0,115200 no_console_suspend mem=2048M earlycon=uart8250,mmio,0x10000000"
+
+The emulated PuC advertises eight voltage domains, covering both level
+formats, always-on and switchable domains, and domains the board
+constrains in DT. They show up under /sys/class/regulator/ and in
+/sys/kernel/debug/regulator/regulator_summary. Consumer test drivers,
+kept out of this series, walked each domain to its highest and lowest
+level, switched the switchable ones off and back on, and checked board
+ranges and requests from several consumers sharing a rail, named both
+through "<name>-supply" and through "voltage-domains", including
+requests carried by an OPP table. All checks passed.
+
+Joshua Yeong (3):
+  dt-bindings: regulator: Add RPMI voltage service bindings
+  regulator: Add RPMI voltage service
+  MAINTAINERS: Add RISC-V RPMI voltage driver
+
+ .../regulator/riscv,rpmi-mpxy-voltage.yaml    |   65 +
+ .../regulator/riscv,rpmi-voltage.yaml         |  150 +++
+ MAINTAINERS                                   |    6 +-
+ drivers/regulator/Kconfig                     |   13 +
+ drivers/regulator/Makefile                    |    1 +
+ drivers/regulator/riscv-rpmi-regulator.c      | 1077 +++++++++++++++++
+ include/linux/mailbox/riscv-rpmi-message.h    |   14 +
+ .../linux/regulator/riscv-rpmi-regulator.h    |   41 +
+ 8 files changed, 1366 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/regulator/riscv,rpmi-mpxy-voltage.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/riscv,rpmi-voltage.yaml
+ create mode 100644 drivers/regulator/riscv-rpmi-regulator.c
+ create mode 100644 include/linux/regulator/riscv-rpmi-regulator.h
+
+
+base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+prerequisite-patch-id: 907ffadca74a65c93ad38f428e002d2b34341067
+prerequisite-patch-id: 5a4df94e66de2f63697891a0f1382fabd9df7b6f
+prerequisite-patch-id: 0827a7050d08fea7deaab8e82f2dd16acdca507d
+--
+2.43.0
 
 _______________________________________________
 linux-riscv mailing list
