@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06BBBC982F1
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 04:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577ECC982F1
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 04:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7uhHKUMHR9j7AWd/iYGYwElhczdSeWC0Vl1k14gWKi8=; b=1rwLbvsjpVneqn
-	3ewhbMEzCn/TbQnF++wlf/UCMsxCclAD2CzMmtCH+lVEcT2EMwmMOMLzMQTiZir5XV80cepMH/2ej
-	XqgPpRZ70lG7PPc/GSf22UVlPLVxeNGi+R4N83LSR0iW4lU0nM095W8Je51hvZk/9AE7ioZ6+HwO8
-	IGKN5y+t5ON4cRPdrvKk8G5gQKHekzm7W8Vloc2Uh92d0G3bUibip3EnJiON4kKPtHuLd2hjQ1RXr
-	K1S9SlYrUhn71pFmmK0fFaj6y2eUri+tQIWFp/wAuuuYuTzZNf6q2zJ4Cq6nQ0BfEuEMw7v5Or42U
-	HMTWORXwjRxWDgP0rMOQ==;
+	List-Owner; bh=WIvYh4V/1H0GoW9aO9sDt79uMTYm0NLapS/McygfRzc=; b=XibiB2Pt0i5eQT
+	HpFVxP67HBJamSnA8qpabEWFxsWQ9viDWI7+MU4E10YJPn3av9ZOwev0cN8kGTiCf9phRdhjx965Z
+	P5mTY/892R1kszIsB1JFZMkd/L8L7xBHSoY7j8lrMPzpYU3/2HN0EV/FxDLcyMwObQiMcY85ZVlYI
+	tO5pkxOn0OVaN4FbmefKw7HLUL20tdk/FABl+Qx91c2gPY4zNSc/RMbBac9VHDvVk8tdyHqqqm7iu
+	ag/ewpsP7oMulNVz1k5HLJTIVeDWRTCIQyzJ33/J9usrfyESeRo6X3poxxRoZLAdqkPc4rhnoC/6+
+	XN2ZpEVGJWid+LZVgiYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8rvi-00000004A8O-0tmM;
-	Tue, 22 Sep 2026 04:16:30 +0000
+	id 1x8s6V-00000004BAX-3H1S;
+	Tue, 22 Sep 2026 04:27:39 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8rvg-00000004A7t-3bJ4;
-	Tue, 22 Sep 2026 04:16:28 +0000
+	id 1x8s6T-00000004BA7-3sQT;
+	Tue, 22 Sep 2026 04:27:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7F42D44872;
-	Tue, 22 Sep 2026 04:16:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C0471F000FF;
-	Tue, 22 Sep 2026 04:16:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E8C2843430;
+	Tue, 22 Sep 2026 04:27:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF0961F000FF;
+	Tue, 22 Sep 2026 04:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790050588;
-	bh=RqPZN4CQe2FjLfMYs6z6JAlBF3IuRy4nyatTd0khWuY=;
+	s=k20260515; t=1790051256;
+	bh=dG15CqrnbAsOXWaUpYt6BDYQSM8cnW2c3KA5Prsjavo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AqZfjAj6n1aloLbaYNuH+qUMs6HuFlg2zq2c+COl1oIlvOOdFsofup6L1BojfFZG3
-	 eDf7jHjlOH4Vpf2PN4SueTF6bRdX1PD25MO5skdlnCWPyYnJJkZFE07FeKAYfin4yJ
-	 XzX5wMlTb2osMmCCLoZ6ixDabNJUq3SxyurfbFxoAcFWYJ2rvzsRps+mZm0tXVsHuh
-	 m/3jF8AySYckadqyTY5pfx3pTvieXguUIgtsdWE94PET+HS5kbX0l9OdqusVapFV5D
-	 u9oYzOmdi1z1acm15i6PEzdijE4SUwB/uf9cGzUAETBXJKg2qWIJrY6YfUav3ZqCJ0
-	 o/KHFOjZijkkw==
-Date: Mon, 21 Sep 2026 21:16:21 -0700
+	b=MXA4r0PH3HgT3iDgDRuDNJmWk/ZUsYEcSUJgSYAhpCjtRahhxqjcteIyBCizLYuR0
+	 bBcv4s83G+WwaXS5KJIdHDIYvBEBAngTAH1AaI0rrEoQcEKpcNfu3zSGwNVgguzjMh
+	 1InYjz1c3D/m00ZJZGR8MhjhkI+oOV8ibVQ8HUEQ8RzM2H7mHeFtHzZsVntWowVopS
+	 2ZQ4NnVHqPr8zHY3I3ZDAhrTkSgT+St3c/kIcL9PMtgwMk5+lHZuOMccwaQxqBZhQj
+	 U2y7anUp4MeMk91bn7KDUqq6BkJW/ggpJujiZoPQkT92dO4tVzXyTjeUJjh6lxoukO
+	 9/QiAbsZRdy+w==
+Date: Mon, 21 Sep 2026 21:27:33 -0700
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
@@ -68,14 +68,14 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
 	Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 15/20] objtool: cache relocations, do less work,
- eliminate relocation hash
-Message-ID: <arG07kfxJCmnVPY4@jpoimboe>
+Subject: Re: [PATCH v3 17/20] objtool: decode instructions and resolve branch
+ targets in parallel
+Message-ID: <arICcrXVFLVzO-Jx@jpoimboe>
 References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
- <20260917-build-speedup-v3-15-9ecf4163ff36@kernel.org>
+ <20260917-build-speedup-v3-17-9ecf4163ff36@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260917-build-speedup-v3-15-9ecf4163ff36@kernel.org>
+In-Reply-To: <20260917-build-speedup-v3-17-9ecf4163ff36@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,54 +92,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 05:06:25PM +0100, Lorenzo Stoakes (ARM) wrote:
-> This relies upon the entries within a section being sorted, which is the
-> case for all sections supplied to objtool by the link step during the
-> kernel build.
+On Thu, Sep 17, 2026 at 05:06:27PM +0100, Lorenzo Stoakes (ARM) wrote:
+> During a kernel build objtool is used to decode vmlinux.o's instructions
+> and resolve every jump and call destination.
+> 
+> This forms a large part of the work objtool does during the build process,
+> and it is all done in serial.
+> 
+> Decode these in parallel at a function granularity to speed things up, but
+> limit this to invocations that pass --link, and only where the there is 8
+> MiB or more text to justify it.
+> 
+> In practice this limits this to processing vmlinux.o in the kernel build
+> and modules are processed as they were before.
+> 
+> Only the instruction hash is shared between the threads and nothing is ever
+> removed from it, so an insertion is a compare-and-swap on the bucket head.
+> 
+> Threading is limited to decoding and the jump pass, so the gain flattens
+> out at 16 threads and any further threads were found to only add overhead.
+> 
+> When performing an allmodconfig build, the clang invocation of objtool when
+> processing vmlinux.o took 5.93s on 1 thread, 4.56s on 8, 4.51s on
+> 16 and 4.63s on 128.
+> 
+> Therefore cap the thread count at 16 or the number of CPUs, whichever is
+> fewer.
+> 
+> The output of objtool before and after this change was confirmed to be
+> byte-for-byte identical for x86_64 defconfig and allmodconfig with gcc and
+> clang, and for a loongarch defconfig, where objtool runs on every object.
+> 
+> On a 128-thread machine, objtool on the clang allmodconfig vmlinux.o goes
+> from 5.2s to 4.4s (6.5s to 4.4s together with the previous two patches),
+> and on defconfig from 1.99s to 1.38s.
+> 
+> objtool on vmlinux.o is on the serial tail of every build that links
+> vmlinux, no-op builds are unchanged.
+> 
+> Whole build, 128-thread Threadripper 9980X, best of N runs:
+> 
+>                                          before   after     delta
+>                                          -------------------------------
+>   x86 defconfig, touch mm/vma.c, gcc        8.2s     7.7s    -0.55s (-7%)
+>   x86 defconfig, touch mm/vma.c, clang      7.3s     6.9s    -0.44s (-6%)
+>   x86 defconfig, clean, gcc                28.6s    28.2s    -0.47s (-2%)
+>   x86 defconfig, clean, clang              29.1s    28.7s    -0.45s (-2%)
+>   x86 allmodconfig, touch mm/vma.c, gcc    25.7s    23.7s     -2.0s (-8%)
+>   x86 allmodconfig, touch mm/vma.c, clang  24.1s    22.5s     -1.6s (-7%)
+> 
+> Assisted-by: LLM
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
+>  tools/objtool/Makefile  |   2 +-
+>  tools/objtool/check.c   | 717 ++++++++++++++++++++++++++++++++++++------------
+>  tools/objtool/objtool.c |  14 +-
+>  3 files changed, 546 insertions(+), 187 deletions(-)
 
-This is wrong (or at least actively misleading).  Objtool doesn't *only*
-run on linked objects.  In some configs it runs on individual .o files.
-And GCC doesn't sort relocs:
-
-  Relocation section '.rela.text' at offset 0xc0d0 contains 724 entries:
-      Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
-      ...
-  0000000000005c50  0000009000000004 R_X86_64_PLT32         0000000000000000 _raw_spin_lock - 4
-  0000000000005c65  0000009100000004 R_X86_64_PLT32         0000000000000000 _raw_spin_unlock - 4
-  0000000000005c6d  0000019f00000004 R_X86_64_PLT32         0000000000000000 put_files_struct - 4
-  000000000000004d  0000008f00000004 R_X86_64_PLT32         0000000000000000 __x86_return_thunk - 4
-  0000000000000075  0000008f00000004 R_X86_64_PLT32         0000000000000000 __x86_return_thunk - 4
-  00000000000000cd  0000008f00000004 R_X86_64_PLT32         0000000000000000 __x86_return_thunk - 4
-
-(JMP target relocations are emitted in a second pass, for whatever
-reason)
-
-So the hash may actually be needed as a fallback after all.  Or some
-other scheme.
-
-Either way it's overkill to have more than a single fallback.  No second
-fallback for "just in case".  Attempting to search an unhashed section
-(DWARF) can just be a fatal error instead of the "just in case"
-WARN+linear fallback thing.
-
-> @@ -1168,19 +1286,26 @@ static int read_relocs(struct elf *elf)
->  				return -1;
->  			}
->  
-> -			elf_hash_add(reloc, &reloc->hash, reloc_hash(reloc));
->  			set_sym_next_reloc(reloc, sym->relocs);
->  			sym->relocs = reloc;
->  
->  			nr_reloc++;
->  		}
->  		max_reloc = max(max_reloc, nr_reloc);
-> +
-> +		/* DWARF relocs are never looked up, so are not worth indexing. */
-> +		if (is_dwarf_section(rsec->base))
-> +			continue;
-
-This DWARF reloc skipping is a standalone improvement, can you split
-this out to another patch?
+This is an interesting patch, but I'm not really convinced it's worth
+the pain.
 
 -- 
 Josh
