@@ -4,53 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA18DC98302
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 09:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E6EC982FF
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 09:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	References:In-Reply-To:Cc:To:Subject:From:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kuigi+1Nmhm6Irxu7LvaYWg8A5sf/BnalQ8XJs6MPa0=; b=BKWZfiOm9RRISO
-	XIwSkqYE0F42BBwlcBOaqwF7EOhYVDjinT0E2Ux5C5EgajWK6bwHCdl1ZwAs33i5wZ6d4cZeJ7/ln
-	kKRqMpPf8V8i9AqnKdHL18OYV/0LQb0sepnQXo+yrWRjk9Ua2ZG57T6AX8B3GtXWbWC3hnhx9N4P6
-	OqqmwbVLWu4QgxEcFwVVUk70MkjgYLyV7OQNjEKUDLXSYKy7xoMki2IXKHJxJFk0qZHgNP9rIdow5
-	eg/gnUEDiVxdgK2DABfbyBstz54mD3BUcY7SIUkx4VmvAmQDieJbLsokSUBSRryLKZR350kJzKkYe
-	ElmjZfh5ACYvp/d46Y0A==;
+	List-Owner; bh=vwqw0gom8MXG8dl6hxWcZmMxfzlA5bkDYKA2nR5TYWk=; b=ciD43ldlw2K2j9
+	Igndt+cBXjRqjn1Nc2+qT3K+7oOGm2Sbz/SlXJjQ/S9R7eA6RyqtcJd96Z5F485SxVy1k7NybxW19
+	7HVANJ4WodTYbEmYZbT6FDi/gKExFNEoW8uvEZIPvzMG+2TIsRBjI45UX6f0MgvsKD3r2ridKhy49
+	CpAE5nuV/bDEO/n8mo8DIexu6gf0bWtG6lo1EWJLbS33QKppoxyw7sFoRZ6bYVj4aiUMXTdlys65P
+	5dgT3nxBk64KHiNwvDajdgyD/4SpVluxjOWsJ5p+gHZGrM3Zsnm6NPlCsruPomzXUoKo0Rau77ED3
+	PWhJWKQlYqQRS6wSyl+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8wQx-00000004q4i-2DVl;
-	Tue, 22 Sep 2026 09:05:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x8wS8-00000004qRI-3Jii;
+	Tue, 22 Sep 2026 09:06:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8wQv-00000004q3D-47HY;
-	Tue, 22 Sep 2026 09:05:02 +0000
+	id 1x8wS6-00000004qQw-2sSE;
+	Tue, 22 Sep 2026 09:06:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 589CE408F4;
-	Tue, 22 Sep 2026 09:05:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B5581F000FF;
-	Tue, 22 Sep 2026 09:04:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A6A540DD9;
+	Tue, 22 Sep 2026 09:06:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 069B31F000FF;
+	Tue, 22 Sep 2026 09:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790067901;
-	bh=gVJZTypgXfKJStNVi3R0a2JQB/tvx6NLIBfpEAfH+Ko=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=k9LHr2Wd4Rxx3+1boxWUT9I2oXWCmuvgxijo5nc6bPCgxtO998Rsh7NKemCZPMZ7q
-	 jCqEgkFPjzxPK4mReOTTd/elY+ciGLQH0sdAs9Gj6meNVO4LfN2kzV+4LXR0oVx6SK
-	 7ZH/T7Wv5A2AUNswlgh8q3cB2VzM3drCJ2lhSUow3TBR7t+5QqoSZi80Bp+U336otT
-	 6+pWL7hrOojomJ2u753Enniueu6LZnlrBvU6X6vwp9prGtDnyfBK/IXM5CJdbxbR9Z
-	 4Y6VvuOiSdy8+S0cHn5PGHelRvFyfDPZFS7siU3DaFG8DB1NQi0pi6gHzGpuQPP6oN
-	 01swkhQ7UyoBw==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v7 8/9] of: reserved_mem: mark /memreserve/ entries as
- MEMBLOCK_NODUMP
-To: robh@kernel.org, baoquan.he@linux.dev, "Wandun Chen" <chenwandun1@gmail.com>, rppt@kernel.org, m.szyprowski@samsung.com
-Cc: saravanak@kernel.org, pjw@kernel.org, conor+dt@kernel.org, iommu@lists.linux.dev, ruirui.yang@linux.dev, linux-kernel@vger.kernel.org, mark.rutland@arm.com, loongarch@lists.linux.dev, tglx@kernel.org, bp@alien8.de, x86@kernel.org, pratyush@kernel.org, kexec@lists.infradead.org, chenhuacai@kernel.org, hpa@zytor.com, pasha.tatashin@soleen.com, mingo@redhat.com, linux-mm@kvack.org, robin.murphy@arm.com, linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu, linux-arm-kernel@lists.infradead.org, alex@ghiti.fr, catalin.marinas@arm.com, will@kernel.org, devicetree@vger.kernel.org, dave.hansen@linux.intel.com, akpm@linux-foundation.org, palmer@dabbelt.com, kernel@xen0n.name
-In-Reply-To: <20260922084256.1515554-9-chenwandun1@gmail.com>
-References: <20260922084256.1515554-1-chenwandun1@gmail.com>
- <20260922084256.1515554-9-chenwandun1@gmail.com>
-Date: Tue, 22 Sep 2026 09:04:58 +0000
-Message-Id: <20260922090459.2B5581F000FF@smtp.kernel.org>
+	s=k20260515; t=1790067974;
+	bh=CL9p8oAwo1crfQMWT3WgokRQnTrKkgMRfNiucR/BKyc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FGdwsJa8/IRiDiXqu5im9UYEKsBW8xKPj8UeyC1zG50ICzIqoaS4sBV5uWR6ySljY
+	 Wz1QwM7ElBxL98PaNnSCTjPhanEq8KXo+IkM7KxVyNgGKUB1r0GFZvHtEhtSofBU5c
+	 4VTIrdtA6vzaIUg8etnNBBES2NLReY7mu8Xdo3wUU039vDzRbQBsxcv06PHQfhmuUd
+	 Gz1UmGbN9kIDO7bpH2UzpB2zlu20T3+GJqJbBP4ibpnSmxA97SOaRunJBW3uINc6Ts
+	 ajL0SgRxi2ONttf0op7dKynauL25bY890dZT7JNNwz06ehY0EDaZ+7z7MlqJ/FhK1i
+	 VoPZDvngT8CnQ==
+Date: Tue, 22 Sep 2026 10:05:59 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Alexey Gladkov <legion@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, 
+	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
+	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org, 
+	Jens Axboe <axboe@kernel.dk>, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 15/20] objtool: cache relocations, do less work,
+ eliminate relocation hash
+Message-ID: <arI0sqCSIJKjbu0C@gremlin>
+References: <20260917-build-speedup-v3-0-9ecf4163ff36@kernel.org>
+ <20260917-build-speedup-v3-15-9ecf4163ff36@kernel.org>
+ <arG07kfxJCmnVPY4@jpoimboe>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <arG07kfxJCmnVPY4@jpoimboe>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,54 +88,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhhbmsgeW91IGZvciB5b3VyIGNvbnRyaWJ1dGlvbiEgU2FzaGlrbyBBSSByZXZpZXcgZm91bmQg
-MSBwb3RlbnRpYWwgaXNzdWUocykgdG8gY29uc2lkZXI6Ci0gW01lZGl1bV0gb2YvZmR0OiBzaWxl
-bnQgdTY0IHRydW5jYXRpb24gaW4gZmR0X21hcmtfbWVtcmVzZXJ2ZV9ub2R1bXAgY2F1c2VzIG5v
-ZHVtcCBmYWxzZSBwb3NpdGl2ZXMKLS0KCmNvbW1pdCAwNzBlZDY5OWFkYTRkNDU2NjE4YTY0MGM2
-YWQ1NDFhYmJlYzk4Zjk1CkF1dGhvcjogV2FuZHVuIENoZW4gPGNoZW53YW5kdW5AbGl4aWFuZy5j
-b20+CgpvZjogcmVzZXJ2ZWRfbWVtOiBtYXJrIC9tZW1yZXNlcnZlLyBlbnRyaWVzIGFzIE1FTUJM
-T0NLX05PRFVNUAoKVGhlIC9tZW1yZXNlcnZlLyBlbnRyaWVzIGFyZSBtZW1vcnkgcmVzZXJ2YXRp
-b25zIG1hZGUgYnkgdGhlIGJvb3Rsb2FkZXIKb3IgZmlybXdhcmUsIHRoZWlyIGNvbnRlbnRzIGFy
-ZSBub3QgbmVlZGVkIGZvciBrZXJuZWwgY3Jhc2ggYW5hbHlzaXMuIFRoaXMKY29tbWl0IG1hcmtz
-IHRoZW0gTUVNQkxPQ0tfTk9EVU1QIHRvIG9taXQgdGhlbSBmcm9tIHRoZSB2bWNvcmUsIHdoaWxl
-IGxlYXZpbmcKb3ZlcmxhcHBpbmcgZHVtcGFibGUgcmVnaW9ucyB1bm1hcmtlZC4KCj4gZGlmZiAt
-LWdpdCBhL2RyaXZlcnMvb2Yvb2ZfcmVzZXJ2ZWRfbWVtLmMgYi9kcml2ZXJzL29mL29mX3Jlc2Vy
-dmVkX21lbS5jCj4gaW5kZXggZjI5YTA3ZThmYjIzZS4uYTQyY2Y2ZWFjNTViNSAxMDA2NDQKPiAt
-LS0gYS9kcml2ZXJzL29mL29mX3Jlc2VydmVkX21lbS5jCj4gKysrIGIvZHJpdmVycy9vZi9vZl9y
-ZXNlcnZlZF9tZW0uYwpbIC4uLiBdCj4gQEAgLTI1MSw2ICsyNTEsMzkgQEAgc3RhdGljIHZvaWQg
-X19pbml0IF9fcm1lbV9jaGVja19mb3Jfb3ZlcmxhcCh2b2lkKQo+ICAJfQo+ICB9Cj4gIAo+ICt2
-b2lkIF9faW5pdCBmZHRfbWFya19tZW1yZXNlcnZlX25vZHVtcCh2b2lkKQo+ICt7Cj4gKwl1NjQg
-YmFzZSwgc2l6ZTsKPiArCWludCBuOwo+ICsJY29uc3Qgdm9pZCAqZmR0ID0gaW5pdGlhbF9ib290
-X3BhcmFtczsKWyAuLi4gXQo+ICsJCWZvciAoaSA9IDA7IGkgPCByZXNlcnZlZF9tZW1fY291bnQ7
-IGkrKykgewo+ICsJCQlzdHJ1Y3QgcmVzZXJ2ZWRfbWVtICpybWVtID0gJnJlc2VydmVkX21lbVtp
-XTsKPiArCj4gKwkJCWlmIChybWVtLT5kdW1wYWJsZSAmJgo+ICsJCQkgICAgYmFzZSA8ICh1NjQp
-cm1lbS0+YmFzZSArICh1NjQpcm1lbS0+c2l6ZSAmJgo+ICsJCQkgICAgKHU2NClybWVtLT5iYXNl
-IDwgYmFzZSArIHNpemUpCj4gKwkJCQlicmVhazsKPiArCQl9Cj4gKwkJaWYgKGkgPT0gcmVzZXJ2
-ZWRfbWVtX2NvdW50KQo+ICsJCQltZW1ibG9ja19tYXJrX25vZHVtcChiYXNlLCBzaXplKTsKCltT
-ZXZlcml0eTogTWVkaXVtXQpJcyB0aGVyZSBhIHJpc2sgb2Ygc2lsZW50IHRydW5jYXRpb24gaGVy
-ZSB3aGVuIHBhc3NpbmcgdTY0IGFyZ3VtZW50cyB0bwptZW1ibG9ja19tYXJrX25vZHVtcCgpIG9u
-IDMyLWJpdCBhcmNoaXRlY3R1cmVzPwoKVGhlIHU2NCBiYXNlIGFuZCBzaXplIHZhcmlhYmxlcyBh
-cmUgcGFzc2VkIGRpcmVjdGx5IHRvIG1lbWJsb2NrX21hcmtfbm9kdW1wKCkKd2hpY2ggdGFrZXMg
-cGh5c19hZGRyX3QgYXJndW1lbnRzLiBPbiBhIDMyLWJpdCBhcmNoaXRlY3R1cmUgd2hlcmUgcGh5
-c19hZGRyX3QKaXMgMzItYml0LCBpZiB0aGUgZGV2aWNlIHRyZWUgY29udGFpbnMgYSAvbWVtcmVz
-ZXJ2ZS8gZW50cnkgd2l0aCBhbiBhZGRyZXNzCmdyZWF0ZXIgdGhhbiA0R0IsIGZkdF9tYXJrX21l
-bXJlc2VydmVfbm9kdW1wKCkgcmVhZHMgaXQgYXMgYSA2NC1iaXQgdmFsdWUuCgpJdCBwZXJmb3Jt
-cyBhIDY0LWJpdCBvdmVybGFwIGNoZWNrIGFnYWluc3QgZHVtcGFibGUgcmVnaW9ucyBpbiByZXNl
-cnZlZF9tZW0uCkJlY2F1c2UgdGhlIHVwcGVyIDMyIGJpdHMgZGlmZmVyLCBpdCBjb25jbHVkZXMg
-dGhlcmUgaXMgbm8gb3ZlcmxhcC4gSXQgdGhlbgpjYWxscyBtZW1ibG9ja19tYXJrX25vZHVtcCgp
-LCB3aGVyZSB0aGUgY29tcGlsZXIgc2lsZW50bHkgdHJ1bmNhdGVzIGJhc2UgdG8gMzIKYml0cy4K
-CkNvdWxkIHRoaXMgaW5jb3JyZWN0bHkgbWFyayB0aGUgbG93ZXIgMzItYml0IGFkZHJlc3MgYXMg
-TUVNQkxPQ0tfTk9EVU1QLAptaXN0YWtlbmx5IGV4Y2x1ZGluZyBhbnkgZHVtcGFibGUgcmVnaW9u
-IGxvY2F0ZWQgdGhlcmUgdGhhdCB0aGUgb3ZlcmxhcApjaGVjayB3YXMgaW50ZW5kZWQgdG8gcHJv
-dGVjdD8KCi0tIApTYXNoaWtvIEFJIHJldmlldyDCtyBodHRwczovL3Nhc2hpa28uZGV2LyMvcGF0
-Y2hzZXQvMjAyNjA5MjIwODQyNTYuMTUxNTU1NC0xLWNoZW53YW5kdW4xQGdtYWlsLmNvbT9wYXJ0
-PTgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Sep 21, 2026 at 09:16:21PM -0700, Josh Poimboeuf wrote:
+> On Thu, Sep 17, 2026 at 05:06:25PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > This relies upon the entries within a section being sorted, which is the
+> > case for all sections supplied to objtool by the link step during the
+> > kernel build.
+>
+> This is wrong (or at least actively misleading).  Objtool doesn't *only*
+> run on linked objects.  In some configs it runs on individual .o files.
+> And GCC doesn't sort relocs:
+>
+>   Relocation section '.rela.text' at offset 0xc0d0 contains 724 entries:
+>       Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+>       ...
+>   0000000000005c50  0000009000000004 R_X86_64_PLT32         0000000000000000 _raw_spin_lock - 4
+>   0000000000005c65  0000009100000004 R_X86_64_PLT32         0000000000000000 _raw_spin_unlock - 4
+>   0000000000005c6d  0000019f00000004 R_X86_64_PLT32         0000000000000000 put_files_struct - 4
+>   000000000000004d  0000008f00000004 R_X86_64_PLT32         0000000000000000 __x86_return_thunk - 4
+>   0000000000000075  0000008f00000004 R_X86_64_PLT32         0000000000000000 __x86_return_thunk - 4
+>   00000000000000cd  0000008f00000004 R_X86_64_PLT32         0000000000000000 __x86_return_thunk - 4
+>
+> (JMP target relocations are emitted in a second pass, for whatever
+> reason)
+>
+> So the hash may actually be needed as a fallback after all.  Or some
+> other scheme.
+
+Ack, that's fair enough.
+
+Definitely need something that isn't the linear scan as a truly worst case can
+be horrible.
+
+I think the hash can be avoided though, Do the read_relocs() without ordering,
+track whether things are in order, on decode if sorted then just read from
+relocs[], if not can allocate an order[] array and qsort() and build the index
+over that.
+
+So O(n lg n) at that point, but avoids bothering to sort for anything not looked
+up, works similarly for added sections.
+
+So still avoids all of the hash stuff, but efficient when things are actually
+out of order.
+
+>
+> Either way it's overkill to have more than a single fallback.  No second
+> fallback for "just in case".  Attempting to search an unhashed section
+> (DWARF) can just be a fatal error instead of the "just in case"
+> WARN+linear fallback thing.
+
+Honestly this is what I instinctively preferred, but objtool is not my realm so
+I worried there'd be some odd outlier thing that it'd somehow break!
+
+>
+> > @@ -1168,19 +1286,26 @@ static int read_relocs(struct elf *elf)
+> >  				return -1;
+> >  			}
+> >
+> > -			elf_hash_add(reloc, &reloc->hash, reloc_hash(reloc));
+> >  			set_sym_next_reloc(reloc, sym->relocs);
+> >  			sym->relocs = reloc;
+> >
+> >  			nr_reloc++;
+> >  		}
+> >  		max_reloc = max(max_reloc, nr_reloc);
+> > +
+> > +		/* DWARF relocs are never looked up, so are not worth indexing. */
+> > +		if (is_dwarf_section(rsec->base))
+> > +			continue;
+>
+> This DWARF reloc skipping is a standalone improvement, can you split
+> this out to another patch?
+
+Ack will do!
+
+>
+> --
+> Josh
+
+--
+Cheers, Lorenzo
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
