@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A38C982FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 05:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BECC9C982FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2026 05:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fiGs8HXyy0JVp6c7+kpMFK7Yg7MPJtXDBLzSPrdgU0g=; b=ZNZiIYNiHeSde+
-	NEZrPv/eOYKxX/D5SDXJ4HpGYYnYboeJLRQN26KK3JMbDrt7CLnxLFjWdqC0PfqUfy7QST6kXbiGb
-	TdWzT/PinyEI1nbp0pRXxLdiwmhGbulkKT5GOh1SgkCzp4ACkNGAI6sGSilJJX5IfKuQeZWyIOkrE
-	mAP93m6jm6ca4PSeBeZ7oang1bMXpopcJCwBZe5lQhBOazigNMGc5AMdhC7KRi0ZUEHVWMv76W5Ae
-	r5Rafb7FPp6IbNk2dW68G5wShLrLKVtGdxGWTgVN+ZnTRQDx7Twzu4em+9VWELDA3kMoHwkOFcrbn
-	kanIy75+XuwMEKBYE6zQ==;
+	List-Owner; bh=aKdryWx0V4o+EgLB4OBRYbTLDYcytnaejdakoh6qT2Y=; b=xaMhutFQXMkT+m
+	QlQV1QNJdU16u21VEv/eO8fxXZFYGPvyT/UpiMN3Y1Uk+uj3ykh32OBmTj47a06Z8u0WjvPdwWg3z
+	MQremddjeelbP9f1tFfoh9NoUx9CIqNeg2elYwHWux+Kt92QfY2IFoCX5HsEN8mTw4cpM8huVJpxW
+	yt5R1lUp8SBVsArtcPMxh9KRNTSuGnHwCHAt8lXafwraftK5kKwph8sELyTnTfkGNMFTNUz42rnV0
+	tms7xeusJi6qAzqAF9uNOX46YRZH+g1/NJ22iMoeKEphAE3bxWg4fVCH1aGSFsEr6UIEIDyVUK9h3
+	Ed4emV0Q7uyDQfFtA5UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8t7L-00000004FXm-2jIz;
-	Tue, 22 Sep 2026 05:32:35 +0000
+	id 1x8tGq-00000004Ga4-4BY8;
+	Tue, 22 Sep 2026 05:42:25 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x8t7K-00000004FXN-1pau;
-	Tue, 22 Sep 2026 05:32:34 +0000
+	id 1x8tGk-00000004GY9-3W2S;
+	Tue, 22 Sep 2026 05:42:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C79C443B9C;
-	Tue, 22 Sep 2026 05:32:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06F581F000FF;
-	Tue, 22 Sep 2026 05:32:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DD7F8437C2;
+	Tue, 22 Sep 2026 05:42:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 943B51F000FF;
+	Tue, 22 Sep 2026 05:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790055153;
-	bh=2gdM7pJQWOB32IRzRuuSECTGadyK+L+jFgZIHeUlWCg=;
+	s=k20260515; t=1790055737;
+	bh=3epzgFAGTIrwRdhpNfOPzvquVJOf1jbVVt83Gylxrw4=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=V+sHkd3IFKj/u1XrhzjZHaVWFT/6SS6oRLDyXWiULliXGM1LHof1yu+9SpjH+o9S5
-	 qF51+zWQXWibRxXwB+At7raCSyzo0QFJREV65DomR9GvesvkJN8pn4LgEE7wF2bO5+
-	 zSLA+kNPsEZ2pyzsYhVjQ8l29HQT8LaTtO2SsCZRKyM66vejz/2Wjk0xwPsN+8GGUe
-	 tM0CsZF6sBU7t3+Uuom/cP15Anfopu7hSOpU8Y+nOHLjXkTLRxs5jbdAz0AbeBgwFs
-	 s6rgYq/A+/k73xGj/EHQ+h+FSnWosqmHOStWzy7hZryanbnyuEHkd8yDtMI4g2Mkxq
-	 lWUOQc1CyuE7A==
+	b=n3cAyn/RCRCO8X+Uau1YjXbZxv8R3e4DCS+Xrx4rxCRgSj1hcmaLfTbRORYJw1hgq
+	 Cdw8d9qTesIZG96UD++KmUGKR0DtVp8Km9oejn5XjuarV7G50P0Egv95jNovWg5nHx
+	 9biemEsqA2QDkJEW6YxDns/Fcj6SeGFmgfINJQBFXMauH1rC7qKLOGGgJDa1ksYZVv
+	 F4bBFg9Uu6vXcF5kxVU5L5bwk4e2hX2UdCkTsGD76gFExoimfyeuDNQ9fxDXt/f2f3
+	 LrIkgC9XUMg3K6ZpKCyfWYLJRw6k5gX7a/F2+K9SqAsZpSXf2NYCDRauBSvMK89oLc
+	 6F8UvRtFunsPg==
 X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
 From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
 To: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
@@ -82,14 +82,14 @@ Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
 	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	x86@kernel.org
-Subject: Re: [PATCH v5 1/6] dma: swiotlb: Centralize default pool policy
- selection
-In-Reply-To: <4ef23d65-02d2-4187-904b-9d1665d8cff5@arm.com>
+Subject: Re: [PATCH v5 2/6] dma: swiotlb: Track whether the pool size was
+ explicitly set
+In-Reply-To: <94630348-d295-4424-9f6c-0dc3b8704077@arm.com>
 References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
- <20260921063628.362078-2-aneesh.kumar@kernel.org>
- <4ef23d65-02d2-4187-904b-9d1665d8cff5@arm.com>
-Date: Tue, 22 Sep 2026 11:02:18 +0530
-Message-ID: <yq5av77x3l7h.fsf@kernel.org>
+ <20260921063628.362078-3-aneesh.kumar@kernel.org>
+ <94630348-d295-4424-9f6c-0dc3b8704077@arm.com>
+Date: Tue, 22 Sep 2026 11:12:01 +0530
+Message-ID: <yq5ase313kra.fsf@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,87 +110,68 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Robin Murphy <robin.murphy@arm.com> writes:
 
 > On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
-> [...]
->> diff --git a/arch/powerpc/kernel/dma-swiotlb.c b/arch/powerpc/kernel/dma-swiotlb.c
->> index ba256c37bcc0..97fffa46f05a 100644
->> --- a/arch/powerpc/kernel/dma-swiotlb.c
->> +++ b/arch/powerpc/kernel/dma-swiotlb.c
->> @@ -14,8 +14,10 @@ unsigned int ppc_swiotlb_flags;
+>> swiotlb_adjust_size() must not override a pool size supplied through the
+>> swiotlb= command-line parameter.
+>> 
+>> Currently, it determines whether a size was supplied by comparing
+>> default_nslabs with IO_TLB_DEFAULT_SIZE. This fails when the user
+>> explicitly requests the compiled-in default size, allowing the request
+>> to be overwritten by automatic pool sizing.
+>> 
+>> Record whether swiotlb= supplied a numeric size and add
+>> swiotlb_default_size_changed() to query that state.
+>> 
+>> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+>> ---
+>>   kernel/dma/swiotlb.c | 9 ++++++++-
+>>   1 file changed, 8 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+>> index aa19e81ae544..8f86deb25be2 100644
+>> --- a/kernel/dma/swiotlb.c
+>> +++ b/kernel/dma/swiotlb.c
+>> @@ -107,6 +107,7 @@ static struct io_tlb_mem io_tlb_default_mem;
 >>   
->>   void __init swiotlb_detect_4g(void)
->>   {
->> -	if ((memblock_end_of_DRAM() - 1) > 0xffffffff)
->> +	if ((memblock_end_of_DRAM() - 1) > 0xffffffff) {
->>   		ppc_swiotlb_enable = 1;
+>>   static unsigned long default_nslabs = IO_TLB_DEFAULT_SIZE >> IO_TLB_SHIFT;
+>>   static unsigned long default_nareas;
+>> +static bool swiotlb_size_set __initdata;
 >
-> Nit: Perhaps it's beyond the functional scope of this patch, but I do 
-> wonder if these <arch>_swiotlb_enable conditions become redundant and 
-> could just be replaced with "if (<arch>_swiotlb_flags != 0)" too.
+> Nit: there are various ways and reasons that the size is set in general; 
+> could this please be named something clearer, e.g. 
+> "swiotlb_cmdline_size_set"?
 >
-
-
-Possibly. However, x86 has a case where x86_swiotlb_enable is cleared
-and used to free the swiotlb pool during initialization.
-
-pci_iommu_init() {
-	if (x86_swiotlb_enable) {
-		pr_info("PCI-DMA: Using software bounce buffering for IO (SWIOTLB)\n");
-		swiotlb_print_info();
-	} else {
-		swiotlb_exit();
-	}
-}
-
->
->> +		ppc_swiotlb_flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
->> +	}
+>>   /**
+>>    * struct io_tlb_area - IO TLB memory area descriptor
+>> @@ -269,6 +270,7 @@ setup_io_tlb_npages(char *str)
+>>   		/* avoid tail segment of size < IO_TLB_SEGSIZE */
+>>   		default_nslabs =
+>>   			ALIGN(simple_strtoul(str, &str, 0), IO_TLB_SEGSIZE);
+>> +		swiotlb_size_set = true;
+>>   	}
+>>   	if (*str == ',')
+>>   		++str;
+>> @@ -304,6 +306,11 @@ unsigned long swiotlb_size_or_default(void)
+>>   	return default_nslabs << IO_TLB_SHIFT;
 >>   }
 >>   
->>   static int __init check_swiotlb_enabled(void)
-> [...]
->> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
->> index 75cf8f6ae8cd..0cff255827ba 100644
->> --- a/arch/x86/kernel/pci-dma.c
->> +++ b/arch/x86/kernel/pci-dma.c
->> @@ -44,8 +44,10 @@ static unsigned int x86_swiotlb_flags;
->>   static void __init pci_swiotlb_detect(void)
->>   {
->>   	/* don't initialize swiotlb if iommu=off (no_iommu=1) */
->> -	if (!no_iommu && max_possible_pfn > MAX_DMA32_PFN)
->> +	if (!no_iommu && max_possible_pfn > MAX_DMA32_PFN) {
->>   		x86_swiotlb_enable = true;
->> +		x86_swiotlb_flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
->> +	}
->>   
->>   	/*
->>   	 * Set swiotlb to 1 so that bounce buffers are allocated and used for
->> @@ -81,8 +83,10 @@ static void __init pci_xen_swiotlb_init(void)
->>   	if (!xen_swiotlb_enabled())
->>   		return;
->>   	x86_swiotlb_enable = true;
->> -	x86_swiotlb_flags |= SWIOTLB_ANY;
->> -	swiotlb_init_remap(true, x86_swiotlb_flags, xen_swiotlb_fixup);
->> +	/* Xen can use a SWIOTLB pool anywhere in directly mapped memory. */
->> +	x86_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
->> +	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP | SWIOTLB_ANY;
+>> +static bool __init swiotlb_default_size_changed(void)
 >
-> Similarly, I see how having a SWIOTLB_INIT_REMAP flag keeps 
-> swiotlb_select_pool_policy() neat, but couldn't we technically already 
-> infer that from the fact that a non-NULL remap function was passed?
+> ...and then do we really need a trivial wrapper function with the exact 
+> same scope as the variable itself? (Plus the name is similarly confusing 
+> as the places this is used are themselves potentially changing the 
+> default size, if you consider "default" to mean "not explicitly 
+> specified"...)
+>
+> With the naming improved,
 >
 
+Updated and dropped the helper.
 
-I thought deriving the entire pool policy from the flags made the code
-easier to follow. For example, if flags == 0 and remap != NULL, we would
-also need to pass remap to swiotlb_select_pool_policy() to determine the
-policy.
-
->
-> Nits aside, the overall change seems reasonable to me;
 >
 > Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+>
 
-Thanks
+
 -aneesh
 
 _______________________________________________
