@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 469CFC982EA
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 06:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871BFC982EA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 06:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:From:Cc:To:Message-Id:In-Reply-To:
+	Mime-Version:Subject:Date:References:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3mQE64he700nY6+kCQ2iBgfN7glx1uWUQjLul/4XEDI=; b=2cKetDabbltN2Z
-	5xGq716rrQv7kuhZ35TDxohO1CY/VK5p41Ytj+USv7nXVcpuohV3eA37zoQbPvWAmamn3bbwcy/Vk
-	UCybPMSoMHGTdRHqP3JMRyoPE9ACv5pPveNrGhJkHoRW1/d1ec7xTdjgaR5g35wgj+ZR+vLMrvrWD
-	lIGlnbe/XgETuxmpF/xzEEwrjlOelJyOwf4mY12WPrwpgnPAaeHYU+NTvAPMZ/h71j7qEe85+rsRb
-	0rJ03cgsUg5LRYNEiVnQFK4d2mHXjbWMlL171bgduTidG/P667c/gA+bjqV4UJQxByBGvAxbysDKF
-	cINArhv8GIPt2VnqCmJQ==;
+	List-Owner; bh=MJBGdVt4fWj13ey51kgqjDylpuHOfmvMLX/D3Rw3atI=; b=t3V8aTC2vp8JO8
+	MsiYXcReox57tQbcOlFVO7K8FPfaGkuinx0XhAIhO9QgG6/YQiquQrHfo4rWzvdgYMaGYgzEwYBL7
+	HexGk3QtVVU66WNmagXH0Hw6FXaehXb4uQQy1OG9ZLkeOdjH3D66SzN1AS9egueN9AC07sn88Gobu
+	IhYsKnfEw/p20/c8QDkdhKUCpjsMFNAzbYwyqv3WACO+rEYqh1Zf5OWb8U+Ltbhq1RFNvtbPtnDPT
+	JiRhdxWbjBAvAanJ1lZbiJri2kXvjO8kJpLLEZi+jcftq+fzv7CCd4Aq6V516bN1WXJGJeA3gn4+L
+	g3Jrzm1WCySDCS+6zufw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Geh-00000007JH8-2aes;
-	Wed, 23 Sep 2026 06:40:35 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1x9GjB-00000007Jpn-2C7Z;
+	Wed, 23 Sep 2026 06:45:13 +0000
+Received: from va-2-27.ptr.blmpb.com ([209.127.231.27])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Gec-00000007JGa-0EgA
+	id 1x9Gj8-00000007JpL-31mI
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 06:40:34 +0000
-Received: from Vostro-3710.. (unknown [14.220.232.127])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4ed5b22fd;
-	Wed, 23 Sep 2026 14:40:24 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: dlan@kernel.org
-Cc: alex@ghiti.fr,
-	amadeus@jmu.edu.cn,
-	aou@eecs.berkeley.edu,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	krzk+dt@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	robh@kernel.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH 1/1] riscv: dts: spacemit: set ETH MAC from eeprom for OrangePi
-Date: Wed, 23 Sep 2026 14:40:20 +0800
-Message-Id: <20260923064020.210794-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260922072910-GKB353745@kernel.org>
-References: <20260922072910-GKB353745@kernel.org>
-MIME-Version: 1.0
-X-HM-Tid: 0aa0ccfe7abf03a2kunma5b305ac7f7e3
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSh0eVhlISk5MSEwZGUNMQlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKT1VJSUtVSUhJVUpJTFlXWRYaDxIVHRRZQVlPS0hVQkJJTk
-	tVSktLVUpCS0JZBg++
+	Wed, 23 Sep 2026 06:45:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1790145899;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=mfwKAVk2tgsaRf3EcqdDECyLiqTSD7GjUlH9PDB78fo=;
+ b=GgujK1/IVLZBna5OOZMywCOZSsTVGew5L3F0W0/VkM1dFlzQrUtvjeLJGjXOATZNyvkUif
+ eZD/qI9qvc4uAdAB85c1AtLWUFZEwdmdooxoY+8k3YcOcnQ27Zy5I+fcPS4gCJ8EHChJno
+ njC9rtkl3RE+RJFW4gzt4gky6AwFUkkqdKeUZgKg47N1hj+BRN0h1ualRvg/4gFu/UeR/r
+ rvJ2g97qU7tpe9Uk6KretbVvG3S4Jr+H0F2iADLEM4iXRm6x84h8pcIGY1pNnP3FJL7XPe
+ 2r7pEhu7PGKDvWb8LxOOf5+klOYf+rO3ZokDUqoNZXPmsNxnhZ2SZCgfAd4k7Q==
+References: <20260922110231.3426011-1-sandie.cao@deepcomputing.io> <20260922110434.3426051-1-sandie.cao@deepcomputing.io> <DLMC322TOCGJ.2GTJG14AFBACW@linux.spacemit.com> <407ce3d77416bb2522b7906b0df3d5adf02c27ee.b414918c.4333.4215.b208.49d99e9be044@feishu.cn>
+	<DLMHKHTDP2W9.3GX33KSJ2YIJM@linux.spacemit.com>
+Date: Wed, 23 Sep 2026 14:44:56 +0800
+Subject: Re: [PATCH 2/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05: add USB controller and USB phy support
+Mime-Version: 1.0
+In-Reply-To: <DLMHKHTDP2W9.3GX33KSJ2YIJM@linux.spacemit.com>
+X-Lms-Return-Path: <lba+16ab37569+e802d7+lists.infradead.org+sandie.cao@deepcomputing.io>
+Message-Id: <407ce3d77416bb2522b7906b0df3d5adf02c27ee.87aa009f.6c8d.46bc.aa71.f3065515c380@feishu.cn>
+To: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
+	"Yixun Lan" <dlan@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, 
+	"Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, 
+	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_234030_259316_839D36B6 
-X-CRM114-Status: UNSURE (   6.53  )
+X-CRM114-CacheID: sfid-20260922_234510_849998_83DC22EB 
+X-CRM114-Status: UNSURE (   8.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,27 +70,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-> So checked the code, it's not a direct problem of /alias, but due to the
-> env variable provided to override the mac address, see
-
-> In this case, I don't think it's necessary to drop the ethernet alias,
-> I mean it's totally fine if there is uboot ethaddr env and it wins
-
-Once U-Boot overwrites the MAC address in the DT, of_get_mac_address()
-will return 0, and of_get_mac_address_nvmem() will not be called.
-Then I think this patch is useless.
-
-Thanks,
-Chukun
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIFRyb3k6Cgo+IEZyb206ICJUcm95IE1pdGNoZWxsIjx0cm95Lm1pdGNoZWxsQGxpbnV4LnNw
+YWNlbWl0LmNvbT4KPiBEYXRlOsKgIFdlZCwgU2VwIDIzLCAyMDI2LCAxNDozNgo+IE9uIFdlZCwg
+U2VwIDIzLCAyMDI2IGF0IDEyOjA3OjIwUE0gKzA4MDAsIFNhbmRpZSBDYW8gd3JvdGU6Cj4gPiBQ
+bGVhc2Ugbm90ZTogdXNiM2RfdTJwaHkgYWxzbyB1c2UgQ0xLX0FQTVVfVVNCMl9CVVMuCj7CoAo+
+IENvdWxkIHlvdSBzaGFyZSB3aGljaCB0cmVlIGFuZCBjb21taXQgdGhpcyBzbmlwcGV0IGNvbWVz
+IGZyb20/IEkgY2hlY2tlZAo+IGszLmR0c2kgYXQgdGhlIGJhc2UtY29tbWl0IGxpc3RlZCBpbiB5
+b3VyIGNvdmVyIGxldHRlciwKPiAzZjI0MjVmNWI1YmJiZGQ5OTFjYTljZGZkNTUwMmU2OGQ4ODk1
+OTk4IFsxXSwgYW5kIHVzYjNkX3UycGh5IGhhczoKPsKgCj4gwqAgwqAgwqAgwqAgY2xvY2tzID0g
+PCZzeXNjb25fYXBtdSBDTEtfQVBNVV9VU0IzX1BPUlREX0JVUz47Cj7CoAo+IEFyZSB3ZSBsb29r
+aW5nIGF0IGRpZmZlcmVudCB2ZXJzaW9ucz8KCkknbSBzb3JyeSwgSSBjaGVjayB0aGUgd3Jvbmcg
+dmVyc2lvbiBvZiB2Ny4yLsKgIEkgd2lsbCBjb3JyZWN0IGl0IGluIG5leHQgcGF0Y2guCgpCZXN0
+IHJlZ2FyZHMKU2FuZGllCgo+wqAKPiBMaW5rOiBodHRwczovL2tlcm5lbC5nb29nbGVzb3VyY2Uu
+Y29tL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9uZXh0L2xpbnV4LW5leHQvKy8zZjI0MjVmNWI1
+YmJiZGQ5OTFjYTljZGZkNTUwMmU2OGQ4ODk1OTk4L2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2Vt
+aXQvazMuZHRzaSBbMV0KPsKgCj4gLS3CoAo+IFRyb3kgTWl0Y2hlbGwKPsKgCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
