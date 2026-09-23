@@ -4,144 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17290C982EA
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 07:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFEEDC982EA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 07:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7OkXsZzbUlVVSII6D/T9xSMePkPZrpgFwhl1KwMwL7k=; b=onGBiQGiOr2x1A
-	ZMJMctRIBwgXsoGukhEJj5qT/1ozoswmuI90K5tBZ4X1aWrlOhsdB9k/fUSygGIBqrTvjNufUmu26
-	izRmZM5hkYon+XPWUYufeUMJKA+mwy9L9Rlsr4EZ6uEIubvf+jYsyT21CpEzySVmxSqOfSAmsBVuf
-	I/f1KCej2Fgwv1MC4gCDGWLsk/IiScJ+3vL0lthe+LXklKYc5j+PglXkqCevp9QHNcVoTjhqWtxvP
-	4TKuji0LGWQe2JiSVwjtii67YeOMDf3z7qCY1g0h54pqewzncRZzoFnpJ0VtaM2HInx1e0loyDzUu
-	qTj/Mx2bFkencajF73Jg==;
+	List-Owner; bh=UkUyrPsyKaiu8mK06QvmkQw6cyWk2ZRCfznOpPZxb2Y=; b=LnttZzpLuG5Luf
+	5cFhCwzuN4gydNutE14xDjE99u/G5Lvd2pc2+TKIdkNmTUqePtflvTY8qWKzJLhYqn6envSSQ4uQV
+	lMmsD7vEhi6v39uspbA1FAtG5woiBy/8VfS7Ix0AVyNhfm6nOmXvYlGmnEporLx2fVGIZBVAU+g6a
+	aQgAf6Sn0Qir3IS2GYXoCAGC1ApN2kS79YrvhO/hMUKnLABUvIzS8P1fqtgqa1mhI5E1bE760VTjO
+	BPJPid4vjCXuKABAW1pgardyy6zxG5xnPkGE7YmZLAE419zxXRrS6fRpOamXE2EgBGyDxqhDPr8Ye
+	mRx07bAJLZTs/y7Y1OMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9H0M-00000007L9I-2npe;
-	Wed, 23 Sep 2026 07:02:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x9H2E-00000007LNV-2QfH;
+	Wed, 23 Sep 2026 07:04:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9H0K-00000007L9A-1q5t
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 23 Sep 2026 07:02:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=/UlDXBLxWjvyMWFTheGIWipH7hoQETxDmaK/xojEU/w=; b=JUOPcqIS6EUnmiQsGuxPX9ewoe
-	9yhBHmpA6+6I10JJCNs9SPKnaZCiYjCqVbueT7xDKGN4SskJWs27BRRrrEnq7K+D17Y2OMDzG37ZT
-	EUiJvdg6/Pff1f9cWPnADIpYmxD0SDQRA+HuO1wxfKcQCMM78c0lZZWLvFYdiYlVrKrVFLvAAGRyQ
-	ykB1GsflOpE0VTHZo1dM3V8EnNDWITxqE+agjJDxmFN4j5PQcmqv+mIsLR9r/n43dXXTj9lnRfWdP
-	gH4VN+RQ+X4KKkzEr/RzSyFrT2pM/iqdMEHAS7dusildJgOvkmoikfrt7joxGWIfAPeVoNnWB5x0A
-	AVHF2RTw==;
-Received: from mail-sh0chn02on20705.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::705] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9H03-0000000ERow-0XoU
-	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 07:02:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=EZcYZGbvv5FYwlSCu4zg/LMqklcif8Z9LLnMKqQRotRhGODhpODskWklCqB40CyIdEA63cSPiwVizvyEmr6wyyeA2jc59fmR6QNprF1QIkV6psooxNgdf7PCbTn9GJ801sja5O7pL38p2cK9+xOrIgiCzmLseBAB0QydXX994StFLgkHbFv6vtFFAJ2+EyHSVjvu7GluiHqm3Oy1bsmXmb/mq4pr7fnl2y3NCSDSesKrc7mHloK5L7/2TWbKH3CFupV6EpP3pV8CHkzF+UySXmwkhDFIcVnIGj7aDsipB1hBdRKAkH4WCOsCo3WMtAzJv/F/8DeceAi2YaYZQMr/pg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/UlDXBLxWjvyMWFTheGIWipH7hoQETxDmaK/xojEU/w=;
- b=GgnXDxHZHzaV+gBWEr7wRK9mxTr6qh70T9wivs/qv3oCs+C/Ro5+GUQ4mCVVwIyVBpEkCaejV8gZDiODUCiIRf0cfJR2DA2OGytfYHA38ifJB5UbszFTLTOFdLsgqpgPMermRdgb7Q7LexJrEgm375Zfokq8B0XOMP3CwQJoalLNShV2Lp1iRJ7/afJ12xOOy2ga2V+W/KNNZFBFkPfK6r2cBcULomZVxkr61zjDnA1Ffa8r0jacXfD++n21Pj39XG4jrRE/ppVPsp6SO7hCx1ND4lqpkI7F8c1Gyt7XNu1S8O/PQjIZI+f2ddWJ4yu14QMDxF6HHOUnAEIjhW2PoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:1b::23) by BJXPR01MB0517.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:14::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
- 2026 07:01:19 +0000
-Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
- ([fe80::e644:7bf5:5a3c:e548]) by
- BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn ([fe80::e644:7bf5:5a3c:e548%3])
- with mapi id 15.21.0451.014; Wed, 23 Sep 2026 07:01:19 +0000
-From: Joshua Yeong <joshua.yeong@starfivetech.com>
-To: broonie@kernel.org,
-	lgirdwood@gmail.com,
-	rahul@summations.net,
-	anup@brainfault.org,
-	lftan.linux@gmail.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: alex@ghiti.fr,
-	joshua.yeong@starfivetech.com,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/3] dt-bindings: regulator: Add RPMI voltage service bindings
-Date: Wed, 23 Sep 2026 15:00:12 +0800
-Message-ID: <20260923070014.1340761-2-joshua.yeong@starfivetech.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260923070014.1340761-1-joshua.yeong@starfivetech.com>
-References: <20260923070014.1340761-1-joshua.yeong@starfivetech.com>
-X-ClientProxiedBy: BJSPR01CA0020.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:c::32) To BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:1b::23)
+	id 1x9H29-00000007LMS-3xdX;
+	Wed, 23 Sep 2026 07:04:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B89A8436CF;
+	Wed, 23 Sep 2026 07:04:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0130B1F00893;
+	Wed, 23 Sep 2026 07:04:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790147088;
+	bh=oz5tjSOW6xs6i9tD5UOCcck5s2CW+80N4Q8wcMKT5sM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=H8oyDQGwjdSkW3glHIqkT28nkitvMUMujDtTwYtl7NQTMOYKIQgyBXIBx/3pBcxQp
+	 OQx1IfM7QGlBJelJ3xjxNUlH8jpNUFnb0na487Y1eI8TwCVG7O+g9eVm696P4c9Lkn
+	 aCl/OQhO8JIKOOGyXPjrtfuqIh3bXqO1m3IPe7xySJze9zoxTzoj9eqsqbwfNB2PPf
+	 KZLSxApcdSOpZNedomZsma7BVhAHXnP9rgV0Ce68rLQVaFKnh48hNKmYa63LQnOWUm
+	 E0o5KeQEcNqrGDR/FBqK5/X0rFNwJJhXI+RvWEPR42lgPqvGO9/t+gXs/3Tt6R2T/G
+	 9FzYEi/Z4AjuA==
+Date: Wed, 23 Sep 2026 08:04:25 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Brian Cain <bcain@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Simon Schuster <schuster.simon@siemens-energy.com>, 
+	Jonas Bonn <jonas@southpole.se>, Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+	Stafford Horne <shorne@gmail.com>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Russell King <linux@armlinux.org.uk>, 
+	Vineet Gupta <vgupta@kernel.org>, Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
+	Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Richard Henderson <richard.henderson@linaro.org>, 
+	Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>, 
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 00/12] mm: make userland page table freeing RCU-safe
+Message-ID: <arN3iaw7VDIA-bWf@gremlin>
+References: <20260922-rcu-pagetable-freeing-v4-0-fe1ad1f1e303@kernel.org>
+ <20260922160021.a2fc65d05d9b867a141e5457@linux-foundation.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BJXPR01MB0838:EE_|BJXPR01MB0517:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc86d43c-6d95-4058-e93b-08df194077ca
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|7416014|1800799024|52116014|13003099007|38350700014|921020|6133799003|10067099003|56012099006|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: pifWkAyKEzBRvsHeBp1YcyMHcWDIBea/fpPI5d1HR0nb/yhYLvbvYRhtuYATVV3k9jgWhLPTwvZT88akQnBcgkcp3f0Gj7z6hplJm59YiA/LobIwdwfFvDx1C5ALfekXe3yaloAAPy7ZqMOUKW1CX3oGLvzLujrRukyIgrGnNUMpQwZqXUHHKvMePUKYrUi3ikDocFqBtrdG5bxBUXC5vdC9yMdFCPmnfCV5JBjYNEMz19wBuBmsOWDzWL1wESzjhTMVmLPI7c7PaWGUq/1s+ti6DsDc/punjaZZd6Wh7l0NYBrGk3zeZafkLGyB07Hv2yPxJyHGzPSFEZak/wE+pliAv/a1g+t/6MnDTzw37BXDtcSAQIILrsFxx3ZjZ/WThJVkRgVGn42mAoqXuP0ZpGharA2zEvrHu1Fr4BI4MSsNLs7NuBNdqfpPgklaRBotzVpSWARUkheEmM3sehhROnRvGyd+YK8TcTNrr5zsshg3LqkhhxK8+jA01P/iGkQlf1ShGKZJpXjrYtIrisIeggMH9vUTPDRMITLTXFrkwpusKDbCA6/KZ0tPs3Ax4NSjMzhkmU+u7BMkgSIuyElcCQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(7416014)(1800799024)(52116014)(13003099007)(38350700014)(921020)(6133799003)(10067099003)(56012099006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F8aTTbtl0Yxp0tWlqWyfOTyy4yLiaytqcs6VPixwl+i+RfSxxq9jfEnaMezs?=
- =?us-ascii?Q?Ffq7X387a9QpMUdTKUIVAlPYHeWfDVkDMaOZEW4wyw6kIuLo9CmaLaHOFB2M?=
- =?us-ascii?Q?+Cvtnejj3PhvOg4cUA26IcCWsiKOR6tj8sRglqGLeSrbbeSMZiZPtEFVYBq/?=
- =?us-ascii?Q?jXO6A6bsTEBSBfMmrRAgRE/J57ILua80PGkI4zeAmNgU11Eb5waFpoY0MiZH?=
- =?us-ascii?Q?Pf1dyE3ZcUM43Un7r02S+pfi9Km3shhPtJ6+uDVB7/3E526a1y0a6tzYPZIq?=
- =?us-ascii?Q?tS6LboOfyz1AQJJUznbl0WlWhXiB7PozMBvyqfhO4pOqENuNoUlHfupAwT7X?=
- =?us-ascii?Q?efH4UhpWsKmLQ2YdtFhVqI1raMJzU8/9VJ2I5tFtaMj69/9j5+XMF4uN1Fp/?=
- =?us-ascii?Q?w6RC0lEzJDNaej4371kFEvJpT4xlQ1EgPv3GhWEq78HKrszTYEe6XTE2hWVf?=
- =?us-ascii?Q?mvj/E3JpsPcDLBnKzJoEzr+RjdYeof5u4BZ2EecO2fAdlLtPMiB+yOV3J1NK?=
- =?us-ascii?Q?UluCQUDlpzkyxrC4A4/TOj3dKBNJ2sI69ffviaQHha57Yk25oP8D1S6mp1MI?=
- =?us-ascii?Q?2I5AoCNusKu8ICsEUOFzTl3sQiboBMY2QFPb89N0jgukl5Gxu+kasDfLLXHB?=
- =?us-ascii?Q?ir0CyM9km1qMyO+tlX8PTMyivk9eFxxF75ci6MDpp9mp1ZbrIF9ty/A2xcTS?=
- =?us-ascii?Q?zG8yzllXxI6uSYt+Av5ffyFmBK9DSBANeR+Ex5w3hQpTnlcDGupzsGHxC0wU?=
- =?us-ascii?Q?vVsV7mbGgQZLuZRclts9r+ROoNhkgpnJwVnvyGrghfy6dvpOakET6u4ncLTj?=
- =?us-ascii?Q?X+Zt0sLM8NF86o7KkUvdUwmCuGmVeOqiyF+nc6P8r9VpleV956+lgmOt/1l2?=
- =?us-ascii?Q?/wTwefspFEd/Eb0bc45nhsWqtepDGzvc16jWVz8yk0oglB9VGhW4NXKiCu24?=
- =?us-ascii?Q?gSd4/It9SCPo/GpoK3e2gAA1H6IBYa99m+xCkRMdstfReh6HNH+EkRegXyq+?=
- =?us-ascii?Q?W9Xj2g/Y9bAREiH/fIx62Ve3flFYvZPmKLb2nBlGq/KTBi6SFv1/uRWv5I3e?=
- =?us-ascii?Q?WdCAJ950jyk+Xao76hgSZD6V3wjRuD3i9XV2OHL87sjMIZXX7q+Bmcz2icnb?=
- =?us-ascii?Q?B63uLiLKembBeiZGrjEOTYjGFnf9K5ySWeAgRE/OLGOg0ECDprX6n0AZnHF+?=
- =?us-ascii?Q?RKokdVynrDFp8JHc7RnulAnSF5yer7HHX1ISN3AHyLLLybrFdt3Bc3gXvBJE?=
- =?us-ascii?Q?AXCaPb0e7zdD17oCHRt+pFjp/qmCEzqy8EFawxrVioyZp2KeRbmVxV5a2IaP?=
- =?us-ascii?Q?CFw1ABSe7vDbgLSUkjHjgh19TD7YCiKJpwPR03cxG0Kvlgesu91UrMbXoCH5?=
- =?us-ascii?Q?N5cA51+h+T21Lih8zQE6H2UPSlb77S3RpYlnMxF183RWgJIHpZnMf96daOI6?=
- =?us-ascii?Q?HLMe18d0XrrnpFjw2u9+jj2uBdvZnDmE9G4+n5gw4GkXuGx/YamdB69Yw/fz?=
- =?us-ascii?Q?g2MCWpF7Xvu5uVHv818q7Q0M1YjGjdrxPWqSAcoHNhPWwvyiK8U8gimF9uUx?=
- =?us-ascii?Q?VjsAi17eMs0SqUA/661O9sdALaPcFF/RQH+HVme1TVzINUo8bw2L1AOwij9i?=
- =?us-ascii?Q?C2rZWyeu5YPqjuvmRARH6wMaUbIzOeU5VTHI7OsZURRurd3t6o2XjVnPR0O7?=
- =?us-ascii?Q?6oc8bt8JlvYIarPLSvfcjvZC6+edHedSEbr6JFK4DiIm7aaZ88UvPMWLYbCh?=
- =?us-ascii?Q?uds9i/uxWMrAij01JAAXXkPhPkKOo3Q=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc86d43c-6d95-4058-e93b-08df194077ca
-X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 07:01:19.1228
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Sn6rgT4hIExpZZ68rcVYV7abO6wc3G+D57uGr63H+bxVNizZ74U1NXYKUALtUoAB4kKpN/Cz+VtTnxF+0c6EBokR9BTBUXIGxaTrCMN12bw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0517
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_080251_375124_EF472BDB 
-X-CRM114-Status: GOOD (  16.31  )
+Content-Disposition: inline
+In-Reply-To: <20260922160021.a2fc65d05d9b867a141e5457@linux-foundation.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,250 +110,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the RISC-V Platform Management Interface
-(RPMI) voltage service group, both for the supervisor-facing regulator
-controller and for the SBI MPXY channel which the SBI implementation
-uses to expose the service group.
+On Tue, Sep 22, 2026 at 04:00:21PM -0700, Andrew Morton wrote:
+> On Tue, 22 Sep 2026 16:35:31 +0100 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+>
+> > The majority of architectures in the kernel defer page table freeing until
+> > an RCU grace period has elapsed, this series converts all remaining
+> > architectures to do so too and eliminates CONFIG_MMU_GATHER_RCU_TABLE_FREE
+> > altogether.
+> >
+> > This is important because it enables safe lockless page table walking under
+> > RCU alone.
+>
+> Do we have reason to believe that anyone is seeing any effects from
+> their arch's failure to rcu-free the page tables?
 
-Signed-off-by: Joshua Yeong <joshua.yeong@starfivetech.com>
----
-Based on the RPMI device power series ("Add RISC-V RPMI device power
-service support"), which has been applied for next. The cover letter
-links the mail saying so.
+We have reason to believe that it completely blocks other work like
+scalable CoW :)
 
- .../regulator/riscv,rpmi-mpxy-voltage.yaml    |  65 ++++++++
- .../regulator/riscv,rpmi-voltage.yaml         | 147 ++++++++++++++++++
- 2 files changed, 212 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/regulator/riscv,rpmi-mpxy-voltage.yaml
- create mode 100644 Documentation/devicetree/bindings/regulator/riscv,rpmi-voltage.yaml
+>
+> This sounds like a rather long-standing wart, yes?
 
-diff --git a/Documentation/devicetree/bindings/regulator/riscv,rpmi-mpxy-voltage.yaml b/Documentation/devicetree/bindings/regulator/riscv,rpmi-mpxy-voltage.yaml
-new file mode 100644
-index 000000000000..8cc53879cdf9
---- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/riscv,rpmi-mpxy-voltage.yaml
-@@ -0,0 +1,65 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/regulator/riscv,rpmi-mpxy-voltage.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V RPMI voltage service group based message proxy
-+
-+maintainers:
-+  - Joshua Yeong <joshua.yeong@starfivetech.com>
-+
-+description: |
-+  The RISC-V Platform Management Interface (RPMI) [1] defines a
-+  messaging protocol which is modular and extensible. The supervisor
-+  software can send/receive RPMI messages via SBI MPXY extension [2]
-+  or some dedicated supervisor-mode RPMI transport.
-+
-+  The RPMI specification [1] defines voltage service group for accessing
-+  and controlling the voltage domains managed by a platform
-+  microcontroller. The SBI implementation (machine mode firmware or
-+  hypervisor) can implement an SBI MPXY channel to allow RPMI voltage
-+  service group access to the supervisor software.
-+
-+  ===========================================
-+  References
-+  ===========================================
-+
-+  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
-+      https://github.com/riscv-non-isa/riscv-rpmi/releases
-+
-+  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
-+      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
-+
-+properties:
-+  compatible:
-+    description:
-+      Intended for use by the SBI implementation.
-+    const: riscv,rpmi-mpxy-voltage
-+
-+  mboxes:
-+    maxItems: 1
-+    description:
-+      Mailbox channel of the underlying RPMI transport.
-+
-+  riscv,sbi-mpxy-channel-id:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The SBI MPXY channel id to be used for providing RPMI access to
-+      the supervisor software.
-+
-+required:
-+  - compatible
-+  - mboxes
-+  - riscv,sbi-mpxy-channel-id
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    voltage-service {
-+        compatible = "riscv,rpmi-mpxy-voltage";
-+        mboxes = <&rpmi_shmem_mbox 0x7>;
-+        riscv,sbi-mpxy-channel-id = <0x1004>;
-+    };
-+...
-diff --git a/Documentation/devicetree/bindings/regulator/riscv,rpmi-voltage.yaml b/Documentation/devicetree/bindings/regulator/riscv,rpmi-voltage.yaml
-new file mode 100644
-index 000000000000..6334ebd31dc8
---- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/riscv,rpmi-voltage.yaml
-@@ -0,0 +1,147 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/regulator/riscv,rpmi-voltage.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RISC-V RPMI voltage service group based regulator controller
-+
-+maintainers:
-+  - Joshua Yeong <joshua.yeong@starfivetech.com>
-+
-+description: |
-+  The RISC-V Platform Management Interface (RPMI) [1] defines a
-+  messaging protocol which is modular and extensible. The supervisor
-+  software can send/receive RPMI messages via SBI MPXY extension [2]
-+  or some dedicated supervisor-mode RPMI transport.
-+
-+  The RPMI specification [1] defines voltage service group for accessing
-+  and controlling the voltage domains managed by a platform
-+  microcontroller. The supervisor software can access RPMI voltage
-+  service group via SBI MPXY channel or some dedicated supervisor-mode
-+  RPMI transport.
-+
-+  The voltage domains are discovered at runtime from the platform
-+  microcontroller, which reports the name, the level format, the supported
-+  levels and the always-on capability of each one, so none of that is
-+  described here.
-+
-+  A consumer names a domain in one of two ways. The first is through a
-+  "<name>-supply" phandle to a child of the optional "regulators" container,
-+  whose "reg" is the domain's RPMI DOMAIN_ID. The second needs no child with
-+  "#voltage-domain-cells" on the provider, a consumer lists
-+  "voltage-domains = <&provider DOMAIN_ID>" and names each entry in
-+  "voltage-domain-names", the way it names a voltage power domain. Both
-+  properties belong to the consumer, so a consumer binding describes them
-+  itself:
-+
-+    codec {
-+            compatible = "vendor,codec";
-+            vdd-supply = <&volt2_reg>;
-+    };
-+
-+    phy {
-+            compatible = "vendor,phy";
-+            voltage-domains = <&rpmi_voltage 3>, <&rpmi_voltage 4>;
-+            voltage-domain-names = "vdda", "vddio";
-+    };
-+
-+  A child may also say what the board permits the rail to supply, which the
-+  platform microcontroller has no way to express. A child that gives no
-+  voltage constraint leaves the rail free to move within the levels the
-+  domain advertises.
-+
-+  ===========================================
-+  References
-+  ===========================================
-+
-+  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
-+      https://github.com/riscv-non-isa/riscv-rpmi/releases
-+
-+  [2] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
-+      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
-+
-+properties:
-+  compatible:
-+    description:
-+      Intended for use by the supervisor software.
-+    const: riscv,rpmi-voltage
-+
-+  mboxes:
-+    maxItems: 1
-+    description:
-+      Mailbox channel of the underlying RPMI transport or SBI message proxy channel.
-+
-+  "#voltage-domain-cells":
-+    const: 1
-+    description:
-+      Lets a consumer name a domain by its RPMI DOMAIN_ID, the single cell of
-+      a "voltage-domains" entry, without a child node for the domain.
-+
-+  regulators:
-+    type: object
-+    additionalProperties: false
-+    description:
-+      Optional container giving discovered domains a node of their own, for
-+      consumers to reference and for board level constraints.
-+
-+    properties:
-+      "#address-cells":
-+        const: 1
-+
-+      "#size-cells":
-+        const: 0
-+
-+    patternProperties:
-+      "^regulator@[0-9a-f]+$":
-+        type: object
-+        $ref: regulator.yaml#
-+        unevaluatedProperties: false
-+
-+        properties:
-+          reg:
-+            maxItems: 1
-+            description:
-+              RPMI DOMAIN_ID of the voltage domain this node describes.
-+
-+        required:
-+          - reg
-+
-+    required:
-+      - "#address-cells"
-+      - "#size-cells"
-+
-+required:
-+  - compatible
-+  - mboxes
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    rpmi_voltage: rpmi-voltage {
-+        compatible = "riscv,rpmi-voltage";
-+        mboxes = <&mpxy_mbox 0x1004 0x0>;
-+        #voltage-domain-cells = <1>;
-+
-+        regulators {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            // A node only so that a consumer can name the domain with a
-+            // "<name>-supply". Its voltage stays free to move within the
-+            // advertised levels.
-+            volt1_reg: regulator@1 {
-+                reg = <1>;
-+            };
-+
-+            // A board level constraint. Equal bounds pin the rail, so the
-+            // supervisor applies 1.8V and refuses to move it afterwards.
-+            volt2_reg: regulator@2 {
-+                reg = <2>;
-+                regulator-min-microvolt = <1800000>;
-+                regulator-max-microvolt = <1800000>;
-+            };
-+        };
-+    };
-+...
--- 
-2.43.0
+Not really, if you read the cover letter you can see the history of people
+working on this, this is the final piece of the puzzle and despite the
+rather muted reception this change is a big deal (TM).
 
+>
+> The patchset is thinly reviewed and mm.git is bursting at the seams
+> again.  I'll play wait-and-see on this series.  Feel free to cluebat me
+> if that's a bad call.
+
+Err, Kiryl reviewed the entire series, I sent it in -rc1 of this cycle, and
+it's been in -next forever?
+
+Lance is reviewing now, presumably maybe David will review based on the
+fact I updated on his feedback to _expand_ some functionality here.
+
+So I'd argue this is contender for one of the top priority series for this
+cycle, actually! [and is CRITICAL for my scalable CoW work, easily the most
+important this cycle]
+
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
