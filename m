@@ -4,91 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0141C982FA
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 09:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B88C982EA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 09:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:References:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wM0rZEG3BnqvrpN12KGb6sUDNEfM18tJEefKxiYK2+o=; b=v9SKTjlwYxcXfNhLV0ajR77cdE
-	+lfnmKiLYjKQOByJz0xGD5p3AbHvwwnqxNqrzNT3siuro0h+DJ0kDJZ4yGA+c/c5hV/9In7I1S4WS
-	1Zh/c91rc+A7bChpIDRaknX2+R1V9U32JCx0lCZXxJCXYOrjlnZdhZX616H5+k4YvUIswT6ifzn/a
-	gX9972niy3xs2zNGJ2X3KRFg3Bp/LHhuPdb1GviS2qSnK3ycj0/uXo8buKrWdY/bziK8IWIj4WRUd
-	05VluDa2Utjds81FSbJlPDQsw4L9zz8ip9bSxnxEaz9S+OkF79yQrQ+Yd+ZrZ2CsJMhswuUI/VwH1
-	bhykDd/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C8Nml0lQi7YOcojzF/IZ7NPhtied1jSk5kMlcuFVwkU=; b=ErigRglq75mDFN
+	RgKcFxIIM/mujDYlmc6f4Evu1aM0wc8SlsEiF98ZWhCc6VZozpcwMbbX9+FtrLEb8O4NyToaDUm8A
+	79g+QWahvkgHBYU5tqalU+zfhOzN2iG+WqtntbGbTLEuGb19DIxtoXEZSIutjz9oZXOjC/4lN6ZfQ
+	fUOUrCefvEjIXBIhtZRSlr2FkR+TtzB8oUvIoHt262MhuEVLb7X3z7/PXqeh4CyyS28fJB19xqVr2
+	7Ib7pofAZjsALe6+YiImKXitVMP+sbswHnQceFlPMUGgQAOaeJDXcWHj3rFXp2nTtxZW7sfPeiqul
+	AUiLin4IYTLkSMnooO+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9J4A-00000007hGC-0wON;
-	Wed, 23 Sep 2026 09:15:02 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1x9J55-00000007hcE-05hY;
+	Wed, 23 Sep 2026 09:15:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9J46-00000007hCl-3bEx
-	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 09:15:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1790154838;
-	bh=RzHBofAf7YJyZ07FII2LvnkIIRSoJB9/EG93JfpCjsk=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=qTh6+gCj0Ox5+uY2pC252CptCozdENNnG6UbLAhSnyaSp1/Ur/vLefT8hd3luWNns
-	 Jmi18Fc6/euvzgirXw/iUEEryfUJJ7ZPxD23DDTtuCPC4OwE7acfFimaerFfkelKZ6
-	 kYtW0mUVxKujSKpUQOvEdG/caIWMALQzBzYZ6IKU=
-X-QQ-mid: zesmtpsz3t1790154837t580f4562
-X-QQ-Originating-IP: eFC3jACj3kP1sOn8Oha0w0ojCyaVTWCqfCWFgoeOviM=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 23 Sep 2026 17:13:54 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17194645670919471532
-EX-QQ-RecipientCnt: 14
-Mime-Version: 1.0
-Date: Wed, 23 Sep 2026 17:13:52 +0800
-Message-Id: <DLMKXCP8EDNL.JW6NFGCTMJVN@linux.spacemit.com>
-Cc: "Yixun Lan" <dlan@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05:
- Enable SD card support
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Sandie Cao" <sandie.cao@deepcomputing.io>, "Troy Mitchell"
- <troy.mitchell@linux.spacemit.com>
-X-Mailer: aerc 0.21.0-reader-ipc4
-References: <20260922110231.3426011-1-sandie.cao@deepcomputing.io>
- <20260922110450.3426070-1-sandie.cao@deepcomputing.io>
- <DLMC741RLFU5.3FF1DL7YEIFK9@linux.spacemit.com>
- <407ce3d77416bb2522b7906b0df3d5adf02c27ee.2bcc8e57.b8bf.421b.9230.3eea00252952@feishu.cn> <DLMI4JHT5Q8L.2MHI30VCCP3W9@linux.spacemit.com> <407ce3d77416bb2522b7906b0df3d5adf02c27ee.64156e26.f1af.46d5.a18c.19bc541257f8@feishu.cn>
-In-Reply-To: <407ce3d77416bb2522b7906b0df3d5adf02c27ee.64156e26.f1af.46d5.a18c.19bc541257f8@feishu.cn>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NnSC/w0LuVTXPThQKTEfRuA8vrufLoTnHxkeUq57ce6fJS4Yx3Ilmd3W
-	jEaQv93SsNhPdDehy6+Rl8d1I23nST2T3GnS8ljPbP9ER5Xatv+ie3i56NxLfu26b1eptza
-	HmpemmAgzg0ODHNTVOaCHgFOT42TDT3uPtUh78C8a/XV89HRfq8rKHze60LDU6MOJBIgv+9
-	6caFIABG7hGszVoXKbl+yfHIBS1jxMaX8RB4ytP7JERq/Rl3ljAygYwX/irVf4MRM0tXCoE
-	25QzVD9w1x4ziGSz/Xez4E+T09acz0B6Jm+DCjEpQ+Izs8QQcay30KC+T9AV5ErYKEVu3AW
-	gHe0O5dtMxrGggw5pC0ZyZhbJ1iHOoP3HYCm8qPAKY8FlAzgbvEobt55RMWhVM//ZjA9TWy
-	4TsfuYk06WT+JAoXsGHh7vpiuJbbF4s5tib1r6ay/SNfEPs5IDwcghiwqXirYD4k33e3yKg
-	r5LJsIY+qOPxRo19OLoPpw7Z2UAfSKve+qH3HjlPSW2Oy5OHiLbOCT8idctwxQnH4sQpU69
-	g6JRQ18WQvyLbePVGwwfglSU/5ACqNX2mp84hc47nJ93SyopuAo1lNFcufSt7c+3OCDk0R4
-	o9/Z+kG5PA4zgUXNNxfjWWxIjH78KL4NK4672soYbK5+Qnc8z8lRL4haswYTPXGPZyjwtES
-	66NAembmYMTpkFujC9JS8Kn6mQSQoFSqCkobnpjfZ4HPON5EndbXcNBbaUtZX3D4S3/+3KP
-	KFoBuSXQVhdP0i+uMcru4W9SJpsWSKIl0SObSUadRXvouvbDedddglA43miendS8VFaRZNl
-	p7nCu+DxSYLh5BdcEYekLzKvf36e7d6FFq+2jTcDmJmgOQ89i6kCW/H5GViIMfpcQ+svCJu
-	4derOLm/ZmREgeRKFCQRDYpEVThjvosIcoz9GXMCwX/X7+y8wMQMixHR7oHXzm9x/Ndd/2m
-	EKSa0hKlnfVHw461v1kHR0XkIbwFTVEkhe3FNhnNXLeQ9kNfEazqWnOj8/7Qoxf11oeLghy
-	+KxW13FWLBGTfPuUF5ZlIKxhqGk63fVUnwPmezprWQstflpz5VN1WzCYPA3FHgG37ZADhrJ
-	gfaobPEe/P2XfmH6zOVv1eyffCO0KNydYcqCoPFNULPWKSDIg8nOh6ksaK2ibOccDvTQTGB
-	sCIr
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_021500_306235_B51A3658 
-X-CRM114-Status: GOOD (  22.16  )
+	id 1x9J4z-00000007haK-1NzM;
+	Wed, 23 Sep 2026 09:15:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 23562601FB;
+	Wed, 23 Sep 2026 09:15:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC3B61F00899;
+	Wed, 23 Sep 2026 09:15:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790154951;
+	bh=O74zCChabJPGX/5FXG7XmXwrySBRD///uZE1gOiATno=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=SMhlc0VgRdQKdx0qwl14ANA68wVrXDsrycIDNbwUOrPzQGed7psejweuHvn9y0Upj
+	 oK9pF6NnduwDsnqfpjtJ/98OkmFP3+3GiOq1Gh9n/PtyI2qphy+ikJaaV9pWvwu/jb
+	 lgkfeUAJH/6wrnbIuYjLND8YDK30CL0Xmk3ZEGU/0LCGarFAZx7fHYPYSxTuBD/9Po
+	 M10D3egALYwoCwT9UTdFNWLlH9Bts/yO0DSd9ByK7feU9BZexVgvkgnX3iMjolsZ4N
+	 yD6SaWbdPJpvZOUAW1bcswar5pOH0YXD/VsfYA6P7+enqEtASX+lnYGFo0DZ63X3o1
+	 OTxrzvc6LwB5g==
+Message-ID: <77db2f8f-dfc2-49c6-82f6-8e6c4f7c1fd0@kernel.org>
+Date: Wed, 23 Sep 2026 11:15:26 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/12] mm: make userland page table freeing RCU-safe
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Dinh Nguyen
+ <dinguyen@kernel.org>, Simon Schuster <schuster.simon@siemens-energy.com>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>,
+ Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin
+ <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Jonathan Corbet <corbet@lwn.net>,
+ Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-alpha@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, linux-um@lists.infradead.org,
+ Hugh Dickins <hughd@google.com>, Qi Zheng <qi.zheng@linux.dev>,
+ linux-doc@vger.kernel.org
+References: <20260922-rcu-pagetable-freeing-v4-0-fe1ad1f1e303@kernel.org>
+ <20260922160021.a2fc65d05d9b867a141e5457@linux-foundation.org>
+ <9dcde7e4-dadb-4644-9dff-7fd8a26e29a6@kernel.org> <arOVbT5B1FOMe1wb@gremlin>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <arOVbT5B1FOMe1wb@gremlin>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,105 +167,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8116156482698560443=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8116156482698560443==
-Content-Type: multipart/signed;
- boundary=c948a7739b974566b3c93185804f926850ac0e094318f6082a3657734682;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Content-Transfer-Encoding: quoted-printable
+On 9/23/26 11:04, Lorenzo Stoakes (ARM) wrote:
+> On Wed, Sep 23, 2026 at 10:45:33AM +0200, David Hildenbrand (Arm) wrote:
+>> On 9/23/26 01:00, Andrew Morton wrote:
+>>>
+>>>
+>>> Do we have reason to believe that anyone is seeing any effects from
+>>> their arch's failure to rcu-free the page tables?
+>>>
+>>> This sounds like a rather long-standing wart, yes?
+>>>
+>>> The patchset is thinly reviewed and mm.git is bursting at the seams
+>>> again.  I'll play wait-and-see on this series.
+>> Do we want to nudge arch maintainers to review?
+> 
+> (Just to note that I replied separately, 'thinly reviewed' is incorrect, it's
+> been in -next for weeks and the whole thing was reviewed by Kiryl.)
 
---c948a7739b974566b3c93185804f926850ac0e094318f6082a3657734682
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Ack.
 
-On Wed Sep 23, 2026 at 4:01 PM +08, Sandie Cao wrote:
-> Hi, Troy:
->
->> From: "Troy Mitchell"<troy.mitchell@linux.spacemit.com>
->> Date:=C2=A0 Wed, Sep 23, 2026, 15:02
->> On Wed, Sep 23, 2026 at 02:35:20PM +0800, Sandie Cao wrote:
->> > FML13V05 SD card slot is inside the board, it doesn't need cd-gpio,
->> > FML13V05 Keeps GPIO88 to low, Then SD card is always on for SD Card
->> > driver.
->>=C2=A0
->> An internal slot does not necessarily mean the card is non-removable.
->> I don't think its location alone justifies keeping card detect asserted:
->> GPIO88 would report a card present even when the slot is empty.
->
-> Yes. The FML13V05 hardware is designed for this. We can't change it.=C2=
-=A0
+> 
+> The only places where that would be useful is m68k motorola, sparc32.
+> 
+> But in any case it has been heavily tested including on every single arch
+> listed with stress testing performed (I think I cover that in the cover
+> letter).
+> 
+> The changes are not controversial so I don't think that's a blocker, but
+> it'd be nice?
 
-I may not have been clear: an internal card slot does not necessarily
-mean the card is non-removable. If GPIO88 is connected to the
-card-detect switch, it still needs a pull-up. Is GPIO88 tied low on
-the board, or does it reflect the state of that switch?
+I doubt we'll ever get sparc32 reviews :)
 
->
->>=C2=A0
->> > We check the vmmc-supply is p3v3. We have the same SDK DTS config with
->> > k3_com260[1] , so, this patch follows the SD card patch of k3_com260
->> > dts[2].
->> >
->> > If this is not correct, we will change it.
->>=C2=A0
->> Could you confirm from the schematics that the SD power wiring matches
->> CoM260 and that the card's VDD is actually connected to ALDO4? If so,
->> this supply reference is fine. The same SDK configuration alone does
->> not establish the wiring.
->>=C2=A0
->> If the card instead uses a fixed, always-on supply with no software powe=
-r
->> control, vmmc-supply is optional for the MMC core; it should not point t=
-o
->> an unrelated ALDO4 rail.
->
-> We check the schematics both of COM260 and FML13V05, both use p3v3 (a fix=
-ed, always-on supply with no software power control), not ALDO4. ALD04 is o=
-nly for USB.
-> We will correct it in next patch.
-I'll send a separate patch to fix the CoM260 vmmc-supply reference.
-You can focus on FML13V05 in this series.
+I'd definitely appreciate some review on the arch bits from arch maintainers,
+but if they don't reply within the next weeks I wouldn't wait on that.
 
->
-> Best regards
-> Sandie
->
->>=C2=A0
->> --=C2=A0
->> Troy Mitchell
->>=C2=A0
+-- 
+Cheers,
 
-
---=20
-Troy Mitchell
-
---c948a7739b974566b3c93185804f926850ac0e094318f6082a3657734682
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCarOYUA0caUB0cm95LXku
-b3JnAAoJEJgJ74D5MzQv/VcBANrKAZZo7hF1396yvrURKeblfk6N29sDuw3EfLqH
-tZYVAQDII+/ULNRkpNFcStI32cx2tF70GmPyD9BkywqSZiBdDw==
-=hVAn
------END PGP SIGNATURE-----
-
---c948a7739b974566b3c93185804f926850ac0e094318f6082a3657734682--
-
-
---===============8116156482698560443==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+David
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8116156482698560443==--
-
