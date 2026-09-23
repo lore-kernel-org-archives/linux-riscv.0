@@ -4,127 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C8EC982EA
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 07:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4BC0C982EA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 07:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AkwA9KBiauC6cOVz4iLi/iNxrFyuHdJ3VKso0lT8eS0=; b=z6Y2C/5SAjN7Db
-	slQFg7mtgECk9jyTKGanIHOKPi+0L7JvBy9PIYwIC2HQUqG+dNQOK70pZEZ2icth7ppuWk0VgelWB
-	7Js0clfdNRmZHTTRZ6OsjkRmpGTjWu3gLAhunk1cpg13TGjZMpn92iGmFm3QKBYKb9JutAmDiaZIP
-	bOoZA9ZpdJyViqIgyfdV8rD9XwuyfpRd332O3qvbH21bLqMDV8ldRsMbowvbduC7C6cqnLyNm9zS5
-	m6dURcS4dywm8FaBWAnpiBMMzIoIIAN7tZtzGrwd24aplHfdMYQGBP7E7pZMTfJhnkGQuJEheaVDJ
-	D1ku5BHOK0CQ1oM7LQkw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ipOfQTxb14SVvISOn8uePOgrXz0AXaYtV+N4s4hcl+k=; b=ssxj4NN5e6lt8v
+	pOqb82P08CfgRr8+lv2qLBZJIeDIKbtXOjkvvwWfQ0of7SPK6jAYrq/ocwDLEDYz6bgMEz0PSN+48
+	3ZKRTyj6FbL+cy9DU0yLIqoHhQY5EnQozo5se2wV8JT+z3gFhtN+BNHcSGwUSg9HismecJYWkRG9W
+	aZlK3gHRUcrQtQ1roS/AhoHEArjZSHY+XqX/CYmB7S5sWvfcjPEQAytpY1Tu9lf0oys+iFLOC7ya3
+	nL1oaF6O5u8/SMaiOQqqSlMKh9Dt/QHjt3/ye6ddfRKXdTpokFiPXLpToNZpIr5SMZtZcH9C6D8OI
+	60Z3Bs2z4cemidypsN7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9HEl-00000007Nwc-2TKZ;
-	Wed, 23 Sep 2026 07:17:51 +0000
-Received: from mail-sh0chn02on20706.outbound.protection.partner.outlook.cn ([2406:e500:4420:2::706] helo=CHN02-SH0-obe.outbound.protection.partner.outlook.cn)
+	id 1x9HFc-00000007OCT-3IJj;
+	Wed, 23 Sep 2026 07:18:44 +0000
+Received: from out-212.mta0.migadu.com ([2001:41d0:1004:224b::d4] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9HEi-00000007Nu0-3GoY
+	id 1x9HFZ-00000007OAW-3byo
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 07:17:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=jBkZdAIF2lnm9887I/OSJjFmMULyEVQONjWJEdT9EeToDiEkuDntykzPjLeUTJlWovYPNU1mCsfTrN7d41LHAJJbd053M2Bi4/ivWxK8eAWx422GgOV37vEWUUzpmWwW3fypoNiqkbzmAqi75MDN2gaFGjXhYtMVr6AB+G4ueXNGc7oM2i4b9XwD41bzSQJc7Ft6ihk2gpAwqGImryenx3Z/Xhk2nMuhE42W+ztrez9UC5jPDn4r+THtZeeeMrNdvyTPQorktzt+7hVpf9UHNJIZteLa7QQIWd6dN7cN/Qtsfnn1KPV6klkyFHwWBvL6n/ljSvbBHSQ8nL58oBrXsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=irnVDWFttz1e//c8BfuslPvLUHHurWw+n7z2NsqSBtA=;
- b=evLzOvUhAB6nVwKUHTlF3YyCZg0pf843tb+PQ5epkMJFyoVXKNtkU4ZaSvO5j2G0a/MHWOyo2qQVFg5jp3lAOlvRCAa1FccbpFAqsYqULVFdg1sczF/KEekVBdqr3vncw5gadNlNZkPpyMFoIJA3odzsXJYOvZgIJMfh3f4MhXvzIMHGKFim+g7EUzWGxHobjINGBQ4q+z+qC5uqZvryezYuS6zbbO3ckgBO3kCtdHNZcXmo64DE4u38lC8VkhtITr/4RDsUsCjv7C3hsuqkPpJTE4CtAAXqgCOuw24fsnXrVw1ct45/Jbh7B3mUjFTcw2mvmG1CS65jfVkBWogB0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:1b::23) by BJXPR01MB0517.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:14::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
- 2026 07:01:14 +0000
-Received: from BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
- ([fe80::e644:7bf5:5a3c:e548]) by
- BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn ([fe80::e644:7bf5:5a3c:e548%3])
- with mapi id 15.21.0451.014; Wed, 23 Sep 2026 07:01:14 +0000
-From: Joshua Yeong <joshua.yeong@starfivetech.com>
-To: broonie@kernel.org,
-	lgirdwood@gmail.com,
-	rahul@summations.net,
-	anup@brainfault.org,
-	lftan.linux@gmail.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: alex@ghiti.fr,
-	joshua.yeong@starfivetech.com,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/3] Add RISC-V RPMI voltage service support
-Date: Wed, 23 Sep 2026 15:00:11 +0800
-Message-ID: <20260923070014.1340761-1-joshua.yeong@starfivetech.com>
-X-Mailer: git-send-email 2.43.0
-X-ClientProxiedBy: BJSPR01CA0020.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:c::32) To BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:1b::23)
+	Wed, 23 Sep 2026 07:18:43 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=ftIfSiBGVQtCnPrtNG2sYlwb3kX4tGScpi67ufltGms=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790147919; v=1; x=1790752719;
+ b=FHSXsCJQcp2gatF8FVoRNlCOC3RUxKusFciABMnOKMktthHKbq2b2ZOwx6kOrSPpjx7os3yI
+ /95+roTwVxLT2tjaAarjwQKWhn3YLdPJjaciTqRQgVH3GfSdXApZMeQ2B5NE3PfXb01CQo8kzCM
+ iInnn1P+PNiR0Pz5fazcaZ9g=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id a804e1edd13ff3f4;
+	Wed, 23 Sep 2026 07:18:38 +0000
+X-Mizu-Trace-ID: a804e1edd13ff3f4
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <8769d7a8-9442-4dbb-9828-01447e4320d1@linux.dev>
+Date: Wed, 23 Sep 2026 15:17:56 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BJXPR01MB0838:EE_|BJXPR01MB0517:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1645cf11-36e5-4e59-d460-08df19407514
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|7416014|1800799024|52116014|38350700014|921020|6133799003|10067099003|56012099006|5023799004|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: WDp16nQzF1pEbTFwoiSV/oMoJ+YI/XB6btAzETtbOAFBcG/1Iqn0hAW7Q7zncj47h13wwNNvgEgPcySuxwY4Xvfhh/hMxnmK+bVxImSG35CLYad/wXm4zw1xqtNs/Y0fgMRKQzZTK6LS/bECEJjX0+c0ol1Tvh7yNgBShNrmidrnd0I0RmFQfYNXOCdORfUuF51GmtvfYDUZhgyDKRr4vKOW4P9exVRGpSkSOSqXcNMagxxeFtBBKEuKzyrA04o0jERCrHnyXSeQWPGNnd3AghzDzgKbF3Hs7xUBZP2jrw7h6HlsHv80xPvn93NtW06OeJgztxrx1KJ+nW/h9ALxza6DKyS9+K/xrpvm7kk5e/DHlUYT931wK2wj/ZVSUh4aQrRAEjPwMv+U6K5dqUPCQGn8Ex8MwSivrKyfray+RWZzSkca8S8/YFN5xKXjcYQf5Or7kE/SoME4U0A3OA6Ff7ObEf/wUJ/XL+VQIOGjH4KVYXXJdUHx9uk2k2LJ3QdLURxjobPsV3WOqDwbqcnWW/+jTGEIdCgYaDMrD497w0yAeK44hrEkFYhRpN99Gpg6qEDipymmnxSGP7sl31NaeA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(7416014)(1800799024)(52116014)(38350700014)(921020)(6133799003)(10067099003)(56012099006)(5023799004)(18002099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1fiW9I20bX0yXWKmbg8ZE+WPoBirMlUHqZU48iNDmFAFSgd2fEsRMQdQsVFU?=
- =?us-ascii?Q?ST5eepgq70OmZrK65s30NZW1XUVhIcDKHjeYHfcgLbCVPCel/yttPfKRFrrU?=
- =?us-ascii?Q?lu4UF2SJ1MJWoffjyPQzLtUjqkrIFq/+Ske4ryvdDuN1Xks10e3+TV4BaQ9t?=
- =?us-ascii?Q?y4wwUBZpv3J4aa3xoLeJ9Geaz3rTAKXxnBR8h/YTQYlQy2gJ7QbcrUVu8dIL?=
- =?us-ascii?Q?siOh9sYeWAI0vReo/qIc/6PR9EKk5bn1AeOM+Tnk6oPqujUym8YF4fbiq7AW?=
- =?us-ascii?Q?SK6FwXrQonUkos9hm12EhxXRkTs7XCRmbu5jQgM20wYjWWznB3KQ7ES7CHZf?=
- =?us-ascii?Q?1er5ocV2DuqENbDflfjoCn0MCzUX5CVoi4GM1Qo9hjYtF84+F1haAXpqsbOu?=
- =?us-ascii?Q?m+/5lknQoqcwJTPdZMobZ2rsfuVr/SyJfYHFKByueBsBV/V8uDk2YaPHcBwD?=
- =?us-ascii?Q?y0T8eL48tM3cKazPM2w0o5ZGJvh6/gcS++25X50GlCnh3iWobpTwP72uTKo6?=
- =?us-ascii?Q?FOqA9Yh7oZtQw81iFpe7T2ZMP1oTEH5Q5U7o9AZBSa2ogo2HezcE28O0yraz?=
- =?us-ascii?Q?M1lG/rkcrUWmz9X4HdNoUXHneXkmcGcd9upcPnIMuJ3CXejbnuVnWYLKrD7o?=
- =?us-ascii?Q?H0bvugCMsYbUKwqhQQi4CmhgA690IqFcBp0HR1sSxZtvu5yq4dO5oWMdSMwL?=
- =?us-ascii?Q?ttt0UdM25Fma5ntYIhWnGU/E0OG/q2VdWh/bCpwP8DxKKm1BAGnzMLjkQkVM?=
- =?us-ascii?Q?4A66kYazAwshgHWpYQxNl/lYP8EdxSqETR4T/0cj8KTDS9fYnOgUKl9+VvUH?=
- =?us-ascii?Q?gwbqOj2CmKLuD3z7ygUcoKq6ugGOliO5c/OwLfv0c57seV7QQRzilUsDpDDy?=
- =?us-ascii?Q?kZeFs0PR9W91cWMWTO0HILf7iaxIvu2ADsXPQFtHEh5eQ7KB0DcUdvLqhNLY?=
- =?us-ascii?Q?pGVZp22aXrgz/1n2A13rVS4al2aF++ZDtSE5xZeMFUXa8npHhcnsIQoeXtFA?=
- =?us-ascii?Q?e8eUYHi8z+3o+kYdo7w1Y55fsxmIi7hlFosDPCfNfNyGj59D5zm+pCSctShC?=
- =?us-ascii?Q?Doc8ZxLXdBBZhMTWuLdtHBIFwO/5erfZwflXXYqldLMvSW2Q6Y4fPPFlAlBa?=
- =?us-ascii?Q?VsrfuxF6M7gL7LFIughh5AqHOoMPb+AKKNXVrMqcvuvfjfgpRi8x6sjaIZtM?=
- =?us-ascii?Q?kpA//5c6zTt8mAK2Y3zrbhhEQ0L/ZlKa6HTDw4yELVVydZAOqCpMNUn7Xc3Y?=
- =?us-ascii?Q?/yuGs0qgMH658hdjBCB2dNIq3zRMmnPSXU2/U6iTMsLVTj7EFpR2vxs08MyK?=
- =?us-ascii?Q?q7XMT9LbVWK8QZOBdLwN/VogG3MSvVdASTwkYqjDg0PVnCVX202MgXEoiN7F?=
- =?us-ascii?Q?M5iUt5I/j2/IWHoca109YTn3w/nPm0Cs/eqOw5OqqGmpCKtID40r0w2KHRAn?=
- =?us-ascii?Q?1itzEuDLQZ9aww3kY12wOPPYYLsTIC5ErrMZ4ILVcpAzW7JH2E4UI9DzR6f2?=
- =?us-ascii?Q?K6k0r8XVbLSQ36vLmDEXp1ECmgbCF3Wedi6sWl3yrGa/jHjsi7EUHC3SLbUj?=
- =?us-ascii?Q?wYfS7u9h19taZ92Ucj/zUXUko6yhIHSaDkbaLhK79Kpp2i7xhrPPVI0ITBL2?=
- =?us-ascii?Q?md2gQBfGPy+cTJFXo33ILyDUto2h1rtNvOmRGykz00xQ9fLh+j6iJRnukVEV?=
- =?us-ascii?Q?3GWT7sYAdJaPWbkfwHATic8DvpwLYE0reOiXGpUH8NE8JnzRHemRGI/l1NIu?=
- =?us-ascii?Q?pbJtKjSiqXYM1hyL9z54Nbv3FVr8LyI=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1645cf11-36e5-4e59-d460-08df19407514
-X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0838.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2026 07:01:14.6213
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Kn/zMuIvmVG3vDbjR3CSayP7eZtfuhrK4yh5/ah8xsI+FzrRGRjm9ZtZ04cZVfLYdNLSxz4XMhout3Vqar3BemZb4HM/+dEgpJIAz5p0hi0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0517
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 03/12] mm: enable MMU_GATHER_RCU_TABLE_FREE for MMU
+ riscv
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: akpm@linux-foundation.org, david@kernel.org, ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com, liam@infradead.org, nico.pache@linux.dev,
+ ryan.roberts@arm.com, dev.jain@arm.com, baohua@kernel.org,
+ usama.arif@linux.dev, kas@kernel.org, guoren@kernel.org, bcain@kernel.org,
+ geert@linux-m68k.org, dinguyen@kernel.org,
+ schuster.simon@siemens-energy.com, jonas@southpole.se,
+ stefan.kristiansson@saunalahti.fi, shorne@gmail.com, dalias@libc.org,
+ glaubitz@physik.fu-berlin.de, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, linux@armlinux.org.uk,
+ vgupta@kernel.org, monstr@monstr.eu, chris@zankel.net, jcmvbkbc@gmail.com,
+ will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
+ peterz@infradead.org, davem@davemloft.net, andreas@gaisler.com,
+ richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com,
+ catalin.marinas@arm.com, mark.rutland@arm.com, chenhuacai@kernel.org,
+ kernel@xen0n.name, tsbogend@alpha.franken.de,
+ James.Bottomley@hansenpartnership.com, deller@gmx.de, maddy@linux.ibm.com,
+ mpe@ellerman.id.au, chleroy@kernel.org, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+ svens@linux.ibm.com, richard@nod.at, anton.ivanov@cambridgegreys.com,
+ johannes@sipsolutions.net, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, arnd@arndb.de,
+ vbabka@kernel.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ jgg@ziepe.ca, jhubbard@nvidia.com, peterx@redhat.com,
+ ysato@users.sourceforge.jp, shakeel.butt@linux.dev, corbet@lwn.net,
+ rdunlap@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+ linux-arch@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-alpha@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, hughd@google.com, qi.zheng@linux.dev,
+ linux-doc@vger.kernel.org
+References: <20260922-rcu-pagetable-freeing-v4-3-fe1ad1f1e303@kernel.org>
+ <20260923061551.84398-1-lance.yang@linux.dev> <arN6JBJixHUjX2CJ@gremlin>
+Content-Language: en-US
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <arN6JBJixHUjX2CJ@gremlin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_001748_839249_1D3B3892 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20260923_001842_137495_461AB11D 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,149 +102,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V Platform Management Interface (RPMI) specification defines a
-modular and extensible messaging protocol between the supervisor software
-and a platform microcontroller (PuC). Among the service groups it defines
-is the voltage service group (service group ID 0x00007), which allows the
-supervisor to enumerate the voltage domains managed by the PuC, query
-their attributes and supported levels, switch them on and off, and
-get/set their voltage level.
-
-This series adds supervisor-side support for that service group:
-
- - DT bindings for the regulator controller exposed to the supervisor
-   ("riscv,rpmi-voltage") and for the SBI MPXY channel that the SBI
-   implementation uses to expose the service group to the supervisor
-   ("riscv,rpmi-mpxy-voltage"). The name, level format, supported
-   levels and always-on capability of each domain are discovered at
-   runtime, so none of them is described in DT. A consumer names a
-   domain either through a "<name>-supply" phandle to a child of the
-   optional "regulators" container, whose "reg" is the RPMI DOMAIN_ID,
-   or by DOMAIN_ID alone through "voltage-domains" against the
-   provider's "#voltage-domain-cells". A child may also give the
-   board's regulator-min-microvolt and regulator-max-microvolt, which
-   the PuC has no way to express.
-
- - A regulator driver, drivers/regulator/riscv-rpmi-regulator.c, which
-   talks to the PuC over an SBI MPXY mailbox channel. At probe it
-   checks the RPMI and service group versions, queries
-   VOLT_GET_NUM_DOMAINS, then for each domain VOLT_GET_ATTRIBUTES and
-   VOLT_GET_SUPPORTED_LEVELS and registers it as a regulator. Both
-   level formats the specification defines are supported: discrete
-   levels become a voltage table and linear (min, max, step) ranges
-   become linear ranges. The constraints are built from the discovered
-   levels and the always-on flag, with the transition latency as the
-   settling time, and a DT child can only narrow them. Enable and
-   disable go through VOLT_SET_CONFIG and voltage selection through
-   VOLT_SET_LEVEL and VOLT_GET_LEVEL.
-
-   The regulator core only follows "<name>-supply", so the driver
-   exports devm_rpmi_voltage_supply_alias(), which resolves a
-   "voltage-domains" entry and registers a supply alias for it. From
-   then on the consumer and the OPP core on its behalf, uses the
-   regulator API as for any other supply. fw_devlink does not know the
-   property, so such a consumer is not ordered after the provider and
-   defers until the provider has registered its domains.
-
- - A MAINTAINERS update adding the driver and its bindings to the RPMI
-   device power entry, renamed "RISC-V RPMI DEVICE POWER AND VOLTAGE
-   DRIVERS".
-
-The series has a prerequisite: the RPMI device power series ("Add
-RISC-V RPMI device power service support"), which has been applied for
-next:
-
-  https://lists.infradead.org/pipermail/linux-riscv/2026-September/099498.html
-
-Patch 2 needs it for include/linux/mailbox/riscv-rpmi-message.h, where
-the voltage service group definitions are added next to the device
-power ones that series introduces. Patch 3 also extends the MAINTAINERS
-entry it adds. The base-commit and prerequisite-patch-id lines below
-identify the tree the series applies to.
-
-Changes in v2:
- - Drop the three consumer nodes from the "riscv,rpmi-voltage" example.
-   They carried made up "vendor,*" compatibles, which no schema matches
-   and 'make dt_binding_check' therefore rejects, and the phy also
-   carried "voltage-domains", which nothing gives a type. Both ways of
-   naming a domain are now shown in the description instead, which is
-   prose. A consumer of a domain named by DOMAIN_ID cannot appear in an
-   example until a consumer binding describes the property itself.
-
-   The driver and the MAINTAINERS patch are unchanged from v1.
-
-v1: https://lore.kernel.org/r/20260922161156.1088153-1-joshua.yeong@starfivetech.com
-
-Testing
-=======
-
-The series was tested under QEMU with the RPMI voltage service
-implemented in firmware.
-
-Components:
-
- - OpenSBI: v1.9
-   https://github.com/riscv-software-src/opensbi
-
- - QEMU: the RPMI-enabled tree at
-   https://github.com/yeongjoshua/qemu/tree/rpmi-v11.1.0
-
-Kernel config: enable CONFIG_REGULATOR_RISCV_RPMI (default y on RISC-V
-when MAILBOX is enabled) along with the SBI MPXY mailbox driver.
-
-Run with:
-
-  qemu-system-riscv64 \
-      -M virt -m 2G -smp 4 \
-      -bios fw_dynamic.bin \
-      -kernel Image \
-      -M rpmi=true \
-      -nographic \
-      -initrd rootfs-busybox.cpio \
-      -append "root=/dev/ram rw console=ttyS0,115200 no_console_suspend mem=2048M earlycon=uart8250,mmio,0x10000000"
-
-The emulated PuC advertises eight voltage domains, covering both level
-formats, always-on and switchable domains, and domains the board
-constrains in DT. They show up under /sys/class/regulator/ and in
-/sys/kernel/debug/regulator/regulator_summary. Consumer test drivers,
-kept out of this series, walked each domain to its highest and lowest
-level, switched the switchable ones off and back on, and checked board
-ranges and requests from several consumers sharing a rail, named both
-through "<name>-supply" and through "voltage-domains", including
-requests carried by an OPP table. All checks passed.
-
-Joshua Yeong (3):
-  dt-bindings: regulator: Add RPMI voltage service bindings
-  regulator: Add RPMI voltage service
-  MAINTAINERS: Add RISC-V RPMI voltage driver
-
- .../regulator/riscv,rpmi-mpxy-voltage.yaml    |   65 +
- .../regulator/riscv,rpmi-voltage.yaml         |  147 +++
- MAINTAINERS                                   |    6 +-
- drivers/regulator/Kconfig                     |   13 +
- drivers/regulator/Makefile                    |    1 +
- drivers/regulator/riscv-rpmi-regulator.c      | 1077 +++++++++++++++++
- include/linux/mailbox/riscv-rpmi-message.h    |   14 +
- .../linux/regulator/riscv-rpmi-regulator.h    |   41 +
- 8 files changed, 1363 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/devicetree/bindings/regulator/riscv,rpmi-mpxy-voltage.yaml
- create mode 100644 Documentation/devicetree/bindings/regulator/riscv,rpmi-voltage.yaml
- create mode 100644 drivers/regulator/riscv-rpmi-regulator.c
- create mode 100644 include/linux/regulator/riscv-rpmi-regulator.h
 
 
-base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
-prerequisite-patch-id: 907ffadca74a65c93ad38f428e002d2b34341067
-prerequisite-patch-id: 5a4df94e66de2f63697891a0f1382fabd9df7b6f
-prerequisite-patch-id: 0827a7050d08fea7deaab8e82f2dd16acdca507d
--- 
-2.43.0
+On 2026/9/23 15:05, Lorenzo Stoakes (ARM) wrote:
+> On Wed, Sep 23, 2026 at 02:15:51PM +0800, Lance Yang wrote:
+>>
+>> On Tue, Sep 22, 2026 at 04:35:34PM +0100, Lorenzo Stoakes (ARM) wrote:
+>>> Currently riscv gates MMU_GATHER_RCU_TABLE_FREE on CONFIG_SMP and
+>>> CONFIG_MMU.
+>>>
+>>> Commit 69be3fb111e7 ("riscv: enable MMU_GATHER_RCU_TABLE_FREE for SMP &&
+>>> MMU") enabled CONFIG_MMU_GATHER_RCU_TABLE_FREE for CONFIG_SMP, CONFIG_MMU
+>>> riscv builds.
+>>>
+>>> This is expressly for the safety of GUP-fast walkers (CONFIG_HAVE_GUP_FAST
+>>> is enabled if CONFIG_MMU is enabled).
+>>>
+>>> Naturally a single core system does not encounter issues with software page
+>>> table walkers being correctly synchronised across cores, as there is only a
+>>> single core.
+>>>
+>>> However, CONFIG_PREEMPT_RCU is still available on a riscv UP system, so for
+>>> a future RCU-only page table walker, this guarantee is required to prevent
+>>> concurrent page table teardown.
+>>>
+>>> All page table freeing is already done via tlb_remove_ptdesc() so the
+>>> conditions of CONFIG_MMU_GATHER_RCU_TABLE_FREE are already met.
+>>>
+>>> This forms part of an overall effort to switch every architecture to this
+>>> mode.
+>>>
+>>> Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+>>> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+>>> ---
+>>
+>> Yeah, for RISC-V, page-table freeing already goes through
+>> tlb_remove_ptdesc() :) Tested on QEMU, no issues seen :)
+>>
+>> Tested-by: Lance Yang <lance.yang@linux.dev>
+> 
+> Thanks! :)
 
+Cheers!
+
+> A cheeky A-b tag possible too? :P
+
+Sure thing! Here it is :D
+
+Acked-by: Lance Yang <lance.yang@linux.dev>
 
 _______________________________________________
 linux-riscv mailing list
