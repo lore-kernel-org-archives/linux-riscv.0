@@ -4,167 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2F6C98302
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 02:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5419EC982FA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 02:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qMMOYVomfPCCLMX+dpPdV5m3KZz7snN8E3YNWkVM/zM=; b=DEDBrvv10j4IDA
-	kOxX2P3zn+Ool+68HOWPq8iCnbtozWEliBloYXgc255475qwYioSzyXcwLACaloRCHAIFOunpDbYv
-	5MOlm2Hhc3BMJl+2URjI7UGOylvPbPTMTfXTTBriDlz+19D1g4c8TKdPZ4gm3H2npaj6cKs0Mq1a1
-	HGsTHNznahS0x8+g5ov0sFTOOpYIb1HDAZNbVl7FCFu/kS/WLkFaNcw5rhnhwWVbcLPoLEOIaQ6Lp
-	hFOz3WWhquZNsLDlkerD2dyQAMWTF7zAif1xfiebtEfrv4/Cf+ci/3mRLLqNj3JGKrBDn1xJCkAAc
-	sN3YQovfhLAdVTT0Te4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iRYWnz+SrDYBy/BJjPfKSLyJBOo+cNcINXUOqiJK3iw=; b=y+z6QCGkuOHajYEZBs/VSG28j3
+	GOTQtF/lxT2jdm6ZDCvXzJLCYC7rciQmAunqRIxBjJQawsjKToHRMmcDuhKYaLeXH2i4yCKrRgpr7
+	J8D5qdlnKb/xf3tmrUzTrZv7+yKC1Y/DaY6r52egzkZs39wFyr5LgVqct5R9vuTWdLTHVb7i5B4m0
+	8e/kFIXfEIdGvHeHVYbMwgWFULfy4P20vkqsrg0CK/vgcMhrR8kEuSmw6BMNTlBlC8W8Zs4zfu5Lh
+	PNYdXdRvkXhSNVYRY2yvJCqMbLP4uahuTAo/n4BZDHr3sTX0BfXmjmEIFicwW1m0cYuuZAWmamUYv
+	lE7hd6bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9CfE-00000006vqh-0lEl;
-	Wed, 23 Sep 2026 02:24:52 +0000
+	id 1x9Cfn-00000006w45-1meg;
+	Wed, 23 Sep 2026 02:25:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9CfC-00000006vq6-37MP
+	id 1x9Cfm-00000006w3e-0O3z
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 23 Sep 2026 02:24:50 +0000
+	Wed, 23 Sep 2026 02:25:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:References:
+	In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=89+U8KAEwLqIX9mpcp+eoIG3lsJI+yoRSssy/pmscRA=; b=Jz3JDldX8EPKuficTgME69E3Dy
-	zTyDhv2wZsNU0IpyD9IweSwdNyYLESxmqyPqez/zuj/7/f1SmvvcqhF3Bqt5AXffTY5mgpWWn5Zz1
-	UlvcpxPmxATnYaat2ipZSqZ3WTfrlwzvZv2gBzEeAbwtD7kL6ujYc4iIqCJ4054WjICqeLqblslJG
-	xEA8+TrBFC1bC3i1tuvMUcu6MALmmDOGrGKzgfEbBTSU/qWxKNbNnJ7VpUQnJ0KtC2jx+nvIPV0Ue
-	q5vP8ACyL4HGqKJNd+XbQMQurn3To0LkgloHmfuBarFVscpWh+pjGTCdxAUASnnBxGS5x/0O9cMh8
-	g4zgIhHw==;
-Received: from out-90.mta0.migadu.com ([2001:41d0:1004:224b::5a] helo=mta0.migadu.com)
+	bh=8eBwOgT/P+WBWiIFGIYRyTHNte9OZxM1YATGcOp6ONg=; b=dp2bTg0TLzLGOB+SSFp25Zg4Ii
+	5bBEYgUSfBSt8KCldKfciJHv9BkHnfh3fqVVs5ys2VZRAG+NLFAUplDsXos1BHfW8ve4mS6a0xlR6
+	fUIzzMSdJcM6I1ClxLshQSvnsf54OM/yxmiLXGeQziv29eE9QBq8fOC+t8jxSi6jCw6ud+MRTn+gF
+	a2mJlICS6zSMLOekzdXP0cMqCbAb0DuszpOAWcT5zQLGkrcG47jcHXwV/uCeEe1bO50BlK1nvL4fc
+	9xyuQlxGoOHRU9hVb6E0OA2Fjl0t/jijeespydhp4DrqJduj7E//DcN68ol7jcC8/H6hfwFCtHiUo
+	CZD0gt8g==;
+Received: from smtpbgeu1.qq.com ([52.59.177.22])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x9Cf9-0000000EHDE-2anQ
+	id 1x9Cfe-0000000EHH9-452a
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 02:24:49 +0000
-X-Envelope-To: linux-riscv@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=d3FVAdMqEDWFoCMHxuxCTxk+fOdRBfvFdCrMB1cIOo0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1790130285; v=1; x=1790735085;
- b=sDgJie3TWH+fdw4bP6AFL2R01tqn+weltrhVYfbvKl/ZicGlcDHYgmQQA1cpzDCeEmLO6ipb
- iqxgjthgdfUmW4p8oo/f9rSxjGHmq7xg/niFAEbe0seoUnYPui5S0vth/9PAMtGIEyB/QXMx88W
- Z6r0R3UbMASmsfgCjk3a01GM=
-X-Envelope-To: linux-riscv@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b86f8e4163d69484;
-	Wed, 23 Sep 2026 02:24:43 +0000
-X-Mizu-Trace-ID: b86f8e4163d69484
-X-Migadu-Flow: FLOW_OUT
-From: Lance Yang <lance.yang@linux.dev>
-To: ljs@kernel.org
-Cc: akpm@linux-foundation.org,
-	david@kernel.org,
-	ziy@nvidia.com,
-	baolin.wang@linux.alibaba.com,
-	liam@infradead.org,
-	nico.pache@linux.dev,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	baohua@kernel.org,
-	lance.yang@linux.dev,
-	usama.arif@linux.dev,
-	kas@kernel.org,
-	guoren@kernel.org,
-	bcain@kernel.org,
-	geert@linux-m68k.org,
-	dinguyen@kernel.org,
-	schuster.simon@siemens-energy.com,
-	jonas@southpole.se,
-	stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com,
-	dalias@libc.org,
-	glaubitz@physik.fu-berlin.de,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux@armlinux.org.uk,
-	vgupta@kernel.org,
-	monstr@monstr.eu,
-	chris@zankel.net,
-	jcmvbkbc@gmail.com,
-	will@kernel.org,
-	aneesh.kumar@kernel.org,
-	npiggin@gmail.com,
-	peterz@infradead.org,
-	davem@davemloft.net,
-	andreas@gaisler.com,
-	richard.henderson@linaro.org,
-	mattst88@gmail.com,
-	linmag7@gmail.com,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	tsbogend@alpha.franken.de,
-	James.Bottomley@HansenPartnership.com,
-	deller@gmx.de,
-	maddy@linux.ibm.com,
-	mpe@ellerman.id.au,
-	chleroy@kernel.org,
-	hca@linux.ibm.com,
-	gor@linux.ibm.com,
-	agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com,
-	svens@linux.ibm.com,
-	richard@nod.at,
-	anton.ivanov@cambridgegreys.com,
-	johannes@sipsolutions.net,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	arnd@arndb.de,
-	vbabka@kernel.org,
-	rppt@kernel.org,
-	surenb@google.com,
-	mhocko@suse.com,
-	jgg@ziepe.ca,
-	jhubbard@nvidia.com,
-	peterx@redhat.com,
-	ysato@users.sourceforge.jp,
-	shakeel.butt@linux.dev,
-	corbet@lwn.net,
-	rdunlap@infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-openrisc@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arch@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	hughd@google.com,
-	qi.zheng@linux.dev,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v4 01/12] mm/khugepaged: deposit a newly allocated page table on collapse
-Date: Wed, 23 Sep 2026 10:24:36 +0800
-Message-ID: <20260923022436.61930-1-lance.yang@linux.dev>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260922-rcu-pagetable-freeing-v4-1-fe1ad1f1e303@kernel.org>
-References: <20260922-rcu-pagetable-freeing-v4-1-fe1ad1f1e303@kernel.org>
-MIME-Version: 1.0
+	Wed, 23 Sep 2026 02:25:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1790130214;
+	bh=8eBwOgT/P+WBWiIFGIYRyTHNte9OZxM1YATGcOp6ONg=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=P+V+gBb16B9JBIdJ4v8NDnqB5UogIhiCrEviGXYO6bwoUmbDRiMuCw6W/uxOZByzs
+	 h5VRZZ20G7g5+fJ9kVtVuGqcgmxdUK8kAB5l+vtrviLEWYfxNq5uVmW0cefE+9ihDv
+	 LqW7OaySTrSM/TGnkhzcW42Gl3y4y9yAnxl/Drbg=
+X-QQ-mid: zesmtpsz6t1790130211ta5ccfb27
+X-QQ-Originating-IP: Hv1VSePmG7o57TixVmzrTLL07Q9k+KrYHHFrBMvoc4Y=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 23 Sep 2026 10:23:29 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 10725776021509883648
+EX-QQ-RecipientCnt: 14
+Mime-Version: 1.0
+Date: Wed, 23 Sep 2026 10:23:26 +0800
+Message-Id: <DLMC741RLFU5.3FF1DL7YEIFK9@linux.spacemit.com>
+Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Sandie Cao" <sandie.cao@deepcomputing.io>
+Subject: Re: [PATCH 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05:
+ Enable SD card support
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Sandie Cao" <sandie.cao@deepcomputing.io>, "Yixun Lan"
+ <dlan@kernel.org>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>
+In-Reply-To: <20260922110450.3426070-1-sandie.cao@deepcomputing.io>
+References: <20260922110231.3426011-1-sandie.cao@deepcomputing.io>
+ <20260922110450.3426070-1-sandie.cao@deepcomputing.io>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Nv8rTAnDNEemZcCjp/1hlxAwrVVrzDFmrX+XzHjnZbwvjRgecRhjGDmC
+	hdPaw8DVT9yGMNreHLPUonztD90Ui5Vma4c6YPwRL2UpOUCixBV1XbjVvUeEhzyJrc5ZRNN
+	RXdx4ZZNUrfxllEjpUlg4gfXh5MOQXSJb28Jlp6Ok1aNqPXHtXfiNzW6qmDv3/a6Kie6A8q
+	C00H3YZYN3mqbPWN7ss8rAKPf90WRbr9gRvHvEc299/OQtoAz8w3HdrZ6ZjGjjmRhEI+9w/
+	VdEM+GwkHwZKv0cZ6/x03mCUArFCcvjx9D92DWStlC3bBJrVzjgKP8CkhdofVHOjxIcGJAf
+	d9f6T489M3BfZfYEjf9oGDGK71oTu9/A55GCFqGhlzklWFAe4jKG0oqZCFytHCbAJLvP0zt
+	aw+50oLQcis9oygbvlIVmMn5lJ/A/5/CkcD1XFY4XwTLUR2o+EfscdoLUNWwgRvVybADWUF
+	mVLnYM33IoRxPlFJvH5LfFa/bQ9FJISqBz2hm2OXuTQE7QOuQ9kwy8GnUGQT3ttMVnMykcm
+	pmqvw3YihtPlMV3GsyX1D58SPuWx6kje0efmyBHplTN04wJUpIg9ro+kQ3SWRU85PmGvQ1w
+	RmxYkQ+W/hMnQB2LH3qUoDA4d4mC8CFoYG4r6eTJmerRBk6Cm8Bum8wwDwqyP4hzc5tTttC
+	76kr7GIITAGyB7l8Lcjf9jXiwFPv4ZXTwlIrhH7yrd/j8sYzfHliviecAERZLRRuaA2CB3p
+	zPRpSizHYnhxtPr2BATGpks3f/4SfBmHXymw5Y738VLyrG2O6+wc/7Q48roAQ/4XVk1k9ZF
+	3AdrnEUmACxSjKNzzhxjh5g99UWoMdmLPu/mfIHChomlwogXn/E77l6XZ39Vx5J5MuqsOao
+	Xj5CfvzsNMG5t7G2ijGmWeysvXRbzbmg4jTFe2sbI3tYbvMrdAox+x4OhwofdVEbPqMhQ0s
+	ThsmOAonZFBiiYfLrwqcwEUBlsBIoVdq9W3NNsgsPm7dZB6XJeOwaFjuhIuwd7fc+rol/Cv
+	4HHahwzfPNlXTpNUplIJXJmrPq4z0V/jj4AM6JxOHCvdPW2j7SoE1tpGmtciTW22frTk4zI
+	d5HMlriVYDxQkCiYFSOvqZun5II0y2cksk5ohyYq699
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_032447_886129_CEFE63A7 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20260923_032519_681360_73864944 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,137 +112,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5079064463145664676=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============5079064463145664676==
+Content-Type: multipart/signed;
+ boundary=ac315c91ecc3c3395b0dbb991c1f84a289bae2ebd6cf0113e2bb44b50761;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 7bit
 
-On Tue, Sep 22, 2026 at 04:35:32PM +0100, Lorenzo Stoakes (ARM) wrote:
->collapse_huge_page() deposits a PTE page table on PMD collapse in order
->that it can be utilised for subsequent split operations, meaning that those
->operations do not need to perform an allocation (as they are in a context
->where it might be unwise).
->
->However the PTE page table which is deposited is the one which is currently
->mapped by the PMD entry that is in the process of being collapsed.
->
->Once deposited, the PTE page table may be used in a split of any other
->unrelated PMD entry.
->
->This is currently not an issue as this operation is performed with VMA/mmap
->write lock + anon rmap locks held, so ordinary page table walkers will
->never accidentally end up walking the wrong thing, and GUP-fast is
->protected by an IPI via tlb_remove_table_sync_one().
->
->However, the series to which this commit belongs implements RCU-safe page
->table traversal, at which point this becomes problematic.
->
->This can be resolved by using pte_offset_map_lock() which gates on a PTE
->PTL and a pmd_same() check, but lockless walks are unsafe as things stand.
->
->Resolve this by simply allocating a new, zeroed, PTE page table to deposit
->at the point of collapse.
->
->This path is already costly and an allocation has already been performed
->for the huge folio, so this allocation is statistical noise in terms of
->performance and memory usage at this point.
->
->With this PTE page table deposited, RCU-free the existing PTE page table
->so it is safe for page table walkers to traverse within a grace period.
->
->This also brings this deposit case in line with all other page table
->deposit logic which deposit a fresh page table.
->
->Additionally, this was the only place in the kernel that displaced a page
->table like this, so eliminating it also helps consistency.
->
->An edge case for deposit exists for powerpc and its hash-based MMU - it
->stores hash slot data in deposited page tables and zeroes them on withdraw,
->so a zeroed deposited page table works correctly for it.
->
->Since khugepaged runs as a kernel thread, do a little dance in
->alloc_deposit_pte() to correctly charge the allocation.
->
->This is already done for the folio allocation via alloc_charge_folio() but
->no such wrapper exists for a page table allocation.
->
->Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
->---
-> mm/khugepaged.c | 32 ++++++++++++++++++++++++++++++--
-> 1 file changed, 30 insertions(+), 2 deletions(-)
->
->diff --git a/mm/khugepaged.c b/mm/khugepaged.c
->index f49a6710933b..dab421f8233e 100644
->--- a/mm/khugepaged.c
->+++ b/mm/khugepaged.c
->@@ -1278,6 +1278,23 @@ static enum scan_result alloc_charge_folio(struct folio **foliop, struct mm_stru
-> 	return SCAN_SUCCEED;
-> }
-> 
->+static pgtable_t alloc_deposit_pte(struct mm_struct *mm)
->+{
->+	/*
->+	 * khugepaged is run from a kernel thread, so need to manually set the
->+	 * correct memcg so the allocation gets charged correctly.
->+	 */
->+	struct mem_cgroup *memcg = get_mem_cgroup_from_mm(mm);
->+	struct mem_cgroup *old_memcg = set_active_memcg(memcg);
->+	pgtable_t pgtable;
->+
->+	pgtable = pte_alloc_one(mm);
->+
->+	set_active_memcg(old_memcg);
->+	mem_cgroup_put(memcg);
->+	return pgtable;
->+}
->+
-> /*
->  * collapse_huge_page() expects the mmap_lock to be unlocked before entering and
->  * will always return with the lock unlocked, to avoid holding the mmap_lock
->@@ -1293,7 +1310,7 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
-> 	LIST_HEAD(compound_pagelist);
-> 	pmd_t *pmd, _pmd;
-> 	pte_t *pte = NULL;
->-	pgtable_t pgtable;
->+	pgtable_t pgtable = NULL;
-> 	struct folio *folio;
-> 	spinlock_t *pmd_ptl, *pte_ptl;
-> 	enum scan_result result = SCAN_FAIL;
->@@ -1310,6 +1327,12 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
-> 		goto out_nolock;
-> 	}
-> 
->+	if (is_pmd_order(order)) {
->+		pgtable = alloc_deposit_pte(mm);
->+		if (!pgtable)
->+			goto out_nolock;
+--ac315c91ecc3c3395b0dbb991c1f84a289bae2ebd6cf0113e2bb44b50761
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-One small thing: result is still SCAN_SUCCEED after alloc_charge_folio(),
+On Tue, Sep 22, 2026 at 07:04:50PM +0800, Sandie Cao wrote:
+> @@ -184,6 +185,24 @@ &combophy {
+> [...]
+> +&sdhci0 {
+> +	pinctrl-names =3D "default","uhs";
+> +	pinctrl-0 =3D <&mmc1_cfg>;
+> +	pinctrl-1 =3D <&mmc1_uhs_cfg>;
+> +	bus-width =3D <4>;
+> +	cd-gpios =3D <&gpio K3_GPIO(88) GPIO_ACTIVE_LOW>;
 
-	result = alloc_charge_folio(&folio, mm, cc, order);
-	if (result != SCAN_SUCCEED)
-		goto out_nolock;
+Does GPIO88 have an external pull-up? The SDK DTS [1] also includes
+mmc1_cd_cfg in both pinctrl states, with a pull-up and 3.3 V configuration.
+Neither mmc1_cfg nor mmc1_uhs_cfg covers this pin. Is that configuration
+unnecessary on this board?
 
-	if (folio_memcg_alloc_deferred(folio)) {
-		result = SCAN_ALLOC_HUGE_PAGE_FAIL;
-		goto out_nolock;
-	}
+> +	no-mmc;
+> +	no-sdio;
+> +	disable-wp;
+> +	cap-sd-highspeed;
+> +	vmmc-supply =3D <&aldo4>;
+> +	vqmmc-supply =3D <&aldo1>;
 
-	if (is_pmd_order(order)) {
-		pgtable = alloc_deposit_pte(mm);
-		if (!pgtable)
-			goto out_nolock;
-	}
+Could you confirm which rail supplies the card's VDD? The SDK DTS [1]
+uses p3v3 for vmmc rather than aldo4. Does that RPMI regulator map to
+ALDO4, or is the card powered by a different rail?
 
-so if alloc_deposit_pte() fails, collapse_huge_page() returns success
-without installing a PMD.
+Link: https://github.com/spacemit-com/linux-6.18/blob/k3-br-v1.0.y/arch/ris=
+cv/boot/dts/spacemit/k3-deepcomputing-fml13v05.dts [1]
 
-I see sashiko pointed that out too :)
+--=20
+Troy Mitchell
 
-Cheers, Lance
+--ac315c91ecc3c3395b0dbb991c1f84a289bae2ebd6cf0113e2bb44b50761
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCarM4Hg0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQvSEoA/3IWr2MzSgk80d2GUorlzgVL9dN5Z5Dsq+DhOJvZ
+9VreAQDXTpwPqeRJwGQFCrvEkytE3PdxYiCDEuGXLDFlGMaZCg==
+=Za92
+-----END PGP SIGNATURE-----
+
+--ac315c91ecc3c3395b0dbb991c1f84a289bae2ebd6cf0113e2bb44b50761--
+
+
+--===============5079064463145664676==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5079064463145664676==--
+
