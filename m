@@ -4,88 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B734C98302
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 02:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2F6C98302
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 02:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	References:In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QphvD9P3pvKpdDohT0TQvzcTM0xE6qBXFZ/i98HM0Po=; b=Ht8BSj2Wu6g5h1eiFtOBAN9xjt
-	Ngkspi9AlBe2iV4ctZ3uFeZqKR3Zkaogby4ZF2NfxD9SqhNMPnHNTVS5f97AsvLUnIMA73Pd+/v9p
-	jowkl/oFLgWDfUlwiX7JipJowBxPjhaO7cy/51l5xDnrUIoHqEhwk5e1VM9ee23d+zNPOANyXcuQr
-	RqnW51elMs4jOz6wqr6wirvUyPpDJSlCQ2aQSKdCsHWDTejsDKwYpovYSExnvnU+0DgNk0pfLk9O/
-	lSZZHU8T9cyz0wYaVFF6IJsKdLBrjqFrFMg8a+2ezQ165AgEt+FGAteNh8fL5xoYj1MB/AlrtNVvu
-	j7FW4FzA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qMMOYVomfPCCLMX+dpPdV5m3KZz7snN8E3YNWkVM/zM=; b=DEDBrvv10j4IDA
+	kOxX2P3zn+Ool+68HOWPq8iCnbtozWEliBloYXgc255475qwYioSzyXcwLACaloRCHAIFOunpDbYv
+	5MOlm2Hhc3BMJl+2URjI7UGOylvPbPTMTfXTTBriDlz+19D1g4c8TKdPZ4gm3H2npaj6cKs0Mq1a1
+	HGsTHNznahS0x8+g5ov0sFTOOpYIb1HDAZNbVl7FCFu/kS/WLkFaNcw5rhnhwWVbcLPoLEOIaQ6Lp
+	hFOz3WWhquZNsLDlkerD2dyQAMWTF7zAif1xfiebtEfrv4/Cf+ci/3mRLLqNj3JGKrBDn1xJCkAAc
+	sN3YQovfhLAdVTT0Te4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9CZn-00000006vDk-04xZ;
-	Wed, 23 Sep 2026 02:19:15 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1x9CfE-00000006vqh-0lEl;
+	Wed, 23 Sep 2026 02:24:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9CZj-00000006v8R-2B4H
+	id 1x9CfC-00000006vq6-37MP
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 23 Sep 2026 02:24:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=89+U8KAEwLqIX9mpcp+eoIG3lsJI+yoRSssy/pmscRA=; b=Jz3JDldX8EPKuficTgME69E3Dy
+	zTyDhv2wZsNU0IpyD9IweSwdNyYLESxmqyPqez/zuj/7/f1SmvvcqhF3Bqt5AXffTY5mgpWWn5Zz1
+	UlvcpxPmxATnYaat2ipZSqZ3WTfrlwzvZv2gBzEeAbwtD7kL6ujYc4iIqCJ4054WjICqeLqblslJG
+	xEA8+TrBFC1bC3i1tuvMUcu6MALmmDOGrGKzgfEbBTSU/qWxKNbNnJ7VpUQnJ0KtC2jx+nvIPV0Ue
+	q5vP8ACyL4HGqKJNd+XbQMQurn3To0LkgloHmfuBarFVscpWh+pjGTCdxAUASnnBxGS5x/0O9cMh8
+	g4zgIhHw==;
+Received: from out-90.mta0.migadu.com ([2001:41d0:1004:224b::5a] helo=mta0.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9Cf9-0000000EHDE-2anQ
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 02:19:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1790129895;
-	bh=HsUHDmsVehcHWKUK7oJBtX9pkySO3eKim9u+3rp9Bko=;
-	h=Mime-Version:Date:Message-Id:Subject:From:To;
-	b=rJdQikeejBuSo5reflZegyaGrtBbC+TXu03wiWZ2pRrz/V8CIL1Kwfy4ENzDWm7QC
-	 0HEM8A3G5UumQ6nyB8PhEjIIPUBZWlw3PDNyOYn/mNYpFuLlkPnSWLFG0WUdosMwQI
-	 gpaI8ESXLo4nX5P6MfbGFtOd1Cgf010f7JsbDXQA=
-X-QQ-mid: esmtpsz10t1790129894t25376d77
-X-QQ-Originating-IP: 0Lfhv4AIErF+dHYAdIw4Ywjd5xgJufwHFdrpdtg487M=
-Received: from = ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 23 Sep 2026 10:18:11 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12085916592293753369
-EX-QQ-RecipientCnt: 14
-Mime-Version: 1.0
-Date: Wed, 23 Sep 2026 10:18:09 +0800
-Message-Id: <DLMC322TOCGJ.2GTJG14AFBACW@linux.spacemit.com>
-Cc: "Alexandre Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, "Sandie Cao" <sandie.cao@deepcomputing.io>
-Subject: Re: [PATCH 2/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05:
- add USB controller and USB phy support
-From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
-To: "Sandie Cao" <sandie.cao@deepcomputing.io>, "Yixun Lan"
- <dlan@kernel.org>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
- "Conor Dooley" <conor+dt@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Paul Walmsley"
- <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
- <aou@eecs.berkeley.edu>
-In-Reply-To: <20260922110434.3426051-1-sandie.cao@deepcomputing.io>
-References: <20260922110231.3426011-1-sandie.cao@deepcomputing.io>
- <20260922110434.3426051-1-sandie.cao@deepcomputing.io>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NRN3UPsLzYKVeqioKSywiECEiHFakRHpwHEULszG3Udkdw6ha6NKUiUy
-	BUi+QSorgTdHEI6FYceNiXBFfwucE+c9d2kTLAFa9KFLAe1VbSe+My//AGv3JuU2vdN/QP4
-	86J77UiXNOC9oC22sCCKksVNBbDpQbFbgJ1++YxF4KaNjLyhYcakO3yflA69TMy/I2/k4RM
-	f08BEZ6miGbOs+9ur5JYxIgiTJtlAXpBKW94sfiBZZ2ItqtyIBp94j6kLVhtnLsckTczRH5
-	HJHOII8cxqT1yaNFYzdGPgrkChQOstJZPTCvVqdwMTRlolaD1k7aSHUD1Fo7WZOKq/tXqOT
-	IF/QbD3MkurdIcXexN+WfuYK/rPmQBGgSZzQMMEnYDw1vL+GrR58SqUTm06kYywhUZ8VyQv
-	0bzOiv78RfUm0UwCwon+FeAVRehsh2UAJuDsVWJx/KQv3+L5K9M2lnkQz3t77WcpabGreNN
-	8/ikg14etG0Dtmtkfr/JEAzy/yKpfTc5Qp8PvzjImnwkUGES16+SlN66NExl5RDWIlRuvlU
-	Oa0e2P1THNmsguI457LxIgblePGak2f5t8VW6KgCIaHKWLA/KbQyt7TNBwB8bxCIkJPncAW
-	XuaHUTvY5dIdecsI7m+S8Grk6R8Qqmx1TElSpfZw1jNsQmWiO5ceARLhOWZW2U/LYRulVi2
-	0IgzpgR29TbsnM6PbvfA0V0GmSgWFVLUbXY4A00Jn4QVjqENuuFJdKwGEoAYi/FHereJLJa
-	aW6LgZtWbRCxudbfOs/1gADsaqVJhRs1+h826IrQU3rrBr8bB3xMSKd8RBbbz/zSWqixd5v
-	+6Sa6vJ4DGI2JMgQIPPdbUwEJJo4uF3Jl6G26jY6GPk7hS5i+jRshcsoS3Yt6DZiTpGLeA8
-	TtHUi+Q9ensztPMzLG9jnwdzZRRXDf4GBJG5Xtf5/0xugmO0sc4Z51Km0ZL+bP92W0Sx1s2
-	7jk/QwNyyL0xG0bAKbn111Z0yrXVvVpy3LNY47+72wHhqyi9zYhrka4SxqJoG63Qv9QidEq
-	njL+5ocC70p6CvXUEUSAjvSEq6z11jj0a8p8pHwhJG7zcBUwW8YcbfIpkdPG/F1siyxRJnf
-	FV5r+jigDJf
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+	Wed, 23 Sep 2026 02:24:49 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=d3FVAdMqEDWFoCMHxuxCTxk+fOdRBfvFdCrMB1cIOo0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790130285; v=1; x=1790735085;
+ b=sDgJie3TWH+fdw4bP6AFL2R01tqn+weltrhVYfbvKl/ZicGlcDHYgmQQA1cpzDCeEmLO6ipb
+ iqxgjthgdfUmW4p8oo/f9rSxjGHmq7xg/niFAEbe0seoUnYPui5S0vth/9PAMtGIEyB/QXMx88W
+ Z6r0R3UbMASmsfgCjk3a01GM=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id b86f8e4163d69484;
+	Wed, 23 Sep 2026 02:24:43 +0000
+X-Mizu-Trace-ID: b86f8e4163d69484
+X-Migadu-Flow: FLOW_OUT
+From: Lance Yang <lance.yang@linux.dev>
+To: ljs@kernel.org
+Cc: akpm@linux-foundation.org,
+	david@kernel.org,
+	ziy@nvidia.com,
+	baolin.wang@linux.alibaba.com,
+	liam@infradead.org,
+	nico.pache@linux.dev,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baohua@kernel.org,
+	lance.yang@linux.dev,
+	usama.arif@linux.dev,
+	kas@kernel.org,
+	guoren@kernel.org,
+	bcain@kernel.org,
+	geert@linux-m68k.org,
+	dinguyen@kernel.org,
+	schuster.simon@siemens-energy.com,
+	jonas@southpole.se,
+	stefan.kristiansson@saunalahti.fi,
+	shorne@gmail.com,
+	dalias@libc.org,
+	glaubitz@physik.fu-berlin.de,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux@armlinux.org.uk,
+	vgupta@kernel.org,
+	monstr@monstr.eu,
+	chris@zankel.net,
+	jcmvbkbc@gmail.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	npiggin@gmail.com,
+	peterz@infradead.org,
+	davem@davemloft.net,
+	andreas@gaisler.com,
+	richard.henderson@linaro.org,
+	mattst88@gmail.com,
+	linmag7@gmail.com,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	tsbogend@alpha.franken.de,
+	James.Bottomley@HansenPartnership.com,
+	deller@gmx.de,
+	maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	chleroy@kernel.org,
+	hca@linux.ibm.com,
+	gor@linux.ibm.com,
+	agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com,
+	svens@linux.ibm.com,
+	richard@nod.at,
+	anton.ivanov@cambridgegreys.com,
+	johannes@sipsolutions.net,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	arnd@arndb.de,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	jgg@ziepe.ca,
+	jhubbard@nvidia.com,
+	peterx@redhat.com,
+	ysato@users.sourceforge.jp,
+	shakeel.butt@linux.dev,
+	corbet@lwn.net,
+	rdunlap@infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-openrisc@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	hughd@google.com,
+	qi.zheng@linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 01/12] mm/khugepaged: deposit a newly allocated page table on collapse
+Date: Wed, 23 Sep 2026 10:24:36 +0800
+Message-ID: <20260923022436.61930-1-lance.yang@linux.dev>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20260922-rcu-pagetable-freeing-v4-1-fe1ad1f1e303@kernel.org>
+References: <20260922-rcu-pagetable-freeing-v4-1-fe1ad1f1e303@kernel.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_191912_040502_2572B7CA 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260923_032447_886129_CEFE63A7 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,71 +176,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2346949495128395754=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============2346949495128395754==
-Content-Type: multipart/signed;
- boundary=57b5d87d32bc9ece3cb6ef40e4dde09507a22fc2dba109df05cb5c4a9b74;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Content-Transfer-Encoding: 7bit
 
---57b5d87d32bc9ece3cb6ef40e4dde09507a22fc2dba109df05cb5c4a9b74
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Tue, Sep 22, 2026 at 04:35:32PM +0100, Lorenzo Stoakes (ARM) wrote:
+>collapse_huge_page() deposits a PTE page table on PMD collapse in order
+>that it can be utilised for subsequent split operations, meaning that those
+>operations do not need to perform an allocation (as they are in a context
+>where it might be unwise).
+>
+>However the PTE page table which is deposited is the one which is currently
+>mapped by the PMD entry that is in the process of being collapsed.
+>
+>Once deposited, the PTE page table may be used in a split of any other
+>unrelated PMD entry.
+>
+>This is currently not an issue as this operation is performed with VMA/mmap
+>write lock + anon rmap locks held, so ordinary page table walkers will
+>never accidentally end up walking the wrong thing, and GUP-fast is
+>protected by an IPI via tlb_remove_table_sync_one().
+>
+>However, the series to which this commit belongs implements RCU-safe page
+>table traversal, at which point this becomes problematic.
+>
+>This can be resolved by using pte_offset_map_lock() which gates on a PTE
+>PTL and a pmd_same() check, but lockless walks are unsafe as things stand.
+>
+>Resolve this by simply allocating a new, zeroed, PTE page table to deposit
+>at the point of collapse.
+>
+>This path is already costly and an allocation has already been performed
+>for the huge folio, so this allocation is statistical noise in terms of
+>performance and memory usage at this point.
+>
+>With this PTE page table deposited, RCU-free the existing PTE page table
+>so it is safe for page table walkers to traverse within a grace period.
+>
+>This also brings this deposit case in line with all other page table
+>deposit logic which deposit a fresh page table.
+>
+>Additionally, this was the only place in the kernel that displaced a page
+>table like this, so eliminating it also helps consistency.
+>
+>An edge case for deposit exists for powerpc and its hash-based MMU - it
+>stores hash slot data in deposited page tables and zeroes them on withdraw,
+>so a zeroed deposited page table works correctly for it.
+>
+>Since khugepaged runs as a kernel thread, do a little dance in
+>alloc_deposit_pte() to correctly charge the allocation.
+>
+>This is already done for the folio allocation via alloc_charge_folio() but
+>no such wrapper exists for a page table allocation.
+>
+>Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+>---
+> mm/khugepaged.c | 32 ++++++++++++++++++++++++++++++--
+> 1 file changed, 30 insertions(+), 2 deletions(-)
+>
+>diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+>index f49a6710933b..dab421f8233e 100644
+>--- a/mm/khugepaged.c
+>+++ b/mm/khugepaged.c
+>@@ -1278,6 +1278,23 @@ static enum scan_result alloc_charge_folio(struct folio **foliop, struct mm_stru
+> 	return SCAN_SUCCEED;
+> }
+> 
+>+static pgtable_t alloc_deposit_pte(struct mm_struct *mm)
+>+{
+>+	/*
+>+	 * khugepaged is run from a kernel thread, so need to manually set the
+>+	 * correct memcg so the allocation gets charged correctly.
+>+	 */
+>+	struct mem_cgroup *memcg = get_mem_cgroup_from_mm(mm);
+>+	struct mem_cgroup *old_memcg = set_active_memcg(memcg);
+>+	pgtable_t pgtable;
+>+
+>+	pgtable = pte_alloc_one(mm);
+>+
+>+	set_active_memcg(old_memcg);
+>+	mem_cgroup_put(memcg);
+>+	return pgtable;
+>+}
+>+
+> /*
+>  * collapse_huge_page() expects the mmap_lock to be unlocked before entering and
+>  * will always return with the lock unlocked, to avoid holding the mmap_lock
+>@@ -1293,7 +1310,7 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
+> 	LIST_HEAD(compound_pagelist);
+> 	pmd_t *pmd, _pmd;
+> 	pte_t *pte = NULL;
+>-	pgtable_t pgtable;
+>+	pgtable_t pgtable = NULL;
+> 	struct folio *folio;
+> 	spinlock_t *pmd_ptl, *pte_ptl;
+> 	enum scan_result result = SCAN_FAIL;
+>@@ -1310,6 +1327,12 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
+> 		goto out_nolock;
+> 	}
+> 
+>+	if (is_pmd_order(order)) {
+>+		pgtable = alloc_deposit_pte(mm);
+>+		if (!pgtable)
+>+			goto out_nolock;
 
-On Tue, Sep 22, 2026 at 07:04:34PM +0800, Sandie Cao wrote:
-> diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/s=
-pacemit/k3.dtsi
-> [...]
-> @@ -441,6 +441,72 @@ soc: soc {
-> [...]
-> +		usb3b_u2phy: phy@81500000 {
-> +			compatible =3D "spacemit,k3-usb2-phy";
-> +			reg =3D <0x0 0x81500000 0x0 0x200>;
-> +			clocks =3D <&syscon_apmu CLK_APMU_USB2_BUS>;
-> +			#phy-cells =3D <0>;
-> +			status =3D "disabled";
-> +		};
-> [...]
-> +		usb3c_u2phy: phy@81800000 {
-> +			compatible =3D "spacemit,k3-usb2-phy";
-> +			reg =3D <0x0 0x81800000 0x0 0x200>;
-> +			clocks =3D <&syscon_apmu CLK_APMU_USB2_BUS>;
-> +			#phy-cells =3D <0>;
-> +			status =3D "disabled";
-> +		};
-Should these use CLK_APMU_USB3_PORTB_BUS and CLK_APMU_USB3_PORTC_BUS,
-respectively?
+One small thing: result is still SCAN_SUCCEED after alloc_charge_folio(),
 
---=20
-Troy Mitchell
+	result = alloc_charge_folio(&folio, mm, cc, order);
+	if (result != SCAN_SUCCEED)
+		goto out_nolock;
 
---57b5d87d32bc9ece3cb6ef40e4dde09507a22fc2dba109df05cb5c4a9b74
-Content-Type: application/pgp-signature; name="signature.asc"
+	if (folio_memcg_alloc_deferred(folio)) {
+		result = SCAN_ALLOC_HUGE_PAGE_FAIL;
+		goto out_nolock;
+	}
 
------BEGIN PGP SIGNATURE-----
+	if (is_pmd_order(order)) {
+		pgtable = alloc_deposit_pte(mm);
+		if (!pgtable)
+			goto out_nolock;
+	}
 
-iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCarM24Q0caUB0cm95LXku
-b3JnAAoJEJgJ74D5MzQvAmYA/iFLvoo8oOH/IDlcVXEOznjisdfEqNwOm+oJljGB
-ZmcGAQDPw3wYW5xpApTx/6vIfixeGWSBTL26yVlHUBqZlx8QBw==
-=zTrC
------END PGP SIGNATURE-----
+so if alloc_deposit_pte() fails, collapse_huge_page() returns success
+without installing a PMD.
 
---57b5d87d32bc9ece3cb6ef40e4dde09507a22fc2dba109df05cb5c4a9b74--
+I see sashiko pointed that out too :)
 
-
---===============2346949495128395754==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Cheers, Lance
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2346949495128395754==--
-
