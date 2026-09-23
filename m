@@ -4,93 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856C5C98304
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 14:29:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3619EC98302
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 14:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w2A84RhErLAxmBeTEzjNgtzqGrQo+f5DhBL/jG1H4r0=; b=KallW1Z3v7luVP
-	WX9FcQD/Y2ieC2HIzGV6p3qS1wT2kO7jdWrgZ5Kic7hvs5iZBqKHPnFUgK6QCIehG0Bhhb4m5Ybnf
-	9lTIWxVvYZZc21nWKuaQMbZseRy/3i+gH1itP4goqdIVov3vLPIUuN7iOgzJOw+1OrXYNy+H44gYv
-	T/jQq/SibapptY4dfdPLEekGgtKpuhiYiluHT26+iTsrwdJIxkR9msjuFL3iiSxnRJ9ktRtLRec0o
-	gbu4t9ca4wOygptSZQeINm48sxnHM1Wz+g0mlywbdCrXs+xc2NocYW8LTjW+1vNIOmyGdX4wG3W3M
-	+gLOLXcWeLV/VbzMSvsg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XWqN2enABKvNIhY7NsqD/RthKHZl8iajNVQTTw6p2Po=; b=btlIUcMOjMx2Sb
+	RlIV6xWTKP7gVzKAsIcD4hIcDqJxG0lpfOxRp4gkxjBZ7Qjxm/SZ8SAdaO4Cuy1sT0vCTrF7DFv9+
+	Ba0ZEyRZ9GTTpYR5lO5Y3bM0C3sdDJvGxOGCjgCpnVOFXOeJGYvhsCVFyzvzxn0MilkHiENeVoqf1
+	Hud7GCLURGwGiKHHgsdKz3GQiQ52506whtmbB9IFr98W2LmSsps4PE4+ytagNHzenWfCpG+XbzQQp
+	e1WXiJ8LD2+5hwSgrPPJkKfbtPv3oMNK5avQr6YCvVew/UfZ3RgA7oxeXxAzDxuw9Y8WvVgjkDbGR
+	/GU3NoBf4SarSQpqikXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Nxz-00000008WiK-2Y4A;
-	Wed, 23 Sep 2026 14:28:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x9O6q-00000008YSn-4BVh;
+	Wed, 23 Sep 2026 14:38:09 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Nxx-00000008Whj-3ANM;
-	Wed, 23 Sep 2026 14:28:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3046C42E6E;
-	Wed, 23 Sep 2026 14:28:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 671E01F00893;
-	Wed, 23 Sep 2026 14:28:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790173737;
-	bh=KJ+xcGas6Gs0DUbNkFsLqUYTG/kJ0yvHazAmaBZ9DQc=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=gKi1uvT9tdO35/ODP00YcZaB1OEqOdJRXC43vCAtVa6/M+rRGUzFwrcEFzwLOcpM8
-	 rFd8FKNGTwcNeaPZJWHgle4aXrscaEQgzv4xKlpwSHuHfa8mOnUXOSeK49Z1Cyp2jU
-	 UGm/xAuJEzcqCQlbTOQ8w8JSwAyYh5Y3iAm3TlZ8hc3a46rYZqfHKqB/caJeoPyRSS
-	 /zj2aVMtbmuIKRqQ0GaxIrliBpBI6zWSJwyasssqkyicL2r7QVdLv9yWU0w6X9G84P
-	 DbwpUJekxBnSZqWqQEEPtZQ3gmRz621gb2mQKitAsMTjtTiWuylDjnHn8PUQB8+ZGO
-	 YoEgEm2KBqXYg==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
+	id 1x9O6n-00000008YOs-2HqL
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Sep 2026 14:38:07 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hqfh00gxwzYQtgy
+	for <linux-riscv@lists.infradead.org>; Wed, 23 Sep 2026 22:37:36 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 2EF554056B
+	for <linux-riscv@lists.infradead.org>; Wed, 23 Sep 2026 22:37:53 +0800 (CST)
+Received: from ultra.huawei.com (unknown [10.90.53.71])
+	by APP4 (Coremail) with UTF8SMTPA id gCh0CgAX6Co_5LNqbS2UBQ--.27216S2;
+	Wed, 23 Sep 2026 22:37:52 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [PATCH v5 4/6] dma: swiotlb: Centralize memory-encryption pool
- sizing
-In-Reply-To: <644aa208-55f0-440c-94b9-75e58e588dde@arm.com>
-References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
- <20260921063628.362078-5-aneesh.kumar@kernel.org>
- <644aa208-55f0-440c-94b9-75e58e588dde@arm.com>
-Date: Wed, 23 Sep 2026 19:58:36 +0530
-Message-ID: <yq5awlsc11pn.fsf@kernel.org>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Pu Lehui <pulehui@huawei.com>
+Subject: [PATCH bpf-next] riscv, bpf: Fix missing sign-ext for signed 1-byte and 2-byte kfunc args
+Date: Wed, 23 Sep 2026 14:41:54 +0000
+Message-Id: <20260923144154.934674-1-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+X-CM-TRANSID: gCh0CgAX6Co_5LNqbS2UBQ--.27216S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KF48Wry5ury3JFWUXFWfGrg_yoW8WF15pF
+	15C34akF9Yqw1IvFy8AF48Wr15Gr4vva17uFWj9a45JFW2qFWrWr4rKw4Yvay5urZ5u3WF
+	kryqgwn7u3yku3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAa
+	w2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
+	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a
+	6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
+	kF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
+	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj
+	xUIa0PDUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_073805_941384_1BAA1584 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,128 +100,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Robin Murphy <robin.murphy@arm.com> writes:
+From: Pu Lehui <pulehui@huawei.com>
 
-> On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
->> Memory-encrypted guests use shared or unencrypted memory for DMA and may
->> route all DMA through SWIOTLB. The default pool can therefore be too
->> small for I/O-intensive workloads.
->> 
+On RV64, the ABI requires sign-extension for signed 1-byte and 2-byte
+kfunc args. However, the RV64 JIT currently does not perform
+sign-extension for such kfunc args.
 
- [ ... 133 lines skipped ... ] 
+Before commit 7ce090afbf72 ("bpf: Infer zext_dst based on static
+register liveness analysis"), state pruning could potentially omit
+zero-extension of 32-bit subregisters, which inadvertently masked the
+above issue by making the args appear as if they had been properly
+sign-extended. After that commit, the problem is exposed, causing the
+kfunc_call/kfunc_call_test4 selftest to fail.
 
->> +/**
->> + * swiotlb_adjusted_size() - get the prospective adjusted SWIOTLB size
->> + *
->> + * Return the size that confidential-computing guest sizing would select for
->> + * the default pool, without changing the configured SWIOTLB size. An
->> + * explicit swiotlb= size is always preserved. An explicit area count is
->> + * included in the size calculation. Automatic area sizing is initialized
->> + * later from the running kernel's possible CPU map and any resulting size
->> + * adjustment is therefore not reflected in the returned size.
->> + */
->> +unsigned long __init swiotlb_adjusted_size(void)
->
-> This is yet another misleadingly ambiguous name.
->
+Fix this by extending the existing sign-extension logic to handle signed
+1-byte and 2-byte kfunc args as well.
 
-Do you have any suggestions for a better approach? This returns the
-swiotlb size adjusted according to the existing heuristics.
+Fixes: 443574b03387 ("riscv, bpf: Fix kfunc parameters incompatibility between bpf and riscv abi")
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
->> +{
->> +	unsigned long nslabs, size = swiotlb_size_or_default();
->> +
->> +	if (swiotlb_default_size_changed() ||
->> +	    !cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
->> +		return size;
->
-> And this makes for another needlessly convoluted calling convention.
->
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 2504df1fa111..74efe4b138d2 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -1823,9 +1823,10 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 
+ 			for (idx = 0; idx < fm->nr_args; idx++) {
+ 				u8 reg = bpf_to_rv_reg(BPF_REG_1 + idx, ctx);
++				bool sign = fm->arg_flags[idx] & BTF_FMODEL_SIGNED_ARG;
+ 
+-				if (fm->arg_size[idx] == sizeof(int))
+-					emit_sextw(reg, reg, ctx);
++				if (sign_extend(reg, reg, fm->arg_size[idx], sign, ctx))
++					return -EINVAL;
+ 			}
+ 		}
+ 
+-- 
+2.34.1
 
-I have updated this to
-
-+static unsigned long __init swiotlb_adjusted_size(void)
-+{
-+	unsigned long nslabs;
-+	u64 size = swiotlb_default_pool_size();
-+
-+	if (!swiotlb_cmdline_size_set &&
-+	    cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
-+		/*
-+		 * For SEV and TDX and CCA, all DMA has to occur via
-+		 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
-+		 * happen without changing device drivers. However, depending on
-+		 * the workload being run, the default 64MB of SWIOTLB may not be
-+		 * enough and SWIOTLB may run out of buffers for DMA, resulting in
-+		 * I/O errors and/or performance degradation especially with high
-+		 * I/O workloads.
-+		 *
-+		 * Adjust the default size of SWIOTLB using a percentage of guest
-+		 * memory for SWIOTLB buffers.
-+		 *
-+		 * The percentage of guest memory used here for SWIOTLB buffers is
-+		 * more of an approximation of the static adjustment which 64MB for
-+		 * <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
-+		 */
-+		size = div_u64((u64)memblock_phys_mem_size() * 6, 100);
-+		size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
-+	}
-+
-+	nslabs = swiotlb_calc_nslabs(size, default_nareas);
-+
-+	return nslabs << IO_TLB_SHIFT;
-+}
-+
-
-But as shown above, we apply the CoCo sizing heuristic only when no
-explicit swiotlb= size was specified and guest memory encryption is
-enabled.
-
->
->> +	/*
->> +	 * For SEV and TDX and CCA, all DMA has to occur via
->> +	 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
->> +	 * happen without changing device drivers. However, depending on
->> +	 * the workload being run, the default 64MB of SWIOTLB may not be
->> +	 * enough and SWIOTLB may run out of buffers for DMA, resulting in
->> +	 * I/O errors and/or performance degradation especially with high
->> +	 * I/O workloads.
->> +	 *
->> +	 * Adjust the default size of SWIOTLB using a percentage of guest
->> +	 * memory for SWIOTLB buffers.
->> +	 *
->> +	 * The percentage of guest memory used here for SWIOTLB buffers is
->> +	 * more of an approximation of the static adjustment which 64MB for
->> +	 * <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
->> +	 */
->> +	size = memblock_phys_mem_size() * 6 / 100;
->
-> But mostly I fail to see how this makes any sense for the x86 
-> crash_low_size_default() case anyway. This calculation is based on the 
-> *total* system memory, of which 6% is likely comparable to (or perhaps 
-> even more than) the *entire* amount of memory reserved for the crash 
-> kernel itself. What's more, if the low memory and size restrictions are 
-> lifted for regular CoCo SWIOTLB as people want, then it becomes even 
-> more utterly nonsensical to tie crashkernel_low to this.
->
-> Yes, this happens to be the behaviour that falls out of how two 
-> different parts of the existing code interact, but I highly doubt it was 
-> ever intentional, so I'm not convinced that complicating SWIOTLB 
-> interfaces to blindly preserve it is the right thing to do.
->
-
-
-I agree with the concern, but what would be the right solution? When the
-crash kernel boots, it will try to allocate the SWIOTLB pool according
-to this sizing heuristic, and the allocation may fail if insufficient
-memory was reserved.
-
-I have split the x86 crash-kernel changes into a separate patch, which
-we can drop depending on the conclusion here. I must admit that I do not
-understand the crash-kernel memory restrictions and allocation details
-well enough to propose a solution.
-
--aneesh
 
 _______________________________________________
 linux-riscv mailing list
