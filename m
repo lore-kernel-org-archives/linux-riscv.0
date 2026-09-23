@@ -4,95 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9510FC9830E
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 17:23:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C357FC9830B
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 17:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wK83ZuQtfki4i8IpeE8KR3ln0J1mSFjAjthnBjKzKmM=; b=QbAzEoRNBUaBBN
-	H04Ychs7Nvm531RI1cUMECRUhhDG95/Zb3A9lhe9bvaOp9PVUmep5ZUCajRnE1Q5XGWDjsfUkihEa
-	ZH6EO0ZLT7JSQucwEc5I56DvSoMuEUqkO9hrnAF5Od3ZBdmPzXcgS7MDW33ifyEnY79dt85C2nlT3
-	pCUxKKaHlHTJyQZgb+MxE/pdxztubG9M63s0/tz1cH5MKbsev8D0SvIW4wRMMXHy7FQ/5w9NhymWz
-	8qWOvZcAj3TJ/CP3BR/23ikIgkFZR39Gqx+fhxMUMJSBr3lSJZm9W80L8BmB6c6LtvPexVeooD+Wp
-	t/n7naPjsOQlkH/CuXPw==;
+	List-Owner; bh=9/R4cb3rG/N6g7BSkJax9MremVzN3s0Qs1mBboszpkI=; b=XI6PRmEr/1bqrZ
+	SHvyAPqpQ/okcJqc3OjhIVZBtzw0RNhIDGOmJpCUDQMLqOZbWejM9nPSAs4fi0SA0A8TIXRkWnYpf
+	g3iGa9peE2vX5WPTybkI0LEYyJy48Fjc8Ujo4BLdyIJ7YcRbuMG7TaP+7KqDzXlauFuATY6W1wefJ
+	8Q9bMeVX7UsxxPPhQqskIsovihN6Si2gilX9FsWNb+lwM++HPrch7WZ3N5x8imyo5+wXsEg1kvNvQ
+	PCf0EZ6aN6YTbJ9XaZ+F8+S4P3HYYq4/3cPDTBJMjtnMjS/csdp0W4AoXWMqJEwRExupFN8Kkm2eZ
+	fnp+5RfusCD3JBfpKCSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Qh2-000000091ke-1ZFz;
-	Wed, 23 Sep 2026 17:23:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x9QiH-000000092GQ-2wcj;
+	Wed, 23 Sep 2026 17:24:58 +0000
+Received: from mail-oi2-x18.google.com ([2607:f8b0:4864:32::18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9QgP-000000091TS-43cJ;
-	Wed, 23 Sep 2026 17:23:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5917C600AA;
-	Wed, 23 Sep 2026 17:23:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6C4D1F000FF;
-	Wed, 23 Sep 2026 17:22:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790184181;
-	bh=7TYGk1JizHGrlBrKc7yi6wYeMXYeC/fB2mICtyHAjKk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=HjH3hQswPOEhNyh+0EJsK+8lvQLgcr3wY90IiS4ycWSZkKP4z3Hz+F195NNzsn+5H
-	 DOCkRcOHx0XQmfWCxL0x2y7voJVSjw3iitplwzqupe10mATAJ94nar2ZrZLegTO4JS
-	 ETtXjajIE2KLsZcE7sBFgxZBdNXyA1Ui0aXWQOwgkE1w/tZITBr7PoBhDuwFP74eUc
-	 WozytBVTBGoOUfLjCdhu0GJ4gkB/LxwycdUHuH4s++EAWyVpU4ahOzUm5ZmQo5G+RK
-	 1kvSqlb7dOOveB0AuROR0K/Kr/FbInyTO+eq9TdAUubQQtYWoivr4mLpirXiuhGEUN
-	 uOG9C8cUl0w/A==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Wed, 23 Sep 2026 18:18:11 +0100
-Subject: [PATCH v4 22/22] kbuild: compress the kernel with pigz if
- available
+	id 1x9QiD-000000092FA-3rn9
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Sep 2026 17:24:55 +0000
+Received: by mail-oi2-x18.google.com with SMTP id 46e09a7af769-7f4f1354076so337755a34.1
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Sep 2026 10:24:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1790184293; x=1790789093; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zPbFyXkGlwjReheq7U40lvUG8BvJVpBYL3Kcj7fW/JI=;
+        b=mRqZ5F8Utun4ZN0NO6WW33SaK4x+aPi6Q5dWA3hkPFRpvv5BZmLGIpAOnKey/HB/FW
+         QdD5YUym6cM3U11TCDQ1Hk3tcET2bz/It3uI7aXCE1u6W4rG7c/ZG93YFJ6W06BubzRy
+         vbf5X4rCdPg8B4zYAsb77LSZo+kw0INm43sRSwYKkGfF2X4ncvjhKcyv0TW1iqy5o+4w
+         aMIMCOaC95TCXG38CA3XBuhWuX+RZ7mwzcijd3ZBOkt2LM4yadj3azLxqiIUu1Ym9X+8
+         aAKe3bCvptmE4pU/yF+U501dD76QIBlIdFH+aBfKxVpTIv+bWmoStgUtrekllVo7/oe6
+         uylw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790184293; x=1790789093;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zPbFyXkGlwjReheq7U40lvUG8BvJVpBYL3Kcj7fW/JI=;
+        b=IaHYz2D4dKwgoa+ZPK3EK/DzSzBfX1MqyHYh5UA4ModvA7LTmMJC3YgGLhNATG0Fh2
+         G5Bufz9NFsOhvNMdNv+goVA8QEue2S0aWwI4neDpiUfpu1g1MycqcUuAxQ59bh292zDb
+         /7vG1FpXFKjYCahDoHOsmIrVWCzavgzm1fWcirxI8Xt5Koe4GSwth5vnc6qXtlCr3MGL
+         +TvGEBIrxUVe35WiU1LSr8crLhaTcp90PHfSyrSipGUMAqE0WAckWTkEQrjjFcOn7J5f
+         s9af6Ji6c7fwwg5//NHADAOVhIuNJN0Qdiacj+mESwzzeC3XrzVYm36PGGO8SD9XDoYC
+         r8uA==
+X-Forwarded-Encrypted: i=1; AKwUvBzKP3a3ITA1xwMFvAEOGj1vOAvFldfiW/ZtFFP8wXojmHVYXI9bF9PQva1ALhoBR6npO23aKdv7PoPFEQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++lhJrIx6Zq7b22UetSM9hrKxAIATnCuDw2aGf7uMquMOZU59sds
+	eFXoi4LcaXz7bQkdUMqTtN9BJmBwcGIcKrlWPjU123lLAzsJIDUIAxy8+0pJGWH+N7k=
+X-Gm-Gg: AYBFou0RpPNdt7YSDUWlKqZjWtY+qO1ZgUVIMOhJUVMpaBl+RBrZKIul6s2HP+cC+e1
+	95VASj5cMGt+jlpY4lw2+5oOVNu9jwdrW41C26acZ3neTOc2A2RUkQ7irw7fiqbi2c7AXbXvakh
+	eO2fTpvuNPrcpDEx1nVW1WiAdyhPDiRD6St0FhIDIXgb7WCmZ7r/WTc66+02247nf4liF/AsZXe
+	mFWjs4mX9kkdwmiJx8khduG+ZpUvMQWoflVJqY8tlYaKuPW+mtuWx84XaUETDjCdJfOks0iUP+H
+	lh5l9WjHfW+nP7nUIAjF02YV+pkFJk9uYS2YMUP3XwiYuoegUfjyR9yjBjuYVXOw/bEtI+UG0Jw
+	dG8ZxifoO+X1kB3qgJZ7N/iodeEhLWAjUUZGrs4PzmSAeigo8thcycmBTFZ4gHjdFzSVZs2+623
+	lfKLerL1j2CgH+vMixjnzVNq0KszCHW0dlJ5xA1GO+qpFFJVSo8uwEWI8=
+X-Received: by 2002:a05:6820:820:b0:6b5:ec3f:4985 with SMTP id 006d021491bc7-6d2cb7abb15mr2482311eaf.32.1790184292712;
+        Wed, 23 Sep 2026 10:24:52 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6d2ce25c058sm2994831eaf.5.2026.09.23.10.24.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Sep 2026 10:24:52 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1x9QiB-0000000EA0Z-20hw;
+	Wed, 23 Sep 2026 14:24:51 -0300
+Date: Wed, 23 Sep 2026 14:24:51 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: James Morse <james.morse@arm.com>
+Cc: "Luck, Tony" <tony.luck@intel.com>, alex@ghiti.fr,
+	aou@eecs.berkeley.edu, babu.moger@amd.com,
+	baolin.wang@linux.alibaba.com, ben.horgan@arm.com, corbet@lwn.net,
+	cuiyunhui@bytedance.com, Dave.Martin@arm.com, fustini@kernel.org,
+	joro@8bytes.org, kevin.tian@intel.com, palmer@dabbelt.com,
+	pjw@kernel.org, reinette.chatre@intel.com, robin.murphy@arm.com,
+	shuah@kernel.org, tomasz.jeznach@linux.dev, wangzhou1@hisilicon.com,
+	will@kernel.org, xiaqinxin@huawei.com, yuanzhu@bytedance.com,
+	zengheng4@huawei.com, zhangzhanpeng.jasper@bytedance.com,
+	x86@kernel.org, iommu@lists.linux.dev, linuxarm@huawei.com,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: Resctrl and I/O
+Message-ID: <20260923172451.GN1540250@ziepe.ca>
+References: <arKx__kOPe4B5gDW@agluck-desk3>
+ <8557363f-c051-4267-9fbc-f4cbb13ac35e@arm.com>
 MIME-Version: 1.0
-Message-Id: <20260923-build-speedup-v4-22-73128809a4a4@kernel.org>
-References: <20260923-build-speedup-v4-0-73128809a4a4@kernel.org>
-In-Reply-To: <20260923-build-speedup-v4-0-73128809a4a4@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>, 
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Ard Biesheuvel <ardb@kernel.org>, 
- Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
- linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, 
- linux-hardening@vger.kernel.org, Petr Pavlu <petr.pavlu@suse.com>, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
- Manuel Ebner <manuelebnerli@mailbox.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10892; i=ljs@kernel.org;
- h=from:subject:message-id; bh=1zmsc9ZHF8+CoyT22YKQnfv42K05Raj82AafGLUVoSU=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLK2cF5V+qM6cZ+XtAW/Br/evglRvqvu6e0zclxt91O6Y
- amPfU9PRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACbyi5vhv+d/B+Uu/+nK57e4
- nd2/yvm3zewtAVnVk7TF4gzeHOM+JcnwP/6o3UdeXaZzG7hDLTxuVGcyNE/nLWEp03YunaVyTfg
- kPwA=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Disposition: inline
+In-Reply-To: <8557363f-c051-4267-9fbc-f4cbb13ac35e@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260923_102453_977874_ABD8A306 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,266 +115,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The gzip step of a kernel build is very lengthy, especially for larger
-builds such as allmodconfig.
+On Wed, Sep 23, 2026 at 06:13:27PM +0100, James Morse wrote:
 
-gzip itself cannot be run in parallel, however an alternative tool exists
-that can, providing the same feature set as gzip itself - pigz - which
-works as a drop-in replacement.
+> Using iommu_group like this may need a bit more thinking....
+> If we can fall back to using a device as seen by sysfs, then the arch differences
+> here could be invisible to user-space.
 
-On a 128-core Threadripper, gzip -9 of a 36 MiB x86-64 vmlinux.bin takes
-1.6s, and with pigz it takes 0.09s, so the performance increase is
-significant.
+Please don't codify iommu_groups in any new uAPI, that has proven to
+be a problematic choice for VFIO. We undid it.. Lets not repeat it.
 
-Therefore introduce the KPGZIP build variable which specifies the
-compressor to use for the kernel image and default it to pigz if available,
-or KGZIP otherwise (which itself defaults to gzip).
-
-Modules, packaging and the embedded kernel configuration (CONFIG_IKCONFIG)
-continue to use KGZIP which defaults to a single-threaded gzip instance.
-
-Module compression is run in parallel by make, so pigz offers no benefit
-there, packaging sits outside the build and the embedded configuration is
-too small to matter.
-
-pigz is executed using scripts/jobserver-exec, which reserves the job slots
-make has free - necessary, as otherwise pigz would just grab unbounded
-CPUs.
-
-The kernel image compression step is always performed at the end of the
-build so should typically have all job slots available.
-
-pigz always provides byte-for-byte identical output across runs regardless
-of thread count, but pigz and gzip are not guaranteed to generate the same
-binary output, so reproducible builds must use the same tools consistently.
-
-Also update Documentation/kbuild/kbuild.rst to describe KPGZIP and
-Documentation/process/changes.rst to list the optional pigz dependency.
-
-While there, add entries for the other compressor programs.
-
-Finally, update scripts/ver_linux to include the pigz version there.
-
-Every x86 build ends with the compression of vmlinux.bin, 36MB for
-defconfig and over 200MB for allmodconfig, no-op builds are unchanged.
-
-Whole build, 128-thread Threadripper 9980X, best of N runs:
-
-                                         before   after     delta
-                                         -------------------------------
-  x86 defconfig, touch mm/vma.c, gcc        7.7s     6.0s     -1.7s (-22%)
-  x86 defconfig, touch mm/vma.c, clang      6.9s     5.4s     -1.5s (-21%)
-  x86 defconfig, clean, gcc                28.2s    26.3s     -1.8s (-6%)
-  x86 defconfig, clean, clang              28.7s    27.2s     -1.5s (-5%)
-  x86 allmodconfig, touch mm/vma.c, gcc    23.7s    15.4s     -8.3s (-35%)
-  x86 allmodconfig, touch mm/vma.c, clang  22.5s    15.6s     -7.0s (-31%)
-  x86 allmodconfig, clean, gcc            294.1s   278.6s     -15.5s (-5%)
-  x86 allmodconfig, clean, clang          283.9s   266.8s     -17.1s (-6%)
-
-Suggested-by: Kees Cook <kees@kernel.org>
-Link: https://zlib.net/pigz/
-Assisted-by: LLM
-Reviewed-by: Manuel Ebner <manuelebnerli@mailbox.org>
-Reviewed-by: Kees Cook <kees@kernel.org>
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- Documentation/kbuild/kbuild.rst   | 17 +++++++++++++++++
- Documentation/process/changes.rst |  8 ++++++++
- Makefile                          |  5 ++++-
- kernel/Makefile                   |  6 +++++-
- scripts/Makefile.lib              |  4 ++--
- scripts/jobserver-exec            |  3 ++-
- scripts/ver_linux                 |  1 +
- tools/lib/python/jobserver.py     | 13 +++++++++++++
- 8 files changed, 52 insertions(+), 5 deletions(-)
-
-diff --git a/Documentation/kbuild/kbuild.rst b/Documentation/kbuild/kbuild.rst
-index 5a9013bacfb7..e71a692a559a 100644
---- a/Documentation/kbuild/kbuild.rst
-+++ b/Documentation/kbuild/kbuild.rst
-@@ -110,6 +110,23 @@ HOSTLDLIBS
- ----------
- Additional libraries to link against when building host programs.
- 
-+KGZIP
-+-----
-+The gzip program used for compressed modules, packaging and the embedded
-+kernel configuration. Defaults to gzip.
-+
-+KPGZIP
-+------
-+The gzip program used for the compressed kernel image. Defaults to pigz (a
-+parallel implementation of gzip), run under scripts/jobserver-exec so that it
-+uses the job slots make has free, if pigz is installed, otherwise to
-+``KGZIP``. Set ``KPGZIP=`` on the make command line to use another program.
-+
-+KBZIP2, KLZOP, LZMA, LZ4, XZ, ZSTD
-+----------------------------------
-+The compressor programs for the other formats. Each defaults to the program
-+of the same name.
-+
- .. _userkbuildflags:
- 
- USERCFLAGS
-diff --git a/Documentation/process/changes.rst b/Documentation/process/changes.rst
-index 0aa232b117b5..28f2ca63318e 100644
---- a/Documentation/process/changes.rst
-+++ b/Documentation/process/changes.rst
-@@ -55,6 +55,7 @@ nfs-utils              1.0.5            showmount --version
- openssl & libcrypto    1.0.0            openssl version
- pahole                 1.26             pahole --version
- pcmciautils            004              pccardctl -V
-+pigz (optional)        2.4              pigz --version
- PPP                    2.4.0            pppd --version
- procps                 3.2.0            ps --version
- Python                 3.9.x            python3 --version
-@@ -206,6 +207,13 @@ GNU AWK
- GNU AWK is needed if you want kernel builds to generate address range data for
- builtin modules (CONFIG_BUILTIN_MODULE_RANGES).
- 
-+pigz (optional)
-+---------------
-+
-+pigz is a parallel implementation of gzip. If it is installed the compressed
-+kernel image is produced with it rather than with gzip, see ``KPGZIP`` in
-+Documentation/kbuild/kbuild.rst.
-+
- System utilities
- ****************
- 
-diff --git a/Makefile b/Makefile
-index f0502b02408f..ba71483f7f14 100644
---- a/Makefile
-+++ b/Makefile
-@@ -568,6 +568,9 @@ LZMA		= lzma
- LZ4		= lz4
- XZ		= xz
- ZSTD		= zstd
-+# The kernel image is compressed with pigz, on the job slots make has free,
-+# if it is installed. Everything else uses KGZIP.
-+KPGZIP		:= $(if $(shell command -v pigz 2>/dev/null),$(PYTHON3) $(abs_srctree)/scripts/jobserver-exec pigz -p %PARALLELISM%,$(KGZIP))
- TAR		= tar
- 
- CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
-@@ -648,7 +651,7 @@ export RUSTC RUSTDOC RUSTFMT RUSTC_OR_CLIPPY_QUIET RUSTC_OR_CLIPPY BINDGEN LLVM_
- export HOSTRUSTC KBUILD_HOSTRUSTFLAGS
- export CPP AR NM STRIP OBJCOPY OBJDUMP READELF PAHOLE RESOLVE_BTFIDS LEX YACC AWK INSTALLKERNEL
- export PERL PYTHON3 CHECK CHECKFLAGS MAKE UTS_MACHINE HOSTCXX
--export KGZIP KBZIP2 KLZOP LZMA LZ4 XZ ZSTD TAR
-+export KGZIP KPGZIP KBZIP2 KLZOP LZMA LZ4 XZ ZSTD TAR
- export KBUILD_HOSTCXXFLAGS KBUILD_HOSTLDFLAGS KBUILD_HOSTLDLIBS KBUILD_PROCMACROLDFLAGS LDFLAGS_MODULE
- export KBUILD_USERCFLAGS KBUILD_USERLDFLAGS
- 
-diff --git a/kernel/Makefile b/kernel/Makefile
-index 1e1a31673577..c64c82c96b40 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -153,9 +153,13 @@ obj-$(CONFIG_SCF_TORTURE_TEST) += scftorture.o
- 
- $(obj)/configs.o: $(obj)/config_data.gz
- 
-+# .config is small, so it is compressed with gzip rather than the image compressor.
-+quiet_cmd_gzip_config = GZIP    $@
-+      cmd_gzip_config = cat $(real-prereqs) | $(KGZIP) -n -f -9 > $@
-+
- targets += config_data config_data.gz
- $(obj)/config_data.gz: $(obj)/config_data FORCE
--	$(call if_changed,gzip)
-+	$(call if_changed,gzip_config)
- 
- filechk_cat = cat $<
- 
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 2f447bc25e7b..8936925d4d50 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -332,11 +332,11 @@ quiet_cmd_ar = AR      $@
- quiet_cmd_objcopy = OBJCOPY $@
- cmd_objcopy = $(OBJCOPY) $(OBJCOPYFLAGS) $(OBJCOPYFLAGS_$(@F)) $< $@
- 
--# Gzip
-+# Gzip, for the kernel image
- # ---------------------------------------------------------------------------
- 
- quiet_cmd_gzip = GZIP    $@
--      cmd_gzip = cat $(real-prereqs) | $(KGZIP) -n -f -9 > $@
-+      cmd_gzip = cat $(real-prereqs) | $(KPGZIP) -n -f -9 > $@
- 
- # Bzip2
- # ---------------------------------------------------------------------------
-diff --git a/scripts/jobserver-exec b/scripts/jobserver-exec
-index 21b319e6c9a5..89119acb1b9e 100755
---- a/scripts/jobserver-exec
-+++ b/scripts/jobserver-exec
-@@ -4,7 +4,8 @@
- """
- Determines how many parallel tasks "make" is expecting, as it is
- not exposed via any special variables, reserves them all, runs a subprocess
--with PARALLELISM environment variable set, and releases the jobs back again.
-+with PARALLELISM environment variable set and any %PARALLELISM% in its
-+arguments replaced by the count, and releases the jobs back again.
- 
- See:
-     https://www.gnu.org/software/make/manual/html_node/POSIX-Jobserver.html#POSIX-Jobserver
-diff --git a/scripts/ver_linux b/scripts/ver_linux
-index 00bdaf30d590..e06d7c650710 100755
---- a/scripts/ver_linux
-+++ b/scripts/ver_linux
-@@ -57,6 +57,7 @@ BEGIN {
- 	printversion("pahole", version("pahole --version"))
- 	printversion("Pcmcia-cs", version("cardmgr -V"))
- 	printversion("pcmciautils", version("pccardctl -V"))
-+	printversion("pigz", version("pigz --version"))
- 	printversion("PPP", version("pppd --version"))
- 	printversion("procps", version("ps --version"))
- 	printversion("Python", version("python3 -V"))
-diff --git a/tools/lib/python/jobserver.py b/tools/lib/python/jobserver.py
-index 0b1ffdf9f7a3..7e94635bf7d9 100755
---- a/tools/lib/python/jobserver.py
-+++ b/tools/lib/python/jobserver.py
-@@ -29,6 +29,10 @@ $claim child to do the actual work.
- The end goal here is to keep the total number of build tasks under the
- limit established by the initial ``make -j$n_proc`` call.
- 
-+A command that takes its thread count on the command line rather than from
-+the environment can use the ``%PARALLELISM%`` token in its arguments, which
-+is replaced by the count, or by 1 when there is no jobserver.
-+
- See:
-     https://www.gnu.org/software/make/manual/html_node/POSIX-Jobserver.html#POSIX-Jobserver
- """
-@@ -38,6 +42,8 @@ import os
- import subprocess
- import sys
- 
-+PARALLELISM_TOKEN = "%PARALLELISM%"
-+
- def warn(text, *args):
-     print(f'WARNING: {text}', *args, file = sys.stderr)
- 
-@@ -182,6 +188,9 @@ class JobserverExec:
-         Run a command setting PARALLELISM env variable to the number of
-         available job slots (claim) + 1, e.g. it will reserve claim slots
-         to do the actual build work, plus one to monitor its children.
-+
-+        Any %PARALLELISM% in the command's arguments is replaced by the same
-+        number, or by 1 when there is no jobserver.
-         """
-         self.open()             # Ensure that self.claim is set
- 
-@@ -192,4 +201,8 @@ class JobserverExec:
-         if self.claim:
-             os.environ["PARALLELISM"] = str(self.claim)
- 
-+        if not isinstance(cmd, str):
-+            parallelism = str(self.claim or 1)
-+            cmd = [arg.replace(PARALLELISM_TOKEN, parallelism) for arg in cmd]
-+
-         return subprocess.call(cmd, *args, **pwargs)
-
--- 
-2.55.0
-
+Jason
 
 _______________________________________________
 linux-riscv mailing list
