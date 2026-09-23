@@ -4,58 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B7CC982FA
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 09:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95AD2C982FA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 09:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:From:Mime-Version:To:Message-Id:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Rrj9enPe4y6nqDytz70XijSz/s3yz6eKh/5mlQIm5Nc=; b=M3Dk5GphUA9CHF
-	s8kRtOBLkIWXeWoELmYz3wJ+feNtCjbbbfKA6v2pLTitLzVImIgu9ZE5AOIc49JoBFoIx6jf7MD8A
-	ZLdcUrGZqFuoeuQ/tLoLa8JKWya4aDGY5ly0cYAkbjj+baVe4OgON+e0A5ycmpFz3EOgrCp3f68aP
-	gkj+jg8Cp/zpX7JOWLdiCj381X4YlygikD9K9qUdwIANRvJEGws7eoWcmyFAZ53DEzb/02wEBGk+v
-	o0629Hyvt4JtFukk9sx4MIPUEFBOEqh1ZV5tKI6mrvcGVVZex+7C9Txk1LRLmFqYuChySEqXdzstL
-	qqC5BJZ7njM2TfE/RdGw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H6Bl2IdG8FEkKQti1wvupw97rpXXballu9qIiT7+kSQ=; b=4tV7Q1nmeokwYw
+	nLH48bAvOZaPfgVpHfdOQXR+kKqzJBK/iE9YEORp6LsjjdXhACUCyZkkn6EoZbzKwMvS9iWIFEcjn
+	Vv+fdsnV9txyNTWfFgb5GRyavE7lGbsCy5i2PyGs02u8V0XhEr+yzUhSLS75AVPLZ65NDwfFfXJsa
+	K8+NaYFd0DXRiNG7AtXfzeHJ1eD981T0F5d73FSjiXjss4Nrh8a5YUXzDaWhAZOQuLfTWy/Qr8nbz
+	SVCCwD+EUvRmKE3Z9lKXuvYjikjlmAAzzlhFJjnTGj2mSD5Kg/hpjGdpfn7BzMEGygCy8JnoUyDJv
+	ZOo0Wp/lYfWKcyS83IDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9J6X-00000007hzd-29hQ;
-	Wed, 23 Sep 2026 09:17:29 +0000
-Received: from va-2-51.ptr.blmpb.com ([209.127.231.51])
+	id 1x9JSD-00000007ltB-0l29;
+	Wed, 23 Sep 2026 09:39:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9J6U-00000007hyi-06ev
-	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 09:17:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1790155041;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=8LW/UL97F9n2RNOfFVINEJLOceLsBC25MrzyAVvWnbk=;
- b=KpL7ecoSDR0Nz0lUfnm/QBZDyYN02XOJyOWAnRIUQkCDSC1Ewm+v4j0GfglG+S4Rt+sZXW
- OMybAW/CHmgsQm6Ta8HZVA7wHfP5aKQhvFR1gKtgd/56moJUvAoK2G9VxTuLpT3k64PFcC
- QKcuwa1Ld7YR4mL4asJLqTkJJy1LjPpKQZBvIiXCKoA83249gQxugZWAESyqYPa3Z7uFaf
- ag5Kg41Nf56/Rup9em58dx9cbRZ5ZGo1oKgIitPh8qKZ+0MOeYzzut1oDUeTNR+PgaKVSY
- qWK+z/HMa9XqEFvY4vNLLt+Of0VsUlLXdCjbIUcZUfEbZ90RgEksZxTsA6mqmw==
-Subject: [PATCH v3] RISC-V: KVM: Serialize and atomize the IMSIC's TOPEI read-and-clear operation
-Date: Wed, 23 Sep 2026 17:16:58 +0800
-Message-Id: <20260923091658.1421475-1-xiangwencheng@lanxincomputing.com>
-X-Mailer: git-send-email 2.53.0
-To: <anup@brainfault.org>
-Mime-Version: 1.0
-X-Original-From: BillXiang <xiangwencheng@lanxincomputing.com>
-From: "BillXiang" <xiangwencheng@lanxincomputing.com>
-X-Lms-Return-Path: <lba+26ab3991f+5f4904+lists.infradead.org+xiangwencheng@lanxincomputing.com>
-Received: from lanxin-ThinkBook-16-G5-IRH ([123.120.5.129]) by smtp.feishu.cn with ESMTP; Wed, 23 Sep 2026 17:17:18 +0800
-Cc: <xb@ultrarisc.com>, <atish.patra@linux.dev>, <pjw@kernel.org>, 
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
-	<pbonzini@redhat.com>, <graf@amazon.com>, 
-	<kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
-	<xiangwencheng@lanxincomputing.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_021726_148325_95A105EB 
-X-CRM114-Status: GOOD (  12.07  )
+	id 1x9JSB-00000007lsu-0tED;
+	Wed, 23 Sep 2026 09:39:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C7167600AA;
+	Wed, 23 Sep 2026 09:39:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC0771F000FF;
+	Wed, 23 Sep 2026 09:39:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790156389;
+	bh=Ky9c7fQZ/1RFu7l1ztUmuvVnX2EIpcy6aLCf8pDHQ2o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=KYr7TIgWfrXtSFuYVtPX6VTaibKpRDQE0xLEscffhdhRMZQB3sVyojKDpb3pvYX9a
+	 qfvIpI/SixGIFQ7jPSlfRpTXqHoSQw3e5NGtYoZ0sYH3oJ+xqsBI0jpKsys1S/JnYy
+	 IvQ5WEYwt2sHjNSrspaH0UnfT4l3XktBqmTgdQkVCWl9XgouOK5HxvYe5u055yDxRe
+	 RgCQcXcWZ6Lv0CUhhbVrDCdmnM1DAd3Ix6pJv/92RXmA/nzdCeEya6awHMsihGp3fa
+	 8OzKYVp4CPN2ar8c2+eqMrSU+ghKOu7oofCmSqVM5mgyS2NoW6ndtBPvRSr07sUjNj
+	 CvviJRLhMRoaQ==
+Message-ID: <300f92ef-1526-44d9-a01f-e9b8f3fc0cd1@kernel.org>
+Date: Wed, 23 Sep 2026 11:39:27 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/12] mm: make userland page table freeing RCU-safe
+Content-Language: en-US
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Dinh Nguyen
+ <dinguyen@kernel.org>, Simon Schuster <schuster.simon@siemens-energy.com>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>,
+ Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin
+ <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>,
+ Peter Xu <peterx@redhat.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Jonathan Corbet <corbet@lwn.net>,
+ Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+ linux-arch@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-alpha@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>,
+ Qi Zheng <qi.zheng@linux.dev>, linux-doc@vger.kernel.org
+References: <20260922-rcu-pagetable-freeing-v4-0-fe1ad1f1e303@kernel.org>
+ <20260922160021.a2fc65d05d9b867a141e5457@linux-foundation.org>
+ <9dcde7e4-dadb-4644-9dff-7fd8a26e29a6@kernel.org> <arOVbT5B1FOMe1wb@gremlin>
+ <77db2f8f-dfc2-49c6-82f6-8e6c4f7c1fd0@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Autocrypt: addr=vbabka@kernel.org; keydata=
+ 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
+In-Reply-To: <77db2f8f-dfc2-49c6-82f6-8e6c4f7c1fd0@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,125 +167,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The TOPEI read-and-clear must be atomic with respect to
-interrupt injection (set_bit in EIP). Otherwise an
-interrupt injected between the topei read and the
-clear_bit could be silently dropped.
+On 9/23/26 11:15, David Hildenbrand (Arm) wrote:
+> On 9/23/26 11:04, Lorenzo Stoakes (ARM) wrote:
+>> On Wed, Sep 23, 2026 at 10:45:33AM +0200, David Hildenbrand (Arm) wrote:
+>>> On 9/23/26 01:00, Andrew Morton wrote:
+>>>>
+>>>>
+>>>> Do we have reason to believe that anyone is seeing any effects from
+>>>> their arch's failure to rcu-free the page tables?
+>>>>
+>>>> This sounds like a rather long-standing wart, yes?
+>>>>
+>>>> The patchset is thinly reviewed and mm.git is bursting at the seams
+>>>> again.  I'll play wait-and-see on this series.
+>>> Do we want to nudge arch maintainers to review?
+>> 
+>> (Just to note that I replied separately, 'thinly reviewed' is incorrect, it's
+>> been in -next for weeks and the whole thing was reviewed by Kiryl.)
+> 
+> Ack.
+> 
+>> 
+>> The only places where that would be useful is m68k motorola, sparc32.
+>> 
+>> But in any case it has been heavily tested including on every single arch
+>> listed with stress testing performed (I think I cover that in the cover
+>> letter).
+>> 
+>> The changes are not controversial so I don't think that's a blocker, but
+>> it'd be nice?
+> 
+> I doubt we'll ever get sparc32 reviews :)
+> 
+> I'd definitely appreciate some review on the arch bits from arch maintainers,
+> but if they don't reply within the next weeks I wouldn't wait on that.
 
-v3:
- - fix undefined eflags
-
-v2:
- - fix patch file curruption
-
-v1: https://lore.kernel.org/kvm-riscv/20260923070332.1376132-1-xiangwencheng@lanxincomputing.com/
-
-Signed-off-by: BillXiang <xiangwencheng@lanxincomputing.com>
----
- arch/riscv/kvm/aia_imsic.c | 42 +++++++++++++++++++++++++-------------
- 1 file changed, 28 insertions(+), 14 deletions(-)
-
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index c1af23e79ae0..c440088651ec 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -607,26 +607,25 @@ static void imsic_vsfile_cleanup(struct imsic *imsic)
- 		kvm_riscv_aia_free_hgei(old_vsfile_cpu, old_vsfile_hgei);
- }
- 
--static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
-+static void __imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
- {
- 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
- 	struct imsic_mrif *mrif = imsic->swfile;
--	unsigned long flags;
--
--	/*
--	 * The critical section is necessary during external interrupt
--	 * updates to avoid the risk of losing interrupts due to potential
--	 * interruptions between reading topei and updating pending status.
--	 */
--
--	raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
- 
- 	if (imsic_mrif_atomic_read(mrif, &mrif->eidelivery) &&
- 	    imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis))
- 		kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_EXT);
- 	else
- 		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
-+}
-+
-+static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
-+{
-+	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-+	unsigned long flags;
- 
-+	raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
-+	__imsic_swfile_extirq_update(vcpu);
- 	raw_spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
- }
- 
-@@ -912,12 +911,15 @@ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
- 	struct imsic_mrif_eix *eix;
- 	int r, rc = KVM_INSN_CONTINUE_NEXT_SEPC;
- 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-+	unsigned long flags;
- 
- 	/* If IMSIC vCPU state not initialized then forward to user space */
- 	if (!imsic)
- 		return KVM_INSN_EXIT_TO_USER_SPACE;
- 
- 	if (isel == KVM_RISCV_AIA_IMSIC_TOPEI) {
-+		raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
-+
- 		/* Read pending and enabled interrupt with highest priority */
- 		topei = imsic_mrif_topei(imsic->swfile, imsic->nr_eix,
- 					 imsic->nr_msis);
-@@ -934,16 +936,20 @@ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
- 					  eix->eip);
- 			}
- 		}
-+		if (wr_mask)
-+			__imsic_swfile_extirq_update(vcpu);
-+
-+		raw_spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
- 	} else {
- 		r = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix, isel,
- 				   val, new_val, wr_mask);
- 		/* Forward unknown IMSIC register to user-space */
- 		if (r)
- 			rc = (r == -ENOENT) ? 0 : KVM_INSN_ILLEGAL_TRAP;
--	}
- 
--	if (wr_mask)
--		imsic_swfile_extirq_update(vcpu);
-+		if (wr_mask)
-+			imsic_swfile_extirq_update(vcpu);
-+	}
- 
- 	return rc;
- }
-@@ -1050,9 +1056,17 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
- 	if (imsic->vsfile_cpu >= 0) {
- 		writel(iid, imsic->vsfile_va + IMSIC_MMIO_SETIPNUM_LE);
- 	} else {
-+		/*
-+		 * Serialize the EIP set + external-irq update against the
-+		 * TOPEI read-and-clear path so that an injected interrupt
-+		 * cannot be silently lost when the guest acknowledges a
-+		 * different (or the same) interrupt concurrently.
-+		 */
-+		raw_spin_lock(&imsic->swfile_extirq_lock);
- 		eix = &imsic->swfile->eix[iid / BITS_PER_TYPE(u64)];
- 		set_bit(iid & (BITS_PER_TYPE(u64) - 1), eix->eip);
--		imsic_swfile_extirq_update(vcpu);
-+		__imsic_swfile_extirq_update(vcpu);
-+		raw_spin_unlock(&imsic->swfile_extirq_lock);
- 	}
- 
- 	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
--- 
-2.53.0
+Indeed, for minor arches like this the lack of review (it would be a whole
+cycle by the merge window) shouldn't be a blocker for important tree-wide
+progress.
 
 _______________________________________________
 linux-riscv mailing list
