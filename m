@@ -4,58 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F777C98302
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 07:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD2EC982EA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 07:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Cc:Subject:Mime-Version:Date
-	:From:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hCTH0gmXsk4pY7uBtC5xSBVoQtbAgnDP3QAezUIyyXc=; b=X6R7mhayCgR3ua
-	Qj1ta+r8ZxEVjx/q87Ks8GM9NBtsUo23SyPK/ZxcoP0jEBza90PsVPokz4zCtEc548wwhedFGm+rZ
-	k2wq8ECGvzIxA7uf041kvhUSTBX6pRTZNJr7Silv8HTaeQfwoytAqSaJzfSHxZZ1d9+KZ3h7zFv6L
-	E4/sovRiJdbgmLLnCtgVLcCMGCLW/XPXjWjrevqeSK8j7y/D82PjsD+wbiK2tpJFLFAuK9Rr9+YHo
-	Yzhyoqg7A802N8IspAptQ09V/nBZDObnbsQVEletz8kVab05wKBN0r5FXEOl/mzh47c5Hs5aQGw47
-	ntSO/MgKIW88U6KoqmRw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hYgJ0Q01cTHsYdyd6RfHBZ3zfGpm1S9GxvO9qYIIAcI=; b=eTJ4G9JO3rDx20
+	/GJE5l8DPtz+x6EtrAQBgy4809vaJXmYB8sV1skpzHiVBO5CVvHmKsUTCLwwjhgpmeHYi051bdl5Z
+	YoXm4j71ZnNoxrd0CU79N1Fom1t0EgMuL6Innm0DRipNyo7/7Jd+JCt7+yhS4MQgnMu0YQem4Ulea
+	BkDHETv6nK51QFUCpivFRTYWuTkZhZhTpXYlsAsTrKERXZFdqWS+6zibODYNYJidHZkZZLNJ4wHBl
+	a6vDovVQ0hnEZhlBbLK8RuQ9nHiiEgv7NChqqi2d5pM7+PaKhGhm9xyTrU7qR60mohOabYpUn9YGm
+	VDAOpljKdaKvwTibFgEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9H4U-00000007LoO-2a1D;
-	Wed, 23 Sep 2026 07:07:14 +0000
-Received: from sg-3-28.ptr.tlmpb.com ([101.45.255.28])
+	id 1x9H7a-00000007MA7-1CtX;
+	Wed, 23 Sep 2026 07:10:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9H4S-00000007LnA-1nlJ
-	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 07:07:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1790147189;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=IozOCfZjbTL104g9rR2zsGuXkky764uBWGPbuf9IUio=;
- b=m2k8U9SD8LI7x/66sdsnXRezYqplwELqxk9wnOJpYWWPLwWitIcBFnh1gy8DepyT2d1WDj
- HWaA+GZ4aoEsz7wiMK7UqfM83uMxFeB7r97CWG8y7tGjQEWGhOZ4Enyk5/cBMLucih9R8t
- q5Bko8eLhLfF8i1ItLJPhT81du3rFL2FqW63Yz6vUosKX+jXjlJPqy2nabTgdG88M8vaZ8
- X4UmleQXY+1uQSZTOxN9xGhWSShDWKEyZvHEIr2+XMS97Iq9jVYmxORcE1+E97iuJt8pPr
- VUA4annBn+rJUUsMGr+kUyyKRsli70HuOQvQnYcS/6VowmhupcpjBWG+vofYiw==
-To: <anup@brainfault.org>
-From: "BillXiang" <xiangwencheng@lanxincomputing.com>
-Date: Wed, 23 Sep 2026 15:03:32 +0800
-Mime-Version: 1.0
-Subject: [PATCH] RISC-V: KVM: Serialize and atomize the IMSIC's TOPEI read-and-clear operation
-X-Lms-Return-Path: <lba+26ab37a73+cb2e93+lists.infradead.org+xiangwencheng@lanxincomputing.com>
-Cc: <xb@ultrarisc.com>, <atish.patra@linux.dev>, <pjw@kernel.org>, 
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, 
-	<pbonzini@redhat.com>, <graf@amazon.com>, 
-	<kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
-	<xiangwencheng@lanxincomputing.com>
-Message-Id: <20260923070332.1376132-1-xiangwencheng@lanxincomputing.com>
-X-Original-From: BillXiang <xiangwencheng@lanxincomputing.com>
-Received: from lanxin-ThinkBook-16-G5-IRH ([123.120.5.129]) by smtp.feishu.cn with ESMTP; Wed, 23 Sep 2026 15:06:26 +0800
-X-Mailer: git-send-email 2.53.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_000712_657863_CD08F453 
-X-CRM114-Status: GOOD (  11.53  )
+	id 1x9H7Y-00000007M9Y-19AO;
+	Wed, 23 Sep 2026 07:10:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8524F60200;
+	Wed, 23 Sep 2026 07:10:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF7D1F00893;
+	Wed, 23 Sep 2026 07:10:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790147422;
+	bh=t9RAe9ZjvGj6dYOYWWXV4UowTJ/0wUjk9Zi0mnvN1Ks=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZktHXeeVHUdVX84HQm0s5eTwxdjCgV+/1qk2ubVk78nV17YKtFkiFazEoAUDTsoXc
+	 M9HCiTHUQ7J69MHTAi4rLJyLVgYuyNbgSZJz+v4NLmOvNpB/bSTDv4lHPBz5Q4Gbdm
+	 cw1DRtF+qN9ZW+I8gS7aCogIW950qmkzAO26UzPGSnMSRMFt2p6bBCYM4H0oUIHroz
+	 jtcloLZ16zE9tgGKnollzIYQBpif6cPAzGzXl2ECvovYLZTpgksOX/6bxn4RAYnBNk
+	 G5I4qUhKiokal3pqf0QgZTJFeUKOfYndJa8L1dZhaKM+4yq8dKa2tMGYzCO83fHsqT
+	 OShYOOxxd3Q4Q==
+Date: Wed, 23 Sep 2026 08:09:58 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Lance Yang <lance.yang@linux.dev>
+Cc: akpm@linux-foundation.org, david@kernel.org, ziy@nvidia.com, 
+	baolin.wang@linux.alibaba.com, liam@infradead.org, nico.pache@linux.dev, ryan.roberts@arm.com, 
+	dev.jain@arm.com, baohua@kernel.org, usama.arif@linux.dev, kas@kernel.org, 
+	guoren@kernel.org, bcain@kernel.org, geert@linux-m68k.org, dinguyen@kernel.org, 
+	schuster.simon@siemens-energy.com, jonas@southpole.se, stefan.kristiansson@saunalahti.fi, 
+	shorne@gmail.com, dalias@libc.org, glaubitz@physik.fu-berlin.de, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux@armlinux.org.uk, 
+	vgupta@kernel.org, monstr@monstr.eu, chris@zankel.net, jcmvbkbc@gmail.com, 
+	will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com, peterz@infradead.org, 
+	davem@davemloft.net, andreas@gaisler.com, richard.henderson@linaro.org, 
+	mattst88@gmail.com, linmag7@gmail.com, catalin.marinas@arm.com, mark.rutland@arm.com, 
+	chenhuacai@kernel.org, kernel@xen0n.name, tsbogend@alpha.franken.de, 
+	James.Bottomley@hansenpartnership.com, deller@gmx.de, maddy@linux.ibm.com, mpe@ellerman.id.au, 
+	chleroy@kernel.org, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
+	borntraeger@linux.ibm.com, svens@linux.ibm.com, richard@nod.at, 
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, tglx@kernel.org, mingo@redhat.com, 
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	arnd@arndb.de, vbabka@kernel.org, rppt@kernel.org, surenb@google.com, 
+	mhocko@suse.com, jgg@ziepe.ca, jhubbard@nvidia.com, peterx@redhat.com, 
+	ysato@users.sourceforge.jp, shakeel.butt@linux.dev, corbet@lwn.net, rdunlap@infradead.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, 
+	linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, hughd@google.com, 
+	qi.zheng@linux.dev, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 01/12] mm/khugepaged: deposit a newly allocated page
+ table on collapse
+Message-ID: <arN6TnhWK0j61E3q@gremlin>
+References: <20260922-rcu-pagetable-freeing-v4-1-fe1ad1f1e303@kernel.org>
+ <20260923022436.61930-1-lance.yang@linux.dev>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20260923022436.61930-1-lance.yang@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,117 +96,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The TOPEI read-and-clear must be atomic with respect to
-interrupt injection (set_bit in EIP). Otherwise an
-interrupt injected between the topei read and the
-clear_bit could be silently dropped.
+On Wed, Sep 23, 2026 at 10:24:36AM +0800, Lance Yang wrote:
+> > mm/khugepaged.c | 32 ++++++++++++++++++++++++++++++--
+> > 1 file changed, 30 insertions(+), 2 deletions(-)
+> >
+> >diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+> >index f49a6710933b..dab421f8233e 100644
+> >--- a/mm/khugepaged.c
+> >+++ b/mm/khugepaged.c
+> >@@ -1278,6 +1278,23 @@ static enum scan_result alloc_charge_folio(struct folio **foliop, struct mm_stru
+> > 	return SCAN_SUCCEED;
+> > }
+> >
+> >+static pgtable_t alloc_deposit_pte(struct mm_struct *mm)
+> >+{
+> >+	/*
+> >+	 * khugepaged is run from a kernel thread, so need to manually set the
+> >+	 * correct memcg so the allocation gets charged correctly.
+> >+	 */
+> >+	struct mem_cgroup *memcg = get_mem_cgroup_from_mm(mm);
+> >+	struct mem_cgroup *old_memcg = set_active_memcg(memcg);
+> >+	pgtable_t pgtable;
+> >+
+> >+	pgtable = pte_alloc_one(mm);
+> >+
+> >+	set_active_memcg(old_memcg);
+> >+	mem_cgroup_put(memcg);
+> >+	return pgtable;
+> >+}
+> >+
+> > /*
+> >  * collapse_huge_page() expects the mmap_lock to be unlocked before entering and
+> >  * will always return with the lock unlocked, to avoid holding the mmap_lock
+> >@@ -1293,7 +1310,7 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
+> > 	LIST_HEAD(compound_pagelist);
+> > 	pmd_t *pmd, _pmd;
+> > 	pte_t *pte = NULL;
+> >-	pgtable_t pgtable;
+> >+	pgtable_t pgtable = NULL;
+> > 	struct folio *folio;
+> > 	spinlock_t *pmd_ptl, *pte_ptl;
+> > 	enum scan_result result = SCAN_FAIL;
+> >@@ -1310,6 +1327,12 @@ static enum scan_result collapse_huge_page(struct mm_struct *mm, unsigned long s
+> > 		goto out_nolock;
+> > 	}
+> >
+> >+	if (is_pmd_order(order)) {
+> >+		pgtable = alloc_deposit_pte(mm);
+> >+		if (!pgtable)
+> >+			goto out_nolock;
+>
+> One small thing: result is still SCAN_SUCCEED after alloc_charge_folio(),
+>
+> 	result = alloc_charge_folio(&folio, mm, cc, order);
+> 	if (result != SCAN_SUCCEED)
+> 		goto out_nolock;
+>
+> 	if (folio_memcg_alloc_deferred(folio)) {
+> 		result = SCAN_ALLOC_HUGE_PAGE_FAIL;
+> 		goto out_nolock;
+> 	}
+>
+> 	if (is_pmd_order(order)) {
+> 		pgtable = alloc_deposit_pte(mm);
+> 		if (!pgtable)
+> 			goto out_nolock;
+> 	}
+>
+> so if alloc_deposit_pte() fails, collapse_huge_page() returns success
+> without installing a PMD.
+>
+> I see sashiko pointed that out too :)
+>
+> Cheers, Lance
 
-Signed-off-by: BillXiang <xiangwencheng@lanxincomputing.com>
----
- arch/riscv/kvm/aia_imsic.c | 48 +++++++++++++++++++++++++++-----------
- 1 file changed, 34 insertions(+), 14 deletions(-)
+Sigh ack yeah oops :) I think SCAN_ALLOC_HUGE_PAGE_FAIL is the closest though
+it's not allocating a huge page so much as the page table, but gets the correct
+MADV_COLLAPSE -ENOMEM back.
 
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index c1af23e79ae0..1a936b39076d 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -607,26 +607,25 @@ static void imsic_vsfile_cleanup(struct imsic *imsic)
- 		kvm_riscv_aia_free_hgei(old_vsfile_cpu, old_vsfile_hgei);
- }
- 
--static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
-+static void __imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
- {
- 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
- 	struct imsic_mrif *mrif = imsic->swfile;
--	unsigned long flags;
--
--	/*
--	 * The critical section is necessary during external interrupt
--	 * updates to avoid the risk of losing interrupts due to potential
--	 * interruptions between reading topei and updating pending status.
--	 */
--
--	raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
- 
- 	if (imsic_mrif_atomic_read(mrif, &mrif->eidelivery) &&
- 	    imsic_mrif_topei(mrif, imsic->nr_eix, imsic->nr_msis))
- 		kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_EXT);
- 	else
- 		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
-+}
-+
-+static void imsic_swfile_extirq_update(struct kvm_vcpu *vcpu)
-+{
-+	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-+	unsigned long flags;
- 
-+	raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
-+	__imsic_swfile_extirq_update(vcpu);
- 	raw_spin_unlock_irqrestore(&imsic->swfile_extirq_lock, flags);
- }
- 
-@@ -912,12 +911,21 @@ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
- 	struct imsic_mrif_eix *eix;
- 	int r, rc = KVM_INSN_CONTINUE_NEXT_SEPC;
- 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
-+	unsigned long flags;
- 
- 	/* If IMSIC vCPU state not initialized then forward to user space */
- 	if (!imsic)
- 		return KVM_INSN_EXIT_TO_USER_SPACE;
- 
- 	if (isel == KVM_RISCV_AIA_IMSIC_TOPEI) {
-+		raw_spin_lock_irqsave(&imsic->swfile_extirq_lock, flags);
-+
- 		/* Read pending and enabled interrupt with highest priority */
- 		topei = imsic_mrif_topei(imsic->swfile, imsic->nr_eix,
- 					 imsic->nr_msis);
-@@ -934,16 +942,20 @@ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
- 					  eix->eip);
- 			}
- 		}
-+		if (wr_mask)
-+			__imsic_swfile_extirq_update(vcpu);
-+
-+		raw_spin_unlock_irqrestore(&imsic->swfile_extirq_lock, eflags);
- 	} else {
- 		r = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix, isel,
- 				   val, new_val, wr_mask);
- 		/* Forward unknown IMSIC register to user-space */
- 		if (r)
- 			rc = (r == -ENOENT) ? 0 : KVM_INSN_ILLEGAL_TRAP;
--	}
- 
--	if (wr_mask)
--		imsic_swfile_extirq_update(vcpu);
-+		if (wr_mask)
-+			imsic_swfile_extirq_update(vcpu);
-+	}
- 
- 	return rc;
- }
-@@ -1050,9 +1062,17 @@ int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
- 	if (imsic->vsfile_cpu >= 0) {
- 		writel(iid, imsic->vsfile_va + IMSIC_MMIO_SETIPNUM_LE);
- 	} else {
-+		/*
-+		 * Serialize the EIP set + external-irq update against the
-+		 * TOPEI read-and-clear path so that an injected interrupt
-+		 * cannot be silently lost when the guest acknowledges a
-+		 * different (or the same) interrupt concurrently.
-+		 */
-+		raw_spin_lock(&imsic->swfile_extirq_lock);
- 		eix = &imsic->swfile->eix[iid / BITS_PER_TYPE(u64)];
- 		set_bit(iid & (BITS_PER_TYPE(u64) - 1), eix->eip);
--		imsic_swfile_extirq_update(vcpu);
-+		__imsic_swfile_extirq_update(vcpu);
-+		raw_spin_unlock(&imsic->swfile_extirq_lock);
- 	}
- 
- 	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
--- 
-2.53.0
+(Another case of local AI review not catchign something btw! Sashiko does lean
+towards over-reporting/hallucinating but catches more)
+
+Will ask Andrew to update in reply to this patch as a quick thing rather than
+respin so quick, and fix up on any respin.
+
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
