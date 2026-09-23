@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66608C982FA
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 13:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3DAC9830B
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 13:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aO3zPZV/S5HNp8UuwJukRKSs2U4P6T/WSoCcbhMU+Xc=; b=VXFQxEWAS6UZ4O
-	NfylY0lZhNgM/cwX3qLXuTTp2/Y4ZzCiMbtocPHuMInZdoyu6oUGIbIGcH03fMbQHdUl0MA7iy3fT
-	QatLtXXF77I7AJtmNp7E44IySdlSOzhLmDD5ZmU5IL5+jOmzLdm/NSIF3rwczfL/sBpZG75Nm9Lgc
-	v3gyH5piG/newlxZmbgyn6Op8EeiYGuD53FrhvMLgPz5J2ciOb/hR9FBefqqIS5OLidSMhlOc/fsi
-	NYAg+Hbukp2nw+t/0cXFGAaNlZN2u+3TPg3TAXev7yK/36035Km6PMCK+rC67ZcXsUqK4opHBCjuC
-	hlcWM1V1u4HMiudFEU4Q==;
+	List-Owner; bh=FsKKfJCYqaEqYn2chEaeLnPoru/Za7eUePqRBrhP/Ww=; b=BmYgU8iOp1UKKt
+	Tcv5diSdZ2p11B1CHVba/s1sCJm7QXf3OwH9zUWJp+ZqcniuzBmxe8TXmzBBBuTV24b7XY92b4PvO
+	QSVLjyH/UmU97x/PF+YhpVObrYdA66E1W+9SpSAXoB20gPDIiw7MJgmZOXv5puxrXBg8ZydMKnZ9u
+	a4QipsgxE5xTp3gjGZJOeSKJWSVclDZhq+ImxL+XaF+Fp1WQXwAKbWR2bIyNzspZKMLI8KoBHbS74
+	/3HFcFXAF5iyDah0yhWUgkDkiCVtkEhXclhBdaAu8BXDBMlg4Fqlt8IhR7CurfXarXFfNgmTztQCv
+	7C2nTON69Qv3QRjI2xbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MeE-00000008Ko1-1xjC;
-	Wed, 23 Sep 2026 13:04:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9MeC-00000008Kmc-0qGA;
-	Wed, 23 Sep 2026 13:04:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A0231570;
-	Wed, 23 Sep 2026 06:04:22 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A1A663F86F;
-	Wed, 23 Sep 2026 06:04:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790168665; bh=V2eG6fezUymbQQ69ZuSww8KCP/5bN/QHpNMXTsYSPOw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZvqzetxDsEV+z9y8tgXSp1WMJmVGbPD4FFevEiSlqja3DG2IGWuF2b73OrQ3DI5PP
-	 ebwj8SPEQZ4BaUOAgvsq/NUWIH7HsMxifQ4aW+kmBXBfzWreFCdx8DwnXmCnT2MCb1
-	 pQF5HqiW/0gA6vvYspF/vjHUh2HXW5nKxCvWawCQ=
-Message-ID: <8c9c04ae-cba7-4096-a7d1-70b90a46c161@arm.com>
-Date: Wed, 23 Sep 2026 14:04:00 +0100
+	id 1x9MjB-00000008LO7-2KI6;
+	Wed, 23 Sep 2026 13:09:37 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9Mj8-00000008LMx-1VWc
+	for linux-riscv@lists.infradead.org;
+	Wed, 23 Sep 2026 13:09:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1790168968; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=o6SVUnKde/TR5k8kPB3Bgbc2uo8e/oZYlAsOUPZzYhI=;
+	b=sKhOeygBsXf+Zln0mzQe72MUeS4kW5KijfS93dKnGdTxxJIh4cNUuIeezsvLqnmE0aaaOzmBJDdTFP12eBJQewvJKu8q/2HiR5Yuq3wxA2X3Ad0n1QEVR4Q1HTp9QdGUIJzU5IwACvrpgFH5L6t63ouUtV6NQvOr2AQMpU8CBQU=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0XBX4ZPB_1790168967;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XBX4ZPB_1790168967 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 23 Sep 2026 21:09:27 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	memxor@gmail.com,
+	bjorn@kernel.org,
+	puranjay@kernel.org
+Cc: ihor.solodrai@linux.dev,
+	eddyz87@gmail.com,
+	martin.lau@linux.dev,
+	song@kernel.org,
+	yonghong.song@linux.dev,
+	jolsa@kernel.org,
+	emil@etsalapatis.com,
+	pulehui@huawei.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	shuah@kernel.org,
+	guoren@kernel.org,
+	bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next 1/2] bpf, riscv: Add support for indirect jumps
+Date: Wed, 23 Sep 2026 21:08:55 +0800
+Message-ID: <20260923130856.1157-2-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260923130856.1157-1-cp0613@linux.alibaba.com>
+References: <20260923130856.1157-1-cp0613@linux.alibaba.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/6] dma: swiotlb: Add an overridable architecture pool
- opt-out
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon
- <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
- Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Russell King <linux@armlinux.org.uk>,
- Huacai Chen <chenhuacai@kernel.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, x86@kernel.org
-References: <20260921063628.362078-1-aneesh.kumar@kernel.org>
- <20260921063628.362078-6-aneesh.kumar@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260921063628.362078-6-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_060428_342493_13276E72 
-X-CRM114-Status: GOOD (  27.33  )
+X-CRM114-CacheID: sfid-20260923_060935_041642_FD13F848 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,126 +79,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2026 7:36 am, Aneesh Kumar K.V (Arm) wrote:
-> On x86, iommu=off historically prevented SWIOTLB initialization by not
-> setting SWIOTLB_INIT_ADDRESSING_LIMIT. This overloads that flag: it
-> controls both whether a pool is selected and where the pool is
-> allocated. If another requirement, swiotlb=force selects a pool
-> independently, omitting SWIOTLB_INIT_ADDRESSING_LIMIT may place it above
-> the addressable range of devices which need bounce buffering.
+Implement JIT support for the indirect jump instruction (BPF_JMP |
+BPF_JA | BPF_X), a.k.a. gotox, which lets a BPF program jump through a
+BPF_MAP_TYPE_INSN_ARRAY jump table.
 
-Well then surely something is wrong with the design? If 
-SWIOTLB_INIT_ADDRESSING_LIMIT is set then SWIOTLB still needs to respect 
-it irrespective of any *additional* reasons for activating (either from 
-arch code or internally). And conversely, if devices have addressing 
-limits but SWIOTLB_INIT_ADDRESSING_LIMIT is *not* set, then the arch 
-code has clearly gone wrong or made a bad assumption, but that doesn't 
-seem like SWIOTLB's problem to worry about.
+Emit "jalr zero, rd, 0" and hand the xlated to jitted offsets to
+bpf_prog_update_insn_ptrs(), which is what fills in the jump table
+entries; without that call the load fails with -EFAULT in
+bpf_insn_array_ready(). ctx->offset[] holds the offset of the insn
+*following* insn i, as bpf_prog_fill_jited_linfo() expects, so it is
+shifted by one and offset[0] comes from the prologue length. build_body()
+now records both halves of a multi-insn record, so no slot keeps a
+fabricated offset.
 
-> Add SWIOTLB_INIT_FORCE_DISABLE to let an architecture opt out of normal
-> pool initialization without discarding the pool placement constraints.
-> 
-> Unlike swiotlb_force_disable, which is set by swiotlb=noforce and
-> unconditionally prevents pool initialization, the new flag is an
-> architecture default. Explicit requirements such as memory encryption,
-> architecture remapping, or swiotlb=force take precedence over it.
+Only the RV64 JIT is covered; RV32 keeps failing to load as before.
 
-Logically, that should already be implied by the architecture passing no 
-SWIOTLB_INIT flags.
+Signed-off-by: Chen Pei <cp0613@linux.alibaba.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c |  5 +++++
+ arch/riscv/net/bpf_jit_core.c   | 16 ++++++++++++++--
+ 2 files changed, 19 insertions(+), 2 deletions(-)
 
-Thanks,
-Robin.
-
-> iommu=soft retains SWIOTLB_INIT_ADDRESSING_LIMIT because it requests
-> software bounce buffering for devices whose DMA masks cannot address all
-> system memory. Such devices must be able to reach the bounce pool.
-> 
-> Clear both flags for Xen because Xen explicitly requires a remapped
-> SWIOTLB pool and may allocate it anywhere in directly mapped memory.
-> 
-> With no override, iommu=off disables both hardware IOMMU translation and
-> SWIOTLB bouncing. Direct DMA remains available; mappings outside a
-> device's addressable range fail instead of being bounced.
-> 
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->   arch/x86/kernel/pci-dma.c | 11 ++++++++---
->   include/linux/swiotlb.h   |  2 ++
->   kernel/dma/swiotlb.c      | 10 ++++++++--
->   3 files changed, 18 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
-> index 0cff255827ba..ce257b20ea9c 100644
-> --- a/arch/x86/kernel/pci-dma.c
-> +++ b/arch/x86/kernel/pci-dma.c
-> @@ -44,9 +44,13 @@ static unsigned int x86_swiotlb_flags;
->   static void __init pci_swiotlb_detect(void)
->   {
->   	/* don't initialize swiotlb if iommu=off (no_iommu=1) */
-> -	if (!no_iommu && max_possible_pfn > MAX_DMA32_PFN) {
-> -		x86_swiotlb_enable = true;
-> +	if (no_iommu)
-> +		x86_swiotlb_flags |= SWIOTLB_INIT_DEFAULT_OFF;
-> +
-> +	if (max_possible_pfn > MAX_DMA32_PFN) {
->   		x86_swiotlb_flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
-> +		if (!no_iommu)
-> +			x86_swiotlb_enable = true;
->   	}
->   
->   	/*
-> @@ -84,7 +88,8 @@ static void __init pci_xen_swiotlb_init(void)
->   		return;
->   	x86_swiotlb_enable = true;
->   	/* Xen can use a SWIOTLB pool anywhere in directly mapped memory. */
-> -	x86_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
-> +	x86_swiotlb_flags &= ~(SWIOTLB_INIT_ADDRESSING_LIMIT |
-> +			       SWIOTLB_INIT_DEFAULT_OFF);
->   	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP | SWIOTLB_ANY;
->   	swiotlb_init_remap(x86_swiotlb_flags, xen_swiotlb_fixup);
->   	dma_ops = &xen_swiotlb_dma_ops;
-> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-> index be3962a33fc6..466c33795db0 100644
-> --- a/include/linux/swiotlb.h
-> +++ b/include/linux/swiotlb.h
-> @@ -20,6 +20,8 @@ struct scatterlist;
->   #define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
->   /* Initialize a default-sized pool that requires architecture remapping. */
->   #define SWIOTLB_INIT_REMAP		(1 << 3)
-> +/* Do not initialize a pool unless SWIOTLB is explicitly required. */
-> +#define SWIOTLB_INIT_DEFAULT_OFF		(1 << 4)
->   
->   /*
->    * Maximum allowable number of contiguous slabs to map,
-> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-> index c19675846fc1..46b789eb0806 100644
-> --- a/kernel/dma/swiotlb.c
-> +++ b/kernel/dma/swiotlb.c
-> @@ -563,10 +563,16 @@ swiotlb_select_pool_policy(unsigned int flags)
->   	if (flags & SWIOTLB_INIT_REMAP)
->   		return SWIOTLB_POOL_DEFAULT;
->   
-> -	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
-> +	if (swiotlb_force_bounce)
->   		return SWIOTLB_POOL_DEFAULT;
->   
-> -	if (swiotlb_force_bounce)
-> +	/*
-> +	 * Explicit requirements above override an architecture's default opt-out.
-> +	 */
-> +	if (flags & SWIOTLB_INIT_DEFAULT_OFF)
-> +		return SWIOTLB_POOL_NONE;
-> +
-> +	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
->   		return SWIOTLB_POOL_DEFAULT;
->   
->   	if (swiotlb_kmalloc_needs_bounce())
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index ed0a6f871dea..9de3749fb268 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -1691,6 +1691,11 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 			emit_zextw(rd, rd, ctx);
+ 		break;
+ 
++	/* JUMP reg */
++	case BPF_JMP | BPF_JA | BPF_X:
++		emit_jalr(RV_REG_ZERO, rd, 0, ctx);
++		break;
++
+ 	/* JUMP off */
+ 	case BPF_JMP | BPF_JA:
+ 	case BPF_JMP32 | BPF_JA:
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index 2fb0b4e198b9..15acf249fed4 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -26,10 +26,13 @@ static int build_body(struct rv_jit_context *ctx, bool extra_pass, int *offset)
+ 		int ret;
+ 
+ 		ret = bpf_jit_emit_insn(insn, ctx, extra_pass);
+-		if (ret > 0)
+-			i++; /* skip the next instruction */
+ 		if (offset)
+ 			offset[i] = ctx->ninsns;
++		if (ret > 0) {
++			i++; /* skip the next instruction */
++			if (offset)
++				offset[i] = ctx->ninsns;
++		}
+ 		if (ret < 0)
+ 			return ret;
+ 	}
+@@ -176,6 +179,15 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 		for (i = 0; i < prog->len; i++)
+ 			ctx->offset[i] = ninsns_rvoff(ctx->offset[i]);
+ 		bpf_prog_fill_jited_linfo(prog, ctx->offset);
++
++		/*
++		 * bpf_prog_update_insn_ptrs() wants the start of each insn, so
++		 * shift the linfo array by one and get insn 0 from the prologue.
++		 */
++		for (i = prog->len - 1; i > 0; i--)
++			ctx->offset[i] = ctx->offset[i - 1];
++		ctx->offset[0] = ninsns_rvoff(ctx->prologue_len);
++		bpf_prog_update_insn_ptrs(prog, ctx->offset, jit_data->ro_image);
+ out_offset:
+ 		kvfree(ctx->offset);
+ 		kfree(jit_data);
+-- 
+2.50.1
 
 
 _______________________________________________
