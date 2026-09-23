@@ -4,108 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA055C98307
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 11:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1F4C982EA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 11:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VUPIpJtRzhDUxms//pjf/4kBqllrw+jBOmYeqMGMjNc=; b=JtH0DiFdJ5c7PD
-	Wcfck6u2ZZD/rT7Ev5DLiAd6CgEEMetdIpOI4GaUY+kzpOzyLZ8ULQ/F2c7bw90g2FAiTXzXC3yoW
-	mCgxZBYCTATxycXXmM8kSiU8GG2wdEDY29NvAYXaHz6EPCZZwCekoRKw9KrDfl3FAuJUW9uCCutws
-	b184g+UtKJ8FbhCCPuMZhiLtHK04zmS0bS2o1ItqdCeLFx4OkeaJ1p+J8MaiopG7uyfo294hHiNBG
-	PkIZCzlh9IEim8i8Vp09GU2bTTLZIp0MhbX+21AB/vV0ldXp5IcMMrwpfA6ManCiuz7zfDYjvBs2Y
-	UKEgU7zL1TRVYjE+HuYA==;
+	List-Owner; bh=XAQEj1bUKJOODGyDIY8FQAR7KFCfKo89gYxPyR9JtJ8=; b=pnmqZNotxHobWL
+	2QHgUMkXMlTi4Rgb5HQI5HUdEwhjIhf+3Wo0hgK/hmLzNDtYUQkTlfv7n9WfRI4qd3HGlSwouuKP4
+	S4I8oc9DfcqfawcI8fwYZd6PpZl5xKVR5i+bU9crnEmFZYzONf90DlZ1V1eaZksLAq1L7Oo7E0HJf
+	Cu6z89CQEONpU0thsc4xxCAeX+dkmPF/wW1xCIP26u67mrizXeYD8aUY6moF4tWennF2pzT5ixCA6
+	1wEvDgAb8wa1MtdX8K8KQAAsuEWokI5WLQVzvQgoN+uZgLvnhJAMdMBhmFpd4ynVQL4KQkvEJBPfr
+	meEm3MKQTlTasey982PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ktv-000000080rZ-0efK;
-	Wed, 23 Sep 2026 11:12:35 +0000
-Received: from mail-wr2-x10.google.com ([2a00:1450:4864:30::10])
+	id 1x9LD9-000000085ED-2NEM;
+	Wed, 23 Sep 2026 11:32:27 +0000
+Received: from flow-a3-smtp.messagingengine.com ([103.168.172.138])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Ktr-000000080r3-2Bjy
-	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 11:12:33 +0000
-Received: by mail-wr2-x10.google.com with SMTP id ffacd0b85a97d-484366874b0so510106f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 23 Sep 2026 04:12:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790161949; cv=none;
-        d=google.com; s=arc-20260327;
-        b=JdcGc3dAXDfMolsql04I8W/bOBGASFustCpnn8l6I5ohPgSbZWLIaT6u1ARbGRA+/T
-         C/EY9tOkZR5WxBa30R/ka3DpK46n9mqfizkl/LWrubrZJvN/WE9ptmm9J4s/tvDWNH+V
-         7oFHadZ8nO4bVWkH9T2pqpFEP/A8RngwXSzXBTRNdg01LrdYgVTr7tSnLTB/GWweTS2N
-         bUik0kpvZyNvWRJRmGsVL/8llgp88ajcL7GBDUABC4Shd3zzsWOKsXsXXlHSHP+VNHgG
-         kPc7JPNnb2evkht9T6S+Y/+8MU7Zd7CfbVRPAqSyJZ8miDA6ratZHgWJYid3ryDNW+b7
-         t6rg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=gcKgp7WxuTxdAyO4JZnM809V8L2x1IuAvkUQrt1z/LU=;
-        fh=HS3Txp00xyf9utddYciDY91ufyt+7Xy6VM8JqLbVctY=;
-        b=RnB/9bxZqIRmBaRRcBcLfvAlgqE72KPxQDdUJrF9tO6XnHAaUgEXIRp8HwUAeTN8oL
-         OBZawCJypXgeLoxUp+tMFhBGz1VOzEvu98KbxXlMa89E5SvUVV/WifnhP9/sZL1BEGU/
-         6USnIcs9uftbtm1vHQsL+YETlw7aYcVemi9ntKkN4k1L+UaKL9ar/wy4b2z0fQwI+R99
-         coW7+TWPcgnVk2kpV486CGnRa40L6cp8Lyg7LNWmgezXb/t/VxLU5w2mvoBRwuhpryX/
-         wPXerCurfaZfm/R+3605mQvBZBlQyXdYfQaGZ2pW12xsyyq4oNCEdSAOmMPfz/64gvRj
-         A2zQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault.org; s=google; t=1790161949; x=1790766749; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=gcKgp7WxuTxdAyO4JZnM809V8L2x1IuAvkUQrt1z/LU=;
-        b=r/mbwl6g5XG8Oz24oCZB4os1s8NVUyl6FN0nuO1qgsmktw2c9njX4roxOVdHthkJ//
-         HQ8QjoSnT6DbVDd1TzKL0udCEMOodR9EYQgraY7G8g6iyuQF3sVK8JI99cnyiNdLzBg9
-         t1eSDRGKWJPEeBAtozZgpmWYM79yEHjtREVbOHcUa1+GPEpMulLmFEz8/d47hct2P26u
-         6lLrnqG2vRFlWx03g0ngWv+2vxNsb72HaYs04dmK6wfef1B9arh/vjTG5N975qD2Ynx4
-         hIHLlnvybO0lgdVeifphLoU+V3K09yWPdOWtcCDsqwdn15c7I5ese3PaKa6648TDNHD8
-         Xlug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790161949; x=1790766749;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gcKgp7WxuTxdAyO4JZnM809V8L2x1IuAvkUQrt1z/LU=;
-        b=bAuayPgDKRr7cvY34ZbC18cbwrr6e3qmyWx5QI6mmKNc3DQvVjBO8YiK3mfS3U07ji
-         YOpx94zo010zvjsdMqCKQrVN/a866kq9+EYNgWl1b3uUnjhdJlVmFAC2ijL1mI5S3IjD
-         h7YOkS3L6qz5jlFkzR1CvaexBc1GLcXn4CxL1ew3w74bZWBx4YL4gueLsY1L1XJoeW76
-         Cov7UF67fIt6z70Iad3ue5kGAIxhrevoYfD5AniJ7sq2W8PBsT+kpQc0Buk6KCUkDjsY
-         7eSJpOfYnfY0QDBK/dHpMzUpPvM3/Yn/2i3fgtkpRR2PwOP7gNPF/8xyvc1mk7eDKnfu
-         IWPg==
-X-Forwarded-Encrypted: i=1; AKwUvBxYbJ7Ky4d1K/fJWLZtDMhocAUTe7wn875khCtJmztNZMd1iuOkD/IV8MPYNo+aPdkPXBkrT9O3VnC8Sw==@lists.infradead.org
-X-Gm-Message-State: AFuF++lPYuQij+llcnnlh459Gd4u5YRgCvgrlA0IhykGeM1GO927ILav
-	V7WhCx80+/gKYngx8trmpKt9JEgk00sXxX4isUS/TBg4KG1dQC2q/o/gQk9+So48eMXdhiPNwch
-	NX42Yg/WCeQAz2jLAim94Jym/RDPRwhesWQBehmgARULyjqafVzKjf80=
-X-Gm-Gg: AYBFou0pTjeD7eisshvnefh+nWtUaWiMZgxIwuWQdiuW/+qzsk52qX8F8ioyShP+OHA
-	BPI2y89vMHonPtY0p5L+uW9es8KYn4zKKbGXCMZd65FZGRe8LSh4Dkfo0+3oNTi2Yjv3dMezZ85
-	ZTXpu1MiTWILSmL/gT6Lnf8PR5TR1EorGX9/CEgKOGr5zqtIvaD5IiBD6MZXdNakV5d0+9yumig
-	NWDA+dr4owB4KnbE3ucqDgoORu6p17jx0f1yeilfk3c25WmqxkLkp5KFQPfPrhpSOrHgfKTnEUC
-	3hssuWWxjT1r4EcbI53f+0vXMY/BmVP2zgOGDEwmGBV00qbhJUHzdXHL7SgrkRBEiPoruuvkEmX
-	4TK/YKPAzpr5oz7hBLXSSLuT2ea3EUoE/Q4QzahsRC0uQs3ktQZnaSbLF0avTgix889zBJ6qNH/
-	brjNJkrvveBpfATxxtYpIFjw==
-X-Received: by 2002:a05:6000:984:b0:487:27f6:a4de with SMTP id
- ffacd0b85a97d-488670997femr3395419f8f.46.1790161949261; Wed, 23 Sep 2026
- 04:12:29 -0700 (PDT)
+	id 1x9LD5-000000085Cs-24tU;
+	Wed, 23 Sep 2026 11:32:25 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.phl.internal (Postfix) with ESMTP id 7955C1381530;
+	Wed, 23 Sep 2026 07:32:19 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Wed, 23 Sep 2026 07:32:19 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=polyxeno.com; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1790163139;
+	 x=1790170339; bh=RsXkzvKszGrRGCDlh+k7A1CegrFLd0BaszS3geZGuH8=; b=
+	FIU18tVwQ7tQ5cgG5noVM1dFphFNotY2b+0oBSLLNZ4oIoe+8HuJ9mlKgO/GGRHY
+	aPSkFjenSQmU/EZe67CINcqvhAbjSRbjYQrYey5IsmU/C5GK+7AGH8bL2xM+VsxK
+	KEEgL3qKUP1ax5XJdddWQI0SdRLPjb/rrzE5LP1P/PAhluNIl0Gwn6/ZGlNitjW1
+	Ny0h9FBjBCDLXPU6Gn9sNaToc66T4nsNUcuQNivF9ha5A0u/wd/EvSqhe6dW4+ED
+	7Fb4Ympv+eKDyEz59MFx2s37dwyl7FapxfhWdfhmihF1IxAp8QGebSu17ttCcrFC
+	DCNh/4j+IbhRNCApHSg1zg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1790163139; x=
+	1790170339; bh=RsXkzvKszGrRGCDlh+k7A1CegrFLd0BaszS3geZGuH8=; b=Q
+	E45n4yHCqrW8IlzRSzSnxNibm5ZdFG0VRsgwpq+gHiz9wuhG7gplwqlTfpu4YZUX
+	jrKta1jfOnMmuKB48JBo/1UEKfg8gsLB3tCCsKo3QtCJQ9rS80tjvqGsFa16tHTs
+	jEzOUC4svaw1rCJzrJpp3HyF5wysHcP+5TUYyN+qjOG1EXRicJcHtcJqvztCwuhj
+	dkd+SydOpx7yrZhsHv1vVlWvUir2wouFqPHIX1LcNWPf43QW/J52IG9xIVg9W/te
+	W0+ocKFUsJFzKD610ChoRqo+i66itHC5WBOl0C1Kaoi0zPQ7pCMN+aiaAN7lK0VH
+	yL7NcKUSKDBDu7UjXoS/Q==
+X-ME-Sender: <xms:vLizav20sKH2y4pao6lP-MUG-Nk2BgG8QLoegUP-KlGKEDejq5dZaw>
+    <xme:vLizagZFBVUttqWlhgN3oOh5snNNI_umgi4xQFwFS1h3w_ZDpBouQAQj9IwGZ4eqA
+    MfAHox64ejunzzmpavugDafLfwAeftAYx1i_w1US20agsEHtJLfLLOm>
+X-ME-Received: <xmr:vLizaviwwEnPUtVYi-73amBVWWGf1G_rQxDTo_yH58aVtCxNwz5q9Lr0sC7r4lT0GLWvp3ASjUwtdR-hthR2mbEq6Q>
+X-ME-Proxy-Cause: dmFkZTFauFHpdk6CRXyr0sNyjg5Q8lqSDpfGXQ0dNZO1X8Nwu1owiUGBTt5pcDU/oArVHw
+    tow1i/xQQpDe1DYVLAcqQL38ZwvqGvVsi3/HEQ0C2Tk6IoekZoaauNG6wt8xAqZRiRmyPk
+    FQyNwuhvVlF1CXMuv5K+MEk7imbG5TMe5tVGID2STX9i7WARmMQJ5ehbq7phGnUVuGU2i+
+    7w5buj0Tunr2WfT78YiY62Abzn9xZvlFIvj7Ucv486mUbowhqnNQviyHNi9tWxt3SkssSQ
+    8pVWQCbv2GdZzvAZxTL2BjC2dIiDYlMbW4A35i+8CjosKljeAMtvgm8Dil9gy0O39w/Esm
+    9ooJmviJqxX/zw8VK/vRbPPPs/zOz1pyL/+UjjjVwfBcA0PPNwnJeVcDaFLdOuo50dODxG
+    m1v8CodVwmm0HCIceRgikYmB4DspkcY7SklPPEsm3gvbekmaXfdX05CLYinrwRfogsHIIB
+    LaHZYB7FplsHX+LsqJlCDr+xYF7lXrXE5A6lmvgve41PJoqGChfQYtPpsBxmhFgrg/s72n
+    7ZUVXQfFjTNfzOxf/NzBxIREOn++Iw4GO2axZgieXvqCrPtLfEv2H0KH//gGKKcMY2+qkf
+    DREqx+SNPaK2C8xTPwYUU7UR5ASaEsxM4lye/JQbTQXfpTBIctE57IFV2jEQ
+X-ME-Proxy: <xmx:vLizas9WEVUzXca0498rI4duFEZw3grSo3xFJL0jk1GF3WHckM11yw>
+    <xmx:vLizam87wEttGx001O3APoe2cYhUYqpBimRj8pLdosFammZDa__JYA>
+    <xmx:vLizahtaJK-PbUnAUsd98esNaLxLkmlJ9hJNV2Ks1GT8IXFlBhTNEA>
+    <xmx:vLizapIFlAiM_fCG1eFO4NU8MFxMRdMJmF-nDkiWtMArsCibMfYv6g>
+    <xmx:w7izaqkT58Dn7pxVjr1mcQWSWKCweHvd_EoCcpOAFZHAqGma6BcwfGLs>
+Feedback-ID: i09fe4b60:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 23 Sep 2026 07:31:46 -0400 (EDT)
+Message-ID: <3e6740e3-0515-4e29-9627-f554261daddb@polyxeno.com>
+Date: Wed, 23 Sep 2026 21:31:47 +1000
 MIME-Version: 1.0
-References: <caplitmus-rv.v2.imsic.f2c0e5bdc627451c83deb0cf7eb8834a@163.com>
-In-Reply-To: <caplitmus-rv.v2.imsic.f2c0e5bdc627451c83deb0cf7eb8834a@163.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 23 Sep 2026 16:42:13 +0530
-X-Gm-Features: AclHuK-jZxAsooGTuQFyAWbxOlVlJ_wooZD9l2irWRxzxDUFGfNbUwi7wtBl2nA
-Message-ID: <CAAhSdy2Rso15xsRJt1Sx6XqpnJr4VKtsMfqaPNX=sVi_q2-hQQ@mail.gmail.com>
-Subject: Re: [PATCH v2] irqchip/riscv-imsic: Reject overlapping group index fields
-To: Pengpeng Hou <hppiscas@163.com>
-Cc: tglx@kernel.org, Alexandre Ghiti <alex@ghiti.fr>, 
-	Andrew Jones <andrew.jones@oss.qualcomm.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Bjorn Topel <bjorn@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <pjw@kernel.org>, Radu Rendec <radu@rendec.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 07/12] mm: enable MMU_GATHER_RCU_TABLE_FREE for
+ m68k-coldfire
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ "Liam R. Howlett" <liam@infradead.org>,
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Kiryl Shutsemau <kas@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Brian Cain <bcain@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Dinh Nguyen <dinguyen@kernel.org>,
+ Simon Schuster <schuster.simon@siemens-energy.com>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>,
+ Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Nick Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>,
+ Peter Xu <peterx@redhat.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Jonathan Corbet <corbet@lwn.net>,
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+ linux-arch@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-alpha@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>,
+ Qi Zheng <qi.zheng@linux.dev>, linux-doc@vger.kernel.org
+References: <20260922-rcu-pagetable-freeing-v4-0-fe1ad1f1e303@kernel.org>
+ <20260922-rcu-pagetable-freeing-v4-7-fe1ad1f1e303@kernel.org>
+Content-Language: en-US
+From: Greg Ungerer <gerg@polyxeno.com>
+In-Reply-To: <20260922-rcu-pagetable-freeing-v4-7-fe1ad1f1e303@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_041231_613900_22979462 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20260923_043223_909977_829FEF00 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,53 +165,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBTZXAgMjAsIDIwMjYgYXQgNjozOOKAr1BNIFBlbmdwZW5nIEhvdSA8aHBwaXNjYXNA
-MTYzLmNvbT4gd3JvdGU6Cj4KPiBUaGUgSU1TSUMgYWRkcmVzcyBsYXlvdXQgcGxhY2VzIHRoZSBn
-cm91cCBpbmRleCBhYm92ZSB0aGUgcGFnZSBvZmZzZXQsCj4gZ3Vlc3QgaW5kZXggYW5kIEhBUlQg
-aW5kZXguIGltc2ljX3BhcnNlX2Z3bm9kZSgpIGNoZWNrcyB0aGUgaW5kaXZpZHVhbAo+IGZpZWxk
-IHdpZHRocyBhbmQgdGhlIHVwcGVyIGVuZCBvZiB0aGUgZ3JvdXAgZmllbGQsIGJ1dCBkb2VzIG5v
-dCBjaGVjawo+IHRoYXQgaXRzIGxvd2VyIGVuZCBpcyBhYm92ZSB0aGUgb3RoZXIgZmllbGRzLgo+
-Cj4gUmVqZWN0IGEgbm9uemVybyBncm91cCBmaWVsZCB3aG9zZSBzaGlmdCBvdmVybGFwcyB0aGUg
-bG93ZXIgZmllbGRzLgo+IE90aGVyd2lzZSBhIGZpcm13YXJlLXN1cHBsaWVkIGxheW91dCBjYW4g
-YXNzaWduIHRoZSBzYW1lIGFkZHJlc3MgYml0IHRvCj4gZGlmZmVyZW50IGluZGljZXMgd2hlbiBN
-U0kgdGFyZ2V0IGFkZHJlc3NlcyBhcmUgY29uc3RydWN0ZWQuCj4KPiBLZWVwIHRoZSBleGlzdGlu
-ZyB1cHBlci1ib3VuZCBjaGVjayB1bmNoYW5nZWQuIFRoZSBuZXcgbG93ZXItYm91bmQKPiBjaGVj
-ayBhcHBsaWVzIG9ubHkgd2hlbiBncm91cCBpbmRleCBiaXRzIGFyZSBwcmVzZW50Lgo+Cj4gVGhl
-IGlzc3VlIHdhcyBmb3VuZCBieSBvdXIgc3RhdGljLWFuYWx5c2lzIHRvb2wuCj4KPiBGaXhlczog
-MjFhOGY4YTBlYjM1ICgiaXJxY2hpcDogQWRkIFJJU0MtViBpbmNvbWluZyBNU0kgY29udHJvbGxl
-ciBlYXJseSBkcml2ZXIiKQo+IEFzc2lzdGVkLWJ5OiBncHQgNQo+IFNpZ25lZC1vZmYtYnk6IFBl
-bmdwZW5nIEhvdSA8aHBwaXNjYXNAMTYzLmNvbT4KCkxHVE0uCgpSZXZpZXdlZC1ieTogQW51cCBQ
-YXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KClRoYW5rcywKQW51cAoKCj4gLS0tCj4gQ2hhbmdl
-cyBzaW5jZSB2MTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci9jYXBsaXRtdXMtcnYuYmMzNmUz
-YTBlYmNiNGEwMTgzODE3MWYyNzYyNTAwNGIuaW1zaWMtb3ZlcmxhcEAxNjMuY29tLwo+IC0gTGlt
-aXQgdGhlIGNoYW5nZSB0byB0aGUgbG93ZXItYm91bmQgY2hlY2sgZGlzY3Vzc2VkIHdpdGggQW51
-cC4KPiAtIEtlZXAgdGhlIGV4aXN0aW5nIHVwcGVyLWJvdW5kIGNoZWNrIHVuY2hhbmdlZC4KPiAt
-IFNlbmQgdGhpcyBhcyBhIHN0YW5kYWxvbmUgcGF0Y2gsIHdpdGhvdXQgdGhlIHplcm8td2lkdGgt
-Z3JvdXAgY2hhbmdlLgo+IC0gRG8gbm90IGNoYW5nZSBBUExJQyBjb25maWd1cmF0aW9uIG9yIHJl
-cXVpcmUgdGhlIGVhcmxpZXIgc2VyaWVzLgo+Cj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3Yt
-aW1zaWMtc3RhdGUuYyB8IDggKysrKysrKysKPiAgMSBmaWxlIGNoYW5nZWQsIDggaW5zZXJ0aW9u
-cygrKQo+Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtc3Rh
-dGUuYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtc3RhdGUuYwo+IGluZGV4IGI4
-ZDFiYmIuLmE3YjI0MWYgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1p
-bXNpYy1zdGF0ZS5jCj4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbXNpYy1zdGF0
-ZS5jCj4gQEAgLTczOSw2ICs3MzksMTQgQEAgc3RhdGljIGludCBfX2luaXQgaW1zaWNfcGFyc2Vf
-Zndub2RlKHN0cnVjdCBmd25vZGVfaGFuZGxlICpmd25vZGUsCj4gICAgICAgICAgICAgICAgIHJl
-dHVybiAtRUlOVkFMOwo+ICAgICAgICAgfQo+Cj4gKyAgICAgICAvKiBHcm91cCBpbmRleCBiaXRz
-IG11c3Qgbm90IG92ZXJsYXAgZ3Vlc3QgYW5kIEhBUlQgaW5kZXggYml0cy4gKi8KPiArICAgICAg
-IGkgPSBJTVNJQ19NTUlPX1BBR0VfU0hJRlQgKyBnbG9iYWwtPmd1ZXN0X2luZGV4X2JpdHMgKwo+
-ICsgICAgICAgICAgIGdsb2JhbC0+aGFydF9pbmRleF9iaXRzOwo+ICsgICAgICAgaWYgKGdsb2Jh
-bC0+Z3JvdXBfaW5kZXhfYml0cyAmJiBnbG9iYWwtPmdyb3VwX2luZGV4X3NoaWZ0IDwgaSkgewo+
-ICsgICAgICAgICAgICAgICBwcl9lcnIoIiVwZndQOiBncm91cCBpbmRleCBzaGlmdCB0b28gc21h
-bGxcbiIsIGZ3bm9kZSk7Cj4gKyAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+ICsgICAg
-ICAgfQo+ICsKPiAgICAgICAgIC8qIFNhbml0eSBjaGVjayBncm91cCBpbmRleCBzaGlmdCAqLwo+
-ICAgICAgICAgaSA9IGdsb2JhbC0+Z3JvdXBfaW5kZXhfYml0cyArIGdsb2JhbC0+Z3JvdXBfaW5k
-ZXhfc2hpZnQgLSAxOwo+ICAgICAgICAgaWYgKGkgPj0gQklUU19QRVJfTE9ORykgewo+Cj4gYmFz
-ZS1jb21taXQ6IDUxOGU1Yjc5NGMwNmMwZjBlYjQwZGYzZTIwMjI3NGE2NjIwMmMxMzcKPgoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Lorenzo,
+
+On 23/9/26 01:35, Lorenzo Stoakes (ARM) wrote:
+> Similar to sun3, the coldfire variant of m68k uses 2-level page tables.
+> 
+> Update its __pte_free_tlb() function to use tlb_remove_ptdesc() in order
+> that, with CONFIG_MMU_GATHER_RCU_TABLE_FREE, page tables are freed under
+> RCU.
+> 
+> The page tables occupy a page each and have no odd semantics, so this
+> change suffices to allow enabling of CONFIG_MMU_GATHER_RCU_TABLE_FREE for
+> m68k-coldfire, so do so.
+> 
+> This forms part of an overall effort to switch every architecture to this
+> mode.
+> 
+> Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+Looks good to me for ColdFire, so:
+
+Acked-by: Greg Ungerer <gerg@linux-m68k.org>
+
+Tested and run with no issues I could see on a M5475 ColdFire system, so:
+
+Tested-by: Greg Ungerer <gerg@linux-m68k.org>
+
+Regards
+Greg
+
+
+
+> ---
+>  arch/m68k/Kconfig                   | 2 +-
+>  arch/m68k/include/asm/mcf_pgalloc.h | 5 +----
+>  2 files changed, 2 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
+> index e29610fd1240..6b8ec67c86fd 100644
+> --- a/arch/m68k/Kconfig
+> +++ b/arch/m68k/Kconfig
+> @@ -36,7 +36,7 @@ config M68K
+>  	select HAVE_MOD_ARCH_SPECIFIC
+>  	select HAVE_UID16
+>  	select MMU_GATHER_NO_RANGE if MMU
+> -	select MMU_GATHER_RCU_TABLE_FREE if MMU && SUN3
+> +	select MMU_GATHER_RCU_TABLE_FREE if MMU && (SUN3 || COLDFIRE)
+>  	select MODULES_USE_ELF_REL
+>  	select MODULES_USE_ELF_RELA
+>  	select NO_DMA if !MMU && !COLDFIRE
+> diff --git a/arch/m68k/include/asm/mcf_pgalloc.h b/arch/m68k/include/asm/mcf_pgalloc.h
+> index fc5454d37da3..b53ff0950db2 100644
+> --- a/arch/m68k/include/asm/mcf_pgalloc.h
+> +++ b/arch/m68k/include/asm/mcf_pgalloc.h
+> @@ -39,10 +39,7 @@ extern inline pmd_t *pmd_alloc_kernel(pgd_t *pgd, unsigned long address)
+>  static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pgtable,
+>  				  unsigned long address)
+>  {
+> -	struct ptdesc *ptdesc = virt_to_ptdesc(pgtable);
+> -
+> -	pagetable_dtor(ptdesc);
+> -	pagetable_free(ptdesc);
+> +	tlb_remove_ptdesc(tlb, virt_to_ptdesc(pgtable));
+>  }
+>  
+>  static inline pgtable_t pte_alloc_one(struct mm_struct *mm)
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
