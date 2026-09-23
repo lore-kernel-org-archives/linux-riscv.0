@@ -4,107 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E25E6C982FA
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 01:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D54E9C982FA
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 01:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GSXTKMLOiKHlHgiRXgNggQX8+dMt0NtVhff7TFZuvE4=; b=qxzbdyGv9AEDWu
-	aP8KzkZiOn+c4EMM62BB8dSE/MrlzHaSaTddZvbjlSGY5yhI13PNx7w+WnfJVaJEs/H+56jOVLvai
-	sLDT5FC8ZCnSqvXOPzua2VgF2GFmm/ilG9+WPCVu5pfoB/QSBTcTK+Qkf3cbVwyt++Wx8FFmlI410
-	SxGRqMMwdOMNi7OwIK72QDV/fT2ObX1cOa5izU2eooG+CYLFZ0L7JIH3AlkLMZIzS6Au5fnpQAFlw
-	GCXmQpVTBxj4cW+LPStXlNNYH20VmgW07X+yXOBT6YA7YwVJk6SATnD4IiOPV0SMb3yX4Fp6wSMDd
-	SKLD4B281sABZ0KQipCA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=E0+Xk4QuusTmAcBucmmSLMynAWzHLsc78GWyuoHM18k=; b=LqEp0uphWjTjVh
+	jdXpwzcIgDn8tNxPXK1gF5V3tOBVylEhd/A4OJia7J4mNwjNERCdnEFtAKndmI422IataLNRQlYFd
+	TJ606L+80QBoU6heJq7qNuw2dk6MPPj4ydtJ4XZS3lzGacIXZX6zwBX/9g1Vn6cSRbuUrzXUcjE1W
+	E6OtyJ4DhjH7ws5DcZEGnOyYEwb+i8C+JLoGzdCW+giMvTjcmW3Hd3GJh9lfYzQ8HBXLOoKFp8nAg
+	4p6GAjVtHb7ypXgkH5N5TXEN1Kk5z7+6S6/z5zIXXJ4PAYNXdmFyj033yziXN1P4Io7BuOgN3fqhe
+	44b0GuXbhTxVMyr3W3dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9C7R-00000006skB-11cW;
-	Wed, 23 Sep 2026 01:49:57 +0000
-Received: from mail-pj2-x11.google.com ([2607:f8b0:4864:39::11])
+	id 1x9C8i-00000006szQ-1n4T;
+	Wed, 23 Sep 2026 01:51:16 +0000
+Received: from mail-pj2-x0e.google.com ([2607:f8b0:4864:39::e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9C7P-00000006sjn-3E5c
+	id 1x9C8g-00000006sy9-0MIs
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 01:49:56 +0000
-Received: by mail-pj2-x11.google.com with SMTP id 98e67ed59e1d1-396ccdaea75so189245a91.1
-        for <linux-riscv@lists.infradead.org>; Tue, 22 Sep 2026 18:49:55 -0700 (PDT)
+	Wed, 23 Sep 2026 01:51:15 +0000
+Received: by mail-pj2-x0e.google.com with SMTP id d9443c01a7336-2df4aa80a73so2694985ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Sep 2026 18:51:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790128195; x=1790732995; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YnnWTyMk5d70Hpz57ZOyyh2guKXo+Z5k9pvOlpmwiYo=;
-        b=c5yk5Urx6KzegcPVGJQzbPv1d1qH0puLffe16aLAE71JOEG8e7gYVzD0LumGdxGtFd
-         hYaeAnwC3bD7QpyFOaL7wKIxUtXe7Qp08U34LOEb0juf8Xi0sBgxteDBjm4zyySTw+zW
-         ulDS0UnMV4JhGDNERKBbQZNY5zT2wzBr6GT+SH4PK/RwWQZUW+14/FVLi9WSvGjK0TbA
-         OsWW9wnvPHwKclZbl/ILoqKVPJgrmhHiPBDN+lSa5UcZoOYcDURS4chgc11xwmeSLC3j
-         Swjhj0idywDGxRt6JBgOKvpCiiU3B9TUBD8Oju6dlTILr/zH/IHpCiexu/7h016s/87B
-         M51g==
+        d=gmail.com; s=20251104; t=1790128273; x=1790733073; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=L6bw/fsy4XZLqY7688qpNAi5VG6nNf6KIvqtLcr0OWg=;
+        b=SqyEVlqYp1UnGsEZUWwFc2AuZOYHcchm9UQTQXnCuHKkYEl1JoFMLf6AfsUO9vpms6
+         88dtiSXDpC8HaMcqC3Qpgv4/MHW0jCnpzk1Y6HQbl+YrSGqYsQDQdc9by+oedjQStSe2
+         pNjOKdACjeU1OVxqVspGp75333gMHuW+qYvJ1hC741b8lKfz1cR68lI3j2P2EBJswzKZ
+         s44HDNVgkCxvXEMQGrYFtiDMPHi4m6/Be5J4ENPBiNlKlLnB0U2t072xydndDJTcRzA2
+         Fob5HAmdST9hjkig2s0PNVbt3qe4CZHkVUKwly++cfVnrXix7Iv0YPM54OpV7Loh2Tyn
+         LTnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790128195; x=1790732995;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YnnWTyMk5d70Hpz57ZOyyh2guKXo+Z5k9pvOlpmwiYo=;
-        b=Wi0cZ9HhpIzY2grlQFwFgAa0UD524QIVVBZ9AnY268q23iptmjbZ7fYDbe7yGwcj71
-         /UssVPJc4eWSZHGge+5qFBnKEU/cq2O4DdiEHJMWe2BaQ819Y9oPL3e07/PNAFfqnuEO
-         ZbKHO59iMtzmIdbrrlbSOQW2vmweL7jglzuO+KTvIrlC/tAu17xZXso3/5rWGokW/Hc6
-         uAZrFAYnNMkNnU608B14iEmFlC9vCpDvMrRfzpEdzORwddRKU55SjZU1Y0lyXxrNdzul
-         coA5d3Fu98ocN2a5zbUntGsQexptQ342reE1LPuH9L1jpbkGbRlMl30VndeV5dQnFoQZ
-         LaCQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxlfQuKvh2Yoauca5ViKu852hXUpkaKz6idpX61jKXEjF/qYmfvDW8/X0u1V5fnCqcwpkTho9Kap7FwlA==@lists.infradead.org
-X-Gm-Message-State: AFuF++kygGNqJ6+M3X9jT0aIIX9uhwguZ9BRut80yFQbENAuDyEUlHqN
-	dIk5QpSRzkCvqNcfSX6VNs4Q8bdsyNenm3HpqinAlddzp3ZW929vhIxA
-X-Gm-Gg: AYBFou0uOtnxOoycLhDulCC8gvIH2AmbqJfnwYjHKzyv2/Onp6s+d8A01u77oXjpUIb
-	+DJ2ne3bcSJr/Xbob/Lu8mHF4NrxMVo0PMhAuAqk7pxrKx7JYPQ/cQcF46kidKEx/DcHljAqR6+
-	sZPtbYD3DBAmkrIoz/D+AGv+Ir1t1BWYiAjxhBW2Gg/5gHgUWfgx0KPMEu0UM6bjCOfuLa1Gpw8
-	erhi1/4AyLX+eI26ew09WuEw0QpH4h3678rPvhd9UxiARLWU1SZ/jgk3bgFejBlZ2OXU7ot8I35
-	giRx9TiwglnY32MALPbcTCfh3QI6nkdvA6XzZ5HjzynPcWokoO0woJx0PnGP2FDaOAsnUYk8U0M
-	aVjOyHjhPZQ1zPPoF9mRbcbvQ4fzeX5sHdIHNZbjgd5YZ3RtFf1k21cWHeTdJHqYA75q447/5ZQ
-	CeGCmAQoiSATq8QF1n6keJ+R7nbBno2UovhAek2swmF6zLuXXUAcjRThFLuy6pFeo8Rxpg
-X-Received: by 2002:a17:90b:4cc3:b0:39e:6c68:fd91 with SMTP id 98e67ed59e1d1-3a07e61658fmr750266a91.38.1790128194871;
-        Tue, 22 Sep 2026 18:49:54 -0700 (PDT)
-Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3a07ddaf4f5sm1915180a91.4.2026.09.22.18.49.53
+        d=1e100.net; s=20260707; t=1790128273; x=1790733073;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=L6bw/fsy4XZLqY7688qpNAi5VG6nNf6KIvqtLcr0OWg=;
+        b=gJcxESYsq+99QOC8W4nYa56XEsqlfkoSS1qkn0wWy1+HU2AjOyDRV9aClvg/cbvdZA
+         wodctgJOTPA7syg4x8pgdtZZQvaixbPeVCvVhmo6hO2IWBauYukgCkibKniYXcQcZbk1
+         oPrE9ZXLYrA1MIAGBpfbhsgiGbn8IlO5AzNR2fbNQrnKJg+46NWRq8ZaYRB7v6UnPfB9
+         N6wGKwSSgNmzZzpD6avmNQSYrEa8KyVO4l0pFDLlQqKMNw5wU4biEl02+OO1Zx07dZNF
+         YYSnAN++N+5+VKjCGbPkvOfImCqRMpjGf/9nyomma2YzVI6T6cFIXkk748xNwmQLIo/B
+         FlQg==
+X-Forwarded-Encrypted: i=1; AKwUvBwbrDMI6JhtSJsmk5DGZmUgLjpgQu/fpztc76s2YS4UCl88E0Lbv3zA1h47p/dYqy5334nco5Ie+mTYcA==@lists.infradead.org
+X-Gm-Message-State: AFuF++kjvc+7XcqHvffB8HllhlfodoyORqBIgBXtmgax2wKJEeXQ2uaL
+	m+t9jn2r6bVcpEyBxgVbPfCirbPgSjCxYS+AaHsPe/K9c9nhEyg05io0
+X-Gm-Gg: AYBFou0q9dqGZ3Iya/eJBYXC3GYz0qDhZ6fKEjzlhxjmOEAf02X2Ojzh5b0gI13GAzV
+	9gYX740Z3Cu6OZbuMQecIVe+a1uBE4oJ+n02bA8bQeZOgR+ycoYJrYvyHCE6NPQjwtukt6weeV0
+	QTKmaYkYGdngKWAnl2u0qbAVEVqPpW+CWgFc7omD/FFbOIibwvKDQyhGGPuEbdf2SWFHtnS5xZu
+	Sfeoeh/3hGWjcS2o6FufEfRf8stfRxMsQPclcgUY5WScTmLPap7B4p4faN/V06dVoaVJetaQUEg
+	EI+ub/Lth7+ZGXeIumMgmikC5NjmwgIQyrrN2x1vaYKfb3KYUE3jvrnH7YcOeQVPM9p+ecjxLSB
+	hJsVnPIijdO3rV4ncXaC9qUrJOadIElxZrsgX/3pMiWvogZHWmul0/NPC3HxSyViW/OARmVygkp
+	dua9qc81HSJFQ0drSQorJDRdN2AbB/has0+LbVckg6tHvnLtg=
+X-Received: by 2002:a17:903:2c07:b0:2db:257c:9fd5 with SMTP id d9443c01a7336-2df69d3d22amr10510345ad.16.1790128272959;
+        Tue, 22 Sep 2026 18:51:12 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2df6a5f66b3sm2769165ad.73.2026.09.22.18.51.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Sep 2026 18:49:54 -0700 (PDT)
-Date: Wed, 23 Sep 2026 09:49:00 +0800
+        Tue, 22 Sep 2026 18:51:12 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Frank Li <Frank.Li@nxp.com>, Niklas Cassel <cassel@kernel.org>, 
-	Sherry Sun <sherry.sun@nxp.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Christian Bruel <christian.bruel@foss.st.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Senchuan Zhang <zhangsenchuan@eswincomputing.com>, Alex Elder <elder@riscstar.com>, 
-	Xincheng Zhang <zhangxincheng@ultrarisc.com>, Randolph Lin <randolph@andestech.com>, 
-	Siddharth Vadapalli <s-vadapalli@ti.com>, Vidya Sagar <vidyas@nvidia.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>, Pengpeng Hou <pengpeng@iscas.ac.cn>, 
-	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>, Gustavo Pimentel <gustavo.pimentel@synopsys.com>, 
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>, 
+To: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Frank Li <Frank.Li@nxp.com>,
+	Niklas Cassel <cassel@kernel.org>,
+	Sherry Sun <sherry.sun@nxp.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Bruel <christian.bruel@foss.st.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Vidya Sagar <vidyas@nvidia.com>,
+	Xincheng Zhang <zhangxincheng@ultrarisc.com>,
+	Alex Elder <elder@riscstar.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Randolph Lin <randolph@andestech.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Ping-Ke Shih <pkshih@realtek.com>,
+	Anirudh Srinivasan <asrinivasan@oss.tenstorrent.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Gustavo Pimentel <gustavo.pimentel@synopsys.com>
+Cc: linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v5 2/6] PCI: spacemit-k1: Add multiple PHY handles support
-Message-ID: <arMvZNEUhAQYa--o@inochi.infowork>
-References: <20260907112606.465778-1-inochiama@gmail.com>
- <20260907112606.465778-3-inochiama@gmail.com>
- <ap_jh_NAqHnIlZeu@ashevche-desk.local>
- <aqEQnkrPSKB-3fam@inochi.infowork>
- <aqFst9QH9YTFlY3X@ashevche-desk.local>
+Subject: [PATCH v6 0/6] riscv: spacemit: Add PCIe RC controller support for K3
+Date: Wed, 23 Sep 2026 09:50:09 +0800
+Message-ID: <20260923015016.64069-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aqFst9QH9YTFlY3X@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260922_184955_812073_D76CCBC2 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20260922_185114_128019_25520BDB 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,42 +133,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2026 at 05:27:03PM +0300, Andy Shevchenko wrote:
-> On Wed, Sep 09, 2026 at 04:00:15PM +0800, Inochi Amaoto wrote:
-> > On Tue, Sep 08, 2026 at 01:29:27PM +0300, Andy Shevchenko wrote:
-> > > On Mon, Sep 07, 2026 at 07:26:01PM +0800, Inochi Amaoto wrote:
-> 
-> ...
-> 
-> 
-> > > > +	count = devm_of_phy_bulk_get_all(dev, node, &k1->phys);
-> > > > +	if (count < 0)
-> > > > +		return count;
-> > > > +	if (count == 0 || count > data->max_phy_count)
-> > > > +		return -EINVAL;
-> > > 
-> > > Elsewhere we distinguish count == 0 with -ENOENT.
-> > 
-> > Is there is an example? I think it is suitable for its internal check 
-> > to translate -ENOENT to count 0, because no phys property means no
-> > phy. For a get helper with optional semantics. I think it is fine
-> > to return 0.
-> 
-> This the brief list of what I roughly grepped with word "count" in the name.
-> 
-> gpiod_count()
-> of_hte_req_count()
-> i2c_acpi_resource_count()
-> ice_sriov_set_msix_vec_count()
-> reset_control_get_count()
-> 
+The PCIe controller on Spacemit K3 is almost a standard Synopsys
+Designware PCIe IP with extra control and external MSI controller
+(IMSIC).
 
-As the respond in the phy bulk data patchset, devm_of_phy_bulk_get_all()
-should follow the optional semantics. So I think return 0 is a good
-choice. Anyway, I have added the zero value check in the driver.
+Add binding and driver support for PCIe RC controller support on K3.
 
-Regards,
-Inochi
+Since v5, multiple vendor fix are included in this series, you can find
+in [1]. And this version required [2] for phy bulk data support.
+
+[1] https://github.com/spacemit-com/linux-6.18/commits/k3-br-v1.0.y/drivers/pci/controller/dwc/pcie-spacemit-k1.c
+[2] https://lore.kernel.org/linux-phy/20260904083709.425893-1-inochiama@gmail.com/
+
+Changed from v5:
+- https://lore.kernel.org/linux-pci/20260907112606.465778-1-inochiama@gmail.com/
+patch 1:
+1. Return ENODATA for no device data found.
+patch 2:
+1. Add power_on/power_off suggested in [2].
+2. Add zero phy check in the driver.
+patch 5:
+1. Add K3 device description.
+patch 6:
+1. Update comments.
+
+Changed from v4:
+- https://lore.kernel.org/linux-pci/20260709040027.958400-1-inochiama@gmail.com/
+patch 1:
+1. fix comments
+patch 2:
+1. Use phy bulk data to simplify the code
+patch 3:
+1. Rebased to latest master
+patch 6:
+1. Apply several fix from the vendor code
+2. Use separated init/deinit function for K3.
+3. Add some error handle for K3 init function
+
+Changed from v3:
+- https://lore.kernel.org/linux-pci/20260703020003.485436-1-inochiama@gmail.com/
+patch 5:
+1. Add missing interrupt/interrupt-names check for K1
+
+Changed from v2:
+- https://lore.kernel.org/linux-pci/20260517014841.254085-1-inochiama@gmail.com/
+patch 2:
+1. Use unify PCIe phy get/enable/exit function for both K1 and K3.
+patch 3:
+1. New patch for updating device id for both K1/K3
+patch 5:
+1. Reuse binding for spacemit,k1-pcie-host
+patch 6:
+1. Multiple cleanup for the logic already generalized in the previous
+   patches.
+2. Use generic description for the Kconfig entry.
+
+Changed from v1:
+patch 1:
+1. Remove post_init callback.
+patch 2:
+1. Fix devm_kmalloc_array arguments order and error check.
+patch 3:
+1. Apply Rob's tag.
+2. Change check from oneOf to anyOf.
+3. Fix spelling mistakes in commit message.
+patch 4:
+1. Add comment about PHY handle.
+2. Remove interrupt "app".
+3. Fix spelling mistakes in commit message.
+patch 5:
+1. Remove all logic related to link up interrupt.
+2. Clean up all unused macros.
+3. Fix devm_kmalloc_array arguments order and error check.
+4. Remove unnecessary start_link logic.
+5. Make all magic number as a macro.
+6. Fix spelling mistakes in code and commit message.
+
+Inochi Amaoto (6):
+  PCI: spacemit-k1: Add device data support
+  PCI: spacemit-k1: Add multiple PHY handles support
+  PCI: spacemit-k1: Add device id update helper
+  dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check
+  dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller
+  PCI: spacemit-k1: Add Spacemit K3 PCIe host controller support
+
+ .../devicetree/bindings/pci/snps,dw-pcie.yaml |   7 +-
+ .../bindings/pci/spacemit,k1-pcie-host.yaml   |  55 +++-
+ drivers/pci/controller/dwc/Kconfig            |   4 +-
+ drivers/pci/controller/dwc/pcie-spacemit-k1.c | 237 ++++++++++++++++--
+ 4 files changed, 270 insertions(+), 33 deletions(-)
+
+--
+2.55.0
+
 
 _______________________________________________
 linux-riscv mailing list
