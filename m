@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07437C9830E
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 19:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB28C9830E
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 21:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Utn8VGY8QrlVHC1R0sdL0Eaw3c70xirq6BXhhauPzCE=; b=NO4UXVkezusJmy
-	Arln1Uc8xIPO7Xv4218Jfj7/kavrcwULnE68Z2qU/9yKHU/DJimfCm799bV0+NWtLy436PpreoNa4
-	O1m6uxkHU6KP7AURxMSQBTTN+q/VRSIAcgFF3J7ApdG7BIwWfShrblhLP0lRv+0qWChM6dNNTZEfM
-	towFM87wYPFI3a2mjmIvbahg9LVQ7P8o88eMIYiEZjFQ8Kfsy7thpQOrtGSKPnzAA8Gl2IAmgIa8F
-	BcSgXabDxEyEaOGPC37Mm3XSDj1unf2KKymaWMcVTxMZCsZjEtqR5nEN8il1zyZa82artkZrG1JYL
-	0bpy6I53ycou/h/f8ZsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PH6xGzlLdV0wDHa2QGivX2HaeEEZB4xDrqhiO9wee64=; b=ItI7J7mdAnltwpB3ytP7dBvPcW
+	N3VVEA4za9qeQVY6rAjXPFqd6ZPR8HM4tNCPmrT7Jf68cNuZpHNvUbUmnDKw8xWwR0ex6/pgqE9E3
+	dVQowBEUclo6zmZf/9QC0+JGBAHEouP5HcWs8b4p9bGzPghju6H3T5vqGyvQbOJS0ZqEGytoMtHGw
+	VcrHrjkr53YE1F1TVdUFbjQcgqsVBVqVSmRo+YA9Lr7rmnkfldqCZm6O2+qBi+FOnNMoNVyvw1aIG
+	8bh0ue9BF/LVg+Btah3pc+iyq8bCZyN6hY1po2LPDOSWh0XisTBKg1ojHO4mE+r3Sw4vGV6AjOKkC
+	g2suRlfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9oq7-0000000C0RM-15ZY;
-	Thu, 24 Sep 2026 19:10:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x9qYB-0000000CBAg-1Jz7;
+	Thu, 24 Sep 2026 21:00:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9oq6-0000000C0RG-2Srn
+	id 1x9qY9-0000000CBAV-0zGK
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Sep 2026 19:10:38 +0000
+	Thu, 24 Sep 2026 21:00:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F05CD4343E;
-	Thu, 24 Sep 2026 19:10:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3BBF1F000FF;
-	Thu, 24 Sep 2026 19:10:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 60261600D4;
+	Thu, 24 Sep 2026 21:00:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26D031F000FF;
+	Thu, 24 Sep 2026 21:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790277037;
-	bh=Kd2YCVG/DT6OoKg16iQl9WZoswB9MDypzc/aqsM6ReU=;
+	s=k20260515; t=1790283612;
+	bh=PwJOVvkMlxAljxs9EmNGUMj/t/l87e3L1ciWxDWzd3A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WajlDcbthQEkexNwUprP2yxNO2wt9mEX3S7zwc3uLhnwaNrXHnCd/CWoHz8xtW4po
-	 VZOa2opqqxC6xUvfzvrJMA4Q5Ryt7jy7Hsf7uXf0xVoYSrtXsZ8eSqpGClR9Sr1IjA
-	 msWNIKTHFMOeiqS1nJogKNueQ1LESMz905bnXI+vKn0Vw0+V3MhM9ULENzgH6j5Yt/
-	 dwLFeTxCjQgQtioaSmLw3vjX6YHGQgmCoHb186I/GyRcZ9Eqfe4YJ6cipMu0Bctv2T
-	 2/FO18CZM77pkDVe6N1WSc0r31+Okh9qiOx1LxYHavwwCQfG9t3lsZCBY8T13IOXGF
-	 s9odmWuDcxrNA==
-Date: Thu, 24 Sep 2026 12:10:36 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Drew Fustini <dfustini@oss.tenstorrent.com>,
-	Joel Stanley <jms@oss.tenstorrent.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH] clk: tenstorrent: use regmap_assign_bits() for
- conditional set/clear
-Message-ID: <arV1rOMRG6D9erK8@thelio>
-References: <20260924083439.461769-1-peng.fan@oss.nxp.com>
+	b=KwGm6clRr+o4Amr6Ir9PjBd0Cr6AHQli0vJZChnR9ieVPp7HscV7TFVNwjcKJHVH7
+	 Wu57k1gs9pzG79huOHxEB4pAINo5NuQBHs/JsxEZ82W4b3Y9Jfs9QHiw5hpsNi4TCh
+	 eGaJSb1MYXEJJayozxMuJ7t7TWndogvg7qnY9Zn3AtUbQWEIaqdgcN/nqZ1X5hVmxN
+	 EDESGUafnc/NrSfCHREDpOelEEnhzQtmBydqgaH8Fiv1D57XJhvVghD+sQ8M1sd7WL
+	 LzYYlMOECN+xbRrsOPBmo8ZTocRi17sxTpihrR/IfO/SEWeH1HflO6UATH0HehFMkv
+	 5TPeEyZmFN5JA==
+Date: Thu, 24 Sep 2026 22:00:06 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Joshua Yeong <joshua.yeong@starfivetech.com>, lgirdwood@gmail.com,
+	rahul@summations.net, anup@brainfault.org, lftan.linux@gmail.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: regulator: Add RPMI voltage service
+ bindings
+Message-ID: <c2c57bf0-e610-4353-93a4-84edfd08e767@sirena.org.uk>
+References: <20260923070014.1340761-1-joshua.yeong@starfivetech.com>
+ <20260923070014.1340761-2-joshua.yeong@starfivetech.com>
+ <9c0ae39b-d214-40f5-b010-cdea14ccc774@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260924083439.461769-1-peng.fan@oss.nxp.com>
+In-Reply-To: <9c0ae39b-d214-40f5-b010-cdea14ccc774@kernel.org>
+X-Cookie: Oh, so there you are!
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,56 +71,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4286125112739416464=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 04:34:38PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Replace if/else blocks using regmap_set_bits()/regmap_clear_bits() with
-> the simpler regmap_assign_bits() call.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/clk/tenstorrent/atlantis-prcm.c | 11 +++--------
->  1 file changed, 3 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/clk/tenstorrent/atlantis-prcm.c b/drivers/clk/tenstorrent/atlantis-prcm.c
-> index 6d4386eeb7dae..854b9c48816f2 100644
-> --- a/drivers/clk/tenstorrent/atlantis-prcm.c
-> +++ b/drivers/clk/tenstorrent/atlantis-prcm.c
-> @@ -205,14 +205,9 @@ static int atlantis_clk_gate_endisable(struct clk_hw *hw, int enable)
->  {
->  	struct atlantis_clk_gate *gate = hw_to_atlantis_clk_gate(hw);
->  
-> -	if (enable)
-> -		return regmap_set_bits(gate->common.regmap,
-> -				       gate->config.reg_offset,
-> -				       gate->config.enable);
-> -	else
-> -		return regmap_clear_bits(gate->common.regmap,
-> -					 gate->config.reg_offset,
-> -					 gate->config.enable);
-> +	return regmap_assign_bits(gate->common.regmap,
-> +				  gate->config.reg_offset,
-> +				  gate->config.enable, enable);
->  }
->  
->  static int atlantis_clk_gate_enable(struct clk_hw *hw)
-> -- 
-> 2.50.1
 
-Reviewed-by: Drew Fustini (Tenstorrent) <fustini@kernel.org>
+--===============4286125112739416464==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y+6on071O8QTkAF9"
+Content-Disposition: inline
 
-I will apply this to tenstorrent-clk-for-next.
 
-Thanks,
-Drew
+--y+6on071O8QTkAF9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Wed, Sep 23, 2026 at 10:35:08PM +0200, Krzysztof Kozlowski wrote:
+> On 23/09/2026 09:00, Joshua Yeong wrote:
+
+> > +    voltage-service {
+
+> There is no such service. Don't invent names. See DT spec.
+
+Looks like it comes from the RPMI spec:
+
+   https://github.com/riscv-non-isa/riscv-rpmi/blob/main/src/srvgrp-voltage.adoc
+
+> > +  "#voltage-domain-cells" on the provider, a consumer lists
+> > +  "voltage-domains = <&provider DOMAIN_ID>" and names each entry in
+> > +  "voltage-domain-names", the way it names a voltage power domain. Both
+> > +  properties belong to the consumer, so a consumer binding describes them
+> > +  itself:
+
+> And where do you explain what is that "voltage domain" and why it is
+> completely different than everything else we have?
+
+> No, don't come up with your own naming for standard things.
+
+That also looks like what the spec says (some of the description is
+copied pretty closely from the spec).
+
+--y+6on071O8QTkAF9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmq1j1UACgkQJNaLcl1U
+h9BDRgf/ULwJBqpkvE1nb/w6KJt9M73kmw7FUwKNe3U7s9SQ5BID77H3eui5NcGD
+JAH0sWEUxQK+I7r0kyC817OZr+sMBi7ADiSX/TFEGVpEs3NzWuSNoIAUphm+ToE+
+6Y/3OpI3OxL7V/O/45vJ81tjVHf4YTYdj6JLVW/bSwKEPOjH++mXaJyAi0WhZ+gO
+hLVHYdlTzVUaH4/JRqiqmPs0tp6n9tgBPrhrAnYIsKM57xkeREVPhIjdAWUVa4l3
+ZFg7R0l0XXG6wTZpGCRU/NTvWJau0sHXPtbkfrtfUSFskJYtt1L4lpwsEYOhYJFm
+YH9kDyZ3K8DbnAQlZZfTbBLVNZ/9jg==
+=/9WJ
+-----END PGP SIGNATURE-----
+
+--y+6on071O8QTkAF9--
+
+
+--===============4286125112739416464==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4286125112739416464==--
+
