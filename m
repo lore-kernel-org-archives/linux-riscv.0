@@ -4,63 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 541DFC98304
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 02:57:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E65CCC98304
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 03:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Mime-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=o9F/OytXNDtglGHiUTL4lyOyH/6vHa77gyQym86oRyA=; b=Nep9sl4nUAc5b9
-	XOq3UT9TNQDam4pvPWjQ8TMrzmVWKWi3jS91f6YhTjqItDwHaN1PEFNk5DGcbbD/W9SzcFsdeA8Jv
-	EAwiKvGa7vgfslIW105ONlrjD5qolllFLPL6A6lE/4GkeUqrF1O1u5kPd7wCkqVcH1yq42uMJQjy2
-	0zVAitkcnNf1Jtn+leqCZR4zFFH3YDM25LhTyAKbVll038qJ//VVCTK1zXFfidr9Qr3D0cbtFVzfw
-	rv3MpPW5j/wtj6LyDDoiOSWSw8WvOTC4rbR5zg8I48mJqkzNbQOsKXTmyCjhMxNx2zScDZPMLhvk/
-	OWxg7g1QG2Y2hwwykSqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	References:In-Reply-To:To:From:Subject:Cc:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mIPfLVEFYJDY+++D78rHIX57YOdQ9UepVsNywPqoK24=; b=mPhH/avmYqPhiKwrNpOeSsiNw+
+	PAOJBeRoS+fEiymLTVUxTMGKz9LRDMq4ltoliI1bSXvMNcHDBf3L0umd+pDPAcQrw0OOGz6rnkJmF
+	EFW46DiaJEY6ThfdgNUYUW0915RXQcPyeonC5lKKeKKhGTe1uO4W0b7aNMp2v35ITzP4hSCStDuTD
+	e8Vp9TnsryrW7v4Cg+DwUXJhU310DplSPnIEnQSOdQGDIE72mh5yauwveGzE3teq+cR16AlbjdXNz
+	tyN6wTzPGLCkPUsCcj7zw3wtP7Xm4TnWMmMmXgLd0M6jy+DWFpK/bP4cA8g5LgFx2zaEXiOmDCKFN
+	FepdDjqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ZeL-00000009uJN-3LNp;
-	Thu, 24 Sep 2026 02:57:29 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.34])
+	id 1x9a68-00000009w2e-42Vq;
+	Thu, 24 Sep 2026 03:26:13 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ZeH-00000009uIf-45Bg
+	id 1x9a64-00000009w1e-1PQJ
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Sep 2026 02:57:27 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4hqz5X6PVLz57DCk;
-	Thu, 24 Sep 2026 10:57:20 +0800 (CST)
-Received: from szxl2zmapp07.zte.com.cn ([10.1.32.52])
-	by mse-fl1.zte.com.cn with SMTP id 68O2v7dj077852;
-	Thu, 24 Sep 2026 10:57:07 +0800 (+08)
-	(envelope-from gao.rui@zte.com.cn)
-Received: from mapi (szxl2zmapp07[null])
-	by mapi (Zmail) with MAPI id mid12;
-	Thu, 24 Sep 2026 10:57:08 +0800 (CST)
-X-Zmail-TransId: 2b096ab49184724-27f6d
-X-Mailer: Zmail v1.0
-Message-ID: <20260924105708488K1vV5J_xi9COWY7TvJawc@zte.com.cn>
-Date: Thu, 24 Sep 2026 10:57:08 +0800 (CST)
+	Thu, 24 Sep 2026 03:26:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1790220323;
+	bh=1OuECCNgnc6CLvCQwxn/XTZt38EU5TJNmlwiHDDUrSc=;
+	h=Mime-Version:Date:Message-Id:Subject:From:To;
+	b=TaS/y+yksHRirxBwFwVPndAYWK/ElBEuhzn+D4dW9jCNVyLezSEbKiROWmhILlAvI
+	 11BmDvhRyQs840xJcFk6V2Xlme9d3nOK0h3GTOM9tiZPb2LuugCA+xwdEcPJEQIgrG
+	 9HbB9jlfKiR5fvz6rmkj8JaXZkcmyS0xI6MDipQg=
+X-QQ-mid: zesmtpgz1t1790220314te0b2c6a7
+X-QQ-Originating-IP: 4x/4dzp1jA75d0q38ahlTcs6JiNxTb0iijMQfx4Sicc=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 24 Sep 2026 11:25:10 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11185655890934613812
+EX-QQ-RecipientCnt: 41
 Mime-Version: 1.0
-From: <gao.rui@zte.com.cn>
-To: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <alex@ghiti.fr>, <jiangfeng@kylinos.cn>
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <jmontleo@redhat.com>
-Subject: =?UTF-8?B?W1BBVENIIHYyXSByaXNjdjogZml4IHN0cm5sZW4oKSBvdmVyZmxvdyBpbiBaYmLCoGltcGxlbWVudGF0aW9u?=
-X-MAIL: mse-fl1.zte.com.cn 68O2v7dj077852
-X-TLS: YES
-X-ENVELOPE-SENDER: gao.rui@zte.com.cn
-X-SOURCE-IP: 10.5.228.132 unknown Thu, 24 Sep 2026 10:57:20 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AB49190.002/4hqz5X6PVLz57DCk
+Date: Thu, 24 Sep 2026 11:25:07 +0800
+Message-Id: <DLN84VV7GX6M.9VWJBT3INEFO@linux.spacemit.com>
+Cc: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <spacemit@lists.linux.dev>, "Yixun Lan" <dlan@gentoo.org>, "Longbin Li"
+ <looong.bin@gmail.com>, "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+Subject: Re: [PATCH v6 6/6] PCI: spacemit-k1: Add Spacemit K3 PCIe host
+ controller support
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Jingoo Han" <jingoohan1@gmail.com>, "Manivannan Sadhasivam"
+ <mani@kernel.org>, "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, "Bjorn Helgaas" <bhelgaas@google.com>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Yixun Lan" <dlan@kernel.org>, "Paul Walmsley"
+ <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou"
+ <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Frank Li"
+ <Frank.Li@nxp.com>, "Niklas Cassel" <cassel@kernel.org>, "Sherry Sun"
+ <sherry.sun@nxp.com>, "Arnd Bergmann" <arnd@arndb.de>, "Christian Bruel"
+ <christian.bruel@foss.st.com>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Vidya Sagar" <vidyas@nvidia.com>, "Xincheng Zhang"
+ <zhangxincheng@ultrarisc.com>, "Alex Elder" <elder@riscstar.com>,
+ "Siddharth Vadapalli" <s-vadapalli@ti.com>, "Randolph Lin"
+ <randolph@andestech.com>, "Andy Shevchenko"
+ <andriy.shevchenko@linux.intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Marek Vasut"
+ <marek.vasut+renesas@mailbox.org>, "Inochi Amaoto" <inochiama@gmail.com>,
+ "Pengpeng Hou" <pengpeng@iscas.ac.cn>, "Ping-Ke Shih" <pkshih@realtek.com>,
+ "Anirudh Srinivasan" <asrinivasan@oss.tenstorrent.com>,
+ =?utf-8?b?VXdlIEtsZWluZS1Lw7ZuaWcgKFRoZSBDYXBhYmxlIEh1Yik=?=
+ <u.kleine-koenig@baylibre.com>, "Gustavo Pimentel"
+ <gustavo.pimentel@synopsys.com>
+In-Reply-To: <20260923015016.64069-7-inochiama@gmail.com>
+References: <20260923015016.64069-1-inochiama@gmail.com>
+ <20260923015016.64069-7-inochiama@gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: N6K3vS2k3BeEC1+YK6KKZQHbPngMGxIxppfaCPOIv+9XedZUMMs5jxwQ
+	1OiFZJcaBVUiVJ6O0qc3vSY/Sdk/ZQPxl2hPUjUeVda5kpgysNtHFa8w12gKnftQY2vqWYp
+	IOxTjF0MEbvKwXSKf08UiQA//WmI+n/ab0iECpcZv9Olv+VlA0BLPAG4GQ8Dx3VSQLCOg8v
+	Ox86HGb1LBJLWspTOpevjmBIeoLnm77xKC8pxTJxRNdGH88SYYvvbwhtlMor/pND4wPWi5s
+	v77t+RElTqqatyU/L7HGv1huETpTLxN3qMhFWXX2EEy24K536gDdhB/gPwuNhs2/3dLj9Cs
+	T0rm9s/AqnNRPTXEqyY/rEJ7g7EaEa8nozOptgkg+yJCuc1KvCeaQbY3d/6psSMX31e55t/
+	LYyyhamfwYKCImtwZGQmoUSb+Dv5L6Uxm56Z1oBNm5WEGXXgFTN3FNi6bp4N5OPqUJyCZ83
+	kLr50leXhob9Sj7LvZoq9XKaDYvGGWEdWo9NX/0kIPUSpKMZMzxgKDBHHQUWLuRV1xbMn+A
+	iXUgR/n4XA1He0sJRg+V9lYThymmCvm6Ce8nTOIniEnDZAZcKzVNAYKvComNx7g3Pb1PuSi
+	HMyt2/rzupL7T+xq6+R1x3InEnph+SaT5m/Xv7OkNDsC1IsDe5Eg3ys37nh8TEjKhrYvmjp
+	oRiU8fIRwYYg1BqhUeoKoJmQITKtEgIrTSIGsKaLrjUHgCca/xcwKbbgg0bXKC/NQwKS/h/
+	JCC8kBaHaBWj0N+5qb9C/hK+id228cDx5kirO7RVydlEb/R580P8BxqLWGFr6ot2J3U9At1
+	AaEErCMV7/DMusXqEKvrzdd/bnI9MH7dGRVziq7qJfYwQ4QlxUCtF6AkcQcWucuwBFod5BC
+	iYhTIlwN3yaB9Eu1ccACIcOWPiewMVTJWDPzJ/pXM8asPM3T7oIAxVmV9jqAFHEe0TDWqF4
+	YSJCPTr3UB+1RVO5t5Nx2QctnAhcNkI77dEuw/XCUc1C/S05MrNBaubI51Qz+DXlyP+yHHa
+	VmIm2r2lF4Z5MyHlAIi3PoOPuUBOKHDWmru0CxQXRwT9rbSzLMt8dG5PRsFhT365YTt4o8d
+	yIlraCDPGvWJ2GhCHXdYlM=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_195726_321321_86DD8D71 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20260923_202610_345570_83CB8ED6 
+X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,224 +115,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7764434586350032844=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V Zbb optimized strnlen() implementation can return incorrect
-results when very large count values are supplied.
+--===============7764434586350032844==
+Content-Type: multipart/signed;
+ boundary=c1efa6dd65a7157a3cf15d727fdb83c765b9167dfac6b27657fb2a2cc304;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: quoted-printable
 
-The previous implementation calculates an end address based on the
-input pointer and count. When count is close to SIZE_MAX, the address
-calculation may overflow, resulting in incorrect termination checks and
-wrong return values.
+--c1efa6dd65a7157a3cf15d727fdb83c765b9167dfac6b27657fb2a2cc304
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-This issue was observed while running device-mapper tests:
+On Wed, Sep 23, 2026 at 09:50:15AM +0800, Inochi Amaoto wrote:
+> @@ -315,6 +328,123 @@ static int k1_pcie_parse_port(struct k1_pcie *k1)
+> +static int k3_pcie_init(struct dw_pcie_rp *pp)
+> +{
+> [...]
+> +failed_phy_power_on:
+> +	phy_bulk_exit(k1->phy_count, k1->phys);
+> +failed_phy_init:
+> +	k1_pcie_disable_resources(k1);
+> +failed_resources:
+> +	regmap_update_bits(k1->pmu, k1->pmu_off + PCIE_CONTROL_LOGIC,
+> +			   PCIE_PERSTN_OUT | PCIE_PERSTN_OE | PCIE_IGNORE_PERSTN,
+> +			   PCIE_PERSTN_OUT | PCIE_PERSTN_OE);
 
-dmsetup create testname9 --table "0 8 zero"
-cat /sys/block/dm-*/dm/name
-dmsetup remove testname9
+Could we keep PERST# asserted on the error path, as k3_pcie_deinit()
+does? Setting PCIE_PERSTN_OUT here releases the endpoint from reset
+even though initialization has failed and the controller resources
+are unavailable.
 
-Rework the Zbb implementation to use a decrementing word counter. 
-This removes the dependency on end-address calculations,
-avoids overflow entirely, and simplifies the word scanning loop.
 
-Performance was evaluated with string_bench_strnlen:
+--=20
+Troy Mitchell
 
-New Implementation Previous Implementation
+--c1efa6dd65a7157a3cf15d727fdb83c765b9167dfac6b27657fb2a2cc304
+Content-Type: application/pgp-signature; name="signature.asc"
 
-len=0 : 70 ns/call 70 ns/call
-len=1 : 81 ns/call 81 ns/call
-len=7 : 81 ns/call 81 ns/call
-len=8 : 81 ns/call 81 ns/call
-len=16 : 97 ns/call 90 ns/call
-len=31 : 119 ns/call 113 ns/call
-len=64 : 174 ns/call 162 ns/call
-len=127 : 264 ns/call 258 ns/call
-len=512 : 801 ns/call 824 ns/call
-len=1024 : 1578 ns/call 1550 ns/call
-len=3173 : 4541 ns/call 4703 ns/call
-len=4096 : 5984 ns/call 5982 ns/call
+-----BEGIN PGP SIGNATURE-----
 
-Results show comparable performance to the previous implementation
-while fixing the overflow issue.
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCarSYEw0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQvnBMBAOqoYG0RTGya7s/xnZ8oNm2v68GflTIw5APMoNFC
+yKH0AQDdN3A8M5rPjea5jEI3eGpn06cdTl/AmbYmgItVl4/mAg==
+=B9Ym
+-----END PGP SIGNATURE-----
 
-Fixes: 5ba15d419fab ("riscv: lib: add strnlen() implementation")
-Signed-off-by: Gao Rui <gao.rui@zte.com.cn>
+--c1efa6dd65a7157a3cf15d727fdb83c765b9167dfac6b27657fb2a2cc304--
 
----
-v2:
-- Rework the Zbb implementation to eliminate end-address overflow
-instead of falling back to the generic path.
-- Use a decrementing word counter for word scanning.
-- Replace numeric labels with descriptive local labels.
-- Add comments describing the loop structure.
-- Run KUnit string tests successfully.
-- Add string_bench_strnlen benchmark results.
----
- arch/riscv/lib/strnlen.S | 111 +++++++++++++++++----------------------
- 1 file changed, 48 insertions(+), 63 deletions(-)
 
-diff --git a/arch/riscv/lib/strnlen.S b/arch/riscv/lib/strnlen.S
-index a8911605c248..0d074e45363c 100644
---- a/arch/riscv/lib/strnlen.S
-+++ b/arch/riscv/lib/strnlen.S
-@@ -67,102 +67,87 @@ strnlen_zbb:
- 	 *   a1 - Max length of string
- 	 *
- 	 * Clobbers
--	 *   t0, t1, t2, t3, t4
-+	 *   t0, t1, t2, t3, t4, t5, t6
- 	 */
-
- 	/* If maxlen is 0, return 0. */
--	beqz	a1, 3f
-+	beqz	a1, .Lmaxlen
-
--	/* Number of irrelevant bytes in the first word. */
--	andi	t2, a0, SZREG-1
-+	/* Save original pointer: final length = (current - orig) + offset. */
-+	mv	t2, a0
-+
-+	/* Bytes preceding the string in the first word. */
-+	andi	t6, a0, SZREG-1
-
- 	/* Align pointer. */
- 	andi	t0, a0, -SZREG
-
--	li	t3, SZREG
--	sub	t3, t3, t2
--	slli	t2, t2, 3
--
--	/*
--	 * Aligned boundary.  Use the address of the last valid byte
--	 * (s + count - 1) to avoid loading a word past the count
--	 * boundary in the loop below.  count == 0 is handled above.
--	 */
--	add	t4, a0, a1
--	addi	t4, t4, -1
--	andi	t4, t4, -SZREG
-+	li	t5, SZREG
-+	sub	t5, t5, t6
-+	slli	t6, t6, 3
-
--	/* Get the first word.  */
-+	/* Load and mask the first word. */
- 	REG_L	t1, 0(t0)
--
--	/*
--	 * Shift away the partial data we loaded to remove the irrelevant bytes
--	 * preceding the string with the effect of adding NUL bytes at the
--	 * end of the string's first word.
--	 */
--	SHIFT	t1, t1, t2
--
--	/* Convert non-NUL into 0xff and NUL into 0x00. */
-+	SHIFT	t1, t1, t6
- 	orc.b	t1, t1
--
--	/* Convert non-NUL into 0x00 and NUL into 0xff. */
- 	not	t1, t1
--
--	/*
--	 * Search for the first set bit (corresponding to a NUL byte in the
--	 * original chunk).
--	 */
- 	CZ	t1, t1
-
--	/*
--	 * The first chunk is special: compare against the number
--	 * of valid bytes in this chunk.
--	 */
-+	/* NUL offset inside the first (shifted) word. */
- 	srli	a0, t1, 3
--
--	/* Limit the result by maxlen. */
- 	minu	a0, a0, a1
-
--	bgtu	t3, a0, 2f
-+	/* If the NUL lies inside the valid bytes of this first chunk, done. */
-+	bgtu	t5, a0, .Ldone
-+
-+	/*
-+	 * Remaining bytes = a1 - t5 (never underflows here).
-+	 * Word count = ceil(remaining / SZREG) without addi-wrap hazard.
-+	 */
-+	sub	t4, a1, t5
-+	beqz	t4, .Lmaxlen
-
--	/* All remaining bytes are in the first word, no loop needed. */
--	bgeu	t0, t4, 2f
-+#if defined(CONFIG_64BIT)
-+	srli	t1, t4, 3
-+	andi	t4, t4, 7
-+#else
-+	srli	t1, t4, 2
-+	andi	t4, t4, 3
-+#endif
-+	beqz	t4, 1f
-+	addi	t1, t1, 1
-+1:
-+	mv	t4, t1
-
--	/* Prepare for the word comparison loop. */
--	addi	t2, t0, SZREG
- 	li	t3, -1
-
- 	/*
--	 * Our critical loop is 4 instructions and processes data in
--	 * 4 byte or 8 byte chunks.
-+	 * Critical loop: exactly one backward branch.
-+	 * addi t4 is hoisted before orc.b to hide in the load-use latency.
- 	 */
- 	.p2align 3
--1:
-+2:
- 	REG_L	t1, SZREG(t0)
- 	addi	t0, t0, SZREG
-+	addi	t4, t4, -1
- 	orc.b	t1, t1
--	bgeu	t0, t4, 4f
--	beq	t1, t3, 1b
--4:
-+	bne	t1, t3, .Lfound
-+	bnez	t4, 2b
-+
-+.Lmaxlen:
-+	mv	a0, a1
-+.Ldone:
-+	ret
-+
-+.Lfound:
- 	not	t1, t1
- 	CZ	t1, t1
- 	srli	t1, t1, 3
-
--	/* Get number of processed bytes. */
--	sub	t2, t0, t2
--
--	/* Add number of characters in the first word.  */
--	add	a0, a0, t2
--
--	/* Add number of characters in the last word.  */
-+	/* Length = bytes already passed + offset in final word. */
-+	sub	a0, t0, t2
- 	add	a0, a0, t1
--
--	/* Ensure the final result does not exceed maxlen. */
- 	minu	a0, a0, a1
--2:
--	ret
--3:
--	mv	a0, a1
- 	ret
-
- .option pop
--- 
-2.27.0
+--===============7764434586350032844==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7764434586350032844==--
+
