@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60872C98318
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 16:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0BDC9830E
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 17:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RX0d4VXIU8jVNbMzHgonp+ToTgIf/E58bFATr5ylZcA=; b=mnEPQKbnOFHGGy
-	N9W1AO6IvlvIkIku9V5NtulcaeAFwIMlNL0LT6C0269NVvb6AanppAqKdijSynWg3aQgChXtGIlIW
-	0ycDXwyTGKkWhyCH9xtEsSCSpxVpgmCB9vqEeC29CsqEjlCOewH7VSp/NLERb2cCojKJGbCibWDOs
-	weiBBq/+l/2B+VJSq35Vb+ShEN6EpQSh7Pfrew2t7LUgLzIcB2w+2jXaw6my1nEtamuA5l0YEy5pI
-	nC3eXz8G03W/cJKuJS5fS7hR/W0IAkDXLhmzmOjjLJ9DdqlB+QhNKriG9PJKotBuTLMP2yAFiIJTM
-	UWqAuk8XEhTAiD3FyzUg==;
+	List-Owner; bh=X3gYuSi/K2SrTT/AddJ9Iu2qZWY9Keq7nXFpCVuR/8k=; b=Dd026yKpHmTYGf
+	op96eahHMSGG0ev/8hD23rsOahKRX80tSnF/+fjCm8WMRRndszzQPCMXbM6YBawU/lK+cNkYG/fbP
+	b72Ssp2fnPb7P3Wweg0Zy67OqvpaBWI5wrf8f4T0TGki7k4IhAWl/mz+T1B5XNGZxQ3hMLhxEnPk8
+	yR7xguD973ixzpgY05opk0qrNbUviCY5fGI1ERrbVCIJvpE0v/8s47dHNpPLY/itc/oedXS24Z33I
+	qLhiZAfajP5eUd2J7dvpr10q9sDxP1aWUq0dJChujht1sUx0U/FcQHuCbRThgDNQvuq7iVVMD7a+4
+	D78fciZtYMrngNAxQSZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9mSf-0000000Bcea-1Bk4;
-	Thu, 24 Sep 2026 16:38:17 +0000
+	id 1x9n4h-0000000BhlD-3b6K;
+	Thu, 24 Sep 2026 17:17:35 +0000
 Received: from mail-qk2-x11.google.com ([2607:f8b0:4864:34::11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9mSa-0000000Bcc7-2uMf
+	id 1x9n4e-0000000Bhj4-0lmR
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Sep 2026 16:38:14 +0000
-Received: by mail-qk2-x11.google.com with SMTP id d75a77b69052e-530280b8234so211581cf.0
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 09:38:11 -0700 (PDT)
+	Thu, 24 Sep 2026 17:17:34 +0000
+Received: by mail-qk2-x11.google.com with SMTP id d75a77b69052e-530e28a62abso911271cf.1
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 10:17:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gourry.net; s=google; t=1790267891; x=1790872691; darn=lists.infradead.org;
+        d=gourry.net; s=google; t=1790270251; x=1790875051; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=LuPrvXBzY5FQ+f/5fzbveR9yF272P1V2+jsIcGJNdC0=;
-        b=XfMocC2DgEmjyjTRdqpIn3n6OX5bnCO34fAWZoMacwOQJevxK0YkPX0YYJe6qqogX6
-         fb6Rdw03TglLfViT5aHzariRazGroyHnIJiWX3HGOCezw4QbI2l+9QLv8aqcVo9rXDzd
-         cY1TbiZCqYkqwUp6s7bwUYfMDtPtfnWFnaofg3YB0peUso8u8GYJSwR9UGZoMNUtSEgy
-         FFT31SJF349+p7x6psHziEYO+H41ESiEomQGatL3FreGiNdlyb3MD7UTTOJu5PBV6IRp
-         STWtP6P2rPi8Rmd91uVc6/AYFTPDWoDudveHT6xedXyB8c83CssFIUFqFUxHMM/NgRjs
-         /KAA==
+        bh=feTLx7y3sxZ57LB+c+M8YbdddVhljMzyHzPRAu6TpA4=;
+        b=BmjHDWyrME5CR9CubonolQn2zrlZpmmrPGzRSnah23RWKc47TNtOOoSCKbYXrXjIgx
+         lV9SplZYYKe5BCbc2WgYu90B/V6AFF2K9HqVh7Iu70RKk2k46m4r3ryeO7tW97PcOf79
+         4BsOQ9QOld7e4jfgOkkiF3JvWsr93APmgX1tasX6gTlvOnPpyBfDv7YiVsVrPO+0Oy04
+         K1BpFMclVJpcWHuEZLBzLuxrP2W5yPJYOJ3+wXz6sfwKbuyg+9Bz1g2T+yRQEK5dKmTG
+         dH/FglN02tRCAAXNwBcBnf1jCn4STjo0Yd6vXmDN9t743dVFcwrqkX9Fp7wSRLBDK083
+         tXDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790267891; x=1790872691;
+        d=1e100.net; s=20260707; t=1790270251; x=1790875051;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LuPrvXBzY5FQ+f/5fzbveR9yF272P1V2+jsIcGJNdC0=;
-        b=dLl+ewo9tanUmf0Na0s6DuEk5ELotxkQiEhc7BJyDnHCLYbMu2KHM7VvfFVvcLXPZt
-         SvqjTY/ZWMU/zNum8y6761yZmo4wQROmWYqsXPSg2WhHyajA2Q9WN1bmR4HvPAHFIz0/
-         EcYyV2LYJa71oOATWrBxc7AYEtyY4ma+lbT5rSZ+uBcfDs8A6x58rh8WCWZBEkQ7GG5H
-         8Fy9lK6sVk464PUZhKpRClwzpvX+zz7z7rh/dwvRzAzkkxvH44VAAwwcyRqdoi4jdXn7
-         KyhdUGmZbNDK2bgm9cCtzKfWkvKNp05n7fegjz9PQlJbTHJeco2808CNFiWdzcX6tAGq
-         2/Rg==
-X-Forwarded-Encrypted: i=1; AKwUvBwbreIEYIZZ8pJcsEQa51oHn9ActQPVjlQJFslmnFhnyH3lMx01Yz0OXwpUDvjB8ovD0gTtrUMDc6GTiQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++l9rvlb3hbgJ68Jf98Tvvx7APZooGTZmjjs2kMtd0elCGcjsXJ5
-	nyABw084KWWJMMRXmLfitUUUONM9d/pb9SN7UAJcHOhoQCcQqgEkheuMzR4P+c1F934=
-X-Gm-Gg: AYBFou03q6gWrw5eRWgWddUlMlQNn2H9C+26uWffOl/MftW/f3dXi4Q2jJ0WuQ+isDz
-	oJKxAVczhH+NzvuLwM56zvdkXbRp1QeWvpqGJ9uMaUCPHqX/W5mEx+hX2hezRDU29hBMh7xXCgq
-	oqjlmuf8Q7w6zfmqIMF2eNh+qqaCa3nlf2rzvo7PwqzmlOsiua8c93OuVHE4Nxo/Ubxbrwan3yF
-	neT07xkABseazJ9R+opE1qehyfYhoay8dY57r7GI1ZZ/1eownqp6+axNUPnDzba53aoTQQk1xiv
-	58qVbX8YRwUvhnkv5aFOn6ACCjlmHd92khMlw06YuMXxSKOKCr6pfxSZVvEhIj6d56krJKNeoct
-	NvN/Ie1EaaEjMQKYyiBjSywsbzVW3hwWmwAWMH9weA11f67D1GmxnZYS2rchre43dFOP16WGtps
-	AWaL8xnMycAihDqEDFujZGzVVvyRj4GPpOnxwMVAhnZgD3JT0mQgj9wvpb3o5P0NGWMBuqumUSj
-	NkBCfhJ8beAOHpHu/WfsXZGybaILoCb9Tq3sUyu1rKIbt5ANv1IveY=
-X-Received: by 2002:ac8:5743:0:b0:530:d860:ffba with SMTP id d75a77b69052e-532fe9f05bamr29797891cf.6.1790267890993;
-        Thu, 24 Sep 2026 09:38:10 -0700 (PDT)
+        bh=feTLx7y3sxZ57LB+c+M8YbdddVhljMzyHzPRAu6TpA4=;
+        b=0GhPMTdYfdvgghN5Otg0GSKPvUGQOjkObem/CiKDF2MKFMYfIH3YyAz0hQ/cSTYY7W
+         78PIzGYrEvFYwr7nujMESH8TnQBVRGH3yLA/evxkMkpC14prKeaRpP5RJIZZYYmWgIFW
+         tWCVlmOc8X08lfMavP++atfQMnmcsqZVChPB2V/jPkvvlz/ntE6KxbBYR2HwHmcsy+QG
+         0Rw1UwM/zZabSxQsnkLZeB1rEoyVfyYkGtwA6nlMAYgnuZF8Po+qrRz/wRTP1Zf8vMEF
+         xU15Yx5S9qQpTyD89UPj3yHvLU7cROfnIhb1fHqMABy20ZJEhd6bobo37II/ExtEVTl2
+         LrVA==
+X-Forwarded-Encrypted: i=1; AKwUvBw1qwELL5dobUh+iPBCnLwbkdf4FVIF6ROSZgDIjzrWqsn5OiRd1ngNUQeAcoz41juxdUhHk1iHVm6VQQ==@lists.infradead.org
+X-Gm-Message-State: AFuF++kHJ28QTCbfTgDkZbP3L9st18X4j2DdyD3JSsZGhOnG5b4+Xdbw
+	26sSi+UlIGmQEVaGocZ3kddJp63lkFyn8t+Ed+BGlHFXNGjL6pcZ1Qccdnvi6cejxeE=
+X-Gm-Gg: AYBFou3XygDm5SC0S20bTvHoD6tjvx/bZluGapGuybHiBR9JIO86RvjA2yUwYVb7EsA
+	XxTEmu0J3t1IrHByVb8sEZsdUKpqaSz/M7R8bzXVyFvN/15pnD/AFviO/TajeuhGvf1Ki3anAw1
+	l7XitsXdjf689MNLQrlu1iGG2jLIj6CC6eyNGjLzuUhhsuSzUYF+HQqkYR7b8Gt04Uo/wgq7vPj
+	72hppXWoQCfiwA030cf4AMRx7dDiuU2lj2VnPm3/9mtdHWiF2sIDEUHC6VC8bncZJKGpOLbDjrW
+	OZIoe7BS8M9SEYR/pEF8f8S8GbzU3idyFD0ZDCbPKeLfiXRsgaiG//TFBtPjrvPHYDlmAsJrTM4
+	C8E9w7XzAV555lo2f5nqR2u3H/16nnixQEK/e6Y1hmkwqPrh0avbEJZikjbZEvjLQzWnFXYv0X+
+	EWyo4HZ9NMNsOnlew7XzlQsXu5DpkcXcxs090rzOgfleL9Yb2fd+nMJ2VCYUninhzL505XHJTHs
+	B0znG2ymKQOyWelwu+Bq+0H800oyyK4Jww/zdJL+oW5ypNyG1sSg5M=
+X-Received: by 2002:a05:622a:2b05:b0:530:42e4:f001 with SMTP id d75a77b69052e-532feb3025amr31555731cf.46.1790270250746;
+        Thu, 24 Sep 2026 10:17:30 -0700 (PDT)
 Received: from gourry-fedora-PF4VCD3F (pool-173-79-60-52.washdc.fios.verizon.net. [173.79.60.52])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532eb32f6aasm45064551cf.16.2026.09.24.09.38.09
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-532f8b7174asm25743881cf.14.2026.09.24.10.17.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 09:38:10 -0700 (PDT)
-Date: Thu, 24 Sep 2026 12:38:08 -0400
+        Thu, 24 Sep 2026 10:17:30 -0700 (PDT)
+Date: Thu, 24 Sep 2026 13:17:28 -0400
 From: Gregory Price <gourry@gourry.net>
 To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>, 
@@ -83,17 +83,17 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
 	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, fuse-devel@lists.linux.dev
-Subject: Re: [PATCH v3 03/40] mm/vma: introduce and use
- vma_[flags_]can_merge()
-Message-ID: <arVRqJZkql6sGunt@gourry-fedora-PF4VCD3F>
+Subject: Re: [PATCH v3 04/40] mm: consistently validate VMA state after
+ mmap[_prepare] hooks
+Message-ID: <arVW5i8pvySq6Co2@gourry-fedora-PF4VCD3F>
 References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
- <20260917-b4-mmap-prepare-vma-flag-sanify-v3-3-4583d8a23bca@kernel.org>
+ <20260917-b4-mmap-prepare-vma-flag-sanify-v3-4-4583d8a23bca@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-3-4583d8a23bca@kernel.org>
+In-Reply-To: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-4-4583d8a23bca@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_093812_739147_1EE656AD 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20260924_101732_241306_46FE6227 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,24 +110,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2026 at 05:22:12PM +0100, Lorenzo Stoakes (ARM) wrote:
-> Replace the open-coded VMA_SPECIAL_FLAGS check in the VMA merge logic with
-> two new functions vma_flags_can_merge() and vma_can_merge() and update the
-> merge logic to use the former.
-> 
-> This abstracts the check and expresses it in terms of the desired behaviour
-> rather than an arbitrary and confusing VMA flag.
-> 
-> This also lays the groundwork for making further improvements in VMA flag
-> usage.
-> 
-> Also update the userland VMA tests to reflect the change.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+On Thu, Sep 17, 2026 at 05:22:13PM +0100, Lorenzo Stoakes (ARM) wrote:
+>  static inline int mmap_file(struct file *file, struct vm_area_struct *vma)
+>  {
+...
+> +	err = mmap_hook_validate(prev_start, prev_end, &prev_flags, vma);
+> +	if (unlikely(err)) {
+> +		vma->vm_start = prev_start;
+> +		vma->vm_end = prev_end;
+> +		vma_close(vma);
+>  	}
+> +
+> +	return err;
+>  }
+>  
+
+I indepdeantly validated the sashiko report on this chunk.  Seems like
+close() should be deferred until after __map_new_file_vma() calls
+unmap_region().
+
+suggested fix is to drop vma_close() from mmap_file()  and update the
+cleanup in __mmap_new_file_vma() 
+
+if (error) {
+	UNMAP_STATE(unmap, vmi, vma, vma->vm_start, vma->vm_end,
+		    map->prev, map->next);
+	vma_iter_set(vmi, vma->vm_end);
+	unmap_region(&unmap);
+
+	/* Release driver state only after its mappings are gone. */
+	vma_close(vma);
+
+	if (map_same_file(map))
+		fput(map->vm_file);
+	vma->vm_file = NULL;
+
+	return error;
+}
+
+Example race:
+
+  Thread A                              Thread B
+
+  mmap(MAP_FIXED, address A)
+    driver remap_pfn_range(A, page P)
+                                         load/store at known address A
+                                         hardware finds the new present PTE
+    validation fails
+    ->close() frees page P
+                                         UAF
+    unmap_region()
+    TLB shootdown
+
+With that fix
 
 Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
+
+~Gregory
 
 
 _______________________________________________
