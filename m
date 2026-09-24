@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E76AC9832A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D9AC9833B
 	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 23:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,49 +12,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ACinUJCyBbXDXjR/rMixDOCp4CV1Wo55hkzu2qHNxRA=; b=hosoqDDsBSiP7T
-	49lIqZdB7yD8XNJ8aa3gqVDvGB3dG+ac2nK6MWfVlgka6HuIfAc9Fq/9E29UYoHWRbE+JszSF/ijw
-	fzGiQbJf0icS4n0UEsZ0g33scBMQGQh1g0euW/O29DPTjVVXNtti7SMCL5s8bBjLGQqDlDy6rbt8i
-	govEgrhaxBOjTegZkg6LdXBS/THGZgypvey3ZjFW14U7xoHvp0CoekF46q0+VGLn8sQROrGeQzN/c
-	2s2/z6DikFCAiJDm59JCPFAzbKbPKcMFnKNs69zLQ0qBx6o/ATONZMXJcDOOasVbRltGDLzJwIb1f
-	s9ndsJ9+DCtmgHd2a+Zw==;
+	List-Owner; bh=rTqPJu2ONHjwL1vN1MiGZsfDPNI2Tska5Gw5MXTX0xc=; b=Z1oyA6Tk5OMXWx
+	45LNRGF3XV78DGvuAZ8cK2VGxcYAT+yzzrsv6was/dSuv9nOYvRf6YctL2cgYiK1WGlD8n3PjsJw7
+	5UW74qBTLSO3d4E6nvJiUk/n5O7W6e8LdqFRipuFz/jnfB21kmuardGDd7wBZIIVvK+a7PIa83K3w
+	gTToX7WmL1nd4m5uCz4C4jhDto6Wt4rRbYAFpMsXIibVqQoIusZZbkYctTx8ha/Evf+X1Fs6HCum5
+	WTQsuzIRGUgLpmhFStGJ63LCDMXE7tXxGvE+01FikMjjhIjndZ6utQNNRzVjsepPizbzP3u6HIRoF
+	rN1fJD4fXbZ339bIGRrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAFXM-0000000EeY2-1Czs;
-	Fri, 25 Sep 2026 23:41:04 +0000
+	id 1xAFXL-0000000EeX1-3WA8;
+	Fri, 25 Sep 2026 23:41:03 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gar-0000000AhF3-18Wt;
-	Thu, 24 Sep 2026 10:22:21 +0000
+	id 1x9gLu-0000000AfTd-26rY;
+	Thu, 24 Sep 2026 10:06:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ACE6560200;
-	Thu, 24 Sep 2026 10:22:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75DC61F000FF;
-	Thu, 24 Sep 2026 10:21:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E9433602C3;
+	Thu, 24 Sep 2026 10:06:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2C321F00893;
+	Thu, 24 Sep 2026 10:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790245340;
-	bh=/kufuYs8c40R6+aOEF8XLRCigB/kXlHZjyeo0hfMBwU=;
+	s=k20260515; t=1790244413;
+	bh=Tmln/mtpzj8HRD3oGhB2G+T5+fAuKHxHe9EIDa4XupE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bK5oWCb3icJZsdzewTtJXUj2g8+OdPY584wvobmFjH9caA6XHPZPOxLC+ENgAYis7
-	 FMWfW3kg0b1pKU0W7dpIcpkH9wgepYgd+Vs0xeodvPvhS2Z2eCR6zzIfxbc+F4vYn1
-	 crr7Q7r6oewUJpom74jt6mX2gF6IAipPmH/f96jRZvGrtuVNztKClju5BP2uHo6kW6
-	 734wktJAnH1jO9c7SkfE4BGx5XUqUo3nH1YffnP3W3u3mHAJ7/dU+/pRlEDaapTJOL
-	 hEriCB9vp3MVrONwH7vOYcoqLNO15CHvH8FuBJLz8aDKeueJxc7YfwK4KfyNmRNl7E
-	 8UCm0PUzGxdsg==
-Date: Thu, 24 Sep 2026 11:21:49 +0100
+	b=PLQwBAOGo9zDSHvR7HKzryQ/BMyFMtzGN+nCViQmJtAxtR/cVtie3h8+uTfYAAuqI
+	 031IL8YiCRbRgN3Lu0GdOWHF3up1c5eAkeUhEPdxuJ9q/SthtjUJM4e5DTQk3971Cv
+	 +R/NIvQEe5TAium5bmdEyB/qSUVvrKQ3N2k6WtmzwCU8Hw7KqZ3HuHqonUNceqtFUI
+	 gkBAcKeGMzG5vw33mskB8GCIprFrs11XV7eTU1DX4P4aEFuLfxG1bzkZcra4RB+dUr
+	 UBz/croW/YGWjUjo9iUnRJL3m1e4m9BS//Qzg5nKK/0JyOftW1GHHLTSp3iQSWnW2G
+	 YCgs9xZC0a5iw==
+Date: Thu, 24 Sep 2026 11:06:21 +0100
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 To: Zi Yan <ziy@nvidia.com>
 Cc: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>, linux-mm@kvack.org, 
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, linux-rdma@vger.kernel.org, selinux@vger.kernel.org, linux-sound@vger.kernel.org, bpf@vger.kernel.org, linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, fuse-devel@lists.linux.dev
-Subject: Re: [PATCH v3 24/40] mm/mlock: eliminate weird VMA_IO_BIT abuse and
- simplify
-Message-ID: <arT3K71l86fUVldk@gremlin>
+Subject: Re: [PATCH v3 04/40] mm: consistently validate VMA state after
+ mmap[_prepare] hooks
+Message-ID: <arT1xJpWlFlRHUFY@gremlin>
 References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
- <20260917-b4-mmap-prepare-vma-flag-sanify-v3-24-4583d8a23bca@kernel.org>
- <93672B94-BB0C-4713-8F8A-3619D81DB7BB@nvidia.com>
+ <20260917-b4-mmap-prepare-vma-flag-sanify-v3-4-4583d8a23bca@kernel.org>
+ <DLN7FLRJGS5Y.1T8T274W2NS6L@nvidia.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <93672B94-BB0C-4713-8F8A-3619D81DB7BB@nvidia.com>
+In-Reply-To: <DLN7FLRJGS5Y.1T8T274W2NS6L@nvidia.com>
 X-Mailman-Approved-At: Fri, 25 Sep 2026 16:40:51 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,135 +72,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 04:06:14PM -0400, Zi Yan wrote:
-> On 17 Sep 2026, at 12:22, Lorenzo Stoakes (ARM) wrote:
->
-> > When performing mlock() or munlock() otherwise normal VMAs have VMA_IO_BIT
-> > solely to fix a race with migration which might otherwise double-count
-> > mlock VMAs.
+On Wed, Sep 23, 2026 at 10:52:06PM -0400, Zi Yan wrote:
+> On Thu Sep 17, 2026 at 12:22 PM EDT, Lorenzo Stoakes (ARM) wrote:
+> > When the f_op->mmap_prepare or deprecated f_op->mmap hooks are invoked, the
+> > driver might have done something crazy that is not permitted by the kernel.
 > >
-> > This is unnecessary - at the point of applying folio mlock state, whether
-> > setting or clearing PG_mlocked, we know whether or not we are locking.
+> > Currently we check for three such cases in __mmap_new_file_vma(), but only
+> > if the legacy f_op->mmap hook is used:
 > >
-> > Solve this in two ways - thread a boolean through the page table walk
-> > indicating whether a lock or unlock is being performed, and run a locking
-> > walk with VMA_LOCKONFAULT_BIT set and VMA_LOCKED_BIT cleared.
+> > * Did sparc ADI result in invalid flags?
 > >
-> > This state never occurs otherwise, as VMA_LOCKONFAULT_BIT always implies
-> > VMA_LOCKED_BIT. These are also always cleared together.
+> > * Did the driver alter vma->vm_start?
 > >
-> > Then, update folio_add_lru_vma() and mlock_folio() to check only for
-> > VMA_LOCKED_BIT, and update try_to_unmap_one() to check for VMA_LOCKED_MASK
-> > instead.
+> > * Did the driver make a file-backed mapping on a read-only file writable?
 > >
-> > Also remove the useless invocation of allow_mlock_munlock() which simply
-> > returns true if unlocking and instead rename it to allow_mlock() and only
-> > call it when locking.
+> > Generalise these checks for both mmap_prepare and mmap and apply to all
+> > invocations of mmap_file(), the f_op->mmap and f_op->mmap_prepare handling
+> > in the core VMA code and the mmap_prepare compatibility layer.
 > >
-> > Finally, with the other mlock abuse of VMA_IO_BIT addressed, update
-> > mlock_vma_folio() and folio_add_lru_vma() to simply test for
-> > VMA_LOCKED_BIT. munlock_vma_folio() tests VMA_LOCKED_MASK instead, as an
-> > unmap racing with the locking walk must still munlock folios the walk has
-> > already counted.
+> > Also extend the vm_start check to vm_end also - drivers must not change the
+> > VMA range at all.
 > >
-> > While here, also replace some deprecated VMA flag predicates.
+> > We also WARN_ON_ONCE() on these conditions as they are things that should
+> > simply not occur in the kernel and it's important to call it out when it
+> > does.
+> >
+> > We invoke mmap_prepare_validate() after mmap_action_prepare(), as mmap
+> > actions often manipulate state in the descriptor thus providing the final
+> > state the VMA will be derived from.
+> >
+> > Also call mmap_validate_vma_flags() in insert_vm_struct() to ensure that
+> > special regions which are inserted (such as a VDSO or VVAR) also satisfy
+> > the sanity checks.
+> >
+> > This way every VMA established through an mmap hook, whether via mmap() or
+> > the compatibility layer, or inserted via insert_vm_struct(), has been
+> > validated. brk() VMAs never pass through a driver hook and so need no such
+> > check.
+> >
+> > While we're here, also fixup a couple disjoint blocks of #ifdef CONFIG_MMU.
+> >
+> > Finally, update the VMA userland tests to reflect the change.
 > >
 > > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 > > ---
-> >  mm/folio.c    |  2 +-
-> >  mm/internal.h | 10 +++++++---
-> >  mm/mlock.c    | 51 +++++++++++++++++++--------------------------------
-> >  mm/rmap.c     |  4 +++-
-> >  4 files changed, 30 insertions(+), 37 deletions(-)
+> >  mm/internal.h                   |  51 ++++++++++++--------
+> >  mm/util.c                       |  19 ++++++--
+> >  mm/vma.c                        | 100 ++++++++++++++++++++++++++++++++++------
+> >  mm/vma.h                        |  25 ++++++++--
+> >  tools/testing/vma/include/dup.h |  10 ++++
+> >  5 files changed, 163 insertions(+), 42 deletions(-)
 > >
-> > diff --git a/mm/folio.c b/mm/folio.c
-> > index 47a437e0f7fd..35e242b48870 100644
-> > --- a/mm/folio.c
-> > +++ b/mm/folio.c
-> > @@ -505,7 +505,7 @@ void folio_add_lru_vma(struct folio *folio, struct vm_area_struct *vma)
-> >  {
-> >  	VM_BUG_ON_FOLIO(folio_test_lru(folio), folio);
-> >
-> > -	if (unlikely((vma->vm_flags & (VM_LOCKED | VM_SPECIAL)) == VM_LOCKED))
-> > +	if (vma_test(vma, VMA_LOCKED_BIT))
+> <snip>
+> > +
+> > +/* Check to ensure a driver hasn't done something crazy. */
+> > +static int mmap_validate(unsigned long prev_start, unsigned long prev_end,
+> > +			 unsigned long curr_start, unsigned long curr_end,
+> > +			 const vma_flags_t *prev_flags,
+> > +			 const vma_flags_t *curr_flags)
+> > +{
+> > +	bool was_maywrite, is_maywrite;
+> > +
+> > +	/* Drivers cannot alter the range of the VMA. */
+> > +	if (WARN_ON_ONCE(prev_start != curr_start || prev_end != curr_end))
+> > +		return -EINVAL;
+> > +
+> > +	was_maywrite = vma_flags_test(prev_flags, VMA_MAYWRITE_BIT);
+> > +	is_maywrite = vma_flags_test(curr_flags, VMA_MAYWRITE_BIT);
+> > +
+> > +	/* A driver may not make a previously unwritable mapping writable. */
+> > +	if (WARN_ON_ONCE(!was_maywrite && is_maywrite))
 >
-> I think it is worth documenting VMA_LOCKONFAULT_BIT alone means mlock in
-> progress, like you did in munlock_vma_folio(). Just to keep the protocol
-> explicit for all the readers.
-
-Well I'm not sure it's necessary here honestly, because this never checked
-VMA_LOCKED_MASK anyway, and VMA_LOCKONFAULT_BIT never made a difference.
-
-So the meaning of VMA_LOCKED_BIT here is strictly 'is it locked' and it's
-correctly handled.
-
-And I fear that it becomes whack-a-mole - the neat thing about this change is
-that you no longer have to special case the stupid VM_SPECIAL thing, and can in
-fact do the 'normal' thing of _just checking_ VMA_LOCKED_BIT :)
-
-So I think it's better not to.
-
+> Is it driver specific or generally applicable to all mmap(_preppare)
+> operations? Is the comment too specific?
 >
-> >  		mlock_new_folio(folio);
-> >  	else
-> >  		folio_add_lru(folio);
-> > diff --git a/mm/internal.h b/mm/internal.h
-> > index b2c6c9435021..84aa3e6c8bac 100644
-> > --- a/mm/internal.h
-> > +++ b/mm/internal.h
-> > @@ -971,8 +971,7 @@ void mlock_folio(struct folio *folio);
-> >  static inline void mlock_vma_folio(struct folio *folio,
-> >  				struct vm_area_struct *vma)
-> >  {
-> > -	/* The VM_IO check prevents migration from double-counting during mlock. */
-> > -	if (unlikely((vma->vm_flags & (VM_LOCKED|VM_SPECIAL)) == VM_LOCKED))
-> > +	if (vma_test(vma, VMA_LOCKED_BIT))
->
-> Ditto.
+> During my LLM quiz, making memfd write seals writable via a
+> hypothetically wrong shmem_mmap_prepare() implementation is an example
+> for this WARN_ON_ONCE. It is not driver related. Let me know if I get it
+> wrong.
 
-Similar reasoning to above.
+Driver is taken to mean anything with an mmap or mmap_prepare hook, like a
+general term for that.
+
+If we start getting into calling it different if it's a file system or memfd or
+something then it becomes quite hard to talk about it.
+
+And yeah I hate that it's not a good name because driver makes you think
+something in drivers/* or an OOT one or something but the kernel makes it vague
+:)
+
+Naming is hard...
 
 >
-> >  		mlock_folio(folio);
-> >  }
-> >
-> > @@ -989,7 +988,12 @@ static inline void munlock_vma_folio(struct folio *folio,
-> >  	 * always munlock the folio and page reclaim will correct it
-> >  	 * if it's wrong.
-> >  	 */
-> > -	if (unlikely(vma->vm_flags & VM_LOCKED))
-> > +	/*
-> > +	 * VMA_LOCKONFAULT_BIT alone marks an mlock walk in progress, see
-> > +	 * mlock_vma_pages_range(). An unmap racing with the walk must still
-> > +	 * munlock folios the walk has already counted.
-> > +	 */
-
-Here it's worth mentioning, as it's specifically relying on the new
-behaviour. Although it's neatly using the VMA_LOCKED_MASK to handle both the
-locked case and the 'being locked' case :)
-
-> > +	if (unlikely(vma_test_any_mask(vma, VMA_LOCKED_MASK)))
-> >  		munlock_folio(folio);
-> >  }
-> >
+> Otherwise, LGTM.
 >
-> Why I am commenting in the middle of the series? Because I am taking
-> a quiz given by LLM based on this series to get myself enough background
-> knowledge to review this series. This mlock part came up at part E
-> and I only have part F left before I can do the full review. :)
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
 
-Thanks! :) I really appreciate you taking the time to look at this! Sorry it's
-so large.
-
-I held this series back from last cycle to help with review load, then spent
-some time fixing various AI-discovered things, and all the patches are necessary
-(well for the most part) to get where the series needs to go.
-
-I think the change is worth it though!
+Thanks!
 
 >
+>
+> --
 > Best Regards,
 > Yan, Zi
+>
 
 --
 Cheers, Lorenzo
