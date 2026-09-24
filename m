@@ -4,79 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74651C9830E
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 13:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 074EAC9831E
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 13:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:In-Reply-To:
+	Cc:To:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xL0yfG+wZcXpL2hPzFHYnYTm+sOqeGSu3so9+WV23jI=; b=di3dZiBLjIJbIq
-	CWn5vgUHQI4WTH1S4Wj0P8eDDP7p0DUbD9t45ah2RoYetnwbQeT3d/ToRxZiBJ+pHgbXPDKTJWUTM
-	6AFdQFHfVlXk3DshCt133svRTK7UIkk98QdkXjhC31YFd+Hj4ed1yxZjLoa7TsyMt1M6Jsb+cd6CI
-	vAfyUf4pS7johIuKn/iI3opc/X7CZhYvCcBEtHCmGwFhnoy5hWRNMDrhWOotAW3fFgoSKZIXKpRjd
-	KJxglwU4/STTR0YQxAdm1+PKGpf61ghoveIYGHoDGyDlCWoaFrBmENPkJ9Fqi5nEnU34r1c9EvokL
-	4yrevwSgB5cLdFghEdTg==;
+	List-Owner; bh=3PKCII7z4tSw2Q3MwlgAdSoZ+3o98JvzbOQM2bdjo4o=; b=MOTRXkEhlSyz7I
+	LNY1+fYJhYAcrHwv9dBueSLhYsHsJA8737RqG9AwOxMHLxoaCxL/oUGOxBaOE+3WSa+ZJM7sWz14m
+	+0ytFp0gFSc4qON+KmJX/pbvKRGhmRwTpq654uZx/OUk8a4ivf7Pzes3Ry/1vwuLXsAbZN2XWi2+V
+	XBr6F/TPN5FINjbUBlv8vSkhrGYQoA1WWK2ovEg9q0duJ823jIjVtt4jSfHmrMVCTfWGOtstYaBfd
+	6yJVyq8LXl0hB1zbWQ+Q4Mh++owc79t5GybQgDlvejlGqf72XafmzCzgcjtd12yEtqq1ivglQMToo
+	vDIiZhms0iTpHuNMngIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9j9R-0000000B31e-2z3i;
-	Thu, 24 Sep 2026 13:06:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9j9P-0000000B319-0Yno;
-	Thu, 24 Sep 2026 13:06:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72CC61756;
-	Thu, 24 Sep 2026 06:06:06 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 540843F86F;
-	Thu, 24 Sep 2026 06:06:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1790255169; bh=EGw34BO6GoODDHqtAWjnN4dQ0qfGJO7mhTtfUZBl07g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L5T5MVGA1XE7fvh0OgeMuV6WxEvg/uuyaiKVs7/Rb0XZiQu6QLiQiyVzic9dwbkKj
-	 AsHQO82O3eGMXwH0QQs/G8Eagu43wXo1aY65K+KpEyokxL7WJ+W4gxNEeTmwo5/88x
-	 2Z1VqPAa89aa8XVYSCxLOJX2ek0aIfWGYkdJLQV0=
-Date: Thu, 24 Sep 2026 14:05:57 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>, catalin.marinas@arm.com,
-	will@kernel.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
-	npiggin@gmail.com, chleroy@kernel.org, ritesh.list@gmail.com,
-	sshegde@linux.ibm.com, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com,
-	gor@linux.ibm.com, agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	x86@kernel.org, hpa@zytor.com, ojeda@kernel.org, boqun@kernel.org,
-	gary@garyguo.net, bjorn3_gh@protonmail.com, lossin@kernel.org,
-	a.hindborg@kernel.org, aliceryhl@google.com, tmgross@umich.edu,
-	dakr@kernel.org, daniel.almeida@collabora.com, tamird@kernel.org,
-	acourbot@nvidia.com, work@onurozkan.dev, nathan@kernel.org,
-	ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
-	jszhang@kernel.org, japo@linux.ibm.com, jpoimboe@kernel.org,
-	seanjc@google.com, pmladek@suse.com, thuth@redhat.com,
-	ynorov@nvidia.com, joelagnelf@nvidia.com, david@davidgow.net,
-	fujita.tomonori@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [RFC] rust: kernel: Add KUnit tests for ARCH_WARN_ASM bug table
- emission
-Message-ID: <arUgNdqpA5U8EjjP@J2N7QTR9R3>
-References: <20260922054959.955093-2-mkchauras@gmail.com>
- <20260922064735.GS4121339@noisy.programming.kicks-ass.net>
- <arNxAn7I7NCVWmD1@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
- <20260924111557.GP1837346@noisy.programming.kicks-ass.net>
- <arUbw_TIA0Uj7oXT@J2N7QTR9R3>
- <20260924125253.GY776954@noisy.programming.kicks-ass.net>
+	id 1x9jl2-0000000B7bV-1fev;
+	Thu, 24 Sep 2026 13:45:04 +0000
+Received: from mail.avm.de ([212.42.244.119])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9jkx-0000000B7ZW-27dK;
+	Thu, 24 Sep 2026 13:45:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fritz.com; s=mail;
+	t=1790257492; bh=RNrHlkedPxi+Seo64aiciiC5cKPNZrA+d4i/PipmIlg=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
+	b=Zqlo3F7I9z6odqeWj380ltc1L8l1Y1OdMFIQ8fJGCcL0godj+AMTyZAdgeBzcvddy
+	 visMApYsWZFHUl+du/8beS1mqhyyK8ENoIV/CWxsvsCyh4cXW9xX5/jgMeBjt7Okbx
+	 0/ooMNq4gemCVy7fVq7GcIWAcjUgfeWkAadYPLTG/JWW8pKKwCcMOYLk1qQeJgLrW8
+	 b4tI9uek01mHErbJsLDhOWmma86ZwUu/kuFk/UO41MVhGaC3RTdij6ogY0d2ej8cFn
+	 orJV7gvvJ+I19L2+qoEA4l9czaoqgjfie6TZI2lVsYdMBW0eMfXwm6+6RMe9tD03QH
+	 luFchOl1IwK2w==
+Received: from [212.42.244.78] (helo=mail.avm.de)
+	by mail.avm.de with ESMTP (eXpurgate 4.57.1)
+	(envelope-from <n.schier@fritz.com>)
+	id 6ab52954-03d5-7f0000032729-7f000001b242-1
+	for <multiple-recipients>; Thu, 24 Sep 2026 15:44:52 +0200
+Received: from mail-auth.fritz.com (unknown [212.42.244.78])
+	by mail.avm.de (Postfix) with ESMTPS;
+	Thu, 24 Sep 2026 15:44:52 +0200 (CEST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260924125253.GY776954@noisy.programming.kicks-ass.net>
+Subject: Re: [PATCH v4 01/22] kbuild: do not allocate .modinfo in vmlinux
+From: Nicolas Schier <n.schier@fritz.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+ Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Masahiro Yamada <masahiroy@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Ard Biesheuvel <ardb@kernel.org>, 
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
+ Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-efi@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ linux-doc@vger.kernel.org, Jens Axboe <axboe@kernel.dk>, 
+ linux-hardening@vger.kernel.org, Petr Pavlu <petr.pavlu@suse.com>
+In-Reply-To: <20260923-build-speedup-v4-1-73128809a4a4@kernel.org>
+References: <20260923-build-speedup-v4-0-73128809a4a4@kernel.org>
+ <20260923-build-speedup-v4-1-73128809a4a4@kernel.org>
+Date: Thu, 24 Sep 2026 15:44:48 +0200
+Message-Id: <179025748878.4172706.1928342214472255763.b4-review@b4>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=529; i=n.schier@fritz.com;
+ h=from:subject:message-id; bh=RNrHlkedPxi+Seo64aiciiC5cKPNZrA+d4i/PipmIlg=;
+ b=owEBbQKS/ZANAwAIAYjGvJyImm24AcsmYgBqtSlSAaAHZSpwz+agR7A4nUL/f+UeSeo3MVlM+
+ g0GySzoXvKJAjMEAAEIAB0WIQQO/4WJ63TpgecLpGmIxryciJptuAUCarUpUgAKCRCIxryciJpt
+ uLpFD/4jbTD/m855zQY2oXD/P7gI5rKS0e2JEo4CFs/WQ1q0+MoV/WJx2zzT4SnAM6QXyzOFdL8
+ N4GjNg6r/k+K/apkYq+ibSeq8HUHeSxbO4sdJRWjLXWSReqCL5kxhgvKohauiasWosm4pin+gdR
+ RIwZVezT7eufa+MunXFc3rYHUcBkRsAk5RV5GV/lc9FQdBwdynEkTt0nWX4CiMH/iJh7dYLIYvp
+ 1DkwLdomrF1bURPaP3rgb3sMMNwDGcgH/51PYGy1Cf7MRvdgqCZcW/HRqcEYzFMZPdCjsJgvkhw
+ RUuROmOPYRqcKgbzduQ+SH1njzB9AJeTo5LqhHb7StHjZLRBkVm0tODdImmjW383URt3/Y20UQd
+ wjXVi/xxqIrtsJt78RpFk68LZO82/G3bm1fE3d1JDLJmo0l3W+sR7WVzxKK2SH/AK30LuUXRXUJ
+ 1SaSkqrau/qQNnQ2DyGm2l2l6Wu/gouZrGp1d2hhapMb8D9257v2CnrUEDhBcOh5xYcMlsorNx+
+ S9sQuzuLiqpFAu9Wh/aFc04x+KPDGg2QDWA2KG5wWx8FcTJfAFCWTQfQJrEAD7ZcfQichDLYv1+
+ r9/isWvL4j22ulU2/eqIEx2pPHPPDl5q61LJm6gQhc9gb53OoYIphIXTYZFxQdVLz+W0FuNgXmW
+ 64JXl+x4hWlDQJg==
+X-Developer-Key: i=n.schier@fritz.com; a=openpgp;
+ fpr=7CF67EF8868721AFE53D73FDBDE3A6CC4E333CC8
+X-purgate-ID: 149429::1790257492-1CC5EEF9-18159528/0/0
+X-purgate-type: clean
+X-purgate-size: 531
+X-Notice: Whitelisted
+X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
+X-purgate: clean
+X-pfmilter: host: postfix-mx-02  mail-id: 76E62A085A  external: no
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_060611_268779_E93A66AB 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20260924_064459_748516_AE852189 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +128,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 02:52:53PM +0200, Peter Zijlstra wrote:
-> On Thu, Sep 24, 2026 at 01:46:59PM +0100, Mark Rutland wrote:
-> > What problem is this trying to solve?
-> > 
-> > Mukesh's original patch seems to be trying to check whether we compiled
-> > things correctly (such that the bug_table entry points at the expected
-> > insturction), and I don't think that warrants a runtime check, but (as
-> > per my reply to him) I don't understand why that's a thing to check in
-> > the first place.
-> > 
-> > On arm64 we only call is_valid_bugaddr() under do_el1_brk64() ->
-> > call_el1_break_hook() -> bug_brk_handler(). We only call
-> > bug_brk_handler() when HW has taken a BRK exception with the BUG_BRK_IMM
-> > immediate, and that can only be triggered by executing the right
-> > instruction (BRK #BUG_BRK_IMM), which we ONLY use for BUG(). and WARN().
-> > 
-> > So I don't see why any change is necessary here.
-> > 
-> > If the HW has somehow taken a BRK exception from any other instruction
-> > (which would presumably be a HW bug), there won't be a bug_table entry,
-> > and so __report_bug() will fail to find an entry, and will return
-> > BUG_TRAP_TYPE_NONE, same as for the !is_valid_bugaddr() case.
+On Wed, 23 Sep 2026 18:17:50 +0100, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
+> Commit 3e86e4d74c04 ("kbuild: keep .modinfo section in vmlinux.unstripped")
+> placed MODULE_INFO() strings in the .modinfo section in vmlinux.unstripped,
+> however it left the section allocatable, so it gets assigned an address and
+> on arm64, arm and riscv, the section is tagged as PT_LOAD.
 > 
-> Right, so I wasn't at all sure what he was doing, Rust is still mostly
-> unreadable garbage to me.
+> This is useless as the data is ultimately stripped anyway.
 > 
-> But I figured I'd much rather see him use is_valid_bugaddr() to do
-> runtime checks than whatever dodgy games he was playing with that label.
-> 
-> So *if* doing runtime checks is what is wanted, then is_valid_bugaddr()
-> needs to actually work, because then it grows a user outside of the BRK
-> handler.
+> [...]
 
-Thanks; I think we're aligned. :)
+Reviewed-by: Nicolas Schier <n.schier@fritz.com>
 
-Before we delve into implementation details, I'd like to understand the
-problem Mukesh is trying to solve.
+-- 
+Nicolas
 
-Mark.
 
 _______________________________________________
 linux-riscv mailing list
