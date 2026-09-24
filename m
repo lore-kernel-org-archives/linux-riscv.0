@@ -4,54 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202FCC9830E
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 12:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52E57C98317
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 12:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L52GDw08uaU+eIBpG7yOsxelZGDIC7m53/FDjTnT/jI=; b=SOKR8p9bG4gbFg
-	JwHEMIQ1pLvM7KyQ2zxQ0tehtyblh/NgzJ7aW0DP1oZSJ6hPwxfGfRPplAN9tKGNtakLwGBYU7JyC
-	1UuRd+/csSijZASomMX8h+In98Eht3kv37uc8GhuhkmlrUZwaf8gV9wh9tzsEVW5JomwHJSHjYlWp
-	1YdJFWfEb8bBPOS5iu9HsPBfkiHaT+LFFzO14ePOuiNgK9LBSXziwfv8xLD2F0Y+JiMkuPhFQ2Xl3
-	9IxG+lSmo7HUEXt2FfRZH5wbzlnw3sYLUhwu7sakg9ZpVTGtxM/xKzF/fXJDY9rkrA2zLLDY04m0q
-	esw8YVXfKn03WTgMI4gg==;
+	List-Owner; bh=SArS6e76q1vLSK0ObW2VJrpUKyX5F2Jf7kS1F4n/C84=; b=tIsiQgujzDsPBl
+	maMdF0MSVUHVoBdQpiENAAXLoKRb/HuwECf6UE0TwwYQy4HOmTkayV+GmdiSjT73pJjy8PVUkzUtX
+	sStY+6QlueH2jnW6w4CG+5ecsMxt5gyOrPE5SrNpb29eVlV812+UinuHFWMAg2QK1LRJesS5BVgz3
+	P1Zs1agzo/C6xqAJEEs8S/6NsGMbGl2KaBrluUkwuE6Sp0qAbj790eNQ7FQKftrFIBJZ+isrtN+CE
+	KL26hy4pq+MvDiOPIqHzvLpe3p94EgE7kTYae4THEbdPrwL+TQGBs7vygVSQYF9/z6csIEX9ZyPvr
+	TKVi2VlnG9UHG9ywgZtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iEY-0000000Avvx-0eNr;
-	Thu, 24 Sep 2026 12:07:26 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9iEV-0000000AvvC-27GU
-	for linux-riscv@lists.infradead.org;
-	Thu, 24 Sep 2026 12:07:24 +0000
-Received: from 8bytes.org (p200300f6af404a00e4ccc4fdbbd66590.dip0.t-ipconnect.de [IPv6:2003:f6:af40:4a00:e4cc:c4fd:bbd6:6590])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 1E6AE1C7465;
-	Thu, 24 Sep 2026 14:07:21 +0200 (CEST)
-Date: Thu, 24 Sep 2026 14:07:19 +0200
-From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
-To: Zong Li <zong.li@sifive.com>
-Cc: tomasz.jeznach@linux.dev, will@kernel.org, robin.murphy@arm.com, 
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	mark.rutland@arm.com, andrew.jones@oss.qualcomm.com, guoren@kernel.org, 
-	david.laight.linux@gmail.com, zhangzhanpeng.jasper@bytedance.com, yang.yicong@picoheart.com, 
-	nutty.liu@hotmail.com, iommu@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH v14 0/2] RISC-V IOMMU HPM support
-Message-ID: <arUSRcgzWurL-YrL@8bytes.org>
-References: <20260924100106.2054127-1-zong.li@sifive.com>
+	id 1x9icM-0000000Az51-3oZC;
+	Thu, 24 Sep 2026 12:32:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x9icK-0000000Az4j-3DHs;
+	Thu, 24 Sep 2026 12:32:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=DxfLt02tiYB/R06QhwaMsYXhy8uIIvTYHfePzbadpUk=; b=oe6eEV9L0ABTn/zvoIR2PsVQQu
+	UcLaZY+euSAapAY7xWSpD4DbTuafBJLciOWwFbdwbrp8r3bMpbiqsWzo24iVtggW7WyTD9AVaPp64
+	quTRekhDozwO75STDvB4bWmtPjb0/I8lwXC1z3kZC6FhyPTQFgx3EFMO9W8hlwqlHDH8XUa/IC3nH
+	2Ln+9CeAExxyQCV7mY1oAboHZ39320mizT2R/lX8i37Fe2YEGrZFi76Y64BCETbF3SByWXBwyNy5r
+	TYmeoMpDH2q2b2NVBycS7ubZmH+c0hVhPfsvAoKT/YjXovycZ6E5Mk20ntUthn4yJ/Cpopx9vU9JX
+	MW0cDdzA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9icI-0000000Fy2t-0Avx;
+	Thu, 24 Sep 2026 12:31:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A49A152B;
+	Thu, 24 Sep 2026 05:31:51 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2777F3F86C;
+	Thu, 24 Sep 2026 05:31:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1790253115; bh=tyroa8lBoOqLwHpTeRHuGpjV833qc9sQbRMa/D+dsoA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lz309Dy3TlEu+7y1tHZCYfrdPqaWCgtZMoXnPf8tuQOM4LMWKCZ6sgCmYSkYsjvcs
+	 tO7bMRWvAOIpOXYh7A+nfbCx25N76QAhUGvlajWZ3EFwvUyLVK0EAGgwuHLQJWAXUT
+	 QV+kIw/8QJ9o4Wbe1n28zhddNcWmz6QOOLHombIo=
+Date: Thu, 24 Sep 2026 13:31:42 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: "Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, maddy@linux.ibm.com,
+	mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org,
+	ritesh.list@gmail.com, sshegde@linux.ibm.com, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	x86@kernel.org, hpa@zytor.com, ojeda@kernel.org, boqun@kernel.org,
+	gary@garyguo.net, bjorn3_gh@protonmail.com, lossin@kernel.org,
+	a.hindborg@kernel.org, aliceryhl@google.com, tmgross@umich.edu,
+	dakr@kernel.org, daniel.almeida@collabora.com, tamird@kernel.org,
+	acourbot@nvidia.com, work@onurozkan.dev, nathan@kernel.org,
+	ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
+	jszhang@kernel.org, japo@linux.ibm.com, peterz@infradead.org,
+	jpoimboe@kernel.org, seanjc@google.com, pmladek@suse.com,
+	thuth@redhat.com, ynorov@nvidia.com, joelagnelf@nvidia.com,
+	david@davidgow.net, fujita.tomonori@gmail.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [RFC] rust: kernel: Add KUnit tests for ARCH_WARN_ASM bug table
+ emission
+Message-ID: <arUYLsJJewE--wqo@J2N7QTR9R3>
+References: <20260922054959.955093-2-mkchauras@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260924100106.2054127-1-zong.li@sifive.com>
+In-Reply-To: <20260922054959.955093-2-mkchauras@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_050723_686073_54E018C7 
-X-CRM114-Status: UNSURE (   6.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260924_133158_285030_7DE978FC 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,20 +97,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 03:01:03AM -0700, Zong Li wrote:
-> This series implements support for the RISC-V IOMMU hardware performance
-> monitor.
-
-Do you have a link to the specification of the HPM (and additionally the IOMMU
-itself)?
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBTZXAgMjIsIDIwMjYgYXQgMTE6MjA6MDBBTSArMDUzMCwgTXVrZXNoIEt1bWFyIENo
+YXVyYXNpeWEgKElCTSkgd3JvdGU6Cj4gVmVyaWZ5IHRoYXQgdGhlIF9fYnVnX3RhYmxlIGVudHJ5
+IGVtaXR0ZWQgYnkgQVJDSF9XQVJOX0FTTSBoYXMgYSBjb3JyZWN0Cj4gYnVnX2FkZHIgZGlzcGxh
+Y2VtZW50IOKAlCBpLmUuIHRoZSBhcmNoJ3MgdHJhcCBsYWJlbCByZWZlcmVuY2UgcmVzb2x2ZXMg
+dG8KPiB0aGUgdHJhcCBpbnN0cnVjdGlvbiDigJQgYnkgY2FsbGluZyBmaW5kX2J1ZygpIHdpdGgg
+dGhlIGV4YWN0IHZpcnR1YWwgYWRkcmVzcwo+IG9mIHRoZSB0cmFwLCBtaXJyb3Jpbmcgd2hhdCB0
+aGUgcmVhbCB0cmFwIGhhbmRsZXIgZG9lcy4KPiAKPiBUbyBzdXBwb3J0IGFsbCBhcmNoaXRlY3R1
+cmVzLCBlYWNoIGFyY2ggdGhhdCBpbXBsZW1lbnRzIEFSQ0hfV0FSTl9BU00gbm93Cj4gZGVmaW5l
+cyBBUkNIX1dBUk5fQVNNX1RSQVBfTEFCRUwsIGEgc3RyaW5nIGNvbnN0YW50IG5hbWluZyB0aGUg
+bG9jYWwgbGFiZWwKPiBhdCB3aGljaCB0aGUgdHJhcCBpbnN0cnVjdGlvbiBpcyBwbGFjZWQ6Cj4g
+Cj4gICB4ODYgICAgICAgIjEiICAgICAodWQyIGF0IGxhYmVsIDE6KQo+ICAgcG93ZXJwYyAgICIx
+IiAgICAgKHR3aSBhdCBsYWJlbCAxOikKPiAgIHJpc2N2ICAgICAiMSIgICAgIChlYnJlYWsgYXQg
+bGFiZWwgMTopCj4gICBhcm02NCAgICAgIjE0NDcxIiAoYnJrIHBsYWNlZCBhdCAxNDQ3MTogYnkg
+X19CVUdfRU5UUllfRU5EKQo+ICAgczM5MCAgICAgICIwIiAgICAgKG1jIGF0IGxhYmVsIDA6KQoK
+SSdtIG5vdCBhIGZhbiBvZiBleHBvc2luZyBzdWNoIGEgbG93LWxldmVsIGltcGxlbWVudGF0aW9u
+IGRldGFpbCBvdXQgb2YKdGhlIGFyY2hpdGVjdHVyZSBjb2RlLCBhbmQgSSBkb24ndCB0aGluayB3
+ZSBzaG91bGQgZXhwb3NlIHRoaXMuCgpXaGF0IGV4YWN0bHkgYXJlIHlvdSB0cnlpbmcgdG8gdmVy
+aWZ5IGhlcmUsIGFuZCB3aHk/IEhhcyB0aGVyZSBiZWVuCnNvbWUgX3NwZWNpZmljXyBpc3N1ZSBv
+biBwb3dlcnBjIHRoYXQgY2F1c2VkIHlvdSB0byBsb29rIGF0IHRoaXM/CgpNYXJrLgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
