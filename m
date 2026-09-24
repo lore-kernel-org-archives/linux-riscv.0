@@ -4,115 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00DB8C98311
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 09:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD66CC98314
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 10:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	Mime-Version:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BsHYxkpfQwYCkP7erIu50IzlOCvKNf7bBkHP1fwSLSw=; b=tYkDCKULVf3VTo
-	l1uSTKefVTqL/0RNVjHTS8MC1cjsxF5qUmpawqQ0fs7/PFk6x7yBQujMj2H0yPwit7u4cSBjguLBk
-	ZCnQqbSGEBs/989uxrQKWCOXciamPjUONlGtwT6CZvCPTE4cM5rYmG6ReczYHq12hEuXm197+qtkA
-	NQ8R9xhFd8QwEV1Hynsnk9LX1upZ5f3K5ZOSM+hvnxJzK3EJl5cTtL2HWedbLh3sH3Pb2MEPrUesR
-	GqqLbfEiKe6evpwcETYt6BTdwpw9tOYAKDxGG8V0ImoG0795C1Tqoaiu/XNF0gYPC4Ah9DyVD710j
-	3STDUUjFPelSZLJz3FEA==;
+	List-Owner; bh=cYg8/zpSHioxr5WMcsvrEj/Oaon7xw1nUWd9LQCf6Dk=; b=bcNrdH/jpRcnhG
+	jS1fEaxQdx3y6o/Uk5bDbqPw9EfQSavQZl//OxFWaC4DfiuXEHa1mgMqB9FoofNZF25EEQYWXtpCf
+	w7d/zv+zZUQNGp3j3da9sIo/9n1K4WppbxjVVonMWuk9leJpax61Wi1lqLhmLnM6wg6o1rN9sy3dC
+	RIUKAGnIzrwQ8zGYVGF3GwuHZhnbg1buqgUkNvSAIYyEBVkbAs7qspsaH4LGFpqWvO93KyW9CErr9
+	dlSG8zFHm9EXdFpdHwwEMKo7wWu9+5r+oKjNavXKq3n7WYTcLIFybh+iDvqRJVnhbZdN10UdN3xpQ
+	M3eNaZIiHLFBGNfF3GEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9g7D-0000000AdbF-1ed5;
-	Thu, 24 Sep 2026 09:51:43 +0000
-Received: from mail-lr2-x10.google.com ([2a00:1450:4864:38::10])
+	id 1x9gGW-0000000AeW8-3pp4;
+	Thu, 24 Sep 2026 10:01:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9g7A-0000000AdaK-01Ek
+	id 1x9gGW-0000000AeVU-0N6X
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 24 Sep 2026 10:01:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=QtF+hEd4zxaSXZ54y5RlnY99ygpvKaq026DcmobuPXU=; b=opKJbtD6HIHJxNaO37AZmO9UEf
+	QmFk9l0MEwK+Fgc0VYQ6Sq4RyPhNFMrDa048vHwoaou1xO32Z92ncYOP8jBjz1oVNShj3C/pY2zUG
+	z50Aje4RQlpZi/SSf+Tio/A0V7uApOyGUipsN/wFOaYDW6asg+i/+HaRFI5RYyDwecH8jWV0QKs3j
+	vMNt2/GTPlp6ukE0QN+Tdj+dNPuofjKNH4ZVit0q2HGYMh6lp9bJHFHlunuWj4rmOloNC2Q7+GRew
+	eZB9KPWTnl6vLtTDXPsF8+AIG735z+mXUr4QM2yQtkmeFZhZ82HlVafiqXHoQGR2eh1+d2uMykeKa
+	+l2SCgOg==;
+Received: from mail-dy2-x10.google.com ([2607:f8b0:4864:36::10])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9gGT-0000000FoYp-1Qa8
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Sep 2026 09:51:41 +0000
-Received: by mail-lr2-x10.google.com with SMTP id 38308e7fff4ca-3a59bc470d6so16530301fa.0
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 02:51:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1790243494; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AC0v0lOocrWkDipVzkEz9ofexd4MsfTBaADq8lX5u3OchZbwwePXW8z/iYZT4rbsxO
-         pVxwkBd+fYCuWv010WWFeYi6DzQQ6FFk9x1+wjtCWK36QSXbd86pS+XwVP1oafl+egZg
-         t7sK++CN4pKt3vAR+xHsUkiHuHYDvDAwT6pE8nrOUHz5owWL+vSMizawn2TcBzx1izlO
-         yF6HolNvCAFfhJteGaJZsOfvuSDi/VIaIbvmi0pnWmZSOhnbudopxum+/spuJxAhCE3g
-         XlNg24a4x1poKkvVMWiNRuGZ3Neakr8lVguLmdh9bi3cLgF4muXs9ySOrlGk1Mtw0FFN
-         Md3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:user-agent:mime-version
-         :references:in-reply-to:dkim-signature;
-        bh=eisBXp/pRzcQ5EL8prBSUE7T1+X/ln778vZdJ9nZQMg=;
-        fh=tPq1Y/3P24Cxaz74L1jFMyaaIB5oW5WOyRzWr/Ukx9s=;
-        b=S4Bs/bNajk1B4YGbZ5wOn0isD0NaeekbLKfiE1ikSZHDmUM5GwzPZ73ZKbPCbnNT4P
-         ckYuINSsR5DM7WDXtFlWbunfEyZL9HQNn+szqfs+H7j13u5UMpXP51FlrFOMeDXcpWvM
-         syUonT5j2UxafU2MjlGZZtHiq+ax0WiA80nepYovmjLySZl360xzcbEkL0cWANnVhu8Z
-         p0I8tC6XkgCTDjHCfiZPCP+G9aWOYS2iu/z8a+WVAMDEJLcQJXdXuiR16WdLlj/9m4Ct
-         NtsCgn+jSP5IqctQ3+20n4lupzx93Vn3Y8+QR5cSpVzxRwhM8DUtKtuJCxyh63EFyZBu
-         1gZg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 24 Sep 2026 10:01:19 +0000
+Received: by mail-dy2-x10.google.com with SMTP id 5a478bee46e88-328664ef791so1263348eec.3
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 03:01:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1790243494; x=1790848294; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:user-agent
-         :mime-version:references:in-reply-to:from:to:cc:subject:date
+        d=sifive.com; s=google; t=1790244075; x=1790848875; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eisBXp/pRzcQ5EL8prBSUE7T1+X/ln778vZdJ9nZQMg=;
-        b=T6Oc3zLlWS53tf9QbefeCSjSJNmyA3i2ki0bOKc222JqWf5Ah3KwL2PxnJ4xykYr0v
-         Cy5rqa+eEoj2mkcXQIJK/hSc6HhI1bdKI3CKnz6c5ziZ+2kIvGtmMI2YuRK68Y36uzIC
-         ECE3PbjWyqhDeoqcjP/AevMRV9hsFoMmkhYZMpSwbemWAA4QPCDILciHOTWUSwNNursp
-         ZhiQf8L44cS5k98tNOPtNl7mrqzDaLW+3Ihxd8bevPYq5mfNl3k7JDw4Qp2iXuy8fjhB
-         zNh+lFmczgA8OYHD3ZUvL4EIZbjyxzzMU+TGG6CGKwdOPOTDqAR/ANImAGLT0YWHAU6Z
-         xNdA==
+        bh=QtF+hEd4zxaSXZ54y5RlnY99ygpvKaq026DcmobuPXU=;
+        b=jf3MI5xKMwP/vMmqfdwTNZ3ENhbjAg7ArrDqhxr1OxECWetOoYbEo714PEEg12fyQ9
+         No/+3Wgjzu/FiixxvF1ofTS88JbUsKjG+qiNaaLuwpgnDb88XuFXO0YYt2FZg72xXu5z
+         jRcjp4woAtrRDX4vJGZDEIBzQ8ovMhAqAvOdBKvImx2a2dJr2cwfE2SZLiYhe6qEMRjL
+         EIRqziGeoZxInH4wc/Hdllq7X/UaBaCaVMgstx+S+mnTPBDVlsbs/8TsHtm8E/0oSjdh
+         cLjMr5OYiIDILclNaU9PDKAfbWMt9Moz7fesIYouB3rUPg189rfIKhcO+2GC9plW2K+F
+         K1zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790243494; x=1790848294;
-        h=content-type:cc:to:subject:message-id:date:from:user-agent
-         :mime-version:references:in-reply-to:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20260707; t=1790244075; x=1790848875;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eisBXp/pRzcQ5EL8prBSUE7T1+X/ln778vZdJ9nZQMg=;
-        b=PEi9RI+idv/XSkMY4hOZpcWNdJYqNEm/KJn5OerKUtg00pqsPB0qtckIyEwFCd83+L
-         t71e4+bc7/5WiXDHKGVAxPTk1zTGKaf43gDEmxtDlqqdj/NEtAXQqMrQQKAdGAgvLAZW
-         Ai1gJqw07RwqabzWC/0Kpm3qMZZFdum2D07VANumvB2t6FlC6jMTfezLsOmHctXtHXi/
-         uOntLXq1Mqe5NuSFsFfQwTBYCukTzXDQdgTMnflQpY7RCiJbhWHwQx5wNfecs1NlvOWr
-         nEzSTTJT0XNCywDhVl1PdEHfohbTddpMelT8xNlm6S3B+ze4D2I2mOxi9s/ZqJbGn6eF
-         szVA==
-X-Forwarded-Encrypted: i=1; AKwUvBznzYieyZqqszEOUYR+klz81x+bPVP2RXqiSAwdsGeIUTpu0RVz3SimZIJwO6GIU5QD3hxkvqfTZv+H+g==@lists.infradead.org
-X-Gm-Message-State: AFuF++kg3zgi5hOLlfYU8hUjhd42bpMg48eNoBIo4z2niCesnt2mB7e2
-	s/bQIJ6VN3yQmO5VSovywZ9aSLyTzciaaIeLwnVFE5NE1u8UJN8BwJsd38wtlXZW0NsbG82OBKS
-	xzXZgJymjyWdBb4gSq5DiG9d8k1TqT8cZlnldOtMOBQ==
-X-Gm-Gg: AYBFou28/Trs5Lhcuuf0nzz7oXc5U6QeKbLrpSAXh4AMR3yjrjNBbXdSYOA+fDE9sc6
-	W39hTjB8+H4QopRuoZ5Wc12hg/LG5hwovwTETV8LM+3/RcorhcsZNj6Zz/tttX6qrOq4UlDl7fz
-	hFUyWd4aFQahf6l9CH9hZioaCQjelxb1fKgBnedsGRcCk+2dWHt+kkU+SaqMBTpkpGSaTFttMux
-	XoCd5Pi69hdw8kyQT9WkmyDiHlZNxVqV5o+939VxTlqWl7WPvhDk77LI+p4Ye8a4B0mAwlrjux/
-	SEAjgKtxc60FgeYl40EtDdg4q2qcxFyCGIikmnp0r038cAW1N6Y/a+A=
-X-Received: by 2002:a05:651c:b1e:b0:3a5:f041:d7c9 with SMTP id
- 38308e7fff4ca-3a63c2fbe45mr4361511fa.22.1790243494487; Thu, 24 Sep 2026
- 02:51:34 -0700 (PDT)
-Received: from 44278815321 named unknown by gmailapi.google.com with HTTPREST;
- Thu, 24 Sep 2026 02:51:33 -0700
-Received: from 44278815321 named unknown by gmailapi.google.com with HTTPREST;
- Thu, 24 Sep 2026 02:51:33 -0700
-In-Reply-To: <arKx__kOPe4B5gDW@agluck-desk3>
-References: <arKx__kOPe4B5gDW@agluck-desk3>
-Mime-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-X-Original-From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Date: Thu, 24 Sep 2026 02:51:33 -0700
-X-Gm-Features: AclHuK8hLnUXrqZJavVwd1RFJSGYNAQLudfmbLvNFp-j_eu9SV3bDABt6ZKV-Fg
-Message-ID: <CACnXVne=bK9sESdsFS6kbtYJuirqFoqTckuSjJuk0NYyByLM7Q@mail.gmail.com>
-Subject: Re: Resctrl and I/O
-To: "Luck, Tony" <tony.luck@intel.com>, alex@ghiti.fr, fustini@kernel.org, 
-	aou@eecs.berkeley.edu, babu.moger@amd.com, baolin.wang@linux.alibaba.com, 
-	ben.horgan@arm.com, corbet@lwn.net, cuiyunhui@bytedance.com, 
-	Dave.Martin@arm.com, james.morse@arm.com, jgg@ziepe.ca, joro@8bytes.org, 
-	kevin.tian@intel.com, palmer@dabbelt.com, pjw@kernel.org, 
-	reinette.chatre@intel.com, robin.murphy@arm.com, shuah@kernel.org, 
-	tomasz.jeznach@linux.dev, wangzhou1@hisilicon.com, will@kernel.org, 
-	xiaqinxin@huawei.com, yuanzhu@bytedance.com, zengheng4@huawei.com
-Cc: x86@kernel.org, iommu@lists.linux.dev, linuxarm@huawei.com, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+        bh=QtF+hEd4zxaSXZ54y5RlnY99ygpvKaq026DcmobuPXU=;
+        b=V/JhzGMQvX750UDc9A0Taq+CWKDRN6iRBeNTWPcHX22RavJWBIn8/57jJ1MuUtRByL
+         HZUWinuk3Ex4Y4fV9PTJXGU9AN+LVrzJq96d2qDJkaOvO1Lv8CRmQiKbVlTB85GrHNJh
+         tOgbDwbtPIuwAqjs7GWNel12iZg/h2/NDce+ECE9wmTm4NnwhGEMB2CCAQ2A7AMpjFqI
+         fQlz0puboeuyjvShVf/n4mbrKc8yG6cdPYm7cuZyKIkcKbTpMLH7lPfby+XMaO+02mOh
+         pD+C0nJPl7PAs9fUn4tLUR6HO0GWsNGz22rhh+9j9IF+9qFPUPu7uhIm2b57MBRO/uEm
+         /iTA==
+X-Forwarded-Encrypted: i=1; AKwUvBy457gLOAnhkt7wq+E/wU75XpO7OaTs81SxLZ3LJfD+iEPrK1Qp9ql3JdJkEJuwAo++8XXLDLO9pJQihA==@lists.infradead.org
+X-Gm-Message-State: AFuF++n0y+SIPh48vWpmYYo36DA2kTSA9pyc5BrBoCIjDFazC47GziWx
+	YLkVmfTNaEG1DRrtNklN+5xVfz9z0U7Sx54gWVmn1dRrSNY9ReIXpjbl7hTBxmrtALA=
+X-Gm-Gg: AYBFou27GBNGcx/uGsK1EACdzU2INx81iWZXxTrLTAKYrfMrgOgkHiNvG+9R/VoD7qi
+	lJ4zcogG5ron9jYZx9iDdDmsVFnw6TTix/0GhDbNQwUeOHDNLyOzj65u7Davt9bFO5CztPnWTVK
+	fCTjo0OOe7eIzI2kJHee0ex9OrmzG2V4un3j5FoMQgwtvnRu66Kycm7ZMa3tZSgBACcWECnMlsU
+	SxaTsWhRZR6ZPSIvfOKdupz0Kw87DngQftA9Vcw6F3Sq3/9qebxsWNq05FC1++/c4Bmi1JOtnLt
+	nmLWPaS0uPcTvAVhEZQryfuz1WbUbc7GP77daFttzJn8TKjPoQLEakSvV8srRAvhEOWPxgwHEGe
+	oXqMZZnw6xyfN2VJ/RzAFwF58p9F8X3FXD8ffAkCtgUpgjOBUKcilN9V/LAATZd8QsUd+J+a0TD
+	Am19Qlrp006hvzOFf+ZjqCXI42p5l/yW/l+XKJZm/rG3vtN8ELp4p78oICFClw1uIZropEetmXy
+	FyDASP82fHzoqP3uZsuBQ==
+X-Received: by 2002:a05:7300:561e:b0:333:b6d8:c2fe with SMTP id 5a478bee46e88-3400439cfbcmr1465583eec.3.1790244075027;
+        Thu, 24 Sep 2026 03:01:15 -0700 (PDT)
+Received: from sw04.internal.sifive.com ([4.53.31.132])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33e96e498f0sm11649975eec.27.2026.09.24.03.01.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Sep 2026 03:01:14 -0700 (PDT)
+From: Zong Li <zong.li@sifive.com>
+To: tomasz.jeznach@linux.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	mark.rutland@arm.com,
+	andrew.jones@oss.qualcomm.com,
+	guoren@kernel.org,
+	david.laight.linux@gmail.com,
+	zhangzhanpeng.jasper@bytedance.com,
+	yang.yicong@picoheart.com,
+	nutty.liu@hotmail.com,
+	iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org
+Cc: Zong Li <zong.li@sifive.com>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	Fangyu Yu <fangyu.yu@linux.alibaba.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v14 2/2] iommu/riscv: create a auxiliary device for HPM
+Date: Thu, 24 Sep 2026 03:01:05 -0700
+Message-ID: <20260924100106.2054127-3-zong.li@sifive.com>
+X-Mailer: git-send-email @GIT_VERSION@
+In-Reply-To: <20260924100106.2054127-1-zong.li@sifive.com>
+References: <20260924100106.2054127-1-zong.li@sifive.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_025140_227523_134F9279 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20260924_110117_552354_3AD931D4 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,87 +135,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Create an auxiliary device for HPM when the IOMMU supports a
+hardware performance monitor.
 
-On 9/23/26 12:51 AM, Luck, Tony wrote:
-> Patches for ARM[1] and RISC-V[2] are both at RFC status.
->
-> They appear to be based on similar h/w capabilities where architecture
-> specific tags can be added to transactions from I/O devices by the IOMMU
-> servicing the device. Device enumeration is handled outside of the resctrl
-> file system.
->
-> ARM docs say "the device name is the one listed under /sys/kernel/iommu_groups/<id>/devices/"
->
-> RISC-V says architecture specific device tokens are "devices or device groups"
->
-> In both cases assignments are made with:
->
-> 	# echo {device} > {group}/devices
->
-> So now I'm looking at the capabilities of Intel RDT hardware. I'm ignoring
-> the implementation on the Granite Rapids CPU, and looking at what is described
-> in the RDT Architecture Specification[3]. Here are the highlights:
->
-> 1) Enumeration is split between two ACPI tables. IRDT enumerates device groups
-> and provides MMIO addresses to assign CLOSID/RMID to each group. ERDT provides
-> MMIO addresses to read event counts for RMIDs and to configure cache allocation
-> bit masks and memory bandwidth limits.
->
-> 2) All I/O monitoring and control is with respect to I/O caches, not to the L3
-> caches that legacy RDT features operate on.
->
-> 3) The number of RMIDs supported for I/O is lower (maybe considearbly lower)
-> than the number supported for CPU monitoring.
->
-> 4) Monitoring events are I/O cache occupancy, total i/o bandwidth, and i/o miss
-> bandwidth.
->
-> 5) Current revision (1.4) of the specification doesn't include details of
-> I/O memory bandwidth control (The "IBAD" subtable of ERDT is reserved for this).
->
->
-> Fitting this into resctrl
-> -------------------------
->
-> RISC-V description of "architecture specific device tokens" sounds great.
-> I'll have to find some ares of /sys to provide the mapping of tokens to
-> "device groups". There's no association with IOMMUs, so this will be some
-> other path in /sys. Perhaps under /sys/firmware/acpi since the data comes
-> from ACPI IRDT table.
->
-> Need an info file to tell users the format and source for device tokens.
->
-> I'd like to avoid limiting resctrl monitoring of CPU activity due to the small
-> number of I/O RMIDs. Perhaps don't include a "devices" file or mon_data/{i/o
-> events} files in resctrl group directories when rdtgroup::mon::rmid >=
-> num_io_rmids? But that feels clumsy.
->
-> Domains are based on I/O L3 cache instances. So a new rdt_resource with
-> new line in the schemata file for IOL3 cache masks per domain. In the
-> future when there are I/O MBA controls, new line(s) for those too.
+Tested-by: Chen Pei <cp0613@linux.alibaba.com>
+Tested-by: Fangyu Yu <fangyu.yu@linux.alibaba.com>
+Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Yicong Yang <yang.yicong@picoheart.com>
+Suggested-by: Samuel Holland <samuel.holland@sifive.com>
+Signed-off-by: Zong Li <zong.li@sifive.com>
+---
+ drivers/iommu/riscv/Kconfig |  1 +
+ drivers/iommu/riscv/iommu.c | 48 +++++++++++++++++++++++++++++++++++++
+ drivers/iommu/riscv/iommu.h |  4 ++++
+ 3 files changed, 53 insertions(+)
 
-Thanks for the feedback and the detailed discussion.
+diff --git a/drivers/iommu/riscv/Kconfig b/drivers/iommu/riscv/Kconfig
+index b86e5ab94183..8025bf0fb67f 100644
+--- a/drivers/iommu/riscv/Kconfig
++++ b/drivers/iommu/riscv/Kconfig
+@@ -10,6 +10,7 @@ config RISCV_IOMMU
+ 	select GENERIC_PT
+ 	select IOMMU_PT
+ 	select IOMMU_PT_RISCV64
++	select AUXILIARY_BUS
+ 	help
+ 	  Support for implementations of the RISC-V IOMMU architecture that
+ 	  complements the RISC-V MMU capabilities, providing similar address
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index fe8e6d0f8a23..3c8f8adba647 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -14,6 +14,7 @@
+ 
+ #include <linux/acpi.h>
+ #include <linux/acpi_rimt.h>
++#include <linux/auxiliary_bus.h>
+ #include <linux/compiler.h>
+ #include <linux/crash_dump.h>
+ #include <linux/init.h>
+@@ -48,6 +49,9 @@
+ static DEFINE_IDA(riscv_iommu_pscids);
+ #define RISCV_IOMMU_MAX_PSCID		(BIT(20) - 1)
+ 
++/* IOMMU PMU auxiliary device id allocation namespace. */
++static DEFINE_IDA(riscv_iommu_pmu_ida);
++
+ /* Device resource-managed allocations */
+ struct riscv_iommu_devres {
+ 	void *addr;
+@@ -587,6 +591,46 @@ static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
+ 
++/*
++ * IOMMU Hardware performance monitor
++ */
++static void riscv_iommu_pmu_id_free(void *data)
++{
++	ida_free(&riscv_iommu_pmu_ida, (unsigned long)data);
++}
++
++static int riscv_iommu_hpm_enable(struct riscv_iommu_device *iommu)
++{
++	struct auxiliary_device *auxdev;
++	int id, ret;
++
++	id = ida_alloc(&riscv_iommu_pmu_ida, GFP_KERNEL);
++	if (id < 0)
++		return id;
++
++	ret = devm_add_action_or_reset(iommu->dev, riscv_iommu_pmu_id_free,
++				       (void *)(unsigned long)id);
++	if (ret)
++		return ret;
++
++	auxdev = auxiliary_device_create(iommu->dev, "riscv-iommu",
++					 "pmu", iommu, id);
++	if (!auxdev)
++		return -ENODEV;
++
++	iommu->pmu_dev = auxdev;
++	return 0;
++}
++
++static void riscv_iommu_hpm_disable(struct riscv_iommu_device *iommu)
++{
++	if (!iommu->pmu_dev)
++		return;
++
++	auxiliary_device_destroy(iommu->pmu_dev);
++	iommu->pmu_dev = NULL;
++}
++
+ /* Lookup and initialize device context info structure. */
+ static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
+ 						 unsigned int devid)
+@@ -1570,6 +1614,7 @@ static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
+ 
+ void riscv_iommu_remove(struct riscv_iommu_device *iommu)
+ {
++	riscv_iommu_hpm_disable(iommu);
+ 	iommu_device_unregister(&iommu->iommu);
+ 	iommu_device_sysfs_remove(&iommu->iommu);
+ 	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_IOMMU_MODE_OFF);
+@@ -1636,6 +1681,9 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+ 		goto err_remove_sysfs;
+ 	}
+ 
++	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM)
++		riscv_iommu_hpm_enable(iommu);
++
+ 	return 0;
+ 
+ err_remove_sysfs:
+diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
+index 5676001548cc..7fcd79fa47c8 100644
+--- a/drivers/iommu/riscv/iommu.h
++++ b/drivers/iommu/riscv/iommu.h
+@@ -19,6 +19,7 @@
+ #include "iommu-bits.h"
+ 
+ struct riscv_iommu_device;
++struct auxiliary_device;
+ 
+ struct riscv_iommu_queue {
+ 	atomic_t prod;				/* unbounded producer allocation index */
+@@ -62,6 +63,9 @@ struct riscv_iommu_device {
+ 	unsigned int ddt_mode;
+ 	dma_addr_t ddt_phys;
+ 	u64 *ddt_root;
++
++	/* PMU auxiliary device; torn down explicitly before MSI teardown */
++	struct auxiliary_device *pmu_dev;
+ };
+ 
+ int riscv_iommu_init(struct riscv_iommu_device *iommu);
+-- 
+2.43.7
 
-I have been occupied with some other work recently and have not had
-enough time to follow all the replies closely. I will catch up on the
-discussion and take the feedback into account before posting the next
-version of the RISC-V patchset.
-
-Thanks again for all the comments and suggestions.
-
->
-> -Tony
->
->
-> [1] https://lore.kernel.org/linux-iommu/20260901140802.1215508-1-xiaqinxin@huawei.com/
-> [2] https://lore.kernel.org/lkml/20260714130657.46963-1-zhangzhanpeng.jasper@bytedance.com/
-> [3] Linked from the bottom of https://www.intel.com/sdm under "Related Specifications", or
-> direct link: https://cdrdv2.intel.com/v1/dl/getContent/789566?erpm_id=1158389_ts1790091453223
-
-
-Best regards,
-Zhanpeng
 
 _______________________________________________
 linux-riscv mailing list
