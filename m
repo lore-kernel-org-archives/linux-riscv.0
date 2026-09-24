@@ -4,139 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87720C9830B
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2026 20:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77092C98304
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 01:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q4+3qWqDKYUAENB9BwySDJw/416fydoSJYdgyMqLUZM=; b=DFTVZ4raJHD8mB
-	NOPIMmSf716FJmKcqEVtn+ILhhvlaOEfWTYkpSq9guXPAUdlR2oyPZftTauQTk/cZDBzTUBQTl4YL
-	ALGGZzK/sGsmspPpMgViotyoLbOs7fRGeOhnVsu88k9KOG1rGpCbpUFxjigsjdbsrX5W2STz0PsZ9
-	ZzzQu5qi7esvwdrL2AhmKrkgUyNPkin+PrnZTDJs0YGX0XKP8DPFCNsh/HVBXWJLtXRo0GXRBye36
-	5/z3+Lu35ezxh25/4mpX1A5WKoY8hr8OSLhFHVFv0xjuLx6CntceseO6K0TvnGAmKjvpg+/EFvnY9
-	TMy0pP/U6S7x559IwUEQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:References:Subject:Cc:To:From:Message-Id:Date:Mime-Version:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d0M8G//7+2YmqI2DrfSdVN8++1GXfOpQN3cCr1dz9QQ=; b=TsR5H9mLT9xsp8Qp3wg7pX3Dhf
+	0rEbUy9kMhpe9dK4AznEiXXPJPQkgnjy2cVz5zuf7pmxRz8VD9k4twb26Ja8e6BziR9ICvW2NPMlv
+	l/e7M7pTEe6Xuz45WOv1E4ypFvHfNpEgq94SoFfMKHIZz9LRrizBmpSp8BpesDtUkZ7NHn0Be6YNg
+	mimebVAB1LBo9n46woyS9S7Wy23rUsb2l69fkW5lIM1fNStusVLq8DMrVOIcnxvqdwaewG3jmAx+O
+	erD4FJAqsKEVUdjbJoTSepwAQBuZ7oO13pjNpumzWeCrSlxpI+uycY8MQAsnEDf3R22Kg8pgSWqs7
+	GWPwaovQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Tvp-00000009WAB-0lhL;
-	Wed, 23 Sep 2026 20:51:09 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1x9Y71-00000009n3J-1eHH;
+	Thu, 24 Sep 2026 01:18:59 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9Tvm-00000009W94-0wBy
+	id 1x9Y6y-00000009n2i-1oZM
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Sep 2026 20:51:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CL4Nepd+qLhBtqbr8PcKSeH8QQ7db+kQbM3xzN4wVZM+rPd1oKgXH3cC7MzFuNrFEWUeOqsLgCfeNolulPrjk3F8fNksfhtl24AEjJ/YQA7aDBR0kguGJvAUiEWEdqH4UM+si/TC+7BVF3nZo+Urs0xQseddcSYH640pluxUAOakyzI3M7g5JqyewFuUazhrVq0wgKXoHQ3NsgyuXpsHtEwvCr/2EXhXhjlJPFhyHELO0inTfzsh211QYQo7iwXqbbtliPCukhJYYEH/M0fijhHmedb+SWTy6AQi6Lz+eddoINJ8kr2Uz06/7HiusKl6lvdM2g+bc0OFcucGJ/qW9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RbYlQhT4Aq9TWP2c6LFyxCybJnqxPnaUrNzfPZdEuPc=;
- b=GW7JCHOLdLUnL7pBW+MNjZgsObZSGPuEYgMj0N6ptmoSQkz5TyNSDEPPbkr42cFW7vzTy8al7mc4NKTuDeFh9nGMXd1UfUfCRM5vE5eX9nyh1rrRkzMaMeA0yf3Fc3QSw6uReAaQbeoInc74Rjkv+R2b8reYRAemUYz2eLjZBb8qZJXt4SCq7oVkTnu6bDKSZR0XuV+KyVoW3lZ+mySPA3jRc8auusuBYdM5I/rwhoGzd8MV1k1y4vDiFyQ/3+IDZKXVJ61bakOj3plx8qu+yue1YVLawrAQC9eZ0vvgCxkFgN8PfNlTZK2ISWB3i8o2bISODL6qBrFjHx3J1oaIsg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=rambus.com; dmarc=pass action=none header.from=rambus.com;
- dkim=pass header.d=rambus.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rambus.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RbYlQhT4Aq9TWP2c6LFyxCybJnqxPnaUrNzfPZdEuPc=;
- b=R0UyrwZ3DXDke70gm/cAcKAOu/5JoSXw/jKwQB1peleaf+ZeK5P2dy60LGMgoPR1p4aOHO+0qMbVGZJ9inRhqTwdgL73RHqy5ocG7/cZmWINCUgYiEuRsHXNlmhT/s6U4deybvuc8qYp7HzO4L12loac9fXhZBQWi8BAcan6NvID9vLhsAZ5026zEgR10AXqKdWqshm3iPMFA930COfZvbFA57hjGzB9d8yEAhvz4KbYI+ljNf+7A/YRGKC+SEdZm0RrWfv/EkKX6q3q/fSyZjEw2+F75bVekyga7N8TyICQkhF3Fiapgkj2+8QgeQLRbj4uDnS8gLgdPy7UeqjNTQ==
-Received: from LV8PR04MB9006.namprd04.prod.outlook.com (2603:10b6:408:186::11)
- by LV8PR04MB9241.namprd04.prod.outlook.com (2603:10b6:408:259::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.14; Wed, 23 Sep
- 2026 20:50:55 +0000
-Received: from LV8PR04MB9006.namprd04.prod.outlook.com
- ([fe80::3e2f:2514:159c:85b2]) by LV8PR04MB9006.namprd04.prod.outlook.com
- ([fe80::3e2f:2514:159c:85b2%3]) with mapi id 15.21.0451.014; Wed, 23 Sep 2026
- 20:50:55 +0000
-From: "Ousherovitch, Alex" <aousherovitch@rambus.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-CC: Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>, Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Rob Herring
-	<robh@kernel.org>, "Krishnamoorthy, Saravanakrishnan"
-	<skrishnamoorthy@rambus.com>, Shuah Khan <shuah@kernel.org>, Alexandre Ghiti
-	<alex@ghiti.fr>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"Wittenauer, Joel" <Joel.Wittenauer@cryptography.com>,
-	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
-	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Shuah
- Khan <skhan@linuxfoundation.org>, "Nguyen, Thi" <thin@rambus.com>
-Subject: RE: [PATCH v5 04/19] crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
-Thread-Topic: [PATCH v5 04/19] crypto: cmh - add SHA-2/SHA-3/SHAKE ahash
-Thread-Index: AQHdRvg30t1+45dAjEm+KmT5OENVbLbbsCeAgAD8JwA=
-Date: Wed, 23 Sep 2026 20:50:55 +0000
-Message-ID: <LV8PR04MB9006374FD8621EBF3C7E7F6CD7822@LV8PR04MB9006.namprd04.prod.outlook.com>
-References: <20260917225929.2494111-1-aousherovitch@rambus.com>
- <20260917225929.2494111-5-aousherovitch@rambus.com>
- <arNn_fjy4jamSitO@gondor.apana.org.au>
-In-Reply-To: <arNn_fjy4jamSitO@gondor.apana.org.au>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=rambus.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: LV8PR04MB9006:EE_|LV8PR04MB9241:EE_
-x-ms-office365-filtering-correlation-id: 3f8a87bf-f1d1-4ecd-2227-08df19b45d1f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|38070700021|11063799006|56012099006|4143699003|10067099003|18002099003|22082099003;
-x-microsoft-antispam-message-info: hEJ2pw3lF5CpG9i9AXhEm8k6qFDlTehmxpCb7OUxnHjUyBwZmuyRywaZIOlt30BP8iAwXPNaxluzsPMra5qvW21p+Hp/NolPU00gF4QNuRWBTeweOCQ8UbikEWL92lWF3CfUh9w6kq2EefQZeiw6exjtRU7GlGchWo9UUCPoGTGx2LGNKp6hXEK80LlNSh2Xc0Jepa9L6jSKilRMZOLkjZIRXG1u2vxCVB4Q5gRyVKc5DNbnE9Kk2kVCZF5pNfOnJp6hERrXvwaHTV1X6xBSADDXyvLJrBR4KgdY6onkQliBKH+qCxONvGnCjKABlCHumKTQOrjp46XOCNaTKChtNIRw4RG0FDOUNNQXSMN3a5+qPvkWGUzGOOJNv4pOkSS+HBUD0+VVUqsEmZmBGb6Q3H0vRyixeoAPj6woL7f96DxLhlz25TLAlWXVQksM55nL9E60Gtm0g+R7yfM0r0Bu0pjolDPVK+8IUudZSvoni8CVxpsTVlAUuytRkmUR3qCmE5qo/kRUDrxiHkcyEsBt2L+uKmKh5P5AhCd7ht6luN+Ers7pyLOFv7oQFJ4poZVxYxW29Es7NVp8CIgyBf/MVueBazBhIu8+g+U8fS1QwbiXroQrYxo9m4FPABfbNTS+gufDLvPn1dxHyDiwsYyOkWEKhyL8m//cgIoqCjw2l1gGFvIUBRTNGRLXEsk9vpby6q2O26uIRjahdJ1sRSEEZznjAV3EYdNifvyzhVAVa5g=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR04MB9006.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(38070700021)(11063799006)(56012099006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?JOkNtSddroB9sKuxWMQXu6MySCvAQ2aDINDQDIoNVt5DcDV16vfYYNHtAKhV?=
- =?us-ascii?Q?1yYCkHbF3sAvU/Po8kZA+dgkyjpwJLu4Dtun4mQpmTbUI7A3cgo1ogtRvtMd?=
- =?us-ascii?Q?qrp1H/jaftF4OBL9vCnfGz2luwmqCaOmnQE9i0lnUcK0x8ehF5C6Yvk5d4ni?=
- =?us-ascii?Q?8iYtaaEOQlvTFui4H1aYNUVYRnLalckiYVC4q6xFqypBLyUriCu8kmb0HasQ?=
- =?us-ascii?Q?2VOI+NSbfZJ9Q0J3NjmeV6D6UvkWTGxJ61cbWTrC8N12AXqcCAdc8Tj/UHFj?=
- =?us-ascii?Q?zcu338yNU+YoRI/g+itg7IIAh7Xw6MaVNeHsAeemjaVOLKBI3hEQlV3S+1F/?=
- =?us-ascii?Q?0DdrcgHynEsWT/U0Z5noUBTrl3MwJNLg/VkWWyXs6vQefiWH9G6Nmh3bw+SO?=
- =?us-ascii?Q?WbeUCoDtBDmVXcTOvIRJSs/gBma6c9znkIqsiXIns8LrYhVa8cuewbb2gLjX?=
- =?us-ascii?Q?LiF6INCP/nksKWY4NjaHSTWw+8NGtYQ7c71lbJU5wlhjsokECWIp6J3220Kj?=
- =?us-ascii?Q?pn96ab2Ut4epcpPeFQ1zdAxcq1WH4/xV+h2LZ+LN+uCmFen+2Pz73YjwB9Tg?=
- =?us-ascii?Q?izCLEc9/7NOVBPqiQ61MXtlTPPoiOqTHsrYA9dBuRvC9yQ6rFvkcpddaJbyi?=
- =?us-ascii?Q?MZWIgdwPwW0RC9zDQQY31IlS1qA/EbWvldMwJMrifTMPDVLuwvrLkFsSpWfc?=
- =?us-ascii?Q?UiHWBehiJm2HHEC16lm88LHAsLBp3i1ddrHRLUVzqJpDyvWYbVpjN51HbxZM?=
- =?us-ascii?Q?3Uyi7kmCTC/D5GKbKxbjDmQMeutVKk2cL39mO1bQPYGsolVMO+zweQHlIsVd?=
- =?us-ascii?Q?0neijWscnECtmm/g5Cu930URsBO/ogrbOTjlNWFVS1lxqh/3gOnVkYBhmo/g?=
- =?us-ascii?Q?Ca4jSdnYKUB+tXbLBg7VrgipZBA2KRUSDI/VNl8ReVq1qkrC0ZhTUYB7V+x/?=
- =?us-ascii?Q?PPTA48GiKA46dJhRNY94IfW2Zt7g4Oo1+oK78AncYuZak3Uw849AMjUJ9kr+?=
- =?us-ascii?Q?i1SY8lNqKKygPKfKW5uNalmvTBTSiMWBNP/koQAVjoLs6mv5iRdC09pcJfm4?=
- =?us-ascii?Q?h3TPIRRs7s5i3gjYOwG0kiQatYmarGi5erkLP1HW2ZbWSNzFm8O3u2ZePtgG?=
- =?us-ascii?Q?4kg5888CjxI0NL/r5XT7jHjx+8C31hFVoGMNrs8nXlpxjnRy1oufeqIs+5ll?=
- =?us-ascii?Q?PDl1mjK4uRcEQDa77P1g0tFw4dCW39WEpv9qBeiCpYxBlO+sByyY8HCHICDi?=
- =?us-ascii?Q?DAvZT2KFPjMSsqXoI0v0HQcPICFmMILL/Eas6Y8SAs1v7gtlYqDy8d4uJCLD?=
- =?us-ascii?Q?MfzUFo8B6vIwZ/V3YfnREx8V6jpUrtye7riZiFSAuzWNBbZjtZUsSXmYefdD?=
- =?us-ascii?Q?MnXIIRJvy1/+g+l3v86dbKcRHZ3YfelWD1nCGAeS8xNxxdNzq7pwwF7UXNqH?=
- =?us-ascii?Q?Gd8u2Xl0gCe5x0QkG6pKLAh3b3c0p6jM4OQWbw/T7EKfBCooVU4+0cbSfK4H?=
- =?us-ascii?Q?vsV405Ixw380fpzLL+vK7d/CxFRxoJ4SYvI1gFjF7+Vrxo1jPeC0c+xxQycU?=
- =?us-ascii?Q?huaWXCEbQEzqYD9gfCyDkMeBE3yGbWM+BCoC7+S2bI6P8gyF1N8aPuU9YT6y?=
- =?us-ascii?Q?0q6z757jzSroXd7swG0U9rNsN/4qAfSWhQAHzIwXNx1hdRYcIsyi+1LB3abw?=
- =?us-ascii?Q?2BCD+hPlCITPF3V18Ei6B3r2mA4/L3chD9Mzf3EtkL8cxg53MKDV5DyNBA1s?=
- =?us-ascii?Q?z3i9Z8fjQQ=3D=3D?=
-MIME-Version: 1.0
-X-OriginatorOrg: rambus.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR04MB9006.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f8a87bf-f1d1-4ecd-2227-08df19b45d1f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Sep 2026 20:50:55.6655
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: bd0ba799-c2b9-413c-9c56-5d1731c4827c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: EBPMC5B0wd+HyIGhH4S694BMr424WdIYZvJqDfPtsDRugB/joEzQBxj4NzCXWBEBNUJRmeFqznZV/3nR8FrMxo6FRdI7xOqUydnVO4/IY4Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR04MB9241
+	Thu, 24 Sep 2026 01:18:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1790212697;
+	bh=wcjqT5zLGdrrSIrk7hVbs9nJEwefguc5ABHFpulyxt0=;
+	h=Mime-Version:Date:Message-Id:From:To:Subject;
+	b=onsFNss00ZtWNw/KyuXqFw9UhOW6T7I8ZEEtNTIeqWeW21U4KLrUyw8a+pMYHO3dg
+	 /GPtHAj3vnJozM6TmIuexWyWQgM67ZEB+G/Cpx264P75KX5DEgaq9E8jNPcLJgCi3K
+	 8bXAdlq0HVSbZit4HjHVaFjNc2FZeVApfA1AF548=
+X-QQ-mid: esmtpgz11t1790212695t9b09bd1d
+X-QQ-Originating-IP: /sHGXt0TDi1uFlPSWcx4jxzF2o8dTubagV/rfHW7MDg=
+Received: from = ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 24 Sep 2026 09:18:13 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1097969116973290679
+EX-QQ-RecipientCnt: 14
+Mime-Version: 1.0
+Date: Thu, 24 Sep 2026 09:18:10 +0800
+Message-Id: <DLN5FOFSNKV7.3NL9LZ0FYRPHV@linux.spacemit.com>
+From: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>
+To: "Sandie Cao" <sandie.cao@deepcomputing.io>, "Troy Mitchell"
+ <troy.mitchell@linux.spacemit.com>
+Cc: "Yixun Lan" <dlan@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt"
+ <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, <devicetree@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <spacemit@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 3/3] riscv: dts: spacemit: k3-deepcomputing-fml13v05:
+ Enable SD card support
+X-Mailer: aerc 0.21.0-reader-ipc4
+References: <20260922110231.3426011-1-sandie.cao@deepcomputing.io>
+ <20260922110450.3426070-1-sandie.cao@deepcomputing.io>
+ <DLMC741RLFU5.3FF1DL7YEIFK9@linux.spacemit.com>
+ <407ce3d77416bb2522b7906b0df3d5adf02c27ee.2bcc8e57.b8bf.421b.9230.3eea00252952@feishu.cn> <DLMI4JHT5Q8L.2MHI30VCCP3W9@linux.spacemit.com> <407ce3d77416bb2522b7906b0df3d5adf02c27ee.64156e26.f1af.46d5.a18c.19bc541257f8@feishu.cn> <DLMKXCP8EDNL.JW6NFGCTMJVN@linux.spacemit.com> <407ce3d77416bb2522b7906b0df3d5adf02c27ee.a37d568d.f88e.4fdb.8c5f.8da4b148415f@feishu.cn>
+In-Reply-To: <407ce3d77416bb2522b7906b0df3d5adf02c27ee.a37d568d.f88e.4fdb.8c5f.8da4b148415f@feishu.cn>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NRN3UPsLzYKVeqioKSywiEBXiXfXwMcaXKv+Z3c/q0Tp2rROSJ5kffO0
+	/SRUoFTIJZcPmdwGAesTK4xTIAveY3vuCBn+v/Zq2oATseQX7LVVq6JhV/assjTL7xPKJf6
+	5bhKjTjEn19LWVf5Znajmuu2K3A3/R0ZLPcZMFIWDUt5sQ+BdvtQ4sP2BqmWHvcE8HnPC38
+	sj4msajjwYRYkfWDlz7sYae41JjBa4bllgUJ0IqK/k1Gz3YyLRWX5lO+QWAMzygWxSxKKRa
+	YuzDSXm32weIGwhaoUi+ibkL4aODxgOrEJDErjDTJP5OK5MXZ+hAAZ0ht1LCNGTie83Lcia
+	PB7FqVMMPQuaaQgvST4MUaIsuihEC0g1lIZodTEPUEun6q1cEvVKJWM9My9DyjtxGqJZvlf
+	Q19xD6rlCKwuV+rUu0M7qfzS25TOd7DsQjTIleXu8sf0P+5LKgiaYYu0YbsNDOdYVLtD8Bj
+	r5gLwfnXvysPRvrbfG8EJR42k64ECA5eHU07saA9FEsbWx67EdC/zSzznfJZQaanorsYPMX
+	1A2i2EKQ7YFh3XeGF3IbGH71syL6cSWLFuK730hJ0JuxZxM4AqBRymLN/0Fe5gq8SYbNCP2
+	SpvLtKcxkwdhI1yqvTZQrJvIRc34F9EY8KkEa21awQ5T0PeJBtZAE+TX+zLrNASH6dpnJQB
+	8qFqbyUTMn1/9kFANAGpaIgFdbBhV/MVAnigBT2uiKIgk+aU1tLhRxVE/is4Cqp7+1eVMgL
+	aa0N37oAWlDgTOBlPe7pIIFkhrAHa1aawUQeyJk0hbGl9HGpJDuitV05j+6OD6jcHGF22Ni
+	jnCL3snUE47U/M8CRUfRX2FdGSvSPJ1Gegtfco+VxAheajX3qngg3HfWgOoVDmcunJQX0Mo
+	sqSTe8I1yYgTx2jdrzUpi9zxlL2JMxJiCmy2hceZIkbWere5eNrOScXkw2iV5+UuG9w66cD
+	O505a1nZCoDT7kOt/osc2hZbgFVHMYUoldEDRwUNS0BXcZ0BfEK7B9e99vZgtGDGqNr9DiC
+	RUzMas3H3GYskLJHq7PBR8Ut6f26mlc2UoRkvLsYjZFPZ8lW1iMj7eywo/J+juF8d+5IECN
+	g==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_135106_303172_F506BDAB 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20260923_181856_994691_15BA6260 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,40 +99,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4022910823299832995=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 23, 2026 at 03:47:41PM +1000, Herbert Xu wrote:
-> Why did you set the NO_FALLBACK flag? This is only meant to be used
-> by very specific cases such as s390.
+--===============4022910823299832995==
+Content-Type: multipart/signed;
+ boundary=09e63298bdd63c1cd28b1e0ce1b67eb7db8835fe229092788c9f41ea3312;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
 
-Being async, these algs get NEED_FALLBACK forced by ahash_prepare_alg()
-unless NO_FALLBACK is set, so crypto_ahash_init_tfm() tries to allocate a
-same-name synchronous REQ_VIRT provider -- which doesn't work here:
+--09e63298bdd63c1cd28b1e0ce1b67eb7db8835fe229092788c9f41ea3312
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-- shake128/256, cshake, kmac and poly1305 have no matching provider
-  registered in this tree, so the allocation fails and the transform can't
-  be created at all. NO_FALLBACK is required to instantiate them.
+On Wed Sep 23, 2026 at 5:51 PM +08, Sandie Cao wrote:
+> Hi, Troy:
+>
+>> From: "Troy Mitchell"<troy.mitchell@linux.spacemit.com>
+>> Date:=C2=A0 Wed, Sep 23, 2026, 17:14
+>> On Wed Sep 23, 2026 at 4:01 PM +08, Sandie Cao wrote:
+>> > Hi, Troy:
+>> >
+>> >> From: "Troy Mitchell"<troy.mitchell@linux.spacemit.com>
+>> >> Date:=C2=A0 Wed, Sep 23, 2026, 15:02
+>> >> On Wed, Sep 23, 2026 at 02:35:20PM +0800, Sandie Cao wrote:
+>> >> > FML13V05 SD card slot is inside the board, it doesn't need cd-gpio,
+>> >> > FML13V05 Keeps GPIO88 to low, Then SD card is always on for SD Card
+>> >> > driver.
+>> >>=C2=A0
+>> >> An internal slot does not necessarily mean the card is non-removable.
+>> >> I don't think its location alone justifies keeping card detect assert=
+ed:
+>> >> GPIO88 would report a card present even when the slot is empty.
+>> >
+>> > Yes. The FML13V05 hardware is designed for this. We can't change it.=
+=C2=A0
+>>=C2=A0
+>> I may not have been clear: an internal card slot does not necessarily
+>> mean the card is non-removable. If GPIO88 is connected to the
+>> card-detect switch, it still needs a pull-up. Is GPIO88 tied low on
+>> the board, or does it reflect the state of that switch?
+>
+> The FML13V05 SD card slot doesn't have cd-gpio. But the K3 SD card driver=
+ need it, so the GPIO88 is tied low on board.=C2=A0
 
-- sha2, sha3 and sm3 do have a software provider, so the transform loads,
-  but the auto-fallback can't stand in for the hardware on the streaming
-  path: our exported state is the opaque HW save/restore checkpoint, not
-  the canonical state, so a multi-part export/import round-trip through the
-  fallback misinterprets it (and for SHA-2/SHA-3 the statesize exceeds
-  HASH_MAX_STATESIZE, so ahash_do_req_chain() returns -ENOSYS). A one-shot
-  digest could still use the software provider, but a fallback that only
-  covers one-shot and corrupts streaming isn't usable.
+Sounds like you should use non-removable or broken-cd instead of
+cd-gpios.
 
-Same flag as s390, same underlying reason -- no generic transform can stand
-in for the hardware -- though the obstruction differs: protected keys
-there, opaque (and for SHA-2/SHA-3 oversized) HW state here.
+Note: Please limit line lengths to 80=E2=80=93100 characters.
 
-Thanks,
-Alex
+--=20
+Troy Mitchell
+
+
+--09e63298bdd63c1cd28b1e0ce1b67eb7db8835fe229092788c9f41ea3312
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIMEABYKACsWIQSL4Ay2cExaPXAQcU2YCe+A+TM0LwUCarR6Ug0caUB0cm95LXku
+b3JnAAoJEJgJ74D5MzQvlDoA/A6waB73+9c0ODRYFcFHDTW3c1NvzQiWzYM32t0A
+jGw9AQChT/NpSJCNvmUJTbcRlbZfurFIO90wLjsaHzuQy5IeCA==
+=iXb7
+-----END PGP SIGNATURE-----
+
+--09e63298bdd63c1cd28b1e0ce1b67eb7db8835fe229092788c9f41ea3312--
+
+
+--===============4022910823299832995==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4022910823299832995==--
+
