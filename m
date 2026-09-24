@@ -4,147 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A02C98311
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 10:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 550C1C98314
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 10:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G7p+lBm04fHG6m+sixSSJaaZHfDz0eVfSqCEtxBw/xQ=; b=BFeqMP1jrYGLVkkKdqSulTA2lE
-	PNIyTsP/dwALBLOBIvHXVOeJ2yThbfQNH0VZwwNP8xgEUkBQ3t4er9QwC9g/hAYj/LRm/wfki+uSG
-	Y+dUnBLgVp1lhHMAz1eGYOnOuhlhKX+PPWW1+CEipUZTpIjqh79Z/fH2OXfViq2Jw7tCLL9DbmgL/
-	E8+ZokC823GIsNZRZxlqsuzkYhEIhoeYaB2dH4iaRWNxAG/61qjthLHX1MlQ+zSGFcXiO7WBlDT/6
-	tREsZzSEd279FSi9Sf7RblEJul6FFN5pLdce+EGDGEHwuFlB1mi9OHkSHFs5nzhQhBvJPZ5H008c2
-	VaEplcsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9+noO/cs7y0QjRJE+dP2wB6Cr30cUNjGNiZcwpBYsRo=; b=AkrPAamO3gwxjJ
+	ttnH4kFvrWU5S5RVWAYA8bGysMoAk6aU8tYUsGWV11rBJ6MQV87Hq/Xp1IaaXYxWS3EkXMptTTofp
+	aWJvkoBM7p8EIbJkUQ6U4ZhoXbT/sG06BVQDemv06RBAayqATMqPjPR6hxTzV2wnZUxRf5Q7reRlZ
+	JrvxpsK2N0SC1XcuH0NQX9xMJ5xg+RCqw2+VZTk6SiWyIs8FJOSjmQbaChs71CZMj7mKD+Nad+BkJ
+	O8mQZlztY9gRmtNUCrOIYY9lokR1l9GjQN+XuIyhUZmrR2we1j3Q02KEk3kHZFI01pZD1TSmp/KL3
+	91IJ71+P6DzmbCxnSC6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gjo-0000000Ajsc-2fEq;
-	Thu, 24 Sep 2026 10:31:36 +0000
-Received: from mail-japanwestazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d406::1] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1x9gq4-0000000AkmE-3HIT;
+	Thu, 24 Sep 2026 10:38:04 +0000
+Received: from mail-swedencentralazon11013002.outbound.protection.outlook.com ([52.101.83.2] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9gjm-0000000Ajqx-0UVl;
-	Thu, 24 Sep 2026 10:31:35 +0000
+	id 1x9gpy-0000000AkjM-1rIm
+	for linux-riscv@lists.infradead.org;
+	Thu, 24 Sep 2026 10:38:03 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BsrjGHAXH7ZO0l3RvQe/IMXNmXox3plxOO1M1fpSO/zO0sRQscehZ96j/lD9bqTi1MLf5Z67HwYys6dwb7qqf1Q0+rdRKPnX2abmZQJiHMw5uoRucz03VAclRhm/rKe7EC1DfXOsVQFHYqC7QMjgwuiRZYhkzlYuAHx8iNV8bNDI3u8tHZMLB61cRGlZ/WPvyXFYEmeCiZISmzJtDSakcmIqjjfTAFmHZOYhR2aSGj5POW8PjY1x22VEUVMIf2Kh4VcIqOEfgZqDL+3XV2r/aWK1snLrUkWb27fTa+wzBj7Le6BBeFzURA1S1hCYsAivmoDVh69U+hKeiz8JUMVkrw==
+ b=UGXZvtyXb8z4LnUa4i3kCczSUyAjNGdKKsxSca0GtZnZq3tyO7Bv4xQWhw0LC7L5zifqj+C4wWFj60QV8lIewYCmjSICeJ9zs6XouacXqiNhXBTQzSfnAlmszWooIkvXz/jS+bQdoPGy/B26JAXLiohvCCH/jVT0Z4qVU7VUGoYyf56T1tynh1WahLSBOpd+nO+tKL4gXCM0cZwGCj1hUMWG771TFQnLhaza02NyeHCIutIg/8Me8bZW4prAfm4X4y5+oWexaGe4rdqYtq6Su4gz/mWKdorWUM99aSrbYeXWJO0XRGeyE/EwqFwMnUeEOFQTCLUsmjM4m57AoNw2aA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FzTbrzaMKufJUagcNZfomKGGpYTXlMigWodziA2kk4w=;
- b=Zs4Jhk0UPSEuKmQEgM7v24ID9dBSKp34bFz3k4L5752kSco+ED/Ibj9itAUN+8aeuN2RYhEWXgYDx0vGcTORBJt96QyQmRRyDiCTwNK1olwfreufJMajDPCq8glmvhfd/ilW/Y8il6Up0BUWQLjQPP9nDsoAt+1iyNeTeUZUUXG8lco8kzrhoqXKTtgJf4aayxs/3KOvsMHSvCd4zs7xNwyE/r7tZLP3UIGPDhsEUlRfXfJMi2yVhnPs+2II3METANUO62hcNGaF8eGybPlARIC1KgxFdqwwlZKnHzLdjvloOVFVluQOReycsjhrODPAUgO2w34gmPxxqc9oS73ifA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
+ bh=ZWCo/GWnUpg3/yHkjPmqxiuY/O+02GuGbVM30JWL/Ow=;
+ b=xDCGJ3i+9Cvkqr6ZZldXEWBWD9ETTb+ejlPROrMmsf9AdmqGvgy5XmaelZOX6h8XIH93+/kdMpah1cgMj7Z/fje1fnG717ZhTT4loSdRLm0Wag+tUJnDZiK8Ln2K5eEEIxawpEx+lwzSaSQ5PexKEzs1R2Q/VgRhAjJnUBksrABgy9dI92VTqjv6hIFMF6kfVe5sutFWGdiEIP6IzSz53cIvGks0neWb0CXuAY1vifFNkHzSBft6qoBgNCY7rzKHxsuEkcObSxufV1ltBVypFkBmBRqVUFTSxfcCRLXGtIAA2+EQWo5Am/DXBsxkZQc9aPAB1QVBMEhLoTAAEmvUqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FzTbrzaMKufJUagcNZfomKGGpYTXlMigWodziA2kk4w=;
- b=cGrkrCR4umY0GEewGYaVQ0aWcOFjUDzeAPiQazgUEPX59u9MW/+Izu/NuUCEuaEcIkdjqSdl0oTh6B/Ggp4nhOFFOAd125r20udaKL60adpfucUBus6cHCC3UnP4vaAx6P6hUR/BKLuaPJ3lqLob3cVmXCtGK7v7/EKLAa0hRk2SN9a/xIofQ58YC4dWRgu4c+KsqnevFC6CnuwWSj3L6i9n0Vs+9+s8yfMoJnipzwApON/RrgtvVZ4k+7LqqbMBYWB/3Aw+RwXY//jD7j8SU2eTGniTuv6UIVQFGzakIQ1hxoj3YP7+J8rloU/+5zskNStdmiEXCOPoxwRtGHS6Ww==
-Received: from KUZPR04MB8925.apcprd04.prod.outlook.com (2603:1096:d10:46::5)
- by SI6PR04MB8221.apcprd04.prod.outlook.com (2603:1096:4:240::14) with
- Microsoft SMTP Server (version=TLS1_2,
+ bh=ZWCo/GWnUpg3/yHkjPmqxiuY/O+02GuGbVM30JWL/Ow=;
+ b=TnqZuVcASiM9iaVq5CZKVad7ixhUvbJ/fOgn7Wye+lIgZKUA9gJLUM8M3fSCYsspyo6FFrLGkxLIDtPK2bCdoenpPFPMHX1tXduQJdxtupAKQIelUVdeiGgmKBmLSleCxY5+SRMDnOjNeckXS/MiGhGdyJlY7ffNo16AqLN8xZGkum+I61MuweOG8dh0gLZBwyVoMG0DVtfg8PZrkW1nnedp7EAAQZ3BfwVbsz9nRm18gdbtwL4QAAXEveGC/TmRdfOZYR8geXRkRi4VoEGCVyCc3sUka3ezcDmhwwjz2cUTpj/f3/N+fkEm8VwO/xBlHWFc+OlOEqkicv+0sk3XUA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
+ (2603:10a6:102:4ab::13) by DB9PR04MB8188.eurprd04.prod.outlook.com
+ (2603:10a6:10:25e::21) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
- 2026 10:31:13 +0000
-Received: from KUZPR04MB8925.apcprd04.prod.outlook.com
- ([fe80::e3dd:6f77:3be9:b71d]) by KUZPR04MB8925.apcprd04.prod.outlook.com
- ([fe80::e3dd:6f77:3be9:b71d%7]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
- 10:31:12 +0000
-Message-ID: <KUZPR04MB8925D20F0AB4F4FCAE74793EF3812@KUZPR04MB8925.apcprd04.prod.outlook.com>
-Date: Thu, 24 Sep 2026 18:31:05 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RISC-V: KVM: Fix IPI delivery for out-of-order vcpu_id
-To: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>,
- Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atish.patra@linux.dev>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260917122012.2577-1-yuanxiaofeng@eswincomputing.com>
-Content-Language: en-US
-From: "Nutty.Liu" <nutty.liu@hotmail.com>
-In-Reply-To: <20260917122012.2577-1-yuanxiaofeng@eswincomputing.com>
-X-ClientProxiedBy: TP0P295CA0048.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:3::19) To KUZPR04MB8925.apcprd04.prod.outlook.com
- (2603:1096:d10:46::5)
-X-Microsoft-Original-Message-ID: <e04ee895-1ed1-4829-8121-f355dd297566@hotmail.com>
+ 2026 10:37:51 +0000
+Received: from PA3PR04MB11203.eurprd04.prod.outlook.com
+ ([fe80::80e9:ab1c:dbc4:6930]) by PA3PR04MB11203.eurprd04.prod.outlook.com
+ ([fe80::80e9:ab1c:dbc4:6930%3]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
+ 10:37:51 +0000
+From: marouene.boubakri@oss.nxp.com
+To: jenswi@kernel.org
+Cc: sumit.garg@kernel.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	amirreza.zarrabi@oss.qualcomm.com,
+	peter.lin@sifive.com,
+	Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+Subject: [PATCH v4] tee: optee: build the Arm-specific code only on Arm
+Date: Thu, 24 Sep 2026 12:51:45 +0200
+Message-Id: <20260924105145.532787-1-marouene.boubakri@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+X-ClientProxiedBy: CY5PR15CA0238.namprd15.prod.outlook.com
+ (2603:10b6:930:66::9) To PA3PR04MB11203.eurprd04.prod.outlook.com
+ (2603:10a6:102:4ab::13)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KUZPR04MB8925:EE_|SI6PR04MB8221:EE_
-X-MS-Office365-Filtering-Correlation-Id: a95462f0-36ba-4bbd-da52-08df1a26f461
-X-MS-Exchange-SLBlob-MailProps: a+H6FLLcF3oArmUeIqZHaFYD1WEyA+laSdoDdnexXHsGONCAqpl+DsBQ/2tLa+uvO6MFpJfADjay2/+4V6RBkM5gCcEip2ZbVNzukfLtWK+bA8oeb46FEbMVfM5DAThRdFk39KJApneqWChwHQk7T5Of3Cyp98p6Wkj4BmGKqsGlVDD22njdKhjIic0+ur4qHm07d4xY5LTeRYQcP+3jvbrOCifvqDEnYE5hrbwJMt0woZMdS9FRcn8NWihpPbW3BbmK88q3t1D+1qB9g4vGtCvp0P5tL2kNol6jtm02s/J3qIgq0xCe08bGS7A/TD/kMJ/46zutxuns/y0qp//xovmuTrw8FbPUFKL1h1rpiprBkb2W5/nkqG0ProDUBygGYjh/YyKMum48obwqXCJF3RJHYu0Md2yJXrogD7S9ADnc2UgGogpt3/Ejf8uwSfPZL/baw7BND1HybS35rf+lu2I4Id/Z9Rm0hNXtgUgaCnB20GDhCQCVKeCWN795n/S7tldRsi05ned4d4bNOZAng6qqOn9htiHEN2Qkar7A9PYHAgMHHRGumJCIUNPTeyFD9qHBD3gAEAQuZizLnjDZFVivLYyoZJ6TDWWkWRsxqDYIC2ToP4lfE3zg/2cI1vtxRtT0gSwAd0yXBTUCot4Hid+RzuthuHum5pu5qBJAKahL2ynzYgeMwxhVS5XSsXPiNGPxEOlmpnKSG6lsixzDe9Yu9IGvNdOQyGUkjlXZSXlZ5AQFNoma0snQbNkFeahhOHhPoXt8bxVptXmtTDHksZJpoalefrGPRGgBMmY8xCu8FC3f0iqEDZn7WixDPgmS
-X-Microsoft-Antispam: BCL:0;ARA:14566002|6090799003|8060799015|5072599009|19110799012|4140399003|21061999006|23021999003|15080799012|22091999003|24121999003|55001999006|19101099003|25010399006|16041099003|3412199025|440099028|40105399003|53005399003|2607281247196008;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WXI5RVhGWm1ZU3lrYzJNYzJhN2VxaVViTU1RWktzRk9ic2x5Wlp3ZnRSSUZh?=
- =?utf-8?B?TGlhejY0WnRMTWZOLzNSczhLZ0hDQ2dhZU5pbWJ0RThrMVNtd2E3L0NPNU4r?=
- =?utf-8?B?dnhOWkttd1ZEUFZEYjhQb0RNdldSaWFPQTVFeCt6SjdQd0FLQ2F1aUUwd2c2?=
- =?utf-8?B?dVV1RFBLc3BJelJMVHFyeDEzK3ZBcDZYWXdlUzRqbmtYbC9UWTJNdnJpMDll?=
- =?utf-8?B?Smhka2d4eXdmRXYyNlg2eFZTUUpJaUV0eUM5WnlvTXdnNGFucit0RFZpaTdI?=
- =?utf-8?B?OXVwVmVtSzdzZTZCN1MvcExxaVVlU2libmtnMkFZS1crNU4zM2JTWEdpbzdN?=
- =?utf-8?B?eVJhSXBzWFVlb0dMOVE3dGF2UzNXbStXNkZVQWdNLys2RmtlWWcxeGNpV0xy?=
- =?utf-8?B?eEdyU3YydW5sc2FwQkZuRnRrNHZSWnllTFhVVm1uV3VnVlFYaDFsRElRNjdP?=
- =?utf-8?B?dktDYkZzdUpSazZCeDd5Q2ZUSmFjWmlJU1JvN0E4V29nRjhkT0FUN3F5VEdT?=
- =?utf-8?B?aTRRRVM0ZFlDMGZBdHpyRWRrNEt2RjZYMU1aUVhyRVpHeGpQMVpxdU1JaTk4?=
- =?utf-8?B?L3VMVUl4aW9hc2lQdU1CVkZyQk10VUwycjlJWEFuckVHVEp2TDNqWlBOVmdv?=
- =?utf-8?B?WU1YcEFFL2VyN3RRQjlhZGl1Ly9BUFdwTExpV3g3TlFiTExyWnY2cDFuc3RF?=
- =?utf-8?B?RUJBQzlEQTJWOGE0YVU4UGJYS3NTU1BHZzg1M3pDL2sxQ1lUT05RWnFWL0ta?=
- =?utf-8?B?SXdXa0x2SlZtcGlzam9EYUFUejRQb1lTd25BdGxiMldEOVFNNXBoMjllR0hI?=
- =?utf-8?B?V0VRYjNPRVc3alRzcVNLa3dmRTRadTYwN2E5NkFCNjBuKzExajNxNE1ZOFhK?=
- =?utf-8?B?NytKZVAveThDQUt6anh2eG1ieEJtYjlkMlBuTnJFbjlzWWNEemNTL1E4VjhQ?=
- =?utf-8?B?dURwdFNUSzR6MTAvcE0wU3AyTHUzZVFZblY4Qk5tQmVadnB2TW95SWhqOFlH?=
- =?utf-8?B?MnZtUkNGcks2c2tyZnYrZEoyVHgweUVleTh5ZG4rNjJBVnJrWlBDc1UyN2t0?=
- =?utf-8?B?R0JDY2RxRzZNRi9FcWtadU9IVjJhTVZSYWY5VXJLVFFmODVHOHpxQXNNcFdV?=
- =?utf-8?B?akNoaXlLbkJPMnFmSW1qSk8yYkJES1RRdWYzcGUrRTRyVjJjU2dsZkpMM1N1?=
- =?utf-8?B?T0o4U3BFU0x4L2lFRXFzZTdxcng5SUZiOTF5azVGc0tZS0JMelUrOVNNS2Z3?=
- =?utf-8?B?T01EYldyWWIvNHY0Tzg0VFlEbzFGbVhoNVVnVDdCdmhmeHRBNzcwbU5CSi9L?=
- =?utf-8?B?Q2JDWlp4Ky9JYW05ZU9GenFyUFQ4aDNpNHRZRW9PTWxRUnREcHNxbDl3R05j?=
- =?utf-8?B?VVRXcGRRc3dDeW1ONW8rdTZiN25jdmQwODcvaXpRZ0FEU3NFZmsvUXVNSUkw?=
- =?utf-8?B?eUU0MjQrSGJhUm1jb3RML2xwU2lGUWxoNVBLbjNpWERpdHUzVW5OOW1NalJN?=
- =?utf-8?Q?pH37vvPdwJhQllvTOX6rkbLhs5Z?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U3AvaFlIRHZucjhXUVgyMFROWkpwWUJObnlzVUdjWHM1ZFhXOVFPeWp4a1ps?=
- =?utf-8?B?VGltSThRWFVWNDMrZjJ0SU1UWEttMm9WZW9uenlmbnRibTAySGVtdjdjTVZ2?=
- =?utf-8?B?aVIxL2NmRDg4c3pycG1NVmJqVGhLT0o3Q2Q0NysraTFHNDlwMFJrcWo0dDdG?=
- =?utf-8?B?ZHNlb3F2UGlFVDArSGlxNmNwZjdXMGVDTlZqTlZLYkUrNHFxWGx5ZXJGckhB?=
- =?utf-8?B?cE90T1JkS255dXVaZ2VCVzFreDZrM1NESWJMazVWNGFNRmFhbWQvWkFhcVlu?=
- =?utf-8?B?czI1bkRYSXlaRmVTcTY0ckJvTDJ6RXRlakp1L2IrT09vL3A5d0pROWhLOUxD?=
- =?utf-8?B?eVNiN3NiTTZkUW1mU05nZHlSVk5aU1VJZ1hmZVZCdkhVczI2T0lkME5ySERZ?=
- =?utf-8?B?cWF6TUZxczRlTmUzd05FWTg0SElNbFV0c1oxaEdkcjdQdG9rd1hjYVRVOWZP?=
- =?utf-8?B?cGpsVGRUQjl4N1pNb2ZoU2dxMWJZUlFsWFM2NkQ2NTc4aER6czhzSDEzZ0Ux?=
- =?utf-8?B?ZWhzbTBWWk9KWEQ2M2Q0WUdZUlhDZXpSN0lJdHFHQUoyeUpOQnFEQTNzc1lU?=
- =?utf-8?B?MjEzZWs5c1Rpa3JGcEUwWE1xOHk5RXpZc0tndlhQSGpFME1hOGozbHRzYmN2?=
- =?utf-8?B?KzhRcjRFbHhCLy9BRlFiYUtEQmJ5amt3T29nYmRDbDh5dGp6SW9Nb1ZkcGVj?=
- =?utf-8?B?TmxKamlPMGRPZ3BXeDE1bjV1RUthVHFXWmlJc1lQaHN2Nm1obGJ4TWozUGdJ?=
- =?utf-8?B?VjBPTjg2T2pOM0lOdG4zU1FVdURkajlZUFRSdjNhcjFTRHZMV3NIbjlsdE56?=
- =?utf-8?B?WDZQUGNzS3F4K2Z4MWJuTkxwOThLZFFTK25ZTTZLZWFYRHZkbmNGWit2Z1Jp?=
- =?utf-8?B?ZHBNTHFxK3AvZjYzTDhpRG4wS1FjdU1EeFpheS8reUpYMFNTT29LWXdVT0hs?=
- =?utf-8?B?VERoUHZJY1JWUkxub2NoOU5TdnVZSHBtN2xPTjNpUFlXbGRJK3d0TWE0Zk9T?=
- =?utf-8?B?L0xGaThXZGJqNE04OFpTcjdqZzA5N1Ywa3BUS2JVUmxlWlRRY3lRYWVqclNE?=
- =?utf-8?B?Y3YwcUlPeS9NaC9QbGtKMzZCYzhkejltN0NOTXJ0VzkwS21vRWF1VmxxM1l4?=
- =?utf-8?B?NHQ2SGR1NnRTbnhFZVhkWjB1djBuWDBvUVdFSkpuOVNxVm5vWVpwcGFYYWhY?=
- =?utf-8?B?MFk5emt2KzJMRVU0ODVrMWprTS9nMUJ6dHNyaVdIS0NEN2tjWEVhSmYrU2lq?=
- =?utf-8?B?WFk5UDZ6S3Z1ampjSmRkcDdra2dta0Z2aGNHOExkZGEvdFoveEFVOG5EUEFJ?=
- =?utf-8?B?V1VsbkxaZk9mOGJuUWFGUmN1ekZ4eGlINXBiKzBqMTdZRjVJNENOWFllWis5?=
- =?utf-8?B?M3NpcHJqd1ZVbTVhL1QrcnF3TXBzRHU5NnhJQWo1Y3grZHFXNHo4bGx0S1Uz?=
- =?utf-8?B?ZWRhQWpGL0p0NE1zMDc1Sy9GQU84czl4VzNEQ2hRaFgyc08ybTJzQWQyYUla?=
- =?utf-8?B?czI5YnZzcy9WLzFEQUVBYmUweFpZbUFFeTZKYVdwamU4ZkxhRzRqdXRNNWVt?=
- =?utf-8?B?NVJpOEJlVmVqdldLY2hySzdYWVRqTXBaTmlHSWp5VkJiMHA3a0liV2p2MWIz?=
- =?utf-8?B?dmdSR1JwYk16VFdCd2gxakwvdHpMVXRBMjU0d1NqU09NdE1nSmg1S1hRWk52?=
- =?utf-8?B?c3IvWkc5cWVDaXgzaE1uamJpV3lGSElLeUdCNVZEOVVnTFU1bDZuQWhtb20w?=
- =?utf-8?B?M1FtV1hEUlZ1dm1GMTR1eTFqeUhkeWhpckh6b1NHN1d6VERuMHQramZzTXYy?=
- =?utf-8?B?NFBJUXloeVBTUUw5ZUJua3dzV2U0UjZOQTZWZXh1ejJhOUhJQkxlV3AveGtJ?=
- =?utf-8?Q?JX7BgoWSxenk1?=
-X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-c3e7a.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: a95462f0-36ba-4bbd-da52-08df1a26f461
-X-MS-Exchange-CrossTenant-AuthSource: KUZPR04MB8925.apcprd04.prod.outlook.com
+X-MS-TrafficTypeDiagnostic: PA3PR04MB11203:EE_|DB9PR04MB8188:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7e8539ce-744e-45f9-92ec-08df1a27e25d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|19092799006|10067099003|56012099006|5023799004|11063799006|3023799007|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info: 7/mo3NuiyH5ef1PQYm7kgw4Jv+BUENrP4y0BmPDXMSEowamBPO9m9Wl26E1Pu8xuaHGtvzb3bxAWmHHKH5LqO/w6p1QMMrbUU6gTWRlKPEP4tKbbW1+yfe7RurIUTSJtbFmYrp7dmO7cSdG5kSIROhAAECO+msrEYHJuaajeWBFimcTG4rOFZzVbVSbEk33gw3BBlV6tSky6Inyy2ki5hvcEFkciHHNuIKfGXtvBZgcm8aXQUNyMduePILqQtFTTUH1QQ4+AvAhdm9UynfzhVa+okE1+0gc0PwUkgTc7d/ZT0ck3qS5bvjqyLMSXLZYcSPiJSLI5FypLtY3nFhSXjLsW2Ag+Bn7MhK2RBhCMGjPkTz/ZsyV5wSGvfqGz5YZWsZJ/OGtNnWWU6AAx0OxwZQgUwchkNARovyAHcL4k8SuAf4boew+xTBpZOYsYb+NfeNaH7XuFRNToej361hCIivoROLSFYc+QxX0bQaS+UFyVjmuClrAc0jQ357/z2e/mQhrDbwkHqZmF3HEOdyW9AqvqayXf2h0aWBtg8W+DXnTeJhdBUOnxl4yB63i1fln68QH+oZffeXJB/gQiOwBqI+Nk6D5LC44JGeNKiN4Z6GQR6Dgi3ahq+Ckwe0aUJrrOipFqb4fCGmHZj7GddpnycEpvfMYW4RRyatLKND9DYyQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11203.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(19092799006)(10067099003)(56012099006)(5023799004)(11063799006)(3023799007)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DmfAxIIundQf9ddxxQIkMb8kc4FWqlg14XlSUTTKTaQhkgNnnrcUof9GU3K7?=
+ =?us-ascii?Q?5l2gz1VQB8ifTXh+yw3YpLbZj5SDs9x3FmUJt3WGexrWf1mbaXbnDNZeE+9s?=
+ =?us-ascii?Q?uTpRvSSiqz95aGAoWKDctWYzwAC+ogwjH9shIBr9c2EodA8Ftac1nTF526k3?=
+ =?us-ascii?Q?FJV/69TM26rxp2OzDPMqpCmSv9DmfUTHE6wpwiUN/I9wG3lM6ocqhLLaFUNI?=
+ =?us-ascii?Q?U7bCTjZknlHnjY2Dskjmnf0kMCy4Gv2O1tvIoS9R2esOnXGPYpVFtbTtmIw6?=
+ =?us-ascii?Q?kJ0ViZUWl0keo+qxU6Mmz6r3BX1x0psLMYFWaPbyb3iypFv9nd4R14UDtzn5?=
+ =?us-ascii?Q?mvHwEKw2NBo7vWDCPu72IHNSGttdzU3aFVMoaPBjlwi2ny70nUdg+MLLGgl3?=
+ =?us-ascii?Q?GZL4/jofg0z8iDybeA374XTB5BzF7Q8p9sB/+b4K52OazEj9FZFPS7w5iyL2?=
+ =?us-ascii?Q?DwcHdgIDQs61Y9jVfminrEk74oLpgD7X7i4SmJknhuWX5nm2GZdQj/qIVXgX?=
+ =?us-ascii?Q?oAytF2/7srjDKCHaPPR+6rzoizywsu4gKvto98eH6gO5gJCcaN7yUYtm96v9?=
+ =?us-ascii?Q?vzeNPmBMNP8LSIEOu+2mA4RsuIRHDwueT7AIOof8CDfpExITdByROzBGVr4Q?=
+ =?us-ascii?Q?+V6qVyuvIuHQrezkI0QD6uF75EdIqOc2LHWBBszwVTFDnKcO4lM9aJKxYbSf?=
+ =?us-ascii?Q?Yc1/ZGE/Wis+4lvAQvlT356ZSSZ/3W14oDYYutU8qaf+bSf7sx0M5jEmZCiz?=
+ =?us-ascii?Q?/HMiGZt+bVtkzSrA9IpEtFrRGJTYGleuBTKTHVrKFvfUHegSt8ufl6m5LzUe?=
+ =?us-ascii?Q?cRL07jc1GsTyhA2obyVIqE97WQxPt3TZMBoWUc7skCE61L6CrDVCNTj6+hUz?=
+ =?us-ascii?Q?xkzjWLmwAbLQkStPsTg1ykJaz4PUQD95KrR6sCgOHtNDu9C+SC3YyEjnykfo?=
+ =?us-ascii?Q?7d1HUmNa2imxuHwuOa2AdBmFAVdKDN3B1Lh+rZ0sE2mxG7LuMrX0mjXeK8MR?=
+ =?us-ascii?Q?OBT7mmZFbBSio9YtXGLwC5bGGW1qslTl8IxkHFcAxGUlpQpRQI+BA3NA2uow?=
+ =?us-ascii?Q?iBolFjFg4/fB07UnHDy0ZOgLqYMnThnoRWMbHs36HvIfQmxQuqzkJ26ja1et?=
+ =?us-ascii?Q?03sFaL4S9IMBxXBXtAwIP5Ny4USpaZhZMlOaRpKXnif1VGo5dcxE98uLiTrE?=
+ =?us-ascii?Q?6lKCnPqfJaSvdHTkvTN8aPpjpQpLtsM8xZfow8X0vAjqKSnFJ1s9rfp68CKm?=
+ =?us-ascii?Q?34Jh+ZoEwrZuVv+yyUfQN+h2oyK3PDb3PGmZcQ8xcqy3P7A+wDMlfQKKymAE?=
+ =?us-ascii?Q?dBYa9Gmjh2qPYkyAtzzeMRmpFn2LX2BQ0rWFcZh62Z06nfEwh2bxz5qs953O?=
+ =?us-ascii?Q?WcFtsWQqMu07Dd7x11ng4lMLo6F/yj7ng+ucdhzInQVPmemjsisCpj3jLT62?=
+ =?us-ascii?Q?K3xjT9wZRMzbP+GD4NPzepuHiXjUurV3rknCZ1PtToqQ9vprrCRoc5DmKXnY?=
+ =?us-ascii?Q?PwLlRTsg88O+lBjaqc71yDYF7ISVRbCjYK2zwHiH/6xZVPhwb2R1vp66F3G/?=
+ =?us-ascii?Q?NTMgoAMIaIz++AVzVE4II8Sj7o7LdgiSQu3MsUyjLI+dU1Icxow6MvO8DNww?=
+ =?us-ascii?Q?18nPG029voS2HJIO9gI8wDqxXxJsVVzL3lfaA1JrLLVhokIP4xu26ryw7wqM?=
+ =?us-ascii?Q?IWynKNdWoRIGxvyzI7uJLId51AmWUX/CDYk8ulHgRsl7N/BRa1VbCg7R6Eus?=
+ =?us-ascii?Q?vt9TxZphZdm64MIMeUf/A+uFzBPQrk7oETAAOpl0RyBMQhKgsoRK72SNCOjR?=
+X-MS-Exchange-AntiSpam-MessageData-1: nv5ibMRj52q7dw==
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7e8539ce-744e-45f9-92ec-08df1a27e25d
+X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11203.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 10:31:12.8678
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 10:37:51.6368
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI6PR04MB8221
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JrfsN8u1iN5Lt9giIarSNpJmZSIT9yO72818wfptREZ/ucSYveDltRgEdntRU0HehXzFZeW6gBgQTSS0zbZ/UpT9+Evnz/dNYa2WXeN0TjxeTmd229NAfmfa9/Z/YwjFdekMD90Bz1pidQOpKj6eiA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8188
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_033134_404752_F3E9DDAA 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20260924_033758_792985_FDF98BFB 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,77 +135,265 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
 
-On 9/17/2026 8:20 PM, Xiaofeng Yuan wrote:
-> The SBI IPI handler walks vCPUs with kvm_for_each_vcpu(), which
-> iterates by vcpu_idx (creation order) rather than vcpu_id order.
-> Since vcpu_id can be assigned out of order by userspace, a vCPU whose
-> hart_bit falls outside the XLEN-bit hart_mask range may be reached
-> before vCPUs the mask actually targets. In that case the handler jumps
-> to "done" and stops sending IPIs, leaving valid target vCPUs without
-> an interrupt.
->
-> Replace the early "goto done" with "continue" so vCPUs outside the
-> hart_mask range are skipped without aborting the loop.
->
-> Reproduced with a minimal userspace VMM driving KVM inside a QEMU
-> (RISC-V virt) guest: three vCPUs are created with ids 100, 0, 1 (in
-> creation order) and sbi_send_ipi(hart_mask=bit0, hbase=0) is called
-> from vcpu_id 1. Before this change the IPI is dropped and the ecall
-> returns SBI_ERR_INVALID_PARAM; with this change the IPI is delivered
-> and the ecall returns SBI_SUCCESS.
->
-> Fixes: 0611f78f83c9 ("riscv: KVM: Fix SBI IPI error generation")
-> Cc: stable@vger.kernel.org
-> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
-> ---
->   arch/riscv/kvm/vcpu_sbi_replace.c | 12 ++++++++++--
->   1 file changed, 10 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-> index 506a510b6..c2f1f7f26 100644
-> --- a/arch/riscv/kvm/vcpu_sbi_replace.c
-> +++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-> @@ -64,8 +64,17 @@ static int kvm_sbi_ext_ipi_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
->   			if (tmp->vcpu_id < hbase)
->   				continue;
->   			hart_bit = tmp->vcpu_id - hbase;
-> +			/*
-> +			 * kvm_for_each_vcpu() walks kvm->vcpus[] by
-> +			 * vcpu_idx, i.e. the creation order, which has
-> +			 * nothing to do with the vcpu_id (hart id) space
-> +			 * that the SBI IPI operates on. vcpu_ids need not
-> +			 * increase along the iteration, so harts outside
-> +			 * the hart_mask window must be skipped instead of
-> +			 * aborting the loop.
-> +			 */
->   			if (hart_bit >= __riscv_xlen)
-> -				goto done;
-> +				continue;
->   			if (!(hmask & (1UL << hart_bit)))
->   				continue;
-Seems the above two 'if' statements can be combined.
-Otherwise,
+The OP-TEE driver reaches OP-TEE through the SMC ABI or the FF-A ABI,
+both specific to Arm, yet builds both unconditionally together with the
+SMC Calling Convention definitions they rely on: ffa_abi.c is always
+compiled and only its registration is conditioned on
+IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT), and optee_private.h includes
+<linux/arm-smccc.h> and defines the SMC and FF-A specific types for
+every file of the driver. This is fine as long as the driver depends on
+HAVE_ARM_SMCCC, but it keeps the driver from being built for an
+architecture without SMCCC, such as RISC-V.
 
-Reviewed-by: Nutty Liu <nutty.liu@hotmail.com>
+Build smc_abi.c only when HAVE_ARM_SMCCC is set and ffa_abi.c only when
+the FF-A transport is enabled, and provide stubs for their registration
+otherwise, so that it fails with -EOPNOTSUPP as the FF-A ABI already
+does when the FF-A transport is not reachable. Keep the SMCCC header,
+the SMC invoke function type, the SMC and FF-A specific structures and
+the SMC RPC register parameters in optee_private.h under the same
+conditions, and drop the unused <linux/arm-smccc.h> include from
+notif.c.
 
-Thanks,
-Nutty
->   		}
-> @@ -76,7 +85,6 @@ static int kvm_sbi_ext_ipi_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
->   		kvm_riscv_vcpu_pmu_incr_fw(tmp, SBI_PMU_FW_IPI_RCVD);
->   	}
->   
-> -done:
->   	if (hbase != -1UL && (hmask ^ sentmask))
->   		retdata->err_val = SBI_ERR_INVALID_PARAM;
->   
+Make OPTEE depend on ARM_FFA_TRANSPORT || !ARM_FFA_TRANSPORT, as it
+already does for RPMB, so that the driver is limited to a module when
+the FF-A transport is one, rather than built in without FF-A support.
+ffa_abi.c is thus built exactly when the FF-A transport is reachable
+from the driver, and the IS_REACHABLE() checks in
+optee_ffa_abi_register() and optee_ffa_abi_unregister() are always
+true, so drop them.
+
+OPTEE still depends on HAVE_ARM_SMCCC, so smc_abi.c is still always
+built. The only visible change is that OPTEE=y can no longer be
+combined with ARM_FFA_TRANSPORT=m: such a configuration now resolves to
+OPTEE=m, with the FF-A ABI available.
+
+Signed-off-by: Marouene Boubakri <marouene.boubakri@oss.nxp.com>
+---
+Changes in v4:
+- Make OPTEE depend on ARM_FFA_TRANSPORT || !ARM_FFA_TRANSPORT so that
+  the driver is limited to =m when the FF-A transport is =m (Jens).
+- Update the commit message accordingly.
+v3: https://lore.kernel.org/all/20260922131735.524635-1-marouene.boubakri@oss.nxp.com/
+
+Changes in v3:
+- Dropped the RPMI ABI placeholder and the RISC-V enablement patches,
+  this is now a single patch (Jens).
+- Key the FF-A parts of optee_private.h on IS_REACHABLE() instead of
+  IS_ENABLED(): with OPTEE=y and ARM_FFA_TRANSPORT=m kbuild drops
+  ffa_abi.o from the built-in optee.o while optee_ffa_abi_register()
+  was still declared, which does not link.
+- Drop the now always true IS_REACHABLE() checks in
+  optee_ffa_abi_register() and optee_ffa_abi_unregister().
+- Describe the current FF-A conditional compilation accurately in the
+  commit message.
+- Posted as a new thread with a proper subject prefix.
+v2: https://lore.kernel.org/op-tee/20260915020235.507302-2-marouene.boubakri@oss.nxp.com/
+
+Changes in v2:
+- No code change, the testing section of the cover letter was completed.
+v1: https://lore.kernel.org/op-tee/20260914175435.118303-2-marouene.boubakri@oss.nxp.com/
+ drivers/tee/optee/Kconfig         |  1 +
+ drivers/tee/optee/Makefile        |  4 ++--
+ drivers/tee/optee/ffa_abi.c       |  8 ++-----
+ drivers/tee/optee/notif.c         |  1 -
+ drivers/tee/optee/optee_private.h | 39 ++++++++++++++++++++++++++++++-
+ 5 files changed, 43 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/tee/optee/Kconfig b/drivers/tee/optee/Kconfig
+index 50d2051..891dac6 100644
+--- a/drivers/tee/optee/Kconfig
++++ b/drivers/tee/optee/Kconfig
+@@ -5,6 +5,7 @@ config OPTEE
+ 	depends on HAVE_ARM_SMCCC
+ 	depends on MMU
+ 	depends on RPMB || !RPMB
++	depends on ARM_FFA_TRANSPORT || !ARM_FFA_TRANSPORT
+ 	help
+ 	  This implements the OP-TEE Trusted Execution Environment (TEE)
+ 	  driver.
+diff --git a/drivers/tee/optee/Makefile b/drivers/tee/optee/Makefile
+index ad7049c..183cdde 100644
+--- a/drivers/tee/optee/Makefile
++++ b/drivers/tee/optee/Makefile
+@@ -7,8 +7,8 @@ optee-objs += rpc.o
+ optee-objs += protmem.o
+ optee-objs += supp.o
+ optee-objs += device.o
+-optee-objs += smc_abi.o
+-optee-objs += ffa_abi.o
++optee-$(CONFIG_HAVE_ARM_SMCCC) += smc_abi.o
++optee-$(CONFIG_ARM_FFA_TRANSPORT) += ffa_abi.o
+ 
+ # for tracing framework to find optee_trace.h
+ CFLAGS_smc_abi.o := -I$(src)
+diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
+index 633715b..08236d8 100644
+--- a/drivers/tee/optee/ffa_abi.c
++++ b/drivers/tee/optee/ffa_abi.c
+@@ -1212,14 +1212,10 @@ static struct ffa_driver optee_ffa_driver = {
+ 
+ int optee_ffa_abi_register(void)
+ {
+-	if (IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT))
+-		return ffa_register(&optee_ffa_driver);
+-	else
+-		return -EOPNOTSUPP;
++	return ffa_register(&optee_ffa_driver);
+ }
+ 
+ void optee_ffa_abi_unregister(void)
+ {
+-	if (IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT))
+-		ffa_unregister(&optee_ffa_driver);
++	ffa_unregister(&optee_ffa_driver);
+ }
+diff --git a/drivers/tee/optee/notif.c b/drivers/tee/optee/notif.c
+index 6e85f2f..6801422 100644
+--- a/drivers/tee/optee/notif.c
++++ b/drivers/tee/optee/notif.c
+@@ -5,7 +5,6 @@
+ 
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+ 
+-#include <linux/arm-smccc.h>
+ #include <linux/errno.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
+diff --git a/drivers/tee/optee/optee_private.h b/drivers/tee/optee/optee_private.h
+index aefe1e6..02d6f79 100644
+--- a/drivers/tee/optee/optee_private.h
++++ b/drivers/tee/optee/optee_private.h
+@@ -6,7 +6,6 @@
+ #ifndef OPTEE_PRIVATE_H
+ #define OPTEE_PRIVATE_H
+ 
+-#include <linux/arm-smccc.h>
+ #include <linux/notifier.h>
+ #include <linux/rhashtable.h>
+ #include <linux/rpmb.h>
+@@ -15,6 +14,10 @@
+ #include <linux/types.h>
+ #include "optee_msg.h"
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC
++#include <linux/arm-smccc.h>
++#endif
++
+ #define DRIVER_NAME "optee"
+ 
+ #define OPTEE_MAX_ARG_SIZE	1024
+@@ -42,10 +45,12 @@
+  */
+ #define OPTEE_DEFAULT_MAX_NOTIF_VALUE	255
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ typedef void (optee_invoke_fn)(unsigned long, unsigned long, unsigned long,
+ 				unsigned long, unsigned long, unsigned long,
+ 				unsigned long, unsigned long,
+ 				struct arm_smccc_res *);
++#endif
+ 
+ /**
+  * struct optee_call_waiter - TEE entry may need to wait for a free TEE thread
+@@ -119,6 +124,7 @@ struct optee_supp {
+ 	struct completion reqs_c;
+ };
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ /**
+  * struct optee_pcpu - per cpu notif private struct passed to work functions
+  * @optee:	optee device reference
+@@ -149,7 +155,9 @@ struct optee_smc {
+ 	struct work_struct notif_pcpu_work;
+ 	unsigned int notif_cpuhp_state;
+ };
++#endif
+ 
++#if IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT)
+ /**
+  * struct optee_ffa -  FFA communication struct
+  * @ffa_dev:		FFA device, contains the destination id, the id of
+@@ -170,6 +178,7 @@ struct optee_ffa {
+ 	struct workqueue_struct *notif_wq;
+ 	struct work_struct notif_work;
+ };
++#endif
+ 
+ struct optee;
+ 
+@@ -257,8 +266,12 @@ struct optee {
+ 	const struct optee_ops *ops;
+ 	struct tee_context *ctx;
+ 	union {
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ 		struct optee_smc smc;
++#endif
++#if IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT)
+ 		struct optee_ffa ffa;
++#endif
+ 	};
+ 	struct optee_shm_arg_cache shm_arg_cache;
+ 	struct optee_call_queue call_queue;
+@@ -290,6 +303,7 @@ struct optee_context_data {
+ 	struct list_head sess_list;
+ };
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ struct optee_rpc_param {
+ 	u32	a0;
+ 	u32	a1;
+@@ -300,6 +314,7 @@ struct optee_rpc_param {
+ 	u32	a6;
+ 	u32	a7;
+ };
++#endif
+ 
+ /* Holds context that is preserved during one STD call */
+ struct optee_call_ctx {
+@@ -422,9 +437,31 @@ static inline void reg_pair_from_64(u32 *reg0, u32 *reg1, u64 val)
+ }
+ 
+ /* Registration of the ABIs */
++#ifdef CONFIG_HAVE_ARM_SMCCC
+ int optee_smc_abi_register(void);
+ void optee_smc_abi_unregister(void);
++#else
++static inline int optee_smc_abi_register(void)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline void optee_smc_abi_unregister(void)
++{
++}
++#endif
++#if IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT)
+ int optee_ffa_abi_register(void);
+ void optee_ffa_abi_unregister(void);
++#else
++static inline int optee_ffa_abi_register(void)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline void optee_ffa_abi_unregister(void)
++{
++}
++#endif
+ 
+ #endif /*OPTEE_PRIVATE_H*/
+
+base-commit: 827751b699b79a6e569983359c02dce67f81b94c
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
