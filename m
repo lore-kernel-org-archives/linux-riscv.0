@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DF9C98310
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 06:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04678C98310
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 06:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s/QJaySbT+PyJhHBKKyf4wbufme2IqoXYk+0kYyODvM=; b=t/dPljmgbQC5gm
-	oRo0rRpPpdKi5KAIYvcxtpG84SHObXVWd+v0gHRl/p95v70RF67JC5eB3lC64bAisU9MwnkxYifmW
-	MQg0ryeJAOtkxtSfRmbtDuRJ2HEFCLrEclbRixrZVUF6Neou21j41A+PV5IdQQR5LXADO6V3DoNtb
-	6jbItm6Hh/eLQnVxrAvhOe3RNnnFexiyH1QyNxlcpx74uB5ifISseHNbcKXRgAlDY9UWwdvO2QW+E
-	ad1tEeqVU8tVnA1i28JEjclCnCAEZ0fyFizrXmlUIsGM5xtRL1os8DoO1Yo4PfC9qWDnAWsnSbnhk
-	tKaZcetAQXbw42IiU2DA==;
+	List-Owner; bh=N4suxMy1nVkz5EF/RJE0KEEUW8gJPFBhcuZfodbTBRo=; b=u0uN3ApRj4y740
+	I6bpg/tjeyFsrlKoU4n1DudHoQ5x87wph4avdyJl/DRbGCqMiKslCVHb0LNK0S5uZwKep2bmQ0g2k
+	9sizxCa/OvgdpF/Roe23nkSIYBVOxkZhN6Ad58h1ac3BWVNRWgbgqN7FB/yi63kDDEcEDwqZwSyDa
+	jQ2eSGpdkks8svKdRiSMpCuwChoEMAA4CHQkx2sLcBGsgVJllci1yijbAO4uE3XSNC4M7Z0uqxeA7
+	fHR/ywbMpKs5tJ/NMq0qLihCMUb123AUCWoFN2aoJdsR/WrmvFH/qMZKYVa72gl+HrsQiIf6XTOmv
+	BRiTcIbD7D7eCCklnnqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9cjn-0000000A8It-48cG;
-	Thu, 24 Sep 2026 06:15:20 +0000
-Received: from mail-wr2-x0f.google.com ([2a00:1450:4864:30::f])
+	id 1x9cpJ-0000000A8wf-1Jyh;
+	Thu, 24 Sep 2026 06:21:01 +0000
+Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9cjk-0000000A8I9-3kzK
+	id 1x9cpH-0000000A8wI-09FG
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Sep 2026 06:15:18 +0000
-Received: by mail-wr2-x0f.google.com with SMTP id ffacd0b85a97d-4885a1480a2so949182f8f.3
-        for <linux-riscv@lists.infradead.org>; Wed, 23 Sep 2026 23:15:15 -0700 (PDT)
+	Thu, 24 Sep 2026 06:21:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1790230514; x=1790835314; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GvG+xICcIhp80On27TXTR8cz9U1ZiIOla7jNxC4PfgM=;
-        b=VehhITVjo3bfg03oTB84zH6yt2ISOXajOzZ16DlZNRTuYUClGb22OgvndmZhOzarho
-         ThgUPpG/AIJPAwMhtoYepZGsHSEUsPxeHaTeqKcoGNLCBu8FfAR+soPze2pbsQHYhX/w
-         eODZJl7E0eGQKQnFiVgBhBvefw4yCCAQKTjXt89GduSVcvDmndB0Id3PCR6zSxzB2WSy
-         ySYI8gxf5fzqENps8DWNMgqnUUKihnUoJQwCD94hiczzVvPMPHjMcKUA08SI1A+Dmuz3
-         94m+2SaJN3ElZpGBZmAK7OLTRgKMLmpv97fZLMbEVERSNkYvIcg/hqFxyv1S40gwqrt2
-         NCcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790230514; x=1790835314;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GvG+xICcIhp80On27TXTR8cz9U1ZiIOla7jNxC4PfgM=;
-        b=yg7Rs6SBT5F/ns3oHrFNIV80/arSMGvQ6j1CaDdITEE++R0cvcwyh+6OxdHCEGqhxr
-         4BzPQNLLokib3AL6SHchqrJmV0AfmMAMX1qVQxi9iJ06ry5ZHK5Ga5k2R8AoyHYMTax6
-         7LDb2nCO+gC1+ZH23vvfVz8DthwtwVrVe4nK8m0A0Eu34M/YsVViQzsGMcpgghws/fr+
-         iJ0tzhg+Rxfjx9faMzM1yuFQ27EL7WQ8qmlke3fWEIgov4KwrbZgNFCr+2Ltj/N+1HpN
-         iuqBSLb6VK7z0nEF7aamA7V6/ct21SjPKAPAMUQi7wK/CDMIvtCwzl+2E1d34RVNdDfz
-         gvfA==
-X-Forwarded-Encrypted: i=1; AKwUvBy2PtJr750aRTee3zl0Yk/wXVYGNqt0B1t8j9QdlYirf3ue9umosiMFUMeneGDcTLsyQSKbA5dk6Fm3ew==@lists.infradead.org
-X-Gm-Message-State: AFuF++kPg9oYYO3teib7OylTLUofYGOs8ZU1j8llFgYIXAQyUV+HetRW
-	WpOcDj0D5qlk1JDLo9PKSoh7bUFtTYnzJtxoO53/j21fwtWV3u8HJ3Pq
-X-Gm-Gg: AYBFou33gAMYuyw16kelOCDhTHocDMndrs9ZCb9j8rqBZ1A56HZZZNFl8xvQ+EiKQpQ
-	HtY98PGtlIQXL84Faajkw1B+eD8nZVTzylai20X8uPrarYdjO9brqviOeDw0AgUO0VSkt4QC7IN
-	4e0IuYqc7CgFBMGqEbdC8PsZnLaUqhp5qFPDgzYX9IeYT3cti6H91pRonbNi5QGZkTy19CpnDfX
-	61gcH8sXiVefph3BlupkjvI/iekxKt1aVI9O8bl+S+fWwcoUS1jhSsvkn9obWs03p44uohUMIkU
-	PXQ4AkYKbzMYAtHLFfJXQVU2UoYGNgfIgq8s3vEoLIrl2KT0nwo/szeedEG+20rrTkkpERxEN8l
-	zm40qE6na58nmq0coWcRwt6PTKdHFNXVBICxeAT0qIkuYZSa3v3sEouSJ40jFAPG4KJd2+7BHdN
-	/j6YuXUkW3PKs+yJaF+W5Wp4H2O1SXWWY6lqKsS0V6zLSZz1oNFxnqeCI8IeAfXi8VlGs3IErRa
-	cpG3wjPi/N/AzYTzIsE5uSGEDcbkB0ORtEaZ+dgBjbuKyholomobzLkRR+2mO1/gOF1BkUtg7J9
-	TwmJvByeW9m8YXOdEsP6GFdir1W7Cjlvg/aey0vMN3EC2N35JX9ga5nJJ9i0uIGn/WvFAceW3kB
-	obD0oBy3zqzLVwaJDmHZJoQ==
-X-Received: by 2002:a05:6000:430b:b0:486:e2e8:bda0 with SMTP id ffacd0b85a97d-4887171065fmr2543898f8f.46.1790230514075;
-        Wed, 23 Sep 2026 23:15:14 -0700 (PDT)
-Received: from MacBook-Pro-von-Karl.localdomain (dynamic-2a02-3100-adbf-6901-6c54-85ea-c6d5-a48d.310.pool.telefonica.de. [2a02:3100:adbf:6901:6c54:85ea:c6d5:a48d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48868889130sm11723684f8f.37.2026.09.23.23.15.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Sep 2026 23:15:13 -0700 (PDT)
-Date: Thu, 24 Sep 2026 08:15:11 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: Andy Chiu <tchiu@tenstorrent.com>, spacemit@lists.linux.dev, 
-	linux-riscv@lists.infradead.org
-Subject: Re: Random corruption on SpacemiT K1 (and K3) with RVV
-Message-ID: <arS-yYLK8Df5knSE@gmail.com>
-References: <apSYF5x1Tu7PlyL1@aurel32.net>
- <ap-SIQ9DLt-CfAx6@aurel32.net>
- <aqGNGp8PInSV4vty@aurel32.net>
- <arL0QBe_XYLO8Yy7@Tao-Chiu's-Mac>
- <arSshYwcyHjC2dh3@aurel32.net>
+	d=linux.alibaba.com; s=default;
+	t=1790230853; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=UZmmCpa9iQGypCYX6K6r43HbgZn3fz9spOS64iksXTs=;
+	b=ldix3Ne3+9sO2eMsKeLXrXRkSZNYFjD96PKUARWcza4N92lo+DSuLQSGiTml6deieiKXBw5XaZpNz3WDD8pWmjiD+p37zd8RmoX5mSzYIijpLB26h8Yu4rdSkUZKmPcl6g73o1ZS3W0jDeL2WsKN8/ae78auOF0ve+cko+8lr6A=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0XBYn2f4_1790230804;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XBYn2f4_1790230804 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 24 Sep 2026 14:20:53 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: JaeJoon Jung <rgbi3307@gmail.com>,
+	rgbi3307@nate.com
+Cc: bjorn@kernel.org,
+	bjorn.topel@gmail.com,
+	luke.r.nels@gmail.com,
+	xi.wang@gmail.com,
+	puranjay@kernel.org,
+	andrii@kernel.org,
+	daniel@iogearbox.net,
+	ast@kernel.org,
+	memxor@gmail.com,
+	pulehui@huawei.com,
+	bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: net: bpf: add bpf_jit_supports_private_stack()
+Date: Thu, 24 Sep 2026 14:19:59 +0800
+Message-ID: <20260923114951-private-stack-rfc-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260810031418.95364-1-rgbi3307@gmail.com>
+References: <20260810031418.95364-1-rgbi3307@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <arSshYwcyHjC2dh3@aurel32.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_231516_985027_72F4331A 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260923_232059_471900_5A7B0EAA 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,72 +78,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 24, 2026 at 06:52:21AM +0100, Aurelien Jarno wrote:
-> Thanks for your feedback. Note that at this stage I have not been able 
-> to reproduce the issue with QEMU. I guess it's very timing dependent, 
-> also I am not sure if QEMU simulates partially executed instructions 
-> (outside of page faults).
-> 
+Hi JaeJoon,
 
-Hello Aurelien, Andy,
+Thanks for the report. I have been looking at what still blocks
+sched_ext on riscv64, and the private stack is indeed an important part
+of it.
 
-I tested this with a local TCG diagnostic change. It did not reproduce
-the K1 failure, but it answers the partial-instruction question.
+> $ sudo ./build/bin/scx_simple
+> libbpf: prog 'simple_dispatch': BPF program load failed: -EACCES
+> libbpf: prog 'simple_dispatch': -- BEGIN PROG LOAD LOG --
+> Private stack not supported by jit
 
-My LLM agent helped me running these tests.
+I don't think we can take the hook on its own, though.
 
-In stock TCG at 7074591d7954, vle8.v can leave partial state on a memory
-fault, but the vector helper runs atomically with respect to guest
-interrupts [1,2]. Stock QEMU therefore cannot take an asynchronous
-interrupt partway through this load.
+The other architectures paid for this with real JIT work rather than
+with the hook alone: arm64 (6c17a882d380), x86 (7d1cd70d4b16) and
+powerpc64 (156d985123b6) each added the per-CPU allocation with
+overflow/underflow guard regions, the prologue work that puts the
+program on that stack, and the guard check plus free on the program
+free path.
 
-In a bare-metal test at VLEN=256 and LMUL=8, a page fault after element
-16 left vstart=16 and a snapshot containing 16 source bytes followed by
-240 poison bytes. After the missing page was mapped, QEMU resumed the
-load and completed the copy correctly.
+> It seems that it should be defined in the same way in RISCV as well.
 
-I then added a hook to QEMU vector-load which performs 16 elements, sets
-vstart=16, raises a timer interrupt, and resumes at the same vle8.v. The
-bare-metal test completed 262,145 such restarts and 67,108,864 copied
-bytes without a mismatch.
+Defining it the same way means that JIT work, not just the hook. With
+the hook alone the verifier would let these programs load while riscv64
+still runs them on the per-task stack and has no guard region, turning
+the clean -EACCES above into a silent stack overflow.
 
-I also booted Linux 388b607d107c with:
+Going through those three commits, this is what I expect the riscv64
+side to need, and I plan to post it as an RFC series:
 
-  CONFIG_RISCV_ISA_V=y
-  CONFIG_RISCV_ISA_V_UCOPY_THRESHOLD=1
-  CONFIG_RISCV_ISA_V_PREEMPTIVE=n
+  1) per-CPU private stack allocation with overflow/underflow guard
+     regions, plus the guard check and free_percpu() on program free;
+  2) pointing BPF_REG_FP (S5) at priv_sp + the program's stack size
+     while leaving SP on the kernel stack, the way arm64 does;
+  3) emitting the per-CPU lookup that produces that pointer after the
+     tail-call entry point, since RV_TAILCALL_OFFSET is a constant
+     added to the target program's bpf_func;
+  4) bpf_jit_supports_private_stack() returning true only once the
+     above is in place.
 
-With the hook restricted to S-mode loads with SUM and SIE set, a checked
-pipe test completed 90,308,608 bytes across copy_from_user() and
-copy_to_user(), including demand-faulting source and destination pages.
-The hook logged at least 327,680 forced interruptions at vstart=16,
-without a byte mismatch.
-
-As a negative control, I made one load read 16 elements and then retire
-as if all 256 had completed. That produced the 16-source/240-poison
-signature in bare metal, and the Linux checker reported exactly 240
-differing bytes. This is an injected symptom, but confirms that the test
-detects the reported failure shape.
-
-Correct QEMU fault recovery and forced interrupt restart therefore did
-not produce the corruption. Reaching the 16/240 result required
-deliberately modelling a load that completed early without a trap. That
-fits the observed first load/store pair, but does not establish its
-cause. Your IRQ-disabled result also makes a normal asynchronous restart
-a poor fit.
-
-The normal Linux load-fault path exits before vse8.v and falls back to
-the scalar copy [3,4]. Do you have the original trap PC, cause and fault
-address for the second-iteration fault? Those values could show whether
-an unexpected synchronous trap is involved.
+Aiming to send RFC v1 within the next couple of weeks. JaeJoon, I hope
+we can go over the testing together once it is posted.
 
 Thanks,
-Karl
-
-[1] https://gitlab.com/qemu-project/qemu/-/blob/7074591d7954876951f84c15b994a43251d5a3c1/target/riscv/tcg/vector_helper.c#L403
-[2] https://gitlab.com/qemu-project/qemu/-/blob/7074591d7954876951f84c15b994a43251d5a3c1/accel/tcg/cpu-exec.c#L930
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/riscv/lib/uaccess_vector.S?h=v7.2#n38
-[4] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/riscv/lib/riscv_v_helpers.c?h=v7.2#n23
+Pei
 
 _______________________________________________
 linux-riscv mailing list
