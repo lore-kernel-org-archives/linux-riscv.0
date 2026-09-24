@@ -4,70 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1DF2C9830D
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 02:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4224C98304
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 02:41:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CKS8Jt502gLSxBUtdPD4acmrLVuXUFW8CK27nyN7820=; b=hU2y/MoNumduWQ
-	fWVYwRDWJ0UHnpkaCWGGKOU4GDXgPPGNYaM+Y0goyJaekAfapdRr9cSwt8P9RzU8QKJtrENiDaTbs
-	uvRlfVTc2qJohFREzQn8YInPaxrv2wZe1qGVcPU7XPFG+83soFD4LMcFmxDH7OtBQg//5Vhd051tK
-	srdizAookky++s1Veex1jXeZ+s7PNXfYk58GnaRM8EQ5+G51RoRJ8aIym8C1S8U696FkBsz3IeD5I
-	cNGJP6HirXq5sxDu4qX/NPnaxXSDUewQuSvJRclU+c4d0D2tCDRQKbgPW8jiWBCC/1P86BFlFNGfI
-	RpYo0DYEycIQDh5RIWZg==;
+	List-Owner; bh=9diDGO42g1n+FxxlqYcP3ZNA0XKSuSiKLzXbWqMB114=; b=M29tPIQ5/7Py4y
+	kBh6Cht2UvejfmyFTanu/m1SJAam6JHfnqJIvBp2K4Y9LwLWRGrh8wcv3IgHAP7ARLoNU3TY4fL6d
+	oglZm+W5pYu6jhwKubkv31msI/e5dhzk96QeLn0DyB1lxCxyl7OHfMB9Jnn0/3/L9Y9jGGx9yeGms
+	3ju3d0fvuaCPF3KX6x+0X/V0sVz345DiQf8+31LBwAJ1v0UchyEap6JGL2Z1ev4NScla43s5lwSjW
+	I08CMcYiJLgKO9JBwztMEscNCVBbq0+HICm4VUmhRKZONY8WwprxFS8/tBO6tTitFapQV7jfkyJ/Q
+	DO+eTZZt7v8AqY/vr0dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ZNP-00000009smD-2OnF;
-	Thu, 24 Sep 2026 02:39:59 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1x9ZOz-00000009t7T-3jWa;
+	Thu, 24 Sep 2026 02:41:37 +0000
+Received: from out-84.mta0.migadu.com ([2001:41d0:1004:224b::54] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9ZNM-00000009sid-2FRd
+	id 1x9ZOw-00000009t5b-26Ma
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Sep 2026 02:39:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1790217589; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=ntFrnbFKVOPPVdZ3Ykel3pjZPpOGPr9Y+tWrYXhQKOE=;
-	b=hwr9KpMVO3P71T2+8xisG4dxtKPjm0uPh/F0xIqsoEzqGbk6lirK63YHu+qHVPFQlYNMpka+kISjJiKQU67fJ2YQ8NUx67NU5tYdGTjmUYKy0P3Wg69HIMW84SV4EAJiyJiPNakSuf9oCIxCd3GYqyMDMGD0lA2RaOGxY4TKCVQ=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R501e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0XBYFZuB_1790217578;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XBYFZuB_1790217578 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 24 Sep 2026 10:39:48 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	memxor@gmail.com,
-	bjorn@kernel.org,
-	puranjay@kernel.org
-Cc: ihor.solodrai@linux.dev,
-	eddyz87@gmail.com,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	emil@etsalapatis.com,
-	pulehui@huawei.com,
+	Thu, 24 Sep 2026 02:41:36 +0000
+X-Envelope-To: linux-riscv@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=4JyEcF/oNMZQFBpW+pWfHZaiat0WqM84Tbff9DsrqFA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1790217689; v=1; x=1790822489;
+ b=UZfw8DNCvzVWg99NPcR+Ebt/gMs9c2wbKlw9VF7xDnBODEnpn+5L/KTQ8WXUFmA/7/S3z6nK
+ uOHQ/7PMLg78DwOZDksDiNr+2zlrYBU6LyvH534tTa4wCqRE3GujpnsHM+atPSdOawKRtGksWF9
+ Z8XnWYcQsOI8qU0frPT9vz3w=
+X-Envelope-To: linux-riscv@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 1489725b085043fe;
+	Thu, 24 Sep 2026 02:41:26 +0000
+X-Mizu-Trace-ID: 1489725b085043fe
+X-Migadu-Flow: FLOW_OUT
+From: Lance Yang <lance.yang@linux.dev>
+To: ljs@kernel.org
+Cc: akpm@linux-foundation.org,
+	david@kernel.org,
+	ziy@nvidia.com,
+	baolin.wang@linux.alibaba.com,
+	liam@infradead.org,
+	nico.pache@linux.dev,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baohua@kernel.org,
+	lance.yang@linux.dev,
+	usama.arif@linux.dev,
+	kas@kernel.org,
+	guoren@kernel.org,
+	bcain@kernel.org,
+	geert@linux-m68k.org,
+	dinguyen@kernel.org,
+	schuster.simon@siemens-energy.com,
+	jonas@southpole.se,
+	stefan.kristiansson@saunalahti.fi,
+	shorne@gmail.com,
+	dalias@libc.org,
+	glaubitz@physik.fu-berlin.de,
 	pjw@kernel.org,
 	palmer@dabbelt.com,
-	shuah@kernel.org,
-	guoren@kernel.org,
-	bpf@vger.kernel.org,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux@armlinux.org.uk,
+	vgupta@kernel.org,
+	monstr@monstr.eu,
+	chris@zankel.net,
+	jcmvbkbc@gmail.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	npiggin@gmail.com,
+	peterz@infradead.org,
+	davem@davemloft.net,
+	andreas@gaisler.com,
+	richard.henderson@linaro.org,
+	mattst88@gmail.com,
+	linmag7@gmail.com,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	tsbogend@alpha.franken.de,
+	James.Bottomley@HansenPartnership.com,
+	deller@gmx.de,
+	maddy@linux.ibm.com,
+	mpe@ellerman.id.au,
+	chleroy@kernel.org,
+	hca@linux.ibm.com,
+	gor@linux.ibm.com,
+	agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com,
+	svens@linux.ibm.com,
+	richard@nod.at,
+	anton.ivanov@cambridgegreys.com,
+	johannes@sipsolutions.net,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	arnd@arndb.de,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	jgg@ziepe.ca,
+	jhubbard@nvidia.com,
+	peterx@redhat.com,
+	ysato@users.sourceforge.jp,
+	shakeel.butt@linux.dev,
+	corbet@lwn.net,
+	rdunlap@infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-openrisc@vger.kernel.org,
+	linux-sh@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next 0/2] bpf, riscv: Add support for indirect jumps
-Date: Thu, 24 Sep 2026 10:39:36 +0800
-Message-ID: <20260924102938-gotox-v2-style-question-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260923130856.1157-1-cp0613@linux.alibaba.com>
-References: <20260923130856.1157-1-cp0613@linux.alibaba.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	hughd@google.com,
+	qi.zheng@linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 10/12] mm: enable MMU_GATHER_RCU_TABLE_FREE for sparc32
+Date: Thu, 24 Sep 2026 10:41:20 +0800
+Message-ID: <20260924024120.14225-1-lance.yang@linux.dev>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20260922-rcu-pagetable-freeing-v4-10-fe1ad1f1e303@kernel.org>
+References: <20260922-rcu-pagetable-freeing-v4-10-fe1ad1f1e303@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260923_193956_742716_D8A270B4 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260923_194134_864857_DA4E57F0 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,57 +167,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
 
-Thanks for the reviews. Patch 1 is a plain wording fix and will go into
-v2. For patch 2 I need your input on one thing before I respin: which
-form of the #endif comment you would prefer.
+On Tue, Sep 22, 2026 at 04:35:41PM +0100, Lorenzo Stoakes (ARM) wrote:
+>Careful handling is required for sparc32 which implements page tables as
+>part of a shared backing page.
+>
+>To support this, a custom __tlb_remove_table() function is required, as
+>specified by CONFIG_HAVE_ARCH_TLB_REMOVE_TABLE.
+>
+>This allows __pte_free_tlb() and __pmd_free_tlb() to specify which page
+>table level is being freed, which is transmitted to __tlb_remove_table()
+>through setting the lowest bit of the page table to 1 for a PMD and 0 for a
+>PTE (the page tables are 256-byte aligned so this is safe to do).
+>
+>Next, since the page table freeing is done via RCU callback, and thus might
+>be executed in softirq context, update the spin locks to IRQ save/restore.
+>
+>Then, in __tlb_remove_table(), figure out whether to free a PMD page table
+>via free_pmd_fast() or a PTE via the newly introduced __pte_free()
+>function, using the lower bit encoded in __pte_free_tlb() or
+>__pmd_free_tlb() to determine which to call.
+>
+>As part of this change use this spin lock rather than mm->page_table_lock
+>for all shared page table exclusion, as RCU freeing means that page tables
+>can be freed from soft IRQ context so both don't have an mm and also
+>mm->page_table_lock is not IRQ-safe.
+>
+>Note that the specification of CONFIG_HAVE_ARCH_TLB_REMOVE_TABLE disables
+>CONFIG_PT_RECLAIM for sparc32, which mirrors sparc64.
+>
+>This forms part of an overall effort to switch every architecture to this
+>mode, and with it complete, means every architecture now supports
+>CONFIG_MMU_GATHER_RCU_TABLE_FREE.
+>
+>Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+>Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+>---
 
-Patch 1, on the comment above bpf_prog_update_insn_ptrs():
+Also ran page-table teardown stress on qemu-system-sparc (SS-20, sun4m,
+CONFIG_SPARC32=y). All 24 rounds ran cleanly :)
 
-> This isn't a bug, but could the comment say "shift ctx->offset[] by one"
-> rather than "shift the linfo array by one"? The jited_linfo was already
-> filled in by the bpf_prog_fill_jited_linfo() call above, and it is the
-> JIT's own offset table that is being rewritten here.
+Feel free to add:
 
-Agreed. Fixed in v2.
-
-Patch 2, on the #endif marker in verifier_gotox.c:
-
-> [Severity: Low]
-> This isn't a bug, but does this newly introduced multi-line comment
-> follow the BPF subsystem style guide? The subsystem guidelines
-> explicitly require that multi-line comments have the opening '/*' on
-> its own line, rather than beginning text on the same line as the
-> opening marker.
-
-I would rather collapse it to a single line, but there is more than one
-way to spell it:
-
-  a) 89 columns, clean under scripts/checkpatch.pl --strict:
-
-#endif /* __TARGET_ARCH_x86 || __TARGET_ARCH_arm64 || __TARGET_ARCH_powerpc || riscv64 */
-
-  b) 101 columns, keeps every macro name verbatim, but checkpatch then
-     reports "WARNING: line length of 101 exceeds 100 columns":
-
-#endif /* __TARGET_ARCH_x86 || __TARGET_ARCH_arm64 || __TARGET_ARCH_powerpc || __TARGET_ARCH_riscv */
-
-  c) or a short marker that does not repeat the condition at all:
-
-#endif /* gotox-capable arch */
-
-I lean towards (a): tools/testing/selftests/bpf/progs/ otherwise only
-uses single-line #endif markers, and "riscv64" matches the guard, which
-is __TARGET_ARCH_riscv && __riscv_xlen == 64.
-
-I will send v2 with the patch 1 fix and whichever form you pick, together
-with any other feedback, so please let me know if you would like anything
-else changed. If nobody has a preference, I will go with (a) in a few
-days.
-
-Thanks,
-Pei
+Tested-by: Lance Yang <lance.yang@linux.dev>
+Acked-by: Lance Yang <lance.yang@linux.dev>
 
 _______________________________________________
 linux-riscv mailing list
