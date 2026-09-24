@@ -4,135 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DE9C98314
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 07:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE73C9831E
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 07:55:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IgvkTPWqApMjtXsQDH9yeCC2cM/SzK9pyMZwpbQIL98=; b=cxU6bFZAGxgnVZ
-	mC74SkWWOwrHFv9W7hDptyj5VLqO8hU5Pcmu4E6iiRygvfmobwpNTnzutaZoxMy0F7mN4WTzoy8n3
-	quuZ8llSwZkaeXbcPvjhlJPRGkAEfqY3/sddVbq4aysaiBokIDq0JNJ0ZkvQrXfuEZEtpTAAChuTg
-	8LWTA759Fa4jDhOKJl9TeKP8BBR30u2SkxQSWEgPwj7+8cPaSoJcSNjgyA8PWFyG2dIEUxUrqOKyO
-	lyPD3bbkJm3Oe+lafG2vaEbsemAWWI4WMI2GRlJquFZRFT9qp1upMbCiFET+C9W/9Wynliely5NZm
-	rL9gCc2Vr8mVD3PHwMow==;
+	List-Owner; bh=IRe3DEMLKOz3Yv47ZGo/RN27/aPoTdvEKnGBtKAOl4Q=; b=ndUgzJWFiV1ja8
+	wGQPyE0S3m2T9X1Bs/rI7RFQXFhminkAVgZt+of6zsN4mcH7Ug2jVvlTY2v5MaunrA43C2B6yldX7
+	My/wUw8bejg3z/3AqJVMm36eOTUA4LXyByc+qy7dusNEgMWDLYkD3WBlRAGHZHywGoI1CFeZYa72E
+	1QjzMmR4SEguBmaMx1Uzz1eGRL/+3IdKMa0pltVgH8Km9VdZIIAbIzAVBz7hQnxEcmyxbGIuVdPFE
+	qCxW+DRTQ8k+Locjm9wi7n7WwcHJ1jFP077acF1+tl3Cyzyq08H+IXgqe6Ced/aepk8IDNsrWHqCA
+	BA6sIn7zUGSU3CTZpstg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9e3C-0000000AJnO-04ax;
-	Thu, 24 Sep 2026 07:39:26 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x9eIW-0000000AM3J-0fXh;
+	Thu, 24 Sep 2026 07:55:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9e25-0000000AJOr-07DB
-	for linux-riscv@lists.infradead.org;
-	Thu, 24 Sep 2026 07:39:06 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68O5eBkc1147792
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 07:38:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=c4sUVCmmjjo
-	/P0eMok8JUuO6sZJCdXw8PrIwaTMTfUA=; b=ZBLfErtjnHbpJBbL2C3TJnOe6dC
-	rnrCo7Njc0NBxWlfBgH3egh5mSCMfCi72t6i+zCk+AEp711U7KE9VOV0nN9PzMY9
-	HgMn4Drml+qLliqS3z5jQdWXo5MVVXhhS0Jg2sAgVWbnylsdfmUsGaL5n0jdEeWi
-	wJYEJDAelI4PCLyCrbPjyk2b242HOqHdau7MfxrctdkRl5nNfAS49wyu+g9klAib
-	88w7retfxiU0dHd6Zrywd6pZPGn2ZeQHbLj3qH/4Ip+S7vfekM6wcUfB0KgEjVxW
-	TCChsOlO0SekmYqLNZjo4QS7M1DfHcTOUgT4hlivSPT/puQ7W7w46YDLmFA==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gvmrrab9s-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 07:38:15 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-33bee712354so2331178eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 00:38:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790235495; x=1790840295; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=c4sUVCmmjjo/P0eMok8JUuO6sZJCdXw8PrIwaTMTfUA=;
-        b=ZYtri4kmTTCWXYGFUHgET59QZn16nU4eHxISphNATPwMEdp1oSpoDBMsEHzJ3cQT4q
-         Ki1IXcV9TMkkMHk4YIDE8tN7SUpy0MKchlBiCFpV2QmjZSxS/KESR4x3dUdC6yKaSwj6
-         IYMvG2E28fdYBq71M4DqTtUvM8lH0t32Wm9wQQURbJwXfVe6VQqIArfFkifSt8yNj+dQ
-         WdjQqIn1x0tzxtsLq/wHTiyBNaSXqPJs+zrTEkPHoqrkEnT3dfKcxoM4rZUQ0L1IvCdl
-         B+QLHezFfCyWYp9nctQkVt4+LsZSp9QqHSt9sICAO8HfACFmJrgaaDx5FwbyTC5SP5OX
-         aKlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790235495; x=1790840295;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=c4sUVCmmjjo/P0eMok8JUuO6sZJCdXw8PrIwaTMTfUA=;
-        b=bvYHDOs69rDSShOovIh2fNo7S7dDSo90TI6lWRSJ7Gfi8B2a6AUJuaE1FTa1OyyucV
-         rw/9Vi6mee3mA/UFZ+cRAJFg8+fp6zqde4YK8VMkAa7PrvhkjKfzgHIRpiXHQw9P01hB
-         i/8kG5Whidev/6kyoE7X4egSaiFKR0lOsUwLFr+HaLr1W6v+FReb36QMz6GP64LrqmDY
-         MFAfuK6HjW/Z+82tRWlTIN/9v3Uo3nEelEJbjW2cFuCzaxjbaxRsk1Qx2tNfpBmIcSWR
-         qwWow++3o8X6KNE6Kx5a5vmMc/2qJWq3RbQZSzHUO7UWOlQPi5ZueIoL9Dm/1A0aodwd
-         iwFQ==
-X-Gm-Message-State: AFuF++ksaGV0ZBMvq3IwV15OYVvMWsUFxN32nNp0d7y7OXWHMXnSik4H
-	0d3+Ms8caxlDa9DS6XQw6Ka3Z+cyD+mBTg9xQ3BsH6vUhHPAILHSTAsDR75U7YvG9mEeM0wo7ee
-	ZZb5wPqAZPJAfimwoXgR2gMgDZTd9UHpfufLD0YvlRMxMr7Dd28mtCtme0XbViWeYbEenWdzwge
-	yeJ1M=
-X-Gm-Gg: AYBFou0TPJAGsdP4AoVYP2mwhL7nXLn4fy7xAJiW/WHRBMnvsdVY7TvBakMGJXTruFo
-	DKIZnBRKZjaK1Lr+djyfUr7PEEJ12/j8mRj/L/ZSYqoaAo6vFAtQYk5KtYylp1pzDZqF/PuogLe
-	Qf/oyWpZCdnpLNR2U6/UrchBmc+ol+bYeWubgy8jRqkjhHPLvFBl9Gyvhe7TWYTF9P1+kM22M/m
-	54+xaC3X1usuqCgYPU9zo25EERepgQpdfjhrODdf7T0lNef7mWzSbbqdkeXEFzOclB20ZpFBdsb
-	tknbI2WguV4rxBS8KRFZQfesjxXmguKQHtmsFju7TQbHA8/BT4Maf7UGAua1WxkPRMkbnsZiMev
-	D65pEMMGrY4Y6RritYgNaVJzRb+v8otXT6CP/Wa/J64m7ZRe7LUvkyl5hZs8nT5O0pKTAIBLZcd
-	4HtOi5ZAz9AI4Hgz3O6xS/79cp
-X-Received: by 2002:a05:693c:821a:b0:33e:699d:575d with SMTP id 5a478bee46e88-34003ca6caamr1230461eec.1.1790235494693;
-        Thu, 24 Sep 2026 00:38:14 -0700 (PDT)
-X-Received: by 2002:a05:693c:821a:b0:33e:699d:575d with SMTP id 5a478bee46e88-34003ca6caamr1230426eec.1.1790235493990;
-        Thu, 24 Sep 2026 00:38:13 -0700 (PDT)
-Received: from hu-himchau-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33e95c7cfd9sm12120680eec.5.2026.09.24.00.38.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 00:38:13 -0700 (PDT)
-From: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-acpi@vger.kernel.org, linux-efi@vger.kernel.org
-Cc: acpica-devel@lists.linux.dev, anup.patel@oss.qualcomm.com, ardb@kernel.org,
-        conor@kernel.org, james.morse@arm.com, lenb@kernel.org,
-        palmer@dabbelt.com, paul.walmsley@sifive.com, robert.moore@intel.com,
-        sunilvl@oss.qualcomm.com, tony.luck@intel.com,
-        zhangzhanpeng.jasper@bytedance.com,
-        Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
-Subject: [PATCH v5 8/9] riscv: Select HAVE_ACPI_APEI required for RAS
-Date: Thu, 24 Sep 2026 13:07:13 +0530
-Message-ID: <20260924073714.1650588-9-himanshu.chauhan@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260924073714.1650588-1-himanshu.chauhan@oss.qualcomm.com>
-References: <20260924073714.1650588-1-himanshu.chauhan@oss.qualcomm.com>
+	id 1x9eIT-0000000AM2S-32xU;
+	Thu, 24 Sep 2026 07:55:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9B826417DD;
+	Thu, 24 Sep 2026 07:55:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E7BC1F000FF;
+	Thu, 24 Sep 2026 07:54:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790236512;
+	bh=8XF4GERg8wBeW3ubUb+zC5tRVKKAYGhsksCUCrCMyIE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lvFYpHpVMwPBfEiIuvmYeJUUzULg6cdEWSx4iWYVWk727A5rZV5bpt/5Sjkl2pSTJ
+	 +koGcSegVzDsG20kO8t41OXmh6KWyi8RNfZl2ErJwNIuTh23tjzoeT8Dv37tsGeg79
+	 61gp8tpMx2xIK3zP8kYJIEm2UGPz0MsuiqmNKxY9v5C+ubE70585sEQgHP0rrKt73G
+	 695MVjPFlFxGNvVaOlYp2A83auWFA74egHtR5nruPWwDU0nzqWrYwTTl+K4hgYPEPV
+	 DQ3pwEy3zgSLOIKKJ8W+2SiDFy6P5qvxi1PY+qb9cXOQdaC3iHQ+VtthIr/FlkyQ/I
+	 POZQV/h73LJFA==
+Date: Thu, 24 Sep 2026 08:54:49 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Lance Yang <lance.yang@linux.dev>
+Cc: akpm@linux-foundation.org, david@kernel.org, ziy@nvidia.com, 
+	baolin.wang@linux.alibaba.com, liam@infradead.org, nico.pache@linux.dev, ryan.roberts@arm.com, 
+	dev.jain@arm.com, baohua@kernel.org, usama.arif@linux.dev, kas@kernel.org, 
+	guoren@kernel.org, bcain@kernel.org, geert@linux-m68k.org, dinguyen@kernel.org, 
+	schuster.simon@siemens-energy.com, jonas@southpole.se, stefan.kristiansson@saunalahti.fi, 
+	shorne@gmail.com, dalias@libc.org, glaubitz@physik.fu-berlin.de, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux@armlinux.org.uk, 
+	vgupta@kernel.org, monstr@monstr.eu, chris@zankel.net, jcmvbkbc@gmail.com, 
+	will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com, peterz@infradead.org, 
+	davem@davemloft.net, andreas@gaisler.com, richard.henderson@linaro.org, 
+	mattst88@gmail.com, linmag7@gmail.com, catalin.marinas@arm.com, mark.rutland@arm.com, 
+	chenhuacai@kernel.org, kernel@xen0n.name, tsbogend@alpha.franken.de, 
+	James.Bottomley@hansenpartnership.com, deller@gmx.de, maddy@linux.ibm.com, mpe@ellerman.id.au, 
+	chleroy@kernel.org, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
+	borntraeger@linux.ibm.com, svens@linux.ibm.com, richard@nod.at, 
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, tglx@kernel.org, mingo@redhat.com, 
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	arnd@arndb.de, vbabka@kernel.org, rppt@kernel.org, surenb@google.com, 
+	mhocko@suse.com, jgg@ziepe.ca, jhubbard@nvidia.com, peterx@redhat.com, 
+	ysato@users.sourceforge.jp, shakeel.butt@linux.dev, corbet@lwn.net, rdunlap@infradead.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, 
+	linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org, linux-arch@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-um@lists.infradead.org, hughd@google.com, 
+	qi.zheng@linux.dev, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 12/12] mm: change the contract for free_pgtables(),
+ update docs
+Message-ID: <arTXJXUhjNTWz9Ga@gremlin>
+References: <20260922-rcu-pagetable-freeing-v4-12-fe1ad1f1e303@kernel.org>
+ <20260924032625.28555-1-lance.yang@linux.dev>
 MIME-Version: 1.0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDAzMiBTYWx0ZWRfX++kJkl8dIEVi
- nLhVVNo7L8VPYplB3ccP1wMc3wnq7iUVFv6uSTsXsE/eAhMc5ZP5cJEZUT1DvcwheiAXogyeMrX
- HhgfBzzxhu5OJ8JjSND7Wr/vgYM8PvSSiZLR2Mi9OSPdiSaGsx29JxcYwgQDfIoSg99GP5X9rfD
- 8OTbQhyW9GFgFISdF0Z/6W9gJWx5E15OMgQ07HWhALTHkdX0GX7KY+U/74pdUIN19LwfmwqxPOP
- xwU84dy2fOgSL4rhymeB6+Tv09thyS8JBcdKKyI6+xeNBbmDlW/makhadlwhIocJDTSAvbgOXfK
- IfRNZKNccULCYkIReX8uSS/9k+55/GZv8Z44RQNA1r8pytHqLR895AsZxB6Y/bt+HrgV1sMghMW
- lmof6kFl57Oawo03vNK3+0lAbmrYH2ic0Se2u8bYtI+x2YNk4k4FRJ+CNl/VSSUN2m2374hmEdX
- QvDt1owWXw0aIR6tVHQ==
-X-Authority-Analysis: v=2.4 cv=TYwDJhQh c=1 sm=1 tr=0 ts=6ab4d367 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
- a=ctgbmQax9_dbRqqonagA:9 a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDAzMiBTYWx0ZWRfX5k7NvoNJRZRb
- EyCck+A5VXKj7jBBQoFARuzGW29KQhJ6TyHUJOYaSWbJcQOxbV3w8QrRrAdAU9cHvB9ZEhKvVon
- 89WqvLHt6uYOg5VXaRnwCVVcYp+x0Qk=
-X-Proofpoint-GUID: MC4eHTL9JzplXruNvAQX238xWtUItxOl
-X-Proofpoint-ORIG-GUID: MC4eHTL9JzplXruNvAQX238xWtUItxOl
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-24_02,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 phishscore=0 spamscore=0 lowpriorityscore=0
- bulkscore=0 clxscore=1015 adultscore=0 priorityscore=1501 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2609040000 definitions=main-2609240032
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_003831_585775_C18214E7 
-X-CRM114-Status: GOOD (  10.98  )
+Content-Disposition: inline
+In-Reply-To: <20260924032625.28555-1-lance.yang@linux.dev>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,30 +96,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Select the HAVE_ACPI_APEI option so that APEI GHES config options
-are visible.
+On Thu, Sep 24, 2026 at 11:26:25AM +0800, Lance Yang wrote:
+>
+> On Tue, Sep 22, 2026 at 04:35:43PM +0100, Lorenzo Stoakes (ARM) wrote:
+> >Now that page tables are freed after an RCU grace period, it is safe for
+> >read-only page table walkers to walk page table ranges that are being
+> >concurrently torn down, provided the mm is kept alive via mmgrab().
+> >
+> >It is however unsafe for writers to do so, as they must obtain an
+> >appropriate lock to do so safely.
+> >
+> >Update the pte_offset_map_lock()'s comment block to reflect this.
+> >
+> >Similarly update the process addresses documentation.
+> >
+> >Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> >Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> >---
+> > Documentation/mm/process_addrs.rst |  6 ++++++
+> > mm/pgtable-generic.c               | 15 +++++++++++----
+> > 2 files changed, 17 insertions(+), 4 deletions(-)
+> >
+> >diff --git a/Documentation/mm/process_addrs.rst b/Documentation/mm/process_addrs.rst
+> >index a7296f251799..b1f4f44d75eb 100644
+> >--- a/Documentation/mm/process_addrs.rst
+> >+++ b/Documentation/mm/process_addrs.rst
+> >@@ -537,6 +537,12 @@ We establish basic locking rules when interacting with page tables:
+> > * When changing a page table entry the page table lock for that page table
+> >   **must** be held, except if you can safely assume nobody can access the page
+> >   tables concurrently (such as on invocation of :c:func:`!free_pgtables`).
+> >+* Page tables may be *walked* under RCU alone, as page tables are freed only
+> >+  after an RCU grace period has elapsed. However, any entry found must be
+> >+  revalidated after the page table lock is taken (such as the
+> >+  :c:func:`!pmd_same` recheck performed by :c:func:`!pte_offset_map_lock`)
+> >+  before it is acted upon. Changing an entry requires the page table
+> >+  lock and one of the locks that excludes teardown (mmap or VMA lock).
+>
+> What about rmap walkers? try_to_unmap() clears PTEs under the rmap lock
+> and PTL, without an mmap or VMA lock.
 
-Reviewed-by: Sunil V L <sunilvl@oss.qualcomm.com>
-Signed-off-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+That's an abomination but yep will update.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d6c2dbf8455c..9608abe126a0 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -191,6 +191,7 @@ config RISCV
- 	select HAVE_MOVE_PUD
- 	select HAVE_PAGE_SIZE_4KB
- 	select HAVE_PCI
-+	select HAVE_ACPI_APEI if ACPI
- 	select HAVE_PERF_EVENTS
- 	select HAVE_PERF_REGS
- 	select HAVE_PERF_USER_STACK_DUMP
--- 
-2.43.0
+>
+> Cheers, Lance
+>
+> > * Reads from and writes to page table entries must be *appropriately*
+> >   atomic. See the section on atomicity below for details.
+> > * Populating previously empty entries requires that the mmap or VMA locks are
+> >diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+> >index b91b1a98029c..a127e3e8f9b9 100644
+> >--- a/mm/pgtable-generic.c
+> >+++ b/mm/pgtable-generic.c
+> >@@ -385,10 +385,17 @@ pte_t *pte_offset_map_rw_nolock(struct mm_struct *mm, pmd_t *pmd,
+> >  * Note: "RO" / "RW" expresses the intended semantics, not that the *kmap* will
+> >  * be read-only/read-write protected.
+> >  *
+> >- * Note that free_pgtables(), used after unmapping detached vmas, or when
+> >- * exiting the whole mm, does not take page table lock before freeing a page
+> >- * table, and may not use RCU at all: "outsiders" like khugepaged should avoid
+> >- * pte_offset_map() and co once the vma is detached from mm or mm_users is zero.
+> >+ * Note that free_pgtables(), used after unmapping detached vmas or when exiting
+> >+ * the whole mm, does not take a page table lock before freeing a page table.
+> >+ *
+> >+ * As page table freeing itself is RCU-safe, page table readers can safely run
+> >+ * concurrently with page table teardown.
+> >+ *
+> >+ * However, writers CANNOT as, without a lock being held, nothing prevents
+> >+ * concurrent teardown.
+> >+ *
+> >+ * Also note that the PGD itself is freed at mmdrop() time, not under RCU - so
+> >+ * the walker must keep the mm alive either by pinning the mm or the VMA.
+> >  */
+> > pte_t *pte_offset_map_lock(struct mm_struct *mm, pmd_t *pmd,
+> > 			   unsigned long addr, spinlock_t **ptlp)
+> >
+> >--
+> >2.55.0
+> >
+> >
 
+--
+Cheers, Lorenzo
 
 _______________________________________________
 linux-riscv mailing list
