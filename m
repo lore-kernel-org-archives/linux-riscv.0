@@ -4,162 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E34C98318
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 22:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3288C9831E
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2026 23:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xb85O4Y4YyUb44RwNcoBx5tYCzBJUdq8q3a3dWz7luY=; b=pCWxmUXM23JOHR
-	DBTZ+2HxofwBTK6svKXArptqVv+c2OXksecYbSEpbgO0XoSQ6kHjRVV/YW0tXe3E+VXRBDHX+500h
-	5x9/z6wzawv8tZlO1Pke1QCLB8L1entTaEKRKrZnhHBnvm1sQyT6ws513RzbarlAjr2gjL4LgoXFo
-	VDXiNyARa4fNpfXYa079BUmranzQgqUroSrdHEIHfDzXKcS9QTPYpObiUSFAe0j2TPk6+edTPR8Dl
-	7GPP/etqT1hU1eCZcHQPw8EGMSvhrkg/w1iFVEaKwZXgC0PtVocXzSnYJPEoVZ91XBqvv5aOtf8kQ
-	1kc8YY8uptkdnKTbOWcw==;
+	List-Owner; bh=GCSVH9KBRhVIBtqYy0DnfBRGpaSh6sO/S7E9GSOuEPU=; b=kl+oYrY7RpFlGi
+	5oK9hnrLJp201zzaJhiqnz+AyiPmkpef3+9K5u0Srajdvlkw/pDe339h8Qx7M7OPwoSFc5ZY8UPxx
+	LvBP+Y/eW9Bagv15A5KL+qQmmUnAb/iJ51LAdmkOEz787hMt6cMJQIyDhesevsgHo23sUyjkRKKAT
+	LmF6FzSJfhCL7slX88qdlX8/B5Fi+F6XaRwV+uxBrFdgNOn61HMMTDIWLfOTtz5MB+df4yZBFZRgL
+	pAw35Fk5VJIACC+UdTivyrnLYtLs447rPHtiP6P8KDFZ8fXxMNah5JwH6Pfw5spYhhKC79yrjdq8Q
+	UccZgjVPZh1M9lumtx4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sNg-0000000CL1Y-1Dw9;
-	Thu, 24 Sep 2026 22:57:32 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x9t7s-0000000COkn-2ZD9;
+	Thu, 24 Sep 2026 23:45:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9sNd-0000000CL0q-2K25
-	for linux-riscv@lists.infradead.org;
-	Thu, 24 Sep 2026 22:57:30 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68OMOwwi3933496
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 22:57:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	WdAcd3jJW9o4oT6W8Pd28WqwPKx89e7FKJveLvjxmTM=; b=BI2Gayz/LjxSc6mE
-	Kg+MLNOusLPeYnOxYOG9xy/G6ynTgm5i8HXcMPcVaie12keAjyA2Oz1Cf0fyIkw2
-	1iPHcxBnFcP9qOOkZ07f07f5aQw1qPFKV8ApXthFNkR53KsFmNN+apNakWPmF9KB
-	GZ4On06jpyBc5aTWoomkmhaScQbrjk2k5yn95Es0ViLT4dyJ6vNbt0gJYJ4jce1c
-	XIv1evwdRyzJbK4ev5ygZd0QRpNzogYF0Tn6LwzUygOtjjPo7wa0hzGZ8ulMQwj8
-	1Dwm44i8PH1iR4SnWFtv/Stn36RWYL43Nv8n7mH5JL14F6v+yiIOppzxFkJgDYi0
-	2R3TpQ==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gw1tjjyr7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 22:57:28 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-33baaba6371so967073eec.1
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Sep 2026 15:57:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1790290647; x=1790895447; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=WdAcd3jJW9o4oT6W8Pd28WqwPKx89e7FKJveLvjxmTM=;
-        b=QjGcVmw3LpFD4HV56x/faIkzN7MHV0HCbgUEDW4ITtKKTxqutEtai8VSu9sgE/mP2C
-         Dkno52W/Zx/B8njutckgHXS55FPCVSx2c1564Wo9f2HsRipA1YlArmr1xMJDE7rtYXnB
-         Jd2RMEpTOnw6qsyLec8im9xfo1i4aL10oN9HJs7Qbtx2DAAGR289EFrkj5y1w+Xev5TC
-         vyahGfnsQAa71l26cnG7mSfRpaXIweo2D4cSRgvWsVAWcBpIJqlSBd7ItDe4NFnhk+dM
-         lZEMTUrYU+p0Y6LqSC5AZ9ycukDTJVt9n78I/w/dTDmavU7ZnggFi6RGjFIZ+Nm3WueW
-         cm7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1790290647; x=1790895447;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WdAcd3jJW9o4oT6W8Pd28WqwPKx89e7FKJveLvjxmTM=;
-        b=L9aTc15buFgxkteZeJydaN1UF5rBrRRz/WQ0xT3qDxYkpbnc5zBR2UzIF7VU8atT4p
-         t9sDoGfWw2mwiUv/X6y4nhCLy2EbXuUmWNNO0tG6N6IbxC9t0v7vu937Oj9liayAWqHt
-         8JylfIoU6NvpsnZ+aF5XJd2YlOx1jvW/lU1M0aEJd5FDZQKDjJ9O65gDFU1NYJQeLM0Y
-         taXCGooDDbax9Q4F0C6aD6NFgDSIRfM+I12MtA87t/3ftFr3kUa2CukWt2fFLsw+rHJM
-         9j/ArV2uFMbHFE3cib6viSziq239ENdkyKk615UY1ijPCKyrSjj3wGuC8g409ufuIcUQ
-         wolQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx/pFrDfeWN6lYd5CRWF7nLdAQBN1oQWqSyE8v2GbRMAiA89ApvjSX5ZCQmmUbKPLzgoHhSn7IYF0HrgQ==@lists.infradead.org
-X-Gm-Message-State: AFuF++k2qzceUvcOTRitRX+LLRpNKpMMUUucj/gSF/sGbTaa/ne0Bmuo
-	Wt33r285p+BgnDOWnEtjQstuBsGoO1L35dbpZSBRzbUzEoAczGLb4sFhsx6OSF4TeFSF5vZlCfY
-	h09ADdoZg7T/K6dlCP4WYeFTntoh8l/VHgHqfRuSE4ORGkCmlb5lqOyn3DVag0cMxdPA3/c8=
-X-Gm-Gg: AYBFou2YjVHxkIyeadvIC46AcuPF4BpAag3c4oqB6g9eFbFCK9Fc9mWuuwSy8L3Gh20
-	keAji8Zw5+oeQ35LCO/6bxk+CG+v64iwn05yQ85JSxa8v/ab4SZQrZk1k/rtlAcgPsdeOSbUdIX
-	YO2UldDZydze7Fqjw/SyDivz33+IkTLp9SU3YhnwfP2hHrzSI26tvm2bqEGNDeUSUdTJVfEhMos
-	pP49gZk7FOfHRnGYWQiJsTTy2NGBVfSbEx7rVTU7IrdmEboYsOkZukjedoYLAHSilEohrl86h5/
-	TeCocZ+yUquekA4I6aNMjFuakBXemeLh1VtgY9ivUC3LOC6MZgv4J6M8fsJUrJIsT5PcmH2A7za
-	GRA0j7hicKD2bI9erxFmZsqZdQRpG6+RJwYJsW2ic7SrY7RIcQbQBVg==
-X-Received: by 2002:a05:693c:621a:b0:33c:e61:e201 with SMTP id 5a478bee46e88-34002edee42mr4033413eec.22.1790290647513;
-        Thu, 24 Sep 2026 15:57:27 -0700 (PDT)
-X-Received: by 2002:a05:693c:621a:b0:33c:e61:e201 with SMTP id 5a478bee46e88-34002edee42mr4033386eec.22.1790290646954;
-        Thu, 24 Sep 2026 15:57:26 -0700 (PDT)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-34144757f31sm2046484eec.14.2026.09.24.15.57.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Sep 2026 15:57:26 -0700 (PDT)
-Date: Thu, 24 Sep 2026 15:57:21 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
+	id 1x9t7r-0000000COkT-1Q6v;
+	Thu, 24 Sep 2026 23:45:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=zaUI6T+DlcXrBhQVMPTTfZX5DUPSsfm8m5KwoTkD+vs=; b=bLxSCJ8awdJFa2WZVS4Uyc8Etv
+	z3TA5wmV8CB3Mb2XHX5oQjXYEJpehH/y6xR/qKcReyw+BCvMZssoEfESAoDZcnOBtkCDI64qrS1RO
+	LMGGKWQ6XUjgXTbWdVGjaaaWV+AIqkh+70PNV3Q0jD4SW6gk2havfpmCpVWtuyFi+gC5DVt6Lfy9+
+	80oTroDSRh6EMndh3/yN+W4a4+oECQ/uvEh9tJ2UdC70d6xmxQ8f8kssqJ1A1f0C0SJuk5AZ0mabf
+	ffKyiiDuFnPtkV2lcWxouTrjDwZSppAWSyMV4AgB2u7Ii/HPYQr1/VEay9uVfxCD3ylD4WDZwfzla
+	TKWnPgPQ==;
+Received: from mail-southcentralusazon11011004.outbound.protection.outlook.com ([40.93.194.4] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x9t7o-0000000GVbP-1z3G;
+	Thu, 24 Sep 2026 23:45:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kQHKU9aKnyR79094OA/45vQvp3qHboDkabsF6TTBJzxEADX2PNE9TGkwusu4hOJayypBVPCsfGqzKF5kmwNbPrmZxINPBT6yIeU4iolCJ5NidSAKJ+Cll/LSysgfpyPOgFiQUL/C2aXe0QN5gBHEGlvBkYj0OGaT1gddc5bE+jwc11ZfmwlNcik3MWE9Ev81n0xGH+WQK5ZvurPBtPMDX7lxv6Ifs3AUgCylRfqcmS+ozoaZNxVp3b/WBx5roLOHvF9MyQl0qbhFZ4gb5mAyRPyJKySTTmfCqv1UJumEQOZrFVUdG/nPCJZ9+kHjHYKn/hgIxNtWycJSRnenGT0dLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zaUI6T+DlcXrBhQVMPTTfZX5DUPSsfm8m5KwoTkD+vs=;
+ b=WhxIf4ltQDYtMHaZ4rlyrUCKENypb1StPSTe0IHIre2lBUpxAvT68xqXwczA/g8j7KRbdk0sFBax7mHWDI13dt+1piHkhlmBzhZ/V2+XllvyOAeeDhdTNFsiPG5x1RJEgtM97XmpBXzzpFspYmjl7PfcgKrpxTQFjFUDB4wlX54NpiBHlenM5mCGTevvZZAohrLqE7u3Nl7GkgIuSS6OsW7IX+WRfyLqlMWsdXFm3+5Nck67AymyaBbTk4cmlegKisksSKEPiJ8adXXn50EMs51LCqitawMO+7pLCpYZ8EUX5aDOrKHkXV1P7l4halWZaV6SvNK073x/aFVM2sj8Ww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zaUI6T+DlcXrBhQVMPTTfZX5DUPSsfm8m5KwoTkD+vs=;
+ b=WC/qhUAeP4TPL/Y2bwblrsoScX6yHGqrFGAUOUygblw+1nzWEJWuYpB9Dv9bRbI3C3KAkihfzVZAQNRUjPmo3r+wQjfYon/etxMlYUuv0M8ZX85Hvrj7SSpuRlW5XnbzFerQhIdOxo/+r8wRZwSoq5vdic2JS/B6u5n18gU89TgJ0q06Cj9kMayV+KCIYXEu0/JB0fJKGFndm1nvOIfs3Uh2OP1LMv8+6yJQw7+WWeuzYskGLb6H+kF8AJNpo54VGCZiMGw2eTANyhctXFZ0TpZuOJFFv2QsaOHkRQt9MtXTXYV3LKh4hPl8lwt5gQJRD6oCa+cIKyTWlcI0247LaA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by DM4PR12MB8557.namprd12.prod.outlook.com
+ (2603:10b6:8:18b::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.451.18; Thu, 24 Sep
+ 2026 23:45:00 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0451.014; Thu, 24 Sep 2026
+ 23:45:00 +0000
+Date: Thu, 24 Sep 2026 20:44:57 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 Cc: Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-        Ard
- Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Jonathan Corbet <corbet@lwn.net>, David
- Sterba <dsterba@suse.com>,
-        Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
-        linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        Randy
- Dunlap <rdunlap@infradead.org>, Simon Glass <sjg@chromium.org>,
-        Shuah Khan
- <skhan@linuxfoundation.org>,
-        Nick Terrell <terrelln@fb.com>, Will Deacon
- <will@kernel.org>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>,
-        Conor Dooley
- <conor.dooley@microchip.com>,
-        linux-integrity@vger.kernel.org, Palmer
- Dabbelt <palmer@rivosinc.com>,
-        patches@lists.linux.dev, Ross Philipson
- <ross.philipson@gmail.com>,
-        Sami Tolvanen <samitolvanen@google.com>,
-        Song
- Shuai <songshuaishuai@tinylab.org>
-Subject: Re: [PATCH 07/16] efi/zboot: Lift efi_cache_sync_image() from
- efi_zboot_decompress()
-Message-ID: <20260924155721.000016a9@oss.qualcomm.com>
-In-Reply-To: <7-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, David Sterba <dsterba@suse.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Nick Terrell <terrelln@fb.com>, Will Deacon <will@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-integrity@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>, patches@lists.linux.dev,
+	Ross Philipson <ross.philipson@gmail.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Song Shuai <songshuaishuai@tinylab.org>
+Subject: Re: [PATCH 01/16] efi/libstub: Fix error unwind freeing fdt in
+ allocate_new_fdt_and_exit_boot()
+Message-ID: <20260924234457.GD9354@nvidia.com>
 References: <0-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
-	<7-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+ <1-v1-27d06b313981+8b-arm64_drtm_jgg@nvidia.com>
+ <20260924154227.00001cbe@oss.qualcomm.com>
+Content-Disposition: inline
+In-Reply-To: <20260924154227.00001cbe@oss.qualcomm.com>
+X-ClientProxiedBy: SA9PR03CA0030.namprd03.prod.outlook.com
+ (2603:10b6:806:20::35) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 MIME-Version: 1.0
-X-Proofpoint-ORIG-GUID: xax0nXeeOIiYaxNE9nxHw1SboxRoDKaX
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI0MDA5MyBTYWx0ZWRfX5JR1v5ksJcAi
- SF/Lijg8LTV1hZanQ3w608ek5Wiv36XWthfgdnBVImQyjmRqECEO0isS0fkxJERAVALM35LI3ti
- oeR6xRSfMEbthXJO7sCGVoc7AvAI7Fi54Gc12jW+s8nQRrIzP+xTL3/64ImKGiCVfI8i9XtzUnb
- RPs47y2gbGncWhIuMqUEiLasz/h2PN6XjgHi820YOwm6YTss1xT5JGxHzVGDKPFdxMQZkr+ZzKx
- 7ACLXaF+NVl2ItdyQYM7D3imWC0Zh2kC3C/G2ps0yaOgjXj121KymPvV37/ClZ+0mviq9govvwL
- Ej9/wZgPdSKxX0TRLzvhTOm1khlscvG+DF01HSZQ2fLFOV23iyKD5M2I31bJzfaWeD2tVye4WG9
- PScnsXPVImiSET0EX9HMcq/q3cLIhVRD0M7fewv1lH4BCPRhtwxPAWKot0BKkBt/L4is/bOkxyx
- f//SJ2fgJzSeNQjJoIw==
-X-Authority-Analysis: v=2.4 cv=cK11IVeN c=1 sm=1 tr=0 ts=6ab5aad8 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=Ikd4Dj_1AAAA:8 a=gav0J8kFgDfseqtY68YA:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-GUID: xax0nXeeOIiYaxNE9nxHw1SboxRoDKaX
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI0MDA5MyBTYWx0ZWRfX5+O39ZiwsLLx
- TT9QMfR7gMfBemYXTSRTSMrTmzBVYB15Jo1BzHQQCftXd3U2dBU9NY9TBSP5M5a1ZZnfKI5Z3Sa
- hPYFdPLtkSgxm0cf1z7/Qd6xFXu5BPE=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-24_06,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 bulkscore=0 priorityscore=1501
- impostorscore=0 spamscore=0 malwarescore=0 phishscore=0 adultscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609240093
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|DM4PR12MB8557:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7d87f676-dd23-47a7-f43c-08df1a95d8c2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|4143699003|56012099006|11063799006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: +GHYFjzfFhtiVupEtlEKlxObjMKptfk9wmE0azv3SRGH4JAKTbb2TVg5IBfpcz046QLZbClGE2KDKJvgEouV5NEH47ZchHohJIPBs5/9Zjlx6x9KrWF7u1RzXnK2k/ozrFhbDebQkksMKIZu5QPWAaIee9lO2ulABQkOfzv41y4itPoekVGEbU+dRjhIZlm9gTtHRmZIKBhPgBOaXjC7Btiut/1bjrb+Se/xOPUa7mlKVnpQm6REwqMKU/HbJ1CamcABH+igNVPWUoh7d33l4hXtWKMquwHhtEKxskyoccJc5L97zX2sXa8Vc/VRuZmEmLeegSLd4lR2DLJG71a0iX0MHMi3a7fSZKk7yKYLXtlJGdzLfmprX6dPYcRJ7QNerQEPUYC3hW01HSoIcB8xsqOwguA19avnzPtBmzD8DEWVNlFt7GEM9414RnWa4SmT++ZCuf0WsnLidW1RSxqZsdFHGAPf2Fwd4Duz7EAptpqgGuhckFSQ0U3D80qW2osyF1Y8SJZmds/44KFNiVYLZxFYt2f/mI8cmIbEVwDsaDp9pF6AbcZAVs/qRfwk8MZJmyauCugG4Iy9qnDRlTYskaEx9lbs6vwuTe/D2ZnBAKwiqwmhNFl9YZmDdkNPisE9YoX7kIpOnqTJxOXDCS3TfmyeuyrAF2SEau9m7YNxwSQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(4143699003)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GiP4uo81wIEbgVQyRjhtYHGFZOl5PkwNCbV9+UzlfLOUy1p71iC9poMQ+6yG?=
+ =?us-ascii?Q?XEE6UQspoKJ/ZW1QSputOLGZPnZb6c19iN06FvcuDLLg8jHpa4+7/Jk3MPUG?=
+ =?us-ascii?Q?Fjs8SRgEp0C56jqXrDAyw5EKtr91+e435UF0E1FJ4t5i5Padl0IczNqr54HB?=
+ =?us-ascii?Q?+nMHpUM730vJ0NnegeuPRSRtBmOh/XEajPGXOUBu3zt8SUOevJs1DNcpgjh5?=
+ =?us-ascii?Q?8yjFsdrrY2uiRCMr/S7HjAuNQ7eqv5jgsZ1hbNRP9B9mcPIm2RMfdLZI6NVx?=
+ =?us-ascii?Q?7cwpsWqj5a9eDCUBJmb9b1LsHvbXUI94BzysPyeLgxp3Pwi6tqdwVm0OaU0l?=
+ =?us-ascii?Q?7zeE8CI2XpM7U6WA5zYi+atObgg0+TYUCor0BfkpiOsQUmd9o20ntsMWMTYj?=
+ =?us-ascii?Q?hWMSl/hF8MmIUevAnNsjBzvLTeN00VjoKLzvKKJOywRHFj0lqPiWZPVjZr9M?=
+ =?us-ascii?Q?hTG8D/mI6FMBDLofCk3ACKiKbI1PJPjp/Bb9QCjaamxGQNG+RXN8DpLtBMgl?=
+ =?us-ascii?Q?apwFLbeaHGsITE5K8Yd4IvtoN3AYWAhQ22v8WYfJm7xvgEYw+Sv2nLhJwV5d?=
+ =?us-ascii?Q?JXjTTpqhaD6yC39rtm3/bGT7yiDYkdycfFUmJE4aeSOzIwpcDxhp3EXmLsdZ?=
+ =?us-ascii?Q?VL1tL/5i8GIWwF+doHM0z4AeK7fAMzkm/veOOVwuEEEONGY8hYljhNeSmYUh?=
+ =?us-ascii?Q?g47yg35lprz6+k5K1IrKianmnwIZQF0CS1HBGx9n4uqJC7cdWM13LAiLazzV?=
+ =?us-ascii?Q?nN0+YbSJn250Fo1GXui63GfL2dv4YtH9i4ts/nYyvWBU+f6ziaRp5FZA0s4M?=
+ =?us-ascii?Q?dOq/kCMPJPHYPCo94n1ENpmm6o64mx8FC2orx6yCZXG7BRVjXabBImVeJ2kd?=
+ =?us-ascii?Q?9bMa6CorxgPsUFM4HI2O/pKnPbjVD7VurS8+0Z62lyYj9t/qK7RmtXsauzv5?=
+ =?us-ascii?Q?QMBqKt8VEq521AP7br2w5ndi9cINwfGADGGaZNO6pZXKwCZpKac3nfxGuqTp?=
+ =?us-ascii?Q?QfQYArMJjmVSwYvkFaUygDN0LyJt3E/5TsXIm6jsohbgC0le9z8/HEHJxll+?=
+ =?us-ascii?Q?QhaYIdzk4ot5f6vm44XmNY8jn1CJ4UQgWwqLN2txNLiExrrlUgUK52Pqy7AP?=
+ =?us-ascii?Q?kvl1A7/nQvOv1ZpDQN24W/sjaFiAhrTPuTS9tvDezA82O4jr+M6fTnIEJp3n?=
+ =?us-ascii?Q?3arsT+YKHAWUjKuRO+cxl/fTdA9gbk7aIMttRS2qMy9OkSutDbZBchROovxY?=
+ =?us-ascii?Q?hpRjGNEmBxqsYSxpO6IDCGypu8mtvsof97VqeVDXgrR3+SiHVkNbhRaZKY9v?=
+ =?us-ascii?Q?p44HD3l4Kp6AR7ew74afzl8difle2VJa0dYf9+CsV4cbCrK6BJIJfT74v0nX?=
+ =?us-ascii?Q?2wtz6914TaBoMktcui4C9GTOUlgz3qgTO8grLrJcwB2+aeYzLDvw6Ko90d86?=
+ =?us-ascii?Q?UcWkdlsvI2rEA8PNQ8kKPaWOZi+BAWgj1k4y+oZ5jsvSw6yuVmm2fw/eiy/F?=
+ =?us-ascii?Q?1hX9zildEzqiLETUiksNYujaMbOWnCrcS21ydTDy8E0SrvSh0U9roMivIhae?=
+ =?us-ascii?Q?5fqkJRz+F/Zb8mIdS02Tj84o8KoEon+I7tkz30WjVb0y3rM2vcYFB6DZXD9B?=
+ =?us-ascii?Q?UZ8ltObvbiAc4tB5t21ixAmxn35g4JT9F9Se/3F9Cvr6AK5yfEiQgXpzRYR4?=
+ =?us-ascii?Q?DmzZ9iK1T7bBcTh195T51onNhTvgXilhIZ8HwpTx3r5mqlZ6?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7d87f676-dd23-47a7-f43c-08df1a95d8c2
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2026 23:44:59.9834
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JzVv/eVfIheAONuPkNxn53OpwoCe8k5gRLLSEGzil7al9xnB4UJBX8eqMFKerW/K
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB8557
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260924_155729_735238_CF7A2CA7 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20260925_004512_625657_F4089831 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,38 +170,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Sep 2026 10:53:10 -0300
-Jason Gunthorpe <jgg@nvidia.com> wrote:
-
-> The two decompressors duplicate this call and the next patch needs to
-> change the argument. Hoist it up to remove the duplication.
+On Thu, Sep 24, 2026 at 03:42:27PM -0700, Jonathan Cameron wrote:
+> On Thu, 24 Sep 2026 10:53:04 -0300
+> Jason Gunthorpe <jgg@nvidia.com> wrote:
 > 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> > Sashiko says fdt_addr can point to either an allocated fdt or the fdt from
+> > get_fdt() which is memory owned by FW.
+> > 
+> > Only the allocated fdt should be freed on the error unwind path. Use a
+> > dedicated variable for the allocation's size so that the free does not get
+> > confused.
+> > 
+> > Fixes: 4fc8e738ff3e ("efi: libstub: remove DT dependency from generic stub")
+> > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> > ---
+> >  drivers/firmware/efi/libstub/fdt.c | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/firmware/efi/libstub/fdt.c b/drivers/firmware/efi/libstub/fdt.c
+> > index 23b3543d3041b0..5b2dd709d7b151 100644
+> > --- a/drivers/firmware/efi/libstub/fdt.c
+> > +++ b/drivers/firmware/efi/libstub/fdt.c
+> > @@ -229,6 +229,7 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
+> >  	u32 desc_ver;
+> >  	efi_status_t status;
+> >  	struct exit_boot_struct priv;
+> > +	unsigned long fdt_size_allocated = 0;
+> >  	unsigned long fdt_addr = 0;
+> >  	unsigned long fdt_size = 0;
+> >  
+> > @@ -257,6 +258,7 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
+> >  			efi_err("Failed to load device tree!\n");
+> >  			goto fail;
+> >  		}
+> > +		fdt_size_allocated = fdt_size;
+> Hmm. I argued with myself for a while on this.  Which one of fdt_size and fdt_size_allocate
+> is the appropriate one to pass to the call?  In the end I didn't get a good answer so
+> oh I guess this is as good as the other way around.
 
-> diff --git a/drivers/firmware/efi/libstub/zboot.c b/drivers/firmware/efi/libstub/zboot.c
-> index 4b76f74c56dae0..960a542881d875 100644
-> --- a/drivers/firmware/efi/libstub/zboot.c
-> +++ b/drivers/firmware/efi/libstub/zboot.c
-> @@ -92,9 +92,12 @@ efi_zboot_entry(efi_handle_t handle, efi_system_table_t *systab)
->  	}
->  
->  	// Decompress the payload into the newly allocated buffer
-> -	status = efi_zboot_decompress((void *)image_base, alloc_size) ?:
-> -	         efi_stub_common(handle, image, image_base, cmdline_ptr);
-> -
-> +	status = efi_zboot_decompress((void *)image_base, alloc_size);
-> +	if (status == EFI_SUCCESS) {
-> +		efi_cache_sync_image(image_base, alloc_size);
-> +		status =
-> +			efi_stub_common(handle, image, image_base, cmdline_ptr);
+Huh. Functionally it does not matter, but looking at it again I will
+change it to pass fdt_size_allocated since that chases down to the
+actual allocation. Makes more sense to me like that.
 
-Just go one character longer!
+@@ -253,13 +253,13 @@ efi_status_t allocate_new_fdt_and_exit_boot(void *handle,
+                if (strstr(cmdline_ptr, "dtb="))
+                        efi_err("Ignoring DTB from command line.\n");
+        } else {
+-               status = efi_load_dtb(image, &fdt_addr, &fdt_size);
++               status = efi_load_dtb(image, &fdt_addr, &fdt_size_allocated);
+ 
+                if (status != EFI_SUCCESS && status != EFI_NOT_READY) {
+                        efi_err("Failed to load device tree!\n");
+                        goto fail;
+                }
+-               fdt_size_allocated = fdt_size;
++               fdt_size = fdt_size_allocated;
+        }
 
-> +	}
->  	efi_free(alloc_size, image_base);
->  	return status;
->  }
-
+Thanks,
+Jason
 
 _______________________________________________
 linux-riscv mailing list
