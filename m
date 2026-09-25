@@ -4,133 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0D0C9830E
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 13:43:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED80C9830D
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 13:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MajcpE+kLfExQzknVpvltj1Gc83FFYyH+uypF+0SBb0=; b=lzbTmOwQfeHwCT
-	jxfh7e4i7u1iTYxqC9hT8XX+LpMv0L/e2dYibiyIjU2Rx8oAQ6BCMAXYR/XSjBJCHSSEc7CkHVcr/
-	/nN97SoukMnn8HLVv2hKCYCOMONRq6FVobDGC72btMilZhvNoDtQ+bCLzTQ58FSdldQvhBOFiBWr4
-	O0wwkka8/wZinT/ng2VmbuXXBrcRFk29K0kLdAgVEQIgwbjm6LoNybp0VqbBSIyTcX5/LIgzmIzQI
-	8VT7LDfBOEoetCh2UPnHm1uBZZ9bMbqofJKYwtZvUd4ohsr6iY+QJtHldermV442ZgB/S24nxhBcS
-	c5OJaA5nN/eBYTNN7C5Q==;
+	List-Owner; bh=3XZ17W1r7AMLZK2uuE9cXFkfdCHGUZbBDZcyUkHOmcw=; b=VKfrQkxGdMDZby
+	SiaI3Wsd9EPW1VFei98wuvKb7uhfZaKE5nA9PJPLYzpn8cms4t9vAWs66oNMcoxgk0uC0GbHtOqJK
+	zlxBYy8RwRYcm66CBmWfB9sQ3S/YGx3tde3iry5RWxFj4AFDdgZQSWvtBMa5Xvp8qXuY6pkV6kKDd
+	TKsI5NeeG8BHECshWxE2kc2NJGYOc8PbpJzvj+92o7NaapZxa1kw3UAqg5fdvqbxIIK1oKQI+cTcC
+	X9+2Z+KBQ7Uoh0pkgXeXyQ9Hy077BE/WS/vmtvsZmvXzCpGWKZvbS79J7gFiGXIZd6ALvcRv4ajbA
+	fuaLliKtPfy0e59vun0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA6Cr-0000000DTk1-00Gu;
-	Fri, 25 Sep 2026 13:43:17 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1xA6Pa-0000000DVHl-0BBG;
+	Fri, 25 Sep 2026 13:56:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xA6Cn-0000000DTir-41C0;
-	Fri, 25 Sep 2026 13:43:15 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68P4aW25102815;
-	Fri, 25 Sep 2026 13:42:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=pGmUzdss5rEW+R1oGfgJFhDqCoXEAC
-	tVuCJeVlCowUQ=; b=EEplY4dXyT5TnlQDtoDm7+L5X9sOTEzNipvqTUu8s1LEuS
-	eE94bO88HaakzMucn+OCPYiFQp6Wnqb9URcR3KvpjdPsC+6pUd9lyOG7lG3cS6fd
-	JLSaHkUVH7mNl9f5pM8QTuajQ8YZT7bF6NxXRt3FYfLZULvx9FFZIH6vrSWo8iW1
-	30otN1vJD/yoIQYiuCgGAWomjRNOHFIDgczLSgBkxfcWeUT38vh7+jU54ORlkPiI
-	ZlaggeNnjPsy6+Prosf7S200q/znrivWcxMVpp1KI4aX6n/HjoZAFyx+sTDP01Lt
-	kFJLVqwmsAvJxQImOPyA1WXN5RTuARVhiG+CEb0Q==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gskdvpb5t-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 25 Sep 2026 13:42:30 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 68P9k7il3288275;
-	Fri, 25 Sep 2026 13:42:30 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gvbe22mcy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Sep 2026 13:42:30 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 68PDgQOw13107688
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 25 Sep 2026 13:42:26 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1237520043;
-	Fri, 25 Sep 2026 13:42:26 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DC7AE20040;
-	Fri, 25 Sep 2026 13:42:24 +0000 (GMT)
-Received: from osiris (unknown [9.111.31.68])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 25 Sep 2026 13:42:24 +0000 (GMT)
-Date: Fri, 25 Sep 2026 15:42:23 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Alexandre Ghiti <alex@ghiti.fr>, Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        David Hildenbrand <david@kernel.org>,
-        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-        Ingo Molnar <mingo@redhat.com>, "Liam R. Howlett" <liam@infradead.org>,
-        Lorenzo Stoakes <ljs@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-        "H. Peter Anvin" <hpa@zytor.com>,
-        Ritesh Harjani <ritesh.list@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
-        Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>,
-        Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org
-Subject: Re: [PATCH] arch, mm: promote DEBUG_WX to CHECK_WX
-Message-ID: <20260925134223.23528E0e-hca@linux.ibm.com>
-References: <20260925-direct-map-verify-wx-v1-1-7fd2f7d6d23b@kernel.org>
+	id 1xA6PY-0000000DVGX-0vLs;
+	Fri, 25 Sep 2026 13:56:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 75B0960238;
+	Fri, 25 Sep 2026 13:56:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5439B1F000FF;
+	Fri, 25 Sep 2026 13:56:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1790344583;
+	bh=6gKBCHyZM9t19y0TtvPgLwl6VVr2Q87MiH7gta/2BgQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=AdDQhcy7Ypf3G+sugD0QWJnzJHXj3FDWOJRMlcyBgHqF62ruwGlrt0buPNwPfjzHd
+	 FgWuP2jPvQesdyB/mcrkbRlEC7XYtEJrHiPb9luUZPM5JpOOIzm/GFHhyBtUW5BGwJ
+	 0NpW6Mh9ewRDxA989YpPpLZhzcUJiCBFanBzi0UgwR2C4rZdi0MG18cBkUTO0VloXI
+	 +l+VzpnrpNQAmtyvO92FjUCHmwogaEx55JcuBjF0WNxfYR6pTUjLx5LTIAEJNgvWLG
+	 NTtXNzlWj5KqzSxxmXaTMWUvId951qvRYGqqhnk9ExnoK1kl5r6BhJrOtvSuhu7UNh
+	 OTTd0c5Cybjrw==
+From: Brian Masney <masneyb@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Emil Renner Berthing <kernel@esmil.dk>, 
+ Hal Feng <hal.feng@starfivetech.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Dominique Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Maud Spierings <maud_spierings@murena.io>, 
+ Graham Markall <hello@big-grey.co.uk>, 
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+ Joshua Peisach <jpeisach@ubuntu.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+In-Reply-To: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+References: <20260915-jh7110-clean-send-v4-0-f0e4fd6f2cc8@samsung.com>
+Subject: Re: (subset) [PATCH v4 00/20] drm: starfive: jh7110: Enable
+ display subsystem
+Message-Id: <179034455473.303481.8868788975078073035.b4-ty@b4>
+Date: Fri, 25 Sep 2026 09:55:54 -0400
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260925-direct-map-verify-wx-v1-1-7fd2f7d6d23b@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: az6V2wRZNTPsfcgPJvRvBbZTbbclocGz
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTI1MDA1NCBTYWx0ZWRfX8eL1fhw8Wcuz
- gwW3tmVcEwpUDvML7GILF9tAuDr0VlXZUr5Wt11Sb6FgeUgSArMjIqmr7nGQy57VhoNxjcdb1nB
- xgUIIMHQV/ped6lC1/jiVHQShjl212s=
-X-Authority-Analysis: v=2.4 cv=FLiOVOos c=1 sm=1 tr=0 ts=6ab67a47 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=QyXUC8HyAAAA:8
- a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=AFSQz8Mf0LVJe8Ay4m4A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: 0vhv4zhVL0x6H6vYd9vrkIP5KCg73iuL
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTI1MDA1NCBTYWx0ZWRfXzgmDIjyBU9XH
- AZygS5+FQqXvvslTnG00liNVJBCMapoyGbK83aD/2abGIeLAKYFSQ+7bK6Q9bFom2evAfxDBE9T
- GZArUR5CDRcYvKoLKJulQESBL84U7K6X+/9MkHAWIhl3JByi7BSRQBQoXzCf336JUrpREKgaIPL
- TfdL9OOeOBob+ckLDr79fGOo6b+bCdZoo0z+sZ2qJUMXXT5yANcfQjcS04U02Ha1zOwDt9O3wCE
- 4QilhmxAIrZKRzqLdgDG858DA/wV+CDDlXaGCdtKe9LCeuQFrfIZdyAHwbC7cQGjJqnHWaU+Th3
- RwDS9SMwEBch3wrMER1CIygLEMvYbf23X0BPjzvJkIZIv5xU4a/z3fpCB7p45+V/64blb8yDwTk
- nQUAAlCd16ruDY4xCr9wFhHy/g2X/4msugQqmL0LTkJdjwIz0I7AuYeStPUMi1mSxjMScYQUOtz
- jwmTnG3Z501Gy7oE9DQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-25_02,2026-09-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 phishscore=0 spamscore=0 clxscore=1015
- suspectscore=0 bulkscore=0 lowpriorityscore=0 priorityscore=1501
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2609040000
- definitions=main-2609250054
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260925_064314_119293_212CC6C4 
-X-CRM114-Status: GOOD (  24.97  )
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=685; i=masneyb@kernel.org;
+ s=20250903; h=from:subject:message-id;
+ bh=lkHMUyvPXXAoNeHQAE8KXfy1Ci9unePRn3tlP5thzt4=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLK21TaVm22OqmC6N2mm46xdO+8svMPwWql/sfn0fzqfm
+ AJFey+c6ShlYRDjYpAVU2RZkmtUEJG6yvbeHU0WmDmsTCBDGLg4BWAi3u2MDLc6BUuj5M+GuQlt
+ /NLKd5nb5Z5cRdyXvIikDJ3S4ohVLowMb2Jv67feVFxk+GBC1Uv3okbpX2qPfn83MPKP41BpuTG
+ bAwA=
+X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
+ fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,54 +108,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2026 at 12:53:46PM +0300, Mike Rapoport (Microsoft) wrote:
-> Verification that the kernel does not have writable + executable
-> mappings is about detecting security risks rather than a pure debug
-> feature.
-> 
-> Major distribution configurations enable it in their kernels as well as
-> defconfigs of most architectures that have ARCH_HAS_DEBUG_WX.
-> 
-> Rename relevant generic configuration options to use CHECK_WX and move
-> their definitions from mm/Kconfig.debug to mm/Kconfig.
-> 
-> For arm that does not widely enable it, only rename its variants of the
-> config options.
-> 
-> Enabling CHECK_WX adds a few kilobytes to the kernel binary and while
-> the added size can be slightly reduced with churny updates of
-> architecture implementations of ptdump, the core functionality takes
-> most of the added size. It cannot be moved to .init.text because the
-> verification has to happen after init sections are freed.
-> 
-> With this, make generic CHECK_WX default to STRICT_KERNEL_RWX while
-> still leaving users targeting small kernels the possibility to opt-out.
-> 
-> Suggested-by: Dave Hansen <dave.hansen@linux.intel.com>
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
-...
->  arch/s390/Kconfig                    |  2 +-
->  arch/s390/configs/debug_defconfig    |  2 +-
->  arch/s390/configs/defconfig          |  2 +-
->  arch/s390/mm/dump_pagetables.c       |  2 +-
 
-Acked-by: Heiko Carstens <hca@linux.ibm.com> # s390
+On Tue, 15 Sep 2026 17:32:08 +0200, Michal Wilczynski wrote:
+> drm: starfive: jh7110: Enable display subsystem
+> 
+> This series enables the display subsystem on the StarFive JH7110.
+> 
+> The dom_vout block holds the display controller (dc8200), the clock
+> generator (voutcrg) and the HDMI IP, all inside PD_VOUT. The HDMI IP is
+> a single register block containing both the controller and the PHY, and
+> it has a circular clock dependency with voutcrg:
+> 
+> [...]
 
-> diff --git a/arch/s390/mm/dump_pagetables.c b/arch/s390/mm/dump_pagetables.c
-> index 89badbe72ae7..a23a0bd4d8a8 100644
-> --- a/arch/s390/mm/dump_pagetables.c
-> +++ b/arch/s390/mm/dump_pagetables.c
-> @@ -86,7 +86,7 @@ static void note_prot_wx(struct pg_state *st, unsigned long addr)
->  	 */
->  	if (addr == PAGE_SIZE && (nospec_uses_trampoline() || !cpu_has_bear()))
->  		return;
-> -	WARN_ONCE(IS_ENABLED(CONFIG_DEBUG_WX),
-> +	WARN_ONCE(IS_ENABLED(CONFIG_CHECK_WX),
+Applied, thanks!
 
-Hm... looks like there is bug with relocated lowcore handling in the if
-condition above the WARN_ONCE(). I'm going to address that, but that
-has nothing to do with your patch.
+[14/20] clk: starfive: jh7110-vout: Allow pixel clock rate propagation
+        commit: af384d6e0573b416a7a28e0ab6300d797cae369d
+
+Best regards,
+-- 
+Brian Masney <masneyb@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
