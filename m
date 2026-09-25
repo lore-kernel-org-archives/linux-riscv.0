@@ -4,59 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451E0C9830E
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 23:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5940C9832A
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2026 23:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wgta6XwD6RkR7BY/V0Lwz1y9Dt8ojEhLS2aerYMotkI=; b=hw481EELB9n6S7
-	8eCIufWGmfxX5LMTZgh40f3GWdcBaxOSH9xB6SVj4qIN4pwZXqF/vKwukbe14TnqUI1siAZxhIih/
-	r5FOWTlEKrRkDb9cpwXS0GEqQoZmjvqV2i2R6cRLn/uP6ws3EYN9sdICZcRbltWwQz73mrQiWFIER
-	tbZRQlfuktXrL1FDV0n/+H3VsICLAWyyunqEtanlnvFvsMc4i++i8qYTRqP7pW44+EUItavq6PHjk
-	wbpTNALLz1SaYGr5mMzc7DhEuSdosVZd+GaDe85MGoeb6bLQhVYIQYF+0k4CIn73at+l2HMjLnsoG
-	/yn0tv43EFGGvRMcrc+w==;
+	List-Owner; bh=PnxcEsneO/cQR7CWceEQCQQwQJJgcUTUJX9UypeMgGY=; b=NpQ0Mu2InUIx4v
+	YQTTTDRwQQhr3GvxfKJ+4mI6PijDjbJztNZBdC418/y6UXGTeAB7eXyU3uCL6cUSJFyaRh4lNO1Wg
+	6CP+Jb+5/+ABqDo2poaXRXzSXWwQL1TIOH2VrETPQAN3pkPKbHzURmZMQjqW+0NUhiqWnIuyDYEeN
+	Xm6Hj0xiEWQ6g1hWgafHn4UweSGd5wt1DmCvxTqgtMR4v6BtMPvI+QK6XzJcv6xiakET8FbR+mSTB
+	ENzlOECHhO79u42fVuJC82c1JDeLA4qiLRMfHC8j5nPVFevpTfnuwer9c5mRuOsiV4d7y/NjESTkY
+	yviOis54bhV6FIFCiV4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1xAFXH-0000000EeNs-0v4H;
-	Fri, 25 Sep 2026 23:40:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xAFXS-0000000EeqS-3wI9;
+	Fri, 25 Sep 2026 23:41:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x9QRZ-00000008yEg-1PSG;
-	Wed, 23 Sep 2026 17:07:41 +0000
+	id 1xACHa-0000000EM03-1K6b;
+	Fri, 25 Sep 2026 20:12:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB0AE40227;
-	Wed, 23 Sep 2026 17:07:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 370A61F000FF;
-	Wed, 23 Sep 2026 17:07:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B841760238;
+	Fri, 25 Sep 2026 20:12:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A74D61F00898;
+	Fri, 25 Sep 2026 20:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1790183260;
-	bh=DPNB6bW0x8y7Uu11BgHcG7CSR1tZ//UGOmZllbw9Ljw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i12XGUT+ELGTRJSrycRVzqTit3D2pyM9ZR0ZSTlIa0mojim7gB9yUZwmIu+wgWYZK
-	 Ybyv+CV/Yh7wSmglW9QNbCpnx18TWoVPczcRHqo0Q/mnJsqjZQ3eFn2cP25qIt7fM9
-	 +POE/rp3vRI+Oxpo8QK9N4EfOTJ5jI0dLtJ432mM7IKfaNA3MKzBEomsWln5bFOqPN
-	 PxFbALYbyklQCFhfUINibcEvNCNrhcGgRwqd9F7gXGPywV48eYeWHkrJqezKwBbst0
-	 GSXVIWXaPeEYe4X28qZjKKxCsy9Q0ESN1tzaw+iT6CqBpO8zm4Si1SUtWVa2wxKSZ8
-	 vegFjunsRBTBA==
-Date: Wed, 23 Sep 2026 18:07:07 +0100
+	s=k20260515; t=1790367153;
+	bh=i9btTZnCFLC8MMw6KMGK91iVLYRqVa7A+XQvAJcnthc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=koGG6VkHK9sq7MUCsKX6l8GWvGH1X10xvKB/1Gb6IALPCnGNK6OLAn4edc3ppM9tw
+	 XF5DLLj+zcIZx0j+zL/F8/pMW1FR8yjWkWYsg0z+hqLvAIEBvGhuRCTS95OSheg3IC
+	 i8haH1mXFZ6EiUV4mPNPDYbngmJZJL6fneEkRFBz69DDia5YYUyV+DyyfnCtX2nw9b
+	 aFW4fMhecvKfClHGenR6/HrNpp/dpU9NU7ZXVhlKOxZhvXhq4/JGllecZvzt50vRqf
+	 5xFwTYJFDrouBhp5qHt7Zk/0avP9tlgacO//JPou+MCvPzoZmO5Vrju3Q2vp+7jOow
+	 Wv8x2IhM+uhGg==
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Suren Baghdasaryan <surenb@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Doug Gilbert <dgilbert@interlog.com>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen" <mkp@kernel.org>, Jaya Kumar <jayalk@intworks.biz>, Simona Vetter <simona@ffwll.ch>, Helge Deller <deller@gmx.de>, Sebastian Reichel <sre@kernel.org>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rik van Riel <riel@surriel.com>, Harry Yoo <harry@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Will Deacon <will@kernel.org>, "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nick Piggin <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, Youngjun Park <youngjun.park@lge.com>, Johannes Weiner <hannes@cmpxchg.org>, Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Chengming Zhou <chengming.zhou@linux.dev>, Michal Hocko <mhocko@kernel.org>, Miklos Szeredi <miklos@szeredi.hu>, Xu Xin <xu.xin@linux.dev>, linux-mm@kvack.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, linux-usb@vger.kernel.org, linux-rdma@vger.kernel.org, selinux@vger.kernel.org, linux-sound@vger.kernel.org, bpf@vger.kernel.org, linux-scsi@vger.kernel.org, linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-arch@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, fuse-devel@lists.linux.dev
-Subject: Re: [PATCH v3 02/40] mm/vma: predicate setting mmap_prepare VMA
- fields on new vma alloc
-Message-ID: <arQCCzmMARX81-3y@gremlin>
-References: <20260917-b4-mmap-prepare-vma-flag-sanify-v3-0-4583d8a23bca@kernel.org>
- <20260917-b4-mmap-prepare-vma-flag-sanify-v3-2-4583d8a23bca@kernel.org>
- <CAJuCfpEa8tUmYJBjx-cRdAE8y-jcKY0C81kAOa1QZS7F6tKdfQ@mail.gmail.com>
- <arP0oJgrgZlgtrb6@gremlin>
- <CAJuCfpFPPGaK-grNx9qiQOhzAXbxU+SO+95Fht1571TGREx2oQ@mail.gmail.com>
+Date: Fri, 25 Sep 2026 21:09:42 +0100
+Subject: [PATCH v5 07/12] mm: enable MMU_GATHER_RCU_TABLE_FREE for
+ m68k-coldfire
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJuCfpFPPGaK-grNx9qiQOhzAXbxU+SO+95Fht1571TGREx2oQ@mail.gmail.com>
+Message-Id: <20260925-rcu-pagetable-freeing-v5-7-31e91065fea4@kernel.org>
+References: <20260925-rcu-pagetable-freeing-v5-0-31e91065fea4@kernel.org>
+In-Reply-To: <20260925-rcu-pagetable-freeing-v5-0-31e91065fea4@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Brian Cain <bcain@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Dinh Nguyen <dinguyen@kernel.org>, 
+ Simon Schuster <schuster.simon@siemens-energy.com>, 
+ Jonas Bonn <jonas@southpole.se>, 
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+ Stafford Horne <shorne@gmail.com>, Rich Felker <dalias@libc.org>, 
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Russell King <linux@armlinux.org.uk>, Vineet Gupta <vgupta@kernel.org>, 
+ Michal Simek <monstr@monstr.eu>, Chris Zankel <chris@zankel.net>, 
+ Max Filippov <jcmvbkbc@gmail.com>, Will Deacon <will@kernel.org>, 
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
+ Nick Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Andreas Larsson <andreas@gaisler.com>, 
+ Richard Henderson <richard.henderson@linaro.org>, 
+ Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ WANG Xuerui <kernel@xen0n.name>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, Jonathan Corbet <corbet@lwn.net>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+ linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org, 
+ linux-sh@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org, 
+ linux-arch@vger.kernel.org, sparclinux@vger.kernel.org, 
+ linux-alpha@vger.kernel.org, loongarch@lists.linux.dev, 
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+ linux-um@lists.infradead.org, Hugh Dickins <hughd@google.com>, 
+ Qi Zheng <qi.zheng@linux.dev>, linux-doc@vger.kernel.org, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
+ Greg Ungerer <gerg@linux-m68k.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2031; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=wTPS3tObjnit80i5jG0OzSjV+ZJC9LambnmGz9RIJjc=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLK2XWX/nrikwtvb6sJaZkaOMrNvQjuEvKuOTD/x7pxf+
+ OXTKV0SHaUsDGJcDLJiiizPv4jvDxIJm9d5wd8NZg4rE8gQBi5OAZiIZCcjwwZR4ZUL3m+I7wsx
+ 28EiL/8lbNpvXfG9HGGXd8pt/qk9vZDhv1N3gp7PVQn/0s4L+TtjrpclvJk57XX1tn0fvjKcb81
+ azwkA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-Mailman-Approved-At: Fri, 25 Sep 2026 16:40:51 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,88 +133,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBTZXAgMjMsIDIwMjYgYXQgMDk6MDk6MzhBTSAtMDcwMCwgU3VyZW4gQmFnaGRhc2Fy
-eWFuIHdyb3RlOgo+IE9uIFdlZCwgU2VwIDIzLCAyMDI2IGF0IDg6NTTigK9BTSBMb3JlbnpvIFN0
-b2FrZXMgKEFSTSkgPGxqc0BrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiBPbiBXZWQsIFNlcCAy
-MywgMjAyNiBhdCAwODozMjo0M0FNIC0wNzAwLCBTdXJlbiBCYWdoZGFzYXJ5YW4gd3JvdGU6Cj4g
-PiA+IE9uIFRodSwgU2VwIDE3LCAyMDI2IGF0IDk6MjTigK9BTSBMb3JlbnpvIFN0b2FrZXMgKEFS
-TSkgPGxqc0BrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4gPgo+ID4gPiA+IEl0IG9ubHkgbWFrZXMg
-c2Vuc2UgdG8gbWFuaXB1bGF0ZSBWTUEgZmllbGRzIGlmIHdlIGFsbG9jYXRlZCBhIG5ldyBWTUEs
-Cj4gPiA+ID4gcmF0aGVyIHRoYW4gbWVyZ2VkIGl0Lgo+ID4gPiA+Cj4gPiA+ID4gVk1BIG1lcmdp
-bmcgZG9lcyBub3QgY29tcGFyZSB2bV9vcHMgb3Igdm1fcHJpdmF0ZV9kYXRhLCBzbyBhIG1lcmdl
-ZCBWTUEKPiA+ID4gPiBrZWVwcyBpdHMgb3duLCB3aGljaCBpcyBhbHNvIHdoYXQgdGhlIGxlZ2Fj
-eSBmX29wLT5tbWFwIHBhdGggZG9lcyBzaW5jZSBpdAo+ID4gPiA+IG5ldmVyIHRvdWNoZXMgYW4g
-ZXhpc3RpbmcgVk1BLiBQcmV2aW91c2x5IHNldF92bWFfdXNlcl9kZWZpbmVkX2ZpZWxkcygpCj4g
-PiA+ID4gb3Zlcndyb3RlIHRoZSBtZXJnZWQgVk1BJ3MgZmllbGRzIHdpdGggdGhvc2Ugc2V0IGZv
-ciB0aGUgbmV3IG1hcHBpbmcuIEluCj4gPiA+ID4gcHJhY3RpY2UgdGhlc2UgYXJlIHRoZSBzYW1l
-IHZhbHVlcywgd2l0aCByYXJlIGV4Y2VwdGlvbnMgc3VjaCBhcyBzaG1lbQo+ID4gPiA+IHNlbGVj
-dGluZyB2bV9vcHMgYmFzZWQgb24gd2hldGhlciB0aGUgZmlsZSBoYXMgYmVlbiB1bmxpbmtlZCwg
-c28gbm8KPiA+ID4gPiB1c2VyLXZpc2libGUgY2hhbmdlIGlzIGV4cGVjdGVkLgo+ID4gPiA+Cj4g
-PiA+ID4gTWFrZSB0aGlzIGRlcGVuZGVuY3kgZXhwbGljaXQsIGFuZCBhZGRpdGlvbmFsbHkgY29u
-c3RpZnkgaGF2ZV9tbWFwX3ByZXBhcmUKPiA+ID4gPiB3aGlsZSB3ZSdyZSBoZXJlLgo+ID4gPgo+
-ID4gPiBUaGUgZmFjdCB0aGF0IHdlIG1pZ2h0IGJlIG92ZXJyaWRpbmcgYXR0cmlidXRlcyBvZiBh
-biBleGlzdGluZyBWTUEKPiA+ID4gdGhhdCB3ZSBtZXJnZWQgd2l0aCBpcyB0ZWNobmljYWxseSBh
-IGJ1ZyBldmVuIGlmIHdlIG5ldmVyIGhpdCBpdCwKPiA+ID4gcmlnaHQ/IElmIHNvLCBzaG91bGQg
-d2UgaGF2ZToKPiA+ID4KPiA+ID4gRml4ZXM6IGM4NGJmNmRkMmI4MyAoIm1tOiBpbnRyb2R1Y2Ug
-bmV3IC5tbWFwX3ByZXBhcmUoKSBmaWxlIGNhbGxiYWNrIikKPiA+Cj4gPiBJdCdzIG5vdCBhIGJ1
-ZywgaXQgaXMgYW4gaW4tYnVpbHQgYXNzdW1wdGlvbiB0aGF0IHRoZSBzdGF0ZSB1c2VkIHRvIGFz
-c2Vzcwo+ID4gbWVyZ2VhYmlsaXR5IGltcGxpZXMgdGhlIHNhbWUgcHJvcGVydGllcy4KPgo+IEht
-bS4gV2hhdCBwcmV2ZW50cyB0d28gVk1BcyB3aXRoIGRpZmZlcmVudCB2bV9wcml2YXRlX2RhdGEg
-bWVtYmVycyB0bwo+IGJlIG1lcmdlZD8gSUlVQyBpc19tZXJnZWFibGVfdm1hKCkgZG9lcyBub3Qg
-Y2hlY2sgdm1fcHJpdmF0ZV9kYXRhLiBJbgo+IHN1Y2ggYSBjYXNlIHNldF92bWFfdXNlcl9kZWZp
-bmVkX2ZpZWxkcygpIHdvdWxkIG92ZXJyaWRlCj4gdm1fcHJpdmF0ZV9kYXRhIG9mIGFuIGV4aXN0
-aW5nIFZNQSwgbm8/CgpJIHRoaW5rIHlvdSdyZSByaWdodCB0aGF0IGl0IHNob3VsZCBiZSBhIGZp
-eCBwYXRjaCwgSSdsbCBwdXQgaXQgb3V0IG9mIHRoZQpzZXJpZXMgYW5kIHNlbmQgaXQgYXMgb25l
-LgoKVGhlIGlzc3VlIGhlcmUgaXMgbW9yZSBzbyB2bV9wcml2YXRlX2RhdGEgdGhhbiB2bV9vcHMu
-IEFuZCByZWFsbHkgaXQncyB0aGF0CnZtX29wcy0+bWFwcGVkKCkgd2Fzbid0IGNhbGxlZCBzbyB5
-b3UgY291bGQgaGF2ZSBhIHJlZmNvdW50IGdvIHRvIHplcm8gYW5kCnN0YXkgYXQgemVybyB3aGVu
-IGl0IHNob3VsZG4ndCBoYXZlIGJlZW4sIGZvciBpbnN0YW5jZS4KCkJ1dCBpbiBnZW5lcmFsIHRo
-b3VnaCBpZiB5b3UgcmVtb3ZlIG1tYXBfcHJlcGFyZSBhbmQgYXNrIHRoZSBzYW1lIHF1ZXN0aW9u
-OgoKV2hhdCBwcmV2ZW50cyBhIG1lcmdlIG9mIDIgZXhpc3RpbmcgVk1BcyB0aGF0IHdlcmUgbWFw
-cGVkIHVzaW5nIHRoZQp0cmFkaXRpb25hbCBtbWFwIGhvb2sgd2hpY2ggc29tZWhvdyBoYXZlIGVu
-dGlyZWx5IGRpc3RpbmN0IHZtX3ByaXZhdGVfZGF0YQphbmQgdm1fb3BzIGJ1dCB0aGUgc2FtZSBm
-aWxlPwoKVGhlIGFuc3dlciBpcyBub3RoaW5nIHByZXZlbnRzIHRoYXQsIGJ1dCB0aGVyZSdzIGFu
-IHVuZGVybHlpbmcgYXNzdW1wdGlvbgp0aGF0IHRoaXMgc3RhdGUgaXMgZnVuZ2libGUgZm9yIGEg
-Vk1BIG92ZXIgYSBnaXZlbiByYW5nZSBnaXZlbiB0aGUgc2FtZQpmaWxlLgoKSW4gdGhhdCBjYXNl
-LCBmb3IgYW55dGhpbmcgd2hlcmUgYW4gYWxsb2NhdGlvbiBvciBlLmcuIHJlZmNvdW50IGNoYW5n
-ZQpvY2N1cnJlZCwgdGhlbiB2bV9vcHMtPmNsb3NlKCkgd2lsbCBoYW5kbGUgdGhlIGRlY3JlbWVu
-dCwgYW5kIHRoZSBvcmlnaW5hbApWTUEncyBzdGF0ZSBzaG91bGQgc3VmZmljZS4KCkJ1dCBoZXJl
-IGl0J3MgYSBwcm9ibGVtIGJlY2F1c2UgeW91IG92ZXJ3cml0ZSBpdCArIGRvbid0IGNhbGwKdm1f
-b3BzLT5tYXBwZWQoKS4uLgoKPgo+ID4KPiA+IEFuZCBpZiBpdCB3YXMsIGl0J2QgbmVlZCBmaXhp
-bmcgYSBkaWZmZXJlbnQgd2F5IChjaGVjayB0aGUgZmllbGQgZm9yIGluc3RhbmNlKQo+ID4gYW5k
-IHdvdWxkIGFwcGx5IHRvIHRoZSBsZWdhY3kgbW1hcCBob29rIGFsc28uCj4gPgo+ID4gVGhpcyBj
-aGFuZ2UgaXMgbmVlZGVkIGZvciB0aGUgc2VyaWVzIHRob3VnaC4KPiA+Cj4gPiA+Cj4gPiA+ID4K
-PiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBMb3JlbnpvIFN0b2FrZXMgKEFSTSkgPGxqc0BrZXJuZWwu
-b3JnPgo+ID4gPgo+ID4gPiBSZXZpZXdlZC1ieTogU3VyZW4gQmFnaGRhc2FyeWFuIDxzdXJlbmJA
-Z29vZ2xlLmNvbT4KPiA+Cj4gPiBUaGFua3MhCj4gPgo+ID4gPgo+ID4gPiA+IC0tLQo+ID4gPiA+
-ICBtbS92bWEuYyB8IDQgKystLQo+ID4gPiA+ICAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25z
-KCspLCAyIGRlbGV0aW9ucygtKQo+ID4gPiA+Cj4gPiA+ID4gZGlmZiAtLWdpdCBhL21tL3ZtYS5j
-IGIvbW0vdm1hLmMKPiA+ID4gPiBpbmRleCBmYTc4NGYwNjlkYTQuLjRiNzRiNDhjMjliNyAxMDA2
-NDQKPiA+ID4gPiAtLS0gYS9tbS92bWEuYwo+ID4gPiA+ICsrKyBiL21tL3ZtYS5jCj4gPiA+ID4g
-QEAgLTI4OTQsNyArMjg5NCw3IEBAIHN0YXRpYyB1bnNpZ25lZCBsb25nIF9fbW1hcF9yZWdpb24o
-c3RydWN0IGZpbGUgKmZpbGUsIHVuc2lnbmVkIGxvbmcgYWRkciwKPiA+ID4gPiAgewo+ID4gPiA+
-ICAgICAgICAgc3RydWN0IG1tX3N0cnVjdCAqbW0gPSBjdXJyZW50LT5tbTsKPiA+ID4gPiAgICAg
-ICAgIHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hID0gTlVMTDsKPiA+ID4gPiAtICAgICAgIGJv
-b2wgaGF2ZV9tbWFwX3ByZXBhcmUgPSBmaWxlICYmIGZpbGUtPmZfb3AtPm1tYXBfcHJlcGFyZTsK
-PiA+ID4gPiArICAgICAgIGNvbnN0IGJvb2wgaGF2ZV9tbWFwX3ByZXBhcmUgPSBmaWxlICYmIGZp
-bGUtPmZfb3AtPm1tYXBfcHJlcGFyZTsKPiA+ID4gPiAgICAgICAgIFZNQV9JVEVSQVRPUih2bWks
-IG1tLCBhZGRyKTsKPiA+ID4gPiAgICAgICAgIGNvbnN0IHBnb2ZmX3QgYW5vbl9wZ29mZiA9IGFk
-ZHIgPj4gUEFHRV9TSElGVDsKPiA+ID4gPiAgICAgICAgIE1NQVBfU1RBVEUobWFwLCBtbSwgJnZt
-aSwgYWRkciwgbGVuLCBwZ29mZiwgYW5vbl9wZ29mZiwgdm1hX2ZsYWdzLCBmaWxlKTsKPiA+ID4g
-PiBAQCAtMjkzNyw3ICsyOTM3LDcgQEAgc3RhdGljIHVuc2lnbmVkIGxvbmcgX19tbWFwX3JlZ2lv
-bihzdHJ1Y3QgZmlsZSAqZmlsZSwgdW5zaWduZWQgbG9uZyBhZGRyLAo+ID4gPiA+ICAgICAgICAg
-ICAgICAgICBhbGxvY2F0ZWRfbmV3ID0gdHJ1ZTsKPiA+ID4gPiAgICAgICAgIH0KPiA+ID4gPgo+
-ID4gPiA+IC0gICAgICAgaWYgKGhhdmVfbW1hcF9wcmVwYXJlICYmICFtYXBfaXNfYW5vbigmbWFw
-KSkKPiA+ID4gPiArICAgICAgIGlmIChoYXZlX21tYXBfcHJlcGFyZSAmJiBhbGxvY2F0ZWRfbmV3
-ICYmICFtYXBfaXNfYW5vbigmbWFwKSkKPiA+ID4gPiAgICAgICAgICAgICAgICAgc2V0X3ZtYV91
-c2VyX2RlZmluZWRfZmllbGRzKHZtYSwgJm1hcCk7Cj4gPiA+ID4KPiA+ID4gPiAgICAgICAgIF9f
-bW1hcF9jb21wbGV0ZSgmbWFwLCB2bWEpOwo+ID4gPiA+Cj4gPiA+ID4gLS0KPiA+ID4gPiAyLjU1
-LjAKPiA+ID4gPgo+ID4KPiA+IC0tCj4gPiBDaGVlcnMsIExvcmVuem8KCi0tCkNoZWVycywgTG9y
-ZW56bwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Similar to sun3, the coldfire variant of m68k uses 2-level page tables.
+
+Update its __pte_free_tlb() function to use tlb_remove_ptdesc() in order
+that, with CONFIG_MMU_GATHER_RCU_TABLE_FREE, page tables are freed under
+RCU.
+
+The page tables occupy a page each and have no odd semantics, so this
+change suffices to allow enabling of CONFIG_MMU_GATHER_RCU_TABLE_FREE for
+m68k-coldfire, so do so.
+
+This forms part of an overall effort to switch every architecture to this
+mode.
+
+Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Acked-by: Greg Ungerer <gerg@linux-m68k.org>
+Tested-by: Greg Ungerer <gerg@linux-m68k.org>
+Acked-by: Lance Yang <lance.yang@linux.dev>
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+ arch/m68k/Kconfig                   | 2 +-
+ arch/m68k/include/asm/mcf_pgalloc.h | 5 +----
+ 2 files changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
+index e29610fd1240..6b8ec67c86fd 100644
+--- a/arch/m68k/Kconfig
++++ b/arch/m68k/Kconfig
+@@ -36,7 +36,7 @@ config M68K
+ 	select HAVE_MOD_ARCH_SPECIFIC
+ 	select HAVE_UID16
+ 	select MMU_GATHER_NO_RANGE if MMU
+-	select MMU_GATHER_RCU_TABLE_FREE if MMU && SUN3
++	select MMU_GATHER_RCU_TABLE_FREE if MMU && (SUN3 || COLDFIRE)
+ 	select MODULES_USE_ELF_REL
+ 	select MODULES_USE_ELF_RELA
+ 	select NO_DMA if !MMU && !COLDFIRE
+diff --git a/arch/m68k/include/asm/mcf_pgalloc.h b/arch/m68k/include/asm/mcf_pgalloc.h
+index fc5454d37da3..b53ff0950db2 100644
+--- a/arch/m68k/include/asm/mcf_pgalloc.h
++++ b/arch/m68k/include/asm/mcf_pgalloc.h
+@@ -39,10 +39,7 @@ extern inline pmd_t *pmd_alloc_kernel(pgd_t *pgd, unsigned long address)
+ static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pgtable,
+ 				  unsigned long address)
+ {
+-	struct ptdesc *ptdesc = virt_to_ptdesc(pgtable);
+-
+-	pagetable_dtor(ptdesc);
+-	pagetable_free(ptdesc);
++	tlb_remove_ptdesc(tlb, virt_to_ptdesc(pgtable));
+ }
+ 
+ static inline pgtable_t pte_alloc_one(struct mm_struct *mm)
+
+-- 
+2.55.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
